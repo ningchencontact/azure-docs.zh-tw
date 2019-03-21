@@ -11,12 +11,12 @@ ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
 ms.topic: article
 tags: connectors
 ms.date: 07/21/2016
-ms.openlocfilehash: 7b1886321ca4afd4b4710bd9fddf16d2d5eb224b
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: c0985df445ae34795d5287144d4664755cc006da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126582"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182110"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>使用 Webhook 和 Azure Logic Apps 建立以事件為基礎的工作流程或動作
 
@@ -29,9 +29,9 @@ ms.locfileid: "43126582"
 
 ## <a name="use-the-webhook-trigger"></a>使用 webhook 觸發程序
 
-[觸發程序](connectors-overview.md)是啟動邏輯應用程式工作流程的事件。 webhook 觸發程序是以事件為基礎，而不是依賴對新項目進行輪詢。 如同[要求觸發程序](connectors-native-reqres.md)一般，邏輯應用程式會觸發事件發生的瞬間。 webhook 觸發程序會註冊服務的*回呼 URL*，並依需求使用該 URL 來觸發邏輯應用程式。
+[觸發程序](connectors-overview.md)是啟動邏輯應用程式工作流程的事件。 Webhook 觸發程序是以事件為基礎，這不需要依賴輪詢新的項目。 當您儲存邏輯應用程式 webhook 觸發程序，或當您從停用，以變更您的邏輯應用程式時啟用 webhook 觸發程序*訂閱*至指定的服務或端點註冊*回呼 URL*與該服務或端點。 觸發程序接著會使用該 URL 來執行必要的邏輯應用程式。 像是[要求觸發程序](connectors-native-reqres.md)，立即預期的事件發生時，就會引發邏輯應用程式。 觸發程序*取消訂閱*如果您移除觸發程序，並儲存邏輯應用程式，或當您變更您的邏輯應用程式，從啟用變成停用。
 
-以下是如何在邏輯應用程式設計工具中設定 HTTP 觸發程序的範例。 這個步驟假設您已部署或正在存取的 API 會遵循[邏輯應用程式中的 webhook 訂閱和取消訂閱模式](../logic-apps/logic-apps-create-api-app.md#webhook-triggers)。 每當邏輯應用程式隨新的 webhook 儲存或由停用切換為啟用時，就會進行訂閱呼叫。 每當系統移除並儲存邏輯應用程式 webhook 觸發程序時，就會進行取消訂閱呼叫。
+以下是如何在邏輯應用程式設計工具中設定 HTTP 觸發程序的範例。 這個步驟假設您已部署或正在存取的 API 會遵循[邏輯應用程式中的 webhook 訂閱和取消訂閱模式](../logic-apps/logic-apps-create-api-app.md#webhook-triggers)。 
 
 **新增 webhook 觸發程序**
 
@@ -48,9 +48,15 @@ ms.locfileid: "43126582"
 
 ## <a name="use-the-webhook-action"></a>使用 webhook 動作
 
-[「動作」](connectors-overview.md)是由邏輯應用程式中定義的工作流程所執行的作業。 Webhook 動作會註冊服務的*回呼 URL*，並等到呼叫該 URL 後再繼續。 [傳送核准電子郵件](connectors-create-api-office365-outlook.md)是遵循這個模式的連接器範例。 您可以透過 webhook 動作將此模式擴充到任何服務。 
+[*動作*](connectors-overview.md)是定義作業和執行邏輯應用程式的工作流程。 當邏輯應用程式執行 webhook 動作，該動作*訂閱*至指定的服務或端點註冊*回呼 URL*與該服務或端點。 Webhook 動作接著會等到該服務的 URL，邏輯應用程式繼續執行之前呼叫。 從服務或端點，在這些情況下，取消訂閱的邏輯應用程式： 
 
-以下是如何在邏輯應用程式設計工具中設定 webhook 動作的範例。 這些步驟假設您已部署或正在存取的 API 會遵循[邏輯應用程式中的 webhook 訂閱和取消訂閱模式](../logic-apps/logic-apps-create-api-app.md#webhook-actions)。 每當邏輯應用程式執行 webhook 動作時，就會進行訂閱呼叫。 每當執行在等待回應時取消，或在邏輯應用程式逾時前取消，就會進行取消訂閱呼叫。
+* 已成功完成 webhook 動作
+* 如果等候回應時取消執行邏輯應用程式
+* 之前的邏輯應用程式逾時
+
+例如， [**傳送核准電子郵件**](connectors-create-api-office365-outlook.md)動作會遵循此模式的 webhook 動作的範例。 您可以透過 webhook 動作將此模式擴充到任何服務。 
+
+以下是如何在邏輯應用程式設計工具中設定 webhook 動作的範例。 這些步驟假設您已部署或正在存取的 API 會遵循[邏輯應用程式中的 webhook 訂閱和取消訂閱模式](../logic-apps/logic-apps-create-api-app.md#webhook-actions)。 
 
 **若要新增 webhook 動作**
 
@@ -76,7 +82,7 @@ ms.locfileid: "43126582"
 
 ## <a name="webhook-triggers"></a>WebHook 觸發程序
 
-| 動作 | 說明 |
+|  動作 | 描述 |
 | --- | --- |
 | HTTP Webhook |訂閱服務的回呼 URL，就能視需要呼叫該 URL 以觸發邏輯應用程式。 |
 
@@ -87,7 +93,7 @@ ms.locfileid: "43126582"
 訂閱服務的回呼 URL，就能視需要呼叫該 URL 以觸發邏輯應用程式。
 代表必要欄位 * 。
 
-| 顯示名稱 | 屬性名稱 | 說明 |
+| 顯示名稱 | 屬性名稱 | 描述 |
 | --- | --- | --- |
 | 訂閱方法* |method |用於訂閱要求的 HTTP 方法 |
 | 訂閱 URI* |uri |用於訂閱要求的 HTTP URI |
@@ -104,7 +110,7 @@ ms.locfileid: "43126582"
 
 Webhook 要求
 
-| 屬性名稱 | 資料類型 | 說明 |
+| 屬性名稱 | 資料類型 | 描述 |
 | --- | --- | --- |
 | headers |物件 |Webhook 要求標頭 |
 | body |物件 |Webhook 要求物件 |
@@ -112,7 +118,7 @@ Webhook 要求
 
 ## <a name="webhook-actions"></a>Webhook 動作
 
-| 動作 | 說明 |
+|  動作 | 描述 |
 | --- | --- |
 | HTTP Webhook |訂閱服務的回呼 URL，就能視需要呼叫繼續工作流程步驟的 URL。 |
 
@@ -123,7 +129,7 @@ Webhook 要求
 訂閱服務的回呼 URL，就能視需要呼叫繼續工作流程步驟的 URL。
 代表必要欄位 * 。
 
-| 顯示名稱 | 屬性名稱 | 說明 |
+| 顯示名稱 | 屬性名稱 | 描述 |
 | --- | --- | --- |
 | 訂閱方法* |method |用於訂閱要求的 HTTP 方法 |
 | 訂閱 URI* |uri |用於訂閱要求的 HTTP URI |
@@ -140,7 +146,7 @@ Webhook 要求
 
 Webhook 要求
 
-| 屬性名稱 | 資料類型 | 說明 |
+| 屬性名稱 | 資料類型 | 描述 |
 | --- | --- | --- |
 | headers |物件 |Webhook 要求標頭 |
 | body |物件 |Webhook 要求物件 |

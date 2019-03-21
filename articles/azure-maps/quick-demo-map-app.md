@@ -3,18 +3,18 @@ title: 使用 Azure 地圖服務的互動式地圖搜尋 | Microsoft Docs
 description: Azure 快速入門 - 使用 Azure 地圖服務建立互動式地圖搜尋示範
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/02/2018
+ms.date: 03/07/2018
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 681a76de02d91b39ee74d1e4fa764c06d79ff3ab
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: be6d9ab0011e3d6b5d8ae1da489fc60c316e2867
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065132"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095461"
 ---
 # <a name="create-an-interactive-search-map-by-using-azure-maps"></a>使用 Azure 地圖服務建立互動式地圖搜尋
 
@@ -34,20 +34,20 @@ ms.locfileid: "54065132"
 2. 在 [搜尋 Marketplace] 方塊中，輸入 **Maps**。
 3. 從 [結果] 中，選取 [地圖服務]。 選取地圖下方顯示的 [建立] 按鈕。
 4. 在 [建立 Azure 地圖服務帳戶] 頁面上輸入下列值：
-    - 新帳戶的 [名稱]。
-    - 您想要使用於此帳戶的 [訂用帳戶]。
-    - 此帳戶的 [資源群組]。 您可以選擇 [建立新的] 或 [使用現有的] 資源群組。
-    - 選取您所選的 [定價層]。
-    - 閱讀**授權**和**隱私權聲明**。 選取核取方塊以接受條款。
-    - 最後，選取 [建立] 按鈕。
+   - 新帳戶的 [名稱]。
+   - 您想要使用於此帳戶的 [訂用帳戶]。
+   - 此帳戶的 [資源群組]。 您可以選擇 [建立新的] 或 [使用現有的] 資源群組。
+   - 選取您所選的 [定價層]。
+   - 閱讀**授權**和**隱私權聲明**。 選取核取方塊以接受條款。
+   - 最後，選取 [建立] 按鈕。
 
-    ![在入口網站中建立 Azure 地圖服務帳戶](./media/quick-demo-map-app/create-account.png)
+     ![在入口網站中建立 Azure 地圖服務帳戶](./media/quick-demo-map-app/create-account.png)
 
 5. 成功建立您的帳戶之後，請將它開啟並尋找帳戶功能表的設定區段。 選取 [金鑰] 以檢視 Azure 地圖服務帳戶的主要和次要金鑰。 將 [主要金鑰] 值複製到本機剪貼簿，下一節將使用此值。
 
 ## <a name="download-the-application"></a>下載應用程式
 
-1. 下載或複製 [interactiveSearch.html](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/interactiveSearch.html) 檔案的內容。
+1. 下載或複製 [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html) 檔案的內容。
 2. 將此檔案的內容在本機另存為 **AzureMapDemo.html**。 在文字編輯器中將其開啟。
 3. 搜尋字串 `<insert-key>`。 以上一節的 **主要金鑰** 值加以取代。
 

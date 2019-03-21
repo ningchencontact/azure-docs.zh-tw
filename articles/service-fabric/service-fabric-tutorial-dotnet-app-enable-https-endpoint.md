@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/17/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 541d1473b21056e24c6b04b86414936a02b7d9d5
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 5308fc024a53fdbbef12b409622cc35adaea1e2e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382585"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857703"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>教學課程：使用 Kestrel 將 HTTPS 端點新增至 ASP.NET Core Web API 前端服務
 
@@ -83,8 +83,8 @@ Thumbprint                                Subject
 <ServiceManifest Name="VotingWebPkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <StatelessServiceType ServiceTypeName="VotingWebType" />
   </ServiceTypes>
@@ -193,8 +193,8 @@ private X509Certificate2 GetCertificateFromStore()
 <ServiceManifest Name="VotingWebPkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <StatelessServiceType ServiceTypeName="VotingWebType" />
   </ServiceTypes>
@@ -297,7 +297,7 @@ if ($cert -eq $null)
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="VotingData_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="VotingData_PartitionCount" DefaultValue="1" />
@@ -341,7 +341,7 @@ if ($cert -eq $null)
 
 ## <a name="run-the-application-locally"></a>在本機執行應用程式
 
-在 [方案總管] 中，選取 [投票] 應用程式，並將 [應用程式 URL] 屬性設定為 " https://localhost:443 " 。
+在 [方案總管] 中，選取 [投票] 應用程式，並將 [應用程式 URL] 屬性設定為 " <https://localhost:443> " 。
 
 儲存所有檔案，然後按 F5 在本機執行應用程式。  在應用程式部署之後，Web 瀏覽器會開啟至 [https://localhost:443](https://localhost:443)。 如果您使用自我簽署的憑證，您會看到您的電腦不信任此網站安全性的警告。  繼續在網頁上執行。
 

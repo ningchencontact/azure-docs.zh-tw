@@ -3,16 +3,16 @@ title: 介紹 Azure 上的 Terraform。
 description: 部署 Azure Cosmos DB 和 Azure 容器執行個體，開始使用 Azure 上的 Terraform。
 services: terraform
 author: neilpeterson
-ms.service: terraform
+ms.service: azure
 ms.topic: quickstart
 ms.date: 02/04/2019
 ms.author: nepeters
-ms.openlocfilehash: b3d872008c95d94a8401e6f38665c3c88616a168
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 6c858514c29a040539516f42e024f1633c2512a7
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736918"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776525"
 ---
 # <a name="create-a-terraform-configuration-for-azure"></a>建立 Azure 的 Terraform 組態
 

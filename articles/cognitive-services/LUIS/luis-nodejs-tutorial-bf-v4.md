@@ -5,18 +5,18 @@ description: 使用 Node.js，建置與 Language Understanding (LUIS) 整合的�
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
-manager: cjgronlund
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: diberry
-ms.openlocfilehash: 852cc5e5b3b018d871bd40775dce64d669fb3011
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 54bae5548764ed1f89a2ffb7992eb222a058c706
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880609"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403646"
 ---
 # <a name="tutorial-luis-bot-in-nodejs-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>教學課程：Node.js 中使用 Bot Framework 4.x 和 Azure Web 應用程式 Bot 建置的 LUIS Bot
 使用 Node.js，您可以建置與 Language Understanding (LUIS) 整合的聊天機器人。 此 Bot 會使用 HomeAutomation 應用程式來實作 Bot 解決方案。 此 Bot 是使用 [Web 應用程式 Bot](https://docs.microsoft.com/azure/bot-service/) 和 [Bot Framework 第 4 版](https://github.com/Microsoft/botbuilder-js)所建置的。

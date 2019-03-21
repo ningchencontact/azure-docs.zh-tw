@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: kgremban
-ms.openlocfilehash: 7c5030a80ead7e84526e01aa3a8a4a75ee2b276a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9c84e1a62ad8b67e398c62074c390711f4b0be28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135010"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079992"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>教學課程：使用 Logic Apps 來傳送 Azure IoT 中樞事件的相關電子郵件通知
 
@@ -162,14 +162,14 @@ Azure Event Grid 可讓您在下游商務應用程式中觸發動作，進而回
    ![建立新的事件訂用帳戶](./media/publish-iot-hub-events-to-logic-apps/event-subscription.png)
 
 4. 使用下列值來建立事件訂用帳戶： 
-    * **事件類型**：取消核取 [訂閱所有事件類型]，然後從功能表中選取 [裝置已建立]。
-    * **端點詳細資料**：選取 [Web Hook] 作為 [端點類型]，然後點選端點，再貼上您從邏輯應用程式複製的 URL，並確認您的選取。
+   * **事件類型**：取消核取 [訂閱所有事件類型]，然後從功能表中選取 [裝置已建立]。
+   * **端點詳細資料**：選取 [Web Hook] 作為 [端點類型]，然後點選端點，再貼上您從邏輯應用程式複製的 URL，並確認您的選取。
 
-    ![選取端點 URL](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
+     ![選取端點 URL](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
 
-    * **事件訂用帳戶詳細資料**：提供描述性的名稱，然後選取 [事件方格結構描述]。
+   * **事件訂用帳戶詳細資料**：提供描述性的名稱，然後選取 [事件方格結構描述]。
 
-  當您完成時，表單看起來應如下列範例所示： 
+   當您完成時，表單看起來應如下列範例所示： 
 
     ![事件訂用帳戶表單範例](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 
@@ -177,8 +177,8 @@ Azure Event Grid 可讓您在下游商務應用程式中觸發動作，進而回
 
 6. 建立下列篩選條件：
 
-  * **主旨開頭為**：輸入 `devices/Building1_` 以篩選建築物 1 中的裝置事件。
-  * **主旨結尾為**：輸入 `_Temperature` 以篩選與溫度相關的裝置事件。
+   * **主旨開頭為**：輸入 `devices/Building1_` 以篩選建築物 1 中的裝置事件。
+   * **主旨結尾為**：輸入 `_Temperature` 以篩選與溫度相關的裝置事件。
 
 5. 選取 [建立] 以儲存事件訂用帳戶。
 

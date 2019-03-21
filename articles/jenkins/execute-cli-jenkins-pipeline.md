@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 6/7/2017
-ms.openlocfilehash: dfdc572810cfcfd275faa4502e508b9c8ccec9b6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 5728a9ab70c5b7db10a123d6964b498e70f96588
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727836"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546138"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>使用 Jenkins 和 Azure CLI 來部署到 Azure App Service
 若要將 Java Web 應用程式部署到 Azure，您可以在 [Jenkins 管線](https://jenkins.io/doc/book/pipeline/)中使用 Azure CLI。 在本教學課程中，您會在 Azure VM 上建立 CI/CD 管線，包括如何︰
@@ -117,7 +117,7 @@ Web 應用程式定義備妥之後，Azure CLI 會顯示類似下列範例的資
 
 使用 [az appservice web config update](/cli/azure/webapp/config) 命令來設定您的應用程式需要的 Java 執行階段組態。
 
-下列命令會將 Web 應用程式設定為在最新的 Java 8 JDK 和 [Apache Tomcat](http://tomcat.apache.org/) 8.0 上執行。
+下列命令會將 Web 應用程式設定為在最新的 Java 8 JDK 和 [Apache Tomcat](https://tomcat.apache.org/) 8.0 上執行。
 
 ```azurecli-interactive
 az webapp config set \ 

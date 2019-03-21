@@ -15,12 +15,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: f1e905b0b67048a10f6eb455d77275375a99dbd0
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 805abec84b26a6b2b9af3dfe318f877f4edb9547
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245400"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080891"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>計算 Blob 容器的帳單大小總計
 
@@ -101,17 +101,17 @@ For-Each Signed Identifier[512 bytes]
 * 針對儲存的每個中繼資料區塊，新增儲存名稱的長度 (儲存為 ASCII) 再加上字串值的長度。
 
 * 對於區塊 Blob：
-    * 區塊清單的 8 位元組。
-    * 區塊數目 x 依位元組的區塊識別碼大小。
-    * 所有認可及未認可之區塊中的資料大小。
+  * 區塊清單的 8 位元組。
+  * 區塊數目 x 依位元組的區塊識別碼大小。
+  * 所有認可及未認可之區塊中的資料大小。
 
     >[!NOTE]
     >使用快照集時，此大小只包含此基底或快照集 Blob 的唯一資料。 如果未認可的區塊經過一週之後未使用，將予以記憶體回收。 此後，這些不會計入帳單。
 
 * 對於分頁 Blob：
-    * 具有資料的非連續分頁範圍 x 12 個位元組。 這是呼叫 **GetPageRanges API** 時會看到的唯一分頁範圍的數目。
+  * 具有資料的非連續分頁範圍 x 12 個位元組。 這是呼叫 **GetPageRanges API** 時會看到的唯一分頁範圍的數目。
 
-    * 所有儲存的分頁中資料的大小 (以位元組為單位)。
+  * 所有儲存的分頁中資料的大小 (以位元組為單位)。
 
     >[!NOTE]
     >使用快照集時，此大小只包含要計算的基底 Blob 或快照集 Blob。

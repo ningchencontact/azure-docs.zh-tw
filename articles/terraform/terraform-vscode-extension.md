@@ -2,19 +2,19 @@
 title: 安裝和使用 Azure Terraform Visual Studio Code 擴充功能
 description: 了解如何在 Visual Studio Code 中安裝和使用 Azure Terraform 擴充功能。
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, azure, devops, visual studio code, 擴充功能
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/31/2018
-ms.openlocfilehash: 137a57638207a05f797692b25a5d5a31bd66ce3d
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: b1102649e48af8cb36a64f1142c078bf9ebc0d99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074575"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006198"
 ---
 # <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>安裝和使用 Azure Terraform Visual Studio Code 擴充功能
 
@@ -59,7 +59,7 @@ Microsoft Azure Terraform Visual Studio Code 擴充功能，旨在讓開發人�
 
 ### <a name="install-graphviz"></a>安裝 GraphViz
 
-若要使用 Terraform 視覺化函式，您必須[安裝 GraphViz](http://graphviz.org/)。
+若要使用 Terraform 視覺化函式，您必須[安裝 GraphViz](https://graphviz.org/)。
 
 >[!NOTE]
 >若要確認是否已安裝 GraphViz，請開啟終端機視窗並輸入 `dot -V`。
@@ -128,7 +128,7 @@ Azure Terraform 延伸模組將會出現在已安裝的延伸模組清單中。
     ![另存為 main.tf](media/terraform-vscode-extension/tf-save-as-main.png)
 
 1. 選取 [ **儲存**]。
-- 在功能表列中，選取 [檔案] > [開啟資料夾]。 瀏覽並選取您建立的新資料夾。
+1. 在功能表列中，選取 [檔案] > [開啟資料夾]。 瀏覽並選取您建立的新資料夾。
 
 ### <a name="run-terraform-init-command"></a>執行 Terraform *init* 命令
 

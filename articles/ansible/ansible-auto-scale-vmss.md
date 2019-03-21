@@ -1,19 +1,19 @@
 ---
 title: 使用 Ansible 自動調整 Azure 中的虛擬機器擴展集
 description: 了解如何使用 Ansible 與自動調整來調整 Azure 中的虛擬機器擴展集
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, 劇本, 調整, 自動調整, 虛擬機器, 虛擬機器擴展集, vmss
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.openlocfilehash: 7721dba37131616122f8a5a902e3c63de5c7157f
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 578ad3207f62e74805be056ca11d3bd9b46513da
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157049"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792424"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-azure-using-ansible"></a>使用 Ansible 自動調整 Azure 中的虛擬機器擴展集
 Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使用 Ansible 在 Azure 中管理虛擬機器擴展集 (VMSS)，就像管理任何其他 Azure 資源一樣。 

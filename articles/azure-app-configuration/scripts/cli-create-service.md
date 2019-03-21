@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 2504a6e4ade46e1746443a8ec3e494563a52ae18
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7833b5d6b9b94ddcd4b94d96201ccc85497f2529
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884176"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446923"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>建立 Azure 應用程式設定存放區
 
@@ -75,8 +75,8 @@ echo "$connstring"
 | 命令 | 注意 |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 建立用來存放所有資源的資源群組。 |
-| [az appconfig create](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-create) | 建立應用程式設定存放區資源。 |
-| [az appconfig key list](/cli/azure/ext/appconfig/appconfig/key#ext-appconfig-az-appconfig-key-list) | 列出應用程式設定存放區中儲存的索引鍵。 |
+| [az appconfig create](/cli/azure/ext/appconfig/appconfig) | 建立應用程式設定存放區資源。 |
+| [az appconfig key list](/cli/azure/ext/appconfig/appconfig/kv) | 列出應用程式設定存放區中儲存的索引鍵。 |
 
 ## <a name="next-steps"></a>後續步驟
 

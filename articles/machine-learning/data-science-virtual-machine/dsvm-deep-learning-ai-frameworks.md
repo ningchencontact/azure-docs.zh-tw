@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 610b140fd6049842b993c17fd53bebf799f83f5c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 59f88d54d3542738f1a500c8c476995eb1535ecf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55453139"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006491"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>深度學習和 AI 架構
 [資料科學虛擬機器](https://aka.ms/dsvm) \(英文\) (DSVM) 和[深度學習 VM](https://aka.ms/dsvm/deeplearning) \(英文\) 支援數種深度學習架構，可協助建置具備預測性分析及能了解影像及語言之辨識能力的人工智慧 (AI) 應用程式。
@@ -218,8 +218,7 @@ export CUDA_ROOT=/usr/local/cuda-8.0
 | 它是如何在 DSVM 上設定/安裝的？  | PyTorch 安裝在 [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) 中。  |
 | 範例的連結      | 隨附 Jupyter 筆記本範例，也可以在 /dsvm/samples/pytorch 中找到範例。      |
 | DSVM 上的相關工具      | Torch      |
-| 如何使用/執行它 |
-* 在終端機：啟用正確的環境，然後執行 Python。 <br/> * 在 Jupyter 中：連線到 [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)，然後開啟 PyTorch 目錄來尋找範例。  |
+| 如何使用/執行它 |* 在終端機：啟用正確的環境，然後執行 Python。 <br/> * 在 Jupyter 中：連線到 [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux)，然後開啟 PyTorch 目錄來尋找範例。  |
 
 ## <a name="mxnet-model-server"></a>MXNet 模型伺服器
 

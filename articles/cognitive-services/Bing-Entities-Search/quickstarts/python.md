@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 73b666116a23ab8d861d38af4dc9fa5e19d5d1bd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b35fa32776fa449bf4f46479345a94e63fe28e68
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857153"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109571"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>快速入門：使用 Python 將搜尋要求傳送至 Bing 實體搜尋 REST API
 
@@ -53,18 +53,18 @@ ms.locfileid: "55857153"
 ## <a name="send-a-request-and-get-a-response"></a>傳送要求並取得回應
 
 1. 建立稱為 `get_suggestions()` 的函式。 然後執行下列步驟。
-    1. 使用 `Ocp-Apim-Subscription-Key` 作為金鑰，將訂用帳戶金鑰新增至字典中。
-    2. 使用 `http.client.HTTPSConnection()` 建立 HTTPS 用戶端物件。 使用 `request()` 與路徑和參數以及標頭資訊來傳送 `GET` 要求。
-    3. 使用 `getresponse()` 儲存回應，並傳回 `response.read()`。
+   1. 使用 `Ocp-Apim-Subscription-Key` 作為金鑰，將訂用帳戶金鑰新增至字典中。
+   2. 使用 `http.client.HTTPSConnection()` 建立 HTTPS 用戶端物件。 使用 `request()` 與路徑和參數以及標頭資訊來傳送 `GET` 要求。
+   3. 使用 `getresponse()` 儲存回應，並傳回 `response.read()`。
 
-    ```python
-    def get_suggestions ():
-        headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
-        conn = http.client.HTTPSConnection (host)
-        conn.request ("GET", path + params, None, headers)
-        response = conn.getresponse ()
-        return response.read()
-    ```
+      ```python
+      def get_suggestions ():
+       headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
+       conn = http.client.HTTPSConnection (host)
+       conn.request ("GET", path + params, None, headers)
+       response = conn.getresponse ()
+       return response.read()
+      ```
 
 2. 呼叫 `get_suggestions()`，並列印 json 回應。
 
@@ -113,7 +113,7 @@ ms.locfileid: "55857153"
         "_type": "Restaurant",
         "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
         "name": "Munson's Pickles and Preserves Farm",
-        "url": "http://www.princi.com/",
+        "url": "https://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [

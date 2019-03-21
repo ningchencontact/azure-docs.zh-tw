@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 9abdbd232b7f346aae9ee5fbe93d23afa4aaf32c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 9a541f42670b3ccf83331e3e2e9069289bb9b4b3
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562363"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224068"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>教學課程：開發 Java IoT Edge 模組並部署至模擬裝置
 
@@ -233,11 +233,11 @@ Azure IoT Edge 裝置：
 13. 將 **JavaModule** 模組對應項新增至部署資訊清單。 在 **moduleContent** 區段底部，於 **$edgeHub** 模組對應項後面插入下列 JSON 內容： 
 
    ```json
-       "JavaModule": {
-           "properties.desired":{
-               "TemperatureThreshold":25
-           }
-       }
+     "JavaModule": {
+         "properties.desired":{
+             "TemperatureThreshold":25
+         }
+     }
    ```
 
    ![將模組對應項新增至部署範本](./media/tutorial-java-module/module-twin.png)
@@ -248,12 +248,12 @@ Azure IoT Edge 裝置：
 
 在上一節中，您已建立 IoT Edge 解決方案，並將程式碼新增至 **JavaModule**，以篩選掉所回報機器溫度低於可接受限制的訊息。 現在，請將解決方案建置成容器映像，並將其推送到容器登錄。 
 
-1. 在 Visual Studio Code 終端機中輸入下列命令來登入 Docker。 接著，您可以將模組映像推送到您的 Azure Container Registry。
+1. 在 Visual Studio Code 終端機中輸入下列命令來登入 Docker。 接著，您可以將模組映像推送到您的 Azure 容器登錄。
      
    ```csh/sh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-   使用您在第一節中從 Azure Container Registry 複製而來的使用者名稱、密碼及登入伺服器。 您也可以在 Azure 入口網站中，從登錄的 [存取金鑰] 區段擷取這些資料。
+   使用您在第一節中從 Azure 容器登錄複製而來的使用者名稱、密碼及登入伺服器。 您也可以在 Azure 入口網站中，從登錄的 [存取金鑰] 區段擷取這些資料。
 
 2. 在 VS Code 總管中，以滑鼠右鍵按一下 deployment.template.json 檔案，然後選取 [建置並推送 IoT Edge 解決方案]。 
 

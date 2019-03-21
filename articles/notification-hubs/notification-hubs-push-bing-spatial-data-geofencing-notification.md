@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 7b01ee726d8417e34645e743497a02455fbe709c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 9baeb1c21252f8b7f7b24debde48108532d9865c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453149"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118301"
 ---
 # <a name="tutorial-push-location-based-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>教學課程：使用 Azure 通知中樞和 Bing 空間資料來推播以位置為基礎的通知
 
@@ -63,12 +63,12 @@ ms.locfileid: "54453149"
 
     ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
 5. 在 [上傳資料來源] 頁面上，執行下列動作：
-    1. 選取 [管道] 作為 [資料格式]。
-    2. 瀏覽並選取您在上一個步驟中建立的 `NotificationHubGeofence.pipe` 檔案。
-    3. 選取 [上傳] 按鈕。
+   1. 選取 [管道] 作為 [資料格式]。
+   2. 瀏覽並選取您在上一個步驟中建立的 `NotificationHubGeofence.pipe` 檔案。
+   3. 選取 [上傳] 按鈕。
 
-    > [!NOTE]
-    > 您可能會收到提示，要求您為 [主要金鑰] 指定不同於 [查詢金鑰] 的新金鑰。 請直接透過儀表板建立新的金鑰，然後重新整理資料來源上傳頁面。
+      > [!NOTE]
+      > 您可能會收到提示，要求您為 [主要金鑰] 指定不同於 [查詢金鑰] 的新金鑰。 請直接透過儀表板建立新的金鑰，然後重新整理資料來源上傳頁面。
 6. 上傳資料檔案後，您必須確實發佈資料來源。 選取 [資料來源] -> [管理資料來源]，如同之前所做的動作。
 7. 在清單中選取您的資料來源，並在 [動作] 資料行中選擇 [發佈]。
 
@@ -112,11 +112,11 @@ ms.locfileid: "54453149"
     ```
     請指定下列參數以讓端點開始運作︰
 
-    * **資料來源識別碼**和**資料來源名稱** – 在 Bing 地圖服務 API 中，資料來源包含了各種分門別類的中繼資料，例如營業據點和營業時間。  
-    * **實體名稱** – 您想要作為通知參考點的實體。
-    * **Bing 地圖服務 API 金鑰** – 您稍早建立 Bing 開發人員中心帳戶時取得的金鑰。
+   * **資料來源識別碼**和**資料來源名稱** – 在 Bing 地圖服務 API 中，資料來源包含了各種分門別類的中繼資料，例如營業據點和營業時間。  
+   * **實體名稱** – 您想要作為通知參考點的實體。
+   * **Bing 地圖服務 API 金鑰** – 您稍早建立 Bing 開發人員中心帳戶時取得的金鑰。
 
-    現在您已經備妥資料來源，接下來您可以開始處理 UWP 應用程式。
+     現在您已經備妥資料來源，接下來您可以開始處理 UWP 應用程式。
 2. 啟用應用程式的位置服務。 在 [方案總管] 中開啟 `Package.appxmanifest` 檔案。
 
     ![](./media/notification-hubs-geofence/vs-package-manifest.png)

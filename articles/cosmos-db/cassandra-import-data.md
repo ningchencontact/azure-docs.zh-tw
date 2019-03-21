@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
-ms.openlocfilehash: b12e7aad5fbdf65a8936b943f5053eda76dbd883
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: c9f7ec5009c9299e317d9b10f857e326d25fa005
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037475"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120103"
 ---
 # <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>教學課程：將您的資料遷移至 Azure Cosmos DB 中的 Cassandra API 帳戶
 
@@ -35,31 +35,31 @@ ms.locfileid: "54037475"
 
 * **估計輸送量需求：** 將資料遷移至 Azure Cosmos DB 中的 Cassandra API 帳戶之前，您應該預估工作負載的輸送量需求。 一般而言，建議您從 CRUD 作業所需的平均輸送量開始著手，然後再納入「擷取、轉換、載入」(ETL) 或棘手作業所需的額外輸送量。 您需要有下列詳細資料，才能為移轉進行規劃： 
 
-   * **現有資料大小或預估資料大小：** 定義最基本的資料庫大小和輸送量需求。 如果您要為新應用程式預估資料大小，您可以假設資料平均分散至所有資料列，然後藉由乘以資料大小來預估值。 
+  * **現有資料大小或預估資料大小：** 定義最基本的資料庫大小和輸送量需求。 如果您要為新應用程式預估資料大小，您可以假設資料平均分散至所有資料列，然後藉由乘以資料大小來預估值。 
 
-   * **所需的輸送量：** 大約的讀取 (查詢/取得) 和寫入 (更新/刪除/插入) 輸送量比率。 必須要有此值，才能計算所需要求單位及穩定的狀態資料大小。  
+  * **所需的輸送量：** 大約的讀取 (查詢/取得) 和寫入 (更新/刪除/插入) 輸送量比率。 必須要有此值，才能計算所需要求單位及穩定的狀態資料大小。  
 
-   * **結構描述：** 透過 cqlsh 連線至您現有的 Cassandra 叢集，然後從 Cassandra 匯出結構描述： 
+  * **結構描述：** 透過 cqlsh 連線至您現有的 Cassandra 叢集，然後從 Cassandra 匯出結構描述： 
 
-     ```bash
-     cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
-     ```
+    ```bash
+    cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
+    ```
 
-   在識別現有工作負載的需求之後，您應該根據所收集的輸送量需求，建立 Azure Cosmos 帳戶、資料庫及容器。  
+    在識別現有工作負載的需求之後，您應該根據所收集的輸送量需求，建立 Azure Cosmos 帳戶、資料庫及容器。  
 
-   * **判斷作業的 RU 費用：** 您可以使用 Cassandra API 支援的任何 SDK 來判斷 RU。 此範例會示範取得 RU 費用的 .NET 版本。
+  * **判斷作業的 RU 費用：** 您可以使用 Cassandra API 支援的任何 SDK 來判斷 RU。 此範例會示範取得 RU 費用的 .NET 版本。
 
-     ```csharp
-     var tableInsertStatement = table.Insert(sampleEntity);
-     var insertResult = await tableInsertStatement.ExecuteAsync();
+    ```csharp
+    var tableInsertStatement = table.Insert(sampleEntity);
+    var insertResult = await tableInsertStatement.ExecuteAsync();
 
-     foreach (string key in insertResult.Info.IncomingPayload)
-       {
-          byte[] valueInBytes = customPayload[key];
-          string value = Encoding.UTF8.GetString(valueInBytes);
-          Console.WriteLine($"CustomPayload:  {key}: {value}");
-       }
-     ```
+    foreach (string key in insertResult.Info.IncomingPayload)
+      {
+         byte[] valueInBytes = customPayload[key];
+         string value = Encoding.UTF8.GetString(valueInBytes);
+         Console.WriteLine($"CustomPayload:  {key}: {value}");
+      }
+    ```
 
 * **配置所需的輸送量：** Azure Cosmos DB 可以依據您的需求成長，自動調整儲存體和輸送量。 您可以使用 [Azure Cosmos DB 要求單位計算機](https://www.documentdb.com/capacityplanner)來評估您的輸送量需求。 
 

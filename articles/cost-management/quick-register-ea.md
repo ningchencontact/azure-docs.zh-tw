@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: quickstart
 ms.custom: seodec18
 ms.service: cost-management
 manager: benshy
-ms.openlocfilehash: 7a3ed93814407df8f3adfe7d16ba50258fcb323e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9f8ef97042d3ff5bbebc299ae212be8ed6c3b25b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082320"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096787"
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>註冊 Azure Enterprise 合約並檢視成本資料
 
@@ -36,9 +36,9 @@ ms.locfileid: "53082320"
 4. 在 Cloudyn 入口網站試用版註冊頁面上，輸入您的公司名稱，然後選取 [Azure 企業註冊系統管理員]。  
 5. 輸入您的企業版入口網站註冊 API 金鑰。 如果您手邊沒有金鑰，請按一下[企業版入口網站](https://ea.azure.com)連結，並執行下列步驟：  
     ![在 [計費] 索引標籤上，貼上您的 API 金鑰](./media/quick-register-ea/trial-reg.png)
-  1. 登入 Azure 企業版網站，然後依序按一下 [報告]和 [API 存取金鑰]，然後複製您的主索引鍵。  
+   1. 登入 Azure 企業版網站，然後依序按一下 [報告]和 [API 存取金鑰]，然後複製您的主索引鍵。  
     ![EA 入口網站中的 EA API 金鑰範例](./media/quick-register-ea/ea-key.png)
-  3. 返回註冊頁面，並貼上您的 API 金鑰。
+   3. 返回註冊頁面，並貼上您的 API 金鑰。
 6. 同意「使用條款」，然後驗證您的金鑰。 按一下 [下一步] 以授權 Cloudyn 收集 Azure 資源資料。 收集的資料包括您訂用帳戶的使用量、效能、計費和標籤資料。  
     ![成功 EA API 金鑰驗證的範例](./media/quick-register-ea/ea-key-validated.png)
 7. 在 [邀請其他利害關係人] 下，您可以輸入電子郵件地址來新增使用者。 完成時，按一下 [下一步]。 視您的 Azure 註冊大小而定，所有計費資料可能需要 24 小時才會新增至 Cloudyn。

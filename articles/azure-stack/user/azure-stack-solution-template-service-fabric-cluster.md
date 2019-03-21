@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: a8897288e19a7628dbd1cc2c022de4db2a111393
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d0d725a57c27fe30215d77a596f6fb3b8c8720d6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248039"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098003"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>在 Azure Stack 中部署 Service Fabric 叢集
 
@@ -37,17 +37,17 @@ Azure Stack 中的 Service Fabric 叢集並不使用資源提供者 Microsoft.Se
    這是在部署 Service Fabric 時，您新增至 KeyVault 的 X.509 伺服器憑證。 
    - 此憑證上的 **CN** 必須符合您所建立之 Service Fabric 叢集的完整網域名稱 (FQDN)。 
    - 憑證格式必須是 PFX，因為需要公用與私密金鑰。 
-   請參閱建立此伺服器端憑證的[需求](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)。
+     請參閱建立此伺服器端憑證的[需求](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)。
 
-    > [!NOTE]  
-    > 您可以使用自我簽署的憑證代替 x.509 伺服器憑證進行測試。 自我簽署的憑證不需要符合叢集的 FQDN。
+     > [!NOTE]  
+     > 您可以使用自我簽署的憑證代替 x.509 伺服器憑證進行測試。 自我簽署的憑證不需要符合叢集的 FQDN。
 
-1.  **管理用戶端憑證** – 這是用戶端用來驗證 Service Fabric 叢集的憑證，其可自我簽署。 請參閱建立此用戶端憑證的[需求](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)。
+1. **管理用戶端憑證** – 這是用戶端用來驗證 Service Fabric 叢集的憑證，其可自我簽署。 請參閱建立此用戶端憑證的[需求](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)。
 
-1.  **Azure Stack Marketplace 中必須可取得下列項目：**
-     - **Windows Server 2016** – 範本使用 Windows Server 2016 映像來建立叢集。  
-     - **客戶指令碼擴充功能** - 來自 Microsoft 的虛擬機器擴充功能。  
-     - **PowerShell 所需階段組態**-來自 Microsoft 的虛擬機器擴充功能。
+1. **Azure Stack Marketplace 中必須可取得下列項目：**
+    - **Windows Server 2016** – 範本使用 Windows Server 2016 映像來建立叢集。  
+    - **客戶指令碼擴充功能** - 來自 Microsoft 的虛擬機器擴充功能。  
+    - **PowerShell 所需階段組態**-來自 Microsoft 的虛擬機器擴充功能。
 
 
 ## <a name="add-a-secret-to-key-vault"></a>將祕密新增至 Key Vault

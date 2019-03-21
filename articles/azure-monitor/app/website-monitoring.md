@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 2f16a8fdb124cd2ee69fbdef74f3999800b55157
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: a35f4d8c1d5bf5943ecba02ff262fbc7fc0730fe
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261991"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108218"
 ---
 # <a name="start-monitoring-your-website"></a>開始監視您的網站
 
@@ -87,7 +87,7 @@ Application Insights 可以從任何連上網際網路的應用程式 (不論是
         });
         
         window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&appInsights.trackPageView();
-</script>
+   </script>
    ```
 
 3. 編輯 ``hello_world.html`` 檔案並新增檢測金鑰。
@@ -127,7 +127,7 @@ Application Insights 可以從任何連上網際網路的應用程式 (不論是
 
 5. 如果已檢測了具有多重頁面的更複雜網站，另一個實用工具為[**使用者流程**](../../azure-monitor/app/usage-flows.md)。 您可以透過 [使用者流程]，追蹤訪客造訪您網站各個部分的路徑。
 
-  ![使用者流程視覺效果](./media/website-monitoring/user-flows.png)
+   ![使用者流程視覺效果](./media/website-monitoring/user-flows.png)
 
 若要深入了解用於監視網站的進階組態，請參閱 [JavaScript SDK API 參考](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)。
 

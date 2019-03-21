@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 348bde94bc01e00777603af8ac078d5e319d732c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 25b6f2b1e79cb6efdcb9d7ee0e956648673e48c0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001989"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57528860"
 ---
 # <a name="deprecated-introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>(已淘汰) 使用 Azure Container Service 的 Docker 容器主控解決方案簡介 
 
@@ -38,7 +38,7 @@ Azure Container Service 會使用 Docker 容器格式，確保您的應用程式
 Azure Container Service 提供協調流程的選擇：Docker Swarm 、DC/OS 或 Kubernetes。 部署應用程式的方式取決於您所選擇的 Orchestrator。
 
 ### <a name="using-dcos"></a>使用 DC/OS
-DC/OS 是以 Apache Mesos 分散式系統核心為基礎的分散式作業系統。 Apache Mesos 存放在 Apache Software Foundation，並將一些 [IT 業界鼎鼎有名的人物](http://mesos.apache.org/documentation/latest/powered-by-mesos/) 列為使用者與參與者。
+DC/OS 是以 Apache Mesos 分散式系統核心為基礎的分散式作業系統。 Apache Mesos 存放在 Apache Software Foundation，並將一些 [IT 業界鼎鼎有名的人物](https://mesos.apache.org/documentation/latest/powered-by-mesos/) 列為使用者與參與者。
 
 ![針對顯示代理程式與主要節點的 DC/OS 設定的 Azure Container Service。](media/acs-intro/dcos.png)
 

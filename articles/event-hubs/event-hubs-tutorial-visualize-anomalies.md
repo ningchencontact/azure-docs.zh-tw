@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 02/26/2019
-ms.openlocfilehash: 4f72def4d81f51fcf1bedbeb83798b16ebb6eb32
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 4ade1b05b1ec5c81774b5340cfdceb97e41218f3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888656"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123040"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>教學課程：將傳送給 Azure 事件中樞之即時事件中的資料異常視覺化
 
@@ -328,10 +328,10 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
     > 當您執行範例應用程式並將資料串流至事件中樞時，此圖格上的數字會迅速 (每秒) 變更。 這是因為串流分析查詢會**每秒**實際更新此值。 將查詢更新為 3 分鐘輪轉視窗，以查看在過去幾分鐘內的總和。 
 11. 新增另一個視覺效果。 再次重複前幾個步驟：
 
-   * 按一下 [新增磚]。
-   * 選取 [自訂串流資料]。 
-   * 按 [下一步] 。
-   * 選取您的資料集，然後按 [下一步]。 
+    * 按一下 [新增磚]。
+    * 選取 [自訂串流資料]。 
+    * 按 [下一步] 。
+    * 選取您的資料集，然後按 [下一步]。 
 
 12. 在 [視覺效果類型] 下選取 [折線圖]。
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a4b8d930a2176c16bb9d1cbcd3b67e6f919575ed
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 0a0f7cc8e3810a28fdbec914a9f37808c33ab878
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162217"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880581"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>教學課程：設定 Jenkins 環境以便在 Service Fabric 上啟用 Java 應用程式的 CI/CD
 
@@ -72,15 +72,15 @@ ms.locfileid: "53162217"
     * 第一次登入之後，您可以建立自己的使用者帳戶，或使用系統管理員帳戶。
 
 1. 設定 GitHub 以 Jenkins，方法為使用[產生新的 SSH 金鑰，並將它新增至 SSH 代理程式](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)中提到的步驟。 因為命令是從 Docker 容器執行，所以請依照 Linux 環境的指示操作。
-    * 使用 GitHub 所提供的指示來產生 SSH 金鑰。 接下來，將 SSH 金鑰新增至裝載存放庫的 GitHub 帳戶。
-    * 在 Jenkins Docker 殼層 (而非在主機上) 執行上述連結內所提到的命令。
-    * 若要從主機登入 Jenkins 殼層，請使用下列命令：
+   * 使用 GitHub 所提供的指示來產生 SSH 金鑰。 接下來，將 SSH 金鑰新增至裝載存放庫的 GitHub 帳戶。
+   * 在 Jenkins Docker 殼層 (而非在主機上) 執行上述連結內所提到的命令。
+   * 若要從主機登入 Jenkins 殼層，請使用下列命令：
 
-    ```sh
-    docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
-    ```
+     ```sh
+     docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
+     ```
 
-    請確定 Jenkins 容器映像所裝載的叢集或電腦具有公開 IP。 具有公開 IP，可讓 Jenkins 執行個體接收來自 GitHub 的通知。
+     請確定 Jenkins 容器映像所裝載的叢集或電腦具有公開 IP。 具有公開 IP，可讓 Jenkins 執行個體接收來自 GitHub 的通知。
 
 ## <a name="create-and-configure-a-jenkins-job"></a>建立及設定 Jenkins 作業
 
@@ -146,7 +146,7 @@ ms.locfileid: "53162217"
 
     ```xml
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
-    <ApplicationManifest xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingApplicationType" ApplicationTypeVersion="2.0.0">
+    <ApplicationManifest xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingApplicationType" ApplicationTypeVersion="2.0.0">
       <Description>Voting Application</Description>
       <ServiceManifestImport>
         <ServiceManifestRef ServiceManifestName="VotingWebPkg" ServiceManifestVersion="2.0.0"/>

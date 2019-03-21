@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: tutorial
-ms.date: 10/16/2017
+ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: c1124e710c3bb2cc4d00595989ccb95e584025c4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6f44d4e6e5a0ee940394e09ceff8a425700d34e1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884489"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100721"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>教學課程：建置自訂搜尋網頁
 
@@ -49,11 +49,11 @@ Bing 自訂搜尋可讓您針對感興趣的主題，建立量身訂做的搜尋
   
 4. 登入之後，按一下 [新增自訂搜尋]。 在 [建立新的自訂搜尋執行個體] 視窗中，輸入有意義的名稱且名稱能夠描述搜尋傳回的內容類型。 您可以隨時變更名稱。  
   
-  ![[建立新的自訂搜尋執行個體] 方塊的螢幕擷取畫面](../media/newCustomSrch.png)  
+   ![[建立新的自訂搜尋執行個體] 方塊的螢幕擷取畫面](../media/newCustomSrch.png)  
   
 5. 按一下 [確定]，指定 URL，以及是否要包括 URL 的子頁面：  
   
-  ![URL 定義頁面的螢幕擷取畫面](../media/newCustomSrch1-a.png)  
+   ![URL 定義頁面的螢幕擷取畫面](../media/newCustomSrch1-a.png)  
 
 
 ## <a name="add-active-entries"></a>加入使用中的項目
@@ -97,28 +97,28 @@ Bing 自訂搜尋可讓您針對感興趣的主題，建立量身訂做的搜尋
   
 2. 選取配置。  
   
-  ![[託管的 UI] 選取配置步驟的螢幕擷取畫面](./media/custom-search-hosted-ui-select-layout.png)  
+   ![[託管的 UI] 選取配置步驟的螢幕擷取畫面](./media/custom-search-hosted-ui-select-layout.png)  
   
 3. 選取色彩佈景主題。  
   
-  ![[託管的 UI] 選取色彩佈景主題的螢幕擷取畫面](./media/custom-search-hosted-ui-select-color-theme.png)  
+   ![[託管的 UI] 選取色彩佈景主題的螢幕擷取畫面](./media/custom-search-hosted-ui-select-color-theme.png)  
 
-  若需要微調色彩佈景主題以便與您的 Web 應用程式完美整合，請按一下 [自訂佈景主題]。 並非所有色彩設定都會套用到所有版面配置佈景主題。 若要變更色彩，請在對應的文字方塊中輸入色彩的 RGB HEX 值 (例如 #366eb8)。 或者，按一下色彩按鈕並按一下適合您的陰影。 選取色彩時務必考慮可存取性。
+   若需要微調色彩佈景主題以便與您的 Web 應用程式完美整合，請按一下 [自訂佈景主題]。 並非所有色彩設定都會套用到所有版面配置佈景主題。 若要變更色彩，請在對應的文字方塊中輸入色彩的 RGB HEX 值 (例如 #366eb8)。 或者，按一下色彩按鈕並按一下適合您的陰影。 選取色彩時務必考慮可存取性。
   
-  ![[託管的 UI] 自訂色彩佈景主題的螢幕擷取畫面](./media/custom-search-hosted-ui-customize-color-theme.png)  
+   ![[託管的 UI] 自訂色彩佈景主題的螢幕擷取畫面](./media/custom-search-hosted-ui-customize-color-theme.png)  
 
   
 4. 指定其他設定選項。  
   
-  ![[託管的 UI] 其他設定步驟的螢幕擷取畫面](./media/custom-search-hosted-ui-additional-configurations.png)  
+   ![[託管的 UI] 其他設定步驟的螢幕擷取畫面](./media/custom-search-hosted-ui-additional-configurations.png)  
   
-  若要取得進階設定，請按一下 [顯示進階設定]。 此會新增設定，例如新增*連結目標*到 Web 搜尋選項、新增*啟用篩選*到影像與影片選項，並新增 [搜尋方塊文字預留位置] 到 [雜項] 選項。
+   若要取得進階設定，請按一下 [顯示進階設定]。 此會新增設定，例如新增*連結目標*到 Web 搜尋選項、新增*啟用篩選*到影像與影片選項，並新增 [搜尋方塊文字預留位置] 到 [雜項] 選項。
 
-  ![[託管的 UI] 進階設定步驟的螢幕擷取畫面](./media/custom-search-hosted-ui-advanced-configurations.png)  
+   ![[託管的 UI] 進階設定步驟的螢幕擷取畫面](./media/custom-search-hosted-ui-advanced-configurations.png)  
   
 5. 從下拉式清單選取您的訂用帳戶金鑰。 或者，您可以手動輸入訂用帳戶金鑰。 如需有關取得金鑰的詳細資訊，請參閱[嘗試認知服務](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api)。  
   
-  ![[託管的 UI] 其他設定步驟的螢幕擷取畫面](./media/custom-search-hosted-ui-subscription-key.png)
+   ![[託管的 UI] 其他設定步驟的螢幕擷取畫面](./media/custom-search-hosted-ui-subscription-key.png)
 
 [!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
@@ -140,66 +140,66 @@ Bing 自訂搜尋可讓您針對感興趣的主題，建立量身訂做的搜尋
   
 3. 在 [新增專案] 視窗中，選取 [Visual C# / Web / ASP.NET Core Web 應用程式]，命名您的專案，然後按一下 [確定]。  
   
-  ![[新增專案] 視窗的螢幕擷取畫面](./media/custom-search-new-project.png)  
+   ![[新增專案] 視窗的螢幕擷取畫面](./media/custom-search-new-project.png)  
   
 4. 在 [新增 ASP.NET Core Web 應用程式] 視窗中，選取 [Web 應用程式]，然後按一下 [確定]。  
   
-  ![[新增專案] 視窗的螢幕擷取畫面](./media/custom-search-new-webapp.png)  
+   ![[新增專案] 視窗的螢幕擷取畫面](./media/custom-search-new-webapp.png)  
 
 ## <a name="edit-indexcshtml"></a>編輯 Index.cshtml
 
 1. 在 [方案總管] 中，展開 [頁面]，然後按兩下 [index.cshtml] 以開啟該檔案。  
   
-  ![方案總管中展開頁面並選取了 index.cshtml 的螢幕擷取畫面](./media/custom-search-visual-studio-webapp-solution-explorer-index.png)  
+   ![方案總管中展開頁面並選取了 index.cshtml 的螢幕擷取畫面](./media/custom-search-visual-studio-webapp-solution-explorer-index.png)  
   
 2. 在 index.cshtml 中，刪除第 7 行以後的所有內容 (含第 7 行)。  
   
-  ```razor
-  @page
-  @model IndexModel
-  @{
+   ```razor
+   @page
+   @model IndexModel
+   @{
       ViewData["Title"] = "Home page";
-  }    
-  ```  
+   }    
+   ```  
   
 3. 加入一個分行符號元素和要做為容器的 div。  
   
-  ```html
-  @page
-  @model IndexModel
-  @{
+   ```html
+   @page
+   @model IndexModel
+   @{
       ViewData["Title"] = "Home page";
-  }
-  <br />
-  <div id="customSearch"></div>
-  ```  
+   }
+   <br />
+   <div id="customSearch"></div>
+   ```  
   
 4. 在 [託管的 UI] 頁面中，向下捲動到名為 [取用 UI] 的區段。 按一下 [端點] 以存取 JavaScript 片段。 您也可以按一下 [生產] 並按一下 [託管的 UI] 索引標籤。
   
-  <!-- Get new screenshot after prod gets new bits
-  ![Screenshot of the Hosted UI save button](./media/custom-search-hosted-ui-consuming-ui.png)  
-  -->
+   <!-- Get new screenshot after prod gets new bits
+   ![Screenshot of the Hosted UI save button](./media/custom-search-hosted-ui-consuming-ui.png)  
+   -->
   
 5. 將指令碼元素貼到您加入的容器中。  
   
-  ``` html
-  @page
-  @model IndexModel
-  @{
+   ``` html
+   @page
+   @model IndexModel
+   @{
       ViewData["Title"] = "Home page";
-  }
-  <br />
-  <div id="customSearch">
+   }
+   <br />
+   <div id="customSearch">
       <script type="text/javascript" 
           id="bcs_js_snippet"
           src="https://ui.customsearch.ai /api/ux/rendering-js?customConfig=<YOUR-CUSTOM-CONFIG-ID>&market=en-US&safeSearch=Moderate&version=latest&q=">
       </script>
-  </div>
-  ```  
+   </div>
+   ```  
   
 6. 在 [方案總管] 中，以滑鼠右鍵按一下 [wwwroot]，然後按一下 [在瀏覽器中檢視]。  
   
-  ![從方案總管的 [wwwroot] 快顯功能表選取 [在瀏覽器中檢視] 的螢幕擷取畫面](./media/custom-search-webapp-view-in-browser.png)  
+   ![從方案總管的 [wwwroot] 快顯功能表選取 [在瀏覽器中檢視] 的螢幕擷取畫面](./media/custom-search-webapp-view-in-browser.png)  
 
 新的自訂搜尋網頁看起來應該如下：
 

@@ -8,14 +8,14 @@ author: preetikr
 ms.author: preetikr
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
-ms.date: 01/30/19
+ms.date: 01/30/2019
 tags: connectors
-ms.openlocfilehash: 647df9e73804c8f261b58d5ede7c4b030d448fed
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 24963a35bc3e54b2d140bf4ed1d169b213bd9b2a
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513303"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673677"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>使用 Microsoft Graph 安全性和 Azure Logic Apps 整合安全性作業，改善威脅防護功能
 
@@ -87,7 +87,7 @@ ms.locfileid: "55513303"
 
 如需您可搭配此連接器使用之查詢的詳細資訊，請參閱 [Microsoft Graph 安全性警示參考文件](https://docs.microsoft.com/graph/api/alert-list) \(英文\)。 若要建置含有此連接器的增強體驗，請深入了解連接器支援的[結構描述屬性警示](https://docs.microsoft.com/graph/api/resources/alert)。
 
-|  動作 | 說明 |
+|  動作 | 描述 |
 |--------|-------------|
 | **取得警示** | 取得依據一或多個[警示屬性](https://docs.microsoft.com/graph/api/resources/alert)篩選的警示，例如： <p>`Provider eq 'Azure Security Center' or 'Palo Alto Networks'` | 
 | **依識別碼取得警示** | 依據警示識別碼取得特定警示。 | 
@@ -101,7 +101,7 @@ Microsoft Graph 支援[*訂閱*](https://docs.microsoft.com/graph/api/resources/
 
 `security/alerts?$filter=status eq 'New'`
 
-|  動作 | 說明 |
+|  動作 | 描述 |
 |--------|-------------|
 | **建立訂用帳戶** | [建立訂閱](https://docs.microsoft.com/graph/api/subscription-post-subscriptions)可通知您相關的任何變更。 您可以針對您想要的特定警示類型篩選此訂閱。 例如，您可以建立通知您有關高嚴重性警示的訂閱。 |
 | **取得有效的訂閱** | [取得未到期的訂閱](https://docs.microsoft.com/graph/api/subscription-list)。 | 

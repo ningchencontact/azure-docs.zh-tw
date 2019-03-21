@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0e2980b48a5d9b1f2e9d75e59a27bfceb0d1180
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6221fb7575fc267030929b449cba48cff8563f27
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195578"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122549"
 ---
 # <a name="quickstart-register-an-app-with-the-azure-active-directory-v20-endpoint"></a>快速入門：向 Azure Active Directory v2.0 端點註冊應用程式
 
@@ -61,4 +61,4 @@ v2.0 端點並未支援每個 Azure AD 案例和功能。 若要判斷是否應�
 
 您現在已有 Microsoft 應用程式，您可以繼續完成任何一個 v2.0 快速入門。 以下是一些建議：
 
-[!INCLUDE [active-directory-v2-quickstart-table](../../../includes/active-directory-v2-quickstart-table.md)]
+[!INCLUDE [active-directory-v2-quickstart-table](~/includes/active-directory-v2-quickstart-table.md)]

@@ -12,12 +12,12 @@ ms.date: 12/06/2018
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b04831790083f9ba41f20719a7d8ffddc35348b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 037f5b554889d89fc0b50983d3d85d38f4345311
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210402"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57571400"
 ---
 # <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>教學課程：為應用程式設定透過 Azure Active Directory 進行的 SAML 型單一登入
 
@@ -189,6 +189,6 @@ Microsoft 建議您先對數個使用者或群組測試單一登入，再對您�
 若要對組織中的更多使用者推出應用程式，建議您使用自動使用者佈建。
 
 > [!div class="nextstepaction"]
->[了解如何使用自動佈建來指派使用者](configure-automatic-user-provisioning-portal.md)
+> [了解如何使用自動佈建指派使用者](configure-automatic-user-provisioning-portal.md)
 
 

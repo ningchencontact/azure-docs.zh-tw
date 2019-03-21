@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/14/2018
-ms.openlocfilehash: 9459aa9df74efa500109d7c281daad28355bd0d0
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: e2aa9edcd53aa3881b07e31fcf2312d5173a3a6e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895719"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57903487"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>快速入門：將資料庫還原到受控執行個體 
 
@@ -48,7 +48,7 @@ ms.locfileid: "55895719"
 
 1. 開啟 SMSS 並連線到您的受控執行個體。
 2. 從左側功能表中，以滑鼠右鍵按一下您的受控執行個體，並選取 [新增查詢] 以開啟新的查詢視窗。
-3. 執行下列 SQL 指令碼，它會使用預先設定的儲存體帳戶和 SAS 金鑰，在您的受控執行個體中[建立認證](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql?view=sql-server-2017)。
+3. 執行下列 SQL 指令碼，它會使用預先設定的儲存體帳戶和 SAS 金鑰，在您的受控執行個體中[建立認證](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql)。
 
    ```sql
    CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases] 

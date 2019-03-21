@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 12/27/2018
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 1f65d7711c57930886ac9826bb105b6bc4931268
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 158f22ec2ab07bfc2f893d4b0c55d862e0b19de0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238902"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106656"
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>主要考量：使用服務或為 Azure Stack 建置應用程式
 
@@ -76,8 +76,8 @@ Azure Stack 支援特定版本的 Azure PowerShell 和 Azure 服務 API。 使�
 
 若要確定您使用的是正確版本的 Azure PowerShell，請使用 [API 版本設定檔](azure-stack-version-profiles.md)。 若要判斷您可以使用的最新 API 版本設定檔，請找出您所使用的 Azure Stack 組建。 您可以向您的 Azure Stack 系統管理員取得這項資訊。
 
->[!NOTE]
- 如果您使用 Azure Stack 開發套件，並且您具有管理存取權，請參閱[判斷目前的版本](../azure-stack-updates.md#determine-the-current-version)一節來判斷 Azure Stack 組建。
+> [!NOTE]
+>  如果您使用 Azure Stack 開發套件，並且您具有管理存取權，請參閱[判斷目前的版本](../azure-stack-updates.md#determine-the-current-version)一節來判斷 Azure Stack 組建。
 
 對於其他 API，執行下列 PowerShell 命令以輸出您的 Azure Stack 訂用帳戶中支援的命名空間、資源類型和 API 版本。 請注意，可能仍有屬性層級的差異。 若要讓此命令運作，您必須已經為 Azure Stack 環境[安裝](azure-stack-powershell-install.md)和[設定](azure-stack-powershell-configure-user.md) PowerShell。 您也必須具有 Azure Stack 供應項目的訂用帳戶。
 

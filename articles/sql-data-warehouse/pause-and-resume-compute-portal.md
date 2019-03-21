@@ -5,19 +5,20 @@ services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
-ms.topic: conceptual
+ms.topic: quickstart
 ms.subservice: manage
-ms.date: 04/17/2018
+ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b21c982a7f390855ccb7b9212ea92db8c26d303c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9c3ed6dd79d6225b38751c910253cfa1f0720d1c
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460279"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731975"
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中暫停與繼續 Azure SQL 資料倉儲的計算
+
 使用 Azure 入口網站來暫停 Azure SQL 資料倉儲中的計算以節省成本。 在您準備好使用資料倉儲時[繼續計算](sql-data-warehouse-manage-compute-overview.md)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
@@ -31,6 +32,7 @@ ms.locfileid: "55460279"
 使用[建立與連線 - 入口網站](create-data-warehouse-portal.md)來建立稱為 **mySampleDataWarehouse** 的資料倉儲。 
 
 ## <a name="pause-compute"></a>暫停計算
+
 為了節省成本，您可以隨選暫停和繼續計算資源。 例如，如果您在夜間和週末不會使用資料庫，可以在這段時間暫停，並且在白天時繼續。 資料庫暫停時，系統將不會向您收取計算資源的費用。 不過，您仍需持續支付儲存體費用。 
 
 遵循下列步驟來暫停 SQL 資料倉儲。
@@ -54,6 +56,7 @@ ms.locfileid: "55460279"
 
 
 ## <a name="resume-compute"></a>繼續計算
+
 遵循下列步驟來繼續 SQL 資料倉儲。
 
 1. 在 Azure 入口網站的左側頁面中，按一下 [SQL 資料庫]。
@@ -96,7 +99,8 @@ ms.locfileid: "55460279"
 
 
 ## <a name="next-steps"></a>後續步驟
+
 您現已學會如何暫停與繼續資料倉儲的計算。 若要深入了解 Azure SQL 資料倉儲，請繼續進行載入資料的教學課程。
 
 > [!div class="nextstepaction"]
->[將資料載入 SQL 資料倉儲](load-data-from-azure-blob-storage-using-polybase.md)
+> [將資料載入 SQL 資料倉儲](load-data-from-azure-blob-storage-using-polybase.md)

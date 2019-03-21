@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: d333eb6baa41321fdf7daca3c545d5d5e3ed5fe4
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: b9ddd82d18b7f67f61e5c1589511ea6db4fa18a3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732699"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100287"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>教學課程：使用簡單實體和片語清單來擷取名稱
 
@@ -120,14 +120,14 @@ ms.locfileid: "56732699"
     |這是我的新會計職位履歷。|會計|
     |內附我的吧檯助理應徵文件。|吧檯助理|
     |我要提交屋頂工和創作者的應徵文件。|屋頂工、創作者|
-    |這是我的履歷， 我想應徵公車司機。|公車司機|
+    |這是我的的履歷， 我想應徵公車司機。|公車司機|
     |我是合格護士。 這是我的履歷。|合格護士|
     |我想要提交我在報上看到的教學職位文件。|教書|
     |這是我的履歷， 我想應徵蔬果裝料工。|裝料工|
     |應徵貼瓷磚工作。|圖格|
     |已隨附景觀設計師履歷。|景觀設計師|
     |已隨附我的生物學教授履歷。|生物學教授|
-    |我想要應徵攝影方面的職位。|攝影|git 
+    |我想要應徵攝影方面的職位。|攝影|
 
 ## <a name="mark-job-entity-in-other-intents"></a>標示其他意圖中的工作實體
 

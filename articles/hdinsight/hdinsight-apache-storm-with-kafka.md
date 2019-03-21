@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: 341278237bc18bfbb8f4bb1e5d600e2cab894926
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: b6717bc76caffb9c4b6f7743cc5356a80a8f742b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343352"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111849"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>教學課程：在 HDInsight 上搭配使用 Apache Storm 與 Apache Kafka
 
@@ -129,7 +129,7 @@ Apache Storm 提供數個用來處理 Apache Kafka 的元件。 在本教學課�
     >
     > 如果您未使用此文件中的範本建立 Storm 叢集，則必須手動將指令碼動作套用至您的叢集。
     >
-    > 此指令碼動作位於 `https://hdiconfigactions2.blob.core.windows.net/stormextlib/stormextlib.sh`，且會套用至 Storm 叢集的監督員和 nimbus 節點。 如需使用指令碼動作的詳細資訊，請參閱 [使用指令碼動作自訂 HDInsight](hdinsight-hadoop-customize-cluster-linux.md) 文件。
+    > 此指令碼動作位於 `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`，且會套用至 Storm 叢集的監督員和 nimbus 節點。 如需使用指令碼動作的詳細資訊，請參閱 [使用指令碼動作自訂 HDInsight](hdinsight-hadoop-customize-cluster-linux.md) 文件。
 
 拓撲是使用 [Flux](https://storm.apache.org/releases/1.1.2/flux.html) 來定義的。 Storm 0.10.x 引進了 Flux，可讓您區隔拓撲組態與程式碼。 若為使用 Flux 架構的拓撲，拓撲定義於 YAML 檔案中。 YAML 檔案可以納入為拓撲的一部分。 它也可以是您提交拓撲時使用的獨立檔案。 Flux 也支援執行階段的變數替代 (在此範例中使用)。
 
@@ -400,26 +400,26 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
     * HDInsight 版本 3.6 上的 Kafka (三個背景工作角色節點)
     * HDInsight 版本 3.6 上的 Storm (三個背景工作角色節點)
 
-  > [!WARNING]  
-  > 若要保證 Kafka 在 HDInsight 上的可用性，您的叢集必須包含至少三個背景工作角色節點。 此範本會建立包含三個背景工作角色節點的 Kafka 叢集。
+   > [!WARNING]  
+   > 若要保證 Kafka 在 HDInsight 上的可用性，您的叢集必須包含至少三個背景工作角色節點。 此範本會建立包含三個背景工作角色節點的 Kafka 叢集。
 
 2. 使用下列指引來填入 [自訂部署] 區段上的項目︰
 
-    2. 使用下列資訊，填入 [自訂範本] 區段上的項目︰
+   1. 使用下列資訊，填入 [自訂範本] 區段上的項目︰
 
-    | 設定 | 值 |
-    | --- | --- |
-    | 訂用帳戶 | 您的 Azure 訂用帳戶 |
-    | 資源群組 | 包含資源的資源群組。 |
-    | 位置 | 資源建立所在的 Azure 區域。 |
-    | Kafka 叢集名稱 | Kafka 叢集的名稱。 |
-    | Storm 叢集名稱 | Storm 叢集的名稱。 |
-    | 叢集登入使用者名稱 | 叢集的管理員使用者名稱。 |
-    | 叢集登入密碼 | 叢集的管理員使用者密碼。 |
-    | SSH 使用者名稱 | 要為叢集建立的 SSH 使用者。 |
-    | SSH 密碼 | SSH 使用者的密碼。 |
+      | 設定 | 值 |
+      | --- | --- |
+      | 訂用帳戶 | 您的 Azure 訂用帳戶 |
+      | 資源群組 | 包含資源的資源群組。 |
+      | 位置 | 資源建立所在的 Azure 區域。 |
+      | Kafka 叢集名稱 | Kafka 叢集的名稱。 |
+      | Storm 叢集名稱 | Storm 叢集的名稱。 |
+      | 叢集登入使用者名稱 | 叢集的管理員使用者名稱。 |
+      | 叢集登入密碼 | 叢集的管理員使用者密碼。 |
+      | SSH 使用者名稱 | 要為叢集建立的 SSH 使用者。 |
+      | SSH 密碼 | SSH 使用者的密碼。 |
    
-    ![範本參數的圖片](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
+      ![範本參數的圖片](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
 
 3. 讀取**條款及條件**，然後選取 [我同意上方所述的條款及條件]。
 
@@ -434,17 +434,17 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 2. 從 **hdinsight-storm-java-kafka** 目錄，使用下列命令來編譯專案並建立部署套件︰
 
-  ```bash
-  mvn clean package
-  ```
+   ```bash
+   mvn clean package
+   ```
 
     封裝程序會在 `target` 目錄中建立名為 `KafkaTopology-1.0-SNAPSHOT.jar` 的檔案。
 
 3. 使用下列命令將套件複製到 Storm on HDInsight 叢集。 將 `sshuser` 取代為叢集的 SSH 使用者名稱。 將 `stormclustername` 取代為 __Storm__ 叢集的名稱。
 
-  ```bash
-  scp ./target/KafkaTopology-1.0-SNAPSHOT.jar sshuser@stormclustername-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
-  ```
+   ```bash
+   scp ./target/KafkaTopology-1.0-SNAPSHOT.jar sshuser@stormclustername-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
+   ```
 
     出現提示時，請輸入您在建立叢集時所使用的密碼。
 
@@ -518,7 +518,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 4. 儲存 `dev.properties` 檔案，然後使用下列命令將它上傳至 **Storm** 叢集：
 
      ```bash
-    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
+    scp dev.properties USERNAME@BASENAME-ssh.azurehdinsight.net:dev.properties
     ```
 
     將 **USERNAME** 替換為叢集的 SSH 使用者名稱。 將 **BASENAME** 替換為您在建立叢集時使用的基底名稱。
@@ -577,9 +577,9 @@ Kafka 會將資料儲存到_主題_中。 在啟動 Storm 拓撲之前，您必�
 
 1. 在 Storm 叢集的 SSH 工作階段中，使用下列命令來啟動讀取器拓撲：
 
-  ```bash
-  storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
-  ```
+   ```bash
+   storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
+   ```
 
 2. 稍候片刻，然後使用下列命令檢視讀取器拓撲所建立的檔案：
 

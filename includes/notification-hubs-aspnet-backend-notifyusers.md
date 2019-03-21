@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/04/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 9a94f76e2d1fe930d2d6d43e81a756f0cb15d23d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 8413044beff68390dbccdf16c4477e113a85f81b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453064"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58125328"
 ---
 ## <a name="create-the-webapi-project"></a>建立 WebAPI 專案
 
@@ -55,7 +55,7 @@ ms.locfileid: "54453064"
     * 選取您已建立的 App Service 方案。
     * 選取 [建立新的 App Service 方案]，然後建立一個新方案。
 
-  在此教學課程中您不需要資料庫。 在您選取 App Service 方案之後，選取 [確定]  來建立專案。
+   在此教學課程中您不需要資料庫。 在您選取 App Service 方案之後，選取 [確定]  來建立專案。
 
     ![[定 Microsoft Azure Web 應用程式] 視窗][B5]
 
@@ -84,9 +84,9 @@ ms.locfileid: "54453064"
    * 要求使用 *基本* 驗證。
    * 使用者名稱字串和密碼字串是相同的字串。
 
-  否則，會拒絕此要求。 此驗證不是真正的驗證和授權方法。 這只是本教學課程的簡單範例。
+   否則，會拒絕此要求。 此驗證不是真正的驗證和授權方法。 這只是本教學課程的簡單範例。
 
-  如果要求訊息已經由 `AuthenticationTestHandler` 驗證及授權，則基本驗證使用者會附加至 [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx) 上的目前要求。 稍後另一個控制器 (RegisterController) 會使用 HttpContext 中的使用者資訊，將 [標記](https://msdn.microsoft.com/library/azure/dn530749.aspx) 新增至通知註冊要求。
+   如果要求訊息已經由 `AuthenticationTestHandler` 驗證及授權，則基本驗證使用者會附加至 [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx) 上的目前要求。 稍後另一個控制器 (RegisterController) 會使用 HttpContext 中的使用者資訊，將 [標記](https://msdn.microsoft.com/library/azure/dn530749.aspx) 新增至通知註冊要求。
 
     ```csharp
     public class AuthenticationTestHandler : DelegatingHandler

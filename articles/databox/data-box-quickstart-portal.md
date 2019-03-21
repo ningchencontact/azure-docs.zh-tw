@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 03/12/2019
 ms.author: alkohli
-ms.openlocfilehash: ae6ab0eb4c966ef57c7859098217b5b6b560614b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: bd591ff30755fd68bb2dc673899d0ac993215e68
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188550"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834712"
 ---
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站部署 Azure 資料箱
 
@@ -43,7 +43,7 @@ ms.locfileid: "54188550"
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-在 [http://portal.azure.com](http://portal.azure.com) 登入 Azure 入口網站。
+在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 
 ## <a name="order"></a>順序
 
@@ -74,7 +74,7 @@ ms.locfileid: "54188550"
     
 4. 將裝置接上纜線，如下所示。  
 
-    ![已連接纜線的資料箱](media/data-box-quickstart-portal/data-box-cabled-dhcp.png)  
+    ![已連接纜線的資料箱裝置後擋板](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)  
 
     1. 將電源線接上裝置。
     2. 您可以使用 RJ-45 CAT 6 網路纜線，將主機電腦連接到裝置上的管理連接埠 (MGMT)。 
@@ -86,7 +86,7 @@ ms.locfileid: "54188550"
 
 此步驟約需要 5-7 分鐘來完成。
 
-1. 若要取得裝置密碼，請前往 [Azure 入口網站](http://portal.azure.com)中的 [一般] > [裝置詳細資料]。
+1. 若要取得裝置密碼，請前往 [Azure 入口網站](https://portal.azure.com)中的 [一般] > [裝置詳細資料]。
 2. 將靜態 IP 位址 192.168.100.5 和子網路 255.255.255.0，指派到您要用來連接至資料箱之電腦上的乙太網路介面卡。 在 `https://192.168.100.10` 存取裝置的本機 Web UI。 開啟裝置後，連線可能需要最多 5 分鐘。 
 3. 使用 Azure 入口網站中的密碼登入。 您會看到錯誤指出網站的安全性憑證有問題。 請依照瀏覽器專屬指示，繼續前往網頁。
 4. 根據預設，10 Gbps 資料介面 (或 1 Gbps) 的網路設定會設定為 DHCP。 如有需要，您可以將此介面設定為靜態，並提供 IP 位址。 

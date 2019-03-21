@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: seguler
-ms.openlocfilehash: 7f6bd1857c056d7b3570d5d2367ade7e20a19108
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 47143a76c2b57bc889b74f29d709785d0c19451a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752611"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008231"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>快速入門：使用 Ruby 上傳、下載及列出 Blob
 
@@ -74,7 +74,7 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-9
 ```
 當您按任意鍵繼續時，範例程式會刪除儲存體容器和檔案。 在繼續之前，請檢查 'Documents' 資料夾，找出這兩個檔案。 您可以開啟它們，並查看它們是否相同。
 
-您也可以使用 [Azure 儲存體總管](http://storageexplorer.com) 之類的工具來檢視 Blob 儲存體中的檔案。 Azure 儲存體總管是免費的跨平台工具，可讓您存取儲存體帳戶資訊。 
+您也可以使用 [Azure 儲存體總管](https://storageexplorer.com) 之類的工具來檢視 Blob 儲存體中的檔案。 Azure 儲存體總管是免費的跨平台工具，可讓您存取儲存體帳戶資訊。 
 
 確認檔案之後，請按任一鍵以完成示範並刪除測試檔案。 現在您已知道這個範例的功用，請開啟 example.rb 檔案查看程式碼。 
 

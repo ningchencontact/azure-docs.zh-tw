@@ -10,18 +10,18 @@ ms.subservice: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 2df1e2c261069473a02b40e4a7e45895eadea42d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5a2fb54658599e0500944aaae9225f314277f9da
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219391"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539083"
 ---
 # <a name="tutorial-anomaly-detection-with-python-application"></a>教學課程：使用 Python 應用程式進行異常偵測
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
-本教學課程說明如何使用以 Python 撰寫的異常偵測 API，以及如何使用常用程式庫，以視覺化方式呈現您的結果。 使用 Jupyter 執行本教學課程，然後利用您的訂用帳戶金鑰來試用您自己的資料。 若要了解如何開始使用互動式 Jupyter Notebook，請參考 [Jupyter 文件](http://jupyter.readthedocs.io/en/latest/index.html) \(英文\)。 
+本教學課程說明如何使用以 Python 撰寫的異常偵測 API，以及如何使用常用程式庫，以視覺化方式呈現您的結果。 使用 Jupyter 執行本教學課程，然後利用您的訂用帳戶金鑰來試用您自己的資料。 若要了解如何開始使用互動式 Jupyter Notebook，請參考 [Jupyter 文件](https://jupyter.readthedocs.io/en/latest/index.html) \(英文\)。 
 
 ## <a name="prerequisites"></a>必要條件
 

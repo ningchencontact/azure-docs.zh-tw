@@ -10,12 +10,12 @@ ms.subservice: answer-search
 ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 1898a4576b86d7abb302e325aef827bab6b9d7dd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ac1717a8e8a08fcfedc3bc21bb0f03b3e3ca2511
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877411"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548076"
 ---
 # <a name="what-is-project-answer-search"></a>什麼是專案答案搜尋？
 專案答案搜尋 API 使用 Bing v7 端點取得疑問查詢的答案。 「地球的圓周有多長？」之類的問題 傳回事實資訊的答案。  人、地或事的查詢會傳回查詢所識別的實體有關的資訊。 這些情節適用於對話聊天機器人、傳訊應用程式、讀取器之類的應用程式。  
@@ -120,7 +120,7 @@ JSON Response:
             "mustBeCloseToContent": true,
             "license": {
               "name": "CC-BY-SA",
-              "url": "http://creativecommons.org/licenses/by-sa/3.0/"
+              "url": "https://creativecommons.org/licenses/by-sa/3.0/"
             },
             "licenseNotice": "Text under CC-BY-SA license"
           },
@@ -129,13 +129,13 @@ JSON Response:
             "targetPropertyName": "description",
             "mustBeCloseToContent": true,
             "text": "Wikipedia",
-            "url": "http://en.wikipedia.org/wiki/Earth"
+            "url": "https://en.wikipedia.org/wiki/Earth"
           },
           {
             "_type": "ContractualRules/MediaAttribution",
             "targetPropertyName": "image",
             "mustBeCloseToContent": true,
-            "url": "http://en.wikipedia.org/wiki/Earth"
+            "url": "https://en.wikipedia.org/wiki/Earth"
           }
         ],
         "webSearchUrl": "https://www.bing.com/entityexplore?q\u003dEarth\u0026filters\u003dsid:%226ddb3372-4801-5567-321e-e8a53bd774a4%22\u0026elv\u003dAXXfrEiqqD9r3GuelwApulpmymQx!ODfuQu*veOQHkvP0!Zbvi5F5tVcMSDJvDEWiQWwrdueYTtIszgj03oFQHykYYLYgq3q5!Sf00QxXGIS",
@@ -146,10 +146,10 @@ JSON Response:
           "provider": [
             {
               "_type": "Organization",
-              "url": "http://en.wikipedia.org/wiki/Earth"
+              "url": "https://en.wikipedia.org/wiki/Earth"
             }
           ],
-          "hostPageUrl": "http://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg",
+          "hostPageUrl": "https://upload.wikimedia.org/wikipedia/commons/9/97/The_Earth_seen_from_Apollo_17.jpg",
           "width": 110,
           "height": 110,
           "sourceWidth": 799,

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7db08cde0df1ba3d9bc227758ab3ad00c1fc422
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2f569b497afe01db0fc4c3aa29589e6f2c538faf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207365"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108656"
 ---
 # <a name="quickstart-set-up-a-dev-environment"></a>快速入門：設定開發環境
 
@@ -55,8 +55,8 @@ Microsoft 身分識別平台可讓開發人員建置以各種自訂 Microsoft 36
 
 > [!TIP]
 > 如果您要尋找租用戶識別碼，您可以︰
-* 將滑鼠停留在您的帳戶名稱上，以取得目錄/租用戶識別碼，或
-* 在 Azure 入口網站中依序選取 [Azure Active Directory] > [屬性] > [目錄識別碼]
+> * 將滑鼠停留在您的帳戶名稱上，以取得目錄/租用戶識別碼，或
+> * 在 Azure 入口網站中依序選取 [Azure Active Directory] > [屬性] > [目錄識別碼]
 
 如果您目前沒有與帳戶相關聯的租用戶，則會在您的帳戶名稱下方看到一個 GUID，且您在依照下一節的步驟執行之前，將無法執行註冊應用程式之類的動作。
 

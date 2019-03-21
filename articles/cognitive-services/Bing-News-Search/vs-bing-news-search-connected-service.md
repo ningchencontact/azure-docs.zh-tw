@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
-ms.openlocfilehash: 188e58261cec90e9afcc885f3da21fa3fab3b746
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2925ca5a303876a68b6d605c7312d43af102b6e0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875428"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088463"
 ---
 # <a name="tutorial-connect-to-bing-news-search-api-with-connected-services-in-visual-studio-and-c"></a>教學課程：使用以 Visual Studio 和 C# 撰寫的連線服務來連線到 Bing 新聞搜尋 API
 
@@ -87,14 +87,14 @@ ms.locfileid: "55875428"
 
 現在，您已將 Bing 新聞搜尋 API 的支援新增到專案，以下是如何使用 API 來為網頁新增智慧型搜尋功能。
 
-1.  在 *Startup.cs* 的 `ConfigureServices` 方法中，加入對 `IServiceCollection.AddSingleton` 的呼叫。 這可讓包含金鑰設定的設定物件，可供專案中的程式碼使用。
+1. 在 *Startup.cs* 的 `ConfigureServices` 方法中，加入對 `IServiceCollection.AddSingleton` 的呼叫。 這可讓包含金鑰設定的設定物件，可供專案中的程式碼使用。
  
    ```csharp
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddMvc();
-            services.AddSingleton<IConfiguration>(Configuration);
-        }
+       public void ConfigureServices(IServiceCollection services)
+       {
+           services.AddMvc();
+           services.AddSingleton<IConfiguration>(Configuration);
+       }
    ```
 
 

@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: dkshir
-ms.openlocfilehash: 28433f8f3f181c507521cb12f064df045ae21d9d
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 096df62305af91ac85ce9ddbcff5b0160aaa4e8a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54212187"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537451"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>教學課程：部署 Azure Digital Twins 及設定空間圖形
 
@@ -173,7 +173,7 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
 至此，如果您不想要再探索 Azure Digital Twins，請放心地刪除在本教學課程中建立的資源：
 
-1. 從 [Azure 入口網站](http://portal.azure.com)的左側功能表中，選取 [所有資源]，選取您的 Digital Twins 資源群組，然後選取 [刪除]。
+1. 從 [Azure 入口網站](https://portal.azure.com)的左側功能表中，選取 [所有資源]，選取您的 Digital Twins 資源群組，然後選取 [刪除]。
 
     > [!TIP]
     > 如果您在刪除 Digital Twins 執行個體時遇到問題，已推出的服務更新中具有修正程式。 請重試刪除執行個體。

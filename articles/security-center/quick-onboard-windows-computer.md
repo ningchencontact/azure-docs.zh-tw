@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3cc6cdb84b2c77b15b79c7d6a04cc7c6ae0721e5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: bee4618ff08c89bbdab7413ca7f7f74a266d96dd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115852"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077899"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>快速入門：將 Windows 電腦上架到 Azure 資訊安全中心
 將 Azure 訂用帳戶上架之後，您可以透過佈建 Microsoft Monitoring Agent，為在 Azure 外 (例如，內部部署或其他雲端服務) 執行的資源啟用資訊安全中心。
@@ -37,7 +37,7 @@ ms.locfileid: "56115852"
 1. 登入 [Azure 入口網站](https://azure.microsoft.com/features/azure-portal/)。
 2. 在 [Microsoft Azure] 功能表中，選取 [資訊安全中心]。 [資訊安全中心 - 概觀] 隨即開啟。
 
- ![資訊安全中心概觀][2]
+   ![資訊安全中心概觀][2]
 
 3. 在 [資訊安全中心] 主功能表下，選取 [開始使用]。
 4. 選取 [開始使用] 索引標籤。
@@ -48,13 +48,13 @@ ms.locfileid: "56115852"
 
     ![新增非 Azure 電腦](./media/quick-onboard-windows-computer/non-azure.png)
 
-  [直接代理程式] 刀鋒視窗提供下載 Windows 代理程式的連結，以及用於設定代理程式的工作區識別碼金鑰。
+   [直接代理程式] 刀鋒視窗提供下載 Windows 代理程式的連結，以及用於設定代理程式的工作區識別碼金鑰。
 
-6.  選取適用於您電腦處理器類型的 [下載 Windows 代理程式] 連結以下載安裝檔。
+6. 選取適用於您電腦處理器類型的 [下載 Windows 代理程式] 連結以下載安裝檔。
 
-7.  在 [工作區識別碼] 的右邊，選取複製圖示並將識別碼貼到記事本中。
+7. 在 [工作區識別碼] 的右邊，選取複製圖示並將識別碼貼到記事本中。
 
-8.  在 [主要金鑰] 的右邊，選取複製圖示並將識別碼貼到記事本中。
+8. 在 [主要金鑰] 的右邊，選取複製圖示並將識別碼貼到記事本中。
 
 ## <a name="install-the-agent"></a>安裝代理程式
 接著在目的電腦上安裝下載的檔案。
@@ -68,7 +68,7 @@ ms.locfileid: "56115852"
 7. 如果電腦應該向 Azure Government Cloud 中的 Log Analytics 工作區回報，請從 [Azure 雲端] 下拉式清單中選取 [Azure 美國政府]。  如果電腦需要透過 Proxy 伺服器與 Log Analytics 服務進行通訊，請選取 [進階]，然後提供 Proxy 伺服器的 URL 和連接埠號碼。
 8. 完成提供必要的組態設定之後，選取 [下一步]。
 
-  ![安裝代理程式][5]
+   ![安裝代理程式][5]
 
 9. 在 [安裝準備就緒] 頁面上，檢閱您的選擇，然後選取 [安裝]。
 10. 在 [設定成功完成] 頁面上，選取 [完成]

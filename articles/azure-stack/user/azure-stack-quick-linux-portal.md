@@ -7,17 +7,17 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 12/03/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: ef2d59393902194af3e257ce0fd5bf403b293af1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 39298d34a0d29eb1e5a4234ffe0e0fcca844226e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245418"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858179"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>快速入門：使用 Azure Stack 入口網站建立 Linux 伺服器虛擬機器
 
@@ -43,7 +43,7 @@ ms.locfileid: "55245418"
 
    如果您使用 Azure Stack 開發套件 (ASDK)，可能無法存取 SSH 用戶端。 如果您需要用戶端，有數個包含 SSH 用戶端的套件。 例如，PuTTY 包含 SSH 用戶端和 SSH 金鑰產生器 (puttygen.exe)。 如需可用套件的詳細資訊，請參閱下列 Azure 文章：[如何在 Azure 上對 Windows 使用 SSH 金鑰](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients)。
 
-   本快速入門使用 PuTTY 來產生 SSH 金鑰及連線到 Linux 伺服器虛擬機器。 若要下載並安裝 PuTTY，請移至 [http://www.putty.org/](http://www.putty.org)。
+   本快速入門使用 PuTTY 來產生 SSH 金鑰及連線到 Linux 伺服器虛擬機器。 若要下載並安裝 PuTTY，請移至 [https://www.putty.org/](https://www.putty.org)。
 
 ## <a name="create-an-ssh-key-pair"></a>建立 SSH 金鑰組
 
@@ -77,8 +77,8 @@ ms.locfileid: "55245418"
 
 4. 輸入虛擬機器資訊。 針對 [驗證類型] 選取 [SSH 公開金鑰]。 貼入您儲存的 SSH 公開金鑰，然後按一下 [確定]。
 
-   >[!NOTE]
- 請務必移除金鑰的任何開頭或尾端空格。
+   > [!NOTE]
+   > 請務必移除金鑰的任何開頭或尾端空格。
 
    ![基本資訊面板 - 設定虛擬機器](media/azure-stack-quick-linux-portal/linux-01.PNG)
 
@@ -88,10 +88,10 @@ ms.locfileid: "55245418"
 
 6. 在 [設定] 頁面上，進行任何想要的變更以變更預設值。
    
-    - 從 Azure Stack 1808 版開始，您可以在選擇使用 [受控磁碟] 時設定 [儲存體]。 在 1808 版之前，只能使用非受控磁碟。    
-      ![設定受控磁碟的儲存體](media/azure-stack-quick-linux-portal/linux-03.PNG)
+   - 從 Azure Stack 1808 版開始，您可以在選擇使用 [受控磁碟] 時設定 [儲存體]。 在 1808 版之前，只能使用非受控磁碟。    
+     ![設定受控磁碟的儲存體](media/azure-stack-quick-linux-portal/linux-03.PNG)
     
-    當您的設定就緒時，請選取 [確定] 以繼續。
+     當您的設定就緒時，請選取 [確定] 以繼續。
 
 7. 在 [摘要] 頁面上，按一下 [確定] 來開始進行虛擬機器部署。  
    ![部署](media/azure-stack-quick-linux-portal/deploy.png)
@@ -137,9 +137,9 @@ sudo apt-get -y install nginx
 1. 在虛擬機器的 [概觀] 頁面上，按一下「資源群組」的名稱。
 2. 選取虛擬機器的「網路安全性群組」。 使用 [類型] 資料行可以識別 NSG。
 3. 在左側功能表的 [設定] 底下，按一下 [輸入安全性規則]。
-4. 按一下 [新增]。
+4. 按一下 [新增] 。
 5. 在 [名稱] 中輸入 **http**。 確定 [連接埠範圍] 已設為 80 且 [動作] 已設為 [允許]。
-6. 按一下 [確定]
+6. 按一下 [檔案] &gt; [新增] &gt; [專案] 
 
 ## <a name="view-the-nginx-welcome-page"></a>檢視 NGINX 歡迎使用頁面
 

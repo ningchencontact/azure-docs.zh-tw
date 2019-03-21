@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: e7ffd8f6f4f3aee376a09071fad0f1a36c23f1c4
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: dd80095f50aa7bff488ac24e498afc0b41958dc0
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694001"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57403442"
 ---
 # <a name="internet-of-things-iot-technologies-and-solutions-paas-and-saas"></a>物聯網 (IoT) 技術與解決方案：PaaS 和 SaaS
 
@@ -90,7 +90,7 @@ Azure 的 IoT 中心是完全受控的 SaaS 解決方案，讓您無須具備豐
 
 ### <a name="device-support"></a>裝置支援
 
-善用 [Azure IoT 入門套件](https://catalog.azureiotsuite.com/kits)或從[裝置目錄](http://catalog.azureiotsuite.com/)的上百個 IoT 認證裝置中作出選擇，充滿自信地開始您的 IoT 專案。 所有裝置皆為平台中立並經過測試，能夠順暢連接 IoT 中樞。
+善用 [Azure IoT 入門套件](https://catalog.azureiotsolutions.com/kits)或從[裝置目錄](https://catalog.azureiotsolutions.com/)的上百個 IoT 認證裝置中作出選擇，充滿自信地開始您的 IoT 專案。 所有裝置皆為平台中立並經過測試，能夠順暢連接 IoT 中樞。
 使用開放原始碼[裝置 SDK](/azure/iot-hub/iot-hub-devguide-sdks)，將您所有的裝置連接至 Azure IoT。 SDK 支援多種作業系統，例如 Linux、Windows 及即時作業系統，並支援多種程式設計語言，像是 [C](https://github.com/Azure/azure-iot-sdk-c)、[Node.js](https://github.com/Azure/azure-iot-sdk-node)、[Java](https://github.com/Azure/azure-iot-sdk-java)、[.NET](https://github.com/Azure/azure-iot-sdk-csharp) 及 [Python](https://github.com/Azure/azure-iot-sdk-python)。
 
 ### <a name="iot"></a>IoT 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 9ca8e6876b67167429dbc0b5e6c3f5b454878c2a
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: c2f6a614524f0dfb242db11618fda94ce57e6e6a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382672"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111526"
 ---
 # <a name="what-is-azure-load-balancer"></a>什麼是 Azure Load Balancer？
 
@@ -94,8 +94,8 @@ Load Balancer 為 TCP 和 UDP 應用程式提供下列基本功能：
 
     所有從虛擬網路內私人 IP 位址送往網際網路上公用 IP 位址的輸出流程，皆可以轉譯為 Load Balancer 的前端 IP 位址。 當公用前端透過負載平衡規則繫結到後端虛擬機器時，Azure 會自動將輸出連線轉譯成公用前端 IP 位址。
 
-    * 能夠輕鬆進行服務的升級及災害復原，因為前端可以動態對應到服務的另一個執行個體。
-    * 讓存取控制清單 (ACL) 管理變得更容易。 當服務相應增加、相應減少或重新部署時，根據前端 IP 表示的 ACL 不會變更。  將輸出連線轉譯成數量比機器更少的 IP 地址，可以減少白清單的負擔。
+  * 能夠輕鬆進行服務的升級及災害復原，因為前端可以動態對應到服務的另一個執行個體。
+  * 讓存取控制清單 (ACL) 管理變得更容易。 當服務相應增加、相應減少或重新部署時，根據前端 IP 表示的 ACL 不會變更。  將輸出連線轉譯成數量比機器更少的 IP 地址，可以減少白清單的負擔。
 
     如需詳細資訊，請參閱[輸出連線](load-balancer-outbound-connections.md)。
 

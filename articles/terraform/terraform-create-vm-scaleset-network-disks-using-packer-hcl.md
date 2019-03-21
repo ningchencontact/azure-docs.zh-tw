@@ -2,19 +2,19 @@
 title: 使用 Terraform 從 Packer 自訂映像建立 Azure 虛擬機器擴展集
 description: 使用 Terraform 從 Packer 產生的自訂映像設定 Azure 虛擬機器擴展集和控制版本 (完整包含虛擬網路和受控連接磁碟)。
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, 擴展集, 虛擬機器, 網路, 儲存體, 模組, 自訂映像, packer
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/29/2017
-ms.openlocfilehash: 12c6ebc9b29c356ad169dbd921e71c7aa0c273b7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 5aff45b4a6b5da62569e0a39c13239a726e6b80b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077499"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002001"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>使用 Terraform 從 Packer 自訂映像建立 Azure 虛擬機器擴展集
 
@@ -180,7 +180,7 @@ terraform apply
 - Azure 後端位址集區，並將它指派給負載平衡器 
 - 應用程式所使用且在負載平衡器上設定的健康情況探查連接埠 
 - 位在負載平衡器幕後的虛擬機器擴展集，在稍早部署的 VNet 上執行
-- 在虛擬機器擴展集節點上從自訂映像安裝的 [Nginx](http://nginx.org/) \(英文\)
+- 在虛擬機器擴展集節點上從自訂映像安裝的 [Nginx](https://nginx.org/) \(英文\)
 
 
 在 `vmss.tf` 檔案的結尾加入下列程式碼。

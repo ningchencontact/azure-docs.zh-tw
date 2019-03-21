@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 4f3f82f329e3ac8774978f6116629a4928c142ad
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 38be92a006ae6dbb7a550d2d91d886df820fb883
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261321"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093560"
 ---
 # <a name="create-a-cicd-pipeline-for-java-with-azure-devops-projects"></a>使用 Azure DevOps Projects 建立適用於 Java 的 CI/CD 管線
 
@@ -65,7 +65,7 @@ Java 範例包含數種應用程式架構的選擇。
 
     ![儀表板檢視](_img/azure-devops-project-java/dashboardnopreview.png) 
     
- DevOps Projects 會自動設定 CI 建置和發行觸發程序。  您現在已準備好利用 CI/CD 程序與小組共同進行 Java 應用程式的作業，這個程序會自動將您的最新工作部署到網站上。
+   DevOps Projects 會自動設定 CI 建置和發行觸發程序。  您現在已準備好利用 CI/CD 程序與小組共同進行 Java 應用程式的作業，這個程序會自動將您的最新工作部署到網站上。
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>認可程式碼變更並執行 CI/CD
 
@@ -113,7 +113,7 @@ DevOps Projects 會在 Azure Repos 或 GitHub 中建立 Git 存放庫。 若要�
  DevOps Projects 已自動建立 CI 觸發程序，且每次對存放庫的認可都會啟動新的建置。  您可以選擇性地選擇要在 CI 程序中包含還是排除分支。
 
 1. 選取 [保留期]。   
-根據您的案例，您可以指定原則來保留或移除特定數目的組建。
+根據案例，您可以指定原則來保留或移除特定數目的組建。
 
 1. 選取 [建置及發行]，然後選取 [版本]。  
  DevOps Projects 會建立發行管線來管理 Azure 的部署。
@@ -125,7 +125,7 @@ DevOps Projects 會在 Azure Repos 或 GitHub 中建立 Git 存放庫。 若要�
 您在先前步驟中檢查的建置管線會產生用於成品的輸出。 
 
 1. 在 [置放] 圖示旁邊，選取 [持續部署觸發程序]。  
-這個發行管線已啟用 CD 觸發程序，每次有新的建置成品可用時，它就會執行部署。 您可以選擇性地停用觸發程序，因此您的部署需要手動執行。 
+這個發行管線已啟用 CD 觸發程序，每次有新的建置成品可用時，它就會執行部署。 您可以選擇性地停用觸發程序，因此需要手動執行部署。 
 
 1. 從左側選取 [工作]。   
 工作是您部署程序所執行的活動。 在此範例中，會建立一個工作來部署到 Azure App Service。
@@ -133,7 +133,7 @@ DevOps Projects 會在 Azure Repos 或 GitHub 中建立 Git 存放庫。 若要�
 1. 從右側選取 [檢視版本]。  
 此檢視會顯示版本的歷程記錄。
 
-1. 選取您其中一個版本旁的省略符號 (...)，然後選取 [開啟]。  
+1. 選取其中一個版本旁的省略符號 (...)，然後選取 [開啟]。  
 您可以瀏覽數個功能表，例如版本摘要、相關聯的工作項目及測試。
 
 1. 選取 [認可]。   

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jamesbak
-ms.openlocfilehash: 566af5d42b1b5b778db0a2014b238657ace7db5c
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: cdb89b552d0e328e6685e2bd62ea135e15e4b074
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672622"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013446"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>教學課程：使用 Azure HDInsight 上的 Apache Hive 來擷取、轉換和載入資料
 
@@ -58,6 +58,7 @@ ms.locfileid: "56672622"
    | 篩選年份 |2013 |
    | 篩選期間 |一月 |
    | 欄位 |Year、FlightDate、Reporting_Airline、IATA_CODE_Reporting_Airline、Flight_Number_Reporting_Airline、OriginAirportID、Origin、OriginCityName、OriginState、DestAirportID、Dest、DestCityName、DestState、DepDelayMinutes、ArrDelay、ArrDelayMinutes、CarrierDelay、WeatherDelay、NASDelay、SecurityDelay、LateAircraftDelay。 |
+   
    清除所有其他欄位。
 
 3. 選取 [下載]。 您會取得含有您所選資料欄位的 .zip 檔案。

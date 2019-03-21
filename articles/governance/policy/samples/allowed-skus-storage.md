@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: cb6ccf87cc14424801a06cc2e9749e2fc2f6ee4a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 87770a12ca7e489b11b2d176903f976fdcc256a0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339901"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551313"
 ---
 # <a name="sample---allowed-skus-for-storage-accounts-and-virtual-machines"></a>範例 - 允許的儲存體帳戶和虛擬機器 SKU
 
@@ -29,7 +29,7 @@ ms.locfileid: "56339901"
 
 ## <a name="deploy-with-the-portal"></a>使用入口網站部署
 
-[![部署至 Azure](http://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+[![部署至 Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 部署
 

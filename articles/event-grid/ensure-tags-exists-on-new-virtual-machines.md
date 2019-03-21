@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 01/14/2019
 ms.author: eamono
-ms.openlocfilehash: d7113842aff4d6d9ec66439d1d43e5e24333d3f1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: d0764131f0e7e321a87ed383636606b2124ef7d9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467565"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58173765"
 ---
 # <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>教學課程：將 Azure 自動化與事件格線和 Microsoft Teams 整合
 
@@ -31,6 +31,8 @@ ms.locfileid: "54467565"
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="prerequisites"></a>必要條件
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 若要完成本教學課程，需要有 [Azure 自動化帳戶](../automation/automation-offering-get-started.md)，才能保留從 Azure 事件格線訂用帳戶觸發的 Runbook。
 

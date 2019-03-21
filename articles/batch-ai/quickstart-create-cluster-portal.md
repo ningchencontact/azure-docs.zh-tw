@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 08/15/2018
 ms.author: danlep
 ROBOTS: NOINDEX
-ms.openlocfilehash: 78c743448a7f7439875d3598d6ba5d4eb6dc12fc
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 49e78f1774a2998de7070453f7c098aef1761242
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408930"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093223"
 ---
 # <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立 Batch AI 訓練作業的叢集
 
@@ -59,7 +59,7 @@ ssh-keygen -t rsa -b 2048
 
 3. 輸入 [工作區名稱] 和 [資源群組] 的值。 如果您想要的話，也可以為工作區選取不同的 [訂用帳戶] 和 [位置] 選項。 選取 [建立工作區]。
 
-  ![建立 Batch AI 工作區](./media/quickstart-create-cluster-portal/create-workspace.png)
+   ![建立 Batch AI 工作區](./media/quickstart-create-cluster-portal/create-workspace.png)
 
 當**部署成功**訊息出現時，移至您所建立的資源，然後選取工作區。
 
@@ -73,7 +73,7 @@ Batch AI 檔案伺服器是單一節點 NFS，可自動掛接在叢集節點上�
 
 3. 輸入 [系統管理員使用者名稱]，並將 SSH 公用金鑰檔案的內容複製到 [SSH 金鑰]。 接受其餘值的預設值，然後選取 [建立檔案伺服器]。
 
-  ![建立 Batch AI 檔案伺服器](./media/quickstart-create-cluster-portal/create-file-server.png)
+   ![建立 Batch AI 檔案伺服器](./media/quickstart-create-cluster-portal/create-file-server.png)
 
 部署檔案伺服器需要幾分鐘的時間。
 

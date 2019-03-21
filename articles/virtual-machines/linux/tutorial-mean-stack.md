@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 97734ad6119e89c00634035b1646bc29ac6549bd
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: a8f756385b62dfb21e910b9373dc275c7f679d3e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237847"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009667"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>教學課程：在 Azure 中的 Linux 虛擬機器上建立 MongoDB、Express、AngularJS 和 Node.js (MEAN) 堆疊
 
@@ -91,13 +91,13 @@ sudo apt-get install -y nodejs
 ```
 
 ## <a name="install-mongodb-and-set-up-the-server"></a>安裝 MongoDB 並設定伺服器
-[MongoDB](http://www.mongodb.com) 會將資料儲存在類似 JSON 的彈性文件中。 資料庫中的欄位會隨著文件而不同，而且資料結構也會隨著時間而改變。 在我們的應用程式範例中，我們要新增書籍記錄到 MongoDB，這些記錄中包含了書籍名稱、isbn 編號、作者和頁數。 
+[MongoDB](https://www.mongodb.com) 會將資料儲存在類似 JSON 的彈性文件中。 資料庫中的欄位會隨著文件而不同，而且資料結構也會隨著時間而改變。 在我們的應用程式範例中，我們要新增書籍記錄到 MongoDB，這些記錄中包含了書籍名稱、isbn 編號、作者和頁數。 
 
 1. 在 VM 上使用您透過 SSH 所開啟的 bash 殼層來設定 MongoDB 金鑰。
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
-    echo "deb [ arch=amd64 ] http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+    echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
     ```
 
 2. 使用該金鑰更新套件管理員。
@@ -149,7 +149,7 @@ sudo apt-get install -y nodejs
 
 ## <a name="install-express-and-set-up-routes-to-the-server"></a>安裝 Express 並設定通往伺服器的路由
 
-[Express](https://expressjs.com) 是最小且具有彈性的 Node.js Web 應用程式架構，可為 Web 和行動應用程式提供功能。 本教學課程使用 Express 以在 MongoDB 資料庫中傳入和傳出書籍資訊。 [Mongoose](http://mongoosejs.com) 提供簡單的結構描述型解決方案，來為您的應用程式資料建立模型。 本教學課程使用 Mongoose 來為資料庫提供書籍結構描述。
+[Express](https://expressjs.com) 是最小且具有彈性的 Node.js Web 應用程式架構，可為 Web 和行動應用程式提供功能。 本教學課程使用 Express 以在 MongoDB 資料庫中傳入和傳出書籍資訊。 [Mongoose](https://mongoosejs.com) 提供簡單的結構描述型解決方案，來為您的應用程式資料建立模型。 本教學課程使用 Mongoose 來為資料庫提供書籍結構描述。
 
 1. 安裝 Express 和 Mongoose。
 

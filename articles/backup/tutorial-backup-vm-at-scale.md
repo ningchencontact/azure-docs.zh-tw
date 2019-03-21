@@ -9,12 +9,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: a73568fd1dd7ed6b6cd3a7938768db4982725658
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 99f5b09d0b5dfc144dca7f19efff3f0656a82b35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497872"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093240"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>使用 Azure 入口網站備份多部虛擬機器
 
@@ -77,16 +77,16 @@ ms.locfileid: "55497872"
     ![選取工作負載](./media/tutorial-backup-vm-at-scale/create-new-policy.png)
 
 5. 在 [備份原則] 功能表上，針對 [原則名稱] 鍵入 *Finance*。 輸入備份原則的下列變更：
-    - 針對 [備份頻率]將時區設定為 [美國中部時間]。 因為運動休閒中心位在德州，所以業主希望使用本地時間。 [備份頻率] 保持設定為 [每天] 上午 3:30 執行。
-    - 針對 [每日備份點保留期]，將期限設定為 90 天。
-    - 針對 [每週備份點保留期]，還原點使用 [星期一] 並保留 52 週。
-    - 針對 [每月備份點保留期]，還原點使用每月第一個星期日並保留 36 個月。
-    - 取消選取 [每年備份點保留期] 選項。 財務部主管不希望資料保留期限超過 36 個月。
-    - 按一下 [確定] 可建立備份原則。
+   - 針對 [備份頻率]將時區設定為 [美國中部時間]。 因為運動休閒中心位在德州，所以業主希望使用本地時間。 [備份頻率] 保持設定為 [每天] 上午 3:30 執行。
+   - 針對 [每日備份點保留期]，將期限設定為 90 天。
+   - 針對 [每週備份點保留期]，還原點使用 [星期一] 並保留 52 週。
+   - 針對 [每月備份點保留期]，還原點使用每月第一個星期日並保留 36 個月。
+   - 取消選取 [每年備份點保留期] 選項。 財務部主管不希望資料保留期限超過 36 個月。
+   - 按一下 [確定] 可建立備份原則。
 
-    ![選取工作負載](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
+     ![選取工作負載](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
 
-    建立備份原則之後，再建立該原則與虛擬機器的關聯性。
+     建立備份原則之後，再建立該原則與虛擬機器的關聯性。
 
 6. 在 [選取虛擬機器] 對話方塊中選取 [myVM]，然後按一下 [確定] 將備份原則部署到虛擬機器。
 

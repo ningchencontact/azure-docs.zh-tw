@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 2b37d77e00595be125490431694f4549f61fced6
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 912307e6509ea66be887838e875076b7a895ca94
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56982788"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888142"
 ---
 # <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站透過標準 Load Balancer 將 VM 的負載平均分配至多個可用性區域
 
@@ -35,7 +35,7 @@ ms.locfileid: "56982788"
 > * 建立基本 IIS 網站
 > * 檢視作用中的負載平衡器
 
-如需關於搭配使用可用性區域和 Standard Load Balancer 的詳細資訊，請參閱 [Standard Load Balancer 和可用性區域](load-balancer-standard-availability-zones.md)。
+如需關於搭配使用可用性區域和標準 Load Balancer 的詳細資訊，請參閱[標準 Load Balancer 和可用性區域](load-balancer-standard-availability-zones.md)。
 
 如果您想要，您可以使用 [Azure CLI](load-balancer-standard-public-zone-redundant-cli.md) 完成本教學課程。
 
@@ -43,11 +43,11 @@ ms.locfileid: "56982788"
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-在 [http://portal.azure.com](http://portal.azure.com) 登入 Azure 入口網站。
+在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 
 ## <a name="create-a-standard-load-balancer"></a>建立標準負載平衡器
 
-Standard Load Balancer 只支援標準公用 IP 位址。 當您在建立負載平衡器期間建立新的公用 IP 時，它會自動設定為標準 SKU 版本，而且也會自動具備區域備援能力。
+標準負載平衡器只支援標準公用 IP 位址。 當您在建立負載平衡器期間建立新的公用 IP 時，它會自動設定為標準 SKU 版本，而且也會自動具備區域備援能力。
 
 1. 在畫面的左上方，按一下 [建立資源] > [網路] > [負載平衡器]。
 2. 在 [建立負載平衡器] 頁面的 [基本資料] 中，輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [檢閱 + 建立]：
@@ -108,7 +108,7 @@ Standard Load Balancer 只支援標準公用 IP 位址。 當您在建立負載�
     - 允許 HTTP - 負載平衡器規則的描述。
 4. 按一下 [確定]。
  
- ![建立虛擬網路](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![建立虛擬網路](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 5. 重複步驟 2 到 4 來建立另一個名為 myRDPRule 的規則，以允許使用連接埠 3389 的輸入 RDP 連線，其具有下列值：
     - 服務標記 - 作為 [來源]。
     - 網際網路 - 作為 [來源服務標記]
@@ -137,7 +137,7 @@ Standard Load Balancer 只支援標準公用 IP 位址。 當您在建立負載�
 5. 按一下 [停用] 來停用開機診斷。
 6. 按一下 [確定]，檢閱 [摘要] 頁面上的設定，然後按一下 [建立]。
   
- ![建立虛擬機器](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
+   ![建立虛擬機器](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
 
 7. 使用步驟 1-6，在區域 2 中建立名為 VM2 的第二個 VM，並在區域 3 中建立第三個 VM，且其虛擬網路為 myVnet、子網路為 myBackendSubnet，而網路安全性群組為 *myNetworkSecurityGroup。
 

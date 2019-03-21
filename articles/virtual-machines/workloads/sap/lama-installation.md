@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 17/07/2018
+ms.date: 11/17/2018
 ms.author: sedusch
-ms.openlocfilehash: d5d344f47fa46e9fe0adea048db200ec67a3fadc
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 432dcf4608d23f269c5005b86d2c58b7f70b3068
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262572"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007588"
 ---
 # <a name="sap-lama-connector-for-azure"></a>適用於 Azure 的 SAP LaMa 連接器
 
@@ -77,7 +77,7 @@ ms.locfileid: "54262572"
 1. 開啟 [Azure Active Directory] 刀鋒視窗
 1. 按一下 [應用程式註冊]
 1. 按一下 [新增]
-1. 輸入名稱、選取應用程式類型 [Web 應用程式/API]、輸入登入 URL (例如 http://localhost))，然後按一下 [建立]
+1. 輸入名稱、 選取應用程式類型 [Web 應用程式/API]、 輸入登入 URL (例如`http://localhost`)，然後按一下建立
 1. 登入 URL 並未使用，而且可以是任何有效的 URL
 1. 選取新的應用程式，然後按一下 [設定] 索引標籤中的金鑰
 1. 輸入新金鑰的說明、選取 [永不過期]，然後按一下 [儲存]
@@ -230,7 +230,7 @@ SAP LaMa 本身無法重新放置 SQL Server，因此您想要用於重新放置
 
 啟動 SAP Software Provisioning Manager (SWPM) 之前，您必須掛接 ASCS 的虛擬主機名稱 IP 位址。 建議的方式是使用 sapacext。 如果您使用 sapacext 掛接 IP 位址，請務必在重新開機後重新掛接 IP 位址。
 
-![Linux][Logo_Linux] Linux
+![ Linux][Logo_Linux] Linux
 
 ```bash
 # /usr/sap/hostctrl/exe/sapacext -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
@@ -270,7 +270,7 @@ acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
 
 啟動 SAP Software Provisioning Manager (SWPM) 之前，您必須掛接應用程式伺服器的虛擬主機名稱 IP 位址。 建議的方式是使用 sapacext。 如果您使用 sapacext 掛接 IP 位址，請務必在重新開機後重新掛接 IP 位址。
 
-![Linux][Logo_Linux] Linux
+![ Linux][Logo_Linux] Linux
 
 ```bash
 # /usr/sap/hostctrl/exe/sapacext -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>

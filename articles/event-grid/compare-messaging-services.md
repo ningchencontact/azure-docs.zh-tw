@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/30/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 0a71b88f6ad85cbd76f9bc789e87ad5b032418c9
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: d2daa23a22fae6ba420a146599c0c0ba659a94f2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297101"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540800"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>選擇 Azure 訊息服務 - 事件方格、事件中樞和服務匯流排
 
@@ -34,7 +34,7 @@ Azure 提供三種服務，協助在整個解決方案中傳遞事件訊息。 �
 
 事件是狀況或狀態變更的輕量級通知。 事件發行者不會預期事件的處理方式。 事件取用者會決定要如何處理通知。 事件可以是離散單位或系列的一部分。
 
-離散事件會報告狀態變更並可採取動作。 若要採取下一個步驟，取用者只需要知道發生狀況。 事件資料包含所發生事件的資訊，但沒有觸發該事件的資料。 例如，事件會通知取用者檔案已建立。 通知中可能具有關於檔案的一般資訊，但不包含檔案本身。 離散事件非常適合需要調整的[無伺服器](http://azure.com/serverless)解決方案。
+離散事件會報告狀態變更並可採取動作。 若要採取下一個步驟，取用者只需要知道發生狀況。 事件資料包含所發生事件的資訊，但沒有觸發該事件的資料。 例如，事件會通知取用者檔案已建立。 通知中可能具有關於檔案的一般資訊，但不包含檔案本身。 離散事件非常適合需要調整的[無伺服器](https://azure.com/serverless)解決方案。
 
 系列事件會報告狀況且可進行分析。 事件會依時間排序且相互關聯。 取用者需要循序的事件系列，才能分析所發生的狀況。
 

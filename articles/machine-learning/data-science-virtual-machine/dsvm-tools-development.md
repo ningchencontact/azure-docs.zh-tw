@@ -16,18 +16,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 663da31985759f47fff77dc5ad0f985d44559385
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: dd60c5d0210ffba373839fd0f194496c5dbcc20d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451575"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999414"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>資料科學虛擬機器的開發工具
 
 資料科學虛擬機器 (DSVM) 提供組合數個常用工具和 IDE 的開發生產環境。 以下是 DSVM 提供的一些工具。 
 
 ## <a name="visual-studio-2017"></a>Visual Studio 2017  
+
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 一般用途 IDE      |
@@ -38,6 +39,7 @@ ms.locfileid: "55451575"
 | DSVM 上的相關工具      |     Visual Studio Code、RStudio、Juno  |
 
 ## <a name="visual-studio-code"></a>Visual Studio Code 
+
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 一般用途 IDE      |
@@ -47,6 +49,7 @@ ms.locfileid: "55451575"
 | DSVM 上的相關工具      |     Visual Studio 2017、RStudio、Juno  |
 
 ## <a name="rstudio--desktop"></a>RStudio Desktop 
+
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 適用於 R 的用戶端 IDE    |
@@ -56,6 +59,7 @@ ms.locfileid: "55451575"
 | DSVM 上的相關工具      |   Visual Studio 2017、Visual Studio Code、Juno      |
 
 ## <a name="rstudio--server"></a>RStudio  Server 
+
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 適用於 R 的網頁型 IDE    |
@@ -65,6 +69,7 @@ ms.locfileid: "55451575"
 | DSVM 上的相關工具      |   Visual Studio 2017、Visual Studio Code、RStudio Desktop      |
 
 ## <a name="juno"></a>Juno 
+
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | Julia 語言的用戶端 IDE   |
@@ -74,6 +79,7 @@ ms.locfileid: "55451575"
 | DSVM 上的相關工具      |   Visual Studio 2017、Visual Studio Code、RStudio      |
 
 ## <a name="pycharm"></a>Pycharm
+
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | Python 語言的用戶端 IDE    |
@@ -85,6 +91,7 @@ ms.locfileid: "55451575"
 
 
 ## <a name="powerbi-desktop"></a>PowerBI Desktop 
+
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 互動式資料視覺效果和 BI 工具    |

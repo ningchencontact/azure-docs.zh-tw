@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a707ae6959b035ae0bcc05ead027dabd528e1b59
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 99c6e7dc589a94880976a9c7abcde12377e4e5d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747504"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101528"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>建立及使用內部負載平衡器與 App Service Environment #
 
@@ -80,11 +80,11 @@ ms.locfileid: "55747504"
 
    您可以[將現有的 DNS 名稱對應至您的應用程式][customdomain]。 應用程式使用的自訂網域名稱，與您的 ASE 使用的網域名稱不可重疊。 若 ILB ASE 的網域名稱為 contoso.com，則您的應用程式不能使用像這樣的自訂網域名稱：
 
-    * www.contoso.com
+   * www\.contoso.com
 
-    * abcd.def.contoso.com
+   * abcd.def.contoso.com
 
-    * abcd.contoso.com
+   * abcd.contoso.com
 
    如果您知道您的應用程式自訂網域名稱，請為 ILB ASE 選擇不會與這些自訂網域名稱相衝突的網域。 在此範例中，您可以為您的 ASE 使用類似 contoso internal.com 的網域，因為不會與 contoso.com結尾的自訂網域名稱衝突。
 
@@ -222,7 +222,7 @@ Azure App Service 提供許多安全性措施來保護您的系統。 它們也�
 ## <a name="get-started"></a>開始使用 ##
 
 * 若要開始使用ASE，請參閱 [App Service Environment 簡介][Intro]。
- 
+ 
 
 <!--Image references-->
 [1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png

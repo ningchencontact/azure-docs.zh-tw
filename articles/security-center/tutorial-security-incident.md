@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: d3154e137aec8dcedcb066e2c9aab046b5a7b6e0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: d726006d3ecce69f129b1576c7c6d12833582873
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108818"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081985"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>教學課程：回應安全性事件
 資訊安全中心會使用進階的分析和威脅情報，持續分析混合式雲端工作負載，提醒您發生惡意活動。 此外，您可以將警示從其他的安全性產品和服務整合到資訊安全中心，並以您自己的指標或情報來源作為基礎建立自訂警示。 一旦有警示產生，您便需要迅速採取行動來進行調查並加以修復。 在本教學課程中，您將了解如何：
@@ -45,28 +45,28 @@ ms.locfileid: "56108818"
 
 1. 在 [資訊安全中心] 主功能表上，選取 [偵測] 下的 [安全性警訊]：
 
-  ![安全性警示](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
+   ![安全性警示](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
 
 2. 在警示清單中對某個安全性事件 (此為警示集合) 按一下，以深入了解此事件。 [偵測到安全性事件] 隨即開啟。
 
-  ![安全性事件](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
+   ![安全性事件](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
 
 3. 在這個畫面上，您會在上方看到安全性事件描述，以及屬於此事件的警示清單。 按一下您要進一步調查的警示，以取得詳細資訊。
 
-  ![安全性事件](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
+   ![安全性事件](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
 
-  警示類型可能會有所不同，如需警示類型的詳細資訊及可能的補救步驟，請閱讀[了解 Azure 資訊安全中心的安全性警示](https://docs.microsoft.com/azure/security-center/security-center-alerts-type)。 對於可安全關閉的警示，您可以滑鼠右鍵按一下警示，並選取 [關閉] 選項：
+   警示類型可能會有所不同，如需警示類型的詳細資訊及可能的補救步驟，請閱讀[了解 Azure 資訊安全中心的安全性警示](https://docs.microsoft.com/azure/security-center/security-center-alerts-type)。 對於可安全關閉的警示，您可以滑鼠右鍵按一下警示，並選取 [關閉] 選項：
 
-  ![警示](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
+   ![警示](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
 
 4. 如果惡意活動的根本原因和範圍不明時，請繼續進行下一個步驟以進一步調查。
 
 ## <a name="investigate-an-alert-or-incident"></a>調查警示或事件
 1. 在 [安全性警示] 頁面上，按一下 [開始調查] 按鈕 (如果您已啟動，名稱會變更為 [繼續調查])。
 
-  ![調查](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
+   ![調查](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
 
-  調查地圖會以圖形來表示連線到此安全性警示或事件的實體。 按一下地圖中的實體，該實體的相關資訊就會顯示新的實體，並展開地圖。 地圖中選取的實體會在頁面的右側窗格中將其屬性反白顯示。 每個索引標籤上的可用資訊會根據選取的實體而有所不同。 在調查流程中，檢閱所有相關資訊以深入了解攻擊者的移動路線。
+   調查地圖會以圖形來表示連線到此安全性警示或事件的實體。 按一下地圖中的實體，該實體的相關資訊就會顯示新的實體，並展開地圖。 地圖中選取的實體會在頁面的右側窗格中將其屬性反白顯示。 每個索引標籤上的可用資訊會根據選取的實體而有所不同。 在調查流程中，檢閱所有相關資訊以深入了解攻擊者的移動路線。
 
 2. 如果您需要更多證據，或必須對調查期間找到的實體進一步調查時，請繼續進行下一個步驟。
 

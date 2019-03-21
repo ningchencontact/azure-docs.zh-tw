@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: 04ec95e891b4e9333949a3a0f40dcc9df88e49e7
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 015a2d344b066bd7b65c3228a2795c3395793f2b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865849"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097025"
 ---
 # <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-nodejs"></a>快速入門：使用適用於 Node.js 的 Bing 實體搜尋 SDK 來傳送搜尋要求
 
@@ -53,7 +53,7 @@ ms.locfileid: "55865849"
 
 ## <a name="send-a-request-and-receive-a-response"></a>傳送要求並接收回應
 
-2. 使用 `entitiesOperations.search()` 傳送實體搜尋要求。 接收到回應後，請列印 `queryContext`、傳回的結果數，和第一個結果的描述。
+1. 使用 `entitiesOperations.search()` 傳送實體搜尋要求。 接收到回應後，請列印 `queryContext`、傳回的結果數，和第一個結果的描述。
       
     ```javascript
     entitySearchApiClient.entitiesOperations.search('seahawks').then((result) => {

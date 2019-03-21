@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: b97f2d3a015ebfd5f9c8771d3fc3edc1c074c839
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ba6a9a09945f0e822dfe02a74f2cdb8e21a1691c
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203704"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56674662"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>使用 Service Fabric 總管視覺化叢集
 
@@ -56,7 +56,7 @@ Service Fabric Explorer 也裝載於 Service Fabric 叢集的 HTTP 管理端點�
 >
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>連線至 Service Fabric 叢集
-若要連線至 Service Fabric 叢集，您需要叢集管理端點 (FQDN/IP) 和 HTTP 管理端點連接埠 (預設為 19080)。 例如 https://mysfcluster.westus.cloudapp.azure.com:19080 。 使用 [連線至 localhost] 核取方塊，連線至工作站上的本機叢集。
+若要連線至 Service Fabric 叢集，您需要叢集管理端點 (FQDN/IP) 和 HTTP 管理端點連接埠 (預設為 19080)。 例如 https\:/ / mysfcluster.westus.cloudapp.azure.com:19080。 使用 [連線至 localhost] 核取方塊，連線至工作站上的本機叢集。
 
 ### <a name="connect-to-a-secure-cluster"></a>連線到安全的叢集
 您可以為使用憑證或使用 Azure Active Directory (AAD) 來控制用戶端對您 Service Fabric 叢集的存取。

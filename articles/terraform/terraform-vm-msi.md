@@ -2,19 +2,19 @@
 title: 使用 Azure Marketplace 映像透過受控識別來建立 Terraform Linux 虛擬機器
 description: 使用 Azure Marketplace 映像，透過受控識別與遠端狀態管理來建立 Terraform Linux 虛擬機器，輕鬆地將資源部署至 Azure。
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, MSI, 虛擬機器, 遠端狀態, azure
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 3f10e5dfd0a4aac859c1a946b5f0a680899e0888
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: a1a980e1f8b004c4a3dba53e4f83367022074c7c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852536"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007958"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>使用 Azure Marketplace 映像透過 Azure 資源的受控識別來建立 Terraform Linux 虛擬機器
 
@@ -77,7 +77,7 @@ Terraform VM 映像會執行下列步驟：
 
 ## <a name="access-and-configure-a-linux-terraform-virtual-machine"></a>存取及設定 Linux Terraform 虛擬機器
 
-建立 VM 之後，您就可以使用 SSH 登入 VM。 針對文字殼層介面，使用您在步驟 3 「基本資料」一節中建立的帳戶認證。 在 Windows 上，您可以下載 SSH 用戶端工具，例如 [Putty](http://www.putty.org/)。
+建立 VM 之後，您就可以使用 SSH 登入 VM。 針對文字殼層介面，使用您在步驟 3 「基本資料」一節中建立的帳戶認證。 在 Windows 上，您可以下載 SSH 用戶端工具，例如 [Putty](https://www.putty.org/)。
 
 使用 SSH 連線至虛擬機器後，您必須將整個訂用帳戶的參與者權限授予虛擬機器上 Azure 資源的受控識別。 
 

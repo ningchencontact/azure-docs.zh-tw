@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d2e29e183ab898635f550290b6ebd6eddd42c4d2
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 15dd878b7ff322ac8243b37649f16fed4e068af4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659196"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091710"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>快速入門：在 Azure Stack 中使用 Azure CLI 建立 Windows Server 虛擬機器
 
@@ -42,8 +42,8 @@ ms.locfileid: "55659196"
 
 資源群組是您可以在其中部署和管理 Azure Stack 資源的邏輯容器。 從 Azure Stack 環境，執行 [az group create](/cli/azure/group#az-group-create) 命令來建立資源群組。
 
->[!NOTE]
- 系統會為程式碼範例中的所有變數指派值。 不過，您可以視需要指派新值。
+> [!NOTE]
+>  系統會為程式碼範例中的所有變數指派值。 不過，您可以視需要指派新值。
 
 下列範例會在本機位置建立名為 myResourceGroup 的資源群組。
 

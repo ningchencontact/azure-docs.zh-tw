@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: bccf12c4e0614ec02414001ab7cf3c4b7f189e65
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 557e7d9a35f012d65977d3e0654b55b15ff1e28f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455995"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106435"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>教學課程：使用 Azure Batch 執行平行 R 模擬 
 
-使用 [doAzureParallel](http://www.github.com/Azure/doAzureParallel) 大規模執行平行 R 工作負載，這個輕量型 R 套件可讓您直接從 R 工作階段使用 Azure Batch。 doAzureParallel 套件是以熱門的 [foreach](http://cran.r-project.org/web/packages/foreach/index.html) R 套件作為建置基礎。 doAzureParallel 會採用 foreach 迴圈的每次反覆運算，並將它提交為 Azure Batch 工作。
+使用 [doAzureParallel](https://www.github.com/Azure/doAzureParallel) 大規模執行平行 R 工作負載，這個輕量型 R 套件可讓您直接從 R 工作階段使用 Azure Batch。 doAzureParallel 套件是以熱門的 [foreach](https://cran.r-project.org/web/packages/foreach/index.html) R 套件作為建置基礎。 doAzureParallel 會採用 foreach 迴圈的每次反覆運算，並將它提交為 Azure Batch 工作。
 
 本教學課程示範如何部署 Batch 集區，並直接在 RStudio 內執行 Azure Batch 中的平行 R 作業。 您會了解如何：
  
@@ -45,7 +45,7 @@ ms.locfileid: "55455995"
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 ## <a name="install-doazureparallel"></a>安裝 doAzureParallel
 
-在 RStudio 主控台中，安裝 [doAzureParallel GitHub 套件](http://www.github.com/Azure/doAzureParallel)。 下列命令會在目前的 R 工作階段中，下載並安裝此套件及其相依項目： 
+在 RStudio 主控台中，安裝 [doAzureParallel GitHub 套件](https://www.github.com/Azure/doAzureParallel)。 下列命令會在目前的 R 工作階段中，下載並安裝此套件及其相依項目： 
 
 ```R
 # Install the devtools package  
@@ -260,7 +260,7 @@ stopCluster(cluster)
 在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
-安裝 doAzureParallel 並將它設定為存取您的 Batch 和儲存體帳戶
+> 安裝 doAzureParallel 並將它設定為存取您的 Batch 和儲存體帳戶
 > * 建立 Batch 集區作為 R 工作階段的平行後端
 > * 在集區上執行平行模擬範例
 

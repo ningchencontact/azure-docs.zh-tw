@@ -11,16 +11,16 @@ ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: af2e711cef6e97935c2e4dc90557ef4f127d1caa
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 710ba8b3e8b581da1db0bf7a3aeb2ee254887b7f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237429"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007015"
 ---
 # <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>快速入門：使用 PHP 查詢 Azure SQL 資料庫
 
-本文示範如何使用 [PHP](http://php.net/manual/en/intro-whatis.php) 連線至 Azure SQL 資料庫。 您可以接著使用 T-SQL 陳述式來查詢資料。
+本文示範如何使用 [PHP](https://php.net/manual/en/intro-whatis.php) 連線至 Azure SQL 資料庫。 您可以接著使用 T-SQL 陳述式來查詢資料。
 
 ## <a name="prerequisites"></a>必要條件
 

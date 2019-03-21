@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e2dd02ada2c22fa8d6c2d79387ea01f3ec97dd7e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: b9f153aa2da32fac2bf2e64f9fc4cd469acb0b89
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108121"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007504"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>教學課程：在 Azure Container Registry 中更新基底映像時自動執行容器映像建置 
 
@@ -146,7 +146,7 @@ az acr login --name $ACR_NAME
 docker run -d -p 8080:80 $ACR_NAME.azurecr.io/helloworld:<run-id>
 ```
 
-在瀏覽器中瀏覽至 http://localhost:8080，您應該會看到 Node.js 版本號碼呈現於網頁中，如下所示。 在後續步驟中，您可以在版本字串中加上 "a"，以變更版本。
+在瀏覽器中瀏覽至 `http://localhost:8080`，您應該會看到 Node.js 版本號碼呈現於網頁中，如下所示。 在後續步驟中，您可以在版本字串中加上 "a"，以變更版本。
 
 ![呈現在瀏覽器中的範例應用程式的螢幕擷取畫面][base-update-01]
 

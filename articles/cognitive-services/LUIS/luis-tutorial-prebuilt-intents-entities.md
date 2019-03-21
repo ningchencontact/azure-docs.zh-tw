@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: cf16f27a8d39871491b7cf46a509b9714a669667
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 87e006cc5d56e0c7eb5455147c5ce9eb40afc162
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873809"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086610"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>教學課程：找出常見的意圖和實體
 
@@ -55,13 +55,13 @@ LUIS 提供數個預先建置的意圖來協助處理常見的使用者意圖。
 
 1. 選取下列意圖，然後選取 [Done] \(完成\)： 
 
-    * Utilities.Cancel
-    * Utilities.Confirm
-    * Utilities.Help
-    * Utilities.StartOver
-    * Utilities.Stop
+   * Utilities.Cancel
+   * Utilities.Confirm
+   * Utilities.Help
+   * Utilities.StartOver
+   * Utilities.Stop
 
-    在判斷使用者在交談中的位置以及他們要求執行的作業時，這些意圖很有幫助。 
+     在判斷使用者在交談中的位置以及他們要求執行的作業時，這些意圖很有幫助。 
 
 
 ## <a name="add-prebuilt-entities-to-help-with-common-data-type-extraction"></a>新增預先建置的實體來協助存取常見的資料類型
@@ -74,12 +74,12 @@ LUIS 提供數個預先建置的實體來擷取常見的資料。
 
 1. 從預先建置的實體清單中選取下列實體，然後選取 [完成]：
 
-    * **[PersonName](luis-reference-prebuilt-person.md)** 
-    * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
+   * **[PersonName](luis-reference-prebuilt-person.md)** 
+   * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
 
-    ![預先建置的實體對話方塊中已選取 number 的螢幕擷取畫面](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
+     ![預先建置的實體對話方塊中已選取 number 的螢幕擷取畫面](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
-    這些實體會協助您將名稱和位置辨識功能新增至用戶端應用程式。
+     這些實體會協助您將名稱和位置辨識功能新增至用戶端應用程式。
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>將範例語句新增至 None 意圖 
 

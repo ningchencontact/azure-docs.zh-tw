@@ -1,19 +1,19 @@
 ---
 title: 使用 Ansible 來建立及設定適用於 MySQL 的 Azure 資料庫伺服器
 description: 深入了解如何使用 Ansible 來建立及設定適用於 MySQL 的 Azure 資料庫伺服器
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, 劇本, mysql, 資料庫
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/23/2018
-ms.openlocfilehash: 85f3957af599c80c46871a126681d29dfa513431
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 63472cf9c4b6b16f74ececfb6c6e61cf5f89ff9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051011"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095393"
 ---
 # <a name="create-and-configure-an-azure-database-for-mysql-server-by-using-ansible"></a>使用 Ansible 來建立及設定適用於 MySQL 的 Azure 資料庫伺服器
 [適用於 MySQL 的 Azure 資料庫](https://docs.microsoft.com/azure/mysql/)是一個受控服務，您可用來在雲端執行、管理及調整高可用性 MySQL 資料庫。 Ansible 可讓您將環境中的資源部署和設定自動化。 
@@ -134,14 +134,14 @@ ansible-playbook mysql_firewall.yml
 輸入後續命令： 
 
 1. 使用 **mysql** 命令列工具連線至伺服器：
-```azurecli-interactive
- mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
-```
+   ```azurecli-interactive
+   mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
+   ```
 
 2. 檢視伺服器狀態：
-```sql
- mysql> status
-```
+   ```sql
+   mysql> status
+   ```
 
 如果一切順利，命令列工具應輸出下列文字︰
 

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f6ae69c04d83e1ce1540267fb7932b80cca1013c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ef0a3d251679d7dd6760f1f928cbf0f0daf3db01
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087198"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099132"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>使用適用於 IoT 中樞裝置佈建服務的 Node.js 裝置 SDK 來建立及佈建模擬 TPM 裝置
 
@@ -72,25 +72,25 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 
 1. 安裝下列套件，其中包含在註冊期間使用的元件：
 
-    - 搭配 TPM 運作的安全性用戶端：`azure-iot-security-tpm`
-    - 可供裝置連線至裝置佈建服務的傳輸：不是 `azure-iot-provisioning-device-http` 就是 `azure-iot-provisioning-device-amqp`
-    - 要使用傳輸的用戶端和安全性用戶端：`azure-iot-provisioning-device`
+   - 搭配 TPM 運作的安全性用戶端：`azure-iot-security-tpm`
+   - 可供裝置連線至裝置佈建服務的傳輸：不是 `azure-iot-provisioning-device-http` 就是 `azure-iot-provisioning-device-amqp`
+   - 要使用傳輸的用戶端和安全性用戶端：`azure-iot-provisioning-device`
 
-    註冊裝置後，您可以使用在註冊期間提供的認證，利用一般 IoT 中樞裝置用戶端套件來連接裝置。 您將需要：
+     註冊裝置後，您可以使用在註冊期間提供的認證，利用一般 IoT 中樞裝置用戶端套件來連接裝置。 您將需要：
 
-    - 裝置用戶端：`azure-iot-device`
-    - 傳輸：`azure-iot-device-amqp`、`azure-iot-device-mqtt` 或 `azure-iot-device-http` 任何一項
-    - 您已安裝的安全性用戶端：`azure-iot-security-tpm`
+   - 裝置用戶端：`azure-iot-device`
+   - 傳輸：`azure-iot-device-amqp`、`azure-iot-device-mqtt` 或 `azure-iot-device-http` 任何一項
+   - 您已安裝的安全性用戶端：`azure-iot-security-tpm`
 
-    > [!NOTE]
-    > 以下範例會使用 `azure-iot-provisioning-device-http` 和 `azure-iot-device-mqtt` 傳輸。
-    > 
+     > [!NOTE]
+     > 以下範例會使用 `azure-iot-provisioning-device-http` 和 `azure-iot-device-mqtt` 傳輸。
+     > 
 
-    您可以在 **registerdevice** 資料夾中，於命令提示字元執行下列命令，一次安裝所有套件：
+     您可以在 **registerdevice** 資料夾中，於命令提示字元執行下列命令，一次安裝所有套件：
 
-        ```cmd/sh
-        npm install --save azure-iot-device azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http azure-iot-provisioning-device
-        ```
+       ```cmd/sh
+       npm install --save azure-iot-device azure-iot-device-mqtt azure-iot-security-tpm azure-iot-provisioning-device-http azure-iot-provisioning-device
+       ```
 
 1. 使用文字編輯器，在 **registerdevice** 資料夾中建立新的 **ExtractDevice.js** 檔案。
 
@@ -141,15 +141,15 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 1. 在裝置佈建服務摘要刀鋒視窗上，選取 [管理註冊]。 選取 [個別註冊] 索引標籤，然後按一下頂端的 [新增個別註冊] 按鈕。 
 
 1. 在 [新增註冊] 之下，輸入下列資訊：
-    - 選取 [TPM] 作為身分識別證明「機制」。
-    - 輸入 TPM 裝置的 [註冊識別碼] 和 [簽署金鑰]。
-    - 您可以選擇性地提供下列資訊：
-        - 選取與您的佈建服務連結的 IoT 中樞。
-        - 輸入唯一的裝置識別碼。 替您的裝置命名時，務必避免使用敏感性資料。
-        - 使用裝置所需的初始組態更新**初始裝置對應項狀態**。
-    - 完成後，按一下 [儲存] 按鈕。 
+   - 選取 [TPM] 作為身分識別證明「機制」。
+   - 輸入 TPM 裝置的 [註冊識別碼] 和 [簽署金鑰]。
+   - 您可以選擇性地提供下列資訊：
+       - 選取與您的佈建服務連結的 IoT 中樞。
+       - 輸入唯一的裝置識別碼。 替您的裝置命名時，務必避免使用敏感性資料。
+       - 使用裝置所需的初始組態更新**初始裝置對應項狀態**。
+   - 完成後，按一下 [儲存] 按鈕。 
 
-    ![在入口網站刀鋒視窗中輸入裝置註冊資訊](./media/quick-create-simulated-device/enter-device-enrollment.png)  
+     ![在入口網站刀鋒視窗中輸入裝置註冊資訊](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
    註冊成功時，您裝置的「註冊識別碼」會出現在 [個別註冊] 索引標籤之下的清單中。 
 

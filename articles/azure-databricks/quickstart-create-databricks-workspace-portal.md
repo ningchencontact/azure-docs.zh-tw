@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: 1c8f280d58d12df33b687fa9c09712176987cdd1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 1e0e5deea8602b3da16074155e69c952227b8609
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259540"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117671"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站在 Azure Databricks 上執行 Spark 作業
 
@@ -74,11 +74,11 @@ ms.locfileid: "53259540"
 
     接受下列值以外的所有其他預設值：
 
-    * 輸入叢集的名稱。
-    * 針對本文，使用 **4.0** 執行階段建立叢集。
-    * 請確定您已選取 [在活動\_\_分鐘後終止] 核取方塊。 請提供用來終止叢集的叢集未使用持續時間 (以分鐘為單位)。
+   * 輸入叢集的名稱。
+   * 針對本文，使用 **4.0** 執行階段建立叢集。
+   * 請確定您已選取 [在活動\_\_分鐘後終止] 核取方塊。 請提供用來終止叢集的叢集未使用持續時間 (以分鐘為單位)。
     
-    選取 [建立叢集]。 叢集在執行後，您就可以將 Notebook 連結至叢集，並執行 Spark 作業。
+     選取 [建立叢集]。 叢集在執行後，您就可以將 Notebook 連結至叢集，並執行 Spark 作業。
 
 如需如何建立叢集的詳細資訊，請參閱[在 Azure Databricks 建立 Spark 叢集](https://docs.azuredatabricks.net/user-guide/clusters/create.html)。
 
@@ -89,12 +89,12 @@ ms.locfileid: "53259540"
 1. 將此範例 JSON 資料檔案[從 GitHub](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) 下載到本機電腦上。 按一下滑鼠右鍵，再按一下 [另存新檔]，將原始檔案儲存在本機上。
 
 2. 如果您還沒有儲存體帳戶，請建立一個。
-    - 在 Azure 入口網站中，選取 [建立資源]。 選取 [儲存體] 類別，然後選取 [儲存體帳戶]
-    - 提供儲存體帳戶的唯一名稱。
-    - 選取 [帳戶種類]：**Blob 儲存體**
-    - 選取 [資源群組] 名稱。 請使用您在 Databricks 工作區中建立的相同資源群組。
+   - 在 Azure 入口網站中，選取 [建立資源]。 選取 [儲存體] 類別，然後選取 [儲存體帳戶]
+   - 提供儲存體帳戶的唯一名稱。
+   - 選取 [帳戶種類]：**Blob 儲存體**
+   - 選取 [資源群組] 名稱。 請使用您在 Databricks 工作區中建立的相同資源群組。
     
-    如需詳細資訊，請參閱[建立 Azure Blob 儲存體帳戶](../storage/common/storage-quickstart-create-account.md)。
+     如需詳細資訊，請參閱[建立 Azure Blob 儲存體帳戶](../storage/common/storage-quickstart-create-account.md)。
 
 3. 在 Blob 儲存體帳戶中建立儲存體容器，並將範例 JSON 檔案上傳至容器中。 您可以使用 Azure 入口網站或 [Microsoft Azure 儲存體總管](../vs-azure-tools-storage-manage-with-storage-explorer.md)來上傳檔案。
 
@@ -130,21 +130,21 @@ ms.locfileid: "53259540"
 
     在下列程式碼片段中，將 `{YOUR CONTAINER NAME}`、`{YOUR STORAGE ACCOUNT NAME}` 和 `{YOUR STORAGE ACCOUNT ACCESS KEY}` 取代為您的 Azure 儲存體帳戶適用的值。 在 Notebook 的空白資料格中貼上程式碼片段，然後按下 SHIFT + ENTER 鍵以執行此程式碼資料格。
 
-    * **掛接儲存體帳戶與 DBFS (建議)**。 在此程式碼片段中，Azure 儲存體帳戶路徑會掛接至 `/mnt/mypath`。 因此，在您用來存取 Azure 儲存體帳戶的所有未來，您不需要授與的完整路徑。 您正好可以使用 `/mnt/mypath`。
+   * **掛接儲存體帳戶與 DBFS (建議)**。 在此程式碼片段中，Azure 儲存體帳戶路徑會掛接至 `/mnt/mypath`。 因此，在您用來存取 Azure 儲存體帳戶的所有未來，您不需要授與的完整路徑。 您正好可以使用 `/mnt/mypath`。
 
-          dbutils.fs.mount(
-            source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",
-            mountPoint = "/mnt/mypath",
-            extraConfigs = Map("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net" -> "{YOUR STORAGE ACCOUNT ACCESS KEY}"))
+         dbutils.fs.mount(
+           source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",
+           mountPoint = "/mnt/mypath",
+           extraConfigs = Map("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net" -> "{YOUR STORAGE ACCOUNT ACCESS KEY}"))
 
-    * **直接存取儲存體帳戶**
+   * **直接存取儲存體帳戶**
 
-          spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
+         spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
 
-    如需如何擷取儲存體帳戶金鑰的指示，請參閱[管理儲存體存取金鑰](../storage/common/storage-account-manage.md#access-keys)。
+     如需如何擷取儲存體帳戶金鑰的指示，請參閱[管理儲存體存取金鑰](../storage/common/storage-account-manage.md#access-keys)。
 
-    > [!NOTE]
-    > 您也可以在 Azure Databricks 上搭配使用 Azure Data Lake Store 與 Spark 叢集。 如需指示，請參閱[搭配使用 Data Lake Store 與 Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084)。
+     > [!NOTE]
+     > 您也可以在 Azure Databricks 上搭配使用 Azure Data Lake Store 與 Spark 叢集。 如需指示，請參閱[搭配使用 Data Lake Store 與 Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084)。
 
 4. 執行 SQL 陳述式，以使用 JSON 資料檔案範例 **small_radio_json.json** 中的資料建立暫存資料表。 在下列程式碼片段中，將預留位置值取代為您的容器名稱和儲存體帳戶名稱。 在 Notebook 的程式碼資料格中貼上程式碼片段，然後按下 SHIFT + ENTER 鍵。 在此程式碼片段中，`path` 代表您上傳至 Azure 儲存體帳戶之 JSON 檔案範例的位置。
 
@@ -183,12 +183,12 @@ ms.locfileid: "53259540"
 
     ![自訂長條圖](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "自訂長條圖")
 
-    * 將 [索引鍵] 設定為 [性別]。
-    * 將 [數列群組] 設定為 [層級]。
-    * 將 [值] 設定為 [層級]。
-    * 將 [彙總] 設定為 [計數]。
+   * 將 [索引鍵] 設定為 [性別]。
+   * 將 [數列群組] 設定為 [層級]。
+   * 將 [值] 設定為 [層級]。
+   * 將 [彙總] 設定為 [計數]。
 
-    按一下 [套用]。
+     按一下 [套用]。
 
 9. 輸出會顯示這些值的視覺呈現，如下列螢幕擷取畫面所示：
 

@@ -10,12 +10,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8988035d2ef28dfe4da632baca2e11205bc88340
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9a1b8abf15233c06e8ff9e507b315cc8a3703970
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218103"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443329"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect：ADSyncTools PowerShell 參考
 以下文件提供 Azure AD Connect 所隨附 ADSyncTools.psm1 PowerShell 模組的參考資訊。
@@ -859,7 +859,7 @@ Accept wildcard characters: False
 ## <a name="restore-adsynctoolsexpiredcertificates"></a>Restore-ADSyncToolsExpiredCertificates
 
 ### <a name="synopsis"></a>概要
-(待辦事項) 還原憑證檔案中的 AD UserCertificate 屬性
+（若要這麼做）從憑證檔案還原 AD UserCertificate 屬性
 
 ### <a name="syntax"></a>語法
 

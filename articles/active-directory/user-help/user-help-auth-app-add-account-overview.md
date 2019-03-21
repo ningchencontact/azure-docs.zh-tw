@@ -12,21 +12,21 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e53afdfc4d2d8288a612cfb461751e6f78ebb2fa
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 34455cac61dd3b1f1251d4bc2003bd8b029de031
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179258"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014966"
 ---
 # <a name="overview-about-adding-accounts-to-the-microsoft-authenticator-app"></a>將帳戶新增至 Microsoft Authenticator 應用程式的概觀
 
 當您使用雙因素驗證時，Microsoft Authenticator 應用程式可協助您登入帳戶。 雙因素驗證有助於您以更安全的方式存取帳戶，尤其是在檢視機密資訊時。 您有可能忘記密碼，或密碼有可能遭竊或遭到破解，而雙因素驗證可作為額外的安全性步驟，協助您保護帳戶而使他人難以入侵。
 
->[!Important]
->Microsoft Authenticator 應用程式適用於任何使用雙因素驗證的應用程式，以及任何支援限時單次密碼 (TOTP) 標準的帳戶。
-
->本內容適用於使用者。 I如果您是系統管理員，可以在 [Azure Active Directory 文件](https://docs.microsoft.com/azure/active-directory)中找到更多關於如何設定和管理 Azure Active Directory (Azure AD) 環境的資訊。
+> [!Important]
+> Microsoft Authenticator 應用程式適用於任何使用雙因素驗證的應用程式，以及任何支援限時單次密碼 (TOTP) 標準的帳戶。
+> 
+> 本內容適用於使用者。 I如果您是系統管理員，可以在 [Azure Active Directory 文件](https://docs.microsoft.com/azure/active-directory)中找到更多關於如何設定和管理 Azure Active Directory (Azure AD) 環境的資訊。
 
 您可以透過多種方式使用 Microsoft Authenticator 應用程式，包括：
 
@@ -43,6 +43,7 @@ ms.locfileid: "56179258"
 |個人帳戶|您個人開啟的 Microsoft 和非 Microsoft 帳戶，例如 Outlook.com、Xbox LIVE、Google、Facebook 等等。|
 
 ## <a name="in-this-section"></a>本節內容
+
 |文章 |說明 |
 |------|------------|
 |[新增公司或學校帳戶](user-help-auth-app-add-work-school-account.md)|描述如何將公司和學校帳戶新增至 Microsoft Authenticator 應用程式以進行雙因素驗證。|

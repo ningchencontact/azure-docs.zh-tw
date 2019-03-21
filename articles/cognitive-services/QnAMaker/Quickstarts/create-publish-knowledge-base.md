@@ -4,17 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: 您可以從自己的內容 (例如常見問題集或產品手冊) 建立 QnA Maker 知識庫 (KB)。 此範例中的 QnA Maker KB 是從簡單的常見問題集網頁建立而來，以回答 BitLocker 金鑰復原問題。
 author: diberry
 manager: nitinme
+services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 2ac6e6fcd73abddcee668b8f73184b923aeab5d3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3f7b24af3d48075150ae7c192ccf421b928a7aa3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876992"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113694"
 ---
 # <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>建立、訓練及發佈您的 QnA Maker 知識庫
 
@@ -53,7 +54,7 @@ ms.locfileid: "55876992"
 
 10. 在右上方選取 [新增 QnA 配對]，以在 KB 的 [編輯] 區段中新增資料列。 在 [問題] 之下，輸入 **Hi**。 在 [回答] 之下，輸入**Hello.Ask me bitlocker questions.**
 
-   ![加入 QnA 組](../media/qnamaker-quickstart-kb/add-qna-pair.png)
+    ![加入 QnA 組](../media/qnamaker-quickstart-kb/add-qna-pair.png)
 
 11. 在右上方，選取 [儲存並定型] 來儲存您的編輯內容並將 QnA Maker 模型定型。 除非儲存編輯內容，否則不會保留。
 
@@ -61,7 +62,7 @@ ms.locfileid: "55876992"
 
 13. 選取 [檢查]，更詳細地檢查回應。 測試視窗用來測試您對 KB 所做的變更，然後加以發佈。
 
-   ![測試面板](../media/qnamaker-quickstart-kb/inspect-panel.png)
+    ![測試面板](../media/qnamaker-quickstart-kb/inspect-panel.png)
 
 14. 再次選取 [測試]，以關閉 [測試] 快顯視窗。
 
@@ -69,7 +70,7 @@ ms.locfileid: "55876992"
 
 16. QnA Maker 服務現在已成功發佈。 您可以在您的應用程式或 Bot 程式碼中使用此端點。
 
-   ![發佈](../media/qnamaker-quickstart-kb/publish-sucess.png)
+    ![發佈](../media/qnamaker-quickstart-kb/publish-sucess.png)
 
 ## <a name="next-steps"></a>後續步驟
 

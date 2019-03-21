@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: d5c7e1815fe27d9b851407a8e6f17d04d7bc1cad
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.openlocfilehash: d38a575af54f044d64efc67b5483a67ffcd2fcd6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54004431"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837604"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application Insights 中的系統效能計數器
 
@@ -70,7 +70,7 @@ Windows 提供多種[效能計數器](https://docs.microsoft.com/windows/desktop
 
 ```
 
-您可以擷取標準計數器，也可以擷取您自己實作的計數器。 `\Objects\Processes` 是所有 Windows 系統上都提供的一個標準計數器範例。。 `\Sales(photo)\# Items Sold` 是可能在 Web 服務中實作的自訂計數器範例。 
+您可以擷取標準計數器，也可以擷取您自己實作的計數器。 `\Objects\Processes` 是所有 Windows 系統上都提供的一個標準計數器範例。 `\Sales(photo)\# Items Sold` 是可能在 Web 服務中實作的自訂計數器範例。 
 
 格式為 `\Category(instance)\Counter"`，若是沒有執行個體的類別，則為 `\Category\Counter`。
 
@@ -122,8 +122,8 @@ Windows 提供多種[效能計數器](https://docs.microsoft.com/windows/desktop
 
 *  是在圖表的取樣間隔中由入口網站接收之 TrackException 報告的計數。 它只包含您程式碼中撰寫 TrackException 呼叫所在位置的已處理例外狀況，並且不包含所有的 [未處理例外狀況](../../azure-monitor/app/asp-net-exceptions.md)。 
 
-## <a name="performance-counters-in-aspnet-core-applications"></a>ASP.Net Core 應用程式中的效能計數器
-只有在應用程式以完整的 .NET Framework 為目標時，方可支援效能計數器。 無法為 .Net Core 應用程式收集效能計數器。
+## <a name="performance-counters-in-aspnet-core-applications"></a>ASP.NET Core 應用程式中的效能計數器
+只有在應用程式以完整的 .NET Framework 為目標時，方可支援效能計數器。 沒有任何能夠收集.NET Core 應用程式的效能計數器。
 
 ## <a name="alerts"></a>警示
 與其他計量一樣，您可以[設定警示](../../azure-monitor/app/alerts.md)，在效能計數器超出您指定的界限時提出警告。 開啟 [警示] 窗格，然後按一下 [新增警示]。

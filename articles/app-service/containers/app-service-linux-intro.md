@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu;yili
 ms.custom: seodec18
-ms.openlocfilehash: 2e75ff08acdda03c0080f49c6616274a4b031075
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 161b2054d690a2e609085852aa7caf2f02366f69
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903718"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215654"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux 上的 Azure App Service 簡介
 
@@ -71,9 +71,7 @@ Linux 上的 App Service 可支援一些內建映像，以增加開發人員的�
 
 Azure 入口網站只會顯示 Web App for Containers 目前可用的功能。 隨著我們啟用更多功能，您會在入口網站中看到它們。
 
-某些功能尚無法使用，例如虛擬網路整合、Azure Active Directory/第三方驗證或 Kudu 網站擴充功能。 一旦這些功能提供使用後，我們將會在文件和部落格中更新關於變更的消息。
-
-Linux 上的 App Service 只在[「基本」、「標準」和「進階」](https://azure.microsoft.com/pricing/details/app-service/plans/)App Service 方案中才支援，而且沒有[「免費」或「共用」](https://azure.microsoft.com/pricing/details/app-service/plans/)層。 在已裝載非 Linux Web Apps 的 App Service 方案中，您無法建立 Web App for Containers。 
+Linux 上的 App Service 只在[「基本」、「標準」和「進階」](https://azure.microsoft.com/pricing/details/app-service/plans/)App Service 方案中才支援，而且沒有[「免費」或「共用」](https://azure.microsoft.com/pricing/details/app-service/plans/)層。 在已裝載非 Linux Web Apps 的 App Service 方案中，您無法建立 Web App for Containers。  
 
 此外，根據目前的限制，請勿在相同資源群組中混合使用 Windows 和 Linux 應用程式。
 

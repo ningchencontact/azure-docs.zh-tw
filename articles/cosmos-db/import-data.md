@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 02/22/2019
 ms.author: dech
-ms.openlocfilehash: c2020688359fafe6cf39dacc84c84ea79251ddbb
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e23b65904d16fbd2d8ffe0412603699a9e36aa7e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733345"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099520"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>使用資料移轉工具將您的資料移轉至 Azure Cosmos DB
 
@@ -58,7 +58,7 @@ ms.locfileid: "56733345"
 
 ## <a id="Install"></a>安裝
 
-移轉工具的原始程式碼可在 GitHub 上的[這個存放庫](https://github.com/azure/azure-documentdb-datamigrationtool)中取得。 您可以在本機下載並編譯解決方案，或下載[預先編譯的二進位檔](http://aka.ms/csdmtool)，然後執行：
+移轉工具的原始程式碼可在 GitHub 上的[這個存放庫](https://github.com/azure/azure-documentdb-datamigrationtool)中取得。 您可以在本機下載並編譯解決方案，或下載[預先編譯的二進位檔](https://aka.ms/csdmtool)，然後執行：
 
 * **Dtui.exe**：此工具的圖形化介面版本
 * **Dt.exe**：此工具的命令列版本
@@ -195,7 +195,7 @@ CSV 檔案來源匯入工具選項可讓您匯入一或多個 CSV 檔案。 新�
 
 注意別名，例如 DomainInfo.Domain_Name 和 RedirectInfo.Redirecting。 藉由指定巢狀分隔符號 '.'，匯入工具將會在匯入期間建立 DomainInfo 和 RedirectInfo 子文件。 在 Azure Cosmos DB 中產生的文件範例如下：
 
-*{ "DomainInfo": { "Domain_Name":"ACUS.GOV", "Domain_Name_Address": "https://www.ACUS.GOV" }, "Federal Agency":"Administrative Conference of the United States", "RedirectInfo": { "Redirecting":"0", "Redirect_Destination": "" }, "id":"9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
+*{ "DomainInfo": { "Domain_Name":"ACUS.GOV", "Domain_Name_Address": "<https://www.ACUS.GOV>" }, "Federal Agency":"Administrative Conference of the United States", "RedirectInfo": { "Redirecting":"0", "Redirect_Destination": "" }, "id":"9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
 
 匯入工具會嘗試推斷 CSV 檔案中不具引號之值的類型資訊 (加上引號的值永遠會被視為字串)。  系統會依照下列順序識別類型：數字、日期時間、布林值。  
 

@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 5ce99e06ea1a8e72a8767367ddfd7bbb845c8400
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 3abe0511200bf5828b485b15a4b8a512731c4ffa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54318418"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082121"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>使用 Azure Application Insights 建立自訂 KPI 儀表板
 
@@ -42,18 +42,18 @@ ms.locfileid: "54318418"
 ## <a name="create-a-new-dashboard"></a>建立新的儀表板
 單一儀表板可包含來自多個應用程式、資源群組和訂用帳戶的資源。  請從為您的應用程式建立新的儀表板，以開始本教學課程。  
 
-2.  在儀表板窗格中，選取 [新增儀表板]。
+1. 在儀表板窗格中，選取 [新增儀表板]。
 
-    ![新增儀表板](media/tutorial-app-dashboards/1newdashboard.png)
+   ![新增儀表板](media/tutorial-app-dashboards/1newdashboard.png)
 
-3. 輸入儀表板的名稱。
-4. 從 [磚庫] 內各式各樣的磚當中挑選要新增至您儀表板的磚。  除了從磚庫新增磚以外，您還可直接從 Application Insights 將圖表和其他檢視釘選至儀表板。
-5. 找到 [Markdown] 磚，然後拖曳至您的儀表板。  這個磚可讓您加入 Markdown 格式的文字，適合用來將描述性文字加入儀表板。
-6. 將文字加入磚的屬性，然後調整其在儀表板畫布上的大小。
+1. 輸入儀表板的名稱。
+1. 從 [磚庫] 內各式各樣的磚當中挑選要新增至您儀表板的磚。  除了從磚庫新增磚以外，您還可直接從 Application Insights 將圖表和其他檢視釘選至儀表板。
+1. 找到 [Markdown] 磚，然後拖曳至您的儀表板。  這個磚可讓您加入 Markdown 格式的文字，適合用來將描述性文字加入儀表板。
+1. 將文字加入磚的屬性，然後調整其在儀表板畫布上的大小。
     
     ![編輯 Markdown 磚](media/tutorial-app-dashboards/2dashboard-text.png)
 
-6. 按一下畫面頂端的 [完成自訂] 以結束磚自訂模式。
+1. 按一下畫面頂端的 [完成自訂] 以結束磚自訂模式。
 
 ## <a name="add-health-overview"></a>新增健康情況概觀
 只有靜態文字的儀表板沒那麼有趣，因此，現在要從 Application Insights 新增磚來顯示關於您應用程式的資訊。  您可以從 [磚庫] 新增 Application Insights 磚，或是直接從 Application Insights 畫面釘選它們。  這可讓您先設定您所熟悉的圖表和檢視，再將它們釘選至儀表板。  請先從新增應用程式的標準健康情況概觀開始。  這不需要設定，而且在儀表板中可以自訂的程度最少。

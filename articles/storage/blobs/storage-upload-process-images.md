@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 01404c89665ebfea62e7bda0e7566289bb15f2ae
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 7d06d23af8d4d4f0282f6eb743c0f47dba80e3f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300953"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58015317"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>教學課程：使用 Azure 儲存體在雲端中上傳影像資料
 
@@ -258,7 +258,7 @@ public static async Task<bool> UploadFileToStorage(Stream fileStream, string fil
 在範例程式碼中，`post` 路由會負責將影像上傳至 Blob 容器中。 此路由會使用模組來協助處理上傳作業：
 
 - [multer](https://github.com/expressjs/multer) 會實作路由處理常式的上傳策略。
-- [into-stream](https://github.com/sindresorhus/into-stream) 會將緩衝區轉換為 [createBlockBlobFromStream] 所需的資料流。(http://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html)
+- [into-stream](https://github.com/sindresorhus/into-stream) 會將緩衝區轉換為 [createBlockBlobFromStream] 所需的資料流。(https://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html)
 
 當檔案傳送至路由時，檔案的內容在檔案上傳至 Blob 容器之前都會留在記憶體中。
 
@@ -322,7 +322,7 @@ router.post('/', uploadStrategy, (req, res) => {
 在範例程式碼中，`post` 路由會負責將影像上傳至 Blob 容器中。 此路由會使用模組來協助處理上傳作業：
 
 - [multer](https://github.com/expressjs/multer) 會實作路由處理常式的上傳策略。
-- [into-stream](https://github.com/sindresorhus/into-stream) 會將緩衝區轉換為 [createBlockBlobFromStream](http://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html) 所需的資料流。
+- [into-stream](https://github.com/sindresorhus/into-stream) 會將緩衝區轉換為 [createBlockBlobFromStream](https://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html) 所需的資料流。
 
 當檔案傳送至路由時，檔案的內容在檔案上傳至 Blob 容器之前都會留在記憶體中。
 

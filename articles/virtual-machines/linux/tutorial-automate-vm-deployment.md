@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: af8d06a8eeb1c8fbce7ccc47c9f25b9d37ff83e6
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: b71c48a86be13df51222069f6948642455bc77fc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414635"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121259"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>教學課程 - 如何使用 cloud-init 在首次開機時於 Azure 中自訂 Linux 虛擬機器
 
@@ -46,7 +46,7 @@ Cloud-init 也適用於散發套件。 例如，您不使用 **apt-get install**
 我們正在與合作夥伴合作，以期在他們提供給 Azure 的映像中包含和使用 cloud-init。 下表概述 cloud-init 目前在 Azure 平台映像上的可用性：
 
 | Alias | 發行者 | 供應項目 | SKU | 版本 |
-|:--- |:--- |:--- |:--- |:--- |:--- |
+|:--- |:--- |:--- |:--- |:--- |
 | UbuntuLTS |Canonical |UbuntuServer |16.04-LTS |最新 |
 | UbuntuLTS |Canonical |UbuntuServer |14.04.5-LTS |最新 |
 | CoreOS |CoreOS |CoreOS |Stable |最新 |

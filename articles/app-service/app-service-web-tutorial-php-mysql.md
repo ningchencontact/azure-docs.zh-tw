@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8c3ba3a077920d58a94fe3f4df1b0a81039439d5
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: c906880897b14cf999fcffd17abba0adebc1adf6
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747640"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552124"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure"></a>教學課程：在 Azure 中建置 PHP 和 MySQL 應用程式
 
@@ -209,7 +209,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 > [僅使用您的應用程式所用的輸出 IP 位址](overview-inbound-outbound-ips.md#find-outbound-ips)，讓您的防火牆規則更具限制性。
 >
 
-在 Cloud Shell 中，將 *\<您的 IP 位址>* 取代為[您的本機 IPv4 IP 位址](http://www.whatsmyip.org/)並再次執行命令，以允許從您的本機電腦進行存取。
+在 Cloud Shell 中，將 *\<您的 IP 位址>* 取代為[您的本機 IPv4 IP 位址](https://www.whatsmyip.org/)並再次執行命令，以允許從您的本機電腦進行存取。
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address>

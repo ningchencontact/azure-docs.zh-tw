@@ -10,15 +10,15 @@ ms.subservice: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: cede105f0bff9a65f88e06467e4d13419d389f04
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 795facc6148d33592ff8eac5083a273dc3d5cb26
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461554"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314903"
 ---
 # <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲的速查表
-本速查表提供實用的秘訣和最佳作法，協助您建立 Azure SQL 資料倉儲解決方案。 開始之前，請先閱讀 [Azure SQL 資料倉儲工作負載模式和反向模式](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns)，詳細瞭解每個步驟，文內會說明何謂 SQL 資料倉儲，何者又不屬於 SQL 資料倉儲。
+本速查表提供實用的秘訣和最佳作法，協助您建立 Azure SQL 資料倉儲解決方案。 開始之前，請先閱讀 [Azure SQL 資料倉儲工作負載模式和反向模式](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns)，詳細瞭解每個步驟，文內會說明何謂 SQL 資料倉儲，何者又不屬於 SQL 資料倉儲。
 
 下圖顯示資料倉儲的設計流程：
 
@@ -129,7 +129,7 @@ SQL 資料倉儲的主要功能就是能夠[管理計算資源](sql-data-warehou
 
 建議您考量中樞架構和支點架構中的 SQL 資料庫和 Azure Analysis Services。 該解決方案可以隔離不同使用者群組之間的工作負載，也可以使用 SQL Database 和 Azure Analysis Services 的進階安全性功能。 這也是將無限制的並行處理提供給您的使用者的一種方法。
 
-深入了解[利用 SQL 資料倉儲的一般架構](https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/)。
+深入了解[利用 SQL 資料倉儲的一般架構](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/)。
 
 按一下 SQL 資料庫中的支點，從 SQL 資料倉儲進行部署：
 
@@ -155,9 +155,9 @@ SQL 資料倉儲的主要功能就是能夠[管理計算資源](sql-data-warehou
 
 
 <!--Other Web references-->
-[typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/common-isv-application-patterns-using-azure-sql-data-warehouse/
-[is and is not]:https://blogs.msdn.microsoft.com/sqlcat/2017/09/05/azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
-[資料移轉]:https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
+[typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/
+[is and is not]:https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
+[資料移轉]:https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
 
 [Azure Data Lake Store]: ../data-factory/connector-azure-data-lake-store.md
 [sys.dm_pdw_nodes_db_partition_stats]: /sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql

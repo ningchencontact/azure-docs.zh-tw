@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 05/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: 3c6a103d3d4c1890a58b833d29c88eb040ac9810
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a7fc4686ec31b4c3a23d3e0ff72e5e2a270015b0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860689"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532094"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-c"></a>快速入門：使用適用於 C# 的 Bing 圖像式搜尋 SDK 取得影像見解
 
@@ -24,7 +24,7 @@ ms.locfileid: "55860689"
 ## <a name="prerequisites"></a>必要條件
 
 * 任何一版的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
-* 如果您使用 Linux/MacOS，則可以使用 [Mono](http://www.mono-project.com/)來執行此應用程式。
+* 如果您使用 Linux/MacOS，則可以使用 [Mono](https://www.mono-project.com/)來執行此應用程式。
 * NuGet 圖像式搜尋套件。 
     - 在 Visual Studio 的 [方案總管] 中，以滑鼠右鍵按一下專案，然後從功能表選取 `Manage NuGet Packages`。 安裝 `Microsoft.Azure.CognitiveServices.Search.VisualSearch` 套件。 安裝 NuGet 套件也會安裝：
         - Microsoft.Rest.ClientRuntime

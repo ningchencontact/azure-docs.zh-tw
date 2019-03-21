@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: ea13ae5bc649ae3a803fb8446fa009fac94874a8
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a5a3bb38f832d13a39a061453e6ef7910ba5cccf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673559"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094104"
 ---
 # <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-java"></a>快速入門：使用適用於 Java 的 Bing 實體搜尋 SDK 來傳送搜尋要求
 
@@ -67,7 +67,7 @@ ms.locfileid: "56673559"
 
 ## <a name="create-a-search-client"></a>建立搜尋用戶端
 
-2. 實作 `dominantEntityLookup` 用戶端，這需要 API 端點及 `ServiceClientCredentials` 類別的執行個體。
+1. 實作 `dominantEntityLookup` 用戶端，這需要 API 端點及 `ServiceClientCredentials` 類別的執行個體。
 
     ```java
     public static EntitySearchAPIImpl getClient(final String subscriptionKey) {
@@ -80,47 +80,47 @@ ms.locfileid: "56673559"
 
     若要實作 `ServiceClientCredentials`，請遵循下列步驟：
 
-    1. 以作為參數的 `OkHttpClient.Builder` 物件覆寫 `applyCredentialsFilter()` 函式。 
+   1. 以作為參數的 `OkHttpClient.Builder` 物件覆寫 `applyCredentialsFilter()` 函式。 
         
-        ```java
-        //...
-        new ServiceClientCredentials() {
-                @Override
-                public void applyCredentialsFilter(OkHttpClient.Builder builder) {
-                //...
-                }
-        //...
-        ```
+       ```java
+       //...
+       new ServiceClientCredentials() {
+               @Override
+               public void applyCredentialsFilter(OkHttpClient.Builder builder) {
+               //...
+               }
+       //...
+       ```
     
-    2. 在 `applyCredentialsFilter()` 內呼叫 `builder.addNetworkInterceptor()`。 建立新的 `Interceptor` 物件，並覆寫其 `intercept()` 方法，以取用 `Chain` 攔截器物件。
+   2. 在 `applyCredentialsFilter()` 內呼叫 `builder.addNetworkInterceptor()`。 建立新的 `Interceptor` 物件，並覆寫其 `intercept()` 方法，以取用 `Chain` 攔截器物件。
 
-        ```java
-        //...
-        builder.addNetworkInterceptor(
-            new Interceptor() {
-                @Override
-                public Response intercept(Chain chain) throws IOException {
-                //...    
-                }
-            });
-        ///...
-        ```
+       ```java
+       //...
+       builder.addNetworkInterceptor(
+           new Interceptor() {
+               @Override
+               public Response intercept(Chain chain) throws IOException {
+               //...    
+               }
+           });
+       ///...
+       ```
 
-    3. 在 `intercept` 函式內，為您的要求建立變數。 使用 `Request.Builder()` 來建置您的要求。 將您的訂用帳戶金鑰新增至 `Ocp-Apim-Subscription-Key` 標頭，然後傳回要求物件上的 `chain.proceed()`。
+   3. 在 `intercept` 函式內，為您的要求建立變數。 使用 `Request.Builder()` 來建置您的要求。 將您的訂用帳戶金鑰新增至 `Ocp-Apim-Subscription-Key` 標頭，然後傳回要求物件上的 `chain.proceed()`。
             
-        ```java
-        //...
-        public Response intercept(Chain chain) throws IOException {
-            Request request = null;
-            Request original = chain.request();
-            Request.Builder requestBuilder = original.newBuilder()
-                    .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-            request = requestBuilder.build();
-            return chain.proceed(request);
-        }
-        //...
-        ```
-## <a name="send-a-request-and-receive-a-response"></a>傳送要求並接收回應
+       ```java
+       //...
+       public Response intercept(Chain chain) throws IOException {
+           Request request = null;
+           Request original = chain.request();
+           Request.Builder requestBuilder = original.newBuilder()
+                   .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
+           request = requestBuilder.build();
+           return chain.proceed(request);
+       }
+       //...
+       ```
+      ## <a name="send-a-request-and-receive-a-response"></a>傳送要求並接收回應
 
 1. 使用您的訂用帳戶金鑰建立新的搜尋用戶端執行個體。 使用 `client.entities().search()` 傳送搜尋查詢 `satya nadella` 的搜尋要求，並取得回應。 
     
@@ -130,7 +130,7 @@ ms.locfileid: "56673559"
             "satya nadella", null, null, null, null, null, null, "en-us", null, null, SafeSearch.STRICT, null);
     ```
 
-2. 如果傳回任何實體，請將其轉換為清單。 逐一查看這些項目，並列印主控實體。
+1. 如果傳回任何實體，請將其轉換為清單。 逐一查看這些項目，並列印主控實體。
 
     ```java
     if (entityData.entities().value().size() > 0){

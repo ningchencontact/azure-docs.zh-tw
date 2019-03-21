@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 90af443621ec47400779bdc1689fc07be558e4b8
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 695056be67294c6a0787bad61bf5ee00378275b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164527"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111424"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-projects"></a>使用 Azure DevOps Projects 建立適用於 Python 的 CI/CD 管線
 
@@ -64,7 +64,7 @@ Azure DevOps Projects 提供簡化的體驗，可建立 Azure 資源，並為您
 
     ![儀表板檢視](_img/azure-devops-project-python/dashboardnopreview.png) 
     
- DevOps Projects 會自動設定 CI 建置和發行觸發程序。 您現在已準備好要使用 CI/CD 程序來與小組共同對 Python 應用程式執行作業，並將您最新的工作自動部署至網站。
+   DevOps Projects 會自動設定 CI 建置和發行觸發程序。 您現在已準備好要使用 CI/CD 程序來與小組共同對 Python 應用程式執行作業，並將您最新的工作自動部署至網站。
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>認可程式碼變更並執行 CI/CD
 
@@ -87,7 +87,7 @@ Azure DevOps Projects 提供簡化的體驗，可建立 Azure 資源，並為您
 
 ## <a name="examine-the-cicd-pipeline"></a>檢查 CI/CD 管線
 
-在先前的步驟中，DevOps Projects 已自動設定完整的 CI/CD 管線。 瀏覽管線，並視需要進行自訂。 若要讓您自己熟悉建置和發行管線，請執行下列作業：
+在先前的步驟中，DevOps Projects 已自動設定完整的 CI/CD 管線。 瀏覽管線，並視需要進行自訂。 若要讓自己熟悉建置和發行管線，請執行下列作業：
 
 1. 在 DevOps Projects 儀表板頂端選取 [建置管線]。  
 瀏覽器索引標籤會顯示新專案的建置管線。
@@ -111,7 +111,7 @@ Azure DevOps Projects 提供簡化的體驗，可建立 Azure 資源，並為您
          DevOps Projects 已自動建立 CI 觸發程序，且每次對存放庫的認可都會啟動新的建置。  您可以選擇性地選擇要在 CI 程序中包含還是排除分支。
 
 1. 選取 [保留期]。  
-        根據您的案例，您可以指定原則來保留或移除特定數目的組建。
+        根據案例，您可以指定原則來保留或移除特定數目的組建。
 
 1. 選取 [建置及發行]，然後選擇 [版本]。   
  DevOps Projects 會建立發行管線來管理 Azure 的部署。

@@ -3,18 +3,18 @@ title: IoT 解決方案加速器簡介 - Azure | Microsoft Docs
 description: 了解 Azure IoT 解決方案加速器。 IoT 解決方案加速器是完整、端對端、隨時可部署的 IoT 解決方案。
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/09/2018
+ms.date: 03/09/2019
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 79c8f0f1c987de6320770416641300f3b8bb7c1d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 042c3c2925e9d537847f16f02d841d793456fb03
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607196"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58172813"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Azure IoT 解決方案加速器是什麼？
 
@@ -78,7 +78,7 @@ IoT 解決方案加速器是完整且可立即部署的 IoT 解決方案，可�
 
 原始的解決方案加速器是使用模型檢視控制器 (MVC) 架構，透過 .NET 所撰寫的。 Microsoft 正在將解決方案加速器更新為新的微服務架構。 下表顯示解決方案加速器的目前狀態，並包含 GitHub 存放庫的連結：
 
-| 解決方案加速器   | 架構  | 語言     |
+| 解決方案加速器   | 架構  | Languages     |
 | ---------------------- | ------------- | ------------- |
 | 遠端監視      | 微服務 | [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) 和 [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) |
 | 預測性維護 | MVC           | [.NET](https://github.com/Azure/azure-iot-predictive-maintenance)          |

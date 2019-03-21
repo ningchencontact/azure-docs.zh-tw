@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3442ced47e50485da1ffdd475d9649243b1c8583
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 37f85afbdd55d3f14638f0833f69bb1992770449
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116689"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086066"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>快速入門：將 Azure 訂用帳戶上架到資訊安全中心的標準層
 Azure 資訊安全中心為混合式雲端工作負載提供統一的安全性管理和威脅防護。 免費層只為 Azure 資源提供有限的安全性，而標準層會將這些功能延伸至內部部署與其他雲端。 資訊安全中心的標準層可協助您尋找和修正安全性弱點、套用存取和應用程式控制項以封鎖惡意活動、使用分析和情報來偵測威脅，以及在遭受攻擊時迅速回應。 您可以免費試用資訊安全中心標準層。 若要深入了解，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。
@@ -37,7 +37,7 @@ Azure 資訊安全中心為混合式雲端工作負載提供統一的安全性�
 1. 登入 [Azure 入口網站](https://azure.microsoft.com/features/azure-portal/)。
 2. 在 [Microsoft Azure] 功能表中，選取 [資訊安全中心]。 [資訊安全中心 - 概觀] 隨即開啟。
 
- ![資訊安全中心概觀][2]
+   ![資訊安全中心概觀][2]
 
 [資訊安全中心 - 概觀] 可讓您統一檢視混合式雲端工作負載的安全性狀態、探索並評定工作負載的安全性，以及識別和降低風險。 資訊安全中心會自動啟用先前並未由您或另一個訂用帳戶使用者上架到免費層的任何 Azure 訂用帳戶。
 
@@ -55,13 +55,13 @@ Azure 資訊安全中心為混合式雲端工作負載提供統一的安全性�
 
 1. 在 [資訊安全中心] 主功能表下，選取 [開始使用]。
  
-  ![開始使用][4]
+   ![開始使用][4]
 
 2. 在 [升級] 下，資訊安全中心會列出符合上架資格的訂用帳戶和工作區。 
    - 您可以按一下可擴展的 [適用試用版] 以查看所有訂用帳戶和工作區的清單與其試用版的資格狀態。
    -    您可以將沒有資格使用試用版的訂用帳戶和工作區升級。
    -    您可以選取符合資格的工作區和訂用帳戶來啟動試用版。
-3.  按一下 [啟動試用版] 來啟動所選訂用帳戶上的試用版。
+3. 按一下 [啟動試用版] 來啟動所選訂用帳戶上的試用版。
 
 
   ![安全性警示][9]

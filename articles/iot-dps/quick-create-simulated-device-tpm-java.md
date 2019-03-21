@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: c1426ebb5a64a1e0552cc35a736186fda60a5af1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a83f027cbfcf84beb43ceeb79971807366f22626
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415146"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102293"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-java-device-sdk-for-azure-iot-hub-device-provisioning-service"></a>使用適用於 Azure IoT 中樞裝置佈建服務的 Java 裝置 SDK 來建立及佈建模擬 TPM 裝置
 
@@ -100,14 +100,14 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 1. 在裝置佈建服務摘要刀鋒視窗上，選取 [管理註冊]。 選取 [個別註冊] 索引標籤，然後按一下頂端的 [新增個別註冊] 按鈕。 
 
 1. 在 [新增註冊] 之下，輸入下列資訊：
-    - 選取 [TPM] 作為身分識別證明「機制」。
-    - 輸入先前所記下的 TPM 裝置 [註冊識別碼] 和 [簽署金鑰]。 
-    - 選取與您的佈建服務連結的 IoT 中樞。
-    - 輸入唯一的裝置識別碼。 替您的裝置命名時，務必避免使用敏感性資料。
-    - 使用裝置所需的初始組態更新**初始裝置對應項狀態**。
-    - 完成後，按一下 [儲存] 按鈕。 
+   - 選取 [TPM] 作為身分識別證明「機制」。
+   - 輸入先前所記下的 TPM 裝置 [註冊識別碼] 和 [簽署金鑰]。 
+   - 選取與您的佈建服務連結的 IoT 中樞。
+   - 輸入唯一的裝置識別碼。 替您的裝置命名時，務必避免使用敏感性資料。
+   - 使用裝置所需的初始組態更新**初始裝置對應項狀態**。
+   - 完成後，按一下 [儲存] 按鈕。 
 
-    ![在入口網站刀鋒視窗中輸入裝置註冊資訊](./media/java-quick-create-simulated-device/enterdevice-enrollment.png)  
+     ![在入口網站刀鋒視窗中輸入裝置註冊資訊](./media/java-quick-create-simulated-device/enterdevice-enrollment.png)  
 
    註冊成功時，您裝置的「註冊識別碼」會出現在 [個別註冊] 索引標籤之下的清單中。 
 

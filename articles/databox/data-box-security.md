@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 0b4e7165f30364ba61b583cf5d2f55e8826b9cf3
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 90004c27463a61de1b36eaea6754215f911f7483
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092120"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095852"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Azure 資料箱安全性和資料保護
 
@@ -75,16 +75,16 @@ Azure 資料箱會在服務中收集並顯示下列金鑰執行個體的個人�
 
 - **訂單詳細資料** – 一旦訂單建立後，交貨地址、電子郵件、使用者的連絡人資訊都會儲存在 Azure 入口網站中。 儲存的資訊包括︰
 
-    - 連絡人姓名
-    - 電話號碼
-    - 電子郵件
-    - 街道地址
-    - City
-    - 郵遞區號
-    - State
-    - 國家/地區/州/省/區域
-    - 貨運公司帳戶號碼
-    - 運送追蹤號碼
+  - 連絡人姓名
+  - 電話號碼
+  - 電子郵件
+  - 街道地址
+  - City
+  - 郵遞區號
+  - State
+  - 國家/地區/州/省/區域
+  - 貨運公司帳戶號碼
+  - 運送追蹤號碼
 
     當作業完成、或當您刪除訂單時，資料箱服務會刪除訂單詳細資料。
 
@@ -99,11 +99,11 @@ Azure 資料箱會在服務中收集並顯示下列金鑰執行個體的個人�
 
 |指導方針   |說明   |
 |---------|---------|
-|[IEC 60529 IP52](http://www.iec.ch/)    | 適用於防水防塵         |
+|[IEC 60529 IP52](https://www.iec.ch/)    | 適用於防水防塵         |
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | 適用於不利的運輸條件耐久性          |
-|[NIST SP 800-147](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | 適用於安全韌體更新         |
+|[NIST SP 800-147](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | 適用於安全韌體更新         |
 |[FIPS 140-2 Level 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)      | 適用於資料保護         |
-|[NIST SP 800-88r1](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | 適用於資料清理         |
+|[NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | 適用於資料清理         |
 
 ## <a name="next-steps"></a>後續步驟
 

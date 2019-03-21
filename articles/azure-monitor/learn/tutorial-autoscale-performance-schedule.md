@@ -9,12 +9,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: 9c8803ff73b3e70c19a409ef6c1e072b5f7c8b53
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 44fecf47ccd1ce07c7e51f7bcf51ef7823f2cf97
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734263"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088344"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>根據效能資料或排程建立自動調整 Azure 資源規模設定
 
@@ -60,7 +60,7 @@ ms.locfileid: "56734263"
 2. 在預設設定檔中，確定 [縮放模式] 設定為 [調整為特定執行個體計數]。
 3. 將執行個體計數設定為 **1**。 此設定可確保當沒有其他設定檔為使用中或作用中時，預設設定檔會將執行個體計數還原為 1。
 
-  ![瀏覽到自動調整規模設定](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
+   ![瀏覽到自動調整規模設定](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
 ## <a name="create-recurrence-profile"></a>建立循環設定檔

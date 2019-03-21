@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: azure
 ms.devlang: ''
-ms.topic: ''
+ms.topic: overview
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 508614d2126d95323ce3550954b4b8a7d4d9d7d8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5e879395e034813f954d1046e4a69e21534f3968
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438806"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077151"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure IT 操作員快速入門
 
@@ -481,9 +481,9 @@ Azure 儲存體帳戶可以透過許多不同的儲存體總管存取，例如 V
 
 - Azure Resource Manager 範本
 
->**使用時機**：每當您在 Azure 中使用 VM 時，您就會使用虛擬網路。 這可允許將 VM 分割成公開面向和類似私人子網路的內部部署資料中心。
-
->**開始使用**：使用 Azure 入口網站部署 Azure 虛擬網路時，只需要有作用中的 Azure 訂用帳戶和網頁瀏覽器存取權。 您可以將新的虛擬網路部署到新的或現有的資源群組。 當您要從入口網站建立新的虛擬機器時，您可以選取現有的虛擬網路或建立一個新的。 開始使用並[使用 Azure 入口網站建立虛擬網路](../../virtual-network/quick-create-portal.md)。
+> **使用時機**：每當您在 Azure 中使用 VM 時，您就會使用虛擬網路。 這可允許將 VM 分割成公開面向和類似私人子網路的內部部署資料中心。
+> 
+> **開始使用**：使用 Azure 入口網站部署 Azure 虛擬網路時，只需要有作用中的 Azure 訂用帳戶和網頁瀏覽器存取權。 您可以將新的虛擬網路部署到新的或現有的資源群組。 當您要從入口網站建立新的虛擬機器時，您可以選取現有的虛擬網路或建立一個新的。 開始使用並[使用 Azure 入口網站建立虛擬網路](../../virtual-network/quick-create-portal.md)。
 
 ### <a name="access-and-security-for-virtual-networks"></a>虛擬網路的存取權與安全性
 

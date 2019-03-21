@@ -1,6 +1,6 @@
 ---
 title: 設定 Azure 監視器中的代理程式資料來源 | Microsoft Docs
-description: 資料來源定義 Azure 監視器會從代理程式和其他已連接的來源收集哪些資料。  本文說明 Azure 監視器如何使用資料來源的概念、詳細說明如何設定資料來源，並提供可用的不同資料來源的摘要。.
+description: 資料來源定義 Azure 監視器會從代理程式和其他已連接的來源收集哪些資料。  本文說明 Azure 監視器如何使用資料來源的概念、詳細說明如何設定資料來源，並提供可用的不同資料來源的摘要.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: ad4270700712311d8bea2e2014701a99e44c735f
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: e4550dde533044260c120b17c4f72758f90e8bff
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992440"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102091"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Azure 監視器中的代理程式資料來源
 Azure 監視器從代理程式收集的資料由您設定的資料來源設定。  系統會將來自代理程式的資料連同一組記錄儲存成[記錄資料](data-collection.md)。  每個資料來源都會建立特定類型的記錄，每種類型各有自己的一組屬性。
@@ -30,7 +30,7 @@ Azure 監視器從代理程式收集的資料由您設定的資料來源設定�
 
 
 | 資料來源 | 平台 | Microsoft Monitoring Agent | Operations Manager 代理程式 | Azure 儲存體 | 是否需要 Operations Manager？ | 透過管理群組傳送的 Operations Manager 代理程式資料 | 收集頻率 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- | --- |
 | [自訂的記錄檔](data-sources-custom-logs.md) |  Windows |&#8226; |  | |  |  | 與抵達同時 |
 | [自訂的記錄檔](data-sources-custom-logs.md) |  Linux   |&#8226; |  | |  |  | 與抵達同時 |
 | [IIS 記錄檔](data-sources-iis-logs.md) |  Windows |&#8226; |&#8226; |&#8226; |  |  |取決於記錄檔檔案換用設定 |

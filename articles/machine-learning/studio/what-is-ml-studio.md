@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: 44f2c24f1fe53b6fadabf23f03a6feda75c87883
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 570f0a825f679ec5f0cc4c62b0608ec517148161
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738278"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893997"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>什麼是 Azure Machine Learning Studio？
 Microsoft Azure Machine Learning Studio 是共同作業式的拖放工具，您可以用來依據您的資料建置、測試及部署預測分析解決方案。 Machine Learning Studio 會以 Web 服務方式發佈模型，讓自訂應用程式或 BI 工具 (例如 Excel) 都能夠很容易地使用。
@@ -40,7 +40,7 @@ Machine Learning Studio 讓資料科學、預測分析、雲端資源和您的�
 ## <a name="download-the-machine-learning-studio-overview-diagram"></a>下載 Machine Learning Studio 概觀圖表
 下載 **Microsoft Azure Machine Learning Studio 功能概觀** 圖表，並取得 Machine Learning Studio 功能的概略檢視。 若要就近保留它，您可以將圖表列印於 Tabloid 大小 (11 x 17 英吋) 的紙張上。
 
-**在這裡下載圖表：[Microsoft Azure Machine Learning Studio 功能概觀](http://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
+**在這裡下載圖表：[Microsoft Azure Machine Learning Studio 功能概觀](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
 ![Microsoft Azure Machine Learning Studio 功能概觀](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
 
 ## <a name="get-started-with-machine-learning-studio"></a>開始使用 Machine Learning Studio
@@ -61,7 +61,7 @@ Machine Learning Studio 讓資料科學、預測分析、雲端資源和您的�
 * **設定** - 可用來設定帳戶和資源的一組設定。
 
 ### <a name="gallery"></a>資源庫
-按一下 [資源庫]，會帶您進入 **[Azure AI 資源庫](http://gallery.azure.ai/)**。 [資源庫] 可以讓資料科學家和開發人員社群在此分享使用 Cortana Intelligence 套件的元件建立的解決方案。
+按一下 [資源庫]，會帶您進入 **[Azure AI 資源庫](https://gallery.azure.ai/)**。 [資源庫] 可以讓資料科學家和開發人員社群在此分享使用 Cortana Intelligence 套件的元件建立的解決方案。
 
 如需有關資源庫的詳細資訊，請參閱[共用及探索 Azure AI 資源庫中的解決方案](gallery-how-to-use-contribute-publish.md)。
 

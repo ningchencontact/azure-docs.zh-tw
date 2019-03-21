@@ -3,20 +3,20 @@ title: 在 Azure 虛擬網路中使用 Hive 轉換資料 | Microsoft Docs
 description: 本教學課程提供逐步指示，說明如何使用 Azure Data Factory 中的 Hive 活動來轉換資料。
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/04/2018
-ms.author: douglasl
-ms.openlocfilehash: b7d536a9dc411dfd6420278ed42116b546315f3e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: 9cea3e7494ee81638923cbcaff9f1b82d08a1ad1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436700"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085026"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>在 Azure 虛擬網路中使用 Azure Data Factory 中的 Hive 活動轉換資料
 在本教學課程中，您會使用 Azure 入口網站建立 Data Factory 管線，以在 Azure 虛擬網路 (VNet) 中的 HDInsight 叢集上，使用 Hive 活動來轉換資料。 您會在本教學課程中執行下列步驟：
@@ -33,6 +33,9 @@ ms.locfileid: "54436700"
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>先決條件
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - **Azure 儲存體帳戶**。 您會建立 hive 指令碼，並上傳至 Azure 儲存體。 Hive 指令碼的輸出會儲存在此儲存體帳戶中。 在此範例中，HDInsight 叢集會使用此 Azure 儲存體帳戶作為主要儲存體。 
 - **Azure 虛擬網路。** 如果您沒有 Azure 虛擬網路，請依照[這些指示](../virtual-network/quick-create-portal.md)建立。 在此範例中，HDInsight 在 Azure 虛擬網路中。 以下是 Azure 虛擬網路的設定範例。 
 
@@ -40,7 +43,7 @@ ms.locfileid: "54436700"
 - **HDInsight 叢集。** 請遵循這篇文章來建立 HDInsight 叢集，並將它加入您在上一個步驟中建立的虛擬網路：[使用 Azure 虛擬網路延伸 Azure HDInsight](../hdinsight/hdinsight-extend-hadoop-virtual-network.md)。 以下是虛擬網路中的 HDInsight 設定範例。 
 
     ![虛擬網路中的 HDInsight](media/tutorial-transform-data-using-hive-in-vnet-portal/hdinsight-virtual-network-settings.png)
-- **Azure PowerShell**(英文)。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) 中的指示。
+- **Azure PowerShell**(英文)。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/install-Az-ps) 中的指示。
 - **虛擬機器**。 建立 Azure 虛擬機器，並將它加入您 HDInsight 叢集所在的相同虛擬網路。 如需詳細資訊，請參閱[如何建立虛擬機器](../virtual-network/quick-create-portal.md#create-virtual-machines)。 
 
 ### <a name="upload-hive-script-to-your-blob-storage-account"></a>將 Hive 指令碼上傳至 Blob 儲存體帳戶
@@ -82,24 +85,24 @@ ms.locfileid: "54436700"
 3. 選取您要在其中建立資料處理站的 Azure **訂用帳戶**。 
 4. 針對 [資源群組]，請執行下列其中一個步驟︰
      
-      - 選取 [使用現有的] ，然後從下拉式清單選取現有的資源群組。 
-      - 選取 [建立新的] ，然後輸入資源群組的名稱。   
+   - 選取 [使用現有的] ，然後從下拉式清單選取現有的資源群組。 
+   - 選取 [建立新的] ，然後輸入資源群組的名稱。   
          
-      若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
+     若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
 4. 針對 [版本] 選取 [V2]。
 5. 選取 Data Factory 的 [位置]  。 清單中只會顯示資料處理站建立所支援的位置。
 6. 選取 [釘選到儀表板]。     
 7. 按一下頁面底部的 [新增] 。
 8. 在儀表板上，您會看到狀態如下的下列圖格︰**部署 Data Factory**。 
 
-    ![部署資料處理站圖格](media/tutorial-transform-data-using-hive-in-vnet-portal/deploying-data-factory.png)
+     ![部署資料處理站圖格](media/tutorial-transform-data-using-hive-in-vnet-portal/deploying-data-factory.png)
 9. 建立完成之後，您會看到如圖中所示的 [Data Factory] 頁面。
    
-   ![Data Factory 首頁](./media/tutorial-transform-data-using-hive-in-vnet-portal/data-factory-home-page.png)
+    ![Data Factory 首頁](./media/tutorial-transform-data-using-hive-in-vnet-portal/data-factory-home-page.png)
 10. 按一下 [編寫與監視]，以在另一個索引標籤中啟動 Data Factory 使用者介面 (UI)。
 11. 在 [開始使用] 頁面中，切換至左面板中的 [編輯] 索引標籤，如下圖所示： 
 
-   ![編輯索引標籤](./media/tutorial-transform-data-using-hive-in-vnet-portal/get-started-page.png)
+    ![編輯索引標籤](./media/tutorial-transform-data-using-hive-in-vnet-portal/get-started-page.png)
 
 ## <a name="create-a-self-hosted-integration-runtime"></a>建立自我裝載整合執行階段
 由於 Hadoop 叢集在虛擬網路內，您必須在相同虛擬網路中安裝自我裝載的整合執行階段 (IR)。 在本節中，您會建立新的虛擬機器、將它加入相同的虛擬網路，並在上面安裝自我裝載的 IR。 自我裝載的 IR 讓 Data Factory 服務可以將處理要求分派給計算服務，像是虛擬網路內的 HDInsight。 也可以讓您在虛擬網路內的資料存放區和 Azure 之間移動資料。 如果資料存放區或計算是在內部部署環境中，也是使用自我裝載的 IR。 

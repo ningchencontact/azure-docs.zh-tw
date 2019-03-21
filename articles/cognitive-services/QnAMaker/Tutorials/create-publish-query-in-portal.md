@@ -7,16 +7,16 @@ author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: b78c19d4fa6b2e5b69e5d7f46cea51d943b808fa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5635e0f669cec64bdbbf947099f980066a4aebc1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882143"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121412"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>教學課程：透過 QnA Maker 入口網站建立知識庫然後回答問題
 
@@ -25,12 +25,12 @@ ms.locfileid: "55882143"
 在本教學課程中，您了解如何： 
 
 > [!div class="checklist"]
-* 在 QnA Maker 入口網站中建立知識庫
-* 檢閱、儲存及訓練知識庫
-* 發佈知識庫
-* 使用 Curl 查詢知識庫
-
-> [!NOTE] 
+> * 在 QnA Maker 入口網站中建立知識庫
+> * 檢閱、儲存及訓練知識庫
+> * 發佈知識庫
+> * 使用 Curl 查詢知識庫
+> 
+> [!NOTE]
 > 本教學課程的程式設計版本可從 [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub 存放庫](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base)連同完整的解決方案取得。
 
 ## <a name="prerequisites"></a>必要條件

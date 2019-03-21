@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 15ef1905562d04c2732016dfd1340910b3a8f699
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 381eecefbba238e712820a09c8ec489706ef3751
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900352"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106452"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>使用 Functions 在 Azure 儲存體佇列中新增訊息
 
@@ -122,7 +122,7 @@ ms.locfileid: "54900352"
 
 如果您已安裝儲存體總管並且連線到您在本快速入門使用的儲存體帳戶，請略過本節。
 
-2. 執行 [Microsoft Azure 儲存體總管](https://storageexplorer.com/)工具，選取左側的 [連線] 圖示，選擇 [使用儲存體帳戶名稱和金鑰]，然後選取 [下一步]。
+1. 執行 [Microsoft Azure 儲存體總管](https://storageexplorer.com/)工具，選取左側的 [連線] 圖示，選擇 [使用儲存體帳戶名稱和金鑰]，然後選取 [下一步]。
 
     ![執行「儲存體帳戶總管」工具。](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
 
@@ -140,13 +140,13 @@ ms.locfileid: "54900352"
  
 1. 按一下 [帳戶金鑰] 旁的顯示/隱藏圖示以顯示值，然後複製 [帳戶金鑰] 值並且將它貼至儲存體總管的 [帳戶金鑰] 方塊中。
   
-3. 選取 [下一步 > 連線]。
+1. 選取 [下一步 > 連線]。
 
    ![貼上儲存體認證並連線。](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
 ### <a name="examine-the-output-queue"></a>檢查輸出佇列
 
-4. 在儲存體總管中，選取您用於本快速入門的儲存體帳戶。
+1. 在儲存體總管中，選取您用於本快速入門的儲存體帳戶。
 
 1. 展開 [佇列] 節點，然後選取名為 **outqueue** 的佇列。 
 
@@ -154,7 +154,7 @@ ms.locfileid: "54900352"
 
     ![儲存體總管中顯示的佇列訊息](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-2. 再次執行函式，您會看到新的訊息出現在佇列中。  
+1. 再次執行函式，您會看到新的訊息出現在佇列中。  
 
 ## <a name="clean-up-resources"></a>清除資源
 

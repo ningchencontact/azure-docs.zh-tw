@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3da54c4f7fae5a613d88f169d58a083f9273c0d3
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: f9c6faff10f68d720bc3c86a191e4cd1b1f9abdc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587883"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123601"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>經由登入頁面的提示設定您的安全性資訊 (預覽)
 如果您在登入公司或學校帳戶後隨即看見設定安全性資訊的提示，您可以依照下列步驟進行設定。
@@ -39,10 +39,10 @@ ms.locfileid: "56587883"
 
 1. 當您在提示字元中選取 [下一步] 後，會出現「保護帳戶精靈」，其中顯示您的系統管理員和組織要求您設定的第一種方法。 在此範例中，此方法為 Microsoft Authenticator 應用程式。
 
-    >[!Note]
-    >如果您想要使用 Microsoft Authenticator 應用程式以外的驗證器應用程式，請選取 [我想要使用其他驗證器應用程式] 連結。
-    
-    >如果您的組織允許您選擇驗證器應用程式以外的方法，您可以選取 [我想要設定其他方法] 連結。
+   > [!Note]
+   > 如果您想要使用 Microsoft Authenticator 應用程式以外的驗證器應用程式，請選取 [我想要使用其他驗證器應用程式] 連結。
+   > 
+   > 如果您的組織允許您選擇驗證器應用程式以外的方法，您可以選取 [我想要設定其他方法] 連結。
 
     ![顯示驗證器應用程式下載頁面的保護帳戶精靈](media/security-info/securityinfo-prompt-get-auth-app.png)
 

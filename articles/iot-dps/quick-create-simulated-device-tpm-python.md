@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 78381bd34bd7fe7a8941d7e3a567ec1282d6a8d9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 186bd272fdca20475686847dc4e86b8ad50e5e41
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261395"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080959"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>使用適用於 IoT 中樞裝置佈建服務的 Python 裝置 SDK 來建立及佈建模擬 TPM 裝置
 
@@ -83,14 +83,14 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 1. 在裝置佈建服務摘要刀鋒視窗上，選取 [管理註冊]。 選取 [個別註冊] 索引標籤，然後按一下頂端的 [新增個別註冊] 按鈕。 
 
 1. 在 [新增註冊] 之下，輸入下列資訊：
-    - 選取 [TPM] 作為身分識別證明「機制」。
-    - 輸入 TPM 裝置的 [註冊識別碼] 和 [簽署金鑰]。 
-    - 選取與您的佈建服務連結的 IoT 中樞。
-    - 輸入唯一的裝置識別碼。 替您的裝置命名時，務必避免使用敏感性資料。
-    - 使用裝置所需的初始組態更新**初始裝置對應項狀態**。
-    - 完成後，按一下 [儲存] 按鈕。 
+   - 選取 [TPM] 作為身分識別證明「機制」。
+   - 輸入 TPM 裝置的 [註冊識別碼] 和 [簽署金鑰]。 
+   - 選取與您的佈建服務連結的 IoT 中樞。
+   - 輸入唯一的裝置識別碼。 替您的裝置命名時，務必避免使用敏感性資料。
+   - 使用裝置所需的初始組態更新**初始裝置對應項狀態**。
+   - 完成後，按一下 [儲存] 按鈕。 
 
-    ![在入口網站刀鋒視窗中輸入裝置註冊資訊](./media/python-quick-create-simulated-device/enterdevice-enrollment.png)  
+     ![在入口網站刀鋒視窗中輸入裝置註冊資訊](./media/python-quick-create-simulated-device/enterdevice-enrollment.png)  
 
    註冊成功時，您裝置的「登錄識別碼」將會出現在「個別註冊」索引標籤之下的清單中。 
 
@@ -102,11 +102,11 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 
 1. 請遵循[這些指示](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)來建置 Python 套件。
 
-    > [!NOTE]
-        > 如果是執行 `build_client.cmd`，請務必使用 `--use-tpm-simulator` 旗標。
-
-    > [!NOTE]
-        > 如果是使用 `pip`，另請確定安裝 `azure-iot-provisioning-device-client` 套件。 請注意，所發行的 PIP 套件是使用實際的 TPM，而非模擬器。 若要使用模擬器，您必須使用 `--use-tpm-simulator` 旗標，從來源進行編譯。
+   > [!NOTE]
+   > 如果是執行 `build_client.cmd`，請務必使用 `--use-tpm-simulator` 旗標。
+   > 
+   > [!NOTE]
+   > 如果是使用 `pip`，另請確定安裝 `azure-iot-provisioning-device-client` 套件。 請注意，所發行的 PIP 套件是使用實際的 TPM，而非模擬器。 若要使用模擬器，您必須使用 `--use-tpm-simulator` 旗標，從來源進行編譯。
 
 1. 瀏覽至範例資料夾。
 

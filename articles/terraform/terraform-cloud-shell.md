@@ -2,19 +2,19 @@
 title: 搭配使用 Terraform 與 Azure Cloud Shell
 description: 使用 Terraform 與 Azure Cloud Shell 來簡化驗證與範本設定。
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform，devops，擴展集，虛擬機器， 網路，儲存體，模組
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/19/2017
-ms.openlocfilehash: af71cf07ea12e605f57d34b530fcbcd61838128b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: ab2fd0c7fa546201d6eb19f727053a9ac54fa854
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074512"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773058"
 ---
 # <a name="terraform-cloud-shell-development"></a>Terraform Cloud Shell 開發 
 

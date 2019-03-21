@@ -17,12 +17,12 @@ ms.author: jeffgilb
 ms.reviewer: unknown
 ms.lastreviewed: 09/11/2018
 ms.custom: mvc
-ms.openlocfilehash: a24b7314775ea7667ab992742586e5b5c8bbb369
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 34ef200ff96b098969c74937934d6178cfaf81ea
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205151"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117127"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>教學課程：將虛擬機器提供給 Azure Stack 使用者
 
@@ -129,8 +129,8 @@ ms.locfileid: "56205151"
    您可以從使用者入口網站中，使用新的訂用帳戶佈建虛擬機器。
 
    a. 以使用者帳戶登入使用者入口網站。
-      - 就整合系統而言，URL 會因操作員的區域和外部網域名稱而有所不同，且格式會是 https://portal.&lt;region&gt;.&lt;FQDN&gt;。
-   - 如果您使用「Azure Stack 開發套件」，則入口網站位址為 https://portal.local.azurestack.external。
+   - 就整合系統而言，URL 會因操作員的區域和外部網域名稱而有所不同，且格式會是 https://portal.&lt;region&gt;.&lt;FQDN&gt;。
+     - 如果您使用「Azure Stack 開發套件」，則入口網站位址為 https://portal.local.azurestack.external。
 
    b.  在儀表板上，選取 [+ 建立資源] > [計算] > [Windows Server 2016 Datacenter 評估版]，然後選取 [建立]。
 

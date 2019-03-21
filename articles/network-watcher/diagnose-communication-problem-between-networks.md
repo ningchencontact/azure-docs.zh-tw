@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: c8d1f659078a36bc57e92b01e6e32502be7a0ea9
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a35e65237a3f4278e9154daddff328887d9f36ef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434745"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997384"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站診斷網路之間的通訊問題
 
@@ -36,8 +36,8 @@ ms.locfileid: "54434745"
 ## <a name="prerequisites"></a>必要條件
 
 若要使用 VPN 診斷，您必須具有現有且正在執行中的 VPN 閘道。 如果您沒有現有 VPN 閘到可以診斷，可以使用 [PowerShell 指令碼](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)部署一個閘道。 您可以從下列位置執行 PowerShell 指令碼：
-    - **本機 PowerShell 安裝**：指令碼需要 AzureRM PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
-    - **Azure Cloud Shell**：[Azure Cloud Shell](https://shell.azure.com/powershell) 已安裝並設定最新版本的 PowerShell，會將您登入到 Azure。
+- **本機 PowerShell 安裝**：指令碼需要 AzureRM PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
+- **Azure Cloud Shell**：[Azure Cloud Shell](https://shell.azure.com/powershell) 已安裝並設定最新版本的 PowerShell，會將您登入到 Azure。
 
 指令碼建立 VPN 閘道大約需要一小時。 剩餘步驟會假設您要診斷由此指令碼部署的閘道。 如果您改為診斷自己的現有閘道，則結果將會不同。
 
@@ -76,7 +76,7 @@ ms.locfileid: "54434745"
     您可以看到 [疑難排解狀態] 是 [狀況不良]，並且會在 [狀態] 索引標籤上看到問題的 [摘要] 和 [詳細資料]。
 10. 當您選取 [動作] 索引標籤時，VPN 診斷會提供其他資訊。 在範例中，VPN 診斷會讓您知道應該要檢查每個連線的健康情況，如下圖所示：
 
-  ![動作](./media/diagnose-communication-problem-between-networks/action.png)
+    ![動作](./media/diagnose-communication-problem-between-networks/action.png)
 
 ## <a name="diagnose-a-gateway-connection"></a>診斷閘道連線
 

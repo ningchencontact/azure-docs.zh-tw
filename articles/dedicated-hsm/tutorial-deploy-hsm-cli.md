@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: c8713c4d3f6bd7835fed8e668407ea9ee55cc712
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6b1b92f25d24294fc5b685b4ce737c03800face3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111827"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093087"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>教學課程：使用 CLI 將 HSM 部署至現有的虛擬網路
 
@@ -245,8 +245,8 @@ VM 的 IP 位址也用來取代上述命令中的 DNS 名稱。 如果命令成�
 9. `syslog rotate`
 
 
->[!NOTE]
-如果您有關於任何 Gemalto 裝置組態的問題，您應該連絡 [Gemalto 客戶支援](https://safenet.gemalto.com/technical-support/)。
+> [!NOTE]
+> 如果您有關於任何 Gemalto 裝置組態的問題，您應該連絡 [Gemalto 客戶支援](https://safenet.gemalto.com/technical-support/)。
 
 
 如果您已處理完此資源群組中的資源，即可透過下列命令來移除它們：

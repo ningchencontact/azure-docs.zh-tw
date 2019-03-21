@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 481c05f01992ea682176d68211feeea26711e29c
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 5361dc41aeaab0d44ee9a28ad0d7e40d98b17b8a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671874"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013001"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>快速入門：使用 Azure 範本建立 Linux 虛擬機器擴展集
 虛擬機器擴展集可讓您部署和管理一組相同、自動調整的虛擬機器。 您可以手動調整擴展集中的 VM 數目，或定義規則以根據 CPU、記憶體需求或網路流量等資源使用量進行自動調整。 其後，Azure 負載平衡器會將流量分配到擴展集中的多個 VM 執行個體。 在此快速入門中，您會使用 Resource Manager 範本建立虛擬機器擴展集，並部署範例應用程式。
@@ -104,7 +104,7 @@ Azure Resource Manager 範本可讓您部署相關資源的群組。 範本是�
 - 設定或安裝指令碼的位置
 - 在 VM 執行個體上執行的命令
 
-[Linux 上的 Python HTTP 伺服器](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale)範本會使用自訂指令碼延伸模組來安裝 [Bottle](http://bottlepy.org/docs/dev/)、Python web 架構，以及簡單的 HTTP 伺服器。 
+[Linux 上的 Python HTTP 伺服器](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-bottle-autoscale)範本會使用自訂指令碼延伸模組來安裝 [Bottle](https://bottlepy.org/docs/dev/)、Python web 架構，以及簡單的 HTTP 伺服器。 
 
 fileUris 中定義的兩個指令碼  -  installserver.sh 和 workserver.py。 會從 GitHub 下載這些檔案，然後 commandToExecute 會執行 `bash installserver.sh`來安裝和設定應用程式：
 

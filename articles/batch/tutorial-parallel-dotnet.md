@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 9db223075284b02de1cf3de8cfa7a0b5aa35f286
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: a6fe5b0452771cd2e618d1a08cb2f4af52e3cc0d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754215"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538677"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>教學課程：使用 .NET API 透過 Azure Batch 執行平行工作負載
 
@@ -31,7 +31,7 @@ ms.locfileid: "53754215"
 > * 監視工作執行
 > * 擷取輸出檔案
 
-在本教學課程中，您會使用 [ffmpeg](http://ffmpeg.org/) 開放原始碼工具將 MP4 媒體檔案平行轉換為 MP3 格式。 
+在本教學課程中，您會使用 [ffmpeg](https://ffmpeg.org/) 開放原始碼工具將 MP4 媒體檔案平行轉換為 MP3 格式。 
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 

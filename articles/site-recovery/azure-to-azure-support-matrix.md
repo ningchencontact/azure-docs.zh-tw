@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: 4c58d053412b8f90b6423454fcda814e8cf6da75
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: dbee223e6c8e878d017026531dd06301fe6aaf84
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329008"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093866"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>從一個 Azure 區域複寫至另一個區域的支援矩陣
 
@@ -33,7 +33,7 @@ ms.locfileid: "56329008"
 ## <a name="resource-support"></a>資源支援
 
 **資源動作** | **詳細資料**
---- | --- | ---
+--- | --- 
 **在資源群組間移動保存庫** | 不支援
 **跨資源群組移動計算/儲存體/網路資源** | 不支援。<br/><br/> 如果您在 VM 複寫之後移動 VM 或是相關聯的元件 (例如儲存體/網路)，您必須停用該 VM 的複寫，然後再重新啟用複寫。
 **將 Azure VM 從某個訂用帳戶複寫至另一個以進行災害復原** | 在相同的 Azure Active Directory 租用戶中支援。
@@ -83,6 +83,7 @@ Site Recovery 可對執行本節所列作業系統的 Azure VM 進行複寫。
 
 **作業系統** | **詳細資料**
 --- | ---
+Windows Server 2019 |
 Windows Server 2016  | 伺服器核心、含有桌面體驗的伺服器
 Windows Server 2012 R2 |
 Windows Server 2012 |
@@ -190,11 +191,11 @@ OS 磁碟的大小上限 | 2048 GB | [深入了解](../virtual-machines/windows/
 備援性 | 支援 LRS 和 GRS。<br/><br/> 不支援 ZRS。
 非經常性和經常性儲存體 | 不支援 | 非經常性和經常性儲存體不支援 VM 磁碟
 儲存空間 | 支援 |
-待用加密 (SSE) | 支援 | SSE 是儲存體帳戶上的預設設定。   
+静态加密 (SSE) | 支援 | SSE 是儲存體帳戶上的預設設定。   
 適用於 Windows OS 的 Azure 磁碟加密 (ADE) | 支援啟用[使用 Azure AD 應用程式加密](https://aka.ms/ade-aad-app)的 VM |
 適用於 Linux OS 的 Azure 磁碟加密 (ADE) | 不支援 |
 熱新增/移除磁碟 | 不支援 | 如果您在 VM 上新增或移除資料磁碟，需要停用複寫，然後再次為 VM 啟用複寫。
-排除磁碟 | [透過 PowerShell 支援](https://review.docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell?branch=pr-en-us-66458#replicate-azure-virtual-machine) |  預設排除暫存磁碟。
+排除磁碟 | [透過 PowerShell 支援](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine) |   預設排除暫存磁碟。
 儲存空間直接存取  | 支援損毀一致復原點。 不支援應用程式一致復原點。 |
 向外延展檔案伺服器  | 支援損毀一致復原點。 不支援應用程式一致復原點。 |
 LRS | 支援 |
@@ -234,7 +235,7 @@ NIC 上的 NSG | 支援 | 使用復原方案中的 Azure 自動化指令碼，�
 流量管理員     | 支援 | 您可以預先設定流量管理員，定期將流量傳輸到來源區域中的端點，如果發生容錯移轉，則傳輸到目標區域中的端點。
 Azure DNS | 支援 |
 自訂 DNS  | 支援 |
-未經驗證的 Proxy | 支援 | 請參閱[網路指引文件](site-recovery-azure-to-azure-networking-guidance.md)。    
+未經驗證的 Proxy | 支援 | 请参阅[网络指南文档。](site-recovery-azure-to-azure-networking-guidance.md)    
 經驗證的 Proxy | 不支援 | 如果 VM 對於輸出連線能力使用經驗證的 Proxy，則無法使用 Azure Site Recovery 加以複寫。    
 內部部署的網站對網站 VPN 與 (不論是否有 ExpressRoute)| 支援 | 請確定設定 UDR 和 NSG 時，站台復原流量不是傳送到內部部署的裝置。 請參閱[網路指引文件](site-recovery-azure-to-azure-networking-guidance.md)。  
 VNET 對 VNET 連線 | 支援 | 請參閱[網路指引文件](site-recovery-azure-to-azure-networking-guidance.md)。  

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 4441797eb41dc909a98be3c42931140e71e36f80
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: fe925ed408f64424de8da98f6e182a06a41bf015
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270346"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075044"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>教學課程：使用 JavaScript SDK 建置 Node.js 主控台應用程式，以管理 Azure Cosmos DB SQL API 資料
 
@@ -338,7 +338,7 @@ ms.locfileid: "56270346"
 接著，請在 Azure Cosmos DB 帳戶內建立容器，以便儲存和查詢資料。 
 
 > [!WARNING]
-建立容器有一定的收費。 請瀏覽我們的[定價頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)，以了解相關價格。
+> 建立容器有一定的收費。 請瀏覽我們的[定價頁面](https://azure.microsoft.com/pricing/details/cosmos-db/)，以了解相關價格。
 
 容器可使用 **Containers** 類別的 `createIfNotExists` 或 create 函式來建立。  容器中包含項目 (在 SQL API 的案例中為 JSON 文件) 和相關聯的 JavaScript 應用程式邏輯。
 
@@ -462,7 +462,7 @@ ms.locfileid: "56270346"
    /**
    * Create family item if it does not exist
    */
-  async function createFamilyItem(itemBody) {
+   async function createFamilyItem(itemBody) {
      try {
          // read the item to see if it exists
          const { item } = await client.database(databaseId).container(containerId).item(itemBody.id).read();
@@ -612,9 +612,9 @@ Azure Cosmos DB 支援刪除 JSON 項目。
 1. 將 **deleteFamilyItem** 函式複製並貼到 **replaceFamilyItem** 函式下方。
 
    ```javascript
-  /**
-  * Delete the item by ID.
-  */
+   /**
+   * Delete the item by ID.
+   */
    async function deleteFamilyItem(itemBody) {
       await client.database(databaseId).container(containerId).item(itemBody.id).delete(itemBody);
       console.log(`Deleted item:\n${itemBody.id}\n`);

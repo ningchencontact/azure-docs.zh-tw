@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 02/26/2019
 ms.author: alkohli
-ms.openlocfilehash: e6042d9a1d6dc0e737fb4cf7e55d2c6938f9b0f4
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: c07293971c4cadd8b7bccc608f69faa3baa19ba7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961036"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100848"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>針對 Azure 資料箱閘道問題進行疑難排解 
 
@@ -67,16 +67,16 @@ ms.locfileid: "56961036"
 
 2. 按一下 [Microsoft 資料箱閘道] 資料夾。 這個資料夾有兩個子資料夾：
 
-    - 具有上傳錯誤記錄檔的 [上傳] 資料夾。
-    - 在重新整理期間發生錯誤的 [重新整理] 資料夾。
+   - 具有上傳錯誤記錄檔的 [上傳] 資料夾。
+   - 在重新整理期間發生錯誤的 [重新整理] 資料夾。
 
-    以下是可供重新整理的範例記錄檔。
+     以下是可供重新整理的範例記錄檔。
 
-    ```
-    <root container="brownbag1" machine="VM15BS020663" timestamp="07/18/2018 00:11:10" />
-    <file item="test.txt" local="False" remote="True" error="16001" />
-    <summary runtime="00:00:00.0945320" errors="1" creates="2" deletes="0" insync="3" replaces="0" pending="9" />
-    ``` 
+     ```
+     <root container="brownbag1" machine="VM15BS020663" timestamp="07/18/2018 00:11:10" />
+     <file item="test.txt" local="False" remote="True" error="16001" />
+     <summary runtime="00:00:00.0945320" errors="1" creates="2" deletes="0" insync="3" replaces="0" pending="9" />
+     ``` 
 
 3. 當您在此檔案中看到錯誤 (已在此範例中醒目提示) 時，請記下錯誤碼，在此例中是 16001。 針對下列錯誤參考，查閱此錯誤碼的說明。
 

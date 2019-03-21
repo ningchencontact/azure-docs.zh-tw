@@ -2,19 +2,19 @@
 title: Terraform 和 Azure 提供者部署位置
 description: 關於使用 Terraform 和 Azure 提供者部署位置的教學課程
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, 虛擬機器, Azure, 部署位置
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 4/05/2018
-ms.openlocfilehash: 1564991ecfe29b1977837c2fdff4be7b3a3e1797
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 08e90a69791b0555a6497166f6008e8619f40704
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074813"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992231"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>使用 Terraform 來佈建具有 Azure 部署位置的基礎結構
 
@@ -26,11 +26,11 @@ ms.locfileid: "54074813"
 
 - **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。
 
-- **GitHub 帳戶**：您需要有 [GitHub](http://www.github.com) 帳戶，才能派生和使用測試 GitHub 存放庫。
+- **GitHub 帳戶**：您需要有 [GitHub](https://www.github.com) 帳戶，才能派生和使用測試 GitHub 存放庫。
 
 ## <a name="create-and-apply-the-terraform-plan"></a>建立和套用 Terraform 計劃
 
-1. 瀏覽至 [Azure 入口網站](http://portal.azure.com)。
+1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。
 
 1. 開啟 [Azure Cloud Shell](/azure/cloud-shell/overview)。 如果您先前未選取環境，請選取 **Bash** 作為您的環境。
 

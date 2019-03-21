@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6e0cff6725db52601b4639ad638216370dd3cfda
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: ac214e9d29bade37bcb00f804859db730131752b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810690"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087324"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>設定 Hyper-V VM 至 Azure 的災害復原
 
@@ -137,7 +137,7 @@ Site Recovery 會檢查您是否有一或多個相容的 Azure 儲存體帳戶�
 4. 選取在前一個教學課程中為所複寫資料建立的 **contosovmsacct1910171607** 儲存體帳戶，以及 Azure VM 在容錯移轉之後所在的 **ContosoASRnet** 網路。
 5. 在 [虛擬機器] > [選取] 中，選取您要複寫的 VM。 然後按一下 [確定] 。
 
- 您可以在 [作業] > [Site Recovery 作業] 中，追蹤 [啟用保護] 動作的進度。 在**完成保護**作業完成後，即完成初始複寫，虛擬機器已可進行容錯移轉。
+   您可以在 [作業] > [Site Recovery 作業] 中，追蹤 [啟用保護] 動作的進度。 在**完成保護**作業完成後，即完成初始複寫，虛擬機器已可進行容錯移轉。
 
 ## <a name="next-steps"></a>後續步驟
 [執行災害復原演練](tutorial-dr-drill-azure.md)

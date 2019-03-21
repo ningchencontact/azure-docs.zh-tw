@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: seodec18
-ms.openlocfilehash: 4681dad55807705a2ce8e9908cbd3ee53fb3c32e
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: c1930777f44266755f20400d063ec938ee631adb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631493"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089313"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>設定 App Service 環境的 Web 應用程式防火牆 (WAF)
 ## <a name="overview"></a>概觀
@@ -66,7 +66,7 @@ Barracuda WAF 使用 TCP 連接埠 8000，以透過其管理入口網站進行�
 
 ![加入管理端點][AddManagementEndpoint]
 
-使用瀏覽器瀏覽至雲端服務上的管理端點。 如果您的雲端服務名為 test.cloudapp.net，則瀏覽至 http://test.cloudapp.net:8000 即可存取此端點。 您應該會看到如下圖的登入頁面，可以使用您在 WAF VM 設定階段中指定的認證登入。
+使用瀏覽器瀏覽至雲端服務上的管理端點。 如果您的雲端服務名為 test.cloudapp.net，則瀏覽至 `http://test.cloudapp.net:8000` 即可存取此端點。 您應該會看到如下圖的登入頁面，可以使用您在 WAF VM 設定階段中指定的認證登入。
 
 ![管理登入頁面][ManagementLoginPage]
 

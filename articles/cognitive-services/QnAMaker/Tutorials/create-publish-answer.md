@@ -7,27 +7,27 @@ author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: 348cb6a451f15ddec6b7ee013832ad6c563bb2da
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 42d53cee48be73a0d151b6f44d381463fa1c4e16
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874938"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102157"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>教學課程：使用 C# 來建立知識庫然後回答問題
 
 本教學課程會逐步引導您以程式設計方式建立及發佈知識庫 (KB)，然後使用知識庫回答客戶的問題。 
 
 > [!div class="checklist"]
-* 建立知識庫 
-* 檢查建立狀態
-* 訓練和發佈知識庫
-* 取得端點資訊
-* 使用 Curl 查詢知識庫
+> * 建立知識庫 
+> * 檢查建立狀態
+> * 訓練和發佈知識庫
+> * 取得端點資訊
+> * 使用 Curl 查詢知識庫
 
 
 本快速入門會呼叫 QnA Maker API：

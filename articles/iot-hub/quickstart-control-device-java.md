@@ -1,21 +1,21 @@
 ---
 title: 從 Azure IoT 中樞控制裝置快速入門 (Java) | Microsoft Docs
 description: 在此快速入門中，您會執行兩個範例 Java 應用程式。 其中一個應用程式是後端應用程式，可以從遠端控制連線到中樞的裝置。 另一個應用程式則是模擬可以從遠端控制且連線到中樞的裝置。
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
-ms.author: dobett
-ms.openlocfilehash: 30c5026c0f7c8fcce3cee8780622f4c835f043ce
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: ce451ebb6b4a9afb10b9213a3d50c24c586887aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670939"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58164887"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>快速入門：控制連線到 IoT 中樞的裝置 (Java)
 
@@ -103,7 +103,7 @@ mvn --version
 **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。
 
 ```azurecli-interactive
-az iot hub show-connection-string --hub-name YourIoTHubName --output table
+az iot hub show-connection-string --name YourIoTHubName --output table
 ```
 
 記下服務連接字串，它看起來如下：

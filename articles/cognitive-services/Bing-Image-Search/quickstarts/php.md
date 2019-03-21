@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 2/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: cca6fba401d8673cf97897c24a9d6de2329f19a4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: eb4d04316de875e5eada0bd70383aff73382d8b9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232484"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096056"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>快速入門：使用 Bing 影像搜尋 REST API 和 PHP 來搜尋影像
 
@@ -29,7 +29,7 @@ ms.locfileid: "56232484"
 
 ## <a name="prerequisites"></a>必要條件
 
-* [PHP 5.6.x 或更新版本](http://php.net/downloads.php)。
+* [PHP 5.6.x 或更新版本](https://php.net/downloads.php)。
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
@@ -49,7 +49,7 @@ ms.locfileid: "56232484"
     $accessKey = 'enter key here';
     $term = 'tropical ocean';
     ```
-## <a name="construct-and-perform-an-http-request"></a>建構及執行 HTTP 要求
+   ## <a name="construct-and-perform-an-http-request"></a>建構及執行 HTTP 要求
 
 1. 使用上一個步驟中的變數來準備對「影像搜尋 API」的 HTTP 要求。
 

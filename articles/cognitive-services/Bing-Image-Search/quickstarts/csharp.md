@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 02/06/2019
 ms.author: aahi
-ms.openlocfilehash: 7051c8e6cc6464e8ff274e92bdb543638c9af46a
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: b48d9a9d8c28173de90ed3d27bc67a383563550d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238177"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551177"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>快速入門：使用 Bing 影像搜尋 REST API 和 C# 來搜尋影像
 
@@ -26,7 +26,7 @@ ms.locfileid: "56238177"
 ## <a name="prerequisites"></a>必要條件
 * 任何一版的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
 * [Json.NET](https://www.newtonsoft.com/json) 架構 (以 NuGet 套件形式提供)。
-* 如果您使用 Linux/MacOS，則可以使用 [Mono](http://www.mono-project.com/) 來執行此應用程式。
+* 如果您使用 Linux/MacOS，則可以使用 [Mono](https://www.mono-project.com/) 來執行此應用程式。
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 

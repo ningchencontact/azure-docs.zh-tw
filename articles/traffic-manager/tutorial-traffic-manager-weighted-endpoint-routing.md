@@ -8,12 +8,12 @@ ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: kumud
-ms.openlocfilehash: f4c29526f675cab461153b4749c4f6edc237dada
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 50790e50602fbc8d302a67ea9963a4e492ce2f0b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467327"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009768"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>教學課程：使用流量管理員控制加權端點的流量路由
 
@@ -60,6 +60,7 @@ ms.locfileid: "54467327"
     |資源群組| 選取 [新增]，然後輸入 myResourceGroupTM1。|
     |位置| 選取 [美國東部]。|
     |||
+
 4. 在 [選擇大小] 底下選取虛擬機器大小。
 5. 針對 [設定] 選取下列值，然後選取 [確定]：
     
@@ -69,6 +70,7 @@ ms.locfileid: "54467327"
     |網路安全性群組|選取 [基本]。 在 [選取公用輸入連接埠] 下拉式清單中，選取 **HTTP** 和 **RDP**。 |
     |開機診斷|選取 [已停用]。|
     |||
+
 6. 在 [摘要] 中的 [建立] 下方選取 [建立]，以開始部署 VM。
 
 7. 以下列變更再次完成步驟 1-6：
@@ -80,6 +82,7 @@ ms.locfileid: "54467327"
     |虛擬機器名稱 | 輸入 **myIISVMWEurope**。|
     |虛擬網路 | 選取 [虛擬網路]。 在 [建立虛擬網路] 中，輸入 **myVNet2** 作為 [名稱]。 針對 [子網路]，輸入 **mySubnet**。|
     |||
+
 8. 可能需要數分鐘才會建立虛擬機器。 請等到這兩個 VM 都已建立後，再繼續進行其他步驟。
 
 ![建立 VM](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
@@ -137,6 +140,7 @@ ms.locfileid: "54467327"
 
 4. 在 [選擇大小] 底下選取虛擬機器大小。
 5. 針對 [設定] 選取下列值，然後選取 [確定]：
+
     |設定|值|
     |---|---|
     |虛擬網路| 選取 [虛擬網路]。 在 [建立虛擬網路] 中，輸入 **myVNet3** 作為 [名稱]。 針對 [子網路]，輸入 **mySubnet**。|

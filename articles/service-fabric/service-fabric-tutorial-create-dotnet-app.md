@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 038a70f5cce5b78f6c0e95316e66de42fa529954
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 7432cbf8fae098c0753641f2002b72eaab3ddbb4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321733"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57851358"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>教學課程：建立和部署含有 ASP.NET Core Web API 前端服務和具狀態後端服務的應用程式
 
@@ -187,7 +187,7 @@ app.controller('VotingAppController', ['$rootScope', '$scope', '$http', '$timeou
 
 ```html
 <!DOCTYPE html>
-<html ng-app="VotingApp" xmlns:ng="http://angularjs.org">
+<html ng-app="VotingApp" xmlns:ng="https://angularjs.org">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -621,22 +621,22 @@ public class VotesController : Controller
 4. 返回到瀏覽器，並按一下投票選項或新增投票選項。 您到達 Web 前端之 API 控制器的第一個中斷點。
     
 
-    1. 瀏覽器中的 JavaScript 會在此位置，將要求傳送至前端服務中的 Web API 控制器。
+   1. 瀏覽器中的 JavaScript 會在此位置，將要求傳送至前端服務中的 Web API 控制器。
 
-    ![新增投票前端服務](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
+      ![新增投票前端服務](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-    2. 首先，請針對後端服務 **(1)** 建構 ReverseProxy 的 URL。
-    3. 接著，將 HTTP PUT 要求傳送至 ReverseProxy **(2)**。
-    4. 最後，將後端服務的回應傳回至用戶端 **(3)**。
+   2. 首先，請針對後端服務 **(1)** 建構 ReverseProxy 的 URL。
+   3. 接著，將 HTTP PUT 要求傳送至 ReverseProxy **(2)**。
+   4. 最後，將後端服務的回應傳回至用戶端 **(3)**。
 
 5. 按 **F5** 繼續。
-    1. 您現在位於後端服務的中斷點。
+   1. 您現在位於後端服務的中斷點。
 
-    ![新增投票後端服務](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
+      ![新增投票後端服務](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
-    2. 在方法 **(1)** 的第一行中，使用 `StateManager` 來取得或新增名為 `counts` 的可靠字典。
-    3. 與可靠字典中的值進行的所有互動，都需要交易，這會使用陳述式 **(2)** 建立該交易。
-    4. 在交易中，更新投票選項的相關索引鍵值，然後認可作業 **(3)**。 一旦傳回認可方法，字典中的資料會更新並複寫至叢集中的其他節點。 資料現在會安全地儲存在叢集中，而且後端服務可以容錯移轉到仍有可用資料的其他節點。
+   2. 在方法 **(1)** 的第一行中，使用 `StateManager` 來取得或新增名為 `counts` 的可靠字典。
+   3. 與可靠字典中的值進行的所有互動，都需要交易，這會使用陳述式 **(2)** 建立該交易。
+   4. 在交易中，更新投票選項的相關索引鍵值，然後認可作業 **(3)**。 一旦傳回認可方法，字典中的資料會更新並複寫至叢集中的其他節點。 資料現在會安全地儲存在叢集中，而且後端服務可以容錯移轉到仍有可用資料的其他節點。
 6. 按 **F5** 繼續。
 
 若要停止偵錯工作階段，請按 **Shift+F5**。

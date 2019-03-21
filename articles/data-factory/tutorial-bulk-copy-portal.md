@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 37aa248af30c4beae3f9d170174842c908933339
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 16741461df2431cbf4433899dd375741e944ce0f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020008"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112563"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>使用 Azure Data Factory 大量複製多個資料表
 本教學課程示範**從 Azure SQL Database 複製一些資料表到 Azure SQL 資料倉儲**。 您也可以在其他複製案例中套用相同模式。 例如，將資料表從 SQL Server/Oracle 複製到 Azure SQL Database/資料倉儲/Azure Blob，將不同的路徑從 Blob 複製到 Azure SQL Database 資料表。
@@ -87,24 +87,24 @@ ms.locfileid: "54020008"
 1. 選取您要在其中建立資料處理站的 Azure **訂用帳戶**。 
 1. 針對 [資源群組]，請執行下列其中一個步驟︰
      
-      - 選取 [使用現有的] ，然後從下拉式清單選取現有的資源群組。 
-      - 選取 [建立新的] ，然後輸入資源群組的名稱。   
+   - 選取 [使用現有的] ，然後從下拉式清單選取現有的資源群組。 
+   - 選取 [建立新的] ，然後輸入資源群組的名稱。   
          
-      若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
+     若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
 1. 針對 [版本] 選取 [V2]。
 1. 選取 Data Factory 的 [位置]  。 如需目前可使用 Data Factory 的 Azure 區域清單，請在下列頁面上選取您感興趣的區域，然後展開 [分析] 以找出 [Data Factory]：[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 1. 選取 [釘選到儀表板]。     
 1. 按一下頁面底部的 [新增] 。
 1. 在儀表板上，您會看到狀態如下的下列圖格︰**部署 Data Factory**。 
 
-    ![部署資料處理站圖格](media//tutorial-bulk-copy-portal/deploying-data-factory.png)
+     ![部署資料處理站圖格](media//tutorial-bulk-copy-portal/deploying-data-factory.png)
 1. 建立完成之後，您會看到如圖中所示的 [Data Factory] 頁面。
    
-    ![Data Factory 首頁](./media/tutorial-bulk-copy-portal/data-factory-home-page.png)
+     ![Data Factory 首頁](./media/tutorial-bulk-copy-portal/data-factory-home-page.png)
 1. 按一下 [編寫與監視] 圖格，以在另一個索引標籤中啟動 Data Factory 使用者介面應用程式。
 1. 在 [開始使用] 頁面中，切換至左面板中的 [編輯] 索引標籤，如下圖所示：  
 
-    ![開始使用頁面](./media/tutorial-bulk-copy-portal/get-started-page.png)
+     ![開始使用頁面](./media/tutorial-bulk-copy-portal/get-started-page.png)
 
 ## <a name="create-linked-services"></a>建立連結的服務
 您建立的連結服務會將您的資料存放區和計算連結到資料處理站。 連結服務具有連線資訊，可供 Data Factory 服務在執行階段中用來連線至資料存放區。 
@@ -179,10 +179,10 @@ ms.locfileid: "54020008"
 
 1. 切換至 [連線] 索引標籤，然後執行下列步驟： 
 
-    1. 選取 [AzureSqlDatabaseLinkedService] 作為 [連結服務]。
-    1. 選取任何資料表作為 [資料表]。 此資料表是空的資料表。 建立管線時，您可以指定來源資料集的查詢。 查詢是用來從 Azure SQL 資料庫擷取資料。 或者，您可以按一下 [編輯] 核取方塊，然後輸入 **dummyName** 作為資料表名稱。 
+   1. 選取 [AzureSqlDatabaseLinkedService] 作為 [連結服務]。
+   1. 選取任何資料表作為 [資料表]。 此資料表是空的資料表。 建立管線時，您可以指定來源資料集的查詢。 查詢是用來從 Azure SQL 資料庫擷取資料。 或者，您可以按一下 [編輯] 核取方塊，然後輸入 **dummyName** 作為資料表名稱。 
 
-    ![來源資料集連線頁面](./media/tutorial-bulk-copy-portal/source-dataset-connection-page.png)
+      ![來源資料集連線頁面](./media/tutorial-bulk-copy-portal/source-dataset-connection-page.png)
  
 
 ### <a name="create-a-dataset-for-sink-sql-data-warehouse"></a>建立接收 SQL 資料倉儲的資料集

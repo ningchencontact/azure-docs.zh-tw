@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c01cc6bd6244bcaa8d33baead35ac2a1dadc3d7a
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e3a2b45e2039c5cabaa7c507c85a045ca73add83
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970792"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993947"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>執行 Azure 的災害復原演練
 
@@ -23,10 +23,10 @@ ms.locfileid: "53970792"
 這是一系列中的第四個教學課程，說明如何為內部部署 VMware VM 或 Hyper-V VM 設定 Azure 的災害復原。
 
 此教學課程假設您已完成前三個教學課程：
-    - 在[第一個教學課程](tutorial-prepare-azure.md)中，我們針對 VMware 災害復原需求設定 Azure 元件。
-    - 在[第二個教學課程](vmware-azure-tutorial-prepare-on-premises.md)中，我們為災害復原準備了內部部署元件，並檢閱必要條件。
-    - 在[第三個教學課程](vmware-azure-tutorial.md)中，我們為內部部署 VMware VM 設定和啟用複寫。
-    - 這些教學課程的設計訴求是顯示**案例的最簡單部署路徑**。 可能的話，會使用預設選項，而不會顯示所有可能的設定與路徑。 如果您想要深入了解測試容錯移轉的步驟，請參閱[作法指南](site-recovery-test-failover-to-azure.md)。
+- 在[第一個教學課程](tutorial-prepare-azure.md)中，我們針對 VMware 災害復原需求設定 Azure 元件。
+- 在[第二個教學課程](vmware-azure-tutorial-prepare-on-premises.md)中，我們為災害復原準備了內部部署元件，並檢閱必要條件。
+- 在[第三個教學課程](vmware-azure-tutorial.md)中，我們為內部部署 VMware VM 設定和啟用複寫。
+- 這些教學課程的設計訴求是顯示**案例的最簡單部署路徑**。 可能的話，會使用預設選項，而不會顯示所有可能的設定與路徑。 如果您想要深入了解測試容錯移轉的步驟，請參閱[作法指南](site-recovery-test-failover-to-azure.md)。
 
 在本教學課程中，您將了解如何：
 

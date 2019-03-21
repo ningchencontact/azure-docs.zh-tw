@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 4c494eda7126a21223f65a7e52c220fca93b2e39
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: ae1fbd93b26838b262dc6f07081f20b63e853d5c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184656"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104738"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>使用 Java 服務 SDK 向 IoT 中樞裝置佈建服務註冊 TPM 裝置
 
@@ -65,53 +65,53 @@ ms.locfileid: "53184656"
 
 2. 在下載的原始程式碼中，瀏覽至 _azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-sample_ 範例資料夾。 在您選擇的編輯器中開啟檔案 _/src/main/java/samples/com/microsoft/azure/sdk/iot/ServiceEnrollmentSample.java_，並新增下列詳細資料：
 
-    1. 從入口網站針對佈建服務新增 `[Provisioning Connection String]`，如下所示：
-        1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您的佈建服務。 
-        2. 開啟 [共用存取原則]，並選取具有 EnrollmentWrite 權限的原則。
-        3. 複製 [主索引鍵連接字串]。 
+   1. 從入口網站針對佈建服務新增 `[Provisioning Connection String]`，如下所示：
+       1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您的佈建服務。 
+       2. 開啟 [共用存取原則]，並選取具有 EnrollmentWrite 權限的原則。
+       3. 複製 [主索引鍵連接字串]。 
 
-            ![從入口網站取得佈建連接字串](./media/quick-enroll-device-tpm-java/provisioning-string.png)  
+           ![從入口網站取得佈建連接字串](./media/quick-enroll-device-tpm-java/provisioning-string.png)  
 
-        4. 在範例程式碼檔案 _ServiceEnrollmentSample.java_ 中，將 `[Provisioning Connection String]` 取代為**主索引鍵連接字串**。
+       4. 在範例程式碼檔案 _ServiceEnrollmentSample.java_ 中，將 `[Provisioning Connection String]` 取代為**主索引鍵連接字串**。
     
-            ```Java
-            private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
-            ```
+           ```Java
+           private static final String PROVISIONING_CONNECTION_STRING = "[Provisioning Connection String]";
+           ```
 
-    2. 新增 TPM 裝置詳細資料：
-        1. 取得 TPM 裝置模擬的註冊識別碼和 TPM 簽署金鑰，方法是遵循[模擬 TPM 裝置](quick-create-simulated-device.md#simulatetpm)一節的前置步驟。
-        2. 使用上述步驟之輸出中的 [註冊識別碼]  和 [簽署金鑰]，來取代 **_ServiceEnrollmentSample.java_** 範例程式碼檔案中的 `[RegistrationId]` 和 `[TPM Endorsement Key]`：
+   2. 新增 TPM 裝置詳細資料：
+       1. 取得 TPM 裝置模擬的註冊識別碼和 TPM 簽署金鑰，方法是遵循[模擬 TPM 裝置](quick-create-simulated-device.md#simulatetpm)一節的前置步驟。
+       2. 使用上述步驟之輸出中的 [註冊識別碼]  和 [簽署金鑰]，來取代 **_ServiceEnrollmentSample.java_** 範例程式碼檔案中的 `[RegistrationId]` 和 `[TPM Endorsement Key]`：
         
+           ```Java
+           private static final String REGISTRATION_ID = "[RegistrationId]";
+           private static final String TPM_ENDORSEMENT_KEY = "[TPM Endorsement Key]";
+           ```
+
+   3. (選擇性) 您可以透過範例程式碼來設定佈建服務：
+      - 若要將此設定新增至範例，請遵循下列步驟：
+        1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至連結到您佈建服務的 IoT 中樞。 開啟中樞的 [概觀] 索引標籤，並複製 [主機名稱]。 將此 [主機名稱] 指派給 IOTHUB_HOST_NAME 參數。
             ```Java
-            private static final String REGISTRATION_ID = "[RegistrationId]";
-            private static final String TPM_ENDORSEMENT_KEY = "[TPM Endorsement Key]";
+            private static final String IOTHUB_HOST_NAME = "[Host name].azure-devices.net";
             ```
-
-    3. (選擇性) 您可以透過範例程式碼來設定佈建服務：
-        - 若要將此設定新增至範例，請遵循下列步驟：
-            1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至連結到您佈建服務的 IoT 中樞。 開啟中樞的 [概觀] 索引標籤，並複製 [主機名稱]。 將此 [主機名稱] 指派給 IOTHUB_HOST_NAME 參數。
-                ```Java
-                private static final String IOTHUB_HOST_NAME = "[Host name].azure-devices.net";
-                ```
-            2. 指派易記的名稱給 DEVICE_ID 參數，並保留 PROVISIONING_STATUS 作為預設的 ENABLED 值。 
+        2. 指派易記的名稱給 DEVICE_ID 參數，並保留 PROVISIONING_STATUS 作為預設的 ENABLED 值。 
     
-        - 或者，如果您選擇不設定佈建服務，請確定在 _ServiceEnrollmentSample.java_ 檔案中，將下列陳述式標記為註解或刪除：
-            ```Java
-            // The following parameters are optional. Remove it if you don't need.
-            individualEnrollment.setDeviceId(DEVICE_ID);
-            individualEnrollment.setIotHubHostName(IOTHUB_HOST_NAME);
-            individualEnrollment.setProvisioningStatus(PROVISIONING_STATUS);
-            ```
+      - 或者，如果您選擇不設定佈建服務，請確定在 _ServiceEnrollmentSample.java_ 檔案中，將下列陳述式標記為註解或刪除：
+          ```Java
+          // The following parameters are optional. Remove it if you don't need.
+          individualEnrollment.setDeviceId(DEVICE_ID);
+          individualEnrollment.setIotHubHostName(IOTHUB_HOST_NAME);
+          individualEnrollment.setProvisioningStatus(PROVISIONING_STATUS);
+          ```
 
-    4. 研究範例程式碼。 它會建立、更新、查詢並刪除個別的 TPM 裝置註冊。 若要確認入口網站中的註冊成功，請在 _ServiceEnrollmentSample.java_ 檔案的結尾處，將下列幾行程式碼暫時標記為註解：
+   4. 研究範例程式碼。 它會建立、更新、查詢並刪除個別的 TPM 裝置註冊。 若要確認入口網站中的註冊成功，請在 _ServiceEnrollmentSample.java_ 檔案的結尾處，將下列幾行程式碼暫時標記為註解：
     
-        ```Java
-        // *********************************** Delete info of individualEnrollment ************************************
-        System.out.println("\nDelete the individualEnrollment...");
-        provisioningServiceClient.deleteIndividualEnrollment(REGISTRATION_ID);
-        ```
+       ```Java
+       // *********************************** Delete info of individualEnrollment ************************************
+       System.out.println("\nDelete the individualEnrollment...");
+       provisioningServiceClient.deleteIndividualEnrollment(REGISTRATION_ID);
+       ```
 
-    5. 儲存 _ServiceEnrollmentSample.java_ 檔案。
+   5. 儲存 _ServiceEnrollmentSample.java_ 檔案。
 
 <a id="runjavasample"></a>
 

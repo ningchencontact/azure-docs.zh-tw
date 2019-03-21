@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 3cbfb29542f2c71f4308b63319e77b37093529d4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 630b17a3467f372190004172b31b481dcb5af3ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445895"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863129"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>使用 Azure Data Factory 將資料從 Azure Blob 複製到 Azure SQL Database
 在本教學課程中，您會建立 Data Factory 管道，將資料從 Azure Blob 儲存體複製到 Azure SQL Database。 本教學課程中的設定模式從以檔案為基礎的資料存放區複製到關聯式資料存放區。 如需支援作為來源和接收的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
@@ -57,7 +57,7 @@ ms.locfileid: "56445895"
     Jane|Doe
     ```
 
-2. 使用 [Azure 儲存體總管](http://storageexplorer.com/)之類的工具建立 **adfv2tutorial** 容器，然後將 **inputEmp.txt** 檔案上傳至該容器。
+2. 使用 [Azure 儲存體總管](https://storageexplorer.com/)之類的工具建立 **adfv2tutorial** 容器，然後將 **inputEmp.txt** 檔案上傳至該容器。
 
 #### <a name="create-a-sink-sql-table"></a>建立接收 SQL 資料表
 
@@ -236,7 +236,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(sqlDbLinkedService, client.Ser
 - 資料結構，包括資料行名稱和資料型別，在此案例中是對應至接收 SQL 資料表。
 
 ```csharp
-// Create a Azure Blob dataset
+// Create an Azure Blob dataset
 Console.WriteLine("Creating dataset " + blobDatasetName + "...");
 DatasetResource blobDataset = new DatasetResource(
     new AzureBlobDataset
@@ -274,7 +274,7 @@ Console.WriteLine(SafeJsonConvert.SerializeObject(blobDataset, client.Serializat
 您可以定義資料集來代表 Azure SQL Database 中的接收資料。 此資料集會參考您在前一個步驟中建立的 Azure SQL Database 連結服務。 它也會指定 SQL 資料表，其中保存已複製的資料。 
 
 ```csharp
-// Create a Azure SQL Database dataset
+// Create an Azure SQL Database dataset
 Console.WriteLine("Creating dataset " + sqlDatasetName + "...");
 DatasetResource sqlDataset = new DatasetResource(
     new AzureSqlTableDataset

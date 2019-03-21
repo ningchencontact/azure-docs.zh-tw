@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/08/2019
-ms.openlocfilehash: 513cc1f0155c5e5499d0bf076d21aff46756d769
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 820bb22fee75e5c1159ba90f23b478339f6345b5
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312169"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201920"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>在 HDInsight 中上傳 Apache Hadoop 作業的資料
 
@@ -53,10 +53,7 @@ Microsoft 提供下列公用程式來使用 Azure 儲存體：
 ## <a id="commandline"></a>Hadoop 命令列
 Hadoop 命令列僅適用於當資料已存在於叢集前端節點時，將資料儲存到 Azure 儲存體 blob。
 
-若要使用 Hadoop 命令，您必須先使用下列其中一個方法連線到前端節點：
-
-* **Windows 型 HDInsight**：[使用遠端桌面進行連線](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp)
-* **Linux 型 HDInsight**：使用 [SSH 或 PuTTY 進行連線](hdinsight-hadoop-linux-use-ssh-unix.md).
+若要使用 Hadoop 命令，您必須先使用連接至前端節點[SSH 或 PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 連線之後，您就可以使用下列語法來將檔案上傳到儲存體。
 
@@ -106,7 +103,7 @@ Azure Data Factory 服務是完全受控的服務，可將資料儲存、資料�
 |Azure Data Lake Storage Gen2 |[使用 Azure Data Factory 將資料載入 Azure Data Lake Storage Gen2 中](../data-factory/load-azure-data-lake-storage-gen2.md)|
 
 ### <a id="sqoop"></a>Apache Sqoop
-Sqoop 是一種專門在 Hadoop 和關聯式資料庫之間傳送資料的工具。 此工具可讓您從 SQL Server、MySQL 或 Oracle 等關聯式資料庫管理系統 (RDBMS)，將資料匯入 Hadoop 分散式檔案系統 (HDFS)，使用 MapReduce 或 Hive 轉換 Hadoop 中的資料，然後將資料匯回 RDBMS。
+Sqoop 是一種專門在 Hadoop 和關聯式資料庫之間傳送資料的工具。 可以使用此工具将数据从关系数据库管理系统 (RDBMS)（如 SQL Server、MySQL 或 Oracle）中导入到 Hadoop 分布式文件系统 (HDFS)，在 Hadoop 中使用 MapReduce 或 Hive 转换数据，然后回过来将数据导出到 RDBMS。
 
 如需詳細資訊，請參閱[搭配 HDInsight 使用 Sqoop][hdinsight-use-sqoop]。
 

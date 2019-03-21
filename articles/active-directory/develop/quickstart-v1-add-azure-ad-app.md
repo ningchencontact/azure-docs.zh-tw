@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc60f3ac785bede0f3a2e4d83cc98980b46868e2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 15e77767e16ce6ae02c6f1f93891d5acf4bfcb6f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167060"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119593"
 ---
 # <a name="quickstart-register-an-app-with-the-azure-active-directory-v10-endpoint"></a>快速入門：向 Azure Active Directory v1.0 端點註冊應用程式
 
@@ -52,16 +52,16 @@ ms.locfileid: "56167060"
 
 1. 當 [建立] 頁面出現時，輸入您應用程式的註冊資訊： 
 
-    - **名稱：** 請輸入有意義的應用程式名稱
-    - **應用程式類型：**
-      - 針對在裝置本機上安裝的[用戶端應用程式](developer-glossary.md#client-application)選取 [原生]。 此設定適用於 OAuth 公用[原生用戶端](developer-glossary.md#native-client)。
-      - 針對在安全伺服器上安裝的[用戶端應用程式](developer-glossary.md#client-application)和[資源/API 應用程式](developer-glossary.md#resource-server)選取 [Web 應用程式/API]。 此設定適用於 OAuth 機密 [Web 用戶端](developer-glossary.md#web-client)和公用[使用者代理程式型用戶端](developer-glossary.md#user-agent-based-client)。 相同的應用程式也可以公開用戶端和資源/API。
-    - **登入 URL：** 針對「Web 應用程式/API」應用程式，請提供應用程式的基底 URL。 例如，`http://localhost:31544` 可能是在您的本機電腦上執行之 Web 應用程式的 URL。 使用者會使用此 URL 來登入 Web 用戶端應用程式。 
-    - **重新導向 URI：** 針對「原生」應用程式，請提供 Azure AD 用來傳回權杖回應的 URI。 輸入應用程式特定的值，例如 `http://MyFirstAADApp`
+   - **名稱：** 請輸入有意義的應用程式名稱
+   - **應用程式類型：**
+     - 針對在裝置本機上安裝的[用戶端應用程式](developer-glossary.md#client-application)選取 [原生]。 此設定適用於 OAuth 公用[原生用戶端](developer-glossary.md#native-client)。
+     - 針對在安全伺服器上安裝的[用戶端應用程式](developer-glossary.md#client-application)和[資源/API 應用程式](developer-glossary.md#resource-server)選取 [Web 應用程式/API]。 此設定適用於 OAuth 機密 [Web 用戶端](developer-glossary.md#web-client)和公用[使用者代理程式型用戶端](developer-glossary.md#user-agent-based-client)。 相同的應用程式也可以公開用戶端和資源/API。
+   - **登入 URL：** 針對「Web 應用程式/API」應用程式，請提供應用程式的基底 URL。 例如，`http://localhost:31544` 可能是在您的本機電腦上執行之 Web 應用程式的 URL。 使用者會使用此 URL 來登入 Web 用戶端應用程式。 
+   - **重新導向 URI：** 針對「原生」應用程式，請提供 Azure AD 用來傳回權杖回應的 URI。 輸入應用程式特定的值，例如 `http://MyFirstAADApp`
 
-      ![註冊新的應用程式 - 建立](./media/quickstart-v1-integrate-apps-with-azure-ad/add-app-registration-create.png)
+     ![註冊新的應用程式 - 建立](./media/quickstart-v1-integrate-apps-with-azure-ad/add-app-registration-create.png)
 
-    如果您想要 Web 應用程式或原生應用程式的特定範例，請查看我們文件中的＜快速入門＞。
+     如果您想要 Web 應用程式或原生應用程式的特定範例，請查看我們文件中的＜快速入門＞。
 
 1. 完成後，請選取 [建立]。
 

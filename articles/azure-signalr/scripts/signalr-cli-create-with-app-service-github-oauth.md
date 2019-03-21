@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/22/2018
 ms.author: zhshang
 ms.custom: mvc
-ms.openlocfilehash: 727b21300b389b6c4b3a608aeb10046e13faab98
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 84020448019867744d08806acbbd47adbc1a83e3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253086"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546462"
 ---
 # <a name="create-a-web-app-that-uses-signalr-service-and-github-authentication"></a>建立使用 SignalR 服務和 GitHub 驗證的 Web 應用程式
 
@@ -58,4 +58,4 @@ az extension add -n signalr
 
 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](/cli/azure)。
 
-您可以在 [Azure SignalR 服務文件](../signalr-cli-samples.md)中找到其他的 Azure SignalR 服務 CLI 指令碼範例。
+您可以在 [Azure SignalR 服務文件](../signalr-reference-cli.md)中找到其他的 Azure SignalR 服務 CLI 指令碼範例。

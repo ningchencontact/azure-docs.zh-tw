@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7bd4c261af4159429a91bd8b425180037eec8c23
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 112d0bd4b6802179692d0d177775027e552d1170
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670888"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085315"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>使用 Azure 地圖服務設定地理柵欄
 
@@ -25,11 +25,11 @@ ms.locfileid: "56670888"
 在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
-* 使用 Data Upload API 在 Azure 地圖服務的資料服務中上傳地理柵欄區域。
-*   設定用來處理地理柵欄的事件方格。
-*   設定地理柵欄事件處理常式。
-*   使用 Logic Apps 設定回應地理柵欄事件的警示。
-*   使用 Azure 地圖服務的地理柵欄服務 API 來追蹤某項建構資產是否位於建築工地內。
+> * 使用 Data Upload API 在 Azure 地圖服務的資料服務中上傳地理柵欄區域。
+> *   設定用來處理地理柵欄的事件方格。
+> *   設定地理柵欄事件處理常式。
+> *   使用 Logic Apps 設定回應地理柵欄事件的警示。
+> *   使用 Azure 地圖服務的地理柵欄服務 API 來追蹤某項建構資產是否位於建築工地內。
 
 
 ## <a name="prerequisites"></a>必要條件
@@ -150,9 +150,9 @@ ms.locfileid: "56670888"
 
 5. 按一下 [Send] (傳送)，然後檢視回應標頭。 位置標頭會包含可用來存取或下載資料以供未來使用的 URI。 其中也包含已上傳資料的唯一 `udId`。
 
-  ```HTTP
-  https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
 
 ## <a name="set-up-an-event-handler"></a>設定事件處理常式
 
@@ -163,15 +163,15 @@ ms.locfileid: "56670888"
 
 1. 在 Azure 入口網站中建立邏輯應用程式
 
-  ![建立 Logic Apps](./media/tutorial-geofence/logic-app.png)
+   ![建立 Logic Apps](./media/tutorial-geofence/logic-app.png)
 
 2. 選取 HTTP 要求觸發程序，然後選取 [傳送電子郵件] 作為 Outlook 連接器中的動作
   
-  ![Logic Apps 結構描述](./media/tutorial-geofence/logic-app-schema.png)
+   ![Logic Apps 結構描述](./media/tutorial-geofence/logic-app-schema.png)
 
 3. 儲存邏輯應用程式以產生 HTTP URL 端點，並複製 HTTP URL。
 
-  ![Logic Apps 端點](./media/tutorial-geofence/logic-app-endpoint.png)
+   ![Logic Apps 端點](./media/tutorial-geofence/logic-app-endpoint.png)
 
 
 ## <a name="create-an-azure-maps-events-subscription"></a>建立 Azure 地圖服務事件訂用帳戶
@@ -208,53 +208,53 @@ Azure 地圖服務支援三種事件類型。 您可以在[這裡](https://docs.
  
 1. 位置 1：
     
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
-  ![地理柵欄查詢 1](./media/tutorial-geofence/geofence-query1.png)
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
+   ![地理柵欄查詢 1](./media/tutorial-geofence/geofence-query1.png)
 
-  查看上述回應時，與主要地理柵欄間的距離若是負數，表示設備位於地理柵欄內；與子工地地理柵欄間的距離若是正數，表示設備位於子工地地理柵欄以外。 
+   查看上述回應時，與主要地理柵欄間的距離若是負數，表示設備位於地理柵欄內；與子工地地理柵欄間的距離若是正數，表示設備位於子工地地理柵欄以外。 
 
 2. 位置 2： 
    
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
     
-  ![地理柵欄查詢 2](./media/tutorial-geofence/geofence-query2.png)
+   ![地理柵欄查詢 2](./media/tutorial-geofence/geofence-query2.png)
 
-  仔細查看上述 JSON 回應時，您會發現設備位於子工地以外，但位於主要柵欄內。 這並不會觸發事件，也不會傳送電子郵件。
+   仔細查看上述 JSON 回應時，您會發現設備位於子工地以外，但位於主要柵欄內。 這並不會觸發事件，也不會傳送電子郵件。
 
 3. 位置 3： 
   
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
 
-  ![地理柵欄查詢 3](./media/tutorial-geofence/geofence-query3.png)
+   ![地理柵欄查詢 3](./media/tutorial-geofence/geofence-query3.png)
 
-  發生了狀態變更，此時設備位於主要和子工地地理柵欄內。 這時會發佈事件，並傳送通知電子郵件給營運經理。
+   發生了狀態變更，此時設備位於主要和子工地地理柵欄內。 這時會發佈事件，並傳送通知電子郵件給營運經理。
 
 4. 位置 4： 
 
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
   
-  ![地理柵欄查詢 4](./media/tutorial-geofence/geofence-query4.png)
+   ![地理柵欄查詢 4](./media/tutorial-geofence/geofence-query4.png)
 
    仔細觀察對應的回應時您會發現，即使設備已退出子工地地理柵欄，仍未發佈任何事件。 如果您查看使用者在 GET 要求中指定的時間，您會發現子工地地理柵欄已超過此時間，而設備仍位於主要地理柵欄內。 您也會在回應主體中的 `expiredGeofenceGeometryId` 下方看到子工地地理柵欄的幾何識別碼。
 
 
 5. 位置 5：
       
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63799&lon=-122.134505&userTime=2019-01-16&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63799&lon=-122.134505&userTime=2019-01-16&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
 
-  ![地理柵欄查詢 5](./media/tutorial-geofence/geofence-query5.png)
+   ![地理柵欄查詢 5](./media/tutorial-geofence/geofence-query5.png)
 
-  您可以看到設備已退出主要建築工地地理柵欄。 這是嚴重違規，因此會發佈事件，並傳送重大警示電子郵件給營運經理。
+   您可以看到設備已退出主要建築工地地理柵欄。 這是嚴重違規，因此會發佈事件，並傳送重大警示電子郵件給營運經理。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 4c9f92f80275d04cd1bab408213fd02abf5c9139
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5e0ef8287b7ce257cd551a1ace043ccbed72b50b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279393"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087086"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>建立與 Azure Logic Apps 整合的函式
 
@@ -242,7 +242,7 @@ Functions 提供的絕佳方法，可讓您將 Logic Apps 工作流程中的處�
 | **主旨** | 偵測到負面的推文情感  | 電子郵件通知的主旨列。  |
 | **內文** | 推文文字、位置 | 按一下 [推文文字] 和 [位置] 參數。 |
 
-5.  按一下 [檔案] 。
+1. 按一下 [檔案] 。
 
 現在，工作流程已完成，您可以啟用邏輯應用程式，並查看工作的函式。
 

@@ -2,36 +2,36 @@
 title: 使用 Azure IoT 中樞傳送雲端到裝置訊息 (Python) | Microsoft Docs
 description: 如何使用適用於 Python 的 Azure IoT SDK，將雲端到裝置訊息從 Azure IoT 中樞傳送到裝置。 您可以修改模擬裝置應用程式，以接收雲端到裝置訊息，也可以修改後端應用程式，以傳送雲端到裝置訊息。
 author: kgremban
-manager: timlt
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 02/22/2019
 ms.author: kgremban
-ms.openlocfilehash: 8c8cf77107f87522f9ae121845f53d8993449651
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
-ms.translationtype: HT
+ms.openlocfilehash: 0feff40aff4db65104cb2531881119086dc813a7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824790"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541905"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>使用 IoT 中樞傳送雲端到裝置訊息 (Python)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 
 ## <a name="introduction"></a>簡介
-Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置和一個解決方案後端進行可靠且安全的雙向通訊。 [開始使用 IoT 中樞] 教學課程會示範如何建立 IoT 中樞、在其中佈建裝置識別，以及編寫模擬的裝置應用程式，以傳送裝置到雲端的訊息。
+Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备和单个解决方案后端之间实现安全可靠的双向通信。 [開始使用 IoT 中樞] 教學課程會示範如何建立 IoT 中樞、在其中佈建裝置識別，以及編寫模擬的裝置應用程式，以傳送裝置到雲端的訊息。
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-本教學課程是以 [開始使用 IoT 中樞]為基礎。 這會說明如何：
+本教程是在 [開始使用 IoT 中樞]的基础上编写的。 其中了说明了如何：
 
 * 從您的解決方案後端，透過 IoT 中樞將雲端到裝置訊息傳送給單一裝置。
 * 接收裝置上的雲端到裝置訊息。
 * 從您的解決方案後端，要求確認收到從 IoT 中樞傳送到裝置的訊息 (「意見反應」)。
 
-您可以在 [IoT 中樞開發人員指南][IoT Hub developer guide - C2D]中，找到有關雲端到裝置訊息的詳細資訊。
+您可以找到更多有關雲端到裝置訊息[IoT 中樞開發人員指南](iot-hub-devguide-messaging.md)。
 
 在本教學課程結尾，您會執行兩個 Python 主控台應用程式：
 
@@ -39,17 +39,17 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 * **SendCloudToDeviceMessage.py**，會透過 IoT 中樞，將雲端到裝置訊息傳送到模擬裝置應用程式，然後接收其傳遞通知。
 
 > [!NOTE]
-> 「IoT 中樞」透過 Azure IoT 裝置 SDK 為許多裝置平台和語言 (包括 C、Java 及 Javascript) 提供 SDK 支援。 如需有關如何將您的裝置與本教學課程中的程式碼連接 (通常是連接到「Azure IoT 中樞」) 的逐步指示，請參閱 [Azure IoT 開發人員中樞]。
+> 「IoT 中樞」透過 Azure IoT 裝置 SDK 為許多裝置平台和語言 (包括 C、Java 及 Javascript) 提供 SDK 支援。 有关如何将设备连接到本教程的代码以及通常如何连接到 Azure IoT 中心的分步说明，请参阅 [Azure IoT 开发人员中心](https://www.azure.com/develop/iot)。
 > 
 
 若要完成此教學課程，您需要下列項目：
 
-* [Python 2.x 或 3.x][lnk-python-download]。 請務必使用安裝程式所需的 32 位元或 64 位元安裝。 在安裝期間出現系統提示時，務必將 Python 新增至平台特有的環境變數。 如果您使用 Python 2.x，則可能需要[安裝或升級 *pip*(Python 套件管理系統][lnk-install-pip])。
-* 如果您使用 Windows 作業系統，則 [Visual c + + 可轉散發套件][lnk-visual-c-redist] 允許使用 Python 的原生 DLL。
-* 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶][lnk-free-trial]。)
+* [Python 2.x 或 3.x](https://www.python.org/downloads/)。 請務必使用安裝程式所需的 32 位元或 64 位元安裝。 在安裝期間出現系統提示時，務必將 Python 新增至平台特有的環境變數。 如果您是使用 Python 2.x，可能需要[安裝或升級 pip (Python 套件管理系統](https://pip.pypa.io/en/stable/installing/))。
+* 如果您是使用 Windows 作業系統，則 [Visual C++ 可轉散發套件](https://www.microsoft.com/download/confirmation.aspx?id=48145)允許使用 Python 的原生 DLL。
+* 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。)
 
 > [!NOTE]
-> `azure-iothub-service-client` 和 `azure-iothub-device-client` 的 pip 套件目前僅適用於 Windows OS。 若為 Linux/Mac OS，請參閱 [針對 Python 準備您的開發環境][lnk-python-devbox] 文章上 Linux 和 Mac OS 特定的小節。
+> `azure-iothub-service-client` 和 `azure-iothub-device-client` 的 pip 套件目前僅適用於 Windows OS。 若為 Linux/Mac OS，請參閱以 Linux 和 Mac OS 特定章節[準備開發環境適用於 Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)張貼。
 > 
 
 
@@ -165,7 +165,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 
 
 ## <a name="send-a-cloud-to-device-message"></a>傳送雲端到裝置訊息
-在本節中，您會建立一個 Python 主控台應用程式，將雲端到裝置訊息傳送到模擬裝置應用程式。 您需要您在[開始使用 IoT 中樞]教學課程中所新增裝置的裝置識別碼。 您也需要中樞的 IoT 中樞連接字串 (可在 [Azure 入口網站]中找到)。
+在本節中，您會建立一個 Python 主控台應用程式，將雲端到裝置訊息傳送到模擬裝置應用程式。 您需要您在[開始使用 IoT 中樞]教學課程中所新增裝置的裝置識別碼。 您也需要中樞的 IoT 中樞連接字串 (可在 [Azure 入口網站](https://portal.azure.com)中找到)。
 
 1. 使用文字編輯器，建立 **SendCloudToDeviceMessage.py** 檔案。
 
@@ -297,9 +297,9 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 ## <a name="next-steps"></a>後續步驟
 在本教學課程中，您已了解如何傳送和接收雲端到裝置的訊息。 
 
-若要查看使用 IoT 中樞的完整端對端解決方案範例，請參閱 [Azure IoT 遠端監視解決方案加速器]。
+若要查看使用 IoT 中樞的完整端對端解決方案範例，請參閱 [Azure IoT 遠端監視解決方案加速器](https://azure.microsoft.com/documentation/suites/iot-suite/)。
 
-若要深入了解如何使用 IoT 中樞開發解決方案，請參閱 [IoT 中樞開發人員指南]。
+若要深入了解如何使用 IoT 中樞開發解決方案，請參閱 [IoT 中樞開發人員指南](iot-hub-devguide.md)。
 
 <!-- Images -->
 [img-simulated-device]: media/iot-hub-python-python-c2d/simulated-device.png
@@ -307,15 +307,4 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 [img-message-received]: media/iot-hub-python-python-c2d/message-received.png
 
 <!-- Links -->
-[lnk-python-download]: https://www.python.org/downloads/
-[lnk-visual-c-redist]: http://www.microsoft.com/download/confirmation.aspx?id=48145
-[lnk-node-download]: https://nodejs.org/en/download/
-[lnk-install-pip]: https://pip.pypa.io/en/stable/installing/
-[開始使用 IoT 中樞]: quickstart-send-telemetry-node.md
-[IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
-[IoT 中樞開發人員指南]: iot-hub-devguide.md
-[Azure IoT 開發人員中樞]: http://www.azure.com/develop/iot
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
-[Azure 入口網站]: https://portal.azure.com
-[Azure IoT 遠端監視解決方案加速器]: https://azure.microsoft.com/documentation/suites/iot-suite/
+[開始使用 IoT 中樞]: quickstart-send-telemetry-python.md

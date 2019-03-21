@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 472c39a7220c4e84bff429097fef6d0ed721fd01
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: d59bd14b52124282e1e07d60daa4b891c2bab938
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56457813"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337816"
 ---
 # <a name="my-profile-preview-portal-overview"></a>我的設定檔 (預覽) 入口網站概觀
 
@@ -26,8 +26,6 @@ ms.locfileid: "56457813"
 您可以使用**我的設定檔** (預覽) 入口網站來管理您的公司或學校帳戶，以：
 
 - 設定和管理雙步驟驗證和密碼重設的安全性資訊。
-
-- 檢視登入活動。
 
 - 管理您已連線的組織和裝置。
 
@@ -45,7 +43,7 @@ ms.locfileid: "56457813"
 - Firefox
 - Internet Explorer 11
 
-    ![我的設定檔入口網站的概觀頁面](media/myprofile-portal/myprofile-portal-overview-page.png)
+    ![我的設定檔入口網站的概觀頁面](media/myprofile-portal/myprofile-portal-overview.png)
 
 ## <a name="in-this-section"></a>本節內容
 您可以在下列文章中找到更多關於**我的設定檔**入口網站及其頁面的資訊。
@@ -53,7 +51,6 @@ ms.locfileid: "56457813"
 |文章 |說明 |
 |------|------------|
 |[管理您的安全性資訊 (預覽)](user-help-security-info-overview.md)|說明如何設定和管理您的安全性資訊。|
-|[檢視您最近的登入活動](myprofile-portal-recent-activity-page.md)|說明如何檢視公司或學校帳戶最近的登入活動。|
 |[管理您的組織](myprofile-portal-organizations-page.md)|說明如何管理連線至公司或學校帳戶的組織。|
 |[管理您已連線的裝置](myprofile-portal-devices-page.md)| 說明如何管理您已連線至公司或學校帳戶的裝置。|
 |[檢視您的隱私權相關資訊](myprofile-portal-privacy-page.md)|說明如何檢視組織使用您資料的情形。|

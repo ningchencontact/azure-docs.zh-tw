@@ -1,19 +1,19 @@
 ---
 title: 使用 Ansible 來管理 Azure 動態清查
 description: 了解如何使用 Ansible 來管理 Azure 動態清查
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, cloudshell, 動態清查
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 08/09/2018
 ms.topic: tutorial
-ms.openlocfilehash: cf404b84377a37f9a97f7e7c9c9f86402fe999e0
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 0ef754b792654281f2a12b8eee613434896d5476
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359658"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092203"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>使用 Ansible 來管理 Azure 動態清查
 您可以使用 Ansible 從各種來源 (包括如 Azure 等雲端來源) 將清查資訊提取至動態清查。 在本文中，您使用 [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) 來設定 Ansible Azure 動態清查，並在其中建立兩部虛擬機器、標記其中一部虛擬機器，然後在已標記的虛擬機器上安裝 Nginx。
@@ -130,9 +130,9 @@ ansible-inventory-test-vm1 | SUCCESS => {
 
 1. 建立名為 `nginx.yml` 的檔案 (以包含您腳本)，如下所示：
 
-  ```azurecli-interactive
-  vi nginx.yml
-  ```
+   ```azurecli-interactive
+   vi nginx.yml
+   ```
 
 1. 將下列程式碼插入新建的 `nginx.yml` 檔案：
 

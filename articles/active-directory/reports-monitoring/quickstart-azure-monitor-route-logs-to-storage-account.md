@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b50b8f6c54cbefde2120dd61643c23f5175927c9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e8706e839005d43ab9fa2662d13d7d3c3994c136
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211745"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077746"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>教學課程：將 Azure AD 記錄封存到 Azure 儲存體帳戶 (預覽)
 
@@ -45,11 +45,11 @@ ms.locfileid: "56211745"
 3. 選取 [匯出設定]。 
 
 4. 在 [診斷設定] 窗格中，執行下列其中一項：
-    * 若要變更現有設定，請選取 [編輯設定]。
-    * 若要新增設定，請選取 [新增診斷設定]。  
-      您最多可以有三個設定。 
+   * 若要變更現有設定，請選取 [編輯設定]。
+   * 若要新增設定，請選取 [新增診斷設定]。  
+     您最多可以有三個設定。 
 
-    ![匯出設定](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
+     ![匯出設定](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
 
 5. 為設定輸入易記名稱以讓您記得其用途 (例如，傳送至 Azure 儲存體帳戶)。 
 

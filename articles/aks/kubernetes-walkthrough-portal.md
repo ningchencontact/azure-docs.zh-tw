@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 39d267c1d113c2f1950650416c18bfd8ad8caa9c
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 9a7cbc22ce6034db0ab7d5229104c644ec3f0330
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653589"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087732"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站部署 Azure Kubernetes Service (AKS) 叢集
 
@@ -36,20 +36,20 @@ Azure Kubernetes Service (AKS) 是受控 Kubernetes 服務，可讓您快速部�
 若要建立 AKS 叢集，請完成下列步驟：
 
 1. **基本** - 設定下列選項：
-    - 專案詳細資料：選取 Azure 訂用帳戶，然後選取或建立 Azure 資源群組，例如 *myResourceGroup*。 輸入 **Kubernetes 叢集名稱**，例如 myAKSCluster。
-    - 叢集詳細資料：選取 AKS 叢集的區域、Kubernetes 版本及 DNS 名稱前置詞。
-    - 調整大小：選取 AKS 節點的 VM 大小。 VM 大小**無法**在 AKS 叢集部署完畢後變更。
-        - 選取要部署到叢集的節點數目。 本快速入門將 [節點計數] 設為「1」。 節點計數**可以**在叢集部署完畢後調整。
+   - 專案詳細資料：選取 Azure 訂用帳戶，然後選取或建立 Azure 資源群組，例如 *myResourceGroup*。 輸入 **Kubernetes 叢集名稱**，例如 myAKSCluster。
+   - 叢集詳細資料：選取 AKS 叢集的區域、Kubernetes 版本及 DNS 名稱前置詞。
+   - 調整大小：選取 AKS 節點的 VM 大小。 VM 大小**無法**在 AKS 叢集部署完畢後變更。
+       - 選取要部署到叢集的節點數目。 本快速入門將 [節點計數] 設為「1」。 節點計數**可以**在叢集部署完畢後調整。
     
-    ![建立 AKS 叢集 - 提供基本資訊](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
+     ![建立 AKS 叢集 - 提供基本資訊](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-    完成時，選取 [下一步:驗證]。
+     完成時，選取 [下一步:驗證]。
 
 1. **驗證**：設定下列選項：
-    - 建立新的服務主體，或「設定」為使用現有服務主體。 使用現有的 SPN 時，您需要提供 SPN 用戶端識別碼和祕密。
-    - 啟用 Kubernetes 角色型存取控制 (RBAC) 的選項。 這些控制項可針對 AKS 叢集中部署的 Kubernetes 資源提供更細部的存取控管。
+   - 建立新的服務主體，或「設定」為使用現有服務主體。 使用現有的 SPN 時，您需要提供 SPN 用戶端識別碼和祕密。
+   - 啟用 Kubernetes 角色型存取控制 (RBAC) 的選項。 這些控制項可針對 AKS 叢集中部署的 Kubernetes 資源提供更細部的存取控管。
 
-    根據預設，會使用「基本」網路，並啟用適用於容器的 Azure 監視器。 選取 [檢閱 + 建立]，然後在就緒時選取 [建立]。
+     根據預設，會使用「基本」網路，並啟用適用於容器的 Azure 監視器。 選取 [檢閱 + 建立]，然後在就緒時選取 [建立]。
 
 從建立 AKS 叢集到可供使用需要幾分鐘的時間。 完成時，請瀏覽至 AKS 叢集資源群組，例如 myResourceGroup ，然後選取 AKS 資源，例如 myAKSCluster。 AKS 叢集儀表板會隨即顯示，如下列範例螢幕擷取畫面所示：
 

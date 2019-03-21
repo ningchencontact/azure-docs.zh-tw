@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: a624540e95d054ef5edadfada29fa13cd47419d6
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: b3ab3552ad1b9bdd14a3d07cd426f8c0bc9dc865
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848864"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759231"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-powershell"></a>使用 Azure PowerShell 執行您的第一個 Resource Graph 查詢
 
@@ -79,8 +79,8 @@ Azure Resource Graph 模組需要下列軟體：
    Search-AzGraph -Query 'project name, type | limit 5 | order by name asc'
    ```
 
-  > [!NOTE]
-  > 如同第一個查詢一樣，多次執行此查詢可能會為每個要求產生不同的資源集。 查詢命令的順序很重要。 在此範例中，`order by` 會出現在 `limit` 之後。 這會先限制查詢結果，然後將結果進行排序。
+   > [!NOTE]
+   > 如同第一個查詢一樣，多次執行此查詢可能會為每個要求產生不同的資源集。 查詢命令的順序很重要。 在此範例中，`order by` 會出現在 `limit` 之後。 這會先限制查詢結果，然後將結果進行排序。
 
 1. 將查詢更新為第一個 `order by`，**名稱**屬性，然後 `limit` 為前五個結果：
 

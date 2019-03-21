@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/17/2018
 ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: f286676cba3d1333db52fb1125279772d518dd88
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 0c89c8353d410ddd54e8a59f3838c914702b96ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584729"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124520"
 ---
 1. 登入 [Azure 入口網站](http://portal.azure.com)。
 
@@ -27,7 +27,7 @@ ms.locfileid: "53584729"
    * **資源群組**：選取或建立 Digital Twins 執行個體的[資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)。
    * **位置**：選取最接近裝置的位置。
 
-    ![已輸入資訊的 Digital Twins 窗格](./media/create-digital-twins-portal/create-digital-twins-param.png)
+     ![已輸入資訊的 Digital Twins 窗格](./media/create-digital-twins-portal/create-digital-twins-param.png)
 
 1. 檢閱 Digital Twins 資訊，然後選取 [建立]。 Digital Twins 執行個體可能需要幾分鐘的時間才會建立好。 您可以在 [通知] 窗格中監視進度。
 

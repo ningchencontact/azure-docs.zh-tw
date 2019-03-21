@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/13/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 42c67d73ee776488fbe932676f61cb7166c2984b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: acf01788a1ac8ed8ca476941c402801abfbd8adf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599827"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011310"
 ---
 # <a name="tutorial-search-unstructured-data-in-cloud-storage"></a>教學課程：搜尋雲端儲存體中的非結構化資料
 
@@ -39,7 +39,7 @@ ms.locfileid: "53599827"
 
 每個儲存體帳戶都必須屬於 Azure 資源群組。 資源群組是用來群組 Azure 服務的邏輯容器。 當您建立儲存體帳戶時，可以選擇建立新的資源群組，或使用現有的資源群組。 本教學課程會建立新的資源群組。
 
-登入 [Azure 入口網站](http://portal.azure.com)。
+登入 [Azure 入口網站](https://portal.azure.com)。
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
@@ -63,7 +63,7 @@ ms.locfileid: "53599827"
 
 5. 選取 [確定] 以建立容器。
 
-  ![非結構化搜尋](media/storage-unstructured-search/storageactinfo.png)
+   ![非結構化搜尋](media/storage-unstructured-search/storageactinfo.png)
 
 ## <a name="upload-the-example-data"></a>上傳範例資料
 
@@ -77,7 +77,7 @@ ms.locfileid: "53599827"
 
 4. 選取 [上傳] 以開始上傳程序。
 
-  ![非結構化搜尋](media/storage-unstructured-search/upload.png)
+   ![非結構化搜尋](media/storage-unstructured-search/upload.png)
 
 上傳程序可能需要一些時間。
 
@@ -107,7 +107,7 @@ ms.locfileid: "53599827"
 
 8. 選取 [建立] 以建立搜尋服務。
 
-  ![非結構化搜尋](media/storage-unstructured-search/createsearch2.png)
+   ![非結構化搜尋](media/storage-unstructured-search/createsearch2.png)
 
 ## <a name="connect-your-search-service-to-your-container"></a>將您的搜尋服務連接到您的容器
 
@@ -127,13 +127,13 @@ ms.locfileid: "53599827"
 
 2. 因為您使用的 Blob 是文字檔，所以請將 [剖析模式] 設定為 [文字]。
 
-  ![非結構化搜尋](media/storage-unstructured-search/datasources.png)
+   ![非結構化搜尋](media/storage-unstructured-search/datasources.png)
 
 3. 選取 [儲存體容器]，列出可用的儲存體帳戶。
 
 4. 選取儲存體帳戶，然後選取您先前建立的容器。
 
-  ![非結構化搜尋](media/storage-unstructured-search/datacontainer.png)
+   ![非結構化搜尋](media/storage-unstructured-search/datacontainer.png)
 
 5. 按一下 [選取] 以返回 [新增資料來源]，然後選取 [確定] 以繼續進行操作。
 
@@ -147,7 +147,7 @@ ms.locfileid: "53599827"
 
 3. 選取 **metadata_storage_name** 下方 [可擷取] 屬性的核取方塊。
 
-  ![非結構化搜尋](media/storage-unstructured-search/valuestoselect.png)
+   ![非結構化搜尋](media/storage-unstructured-search/valuestoselect.png)
 
 4. 選取 [確定] 以顯示 [建立索引子]。
 
@@ -172,7 +172,7 @@ ms.locfileid: "53599827"
 
 1. 在 [名稱] 欄位中輸入名稱，然後選取 [確定]。
 
-  ![非結構化搜尋](media/storage-unstructured-search/exindexer.png)
+   ![非結構化搜尋](media/storage-unstructured-search/exindexer.png)
 
 2. 您會返回 [匯入資料]。 請選取 [確定] 以完成連線程序。
 
@@ -186,19 +186,19 @@ ms.locfileid: "53599827"
 
 1. 移至所有資源，然後尋找新建立的搜尋服務。
 
-  ![非結構化搜尋](media/storage-unstructured-search/exampleurl.png)
+   ![非結構化搜尋](media/storage-unstructured-search/exampleurl.png)
 
 2. 選取您的索引以將它開啟。
 
-  ![非結構化搜尋](media/storage-unstructured-search/overview.png)
+   ![非結構化搜尋](media/storage-unstructured-search/overview.png)
 
 3. 選取 [搜尋總管] 以開啟搜尋總管，您可以在其中對資料進行即時查詢。
 
-  ![非結構化搜尋](media/storage-unstructured-search/indexespane.png)
+   ![非結構化搜尋](media/storage-unstructured-search/indexespane.png)
 
 4. 查詢字串欄位為空時，請選取 [搜尋]。 空的查詢會傳回 Blob 中的「所有」資料。
 
-  ![非結構化搜尋](media/storage-unstructured-search/emptySearch.png)
+   ![非結構化搜尋](media/storage-unstructured-search/emptySearch.png)
 
 ### <a name="perform-a-full-text-search"></a>執行全文檢索搜尋
 

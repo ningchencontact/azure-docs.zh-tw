@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: lbosq
-ms.openlocfilehash: 88bb87dea4508ba41ee97a127fc60c531f2bfcab
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 5b76d7393e78b464227e93a4c7c8a3f22ccc169e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958335"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092526"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>快速入門：使用 Python 和 Azure 入口網站在 Azure Cosmos DB 中建立圖形資料庫
 
@@ -222,17 +222,17 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 12. 現在我們可以連線 rakesh 和 ashley。 請確定已在 [結果] 清單中選取 **ashley**，然後按一下右下方 [目標] 旁邊的編輯按鈕。 您可能需要加寬視窗，才可看到 [屬性] 區域。
 
-   ![變更圖形中頂點的目標](./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png)
+    ![變更圖形中頂點的目標](./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png)
 
 13. 在 [目標] 方塊中輸入 rakesh，並在 [邊緣標籤] 方塊中輸入 knows，然後按一下核取方塊。
 
-   ![在 [資料總管] 中新增 ashley 與 rakesh 之間的連線](./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png)
+    ![在 [資料總管] 中新增 ashley 與 rakesh 之間的連線](./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png)
 
 14. 現在從 [結果] 清單中選取 **rakesh** 並查看 ashley 與 rakesh 是否已連線。 
 
-   ![[資料總管] 中連線的兩個頂點](./media/create-graph-python/azure-cosmosdb-graph-explorer.png)
+    ![[資料總管] 中連線的兩個頂點](./media/create-graph-python/azure-cosmosdb-graph-explorer.png)
 
-   這會完成本教學課程中的資源建立部分。 您可以繼續將頂點新增至圖形、修改現有的頂點，或是變更查詢。 現在讓我們檢閱 Azure Cosmos DB 提供的計量，然後再清除資源。 
+    這會完成本教學課程中的資源建立部分。 您可以繼續將頂點新增至圖形、修改現有的頂點，或是變更查詢。 現在讓我們檢閱 Azure Cosmos DB 提供的計量，然後再清除資源。 
 
 ## <a name="review-slas-in-the-azure-portal"></a>在 Azure 入口網站中檢閱 SLA
 

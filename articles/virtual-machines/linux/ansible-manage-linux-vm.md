@@ -1,19 +1,19 @@
 ---
 title: 使用 Ansible 在 Azure 中管理 Linux 虛擬機器
 description: 了解如何使用 Ansible 在 Azure 中管理 Linux 虛擬機器
-ms.service: ansible
+ms.service: virtual-machines-linux
 keywords: ansible、azure、devops、bash、cloudshell、腳本、bash
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 09/27/2018
-ms.openlocfilehash: ef19043465cb67401786cddec4972f67231995bb
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 8f97cf8a4231e9a2144f27c0540de96574e13795
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077805"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57789872"
 ---
 # <a name="use-ansible-to-manage-a-linux-virtual-machine-in-azure"></a>使用 Ansible 在 Azure 中管理 Linux 虛擬機器
 Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使用 Ansible 管理 Azure 虛擬機器，如同管理任何其他資源一樣。 本文將說明如何使用 Ansible 腳本來啟動和停止 Linux 虛擬機器。 

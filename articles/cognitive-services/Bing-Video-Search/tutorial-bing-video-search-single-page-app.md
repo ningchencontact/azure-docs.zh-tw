@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: rosh
-ms.openlocfilehash: 034ea49322f213971f549673a1d179a301585c96
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 182783576c8b47db8dd1c60ed2d5c5948fb98672
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875200"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438987"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>教學課程：單頁影片搜尋應用程式
 Bing 影片搜尋 API 可讓您搜尋網頁，並取得與搜尋查詢相關的影片結果。 在本教學課程中，我們會建置單頁 Web 應用程式，以使用 Bing 影片搜尋 API 在頁面中顯示搜尋結果。 該應用程式包含 HTML、CSS 和 JavaScript 元件。
@@ -281,7 +281,7 @@ function renderSearchResults(results) {
     showDiv("paging1", pagingLinks);
     showDiv("paging2", pagingLinks);
 
-    // Render the resuts to the mainline section
+    // Render the results to the mainline section
     for (section in { mainline: 0 }) {
          showDiv(section, renderResultsItems(section, results));
     }

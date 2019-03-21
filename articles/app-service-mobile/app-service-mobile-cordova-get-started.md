@@ -13,21 +13,21 @@ ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: crdun
-ms.openlocfilehash: 0c00709417f3b393e8505dc7232abd5541c4e961
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 7014d09bbb62e78c37a9496628e3509b6eaaa4ac
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52954964"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768224"
 ---
 # <a name="create-an-apache-cordova-app"></a>建立 Apache Cordova 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>概觀
-本教學課程示範如何使用 Azure 行動應用程式後端，將雲端式後端服務新增到 Apache Cordova 行動應用程式。  您會建立新的行動應用程式後端，以及可在 Azure 中儲存應用程式資料的簡易「待辦事項清單」 Apache Cordova 應用程式。
+本教程说明如何使用 Azure 移动应用后端向 Apache Cordova 移动应用添加基于云的后端服务。  您會建立新的行動應用程式後端，以及可在 Azure 中儲存應用程式資料的簡易「待辦事項清單」 Apache Cordova 應用程式。
 
 所有其他 Apache Cordova 教學課程只要是與使用 Azure App Service 中的 Mobile Apps 功能相關，都必須先完成本教學課程。
 
@@ -36,9 +36,9 @@ ms.locfileid: "52954964"
 
 * 具有 [Visual Studio Community 2017] 或更新版本的電腦。
 * [Visual Studio Tools for Apache Cordova]。
-* 有效的 [Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/)。
+* [有效的 Azure 帐户](https://azure.microsoft.com/pricing/free-trial/)。
 
-您也可以略過 Visual Studio 而直接使用 Apache Cordova 命令列。  在 Mac 電腦上完成本教學課程時，使用命令列相當有用。  本教學課程未涵蓋使用命令列來編譯 Apache Cordova 用戶端應用程式。
+也可以绕过 Visual Studio，直接使用 Apache Cordova 命令行。  在 Mac 電腦上完成本教學課程時，使用命令列相當有用。  本教程不介绍如何使用命令行编译 Apache Cordova 客户端应用程序。
 
 ## <a name="create-an-azure-mobile-app-backend"></a>建立 Azure 行動應用程式後端
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
@@ -60,8 +60,8 @@ ms.locfileid: "52954964"
 
 深入了解使用 Azure App Service 的相關重要概念。
 
-* [離線資料]
-* [驗證]
+* [脱机数据]
+* [身份验证]
 * [推播通知]
 
 了解如何使用 SDK。
@@ -76,8 +76,8 @@ ms.locfileid: "52954964"
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2017]: https://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
-[離線資料]: app-service-mobile-offline-data-sync.md
-[驗證]: app-service-mobile-auth.md
+[脱机数据]: app-service-mobile-offline-data-sync.md
+[身份验证]: app-service-mobile-auth.md
 [推播通知]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

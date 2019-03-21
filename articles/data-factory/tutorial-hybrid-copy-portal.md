@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: af764557a6bd3d3f60a3aa628834d5929e073a82
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ab13b0db843e5a2652ed1dd61a0e5ab5f7541244
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021980"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120256"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體
 在本教學課程中，您會使用 Azure Data Factory 使用者介面 (UI) 來建立資料處理站管線，以將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體。 您要建立及使用自我裝載的整合執行階段，其會在內部部署與雲端資料存放區之間移動資料。
@@ -134,11 +134,11 @@ ms.locfileid: "54021980"
 1. 選取您要在其中建立資料處理站的 Azure **訂用帳戶**。
 1. 針對 [資源群組]，採取下列其中一個步驟︰
    
-      - 選取 [使用現有的] ，然後從下拉式清單選取現有的資源群組。
+   - 選取 [使用現有的] ，然後從下拉式清單選取現有的資源群組。
 
-      - 選取 [建立新的] ，然後輸入資源群組的名稱。
+   - 選取 [建立新的] ，然後輸入資源群組的名稱。
         
-    若要了解資源群組，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。
+     若要了解資源群組，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。
 1. 在 [版本] 下，選取 [V2]。
 1. 在 [位置] 下，選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 Data Factory 所使用的資料存放區 (例如儲存體和 SQL Database) 和計算 (例如 Azure HDInsight) 可位於其他區域。
 1. 選取 [釘選到儀表板]。 

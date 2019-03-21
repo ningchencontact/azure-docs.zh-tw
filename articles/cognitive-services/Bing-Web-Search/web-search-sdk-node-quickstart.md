@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 08/16/2018
+ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 94bc7d2ddca84b01dd799552fe7a331c9bb958a1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 96848e30c13d226978a6be1a1786e9ed2b4ab7c2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856885"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892858"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-nodejs"></a>快速入門：使用適用於 Node.js 的 Bing Web 搜尋 SDK
 
@@ -43,14 +43,14 @@ Bing Web 搜尋 SDK 可讓您輕鬆地將 Bing Web 搜尋整合到 Node.js 應�
     mkdir YOUR_PROJECT
     ```
 
-2. 建立新的套件檔案：
+1. 建立新的套件檔案：
 
     ```console
     cd YOUR_PROJECT
     npm init
     ```
 
-3. 現在，讓我們安裝一些 Azure 模組並新增至 `package.json`：
+1. 現在，讓我們安裝一些 Azure 模組並新增至 `package.json`：
 
     ```console
     npm install --save azure-cognitiveservices-websearch

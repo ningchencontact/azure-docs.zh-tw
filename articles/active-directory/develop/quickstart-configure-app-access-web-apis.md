@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08ad61070fd3bfb8472cffb51fd0b1bb4bcf169b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7ef499e49fc4d1a0dc79dfc4efb818f7330b57b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169372"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995206"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis-preview"></a>快速入門：設定用戶端應用程式以存取 Web API (預覽)
 
@@ -74,11 +74,11 @@ ms.locfileid: "56169372"
 
 1. 若要新增 Web 和公用用戶端應用程式的自訂重新導向 URI，請遵循下列步驟：
 
-    1. 找到 [重新導向 URI] 區段。
-    1. 選取您要建置的應用程式類型：**Web** 還是**公用用戶端 (行動和傳統型)**。
-    1. 輸入應用程式的重新導向 URI。
-        * 若為 Web 應用程式，請提供應用程式的基底 URL。 例如， http://localhost:31544 可能是本機電腦上所執行 Web 應用程式的 URL。 使用者會使用此 URL 來登入 Web 用戶端應用程式。
-        * 若為公用應用程式，請提供 Azure AD 用來傳回權杖回應的 URI。 輸入應用程式特定的值，例如 https://MyFirstApp。
+   1. 找到 [重新導向 URI] 區段。
+   1. 選取您要建置的應用程式類型：**Web** 還是**公用用戶端 (行動和傳統型)**。
+   1. 輸入應用程式的重新導向 URI。
+      * 若為 Web 應用程式，請提供應用程式的基底 URL。 例如，`http://localhost:31544` 可能是本機電腦上所執行 Web 應用程式的 URL。 使用者會使用此 URL 來登入 Web 用戶端應用程式。
+      * 若為公用應用程式，請提供 Azure AD 用來傳回權杖回應的 URI。 輸入應用程式特定的值，例如 https://MyFirstApp。
 
 1. 若要選擇建議的公用用戶端 (行動、傳統型) 重新導向 URI，請遵循下列步驟：
 

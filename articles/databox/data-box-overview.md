@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: d0d5ee18e37436562f1e9e15571dc39fb0e00129
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a81eef9e3f7892afa1d64befec35852381ffe17b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875020"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117739"
 ---
 # <a name="what-is-azure-data-box"></a>什麼是 Azure 資料箱？
 
@@ -44,11 +44,11 @@ Microsoft Azure 資料箱雲端解決方案可讓您以快速、實惠和可靠�
 - **速度** - 資料箱使用 1 Gbps 或 10 Gbps 網路介面，將最多 80 TB 的資料移至 Azure。
 
 - **安全** - 資料箱具有適用於裝置、資料和服務的內建安全保護機制。
-    - 裝置有堅固的外殼，並以防拆螺絲和易碎貼紙加以保護。 
-    - 裝置上的資料會全程受到 AES 256 位元加密的保護。
-    - 裝置只能使用 Azure 入口網站中提供的密碼來解除鎖定。
-    - 此服務受到 Azure 安全功能的保護。
-    - 在您的資料上傳至 Azure 後，裝置上的磁碟即會根據 NIST 800-88r1 標準進行抹除。
+  - 裝置有堅固的外殼，並以防拆螺絲和易碎貼紙加以保護。 
+  - 裝置上的資料會全程受到 AES 256 位元加密的保護。
+  - 裝置只能使用 Azure 入口網站中提供的密碼來解除鎖定。
+  - 此服務受到 Azure 安全功能的保護。
+  - 在您的資料上傳至 Azure 後，裝置上的磁碟即會根據 NIST 800-88r1 標準進行抹除。
     
     如需詳細資訊，請移至 [Azure 資料箱安全性和資料保護](data-box-security.md)。
 

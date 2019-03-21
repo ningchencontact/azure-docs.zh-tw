@@ -1,19 +1,19 @@
 ---
 title: 使用 Ansible 在 Azure 中建立虛擬機器擴展集
 description: 了解如何使用 Ansible 在 Azure 中建立及設定虛擬機器擴展集
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, 腳本, 虛擬機器, 虛擬機器擴展集, vmss
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/24/2018
-ms.openlocfilehash: 920a631ed379651751641c22e4b43f6731197377
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 1176987ab318a97a7db6a12e619e7b7db06ad2da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054150"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097884"
 ---
 # <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>使用 Ansible 在 Azure 中建立虛擬機器擴展集
 Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使用 Ansible 在 Azure 中管理虛擬機器擴展集 (VMSS)，就像管理任何其他 Azure 資源一樣。 本文說明如何使用 Ansible 來建立及相應放大虛擬機器擴展集。 
@@ -276,5 +276,5 @@ Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使�
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"] 
 > [使用 Ansible 將應用程式部署至虛擬機器擴展集](https://docs.microsoft.com/azure/ansible/ansible-deploy-app-vmss)
-
+> 
 > [使用 Ansible 自動調整虛擬機器擴展集](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

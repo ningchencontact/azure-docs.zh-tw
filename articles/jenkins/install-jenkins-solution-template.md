@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 6/7/2017
-ms.openlocfilehash: 69ab376e9c4924babcb249a1d80f6f0d0a846f20
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 6bc0d8a1e938f2b8a97cab486d4679bfc445f6fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079012"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004070"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>從 Azure 入口網站在 Azure Linux VM 上建立 Jenkins 伺服器
 
@@ -22,7 +22,7 @@ ms.locfileid: "54079012"
 ## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶
-* 在您電腦的命令列上存取SSH (例如 Bash 殼層或 [PuTTY](http://www.putty.org/))
+* 在您電腦的命令列上存取SSH (例如 Bash 殼層或 [PuTTY](https://www.putty.org/))
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,7 +43,7 @@ Jenkins 支援由 Jenkins 伺服器將工作委派給一或多個代理程式的
 ssh -L 127.0.0.1:8080:localhost:8080 jenkinsadmin@jenkins2517454.eastus.cloudapp.azure.com
 ```
 
-啟動通道後，在本機電腦上瀏覽至 http://localhost:8080/。 
+啟動通道後，在本機電腦上瀏覽至 `http://localhost:8080/`。 
 
 透過 SSH 連線到 Jenkins VM 時，在命令列中執行下列命令，以取得初始密碼。
 

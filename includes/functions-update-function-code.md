@@ -6,15 +6,15 @@ author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/16/2018
+ms.date: 03/12/2019
 ms.author: glenga
-ms.custom: include file
-ms.openlocfilehash: d264477693458ff4132c1f69704a480eed2756e0
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.custom: include file, fasttrack-edit
+ms.openlocfilehash: 3b0be31afbce78c0de8dc919245e92bee7af04b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987957"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57964088"
 ---
 ## <a name="update-the-function"></a>更新函式
 
@@ -22,12 +22,13 @@ ms.locfileid: "49987957"
 
 ### <a name="c"></a>C\#
 
-開啟新函式的 MyHttpTrigger.cs 程式碼檔案，將函式定義中 **AuthorizationLevel** 屬性的值更新為 `anonymous` 並儲存變更。
+開啟新函式的 MyHttpTrigger.cs 程式碼檔案，將函式定義中 **AuthorizationLevel** 屬性的值更新為 `Anonymous` 並儲存變更。
 
 ```csharp
 [FunctionName("MyHttpTrigger")]
-        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, 
-            "get", "post", Route = null)]HttpRequest req, ILogger log)
+public static async Task<IActionResult> Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
+    ILogger log)
 ```
 
 ### <a name="javascript"></a>JavaScript

@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: fcef143f48bc9e7864fe69900e3c9002fd597fb5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 264a1200ce78d85181650de716f9898033834bc0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001863"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549828"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>快速入門：使用 Python 建立資料處理站和管線
 
@@ -45,7 +45,7 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
     John|Doe
     Jane|Doe
     ```
-2.  使用 [Azure 儲存體總管](http://storageexplorer.com/)之類的工具建立 **adfv2tutorial** 容器，然後在容器中建立 **input**。 然後，將 **input.txt** 檔案上傳至 **input** 資料夾。
+2.  使用 [Azure 儲存體總管](https://storageexplorer.com/)之類的工具建立 **adfv2tutorial** 容器，然後在容器中建立 **input**。 然後，將 **input.txt** 檔案上傳至 **input** 資料夾。
 
 ## <a name="install-the-python-package"></a>安裝 Python 封裝
 

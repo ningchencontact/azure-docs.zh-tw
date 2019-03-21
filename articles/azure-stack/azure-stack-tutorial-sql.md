@@ -16,12 +16,12 @@ ms.date: 02/25/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: f81a781bf3d1232c0af519b81f38c1d27fa6b2df
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: b61bf4f05f52b9d28ee09bb6c0de30544396e815
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818386"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091591"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>教學課程：提供高可用性的 SQL 資料庫
 
@@ -44,7 +44,7 @@ ms.locfileid: "56818386"
 > 必須備妥下列各項，才能使用 Azure Stack 快速入門範本。
 
 - [Windows Server 2016 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer) Marketplace 映像。
-- Windows Server 2016 上的 SQL Server 2016 SP1 或 SP2 (Enterprise、Standard 或 Developer) 伺服器映像。 此教學課程會使用 [Windows Server 2016 上的 SQL Server 2016 SP2 Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.sqlserver2016sp2enterprisewindowsserver2016) Marketplace 映像。
+- Windows Server 2016 上的 SQL Server 2016 SP1 或 SP2 (Enterprise、Standard 或 Developer) 伺服器映像。 此教學課程會使用 [Windows Server 2016 上的 SQL Server 2016 SP2 Enterprise](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) Marketplace 映像。
 - [SQL Server IaaS 延伸模組](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) 1.2.30 版或更新版本。 「SQL IaaS 延伸模組」會安裝所有 Windows 版本之 Marketplace SQL Server 項目所需的必要元件。 它可讓您在 SQL 虛擬機器上設定 SQL 特定的設定。 如果未在本機 Marketplace 安裝此延伸模組，SQL 的佈建就會失敗。
 - [適用於 Windows 的自訂指令碼延伸模組](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.CustomScriptExtension) 1.9.1 版或更新版本。 「自訂指令碼延伸模組」是一個工具，可用來自動啟動部署後的 VM 自訂工作。
 - [PowerShell Desired State Configuration (DSC)](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.DSC-arm) 2.76.0.0 版或更新版本。 DSC 是 Windows PowerShell 中的一個管理平台，可讓您部署和管理軟體服務的設定資料，以及管理這些服務的執行環境。
@@ -65,7 +65,7 @@ ms.locfileid: "56818386"
 - 一個包含 SQL 和檔案共用見證 VM 的可用性設定組  
 
 1. 
-[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. 選取 [\+ 建立資源] > [自訂]，然後選取 [範本部署]。
 
@@ -156,7 +156,7 @@ ms.locfileid: "56818386"
 > 請從 Azure Stack 使用者入口網站，以具有可提供 SQL Server 功能 (Microsoft.SQLAdapter 服務) 之訂用帳戶的租用戶使用者身分執行這些步驟。
 
 1. 
-[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
+   [!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. 選取 [\+ 建立資源] > [資料 \+ 儲存體]，然後選取 [SQL Database]。<br><br>請提供必要的資料庫屬性資訊，包括名稱、定序、大小上限、訂用帳戶、資源群組，以及要用於部署的位置。 
 

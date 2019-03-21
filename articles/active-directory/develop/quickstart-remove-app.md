@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d71489194422a785ee98ec70a07c765c3d686808
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 20d7218b9b1d53b3cfb72a12ee34a77956327ce2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182607"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093189"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>快速入門：移除使用 Microsoft 身分識別平台所註冊的應用程式 (預覽)
 
@@ -52,8 +52,8 @@ ms.locfileid: "56182607"
 4. 從 [概觀] 頁面上，選取 [刪除]。
 5. 選取 [是] 以確認要刪除應用程式。
 
-  > [!NOTE]
-  > 若要刪除應用程式，您必須列名為應用程式的擁有者或具有管理員權限。
+   > [!NOTE]
+   > 若要刪除應用程式，您必須列名為應用程式的擁有者或具有管理員權限。
 
 ## <a name="remove-an-application-authored-by-another-organization"></a>移除其他組織所編寫的應用程式
 

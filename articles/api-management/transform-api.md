@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 4aa4c69857bfd1ab99945cb0f5f748e60cff9978
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: e50c5d942bdbafc60bf0e2b8c74b008ac12b3bc6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417325"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084975"
 ---
-# <a name="transform-and-protect-your-api"></a>轉換及保護您的 API 
+# <a name="transform-and-protect-your-api"></a>轉換及保護您的 API
 
 本教學課程示範如何轉換您的 API，使它不會揭露私人的後端資訊。 例如，您可以隱藏在後端執行之技術堆疊的相關資訊。 您也可以隱藏 API HTTP 回應主體中出現的原始 URL，改為將它們重新導向至 APIM 閘道。
 
@@ -30,19 +30,20 @@ ms.locfileid: "56417325"
 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
-> * 轉換 API 以刪除回應標頭
-> * 使用 APIM 閘道 URL 取代 API 回應主體中的原始 URL
-> * 新增速率限制原則 (節流) 來保護 API
-> * 測試轉換
+>
+> -   轉換 API 以刪除回應標頭
+> -   使用 APIM 閘道 URL 取代 API 回應主體中的原始 URL
+> -   新增速率限制原則 (節流) 來保護 API
+> -   測試轉換
 
 ![原則](./media/transform-api/api-management-management-console.png)
 
 ## <a name="prerequisites"></a>必要條件
 
-+ 了解 [Azure API 管理術語](api-management-terminology.md)。
-+ 了解 [Azure API 管理的原則概念](api-management-howto-policies.md)。
-+ 完成下列快速入門：[建立 Azure APIM 執行個體](get-started-create-service-instance.md)。
-+ 此外，請完成下列教學課程：[匯入和發佈您的第一個 API](import-and-publish.md)。
+-   了解 [Azure API 管理術語](api-management-terminology.md)。
+-   了解 [Azure API 管理的原則概念](api-management-howto-policies.md)。
+-   完成下列快速入門：[建立 Azure APIM 執行個體](get-started-create-service-instance.md)。
+-   此外，請完成下列教學課程：[匯入和發佈您的第一個 API](import-and-publish.md)。
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -50,8 +51,8 @@ ms.locfileid: "56417325"
 
 本節示範如何隱藏您不想向使用者顯示的 HTTP 標頭。 在此範例中，會在 HTTP 回應中刪除下列標頭：
 
-* **X-Powered-By**
-* **X-AspNet-Version**
+-   **X-Powered-By**
+-   **X-AspNet-Version**
 
 ### <a name="test-the-original-response"></a>測試原始回應
 
@@ -78,13 +79,14 @@ ms.locfileid: "56417325"
 5. 將游標放在 **&lt;outbound&gt;** 元素內部。
 6. 在右側視窗的 [轉換原則] 下方，按兩次 [+ 設定 HTTP 標頭] \(以插入兩個原則程式碼片段)。
 
-    ![原則](./media/transform-api/transform-api.png)
+   ![原則](./media/transform-api/transform-api.png)
+
 7. 修改您的 **<outbound>** 程式碼，使它看起來如下：
 
-        <set-header name="X-Powered-By" exists-action="delete" />
-        <set-header name="X-AspNet-Version" exists-action="delete" />
+       <set-header name="X-Powered-By" exists-action="delete" />
+       <set-header name="X-AspNet-Version" exists-action="delete" />
 
-    ![原則](./media/transform-api/set-policy.png)
+   ![原則](./media/transform-api/set-policy.png)
 
 8. 按一下 [儲存]  按鈕。
 
@@ -99,7 +101,7 @@ ms.locfileid: "56417325"
 1. 選取 [Demo Conference API]。
 2. 按一下畫面頂端的 [測試] 索引標籤。
 3. 選取 **GetSpeakers** 作業。
-4. 按畫面底部的 [傳送] 按鈕。 
+4. 按畫面底部的 [傳送] 按鈕。
 
     此時，您會看見如下的原始回應：
 
@@ -107,13 +109,13 @@ ms.locfileid: "56417325"
 
 ### <a name="set-the-transformation-policy"></a>設定轉換原則
 
-1. 選取 [Demo Conference API]。
-2. 選取 [所有作業]。
-3. 選取畫面頂端的 [設計] 索引標籤。
-4. 在 [輸出處理] 區段中，按一下 **</>** 圖示。
-5. 將游標放在 **&lt;outbound&gt;** 元素內部。
-6. 在右側視窗的 [轉換原則] 下方，按一下 [+ 尋找並取代主體中的字串]。
-7. 修改您的 **find-and-replace** 程式碼 (位於 **\<outbound\>** 元素中)，並用來取代 URL，以符合您的 APIM 閘道。 例如︰
+1.  選取 [Demo Conference API]。
+2.  選取 [所有作業]。
+3.  選取畫面頂端的 [設計] 索引標籤。
+4.  在 [輸出處理] 區段中，按一下 **</>** 圖示。
+5.  將游標放在 **&lt;outbound&gt;** 元素內部。
+6.  在右側視窗的 [轉換原則] 下方，按一下 [+ 尋找並取代主體中的字串]。
+7.  修改您的 **find-and-replace** 程式碼 (位於 **\<outbound\>** 元素中)，並用來取代 URL，以符合您的 APIM 閘道。 例如︰
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 
@@ -123,18 +125,18 @@ ms.locfileid: "56417325"
 
 ![設定輸入原則](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png)
 
-1. 選取 [Demo Conference API]。
-2. 選取 [所有作業]。
-3. 選取畫面頂端的 [設計] 索引標籤。
-4. 在 [輸入處理] 區段中，按一下 **</>** 圖示。
-5. 將游標放在 **&lt;inbound&gt;** 元素內部。
-6. 在右側視窗的 [存取限制原則] 下方，按一下 [+ 限制每個金鑰的呼叫速率]。
-7. 將您的 **rate-limit-by-key** 程式碼 (位於 **\<inbound\>** 元素中) 修改為下列程式碼：
+1.  選取 [Demo Conference API]。
+2.  選取 [所有作業]。
+3.  選取畫面頂端的 [設計] 索引標籤。
+4.  在 [輸入處理] 區段中，按一下 **</>** 圖示。
+5.  將游標放在 **&lt;inbound&gt;** 元素內部。
+6.  在右側視窗的 [存取限制原則] 下方，按一下 [+ 限制每個金鑰的呼叫速率]。
+7.  將您的 **rate-limit-by-key** 程式碼 (位於 **\<inbound\>** 元素中) 修改為下列程式碼：
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 
 ## <a name="test-the-transformations"></a>測試轉換
-        
+
 此時如果您在程式碼編輯器中查看程式碼，您的原則會顯示如下：
 
     <policies>
@@ -148,6 +150,7 @@ ms.locfileid: "56417325"
         <outbound>
             <set-header name="X-Powered-By" exists-action="delete" />
             <set-header name="X-AspNet-Version" exists-action="delete" />
+            <find-and-replace from="://conferenceapi.azurewebsites.net:443" to="://apiphany.azure-api.net/conference"/>
             <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
             <base />
         </outbound>
@@ -202,10 +205,11 @@ ms.locfileid: "56417325"
 在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
-> * 轉換 API 以刪除回應標頭
-> * 使用 APIM 閘道 URL 取代 API 回應主體中的原始 URL
-> * 新增速率限制原則 (節流) 來保護 API
-> * 測試轉換
+>
+> -   轉換 API 以刪除回應標頭
+> -   使用 APIM 閘道 URL 取代 API 回應主體中的原始 URL
+> -   新增速率限制原則 (節流) 來保護 API
+> -   測試轉換
 
 前進到下一個教學課程：
 

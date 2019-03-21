@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f5d54f90c0b53105953726b1f26dab98192b40a6
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 24a35b387a8b47d44f742303ddde0a0e8fb47fe6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752490"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57833793"
 ---
 # <a name="azure-spatial-anchors-overview"></a>Azure Spatial Anchors 概觀
 
@@ -30,7 +30,7 @@ Spatial Anchors 可支援的範例使用案例包括：
 
 - [指向](concepts/anchor-relationships-way-finding.md)。 開發人員也可以將 Spatial Anchors 連接在一起，以建立其間的關聯性。 例如，應用程式可能有某項體驗包含兩個或更多須由使用者互動來完成工作的景點。 這些景點可透過連線的方式建立。 之後，當使用者完成多步驟工作時，應用程式可要求現有錨點附近的錨點，以指示使用者前往工作中的下一個步驟。
 
-- [真實世界中保存虛擬內容](concepts/create-locate-anchors-unity.md#creating-a-cloud-spatial-anchor)。 應用程式可讓使用者在會議室的牆上掛置虛擬日曆，讓其他人可使用手機應用程式或 HoloLens 裝置查看日曆。 在產業設定中，使用者可藉由將支援的裝置相機指向某機器，以接收其相關內容資訊。
+- [真實世界中保存虛擬內容](concepts/create-locate-anchors-unity.md#create-a-cloud-spatial-anchor)。 應用程式可讓使用者在會議室的牆上掛置虛擬日曆，讓其他人可使用手機應用程式或 HoloLens 裝置查看日曆。 在產業設定中，使用者可藉由將支援的裝置相機指向某機器，以接收其相關內容資訊。
 
 Azure Spatial Anchors 由支援的裝置平台適用的受控服務和用戶端 SDK 所組成。 以下各節將提供開始使用 Azure Spatial Anchors 建置應用程式的相關資訊。
 

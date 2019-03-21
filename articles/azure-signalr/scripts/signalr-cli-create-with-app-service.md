@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/20/2018
 ms.author: zhshang
 ms.custom: mvc
-ms.openlocfilehash: 007bf58c06d28f4445b3e57c5d692e3ee19b5b8c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 5fd9e593a9a5158b35d3c0e17436d54bc7c1bd03
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257738"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547768"
 ---
 # <a name="create-a-signalr-service-with-an-app-service"></a>使用 App Service 建立 SignalR 服務
 
@@ -56,4 +56,4 @@ az extension add -n signalr
 
 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](/cli/azure)。
 
-您可以在 [Azure SignalR 服務文件](../signalr-cli-samples.md)中找到其他的 Azure SignalR 服務 CLI 指令碼範例。
+您可以在 [Azure SignalR 服務文件](../signalr-reference-cli.md)中找到其他的 Azure SignalR 服務 CLI 指令碼範例。

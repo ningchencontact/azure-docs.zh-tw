@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9361c8b17d1b43b4ef63aca6ab4660571efddcde
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: a40619000998d7222781094db2829aabcc6a7fb2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492781"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100763"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>教學課程：使用 Azure Resource Manager 範本部署虛擬機器擴充功能
 
@@ -68,13 +68,13 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 1. 若要開啟檔案，請選取 [開啟]。  
     範本會定義五個資源：
 
-    * **Microsoft.Storage/storageAccounts**。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)。
-    * **Microsoft.Network/publicIPAddresses**。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)。
-    * **Microsoft.Network/virtualNetworks**。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)。
-    * **Microsoft.Network/networkInterfaces**。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)。
-    * **Microsoft.Compute/virtualMachines**。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)。
+   * **Microsoft.Storage/storageAccounts**。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)。
+   * **Microsoft.Network/publicIPAddresses**。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)。
+   * **Microsoft.Network/virtualNetworks**。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)。
+   * **Microsoft.Network/networkInterfaces**。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)。
+   * **Microsoft.Compute/virtualMachines**。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)。
 
-    自訂範本之前，最好先對範本有初步了解。
+     自訂範本之前，最好先對範本有初步了解。
 
 1. 選取 [檔案] > [另存新檔]，以名稱 azuredeploy.json 將檔案的複本儲存至您的本機電腦。
 
@@ -108,7 +108,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 
 如需此資源定義的詳細資訊，請參閱[擴充功能參考](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions)。 以下是部分重要元素：
 
-* **名稱**：由於擴充功能資源是虛擬機器物件的子資源，因此名稱必須有虛擬機器名稱前置詞。 請參閱[子資源](./resource-manager-templates-resources.md#child-resources)。
+* **名稱**：由於擴充功能資源是虛擬機器物件的子資源，因此名稱必須有虛擬機器名稱前置詞。 請參閱[子資源](./resource-group-authoring-templates.md#child-resources)。
 * **dependsOn**：會在建立了虛擬機器後建立擴充功能資源。
 * **fileUris**：指令碼檔案儲存所在的位置。 如果您選擇不使用提供的位置，則必須更新值。
 * **commandToExecute**：此命令會叫用指令碼。  

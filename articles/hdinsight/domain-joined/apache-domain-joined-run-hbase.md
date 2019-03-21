@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: tutorial
 ms.date: 02/01/2019
-ms.openlocfilehash: e1a0dda4c13baf7fc2e5ba65d599db8c74591adb
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 1421b142fbca83d2de46f52f8390d0c25f22780c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893233"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117280"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package-preview"></a>教學課程：使用企業安全性套件在 HDInsight 中設定 Apache HBase 原則 (預覽)
 
@@ -102,7 +102,7 @@ ms.locfileid: "55893233"
 
     ![Apache Ranger 管理員 UI 建立原則](./media/apache-domain-joined-run-hbase/apache-ranger-hbase-policies-list.png)
 
-3.  在 [建立原則] 畫面上輸入下列值：
+3. 在 [建立原則] 畫面上輸入下列值：
 
    |**設定**  |**建議的值**  |
    |---------|---------|

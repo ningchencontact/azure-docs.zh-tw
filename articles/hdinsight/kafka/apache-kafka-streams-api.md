@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: cb959bd74322534573f83c2b3258ff28d4c324ff
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 3c40e00d55af49b1b040d3fe706f08af719b2238
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584151"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112784"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>教學課程：Apache Kafka 串流 API
 
@@ -199,13 +199,13 @@ public class Stream
 
     這些主題的用途如下：
 
-    * `test`：此主題是接收記錄之處。 串流應用程式會從中進行讀取。
-    * `wordcounts`：此主題是串流應用程式儲存其輸出之處。
-    * `RekeyedIntermediateTopic`：此主題可在 `countByKey` 運算子更新計數時用來重新分割資料。
-    * `wordcount-example-Counts-changelog`：此主題是 `countByKey` 作業所使用的狀態存放區
+   * `test`：此主題是接收記錄之處。 串流應用程式會從中進行讀取。
+   * `wordcounts`：此主題是串流應用程式儲存其輸出之處。
+   * `RekeyedIntermediateTopic`：此主題可在 `countByKey` 運算子更新計數時用來重新分割資料。
+   * `wordcount-example-Counts-changelog`：此主題是 `countByKey` 作業所使用的狀態存放區
 
-    > [!IMPORTANT]  
-    > HDInsight 上的 Kafka 也可設定為自動建立主題。 如需詳細資訊，請參閱[設定自動建立主題功能](apache-kafka-auto-create-topics.md)文件。
+     > [!IMPORTANT]  
+     > HDInsight 上的 Kafka 也可設定為自動建立主題。 如需詳細資訊，請參閱[設定自動建立主題功能](apache-kafka-auto-create-topics.md)文件。
 
 ## <a name="run-the-code"></a>執行程式碼
 

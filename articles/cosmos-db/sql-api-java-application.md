@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: ramkris
-ms.openlocfilehash: 3add2b6800463cf9320d2fcfdd87897d2e38d32d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4d6d26bd142a62d57b55caa290a2a94a3988737d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039804"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008700"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>使用 Azure Cosmos DB 和 SQL API 來建置 Java Web 應用程式
 
@@ -42,7 +42,7 @@ ms.locfileid: "54039804"
 ## <a id="Prerequisites"></a>針對此 Java Web 應用程式教學課程的必要條件
 開始進行本應用程式開發教學課程之前，您必須具備下列條件：
 
-*  如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
+* 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -722,7 +722,7 @@ Azure 網站讓部署 Java 應用程式變得相當簡單，您只需將應用�
 3. 現在您手上已經有了 WAR 檔案，您只需將它上傳至您 Azure 網站的 **webapps** 目錄即可。 如需上傳檔案的相關指示，請參閱[將 Java 應用程式新增至 Azure App Service Web Apps](../app-service/web-sites-java-add-app.md)。
    
     將 WAR 檔案上傳至 webapps 目錄之後，執行階段環境便會偵測到您已新增它，並自動將其載入。
-4. 若要檢視您已完成的產品，請瀏覽至 http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/ 並開始新增您的工作！
+4. 若要檢視您已完成的產品，請瀏覽至 `http://YOUR\_SITE\_NAME.azurewebsites.net/azure-java-sample/` 並開始新增您的工作！
 
 ## <a id="GetProject"></a>從 GitHub 取得的專案
 本教學課程中的所有範例都包含在 GitHub 上的 [待辦事項](https://github.com/Azure-Samples/documentdb-java-todo-app) 專案中。 若要將 todo 專案匯入 Eclipse，請確認您擁有 [必要條件](#Prerequisites) 區段中所列出的軟體和資源，然後執行下列動作：
@@ -747,6 +747,6 @@ Azure 網站讓部署 Java 應用程式變得相當簡單，您只需將應用�
 18. 在螢幕底部的 [伺服器] 索引標籤上，以滑鼠右鍵按一下 [在 localhost 的 Tomcat v7.0 伺服器]，然後按一下 [新增和移除]。
 19. 在 [新增和移除] 視窗中，將 [azure-documentdb-java-sample] 移至 [已設定] 方塊，然後按一下 [完成]。
 20. 在 [伺服器] 索引標籤上，以滑鼠右鍵按一下 [Tomcat v7.0 Server at localhost] \(在 localhost 的 Tomcat v7.0 伺服器)，然後按一下 [重新啟動]。
-21. 在瀏覽器中，瀏覽至 http://localhost:8080/azure-documentdb-java-sample/，並開始新增到工作清單。 請注意，如果您之前變更預設的連接埠值，請將 8080 變更為您所選取的值。
+21. 在瀏覽器中，瀏覽至 `http://localhost:8080/azure-documentdb-java-sample/`，並開始新增到工作清單。 請注意，如果您之前變更預設的連接埠值，請將 8080 變更為您所選取的值。
 22. 若要將您的專案部署至 Azure 網站，請參閱[步驟 6：將應用程式部署至 Azure 網站](#Deploy)。
 

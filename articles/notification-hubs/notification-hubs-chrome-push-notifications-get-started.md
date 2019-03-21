@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: ffac79209f998f1ef042ed5fcb4d8c6a45de2c2e
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 03374f63345bd6c9e4f2b603443a1448493e1cdc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447032"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894609"
 ---
 # <a name="tutorial-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至 Chrome 應用程式
 
@@ -266,7 +266,7 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
         sendNHRegistrationRequest();
     }
 
-    // From http://msdn.microsoft.com/library/dn495627.aspx
+    // From https://msdn.microsoft.com/library/dn495627.aspx
     function splitConnectionString()
     {
         var parts = connectionString.split(';');
@@ -361,17 +361,17 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 
     此指令碼具有下列重要參數：
 
-    * `window.onload` 會在 UI 上定義兩個按鈕的按鈕點擊事件。 第一個按鈕點擊事件處理常式會向 GCM 註冊，另一個則使用向 GCM 註冊後所傳回的註冊識別碼來向 Azure 通知中樞註冊。
-    * `updateLog` 是允許使用程式碼記錄資訊的函式。
-    * `registerWithGCM` 是第一個按鈕點擊處理常式，可向 GCM 進行 `chrome.gcm.register` 呼叫，以註冊目前的 Chrome 應用程式執行個體。
-    * `registerCallback` 是回呼函數，會在 GCM 註冊呼叫傳回時受到呼叫。
-    * `registerWithNH` 是第二個按鈕點擊處理常式，會向通知中樞進行註冊。 它會取得使用者已指定的 `hubName` 和 `connectionString`，並製作通知中樞註冊 REST API 呼叫。
-    * `splitConnectionString` 和 `generateSaSToken` 是代表 SaS 權杖建立程序之 JavaScript 實作的協助程式，其必須用於所有 REST API 呼叫中。 如需詳細資訊，請參閱 [一般概念](https://msdn.microsoft.com/library/dn495627.aspx)。
-    * `sendNHRegistrationRequest` 是對 Azure 通知中樞發出 HTTP REST 呼叫的函式。
-    * `registrationPayload` 會定義註冊 XML 裝載。 如需詳細資訊，請參閱 [建立註冊 NH REST API]。 請以接收自 GCM 的值來更新其中的註冊識別碼。
-    * `client` 是應用程式用來發出 HTTP POST 要求的 `XMLHttpRequest` 執行個體。 使用 `sasToken` 更新 `Authorization` 標頭。 成功完成此呼叫後，即會向 Azure 通知中樞註冊此 Chrome 應用程式執行個體。
+   * `window.onload` 會在 UI 上定義兩個按鈕的按鈕點擊事件。 第一個按鈕點擊事件處理常式會向 GCM 註冊，另一個則使用向 GCM 註冊後所傳回的註冊識別碼來向 Azure 通知中樞註冊。
+   * `updateLog` 是允許使用程式碼記錄資訊的函式。
+   * `registerWithGCM` 是第一個按鈕點擊處理常式，可向 GCM 進行 `chrome.gcm.register` 呼叫，以註冊目前的 Chrome 應用程式執行個體。
+   * `registerCallback` 是回呼函數，會在 GCM 註冊呼叫傳回時受到呼叫。
+   * `registerWithNH` 是第二個按鈕點擊處理常式，會向通知中樞進行註冊。 它會取得使用者已指定的 `hubName` 和 `connectionString`，並製作通知中樞註冊 REST API 呼叫。
+   * `splitConnectionString` 和 `generateSaSToken` 是代表 SaS 權杖建立程序之 JavaScript 實作的協助程式，其必須用於所有 REST API 呼叫中。 如需詳細資訊，請參閱 [一般概念](https://msdn.microsoft.com/library/dn495627.aspx)。
+   * `sendNHRegistrationRequest` 是對 Azure 通知中樞發出 HTTP REST 呼叫的函式。
+   * `registrationPayload` 會定義註冊 XML 裝載。 如需詳細資訊，請參閱 [建立註冊 NH REST API]。 請以接收自 GCM 的值來更新其中的註冊識別碼。
+   * `client` 是應用程式用來發出 HTTP POST 要求的 `XMLHttpRequest` 執行個體。 使用 `sasToken` 更新 `Authorization` 標頭。 成功完成此呼叫後，即會向 Azure 通知中樞註冊此 Chrome 應用程式執行個體。
 
-    此專案的整體資料夾結構應與下列結構類似︰![Google Chrome 應用程式 - 資料夾結構][21]
+     此專案的整體資料夾結構應與下列結構類似︰![Google Chrome 應用程式 - 資料夾結構][21]
 
 ### <a name="set-up-and-test-your-chrome-app"></a>設定和測試 Chrome 應用程式
 
@@ -406,7 +406,7 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
     Install-Package Microsoft.Azure.NotificationHubs
     ```
 
-   具有 [WindowsAzure.ServiceBus NuGet 套件](http://nuget.org/packages/WindowsAzure.ServiceBus/)的 Azure 服務匯流排 SDK 的參考會自動新增至專案。
+   具有 [WindowsAzure.ServiceBus NuGet 套件](https://nuget.org/packages/WindowsAzure.ServiceBus/)的 Azure 服務匯流排 SDK 的參考會自動新增至專案。
 4. 開啟 `Program.cs` 並新增下列 `using` 陳述式：
 
     ```csharp
@@ -481,8 +481,8 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 [Chrome 應用程式 GCM 範例]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [Installable Web Apps]: https://developers.google.com/chrome/apps/docs/
 [行動裝置上的 Chrome 應用程式]: https://developer.chrome.com/apps/chrome_apps_on_mobile
-[建立註冊 NH REST API]: http://msdn.microsoft.com/library/azure/dn223265.aspx
-[crypto-js 程式庫]: http://code.google.com/p/crypto-js/
+[建立註冊 NH REST API]: https://msdn.microsoft.com/library/azure/dn223265.aspx
+[crypto-js 程式庫]: https://code.google.com/p/crypto-js/
 [GCM with Chrome Apps]: https://developer.chrome.com/apps/cloudMessaging
 [Google Cloud Messaging for Chrome]: https://developer.chrome.com/apps/cloudMessagingV1
 [Azure Notification Hubs Notify Users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md

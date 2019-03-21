@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: 5ba55e339db4c33d1b0d759e4682481e20318938
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164550"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "58115043"
 ---
-### <a name="prepare-for-a-push-installation-on-a-linux-server"></a>準備在 Linux 伺服器上推送安裝
+### <a name="prepare-for-a-push-installation-on-a-linux-server"></a>在 Linux 服务器上准备推送安装
 
-1. 確定 Linux 電腦與處理序伺服器之間有網路連線。
-1. 建立可供處理序伺服器存取電腦的帳戶。 帳戶應該是來源 Linux 伺服器上的**根**使用者。 此帳戶僅適用於推送安裝和更新。
+1. 确保 Linux 计算机与进程服务器之间已建立网络连接。
+1. 创建可供进程服务器用来访问计算机的帐户。 帳戶應該是來源 Linux 伺服器上的**根**使用者。 此帳戶僅適用於推送安裝和更新。
 1. 檢查來源 Linux 伺服器上的 /etc/hosts 檔案，該檔案具有將本機主機名稱對應到所有網路介面卡相關聯之 IP 位址的項目。
 1. 在您要複寫的電腦上安裝最新的 openssh、openssh-server 和 openssl 套件。
 1. 請確定安全殼層 (SSH) 已啟用且正在連接埠 22 上執行。
@@ -28,7 +28,7 @@ ms.locfileid: "50164550"
 
     d. 找到以 **Subsystem** 開頭這一行，並取消其註解。
 
-      ![Linux](./media/site-recovery-prepare-push-install-mob-svc-lin/mobility2.png)
+      ![ Linux](./media/site-recovery-prepare-push-install-mob-svc-lin/mobility2.png)
 
     e. 重新啟動 **sshd** 服務。
 

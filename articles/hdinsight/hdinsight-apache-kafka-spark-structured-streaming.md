@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4dcf482e02d38e18b7b86fc57565a47510627d44
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: e470f9d6f33e8b534be22132881f4806bed85f5d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652859"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078358"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>教學課程：將 Apache Spark 結構化串流用於 HDInsight 上的 Apache Kafka
 
@@ -131,12 +131,12 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
     此範本會建立下列資源：
 
-    * HDInsight 3.6 叢集上的 Kafka。
-    * HDInsight 3.6 叢集上的 Spark 2.2.0。
-    * Azure 虛擬網路，其中包含 HDInsight 叢集。
+   * HDInsight 3.6 叢集上的 Kafka。
+   * HDInsight 3.6 叢集上的 Spark 2.2.0。
+   * Azure 虛擬網路，其中包含 HDInsight 叢集。
 
-    > [!IMPORTANT]  
-    > 本教學課程中使用的結構化串流 Notebook 需要 HDInsight 3.6 上的 Spark 2.2.0。 如果您在 HDInsight 上使用較早版本的 Spark，當使用 Notebook 時會收到錯誤。
+     > [!IMPORTANT]  
+     > 本教學課程中使用的結構化串流 Notebook 需要 HDInsight 3.6 上的 Spark 2.2.0。 如果您在 HDInsight 上使用較早版本的 Spark，當使用 Notebook 時會收到錯誤。
 
 2. 使用下列資訊，填入 [自訂範本] 區段上的項目︰
 

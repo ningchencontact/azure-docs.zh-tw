@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 67a093068df30460a1b2cf17c04164bf8b1dc6a0
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 5e4fc40a9b6cfc945670bcd497d4b13af61f2f2f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234895"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817757"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>如何設定 Azure Redis 快取
 本主題說明您「Azure Redis 快取」執行個體可用的設定。 本主題也涵蓋適用於「Azure Redis 快取」執行個體的預設 Redis 伺服器設定。
@@ -42,26 +42,26 @@ ms.locfileid: "56234895"
 * [活動記錄檔](#activity-log)
 * [存取控制 (IAM)](#access-control-iam)
 * [標記](#tags)
-* [診斷並解決問題](#diagnose-and-solve-problems)
-* [設定](#settings)
+* [诊断和解决问题](#diagnose-and-solve-problems)
+* [设置](#settings)
     * [存取金鑰](#access-keys)
     * [進階設定](#advanced-settings)
     * [Azure Redis 快取建議程式](#azure-cache-for-redis-advisor)
     * [調整](#scale)
     * [Redis 叢集大小](#cluster-size)
-    * [Redis 資料永續性](#redis-data-persistence)
+    * [Redis 数据持久性](#redis-data-persistence)
     * [排程更新](#schedule-updates)
     * [異地複寫](#geo-replication)
     * [虛擬網路](#virtual-network)
     * [防火牆](#firewall)
     * [屬性](#properties)
-    * [鎖定](#locks)
+    * [锁定](#locks)
     * [自動化指令碼](#automation-script)
 * 系統管理
     * [匯入資料](#importexport)
     * [匯出資料](#importexport)
-    * [重新啟動](#reboot)
-* [監視](#monitoring)
+    * [重新启动](#reboot)
+* [监视](#monitoring)
     * [Redis 度量](#redis-metrics)
     * [警示規則](#alert-rules)
     * [診斷](#diagnostics)
@@ -101,13 +101,13 @@ ms.locfileid: "56234895"
 * [Azure Redis 快取建議程式](#azure-cache-for-redis-advisor)
 * [調整](#scale)
 * [Redis 叢集大小](#cluster-size)
-* [Redis 資料永續性](#redis-data-persistence)
+* [Redis 数据持久性](#redis-data-persistence)
 * [排程更新](#schedule-updates)
 * [異地複寫](#geo-replication)
 * [虛擬網路](#virtual-network)
 * [防火牆](#firewall)
 * [屬性](#properties)
-* [鎖定](#locks)
+* [锁定](#locks)
 * [自動化指令碼](#automation-script)
 
 
@@ -153,7 +153,7 @@ ms.locfileid: "56234895"
 
 [maxfragmentationmemory-reserved] 設定會以 MB 為單位設定保留的記憶體數量，以容納過於分散的記憶體。 設定此值可讓您在快取已滿或接近全滿，且片段比率很高時，擁有更為一致的 Redis 伺服器體驗。 當記憶體保留給這類作業時，無法用於儲存快取的資料。
 
-選擇新的記憶體保留值 (**maxmemory-reserved** 或 **maxfragmentationmemory-reserved**) 時，需要考慮的一件事是，此變更對已有大量資料在執行的快取會有怎麼樣的影響。 例如，如果您有容量為 53 GB 的快取，而其中有 49 GB 的資料，則將保留值變更為 8 GB，此變更會將系統的最大可用記憶體降至 45 GB。 如果目前的 `used_memory` 或 `used_memory_rss` 值高於 45 GB 的新限制，則等 `used_memory` 和 `used_memory_rss` 都低於 45 GB 後，系統必須收回資料。 收回會增加伺服器負載並讓記憶體過於分散。 如需快取計量的詳細資訊，例如 `used_memory` 和 `used_memory_rss`，請參閱[可用計量和報告間隔](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)。
+選擇新的記憶體保留值 (**maxmemory-reserved** 或 **maxfragmentationmemory-reserved**) 時，需要考慮的一件事是，這項變更對已有大量資料在執行的快取會有怎麼樣的影響。 例如，如果您有容量為 53 GB 的快取，而其中有 49 GB 的資料，則將保留值變更為 8 GB，此變更會將系統的最大可用記憶體降至 45 GB。 如果目前的 `used_memory` 或 `used_memory_rss` 值高於 45 GB 的新限制，則等 `used_memory` 和 `used_memory_rss` 都低於 45 GB 後，系統必須收回資料。 收回會增加伺服器負載並讓記憶體過於分散。 如需快取計量的詳細資訊，例如 `used_memory` 和 `used_memory_rss`，請參閱[可用計量和報告間隔](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)。
 
 > [!IMPORTANT]
 > 只有標準和高階快取提供 **maxmemory-reserved** 和 **maxfragmentationmemory-reserved** 設定。
@@ -212,7 +212,7 @@ Redis Keyspace 通知是在 [進階設定]  刀鋒視窗上進行設定。 Keysp
 按一下 [Redis 叢集大小 (預覽)]  ，針對已啟用叢集且目前執行中的進階快取，變更叢集大小。
 
 > [!NOTE]
-> 請注意，雖然「Azure Redis 快取」進階層已發行公開推出版，但「Redis 叢集大小」功能目前為預覽狀態。
+> 請注意，雖然「Azure Redis 快取」進階層已發行正式運作版，但「Redis 叢集大小」功能目前為預覽狀態。
 > 
 > 
 
@@ -256,7 +256,7 @@ Redis Keyspace 通知是在 [進階設定]  刀鋒視窗上進行設定。 Keysp
 
 ### <a name="geo-replication"></a>異地複寫
 
-[異地複寫] 刀鋒視窗提供一個機制，可連結兩個「進階」層「Azure Redis 快取」執行個體。 其中一個快取被指定為主要連結快取，而另一個則為次要連結快取。 次要連結快取會變成唯讀，而寫入主要快取的資料會複寫至次要連結快取。 此功能可用來跨 Azure 區域複寫快取。
+[異地複寫] 刀鋒視窗提供一個機制，可連結兩個「進階」層「Azure Redis 快取」執行個體。 其中一個快取被指定為主要連結快取，而另一個則為次要連結快取。 次要連結快取會變成唯讀，而寫入主要快取的資料會複寫至次要連結快取。 這項功能可用來跨 Azure 區域複寫快取。
 
 > [!IMPORTANT]
 > **異地複寫**僅適用於進階層快取。 如需詳細資訊和指示，請參閱[如何為 Azure Redis 快取設定異地複寫](cache-how-to-geo-replication.md)。
@@ -313,7 +313,7 @@ Redis Keyspace 通知是在 [進階設定]  刀鋒視窗上進行設定。 Keysp
 
 匯入可以用來從任何雲端或環境中執行的 Redis 伺服器 (包含在 Linux、Windows 上執行的 Redis，或任何雲端提供者，例如 Amazon Web Services 等) 引入 Redis 相容 RDB 檔案。 匯入資料是使用預先填入資料建立快取的輕鬆方式。 在進行匯入程序的期間，「Azure Redis 快取」會從 Azure 儲存體將 RDB 檔案載入記憶體，然後將金鑰插入快取。
 
-匯出可讓您將儲存在「Azure Redis 快取」中的資料匯出至與 Redis 相容的 RDB 檔案。 您可以使用此功能，將資料從一個「Azure Redis 快取」執行個體移到另一個執行個體，或移到另一個 Redis 伺服器。 在進行匯出程序的期間，會在裝載 Azure Cache for Redis 伺服器執行個體的 VM 上建立暫存檔案，然後將檔案上傳至指定的儲存體帳戶。 當匯出作業完成時的狀態為成功或失敗時，都會刪除暫存檔案。
+匯出可讓您將儲存在「Azure Redis 快取」中的資料匯出至與 Redis 相容的 RDB 檔案。 您可以使用這項功能，將資料從一個「Azure Redis 快取」執行個體移到另一個執行個體，或移到另一個 Redis 伺服器。 在進行匯出程序的期間，會在裝載 Azure Cache for Redis 伺服器執行個體的 VM 上建立暫存檔案，然後將檔案上傳至指定的儲存體帳戶。 當匯出作業完成時的狀態為成功或失敗時，都會刪除暫存檔案。
 
 > [!IMPORTANT]
 > 匯入/匯出僅供進階層快取使用。 如需詳細資訊和指示，請參閱[在 Azure Redis 快取中匯入和匯出資料](cache-how-to-import-export-data.md)。
@@ -321,7 +321,7 @@ Redis Keyspace 通知是在 [進階設定]  刀鋒視窗上進行設定。 Keysp
 > 
 
 ### <a name="reboot"></a>重新啟動
-[重新啟動] 刀鋒視窗可讓您重新啟動快取的節點。 這個重新啟動的能力可讓您測試應用程式在快取節點失敗時的恢復功能。
+[重新啟動] 刀鋒視窗可讓您重新啟動快取的節點。 如果有缓存节点发生故障，此重新启动功能可用于测试应用程序的复原能力。
 
 ![重新啟動](./media/cache-configure/redis-cache-reboot.png)
 
@@ -359,7 +359,7 @@ Redis Keyspace 通知是在 [進階設定]  刀鋒視窗上進行設定。 Keysp
 根據預設，Azure 監視器中的快取計量會[儲存 30 天](../azure-monitor/platform/data-collection.md#metrics)，而後刪除。 若要保存您的快取計量超過 30 天，按一下 [診斷] 以[設定用來儲存快取診斷的儲存體帳戶](cache-how-to-monitor.md#export-cache-metrics)。
 
 >[!NOTE]
->除了將快取計量封存至儲存體，您也可以[將它們串流處理至事件中樞或將它們傳送至 Log Analytics](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)。
+>除了封存至儲存體快取計量，您也可以[串流至事件中樞，或將它們傳送至 Azure 監視器記錄](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)。
 >
 >
 
@@ -398,13 +398,13 @@ Redis Keyspace 通知是在 [進階設定]  刀鋒視窗上進行設定。 Keysp
 > 
 > 
 
-| 設定 | 預設值 | 說明 |
+| 設定 | 預設值 | 描述 |
 | --- | --- | --- |
 | `databases` |16 |資料庫的預設數目為 16，但是您可以根據定價層設定不同的數字。<sup>1</sup> 預設資料庫為 DB 0，您可以根據每個連線使用 `connection.GetDatabase(dbid)` 選取一個不同的資料庫，其中 `dbid` 是介於 `0` 與 `databases - 1` 之間的數字。 |
 | `maxclients` |取決於定價層<sup>2</sup> |此值是允許同時連線的用戶端數目上限。 一旦達到限制，Redis 會關閉所有新的連線，並傳送「達到用戶端的數目上限」錯誤。 |
 | `maxmemory-policy` |`volatile-lru` |maxmemory 原則可設定當達到 `maxmemory` (建立快取時所選取之快取供應項目的大小) 時 Redis 將如何選取要移除的具目。 使用「Azure Redis 快取」時，預設值為 `volatile-lru`，這會使用 LRU 演算法來移除已設定到期日的金鑰。 此設定可以在 Azure 入口網站中設定。 如需詳細資訊，請參閱[記憶體原則](#memory-policies)。 |
 | `maxmemory-samples` |3 |為了節省記憶體，LRU 和最小 TTL 演算法是近似的演算法而不是精確的演算法。 依預設 Redis 將檢查三個金鑰，並挑選最近較少使用的金鑰。 |
-| `lua-time-limit` |5,000 |Lua 指令碼的最大執行時間 (以毫秒為單位)。 如果已到達最大執行時間，Redis 會記錄指令碼在最大允許的時間之後仍在執行中，並開始回覆查詢發生錯誤。 |
+| `lua-time-limit` |5,000 |Lua 脚本的最大执行时间（以毫秒为单位）。 如果已到達最大執行時間，Redis 會記錄指令碼在最大允許的時間之後仍在執行中，並開始回覆查詢發生錯誤。 |
 | `lua-event-limit` |500 |指令碼事件佇列的大小上限。 |
 | `client-output-buffer-limit` `normalclient-output-buffer-limit` `pubsub` |0 0 032mb 8mb 60 |用戶端輸出緩衝區限制可用來強制中斷基於某些原因而無法足夠快地從伺服器讀取資料之用戶端的連線 (常見的原因是 Pub/Sub 用戶端使用訊息的速度無法與發佈者產生這些訊息的速度一樣快)。 如需詳細資訊，請參閱 [https://redis.io/topics/clients](https://redis.io/topics/clients)。 |
 

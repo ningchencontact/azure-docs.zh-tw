@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/11/2018
-ms.openlocfilehash: 9bd601aee87ab0776069c80bfdeffb70b06c3c86
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 93f2ac284931ba664e0965e537e515c824e6f7a6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073878"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092288"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>使用 Jenkins 和藍/綠部署模式來部署至 Azure Kubernetes Service (AKS)
 
@@ -117,12 +117,12 @@ Azure Kubernetes Service (AKS) 可管理裝載 Kubernetes 的環境，以便快�
 #### <a name="set-up-the-kubernetes-cluster-via-the-sample-setup-script"></a>透過安裝指令碼範例設定 Kubernetes 叢集
 1. 編輯 **deploy/aks/setup/setup.sh** 檔案，以適用您環境的值取代下列預留位置： 
 
-    - **&lt;your-resource-group-name>**
-    - **&lt;your-kubernetes-cluster-name>**
-    - **&lt;your-location>**
-    - **&lt;your-dns-name-suffix>**
+   - **&lt;your-resource-group-name>**
+   - **&lt;your-kubernetes-cluster-name>**
+   - **&lt;your-location>**
+   - **&lt;your-dns-name-suffix>**
 
-    ![bash 中已醒目提示數個預留位置的 setup.sh 指令碼螢幕擷取畫面](./media/jenkins-aks-blue-green-deployment/edit-setup-script.png)
+     ![bash 中已醒目提示數個預留位置的 setup.sh 指令碼螢幕擷取畫面](./media/jenkins-aks-blue-green-deployment/edit-setup-script.png)
 
 1. 執行安裝指令碼。
 

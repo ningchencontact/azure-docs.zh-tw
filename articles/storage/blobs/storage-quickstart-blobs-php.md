@@ -8,12 +8,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 58d1d47b548569f7542e24bd09a41299f12e496e
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 3e1738c3e5acbe63faf1d614e2435088efd8c4d6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787880"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014784"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>使用 PHP 在 Azure Blob 儲存體之間傳送物件
 在本快速入門中，您會了解如何使用 PHP 在 Azure Blob 儲存體容器中上傳、下載及列出區塊 Blob。 
@@ -24,7 +24,7 @@ ms.locfileid: "53787880"
 
 請確定您已安裝下列額外的必要條件：
 
-* [PHP](http://php.net/downloads.php)
+* [PHP](https://php.net/downloads.php)
 * [Azure Storage SDK for PHP](https://github.com/Azure/azure-storage-php)
 
 ## <a name="download-the-sample-application"></a>下載範例應用程式
@@ -74,7 +74,7 @@ This is the content of the blob uploaded: Hello Azure!
 ```
 當您按所顯示的按鈕時，範例程式會刪除儲存體容器和檔案。 在繼續之前，請檢查您伺服器的資料夾，找出這兩個檔案。 您可以開啟它們，並查看它們是否相同。
 
-您也可以使用 [Azure 儲存體總管](http://storageexplorer.com) 之類的工具來檢視 Blob 儲存體中的檔案。 Azure 儲存體總管是免費的跨平台工具，可讓您存取儲存體帳戶資訊。 
+您也可以使用 [Azure 儲存體總管](https://storageexplorer.com) 之類的工具來檢視 Blob 儲存體中的檔案。 Azure 儲存體總管是免費的跨平台工具，可讓您存取儲存體帳戶資訊。 
 
 確認檔案之後，請按任一鍵以完成示範並刪除測試檔案。 現在您已知道這個範例的功用，請開啟 example.rb 檔案查看程式碼。 
 

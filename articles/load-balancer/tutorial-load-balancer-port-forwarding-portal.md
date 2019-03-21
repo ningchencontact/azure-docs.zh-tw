@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 6cb9e839b1fffd29ce1d78e82fb4ab054b92efc6
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 44b9e592d60c541e6b1e7f0e8c639b641af414e4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959116"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118352"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>教學課程：使用入口網站在 Azure Load Balancer 中設定連接埠轉送
 
@@ -42,7 +42,7 @@ ms.locfileid: "56959116"
 
 ## <a name="create-a-standard-load-balancer"></a>建立標準負載平衡器
 
-首先，建立公用標準負載平衡器，以平衡 VM 間的流量負載。 Standard Load Balancer 只支援標準公用 IP 位址。 當您建立標準負載平衡器時，您也會建立新的標準公用 IP 位址，而該 IP 位址會設定為負載平衡器的前端 (預設的名稱為 **LoadBalancerFrontEnd**)。 
+首先，建立公用標準負載平衡器，以平衡 VM 間的流量負載。 標準負載平衡器只支援標準公用 IP 位址。 當您建立標準負載平衡器時，您也會建立新的標準公用 IP 位址，而該 IP 位址會設定為負載平衡器的前端 (預設的名稱為 **LoadBalancerFrontEnd**)。 
 
 1. 在畫面的左上方，按一下 [建立資源] > [網路] > [負載平衡器]。
 2. 在 [建立負載平衡器] 頁面的 [基本資料] 中，輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [檢閱 + 建立]：
@@ -146,13 +146,13 @@ ms.locfileid: "56959116"
    - **來源**：選取 [服務標記]。  
    - **來源服務標記**：選取 [網際網路]。 
    - **目的地連接埠範圍**：輸入 80。
-   - **通訊協定**：選取 [TCP]。 
+   - **通訊協定**：選取 **TCP**。 
    - **動作**：選取 [允許]。  
    - **優先順序**：輸入 100。 
    - **名稱**：輸入 MyHTTPRule。 
    - **描述**：輸入「允許 HTTP」。 
    
-1. 選取 [新增]。 
+1. 選取 [新增] 。 
    
    ![建立 NSG 規則](./media/tutorial-load-balancer-port-forwarding-portal/8-load-balancer-nsg-rules.png)
    
@@ -220,7 +220,7 @@ ms.locfileid: "56959116"
    
 1. 選取 [確定] 。
    
-  ![新增負載平衡器規則](./media/tutorial-load-balancer-port-forwarding-portal/5-load-balancing-rules.png)
+   ![新增負載平衡器規則](./media/tutorial-load-balancer-port-forwarding-portal/5-load-balancing-rules.png)
 
 ## <a name="create-an-inbound-nat-port-forwarding-rule"></a>建立輸入 NAT 連接埠轉送規則
 

@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: bb0eac4f7de11c2b80412319227a00d5dbe6d8c6
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 84f9472618322111ad2f669ebb172258837620fd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243397"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106061"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>快速入門：在 Azure Stack 中使用 Azure CLI 建立 Linux 伺服器虛擬機器
 
@@ -46,8 +46,8 @@ ms.locfileid: "55243397"
 
 資源群組是您可以在其中部署和管理 Azure Stack 資源的邏輯容器。 從您的開發套件或 Azure Stack 整合系統，執行 [az group create](/cli/azure/group#az-group-create) 命令來建立資源群組。
 
->[!NOTE]
- 系統會為程式碼範例中的所有變數指派值。 不過，您可以視需要指派新值。
+> [!NOTE]
+>  系統會為程式碼範例中的所有變數指派值。 不過，您可以視需要指派新值。
 
 下列範例會在本機位置建立名為 myResourceGroup 的資源群組。
 
@@ -82,7 +82,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="use-ssh-to-connect-to-the-virtual-machine"></a>使用 SSH 連線至虛擬機器
 
-從已安裝 SSH 的用戶端電腦，連線到虛擬機器。 如果您使用的是 Windows 用戶端，請使用 [Putty](http://www.putty.org/) 來建立連線。 若要連線到虛擬機器，請使用下列命令：
+從已安裝 SSH 的用戶端電腦，連線到虛擬機器。 如果您使用的是 Windows 用戶端，請使用 [Putty](https://www.putty.org/) 來建立連線。 若要連線到虛擬機器，請使用下列命令：
 
 ```bash
 ssh <publicIpAddress>

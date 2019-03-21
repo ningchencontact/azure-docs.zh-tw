@@ -15,12 +15,12 @@ ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 8e83da53d0b2f71abc1f74a0ca8fbc2405e75bda
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: aebc308f6bfaddbe8e9b430096cb6698d7dd06c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736578"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099064"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>快速入門：將 .NET 可靠服務應用程式部署至 Service Fabric
 
@@ -47,9 +47,10 @@ Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理�
 2. [安裝 Git](https://git-scm.com/)
 3. [安裝 Microsoft Azure Service Fabric SDK](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
 4. 執行下列命令以將 Visual Studio 部署到本機 Service Fabric 叢集：
-    ```powershell
-    Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
-    ```
+
+   ```powershell
+   Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
+   ```
     
 ## <a name="build-a-cluster"></a>建置叢集
 
@@ -63,14 +64,14 @@ Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理�
 1. 以系統管理員身分開啟提升權限的新 PowerShell 視窗。
 2. 執行下列 PowerShell 命令，以建立開發叢集：
 
-    ```powershell
-    . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
-    ```
+   ```powershell
+   . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
+   ```
 3. 執行下列命令以啟動本機叢集管理員工具：
 
-    ```powershell
-    . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
-    ```
+   ```powershell
+   . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
+   ```
 
 >[!NOTE]
 > 在本快速入門中，範例應用程式使用的功能在 Windows 7 中無法使用。
@@ -131,23 +132,23 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 2. 開啟 **/VotingData/Controllers/VoteDataController.cs** 檔案，並在這個 Web API 的 **Put** 方法 (第 54 行) 中設定中斷點。
 
 3. 返回到瀏覽器，並按一下投票選項或新增投票選項。 您到達 Web 前端之 API 控制器的第一個中斷點。
-    * 瀏覽器中的 JavaScript 會在此位置，將要求傳送至前端服務中的 Web API 控制器。
+   * 瀏覽器中的 JavaScript 會在此位置，將要求傳送至前端服務中的 Web API 控制器。
 
-    ![新增投票前端服務](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
+     ![新增投票前端服務](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
-    * 首先，請針對後端服務 **(1)** 建構 ReverseProxy 的 URL。
-    * 接著，將 HTTP PUT 要求傳送至 ReverseProxy **(2)**。
-    * 最後，將後端服務的回應傳回給用戶端 **(3)**。
+   * 首先，請針對後端服務 **(1)** 建構 ReverseProxy 的 URL。
+   * 接著，將 HTTP PUT 要求傳送至 ReverseProxy **(2)**。
+   * 最後，將後端服務的回應傳回給用戶端 **(3)**。
 
 4. 按 **F5** 繼續
-    - 如果瀏覽器出現提示，請將偵錯模式的讀取和執行權限授與 ServiceFabricAllowedUsers 群組。
-    - 您現在位於後端服務的中斷點。
+   - 如果瀏覽器出現提示，請將偵錯模式的讀取和執行權限授與 ServiceFabricAllowedUsers 群組。
+   - 您現在位於後端服務的中斷點。
 
-    ![新增投票後端服務](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
+     ![新增投票後端服務](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
-    * 在方法的第一行 **(1)** 中，`StateManager` 會取得或新增名為 `counts` 的可靠字典。
-    * 與可靠字典中的值進行的所有互動，都需要交易，這會使用陳述式 **(2)** 建立該交易。
-    * 在交易中，更新投票選項的相關索引鍵值，然後認可作業 **(3)**。 一旦傳回認可方法，字典中的資料會更新並複寫至叢集中的其他節點。 資料現在會安全地儲存在叢集中，而且後端服務可以容錯移轉到仍有可用資料的其他節點。
+   - 在方法的第一行 **(1)** 中，`StateManager` 會取得或新增名為 `counts` 的可靠字典。
+   - 與可靠字典中的值進行的所有互動，都需要交易，這會使用陳述式 **(2)** 建立該交易。
+   - 在交易中，更新投票選項的相關索引鍵值，然後認可作業 **(3)**。 一旦傳回認可方法，字典中的資料會更新並複寫至叢集中的其他節點。 資料現在會安全地儲存在叢集中，而且後端服務可以容錯移轉到仍有可用資料的其他節點。
 5. 按 **F5** 繼續
 
 若要停止偵錯工作階段，請按 **Shift+F5**。

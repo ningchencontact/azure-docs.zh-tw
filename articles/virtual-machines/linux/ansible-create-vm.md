@@ -1,19 +1,19 @@
 ---
 title: 使用 Ansible 在 Azure 中建立 Linux 虛擬機器
 description: 了解如何使用 Ansible 在 Azure 中建立 Linux 虛擬機器
-ms.service: ansible
+ms.service: virtual-machines-linux
 keywords: ansible, azure, devops, 虛擬機器
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 08/22/2018
-ms.openlocfilehash: 1f7f4809e064de15bb0a18c404f0df81307b1b9a
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 38cc6cd8f375fe7c60a706541bc74313e8ea2c4f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073980"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090248"
 ---
 # <a name="use-ansible-to-create-a-linux-virtual-machine-in-azure"></a>使用 Ansible 在 Azure 中建立 Linux 虛擬機器
 使用宣告式語言時，Ansible 可讓您透過 Ansible *腳本*自動建立、設定及部署 Azure 資源。 本文的各節將分別顯示 Ansible 腳本的各個區段在建立及設定 Linux 虛擬機器的不同層面時所呈現的樣貌。 [完整 Ansible 腳本](#complete-sample-ansible-playbook)會列在本文結尾處。
@@ -211,9 +211,9 @@ Ansible 需要用來部署資源的資源群組。 下列範例 Ansible 腳本�
 
 1. 建立名為 `azure_create_complete_vm.yml` 的檔案 (以包含您腳本)，然後在 VI 編輯器中加以開啟，如下所示：
 
-  ```azurecli-interactive
-  vi azure_create_complete_vm.yml
-  ```
+   ```azurecli-interactive
+   vi azure_create_complete_vm.yml
+   ```
 
 1. 選取 **I** 鍵輸入插入模式。
 
@@ -229,53 +229,53 @@ Ansible 需要用來部署資源的資源群組。 下列範例 Ansible 腳本�
 
 1. 執行範例 Ansible 腳本。
 
-  ```bash
-  ansible-playbook azure_create_complete_vm.yml
-  ```
+   ```bash
+   ansible-playbook azure_create_complete_vm.yml
+   ```
 
 1. 輸出看起來會類似於下列內容，在其中您可以看到已成功建立虛擬機器：
 
-  ```bash
-  PLAY [Create Azure VM] ****************************************************
+   ```bash
+   PLAY [Create Azure VM] ****************************************************
 
-  TASK [Gathering Facts] ****************************************************
-  ok: [localhost]
+   TASK [Gathering Facts] ****************************************************
+   ok: [localhost]
 
-  TASK [Create resource group] *********************************************
-  changed: [localhost]
+   TASK [Create resource group] *********************************************
+   changed: [localhost]
 
-  TASK [Create virtual network] *********************************************
-  changed: [localhost]
+   TASK [Create virtual network] *********************************************
+   changed: [localhost]
 
-  TASK [Add subnet] *********************************************************
-  changed: [localhost]
+   TASK [Add subnet] *********************************************************
+   changed: [localhost]
 
-  TASK [Create public IP address] *******************************************
-  changed: [localhost]
+   TASK [Create public IP address] *******************************************
+   changed: [localhost]
 
-  TASK [Dump public IP for VM which will be created] ********************************************************************
-  ok: [localhost] => {
+   TASK [Dump public IP for VM which will be created] ********************************************************************
+   ok: [localhost] => {
       "msg": "The public IP is <ip-address>."
-  }
+   }
 
-  TASK [Create Network Security Group that allows SSH] **********************
-  changed: [localhost]
+   TASK [Create Network Security Group that allows SSH] **********************
+   changed: [localhost]
 
-  TASK [Create virtual network inteface card] *******************************
-  changed: [localhost]
+   TASK [Create virtual network inteface card] *******************************
+   changed: [localhost]
 
-  TASK [Create VM] **********************************************************
-  changed: [localhost]
+   TASK [Create VM] **********************************************************
+   changed: [localhost]
 
-  PLAY RECAP ****************************************************************
-  localhost                  : ok=8    changed=7    unreachable=0    failed=0
-  ```
+   PLAY RECAP ****************************************************************
+   localhost                  : ok=8    changed=7    unreachable=0    failed=0
+   ```
 
 1. SSH 命令可用來存取您的 Linux VM。 請將 &lt;ip-address> 預留位置取代為先前步驟中的 IP 位址。
 
-  ```bash
-  ssh azureuser@<ip-address>
-  ```
+    ```bash
+    ssh azureuser@<ip-address>
+    ```
 
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"] 

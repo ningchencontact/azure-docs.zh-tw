@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 917243ccaf4ef3759e02bb92cad6f9ef04514e4a
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 4dbd65a391bdc5726436ba461a34e1ca7cab87b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650507"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855175"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中建立 Node.js Web 應用程式
 
@@ -32,7 +32,7 @@ ms.locfileid: "56650507"
 
 ![在 Azure 中執行的範例應用程式](media/app-service-web-get-started-nodejs-poc/hello-world-in-browser.png)
 
-您可以使用 Mac、Windows 或 Linux 機器，依照此處的步驟操作。 安裝必要條件後，大約需要 5 分鐘才能完成這些步驟。   
+您可以使用 Mac、Windows 或 Linux 機器，依照此處的步驟操作。 安裝先決條件後，大約需要 5 分鐘才能完成這些步驟。   
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -49,7 +49,7 @@ ms.locfileid: "56650507"
 開啟 _index.js_ 並找到下列這一行：
 
 ```javascript
-var port = process.env.PORT || 1337;
+const port = process.env.PORT || 1337;
 ```
 
 App Service 會將 process.env.PORT 插入您的應用程式中，讓程式碼使用變數來知道要接聽哪個通訊埠。 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6c146a99be369f92a72717ad1ec4b79bddafe28c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 40c7e00ad5271457904fc3273fdb633b0c7a8016
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819321"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085060"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>教學課程：使用 Azure Resource Manager 範本匯入 SQL BACPAC 檔案
 
@@ -65,11 +65,11 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 
     範本中定義了三項資源：
 
-    * `Microsoft.Sql/servers` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/servers)。
-    * `Microsoft.SQL/servers/securityAlertPolicies` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/securityalertpolicies)。
-    * `Microsoft.SQL.servers/databases` 。  請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases)。
+   * `Microsoft.Sql/servers` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/servers)。
+   * `Microsoft.SQL/servers/securityAlertPolicies` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/securityalertpolicies)。
+   * `Microsoft.SQL.servers/databases` 。  請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases)。
 
-    自訂範本之前，最好能初步了解範本。
+     自訂範本之前，最好能初步了解範本。
 4. 選取 [檔案]>[另存新檔]，以名稱 **azuredeploy.json** 將檔案的複本儲存至您的本機電腦。
 
 ## <a name="edit-the-template"></a>編輯範本

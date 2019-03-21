@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 39c2416bb692c9b97571eebbcb590c955744cac6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 51de0397e246d3b9e7d4878fd2c8050af1f0ce6f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857085"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090044"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>快速入門：使用適用於 C# 的 Bing 新聞搜尋 SDK 來執行新聞搜尋
 
@@ -26,7 +26,7 @@ ms.locfileid: "55857085"
 
 * 任何一版的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
 * [Json.NET](https://www.newtonsoft.com/json) 架構 (以 NuGet 套件形式提供)。
-* 如果您使用 Linux/MacOS，則可以使用 [Mono](http://www.mono-project.com/)來執行此應用程式。
+* 如果您使用 Linux/MacOS，則可以使用 [Mono](https://www.mono-project.com/)來執行此應用程式。
 
 * [Bing 新聞搜尋 SDK 的 NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.2.0)。 安裝此套件也會安裝：
     * Microsoft.Rest.ClientRuntime
@@ -91,4 +91,4 @@ ms.locfileid: "55857085"
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-[建立單頁 Web 應用程式](tutorial-bing-news-search-single-page-app.md)
+> [建立單頁 Web 應用程式](tutorial-bing-news-search-single-page-app.md)

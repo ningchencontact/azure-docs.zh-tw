@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: ff1d873b44f91f64a114a6da01091bbd3aa01663
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 8131806aa741c3f2c347599f857f45ade392d90e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424807"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451632"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>教學課程：將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體
 在本教學課程中，您會使用 Azure PowerShell 建立資料處理站管線，以將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體。 您要建立及使用自我裝載的整合執行階段，其會在內部部署與雲端資料存放區之間移動資料。 
@@ -112,15 +112,10 @@ ms.locfileid: "54424807"
 ### <a name="windows-powershell"></a>Windows PowerShell
 
 #### <a name="install-azure-powershell"></a>安裝 Azure PowerShell
-如果您的電腦上沒有最新版的 Azure PowerShell，請加以安裝。 
 
-1. 移至 [Azure SDK 下載](https://azure.microsoft.com/downloads/)。 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. 在 [命令列工具] 的 [PowerShell] 區段中，選取 [Windows 安裝]。 
-
-1. 若要安裝 Azure PowerShell，請執行 MSI 檔案。 
-
-如需詳細指示，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)。 
+如果您的電腦上沒有最新版的 Azure PowerShell，請加以安裝。 如需詳細指示，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/install-Az-ps)。 
 
 #### <a name="log-in-to-powershell"></a>登入 PowerShell
 
@@ -131,13 +126,13 @@ ms.locfileid: "54424807"
 1. 執行下列命令，然後輸入您用來登入 Azure 入口網站的 Azure 使用者名稱和密碼：
        
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```        
 
 1. 如果您有多個 Azure 訂用帳戶，請執行下列命令來選取您需要使用的訂用帳戶。 以您的 Azure 訂用帳戶識別碼取代 **SubscriptionId**：
 
     ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
+    Select-AzSubscription -SubscriptionId "<SubscriptionId>"    
     ```
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
@@ -151,7 +146,7 @@ ms.locfileid: "54424807"
 1. 若要建立 Azure 資源群組，請執行下列命令： 
 
     ```powershell
-    New-AzureRmResourceGroup $resourceGroupName $location
+    New-AzResourceGroup $resourceGroupName $location
     ``` 
 
     如果資源群組已經存在，您可能不想覆寫它。 將不同的值指派給 `$resourceGroupName` 變數，然後執行一次命令。
@@ -171,10 +166,10 @@ ms.locfileid: "54424807"
     $location = "East US"
     ```  
 
-1. 若要建立資料處理站，請執行以下 `Set-AzureRmDataFactoryV2` Cmdlet： 
+1. 若要建立資料處理站，請執行以下 `Set-AzDataFactoryV2` Cmdlet： 
     
     ```powershell       
-    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
+    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
     ```
 
 > [!NOTE]
@@ -201,7 +196,7 @@ ms.locfileid: "54424807"
 1. 建立自我裝載整合執行階段。 
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ``` 
     以下是範例輸出：
 
@@ -217,7 +212,7 @@ ms.locfileid: "54424807"
 1. 若要擷取所建立整合執行階段的狀態，請執行下列命令：
 
     ```powershell
-   Get-AzureRmDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
+   Get-AzDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
     ```
 
     以下是範例輸出：
@@ -242,7 +237,7 @@ ms.locfileid: "54424807"
 1. 若要擷取*驗證金鑰*，用以向雲端中的 Data Factory 服務註冊自我裝載整合執行階段，請執行下列命令。 複製其中一個金鑰 (不含引號)，以註冊您在下一個步驟中安裝於電腦上的自我裝載整合執行階段。 
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
+    Get-AzDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
     ```
     
     以下是範例輸出：
@@ -345,10 +340,10 @@ ms.locfileid: "54424807"
 
 1. 在 PowerShell 中，切換至 C:\ADFv2Tutorial 資料夾。
 
-1. 若要建立 AzureStorageLinkedService 連結服務，請執行下列 `Set-AzureRmDataFactoryV2LinkedService` Cmdlet： 
+1. 若要建立 AzureStorageLinkedService 連結服務，請執行下列 `Set-AzDataFactoryV2LinkedService` Cmdlet： 
 
    ```powershell
-   Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
+   Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
    ```
 
    以下是範例輸出：
@@ -423,17 +418,17 @@ ms.locfileid: "54424807"
     > - 儲存檔案之前，以您的 SQL Server 執行個體值取代 **\<servername>**、**\<databasename>**、**\<username>** 和 **\<password>**。
     > - 如果您需要在使用者帳戶或伺服器名稱中使用反斜線 (\\)，請在它的前面加上逸出字元 (\\)。 例如，使用 mydomain\\\\myuser。 
 
-1. 若要將敏感性資料加密 (使用者名稱、密碼等)，請執行 `New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential` Cmdlet。  
+1. 若要將敏感性資料加密 (使用者名稱、密碼等)，請執行 `New-AzDataFactoryV2LinkedServiceEncryptedCredential` Cmdlet。  
     此加密可確保使用資料保護應用程式開發介面 (DPAPI) 來加密認證。 已加密的認證會本機儲存在自我裝載的整合執行階段節點 (本機電腦) 上。 輸出承載可以重新導向至另一個包含加密認證的 JSON 檔案 (在此例中是 encryptedLinkedService.json)。
     
    ```powershell
-   New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName $integrationRuntimeName -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
+   New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName $integrationRuntimeName -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
    ```
 
 1. 執行下列命令，以建立 EncryptedSqlServerLinkedService：
 
    ```powershell
-   Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json"
+   Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json"
    ```
 
 
@@ -475,10 +470,10 @@ ms.locfileid: "54424807"
     }
     ```
 
-1. 若要建立 SqlServerDataset 資料集，請執行 `Set-AzureRmDataFactoryV2Dataset` Cmdlet。
+1. 若要建立 SqlServerDataset 資料集，請執行 `Set-AzDataFactoryV2Dataset` Cmdlet。
 
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerDataset" -File ".\SqlServerDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerDataset" -File ".\SqlServerDataset.json"
     ```
 
     以下是範例輸出：
@@ -517,10 +512,10 @@ ms.locfileid: "54424807"
     }
     ```
 
-1. 若要建立 AzureBlobDataset 資料集，請執行 `Set-AzureRmDataFactoryV2Dataset` Cmdlet。
+1. 若要建立 AzureBlobDataset 資料集，請執行 `Set-AzDataFactoryV2Dataset` Cmdlet。
 
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureBlobDataset" -File ".\AzureBlobDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureBlobDataset" -File ".\AzureBlobDataset.json"
     ```
 
     以下是範例輸出：
@@ -572,10 +567,10 @@ ms.locfileid: "54424807"
     }
     ```
 
-1. 若要建立 SqlServerToBlobPipeline 管道，請執行 `Set-AzureRmDataFactoryV2Pipeline` Cmdlet。
+1. 若要建立 SqlServerToBlobPipeline 管道，請執行 `Set-AzDataFactoryV2Pipeline` Cmdlet。
 
     ```powershell
-    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SQLServerToBlobPipeline" -File ".\SQLServerToBlobPipeline.json"
+    Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SQLServerToBlobPipeline" -File ".\SQLServerToBlobPipeline.json"
     ```
 
     以下是範例輸出：
@@ -592,7 +587,7 @@ ms.locfileid: "54424807"
 啟動 SQLServerToBlobPipeline 管道的管道執行，並擷取管道執行識別碼，方便後續監視。
 
 ```powershell
-$runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName 'SQLServerToBlobPipeline'
+$runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName 'SQLServerToBlobPipeline'
 ```
 
 ## <a name="monitor-the-pipeline-run"></a>監視管道執行
@@ -601,7 +596,7 @@ $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -
 
     ```powershell
     while ($True) {
-        $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+        $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 
         if (($result | Where-Object { $_.Status -eq "InProgress" } | Measure-Object).count -ne 0) {
             Write-Host "Pipeline run status: In Progress" -foregroundcolor "Yellow"

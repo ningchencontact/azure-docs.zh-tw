@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 243697c20f10a019a73326c3bd79e23fc3342640
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ddcaca46a2b8f9501337b3591d6ed666876e1de9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113595"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093764"
 ---
 # <a name="tutorial-install-azure-data-box-edge-preview"></a>教學課程：安裝 Azure Data Box Edge (預覽)
 
@@ -94,15 +94,15 @@ ms.locfileid: "56113595"
     ![安裝機架掛接滑軌](./media/data-box-edge-deploy-install/rack-mount-rail-1.png)
 
 2. 安裝機櫃垂直面上的外部滑軌。 為了協助辨識方向，應將滑軌標示為**前**的那一端接至機箱後端正面。    
-    1. 找出滑軌組件前後方的滑軌插梢。 延伸滑軌，使其置於機架柱之間。 先將滑軌外部連接至機架背面。 調整後端掛接托架，將其置於後端機架掛接孔內。   
+   1. 找出滑軌組件前後方的滑軌插梢。 延伸滑軌，使其置於機架柱之間。 先將滑軌外部連接至機架背面。 調整後端掛接托架，將其置於後端機架掛接孔內。   
 
-    2. 按住背面托架上的制動機，露出金屬鉤。 將背面托架對準並插入掛接孔，然後鬆開制動機。
+   2. 按住背面托架上的制動機，露出金屬鉤。 將背面托架對準並插入掛接孔，然後鬆開制動機。
 
-    3. 將正面托架對準掛接孔。
+   3. 將正面托架對準掛接孔。
 
-    4. 正面托架現在應固定在機架上。 如有需要，您可以選擇性地使用 M5 X 10L 螺絲來固定滑軌與柱子。 
+   4. 正面托架現在應固定在機架上。 如有需要，您可以選擇性地使用 M5 X 10L 螺絲來固定滑軌與柱子。 
 
-    ![安裝機架掛接滑軌](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
+      ![安裝機架掛接滑軌](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
 
 3. 若要連接底座的內部滑軌，請確實將內部滑軌上的鑰匙孔缺口對準底座側邊的定位銷。 請確實將底座定位銷的接頭穿過內部滑軌中的鑰匙孔開口。 將滑軌將底座前端拉動，直到滑軌喀答一聲鎖至定位。 對其他內部滑軌重複相同步驟。 使用內部滑軌將底座推入，以完成機架安裝。
 

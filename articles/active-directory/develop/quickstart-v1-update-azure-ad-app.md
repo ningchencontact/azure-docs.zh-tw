@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e705bbbd08882f56020192a3b42c311e05bfa399
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bee16ed8205453546702946628c98c73b0f34b15
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191720"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103803"
 ---
 # <a name="quickstart-update-an-application-in-azure-active-directory"></a>快速入門：在 Azure Active Directory 中更新應用程式
 
@@ -60,24 +60,24 @@ ms.locfileid: "56191720"
    ![更新應用程式的註冊](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
 
 4. 系統會將您帶往應用程式的主要註冊頁面，其中包含應用程式的 [設定] 頁面。 若要新增您 Web 應用程式的認證：
-  1. 選取 [設定] 頁面上的 [金鑰] 區段。
-  2. 若要新增憑證：
-    - 選取 [上傳公開金鑰]。
-    - 選取您想要上傳的檔案。 檔案必須是下列其中一種檔案類型：.cer、.pem、.crt。
-  - 若要新增密碼：
-    - 為金鑰新增描述。
-    - 選取持續時間。
-    - 選取 [ **儲存**]。 在您儲存組態變更之後，最右邊的資料行會包含金鑰值。 **請務必複製此金鑰**，以供在用戶端應用程式的程式碼中使用，因為您一旦離開此頁面就無法再存取此金鑰。
+   1. 選取 [設定] 頁面上的 [金鑰] 區段。
+   1. 若要新增憑證：
+      - 選取 [上傳公開金鑰]。
+      - 選取您想要上傳的檔案。 檔案必須是下列其中一種檔案類型：.cer、.pem、.crt。
+   1. 若要新增密碼：
+      - 為金鑰新增描述。
+      - 選取持續時間。
+      - 選取 [ **儲存**]。 在您儲存組態變更之後，最右邊的資料行會包含金鑰值。 **請務必複製此金鑰**，以供在用戶端應用程式的程式碼中使用，因為您一旦離開此頁面就無法再存取此金鑰。
 
 5. 若要新增權限以從用戶端存取資源 API
-  1. 在 [設定] 頁面上，選取 [必要權限]，然後選取 [新增]。
-  1. 選取 [選取 API] 以選取您想要挑選的資源類型。
-  1. 瀏覽可用的 API 清單，或使用搜尋方塊在公開 Web API 的目錄中從可用的資源應用程式中選取。 選取您感興趣的資源，然後按一下 [選取]。
-  1. 在 [啟用存取] 頁面中，選取您的應用程式在存取 API 時需要的應用程式權限及/或委派的權限。
+   1. 在 [設定] 頁面上，選取 [必要權限]，然後選取 [新增]。
+   1. 選取 [選取 API] 以選取您想要挑選的資源類型。
+   1. 瀏覽可用的 API 清單，或使用搜尋方塊在公開 Web API 的目錄中從可用的資源應用程式中選取。 選取您感興趣的資源，然後按一下 [選取]。
+   1. 在 [啟用存取] 頁面中，選取您的應用程式在存取 API 時需要的應用程式權限及/或委派的權限。
    
-  ![更新應用程式的註冊 - 權限 API](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-api.png)
+   ![更新應用程式的註冊 - 權限 API](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-api.png)
 
-  ![更新應用程式的註冊 - 權限 perms](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
+   ![更新應用程式的註冊 - 權限 perms](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
 
 6. 完成後，選取 [啟用存取] 頁面上的 [選取] 按鈕，然後選取 [新增 API 存取] 頁面上的 [完成] 按鈕。 您會回到 [所需的權限] 頁面，其中新的資源已新增到 API 清單。
 
@@ -98,8 +98,8 @@ ms.locfileid: "56191720"
 4. 系統會將您帶往應用程式的主要註冊頁面，以開啟應用程式的 [設定] 頁面。 從應用程式的 [註冊] 頁面按一下 [資訊清單]，以切換至 [編輯資訊清單] 頁面。 Web 式的資訊清單編輯器隨即開啟，以供您在入口網站內**編輯**資訊清單。 或者，您也可以按一下 [下載] 並在本機編輯，然後使用 [上傳] 以將其重新套用到您的應用程式。
 5. 在此範例中，我們會藉由將下列 JSON 元素新增至 `oauth2Permissions` 集合，從而在資源/API 上公開稱為 `Employees.Read.All` 的新範圍。 在註冊期間，預設會提供現有的 `user_impersonation` 範圍。 `user_impersonation` 可讓用戶端應用程式依據登入使用者的身分識別要求資源存取權限。 請務必在現有 `user_impersonation` 範圍元素後方加上逗號，並將屬性值變更為符合您的資源需求。 
 
-  ```json
-  {
+   ```json
+   {
     "adminConsentDescription": "Allow the application to have read-only access to all Employee data.",
     "adminConsentDisplayName": "Read-only access to Employee records",
     "id": "2b351394-d7a7-4a84-841e-08a6a17e4cb8",
@@ -108,17 +108,17 @@ ms.locfileid: "56191720"
     "userConsentDescription": "Allow the application to have read-only access to your Employee data.",
     "userConsentDisplayName": "Read-only access to your Employee records",
     "value": "Employees.Read.All"
-  }
-  ```
+   }
+   ```
 
-  > [!NOTE]
-  > `id` 的值必須以程式設計的方式產生，或使用 GUID 產生工具 (例如 [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx)) 產生。 `id` 代表由 Web API 所公開之範圍的唯一識別碼。 一旦為用戶端設定了適當的 Web API 存取權限，Azure AD 便會對用戶端發出 OAuth2.0 存取權杖。 用戶端在呼叫 Web API 時會出示存取權杖，此權杖的範圍 (scp) 宣告已設定為其應用程式註冊中所要求的權限。
-  >
-  > 稍後您可以視需要公開其他範圍。 請考慮您的 Web API 可能會公開多個與各種不同功能相關聯的範圍。 在執行階段，您的資源可藉由評估所收到之 OAuth 2.0 存取權杖中的範圍 (`scp`) 宣告，來控制 Web API 的存取。
+   > [!NOTE]
+   > `id` 的值必須以程式設計的方式產生，或使用 GUID 產生工具 (例如 [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx)) 產生。 `id` 代表由 Web API 所公開之範圍的唯一識別碼。 一旦為用戶端設定了適當的 Web API 存取權限，Azure AD 便會對用戶端發出 OAuth2.0 存取權杖。 用戶端在呼叫 Web API 時會出示存取權杖，此權杖的範圍 (scp) 宣告已設定為其應用程式註冊中所要求的權限。
+   >
+   > 稍後您可以視需要公開其他範圍。 請考慮您的 Web API 可能會公開多個與各種不同功能相關聯的範圍。 在執行階段，您的資源可藉由評估所收到之 OAuth 2.0 存取權杖中的範圍 (`scp`) 宣告，來控制 Web API 的存取。
 
 6. 完成時，按一下 [儲存]。 您的 Web API 現在已設定為可供目錄中的其他應用程式使用。
 
-  ![更新應用程式的註冊](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-manifest.png)
+   ![更新應用程式的註冊](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-manifest.png)
 
 ### <a name="verify-the-web-api-is-exposed-to-other-applications-in-your-tenant"></a>確認已向租用戶中的其他應用程式公開 Web API
 
@@ -130,7 +130,7 @@ ms.locfileid: "56191720"
 
 3. 在 [啟用存取] 頁面上，您應該會看到可供用戶端權限要求使用的新範圍。
 
-  ![新的權限顯示出來](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms-newscopes.png)
+   ![新的權限顯示出來](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms-newscopes.png)
 
 ### <a name="more-on-the-application-manifest"></a>應用程式資訊清單的詳細資料
 
@@ -211,9 +211,9 @@ ms.locfileid: "56191720"
 3. 在左側導覽窗格中，依序按一下 [Azure Active Directory] 服務和 [應用程式註冊]，然後尋找/按一下您要設定的應用程式。 系統會將您帶往應用程式的主要註冊頁面，以開啟應用程式的 [設定] 頁面。
 4. 從應用程式的 [註冊] 頁面按一下 [資訊清單]，以切換至 [編輯資訊清單] 頁面。 Web 式的資訊清單編輯器隨即開啟，以供您在入口網站內**編輯**資訊清單。 找到 "oauth2AllowImplicitFlow" 並將其值設為 "true"。 預設會設定為 "false"。
    
-  ```json
-  "oauth2AllowImplicitFlow": true,
-  ```
+   ```json
+   "oauth2AllowImplicitFlow": true,
+   ```
 5. 儲存更新後的資訊清單。 儲存之後，您的 Web API 現在已設定為使用 OAuth 2.0 隱含授權來驗證使用者。
 
 ## <a name="next-steps"></a>後續步驟

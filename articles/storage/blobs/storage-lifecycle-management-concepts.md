@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 284a590a484052fdb7da2f03c6155078268b2aac
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 93c19bc39f64df21dfa9db2490ab2103aba8191d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211439"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086100"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>管理 Azure Blob 儲存體生命週期 (預覽)
 
@@ -26,7 +26,7 @@ ms.locfileid: "56211439"
 - 定義每天要在儲存體帳戶層級執行一次的規則
 - 將規則套用至容器或 Blob 子集 (使用前置詞作為篩選)
 
-假設有個資料集在生命週期的早期階段存取頻率很高，但兩週後偶爾才會存取。 第一個月過後，就已經很少會存取該資料集。 在這種情況下，經常性儲存層最適合早期階段。 非經常性儲存體最適合偶爾存取，而封存儲存體則是資料老化超過一個月之後的最佳階層選項。 藉由根據資料存在時間來調整儲存層，您就可以按照自己的需求設計最便宜的儲存體選項。 若要達成此轉換，可使用生命週期管理原則規則將過時資料移至較少存取的階層。
+假設有個資料集在生命週期的早期階段存取頻率很高，但兩週後偶爾才會存取。 第一個月過後，就已經很少會存取該資料集。 在這種情況下，經常性儲存層最適合早期階段。 非經常性儲存體最適合偶爾存取，而封存儲存體則是資料老化超過一個月之後的最佳階層選項。 藉由根據資料存在時間來調整儲存層，您就可以按照自己的需求設計最便宜的儲存體選項。 若要達成這項轉換，可使用生命週期管理原則規則將過時資料移至較少存取的階層。
 
 ## <a name="storage-account-support"></a>儲存體帳戶支援
 
@@ -37,7 +37,7 @@ ms.locfileid: "56211439"
 生命週期管理功能提供免費預覽。 客戶需針對 [List Blobs ](https://docs.microsoft.com/rest/api/storageservices/list-blobs) (列出 Blob) 和[Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) (設定 Blob 層) API 呼叫的一般作業成本支付費用。 如需定價的詳細資訊，請參閱[區塊 Blob 價格](https://azure.microsoft.com/pricing/details/storage/blobs/)。
 
 ## <a name="register-for-preview"></a>註冊預覽版 
-若要註冊公開預覽版，您必須提交要求向您的訂用帳戶註冊此功能。 要求通常會在 72 小時內核准。 一經核准，在以下區域內的所有現有和新的 GPv2 或 Blob 儲存體帳戶均會加進該功能：美國西部 2、美國中西部、美國東部 2 和西歐。 預覽僅支援區塊 Blob。 如同大部分預覽，請不要在此功能公開推出之前，將它用於生產工作負載上。
+若要註冊公開預覽版，您必須提交要求向您的訂用帳戶註冊這項功能。 要求通常會在 72 小時內核准。 一經核准，在以下區域內的所有現有和新的 GPv2 或 Blob 儲存體帳戶均會加進該功能：美國西部 2、美國中西部、美國東部 2 和西歐。 預覽僅支援區塊 Blob。 如同大部分預覽，請不要在這項功能正式運作之前，將之用於生產的工作負載上。
 
 若要提交要求，請執行下列 PowerShell 或 CLI 命令。
 
@@ -84,7 +84,7 @@ az feature show --namespace Microsoft.Storage --name DLM
 ### <a name="powershell"></a>PowerShell
 
 ```powershell
-$rules = '{ ... }' 
+$rules = '{ ... }'
 
 Set-AzStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName] -StorageAccountName [storageAccountName] -Policy $rules 
 
@@ -100,7 +100,7 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 ```
 
 > [!NOTE]
-如果您啟用儲存體帳戶的防火牆規則，可能會封鎖生命週期管理要求。 您可以提供例外狀況來解除封鎖這些要求。 如需詳細資訊，請參閱[設定防火牆和虛擬網路](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)中的＜例外狀況＞一節。
+> 如果您啟用儲存體帳戶的防火牆規則，可能會封鎖生命週期管理要求。 您可以提供例外狀況來解除封鎖這些要求。 如需詳細資訊，請參閱[設定防火牆和虛擬網路](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)中的＜例外狀況＞一節。
 
 ## <a name="policy"></a>原則
 
@@ -130,13 +130,13 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 | 參數名稱 | 參數類型 | 注意 |
 |----------------|----------------|-------|
 | version        | 以 `x.x` 表示的字串 | 預覽版本號碼為 0.5。 |
-| 規則          | 規則物件的陣列 | 每個原則至少需要一個規則。 在預覽期間，每個原則最多可以指定 4 項規則。 |
+| 規則          | 規則物件的陣列 | 每個原則至少需要一項規則。 在預覽期間，每個原則最多可以指定 4 項規則。 |
 
 在原則內的每個規則均需要三個參數：
 
 | 參數名稱 | 參數類型 | 注意 |
 |----------------|----------------|-------|
-| Name           | 字串 | 規則名稱可包含英數字元的任意組合。 規則名稱會區分大小寫。 它在原則內必須是唯一的。 |
+| 名稱           | 字串 | 規則名稱可包含英數字元的任意組合。 規則名稱會區分大小寫。 它在原則內必須是唯一的。 |
 | type           | 列舉值 | 預覽的有效值為 `Lifecycle`。 |
 | 定義     | 定義生命週期規則的物件 | 每個定義是由篩選集和動作集組成。 |
 
@@ -155,10 +155,10 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "ruleFoo", 
-      "type": "Lifecycle", 
+      "name": "ruleFoo",
+      "type": "Lifecycle",
       "definition": {
         "filters": {
           "blobTypes": [ "blockBlob" ],
@@ -189,8 +189,8 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 
 | 篩選名稱 | 篩選類型 | 注意 | 必要 |
 |-------------|-------------|-------|-------------|
-| blobTypes   | 預先定義的列舉值陣列。 | 預覽版本僅支援 `blockBlob`。 | yes |
-| prefixMatch | 要比對前置詞的字串陣列。 前置詞字串必須以容器名稱開頭。 例如，如果您想要比對某條規則的「 https://myaccount.blob.core.windows.net/container1/foo/..」下的所有 Blob，則 prefixMatch 會是 `container1/foo`。 | 如果未定義 prefixMatch，規則就會套用至帳戶內的所有 Blob。 | 否 |
+| blobTypes   | 預先定義的列舉值陣列。 | 預覽版本僅支援 `blockBlob`。 | 是 |
+| prefixMatch | 要比對前置詞的字串陣列。 前置詞字串必須以容器名稱開頭。 例如，如果您想要比對下的所有 blob"<https://myaccount.blob.core.windows.net/container1/foo/>...」對於規則而言是 prefixMatch `container1/foo`。 | 如果未定義 prefixMatch，規則就會套用至帳戶內的所有 Blob。 | 否 |
 
 ### <a name="rule-actions"></a>規則動作
 
@@ -204,12 +204,12 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 | tierToArchive | 支援目前在經常儲存性或非經常性儲存層的 Blob | 不支援 |
 | delete        | 支援                                   | 支援     |
 
->[!NOTE] 
-如果在同一個 Blob 上定義多個動作，生命週期管理會將最便宜的動作套用至 Blob。 例如，動作 `delete` 比動作 `tierToArchive` 更便宜。 而動作 `tierToArchive` 比動作 `tierToCool` 更便宜。
+> [!NOTE]
+> 如果在同一個 Blob 上定義多個動作，生命週期管理會將最便宜的動作套用至 Blob。 例如，動作 `delete` 比動作 `tierToArchive` 更便宜。 而動作 `tierToArchive` 比動作 `tierToCool` 更便宜。
 
 在預覽中，動作執行條件會以存在時間為依據。 基底 Blob 使用上次修改時間來追蹤存在時間，而 Blob 快照集使用快照集建立時間來追蹤存在時間。
 
-| 動作執行條件 | 條件值 | 說明 |
+| 動作執行條件 | 條件值 | 描述 |
 |----------------------------|-----------------|-------------|
 | daysAfterModificationGreaterThan | 表示存在時間的整數值 (以天數為單位) | 基底 Blob 動作的有效條件 |
 | daysAfterCreationGreaterThan     | 表示存在時間的整數值 (以天數為單位) | Blob 快照集動作的有效條件 | 
@@ -224,23 +224,22 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "agingRule", 
-      "type": "Lifecycle", 
-      "definition": 
-        {
-          "filters": {
-            "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "container1/foo", "container2/bar" ]
-          },
-          "actions": {
-            "baseBlob": {
-              "tierToCool": { "daysAfterModificationGreaterThan": 30 },
-              "tierToArchive": { "daysAfterModificationGreaterThan": 90 }
-            }
+      "name": "agingRule",
+      "type": "Lifecycle",
+      "definition": {
+        "filters": {
+          "blobTypes": [ "blockBlob" ],
+          "prefixMatch": [ "container1/foo", "container2/bar" ]
+        },
+        "actions": {
+          "baseBlob": {
+            "tierToCool": { "daysAfterModificationGreaterThan": 30 },
+            "tierToArchive": { "daysAfterModificationGreaterThan": 90 }
           }
-        }      
+        }
+      }
     }
   ]
 }
@@ -253,22 +252,21 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "archiveRule", 
-      "type": "Lifecycle", 
-      "definition": 
-        {
-          "filters": {
-            "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "archivecontainer" ]
-          },
-          "actions": {
-            "baseBlob": { 
-                "tierToArchive": { "daysAfterModificationGreaterThan": 0 }
-            }
+      "name": "archiveRule",
+      "type": "Lifecycle",
+      "definition": {
+        "filters": {
+          "blobTypes": [ "blockBlob" ],
+          "prefixMatch": [ "archivecontainer" ]
+        },
+        "actions": {
+          "baseBlob": {
+              "tierToArchive": { "daysAfterModificationGreaterThan": 0 }
           }
-        }      
+        }
+      }
     }
   ]
 }
@@ -282,21 +280,20 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "expirationRule", 
-      "type": "Lifecycle", 
-      "definition": 
-        {
-          "filters": {
-            "blobTypes": [ "blockBlob" ]
-          },
-          "actions": {
-            "baseBlob": {
-              "delete": { "daysAfterModificationGreaterThan": 365 }
-            }
+      "name": "expirationRule",
+      "type": "Lifecycle",
+      "definition": {
+        "filters": {
+          "blobTypes": [ "blockBlob" ]
+        },
+        "actions": {
+          "baseBlob": {
+            "delete": { "daysAfterModificationGreaterThan": 365 }
           }
-        }      
+        }
+      }
     }
   ]
 }
@@ -309,22 +306,21 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 ```json
 {
   "version": "0.5",
-  "rules": [ 
+  "rules": [
     {
-      "name": "snapshotRule", 
-      "type": "Lifecycle", 
-      "definition": 
-        {
-          "filters": {
-            "blobTypes": [ "blockBlob" ],
-            "prefixMatch": [ "activedata" ]
-          },
-          "actions": {            
-            "snapshot": {
-              "delete": { "daysAfterCreationGreaterThan": 90 }
-            }
+      "name": "snapshotRule",
+      "type": "Lifecycle",
+    "definition": {
+        "filters": {
+          "blobTypes": [ "blockBlob" ],
+          "prefixMatch": [ "activedata" ]
+        },
+        "actions": {
+          "snapshot": {
+            "delete": { "daysAfterCreationGreaterThan": 90 }
           }
-        }      
+        }
+      }
     }
   ]
 }
@@ -337,4 +333,4 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 
 了解如何復原意外刪除的資料：
 
-- [Azure 儲存體 Blob 的虛刪除](../blobs/storage-blob-soft-delete.md)
+- [Azure 儲存體 blob 的虛刪除](../blobs/storage-blob-soft-delete.md)

@@ -2,19 +2,19 @@
 title: 在 Azure 上使用 Terraform 模組建立 VM 叢集
 description: 了解如何在 Azure 中使用 Terraform 模組建立 Windows 虛擬機器叢集
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform，devops，虛擬機器，網路，模組
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/19/2017
-ms.openlocfilehash: d5a820da94254fe0da416d9219f7582d3a4241cb
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: c6aa780b04c85b8156463011c2b90da2da4541f6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696161"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776269"
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>搭配使用模組登錄與 Terraform 以建立 VM 叢集
 

@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 9b9a041f1e4269538488d17ee73a7ffdd138c8ab
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f6c8966582c0c5ae31818ce9d88b511cef811328
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251805"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099554"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>快速入門：在 Azure Stack 中使用 PowerShell 建立 Windows Server 虛擬機器
 
@@ -32,8 +32,8 @@ ms.locfileid: "55251805"
 * 安裝 IIS 網頁伺服器，並且檢視預設首頁。
 * 清除資源。
 
->[!NOTE]
- 您可以從 Azure Stack 開發套件，或從 Windows 型外部用戶端 (如果您透過 VPN 連線) 來執行這篇文章中所述的步驟。
+> [!NOTE]
+>  您可以從 Azure Stack 開發套件，或從 Windows 型外部用戶端 (如果您透過 VPN 連線) 來執行這篇文章中所述的步驟。
 
 ## <a name="prerequisites"></a>必要條件
 

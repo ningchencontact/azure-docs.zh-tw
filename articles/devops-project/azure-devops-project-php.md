@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 24a957260e3e3f161ce9e2e61b746f9b052e784d
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 82310857276c53c85af033ae32a3aeef4f33c8da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264364"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109370"
 ---
 # <a name="create-a-cicd-pipeline-for-php-with-azure-devops-projects"></a>使用 Azure DevOps Projects 建立適用於 PHP 的 CI/CD 管線
 
@@ -61,17 +61,17 @@ Azure DevOps Project 提供簡化的體驗，可建立 Azure 資源，並在 Azu
     b. 選取 Azure 訂用帳戶和位置、輸入應用程式名稱，然後選取 [完成]。   
         在幾分鐘後，Azure 入口網站中便會顯示 DevOps Projects 儀表板。 系統會在您 Azure DevOps 組織中的存放庫中設定應用程式範例、執行建置，然後您的應用程式會部署到 Azure。 此儀表板可顯示您的程式碼存放庫、CI/CD 管線，和您在 Azure 中的應用程式。  
         
-2. 選取 [瀏覽] 以檢視執行中應用程式。
+2. 選取 [瀏覽]以檢視執行中應用程式。
 
     ![儀表板檢視](_img/azure-devops-project-php/dashboardnopreview.png) 
     
- DevOps Projects 會自動設定 CI 建置和發行觸發程序。  您現在已準備好利用 CI/CD 程序與小組共同進行 PHP 應用程式的作業，這個程序會自動將您的最新工作部署到網站上。
+   DevOps Projects 會自動設定 CI 建置和發行觸發程序。  您現在已準備好利用 CI/CD 程序與小組共同進行 PHP 應用程式的作業，這個程序會自動將您的最新工作部署到網站上。
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>認可程式碼變更並執行 CI/CD
 
  DevOps Projects 會在 Azure Repos 或 GitHub 中建立 Git 存放庫。 若要檢視存放庫並變更您應用程式的程式碼，請遵循下列步驟：
 
-1. 在 DevOps Project 儀表板的左側，選取您主要分支的連結。   
+1. 在 DevOps Projects 儀表板的左側，選取您主要分支的連結。   
     此連結會開啟新建立 Git 存放庫的檢視。
 
 1. 若要檢視存放庫複製 URL，請從瀏覽器右上方選取 [複製]。   

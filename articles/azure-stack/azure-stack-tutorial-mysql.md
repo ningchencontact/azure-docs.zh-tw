@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 8fc3246c76d7d09ea4518b5c548d5dbe05cc7a84
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ff1b137fb6461c4ebd17451b89a180364d833d4e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164255"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116787"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>教學課程：提供高可用性 MySQL 資料庫
 
@@ -67,7 +67,7 @@ ms.locfileid: "56164255"
 - 三個用以裝載 MySQL 叢集的 Linux VM
 
 1. 
-[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. 選取 [\+ 建立資源] > [計算]，然後選取 [具備複寫功能的 MySQL]。
 
@@ -168,7 +168,7 @@ ms.locfileid: "56164255"
 > 請從 Azure Stack 使用者入口網站，以具有可提供 MySQL 伺服器功能 (Microsoft.MySQLAdapter 服務) 之訂用帳戶的租用戶使用者身分執行這些步驟。
 
 1. 
-[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
+   [!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. 選取 [\+ 建立資源] > [資料 \+ 儲存體]，然後選取 [MySQL 資料庫]。<br><br>請提供必要的資料庫屬性資訊，包括名稱、定序、要使用的訂用帳戶，以及要用於部署的位置。 
 

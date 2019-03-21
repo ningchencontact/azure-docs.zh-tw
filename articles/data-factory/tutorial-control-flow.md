@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: shlo
-ms.openlocfilehash: 53540128b5a9a1e2690179a35f26a9a82c6cb584
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: d2f892941f9d37dd3d74afe17d7952b404dc709f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446948"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551631"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>在 Data Factory 管道中將活動分支和鏈結
 在本教學課程中，您會建立 Data Factory 管道來展示部分的控制流程功能。 這個管道只是簡單地從 Azure Blob 儲存體中的一個容器複製到相同儲存體帳戶中的另一個容器。 如果複製活動成功，您希望透過成功電子郵件傳送成功複製作業的詳細資料 (例如寫入的資料量)。 如果複製活動失敗，您希望透過失敗電子郵件傳送複製失敗的詳細資料 (例如錯誤訊息)。 在整個教學課程中，您會看到如何傳遞參數。
@@ -56,7 +56,7 @@ ms.locfileid: "56446948"
     John|Doe
     Jane|Doe
     ```
-2. 使用 [Azure 儲存體總管](http://storageexplorer.com/)之類的工具建立 **adfv2branch** 容器，然後將 **input.txt** 檔案上傳至該容器。
+2. 使用 [Azure 儲存體總管](https://storageexplorer.com/)之類的工具建立 **adfv2branch** 容器，然後將 **input.txt** 檔案上傳至該容器。
 
 ## <a name="create-visual-studio-project"></a>建立 Visual Studio 專案
 

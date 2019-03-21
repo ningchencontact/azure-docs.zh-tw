@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: ba8d1fa44ca3eacf4c8feeede18b594dfe72ea37
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d9001a10afdb92e2ebe469e3beb080c667e8559b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884115"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097332"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>快速入門：使用 Java 將搜尋要求傳送至 Bing 實體搜尋 REST API
 
@@ -35,25 +35,25 @@ ms.locfileid: "55884115"
 
 1. 在您最愛的 IDE 或編輯器中建立新的 Java 專案，並匯入下列程式庫。
 
-  ```java
-  import java.io.*;
-  import java.net.*;
-  import java.util.*;
-  import javax.net.ssl.HttpsURLConnection;
-  import com.google.gson.Gson;
-  import com.google.gson.GsonBuilder;
-  import com.google.gson.JsonObject;
-  import com.google.gson.JsonParser;
-  import com.google.gson.Gson;
-  import com.google.gson.GsonBuilder;
-  import com.google.gson.JsonObject;
-  import com.google.gson.JsonParser;
-  ```
+   ```java
+   import java.io.*;
+   import java.net.*;
+   import java.util.*;
+   import javax.net.ssl.HttpsURLConnection;
+   import com.google.gson.Gson;
+   import com.google.gson.GsonBuilder;
+   import com.google.gson.JsonObject;
+   import com.google.gson.JsonParser;
+   import com.google.gson.Gson;
+   import com.google.gson.GsonBuilder;
+   import com.google.gson.JsonObject;
+   import com.google.gson.JsonParser;
+   ```
 
 2. 在新類別中，建立 API 端點變數、您的訂用帳戶金鑰及搜尋查詢。
 
-  ```java
-  public class EntitySearch {
+   ```java
+   public class EntitySearch {
 
       static String subscriptionKey = "ENTER KEY HERE";
     
@@ -62,9 +62,9 @@ ms.locfileid: "55884115"
     
         static String mkt = "en-US";
         static String query = "italian restaurant near me";
-  //...
+   //...
     
-  ```
+   ```
 
 ## <a name="construct-a-search-request-string"></a>建構搜尋要求字串
 
@@ -123,16 +123,16 @@ ms.locfileid: "55884115"
 
 2. 使用 Gson 程式庫來建立新的 `GsonBuilder()`，並使用 `setPrettyPrinting().create()` 格式化 json。 然後將其傳回。    
   
-  ```java
-  //...
-  public static String prettify (String json_text) {
+   ```java
+   //...
+   public static String prettify (String json_text) {
     JsonParser parser = new JsonParser();
     JsonObject json = parser.parse(json_text).getAsJsonObject();
     Gson gson = new GsonBuilder().setPrettyPrinting().create();
     return gson.toJson(json);
-  }
-  //...
-  ```
+   }
+   //...
+   ```
 
 ## <a name="call-the-search-function"></a>呼叫搜尋函式
 
@@ -190,7 +190,7 @@ ms.locfileid: "55884115"
         "_type": "Restaurant",
         "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
         "name": "Munson's Pickles and Preserves Farm",
-        "url": "http://www.princi.com/",
+        "url": "https://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [

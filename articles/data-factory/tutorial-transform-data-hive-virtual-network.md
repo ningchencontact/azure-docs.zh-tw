@@ -3,20 +3,20 @@ title: 在 Azure 虛擬網路中使用 Hive 轉換資料 | Microsoft Docs
 description: 本教學課程提供逐步指示，說明如何使用 Azure Data Factory 中的 Hive 活動來轉換資料。
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.author: douglasl
-ms.openlocfilehash: e643dc2167457b9dc3183e101e816b3a1eb8f052
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: 8ab647a7d97ace0d0f67fa462ada06901184933f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422451"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102987"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>在 Azure 虛擬網路中使用 Azure Data Factory 中的 Hive 活動轉換資料
 在本教學課程中，您會使用 Azure PowerShell 建立 Data Factory 管道，以在 Azure 虛擬網路 (VNet) 中的 HDInsight 叢集上，使用 Hive 活動來轉換資料。 您會在本教學課程中執行下列步驟：
@@ -33,6 +33,9 @@ ms.locfileid: "54422451"
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>先決條件
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - **Azure 儲存體帳戶**。 您會建立 hive 指令碼，並上傳至 Azure 儲存體。 Hive 指令碼的輸出會儲存在此儲存體帳戶中。 在此範例中，HDInsight 叢集會使用此 Azure 儲存體帳戶作為主要儲存體。 
 - **Azure 虛擬網路。** 如果您沒有 Azure 虛擬網路，請依照[這些指示](../virtual-network/quick-create-portal.md)建立。 在此範例中，HDInsight 在 Azure 虛擬網路中。 以下是 Azure 虛擬網路的設定範例。 
 
@@ -40,7 +43,7 @@ ms.locfileid: "54422451"
 - **HDInsight 叢集。** 請遵循這篇文章來建立 HDInsight 叢集，並將它加入您在上一個步驟中建立的虛擬網路：[使用 Azure 虛擬網路延伸 Azure HDInsight](../hdinsight/hdinsight-extend-hadoop-virtual-network.md)。 以下是虛擬網路中的 HDInsight 設定範例。 
 
     ![虛擬網路中的 HDInsight](media/tutorial-transform-data-using-hive-in-vnet/hdinsight-in-vnet-configuration.png)
-- **Azure PowerShell**(英文)。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) 中的指示。
+- **Azure PowerShell**(英文)。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/install-Az-ps) 中的指示。
 
 ### <a name="upload-hive-script-to-your-blob-storage-account"></a>將 Hive 指令碼上傳至 Blob 儲存體帳戶
 
@@ -64,7 +67,7 @@ ms.locfileid: "54422451"
 3. 建立名為 **hivescripts** 的資料夾。
 4. 將 **hivescript.hql** 檔案上傳至 **hivescripts** 子資料夾。
 
- 
+  
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
@@ -93,27 +96,27 @@ ms.locfileid: "54422451"
     執行下列命令，並輸入您用來登入 Azure 入口網站的使用者名稱和密碼：
         
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```        
     執行下列命令以檢視此帳戶的所有訂用帳戶：
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
     執行下列命令以選取您要使用的訂用帳戶。 以您的 Azure 訂用帳戶識別碼取代 **SubscriptionId**：
 
     ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"    
+    Select-AzSubscription -SubscriptionId "<SubscriptionId>"    
     ```  
 3. 建立資源群組：ADFTutorialResourceGroup (如果尚不存在於訂用帳戶中)。 
 
     ```powershell
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location "East Us" 
+    New-AzResourceGroup -Name $resourceGroupName -Location "East Us" 
     ```
 4. 建立資料處理站。 
 
     ```powershell
-     $df = Set-AzureRmDataFactoryV2 -Location EastUS -Name $dataFactoryName -ResourceGroupName $resourceGroupName
+     $df = Set-AzDataFactoryV2 -Location EastUS -Name $dataFactoryName -ResourceGroupName $resourceGroupName
     ```
 
     執行下列命令來查看輸出： 
@@ -128,13 +131,13 @@ ms.locfileid: "54422451"
 1. 建立自我裝載整合執行階段。 請使用唯一名稱，以防有另一個同名的整合執行階段存在。
 
    ```powershell
-   Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted
+   Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted
    ```
     此命令會建立自我裝載整合執行階段的邏輯註冊。 
 2. 使用 PowerShell 取出驗證金鑰，以註冊自我裝載整合執行階段。 複製其中一個金鑰，以註冊自我裝載整合執行階段。
 
    ```powershell
-   Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName | ConvertTo-Json
+   Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName | ConvertTo-Json
    ```
 
    以下是範例輸出： 
@@ -233,12 +236,12 @@ ms.locfileid: "54422451"
 2. 執行下列命令來建立 Azure 儲存體連結服務。 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
     ```
 3. 執行下列命令來建立 Azure HDInsight 連結服務。 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyHDInsightLinkedService" -File "MyHDInsightLinkedService.json"
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyHDInsightLinkedService" -File "MyHDInsightLinkedService.json"
     ```
 
 ## <a name="author-a-pipeline"></a>撰寫管道
@@ -284,7 +287,7 @@ ms.locfileid: "54422451"
 
 
 ```powershell
-Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name $pipelineName -File "MyHivePipeline.json"
+Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name $pipelineName -File "MyHivePipeline.json"
 ```
 
 ## <a name="start-the-pipeline"></a>啟動管道 
@@ -292,13 +295,13 @@ Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGrou
 1. 啟動管線執行。 它也會擷取管道執行識別碼，方便後續監視。
 
     ```powershell
-    $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
+    $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
    ```
 2. 執行下列程式碼以持續檢查管道執行狀態，直到完成為止。
 
     ```powershell
     while ($True) {
-        $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+        $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 
         if(!$result) {
             Write-Host "Waiting for pipeline to start..." -foregroundcolor "Yellow"

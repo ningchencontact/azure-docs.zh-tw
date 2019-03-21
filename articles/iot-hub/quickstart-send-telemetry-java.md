@@ -1,21 +1,21 @@
 ---
 title: 將遙測傳送至 Azure IoT 中樞 (Java) | Microsoft Docs
 description: 本快速入門中，您會執行兩個範例 Java 應用程式，以將模擬的遙測資料傳送至 IoT 中樞和從 IoT 中樞讀取遙測資料，以便在雲端中處理。
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
-ms.author: dobett
-ms.openlocfilehash: 93c94eb75002b3e718dc630df8985a381ee312c4
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: f5ec6a16de46a7902f7ab739922dc756c96702e0
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668612"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010968"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-java"></a>快速入門：將遙測從裝置傳送至 IoT 中樞，並使用後端應用程式讀取遙測 (Java)
 

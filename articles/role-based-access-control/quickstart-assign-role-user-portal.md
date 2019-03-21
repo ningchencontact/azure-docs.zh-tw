@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: 9352130eeeb68a87947450cb5616aa59e8e99ae9
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 5786f7b48477fa705b43e3a953ac15b2c768bd71
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807366"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57854243"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>教學課程：使用 RBAC 與 Azure 入口網站為使用者授與 Azure 資源的存取權
 
@@ -34,7 +34,7 @@ ms.locfileid: "56807366"
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-在 http://portal.azure.com 登入 Azure 入口網站。
+在 https://portal.azure.com 登入 Azure 入口網站。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 

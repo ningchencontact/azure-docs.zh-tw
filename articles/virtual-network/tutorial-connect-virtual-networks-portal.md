@@ -14,19 +14,19 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/13/2018
+ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: d702253c7b58b0a29c03e6563238b56ae75fa0d1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: e66747cd350d10a5a66ec54b9aae9e9b485b0ba2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841783"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014491"
 ---
-# <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站透過虛擬網路對等互連來連線虛擬網路
+# <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站以虛擬網路對等互連連線虛擬網路
 
-您可以使用虛擬網路對等互連，讓虛擬網路彼此連線。 一旦虛擬網路對等互連，兩個虛擬網路中的資源就可以彼此通訊，且通訊時會有相同的延遲和頻寬，彷彿這些資源是位於相同的虛擬網路中。 在本教學課程中，您了解如何：
+您可以使用虛擬網路對等互連，讓虛擬網路彼此連線。 這些虛擬網路可位於相同或不同的區域 (也稱為全域 VNet 對等互連)。 一旦虛擬網路對等互連，兩個虛擬網路中的資源就可以彼此通訊，且通訊時會有相同的延遲和頻寬，彷彿這些資源是位於相同的虛擬網路中。 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 建立兩個虛擬網路
@@ -82,7 +82,7 @@ ms.locfileid: "30841783"
     |---|---|
     |Name|myVirtualNetwork1-myVirtualNetwork2|
     |訂用帳戶| 選取您的訂用帳戶。|
-    |虛擬網路|myVirtualNetwork2 - 若要選取 myVirtualNetwork2 虛擬網路，請選取 [虛擬網路]，然後選取 [myVirtualNetwork2]。|
+    |虛擬網路|myVirtualNetwork2 - 若要選取 myVirtualNetwork2 虛擬網路，請選取 [虛擬網路]，然後選取 [myVirtualNetwork2]。 您可以選取相同區域或不同區域中的虛擬網路。|
 
     ![對等互連設定](./media/tutorial-connect-virtual-networks-portal/peering-settings.png)
 
@@ -121,6 +121,7 @@ ms.locfileid: "30841783"
     |位置| 選取 [美國東部]。|
 4. 在 [選擇大小] 底下選取虛擬機器大小。
 5. 針對 [設定] 選取下列值，然後選取 [確定]：
+
     |設定|值|
     |---|---|
     |虛擬網路| myVirtualNetwork1 - 若未選取，請選取 [虛擬網路]，然後在 [選擇虛擬網路] 底下選取 [myVirtualNetwork1]。|

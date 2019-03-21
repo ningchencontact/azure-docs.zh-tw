@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: aeeab619ac2366796a1039bf85cc71f89a10b83c
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: cc0d004a20aa5497c40b07e04e0eeae7758a9826
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158494"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085247"
 ---
 # <a name="create-and-provision-an-x509-simulated-device-using-nodejs-device-sdk-for-iot-hub-device-provisioning-service"></a>使用適用於 IoT 中樞裝置佈建服務的 Node.js 裝置 SDK 來建立及佈建 X.509 模擬裝置
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -80,17 +80,17 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 5. 在裝置佈建服務摘要刀鋒視窗上，選取 [管理註冊]。 選取 [個別註冊] 索引標籤，然後按一下頂端的 [新增個別註冊] 按鈕。 
 
 6. 在 [新增註冊] 面板之下，輸入下列資訊：
-    - 選取 [X.509] 作為身分識別證明「機制」。
-    - 在 [主要 .pem 或 .cer 憑證檔案] 之下，按一下 [選取檔案] 以選取在先前步驟中建立的憑證檔案 **{certificate-name}_cert.pem**。  
-    - 您可以選擇性地提供下列資訊：
-      - 選取與您的佈建服務連結的 IoT 中樞。
-      - 輸入唯一的裝置識別碼。 替您的裝置命名時，務必避免使用敏感性資料。 
-      - 使用裝置所需的初始組態更新**初始裝置對應項狀態**。
-   - 完成後，按一下 [儲存] 按鈕。 
+   - 選取 [X.509] 作為身分識別證明「機制」。
+   - 在 [主要 .pem 或 .cer 憑證檔案] 之下，按一下 [選取檔案] 以選取在先前步驟中建立的憑證檔案 **{certificate-name}_cert.pem**。  
+   - 您可以選擇性地提供下列資訊：
+     - 選取與您的佈建服務連結的 IoT 中樞。
+     - 輸入唯一的裝置識別碼。 替您的裝置命名時，務必避免使用敏感性資料。 
+     - 使用裝置所需的初始組態更新**初始裝置對應項狀態**。
+     - 完成後，按一下 [儲存] 按鈕。 
 
-    [![在入口網站中新增 X.509 證明的個別註冊](./media/quick-create-simulated-device-x509-node/device-enrollment.png)](./media/quick-create-simulated-device-x509-node/device-enrollment.png#lightbox)
+     [![在入口網站中新增 X.509 證明的個別註冊](./media/quick-create-simulated-device-x509-node/device-enrollment.png)](./media/quick-create-simulated-device-x509-node/device-enrollment.png#lightbox)
 
-    註冊成功時，您的 X.509 裝置會在 [個別註冊] 索引標籤下的 [註冊識別碼] 資料行中顯示為 **{certificatename}**。請記下此值供後續使用。
+     註冊成功時，您的 X.509 裝置會在 [個別註冊] 索引標籤下的 [註冊識別碼] 資料行中顯示為 **{certificatename}**。請記下此值供後續使用。
 
 ## <a name="simulate-the-device"></a>模擬裝置
 

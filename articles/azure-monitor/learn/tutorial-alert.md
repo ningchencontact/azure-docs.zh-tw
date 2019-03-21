@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 300f0ddc8b738b5fd8578ed0b33cc15000c1098a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 70a11867dded3b7156f6b212ceb4756ee7c287f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101780"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079157"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>使用 Azure Application Insights 監視應用程式健康情況並傳送警示
 
@@ -69,18 +69,18 @@ Application Insights 中的可用性測試，可讓您從世界各地的不同�
 ## <a name="create-an-alert-from-metrics"></a>建立以計量為依據的警示
 除了傳送以可用性測試為依據的警示，還可以依據應用程式所收集的任何效能計量來建立警示。
 
-2. 從 [設定] 功能表選取 [警示]。  這樣會開啟 Azure [警示] 面板。  此處可能有針對其他服務設定的其他警示規則。
-3. 按一下 [新增計量警示]。  這樣會開啟建立新警示規則的面板。
+1. 從 [設定] 功能表選取 [警示]。  這樣會開啟 Azure [警示] 面板。  此處可能有針對其他服務設定的其他警示規則。
+1. 按一下 [新增計量警示]。  這樣會開啟建立新警示規則的面板。
 
     ![新增計量警示](media/tutorial-alert/add-metric-alert.png)
 
-4. 輸入警示規則的 [名稱]，然後在 [資源] 下拉式清單中選取您的應用程式。
-5. 選取一個 [計量] 進行抽樣。  隨即顯示一個圖形，指示此要求在過去 24 小時的值。  這可協助您設定計量的條件。
+1. 輸入警示規則的 [名稱]，然後在 [資源] 下拉式清單中選取您的應用程式。
+1. 選取一個 [計量] 進行抽樣。  隨即顯示一個圖形，指示此要求在過去 24 小時的值。  這可協助您設定計量的條件。
 
     ![新增警示規則](media/tutorial-alert/add-alert-01.png)
 
-6. 指定警示的 [條件] 和 [閾值]。 這是建立警示前必須超過計量的次數。 
-6. 在 [透過下列方式通知] 下方，核取 [將電子郵件寄給擁有者、參與者及讀者] 方塊，以在符合警示條件時傳送電子郵件給這些使用者，並加入任何額外的收件者電子郵件地址。  您也可以在此指定符合條件時執行的 Webhook 或邏輯應用程式。  採用這些方式可用來減緩偵測到的問題 
+1. 指定警示的 [條件] 和 [閾值]。 這是建立警示前必須超過計量的次數。 
+1. 在 [透過下列方式通知] 下方，核取 [將電子郵件寄給擁有者、參與者及讀者] 方塊，以在符合警示條件時傳送電子郵件給這些使用者，並加入任何額外的收件者電子郵件地址。  您也可以在此指定符合條件時執行的 Webhook 或邏輯應用程式。  採用這些方式可用來減緩偵測到的問題 
 
     ![新增警示規則](media/tutorial-alert/add-alert-02.png)
 

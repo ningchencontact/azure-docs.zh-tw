@@ -180,6 +180,8 @@ items:
       href: backup-client-automation.md
     - name: Azure 入口網站中的 Azure 檔案共用
       href: backup-azure-afs-automation.md
+    - name: Azure VM 備份中的 SQL
+      href: backup-azure-sql-automation.md
   - name: 使用 Azure 備份 REST API
     items:
     - name: 建立復原服務保存庫
@@ -195,7 +197,7 @@ items:
   - name: 將 SQL Server 資料庫備份到 Azure VM
     items:
     - name: 關於 Azure VM 中的 SQL Server 備份
-      href: backup-sql-server-azure-vms.md
+      href: backup-azure-sql-database.md
     - name: 備份 Azure VM 中的 SQL Server 資料庫
       href: backup-sql-server-database-azure-vms.md
     - name: 還原 Azure VM 中的 SQL Server 資料庫
@@ -278,9 +280,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=backup
   - name: 影片
     href: https://azure.microsoft.com/documentation/videos/index/?services=backup
-ms.openlocfilehash: 033235611271b00275a0ef759af80f2c8c9a2474
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb58460b2331ab867e064235d5a2536809b28021
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014650"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284964"

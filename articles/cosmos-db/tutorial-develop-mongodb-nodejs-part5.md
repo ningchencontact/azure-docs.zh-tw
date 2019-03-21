@@ -12,12 +12,12 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Cosmos DB.
-ms.openlocfilehash: 4e7aa9931ffb268f787882729341fbe860255f70
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: c8cab3c723b7e507b0f3b05b933cca9e2c24fb39
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767854"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075470"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>使用 Azure Cosmos DB 適用於 MongoDB 的 API 建立 Angular 應用程式
 
@@ -56,35 +56,35 @@ Mongoose 是適用於 MongoDB 及 Node.js 的物件資料模型 (ODM) 程式庫�
 
 1. 將以下程式碼複製到 **mongo.js** 檔案。 此程式碼提供下列功能：
 
-    * 需要 Mongoose。
-    * 覆寫 Mongo 承諾，以使用 ES6/ES2015 內建和更新版本的基本承諾。
-    * 呼叫 env 檔案，該檔案可讓您根據您是在預備、生產或開發環境來設定某些項目。 您會在下一節建立該檔案。
-    * 包含 MongoDB 連接字串，該字串會設定於 env 檔案中。
-    * 建立可呼叫 Mongoose 的連線函式。
+   * 需要 Mongoose。
+   * 覆寫 Mongo 承諾，以使用 ES6/ES2015 內建和更新版本的基本承諾。
+   * 呼叫 env 檔案，該檔案可讓您根據您是在預備、生產或開發環境來設定某些項目。 您會在下一節建立該檔案。
+   * 包含 MongoDB 連接字串，該字串會設定於 env 檔案中。
+   * 建立可呼叫 Mongoose 的連線函式。
 
-    ```javascript
-    const mongoose = require('mongoose');
-    /**
+     ```javascript
+     const mongoose = require('mongoose');
+     /**
      * Set to Node.js native promises
-     * Per http://mongoosejs.com/docs/promises.html
+     * Per https://mongoosejs.com/docs/promises.html
      */
-    mongoose.Promise = global.Promise;
+     mongoose.Promise = global.Promise;
 
-    const env = require('./env/environment');
+     const env = require('./env/environment');
 
-    // eslint-disable-next-line max-len
-    const mongoUri = `mongodb://${env.accountName}:${env.key}@${env.accountName}.documents.azure.com:${env.port}/${env.databaseName}?ssl=true`;
+     // eslint-disable-next-line max-len
+     const mongoUri = `mongodb://${env.accountName}:${env.key}@${env.accountName}.documents.azure.com:${env.port}/${env.databaseName}?ssl=true`;
 
-    function connect() {
+     function connect() {
      mongoose.set('debug', true);
      return mongoose.connect(mongoUri, { useMongoClient: true });
-    }
+     }
 
-    module.exports = {
-      connect,
-      mongoose
-    };
-    ```
+     module.exports = {
+     connect,
+     mongoose
+     };
+     ```
     
 1. 在 [總管] 窗格中，於 **server** 之下建立名為 **environment** 的資料夾。 在 **environment** 資料夾中，建立名為 **environment.js** 的檔案。
 

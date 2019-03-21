@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b06ceb86e8406657766be1375889fcfe1b4673d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2b55f7e615f2c2edb604d5b9433db6cc48d9f36f
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204537"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223388"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>快速入門：從 .NET 桌面 (WPF) 應用程式登入使用者並呼叫 Microsoft Graph API
 
@@ -77,9 +77,9 @@ ms.locfileid: "56204537"
 
 1. 在 `DirectorySearcher` 專案中，開啟 `app.config`。
 1. 取代 `<appSettings>` 區段中的元素值，以反映您在 Azure 入口網站中所輸入的值。 每當使用 ADAL 時，您的程式碼便會參考這些值。
-  * `ida:Tenant` 是指您的 Azure AD 租用戶網域，例如 contoso.onmicrosoft.com
-  * `ida:ClientId` 是指您從入口網站複製的應用程式用戶端識別碼。
-  * `ida:RedirectUri` 是您在入口網站中註冊的重新導向 URL。
+   * `ida:Tenant` 是指您的 Azure AD 租用戶網域，例如 contoso.onmicrosoft.com
+   * `ida:ClientId` 是指您從入口網站複製的應用程式用戶端識別碼。
+   * `ida:RedirectUri` 是您在入口網站中註冊的重新導向 URL。
 
 ## <a name="step-3-use-adal-to-get-tokens-from-azure-ad"></a>步驟 3：使用 ADAL 從 Azure AD 取得權杖
 
@@ -172,7 +172,7 @@ ADAL 的基本原則是每當您的應用程式需要存取權杖時，您的應
                 MessageBox.Show(ex.Message);
             }
 
-            // If user interaction is required, proceed to main page without singing the user in.
+            // If user interaction is required, proceed to main page without signing the user in.
             return;
         }
 

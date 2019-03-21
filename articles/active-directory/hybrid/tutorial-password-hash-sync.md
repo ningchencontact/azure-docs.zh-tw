@@ -14,12 +14,12 @@ ms.date: 09/17/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86f9d0ab9c8d8e7fde8afeb479546857c732bd40
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 45379f8f955c50e2598ebcebd34e971c29b2c81c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210640"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103225"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>教學課程：使用密碼雜湊同步處理整合單一 AD 樹系 (PHS)
 
@@ -77,7 +77,7 @@ Set-VMFirmware -VMName $VMName -FirstBootDevice $DVDDrive
 
 1. Hyper-V 管理員，按兩下虛擬機器
 2. 按一下 [啟動] 按鈕。
-3.  系統將提示您「按任意鍵從 CD 或 DVD 開機」。 按任意鍵繼續。
+3. 系統將提示您「按任意鍵從 CD 或 DVD 開機」。 按任意鍵繼續。
 4. 在 Windows Server 啟動畫面上選取您的語言，然後按一下 [下一步]。
 5. 按一下 [立即安裝] 。
 6. 輸入您的授權金鑰，然後按一下 [下一步]。
@@ -139,6 +139,7 @@ $LogPath = "c:\windows\NTDS"
 $SysVolPath = "c:\windows\SYSVOL"
 $featureLogPath = "c:\poshlog\featurelog.txt" 
 $Password = "Pass1w0rd"
+$SecureString = ConvertTo-SecureString $Password -AsPlainText -Force
 
 #Install AD DS, DNS and GPMC 
 start-job -Name addFeature -ScriptBlock { 
@@ -149,7 +150,7 @@ Wait-Job -Name addFeature
 Get-WindowsFeature | Where installed >>$featureLogPath
 
 #Create New AD Forest
-Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath $DatabasePath -DomainMode $DomainMode -DomainName $DomainName -SafeModeAdministratorPassword $Password -DomainNetbiosName $DomainNetBIOSName -ForestMode $ForestMode -InstallDns:$true -LogPath $LogPath -NoRebootOnCompletion:$false -SysvolPath $SysVolPath -Force:$true
+Install-ADDSForest -CreateDnsDelegation:$false -DatabasePath $DatabasePath -DomainMode $DomainMode -DomainName $DomainName -SafeModeAdministratorPassword $SecureString -DomainNetbiosName $DomainNetBIOSName -ForestMode $ForestMode -InstallDns:$true -LogPath $LogPath -NoRebootOnCompletion:$false -SysvolPath $SysVolPath -Force:$true
 ```
 
 ## <a name="create-a-windows-server-ad-user"></a>建立 Windows Server AD 使用者
@@ -225,9 +226,9 @@ Set-ADUser -Identity $Identity -PasswordNeverExpires $true -ChangePasswordAtLogo
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>使用我們其中一個使用者來測試登入
 
-1.  瀏覽至 [https://myapps.microsoft.com](httpss://myapps.microsoft.com)
+1. 瀏覽至 [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. 使用我們在新租用戶中建立的使用者來登入。  您必須使用下列格式登入：(user@domain.onmicrosoft.com)。 透過該使用者在內部部署用來登入的密碼登入。</br>
-![Verify](media/tutorial-password-hash-sync/verify1.png)</br>
+   ![Verify](media/tutorial-password-hash-sync/verify1.png)</br>
 
 您現在已成功設定混合式身分識別環境，可用來測試及熟悉 Azure 的功能。
 

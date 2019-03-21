@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7ad5f22b0604cb9de38f7990c88d760df97098d9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: dc2fb3faddc8af30edd66b926259c05580d9872a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235830"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104517"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>探索及評估要移轉到 Azure 的內部部署 VMware VM
 
@@ -179,16 +179,16 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 3. 在桌面上，按一下 [執行收集器] 捷徑。
 4. 按一下收集器 UI 頂端列中的 [檢查更新]，並確認收集器正在最新版本上執行。 如果沒有，您可以選擇從連結下載最新的升級套件並更新收集器。
 5. 在 Azure Migrate 收集器中，開啟 [設定必要條件]。
-    - 選取您打算作為遷移目的地的 Azure 雲端 (Azure Global 或 Azure Government)。
-    - 接受授權條款，並閱讀第三方資訊。
-    - 收集器會確認 VM 是否能夠存取網際網路。
-    - 如果 VM 能夠透過 Proxy 存取網際網路，請按一下 [Proxy 設定]，然後指定 Proxy 位址和接聽連接埠。 如果 Proxy 需要驗證，請指定認證。 [深入了解](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites)網際網路連線需求和收集器存取的 [URL 清單](https://docs.microsoft.com/azure/migrate/concepts-collector)。
+   - 選取您打算作為遷移目的地的 Azure 雲端 (Azure Global 或 Azure Government)。
+   - 接受授權條款，並閱讀第三方資訊。
+   - 收集器會確認 VM 是否能夠存取網際網路。
+   - 如果 VM 能夠透過 Proxy 存取網際網路，請按一下 [Proxy 設定]，然後指定 Proxy 位址和接聽連接埠。 如果 Proxy 需要驗證，請指定認證。 [深入了解](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites)網際網路連線需求和收集器存取的 [URL 清單](https://docs.microsoft.com/azure/migrate/concepts-collector)。
 
-      > [!NOTE]
-      > 必須在表單 http://ProxyIPAddress 或 http://ProxyFQDN 中輸入 Proxy 位址。 僅支援 HTTP Proxy。 如果您有攔截 Proxy，且您未匯入 Proxy 憑證，則初始的網際網路連線可能會失敗；請[深入了解](https://docs.microsoft.com/azure/migrate/concepts-collector)如何藉由將 Proxy 憑證匯入作為收集器 VM 上的信任憑證，以解決此問題。
+     > [!NOTE]
+     > 必須在表單 <http://ProxyIPAddress> 或 <http://ProxyFQDN> 中輸入 Proxy 位址。 僅支援 HTTP Proxy。 如果您有攔截 Proxy，且您未匯入 Proxy 憑證，則初始的網際網路連線可能會失敗；請[深入了解](https://docs.microsoft.com/azure/migrate/concepts-collector)如何藉由將 Proxy 憑證匯入作為收集器 VM 上的信任憑證，以解決此問題。
 
-    - 收集器會檢查收集器服務是否正在執行。 根據預設，收集器 VM 上會安裝此服務。
-    - 下載並安裝 VMware PowerCLI。
+   - 收集器會檢查收集器服務是否正在執行。 根據預設，收集器 VM 上會安裝此服務。
+   - 下載並安裝 VMware PowerCLI。
 
 6. 在 [指定 vCenter Server 詳細資料] 中，執行下列動作：
     - 指定 vCenter Server 的名稱 (FQDN) 或 IP 位址。

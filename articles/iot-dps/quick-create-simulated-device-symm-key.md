@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5899b2b667df4800bf98aa6ed7b70f2f8ba4f931
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 7d56f01aabe77680ed78927848668457344a0f2c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337099"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080290"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>快速入門：使用對稱金鑰佈建模擬的裝置
 
@@ -114,15 +114,15 @@ SDK 包含模擬裝置的範例程式碼。 這個模擬裝置將會嘗試在裝
 
 3. 在 [新增註冊] 上，輸入下列資訊，然後按一下 [儲存] 按鈕。
 
-    - **機制**：選取 [對稱金鑰] 作為身分識別證明*機制*。
+   - **機制**：選取 [對稱金鑰] 作為身分識別證明*機制*。
 
-    - **自動產生金鑰**：核取此方塊。
+   - **自動產生金鑰**：核取此方塊。
 
-    - **註冊識別碼**：輸入註冊識別碼以識別註冊。 只使用小寫英數字元與破折號 ('-') 字元。 例如： `symm-key-device-007`。
+   - **註冊識別碼**：輸入註冊識別碼以識別註冊。 只使用小寫英數字元與破折號 ('-') 字元。 例如： `symm-key-device-007`。
 
-    - **IoT 中樞裝置識別碼：** 輸入裝置識別碼。 例如，**device-007**。
+   - **IoT 中樞裝置識別碼：** 輸入裝置識別碼。 例如，**device-007**。
 
-    ![在入口網站中為對稱金鑰證明新增個別註冊](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
+     ![在入口網站中為對稱金鑰證明新增個別註冊](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
 
 4. 一旦儲存您的註冊，將會產生 [主要金鑰] 與 [次要金鑰] 並新增到註冊項目。 您的對稱金鑰裝置註冊會在 [個別註冊] 索引標籤中的 [註冊識別碼] 欄下顯示為 **symm-key-device-007**。 
 

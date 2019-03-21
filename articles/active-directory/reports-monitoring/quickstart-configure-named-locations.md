@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbb50d22b5e0bd1a247dd806f45d9e4519214aba
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 328393d78514b236707cff1cedb9c34680900015
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208175"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120324"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>快速入門：在 Azure Active Directory 中設定具名位置
 
@@ -53,11 +53,11 @@ ms.locfileid: "56208175"
 
 6. 填寫新頁面上的表單。 
 
-    * 在 [名稱] 方塊中，輸入具名位置的名稱。
-    * 在 [IP 位址] 方塊中，輸入 CIDR 格式的 IP 範圍。  
-    * 按一下頁面底部的 [新增] 。
+   * 在 [名稱] 方塊中，輸入具名位置的名稱。
+   * 在 [IP 位址] 方塊中，輸入 CIDR 格式的 IP 範圍。  
+   * 按一下頁面底部的 [新增] 。
     
-    ![[新增] 刀鋒視窗](./media/quickstart-configure-named-locations/61.png)
+     ![[新增] 刀鋒視窗](./media/quickstart-configure-named-locations/61.png)
 
 ## <a name="next-steps"></a>後續步驟
 

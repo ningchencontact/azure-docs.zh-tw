@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 1805d54e66187a97bf598734801f0d94895e7490
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 0e61f6a914c33842f4f42b2e1e4206b370a11dd4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880341"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099030"
 ---
 # <a name="tutorial--get-sentiment-of-utterance"></a>教學課程：取得語句的情感
 
@@ -61,9 +61,9 @@ ms.locfileid: "56880341"
 
 1. 從預先建置的實體清單中選取下列實體，然後選取 [完成]：
 
-    * **[PersonName](luis-reference-prebuilt-person.md)** 
+   * **[PersonName](luis-reference-prebuilt-person.md)** 
 
-    ![預先建置的實體對話方塊中已選取 number 的螢幕擷取畫面](./media/luis-quickstart-intent-and-sentiment-analysis/add-personname-prebuilt-entity.png)
+     ![預先建置的實體對話方塊中已選取 number 的螢幕擷取畫面](./media/luis-quickstart-intent-and-sentiment-analysis/add-personname-prebuilt-entity.png)
 
 ## <a name="create-an-intent-to-determine-employee-feedback"></a>建立意圖以判斷員工意見反應
 

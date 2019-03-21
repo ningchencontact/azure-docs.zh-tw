@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 037dafcfc60c629841e326cecc38bb2b3250d77c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 092a346d8303bb9e88a53b6fa529bb820635c554
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015418"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099537"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>在 Data Factory 管道中將活動分支和鏈結
 在本教學課程中，您會建立 Data Factory 管道來展示部分的控制流程功能。 這個管道只是簡單地從 Azure Blob 儲存體中的一個容器複製到相同儲存體帳戶中的另一個容器。 如果複製活動成功，管線會在成功電子郵件中傳送成功複製作業的詳細資料 (例如寫入的資料量)。 如果複製活動失敗，管線會在失敗電子郵件中傳送複製失敗的詳細資料 (例如錯誤訊息)。 在整個教學課程中，您會看到如何傳遞參數。
@@ -52,7 +52,7 @@ ms.locfileid: "54015418"
     John,Doe
     Jane,Doe
     ```
-2. 使用 [Azure 儲存體總管](http://storageexplorer.com/)之類的工具來執行以下步驟： 
+2. 使用 [Azure 儲存體總管](https://storageexplorer.com/)之類的工具來執行以下步驟： 
     1. 建立 **adfv2branch** 容器。
     2. 在 **adfv2branch** 容器中建立 **input** 資料夾。
     3. 將 **input.txt** 檔案上傳至容器。
@@ -199,10 +199,10 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
    ![新增 Azure 儲存體連結服務](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)
 12. 針對資料夾輸入 `@pipeline().parameters.sourceBlobContainer`，針對檔案名稱輸入 `emp.txt`。 您可以使用 sourceBlobContainer 管線參數來為資料集設定資料夾路徑。 
 
-    ![來源資料集設定](./media/tutorial-control-flow-portal/source-dataset-settings.png)
+   ![來源資料集設定](./media/tutorial-control-flow-portal/source-dataset-settings.png)
 13. 切換至 [管線] 索引標籤 (或) 按一下樹狀檢視中的 [管線]。 確認已為 [來源資料集] 選取 [SourceBlobDataset]。 
 
-   ![來源資料集](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
+    ![來源資料集](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
 13. 在 [屬性] 視窗中，切換至 [接收] 索引標籤，然後為 [接收資料集] 按一下 [+ 新增]。 您在此步驟中為複製活動建立的接收資料集與您建立來源資料集的方式類似。 
 
     ![新增接收資料集按鈕](./media/tutorial-control-flow-portal/new-sink-dataset-button.png)
@@ -217,7 +217,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
         ![接收資料集設定](./media/tutorial-control-flow-portal/sink-dataset-settings.png)
 17. 切換至頂端的 [管線] 索引標籤。 在 [活動] 工具箱中展開 [一般]，並將 [Web] 活動拖放至管線設計工具表面。 將活動的名稱設定為 **SendSuccessEmailActivity**。 「網路活動」允許呼叫任何 REST 端點。 如需活動的詳細資訊，請參閱[網路活動](control-flow-web-activity.md)。 這個管道會使用「網路活動」來呼叫 Logic Apps 電子郵件工作流程。 
 
-   ![拖放第一個 Web 活動](./media/tutorial-control-flow-portal/success-web-activity-general.png)
+    ![拖放第一個 Web 活動](./media/tutorial-control-flow-portal/success-web-activity-general.png)
 18. 從 [一般] 索引標籤切換至 [設定] 索引標籤，並執行下列步驟： 
     1. 針對 [URL]，指定傳送成功電子郵件之邏輯應用程式工作流程的 URL。  
     2. 針對 [方法] 選取 [POST]。 
@@ -235,12 +235,12 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
         ```
         訊息主體包含下列屬性：
 
-        - 訊息 – 傳遞 `@{activity('Copy1').output.dataWritten` 的值。 存取先前複製活動的屬性，並傳遞 dataWritten 的值。 對於失敗案例，請傳遞錯誤輸出，而不是 `@{activity('CopyBlobtoBlob').error.message`。
-        - 資料處理站名稱 – 傳遞 `@{pipeline().DataFactory}` 的值。這是系統變數，可讓您存取對應的資料處理站名稱。 如需系統變數的清單，請參閱[系統變數](control-flow-system-variables.md)一文。
-        - 管道名稱 - 傳遞 `@{pipeline().Pipeline}` 的值。 這也是系統變數，可讓您存取對應的管道名稱。 
-        - 接收者 – 傳遞 "\@pipeline().parameters.receiver") 的值。 存取管道參數。
+       - 訊息 – 傳遞 `@{activity('Copy1').output.dataWritten` 的值。 存取先前複製活動的屬性，並傳遞 dataWritten 的值。 對於失敗案例，請傳遞錯誤輸出，而不是 `@{activity('CopyBlobtoBlob').error.message`。
+       - 資料處理站名稱 – 傳遞 `@{pipeline().DataFactory}` 的值。這是系統變數，可讓您存取對應的資料處理站名稱。 如需系統變數的清單，請參閱[系統變數](control-flow-system-variables.md)一文。
+       - 管道名稱 - 傳遞 `@{pipeline().Pipeline}` 的值。 這也是系統變數，可讓您存取對應的管道名稱。 
+       - 接收者 – 傳遞 "\@pipeline().parameters.receiver") 的值。 存取管道參數。
     
-        ![第一個 Web 活動的設定](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
+         ![第一個 Web 活動的設定](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
 19. 將 [複製] 活動連線至 [Web] 活動，方法是將複製活動旁的綠色按鈕拖放在 Web 活動上。 
 
     ![使用第一個 Web 活動連線複製活動](./media/tutorial-control-flow-portal/connect-copy-web-activity1.png)

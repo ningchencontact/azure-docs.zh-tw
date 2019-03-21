@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: b61aefcee36584b6ecfd1d701cb548c06f731d05
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 4abc34044d188be6b770439f06e8d4dab7f3ab93
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536639"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897651"
 ---
 # <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>適用於 MySQL 的 Azure 資料庫：使用 Go 語言連線並查詢資料
 本快速入門示範如何從 Windows、Ubuntu Linux 和 Apple macOS 平台使用以 [Go](https://golang.org/) 語言撰寫的程式碼，連線到適用於 MySQL 的 Azure 資料庫。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本主題假設您已熟悉使用 Go 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。
@@ -86,7 +86,7 @@ ms.locfileid: "53536639"
    
 
 ## <a name="build-and-run-go-code"></a>建置並執行 Go 程式碼 
-1. 若要撰寫 Golang 程式碼，您可以使用簡單的文字編輯器，例如 Microsoft Windows 的記事本、Ubuntu 的 [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) 或 [Nano](https://www.nano-editor.org/)，或 macOS 的 TextEdit。 如果想要使用更豐富的互動式開發環境 (IDE)，可以選擇 Jetbrains 的 [Gogland](https://www.jetbrains.com/go/)、Microsoft 的 [Visual Studio Code](https://code.visualstudio.com/)，或 [Atom](https://atom.io/)。
+1. 若要撰寫 Golang 程式碼，您可以使用簡單的文字編輯器，例如 Microsoft Windows 的記事本、Ubuntu 的 [vi](https://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) 或 [Nano](https://www.nano-editor.org/)，或 macOS 的 TextEdit。 如果想要使用更豐富的互動式開發環境 (IDE)，可以選擇 Jetbrains 的 [Gogland](https://www.jetbrains.com/go/)、Microsoft 的 [Visual Studio Code](https://code.visualstudio.com/)，或 [Atom](https://atom.io/)。
 2. 將 Go 程式碼從下列區段貼到文字檔中，然後將它們儲存到專案資料夾中 (副檔名為 \*.go)，(例如 Windows 路徑 `%USERPROFILE%\go\src\mysqlgo\createtable.go` 或 Linux 路徑 `~/go/src/mysqlgo/createtable.go`)。
 3. 在程式碼中找出 `HOST`、`DATABASE`、`USER` 和 `PASSWORD` 常數，然後將範例值取代成您自己的值。 
 4. 啟動命令提示字元或 Bash 殼層。 將目錄切換到專案資料夾。 例如，在 Windows 上為 `cd %USERPROFILE%\go\src\mysqlgo\`。 在 Linux 上為 `cd ~/go/src/mysqlgo/`。  提及的部分 IDE 編輯器提供偵錯和執行階段功能，並不需要殼層命令。

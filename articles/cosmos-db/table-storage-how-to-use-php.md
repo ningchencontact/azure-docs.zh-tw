@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: php
 ms.topic: sample
 ms.date: 04/05/2018
-ms.openlocfilehash: 3ec91b564647e4eda4696a249c77739daff2ece3
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: aac6755ed90c795b8fff09d9ffde33878ad21a32
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044224"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111492"
 ---
 # <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>如何使用 PHP 的 Azure 儲存體表格服務或 Azure Cosmos DB 資料表 API
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -44,19 +44,19 @@ ms.locfileid: "54044224"
 ## <a name="get-the-client-library"></a>取得用戶端程式庫
 
 1. 在專案的根目錄中建立名為 composer.json 的檔案，並新增下列程式碼：
-```json
-{
-  "require": {
+   ```json
+   {
+   "require": {
     "microsoft/azure-storage-table": "*"
-  }
-}
-```
+   }
+   }
+   ```
 2. 將 [composer.phar](https://getcomposer.org/composer.phar) 下載到根目錄中。 
 3. 開啟命令提示字元，在專案根目錄中執行下列命令：
-```
-php composer.phar install
-```
-或者，移至 GitHub 上的 [Azure 儲存體資料表 PHP 用戶端程式庫](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table)來複製原始程式碼。
+   ```
+   php composer.phar install
+   ```
+   或者，移至 GitHub 上的 [Azure 儲存體資料表 PHP 用戶端程式庫](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table)來複製原始程式碼。
 
 
 ## <a name="add-required-references"></a>新增必要的參考

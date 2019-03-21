@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/24/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27456f672e2fa67928b43e80bef384a14e9c1d62
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9f062596e2be93065b3c076787c2f5b3dfcedf9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166958"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110115"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>快速入門：新增應用程式到您的 Azure Active Directory 租用戶
 
@@ -113,35 +113,35 @@ Azure Active Directory (Azure AD) 有一個資源庫，其中包含數千個預�
 
 4. 您可以使用下表來協助您選擇最符合需求的選項。
 
-    - **已指派**的使用者行為：
+   - **已指派**的使用者行為：
 
-        | 應用程式屬性設定 | | | 已指派的使用者體驗 | |
-        |---|---|---|---|---|
-        | 為使用者啟用登入？ | 需要使用者指派？ | 可讓使用者看見？ | 已指派的使用者可以登入？ | 已指派的使用者可以看見應用程式？* |
-        | 是 | 是 | 是 | 是 | 是  |
-        | 是 | 是 | no  | 是 | no   |
-        | 是 | no  | 是 | 是 | 是  |
-        | 是 | no  | no  | 是 | no   |
-        | no  | 是 | 是 | no  | no   |
-        | no  | 是 | no  | no  | no   |
-        | no  | no  | 是 | no  | no   |
-        | no  | no  | no  | no  | no   |
+       | 應用程式屬性設定 | | | 已指派的使用者體驗 | |
+       |---|---|---|---|---|
+       | 為使用者啟用登入？ | 需要使用者指派？ | 可讓使用者看見？ | 已指派的使用者可以登入？ | 已指派的使用者可以看見應用程式？* |
+       | 是 | 是 | 是 | 是 | 是  |
+       | 是 | 是 | no  | 是 | no   |
+       | 是 | no  | 是 | 是 | 是  |
+       | 是 | no  | no  | 是 | no   |
+       | no  | 是 | 是 | no  | no   |
+       | no  | 是 | no  | no  | no   |
+       | no  | no  | 是 | no  | no   |
+       | no  | no  | no  | no  | no   |
 
-    - **未指派**的使用者行為：
+   - **未指派**的使用者行為：
 
-        | 應用程式屬性設定 | | | 未指派的使用者體驗 | |
-        |---|---|---|---|---|
-        | 為使用者啟用登入？ | 需要使用者指派？ | 可讓使用者看見？ | 未指派的使用者可以登入？ | 未指派的使用者可以看見應用程式？* |
-        | 是 | 是 | 是 | no  | no   |
-        | 是 | 是 | no  | no  | no   |
-        | 是 | no  | 是 | 是 | no   |
-        | 是 | no  | no  | 是 | no   |
-        | no  | 是 | 是 | no  | no   |
-        | no  | 是 | no  | no  | no   |
-        | no  | no  | 是 | no  | no   |
-        | no  | no  | no  | no  | no   |
+       | 應用程式屬性設定 | | | 未指派的使用者體驗 | |
+       |---|---|---|---|---|
+       | 為使用者啟用登入？ | 需要使用者指派？ | 可讓使用者看見？ | 未指派的使用者可以登入？ | 未指派的使用者可以看見應用程式？* |
+       | 是 | 是 | 是 | no  | no   |
+       | 是 | 是 | no  | no  | no   |
+       | 是 | no  | 是 | 是 | no   |
+       | 是 | no  | no  | 是 | no   |
+       | no  | 是 | 是 | no  | no   |
+       | no  | 是 | no  | no  | no   |
+       | no  | no  | 是 | no  | no   |
+       | no  | no  | no  | no  | no   |
 
-    *使用者是否可以在存取面板和 Office 365 應用程式啟動器中看到應用程式？
+     *使用者是否可以在存取面板和 Office 365 應用程式啟動器中看到應用程式？
 
 ## <a name="use-a-custom-logo"></a>使用自訂標誌
 

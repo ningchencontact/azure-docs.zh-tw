@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 66ba6aa874e84ce86d54d5ea0f827a83dc6564b4
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: a5203d75e673a7b8206446553414ff933e00b0b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208546"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008935"
 ---
 # <a name="azure-and-linux"></a>Azure 和 Linux
 Microsoft Azure 集結了各種整合式公用雲端服務且數量不斷增加，包括分析、虛擬機器、資料庫、行動、網路、儲存體和 Web&mdash;因此很適合用來裝載您的解決方案。  Microsoft Azure 提供可調整的運算平台，可讓您在需要時用多少就付多少，而不需投資內部部署的硬體。  Azure 可供您將您的方案相應增加和放大至任何您需要的規模，以滿足您所服務之客戶的需求。
@@ -59,7 +59,7 @@ Azure 可依據 VM 的大小和作業系統，以[每小時](https://azure.micro
 * [Azure 範本](create-ssh-secured-vm-from-template.md)
 * [Azure VMAccess](using-vmaccess-extension.md)
 
-Azure 將針對支援 [cloud-init](http://cloud-init.io/) 的大多數 Linux 散發套件推出 cloud-init 支援。  目前 Canonical 的 Ubuntu VM 部署預設即已啟用 cloud-init。  Red Hats RHEL、CentOS 及 Fedora 支援 cloud-init，不過由 Red Hat 維護的 Azure 映像目前並未安裝 cloud-init。  若要在 Red Hat 系列 OS 上使用 cloud-init，您必須建立已安裝 cloud-init 的自訂映像。
+Azure 將針對支援 [cloud-init](https://cloud-init.io/) 的大多數 Linux 散發套件推出 cloud-init 支援。  目前 Canonical 的 Ubuntu VM 部署預設即已啟用 cloud-init。  Red Hats RHEL、CentOS 及 Fedora 支援 cloud-init，不過由 Red Hat 維護的 Azure 映像目前並未安裝 cloud-init。  若要在 Red Hat 系列 OS 上使用 cloud-init，您必須建立已安裝 cloud-init 的自訂映像。
 
 * [在 Azure Linux VM 上使用 cloud-init](using-cloud-init.md)
 

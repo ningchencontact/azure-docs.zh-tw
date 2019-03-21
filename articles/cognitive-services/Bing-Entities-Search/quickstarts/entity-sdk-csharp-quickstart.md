@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: 6a365ef5421de3ceb31c5cc78a424f786f174ab3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 99b7f05304b48b7d885a80705d05fbe24854150f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861913"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080636"
 ---
 # <a name="send-a-search-request-with-the-bing-entity-search-sdk-for-c"></a>使用適用於 C# 的 Bing 實體搜尋 SDK 來傳送搜尋要求
 
@@ -26,7 +26,7 @@ ms.locfileid: "55861913"
 
 * 任何一版的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
 * [Json.NET](https://www.newtonsoft.com/json) 架構 (以 NuGet 套件形式提供)。
-* 如果您使用 Linux/MacOS，則可以使用 [Mono](http://www.mono-project.com/)來執行此應用程式。
+* 如果您使用 Linux/MacOS，則可以使用 [Mono](https://www.mono-project.com/)來執行此應用程式。
 * [Bing 新聞搜尋 SDK 的 NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.EntitySearch/1.2.0)。 安裝此套件也會安裝：
     * Microsoft.Rest.ClientRuntime
     * Microsoft.Rest.ClientRuntime.Azure
@@ -52,13 +52,13 @@ ms.locfileid: "55861913"
 
 ## <a name="create-a-client-and-send-a-search-request"></a>建立用戶端並傳送搜尋要求
 
-2. 建立新的搜尋用戶端。 建立新的 `ApiKeyServiceClientCredentials` 以新增訂用帳戶金鑰。
+1. 建立新的搜尋用戶端。 建立新的 `ApiKeyServiceClientCredentials` 以新增訂用帳戶金鑰。
 
     ```csharp
     var client = new EntitySearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
     ```
 
-3. 使用用戶端的 `Entities.Search()` 函式來搜尋您的查詢：
+1. 使用用戶端的 `Entities.Search()` 函式來搜尋您的查詢：
     
     ```csharp
     var entityData = client.Entities.Search(query: "Satya Nadella");

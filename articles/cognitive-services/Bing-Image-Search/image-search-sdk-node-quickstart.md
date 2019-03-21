@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/04/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: db3401ffd0f13b9c735d38bf027cc3c8adebe4aa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 641247a0ddc08f15fa70006e280426fda083241f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882351"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58083023"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-nodejs"></a>快速入門：使用適用於 Node.js 的 Bing 影像搜尋 SDK 來搜尋影像
 
@@ -68,7 +68,7 @@ Bing 影像搜尋 SDK 是 API 的包裝函式，而且功能相同，您可以�
         return await imageSearchApiClient.imagesOperations.search(searchTerm);
     };
     ```
-## <a name="send-a-query-and-handle-the-response"></a>傳送查詢並處理回應
+   ## <a name="send-a-query-and-handle-the-response"></a>傳送查詢並處理回應
 
 1. 呼叫協助程式函式並處理其 `promise`，以剖析回應中傳回的影像結果。
 

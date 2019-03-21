@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: overview
 ms.date: 04/10/2018
 ms.author: stevelas
-ms.openlocfilehash: d65267992876b3b3255a5eea22ff827522ddcdf1
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 2dc314dd1d1e728f03c1d0c660d9339254ddc462
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674696"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541854"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure 容器登錄中的異地複寫
 
@@ -69,7 +69,7 @@ docker push contosowesteu.azurecr.io/public/products/web:1.2
 
 ![在 Azure 入口網站中切換 SKU](media/container-registry-skus/update-registry-sku.png)
 
-若要設定進階登錄的異地複寫，請登入 Azure 入口網站 ( http://portal.azure.com )。
+若要設定進階登錄的異地複寫，請登入 Azure 入口網站 ( https://portal.azure.com )。
 
 導覽到 Azure 容器登錄，並選取 [複寫]：
 

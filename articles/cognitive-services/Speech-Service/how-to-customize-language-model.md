@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 57d112cfce00839f1381dc41d24bfb697179b5a4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8276b86df2dc1bc90fc07da262aa0979f7562619
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878675"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548484"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>教學課程：建立自訂語言模型
 
@@ -59,7 +59,7 @@ ms.locfileid: "55878675"
 | 每一行的語句數目 | 1 |
 | 檔案大小上限 | 1.5 GB |
 | 備註 | 避免重複字元超過 4 次，例如 'aaaaa'|
-| 備註 | 沒有 '\t' 之類的特殊字元，或比 [Unicode 字元資料表](http://www.utf8-chartable.de/)中的 U+00A1 更高的任何其他 UTF-8 字元|
+| 備註 | 沒有 '\t' 之類的特殊字元，或比 [Unicode 字元資料表](https://www.utf8-chartable.de/)中的 U+00A1 更高的任何其他 UTF-8 字元|
 | 備註 | URI 也會遭到拒絕，因為沒有可讀出 URI 的專屬方式|
 
 由於文字匯入時，經過了文字正規化，因此可由系統處理。 不過，有一些重要的正規化，必須由使用者在上傳資料_之前_完成。 請參閱[轉譯指導方針](prepare-transcription.md)，以確認在準備語言資料時所應使用的適當語言。

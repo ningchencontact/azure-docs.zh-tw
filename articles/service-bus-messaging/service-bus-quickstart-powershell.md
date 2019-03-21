@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 36f1b39ca4cef33a8cfcdb295b5c4d59e1128a0c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 143c36df623085eb4f07363d9c9ebd64d4f5a144
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426840"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104755"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>快速入門：使用 Azure PowerShell 建立服務匯流排佇列
 Microsoft Azure 服務匯流排是一項企業整合訊息代理程式，可提供安全的傳訊和絕對的可靠性。 典型的服務匯流排案例通常會牽涉到將兩個或更多應用程式、服務或程序彼此分開處理，以及傳輸狀態或資料變更。 此類案例可能牽涉到在另一個應用程式或服務中排程多個批次作業，或觸發訂單履行。 例如，零售公司可能會將其銷售點資料傳送至後端辦公室或區域配送中心，以進行補貨和庫存更新。 在此案例中，用戶端應用程式會對服務匯流排佇列傳送及接收訊息。
@@ -96,15 +96,15 @@ Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespac
    Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
 
-5.  在 PowerShell 提示字元中，輸入下列命令：
+5. 在 PowerShell 提示字元中，輸入下列命令：
 
    ```shell
    dotnet build
    ```
 
-6.  瀏覽到 `bin\Debug\netcoreapp2.0` 資料夾。
+6. 瀏覽到 `bin\Debug\netcoreapp2.0` 資料夾。
 
-7.  輸入下列命令以執行程式。 請務必將 `myConnectionString` 取代為您先前取得的值，並將 `myQueueName` 取代為您已建立的佇列名稱：
+7. 輸入下列命令以執行程式。 請務必將 `myConnectionString` 取代為您先前取得的值，並將 `myQueueName` 取代為您已建立的佇列名稱：
 
    ```shell
    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"

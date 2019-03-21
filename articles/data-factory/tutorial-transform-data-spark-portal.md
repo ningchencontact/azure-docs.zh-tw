@@ -3,20 +3,20 @@ title: 使用 Azure Data Factory 中的 Spark 轉換資料 | Microsoft Docs
 description: 本教學課程提供逐步指示，說明如何使用 Azure Data Factory 中的 Spark 活動來轉換資料。
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/10/2018
-ms.author: douglasl
-ms.openlocfilehash: be9ed1d840eab5478dee4d212705211c0967bdbd
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: de99d1a58cac12c80748b34ef4a1b07c9fb2a78e
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427962"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576849"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Spark 活動來轉換雲端中的資料
 在本教學課程中，您會使用 Azure 入口網站來建立 Azure Data Factory 管線。 此管線使用 Spark 活動和隨選 Azure HDInsight 連結服務來轉換資料。 
@@ -32,12 +32,15 @@ ms.locfileid: "54427962"
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
 
 ## <a name="prerequisites"></a>必要條件
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * **Azure 儲存體帳戶**。 您需要建立 Python 指令碼和輸入檔案，並上傳至 Azure 儲存體。 Spark 程式的輸出會儲存在這個儲存體帳戶中。 隨選 Spark 叢集與其主要儲存體是使用相同的儲存體帳戶。  
 
 > [!NOTE]
 > HdInsight 僅支援標準層的一般用途儲存體帳戶。 請確定帳戶不是進階或僅限 Blob 儲存體帳戶。
 
-* **Azure PowerShell**(英文)。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) 中的指示。
+* **Azure PowerShell**(英文)。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/install-Az-ps) 中的指示。
 
 
 ### <a name="upload-the-python-script-to-your-blob-storage-account"></a>將 Python 指令碼上傳至 Blob 儲存體帳戶

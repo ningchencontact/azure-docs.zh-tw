@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: e7230e9c4d97c1c3ba8f0cf20d32f5a59ea2219b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: c4622293f05be5f4595136a5bbf194116fb2887c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034517"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081095"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin graph 支援
 Azure Cosmos DB 支援 [Apache Tinkerpop 的](https://tinkerpop.apache.org)圖表周遊語言 [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) 這是可用於建立圖表實體和執行圖表查詢作業的 Gremlin API。 您可以使用 Gremlin 語言建立圖表實體 (頂點和邊緣)、修改這些實體內的屬性、執行查詢和周遊，以及刪除實體。 
@@ -181,7 +181,7 @@ GraphSON 用於頂點的屬性如下︰
 | `range` | 篩選為指定的值範圍| [range 步驟](https://tinkerpop.apache.org/docs/current/reference/#range-step) |
 | `repeat` | 將步驟重複執行指定的次數。 用於迴圈處理 | [repeat 步驟](https://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
 | `sample` | 用於取樣周遊的結果 | [sample 步驟](https://tinkerpop.apache.org/docs/current/reference/#sample-step) |
-| `select` | 用於投射周遊的結果 |  [select 步驟](https://tinkerpop.apache.org/docs/current/reference/#select-step) | |
+| `select` | 用於投射周遊的結果 |  [select 步驟](https://tinkerpop.apache.org/docs/current/reference/#select-step) |
 | `store` | 用於來自周遊的非封鎖彙總 | [store 步驟](https://tinkerpop.apache.org/docs/current/reference/#store-step) |
 | `tree` | 將頂點的路徑彙總至樹狀目錄 | [tree 步驟](https://tinkerpop.apache.org/docs/current/reference/#tree-step) |
 | `unfold` | 將迭代器展開為步驟| [unfold 步驟](https://tinkerpop.apache.org/docs/current/reference/#unfold-step) |

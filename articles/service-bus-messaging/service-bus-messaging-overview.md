@@ -11,16 +11,16 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: 1c99c680371d9d9601637ebeb52d9299de71b0ec
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 8217eddd6f31a30b9113b178d74b59afb94f42af
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338798"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900857"
 ---
 # <a name="what-is-azure-service-bus"></a>什麼是 Azure 服務匯流排？
 
-Microsoft Azure 服務匯流排是完全受控的企業[整合](http://azure.com/integration)訊息代理程式。 服務匯流排最常用來讓應用程式和服務彼此分離，對於非同步的資料和狀態傳輸來說，是可靠且安全的平台。 資料會使用「訊息」在不同的應用程式和服務之間傳輸。 訊息使用的是二進位格式，可包含 JSON、XML 或純文字。 
+Microsoft Azure 服務匯流排是完全受控的企業[整合](https://azure.com/integration)訊息代理程式。 服務匯流排最常用來讓應用程式和服務彼此分離，對於非同步的資料和狀態傳輸來說，是可靠且安全的平台。 資料會使用「訊息」在不同的應用程式和服務之間傳輸。 訊息使用的是二進位格式，可包含 JSON、XML 或純文字。 
 
 一些常見的傳訊案例如下：
 

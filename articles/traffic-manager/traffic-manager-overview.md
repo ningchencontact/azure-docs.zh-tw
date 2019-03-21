@@ -2,8 +2,7 @@
 title: Azure 流量管理員 | Microsoft Docs
 description: 本文提供 Azure 流量管理員的概觀。 了解它是否為平衡應用程式使用者流量負載的最佳選擇。
 services: traffic-manager
-documentationcenter: ''
-author: kumudd
+author: KumudD
 manager: twooley
 ms.service: traffic-manager
 customer intent: As an IT admin, I want to learn about Traffic Manager and what I can use it for.
@@ -11,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/25/2018
+ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 7fa72df04b0507a915a75688b38e26ed0f21e5a5
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: a8504cea3af6eb7633cf6738a73f757767d83138
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486005"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534308"
 ---
 # <a name="what-is-traffic-manager"></a>什麼是流量管理員？
 Azure 流量管理員是 DNS 型流量負載平衡器，可讓您跨全球的 Azure 區域將流量最佳分散至服務，同時提供高可用性和回應性。

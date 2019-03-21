@@ -2,24 +2,24 @@
 title: 以 Azure Kubernetes Service (AKS) 和 Terraform 建立 Kubernetes 叢集
 description: 教學課程說明如何以 Azure Kubernetes Service 和 Terraform 建立 Kubernetes 叢集
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, 虛擬機器, Azure, kubernetes
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/04/2018
-ms.openlocfilehash: 57615ecd4c81359360004b732736bf757c0026c3
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: d8438f5ddbbb3744811448aeb563be602b04516d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892060"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58009087"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>以 Azure Kubernetes Service 和 Terraform 建立 Kubernetes 叢集
 [Azure Kubernetes Service (AKS)](/azure/aks/) 可以管理裝載 Kubernetes 的環境；因此，您不需具備容器協調流程專業知識，就能快速、輕鬆地部署及管理容器化應用程式。 也可透過佈建、升級與依需求調整資源，以無需讓應用程式離線的方式來消除進行中作業及維護之間的界線。
 
-在本教學課程中，您將了解如何執行下列工作，以使用 [Terraform](http://terraform.io) 和 AKS 建立 [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) 叢集：
+在本教學課程中，您將了解如何執行下列工作，以使用 [Terraform](https://terraform.io) 和 AKS 建立 [Kubernetes](https://www.redhat.com/en/topics/containers/what-is-kubernetes) 叢集：
 
 > [!div class="checklist"]
 > * 使用 HCL (HashiCorp 語言) 定義 Kubernetes 叢集
@@ -37,7 +37,7 @@ ms.locfileid: "55892060"
 ## <a name="create-the-directory-structure"></a>建立目錄結構
 第一個步驟是先建立目錄，用來存放供練習使用的 Terraform 組態檔。
 
-1. 瀏覽至 [Azure 入口網站](http://portal.azure.com)。
+1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。
 
 1. 開啟 [Azure Cloud Shell](/azure/cloud-shell/overview)。 如果您先前未選取環境，請選取 **Bash** 作為您的環境。
 

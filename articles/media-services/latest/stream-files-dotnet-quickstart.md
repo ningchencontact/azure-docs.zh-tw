@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2556942119fdd4f58f6bd47bc88160dd2e13753d
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 3a50d78645630e499b11f012da122b12b026ae6b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585548"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857856"
 ---
 # <a name="quickstart-stream-video-files---net"></a>快速入門：串流視訊檔案 - .NET
 
@@ -42,7 +42,7 @@ ms.locfileid: "56585548"
 使用以下命令將包含串流 .NET 範例的 GitHub 存放庫複製到您的機器：  
 
  ```bash
- git clone http://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
+ git clone https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
  ```
 
 此範例位於 [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles) 資料夾。

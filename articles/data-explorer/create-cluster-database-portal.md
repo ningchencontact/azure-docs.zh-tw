@@ -8,14 +8,23 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 02/21/2019
-ms.openlocfilehash: e87f9b4905abec2c00ed238445b3e36e41cfa2f6
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 1aaaba58b4af90891caf98708f7e280f7eea6e70
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674866"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285815"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>快速入門：建立 Azure 資料總管叢集與資料庫
+
+> [!div class="op_single_selector"]
+> * [入口網站](create-cluster-database-portal.md)
+> * [CLI](create-cluster-database-cli.md)
+> * [PowerShell](create-cluster-database-powershell.md)
+> * [C#](create-cluster-database-csharp.md)
+> * [Python](create-cluster-database-python.md)
+>  
+
 
 Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 若要使用 Azure 資料總管，請先建立叢集，然後在該叢集中建立一或多個資料庫。 然後將資料內嵌 (載入) 至資料庫，讓您可以對資料執行查詢。 在本快速入門中，您會建立叢集與資料庫。
 

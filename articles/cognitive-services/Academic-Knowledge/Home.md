@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: overview
 ms.date: 10/30/2018
 ms.author: darrine
-ms.openlocfilehash: 975c36451f0f00ce374a0bbf0a6dd87ec39eb912
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b15ed5e2b31ed817d3f6558858e2b7285f98a70f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871552"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551716"
 ---
 # <a name="academic-knowledge-api"></a>Academic Knowledge API
 
@@ -23,7 +23,7 @@ ms.locfileid: "55871552"
 
 MAG 資料都採礦於 Bing Web 索引和 Bing 之中的內部知識庫。 由於 Bing 的索引編制會持續進行，所以此 API 會因為 Bing 的探索和索引編製而包含最新 Web 資訊。 根據此資料集，學術知識 API 可啟用知識驅動的互動式對話，其透過主動式建議體驗、多種研究論文的圖表搜尋結果，以及一組論文和相關實體屬性值的長條圖分佈，與回應式搜尋完美結合。
 
-如需有關 Microsoft Academic Graph 的詳細資訊，請參閱 [http://aka.ms/academicgraph](https://aka.ms/academicgraph)。
+如需有關 Microsoft Academic Graph 的詳細資訊，請參閱 [https://aka.ms/academicgraph](https://aka.ms/academicgraph)。
 
 學術知識 API 已經從認知服務預覽移至認知服務實驗室。 此專案的新首頁是：[https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge](https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge)。 您現有 API 金鑰的有效期限是 2018 年 5 月 24 日。 在此日期之後，請產生新的 API 金鑰。 請注意，您現有金鑰到期之後，將無法再使用付費預覽版。 如果 API 的免費層不夠您使用，連絡我們的團隊。 
 

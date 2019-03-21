@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 026913e8afbc1eca5742e21d28ed65c1f1f04d96
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 802d7f200f43c690978f05e2d66be81bd2635e1e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549514"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838828"
 ---
 # <a name="azure-database-for-postgresql-use-go-language-to-connect-and-query-data"></a>適用於 PostgreSQL 的 Azure 資料庫：使用 Go 語言連線並查詢資料
 本快速入門示範如何使用以 [Go](https://golang.org/) 語言 (golang) 撰寫的程式碼來連線到 Azure Database for PostgreSQL。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本文假設您已熟悉使用 Go 進行開發，但不熟悉 Azure Database for PostgreSQL。
@@ -85,7 +85,7 @@ ms.locfileid: "53549514"
  ![適用於 PostgreSQL 的 Azure 資料庫伺服器名稱](./media/connect-go/1-connection-string.png)
 
 ## <a name="build-and-run-go-code"></a>建置並執行 Go 程式碼 
-1. 若要撰寫 Golang 程式碼，您可以使用純文字編輯器，例如 Microsoft Windows 的記事本、Ubuntu 的 [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) 或 [Nano](https://www.nano-editor.org/)，或 macOS 的 TextEdit。 如果想要使用更豐富的互動式開發環境 (IDE)，您可以選擇 Jetbrains 的 [Gogland](https://www.jetbrains.com/go/)、Microsoft 的 [Visual Studio Code](https://code.visualstudio.com/)，或 [Atom](https://atom.io/)。
+1. 若要撰寫 Golang 程式碼，您可以使用純文字編輯器，例如 Microsoft Windows 的記事本、Ubuntu 的 [vi](https://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) 或 [Nano](https://www.nano-editor.org/)，或 macOS 的 TextEdit。 如果想要使用更豐富的互動式開發環境 (IDE)，您可以選擇 Jetbrains 的 [Gogland](https://www.jetbrains.com/go/)、Microsoft 的 [Visual Studio Code](https://code.visualstudio.com/)，或 [Atom](https://atom.io/)。
 2. 將下列各節的 Golang 程式碼貼到文字檔中，並加上副檔名 \*.go 來儲存到專案資料夾，例如 Windows 路徑 `%USERPROFILE%\go\src\postgresqlgo\createtable.go` 或 Linux 路徑 `~/go/src/postgresqlgo/createtable.go`。
 3. 在程式碼中找出 `HOST`、`DATABASE`、`USER` 和 `PASSWORD` 常數，然後將範例值換成您自己的值。  
 4. 啟動命令提示字元或 bash 殼層。 將目錄切換到專案資料夾。 例如，在 Windows 上為 `cd %USERPROFILE%\go\src\postgresqlgo\`。 在 Linux 上執行 `cd ~/go/src/postgresqlgo/`。 提及的部分 IDE 環境提供偵錯和執行階段功能，並不需要殼層命令。

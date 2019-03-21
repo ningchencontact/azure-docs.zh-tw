@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: c247ef748628c14074c2b5ea37df251793840b16
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6f775ffaf53019cc50bc38c294b4d5f40c8eca90
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876029"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076746"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>將語音服務與您的 Language Understanding 應用程式整合
 [語音服務](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/)可讓您使用單一要求接收音訊並傳回 LUIS 預測 JSON 物件。 在本文中，您將在 Visual Studio 中下載與使用 C# 專案，對麥克風說話，並接收 LUIS 預測資訊。 該專案會使用語音 [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) 封裝 (已隨附提供參考)。 
@@ -49,11 +49,11 @@ ms.locfileid: "55876029"
 
 3. 在 [金鑰和端點] 頁面上，指派在[建立 LUIS 端點金鑰](#create-luis-endpoint-key)一節中建立的 LUIS 金鑰。
 
-  在此頁面上，收集在[建立 LUIS 端點金鑰](#create-luis-endpoint-key)一節中所建立 LUIS 金鑰的應用程式識別碼、發佈區域和訂閱識別碼。 您必須修改程式碼，以在本文後半部使用這些值。 
+   在此頁面上，收集在[建立 LUIS 端點金鑰](#create-luis-endpoint-key)一節中所建立 LUIS 金鑰的應用程式識別碼、發佈區域和訂閱識別碼。 您必須修改程式碼，以在本文後半部使用這些值。 
   
-  **請勿**使用免費的入門版金鑰進行此練習。 只有在 Azure 入口網站中建立的 **Language Understanding** 金鑰適用於此練習。 
+   **請勿**使用免費的入門版金鑰進行此練習。 只有在 Azure 入口網站中建立的 **Language Understanding** 金鑰適用於此練習。 
 
-  https://**REGION**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**?subscription-key=**LUISKEY**&q=
+   https://**REGION**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**?subscription-key=**LUISKEY**&q=
 
 
 4. 選取右上列中的 [發佈] 按鈕，發佈 LUIS 應用程式。 

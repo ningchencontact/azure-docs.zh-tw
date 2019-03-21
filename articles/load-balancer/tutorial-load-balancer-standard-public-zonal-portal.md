@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 5f3b9b48fc5f15738c3de9928ca0bb220a66db12
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 563b54fe9b4ab65cd8d3008e9d3955618194031f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985983"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57899541"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站透過 Standard Load Balancer 來平衡可用性區域內的 VM 負載
 
@@ -41,7 +41,7 @@ ms.locfileid: "56985983"
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-在 [http://portal.azure.com](http://portal.azure.com) 登入 Azure 入口網站。
+在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 
 ## <a name="create-a-public-standard-load-balancer-instance"></a>建立公用 Standard Load Balancer 執行個體
 
@@ -63,7 +63,7 @@ Standard Load Balancer 只支援標準公用 IP 位址。 當您在建立負載�
     |可用性區域| 選取 [1]。    |
 3. 在 [檢閱 + 建立] 索引標籤中，按一下 [建立]。   
 
- ## <a name="create-backend-servers"></a>建立後端伺服器
+   ## <a name="create-backend-servers"></a>建立後端伺服器
 
 在本節中，您會建立虛擬網路。 您也會針對要新增至負載平衡器後端集區的地區，在相同區域 (也就是區域 1) 中建立兩部虛擬機器。 然後在虛擬機器上安裝 IIS，協助測試區域備援負載平衡器。 如果有一個 VM 失敗，則相同區域中 VM 的健康狀態探查會失敗。 相同區域內的其他 VM 會繼續提供流量。
 
@@ -80,8 +80,8 @@ Standard Load Balancer 只支援標準公用 IP 位址。 當您在建立負載�
 
 1. 在畫面的左上方，選取 [建立資源]。 在搜尋方塊中，輸入「網路安全性群組」。 在 [網路安全性群組] 頁面中，選取 [建立]。
 2. 在 [建立網路安全性群組] 頁面中，輸入下列值：
-    - [myNetworkSecurityGroup] 作為網路安全性群組的名稱。
-    - [myResourceGroupLBAZ] 作為現有資源群組的名稱。
+   - [myNetworkSecurityGroup] 作為網路安全性群組的名稱。
+   - [myResourceGroupLBAZ] 作為現有資源群組的名稱。
    
      ![建立網路安全性群組](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
 

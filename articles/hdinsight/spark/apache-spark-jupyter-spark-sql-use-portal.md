@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.custom: mvc
-ms.openlocfilehash: 5833571bc1c1ac2674723abf286437c3e5e0a5ae
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 6f96195197daf026cddee10785e0cadae8096031
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791858"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111764"
 ---
 # <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站在 HDInsight 中建立 Apache Spark 叢集
 了解如何在 Azure HDInsight 中建立 Apache Spark 叢集，以及如何對 Hive 資料表執行 Spark SQL 查詢。 Apache Spark 能夠運用記憶體內部處理，使得資料分析及叢集運算更為快速。 如需 Spark on HDInsight 相關資訊，請參閱[概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)。
@@ -49,16 +49,16 @@ ms.locfileid: "53791858"
     選取 [下一步] 繼續前往 [儲存體] 頁面。
 3. 在 [儲存體] 下方，提供下列值：
 
-    - **選取儲存體帳戶**：選取 [建立新的]，然後為新的儲存體帳戶提供名稱。 針對本快速入門所使用的儲存體帳戶名稱是 **myspark20180403store**。
+   - **選取儲存體帳戶**：選取 [建立新的]，然後為新的儲存體帳戶提供名稱。 針對本快速入門所使用的儲存體帳戶名稱是 **myspark20180403store**。
 
-    ![建立 HDInsight Spark 叢集存放區設定](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-storage.png "建立 HDInsight 中 Spark 叢集的存放區設定")
+     ![建立 HDInsight Spark 叢集存放區設定](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-storage.png "建立 HDInsight 中 Spark 叢集的存放區設定")
 
-    > [!NOTE]  
-    > 在螢幕擷取畫面上，它會顯示 [選取現有的]。 連結會在 [建立新的] 和 [選取現有的] 之間切換。
+     > [!NOTE]  
+     > 在螢幕擷取畫面上，它會顯示 [選取現有的]。 連結會在 [建立新的] 和 [選取現有的] 之間切換。
 
-    **預設容器**具有預設名稱。  您可以任意變更此名稱。
+     **預設容器**具有預設名稱。  您可以任意變更此名稱。
 
-    選取 [下一步] 繼續前往 [摘要] 頁面。 
+     選取 [下一步] 繼續前往 [摘要] 頁面。 
 
 
 3. 在 [摘要] 上，選取 [建立]。 大約需要 20 分鐘的時間來建立叢集。 您必須先建立叢集，才能繼續前往下一個工作階段。

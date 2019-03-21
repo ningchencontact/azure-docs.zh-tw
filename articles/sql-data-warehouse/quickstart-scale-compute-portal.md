@@ -10,14 +10,14 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2e3bb00cee679671ed382ee46690fc4dff8bddfb
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: b02259e2eaf497fb1bfefc4c1ed7611a22394d48
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453880"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894184"
 ---
-# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中調整 Azure SQL 資料倉儲中的計算
+## <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中調整 Azure SQL 資料倉儲中的計算
 
 在 Azure 入口網站中調整 Azure SQL 資料倉儲中的計算。 [相應放大計算](sql-data-warehouse-manage-compute-overview.md)以提升效能，或將計算調整回來以節省成本。 
 

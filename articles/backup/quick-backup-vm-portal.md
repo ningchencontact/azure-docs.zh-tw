@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 7/17/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: 9d2578e10916d3770e73ab88e4d0e63aea3fe420
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 445437fe92ec75f1d34021808d7d47a372c2a44b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114771"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535173"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>在 Azure 中備份虛擬機器
 您可以透過 Azure 入口網站建立 Azure 備份。 此方法可提供以瀏覽器為基礎的使用者介面，以便建立和設定 Azure 備份及所有相關的資源。 您可以定期建立備份以保護您的資料。 Azure 備份會建立復原點，其可儲存在異地備援復原保存庫中。 本文詳述如何使用 Azure 入口網站來備份虛擬機器 (VM)。 
@@ -25,7 +25,7 @@ ms.locfileid: "39114771"
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
-在 http://portal.azure.com 上登入 Azure 入口網站。
+在 https://portal.azure.com 上登入 Azure 入口網站。
 
 ## <a name="select-a-vm-to-back-up"></a>選取要備份的 VM
 建立復原服務保存庫的簡單排程每日備份。 

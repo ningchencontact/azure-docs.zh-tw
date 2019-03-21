@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 02/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 338907585ade0a33f74ca3e6337f1dd5cf8cc211
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: b40cd130039f7d55b69198b4be4af908dedbe8b7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820346"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076882"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>快速入門：使用 Azure CLI 建立服務匯流排佇列
 
@@ -61,31 +61,31 @@ connectionString=$(az servicebus namespace authorization-rule keys list --resour
 
 在您建立命名空間和佇列，且您已擁有必要的認證之後，您即可傳送和接收訊息。 您可以在[此 GitHub 範例資料夾](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters)中查看程式碼。
 
-2. 發出下列命令，以複製電腦上的[服務匯流排 GitHub 存放庫](https://github.com/Azure/azure-service-bus/)︰
+1. 發出下列命令，以複製電腦上的[服務匯流排 GitHub 存放庫](https://github.com/Azure/azure-service-bus/)︰
 
    ```bash
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-2. 使用正斜線作為路徑分隔符號，將您目前的目錄變更為範例資料夾：
+1. 使用正斜線作為路徑分隔符號，將您目前的目錄變更為範例資料夾：
 
    ```bash
    cd azure-service-bus/samples/Java/azure-servicebus/QueuesGettingStarted
    ```
 
-3. 發出下列命令以建置應用程式：
+1. 發出下列命令以建置應用程式：
    
    ```bash
    mvn clean package -DskipTests
    ```
 
-4. 若要執行程式，請在以您稍早複製的值取代連接字串之後，發出下列命令：
+1. 若要執行程式，請在以您稍早複製的值取代連接字串之後，發出下列命令：
 
    ```bash
    java -jar ./target/queuesgettingstarted-1.0.0-jar-with-dependencies.jar -c "<SERVICE BUS NAMESPACE CONNECTION STRING>" 
    ```
 
-6. 觀察 10 個傳送至佇列的訊息。 訊息順序並不固定，但您可以看到在傳送後受到認可並接收的訊息，以及承載資料：
+1. 觀察 10 個傳送至佇列的訊息。 訊息順序並不固定，但您可以看到在傳送後受到認可並接收的訊息，以及承載資料：
 
     ```
     Message sending: Id = 0

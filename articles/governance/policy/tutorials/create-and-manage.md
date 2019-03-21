@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e49cffc5ba08d400c733ef7c211132c4909f9ef4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 32962e6d40103c23a0ec7fd1116aec8820f513bd
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343556"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780281"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>建立和管理原則來強制執行相容性
 
@@ -87,32 +87,32 @@ ms.locfileid: "56343556"
       - 原則規則/條件，在此情況下 – VM SKU 大小等於 G 系列
       - 原則效果，在此情況下 – **拒絕**。
 
-    JSON 看起來應該會像下面這樣。 將修改過的程式碼貼到 Azure 入口網站中。
+   JSON 看起來應該會像下面這樣。 將修改過的程式碼貼到 Azure 入口網站中。
 
-    ```json
-    {
-        "policyRule": {
-            "if": {
-                "allOf": [{
-                        "field": "type",
-                        "equals": "Microsoft.Compute/virtualMachines"
-                    },
-                    {
-                        "field": "Microsoft.Compute/virtualMachines/sku.name",
-                        "like": "Standard_G*"
-                    }
-                ]
-            },
-            "then": {
-                "effect": "deny"
-            }
-        }
-    }
-    ```
+   ```json
+   {
+       "policyRule": {
+           "if": {
+               "allOf": [{
+                       "field": "type",
+                       "equals": "Microsoft.Compute/virtualMachines"
+                   },
+                   {
+                       "field": "Microsoft.Compute/virtualMachines/sku.name",
+                       "like": "Standard_G*"
+                   }
+               ]
+           },
+           "then": {
+               "effect": "deny"
+           }
+       }
+   }
+   ```
 
-    原則規則中的 field 屬性必須是下列其中一項：Name、Type、Location、Tags 或別名。 可能的別名範例為 `"Microsoft.Compute/VirtualMachines/Size"`。
+   原則規則中的 field 屬性必須是下列其中一項：Name、Type、Location、Tags 或別名。 可能的別名範例為 `"Microsoft.Compute/VirtualMachines/Size"`。
 
-    若要檢視更多的 Azure 原則範例，請參閱 [Azure 原則範例](../samples/index.md)。
+   若要檢視更多的 Azure 原則範例，請參閱 [Azure 原則範例](../samples/index.md)。
 
 1. 選取 [ **儲存**]。
 

@@ -2,19 +2,19 @@
 title: 使用 Azure Kubernetes Service (AKS) 建立 Kubernetes 叢集並以應用程式閘道作為輸入控制器
 description: 教學課程說明如何使用 Azure Kubernetes Service 建立 Kubernetes 叢集並以應用程式閘道作為輸入控制器
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, 虛擬機器, azure, kubernetes, 輸入, 應用程式閘道
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 1/10/2019
-ms.openlocfilehash: 6add7323fdbcf07681e8566437632aa6679828e4
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 477b2ec1af4c52f51c3ab20ac2ddf7ef043dfcc7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891976"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994357"
 ---
 # <a name="create-a-kubernetes-cluster-with-application-gateway-ingress-controller-using-azure-kubernetes-service-and-terraform"></a>使用 Azure Kubernetes Service 和 Terraform 建立 Kubernetes 叢集並以應用程式閘道作為輸入控制器
 [Azure Kubernetes Service (AKS)](/azure/aks/) 會管理裝載的 Kubernetes 環境。 AKS 可快速且輕鬆地部署和管理容器化的應用程式，而不需要容器協調流程專業知識。 也可透過佈建、升級與依需求調整資源，以無需讓應用程式離線的方式來消除進行中作業及維護之間的界線。
@@ -36,16 +36,16 @@ ms.locfileid: "55891976"
 - **設定 Terraform**：請遵循 [Terraform 和設定 Azure 的存取](/azure/virtual-machines/linux/terraform-install-configure)一文中的指示
 
 - **Azure 服務主體**：請遵循[使用 Azure CLI 建立 Azure 服務主體](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)一文中**建立服務主體**一節的指示。 記下 appId、displayName 和密碼的值。
-    - 請執行下列命令，以記下服務主體的物件識別碼
+  - 請執行下列命令，以記下服務主體的物件識別碼
 
     ```bash
-     az ad sp list --display-name <displayName>
+    az ad sp list --display-name <displayName>
     ```
 
 ## <a name="create-the-directory-structure"></a>建立目錄結構
 第一個步驟是先建立目錄，用來存放供練習使用的 Terraform 組態檔。
 
-1. 瀏覽至 [Azure 入口網站](http://portal.azure.com)。
+1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。
 
 1. 開啟 [Azure Cloud Shell](/azure/cloud-shell/overview)。 如果您先前未選取環境，請選取 **Bash** 作為您的環境。
 
@@ -99,8 +99,8 @@ ms.locfileid: "55891976"
     ```bash
     :wq
     ```
-## <a name="define-input-variables"></a>定義輸入變數
-建立可列出此部署所需所有變數的 Terraform 組態檔
+   ## <a name="define-input-variables"></a>定義輸入變數
+   建立可列出此部署所需所有變數的 Terraform 組態檔
 1. 在 Cloud Shell 中建立名稱為 `variables.tf` 的檔案
     ```bash
     vi variables.tf

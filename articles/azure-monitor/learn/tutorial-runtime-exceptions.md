@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 84d98d6b3af884c959e8f0e4d9c117192af32d3a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 267e790cec3c915330f8f72053458527ee7bfead
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106302"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095563"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>使用 Azure Application Insights 尋找並診斷執行階段例外狀況
 
@@ -96,11 +96,11 @@ Application Insights 會收集應用程式中的任何失敗，並可讓您檢�
 ## <a name="use-analytics-data"></a>使用分析資料
 Application Insights 收集的所有資料都會儲存在 Azure Log Analytics 中，Azure Log Analytics 提供豐富的查詢語言，讓您可以各種方式分析資料。  使用這項資料，就能分析產生我們目前所研究之例外狀況的要求。 
 
-8. 按一下程式碼上方的 CodeLens 資訊，可檢視 Application Insights 所提供的遙測。
+1. 按一下程式碼上方的 CodeLens 資訊，可檢視 Application Insights 所提供的遙測。
 
     ![代碼](media/tutorial-runtime-exceptions/codelens.png)
 
-9. 按一下 [分析影響] 以開啟 Application Insights 分析。  它已填入數個查詢，提供失敗要求的詳細資料，例如受影響的使用者、瀏覽器和區域。<br><br>![分析](media/tutorial-runtime-exceptions/analytics.png)<br>
+1. 按一下 [分析影響] 以開啟 Application Insights 分析。  它已填入數個查詢，提供失敗要求的詳細資料，例如受影響的使用者、瀏覽器和區域。<br><br>![分析](media/tutorial-runtime-exceptions/analytics.png)<br>
 
 ## <a name="add-work-item"></a>新增工作項目
 如果您將 Application Insights 與追蹤系統 (例如 Azure DevOps 或 GitHub) 連結，即可直接從 Application Insights 建立工作項目。

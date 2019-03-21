@@ -13,12 +13,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 3904a59a3462d7d83f976583bd7e714763af2c69
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: c3a7c089bcc6dca2379c84330d3b937b9c7f1167
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446727"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450262"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>快速入門：使用 REST API 建立 Azure 資料處理站和管線
 
@@ -34,10 +34,12 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
 
 ## <a name="prerequisites"></a>必要條件
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * **Azure 訂用帳戶**。 如果您沒有訂用帳戶，則可以建立[免費試用](https://azure.microsoft.com/pricing/free-trial/)帳戶。
 * **Azure 儲存體帳戶**。 您需要使用 Blob 儲存體作為**來源**和**接收**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)一文以取得建立步驟。
 * 在 Blob 儲存體中建立一個 **Blob 容器**，在容器中建立一個輸入**資料夾**，然後上傳一些檔案到資料夾中。 您可以使用 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)之類的工具連線到 Azure Blob 儲存體，建立 Blob 容器，上傳輸入檔，以及驗證輸出檔。
-* 安裝 **Azure PowerShell**。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) 中的指示。 本快速入門會使用 PowerShell 來叫用 REST API 呼叫。
+* 安裝 **Azure PowerShell**。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/install-Az-ps) 中的指示。 本快速入門會使用 PowerShell 來叫用 REST API 呼叫。
 * 請遵循[此指示](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)**在 Azure Active Directory 中建立應用程式**。 記下這些值，您在稍後的步驟中會用到：**應用程式識別碼**、**驗證金鑰**和**租用戶識別碼**。 將應用程式指派給「**參與者**」角色。
 
 ## <a name="set-global-variables"></a>設定全域變數
@@ -47,17 +49,17 @@ Azure Data Factory 是雲端式資料整合服務，可讓您在雲端建立資�
     執行下列命令，並輸入您用來登入 Azure 入口網站的使用者名稱和密碼：
     
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
     執行下列命令以檢視此帳戶的所有訂用帳戶：
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
     執行下列命令以選取您要使用的訂用帳戶。 以您的 Azure 訂用帳戶識別碼取代 **SubscriptionId**：
 
     ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"
+    Select-AzSubscription -SubscriptionId "<SubscriptionId>"
     ```
 2. 以您自己的值使用取代預留位置後，請執行下列命令，以設定在稍後步驟中會用到的全域變數。
 
@@ -438,13 +440,13 @@ $runId = $response.runId
 
 執行下列命令來刪除整個資源群組：
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
+Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 執行下列命令來僅刪除資料處理站：
 
 ```powershell
-Remove-AzureRmDataFactoryV2 -Name "<NameOfYourDataFactory>" -ResourceGroupName "<NameOfResourceGroup>"
+Remove-AzDataFactoryV2 -Name "<NameOfYourDataFactory>" -ResourceGroupName "<NameOfResourceGroup>"
 ```
 
 ## <a name="next-steps"></a>後續步驟

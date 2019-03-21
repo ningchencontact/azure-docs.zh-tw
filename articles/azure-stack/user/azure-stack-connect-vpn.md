@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 03/21/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
-ms.openlocfilehash: d2766416c84233281e55ff6f8be8519b7aadfb8c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d35ab3f477f327cb85cd8dfebd255542489debdc
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763549"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286137"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>使用 VPN 將 Azure Stack 連線至 Azure
 
@@ -92,8 +92,7 @@ ms.locfileid: "57763549"
 5. 若要選擇虛擬網路，請選取 [虛擬網路]。 然後從清單中選取 [AzureVnet]。
 6. 選取 [公用 IP 位址]。 當 [選擇公用 IP 位址] 區段開啟時，請選取 [新建]。
 7. 在 [名稱] 中輸入 **Azure-GW-PiP**，然後選取 [確定]。
-8. 針對 [VPN 類型]，預設會選取 [依路由]。 保留 [依路由] VPN 類型。
-9. 確認 [訂用帳戶] 和 [位置] 均正確無誤。 您可以將資源釘選到儀表板。 選取 [建立] 。
+8. 確認 [訂用帳戶] 和 [位置] 均正確無誤。 您可以將資源釘選到儀表板。 選取 [建立] 。
 
 ### <a name="create-the-local-network-gateway-resource"></a>建立區域網路閘道資源
 

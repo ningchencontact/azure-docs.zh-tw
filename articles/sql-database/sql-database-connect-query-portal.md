@@ -13,12 +13,12 @@ ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: e16d68f8c30b54c24e091d1b0c7317bf74aadeba
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: b2109afe6760eb87269a33ed74784149c2bf3e03
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234572"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105789"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>快速入門：使用 Azure 入口網站的 SQL 查詢編輯器進行連線並查詢資料
 
@@ -65,8 +65,8 @@ SQL 查詢編輯器是 Azure 入口網站瀏覽器工具，提供簡單的方法
 設定 Active Directory (AD) 系統管理員，可讓您使用單一識別身分登入 Azure 入口網站和您的 SQL 資料庫。 請遵循以下步驟設定您 SQL Server 的 AD 系統管理員。
 
 > [!NOTE]
-* AD 系統管理員尚未支援電子郵件帳戶 (例如 outlook.com、gmail.com、yahoo.com 等等)。 請務必選擇使用者在 Azure AD 中原生建立，或與 Azure AD 同盟的 AD 系統管理員。
-* Azure AD 系統管理員登入無法搭配已啟用 2 雙因素驗證的帳戶使用。
+> * AD 系統管理員尚未支援電子郵件帳戶 (例如 outlook.com、gmail.com、yahoo.com 等等)。 請務必選擇使用者在 Azure AD 中原生建立，或與 Azure AD 同盟的 AD 系統管理員。
+> * Azure AD 系統管理員登入無法搭配已啟用 2 雙因素驗證的帳戶使用。
 
 1. 請從左側功能表選取 [所有資源]，然後選取您的 SQL Server。
 

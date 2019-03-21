@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: ebc0f93055a014888d01fa9bffc7702b99380234
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 553e87cacf407da2333da3105647719679feaabf
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417460"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544200"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>使用複製資料工具將資料從 Azure Blob 儲存體複製到 SQL 資料庫
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -54,7 +54,7 @@ ms.locfileid: "56417460"
     Jane|Doe
     ```
 
-1. 建立名為 **adfv2tutorial** 的容器，並將 inputEmp.txt 檔案上傳至該容器。 您可以使用各種工具來執行這些工作，例如 [Azure 儲存體總管](http://storageexplorer.com/)。
+1. 建立名為 **adfv2tutorial** 的容器，並將 inputEmp.txt 檔案上傳至該容器。 您可以使用各種工具來執行這些工作，例如 [Azure 儲存體總管](https://storageexplorer.com/)。
 
 #### <a name="create-a-sink-sql-table"></a>建立接收 SQL 資料表
 

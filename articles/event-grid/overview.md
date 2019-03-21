@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/06/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 01c88b9bc64bc1541e97aff26e41c360acfaf6bd
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 1fa9eaa5f4ba399622e0b8889ab722e4a4e130a0
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809967"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770471"
 ---
 # <a name="what-is-azure-event-grid"></a>什麼是 Azure 事件方格？
 
@@ -44,6 +44,7 @@ Azure Event Grid 可讓您以事件型架構輕鬆地建立應用程式。 首�
 * 服務匯流排
 * 儲存體 Blob
 * 儲存體一般用途 v2 (GPv2)
+* Azure 地圖服務
 
 ## <a name="event-handlers"></a>事件處理常式
 
@@ -87,7 +88,7 @@ Azure Event Grid 中有五個概念可讓您開始進行：
 
 ## <a name="what-can-i-do-with-event-grid"></a>我可以用 Event Grid 來做什麼？
 
-Azure 事件方格提供好幾種功能，可大幅提升無伺服器、作業自動化和[整合](http://azure.com/integration)工作： 
+Azure 事件方格提供好幾種功能，可大幅提升無伺服器、作業自動化和[整合](https://azure.com/integration)工作： 
 
 ### <a name="serverless-application-architectures"></a>無伺服器應用程式架構
 

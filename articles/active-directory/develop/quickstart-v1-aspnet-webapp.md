@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb235ab96ed8a85cbe44dd672dff004dd0a7310
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 73d762e5bb358964b439d1dc6027abc01332da21
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185311"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007619"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>快速入門：將「使用 Microsoft 登入」新增至 ASP.NET Web 應用程式
 
@@ -146,7 +146,8 @@ ms.locfileid: "56185311"
 
     [!code-html[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Home/Index.cshtml "Index.cshtml")]
 
-<!--start-collapse--> 此頁面會以 SVG 格式新增一個具有黑色背景的登入按鈕：<br/>![使用 Microsoft 登入](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> 如需更多登入按鈕，請前往[應用程式的商標指導方針](howto-add-branding-in-azure-ad-apps.md)。
+<!--start-collapse-->
+此頁面會以 SVG 格式新增一個具有黑色背景的登入按鈕：<br/>![使用 Microsoft 登入](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> 如需更多登入按鈕，請前往[應用程式的商標指導方針](howto-add-branding-in-azure-ad-apps.md)。
 <!--end-collapse-->
 
 ## <a name="step-7-display-users-claims-by-adding-a-controller"></a>步驟 7：新增控制器來顯示使用者的宣告
@@ -300,7 +301,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 
 在這個步驟中，您會以匿名使用者身分，進行「宣告」控制器存取測試：<br/>
 選取連結以將使用者登出，並完成登出程序。<br/>
-現在，在您的瀏覽器中輸入 http://localhost:{port}/claims，來存取以 `[Authorize]` 屬性保護的控制器
+現在，在您的瀏覽器中輸入 `http://localhost:{port}/claims`，來存取以 `[Authorize]` 屬性保護的控制器
 
 #### <a name="expected-results"></a>預期的結果
 

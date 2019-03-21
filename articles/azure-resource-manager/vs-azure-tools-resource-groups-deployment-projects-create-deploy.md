@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 246ee5f8360869c1b0f901ee54d56e017ac8aeb7
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 36815010c3e8fccc2ec24ce344071d0836da219b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649674"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097452"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>透過 Visual Studio 建立與部署 Azure 資源群組
 
@@ -221,7 +221,7 @@ Visual Studio 也會提供 Intellisense，協助您了解編輯範本時可用�
 
 1. 開啟 WebsiteSqlDeploy.json 檔案，然後將 JSON 新增到儲存體帳戶資源之後，但是在資源區段的結尾 `]` 之前。
 
-  ```json
+   ```json
     ,{
       "properties": {
         "lenses": {
@@ -296,7 +296,7 @@ Visual Studio 也會提供 Intellisense，協助您了解編輯範本時可用�
         "hidden-title": "[concat('OPS-',resourceGroup().name)]"
       }
     }
-  ```
+   ```
 
 2. 重新部署您的資源群組。 在 Azure 入口網站上查看儀表板時，您會發現共用儀表板已新增至您的選擇清單。
 

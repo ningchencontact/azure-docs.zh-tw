@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 8ef1b2a2271106a382faf9e06d57b44ca1bf033b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 80977c13aa9851ea5df9a15f5b9580dd1a931259
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810791"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569190"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>從 Azure 串流分析作業執行 Azure Functions 
 
@@ -63,77 +63,77 @@ ms.locfileid: "55810791"
 
 2. 瀏覽至 **run.csx** 函式。 將它更新為下列程式碼。 (請務必將「\<此處為您的 Azure Cache for Redis 連接字串\>」取代為您在上一節中擷取的 Azure Cache for Redis 主要連接字串。)  
 
-   ```csharp
-   using System;
-   using System.Net;
-   using System.Threading.Tasks;
-   using StackExchange.Redis;
-   using Newtonsoft.Json;
-   using System.Configuration;
+    ```csharp
+    using System;
+    using System.Net;
+    using System.Threading.Tasks;
+    using StackExchange.Redis;
+    using Newtonsoft.Json;
+    using System.Configuration;
 
-   public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
-   {
-      log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
+    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+    {
+        log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
     
-      // Get the request body
-      dynamic dataArray = await req.Content.ReadAsAsync<object>();
+        // Get the request body
+        dynamic dataArray = await req.Content.ReadAsAsync<object>();
 
-      // Throw an HTTP Request Entity Too Large exception when the incoming batch(dataArray) is greater than 256 KB. Make sure that the size value is consistent with the value entered in the Stream Analytics portal.
+        // Throw an HTTP Request Entity Too Large exception when the incoming batch(dataArray) is greater than 256 KB. Make sure that the size value is consistent with the value entered in the Stream Analytics portal.
 
-      if (dataArray.ToString().Length > 262144)
-      {        
-         return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
-      }
-      var connection = ConnectionMultiplexer.Connect("<your Azure Cache for Redis connection string goes here>");
-      log.Info($"Connection string.. {connection}");
+        if (dataArray.ToString().Length > 262144)
+        {
+            return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
+        }
+        var connection = ConnectionMultiplexer.Connect("<your Azure Cache for Redis connection string goes here>");
+        log.Info($"Connection string.. {connection}");
     
-      // Connection refers to a property that returns a ConnectionMultiplexer
-      IDatabase db = connection.GetDatabase();
-      log.Info($"Created database {db}");
+        // Connection refers to a property that returns a ConnectionMultiplexer
+        IDatabase db = connection.GetDatabase();
+        log.Info($"Created database {db}");
     
-      log.Info($"Message Count {dataArray.Count}");
+        log.Info($"Message Count {dataArray.Count}");
 
-      // Perform cache operations using the cache object. For example, the following code block adds few integral data types to the cache
-      for (var i = 0; i < dataArray.Count; i++)
-      {
-        string time = dataArray[i].time;
-        string callingnum1 = dataArray[i].callingnum1;
-        string key = time + " - " + callingnum1;
-        db.StringSet(key, dataArray[i].ToString());
-        log.Info($"Object put in database. Key is {key} and value is {dataArray[i].ToString()}");
+        // Perform cache operations using the cache object. For example, the following code block adds few integral data types to the cache
+        for (var i = 0; i < dataArray.Count; i++)
+        {
+            string time = dataArray[i].time;
+            string callingnum1 = dataArray[i].callingnum1;
+            string key = time + " - " + callingnum1;
+            db.StringSet(key, dataArray[i].ToString());
+            log.Info($"Object put in database. Key is {key} and value is {dataArray[i].ToString()}");
        
-      // Simple get of data types from the cache
-      string value = db.StringGet(key);
-      log.Info($"Database got: {value}");
-      }
+            // Simple get of data types from the cache
+            string value = db.StringGet(key);
+            log.Info($"Database got: {value}");
+        }
 
-      return req.CreateResponse(HttpStatusCode.OK, "Got");
-    }    
+        return req.CreateResponse(HttpStatusCode.OK, "Got");
+    }
 
    ```
 
    串流分析從函式收到「HTTP 要求實體太大」的例外狀況時，會縮減傳送至 Functions 的批次大小。 請使用下列程式碼，在您的函式中檢查確認串流分析並未傳送過大的批次。 請確認函式中使用的最大批次計數和大小值都符合串流分析入口網站中輸入的值。
 
-   ```csharp
-   if (dataArray.ToString().Length > 262144)
-      {        
-        return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
-      }
+    ```csharp
+    if (dataArray.ToString().Length > 262144)
+        {
+            return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
+        }
    ```
 
 3. 在您選擇的文字編輯器中，建立名為 **project.json** 的 JSON 檔案。 使用下列程式碼，並將它儲存在本機電腦上。 此檔案包含 C# 函式所需的 NuGet 封裝相依性。  
    
-   ```json
-       {
-         "frameworks": {
-             "net46": {
-                 "dependencies": {
-                     "StackExchange.Redis":"1.1.603",
-                     "Newtonsoft.Json": "9.0.1"
-                 }
-             }
-         }
-     }
+    ```json
+    {
+        "frameworks": {
+            "net46": {
+                "dependencies": {
+                    "StackExchange.Redis":"1.1.603",
+                    "Newtonsoft.Json": "9.0.1"
+                }
+            }
+        }
+    }
 
    ```
  
@@ -168,8 +168,8 @@ ms.locfileid: "55810791"
 4. 開啟串流分析作業，並更新下列的查詢。 (如果您將輸出接收命名為不同的名稱，務必取代 "saop1" 文字。)  
 
    ```sql
-    SELECT 
-            System.Timestamp as Time, CS1.CallingIMSI, CS1.CallingNum as CallingNum1, 
+    SELECT
+            System.Timestamp as Time, CS1.CallingIMSI, CS1.CallingNum as CallingNum1,
             CS2.CallingNum as CallingNum2, CS1.SwitchNum as Switch1, CS2.SwitchNum as Switch2
         INTO saop1
         FROM CallStream CS1 TIMESTAMP BY CallRecTime

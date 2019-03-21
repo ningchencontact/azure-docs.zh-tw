@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f2c9385e55559e53c9118e047bdddbe178a10770
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 73f810072fce9345208593342df597b72c522a73
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359556"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894507"
 ---
 # <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 Node.js 和 MongoDB 應用程式
 
@@ -336,7 +336,7 @@ http://<app_name>.azurewebsites.net
 在 `ArticleSchema` 中，新增名為 `comment` 的 `String` 類型。 完成時，您的結構描述程式碼應該如下所示：
 
 ```javascript
-var ArticleSchema = new Schema({
+let ArticleSchema = new Schema({
   ...,
   user: {
     type: Schema.ObjectId,
@@ -362,7 +362,7 @@ var ArticleSchema = new Schema({
 
 ```javascript
 exports.update = function (req, res) {
-  var article = req.article;
+  let article = req.article;
 
   article.title = req.body.title;
   article.content = req.body.content;

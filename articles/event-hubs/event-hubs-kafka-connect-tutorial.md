@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: f405fe1c93ad17476ac47bc23951c65a5ea5db73
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2ed4432aec9b833efe6b521b4452177088d21d70
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091358"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119406"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>在 Azure 事件中樞上整合 Apache Kafka Connect 支援 (預覽)
 隨著擷取商務需求的情況增加，對於擷取各種外部來源和接收的需求也隨之增加。 [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) 會提供這類架構，以便在任何外部系統 (例如，MySQL、HDFS 以及透過 Kafka 叢集的檔案系統) 往返連線和匯入/匯出資料。 本教學課程會逐步引導您搭配使用 Kafka Connect 架構與已啟用 Kafka 的事件中樞。
@@ -23,7 +23,7 @@ ms.locfileid: "53091358"
 本教學課程會逐步引導您整合 Kafka Connect 與已啟用 Kafka 的 Azure 事件中樞，以及部署基本的 FileStreamSource 和 FileStreamSink 連接器。 此功能目前為預覽狀態。 雖然這些連接器並非用於生產環境，但可示範 Azure 事件中樞會作為 Kafka 訊息代理程式的端對端 Kafka Connect 案例。
 
 > [!NOTE]
-您可在 [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect) 上取得此範例。
+> 您可在 [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect) 上取得此範例。
 
 在本教學課程中，您會執行下列步驟：
 

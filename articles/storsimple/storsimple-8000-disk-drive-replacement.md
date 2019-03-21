@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 073/2017
+ms.date: 8/25/2017
 ms.author: alkohli
-ms.openlocfilehash: a8616eb51b177a9447a7c466c9d934b9139afedf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3d6ef22e4df36996d68194589f43ea0f57def22c
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108316"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673917"
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>更換 StorSimple 8000 系列裝置上的磁碟機
 
@@ -46,14 +46,14 @@ ms.locfileid: "23108316"
    
     **圖 1** 防拆鎖已扣上
    
-   | 標籤 | 說明 |
+   | 標籤 | 描述 |
    |:--- |:--- |
    | 1 |指示器孔 |
    | 2 |防拆鎖 |
 2. 以逆時鐘方向旋轉鑰匙，直到在鑰匙上方的孔中看不到紅色指示器。
 3. 取下鑰匙。
    
-    ![已解除鎖定磁碟機](./media/storsimple-disk-drive-replacement/IC741057.png)
+    ![ 已解除鎖定磁碟機](./media/storsimple-disk-drive-replacement/IC741057.png)
    
     **圖 2** 已解除鎖定磁碟機
 4. 現在可以取下磁碟機。

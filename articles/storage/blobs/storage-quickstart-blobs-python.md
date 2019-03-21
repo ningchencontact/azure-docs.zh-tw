@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/14/2018
 ms.author: tamram
-ms.openlocfilehash: 94e9d19302c4a51d1401a88248431f237bf59758
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 95b960245e00a353bb165e1f1d38db56bce62a8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743493"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996719"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>快速入門：使用 Python 上傳、下載及列出 Blob
 
@@ -69,7 +69,7 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-9
 ```
 在繼續之前，請在您的 *Documents* 資料夾中找出這兩個檔案。 您可以開啟這些檔案，並查看兩者是否相同。
 
-您也可以使用 [Azure 儲存體總管](http://storageexplorer.com) 之類的工具來檢視 Blob 儲存體中的檔案。 Azure 儲存體總管是免費的跨平台工具，可讓您存取儲存體帳戶資訊。 
+您也可以使用 [Azure 儲存體總管](https://storageexplorer.com) 之類的工具來檢視 Blob 儲存體中的檔案。 Azure 儲存體總管是免費的跨平台工具，可讓您存取儲存體帳戶資訊。 
 
 確認檔案之後，請按任一鍵以完成示範並刪除測試檔案。 現在您已知道這個範例的功用，請開啟 *example.py* 檔案查看程式碼。 
 

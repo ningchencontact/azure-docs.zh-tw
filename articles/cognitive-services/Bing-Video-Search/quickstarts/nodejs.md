@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 6a5c2df6859a0020160ae0de9b6e498f63dc253b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a4e3d37b2eb32fa0384986e37781f21b906bed42
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871977"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077304"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>快速入門：使用 Bing 影片搜尋 REST API 和 Node.js 來搜尋影片
 
@@ -61,19 +61,19 @@ ms.locfileid: "55871977"
     };
     ```
     
-    2. 當 `end` 的信號發出時，使用 `response.on()` 來儲存 Bing 的相關標頭 (以 `bingapis` 或 `x-msedge-` 開頭)。 然後使用 `JSON.parse()` 剖析 JSON，接著使用 `JSON.stringify()` 將其轉換成字串並列印。
+   1. 當 `end` 的信號發出時，使用 `response.on()` 來儲存 Bing 的相關標頭 (以 `bingapis` 或 `x-msedge-` 開頭)。 然後使用 `JSON.parse()` 剖析 JSON，接著使用 `JSON.stringify()` 將其轉換成字串並列印。
 
-        ```javascript
-        response.on('end', function () {
-            for (var header in response.headers)
-                // header keys are lower-cased by Node.js
-                if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
-                     console.log(header + ": " + response.headers[header]);
-            body = JSON.stringify(JSON.parse(body), null, '  ');
-            //JSON Response body
-            console.log(body);
-        });
-        ```
+       ```javascript
+       response.on('end', function () {
+           for (var header in response.headers)
+               // header keys are lower-cased by Node.js
+               if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
+                    console.log(header + ": " + response.headers[header]);
+           body = JSON.stringify(JSON.parse(body), null, '  ');
+           //JSON Response body
+           console.log(body);
+       });
+       ```
 
 # <a name="create-and-send-the-search-request"></a>建立及傳送搜尋要求
 

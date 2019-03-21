@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: a6e6dfb70182d8b4924a184dcebd1d06695911a5
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: a4bf2ef252b5a948f2e3614e3e7cf64a4cb19277
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747000"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772053"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>教學課程：在 Azure 中建置 Java EE 和 Postgres Web 應用程式
 
@@ -200,4 +200,4 @@ az group delete --name <your_resource_group>
 
 ## <a name="next-steps"></a>後續步驟
 
-您已將 Java EE 應用程式部署至 App Service，接下來請參閱 [Java Enterprise 開發人員指南](https://aka.ms/wildfly-quickstart)，以深入了解如何設定服務、進行疑難排解和調整應用程式。
+您已將 Java EE 應用程式部署至 App Service，接下來請參閱 [Java Enterprise 開發人員指南](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-java)，以深入了解如何設定服務、進行疑難排解和調整應用程式。

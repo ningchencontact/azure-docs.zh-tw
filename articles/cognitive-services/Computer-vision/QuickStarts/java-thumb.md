@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 244dfa6089ac6263abfedb398a8f58c4d307543c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7287dc176f230f2d5440abdf1c4a3e364dcf96e7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55854892"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890979"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-java-in-computer-vision"></a>快速入門：使用電腦視覺中的 REST API 和 Java 來產生縮圖
 
-在此快速入門中，您會使用電腦視覺的 REST API 從影像產生縮圖。 您可以使用[取得縮圖](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb)方法產生影像的縮圖。 您可指定高度和寬度，可以與輸入影像的外觀比例不同。 「電腦視覺」會使用智慧型裁剪，以智慧方式識別關注區域，並根據該區域產生裁剪座標。
+在此快速入門中，您會使用電腦視覺的 REST API 從影像產生縮圖。 您可指定高度和寬度，可以與輸入影像的外觀比例不同。 「電腦視覺」會使用智慧型裁剪，以智慧方式識別關注區域，並根據該區域產生裁剪座標。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) 。
 
@@ -166,10 +166,6 @@ public class Main {
 ## <a name="examine-the-response"></a>檢查回應
 
 成功的回應會以二進位資料的形式傳回，代表縮圖的影像資料。 如果要求成功，就會從回應中的二進位資料產生縮圖，並顯示在範例應用程式所建立的個別視窗中。 如果要求失敗，則回應會顯示在主控台視窗中。 如果要求失敗，回應會包含錯誤碼和訊息以協助判斷問題所在。
-
-## <a name="clean-up-resources"></a>清除資源
-
-不再需要 Java 專案時請將它刪除，包括已編譯的類別與匯入的程式庫。
 
 ## <a name="next-steps"></a>後續步驟
 

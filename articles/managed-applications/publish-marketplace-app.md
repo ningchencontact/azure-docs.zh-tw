@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: d208d989fb9b84ae7bc94c6a1882754ed2bacb5d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 0bf1558f81f2936b4556ee658a235cd09dddf905
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343956"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892909"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Marketplace 中 Azure 受控應用程式
 
@@ -43,7 +43,7 @@ ms.locfileid: "56343956"
 
 1. 建立 Microsoft ID - 使用屬於貴公司網域，但不屬於單一個人的電子郵件地址，建立您的 Microsoft 帳戶。 此電子郵件地址用於 Microsoft 開發人員中心和雲端合作夥伴入口網站。 如需詳細資訊，請參閱 [Azure Marketplace 發行者指南](https://aka.ms/sellerguide)。
 1. 提交 [Azure Marketplace 提名表單](https://aka.ms/ampnomination) - 針對**您想要發行的解決方案？**，選取 [受控應用程式]。 一旦提交表單，Marketplace 上架小組會檢閱應用程式並驗證要求。 核准程序可能需要一到三天。 您的提名核准時，您會收到促銷代碼，以撤銷開發人員中心的註冊費用。 如果您**未**完成 Marketplace 提名表單，系統會要求您支付 $99 的註冊費用。
-1. 在[開發人員中心](http://dev.windows.com/registration?accountprogram=azure)註冊 - Microsoft 會驗證您的組織是有效的法律實體，具有註冊所在國家/地區的有效統一編號。 核准程序可能需要 5 到 10 天。 若要避免註冊費用，使用您在提名程序電子郵件中收到的促銷代碼。 如需詳細資訊，請參閱 [Azure Marketplace 發行者指南](https://aka.ms/sellerguide)。
+1. 在[開發人員中心](https://dev.windows.com/registration?accountprogram=azure)註冊 - Microsoft 會驗證您的組織是有效的法律實體，具有註冊所在國家/地區的有效統一編號。 核准程序可能需要 5 到 10 天。 若要避免註冊費用，使用您在提名程序電子郵件中收到的促銷代碼。 如需詳細資訊，請參閱 [Azure Marketplace 發行者指南](https://aka.ms/sellerguide)。
 1. 登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com) - 在發行者設定檔中，將您的開發人員中心帳戶與 Marketplace 發行者設定檔產生關聯。 如需詳細資訊，請參閱 [Azure Marketplace 發行者指南](https://aka.ms/sellerguide)。
 
 ## <a name="create-a-new-azure-application-offer"></a>建立新的 Azure 應用程式供應項目

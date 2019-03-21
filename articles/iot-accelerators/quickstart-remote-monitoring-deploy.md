@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/08/2018
+ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: 60876cb95e6efe4fbde55bd8a224eab658b10d66
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: befef76e19640683ba3219374702a049bdecb43b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749982"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58184167"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>快速入門：試用雲端式遠端監視解決方案
 

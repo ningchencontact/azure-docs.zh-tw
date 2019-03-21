@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 01/13/2019
 ms.author: spelluru
-ms.openlocfilehash: 6e8ca9d3a7fbdf1926ac642ac60a37d298af0129
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c2c49563bf505ce70c4900c6c0a8e41c0f6ac9c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476848"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176611"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>教學課程：將巨量資料串流處理至資料倉儲
 Azure [Event Grid](overview.md) 是一項智慧型事件路由服務，可讓您對應用程式和服務發出的通知 (事件) 做出回應。 例如，它可以觸發 Azure 函式以處理已擷取至 Azure Blob 儲存體或 Azure Data Lake Storage 的事件中樞資料，並將資料移轉至其他資料存放庫。 此[事件中樞和事件方格整合範例](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)說明如何使用事件中樞與事件方格，將已擷取的事件中樞資料從 Blob 儲存體順暢地移轉至 SQL 資料倉儲。
@@ -39,6 +39,9 @@ Azure [Event Grid](overview.md) 是一項智慧型事件路由服務，可讓您
 > * 在資料倉儲中檢視移轉的資料。
 
 ## <a name="prerequisites"></a>必要條件
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 若要完成本教學課程，您必須具備：
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
@@ -129,7 +132,7 @@ Azure [Event Grid](overview.md) 是一項智慧型事件路由服務，可讓您
     1. 複製下列命令並貼到 Cloud Shell 視窗中。
 
         ```powershell
-        New-AzureRmResourceGroup -Name rgDataMigration -Location westcentralus
+        New-AzResourceGroup -Name rgDataMigration -Location westcentralus
         ```
     2. 指定**資源群組**的名稱。
     3. 按 ENTER 鍵。 
@@ -137,7 +140,7 @@ Azure [Event Grid](overview.md) 是一項智慧型事件路由服務，可讓您
     1. 複製下列命令並貼到 Cloud Shell 視窗中。 或者，您可以複製/貼到自己選擇的編輯器中，並在設定值之後將命令複製到 Cloud Shell 中。 
 
         ```powershell
-        New-AzureRmResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
+        New-AzResourceGroupDeployment -ResourceGroupName rgDataMigration -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json -eventHubNamespaceName <event-hub-namespace> -eventHubName hubdatamigration -sqlServerName <sql-server-name> -sqlServerUserName <user-name> -sqlServerDatabaseName <database-name> -storageName <unique-storage-name> -functionAppName <app-name>
         ```
     2. 指定下列實體的值：
         1. 您先前建立的資源群組名稱。

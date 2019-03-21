@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: 5b749a85295e85ecde8d283ca02066a31be33666
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 259787a90b61b171f391dc02276214f17a57d0d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673064"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838811"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>教學課程：辨識相機圖片中的 Azure 服務標誌
 
@@ -101,7 +101,6 @@ ms.locfileid: "56673064"
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=28-32)]
 
-
 ## <a name="create-a-service-principal"></a>建立服務主體
 
 應用程式必須透過 Azure 服務主體帳戶將服務部署至您的 Azure 訂用帳戶。 服務主體可讓您使用角色型存取控制將特定權限委派給應用程式。 若要深入了解，請參閱[服務主體指南](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals)。
@@ -131,6 +130,7 @@ az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongP
   ...
 }
 ```
+
 請記下 `clientId` 和 `tenantId` 值。 將其新增至 *Source\VisualProvision\AppSettings.cs* 檔案中的適當欄位。
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=8-16)]
@@ -138,9 +138,10 @@ az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongP
 ## <a name="run-the-app"></a>執行應用程式
 
 此時，您已為應用程式提供下列項目的存取權：
-* 定型的自訂視覺模型
-* 電腦視覺服務
-* 服務主體帳戶 
+
+- 定型的自訂視覺模型
+- 電腦視覺服務
+- 服務主體帳戶
 
 請依照下列步驟執行應用程式：
 
@@ -163,7 +164,6 @@ az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongP
 
     ![顯示目標 Azure 訂用帳戶下拉式欄位的應用程式畫面](media/azure-logo-tutorial/app-az-subscription.png)
 
-    
 
 1. 裝置上的相機將會啟動。 對您已訓練的其中一個 Azure 服務標誌拍一張相片。 部署視窗應該會提示您選取新服務的區域和資源群組 (就像從 Azure 入口網站加以部署時一樣)。 
 
@@ -171,7 +171,7 @@ az ad sp create-for-rbac --name <servicePrincipalName> --password <yourSPStrongP
 
     ![顯示部署區域和資源群組欄位的應用程式畫面](media/azure-logo-tutorial/app-deployment-options.png)
 
-## <a name="clean-up-resources"></a>清除資源 
+## <a name="clean-up-resources"></a>清除資源
 
 如果您依照此案例的所有步驟操作，並使用應用程式將 Azure 服務部署到您的帳戶，請移至 [Azure 入口網站](https://ms.portal.azure.com/)。 在該處取消您不想要使用的服務。
 

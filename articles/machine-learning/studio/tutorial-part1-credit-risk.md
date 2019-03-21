@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: c067b0e6a85e0b5c4bd4cbb582de13bb1bc87774
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: f69b3f2c8de4cf137583ad7a33e8edfe31373096
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453608"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904502"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>教學課程 1：預測信用風險 - Azure Machine Learning Studio
 
@@ -70,7 +70,7 @@ ms.locfileid: "56453608"
 ## <a name="upload"></a>上傳現有資料
 
 為了開發信用風險的預測模型，您需要可用來訓練和測試模型的資料。 在本教學課程中，您將使用 UCI Irvine Machine Learning Repository 中的「UCI Statlog (德國信用資料) 資料集」。 您可以在下列位置找到此儲存機制：  
-<a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
+<a href="https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
 
 您將使用名為 **german.data** 的檔案。 將此檔案下載至您的本機硬碟。  
 
@@ -212,18 +212,18 @@ UCI 網站上的資料集描述提及，個人信用風險若分類錯誤，將�
 
 1. 回到 [屬性] 窗格，找到 [新的資料行名稱] 參數。 在這個欄位中，輸入資料集中 21 個資料行的名稱清單，並以逗號加以分隔，且依資料行順序排序。 您可以從 UCI 網站上的資料集文件中取得資料行名稱，或為求簡便，您可以複製並貼上下列清單：  
 
-  ```   
-  Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
-  ```
+   ```   
+   Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
+   ```
 
-  [屬性] 窗格看起來像這樣︰
+   [屬性] 窗格看起來像這樣︰
 
-  ![編輯中繼資料的屬性](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
+   ![編輯中繼資料的屬性](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
 
-  > [!TIP]
-  > 如果您想要確認資料行標題，請執行實驗 (按一下實驗畫布下方的 [執行])。 當執行結束時 ([編輯中繼資料][edit-metadata] 上會出現綠色的打勾記號)，按一下[編輯中繼資料][edit-metadata] 模組的輸出連接埠，然後選取 [視覺化]。 您可以用相同方式檢視任何模組的輸出，以檢視資料在實驗中的執行進度。
-  > 
-  > 
+   > [!TIP]
+   > 如果您想要確認資料行標題，請執行實驗 (按一下實驗畫布下方的 [執行])。 當執行結束時 ([編輯中繼資料][edit-metadata] 上會出現綠色的打勾記號)，按一下[編輯中繼資料][edit-metadata] 模組的輸出連接埠，然後選取 [視覺化]。 您可以用相同方式檢視任何模組的輸出，以檢視資料在實驗中的執行進度。
+   > 
+   > 
 
 ### <a name="create-training-and-test-datasets"></a>建立訓練和測試資料集
 

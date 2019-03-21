@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 957dd6faf1ca2c445b09300382796ad07186714c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bc0941175538c36190999e8c6d191fb8c3701c2b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884217"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839622"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-ruby-in-computer-vision"></a>快速入門：使用電腦視覺中的 REST API 和 Ruby 來產生縮圖
 
@@ -77,10 +77,6 @@ end
 ## <a name="examine-the-response"></a>檢查回應
 
 成功的回應會以二進位資料的形式傳回，代表縮圖的影像資料。 如果要求失敗，則回應會顯示在主控台視窗中。 如果要求失敗，回應會包含錯誤碼和訊息以協助判斷問題所在。
-
-## <a name="clean-up-resources"></a>清除資源
-
-不再需要檔案時，請將它刪除。
 
 ## <a name="next-steps"></a>後續步驟
 

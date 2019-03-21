@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 92bd80135d2ce0c72537240a12e6c0788443abe8
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: d83b659cc04218fad66ea95216e69682b265dc83
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700174"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077797"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>教學課程：使用 REST API 建立 Azure Data Factory 管線來複製資料 
 > [!div class="op_single_selector"]
@@ -49,6 +49,9 @@ ms.locfileid: "55700174"
 > 本教學課程中的資料管線會將資料從來源資料存放區，複製到目的地資料存放區。 如需如何使用 Azure Data Factory 轉換資料的教學課程，請參閱[教學課程︰使用 Hadoop 叢集建置管線來轉換資料](data-factory-build-your-first-pipeline.md)。
 
 ## <a name="prerequisites"></a>必要條件
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * 請檢閱 [教學課程概觀](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 並完成 **必要** 步驟。
 * 在您的電腦上安裝 [Curl](https://curl.haxx.se/dlwiz/) 。 您可搭配使用 Curl 工具與 REST 命令來建立 Data Factory。 
 * 請依照 [本文](../../active-directory/develop/howto-create-service-principal-portal.md) 的指示： 
@@ -61,24 +64,24 @@ ms.locfileid: "55700174"
   
   1. 執行下列命令並輸入您用來登入 Azure 入口網站的使用者名稱和密碼：
     
-    ```PowerShell 
-    Connect-AzureRmAccount
-    ```   
+     ```PowerShell 
+     Connect-AzAccount
+     ```   
   2. 執行下列命令以檢視此帳戶的所有訂用帳戶：
 
-    ```PowerShell     
-    Get-AzureRmSubscription
-    ``` 
+     ```PowerShell     
+     Get-AzSubscription
+     ``` 
   3. 執行下列命令以選取您要使用的訂用帳戶。 以您的 Azure 訂用帳戶名稱取代 **&lt;NameOfAzureSubscription**&gt;。 
      
-    ```PowerShell
-    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
-    ```
+     ```PowerShell
+     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
+     ```
   4. 在 PowerShell 中執行以下命令，建立名為 **ADFTutorialResourceGroup** 的 Azure 資源群組：  
 
-    ```PowerShell     
-      New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
-    ```
+     ```PowerShell     
+      New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+     ```
      
       如果資源群組已存在，您可指定是否要更新 (Y) 或予以保留 (N)。 
      
@@ -284,7 +287,7 @@ ms.locfileid: "55700174"
  
 將 **start** 屬性的值替換為目前日期，並將 **end**值替換為隔天的日期。 在日期時間中，您只指定日期部分，並略過時間部分。 例如，"2017-02-03"，這相當於 "2017-02-03T00:00:00Z"
  
-開始和結束日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。 例如︰2016-10-14T16:32:41Z. **end** 時間為選擇性項目，但在本教學課程中會用到。 
+開始和結束日期時間都必須是 [ISO 格式](https://en.wikipedia.org/wiki/ISO_8601)。 例如︰2016-10-14T16:32:41Z. **end** 時間為選擇性項目，但在本教學課程中會用到。 
  
 如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。 若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。
  
@@ -364,12 +367,12 @@ $accessToken = (ConvertFrom-Json $responseToken).access_token;
   * 在 Azure PowerShell 中，執行下列命令以註冊 Data Factory 提供者： 
 
     ```PowerShell    
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
     您可以執行下列命令來確認已註冊 Data Factory 提供者。 
     
     ```PowerShell
-    Get-AzureRmResourceProvider
+    Get-AzResourceProvider
     ```
   * 使用 Azure 訂用帳戶登入 [Azure 入口網站](https://portal.azure.com) 並瀏覽至 [Data Factory] 刀鋒視窗 (或) 在 Azure 入口網站中建立 Data Factory。 此動作會自動為您註冊提供者。
 

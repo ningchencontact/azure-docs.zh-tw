@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 940ca126eb18b81fd31f1ee2876948563e9d97af
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1a8ff17656978e6e4e8741c19cda79743560481a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188371"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080840"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>快速入門：設定應用程式以公開 Web API (預覽)
 
@@ -106,10 +106,10 @@ ms.locfileid: "56188371"
       }
       ```
 
-  > [!NOTE]
-  > `id` 的值必須以程式設計的方式產生，或使用 GUID 產生工具 (例如 [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx)) 產生。 `id` 代表由 Web API 所公開之範圍的唯一識別碼。 一旦為用戶端設定了適當的 Web API 存取權限，Azure AD 便會對用戶端發出 OAuth 2.0 存取權杖。 用戶端在呼叫 Web API 時會出示存取權杖，此權杖的範圍 (scp) 宣告已設定為其應用程式註冊中所要求的權限。
-  >
-  > 稍後您可以視需要公開其他範圍。 請考慮您的 Web API 可能會公開多個與各種不同功能相關聯的範圍。 在執行階段，您的資源可藉由評估所收到之 OAuth 2.0 存取權杖中的範圍 (`scp`) 宣告，來控制 Web API 的存取。
+   > [!NOTE]
+   > `id` 的值必須以程式設計的方式產生，或使用 GUID 產生工具 (例如 [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx)) 產生。 `id` 代表由 Web API 所公開之範圍的唯一識別碼。 一旦為用戶端設定了適當的 Web API 存取權限，Azure AD 便會對用戶端發出 OAuth 2.0 存取權杖。 用戶端在呼叫 Web API 時會出示存取權杖，此權杖的範圍 (scp) 宣告已設定為其應用程式註冊中所要求的權限。
+   >
+   > 稍後您可以視需要公開其他範圍。 請考慮您的 Web API 可能會公開多個與各種不同功能相關聯的範圍。 在執行階段，您的資源可藉由評估所收到之 OAuth 2.0 存取權杖中的範圍 (`scp`) 宣告，來控制 Web API 的存取。
 
 1. 完成時，按一下 [儲存]。 您的 Web API 現在已設定為可供目錄中的其他應用程式使用。
 1. 遵循相關步驟來[確認已向其他應用程式公開 Web API](#verify-the-web-api-is-exposed-to-other-applications)。

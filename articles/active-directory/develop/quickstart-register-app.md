@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d99c25d6203bd86987430bdccd08f770022dc28c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 366d6fe8921a5330f48da2879444e0b80cbc9bd2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165208"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090707"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform-preview"></a>快速入門：使用 Microsoft 身分識別平台來註冊應用程式 (預覽)
 
@@ -41,20 +41,20 @@ ms.locfileid: "56165208"
 1. 在左側導覽窗格中，選取 [Azure Active Directory] 服務，然後選取 [應用程式註冊 (預覽)] > [新增註冊]。
 1. 當 [註冊應用程式] 頁面出現時，輸入您應用程式的註冊資訊：
 
-    - **名稱** - 輸入會顯示給應用程式使用者的有意義應用程式名稱。
-    - **支援的帳戶類型** - 選取要讓應用程式支援的帳戶。
+   - **名稱** - 輸入會顯示給應用程式使用者的有意義應用程式名稱。
+   - **支援的帳戶類型** - 選取要讓應用程式支援的帳戶。
 
-        | 支援的帳戶類型 | 說明 |
-        |-------------------------|-------------|
-        | **僅此組織目錄中的帳戶** | 如果您要建置企業營運 (LOB) 應用程式，請選取此選項。 如果您未在目錄中註冊應用程式，則無法使用此選項。<br><br>此選項對應至僅限 Azure AD 的單一租用戶。<br><br>除非您在目錄外註冊應用程式，否則會預設使用此選項。 如果在目錄外註冊應用程式，則會預設使用 Azure AD 多租用戶和個人 Microsoft 帳戶。 |
-        | **任何組織目錄中的帳戶** | 如果您想要鎖定所有商業和教育客戶，請選取此選項。<br><br>此選項對應至僅限 Azure AD 的多租用戶。<br><br>如果您將應用程式註冊為僅限 Azure AD 的單一租用戶，則可透過 [驗證] 刀鋒視窗，將其更新為 Azure AD 多租用戶以及重新更新為單一租用戶。 |
-        | **任何組織目錄中的帳戶及個人的 Microsoft 帳戶** | 選取此選項以鎖定最廣泛的一組客戶。<br><br>此選項對應至 Azure AD 多租用戶和個人 Microsoft 帳戶。<br><br>如果您將應用程式註冊為 Azure AD 多租用戶和個人 Microsoft 帳戶，則無法在 UI 中變更此選擇。 相反地，您必須使用應用程式資訊清單編輯器來變更支援的帳戶類型。 |
+       | 支援的帳戶類型 | 說明 |
+       |-------------------------|-------------|
+       | **僅此組織目錄中的帳戶** | 如果您要建置企業營運 (LOB) 應用程式，請選取此選項。 如果您未在目錄中註冊應用程式，則無法使用此選項。<br><br>此選項對應至僅限 Azure AD 的單一租用戶。<br><br>除非您在目錄外註冊應用程式，否則會預設使用此選項。 如果在目錄外註冊應用程式，則會預設使用 Azure AD 多租用戶和個人 Microsoft 帳戶。 |
+       | **任何組織目錄中的帳戶** | 如果您想要鎖定所有商業和教育客戶，請選取此選項。<br><br>此選項對應至僅限 Azure AD 的多租用戶。<br><br>如果您將應用程式註冊為僅限 Azure AD 的單一租用戶，則可透過 [驗證] 刀鋒視窗，將其更新為 Azure AD 多租用戶以及重新更新為單一租用戶。 |
+       | **任何組織目錄中的帳戶及個人的 Microsoft 帳戶** | 選取此選項以鎖定最廣泛的一組客戶。<br><br>此選項對應至 Azure AD 多租用戶和個人 Microsoft 帳戶。<br><br>如果您將應用程式註冊為 Azure AD 多租用戶和個人 Microsoft 帳戶，則無法在 UI 中變更此選擇。 相反地，您必須使用應用程式資訊清單編輯器來變更支援的帳戶類型。 |
 
-    - **重新導向 URI (選擇性)** - 選取您要建置的應用程式類型 ([Web] 或 [公用用戶端 (行動和傳統型)])，然後輸入應用程式的重新導向 URI (或回覆 URL)。
-        - 若為 Web 應用程式，請提供應用程式的基底 URL。 例如，`http://localhost:31544` 可能是在您的本機電腦上執行之 Web 應用程式的 URL。 使用者會使用此 URL 來登入 Web 用戶端應用程式。
-        - 若為公用用戶端應用程式，請提供 Azure AD 用來傳回權杖回應的 URI。 輸入應用程式特定的值，例如 `myapp://auth`。
+   - **重新導向 URI (選擇性)** - 選取您要建置的應用程式類型 ([Web] 或 [公用用戶端 (行動和傳統型)])，然後輸入應用程式的重新導向 URI (或回覆 URL)。
+       - 若為 Web 應用程式，請提供應用程式的基底 URL。 例如，`http://localhost:31544` 可能是在您的本機電腦上執行之 Web 應用程式的 URL。 使用者會使用此 URL 來登入 Web 用戶端應用程式。
+       - 若為公用用戶端應用程式，請提供 Azure AD 用來傳回權杖回應的 URI。 輸入應用程式特定的值，例如 `myapp://auth`。
 
-    若要查看 Web 應用程式或原生應用程式的特定範例，請參閱我們的[快速入門](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts)。
+     若要查看 Web 應用程式或原生應用程式的特定範例，請參閱我們的[快速入門](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts)。
 
 1. 完成時，選取 [註冊]。
 

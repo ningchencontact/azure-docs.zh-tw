@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 25841971a2e7921c89c63032e8fd48bc528263aa
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 118ac858103776e880e7304199279a7d50ad71b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878164"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112274"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>教學課程：檢閱端點語句以修正不確定的預測
 在本教學課程中，藉由驗證或更正透過 LUIS 不確定的 LUIS HTTPS 端點所收到的語句來改善應用程式的預測。 有些語句可能必須針對意圖進行驗證，而其他語句則可能需要針對實體進行驗證。 您應該在排定的 LUIS 維護中定期檢閱端點語句。 
@@ -135,8 +135,8 @@ LUIS 在定型過後才會知道變更。
 
 2. 移至位址中的 URL 結尾並輸入 `Are there any natural language processing jobs in my department right now?`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 
 
-  ```json
-  {
+   ```json
+   {
     "query": "are there any natural language processing jobs in my department right now?",
     "topScoringIntent": {
       "intent": "GetJobInformation",
@@ -228,11 +228,11 @@ LUIS 在定型過後才會知道變更。
       "label": "positive",
       "score": 0.8251864
     }
-  }
-  }
-  ```
+   }
+   }
+   ```
 
-  系統會預測出具有高分的正確意圖，並將**職位**實體偵測為 `natural language processing`。 
+   系統會預測出具有高分的正確意圖，並將**職位**實體偵測為 `natural language processing`。 
 
 ## <a name="can-reviewing-be-replaced-by-adding-more-utterances"></a>可否藉由新增更多語句來取代檢閱？ 
 您可能會納悶，為什麼不新增更多的語句範例。 檢閱端點語句的目的為何？ 在真實世界的 LUIS 應用程式中，端點語句來自於使用者，而其字組選擇和排列方式皆是您未曾用過的。 如果您使用過相同的字組選擇和排列方式，則原始的預測會有較高的百分比。 

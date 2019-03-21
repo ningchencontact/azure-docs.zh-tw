@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e2b9d380b5e164bb8b730ec7037a6b2836c2af85
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: ca50c7cbbcccadf96641c28e43f7da48421c8f3b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447356"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994422"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure 備份中的功能概觀
 Azure 備份是您可用來備份 (或保護) 和還原 Microsoft Cloud 資料的 Azure 服務。 Azure 備份將以一個可靠、安全及具成本競爭力的雲端架構解決方案，取代您現有的內部部署或異地備份解決方案。 Azure 備份提供多個元件，您可以下載並部署在適當的電腦、伺服器或雲端中。 您部署的元件或代理程式，取決於您想要保護的項目。 所有 Azure 備份的元件 (無論您要保護的是內部部署或雲端資料) 都可以將資料備份至 Azure 中的復原服務保存庫。 請參閱 [Azure 備份元件資料表](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (稍後於本文提及) 以取得該使用哪個元件來保護特定資料、應用程式或工作負載的資訊。
@@ -54,6 +54,7 @@ Azure 備份是您可用來備份 (或保護) 和還原 Microsoft Cloud 資料�
 | Azure IaaS VM 備份 |<li>應用程式感知快照集 (VSS)<li>適用於 Windows/Linux 的原生備份<li>不需使用特定代理程式安裝<li>不需要備份基礎結構的網狀架構層級備份 |<li>VM 每天備份一次 <li>只在磁碟層級還原 VM<li>無法備份內部部署 |<li>VM、 <li>所有磁碟 (使用 PowerShell) |<p>復原服務保存庫</p> |
 
 ## <a name="what-are-the-deployment-scenarios-for-each-component"></a>每個元件的部署案例為何？
+
 | 元件 | 可以在 Azure 中部署嗎？ | 可以在內部部署嗎？ | 支援的目標儲存體 |
 | --- | --- | --- | --- |
 | Azure 備份 (MARS) 代理程式 |<p>**是**</p> <p>您可以在 Azure 中執行的任何 Windows Server VM 上部署 Azure 備份代理程式。</p> |<p>**是**</p> <p>您可以在 Windows Server VM 或實體機器上部署備份代理程式。</p> |<p>復原服務保存庫</p> |
@@ -114,6 +115,7 @@ Azure 備份可讓您還原具有受控磁碟的完整 VM﹐或將受控磁碟�
 下列各節提供每個 Azure 備份元件的可用性，或各種其所支援功能的彙總資料表。 請參閱下列各個資料表，以了解額外支援或詳細資料。
 
 ### <a name="storage"></a>儲存體
+
 | 功能 | Azure 備份代理程式 | System Center DPM | Azure 備份伺服器 | Azure IaaS VM 備份 |
 | --- | --- | --- | --- | --- |
 | 復原服務保存庫 |![yes][green] |![是][green] |![是][green] |![yes][green] |
@@ -121,7 +123,7 @@ Azure 備份可讓您還原具有受控磁碟的完整 VM﹐或將受控磁碟�
 | 磁帶儲存體 | |![yes][green] | | |
 | 壓縮 <br/>(在復原服務保存庫中) |![yes][green] |![是][green] |![yes][green] | |
 | 增量備份 |![yes][green] |![是][green] |![是][green] |![yes][green] |
-| 磁碟重複資料刪除 | |![部分][yellow] |![部分][yellow] | | |
+| 磁碟重複資料刪除 | |![部分][yellow] |![部分][yellow] | |
 
 ![資料表索引鍵](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -132,7 +134,7 @@ Azure 備份可讓您還原具有受控磁碟的完整 VM﹐或將受控磁碟�
 
 
 #### <a name="disk-deduplication"></a>磁碟重複資料刪除
-當您在 [HYPER-V 虛擬機器上](http://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx)部署 System Center DPM 或 Azure 備份伺服器時，可以充分利用重複資料刪除。 Windows Server 重複資料刪除會在當作備份儲存體連接至虛擬機器的虛擬硬碟 (VHD) 上，執行重複資料刪除 (主機層級)。
+當您在 [HYPER-V 虛擬機器上](https://blogs.technet.com/b/dpm/archive/2015/01/06/deduplication-of-dpm-storage-reduce-dpm-storage-consumption.aspx)部署 System Center DPM 或 Azure 備份伺服器時，可以充分利用重複資料刪除。 Windows Server 重複資料刪除會在當作備份儲存體連接至虛擬機器的虛擬硬碟 (VHD) 上，執行重複資料刪除 (主機層級)。
 
 > [!NOTE]
 > 重複資料刪除不適用於任何在 Azure 中的備份元件。 當 System Center DPM 和備份伺服器部署在 Azure 中，連接至 VM 的儲存體磁碟不能進行重複資料刪除。
@@ -155,6 +157,7 @@ Azure 備份可讓您還原具有受控磁碟的完整 VM﹐或將受控磁碟�
 「增量備份」藉由只儲存自從上次備份後有所變更的資料區塊，達到高儲存體和網路效率。 使用增量備份，就不需要定期執行完整備份。 在此範例中，於第一個月執行完整備份之後，區塊 A2、A3、A4、和 A9 會標示為已變更，並移轉至第二個月。 在第三個月，只標示區塊 A5 有所變更，而加以傳輸。 移動較少的資料可節省儲存體和網路資源，進而降低 TCO。
 
 ### <a name="security"></a>安全性
+
 | 功能 | Azure 備份代理程式 | System Center DPM | Azure 備份伺服器 | Azure IaaS VM 備份 |
 | --- | --- | --- | --- | --- |
 | 網路安全性<br/> (至 Azure) |![yes][green] |![是][green] |![是][green] |![yes][green] |
@@ -174,6 +177,7 @@ Azure 備份可讓您還原具有受控磁碟的完整 VM﹐或將受控磁碟�
 備份 Azure VM 時，需要在虛擬機器「內」  設定加密。 Azure 備份支援 Azure 磁碟加密，其會在 Windows 虛擬機器上使用 BitLocker，而在 Linux 虛擬機器上使用 **dm-crypt**。 在後端，Azure 備份會使用 [Azure 儲存體服務加密](../storage/common/storage-service-encryption.md)，以保護待用資料。
 
 ### <a name="network"></a>網路
+
 | 功能 | Azure 備份代理程式 | System Center DPM | Azure 備份伺服器 | Azure IaaS VM 備份 |
 | --- | --- | --- | --- | --- |
 | 網路壓縮 <br/>(至**備份伺服器**) | |![yes][green] |![yes][green] | |

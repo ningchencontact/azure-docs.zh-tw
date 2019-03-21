@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics 中的容器監視解決方案 | Microsoft Docs
-description: Log Analytics 中的容器監視方案可協助您在單一位置檢視及管理 Docker 和 Windows 容器主機。
+title: Azure 監視器中的容器監視解決方案 |Microsoft Docs
+description: Azure 監視器中的容器監視解決方案可協助您檢視及管理 Docker 和 Windows 容器主機，在單一位置。
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,20 +11,22 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: 7d538695fe7c920bbd22fcfb0e097220aa249f07
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: e8afdfece258986f5dc4cc6f1c7e66aed24e0500
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811812"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092543"
 ---
-# <a name="container-monitoring-solution-in-log-analytics"></a>Log Analytics 中的容器監視解決方案
+# <a name="container-monitoring-solution-in-azure-monitor"></a>Azure 監視器中的容器監視解決方案
 
 ![容器符號](./media/containers/containers-symbol.png)
 
-本文說明如何設定及使用 Log Analytics 中的容器監視方案，協助您在單一位置檢視及管理 Docker 和 Windows 容器主機。 Docker 是用來建立容器的軟體虛擬化系統，自動將軟體部署至其 IT 基礎結構。
+這篇文章說明如何設定及使用容器監視解決方案中 Azure 監視器，可協助您檢視及管理 Docker 和 Windows 容器主機，在單一位置。 Docker 是用來建立容器的軟體虛擬化系統，自動將軟體部署至其 IT 基礎結構。
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 解決方案會顯示哪些容器正在執行、它們正在執行的是哪些容器映像，以及容器執行的位置。 您可以檢視詳細的稽核資訊，其中顯示搭配容器使用的命令。 而且，藉由檢視及搜尋集中式記錄檔，而不需從遠端檢視 Docker 或 Windows 主機，即可針對容器進行疑難排解。 您可能會找到有雜訊且耗用過多主機資源的容器。 而且，您可以檢視容器的集中式 CPU、記憶體、儲存體以及網路使用量和效能資訊。 您可以在執行 Windows 的電腦上集中管理，並從 Windows Server、HYPER-V 和 Docker 容器比較記錄檔。 解決方案支援下列容器協調者：
 
@@ -36,7 +38,7 @@ ms.locfileid: "55811812"
 
 對於部署到 Azure Container Service (AKS) 上所裝載 Kubernetes 環境的工作負載，若要監視其效能，請參閱[監視 Azure Kubernetes Service](../../azure-monitor/insights/container-insights-overview.md)。 容器監視解決方案不包含對監視該平台的支援。  
 
-下圖顯示各種容器主機和代理程式與 Log Analytics 之間的關聯性。
+下圖顯示各種不同的容器主機和代理程式使用 Azure 監視器之間的關聯性。
 
 ![容器圖表](./media/containers/containers-diagram.png)
 
@@ -45,7 +47,7 @@ ms.locfileid: "55811812"
 開始之前請檢閱下列詳細資料，以確認符合必要條件。
 
 ### <a name="container-monitoring-solution-support-for-docker-orchestrator-and-os-platform"></a>容器監視解決方案支援 Docker Orchestrator 和作業系統平台
-下表概述對於使用 Log Analytics 之容器清查、效能和記錄的 Docker 協調流程和作業系統監視支援。   
+下表概述的 Docker 協調流程和使用 Azure 監視器中監視的容器詳細目錄、 效能和記錄檔支援的作業系統。   
 
 | | ACS |  Linux | Windows | 容器<br>清查 | 映像<br>清查 | 節點<br>清查 | 容器<br>效能 | 容器<br>Event | Event<br>記錄檔 | 容器<br>記錄檔 |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
@@ -95,22 +97,22 @@ ms.locfileid: "55811812"
 ## <a name="installing-and-configuring-the-solution"></a>安裝和設定方案
 請使用下列資訊來安裝和設定方案。
 
-1. 從 [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) 或使用[從方案庫新增 Log Analytics 方案](../../azure-monitor/insights/solutions.md)中所述的程序，將容器監視解決方案新增至您的 Log Analytics 工作區。
+1. 將容器監視解決方案新增至您的 Log Analytics 工作區，從[Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview)或使用中的程序[監視解決方案，從方案庫新增](../../azure-monitor/insights/solutions.md)。
 
 2. 安裝和使用 Docker 搭配 Log Analytics 代理程式。 根據您的作業系統和 Docker Orchestrator，您可以使用下列方法來設定代理程式。
-  - 若為獨立式主機：
-    - 在支援的 Linux 作業系統上，安裝和執行 Docker，然後再安裝和設定[適用於 Linux 的 Log Analytics 代理程式](../../azure-monitor/learn/quick-collect-linux-computer.md)。  
-    - 在 CoreOS 上，您無法執行適用於 Linux 的 Log Analytics 代理程式。 相反地，您可以執行適用於 Linx 的 Log Analytics 代理程式容器化版本。 檢閱 Linux 容器主機，包括 CoreOS 或 Azure Government Linux 容器主機，包括 CoreOS，如果您正在使用 Azure Government Cloud 中的容器。
-    - 在 Windows Server 2016 和 Windows 10 上，安裝 Docker 引擎及用戶端，然後連接代理程式以收集資訊，並將它傳送至 Log Analytics。 如果您有 Windows 環境，請檢閱[安裝和設定 Windows 容器主機](#install-and-configure-windows-container-hosts)。
-  - 若為 Docker 多主機協調流程：
-    - 如果您有 Red Hat OpenShift 環境，請參閱為 Red Hat OpenShift 設定 Log Analytics 代理程式。
-    - 如果您有使用 Azure Container Service 的 Kubernetes 叢集：
+   - 若為獨立式主機：
+     - 在支援的 Linux 作業系統上，安裝和執行 Docker，然後再安裝和設定[適用於 Linux 的 Log Analytics 代理程式](../../azure-monitor/learn/quick-collect-linux-computer.md)。  
+     - 在 CoreOS 上，您無法執行適用於 Linux 的 Log Analytics 代理程式。 相反地，您可以執行適用於 Linx 的 Log Analytics 代理程式容器化版本。 檢閱 Linux 容器主機，包括 CoreOS 或 Azure Government Linux 容器主機，包括 CoreOS，如果您正在使用 Azure Government Cloud 中的容器。
+     - 在 Windows Server 2016 和 Windows 10 上，安裝 Docker 引擎及用戶端，然後連接代理程式收集的資訊，並將它傳送至 Azure 監視器。 如果您有 Windows 環境，請檢閱[安裝和設定 Windows 容器主機](#install-and-configure-windows-container-hosts)。
+   - 若為 Docker 多主機協調流程：
+     - 如果您有 Red Hat OpenShift 環境，請參閱為 Red Hat OpenShift 設定 Log Analytics 代理程式。
+     - 如果您有使用 Azure Container Service 的 Kubernetes 叢集：
        - 參閱[為 Kubernetes 設定 Log Analytics Linux 代理程式](#configure-a-log-analytics-linux-agent-for-kubernetes)。
        - 參閱[為 Kubernetes 設定 Log Analytics Windows 代理程式](#configure-a-log-analytics-windows-agent-for-kubernetes)。
        - 參閱使用 Helm 在 Linux Kubernetes 上部署 Log Analytics 代理程式。
-    - 如果您擁有 Azure Container Service DC/OS 叢集，請參閱[使用 Log Analytics 監視 Azure Container Service DC/OS 叢集](../../container-service/dcos-swarm/container-service-monitoring-oms.md)，以進一步瞭解。
-    - 如果您有 Docker Swarm 模式環境，請參閱為 Docker Swarm 設定 Log Analytics 代理程式，以進一步瞭解。
-    - 如果您有 Service Fabric 叢集，請參閱[使用 Log Analytics Log Analytics 監視容器](../../service-fabric/service-fabric-diagnostics-oms-containers.md)，以進一步瞭解。
+     - 如果您有 Azure Container Service DC/OS 叢集，進一步了解[使用 Azure 監視器監視 Azure Container Service DC/OS 叢集](../../container-service/dcos-swarm/container-service-monitoring-oms.md)。
+     - 如果您有 Docker Swarm 模式環境，請參閱為 Docker Swarm 設定 Log Analytics 代理程式，以進一步瞭解。
+     - 如果您有 Service Fabric 叢集，進一步了解[使用 Azure 監視器監視容器](../../service-fabric/service-fabric-diagnostics-oms-containers.md)。
 
 檢閱 [Windows 上的 Docker 引擎](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon)文章，以取得有關如何在執行 Windows 的電腦上安裝和設定您 Docker 引擎的資訊。
 
@@ -195,7 +197,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 在本節中，我們會討論安裝 Log Analytics 代理程式作為 OpenShift 精靈集所需的步驟。  
 
 1. 登入 OpenShift 主要節點，並從 GitHub 複製 YAML 檔 [ocp-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-omsagent.yaml) 到您的主要節點，然後以 Log Analytics 工作區識別碼和只要金鑰修改值。
-2. 執行下列命令來建立 Log Analytics 的專案，並設定使用者帳戶。
+2. 執行下列命令，以針對 Azure 監視器中建立專案，並設定使用者帳戶。
 
     ```
     oadm new-project omslogging --node-selector='zone=default'
@@ -234,7 +236,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 如果在使用 Log Analytics 代理程式精靈集 YAML 檔案時，您想要使用祕密來保護您的 Log Analytics 工作區識別碼及主要金鑰，請執行下列步驟。
 
 1. 登入 OpenShift 主要節點，並從 GitHub 複製 YAML 檔 [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) 和密碼產生指令碼 [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh)。  這個指令碼會產生 Log Analytics 工作區識別碼及主要金鑰的密碼 YAML 檔案，來保護您的密碼資訊。  
-2. 執行下列命令來建立 Log Analytics 的專案，並設定使用者帳戶。 祕密產生指令碼會要求您的 Log Analytics 工作區識別碼 <WSID> 和主要金鑰 <KEY>，並且在完成時，建立 ocp-secret.yaml 檔案。  
+2. 執行下列命令，以針對 Azure 監視器中建立專案，並設定使用者帳戶。 祕密產生指令碼會要求您的 Log Analytics 工作區識別碼 <WSID> 和主要金鑰 <KEY>，並且在完成時，建立 ocp-secret.yaml 檔案。  
 
     ```
     oadm new-project omslogging --node-selector='zone=default'  
@@ -474,17 +476,17 @@ KEY:    88 bytes
     LAST DEPLOYED: Tue Sep 19 20:37:46 2017
     NAMESPACE: default
     STATUS: DEPLOYED
- 
+ 
     RESOURCES:
     ==> v1/Secret
     NAME            TYPE    DATA  AGE
     omsagent-msoms  Opaque  3     17m
- 
+ 
     ==> v1beta1/DaemonSet
     NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
     omsagent-msoms  3        3        3      3           3          <none>         17m
     ```
-如需進一步的資訊，請造訪[容器解決方案 Helm Chart](https://aka.ms/omscontainerhelm)。
+   如需進一步的資訊，請造訪[容器解決方案 Helm Chart](https://aka.ms/omscontainerhelm)。
 
 ### <a name="install-and-configure-windows-container-hosts"></a>安裝和設定 Windows 容器主機
 
@@ -492,37 +494,25 @@ KEY:    88 bytes
 
 #### <a name="preparation-before-installing-windows-agents"></a>安裝 Windows 代理程式之前的準備動作
 
-在執行 Windows 的電腦上安裝代理程式之前，您需要設定 Docker 服務。 組態可讓 Windows 代理程式或 Log Analytics 虛擬機器擴充功能使用 Docker TCP 通訊端，讓代理程式可以從遠端存取的 Docker 精靈並擷取監視資料。
+在執行 Windows 的電腦上安裝代理程式之前，您需要設定 Docker 服務。 組態可讓 Windows 代理程式或 Azure 監視器的虛擬機器擴充功能使用 Docker TCP 通訊端，讓代理程式可以從遠端存取 Docker 精靈，以擷取監視資料。
 
-##### <a name="to-start-docker-and-verify-its-configuration"></a>若要啟動 Docker 並確認其組態
+##### <a name="to-configure-the-docker-service"></a>若要設定 Docker 服務  
 
-若要設定 Windows Server 的 TCP 具名管道，需要執行一些步驟︰
+執行下列 PowerShell 命令適用於 Windows Server 啟用 TCP 管道和具名的管道：
 
-1. 在 Windows PowerShell 中啟用 TCP 管道和具名的管道。
-
-    ```
-    Stop-Service docker
-    dockerd --unregister-service
-    dockerd --register-service -H npipe:// -H 0.0.0.0:2375  
-    Start-Service docker
-    ```
-
-2. 使用 TCP 管道和具名管道的組態檔來設定 Docker。 此組態檔位於 C:\ProgramData\docker\config\daemon.json。
-
-    在 daemon.json 檔案中，您將需要下列項目：
-
-    ```
-    {
-    "hosts": ["tcp://0.0.0.0:2375", "npipe://"]
-    }
-    ```
+```
+Stop-Service docker
+dockerd --unregister-service
+dockerd --register-service -H npipe:// -H 0.0.0.0:2375  
+Start-Service docker
+```
 
 如需 Windows 容器使用之 Docker 精靈組態的詳細資訊，請參閱 [Windows 上的 Docker 引擎](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon)。
 
 
 #### <a name="install-windows-agents"></a>安裝 Windows 代理程式
 
-若要啟用 Windows 和 Hyper-V 容器監視，請在容器主機的 Windows 電腦上安裝 Microsoft Monitoring Agent (MMA)。 若需要在內部部署環境中執行 Windows 的電腦，請參閱[連接 Windows 電腦至 Log Analytics](../../azure-monitor/platform/agent-windows.md)。 若需要在 Azure 中執行的虛擬機器，可使用[虛擬機器擴充功能](../../azure-monitor/learn/quick-collect-azurevm.md)將它們連接至 Log Analytics。
+若要啟用 Windows 和 Hyper-V 容器監視，請在容器主機的 Windows 電腦上安裝 Microsoft Monitoring Agent (MMA)。 如在內部部署環境中執行 Windows 的電腦，請參閱 <<c0> [ 連線的 Windows 電腦連線到 Azure 監視器](../../azure-monitor/platform/agent-windows.md)。 虛擬機器 Azure 中執行，將它們連接至使用 Azure 監視器[虛擬機器擴充功能](../../azure-monitor/learn/quick-collect-azurevm.md)。
 
 您可以監視 Service Fabric 上執行的 Windows 容器。 不過，Service Fabric 目前只支援 [Azure 中執行的虛擬機器](../../azure-monitor/learn/quick-collect-azurevm.md)和[在內部部署環境中執行 Windows 的電腦](../../azure-monitor/platform/agent-windows.md)。
 
@@ -565,7 +555,7 @@ KEY:    88 bytes
 
 
 ## <a name="monitor-containers"></a>監視容器
-在 Log Analytics 入口網站中啟用此解決方案之後，[容器] 圖格會顯示容器主機和主機中執行之容器的相關摘要資訊。
+您必須在 Azure 入口網站中啟用的解決方案後**容器**圖格會顯示容器主機和主機中執行之容器的相關摘要資訊。
 
 
 ![容器圖格](./media/containers/containers-title.png)
@@ -598,11 +588,11 @@ KEY:    88 bytes
 
 ![容器狀態](./media/containers/containers-status.png)
 
-[記錄搜尋] 隨即開啟，其中顯示您容器狀態的相關資訊。
+Log Analytics 隨即開啟，顯示您的容器狀態的相關資訊。
 
-![容器的記錄檔搜尋](./media/containers/containers-log-search.png)
+![適用於容器的記錄檔分析](./media/containers/containers-log-search.png)
 
-在這裡，您可以編輯搜尋查詢來進行修改，以尋找您感興趣的特定資訊。 如需記錄檔搜尋的詳細資訊，請參閱 [Log Analytics 中的記錄檔搜尋](../../azure-monitor/log-query/log-query-overview.md)。
+在這裡，您可以編輯搜尋查詢來進行修改，以尋找您感興趣的特定資訊。 如需有關記錄檔查詢的詳細資訊，請參閱[Azure 監視器中的記錄查詢](../log-query/log-query-overview.md)。
 
 ## <a name="troubleshoot-by-finding-a-failed-container"></a>尋找失敗的容器以進行疑難排解
 
@@ -611,14 +601,16 @@ KEY:    88 bytes
 ### <a name="to-find-failed-containers"></a>尋找失敗的容器
 1. 按一下 [容器狀態] 區域。  
    ![容器狀態](./media/containers/containers-status.png)
-2. [記錄搜尋] 隨即開啟並顯示如下所示的容器狀態。  
+2. Log Analytics 會開啟並顯示您的容器，如下所示的狀態。  
    ![容器狀態](./media/containers/containers-log-search.png)
-3. 接下來，按一下失敗容器的彙總值，以檢視其他的資訊。 展開 [顯示更多] 以檢視映像識別碼。  
+3. 展開失敗列，然後按一下 + 加入查詢中的準則。 然後行註解 Summarize 在查詢中。
+   ![失敗的容器](./media/containers/containers-state-failed-select.png)  
+1. 執行查詢，然後展開 若要檢視映像識別碼。 結果中的資料行  
    ![失敗的容器](./media/containers/containers-state-failed.png)  
-4. 接下來，在搜尋查詢中輸入下列內容。 `ContainerInventory <ImageID>`可查看關於映像的詳細資料，例如停止和失敗映像的映像大小與數目。  
+1. 記錄檔查詢中，輸入下列命令。 `ContainerImageInventory | where ImageID == <ImageID>`可查看關於映像的詳細資料，例如停止和失敗映像的映像大小與數目。  
    ![失敗的容器](./media/containers/containers-failed04.png)
 
-## <a name="search-logs-for-container-data"></a>搜尋容器資料的記錄檔
+## <a name="query-logs-for-container-data"></a>容器資料的查詢記錄
 當您針對特定錯誤進行疑難排解時，這助於查看您的環境中發生此錯誤的位置。 下列記錄檔類型將協助您建立查詢，以傳回您想要的資訊。
 
 
@@ -632,42 +624,23 @@ KEY:    88 bytes
 - **KubePodInventory_CL**  當您需要了解叢集階層資訊時，請使用此類型。
 
 
-### <a name="to-search-logs-for-container-data"></a>搜尋容器資料的記錄檔
+### <a name="to-query-logs-for-container-data"></a>容器資料的查詢記錄
 * 選擇您知道最近失敗的映像並尋找其錯誤記錄檔。 首先，透過 **ContainerInventory** 搜尋來尋找正在執行該映像的容器名稱。 例如，搜尋 `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
     ![搜尋 Ubuntu 容器](./media/containers/search-ubuntu.png)
 
-  [名稱] 旁的容器名稱，並搜尋其記錄。 在此範例中為 `ContainerLog | where Name == "cranky_stonebreaker"`。
+  展開以檢視該容器的詳細資料結果中的任何資料列。
 
-**檢視效能資訊**
 
-當您開始建構查詢時，這有助於先查看各種可能。 例如，若要查看所有效能資料，請輸入下列搜尋查詢，嘗試進行廣泛查詢。
-
-```
-Perf
-```
-
-![容器效能](./media/containers/containers-perf01.png)
-
-您可以輸入查詢右邊的名稱，將您所見的效能資料範圍限制於特定容器。
-
-```
-Perf <containerName>
-```
-
-其顯示針對個別容器所收集的效能計量清單。
-
-![容器效能](./media/containers/containers-perf03.png)
-
-## <a name="example-log-search-queries"></a>範例記錄檔搜尋查詢
+## <a name="example-log-queries"></a>範例記錄檔查詢
 從一或兩個範例開始建置查詢，然後加以修改以符合您的環境，通常很實用。 首先，您可以實驗 [查詢範例] 區域，協助您建置更進階的查詢。
 
 ![容器查詢](./media/containers/containers-queries.png)
 
 
-## <a name="saving-log-search-queries"></a>儲存記錄檔搜尋查詢
-儲存查詢是 Log Analytics 的標準功能。 藉由儲存查詢，您可將您覺得有用的查詢放在容易取得的地方，以便日後使用。
+## <a name="saving-log-queries"></a>正在儲存記錄檔查詢
+儲存查詢是在 Azure 監視器中的標準功能。 藉由儲存查詢，您可將您覺得有用的查詢放在容易取得的地方，以便日後使用。
 
 建立您覺得有用的查詢之後，按一下 [記錄檔搜尋] 頁面頂端的 [我的最愛] 來儲存它。 然後您稍後即可輕易地從 [我的儀表板] 頁面進行存取。
 
 ## <a name="next-steps"></a>後續步驟
-* [搜尋記錄檔](../../azure-monitor/log-query/log-query-overview.md)以檢視詳細的容器資料記錄。
+* [查詢記錄](../log-query/log-query-overview.md)以檢視詳細的容器資料記錄。

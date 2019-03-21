@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: e240cbadbee87938107c4a9bf034c47db42acf92
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: bb5a4b3a3019007948a9996ed6715e755f284f9e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098641"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175162"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -97,14 +97,14 @@ Azure 成本管理也會提供 Azure 服務的成本節省建議。 如需詳細
 
 此範例使用 [隨時間變化的實際成本] 報告，在您的 Azure VM 消費接近總預算時通知您。 在此案例中，您的總預算為 20,000 美元，而您想要在成本接近預算的一半 (9000 美元) 時收到通知，並且在成本達到 10,000 美元時收到額外的警示。
 
-1. 在 Cloudyn 入口網站頂端的功能表中，選取 [成本] > [成本分析] > [隨時間變化的實際成本]。 
-2. 將 [群組] 設定為 [服務]，並將 [Filter on the service] \(服務上的篩選) 設定為 [Azure/VM]。 
+1. 在 Cloudyn 入口網站頂端的功能表中，選取 [成本] > [成本分析] > [隨時間變化的實際成本]。
+2. 將 [群組] 設定為 [服務]，並將 [Filter on the service] \(服務上的篩選) 設定為 [Azure/VM]。
 3. 在報告的右上方選取 [動作]，然後選取 [排程報告]。
-4. 若要依排定的間隔傳送報告電子郵件給自己，請在 [儲存或排程此報告] 方塊中選取 [排程] 索引標籤。 務必要選取 [透過電子郵件傳送]。 您所使用的任何標記、群組和篩選都會包含在以電子郵件傳送的報告中。 
-5. 選取 [閾值] 索引標籤，然後選取 [實際成本與閾值]。 
-   1. 在 [紅色警示] 閾值方塊中輸入 10000。 
-   2. 在 [黃色警示] 閾值方塊中輸入 9000。 
-   3. 在 [連續警示數目] 方塊中，輸入要接收的連續警示數目。 當您收到所指定的警示總數時，不會再傳送其他警示。 
+4. 若要依排定的間隔傳送報告電子郵件給自己，請在 [儲存或排程此報告] 方塊中選取 [排程] 索引標籤。 務必要選取 [透過電子郵件傳送]。 您所使用的任何標記、群組和篩選都會包含在以電子郵件傳送的報告中。
+5. 選取 [閾值] 索引標籤，然後選取 [實際成本與閾值]。
+   1. 在 [紅色警示] 閾值方塊中輸入 10000。
+   2. 在 [黃色警示] 閾值方塊中輸入 9000。
+   3. 在 [連續警示數目] 方塊中，輸入要接收的連續警示數目。 當您收到所指定的警示總數時，不會再傳送其他警示。
 6. 選取 [ **儲存**]。
 
 ![根據費用閾值顯示紅色警示和黃色警示的範例](./media/tutorial-review-usage/schedule-alert01.png)

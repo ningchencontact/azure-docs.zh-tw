@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5b6f968bef3708ca311bc5a41fe029ea9a10f62b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 8ac17c00f635c4c14c0e4752847aff941f81804a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015843"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111611"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>教學課程：使用 Visual Studio 建立具有複製活動的管線
 > [!div class="op_single_selector"]
@@ -47,6 +47,9 @@ ms.locfileid: "54015843"
 > 本教學課程中的資料管線會將資料從來源資料存放區，複製到目的地資料存放區。 如需如何使用 Azure Data Factory 轉換資料的教學課程，請參閱[教學課程︰使用 Hadoop 叢集建置管線來轉換資料](data-factory-build-your-first-pipeline.md)。
 
 ## <a name="prerequisites"></a>必要條件
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 1. 詳讀 [教學課程概觀](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 一文並完成 **必要** 步驟。       
 2. 若要建立 Data Factory 執行個體，您必須是訂用帳戶/資源群組層級的 [Data Factory 參與者](../../role-based-access-control/built-in-roles.md#data-factory-contributor) 角色成員。
 3. 您必須已在電腦上安裝下列項目： 
@@ -129,8 +132,8 @@ Azure 儲存體連結服務會指定 Data Factory 服務在執行階段用來連
 2. 在 [新增新項目] 對話方塊中，選取 [Azure Blob]，然後按一下 [新增]。   
 3. 將 JSON 文字取代為下列文字並儲存 **AzureBlobLocation1.json** 檔案。 
 
-  ```json   
-  {
+   ```json   
+   {
     "name": "InputDataset",
     "properties": {
       "structure": [
@@ -158,8 +161,8 @@ Azure 儲存體連結服務會指定 Data Factory 服務在執行階段用來連
         "interval": 1
       }
     }
-  }
-  ``` 
+   }
+   ``` 
     下表提供程式碼片段中所使用之 JSON 屬性的描述：
 
     | 屬性 | 說明 |
@@ -182,7 +185,7 @@ Azure 儲存體連結服務會指定 Data Factory 服務在執行階段用來連
 2. 在 [新增新項目] 對話方塊中，選取 [Azure SQL]，然後按一下 [新增]。 
 3. 將 JSON 文字取代成下列 JSON 並儲存 **AzureSqlTableLocation1.json** 檔案。
 
-  ```json
+   ```json
     {
      "name": "OutputDataset",
      "properties": {
@@ -230,7 +233,7 @@ Azure 儲存體連結服務會指定 Data Factory 服務在執行階段用來連
 2. 選取 [新增新項目] 對話方塊中的 [複製資料管線]，並按一下 [新增]。 
 3. 將 JSON 取代為下列 JSON 並儲存 **CopyActivity1.json** 檔案。
 
-  ```json   
+   ```json   
     {
      "name": "ADFTutorialPipeline",
      "properties": {
@@ -274,19 +277,19 @@ Azure 儲存體連結服務會指定 Data Factory 服務在執行階段用來連
      }
     }
     ```   
-    - 在活動區段中，只會有一個 **type** 設為 **Copy** 的活動。 如需複製活動的詳細資訊，請參閱[資料移動活動](data-factory-data-movement-activities.md)。 在 Data Factory 解決方案中，您也可以使用[資料轉換活動](data-factory-data-transformation-activities.md)。
-    - 活動的輸入設定為 **InputDataset**，活動的輸出則設定為 **OutputDataset**。 
-    - 在 **typeProperties** 區段中，來源類型指定為 **BlobSource**，接收類型指定為 **SqlSink**。 如需複製活動作為來源和接收器支援的資料存放區完整清單，請參閱[支援的資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)。 若要了解如何使用特定支援的資料存放區作為來源/接收器，請按一下資料表中的連結。  
+   - 在活動區段中，只會有一個 **type** 設為 **Copy** 的活動。 如需複製活動的詳細資訊，請參閱[資料移動活動](data-factory-data-movement-activities.md)。 在 Data Factory 解決方案中，您也可以使用[資料轉換活動](data-factory-data-transformation-activities.md)。
+   - 活動的輸入設定為 **InputDataset**，活動的輸出則設定為 **OutputDataset**。 
+   - 在 **typeProperties** 區段中，來源類型指定為 **BlobSource**，接收類型指定為 **SqlSink**。 如需複製活動作為來源和接收器支援的資料存放區完整清單，請參閱[支援的資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)。 若要了解如何使用特定支援的資料存放區作為來源/接收器，請按一下資料表中的連結。  
      
-    將 **start** 屬性的值替換為目前日期，並將 **end**值替換為隔天的日期。 在日期時間中，您只指定日期部分，並略過時間部分。 例如，"2016-02-03"，這相當於 "2016-02-03T00:00:00Z"
+     將 **start** 屬性的值替換為目前日期，並將 **end**值替換為隔天的日期。 在日期時間中，您只指定日期部分，並略過時間部分。 例如，"2016-02-03"，這相當於 "2016-02-03T00:00:00Z"
      
-    開始和結束日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。 例如︰2016-10-14T16:32:41Z. **end** 時間為選擇性項目，但在本教學課程中會用到。 
+     開始和結束日期時間都必須是 [ISO 格式](https://en.wikipedia.org/wiki/ISO_8601)。 例如︰2016-10-14T16:32:41Z. **end** 時間為選擇性項目，但在本教學課程中會用到。 
      
-    如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。 若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。
+     如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。 若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。
      
-    在上述範例中，由於每小時即產生一個資料配量，共會有 24 個資料配量。
+     在上述範例中，由於每小時即產生一個資料配量，共會有 24 個資料配量。
 
-    如需管線定義中 JSON 屬性的說明，請參閱[建立管線](data-factory-create-pipelines.md)一文。 如需複製活動定義中 JSON 屬性的說明，請參閱[資料移動活動](data-factory-data-movement-activities.md)。 如需 BlobSource 所支援 JSON 屬性的說明，請參閱 [Azure Blob 連接器](data-factory-azure-blob-connector.md)一文。 如需 SqlSink 支援的 JSON 屬性說明，請參閱 [Azure SQL Database 連接器](data-factory-azure-sql-connector.md)一文。
+     如需管線定義中 JSON 屬性的說明，請參閱[建立管線](data-factory-create-pipelines.md)一文。 如需複製活動定義中 JSON 屬性的說明，請參閱[資料移動活動](data-factory-data-movement-activities.md)。 如需 BlobSource 所支援 JSON 屬性的說明，請參閱 [Azure Blob 連接器](data-factory-azure-blob-connector.md)一文。 如需 SqlSink 支援的 JSON 屬性說明，請參閱 [Azure SQL Database 連接器](data-factory-azure-sql-connector.md)一文。
 
 ## <a name="publishdeploy-data-factory-entities"></a>發佈/部署 Data Factory 實體
 在此步驟中，您會發佈稍早建立的 Data Factory 實體 (連結的服務、資料集和管線)。 您也可以指定要建立來保存這些實體的新 Data Factory 名稱。  
@@ -333,12 +336,12 @@ Azure 儲存體連結服務會指定 Data Factory 服務在執行階段用來連
   * 在 Azure PowerShell 中，執行下列命令以註冊 Data Factory 提供者。 
 
     ```PowerShell    
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
     您可以執行下列命令來確認已註冊 Data Factory 提供者。 
     
     ```PowerShell
-    Get-AzureRmResourceProvider
+    Get-AzResourceProvider
     ```
   * 使用 Azure 訂用帳戶登入 [Azure 入口網站](https://portal.azure.com) 並瀏覽至 [Data Factory] 刀鋒視窗 (或) 在 Azure 入口網站中建立 Data Factory。 此動作會自動為您註冊提供者。
 * Data Factory 的名稱未來可能會註冊為 DNS 名稱，因此會變成公開可見的名稱。
@@ -441,7 +444,7 @@ Azure 儲存體連結服務會指定 Data Factory 服務在執行階段用來連
     }
     ```
 
-    這個範例會設定 Azure 儲存體連結服務和 Azure SQL 連結服務的 connectionString 屬性。 請注意，指定名稱的語法是 [JsonPath](http://goessner.net/articles/JsonPath/)。   
+    這個範例會設定 Azure 儲存體連結服務和 Azure SQL 連結服務的 connectionString 屬性。 請注意，指定名稱的語法是 [JsonPath](https://goessner.net/articles/JsonPath/)。   
 
     如果 JSON 具有屬性，該屬性具有如下列程式碼所示的值陣列：  
 

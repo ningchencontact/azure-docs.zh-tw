@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b3d79f106554bf4a80df835ac880fbb7a72c8bfe
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 9e4308eea3384b20f21ffcf378f711a705f9f9e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268391"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077338"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure 資料箱：常見問題集
 
@@ -209,10 +209,10 @@ A.  當 [資料複製] 的訂單狀態顯示為 [完成] 時，您應該就能�
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>問： 我的資料在上傳後會存放於 Azure 的何處？
 A.  當您將資料複製到資料箱時，視資料為區塊 Blob、分頁 Blob 或 Azure 檔案而定，資料會上傳到 Azure 儲存體帳戶中的下列其中一個路徑。
- - `https://<storage_account_name>.blob.core.windows.net/<containername>` 
- -  `https://<storage_account_name>.file.core.windows.net/<sharename>`
+- `https://<storage_account_name>.blob.core.windows.net/<containername>` 
+- `https://<storage_account_name>.file.core.windows.net/<sharename>`
  
- 或者，您可以在 Azure 入口網站中移至您 Azure 儲存體帳戶，並從該處瀏覽。
+  或者，您可以在 Azure 入口網站中移至您 Azure 儲存體帳戶，並從該處瀏覽。
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>問： 我剛剛發現我的容器並未遵循 Azure 命名需求。 我的資料會不會無法上傳至 Azure？
 A.  如果容器名稱包含大寫字母，這些名稱會自動轉換為小寫。 如果名稱在其他方面不符合規範 (特殊字元、其他語言等等)，則上傳會失敗。 如需有關命名共用、容器、檔案之最佳做法的詳細資訊，請移至：

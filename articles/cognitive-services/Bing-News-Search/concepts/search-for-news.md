@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: overview
 ms.date: 01/11/2019
 ms.author: scottwhi
-ms.openlocfilehash: b7da1782491c4317713aafe54c4fd01c2c7110a9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 612a3961d901f53147ab2f3cfeea20f9c11d96b7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55880766"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087851"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>使用 Bing 新聞搜尋 API 來搜尋新聞
 
@@ -264,4 +264,4 @@ Host: api.cognitive.microsoft.com
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-[如何逐頁檢視 Bing 新聞搜尋結果](../paging-news.md)
+> [如何逐頁檢視 Bing 新聞搜尋結果](../paging-news.md)

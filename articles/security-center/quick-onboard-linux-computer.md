@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: e6d2404e6f509c03d2d3965f34d8229de25df4b7
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ee28bfebb6732c7bb3b689cf08b9b876adb74b1b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114615"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104670"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>快速入門：將 Linux 電腦上架到 Azure 資訊安全中心
 將 Azure 訂用帳戶上架之後，您可以透過佈建 Linux 代理程式，為在 Azure 外 (例如，內部部署或其他雲端服務) 執行的 Linux 資源啟用資訊安全中心。
@@ -37,7 +37,7 @@ ms.locfileid: "56114615"
 1. 登入 [Azure 入口網站](https://azure.microsoft.com/features/azure-portal/)。
 2. 在 [Microsoft Azure] 功能表中，選取 [資訊安全中心]。 [資訊安全中心 - 概觀] 隨即開啟。
 
- ![資訊安全中心概觀][2]
+   ![資訊安全中心概觀][2]
 
 3. 在 [資訊安全中心] 主功能表下，選取 [開始使用]。
 4. 選取 [開始使用] 索引標籤。![開始使用][3]
@@ -46,16 +46,16 @@ ms.locfileid: "56114615"
 
     ![新增非 Azure 電腦](./media/quick-onboard-linux-computer/non-azure.png)
 
-6.  在 [直接代理程式] 頁面的 [下載並啟動 Linux 代理程式] 下，選取 [複製] 按鈕以複製 *wget* 命令。
+6. 在 [直接代理程式] 頁面的 [下載並啟動 Linux 代理程式] 下，選取 [複製] 按鈕以複製 *wget* 命令。
 
-7.  開啟 [記事本] 並貼上此命令。 將此檔案儲存到可從您的 Linux 電腦存取的位置。
+7. 開啟 [記事本] 並貼上此命令。 將此檔案儲存到可從您的 Linux 電腦存取的位置。
 
 ## <a name="install-the-agent"></a>安裝代理程式
 
-1.  在您的 Linux 電腦上，開啟先前儲存的檔案。 選取整個內容，複製內容，然後開啟終端機主控台並貼上命令。
-2.  安裝完成之後，您可以執行 *pgrep* 來驗證是否已安裝 *omsagent*。 該命令會傳回如下的 *omsagent* PID (處理序識別碼)：
+1. 在您的 Linux 電腦上，開啟先前儲存的檔案。 選取整個內容，複製內容，然後開啟終端機主控台並貼上命令。
+2. 安裝完成之後，您可以執行 *pgrep* 來驗證是否已安裝 *omsagent*。 該命令會傳回如下的 *omsagent* PID (處理序識別碼)：
 
-  ![安裝代理程式][5]
+   ![安裝代理程式][5]
 
 Linux 資訊安全中心代理程式的記錄檔可以在下列位置找到：*/var/opt/microsoft/omsagent/<workspace id>/log/*
 

@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b099d1765f0ed56d6768501086bf8b9f83d5a86a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: f5ac1c53a97fc2a3749582c5f48b967e3ce0c2c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112264"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104262"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>教學課程：示範透過 Service Fabric 容錯移轉與調整容器服務
 
@@ -31,7 +31,7 @@ ms.locfileid: "37112264"
 > * 了解 Service Fabric 叢集中的容器容錯移轉
 > * 在應用程式中調整 Web 前端容器
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 [第 2 部分](service-fabric-tutorial-package-containers.md)的應用程式正在使用中的 Service Fabric 叢集中執行。
 
@@ -63,8 +63,8 @@ Service Fabric 容器可調整擴充到整個叢集，以容納服務上的負�
 
 您現在可以選擇調整 Web 前端的執行個體數目。
 
-3. 將數字變更為 **2**，然後按一下 [調整服務]。
-4. 按一下樹狀檢視中的 **fabric:/TestContainer/azurevotefront** 節點，並展開分割區節點 (以 GUID 表示)。
+1. 將數字變更為 **2**，然後按一下 [調整服務]。
+1. 按一下樹狀檢視中的 **fabric:/TestContainer/azurevotefront** 節點，並展開分割區節點 (以 GUID 表示)。
 
 ![sfxscaledone][sfxscaledone]
 

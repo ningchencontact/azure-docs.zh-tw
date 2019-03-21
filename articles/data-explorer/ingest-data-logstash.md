@@ -8,12 +8,12 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/14/2019
-ms.openlocfilehash: 4b5934123f5bb7fa9eaa2c67c212bcef2a5de0aa
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 01115524ae3890c1d6a0220bcf89e86090d148cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54479262"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078868"
 ---
 # <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>快速入門：將資料從 Logstash 擷取至 Azure 資料總管
 
@@ -108,7 +108,7 @@ output {
 ```
 
 | 參數名稱 | 說明 |
-| --- | --- | --- |
+| --- | --- |
 | **路徑** | Logstash 外掛程式會先將事件寫入至暫存檔，再傳送至 Azure 資料總管。 此參數會包含應寫入檔案的路徑，以及檔案輪替在觸發上傳至 Azure 資料總管服務的動作時所使用的時間運算式。|
 | **ingest_url** | 擷取相關通訊的 Kusto 端點。|
 | **app_id**、**app_key** 和 **app_tenant**| 連線至 Azure 資料總管所需的認證。 請務必使用具有擷取權限的應用程式。 |

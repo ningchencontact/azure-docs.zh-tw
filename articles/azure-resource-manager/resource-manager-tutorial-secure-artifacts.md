@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 53cc987d13479fc0d9276ec80f33a163a2a6ded7
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: f7f235ce709fd81c4bb4c367774b4a96cd920e13
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817026"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120341"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>教學課程：保護 Azure Resource Manager 範本部署中的成品
 
@@ -126,11 +126,11 @@ ms.locfileid: "56817026"
 3. 選取 [產生 Blob SAS 權杖和 URL]。
 4. 複製 [Blob SAS URL]。 URL 的中間是檔案名稱 **SQLDatabaseExtension.bacpac**。  此檔案名稱將 URL 分成三個部分：
 
-    - **成品位置**： https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/。 確定位置是以 "/" 結尾。
-    - **BACPAC 檔案名稱**：SQLDatabaseExtension.bacpac。
-    - **成品位置 SAS 權杖**：確定權杖的前面加上 "?"。
+   - **成品位置**： https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/。 確定位置是以 "/" 結尾。
+   - **BACPAC 檔案名稱**：SQLDatabaseExtension.bacpac。
+   - **成品位置 SAS 權杖**：確定權杖的前面加上 "?"。
 
-    您在[部署範本](#deploy-the-template)中需要這三個值。
+     您在[部署範本](#deploy-the-template)中需要這三個值。
 
 ## <a name="open-an-existing-template"></a>開啟現有範本
 
@@ -146,13 +146,13 @@ ms.locfileid: "56817026"
 
     範本中定義了五個資源：
 
-    * `Microsoft.Sql/servers` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers)。
-    * `Microsoft.SQL/servers/securityAlertPolicies` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies)。
-    * `Microsoft.SQL/servers/filewallRules` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules)。
-    * `Microsoft.SQL/servers/databases` 。  請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases)。
-    * `Microsoft.SQL/server/databases/extensions` 。  請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions)。
+   * `Microsoft.Sql/servers` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers)。
+   * `Microsoft.SQL/servers/securityAlertPolicies` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies)。
+   * `Microsoft.SQL/servers/filewallRules` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules)。
+   * `Microsoft.SQL/servers/databases` 。  請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases)。
+   * `Microsoft.SQL/server/databases/extensions` 。  請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions)。
 
-    自訂範本之前，最好能初步了解範本。
+     自訂範本之前，最好能初步了解範本。
 4. 選取 [檔案]>[另存新檔]，以名稱 **azuredeploy.json** 將檔案的複本儲存至您的本機電腦。
 
 ## <a name="edit-the-template"></a>編輯範本

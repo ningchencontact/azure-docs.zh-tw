@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b590d75abb9e3f6465594a5c8c684b94e6f2e07f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d1debbcc8f225a0d4608d67b19e5e00aca580ce1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864290"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122007"
 ---
 # <a name="what-is-azure-backup"></a>何謂 Azure 備份？
 
@@ -55,10 +55,10 @@ Azure 備份與 Azure Site Recovery 都是有助於為您的企業建立商務�
 您可以透過列表來釐清您的 BCDR 需求。 
 
 **目標** | **詳細資料** | **比較**
---- | --- | --- | --- |
+--- | --- | --- 
 **資料備份/保留** | 備份資料可以保留並儲存數天、數個月，甚或數年 (若有合規方面的需求)。 | 備份解決方案 (例如 Azure 備份) 可讓您精確挑選您要備份的資料，並精細調整備份和保留原則。<br/><br/> Site Recovery 則不允許這樣的微調。
 **復原點目標 (RPO)** | 在需要進行復原的情況下可接受的資料遺失數量。 | 備份的 RPO 有較多變化。<br/><br/> VM 備份的 RPO 通常為一天，而資料庫備份的 RPO 則可能只要 15 分鐘。<br/><br/> 由於複寫會連續或頻繁地執行，使得來源與複本之間的差異很小，因此 Site Recovery 會提供較低的 RPO。
-**復原時間目標 (RTO)** |完成復原或還原所需的時間量。 | 由於 RPO 較大，備份解決方案需要處理的資料量通常更多，這會導致 RTO 較長。 例如，根據從異地傳輸磁帶所需的時間，從磁帶還原資料可能需要數天的時間。 | 災害復原解決方案 (例如 Site Recovery) 會有較低的 RPO，因為連續/頻繁的複寫通常意味著目標與來源之間具有較高的同步性。 |
+**復原時間目標 (RTO)** |完成復原或還原所需的時間量。 | 由於 RPO 較大，備份解決方案需要處理的資料量通常更多，這會導致 RTO 較長。 例如，根據從異地傳輸磁帶所需的時間，從磁帶還原資料可能需要數天的時間。 
 
 ## <a name="what-backup-scenarios-are-supported"></a>支援哪些備份案例？
 

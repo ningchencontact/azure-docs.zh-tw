@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 426a8f3df67ee00ded0591024447770e4cfedc32
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 11e92b4c6b8799cde489369a202f8f7c8c05ca6c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020705"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535989"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站建置您的第一個資料處理站
 > [!div class="op_single_selector"]
@@ -162,7 +162,7 @@ ms.locfileid: "54020705"
 
      c. HDInsight 叢集會在您於 JSON 屬性中指定的 Blob 儲存體 (**linkedServiceName**) 建立預設容器。 HDInsight 不會在刪除叢集時刪除此容器。 這是設計的行為。 在使用 HDInsight 隨選連結服務時，除非有現有的即時叢集 (**timeToLive**)，否則每次處理配量時，就會建立 HDInsight 叢集。 此叢集會在處理完成時自動刪除。
 
-     隨著處理的配量越來越多，您會在 Blob 儲存體中看到許多容器。 如果在對作業進行疑難排解時不需要這些容器，建議您加以刪除以降低儲存成本。 這些容器的名稱遵循下列模式："adf**yourdatafactoryname**-**linkedservicename**-datetimestamp"。 請使用 [Azure 儲存體總管](http://storageexplorer.com/)之類的工具刪除 Blob 儲存體中的容器。
+     隨著處理的配量越來越多，您會在 Blob 儲存體中看到許多容器。 如果在對作業進行疑難排解時不需要這些容器，建議您加以刪除以降低儲存成本。 這些容器的名稱遵循下列模式："adf**yourdatafactoryname**-**linkedservicename**-datetimestamp"。 請使用 [Azure 儲存體總管](https://storageexplorer.com/)之類的工具刪除 Blob 儲存體中的容器。
 
      如需詳細資訊，請參閱[隨選 HDInsight 連結服務](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)。
 
