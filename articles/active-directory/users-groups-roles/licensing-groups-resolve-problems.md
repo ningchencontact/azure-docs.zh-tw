@@ -1,5 +1,5 @@
 ---
-title: 解決群組的授權指派問題 - Azure Active Directory | Microsoft Docs
+title: 解決授權指派問題的群組-Azure Active Directory |Microsoft Docs
 description: 當您使用 Azure Active Directory 以群組為基礎的授權時，如何識別及解決授權指派問題
 services: active-directory
 keywords: Azure AD 授權
@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c09df2a15fbd0bdfdd1478fad587e6a18695002c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c92969015910cc5bd72e2d9339d5c15c1f7af48b
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207495"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201529"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>識別及解決 Azure Active Directory 中群組的授權指派問題
 
@@ -33,21 +33,21 @@ Azure Active Directory (Azure AD) 中以群組為基礎的授權會介紹使用�
 ## <a name="how-to-find-license-assignment-errors"></a>如何找出授權指派錯誤
 **找出授權指派錯誤**
 
-   1. 若要在特定群組中尋找處於錯誤狀態的使用者，請開啟該群組的窗格。 如果有任何使用者處於錯誤狀態，[授權] 底下會出現通知。
+1. 若要在特定群組中尋找處於錯誤狀態的使用者，請開啟該群組的窗格。 如果有任何使用者處於錯誤狀態，[授權] 底下會出現通知。
 
-   ![群組，錯誤通知](./media/licensing-groups-resolve-problems/group-error-notification.png)
+   ![群組和錯誤的通知訊息](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
-   2. 選取這份通知，以開啟所有受影響的使用者清單。 您可以分別選取每個使用者以查看詳細資料。
+2. 選取這份通知，以開啟所有受影響的使用者清單。 您可以分別選取每個使用者以查看詳細資料。
 
-   ![群組，處於錯誤狀態的使用者清單](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
+   ![群組為授權錯誤狀態中的使用者清單](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
-   3. 若要尋找包含至少一個錯誤的所有群組，在 [Azure Active Directory] 刀鋒視窗上選取 [授權]，然後選取 [概觀]。 值得您注意的群組會顯示資訊方塊。
+3. 若要尋找包含至少一個錯誤的所有群組，在 [Azure Active Directory] 刀鋒視窗上選取 [授權]，然後選取 [概觀]。 值得您注意的群組會顯示資訊方塊。
 
-   ![概觀，處於錯誤狀態的群組相關資訊](./media/licensing-groups-resolve-problems/group-errors-widget.png)
+   ![概觀和群組處於錯誤狀態的相關資訊](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
-   4. 選取方塊以查看具有錯誤的所有群組的清單。 您可以選取每個群組以查看詳細資訊。
+4. 選取方塊以查看具有錯誤的所有群組的清單。 您可以選取每個群組以查看詳細資訊。
 
-   ![概觀，具有錯誤的群組清單](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
+   ![概觀和具有錯誤的群組清單](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
 
 
 下列幾節描述每個潛在問題及其解決方法。
@@ -104,9 +104,9 @@ Azure Active Directory (Azure AD) 中以群組為基礎的授權會介紹使用�
 
 > [!TIP]
 > 若要查看是否有重複的 Proxy 位址，請針對 Exchange Online 執行下列 PowerShell Cmdlet：
-```
-Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
-```
+> ```
+> Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+> ```
 > 如需此問題的詳細資訊，請參閱 [Exchange Online 中出現「已使用此 Proxy 位址」錯誤訊息](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online)。 該文章也包括[如何使用遠端 PowerShell 連線至 Exchange Online](https://technet.microsoft.com/library/jj984289.aspx)的相關資訊。 如需詳細資訊，請參閱[如何在 Azure AD 中填入 proxyAddresses 屬性](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad) \(英文\) 一文。
 
 為受影響的使用者解決任何 Proxy 位址問題之後，請務必在群組上強制執行授權處理，以確保現在可以套用授權。

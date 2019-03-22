@@ -3,8 +3,8 @@ title: 包含檔案
 description: 包含檔案
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.devlang: na
@@ -12,14 +12,14 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/19/2018
-ms.author: andret
+ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: d3f2efc0ae3dcf9bdcae3f82258b28b761944487
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
-ms.translationtype: HT
+ms.openlocfilehash: 4c4870dc0f5a423288e6cb561b985501414e8525
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988499"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203596"
 ---
 ## <a name="test-your-code"></a>測試您的程式碼
 
@@ -43,7 +43,7 @@ ms.locfileid: "49988499"
 
 瀏覽至控制器檢視之後，您應該就會看到一個資料表，包含使用者的基本屬性：
 
-|屬性 |值 |說明 |
+|屬性 |值 |描述 |
 |---|---|---|
 |**名稱** |使用者的全名 | 使用者的名字和姓氏。
 |**使用者名稱** |user<span>@domain.com</span> | 用來識別使用者的使用者名稱。
@@ -80,14 +80,14 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 若要限制使用者登入應用程式的存取權限，可使用多個選項：
 
-#### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>選項 1：限制只來自一個組織之 Active Directory 執行個體的使用者，登入您的應用程式 (單一租用戶)
+#### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>選項 1：註冊只來自一個組織之 Active Directory 執行個體的使用者以登入您的應用程式 (單一租用戶)
 
-這個選項是「LOB 應用程式」的常見案例：如果您想要讓應用程式只接受特定 Azure Active Directory 執行個體的成員帳戶登入 (包括該執行個體的「來賓帳戶」)，請執行下列動作：
+此選項是常見的案例*LOB 應用程式*:如果您想要接受只能從屬於特定的 Azure Active Directory 執行個體的帳戶登入您的應用程式 (包括*來賓帳戶*該執行個體) 執行下列動作：
 
 1. 在 **web.config** 檔案中，將 `Tenant` 參數的值從 `Common` 變更為組織的租用戶名稱 (如 `contoso.onmicrosoft.com`)。
 2. 在您的 [OWIN Startup 類別](#configure-the-authentication-pipeline) 中，將 `ValidateIssuer` 引數設為 `true`。
 
-#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>選項 2：將應用程式的存取限制為特定組織清單內的使用者
+#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>選項 2：限制對您特定的清單中的使用者之組織的應用程式的存取
 
 您可以將登入存取限制為僅限允許組織清單內之 Azure AD 組織中的使用者帳戶：
 1. 在您的 [OWIN Startup 類別](#configure-the-authentication-pipeline) 中，將 `ValidateIssuer` 引數設為 `true`。

@@ -5,24 +5,24 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 2/28/2018
 ms.author: mayg
-ms.openlocfilehash: fccc7379794b4b75ff53e517eddd95ff0f7db0e9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 99c7309e22d8ebe61a0a85b38c92bd3027977848
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223777"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013120"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>為 VNet 設定網路對應和 IP 位址
 
-本文說明如何彼此對應位於不同 Azure 區域之 Azure 虛擬網路 (VNet) 的兩個執行個體，以及如何設定網路之間的 IP 位址。 網路對應可確保在目標 Azure 區域中建立的複寫 VM，會建立在對應至來源 VM VNet 的 VNet 中。
+本文說明如何彼此對應位於不同 Azure 區域之 Azure 虛擬網路 (VNet) 的兩個執行個體，以及如何設定網路之間的 IP 位址。 網路對應會提供目標網路選取項目在啟用複寫時，根據來源網路中的預設行為。
 
 ## <a name="prerequisites"></a>必要條件
 
 在網路對應之前，您應該在來源和目標 Azure 區域中擁有 [Azure VNet](../virtual-network/virtual-networks-overview.md)。 
 
-## <a name="set-up-network-mapping"></a>設定網路對應
+## <a name="set-up-network-mapping-manually-optional"></a>設定網路對應以手動方式 （選擇性）
 
 對應網路，如下所示：
 
@@ -32,7 +32,7 @@ ms.locfileid: "55223777"
 
 3. 在 [新增網路對應] 中，選取來源和目標位置。 在我們的範例中，來源 VM 在東亞地區中執行，且會複寫至東南亞地區。
 
-    ![選取來源和目標 ](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+    ![選取來源和目標](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 3. 現在在相反的目錄中建立網路對應。 在我們的範例中，來源現在將是東南亞，目標將是東亞。
 
     ![[新增網路對應] 窗格 - 選取目標網路的來源和目標位置](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
@@ -44,8 +44,13 @@ ms.locfileid: "55223777"
 
 - Site Recovery 會根據您選取的目標，自動建立從來源到目標區域以及從目標到來源區域的網路對應。
 - 根據預設，Site Recovery 會在目標區域中建立與來源網路完全相同的網路。 Site Recovery 會新增 **-asr** 作為來源網路的名稱尾碼。 您可以自訂目標頁面。
-- 如果已發生網路對應，您就無法在啟用複寫時變更目標虛擬網路。 若要變更目標虛擬網路，您必須修改現有的網路對應。
-- 如果您修改從區域 A 到區域 B 的網路對應，請確定也會修改從區域 B 到區域 A 的網路對應。
+- 如果已經發生來源網路的網路對應，對應的目標網路一律為預設值時啟用更多的 vm 的複寫。 您可以選擇從下拉式清單中選擇其他可用的選項來變更目標虛擬網路。 
+- 若要變更新複寫的預設目標虛擬網路，您需要修改現有的網路對應。
+- 如果您想要修改從區域 A 到區域 B 的網路對應，請確定您先刪除網路對應從區域 B 到區域 a。在反向對應刪除後，請修改從區域 A 到區域 B 的網路對應，然後再建立 相關的反向對應。
+
+>[!NOTE]
+>* 修改網路對應時，才會變更新的 VM 複寫的預設值。 它不會影響現有的複寫的目標虛擬網路選取項目。 
+>* 如果您想要修改現有的複寫的目標網路，請移至計算和網路設定的複寫的項目。
 
 ## <a name="specify-a-subnet"></a>指定子網路
 
@@ -71,6 +76,7 @@ ms.locfileid: "55223777"
 **來源與目標子網路** | **詳細資料**
 --- | ---
 相同的位址空間 | 來源 VM NIC 的 IP 位址設為目標 VM 的 NIC IP 位址。<br/><br/> 如果該位址無法使用，則會設定下一個可用的 IP 位址作為目標。
+
 不同的位址空間<br/><br/> 目標子網路中的下一個可用 IP 位址將設為目標 VM NIC 位址。
 
 

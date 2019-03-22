@@ -11,22 +11,22 @@ ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: fe56b84b881b2afce9da9a7f7dfe4637c3494aa8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 05327c05594d38caf5e3d54f8a13eaaaac3588ec
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261956"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097435"
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>使用 Azure 入口網站建立 BizTalk 服務
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
-
+> 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
-
+> 
 > [!TIP]
 > 若要登入 Azure 入口網站，您需要 Azure 帳戶和 Azure 訂用帳戶。 如果沒有帳戶，您可在幾分鐘內建立免費試用帳戶。 查看 [Azure 免費試用](https://go.microsoft.com/fwlink/p/?LinkID=239738)。
 
@@ -143,8 +143,8 @@ Azure 帳戶可擁有多個訂用帳戶，只要使用者取得允許皆可管�
 <br/>
 
 <ul>
-<li><strong>增強金鑰使用方法</strong>：Azure BizTalk 服務至少需要伺服器驗證。</li>
-<li><strong>一般名稱</strong>：輸入 Azure BizTalk 服務 URL 的完整網域名稱 (FQDN)。 請參閱本文中的<a HREF="#CreateService">建立 BizTalk 服務</a>。</li>
+<li><strong>增強金鑰使用方法</strong>:最少，Azure BizTalk 服務會要求伺服器驗證。</li>
+<li><strong>一般名稱</strong>:輸入您的 Azure BizTalk 服務 URL 的完整的網域名稱 (FQDN)。 請參閱本文中的<a HREF="#CreateService">建立 BizTalk 服務</a>。</li>
 </ul>
 <br/>
 在建立 BizTalk 服務後，可以加入新的或不同的憑證。
@@ -165,13 +165,13 @@ Azure 帳戶可擁有多個訂用帳戶，只要使用者取得允許皆可管�
  查閱 [混合式連線](integration-hybrid-connection-overview.md) 以深入了解，其中包含建立和管理混合式連線。
 
 ## <a name="next-steps"></a>後續步驟
-現在，既然已建立 BizTalk 服務，請讓自己熟悉一下各種不同的 [BizTalk 服務：儀表板、監視和調整索引標籤](biztalk-dashboard-monitor-scale-tabs.md)。 您的 BizTalk 服務已準備好可供您的應用程式使用。 若要開始建立應用程式，請移至 [Azure BizTalk 服務](https://go.microsoft.com/fwlink/p/?LinkID=235197)(英文)。
+現在，建立 BizTalk 服務時，已經熟悉它的不同[BizTalk 服務：儀表板、 監視和調整索引標籤](biztalk-dashboard-monitor-scale-tabs.md)。 您的 BizTalk 服務已準備好可供您的應用程式使用。 若要開始建立應用程式，請移至 [Azure BizTalk 服務](https://go.microsoft.com/fwlink/p/?LinkID=235197)(英文)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [BizTalk 服務：版本圖表](biztalk-editions-feature-chart.md)<br/>
 * [BizTalk 服務：狀態圖表](biztalk-service-state-chart.md)<br/>
 * [BizTalk 服務：備份與還原](biztalk-backup-restore.md)<br/>
-* [BizTalk 服務：節流](biztalk-throttling-thresholds.md)<br/>
+* [BizTalk 服務：節流設定](biztalk-throttling-thresholds.md)<br/>
 * [BizTalk 服務：簽發者名稱和簽發者金鑰](biztalk-issuer-name-issuer-key.md)<br/>
 * [如何開始使用 Azure BizTalk 服務 SDK](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 * [混合式連線](integration-hybrid-connection-overview.md)

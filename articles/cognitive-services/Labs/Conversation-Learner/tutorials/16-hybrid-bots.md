@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 17be364959c5cdc1beaf48aa86966ede5c7c7309
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: b90fc42aa56bfc813ec464670336dea75cff0f0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219357"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117433"
 ---
 # <a name="how-to-use-conversation-learner-with-other-bot-building-technologies"></a>如何搭配其他聊天機器人建置技術使用對話學習模組
 
@@ -119,11 +119,11 @@ ms.locfileid: "55219357"
 2. 輸入「hello」(哈囉)。  因為未設定 `isOpen` 值，聊天機器人會說 "I’m sorry we’re closed" (很抱歉，本日營業時間結束)，然後結束工作階段。
 
 #### <a name="scenario-2-store-is-open"></a>案例 2：商店營業中
-3. 輸入 'open store' (開店)。  這會將 `isOpen` 設為 True。
-4. 輸入 'shop' (商店)。
-5. 輸入「hello」(哈囉)。  因為已將 `isOpen` 值設為 True，聊天機器人將會說 "What would you like to buy?" (您想要買什麼？)
-6. 輸入 'chair' (椅子)。 'chair' (椅子) 將儲存到 CL 記憶體作為 `purchaseItem` 實體。 系統會叫用結束工作階段回呼，將此值複製到對話存放區。
-7. 輸入 'history' (歷程記錄)。  聊天機器人將會說 'You bought chair' (您購買了椅子)，因為這是您的最後一個 `purchaseItem`。
+1. 輸入 'open store' (開店)。  這會將 `isOpen` 設為 True。
+1. 輸入 'shop' (商店)。
+1. 輸入「hello」(哈囉)。  因為已將 `isOpen` 值設為 True，聊天機器人將會說 "What would you like to buy?" (您想要買什麼？)
+1. 輸入 'chair' (椅子)。 'chair' (椅子) 將儲存到 CL 記憶體作為 `purchaseItem` 實體。 系統會叫用結束工作階段回呼，將此值複製到對話存放區。
+1. 輸入 'history' (歷程記錄)。  聊天機器人將會說 'You bought chair' (您購買了椅子)，因為這是您的最後一個 `purchaseItem`。
 
 ## <a name="conclusion"></a>結論
 

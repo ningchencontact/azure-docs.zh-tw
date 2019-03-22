@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fed31d07f4bbe9fc47ce0d2c31f45fed288c4c4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 6888a8787856ef23c459c7ffc18f8e2b4de17f6f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218018"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901129"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>密碼原則和 Azure Active Directory 中的限制
 
@@ -36,20 +36,22 @@ ms.locfileid: "56218018"
   * 計費管理員
   * 合作夥伴第 1 層支援
   * 合作夥伴第 2 層支援
-  * Exchange 服務管理員
-  * Lync 服務管理員
-  * 使用者帳戶管理員
+  * Exchange 系統管理員
+  * 商務用 Skype 的管理員
+  * 使用者管理員
   * 目錄寫入器
   * 全域管理員或公司系統管理員
-  * SharePoint 服務管理員
+  * SharePoint 管理員
   * 規範管理員
   * 應用程式管理員
   * 安全性系統管理員
   * 特殊權限角色管理員
-  * Microsoft Intune 服務管理員
+  * Intune 系統管理員
   * 應用程式 Proxy 服務管理員
-  * CRM 服務管理員
+  * Dynamics 365 系統管理員
   * Power BI 服務管理員
+  * 驗證系統管理員
+  * 特殊權限的驗證管理員
 
 * 如果試用版訂用帳戶已經過 30 天；或
 * 已存在虛名網域，例如 contoso.com；或
@@ -75,13 +77,13 @@ ms.locfileid: "56218018"
 
 ## <a name="password-policies-that-only-apply-to-cloud-user-accounts"></a>僅適用於雲端使用者帳戶的密碼原則
 
-下表描述可套用至在 Azure AD 中建立及管理的使用者帳戶的可用密碼原則設定：
+下表描述套用至所建立及管理 Azure AD 中的使用者帳戶的密碼原則設定：
 
 | 屬性 | 需求 |
 | --- | --- |
-| 允許的字元 |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
-| 不允許的字元 |<ul><li>Unicode 字元。</li><li>空格。</li><li> 僅限強式密碼：不能包含點字元 "."緊接在「\@\" 符號」之前。</li></ul> |
-| 密碼限制 |<ul><li>最少 8 個字元和最多 16 個字元。</li><li>僅限強式密碼：需要下列四種字元中的三種：<ul><li>小寫字元。</li><li>大寫字元。</li><li>數字 (0-9)。</li><li>符號 (請參閱先前的密碼限制)。</li></ul></li></ul> |
+| 允許的字元 |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li></ul> |
+| 不允許的字元 |<ul><li>Unicode 字元。</li><li>空格。</li><li> 不能包含點字元 」。 「 前 」\@ \"符號 」。</li></ul> |
+| 密碼限制 |<ul><li>最少 8 個字元和最多 16 個字元。</li><li>需要下列四種字元中的三種：<ul><li>小寫字元。</li><li>大寫字元。</li><li>數字 (0-9)。</li><li>符號 (請參閱先前的密碼限制)。</li></ul></li></ul> |
 | 密碼到期時間 |<ul><li>預設值：**90** 天。</li><li>可透過適用於 Windows PowerShell 的 Azure Active Directory 模組使用 `Set-MsolPasswordPolicy` Cmdlet 設定該值。</li></ul> |
 | 密碼到期通知 |<ul><li>預設值：**14** 天 (密碼到期之前)。</li><li>可使用 `Set-MsolPasswordPolicy` Cmdlet 設定此值。</li></ul> |
 | 密碼到期 |<ul><li>預設值︰**false** 天 (表示已啟用密碼到期)。</li><li>可以使用 `Set-MsolUser` Cmdlet 針對個別使用者帳戶設定該值。</li></ul> |
@@ -108,7 +110,7 @@ Microsoft 雲端服務的全域管理員可以使用「適用於 Windows PowerSh
 1. 使用您公司的管理員認證連線至 Windows PowerShell。
 1. 執行下列其中一個命令：
 
-   * 若要查看單一使用者的密碼是否設為永久有效，請透過使用 UPN (例如 *aprilr@contoso.onmicrosoft.com*)，或是您想要檢查之使用者的使用者識別碼，來執行下列 Cmdlet：`Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
+   * 若要查看單一使用者的密碼是否設定為永不過期，請執行下列 cmdlet 的 upn (例如*aprilr\@contoso.onmicrosoft.com*) 或您想要檢查之使用者的使用者識別碼： `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
    * 若要查看所有使用者的**密碼永久有效**設定，請執行下列 Cmdlet：`Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
 
 ### <a name="set-a-password-to-expire"></a>設定密碼到期

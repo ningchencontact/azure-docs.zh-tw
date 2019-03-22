@@ -6,14 +6,14 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 08/06/2018
+ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 56fbb5d45e55e63ae887d915367cfc649e531095
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
-ms.translationtype: HT
+ms.openlocfilehash: 9accb41cdb4d780bf137d6872cca022226f902e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820217"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180750"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>在遠端監視解決方案加速器中設定角色型存取控制
 
@@ -21,7 +21,7 @@ ms.locfileid: "51820217"
 
 ## <a name="default-settings"></a>預設設定
 
-當您第一次部署遠端監視解決方案時，有兩個角色：**管理員**和**唯讀**。
+首次部署远程监视解决方案时，有两个角色：“管理员”和“只读”。
 
 擁有 [管理員] 角色的任何使用者具有解決方案的完整存取權，包括下列權限。 具備 [唯讀] 角色的使用者只能夠檢視解決方案。
 
@@ -249,5 +249,5 @@ public async Task DeleteAsync(string id)
 
 如需關於遠端監視解決方案加速器的詳細概念資訊，請參閱[遠端監視架構](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
-如需關於自訂遠端監視解決方案的詳細資訊，請參閱[自訂和重新部署微服務](iot-accelerators-microservices-example.md)
+如需關於自訂遠端監視解決方案的詳細資訊，請參閱[自訂和重新部署微服務](iot-accelerators-microservices-example.md)。
 <!-- Next tutorials in the sequence -->

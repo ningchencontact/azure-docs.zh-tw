@@ -1,6 +1,6 @@
 ---
 title: 在 HDInsight 中搭配使用 Apache Pig 與 PowerShell - Azure
-description: 了解如何使用 Azure PowerShell 將 Apache Pig 作業提交至 HDInsight 上的 Apache Hadoop 叢集。
+description: 了解如何在 Apache Pig 工作提交至 HDInsight 使用 Azure PowerShell 上的 Apache Hadoop 叢集。
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 84780d7c432e818153f964522063f29d8540e0ec
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: 69a45a0c2c21ffafde8a4b366e1f3e90b7c8f59a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434302"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012613"
 ---
 # <a name="use-azure-powershell-to-run-apache-pig-jobs-with-hdinsight"></a>使用 Azure PowerShell 執行 Apache Pig 作業與 HDInsight
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-本文件提供使用 Azure PowerShell 將 Apache Pig 作業提交至 HDInsight 叢集上的 Apache Hadoop 的範例。 Pig 可讓您使用可建立資料轉換模型的語言 (Pig Latin) 撰寫 MapReduce 工作，而不是撰寫對應和歸納函數。
+本文件提供使用 Azure PowerShell 將 Apache Pig 工作提交至 HDInsight 叢集上的 Apache Hadoop 的範例。 Pig 可讓您使用可建立資料轉換模型的語言 (Pig Latin) 撰寫 MapReduce 工作，而不是撰寫對應和歸納函數。
 
 > [!NOTE]  
 > 本文件不提供範例中使用的 Pig Latin 陳述式所執行的工作詳細的描述。 如需此範例中使用的 Pig Latin 相關資訊，請參閱 [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Pig](hdinsight-use-pig.md)。
@@ -42,7 +42,7 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Pi
 
 * **Connect-AzureRmAccount**:向您的 Azure 訂用帳戶驗證 Azure PowerShell。
 * **New-AzureRmHDInsightPigJobDefinition**：使用指定的 Pig Latin 陳述式建立「作業定義」。
-* **Start-AzureRmHDInsightJob**：將作業定義傳送至 HDInsight，並啟動作業。 系統會傳回「作業」物件。
+* **Start-AzureRmHDInsightJob**：將作業定義傳送給 HDInsight，並啟動作業。 系統會傳回「作業」物件。
 * **Wait-AzureRmHDInsightJob**：使用作業物件來檢查作業的狀態。 它會等到作業完成，或超過等候時間。
 * **Get-AzureRmHDInsightJobOutput**：用來擷取作業的輸出。
 
@@ -52,13 +52,13 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Pi
 
     [!code-powershell[main](../../../powershell_scripts/hdinsight/use-pig/use-pig.ps1?range=5-51)]
 
-1. 開啟新的 Windows PowerShell 命令提示字元。 將目錄變更至 **pigjob.ps1** 檔案的位置，然後使用下列命令來執行指令碼：
+1. 打开新的 Windows PowerShell 命令提示符。 將目錄變更至 **pigjob.ps1** 檔案的位置，然後使用下列命令來執行指令碼：
 
         .\pigjob.ps1
 
     系統會提示您登入 Azure 訂用帳戶。 接著，您必須提供 HDInsight 叢集的 HTTP/管理帳戶名稱和密碼。
 
-2. 作業完成時，應該會傳回與下面文字類似的資訊：
+2. 在作业完成时，它应返回类似于以下文本的信息：
 
         Start the Pig job ...
         Wait for the Pig job to complete ...

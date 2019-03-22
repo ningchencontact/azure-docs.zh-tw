@@ -4,7 +4,7 @@ description: Service Fabric 叢集和應用程式規劃和調整的最佳做法�
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
-manager: jeanpaul.connock
+manager: chackdan
 editor: ''
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 9de6cc224c82bb07fee4d62cd5de1d1964001bab
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 425154958e4c60902b56f320f714a011b9095830
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446812"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997340"
 ---
 # <a name="capacity-planning-and-scaling"></a>容量規劃和調整
 
@@ -40,7 +40,7 @@ ms.locfileid: "56446812"
 
 ## <a name="vertical-scaling-considerations"></a>垂直調整考量
 
-要[垂直調整](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out#upgrade-the-size-and-operating-system-of-the-primary-node-type-vms) Azure Service Fabric 中的節點類型，需執行若干步驟並考量相關事項。 例如︰
+要[垂直調整](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) Azure Service Fabric 中的節點類型，需執行若干步驟並考量相關事項。 例如︰
 * 在調整之前，叢集必須處於良好狀態。 否則，您只會讓叢集更加不穩定。
 * 所有裝載具狀態服務的 Service Fabric 叢集 NodeType，都需要**銀級或更高的持久性層級**。
 
@@ -159,6 +159,13 @@ var newCapacity = (int)Math.Max(MinimumNodeCount, scaleSet.Capacity - 1); // Che
 
 scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
+
+> [!NOTE]
+> 當您相應減少叢集就會看到顯示處於狀況不良的狀態，Service Fabric Explorer 中已移除的節點 /VM 執行個體。 如需此行為的說明，請參閱 < [Service Fabric Explorer 中，您可看到的行為](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer)。
+> 
+> 您可以：
+> * 呼叫[Remove-servicefabricnodestate cmd](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps)以適當的節點名稱。
+> * 部署[service fabric 自動調整規模的協助程式應用程式](https://github.com/Azure/service-fabric-autoscale-helper/)以確保節點下的 調整叢集上會清除從 Service Fabric Explorer。
 
 ## <a name="reliability-levels"></a>可靠性層級
 

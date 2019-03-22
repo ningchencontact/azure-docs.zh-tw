@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: robb
-ms.openlocfilehash: 596b7eb53d82f8eee7da439314994fd0951c7e64
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 3b6ddd99d7b198cdc5274b2944a723e68864bd4f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661712"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993030"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>什麼是 Microsoft Azure 中的傳統警示？
 
@@ -80,10 +80,10 @@ Azure 監視器會建立可重複使用的通知群組，稱為*動作群組*。
 - 呼叫 webhook，可讓您啟動其他自動化動作。
 
 Webhook 可啟用自動化和修復，例如使用：
-    - Azure 自動化 Runbook
-    - Azure Function
-    - Azure 邏輯應用程式
-    - 第三方服務
+- Azure 自動化 Runbook
+- Azure Function
+- Azure 邏輯應用程式
+- 第三方服務
 
 ## <a name="next-steps"></a>後續步驟
 使用下列項目取得有關警示規則和設定這些規則的資訊：

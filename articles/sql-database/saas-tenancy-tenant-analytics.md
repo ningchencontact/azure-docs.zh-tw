@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: f7c482a0308d3c2b2583d99cf4079040065b80c0
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 9f88314bbf507dc3b4e282532acfa079c2a63cce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561365"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890537"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>在單一租用戶應用程式中使用擷取的資料執行跨租用戶分析
  
@@ -93,7 +93,7 @@ ms.locfileid: "55561365"
     - 若要使用具有資料行存放區的 SQL 資料庫，請設定 **$DemoScenario** = **3**  
 3. 按 **F5** 以執行可建立租用戶分析存放區的示範指令碼 (它會呼叫 Deploy-TenantAnalytics<XX>.ps1 指令碼)。 
 
-您已經部署應用程式，並且使用感興趣的租用戶資料填入，請使用 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 來連線 **tenants1-dpt-&lt;User&gt;** 和 **catalog-dpt-&lt;User&gt;** 伺服器，使用登入 = developer，密碼 = P@ssword1。 如需詳細指引，請參閱[簡介教學課程](saas-dbpertenant-wingtip-app-overview.md)。
+既然您已部署應用程式，並填入感興趣的租用戶資料，使用[SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)連接**tenants1-dpt-&lt;使用者&gt;** 和**目錄-dpt-&lt;使用者&gt;** 伺服器，使用登入 =*開發人員*，密碼 = *P\@ssword1*。 如需詳細指引，請參閱[簡介教學課程](saas-dbpertenant-wingtip-app-overview.md)。
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -175,7 +175,7 @@ ms.locfileid: "55561365"
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. 在左窗格中選取 [資料庫]，然後輸入使用者名稱 = developer，輸入密碼 = P@ssword1。 按一下 [ **連接**]。  
+5. 選取 **資料庫**的左窗格中，然後輸入使用者名稱 =*開發人員*，然後輸入密碼 = *P\@ssword1*。 按一下 [ **連接**]。  
 
     ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 

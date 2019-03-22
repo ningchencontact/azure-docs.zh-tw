@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b9a668a71b0fb7b2bb57f759cc54a8d1930a0f03
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: be96aaa69fc1d59bdfa8079eff99c13c1e92c736
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329059"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905115"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>在虛擬機器上搭配使用 Azure 進階儲存體和 SQL Server
 
@@ -32,7 +32,7 @@ ms.locfileid: "56329059"
 > [!IMPORTANT]
 > Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。
 
-本文提供移轉執行 SQL Server 的虛擬機器來執行進階儲存體的規劃與指導方針。 這包括 Azure 基礎結構 (網路功能、儲存體) 和客體 Windows VM 步驟。 [附錄](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) 中的範例示範一個全方位的端對端移轉，說明如何透過 PowerShell 來移動更大的 VM，以利用改進的本機 SSD 儲存體。
+本文提供移轉執行 SQL Server 的虛擬機器來執行進階儲存體的規劃與指導方針。 这包括 Azure 基础结构（网络、存储）以及来宾 Windows VM 步骤。 [附錄](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) 中的範例示範一個全方位的端對端移轉，說明如何透過 PowerShell 來移動更大的 VM，以利用改進的本機 SSD 儲存體。
 
 請務必了解在 IAAS VM 上搭配使用 Azure 進階儲存體和 SQL Server 的端對端處理程序。 其中包括：
 
@@ -140,17 +140,17 @@ New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "We
 Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
 ```
 
-2. 記下 Diskname 和 LUN。
+1. 記下 DiskName 和 LUN。
 
     ![DisknameAndLUN][2]
-3. 從遠端桌面連接到 VM。 然後移至 [電腦管理]  |  [裝置管理員]  |  [磁碟機]。 查看每一個「Microsoft 虛擬磁碟」的屬性
+1. 從遠端桌面連接到 VM。 然後移至 [電腦管理]  |  [裝置管理員]  |  [磁碟機]。 查看每一個「Microsoft 虛擬磁碟」的屬性
 
     ![VirtualDiskProperties][3]
-4. 此處的 LUN 編號是您在將 VHD 連結到 VM 時所指定的 LUN 編號的參考。
-5. 針對「Microsoft 虛擬磁碟」，前往 [詳細資料] 索引標籤，然後在 [屬性] 清單中找到 [驅動程式機碼]。 記下 [值] 中的 [位移]，在下列螢幕擷取畫面中為 0002。 0002 表示儲存集區參考的 PhysicalDisk2。
+1. 此處的 LUN 編號是您在將 VHD 連結到 VM 時所指定的 LUN 編號的參考。
+1. 針對「Microsoft 虛擬磁碟」，前往 [詳細資料] 索引標籤，然後在 [屬性] 清單中找到 [驅動程式機碼]。 記下 [值] 中的 [位移]，在下列螢幕擷取畫面中為 0002。 0002 表示存储池引用的 PhysicalDisk2。
 
     ![VirtualDiskPropertyDetails][4]
-6. 針對每個儲存集區，傾印出關聯的磁碟：
+1. 转储每个存储池关联的磁盘：
 
 ```powershell
 Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
@@ -261,7 +261,7 @@ $ipaddr = "192.168.0.8"
 #Remember to change to DS series VM
 $newInstanceSize = "Standard_DS1"
 
-#create new Avaiability Set
+#create new Availability Set
 $availabilitySet = "cloudmigAVAMS"
 
 #Machine User Credentials
@@ -380,7 +380,7 @@ $destcloudsvc = "danregsvcamsxio2"
 #Use to DS Series VM
 $newInstanceSize = "Standard_DS1"
 
-#create new Avaiability Set
+#create new Availability Set
 $availabilitySet = "cloudmigAVAMS3"
 
 #Machine User Credentials
@@ -404,7 +404,7 @@ $vmConfigsl2 | New-AzureVM –ServiceName $destcloudsvc -VNetName $vnet
 > [!NOTE]
 > 針對現有部署，請先參閱本文的[必要條件](#prerequisites-for-premium-storage)一節。
 
-對於未使用「Always On 可用性群組」的 SQL Server 部署與使用該可用性群組的部署，有不同的考量。 如果您未使用 Always On 且目前擁有獨立的 SQL Server，就可以使用新的雲端服務和儲存體帳戶升級到進階儲存體。 請考量下列選項：
+對於未使用「Always On 可用性群組」的 SQL Server 部署與使用該可用性群組的部署，有不同的考量。 如果您未使用 Always On 且目前擁有獨立的 SQL Server，就可以使用新的雲端服務和儲存體帳戶升級到進階儲存體。 请考虑以下选项：
 
 * **建立新的 SQL Server VM**。 您可以建立新的 SQL Server VM 來使用進階儲存體帳戶，如＜新的部署＞中所述。 然後備份並還原 SQL Server 設定和使用者資料庫。 如果您會從內部或外部存取應用程式，就需要更新該應用程式，才能參考新的 SQL Server。 您需要複製所有「超出資料庫範圍」的物件，如同執行並存的 (SxS) SQL Server 移轉一樣。 這包含像是登入、憑證及連結的伺服器等物件。
 * **移轉現有的 SQL Server VM**。 這需要使 SQL Server VM 離線，然後將它傳輸到新的雲端服務，其中包含將其連結的所有 VHD 複製到進階儲存體帳戶。 當虛擬機器上線時，應用程式會和以前一樣參考伺服器主機名稱。 請注意，現有磁碟的大小會影響效能特性。 例如，400 GB 的磁碟會調高為 P20。 如果您知道不需要該磁碟效能，則可重新建立 VM 做為 DS 系列 VM，然後連結所需大小/效能規格的進階儲存體 VHD。 然後，您可以中斷連結並重新連結 SQL DB 檔案。
@@ -441,7 +441,7 @@ $vmConfigsl2 | New-AzureVM –ServiceName $destcloudsvc -VNetName $vnet
 
 #### <a name="1-add-more-secondary-replicas-to-an-existing-always-on-cluster"></a>1.在現有的 Always On 叢集中新增更多次要複本
 
-有一個策略是在 Always On 可用性群組中新增更多次要項目。 您需要將這些項目新增到新的雲端服務，然後使用新的負載平衡器 IP 來更新接聽程式。
+一种策略是将更多辅助副本添加到 AlwaysOn 可用性组。 您需要將這些項目新增到新的雲端服務，然後使用新的負載平衡器 IP 來更新接聽程式。
 
 ##### <a name="points-of-downtime"></a>停機時間點：
 
@@ -457,7 +457,7 @@ $vmConfigsl2 | New-AzureVM –ServiceName $destcloudsvc -VNetName $vnet
 > [!NOTE]
 > 您應該在「驗證」執行之前，先將所使用「儲存體集區」所屬的全部 SQL Server 執行個體停止。
 >
-> ##### <a name="high-level-steps"></a>高階步驟
+> ##### <a name="high-level-steps"></a>高级步骤
 >
 
 1. 在新的雲端服務中，使用連結的進階儲存體來建立兩部新的 SQL Server。
@@ -473,7 +473,7 @@ $vmConfigsl2 | New-AzureVM –ServiceName $destcloudsvc -VNetName $vnet
 6. 停止所有節點上的 SQL Server 引擎服務 (如果正在使用儲存集區)。
 7. 將新節點新增到叢集，然後執行完整驗證。
 8. 驗證成功之後，啟動所有 SQL Server 服務。
-9. 備份交易記錄，然後還原使用者資料庫。
+9. 备份事务日志并还原用户数据库。
 10. 將新節點新增到「AlwaysOn 可用性群組」中，並將複寫切換至 [同步] 。
 11. 根據 [附錄](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)中的多站台範例，透過適用於 AlwaysOn 的 PowerShell 新增新雲端服務 ILB/ELB 的 IP 位址資源。 在 Windows 叢集中，將 [IP 位址] 資源的 [可能的擁有者] 設為之前的新節點。 請參閱 [附錄](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)的＜在同一個子網路上新增 IP 位址資源＞。
 12. 容錯移轉到其中一個新節點。
@@ -483,7 +483,7 @@ $vmConfigsl2 | New-AzureVM –ServiceName $destcloudsvc -VNetName $vnet
 ##### <a name="advantages"></a>優點
 
 * 您可以在將新的 SQL Server 新增到 Always On 之前進行測試 (SQL Server 和應用程式)。
-* 您可以變更 VM 大小，並自訂儲存體大小以便完全符合您的需求。 但是，使所有 SQL 檔案路徑保持不變是非常實用的。
+* 可以根据确切需求更改 VM 大小和自定义存储。 但是，使所有 SQL 檔案路徑保持不變是非常實用的。
 * 您可以控制將 DB 備份傳輸到次要複本的開始時機。 這與使用 Azure **Start-AzureStorageBlobCopy** commandlet 來複製 VHD 不同，因為那是非同步的複本。
 
 ##### <a name="disadvantages"></a>缺點
@@ -491,15 +491,15 @@ $vmConfigsl2 | New-AzureVM –ServiceName $destcloudsvc -VNetName $vnet
 * 使用 Windows 儲存集區時，會在為新的其他節點進行完整叢集驗證期間產生叢集停機時間。
 * 根據 SQL Server 版本和次要複本的現有數目而定，您可能無法在不移除現有次要項目的情況下新增更多次要複本。
 * 在設定次要項目時，可能需要較長的 SQL 資料傳輸時間。
-* 如果您以平行方式執行新機器，則在移轉期間會產生額外的成本。
+* 在迁移期间，并行运行新计算机时会产生额外费用。
 
 #### <a name="2-migrate-to-a-new-always-on-cluster"></a>2.移轉到新的 Always On 叢集
 
 另一種策略是在新的雲端服務中，使用全新的節點來建立全新的 Always On 叢集，然後重新導向用戶端來使用該節點。
 
-##### <a name="points-of-downtime"></a>停機時間點
+##### <a name="points-of-downtime"></a>停机时间点
 
-當您將應用程式和使用者傳輸到新的 Always On 接聽程式時，即會產生停機時間。 停機時間取決於下列各項：
+當您將應用程式和使用者傳輸到新的 Always On 接聽程式時，即會產生停機時間。 停机时间取决于：
 
 * 用來將最後的交易記錄備份還原到新伺服器上之資料庫所需的時間。
 * 用來更新用戶端應用程式以使用新的 Always On 接聽程式所需的時間。
@@ -513,9 +513,9 @@ $vmConfigsl2 | New-AzureVM –ServiceName $destcloudsvc -VNetName $vnet
 
 ##### <a name="disadvantages"></a>缺點
 
-* 如果您想要同時執行這兩個 Always On 叢集，就需要變更接聽程式的 DNS 名稱。 因為用戶端應用程式字串必須反映新的接聽程式名稱，所以這會在移轉期間增加管理負荷。
+* 如果您想要同時執行這兩個 Always On 叢集，就需要變更接聽程式的 DNS 名稱。 这会增加迁移过程中的管理开销，因为客户端应用程序字符串必须反映新的侦听器名称。
 * 您必須在這兩個環境之間實作同步處理機制，使它們盡可能靠近彼此，以便在移轉之前將最後的同步處理需求降至最低。
-* 當您正在執行新環境時，這會在移轉期間增加成本。
+* 在迁移期间运行新环境会增加成本。
 
 ### <a name="migrating-always-on-deployments-for-minimal-downtime"></a>利用最少的停機時間移轉 Always On 部署
 
@@ -531,7 +531,7 @@ $vmConfigsl2 | New-AzureVM –ServiceName $destcloudsvc -VNetName $vnet
 ##### <a name="points-of-downtime"></a>停機時間點
 
 * 當您使用「負載平衡」端點更新最後一個節點時，會產生停機時間。
-* 根據您的用戶端/DNS 設定而定，用戶端連線可能會延遲。
+* 客户端重新连接可能会延迟，具体取决于客户端/DNS 配置。
 * 如果您選擇使 Always On 叢集群組離線以交換出 IP 位址，則會產生額外的停機時間。 您可以針對新增的「IP 位址」資源使用 OR 相依性和「可能的擁有者」，來避免發生這種情況。 請參閱 [附錄](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)的＜在同一個子網路上新增 IP 位址資源＞。
 
 > [!NOTE]
@@ -544,14 +544,14 @@ $vmConfigsl2 | New-AzureVM –ServiceName $destcloudsvc -VNetName $vnet
 * 降低複雜度。
 * 允許從進階儲存體 SKU 增加 IOPS。 從 VM 中斷連結磁碟並將其複製到新的雲端服務時，可以使用協力廠商的工具來增加 VHD 大小，以提供更高的輸送量。 若要增加 VHD 大小，請參閱這個 [論壇討論](https://social.msdn.microsoft.com/Forums/azure/4a9bcc9e-e5bf-4125-9994-7c154c9b0d52/resizing-azure-data-disk?forum=WAVirtualMachinesforWindows)。
 
-##### <a name="disadvantages"></a>缺點
+##### <a name="disadvantages"></a>缺点
 
 * 移轉期間會暫時遺失 HA 和 DR。
 * 因為這是 1:1 移轉，所以必須使用最小的 VM 大小來支援 VHD 數目，而您可能無法縮小 VM 的大小。
 * 在此情況下，應使用 Azure **Start-AzureStorageBlobCopy** commandlet (這是非同步的)。 複製完成時沒有 SLA。 複製的時間各有不同，儘管這取決於在佇列中等候的時間，但它還是會根據要傳輸的資料量來決定。 如果即將傳輸到另一個 Azure 資料中心 (該資料中心支援另一個區域的進階儲存體)，則會增加複製時間。 如果您只有 2 個節點，請考慮可能發生複製所需時間比測試時間還長的移轉案例。 這可能包括下列概念。
   * 在進行具有議定之停機時間的移轉之前，為 HA 新增第 3 個 SQL Server 臨時節點。
   * 在 Azure 排定的維護期間以外執行移轉。
-  * 確保您已正確設定叢集仲裁。  
+  * 确保已正确配置群集仲裁。  
 
 ##### <a name="high-level-steps"></a>高階步驟
 
@@ -733,7 +733,7 @@ Get-ClusterResource $ListenerName| Set-ClusterParameter RegisterAllProvidersIP  
 
 如果您的用戶端位於不同的網路區段並參考不同的 DNS 伺服器，您就需要考量在移轉期間「DNS 區域傳輸」會發生什麼情況，因為應用程式重新連線時間至少會受到任何新接聽程式 IP 位址的「區域傳輸時間」限制。 如果您受到此處所討論的時間所限制，就應該與您的 Windows 小組討論並測試強制執行增量區域傳輸，同時降低 DNS 主機記錄的存留時間，讓用戶端能夠更新。 如需詳細資訊，請參閱[增量區域傳輸](https://technet.microsoft.com/library/cc958973.aspx)和 [Start-DnsServerZoneTransfer](https://docs.microsoft.com/powershell/module/dnsserver/start-dnsserverzonetransfer)。
 
-針對 Azure 中與 Always On 上接聽程式相關聯的 DNS 記錄，其適用的 TTL 預設是 1200 秒。 如果您在移轉期間受到時間限制，可能希望降低這個時間，以確保用戶端可以使用適用於接聽程式的更新 IP 位址來更新他們的 DNS。 您可以藉由傾印出 VNN 設定來查看並修改設定：
+与 Azure AlwaysOn 侦听器关联的 DNS 记录的 TTL 默认为 1200 秒。 如果您在移轉期間受到時間限制，可能希望降低這個時間，以確保用戶端可以使用適用於接聽程式的更新 IP 位址來更新他們的 DNS。 您可以藉由傾印出 VNN 設定來查看並修改設定：
 
 ```powershell
 $AGName = "myProductionAG"
@@ -750,7 +750,7 @@ Get-ClusterResource $ListenerName| Set-ClusterParameter -Name "HostRecordTTL" 12
 
 ##### <a name="client-application-settings"></a>用戶端應用程式設定
 
-如果 SQL 用戶端應用程式支援 .Net 4.5 SQLClient，則您可以使用 ‘MULTISUBNETFAILOVER=TRUE’ 關鍵字。 請套用此關鍵字，因為它可讓您在容錯移轉期間更快連線到 SQL Alwayson 可用性群組。 它會平行列舉所有與 Always On 接聽程式相關聯的 IP 位址，並在容錯移轉期間更頻繁地執行 TCP 連線重試速度。
+如果您的 SQL 用戶端應用程式支援.NET 4.5 SQLClient，則您可以使用 ' MULTISUBNETFAILOVER = TRUE' 關鍵字。 請套用此關鍵字，因為它可讓您在容錯移轉期間更快連線到 SQL Alwayson 可用性群組。 它會平行列舉所有與 Always On 接聽程式相關聯的 IP 位址，並在容錯移轉期間更頻繁地執行 TCP 連線重試速度。
 
 如需上述設定的詳細資訊，請參閱 [MultiSubnetFailover 關鍵字和相關聯的功能](https://msdn.microsoft.com/library/hh213080.aspx#MultiSubnetFailover)。 另請參閱[適用於高可用性與災害復原的 SqlClient 支援](https://msdn.microsoft.com/library/hh205662\(v=vs.110\).aspx)。
 
@@ -926,7 +926,7 @@ $ipaddr = "192.168.0.5"
 $newInstanceSize = "Standard_DS13"
 $subnet = "SQL"
 
-#Create new Avaiability Set
+#Create new Availability Set
 $availabilitySet = "cloudmigAVAMS"
 
 #build machine config into object
@@ -973,7 +973,7 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 
 #SET Azure ACLs or Network Security Groups & Windows FWs
 
-#http://msdn.microsoft.com/library/azure/dn495192.aspx
+#https://msdn.microsoft.com/library/azure/dn495192.aspx
 
 ####WAIT FOR FULL AlwaysOn RESYNCRONISATION!!!!!!!!!#####
 ```
@@ -1125,7 +1125,7 @@ ForEach ($disk in $diskobjects)
 
 #Check for copy progress
 
-#check induvidual blob status
+#check individual blob status
 Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContext
 ```
 
@@ -1147,12 +1147,12 @@ ForEach ($disk in $diskobjects)
 
 ![Appendix12][22]
 
-繼續等待，直到這所有設定都記錄為成功為止。
+等到所有状态都记录为成功。
 
 適用於個別 Blob 的資訊：
 
 ```powershell
-#Check induvidual blob status
+#Check individual blob status
 Get-AzureStorageBlobCopyState -Blob "danRegSvcAms-dansqlams1-2014-07-03.vhd" -Container $containerName -Context $xioContextnode2
 ```
 
@@ -1176,7 +1176,7 @@ Add-AzureDisk -DiskName $xioDiskName -MediaLocation  "https://$newxiostorageacco
 $ipaddr = "192.168.0.4"
 $newInstanceSize = "Standard_DS13"
 
-#Join to existing Avaiability Set
+#Join to existing Availability Set
 
 #Build machine config into object
 $vmConfig = New-AzureVMConfig -Name $vmNameToMigrate -InstanceSize $newInstanceSize -DiskName $xioDiskName -AvailabilitySetName $availabilitySet  ` | Add-AzureProvisioningConfig -Windows ` | Set-AzureSubnet -SubnetNames $subnet | Set-AzureStaticVNetIP -IPAddress $ipaddr
@@ -1218,12 +1218,12 @@ Get-AzureVM –ServiceName $destcloudsvc –Name $vmNameToMigrate  | Add-AzureEn
 
 #SET ACLs or Azure Network Security Groups & Windows FWs
 
-#http://msdn.microsoft.com/library/azure/dn495192.aspx
+#https://msdn.microsoft.com/library/azure/dn495192.aspx
 ```
 
 #### <a name="step-23-test-failover"></a>步驟 23：測試容錯移轉
 
-等候所移轉的節點同步處理至內部部署 Always On 節點。 讓節點進入同步複寫模式，並等待它同步處理完成。 然後從內部部署容錯移轉到第一個移轉的節點，其為 AFP。 一旦該節點開始運作之後，請將最後一個移轉的節點變更為 AFP。
+等候所移轉的節點同步處理至內部部署 Always On 節點。 讓節點進入同步複寫模式，並等待它同步處理完成。 然後從容錯移轉在內部部署的第一個節點移轉，其為 AFP。 一旦該節點開始運作之後，請將最後一個移轉的節點變更為 AFP。
 
 您應該在所有節點之間測試容錯移轉，並且完整執行混亂測試，以確保容錯移轉會如預期般及時執行。
 

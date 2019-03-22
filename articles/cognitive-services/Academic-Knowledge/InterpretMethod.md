@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 6db9a5b65fc2723af2eae006ad81716e23e52133
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b679f1da0ada3e61fca79cdb985a43dc445877ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860519"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57975486"
 ---
 # <a name="interpret-method"></a>解譯事件
 
@@ -29,18 +29,20 @@ ms.locfileid: "55860519"
 
 ## <a name="request-parameters"></a>要求參數
 
-Name     | 值 | 必要？  | 說明
+名稱     | 值 | 必要？  | 描述
 ---------|---------|---------|---------
-**query**    | 文字字串 | yes | 使用者所輸入的查詢。  如果 complete 設為 1，則查詢會解譯為一個前置詞，以供產生查詢自動完成建議。        
+**query**    | 文字字串 | 是 | 使用者所輸入的查詢。  如果 complete 設為 1，則查詢會解譯為一個前置詞，以供產生查詢自動完成建議。        
 **model**    | 文字字串 | 否  | 想要查詢的模型名稱。  目前，此值會預設為 latest。        
 **complete** | 0 或 1 | 否<br>預設值：0  | 1 表示根據文法與圖表資料產生自動完成建議。         
 **count**    | 數字 | 否<br>預設值︰10 | 要傳回的解譯數目上限。         
 **offset**   | 數字 | 否<br>預設值：0  | 要傳回的第一個解譯索引。 例如，count=2&offset=0 會傳回解譯 0 和 1。 *count=2&offset=2* 會傳回解譯 2 和 3。       
 **timeout**  | 數字 | 否<br>預設：1000 | 逾時 (以毫秒為單位)。 只會傳回在逾時之前找到的解譯。
+
 <br>
   
 ## <a name="response-json"></a>回應 (JSON)
-Name     | 說明
+
+名稱     | 描述
 ---------|---------
 **query** |要求中的 *query* 參數。
 **interpretations** |0 個或更多種根據文法比對使用者輸入的各種方法陣列。
@@ -54,6 +56,7 @@ Name     | 說明
 **aborted** | 如果要求逾時，則為 true。
 
 <br>
+
 #### <a name="example"></a>範例：
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/interpret?query=papers by jaime&complete=1&count=2

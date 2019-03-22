@@ -9,11 +9,11 @@ ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: da46687517dbfe189571286087d4ef29d50d1246
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906296"
+ms.lasthandoff: 02/16/2019
+ms.locfileid: "58114312"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>適用於 Azure 虛擬機器工作負載的標準 SSD 受控磁碟
 
@@ -67,7 +67,7 @@ ms.locfileid: "54906296"
 
 **快照集**：計算「受控磁碟」的快照集費用時，會針對快照集在目標和來源使用的容量 (如果有的話) 計費。 如需有關快照集的詳細資訊，請參閱[受控磁碟快照集](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#managed-disk-snapshots)。
 
-**輸出資料傳輸**：[輸出資料傳輸](https://azure.microsoft.com/pricing/details/bandwidth/) (Azure 資料中心送出的資料) 會產生頻寬使用量費用。
+**輸出資料傳輸**：[出站数据传输](https://azure.microsoft.com/pricing/details/bandwidth/)（传出 Azure 数据中心的数据）会产生带宽使用费。
 
 **交易**：與「標準 HDD」類似，「標準 SSD」上的交易也會產生費用。 交易同時包含磁碟上的讀取和寫入作業。 「標準 SSD」上的交易所使用的會計 I/O 單位大小為 256 KiB。 更大的 I/O 大小則會視為大小是 256 KiB 的多個 I/O。
 

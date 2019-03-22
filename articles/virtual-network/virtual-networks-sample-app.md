@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: a8e52af1a1feb8a01ed5556efb6e153c56b25cca
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: ca111623f6d3d7c61b1bfc4e1af328f9599c2440
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700582"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884501"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>與 DMZ 搭配使用的範例應用程式
 [返回 [安全性界限最佳作法] 頁面][HOME]
@@ -42,7 +42,7 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
 此指令碼會：
 
 1. 在本機伺服器 Windows 防火牆開啟 IMCPv4 (Ping) 以方便測試
-2. 安裝 IIS 和 .Net Framework v4.5
+2. 安裝 IIS 和.NET Framework v4.5
 3. 建立 ASP.NET 網頁和 Web.config 檔案
 4. 變更預設應用程式集區以方便存取檔案
 5. 將匿名使用者設定為您的系統管理員帳戶和密碼
@@ -61,7 +61,7 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
     New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" -Protocol ICMPv4 -Enabled True -Profile Any -Action Allow
 
 # Install IIS
-    Write-Host "Installing IIS and .Net 4.5, this can take some time, like 15+ minutes..." -ForegroundColor Cyan
+    Write-Host "Installing IIS and .NET 4.5, this can take some time, like 15+ minutes..." -ForegroundColor Cyan
     add-windowsfeature Web-Server, Web-WebServer, Web-Common-Http, Web-Default-Doc, Web-Dir-Browsing, Web-Http-Errors, Web-Static-Content, Web-Health, Web-Http-Logging, Web-Performance, Web-Stat-Compression, Web-Security, Web-Filtering, Web-App-Dev, Web-ISAPI-Ext, Web-ISAPI-Filter, Web-Net-Ext, Web-Net-Ext45, Web-Asp-Net45, Web-Mgmt-Tools, Web-Mgmt-Console
 
 # Create Web App Pages
@@ -105,7 +105,7 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
           <div style="border: 2px solid #8AC007; border-radius: 25px; padding: 20px; margin: 10px; width: 650px;">
             <b>Image File Linked from the Internet</b>:<br />
             <br />
-            <img src="http://sd.keepcalm-o-matic.co.uk/i/keep-calm-you-made-it-7.png" alt="You made it!" width="150" length="175"/></div>
+            <img src="https://sd.keepcalm-o-matic.co.uk/i/keep-calm-you-made-it-7.png" alt="You made it!" width="150" length="175"/></div>
         </div>
       </form>
     </body>
@@ -152,12 +152,12 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
 2. 建立網站的目錄
 3. 建立網頁所要遠端存取的文字檔
 4. 將目錄和檔案的權限設為匿名以允許存取
-5. 關閉 IE 增強式安全性以允許更輕鬆地從這部伺服器瀏覽 
+5. 關閉 IE 增強式安全性以允許更輕鬆地從這部伺服器瀏覽
 
 > [!IMPORTANT]
 > **最佳做法**：永遠不要關閉實際執行伺服器上的「IE 增強式安全性」，而且從實際執行伺服器上網通常不是個好主意。 此外，最好不要開啟檔案共用來供匿名存取，這裡這樣做是為了簡單起見。
-> 
-> 
+>
+>
 
 在透過遠端桌面 (RDP) 存取 AppVM01 時，這個 PowerShell 指令碼應該會在本機執行。 PowerShell 必須以系統管理員身分執行，才能成功執行。
 

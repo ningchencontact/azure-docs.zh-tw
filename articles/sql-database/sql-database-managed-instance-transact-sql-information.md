@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: 942b1423583f663f22ced6ea8399409778b2f6de
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/13/2019
+ms.openlocfilehash: 8654899e0a6dfce8f25855eba6c5f4a88af78665
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455122"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903125"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database 受控執行個體的 T-SQL 差異
 
@@ -26,6 +26,7 @@ ms.locfileid: "56455122"
 ![移轉](./media/sql-database-managed-instance/migration.png)
 
 由於仍有一些語法和行為上的差異，因此本文將摘要說明這些差異。 <a name="Differences"></a>
+
 - [可用性](#availability)上的差異包括 [Always-On](#always-on-availability) 和[備份](#backup)，
 - [安全性](#security)上的差異包括[稽核](#auditing)、[憑證](#certificates)、[認證](#credential)、[密碼編譯提供者](#cryptographic-providers)、[登入 / 使用者](#logins--users)、[服務金鑰和服務主要金鑰](#service-key-and-service-master-key)，
 - [設定](#configuration)上的差異包括[緩衝集區延伸](#buffer-pool-extension)、[定序](#collation)、[相容性層級](#compatibility-levels)、[資料庫鏡像](#database-mirroring)、[資料庫選項](#database-options)、[SQL Server Agent](#sql-server-agent)、[資料表選項](#tables)，
@@ -61,10 +62,16 @@ ms.locfileid: "56455122"
 限制：  
 
 - 使用受控執行個體，您可以將執行個體資料庫備份至最多具有 32 個等量磁碟區的備份，這足夠最多 4 TB 的資料庫使用 (如果使用備份壓縮)。
-- 條帶 (Stripe) 大小的上限為 195 GB (Blob 大小的上限)。 在備份命令中增加條帶 (Stripe) 數目，可減少個別條帶 (Stripe) 的大小並維持在此限制內。
+- 使用的最大備份等量磁碟區大小`BACKUP`受管理的執行個體中的命令為 195 GB （最大 blob 大小）。 在備份命令中增加條帶 (Stripe) 數目，可減少個別條帶 (Stripe) 的大小並維持在此限制內。
 
-> [!TIP]
-> 若要在內部部署中解決此限制，請備份至 `DISK` (而不是備份至 `URL`)，並上傳至 Blob，然後進行還原。 還原作業支援更大的檔案，因為使用不同的 Blob 類型。  
+    > [!TIP]
+    > 若要解決這項限制，從 SQL Server 中的內部部署環境或虛擬機器中備份資料庫時，您可以執行下列作業：
+    >
+    > - 備份至`DISK`而不要備份至 `URL`
+    > - 備份的檔案上傳至 Blob 儲存體
+    > - 還原至受控執行個體
+    >
+    > `Restore`受管理的執行個體中的命令會支援備份檔案中較大 blob 大小因為不同的 blob 類型用來上傳備份檔案的儲存體。
 
 如需使用 T-SQL 進行備份的相關資訊，請參閱[備份](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql)。
 
@@ -125,44 +132,51 @@ WITH PRIVATE KEY (<private_key_options>)
 
 - 不支援 `FROM CERTIFICATE`、`FROM ASYMMETRIC KEY` 和 `FROM SID` 建立的 SQL 登入。 請參閱 [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql)。
 - 支援使用 [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) 語法或 [CREATE USER FROM LOGIN [Azure AD Login]](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) 語法建立的 Azure Active Directory (Azure AD) 伺服器主體 (登入) (**公開預覽**)。 這些是建立在伺服器層級的登入。
-    - 受控執行個體支援使用 `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER` 語法的 Azure AD 資料庫主體。 這也稱為 Azure AD 自主資料庫使用者。
+
+    受控執行個體支援使用 `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER` 語法的 Azure AD 資料庫主體。 這也稱為 Azure AD 自主資料庫使用者。
+
 - 不支援使用 `CREATE LOGIN ... FROM WINDOWS` 語法建立的 Windows 登入。 使用 Azure Active Directory 登入和使用者。
 - 建立執行個體的 Azure AD 使用者具有[不受限制的系統管理員權限](sql-database-manage-logins.md#unrestricted-administrative-accounts)。
 - 您可以使用 `CREATE USER ... FROM EXTERNAL PROVIDER` 語法建立非系統管理員的 Azure Active Directory (Azure AD) 資料庫層級使用者。 請參閱 [CREATE USER ...FROM EXTERNAL PROVIDER](sql-database-manage-logins.md#non-administrator-users)。
 - Azure AD 伺服器主體 (登入) 僅支援一個 MI 執行個體中的 SQL 功能。 Azure AD 使用者無法使用需跨越執行個體進行互動的功能，無論在相同 Azure AD 租用戶或不同租用戶中皆是如此。 這類功能的範例如下：
-    - SQL 異動複寫和
-    - 連結伺服器
+
+  - SQL 異動複寫和
+  - 連結伺服器
+
 - 不支援將對應至 Azure AD 群組的 Azure AD 登入設定為資料庫擁有者。
 - 支援使用其他 Azure AD 主體模擬 Azure AD 伺服器層級的主體，例如 [EXECUTE AS](/sql/t-sql/statements/execute-as-transact-sql) 子句。 EXECUTE AS 限制：
-    - 名稱與登入名稱不同時，不支援對 Azure AD 使用者使用 EXECUTE AS USER。 例如，如果透過 CREATE USER [myAadUser] FROM LOGIN [john@contoso.com] 語法建立使用者，並嘗試透過 EXEC AS USER = _myAadUser_ 進行模擬。 從 Azure AD 伺服器主體 (登入) 建立 **USER** 時，請指定與 **LOGIN** 中的 login_name 相同的 user_name。
-    - 只有屬於 `sysadmin` 角色一部分的 SQL 伺服器層級主體 (登入) 可以執行下列鎖定 Azure AD 主體的作業： 
-        - EXECUTE AS USER
-        - EXECUTE AS LOGIN
+
+  - 名稱與登入名稱不同時，不支援對 Azure AD 使用者使用 EXECUTE AS USER。 例如，如果透過 CREATE USER [myAadUser] FROM LOGIN [john@contoso.com] 語法建立使用者，並嘗試透過 EXEC AS USER = _myAadUser_ 進行模擬。 從 Azure AD 伺服器主體 (登入) 建立 **USER** 時，請指定與 **LOGIN** 中的 login_name 相同的 user_name。
+  - 只有屬於 `sysadmin` 角色一部分的 SQL 伺服器層級主體 (登入) 可以執行下列鎖定 Azure AD 主體的作業：
+
+    - EXECUTE AS USER
+    - EXECUTE AS LOGIN
+
 - **公開預覽** Azure AD 伺服器主體 (登入) 的限制：
-    - 受控執行個體的 Active Directory 系統管理員限制：
-        - 用來設定受控執行個體的 Azure AD 系統管理員不可用來在受控執行個體內建立 Azure AD 伺服器主體 (登入)。 您必須使用屬於 `sysadmin` 的 SQL Server 帳戶來建立第一個 Azure AD 伺服器主體 (登入)。 此一限制是暫時性的，在 Azure AD 伺服器主體 (登入) 正式運作後便會消除。 如果您嘗試使用 Azure AD 系統管理員帳戶來建立登入，則會看到下列錯誤：`Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
-        - 目前，在 Master DB 中建立的第一個 Azure AD 登入必須使用標準 SQL Server 帳戶 (非 Azure AD) 來建立，也就是使用 [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) FROM EXTERNAL PROVIDER 的 `sysadmin`。 正式運作後，這項限制將會移除，而初始 Azure AD 登入就能夠由受控執行個體的 Active Directory 系統管理員來建立。
+
+  - 受控執行個體的 Active Directory 系統管理員限制：
+
+    - 用來設定受控執行個體的 Azure AD 系統管理員不可用來在受控執行個體內建立 Azure AD 伺服器主體 (登入)。 您必須使用屬於 `sysadmin` 的 SQL Server 帳戶來建立第一個 Azure AD 伺服器主體 (登入)。 此一限制是暫時性的，在 Azure AD 伺服器主體 (登入) 正式運作後便會消除。 如果您嘗試使用 Azure AD 系統管理員帳戶來建立登入，則會看到下列錯誤：`Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
+      - 目前，在 Master DB 中建立的第一個 Azure AD 登入必須使用標準 SQL Server 帳戶 (非 Azure AD) 來建立，也就是使用 [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) FROM EXTERNAL PROVIDER 的 `sysadmin`。 正式運作後，這項限制將會移除，而初始 Azure AD 登入就能夠由受控執行個體的 Active Directory 系統管理員來建立。
     - 與 SQL Server Management Studio (SSMS) 或 SqlPackage 搭配使用的 DacFx (匯出/匯入) 不可用於 Azure AD 登入。 此一限制會在 Azure AD 伺服器主體 (登入) 正式運作後移除。
     - 搭配 SSMS 使用 Azure AD 伺服器層級主體 (登入)
-        - 不支援以指令碼執行 Azure AD 登入 (使用任何已驗證的登入)。
-        - IntelliSense 無法辨識 **CREATE LOGIN FROM EXTERNAL PROVIDER**陳述式，而且會顯示紅色底線。
+
+      - 不支援以指令碼執行 Azure AD 登入 (使用任何已驗證的登入)。
+      - IntelliSense 無法辨識 **CREATE LOGIN FROM EXTERNAL PROVIDER**陳述式，而且會顯示紅色底線。
+
 - 只有伺服器層級主體登入 (由受控執行個體佈建程序所建立)、伺服器角色的成員 (`securityadmin` 或 `sysadmin`)，或在伺服器層級上有 ALTER ANY LOGIN 權限的其他登入，可以在 Master 資料庫中建立受控執行個體的 Azure AD 伺服器主體 (登入)。
 - 如果登入是 SQL 主體，只有屬於 `sysadmin` 角色一部分的登入可以使用 create 命令來為 Azure AD 帳戶建立登入。
 - Azure AD 登入必須是 Azure SQL 受控執行個體所用目錄內的 Azure AD 成員。
 - 從 SSMS 18.0 preview 5 開始，Azure AD 伺服器主體 (登入) 會顯示在物件總管中。
 - 可允許 Azure AD 伺服器主體 (登入) 與 Azure AD 系統管理員帳戶重疊。 解析主體和將權限套用至受控執行個體時，Azure AD 伺服器主體 (登入) 會優先於 Azure AD 系統管理員。
 - 在驗證期間，解析驗證主體時會套用下列順序：
+
     1. 如果 Azure AD 帳戶以直接對應至 Azure AD 伺服器主體 (登入) 的形式存在 (在 sys.server_principals 中顯示為類型 ‘E’)，則授與存取權，並套用 Azure AD 伺服器主體 (登入) 的權限。
     2. 如果 Azure AD 帳戶是對應至 Azure AD 伺服器主體 (登入) 的 Azure AD 群組成員 (在 sys.server_principals 中顯示為類型 ‘X’)，則授與存取權，並套用 Azure AD 群組登入的權限。
     3. 如果 Azure AD 帳戶是由入口網站所設定且適用於受控執行個體的特殊 Azure AD 系統管理員 (不存在於受控執行個體的系統檢視)，則套用固定且適用於受控執行個體的 Azure AD 系統管理員權限 (傳統模式)。
     4. 如果 Azure AD 帳戶以直接對應至資料庫中 Azure AD 使用者的形式存在 (在 sys.database_principals 中為類型 ‘E’)，則授與存取權，並套用 Azure AD 資料庫使用者的權限。
     5. 如果 Azure AD 帳戶是對應至資料庫中 Azure AD 使用者的 Azure AD 群組成員 (在 sys.database_principals 中為類型 ‘X’)，則授與存取權，並套用 Azure AD 群組登入的權限。
     6. 如果有對應至 Azure AD 使用者帳戶或 Azure AD 群組帳戶的 Azure AD 登入要針對使用者驗證進行解析，則會套用此 Azure AD 登入的所有權限。
-
-
-
-
-
 
 ### <a name="service-key-and-service-master-key"></a>服務金鑰和服務主要金鑰
 
@@ -257,8 +271,6 @@ WITH PRIVATE KEY (<private_key_options>)
 - `SINGLE_USER`
 - `WITNESS`
 
-不支援修改名稱。
-
 如需詳細資訊，請參閱 [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-file-and-filegroup-options)。
 
 ### <a name="sql-server-agent"></a>SQL Server 代理程式
@@ -322,7 +334,6 @@ WITH PRIVATE KEY (<private_key_options>)
 - 只支援 `CREATE ASSEMBLY FROM BINARY`。 請參閱 [CREATE ASSEMBLY FROM BINARY](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql)。  
 - 不支援 `CREATE ASSEMBLY FROM FILE`。 請參閱 [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql)。
 - `ALTER ASSEMBLY` 無法參考檔案。 請參閱 [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql)。
-
 
 ### <a name="dbcc"></a>DBCC
 
@@ -437,7 +448,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 ### <a name="stored-procedures-functions-triggers"></a>預存程序、函式、觸發程序
 
-- 目前不支援 `NATIVE_COMPILATION`。
+- 常规用途层中不支持 `NATIVE_COMPILATION`。
 - 不支援下列 [sp_configure](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-configure-transact-sql) 選項：
   - `allow polybase export`
   - `allow updates`
@@ -448,7 +459,6 @@ WITH PRIVATE KEY (<private_key_options>)
 - 不支援 `xp_cmdshell`。 請參閱 [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql)。
 - 不支援 `Extended stored procedures`，包括 `sp_addextendedproc`  和 `sp_dropextendedproc`。 請參閱[擴充預存程序](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
 - 不支援 `sp_attach_db`、`sp_attach_single_file_db` 和 `sp_detach_db`。 請參閱 [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql)、[sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) 和 [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql)。
-- 不支援 `sp_renamedb`。 請參閱 [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql)。
 
 ## <a name="Changes"></a> 行為變更
 
@@ -467,7 +477,11 @@ WITH PRIVATE KEY (<private_key_options>)
 
 ### <a name="tempdb-size"></a>TEMPDB 大小
 
-`tempdb` 分割成 12 檔案，每個檔案最大為 14 GB。 無法變更每個檔案大小的上限，但可將新檔案新增至 `tempdb`。 這項限制很快將會移除。 如果某些查詢需要 168 GB 以上的 `tempdb`，則可能會傳回錯誤。
+最大檔案大小的`tempdb`不能大於 24 GB/core 一般用途層上。 最大`tempdb`業務關鍵層上的大小會限制執行個體儲存體大小。 `tempdb` 一律將分成 12 個資料檔案。 無法變更每個檔案大小的上限，但可將新檔案新增至 `tempdb`。 有些查詢可能會傳回錯誤，如果他們需要超過 24 GB / 核心中`tempdb`。
+
+### <a name="cannot-restore-contained-database"></a>無法還原自主的資料庫
+
+受控執行個體無法還原[自主資料庫](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases)。 時間點還原現有的自主資料庫無法運作的受控執行個體。 即將移除此問題，我們建議您在此同時移除內含項目選項，從您的資料庫放在受控執行個體上，請勿使用生產資料庫的內含項目選項。
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>小型資料庫檔案造成儲存空間超出限制
 
@@ -500,7 +514,7 @@ SQL Server Management Studio (SSMS) 和 SQL Server Data Tools (SSDT) 在存取�
 
 ### <a name="database-mail-profile"></a>資料庫郵件 XP
 
-可能只有一個資料庫郵件設定檔，而且一定名為 `AzureManagedInstance_dbmail_profile`。
+SQL 代理程式所使用的 database mail 設定檔，必須先呼叫`AzureManagedInstance_dbmail_profile`。
 
 ### <a name="error-logs-are-not-persisted"></a>錯誤記錄檔不會在工作階段之間保存下來
 
@@ -514,7 +528,7 @@ SQL Server Management Studio (SSMS) 和 SQL Server Data Tools (SSDT) 在存取�
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>不支援相同執行個體內兩個資料庫上的異動範圍
 
-若兩個查詢被傳送到相同異動範圍內相同執行個體內的兩個資料庫，.Net 中的 `TransactionScope` 類別將無法運作：
+`TransactionScope` 如果兩個查詢傳送到相同的執行個體的相同交易範圍內的兩個資料庫，在.NET 中的類別無法運作︰
 
 ```C#
 using (var scope = new TransactionScope())

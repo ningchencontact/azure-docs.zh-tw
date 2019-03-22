@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: 88efa6b16e33fe928ad9354b7283f7c651e6710c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: a4c256a6acd8e51986b40e28a6f658f1103ab337
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881295"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877695"
 ---
 # <a name="support-and-help-options"></a>支援和協助選項
 
@@ -30,7 +30,7 @@ ms.locfileid: "55881295"
 
 ## <a name="stay-informed"></a>掌握最新資訊
 
-認知服務的相關消息會收集在[認知服務部落格](https://azure.microsoft.com/blog/topics/cognitive-services/)中。 如需有關語音服務的最新資訊，請追蹤[語音服務部落格](https://azure.microsoft.com/blog/tag/speech-service/)。
+認知服務的相關消息會收集在[認知服務部落格](https://azure.microsoft.com/blog/topics/cognitive-services/)中。 如需語音服務最新的資訊，追蹤[語音服務部落格](https://azure.microsoft.com/blog/tag/speech-service/)。
 
 ## <a name="search"></a>Search
 
@@ -61,11 +61,11 @@ Stack Overflow 是適用於開發相關問題的慣用管道。 社群成員和 
 
 |元件/區域  |標記  |
 |---------|---------|
-|語音辨識 |[[microsoft-cognitive+speech-to-text]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
-|語音合成 |[[microsoft-cognitive+text-to-speech]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
-|語音翻譯 |[[microsoft-cognitive+translation]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
-|語音意圖 |[[microsoft-cognitive+luis]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
-|一般語音 SDK |[[microsoft-cognitive+microsoft-speech-api]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
+|語音辨識 |[[microsoft-cognitive+speech-to-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
+|語音合成 |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
+|語音翻譯 |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
+|語音意圖 |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
+|一般語音 SDK |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
 
 > [!TIP]
 > Stack Overflow 的下列貼文包含如何提出問題以及新增原始程式碼的提示。 遵循這些指導方針有助於增加社群成員快速評估並回應您問題的機會：  

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: df69cb5cc2e369a5e1f372d49a821616bf624db9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 51f5355e365d0dcf7a103deab3356f015e75641e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237547"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897502"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>LUIS 模型和金鑰的界限
 LUIS 句有數個界線領域。 第一個是[模型界線](#model-boundaries)，其控制 LUIS 中的意圖、實體和功能。 第二個領域是以金鑰類型為基礎的[配額限制](#key-limits)。 第三個界線領域是用來控制 LUIS 網站的[鍵盤組合](#keyboard-controls)。 第四個領域是 LUIS 撰寫網站和 LUIS [端點](luis-glossary.md#endpoint) API 之間的[世界區域對應](luis-reference-regions.md)。 
@@ -27,7 +27,7 @@ LUIS 句有數個界線領域。 第一個是[模型界線](#model-boundaries)�
 如果您的應用程式超出 LUIS 模型限制和界限，請考慮使用 [LUIS 分派](luis-concept-enterprise.md#dispatch-tool-and-model) 應用程式或使用 [LUIS 容器](luis-container-howto.md)。 
 
 |領域|限制|
-|--|:--|--|
+|--|:--|
 | [應用程式名稱][luis-get-started-create-app] | *預設字元上限 |
 | [批次測試][batch-testing]| 10 個資料集，每個資料集 1000 個語句|
 | 明確清單 | 每個應用程式 50 個|
@@ -41,7 +41,7 @@ LUIS 句有數個界線領域。 第一個是[模型界線](#model-boundaries)�
 | [規則運算式實體](./luis-concept-entity-types.md)|20 個實體<br>每個規則運算式實體模式 具有 500 個字元的上限|
 | [角色](luis-concept-roles.md)|每個應用程式 300 個角色。 每個實體 10 個角色|
 | [語句][utterances] | 500 個字元|
-| [語句][utterances] | 每個應用程式 15,000 個|
+| [語句][utterances] | 15,000 每個應用程式-沒有每意圖的談話數目沒有限制|
 | [版本](luis-concept-version.md)| 沒有限制 |
 | [版本名稱][luis-how-to-manage-versions] | 10 個字元，限制為英數字元和句號 (.) |
 
@@ -50,7 +50,7 @@ LUIS 句有數個界線領域。 第一個是[模型界線](#model-boundaries)�
 ## <a name="intent-and-entity-naming"></a>意圖和實體命名
 請不要在意圖和實體名稱中使用下列字元：
 
-|Character|Name|
+|Character|名稱|
 |--|--|
 |`{`|左大括號|
 |`}`|右大括號|
@@ -78,7 +78,7 @@ Language Understand 有不同的金鑰，一種適用於撰寫，一種適用於
 
 ## <a name="keyboard-controls"></a>鍵盤控制項
 
-|鍵盤輸入 | 說明 | 
+|鍵盤輸入 | 描述 | 
 |--|--|
 |Ctrl+E|在語句清單上的權杖和實體之間切換|
 

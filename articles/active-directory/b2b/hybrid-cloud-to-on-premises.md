@@ -1,6 +1,6 @@
 ---
-title: 對 Azure AD 中的 B2B 使用者授與內部部署應用程式的存取權 | Microsoft Docs
-description: 說明如何透過 Azure AD B2B 共同作業對雲端 B2B 使用者提供內部部署應用程式的存取權。
+title: 您的內部部署應用程式-Azure Active Directory 的 B2B 使用者授與存取 |Microsoft Docs
+description: 示範如何讓雲端 B2B 使用者存取內部部署應用程式與 Azure AD B2B 共同作業。
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ac169bfc2d04e08e9853bb6ceda64fdeed861b4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b0e9536f009d478796bc9367a66630c02019dcd2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190053"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441240"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>對 Azure AD 中的 B2B 使用者授與內部部署應用程式的存取權
 

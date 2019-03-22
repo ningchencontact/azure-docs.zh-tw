@@ -3,17 +3,17 @@ title: 上傳影像至您的 Azure IoT Central 應用程式 | Microsoft Docs
 description: 了解如何以建置者的身分準備及上傳影像至您的 Azure IoT Central 應用程式。
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/31/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 9d4de2a8be13718f7989f064b76b586407ca3a48
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: c8444fd57fe939dfb212d88c22a071c13dac691e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198604"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767323"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>準備及上傳影像至您的 Azure IoT Central 應用程式
 
@@ -30,13 +30,13 @@ ms.locfileid: "54198604"
 
 您可以將自訂影像新增至 Azure IoT Central 應用程式中的下列位置：
 
-* [應用程式管理員] 頁面
+* **我的應用程式**頁面
 
     ![[應用程式管理員] 頁面上的影像](media/howto-prepare-images/applicationmanager.png)
 
-* 首頁
+* 應用程式儀表板
 
-    ![首頁上的影像](media/howto-prepare-images/homepage.png)
+    ![應用程式儀表板上的映像](media/howto-prepare-images/homepage.png)
 
 * 裝置範本
 
@@ -60,7 +60,7 @@ ms.locfileid: "54198604"
 | -------- | ------ |
 | 應用程式管理員 | 268x160 px |
 | 裝置範本 | 64x64 px |
-| 首頁和儀表板磚 | 最小的磚大小為 200x200 px，較大的磚則可以是由多個小磚組合而成的正方形或矩形。 例如 200x400 px、400x200 px 或 400x400 px |
+| 儀表板磚 | 最小的磚大小為 200x200 px，較大的磚則可以是由多個小磚組合而成的正方形或矩形。 例如 200x400 px、400x200 px 或 400x400 px |
 
 如需在應用程式中取得最佳顯示效果，您應該建立符合上表所述尺寸的影像。
 
@@ -70,49 +70,49 @@ ms.locfileid: "54198604"
 
 ### <a name="application-manager"></a>應用程式管理員
 
-若要在 [應用程式管理員] 上上傳影像，請瀏覽至 [管理] 區段中的 [應用程式設定] 頁面。 您必須具有系統管理員的身分以完成此工作：
+若要使用的映像上傳**我的應用程式**頁面上，瀏覽至**應用程式設定**頁面**管理**區段。 您必須具有系統管理員的身分以完成此工作：
 
 ![上傳應用程式影像](media/howto-prepare-images/uploadapplicationmanager.png)
 
-按一下 [應用程式影像] 圖格，從本機電腦上傳您準備好的影像 (268 x 160 px)。
+選取要上傳您已備妥的映像的 [應用程式映像] 圖格 (268 x 160 像素) 從本機電腦。
 
-### <a name="home-page"></a>首頁
+### <a name="application-dashboard"></a>應用程式儀表板
 
-若要在首頁上上傳影像，請瀏覽至您應用程式的 [首頁]，然後按一下 [編輯]。 您必須具有建置者的身分以完成此工作：
+若要上傳應用程式儀表板上的影像，請瀏覽至**儀表板**頁面上，您的應用程式，然後選取**編輯**。 您必須具有建置者的身分以完成此工作：
 
-![上傳首頁影像](media/howto-prepare-images/uploadhomepage.png)
+![上傳儀表板影像](media/howto-prepare-images/uploadhomepage.png)
 
-按一下 [設定影像] 底下的 [影像] 圖格，從本機電腦上傳您準備好的影像。 最小的磚大小為 200x200 px，較大的磚則可以是由多個小磚組合而成的正方形或矩形。 例如 200x400 px、400x200 px 或 400x400 px。
+在設定的映像，選取要上傳您已備妥的映像，從本機電腦的 [映像] 圖格。 最小的磚大小為 200x200 px，較大的磚則可以是由多個小磚組合而成的正方形或矩形。 例如 200x400 px、400x200 px 或 400x400 px。
 
-**儲存**已上傳的影像。 您可以在處於編輯模式時進行調整。 完成後，請按一下 [完成]。 
+**儲存**已上傳的影像。 您可以在處於編輯模式時進行調整。 選取 **完成**時完成。
 
 ### <a name="device-template"></a>裝置範本
 
-若要在裝置範本上上傳影像，請瀏覽至 [Device Explorer]，選擇裝置範本，然後選擇裝置。 您必須具有建置者的身分以完成此工作：
+若要將影像上傳至裝置範本，請瀏覽至 [裝置範本]，然後選擇裝置範本。 您必須具有建置者的身分以完成此工作：
 
 ![上傳裝置範本影像](media/howto-prepare-images/uploaddevicetemplate.png)
 
-按一下影像圖格，從本機電腦上傳您準備好的影像 (64x64 px)。 
+選取要上傳您已備妥的映像的映像 圖格 (64 x 64 像素) 從本機電腦。
 
 ### <a name="device-dashboard"></a>裝置儀表板
 
-若要在裝置儀表板上上傳影像，請瀏覽至 [Device Explorer]，選擇裝置範本，然後選擇裝置。 接著，選擇 [儀表板] 頁面並按一下 [編輯範本]。 您必須具有建置者的身分以完成此工作：
+若要將影像上傳至裝置儀表板，請瀏覽至 [裝置範本]，然後選擇裝置範本。 然後，選擇 [儀表板] 索引標籤。您必須具有建置者的身分以完成此工作：
 
 ![上傳裝置儀表板影像](media/howto-prepare-images/uploaddevicedashboard.png)
 
-按一下 [設定影像] 底下的 [影像] 圖格，然後從本機電腦選擇要上傳的檔案。 最小的磚大小為 200x200 px，較大的磚則可以是由多個小磚組合而成的正方形或矩形。 例如 200x400 px、400x200 px 或 400x400 px。
+在設定的映像，選取 [映像] 圖格，，然後選擇要從本機電腦上傳的檔案。 最小的磚大小為 200x200 px，較大的磚則可以是由多個小磚組合而成的正方形或矩形。 例如 200x400 px、400x200 px 或 400x400 px。
 
-**儲存**已上傳的影像。 您可以在處於編輯模式時進行調整並重新定位。 完成後，請按一下 [完成]。
+**儲存**已上傳的影像。 您可以在處於編輯模式時進行調整並重新定位。 選取 **完成**時完成。
 
 ### <a name="device-set-dashboard"></a>裝置集合儀表板
 
-若要在裝置集合儀表板上上傳影像，請瀏覽至 [裝置集合]，選擇裝置集合，然後選擇裝置。 接著，選擇 [儀表板] 頁面並按一下 [編輯]：
+若要在裝置集合儀表板上上傳影像，請瀏覽至 [裝置集合]，選擇裝置集合，然後選擇裝置。 然後選擇**儀表板**頁面，然後選取**編輯**:
 
 ![上傳裝置集合儀表板影像](media/howto-prepare-images/uploaddevicesetdashboard.png)
 
-按一下 [設定影像] 底下的 [影像] 圖格，從本機電腦上傳您準備好的影像。 最小的磚大小為 200x200 px，較大的磚則可以是由多個小磚組合而成的正方形或矩形。 例如 200x400 px、400x200 px 或 400x400 px。
+在設定的映像，選取要上傳您已備妥的映像，從本機電腦的 [映像] 圖格。 最小的磚大小為 200x200 px，較大的磚則可以是由多個小磚組合而成的正方形或矩形。 例如 200x400 px、400x200 px 或 400x400 px。
 
-**儲存**已上傳的影像。 您可以在處於編輯模式時進行調整並重新定位。 完成後，請按一下 [完成]。
+**儲存**已上傳的影像。 您可以在處於編輯模式時進行調整並重新定位。 選取 **完成**時完成。
 
 ## <a name="next-steps"></a>後續步驟
 

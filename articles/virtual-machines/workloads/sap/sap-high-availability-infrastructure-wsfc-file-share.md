@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf0f06528b3571ce8307a2fed2fb9c43f608d15d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 064daa7ed8fb5be34524d9ea27cfa6c22b9c3e66
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656708"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008366"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>使用 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和檔案共用，為 SAP 高可用性準備 Azure 基礎結構
 
@@ -46,7 +46,7 @@ ms.locfileid: "34656708"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -213,7 +213,7 @@ ms.locfileid: "34656708"
 
 在開始安裝之前，請檢閱下列文章：
 
-* [架構指南：使用檔案共用在 Windows 容錯移轉叢集上進行 SAP ASCS/SCS 執行個體叢集處理][sap-high-availability-guide-wsfc-file-share]
+* [架構指南：使用檔案共用的 Windows 容錯移轉叢集上叢集 SAP ASCS/SCS 執行個體][sap-high-availability-guide-wsfc-file-share]
 
 
 ## <a name="host-names-and-ip-addresses"></a>主機名稱和 IP 位址
@@ -226,13 +226,13 @@ ms.locfileid: "34656708"
 | SAP PR1 ASCS 叢集網路名稱 |pr1-ascs | 10.0.6.7 | n/a |
 
 
-**表 1**：ASCS/SCS 叢集
+**表 1**:ASCS/SCS 叢集
 
 | SAP \<SID> | SAP ASCS/SCS 執行個體號碼 |
 | --- | --- |
 | PR1 | 00 |
 
-**表 2**：SAP ASCS/SCS 執行個體詳細資料
+**表 2**:SAP ASCS/SCS 執行個體詳細資料
 
 
 | 虛擬主機名稱角色 | 虛擬主機名稱 | 靜態 IP 位址 | 可用性設定組 |
@@ -243,7 +243,7 @@ ms.locfileid: "34656708"
 | 叢集網路名稱 | sofs-cl | 10.0.6.13 | n/a |
 | SAP 全域主機名稱 | sapglobal | 使用所有叢集節點的 IP | n/a |
 
-**表 3**：向外延展檔案伺服器叢集
+**表 3**:向外延展檔案伺服器叢集
 
 
 ## <a name="deploy-vms-for-an-sap-ascsscs-cluster-a-database-management-system-dbms-cluster-and-sap-application-server-instances"></a>部署適用於 SAP ASCS/SCS 叢集、資料庫管理系統 (DBMS) 叢集和 SAP Application Server 執行個體的 VM
@@ -271,9 +271,9 @@ ms.locfileid: "34656708"
 * 使用 Windows Server 2016 時，建議您設定 [Azure 雲端見證][deploy-cloud-witness]。
 
 
-## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>手動部署向外延展檔案伺服器叢集 
+## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>手動部署向外延展檔案伺服器叢集 
 
-您可藉由執行下列程式碼，以手動方式部署 Microsoft 向外延展檔案伺服器叢集，如 [Azure 中的儲存空間直接存取][ms-blog-s2d-in-azure]部落格所述：  
+您可藉由執行下列程式碼，以手動方式部署 Microsoft 向外延展檔案伺服器叢集，如 [Azure 中的儲存空間直接存取][ms-blog-s2d-in-azure]部落格所述：  
 
 
 ```PowerShell
@@ -322,9 +322,9 @@ Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 
 建議您使用受控磁碟。
 
-![圖 1：含受控磁碟之向外延展檔案伺服器 Resource Manager 範本的 UI 畫面][sap-ha-guide-figure-8010]
+![圖 1：使用受控磁碟的向外延展檔案伺服器資源管理員範本的 UI 畫面][sap-ha-guide-figure-8010]
 
-_**圖 1**：含受控磁碟之向外延展檔案伺服器 Resource Manager 範本的 UI 畫面_
+_**圖 1**:使用受控磁碟的向外延展檔案伺服器資源管理員範本的 UI 畫面_
 
 在此範本中，執行下列作業︰
 1. 在 [VM 計數] 方塊中，輸入最小計數 **2**。
@@ -336,9 +336,9 @@ _**圖 1**：含受控磁碟之向外延展檔案伺服器 Resource Manager 範�
 
 在 [GitHub][arm-sofs-s2d-non-managed-disks] 上可取得使用儲存空間直接存取 (S2D) 和 Azure 非受控磁碟部署向外延展檔案伺服器的 Azure Resource Manager 範本。
 
-![圖 2：不含受控磁碟之向外延展檔案伺服器 Azure Resource Manager 範本的 UI 畫面][sap-ha-guide-figure-8011]
+![圖 2：如需不含受控磁碟的向外延展檔案伺服器的 Azure Resource Manager 範本的 UI 畫面][sap-ha-guide-figure-8011]
 
-_**圖 2**：不含受控磁碟之向外延展檔案伺服器 Azure Resource Manager 範本的 UI 畫面_
+_**圖 2**:如需不含受控磁碟的向外延展檔案伺服器的 Azure Resource Manager 範本的 UI 畫面_
 
 在 [儲存體帳戶類型] 方塊中，選取 [進階儲存體]。 所有其他設定與受控磁碟的設定相同。
 

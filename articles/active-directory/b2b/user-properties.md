@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2B 共同作業使用者的屬性 | Microsoft Docs
+title: B2B 共同作業使用者-Azure Active Directory 的屬性 |Microsoft Docs
 description: Azure Active Directory B2B 共同作業的使用者屬性可進行設定
 services: active-directory
 ms.service: active-directory
@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7ef27b1365078ea2c5a7b92338a6c10f8d05de0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 791dcfadf1db6cae48bee5c926f75e454c88fc55
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209246"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294649"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Azure Active Directory B2B 共同作業使用者的屬性
 
@@ -32,7 +33,7 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 共同作業使用者是
 
 - 狀態 4：位於主機組織的 AzureAD，其 UserType = Guest 並具備主機組織所管理的認證。
 
-  ![顯示邀請者的姓名縮寫](media/user-properties/redemption-diagram.png)
+  ![圖描述的四個使用者狀態](media/user-properties/redemption-diagram.png)
 
 
 現在，讓我們來看看 Azure AD B2B 共同作業使用者在 Azure AD 中的外觀。
@@ -41,7 +42,7 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 共同作業使用者是
 
 狀態 1 和狀態 2 帳戶是邀請來賓使用者使用自有認證來進行共同作業的結果。 當邀請初次傳送給來賓使用者時，您的目錄中就會建立帳戶。 此帳戶沒有任何與其相關聯的認證，因為驗證會由來賓使用者的識別提供者來執行。 您目錄中來賓使用者帳戶的**來源**屬性會設定為**受邀使用者**。 
 
-![供應項目兌換之前](media/user-properties/before-redemption.png)
+![螢幕擷取畫面顯示使用者的屬性，才能兌換提供項目](media/user-properties/before-redemption.png)
 
 ### <a name="after-invitation-redemption"></a>邀請兌換之後
 
@@ -87,7 +88,7 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 共同作業使用者是
 
 ## <a name="filter-for-guest-users-in-the-directory"></a>篩選目錄中的來賓使用者
 
-![篩選來賓使用者](media/user-properties/filter-guest-users.png)
+![顯示篩選來賓使用者的螢幕擷取畫面](media/user-properties/filter-guest-users.png)
 
 ## <a name="convert-usertype"></a>轉換 UserType
 可能會使用 PowerShell 將 UserType 從 [成員] 轉換為 [來賓]，反之亦然。 不過，UserType 屬性會代表使用者與組織的關聯性。 因此，只有在使用者與組織的關聯性變更時，才應該變更此屬。 如果使用者的關聯性變更，是否應該變更使用者主體名稱 (UPN)？ 使用者是否應該繼續存取相同的資源？ 是否應指派信箱？ 我們不建議以 PowerShell 做為不可部分完成的活動來變更 UserType。 此外，為免使用 PowerShell 讓這個屬性成為不可變屬性，我們不建議採用此值的相依性。
@@ -97,7 +98,7 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 共同作業使用者是
 
 可以關閉預設限制，如此公司目錄中的來賓使用者就有與成員使用者相同的權限。
 
-![移除來賓使用者限制](media/user-properties/remove-guest-limitations.png)
+![顯示在 使用者設定外部的使用者選項的螢幕擷取畫面](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>能否在 Exchange 全域通訊清單中顯示來賓使用者？
 是。 根據預設，來賓物件不會在貴組織的全域通訊清單中顯示，但您可以使用 Azure Active Directory PowerShell 讓其顯示。 如需詳細資訊，請參閱[管理 Office 365 群組中的來賓存取](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?redirectSourcePath=%252fen-us%252farticle%252fmanage-guest-access-in-office-365-groups-9de497a9-2f5c-43d6-ae18-767f2e6fe6e0&view=o365-worldwide#faq) \(機器翻譯\) 中的＜能否在全域通訊清單中顯示來賓物件？＞。 

@@ -12,19 +12,19 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 7939de5cf45535dc911c25ae8fa8c914a214fa3c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 5aff7e93dcfaa5320be0d6f7d427abcdc88c69e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458052"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995818"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>部署分割合併服務以在分區化資料庫之間移動資料
 
 分割合併工具可讓您在分區化資料庫之間移動資料。 請參閱 [在相應放大的雲端資料庫之間移動資料](sql-database-elastic-scale-overview-split-and-merge.md)
 
 ## <a name="download-the-split-merge-packages"></a>下載分割合併套件
-1. 從 [NuGet](http://docs.nuget.org/docs/start-here/installing-nuget)下載最新的 NuGet 版本。
+1. 從 [NuGet](https://docs.nuget.org/docs/start-here/installing-nuget)下載最新的 NuGet 版本。
 2. 開啟命令提示字元並瀏覽至您下載 nuget.exe 的目錄。 下載包含 PowerShell 命令。
 3. 使用下列命令，將最新的分割合併封裝下載到目前的目錄：
    ```
@@ -46,10 +46,10 @@ ms.locfileid: "55458052"
 3. 建立新的資料庫或選擇現有的資料庫，做為分割合併作業的狀態資料庫，並擷取該資料庫的連接字串。 
    
    > [!IMPORTANT]
-   > 目前，狀態資料庫必須使用拉丁文定序 (SQL\_Latin1\_General\_CP1\_CI\_AS)。 如需詳細資訊，請參閱 [Windows 定序名稱 (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx)。
+   > 目前，狀態資料庫必須使用拉丁文定序 (SQL\_Latin1\_General\_CP1\_CI\_AS)。 有关详细信息，请参阅 [Windows 排序规则名称 (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx)。
    >
 
-   在 Azure SQL DB 中，連接字串的格式通常為：
+   在 Azure SQL DB 中，连接字符串通常采用以下形式：
       ```
       Server=myservername.database.windows.net; Database=mydatabasename;User ID=myuserID; Password=mypassword; Encrypt=True; Connection Timeout=30
       ```
@@ -184,7 +184,7 @@ Web 角色：
    </table>
    <table style="width:100%">
      <tr>
-       <th>PowerShell 檔案</th>
+       <th>PowerShell 文件</th>
        <th>步驟</th>
      </tr>
    <tr>
@@ -238,7 +238,7 @@ Web 角色：
    ```         
 5. 執行 ExecuteSampleSplitMerge.ps1 指令碼，以執行分割作業 (將第一個分區的一半資料移至第二個分區)，然後執行合併作業 (將資料移回至第一個分區)。 如果您設定 SSL，而且保持停用 http 端點，請確定您改為使用 https:// 端點。
    
-   範例命令列：
+   示例命令行：
 
    ```   
      .\ExecuteSampleSplitMerge.ps1
@@ -256,7 +256,7 @@ Web 角色：
      Invoke-WebRequest : The underlying connection was closed: Could not establish trust relationship for the SSL/TLSsecure channel.
      ```
    
-   如果成功，輸出應該看起來如下：
+   如果成功，则输出应如下所示：
    
    ```
    > .\ExecuteSampleSplitMerge.ps1 -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net' -SplitMergeServiceEndpoint 'http://mysplitmergeservice.cloudapp.net' -CertificateThumbprint 0123456789abcdef0123456789abcdef01234567

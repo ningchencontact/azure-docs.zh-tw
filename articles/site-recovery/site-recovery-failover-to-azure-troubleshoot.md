@@ -7,14 +7,14 @@ ms.service: site-recovery
 services: site-recovery
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 1/29/2019
+ms.date: 03/04/2019
 ms.author: mayg
-ms.openlocfilehash: 62b69364f0b3d3e14d0b2d877604cecfcc346dce
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 75c97a7feb63a100d322610b7e6d2e5c57bebda2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207491"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889687"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>針對將 VMware VM 或實體機器容錯移轉至 Azure 時的錯誤進行疑難排解
 
@@ -24,7 +24,7 @@ ms.locfileid: "55207491"
 
 Site Recovery 無法在 Azure 中建立已容錯移轉的虛擬機器。 它可能會因為下列其中一個原因而發生：
 
-* 沒有足夠配額可用來建立虛擬機器：您可以移至 [訂用帳戶] -> [使用量 + 配額]，檢查可用的配額。 您可以開啟[新的支援要求](http://aka.ms/getazuresupport)來增加配額。
+* 沒有足夠配額可用來建立虛擬機器：您可以移至 [訂用帳戶] -> [使用量 + 配額]，檢查可用的配額。 您可以開啟[新的支援要求](https://aka.ms/getazuresupport)來增加配額。
 
 * 您嘗試在相同的可用性設定組中容錯移轉不同大小系列的虛擬機器。 確保您為相同可用性設定組中的所有虛擬機器，選擇相同的大小系列。 移至虛擬機器的 [計算] 和 [網路] 來變更大小，然後重試容錯移轉。
 
@@ -32,7 +32,7 @@ Site Recovery 無法在 Azure 中建立已容錯移轉的虛擬機器。 它可�
 
 ## <a name="failover-failed-with-error-id-28092"></a>容錯移轉失敗，錯誤識別碼為 28092
 
-Site Recovery 無法針對已容錯移轉的虛擬機器建立網路介面。 確定您有足夠的配額可用來在訂用帳戶中建立網路介面。 您可以移至 [訂用帳戶] -> [使用量 + 配額]，檢查可用的配額。 您可以開啟[新的支援要求](http://aka.ms/getazuresupport)來增加配額。 如果您有足夠的配額，這可能是間歇性問題，請重試一次此作業。 如果即使在重試之後，問題仍然存在，則在本文的結尾留言。  
+Site Recovery 無法針對已容錯移轉的虛擬機器建立網路介面。 確定您有足夠的配額可用來在訂用帳戶中建立網路介面。 您可以移至 [訂用帳戶] -> [使用量 + 配額]，檢查可用的配額。 您可以開啟[新的支援要求](https://aka.ms/getazuresupport)來增加配額。 如果您有足夠的配額，這可能是間歇性問題，請重試一次此作業。 如果即使在重試之後，問題仍然存在，則在本文的結尾留言。  
 
 ## <a name="failover-failed-with-error-id-70038"></a>容錯移轉失敗，錯誤識別碼為 70038
 
@@ -48,7 +48,7 @@ Site Recovery 無法在 Azure 中建立已容錯移轉的虛擬機器。 這可�
 
 若要手動變更 [Windows 客體 OS] 驅動程式的啟動類型，請依照下列步驟進行：
 
-1. [下載](http://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) no-hydration 指令碼，並如下所示執行。 此指令碼會檢查 VM 是否需要序列化。
+1. [下載](https://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) no-hydration 指令碼，並如下所示執行。 此指令碼會檢查 VM 是否需要序列化。
 
     `.\Script-no-hydration.ps1`
 
@@ -110,7 +110,50 @@ Site Recovery 無法在 Azure 中建立已容錯移轉的虛擬機器。 這可�
 
 啟動 Windows VM 容錯移轉後，如果在復原的 VM 上收到非預期性關閉訊息，表示未在用於容錯移轉的復原點中擷取 VM 關閉狀態。 當您復原至 VM 未完全關閉的時間點時，就會發生這種情況。
 
-一般而言，無須擔心此問題，對於非計劃性容錯移轉，通常可忽略此問題。 在計劃性容錯移轉的情況下，請確保在容錯移轉之前，正確關閉虛擬機器，並為擱置的複寫資料內部部署提供足夠的時間，將其傳送至 Azure。 然後使用 [容錯移轉](site-recovery-failover.md#run-a-failover) 畫面控制項 上的 [最新] 選項，以便將 Azure 上的任何擱置資料處理到復原點，然後將其用於 VM 容錯移轉。
+一般而言，無須擔心此問題，對於非計劃性容錯移轉，通常可忽略此問題。 如果已規劃的容錯移轉，請確定 ，適當地關閉 VM 在容錯移轉之前，並提供充足時間以暫止的複寫在內部資料傳送至 Azure。 然後使用 [容錯移轉](site-recovery-failover.md#run-a-failover) 畫面控制項 上的 [最新] 選項，以便將 Azure 上的任何擱置資料處理到復原點，然後將其用於 VM 容錯移轉。
+
+## <a name="unable-to-select-the-datastore"></a>無法選取的資料存放區
+
+當您看到的資料存放區，在 Azure 入口網站，嘗試重新保護已發生容錯移轉虛擬機器時，會指出此問題。 這是因為主要目標無法辨識為 Vcenter 新增至 Azure Site Recovery 在虛擬機器。
+
+如需有關如何重新保護虛擬機器的詳細資訊，請參閱 <<c0> [ 重新保護和機器容錯回復到內部部署網站容錯移轉至 Azure 之後](vmware-azure-reprotect.md)。
+
+若要解決此問題：
+
+手動建立主要目標在 vCenter 中管理您的來源機器。 資料存放區將會提供作業後下, 一步 vCenter 探索並重新整理網狀架構。
+
+> [!Note]
+> 
+> 「 探索 」 和 「 重新整理的網狀架構作業可能需要 30 分鐘的時間才能完成。 
+
+## <a name="linux-master-target-registration-with-cs-fails-with-an-ssl-error-35"></a>Linux 主要目標註冊 CS 失敗並發生 SSL 錯誤 35 
+
+與組態伺服器的 Azure Site Recovery 主要目標註冊失敗，因為主要目標上啟用驗證的 Proxy。 
+ 
+此錯誤會以安裝記錄檔中的下列字串： 
+
+RegisterHostStaticInfo 發生失敗的例外狀況 config/talwrapper.cpp(107) [post] CurlWrapper Post： 伺服器：10.38.229.221，連接埠：443，phpUrl: request_handler.php，安全： 為 true，ignoreCurlPartialError: false，錯誤: [at curlwrapperlib/curlwrapper.cpp:processCurlResponse:231] 無法張貼要求：(35)-SSL 連線錯誤。 
+ 
+若要解決此問題：
+ 
+1. 在組態伺服器 VM 上，開啟命令提示字元，並確認 proxy 設定，使用下列命令：
+
+    cat /etc/environment echo $http_proxy 回應 $https_proxy 
+
+2. 如果上一個命令的輸出顯示 http_proxy] 或 [https_proxy 設定所定義，請使用其中一種下列方法來解除封鎖與組態伺服器的主要目標通訊：
+   
+   - 下載[PsExec 工具](https://aka.ms/PsExec)。
+   - 使用工具來存取系統的使用者內容，並判斷是否已設定的 proxy 位址。 
+   - 如果 proxy 設定，開啟 IE 使用 PsExec 工具系統使用者內容中。
+  
+     **psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"**
+
+   - 若要確定主要目標伺服器可以與組態伺服器通訊：
+  
+     - 修改 Internet Explorer 略過主要目標伺服器的 IP 位址透過 proxy 中的 proxy 設定。   
+     或
+     - 停用主要目標伺服器上的 proxy。 
+
 
 ## <a name="next-steps"></a>後續步驟
 - 對 [Windows VM 的 RDP 連線](../virtual-machines/windows/troubleshoot-rdp-connection.md)進行移難排解

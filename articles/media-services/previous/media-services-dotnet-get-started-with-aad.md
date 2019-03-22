@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 3d27407b329168fe6bc78def988cb350d4eeae83
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 15b986d4e7567be48c582e4a39b727ab110de2be
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990303"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181498"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>使用 Azure AD 驗證搭配 .NET 存取 Azure 媒體服務 API
 
@@ -73,8 +73,8 @@ ms.locfileid: "55990303"
 
 若要利用使用者驗證選項連線到 Azure 媒體服務 API，用戶端應用程式必須使用下列參數要求 Azure AD 權杖：  
 
-- Azure AD 租用戶端點。 租用戶資訊可從 Azure 入口網站擷取。 將滑鼠游標停留在右上角登入的使用者。
-- 媒體服務資源 URI。
+- Azure AD 租用戶端點。 可以在 Azure 门户中检索租户信息。 將滑鼠游標停留在右上角登入的使用者。
+- 媒体服务资源 URI。
 - 媒體服務 (原生) 應用程式用戶端識別碼。 
 - 媒體服務 (原生) 應用程式重新導向 URI。 
 
@@ -128,7 +128,7 @@ ms.locfileid: "55990303"
     
 若要利用服務主體選項連線到 Azure 媒體服務 API，您的中介層應用程式 (Web API 或 Web 應用程式) 必須要求具有下列參數的 Azure AD 權杖：  
 
-- Azure AD 租用戶端點。 租用戶資訊可從 Azure 入口網站擷取。 將滑鼠游標停留在右上角登入的使用者。
+- Azure AD 租用戶端點。 可以在 Azure 门户中检索租户信息。 將滑鼠游標停留在右上角登入的使用者。
 - 媒體服務資源 URI。
 - Azure AD 應用程式的值：**用戶端識別碼**和**用戶端祕密**。
 

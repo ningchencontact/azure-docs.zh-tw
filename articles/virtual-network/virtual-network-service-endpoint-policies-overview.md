@@ -6,17 +6,17 @@ documentationcenter: na
 author: sumeetmittal
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 6e5748f5a76ade9cc1bb91902eb0fddcec2a6daa
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 619b9b68a5c4e897642e1f84c25c2822d8291400
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812339"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104483"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>虛擬網路服務端點原則 (預覽)
 
@@ -158,11 +158,11 @@ __Azure 儲存體__：WestCentralUS、WestUS2。
 - 存取端點原則中所列的帳戶時遭到拒絕
   - 網路安全性群組或防火牆篩選條件可能會封鎖存取
   - 如果移除/重新套用原則會導致連線中斷：
-   - 驗證 Azure 服務是否設定為允許透過端點從虛擬網路存取，或資源的預設原則是否設定為「全部允許」。
+    - 驗證 Azure 服務是否設定為允許透過端點從虛擬網路存取，或資源的預設原則是否設定為「全部允許」。
       > [!NOTE]      
       > 服務資源不需要在虛擬網路中受到保護，也可以透過端點原則取得存取權。 不過，我們建議的安全性最佳做法是使用受信任網路來保護服務資源，例如：若是 Azure 虛擬網路，請透過服務端點來保護；若是內部部署，則透過 IP 防火牆來保護。
   
-   - 驗證服務診斷是否顯示透過端點的流量。
+    - 驗證服務診斷是否顯示透過端點的流量。
     - 請檢查網路安全性群組流量記錄是否顯示存取狀態，而儲存體記錄是否如預期般顯示透過服務端點的存取狀態。
     - 連絡 Azure 支援。
 - 存取服務端點原則中未列的帳戶時遭到拒絕

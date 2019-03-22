@@ -8,18 +8,18 @@ ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 14b51f109ca76661ac10c99d42002dda45bc0500
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 700e8e9fe0dac182d71df8ca66800fa03cf25a2e
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318381"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295788"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>匯出 Azure IoT Central 中的資料
 
 *此主題適用於系統管理員。*
 
-本文深入探討如何使用 Azure IoT Central 中的連續資料匯出功能，將資料匯出到您自己的 **Azure 事件中樞**和 **Azure 服務匯流排**執行個體。 您可以將**度量**、**裝置**及**裝置範本**匯出到您自己的目的地，以取得暖路徑見解和分析。 這包括觸發「Azure 串流分析」中的自訂規則、觸發 Azure Logic Apps 中的自訂工作流程，或透過 Azure Functions 來轉換及傳遞資料。 
+本文說明如何使用 Azure IoT Central 中的連續資料匯出功能，將資料匯出到您自己**Azure 事件中樞**，並**Azure 服務匯流排**執行個體。 您可以將**度量**、**裝置**及**裝置範本**匯出到您自己的目的地，以取得暖路徑見解和分析。 這包括觸發「Azure 串流分析」中的自訂規則、觸發 Azure Logic Apps 中的自訂工作流程，或透過 Azure Functions 來轉換及傳遞資料。 
 
 > [!Note]
 > 同樣地，當您開啟連續資料匯出時，只會取得從該時刻起的資料。 目前，無法擷取「連續資料匯出」時的資料。 若要保留更多歷史資料，請儘早開啟「連續資料匯出」。
@@ -28,6 +28,77 @@ ms.locfileid: "53318381"
 ## <a name="prerequisites"></a>必要條件
 
 - 您必須是 IoT Central 應用程式中的系統管理員
+
+## <a name="set-up-export-destination"></a>設定匯出目的地
+
+如果您不需要將匯出到現有事件中樞 」 / 「 服務匯流排，請遵循下列步驟：
+
+## <a name="create-event-hubs-namespace"></a>建立事件中樞命名空間
+
+1. [在 Azure 入口網站中建立新事件中樞命名空間](https://ms.portal.azure.com/#create/Microsoft.EventHub)。 您可以透過 [Azure 事件中樞文件](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)深入了解。
+2. 選擇訂用帳戶。 
+
+    > [!Note] 
+    > 您現在可以將資料匯出至與預付型方案 IoT Central 應用程式之訂用帳戶**不同**的其他訂用帳戶。 在此情況下，您將使用連接字串來進行連線。
+3. 在「事件中樞」命名空間中建立一個事件中樞。 移至您的命名空間，然後選取頂端的 [+ 事件中樞] 以建立事件中樞執行個體。
+
+## <a name="create-service-bus-namespace"></a>建立服務匯流排命名空間
+
+1. [在 Azure 入口網站中建立新的服務匯流排命名空間](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5)。 您可以透過 [Azure 服務匯流排文件](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal)深入了解。
+2. 選擇訂用帳戶。 
+
+    > [!Note] 
+    > 您現在可以將資料匯出至與預付型方案 IoT Central 應用程式之訂用帳戶**不同**的其他訂用帳戶。 在此情況下，您將使用連接字串來進行連線。
+
+3. 移至您的「服務匯流排」命名空間，然後選取頂端的 [+ 佇列] 或 [+ 主題] 以建立要作為匯出目的地的佇列或主題。
+
+
+## <a name="set-up-continuous-data-export"></a>設定連續資料匯出
+
+既然您已將資料匯出至事件中樞 」 / 「 服務匯流排目的地，請遵循下列步驟來設定連續資料匯出。 
+
+1. 登入您的 IoT Central 應用程式。
+
+2. 在左側功能表中，選取**連續資料匯出**。
+
+    > [!Note]
+    > 如果在左側功能表中沒有看到 [連續資料匯出]，即表示您不是應用程式的系統管理員。 請連絡系統管理員來設定資料匯出。
+
+    ![建立新的 cde 事件中樞](media/howto-export-data/export_menu.PNG)
+
+3. 選取  **+ 新增**右上角的按鈕。 選擇其中一個**Azure 事件中樞**或是**Azure 服務匯流排**做為您的匯出目的地。 
+
+    > [!NOTE] 
+    > 每一應用程式的匯出數目上限是 5。 
+
+    ![建立新的連續資料匯出](media/howto-export-data/export_new.PNG)
+
+4. 在下拉式清單方塊中，選取您**事件中樞命名空間/服務匯流排命名空間**。 您也可以挑選清單中的最後一個選項，也就是 [輸入連接字串]。 
+
+    > [!NOTE] 
+    > 您只會看到**與 IoT Central 應用程式位於相同訂用帳戶中**的「儲存體帳戶」/「事件中樞命名空間」/「服務匯流排命名空間」。 如果您想要匯出到此訂用帳戶外的目的地，請選擇 [輸入連接字串]，然後參閱步驟 5。
+
+    > [!NOTE] 
+    > 如果是 7 天試用版應用程式，則設定連續資料匯出的唯一方式是透過連接字串。 這是因為 7 天試用版應用程式並沒有相關聯的 Azure 訂用帳戶。
+
+    ![建立新的 cde 事件中樞](media/howto-export-data/export_create.PNG)
+
+5. (選擇性) 如果您選擇 [輸入連接字串]，就會顯示一個可供您貼上連接字串的新方塊。 取得下列項目的連接字串：
+    - 事件中樞 」 或 「 服務匯流排，請移至 Azure 入口網站中的命名空間。
+        - 底下**設定**，選取**共用存取原則**
+        - 選擇預設的 [RootManageSharedAccessKey]，或建立新的原則
+        - 複製主要連接字串或次要連接字串
+ 
+6. 從下拉式清單方塊中，選擇事件中樞佇列或主題。
+
+7. 在 [要匯出的資料] 下，透過將類型設定為 [開啟] 以指定每種要匯出的資料類型。
+
+6. 若要開啟連續資料匯出，請務必將 [資料匯出] 設定為 [開啟]。 選取 [ **儲存**]。
+
+  ![設定連續資料匯出](media/howto-export-data/export_list.PNG)
+
+7. 幾分鐘後，您的資料就會出現在所選擇的目的地中。
+
 
 ## <a name="export-to-azure-event-hubs-and-azure-service-bus"></a>匯出至 Azure 事件中樞和 Azure 服務匯流排
 

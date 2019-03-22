@@ -9,14 +9,15 @@ ms.date: 05/26/2017
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0ab999e2b2a8465b110874cca3d478c60c18099
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7ae5ae6d742bc6b4420b886c9ea2bd4e023075f4
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091132"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295516"
 ---
 # <a name="getting-support-for-b2b-collaboration"></a>取得 B2B 共同作業的支援
 
@@ -28,7 +29,7 @@ ms.locfileid: "58091132"
      - 服務：Active Directory
      - 支援方案：選擇相關的支援方案
 
-   ![新增支援要求](media/get-support/new-support-request.png)
+   ![螢幕擷取畫面顯示新的支援要求](media/get-support/new-support-request.png)
 
 2. 描述問題：
    - 選擇適當的 [嚴重性]，以反映您的需要。
@@ -36,6 +37,6 @@ ms.locfileid: "58091132"
    - [類別] 選擇 [新增使用者 (B2B)]
    - 加入任何錯誤訊息，像是相互關聯識別碼、受影響的使用者等等。
 
-   ![支援票證問題描述](media/get-support/problem-description.png)
+   ![顯示支援票證問題描述螢幕擷取畫面](media/get-support/problem-description.png)
 
 3. 若要讓支援人員與您連絡以進行疑難排解，請新增您的連絡人資訊。

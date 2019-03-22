@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: e40d8e7c05213e99fc2ef65f5dc05f17ba0d185e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 1a878b5a9f0502ff9acd411359895d7431fb76f4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890530"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437237"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>擷取匯入/匯出作業的狀態資訊
 您可以呼叫 [Get Job](/rest/api/storageimportexport/jobs) 作業來擷取關於匯入和匯出作業的資訊。 傳回的資訊包括︰
@@ -35,7 +35,7 @@ ms.locfileid: "55890530"
 
 下表說明作業可能經歷的各個狀態。
 
-|作業狀態|說明|
+|作業狀態|描述|
 |---------------|-----------------|
 |`Creating`|呼叫 Put Job 作業之後，會建立一個作業，且其狀態會設為 `Creating`。 工作處於 `Creating` 狀態時，匯入/匯出服務會假設磁碟機尚未運送到資料中心。 工作最多可保持 `Creating` 狀態兩週，超過後會由服務自動刪除。<br /><br /> 如果您在作業處於時 `Creating` 狀態時呼叫 Update Job 屬性作業，作業會維持在 `Creating` 狀態，且逾時間隔會重設為 2 週。|
 |`Shipping`|寄送包裹之後，您應該呼叫 Update Job 屬性作業將作業狀態更新為 `Shipping`。 只有當作業的 `DeliveryPackage` (貨運公司和追蹤號碼) 和 `ReturnAddress` 屬性都已設定時，才可以設定寄送狀態。<br /><br /> 作業最多將保持「運送中」狀態兩週。 如果已超過兩週，但未收到磁碟機，將會通知匯入/匯出服務操作員。|
@@ -43,13 +43,13 @@ ms.locfileid: "55890530"
 |`Transferring`|資料中心收到磁碟機，且至少已開始處理一個磁碟機之後，作業狀態將會設定為 `Transferring` 狀態。 如需詳細資訊，請參閱以下的 `Drive States` 一節。|
 |`Packaging`|所有磁碟機處理完成之後，直到磁碟機寄回給客戶為止，工作將會設為 `Packaging` 狀態。|
 |`Completed`|所有磁碟機都寄回給客戶之後，如果工作已完成且沒有錯誤，工作將會設為 `Completed` 狀態。 `Completed` 狀態持續 90 天後，將會自動刪除工作。|
-|`Closed`|所有磁碟機都寄回給客戶之後，如果工作處理期間發生任何錯誤，工作將會設為 `Closed` 狀態。 `Closed` 狀態持續 90 天後，將會自動刪除工作。|
+|`Closed`|所有磁碟機都寄回給客戶之後，如果工作處理期間發生任何錯誤，工作將會設為 `Closed` 狀態。 作业在保持 `Closed` 状态 90 天后自动删除。|
 
-您只有在特定狀態才能取消作業。 已取消的作業會略過資料複製步驟，否則它會依照相同的狀態轉換為未取消的作業。
+您只有在特定狀態才能取消作業。 已取消的工作會略過資料複製步驟，但否則它會依照相同的狀態轉換為未取消的工作。
 
 下表描述每個作業狀態可能發生的錯誤，以及在錯誤發生時對作業的影響。
 
-|作業狀態|Event|解析 / 後續步驟|
+|作业状态|Event|解析 / 後續步驟|
 |---------------|-----------|------------------------------|
 |`Creating or Undefined`|作業的一或多個磁碟機已送達，但作業並非 `Shipping` 狀態或服務中的作業沒有記錄。|匯入/匯出服務作業小組會嘗試連絡客戶，以使用繼續進行作業的必要資訊建立或更新作業。<br /><br /> 如果作業小組無法在兩週內與客戶取得聯繫，作業小組會嘗試寄回磁碟機。<br /><br /> 無法寄回磁碟機且無法聯絡客戶的情況下，磁碟機將會在 90 天內安全地銷毀。<br /><br /> 請注意，作業在其狀態更新為 `Shipping` 之前無法處理。|
 |`Shipping`|作業的包裹超過兩週未抵達。|作業小組將會通知遺失包裹的客戶。 根據客戶的回應，作業小組會延長間隔以等候包裹抵達或取消作業。<br /><br /> 在無法連絡客戶或客戶沒有在 30 天內回應的情況下，作業小組將採取動作，直接將作業從 `Shipping` 狀態移至 `Closed` 狀態。|
@@ -64,7 +64,7 @@ ms.locfileid: "55890530"
 
 下表說明磁碟機可能經歷的各個狀態。
 
-|磁碟機狀態|說明|
+|磁碟機狀態|描述|
 |-----------------|-----------------|
 |`Specified`|針對匯入作業，使用 Put Job 作業建立作業時，磁碟機的初始狀態會是 `Specified` 狀態。 針對匯出工作，因為建立工作時未指定任何磁碟機，初始磁碟機狀態會是 `Received` 狀態。|
 |`Received`|當匯入/匯出服務操作員已處理從貨運公司收到要進行匯入工作的磁碟機後，磁碟機會轉換成 `Received` 狀態。 針對匯出工作，初始磁碟機狀態會是 `Received`狀態。|

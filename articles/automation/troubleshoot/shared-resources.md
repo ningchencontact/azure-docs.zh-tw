@@ -4,16 +4,16 @@ description: 了解如何針對 Azure 自動化共用資源的錯誤進行疑難
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/3/2018
+ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 911f592c43865ea8bdfe85c1ad1071c7112ae9b6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 35e39a070a4c976655296d2ea141478d13e43bbc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475436"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57902819"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>針對共用資源的錯誤進行疑難排解
 
@@ -38,6 +38,24 @@ ms.locfileid: "54475436"
 ```azurepowershell-interactive
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
+
+### <a name="update-azure-modules-importing"></a>案例：AzureRM 模組停留在嘗試更新後匯入
+
+#### <a name="issue"></a>問題
+
+橫幅，與下列訊息會留在您的帳戶中，在嘗試更新 AzureRM 模組後：
+
+```
+Azure modules are being updated
+```
+
+#### <a name="cause"></a>原因
+
+沒有更新 AzureRM 模組，從 0 開始的數值名稱的資源群組中的自動化帳戶中的已知的問題。
+
+#### <a name="resolution"></a>解決方案
+
+若要更新 Azure 模組在您的自動化帳戶中，它必須是英數字元名稱的資源群組中。 從 0 開始的數值名稱的資源群組就無法在這個階段中更新 AzureRM 模組。
 
 ### <a name="module-fails-to-import"></a>案例：無法匯入模組，或無法在匯入之後執行 Cmdlet
 
@@ -119,6 +137,30 @@ You do not have permissions to create…
 若要建立或更新執行身分帳戶，您必須具備執行身分帳戶所用資源的適當權限。 若要深入了解建立或更新執行身分帳戶所需的權限，請參閱[執行身分帳戶權限](../manage-runas-account.md#permissions)。
 
 如果問題是因為鎖定而造成的，請確認鎖定可以移除。 然後，瀏覽至已鎖定的資源、以滑鼠右鍵按一下鎖定，然後選擇 [刪除] 以移除鎖定。
+
+### <a name="iphelper"></a>案例：當您收到錯誤 「 找不到進入點名稱為 'GetPerAdapterInfo' dll 'iplpapi.dll' 中 」 執行 runbook。
+
+#### <a name="issue"></a>問題
+
+執行 runbook 時您會收到下列例外狀況：
+
+```error
+Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
+```
+
+#### <a name="cause"></a>原因
+
+此錯誤最可能是因為設定不正確[的執行身分帳戶](../manage-runas-account.md)。
+
+#### <a name="resolution"></a>解決方案
+
+請確定您[的執行身分帳戶](../manage-runas-account.md)已正確設定。 一旦設定正確，請確定您有適當的程式碼在您向 Azure 進行驗證的 runbook。 下列範例會顯示在 runbook 中使用執行身分帳戶驗證至 Azure 的程式碼片段。
+
+```powershell
+$connection = Get-AutomationConnection -Name AzureRunAsConnection
+Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
+-ApplicationID $connection.ApplicationID -CertificateThumbprint $connection.CertificateThumbprint
+```
 
 ## <a name="next-steps"></a>後續步驟
 

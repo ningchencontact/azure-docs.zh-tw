@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 2e5b90f36a6dc5c88db3f6f449c911d22de680b1
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: e9bf06ba058078fc5012410bdd75ef90ff6c93d4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976795"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899004"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>為組態伺服器設定從實體伺服器至 Azure 的災害復原
 
@@ -22,7 +22,7 @@ ms.locfileid: "53976795"
 ## <a name="prerequisites"></a>必要條件
 
 本文假設您已經有：
-- [Azure 入口網站] (http://portal.azure.com "Azure 入口網站")中的復原服務保存庫。
+- [Azure 入口網站] (https://portal.azure.com "Azure 入口網站")中的復原服務保存庫。
 - 可供安裝設定伺服器的實體電腦。
 - 如果您已在您要安裝設定伺服器所在的電腦上停用 TLS 1.0，請確定已啟用 TLS 1.2，並在電腦上安裝 .NET Framework 4.6 或更新版本 (在已停用強式密碼編譯的情況下)。 [深入了解](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1)。
 
@@ -47,7 +47,7 @@ ms.locfileid: "53976795"
 
 1. 在 [準備來源] 中，如果您沒有組態伺服器，請按一下 [+組態伺服器] 來新增一部伺服器。
 
-  ![設定來源](./media/physical-azure-set-up-source/plus-config-srv.png)
+   ![設定來源](./media/physical-azure-set-up-source/plus-config-srv.png)
 2. 在 [加入伺服器] 刀鋒視窗中，檢查 [組態伺服器] 是否出現在 [伺服器類型] 中。
 4. 下載 Site Recovery 統一安裝的安裝檔案。
 5. 下載保存庫註冊金鑰。 執行「整合安裝」時，您需要該註冊金鑰。 該金鑰在產生後會維持 5 天有效。

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 2dbf63e745af102de05ec6dc3e3bcb3e98cd3a32
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 71a5233c6d5af21d7bc5430cda14e156e16d5cd4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563706"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001565"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>了解 Azure 藍圖生命週期
 
@@ -35,7 +35,7 @@ ms.locfileid: "55563706"
 
 建立藍圖時，將成品新增至其中、儲存至管理群組或訂用帳戶，並提供唯一名稱與唯一版本。 藍圖現在處於**草稿**模式，尚無法指派。 然而在**草稿**模式中，它可以繼續更新及變更。
 
-處於**草稿**模式且未曾發佈的藍圖會在 [藍圖定義] 頁面上，顯示與**已發佈**藍圖不同的圖示。 **最新版本**也會針對這些未曾發佈的藍圖顯示為**草稿**。
+處於**草稿**模式且未曾發佈的藍圖會在 [藍圖定義] 頁面上，顯示與**已發佈**藍圖不同的圖示。 **最新版本**會顯示為**草稿**這些永遠不會發佈藍圖。
 
 使用 [Azure 入口網站](../create-blueprint-portal.md#create-a-blueprint)或 [REST API](../create-blueprint-rest-api.md#create-a-blueprint) 來建立及編輯藍圖。
 
@@ -68,13 +68,13 @@ ms.locfileid: "55563706"
 > [!NOTE]
 > 您無法刪除擁有作用中指派的藍圖。 先刪除指派，然後再刪除您要移除的版本。
 
-1. 在左窗格中按一下 [所有服務]，然後搜尋並選取 [原則]。 在 [原則] 頁面上，按一下 [藍圖]。
+1. 在左側窗格中選取 [所有服務]。 搜尋並選取 [藍圖]。
 
-1. 從頁面左邊選取 [藍圖定義]，然後使用篩選選項來找出您要刪除版本的藍圖。 按一下該藍圖以開啟編輯頁面。
+1. 選取 **藍圖定義**從頁面左邊和篩選選項來找出您想要刪除的版本的藍圖的使用。 按一下該藍圖以開啟編輯頁面。
 
 1. 按一下 [已發佈的版本] 索引標籤，然後找出您要刪除的版本。
 
-1. 以滑鼠右鍵按一下要刪除的版本，然後選取 [刪除這個版本]。
+1. 以滑鼠右鍵按一下要刪除選取的版本**刪除此版本**。
 
 ## <a name="deleting-the-blueprint"></a>刪除藍圖
 
@@ -103,8 +103,8 @@ ms.locfileid: "55563706"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 了解如何使用[靜態與動態參數](parameters.md)
-- 了解如何自訂[藍圖排序順序](sequencing-order.md) (英文)
-- 了解如何使用[藍圖資源鎖定](resource-locking.md)
-- 了解如何[更新現有的指派](../how-to/update-existing-assignments.md)
-- 使用[一般疑難排解](../troubleshoot/general.md)來解決藍圖指派期間發生的問題
+- 了解如何使用[靜態與動態參數](parameters.md)。
+- 了解如何自訂[藍圖排序順序](sequencing-order.md)。
+- 了解如何使用[藍圖資源鎖定](resource-locking.md)。
+- 了解如何[更新現有的指派](../how-to/update-existing-assignments.md)。
+- 使用[一般疑難排解](../troubleshoot/general.md)來解決藍圖指派期間發生的問題。

@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 5e9104f59173c3d39ef2f2232ed2a9c6864cf84f
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 27028903daeaf62a25584300944538341a861c80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892553"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905217"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>安全性架構：敏感性資料 | 風險降低 
 | 產品/服務 | 文章 |
 | --------------- | ------- |
 | **電腦信任邊界** | <ul><li>[確定包含敏感性資訊的二進位檔已經過模糊處理](#binaries-info)</li><li>[考慮使用加密檔案系統 (EFS) 來保護機密的使用者特定資料](#efs-user)</li><li>[確定應用程式儲存在檔案系統上的敏感性資料已加密](#filesystem)</li></ul> | 
 | **Web 應用程式** | <ul><li>[確定瀏覽器上不會快取敏感性內容](#cache-browser)</li><li>[加密包含敏感性資料的 Web 應用程式組態檔區段](#encrypt-data)</li><li>[明確停用敏感性表單和輸入內的自動完成 HTML 屬性](#autocomplete-input)</li><li>[確定使用者畫面上顯示的敏感性資料已遮罩](#data-mask)</li></ul> | 
-| **資料庫** | <ul><li>[實作動態資料遮罩來限制敏感性資料暴露非特殊權限使用者](#dynamic-users)</li><li>[確定密碼是以 salted 雜湊格式儲存](#salted-hash)</li><li>[確定資料庫資料行中的敏感性資料已加密](#db-encrypted)</li><li>[確定已啟用資料庫層級加密 (TDE)](#tde-enabled)</li><li>[確定資料庫備份已加密](#backup)</li></ul> | 
+| **資料庫** | <ul><li>[實作動態資料遮罩來限制敏感性資料暴露非特殊權限使用者](#dynamic-users)</li><li>[確定密碼是以 salted 雜湊格式儲存](#salted-hash)</li><li>[請確定資料庫資料行中的敏感性資料已加密](#db-encrypted)</li><li>[確定已啟用資料庫層級加密 (TDE)](#tde-enabled)</li><li>[確定資料庫備份已加密](#backup)</li></ul> | 
 | **Web API** | <ul><li>[確定與 Web API 相關的敏感性資料未儲存在瀏覽器的儲存體中](#api-browser)</li></ul> | 
 | Azure Document DB | <ul><li>[將儲存在 Azure Cosmos DB 中的敏感性資料加密](#encrypt-docdb)</li></ul> | 
 | **Azure IaaS VM 信任邊界** | <ul><li>[使用 Azure 磁碟加密來加密虛擬機器所使用的磁碟](#disk-vm)</li></ul> | 
@@ -34,7 +34,7 @@ ms.locfileid: "55892553"
 | **Dynamics CRM** | <ul><li>[執行安全性模型化並視需要使用業務單位/團隊](#modeling-teams)</li><li>[將共用重要實體功能的存取權最小化](#entities)</li><li>[訓練使用者以讓其了解與 Dynamics CRM 共用功能相關聯的風險以及正確的安全性作法](#good-practices)</li><li>[包含開發標準規則來禁止在例外狀況管理中顯示組態詳細資料](#exception-mgmt)</li></ul> | 
 | **Azure 儲存體** | <ul><li>[針對待用資料使用 Azure 儲存體服務加密 (SSE) (預覽)](#sse-preview)</li><li>[使用用戶端加密在 Azure 儲存體中儲存敏感性資料](#client-storage)</li></ul> | 
 | **行動用戶端** | <ul><li>[將寫入電話本機儲存體的敏感性資料或 PII 資料加密](#pii-phones)</li><li>[先對進行模糊處理再散發給使用者](#binaries-end)</li></ul> | 
-| **WCF** | <ul><li>[將 clientCredentialType 設定為憑證或 Windows](#cert)</li><li>[未啟用 WCF 安全性模式](#security)</li></ul> | 
+| **WCF** | <ul><li>[將 clientcredentialtype 設定為憑證或 Windows](#cert)</li><li>[未啟用 WCF 安全性模式](#security)</li></ul> | 
 
 ## <a id="binaries-info"></a>確定包含敏感性資訊的二進位檔已經過模糊處理
 
@@ -141,7 +141,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
-| **參考**              | [MSDN︰自動完成屬性](https://msdn.microsoft.com/library/ms533486(VS.85).aspx)、[在 HTML 中使用自動完成](https://msdn.microsoft.com/library/ms533032.aspx)[HTML 清理弱點](https://technet.microsoft.com/security/bulletin/MS10-071)、[再次自動完成？！](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
+| **參考**              | [MSDN︰自動完成屬性](https://msdn.microsoft.com/library/ms533486(VS.85).aspx)、[在 HTML 中使用自動完成](https://msdn.microsoft.com/library/ms533032.aspx)[HTML 清理弱點](https://technet.microsoft.com/security/bulletin/MS10-071)、[再次自動完成？！](https://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
 | **步驟** | 自動完成屬性會指定表單應開啟或關閉自動完成。 當自動完成開啟時，瀏覽器會根據使用者之前輸入的值自動填妥值。 例如，在表單中輸入新名稱和密碼並提交表單後，瀏覽器會詢問是否應儲存密碼。之後在顯示表單時，就會自動填入名稱和密碼或在輸入名稱時填妥。 具有本機存取權的攻擊者可從瀏覽器快取取得純文字密碼。 預設會啟用自動完成，但您必須明確地加以停用。 |
 
 ### <a name="example"></a>範例
@@ -182,7 +182,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
-| **參考**              | [使用 .NET Crypto API 的密碼雜湊](http://docs.asp.net/en/latest/security/data-protection/consumer-apis/password-hashing.html) |
+| **參考**              | [使用 .NET Crypto API 的密碼雜湊](https://docs.asp.net/en/latest/security/data-protection/consumer-apis/password-hashing.html) |
 | **步驟** | 密碼不應該儲存在自訂的使用者存放區資料庫中。 應改為使用 salt 值來儲存密碼雜湊。 請確定使用者的 salt 永遠是唯一的，並且先套用 bcrypt、scrypt 或 PBKDF2 再儲存密碼，最少以 150,000 個迴圈的工作因素反覆運算計數來排除暴力密碼破解的可能。| 
 
 ## <a id="db-encrypted"></a>確定資料庫資料行中的敏感性資料已加密
@@ -262,7 +262,7 @@ cacheLocation: 'localStorage', // enable this for IE, as sessionStorage does not
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [使用 Azure 磁碟加密來加密虛擬機器所使用的磁碟](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_using-azure-disk-encryption-to-encrypt-disks-used-by-your-virtual-machines) |
-| **步驟** | <p>Azure 磁碟加密是目前預覽版中的新功能。 此功能允許您加密 IaaS 虛擬機器所使用的作業系統磁碟和資料磁碟。 對於 Windows，磁碟機是使用業界標準的 BitLocker 加密技術來加密。 對於 Linux，磁碟是使用 DM-Crypt 技術來加密。 這會與 Azure 金鑰保存庫整合，可讓您控制和管理磁碟加密金鑰。 Azure 磁碟加密解決方案支援下列三個客戶加密案例：</p><ul><li>在透過客戶加密的 VHD 檔案和客戶提供的加密金鑰 (儲存於 Azure 金鑰保存庫中) 建立的新 IaaS VM 上啟用加密。</li><li>在透過 Azure Marketplace 建立的新 IaaS VM 上啟用加密。</li><li>在 Azure 中已執行的現有 IaaS VM 上啟用加密。</li></ul>| 
+| **步驟** | <p>Azure 磁碟加密是目前預覽版中的新功能。 此功能允許您加密 IaaS 虛擬機器所使用的作業系統磁碟和資料磁碟。 对于 Windows，驱动器是使用行业标准 BitLocker 加密技术加密的。 對於 Linux，磁碟是使用 DM-Crypt 技術來加密。 這會與 Azure 金鑰保存庫整合，可讓您控制和管理磁碟加密金鑰。 Azure 磁碟加密解決方案支援下列三個客戶加密案例：</p><ul><li>在透過客戶加密的 VHD 檔案和客戶提供的加密金鑰 (儲存於 Azure 金鑰保存庫中) 建立的新 IaaS VM 上啟用加密。</li><li>在透過 Azure Marketplace 建立的新 IaaS VM 上啟用加密。</li><li>在 Azure 中已執行的現有 IaaS VM 上啟用加密。</li></ul>| 
 
 ## <a id="fabric-apps"></a>將 Service Fabric 應用程式中的密碼加密
 
@@ -399,7 +399,7 @@ Allow screen capture
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
-| **參考**              | [適用於 .Net 的 CryptoObfuscator](http://www.ssware.com/cryptoobfuscator/obfuscator-net.htm) |
+| **參考**              | [適用於 .Net 的 CryptoObfuscator](https://www.ssware.com/cryptoobfuscator/obfuscator-net.htm) |
 | **步驟** | 產生的二進位檔 (apk 內的組件) 應該進行模糊處理，以阻止組件遭到進行反向工程。`CryptoObfuscator` 之類的工具可用於此用途。 |
 
 ## <a id="cert"></a>將 clientCredentialType 設定為憑證或 Windows
@@ -429,7 +429,7 @@ Allow screen capture
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型、.NET Framework 3 |
 | **屬性**              | 安全性模式 - 傳輸、安全性模式 - 訊息 |
-| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference)、[WCF 安全性基礎概念 CoDe Magazine](http://www.codemag.com/article/0611051) |
+| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference)、[WCF 安全性基礎概念 CoDe Magazine](https://www.codemag.com/article/0611051) |
 | **步驟** | 尚未定義任何傳輸或訊息安全性。 傳輸訊息的應用程式若沒有傳輸或訊息安全性，就無法保證訊息的完整性或機密性。 當 WCF 安全性繫結設定為 [無] 時，會同時停用傳輸和訊息安全性。 |
 
 ### <a name="example"></a>範例
@@ -453,8 +453,8 @@ Allow screen capture
 * 兩者。 可讓您提供傳輸和訊息層級安全性的設定 (只有 MSMQ 支援此模式)。 
 * TransportWithMessageCredential。 認證會隨訊息傳遞，而且傳輸層會提供訊息保護和伺服器驗證。 
 * TransportCredentialOnly。 用戶端認證會使用傳輸層傳遞，但未套用任何訊息保護。 使用傳輸和訊息安全性來保護訊息的完整性和機密性。 下列組態會告知服務搭配使用傳輸安全性和訊息認證。
-```
-<system.serviceModel>
+  ```
+  <system.serviceModel>
   <bindings>
     <wsHttpBinding>
     <binding name=""MyBinding""> 
@@ -462,5 +462,5 @@ Allow screen capture
     <message clientCredentialType=""Windows""/> 
     </binding> 
   </bindings> 
-</system.serviceModel> 
-```
+  </system.serviceModel> 
+  ```

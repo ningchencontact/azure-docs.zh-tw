@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5a4b8b2fd3e232d7b42b2f510075c3964ca50531
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 5edd3e51e83b5ab324d1e110a1882b20d935a9b5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652569"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899123"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>針對 Azure App Service 中「502 不正確的閘道」和「503 服務無法使用」的 HTTP 錯誤，進行疑難排解
 在裝載於 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 的應用程式中，「502 不正確的閘道」和「503 服務無法使用」是常見的錯誤。 本文可協助您對這些錯誤進行疑難排解。
@@ -33,14 +33,14 @@ ms.locfileid: "53652569"
 當您瀏覽至應用程式時，傳回 HTTP「502 不正確的閘道」錯誤或 HTTP「503 服務無法使用」錯誤。
 
 ## <a name="cause"></a>原因
-此問題通常是因為應用程式層級問題所造成，例如：
+此问题通常是应用程序级别的问题造成的，例如：
 
 * 要求耗費過長的時間
-* 應用程式的記憶體/CPU 使用率過高
-* 應用程式因例外狀況導致損毀
+* 应用程序的内存/CPU 使用率过高
+* 应用程序因异常而崩溃
 
 ## <a name="troubleshooting-steps-to-solve-502-bad-gateway-and-503-service-unavailable-errors"></a>解決「502 錯誤閘道」和「503 服務無法使用」錯誤的疑難排解步驟
-疑難排解可以分成三種不同的工作，依序為：
+故障排除可划分为三种不同的任务，依次为：
 
 1. [觀察和監視應用程式行為](#observe)
 2. [收集資料](#collect)
@@ -60,9 +60,9 @@ ms.locfileid: "53652569"
 某些您可能想用以監視應用程式的計量為
 
 * 平均記憶體工作集
-* 平均回應時間
+* 平均响应时间
 * CPU 時間
-* 記憶體工作集
+* 内存工作集
 * Requests
 
 ![監視應用程式，以解決 502 不正確的閘道和 503 服務無法使用的 HTTP 錯誤](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
@@ -109,7 +109,7 @@ Kudu 的另一項實用功能是，如果應用程式擲回第一次例外狀況
 您可以將調整設定為手動或自動。
 
 #### <a name="use-autoheal"></a>使用 AutoHeal
-AutoHeal 會根據您選擇的設定 (例如組態變更、要求、以記憶體為基礎的限制或執行要求所需的時間)，回收應用程式的背景工作角色處理序。 在大部分情況下，回收處理序是從問題中復原的最快方式。 您可隨時從 Azure 入口網站中直接重新啟動應用程式，但 AutoHeal 會自動為您完成此作業。 您只需要在應用程式的根目錄 web.config 中加入某些觸發程序。 請注意，即使您的應用程式並非 .Net，這些設定的運作方式仍相同。
+AutoHeal 會根據您選擇的設定 (例如組態變更、要求、以記憶體為基礎的限制或執行要求所需的時間)，回收應用程式的背景工作角色處理序。 在大部分情況下，回收處理序是從問題中復原的最快方式。 您可隨時從 Azure 入口網站中直接重新啟動應用程式，但 AutoHeal 會自動為您完成此作業。 您只需要在應用程式的根目錄 web.config 中加入某些觸發程序。 請注意，這些設定的運作方式相同，即使您的應用程式並不是.NET。
 
 如需詳細資訊，請參閱 [自動修復 Azure 網站](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/)。
 

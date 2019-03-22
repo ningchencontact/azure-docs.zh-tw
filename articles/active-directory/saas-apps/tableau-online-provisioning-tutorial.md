@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a81754b9b95c7cc6e257707aec188abf1dab58c3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6ed8bae32cb8d0680b1f9aa66f26407c3313ea06
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194864"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077814"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>教學課程：設定 Tableau Online 來自動佈建使用者
 
@@ -29,7 +29,7 @@ ms.locfileid: "56194864"
 > [!NOTE]
 > 本教學課程會說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題等重要詳細資訊，請參閱[使用 Azure Active Directory 對 SaaS 應用程式自動佈建和取消佈建使用者](../manage-apps/user-provisioning.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本教學課程中說明的案例假設您已經具有下列項目：
 
@@ -106,13 +106,13 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 5. 在 [管理員認證] 區段下，輸入 Tableau Online 帳戶的 [網域]、[管理員使用者名稱]、[管理員密碼]和 [內容 URL]：
 
-    *   在 [網域] 欄位中，根據步驟 6 填入子網域。
+   * 在 [網域] 欄位中，根據步驟 6 填入子網域。
 
-    *   在 [管理員使用者名稱] 欄位中，填入 Clarizen 租用戶中系統管理員帳戶的使用者名稱。 範例： admin@contoso.com.
+   * 在 [管理員使用者名稱] 欄位中，填入 Clarizen 租用戶中系統管理員帳戶的使用者名稱。 範例： admin@contoso.com.
 
-    *   在 [管理員密碼] 欄位中，填入與管理員使用者名稱相對應的系統管理員帳戶密碼。
+   * 在 [管理員密碼] 欄位中，填入與管理員使用者名稱相對應的系統管理員帳戶密碼。
 
-    *   在 [內容 URL] 欄位中，根據步驟 6 填入子網域。
+   * 在 [內容 URL] 欄位中，根據步驟 6 填入子網域。
 
 6. 登入 Tableau Online 的系統管理帳戶之後，即可從系統管理頁面的 URL 中擷取 [網域] 和 [內容 URL] 的值。
 

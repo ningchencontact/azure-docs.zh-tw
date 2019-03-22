@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 25636cad514df18a289c9c81ea95bc53e6ec203c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861318"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738720"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Bing 搜尋 API 使用和顯示需求
 
@@ -34,7 +34,7 @@ ms.locfileid: "55861318"
 ## <a name="definitions"></a>定義
 
 
-|詞彙  |說明  |
+|詞彙  |描述  |
 |---------|---------|
 |Answer     | 回應中所傳回的結果類別。 例如，來自 Bing 網路搜尋 API 的回應可能包含網頁結果、映像、影片、視覺物件和新聞類別中的解答。 |
 |Response     | 搜尋 API 的單一呼叫回應中所收到的所有及任何解答和相關聯的資料。 |

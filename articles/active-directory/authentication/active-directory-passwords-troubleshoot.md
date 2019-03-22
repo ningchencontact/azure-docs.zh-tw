@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4af7c5721458e36a1efa27c9696feaa3dbf043e4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3621bbce0128fbd173120ae2a327065ee2e84e33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186982"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57878443"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>針對自助式密碼重設進行疑難排解
 
@@ -98,15 +98,15 @@ ms.locfileid: "56186982"
 
 ### <a name="if-the-source-of-the-event-is-adsync"></a>如果事件來源是 ADSync
 
-| 代碼 | 名稱或訊息 | 說明 |
+| 代碼 | 名稱或訊息 | 描述 |
 | --- | --- | --- |
 | 6329 | BAIL：MMS(4924) 0x80230619：「有一項限制讓密碼無法變更為目前指定的密碼。」 | 當「密碼回寫」服務嘗試在本機目錄上設定不符合密碼有效期、歷程記錄、複雜度或網域篩選需求的密碼時，就會發生此事件。 <br> <br> 如果您有最短的密碼使用期限，且最近在該時段內變更過密碼，就必須在到達網域中指定的使用期限後，才能再次變更密碼。 若要進行測試，最短使用期限應該設定為 0。 <br> <br> 如果已啟用密碼歷程記錄需求，則必須選取最近 N 次未用過的密碼，其中 N 是密碼歷程記錄設定。 如果您選取最近 N 次用過的密碼，則會在此案例中看到失敗。 若要進行測試，密碼歷程記錄應該設定為 0。 <br> <br> 如果您有密碼複雜度需求，則會在使用者嘗試變更或重設密碼時強制執行這些需求。 <br> <br> 如果您啟用密碼篩選功能，當使用者選取的密碼不符合篩選準則時，重設或變更作業就會失敗。 |
-| 6329 | MMS(3040): admaexport.cpp(2837)：伺服器未包含 LDAP 密碼原則控制項。 | 如果未在 DC 上啟用 LDAP_SERVER_POLICY_HINTS_OID 控制項 (1.2.840.113556.1.4.2066)，就會發生此問題。 若要使用密碼回寫功能，您必須啟用該控制項。 若要這麼做，DC 必須是 Windows Server 2008 (含最新的 SP) 或更新版本。 如果您的 DC 是 2008 (R2 之前) 版，則也必須套用 [Hotfix KB2386717](https://support.microsoft.com/kb/2386717)。 |
+| 6329 | MMS(3040): admaexport.cpp(2837)：伺服器未包含 LDAP 密碼原則控制項。 | 如果未在 DC 上啟用 LDAP_SERVER_POLICY_HINTS_OID 控制項 (1.2.840.113556.1.4.2066)，就會發生此問題。 若要使用密碼回寫功能，您必須啟用該控制項。 若要這樣做，請在 Windows Server 2008 r2 或更新版本，必須是網域控制站。 |
 | HR 8023042 | 同步處理引擎傳回的錯誤 hr= 80230402，訊息=嘗試取得物件失敗，因為存在具有相同錨點的重複項目。 | 在多個網域中啟用相同的使用者識別碼時，就會發生此錯誤。 例如，如果您在同步處理的帳戶和資源樹系中皆存在相同的使用者識別碼，且在每個樹系中皆為啟用時。 <br> <br> 如果您使用非唯一的錨點屬性 (例如別名或 UPN)，而且兩個使用者共用該相同的錨點屬性時，也會發生此錯誤。 <br> <br> 若要解決這個問題，請確定您的網域內沒有重複的使用者，且每個使用者皆使用唯一的錨點屬性。 |
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>如果事件來源為 PasswordResetService
 
-| 代碼 | 名稱或訊息 | 說明 |
+| 代碼 | 名稱或訊息 | 描述 |
 | --- | --- | --- |
 | 31001 | PasswordResetStart | 這個事件表示內部部署服務偵測到源自雲端、針對同盟、傳遞驗證或密碼雜湊同步使用者所提出的密碼重設要求。 這個事件是每個密碼重設回寫作業的第一個事件。 |
 | 31002 | PasswordResetSuccess | 這個事件表示使用者在密碼重設作業期間選取了新的密碼。 我們認為這個密碼符合公司的密碼需求。 密碼已成功地寫回至本機的 Active Directory 環境。 |
@@ -179,10 +179,10 @@ ms.locfileid: "56186982"
 
 如需解決服務的連線問題或其他暫時性問題，請重新啟動 Azure AD Connect 同步處理服務：
 
-   1. 以系統管理員身分，在執行 Azure AD Connect 的伺服器上選取 [啟動]。
-   1. 在搜尋欄位中輸入 **services.msc**並選取 [輸入]。
-   1. 找出 **Microsoft Azure AD Sync** 項目。
-   1. 以滑鼠右鍵按一下服務項目，選取 [重新啟動]，然後等候作業完成。
+1. 以系統管理員身分，在執行 Azure AD Connect 的伺服器上選取 [啟動]。
+1. 在搜尋欄位中輸入 **services.msc**並選取 [輸入]。
+1. 找出 **Microsoft Azure AD Sync** 項目。
+1. 以滑鼠右鍵按一下服務項目，選取 [重新啟動]，然後等候作業完成。
 
    ![重新啟動 Azure AD Sync 服務][Service restart]
 
@@ -272,13 +272,13 @@ Azure AD Connect 需要 Active Directory **重設密碼**權限才能執行密�
 * **錯誤的一般描述**：錯誤為何？ 注意到何種行為？ 我們如何才能重現錯誤？ 請提供盡可能詳細的資料。
 * **頁面**：您注意到錯誤時的所在頁面？ 盡可能包含 URL 和頁面的螢幕擷取畫面。
 * **支援碼**：使用者看到錯誤時所產生的支援碼？
-    * 若要找到支援碼，請重現錯誤，然後按一下畫面底部的 [支援碼] 連結，將所產生的 GUID 傳送給支援工程師。
+  * 若要找到支援碼，請重現錯誤，然後按一下畫面底部的 [支援碼] 連結，將所產生的 GUID 傳送給支援工程師。
 
     ![尋找畫面底部的支援碼][Support code]
 
-    * 如果您所在的頁面底部沒有支援碼，請選取 F12，搜尋 SID 和 CID，然後將這兩個結果傳送給支援工程師。
+  * 如果您所在的頁面底部沒有支援碼，請選取 F12，搜尋 SID 和 CID，然後將這兩個結果傳送給支援工程師。
 * **日期、時間和時區**：請包含發生錯誤的精確日期和時間 (含時區)。
-* **使用者識別碼**：看到錯誤的使用者是誰？ 例如 user@contoso.com。
+* **使用者識別碼**：看到錯誤的使用者是誰？ 例如，*使用者\@contoso.com*。
     * 這是同盟使用者嗎？
     * 這是傳遞驗證使用者嗎？
     * 這是密碼雜湊同步使用者嗎？

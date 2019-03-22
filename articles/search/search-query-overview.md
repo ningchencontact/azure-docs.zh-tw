@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 5cddf69f700c971d22384dadb00d3becc4a8385f
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: a197be06d9c6f4b70b8ffc06712ef315547b4140
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300870"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58136507"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>如何在 Azure 搜尋服務中撰寫查詢
 
@@ -26,7 +26,7 @@ ms.locfileid: "56300870"
 
 下表列出使用 API 和工具來提交查詢的方法。
 
-| 方法 | 說明 |
+| 方法 | 描述 |
 |-------------|-------------|
 | [搜尋總管 (入口網站)](search-explorer.md) | 提供搜尋列以及選取索引和 API 版本的選項。 結果會以 JSON 文件的形式傳回。 <br/>[深入了解。](search-get-started-portal.md#query-index) | 
 | [Postman 或 Fiddler](search-fiddler.md) | Web 測試工具是擬定 REST 呼叫的絕佳選擇。 REST API 支援 Azure 搜尋服務中之每個可能的作業。 在本文中，了解如何設定 HTTP 要求標頭和主體，以傳送要求到 Azure 搜尋服務。  |
@@ -38,15 +38,15 @@ ms.locfileid: "56300870"
 範例適合用來介紹新的概念。 作為 [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 中所建構的代表性查詢，下列範例鎖定[不動產示範索引](search-get-started-portal.md)，並包含常見參數。
 
 ```
-{  
+{
     "queryType": "simple" 
-    "search": "seattle townhouse* +\"lake\"", 
-    "searchFields": "description, city",  
-    "count": "true", 
+    "search": "seattle townhouse* +\"lake\"",
+    "searchFields": "description, city",
+    "count": "true",
     "select": "listingId, street, status, daysOnMarket, description",
     "top": "10",
     "orderby": "daysOnMarket"
- } 
+}
 ```
 
 + **`queryType`** 會設定剖析器，在 Azure 搜尋服務中，這既可以是[預設的簡單查詢剖析器](search-query-simple-examples.md) (最適合全文檢索搜尋)，也可以是[完整的 Lucene 查詢剖析器](search-query-lucene-examples.md) (用於進階的查詢建構，例如規則運算式、鄰近搜尋、模糊和萬用字元搜尋等等)。
@@ -146,7 +146,7 @@ Azure 搜尋服務支援廣泛的查詢類型。
 
 + 將 **`searchMode=any`** (預設值) 變更為 **`searchMode=all`**，以要求須符合所有準則，而非任何準則。 此做法在查詢中包含布林運算子時特別有用。
 
-+ 如果文字或語彙分析是必要的，但查詢類型無法進行語言處理，請變更查詢技術。 在全文檢索搜尋中，文字或語彙分析會自動更正拼字錯誤、單數複數文字形式，甚至不規則的動詞或名詞。 在像是模糊或萬用字元搜尋等某些查詢中，文字分析並不是查詢剖析管線的一部分。 在某些情況下，規則運算式是既有的因應措施。 
++ 如果文字或語彙分析是必要的，但查詢類型無法進行語言處理，請變更查詢技術。 在全文檢索搜尋、 文字或語彙分析校正拼字錯誤、 單數複數形態，以及甚至不規則的動詞或名詞。 在像是模糊或萬用字元搜尋等某些查詢中，文字分析並不是查詢剖析管線的一部分。 在某些情況下，規則運算式是既有的因應措施。 
 
 ### <a name="paging-results"></a>分頁結果
 Azure 搜尋服務可讓您輕鬆地對搜尋結果分頁。 透過使用 **`top`** 和 **`skip`** 參數，您就可以順利地發出搜尋要求，將所收到的整組搜尋結果分拆成方便管理且經過排序的子集，輕鬆實現良好的搜尋 UI 做法。 在收到這些分拆成較小子集的結果時，您也會收到整組搜尋結果中所含文件的計數。
@@ -162,9 +162,9 @@ Azure 搜尋服務可讓您輕鬆地對搜尋結果分頁。 透過使用 **`top
 ### <a name="hit-highlighting"></a>搜尋結果醒目提示
 在 Azure 搜尋服務中，只要使用 **`highlight`**、**`highlightPreTag`** 和 **`highlightPostTag`** 參數就可強調提示搜尋結果中符合搜尋查詢的確切部分。 您可以指定哪些可搜尋欄位應該強調其相符的文字，以及指定要在 Azure 搜尋服務傳回的相符文字開頭和結尾附加的確切字串標記。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 + [全文檢索搜尋如何在 Azure 搜尋服務中運作 (查詢剖析架構)](search-lucene-query-architecture.md)
 + [搜尋總管](search-explorer.md)
 + [如何在 .NET 中進行查詢](search-query-dotnet.md)
-+ [如何在 REST 中進行查詢](search-query-rest-api.md)
++ [如何在 REST 中進行查詢](search-create-index-rest-api.md)

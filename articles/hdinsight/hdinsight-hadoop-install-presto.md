@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: fe3727c90819a96b7e1785362e557edd5cbbdf02
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: HT
+ms.openlocfilehash: 435c041bb5fb0a398f92914f943166108cc20080
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199319"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258338"
 ---
 # <a name="install-and-use-presto-on-hadoop-based-hdinsight-clusters"></a>在 Hadoop 型 HDInsight 叢集上安裝和使用 Presto
 
-本文說明如何使用指令碼動作，在 Hadoop 型 Adobe HDInsight 叢集上安裝 Presto。 您也會了解如何在現有的 HDInsight 叢集上安裝 Airpal。
+這篇文章說明如何使用指令碼動作在 Hadoop 為基礎的 Azure HDInsight 叢集上安裝 Presto。 您也會了解如何在現有的 HDInsight 叢集上安裝 Airpal。
 
 HDInsight 也提供 Starburst Presto 應用程式，以供 Apache Hadoop 叢集使用。 如需詳細資訊，請參閱[在 Azure HDInsight 上安裝第三方 Apache Hadoop 應用程式](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-install-applications)。
 

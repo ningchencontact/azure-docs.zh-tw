@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 88ac97c36a9b09b795a3ea792df6711fc1275422
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 67db13c8a36977f2614ba7b0e263919bd0405bc7
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55163002"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56585588"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的使用者流程
 
@@ -85,6 +85,6 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ## <a name="next-steps"></a>後續步驟
 
-若要建立建議的使用者流程，請依照[教學課程：建立使用者流程](tutorial-create-tenant.md)中的指示執行。
+若要建立建議的使用者流程，請依照[教學課程：建立使用者流程](tutorial-create-user-flows.md)中的指示執行。
 
 

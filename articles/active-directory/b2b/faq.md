@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2B 共同作業常見問題集 | Microsoft Docs
+title: B2B 共同作業常見問題集-Azure Active Directory |Microsoft Docs
 description: 取得 Azure Active Directory B2B 共同作業常見問題集的解答
 services: active-directory
 ms.service: active-directory
@@ -9,14 +9,15 @@ ms.date: 10/29/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a09ce7f677bcf54355e30fc273ee64b23b1d55c8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 860a059f57578965045ff8e7f404c3b072df03a1
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208158"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293816"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B 共同作業常見問題集
 
@@ -59,12 +60,12 @@ ms.locfileid: "56208158"
 可以！ 當您設定此原則時，請小心避免不慎封鎖成員和管理員的存取權。
 若要封鎖來賓使用者的 [Azure 入口網站](https://portal.azure.com)存取權，請在 Windows Azure 傳統部署模型 API 中使用條件式存取原則︰
 1. 將**所有使用者**群組修改為只包含成員。
-  ![修改群組螢幕擷取畫面](media/faq/modify-all-users-group.png)
+   ![顯示所有使用者 」 群組 UserType 不等於來賓的螢幕擷取畫面 ](media/faq/modify-all-users-group.png)
 2. 建立包含來賓使用者的動態群組。
-  ![建立群組螢幕擷取畫面](media/faq/group-with-guest-users.png)
+   ![螢幕擷取畫面顯示新的所有來賓使用者群組](media/faq/group-with-guest-users.png)
 3. 設定條件式存取原則以防止來賓使用者存取入口網站，如下列影片中所示：
   
-  > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
+   > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
 
 ### <a name="does-azure-ad-b2b-collaboration-support-multi-factor-authentication-and-consumer-email-accounts"></a>Azure AD B2B 共同作業是否支援多重要素驗證和取用者電子郵件帳戶？
 是。 Azure AD B2B 共同作業支援多重要素驗證和取用者電子郵件帳戶。
@@ -94,7 +95,7 @@ Azure AD 有一組固定的字元、密碼強度，以及帳戶鎖定需求，�
 
 ### <a name="where-can-i-find-a-b2b-collaboration-community-to-share-solutions-and-to-submit-ideas"></a>哪裡可以找到 B2B 共同作業社群，以分享解決方案和提交構想？
 我們會時常聆聽您對改進 B2B 共同作業的意見反應。 請分享您的使用者案例、最佳做法，以及您喜歡 Azure AD B2B 共同作業的什麼功能。 請前往 [Microsoft 技術社群](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b)參與討論。
- 
+ 
 我們也邀請您前往 [B2B 共同作業構想](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas)提交您的構想和票選未來的功能。
 
 ### <a name="can-we-send-an-invitation-that-is-automatically-redeemed-so-that-the-user-is-just-ready-to-go-or-does-the-user-always-have-to-click-through-to-the-redemption-url"></a>我們是否可以傳送自動兌換的邀請，讓使用者「隨時出發」？ 還是使用者一定要按一下才能前往兌換 URL？
@@ -107,7 +108,7 @@ Azure AD 有一組固定的字元、密碼強度，以及帳戶鎖定需求，�
 在支援哪些身分識別這方面，我們將會消除 B2B 與企業對消費者 (B2C) 共同作業之間的差異。 使用的身分識別並不是用來選擇要使用 B2B 或 B2C 的好理由。 如需有關選擇協同作業選項的資訊，請參閱[比較 Azure Active Directory 的 B2B 共同作業和 B2C](compare-with-b2c.md)。
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>哪些應用程式和服務支援 Azure B2B 來賓使用者？
-所有與 Azure AD 整合的應用程式都能支援 Azure B2B 來賓使用者，但它們必須使用租用戶端點驗證來賓使用者。 您可能也需要在使用者向應用程式驗證時所發出的 SAML 權杖中[自訂宣告](claims-mapping.md)。 
+所有 Azure AD 整合的應用程式可支援 Azure B2B 來賓使用者，但它們必須使用設定為租用戶的端點來驗證來賓使用者。 您可能也需要在使用者向應用程式驗證時所發出的 SAML 權杖中[自訂宣告](claims-mapping.md)。 
 
 ### <a name="can-we-force-multi-factor-authentication-for-b2b-guest-users-if-our-partners-dont-have-multi-factor-authentication"></a>如果我們的合作夥伴沒有多重要素驗證，我們是否可以對 B2B 來賓使用者強制使用多重要素驗證？
 是。 如需詳細資訊，請參閱 [B2B 共同作業使用者的條件式存取](conditional-access.md)。

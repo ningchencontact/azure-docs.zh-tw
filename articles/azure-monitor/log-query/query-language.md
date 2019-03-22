@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: bwren
-ms.openlocfilehash: 01d452f97134093e9b40b6ec32f1c9fed41564aa
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: ecbea91cef69c80975dd105c35f526b357033a6b
+ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343046"
+ms.lasthandoff: 02/24/2019
+ms.locfileid: "56749813"
 ---
 # <a name="azure-monitor-log-queries"></a>Azure 監視器記錄查詢
 Azure 監視器記錄檔以 Azure 資料總管為基礎建置，且 Azure 監視器記錄查詢使用相同的 Kusto 查詢語言版本。 [Kusto 查詢語言文件](/azure/kusto/query)涵蓋語言的所有詳細資料，而且應該是您用來撰寫 Azure 監視器記錄查詢的主要資源。 此頁面所提供的其他資源連結可用來了解如何撰寫查詢，以及對語言進行 Azure 監視器實作的差異。
@@ -27,7 +27,7 @@ Azure 監視器記錄檔以 Azure 資料總管為基礎建置，且 Azure 監視
 
 ## <a name="getting-started"></a>開始使用
 
-- [開始使用 Azure 監視器記錄分析](get-started-portal.md)是一堂在 Azure 入口網站中撰寫查詢和使用結果的課程。
+- [開始使用 Azure 監視器 Log Analytics](get-started-portal.md)教訓來撰寫查詢，和使用 Azure 入口網站中的結果。
 - [開始使用 Azure 監視器記錄查詢](get-started-queries.md)是一堂使用 Azure 監視器記錄資料撰寫查詢的課程。
 
 ## <a name="concepts"></a>概念

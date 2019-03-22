@@ -11,21 +11,21 @@ ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 365f00ced38a1ddc20df211121fba43efff8ea87
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
-ms.translationtype: HT
+ms.openlocfilehash: 8a0bf1c39977d1659d398fce7c4bb3ae0024c88a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2018
-ms.locfileid: "29460407"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771135"
 ---
 # <a name="getting-started"> </a>我使用行動服務，App Service 有何幫助？
 ## <a name="overview"></a>概觀
 您現有的行動服務很安全並將繼續提供支援。 不過，Azure App Service 平台為您的行動應用程式提供了行動服務目前所沒有的優點：
 
-* 針對包含 Web 和行動用戶端的應用程式，提供更簡單、更容易且更符合成本效益的功能
+* 針對包含 Web 和行動用戶端的應用程式，提供更簡單、更容易且更符合成本效益的供應項目
 * 新的主機功能包括 Web 工作、自訂 CName、更完善的監視
 * 與流量管理員整合
 * 除了混合式連線以外，還會使用 VNet 連線至內部部署資源和 VPN
@@ -51,7 +51,7 @@ ms.locfileid: "29460407"
 ## <a name="use-your-favorite-backend-language"></a>使用您最愛的後端語言
 *Azure App Service* 提供對 ASP.NET 與 Node.js 平台更廣泛、更豐富的支援，包含對最新執行階段的存取。
 
-## <a name="set-up-automatic-scale"></a>設定自動調整
+## <a name="set-up-automatic-scale"></a>设置自动缩放
 有了行動服務，後端程式碼的所有執行個體都已在小型 VM 上執行。 *Azure App Service* 可讓您從更豐富的選項中選取 VM 的大小。 您可以根據各種效能計量，快速相應增加或相應放大，以處理任何傳入的客戶負載。
 
 ## <a name="be-in-the-know"></a>處於「知情」狀態

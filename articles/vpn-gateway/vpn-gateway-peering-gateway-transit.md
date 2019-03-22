@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: 0683c664-9c03-40a4-b198-a6529bf1ce8b
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 5f8f282db9468d84c3a1fa16c5cd481f2dd0970e
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 05b25a524894248152114ca9c756d4a0f8944ad8
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415913"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199625"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>為虛擬網路對等互連設定 VPN 閘道傳輸
 
@@ -37,8 +37,8 @@ ms.locfileid: "56415913"
 1. 兩個虛擬網路都使用資源管理員部署模型
 2. 輪輻虛擬網路使用傳統部署，而具有閘道的中樞虛擬網路位於資源管理員中
 
-> [!IMPORTANT]
-> 閘道傳輸目前不支援與全域虛擬網路對等互連。
+> [!IMPORTANT]  
+> 全域虛擬網路對等互連在預覽中目前支援閘道傳輸。 預覽適用於所有 Azure 區域、 中國雲端區域和政府雲端區域中，但不是會跨雲端。 需要未列入允許清單。 您可以透過 CLI、 PowerShell、 範本或 API 的預覽中進行測試。 在預覽中不支援入口網站。 
 
 ## <a name="requirements"></a>需求
 
@@ -63,7 +63,7 @@ ms.locfileid: "56415913"
     
 |虛擬網路|部署模型|角色|權限|
 |---|---|---|---|
-|Hub-RM|Resource Manager|[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
+|Hub-RM|Resource Manager|[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
 | |傳統|[傳統網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/A|
 |Spoke-Classic|Resource Manager|[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||傳統|[傳統網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
@@ -129,13 +129,13 @@ Add-AzVirtualNetworkPeering `
 這些步驟與資源管理員範例類似，但不包括只適用於 Hub-RM 虛擬網路的作業。
 
 1. 從 Azure 入口網站建立或更新從 Hub-RM 到 Spoke-RM 的虛擬網路對等互連。 瀏覽至 Hub-RM 虛擬網路資源，並依序按一下 [對等互連] 和 [新增]：
-    - 設定虛擬網路部署模型的「傳統」選項
-    - 在對應的訂用帳戶中選取 "Spoke-Classic" 虛擬網路
-    - 請確定 [允許虛擬網路存取] 是「啟用」狀態
-    - 設定 [允許閘道傳輸] 選項
-    - 按一下 [確定]
+   - 設定虛擬網路部署模型的「傳統」選項
+   - 在對應的訂用帳戶中選取 "Spoke-Classic" 虛擬網路
+   - 請確定 [允許虛擬網路存取] 是「啟用」狀態
+   - 設定 [允許閘道傳輸] 選項
+   - 按一下 [確定]
 
-    ![hubrm-to-spokeclassic](./media/vpn-gateway-peering-gateway-transit/hubrm-spokeclassic-peering.png)
+     ![hubrm-to-spokeclassic](./media/vpn-gateway-peering-gateway-transit/hubrm-spokeclassic-peering.png)
 
 2. 如果已建立對等互連，請瀏覽至對等互連的資源，然後啟用 [允許閘道傳輸] 選項，如同步驟 (1) 所示的螢幕擷取畫面
 

@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 8417b849ad7589ce6a770eb805c38a13e3c672dd
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ac52d8fa03c3c3ad1d618d014381fadfa752b7d7
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448759"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202974"
 ---
 # <a name="azure-sql-database-data-discovery--classification"></a>Azure SQL Database 的資料探索與分類
 
@@ -145,6 +145,13 @@ SQL 資料探索與分類隨附一組內建的敏感度標籤與一組內建的�
 - [取得](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) - 取得指定資料行的敏感度標籤
 - [依資料庫列出目前的標籤](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) \(英文\) - 取得指定資料庫目前的敏感度標籤
 - [按数据库列出建议项](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) - 获取给定数据库的建议敏感度标签
+
+## <a name="permissions"></a>權限
+下列的內建角色可以讀取 Azure SQL database 的資料分類： `Owner`， `Reader`， `Contributor`，`SQL Security Manager`和`User Access Administrator`。
+
+下列的內建角色可以修改 Azure SQL database 的資料分類： `Owner`， `Contributor`， `SQL Security Manager`。
+
+深入了解[適用於 Azure 資源的 RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 ## <a id="subheading-5"></a>接續步驟
 

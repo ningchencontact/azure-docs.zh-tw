@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: patricka
 ms.openlocfilehash: 17c0213d63879687e9c6d5f8dca06b9113c44af8
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: HT
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52742440"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "58116103"
 ---
 如果您只想在您的應用程式中啟用註冊功能，您可使用**註冊**使用者流程。 此使用者流程描述客戶在註冊期間將會經歷的體驗，以及應用程式在成功註冊時會收到的權杖內容。
 

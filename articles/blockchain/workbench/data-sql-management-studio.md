@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 32606f988152b061fa1923c409207b2a650e64ba
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: a5554f1fe0a14799a100aefc975a110d3a9a6311
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332450"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088718"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-sql-server-management-studio"></a>將 Azure Blockchain Workbench 資料搭配 SQL Server Management Studio 使用
 
@@ -38,9 +38,9 @@ Microsoft SQL Server Management Studio 可供快速撰寫查詢並對 Azure Bloc
 
     ![輸入 SQL 認證](./media/data-sql-management-studio/sql-creds.png)
 
- 4. SQL Server Management Studio 會顯示 Azure Blockchain Workbench 資料庫中的資料庫、資料庫檢視與已儲存程序的清單。
+   1. SQL Server Management Studio 會顯示 Azure Blockchain Workbench 資料庫中的資料庫、資料庫檢視與已儲存程序的清單。
 
-    ![資料庫清單](./media/data-sql-management-studio/db-list.png)
+      ![資料庫清單](./media/data-sql-management-studio/db-list.png)
 
 5. 若要檢視與任何資料庫檢視相關聯的資料，您可以使用以下步驟自動產生 select 陳述式。
 6. 以滑鼠右鍵按一下物件總管中的任何資料庫檢視。

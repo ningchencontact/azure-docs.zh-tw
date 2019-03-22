@@ -1,6 +1,6 @@
 ---
-title: 使用 Log Analytics 監視 B2B 訊息 - Azure Logic Apps | Microsoft Docs
-description: 使用 Azure Log Analytics 來監視整合帳戶和 Azure Logic Apps 的 AS2、x12 及 EDIFACT 訊息，並設定診斷記錄
+title: 監視 Azure 監視器記錄檔-Azure Logic Apps B2B 訊息 |Microsoft Docs
+description: 監視 AS2、 x12 和 EDIFACT 訊息的整合帳戶和 Azure Logic Apps，並設定與 Azure 監視器記錄檔的診斷記錄
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,25 +9,27 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: e3d2b377df6a3ed8312ca8b2563fe466236c2741
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 12799a308157c3c0e19de1f82c0fe3df44fad37e
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818289"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195153"
 ---
-# <a name="monitor-b2b-messages-with-azure-log-analytics-in-azure-logic-apps"></a>在 Azure Logic Apps 中使用 Azure Log Analytics 監視 B2B 訊息
+# <a name="monitor-b2b-messages-with-azure-monitor-logs-in-azure-logic-apps"></a>Azure Logic Apps 中的 Azure 監視器記錄檔監視 B2B 訊息
 
-當您在整合帳戶中的交易夥伴之間設定了 B2B 通訊之後，那些合作夥伴就可以彼此交換訊息。 若要檢查此通訊會以您預期的方式運作，您可以使用 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)，針對您的整合帳戶監視 AS2、X12 和 EDIFACT 訊息並設定診斷記錄。 此服務會監視您的雲端和內部部署環境，協助您維護其可用性和效能，並收集執行階段詳細資料和事件，以進行更豐富的偵錯。 您也可以將此資料與其他服務搭配使用，例如 Azure 儲存體和 Azure 事件中樞。
+當您在整合帳戶中的交易夥伴之間設定了 B2B 通訊之後，那些合作夥伴就可以彼此交換訊息。 若要檢查，這項通訊運作您預期的方式，您可以監視 AS2、 X12，以及 EDIFACT 訊息，並設定您的整合帳戶的診斷記錄[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)。 此服務會監視您的雲端和內部部署環境，協助您維護其可用性和效能，並收集執行階段詳細資料和事件，以進行更豐富的偵錯。 您也可以將此資料與其他服務搭配使用，例如 Azure 儲存體和 Azure 事件中樞。
 
 > [!NOTE]
 > 此頁面可能仍會參考 Microsoft Operations Management Suite (OMS) (此套件將[在 2019 年 1 月淘汰](../azure-monitor/platform/oms-portal-transition.md))，但將盡可能地使用 Azure Log Analytics 來取代那些步驟。 
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
 * 已設定診斷記錄的邏輯應用程式。 了解[如何建立邏輯應用程式](quickstart-create-first-logic-app-workflow.md)和[如何設定該邏輯應用程式的記錄](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics)。
 
-* 當您符合上述需求之後，也需要一個 Log Analytics 工作區，用以透過 Log Analytics 監視和追蹤 B2B 通訊。 如果您沒有 Log Analytics 工作區，請了解[如何建立 Log Analytics 工作區](../azure-monitor/learn/quick-create-workspace.md)。
+* 您符合上述需求之後，您也需要 Log Analytics 工作區中，您用來監視和追蹤 B2B 通訊透過 Azure 監視器記錄檔。 如果您沒有 Log Analytics 工作區，請了解[如何建立 Log Analytics 工作區](../azure-monitor/learn/quick-create-workspace.md)。
 
 * 連結至邏輯應用程式的整合帳戶。 了解[如何建立具有邏輯應用程式連結的整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)。
 
@@ -44,7 +46,7 @@ ms.locfileid: "55818289"
 1. 立即尋找並選取您的整合帳戶。 在篩選清單中，選取要套用到整合帳戶的值。
 當您完成時，請選擇 [新增診斷設定]。
 
-   | 屬性 | 值 | 說明 | 
+   | 屬性 | 值 | 描述 | 
    |----------|-------|-------------|
    | **訂用帳戶** | <*Azure-subscription-name*> | 與整合帳戶相關聯的 Azure 訂用帳戶 | 
    | **資源群組** | <*Azure-resource-group-name*> | 適用於整合帳戶的 Azure 資源群組 | 
@@ -71,9 +73,9 @@ ms.locfileid: "55818289"
 
    例如︰ 
 
-   ![設定 Log Analytics 以將診斷資料傳送至記錄](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
+   ![設定 Azure 監視器記錄檔，讓您可以將診斷資料傳送到記錄檔](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-1. 現在[在 Log Analytics 中設定 B2B 訊息的追蹤](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)。
+1. 現在[設定 Azure 監視器記錄檔中的 B2B 訊息的追蹤](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)。
 
 <a name="azure-monitor-service"></a>
 
@@ -86,7 +88,7 @@ ms.locfileid: "55818289"
 1. 立即尋找並選取您的整合帳戶。 在篩選清單中，選取要套用到整合帳戶的值。
 當您完成時，請選擇 [新增診斷設定]。
 
-   | 屬性 | 值 | 說明 | 
+   | 屬性 | 值 | 描述 | 
    |----------|-------|-------------|
    | **訂用帳戶** | <*Azure-subscription-name*> | 與整合帳戶相關聯的 Azure 訂用帳戶 | 
    | **資源群組** | <*Azure-resource-group-name*> | 適用於整合帳戶的 Azure 資源群組 | 
@@ -113,13 +115,13 @@ ms.locfileid: "55818289"
 
    例如︰ 
 
-   ![設定 Log Analytics 以將診斷資料傳送至記錄](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
+   ![設定 Azure 監視器記錄檔，讓您可以將診斷資料傳送到記錄檔](media/logic-apps-monitor-b2b-message/send-diagnostics-data-log-analytics-workspace.png)
 
-1. 現在[在 Log Analytics 中設定 B2B 訊息的追蹤](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)。
+1. 現在[設定 Azure 監視器記錄檔中的 B2B 訊息的追蹤](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)。
 
 ## <a name="use-diagnostic-data-with-other-services"></a>將診斷資料與其他服務搭配使用
 
-使用 Azure Log Analytics，即可延伸如何搭配使用邏輯應用程式的診斷資料與其他 Azure services，例如： 
+Azure 監視器記錄檔，以及您可以擴充您如何使用邏輯應用程式的診斷資料的其他 Azure 服務，例如： 
 
 * [在 Azure 儲存體中封存 Azure 診斷記錄](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [將 Azure 診斷記錄串流至 Azure 事件中樞](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
@@ -144,6 +146,6 @@ Azure 支援下列追蹤結構描述類型，其中除了自訂類型外都有�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [使用 Azure Log Analytics 追蹤 B2B 通訊](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "在使用 Azure Log Analytics 追蹤 B2B 通訊")
+* [追蹤 Azure 監視器記錄檔中的 B2B 訊息](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "Azure 監視器記錄檔中的追蹤 B2B 訊息")
 * [深入了解企業整合套件](../logic-apps/logic-apps-enterprise-integration-overview.md "了解企業整合套件")
 

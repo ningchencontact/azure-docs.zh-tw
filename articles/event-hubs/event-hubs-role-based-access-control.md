@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 1324700445aebe672b2c5ae2b55ad9bc0bab13b2
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
-ms.translationtype: HT
+ms.openlocfilehash: 549cfb84ff247295e01c800aa41ba265bb8921c7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384253"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540074"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 角色型存取控制 (預覽)
 
@@ -52,7 +52,7 @@ Microsoft Azure 針對以 Azure Active Directory (Azure AD) 為基礎的資源�
 
 若要能夠執行應用程式範例，請先讓其在 Azure AD 中進行註冊，並核准同意提示以便允許應用程式代表其存取事件中樞。 
 
-由於應用程式範例是一個主控台應用程式，您必須註冊原生應用程式，並將 **Microsoft.EventHub** 的 API 權限新增至「所需的權限」集合。 原生應用程式也需要 Azure AD 中的 **redirect-URI** 以作為識別碼；此 URI 不必是網路目的地。 在此範例中使用 `http://eventhubs.microsoft.com`，因為程式碼範例已使用該 URI。
+由於應用程式範例是一個主控台應用程式，您必須註冊原生應用程式，並將 **Microsoft.EventHub** 的 API 權限新增至「所需的權限」集合。 原生應用程式也需要 Azure AD 中的 **redirect-URI** 以作為識別碼；此 URI 不必是網路目的地。 在此範例中使用 `https://eventhubs.microsoft.com`，因為程式碼範例已使用該 URI。
 
 [這個教學課程](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)會有詳細註冊步驟的說明。 請遵循這些步驟來註冊**原生**應用程式，然後遵循更新指示將 **Microsoft.EventHub** API 新增至所需的權限。 在遵循這些步驟時，請記下 **TenantId** 和 **ApplicationId**，因為您需要有這些值才能執行應用程式。
 
@@ -60,11 +60,11 @@ Microsoft Azure 針對以 Azure Active Directory (Azure AD) 為基礎的資源�
 
 若要能夠執行範例，您必須先編輯 App.config 檔案，然後根據您的案例設定下列值：
 
-- `tenantId`：設定為 **TenantId** 值。
-- `clientId`：設定為 **ApplicationId** 值。 
-- `clientSecret`：如果您想要使用用戶端密碼來登入，請在 Azure AD 中建立該密碼。 另外，請使用 Web 應用程式或 API 而非使用原生應用程式。 還有，請將應用程式新增到您先前所建立之命名空間中的 [存取控制 (IAM)] 底下。
-- `eventHubNamespaceFQDN`：設定為新建立之「事件中樞」命名空間的完整 DNS 名稱；例如 `example.servicebus.windows.net`。
-- `eventHubName`：設定為您所建立之事件中樞的名稱。
+- `tenantId`:設定為 **TenantId** 值。
+- `clientId`:設定為 **ApplicationId** 值。 
+- `clientSecret`:如果您想要使用用戶端密碼來登入，請在 Azure AD 中建立該密碼。 另外，請使用 Web 應用程式或 API 而非使用原生應用程式。 還有，請將應用程式新增到您先前所建立之命名空間中的 [存取控制 (IAM)] 底下。
+- `eventHubNamespaceFQDN`:設定為新建立之「事件中樞」命名空間的完整 DNS 名稱；例如 `example.servicebus.windows.net`。
+- `eventHubName`:設定為您所建立之事件中樞的名稱。
 - 您在前面步驟的應用程式中所指定的重新導向 URI。
  
 當您執行主控台應用程式時，系統會提示您選取案例；請藉由輸入其號碼並按 ENTER 鍵來按一下 [互動使用者登入]。 應用程式隨即會顯示登入視窗，要求您同意存取事件中樞，然後使用該服務並利用登入身分識別來執行傳送/接收案例。

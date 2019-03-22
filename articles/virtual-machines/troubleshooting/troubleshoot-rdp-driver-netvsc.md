@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/19/2018
 ms.author: genli
-ms.openlocfilehash: 777d5cb9449bcf9424e2514b2b8f90a9ca6c479c
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
-ms.translationtype: HT
+ms.openlocfilehash: e6685a5e77d92bb9e05ab9578e48c99e80a64b74
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285412"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994617"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>因為 netvsc.sys 而無法從遠端連線到 Azure 中的 Windows 10 或 Windows Server 2016 VM
 
@@ -26,9 +26,9 @@ ms.locfileid: "52285412"
 
 ## <a name="symptoms"></a>徵兆
 
-您無法使用遠端桌面通訊協定 (RDP) 連線到 Azure Windows 10 或 Windows Server 2016 VM。 在 [開機診斷](boot-diagnostics.md) 中，畫面中的網路介面卡 (NIC) 上方顯示紅色打叉符號。 這表示 VM 在作業系統完全載入之後沒有連線。
+您無法使用遠端桌面通訊協定 (RDP) 連線到 Azure 的 Windows 10 或 Windows Server 2016 VM。 在 [開機診斷](boot-diagnostics.md) 中，畫面中的網路介面卡 (NIC) 上方顯示紅色打叉符號。 這表示 VM 在作業系統完全載入之後沒有連線。
 
-一般而言，此問題發生在 Windows [組建 14393](http://support.microsoft.com/help/4093120/) 與[組建 15063](http://support.microsoft.com/help/4015583/) 中。 若您的作業系統版本比這些版本新，此文章不適用於您的案例。 若要檢查系統版本，請在[序列存取主控台](serial-console-windows.md) 中開啟 CMD 工作階段，然後執行 **Ver**。
+一般而言，此問題發生在 Windows [組建 14393](https://support.microsoft.com/help/4093120/) 與[組建 15063](https://support.microsoft.com/help/4015583/) 中。 若您的作業系統版本比這些版本新，此文章不適用於您的案例。 若要檢查系統版本，請在[序列存取主控台](serial-console-windows.md) 中開啟 CMD 工作階段，然後執行 **Ver**。
 
 ## <a name="cause"></a>原因
 
@@ -55,8 +55,8 @@ ms.locfileid: "52285412"
 
 2. 下載適當的更新到已連結到相同區域中工作中 VM 的新或現有資料磁碟：
 
-   - **10.0.14393.594**：[KB4073562](http://support.microsoft.com/help/4073562) 或更新的更新
-   - **10.0.15063.0**：[KB4016240](http://support.microsoft.com/help/4016240) 或更新的更新
+   - **10.0.14393.594**：[KB4073562](https://support.microsoft.com/help/4073562)  或更高版本的更新
+   - **10.0.15063.0**：[KB4016240](https://support.microsoft.com/help/4016240) 或更高版本的更新
 
 3. 將公用程式磁碟從工作中 VM 中斷連結，然後將它連結到損壞的 VM。
 
@@ -98,22 +98,22 @@ ms.locfileid: "52285412"
 
 12. 下載適當的更新：
 
-   - **10.0.14393.594**：[KB4073562](http://support.microsoft.com/help/4073562) 或更新的更新
-   - **10.0.15063.0**：[KB4016240](http://support.microsoft.com/help/4016240) 或更新的更新
+    - **10.0.14393.594**：[KB4073562](https://support.microsoft.com/help/4073562)  或更高版本的更新
+    - **10.0.15063.0**：[KB4016240](https://support.microsoft.com/help/4016240) 或更高版本的更新
 
 13. 將系統磁碟連結為您可以在其上下載更新之救援 VM 上的資料磁碟。
 
 14. 執行下列命令以在該 VM 上安裝更新：
 
-   ```
-   dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
-   ```
+    ```
+    dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
+    ```
 
 15. 執行下列命令以卸載登錄區：
 
-   ```
-   reg unload HKLM\BROKENSYSTEM
-   ```
+    ```
+    reg unload HKLM\BROKENSYSTEM
+    ```
 
 16. [中斷連結系統磁碟，並重新建立 VM](../windows/troubleshoot-recovery-disks-portal.md)。
 

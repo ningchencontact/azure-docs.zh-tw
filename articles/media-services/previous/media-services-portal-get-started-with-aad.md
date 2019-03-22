@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 49fd0aa3bdce606686e89454cd36fd536096f355
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 37c5a97d5f7a872e916f223f2cdfc98bcdec3cad
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004310"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258423"
 ---
 # <a name="get-started-with-azure-ad-authentication-by-using-the-azure-portal"></a>利用 Azure 入口網站開始使用 Azure AD 驗證
 
@@ -30,13 +30,13 @@ ms.locfileid: "56004310"
 - 媒體服務帳戶。 如需詳細資訊，請參閱[使用 Azure 入口網站建立 Azure 媒體服務帳戶](media-services-portal-create-account.md)。
 - 請先複習[使用 Azure AD 驗證存取 Azure 媒體服務 API 概觀](media-services-use-aad-auth-to-access-ams-api.md)。 
 
-當您使用 Azure AD 驗證搭配 Azure 媒體服務 時，會有兩個驗證選項：
+将 Azure AD 身份验证与 Azure 媒体服务结合使用时，可以选择下列两个身份验证选项：
 
-- **使用者驗證**。 驗證使用應用程式與媒體服務資源互動的人員。 互動式應用程式應該會先提示使用者輸入認證。 例如，授權的使用者用來監控編碼工作或即時串流的管理主控台應用程式。 
-- **服務主體驗證**。 驗證服務。 通常使用這種驗證方法的應用程式有執行精靈服務、中介層服務或排程的工作的應用程式：Web 應用程式、函數應用程式、邏輯應用程式、API 或微服務。
+- **使用者驗證**。 驗證使用應用程式與媒體服務資源互動的人員。 互動式應用程式應該會先提示使用者輸入認證。 例如，授权用户用来监视编码作业或实时传送视频流的管理控制台应用程序。 
+- **服務主體驗證**。 对服务进行身份验证。 通常使用這種驗證方法的應用程式有執行精靈服務、中介層服務或排程的工作的應用程式：Web 應用程式、函數應用程式、邏輯應用程式、API 或微服務。
 
 > [!IMPORTANT]
-> 目前，媒體服務支援 Azure 存取控制服務驗證模型。 不過，存取控制授權將在 2018 年 6 月 1 日被取代。 建議您儘速移轉至 Azure AD 驗證模型。
+> 目前，媒體服務支援 Azure 存取控制服務驗證模型。 不過，存取控制授權將在 2018 年 6 月 1 日被取代。 建议尽快迁移到 Azure AD 身份验证模型。
 
 ## <a name="select-the-authentication-method"></a>選取驗證方法
 
@@ -67,8 +67,8 @@ ms.locfileid: "56004310"
 
 若要利用服務主體選項連線到媒體服務 API，您的中介層應用程式 (Web API 或 Web 應用程式) 必須要求具有下列參數的 Azure AD 權杖：  
 
-* Azure AD 租用戶端點
-* 媒體服務資源 URI 
+* Azure AD 租户终结点
+* 媒体服务资源 URI 
 * REST 媒體服務的資源 URI
 * Azure AD 應用程式的值：**用戶端識別碼**和**用戶端祕密**
 

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: juliako
-ms.openlocfilehash: 4dd0f697d16d7a2fbeec8f712d98e6a7c439cb4e
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: 6de626323c82689d0ead4f5aaad2a2e43187ebd0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064673"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896988"
 ---
 # <a name="azure-media-player-overview"></a>Azure 媒體播放器概觀
 
@@ -24,13 +24,13 @@ Azure 媒體播放器是一款網頁視訊播放器，可以在各種瀏覽器�
 
 我們可以利用 Microsoft Azure 媒體服務播放 HLS、DASH、Smooth Streaming 資料流等格式的內容。 Azure Media Player 會考量這些不同的格式，並根據平台/瀏覽器功能自動播放最合適的連結。 媒體服務也允許利用 PlayReady 加密或 AES 128 位元信封加密，進行資產的動態加密。 只要設定正確，Azure Media Player 允許解密 PlayReady 和 AES 128 位元加密的內容。 
 
-[開始免費試用](http://azure.microsoft.com/en-us/pricing/free-trial/)
+[開始免費試用](https://azure.microsoft.com/en-us/pricing/free-trial/)
 
 ## <a name="use-azure-media-player-demo-page"></a>使用 Azure 媒體播放器示範頁面
 
 ### <a name="start-using"></a>開始使用
 
-您可以使用 [Azure 媒體播放器示範頁面](http://aka.ms/amp)來播放 Azure 媒體服務範例或您自己的資料流。  
+您可以使用 [Azure 媒體播放器示範頁面](https://aka.ms/amp)來播放 Azure 媒體服務範例或您自己的資料流。  
 
 若要播放新的影片，請貼上不同 URL，並按 [更新]。
 
@@ -40,7 +40,7 @@ Azure 媒體播放器是一款網頁視訊播放器，可以在各種瀏覽器�
 
 ### <a name="monitor-diagnostics-of-a-video-stream"></a>監視視訊資料流的診斷
 
-您可以使用 [Azure 媒體播放器示範頁面](http://aka.ms/amp) \(英文\) 來監視視訊資料流的診斷。 
+您可以使用 [Azure 媒體播放器示範頁面](https://aka.ms/amp) \(英文\) 來監視視訊資料流的診斷。 
 
 ![Azure 媒體播放器診斷](./media/azure-media-player/diagnostics.png)
 

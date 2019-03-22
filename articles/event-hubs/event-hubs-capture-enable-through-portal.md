@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.custom: seodec18
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: shvija
-ms.openlocfilehash: 2cfd984129097b598c08e53b3698dc32ed616cca
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 9108c52529319288fba48dbad3c6f8aa6cb5f725
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810655"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850746"
 ---
 # <a name="enable-capturing-of-events-streaming-through-azure-event-hubs"></a>允許透過 Azure 事件中樞擷取事件串流
 
@@ -47,8 +47,12 @@ Azure [事件中樞擷取][capture-overview]可讓您將事件中樞內的串流
 
 ### <a name="create-an-azure-data-lake-store-account-and-folders"></a>建立 Azure Data Lake Store 帳戶和資料夾
 
-1. 遵循[使用 Azure 入口網站開始使用 Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md) 中的指示，建立 Data Lake Store 帳戶。
+> [!NOTE]
+> 目前，事件中樞擷取功能會支援僅 Gen 1 的 Azure Data Lake Store，不 Gen 2。 
+
+1. 建立 Data Lake Store Gen 1 帳戶中的指示[開始使用 Azure Data Lake Store 使用 Azure 入口網站](../data-lake-store/data-lake-store-get-started-portal.md)。
 2. 請依照[將權限指派給事件中樞](../data-lake-store/data-lake-store-archive-eventhub-capture.md#assign-permissions-to-event-hubs)一節中的指示，在您要從事件中樞擷取資料的 Data Lake Store 帳戶中建立資料夾，並將權限指派給事件中樞，以便將資料寫入 Data Lake Store 帳戶中。  
+
 
 ### <a name="create-an-event-hub"></a>建立事件中樞
 

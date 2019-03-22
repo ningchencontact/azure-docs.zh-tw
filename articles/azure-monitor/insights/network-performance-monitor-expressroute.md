@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: abshamsft
-ms.openlocfilehash: 2dcbe170a69c0c285cb6425427f94b5efced8712
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: d0819b57307fc037b3be6ab04ed9ec6c8720a618
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747453"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103582"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute 監視
 
@@ -55,7 +55,7 @@ ms.locfileid: "55747453"
 
     ![ExpressRoute 監視組態](media/network-performance-monitor-expressroute/expressroute-configure.png)
  
- 完成探索之後，探索到的私人對等互連連線會列在資料表中。 這些對等互連的監視一開始會處於停用狀態。 
+   完成探索之後，探索到的私人對等互連連線會列在資料表中。 這些對等互連的監視一開始會處於停用狀態。 
 
 ### <a name="enable-monitoring-of-the-expressroute-peering-connections"></a>啟用 ExpressRoute 對等互連連線監視 
 
@@ -116,7 +116,7 @@ ms.locfileid: "55747453"
 
 您可以查看通知代碼，並透過 **LogAnalytics** 設定其警示。 在 [NPM 診斷] 頁面上，您可以看到每個觸發診斷訊息的描述。
 
-| 通知代碼 (記錄檔) | 說明 |
+| 通知代碼 (記錄檔) | 描述 |
 | --- | --- |
 | 5501 | 無法周遊通過 ExpressRoute 線路的次要連線 |
 | 5502 | 無法周遊通過 ExpressRoute 線路的主要連線 |

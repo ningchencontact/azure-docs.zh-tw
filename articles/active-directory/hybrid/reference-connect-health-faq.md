@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c1b653ee16864f5076cdad9d1dbc33e63b175ca
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ec88caafa9a6168860a8e9e2ff9e2abe0cfd0e77
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167585"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852952"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health 常見問題集
 本文會回答有關 Azure Active Directory (Azure AD) Connect Health 的常見問題 (FAQ)。 這些常見問題涵蓋如何使用服務的相關問題，包括計費模型、功能、限制及支援。
@@ -68,7 +68,7 @@ ms.locfileid: "56167585"
 | 角色 | 特性 | 德國雲端中支援 |
 | ------ | --------------- | --- |
 | 適用於同步處理的 Connect Health | 監視/見解/警示/分析 | 否 |
-|  | 同步處理錯誤報告 | yes |
+|  | 同步處理錯誤報告 | 是 |
 | 適用於 ADFS 的 Connect Health | 監視/見解/警示/分析 | 否 |
 | 適用於 ADDS 的 Connect Health | 監視/見解/警示/分析 | 否 |
 
@@ -155,7 +155,7 @@ Azure AD Connect Health 警示會在成功情況下獲得解決。 Azure AD Conn
 
 這項測試經常失敗，因為健康狀態代理程式無法解析 AD FS 伺服器陣列名稱。 如果 AD FS 伺服器受到網路負載平衡器保護，並且從受到負載平衡器保護的節點起始要求 (相較於不受負載平衡器保護的一般用戶端)，可能會發生此問題。 更新 "C:\Windows\System32\drivers\etc" 下的 "hosts" 檔案，使其包含 AD FS 伺服器的 IP 位址或 AD FS 伺服器陣列名稱 (例如 sts.contoso.com) 的迴圈 IP 位址 (127.0.0.1)，即可修正此問題。 新增主機檔案會讓網路呼叫短路，如此可讓健康狀態代理程式取得權杖。
 
-**問：我收到一封電子郵件，指出我的電腦未針對最近的勒索軟體攻擊進行修補。我為什麼收到這封電子郵件？**
+**問：我收到電子郵件，指出無法針對最近的勒索軟體攻擊修補我的機器。我為什麼收到這封電子郵件？**
 
 Azure AD Connect Health 服務已掃描所有已監視的電腦，確保已安裝的必要修補程式。 如果至少一部電腦沒有重大修補程式，則已將電子郵件傳送給租用戶系統管理員。 下列邏輯已用來進行這項決定。
 1. 尋找電腦上安裝的所有 Hotfix。
@@ -192,6 +192,9 @@ CheckForMS17-010
 **問：為何系統並未產生我的 ADFS 稽核？**
 
 請使用 PowerShell Cmdlet <i>Get-AdfsProperties -AuditLevel</i> 以確保稽核記錄不是處於停用狀態。 深入了解 [ADFS 稽核記錄](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016)。 請注意，若系統將進階稽核設定推送至 ADFS 伺服器，將會覆寫 auditpol.exe 的任何變更 (即使並未設定產生的應用程式)。 在此情況下，請將本機本機安全性原則設定為記錄已產生應用程式的失敗和成功項目。
+
+**問：何時代理程式憑證會自動更新之前到期？**
+代理程式憑證就會自動續訂**6 個月**到期日之前。 若未更新，請確定代理程式的網路連線可能會穩定。 重新啟動代理程式服務，或為最新版本的更新也可能會解決此問題。
 
 
 ## <a name="related-links"></a>相關連結

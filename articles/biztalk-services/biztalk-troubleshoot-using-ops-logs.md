@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: f69035202a3358af38ebaf8e94abdd3b030e633f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e58a62761284e0671c0083d41f5dde4c13b32fe2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256063"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108251"
 ---
 # <a name="biztalk-services-troubleshoot-using-operation-logs"></a>BizTalk 服務：使用作業記錄檔進行疑難排解
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
-
+> 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 ## <a name="what-are-the-operation-logs"></a>什麼是作業記錄檔
@@ -63,14 +63,14 @@ ms.locfileid: "51256063"
 | ServiceUpdateBizTalkService |將 BizTalk 服務升級或降級為不同版本的作業 |
 | PurgeBackupBizTalkService |清除超過保留週期的 BizTalk 服務備份的作業 |
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 * [備份 BizTalk 服務](https://go.microsoft.com/fwlink/p/?LinkID=325584)
 * [從備份還原 BizTalk 服務](https://go.microsoft.com/fwlink/p/?LinkID=325582)
-* [BizTalk 服務：開發人員、基本、標準和高級版本圖表](https://go.microsoft.com/fwlink/p/?LinkID=302279)
+* [BizTalk 服務：開發人員、 基本、 標準和進階版本圖表](https://go.microsoft.com/fwlink/p/?LinkID=302279)
 * [BizTalk 服務：佈建](https://go.microsoft.com/fwlink/p/?LinkID=302280)
 * [BizTalk 服務：佈建狀態圖](https://go.microsoft.com/fwlink/p/?LinkID=329870)
-* [BizTalk 服務：儀表板、監視和調整索引標籤](https://go.microsoft.com/fwlink/p/?LinkID=302281)
-* [BizTalk 服務：節流](https://go.microsoft.com/fwlink/p/?LinkID=302282)
+* [BizTalk 服務：儀表板、 監視和調整索引標籤](https://go.microsoft.com/fwlink/p/?LinkID=302281)
+* [BizTalk 服務：節流設定](https://go.microsoft.com/fwlink/p/?LinkID=302282)
 * [BizTalk 服務：簽發者名稱和簽發者金鑰](https://go.microsoft.com/fwlink/p/?LinkID=303941)
 * [如何開始使用 Azure BizTalk 服務 SDK](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 

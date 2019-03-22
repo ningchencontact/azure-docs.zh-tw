@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: a489d1a282c924ec1df658a0244745b225f7123e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: bf010e33a5ef77fcfde2506bfef9760a09667a9d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251260"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867247"
 ---
 # <a name="what-is-automated-machine-learning"></a>什麼是自動化機器學習服務？
 
@@ -41,13 +41,13 @@ ms.locfileid: "55251260"
 
 1. 設定用來將模型定型的[計算目標](how-to-set-up-training-targets.md)。
 
-1. 設定自動化機器學習設定。 這可以控制當 Azure Machine Learning 逐一查看不同的模型、超參數設定，以及在決定最佳模型時要查看哪些計量時會使用的參數。 
+1. 設定自動化機器學習設定。 這可以控制當 Azure Machine Learning 逐一查看不同的模型、超參數設定，以及在決定最佳模型時要查看哪些計量時會使用的參數。
 
 1. 提交定型回合。
 
 在定型期間，Azure Machine Learning 服務會建立數個管道，這些管道分別會嘗試不同的演算法與參數。 在達到您提供的反覆項目限制之後，或達到您為計量指定的目標值時，它隨即停止。
 
-[ ![自動化機器學習服務](./media/how-to-automated-ml/automated-machine-learning.png) ](./media/how-to-automated-ml/automated-machine-learning.png#lightbox)
+[![自動化的機器學習服務](./media/how-to-automated-ml/automated-machine-learning.png)](./media/how-to-automated-ml/automated-machine-learning.png#lightbox)
 
 您可以檢查所記錄的回合資訊，其中包含回和執行期間所收集的計量。 定型回合也會產生 Python 序列化物件 (`.pkl` 檔案)，其中包含模型與資料前置處理。
 
@@ -58,9 +58,13 @@ ms.locfileid: "55251260"
 1. 對於機器學習管線的認知，以及牽涉到的所有步驟，其中包括資料前置處理/功能化和超參數值。
 1. 了解輸入變數 (也稱為「功能」) 和模型輸出之間的關聯性。  了解預測值上每個功能影響的範圍與方向，有助於更加了解和說明模型。 這就是功能重要性。
 
-您可以為您選擇的管線啟用全域功能重要性隨選後置定型，或針對所有管線啟用它來作為自動化 ML 定型的一部分。  這是一項預覽功能，而我們將持續投入心力來提供更豐富的資訊，以協助您深入了解 ML 模型。  
+您可以啟用通用的功能重要性隨 post 訓練您選擇的管線，或啟用它的所有管線自動化的機器學習服務訓練的一部分。 在嚴格法規限制醫療保健和金融交易等產業，這是符合法規和最佳作法的關鍵項目。  以下是一些真實世界案例來說明：
 
-請遵循這個[範例 Notebook ](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/model-explanation/auto-ml-model-explanation.ipynb) \(英文\)，在 Azure Machine Learning 中進行模型說明的實驗。
+1. 使用機器學習服務預測未來的檢測失敗一家製造公司，因此他們可以主動執行維護活動。 一旦您知道即將失敗的檢測，什麼最可能的原因會，因此可以快速地執行預防性維護？
+1. 使用程序貸款或信用卡應用程式的機器學習服務的財務機構。 您要如何知道是否模型進行適當的動作，以及如果客戶要求提供更多詳細資料在其應用程式已被拒絕的原因，如何將您回應它們嗎？
+1. 線上零售店或獨立軟體提供者使用機器學習來預測客戶流失。 什麼是客戶的重要參與者流失，和如何您防止客戶音效嗎？
+
+這是一項預覽功能，我們會持續投資以提供更豐富的資訊可協助您深入了解您的機器學習模型。 請遵循這個[範例 Notebook ](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/model-explanation/auto-ml-model-explanation.ipynb) \(英文\)，在 Azure Machine Learning 中進行模型說明的實驗。
 
 ## <a name="next-steps"></a>後續步驟
 

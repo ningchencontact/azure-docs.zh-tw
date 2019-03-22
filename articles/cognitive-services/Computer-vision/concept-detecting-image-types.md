@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6cd7b2a8a70a315b05c0824a863803bbc6ffabb2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 37cdac16a51a30bdaf1ba0266bab7fdd1f2990f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872130"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895442"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>使用電腦視覺偵測影像類型
 
-電腦視覺可以指出影像是否為美工圖案、依等級評估可能性，或是否為線條繪畫等，來分析影像的內容類型。
+具有[分析影像](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)API，電腦視覺可以分析內容類型的映像，指出影像是否為美工圖案或線條繪圖。
 
 ## <a name="detecting-clip-art"></a>偵測美工圖案
 
@@ -115,4 +115,4 @@ ms.locfileid: "55872130"
 
 ## <a name="next-steps"></a>後續步驟
 
-了解[標記影像](concept-tagging-images.md)和[分類影像](concept-categorizing-images.md)的相關概念。
+請參閱[分析影像](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)參考以了解如何偵測映像類型的文件。

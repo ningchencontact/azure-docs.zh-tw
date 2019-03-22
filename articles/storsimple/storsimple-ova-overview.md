@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/02/2018
+ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: a7aace89ad4323d6fad6942fe03c4240fb53c8fd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: e5713af737a6d9d190814b4155a8e772deea06bc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811190"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013907"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>StorSimple Virtual Array 簡介
 
@@ -74,10 +74,10 @@ StorSimple 會在數分鐘內將使用者和伺服器連接到 Azure 儲存體�
 
 下表顯示所支援 StorSimple 工作負載的摘要。
 
-|案例     |工作負載     |支援      |限制               |
-|-------------|-------------|---------------|---------------------------|
-|遠端辦公室/分公司 (ROBO)  |檔案共用     |yes      |請參閱[檔案伺服器的上限](storsimple-ova-limits.md)。<br></br>請參閱[支援 SMB 版的系統需求](storsimple-ova-system-requirements.md)。| 所有版本     |
-|雲端封存  |封存檔案共用     |yes      |請參閱[檔案伺服器的上限](storsimple-ova-limits.md)。<br></br>請參閱[支援 SMB 版的系統需求](storsimple-ova-system-requirements.md)。| 所有版本     |
+|案例     |工作負載     |支援      |限制               | 適用版本|
+|-------------|-------------|---------------|---------------------------|--------------------|
+|遠端辦公室/分公司 (ROBO)  |檔案共用     |是      |請參閱[檔案伺服器的上限](storsimple-ova-limits.md)。<br></br>請參閱[支援 SMB 版的系統需求](storsimple-ova-system-requirements.md)。| 所有版本     |
+|雲端封存  |封存檔案共用     |是      |請參閱[檔案伺服器的上限](storsimple-ova-limits.md)。<br></br>請參閱[支援 SMB 版的系統需求](storsimple-ova-system-requirements.md)。| 所有版本     |
 
 StorSimple Virtual Array 最適合不常存取的資料。 雖然虛擬陣列具有本機快取可提高效能，但使用者應該假設裝置為儲存體 (雲端) 最低層的檔案提供服務。 每個虛擬陣列都能以大約 100 Mbps 的速度寫入及讀取 Azure 儲存體。 該連結會在進入裝置的所有要求之間共用，並會形成瓶頸，如下圖所示。
 
@@ -101,7 +101,7 @@ StorSimple Virtual Array 特別適用於下列工作流程：
 ![雲端儲存體管理](./media/storsimple-ova-overview/cloud-based-storage-management.png)
 
 ### <a name="location-independent-backup"></a>與位置無關的備份
-運用虛擬陣列，雲端快照集可針對磁碟區或共用提供與位置無關的時間點複本。 預設會啟用雲端快照集，並且無法停用。 所有磁碟區和共用都是透過單一每日備份原則同時備份，需要時，也可以採用其他臨機操作備份。
+運用虛擬陣列，雲端快照集可針對磁碟區或共用提供與位置無關的時間點複本。 預設會啟用雲端快照集，並且無法停用。 所有磁碟區和共用都是透過單一的每日備份原則，同時，也可以採用其他臨機操作備份需要的時候。
 
 ### <a name="data-protection-and-disaster-recovery"></a>資料保護和災害復原
 虛擬陣列支援下列資料保護和災害復原案例：

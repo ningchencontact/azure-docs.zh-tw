@@ -9,18 +9,18 @@ ms.reviewer: estfan, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: 3441350a07047676ac43de23262be6c54912162c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5472a8ce2670a34174d6d39f0d90faca8a7002ad
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104160"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58292881"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>使用 Azure Logic Apps 中的 Liquid 範本執行進階的 JSON 轉換
 
-您可以透過原生資料作業動作 (例如**撰寫**或**剖析 JSON**)，在邏輯應用程式中進行基本 JSON 轉換。 若要執行進階的 JSON 轉換，您可以使用 [Liquid](https://shopify.github.io/liquid/) 建立範本或對應，Liquid 是適用於可變動 Web 應用程式的開放原始碼範本語言。 Liquid 範本可讓您定義轉換 JSON 輸出的方式，並可支援更複雜的 JSON 轉換，例如反覆項目、控制流程、變數等等。 
+您可以透過原生資料作業動作 (例如**撰寫**或**剖析 JSON**)，在邏輯應用程式中進行基本 JSON 轉換。 若要執行進階的 JSON 轉換，您可以使用 [Liquid](https://shopify.github.io/liquid/) 建立範本或對應，Liquid 是適用於可變動 Web 應用程式的開放原始碼範本語言。 Liquid 範本會定義如何轉換 JSON 輸出，並支援更複雜的 JSON 轉換，例如反覆項目、 控制流程、 變數等等。 
 
-因此，您在邏輯應用程式中執行 Liquid 轉換之前，可先使用 Liquid 範本來定義 JSON 到 JSON 的對應，並在您的企業整合帳戶中儲存該對應。 本文會示範如何建立及使用此 Liquid 範本或對應。 
+您可以在邏輯應用程式中執行 Liquid 轉換之前，您必須先定義 JSON 對 JSON 的對應，對應的 Liquid 範本和存放區與整合帳戶中。 本文會示範如何建立及使用此 Liquid 範本或對應。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -28,13 +28,16 @@ ms.locfileid: "58104160"
 
 * [如何建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知識
 
-* 基本[企業整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
+* 基本[整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 
 * [Liquid 範本語言](https://shopify.github.io/liquid/)的基本知識。
 
 ## <a name="create-liquid-template-or-map-for-your-integration-account"></a>為您的企業整合帳戶建立 Liquid 範本或對應
 
-1. 在此範例中，您會建立此步驟中描述的 Liquid 範本範例。 在您的 Liquid 範本，您可以使用[Liquid 篩選](https://shopify.github.io/liquid/basics/introduction/#filters)，其中使用[DotLiquid](https://dotliquidmarkup.org/)和C#命名慣例。 不過，請確定您*篩選條件名稱的開頭大寫的字元*，不小寫字元。 
+1. 在此範例中，您會建立此步驟中描述的 Liquid 範本範例。 在您的 Liquid 範本，您可以使用[Liquid 篩選](https://shopify.github.io/liquid/basics/introduction/#filters)，其中使用[DotLiquid](https://dotliquidmarkup.org/)和C#命名慣例。 
+
+   > [!NOTE]
+   > 請確定使用的篩選條件名稱*句首大寫*在範本中。 否則，將無法運作的篩選條件。
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}

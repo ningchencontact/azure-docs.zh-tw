@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: ryanwi
-ms.openlocfilehash: a030860bcef41d7276e1356553b984f55e27ae1e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 65fccada665743cf293b4ee4bb8f786a4c01c58a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164150"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093900"
 ---
 # <a name="create-unit-tests-for-stateful-services"></a>建立具狀態服務的單元測試
 對 Service Fabric 具狀態服務進行單元測試，可找出傳統應用程式或特定領域單元測試不一定能找到的常見錯誤。 為具狀態服務開發單元測試時，必須留意某些特殊考量。
@@ -42,13 +42,13 @@ ms.locfileid: "55164150"
 在編排測試的過程中，將會建立模擬複本集和狀態管理員。 其後，複本集將自行為每個複本建立受測服務的執行個體。 它也將自行執行生命週期事件，例如 `OnChangeRole` 和 `RunAsync`。 模擬狀態管理員會確保對狀態管理員執行的任何作業，都會比照實際狀態管理員的方式執行和保存。
 
 1. 建立會將正在測試的服務具現化的服務處理站委派。 此委派通常會與 Service Fabric 服務或動作項目的 `Program.cs` 中所存放的服務處理站回呼相類似或相同。 它應遵循下列簽章：
-```csharp
-MyStatefulService CreateMyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica2 stateManager)
-```
+   ```csharp
+   MyStatefulService CreateMyStatefulService(StatefulServiceContext context, IReliableStateManagerReplica2 stateManager)
+   ```
 2. 建立 `MockReliableStateManager` 類別的執行個體。 這樣會模擬所有與狀態管理員的互動。
 3. 建立 `MockStatefulServiceReplicaSet<TStatefulService>` 的執行個體，其中，`TStatefulService` 是正在測試的服務類型。 這將需要在步驟 1 中建立的委派，和步驟 2 中具現化的狀態管理員
 4. 將複本新增至複本集。 指定角色 (例如 Primary、ActiveSecondary、IdleSecondary) 和複本的識別碼
-> 請妥善保存複本識別碼！ 單元測試的執行和判斷提示部分將可能用到這些識別碼。
+   > 請妥善保存複本識別碼！ 單元測試的執行和判斷提示部分將可能用到這些識別碼。
 
 ```csharp
 //service factory to instruct how to create the service instance

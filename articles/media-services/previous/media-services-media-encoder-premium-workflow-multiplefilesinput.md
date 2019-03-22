@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: 267de581c04d67738399cd683f57dabda472c0f8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 608ca4bc3b58dd3c718d6239f90260154d2f6c3a
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994246"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189473"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>搭配進階編碼器使用多個輸入檔案和元件屬性
 ## <a name="overview"></a>概觀
@@ -169,7 +169,7 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 
 您可以將剪輯清單 XML 連接到媒體來源並使用 transcodeSource。
 
-### <a name="clip-list-xml-customization"></a>剪輯清單 XML 自訂
+### <a name="clip-list-xml-customization"></a>剪辑列表 XML 自定义
 您可以在組態字串 XML 中使用 **transcodeSource** ，以在執行階段於工作流程中指定剪輯清單 XML。 這需要剪輯清單 XML 接點才能連接到工作流程中的媒體來源元件。
 
 ```xml
@@ -302,7 +302,7 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 
 新的工作流程會顯示三個元素︰
 
-* 主要來源檔案
+* 主源文件
 * 剪輯清單 XML
 * 輸出檔案/資產  
 
@@ -310,7 +310,7 @@ task.OutputAssets.AddNew("Output asset", AssetCreationOptions.None);
 
 *新編碼工作流程*
 
-為了接受輸入媒體檔案，請從加入媒體檔案輸入元件開始。 若要將元件加入至工作流程，請在 [儲存機制] 搜尋方塊中尋找它，然後將所需的項目拖曳至設計工具窗格。
+為了接受輸入媒體檔案，請從加入媒體檔案輸入元件開始。 如果要将组件添加到工作流，请在“存储库”搜索框中查找它，并将所需的项拖放到设计器窗格。
 
 接著，新增要用於設計工作流程的視訊檔案。 若要這樣做，請按一下工作流程設計工具的背景窗格，並在右手邊的屬性窗格中尋找 [主要來源檔案] 屬性。 按一下資料夾圖示，然後選取適當的視訊檔案。
 
@@ -465,7 +465,7 @@ public ITask AddNew(string taskName, IMediaProcessor mediaProcessor, string conf
 
 * 編碼的資產將會包含多種語言的曲目，而這些曲目應該可在 Azure 媒體播放器中加以選取。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [介紹 Azure 媒體服務中的 Premium 編碼](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 * [How to use Premium Encoding in Azure Media Services (如何使用 Azure 媒體服務中的 Premium 編碼)](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 * [使用 Azure 媒體服務編碼隨選內容](media-services-encode-asset.md#media-encoder-premium-workflow)

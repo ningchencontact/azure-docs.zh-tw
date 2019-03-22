@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 4c39f47169071ceb9430f419a144e11f425d65b0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 6d283840116a5e1f996602fd792456d3b8e8d9a0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240721"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456086"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>從應用程式中使用 Azure Active Directory 進行驗證以存取 Blob 和佇列 (預覽)
 
@@ -39,11 +39,11 @@ ms.locfileid: "55240721"
 
 若要註冊 Azure 儲存體應用程式，請遵循[整合應用程式與 Azure Active Directory](../../active-directory/develop/quickstart-v1-add-azure-ad-app.md) 中[新增應用程式](../../active-directory/active-directory-integrating-applications.md)一節的步驟。 如果您將應用程式註冊為原生應用程式，就能為**重新導向 URI** 指定任何有效的 URI。 此值不需要是實際的端點。
 
-![顯示如何使用 Azure AD 註冊您儲存體應用程式的螢幕擷取畫面](./media/storage-auth-aad-app/app-registration.png)
+![示範如何使用 Azure AD 中註冊您的儲存體應用程式的螢幕擷取畫面](./media/storage-auth-aad-app/app-registration.png)
 
 註冊您的應用程式之後，您會在 [設定] 下看到應用程式識別碼 (或用戶端識別碼)︰
 
-![顯示用戶端識別碼的螢幕擷取畫面](./media/storage-auth-aad-app/app-registration-client-id.png)
+![螢幕擷取畫面顯示用戶端識別碼](./media/storage-auth-aad-app/app-registration-client-id.png)
 
 如需有關向 Azure AD 註冊應用程式的詳細資訊，請參閱[整合應用程式與 Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)。 
 
@@ -57,14 +57,14 @@ ms.locfileid: "55240721"
 4. 在 [必要權限] 刀鋒視窗中，按一下 [新增] 按鈕。
 5. 在 [選取 API] 下方，搜尋「Azure 儲存體」，然後從結果清單中選取 **Azure 儲存體**。
 
-    ![顯示儲存體權限的螢幕擷取畫面](media/storage-auth-aad-app/registered-app-permissions-1.png)
+    ![存放裝置的螢幕擷取畫面顯示使用權限](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
 6. 在 [選取權限] 下方，核取 [存取 Azure 儲存體] 旁的方塊，然後按一下 [選取]。
 7. 按一下 [完成] 。
 
 [必要權限] 視窗現在會顯示出您的 Azure AD 應用程式具備 Azure Active Directory 與 Azure 儲存體的存取權。 當您第一次向 Azure AD 註冊應用程式時，會自動將權限授與 Azure AD。
 
-![顯示註冊應用程式權限的螢幕擷取畫面](media/storage-auth-aad-app/registered-app-permissions-2.png)
+![螢幕擷取畫面顯示註冊應用程式權限](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
 ## <a name="net-code-example-create-a-block-blob"></a>.NET 程式碼範例：建立區塊 Blob
 
@@ -101,7 +101,7 @@ ms.locfileid: "55240721"
 2. 按一下 [內容] 。
 3. 複製針對**目錄識別碼**提供的 GUID 值。 此值也稱為租用戶識別碼。
 
-![顯示如何將複製租用戶識別碼的螢幕擷取畫面](./media/storage-auth-aad-app/aad-tenant-id.png)
+![螢幕擷取畫面顯示如何複製的租用戶識別碼](./media/storage-auth-aad-app/aad-tenant-id.png)
 
 ### <a name="add-references-and-using-statements"></a>新增參考並使用陳述式  
 

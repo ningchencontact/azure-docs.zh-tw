@@ -9,14 +9,14 @@ ms.assetid: 5365B568-EA55-4D97-8FBE-0AF60158D4D5
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 04/15/2017
+ms.date: 03/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: f6cdbd293d66548ec7bd88c0b60831dfc4755a5b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bde3ec0aab954defa31ca667283e6413716a3b42
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863885"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170865"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>使用裝飾標記醒目提示文字
 

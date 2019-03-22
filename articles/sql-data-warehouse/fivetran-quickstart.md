@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 10/12/2018
 ms.author: elbutter
 ms.reviewer: craigg
-ms.openlocfilehash: 3b354ebf5436a6637fe126085225b0ae6c8f1dcc
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 1d8b6d2df21fe0aabe85754e061db4deb129b32e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465855"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895697"
 ---
 # <a name="get-started-quickly-with-fivetran-and-sql-data-warehouse"></a>快速開始使用 Fivetran 和 SQL 資料倉儲
 
@@ -80,5 +80,5 @@ ms.locfileid: "55465855"
 * 主機 (您的伺服器名稱)。
 * 連接埠。
 * 資料庫。
-* 使用者 (使用者名稱必須是 **fivetran@_server_name_**，其中 *server_name* 是您 Azure 主機 URI 的一部分：**server_name.database.windows.net**)。
+* 使用者 (使用者名稱應該是**fivetran\@_server_name_** 其中 *_ n a m*是您的 Azure 主機 URI 的一部分: ***_ n a m *。database.windows.net**)。
 * 密碼。

@@ -8,18 +8,18 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: rangv
-ms.openlocfilehash: 1e96029b75c8168189dacdc420117e82387228d9
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 4f092f2d290138e48068141113b184d8e856bee7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327235"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103208"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>將 Raspberry Pi 連接至 Azure IoT Hub (C)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-在本教學課程中，您會開始了解執行 Raspbian 的 Raspberry Pi 在使用方面的基本知識。 接著會了解如何使用 [Azure IoT 中樞](about-iot-hub.md)讓您的裝置順暢地與雲端連線。 如需 Windows 10 IoT 核心範例，請移至 [Windows 開發人員中心](http://www.windowsondevices.com/)。
+在本教程中，首先学习有关使用运行 Raspbian 的 Raspberry Pi 的基础知识。 接著會了解如何使用 [Azure IoT 中樞](about-iot-hub.md)讓您的裝置順暢地與雲端連線。 如需 Windows 10 IoT 核心範例，請移至 [Windows 開發人員中心](https://www.windowsondevices.com/)。
 
 還沒有套件嗎？ 試用 [Raspberry Pi 線上模擬器](iot-hub-raspberry-pi-web-simulator-get-started.md)。 或在[這裡](https://azure.microsoft.com/develop/iot/starter-kits)購買新的套件。
 
@@ -32,9 +32,9 @@ ms.locfileid: "56327235"
 
 將 Raspberry Pi 連接至您建立的 IoT 中樞。 然後，在 Pi 上執行範例應用程式，以收集 BME280 感應器中的溫度和溼度資料。 最後，將感應器資料傳送至 IoT 中樞。
 
-## <a name="what-you-learn"></a>您學到什麼
+## <a name="what-you-learn"></a>学习内容
 
-* 如何建立 Azure IoT 中樞，並取得新的裝置連接字串。
+* 如何创建 Azure IoT 中心以及如何获取新的设备连接字符串。
 * 如何連接 Pi 與 BME280 感應器。
 * 如何在 Pi 上執行範例應用程式來收集感應器資料。
 * 如何將感應器資料傳送至 IoT 中樞。
@@ -44,18 +44,18 @@ ms.locfileid: "56327235"
 ![您需要什麼](./media/iot-hub-raspberry-pi-kit-c-get-started/0_starter_kit.jpg)
 
 * Raspberry Pi 2 或 Raspberry Pi 3 電路板。
-* 有效的 Azure 訂用帳戶。 如果您沒有 Azure 帳戶，請花幾分鐘的時間[建立免費的 Azure 試用帳戶](https://azure.microsoft.com/free/)。
+* 有效的 Azure 訂用帳戶。 如果没有 Azure 帐户，只需几分钟时间就能[创建一个免费的 Azure 试用帐户](https://azure.microsoft.com/free/)。
 * 連接至 Pi 的監視器、 USB 鍵盤和滑鼠。
-* 執行 Windows 或 Linux 的 Mac 或 PC。
+* 运行 Windows 或 Linux 的 Mac 或电脑。
 * 網際網路連線。
 * 16 GB 以上的 microSD 記憶卡。
 * 一個 USB-SD 配接器或 microSD 記憶卡，以將作業系統映像燒錄到 microSD 記憶卡中。
 * 具備 6 英呎 micro USB 纜線的 5V 2A 電源供應器。
 
-下列項目是選用項目︰
+以下项可选：
 
 * 組裝的 Adafruit BME280 溫度、壓力溼度感應器。
-* 麵包板。
+* 试验板。
 * 6 條 F/M 跳線。
 * 1 顆漫射型 10 mm LED。
 
@@ -77,12 +77,12 @@ ms.locfileid: "56327235"
 
 ## <a name="setup-raspberry-pi"></a>設定 Raspberry Pi
 
-### <a name="install-the-raspbian-operating-system-for-pi"></a>安裝 Pi 的 Raspbian 作業系統
+### <a name="install-the-raspbian-operating-system-for-pi"></a>为 Pi 安装 Raspbian 操作系统
 
 準備好用來安裝 Raspbian 映像的 microSD 記憶卡。
 
 1. 下載 Raspbian。
-   1. [下載具備 Desktop 的 Raspbian Jessie](https://www.raspberrypi.org/downloads/raspbian/) (.zip 檔案)。
+   1. [下载 Raspbian Stretch with Desktop](https://www.raspberrypi.org/downloads/raspbian/)（.zip 文件）。
    1. 將 Raspbian 映像解壓縮到您電腦上的資料夾。
 1. 將 Raspbian 安裝到 microSD 記憶卡。
    1. [下載並安裝 Etcher SD 記憶卡燒錄器公用程式](https://etcher.io/)。
@@ -94,12 +94,12 @@ ms.locfileid: "56327235"
 
 ### <a name="enable-ssh-and-spi"></a>啟用 SSH 和 SPI
 
-1. 將 Pi 連接至監視器、鍵盤和滑鼠，並啟動 Pi，然後使用使用者名稱 `pi` 和密碼 `raspberry` 登入 Raspbian。
+1. 将 Pi 连接到监视器、键盘和鼠标，启动 Pi，然后通过将 `pi` 用作用户名并将 `raspberry` 用作密码来登录 Raspbian。
 1. 按一下 Raspberry 圖示 > [偏好設定] > [Raspberry Pi 組態]。
 
-   ![[Raspbian 偏好設定] 功能表](./media/iot-hub-raspberry-pi-kit-c-get-started/1_raspbian-preferences-menu.png)
+   ![Raspbian 首选项菜单](./media/iot-hub-raspberry-pi-kit-c-get-started/1_raspbian-preferences-menu.png)
 
-1. 在 [介面]索引標籤上，將 [SPI] 和 [SSH] 設定為 [啟用]，然後按一下 [確定]。 如果您沒有實體感應器，而且想要使用模擬的感應器資料，這便是選擇性步驟。
+1. 在 [介面]索引標籤上，將 [SPI] 和 [SSH] 設定為 [啟用]，然後按一下 [確定]。 如果没有物理传感器，但希望使用模拟传感器数据，可选择执行此步骤。
 
    ![在 Raspberry Pi 上啟用 SPI 和 SSH](./media/iot-hub-raspberry-pi-kit-c-get-started/2_enable-spi-ssh-on-raspberry-pi.png)
 
@@ -107,7 +107,7 @@ ms.locfileid: "56327235"
 > 若要啟用 SSH 和 SPI，您可以在 [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) 和[RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) 找到更多參考文件。
 >
 
-### <a name="connect-the-sensor-to-pi"></a>將感應器連接至 Pi
+### <a name="connect-the-sensor-to-pi"></a>将传感器连接到 Pi
 
 使用麵包板和跳線將 LED 和 BME280 連接至 Pi，如下所示。 如果沒有感應器，請[略過本節](#connect-pi-to-the-network)。
 
@@ -120,8 +120,8 @@ BME280 感應器可以收集溫度和溼度資料。 而如果裝置與雲端之
 | 啟動 (感應器和 LED)     | 結束 (電路版)            | 纜線顏色   |
 | -----------------------  | ---------------------- | ------------: |
 | LED VDD (針腳 5G)         | GPIO 4 (針腳 7)         | 白色纜線   |
-| LED GND (針腳 6G)         | GND (針腳 6)            | 黑色纜線   |
-| VDD (針腳 18F)            | 3.3V PWR (針腳 17)      | 白色纜線   |
+| LED GND (針腳 6G)         | GND (針腳 6)            | 黑线   |
+| VDD (針腳 18F)            | 3.3V PWR (針腳 17)      | 白线   |
 | GND (針腳 20F)            | GND (針腳 20)           | 黑色纜線   |
 | SCK (針腳 21F)            | SPI0 SCLK (針腳 23)     | 橘色纜線  |
 | SDO (針腳 22F)            | SPI0 MISO (針腳 21)     | 黃色纜線  |
@@ -136,7 +136,7 @@ BME280 感應器可以收集溫度和溼度資料。 而如果裝置與雲端之
 
 ### <a name="connect-pi-to-the-network"></a>將 Pi 連線到網路
 
-透過 micro USB 纜線和電源供應器來開啟 Pi。 使用乙太網路纜線將 Pi 連接到有線網路，或遵循來自 Raspberry Pi Foundation 的[指示](https://www.raspberrypi.org/learning/software-guide/wifi/)，將 Pi 連接到無線網路。 在 Pi 成功連線到網路之後，您需要記下 [Pi 的 IP 位址](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address)。
+使用 USB 微电缆和电源开启 Pi。 使用乙太網路纜線將 Pi 連接到有線網路，或遵循來自 Raspberry Pi Foundation 的[指示](https://www.raspberrypi.org/learning/software-guide/wifi/)，將 Pi 連接到無線網路。 在 Pi 成功連線到網路之後，您需要記下 [Pi 的 IP 位址](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address)。
 
 ![已連接到有線網路](./media/iot-hub-raspberry-pi-kit-c-get-started/5_power-on-pi.jpg)
 
@@ -148,7 +148,7 @@ BME280 感應器可以收集溫度和溼度資料。 而如果裝置與雲端之
 1. 使用下列其中一個 SSH 用戶端，從主機電腦連接到 Raspberry Pi。
    
    **Windows 使用者**
-   1. 下載並安裝適用於 Windows 的 [PuTTY](http://www.putty.org/)。 
+   1. 下載並安裝適用於 Windows 的 [PuTTY](https://www.putty.org/)。 
    1. 將 Pi 的 IP 位址複製到 [主機名稱] 或 [IP 位址] 區段，並且選取 SSH 作為連線類型。
    
    ![PuTTy](./media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
@@ -156,8 +156,8 @@ BME280 感應器可以收集溫度和溼度資料。 而如果裝置與雲端之
    **Mac 和 Ubuntu 使用者**
    
    在 Ubuntu 或 macOS 上使用內建的 SSH 用戶端。 您可能需要執行 `ssh pi@<ip address of pi>`，才能透過 SSH 來連線 Pi。
-   > [!NOTE] 
-   預設使用者名稱為 `pi`，密碼為 `raspberry`。
+   > [!NOTE]
+   > 預設使用者名稱為 `pi`，密碼為 `raspberry`。
 
 
 ### <a name="configure-the-sample-application"></a>設定範例應用程式
@@ -191,14 +191,14 @@ BME280 感應器可以收集溫度和溼度資料。 而如果裝置與雲端之
    
    ![建置輸出](./media/iot-hub-raspberry-pi-kit-c-get-started/7_build-output.png)
 
-1. 執行下列命令，執行範例應用程式：
+1. 通过运行以下命令，生成示例应用程序：
 
    ```bash
    sudo ./app '<DEVICE CONNECTION STRING>'
    ```
 
    > [!NOTE] 
-   > 確定複製裝置連接字串，並貼到單引號中。
+   > 确保将设备连接字符串复制并粘贴到单引号中。
    >
 
 您應該會看見下列輸出，顯示傳送至 IoT 中樞的感應器資料和訊息。
