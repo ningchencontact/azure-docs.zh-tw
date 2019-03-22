@@ -13,16 +13,18 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 81c7c98f29c2e507e165a3943395e36a453cbf06
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: d9d26ced30f718f06d6d0ba9eb7c2a78682305ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024037"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102361"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure 資料處理站-常見問題集
 > [!NOTE]
 > 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[常見問題集：Data Factory](../frequently-asked-questions.md)。
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="general-questions"></a>一般問題
 ### <a name="what-is-azure-data-factory"></a>Azure 資料處理站是什麼？
@@ -76,7 +78,7 @@ Data Factory 可在**美國西部**和**北歐**地區使用。 資料處理站�
 | [Azure SQL](data-factory-compute-linked-services.md#azure-sql-linked-service)、[Azure SQL 資料倉儲](data-factory-compute-linked-services.md#azure-sql-data-warehouse-linked-service)、[SQL Server](data-factory-compute-linked-services.md#sql-server-linked-service) |[預存程序](data-factory-stored-proc-activity.md) |
 
 ### <a name="how-does-azure-data-factory-compare-with-sql-server-integration-services-ssis"></a>Azure Data Factory 相較於 SQL Server Integration Services (SSIS) 有何異同？ 
-請參閱由我們的 MVP (最有價值專家) Reza Rad 所撰寫的 [Azure Data Factory 與SSIS 的比較](http://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) (英文)。 Data Factory 中的某些最近變更可能未列於投影片組中。 我們會持續新增更多功能到 Azure Data Factory。 我們會持續新增更多功能到 Azure Data Factory。 我們會在今年將這些更新整合到 Microsoft 的資料整合技術比較中。   
+請參閱由我們的 MVP (最有價值專家) Reza Rad 所撰寫的 [Azure Data Factory 與SSIS 的比較](https://www.sqlbits.com/Sessions/Event15/Azure_Data_Factory_vs_SSIS) (英文)。 Data Factory 中的某些最近變更可能未列於投影片組中。 我們會持續新增更多功能到 Azure Data Factory。 我們會持續新增更多功能到 Azure Data Factory。 我們會在今年將這些更新整合到 Microsoft 的資料整合技術比較中。   
 
 ## <a name="activities---faq"></a>活動 - 常見問題集
 ### <a name="what-are-the-different-types-of-activities-you-can-use-in-a-data-factory-pipeline"></a>您可以在 Data Factory 管線中使用的不同類型活動有哪些？
@@ -171,12 +173,12 @@ Pipeline 1: dataset4->activity4->dataset5
 
 * 使用「監視及管理應用程式」來重新執行活動時段或配量。 如需相關指示，請參閱 [重新執行已選取的活動時段](data-factory-monitor-manage-app.md#perform-batch-actions) 。   
 * 在 Azure 入口網站中，於該配量的 [資料配量] 刀鋒視窗上，按一下命令列中的 [執行]。
-* 在配量的 Status 設定為 **Waiting** 的情況下，執行 **Set-AzureRmDataFactorySliceStatus** Cmdlet。   
+* 執行**組 AzDataFactorySliceStatus** cmdlet 搭配狀態設為**等候**配量。   
 
     ```PowerShell
-    Set-AzureRmDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
+    Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
     ```
-如需 Cmdlet 的詳細資料，請參閱 [Set-AzureRmDataFactorySliceStatus][set-azure-datafactory-slice-status]。
+  請參閱[組 AzDataFactorySliceStatus] [ set-azure-datafactory-slice-status]如需有關此指令程式的詳細資訊。
 
 ### <a name="how-long-did-it-take-to-process-a-slice"></a>處理配量需要多久的時間？
 使用「監視及管理應用程式」中的「活動時段總管」來了解處理一個資料配量所花費的時間。 如需詳細資料，請參閱 [活動時段總管](data-factory-monitor-manage-app.md#activity-window-explorer) 。
@@ -191,7 +193,7 @@ Pipeline 1: dataset4->activity4->dataset5
 6. 您應該會看到 [持續時間]  欄位與值。 這個值是處理配量所花費的時間。   
 
 ### <a name="how-to-stop-a-running-slice"></a>如何停止執行中配量？
-如果需要停止執行管線，可以使用 [Suspend-AzureRmDataFactoryPipeline](/powershell/module/azurerm.datafactories/suspend-azurermdatafactorypipeline) Cmdlet。 目前，擱置管線並不會停止正在進行的配量執行。 一旦進行中的執行完成，就不會再挑選任何額外的配量。
+如果您要停止執行管線時，您可以使用[暫止 AzDataFactoryPipeline](/powershell/module/az.datafactory/suspend-azdatafactorypipeline) cmdlet。 目前，擱置管線並不會停止正在進行的配量執行。 一旦進行中的執行完成，就不會再挑選任何額外的配量。
 
 如果真的想要立即停止所有執行作業，唯一的方法就是刪除管線，然後再重新建立。 如果您選擇刪除管線，則「不」需要刪除管線所使用的資料表和連結服務。
 
@@ -199,11 +201,11 @@ Pipeline 1: dataset4->activity4->dataset5
 [msdn-class-library-reference]: /dotnet/api/microsoft.azure.management.datafactories.models
 [msdn-rest-api-reference]: /rest/api/datafactory/
 
-[adf-powershell-reference]: /powershell/module/azurerm.datafactories/
-[azure-portal]: http://portal.azure.com
-[set-azure-datafactory-slice-status]: /powershell/module/azurerm.datafactories/set-azurermdatafactoryslicestatus
+[adf-powershell-reference]: /powershell/module/az.datafactory/
+[azure-portal]: https://portal.azure.com
+[set-azure-datafactory-slice-status]: /powershell/module/az.datafactory/set-Azdatafactoryslicestatus
 
-[adf-pricing-details]: http://go.microsoft.com/fwlink/?LinkId=517777
-[hdinsight-supported-regions]: http://azure.microsoft.com/pricing/details/hdinsight/
-[hdinsight-alternate-storage]: http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
-[hdinsight-alternate-storage-2]: http://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx
+[adf-pricing-details]: https://go.microsoft.com/fwlink/?LinkId=517777
+[hdinsight-supported-regions]: https://azure.microsoft.com/pricing/details/hdinsight/
+[hdinsight-alternate-storage]: https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx
+[hdinsight-alternate-storage-2]: https://blogs.msdn.com/b/cindygross/archive/2014/05/05/use-additional-storage-accounts-with-hdinsight-hive.aspx

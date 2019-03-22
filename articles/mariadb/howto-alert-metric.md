@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.openlocfilehash: 15f280b16e362a4b39cb9fc0e4baaf67d0e31942
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: ce9804a4ecad4cd0f2e797038dc10c71b50de9bf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661695"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122705"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>使用 Azure 入口網站來設定適用於 MariaDB 之 Azure 資料庫的計量警示
 
@@ -60,21 +60,21 @@ ms.locfileid: "55661695"
 
 10. 設定 [電子郵件/簡訊/推播/語音] 動作類型。
     
-   選擇 [電子郵件 Azure 資源管理員角色] 來選取訂用帳戶擁有者、參與者和讀者，以接收通知。
+    選擇 [電子郵件 Azure 資源管理員角色] 來選取訂用帳戶擁有者、參與者和讀者，以接收通知。
    
-   如果您想要在警示引發時呼叫 Webhook，可選擇在 [Webhook] 欄位中提供有效的 URI。
+    如果您想要在警示引發時呼叫 Webhook，可選擇在 [Webhook] 欄位中提供有效的 URI。
 
-   完成時選取 [確定]。
+    完成時選取 [確定]。
 
-   ![動作群組](./media/howto-alert-metric/10-action-group-type.png)
+    ![動作群組](./media/howto-alert-metric/10-action-group-type.png)
 
 11. 指定 [警示規則名稱]、[描述] 與 [嚴重性]。
 
-   ![動作群組](./media/howto-alert-metric/11-name-description-severity.png) 
+    ![動作群組](./media/howto-alert-metric/11-name-description-severity.png) 
 
 12. 選取 [建立警示規則] 以建立警示。
 
-   在幾分鐘之內，警示會開始作用，且先前所述觸發。
+    在幾分鐘之內，警示會開始作用，且先前所述觸發。
 
 ## <a name="manage-your-alerts"></a>管理警示
 建立警示之後，您可以選取它，然後進行下列動作：
@@ -86,4 +86,4 @@ ms.locfileid: "55661695"
 
 ## <a name="next-steps"></a>後續步驟
 * 深入了解 [在警示中設定 webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md)。
-* 依照 [計量集合概觀](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) 中的做法，確保您的服務可使用且有回應。
+* [大致了解指标收集](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)以确保服务可用且响应迅速。

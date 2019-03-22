@@ -2,18 +2,18 @@
 title: 在 Azure 容器執行個體中設定活躍度探查
 description: 了解如何在 Azure 容器執行個體中設定活躍度探查，以重新啟動狀況不良的容器
 services: container-instances
-author: jluk
+author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: juluk
-ms.openlocfilehash: 1582f0d7ec688bc72cc9d1aa6ae0ddb0a6ad3a17
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: 89b76fc68c113b7931894c0cf003ffd846c646ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213066"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57899718"
 ---
 # <a name="configure-liveness-probes"></a>設定活躍度探查
 

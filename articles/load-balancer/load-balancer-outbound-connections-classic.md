@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: ec3fcc0301083e6cd5eff34c111586ef6463f8fd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 3267d79387586f5ca8475d7ac0ed0f86d3f64f0d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821502"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56876937"
 ---
 # <a name="outbound-connections-classic"></a>輸出連線 (傳統)
 
@@ -37,11 +37,11 @@ Azure 會使用來源網路位址轉譯 (SNAT) 執行這項功能。 當多個�
 
 Azure 提供三種不同的方法來達成輸出連線傳統部署。  並非所有的傳統部署都具備這三個案例：
 
-| 案例 | 方法 | IP 通訊協定 | 說明 | Web 背景工作角色 | IaaS | 
+| 案例 | 方法 | IP 通訊協定 | 描述 | Web 背景工作角色 | IaaS | 
 | --- | --- | --- | --- | --- | --- |
-| [1.VM 具有執行個體層級的公用 IP 位址](#ilpip) | SNAT，未使用連接埠偽裝 | TCP、UDP、ICMP、ESP | Azure 會使用指派了公用 IP 的虛擬機器。 執行個體有所有可用的暫時連接埠。 | 否 | yes |
-| [2. 負載平衡的公用端點](#publiclbendpoint) | SNAT 與連接埠偽裝 (PAT)，連至公用端點 | TCP、UDP | Azure 會與多個私人端點共用公用 IP 位址的公用端點。 Azure 使用公用端點的暫時連接埠來進行 PAT。 | yes | yes |
-| [3.獨立 VM](#defaultsnat) | SNAT 與連接埠偽裝 (PAT) | TCP、UDP | Azure 會自動指定 SNAT 的公用 IP 位址，與整個部署共用此公用 IP 位址，並使用此公用端點 IP 位址的暫時連接埠來進行 PAT。 這是上述案例的後援案例。 如果您需要可見性和控制權，則不建議使用此方式。 | yes | yes |
+| [1.VM 具有執行個體層級的公用 IP 位址](#ilpip) | SNAT，未使用連接埠偽裝 | TCP、UDP、ICMP、ESP | Azure 會使用指派了公用 IP 的虛擬機器。 執行個體有所有可用的暫時連接埠。 | 否 | 是 |
+| [2. 負載平衡的公用端點](#publiclbendpoint) | SNAT 與連接埠偽裝 (PAT)，連至公用端點 | TCP、UDP | Azure 會與多個私人端點共用公用 IP 位址的公用端點。 Azure 使用公用端點的暫時連接埠來進行 PAT。 | 是 | 是 |
+| [3.獨立 VM](#defaultsnat) | SNAT 與連接埠偽裝 (PAT) | TCP、UDP | Azure 會自動指定 SNAT 的公用 IP 位址，與整個部署共用此公用 IP 位址，並使用此公用端點 IP 位址的暫時連接埠來進行 PAT。 這是上述案例的後援案例。 如果您需要可見性和控制權，則不建議使用此方式。 | 是 | 是 |
 
 這是 Azure 中 Resource Manager 部署可使用之輸出連線功能的子集。  
 

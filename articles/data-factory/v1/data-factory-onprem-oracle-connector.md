@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 6b97968540914bf1edf5624d04e8f47956de7f0d
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 4ff7f92d1d13966be5d17f37210bef961f64faf2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822250"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084601"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到內部部署 Oracle 或複製其中的資料
 
@@ -56,11 +56,11 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
 此 Oracle 連接器支援兩種驅動程式版本︰
 
 - **適用於 Oracle 的 Microsoft 驅動程式 (建議選項)**：從資料管理閘道 2.7 版開始，適用於 Oracle 的 Microsoft 驅動程式會自動與閘道一起安裝。 您不需要安裝或更新驅動程式，即可建立對 Oracle 的連線。 您也可以使用此驅動程式來體驗更好的複製效能。 支援以下版本的 Oracle 資料庫︰
-    - Oracle 12c R1 (12.1)
-    - Oracle 11g R1、R2 (11.1、11.2)
-    - Oracle 10g R1、R2 (10.1、10.2)
-    - Oracle 9i R1、R2 (9.0.1、9.2)
-    - Oracle 8i R3 (8.1.7)
+  - Oracle 12c R1 (12.1)
+  - Oracle 11g R1、R2 (11.1、11.2)
+  - Oracle 10g R1、R2 (10.1、10.2)
+  - Oracle 9i R1、R2 (9.0.1、9.2)
+  - Oracle 8i R3 (8.1.7)
 
     > [!NOTE]
     > 不支援 Oracle Proxy 伺服器。
@@ -69,7 +69,7 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
     > 目前，適用於 Oracle 的 Microsoft 驅動程式僅支援從 Oracle 複製資料。 驅動程式不支援寫入至 Oracle。 資料管理閘道 [診斷] 索引標籤中的測試連線功能不支援此驅動程式。 您可以選擇使用複製精靈來驗證連線。
     >
 
-- **Oracle Data Provider for .NET**：您可以使用 Oracle Data Provider，從 Oracle 複製資料或將資料複製到 Oracle。 此元件包含於 [適用於 Windows 的 Oracle 資料存取元件](http://www.oracle.com/technetwork/topics/dotnet/downloads/)中。 在安裝閘道的電腦上安裝相關版本 (32 位元或 64 位元)。 [Oracle Data Provider .NET 12.1](http://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) 可以存取 Oracle Database 10g Release 2 和更新版本。
+- **Oracle Data Provider for .NET**：您可以使用 Oracle Data Provider，從 Oracle 複製資料或將資料複製到 Oracle。 此元件包含於 [適用於 Windows 的 Oracle 資料存取元件](https://www.oracle.com/technetwork/topics/dotnet/downloads/)中。 在安裝閘道的電腦上安裝相關版本 (32 位元或 64 位元)。 [Oracle Data Provider .NET 12.1](https://docs.oracle.com/database/121/ODPNT/InstallSystemRequirements.htm#ODPNT149) 可以存取 Oracle Database 10g Release 2 和更新版本。
 
     如果您選取 [XCopy 安裝]，請完成 readme.htm 檔案中所述的步驟。 建議您選取具有 UI 的安裝程式 (不是 XCopy 安裝程式)。
 
@@ -100,12 +100,12 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
 
 下表說明 Oracle 連結服務專屬的 JSON 元素：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
-| type |**type** 屬性必須設為 **OnPremisesOracle**。 |yes |
+| type |**type** 屬性必須設為 **OnPremisesOracle**。 |是 |
 | driverType | 指定要用來從 Oracle 複製資料或將資料複製到 Oracle 資料庫的驅動程式。 允許的值為 **Microsoft** 和 **ODP** (預設值)。 如需驅動程式詳細資料，請參閱[支援的版本和安裝](#supported-versions-and-installation)。 | 否 |
-| connectionString | 針對 **connectionString** 屬性指定連線到 Oracle 資料庫執行個體所需的資訊。 | yes |
-| gatewayName | 用來連線內部部署 Oracle 伺服器的閘道名稱。 |yes |
+| connectionString | 針對 **connectionString** 屬性指定連線到 Oracle 資料庫執行個體所需的資訊。 | 是 |
+| gatewayName | 用來連線內部部署 Oracle 伺服器的閘道名稱。 |是 |
 
 **範例：使用 Microsoft 驅動程式**
 
@@ -151,7 +151,7 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
 
 每個資料集類型的 **typeProperties** 區段都不同，可提供資料存放區中的資料位置資訊。 **OracleTable** 類型資料集的 **typeProperties** 區段具有下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | tableName |Oracle 資料庫中連結服務所參照的資料表名稱。 |否 (如果已指定 **OracleSource** 的 **oracleReaderQuery**) |
 
@@ -170,7 +170,7 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
 
 在複製活動中，如果來源為 **OracleSource** 類型，則 **typeProperties** 區段有下列可用屬性：
 
-| 屬性 | 說明 | 允許的值 | 必要 |
+| 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
 | oracleReaderQuery |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如："select \* from **MyTable**"。 <br/><br/>如果未指定，則會執行此 SQL 陳述式："select \* from **MyTable**" |否<br />(如果已指定 **dataset** 的 **tableName**) |
 
@@ -178,12 +178,12 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
 
 **OracleSink** 支援下列屬性：
 
-| 屬性 | 說明 | 允許的值 | 必要 |
+| 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
 | writeBatchTimeout |在逾時前等待批次插入作業完成的時間。 |**timespan**<br/><br/> 範例：00:30:00 (30 分鐘) |否 |
 | writeBatchSize |當緩衝區大小達到 **writeBatchSize** 值時，將資料插入 SQL 資料表中。 |整數 (資料列數目) |否 (預設值：100) |
 | sqlWriterCleanupScript |指定要讓複製活動執行的查詢，以便清除特定配量的資料。 |查詢陳述式。 |否 |
-| sliceIdentifierColumnName |指定複製活動的資料行名稱，以填入自動產生的配量識別碼。  **sliceIdentifierColumnName** 值用於在重新執行時清除特定配量的資料。 |資料類型為 **binary(32)** 之資料行的資料行名稱。 |否 |
+| sliceIdentifierColumnName |指定複製活動的資料行名稱，以填入自動產生的配量識別碼。 **sliceIdentifierColumnName** 值用於在重新執行時清除特定配量的資料。 |資料類型為 **binary(32)** 之資料行的資料行名稱。 |否 |
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>將資料複製到 Oracle 資料庫以及複製其中資料的 JSON 範例
 
@@ -557,7 +557,7 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
 
 **錯誤訊息**
 
-    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed.
+    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .NET Framework Data Provider. It may not be installed.
 
 **可能的原因**
 
@@ -566,10 +566,10 @@ Data Factory 支援使用資料管理閘道連接至內部部署 Oracle 來源�
 
 **解決方案**
 
-* 如果您尚未安裝 .NET Provider for Oracle，請 [安裝它](http://www.oracle.com/technetwork/topics/dotnet/downloads/) ，然後重試此案例。
+* 如果您尚未安裝 .NET Provider for Oracle，請 [安裝它](https://www.oracle.com/technetwork/topics/dotnet/downloads/) ，然後重試此案例。
 * 如果即使在安裝提供者之後，您仍會看到錯誤訊息，請完成下列步驟：
-   1. 從資料夾 <system disk\>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config 開啟 .NET 2.0 的電腦組態檔。
-   2. 搜尋 **Oracle Data Provider for .NET**。 您應該能夠在 **system.data** > **DbProviderFactories** 之下找到如下列範例所示的項目：`<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
+    1. 從資料夾 <system disk\>:\Windows\Microsoft.NET\Framework64\v2.0.50727\CONFIG\machine.config 開啟 .NET 2.0 的電腦組態檔。
+    2. 搜尋 **Oracle Data Provider for .NET**。 您應該能夠在 **system.data** > **DbProviderFactories** 之下找到如下列範例所示的項目：`<add name="Oracle Data Provider for .NET" invariant="Oracle.DataAccess.Client" description="Oracle Data Provider for .NET" type="Oracle.DataAccess.Client.OracleClientFactory, Oracle.DataAccess, Version=2.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342" />`
 * 將此項目複製到下列 .NET 4.0 資料夾中的 machine.config 檔案：<系統磁碟\>:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config。然後，將版本變更為 4.xxx.x.x。
 * 執行 **gacutil /i [provider path]**，在全域組件快取 (GAC) 中安裝 <ODP.NET 安裝路徑\>\11.2.0\client_1\odp.net\bin\4\Oracle.DataAccess.dll。
 

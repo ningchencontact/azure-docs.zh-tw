@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 61674cc5551fb0d1be184de0ff0ed659cc56bbbe
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 43e18326aa9afe41ddfd1183bf689972c1877b0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340241"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904979"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>使用 Azure CLI 設定網路安全性群組流量記錄
 
@@ -65,7 +65,7 @@ az network watcher flow-log configure --resource-group resourceGroupName --enabl
 
 ## <a name="download-a-flow-log"></a>下載流量記錄
 
-流量記錄的儲存位置會在建立時定義。 若要存取這些儲存至儲存體帳戶的流量記錄，Microsoft Azure 儲存體總管是很便利的工具，您可以在這裡下載︰ http://storageexplorer.com/
+流量記錄的儲存位置會在建立時定義。 若要存取這些儲存至儲存體帳戶的流量記錄，Microsoft Azure 儲存體總管是很便利的工具，您可以在這裡下載︰ https://storageexplorer.com/
 
 如果指定了儲存體帳戶，流量記錄檔案便會儲存到儲存體帳戶的下列位置︰
 

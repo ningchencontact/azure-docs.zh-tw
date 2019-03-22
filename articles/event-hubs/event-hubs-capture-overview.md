@@ -15,17 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e2adae46e3124fcd407fa4d4677f02bdface0a6b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: cc74bfe9bf9e5f33b7cf05ebb19b44ab8b3bea43
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077635"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864638"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>透過 Azure 事件中樞在 Azure Blob 儲存體或 Azure Data Lake Storage 中擷取事件
-Azure 事件中樞可讓您自動將事件中樞的串流資料擷取至您選擇的 [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)或 [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) 帳戶，並另外增加了可指定時間或大小間隔的彈性。 設定擷取的作業很快，因此執行時不需要系統管理成本，而且它可以針對事件中樞的[輸送量單位](event-hubs-features.md#capacity)自動進行調整。 事件中樞擷取是將串流資料載入至 Azure 的最簡單方式，並可讓您專注於處理資料而非擷取資料。
+Azure 事件中樞可讓您自動將事件中樞的串流資料擷取至您選擇的 [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)或 [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) 帳戶，並另外增加了可指定時間或大小間隔的彈性。 設定擷取的作業很快，因此執行時不需要系統管理成本，而且它可以針對事件中樞的[輸送量單位](event-hubs-features.md#throughput-units)自動進行調整。 事件中樞擷取是將串流資料載入至 Azure 的最簡單方式，並可讓您專注於處理資料而非擷取資料。
 
 事件中樞擷取可讓您在相同資料流上處理即時和批次型的管線。 這表示您可以建置會隨時間配合需求成長的解決方案。 不論您現在是要建置著眼於未來即時處理的批次型系統，或想要為現有即時解決方案新增有效率的冷路徑，事件中樞擷取都可以讓使用串流資料變得更簡單。
+
+> [!NOTE]
+> 目前，事件中樞擷取功能會支援僅 Gen 1 的 Azure Data Lake Store，不 Gen 2。 
 
 ## <a name="how-event-hubs-capture-works"></a>事件中樞擷取的運作方式
 
@@ -51,7 +54,7 @@ https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhu
 
 ### <a name="scaling-to-throughput-units"></a>調整至輸送量單位
 
-事件中樞的流量會受到 [輸送量單位](event-hubs-features.md#capacity)控制。 單一輸送量單位可允許每秒 1 MB 或每秒 1000 個事件的輸入，輸出則為此數量的兩倍。 標準事件中樞可以設定 1-20 個輸送量單位，您可以透過增加配額的[支援要求][support request]購買更多單位。 超過所購買輸送量單位的使用量將遭到節流。 事件中樞擷取會直接從內部的事件中樞儲存體複製資料，略過輸送量單位輸出配額，並將輸出節省下來以供串流分析或 Spark 等其他處理讀取器使用。
+事件中心流量由[吞吐量单位](event-hubs-features.md#throughput-units)控制。 单个吞吐量单位允许 1 MB/秒或 1000 个事件/秒的入口量以及两倍的出口量。 標準事件中樞可以設定 1-20 個輸送量單位，您可以透過增加配額的[支援要求][support request]購買更多單位。 超過所購買輸送量單位的使用量將遭到節流。 事件中樞擷取會直接從內部的事件中樞儲存體複製資料，略過輸送量單位輸出配額，並將輸出節省下來以供串流分析或 Spark 等其他處理讀取器使用。
 
 一旦設定，事件中樞擷取會在您傳送第一個事件時自動執行，並且持續執行。 為了讓下游處理更輕鬆地知道處理程序正在運作，事件中樞會在沒有資料時寫入空白檔案。 這個程序會提供可預測的頻率和標記，以供饋送給批次處理器。
 
@@ -65,7 +68,7 @@ https://mystorageaccount.blob.core.windows.net/mycontainer/mynamespace/myeventhu
 
 ## <a name="exploring-the-captured-files-and-working-with-avro"></a>瀏覽擷取檔案並使用 Avro
 
-事件中樞擷取會以 Avro 格式建立檔案，如設定之時間範圍內所指定。 您可以在任何工具 (例如 [Azure 儲存體總管][Azure Storage Explorer]) 檢視這些檔案。 您可以在本機下載檔案，以對其進行處理。
+事件中樞擷取會以 Avro 格式建立檔案，如設定之時間範圍內所指定。 您可以在任何工具 (例如 [Azure 儲存體總管][Azure Storage Explorer]) 檢視這些檔案。 可以本地下载这些文件以进行处理。
 
 事件中樞擷取所產生的檔案會有下列 Avro 結構描述︰
 
@@ -125,7 +128,7 @@ java -jar avro-tools-1.8.2.jar getschema <name of capture file>
 
 您也可以使用 Avro Tools 將檔案轉換成 JSON 格式，並執行其他處理。
 
-若要執行更進階的處理，請下載並安裝您所選平台適用的 Avro。 在本文撰寫當下，已有適用於 C、C++、C\#、Java、NodeJS、Perl、PHP、Python 和 Ruby 的實作。
+若要執行更進階的處理，請下載並安裝您所選平台適用的 Avro。 在撰写本文时，有可用于 C、C++、C\#、Java、NodeJS、Perl、PHP、Python 和 Ruby 的实现。
 
 Apache Avro 已完成適用於 [Java][Java] 和 [Python][Python] 的快速入門指南。 您也可以閱讀[開始使用事件中樞擷取](event-hubs-capture-python.md)一文。
 
@@ -146,15 +149,15 @@ Apache Avro 已完成適用於 [Java][Java] 和 [Python][Python] 的快速入門
 * [開始傳送和接收事件](event-hubs-dotnet-framework-getstarted-send.md)
 * [事件中樞概觀][Event Hubs overview]
 
-[Apache Avro]: http://avro.apache.org/
+[Apache Avro]: https://avro.apache.org/
 [Apache Drill]: https://drill.apache.org/
 [Apache Spark]: https://spark.apache.org/
 [support request]: https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade
-[Azure Storage Explorer]: http://azurestorageexplorer.codeplex.com/
+[Azure Storage Explorer]: https://azurestorageexplorer.codeplex.com/
 [3]: ./media/event-hubs-capture-overview/event-hubs-capture3.png
-[Avro Tools]: http://www-us.apache.org/dist/avro/avro-1.8.2/java/avro-tools-1.8.2.jar
-[Java]: http://avro.apache.org/docs/current/gettingstartedjava.html
-[Python]: http://avro.apache.org/docs/current/gettingstartedpython.html
+[Avro Tools]: https://www-us.apache.org/dist/avro/avro-1.8.2/java/avro-tools-1.8.2.jar
+[Java]: https://avro.apache.org/docs/current/gettingstartedjava.html
+[Python]: https://avro.apache.org/docs/current/gettingstartedpython.html
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
 [HDInsight: Address files in Azure storage]:https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage#address-files-in-azure-storage
 [Azure Databricks: Azure Blob Storage]:https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html

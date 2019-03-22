@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 02/25/2019
 ms.author: manayar
-ms.openlocfilehash: 757ff087b7bb12528779f0477aadb629ea94c73e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 779a10257a94ed761572fdcc80a68059750342dd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566067"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994462"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Azure 虛擬機器擴展集的 OS 映像自動升級
 
@@ -65,6 +65,9 @@ ms.locfileid: "55566067"
 | Microsoft Corporation   | WindowsServer | 2016-Datacenter    |
 | Microsoft Corporation   | WindowsServer | 2016-Datacenter-Smalldisk |
 | Microsoft Corporation   | WindowsServer | 2016-Datacenter-with-Containers |
+| Microsoft Corporation   | WindowsServer | 2019-Datacenter |
+| Microsoft Corporation   | WindowsServer | 2019-Datacenter-Smalldisk |
+| Microsoft Corporation   | WindowsServer | 2019-Datacenter-with-Containers |
 
 
 ## <a name="requirements-for-configuring-automatic-os-image-upgrade"></a>設定 OS 映像自動升級的需求
@@ -236,7 +239,7 @@ az vm image list --location "westus" --publisher "Canonical" --offer "UbuntuServ
 
 您可以使用範本，來為支援的映像 (例如 [Ubuntu 16.04-LTS](https://github.com/Azure/vm-scale-sets/blob/master/preview/upgrade/autoupdate.json)) 部署具有 OS 自動升級功能的擴展集。
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 ## <a name="next-steps"></a>後續步驟
 如需如何搭配擴展集使用 OS 自動升級的其他範例，請檢閱 [GitHub 存放庫](https://github.com/Azure/vm-scale-sets/tree/master/preview/upgrade)。

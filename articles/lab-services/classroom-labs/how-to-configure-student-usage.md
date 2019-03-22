@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 834674eb63af75088434db0f614b11c7a36e7adf
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: eadbaacd4bb860cd09997775b8d77cbcf0ff17f2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964809"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181617"
 ---
 # <a name="configure-usage-settings-and-policies"></a>設定使用方式設定和原則
 本文說明如何將使用者新增至實驗室、讓他們向實驗室註冊、控制他們可以使用 VM 的時數等等。 
@@ -38,9 +38,22 @@ ms.locfileid: "55964809"
 
     ![使用者清單](../media/how-to-configure-student-usage/users-list-new.png)
 
-## <a name="send-registration-link-to-students"></a>將註冊連結傳送給學生
-下列程序包含向使用者傳送註冊連結的步驟。 如果實驗室啟用 [限制存取]，則只有使用者清單中的使用者可以使用註冊連結向實驗室註冊。 
+## <a name="share-registration-link-with-students"></a>共用與學生的註冊連結
+若要傳送給學生的 [註冊] 連結，使用下列方法之一。 第一種方法會示範如何傳送電子郵件給學生的註冊連結和選擇性的訊息。 第二個方法會示範如何取得您可以與其他人共用任何您想要的方式註冊連結。 
 
+如果實驗室啟用 [限制存取]，則只有使用者清單中的使用者可以使用註冊連結向實驗室註冊。 根據預設，會啟用此選項。 
+
+### <a name="send-email-to-users"></a>傳送電子郵件給使用者
+1. 如果您尚未在 [使用者] 頁面上，請切換至該檢視。 
+2. 在清單中選取特定或所有使用者。 若要選取特定的使用者，選取清單的第一個資料行中的核取方塊。 若要選取所有使用者，都選取核取方塊的第一個資料行標題前面 (**名稱**) 或都選取清單中的所有使用者的所有核取方塊。
+3. 選取 **傳送邀請**工具列上。 您也可以滑鼠停留在清單中的學生名稱，並傳送電子郵件圖示。 
+
+    ![透過電子郵件傳送註冊連結](../media/tutorial-setup-classroom-lab/send-email.png)
+4. 在 **傳送電子郵件的註冊連結**頁面上，請遵循下列步驟： 
+    1. 型別**選擇性訊息**您想要傳送給學生。 電子郵件會自動包含註冊連結。 
+    2. 在 **傳送電子郵件的註冊連結**頁面上，選取**傳送**。 
+
+## <a name="get-registration-link"></a>取得註冊連結
 1. 選取左側功能表上的 [使用者]，以切換至 [使用者] 檢視。 
 2. 選取 [取得註冊連結] 圖格。
 
@@ -49,11 +62,7 @@ ms.locfileid: "55964809"
 
     ![學生註冊連結](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. 在 [使用者註冊] 對話方塊上，選取 [關閉]。 
-4. 將註冊連結分享給學生，讓他們能夠註冊課程。 如果您已啟用 [限制選項] 設定，而且有一份使用者清單，請執行下列動作：
-    1. 選取清單中使用者的**電子郵件地址**。 
-    2. 您可從預設電子郵件程式看見已填入 [收件人] 地址的視窗。 
-    3. 貼上您之前複製的 [註冊 URL]。 
-    4. 傳送**電子郵件**。 
+4. 共用**註冊連結**與學生，讓學生可以註冊類別。 
 
 ## <a name="view-users-registered-with-the-lab"></a>檢視已向實驗室註冊的使用者
 

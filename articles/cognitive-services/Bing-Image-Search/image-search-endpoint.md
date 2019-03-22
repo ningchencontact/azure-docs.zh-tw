@@ -8,19 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 03/04/2019
 ms.author: v-gedod
-ms.openlocfilehash: 5e5cf9fcf6f70449fef8237fc004332e36bcd3b4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: fcae25ea0ef3f48beac6c221a11ca8a91443f7ce
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860264"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57336135"
 ---
 # <a name="endpoints-for-the-bing-image-search-api"></a>Bing 影像搜尋 API 的端點
 
 **影像搜尋 API** 包含三個端點。  端點 1 會根據查詢從 Web 傳回影像。 端點 2 會傳回 [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse)。  端點 3 會傳回發燒影像。
+
 ## <a name="endpoints"></a>端點
+
 若要使用 Bing API 取得影像結果，請將要求傳送至下列其中一個端點。 使用標頭和 URL 參數以進一步定義規格。
 
 **端點 1：** 傳回 `?q=""` 所定義使用者搜尋查詢的相關影像。

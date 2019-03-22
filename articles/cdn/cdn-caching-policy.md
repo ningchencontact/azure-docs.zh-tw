@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2017
 ms.author: juliako
-ms.openlocfilehash: ac94370b1c6a8f48ad55f0e277d93cd2f8388cb1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: a747e5064ff0ef99fb43c545c29c2a34535445d0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242597"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540142"
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>在 Azure 媒體服務中管理 Azure CDN 快取原則
-Azure 媒體服務提供 HTTP 式「彈性資料流」和漸進式下載功能。 HTTP 式串流具有快取 Proxy 和 CDN 層，以及快取用戶端的優點，所以延展性極佳。 資料流端點提供一般串流功能，以及 HTTP 快取標頭的組態。 串流端點會設定 HTTP Cache-Control: max-age 和 Expires 標頭。 您可以從 [W3.org](http://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html)(英文) 取得 HTTP 快取標頭的詳細資訊。
+Azure 媒體服務提供 HTTP 式「彈性資料流」和漸進式下載功能。 HTTP 式串流具有快取 Proxy 和 CDN 層，以及快取用戶端的優點，所以延展性極佳。 資料流端點提供一般串流功能，以及 HTTP 快取標頭的組態。 串流端點會設定 HTTP Cache-Control: max-age 和 Expires 標頭。 您可以從 [W3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html)(英文) 取得 HTTP 快取標頭的詳細資訊。
 
 ## <a name="default-caching-headers"></a>預設快取標頭
 根據預設，資料流端點會針對隨選資料流處理的資料 (實際的媒體片段/區塊) 和資訊清單 (播放清單) 套用 3 天快取標頭。 如果是即時資料流，資料流端點會針對資料 (實際的媒體片段/區塊) 套用 3 天快取標頭，針對資訊清單 (播放清單) 要求套用 2 秒快取標頭。 當即時節目變成隨選 (即時封存) 時，便會套用隨選資料流處理快取標頭。

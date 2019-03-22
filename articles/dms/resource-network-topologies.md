@@ -2,21 +2,21 @@
 title: 使用 Azure 資料庫移轉服務進行 Azure SQL Database 受控執行個體移轉的網路拓撲 | Microsoft Docs
 description: 了解資料庫移轉服務的來源和目標設定。
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: bc54b3dbcdb304b18f916e5fbd4866ff54d1bfa2
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: d12d6b1274a756bfb13761ab999a1539bcee3657
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713191"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58178113"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>使用 Azure 資料庫移轉服務進行 Azure SQL DB 受控執行個體移轉的網路拓樸
 本文會討論 Azure 資料庫移轉服務進行內部部署 SQL Server 到 Azure SQL Database 受控執行個體移轉時，用於提供全面移轉體驗的各種網路拓撲。
@@ -81,7 +81,7 @@ ms.locfileid: "53713191"
 | SMB 共用                 | 445                                                   | TCP          | 任意        | 內部部署位址空間 | 允許      | 適用於 DMS 的 SMB 網路共用可儲存資料庫備份檔案，以便遷移到 Azure VM 上的 Azure SQL Database MI 和 SQL Server <br/>(如果您擁有站對站連線，則可能需要此規則)。 |
 | DMS_subnet                | 任意                                                   | 任意          | 任意        | DMS_Subnet                | 允許      |                                                                                                                                                                                                  |
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 - [將 SQL Server 遷移至 Azure SQL Database 受控執行個體](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance)
 - [使用 Azure 資料庫移轉服務的必要條件概觀](https://docs.microsoft.com/azure/dms/pre-reqs)
 - [使用 Azure 入口網站建立虛擬網路](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)

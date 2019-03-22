@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 4e478c2559ac534f595393fdc36b95ad8e9c989a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 831f6b4bdc99e63859b390f8a9bb88d74301284e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725026"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997539"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>如何使用 Mobile Apps Node.js SDK
 
@@ -135,7 +135,7 @@ Visual Studio 2015 需要延伸模組才能在整合式開發環境 (IDE) 內開
 
     儲存檔案。
 
-1. 在本機執行應用程式 (已在 http://localhost:3000) 上提供 API)，或發佈至 Azure。
+1. 在本機執行應用程式 (在上提供 API `http://localhost:3000`) 或發佈至 Azure。
 
 ### <a name="create-node-backend-portal"></a>使用 Azure 入口網站建立 Node.js 後端
 
@@ -192,7 +192,7 @@ var mobile = azureMobileApps({ homePage: true });
 
 azure-mobile-apps Node.js Server SDK 提供將儲存在 Azure SQL Database 中的資料表公開為 Web API 的機制。 提供的作業有五種：
 
-| 作業 | 說明 |
+| 作業 | 描述 |
 | --- | --- |
 | GET /tables/*tablename* |取得資料表中的所有記錄。 |
 | GET /tables/*tablename*/:id |取得資料表中的特定記錄。 |
@@ -370,14 +370,14 @@ module.exports = {
 
 azureMobile.js 檔案中的大部分設定在 [Azure 入口網站]中都有對等的 [應用程式設定]。 請使用下列清單，在 [應用程式設定] 中設定您的應用程式：
 
-| 應用程式設定 | azureMobile.js 設定 | 說明 | 有效值 |
+| 應用程式設定 | azureMobile.js 設定 | 描述 | 有效值 |
 |:--- |:--- |:--- |:--- |
 | **MS_MobileAppName** |name |應用程式的名稱 |字串 |
 | **MS_MobileLoggingLevel** |logging.level |要記錄的訊息的最小記錄層級 |error、warning、info、verbose、debug、silly |
 | **MS_DebugMode** |debug |啟用或停用偵錯模式 |true、false |
-| **MS_TableSchema** |data.schema |SQL 資料表的預設結構描述名稱 |字串 (預設值：dbo) |
+| **MS_TableSchema** |data.schema |SQL 資料表的預設結構描述名稱 |字符串（默认值：dbo） |
 | **MS_DynamicSchema** |data.dynamicSchema |啟用或停用偵錯模式 |true、false |
-| **MS_DisableVersionHeader** |version (設定為未定義) |停用 X-ZUMO-Server-Version 標頭 |true、false |
+| **MS_DisableVersionHeader** |版本（设置为 undefined） |停用 X-ZUMO-Server-Version 標頭 |true、false |
 | **MS_SkipVersionCheck** |skipversioncheck |停用用戶端 API 版本檢查 |true、false |
 
 若要設定應用程式設定：

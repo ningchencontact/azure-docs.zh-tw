@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: aschhab
-ms.openlocfilehash: a5d0f457d06bd4e4e655d8f3ebc712f4d6ee7523
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: c2a6acc1ce48a8671af20df6daa89498a81fdb4c
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849901"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56587152"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>如何透過 Node.js 使用服務匯流排主題和訂用帳戶
 
@@ -36,6 +36,8 @@ ms.locfileid: "54849901"
 如需主題和訂用帳戶的詳細資訊，請參閱[後續步驟](#next-steps)一節。
 
 [!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+
+[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-nodejs-application"></a>建立 Node.js 應用程式
 建立空白的 Node.js 應用程式。 如需有關建立 Node.js 應用程式的指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站]、[Node.js 雲端服務][Node.js Cloud Service] (使用 Windows PowerShell) 或使用 WebMatrix 的網站。
@@ -113,7 +115,7 @@ serviceBusService.createTopicIfNotExists('MyTopic', topicOptions, function(error
 ```
 
 ### <a name="filters"></a>篩選器
-您可以將選用的篩選作業套用至使用 **ServiceBusService** 執行的作業。 篩選作業可包括記錄、自動重試等等。篩選器是使用簽章實作方法的物件：
+您可以將選用的篩選作業套用至使用 **ServiceBusService** 執行的作業。 筛选操作可包括日志记录、自动重试等。篩選器是使用簽章實作方法的物件：
 
 ```javascript
 function handle (requestOptions, next)

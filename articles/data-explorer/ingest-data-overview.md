@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 2/18/2019
-ms.openlocfilehash: 4fd0f0990163963fc0cc3c7caf221609da487909
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: c4db658db3d32905368390826e5531ca31525486
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340173"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58133122"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure 資料總管資料擷取
 
@@ -53,7 +53,7 @@ Azure 資料總管目前支援：
 
 ### <a name="ingestion-using-integration-services"></a>使用整合服務進行擷取
 
-* Azure Data Factory (ADF) 是 Azure 中分析工作負載的完全受控資料整合服務，用於將資料複製到 Azure 資料總管或從 Azure 資料總管複製資料。 如需詳細資訊，請參閱[使用 Azure Data Factory 將資料複製到 Azure 資料總管或從該處複製資料](/azure/data-factory/connector-azure-data-explorer)。
+* Azure Data Factory (ADF)，在 Azure 中，若要從 Azure 資料總管使用來回複製資料的分析工作負載的完全受控的資料整合服務[支援的資料存放區和格式](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)。 如需詳細資訊，請參閱[使用 Azure Data Factory 將資料複製到 Azure 資料總管或從該處複製資料](/azure/data-factory/connector-azure-data-explorer)。
 
 ### <a name="programmatic-ingestion"></a>程式設計擷取
 
@@ -81,7 +81,7 @@ Kusto 提供的用戶端 SDK 可用來搭配下列項目內嵌及查詢資料：
 
 * 將資料直接擷取到 Azure 資料總管引擎 (最適合探索和原型設計)：
 
-  * **內嵌擷取**：包含頻內資料的控制命令 (.ingest inline) 可供臨機操作測試之用。
+  * **內嵌擷取**： 控制命令 （.ingest 內嵌） 包含在頻外資料供臨機操作測試之用。
 
   * **從查詢擷取**：指向查詢結果的控制命令 (.set、.set-or-append、.set-or-replace)，用來產生報表或小型暫存資料表。
 

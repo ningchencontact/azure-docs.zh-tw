@@ -4,7 +4,7 @@ description: 本文提供 Azure 記錄整合的相關問題解答。
 services: security
 documentationcenter: na
 author: TomShinder
-manager: barbkess
+manager: MBaldwin
 editor: TerryLanfear
 ms.assetid: d06d1ac5-5c3b-49de-800e-4d54b3064c64
 ms.service: security
@@ -15,12 +15,12 @@ ms.workload8: na
 ms.date: 01/14/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: f1b809e52cc532d13be85776f73aba4465fa2140
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 4f6a724fe6c1e8668084f1c1cefbaa01cffba181
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114921"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005843"
 ---
 # <a name="azure-log-integration-faq"></a>Azure 記錄整合常見問題集
 
@@ -32,6 +32,8 @@ ms.locfileid: "56114921"
 Azure 記錄整合是 Windows 作業系統服務，您可以使用此服務將來自 Azure 資源的未經處理記錄，整合到內部部署安全性資訊及事件管理 (SIEM) 系統內。 這項整合為您在內部部署或雲端中的所有資產，提供一個整合儀表板。 您可以接著彙總、相互關聯、分析與應用程式建立關聯的安全性事件，並發出警示。
 
 整合 Azure 記錄檔的慣用方法是使用 SIEM 廠商的 Azure 監視器連接器，並遵循這些[指示](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)。 不過，如果您的 SIEM 廠商沒有提供 Azure 監視器連接器，在這類連接器可供使用之前，您可以使用 Azure 記錄整合作為暫時解決方案 (如果 Azure 記錄整合支援您的 SIEM)。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="is-the-azure-log-integration-software-free"></a>Azure 記錄整合軟體是否為免費？
 
@@ -97,7 +99,7 @@ Error:
 
 Error:
 
-  *建立角色指派警告 - AuthorizationFailed：具有物件識別碼 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' 的用戶端 janedo@microsoft.com' 沒有在 '/subscriptions/70d95299-d689-4c97-b971-0d8ff0000000' 範圍內執行動作 'Microsoft.Authorization/roleAssignments/write' 的權限。*
+  *建立角色指派警告 - AuthorizationFailed：用戶端 janedo\@microsoft.com' 與物件識別碼 'fe9e03e4-4dad-4328-910f-fd24a9660bd2' 沒有執行動作 'Microsoft.Authorization/roleAssignments/write' 範圍' /subscriptions/70 d 95299 d689 4 c 97 b971 0d8ff0000000'。*
 
 **azlog authorize** 命令會將 Azure AD 服務主體讀取者的角色 (以 **azlog createazureid** 建立) 指派給所提供的訂用帳戶。 如果 Azure 登入不是訂用帳戶的共同管理員或擁有者，命令會失敗，並出現「授權失敗」錯誤訊息。 需要共同管理員或擁有者的 Azure 角色型存取控制 (RBAC) 才能完成此動作。
 
@@ -118,8 +120,8 @@ Error:
 
 下列範例會取得 Azure 診斷設定：
 
-    -AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
-    $publicsettings = (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient).PublicSettings
+    Get-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient
+    $publicsettings = (Get-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient).PublicSettings
     $encodedconfig = (ConvertFrom-Json -InputObject $publicsettings).xmlCfg
     $xmlconfig = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($encodedconfig))
     Write-Host $xmlconfig
@@ -136,7 +138,7 @@ Error:
 下列範例會設定 Azure 診斷設定：
 
     $diagnosticsconfig_path = "d:\WADConfig.xml"
-    Set-AzureRmVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName log3121 -StorageAccountKey <storage key>
+    Set-AzVMDiagnosticsExtension -ResourceGroupName AzLog-Integration -VMName AzlogClient -DiagnosticsConfigurationPath $diagnosticsconfig_path -StorageAccountName log3121 -StorageAccountKey <storage key>
 
 完成變更之後，請檢查儲存體帳戶，以確保會收集正確的事件。
 

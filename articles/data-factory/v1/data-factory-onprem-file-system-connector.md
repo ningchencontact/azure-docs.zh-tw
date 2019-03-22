@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2d586f28b426732433c027c950f8193e7503c72b
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: 40086924731876dc44d9651ca46814149dba52f0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330799"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432771"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>使用 Azure Data Factory 從內部部署檔案系統來回複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,6 +30,8 @@ ms.locfileid: "54330799"
 
 
 本文說明如何使用 Azure Data Factory 中的「複製活動」，從內部部署檔案系統來回複製資料。 本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文提供使用複製活動來移動資料的一般概觀。
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="supported-scenarios"></a>支援的案例
 您可以從內部部署檔案系統將資料複製到下列資料存放區：
@@ -69,13 +71,13 @@ Data Factory 支援透過「資料管理閘道」連接到內部部署的檔案�
 ## <a name="linked-service-properties"></a>連結服務屬性
 您可以利用「內部部署檔案伺服器」已連結服務，將內部部署的檔案系統連結到 Azure Data Factory。 下表說明內部部署檔案伺服器連結服務專屬的 JSON 元素。
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | type |確保 type 屬性設為 **OnPremisesFileServer**。 |是 |
 | host |指定想要複製之資料夾的根路徑。 字串中的特殊字元需使用逸出字元 ‘ \ ’。 如需範例，請參閱 [範例連結服務和資料集定義](#sample-linked-service-and-dataset-definitions) 。 |是 |
 | userid |指定具有伺服器存取權之使用者的識別碼。 |否 (如果您選擇 encryptedCredential) |
 | password |指定使用者 (userid) 的密碼。 |否 (如果您選擇 encryptedCredential) |
-| encryptedCredential |指定可以透過執行 New-AzureRmDataFactoryEncryptValue Cmdlet 來取得的加密認證。 |否 (如果您選擇以純文字指定使用者識別碼和密碼) |
+| encryptedCredential |指定您可以執行新增 AzDataFactoryEncryptValue cmdlet 取得的加密的認證。 |否 (如果您選擇以純文字指定使用者識別碼和密碼) |
 | gatewayName |指定 Data Factory 應該用來連接到內部部署檔案伺服器的閘道器名稱。 |是 |
 
 
@@ -126,7 +128,7 @@ Data Factory 支援透過「資料管理閘道」連接到內部部署的檔案�
 
 不同類型資料集的 TypeProperties 區段不同。 它提供各種資訊，例如資料存放區中資料的格式與位置。 **FileShare** 類型資料集的 typeProperties 區段有下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
 | folderPath |指定資料夾的子路徑。 針對字串中的特殊字元，請使用逸出字元 '\'。 不支援萬用字元篩選。 如需範例，請參閱 [範例連結服務和資料集定義](#sample-linked-service-and-dataset-definitions) 。<br/><br/>您可以結合此屬性與 **partitionBy**，讓資料夾路徑以配量開始/結束日期時間為基礎。 |是 |
 | fileName |如果您想要資料表參考資料夾中的特定檔案，請指定 **folderPath** 中的檔案名稱。 如果沒有為此屬性指定任何值，資料表會指向資料夾中的所有檔案。<br/><br/>當未指定輸出資料集的 fileName，且在活動接收中未指定 preserveHierarchy 時，所產生檔案的名稱格式如下： <br/><br/>`Data.<Guid>.txt` (範例：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |否 |
@@ -178,13 +180,13 @@ Data Factory 支援透過「資料管理閘道」連接到內部部署的檔案�
 
 **FileSystemSource** 支援下列屬性：
 
-| 屬性 | 說明 | 允許的值 | 必要 |
+| 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
 | 遞迴 |指出是否從子資料夾、或只有從指定的資料夾，以遞迴方式讀取資料。 |True/False (預設值為 False) |否 |
 
 **FileSystemSink** 支援下列屬性：
 
-| 屬性 | 說明 | 允許的值 | 必要 |
+| 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
 | copyBehavior |當來源為 BlobSource 或 FileSystem 時，定義複製行為。 |**PreserveHierarchy：** 保留目標資料夾中的檔案階層。 亦即，來源檔案到來源資料夾的相對路徑，與目標檔案到目標資料夾的相對路徑相同。<br/><br/>**FlattenHierarchy：** 來源資料夾的中所有檔案都會建立在目標資料夾的第一層中。 建立的目標檔案會具有自動產生的名稱。<br/><br/>**MergeFiles：** 將來自來源資料夾的所有檔案合併成一個檔案。 如果有指定檔案/Blob 名稱，合併檔案的名稱會是指定的名稱。 否則，就會是自動產生的檔案名稱。 |否 |
 

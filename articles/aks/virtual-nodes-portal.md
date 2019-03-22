@@ -3,15 +3,16 @@ title: 在 Azure Kubernetes Service (AKS) 中使用入口網站建立虛擬節�
 description: 了解如何使用 Azure 入口網站建立使用虛擬節點執行 Pod 的 Azure Kubernetes Service (AKS) 叢集。
 services: container-service
 author: iainfoulds
+ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: a47910083083787000b749a0b5b3256df5e702c8
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: c1e4803698525f0d084fadac14e3952b951ecae6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845396"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58164437"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>在 Azure 入口網站中建立和設定 Azure Kubernetes Service (AKS) 叢集以使用虛擬節點
 
@@ -19,6 +20,16 @@ ms.locfileid: "54845396"
 
 > [!IMPORTANT]
 > 適用於 AKS 的虛擬節點目前是**預覽狀態**。 若您同意[補充的使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
+
+## <a name="preview-limitations"></a>預覽限制
+
+虽然此功能处于预览状态，但以下区域支持部署：
+
+* 澳大利亞東部 (australiaeast)
+* 美國東部 (eastus)
+* 美國中西部 (westcentralus)
+* 西歐 (westeurope)
+* 美國西部 (westus)
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -184,7 +195,7 @@ $ curl -L 10.241.0.4
 [aks-network]: ./networking-overview.md
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [aks-hpa]: tutorial-kubernetes-scale.md
-[aks-cluster-autoscaler]: autoscaler.md
+[aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
 [acr-aks-secrets]: ../container-registry/container-registry-auth-aks.md#access-with-kubernetes-secret
 

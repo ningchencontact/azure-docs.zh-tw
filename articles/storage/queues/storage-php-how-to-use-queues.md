@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: rogarana
 ms.subservice: queues
-ms.openlocfilehash: 3475791e3cc8fd0daea3bf330d9c15f685c13488
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 0f9cc11e64e2517ef7aff0cd51705c39bf212b37
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463254"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011426"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>如何使用 PHP 的佇列儲存體
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -45,7 +45,7 @@ ms.locfileid: "55463254"
       }
     }
     ```
-2. 將 **[composer.phar][composer-phar]** 下載到專案根目錄中。
+2. 将 [composer.phar][composer-phar] 下载到项目根目录中。
 3. 開啟命令提示字元，在專案根目錄中執行下列命令
    
     ```
@@ -126,7 +126,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -160,7 +160,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -192,7 +192,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -249,7 +249,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -294,7 +294,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -302,7 +302,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="additional-options-for-de-queuing-messages"></a>其他將訊息移出佇列的選項
-自訂從佇列中擷取訊息的方法有兩種。 首先，您可以取得一批訊息 (最多 32 個)。 其次，您可以設定較長或較短的可見度逾時，讓您的程式碼有較長或較短的時間可以完整處理每個訊息。 下列程式碼範例將使用 **getMessages** 方法，在一次呼叫中取得 16 個訊息。 接著它會使用 **for** 迴圈處理每個訊息。 它也會將可見度逾時設定為每個訊息五分鐘。
+自訂從佇列中擷取訊息的方法有兩種。 首先，可获取一批消息（最多 32 条）。 其次，您可以設定較長或較短的可見度逾時，讓您的程式碼有較長或較短的時間可以完整處理每個訊息。 下列程式碼範例將使用 **getMessages** 方法，在一次呼叫中取得 16 個訊息。 接著它會使用 **for** 迴圈處理每個訊息。 它也會將可見度逾時設定為每個訊息五分鐘。
 
 ```php
 require_once 'vendor/autoload.php';
@@ -344,7 +344,7 @@ try{
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -373,7 +373,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -403,7 +403,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -413,7 +413,7 @@ catch(ServiceException $e){
 ## <a name="next-steps"></a>後續步驟
 既然已了解 Azure 佇列儲存體的基本概念，請遵循下列連結以了解更複雜的儲存體工作。
 
-* 請瀏覽 [Azure 儲存體 PHP 用戶端程式庫的 API 參考](http://azure.github.io/azure-storage-php/)
+* 請瀏覽 [Azure 儲存體 PHP 用戶端程式庫的 API 參考](https://azure.github.io/azure-storage-php/)
 * 請參閱[進階佇列範例](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php)。
 
 如需詳細資訊，另請參閱 [PHP 開發人員中心](https://azure.microsoft.com/develop/php/)。
@@ -421,5 +421,5 @@ catch(ServiceException $e){
 [download]: https://github.com/Azure/azure-storage-php
 [require_once]: http://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.com
-[composer-phar]: http://getcomposer.org/composer.phar
+[composer-phar]: https://getcomposer.org/composer.phar
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: ac2577c6cd350d6d437d55e61ec73d954cb24893
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 07d9e03f1631ebce88a7a7c2e33be62f21dda522
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108376"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076780"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>使用 StorSimple 裝置管理員服務管理備份類別目錄
 ## <a name="overview"></a>概觀
@@ -86,7 +86,7 @@ StorSimple 裝置管理員服務的 [備份類別目錄]  刀鋒視窗會顯示�
 
 #### <a name="to-delete-a-backup-set"></a>若要刪除備份組
  移至 StorSimple 裝置管理員服務，然後按一下 [備份類別目錄]。
-2. 如下方所示，篩選選取項目：
+1. 如下方所示，篩選選取項目：
    
    1. 指定時間範圍。 
    2. 選取適當的裝置。 
@@ -97,15 +97,15 @@ StorSimple 裝置管理員服務的 [備份類別目錄]  刀鋒視窗會顯示�
 
       ![移至備份類別目錄](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
 
-3. 選取並展開備份組。 您現在可以看到根據其包含之磁碟區細分的備份組。 [還原] 與 [刪除] 選項可透過備份組的操作功能表 (按一下滑鼠右鍵) 取得。 以滑鼠右鍵按一下選取的備份組，然後從操作功能表中選取 [刪除]。
+1. 選取並展開備份組。 您現在可以看到根據其包含之磁碟區細分的備份組。 [還原] 與 [刪除] 選項可透過備份組的操作功能表 (按一下滑鼠右鍵) 取得。 以滑鼠右鍵按一下選取的備份組，然後從操作功能表中選取 [刪除]。
 
     ![移至備份類別目錄](./media/storsimple-8000-manage-backup-catalog/bucatalog3.png)
 
-4. 當系統提示確認時，請檢閱顯示的資訊，然後按一下 [刪除]。 選取的備份會永久刪除。
+1. 當系統提示確認時，請檢閱顯示的資訊，然後按一下 [刪除]。 選取的備份會永久刪除。
 
     ![移至備份類別目錄](./media/storsimple-8000-manage-backup-catalog/bucatalog4.png)  
 
-5. 刪除進行中和順利完成時，您會收到通知。 刪除完成之後，重新整理此頁面上的查詢。 已刪除的備份組將不會再顯示於備份組清單中。
+1. 刪除進行中和順利完成時，您會收到通知。 刪除完成之後，重新整理此頁面上的查詢。 已刪除的備份組將不會再顯示於備份組清單中。
 
     ![移至備份類別目錄](./media/storsimple-8000-manage-backup-catalog/bucatalog7.png)
 

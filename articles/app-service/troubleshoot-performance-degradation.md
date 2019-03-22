@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9c66a937ffd9155569820c47c99946d186c55cce
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 2d17991854f13f889c4e8c3a8c6f18e933655546
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052150"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884217"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>針對 Azure App Service 中應用程式效能變慢的問題進行疑難排解
 本文可協助您針對 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 中應用程式效能變慢的問題進行疑難排解。
@@ -61,9 +61,9 @@ ms.locfileid: "54052150"
 某些您可能想用以監視應用程式的計量為
 
 * 平均記憶體工作集
-* 平均回應時間
+* 平均响应时间
 * CPU 時間
-* 記憶體工作集
+* 内存工作集
 * Requests
 
 ![監視應用程式效能](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
@@ -78,7 +78,7 @@ ms.locfileid: "54052150"
 
 端點監視能讓您設定從不同地理位置執行，且用來測試 Web URL 之回應時間和運作時間的 Web 測試。 這項測試會針對 Web URL 執行 HTTP GET 作業，以從每個位置判斷回應時間和執行時間。 各個已設定的位置會每隔五分鐘執行一次測試。
 
-運作時間是透過 HTTP 回應碼來加以監視，而回應時間的測量單位是毫秒。 如果 HTTP 回應碼大於或等於 400，或是當回應時間超過 30 秒時，監視測試即告失敗。 如果所有指定位置上的端點監視測試全都成功，表示該端點可用。
+運作時間是透過 HTTP 回應碼來加以監視，而回應時間的測量單位是毫秒。 如果 HTTP 回應碼大於或等於 400，或是當回應時間超過 30 秒時，監視測試即告失敗。 如果从所有指定的位置监视测试均成功，则终结点被视为可用。
 
 若要設定，請參閱[監視 Azure App Service 中的應用程式](web-sites-monitor.md)。
 
@@ -162,7 +162,7 @@ Kudu 的另一項實用功能是，如果應用程式擲回第一次例外狀況
 您可以將調整設定為手動或自動。
 
 #### <a name="use-autoheal"></a>使用 AutoHeal
-AutoHeal 會根據您選擇的設定 (例如組態變更、要求、以記憶體為基礎的限制或執行要求所需的時間)，回收應用程式的背景工作角色處理序。 在大部分情況下，回收處理序是從問題中復原的最快方式。 雖然您永遠可以從 Azure 入口網站中直接重新啟動應用程式，AutoHeal 會自動為您完成。 您只需要在應用程式的根目錄 web.config 中加入某些觸發程序。 即使您的應用程式並非 .Net 應用程式，這些設定的運作方式仍相同。
+AutoHeal 會根據您選擇的設定 (例如組態變更、要求、以記憶體為基礎的限制或執行要求所需的時間)，回收應用程式的背景工作角色處理序。 在大部分情況下，回收處理序是從問題中復原的最快方式。 雖然您永遠可以從 Azure 入口網站中直接重新啟動應用程式，AutoHeal 會自動為您完成。 您只需要在應用程式的根目錄 web.config 中加入某些觸發程序。 這些設定的運作方式相同，即使您的應用程式並不是.NET 應用程式。
 
 如需詳細資訊，請參閱 [自動修復 Azure 網站](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/)。
 

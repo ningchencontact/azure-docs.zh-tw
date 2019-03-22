@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/7/2018
 ms.author: victorh
-ms.openlocfilehash: c27c31bc2f21cfae9036849973301a66a437de42
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 17eef2fc2608ca4ccbabff8179cd63798d275582
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435234"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119627"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>使用 Azure 入口網站來建立具有 HTTP 到 HTTPS 重新導向功能的應用程式閘道
 
@@ -29,7 +29,9 @@ ms.locfileid: "54435234"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-本教學課程需要 Azure PowerShell 模組 3.6 版或更新版本，才能建立憑證和安裝 IIS。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 若要在本教學課程中執行命令，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+本教程需要 Azure PowerShell 模块 1.0.0 或更高版本以创建证书并安装 IIS。 執行 `Get-Module -ListAvailable Az` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 若要在本教學課程中執行命令，則也需要執行 `Login-AzAccount` 以建立與 Azure 的連線。
 
 ## <a name="create-a-self-signed-certificate"></a>建立自我簽署憑證
 
@@ -70,20 +72,20 @@ Export-PfxCertificate `
 3. 在 [精選] 清單中選取 [網路]，然後選取 [應用程式閘道]。
 4. 針對應用程式閘道輸入這些值：
 
-    - myAppGateway - 作為應用程式閘道的名稱。
-    - myResourceGroupAG - 作為新資源群組。
+   - myAppGateway - 作為應用程式閘道的名稱。
+   - myResourceGroupAG - 作為新資源群組。
 
-    ![建立新的應用程式閘道](./media/create-url-route-portal/application-gateway-create.png)
+     ![建立新的應用程式閘道](./media/create-url-route-portal/application-gateway-create.png)
 
 5. 接受其他設定的預設值，然後按一下 [確定]。
 6. 按一下 [選擇虛擬網路]，按一下 [新建]，然後針對虛擬網路輸入這些值：
 
-    - myVNet - 作為虛擬網路的名稱。
-    - 10.0.0.0/16 - 作為虛擬網路位址空間。
-    - myAGSubnet - 作為子網路名稱。
-    - *10.0.1.0/24* - 作為子網路位址空間。
+   - myVNet - 作為虛擬網路的名稱。
+   - 10.0.0.0/16 - 作為虛擬網路位址空間。
+   - myAGSubnet - 作為子網路名稱。
+   - *10.0.1.0/24* - 作為子網路位址空間。
 
-    ![建立虛擬網路](./media/create-url-route-portal/application-gateway-vnet.png)
+     ![建立虛擬網路](./media/create-url-route-portal/application-gateway-vnet.png)
 
 7. 按一下 [確定] 以建立虛擬網路和子網路。
 8. 在 [前端 IP 組態] 下方確認 [IP 位址類型] 為 [公用]，並已選取 [新建]。 輸入 *myAGPublicIPAddress* 作為名稱。 接受其他設定的預設值，然後按一下 [確定]。
@@ -184,14 +186,14 @@ Export-PfxCertificate `
 ```azurepowershell
 $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-$vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
+$vmss = Get-AzVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
+Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
   -Name "customScript" `
   -Publisher "Microsoft.Compute" `
   -Type "CustomScriptExtension" `
   -TypeHandlerVersion 1.8 `
   -Setting $publicSettings
-Update-AzureRmVmss `
+Update-AzVmss `
   -ResourceGroupName myResourceGroupAG `
   -Name myvmss `
   -VirtualMachineScaleSet $vmss

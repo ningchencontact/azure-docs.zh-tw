@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: abb0abb94d3b3e7abc4dce58cdb11fa0c2cedd34
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 482d7a9662a79503bb2b197d5a6c63c9fa3c1c96
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805484"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113107"
 ---
 # <a name="configure-lead-management-in-marketo"></a>在 Marketo 中設定潛在客戶管理
 
@@ -50,7 +50,7 @@ ms.locfileid: "48805484"
     <form id="mktoForm_1179"></form>
     <script>MktoForms2.loadForm("("//app-ys12.marketo.com", "123-PQR-789", 1179);</script>
 
-8.  複製顯示於 [Embed Code] \(內嵌程式碼\) 中的值，以設定 Cloud Partner 入口網站上 Marketo 欄位中的 [伺服器識別碼]、[Munchkin 識別碼]，以及 [表單識別碼]。
+1. 複製顯示於 [Embed Code] \(內嵌程式碼\) 中的值，以設定 Cloud Partner 入口網站上 Marketo 欄位中的 [伺服器識別碼]、[Munchkin 識別碼]，以及 [表單識別碼]。
 
 使用下一個範例作為從 Marketo [Embed Code] \(內嵌程式碼\) 範例取得所需識別碼的指南。
 

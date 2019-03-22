@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: Ankit.Sud
-ms.openlocfilehash: b48910b74d90072a360bad504e2b826402dceea5
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.openlocfilehash: 254215389d129874f7ac3fc855b26819d41a095c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638928"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852469"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>更新 Azure Marketplace 中的現有虛擬機器供應項目
 
@@ -35,6 +35,8 @@ ms.locfileid: "49638928"
 
 為了協助您修改這些項目，入口網站提供了 **「比較」** 與 **「記錄」** 的功能。  
 
+>[!Note]
+>雲端解決方案提供者 (CSP) 合作夥伴通道選用功能現在可使用。  請參閱[雲端方案提供者](../../cloud-solution-providers.md)如需有關行銷您的供應項目，透過 Microsoft CSP 合作夥伴的通道。
 
 ## <a name="unpermitted-changes-to-vm-offer-or-sku"></a>不允許對虛擬機器供應項目或 SKU 進行的變更
 
@@ -63,7 +65,7 @@ ms.locfileid: "49638928"
 
 4.  在 [磁碟版本] 下方，按一下 [+新增磁碟版本]，即可新增 VM 映像。
 
-5.  提供新的 VM 映像**磁碟版本**。 磁碟版本必須遵循[語意版本](http://semver.org/)格式。 版本格式應該是 X.Y.Z，其中 X、Y 和 Z 是整數。 請確認您提供的新版本是否大於所有先前的版本，否則在重新發佈新版本後，不會顯示於入口網站或 Azure Marketplace。
+5.  提供新的 VM 映像**磁碟版本**。 磁碟版本必須遵循[語意版本](https://semver.org/)格式。 版本格式應該是 X.Y.Z，其中 X、Y 和 Z 是整數。 請確認您提供的新版本是否大於所有先前的版本，否則在重新發佈新版本後，不會顯示於入口網站或 Azure Marketplace。
 
 6.  對於 [OS VHD URL] ，請輸入為作業系統 VHD 建立的[共用存取簽章 (SAS) URI](./cpp-get-sas-uri.md)。 
 
@@ -149,12 +151,12 @@ ms.locfileid: "49638928"
 
 從 2018 年 9 月 1 日開始，入口網站會新增一個 [Simplified Currency Pricing]\(簡化的貨幣價格\) 新區段。 Microsoft 目前正在讓價格更好預測，並從您的全球客戶收集意見，藉此精簡 Azure Marketplace 業務流程。 在這個簡化過程中，會減少向您的客戶開立發票時所用的貨幣種類。
 
-新的區段會以新貨幣來顯示價格。 一旦所有客戶都改為使用這些新的結算貨幣，原始價格區段即會淘汰不用，而只會留下 [Simplified Currency Pricing]\(簡化的貨幣價格\) 區段。
+新的區段會以新貨幣來顯示價格。 一旦所有客戶都改為使用這些新的結算貨幣，原始價格區段即會淘汰不用，而只會留下 [Simplified Currency Pricing]\(簡化的貨幣價格\) 區段。
 
 請在 2018 年 11 月 1 日之前設定區域的新價格，設定之後結算貨幣即會變更。 未變更結算貨幣的區域無法提高價格。
 
 > [!NOTE] 
-> 若是使用 API 來發佈供應項目，則您會在 Offer JSON 中看到新區段。 此會標註為 `virtualMachinePricingV2` 或 `monthlyPricingV2`，視供應項目類型而定。 
+> 若是使用 API 來發佈供應項目，則您會在 Offer JSON 中看到新區段。 此會標註為 `virtualMachinePricingV2` 或 `monthlyPricingV2`，視供應項目類型而定。 
 
 如果您對此次變更有任何疑問，請聯絡 [Azure Marketplace 支援](../../support-azure-marketplace.md)。
 

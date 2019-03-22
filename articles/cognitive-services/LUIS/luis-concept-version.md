@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: diberry
-ms.openlocfilehash: b363f68b625a6f0987e58609477f51c7098423bf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 9da79e5b744f8ba70c0e265f0d1f0126b37eba49
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874074"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870647"
 ---
 # <a name="understand-how-and-when-to-use-a-luis-version"></a>了解如何及何時使用 LUIS 版本
 
@@ -35,7 +35,7 @@ LUIS 中的版本類似於傳統程式設計中的版本。 每個版本都是�
 
 目前作用中版本的名稱會顯示在左上方面板應用程式名稱的後面。 
 
-[ ![變更作用中版本](./media/luis-concept-version/version-in-nav-bar-inline.png) ](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
+[![變更作用中版本](./media/luis-concept-version/version-in-nav-bar-inline.png)](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
 
 ## <a name="versions-and-publishing-slots"></a>版本和發佈位置
 您可以發佈至預備位置和產品位置。 每個位置的版本可以不同，也可以相同。 這在透過端點 (Bot 或其他 LUIS 呼叫應用程式可用的端點) 確認模型版本之間的變更時，相當有用。 

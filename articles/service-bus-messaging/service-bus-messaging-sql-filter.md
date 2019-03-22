@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/05/2018
+ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: c94ffed753ebf8fddbd553977c5d733f2306971d
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
-ms.translationtype: HT
+ms.openlocfilehash: e490c7c24ed38e2988c1f097b09b508746f08178
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698327"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118130"
 ---
 # <a name="sqlfilter-syntax"></a>SQLFilter 語法
 
@@ -58,7 +58,7 @@ ms.locfileid: "43698327"
   
 ```  
   
-## <a name="arguments"></a>引數  
+## <a name="arguments"></a>参数  
   
 -   `<scope>` 是表示 `<property_name>` 範圍的選擇性字串。 有效值為 `sys` 或 `user`。 `sys` 值表示系統範圍，當中 `<property_name>` 為 [BrokeredMessage 類別](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)的公用屬性名稱。 `user` 表示使用者範圍，當中 `<property_name>` 為 [BrokeredMessage 類別](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)字典的索引鍵。 如果 `<scope>` 未指定，則 `user` 範圍是預設範圍。  
   
@@ -119,9 +119,9 @@ ms.locfileid: "43698327"
   
 `<pattern>` 必須是評估為字串的運算式。 它會用來做為 LIKE 運算子的模式。      它可以包含下列萬用字元︰  
   
--   `%`︰任何零或多個字元的字串。  
+-   `%`:任何零或多個字元的字串。  
   
--   `_`︰任何單一字元。  
+-   `_`:任何單一字元。  
   
 ## <a name="escapechar"></a>escape_char  
   
@@ -154,7 +154,7 @@ ms.locfileid: "43698327"
     2  
     ```  
   
--   `<decimal_constant>` 是數字的字串，不會以引號括住，且包含小數點。 值會在內部儲存為 `System.Double`，並遵循相同的範圍/精確度。  
+-   `<decimal_constant>` 是數字的字串，不會以引號括住，且包含小數點。 这些值作为 `System.Double` 在内部存储，并具有相同的作用域/精度。  
   
      在未來版本中，這個數字可能會以不同的資料類型儲存，以支援實際數字的語意，因此您不應依賴 `<decimal_constant>` 的基本資料型別是 `System.Double`。  
   
@@ -223,29 +223,29 @@ ms.locfileid: "43698327"
   
 ### <a name="property-evaluation-semantics"></a>屬性評估語意  
   
--   嘗試評估不存在的系統屬性會擲回 [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) 例外狀況。  
+- 嘗試評估不存在的系統屬性會擲回 [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) 例外狀況。  
   
--   不存在的屬性會在內部評估為**未知**。  
+- 不存在的屬性會在內部評估為**未知**。  
   
- 算術運算子的未知評估︰  
+  算術運算子的未知評估︰  
   
--   針對二進位運算子，如果左和/或右邊的運算元評估為**未知**，則結果為**未知**。  
+- 針對二進位運算子，如果左和/或右邊的運算元評估為**未知**，則結果為**未知**。  
   
--   針對一元運算子，如果運算元評估為**未知**，則結果為**未知**。  
+- 針對一元運算子，如果運算元評估為**未知**，則結果為**未知**。  
   
- 二進位比較運算子的未知評估︰  
+  二進位比較運算子的未知評估︰  
   
--   如果左和/或右邊的運算元評估為**未知**，則結果為**未知**。  
+- 如果左和/或右邊的運算元評估為**未知**，則結果為**未知**。  
   
- `[NOT] LIKE` 中的未知評估：  
+  `[NOT] LIKE` 中的未知評估：  
   
--   如果任何運算元評估為**未知**，則結果為**未知**。  
+- 如果任何運算元評估為**未知**，則結果為**未知**。  
   
- `[NOT] IN` 中的未知評估：  
+  `[NOT] IN` 中的未知評估：  
   
--   如果左運算元評估為**未知**，則結果為**未知**。  
+- 如果左運算元評估為**未知**，則結果為**未知**。  
   
- **AND** 運算子的未知評估︰  
+  **AND** 運算子的未知評估︰  
   
 ```  
 +---+---+---+---+  

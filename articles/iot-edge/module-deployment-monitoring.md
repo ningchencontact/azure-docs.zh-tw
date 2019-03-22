@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 18cd27ae8bf0a395fa351cf283bc1d40f94dac53
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 376ee74732daf526b31129fa8c93cbaa32350eae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100101"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107809"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>了解單一裝置或大規模的 IoT Edge 自動部署
 
@@ -32,7 +32,7 @@ Azure IoT Edge 提供兩種方式來設定要在 IoT Edge 裝置上執行的模�
 2. IoT 中樞服務會與所有目標裝置通訊，利用所需模組來設定它們。 
 3. IoT 中樞服務會從 IoT Edge 裝置擷取狀態，並使其供操作員使用。  例如，操作員可在未成功設定 Edge 裝置時看見，或是查看模組在執行階段期間是否失敗。 
 4. 隨時都可針對部署設定符合目標條件的新 IoT Edge 裝置。 例如，若部署的目標是在華盛頓州的所有 IoT Edge 裝置，一旦將其佈建並新增至「華盛頓州」裝置群組之後，就會自動設定新的 IoT Edge 裝置。 
- 
+ 
 本文說明用來設定及監視部署的每個相關元件。 如需建立和更新部署的逐步解說，請參閱[大規模部署和監視 IoT Edge 模組](how-to-deploy-monitor.md)。
 
 ## <a name="deployment"></a>部署
@@ -62,7 +62,7 @@ IoT Edge 自動部署會指派 IoT Edge 模組映像，在一組目標 IoT Edge 
 
 ### <a name="target-condition"></a>目標條件
 
-目標條件會在部署的存留期間持續評估。 任何符合需求的新裝置都會加入，並且任何不再符合需求的現有裝置都會遭到移除。 如果服務偵測到任何目標條件變更，部署將會重新啟動。 
+在部署的整个生存期内会持续对目标条件进行评估。 任何符合需求的新裝置都會加入，並且任何不再符合需求的現有裝置都會遭到移除。 如果服務偵測到任何目標條件變更，部署將會重新啟動。 
 
 比方說，您的部署 A 具有目標條件 tags.environment = 'prod'。 當您開始進行部署時，有 10 個生產裝置。 模組已成功安裝在這 10 個裝置中。 IoT Edge 代理程式狀態會顯示為共 10 個裝置、10 項成功回應、0 項失敗回應，以及 0 項擱置回應。 現在，您再新增五個具有 tags.environment = 'prod' 的裝置。 服務偵測到變更，在嘗試部署到五個新裝置時，IoT Edge 代理程式狀態會變成共 15 個裝置、10 項成功回應、0 項失敗回應，以及 5 項擱置回應。
 

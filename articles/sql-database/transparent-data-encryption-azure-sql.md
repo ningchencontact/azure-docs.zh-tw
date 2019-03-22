@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/20/2019
-ms.openlocfilehash: bfceb8feacdad428a6e4c23272fd9092a356f107
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 3333355b742d531cc814484bdefbd47e7ab6c75c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453319"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57878001"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>SQL Database 和資料倉儲的透明資料加密
 
@@ -42,7 +42,7 @@ Microsoft 也會視異地複寫和還原的需要順暢地移動和管理金鑰�
 
 ## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>由客戶管理的透明資料加密：攜帶您自己的金鑰
 
-[Azure Key Vault 中使用由客戶管理之金鑰進行的 TDE](transparent-data-encryption-byok-azure-sql.md) 允許使用由客戶管理的非對稱金鑰 (稱為 TDE 保護裝置) 來加密資料庫加密金鑰 (DEK)。  這通常也稱為透明資料加密的攜帶您自己的金鑰 (BYOK) 支援。 在 BYOK 情節中，TDE 保護裝置會儲存於客戶擁有且管理的 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) 中，這是 Azure 的雲端式外部金鑰管理系統。 TDE 保護裝置可以[由金鑰保存庫產生，或者從內部部署 HSM 裝置轉移到金鑰保存庫](https://docs.microsoft.com/en-us/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys)。 儲存於資料庫開機頁面上的 TDE DEK，是由 TDE 保護裝置進行加密和解密，該保護裝置儲存於 Azure Key Vault 中且永遠都不會離開金鑰保存庫。  您必須對 SQL Database 授與客戶擁有之金鑰保存庫的權限，才能對 DEK 進行解密和加密。 如果撤銷了邏輯 SQL 伺服器對金鑰保存庫的權限，資料庫將無法存取且會將所有資料加密。 針對 Azure SQL Database，會將 TDE 保護裝置設定於邏輯 SQL 伺服器層級，並由所有與該伺服器相關聯的資料庫繼承。 針對 [Azure SQL 受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance)，系統會將 TDE 保護裝置設定於執行個體層級，並由該執行個體上的所有「加密」資料庫繼承。 除非另有說明，「伺服器」字詞在本文件中指的是伺服器和執行個體兩者。
+[Azure Key Vault 中使用由客戶管理之金鑰進行的 TDE](transparent-data-encryption-byok-azure-sql.md) 允許使用由客戶管理的非對稱金鑰 (稱為 TDE 保護裝置) 來加密資料庫加密金鑰 (DEK)。  這通常也稱為透明資料加密的攜帶您自己的金鑰 (BYOK) 支援。 在 BYOK 情節中，TDE 保護裝置會儲存於客戶擁有且管理的 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault) 中，這是 Azure 的雲端式外部金鑰管理系統。 TDE 保護裝置可以是[產生的金鑰保存庫，或傳輸至金鑰保存庫](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys)從開啟的內部部署 HSM 裝置。 儲存於資料庫開機頁面上的 TDE DEK，是由 TDE 保護裝置進行加密和解密，該保護裝置儲存於 Azure Key Vault 中且永遠都不會離開金鑰保存庫。  您必須對 SQL Database 授與客戶擁有之金鑰保存庫的權限，才能對 DEK 進行解密和加密。 如果撤銷了邏輯 SQL 伺服器對金鑰保存庫的權限，資料庫將無法存取且會將所有資料加密。 針對 Azure SQL Database，會將 TDE 保護裝置設定於邏輯 SQL 伺服器層級，並由所有與該伺服器相關聯的資料庫繼承。 針對 [Azure SQL 受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance)，系統會將 TDE 保護裝置設定於執行個體層級，並由該執行個體上的所有「加密」資料庫繼承。 除非另有說明，「伺服器」字詞在本文件中指的是伺服器和執行個體兩者。
 
 透過與 Azure Key Vault 整合的 TDE，使用者可以使用 Azure Key Vault 功能來控制金鑰管理工作，包括金鑰輪替、金鑰保存庫權限、金鑰備份，以及啟用所有 TDE 保護裝置的稽核/報告功能。 Key Vault 可提供集中金鑰管理、使用嚴密監控的硬體安全性模組 (HSM)，並能區分管理金鑰和資料的責任，以協助符合安全性原則的合規性。
 若要深入了解如何將與 Azure Key Vault 整合 (攜帶您自己的金鑰支援) 的透明資料加密用於 Azure SQL Database、SQL 受控執行個體和資料倉儲，請參閱[與 Azure Key Vault 整合的透明資料加密](transparent-data-encryption-byok-azure-sql.md)。
@@ -83,22 +83,26 @@ Microsoft 也會視異地複寫和還原的需要順暢地移動和管理金鑰�
 
 ## <a name="manage-transparent-data-encryption-by-using-powershell"></a>使用 PowerShell 管理透明資料加密
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
+
 若要透過 PowerShell 設定透明資料加密，您必須以 Azure 擁有者、參與者或 SQL 安全性管理員的身分連線。
 
 ### <a name="cmdlets-for-azure-sql-database-and-data-warehouse"></a>適用於 Azure SQL Database 和資料倉儲的 Cmdlet
 
 使用下列適用於 Azure SQL Database 和資料倉儲的 Cmdlet：
 
-| Cmdlet | 說明 |
+| Cmdlet | 描述 |
 | --- | --- |
-| [Set-AzureRmSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasetransparentdataencryption) |啟用或停用資料庫的透明資料加密|
-| [Get-AzureRmSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption) |取得資料庫的透明資料加密狀態 |
-| [Get-AzureRmSqlDatabaseTransparentDataEncryptionActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryptionactivity) |查看資料庫的加密進度 |
-| [Add-AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey) |將 Key Vault 金鑰新增至 SQL Server 執行個體 |
-| [Get-AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlserverkeyvaultkey) |取得 Azure SQL Database 伺服器的 Key Vault 金鑰  |
-| [Set-AzureRmSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) |為 SQL Server 執行個體設定透明資料加密保護裝置 |
-| [Get-AzureRmSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlservertransparentdataencryptionprotector) |取得透明資料加密保護裝置 |
-| [Remove-AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlserverkeyvaultkey) |從 SQL Server 執行個體中移除 Key Vault 金鑰 |
+| [Set-AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) |啟用或停用資料庫的透明資料加密|
+| [Get-AzSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) |取得資料庫的透明資料加密狀態 |
+| [Get-AzSqlDatabaseTransparentDataEncryptionActivity](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity) |查看資料庫的加密進度 |
+| [Add-AzSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/az.sql/add-azsqlserverkeyvaultkey) |將 Key Vault 金鑰新增至 SQL Server 執行個體 |
+| [Get-AzSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverkeyvaultkey) |取得 Azure SQL Database 伺服器的 Key Vault 金鑰  |
+| [Set-AzSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) |為 SQL Server 執行個體設定透明資料加密保護裝置 |
+| [Get-AzSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) |取得透明資料加密保護裝置 |
+| [Remove-AzSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlserverkeyvaultkey) |從 SQL Server 執行個體中移除 Key Vault 金鑰 |
 |  | |
 
 > [!IMPORTANT]
@@ -108,7 +112,7 @@ Microsoft 也會視異地複寫和還原的需要順暢地移動和管理金鑰�
 
 使用在主要資料庫中作為系統管理員或 **dbmanager** 角色成員的登入，連線至資料庫。
 
-| 命令 | 說明 |
+| 命令 | 描述 |
 | --- | --- |
 | [ALTER DATABASE (Azure SQL Database)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) | SET ENCRYPTION ON/OFF 可加密或解密資料庫 |
 | [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql) |傳回資料庫及其相關資料庫加密金鑰的加密狀態相關資訊 |
@@ -122,7 +126,7 @@ Microsoft 也會視異地複寫和還原的需要順暢地移動和管理金鑰�
 若要透過 REST API 設定透明資料加密，您必須以 Azure 擁有者、參與者或 SQL 安全性管理員的身分連線。
 使用下列適用於 Azure SQL Database 和資料倉儲的 Cmdlet 命令集：
 
-| 命令 | 說明 |
+| 命令 | 描述 |
 | --- | --- |
 |[建立或更新伺服器](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|將 Azure Active Directory 身分識別新增至 SQL Server 執行個體 (用以授與 Key Vault 的存取權)|
 |[建立或更新伺服器金鑰](https://docs.microsoft.com/rest/api/sql/serverkeys/createorupdate)|將 Key Vault 金鑰新增至 SQL Server 執行個體|

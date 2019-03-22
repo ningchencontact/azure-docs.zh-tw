@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 12079f8dbc409afe5acc274fa08bda878c90b76e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: be3d98dc0b3a8119fb853493440c6fc78d65c5a2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110746"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454233"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>透過 Azure 入口網站進行 StorSimple Virtual Array 的災害復原和裝置容錯移轉
 
@@ -44,7 +44,7 @@ ms.locfileid: "23110746"
 
 ## <a name="prerequisites-for-device-failover"></a>裝置容錯移轉需求
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 
 對於裝置容錯移轉，請確定符合下列必要條件：
 

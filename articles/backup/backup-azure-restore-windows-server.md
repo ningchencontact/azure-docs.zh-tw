@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 9/7/2018
 ms.author: saurse
-ms.openlocfilehash: 1e8e9365567c19400b86dc60d966eb965b83591d
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: d58b51f06c21c787e4aa720c803ab6533544d55c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281739"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110812"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>使用 Azure Resource Manager 部署模型將檔案還原至 Windows
 
@@ -48,14 +48,14 @@ ms.locfileid: "51281739"
 
     ![復原資料精靈 [開始使用] 頁面的螢幕擷取畫面](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-4. 在 [選取復原模式] 頁面中，選擇 [個別檔案與資料夾] > [下一步]。
+4. 在 [**選取復原模式**頁面上，選擇**個別檔案及資料夾** > **下一步]**。
 
     ![復原資料精靈 [選取復原模式] 頁面的螢幕擷取畫面](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
-  > [!IMPORTANT]
-  > 若要執行還原個別檔案與資料夾的選項，必須具備 .NET Framework 4.5.2 或更新版本。 如果您未看見 [個別檔案與資料夾] 選項，您必須先將 .NET Framework 升級至 4.5.2 版或更新版本，再重新嘗試。
+   > [!IMPORTANT]
+   > 若要執行還原個別檔案與資料夾的選項，必須具備 .NET Framework 4.5.2 或更新版本。 如果您未看見 [個別檔案與資料夾] 選項，您必須先將 .NET Framework 升級至 4.5.2 版或更新版本，再重新嘗試。
 
-  > [!TIP]
-  > [個別檔案及資料夾] 選項可讓您快速存取復原點資料。 這很適合用來復原個別檔案 (大小總計不得超過 80 GB)，並在復原期間提供最多 6 MBps 的傳輸或複製速度。 [磁碟區] 選項會復原指定磁碟區中的所有備份資料。 此選項可提供更快的傳輸速度 (最多 60 MBps)，適合用來復原大型資料或整個磁碟區。
+   > [!TIP]
+   > [個別檔案及資料夾] 選項可讓您快速存取復原點資料。 這很適合用來復原個別檔案 (大小總計不得超過 80 GB)，並在復原期間提供最多 6 MBps 的傳輸或複製速度。 [磁碟區] 選項會復原指定磁碟區中的所有備份資料。 此選項可提供更快的傳輸速度 (最多 60 MBps)，適合用來復原大型資料或整個磁碟區。
 
 5. 在 [選取磁碟區和日期] 頁面中，選取包含您要還原之檔案和資料夾的磁碟區。
 

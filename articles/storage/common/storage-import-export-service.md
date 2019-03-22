@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/14/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e2c770625cf92e0db269d14d2f63dc0c896cbe9c
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 4850dd82ca52a060c921569433035256f5b74cce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267507"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58164921"
 ---
 # <a name="what-is-azure-importexport-service"></a>什麼是 Azure 匯入/匯出服務？
 
@@ -76,7 +76,7 @@ Azure 匯入/匯出服務可讓您建立作業，將資料轉送到 Azure Blob �
 > [!NOTE]
 > 對於本地 (在資料中心所在國家/地區內) 的貨物運送，請提供國內貨運業者帳戶 
 >
-> 對於國外 (在資料中心所在國家/地區之外) 的貨物運送，請提供國際貨運業者帳戶
+> 對於 abroad （外部資料中心國家/地區） 的出貨，請共用的國際電話公司帳戶
 
  ![圖 1: 匯入工作流程](./media/storage-import-export-service/importjob.png)
 
@@ -106,7 +106,7 @@ Azure 匯入/匯出服務可讓您建立作業，將資料轉送到 Azure Blob �
 > [!NOTE]
 > 對於本地 (在資料中心所在國家/地區內) 的貨物運送，請提供國內貨運業者帳戶 
 >
-> 對於國外 (在資料中心所在國家/地區之外) 的貨物運送，請提供國際貨運業者帳戶
+> 對於 abroad （外部資料中心國家/地區） 的出貨，請共用的國際電話公司帳戶
   
  ![圖 2: 匯出工作流程](./media/storage-import-export-service/exportjob.png)
 

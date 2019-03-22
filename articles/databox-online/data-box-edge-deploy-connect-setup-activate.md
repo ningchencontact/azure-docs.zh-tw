@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: c50aece847119dd0d2421553e9e9827c2168e553
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 4fd52510abd61c4d319a3fcbc8f722df5edbc476
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451641"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120596"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge-preview"></a>教學課程：連線、設定及啟用 Azure Data Box Edge (預覽) 
 
@@ -82,12 +82,12 @@ ms.locfileid: "54451641"
    
     進行網路設定時，請牢記下列事項：
 
-    - 如果您的環境中啟用了 DHCP，則會自動設定網路介面。 系統會自動指派 IP 位址、子網路、閘道 和 DNS。
-    - 如果未啟用 DHCP，您可以視需要指派靜態 IP。
-    - 您可以將網路介面設定為 IPv4。
+   - 如果您的環境中啟用了 DHCP，則會自動設定網路介面。 系統會自動指派 IP 位址、子網路、閘道 和 DNS。
+   - 如果未啟用 DHCP，您可以視需要指派靜態 IP。
+   - 您可以將網路介面設定為 IPv4。
 
-    >[!NOTE] 
-    > 我們建議您不要將網路介面的本機 IP 位址從靜態切換成 DCHP，除非您有另一個連接到裝置的 IP 位址。 如果使用一個網路介面並切換至 DHCP，就無法判斷 DHCP 位址。 如果您想要變更為 DHCP 位址，請等到裝置已向服務註冊之後再變更。 然後，您就可以在您服務的 Azure 入口網站中於 [裝置屬性] 中檢視所有介面卡的 IP。
+     >[!NOTE] 
+     > 我們建議您不要將網路介面的本機 IP 位址從靜態切換成 DCHP，除非您有另一個連接到裝置的 IP 位址。 如果使用一個網路介面並切換至 DHCP，就無法判斷 DHCP 位址。 如果您想要變更為 DHCP 位址，請等到裝置已向服務註冊之後再變更。 然後，您就可以在您服務的 Azure 入口網站中於 [裝置屬性] 中檢視所有介面卡的 IP。
 
 1. (選擇性) 在左側窗格中，選取 [Web Proxy 設定]，然後設定 Web Proxy 伺服器。 雖然 Web Proxy 設定是選用的，但如果您使用 Web Proxy，便只能在此頁面上設定它。
    

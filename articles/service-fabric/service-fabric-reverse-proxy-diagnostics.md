@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/08/2017
 ms.author: kavyako
-ms.openlocfilehash: 662fc124af71c1ce976037a3544f59e3cea54ef0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: c9c8c649208cff95f4ee515d39cc8cca3e2c64bf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207626"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121480"
 ---
 # <a name="monitor-and-diagnose-request-processing-at-the-reverse-proxy"></a>在反向 proxy 監視和診斷要求處理
 
@@ -32,83 +32,84 @@ ms.locfileid: "34207626"
 1. 反向 proxy 傳回回應狀態碼 504 (逾時)。
 
     其中一個原因可能是因為服務無法在要求逾時期間內回覆。
-下面第一個事件記錄在反向 proxy 收到的要求詳細資料。 第二個事件指出要求在轉寄至服務時失敗，因為「內部錯誤 = ERROR_WINHTTP_TIMEOUT」 
+   下面第一個事件記錄在反向 proxy 收到的要求詳細資料。 
+   第二個事件指出要求在轉寄至服務時失敗，因為「內部錯誤 = ERROR_WINHTTP_TIMEOUT」 
 
     承載包括︰
 
-    *  **traceId**：此 GUID 可以讓對應至單一要求的所有事件相互關聯。 在以下兩個事件中，traceId = **2f87b722-e254-4ac2-a802-fd315c1a0271**，意味著它們屬於相同的要求。
-    *  **requestUrl**：要求所要送往的 URL (反向 proxy URL)。
-    *  **指令動詞**︰HTTP 指令動詞。
-    *  **remoteAddress**：傳送要求之用戶端的位址。
-    *  **resolvedServiceUrl**：傳入要求解析至的服務端點 URL。 
-    *  **errorDetails**︰關於失敗的額外資訊。
+   * **traceId**:此 GUID 可用來對應至單一要求的所有事件相互都關聯。 在以下兩個事件中，traceId = **2f87b722-e254-4ac2-a802-fd315c1a0271**，意味著它們屬於相同的要求。
+   * **requestUrl**:此要求傳送 URL (反向 proxy URL)。
+   * **動詞**:HTTP 指令動詞。
+   * **remoteAddress**:傳送要求的用戶端的位址。
+   * **resolvedServiceUrl**:連入要求已解析的服務端點 URL。 
+   * **errorDetails**:其他失敗的詳細資訊。
 
-    ```
-    {
-      "Timestamp": "2017-07-20T15:57:59.9871163-07:00",
-      "ProviderName": "Microsoft-ServiceFabric",
-      "Id": 51477,
-      "Message": "2f87b722-e254-4ac2-a802-fd315c1a0271 Request url = https://localhost:19081/LocationApp/LocationFEService?zipcode=98052, verb = GET, remote (client) address = ::1, resolved service url = Https://localhost:8491/LocationApp/?zipcode=98052, request processing start time =     15:58:00.074114 (745,608.196 MSec) ",
-      "ProcessId": 57696,
-      "Level": "Informational",
-      "Keywords": "0x1000000000000021",
-      "EventName": "ReverseProxy",
-      "ActivityID": null,
-      "RelatedActivityID": null,
-      "Payload": {
-        "traceId": "2f87b722-e254-4ac2-a802-fd315c1a0271",
-        "requestUrl": "https://localhost:19081/LocationApp/LocationFEService?zipcode=98052",
-        "verb": "GET",
-        "remoteAddress": "::1",
-        "resolvedServiceUrl": "Https://localhost:8491/LocationApp/?zipcode=98052",
-        "requestStartTime": "2017-07-20T15:58:00.0741142-07:00"
-      }
-    }
+     ```
+     {
+     "Timestamp": "2017-07-20T15:57:59.9871163-07:00",
+     "ProviderName": "Microsoft-ServiceFabric",
+     "Id": 51477,
+     "Message": "2f87b722-e254-4ac2-a802-fd315c1a0271 Request url = https://localhost:19081/LocationApp/LocationFEService?zipcode=98052, verb = GET, remote (client) address = ::1, resolved service url = Https://localhost:8491/LocationApp/?zipcode=98052, request processing start time =     15:58:00.074114 (745,608.196 MSec) ",
+     "ProcessId": 57696,
+     "Level": "Informational",
+     "Keywords": "0x1000000000000021",
+     "EventName": "ReverseProxy",
+     "ActivityID": null,
+     "RelatedActivityID": null,
+     "Payload": {
+      "traceId": "2f87b722-e254-4ac2-a802-fd315c1a0271",
+      "requestUrl": "https://localhost:19081/LocationApp/LocationFEService?zipcode=98052",
+      "verb": "GET",
+      "remoteAddress": "::1",
+      "resolvedServiceUrl": "Https://localhost:8491/LocationApp/?zipcode=98052",
+      "requestStartTime": "2017-07-20T15:58:00.0741142-07:00"
+     }
+     }
 
-    {
-      "Timestamp": "2017-07-20T16:00:01.3173605-07:00",
-      ...
-      "Message": "2f87b722-e254-4ac2-a802-fd315c1a0271 Error while forwarding request to service: response status code = 504, description = Reverse proxy Timeout, phase = FinishSendRequest, internal error = ERROR_WINHTTP_TIMEOUT ",
-      ...
-      "Payload": {
-        "traceId": "2f87b722-e254-4ac2-a802-fd315c1a0271",
-        "statusCode": 504,
-        "description": "Reverse Proxy Timeout",
-        "sendRequestPhase": "FinishSendRequest",
-        "errorDetails": "internal error = ERROR_WINHTTP_TIMEOUT"
-      }
-    }
-    ```
+     {
+     "Timestamp": "2017-07-20T16:00:01.3173605-07:00",
+     ...
+     "Message": "2f87b722-e254-4ac2-a802-fd315c1a0271 Error while forwarding request to service: response status code = 504, description = Reverse proxy Timeout, phase = FinishSendRequest, internal error = ERROR_WINHTTP_TIMEOUT ",
+     ...
+     "Payload": {
+      "traceId": "2f87b722-e254-4ac2-a802-fd315c1a0271",
+      "statusCode": 504,
+      "description": "Reverse Proxy Timeout",
+      "sendRequestPhase": "FinishSendRequest",
+      "errorDetails": "internal error = ERROR_WINHTTP_TIMEOUT"
+     }
+     }
+     ```
 
 2. 反向 proxy 傳回回應狀態碼 404 (找不到)。 
     
     在以下範例事件中，反向 proxy 傳回 404，因為它找不到相符的服務端點。
     重要承載項目如下：
-    *  **processRequestPhase**：指出發生失敗時的要求處理期間階段，***TryGetEndpoint*** 也就是 嘗試提取要轉送至的服務端點時。 
-    *  **errorDetails**：列出端點搜尋準則。 您可以查看指定的 listenerName = **FrontEndListener**，然而複本端點清單只包含名稱為 **OldListener** 的接聽程式。
+   * **processRequestPhase**:指出發生失敗的要求處理期間階段***TryGetEndpoint***也就是 嘗試提取要轉送至的服務端點時。 
+   * **errorDetails**:列出端點搜尋準則。 您可以查看指定的 listenerName = **FrontEndListener**，然而複本端點清單只包含名稱為 **OldListener** 的接聽程式。
     
-    ```
-    {
+     ```
+     {
+     ...
+     "Message": "c1cca3b7-f85d-4fef-a162-88af23604343 Error while processing request, cannot forward to service: request url = https://localhost:19081/LocationApp/LocationFEService?ListenerName=FrontEndListener&zipcode=98052, verb = GET, remote (client) address = ::1, request processing start time = 16:43:02.686271 (3,448,220.353 MSec), error = FABRIC_E_ENDPOINT_NOT_FOUND, message = , phase = TryGetEndoint, SecureOnlyMode = false, gateway protocol = https, listenerName = FrontEndListener, replica endpoint = {\"Endpoints\":{\"\":\"Https:\/\/localhost:8491\/LocationApp\/\"}} ",
+     "ProcessId": 57696,
+     "Level": "Warning",
+     "EventName": "ReverseProxy",
+     "Payload": {
+      "traceId": "c1cca3b7-f85d-4fef-a162-88af23604343",
+      "requestUrl": "https://localhost:19081/LocationApp/LocationFEService?ListenerName=NewListener&zipcode=98052",
       ...
-      "Message": "c1cca3b7-f85d-4fef-a162-88af23604343 Error while processing request, cannot forward to service: request url = https://localhost:19081/LocationApp/LocationFEService?ListenerName=FrontEndListener&zipcode=98052, verb = GET, remote (client) address = ::1, request processing start time = 16:43:02.686271 (3,448,220.353 MSec), error = FABRIC_E_ENDPOINT_NOT_FOUND, message = , phase = TryGetEndoint, SecureOnlyMode = false, gateway protocol = https, listenerName = FrontEndListener, replica endpoint = {\"Endpoints\":{\"\":\"Https:\/\/localhost:8491\/LocationApp\/\"}} ",
-      "ProcessId": 57696,
-      "Level": "Warning",
-      "EventName": "ReverseProxy",
-      "Payload": {
-        "traceId": "c1cca3b7-f85d-4fef-a162-88af23604343",
-        "requestUrl": "https://localhost:19081/LocationApp/LocationFEService?ListenerName=NewListener&zipcode=98052",
-        ...
-        "processRequestPhase": "TryGetEndoint",
-        "errorDetails": "SecureOnlyMode = false, gateway protocol = https, listenerName = FrontEndListener, replica endpoint = {\"Endpoints\":{\"OldListener\":\"Https:\/\/localhost:8491\/LocationApp\/\"}}"
-      }
-    }
-    ```
-    反向 proxy 可能傳回 404 找不到的另一個範例為：ApplicationGateway\Http 組態參數 **SecureOnlyMode** 設為 true，且反向 proxy 在**HTTPS** 接聽，不過所有複本端點都不安全 (在 HTTP 上接聽)。
-    反向 proxy 傳回 404，因為它找不到在 HTTPS 上接聽的端點以轉送要求。 在事件承載中分析參數有助於縮小問題範圍：
+      "processRequestPhase": "TryGetEndoint",
+      "errorDetails": "SecureOnlyMode = false, gateway protocol = https, listenerName = FrontEndListener, replica endpoint = {\"Endpoints\":{\"OldListener\":\"Https:\/\/localhost:8491\/LocationApp\/\"}}"
+     }
+     }
+     ```
+     另一個範例中，反向 proxy 可能傳回 404 找不到為：ApplicationGateway\Http 組態參數**SecureOnlyMode**設為 true，且反向 proxy 會接聽**HTTPS**，不過所有複本端點都是不安全的 （在 HTTP 上接聽）。
+     反向 proxy 傳回 404，因為它找不到在 HTTPS 上接聽的端點以轉送要求。 在事件承載中分析參數有助於縮小問題範圍：
     
-    ```
-        "errorDetails": "SecureOnlyMode = true, gateway protocol = https, listenerName = NewListener, replica endpoint = {\"Endpoints\":{\"OldListener\":\"Http:\/\/localhost:8491\/LocationApp\/\", \"NewListener\":\"Http:\/\/localhost:8492\/LocationApp\/\"}}"
-    ```
+     ```
+      "errorDetails": "SecureOnlyMode = true, gateway protocol = https, listenerName = NewListener, replica endpoint = {\"Endpoints\":{\"OldListener\":\"Http:\/\/localhost:8491\/LocationApp\/\", \"NewListener\":\"Http:\/\/localhost:8492\/LocationApp\/\"}}"
+     ```
 
 3. 反向 proxy 的要求因為逾時錯誤而失敗。 
     事件記錄包含具有已接收要求詳細資料 (未顯示於此處) 的事件。

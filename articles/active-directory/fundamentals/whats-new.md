@@ -11,21 +11,21 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 02/28/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b7616eed4a17f33ad3b490c625c69cebb32a3f8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: eda145f43c9268e5f6b291a767ed51249804f87d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164527"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286443"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
 
->藉由將此 URL：`https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` 複製並貼到您的 ![RSS 圖示](./media/whats-new/feed-icon-16x16.png)摘要讀取程式，即可獲知何時要重新造訪此頁面來進行更新。
+>獲知時返回此頁面的更新複製並貼上此 URL:`https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us`到您![RSS 摘要讀取器圖示](./media/whats-new/feed-icon-16x16.png)摘要讀取器。
 
 Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發訊息，本文提供下列相關資訊：
 
@@ -38,6 +38,124 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 此頁面會每月更新，因此請定期瀏覽。 如果想要尋找超過 6 個月的項目，請至 [Azure Active Directory 的新增功能封存](whats-new-archive.md) (英文)。
 
 ---
+## <a name="february-2019"></a>2019 年 2 月
+
+### <a name="configurable-azure-ad-saml-token-encryption-public-preview"></a>可設定的 Azure AD SAML 權杖加密 (公開預覽) 
+
+**類型：** 新功能  
+**服務類別：** 企業應用程式  
+**產品功能：** SSO
+ 
+您現在可以設定任何支援的 SAML 應用程式來接收加密的 SAML 權杖。 當設定並與應用程式，Azure AD 會加密使用公開金鑰取自的憑證儲存在 Azure AD 發出的 SAML 判斷提示。
+
+如需有關如何設定您的 SAML 權杖加密的詳細資訊，請參閱 <<c0> [ 設定 Azure AD SAML 權杖加密](https://docs.microsoft.com/azure/active-directory/manage-apps/howto-saml-token-encryption)。
+
+---
+
+### <a name="create-an-access-review-for-groups-or-apps-using-azure-ad-access-reviews"></a>使用 Azure AD 存取權檢閱建立群組或應用程式的存取權檢閱
+
+**類型：** 新功能  
+**服務類別：** 存取權檢閱  
+**產品功能：** 控管
+
+您現在可以包含多個群組，或在單一 Azure AD 中的應用程式存取權的群組成員資格或應用程式指派的檢閱。 存取權檢閱與多個群組或應用程式設定使用相同的設定和所有包含的檢閱者會收到通知，在相同的時間。
+
+如需有關如何建立使用 Azure AD 存取權檢閱存取權檢閱，請參閱[建立在 Azure AD 存取權檢閱的群組或應用程式的存取權檢閱](https://docs.microsoft.com/azure/active-directory/governance/create-access-review)
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---february-2019"></a>Azure AD 應用程式庫推出新的同盟應用程式 - 2019 年 2 月
+
+**類型：** 新功能  
+**服務類別：** 企業應用程式  
+**產品功能：** 協力廠商整合
+ 
+在 1 月 2019年中，我們已新增這些 27 的新應用程式具有同盟支援新增至應用程式庫：
+
+[Euromonitor Passport](https://docs.microsoft.com/azure/active-directory/saas-apps/euromonitor-passport-tutorial)， [MindTickle](https://docs.microsoft.com/azure/active-directory/saas-apps/mindtickle-tutorial)，[意外](https://seeforgetest-exxon.azurewebsites.net/Account/create?Length=7)， [AirStack](https://docs.microsoft.com/azure/active-directory/saas-apps/airstack-tutorial)， [Oracle Fusion ERP](https://docs.microsoft.com/azure/active-directory/saas-apps/oracle-fusion-erp-tutorial)， [IDrive](https://docs.microsoft.com/azure/active-directory/saas-apps/idrive-tutorial)， [Skyward Qmlativ](https://docs.microsoft.com/azure/active-directory/saas-apps/skyward-qmlativ-tutorial)， [Brightidea](https://docs.microsoft.com/azure/active-directory/saas-apps/brightidea-tutorial)， [AlertOps](https://docs.microsoft.com/azure/active-directory/saas-apps/alertops-tutorial)， [Soloinsight CloudGate SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/soloinsight-cloudgate-sso-tutorial)，權限按一下[Brandfolder](https://docs.microsoft.com/azure/active-directory/saas-apps/brandfolder-tutorial)， [StoregateSmartFile](https://docs.microsoft.com/azure/active-directory/saas-apps/smartfile-tutorial)， [Pexip](https://docs.microsoft.com/azure/active-directory/saas-apps/pexip-tutorial)， [Stormboard](https://docs.microsoft.com/azure/active-directory/saas-apps/stormboard-tutorial)，[地震](https://docs.microsoft.com/azure/active-directory/saas-apps/seismic-tutorial)，[共用夢想](https://www.shareadream.org/how-it-works)， [Bugsnag](https://docs.microsoft.com/azure/active-directory/saas-apps/bugsnag-tutorial)， [webMethods 整合雲端](https://docs.microsoft.com/azure/active-directory/saas-apps/webmethods-integration-cloud-tutorial)，[知識隨處 LMS](https://docs.microsoft.com/azure/active-directory/saas-apps/knowledge-anywhere-lms-tutorial)，[OU 校園](https://docs.microsoft.com/azure/active-directory/saas-apps/ou-campus-tutorial)， [Periscope 資料](https://docs.microsoft.com/azure/active-directory/saas-apps/periscope-data-tutorial)， [Netop 入口網站](https://docs.microsoft.com/azure/active-directory/saas-apps/netop-portal-tutorial)， [smartvid.io](https://docs.microsoft.com/azure/active-directory/saas-apps/smartvid.io-tutorial)， [PureCloud 由 Genesys](https://docs.microsoft.com/azure/active-directory/saas-apps/purecloud-by-genesys-tutorial)， [ClickUp 產能平台](https://docs.microsoft.com/azure/active-directory/saas-apps/clickup-productivity-platform-tutorial)
+
+如需應用程式的詳細資訊，請參閱[與 Azure Active Directory 整合的 SaaS 應用程式](https://aka.ms/appstutorial)。 如需在 Azure AD 應用程式庫中列出應用程式的詳細資訊，請參閱[在 Azure Active Directory 應用程式庫中列出您的應用程式](https://aka.ms/azureadapprequest)。
+
+---
+
+### <a name="enhanced-combined-mfasspr-registration"></a>增強的合併 MFA/SSPR 註冊
+
+**類型：** 已變更的功能  
+**服務類別：** 自助式密碼重設  
+**產品功能：** 使用者驗證
+ 
+為了回應客戶的意見反應，我們已增強結合的 MFA/SSPR 註冊預覽版體驗，協助使用者更快速地 MFA 和 SSPR 註冊他們的安全性資訊。 
+
+**若要立即開啟增強的體驗，為您的使用者，請遵循下列步驟：**
+
+1. 身為全域管理員或使用者系統管理員，登入 Azure 入口網站並移至**Azure Active Directory > 使用者設定 > 管理的存取面板的預覽功能設定**。 
+
+2. 在**使用者可以使用預覽功能的註冊和管理的安全性資訊 – 重新整理**選項，請開啟 功能選擇**選取的使用者的群組**或**所有使用者**.
+
+在接下來的幾週，我們將會移除開啟舊結合 MFA/SSPR 註冊預覽版體驗還沒有開啟它的租用戶的能力。
+
+**若要查看您的租用戶，將會移除控制項，請遵循下列步驟：**
+
+1. 身為全域管理員或使用者系統管理員，登入 Azure 入口網站並移至**Azure Active Directory > 使用者設定 > 管理的存取面板的預覽功能設定**。  
+
+2.  如果**可以使用預覽功能註冊和管理的安全性資訊的使用者**選項設定為**無**，選項會移除您的租用戶。
+
+不論是否您先前已開啟舊的結合 MFA/SSPR 註冊預覽與否的使用者體驗，舊的體驗將會關閉在未來日期。 因此，我們強烈建議您儘速移至新的增強體驗。
+
+如需有關增強的註冊體驗的詳細資訊，請參閱[至 Azure AD 的超炫增強功能結合 MFA 和密碼重設註冊體驗](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Cool-enhancements-to-the-Azure-AD-combined-MFA-and-password/ba-p/354271)。
+
+---
+
+### <a name="updated-policy-management-experience-for-user-flows"></a>更新的使用者流程原則管理體驗
+
+**類型：** 已變更的功能  
+**服務類別：** B2C - 消費者身分識別管理  
+**產品功能：** B2B/B2C
+
+我們已更新使用者流程 （先前稱為、 內建原則） 更輕鬆的原則建立及管理程序。 這個新體驗現在是您的 Azure AD 租用戶的所有預設值。
+
+您可以提供其他意見反應和建議使用笑臉或苦臉中的圖示**傳送意見反應**入口網站畫面上方區域。
+
+如需以新的原則管理體驗的詳細資訊，請參閱[Azure AD B2C 現在有 JavaScript 自訂以及許多新功能](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-now-has-JavaScript-customization-and-many-more-new/ba-p/353595)部落格。
+
+---
+
+### <a name="choose-specific-page-element-versions-provided-by-azure-ad-b2c"></a>選擇 Azure AD B2C 所提供的特定網頁元素版本
+
+**類型：** 新功能  
+**服務類別：** B2C - 消費者身分識別管理  
+**產品功能：** B2B/B2C
+
+您現在可以選擇特定版本的 Azure AD B2C 所提供的頁面元素。 藉由選取特定版本，您可以測試您的更新，再它們出現在頁面上，而且您可以取得可預期的行為。 此外，您可以立即選擇強制執行特定的頁面版本，以允許 JavaScript 的自訂項目。 若要開啟此功能，請前往**屬性**在使用者流程中的頁面。
+
+如需有關選擇特定版本的頁面元素的詳細資訊，請參閱[Azure AD B2C 現在有 JavaScript 自訂以及許多新功能](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-now-has-JavaScript-customization-and-many-more-new/ba-p/353595)部落格。
+
+---
+
+### <a name="configurable-end-user-password-requirements-for-b2c-ga"></a>可設定的終端使用者密碼需求 B2C (GA)
+
+**類型：** 新功能  
+**服務類別：** B2C - 消費者身分識別管理  
+**產品功能：** B2B/B2C
+
+您現在可以特別設定貴組織的密碼複雜性為一般使用者，而不需使用您的原生 Azure AD 密碼原則。 從**屬性**刀鋒視窗中的使用者 （先前稱為內建的原則） 的流程，您可以選擇的密碼複雜性**簡單**或是**強式**，或者您也可以建立**自訂**組的需求。
+
+如需密碼複雜性需求設定的詳細資訊，請參閱[設定 Azure Active Directory B2C 中的密碼複雜度需求](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-password-complexity)。
+
+---
+
+### <a name="new-default-templates-for-custom-branded-authentication-experiences"></a>自訂品牌化驗證體驗的新預設範本
+
+**類型：** 新功能  
+**服務類別：** B2C - 消費者身分識別管理  
+**產品功能：** B2B/B2C
+
+您可以使用我們新的預設範本，位於**頁面上配置**刀鋒視窗中，您的使用者流程 （先前稱為內建原則），來建立自訂品牌的使用者的驗證體驗。
+
+如需使用範本的詳細資訊，請參閱[Azure AD B2C 現在有 JavaScript 自訂以及許多新功能](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-now-has-JavaScript-customization-and-many-more-new/ba-p/353595)。
+
+---
+
 ## <a name="january-2019"></a>2019 年 1 月
 
 ### <a name="active-directory-b2b-collaboration-using-one-time-passcode-authentication-public-preview"></a>使用單次密碼驗證 (公開預覽) 的 Active Directory B2B 共同作業
@@ -76,7 +194,7 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
  
 我們已在 2019 年 1 月將下列這 35 個提供同盟支援的全新應用程式新增至應用程式庫：
 
-[Firstbird](https://docs.microsoft.com/azure/active-directory/saas-apps/firstbird-tutorial)、[Folloze](https://docs.microsoft.com/azure/active-directory/saas-apps/folloze-tutorial)、[Talent Palette](https://docs.microsoft.com/azure/active-directory/saas-apps/talent-palette-tutorial)、[Infor CloudSuite](https://docs.microsoft.com/azure/active-directory/saas-apps/infor-cloud-suite-tutorial)、[Cisco Umbrella](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-umbrella-tutorial)、[Zscaler Internet Access Administrator](https://docs.microsoft.com/azure/active-directory/saas-apps/zscaler-internet-access-administrator-tutorial)、[Expiration Reminder](https://docs.microsoft.com/azure/active-directory/saas-apps/expiration-reminder-tutorial)、[InstaVR Viewer](https://docs.microsoft.com/azure/active-directory/saas-apps/instavr-viewer-tutorial)、[CorpTax](https://docs.microsoft.com/azure/active-directory/saas-apps/corptax-tutorial)、[Verb](https://app.verb.net/login)、[OpenLattice](https://openlattice.com/agora)、[TheOrgWiki](https://www.theorgwiki.com/signup)、[Pavaso Digital Close](https://docs.microsoft.com/azure/active-directory/saas-apps/pavaso-digital-close-tutorial)、[GoodPractice Toolkit](https://docs.microsoft.com/azure/active-directory/saas-apps/goodpractice-toolkit-tutorial)、[Cloud Service PICCO](https://docs.microsoft.com/azure/active-directory/saas-apps/cloud-service-picco-tutorial)、[AuditBoard](https://docs.microsoft.com/azure/active-directory/saas-apps/auditboard-tutorial)、[iProva](https://docs.microsoft.com/azure/active-directory/saas-apps/iprova-tutorial)、[Workable](https://docs.microsoft.com/azure/active-directory/saas-apps/workable-tutorial)、[CallPlease](https://webapp.callplease.com/create-account/create-account.html)、[GTNexus SSO System](https://docs.microsoft.com/azure/active-directory/saas-apps/gtnexus-sso-module-tutorial)、[CBRE ServiceInsight](https://docs.microsoft.com/azure/active-directory/saas-apps/cbre-serviceinsight-tutorial)、[Deskradar](https://docs.microsoft.com/azure/active-directory/saas-apps/deskradar-tutorial)、[Coralogixv](https://docs.microsoft.com/azure/active-directory/saas-apps/coralogix-tutorial)、[Signagelive](https://docs.microsoft.com/azure/active-directory/saas-apps/signagelive-tutorial)、[ARES for Enterprise](https://docs.microsoft.com/azure/active-directory/saas-apps/ares-for-enterprise-tutorial)、[K2 for Office 365](https://www.k2.com/O365)、[Xledger](https://www.xledger.net/)、[iDiD Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/idid-manager-tutorial)、[HighGear](https://docs.microsoft.com/azure/active-directory/saas-apps/highgear-tutorial)、[Visitly](https://docs.microsoft.com/azure/active-directory/saas-apps/visitly-tutorial)、[Korn Ferry ALP](https://docs.microsoft.com/azure/active-directory/saas-apps/korn-ferry-alp-tutorial)、[Acadia](https://docs.microsoft.com/azure/active-directory/saas-apps/acadia-tutorial)、[Adoddle cSaas Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/adoddle-csaas-platform-tutorial)<!-- , [CaféX Portal (Meetings)](https://docs.microsoft.com/azure/active-directory/saas-apps/cafexportal-meetings-tutorial), [MazeMap Link](https://docs.microsoft.com/azure/active-directory/saas-apps/mazemaplink-tutorial)-->  
+[Firstbird](https://docs.microsoft.com/azure/active-directory/saas-apps/firstbird-tutorial)， [Folloze](https://docs.microsoft.com/azure/active-directory/saas-apps/folloze-tutorial)，[人才調色盤](https://docs.microsoft.com/azure/active-directory/saas-apps/talent-palette-tutorial)， [Infor CloudSuite](https://docs.microsoft.com/azure/active-directory/saas-apps/infor-cloud-suite-tutorial)， [Cisco 傘](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-umbrella-tutorial)， [Zscaler網際網路存取 」 系統管理員](https://docs.microsoft.com/azure/active-directory/saas-apps/zscaler-internet-access-administrator-tutorial)，[到期提醒](https://docs.microsoft.com/azure/active-directory/saas-apps/expiration-reminder-tutorial)， [InstaVR 檢視器](https://docs.microsoft.com/azure/active-directory/saas-apps/instavr-viewer-tutorial)， [CorpTax](https://docs.microsoft.com/azure/active-directory/saas-apps/corptax-tutorial)，[動詞](https://app.verb.net/login)， [OpenLattice](https://openlattice.com/agora)， [TheOrgWiki](https://www.theorgwiki.com/signup)，[關閉 Pavaso 數位](https://docs.microsoft.com/azure/active-directory/saas-apps/pavaso-digital-close-tutorial)， [GoodPractice Toolkit](https://docs.microsoft.com/azure/active-directory/saas-apps/goodpractice-toolkit-tutorial)， [雲端服務 PICCO](https://docs.microsoft.com/azure/active-directory/saas-apps/cloud-service-picco-tutorial)， [AuditBoard](https://docs.microsoft.com/azure/active-directory/saas-apps/auditboard-tutorial)， [iProva](https://docs.microsoft.com/azure/active-directory/saas-apps/iprova-tutorial)， [Workable](https://docs.microsoft.com/azure/active-directory/saas-apps/workable-tutorial)， [CallPlease](https://webapp.callplease.com/create-account/create-account.html)， [GTNexus SSO 系統](https://docs.microsoft.com/azure/active-directory/saas-apps/gtnexus-sso-module-tutorial)， [CBRE ServiceInsight](https://docs.microsoft.com/azure/active-directory/saas-apps/cbre-serviceinsight-tutorial)， [Deskradar](https://docs.microsoft.com/azure/active-directory/saas-apps/deskradar-tutorial)， [Coralogixv](https://docs.microsoft.com/azure/active-directory/saas-apps/coralogix-tutorial)， [Signagelive](https://docs.microsoft.com/azure/active-directory/saas-apps/signagelive-tutorial)，[阿瑞斯 for Enterprise](https://docs.microsoft.com/azure/active-directory/saas-apps/ares-for-enterprise-tutorial)，[適用於 Office 365 的 K2](https://www.k2.com/O365)， [Xledger](https://www.xledger.net/)， [iDiD Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/idid-manager-tutorial)， [HighGear](https://docs.microsoft.com/azure/active-directory/saas-apps/highgear-tutorial)， [Visitly](https://docs.microsoft.com/azure/active-directory/saas-apps/visitly-tutorial)， [Korn 兩者之間互相傳遞 ALP](https://docs.microsoft.com/azure/active-directory/saas-apps/korn-ferry-alp-tutorial)， [Acadia](https://docs.microsoft.com/azure/active-directory/saas-apps/acadia-tutorial)， [Adoddle cSaas 平台](https://docs.microsoft.com/azure/active-directory/saas-apps/adoddle-csaas-platform-tutorial)<!-- , [CaféX Portal (Meetings)](https://docs.microsoft.com/azure/active-directory/saas-apps/cafexportal-meetings-tutorial), [MazeMap Link](https://docs.microsoft.com/azure/active-directory/saas-apps/mazemaplink-tutorial)-->  
 
 如需應用程式的詳細資訊，請參閱[與 Azure Active Directory 整合的 SaaS 應用程式](https://aka.ms/appstutorial)。 如需在 Azure AD 應用程式庫中列出應用程式的詳細資訊，請參閱[在 Azure Active Directory 應用程式庫中列出您的應用程式](https://aka.ms/azureadapprequest)。
 
@@ -398,11 +516,11 @@ Azure Active Directory Domain Services 會在 Azure 入口網站上提供有關�
 
 角色如下：
 
-- 全域管理員或公司撰寫者
+- 全域管理員
 
-- Intune 服務管理員
+- Intune 系統管理員
 
-- 使用者帳戶管理員
+- 使用者管理員
 
 如需詳細資訊，請參閱[建立動態群組並檢查狀態](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule)
 
@@ -459,7 +577,7 @@ Azure Active Directory Domain Services 會在 Azure 入口網站上提供有關�
 
 Azure 入口網站的 [登入] 頁面上有新的 [疑難排解和支援] 索引標籤，其目的是要協助系統管理員和支援工程師針對與 Azure AD 登入相關的問題進行疑難排解。這個新的索引標籤會提供錯誤碼、錯誤訊息和補救建議 (如果有的話) 來協助您解決問題。 如果您無法解決問題，我們也提供了新的辦法供您使用**複製到剪貼簿**體驗來新建支援票證，其會在支援票證的記錄檔中填入 [要求識別碼] 和 [日期 (UTC)] 欄位。  
 
-![具有新索引標籤的登入記錄](media/whats-new/troubleshooting-and-support.png)
+![顯示新的索引標籤的登入記錄](media/whats-new/troubleshooting-and-support.png)
 
 ---
 
@@ -690,207 +808,5 @@ Just-In-Time 的啟用和指派設定現已可套用至「管理群組」資源�
 藉由在組織中設定與 Google 的同盟，您可以讓受邀的 Gmail 使用者使用其現有的 Google 帳戶登入您的共用應用程式和資源，而不需要建立個人 Microsoft 帳戶 (MSA) 或 Azure AD 帳戶。
 
 這是可選擇加入的公開預覽。 如需 Google 同盟的詳細資訊，請參閱[將 Google 新增為 B2B 來賓使用者的識別提供者](https://docs.microsoft.com/azure/active-directory/b2b/google-federation)。
-
----
-
-## <a name="july-2018"></a>2018 年 7 月
-
-### <a name="improvements-to-azure-active-directory-email-notifications"></a>Azure Active Directory 電子郵件通知的改進功能
-
-**類型：** 已變更的功能  
-**服務類別：** 其他  
-**產品功能：** 身分識別生命週期管理
- 
-Azure Active Directory (Azure AD) 電子郵件現在提供更新的設計，以及從下列服務傳送時，對寄件者電子郵件地址和寄件者顯示名稱進行的變更：
- 
-- Azure AD 存取權檢閱
-- Azure AD Connect Health 
-- Azure AD Identity Protection 
-- Azure AD 特殊權限身分識別管理
-- 企業應用程式過期憑證通知
-- 企業應用程式佈建服務通知
- 
-電子郵件通知將會從下列電子郵件地址和顯示名稱傳送：
-
-- 電子郵件地址：azure-noreply@microsoft.com
-- 顯示名稱：Microsoft Azure
- 
-如需一些新電子郵件設計的範例和詳細資訊，請參閱 [Azure AD PIM 中的電子郵件通知](https://go.microsoft.com/fwlink/?linkid=2005832) \(英文\)。
-
----
-
-### <a name="azure-ad-activity-logs-are-now-available-through-azure-monitor"></a>Azure AD 活動記錄現已可透過 Azure 監視器取得
-
-**類型：** 新功能  
-**服務類別：** 報告  
-**產品功能：** 監視與報告
-
-Azure AD 活動記錄現在已可在 Azure 監視器的公開預覽 (Azure 的全平台監視服務) 中取得。 除了這些改善，Azure 監視器還會為您提供長期保留與無縫整合：
-
-- 藉由將記錄檔路由傳送到您自己的 Azure 儲存體帳戶來進行的長期保留。
-
-- 無縫的 SIEM 整合，而不需您撰寫或維護自訂指令碼。
-
-- 與您自己的自訂解決方案、分析工具或事件管理解決方案進行的無縫整合。
-
-如需這些新功能的詳細資訊，請參閱我們的部落格 [Azure 監視器診斷中的 Azure AD 活動記錄目前處於公開預覽狀態](https://cloudblogs.microsoft.com/enterprisemobility/2018/07/26/azure-ad-activity-logs-in-azure-monitor-diagnostics-now-in-public-preview/) \(英文\) 與 [Azure 監視器 (預覽) 中的 Azure Active Directory 活動記錄](https://docs.microsoft.com/azure/active-directory/reporting-azure-monitor-diagnostics-overview)文件。
-
----
-
-### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>新增至 Azure AD 登入報告的條件式存取資訊
-
-**類型：** 新功能  
-**服務類別：** 報告  
-**產品功能：** 身分識別安全性與保護
- 
-此更新可讓您查看當使用者登入時要評估哪些原則以及原則結果。 此外，報告現在包含使用者所使用的用戶端應用程式類型，讓您可以識別舊版通訊協定流量。 現在也會針對相互關聯識別碼搜尋報告項目，其可在使用者所看到的錯誤訊息中找到，而且可用來識別相符的登入要求並進行疑難排解。
-
----
-
-### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>透過登入活動記錄來檢視舊版驗證
-
-**類型：** 新功能  
-**服務類別：** 報告  
-**產品功能：** 監視與報告
- 
-隨著登入活動記錄中 **Client App** 欄位的導入，客戶現在可看見使用舊版驗證的使用者。 客戶可使用登入 MS Graph API 來存取此資訊，或透過 Azure AD 入口網站中的登入活動記錄使用 **Client App** 控制項來篩選舊版驗證。 如需更多詳細資料，請查看文件。
-
----
-
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---july-2018"></a>Azure AD 應用程式庫中現在提供新的同盟應用程式 - 2018 年 7 月
-
-**類型：** 新功能  
-**服務類別：** 企業應用程式  
-**產品功能：** 協力廠商整合
- 
-我們已在 2018 年 7 月將下列這 16 個提供同盟支援的全新應用程式新增至應用程式庫：
-
-[Innovation Hub](https://docs.microsoft.com/azure/active-directory/saas-apps/innovationhub-tutorial)、[Leapsome](https://docs.microsoft.com/azure/active-directory/saas-apps/leapsome-tutorial)、[Certain Admin SSO](https://docs.microsoft.com/azure/active-directory/saas-apps/certainadminsso-tutorial)、PSUC Staging、[iPass SmartConnect](https://docs.microsoft.com/azure/active-directory/saas-apps/ipasssmartconnect-tutorial)、[Screencast-O-Matic](https://docs.microsoft.com/azure/active-directory/saas-apps/screencast-tutorial)、PowerSchool Unified Classroom、[Eli Onboarding](https://docs.microsoft.com/azure/active-directory/saas-apps/elionboarding-tutorial)、[Bomgar Remote Support](https://docs.microsoft.com/azure/active-directory/saas-apps/bomgarremotesupport-tutorial)、[Nimblex](https://docs.microsoft.com/azure/active-directory/saas-apps/nimblex-tutorial)、[Imagineer WebVision](https://docs.microsoft.com/azure/active-directory/saas-apps/imagineerwebvision-tutorial)、[Insight4GRC](https://docs.microsoft.com/azure/active-directory/saas-apps/insight4grc-tutorial)、[SecureW2 JoinNow Connector](https://docs.microsoft.com/azure/active-directory/saas-apps/securejoinnow-tutorial)、[Kanbanize](https://review.docs.microsoft.com/azure/active-directory/saas-apps/kanbanize-tutorial)、[SmartLPA](https://review.docs.microsoft.com/azure/active-directory/saas-apps/smartlpa-tutorial)、[Skills Base](https://docs.microsoft.com/azure/active-directory/saas-apps/skillsbase-tutorial)
-
-如需應用程式的詳細資訊，請參閱[與 Azure Active Directory 整合的 SaaS 應用程式](https://aka.ms/appstutorial)。 如需在 Azure AD 應用程式庫中列出應用程式的詳細資訊，請參閱[在 Azure Active Directory 應用程式庫中列出您的應用程式](https://aka.ms/azureadapprequest)。
-
----
- 
-### <a name="new-user-provisioning-saas-app-integrations---july-2018"></a>新的使用者佈建 SaaS 應用程式整合 - 2018 年 7 月
-
-**類型：** 新功能  
-**服務類別：** 應用程式佈建  
-**產品功能：** 協力廠商整合
- 
-Azure AD 可讓您自動化在 SaaS 應用程式 (例如 Dropbox、Salesforce、ServiceNow 等等) 中建立、維護和移除使用者身分識別的作業。 我們已在 2018 年 7 月，於 Azure AD 應用程式庫中，為以下應用程式新增了使用者佈建支援：
-
-- [Cisco Spark](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-spark-provisioning-tutorial)
-
-- [Cisco WebEx](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial)
-
-- [Bonusly](https://docs.microsoft.com/azure/active-directory/saas-apps/bonusly-provisioning-tutorial)
-
-如需 Azure AD 資源庫中支援使用者佈建的所有應用程式清單，請參閱 [SaaS 應用程式與 Azure Active Directory 的整合](https://aka.ms/appstutorial)。
-
----
-
-### <a name="connect-health-for-sync---an-easier-way-to-fix-orphaned-and-duplicate-attribute-sync-errors"></a>適用於同步處理的 Connect Health - 這個更簡單的方式可用來修正孤立和重複屬性同步處理錯誤
-
-**類型：** 新功能  
-**服務類別：** AD Connect  
-**產品功能：** 監視與報告
- 
-Azure AD Connect Health 導入了自助式補救，以協助您醒目提示並修正同步處理錯誤。 此功能會對重複屬性同步處理錯誤進行疑難排解，並修正來自 Azure AD 的孤立物件。 此診斷具有下列好處：
-
-- 縮減重複屬性同步處理錯誤，提供特定的修正
-
-- 針對專用的 Azure AD 案例套用修正，在單一步驟中解決錯誤
-
-- 無須升級或設定即可啟用開啟並使用此功能
-
-如需詳細資訊，請參閱[對重複屬性同步處理錯誤進行診斷和修復](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-diagnose-sync-errors)
-
----
-
-### <a name="visual-updates-to-the-azure-ad-and-msa-sign-in-experiences"></a>對於 Azure AD 和 MSA 登入體驗的視覺效果更新
-
-**類型：** 已變更的功能  
-**服務類別：** Azure AD  
-**產品功能：** 使用者驗證
-
-我們已更新 Microsoft 線上服務登入體驗的 UI，例如針對 Office 365 與 Azure。 此變更讓畫面變得更簡潔且更直接。 如需此變更的詳細資訊，請參閱[即將推出的 Azure AD 登入體驗改善](https://cloudblogs.microsoft.com/enterprisemobility/2018/04/04/upcoming-improvements-to-the-azure-ad-sign-in-experience/) \(英文\) 部落格。
-
----
-
-### <a name="new-release-of-azure-ad-connect---july-2018"></a>Azure AD Connect 的新版本 - 2018 年 7 月
-
-**類型：** 已變更的功能  
-**服務類別：** 應用程式佈建  
-**產品功能：** 身分識別生命週期管理
-
-Azure AD Connect 的最新版本包括： 
-
-- 錯誤 (bug) 修正和可支援性更新 
-
-- Ping Federate 整合已正式運作
-
-- 最新 SQL 2012 用戶端的更新 
-
-如需此更新的詳細資訊，請參閱 [Azure AD Connect︰版本發行歷程記錄](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)
-
----
-
-### <a name="updates-to-the-terms-of-use-tou-end-user-ui"></a>使用規定 (ToU) 使用者 UI 的更新
-
-**類型：** 已變更的功能  
-**服務類別：** 使用條款  
-**產品功能：** 控管
-
-我們正在更新 TOU 終端使用者 UI 中的接受字串。
-
-**目前的文字。** 若要存取 [tenantName] 資源，您必須接受使用規定。<br>**新文字。** 若要存取 [tenantName] 資源，您必須閱讀使用規定。
-
-**目前的文字：** 選擇接受即表示您接受上述所有使用規定。<br>**新文字：** 請按一下 [接受] 以確認您已閱讀並了解使用規定。
-
----
- 
-### <a name="pass-through-authentication-supports-legacy-protocols-and-applications"></a>傳遞驗證支援舊版通訊協定和應用程式
-
-**類型：** 已變更的功能  
-**服務類別：** 驗證 (登入)  
-**產品功能：** 使用者驗證
- 
-傳遞驗證現在支援舊版通訊協定和應用程式。 現在完全支援下列限制：
-
-- 使用者登入舊版 Office 用戶端應用程式 Office 2010 和 Office 2013，而不需新式驗證。
-
-- 僅在 Exchange 混合式環境中的 Office 2010 上存取行事曆共用和空閒/忙碌資訊。
-
-- 使用者不需新式驗證，即可登入商務用 Skype 用戶端應用程式。
-
-- 使用者登入 PowerShell 1.0 版。
-
-- 使用 iOS 安裝小幫手的 Apple 裝置註冊計劃 (Apple DEP)。 
-
----
- 
-### <a name="converged-security-info-management-for-self-service-password-reset-and-multi-factor-authentication"></a>適用於自助式密碼重設及 Multi-Factor Authentication 的融合式安全性資訊管理
-
-**類型：** 新功能  
-**服務類別：** SSPR  
-**產品功能：** 使用者驗證
-
-這項新功能可讓使用者在單一體驗中，針對自助式密碼重設 (SSPR) 與 Multi-Factor Authentication (MFA) 管理其安全性資訊 (例如，電話號碼、電子郵件地址、行動裝置應用程式等等)。 使用者將不再需要在兩個不同體驗中，針對 SSPR 和 MFA 註冊相同的安全性資訊。 這個新體驗也適用於具有 SSPR 或 MFA 的使用者。
-
-如果組織未強制執行 MFA 或 SSPR 註冊，使用者就能透過 **My Apps** 入口網站註冊他們的安全性資訊。 使用者可以從這裡註冊已針對 MFA 或 SSPR 啟用的任何方法。 
-
-這是可選擇加入的公開預覽。 系統管理員可以針對一組選取的使用者或租用戶中的所有使用者開啟新體驗 (如有需要)。
-
----
- 
-### <a name="use-the-microsoft-authenticator-app-to-verify-your-identity-when-you-reset-your-password"></a>當您重設密碼時，請使用 Microsoft Authenticator 應用程式來驗證您的身分識別
-
-**類型：** 已變更的功能  
-**服務類別：** SSPR  
-**產品功能：** 使用者驗證
-
-此功能可讓非系統管理員在使用來自 Microsoft Authenticator (或任何其他驗證器應用程式) 的通知或代碼重設密碼時驗證他們的身分識別。 在系統管理員開啟這個自助式密碼重設方法之後，已透過 aka.ms/mfasetup aka.ms/setupsecurityinfo 註冊行動裝置應用程式的使用者就能在重設密碼時，使用其行動裝置應用程式作為驗證方法。
-
-行動裝置應用程式通知可以只開啟來作為需要兩個方法來重設密碼之原則的一部分。
 
 ---

@@ -12,20 +12,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f5098b2691f7c73be5df6b44479082bf25effde7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 518cc1d55a83d95daec8f22d0dcfc5db23cc2d38
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998031"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58173833"
 ---
 # <a name="delivering-live-streaming-with-azure-media-services"></a>利用 Azure 媒體服務提供即時資料流
 
 ## <a name="overview"></a>概觀
 
-Microsoft Azure 媒體服務提供將要求傳送至媒體服務以啟動作業 (如建立、啟動、停止或刪除頻道) 的 API。 這些作業屬於長時間執行的作業。
+Microsoft Azure 媒體服務提供將要求傳送至媒體服務以啟動作業 (如建立、啟動、停止或刪除頻道) 的 API。 这些操作是长时间运行的。
 
 Media Services .NET SDK 提供能傳送要求並等候作業完成的 API (API 會在內部依照某些間隔輪詢作業進度). 例如，當您呼叫 channel.Start() 時，方法會在通道啟動後返回。 您也可以使用非同步的 version: await channel.StartAsync() (如需以工作為基礎的非同步模式，請參閱 [TAP](https://msdn.microsoft.com/library/hh873175\(v=vs.110\).aspx))。 傳送作業要求並輪詢狀態，直到作業完成為止的 API 稱為「輪詢方法」。 我們建議豐富型用戶端應用程式和/或可設定狀態的服務使用這些方法 (尤其是非同步版本)。
 

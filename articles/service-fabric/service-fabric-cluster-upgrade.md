@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: f19693853672b6274265c95b851f478b4f3ef4a2
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: a3778a0b0e5b4b59eb29cb67c0596d9636eb3ccb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961885"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58166696"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>升級和更新 Azure Service Fabric 叢集
 
@@ -36,20 +36,20 @@ ms.locfileid: "55961885"
 ## <a name="fabric-upgrade-behavior-during-automatic-upgrades"></a>自動升級期間的網狀架構升級行為
 Microsoft 會維護 Azure 叢集中執行的網狀架構程式碼和組態。 視情況需要，我們會對軟體執行受監視的自動升級。 升級的項目可能是程式碼、組態或兩者。 為了確保您的應用程式不受這些升級影響或將影響降到最低，我們會分成下列階段執行升級。
 
-### <a name="phase-1-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>第 1 階段：使用所有叢集健康情況原則執行升級
+### <a name="phase-1-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>阶段 1：使用所有叢集健康情況原則執行升級
 在這個階段，升級會一次進行一個升級網域，而已在叢集中執行的應用程式會繼續執行，而不會產生任何停機時間。 升級期間會遵守叢集健康狀態原則 (綜合節點健康狀態和所有在叢集中執行之應用程式的健康狀態)。
 
 如果不符合叢集健康狀態原則，則會回復升級。 然後系統會傳送一封電子郵件給訂用帳戶的擁有者。 電子郵件中包含下列資訊：
 
 * 我們必須回復叢集升級的通知。
-* 建議的修復動作 (如果有的話)。
+* 建议的补救措施（如果有）。
 * 距離我們執行階段 2 之前的天數 (n)。
 
 如果有任何升級因為基礎結構方面的原因而失敗，我們會試著多執行幾次相同的升級。 在電子郵件寄送日期的 n 天之後，我們會繼續進行階段 2。
 
 如果符合叢集健康狀態原則，則升級會被視為成功並標示為完成。 在此階段執行初次升級或重新執行任何升級期間，可能會發生這種情形。 執行成功不會有任何電子郵件確認。 這是為了避免傳送給您太多電子郵件，如果您收到電子郵件，則應該將其視為例外狀況。 我們預期大部分的叢集升級都會成功，並不會影響您的應用程式可用性。
 
-### <a name="phase-2-an-upgrade-is-performed-by-using-default-health-policies-only"></a>第 2 階段：僅使用預設健康情況原則執行升級
+### <a name="phase-2-an-upgrade-is-performed-by-using-default-health-policies-only"></a>阶段 2：僅使用預設健康情況原則執行升級
 此階段的健康狀態原則的設定方式為，升級開始時健康狀態良好的應用程式數目在升級程序期間會維持不變。 和階段 1 一樣，階段 2 的升級會一次進行一個升級網域，而已在叢集中執行的應用程式會繼續執行，而不會產生任何停機時間。 在升級期間，會遵守叢集健康狀態原則 (節點健康狀態和所有在叢集中執行之應用程式的健康狀態的組合)。
 
 如果不符合生效的叢集健康狀態原則，則會回復升級。 然後系統會傳送一封電子郵件給訂用帳戶的擁有者。 電子郵件中包含下列資訊：
@@ -60,9 +60,9 @@ Microsoft 會維護 Azure 叢集中執行的網狀架構程式碼和組態。 �
 
 如果有任何升級因為基礎結構方面的原因而失敗，我們會試著多執行幾次相同的升級。 在 n 天到達的前幾天會傳送提醒電子郵件。 在電子郵件寄送日期的 n 天之後，我們會繼續進行階段 3。 您必須認真看待我們在階段 2 寄送的電子郵件並採取補救動作。
 
-如果符合叢集健康狀態原則，則升級會被視為成功並標示為完成。 在此階段執行初次升級或重新執行任何升級期間，可能會發生這種情形。 執行成功不會有任何電子郵件確認。
+如果符合群集运行状况策略，则升级被视为成功并标记为完成。 在此階段執行初次升級或重新執行任何升級期間，可能會發生這種情形。 執行成功不會有任何電子郵件確認。
 
-### <a name="phase-3-an-upgrade-is-performed-by-using-aggressive-health-policies"></a>階段 3：使用積極的叢集健康情況原則執行升級
+### <a name="phase-3-an-upgrade-is-performed-by-using-aggressive-health-policies"></a>阶段 3：使用積極的叢集健康情況原則執行升級
 此階段的這些健康狀態原則的目的是升級完成，而不是應用程式的健康狀態。 有些叢集升級會在這個階段結束。 如果您的叢集進入這個階段，表示您的應用程式很可能會變成狀況不良和 (或) 失去可用性。
 
 類似其他兩個階段，階段 3 升級會一次進行一個升級網域。
@@ -101,8 +101,6 @@ Service Fabric 會使用您建立叢集時指定的 [X.509 伺服器憑證](serv
 ## <a name="patch-the-os-in-the-cluster-nodes"></a>修補叢集節點中的 OS
 修補程式協調流程應用程式 (POA) 是 Service Fabric 應用程式，可在 Service Fabric 叢集上將作業系統修補自動化，而不需要停機。 [適用於 Windows 的修補程式協調流程應用程式](service-fabric-patch-orchestration-application.md)或[適用於 Linux 的修補程式協調流程應用程式](service-fabric-patch-orchestration-application-linux.md)可在叢集上部署，以協調的方式安裝修補程式，同時讓服務隨時可供使用。 
 
-## <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>組成叢集的 VM 上的作業系統升級
-如果您必須升級叢集的虛擬機器上的作業系統映像，則必須一次升級一部 VM。 您要負責這項升級，因為目前沒有將這項升級自動化。
 
 ## <a name="next-steps"></a>後續步驟
 * 了解如何自訂一些 [Service Fabric 叢集網狀架構設定](service-fabric-cluster-fabric-settings.md)

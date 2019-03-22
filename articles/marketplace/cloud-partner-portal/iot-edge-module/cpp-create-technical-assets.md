@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 877e42dc8d6e69834cf989122f855ada560b813c
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 2ed4826eb47ab2fb13d312860475f9ec9b323bf7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201239"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884149"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>準備 IoT Edge 模組的技術資產
 
@@ -45,7 +45,7 @@ IoT Edge 模組是專門設計在 IoT Edge 裝置上執行的 Docker 相容容�
 支援 IoT Edge 支援的所有層級 1 平台 (如 [Azure IoT Edge 支援](https://docs.microsoft.com/azure/iot-edge/support)中所記錄)。 由於這個選項能提供更好的客戶體驗，建議採用。 會再提供符合此標準的模組範本。 使用此平台選項的模組必須：
 
 - 提供 `latest` 標籤與版本標籤 (例如：`1.0.1`)，後者為使用 GitHub [資訊清單工具](https://github.com/estesp/manifest-tool)建置的資訊清單標籤。
-- 使用 [Marketplace 索引標籤](./cpp-marketplace-tab.md)，新增[相容 IoT Edge 認證裝置](https://aka.ms/iot-edge-certified)的連結。 此連結會解析至 `http://aka.ms/iot-edge-certified` 網站，客戶可在其中瀏覽或搜尋通過認證的裝置。 此網站亦稱為 [Azure IoT Edge 認證](https://catalog.azureiotsolutions.com/)裝置目錄。
+- 使用 [Marketplace 索引標籤](./cpp-marketplace-tab.md)，新增[相容 IoT Edge 認證裝置](https://aka.ms/iot-edge-certified)的連結。 此連結會解析至 `https://aka.ms/iot-edge-certified` 網站，客戶可在其中瀏覽或搜尋通過認證的裝置。 此網站亦稱為 [Azure IoT Edge 認證](https://catalog.azureiotsolutions.com/)裝置目錄。
 
 #### <a name="a-subset-of-tier-1-platforms-supported-by-iot-edge"></a>IoT Edge 支援的層級 1 平台子集
   
@@ -61,9 +61,9 @@ IoT Edge 模組是專門設計在 IoT Edge 裝置上執行的 Docker 相容容�
 - 模組必須**至少搭配一個 [Azure IoT Edge 認證](https://catalog.azureiotsolutions.com/)裝置目錄中的 IoT Edge 認證裝置**使用。
 - **最低硬體需求**必須列在供應項目說明 ([Marketplace索引標籤](./cpp-marketplace-tab.md)中) 的最後一段。 如果推薦硬體需求與最低硬體需求差異甚大，也可以多列出建議硬體需求。 例如可在供應項目說明的結尾處新增以下區段：
 
- ```html
+  ```html
     <p><u>Minimum hardware requirements:</u> Linux x64 and arm32  OS, 1GB of RAM, 500 Mb of storage</p>
- ```
+  ```
 
 ### <a name="configuration"></a>組態
 
@@ -128,7 +128,8 @@ IoT Edge 模組必須盡可能減少所要求的主機存取特殊權限。 應�
 
 ## <a name="recertification-process"></a>重新認證流程
 
-<!-- Add legal time windows-->每當出現會影響合作夥伴模組的中斷性變更時，對方就會收到通知，例如：
+<!-- Add legal time windows-->
+合作夥伴會收到通知，例如會影響其模組的重大變更時：
 
 - 受 IoT Edge 支援的層級 1 os/arch 支援矩陣
 - IoT 模組 SDK

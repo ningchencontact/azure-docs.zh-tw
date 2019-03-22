@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: 6a568fa724d0d403833e938ae8b01556fe96cf1f
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 9b36332382de1317e386af59695f993efb233e79
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428632"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108438"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric 叢集安全性案例
 Azure Service Fabric 叢集是您擁有的資源。 保護叢集是您的責任，從而協助避免未經授權的使用者與它們連線。 在叢集上執行生產工作負載時，安全的叢集尤其重要。 雖然可以建立不安全的叢集，但如果叢集向公用網際網路公開管理端點，匿名使用者就可以連線叢集。 不支援將不安全的叢集用作生產工作負載。 
@@ -112,7 +112,7 @@ X509 數位憑證通常用來驗證用戶端與伺服器。 它們也用來加�
 
 需考量的其他事項：
 
-* [主體] 欄位可以有多個值。 每個值前面都會加上起首字母來表示實值類型。 通常，起首字母是 **CN** (針對一般名稱)；例如 **CN = www.contoso.com**。 
+* [主體] 欄位可以有多個值。 每個值前面都會加上起首字母來表示實值類型。 初始化通常是**CN** (如*一般名稱*)，例如**CN = www\.contoso.com**。 
 * [主體] 欄位可以是空白。 
 * 如果選擇性 [主體別名] 欄位已填入資料，此欄位就必須具有憑證的一般名稱，以及每個 SAN 的一個項目。 這些會以 **DNS 名稱**值輸入。 若要深入了解如何產生具有 SAN 的憑證，請參閱[如何將主體別名新增至安全 LDAP 憑證](https://support.microsoft.com/kb/931351)。
 * 憑證的 [預定目的] 欄位值應包含適當的值，例如**伺服器驗證**或**用戶端驗證**。
@@ -120,7 +120,7 @@ X509 數位憑證通常用來驗證用戶端與伺服器。 它們也用來加�
 ### <a name="application-certificates-optional"></a>應用程式憑證 (選用)
 您可以針對應用程式安全性目的，在叢集上安裝任何數目的其他憑證。 在建立您的叢集之前，請考量需要在節點上安裝憑證的應用程式安全性案例，例如：
 
-* 將應用程式組態值加密和解密。
+* 加密和解密应用程序配置值。
 * 在複寫期間將資料跨節點加密。
 
 不論是 Linux 叢集還是 Windows 叢集，建立安全叢集的概念都是相同的。

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 8010d7cbf960c3e2f6528687be97a47d31270696
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 0d9f13003a9b81085fda9635fc8b07566a1c0c66
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997207"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107520"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-log-analytics"></a>(已淘汰) 使用 Log Analytics 監視 Azure Container Service 叢集
 
@@ -91,37 +91,37 @@ $ kubectl create -f oms-daemonset.yaml
 ### <a name="installing-the-log-analytics-agent-using-a-kubernetes-secret"></a>使用 Kubernetes 秘密安裝 Log Analytics 代理程式
 若要保護您的 Log Analytics 工作區識別碼和金鑰，您可以使用 Kubernetes 秘密作為 DaemonSet YAML 檔案的一部分。
 
- - 複製指令碼、秘密範本檔案、DaemonSet YAML 檔案 (從[存放庫](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes))，並確定它們位於相同的目錄。
-      - 秘密產生指令碼 - secret-gen.sh
-      - 秘密範本 - secret-template.yaml
-   - DaemonSet YAML 檔案 - omsagent-ds-secrets.yaml
- - 執行指令碼。 此指令碼會要求提供 Log Analytics 工作區識別碼和主要金鑰。 插入該資訊，而指令碼會建立秘密 yaml 檔案，以便您執行。
-   ```
-   #> sudo bash ./secret-gen.sh
-   ```
+- 複製指令碼、秘密範本檔案、DaemonSet YAML 檔案 (從[存放庫](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes))，並確定它們位於相同的目錄。
+  - 秘密產生指令碼 - secret-gen.sh
+  - 秘密範本 - secret-template.yaml
+    - DaemonSet YAML 檔案 - omsagent-ds-secrets.yaml
+- 執行指令碼。 此指令碼會要求提供 Log Analytics 工作區識別碼和主要金鑰。 插入該資訊，而指令碼會建立秘密 yaml 檔案，以便您執行。
+  ```
+  #> sudo bash ./secret-gen.sh
+  ```
 
-   - 執行以下命令來建立秘密 Pod：``` kubectl create -f omsagentsecret.yaml ```
+  - 執行以下命令來建立秘密 Pod：``` kubectl create -f omsagentsecret.yaml ```
 
-   - 若要檢查，請執行下列命令：
+  - 若要檢查，請執行下列命令：
 
-   ```
-   root@ubuntu16-13db:~# kubectl get secrets
-   NAME                  TYPE                                  DATA      AGE
-   default-token-gvl91   kubernetes.io/service-account-token   3         50d
-   omsagent-secret       Opaque                                2         1d
-   root@ubuntu16-13db:~# kubectl describe secrets omsagent-secret
-   Name:           omsagent-secret
-   Namespace:      default
-   Labels:         <none>
-   Annotations:    <none>
+  ```
+  root@ubuntu16-13db:~# kubectl get secrets
+  NAME                  TYPE                                  DATA      AGE
+  default-token-gvl91   kubernetes.io/service-account-token   3         50d
+  omsagent-secret       Opaque                                2         1d
+  root@ubuntu16-13db:~# kubectl describe secrets omsagent-secret
+  Name:           omsagent-secret
+  Namespace:      default
+  Labels:         <none>
+  Annotations:    <none>
 
-   Type:   Opaque
+  Type:   Opaque
 
-   Data
-   ====
-   WSID:   36 bytes
-   KEY:    88 bytes
-   ```
+  Data
+  ====
+  WSID:   36 bytes
+  KEY:    88 bytes
+  ```
 
   - 執行 ``` kubectl create -f omsagent-ds-secrets.yaml ``` 以建立您的 omsagent daemon-set
 

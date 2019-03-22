@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: e08e7ae0a97b206a692dd47e91c4c94847cb9833
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 5694f8eead2b0fd4be75ee858c3c124dd8c53e03
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235167"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540366"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本來建立搭配 Azure Data Lake Storage Gen1 的 HDInsight 叢集
 > [!div class="op_single_selector"]
@@ -88,9 +88,9 @@ Resource Manager 範本會建立一個新的 Data Lake Storage Gen1 帳戶並將
 ## <a name="run-test-jobs-on-the-hdinsight-cluster-to-use-data-lake-storage-gen1"></a>在 HDInsight 叢集上執行測試作業以使用 Data Lake Storage Gen1
 設定 HDInsight 叢集之後，可以在叢集上執行測試作業，以測試 HDInsight 叢集是否可以存取 Data Lake Storage Gen1。 為了完成這個操作，我們將會執行範例 Hive 作業，該作業會使用您稍早上傳至 Data Lake Storage Gen1 帳戶的範例資料來建立資料表。
 
-在這一節中，您會透過 SSH 連線到 HDInsight Linux 叢集並執行範例 Hive 查詢。 如果您使用 Windows 用戶端，建議您使用 **PuTTY** (可從 [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)下載)。
+在這一節中，您會透過 SSH 連線到 HDInsight Linux 叢集並執行範例 Hive 查詢。 如果您使用 Windows 用戶端，建議您使用 **PuTTY** (可從 [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)下載)。
 
-如需使用 PuTTY 的詳細資訊，請參閱 [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md)。
+如需有關使用 PuTTY 的詳細資訊，請參閱 [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md)。
 
 1. 連線之後，使用下列命令來啟動 Hive CLI：
 
@@ -124,9 +124,9 @@ Resource Manager 範本會建立一個新的 Data Lake Storage Gen1 帳戶並將
 ## <a name="access-data-lake-storage-gen1-using-hdfs-commands"></a>使用 HDFS 命令存取 Data Lake Storage Gen1
 設定 HDInsight 叢集以使用 Data Lake Storage Gen1 後，您可以使用 HDFS 殼層命令來存取該存放區。
 
-在本節中，您會透過 SSH 連線到 HDInsight Linux 叢集並執行 HDFS 命令。 如果您使用 Windows 用戶端，建議您使用 **PuTTY** (可從 [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)下載)。
+在本節中，您會透過 SSH 連線到 HDInsight Linux 叢集並執行 HDFS 命令。 如果您使用 Windows 用戶端，建議您使用 **PuTTY** (可從 [https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)下載)。
 
-如需使用 PuTTY 的詳細資訊，請參閱 [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop ](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md)。
+如需有關使用 PuTTY 的詳細資訊，請參閱 [從 Windows 在 HDInsight 上搭配使用 SSH 與以 Linux 為基礎的 Hadoop](../hdinsight/hdinsight-hadoop-linux-use-ssh-windows.md)。
 
 連線之後，使用下列 HDFS 檔案系統命令列出 Data Lake Storage Gen1 帳戶中的檔案。
 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 8de155eb0c53a07c88d996e2545be9da3159653f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: c6ca7637c8e251fa29781503ffc18227c51bb4da
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565576"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002288"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>搭配使用彈性資料庫用戶端程式庫與 Dapper
 本文件適用於下列開發人員︰依賴 Dapper 建置應用程式，但也想利用[彈性資料庫工具](sql-database-elastic-scale-introduction.md)建立應用程式，經由實作分區化來相應放大資料層。  這份文件說明為了與彈性資料庫工具整合，Dapper 應用程式中需要做的變更。 重點在於使用 Dapper 撰寫彈性資料庫分區管理和資料相依路由。 
@@ -35,7 +35,7 @@ Dapper 的對應程式功能提供資料庫連線的擴充方法，以簡化提�
 
 Dapper 以及 DapperExtensions 的另一個好處就是應用程式可控制資料庫連線的建立。 這有助於與彈性資料庫用戶端程式庫互動，該程式庫會根據 Shardlet 與資料庫的對應來代理資料庫連接。
 
-若要取得 Dapper 組件，請參閱 [Dapper dot net](http://www.nuget.org/packages/Dapper/)。 如需 Dapper 延伸模組，請參閱 [DapperExtensions](http://www.nuget.org/packages/DapperExtensions)。
+若要取得 Dapper 組件，請參閱 [Dapper dot net](https://www.nuget.org/packages/Dapper/)。 如需 Dapper 延伸模組，請參閱 [DapperExtensions](https://www.nuget.org/packages/DapperExtensions)。
 
 ## <a name="a-quick-look-at-the-elastic-database-client-library"></a>彈性資料庫用戶端程式庫的快速概覽
 透過彈性資料庫用戶端程式庫，您可以定義應用程式資料的資料分割 (稱為 *Shardlet*)、將它們對應到資料庫，以及利用*分區化索引鍵*加以識別。 您可以擁有所需數量的資料庫，並將 Shardlet 分散於這些資料庫。 分區化索引鍵值到資料庫的對應，由程式庫的 API 所提供的分區對應來儲存。 這項功能稱為 **分區對應管理**。 對於攜帶分區化索引鍵的要求，分區對應也充當資料庫連接的代理人。 這項功能稱為 **資料相依路由**。
@@ -64,8 +64,8 @@ Dapper 以及 DapperExtensions 的另一個好處就是應用程式可控制資�
 此程式碼範例 (來自隨附的範例) 說明如何由應用程式提供分區化索引鍵給程式庫，以代理對適當分區的連接。   
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                     key: tenantId1, 
-                     connectionString: connStrBldr.ConnectionString, 
+                     key: tenantId1,
+                     connectionString: connStrBldr.ConnectionString,
                      options: ConnectionOptions.Validate))
     {
         var blog = new Blog { Name = name };
@@ -87,13 +87,13 @@ Dapper 以及 DapperExtensions 的另一個好處就是應用程式可控制資�
 查詢的運作方式幾乎完全相同 - 首先使用 [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) 從用戶端 API 開啟連線。 然後使用標準 Dapper 延伸方法，將 SQL 查詢的結果對應至 .NET 物件：
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                    key: tenantId1, 
-                    connectionString: connStrBldr.ConnectionString, 
+                    key: tenantId1,
+                    connectionString: connStrBldr.ConnectionString,
                     options: ConnectionOptions.Validate ))
-    {    
+    {
            // Display all Blogs for tenant 1
            IEnumerable<Blog> result = sqlconn.Query<Blog>(@"
-                                SELECT * 
+                                SELECT *
                                 FROM Blog
                                 ORDER BY Name");
 
@@ -112,8 +112,8 @@ Dapper 隨附其他延伸模組的生態系統，可在開發資料庫應用程�
 在您的應用程式中使用 DapperExtensions，不會改變建立和管理資料庫連線的方式。 仍然由應用程式負責開啟連線，而延伸方法預期會有標準 SQL 用戶端連線物件。 我們可以如上所述依賴 [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) 。 如下列程式碼範例所示，唯一的改變就是您不再需要撰寫 T-SQL 陳述式：
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                    key: tenantId2, 
-                    connectionString: connStrBldr.ConnectionString, 
+                    key: tenantId2,
+                    connectionString: connStrBldr.ConnectionString,
                     options: ConnectionOptions.Validate))
     {
            var blog = new Blog { Name = name2 };
@@ -123,8 +123,8 @@ Dapper 隨附其他延伸模組的生態系統，可在開發資料庫應用程�
 以下是查詢的程式碼範例： 
 
     using (SqlConnection sqlconn = shardingLayer.ShardMap.OpenConnectionForKey(
-                    key: tenantId2, 
-                    connectionString: connStrBldr.ConnectionString, 
+                    key: tenantId2,
+                    connectionString: connStrBldr.ConnectionString,
                     options: ConnectionOptions.Validate))
     {
            // Display all Blogs for tenant 2
@@ -143,7 +143,7 @@ Microsoft 模式和作法小組已發佈[暫時性錯誤處理應用程式區塊
 
     SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
     {
-       using (SqlConnection sqlconn = 
+       using (SqlConnection sqlconn =
           shardingLayer.ShardMap.OpenConnectionForKey(tenantId2, connStrBldr.ConnectionString, ConnectionOptions.Validate))
           {
               var blog = new Blog { Name = name2 };
@@ -154,7 +154,7 @@ Microsoft 模式和作法小組已發佈[暫時性錯誤處理應用程式區塊
 上述程式碼中的 **SqlDatabaseUtils.SqlRetryPolicy** 定義為 **SqlDatabaseTransientErrorDetectionStrategy**，並指定重試計數 10，重試之間等待時間為 5 秒。 如果您正在使用交易，請確定您的重試範圍會回到暫時性錯誤情況下的交易開頭。
 
 ## <a name="limitations"></a>限制
-這份文件中所述的方法有幾個限制：
+本文档中概述的方法存在一些限制：
 
 * 這份文件的範例程式碼不示範如何管理跨分區的結構描述。
 * 提出要求時，我們假定所有資料庫處理都包含在要求所提供的分區化索引鍵所識別的單一分區內。 不過，這項假設並未永遠維持，例如，不可能使用分區化索引鍵時。 為了解決這個問題，彈性資料庫用戶端程式庫中提供 [MultiShardQuery 類別](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.query.multishardexception.aspx)。 此類別可實作透過數個分區查詢的連線抽象概念。 使用 MultiShardQuery 搭配 Dapper 已超出本文的範圍

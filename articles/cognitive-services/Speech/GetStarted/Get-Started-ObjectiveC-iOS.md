@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: f8bc13aa2adad5c27b1754303ea30304c491f7ca
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 09b7e8961e59bd6fad49408c28e9ee9a4a209cae
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211792"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56669426"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>快速入門：在 iOS 上於 Objective-C 中使用 Bing 語音辨識 API
 
@@ -113,8 +114,8 @@ Speech API 是「認知服務」(先前稱為 Project Oxford) 的組件。 您�
 
 此用戶端類別針對語音辨識中的典型案例，提供預先實作的辨識用戶端類別：
 
-* `DataRecognitionClient`：使用 PCM 資料 (例如來自檔案或音訊來源) 的語音辨識。 系統會將資料分解成緩衝區，然後將每個緩衝區傳送給「語音服務」。 由於不會對緩衝區進行任何修改，因此使用者可以視需要套用自己的無聲偵測。 如果資料是從 WAV 檔案提供的，您便可以將來自檔案的資料直接傳送給伺服器。 如果您有原始資料 (例如來自藍牙的音訊)，則需以格式標頭在前、資料在後的方式傳送給伺服器。
-* `MicrophoneRecognitionClient`：音訊來自麥克風的語音辨識。 請確定已開啟麥克風，且系統會將來自麥克風的資料傳送給語音辨識服務。 在將麥克風資料傳送給辨識服務之前，系統會先在該資料上套用內建的「無聲偵測器」。
+* `DataRecognitionClient`:使用 PCM 資料 (例如來自檔案或音訊來源) 的語音辨識。 系統會將資料分解成緩衝區，然後將每個緩衝區傳送給「語音服務」。 由於不會對緩衝區進行任何修改，因此使用者可以視需要套用自己的無聲偵測。 如果資料是從 WAV 檔案提供的，您便可以將來自檔案的資料直接傳送給伺服器。 如果您有原始資料 (例如來自藍牙的音訊)，則需以格式標頭在前、資料在後的方式傳送給伺服器。
+* `MicrophoneRecognitionClient`:音訊來自麥克風的語音辨識。 請確定已開啟麥克風，且系統會將來自麥克風的資料傳送給語音辨識服務。 在將麥克風資料傳送給辨識服務之前，系統會先在該資料上套用內建的「無聲偵測器」。
 * `DataRecognitionClientWithIntent` 和 `MicrophoneRecognitionClientWithIntent`：除了辨識文字之外，這些用戶端還會傳回有關說話者意圖的結構化資訊，可供您的應用程式用來驅動進一步的動作。 若要使用「意圖」，您必須先使用 [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) 將模型定型。
 
 ### <a name="recognition-language"></a>辨識語言
@@ -125,8 +126,8 @@ Speech API 是「認知服務」(先前稱為 Project Oxford) 的組件。 您�
 
 使用 `SpeechRecognitionServiceFactory` 來建立用戶端時，您還需要指定 `SpeechRecognitionMode`：
 
-* `SpeechRecognitionMode_ShortPhrase`：語句最長為 15 秒。 將資料傳送給服務時，用戶端會收到多個部分結果，以及一個含有多個前 N 名最佳選項的最終結果。
-* `SpeechRecognitionMode_LongDictation`：語句最長為 2 分鐘。 將資料傳送給服務時，用戶端會根據伺服器識別句子暫停的位置，收到多個部分結果和多個最終結果。
+* `SpeechRecognitionMode_ShortPhrase`:語句最長為 15 秒。 將資料傳送給服務時，用戶端會收到多個部分結果，以及一個含有多個前 N 名最佳選項的最終結果。
+* `SpeechRecognitionMode_LongDictation`:語句最長為 2 分鐘。 將資料傳送給服務時，用戶端會根據伺服器識別句子暫停的位置，收到多個部分結果和多個最終結果。
 
 ### <a name="attach-event-handlers"></a>連結事件處理常式
 

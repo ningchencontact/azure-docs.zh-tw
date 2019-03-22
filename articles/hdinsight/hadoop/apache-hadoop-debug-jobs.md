@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 0ba3c7321b0771c839289abb7891cd8e6b280afe
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 4d3d45434a90e89e011bf8aa7c3fd37909e25386
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822675"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203059"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>分析 Apache Hadoop 記錄
 
-Azure HDInsight 中的每個 Apache Hadoop 叢集都有一個 Azure 儲存體帳戶作為預設檔案系統。 這個儲存體帳戶稱為預設儲存體帳戶。 叢集使用預設儲存體帳戶上的 Azure 資料表儲存體和 Blob 儲存體來儲存其記錄檔。  若要找出叢集的預設儲存體帳戶，請參閱[在 HDInsight 中管理 Apache Hadoop 叢集](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account)。 即使在刪除叢集之後，記錄檔仍會保留在儲存體帳戶中。
+Azure HDInsight 中的每個 Apache Hadoop 叢集都有一個 Azure 儲存體帳戶作為預設檔案系統。 這個儲存體帳戶稱為預設儲存體帳戶。 叢集使用預設儲存體帳戶上的 Azure 資料表儲存體和 Blob 儲存體來儲存其記錄檔。  若要找出叢集的預設儲存體帳戶，請參閱[在 HDInsight 中管理 Apache Hadoop 叢集](../hdinsight-administer-use-portal-linux.md#find-the-storage-accounts)。 即使在刪除叢集之後，記錄檔仍會保留在儲存體帳戶中。
 
 ## <a name="logs-written-to-azure-tables"></a>寫入 Azure 資料表的記錄檔
 
@@ -48,7 +48,7 @@ Azure HDInsight 中的每個 Apache Hadoop 叢集都有一個 Azure 儲存體帳
 * 角色
 * RowIndex
 * 租用戶
-* 時間戳記
+* TIMESTAMP
 * TraceLevel
 
 ### <a name="tools-for-accessing-the-logs"></a>用於存取記錄檔的工具
@@ -122,7 +122,7 @@ Azure HDInsight 中的每個 Apache Hadoop 叢集都有一個 Azure 儲存體帳
 * **取得叢集狀態**。 從左窗格中展開 [叢集]，然後按一下 [關於]。 這樣即會顯示叢集狀態詳細資料，例如配置的記憶體總計、使用的核心數目、叢集資源管理員的狀態、叢集版本等。
   
     ![啟動叢集儀表板](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png)
-* **取得節點狀態**。 從左窗格中展開 [叢集]，然後按一下 [節點]。 這樣會列出叢集中的所有節點、每個節點的 HTTP 位址、配置給每個節點的資源等資訊。
+* **取得節點狀態**。 從左窗格中展開 [叢集]，然後按一下 [節點]。 此时会列出群集中的所有节点、每个节点的 HTTP 地址、分配给每个节点的资源等。
 * **監視工作狀態**。 從左窗格展開 [叢集]，然後按一下 [應用程式] 以列出叢集中的所有工作。 如果您想要查看處於特定狀態 (例如，新增、已提交、執行中等狀態) 的工作，可按一下[應用程式] 底下的適當連結。 您可以進一步按一下工作名稱來深入了解該工作，例如包含輸出、記錄等相關資訊。
 
 ### <a name="access-the-hbase-ui"></a>存取 HBase UI

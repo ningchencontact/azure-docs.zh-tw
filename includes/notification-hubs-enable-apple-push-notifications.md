@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 8c8f3cd67186450fdcf65c177ea0353d297a3b01
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 2fc4f26f187301ea7a7a1e3051038f75da728547
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263891"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58125290"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>產生憑證簽署要求檔案
 
@@ -47,17 +47,17 @@ Apple Push Notification Service (APNS) 使用憑證來驗證您的通知服務�
 
 2. 將新應用程式的下列三個欄位予以更新，然後按一下 [繼續] ：
 
-    * **名稱**：在 [應用程式識別碼描述] 區段的 [名稱] 欄位中輸入應用程式的描述名稱。
-    * **套件組合識別碼**：在 [明確的應用程式識別碼] 區段之下，以[應用程式分發指南](https://help.apple.com/xcode/mac/current/#/dev91fe7130a) (英文) 中所提的 `<Organization Identifier>.<Product Name>` 形式輸入 [套件組合識別碼]。 您使用的 [組織識別碼] 和 [產品名稱] 必須符合當您建立 XCode 專案時使用的組織識別碼和產品名稱。 在下列的快照中，*NotificationHubs* 做為組織識別碼，*GetStarted* 做為產品名稱。 確定此值符合您在 XCode 專案中使用的值，讓您使用正確的發行設定檔搭配 XCode。
-    * **推播通知**：勾選 [應用程式服務] 區段中的 [推播通知] 選項。
+   * **名稱**：輸入您的應用程式中的描述性名稱**名稱**欄位中**應用程式識別碼描述**一節。
+   * **套件組合識別碼**:底下**明確的應用程式識別碼**區段中，輸入**套件組合識別碼**形式`<Organization Identifier>.<Product Name>`中所述[應用程式分發指南](https://help.apple.com/xcode/mac/current/#/dev91fe7130a)。 您使用的 [組織識別碼] 和 [產品名稱] 必須符合當您建立 XCode 專案時使用的組織識別碼和產品名稱。 在下列的快照中，*NotificationHubs* 做為組織識別碼，*GetStarted* 做為產品名稱。 確定此值符合您在 XCode 專案中使用的值，讓您使用正確的發行設定檔搭配 XCode。
+   * **推播通知**:請檢查**推播通知**選項**應用程式服務**一節。
 
-    ![註冊新應用程式識別碼的表單](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
+     ![註冊新應用程式識別碼的表單](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-appid-info.png)
 
-    此動作會產生您的應用程式識別碼，並要求您確定此資訊。 按一下 [註冊]  確認新的應用程式識別碼。
+     此動作會產生您的應用程式識別碼，並要求您確定此資訊。 按一下 [註冊]  確認新的應用程式識別碼。
 
-    按一下 [註冊] 之後，您會看見 [註冊完成] 畫面，如下圖所示。 按一下 [完成] 。
+     按一下 [註冊] 之後，您會看見 [註冊完成] 畫面，如下圖所示。 按一下 [完成] 。
 
-    ![應用程式識別碼註冊完成並顯示權利](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
+     ![應用程式識別碼註冊完成並顯示權利](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-appid-registration-complete.png)
 
 3. 在開發人員中心中，於 [App IDs] 下找出您建立的 App ID，並在該列上按一下。
 

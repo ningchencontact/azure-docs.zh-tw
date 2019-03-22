@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: b8995436677c195317b9ac304fe8c52cc2fcfc80
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: b9b4af353e5bbd36f1f8d7468c38542a0fabda85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602064"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112172"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>使用 Azure Kubernetes Service 搭配 HDInsight 上的 Apache Kafka
 
@@ -81,17 +81,17 @@ HDInsight 和 AKS 均使用 Azure 虛擬網路作為計算資源的容器。 若
 
 5. 若要設定 HDInsight 網路與 AKS 叢集網路之間的對等互連，請選取虛擬網路，然後選取 [對等互連]。 選取 [+ 新增] 並使用下列值來填入表單：
 
-    * __名稱__：輸入此對等互連設定的唯一名稱。
-    * __虛擬網路__：使用此欄位來選取 **AKS 叢集**的虛擬網路。
+   * __名稱__：輸入此對等互連設定的唯一名稱。
+   * __虛擬網路__：使用此欄位來選取 **AKS 叢集**的虛擬網路。
 
-    讓所有其他欄位保留預設值，然後選取 [確定] 來設定對等互連。
+     讓所有其他欄位保留預設值，然後選取 [確定] 來設定對等互連。
 
 6. 若要設定 AKS 叢集網路與 HDInsight 網路之間的對等互連，請選取 [AKS 叢集虛擬網路]，然後選取 [對等互連]。 選取 [+ 新增] 並使用下列值來填入表單：
 
-    * __名稱__：輸入此對等互連設定的唯一名稱。
-    * __虛擬網路__：使用此欄位來選取 __HDInsight 叢集__的虛擬網路。
+   * __名稱__：輸入此對等互連設定的唯一名稱。
+   * __虛擬網路__：使用此欄位來選取 __HDInsight 叢集__的虛擬網路。
 
-    讓所有其他欄位保留預設值，然後選取 [確定] 來設定對等互連。
+     讓所有其他欄位保留預設值，然後選取 [確定] 來設定對等互連。
 
 ## <a name="install-apache-kafka-on-hdinsight"></a>在 HDInsight 上安裝 Apache Kafka
 
@@ -158,8 +158,8 @@ HDInsight 和 AKS 均使用 Azure 虛擬網路作為計算資源的容器。 若
 
 3. 編輯 `index.js` 檔案並變更下列幾行：
 
-    * `var topic = 'mytopic'`：將 `mytopic` 取代為此應用程式使用的 Kafka 主題名稱。
-    * `var brokerHost = '176.16.0.13:9092`：將 `176.16.0.13` 取代為您叢集中一部訊息代理程式主機的內部 IP 位址。
+    * `var topic = 'mytopic'`:將 `mytopic` 取代為此應用程式使用的 Kafka 主題名稱。
+    * `var brokerHost = '176.16.0.13:9092`:將 `176.16.0.13` 取代為您叢集中一部訊息代理程式主機的內部 IP 位址。
 
         若要尋找叢集中訊息代理程式主機 (背景工作節點) 的內部 IP 位址，請參閱 [Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes)文件。 挑選其中一個項目的 IP 位址，其中網域名稱開頭為 `wn`。
 

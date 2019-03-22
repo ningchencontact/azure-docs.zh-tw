@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: bcc39f2d8cf1ca0440f8028464d9041435914477
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: 7806599c1a2f1396ff4b07d6f0538057654029d7
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263402"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56738516"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>將 Azure DevTest Labs 整合到 Azure DevOps 持續整合和傳遞管線
 您可以使用安裝在 Azure DevOps 中的 *Azure DevTest Labs 工作*擴充功能，輕鬆地整合您的 CI/CD 組建和發行管線與 Azure DevTest Labs。 此延伸模組會安裝三項工作： 
@@ -30,6 +30,8 @@ ms.locfileid: "54263402"
 舉例來說，此程序可協助您快速地為 特定測試工作部署「黃金映像」，並在測試完成後加以刪除。
 
 本文說明如何在一個完整的管線中建立並部署 VM、建立自訂映像，然後刪除 VM。 您通常會在自己的自訂「建置-測試-部署」管線中個別執行每項工作。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>開始之前
 整合您的 CI/CD 管線與 Azure DevTest Labs 之前，您必須從 Visual Studio Marketplace 安裝延伸模組。
@@ -57,20 +59,20 @@ ms.locfileid: "54263402"
    ```powershell
    Param( [string] $labVmId)
 
-   $labVmComputeId = (Get-AzureRmResource -Id $labVmId).Properties.ComputeId
+   $labVmComputeId = (Get-AzResource -Id $labVmId).Properties.ComputeId
 
    # Get lab VM resource group name
-   $labVmRgName = (Get-AzureRmResource -Id $labVmComputeId).ResourceGroupName
+   $labVmRgName = (Get-AzResource -Id $labVmComputeId).ResourceGroupName
 
    # Get the lab VM Name
-   $labVmName = (Get-AzureRmResource -Id $labVmId).Name
+   $labVmName = (Get-AzResource -Id $labVmId).Name
 
    # Get lab VM public IP address
-   $labVMIpAddress = (Get-AzureRmPublicIpAddress -ResourceGroupName $labVmRgName
+   $labVMIpAddress = (Get-AzPublicIpAddress -ResourceGroupName $labVmRgName
                    -Name $labVmName).IpAddress
 
    # Get lab VM FQDN
-   $labVMFqdn = (Get-AzureRmPublicIpAddress -ResourceGroupName $labVmRgName
+   $labVMFqdn = (Get-AzPublicIpAddress -ResourceGroupName $labVmRgName
               -Name $labVmName).DnsSettings.Fqdn
 
    # Set a variable labVmRgName to store the lab VM resource group name

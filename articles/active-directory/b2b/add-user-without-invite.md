@@ -1,5 +1,5 @@
 ---
-title: 新增 B2B 共同作業使用者，而不需要邀請連結或電子郵件-Azure Active Directory |Microsoft Docs
+title: 新增 B2B 來賓，而不需要邀請連結或電子郵件-Azure Active Directory |Microsoft Docs
 description: 您可以讓來賓使用者將其他來賓使用者加入您的 Azure AD，而不需在 Azure Active Directory B2B 共同作業中兌換邀請。
 services: active-directory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c33d9a3755f2fb5397dd013c88ab542e727e125
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 1dca03f84b821d20ee6fecbaec24a1aa840836b5
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337663"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294972"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>新增 B2B 共同作業來賓使用者，而不需要邀請連結或電子郵件
 
@@ -33,7 +33,7 @@ ms.locfileid: "57337663"
 
 如果您邀請使用者加入目錄，來賓使用者必須直接存取資源租用戶特定的 Azure 入口網站 URL (例如 https://portal.azure.com/*resourcetenant*.onmicrosoft.com) 以檢視並同意隱私權條款。
 
-### <a name="next-steps"></a>後續步驟
+## <a name="next-steps"></a>後續步驟
 
 - [何謂 Azure AD B2B 共同作業？](what-is-b2b.md)
 - [B2B 共同作業邀請兌換](redemption-experience.md)

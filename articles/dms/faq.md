@@ -3,20 +3,20 @@ title: 使用 Azure 資料庫移轉服務的相關常見問題集 | Microsoft Do
 description: 了解使用 Azure 資料庫移轉服務來執行資料庫移轉的相關常見問題集。
 services: database-migration
 author: HJToland3
-ms.author: rajpo
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: a3b32fcb7d776bd127db55ba06cfc526574e839b
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 3da3a8dbe337f649fe7d0516b49c03a2f01d7eea
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790862"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180580"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>使用 Azure 資料庫移轉服務的相關常見問題集
 本文列出使用 Azure 資料庫移轉服務的相關常見問題集以及相關解答。

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8326e7bc4b03c8e2828e74e13fc00d6a63f78e1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 35c268b5952f2276dc718df955c125c59c51d356
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211014"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014716"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>針對 IIS Web 應用程式設定 Azure Multi-Factor Authentication Server
 
@@ -30,7 +30,7 @@ ms.locfileid: "56211014"
 1. 在 Azure Multi-Factor Authentication Server 中，按一下左功能表中的 [IIS 驗證] 圖示。
 2. 按一下 [表單架構] 索引標籤。
 3. 按一下 [新增] 。
-4. 若要自動偵測使用者名稱、密碼和網域變數，請在 [自動設定表單架構網站] 對話方塊中輸入登入 URL (例如 https://localhost/contoso/auth/login.aspx))，然後按一下 [確定]。
+4. 若要自動偵測使用者名稱、 密碼和網域變數，請輸入登入 URL (例如`https://localhost/contoso/auth/login.aspx`) 在自動設定表單架構網站 對話方塊中，然後按一下**確定**。
 5. 如果所有使用者都已經或將要匯入到伺服器中，且必須接受多重要素驗證，請選取 [需要進行 Multi-Factor Authentication 使用者比對] 方塊。 如果有大量使用者尚未匯入伺服器及/或將免除多重要素驗證，請勿核取此方塊。
 6. 如果無法自動偵測頁面變數，請按一下 [自動設定表單架構網站] 對話方塊中的 [手動指定]。
 7. 在 [新增表單架構網站] 對話方塊中，於 [提交 URL] 欄位中輸入登入頁面的 URL，然後輸入 [應用程式名稱] \(選擇性)。 應用程式名稱會出現在 Azure Multi-Factor Authentication 報表中，而且可能顯示在簡訊或行動應用程式驗證訊息內。
@@ -39,9 +39,9 @@ ms.locfileid: "56211014"
 10. 如果所有使用者都已經或將要匯入到伺服器中，且必須接受多重要素驗證，請選取 [需要進行 Azure Multi-Factor Authentication 使用者比對] 方塊。 如果有大量使用者尚未匯入伺服器及/或將免除多重要素驗證，請勿核取此方塊。
 11. 按一下 [進階] 按鈕以檢閱進階設定，包括：
 
-  - 選取自訂拒絕頁面檔案
-  - 使用 Cookie 快取一段時間對網站進行的成功驗證
-  - 選取驗證主要認證時是要對照 Windows 網域、LDAP 目錄 還是 RADIUS 伺服器來進行驗證。
+    - 選取自訂拒絕頁面檔案
+    - 使用 Cookie 快取一段時間對網站進行的成功驗證
+    - 選取驗證主要認證時是要對照 Windows 網域、LDAP 目錄 還是 RADIUS 伺服器來進行驗證。
 
 12. 按一下 [確定] 以返回 [新增表單架構網站] 對話方塊。
 13. 按一下 [確定]。
@@ -53,7 +53,7 @@ ms.locfileid: "56211014"
 1. 在 Azure Multi-Factor Authentication Server 中，按一下左功能表中的 [IIS 驗證] 圖示。
 2. 按一下 [HTTP] 索引標籤。
 3. 按一下 [新增] 。
-4. 在 [新增基底 URL] 對話方塊中，輸入執行 HTTP 驗證之網站的 URL (例如 http://localhost/owa))，然後輸入應用程式名稱 (選擇性)。 應用程式名稱會出現在 Azure Multi-Factor Authentication 報表中，而且可能顯示在簡訊或行動應用程式驗證訊息內。
+4. 在 [新增基底 URL] 對話方塊中，輸入執行 HTTP 驗證網站的 URL (例如<http://localhost/owa>)，並提供應用程式名稱 （選擇性）。 應用程式名稱會出現在 Azure Multi-Factor Authentication 報表中，而且可能顯示在簡訊或行動應用程式驗證訊息內。
 5. 調整 [閒置逾時] 和 [最長工作階段時間] \(如果預設值不足夠)。
 6. 如果所有使用者都已經或將要匯入到伺服器中，且必須接受多重要素驗證，請選取 [需要進行 Multi-Factor Authentication 使用者比對] 方塊。 如果有大量使用者尚未匯入伺服器及/或將免除多重要素驗證，請勿核取此方塊。
 7. 視需要選取 [Cookie 快取] 方塊。

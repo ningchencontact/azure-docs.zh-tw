@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: e51fa086b26e5692d8dd572654b7c1ec50c641c5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 2412bd5b4b4f05cdeb1638aa3d9ef1676e7b8315
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005143"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293068"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>如何使用媒體編碼器標準為資產編碼
 > [!div class="op_single_selector"]
@@ -38,11 +38,11 @@ ms.locfileid: "56005143"
 視您想要完成的處理類型而定。每個作業可以有一或多個工作。 透過 REST API，您可以用下列其中一種方式來建立作業及其相關的工作：
 
 * 工作可透過 Job 實體上的 Tasks 導覽屬性，以內嵌方式定義。
-* 使用 OData 批次處理。
+* 使用 OData 批处理
 
-我們建議一律將來源檔案編碼為調適型位元速率 MP4 集，然後使用[動態封裝](media-services-dynamic-packaging-overview.md)，將該集合轉換為所需的格式。
+建议始终将源文件编码为自适应比特率 MP4 集，然后使用[动态打包](media-services-dynamic-packaging-overview.md)将该集转换为所需格式。
 
-如果您的輸出資產是已加密的儲存體，就必須設定資產傳遞原則。 如需詳細資訊，請參閱[設定資產傳遞原則](media-services-rest-configure-asset-delivery-policy.md)。
+如果输出资产已经过存储加密，则必须配置资产传送策略。 如需詳細資訊，請參閱[設定資產傳遞原則](media-services-rest-configure-asset-delivery-policy.md)。
 
 ## <a name="considerations"></a>考量
 
@@ -61,7 +61,7 @@ ms.locfileid: "56005143"
 >
 > 在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。 如需詳細資訊，請參閱[媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
 >
-> 使用 JSON 並指定在要求中使用 **__metadata** 關鍵字時 (例如，為了參考連結的物件)，您必須將 **Accept** 標頭設為 [JSON Verbose 格式](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)：Accept: application/json;odata=verbose。
+> 使用 JSON 並指定在要求中使用 **__metadata** 關鍵字時 (例如，為了參考連結的物件)，您必須將 **Accept** 標頭設為 [JSON Verbose 格式](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)：Accept: application/json;odata=verbose。
 >
 >
 
@@ -107,7 +107,7 @@ ms.locfileid: "56005143"
 在許多應用程式案例中，開發人員想要建立一連串的處理工作。 在媒體服務中，您可以建立一連串的鏈結工作。 每一項工作會執行不同的處理步驟，而且可以使用不同的媒體處理器。 鏈結工作可以將資產從一個工作遞交到另一個工作，對資產執行一連串的工作。 不過，在工作中執行的工作不必按照順序。 當您建立鏈結工作時，鏈結的 **ITask** 物件會建立在單一 **IJob** 物件中。
 
 > [!NOTE]
-> 目前有每個工作裡 30 個工作的限制。 如果您需要鏈結超過 30 個工作，請建立多個工作來包含這些工作。
+> 目前有每個工作裡 30 個工作的限制。 如果需要连锁 30 个以上的任务，请创建多个作业以包含任务。
 >
 >
 
@@ -151,7 +151,7 @@ ms.locfileid: "56005143"
 * 至少必須有一個工作的輸入是作業中另一個工作的輸出。
 
 ## <a name="use-odata-batch-processing"></a>使用 OData 批次處理
-以下範例示範如何使用 OData 批次處理來建立工作和作業。 如需批次處理的資訊，請參閱 [開放式資料通訊協定 (OData) 批次處理](http://www.odata.org/documentation/odata-version-3-0/batch-processing/)。
+以下範例示範如何使用 OData 批次處理來建立工作和作業。 如需批次處理的資訊，請參閱 [開放式資料通訊協定 (OData) 批次處理](https://www.odata.org/documentation/odata-version-3-0/batch-processing/)。
 
     POST https://media.windows.net/api/$batch HTTP/1.1
     DataServiceVersion: 1.0;NetFx
@@ -279,5 +279,5 @@ ms.locfileid: "56005143"
 ## <a name="next-steps"></a>後續步驟
 現在您已了解如何建立作業來為資產編碼，請參閱[如何使用媒體服務檢查作業進度](media-services-rest-check-job-progress.md)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 [取得媒體處理器](media-services-rest-get-media-processor.md)

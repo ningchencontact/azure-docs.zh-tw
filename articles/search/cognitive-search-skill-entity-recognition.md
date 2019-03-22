@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/27/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 7a7fe9603716575c241ca78ebdc9b674888ca835
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 2a245a6e3d76a7df41b5ef28f9bac8a2c2122402
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452202"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56985413"
 ---
 #    <a name="entity-recognition-cognitive-skill"></a>實體辨識認知技能
 
@@ -38,17 +38,18 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 
 參數區分大小寫，且均為選擇性。
 
-| 參數名稱     | 說明 |
+| 參數名稱     | 描述 |
 |--------------------|-------------|
 | 類別    | 應擷取的類別陣列。  可能的類別類型：`"Person"`、`"Location"`、`"Organization"`、`"Quantity"`、`"Datetime"`、`"URL"`、`"Email"`。 如果未提供任何類別，則會傳回所有類型。|
 |defaultLanguageCode |  輸入文字的語言代碼。 支援下列語言：`de, en, es, fr, it`|
 |minimumPrecision | 未使用。 保留供未來使用。 |
-|includeTypelessEntities | 設定為 True 時，如果文字包含已知的實體，但無法分類為其中一個受支援的類別，則會作為 `"entities"` 複雜輸出欄位的一部分傳回。 預設值為 `false` |
+|includeTypelessEntities | 設定為 True 時，如果文字包含已知的實體，但無法分類為其中一個受支援的類別，則會作為 `"entities"` 複雜輸出欄位的一部分傳回。 
+這些是已知的良好，但不是會歸類為目前支援 「 類別 」 的一部分的實體。 比方說 「 Windows 10 」 是已知的實體 （產品），但是 「 產品 」 不是目前支援的類別。 預設值為 `false` |
 
 
 ## <a name="skill-inputs"></a>技能輸入
 
-| 輸入名稱      | 說明                   |
+| 輸入名稱      | 描述                   |
 |---------------|-------------------------------|
 | languageCode  | 選用。 預設值為 `"en"`。  |
 | text          | 要分析的文字。          |
@@ -58,7 +59,7 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 **附註**：並非所有的實體類別都支援所有語言。
 只有 _en_、_es_ 支援 `"Quantity"`、`"Datetime"`、`"URL"`、`"Email"` 類型的擷取。
 
-| 輸出名稱     | 說明                   |
+| 輸出名稱     | 描述                   |
 |---------------|-------------------------------|
 | 人員      | 字串陣列，其中每個字串代表人員名稱。 |
 | 位置  | 字串陣列，其中每個字串代表位置。 |
@@ -67,7 +68,7 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 | 日期時間  | 字串陣列，其中每個字串代表日期時間 (如其在文字中所示) 值。 |
 | URL | 字串陣列，其中每個字串代表 URL |
 | 電子郵件 | 字串陣列，其中每個字串代表電子郵件 |
-| namedEntities | 複雜類型的陣列，包含下列欄位： <ul><li>category</li> <li>值 (實際實體名稱)</li><li>位移 (在文字中找到的位置)</li><li>信賴 (目前未使用。 將會設定為 -1 的值)</li></ul> |
+| namedEntities | 複雜類型的陣列，包含下列欄位： <ul><li>category</li> <li>值 （實際的實體名稱）</li><li>位移 (在文字中找到的位置)</li><li>信賴 (目前未使用。 將會設定為 -1 的值)</li></ul> |
 | 實體 | 複雜類型陣列，其中包含從文字中擷取的實體相關豐富資訊，包含下列欄位 <ul><li> 名稱 (實際實體名稱。 這代表「標準化」格式)</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl (實體的維基百科頁面連結)</li><li>bingId</li><li>類型 (已辨識實體的類別)</li><li>子類型 (僅適用於特定類別，可提供實體類型的漸進式檢視)</li><li> 符合 (包含的複雜集合)<ul><li>文字 (實體的原始文字)</li><li>位移 (找到的位置)</li><li>長度 (原始實體文字的長度)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>範例定義
@@ -193,7 +194,7 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 ## <a name="error-cases"></a>錯誤案例
 如果文件的語言程式碼不受支援，則會傳回錯誤，且不會擷取任何實體。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 + [預先定義的技能](cognitive-search-predefined-skills.md)
 + [如何定義技能集](cognitive-search-defining-skillset.md) (英文)

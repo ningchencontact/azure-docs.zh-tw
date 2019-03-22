@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2018
+ms.date: 03/19/2019
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 11b29a1639be5bf6a7820b872cbc2ce78f002b4f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 3d4b0b143b41daca376aecc64cf734fadcc94faa
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565171"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226567"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>什麼是 Azure 中的可用性區域？
 「可用性區域」是高可用性供應項目，可保護您的應用程式和資料不受資料中心故障影響。 「可用性區域」是 Azure 地區內獨特的實體位置。 每個區域皆由一或多個配備獨立電力、冷卻系統及網路的資料中心所組成。 若要確保復原能力，在所有已啟用的地區中都至少要有三個個別的區域。 地區內「可用性區域」的實體區隔可保護應用程式和資料不受資料中心故障影響。 區域備援服務會將應用程式和資料複寫至所有「可用性區域」，以防出現單一失敗點。 使用「可用性區域」時，Azure 可提供業界最佳的 99.99% VM 執行時間 SLA。 完整 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) 說明保證的 Azure 整體可用性。
@@ -40,6 +40,7 @@ Azure 區域中的可用性區域是由容錯網域和更新網域組成。 例�
 ## <a name="regions-that-support-availability-zones"></a>支援可用性區域的地區
 
 - 美國中部
+- 美國東部
 - 美國東部 2
 - 法國中部
 - 北歐
@@ -66,6 +67,8 @@ Azure 區域中的可用性區域是由容錯網域和更新網域組成。 例�
 - ExpressRoute
 - 應用程式閘道 (預覽)
 
+## <a name="services-resiliency"></a>服務復原
+所有的 Azure 管理服務架構的目的，是為了可從從區域層級的失敗中復原。 失敗的範圍，在區域內的一或多個可用性區域失敗會有較小的失敗 radius，相較於整個區域失敗。 Azure 可以復原區域中的管理服務的區域層級失敗，或從另一個 Azure 區域。 Azure 會在區域中，以避免影響客戶資源部署在可用性區域的區域內的任何失敗一次執行重要的維護一個區域。
 
 ## <a name="pricing"></a>價格
 針對部署在「可用性區域」中的虛擬機器並不會產生額外費用。 有兩部 (或以上) VM 部署在 Azure 區域內兩個以上的「可用性區域」中時，即可提供 99.99% VM 執行時間 SLA。 在可用性區域之間將額外產生 VM 對 VM 的資料傳輸費用。 如需詳細資訊，請檢閱[頻寬定價](https://azure.microsoft.com/pricing/details/bandwidth/)頁面。

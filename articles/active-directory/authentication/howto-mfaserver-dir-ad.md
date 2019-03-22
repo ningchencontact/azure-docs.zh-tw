@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9910155b439b5ee6d0e5abd96d750943605098a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 88839598b3ae11f0041b3451ba5481547c019c9d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211592"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449609"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA Server 與 Active Directory 之間的目錄整合
 
@@ -28,7 +28,7 @@ ms.locfileid: "56211592"
 
 ![設定](./media/howto-mfaserver-dir-ad/dirint.png)
 
-| 功能 | 說明 |
+| 功能 | 描述 |
 | --- | --- |
 | 使用 Active Directory |選取 [使用 Active Directory] 選項，以使用 Active Directory 來匯入和同步處理。  這是預設設定。 <br>注意：為了使 Active Directory 整合能正常運作，請將電腦加入網域並以網域帳戶進行登入。 |
 | 包含受信任的網域 |核取 [包含受信任的網域]，讓代理程式嘗試連線至目前網域所信任的網域、樹系中的另一個網域，或涉及樹系信任的網域。  當不從任何受信任的網域匯入或同步處理使用者時，請取消選取此核取方塊，以改善效能。  預設為核取。 |
@@ -38,7 +38,7 @@ ms.locfileid: "56211592"
 
 下表描述 LDAP 組態設定。
 
-| 功能 | 說明 |
+| 功能 | 描述 |
 | --- | --- |
 | 伺服器 |輸入執行 LDAP 目錄之伺服器的主機名稱或 IP 位址。  也可以指定備份伺服器 (以分號隔開)。 <br>注意：當 [繫結類型] 是 [SSL] 時，需要完整主機名稱。 |
 | 基準 DN |輸入作為所有目錄查詢起點之基準目錄物件的辨別名稱。  例如，dc=abc,dc=com。 |
@@ -61,17 +61,17 @@ Azure Multi-Factor Authentication 具有下列三個篩選選項：
 * **使用者篩選** - 指定執行目錄搜尋時，用來限定使用者記錄的篩選準則。  對於 Active Directory 和 ADAM，通常會使用 (&(objectClass=user)(objectCategory=person))。  對於其他 LDAP 目錄，請根據目錄結構描述，使用 (objectClass = inetOrgPerson) 或類似的準則。 <br>注意：如果空白，預設會使用 (&(objectCategory=person)(objectClass=user))。
 
 ## <a name="attributes"></a>屬性
-您可以視需要自訂特定目錄的屬性。  這可讓您新增自訂屬性，並微調到只同步處理您需要的屬性。 使用目錄結構描述中所定義的屬性名稱作為每個屬性欄位的值。 下表提供每項功能的其他相關資訊。
+您可以視需要自訂特定目錄的屬性。  這可讓您新增自訂屬性，並微調到只同步處理您需要的屬性。 中的每個屬性欄位值的目錄結構描述所定義，請使用屬性的名稱。 下表提供每項功能的其他相關資訊。
 
 您可以手動輸入屬性，並不需要符合屬性清單中的屬性。
 
 ![屬性](./media/howto-mfaserver-dir-ad/dirint3.png)
 
-| 功能 | 說明 |
+| 功能 | 描述 |
 | --- | --- |
 | 唯一識別碼 |輸入屬性的屬性名稱，做為容器、安全性群組和使用者記錄的唯一識別碼。  在 Active Directory 中，這通常是 objectGUID。 其他 LDAP 實作可能使用 entryUUID 或類似的項目。  預設值是 objectGUID。 |
 | 唯一識別碼類型 |選取唯一識別碼屬性的類型。  在 Active Directory 中，objectGUID 屬性為 GUID 類型。 其他 LDAP 實作可能使用 ASCII 位元組陣列或字串類型。  預設值是 GUID。 <br><br>務必正確設定此類型，因為同步處理項目是依照其唯一識別碼來參考。 唯一識別碼類型是用來直接在目錄中尋找物件。  當目錄實際上將值儲存為 ASCII 字元的位元組陣列時，將此類型設定為 [字串] 會導致同步處理無法正確運作。 |
-| 辨別名稱 |輸入屬性的屬性名稱，此屬性包含每一筆記錄的辨別名稱。  在 Active Directory 中，這通常是 distinguishedName。 其他 LDAP 實作可能使用 entryDN 或類似的項目。  預設值是 distinguishedName。 <br><br>如果不存在只包含辨別名稱的屬性，可以使用 adspath 屬性。  路徑的 "LDAP://\<server\>/" 部分將會自動去除，只保留物件的辨別名稱。 |
+| 辨別名稱 |輸入屬性的屬性名稱，此屬性包含每一筆記錄的辨別名稱。  在 Active Directory 中，這通常是 distinguishedName。 其他 LDAP 實作可能使用 entryDN 或類似的項目。  預設值是 distinguishedName。 <br><br>如果不存在只包含辨別的名稱的屬性，會使用 ads 路徑屬性。  路徑的 "LDAP://\<server\>/" 部分將會自動去除，只保留物件的辨別名稱。 |
 | 容器名稱 |輸入屬性的屬性名稱，此屬性包含容器記錄中的名稱。  從 Active Directory 匯入或新增同步處理項目時，這個屬性的值會顯示在容器階層中。  預設值是 name。 <br><br>如果不同容器使用不同的屬性做為名稱，請使用分號來隔開多個容器名稱屬性。  在容器物件上找到的第一個容器名稱屬性用來顯示其名稱。 |
 | 安全性群組名稱 |輸入屬性的屬性名稱，此屬性包含安全性群組記錄中的名稱。  從 Active Directory 匯入或新增同步處理項目時，這個屬性的值會顯示在安全性群組清單中。  預設值是 name。 |
 | 使用者名稱 |輸入屬性的屬性名稱，此屬性包含使用者記錄中的使用者名稱。  這個屬性的值用於做為 Multi-Factor Auth Server 使用者名稱。  可以指定第二個屬性做為第一個屬性的備用。  只有當第一個屬性不包含使用者的值時，才會使用第二個屬性。  預設值是 userPrincipalName 和 sAMAccountName。 |
@@ -79,7 +79,7 @@ Azure Multi-Factor Authentication 具有下列三個篩選選項：
 | 姓氏 |輸入屬性的屬性名稱，此屬性包含使用者記錄中的姓氏。  預設值是 sn。 |
 | 電子郵件地址 |輸入屬性的屬性名稱，此屬性包含使用者記錄中的電子郵件地址。  電子郵件地址用來傳送歡迎及更新電子郵件給使用者。  預設值是 mail。 |
 | 使用者群組 |輸入屬性的屬性名稱，此屬性包含使用者記錄中的使用者群組。  使用者群組可在 Multi-Factor Auth Server 管理入口網站中用來篩選代理程式和報告中的使用者。 |
-| 說明 |輸入屬性的屬性名稱，此屬性包含使用者記錄中的描述。  描述只用於搜尋。  預設值是 description。 |
+| 描述 |輸入屬性的屬性名稱，此屬性包含使用者記錄中的描述。  描述只用於搜尋。  預設值是 description。 |
 | 通話語言 |輸入屬性的屬性名稱，此屬性包含用於使用者語音通話的語言簡稱。 |
 | 簡訊語言 |輸入屬性的屬性名稱，此屬性包含用於使用者簡訊的語言簡稱。 |
 | 行動應用程式語言 |輸入屬性的屬性名稱，此屬性包含用於使用者電話應用程式簡訊的語言簡稱。 |
@@ -111,7 +111,7 @@ Multi-Factor Auth ADSync 服務使用 Microsoft 所提供的 DirSync LDAP 伺服
 
 下表包含各項 [同步處理] 索引標籤設定的其他資訊。
 
-| 功能 | 說明 |
+| 功能 | 描述 |
 | --- | --- |
 | 啟用與 Active Directory 同步處理 |核取時，Multi-Factor Auth Server 服務會定期輪詢 Active Directory 的變更。 <br><br>注意：必須加入至少一個同步處理項目，且必須執行「立即同步處理」，Multi-Factor Auth Server 服務才會開始處理變更。 |
 | 同步處理頻率 |指定 Multi-Factor Auth Server 服務在輪詢和處理變更之間等候的時間間隔。 <br><br> 注意：指定的間隔是每個週期開始之間的時間。  如果處理變更的時間超過間隔，服務將立即再次輪詢。 |

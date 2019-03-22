@@ -1,6 +1,6 @@
 ---
 title: Hyperlapse Media 檔案與 Azure 媒體超縮時攝影 | Microsoft Docs
-description: Azure Media Hyperlapse 能夠利用第一人稱視角或運動攝影的內容，來建立流暢的縮時影片。 本主題說明如何使用 Media Indexer。
+description: Azure Media Hyperlapse 可以使用第一人称视角或运动相机内容创建流畅缩时视频。 本主題說明如何使用 Media Indexer。
 services: media-services
 documentationcenter: ''
 author: asolanki
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: adsolank
-ms.openlocfilehash: c3ef977e7e8742f4d6de0f85d2d1684aa7eaa887
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: a57194a0c7b0cd82ce3d9426211b0cf6fc0d1182
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993753"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188045"
 ---
 # <a name="hyperlapse-media-files-with-azure-media-hyperlapse"></a>Hyperlapse Media 檔案與 Azure Media Hyperlapse
 
@@ -41,7 +41,7 @@ Azure 媒體 Hyperlapse 工作接受輸入 MP4、MOV 或 WMV 資產檔案連同�
 ### <a id="configuration"></a>Hyperlapse 的預設組態
 一旦內容在媒體服務帳戶中，您將需要建構預設組態。  下表說明使用者指定的欄位：
 
-| 欄位 | 說明 |
+| 欄位 | 描述 |
 | --- | --- |
 | StartFrame |開始進行 Microsoft Hyperlapse 處理的畫面。 |
 | NumFrames |要處理的畫面數目。 |
@@ -52,7 +52,7 @@ Azure 媒體 Hyperlapse 工作接受輸入 MP4、MOV 或 WMV 資產檔案連同�
 **XML 預設：**
 ```xml
     <?xml version="1.0" encoding="utf-16"?>
-    <Preset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0" xmlns="http://www.windowsazure.com/media/encoding/Preset/2014/03">
+    <Preset xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" Version="1.0" xmlns="https://www.windowsazure.com/media/encoding/Preset/2014/03">
         <Sources>
             <Source StartFrame="0" NumFrames="10000" />
         </Sources>
@@ -205,7 +205,7 @@ Azure 媒體 Hyperlapse 工作接受輸入 MP4、MOV 或 WMV 資產檔案連同�
     }
 ```
 
-### <a id="file_types"></a>支援的檔案類型
+### <a id="file_types"></a>支持的文件类型
 * MP4
 * MOV
 * WMV
@@ -217,7 +217,7 @@ Azure 媒體 Hyperlapse 工作接受輸入 MP4、MOV 或 WMV 資產檔案連同�
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>相關連結
-[Azure 媒體服務分析概觀](media-services-analytics-overview.md)
+[Azure 媒体服务分析概述](media-services-analytics-overview.md)
 
-[Azure 媒體分析示範](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure 媒體分析示範](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

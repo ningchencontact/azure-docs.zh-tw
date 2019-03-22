@@ -4,17 +4,17 @@ ms.service: backup
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: raynew
-ms.openlocfilehash: b589c88e5b5c5991db43a9f3c10003e17094b2e1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 3631d2e9beaa7c0d9ee018a32981a278381a7d86
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54057360"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58115158"
 ---
 ## <a name="defining-a-backup-policy"></a>定義備份原則
 備份原則會定義由資料快照擷取時間和這些快照的保留時間長度所構成的矩陣。 在定義 VM 的備份原則時，您可以「一天一次」 地觸發備份作業。 當您建立新原則時，該原則將會套用至保存庫。 備份原則介面的外觀如下︰
 
-![備份原則](./media/backup-create-policy-for-vms/backup-policy.png)
+![备份策略](./media/backup-create-policy-for-vms/backup-policy.png)
 
 若要建立原則︰
 
@@ -32,13 +32,11 @@ ms.locfileid: "54057360"
     [每月] 和 [每年] 保留範圍可讓您根據每週或每日增量指定快照。
 
    > [!NOTE]
-   >
-  - 在保護 VM 時，備份作業會每天執行一次。 每個保留範圍的備份執行時間都相同。
-  - 無論備份作業的排程時間為何，復原點都會在完成備份快照集的日期和時間上產生。
-    - 例如 如果備份頻率排定在下午 11:30，但因為任一問題，快照集在上午 12:01 完成，則復原點會建立在隔一天的上午 12:01。
-  - 針對每月備份一次的案例，如果設定在每月的第一天執行備份，但因為某原因，造成快照集在隔天完成，則為每月備份建立的復原點會標示為隔天 (亦即 當月的第二天)。
-   >
-   >
+   > 
+   > - 在保護 VM 時，備份作業會每天執行一次。 每個保留範圍的備份執行時間都相同。
+   > - 無論備份作業的排程時間為何，復原點都會在完成備份快照集的日期和時間上產生。
+   >   - 例如 如果備份頻率排定在下午 11:30，但因為任一問題，快照集在上午 12:01 完成，則復原點會建立在隔一天的上午 12:01。
+   > - 針對每月備份一次的案例，如果設定在每月的第一天執行備份，但因為某原因，造成快照集在隔天完成，則為每月備份建立的復原點會標示為隔天 (亦即 當月的第二天)。
 
 
 4. 設定原則的所有選項後，在刀鋒視窗頂端按一下 [儲存] 。

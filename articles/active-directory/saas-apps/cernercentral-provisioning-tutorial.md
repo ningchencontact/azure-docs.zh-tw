@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9c6b1e77b6fce8bedb8f035fcb18acb8c56ad5a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: dda84d30124eca1526f227ffec134f48451c9cb0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200713"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102562"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>教學課程：設定 Cerner Central 來自動佈建使用者
 
@@ -60,7 +60,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 本節會引導您使用 Cerner 的 SCIM 使用者帳戶佈建 API，將 Azure AD 連線至 Cerner Central 的使用者名冊，以及根據 Azure AD 中的使用者和群組指派，設定佈建服務以在 Cerner Central 中建立、更新和停用已指派的使用者帳戶。
 
 > [!TIP]
-> 您也可以選擇啟用 Cerner Central 的 SAML 型單一登入，請遵循 [Azure 入口網站 (https://portal.azure.com) 中提供的指示。 可以獨立設定自動佈建的單一登入，雖然這兩個功能彼此補充。 如需詳細資訊，請參閱 [Cerner Central 單一登入教學課程](cernercentral-tutorial.md)。
+> 您也可以選擇啟用 SAML 型單一登入 Cerner Central，下列指示中提供[Azure 入口網站](https://portal.azure.com)。 可以獨立設定自動佈建的單一登入，雖然這兩個功能彼此補充。 如需詳細資訊，請參閱 [Cerner Central 單一登入教學課程](cernercentral-tutorial.md)。
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-cerner-central-in-azure-ad"></a>若要在 Azure AD 中設定自動使用者帳戶佈建至 Cerner Central：
@@ -68,13 +68,13 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 為了將使用者帳戶佈建至 Cerner Central，您必須從 Cerner 要求 Cerner Central 系統帳戶，並產生 Azure AD 可用來連線到 Cerner 之 SCIM 端點的 OAuth 持有人權杖。 此外，建議在 Cerner 沙箱環境中執行整合，再部署至生產環境。
 
-1.  第一個步驟是確定管理 Cerner 與 Azure AD 整合的人員擁有 CernerCare 帳戶，必須有此帳戶才能存取完成指示所需的文件。 如有必要，請使用下列 URL 在每個適用的環境中建立 CernerCare 帳戶。
+1. 第一個步驟是確定管理 Cerner 與 Azure AD 整合的人員擁有 CernerCare 帳戶，必須有此帳戶才能存取完成指示所需的文件。 如有必要，請使用下列 URL 在每個適用的環境中建立 CernerCare 帳戶。
 
    * 沙箱： https://sandboxcernercare.com/accounts/create
 
    * 生產環境： https://cernercare.com/accounts/create  
 
-2.  接下來，必須建立 Azure AD 的系統帳戶。 您可以使用下列指示，要求沙箱和生產環境的系統帳戶。
+2. 接下來，必須建立 Azure AD 的系統帳戶。 您可以使用下列指示，要求沙箱和生產環境的系統帳戶。
 
    * 指示： https://wiki.ucern.com/display/CernerCentral/Requesting+A+System+Account
 
@@ -82,7 +82,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
    * 生產環境： https://cernercentral.com/system-accounts/
 
-3.  接下來，產生每個系統帳戶的 OAuth 持有人權杖。 若要這樣做，請遵循下列指示。
+3. 接下來，產生每個系統帳戶的 OAuth 持有人權杖。 若要這樣做，請遵循下列指示。
 
    * 指示： https://wiki.ucern.com/display/public/reference/Accessing+Cerner%27s+Web+Services+Using+A+System+Account+Bearer+Token
 
@@ -96,33 +96,33 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 6. 如果您已經設定 Cerner Central 單一登入，使用 [搜尋] 欄位搜尋您的 Cerner Central 執行個體。 否則，請選取 [新增]，並在應用程式庫中搜尋 [Cerner Central]。 從搜尋結果中選取 Cerner Central，並將它新增至您的應用程式清單。
 
-7.  選取您的 Cerner Central 執行個體，然後選取 [佈建] 索引標籤。
+7. 選取您的 Cerner Central 執行個體，然後選取 [佈建] 索引標籤。
 
-8.  將 [佈建模式] 設定為 [自動]。
+8. 將 [佈建模式] 設定為 [自動]。
 
    ![Cerner Central 佈建](./media/cernercentral-provisioning-tutorial/Cerner.PNG)
 
-9.  填寫 [系統管理員認證] 底下的下列欄位：
+9. 填寫 [系統管理員認證] 底下的下列欄位：
 
    * 在 [租用戶 URL] 欄位中，以下列格式輸入 URL，並將 "User-Roster-Realm-ID" 取代為您在步驟 4 中取得的領域識別碼。
 
 > 沙箱： https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
-
+> 
 > 生產環境： https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
    * 在 [祕密權杖] 欄位中，輸入您在步驟 3 中產生的 OAuth 持有人權杖，然後按一下 [測試連接]。
 
    * 您應該會在入口網站的右上方看到成功通知。
 
-10. 在 [通知電子郵件] 欄位中輸入應收到佈建錯誤通知的個人或群組之電子郵件地址，然後勾選下列核取方塊。
+1. 在 [通知電子郵件] 欄位中輸入應收到佈建錯誤通知的個人或群組之電子郵件地址，然後勾選下列核取方塊。
 
-11. 按一下 [檔案] 。 
+1. 按一下 [檔案] 。 
 
-12. 在 [屬性對應] 區段中，檢閱將從 Azure AD 同步處理至 Cerner Central 的使用者和群組屬性。 選取為 [比對] 屬性的屬性會用來比對 Cerner Central 中的使用者帳戶和群組以進行更新作業。 選取 [儲存] 按鈕以認可任何變更。
+1. 在 [屬性對應] 區段中，檢閱將從 Azure AD 同步處理至 Cerner Central 的使用者和群組屬性。 選取為 [比對] 屬性的屬性會用來比對 Cerner Central 中的使用者帳戶和群組以進行更新作業。 選取 [儲存] 按鈕以認可任何變更。
 
-13. 若要啟用 Cerner Central 的 Azure AD 佈建服務，在 [設定] 區段中，將 [佈建狀態] 變更為 [開啟]
+1. 若要啟用 Cerner Central 的 Azure AD 佈建服務，在 [設定] 區段中，將 [佈建狀態] 變更為 [開啟]
 
-14. 按一下 [檔案] 。 
+1. 按一下 [檔案] 。 
 
 這會啟動在 [使用者和群組] 區段中指派給 Cerner Central 的任何使用者和/或群組之首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要 Azure AD 佈建服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，並依循連結前往佈建活動記錄，此記錄會表描述您 Cerner Central 應用程式上佈建服務所執行的所有動作。
 

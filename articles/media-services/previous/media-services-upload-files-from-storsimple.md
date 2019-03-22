@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: 22cf9b66ecf7bbbe8ef226635e84f0aaf9d26b17
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 0d7ca397cf45c4a67a914a8105deb9043adf46e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993923"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835265"
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>從 Azure StorSimple 將檔案上傳至 Azure 媒體服務帳戶  
 
@@ -45,9 +45,9 @@ ms.locfileid: "55993923"
 
     當作業開始執行時，會建立儲存體佇列。 此佇列中會填入已轉換的 blob 備妥時的相關訊息。 此佇列的名稱與作業定義的名稱相同。 您可以使用此佇列來判斷資產何時準備就緒，並呼叫您所需的媒體服務作業以在其上執行。 例如，您可以使用此佇列來觸發 Azure Function，其中有所需的媒體服務程式碼。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
-[使用 .Net SDK 在 Data Manager 中觸發作業](../../storsimple/storsimple-data-manager-dotnet-jobs.md)
+[在資料管理員中使用.NET SDK 來觸發作業](../../storsimple/storsimple-data-manager-dotnet-jobs.md)
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

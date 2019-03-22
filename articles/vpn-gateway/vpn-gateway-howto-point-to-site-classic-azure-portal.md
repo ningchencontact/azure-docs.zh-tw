@@ -10,17 +10,17 @@ tags: azure-service-management
 ms.assetid: 65e14579-86cf-4d29-a6ac-547ccbd743bd
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2018
 ms.author: cherylmc
-ms.openlocfilehash: c133ba5a95e0476c6d992e53776b384fdc8c97ba
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 74940f3b89237233acd575aa5df441163e00d178
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809794"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000933"
 ---
 # <a name="configure-a-point-to-site-connection-by-using-certificate-authentication-classic"></a>使用憑證驗證設定點對站連線 (傳統)
 
@@ -69,9 +69,9 @@ ms.locfileid: "55809794"
    - **資源群組**：輸入 TestRG。 選取 [新建] (如果資源群組不存在)。
    - **位置**：從清單中選取 [美國東部]。
 
- - **VPN 連線設定**
-   - **連線類型**：選取 [點對站]。
-   - **用戶端位址空間**：輸入 172.16.201.0/24。 使用這個點對站連線來連線到 VNet 的 VPN 用戶端，會收到來自指定集區的 IP 位址。
+  - **VPN 連線設定**
+    - **連線類型**：選取 [點對站]。
+    - **用戶端位址空間**：輸入 172.16.201.0/24。 使用這個點對站連線來連線到 VNet 的 VPN 用戶端，會收到來自指定集區的 IP 位址。
 
 - **閘道閘道子網路設定**
    - **名稱**：會自動填入 GatewaySubnet。
@@ -87,9 +87,9 @@ ms.locfileid: "55809794"
 
 ### <a name="part-1-create-a-virtual-network"></a>第 1 部分：建立虛擬網路
 
-如果您還沒有虛擬網路 (VNet)，請建立一個。 已提供螢幕擷取畫面做為範例。 請務必將值取代為您自己的值。 若要使用 Azure 入口網站建立 VNet，請使用下列步驟：
+如果您還沒有虛擬網路 (VNet)，請建立一個。 已提供螢幕擷取畫面做為範例。 请务必替换成自己的值。 若要使用 Azure 入口網站建立 VNet，請使用下列步驟：
 
-1. 登入 [Azure 入口網站](http://portal.azure.com)，然後選取 [建立資源]。 [新增] 頁面隨即開啟。 
+1. 登入 [Azure 入口網站](https://portal.azure.com)，然後選取 [建立資源]。 [新增] 頁面隨即開啟。 
 
 2. 在 [搜尋 Marketplace] 欄位中，輸入「虛擬網路」，然後從傳回的清單中選取 [虛擬網路]。 [虛擬網路] 頁面隨即開啟。
 
@@ -121,26 +121,26 @@ ms.locfileid: "55809794"
 
 2. 在虛擬網路的頁面上，選取 [概觀]，然後在 [VPN 連線] 區段中，選取 [閘道]。
 
-  ![選取以建立閘道](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/beforegw125.png)
+   ![選取以建立閘道](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/beforegw125.png)
 3. 在 [新增 VPN 連線] 頁面上，選取 [點對站]。
 
-  ![點對站連線類型](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvpnconnect.png)
+   ![點對站連線類型](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvpnconnect.png)
 4. 針對 [用戶端位址空間]，請新增 VPN 用戶端在連線時所要接收的 IP 位址所在的 IP 位址範圍。 使用不會重疊的私人 IP 位址範圍搭配您從其連線的內部部署位置，或搭配您連線至的 VNet。 您可以使用所要使用的私人 IP 位址範圍來覆寫自動填入的範圍。 此範例說明自動填入的範圍。 
 
-  ![用戶端位址空間](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientaddress.png)
+   ![用戶端位址空間](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientaddress.png)
 5. 選取 [立即建立閘道]，然後選取 [選擇性閘道組態] 以開啟 [閘道組態] 頁面。
 
-  ![選取選擇性閘道組態](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/optsubnet125.png)
+   ![選取選擇性閘道組態](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/optsubnet125.png)
 
 6. 從 [閘道組態] 頁面，選取 [子網路] 以新增閘道子網路。 您可以建立小至 /29 的閘道子網路。 不過，我們建議您選取至少 /28 或 /27，建立包含更多位址的較大子網路。 這麼做將回有足夠的位址可供容納您未來可能需要的其他組態。 使用閘道子網路時，避免將網路安全性群組 (NSG) 與閘道子網路產生關聯。 將網路安全性群組與此子網路產生關聯，可能會導致您的 VPN 閘道未能如預期般運作。 選取 [確定] 以儲存此設定。
 
-  ![新增 GatewaySubnet](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsubnet125.png)
+   ![新增 GatewaySubnet](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsubnet125.png)
 7. 選取閘道**大小**。 大小是虛擬網路閘道的閘道 SKU。 在 Azure 入口網站中，預設的 SKU 是**預設**。 如需關於閘道 SKU 的資訊，請參閱[關於 VPN 閘道設定](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
 
-  ![閘道大小](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsize125.png)
+   ![閘道大小](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsize125.png)
 8. 選取閘道的 [路由類型]。 P2S 組態需要**動態**路由類型。 完成此頁面的設定時，請選取 [確定]。
 
-  ![設定路由類型](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/routingtype125.png)
+   ![設定路由類型](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/routingtype125.png)
 
 9. 在 [新增 VPN 連線] 頁面上，選取頁面底部的 [確定]，開始建立虛擬網路閘道。 視您選取的閘道 SKU 而定，VPN 閘道可能需要 45 分鐘的時間才能完成。
  
@@ -164,11 +164,11 @@ ms.locfileid: "55809794"
 
 1. 在 VNet 頁面的 [VPN 連線] 區段中，選取用戶端圖形以開啟 [點對站 VPN 連線] 頁面。
 
-  ![用戶端](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clients125.png)
+   ![用戶端](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clients125.png)
 
 2. 在 [點對站 VPN 連線] 頁面上，選取 [管理憑證] 來開啟 [憑證] 頁面。
 
-  ![憑證頁面](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/ptsmanage.png)
+   ![憑證頁面](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/ptsmanage.png)
 
 1. 在 [憑證] 頁面上，選取 [上傳] 來開啟 [上傳憑證] 頁面。
 
@@ -176,7 +176,7 @@ ms.locfileid: "55809794"
 
 4. 選取資料夾圖形來瀏覽 .cer 檔案。 選取檔案，然後選取 [確定]。 所上傳的憑證就會出現在 [憑證] 頁面上。
 
-  ![Upload certificate](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/upload.png)
+   ![Upload certificate](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/upload.png)
 
 
 ## <a name="configure-the-client"></a>設定用戶端
@@ -191,10 +191,10 @@ ms.locfileid: "55809794"
 
 2. 從 [點對站 VPN 連線] 頁面，選取與安裝所在用戶端作業系統對應的下載套件：
 
-  * 若為 64 位元用戶端，請選取 [VPN 用戶端 (64 位元)]。
-  * 若為 32 位元用戶端，請選取 [VPN 用戶端 (32 位元)]。
+   * 若為 64 位元用戶端，請選取 [VPN 用戶端 (64 位元)]。
+   * 若為 32 位元用戶端，請選取 [VPN 用戶端 (32 位元)]。
 
-  ![下載 VPN 用戶端組態封裝](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/dlclient.png)
+   ![下載 VPN 用戶端組態封裝](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/dlclient.png)
 
 3. 在產生套件之後，將它下載並安裝在用戶端電腦上。 如果您看到 SmartScreen 快顯視窗，請選取 [更多資訊]，然後選取 [仍要執行]。 您也可以儲存要在其他用戶端電腦上安裝的套件。
 
@@ -226,7 +226,7 @@ ms.locfileid: "55809794"
 1. 請確認您的 VPN 連線為作用中狀態。 在用戶端電腦上開啟提升權限的命令提示字元，然後執行 **ipconfig/all**。
 2. 檢視結果。 請注意，您接收到的 IP 位址是建立 VNet 時所指定之點對站連線位址範圍內的其中一個位址。 結果應該類似此範例：
 
-  ```
+   ```
     PPP adapter VNet1:
         Connection-specific DNS Suffix .:
         Description.....................: VNet1
@@ -237,7 +237,7 @@ ms.locfileid: "55809794"
         Subnet Mask.....................: 255.255.255.255
         Default Gateway.................:
         NetBIOS over Tcpip..............: Enabled
-  ```
+   ```
 
 ## <a name="connect-to-a-virtual-machine"></a>連接到虛擬機器
 

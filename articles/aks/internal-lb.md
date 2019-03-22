@@ -5,21 +5,27 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 03/04/2019
 ms.author: iainfou
-ms.openlocfilehash: e4b5b6085dbe9a09c90e059a5db8bee5d6d7a004
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: a26eab83f567a46f613e3bfda95fd99aba2b79c0
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699308"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404309"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>搭配 Azure Kubernetes Service (AKS) 使用內部負載平衡器
 
 若要限制存取您在 Azure Kubernetes Service (AKS) 中的應用程式，您可以建立內部負載平衡器來使用。 內部負載平衡器讓 Kubernetes 服務僅供在與 Kubernetes 叢集相同之虛擬網路中執行的應用程式存取。 本文說明如何透過 Azure Kubernetes Service (AKS) 來建立和使用內部負載平衡器。
 
 > [!NOTE]
-> Azure Load Balancer 有兩種 SKU -「基本」和「標準」。 如需詳細資訊，請參閱 [Azure 負載平衡器 SKU 比較][azure-lb-comparison]。 AKS 目前支援「基本」SKU。 如果您想要使用「標準」SKU，可以使用上游 [aKs-engine][aks-engine]。
+> Azure Load Balancer 有兩種 SKU -「基本」和「標準」。 AKS 目前支援「基本」SKU。 如果您想要使用「標準」SKU，可以使用上游 [aKs-engine][aks-engine]。 如需詳細資訊，請參閱 [Azure 負載平衡器 SKU 比較][azure-lb-comparison]。
+
+## <a name="before-you-begin"></a>開始之前
+
+此文章假設您目前具有 AKS 叢集。 如果您需要 AKS 叢集，請參閱[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 入口網站][aks-quickstart-portal]的 AKS 快速入門。
+
+您也需要 Azure CLI 2.0.59 版或更新版本安裝並設定。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="create-an-internal-load-balancer"></a>建立內部負載平衡器
 
@@ -40,9 +46,15 @@ spec:
     app: internal-app
 ```
 
-一旦使用 `kubectl apply -f internal-lb.yaml` 部署之後，Azure 負載平衡器即會建立，並且可在與 AKS 叢集相同的虛擬網路上使用。
+部署內部負載平衡器使用 [kubectl 套用] kubectl-套用]，並指定您 YAML 資訊清單的名稱：
 
-當您檢視服務詳細資料時，內部負載平衡器的 IP 位址會顯示在 EXTERNAL-IP 資料行中。 IP 位址可能需要幾分鐘的時間才能從「擱置」*\<\>* 變更為實際內部 IP 位址，如下列範例所示：
+```console
+kubectl apply -f internal-lb.yaml
+```
+
+Azure load balancer 是節點資源群組中建立並連線到相同的虛擬網路與 AKS 叢集。
+
+當您檢視服務詳細資料時，內部負載平衡器的 IP 位址會顯示在 EXTERNAL-IP 資料行中。 在此情況下，*外部*相對於負載平衡器的外部介面不是它收到的公開、 外部 IP 位址。 IP 位址可能需要幾分鐘的時間才能從「擱置」*\<\>* 變更為實際內部 IP 位址，如下列範例所示：
 
 ```
 $ kubectl get service internal-app
@@ -71,7 +83,7 @@ spec:
     app: internal-app
 ```
 
-當您檢視服務詳細資料時，EXTERNAL-IP 資料行中的 IP 位址會反映指定的 IP 位址：
+部署時，並檢視服務詳細資料中的 IP 位址*EXTERNAL-IP*資料行會反映出您指定的 IP 位址：
 
 ```
 $ kubectl get service internal-app
@@ -82,7 +94,7 @@ internal-app   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
 
 ## <a name="use-private-networks"></a>使用私人網路
 
-當您建立 AKS 叢集時，您可以指定進階網路設定。 這種方法可讓您將叢集部署到現有的 Azure 虛擬網路和子網路。 其中一個案例是將 AKS 叢集部署到已連線至內部部署環境的私人網路，並執行只能在內部存取的服務。 如需詳細資訊，請參閱 [AKS 中的進階網路設定][advanced-networking]。
+當您建立 AKS 叢集時，您可以指定進階網路設定。 這種方法可讓您將叢集部署到現有的 Azure 虛擬網路和子網路。 其中一個案例是將 AKS 叢集部署到已連線至內部部署環境的私人網路，並執行只能在內部存取的服務。 如需詳細資訊，請參閱設定您自己的虛擬網路子網路，具有[Kubenet] [ use-kubenet]或是[Azure CNI][advanced-networking]。
 
 不需變更先前步驟，即可在使用私人網路的 AKS 叢集中部署內部負載平衡器。 負載平衡器已建立於與您的 AKS 叢集相同的資源群組中，但會連線到您的私人虛擬網路和子網路，如下列範例所示：
 
@@ -135,3 +147,7 @@ spec:
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [azure-lb-comparison]: ../load-balancer/load-balancer-overview.md#skus
+[use-kubenet]: configure-kubenet.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli

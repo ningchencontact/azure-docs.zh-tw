@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 18e5e9ff299cb645e2b5b47d327ee93e27da82df
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 7f5aa65b055669a8a4047dffa72d456fed0714f8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699984"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099115"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>使用 Azure CLI 來建立具有區域前端的 Standard Load Balancer
 
@@ -34,7 +34,7 @@ ms.locfileid: "55699984"
 如果您選擇在本機安裝並使用 CLI，請確定您已安裝最新的 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)，並使用 [az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest) 來登入 Azure 帳戶。
 
 > [!NOTE]
- 針對精選的 Azure 資源和區域及 VM 大小系列有提供「可用性區域」支援。 如需如何開始使用，以及有哪些 Azure 資源、區域和 VM 大小系列可供用來試用可用性區域，請參閱[可用性區域概觀](https://docs.microsoft.com/azure/availability-zones/az-overview)。 如需支援，您可以透過 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) 與我們聯繫或[開啟 Azure 支援票證](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。  
+>  針對精選的 Azure 資源和區域及 VM 大小系列有提供「可用性區域」支援。 如需如何開始使用，以及有哪些 Azure 資源、區域和 VM 大小系列可供用來試用可用性區域，請參閱[可用性區域概觀](https://docs.microsoft.com/azure/availability-zones/az-overview)。 如需支援，您可以透過 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones) 與我們聯繫或[開啟 Azure 支援票證](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。  
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
@@ -51,7 +51,7 @@ az group create \
 ## <a name="create-a-zonal-public-ip-standard"></a>建立區域標準公用 IP
 若要存取網際網路上您的應用程式，您需要負載平衡器的公用 IP 位址。 在特定區域中建立的「公用 IP」位址一律只存在於該區域中。 「公用 IP」位址的區域無法變更。
 
-使用 [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) 建立公用 IP 位址。 下列範例會在區域 1 的 *myResourceGroupLoadBalancer* 資源群組中建立名為 *myPublicIP* 的區域公用 IP 位址。
+使用 [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) 建立公用 IP 位址。 下列範例會在區域 1 的 *myResourceGroupLoadBalancer* 資源群組中建立名為 *myPublicIP* 的區域公用 IP 位址。
 
 ```azurecli-interactive
 az network public-ip create \

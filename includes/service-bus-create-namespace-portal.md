@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: d976a1c5e9366069b82cff718593ce72d7ad8a08
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
-ms.translationtype: HT
+ms.openlocfilehash: a95f5ee5105c45ba9e5b1705e83d60bf24b1dc12
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588937"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57457836"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>在 Azure 入口網站中建立命名空間
 若要開始在 Azure 中使用服務匯流排傳訊實體，您必須先使用 Azure 中的唯一名稱建立命名空間。 命名空間提供範圍容器，可在應用程式內定址服務匯流排資源。
@@ -25,7 +25,7 @@ ms.locfileid: "56588937"
 
     ![建立資源 -> 整合 -> 服務匯流排](./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png)
 3. 在 [建立命名空間] 對話方塊中，執行下列步驟： 
-    1. 輸入**命名空間的名稱**。 系統會立即檢查此名稱是否可用。
+    1. 輸入**命名空間的名稱**。 系統會立即檢查此名稱是否可用。 如需命名的命名空間的規則，請參閱[建立命名空間的 REST API](/rest/api/servicebus/create-namespace)。
     2. 選取命名空間的定價層 (基本、標準或進階)。 如果您想要使用[主題和訂用帳戶](../articles/service-bus-messaging/service-bus-queues-topics-subscriptions.md#topics-and-subscriptions)，請選擇 [標準] 或 [進階]。 基本定價層不支援主題/訂用帳戶。
     3. 如果您選取了 [進階] 定價層，請遵循下列步驟： 
         1. 指定**傳訊單位**的數目。 進階層可讓您的資源在 CPU 和記憶體層級上獲得隔離，讓每個工作負載能夠獨立執行。 此資源容器稱為傳訊單位。 進階命名空間都有至少一個傳訊單位。 您可以為每個服務匯流排進階命名空間選取 1、2 或 4 個傳訊單位。 如需詳細資訊，請參閱[服務匯流排進階傳訊](../articles/service-bus-messaging/service-bus-premium-messaging.md)。

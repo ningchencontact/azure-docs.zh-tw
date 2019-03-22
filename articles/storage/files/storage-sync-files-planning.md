@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 7b6a5a46e311fa54d6957c45d35ef20d94cf7632
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c032961bf89ba470a38ebccfd846659b080f9fab
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200491"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013235"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>規劃 Azure 檔案同步部署
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -132,6 +132,7 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
 - 本機連結的磁碟區會以 NTFS 檔案系統進行格式化。
 
 ### <a name="file-system-features"></a>檔案系統功能
+
 | 功能 | 支援狀態 | 注意 |
 |---------|----------------|-------|
 | 存取控制清單 (ACL) | 完全支援 | Azure 檔案同步會保留 Windows ACL，並由 Windows Server 在伺服器端點上強制執行。 如果檔案是直接在雲端中存取，則 Azure 檔案服務尚未支援 Windows ACL。 |
@@ -148,6 +149,7 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
 > 僅支援 NTFS 磁碟區。 不支援 ReFS、FAT、FAT32 及其他檔案系統。
 
 ### <a name="files-skipped"></a>跳過的檔案
+
 | 檔案/資料夾 | 附註 |
 |-|-|
 | Desktop.ini | 系統專用檔案 |
@@ -235,6 +237,7 @@ Azure 檔案同步僅於下列區域提供：
 |--------|---------------------|
 | 澳洲東部 | 新南威爾斯 |
 | 澳大利亞東南部 | 維多利亞 |
+| 巴西南部 | 聖保羅 Paolo 狀態 |
 | 加拿大中部 | 多倫多 |
 | 加拿大東部 | 魁北克市 |
 | 印度中部 | 浦那 |
@@ -242,6 +245,8 @@ Azure 檔案同步僅於下列區域提供：
 | 東亞 | 香港 |
 | 美國東部 | 維吉尼亞州 |
 | 美國東部 2 | 維吉尼亞州 |
+| 日本東部 | 東京，埼玉 |
+| 日本西部 | 大阪 |
 | 美國中北部 | 伊利諾州 |
 | 北歐 | 愛爾蘭 |
 | 美國中南部 | Texas |

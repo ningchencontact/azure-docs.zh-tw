@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67cb3d049cc2d2f26be6d62270e677a5cbcd39cc
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: bcb49048fa9200b8970f37a4f187ca995d208cc2
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455036"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961579"
 ---
 # <a name="add-your-personal-microsoft-accounts"></a>新增您的個人 Microsoft 帳戶
 將個人 Microsoft 帳戶 (例如 Outlook.com 和 Xbox LIVE 的帳戶) 新增至 Microsoft Authenticator 應用程式，供標準雙因素驗證程序和無密碼手機登入方法使用。
@@ -67,5 +67,7 @@ ms.locfileid: "56455036"
 ## <a name="next-steps"></a>後續步驟
 
 - 將您的帳戶新增至應用程式之後，您即可在裝置上使用 Authenticator 應用程式登入。 如需詳細資訊，請參閱[使用應用程式登入](user-help-auth-app-sign-in.md)。
+
+- 如果您遇到您個人的 Microsoft 帳戶取得您的驗證碼的問題，請參閱**驗證程式碼問題疑難排解**一節[Microsoft 帳戶安全性資訊和驗證程式碼](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes)文章。
 
 - 對於執行 iOS 的裝置，您也可以將您的帳戶認證和相關應用程式設定 (例如您的帳戶順序) 備份到雲端。 如需更多資訊，請參閱[使用 Microsoft Authenticator 應用程式備份和復原](user-help-auth-app-backup-recovery.md)。

@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: bdbb9d7c8b129642616a934dcc3d226434e69a03
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 0779ca2083691949821999322a3d732aed7b2694
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558969"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760762"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的計時器觸發程序 
 
@@ -50,13 +50,13 @@ ms.locfileid: "53558969"
 
 ### <a name="c-example"></a>C# 範例
 
-下列是 [C# 函式](functions-dotnet-class-library.md)的範例，該函式會在分鐘數可被 5 整除的每個時間點執行 (例如，如果函式在 18:57:00 啟動，則下一次的執行時間會是 19:00:00)：
+下列範例所示[C#函式](functions-dotnet-class-library.md)分鐘有整除的值每次執行的五個 (例如如果函式開始 18:57:00 下, 一步 的效能會變 19:00:00)。 [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)物件會傳遞至函式。
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
 public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
 {
-    if(myTimer.IsPastDue)
+    if (myTimer.IsPastDue)
     {
         log.LogInformation("Timer is running late!");
     }
@@ -66,7 +66,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 ### <a name="c-script-example"></a>C# 指令碼範例
 
-下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。
+下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [C# 指令碼函式](functions-reference-csharp.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)物件會傳遞至函式。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -84,7 +84,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 ```csharp
 public static void Run(TimerInfo myTimer, ILogger log)
 {
-    if(myTimer.IsPastDue)
+    if (myTimer.IsPastDue)
     {
         log.LogInformation("Timer is running late!");
     }
@@ -94,7 +94,7 @@ public static void Run(TimerInfo myTimer, ILogger log)
 
 ### <a name="f-example"></a>F# 範例
 
-下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [F# 指令碼函式](functions-reference-fsharp.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。
+下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [F# 指令碼函式](functions-reference-fsharp.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)物件會傳遞至函式。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -119,7 +119,7 @@ let Run(myTimer: TimerInfo, log: ILogger ) =
 
 ### <a name="javascript-example"></a>JavaScript 範例
 
-下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。
+下列範例示範 function.json 檔案中的計時器觸發程序繫結，以及使用此繫結的 [JavaScript 函式](functions-reference-node.md)。 此函式會寫入一項記錄，指出此函式引動過程是否由遺失的排程項目所造成。 A[計時器物件](#usage)傳遞至函式。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -138,7 +138,7 @@ let Run(myTimer: TimerInfo, log: ILogger ) =
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
 
-    if(myTimer.isPastDue)
+    if (myTimer.IsPastDue)
     {
         context.log('Node is running late!');
     }
@@ -185,7 +185,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 下表說明您在 *function.json* 檔案中設定的繫結設定屬性內容和 `TimerTrigger` 屬性。
 
-|function.json 屬性 | 屬性內容 |說明|
+|function.json 屬性 | 屬性內容 |描述|
 |---------|---------|----------------------|
 |**type** | n/a | 必須設定為 "timerTrigger"。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。|
 |**direction** | n/a | 必須設定為 "in"。 當您在 Azure 入口網站中建立觸發程序時，會自動設定此屬性。 |
@@ -201,7 +201,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 ## <a name="usage"></a>使用量
 
-叫用計時器觸發程序函式時，[計時器物件](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs)會傳遞至函式。 下列 JSON 是計時器物件的範例表示法。 
+叫用計時器觸發程序函式時，計時器物件會傳遞至函式。 下列 JSON 是計時器物件的範例表示法。
 
 ```json
 {
@@ -277,7 +277,7 @@ CRON 運算式使用的預設時區是國際標準時間 (UTC)。 若要讓 CRON
 
 當您使用 `WEBSITE_TIME_ZONE` 時，時間會隨特定時區的時間變更 (例如日光節約時間) 而調整。 
 
-## <a name="timespan"></a>時間範圍
+## <a name="timespan"></a>TimeSpan
 
  `TimeSpan` 只能用於 App Service 方案上執行的函式應用程式。
 

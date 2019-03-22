@@ -13,18 +13,20 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 2012ccf4d9fd3e62ba248f29f922f868077e4061
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
-ms.translationtype: HT
+ms.openlocfilehash: dea0153b9ca6d8e751fd94cc558abd44b2591907
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141287"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453026"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>設定具有 Azure SQL Database 異地複寫和容錯移轉的 Azure-SSIS Integration Runtime
 
 本文說明如何為 SSISDB 資料庫設定具有 Azure SQL Database 異地複寫的 Azure-SSIS Integration Runtime。 發生容錯移轉時，您可以確保 Azure-SSIS IR 仍會使用次要資料庫來運作。
 
-如需 SQL Database 異地複寫和容錯移轉的詳細資訊，請參閱[概觀：主動式異地複寫和自動容錯移轉群組](../sql-database/sql-database-geo-replication-overview.md)。
+如需異地複寫和容錯移轉，SQL database 的詳細資訊，請參閱[概觀：作用中異地複寫和自動容錯移轉群組](../sql-database/sql-database-geo-replication-overview.md)。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scenario-1---azure-ssis-ir-is-pointing-to-read-write-listener-endpoint"></a>案例 1 - Azure-SSIS IR 指向讀寫接聽程式端點
 
@@ -87,7 +89,7 @@ ms.locfileid: "42141287"
 2. 在 PowerShell 中呼叫下列命令來使用新的設定更新整合執行階段。
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -Location "new region" `
+    Set-AzDataFactoryV2IntegrationRuntime -Location "new region" `
                     -CatalogServerEndpoint "Azure SQL Database server endpoint" `
                     -CatalogAdminCredential "Azure SQL Database server admin credentials" `
                     -VNetId "new VNet" `

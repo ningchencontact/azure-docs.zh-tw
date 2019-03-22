@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 780853644125c8fa6d5edcef642cfad724516ef2
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 72fa9bf211139b971afa443af812d644c76062fc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188380"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123465"
 ---
 # <a name="deploy"></a>部署
 
@@ -49,15 +49,15 @@ ms.locfileid: "54188380"
   
 #### <a name="to-deploy-the-adventure-works-internet-sales"></a>部署 Adventure Works 網際網路銷售
   
-1.  在 [方案總管] 中，以滑鼠右鍵按一下 [AW 網際網路銷售] 專案 > [建置]。  
+1. 在 [方案總管] 中，以滑鼠右鍵按一下 [AW 網際網路銷售] 專案 > [建置]。  
 
-2.  以滑鼠右鍵按一下 [AW 網際網路銷售] 專案 > [部署]。
+2. 以滑鼠右鍵按一下 [AW 網際網路銷售] 專案 > [部署]。
 
-    當部署至 Azure Analysis Services 時，可能會提示您輸入您的帳戶。 請輸入您的組織帳戶和密碼，例如 nancy@adventureworks.com。 此帳戶必須在伺服器上的 Admins 中。
+   當部署至 Azure Analysis Services 時，可能會提示您輸入您的帳戶。 請輸入您的組織帳戶和密碼，例如 nancy@adventureworks.com。 此帳戶必須在伺服器上的 Admins 中。
   
-    [部署] 對話方塊隨即出現，並顯示中繼資料和模型中每個資料表的部署狀態。  
+   [部署] 對話方塊隨即出現，並顯示中繼資料和模型中每個資料表的部署狀態。  
     
-    ![aas 第 13 課部署狀態](../tutorials/media/aas-lesson13-deploy-status.png)
+   ![aas 第 13 課部署狀態](../tutorials/media/aas-lesson13-deploy-status.png)
   
 3. 當部署順利完成時，請繼續並按一下 [關閉]。  
   

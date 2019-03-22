@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/27/2017
+ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: c7805e64c4f387b870922dcb63e20d86f691092a
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 931727eff0de104ea57930abb1d3739fa086967a
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119011"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226652"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>SAP NetWeaver on Red Hat Enterprise Linux 的 Azure 虛擬機器高可用性
 
@@ -93,15 +93,15 @@ SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 SAP Hana 資料�
 * 後端組態
   * 連線到應該屬於 (A)SCS/ERS 叢集一部分之所有虛擬機器的主要網路介面
 * 探查連接埠
-  * 連接埠 620**&lt;nr&gt;**
+  * 連接埠 620<strong>&lt;nr&gt;</strong>
 * 負載平衡規則
-  * 32**&lt;nr&gt;** TCP
-  * 36**&lt;nr&gt;** TCP
-  * 39**&lt;nr&gt;** TCP
-  * 81**&lt;nr&gt;** TCP
-  * 5**&lt;nr&gt;** 13 TCP
-  * 5**&lt;nr&gt;** 14 TCP
-  * 5**&lt;nr&gt;** 16 TCP
+  * 32<strong>&lt;nr&gt;</strong> TCP
+  * 36<strong>&lt;nr&gt;</strong> TCP
+  * 39<strong>&lt;nr&gt;</strong> TCP
+  * 81<strong>&lt;nr&gt;</strong> TCP
+  * 5<strong>&lt;nr&gt;</strong>13 TCP
+  * 5<strong>&lt;nr&gt;</strong>14 TCP
+  * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ### <a name="ers"></a>ERS
 
@@ -110,12 +110,12 @@ SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 SAP Hana 資料�
 * 後端組態
   * 連線到應該屬於 (A)SCS/ERS 叢集一部分之所有虛擬機器的主要網路介面
 * 探查連接埠
-  * 連接埠 621**&lt;nr&gt;**
+  * 連接埠 621<strong>&lt;nr&gt;</strong>
 * 負載平衡規則
-  * 33**&lt;nr&gt;** TCP
-  * 5**&lt;nr&gt;** 13 TCP
-  * 5**&lt;nr&gt;** 14 TCP
-  * 5**&lt;nr&gt;** 16 TCP
+  * 33<strong>&lt;nr&gt;</strong> TCP
+  * 5<strong>&lt;nr&gt;</strong>13 TCP
+  * 5<strong>&lt;nr&gt;</strong>14 TCP
+  * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ## <a name="setting-up-glusterfs"></a>設定 GlusterFS
 
@@ -204,6 +204,9 @@ Azure Marketplace 包含 Red Hat Enterprise Linux 的映像，您可用來部署
          * 重複上述步驟來為 ASCS 設定連接埠 36**00**、39**00**、81**00**、5**00**13、5**00**14、5**00**16 和 TCP
       1. ASCS ERS 的其他連接埠
          * 重複上述步驟來為 ASCS ERS 設定連接埠 33**02**、5**02**13、5**02**14、5**02**16 和 TCP
+
+> [!IMPORTANT]
+> 不會啟用 TCP 放置 Azure 負載平衡器後方的 Azure Vm 上的時間戳記。 啟用 TCP 加上時間戳記將會造成失敗的健康狀態探查。 設定參數**net.ipv4.tcp_timestamps**要**0**。 如需詳細資訊，請參閱[負載平衡器健康情況探查](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview)。
 
 ### <a name="create-pacemaker-cluster"></a>建立 Pacemaker 叢集
 

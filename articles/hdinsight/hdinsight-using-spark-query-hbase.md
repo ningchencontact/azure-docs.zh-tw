@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: 0ba61dc266add48577c3a382465ecb2cec9d2a05
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: HT
+ms.openlocfilehash: 200691f7af16e82d554d0e1e019b6a4e5c75949f
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188028"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260123"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>使用 Apache Spark 來讀取和寫入 Apache HBase 資料
 
@@ -25,7 +25,7 @@ Apache HBase 通常會使用其低階 API (scan、get、put) 或者使用 Apache
 * 兩個不同的 HDInsight 叢集、 一個 HBase 和一個 Spark，和至少已安裝的 Spark 2.1 (HDInsight 3.6)。
 * Spark 叢集必須以最少的延遲直接與 HBase 叢集通訊，因此建議的設定是在相同的虛擬網路中同時部署兩個叢集。 如需詳細資訊，請參閱[使用 Azure 入口網站在 HDInsight 中建立以 Linux 為基礎的叢集](hdinsight-hadoop-create-linux-clusters-portal.md)。
 * SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Apache Hadoop)](hdinsight-hadoop-linux-use-ssh-unix.md)。
-* [URI 配置](/hdinsight-hadoop-linux-information#URI-and-scheme.md)您叢集的主要儲存體。 這會是 wasb: / / Azure Blob 儲存體，abfs: / / Azure Data Lake 儲存體 Gen2 或 adl: / / Azure Data Lake 儲存體 Gen1。 如果 Blob 儲存體或 Data Lake 儲存體 Gen2 啟用安全傳輸，則 URI 會是 wasbs: / / 或 abfss: / / 分別另請參閱[安全傳輸](../storage/common/storage-require-secure-transfer.md)。
+* [URI 配置](hdinsight-hadoop-linux-information.md#URI-and-scheme)您叢集的主要儲存體。 這會是 wasb: / / Azure Blob 儲存體，abfs: / / Azure Data Lake 儲存體 Gen2 或 adl: / / Azure Data Lake 儲存體 Gen1。 如果 Blob 儲存體或 Data Lake 儲存體 Gen2 啟用安全傳輸，則 URI 會是 wasbs: / / 或 abfss: / / 分別另請參閱[安全傳輸](../storage/common/storage-require-secure-transfer.md)。
 
 
 ## <a name="overall-process"></a>整體程序

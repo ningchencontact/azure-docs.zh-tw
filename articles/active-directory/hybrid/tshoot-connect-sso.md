@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a86ce8c061450fd66b31a81ec00e51f98a39646
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: abfdad1db655c102dbfb300434eac952fe2154dc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415641"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095888"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>針對 Azure Active Directory 無縫單一登入進行疑難排解
 
@@ -120,8 +120,8 @@ ms.locfileid: "56415641"
 
 1. 呼叫 `$creds = Get-Credential`。 出現提示時，輸入預定 Active Directory 樹系的網域管理員認證。
 
-    >[!NOTE]
-    >我們會使用網域系統管理員的使用者名稱 (以使用者主體名稱 (UPN) (johndoe@contoso.com) 格式或網域限定的 SAM 帳戶名稱 (contoso\johndoe 或 contoso.com\johndoe) 格式提供)，來尋找預定的 AD 樹系。 如果您使用網域限定的 SAM 帳戶名稱，我們就會利用使用者名稱的網域部分，[使用 DNS 來尋找網域系統管理員的網域控制站](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx) \(英文\)。 如果您改用 UPN，我們就會先[將其轉譯成網域限定的 SAM 帳戶名稱](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) \(英文\)，然後再尋找適當的網域控制站。
+   > [!NOTE]
+   > 我們會使用網域系統管理員的使用者名稱 (以使用者主體名稱 (UPN) (johndoe@contoso.com) 格式或網域限定的 SAM 帳戶名稱 (contoso\johndoe 或 contoso.com\johndoe) 格式提供)，來尋找預定的 AD 樹系。 如果您使用網域限定的 SAM 帳戶名稱，我們就會利用使用者名稱的網域部分，[使用 DNS 來尋找網域系統管理員的網域控制站](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx) \(英文\)。 如果您改用 UPN，我們就會先[將其轉譯成網域限定的 SAM 帳戶名稱](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) \(英文\)，然後再尋找適當的網域控制站。
 
 2. 呼叫 `Disable-AzureADSSOForest -OnPremCredentials $creds`。 此命令會從此特定 Active Directory 樹系的內部部署網域控制站中移除 `AZUREADSSOACC` 電腦帳戶。
 3. 您已設定此功能的每個 Active Directory 樹系，均重複上述步驟。
@@ -130,8 +130,8 @@ ms.locfileid: "56415641"
 
 1. 呼叫 `Enable-AzureADSSOForest`。 出現提示時，輸入預定 Active Directory 樹系的網域管理員認證。
 
-   >[!NOTE]
-   >我們會使用網域系統管理員的使用者名稱 (以使用者主體名稱 (UPN) (johndoe@contoso.com) 格式或網域限定的 SAM 帳戶名稱 (contoso\johndoe 或 contoso.com\johndoe) 格式提供)，來尋找預定的 AD 樹系。 如果您使用網域限定的 SAM 帳戶名稱，我們就會利用使用者名稱的網域部分，[使用 DNS 來尋找網域系統管理員的網域控制站](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx) \(英文\)。 如果您改用 UPN，我們就會先[將其轉譯成網域限定的 SAM 帳戶名稱](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) \(英文\)，然後再尋找適當的網域控制站。
+   > [!NOTE]
+   > 我們會使用網域系統管理員的使用者名稱 (以使用者主體名稱 (UPN) (johndoe@contoso.com) 格式或網域限定的 SAM 帳戶名稱 (contoso\johndoe 或 contoso.com\johndoe) 格式提供)，來尋找預定的 AD 樹系。 如果您使用網域限定的 SAM 帳戶名稱，我們就會利用使用者名稱的網域部分，[使用 DNS 來尋找網域系統管理員的網域控制站](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx) \(英文\)。 如果您改用 UPN，我們就會先[將其轉譯成網域限定的 SAM 帳戶名稱](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) \(英文\)，然後再尋找適當的網域控制站。
 
 2. 已設定此功能的每個 Active Directory 樹系，均重複上述步驟。
 

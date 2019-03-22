@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 10/30/2018
-ms.openlocfilehash: 2780215e409886be82ac70642dabe05c9257945e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: d4c5a2ca88f982626c8c2a8b37e4a7d6dfdbe599
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568442"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076355"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>跨多個 Azure SQL Database 執行臨機操作分析查詢
 
@@ -27,7 +27,7 @@ ms.locfileid: "55568442"
 您會在本教學課程中學到：
 
 > [!div class="checklist"]
-
+> 
 > * 如何部署隨選報表資料庫
 > * 如何對所有租用戶資料庫執行分散式查詢
 
@@ -147,7 +147,7 @@ SaaS 應用程式可以分析集中儲存在雲端中的大量租用戶資料。
 在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
-
+> 
 > * 對所有租用戶資料庫執行分散式查詢
 > * 部署隨選報表資料庫，並將結構描述新增至資料庫中，以執行分散式查詢。
 

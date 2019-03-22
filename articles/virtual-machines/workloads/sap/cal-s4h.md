@@ -16,21 +16,21 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: a99fb959ae1ac1434bedffd782a7c4e0a302d361
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: c59fcf43cb4767f1d95d769dfce4d5c8755e45ee
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431400"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990486"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>在 Azure 上部署 SAP S/4HANA 或 BW/4HANA
 本文說明如何使用 SAP Cloud Appliance Library (SAP CAL) 3.0 在 Azure 上部署 S/4HANA。 若要部署其他 SAP HANA 型解決方案 (例如 BW/4HANA)，請遵循相同的步驟。
 
 > [!NOTE]
-如需 SAP CAL 的詳細資訊，請前往 [SAP Cloud Appliance Library](https://cal.sap.com/) 網站。 SAP 也有關於 [SAP Cloud Appliance Library 3.0](http://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience) 的部落格。
-
+> 如需 SAP CAL 的詳細資訊，請前往 [SAP Cloud Appliance Library](https://cal.sap.com/) 網站。 SAP 也有關於 [SAP Cloud Appliance Library 3.0](https://scn.sap.com/community/cloud-appliance-library/blog/2016/05/27/sap-cloud-appliance-library-30-came-with-a-new-user-experience) 的部落格。
+> 
 > [!NOTE]
-自 2017 年 5 月 29 日起，除了較不建議使用的傳統部署模型外，您還可以使用 Azure Resource Manager 部署模型來部署 SAP CAL。 我們建議您使用新的 Resource Manager 部署模型，而不要使用傳統部署模型。
+> 自 2017 年 5 月 29 日起，除了較不建議使用的傳統部署模型外，您還可以使用 Azure Resource Manager 部署模型來部署 SAP CAL。 我們建議您使用新的 Resource Manager 部署模型，而不要使用傳統部署模型。
 
 ## <a name="step-by-step-process-to-deploy-the-solution"></a>部署解決方案的逐步程序
 
@@ -49,8 +49,8 @@ ms.locfileid: "39431400"
 
     c. 賦予 SAP CAL 部署到 Azure 訂用帳戶的權限。
 
-    > [!NOTE]
-    接下來的步驟會示範如何針對 Resource Manager 部署建立 SAP CAL 帳戶。 如果您已有連結至傳統部署模型的 SAP CAL 帳戶，則您「必須」遵循下列步驟來建立新的 SAP CAL 帳戶。 新的 SAP CAL 帳戶必須以 Resource Manager 模式部署。
+   > [!NOTE]
+   >  接下來的步驟會示範如何針對 Resource Manager 部署建立 SAP CAL 帳戶。 如果您已有連結至傳統部署模型的 SAP CAL 帳戶，則您「必須」遵循下列步驟來建立新的 SAP CAL 帳戶。 新的 SAP CAL 帳戶必須以 Resource Manager 模式部署。
 
 1. 建立新的 SAP CAL 帳戶。 [帳戶] 頁面會顯示三個適用於 Azure 的選項： 
 
@@ -96,10 +96,10 @@ ms.locfileid: "39431400"
 現在您可以開始將 S/4HANA 部署到您在 Azure 中的使用者訂用帳戶。
 
 > [!NOTE]
-在繼續之前，請先確定您是否有適用於 Azure H 系列 VM 的 Azure vCPU 配額。 目前，SAP CAL 會使用 Azure 的 H 系列 VM 來部署某些 SAP HANA 型解決方案。 您的 Azure 訂用帳戶可能沒有 H 系列的任何 H 系列 vCPU 配額。 如果是這樣，您可能需要連絡 Azure 支援人員以取得至少 16 個 H 系列 vCPU 的配額。
-
+> 在繼續之前，請先確定您是否有適用於 Azure H 系列 VM 的 Azure vCPU 配額。 目前，SAP CAL 會使用 Azure 的 H 系列 VM 來部署某些 SAP HANA 型解決方案。 您的 Azure 訂用帳戶可能沒有 H 系列的任何 H 系列 vCPU 配額。 如果是這樣，您可能需要連絡 Azure 支援人員以取得至少 16 個 H 系列 vCPU 的配額。
+> 
 > [!NOTE]
-當您在 SAP CAL 中於 Azure 部署解決方案時，您可能會發現您只能選擇一個 Azure 區域。 若要部署到非 SAP CAL 所建議的 Azure 區域，您需要從 SAP 購買 CAL 訂用帳戶。 您也可能需要與 SAP 連絡，請他們讓您的 CAL 帳戶能夠傳遞到非一開始所建議的 Azure 區域。
+> 當您在 SAP CAL 中於 Azure 部署解決方案時，您可能會發現您只能選擇一個 Azure 區域。 若要部署到非 SAP CAL 所建議的 Azure 區域，您需要從 SAP 購買 CAL 訂用帳戶。 您也可能需要與 SAP 連絡，請他們讓您的 CAL 帳戶能夠傳遞到非一開始所建議的 Azure 區域。
 
 ### <a name="deploy-a-solution"></a>部署解決方案
 

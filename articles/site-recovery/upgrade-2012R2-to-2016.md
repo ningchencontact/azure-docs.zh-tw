@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/03/2018
 ms.author: rajanaki
-ms.openlocfilehash: e7644128a3f0e0ea531933286e95b15149fdebd3
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: b67290f72f762331a6d699fb79aef0c0d7f9fb65
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557850"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57853268"
 ---
 # <a name="upgrade-windows-server-2012-r2-hosts-scvmm-2012-r2-configured-with-azure-site-recovery-to-windows-server-2016--scvmm-2016"></a>將配有 Azure Site Recovery 的 Windows Server 2012 R2 主機和 SCVMM 2012 R2 升級到 Windows Server 2016 及 SCVMM 2016
 
@@ -50,8 +50,8 @@ Site Recovery 有助於商務持續性和災害復原 (BCDR) 策略的進行。 
     - 請確認您要新增至叢集的新 SCVMM 的名稱與之前的相同。 
 
 - 如果要在由 SCVMM 管理的兩個站台之間進行雙邊複寫，請確保在升級主要一方之前，先升級復原站台。
-> [!WARNING]
-> 升級 SCVMM 2012 R2 時，請在 [分散式金鑰管理] 下，選取 [store encryption keys in Active Directory] \(將加密金鑰儲存在 Active Directory 中\)。 請仔細選擇服務帳戶和分散式金鑰管理的設定。 根據您的選擇，升級後可能無法使用加密資料 (例如範本中的密碼)，且可能會影響 Azure Site Recovery 的複寫
+  > [!WARNING]
+  > 升級 SCVMM 2012 R2 時，請在 [分散式金鑰管理] 下，選取 [store encryption keys in Active Directory] \(將加密金鑰儲存在 Active Directory 中\)。 請仔細選擇服務帳戶和分散式金鑰管理的設定。 根據您的選擇，升級後可能無法使用加密資料 (例如範本中的密碼)，且可能會影響 Azure Site Recovery 的複寫
 
 > [!IMPORTANT]
 > 請參閱[先決條件](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#requirements-and-limitations)的詳細 SCVMM 文件
@@ -79,8 +79,8 @@ Site Recovery 有助於商務持續性和災害復原 (BCDR) 策略的進行。 
 
 4. [安裝 VMM 2016](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#install-vmm-2016)
 5. 啟動 SCVMM，並在 [網狀架構] 索引標籤下檢查每個主機的狀態。按一下 [重新整理]，以取得最新狀態。 您應該會看到狀態為 [需要注意]。 
-17. 在 SCVMM 上安裝最新的 [Microsoft Azure Site Recovery Provider](http://aka.ms/downloaddra)。
-16. 在叢集的每個主機上安裝最新的 [Microsoft Azure Recovery Service (MARS) 代理程式](http://aka.ms/latestmarsagent)。 重新整理以確保 SCVMM 可以順利查詢主機。
+17. 在 SCVMM 上安裝最新的 [Microsoft Azure Site Recovery Provider](https://aka.ms/downloaddra)。
+16. 在叢集的每個主機上安裝最新的 [Microsoft Azure Recovery Service (MARS) 代理程式](https://aka.ms/latestmarsagent)。 重新整理以確保 SCVMM 可以順利查詢主機。
 
 **將 Windows Server 2012 R2 主機升級為 Windows Server 2016**
 
@@ -97,8 +97,8 @@ Site Recovery 有助於商務持續性和災害復原 (BCDR) 策略的進行。 
 1.  瀏覽至 [控制台] -> [程式] -> [程式和功能] -> [Microsoft Azure Site Recovery]，然後按一下 [解除安裝]，即可將 ASR 提供者解除安裝。
 2. 根據您希望執行的升級模式，依照[此處](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#upgrade-a-standalone-vmm-server)所述的步驟進行操作。
 3. 啟動 SCVMM 主控台，並在 [網狀架構] 索引標籤下檢查每個主機的狀態。按一下 [重新整理]，以取得最新狀態。 您應該會看到狀態為 [需要注意]。
-4. 在 SCVMM 上安裝最新的 [Microsoft Azure Site Recovery Provider](http://aka.ms/downloaddra)。
-5. 在叢集的每個主機上升級最新的 [Microsoft Azure Recovery Service (MARS) 代理程式](http://aka.ms/latestmarsagent)。 重新整理以確保 SCVMM 可以順利查詢主機。
+4. 在 SCVMM 上安裝最新的 [Microsoft Azure Site Recovery Provider](https://aka.ms/downloaddra)。
+5. 在叢集的每個主機上升級最新的 [Microsoft Azure Recovery Service (MARS) 代理程式](https://aka.ms/latestmarsagent)。 重新整理以確保 SCVMM 可以順利查詢主機。
 
 
 **將 Windows Server 2012 R2 主機升級為 Windows Server 2016**

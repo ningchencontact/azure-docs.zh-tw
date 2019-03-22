@@ -9,14 +9,15 @@ ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dad4872f9bc32a1978de47a52cea23d6bb2742a1
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 5763a7e5f122702ddaf86246fbfbd18326878146
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673608"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294190"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>稽核和報告 B2B 共同作業使用者
 使用來賓使用者時，您具有與成員使用者相似的稽核功能。 
@@ -28,11 +29,11 @@ ms.locfileid: "56673608"
 
 Azure AD 稽核記錄可提供系統和使用者活動的記錄，包括來賓使用者所起始的活動。 若要存取稽核記錄，請在 [Azure Active Directory] 中的 [監視] 下，選取 [稽核記錄]。 以下範例是受邀者 Sam Oogle 的邀請與兌換記錄：
 
-![稽核記錄檔](./media/auditing-and-reporting/audit-log.png)
+![螢幕擷取畫面顯示和稽核的範例記錄輸出](./media/auditing-and-reporting/audit-log.png)
 
 您可以深入每個事件以取得詳細資料。 例如，讓我們看看接受詳細資料。
 
-![活動詳細資料](./media/auditing-and-reporting/activity-details.png)
+![螢幕擷取畫面顯示和活動的詳細資訊輸出的範例](./media/auditing-and-reporting/activity-details.png)
 
 您也可以從 Azure AD 匯出這些記錄檔，並使用您慣用的報告工具來取得自訂報告。
 

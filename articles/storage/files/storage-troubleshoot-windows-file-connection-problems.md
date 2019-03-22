@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 2289fc143abfde0aaaf2bcb079a6d24b74d57975
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 41eed6bc878bff4c9d847f9a449ca693274bf234
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564437"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195501"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>針對 Windows 中的 Azure 檔案服務問題進行疑難排解
 
@@ -75,12 +75,11 @@ Windows 8、Windows Server 2012 和更新版本的每個系統交涉都要求包
     # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
     # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
     Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
-  
     
 如果連線成功，您應會看見下列輸出：
     
   
-    ComputerName     : <storage-account-host-name>
+    ComputerName     : <your-storage-account-name>
     RemoteAddress    : <storage-account-ip-address>
     RemotePort       : 445
     InterfaceAlias   : <your-network-interface>
@@ -93,7 +92,19 @@ Windows 8、Windows Server 2012 和更新版本的每個系統交涉都要求包
 
 ### <a name="solution-for-cause-1"></a>原因 1 的解決方案
 
-聯絡您的 IT 部門，要求開啟連接埠 445 輸出到 [Azure IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653) \(英文\)。
+#### <a name="solution-1---use-azure-file-sync"></a>解決方案 1-使用 Azure 檔案同步
+Azure 檔案同步可以將您的內部部署 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 Azure 檔案同步會透過連接埠 443 的運作方式，並因此可因應措施是將連接埠 445 遭到封鎖的用戶端存取 Azure 檔案。 [了解如何設定 Azure 檔案同步](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-extend-servers)。
+
+#### <a name="solution-2---use-vpn"></a>解決方案 2： 使用 VPN
+藉由設定 VPN 到特定的儲存體帳戶，流量會通過而不是安全通道，透過網際網路。 請遵循[指示說明如何設定 VPN](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
+)從 Windows 存取 Azure 檔案。
+
+#### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>解決方案 3-解除封鎖連接埠 445，協助您的 ISP / IT 系統管理員
+使用您的 IT 部門或開啟連接埠 445 輸出到 ISP [Azure IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。
+
+#### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>解決方案 4-使用 REST API 以儲存體總管/Powershell 等工具
+Azure 檔案服務也支援除了 SMB 之外的其他部分。 透過連接埠 443 (標準 tcp)，適用於 REST 存取。 有各種工具，使用 REST API 撰寫可讓豐富的 UI 體驗。 [儲存體總管](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)是其中一個。 [下載並安裝儲存體總管](https://azure.microsoft.com/en-us/features/storage-explorer/)並連接到您備份 Azure 檔案的檔案共用。 您也可以使用[PowerShell](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-powershell)這也使用者 REST API。
+
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>原因 2：已啟用 NTLMv1
 
@@ -240,7 +251,7 @@ Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者
   - 路徑 = HKLM\Software\Policies\Microsoft\Windows\System
   - 數值類型 = DWORD
   - Name = CopyFileAllowDecryptedRemoteDestination
-  - Value = 1
+  - 值= 1
 
 請注意，設定登錄機碼會影響所有對網路共用所做的複製作業。
 

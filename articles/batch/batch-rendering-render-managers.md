@@ -2,16 +2,17 @@
 title: 轉譯管理員支援 - Azure Batch
 description: 使用 Azure 進行轉譯 (使用 Azure Batch 轉譯管理員整合)
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4eeece4946b4f957d9f864da7c46d77d119863b5
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: bcc66a73e3d7986b177b13eb309ad664a006b960
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539917"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790051"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>使用 Azure Batch 搭配轉譯伺服陣列管理員
 

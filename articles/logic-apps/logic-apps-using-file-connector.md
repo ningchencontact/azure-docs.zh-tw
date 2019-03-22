@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: b58059727a383e978691bfbbee77a1f6b04692ce
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c5128e904e540deeb3293fb687da4e8cafcfa1e0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264321"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57870989"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>透過 Azure Logic Apps 連線到內部部署檔案系統
 
@@ -34,9 +34,9 @@ ms.locfileid: "54264321"
 
 * 您必須先[安裝及設定內部部署資料閘道](../logic-apps/logic-apps-gateway-install.md)，才可以將邏輯應用程式連線到內部部署系統 (例如檔案系統伺服器)。 如此一來，您可以在從邏輯應用程式建立檔案系統連線時，指定使用您的閘道安裝。
 
-* [Drobox 帳戶](https://www.dropbox.com/)和您的帳戶認證。 在邏輯應用程式與 Drobox 帳戶之間建立連線時，需要您的 DropBox 認證。 
+* A [Dropbox 帳戶](https://www.dropbox.com/)，其中您可以免費註冊。 您的帳戶認證所需的邏輯應用程式與您的 Dropbox 帳戶之間建立連接。 
 
-* 您要存取的檔案系統所在電腦所適用的帳戶認證。 例如，如果您在與檔案系統相同的電腦上安裝資料閘道，您則需要該電腦的帳戶認證。 
+* 您想要使用的檔案系統的電腦存取。 比方說，如果您在您的檔案系統的同一部電腦上安裝資料閘道，請針對該電腦需要的帳戶認證。 
 
 * Logic Apps 支援的任何電子郵件提供者 (例如 Office 365 Outlook、Outlook.com 或 Gmail) 所提供的電子郵件帳戶。 對於其他提供者，請[檢閱這裡的連接器清單](https://docs.microsoft.com/connectors/)。 本邏輯應用程式會使用 Office 365 Outlook 帳戶。 如果您使用另一個電子郵件帳戶，則整體步驟相同，但您的 UI 可能稍有不同。 
 
@@ -68,7 +68,7 @@ ms.locfileid: "54264321"
 
    ![建立連線](media/logic-apps-using-file-connector/file-system-connection.png)
 
-   | 屬性 | 必要 | 值 | 說明 | 
+   | 屬性 | 必要項 | Value | 描述 | 
    | -------- | -------- | ----- | ----------- | 
    | 連線名稱 | 是 | <*connection-name*> | 您想要的連線名稱 | 
    | **根資料夾** | 是 | <*root-folder-name*> | 您檔案系統的根資料夾，例如，如果您已安裝內部部署的資料閘道，則為內部部署資料閘道安裝所在電腦上的本機資料夾，或電腦可以存取的網路共用資料夾。 <p>例如：`\\PublicShare\\DropboxFiles` <p>根資料夾是主要的父資料夾，會作為所有檔案相關動作的相對路徑。 | 

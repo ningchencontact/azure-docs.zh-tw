@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 99647770df9a8ca194559863a1d7212faf1c83a1
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 1cf5fb00e9f1a202fe7ad46253f916e3e6bee7a7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328209"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295567"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>安裝和執行 LUIS Docker 容器
  
@@ -32,7 +32,7 @@ Language Understanding (LUIS) 容器會將您已定型或發佈的 Language Unde
 
 若要執行 LUIS 容器，您必須具備下列項目： 
 
-|必要|目的|
+|必要項|目的|
 |--|--|
 |Docker 引擎| 您必須在[主機電腦](#the-host-computer)上安裝 Docker 引擎。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/)、[Windows](https://docs.docker.com/docker-for-windows/) 和 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 上設定 Docker 環境的套件。 如需 Docker 和容器基本概念的入門，請參閱 [Docker 概觀](https://docs.docker.com/engine/docker-overview/) \(英文\)。<br><br> Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至 Azure。 <br><br> **在 Windows 上**，也必須將 Docker 設定為支援 Linux 容器。<br><br>|
 |熟悉 Docker | 您應具備對 Docker 概念 (例如登錄、存放庫、容器和容器映像等) 的基本了解，以及基本 `docker` 命令的知識。| 
@@ -46,15 +46,14 @@ Language Understanding (LUIS) 容器會將您已定型或發佈的 Language Unde
 
 此容器支援設定的最小值和建議值：
 
-|設定| 最小值 | 建議 |
-|-----------|---------|-------------|
-|核心<BR>`--cpus`|單核心|單核心|
-|記憶體<BR>`--memory`|2 GB|4 GB|
-|每秒交易<BR>(TPS)|20 TPS|40 TPS|
+|容器| 最小值 | 建議 | TPS<br>（最小值、 最大值）|
+|-----------|---------|-------------|--|
+|LUIS|1 核心，2 GB 記憶體|1 核心，4 GB 記憶體|20,40|
 
-每個核心必須至少 2.6 GHz 或更快。
+* 每個核心必須至少 2.6 GHz 或更快。
+* TP-每秒交易數
 
-`--cpus` 和 `--memory` 設定會作為 `docker run` 命令的一部分。
+核心和記憶體會對應至 `--cpus` 和 `--memory` 設定，用來作為 `docker run` 命令的一部分。
 
 ## <a name="get-the-container-image-with-docker-pull"></a>使用 `docker pull` 取得容器映像
 
@@ -247,6 +246,8 @@ ApiKey={ENDPOINT_KEY}
 > [!IMPORTANT]
 > 必須指定 `Eula`、`Billing` 及 `ApiKey` 選項以執行容器，否則容器將不會啟動。  如需詳細資訊，請參閱[帳單](#billing)。
 > ApiKey 值是 LUIS 入口網站中的 [金鑰和端點] 頁面所包含的 [金鑰]，此值也可以在 Azure Language Understanding 資源的金鑰頁面上取得。  
+
+[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
 ## <a name="query-the-containers-prediction-endpoint"></a>查詢容器的預測端點
 

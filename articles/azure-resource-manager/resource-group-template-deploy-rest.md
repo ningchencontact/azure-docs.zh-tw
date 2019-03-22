@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: f49b8ed592422927288e24b164a04645e2e37744
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: bd574eb2d3537d3e5c0774f57e37283817cc7879
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301378"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112019"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>使用 Resource Manager 範本和 Resource Manager REST API 部署資源
 
 這篇文章說明如何使用 Resource Manager REST API 與 Resource Manager 範本來將您的資源部署至 Azure。  
 
 > [!TIP]
-> 如需部署期間偵錯錯誤的說明，請參閱︰
+> 有关在部署过程中调试错误的帮助，请参阅：
 > 
 > * [檢視部署作業](resource-manager-deployment-operations.md)，以了解有關取得可協助您針對錯誤進行疑難排解的資訊
 > * [針對使用 Azure Resource Manager 將資源部署至 Azure 時常見的錯誤進行疑難排解](resource-manager-common-deployment-errors.md) ，以了解如何解決常見的部署錯誤
@@ -38,32 +38,32 @@ ms.locfileid: "56301378"
 
 1. 如果您沒有現有資源群組，請建立新的資源群組。 提供您的訂用帳戶識別碼、新資源群組的名稱，以及需要解決方案的位置。 如需詳細資訊，請參閱[建立資源群組](/rest/api/resources/resourcegroups/createorupdate)。
 
-  ```HTTP
-  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2018-05-01
-  ```
+   ```HTTP
+   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2018-05-01
+   ```
 
-  使用如下的要求本文：
-  ```json
-  {
+   使用如下的要求本文：
+   ```json
+   {
     "location": "West US",
     "tags": {
       "tagname1": "tagvalue1"
     }
-  }
-  ```
+   }
+   ```
 
-1. 請先執行[驗證範本部署作業](/rest/api/resources/deployments/validate)來驗證部署，然後再執行部署。 測試部署時，請提供與執行部署時完全一致的參數 (如下個步驟所示)。
+1. 請先執行[驗證範本部署作業](/rest/api/resources/deployments/validate)來驗證部署，然後再執行部署。 测试部署时，请提供与执行部署时所提供的完全相同的参数（如下一步中所示）。
 
 1. 建立部署。 提供您的訂用帳戶識別碼、資源群組的名稱、部署的名稱，以及範本的連結。 如需範本檔案的相關資訊，請參閱[參數檔案](#parameter-file)。 如需以 REST API 建立資源群組的相關詳細資訊，請參閱[建立範本部署](/rest/api/resources/deployments/createorupdate)。 請注意，**mode** 是設為 **Incremental**。 若要執行完整部署，請將 **mode** 設為 **Complete**。 使用完整模式時請務必謹慎，因為您可能會不小心刪除不在範本中的資源。
 
-  ```HTTP
-  PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
-  ```
+   ```HTTP
+   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
+   ```
 
-  使用如下的要求本文：
+   使用如下的要求本文：
 
    ```json
-  {
+   {
     "properties": {
       "templateLink": {
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
@@ -75,13 +75,13 @@ ms.locfileid: "56301378"
         "contentVersion": "1.0.0.0"
       }
     }
-  }
-  ```
+   }
+   ```
 
     如果您想要記錄回應內容及/或要求內容，可在要求中包括 **debugSetting** 。
 
-  ```json
-  {
+   ```json
+   {
     "properties": {
       "templateLink": {
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
@@ -96,15 +96,15 @@ ms.locfileid: "56301378"
         "detailLevel": "requestContent, responseContent"
       }
     }
-  }
-  ```
+   }
+   ```
 
     您可以設定儲存體帳戶以使用共用存取簽章 (SAS) Token。 如需詳細資訊，請參閱[使用共用存取簽章委派存取](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature)。
 
 1. 不要連結至含有範本和參數的檔案，而是將它們納入要求本文中。
 
-  ```json
-  {
+   ```json
+   {
       "properties": {
       "mode": "Incremental",
       "template": {
@@ -161,14 +161,14 @@ ms.locfileid: "56301378"
         }
       }
     }
-  }
-  ```
+   }
+   ```
 
 5. 取得範本部署的狀態。 如需詳細資訊，請參閱[取得範本部署的相關資訊](/rest/api/resources/deployments/get)。
 
-  ```HTTP
-  GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
-  ```
+   ```HTTP
+   GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
+   ```
 
 ## <a name="redeploy-when-deployment-fails"></a>部署失敗時重新部署
 

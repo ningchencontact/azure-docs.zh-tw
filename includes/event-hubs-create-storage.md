@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/16/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: e499a0f7bec47e672c599c729a15cc3e3d04a28a
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
-ms.translationtype: HT
+ms.openlocfilehash: 690e0da160042b7ac432b1a36c024a8a8f439823
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471610"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58125109"
 ---
 ## <a name="create-a-storage-account-for-event-processor-host"></a>建立事件處理器主機的儲存體帳戶
 事件處理器主機是一個智慧型代理程式，透過管理持續檢查點以及平行接收，簡化來自事件中樞的事件接收作業。 若要使用檢查點，事件處理器主機需要儲存體帳戶。 下列範例會示範如何建立儲存體帳戶，以及如何取得其存取金鑰：
@@ -26,18 +26,18 @@ ms.locfileid: "49471610"
 
 3. 在 [建立儲存體帳戶] 頁面上，採取以下步驟︰ 
 
-    1. 輸入儲存體帳戶的名稱。 
-    2. 選擇含有事件中樞的 Azure 訂用帳戶。
-    3. 選取具有事件中樞的資源群組。
-    4. 選取要在其中建立資源的位置。 
-    5. 然後按一下 [檢閱 + 建立]。
+   1. 輸入儲存體帳戶的名稱。 
+   2. 選擇含有事件中樞的 Azure 訂用帳戶。
+   3. 選取具有事件中樞的資源群組。
+   4. 選取要在其中建立資源的位置。 
+   5. 然後按一下 [檢閱 + 建立]。
    
-    ![建立儲存體帳戶 - 頁面](./media/event-hubs-create-storage/create-storage2.png)
+      ![建立儲存體帳戶 - 頁面](./media/event-hubs-create-storage/create-storage2.png)
 
 4. 在 [檢閱 + 建立] 頁面上，檢閱每個值，然後選取 [建立]。 
 
     ![檢閱儲存體帳戶設定並建立](./media/event-hubs-create-storage/review-create-storage-account.png)
-5. 在看到「部署成功」訊息之後，選取頁面頂端的 [前往資源]。 您也可以從資源清單中選取儲存體帳戶來啟動 [儲存體帳戶] 頁面。  
+5. 您會看到之後**部署成功**訊息，請選取**移至資源**頁面的頂端。 您也可以從資源清單中選取儲存體帳戶來啟動 [儲存體帳戶] 頁面。  
 
     ![選取部署中的儲存體帳戶](./media/event-hubs-create-storage/select-storage-deployment.png) 
 7. 在 [基本資訊] 視窗中，選取 [Blob]。 

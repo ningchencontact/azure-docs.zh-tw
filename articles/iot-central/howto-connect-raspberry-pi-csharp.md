@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: f0232c8d2627cd600f4f05b5b501db85fa7d2ec4
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 6330e941f3308920ff4d5404663824633484146a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051385"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108353"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>將 Raspberry Pi 連線到 Azure IoT Central 應用程式 (C#)
 
@@ -68,13 +68,13 @@ ms.locfileid: "54051385"
 
 1. 若要將 .NET 專案初始化並新增所需的 NuGet 套件，請執行下列命令：
 
-  ```cmd/sh
-  mkdir pisample
-  cd pisample
-  dotnet new console
-  dotnet add package Microsoft.Azure.Devices.Client
-  dotnet restore
-  ```
+   ```cmd/sh
+   mkdir pisample
+   cd pisample
+   dotnet new console
+   dotnet add package Microsoft.Azure.Devices.Client
+   dotnet restore
+   ```
 
 1. 在 Visual Studio Code 中開啟 `pisample` 資料夾。 然後開啟 **pisample.csproj** 專案檔。 新增下列程式碼片段所示的 `<RuntimeIdentifiers>` 標籤：
 
@@ -275,16 +275,16 @@ ms.locfileid: "54051385"
 請將裝置專屬的連接字串新增至裝置的程式碼中，以便向 Azure IoT Central 進行驗證。 您在 Azure IoT Central 應用程式中新增真實裝置時，已記下此連接字串。
 
   > [!NOTE]
-   > Azure IoT Central 已轉換為使用 Azure 物聯網中心裝置佈建服務 (DPS) 進行所有裝置連線，請遵循這些指示以[取得裝置連線字串](concepts-connectivity.md#getting-device-connection-string)，並繼續進行本教學課程的其餘部分。
+   > Azure IoT Central 時，已轉換為使用 Azure IoT 中樞裝置佈建服務 」 (DPS) 上，所有的裝置連線，請遵循這些指示[取得裝置連接字串](concepts-connectivity.md#get-a-connection-string)並繼續進行本教學課程的其餘部分。
 
 1. 將 **Program.cs** 檔案中的 `{your device connection string}` 取代為先前記下的連接字串。
 
 1. 在命令列環境中執行下列命令：
 
-  ```cmd/sh
-  dotnet restore
-  dotnet publish -r linux-arm
-  ```
+   ```cmd/sh
+   dotnet restore
+   dotnet publish -r linux-arm
+   ```
 
 1. 將 `pisample\bin\Debug\netcoreapp2.0\linux-arm\publish` 資料夾複製到 Raspberry Pi 裝置。 您可以使用 **scp** 命令來複製檔案，例如：
 
@@ -313,13 +313,13 @@ ms.locfileid: "54051385"
 
 1. 在 Azure IoT Central 應用程式中，您會看到在 Raspberry Pi 上執行的程式碼如何與應用程式互動：
 
-    * 在真實裝置的 [量測] 頁面上，您可以看到遙測。
-    * 在 [屬性] 頁面上，您可以看到所報告 [模具編號] 屬性的值。
-    * 在 [設定] 頁面上，您可以變更 Raspberry Pi 的各種設定，例如電壓和風扇。
+   * 在真實裝置的 [量測] 頁面上，您可以看到遙測。
+   * 在 [屬性] 頁面上，您可以看到所報告 [模具編號] 屬性的值。
+   * 在 [設定] 頁面上，您可以變更 Raspberry Pi 的各種設定，例如電壓和風扇。
 
-    下列螢幕擷取畫面顯示 Raspberry Pi 正在接收設定變更：
+     下列螢幕擷取畫面顯示 Raspberry Pi 正在接收設定變更：
 
-    ![Raspberry Pi 收到設定變更](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
+     ![Raspberry Pi 收到設定變更](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
 
 
 ## <a name="raspberry-pi-device-template-details"></a>Raspberry PI 裝置範本詳細資料

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: tomsh
-ms.openlocfilehash: da58737314012255f26d344f279d855244f0c1ba
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 38054d6ee3799296887726954ef1f096945aeaeb
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116468"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57241080"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 作業安全性概觀
 
@@ -29,13 +29,13 @@ ms.locfileid: "56116468"
 
 IT 作業小組負責管理資料中心基礎結構、應用程式和資料，包括這些系統的穩定性與安全性。 不過，要在日趨複雜的 IT 環境中取得安全性深入解析，通常需要組織將多個安全性和管理系統的資料加以併用。
 
-[Microsoft Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) 是一種雲端型 IT 管理解決方案，可協助您管理並保護內部部署和雲端基礎結構。 它的核心功能是由在 Azure 中執行的下列服務所提供的。 Azure 包含多種服務，可協助您管理並保護您的內部部署和雲端基礎結構。 每個服務都提供特定的管理功能。 您可以結合服務，以達成不同的管理案例。 
+[Microsoft Azure 監視器記錄](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)是雲端型 IT 管理解決方案，可協助您管理並保護您內部部署和雲端基礎結構。 它的核心功能是由在 Azure 中執行的下列服務所提供的。 Azure 包含多種服務，可協助您管理並保護您的內部部署和雲端基礎結構。 每個服務都提供特定的管理功能。 您可以結合服務，以達成不同的管理案例。 
 
 ### <a name="azure-monitor"></a>Azure 監視器
 
 [Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/overview)能收集受控來源的資料，並將其儲存至中央資料存放區。 此資料可以包括事件、效能資料，或透過 API 提供的自訂資料。 收集資料之後，即可將其用於警示、分析和匯出。 
 
-您可以合併各種來源的資料，並結合來自 Azure 服務與現有內部部署環境的資料。 Log Analytics 也可清楚劃分資料的收集與對該資料採取的動作，讓所有類型的資料均可使用所有動作。
+您可以合併各種來源的資料，並結合來自 Azure 服務與現有內部部署環境的資料。 Azure 監視器記錄檔也清楚分開的資料收集該資料，所採取的動作，讓所有的動作可用於所有類型的資料。
 
 ### <a name="automation"></a>自動化
 
@@ -93,7 +93,7 @@ Azure AD 還隨附一套完整的[身分識別管理功能](https://docs.microso
 >[!Note]
 >如需角色與資訊安全中心所允許動作的詳細資訊，請參閱 [Azure 資訊安全中心的權限](https://docs.microsoft.com/azure/security-center/security-center-permissions)。
 
-資訊安全中心會使用 Microsoft Monitoring Agent。 這是 Log Analytics 服務所使用的相同代理程式。 從這個代理程式收集的資料會儲存在與您 Azure 訂用帳戶相關聯的現有 Log Analytics [工作區](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access)或新的工作區中 (將 VM 的地理位置納入考量)。
+資訊安全中心會使用 Microsoft Monitoring Agent。 這是 Azure 監視器服務所使用的相同代理程式。 從這個代理程式收集的資料會儲存在與您 Azure 訂用帳戶相關聯的現有 Log Analytics [工作區](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access)或新的工作區中 (將 VM 的地理位置納入考量)。
 
 ## <a name="azure-monitor"></a>Azure 監視器
 
@@ -172,7 +172,7 @@ Azure 診斷會啟用為部署的應用程式收集診斷資料的功能。 您�
 
 DevOps 可讓小組以更快速且成本較低的方式提供更安全、更高品質的解決方案。 使用軟體與服務時，客戶預期能獲得動態且可靠的經驗。 小組必須快速地逐一查看軟體更新，並衡量更新的影響。 他們必須使用新的開發反覆項目迅速回應，以解決問題或提供更多價值。  
 
-諸如 Microsoft Azure 的雲端平台已移除傳統的瓶頸，並協助基礎結構獲得更高價值。 在每一個業務中，都是以軟體支配作為業務成果的主要區分及要素。 沒有任何組織、開發人員或 IT 工作者可以或應該避免 DevOps 行動。
+諸如 Microsoft Azure 的雲端平台已移除傳統的瓶頸，並協助基礎結構獲得更高價值。 在每一項業務中，都是以軟體支配作為業務成果的主要區分及要素。 沒有任何組織、開發人員或 IT 工作者可以或應該避免 DevOps 行動。
 
 成熟的 DevOps 從業人員會採用下列幾種做法。 這些做法[需要人員](https://www.visualstudio.com/learn/what-is-devops-culture/)以業務情節作為基礎來制定策略。 工具可協助將各種作法自動化。
 

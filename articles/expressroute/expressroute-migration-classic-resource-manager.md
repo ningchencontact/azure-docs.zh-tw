@@ -8,18 +8,21 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: ganesr;cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 7b95c8b230714e1ba9306620e58628104cd676c9
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
-ms.translationtype: HT
+ms.openlocfilehash: 2e33454ac0ee97385386043706f4b8b73090f57a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401636"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112546"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>將 ExpressRoute 相關虛擬網路從傳統移轉至 Resource Manager
 
 本文說明如何在移動您的 ExpressRoute 線路之後，將 ExpressRoute 相關虛擬網路從傳統部署模型移轉至 Azure Resource Manager 部署模型。 
 
 ## <a name="before-you-begin"></a>開始之前
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * 請確認您有最新版的 Azure PowerShell 模組。 如需詳細資訊，請參閱 [如何安裝及設定 Azure PowerShell](/powershell/azure/overview)。
 * 開始設定之前，請確定您已經檢閱過[必要條件](expressroute-prerequisites.md)、[路由需求](expressroute-routing.md)和[工作流程](expressroute-workflows.md)。
 * 請檢閱[將 ExpressRoute 電路從傳統移至 Resource Manager](expressroute-move.md) 下提供的資訊。 請確定您已完整了解各項限制。
@@ -27,7 +30,7 @@ ms.locfileid: "54401636"
 * 請確定您擁有建立在 Resource Manager 部署模型中建立的資源群組。
 * 檢閱下列資源移轉文件︰
 
-    * [平台支援的 IaaS 資源移轉 (從傳統移轉至 Azure Resource Manager)](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
+    * [平台支持的从经典部署模型到 Azure Resource Manager 的 IaaS 资源迁移](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
     * [平台支援的從傳統移轉至 Azure Resource Manager 的技術深入探討](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager-deep-dive.md)
     * [常見問題集：平台支援的 IaaS 資源移轉 (從傳統移轉至 Azure Resource Manager)](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)
     * [檢閱最常見的移轉錯誤和避免方式](../virtual-machines/windows/migration-classic-resource-manager-errors.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -53,31 +56,31 @@ ms.locfileid: "54401636"
 
 移轉步驟取決於您的資源位於相同訂用帳戶、位於不同訂用帳戶，或混合兩者的情況。
 
-### <a name="migrate-virtual-networks-gateways-and-associated-deployments-in-the-same-subscription-as-the-expressroute-circuit"></a>移轉虛擬網路、閘道，以及與 ExpressRoute 線路位於相同訂用帳戶的相關聯部署。
+### <a name="migrate-virtual-networks-gateways-and-associated-deployments-in-the-same-subscription-as-the-expressroute-circuit"></a>迁移与 ExpressRoute 线路属于同一订阅的虚拟网络、网关和关联的部署
 這一節說明移轉虛擬網路、閘道，以及與 ExpressRoute 線路位於相同訂用帳戶的相關聯部署所需遵循的步驟。 這項移轉不需要停機。 您可以透過移轉程序繼續使用所有資源。 管理平面會在移轉進行時遭到封鎖。 
 
 1. 確保 ExpressRoute 線路已從傳統移至 Resource Manager 環境。
 2. 確保已為了移轉適當地準備虛擬網路。
-3. 註冊您的訂用帳戶以便移轉資源。 若要註冊您的訂用帳戶以便移轉資源，請使用下列 PowerShell 程式碼片段︰
+3. 注册订阅，以便进行资源迁移。 若要註冊您的訂用帳戶以便移轉資源，請使用下列 PowerShell 程式碼片段︰
 
-  ```powershell 
-  Select-AzureRmSubscription -SubscriptionName <Your Subscription Name>
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
-  Get-AzureRmResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
-  ```
+   ```powershell 
+   Select-AzSubscription -SubscriptionName <Your Subscription Name>
+   Register-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+   Get-AzResourceProvider -ProviderNamespace Microsoft.ClassicInfrastructureMigrate
+   ```
 4. 驗證、準備和移轉。 若要移轉虛擬網路，請使用下列 PowerShell 程式碼片段︰
 
-  ```powershell
-  Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
-  Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
-  Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
-  ```
+   ```powershell
+   Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
+   Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
+   Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
+   ```
 
-  您也可以執行下列 PowerShell Cmdlet 來中止移轉：
+   您也可以執行下列 PowerShell Cmdlet 來中止移轉：
 
-  ```powershell
-  Move-AzureVirtualNetwork -Abort $vnetName
-  ```
+   ```powershell
+   Move-AzureVirtualNetwork -Abort $vnetName
+   ```
 
 ## <a name="next-steps"></a>後續步驟
 * [平台支援的 IaaS 資源移轉 (從傳統移轉至 Azure Resource Manager)](../virtual-machines/virtual-machines-windows-migration-classic-resource-manager.md)

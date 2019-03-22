@@ -6,12 +6,13 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 1/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 04aca43e7220b0d5f644ca4f03db3a7442972728
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: d01ff17966d2e6b9aeaaf3c1f69817dbc84c3a6f
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358463"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792628"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>應用程式閘道多站台裝載
 
@@ -20,7 +21,7 @@ ms.locfileid: "54358463"
 ![imageURLroute](./media/application-gateway-multi-site-overview/multisite.png)
 
 > [!IMPORTANT]
-> 規則會依照其列在入口網站中的順序進行處理。 強烈建議纖設定多站台接聽程式，再設定基本接聽程式。  這可確保流量路由傳送到右邊後端。 如果先列出了基本接聽程式，且該接聽程式符合傳入的要求，就會由該接聽程式處理。
+> 规则将按照门户中的列出顺序进行处理。 強烈建議纖設定多站台接聽程式，再設定基本接聽程式。  這可確保流量路由傳送到右邊後端。 如果先列出了基本接聽程式，且該接聽程式符合傳入的要求，就會由該接聽程式處理。
 
 對 http://contoso.com 的要求會路由傳送至 ContosoServerPool，而對 http://fabrikam.com 的要求則會路由傳送至 FabrikamServerPool。
 
@@ -36,7 +37,7 @@ ms.locfileid: "54358463"
 
 目前應用程式閘道會取得它用來接聽流量的單一公用 IP 位址。 因此，目前不支援讓多個應用程式分別擁有自己的 IP 位址。 「應用程式閘道」支援裝載多個分別在不同連接埠上進行接聽的應用程式，但此案例會需要應用程式在非標準連接埠上接受流量，而這樣的組態通常不是理想的組態。 「應用程式閘道」需依賴 HTTP 1.1 主機標頭，才能在相同的公用 IP 位址和連接埠上裝載多個網站。 裝載在應用程式閘道上的網站也可以使用「伺服器名稱指示」(SNI) TLS 擴充功能來支援 SSL 卸載。 此案例表示用戶端瀏覽器和後端 Web 伺服陣列必須支援 RFC 6066 中所定義的 HTTP/1.1 和 TLS 擴充功能。
 
-## <a name="listener-configuration-element"></a>接聽程式組態元素
+## <a name="listener-configuration-element"></a>侦听器配置元素
 
 現有的 HTTPListener 組態元素已增強，可以支援應用程式閘道用來將流量路由傳送至適當後端集區的主機名稱和伺服器名稱指示元素。 下列程式碼範例是來自範本檔案的 HttpListeners 元素程式碼片段。
 

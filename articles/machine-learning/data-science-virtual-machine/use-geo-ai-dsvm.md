@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 11026d642a5136ffcf0caa5815934115b6becf89
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 6e6737e928ece820ea9119d8dfe1d7cf22477646
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238454"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880097"
 ---
 # <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>使用地區人工智慧資料科學虛擬機器
 
@@ -30,7 +30,7 @@ ms.locfileid: "55238454"
 
 ## <a name="configuration-details"></a>組態詳細資料
 
-Python 程式庫 [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) 是用來連接 ArcGIS 的介面，安裝在位於 ```c:\anaconda``` 的資料科學 VM 的全域根 conda 環境中。 
+Python 程式庫 [arcpy](https://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) 是用來連接 ArcGIS 的介面，安裝在位於 ```c:\anaconda``` 的資料科學 VM 的全域根 conda 環境中。 
 
 - 如果您在命令提示字元中執行 Python，執行 ```activate``` 啟動進入 conda 根 Python 環境。 
 - 如果您使用整合式開發環境 (IDE) 或 Jupyter Notebook，可以選取環境或核心以確保您進入正確的 conda 環境。 
@@ -43,7 +43,7 @@ Python 程式庫 [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-
 除了基底資料科學 VM 中以 ML 和深入學習架構為基礎的範例，本節亦提供幾個地理空間範例作為地區 AI 資料科學 VM 的一部分。 這些範例可幫助您立即開始使用地理空間資料和 ArcGIS 軟體開發 AI 應用程式。 
 
 
-1. [開始使用 Python 進行地理空間分析](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb)：此介紹範例示範如何使用 ArcGIS 的 Python 介面 (由 [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) 程式庫提供) 來處理地理空間資料。 此範例也示範如何結合傳統機器學習與地理空間資料，並以視覺化方式在 ArcGIS 地圖中呈現結果。 
+1. [開始使用 Python 進行地理空間分析](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb)：此介紹範例示範如何使用 ArcGIS 的 Python 介面 (由 [arcpy](https://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) 程式庫提供) 來處理地理空間資料。 此範例也示範如何結合傳統機器學習與地理空間資料，並以視覺化方式在 ArcGIS 地圖中呈現結果。 
 
 2. [開始使用 R 進行地理空間分析](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb)：此介紹範例示範如何使用 ArcGIS 的 R 介面 (由 [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) 程式庫提供) 來處理地理空間資料。 
 

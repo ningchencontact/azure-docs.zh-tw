@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26c3e0716d24681dbbdf961bbd6df469a1b77f92
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6ecbb097dd3cb3e3fdd6b365b059f7703668f07e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188574"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092594"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-a-non-gallery-application"></a>為不在資源庫內的應用程式設定同盟單一登入時遇到的問題
 
@@ -46,23 +46,23 @@ Azure AD 會根據應用程式在 SAML AuthRequest 中選取的值或要求的�
 
 若要從 Azure AD 下載應用程式中繼資料或憑證，請遵循下列步驟：
 
-1.  開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
+1. 開啟 [Azure 入口網站](https://portal.azure.com/)，然後以**全域管理員**或**共同管理員**身分登入。
 
-2.  按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
+2. 按一下左側主導覽功能表底部的 [所有服務]，以開啟 [Azure Active Directory 延伸模組]。
 
-3.  在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
+3. 在篩選搜尋方塊中輸入 **“Azure Active Directory**”，然後選取 [Azure Active Directory] 項目。
 
-4.  在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
+4. 在 Azure Active Directory 左側導覽功能表中，按一下 [企業應用程式]。
 
-5.  按一下 [所有應用程式]，以檢視所有應用程式的清單。
+5. 按一下 [所有應用程式]，以檢視所有應用程式的清單。
 
    * 若在這裡沒看到您要顯示的應用程式，請使用 [所有應用程式清單] 頂端的 [篩選] 控制項，並將 [顯示] 選項設定為 [所有應用程式]。
 
-6.  選取您已設定單一登入的應用程式。
+6. 選取您已設定單一登入的應用程式。
 
-7.  應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
+7. 應用程式載入後，按一下應用程式的左側導覽功能表中的 [單一登入]。
 
-8.  移至 [SAML 簽署憑證] 區段，然後按一下 [下載] 資料行值。 根據應用程式設定單一登入時所需的項目，您會看到下載中繼資料 XML 或憑證的選項。
+8. 移至 [SAML 簽署憑證] 區段，然後按一下 [下載] 資料行值。 根據應用程式設定單一登入時所需的項目，您會看到下載中繼資料 XML 或憑證的選項。
 
 Azure AD 不提供取得中繼資料的 URL。 中繼資料只能擷取為 XML 檔案。
 

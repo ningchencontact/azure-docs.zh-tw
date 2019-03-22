@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: service-health
 ms.workload: Supportability
 ms.date: 3/27/2018
-ms.openlocfilehash: 898f2eca0b6cc115f56bcae195c58c6eef190694
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 69b142cd46c006e562218c949fb450864589a661
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884863"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838063"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>使用 Webhook 設定現有問題管理系統的健康情況通知
 
@@ -59,7 +59,7 @@ https://app.azure.com/h/0DET-URB/bbadb3
 
 ## <a name="parsing-the-impacted-services-to-understand-the-full-scope-of-the-incident"></a>剖析受影響的服務，以了解事件的完整範圍
 Azure 服務健康狀態警示會通知您多個區域和服務的相關問題。 若要取得完整詳細資料，您必須剖析 `impactedServices` 的值。
-其中的內容是 [JSON 逸出](http://json.org/) 字串，在未逸出時，則包含另一個可以定期剖析的 JSON 物件。
+其中的內容是 [JSON 逸出](https://json.org/) 字串，在未逸出時，則包含另一個可以定期剖析的 JSON 物件。
 
 ```json
 {"data.context.activityLog.properties.impactedServices": "[{\"ImpactedRegions\":[{\"RegionName\":\"Australia East\"},{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"Alerts & Metrics\"},{\"ImpactedRegions\":[{\"RegionName\":\"Australia Southeast\"}],\"ServiceName\":\"App Service\"}]"}

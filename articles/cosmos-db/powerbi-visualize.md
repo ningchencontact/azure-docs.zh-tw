@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: f6ba66aa37b4a1902f98d2a1fcf5f542fa6476d7
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 2c58b982e596c95aa47442c1897410fe9ab6b99a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043646"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58137669"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>使用 Power BI 連接器將 Azure Cosmos DB 資料視覺化
 
@@ -122,7 +122,7 @@ ms.locfileid: "54043646"
 8. 提供新資料行的名稱，例如 LatLong。
 9. 接下來，指定新資料行的自訂公式。  在我們的範例中，我們將依照下列方式使用以下公式，串連以逗號分隔的緯度和經度值： `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`。 按一下 [確定]。
    
-    如需資料分析運算式 (DAX) (包括 DAX 函數) 的詳細資訊，請瀏覽 [Power BI Desktop 中的 DAX 基礎](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop)。
+    在 Data Analysis Expressions (DAX) 包括 DAX 函數的詳細資訊，請造訪[Power BI Desktop 的 DAX 基本概念](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics)。
    
     ![Azure Cosmos DB Power BI 連接器的 Power BI 教學課程 - 新增自訂資料行](./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
 
@@ -175,7 +175,7 @@ ms.locfileid: "54043646"
     ![成功發佈到 Power BI！ 在 Power BI 中開啟教學課程](./media/powerbi-visualize/power_bi_connector_open_in_powerbi.png)
 
 ## <a name="create-a-dashboard-in-powerbicom"></a>在 PowerBI.com 中建立儀表板
-現在，您有一份報表可在 PowerBI.com 上共用。
+现在，已创建一份可在 PowerBI.com 上共享的报表
 
 當您從 Power BI Desktop發佈報告至 PowerBI.com 時，在您的 PowerBI.com 租用戶中會產生 [報表] 和 [資料集]。 例如，您將名為 **PowerBITutorial** 的報表發佈到 PowerBI.com，會在 PowerBI.com 的 [報表] 和 [資料集] 區段看到 PowerBITutorial。
 
@@ -183,7 +183,7 @@ ms.locfileid: "54043646"
 
 若要建立可共用的儀表板，按一下 PowerBI.com 報表上的 [釘選即時頁面]  按鈕。
 
-   ![PowerBI.com 中新報表和資料集的螢幕擷取畫面](./media/powerbi-visualize/power-bi-pin-live-tile.png)
+   ![PowerBI.com 中新报表和数据集的屏幕截图](./media/powerbi-visualize/power-bi-pin-live-tile.png)
 
 依照 [從報表釘選圖格](https://powerbi.microsoft.com/documentation/powerbi-service-pin-a-tile-to-a-dashboard-from-a-report/#pin-a-tile-from-a-report) 的指示建立新的儀表板。 
 

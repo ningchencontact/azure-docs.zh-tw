@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/11/2019
+ms.date: 03/15/2019
 ms.author: pareshmu
-ms.openlocfilehash: c89c5f2d463392106985b0d80bc45843a158fd50
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d7baebc4236df926dbd8cbe6e17e59b0a3489abd
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875371"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188369"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -52,6 +52,7 @@ ms.locfileid: "57875371"
 | **南韓** | 2 |南韓中部、南韓南部 |釜山、首爾|
 | **南非** | 3 |南非西部、 南非北部 |開普敦、約翰尼斯堡 |
 | **南美洲** | 3 |巴西南部 |聖保羅 |
+
 
 ### <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>國家雲端的區域和地理政治界限
 下表提供了有关国家/地区云的区域和地缘政治边界的信息。
@@ -291,7 +292,7 @@ ms.locfileid: "57875371"
 | **[Ensyst](https://www.ensyst.com.au)** | 亞洲
 | **[Equinix Professional Services](https://www.equinix.com/services/consulting/)** | 北美洲 |
 | **[FlexManage](https://www.flexmanage.com/cloud)** | 北美洲 |
-| **[Lightstream](https://www.ltstream.com/expressroute)** | 北美洲 |
+| **[Lightstream](https://www.lightstream.tech/partners/microsoft-azure/)** | 北美洲 |
 | **[The IT Consultancy Group](https://itconsult.com.au/)** | 澳大利亞 |
 | **[MOQdigital](https://www.moqdigital.com.au/insights/technical/network-connectivity-options-for-azure)** | 澳大利亞 |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | 歐洲 (德國) |

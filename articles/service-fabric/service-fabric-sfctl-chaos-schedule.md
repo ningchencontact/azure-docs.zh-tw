@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 665fbbc8668e465c78d93b134f6a314d58791490
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: f955ed63af221a08313042fcc8373b179ecbc120
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276446"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569377"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 取得並設定 chaos 排程。
 
 ## <a name="commands"></a>命令
 
-|命令|說明|
+|命令|描述|
 | --- | --- |
 | get | 取得定義 Chaos 執行時間及執行方式的 Chaos 排程。 |
 | set | 設定 Chaos 使用的排程。 |
@@ -38,13 +38,13 @@ ms.locfileid: "53276446"
 
 ### <a name="arguments"></a>引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
@@ -59,7 +59,7 @@ Chaos 會根據 Chaos 排程自動排定執行。 所提供的輸入排程中版
 
 ### <a name="arguments"></a>引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --chaos-parameters-dictionary | 針對字串名稱對應於作業所要使用的 ChaosParameters，代表對應關係的 JSON 編碼清單。 |
 | --expiry-date-utc | 何時該停止使用排程來排定 Chaos 的日期和時間。  預設值\: 9999-12-31T23\:59\:59.999Z。 |
@@ -70,7 +70,7 @@ Chaos 會根據 Chaos 排程自動排定執行。 所提供的輸入排程中版
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
@@ -83,15 +83,15 @@ Chaos 會根據 Chaos 排程自動排定執行。 所提供的輸入排程中版
 下列命令會將排程設定為 (假設目前的排程版本為 0) 在 2016-01-01 開始並在 2038-01-01 到期，一週 7 天、每天 24 小時執行 Chaos。 Chaos 將會排定在該時間於叢集上執行。
 
     sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z" --expiry-date-utc "2038-01-01T00:00:00.000Z"
-    --chaos-parameters-dictionary 
-    [  
-    {  
+    --chaos-parameters-dictionary
+    [
+    {
         "Key":"adhoc",
-        "Value":{  
+        "Value":{
             "MaxConcurrentFaults":3,
             "EnableMoveReplicaFaults":true,
-            "ChaosTargetFilter":{  
-                "NodeTypeInclusionList":[  
+            "ChaosTargetFilter":{
+                "NodeTypeInclusionList":[
                 "N0010Ref",
                 "N0020Ref",
                 "N0030Ref",
@@ -103,12 +103,12 @@ Chaos 會根據 Chaos 排程自動排定執行。 所提供的輸入排程中版
             "WaitTimeBetweenIterationsInSeconds":15,
             "WaitTimeBetweenFaultsInSeconds":30,
             "TimeToRunInSeconds":"600",
-            "Context":{  
-                "Map":{  
+            "Context":{
+                "Map":{
                 "test":"value"
                 }
             },
-            "ClusterHealthPolicy":{  
+            "ClusterHealthPolicy":{
                 "MaxPercentUnhealthyNodes":0,
                 "ConsiderWarningAsError":true,
                 "MaxPercentUnhealthyApplications":0
@@ -116,11 +116,11 @@ Chaos 會根據 Chaos 排程自動排定執行。 所提供的輸入排程中版
         }
     }
     ]
-    --jobs 
-    [  
-    {  
+    --jobs
+    [
+    {
         "ChaosParameters":"adhoc",
-        "Days":{  
+        "Days":{
             "Sunday":true,
             "Monday":true,
             "Tuesday":true,
@@ -129,13 +129,13 @@ Chaos 會根據 Chaos 排程自動排定執行。 所提供的輸入排程中版
             "Friday":true,
             "Saturday":true
         },
-        "Times":[  
-            {  
-                "StartTime":{  
+        "Times":[
+            {
+                "StartTime":{
                 "Hour":0,
                 "Minute":0
                 },
-                "EndTime":{  
+                "EndTime":{
                 "Hour":23,
                 "Minute":59
                 }

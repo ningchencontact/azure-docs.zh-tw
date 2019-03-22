@@ -15,12 +15,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c7a6edab1bc63d8cb1ae6f7de43372304e21ed1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 950a349506f32405261d90c05312d24aa3deadc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170630"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089942"
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>Application Proxy 應用程式的應用程式頁面未正確顯示
 
@@ -31,7 +31,7 @@ ms.locfileid: "56170630"
 
 您可以藉由開啟網路追蹤程式 (例如 Fiddler，或 Internet Explorer/Microsoft Edge 中的 F12 工具)、載入頁面，然後尋找 404 錯誤，來驗證遺失資源是否就是問題所在。 該錯誤表示目前找不到頁面，而您需要發佈它們。
 
-以此案例為例，假設您已使用內部 URL http://myapps/expenses 發佈一個費用應用程式，但該應用程式會使用樣式表 http://myapps/style.css。 在此狀況下，該樣式表未在您的應用程式中發佈，因此若載入費用應用程式，則會在嘗試載入 style.css 時擲回 404 錯誤。 在此範例中，使用內部 URL http://myapp/ 發佈應用程式，就能解決問題。
+以此案例為例，假設您已使用內部 URL `http://myapps/expenses` 發佈一個費用應用程式，但該應用程式會使用樣式表 `http://myapps/style.css`。 在此狀況下，該樣式表未在您的應用程式中發佈，因此若載入費用應用程式，則會在嘗試載入 style.css 時擲回 404 錯誤。 在此範例中，使用內部 URL `http://myapp/` 發佈應用程式，就能解決問題。
 
 ## <a name="problems-with-publishing-as-one-application"></a>發佈為一個應用程式時的問題
 

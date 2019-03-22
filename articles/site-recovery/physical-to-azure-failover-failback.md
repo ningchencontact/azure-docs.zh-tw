@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 4e787ab134caee1a7f9a26e46f698f2fe9807d83
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: edb169d131aafd045fdf0f670e1dda87677d57ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813669"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834672"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>將複寫的實體伺服器容錯移轉及容錯回復至 Azure
 
@@ -68,7 +68,7 @@ ms.locfileid: "55813669"
 處理序伺服器會從 Azure VM 接收資料，並將資料傳送至內部部署網站。 低延遲網路必須位於處理序伺服器與受保護的機器之間。
 
 - 基於測試目的，如果您有 Azure ExpressRoute 連線，您可以使用在組態伺服器上自動安裝的內部部署處理序伺服器。
-- 如果您有 VPN 連線，或正在生產環境中執行容錯回復，則必須將 Azure VM 設定為以 Azure 為基礎的處理序伺服器進行容錯回復。
+- 如果您有 VPN 連線，或正在生產環境中執行容錯回復，則必須將 Azure VM 設定為 Azure 型處理序伺服器，以進行容錯回復。
 - 若要在 Azure 中設定處理序伺服器，請依照[本文](vmware-azure-set-up-process-server-azure.md)中的指示操作。
 
 ## <a name="configure-the-master-target-server"></a>設定主要目標伺服器

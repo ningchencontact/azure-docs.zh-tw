@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 937ac1d892cdea849d7e5a89c8e69c6b069f2efd
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: c16483f4b8ef160c78ff95582faf54c9a9d24a04
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56334035"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57964100"
 ---
 本文提供上一代虛擬機器大小的資訊。 這些大小仍可使用，但有較新一代的大小可供使用。
 
 
 ## <a name="ds-series"></a>DS 系列
 
-ACU：160
+ACU：160-250 <sup>1</sup>
 
 進階儲存體：支援
 
@@ -33,11 +33,12 @@ ACU：160
 | Standard_DS3 |4 |14 |28 |16 |16,000 / 128 (172) |12,800 / 128 |4 / 2000 |
 | Standard_DS4 |8 |28 |56 |32 |32,000 / 256 (344) |25,600 / 256 |8 / 4000 |
 
+<sup>1</sup> VM 系列可在其中一個下列的 CPU 上執行：2.2 GHz Intel Xeon® E5 2660 v2，2.4 GHz Intel Xeon® E5 2673 v3 (Haswell) 或 XEON® 的 2.3 GHz Intel E5 2673 v4 (Broadwell)
 <br>
 
 ## <a name="ds-series---memory-optimized"></a>DS 系列 - 記憶體已最佳化
 
-ACU：160 <sup>1</sup>
+ACU：160-250 <sup>1,2</sup>
 
 進階儲存體：支援
 
@@ -50,13 +51,13 @@ ACU：160 <sup>1</sup>
 | Standard_DS13 |8 |56 |112 |32 |32,000 / 256 (288) |25,600 / 256 |8 / 4000 |
 | Standard_DS14 |16 |112 |224 |64 |64,000 / 512 (576) |51,200 / 512 |8 / 8000 |
 
-<sup>1</sup> DS 系列 VM 的最大磁碟輸送量 (IOPS 或 MBps)，可能會受到所連接磁碟的數量、大小和串接所限制。  如需詳細資訊，請參閱[為高效能而設計](../articles/virtual-machines/windows/premium-storage-performance.md)。
+<sup>1</sup> DS 系列 VM 的最大磁碟輸送量 (IOPS 或 MBps)，可能會受到所連接磁碟的數量、大小和串接所限制。  如需詳細資訊，請參閱[為高效能而設計](../articles/virtual-machines/windows/premium-storage-performance.md) \(英文\)。
 
-
+<sup>2</sup> VM 系列可在其中一個下列的 CPU 上執行：2.2 GHz Intel Xeon® E5 2660 v2，2.4 GHz Intel Xeon® E5 2673 v3 (Haswell) 或 XEON® 的 2.3 GHz Intel E5 2673 v4 (Broadwell)
 
 ## <a name="d-series"></a>D 系列 
 
-ACU：160
+ACU：160-250 <sup>1</sup>
 
 進階儲存體：不支援
 
@@ -69,11 +70,12 @@ ACU：160
 | Standard_D3  | 4         | 14          | 200            | 12000 / 187 / 93                                         | 16 / 16x500                         | 4 / 2000                     |
 | 標準_D4  | 8         | 28          | 400            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 4000                     |
 
+<sup>1</sup> VM 系列可在其中一個下列的 CPU 上執行：2.2 GHz Intel Xeon® E5 2660 v2，2.4 GHz Intel Xeon® E5 2673 v3 (Haswell) 或 XEON® 的 2.3 GHz Intel E5 2673 v4 (Broadwell)
 <br>
 
 ## <a name="d-series---memory-optimized"></a>D 系列 - 記憶體已最佳化
 
-ACU：160
+ACU：160-250 <sup>1</sup>
 
 進階儲存體：不支援
 
@@ -86,6 +88,7 @@ ACU：160
 | 標準_D13 | 8         | 56          | 400            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 4000                     |
 | 標準_D14 | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 8000                |
 
+<sup>1</sup> VM 系列可在其中一個下列的 CPU 上執行：2.2 GHz Intel Xeon® E5 2660 v2，2.4 GHz Intel Xeon® E5 2673 v3 (Haswell) 或 XEON® 的 2.3 GHz Intel E5 2673 v4 (Broadwell)
 <br>
 
 ## <a name="a-series---compute-intensive-instances"></a>A 系列 - 大量計算執行個體
@@ -96,7 +99,7 @@ ACU：225
 
 進階儲存體快取：不支援
 
-A8-A11 和 H 系列大小也稱為 *計算密集型執行個體*。 執行這些大小的硬體是針對計算密集型和網路密集型應用程式 (包括高效能運算 (HPC) 叢集應用程式)、模型化及模擬而設計及最佳化的。 A8-A11 系列使用 Intel Xeon E5-2670 @ 2.6 GHZ，而 H 系列使用 Intel Xeon E5-2667 v3 @ 3.2 GHz。  本文提供 vCPU 數量、資料磁碟和 NIC 的相關資訊，以及此群組中各種大小之儲存體輸送量和網路頻寬的相關資訊。 
+A8-A11 和 H 系列大小也稱為 *計算密集型執行個體*。 執行這些大小的硬體是針對計算密集型和網路密集型應用程式 (包括高效能運算 (HPC) 叢集應用程式)、模型化及模擬而設計及最佳化的。 A8-A11 系列使用 Intel Xeon E5-2670 @ 2.6 GHZ，而 H 系列使用 Intel Xeon E5-2667 v3 @ 3.2 GHz。  
 
 | 大小 | vCPU | 記憶體：GiB | 暫存儲存體 (HDD)：GiB | 最大資料磁碟 | 最大資料磁碟輸送量：IOPS | 最大 NIC|
 | --- | --- | --- | --- | --- | --- | --- |
@@ -127,6 +130,7 @@ ACU：50-100
 | Standard_A5 |2 |14 |135 |4 |4x500 |2 / 500 |
 | Standard_A6 |4 |28 |285 |8 |8x500 |2 / 1000 |
 | Standard_A7 |8 |56 |605 |16 |16x500 |4 / 2000 |
+
 <br>
 
 <sup>1</sup> A0 大小已在實體硬體上過度訂閱。 僅針對這個特定大小，其他客戶部署可能會影響您正在執行的工作負載的效能。 以下概述的相對效能為預期的基準，受限於近似變化性的 15%。

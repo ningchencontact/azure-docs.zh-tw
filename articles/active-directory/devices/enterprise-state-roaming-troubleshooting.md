@@ -19,12 +19,12 @@ ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bf7919a2dc69bc834a5834d10a5a297a2ad6949
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9e2b99871cc1da2b1e8e136fc4d689e90dfad77a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170298"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081231"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>針對 Azure Active Directory 中的企業狀態漫遊設定進行疑難排解
 
@@ -47,7 +47,7 @@ ms.locfileid: "56170298"
 * **受影響的使用者** – 是有一位還是多位使用者的同步處理成功/失敗？ 每個使用者涉及多少裝置？ 它們是否都沒有同步處理，或它們之間部分已同步處理，部分沒有同步處理？
 * **使用者的相關資訊** – 使用者是使用什麼身分識別來登入裝置？ 使用者如何登入裝置？ 它們是否屬於允許同步處理的所選安全性群組中的裝置？ 
 * **裝置的相關資訊** – 此裝置是否已經加入 Azure AD 或已經加入網域？ 此裝置使用哪一個組建？ 最新的更新是？
-- **日期/時間/時區** – 您看到錯誤時的精確日期和時間 (包含時區)。
+* **日期/時間/時區** – 您看到錯誤時的精確日期和時間 (包含時區)。
 
 包含這項資訊有助於我們盡快為您解決問題。
 
@@ -59,8 +59,8 @@ ms.locfileid: "56170298"
 1. 將您的 Windows 10 電腦加入已設定為允許企業狀態漫遊的網域之後，使用您的公司帳戶登入。 移至 [設定] > [帳戶] > [同步您的設定]，並確認同步處理和個別設定都已啟用，且設定頁面頂端指示您正使用公司帳戶進行同步處理。 確認您在 [設定] > [帳戶] > [您的資訊] 中也是使用相同帳戶作為登入帳戶。 
 1. 透過在原始電腦上進行一些變更 (例如將工作列移至畫面右側或頂端)，來確認同步處理可跨多部電腦運作。 監看變更是否在 5 分鐘內傳送至第二部電腦。 
 
-  * 將畫面鎖定和解除鎖定 (Win + L) 有助於觸發同步處理。
-  * 您必須在兩部電腦上使用相同的帳戶登入，同步處理才能運作 – 因為「企業狀態漫遊」是繫結至使用者帳戶，而不是電腦帳戶。
+   * 將畫面鎖定和解除鎖定 (Win + L) 有助於觸發同步處理。
+   * 您必須在兩部電腦上使用相同的帳戶登入，同步處理才能運作 – 因為「企業狀態漫遊」是繫結至使用者帳戶，而不是電腦帳戶。
 
 **可能的問題**：如果無法使用 [設定] 頁面中的控制項，您會看到「只有當您使用 Microsoft 帳戶或公司帳戶時，某些 Windows 功能才能使用。」訊息。 如果裝置設定成加入網域並向 Azure AD 註冊，但裝置尚未成功向 Azure AD 驗證，可能就會發生這個問題。 可能的原因是必須套用裝置原則，但這個套用作業是非同步的，而且可能會延遲幾個小時。 
 

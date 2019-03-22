@@ -8,19 +8,19 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 316ebb7774a0420087bf9ed5c099a91d78a96fb0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9aba12a2bca882b5f0e6e95d8e4f6014b318a12e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181213"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119720"
 ---
 # <a name="delegate-app-administrator-roles-in-azure-active-directory"></a>在 Azure Active Directory 中指派應用程式系統管理員角色
 
@@ -37,8 +37,8 @@ ms.locfileid: "56181213"
 1. 使用租用戶中的全域管理員角色適用的帳戶，登入 [Azure AD 租用戶](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)。
 2. 如果您有足夠的權限，請開啟[角色和系統管理員頁面](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators)。
 3. 開啟下列其中一個角色以查看其成員指派：
-  * **應用程式系統管理員**
-  * **雲端應用程式系統管理員**
+   * **應用程式系統管理員**
+   * **雲端應用程式系統管理員**
 4. 在角色的 [成員] 頁面上，選取 [新增成員]。
 5. 選取一或多個要新增至角色的成員。 <!--Members can be users or groups.-->
 
@@ -50,8 +50,8 @@ ms.locfileid: "56181213"
 
 1. 使用租用戶中的全域管理員角色適用的帳戶，登入 [Azure AD 租用戶](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)。
 2. 如果您已取得足夠的權限，請進行下列一或兩項設定：
-  * 在[租用戶的使用者設定頁面](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings)上，將 [使用者可以註冊應用程式] 設為 [否]。
-  * 在[企業應用程式的使用者設定](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)上，將 [使用者可同意應用程式代表自己存取公司資料] 設為 [否]。
+   * 在[租用戶的使用者設定頁面](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings)上，將 [使用者可以註冊應用程式] 設為 [否]。
+   * 在[企業應用程式的使用者設定](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)上，將 [使用者可同意應用程式代表自己存取公司資料] 設為 [否]。
 3. 然後，視需要將需要此權限的使用者指派為應用程式開發人員角色的成員。
 
 當使用者註冊應用程式時，系統會自動將他們新增為應用程式的第一個擁有者。

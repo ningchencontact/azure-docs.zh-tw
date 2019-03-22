@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c29cf0604e651902474d85dbd6edd3208e6b5944
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 55a829f2ed32152d14ef637c8079f7af8c487bea
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811290"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097639"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>使用 Azure Data Factory 從 SFTP 伺服器移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,12 +49,12 @@ ms.locfileid: "55811290"
 ## <a name="linked-service-properties"></a>連結服務屬性
 下表提供 FTP 連結服務專屬 JSON 元素的說明。
 
-| 屬性 | 說明 | 必要 |
-| --- | --- | --- | --- |
-| type | 類型屬性必須設為 `Sftp`。 |yes |
-| host | SFTP 伺服器的名稱或 IP 位址。 |yes |
+| 屬性 | 描述 | 必要項 |
+| --- | --- | --- |
+| type | 類型屬性必須設為 `Sftp`。 |是 |
+| host | SFTP 伺服器的名稱或 IP 位址。 |是 |
 | 連接埠 |SFTP 伺服器所接聽的連接埠。 預設值為：21 |否 |
-| authenticationType |指定驗證類型。 允許的值：**Basic**、**SshPublicKey**。 <br><br> 請參閱[使用基本驗證](#using-basic-authentication)和[使用 SSH 公開金鑰驗證](#using-ssh-public-key-authentication)章節，分別取得更多屬性和 JSON 範例。 |yes |
+| authenticationType |指定驗證類型。 允許的值：**Basic**、**SshPublicKey**。 <br><br> 請參閱[使用基本驗證](#using-basic-authentication)和[使用 SSH 公開金鑰驗證](#using-ssh-public-key-authentication)章節，分別取得更多屬性和 JSON 範例。 |是 |
 | skipHostKeyValidation | 指定是否略過主機金鑰驗證。 | 沒有。 預設值：false |
 | hostKeyFingerprint | 指定主機金鑰的指紋。 | 如果 `skipHostKeyValidation` 設為 false，則為 [是]。  |
 | gatewayName |要連線至內部部署 SFTP 伺服器的資料管理閘道名稱。 | 如果從內部部署 SFTP 伺服器複製資料，則為 [是]。 |
@@ -64,10 +64,10 @@ ms.locfileid: "55811290"
 
 若要使用基本驗證，將 `authenticationType` 設定為 `Basic`，然後指定上一節中介紹的 SFTP 連接器泛用以外的下列屬性︰
 
-| 屬性 | 說明 | 必要 |
-| --- | --- | --- | --- |
-| username | 可存取 SFTP 伺服器的使用者。 |yes |
-| password | 使用者 (使用者名稱) 的密碼。 | yes |
+| 屬性 | 描述 | 必要項 |
+| --- | --- | --- |
+| username | 可存取 SFTP 伺服器的使用者。 |是 |
+| password | 使用者 (使用者名稱) 的密碼。 | 是 |
 
 #### <a name="example-basic-authentication"></a>範例：基本驗證
 ```json
@@ -114,9 +114,9 @@ ms.locfileid: "55811290"
 
 若要使用 SSH 公開金鑰驗證，將 `authenticationType` 設定為 `SshPublicKey`，然後指定上一節中介紹的 SFTP 連接器泛用以外的下列屬性︰
 
-| 屬性 | 說明 | 必要 |
-| --- | --- | --- | --- |
-| username |可存取 SFTP 伺服器的使用者 |yes |
+| 屬性 | 描述 | 必要項 |
+| --- | --- | --- |
+| username |可存取 SFTP 伺服器的使用者 |是 |
 | privateKeyPath | 指定閘道可以存取之私密金鑰檔案的絕對路徑。 | 指定 `privateKeyPath` 或 `privateKeyContent`。 <br><br> 僅當從內部部署 SFTP 伺服器複製資料時才套用。 |
 | privateKeyContent | 私密金鑰內容的序列化字串。 複製精靈可以讀取私密金鑰檔案，並自動解壓縮私密金鑰內容。 如果您使用任何其他工具/SDK，請改為使用 privateKeyPath 屬性。 | 指定 `privateKeyPath` 或 `privateKeyContent`。 |
 | passPhrase | 如果金鑰檔案受到複雜密碼保護，請指定複雜密碼/密碼以將私密金鑰解密。 | 如果私密金鑰檔案受到複雜密碼保護，則為 [是]。 |
@@ -170,9 +170,9 @@ ms.locfileid: "55811290"
 
 不同類型資料集的 **typeProperties** 區段不同。 它提供資料集類型的特定資訊。 **FileShare** 資料集類型的 typeProperties 區段具有下列屬性：
 
-| 屬性 | 說明 | 必要 |
+| 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
-| folderPath |資料夾的子路徑。 使用逸出字元 ‘ \ ’ 當做字串中的特殊字元。 如需範例，請參閱「範例連結服務和資料集定義」。<br/><br/>您可以結合此屬性與 **partitionBy**，讓資料夾路徑以配量開始/結束日期時間為基礎。 |yes |
+| folderPath |資料夾的子路徑。 使用逸出字元 ‘ \ ’ 當做字串中的特殊字元。 如需範例，請參閱「範例連結服務和資料集定義」。<br/><br/>您可以結合此屬性與 **partitionBy**，讓資料夾路徑以配量開始/結束日期時間為基礎。 |是 |
 | fileName |如果您想要資料表參考資料夾中的特定檔案，請指定 **folderPath** 中的檔案名稱。 如果沒有為此屬性指定任何值，資料表會指向資料夾中的所有檔案。<br/><br/>若未指定輸出資料集的 fileName，所產生檔案的名稱是下列格式︰ <br/><br/>Data.<Guid>.txt (例如：Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |否 |
 | fileFilter |指定要用來在 folderPath (而不是所有檔案) 中選取檔案子集的篩選器。<br/><br/>允許的值為︰`*` (多個字元) 和 `?` (單一字元)。<br/><br/>範例 1：`"fileFilter": "*.log"`<br/>範例 2：`"fileFilter": 2014-1-?.txt"`<br/><br/> fileFilter 適用於輸入 FileShare 資料集。 這個屬性不支援使用 HDFS。 |否 |
 | partitionedBy |partitionedBy 可以用來指定時間序列資料的動態 folderPath 和 filename。 例如，folderPath 可針對每小時的資料進行參數化。 |否 |

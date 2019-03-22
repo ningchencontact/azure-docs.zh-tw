@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
-ms.openlocfilehash: 7e5d04f3ead4353c88a6b56ab530f41ff15022d1
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 0a29e453c723ecc9ac378ee337365525587aaef2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005381"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444118"
 ---
-# <a name="computer-groups-in-azure-monitor-log-quereies"></a>Azure 監視器記錄查詢中的電腦群組
+# <a name="computer-groups-in-azure-monitor-log-queries"></a>Azure 監視器的記錄檔查詢中的電腦群組
 Azure 監視器中的電腦群組可讓您將[記錄查詢](../log-query/log-query-overview.md)範圍限於一組特定的電腦。  使用您所定義的查詢，或從不同來源匯入群組，將電腦填入每個群組中。  當記錄查詢包含群組時，結果就僅限於與群組中的電腦相符的記錄。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
@@ -28,7 +28,7 @@ Azure 監視器中的電腦群組可讓您將[記錄查詢](../log-query/log-que
 ## <a name="creating-a-computer-group"></a>建立電腦群組
 您可以使用下表的任何方法，在 Azure 監視器中建立電腦群組。  下列各節提供每個方法的詳細資料。 
 
-| 方法 | 說明 |
+| 方法 | 描述 |
 |:--- |:--- |
 | 記錄檔查詢 |建立記錄查詢來傳回電腦清單。 |
 | 記錄檔搜尋 API |使用記錄搜尋 API，根據記錄查詢結果，以程式設計方式建立電腦群組。 |
@@ -53,9 +53,9 @@ Azure 監視器中的電腦群組可讓您將[記錄查詢](../log-query/log-que
 
 下表描述定義電腦群組的屬性。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:---|:---|
-| Name   | 要在入口網站中顯示的查詢名稱。 |
+| 名稱   | 要在入口網站中顯示的查詢名稱。 |
 | 函式別名 | 用來識別查詢中電腦群組的唯一別名。 |
 | 類別       | 用來在入口網站中組織查詢的類別。 |
 
@@ -125,7 +125,7 @@ Azure 監視器中的電腦群組可讓您將[記錄查詢](../log-query/log-que
 ## <a name="computer-group-records"></a>電腦群組記錄
 針對從 Active Directory 或 WSUS 建立每個電腦群組成員資格，Log Analytics 工作區中會建立一筆記錄。  這些記錄的類型為 **ComputerGroup**，且具有下表中的屬性。  如果電腦群組是根據記錄查詢，則不會建立記錄。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | 類型 |*ComputerGroup* |
 | SourceSystem |*SourceSystem* |

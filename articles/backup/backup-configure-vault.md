@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 4aff7c486762d9ea7bd38ae152d169968432307e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 7a1bd6da68b49481429709c7e4fd37dd5c07ae2c
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898953"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200781"
 ---
 # <a name="back-up-windows-machines-with-the-azure-backup-mars-agent"></a>備份 Azure 備份的 MARS 代理程式的 Windows 機器
 
@@ -51,13 +51,21 @@ MARS 代理程式會使用 Azure 備份將備份檔案、 資料夾和系統狀�
 
 ### <a name="verify-internet-access"></a>確認網際網路存取
 
-如果您的電腦具有受限的網際網路存取，請確定電腦或 proxy 上的防火牆設定允許這些 Url:
+如果您的電腦具有受限的網際網路存取，請確定電腦或 proxy 上的防火牆設定允許這些 Url 和 IP 位址：
+
+**URL**
 
 - www\.msftncsi.com
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.microsoftonline.com
 - *.windows.net
+
+**IP 位址**
+
+- 20.190.128.0/18
+- 40.126.0.0/18
+
 
 ## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫
 

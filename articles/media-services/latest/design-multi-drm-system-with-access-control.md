@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 40e7f257df41fa4836b9df692be48a4b6c57fc80
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: ef695d913c73f0a4266b20f21f1008108b85b4d0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812985"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57893011"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>設計具有存取控制的多重 DRM 內容保護系統 
 
@@ -29,7 +29,7 @@ ms.locfileid: "54812985"
 
 這份文件的目標讀者是使用 OTT 或線上串流/多重螢幕解決方案的 DRM 子系統工程師，或是對於 DRM 子系統有興趣的任何讀者。 假設讀者都熟悉市場上至少一個 DRM 技術，例如 PlayReady、Widevine、FairPlay 或 Adobe Access。
 
-在本討論中，我們透過多重 DRM 包含 Azure 媒體服務支援的 3 個 DRM：一般加密 (CENC)，用於 PlayReady 和 Widevine、FairPlay 以及 AES-128 清除金鑰加密。 線上串流和 OTT 產業中的主要趨勢，是在各種用戶端平台上使用原生 DRM。 這個趨勢是從先前趨勢轉移而來，先前的趨勢是將單一 DRM 及其用戶端 SDK 用於各種用戶端平台。 使用 CENC 搭配多重原生 DRM 時，PlayReady 和 Widevine 會依照 [Common Encryption (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) 規格加密。
+在本討論中，我們透過多重 DRM 包含 Azure 媒體服務支援的 3 個 DRM：一般加密 (CENC)，用於 PlayReady 和 Widevine、FairPlay 以及 AES-128 清除金鑰加密。 線上串流和 OTT 產業中的主要趨勢，是在各種用戶端平台上使用原生 DRM。 這個趨勢是從先前趨勢轉移而來，先前的趨勢是將單一 DRM 及其用戶端 SDK 用於各種用戶端平台。 使用 CENC 搭配多重原生 DRM 時，PlayReady 和 Widevine 會依照 [Common Encryption (ISO/IEC 23001-7 CENC)](https://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) 規格加密。
 
 使用原生多重 DRM 進行內容保護的優點，是它能夠：
 
@@ -49,7 +49,7 @@ ms.locfileid: "54812985"
 下表摘要說明不同平台上的原生 DRM 支援，以及不同瀏覽器中的 EME 支援。
 
 | **用戶端平台** | **原生 DRM** | **EME** |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | **智慧型電視、STB** | PlayReady、Widevine 及/或其他 | 內嵌瀏覽器/EME for PlayReady 及/或 Widevine|
 | **Windows 10** | PlayReady | Microsoft Edge/IE11 for PlayReady|
 | **Android 裝置 (電話、平板電腦、電視)** |Widevine |Chrome for Widevine |
@@ -145,7 +145,7 @@ DRM 子系統可能包含下列元件：
 | **金鑰管理** |不需要參考實作 |
 | **內容管理** |C# 主控台應用程式 |
 
-換言之，Azure AD 會提供 IDP 和 STS。 [Azure 媒體播放器 API](http://amp.azure.net/libs/amp/latest/docs/) 用於播放器。 Azure 媒體服務和 Azure 媒體播放器均支援透過 DASH 的 CENC、透過 HLS 的 FairPlay、透過 Smooth Streaming 的 PlayReady，以及適用於 DASH、HLS 和 Smooth 的 AES-128 加密。
+換言之，Azure AD 會提供 IDP 和 STS。 [Azure 媒體播放器 API](https://amp.azure.net/libs/amp/latest/docs/) 用於播放器。 Azure 媒體服務和 Azure 媒體播放器均支援透過 DASH 的 CENC、透過 HLS 的 FairPlay、透過 Smooth Streaming 的 PlayReady，以及適用於 DASH、HLS 和 Smooth 的 AES-128 加密。
 
 下圖顯示上述技術對應的整體結構與流程：
 
@@ -199,13 +199,13 @@ DRM 子系統可能包含下列元件：
    * Install-Package Microsoft.Owin.Host.SystemWeb
    * Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
-8. 使用 [Azure 媒體播放器 API](http://amp.azure.net/libs/amp/latest/docs/) 來建立播放器。 使用 [Azure 媒體播放器的 ProtectionInfo API](http://amp.azure.net/libs/amp/latest/docs/) 來指定要在不同的 DRM 平台上使用哪個 DRM 技術。
+8. 使用 [Azure 媒體播放器 API](https://amp.azure.net/libs/amp/latest/docs/) 來建立播放器。 使用 [Azure 媒體播放器的 ProtectionInfo API](https://amp.azure.net/libs/amp/latest/docs/) 來指定要在不同的 DRM 平台上使用哪個 DRM 技術。
 
 9. 下表會顯示測試矩陣。
 
     | **DRM** | **[瀏覽器]** | **有權限使用者的結果** | **無權限使用者的結果** |
     | --- | --- | --- | --- |
-    | **PlayReady** |Windows 10 的 Microsoft Edge 或 Internet Explorer 11 |成功 |不合格 |
+    | **PlayReady** |Windows 10 的 Microsoft Edge 或 Internet Explorer 11 |成功 |失败 |
     | **Widevine** |Chrome、Firefox、Opera |成功 |不合格 |
     | **FairPlay** |macOS 上的 Safari      |成功 |不合格 |
     | **AES-128** |大部分的新式瀏覽器  |成功 |不合格 |
@@ -365,7 +365,7 @@ Azure AD 所簽發的 JWT 是用來存取指標資源的存取權杖。
 
 > [!NOTE]
 > 如果您使用 .NET Framework/C# 作為開發平台，用於非對稱安全性金鑰的 x509 憑證之金鑰長度必須至少為 2048。 這是 .NET Framework 中的 System.IdentityModel.Tokens.X509AsymmetricSecurityKey 類別的需求。 否則，會擲回下列例外狀況：
-
+> 
 > IDX10630：用於簽署的 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' 不能小於 '2048' 位元。
 
 ## <a name="the-completed-system-and-test"></a>完整的系統和測試

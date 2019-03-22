@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: bcb62b311426c7582202ced3714d01c429118ab5
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: d3aad8f1b032960786564bbb18f99c260fd72113
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268408"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092713"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights 中的遙測相互關聯
 
@@ -64,8 +64,8 @@ Application Insights 會定義分散遙測相互關聯的[資料模型](../../az
 
 我們正在進行[相互關聯 HTTP 通訊協定](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)的 RFC 提案。 此提案會定義兩個標頭︰
 
-- `Request-Id`：裝載呼叫的全域唯一識別碼。
-- `Correlation-Context`：裝載分散式追蹤屬性的名稱值組集合。
+- `Request-Id`:裝載呼叫的全域唯一識別碼。
+- `Correlation-Context`:裝載分散式追蹤屬性的名稱值組集合。
 
 標準也定義了兩個用於產生 `Request-Id` 的結構描述：平面和階層。 使用平面結構描述時，會為 `Correlation-Context` 集合定義已知的 `Id` 金鑰。
 
@@ -75,8 +75,8 @@ Application Insights 會定義相互關聯 HTTP 通訊協定的[延伸](https://
 
 我們即將轉換為 [W3C 分散式追蹤格式](https://w3c.github.io/trace-context/)。 其定義：
 
-- `traceparent`：裝載全域唯一的作業識別碼和唯一的呼叫識別碼。
-- `tracestate`：裝載追蹤系統特定的內容。
+- `traceparent`:裝載全域唯一的作業識別碼和唯一的呼叫識別碼。
+- `tracestate`:裝載追蹤系統特定的內容。
 
 #### <a name="enable-w3c-distributed-tracing-support-for-classic-aspnet-apps"></a>啟用傳統 ASP.NET 應用程式的 W3C 分散式追蹤支援
 
@@ -212,7 +212,7 @@ Application Insights SDK 從 2.4.0-beta1 版開始，會使用 `DiagnosticSource
 ## <a name="next-steps"></a>後續步驟
 
 - 撰寫[自訂遙測](../../azure-monitor/app/api-custom-events-metrics.md)。
-- 深入了解為其他 SDK [設定 cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloudrolename)。
+- 深入了解為其他 SDK [設定 cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud_rolename)。
 - 在 Application Insights 上將微服務的所有元件上線。 查看[支援的平台](../../azure-monitor/app/platforms.md)。
 - 參閱[資料模型](../../azure-monitor/app/data-model.md)以了解 Application Insights 類型。
 - 了解如何[擴充和篩選遙測](../../azure-monitor/app/api-filtering-sampling.md)。

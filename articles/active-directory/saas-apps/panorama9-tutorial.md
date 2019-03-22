@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8008f96e00b0d9a4366832110c696c67a9c7257
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: dc3a42c280a344ef08fa23111df8652b6167cfb0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165398"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109894"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>教學課程：Azure Active Directory 與 Panorama9 整合
 
@@ -198,18 +198,18 @@ Panorama9 需以手動的方式佈建。
 
 1. 在頂端的功能表中，按一下 [管理]，然後按一下 [使用者]。
    
-  ![使用者](./media/panorama9-tutorial/ic790027.png "使用者")
+   ![使用者](./media/panorama9-tutorial/ic790027.png "使用者")
 
 1. 在 [使用者] 區段中，按一下 **+** 來新增使用者。
 
- ![使用者](./media/panorama9-tutorial/ic790028.png "使用者")
+   ![使用者](./media/panorama9-tutorial/ic790028.png "使用者")
 
 1. 移至 [使用者資料] 區段，在 [電子郵件] 文字方塊中，輸入您想要佈建之有效 Azure Active Directory 使用者的電子郵件地址。
 
 1. 移至 [使用者] 區段，按一下 [儲存]。
    
 > [!NOTE]
-    > Azure Active Directory 帳戶的持有者會收到一封電子郵件，並依照連結在啟用其帳戶前進行確認。
+> Azure Active Directory 帳戶的持有者會收到一封電子郵件，並依照連結在啟用其帳戶前進行確認。
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

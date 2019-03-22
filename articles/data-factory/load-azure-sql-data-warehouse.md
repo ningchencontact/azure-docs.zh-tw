@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: b8b07db6e21fb685ed76409336c98bb5f4ce5bde
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.openlocfilehash: 7a478a9f73edae463a5dace1b1a28180e5d09bdc
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009431"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437729"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料載入 Azure SQL 資料倉儲中
 
@@ -26,10 +26,10 @@ ms.locfileid: "51009431"
 
 Azure Data Factory 可針對將資料載入 Azure SQL 資料倉儲的作業提供下列優勢：
 
-* **容易設定**：不需要編寫指令碼的直覺式 5 步驟精靈。
-* **豐富的資料存放區支援**︰一組豐富內部部署和雲端式資料存放區的內部支援。 如需詳細清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)的資料表。
-* **安全且符合規範**：資料會透過 HTTPS 或 ExpressRoute 來傳送。 具有全域服務，可確保資料絕不會離開地理界限。
-* **PolyBase 的無與倫比使用效能**：Polybase 是將資料移至 Azure SQL 資料倉儲的最有效方式。 使用暫存 Blob 功能來讓您能夠從所有類型的資料存放區 (包括 Azure Blob 儲存體和 Data Lake Store) 高速載入資料。 (Polybase 預設支援 Azure Blob 儲存體和 Azure Data Lake Store)。如需詳細資料，請參閱[複製活動效能](copy-activity-performance.md)。
+* **容易設定**：沒有所需的指令碼的直覺式 5 步驟精靈。
+* **豐富的資料存放區支援**:一組豐富內部部署和雲端資料存放區的內建支援。 如需詳細清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)的資料表。
+* **安全且符合規範**:資料會透過 HTTPS 或 ExpressRoute 傳輸。 具有全域服務，可確保資料絕不會離開地理界限。
+* **無與倫比的效能，使用 PolyBase**:Polybase 是將資料移至 Azure SQL 資料倉儲最有效率的方式。 使用暫存 Blob 功能來讓您能夠從所有類型的資料存放區 (包括 Azure Blob 儲存體和 Data Lake Store) 高速載入資料。 (Polybase 預設支援 Azure Blob 儲存體和 Azure Data Lake Store)。如需詳細資料，請參閱[複製活動效能](copy-activity-performance.md)。
 
 本文將示範如何使用 Data Factory 複製資料工具，將資料從 Azure SQL Database 載入 Azure SQL 資料倉儲中。 您可以依照類似的步驟，從其他類型的資料存放區複製資料。
 
@@ -38,10 +38,10 @@ Azure Data Factory 可針對將資料載入 Azure SQL 資料倉儲的作業提�
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
-* Azure SQL 資料倉儲：此資料倉儲會保存從 SQL 資料庫所複製過來的資料。 如果您沒有 Azure SQL 資料倉儲，請參閱[建立 SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md)中的指示。
-* Azure SQL Database：本教學課程會從具有 Adventure Works LT 資料範例的 Azure SQL Database 複製資料。 您可以遵循[建立 Azure SQL 資料庫](../sql-database/sql-database-get-started-portal.md)中的指示來建立 SQL 資料庫。 
-* Azure 儲存體帳戶：大量複製作業會使用 Azure 儲存體作為「暫存」Blob。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)中的指示。
+* Azure 訂用帳戶：如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
+* Azure SQL 資料倉儲：資料倉儲保存從 SQL database 所複製過來的資料。 如果您沒有 Azure SQL 資料倉儲，請參閱[建立 SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md)中的指示。
+* Azure SQL Database：本教學課程會將資料複製 Azure SQL database 使用 Adventure Works LT 範例資料。 您可以遵循[建立 Azure SQL 資料庫](../sql-database/sql-database-get-started-portal.md)中的指示來建立 SQL 資料庫。 
+* Azure 儲存體帳戶：Azure 儲存體當做_預備_大量複製作業中的 blob。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)中的指示。
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
@@ -53,8 +53,8 @@ Azure Data Factory 可針對將資料載入 Azure SQL 資料倉儲的作業提�
    ![新增資料處理站頁面](./media/load-azure-sql-data-warehouse/new-azure-data-factory.png)
  
     * **名稱**：輸入 Azure 資料處理站的全域唯一名稱。 如果您收到「資料處理站名稱 \"LoadSQLDWDemo\" 無法使用」的錯誤，請為資料處理站輸入其他名稱。 例如，您可以使用**您的名稱****ADFTutorialDataFactory**。 請嘗試再次建立資料處理站。 如需 Data Factory 成品的命名規則，請參閱 [Data Factory 命名規則](naming-rules.md)。
-    * **訂用帳戶**：選取用來在其中建立資料處理站的 Azure 訂用帳戶。 
-    * **資源群組**：從下拉式清單中選取現有資源群組，或選取 [新建] 選項，然後輸入資源群組的名稱。 若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
+    * 訂用帳戶：選取用來在其中建立資料處理站的 Azure 訂用帳戶。 
+    * **資源群組**：從下拉式清單中選取現有的資源群組，或選取 [新建] 選項，然後輸入資源群組的名稱。 若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
     * **版本**：選取 [V2]。
     * **位置**：選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區可位於其他位置和區域。 這些資料存放區包含 Azure Data Lake Store、Azure 儲存體、Azure SQL Database 等等。
 
@@ -84,7 +84,7 @@ Azure Data Factory 可針對將資料載入 Azure SQL 資料倉儲的作業提�
 
     ![選取 Azure SQL DB](./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png)
 
-    c. 在 [新增連結服務] 頁面中，從下拉式清單中選取您的伺服器名稱和資料庫名稱，並指定使用者名稱和密碼。 按一下 [測試連線] 以驗證設定，然後選取 [完成]。
+    c. 在 **新增連結服務**頁面，從下拉式清單中，選取您的伺服器名稱和資料庫名稱並指定使用者名稱和密碼。 按一下 [測試連線] 以驗證設定，然後選取 [完成]。
    
     ![設定 Azure SQL DB](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
 
@@ -106,7 +106,7 @@ Azure Data Factory 可針對將資料載入 Azure SQL 資料倉儲的作業提�
 
     ![選取 Azure SQL 資料倉儲](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
-    c. 在 [新增連結服務] 頁面中，從下拉式清單中選取您的伺服器名稱和資料庫名稱，並指定使用者名稱和密碼。 按一下 [測試連線] 以驗證設定，然後選取 [完成]。
+    c. 在 **新增連結服務**頁面，從下拉式清單中，選取您的伺服器名稱和資料庫名稱並指定使用者名稱和密碼。 按一下 [測試連線] 以驗證設定，然後選取 [完成]。
    
     ![設定 Azure SQL 資料倉儲](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
 

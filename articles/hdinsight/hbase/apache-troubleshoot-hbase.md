@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 4f6f6042eaacc809b9d413ef01883987bd558507
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 4dc50de7a97055e336627e34f747a17fcedc7e58
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651600"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091540"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>使用 Azure HDInsight 對 Apache HBase 進行疑難排解
 
@@ -367,7 +367,7 @@ HMaster 逾時，並發生類似如下的嚴重例外狀況：「java.io.IOExcep
            2017-03-21 13:22:40,285 - File['/var/run/hbase/hbase-hbase-regionserver.pid'] {'action': ['delete']}
            2017-03-21 13:22:40,285 - Deleting File['/var/run/hbase/hbase-hbase-regionserver.pid']
    ```
-由於突然關機之故，即使區域伺服器處理序已停止，也可能不會釋放與處理序建立關聯的連接埠。 這種情況可能導致在啟動區域伺服器時發生 AddressBindException，如下列記錄中所示。 您可以在 region-server.log (位於區域伺服器失敗之背景工作節點的 /var/log/hbase 目錄) 中確認這一點。 
+   由於突然關機之故，即使區域伺服器處理序已停止，也可能不會釋放與處理序建立關聯的連接埠。 這種情況可能導致在啟動區域伺服器時發生 AddressBindException，如下列記錄中所示。 您可以在 region-server.log (位於區域伺服器失敗之背景工作節點的 /var/log/hbase 目錄) 中確認這一點。 
 
    ```apache
 
@@ -417,5 +417,5 @@ HMaster 逾時，並發生類似如下的嚴重例外狀況：「java.io.IOExcep
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"   
    ```
 
-### <a name="see-also"></a>另請參閱
+### <a name="see-also"></a>另请参阅
 [使用 Azure HDInsight 進行疑難排解](../../hdinsight/hdinsight-troubleshoot-guide.md)

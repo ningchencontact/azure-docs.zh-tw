@@ -1,5 +1,5 @@
 ---
-title: 教學課程：使用 Azure BizTalk 服務處理 EDIFACT 發票 | Microsoft Docs
+title: 教學課程：使用 Azure BizTalk 服務處理 EDIFACT 發票 |Microsoft Docs
 description: 如何建立並設定 Box 連接器或 API 應用程式，並在 Azure App Service 的邏輯應用程式中使用它
 services: biztalk-services
 documentationcenter: .net,nodejs,java
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: bb07e3ab8043aab24d6d8c3e3db3f3674b28c6f3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5eb9740bdd0543556265f54a1a37b632f79ac861
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244486"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550117"
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>教學課程：使用 Azure BizTalk 服務處理 EDIFACT 發票
 
@@ -55,11 +55,11 @@ ms.locfileid: "51244486"
 為了完成案例，我們使用服務匯流排佇列將發票從 Contoso 傳送至 Northwind，或從 Northwind 接收通知。 這些佇列可以透過用戶端應用程式 (可經由下載取得) 來予以建立，並且會包含在本教學課程所提供的範例封裝中。  
 
 ## <a name="prerequisites"></a>必要條件
-* 您必須具有服務匯流排命名空間。 如需建立命名空間的指示，請參閱 [作法：建立或修改服務匯流排服務命名空間](https://msdn.microsoft.com/library/azure/hh674478.aspx)。 讓我們假設您已佈建服務匯流排命名空間，且其名稱為 **edifactbts**。
+* 您必須具有服務匯流排命名空間。 如需建立命名空間的指示，請參閱[How To:建立或修改服務匯流排服務命名空間](https://msdn.microsoft.com/library/azure/hh674478.aspx)。 讓我們假設您已佈建服務匯流排命名空間，且其名稱為 **edifactbts**。
 * 您必須擁有 BizTalk 服務訂用帳戶。 在本教學課程中，讓我們假設您擁有 BizTalk 服務訂用帳戶，且其名稱為 **contosowabs**。
 * 在 BizTalk 服務入口網站註冊 BizTalk 服務訂用帳戶。 如需相關指示，請參閱 [在 BizTalk 服務入口網站註冊 BizTalk 服務部署](https://msdn.microsoft.com/library/hh689837.aspx)
 * 您必須安裝 Visual Studio。
-* 您必須安裝 BizTalk 服務 SDK。 您可以從以下位置下載 SDK：[http://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
+* 您必須安裝 BizTalk 服務 SDK。 您可以從以下位置下載 SDK：[https://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
 
 ## <a name="step-1-create-the-service-bus-queues"></a>步驟 1：建立服務匯流排佇列
 此方案使用服務匯流排佇列以讓交易夥伴彼此交換訊息。 Contoso 和 Northwind 會傳送訊息至 EAI 和 (或) EDI 橋接器從中取用訊息的佇列。 在此方案中，您需要三個服務匯流排佇列：
@@ -106,7 +106,7 @@ ms.locfileid: "51244486"
    3. 在 [通訊協定] 索引標籤的 [結構描述] 區段底下，上傳 **EFACT_D93A_INVOIC.xsd** 結構描述。 此結構描述可在範例封裝內取得。
       
       ![][4]  
-   4. 在 [傳輸] 索引標籤上，指定服務匯流排佇列的詳細資料。 對於傳送端協議，我們使用 **northwindreceive** 佇列來將 EDIFACT 發票傳送至 Northwind，並使用 **suspended** 佇列來路由傳送任何在處理期間失敗且因而擱置的訊息。 您已在**步驟 1：建立服務匯流排佇列** (在本主題) 中建立這些佇列。
+   4. 在 [傳輸] 索引標籤上，指定服務匯流排佇列的詳細資料。 對於傳送端協議，我們使用 **northwindreceive** 佇列來將 EDIFACT 發票傳送至 Northwind，並使用 **suspended** 佇列來路由傳送任何在處理期間失敗且因而擱置的訊息。 建立在這些佇列**步驟 1:建立服務匯流排佇列**（在本主題中）。
       
       ![][5]  
       
@@ -227,7 +227,7 @@ ms.locfileid: "51244486"
 在本主題中，我們將說明如何使用範例中提供的 **Tutorial Client** 應用程式來測試方案。  
 
 1. 在 Visual Studio 中，按 F5 以啟動 **Tutorial Client**。
-2. 畫面上必須已預先填入我們用來建立服務匯流排佇列之步驟所指定的值。 按 [下一步] 。
+2. 畫面上必須已預先填入我們用來建立服務匯流排佇列之步驟所指定的值。 单击“下一步”。
 3. 在下一個視窗中，提供 BizTalk 服務訂用帳戶的 ACS 認證，以及 EAI 和 EDI (接收) 橋接器部署所在的端點。
    
    您已在上一個步驟中複製 EAI 橋接器端點。 至於 EDI 接收橋接器端點，請在 BizTalk 服務入口網站中，移至 [協議] > [接收設定] > [傳輸] > [端點]。
@@ -246,17 +246,17 @@ ms.locfileid: "51244486"
    
    ![][16]  
 
-## <a name="step-5-optional-send-edifact-invoice-in-batches"></a>步驟 5 (選用)：批次傳送 EDIFACT 發票
+## <a name="step-5-optional-send-edifact-invoice-in-batches"></a>步驟 5 (選用)：分批傳送 EDIFACT 發票
 BizTalk 服務 EDI 橋接器也支援批次處理傳出訊息。 對於想要接收一批訊息 (符合特定條件) 而非個別訊息的接收夥伴，這項功能很實用。
 
 在處理批次時最重要的一點是批次的實際釋放，也稱為釋放準則。 釋放準則可以是依據接收夥伴想要接收訊息的方式。 如果啟用批次處理，則要等到符合釋放準則後，EDI 橋接器才會傳送傳出訊息給接收夥伴。 例如，依據訊息大小的批次準則只會在批次處理 'n' 則訊息時才分派批次。 批次準則也可以是依據時間，以便在每天固定時間傳送批次。 在此方案中，我們嘗試以訊息大小為基礎的準則。
 
 1. 在 BizTalk 服務入口網站中，按一下您稍早建立的協議。 按一下 [傳送設定] > [批次處理] > [新增批次]。
 2. 對批次名稱輸入 **InvoiceBatch**、提供描述，然後按 [下一步]。
-3. 指定定義必須批次處理哪些訊息的批次準則。 在此方案中，我們會批次處理所有訊息。 因此，請選取 [使用進階定義] 選項，然後輸入 **1 = 1**。 這個條件永遠會成立，因此會批次處理所有訊息。 按 [下一步] 。
+3. 指定定義必須批次處理哪些訊息的批次準則。 在此方案中，我們會批次處理所有訊息。 因此，請選取 [使用進階定義] 選項，然後輸入 **1 = 1**。 這個條件永遠會成立，因此會批次處理所有訊息。 单击“下一步”。
    
    ![][17]  
-4. 指定批次釋放準則。 從下拉式方塊中，選取 [MessageCountBased]，然後在 [計數] 中指定 **3**。 這表示每批次會傳送三個訊息至 Northwind。 按 [下一步] 。
+4. 指定批次釋放準則。 從下拉式方塊中，選取 [MessageCountBased]，然後在 [計數] 中指定 **3**。 這表示每批次會傳送三個訊息至 Northwind。 单击“下一步”。
    
    ![][18]  
 5. 檢閱摘要，然後按一下 [儲存] 。 按一下 [部署]  來重新部署協議。

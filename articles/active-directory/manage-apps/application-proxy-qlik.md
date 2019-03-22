@@ -14,12 +14,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 855cf81dbf24b0662048f69061ca85b72ff5f670
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 12e36c49d8c4db60302d4b72dfa81ea4aceec77b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171242"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107384"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>應用程式 Proxy 和 Qlik Sense 
 Azure Active Directory 應用程式 Proxy 和 Qlik Sense 已搭配運作，可確保您能夠輕鬆使用「應用程式 Proxy」來為 Qlik Sense 部署提供遠端存取。  
@@ -41,13 +41,13 @@ Azure Active Directory 應用程式 Proxy 和 Qlik Sense 已搭配運作，可�
 2. 選取 [Azure Active Directory]  >  [企業應用程式]。 
 3. 在刀鋒視窗頂端選取 [新增]。 
 4. 選取**內部部署應用程式**。 
-5.       使用新應用程式的相關資訊填寫必要的欄位。 使用下列指導方針設定︰ 
-    - **內部 URL**：此應用程式應該具有就是 QlikSense URL 本身的內部 URL。 例如，**https&#58;//demo.qlikemm.com:4244** 
-    - **預先驗證方法**：Azure Active Directory (建議使用但非必要) 
-1.       選取刀鋒視窗底部的 [新增]。 已新增您的應用程式，快速入門功能表隨即開啟。 
-2.       在 [快速啟動] 功能表中，選取 [指派測試使用者]，並將至少一個使用者新增至應用程式。 請確定此測試帳戶可存取內部部署應用程式。 
-3.       選取**指派**以儲存測試使用者指派。 
-4.       (選擇性) 在 [應用程式管理] 刀鋒視窗中，選取 [單一登入]。 從下拉式功能表中選擇 [Kerberos 限制委派]，然後根據您的 Qlik 設定填寫必要的欄位。 選取 [ **儲存**]。 
+5. 使用新應用程式的相關資訊填寫必要的欄位。 使用下列指導方針設定︰ 
+   - **內部 URL**：此應用程式應該具有就是 QlikSense URL 本身的內部 URL。 例如，**https&#58;//demo.qlikemm.com:4244** 
+   - **預先驗證方法**：Azure Active Directory (建議使用但非必要) 
+1. 選取刀鋒視窗底部的 [新增]。 已新增您的應用程式，快速入門功能表隨即開啟。 
+2. 在 [快速啟動] 功能表中，選取 [指派測試使用者]，並將至少一個使用者新增至應用程式。 請確定此測試帳戶可存取內部部署應用程式。 
+3. 選取**指派**以儲存測試使用者指派。 
+4. (選擇性) 在 [應用程式管理] 刀鋒視窗中，選取 [單一登入]。 從下拉式功能表中選擇 [Kerberos 限制委派]，然後根據您的 Qlik 設定填寫必要的欄位。 選取 [ **儲存**]。 
 
 ### <a name="application-2"></a>應用程式 #2： 
 請依照用於第 1 個應用程式的相同步驟進行操作，但下列除外： 

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 中「您無法從這裡完成」錯誤訊息的可能原因 | Microsoft Docs
+title: 疑難排解 「 您無法從這裡前往該處 」 的錯誤-Azure Active Directory |Microsoft Docs
 description: 針對您收到「您無法從這裡完成」錯誤訊息的可能原因進行疑難排解。
 services: active-directory
 author: eross-msft
@@ -12,13 +12,14 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
+ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7cd67a9a7027e8567e470acab006fd09748de54
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a317680a39d4594aacdf84ccdf963bb84bfbf07b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181706"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452016"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>「您無法從這裡完成」錯誤訊息的可能原因
 存取貴組織的內部 Web 應用程式或服務時收到錯誤訊息，指出：**您無法從這裡完成**。 此訊息表示貴組織已讓原則就位，防止您的裝置存取貴組織的資源。 雖然最終您可能還是需要連絡技術服務人員來修正此問題，但是以下是您可以先嘗試的一些動作。

@@ -1,6 +1,6 @@
 ---
 title: Azure Blockchain Workbench 疑難排解
-description: 如何針對 Azure Blockchain Workbench 應用程式進行疑難排解。
+description: 如何疑難排解 Azure Blockchain Workbench 應用程式。
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 9f0f32bc1fb6b88dc85f09e13aebc60ff74ec723
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: b55c84773d99c325689fbc5182e75c7cb108d00a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329728"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890010"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Azure Blockchain Workbench 疑難排解
 
@@ -24,7 +24,7 @@ ms.locfileid: "54329728"
 * 區塊鏈網路，例如 Ethereum
 * Blockchain Workbench 微服務
 * Application Insights
-* Azure 監視 (Log Analytics)
+* Azure 監視 （Azure 監視器記錄檔）
 
 您可以使用這些資訊來判斷後續步驟，並判斷問題的根本原因。
 
@@ -46,21 +46,21 @@ collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>
 ```
 此指令碼接受下列參數︰
 
-| 參數  | 說明 | 必要 |
+| 參數  | 描述 | 必要項 |
 |---------|---------|----|
 | SubscriptionID | 用來建立或找到所有資源的 SubscriptionID。 | 是 |
 | resourceGroupName | Blockchain Workbench 部署所在 Azure 資源群組的名稱。 | 是 |
 | OutputDirectory | 用來建立輸出 .ZIP 檔案的路徑。 如果未指定，則會預設為目前的目錄。 | 否 |
 | LookbackHours | 提取遙測資料時要使用的小時數。 預設值為 24 小時。 最大值為 90 小時 | 否 |
-| OmsSubscriptionId | 已部署 Log Analytics 的訂用帳戶 ID。 只有當區塊鏈網路的 Log Analytics 是部署在 Blockchain Workbench 的資源群組外時，才需傳遞此參數。| 否 |
-| OmsResourceGroup |已部署 Log Analytics 的資源群組。 只有當區塊鏈網路的 Log Analytics 是部署在 Blockchain Workbench 的資源群組外時，才需傳遞此參數。| 否 |
-| OmsWorkspaceName | Log Analytics 工作區名稱。 只有當區塊鏈網路的 Log Analytics 是部署在 Blockchain Workbench 的資源群組外時，才需傳遞此參數 | 否 |
+| OmsSubscriptionId | 部署 Azure 監視器的記錄位置的訂用帳戶識別碼。 如果外部 Blockchain Workbench 的資源群組部署區塊鏈網路的 Azure 監視器記錄檔，只傳遞此參數。| 否 |
+| OmsResourceGroup |Azure 監視器的記錄位置的資源群組部署。 如果外部 Blockchain Workbench 的資源群組部署區塊鏈網路的 Azure 監視器記錄檔，只傳遞此參數。| 否 |
+| OmsWorkspaceName | Log Analytics 工作區名稱。 僅傳遞此參數，如果外部 Blockchain Workbench 的資源群組部署區塊鏈網路的 Azure 監視器記錄檔 | 否 |
 
 ## <a name="what-is-collected"></a>所收集的項目有哪些？
 
 輸出 ZIP 檔案包含下列資料夾結構：
 
-| 資料夾或檔案 | 說明  |
+| 資料夾或檔案 | 描述  |
 |---------|---------|
 | \Summary.txt | 系統的摘要 |
 | \Metrics\blockchain | 區塊鏈的相關計量 |

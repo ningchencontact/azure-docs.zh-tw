@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: b846e1fe4552c6cec356a7e7828135b0e1fdf315
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fa13ffe450b60bd8c896636911268a98b49bbc0f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55994096"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104126"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>使用 Azure AD 驗證存取 Azure 媒體服務 API  
  
@@ -27,7 +27,7 @@ Azure 媒體服務 API 是一種 RESTful API。 您可以使用 REST API 或使�
 媒體服務支援 [Azure Active Directory (Azure AD) 型驗證](../../active-directory/fundamentals/active-directory-whatis.md)。 Azure 媒體 REST 服務規定，發出 REST API 要求的使用者或應用程式需具備**參與者**或**擁有者**角色才能存取資源。 如需詳細資訊，請參閱[在 Azure 入口網站中開始使用角色型存取控制](../../role-based-access-control/overview.md)。  
 
 > [!IMPORTANT]
-> 目前，媒體服務支援 Azure 存取控制服務驗證模型。 不過，存取控制授權將在 2018 年 6 月 1 日被取代。 建議您儘速移轉至 Azure AD 驗證模型。
+> 目前，媒体服务支持 Azure 访问控制服务身份验证模型。 不過，存取控制授權將在 2018 年 6 月 1 日被取代。 建議您儘速移轉至 Azure AD 驗證模型。
 
 本文件提供如何使用 REST 或 .NET API 來存取媒體服務 API 的概觀。
 
@@ -71,20 +71,20 @@ Azure 媒體 REST 要求若要成功，呼叫的使用者必須擁有嘗試存�
 1. 提示使用者輸入認證。
 2. 使用下列參數要求 Azure AD 存取權杖：  
 
-    * Azure AD 租用戶端點。
+   * Azure AD 租用戶端點。
 
-        租用戶資訊可從 Azure 入口網站擷取。 將游標放在右上角登入的使用者名稱上方。
-    * 媒體服務資源 URI。 
+       租用戶資訊可從 Azure 入口網站擷取。 將游標放在右上角登入的使用者名稱上方。
+   * 媒體服務資源 URI。 
 
-        同一 Azure 環境中的媒體服務帳戶的這個 URI 都相同 (例如， https://rest.media.azure.net)。
+       同一 Azure 環境中的媒體服務帳戶的這個 URI 都相同 (例如， https://rest.media.azure.net)。
 
-    * 媒體服務 (原生) 應用程式用戶端識別碼。
-    * 媒體服務 (原生) 應用程式重新導向 URI。
-    * REST 媒體服務的資源 URI。
+   * 媒體服務 (原生) 應用程式用戶端識別碼。
+   * 媒體服務 (原生) 應用程式重新導向 URI。
+   * REST 媒體服務的資源 URI。
         
-        URI 表示 REST API 端點 (例如 https://test03.restv2.westus.media.azure.net/api/)。
+       URI 表示 REST API 端點 (例如 https://test03.restv2.westus.media.azure.net/api/)。
 
-    若要取得這些參數的值，請參閱[使用 Azure 入口網站存取 Azure AD 驗證設定](media-services-portal-get-started-with-aad.md) (使用使用者驗證選項)。
+     若要取得這些參數的值，請參閱[使用 Azure 入口網站存取 Azure AD 驗證設定](media-services-portal-get-started-with-aad.md) (使用使用者驗證選項)。
 
 3. Azure AD 存取權杖會傳送至用戶端。
 4. 用戶端會使用此 Azure AD 存取權杖將要求傳送至 Azure 媒體 REST API。
@@ -107,26 +107,26 @@ Azure 媒體 REST 要求若要成功，呼叫的使用者必須擁有嘗試存�
 建立您的 Azure AD 應用程式之後，您會取得下列設定的值。 您需要這些值以進行驗證：
 
 - 用戶端識別碼 
-- 用戶端密碼 
+- 客户端机密 
 
 在上圖中，數字代表依時間順序的要求流量：
     
 1. 中介層應用程式 (Web API 或 Web 應用程式) 會要求具有下列參數的 Azure AD 存取權杖：  
 
-    * Azure AD 租用戶端點。
+   * Azure AD 租户终结点。
 
-        租用戶資訊可從 Azure 入口網站擷取。 將游標放在右上角登入的使用者名稱上方。
-    * 媒體服務資源 URI。 
+       租用戶資訊可從 Azure 入口網站擷取。 將游標放在右上角登入的使用者名稱上方。
+   * 媒體服務資源 URI。 
 
-        位於同一 Azure 環境中的媒體服務帳戶的這個 URI 都相同 (例如， https://rest.media.azure.net)。
+       位於同一 Azure 環境中的媒體服務帳戶的這個 URI 都相同 (例如， https://rest.media.azure.net)。
 
-    * REST 媒體服務的資源 URI。
+   * REST 媒體服務的資源 URI。
 
-        URI 表示 REST API 端點 (例如 https://test03.restv2.westus.media.azure.net/api/)。
+       URI 表示 REST API 端點 (例如 https://test03.restv2.westus.media.azure.net/api/)。
 
-    * Azure AD 應用程式的值：用戶端識別碼和用戶端祕密。
+   * Azure AD 應用程式的值：用戶端識別碼和用戶端祕密。
     
-    若要取得這些參數的值，請參閱[使用 Azure 入口網站存取 Azure AD 驗證設定](media-services-portal-get-started-with-aad.md) (使用服務主體驗證選項)。
+     若要取得這些參數的值，請參閱[使用 Azure 入口網站存取 Azure AD 驗證設定](media-services-portal-get-started-with-aad.md) (使用服務主體驗證選項)。
 
 2. Azure AD 存取權杖會傳送至中介層。
 4. 中介層使用該 Azure AD 權杖傳送要求至 Azure 媒體 REST API。

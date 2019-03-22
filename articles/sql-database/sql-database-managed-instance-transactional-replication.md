@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: d0f9ea15b692d9aba2fde217805ea5e0ecfb4dfd
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 409c1abd7e9f532bb243ecab00228b402215c77e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993804"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852749"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>搭配 Azure SQL Database 中單一、集區和執行個體資料庫使用的異動複寫
 
@@ -26,7 +26,6 @@ ms.locfileid: "55993804"
 ## <a name="when-to-use-transactional-replication"></a>使用異動複寫的時機
 
 異動複寫對於下列情況非常有用：
-
 - 發佈在資料庫中的一或多個資料表中所進行的變更，然後將它們散發到訂閱變更的 SQL Server 或 Azure SQL 資料庫。
 - 讓數個散發資料庫處於同步狀態。
 - 藉由持續發佈變更，將資料庫從 SQL Server 或受控執行個體移轉到其他資料庫。
@@ -53,36 +52,62 @@ ms.locfileid: "55993804"
 
 | 角色 | 單一和集區資料庫 | 執行個體資料庫 |
 | :----| :------------- | :--------------- |
-| **發行者** | 否 | yes | 
-| **散發者** | 否 | yes|
-| **提取訂閱者** | 否 | yes|
-| **發送訂閱者**| yes | yes|
+| **發行者** | 否 | 是 | 
+| **散發者** | 否 | 是|
+| **提取訂閱者** | 否 | 是|
+| **發送訂閱者**| 是 | 是|
 | &nbsp; | &nbsp; | &nbsp; |
 
-[複寫有不同類型](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication?view=sql-server-2017)：
+  >[!NOTE]
+  > 散發者是執行個體的資料庫，並不是 「 訂閱者 」 時，不支援的提取訂閱。 
+
+[複寫有不同類型](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)：
 
 
 | 複寫 | 單一和集區資料庫 | 執行個體資料庫|
 | :----| :------------- | :--------------- |
-| [**交易式**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | 是 (僅作為訂閱者) | yes | 
-| [**快照集**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | 是 (僅作為訂閱者) | yes|
+| [**交易式**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | 是 (僅作為訂閱者) | 是 | 
+| [**快照集**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | 是 (僅作為訂閱者) | 是|
 | [**合併式複寫**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | 否 | 否|
 | [**點對點**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | 否 | 否|
-| **單向** | yes | yes|
-| [**雙向**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | 否 | yes|
+| **單向** | 是 | 是|
+| [**雙向**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | 否 | 是|
 | [**可更新訂閱**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | 否 | 否|
 | &nbsp; | &nbsp; | &nbsp; |
 
   >[!NOTE]
   > - 嘗試使用舊版設定複寫可能會導致錯誤號碼 MSSQL_REPL20084 (處理序無法連線到訂閱者。) 和 MSSQ_REPL40532 (無法開啟登入所要求的公開伺服器 \<名稱>。 登入失敗。)。
-  > - 若要使用 Azure SQL Database 的所有功能，您必須使用最新版的 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) 和 [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017)。
+  > - 若要使用 Azure SQL Database 的所有功能，您必須使用最新版的 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 和 [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)。
+  
+  ### <a name="supportabilty-matrix-for-instance-databases-and-on-premises-systems"></a>執行個體的資料庫和內部部署系統的 Supportabilty 矩陣
+  資料庫執行個體是相同的 SQL Server 內部部署複寫可支援性對照表。 
+  
+  | **發行者**   | **散發者** | **訂閱者** |
+| :------------   | :-------------- | :------------- |
+| SQL Server 2017 | SQL Server 2017 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 |
+| SQL Server 2016 | SQL Server 2017 <br/> SQL Server 2016 | SQL Server 2017 <br/>SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 |
+| SQL Server 2014 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>| SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |
+| SQL Server 2012 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> | SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 | 
+| SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 <br/>  |
+| &nbsp; | &nbsp; | &nbsp; |
 
 ## <a name="requirements"></a>需求
 
 - 連線會在複寫參與者之間使用 SQL 驗證。 
 - 與工作目錄共用且用於複寫的 Azure 儲存體帳戶。 
-- 必須在受控執行個體子網路的安全性規則中開啟連接埠 445 (TCP 輸出) 才能存取 Azure 檔案共用。 
-- 如果發行者/散發者是在受控執行個體上且訂閱者在內部部署中，則需要開啟連接埠 1433 (TCP 輸出)。 
+- 必須在存取 Azure 檔案共用的受控執行個體子網路的安全性規則中開啟連接埠 445 (TCP 輸出)。 
+- 如果發行者/散發者是在受控執行個體上且訂閱者在內部部署中，則需要開啟連接埠 1433 (TCP 輸出)。
+
+  >[!NOTE]
+  > 連接到 Azure 儲存體檔案，輸出網路安全性 (nsg) 連接埠 445 遭到封鎖時散發者是執行個體的資料庫和訂閱者是在內部部署環境時，您可能會遇到錯誤 53。 [更新 vNet NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems)若要解決此問題。 
+
+### <a name="compare-data-sync-with-transactional-replication"></a>比較資料同步與異動複寫
+
+| | 資料同步 | 異動複寫 |
+|---|---|---|
+| 優點 | - 主動-主動支援<br/>- 在內部部署與 Azure SQL Database 之間雙向進行 | - 更低的延遲性<br/>- 交易一致性<br/>- 移轉後重複使用現有的拓撲 |
+| 缺點 | - 5 分鐘或更多的延遲<br/>- 無交易一致性<br/>- 更高的效能影響 | - 無法從 Azure SQL Database 單一資料庫或集區資料庫發佈<br/>- 高維護成本 |
+| | | |
 
 ## <a name="common-configurations"></a>一般設定
 
@@ -90,7 +115,7 @@ ms.locfileid: "55993804"
 
 ### <a name="publisher-with-local-distributor-on-a-managed-instance"></a>本機散發者在受控執行個體上的發行者
 
-![單一執行個體作為發行者和散發者 ](media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
+![單一執行個體作為發行者和散發者](media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
 
 發行者和散發者設定在單一受控執行個體內，並會將變更散發到其他受控執行個體、單一資料庫、集區資料庫或內部部署 SQL Server。 在此設定中，發行者/散發者受控執行個體無法設定為[異地複寫和自動容錯移轉群組](sql-database-auto-failover-group.md)。
 
@@ -112,6 +137,7 @@ ms.locfileid: "55993804"
  
 在此設定中，Azure SQL Database (單一、集區和執行個體資料庫) 是訂閱者。 此設定支援從內部部署移轉至 Azure。 如果訂閱者位於單一或集區資料庫上，則它必須處於發送模式。  
 
+
 ## <a name="next-steps"></a>後續步驟
 
 1. [為受控執行個體設定異動複寫](replication-with-sql-database-managed-instance.md#configure-publishing-and-distribution-example)。 
@@ -119,7 +145,8 @@ ms.locfileid: "55993804"
 1. [建立發送訂閱](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription)，方法是使用 Azure SQL Database 伺服器名稱作為訂閱者 (例如 `N'azuresqldbdns.database.windows.net`)，並使用 Azure SQL Database 名稱作為目的地資料庫 (例如 **AdventureWorks**)。 )
 
 
-## <a name="see-also"></a>另請參閱  
+
+## <a name="see-also"></a>另请参阅  
 
 - [複寫至 SQL Database](replication-to-sql-database.md)
 - [複寫至受控執行個體](replication-with-sql-database-managed-instance.md)

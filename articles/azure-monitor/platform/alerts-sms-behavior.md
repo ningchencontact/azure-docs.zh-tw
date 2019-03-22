@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 85480a098dc5ef70938a5ec4cd7a31105496df6f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 225c86ee1a7f764f60b2da0b8e3be02aa5dd22e7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461395"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123295"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>動作群組中的 SMS 警示行為
 ## <a name="overview"></a>概觀 ##
@@ -28,9 +28,9 @@ ms.locfileid: "54461395"
 ## <a name="receiving-an-sms-alert"></a>接收 SMS 警示
 設定成動作群組一部分的 SMS 收件者，將會在觸發警示時收到 SMS。 SMS 包含下列資訊：
 * 會收到此警示的動作群組簡稱
-- 警示的標題
+* 警示的標題
 
-| REPLY | 說明 |
+| REPLY | 描述 |
 | ----- | ----------- |
 | DISABLE <Action Group Short name> | 停用來自動作群組的其他 SMS |
 | ENABLE <Action Group Short name> | 重新啟用來自動作群組的 SMS |

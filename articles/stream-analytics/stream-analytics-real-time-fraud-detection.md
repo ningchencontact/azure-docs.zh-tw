@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 73fffda6ec0ae0a65af9b5aa8505e3b9551bd3b4
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 84f74392b93212558851f89dab924ae3db5620ed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558170"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995119"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>開始使用 Azure 串流分析：即時詐欺偵測
 
@@ -68,9 +68,9 @@ ms.locfileid: "53558170"
 
 5. 按一下新的命名空間，然後在命名空間窗格中，按一下 [事件中樞]。
 
-   ![建立新事件中樞的 [新增事件中樞] 按鈕 ](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
+   ![建立新事件中樞的 [新增事件中樞] 按鈕](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
  
-6. 將新的事件中樞命名為 `asa-eh-frauddetection-demo`。 您可以使用不同的名稱。 如果這樣做，請記下來，因為稍後需要用到此名稱。 您目前不需要為事件中樞設定其他任何選項。
+6. 將新的事件中樞命名為 `asa-eh-frauddetection-demo`。 可以使用其他名称。 如果這樣做，請記下來，因為稍後需要用到此名稱。 您目前不需要為事件中樞設定其他任何選項。
 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="Name event hub in Azure portal" width="400px"/>
     
@@ -106,7 +106,7 @@ ms.locfileid: "53558170"
 
         Endpoint=sb://YOURNAME-eh-ns-demo.servicebus.windows.net/;SharedAccessKeyName=asa-policy-manage-demo;SharedAccessKey=Gw2NFZwU1Di+rxA2T+6hJYAtFExKRXaC2oSQa0ZsPkI=;EntityPath=asa-eh-frauddetection-demo
 
-    請注意，連接字串包含多個機碼值組，以分號分隔：`Endpoint`、`SharedAccessKeyName`、`SharedAccessKey` 和 `EntityPath`。  
+    请注意，连接字符串包含多个键值对，用分号分隔：`Endpoint`、`SharedAccessKeyName`、`SharedAccessKey` 和 `EntityPath`。  
 
 ## <a name="configure-and-start-the-event-generator-application"></a>設定並啟動事件產生器應用程式
 
@@ -114,20 +114,20 @@ ms.locfileid: "53558170"
 
 ### <a name="configure-the-telcogenerator-app"></a>設定 TelcoGenerator 應用程式
 
-1.  在已複製連接字串的編輯器中，記下 `EntityPath` 值，然後移除 `EntityPath` 組 (別忘了移除前面的分號)。 
+1. 在已複製連接字串的編輯器中，記下 `EntityPath` 值，然後移除 `EntityPath` 組 (別忘了移除前面的分號)。 
 
-2.  在您解壓縮 TelcoGenerator.zip 檔案的資料夾中，利用編輯器開啟 telcodatagen.exe.config 檔案。 (有一個以上的 .config 檔案，請確定是開啟正確的檔案。)
+2. 在您解壓縮 TelcoGenerator.zip 檔案的資料夾中，利用編輯器開啟 telcodatagen.exe.config 檔案。 (有一個以上的 .config 檔案，請確定是開啟正確的檔案。)
 
-3.  在 `<appSettings>` 元素中：
+3. 在 `<appSettings>` 元素中：
 
-    * 將 `EventHubName` 索引鍵的值設為事件中樞名稱 (也就是實體路徑的值)。
-    * 將 `Microsoft.ServiceBus.ConnectionString` 索引鍵的值設為連接字串。 
+   * 將 `EventHubName` 索引鍵的值設為事件中樞名稱 (也就是實體路徑的值)。
+   * 將 `Microsoft.ServiceBus.ConnectionString` 索引鍵的值設為連接字串。 
 
-    `<appSettings>` 看起來如下範例所示。 (為了方便閱讀，會將文字斷行並移除授權權杖中的某些字元。)
+   `<appSettings>` 看起來如下範例所示。 (為了方便閱讀，會將文字斷行並移除授權權杖中的某些字元。)
 
    ![顯示事件中樞名稱和連接字串的 TelcoGenerator 設定檔](./media/stream-analytics-real-time-fraud-detection/stream-analytics-telcogenerator-config-file-app-settings.png)
  
-4.  儲存檔案。 
+4. 儲存檔案。 
 
 ### <a name="start-the-app"></a>啟動應用程式
 1.  開啟命令視窗，切換至解壓縮 TelcoGenerator 應用程式的資料夾。
@@ -147,7 +147,7 @@ ms.locfileid: "53558170"
 
 您在此即時詐騙偵測應用程式中會用到的一些重要欄位如下：
 
-|**記錄**|**定義**|
+|**記錄**|**定义**|
 |----------|--------------|
 |`CallrecTime`|通話開始時間的時間戳記。 |
 |`SwitchNum`|用來接通電話的電話交換機。 在此範例中，交換機是代表發話國的字串 (美國、中國、英國、德國或澳大利亞)。 |
@@ -191,6 +191,7 @@ ms.locfileid: "53558170"
    |事件中樞命名空間  |  asa-eh-ns-demo |  輸入事件中樞命名空間的名稱。   |
    |事件中樞名稱  | asa-eh-frauddetection-demo | 選取事件中樞的名稱。   |
    |事件中樞原則名稱  | asa-policy-manage-demo | 選取您稍早建立的存取原則。   |
+
     </br>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="Create Stream Analytics input in portal" width="300px"/>
 
@@ -359,6 +360,7 @@ TelcoGenerator 應用程式正在將通話記錄傳送到事件中樞，而串�
    |訂用帳戶   |  \<您的訂用帳戶\> |  選取您在其中建立儲存體帳戶的 Azure 訂用帳戶。 儲存體帳戶可以位在相同或不同的訂用帳戶中。 此範例假設您已在相同的訂用帳戶中建立儲存體帳戶。 |
    |儲存體帳戶  |  asaehstorage |  輸入建立之儲存體帳戶的名稱。 |
    |容器  | asa-fraudulentcalls-demo | 選擇 [建立新項目]，然後輸入容器名稱。 |
+
     <br/>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="Create blob output for Stream Analytics job" width="300px"/>
     
@@ -415,5 +417,5 @@ TelcoGenerator 應用程式正在將通話記錄傳送到事件中樞，而串�
 
 * [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)

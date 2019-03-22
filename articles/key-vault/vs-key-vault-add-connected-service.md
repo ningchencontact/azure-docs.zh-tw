@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: ghogen
-ms.openlocfilehash: a6de5385046918c48b3f606477727ca4623a784c
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: de849ae290228826ee500ae1c7e623210e585d34
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998620"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113243"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>使用 Visual Studio 連線服務在 Web 應用程式中新增 Key Vault
 
@@ -49,7 +49,7 @@ ms.locfileid: "53998620"
 
    ![將 Key Vault 重新命名並選擇資源群組](media/vs-key-vault-add-connected-service/KeyVaultConnectedService-Edit.PNG)
 
-1. 選取現有的資源群組，或選擇要使用自動產生的唯一名稱來建立新的資源群組。  如果想要使用不同的名稱來建立新群組，您可以使用 [Azure 入口網站](https://portal.azure.com)，接著關閉頁面並重新啟動，以重新載入資源群組的清單。
+1. 選取現有的資源群組，或選擇建立新的自動產生的唯一名稱。  如果想要使用不同的名稱來建立新群組，您可以使用 [Azure 入口網站](https://portal.azure.com)，接著關閉頁面並重新啟動，以重新載入資源群組的清單。
 1. 選擇要在其中建立 Key Vault 的區域。 如果您的 Web 應用程式裝載於 Azure 中，請選擇裝載該 Web 應用程式的區域以獲得最佳效能。
 1. 選擇定價模型。 如需詳細資訊，請參閱 [Key Vault 價格](https://azure.microsoft.com/pricing/details/key-vault/)。
 1. 選擇 [確定] 以接受設定選項。
@@ -78,7 +78,7 @@ ms.locfileid: "53998620"
 1. 安裝 [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 和 [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet 程式庫這兩個 nuget 套件。
 
 2. 開啟 Program.cs 檔案，並以下列程式碼取代其中的程式碼： 
-```
+   ```
     public class Program
     {
         public static void Main(string[] args)
@@ -106,27 +106,27 @@ ms.locfileid: "53998620"
 
         private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
     }
-```
+   ```
 3. 接下來開啟 About.cshtml.cs 檔案，並撰寫下列程式碼
-    1. 通過此 using 陳述式包含對 Microsoft.Extensions.Configuration 的參考    
-        ```
-        using Microsoft.Extensions.Configuration
-        ```
-    2. 新增此建構函式
-        ```
-        public AboutModel(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
-        ```
-    3. 更新 OnGet 方法。 使用您在上述命令中建立的祕密名稱更新此處顯示的預留位置的值
-        ```
-        public void OnGet()
-        {
-            //Message = "Your application description page.";
-            Message = "My key val = " + _configuration["<YourSecretNameThatWasCreatedAbove>"];
-        }
-        ```
+   1. 通過此 using 陳述式包含對 Microsoft.Extensions.Configuration 的參考    
+       ```
+       using Microsoft.Extensions.Configuration
+       ```
+   2. 新增此建構函式
+       ```
+       public AboutModel(IConfiguration configuration)
+       {
+           _configuration = configuration;
+       }
+       ```
+   3. 更新 OnGet 方法。 使用您在上述命令中建立的祕密名稱更新此處顯示的預留位置的值
+       ```
+       public void OnGet()
+       {
+           //Message = "Your application description page.";
+           Message = "My key val = " + _configuration["<YourSecretNameThatWasCreatedAbove>"];
+       }
+       ```
 
 瀏覽至 [關於] 頁面，在本機執行應用程式。 您應該擷取您的密碼值
 

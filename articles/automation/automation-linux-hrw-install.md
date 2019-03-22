@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e0aaddb841687718295e09e64b23d9cefa9246fd
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: cc07aa9c1b2c540c33949a8c591bd98f91b04666
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436105"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225445"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>部署 Linux 混合式 Runbook 背景工作角色
 
@@ -62,7 +62,7 @@ Linux 混合式 Runbook 背景工作角色的最低需求如下：
 
 1. 使用下列其中一個方法，在 Azure 中啟用 [自動化混合式背景工作角色] 解決方案：
 
-   * 使用[將 Log Analytics 管理解決方案新增至您的工作區](../log-analytics/log-analytics-add-solutions.md)所述的程序，將**自動化混合式背景工作角色**解決方案新增至您的訂用帳戶。
+   * 新增**自動化混合式背景工作角色**使用的程序，在您訂用帳戶的方案[新增 Azure 監視器記錄到您的工作區的解決方案](../log-analytics/log-analytics-add-solutions.md)。
    * 執行下列 Cmdlet：
 
         ```azurepowershell-interactive
@@ -71,7 +71,7 @@ Linux 混合式 Runbook 背景工作角色的最低需求如下：
 
 1. 執行下列命令來安裝「適用於 Linux 的 Log Analytics 代理程式」。 將 \<WorkspaceID\> 和 \<WorkspaceKey\> 取代為您工作區中的適當值。
 
-  [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
+   [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
 
    ```bash
    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -85,9 +85,12 @@ Linux 混合式 Runbook 背景工作角色的最低需求如下：
 
 1. 命令完成之後，Azure 入口網站中的 [混合式背景工作角色群組] 頁面會顯示新的群組和成員數目。 如果這是現有群組，成員數目就會遞增。 您可以從 [Hybrid Worker 群組] 頁面上的清單中選取群組，然後選取 [Hybrid Worker] 圖格。 在 [Hybrid Worker] 頁面上，您會看到列出群組的每個成員。
 
+> [!NOTE]
+> 如果您使用 Azure 監視器的虛擬機器擴充功能適用於 Linux Azure VM 的建議設定`autoUpgradeMinorVersion`設為 false，以自動升級版本可能會造成問題的混合式 Runbook 背景工作角色。 若要了解如何以手動方式升級該延伸模組，請參閱[Azure CLI 部署](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment)。
+
 ## <a name="turning-off-signature-validation"></a>關閉簽章驗證
 
-根據預設，Linux 混合式 Runbook 背景工作角色需要簽章驗證。 如果您對背景工作角色執行未簽署的 Runbook，就會看到表示「簽章驗證失敗」的錯誤。 若要關閉簽章驗證，請執行下列命令。 以您的 Log Analytics 工作區識別碼來更新第二個參數。
+根據預設，Linux 混合式 Runbook 背景工作角色需要簽章驗證。 如果您對背景工作角色執行未簽署的 Runbook，就會看到表示「簽章驗證失敗」的錯誤。 若要關閉簽章驗證，請執行下列命令。 第二個參數取代為您的 log analytics 工作區識別碼。
 
  ```bash
  sudo python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/scripts/require_runbook_signature.py --false <LogAnalyticsworkspaceId>
@@ -111,12 +114,8 @@ Linux 混合式 Runbook 背景工作角色不支援 自動化中整組的 Runboo
 * 圖形化
 * 圖形化 PowerShell 工作流程
 
-## <a name="troubleshoot"></a>疑難排解
-
-若要了解如何針對混合式 Runbook 背景工作角色進行疑難排解，請參閱[針對 Linux 混合式 Runbook 背景工作角色進行疑難排解](troubleshoot/hybrid-runbook-worker.md#linux)
-
 ## <a name="next-steps"></a>後續步驟
 
 * 若要了解如何設定您的 Runbook，將您在內部部署資料中心或其他雲端環境中的程序自動化，請參閱[在混合式 Runbook 背景工作角色上執行 Runbook](automation-hrw-run-runbooks.md)。
 * 如需移除混合式 Runbook 背景工作角色的指示，請參閱[移除 Azure 自動化混合式 Runbook 背景工作角色](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker)。
-
+* 若要了解如何針對混合式 Runbook 背景工作角色進行疑難排解，請參閱[針對 Linux 混合式 Runbook 背景工作角色進行疑難排解](troubleshoot/hybrid-runbook-worker.md#linux)

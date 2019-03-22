@@ -3,22 +3,22 @@ title: Azure 認知服務是什麼？
 description: Azure 認知服務是您可以搭配 Microsoft Azure 使用，以建置智慧型應用程式的 API、SDK 和服務。
 services: cognitive-services
 author: nitinme
-manager: nitinmed
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 03/11/2019
 ms.author: nitinme
-ms.openlocfilehash: d9271b32f6254b032fab9e93aaf82ab39e7f1932
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7f0bfa407705f4c9535e6dddc9a27a4f7130931d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876278"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113825"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Azure 認知服務是什麼？
 
-Azure 認知服務是用來協助開發人員建置智慧型應用程式，且無須使用直接 AI 或資料科學技術或知識的 API、SDK 和服務。 Azure 認知服務詳述 Microsoft 不斷演變的機器學習 API 發展產品組合，可讓開發人員輕鬆地將認知功能 (例如情緒和影片偵測；臉部、語音和視覺辨識；以及語音和語言理解) 新增至其應用程式。 Azure 認知服務的目標是協助開發人員建立可以看、聽、說、理解甚至推論的應用程式。 Azure 認知服務中的服務目錄可以分成五個主要支柱：視覺、語音、語言、搜尋和知識。
+Azure 認知服務是用來協助開發人員建置智慧型應用程式，且無須使用直接 AI 或資料科學技術或知識的 API、SDK 和服務。 Azure 認知服務讓開發人員輕鬆地加入 認知的功能，例如情緒和影片偵測;臉部、 語音和視覺辨識;語音和語言理解到其應用程式。 Azure 認知服務的目標是協助開發人員建立可以看、聽、說、理解甚至推論的應用程式。 Azure 認知服務中的服務目錄可以分成五個主要支柱：視覺、語音、語言、搜尋和知識。
 
 ## <a name="vision-apis"></a>視覺 API
 
@@ -28,7 +28,6 @@ Azure 認知服務是用來協助開發人員建置智慧型應用程式，且�
 |[自訂視覺服務](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "自訂視覺服務") (預覽)|自訂視覺服務可讓您建置自訂影像分類器。|
 |[內容仲裁](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "內容仲裁")|內容仲裁可監視潛在的冒犯、惡意或具風險之內容。|
 |[人臉識別 API](https://docs.microsoft.com/azure/cognitive-services/face/ "人臉識別 API")|人臉識別 API 提供進階的臉部識別演算法，以偵測和辨識臉部特徵。|
-|[表情 API](https://docs.microsoft.com/azure/cognitive-services/emotion/home "表情 API") (預覽)|表情 API 能接受影像作為輸入，並傳回臉部 API 針對影像中每個臉部在各種表情上的信賴度。|
 | [影片索引器](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "影片索引器")|影片索引器可讓您從影片中擷取深入解析。|
 
 ## <a name="speech-apis"></a>語音識別 API
@@ -36,7 +35,6 @@ Azure 認知服務是用來協助開發人員建置智慧型應用程式，且�
 |服務名稱|服務描述|
 |:-----------|:------------------|
 |[語音服務](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "語音服務") (預覽)|語音服務會將語音啟用功能加入應用程式。|
-|[自訂語音服務](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home "自訂語音服務") (預覽)|自訂語音服務可讓您根據應用程式和使用者的需求，建立自訂的語言模型和原音模型。|
 |[Bing 語音 API](https://docs.microsoft.com/azure/cognitive-services/speech/home "Bing 語音 API")|Bing 語音 API 可讓您輕鬆在應用程式中建立語音開啟功能。|
 |[翻譯工具語音](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "翻譯工具語音")|翻譯工具語音是機器翻譯服務。|
 |[說話者辨識 API](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "說話者辨識 API") (預覽)|說話者辨識 API 提供說話者辨識和驗證的演算法。|
@@ -47,10 +45,8 @@ Azure 認知服務是用來協助開發人員建置智慧型應用程式，且�
 |:-----------|:------------------|
 |[Bing 拼字檢查](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/ "Bing 拼字檢查")|Bing 拼字檢查可讓您執行內容的文法與拼字檢查。|
 |[Language Understanding LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/ "Language Understanding")|Language Understanding 服務 (LUIS) 可讓應用程式了解人在文字中所表達的意思。|
-|[語言分析](https://docs.microsoft.com/azure/cognitive-services/linguisticanalysisapi/home "語言分析") (預覽)|語言分析會提供可識別文字結構的自然語言處理工具。|
 |[文字分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/ "文字分析")|文字分析可針對原始文字進行自然語言處理，進行情感分析、關鍵片語擷取和語言偵測。|
-|[翻譯工具文字](https://docs.microsoft.com/azure/cognitive-services/translator/ "翻譯工具文字")|翻譯工具文字提供幾乎即時的機器式文字翻譯。||
-|[Web 語言模型](https://docs.microsoft.com/azure/cognitive-services/web-language-model/home "Web 語言模型") (預覽)|用於預測字組排序、完成度和無空格字串斷句的自然語言處理功能。|
+|[翻譯工具文字](https://docs.microsoft.com/azure/cognitive-services/translator/ "翻譯工具文字")|翻譯工具文字提供幾乎即時的機器式文字翻譯。|
 
 ## <a name="search-apis"></a>搜尋 API
 
@@ -64,12 +60,12 @@ Azure 認知服務是用來協助開發人員建置智慧型應用程式，且�
 |[Bing 實體搜尋](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/ "Bing 實體搜尋")|Bing 實體搜尋會傳回 Bing 判斷與使用者查詢相關的實體相關資訊。|
 |[Bing 影像搜尋](https://docs.microsoft.com/azure/cognitive-services/bing-image-search "Bing 影像搜尋")|Bing 影像搜尋會傳回與使用者查詢相關的影像。|
 |[Bing 圖像式搜尋](https://docs.microsoft.com/azure/cognitive-services/bing-visual-search "Bing 圖像式搜尋")|Bing 圖像式搜尋會傳回深入解析的影像，例如視覺效果類似的影像、影像中找到的產品購物來源，以及相關搜尋。|
+|[Bing 當地商業搜尋](https://docs.microsoft.com/azure/cognitive-services/bing-local-business-search/ "Bing 本機企業搜尋")| Bing 本機企業搜尋 API 可讓您的應用程式，若要尋找根據搜尋查詢的當地商業的連絡人和位置資訊。|
 
 ## <a name="knowledge-apis"></a>知識 API
 
 |服務名稱|服務描述|
 |:-----------|:------------------|
-| [自訂決策服務](https://docs.microsoft.com/azure/cognitive-services/custom-decision-service/ "自訂決策服務") (預覽)|自訂決策服務使用透過內容相關決策，協助您建立智慧型系統，提供個人化和最佳化使用者體驗。|
 |[QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/index "QnA Maker")|QnA Maker 可讓您從半結構化內容建置問題與解答服務。|
 
 ## <a name="use-free-trials"></a>使用免費試用版
@@ -94,7 +90,7 @@ Azure 認知服務是用來協助開發人員建置智慧型應用程式，且�
 
  認知服務以服務層支援各種不同的文化特性語言。 您可以在[支援的語言清單](language-support.md)中找到每個 API 的語言可用性。
 
- ## <a name="container-support"></a>容器支援
+## <a name="container-support"></a>容器支援
 
  認知服務在 Azure 雲端或內部部署中提供部署容器。 深入了解[認知服務容器](cognitive-services-container-support.md)。
 

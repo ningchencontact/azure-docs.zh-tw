@@ -11,16 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 934c6d4a46302f9388a114912017a4d916dc8bb2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b1cf1d5bb87eea8054d2797634756d1b6c38464d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198664"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075964"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>開始使用 Azure Multi-Factor Authentication Server
 
-<center>![MFA 內部部署](./media/howto-mfaserver-deploy/server2.png)</center>
+<center>
+
+![MFA 內部部署](./media/howto-mfaserver-deploy/server2.png)</center>
 
 既然我們已經決定要使用內部部署 Multi-Factor Authentication Server，那麼我們就開始著手進行吧。 本頁面探討新伺服器安裝，以及透過內部部署 Active Directory 予以設定。 如果您已經安裝 MFA 伺服器，且想要升級，請參閱[升級至最新的 Azure Multi-factor Authentication Server](howto-mfaserver-deploy-upgrade.md)。 如果您想要尋找僅是安裝 Web 服務的資訊，請參閱[部署 Azure Multi-Factor Authentication Server 行動應用程式 Web 服務](howto-mfaserver-deploy-mobileapp.md)。
 
@@ -46,7 +48,7 @@ ms.locfileid: "56198664"
 
 請確定您用於 Azure Multi-Factor Authentication Server 的伺服器符合下列需求：
 
-| Azure Multi-Factor Authentication Server 需求 | 說明 |
+| Azure Multi-Factor Authentication Server 需求 | 描述 |
 |:--- |:--- |
 | 硬體 |<li>200 MB 的硬碟空間</li><li>具有 x32 或 x64 功能的處理器</li><li>1 GB 或更高的 RAM</li> |
 | 軟體 |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008，SP1、SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003，SP1、SP2</li><li>Windows 10</li><li>Windows 8.1，所有版本</li><li>Windows 8，所有版本</li><li>Windows 7，所有版本</li><li>Windows Vista，所有版本，SP1、SP2</li><li>Microsoft .NET 4.0 Framework</li><li>如果安裝使用者入口網站或 Web 服務 SDK，則為 IIS 7.0 或更高版本</li> |

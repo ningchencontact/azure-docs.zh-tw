@@ -8,21 +8,19 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: a1f5a698ee76ebd0561bd19ff1a23d0f04be0771
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: c55783e9b209a1280a21edca34b75e72481f4cb6
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410110"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806982"
 ---
 #   <a name="shaper-cognitive-skill"></a>塑形器認知技能
 
-**塑形器**技能會建立複雜類型，以支援複合欄位 (也稱為多部分欄位)。 複雜類型欄位有多個部分，但在 Azure 搜尋服務索引中會被視為單一項目。 在搜尋案例中有用的合併欄位範例，包括將名字和姓氏合併成單一欄位、將縣/市和區/鄉/鎮/市合併成單一欄位，或將姓名和出生日期合併成單一欄位來建立唯一的身分識別。
-
-**塑形器**技能可讓您實質上建立結構、定義該結構成員的名稱，並將值指派給每個成員。
+**Shaper**技能將數種輸入彙總至複雜型別擴充管線中稍後可參考。 **塑形器**技能可讓您實質上建立結構、定義該結構成員的名稱，並將值指派給每個成員。 在搜尋案例中有用的彙總欄位的範例包括將第一個和最後一個名稱結合成單一結構、 縣 （市） 和成單一結構或名稱的狀態和成單一結構來建立唯一的身分識別的出生日期。
 
 根據預設，此技術會支援單一層級深度的物件。 對於更複雜的物件，則可以鏈結數個**塑形器**步驟。
 
@@ -58,7 +56,7 @@ Microsoft.Skills.Util.ShaperSkill
   "outputs": [
     {
       "name": "output",
-      "targetName": analyzedText"
+      "targetName": "analyzedText"
     }
   ]
 }
@@ -125,8 +123,8 @@ Microsoft.Skills.Util.ShaperSkill
     ],
     "outputs": [
         {
-            "output": "titlesAndChapters",
-            "targetName": "analyzedText"
+            "name": "output",
+            "targetName": "titlesAndChapters"
         }
     ]
 }
@@ -155,7 +153,7 @@ Microsoft.Skills.Util.ShaperSkill
 }
 ```
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 + [預先定義的技能](cognitive-search-predefined-skills.md)
 + [如何定義技能集](cognitive-search-defining-skillset.md) (英文)

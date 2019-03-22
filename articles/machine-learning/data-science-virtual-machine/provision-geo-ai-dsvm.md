@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 47d5616f86c8f4cb62773d0b92a24a5fb63b2ea7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: c4b178cc7e0604f38e4da25452a3bad01f8145de
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240466"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858131"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>在 Azure 上佈建地區人工智慧虛擬機器 
 
@@ -33,7 +33,7 @@ Geo-DSVM 包含數個人工智慧工具，包括：
 - 用來取得和前置處理影像、文字資料的工具， 
 - 適用於開發活動的工具，例如 Microsoft R Server Developer Edition、Anaconda Python、Python 和 R 適用的 Jupyter Notebook、Python 和 R 適用的 IDE、SQL 資料庫
 - ESRI 的 ArcGIS Pro 桌面軟體，以及可與來自人工智慧應用程式之地理空間資料搭配運作的 Python 和 R 介面。 
-
+ 
 
 ## <a name="create-your-geo-ai-data-science-vm"></a>建立您的地區人工智慧資料科學 VM
 
@@ -67,16 +67,16 @@ Geo-DSVM 包含數個人工智慧工具，包括：
    - **摘要**：請確認您輸入的所有資訊都正確無誤。
 
    - ：按一下 [購買] 以開始佈建。 系統會提供服務條款的連結。 VM 除了計算您在 [大小]  步驟中所選擇的伺服器大小之外，不會收取任何其他費用。 
-
+ 
 >[!NOTE]
 > 佈建大約需要 20-30 分鐘。 在 Azure 入口網站中會顯示佈建的狀態。
 
-
+ 
 ## <a name="how-to-access-the-geo-ai-data-science-virtual-machine"></a>如何存取地區人工智慧資料科學虛擬機器
 
-一旦建立 VM，您就可以開始使用其上安裝和預先設定的工具。 我們為許多工具提供了開始功能表磚和桌面圖示。 您可以使用您在前面的 [基本] 區段中設定的系統管理員帳戶認證從遠端桌面登入 VM。 
+ 一旦建立 VM，您就可以開始使用其上安裝和預先設定的工具。 我們為許多工具提供了開始功能表磚和桌面圖示。 您可以使用您在前面的 [基本] 區段中設定的系統管理員帳戶認證從遠端桌面登入 VM。 
 
-
+ 
 ## <a name="using-arcgis-pro-installed-in-the-vm"></a>使用 VM 中安裝的 ArcGIS Pro
 
 Geo-DSVM 已經預先安裝 ArcGIS Pro 桌面及預先設定環境，以搭配 DSVM 中的所有工具運作。 當您啟動 ArcGIS 時，它會提示您登入您的 ArcGIS 帳戶。 如果您已經有 ArcGIS 帳戶且具有軟體的授權，您可以使用現有的認證。  
@@ -87,7 +87,7 @@ Geo-DSVM 已經預先安裝 ArcGIS Pro 桌面及預先設定環境，以搭配 D
 
 ![ArcGIS-Free-Trial](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
 
-一旦註冊付費或免費試用 ArcGIS 帳戶，即可藉由遵循[開始使用 ArcGIS Pro 文件](http://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf)中的指示，為您的帳戶授權 ArcGIS Pro。 
+一旦註冊付費或免費試用 ArcGIS 帳戶，即可藉由遵循[開始使用 ArcGIS Pro 文件](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf)中的指示，為您的帳戶授權 ArcGIS Pro。 
 
 以您的 ArcGIS 帳戶登入 ArcGIS Pro 桌面之後，您就可以針對地理空間分析和機器學習專案，開始使用在 VM 上安裝及設定的資料科學工具。
 

@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: dc3e654e741fd1a326c83e51c72284f41ad74798
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 6a7d79d8a9328eaf0808c79ed359299e1ec37d1a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55988046"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57862708"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>教學課程：使用影片索引器 API
 
@@ -23,7 +23,7 @@ ms.locfileid: "55988046"
 
 影片索引器會將 Microsoft 提供的各種音訊和視訊人工智慧 (AI) 技術合併成一個整合式服務，讓開發變得更簡單。 API 可讓開發人員將焦點放在使用媒體 AI 技術上，而不需擔心雲端平台的規模、全球觸達率、可用性和可靠性。 您可以使用 API 來上傳檔案、取得詳細的影片深入解析，然後取得深入解析與播放程式的介面控件 URL，以便將這些項目內嵌到您的應用程式及其他工作中。
 
-建立影片索引器帳戶時，您可以選擇免費試用帳戶 (您可取得特定的免費編製索引分鐘數) 或付費選項 (您不會受限於配額)。 使用免費試用時，影片索引器最多可為網站使用者提供 600 分鐘的免費編製索引，以及為 API 使用者提供 2400 分鐘的免費索引編製。 使用付費選項時，您建立的影片索引器帳戶會[連線到您的 Azure 訂用帳戶和 Azure 媒體服務帳戶](connect-to-azure.md)。 您需支付已編製索引的分鐘數，以及 Azure 媒體服務帳戶相關費用。 
+建立影片索引器帳戶時，您可以選擇免費試用帳戶 (您可取得特定的免費編製索引分鐘數) 或付費選項 (您不會受限於配額)。 使用免費試用時，影片索引器最多可為網站使用者提供 600 分鐘的免費編製索引，以及為 API 使用者提供 2400 分鐘的免費索引編製。 使用付費選項時，您建立的影片索引器帳戶[連線至您的 Azure 訂用帳戶和 Azure 媒體服務帳戶](connect-to-azure.md)。 您需支付已編製索引的分鐘數，以及 Azure 媒體服務帳戶相關費用。 
 
 本文說明開發人員可以如何善用[影片索引器 API](https://api-portal.videoindexer.ai/)。
 
@@ -33,10 +33,10 @@ ms.locfileid: "55988046"
     
     ![登入](./media/video-indexer-use-apis/video-indexer-api01.png)
 
-    > [!Important]
-    > * 您必須使用註冊影片索引器時所使用的提供者。
-    > * 個人 Google 和 Microsoft (Outlook/Live) 帳戶僅能用於試用帳戶。 連線至 Azure 的帳戶需要 Azure AD。
-    > * 每個電子郵件只能有一個使用中的帳戶。 如果使用者嘗試在使用 LinkedIn 的 user@gmail.com 登入後，再使用 Google 的 user@gmail.com 登入，則系統會顯示錯誤頁面，表示使用者已存在。
+   > [!Important]
+   > * 您必須使用註冊影片索引器時所使用的提供者。
+   > * 個人 Google 和 Microsoft (Outlook/Live) 帳戶僅能用於試用帳戶。 連線至 Azure 的帳戶需要 Azure AD。
+   > * 每個電子郵件只能有一個使用中的帳戶。 如果使用者嘗試在使用 LinkedIn 的 user@gmail.com 登入後，再使用 Google 的 user@gmail.com 登入，則系統會顯示錯誤頁面，表示使用者已存在。
 
 2. 訂閱。
 
@@ -72,7 +72,7 @@ ms.locfileid: "55988046"
 
 存取權杖會在 1 小時後過期。 請先確定您的存取權杖有效，再使用作業 API。 如果過期，請再次呼叫授權 API 以取得新的存取權杖。
  
-您已可以開始整合 API。 請探索[每個影片索引器 REST API 的詳細描述](http://api-portal.videoindexer.ai/)。
+您已可以開始整合 API。 請探索[每個影片索引器 REST API 的詳細描述](https://api-portal.videoindexer.ai/)。
 
 ## <a name="location"></a>位置
 

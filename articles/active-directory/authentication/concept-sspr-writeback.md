@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bba14e37e811c941c9709eef6b6d8ffd8322643
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3772f42b1216cfb26d66b1d68fcb9e59fd8652d8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167128"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107537"
 ---
 # <a name="what-is-password-writeback"></a>什麼是密碼回寫？
 
@@ -96,11 +96,11 @@ ms.locfileid: "56167128"
    >
 
 1. 如果密碼設定作業失敗，系統會顯示錯誤以提示使用者再試一次。 作業可能會因下列原因而失敗：
-   * 服務已停止運作。
-   * 他們所選的密碼不符合組織原則。
-   * 無法在本機 Active Directory 中找到使用者。
+    * 服務已停止運作。
+    * 他們所選的密碼不符合組織原則。
+    * 無法在本機 Active Directory 中找到使用者。
 
-    錯誤訊息會對使用者提供指引，讓他們可以嘗試自行解決而不需要系統管理員介入。
+      錯誤訊息會對使用者提供指引，讓他們可以嘗試自行解決而不需要系統管理員介入。
 
 ## <a name="password-writeback-security"></a>密碼回寫安全性
 

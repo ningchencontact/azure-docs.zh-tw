@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: 8959c1d773a7e4ea79c7a7531c2bba578f2801e2
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 60520f5a72fd7e27d4ea64ac76511a00a727426e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158477"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552005"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>將訊息傳送至 MQTT 伺服器
 
 物聯網 (IoT) 系統經常會遇到間歇性、品質不佳或緩慢的網際網路連線。 MQTT 是電腦對電腦 (M2M) 連線通訊協定，開發人員在開發時謹記這類挑戰。 
 
-這裡使用的 MQTT 用戶端程式庫是 [Eclipse Paho](http://www.eclipse.org/paho/) 專案的一部分，它提供 API 以便透過多種傳輸方式使用 MQTT。
+這裡使用的 MQTT 用戶端程式庫是 [Eclipse Paho](https://www.eclipse.org/paho/) 專案的一部分，它提供 API 以便透過多種傳輸方式使用 MQTT。
 
 ## <a name="what-you-learn"></a>您學到什麼
 
@@ -77,10 +77,10 @@ ms.locfileid: "54158477"
 
 如果發生問題，請參閱 [IoT DevKit 常見問題集](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)，或使用下列管道與我們連絡：
 
-* [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
+* [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 * [將 IoT DevKit AZ3166 連線到雲端中的 Azure IoT 中樞](iot-hub-arduino-iot-devkit-az3166-get-started.md)
 * [搖一搖以獲取推文](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)

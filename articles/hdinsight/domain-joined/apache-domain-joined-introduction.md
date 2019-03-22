@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d1d515786fde06f4622402f2c1d0c3add7cd8843
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: f3d9a2447bdbc2a1a5ce930ffa161d5a9e30069b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913134"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225054"
 ---
 # <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>使用企業安全性套件維護 Apache Hadoop 安全性的簡介
 
 在過去，Azure HDInsight 僅支援單一使用者本機系統管理員。這很適合用於比較小型的應用程式團隊或部門。 Apache Hadoop 型工作負載在企業間越來越受青睞，而 Active Directory 型驗證、多使用者支援和角色型存取控制等企業級功能的需求日益重要。 
 
-您可以建立已加入 Active Directory 網域並具備企業安全性套件 (ESP) 的 HDInsight 叢集。 接著，您可以設定企業員工清單，指出可透過 Azure Active Directory 進行驗證以登入 HDInsight 叢集的員工。 沒有人能夠從企業外部登入或存取此 HDInsight 叢集。 
+您可以建立已加入 Active Directory 網域並具備企業安全性套件 (ESP) 的 HDInsight 叢集。 然後，您可以設定從企業可透過登入 HDInsight 叢集的 Azure Active Directory 進行驗證的員工的清單。 任何人從企業外部登入或存取 HDInsight 叢集。 
 
 企業系統管理員可以使用 [Apache Ranger](https://hortonworks.com/apache/ranger/) \(英文\)，針對 Apache Hive 安全性設定角色型存取控制 (RBAC)。 設定 RBAC 可限制資料存取只提供所需的資料。 最後，系統管理員可稽核由員工存取的資料，以及對存取控制原則所做的任何變更。 系統管理員因此便能高度控管公司的資源。
 
@@ -36,10 +36,10 @@ ms.locfileid: "54913134"
 
 透過 VPN 閘道服務可以達成另一層的周邊安全性。 閘道是做為第一道防線，可抵禦任何對於 HDInsight 叢集的連入要求。 它會接受要求，驗證要求，之後才讓要求傳遞給叢集中的其他節點。 如此一來，閘道就可提供叢集中其他名稱和資料節點的周邊安全性。
 
-## <a name="authentication"></a>驗證
+## <a name="authentication"></a>Authentication
 企業系統管理員可以在[虛擬網路](https://azure.microsoft.com/services/virtual-network/)中建立具有 ESP 的 HDInsight 叢集。 HDInsight 叢集的所有節點都會加入企業所管理的網域。 透過使用 [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md) 即可達成此目的。 
 
-企業員工可以藉由這項設定，便能使用其網域認證來登入叢集節點。 他們也可以使用其網域認證向其他已核准的端點 (例如 Apache Ambari 檢視、ODBC、JDBC、PowerShell 和 REST API) 進行驗證，以與叢集進行互動。 系統管理員可以完全控制透過這些端點與叢集互動的使用者數量。
+透過此設定，企業員工可以登入叢集節點使用其網域認證。 他們也可以使用其網域認證向其他已核准的端點 (例如 Apache Ambari 檢視、ODBC、JDBC、PowerShell 和 REST API) 進行驗證，以與叢集進行互動。 系統管理員可以完全控制透過這些端點與叢集互動的使用者數量。
 
 ## <a name="authorization"></a>Authorization
 大多數企業所依循的最佳做法，就是確保並非每一位員工都能存取所有的企業資源。 同樣地，系統管理員可以針對叢集資源定義角色型存取控制原則。 

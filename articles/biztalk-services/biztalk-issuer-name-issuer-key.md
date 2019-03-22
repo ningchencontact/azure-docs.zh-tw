@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: eb5b4b3741b064a934833b3094c69db85e9ccabb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5eac98ec88b960956c9a0931673e67f530aef8da
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238704"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542177"
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk 服務：簽發者名稱和簽發者金鑰
 
@@ -38,8 +38,8 @@ Azure BizTalk 服務使用服務匯流排簽發者名稱和簽發者金鑰，以
 ## <a name="access-control-issuer-name-and-issuer-key"></a>存取控制簽發者名稱和簽發者金鑰
 下列項目會使用存取控制簽發者名稱和簽發者金鑰：
 
-* 在 Visual Studio 中建立的 Azure BizTalk 服務應用程式：若要在 Visual Studio 中成功將您的 BizTalk 服務應用程式部署至 Azure，請輸入存取控制簽發者名稱和簽發者金鑰。 
-* Azure BizTalk 服務入口網站：在您建立 BizTalk 服務且開啟 BizTalk 服務入口網站時，系統會使用相同的存取控制值，自動為您的部署註冊您的存取控制簽發者名稱和簽發者金鑰。
+* 在 Visual Studio 中建立您的 Azure BizTalk 服務應用程式：已成功將您在 Visual Studio 中的 BizTalk 服務應用程式部署至 Azure，您可以輸入存取控制簽發者名稱和簽發者金鑰。 
+* 在 Azure BizTalk 服務入口網站中：當您建立 BizTalk 服務，並開啟 BizTalk 服務入口網站時，您的存取控制簽發者名稱和簽發者金鑰會自動註冊為您的部署使用相同的存取控制值。
 
 ### <a name="get-the-access-control-issuer-name-and-issuer-key"></a>取得存取控制簽發者名稱和簽發者金鑰
 
@@ -77,7 +77,7 @@ Azure BizTalk 服務使用服務匯流排簽發者名稱和簽發者金鑰，以
 BizTalk 配接器服務會使用服務匯流排簽發者名稱和簽發者金鑰。 在 Visual Studio 中，您在 BizTalk 服務專案中使用 BizTalk 配接器服務來連線至內部部署企業營運 (LOB) 系統。 若要連線，您需要建立 LOB 轉送並輸入 LOB 系統詳細資料。 如果這樣做，則您也需要輸入服務匯流排簽發者名稱和簽發者金鑰。
 
 ### <a name="to-retrieve-the-service-bus-issuer-name-and-issuer-key"></a>擷取服務匯流排簽發者名稱和簽發者金鑰
-1. 登入 [Azure 入口網站](http://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 搜尋**服務匯流排**，並選取您的命名空間。 
 3. 開啟 [共用存取原則] 屬性，選取您的原則，並檢視 [連接字串] 的名稱和金鑰值。  
 
@@ -85,16 +85,16 @@ BizTalk 配接器服務會使用服務匯流排簽發者名稱和簽發者金鑰
 其他 Azure BizTalk 服務主題：
 
 * [安裝 Azure BizTalk 服務 SDK](https://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
-* [教學課程：Azure BizTalk 服務](https://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
+* [教學課程：Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
 * [如何開始使用 Azure BizTalk 服務 SDK](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 * [Azure BizTalk 服務](https://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
-## <a name="see-also"></a>另請參閱
-* [做法：使用 ACS 管理服務來設定服務身分識別](https://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
-* [BizTalk 服務：開發人員、基本、標準和高級版本圖表](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+## <a name="see-also"></a>另请参阅
+* [操作說明：使用 ACS 管理服務來設定服務身分識別](https://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
+* [BizTalk 服務：開發人員、 基本、 標準和進階版本圖表](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
 * [BizTalk 服務：佈建](https://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 * [BizTalk 服務：佈建狀態圖](https://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-* [BizTalk 服務：儀表板、監視和調整索引標籤](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [BizTalk 服務：儀表板、 監視和調整索引標籤](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
 * [BizTalk 服務：備份與還原](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-* [BizTalk 服務：節流](https://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+* [BizTalk 服務：節流設定](https://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 

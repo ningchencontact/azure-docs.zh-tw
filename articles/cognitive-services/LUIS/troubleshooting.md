@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: diberry
-ms.openlocfilehash: 71fb289f03467147acb2ef254ab87a2c753bc75c
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: b9304e151bbce691b752f12aeec8a5376e517a8d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416542"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120766"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding 常見問題集 (FAQ)
 
@@ -102,10 +102,12 @@ Azure 中針對[服務](https://azure.microsoft.com/pricing/details/cognitive-se
 
 ### <a name="is-there-a-powershell-command-get-to-the-endpoint-quota"></a>端點配額是否有 PowerShell 命令？
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 您可以使用 PowerShell 命令查看端點配額：
 
 ```powershell
-Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
+Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Name <your-resource-name>
 ``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>LUIS 應用程式昨天還可以運作，但現在我收到 403 錯誤。 我未變更應用程式。 如何修正問題？
@@ -145,7 +147,7 @@ Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group
 
 ### <a name="when-an-app-is-exported-then-reimported-into-a-new-app-with-a-new-app-id-the-luis-prediction-scores-are-different-why-does-this-happen"></a>應用程式在匯出後再重新匯入至新應用程式 (具有新的應用程式識別碼) 時，LUIS 預測分數會不同。 為何發生這種情況？
 
-請參閱[相同應用程式之不同複本的預測差異](luis-concept-prediction-score.md#differences-with-predictions)。
+請參閱[相同應用程式之不同複本的預測差異](luis-concept-prediction-score.md#review-intents-with-similar-scores)。
 
 ### <a name="some-utterances-go-to-the-wrong-intent-after-i-made-changes-to-my-app-the-issue-seems-to-disappear-at-random-how-do-i-fix-it"></a>我對應用程式進行變更後，一些語句的意圖錯誤。 此問題似乎會隨機消失。 如何修正問題？ 
 
@@ -276,7 +278,7 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 
 組建 2018 會議已發行下列功能：
 
-|Name|內容|
+|名稱|內容|
 |--|--|
 |增強功能|[規則運算式](luis-concept-data-extraction.md##regular-expression-entity-data)實體和[關鍵片語](luis-concept-data-extraction.md#key-phrase-extraction-entity-data)實體
 |模式|模式[概念](luis-concept-patterns.md)、[教學課程](luis-tutorial-pattern.md)、[做法](luis-how-to-model-intent-pattern.md)<br>[Patterns.Any](luis-concept-entity-types.md) 實體概念 (包括例外狀況[明確清單](luis-concept-patterns.md#explicit-lists))<br>[角色](luis-concept-roles.md)概念|

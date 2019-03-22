@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to-article
+ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: b-juche
-ms.openlocfilehash: 169638fed9a513b8ed835076c049ee21979085fe
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 56667b9a47411b2abae30ff159fa6bc555fec070
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55966451"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104619"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api"></a>使用 REST API 為 Azure NetApp Files 進行開發 
 
@@ -29,23 +29,23 @@ Azure NetApp Files 服務的 REST API，會根據 NetApp 帳戶、容量集區�
 
 1. [安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) (如果您尚未安裝)。
 2. 在 Azure Active Directory (Azure AD) 中建立服務主體：
-    1. 確認您擁有[足夠的權限](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)。
+   1. 確認您擁有[足夠的權限](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)。
 
-    1. 在 Azure CLI 中輸入下列命令：  
+   1. 在 Azure CLI 中輸入下列命令：  
 
-            az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE--password $YOURGENERATEDPASSWORDGOESHERE
+           az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE--password $YOURGENERATEDPASSWORDGOESHERE
 
-    命令輸出會類似下列範例：  
+      命令輸出會類似下列範例：  
 
-            { 
-                "appId": "appIDgoeshere", 
-                "displayName": "APPNAME", 
-                "name": "http://APPNAME", 
-                "password": "supersecretpassword", 
-                "tenant": "tenantIDgoeshere" 
-            } 
+           { 
+               "appId": "appIDgoeshere", 
+               "displayName": "APPNAME", 
+               "name": "http://APPNAME", 
+               "password": "supersecretpassword", 
+               "tenant": "tenantIDgoeshere" 
+           } 
 
-    保留命令輸出。  您需要 `appId`、`password` 和 `tenant` 值。 
+      保留命令輸出。  您需要 `appId`、`password` 和 `tenant` 值。 
 
 3. 要求 OAuth 存取權杖：
 

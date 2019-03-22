@@ -7,21 +7,23 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/12/2019
 ms.author: iainfou
-ms.openlocfilehash: 81b45a25c8040916b835ab333c5ce80ab6c1a788
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a20dfcd9e2ef12252235b74455964d115d9aef9b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772308"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181481"
 ---
-# <a name="secure-traffic-between-pods-by-using-network-policies-in-azure-kubernetes-service"></a>保護 Azure Kubernetes 服務中使用網路原則的 pod 之間的流量
+# <a name="preview---secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>預覽-保護 Azure Kubernetes Service (AKS) 中使用網路原則的 pod 之間的流量
 
 當您在 Kubernetes 中執行新式微服務架構的應用程式時，您通常想要控制哪些元件可以彼此通訊。 最低權限原則應該套用至流量可以在 Azure Kubernetes Service (AKS) 叢集中的 pod 之間流動的方式。 例如，假設您可能想要封鎖直接流向後端應用程式。 *網路原則*在 Kubernetes 中的功能可讓您定義規則，以便在叢集中的 pod 之間的輸入和輸出流量。
 
 Calico、 開放原始碼網路和網路安全性解決方案，由 Tigera，提供一個網路原則引擎可以實作 Kubernetes 網路原則規則。 這篇文章會示範如何安裝 Calico 網路原則引擎，並建立 Kubernetes 網路原則來控制在 AKS 中的 pod 之間的流量流程。
 
 > [!IMPORTANT]
-> 此功能目前為預覽狀態。 若您同意[補充的使用規定][terms-of-use]，即可取得預覽。 公開上市 (GA) 之前，可能會變更這項功能的某些層面。
+> AKS 預覽功能是自助服務和選用功能。 預覽可供收集從我們的社群的意見及 bug。 不過，它們不是支援 Azure 技術支援。 如果您建立叢集，或將這些功能加入到現有的叢集，該叢集不支援此功能不再處於預覽狀態，並發展至公開上市 (GA) 之前。
+>
+> 如果您遇到問題，使用預覽功能[開立 AKS GitHub 儲存機制][ aks-github] bug 標題中的預覽功能的名稱。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -451,6 +453,7 @@ kubectl delete namespace development
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
+[aks-github]: https://github.com/azure/aks/issues]
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 997727acd1bbaf17577160bb996aad7e21d49c86
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 2a425e607ea7dac394ab90a3fed4d4026056bbc1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805578"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118573"
 ---
 <a name="get-customer-leads"></a>取得潛在客戶
 ==================
@@ -39,13 +39,13 @@ ms.locfileid: "48805578"
 
 <!-- -->
 
-2.  客戶選取 [立即取得] 後，即同意分享他們的資訊。 此類型潛在客戶是**初始興趣**潛在客戶，我們會在其中分享對取得您的產品感到有興趣之客戶的相關資訊。 潛在客戶位居分享購買漏斗的最頂端。
+1. 客戶選取 [立即取得] 後，即同意分享他們的資訊。 此類型潛在客戶是**初始興趣**潛在客戶，我們會在其中分享對取得您的產品感到有興趣之客戶的相關資訊。 潛在客戶位居分享購買漏斗的最頂端。
 
-    ![[立即取得] 選項](./media/cloud-partner-portal-get-customer-leads/get-it-now-button.png)
+   ![[立即取得] 選項](./media/cloud-partner-portal-get-customer-leads/get-it-now-button.png)
 
-3.  客戶在 [Azure 入口網站](https://portal.azure.com/)中選取 [購買] 以取得您的產品。 此類型潛在客戶是**主動**潛在客戶，我們會在其中分享已開始部署您的產品之客戶的相關資訊。
+1. 客戶在 [Azure 入口網站](https://portal.azure.com/)中選取 [購買] 以取得您的產品。 此類型潛在客戶是**主動**潛在客戶，我們會在其中分享已開始部署您的產品之客戶的相關資訊。
 
-    ![購買選項](./media/cloud-partner-portal-get-customer-leads/purchase-button.png)
+   ![購買選項](./media/cloud-partner-portal-get-customer-leads/purchase-button.png)
 
 
 ### <a name="appsource"></a>AppSource
@@ -72,7 +72,7 @@ ms.locfileid: "48805578"
 
 潛在客戶來源的格式為**來源**-**動作** |  **供應項目**
 
-**來源**："AzureMarketplace"、"AzurePortal"、"TestDrive"，和 "AppSource (SPZA)"
+**來源**：「 AzureMarketplace"、"AzurePortal 」、 「 試用 」 和 「 AppSource (SPZA) 」
 
 **動作**：
 - "INS" -- 安裝。 當客戶購買您的產品時，會在 Azure Marketplace 或 AppSource 上進行此動作。
@@ -83,19 +83,19 @@ ms.locfileid: "48805578"
 
 **供應項目**
 
-下列範例會顯示指派給發行者和特定供應項目的唯一識別碼：heckpoint.check-point-r77-10sg-byol、bitnami.openedxcypress，和 docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a。
+下列範例會顯示指派給發行者和特定優惠的唯一識別碼： checkpoint.check-點-r77-10sg-byol、 bitnami.openedxcypress 和 docusign.3701c77e-1cfa-4c 56 91e6 3ed0b622145a。
 
 
 ### <a name="customer-info"></a>客戶資訊
 
 下列範例中的欄位顯示了潛在客戶中包含的客戶資訊。
 - 名字：John
-- 姓氏：Smith
+- 在 [姓氏]:Smith
 - 電子郵件： jsmith\@microsoft.com
-- 電話：1234567890
-- 國家/地區：美國
+- 電話:1234567890
+- 國家/地區:US
 - 公司：Microsoft
-- 職稱：技術長
+- 標題：CTO
 
 >[!Note]
 >上述範例中，並非所有資料一律可供每位潛在客戶使用。

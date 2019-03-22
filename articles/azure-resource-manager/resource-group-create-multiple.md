@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: c343dfa3c0eac4aeabaa9244c6675b235fc95552
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: c60983dbbe72515fd8f0f4860e169ce1ba69ed45
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311711"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407080"
 ---
 # <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>在 Azure Resource Manager 範本中部署資源或屬性的多個執行個體
 
-本文示範如何逐一查看您的 Azure Resource Manager 範本，以建立資源的多個執行個體。 若需要指定是否要部署資源，請參閱[條件元素](resource-manager-templates-resources.md#condition)。
+本文示範如何逐一查看您的 Azure Resource Manager 範本，以建立資源的多個執行個體。 若需要指定是否要部署資源，請參閱[條件元素](resource-group-authoring-templates.md#condition)。
 
 如需教學課程，請參閱[教學課程：使用 Resource Manager 範本建立多個資源執行個體](./resource-manager-tutorial-create-multiple-instances.md)。
 
@@ -68,13 +68,13 @@ ms.locfileid: "56311711"
 * storage1
 * storage2.
 
-若要位移索引值，您可以傳遞 copyIndex() 函式中的值。 要執行的反覆項目數仍然在複製項目中指定，但 copyIndex 的值會由指定的值位移。 因此，下列範例：
+若要位移索引值，您可以傳遞 copyIndex() 函式中的值。 要执行的迭代次数仍被指定在 copy 元素中，但 copyIndex 的值已按指定的值发生了偏移。 因此，下列範例：
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
 ```
 
-會建立這些名稱︰
+将创建以下名称：
 
 * storage1
 * storage2
@@ -272,6 +272,8 @@ copy 元素為一個陣列，因此，您可以針對資源指定一個以上的
 
 若要建立變數的多個執行個體，請在變數區段中使用 `copy` 屬性。 您可以建立一個由 `input` 屬性中的值建構的元素陣列。 您可以在變數中使用 `copy` 屬性，也可以在變數部分的最上層使用。 在變數反覆項目內使用 `copyIndex` 時，您必須提供反覆項目的名稱。
 
+建立陣列的字串值的簡單範例，請參閱 <<c0> [ 複製的陣列範本](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json)。
+
 下列範例示範使用動態建構的元素建立陣列變數的幾種不同方式。 它示範如何在變數內使用複製來建立物件和字串的陣列。 它也會示範如何在最上層使用複製來建立物件、字串和整數的陣列。
 
 ```json
@@ -346,6 +348,50 @@ copy 元素為一個陣列，因此，您可以針對資源指定一個以上的
 }
 ```
 
+取得建立的變數的類型取決於輸入的物件。 例如，名為的變數**頂層-層次-物件-陣列**在上述範例中會傳回：
+
+```json
+[
+  {
+    "name": "myDataDisk1",
+    "diskSizeGB": "1",
+    "diskIndex": 0
+  },
+  {
+    "name": "myDataDisk2",
+    "diskSizeGB": "1",
+    "diskIndex": 1
+  },
+  {
+    "name": "myDataDisk3",
+    "diskSizeGB": "1",
+    "diskIndex": 2
+  },
+  {
+    "name": "myDataDisk4",
+    "diskSizeGB": "1",
+    "diskIndex": 3
+  },
+  {
+    "name": "myDataDisk5",
+    "diskSizeGB": "1",
+    "diskIndex": 4
+  }
+]
+```
+
+而且，名為的變數**頂層-層次字串-陣列**傳回：
+
+```json
+[
+  "myDataDisk1",
+  "myDataDisk2",
+  "myDataDisk3",
+  "myDataDisk4",
+  "myDataDisk5"
+]
+```
+
 ## <a name="depend-on-resources-in-a-loop"></a>依迴圈中的資源而定
 
 您可以透過使用 `dependsOn` 元素，讓某個資源在另一個資源之後才部署。 若要部署相依於迴圈中資源集合的資源時，請在 dependsOn 元素中提供複製迴圈的名稱。 下列範例示範如何在部署虛擬機器之前部署三個儲存體帳戶。 不會顯示完整的虛擬機器定義。 請注意，複製元素將名稱設定為 `storagecopy`，並將虛擬機器的 dependsOn 元素設定為 `storagecopy`。
@@ -410,7 +456,7 @@ copy 元素為一個陣列，因此，您可以針對資源指定一個以上的
 
 若要建立多個資料集，請將它移出資料處理站。 資料集必須位於與資料處理站相同的等級，但它仍是資料處理站的子資源。 您可以透過類型和名稱屬性保留資料集與資料處理站之間的關聯性。 由於無法再從類型位於範本中的位置來推斷類型，您必須以此格式提供完整的類型︰`{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`。
 
-若要建立與 Data Factory 執行個體的父/子關聯性，請提供包含父資源名稱之資料集的名稱。 使用格式︰`{parent-resource-name}/{child-resource-name}`。  
+若要与数据工厂的实例建立父/子关系，提供的数据集的名称应包含父资源名称。 使用格式︰`{parent-resource-name}/{child-resource-name}`。  
 
 下列範例顯示實作：
 
@@ -439,13 +485,13 @@ copy 元素為一個陣列，因此，您可以針對資源指定一個以上的
 
 下列範例顯示為資源或屬性建立多個執行個體的常見案例。
 
-|範本  |說明  |
+|範本  |描述  |
 |---------|---------|
 |[複製儲存體](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |利用名稱中的索引編號來部署多個儲存體帳戶。 |
 |[序列複製儲存體](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |一次一個部署數個儲存體帳戶。 名稱包含索引編號。 |
 |[以陣列複製儲存體](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |部署數個儲存體帳戶。 名稱包含陣列中的值。 |
 |[以可變的資料磁碟數目部署 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |利用虛擬機器部署數個資料磁碟。 |
-|[複製變數](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |示範逐一查看變數的不同方式。 |
+|[複製變數](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |演示循环访问变量的不同方式。 |
 |[多個安全性規則](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.json) |將數個安全性規則部署至網路安全性群組。 從參數建構安全性規則。 如需參數，請參閱[多個 NSG 參數檔案](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/multiplesecurityrules.parameters.json)。 |
 
 ## <a name="next-steps"></a>後續步驟
@@ -453,5 +499,5 @@ copy 元素為一個陣列，因此，您可以針對資源指定一個以上的
 * 如須逐步瀏覽教學課程，請參閱[教學課程：使用 Resource Manager 範本建立多個資源執行個體](./resource-manager-tutorial-create-multiple-instances.md)。
 
 * 若要了解範本區段的相關資訊，請參閱[編寫 Azure Resource Manager 範本](resource-group-authoring-templates.md)。
-* 若要了解如何部署範本，請參閱 [使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
+* 若要了解如何部署模板，请参阅 [使用 Azure Resource Manager 模板部署应用程序](resource-group-template-deploy.md)。
 

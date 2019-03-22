@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: bf9e83a1dfed0aac7f48cd47dc12bf56c7cb1b64
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 47d2e051cf3eeebbfaea95cfc16f5077559e6847
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38481697"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56807128"
 ---
 # <a name="about-azure-devtest-labs"></a>關於 Azure DevTest Labs
 ## <a name="overview"></a>概觀
@@ -44,6 +44,7 @@ Azure DevTest Labs 是一項服務，可協助開發人員和測試人員在 Azu
 
 ## <a name="integrates-with-your-existing-toolchain"></a>與現有工具鏈整合
 善用預製的外掛程式或我們的 API，直接從您偏好的持續整合 (CI) 工具、整合式開發環境 (IDE) 或自動化的發行管線來佈建研發/測試環境。 您也可以使用我們全方位的命令列工具。
+
 
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]

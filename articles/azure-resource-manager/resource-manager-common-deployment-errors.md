@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: a5c08536614476de38c7bfde524a12163162bed4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: f6ebeb1d9953311ad1cb85d8ab33c83d5e92d687
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339255"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405516"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>使用 Azure Resource Manager 針對常見的 Azure 部署錯誤進行疑難排解
 
@@ -37,7 +37,7 @@ ms.locfileid: "56339255"
 | AllocationFailed | 叢集或區域沒有可用的資源或無法支援所要求的 VM 大小。 稍後重試要求，或要求不同的 VM 大小。 | [Linux 的佈建和配置問題](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)、[Windows 的佈建和配置問題](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)以及[配置失敗疑難排解](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | 等候並行作業完成。 | |
 | AuthorizationFailed | 您的帳戶或服務主體沒有完成部署的足夠存取權。 請檢查您的帳戶所屬的角色以及它針對部署範圍的存取權。<br><br>當所需的資源提供者未註冊時，您可能會收到此錯誤。 | [Azure 角色型存取控制](../role-based-access-control/role-assignments-portal.md)<br><br>[解析註冊](resource-manager-register-provider-errors.md) |
-| BadRequest | 您傳送的部署值不符合資源管理員的預期。 請查看內部狀態訊息，以取得疑難排解的說明。 | [範本參考](/azure/templates/)和[支援位置](resource-manager-templates-resources.md#location) |
+| BadRequest | 您傳送的部署值不符合資源管理員的預期。 請查看內部狀態訊息，以取得疑難排解的說明。 | [範本參考](/azure/templates/)和[支援位置](resource-group-authoring-templates.md#resource-location) |
 | 衝突 | 您要求的作業在資源的目前狀態下不允許。 例如，只有在建立 VM 時或解除配置 VM 之後，才可調整磁碟大小。 | |
 | DeploymentActive | 等候此資源群組的並行部署完成。 | |
 | DeploymentFailed | DeploymentFailed 錯誤是一般錯誤，不會提供您解決錯誤所需的詳細資料。 尋找錯誤碼的錯誤詳細資料，以提供更多資訊。 | [尋找錯誤碼](#find-error-code) |
@@ -58,7 +58,7 @@ ms.locfileid: "56339255"
 | InvalidTemplateCircularDependency | 移除不必要的相依性。 | [解析循環相依性](resource-manager-invalid-template-errors.md#circular-dependency) |
 | LinkedAuthorizationFailed | 檢查您的帳戶是否屬於與部署所在之資源群組相同的租用戶。 | |
 | LinkedInvalidPropertyId | 資源的資源識別碼未正確地解析。 請檢查您為資源識別碼提供所有必要值，包含訂用帳戶識別碼、資源群組名稱、資源類型、父代資源名稱 (如有需要) 和資源名稱。 | |
-| LocationRequired | 提供資源的位置。 | [設定位置](resource-manager-templates-resources.md#location) |
+| LocationRequired | 提供資源的位置。 | [設定位置](resource-group-authoring-templates.md#resource-location) |
 | MismatchingResourceSegments | 請確定巢狀資源的名稱和類型都有正確的區段數目。 | [解析資源區段](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
 | MissingRegistrationForLocation | 檢查資源提供者註冊狀態和支援的位置。 | [解析註冊](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | 向資源提供者註冊訂用帳戶。 | [解析註冊](resource-manager-register-provider-errors.md) |
@@ -75,9 +75,9 @@ ms.locfileid: "56339255"
 | ResourceGroupBeingDeleted | 等候刪除完成。 | |
 | ResourceGroupNotFound | 檢查部署的目標資源群組名稱。 它必須已經存在於您的訂用帳戶中。 檢查訂用帳戶內容。 | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
 | ResourceNotFound | 您的部署會參考無法解析的資源。 確認您使用 **reference** 函式包括案例的必要參數。 | [解析參考](resource-manager-not-found-errors.md) |
-| ResourceQuotaExceeded | 部署嘗試建立資源，這些資源超過訂用帳戶、資源群組或區域的配額。 可能的話，請修改您的基礎結構，以維持在配額內。 否則，請考慮要求變更您的配額。 | [解析配額](resource-manager-quota-errors.md) |
+| ResourceQuotaExceeded | 部署嘗試建立資源，這些資源超過訂用帳戶、資源群組或區域的配額。 可能的話，請修改您的基礎結構，以維持在配額內。 否则，请考虑请求更改配额。 | [解析配額](resource-manager-quota-errors.md) |
 | SkuNotAvailable | 選取可供您選取之位置使用的 SKU (例如 VM 大小)。 | [解析 SKU](resource-manager-sku-not-available-errors.md) |
-| StorageAccountAlreadyExists | 提供儲存體帳戶的唯一名稱。 | [解析儲存體帳戶名稱](resource-manager-storage-account-name-errors.md)  |
+| StorageAccountAlreadyExists | 为存储帐户提供唯一名称。 | [解析儲存體帳戶名稱](resource-manager-storage-account-name-errors.md)  |
 | StorageAccountAlreadyTaken | 提供儲存體帳戶的唯一名稱。 | [解析儲存體帳戶名稱](resource-manager-storage-account-name-errors.md) |
 | StorageAccountNotFound | 檢查您嘗試使用的訂用帳戶、資源群組和儲存體帳戶名稱。 | |
 | SubnetsNotInSameVnet | 虛擬機器只能有一個虛擬網路。 在部署數個 NIC 時，請確定它們屬於相同的虛擬網路。 | [多個 NIC](../virtual-machines/windows/multiple-nics.md) |
@@ -158,7 +158,7 @@ New-AzResourceGroupDeployment `
 | ConvertTo-Json
 ```
 
-或者，具有下列項目的回應內容︰
+或者，使用以下命令检查响应内容：
 
 ```powershell
 (Get-AzResourceGroupDeploymentOperation `
@@ -201,7 +201,7 @@ az group deployment operation list \
 
 ### <a name="nested-template"></a>巢狀範本
 
-若要記錄巢狀範本的偵錯資訊，請使用 **debugSetting** 項目。
+若要记录嵌套模板的调试信息，请使用 **debugSetting** 元素。
 
 ```json
 {

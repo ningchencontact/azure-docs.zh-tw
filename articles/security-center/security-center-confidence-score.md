@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: rkarlin
-ms.openlocfilehash: 67442a5861514eadfebfc877d91e735e05f6f63d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 64bab5c1b99720eecb189834d7a11802cf919ca3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117540"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106775"
 ---
 # <a name="alert-confidence-score"></a>警示信賴分數 
 
@@ -45,7 +45,7 @@ Azure 資訊安全中心可讓您檢視在 Azure 中執行的各項資源，並�
 若要檢視警示中構成資訊安全中心信賴度的資料：
 - 在 [安全性警示] 刀鋒視窗中的 [信賴度] 下方，檢視構成信賴分數的觀察值，並取得該警示的相關深入解析。 這可讓您深入了解造成警示的活動所屬的性質。
 
- ![可疑信賴分數][2]
+  ![可疑信賴分數][2]
 
 使用資訊安全中心的信賴分數，在您的環境中排定警示分級的優先順序。 信賴分數可節省您的時間和心力，因為它會自動調查警示、套用業界最佳做法和智慧型演算法，並化身為虛擬分析人員來判斷哪些是真正的威脅，以及您需要注意哪些部分。
 

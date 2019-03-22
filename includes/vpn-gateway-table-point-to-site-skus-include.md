@@ -9,11 +9,11 @@ ms.date: 11/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 4cd1d143151e61c7c767ffdc4acb172b06dd0e43
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52585643"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "58114937"
 ---
 |**SKU**   | **S2S/VNet-to-VNet<br>通道** | **P2S<br> SSTP 連線** | **P2S<br> IKEv2 連線** | **彙總<br>輸送量基準測試** |
 |---       | ---        | ---       | ---            | ---       |

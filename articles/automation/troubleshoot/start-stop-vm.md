@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/13/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d8ef70088d904720a81ac558206a3140d7bbecd6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 1894fc1823772c27f37829b9b27ec515dcb841b7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269992"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861055"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>疑難排解停機期間啟動/停止 VM 解決方案
 
@@ -141,7 +141,7 @@ The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<R
 
 * 若要啟動和停止 VM，自動化帳戶的執行身分帳戶必須具有 VM 的適當權限。 若要了解如何檢查資源的權限，請參閱[快速入門：使用 Azure 入口網站來檢視指派給使用者的角色](../../role-based-access-control/check-access.md)。 您需要為執行身分帳戶使用的服務主體提供應用程式識別碼。 您可以透過移至 Azure 入口網站中的 [自動化帳戶]，在 [帳戶設定] 下選取 [執行身分帳戶]，然後按一下適當的執行身分帳戶來擷取此值。
 
-* 如果 VM 在啟動或解除配置時出現問題，這種行為可能是由 VM 本身的問題引起的。 部分範例或潛在的問題是，在嘗試關閉、服務停止回應等時會套用更新。 瀏覽至您的 VM 資源並檢查**活動記錄**，以查看記錄檔中是否有任何錯誤。 您還可以嘗試登入 VM，以查看事件記錄檔中是否有任何錯誤。
+* 如果 VM 在啟動或解除配置時出現問題，這種行為可能是由 VM 本身的問題引起的。 部分範例或潛在的問題是，在嘗試關閉、服務停止回應等時會套用更新。 瀏覽至您的 VM 資源並檢查**活動記錄**，以查看記錄檔中是否有任何錯誤。 您還可以嘗試登入 VM，以查看事件記錄檔中是否有任何錯誤。 若要深入了解疑難排解您的 VM，請參閱[疑難排解 Azure 虛擬機器](../../virtual-machines/troubleshooting/index.md)
 
 ## <a name="custom-runbook"></a>案例：我的自訂 Runbook 無法啟動或停止我的 VM
 

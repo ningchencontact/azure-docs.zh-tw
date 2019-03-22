@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: afdb082ef7d33d12d80b8edb273bea2c4c5b74a2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: fc3749a9ebfbf0319a57b471b6fce9f62042ba27
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882109"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57849769"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Azure App Service 的最佳作法
 本文將摘要說明使用 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)的最佳作法。 
@@ -52,7 +52,7 @@ ms.locfileid: "55882109"
 舉例而言，使用 `http` 或 `https` 封裝時：
 
 ```javascript
-var request = https.request(options, function(response) {
+const request = https.request(options, function(response) {
     response.on('data', function() { /* do nothing */ });
 });
 ```

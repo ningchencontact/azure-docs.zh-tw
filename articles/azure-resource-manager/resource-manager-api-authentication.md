@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: a81c1d20e0f7b58c132a5ece04f05d6740c2308f
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 138367eb7eb0d4be2e0a7bec57d1bce551a5e829
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56266988"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107047"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>使用 Resource Manager 驗證 API 來存取訂用帳戶
 
@@ -28,7 +28,7 @@ ms.locfileid: "56266988"
 您的應用程式可透過數種方式存取資源管理員 API︰
 
 1. **使用者 + 應用程式存取**︰適用於代表登入使用者存取資源的應用程式。 此方式適用於僅處理「互動式管理」Azure 資源的應用程式，例如 Web 應用程式和命令列工具。
-2. **僅限應用程式存取**︰適用於執行協助程式服務和已排程之作業的應用程式。 應用程式的身分識別會獲得資源的直接存取權。 此方式適用於需要長期無周邊 (自動) 存取 Azure 的應用程式。
+2. **僅限應用程式存取**︰適用於執行協助程式服務和已排程之作業的應用程式。 应用的标识获得资源的直接访问权限。 此方式適用於需要長期無周邊 (自動) 存取 Azure 的應用程式。
 
 本文提供建立應用程式來運用這兩種授權方法的逐步指示。 它會說明如何使用 REST API 或 C# 執行每個步驟。 在 [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense) 可取得完整的 ASP.NET MVC 應用程式。
 
@@ -69,7 +69,7 @@ Web 應用程式：
 
 ![連線訂用帳戶](./media/resource-manager-api-authentication/sample-ux-7.png)
 
-## <a name="register-application"></a>註冊應用程式
+## <a name="register-application"></a>注册应用程序
 在開始撰寫程式碼之前，請先使用 Azure Active Directory (AD) 註冊 Web 應用程式。 應用程式註冊會為您在 Azure AD 中的應用程式建立中央身分識別。 它會保留您的應用程式的基本資訊，例如您的應用程式用來驗證和存取 Azure Resource Manager API 的 OAuth 用戶端識別碼、回覆 URL 和認證。 應用程式註冊也會記錄您的應用程式需要的各種委派權限，以便代表使用者存取 Microsoft API。
 
 由於應用程式會存取其他訂用帳戶，您必須將它設定為多租用戶應用程式。 為了通過驗證，請提供與 Azure Active Directory 相關聯的網域。 若要查看與 Azure Active Directory 相關聯的網域，請登入入口網站。
@@ -234,7 +234,8 @@ ASP.NET MVC 範例應用程式的 [UserCanManagerAccessForSubscription](https://
 <a id="app-azure-ad-graph" />
 
 ### <a name="get-app-only-access-token-for-azure-ad-graph-api"></a>取得 Azure AD Graph API 的僅限應用程式存取權杖
-若要驗證您的應用程式，並取得 Azure AD Graph API 的權杖，請向 Azure AD 權杖端點發出用戶端認證授與 OAuth2.0 流程權杖要求 (**https://login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**)。
+
+若要驗證您的應用程式，並取得 Azure AD Graph API 的語彙基元，Azure AD 權杖端點發出用戶端認證授與 OAuth2.0 流程權杖要求 (**https:\//login.microsoftonline.com/{directory_domain_name}/OAuth2/Token**).
 
 ASP.net MVC 範例應用程式的 [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) 方法使用 Active Directory Authentication Library for .NET，以取得 Graph API 的僅限應用程式存取權杖。
 
@@ -308,11 +309,11 @@ ASP.net MVC 範例應用程式的 [GetRoleId](https://github.com/dushyantgill/Vi
 | --- | --- |
 | 讀取者 |acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 | 參與者 |b24988ac-6180-42a0-ab88-20f7382dd24c |
-| 虛擬機器參與者 |d73bb868-a0df-4d4d-bd69-98a00b01fccb |
+| 虚拟机参与者 |d73bb868-a0df-4d4d-bd69-98a00b01fccb |
 | 虛擬網路參與者 |b34d265f-36f7-4a0d-a4d4-e158ca92e90f |
 | 儲存體帳戶參與者 |86e8f5dc-a6e9-4c67-9d15-de283e8eac25 |
 | 網站參與者 |de139f84-1756-47ae-9be6-808fbbe84772 |
-| Web 方案參與者 |2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
+| Web 计划参与者 |2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 | SQL Server 參與者 |6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437 |
 | SQL DB 參與者 |9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
 
@@ -333,7 +334,7 @@ ASP.net MVC 範例應用程式的 [GrantRoleToServicePrincipalOnSubscription](ht
 
 在要求中，使用下列值︰
 
-| Guid | 說明 |
+| Guid | 描述 |
 | --- | --- |
 | 09cbd307-aa71-4aca-b346-5f253e6e3ebb |訂用帳戶的識別碼 |
 | c3097b31-7309-4c59-b4e3-770f8406bad2 |應用程式的服務主體的物件識別碼 |

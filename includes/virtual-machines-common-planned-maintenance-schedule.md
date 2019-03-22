@@ -5,16 +5,16 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: c7fe0d6f8e03501cca7a8b98f95286b6a21c0476
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226685"
+ms.lasthandoff: 02/05/2019
+ms.locfileid: "58114206"
 ---
 ## <a name="multi-and-single-instance-vms"></a>多重和單一執行個體 VM
 對於在 Azure 上執行的許多客戶而言，在 VM 進行計劃性維護時可以排程是非常重要的，因為維護期間會發生大約 15 分鐘的停機。 您可以在佈建的 VM 接受計劃性維護時，使用可用性設定組協助控制。
 
-有兩個可能的 VM 設定在 Azure 上執行。 VM 可能會設定為多重執行個體或單一執行個體。 如果 VM 在可用性設定組中，它們會隨後設定為多重執行個體。 請注意，即使單一 VM 也可以部署在可用性設定組中，所以才會被視為多重執行個體。 如果 VM 不在可用性設定組中，它們會隨後設定為單一執行個體。  如需可用性設定組的詳細資料，請參閱[管理 Windows 虛擬機器的可用性](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)或[管理 Linux 虛擬機器的可用性](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
+有两个可能的 VM 配置在 Azure 上运行。 VM 可能會設定為多重執行個體或單一執行個體。 如果 VM 在可用性設定組中，它們會隨後設定為多重執行個體。 請注意，即使單一 VM 也可以部署在可用性設定組中，所以才會被視為多重執行個體。 如果 VM 不在可用性設定組中，它們會隨後設定為單一執行個體。  如需可用性設定組的詳細資料，請參閱[管理 Windows 虛擬機器的可用性](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)或[管理 Linux 虛擬機器的可用性](../articles/virtual-machines/linux/manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
 單一執行個體和多重執行個體的 VM 計劃性維護更新會分別發生。 藉由將 VM 重新設定維單一執行個體 (如果它們是多重執行個體)，或設定為多重執行個體 (如果它們是單一執行個體)，您可以控制其 VM 收到計劃性維護的時間。 如需 Azure VM 計劃性維護的詳細資料，請參閱 [Azure Linux 虛擬機器的維護計劃](../articles/virtual-machines/linux/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)或 [Azure Windows 虛擬機器的維護計劃](../articles/virtual-machines/windows/planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
@@ -49,10 +49,10 @@ ms.locfileid: "50226685"
 Get-AzureVM -ServiceName "<VmCloudServiceName>" -Name "<VmName>" | Remove-AzureAvailabilitySet | Update-AzureVM
 ```
 
-## <a name="for-single-instance-configuration"></a>對於單一執行個體組態
+## <a name="for-single-instance-configuration"></a>对于单实例配置
 您可以藉由將這些 VM 新增至可用性設定組，以選取計劃性維護影響單一執行個體設定中之 VM 的時間。
 
-逐步說明
+分步指南
 
 1. 在計劃性維護 7 天前，會傳送電子郵件給單一執行個體組態中的 VM。 受影響單一執行個體的訂用帳戶識別碼和名稱會包含在電子郵件將電子郵件的本文中。
 2. 在這 7 天內，您可以藉由將單一執行個體 VM 新增至相同區域中的可用性設定組，以選擇執行個體重新啟動的時間。 此組態變更會導致重新開機，因為虛擬機器正在從一部以維護為目標的實體主機，移至另一部不是以維護為目標的實體主機。

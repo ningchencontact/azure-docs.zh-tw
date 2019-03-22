@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
-ms.openlocfilehash: 6d31cd66138bd20cf09b3dc569d0ac83addaaa95
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: 03b74f5a931e1cfbf09433af76c250607b7fc80c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426769"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444430"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-php-application-on-azure"></a>如何在 Azure 上的 PHP 應用程式中使用 Twilio 撥打電話
 下列範例將說明如何從 Azure 代管的 PHP 網頁上使用 Twilio 撥打電話。 產生的應用程式會提示使用者提供電話值，如下列螢幕擷取畫面所示。
@@ -118,7 +118,7 @@ echo "URI resource: " . $call->uri . "<br />";
 
 如需 Twilio 的其他資訊，請參閱 [https://www.twilio.com/docs][twilio_docs]。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 * [如何在 PHP 中透過 Twilio 使用語音和簡訊功能](partner-twilio-php-how-to-use-voice-sms.md)
 
 [twilio_console]: https://www.twilio.com/console

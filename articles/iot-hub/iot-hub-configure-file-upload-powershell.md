@@ -1,18 +1,19 @@
 ---
 title: 使用 Azure PowerShell 設定檔案上傳 | Microsoft Docs
-description: 如何使用 Azure PowerShell Cmdlet 來設定 IoT 中樞，以便能夠從連接的裝置上傳檔案。 包含設定目的地 Azure 儲存體帳戶的相關資訊。
-author: dominicbetts
+description: 如何使用 Azure PowerShell Cmdlet 來設定 IoT 中樞，以便能夠從連接的裝置上傳檔案。 包括有关配置目标 Azure 存储帐户的信息。
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.author: dobett
-ms.openlocfilehash: e8f37adc07bffb8a1e770085ecee6f813d3c2932
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.author: robin.shahan
+ms.openlocfilehash: 9754fe2bedae9c1eaf6b18614014485dbe8051f2
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425606"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010472"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>使用 PowerShell 設定 IoT 中樞檔案上傳
 
@@ -20,36 +21,38 @@ ms.locfileid: "54425606"
 
 若要使用 [IoT 中樞的檔案上傳功能](iot-hub-devguide-file-upload.md)，您必須先將 Azure 儲存體帳戶與您的 IoT 中樞建立關聯。 您可以使用現有的儲存體帳戶或建立新帳戶。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 若要完成此教學課程，您需要下列項目：
 
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/) 。
 
-* [Azure PowerShell Cmdlet](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)。
+* [Azure PowerShell Cmdlet](https://docs.microsoft.com/powershell/azure/install-Az-ps)。
 
-* Azure IoT 中樞。 如果您沒有 IoT 中樞，您可以使用 [New-AzureRmIoTHub Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.iothub/new-azurermiothub) 來建立一個，或使用入口網站來[建立 IoT 中樞](iot-hub-create-through-portal.md)。
+* Azure IoT 中樞。 如果没有 IoT 中心，可以使用 [New-AzIoTHub cmdlet](https://docs.microsoft.com/powershell/module/az.iothub/new-aziothub) 创建一个，或者使用门户[创建一个 IoT 中心](iot-hub-create-through-portal.md)。
 
-* 一個 Azure 儲存體帳戶。 如果您沒有 Azure 儲存體帳戶，您可以使用 [Azure 儲存體 PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.storage/) 來建立一個，或使用入口網站來[建立儲存體帳戶](../storage/common/storage-create-storage-account.md)。
+* 一個 Azure 儲存體帳戶。 如果您沒有 Azure 儲存體帳戶，您可以使用 [Azure 儲存體 PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/az.storage/) 來建立一個，或使用入口網站來[建立儲存體帳戶](../storage/common/storage-create-storage-account.md)。
 
 ## <a name="sign-in-and-set-your-azure-account"></a>登入並設定 Azure 帳戶
 
 登入您的 Azure 帳戶並選取您的訂用帳戶。
 
-1. 在 PowerShell 命令提示字元中，執行 **Connect-AzureRmAccount** Cmdlet：
+1. 在 PowerShell 提示符下，运行 **Connect-AzAccount**：
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
 2. 如果您有多個 Azure 訂用帳戶，則登入 Azure 即會為您授與和您認證相關聯之所有 Azure 訂用帳戶的存取權。 使用下列命令來列出可供您使用的 Azure 訂用帳戶：
 
     ```powershell
-    Get-AzureRMSubscription
+    Get-AzSubscription
     ```
 
     使用下列命令，來選取您想要用來執行命令以管理 IoT 中樞的訂用帳戶。 您可以使用來自上一個命令之輸出內的訂用帳戶名稱或識別碼︰
 
     ```powershell
-    Select-AzureRMSubscription `
+    Select-AzSubscription `
         -SubscriptionName "{your subscription name}"
     ```
 
@@ -60,7 +63,7 @@ ms.locfileid: "54425606"
 若要從裝置設定檔案上傳，您需要 Azure 儲存體帳戶的連接字串。 儲存體帳戶必須與您的 IoT 中樞位於相同的訂用帳戶中。 您也需要儲存體帳戶中 blob 容器的名稱。 使用下列命令來擷取儲存體帳戶金鑰：
 
 ```powershell
-Get-AzureRmStorageAccountKey `
+Get-AzStorageAccountKey `
   -Name {your storage account name} `
   -ResourceGroupName {your storage account resource group}
 ```
@@ -72,19 +75,19 @@ Get-AzureRmStorageAccountKey `
 * 若要列出儲存體帳戶中現有的 blob 容器，使用下列命令：
 
     ```powershell
-    $ctx = New-AzureStorageContext `
+    $ctx = New-AzStorageContext `
         -StorageAccountName {your storage account name} `
         -StorageAccountKey {your storage account key}
-    Get-AzureStorageContainer -Context $ctx
+    Get-AzStorageContainer -Context $ctx
     ```
 
 * 若要在儲存體帳戶中建立 blob 容器，使用下列命令：
 
     ```powershell
-    $ctx = New-AzureStorageContext `
+    $ctx = New-AzStorageContext `
         -StorageAccountName {your storage account name} `
         -StorageAccountKey {your storage account key}
-    New-AzureStorageContainer `
+    New-AzStorageContainer `
         -Name {your new container name} `
         -Permission Off `
         -Context $ctx
@@ -109,7 +112,7 @@ Get-AzureRmStorageAccountKey `
 使用下列 PowerShell Cmdlet 來設定 IoT 中樞上的檔案上傳設定：
 
 ```powershell
-Set-AzureRmIotHub `
+Set-AzIotHub `
     -ResourceGroupName "{your iot hub resource group}" `
     -Name "{your iot hub name}" `
     -FileUploadNotificationTtl "01:00:00" `

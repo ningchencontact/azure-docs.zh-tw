@@ -15,12 +15,12 @@ ms.author: curtand
 ms.custom: it-pro
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 443aef1a7396dc637b656a805b758a62bcfac41d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 45f48b6d8ef29d14606f18d4ccee77bd742a670a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194286"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175993"
 ---
 # <a name="understand-how-multiple-azure-active-directory-tenants-interact"></a>了解多個 Azure Active Directory 租用戶如何互動
 
@@ -47,7 +47,7 @@ ms.locfileid: "56194286"
 若要在 Azure 入口網站中新增 Azure AD 租用戶，請使用 Azure AD 全域管理員的帳戶登入[Azure 入口網站](https://portal.azure.com)，並且在左邊選取 [新增]。
 
 > [!NOTE]
-> 與其他 Azure 資源不同，您的租用戶並非 Azure 訂用帳戶的子資源。 如果您的 Azure 訂用帳戶被取消或到期，您仍然可以使用 Azure PowerShell、Azure Graph API 或「Office 365 系統管理中心」來存取租用戶資料。 您也可以[將另一個訂用帳戶與租用戶建立關聯](../fundamentals/active-directory-how-subscriptions-associated-directory.md)。
+> 與其他 Azure 資源不同，您的租用戶並非 Azure 訂用帳戶的子資源。 如果您的 Azure 訂用帳戶取消或已過期，您仍然可以存取您使用 Azure PowerShell、 Azure Graph API 或 Microsoft 365 系統管理中心的租用戶資料。 您也可以[將另一個訂用帳戶與租用戶建立關聯](../fundamentals/active-directory-how-subscriptions-associated-directory.md)。
 >
 
 ## <a name="next-steps"></a>後續步驟

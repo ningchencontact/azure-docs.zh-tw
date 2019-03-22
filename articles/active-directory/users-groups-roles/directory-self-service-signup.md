@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 02/12/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7818d184cd74da43ceac008331b4436979152557
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 0cfc31705909710e6a60e0d2fd3963e74e9397ee
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233168"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201257"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>什麼是 Azure Active Directory 的自助式註冊？
 
-本文說明自助式註冊，以及如何在 Azure Active Directory (Azure AD) 中支援自助式註冊。 如果您想要從非受控 Azure AD 租用戶接管網域名稱，請參閱[以系統管理員身分接管非受控目錄](domains-admin-takeover.md)。
+這篇文章說明如何使用來填入 Azure Active Directory (Azure AD) 中的組織的自助式註冊。 如果您想要接管網域名稱，從非受控 Azure AD 的組織，請參閱[接管非受控目錄，以系統管理員身分](domains-admin-takeover.md)。
 
 ## <a name="why-use-self-service-signup"></a>為何使用自助式註冊？
 * 讓客戶更快取得他們想要的服務
@@ -71,7 +71,7 @@ Flow 和 PowerApps 試用註冊不受 **AllowAdHocSubscriptions** 設定所控�
 
 下列流程圖說明這些參數的各種不同組合，以及針對目錄和自助式註冊造成的情況。
 
-![自助式註冊控制項](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
+![自助式註冊控制項的流程圖](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
 如需如何使用這些參數的詳細資訊和相關範，請參閱 [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)。
 

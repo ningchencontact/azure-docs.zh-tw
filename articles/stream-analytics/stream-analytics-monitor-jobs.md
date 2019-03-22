@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: fac56117c4c70e2735580abb52d05e008d660003
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: be86287f8341b6b86064e51f8a26a8c7f97e867e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089408"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100797"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>以程式設計方式來建立串流分析工作監視
 
@@ -31,7 +31,7 @@ ms.locfileid: "53089408"
 ## <a name="create-a-project"></a>建立專案
 
 1. 建立 Visual Studio C# .NET 主控台應用程式。
-2. 在 Package Manager Console 中，執行下列命令以安裝 NuGet 封裝。 第一個是 Azure 串流分析管理 .NET SDK。 第二個是將用來啟用監視功能的 Azure 監視器 SDK。 最後一個是驗證要使用的 Azure Active Directory 用戶端。
+2. 在 Package Manager Console 中，執行下列命令以安裝 NuGet 封裝。 第一个是 Azure 流分析管理 .NET SDK。 第二個是將用來啟用監視功能的 Azure 監視器 SDK。 最後一個是驗證要使用的 Azure Active Directory 用戶端。
    
    ```powershell
    Install-Package Microsoft.Azure.Management.StreamAnalytics
@@ -114,7 +114,7 @@ ms.locfileid: "53089408"
      }
 ```
 
-## <a name="create-management-clients"></a>建立管理用戶端
+## <a name="create-management-clients"></a>创建管理客户端
 
 下列程式碼將設定必要的變數與管理用戶端。
 
@@ -142,8 +142,8 @@ ms.locfileid: "53089408"
 
 下列程式碼將為「現有」 串流分析作業啟用監視。 程式碼的第一部分會對串流分析服務執行 GET 要求，以擷取特定串流分析工作的相關資訊。 在程式碼的第二部分使用 *Id* 屬性 (擷取自 GET 要求) 當成 Put 方法的參數，將 PUT 要求傳送至 Insights 服務，來為串流分析作業啟用監視。
 
->[!WARNING]
->如果您先前已經為不同的串流分析作業啟用監視 (不論是透過 Azure 入口網站，還是以程式設計方式透過以下的程式碼)，**建議您提供先前啟用監視時所提供的相同儲存體帳戶名稱。**
+> [!WARNING]
+> 如果您先前已經為不同的串流分析作業啟用監視 (不論是透過 Azure 入口網站，還是以程式設計方式透過以下的程式碼)，**建議您提供先前啟用監視時所提供的相同儲存體帳戶名稱。**
 > 
 > 儲存體帳戶會連結到您建立串流分析作業所在的區域，而不是明確地連結到作業本身。
 > 
@@ -152,13 +152,13 @@ ms.locfileid: "53089408"
 > 用來取代下方程式碼中 `<YOUR STORAGE ACCOUNT NAME>` 的儲存體帳戶名稱應該是與您為其啟用監視功能的「串流分析」作業屬於相同訂用帳戶的儲存體帳戶。
 > 
 > 
-```csharp
-    // Get an existing Stream Analytics job
-    JobGetParameters jobGetParameters = new JobGetParameters()
-    {
-        PropertiesToExpand = "inputs,transformation,outputs"
-    };
-    JobGetResponse jobGetResponse = streamAnalyticsClient.StreamingJobs.Get(resourceGroupName, streamAnalyticsJobName, jobGetParameters);
+> ```csharp
+>     // Get an existing Stream Analytics job
+>     JobGetParameters jobGetParameters = new JobGetParameters()
+>     {
+>         PropertiesToExpand = "inputs,transformation,outputs"
+>     };
+>     JobGetResponse jobGetResponse = streamAnalyticsClient.StreamingJobs.Get(resourceGroupName, streamAnalyticsJobName, jobGetParameters);
 
     // Enable monitoring
     ServiceDiagnosticSettingsPutParameters insightPutParameters = new ServiceDiagnosticSettingsPutParameters()
@@ -172,15 +172,15 @@ ms.locfileid: "53089408"
 ```
 
 
-## <a name="get-support"></a>取得支援
+## Get support
 
-如需進一步的協助，請參閱我們的 [Azure Stream Analytics 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
+For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
-## <a name="next-steps"></a>後續步驟
+## Next steps
 
-* [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
-* [開始使用 Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
+* [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
+* [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
+* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

@@ -11,16 +11,19 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: 13da9e0d731e87b6cdd5830c9295847511c301ef
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 591624e6bab07bfa06799d8e4817622e7a5c280a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567293"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58107639"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>如何將適用於容器的 Azure 監視器上線  
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 本文說明如何設定適用於容器的 Azure 監視器，來監視部署至 Kubernetes 環境並裝載於 [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) 上之工作負載的效能。
 
 使用下列受支援的方法，即可為全新、一或多個現有的 AKS 部署啟用適用於容器的 Azure 監視器：
@@ -31,8 +34,8 @@ ms.locfileid: "55567293"
 ## <a name="prerequisites"></a>必要條件 
 開始之前，請確定您有下列項目：
 
-- Log Analytics 工作區。 您可以在啟用新 AKS 叢集的監視時建立它，或是讓上線體驗在 AKS 叢集訂用帳戶的預設資源群組中建立預設工作區。 若選擇自行建立它 ，您可以透過 [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)、透過 [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)，或是在 [Azure 入口網站](../../azure-monitor/learn/quick-create-workspace.md)中建立它。
-- 您是用於啟用容器監視的 Log Analytics 參與者角色成員。 如需有關如何控制 Log Analytics 工作區存取的詳細資訊，請參閱[管理工作區](../../azure-monitor/platform/manage-access.md)。
+- **Log Analytics 工作區中。** 您可以在啟用新 AKS 叢集的監視時建立它，或是讓上線體驗在 AKS 叢集訂用帳戶的預設資源群組中建立預設工作區。 若選擇自行建立它 ，您可以透過 [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)、透過 [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)，或是在 [Azure 入口網站](../../azure-monitor/learn/quick-create-workspace.md)中建立它。
+- 就**Log Analytics 參與者 」 角色的成員**啟用容器監視。 如需有關如何控制 Log Analytics 工作區存取的詳細資訊，請參閱[管理工作區](../../azure-monitor/platform/manage-access.md)。
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -76,7 +79,7 @@ ms.locfileid: "55567293"
 啟用監視之後，可能需要約 15 分鐘的時間才能檢視叢集的健康情況計量。 
 
 ## <a name="enable-monitoring-for-existing-managed-clusters"></a>針對現有的受控叢集啟用監視
-您可以使用 Azure CLI、從入口網站或是透過使用 PowerShell Cmdlet `New-AzureRmResourceGroupDeployment` 所提供的 Azure Resource Manager 範本，來對已部署的 AKS 叢集啟用監視。 
+您可以使用 Azure CLI、從入口網站或是透過使用 PowerShell Cmdlet `New-AzResourceGroupDeployment` 所提供的 Azure Resource Manager 範本，來對已部署的 AKS 叢集啟用監視。 
 
 ### <a name="enable-monitoring-using-azure-cli"></a>使用 Azure CLI 來啟用監視
 下列步驟會使用 Azure CLI 來啟用對 AKS 叢集的監視。 在此範例中，您不需要預先建立或指定現有的工作區。 此命令透過在 AKS 叢集預設資源群組中建立預設工作區 (若該區域中沒有預設工作區) 來為您簡化程序。  所建立的預設工作區格式類似 *DefaultWorkspace-\<GUID>-\<Region>*。  
@@ -117,7 +120,7 @@ provisioningState       : Succeeded
 
 2. 按照 Terraform 文件中的步驟新增 [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html)。
 
-### <a name="enable-monitoring-from-azure-monitor"></a>從 Azure 監視器啟用監視
+### <a name="enable-monitoring-from-azure-monitor-in-the-portal"></a>若要啟用入口網站中從 Azure 監視器監視 
 若要從 Azure 監視器在 Azure 入口網站中啟用 AKS 叢集的監視，請執行下列步驟：
 
 1. 在 Azure 入口網站中，選取 [監視]。 
@@ -294,31 +297,31 @@ Log Analytics 工作區必須手動建立。 若要建立工作區，您可以�
 5. 將此檔案儲存為本機資料夾的 **existingClusterParam.json**。
 6. 您已準備好部署此範本。 
 
-    * 在包含範本的資料夾中使用下列 PowerShell 命令：
+   * 在包含範本的資料夾中使用下列 PowerShell 命令：
 
-        ```powershell
-        New-AzureRmResourceGroupDeployment -Name OnboardCluster -ClusterResourceGroupName ClusterResourceGroupName -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
-        ```
-        可能需要幾分鐘的時間才能完成設定變更。 完成之後，將會顯示如下訊息並包含結果：
+       ```powershell
+       New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
+       ```
+       可能需要幾分鐘的時間才能完成設定變更。 完成之後，將會顯示如下訊息並包含結果：
 
-        ```powershell
-        provisioningState       : Succeeded
-        ```
+       ```powershell
+       provisioningState       : Succeeded
+       ```
 
-    * 使用 Azure CLI 來執行下列命令：
+   * 使用 Azure CLI 來執行下列命令：
     
-        ```azurecli
-        az login
-        az account set --subscription "Subscription Name"
-        az group deployment create --resource-group <ResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
-        ```
+       ```azurecli
+       az login
+       az account set --subscription "Subscription Name"
+       az group deployment create --resource-group <ResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
+       ```
 
-        可能需要幾分鐘的時間才能完成設定變更。 完成之後，將會顯示如下訊息並包含結果：
+       可能需要幾分鐘的時間才能完成設定變更。 完成之後，將會顯示如下訊息並包含結果：
 
-        ```azurecli
-        provisioningState       : Succeeded
-        ```
-啟用監視之後，可能需要約 15 分鐘的時間才能檢視叢集的健康情況計量。 
+       ```azurecli
+       provisioningState       : Succeeded
+       ```
+     啟用監視之後，可能需要約 15 分鐘的時間才能檢視叢集的健康情況計量。 
 
 ## <a name="verify-agent-and-solution-deployment"></a>驗證代理程式和解決方案部署
 使用代理程式 *06072018* 版或更新版本時，您可以確認代理程式和方案皆已成功部署。 使用舊版的代理程式時，您只能確認代理程式部署。

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 68bcddeee2cec1a77f20f8f470669f170fa50743
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 85757ace20501bea1db22ecfdd2fdb63284038d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992478"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108741"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>儲存多達 10 年的 Azure SQL Database 備份
 
@@ -56,22 +56,20 @@ W=12 週 (84 天)、M=12 個月 (365 天)、Y=10 年 (3650 天)、WeekOfYear=15 
    ![ITR 範例](./media/sql-database-long-term-retention/ltr-example.png)
 
 
- 
+
 如果您修改上述原則，設定成 W = 0 (沒有每週備份)，複製備份的日程會變更為上表中醒目提示的日期。 用來保留這些備份所需的儲存體數量會跟著減少。 
 
 > [!NOTE]
-1. LTR 複製是由 Azure 儲存體服務執行，因此複製程序對現有資料庫的效能沒有影響。
-2. 該原則適用於未來的備份。 例如 如果在設定原則時指定的 WeekOfYear 為過去時間，則將在下一個年度建立第一個 LTR 備份。 
-3. 若要從 LTR 儲存體還原資料庫，可以依時間戳記選取特定備份。   可將資料庫還原至原始資料庫相同訂用帳戶底下的任何現有伺服器。 
-> 
+> 1. LTR 複製是由 Azure 儲存體服務執行，因此複製程序對現有資料庫的效能沒有影響。
+> 2. 該原則適用於未來的備份。 例如 如果在設定原則時指定的 WeekOfYear 為過去時間，則將在下一個年度建立第一個 LTR 備份。 
+> 3. 若要從 LTR 儲存體還原資料庫，可以依時間戳記選取特定備份。   可將資料庫還原至原始資料庫相同訂用帳戶底下的任何現有伺服器。 
 
 ## <a name="geo-replication-and-long-term-backup-retention"></a>異地複寫和長期備份保留
 
 如果您使用主動式異地複寫或容錯移轉群組作為商務持續性解決方案，您應為最終容錯移轉最好準備，並在不同地區的次要資料庫中設定相同 LTR 原則。 由於備份不是從次要區域產生的，因此這不會增加 LTR 的儲存體成本。 只有當次要變成主要時，備份才會建立。 如此一來，當觸發容錯移轉，以及主要區域移到次要區域時，您可保證 LTR 備份可以不受中斷地產生。 
 
 > [!NOTE]
-當原本的主要資料庫從造成容錯移轉的中斷情況中復原時，它會變成新的次要資料庫。 因此，備份的建立不會繼續，而且現有的 LTR 原則將不會生效，除非它再次變成主要資料庫。 
-> 
+> 當原本的主要資料庫從造成容錯移轉的中斷情況中復原時，它會變成新的次要資料庫。 因此，備份的建立不會繼續，而且現有的 LTR 原則將不會生效，除非它再次變成主要資料庫。 
 
 ## <a name="configure-long-term-backup-retention"></a>設定長期備份保留期
 

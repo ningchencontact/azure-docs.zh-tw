@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67a8c4d4fe5476d00677c08bef9668066c4ec4f3
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: c6053313c6971f1bcf66bc447b4f4f5fe5817666
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458295"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339737"
 ---
 # <a name="manage-your-organizations-from-the-my-profile-preview-portal"></a>從我的設定檔 (預覽) 入口網站管理組織
 您可以從**我的設定檔**入口網站的**組織**頁面管理組織。
@@ -35,7 +35,7 @@ ms.locfileid: "56458295"
 
 2. 從左側瀏覽窗格選取 [組織]，或從 [組織] 區塊選取 [管理組織] 連結。
 
-    ![我的設定檔頁面，顯示醒目提示的組織連結](media/myprofile-portal/myprofile-portal-organizations-links.png)
+    ![我的設定檔頁面，顯示醒目提示的組織連結](media/myprofile-portal/myprofile-portal-organizations.png)
 
 3. 檢閱您的**主要組織**的資訊。 
 
@@ -57,4 +57,4 @@ ms.locfileid: "56458295"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 您檢視最近的登入活動之後，可以選取要檢視或管理您的[安全性資訊](user-help-security-info-overview.md)、[最近的登入活動](myprofile-portal-recent-activity-page.md)、[已連線裝置](myprofile-portal-devices-page.md)，或檢視組織如何[使用您的資料](myprofile-portal-privacy-page.md)。
+- 檢視您的組織之後, 您可以選取要檢視或管理您[安全性資訊](user-help-security-info-overview.md)連線[裝置](myprofile-portal-devices-page.md)，或檢視表如何組織[會使用您的資料](myprofile-portal-privacy-page.md)。

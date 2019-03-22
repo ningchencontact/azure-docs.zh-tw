@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: bb812699795f112023b579352ac3a52bef311d40
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 8bee2e2038ee39c777e1ca09994ad21872d2029a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232642"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530053"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>將 Azure 雲端服務角色連接到裝載於 Azure 中的自訂 AD 網域控制站
-我們會先在 Azure 中設定虛擬網路 (VNet)。 接著再將 Active Directory 網域控制站 (裝載於 Azure 虛擬機器上) 加入 VNet。 下一步是將現有雲端服務角色加入預先建立的 VNet，然後將它們連接到網域控制站。
+我們會先在 Azure 中設定虛擬網路 (VNet)。 然后将 Active Directory 域控制器（托管在 Azure 虚拟机上）添加到该 VNet。 下一步是將現有雲端服務角色加入預先建立的 VNet，然後將它們連接到網域控制站。
 
 在開始之前，請將以下幾件事牢記在心：
 
 1. 本教學課程使用 PowerShell，因此請確認您已安裝 Azure PowerShell 且已準備就緒。 如需設定 Azure PowerShell 的說明，請參閱 [如何安裝及設定 Azure PowerShell](/powershell/azure/overview)。
 2. AD 網域控制站和 Web/背景工作角色執行個體必須位在 VNet 中。
 
-請依本逐步指南作業，如果遇到任何問題，請在本文結尾處留言。 我們將會回覆您 (沒錯，我們真的會閱讀留言)。
+請依本逐步指南作業，如果遇到任何問題，請在本文結尾處留言。 我们将回复你（没错，我们真的会阅读留言）。
 
 雲端服務所參考的網路必須是**傳統虛擬網路**。
 
@@ -41,7 +41,7 @@ ms.locfileid: "51232642"
 
 $vnetStr =
 @"<?xml version="1.0" encoding="utf-8"?>
-<NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+<NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
     <VirtualNetworkConfiguration>
     <VirtualNetworkSites>
         <VirtualNetworkSite name="[your-vnet-name]" Location="West US">
@@ -129,7 +129,7 @@ Get-AzureRemoteDesktopFile -ServiceName $vmsvc1 -Name $vm1 -LocalPath <rdp-file-
 </ServiceConfiguration>
 ```
 
-接下來，請建置雲端服務專案並將它部署到 Azure。 如需將雲端服務封裝部署到 Azure 的說明，請參閱「 [如何建立和部署雲端服務](cloud-services-how-to-create-deploy-portal.md)
+接下來，請建置雲端服務專案並將它部署到 Azure。 有关将云服务包部署到 Azure 的帮助，请参阅[如何创建和部署云服务](cloud-services-how-to-create-deploy-portal.md)
 
 ## <a name="connect-your-webworker-roles-to-the-domain"></a>將 Web/背景工作角色連接到網域
 在 Azure 上部署雲端服務專案後，請使用 AD 網域延伸將角色執行個體連接到自訂 AD　網域。 若要將 AD 網域延伸加入現有雲端服務部署及加入自訂網域，請在 PowerShell 中執行下列命令：

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: sogup
-ms.openlocfilehash: 01c3e8072db81620764ccdd3ea99258de4649807
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: aa953440f03137f3359276bc9e06cb0c73f0ab4a
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858935"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295771"
 ---
 # <a name="manage-azure-vm-backups"></a>管理 Azure VM 備份
 
@@ -85,7 +85,7 @@ ms.locfileid: "57858935"
 
 若要觸發隨選備份：
 
-1. 在上[保存庫項目儀表板](#view-vms-in-the-dashboard)下方**保護的項目**，選取**備份項目**。
+1. 在上[保存庫項目儀表板](#view-vms-on-the-dashboard)下方**保護的項目**，選取**備份項目**。
 
     ![備份現在選項](./media/backup-azure-manage-vms/backup-now-button.png)
 
@@ -112,7 +112,7 @@ ms.locfileid: "57858935"
 
 若要停止 VM 的保護：
 
-1. 在 [保存庫項目的儀表板](#view-vms-in-the-dashboard)，選取**停止備份**。
+1. 在 [保存庫項目的儀表板](#view-vms-on-the-dashboard)，選取**停止備份**。
 2. 選擇是否要保留或刪除備份資料，並視需要請確認您的選取項目。 如果您想要請新增註解。 如果您不確定項目的名稱，請暫留在驚嘆號來檢視的名稱。
 
     ![停止保護](./media/backup-azure-manage-vms/retain-or-delete-option.png)
@@ -125,9 +125,9 @@ ms.locfileid: "57858935"
 
 若要繼續保護 VM:
 
-1. 在 [保存庫項目的儀表板](#view-vms-in-the-dashboard)，選取**繼續備份**。
+1. 在 [保存庫項目的儀表板](#view-vms-on-the-dashboard)，選取**繼續備份**。
 
-2. 請依照下列中的步驟[管理備份原則](#manage-backup-policies)vm 指派的原則。 您不需要選擇 VM 的初始的保護原則。
+2. 請依照下列中的步驟[管理備份原則](#manage-backup-policy-for-a-vm)vm 指派的原則。 您不需要選擇 VM 的初始的保護原則。
 3. 您套用至 VM 的備份原則之後，您會看到下列訊息：
 
     ![訊息，指出已成功保護的 VM](./media/backup-azure-manage-vms/success-message.png)
@@ -142,7 +142,7 @@ ms.locfileid: "57858935"
 在您停止或停用 VM 的備份作業之後，您可以刪除備份資料：
 
 
-1. 在 [保存庫項目儀表板](#view-vms-in-the-dashboard)，選取**刪除備份資料**。
+1. 在 [保存庫項目儀表板](#view-vms-on-the-dashboard)，選取**刪除備份資料**。
 
     ![選取 刪除備份](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 

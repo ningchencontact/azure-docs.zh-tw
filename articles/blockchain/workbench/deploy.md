@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: fcba3aef29e1566f9dfb2b151c15fe683be94fdb
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: 7fead05e7404e042d923631f4ba745553085943a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266582"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098105"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>部署 Azure Blockchain Workbench
 
@@ -75,7 +75,7 @@ Azure Blockchain Workbench 需要 Azure AD 設定和應用程式註冊。 您可
 
     ![建立 Azure Blockchain Workbench](media/deploy/blockchain-workbench-settings-basic.png)
 
-    | 設定 | 說明  |
+    | 設定 | 描述  |
     |---------|--------------|
     | 資源前置詞 | 部署的簡短唯一識別項。 此值會作為命名資源的基礎。 |
     | VM 使用者名稱 | 此使用者名稱會作為所有虛擬機器 (VM) 的管理員。 |
@@ -98,7 +98,7 @@ Azure Blockchain Workbench 需要 Azure AD 設定和應用程式註冊。 您可
 
     ![適用於新區塊鏈網路的進階設定](media/deploy/advanced-blockchain-settings-new.png)
 
-    | 設定 | 說明  |
+    | 設定 | 描述  |
     |---------|--------------|
     | 監視 | 選擇是否要讓 Azure 監視器監視區塊鏈網路 |
     | Azure Active Directory 設定 | 選擇 [稍後再新增]。</br>注意：如果您選擇了 [預先設定 Azure AD](#azure-ad-configuration) 或重新部署，請選擇 *立即新增*。 |
@@ -108,20 +108,20 @@ Azure Blockchain Workbench 需要 Azure AD 設定和應用程式註冊。 您可
 
     [使用現有項目] 選項可讓您指定以太坊權威證明 (PoA) 區塊鏈網路。 端點具有下列需求。
 
-    * 端點必須是以太坊權威證明 (PoA) 區塊鏈網路。
-    * 端點必須是可透過網路公開存取的。
-    * 在 PoA 區塊鏈網路的設定中，應將 Gas Price 設為零。
+   * 端點必須是以太坊權威證明 (PoA) 區塊鏈網路。
+   * 端點必須是可透過網路公開存取的。
+   * 在 PoA 區塊鏈網路的設定中，應將 Gas Price 設為零。
 
-    > [!NOTE]
-    > Blockchain Workbench 帳戶沒有資金。 如果需要資金，交易即會失敗。
+     > [!NOTE]
+     > Blockchain Workbench 帳戶沒有資金。 如果需要資金，交易即會失敗。
 
-    ![適用於現有區塊鏈網路的進階設定](media/deploy/advanced-blockchain-settings-existing.png)
+     ![適用於現有區塊鏈網路的進階設定](media/deploy/advanced-blockchain-settings-existing.png)
 
-    | 設定 | 說明  |
-    |---------|--------------|
-    | 以太坊 RPC 端點 | 提供現有 PoA 區塊鏈網路的 RPC 端點。 端點會以 https:// 或 http:// 開頭，並以連接埠號碼結尾。 例如， `http<s>://<network-url>:<port>` |
-    | Azure Active Directory 設定 | 選擇 [稍後再新增]。</br>注意：如果您選擇了 [預先設定 Azure AD](#azure-ad-configuration) 或重新部署，請選擇 *立即新增*。 |
-    | VM 選取項目 | 選擇您的區塊鏈網路慣用的 VM 大小。 |
+     | 設定 | 描述  |
+     |---------|--------------|
+     | 以太坊 RPC 端點 | 提供現有 PoA 區塊鏈網路的 RPC 端點。 端點會以 https:// 或 http:// 開頭，並以連接埠號碼結尾。 例如， `http<s>://<network-url>:<port>` |
+     | Azure Active Directory 設定 | 選擇 [稍後再新增]。</br>注意：如果您選擇了 [預先設定 Azure AD](#azure-ad-configuration) 或重新部署，請選擇 *立即新增*。 |
+     | VM 選取項目 | 選擇您的區塊鏈網路慣用的 VM 大小。 |
 
 9. 選取 [確定] 以完成進階設定。
 
@@ -205,7 +205,7 @@ Blockchain Workbench 部署完成後，新的資源群組即會包含您的 Bloc
 
     |設定  | 值  |
     |---------|---------|
-    |Name | `Blockchain API` |
+    |名稱 | `Blockchain API` |
     |應用程式類型 |Web 應用程式/API|
     |登入 URL | `https://blockchainapi` |
 
@@ -223,18 +223,18 @@ Blockchain Workbench 部署完成後，新的資源群組即會包含您的 Bloc
 
     ``` json
     "appRoles": [
-         {
-           "allowedMemberTypes": [
-             "User",
-             "Application"
-           ],
-           "displayName": "Administrator",
-           "id": "<A unique GUID>",
-           "isEnabled": true,
-           "description": "Blockchain Workbench administrator role allows creation of applications, user to role assignments, etc.",
-           "value": "Administrator"
-         }
-       ],
+         {
+           "allowedMemberTypes": [
+             "User",
+             "Application"
+           ],
+           "displayName": "Administrator",
+           "id": "<A unique GUID>",
+           "isEnabled": true,
+           "description": "Blockchain Workbench administrator role allows creation of applications, user to role assignments, etc.",
+           "value": "Administrator"
+         }
+       ],
     ```
 
     > [!IMPORTANT]

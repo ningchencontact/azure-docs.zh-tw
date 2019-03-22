@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee936d174aa3e221bbeb0823ba1503c7cb64a9d6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f5a0700a63d21d089573f757716e08fb03665b28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185157"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58164989"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>教學課程：Azure Active Directory 與 IQNavigator VMS 整合
 
@@ -39,7 +39,7 @@ IQNavigator VMS 與 Azure AD 整合提供下列優點：
 若要設定 Azure AD 與 IQNavigator VMS 整合，您需要下列項目：
 
 - Azure AD 訂用帳戶
-- 啟用 IQNavigator VMS 單一登入的訂用帳戶
+- 啟用 IQNavigator VMS 單一登入的 訂用帳戶
 
 > [!NOTE]
 > 若要測試本教學課程中的步驟，我們不建議使用生產環境。
@@ -91,7 +91,7 @@ IQNavigator VMS 與 Azure AD 整合提供下列優點：
 
 1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 1. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-1. **[建立 IQNavigator VMS 測試使用者](#creating-a-iqnavigator-vms-test-user)** - 使 IQNavigator VMS 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+1. **[建立 IQNavigator VMS 測試使用者](#creating-a-iqnavigator-vms-test-user)** -若要在 IQNavigator VMS 與 Azure AD 中代表使用者的連結的 Britta Simon 的對應。
 1. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 1. **[Testing Single Sign-On](#testing-single-sign-on)** - 驗證組態是否能運作。
 
@@ -175,7 +175,7 @@ IQNavigator VMS 與 Azure AD 整合提供下列優點：
 
     d. 按一下頁面底部的 [新增] 。
 
-### <a name="creating-a-iqnavigator-vms-test-user"></a>建立 IQNavigator VM 測試使用者
+### <a name="creating-an-iqnavigator-vms-test-user"></a>建立 IQNavigator VMS 測試使用者
 
 本節的目標是要在 IQNavigator VMS 中建立名為 Britta Simon 的使用者。 請與 [IQNavigator VM 支援小組](https://www.beeline.com/iqn-product-support/)合作，在 IQNavigator VM 帳戶中新增使用者。
 

@@ -3,20 +3,20 @@ title: 使用 Azure Data Factory 中的轉換資料 | Microsoft Docs
 description: 了解如何使用 Hadoop、Machine Learning 或 Azure Data Lake Analytics 在 Azure Data Factory 中轉換資料或處理資料。
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/31/2018
-ms.author: douglasl
-ms.openlocfilehash: 09b5f387b0c7f765ea0835dcef79932203d68338
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: 2c674f77ef0f779c9764771e2e0ae7a4aea47548
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014347"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57575217"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory 中的資料轉換
 > [!div class="op_single_selector"]

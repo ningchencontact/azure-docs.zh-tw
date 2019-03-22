@@ -1,17 +1,17 @@
 ---
 title: 適用於 MySQL 的 Azure 資料庫中的伺服器記錄
 description: 描述適用於 MySQL 的 Azure 資料庫中的可用記錄，以及啟用不同記錄層級的可用參數。
-author: rachel-msft
-ms.author: raagyema
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/03/2018
-ms.openlocfilehash: c9f8fc4bee370f287b40275b76fa98d2552d7600
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.date: 02/28/2019
+ms.openlocfilehash: b1b5dffed0a82e3e3c91efd4024bafdc64f0d3d2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545068"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119032"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫中的伺服器記錄
 在適用於 MySQL 的 Azure 資料庫中，使用者可以使用慢速查詢記錄。 不支援存取交易記錄。 慢速查詢記錄檔可以用來找出效能瓶頸，以進行疑難排解。 
@@ -44,12 +44,15 @@ ms.locfileid: "53545068"
 如需慢速查詢記錄參數的完整描述，請參閱 MySQL [慢速查詢記錄文件](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)。
 
 ## <a name="diagnostic-logs"></a>診斷記錄檔
-適用於 MySQL 的 Azure 資料庫會與 Azure 監視器診斷記錄整合。 在 MySQL 伺服器上啟用慢速查詢記錄後，您即可選擇將它們發出至 Log Analytics、事件中樞或 Azure 儲存體。 若要深入了解如何啟用診斷記錄，請參閱[診斷記錄文件](../azure-monitor/platform/diagnostic-logs-overview.md)的操作說明一節。
+適用於 MySQL 的 Azure 資料庫會與 Azure 監視器診斷記錄整合。 在 MySQL 服务器上启用慢查询日志后，可以选择将它们发送到 Azure Monitor 日志、事件中心或 Azure 存储。 若要深入了解如何啟用診斷記錄，請參閱[診斷記錄文件](../azure-monitor/platform/diagnostic-logs-overview.md)的操作說明一節。
+
+> [!IMPORTANT]
+> 服务器日志的此诊断功能仅适用于“常规用途”和“内存优化”的[定价层](concepts-pricing-tiers.md)。
 
 下表描述每個記錄的內容。 視輸出方法而定，包含的欄位及其出現的順序可能有所不同。
 
 | **屬性** | **說明** |
-|---|---|---|
+|---|---|
 | TenantId | 您的租用戶識別碼 |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | 以 UTC 記錄記錄時的時間戳記 |

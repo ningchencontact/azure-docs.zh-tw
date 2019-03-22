@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 03/12/2019
 ms.author: celested
-ms.reviewer: arvindh
+ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6984307dda58aeba840f2b6d08e84fb4f60cacc8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 84f1b7c9461d2eba5e13be8b15b2cbcc62715c23
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163065"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792033"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory 中的單一登入應用程式
 當使用者登入 Azure Active Directory (Azure AD) 中的應用程式時，單一登入 (SSO) 可增加安全性及便利性。 本文描述單一登入方法，並協助您在設定應用程式時，選擇最適當的 SSO 方法。
@@ -35,14 +35,14 @@ ms.locfileid: "56163065"
 
 此流程圖可協助您決定哪一種單一登入方法最適合您的情況。 
 
-![選擇單一登入方法](./media/what-is-single-sign-on/choose-single-sign-on-method.png)
+![選擇單一登入方法](./media/what-is-single-sign-on/choose-single-sign-on-method-updated.png)
 
 下表摘要說明單一登入方法，並提供更多詳細資料的連結。 
 
 | 單一登入方法 | 應用程式類型 | 使用時機 |
 | :------ | :------- | :----- |
 | [OpenID Connect 和 OAuth](#openid-connect-and-oauth) | 僅限雲端 | 開發新的應用程式時，請使用 OpenID Connect 和 OAuth。 此通訊協定可簡化應用程式設定、具備容易使用的 SDK，而且可讓您的應用程式使用 MS Graph。
-| [SAML](#saml-sso) | 僅限雲端 | 請盡可能為不使用 OpenID Connect 或 OAuth 的現有應用程式選擇 SAML。 SAML 適用於使用其中一個 SAML 通訊協定進行驗證的應用程式。|
+| [SAML](#saml-sso) | 雲端和內部部署 | 請盡可能為不使用 OpenID Connect 或 OAuth 的現有應用程式選擇 SAML。 SAML 適用於使用其中一個 SAML 通訊協定進行驗證的應用程式。|
 | [密碼式](#password-based-sso) | 雲端和內部部署 | 當應用程式使用使用者名稱和密碼進行驗證時，請選擇密碼式。 密碼式單一登入可以使用網頁瀏覽器擴充功能或行動應用程式，安全儲存應用程式的密碼以及重新執行。 此方法會使用應用程式提供的現有登入程序，但讓系統管理員可以管理密碼。 |
 | [已連結](#linked-sso) | 雲端和內部部署 | 當應用程式已經在其他識別提供者服務中設定單一登入時，選擇已連結的單一登入。 此選項不會將單一登入新增至應用程式。 不過，應用程式可能已經使用另一個服務 (例如 Active Directory 同盟服務) 來實作單一登入。|
 | [Disabled](#disabled-sso) | 雲端和內部部署 | 當應用程式尚未準備好設定單一登入時，請選擇已停用的單一登入。 使用者每次啟動此應用程式時，都需要輸入其使用者名稱和密碼。|
@@ -69,7 +69,9 @@ ms.locfileid: "56163065"
 - SAML 2.0
 - WS-同盟
 
-若要為應用程式設定 SAML 式單一登入，請參閱[設定 SAML 式單一登入](configure-single-sign-on-portal.md)。 此外，許多軟體即服務 (SaaS) 應用程式的[應用程式專屬教學課程](../saas-apps/tutorial-list.md)，可逐步引導您設定 SAML 型單一登入。 
+若要為應用程式設定 SAML 式單一登入，請參閱[設定 SAML 式單一登入](configure-single-sign-on-portal.md)。 此外，許多軟體即服務 (SaaS) 應用程式的[應用程式專屬教學課程](../saas-apps/tutorial-list.md)，可逐步引導您設定 SAML 型單一登入。
+
+若要設定適用於 WS-同盟的應用程式，請遵循相同的指引來設定應用程式的 SAML 型單一登入，請參閱[設定 SAML 型單一登入](configure-single-sign-on-portal.md)。 在設定為使用 Azure AD 應用程式步驟中，您必須取代的 WS-同盟端點的 Azure AD 登入 URL `https://login.microsoftonline.com/<tenant-ID>/wsfed`。
 
 如需有關 SAML 通訊協定的詳細資訊，請參閱[單一登入 SAML 通訊協定](../develop/single-sign-on-saml-protocol.md)。
 
@@ -151,11 +153,11 @@ ms.locfileid: "56163065"
 
 ![Microsoft AAD 驗證流程圖](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
-1. 使用者輸入 URL，以透過「應用程式 Proxy」存取內部部署應用程式。
+1. 使用者輸入 URL，以透過應用程式 Proxy 來存取在內部部署應用程式。
 2. 「應用程式 Proxy」將要求重新導向至 Azure AD 驗證服務，以進行預先驗證。 此時，Azure AD 會套用任何適用的驗證和授權原則，例如多重要素驗證。 若使用者通過驗證，Azure AD 會建立權杖並將它傳送給使用者。
 3. 使用者將權杖傳遞給「應用程式 Proxy」。
 4. 應用程式 Proxy 驗證權杖，並從權杖擷取使用者主體名稱 (UPN)。 它接著透過雙重驗證安全通道，將要求、UPN 和服務主體名稱 (SPN) 傳送到連接器。
-5. 連接器會與內部部署 AD 執行 Kerberos 限制委派 (KCD) 交涉，以模擬使用者將 Kerberos 權杖傳送至應用程式。
+5. 連接器會使用內部部署 AD 中，模擬使用者取得 Kerberos 權杖給應用程式中的 Kerberos 限制委派 (KCD) 交涉。
 6. Active Directory 會將應用程式的 Kerberos 權杖傳送至連接器。
 7. 連接器會使用從 AD 接收的 Kerberos 權杖，將原始要求傳送至應用程式伺服器。
 8. 應用程式會將回應傳送至連接器，然後再傳回至應用程式 Proxy 服務，最後再傳回給使用者。

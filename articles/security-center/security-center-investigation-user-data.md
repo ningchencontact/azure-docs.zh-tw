@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: 81bd34cdbe35f3e12d5afddc929b0fac7631f4cc
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: bec9be627937913c268d65bb6cdadcf68c7a3fb4
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113068"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244293"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>管理 Azure 資訊安全中心調查中找到的使用者資料
-本文提供有關如何管理 Azure 資訊安全中心調查功能中找到的使用者資料的資訊。 調查資料會儲存在 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 中，並在資訊安全中心中公開。 管理使用者資料包含了刪除或匯出資料的能力。
+本文提供有關如何管理 Azure 資訊安全中心調查功能中找到的使用者資料的資訊。 調查資料會儲存在[Azure 監視器記錄](../log-analytics/log-analytics-overview.md)並公開在資訊安全中心。 管理使用者資料包含了刪除或匯出資料的能力。
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
@@ -58,4 +58,4 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 
 ## <a name="next-steps"></a>後續步驟
 如需有關如何管理使用者資料的詳細資訊，請參閱[管理 Azure 資訊安全中心中的使用者資料](security-center-privacy.md)。
-若要深入了解如何刪除 Log Analytics 中的私人資料，請參閱[如何匯出及刪除私人資料](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data)。
+若要深入了解刪除 Azure 監視器記錄檔中的私用資料，請參閱[如何匯出及刪除私用資料](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data)。

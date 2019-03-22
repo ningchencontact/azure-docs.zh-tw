@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 5c2d19c6-dd40-4c4b-abd3-5c5ec0abed38
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 66c51b08884c9d7a4d522c94f7b81774ec7a8bda
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 985d41d3a00974e25c9abc4709c5bf5e662f7a50
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641997"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086032"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Service Fabric 服務的放置原則
 放置原則是在一些較罕見的特定情況下可用來掌管服務放置的額外規則。 這些情況的一些例子如下︰
@@ -44,6 +44,7 @@ ms.locfileid: "34641997"
 **InvalidDomain** 放置原則可讓您指定某個容錯網域對特定服務是無效的。 此原則可確保特定的服務絕對不會在特定的區域中執行，例如，基於地緣政治或公司政策的緣故。 您可以透過個別原則指定多個無效的網域。
 
 <center>
+
 ![無效的網域範例][Image1]
 </center>
 
@@ -64,7 +65,8 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 所需的網域放置原則要求服務只能存在於指定的網域中。 您可以透過個別原則指定多個所需的網域。
 
 <center>
-![所需的網域範例][Image2]
+
+![必要的網域範例][Image2]
 </center>
 
 程式碼：
@@ -85,6 +87,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 「慣用的主要網域」會指定要放置「主要」複本的容錯網域。 若一切狀況良好，「主要」複本最後會在這個網域中。 如果網域或「主要」複本失敗或關閉，則「主要」複本會移至某些其他位置，在理想狀況下會是相同的網域。 如果這個新的位置並非慣用的網域，叢集資源管理員會儘快將它移回慣用的網域。 當然，此設定僅適用於具狀態服務。 如果叢集跨越 Azure 區域或多個資料中心，但具有選擇放置在特定位置的服務，此原則最有用。 讓「主要」複本靠近其使用者或其他服務有助於縮短延遲，特別是針對「主要」複本預設所處理的讀取作業。
 
 <center>
+
 ![慣用的主要網域和容錯移轉][Image3]
 </center>
 

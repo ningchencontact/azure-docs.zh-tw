@@ -1,7 +1,7 @@
 ---
 title: Linux 上的 Java Enterprise 支援 - Azure App Service | Microsoft Docs
 description: 搭配 Linux 上的 Azure App Service 使用 Wildfly 來部署 Java Enterprise 應用程式的開發人員指南。
-keywords: azure app 服務, web 應用程式, linux, oss, java, wildfly, enterprise
+keywords: azure 應用程式服務、 web 應用程式，linux，oss、 java、 wildfly、 enterprise、 java ee jee，javaee
 services: app-service
 author: rloutlaw
 manager: angerobe
@@ -13,16 +13,19 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 408141650a11a81f0c6000c6e7927af8333e2afe
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 98e00eb382962d2364adda93b1a5b24fdef832eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548471"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101766"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>適用於 Linux 上 App Service 的 Java Enterprise 指南
 
-Linux 上的 Azure App Service 可讓 Java 開發人員在完全受控的 Linux 型服務上，建置、部署和調整 Java Enterprise (JEE) 應用程式。  基礎的 Java Enterprise 執行階段環境是開放原始碼的 [Wildfly](https://wildfly.org/) \(英文\) 應用程式伺服器。
+> [!NOTE] 
+> 在 App Service Linux 上的 Java Enterprise Edition 目前為預覽狀態。 此堆疊**不**建議用於生產環境對向工作。 請參閱[Java 開發人員指南](app-service-linux-java.md)如我們 Java SE 和 Tomcat 在堆疊上的資訊。
+
+Linux 上的 azure App Service 可讓 Java 開發人員建置、 部署及調整 Java Enterprise (Java EE) 應用程式上完全受控的以 Linux 為基礎服務。  基礎的 Java Enterprise 執行階段環境是開放原始碼的 [Wildfly](https://wildfly.org/) \(英文\) 應用程式伺服器。
 
 本指南提供 Java Enterprise 開發人員可在適用於 Linux 的 App Service 中使用的重要概念和指示。 如果您從未使用適用於 Linux 的 Azure App Service 部署 Java 應用程式，則應先完成 [Java 快速入門](quickstart-java.md)。 [Java 開發人員指南](app-service-linux-java.md)與 [App Service Linux 常見問題集](app-service-linux-faq.md)中回答了非 Java Enterprise 特定且適用於 Linux 的 App Service 相關問題。
 
@@ -41,7 +44,7 @@ Web 應用程式執行個體為無狀態，因此必須在啟動時設定每個�
 - 設定傳訊提供者
 - 將其他模組和相依性新增到 Wildfly 伺服器設定。
 
- 這個指令碼會在 Wildfly 啟動並執行時，但在應用程式啟動之前執行。 這個指令碼應該使用從 `/opt/jboss/wildfly/bin/jboss-cli.sh` 呼叫的 [JBOSS CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) \(英文\)，利用在應用程式伺服器啟動之後所需的任何設定或變更來設定該伺服器。 
+  這個指令碼會在 Wildfly 啟動並執行時，但在應用程式啟動之前執行。 這個指令碼應該使用從 `/opt/jboss/wildfly/bin/jboss-cli.sh` 呼叫的 [JBOSS CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) \(英文\)，利用在應用程式伺服器啟動之後所需的任何設定或變更來設定該伺服器。 
 
 請勿使用 CLI 的互動模式來設定 Wildfly。 您可以改用 `--file` 命令來為 JBoss CLI 提供命令的指令碼，例如：
 

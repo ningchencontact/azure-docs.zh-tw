@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: ca951c813554ae253cbd572e03c53b8687499af9
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 94bdc0670fb63b1b4c306a5af3357f437784338c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000160"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58007923"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>在 Azure 監視器中收集 IIS 記錄檔
 Internet Information Services (IIS) 會將使用者活動儲存在記錄檔中，並可由 Azure 監視器進行收集並儲存為[記錄資料](data-collection.md)。
@@ -40,7 +40,7 @@ Azure 監視器會在每次記錄關閉並建立新記錄時，從每個代理�
 ## <a name="iis-log-record-properties"></a>IIS 記錄檔記錄屬性
 IIS 記錄檔記錄都具有 **W3CIISLog** 類型以及下表中的屬性：
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | 電腦 |收集事件的來源電腦名稱。 |
 | cIP |用戶端的 IP 位址。 |
@@ -67,12 +67,12 @@ IIS 記錄檔記錄都具有 **W3CIISLog** 類型以及下表中的屬性：
 ## <a name="log-queries-with-iis-logs"></a>IIS 記錄檔的記錄查詢
 下表提供擷取 IIS 記錄檔記錄的不同記錄查詢範例。
 
-| 查詢 | 說明 |
+| 查詢 | 描述 |
 |:--- |:--- |
 | W3CIISLog |所有 IIS 記錄檔記錄。 |
 | W3CIISLog &#124; where scStatus==500 |具有傳回狀態 500 的所有 IIS 記錄。 |
 | W3CIISLog &#124; summarize count() by cIP |依據用戶端 IP 位址的 IIS 記錄項目計數。 |
-| W3CIISLog &#124; where csHost=="www.contoso.com" &#124; summarize count() by csUriStem |依據主機 www.contoso.com 之 URL 的 IIS 記錄項目計數。 |
+| W3CIISLog &#124; where csHost=="www\.contoso.com" &#124; summarize count() by csUriStem |計數的 IIS 記錄項目 URL 為主機 www\.contoso.com。 |
 | W3CIISLog &#124; summarize sum(csBytes) by Computer &#124; take 500000 |每部 IIS 電腦所接收的位元組總數。 |
 
 ## <a name="next-steps"></a>後續步驟

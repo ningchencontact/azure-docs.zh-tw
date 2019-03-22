@@ -5,16 +5,16 @@ services: batch
 author: laurenhughes
 manager: jeconnoc
 ms.service: batch
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: a2959e6caefb09a22be4473f7da005c6f524aba0
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: HT
+ms.openlocfilehash: 912e3342b4e8031b4404dffb56f1add2cc705f8e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878348"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772580"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Batch API 和工具的概觀
 
@@ -40,8 +40,8 @@ ms.locfileid: "56878348"
 | API | API 參考資料 | 下載 | 教學課程 | 程式碼範例 | 其他資訊 |
 | --- | --- | --- | --- | --- | --- |
 | **Batch REST** |[docs.microsoft.com][batch_rest] |N/A |- |- | [支援的版本](/rest/api/batchservice/batch-service-rest-api-versioning) |
-| **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet ][api_net_nuget] |[教學課程](tutorial-parallel-dotnet.md) |[GitHub][api_sample_net] | [版本資訊](https://aka.ms/batch-net-dataplane-changelog) |
-| **Batch Python** |[docs.microsoft.com][api_python] |[PyPI][api_python_pypi] |[教學課程](tutorial-parallel-python.md)|[GitHub][api_sample_python] | [讀我檔案](https://github.com/Azure/azure-sdk-for-python/blob/master/doc/batch.rst) |
+| **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet ][api_net_nuget] |[教學課程](tutorial-parallel-dotnet.md) |[GitHub][api_sample_net] | [发行说明](https://aka.ms/batch-net-dataplane-changelog) |
+| **Batch Python** |[docs.microsoft.com][api_python] |[PyPI][api_python_pypi] |[教學課程](tutorial-parallel-python.md)|[GitHub][api_sample_python] | [自述文件](https://github.com/Azure/azure-sdk-for-python/blob/master/doc/batch.rst) |
 | **Batch Node.js** |[docs.microsoft.com][api_nodejs] |[npm][api_nodejs_npm] |[教學課程](batch-nodejs-get-started.md) |- | [讀我檔案](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
 | **Batch Java** |[docs.microsoft.com][api_java] |[Maven][api_java_jar] |- |[讀我檔案][api_sample_java] | [讀我檔案](https://github.com/Azure/azure-batch-sdk-for-java)|
 

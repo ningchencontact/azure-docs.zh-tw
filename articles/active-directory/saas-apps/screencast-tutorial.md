@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51daf3b9553babb5fc627c02d79914c68c318145
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 941a02ef9ab3d623d34c8dc6996040f6d9e44859
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190818"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096838"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screencast-o-matic"></a>教學課程：Azure Active Directory 與 Screencast-O-Matic 整合
 
@@ -34,7 +34,7 @@ Screencast-O-Matic 與 Azure AD 整合提供下列優點：
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定與 Screencast-O-Matic 的 Azure AD 整合，您需要下列項目：
 
@@ -133,17 +133,17 @@ Screencast-O-Matic 與 Azure AD 整合提供下列優點：
 
 9. 在 [設定存取頁面] 上，執行下列步驟：
 
-    * 在 [存取 URL] 區段下，於指定的文字方塊中輸入執行個體名稱。
+   * 在 [存取 URL] 區段下，於指定的文字方塊中輸入執行個體名稱。
 
-    ![存取](./media/screencast-tutorial/tutorial_screencast_access.png)
+     ![存取](./media/screencast-tutorial/tutorial_screencast_access.png)
 
-    * 選取 [SAML 使用者限制 (選擇性)] 區段下的 [需要網域使用者]。
+   * 選取 [SAML 使用者限制 (選擇性)] 區段下的 [需要網域使用者]。
 
-    * 在 [上傳 IDP 中繼資料 XML 檔案] 下，按一下 [選擇檔案]，以上傳您從 Azure 入口網站下載的中繼資料。
+   * 在 [上傳 IDP 中繼資料 XML 檔案] 下，按一下 [選擇檔案]，以上傳您從 Azure 入口網站下載的中繼資料。
 
-    * 按一下 [確定]。 
+   * 按一下 [確定]。 
 
-    ![存取](./media/screencast-tutorial/tutorial_screencast_save.png)
+     ![存取](./media/screencast-tutorial/tutorial_screencast_save.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 

@@ -1,6 +1,6 @@
 ---
 title: 將 Azure 監視資料串流至事件中樞
-description: 了解如何將所有的 Azure 監視資料串流至事件中樞，以將資料匯入夥伴 SIEM 或分析工具。
+description: 了解如何在您 Azure 監視資料串流到事件中樞取得資料匯入夥伴 SIEM 或分析工具。
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 424dc1611622a1dfc37419fd443d860698020524
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 549ec74514ff03e06ff25893d3fa865f179470e9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468228"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870681"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>將 Azure 監視資料串流至事件中樞以供外部工具取用
 
-Azure 監視器有提供單一管道以存取 Azure 環境的所有監視資料，讓您輕鬆設定夥伴 SIEM 和監視工具來取用該資料。 本文會逐步解說如何設定 Azure 環境的不同資料層，使其傳送至單一事件中樞命名空間或事件中樞，再由外部工具收集。
+本文會逐步解說如何設定 Azure 環境的不同資料層，使其傳送至單一事件中樞命名空間或事件中樞，再由外部工具收集。
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
@@ -33,7 +33,7 @@ Azure 環境內有數個「層級」的監視資料，而存取每一層資料�
 - **Azure 訂用帳戶監視資料：** 有關 Azure 訂用帳戶作業和管理的資料，以及有關 Azure 本身健康情況和作業的資料。 [活動記錄](./../../azure-monitor/platform/activity-logs-overview.md)包含大部分的訂用帳戶監視資料，例如服務健康情況事件和 Azure Resource Manager 稽核。 您可以使用記錄設定檔收集此資料。
 - **Azure 租用戶監視資料：** 租用戶層級 Azure 服務的作業相關資料，例如 Azure Active Directory。 Azure Active Directory 稽核和登入是租用戶監視資料的範例。 您也可以使用租用戶診斷設定來收集此資料。
 
-來自任何層的資料都能傳送至事件中樞，然後再提取至夥伴工具。 以下幾節說明如何設定來自每一層的資料，以串流至事件中樞。 當中的步驟均假設您在要監視的層級皆已具有資產。
+來自任何層的資料都能傳送至事件中樞，然後再提取至夥伴工具。 將資料傳送至事件中樞直接，而另一個處理例如邏輯應用程式可能需要擷取所需的資料，可以設定某些來源。 以下幾節說明如何設定來自每一層的資料，以串流至事件中樞。 當中的步驟均假設您在要監視的層級皆已具有資產。
 
 ## <a name="set-up-an-event-hubs-namespace"></a>設定事件中樞命名空間
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 5ff0a70d8b370655df1eef55dac68804a1db406b
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
-ms.translationtype: HT
+ms.openlocfilehash: f83ee40c97e49add539a44a6ba764024a8e47bfa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082141"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081486"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中建立和管理可認領 VM
 您可以從[自訂映像](devtest-lab-create-template.md)、[公式](devtest-lab-manage-formulas.md)或 [Marketplace 映像](devtest-lab-configure-marketplace-images.md)等「基底」，使用和[新增標準 VM](devtest-lab-add-vm.md) 相似的方法將可宣告 VM 新增至實驗室。 本教學課程會逐步引導您使用 Azure 入口網站，新增可認領 VM 至 DevTest Labs 中的實驗室，並為使用者示範認領與取消認領 VM 的流程。
@@ -64,12 +64,12 @@ ms.locfileid: "55082141"
 
 * 在實驗室 [概觀] 窗格底部的 [可認領的虛擬機器] 清單中，以滑鼠右鍵按一下清單中的其中一個 VM，並選擇 [認領機器]。
 
- ![要求特定可宣告 VM。](./media/devtest-lab-add-vm/devtestlab-claim-VM.png)
+  ![要求特定可宣告 VM。](./media/devtest-lab-add-vm/devtestlab-claim-VM.png)
 
 
 * 在 [概觀] 窗格的頂端，選擇 [認領任何項目]。 系統將會從可宣告 VM 清單中隨機指派虛擬機器。
 
- ![要求任何可宣告 VM。](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
+  ![要求任何可宣告 VM。](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
 
 
 在使用者宣告 VM 之後，該 VM 將會移至該使用者的 [我的虛擬機器] 清單，且其他使用者將無法宣告該 VM。

@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 53a1f50647e05b71afe6accb85f8a90cd8b7e253
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 7f05665f4bcc5449c1a81fa24582b333b0a944e0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470390"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58173748"
 ---
 # <a name="event-grid-sdks-for-management-and-publishing"></a>用來管理及發佈的 Event Grid SDK
 
@@ -46,4 +46,4 @@ Event Grid 提供可讓您以程式設計方式管理資源和張貼事件的 SD
 * 如需應用程式範例，請參閱 [Event Grid 程式碼範例](https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid)。
 * 若要初步了解事件格線，請參閱[什麼是事件格線？](overview.md)
 * 對於 Azure CLI 中的 Event Grid 命令，請參閱 [Azure CLI](/cli/azure/eventgrid)。
-* 對於 PowerShell 中的 Event Grid 命令，請參閱 [PowerShell](/powershell/module/azurerm.eventgrid)。
+* 對於 PowerShell 中的 Event Grid 命令，請參閱 [PowerShell](/powershell/module/az.eventgrid)。

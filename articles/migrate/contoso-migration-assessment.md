@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: raynew
-ms.openlocfilehash: e948ee943db646ca83d39510485849b3c9956e90
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 4739308d301291bf88e8ae547ba85f9648339c4e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697444"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118454"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso 移轉：評估要移轉至 Azure 的內部部署工作負載
 
@@ -86,11 +86,11 @@ Contoso 雲端小組已識別其移轉評量的目標：
 
 Contoso 會使用 Microsoft 工具進行其移轉評量。 這些工具與該公司的目標相符，應可提供 Contoso 所需的全部資訊。
 
-Technology | 說明 | 成本
+Technology | 描述 | 成本
 --- | --- | ---
 [資料移轉小幫手](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Contoso 會使用 Data Migration Assistant 來評定和偵測可能影響其在 Azure 中資料庫功能的相容性問題。 Data Migration Assistant 會評定 SQL 來源和目標之間的功能同位。 其會建議如何改善效能和可靠性。 | Data Migration Assistant 是免費、可下載的工具。
 [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) | Contoso 會使用 Azure Migrate 服務來評定其 VMware VM。 Azure Migrate 會評定機器是否適合移轉。 它會提供在 Azure 中執行的大小調整建議和成本估計。  | 截至 2018 年 5 月，Azure Migrate 是一項免費服務。
-[服務對應](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate 會使用服務對應來顯示該公司想要遷移的機器彼此之間的相依性。 | 服務對應是 Azure Log Analytics 的一部分。 目前，Contoso 可免費使用服務對應 180 天。
+[服務對應](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate 會使用服務對應來顯示該公司想要遷移的機器彼此之間的相依性。 | 服務對應是 Azure 監視器記錄的一部分。 目前，Contoso 可免費使用服務對應 180 天。
 
 在此案例中，Contoso 會下載並執行 Data Migration Assistant，以評定其旅遊應用程式的內部部署 SQL Server 資料庫。 Contoso 會使用 Azure Migrate 搭配相依性對應來評定應用程式 VM，再將其遷移至 Azure。
 
@@ -159,15 +159,15 @@ Contoso 現在可以執行評估，以便針對 SmartHotel360 應用程式分析
 
     ![Data Migration Assistant - 選取來源](./media/contoso-migration-assessment/dma-assessment-1.png)
 
-    > [!NOTE]
-      Data Migration Assistant 目前不支援就是否可遷移至 Azure SQL Database 受控執行個體進行評量。 為解決此問題，Contoso 會使用「Azure VM 上的 SQL Server」作為假定的評量目標。
+   > [!NOTE]
+   >    Data Migration Assistant 目前不支援就是否可遷移至 Azure SQL Database 受控執行個體進行評量。 為解決此問題，Contoso 會使用「Azure VM 上的 SQL Server」作為假定的評量目標。
 
 3. 在 [選取目標版本] 中，Contoso 會選取 SQL Server 2017 作為目標版本。 這是 SQL Database 受控執行個體所使用的版本，所以 Contoso 必須選取此版本。
 4. Contoso 選取報告以協助自身探索相容性和新功能的相關資訊：
-    - [相容性問題] 會指明可能會中斷移轉的變更，或指明必須略做調整再移轉。 此報告會讓 Contoso 得知任何目前使用、但已過時的功能。 所有問題會以相容性層級來加以組織。
-    - [新功能的建議] 會指明資料庫可於移轉後所使用的目標 SQL Server 平台中，有什麼新功能。 新功能的建議會組織在 [效能]、[安全性] 和 [儲存體] 標題底下。
+   - [相容性問題] 會指明可能會中斷移轉的變更，或指明必須略做調整再移轉。 此報告會讓 Contoso 得知任何目前使用、但已過時的功能。 所有問題會以相容性層級來加以組織。
+   - [新功能的建議] 會指明資料庫可於移轉後所使用的目標 SQL Server 平台中，有什麼新功能。 新功能的建議會組織在 [效能]、[安全性] 和 [儲存體] 標題底下。
 
-    ![Data Migration Assistant - 相容性問題和新功能](./media/contoso-migration-assessment/dma-assessment-2.png)
+     ![Data Migration Assistant - 相容性問題和新功能](./media/contoso-migration-assessment/dma-assessment-2.png)
 
 2. 在 [連線到伺服器] 中，Contoso 會輸入執行資料庫的 VM 名稱，以及用來存取它的認證。 Contoso 會啟用 [信任伺服器憑證] 以確保 VM 可以存取 SQL Server。 接著，Contoso 會選取 [連線]。
 
@@ -186,13 +186,13 @@ Contoso 現在可以執行評估，以便針對 SmartHotel360 應用程式分析
 
 1. 在 [相容性問題] 報告中，Contoso 會檢查每個相容性層級的所有問題。 相容性層級與 SQL Server 版本的對應如下：
 
-    - 100：SQL Server 2008/Azure SQL Database
-    - 110：SQL Server 2012/Azure SQL Database
-    - 120：SQL Server 2014/Azure SQL Database
-    - 130：SQL Server 2016/Azure SQL Database
-    - 140：SQL Server 2017/Azure SQL Database
+   - 100：SQL Server 2008/Azure SQL Database
+   - 110：SQL Server 2012/Azure SQL Database
+   - 120：SQL Server 2014/Azure SQL Database
+   - 130：SQL Server 2016/Azure SQL Database
+   - 140：SQL Server 2017/Azure SQL Database
 
-    ![Data Migration Assistant - 相容性問題報告](./media/contoso-migration-assessment/dma-assessment-5.png)
+     ![Data Migration Assistant - 相容性問題報告](./media/contoso-migration-assessment/dma-assessment-5.png)
 
 2. 在 [功能建議] 報告中，Contoso 會檢視評量在移轉後建議的效能、安全性和儲存功能。 該報告會提出各種建議功能，包括記憶體內部 OLTP、資料行存放區索引、Stretch Database、Always Encrypted、動態資料遮罩和透明資料加密。
 
@@ -403,14 +403,14 @@ Contoso 會在每部 VM 上執行安裝。
 
     `sudo -i`
 3. Contoso 會安裝 MMA：
-    - Contoso 會在命令中輸入工作區識別碼和金鑰。
-    - 命令是針對 64 位元。
-    - 工作區識別碼和金鑰位於 Azure 入口網站的 Log Analytics 工作區。 依序選取 [設定] 和 [連接的來源] 索引標籤。
-    - 執行下列命令來下載 Log Analytics 代理程式、驗證總和檢查碼，然後安裝代理程式並使其可使用：
+   - Contoso 會在命令中輸入工作區識別碼和金鑰。
+   - 命令是針對 64 位元。
+   - 工作區識別碼和金鑰位於 Azure 入口網站的 Log Analytics 工作區。 依序選取 [設定] 和 [連接的來源] 索引標籤。
+   - 執行下列命令來下載 Log Analytics 代理程式、驗證總和檢查碼，然後安裝代理程式並使其可使用：
 
-    ```
-    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==
-    ```
+     ```
+     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==
+     ```
 
 #### <a name="install-the-dependency-agent-on-linux-vms"></a>在 Linux VM 上安裝 Dependency Agent
 

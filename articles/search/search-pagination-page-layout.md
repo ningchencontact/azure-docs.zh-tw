@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8cf65f0ed3ecd5c9a86d6adcdd5defd930522f85
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: ef29dafe32c3c5988cd33f59c8436eeef4b45886
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301548"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849273"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>如何在 Azure 搜尋服務中使用搜尋結果
 本文會講解如何實作搜尋結果頁面的標準項目，例如次數總計、擷取文件、排序次序和導覽。 發表資料或資訊到您的搜尋結果的頁面相關選項，會由傳送到 Azure 搜尋服務的[搜尋文件](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)要求所指定。 
 
 在 REST API 中，要求會包含 GET 命令、路徑和查詢參數，這些會對服務通知要求是什麼，以及如何制訂回應。 在.NET SDK 中，對等 API 是 [DocumentSearchResult 類別](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult?view=azure-dotnet)。
 
-這裡有數個包含 Web 前端介面的程式碼範例：[New York City 工作示範應用程式](http://azjobsdemo.azurewebsites.net/)和 [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd)。
+這裡有數個包含 Web 前端介面的程式碼範例：[New York City 工作示範應用程式](https://azjobsdemo.azurewebsites.net/)和 [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd)。
 
 > [!NOTE]
-> 有效的要求包含一些項目，例如服務 URL 及路徑、HTTP 動詞命令、`api-version` 等。 為求簡單明瞭，我們縮減此範例，只突顯與分頁相關的語法。 如需要求語法的詳細資訊，請參閱 [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice)。 
+> 有效的要求包含一些項目，例如服務 URL 及路徑、HTTP 動詞命令、`api-version` 等。 為求簡單明瞭，我們縮減此範例，只突顯與分頁相關的語法。 如需有關要求語法的詳細資訊，請參閱[Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice)。 > 
 > 
 
 ## <a name="total-hits-and-page-counts"></a>總點擊數和頁面計數
@@ -100,7 +100,7 @@ ms.locfileid: "56301548"
 
 如需 `$filter` 運算式的詳細資訊，請參閱[搜尋文件 (Azure 搜尋服務 API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 * [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice)
 * [索引作業](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
 * [文件作業](https://docs.microsoft.com/rest/api/searchservice/Document-operations)

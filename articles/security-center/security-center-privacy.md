@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8cbe391f756dab35abda411c3a6c943a51eae302
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: fcec410df631a58b76878a4cb327ca2fb04a2105
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115975"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117842"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>在 Azure 資訊安全中心管理使用者資料
 本文提供有關如何在 Azure 資訊安全中心管理使用者資料的資訊。 管理使用者資料包含了存取、刪除或匯出資料的能力。
@@ -68,25 +68,25 @@ ms.locfileid: "56115975"
 
 - 從 Azure 入口網站執行複製
 - 執行 Azure REST API 呼叫，GET HTTP：
-```HTTP
-GET https://<endpoint>/subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts?api-version={api-version}
-```
+  ```HTTP
+  GET https://<endpoint>/subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts?api-version={api-version}
+  ```
 
 指派為帳戶管理員角色的資訊安全中心使用者，可以透過下列方式，匯出其中包含 IP 位址的[及時](security-center-just-in-time.md)原則：
 
 - 從 Azure 入口網站執行複製
 - 執行 Azure REST API 呼叫，GET HTTP：
-```HTTP
-GET https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Security/locations/{location}/jitNetworkAccessPolicies/default?api-version={api-version}
-```
+  ```HTTP
+  GET https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Security/locations/{location}/jitNetworkAccessPolicies/default?api-version={api-version}
+  ```
 
 帳戶管理員可以透過下列方式，匯出警示詳細資料：
 
 - 從 Azure 入口網站執行複製
 - 執行 Azure REST API 呼叫，GET HTTP：
-```HTTP
-GET https://<endpoint>/subscriptions/{subscriptionId}/providers/microsoft.Security/alerts?api-version={api-version}
-```
+  ```HTTP
+  GET https://<endpoint>/subscriptions/{subscriptionId}/providers/microsoft.Security/alerts?api-version={api-version}
+  ```
 
 如需詳細資訊，請參閱[取得安全性警示 (GET 收集)](https://msdn.microsoft.com/library/mt704050.aspx)。
 

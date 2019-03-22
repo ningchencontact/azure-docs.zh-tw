@@ -5,17 +5,17 @@ description: 了解如何在「適用於初學者的資料科學」影片 3 中�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: garyericson
 ms.author: garye
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/03/2018
-ms.openlocfilehash: 7134a22532622d7de25a23897f83dc453d8a4344
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: fcd79b94c1a32fa912f00df616787f8859005895
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454050"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56820159"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>詢問您可以使用資料回答的問題
 ## <a name="video-3-data-science-for-beginners-series"></a>影片 3：適用於初學者的資料科學系列
@@ -93,4 +93,4 @@ ms.locfileid: "56454050"
 
 ## <a name="next-steps"></a>後續步驟
 * [嘗試使用 Machine Learning Studio 進行您的第一個資料科學實驗](create-experiment.md)
-* [在 Microsoft Azure 上取得 Machine Learning 簡介](what-is-machine-learning.md)
+* [在 Microsoft Azure 上取得 Machine Learning 簡介](/azure/machine-learning/preview/overview-what-is-azure-ml)

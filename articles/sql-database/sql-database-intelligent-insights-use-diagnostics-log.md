@@ -12,16 +12,16 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: a2b4f85ac9c62c93e06f73090b6b144ff79319d1
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 264d4cfc6b09813f34501a0e51d3100f4d2bce78
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561870"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57217031"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>使用 Intelligent Insights Azure SQL Database 效能診斷記錄
 
-此頁面提供有關如何使用 [Intelligent Insights](sql-database-intelligent-insights.md) 所產生 Azure SQL Database 效能診斷記錄的使用方式、其格式及其所含資料的資訊，來因應您的自訂開發需求。 您可以將此診斷記錄傳送給 [Azure Log Analytics](../azure-monitor/insights/azure-sql.md)、[Azure 事件中樞](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)、[Azure 儲存體](sql-database-metrics-diag-logging.md#stream-into-storage)或協力廠商解決方案，以取得自訂的 DevOps 警示和報告功能。
+此頁面提供有關如何使用 [Intelligent Insights](sql-database-intelligent-insights.md) 所產生 Azure SQL Database 效能診斷記錄的使用方式、其格式及其所含資料的資訊，來因應您的自訂開發需求。 您可以傳送到此診斷記錄[Azure 監視器記錄](../azure-monitor/insights/azure-sql.md)， [Azure 事件中樞](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)， [Azure 儲存體](sql-database-metrics-diag-logging.md#stream-into-storage)，或是提供自訂的 DevOps 警示和報告的第三方解決方案功能。
 
 ## <a name="log-header"></a>記錄標頭
 
@@ -135,7 +135,7 @@ Intelligent Insights 效能記錄的最後部分是關於所識別之效能降�
 "rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
-您可以搭配 [Azure Log Analytics]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) 或協力廠商解決方案來使用 Intelligent Insights 效能記錄，以提供自訂的 DevOps 警示和報告功能。
+您可以使用 Intelligent Insights 效能記錄檔[Azure 監視器記錄]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql)或協力廠商解決方案，提供自訂的 DevOps 警示和報告功能。
 
 ## <a name="next-steps"></a>後續步驟
 - 了解 [Intelligent Insights](sql-database-intelligent-insights.md) 概念。

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: 67fe5da86b4736daa43a85a7a1a077c329732b60
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 36d0a976b73fe5b6f89755ce790b919468744179
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890449"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091642"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Azure Site Recovery 中的服務更新
 作為一個組織，您必須了解如何維持資料安全，以及發生計劃性和非計劃性中斷時，如何讓應用程式/工作負載持續執行。 Azure Site Recovery 可在網站關閉時，讓您的應用程式持續在可用的 VM 和實體伺服器上執行，藉此參與您的 BCDR 策略。 Site Recovery 會複寫在 VM 和實體伺服器上執行的工作負載，因此如果主要網站無法使用，仍可在次要位置中使用工作負載。 當主要網站再次開始運作及執行時，它會將工作負載復原至其中。
@@ -108,7 +108,7 @@ Azure Site Recovery 會定期發佈服務更新，包括加入新功能、改善
 建議在每次升級行動代理程式之後重新開機，以確保在來源機器上載入所有的最新變更。 不過，**並非強制**。 如果上次重新開機期間的代理程式版本與目前版本之間的差異大於 4，則必須重新開機。 請參考下表中的詳細說明。
 
 |**上次重新開機期間的代理程式版本** | **升級至** | **是否強制重新啟動？**|
-|---------|---------|---------|--------|
+|---------|---------|---------|
 |9.16 |  9.18 | 非強制性|
 |9.16 | 9.19 | 非強制性|
 | 9.16 | 9.20 | 非強制性

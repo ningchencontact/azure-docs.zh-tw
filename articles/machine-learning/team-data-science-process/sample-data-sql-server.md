@@ -11,18 +11,18 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2c556fe3cc27e68d591c0f513dcfbe525e868b2c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: a544ddb6f31481750b1cd46b52d2909d71739707
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470717"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57897073"
 ---
 # <a name="heading"></a>在 Azure 上 SQL Server 中進行資料取樣
 
 本文說明如何使用 SQL 或 Python 程式設計語言，對儲存在 Azure 上之 SQL Server 中的資料進行取樣。 也示範如何透過將取樣的資料儲存到檔案，讓取樣資料移動到 Azure Machine Learning、將取樣的資料上傳至 Azure blob，然後將其讀入 Azure Machine Learning Studio。
 
-Python 取樣使用 [pyodbc](https://code.google.com/p/pyodbc/) ODBC 程式庫來連接到 Azure 上的 SQL Server 以及 [Pandas](http://pandas.pydata.org/) 程式庫來進行取樣。
+Python 取樣使用 [pyodbc](https://code.google.com/p/pyodbc/) ODBC 程式庫來連接到 Azure 上的 SQL Server 以及 [Pandas](https://pandas.pydata.org/) 程式庫來進行取樣。
 
 > [!NOTE]
 > 本文件中的 SQL 程式碼範例假設資料位於 Azure 上的 SQL Server 中。 如果資料不在其中，請參閱[移動資料至 Azure 虛擬機器上的 SQL Server](move-sql-server-virtual-machine.md) 一文，以取得如何將資料移至 Azure 上 SQL Server 的指示。
@@ -60,7 +60,7 @@ Tablesample 也可用來對資料進行取樣。 如果資料大小很大 (假�
 > 
 
 ### <a name="sql-aml"></a>連接到 Azure Machine Learning
-您可以在 Azure Machine Learning [匯入資料][import-data]模組中直接使用上述取樣查詢，來進行即時資料縮小取樣，然後帶入 Azure Machine Learning 實驗中。 使用讀取程式模組讀取取樣資料的螢幕擷取畫面如這裡所示：
+您可以在 Azure Machine Learning [匯入資料][import-data]模組中直接使用上述取樣查詢，來進行即時資料縮小取樣，然後帶入 Azure Machine Learning 實驗中。 使用讀取程式模組讀取取樣的資料的螢幕擷取畫面如下所示：
 
 ![讀取器 SQL][1]
 
@@ -71,7 +71,7 @@ Tablesample 也可用來對資料進行取樣。 如果資料大小很大 (假�
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-Python 中的 [Pandas](http://pandas.pydata.org/) 程式庫提供一組豐富的資料結構和資料分析工具，可用來對 Python 程式設計進行資料操作。 下列程式碼會從 Azure SQL 資料庫中的資料表，將 0.1% 的資料樣本讀取至 Pandas 資料中：
+Python 中的 [Pandas](https://pandas.pydata.org/) 程式庫提供一組豐富的資料結構和資料分析工具，可用來對 Python 程式設計進行資料操作。 下列程式碼會從 Azure SQL 資料庫中的資料表，將 0.1% 的資料樣本讀取至 Pandas 資料中：
 
     import pandas as pd
 

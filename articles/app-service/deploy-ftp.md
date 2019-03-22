@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/30/2018
 ms.author: cephalin;dariac
 ms.custom: seodec18
-ms.openlocfilehash: 8b1a4bbb100fc4db1323f530808a8d01bd8f30ce
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
+ms.openlocfilehash: db8445ec2b3dd8bdefa661d7f186e720c6fada09
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582424"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57858872"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>使用 FTP/S 將您的應用程式部署至 Azure App Service
 
@@ -30,7 +30,7 @@ ms.locfileid: "53582424"
 
 ## <a name="open-ftp-dashboard"></a>開啟 FTP 儀表板
 
-在 [Azure 入口網站](https://portal.azure.com)中，開啟應用程式的[資源頁面](../azure-resource-manager/resource-group-portal.md#manage-resources)。
+在 [Azure 入口網站](https://portal.azure.com)中，開啟應用程式的[資源頁面](../azure-resource-manager/manage-resources-portal.md#manage-resources)。
 
 若要開啟 FTP 儀表板，請按一下 [部署中心] > [FTP] > [儀表板]。
 
@@ -43,6 +43,14 @@ ms.locfileid: "53582424"
 ![複製 FTP 資訊](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
 建議您使用**應用程式認證**來部署到您的應用程式，因為它對於每個應用程式都是唯一的。 不過，如果您按一下 [使用者認證]，則可以設定使用者層級的認證，以將其用於 FTP/S 登入到訂用帳戶中的所有 App Service 應用程式。
+
+> [!NOTE]
+> 驗證 FTP/FTPS 端點使用使用者層級認證 requirers 使用者名稱格式如下： 
+>
+>`<app-name>\<user-name>`
+>
+> 使用者層級的認證連結到使用者並不是特定的資源，因為使用者名稱必須以下列格式將正確的應用程式端點的登入動作。
+>
 
 ## <a name="deploy-files-to-azure"></a>將檔案部署至 Azure
 
@@ -58,7 +66,6 @@ ms.locfileid: "53582424"
 > - web.config 的產生 (此處是 [Node.js 範例](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps))
 > 
 > 請在本機電腦上手動產生這些必要檔案，然後與您的應用程式一起部署這些檔案。
->
 >
 
 ## <a name="enforce-ftps"></a>強制使用 FTPS

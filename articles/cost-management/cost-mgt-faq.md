@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 03/14/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: a27cd45ebec41a90a1627bff157c1058b83a25e6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 6ebd25dc65f86e5e028c1c56943756b46d0db9a8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53098078"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011803"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Cloudyn 的常見問題集
 
@@ -62,7 +62,7 @@ ms.locfileid: "53098078"
 1.  在 Cloudyn 入口網站中，按一下右上角的 [設定] 並選取 [雲端帳戶]。
 2.  在 [Microsoft Azure 帳戶] 索引標籤中，尋找具有 [未啟動] 訂用帳戶的帳戶。
 3.  在未啟動之帳戶的右邊，按一下類似鉛筆的 [編輯] 符號。
-4.  系統會自動偵測您的租用戶識別碼和速率識別碼。 按 [下一步] 。
+4.  系統會自動偵測您的租用戶識別碼和速率識別碼。 单击“下一步”。
 5.  系統會將您重新導向至 Azure 入口網站。 登入入口網站，並授權 Cloudyn Collector 存取您的 Azure 資料。
 6.  接下來，系統會將您重新導向至 Cloudyn Accounts 管理頁面，而且您的訂用帳戶會更新為**作用中**帳戶狀態。 它會顯示綠色核取記號。
 7.  如果您沒有看到一或多個訂用帳戶有綠色核取記號，這表示您沒有建立訂用帳戶之讀取器應用程式 (CloudynCollector) 的權限。 具有訂用帳戶較高權限的使用者必須重複步驟 3 和 4。  
@@ -75,7 +75,7 @@ ms.locfileid: "53098078"
 首先，讓我們來看看造成使用者帳戶發生 initiallySuspended 的最常見案例。
 
 > Admin1 可能是 Microsoft 雲端解決方案提供者或 Enterprise 合約使用者。 其組織已準備好開始使用 Cloudyn。  他透過 Azure 入口網站註冊，並登入 Cloudyn 入口網站。 註冊 Cloudyn 服務並登入 Cloudyn 入口網站的人員會成為「主要管理員」。 Admin1 不會建立任何使用者帳戶。 不過，他會使用 Cloudyn 入口網站建立 Azure 帳戶並設定實體階層。 Admin1 通知身為租用戶系統管理員的 Admin2，告訴其必須向 Cloudyn 註冊，並登入 Cloudyn 入口網站。
-
+> 
 > Admin2 透過 Azure 入口網站註冊。 不過，當他嘗試登入 Cloudyn 入口網站時，他收到錯誤訊息，其中顯示他的帳戶遭到**暫時停權**。 主要管理員 Admin1 會收到帳戶暫時停權的通知。 Admin1 必須啟用 Admin2 的帳戶，授與適當實體的「管理員實體存取權」，然後允許使用者管理存取權並啟用使用者帳戶。
 
 
@@ -154,7 +154,7 @@ Cloudyn 有下列資料重新整理時間軸：
 
 ## <a name="is-cloudyn-agent-based"></a>Cloudyn 是否以代理程式為基礎？
 
-否。 不會使用代理程式。 VM 的 Azure 虛擬機器計量資料，是從 Microsoft Insights API 收集而來。 如果您想要收集來自 Azure VM 的計量資料，便必須啟用它們的診斷設定。
+沒有。 不會使用代理程式。 VM 的 Azure 虛擬機器計量資料，是從 Microsoft Insights API 收集而來。 如果您想要收集來自 Azure VM 的計量資料，便必須啟用它們的診斷設定。
 
 ## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>每份 Cloudyn 報告是否能顯示超過一個 AD 租用戶的資料？
 

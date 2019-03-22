@@ -13,15 +13,15 @@ ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68655efaf9d6020489b7bc05ed1855ac181cd22f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9820fcae0dfb366c1722c50c95400c7de0fbeb12
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211932"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285780"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>使用 Azure Active Directory 入口網站新增自訂網域名稱
-每個新的 Azure AD 租用戶皆隨附初始網域名稱 (*domainname*.onmicrosoft.com)。 您無法變更或刪除初始網域名稱，但您可以將貴組織的名稱新增至清單。 新增自訂網域名稱可協助您建立使用者熟悉的使用者名稱，例如 *alain@contoso.com*。
+每個新的 Azure AD 租用戶皆隨附初始網域名稱 (*domainname*.onmicrosoft.com)。 您無法變更或刪除初始網域名稱，但您可以將貴組織的名稱新增至清單。 新增自訂網域名稱可協助您建立使用者熟悉的名稱給您的使用者，例如*alain\@contoso.com*。
 
 ## <a name="before-you-begin"></a>開始之前
 您必須先向網域註冊機構建立您的網域名稱，才可以新增自訂網域名稱。 如需公認的網域註冊機構，請參閱 [ICANN 認可的註冊機構](https://www.icann.org/registrar-reports/accredited-list.html)。
@@ -31,7 +31,7 @@ ms.locfileid: "56211932"
 
 1. 使用具有訂用帳戶 **擁有者**角色的帳戶，登入 [Azure 入口網站](https://portal.azure.com/)以瀏覽到您的目錄，然後選取 [Azure Active Directory]。 如需訂用帳戶角色的詳細資訊，請參閱[傳統訂用帳戶管理員角色、Azure RBAC 角色和 Azure AD 管理員角色](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles)。
 
-    ![Azure 入口網站畫面](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+    ![Azure 入口網站的畫面，顯示 Azure AD 選項](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
     >[!TIP]
     > 如果您計劃讓內部部署 Windows Server AD 與 Azure AD 同盟，當您執行 Azure AD Connect 工具以同步處理您的目錄時，您必須選取 [我計劃將這個網域設定為可使用我的本機 Active Directory 進行單一登入] 核取方塊。 您也需要註冊相同的網域名稱，您選取該名稱以與精靈中 **Azure AD 網域** 步驟中的內部部署目錄同盟。 您可以[在這些指示中](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation)看到精靈中那些步驟看起來如何。 如果您沒有 Azure AD Connect 工具，您可以 [在這裡下載](https://go.microsoft.com/fwlink/?LinkId=615771)。
@@ -46,7 +46,7 @@ ms.locfileid: "56211932"
 
 1. 選取 [自訂網域名稱]，然後選取 [新增自訂網域]。
 
-    ![[Fabrikam - 自訂網域名稱] 頁面，已醒目提示 [新增自訂網域] 選項](media/add-custom-domain/add-custom-domain.png)
+    ![自訂網域名稱的頁面上，加入顯示的自訂網域](media/add-custom-domain/add-custom-domain.png)
 
 2. 將貴組織的新網域名稱輸入到 [自訂網域名稱] 方塊中 (例如 _contoso.com_)，然後選取 [新增網域]。
 
@@ -55,7 +55,7 @@ ms.locfileid: "56211932"
     >[!Important]
     >您必須包含 .com、.net 或任何其他最上層擴充功能，才能正常運作。
 
-    ![[Fabrikam - 自訂網域名稱] 頁面，已醒目提示 [新增網域] 按鈕](media/add-custom-domain/add-custom-domain-blade.png)
+    ![自訂網域名稱的頁面上，新增自訂網域頁面](media/add-custom-domain/add-custom-domain-blade.png)
 
 4. 從 **Contoso** 頁面複製 DNS 資訊。 例如，MS=ms64983159。
 
@@ -87,9 +87,9 @@ ms.locfileid: "56211932"
 
 ## <a name="common-verification-issues"></a>常見驗證問題
 - 如果 Azure AD 無法驗證自訂網域名稱，請嘗試下列建議：
-    - **至少等候一小時，然後再試一次**。 DNS 記錄必須在 Azure AD 驗證網域之後傳播，此程序可能需要一小時以上。
+  - **至少等候一小時，然後再試一次**。 DNS 記錄必須在 Azure AD 驗證網域之後傳播，此程序可能需要一小時以上。
 
-    - **確定 DNS 記錄正確無誤。** 返回網域名稱註冊機構網站，並確定此項目存在，而且符合 Azure AD 所提供的 DNS 項目資訊。
+  - **確定 DNS 記錄正確無誤。** 返回網域名稱註冊機構網站，並確定此項目存在，而且符合 Azure AD 所提供的 DNS 項目資訊。
 
     如果您無法更新註冊機構網站上的記錄，則必須與具有正確權限的人員共用此項目，以新增項目並確認它是正確的。
 

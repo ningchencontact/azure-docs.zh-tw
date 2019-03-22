@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: e0e25a9a1e70575d862374da0fb3097408b002e7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: be6b50b5cb4ea7d32f47d6eb0e19ba43a3217cb6
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714622"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202685"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 叢集上安裝和使用 Hue
 
@@ -48,17 +48,17 @@ Hue 是一組用來與 Apache Hadoop 叢集進行互動的 Web 應用程式。 �
 本節提供如何在使用 Azure 入口網站佈建叢集時使用指令碼的指示。
 
 > [!NOTE]  
-> Azure PowerShell、Azure 傳統 CLI、HDInsight .NET SDK 或 Azure Resource Manager 範本也可用來套用指令碼動作。 您也可以將指令碼動作套用到執行中的叢集上。 如需詳細資訊，請參閱 [使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
+> Azure PowerShell、Azure 傳統 CLI、HDInsight .NET SDK 或 Azure Resource Manager 範本也可用來套用指令碼動作。 您也可以將指令碼動作套用到執行中的叢集上。 有关详细信息，请参阅 [使用脚本操作自定义 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
 >
 >
 
-1. 使用[在 Linux 上佈建 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)中的步驟開始佈建叢集，但是不完成佈建。
+1. 使用[预配 Linux 上的 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)中的步骤开始预配群集，但不要完成预配。
 
    > [!NOTE]  
    > 若要在 HDInsight 叢集上安裝 Hue，建議的 HeadNode 大小為至少 A4 (8 核心、14 GB 記憶體)。
    >
    >
-2. 在 [選用組態] 刀鋒視窗中，選取 [指令碼動作]，並提供如下所示的資訊：
+2. 在“可选配置”边栏选项卡上，选择“脚本操作”，并提供如下信息：
 
     ![提供 Hue 的指令碼動作參數](./media/hdinsight-hadoop-hue-linux/hue-script-action.png "提供 Hue 的指令碼動作參數")
 
@@ -108,18 +108,18 @@ Hue 是一組用來與 Apache Hadoop 叢集進行互動的 Web 應用程式。 �
 1. 從 Hue 入口網站中，按一下 [查詢編輯器]，然後按一下 [Hive] 開啟 Hive 編輯器。
 
     ![使用 Hive](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-use-hive.png "使用 Hive")
-2. 在 [協助] 索引標籤中，於 [資料庫] 底下，您應該會看到 **hivesampletable**。 這是 HDInsight 上的所有 Hadoop 叢集隨附的範例資料表。 在右窗格中輸入範例查詢，然後在下方窗格的 [結果]  索引標籤中查看輸出，如螢幕擷取畫面所示。
+2. 在 [協助] 索引標籤中，於 [資料庫] 底下，您應該會看到 **hivesampletable**。 这是 HDInsight 上的所有 Hadoop 群集随附的示例表。 在右窗格中輸入範例查詢，然後在下方窗格的 [結果]  索引標籤中查看輸出，如螢幕擷取畫面所示。
 
     ![執行 Hive 查詢](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-hive-query.png "執行 Hive 查詢")
 
-    您也可以使用 [圖表]  索引標籤來查看結果的視覺表示。
+    也可以使用“图表”选项卡查看结果的视觉表示形式。
 
 ### <a name="browse-the-cluster-storage"></a>瀏覽叢集儲存體
 1. 從 Hue 入口網站中，按一下功能表列右上角的 [檔案瀏覽器]  。
 2. 根據預設，檔案瀏覽器會在 **/user/myuser** 目錄中開啟。 按一下路徑中使用者目錄前面的正斜線，以移至與叢集相關聯的 Azure 儲存體容器的根目錄。
 
     ![使用檔案瀏覽器](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-file-browser.png "使用檔案瀏覽器")
-3. 以滑鼠右鍵按一下檔案或資料夾，以查看可用的作業。 使用右邊的 [上傳]  按鈕，將檔案上傳至目前的目錄。 使用 [新增]  按鈕建立新的檔案或目錄。
+3. 右键单击某个文件或文件夹，以查看可用的操作。 使用右邊的 [上傳]  按鈕，將檔案上傳至目前的目錄。 使用 [新增]  按鈕建立新的檔案或目錄。
 
 > [!NOTE]  
 > Hue 檔案瀏覽器只會顯示與 HDInsight 叢集相關聯的預設容器的內容。 已與叢集相關聯的任何額外儲存體帳戶/容器將無法使用檔案瀏覽器存取。 不過，與叢集相關聯的其他容器一律可供 Hive 工作存取。 例如，如果您在 Hive 編輯器中輸入 `dfs -ls wasb://newcontainer@mystore.blob.core.windows.net` 命令，則您也可以看到其他容器的內容。 在這個命令中， **newcontainer** 不是與叢集相關聯的預設容器。
@@ -138,13 +138,12 @@ Hue 是一組用來與 Apache Hadoop 叢集進行互動的 Web 應用程式。 �
 
    ![Hue 入口網站錯誤](./media/hdinsight-hadoop-hue-linux/hdinsight-hue-portal-error.png "Hue 入口網站錯誤")
 
-   這是由已知問題造成的。 因應措施是修改 Ambari，讓作用中的 Resource Manager 也在主要前端節點上執行。
+   这是由已知问题造成的。 因應措施是修改 Ambari，讓作用中的 Resource Manager 也在主要前端節點上執行。
 5. 當 HDInsight 叢集使用 Azure 儲存體 (使用 `wasb://`) 時，色調能了解 WebHDFS。 因此，搭配指令碼動作使用的自訂指令碼會安裝 WebWasb，這是針對與 WASB 通訊的 WebHDFS 相容服務。 所以，即使在 Hue 入口網站顯示有 HDFS (例如將滑鼠移至 [檔案瀏覽器] 時)，應將它解讀成 WASB。
 
 ## <a name="next-steps"></a>後續步驟
 * [在 HDInsight 叢集上安裝 Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)。 在 HDInsight Hadoop 叢集上使用叢集自訂安裝 Giraph。 Giraph 可讓您利用 Hadoop 執行圖形處理，且可以搭配 Azure HDInsight 一起使用。
-* [在 HDInsight 叢集上安裝 Apache Solr](hdinsight-hadoop-solr-install-linux.md)。 在 HDInsight Hadoop 叢集上使用叢集自訂安裝 Solr。 Solr 可讓您對儲存的資料執行功能強大的搜尋作業。
-* [在 HDInsight 叢集上安裝 R](hdinsight-hadoop-r-scripts-linux.md)。 在 HDInsight Hadoop 叢集上使用叢集自訂安裝 R。 R 是一個用於統計計算的開放原始碼語言和環境。 它提供數百個內建的統計函式及它自己的程式設計語言，此語言結合了函式型和物件導向程式設計的層面。 它也提供廣泛的圖形功能。
+* [在 HDInsight 叢集上安裝 R](hdinsight-hadoop-r-scripts-linux.md)。 在 HDInsight Hadoop 叢集上使用叢集自訂安裝 R。 R 是一种用于统计计算的开放源代码语言和环境。 它提供數百個內建的統計函式及它自己的程式設計語言，此語言結合了函式型和物件導向程式設計的層面。 它也提供廣泛的圖形功能。
 
 [powershell-install-configure]: install-configure-powershell-linux.md
 [hdinsight-provision]: hdinsight-provision-clusters-linux.md

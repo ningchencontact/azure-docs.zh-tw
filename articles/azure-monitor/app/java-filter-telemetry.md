@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 6bd8d0cee01853547efd028feef0a97f9398024e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 692113257e483f67eaaee038c07d8702d95a7b31
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015517"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116804"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>在 Java Web 應用程式中篩選遙測
 
@@ -186,12 +186,12 @@ ms.locfileid: "54015517"
 ```
 
 * `FromSeverityLevel` 有效值為︰
- *  OFF             - 篩選出所有追蹤
- *  TRACE           - 不篩選。 等於追蹤層級
- *  INFO            - 篩選出 TRACE 層級
- *  WARN            - 篩選出 TRACE 和 INFO
- *  ERROR           - 篩選出 WARN、INFO、TRACE
- *  CRITICAL        - 篩選出 CRITICAL 以外的所有項目
+  *  OFF             - 篩選出所有追蹤
+  *  TRACE           - 不篩選。 等於追蹤層級
+  *  INFO            - 篩選出 TRACE 層級
+  *  WARN            - 篩選出 TRACE 和 INFO
+  *  ERROR           - 篩選出 WARN、INFO、TRACE
+  *  CRITICAL        - 篩選出 CRITICAL 以外的所有項目
 
 
 ## <a name="custom-filters"></a>自訂篩選器

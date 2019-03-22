@@ -9,14 +9,14 @@ ms.assetid: 0BCD936E-D4C0-472D-AE40-F4B2AB6912D5
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 03/04/2019
 ms.author: scottwhi
-ms.openlocfilehash: b2dfbeaae46be58e94f6c3cfc5bbd97d82382e54
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 33dfbe70d75335eca79d32807407b97e32c2dbbf
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876601"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440857"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>使用 Bing 影像搜尋 API 取得影像見解
 
@@ -374,7 +374,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="finding-visually-similar-products"></a>尋找在視覺效果上類似的產品  
 
-若要尋找包含與原始影像中產品視覺效果類似之產品的影像，請將 [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) 查詢參數設定為 SimilarProducts。  
+若要尋找包含以視覺化方式類似在原始的映像中找到的產品的產品的映像，請設定[模組](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested)查詢 SimilarProducts 的參數。  
 
 下列要求會示範如何取得視覺效果類似之產品的影像。 要求會使用 [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) 查詢參數來識別前一個要求中傳回的原始影像。 若要改善相關性，您應該包含使用者的查詢字串。  
 

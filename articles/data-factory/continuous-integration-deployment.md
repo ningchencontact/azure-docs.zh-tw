@@ -3,26 +3,28 @@ title: Azure Data Factory 中的持續整合和傳遞 | Microsoft Docs
 description: 了解如何使用持續整合和傳遞將一個環境 (開發、測試、生產) 中的 Data Factory 管線移至另一個環境。
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
+author: gauravmalhot
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2019
-ms.author: douglasl
-ms.openlocfilehash: 0d7c8640cb2a3f6d4d1a32a555c03dc2eca48b9a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: 5f5a9ef689fefd5683f7b6f1ebc9b2193ce020e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901219"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995783"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Azure Data Factory 中的持續整合和傳遞 (CI/CD)
 
 持續整合是指進行相關實作，以自動並及早測試對您的程式碼基底所做的每項變更。 在持續整合期間執行測試，並將變更推送至暫存或生產系統後，就會進行持續傳遞。
 
 就 Azure Data Factory 而言，持續整合和傳遞是指將一個環境 (開發、測試、生產) 中的 Data Factory 管線移至另一個環境。 若要進行持續整合和傳遞，您可以使用 Data Factory UI 整合與 Azure Resource Manager 範本。 當您選取 [ARM 範本] 選項時，Data Factory UI 可產生 Resource Manager 範本。 當您選取 [匯出 ARM 範本] 時，入口網站將會產生資料處理站的 Resource Manager 範本，以及包含您所有連接字串和其他參數的組態檔。 然後，您必須為每個環境 (開發、測試、生產) 建立一個組態檔。 所有環境的主要 Resource Manager 範本檔案會保持相同。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 如需此功能的 9 分鐘簡介與示範，請觀看下列影片：
 
@@ -161,7 +163,7 @@ ms.locfileid: "54901219"
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 ### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>為 Azure Pipelines 代理程式授與權限
-Azure Key Vault 工作在第一次整合執行階段可能會失敗，並發生拒絕存取錯誤。 請下載發行的記錄，並使用命令找出 `.ps1` 檔案，為 Azure Pipelines 代理程式指定權限。 您可以直接執行此命令，或是從檔案複製主體識別碼，然後在 Azure 入口網站中手動新增存取原則。 (*取得*和*列出*是所需的最低權限)。
+Azure Key Vault 工作可能會失敗並發生拒絕存取錯誤 fIntegration 整合執行階段。 請下載發行的記錄，並使用命令找出 `.ps1` 檔案，為 Azure Pipelines 代理程式指定權限。 您可以直接執行此命令，或是從檔案複製主體識別碼，然後在 Azure 入口網站中手動新增存取原則。 (*取得*和*列出*是所需的最低權限)。
 
 ### <a name="update-active-triggers"></a>更新使用中的觸發程序
 如果您嘗試更新使用中的觸發程序，部署可能會失敗。 若要更新使用中的觸發程序，您必須手動將其停止，等部署完成後再加以啟動。 為此，您可以新增 Azure Powershell 工作，如下列範例所示：
@@ -173,14 +175,14 @@ Azure Key Vault 工作在第一次整合執行階段可能會失敗，並發生�
 1.  選擇 [內嵌指令碼] 作為指令碼類型，然後提供您的程式碼。 下列範例會停止觸發程序：
 
     ```powershell
-    $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+    $triggersADF = Get-AzDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
 
-    $triggersADF | ForEach-Object { Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
+    $triggersADF | ForEach-Object { Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
     ```
 
     ![](media/continuous-integration-deployment/continuous-integration-image11.png)
 
-在部署之後，您可以依照類似的步驟，並使用 (與 `Start-AzureRmDataFactoryV2Trigger` 函式) 類似的程式碼，來重新啟動觸發程序。
+在部署之後，您可以依照類似的步驟，並使用 (與 `Start-AzDataFactoryV2Trigger` 函式) 類似的程式碼，來重新啟動觸發程序。
 
 > [!IMPORTANT]
 > 在持續整合和部署案例中，跨不同環境的整合執行階段類型必須是相同的。 例如，如果您在開發環境中有*自我裝載*整合執行階段 (IR)，則相同的 IR 在其他環境 (例如測試和生產環境) 中也必須屬於*自我裝載*類型。 同樣地，如果您要跨多個階段共用整合執行階段，則必須將所有環境中的整合執行階段設定為*連結自我裝載*，例如開發、測試和生產環境。
@@ -727,7 +729,7 @@ Azure Key Vault 工作在第一次整合執行階段可能會失敗，並發生�
 
 ## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>用以停止並重新啟動觸發程序和清除的範例指令碼
 
-以下是可在部署之前停止觸發程序並在其後重新啟動觸發程序的範例指令碼。 此指令碼也包含可將已移除的資源刪除的程式碼。 若要安裝最新版的 Azure PowerShell，請參閱[使用 PowerShellGet 在 Windows 上安裝 Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.9.0)。
+以下是可在部署之前停止觸發程序並在其後重新啟動觸發程序的範例指令碼。 此指令碼也包含可將已移除的資源刪除的程式碼。 若要安裝最新版的 Azure PowerShell，請參閱[使用 PowerShellGet 在 Windows 上安裝 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
 ```powershell
 param
@@ -745,7 +747,7 @@ $resources = $templateJson.resources
 
 #Triggers 
 Write-Host "Getting triggers"
-$triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+$triggersADF = Get-AzDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
 $triggersTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/triggers" }
 $triggerNames = $triggersTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
 $activeTriggerNames = $triggersTemplate | Where-Object { $_.properties.runtimeState -eq "Started" -and ($_.properties.pipelines.Count -gt 0 -or $_.properties.pipeline.pipelineReference -ne $null)} | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
@@ -757,32 +759,32 @@ if ($predeployment -eq $true) {
     Write-Host "Stopping deployed triggers"
     $triggerstostop | ForEach-Object { 
         Write-host "Disabling trigger " $_
-        Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+        Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
     }
 }
 else {
     #Deleted resources
     #pipelines
     Write-Host "Getting pipelines"
-    $pipelinesADF = Get-AzureRmDataFactoryV2Pipeline -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+    $pipelinesADF = Get-AzDataFactoryV2Pipeline -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
     $pipelinesTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/pipelines" }
     $pipelinesNames = $pipelinesTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
     $deletedpipelines = $pipelinesADF | Where-Object { $pipelinesNames -notcontains $_.Name }
     #datasets
     Write-Host "Getting datasets"
-    $datasetsADF = Get-AzureRmDataFactoryV2Dataset -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+    $datasetsADF = Get-AzDataFactoryV2Dataset -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
     $datasetsTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/datasets" }
     $datasetsNames = $datasetsTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40) }
     $deleteddataset = $datasetsADF | Where-Object { $datasetsNames -notcontains $_.Name }
     #linkedservices
     Write-Host "Getting linked services"
-    $linkedservicesADF = Get-AzureRmDataFactoryV2LinkedService -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+    $linkedservicesADF = Get-AzDataFactoryV2LinkedService -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
     $linkedservicesTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/linkedservices" }
     $linkedservicesNames = $linkedservicesTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
     $deletedlinkedservices = $linkedservicesADF | Where-Object { $linkedservicesNames -notcontains $_.Name }
     #Integrationruntimes
     Write-Host "Getting integration runtimes"
-    $integrationruntimesADF = Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+    $integrationruntimesADF = Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
     $integrationruntimesTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/integrationruntimes" }
     $integrationruntimesNames = $integrationruntimesTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
     $deletedintegrationruntimes = $integrationruntimesADF | Where-Object { $integrationruntimesNames -notcontains $_.Name }
@@ -791,112 +793,182 @@ else {
     Write-Host "Deleting triggers"
     $deletedtriggers | ForEach-Object { 
         Write-Host "Deleting trigger "  $_.Name
-        $trig = Get-AzureRmDataFactoryV2Trigger -name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName
+        $trig = Get-AzDataFactoryV2Trigger -name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName
         if ($trig.RuntimeState -eq "Started") {
-            Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.Name -Force 
+            Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.Name -Force 
         }
-        Remove-AzureRmDataFactoryV2Trigger -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+        Remove-AzDataFactoryV2Trigger -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
     }
     Write-Host "Deleting pipelines"
     $deletedpipelines | ForEach-Object { 
         Write-Host "Deleting pipeline " $_.Name
-        Remove-AzureRmDataFactoryV2Pipeline -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+        Remove-AzDataFactoryV2Pipeline -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
     }
     Write-Host "Deleting datasets"
     $deleteddataset | ForEach-Object { 
         Write-Host "Deleting dataset " $_.Name
-        Remove-AzureRmDataFactoryV2Dataset -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+        Remove-AzDataFactoryV2Dataset -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
     }
     Write-Host "Deleting linked services"
     $deletedlinkedservices | ForEach-Object { 
         Write-Host "Deleting Linked Service " $_.Name
-        Remove-AzureRmDataFactoryV2LinkedService -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+        Remove-AzDataFactoryV2LinkedService -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
     }
     Write-Host "Deleting integration runtimes"
     $deletedintegrationruntimes | ForEach-Object { 
         Write-Host "Deleting integration runtime " $_.Name
-        Remove-AzureRmDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+        Remove-AzDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
     }
 
     if ($deleteDeployment -eq $true) {
         Write-Host "Deleting ARM deployment ... under resource group: " $ResourceGroupName
-        $deployments = Get-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName
+        $deployments = Get-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName
         $deploymentsToConsider = $deployments | Where { $_.DeploymentName -like "ArmTemplate_master*" -or $_.DeploymentName -like "ArmTemplateForFactory*" } | Sort-Object -Property Timestamp -Descending
         $deploymentName = $deploymentsToConsider[0].DeploymentName
 
        Write-Host "Deployment to be deleted: " $deploymentName
-        $deploymentOperations = Get-AzureRmResourceGroupDeploymentOperation -DeploymentName $deploymentName -ResourceGroupName $ResourceGroupName
+        $deploymentOperations = Get-AzResourceGroupDeploymentOperation -DeploymentName $deploymentName -ResourceGroupName $ResourceGroupName
         $deploymentsToDelete = $deploymentOperations | Where { $_.properties.targetResource.id -like "*Microsoft.Resources/deployments*" }
 
         $deploymentsToDelete | ForEach-Object { 
             Write-host "Deleting inner deployment: " $_.properties.targetResource.id
-            Remove-AzureRmResourceGroupDeployment -Id $_.properties.targetResource.id
+            Remove-AzResourceGroupDeployment -Id $_.properties.targetResource.id
         }
         Write-Host "Deleting deployment: " $deploymentName
-        Remove-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroupName -Name $deploymentName
+        Remove-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName -Name $deploymentName
     }
 
     #Start Active triggers - After cleanup efforts
     Write-Host "Starting active triggers"
     $activeTriggerNames | ForEach-Object { 
         Write-host "Enabling trigger " $_
-        Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+        Start-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
     }
 }
 ```
 
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>搭配使用自訂參數與 Resource Manager 範本
 
-您可以定義 Resource Manager 範本的自訂參數。 您只需要在存放庫的根資料夾中具有名為 `arm-template-parameters-definition.json` 的檔案  (檔案名稱必須完全符合這裡顯示的名稱)。Data Factory 會嘗試從您目前使用的任何分支中讀取檔案，而不只是從共同作業分支。 如果找不到任何檔案，Data Factory 會使用預設的參數和值。
+如果您是在 GIT 模式中，您可以在 Resource Manager 範本中的範本和硬式編碼的屬性設定為參數化的屬性來覆寫預設屬性。 您可能想要覆寫預設的參數化範本，在這些情況下：
+
+* 使用自動化的 CI/CD 和您想要在 Resource Manager 部署期間變更某些屬性，但屬性不預設參數化。
+* 您的處理站是很大的預設資源管理員範本不正確的因為其中有超過最大允許參數 (256)。
+
+根據這些條件，來覆寫預設參數化的範本，建立名為 *arm 範本參數-definition.json* 存放庫的根資料夾中。 檔案名稱必須完全符合。 Data Factory 會嘗試讀取此檔案，從您目前是在 Azure Data Factory 入口網站中任何分支，而不只是從共同作業分支。 您可以建立或編輯的檔案，從私用分支，其中測試您的變更，以及在使用**匯出 ARM 範本**在 UI 中。 然後，您可以將檔案合併共同作業分支。 如果不找到任何檔案，就會使用預設範本。
+
 
 ### <a name="syntax-of-a-custom-parameters-file"></a>自訂參數檔案的語法
 
-以下是在撰寫自訂參數檔案時所要使用的一些指導方針。 若要查看這個語法的範例，請參閱下一節[自訂參數檔案範例](#sample)。
+以下是您撰寫自訂的參數檔案時所要使用的一些指導方針。 此檔案包含每個實體類型的區段： 觸發程序、 管線、 連結服務、 資料集、 integrationruntime，等等。
+* 輸入下相關的實體類型的屬性路徑。
+* 當您設定的屬性名稱為 '\*'，您可以指定您想要參數化其下的所有屬性 （只到第一個層級，不以遞迴方式）。 您也可以提供任何例外狀況。
+* 當您將屬性的值設定為字串時，就表示您想要將屬性參數化。 使用格式 `<action>:<name>:<stype>`。
+   *  `<action>` 可以是下列字元：
+      * `=` 表示會保留目前的值當做參數的預設值。
+      * `-` 表示不要保留參數的預設值。
+      * `|` 是從 Azure Key Vault 祕密的連接字串或金鑰的特殊案例。
+   * `<name>` 為參數的名稱。 如果空白，它會採用屬性的名稱。 如果值的開頭`-`字元，已縮短名稱。 例如，`AzureStorage1_properties_typeProperties_connectionString`會縮短為`AzureStorage1_connectionString`。
+   * `<stype>` 為參數的型別。 如果 `<stype>` 是空白，預設的類型是`string`。 支援的值： `string`， `bool`， `number`， `object`，和`securestring`。
+* 當您定義檔中指定的陣列時，您可以指定範本中相符的屬性是陣列。 Data Factory 逐一查看陣列中的所有物件使用指定陣列的整合執行階段物件中定義。 第二個物件 (字串) 會變成屬性的名稱，以作為每個反覆項目參數的名稱。
+* 您不可以有特定資源執行個體的定義。 任何定義適用於該類型的所有資源。
+* 根據預設，所有的安全字串，例如金鑰保存庫密碼和安全字串，例如連接字串、 金鑰和權杖，會進行參數化。
+ 
+## <a name="sample-parameterization-template"></a>範例參數化的範本
 
-1. 當您在定義檔中指定陣列時，就表示範本中的比對屬性是陣列。 Data Factory 會使用陣列之 Integration Runtime 物件中所指定的定義，逐一查看陣列中的所有物件。 第二個物件 (字串) 會變成屬性的名稱，以作為每個反覆項目參數的名稱。
-
-    ```json
-    ...
+```json
+{
+    "Microsoft.DataFactory/factories/pipelines": {
+        "properties": {
+            "activities": [{
+                "typeProperties": {
+                    "waitTimeInSeconds": "-::number",
+                    "headers": "=::object"
+                }
+            }]
+        }
+    },
+    "Microsoft.DataFactory/factories/integrationRuntimes": {
+        "properties": {
+            "typeProperties": {
+                "*": "="
+            }
+        }
+    },
     "Microsoft.DataFactory/factories/triggers": {
         "properties": {
-            "pipelines": [{
-                    "parameters": {
-                        "*": "="
-                    }
+            "typeProperties": {
+                "recurrence": {
+                    "*": "=",
+                    "interval": "=:triggerSuffix:number",
+                    "frequency": "=:-freq"
                 },
-                "pipelineReference.referenceName"
-            ],
-            "pipeline": {
-                "parameters": {
-                    "*": "="
+                "maxConcurrency": "="
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/linkedServices": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "accountName": "=",
+                    "username": "=",
+                    "connectionString": "|:-connectionString:secureString",
+                    "secretAccessKey": "|"
+                }
+            }
+        },
+        "AzureDataLakeStore": {
+            "properties": {
+                "typeProperties": {
+                    "dataLakeStoreUri": "="
                 }
             }
         }
     },
-    ...
-    ```
+    "Microsoft.DataFactory/factories/datasets": {
+        "properties": {
+            "typeProperties": {
+                "*": "="
+            }
+        }
+    }
+}
+```
 
-2. 當您將屬性名稱設定為 `*` 時，就表示您想要讓範本使用該層級的所有屬性，但明確定義的屬性除外。
+### <a name="explanation"></a>說明:
 
-3. 當您將屬性的值設定為字串時，就表示您想要將屬性參數化。 請使用此格式：`<action>:<name>:<stype>`。
-    1.  `<action>` 可以是下列其中一個字元： 
-        1.  `=` 表示將目前的值保留作為參數的預設值。
-        2.  `-` 表示不要保留參數的預設值。
-        3.  `|` 是 Azure Key Vault 中連接字串祕密的特殊案例。
-    2.  `<name>` 是參數的名稱。 如果 `<name`> 是空白的，便會採用參數的名稱 
-    3.  `<stype>` 是參數的類型。 如果 `<stype>` 是空白的，則預設類型是字串。
-4.  如果您在參數名稱開頭輸入 `-` 字元，則完整的 Resource Manager 參數名稱會縮略為 `<objectName>_<propertyName>`。
-例如，`AzureStorage1_properties_typeProperties_connectionString` 會縮略為 `AzureStorage1_connectionString`。
+#### <a name="pipelines"></a>管線
+    
+* 路徑為活動/typeProperties/waitTimeInSeconds 中的任何屬性已參數化。 這表示有一個名為的程式碼層級屬性的管線中的任何活動`waitTimeInSeconds`(例如`Wait`活動) 的數字，以預設名稱參數化。 但是，將不會在 Resource Manager 範本中有預設值。 在 Resource Manager 部署期間會強制性的輸入。
+* 同樣地，屬性稱為`headers`(例如，在`Web`活動) 以類型參數化`object`(JObject)。 它有預設值，也就是與來源 factory 相同的值。
 
+#### <a name="integrationruntimes"></a>IntegrationRuntimes
 
-### <a name="sample"></a> 自訂參數檔案範例
+* 只有屬性和所有的內容路徑下`typeProperties`會進行參數化，以其各自的預設值。 例如，截至今天的結構描述中，有兩個屬性底下**IntegrationRuntimes**型別屬性：`computeProperties`和`ssisProperties`。 這兩種屬性類型會建立其各自的預設值和類型 （物件）。
 
-下列範例顯示範例參數檔案。 使用此範例作為參考，以建立您自己的自訂參數檔案。 如果您提供的檔案不是正確的 JSON 格式，則 Data Factory 會在瀏覽器主控台中輸出錯誤訊息，並還原為 Data Factory UI 中顯示的預設參數和值。
+#### <a name="triggers"></a>觸發程序
+
+* 在下`typeProperties`，兩個屬性會進行參數化。 第一個是`maxConcurrency`、 具有預設值，指定和型別會是`string`。 它具有預設的參數名稱的`<entityName>_properties_typeProperties_maxConcurrency`。
+* `recurrence`屬性也已參數化。 在其下方該層級的所有屬性會都指定為字串，預設值和參數名稱與參數化。 例外狀況是`interval`屬性，這是參數化為數字 類型，並為參數名稱後面加上`<entityName>_properties_typeProperties_recurrence_triggerSuffix`。 同樣地，`freq`屬性的字串作業，且已參數化做為字串。 不過，`freq`屬性已參數化，沒有預設值。 名稱會縮短，並在後面加上。 例如： `<entityName>_freq`。
+
+#### <a name="linkedservices"></a>LinkedServices
+
+* 連結的服務是唯一的。 因為連結的服務和資料集可能會針對數種，您可以提供特定類型的自訂。 比方說，您可能會說，所有連結的服務型別的`AzureDataLakeStore`，會套用，而所有其他特定的範本 (透過\*) 將會套用不同的範本。
+* 在上述範例中，`connectionString`屬性會參數化為`securestring`的值，將不會有預設值，而且會有後置字元的簡短的參數名稱`connectionString`。
+* 屬性`secretAccessKey`，不過，剛好`AzureKeyVaultSecret`(比方說，`AmazonS3`連結服務)。 因此，為 Azure Key Vault 祕密已自動參數化，它從已使用來源 factory 中的金鑰保存庫中提取。 您也可參數化的金鑰保存庫本身。
+
+#### <a name="datasets"></a>資料集
+
+* 即使特定型別的自訂適用於資料集，可以提供組態而不需要明確地\*-層級設定。 在上述範例中下的所有資料集屬性`typeProperties`會進行參數化。
+
+可以變更預設參數化的範本，但這是目前的範本。 這會很有用，如果您只需要新增一個額外的屬性做為參數，但也如果您不想失去現有的參數化，而且必須重新建立這些項目。
+
 
 ```json
 {
-    "Microsoft.DataFactory/factories/pipelines": {},
-    "Microsoft.DataFactory/factories/integrationRuntimes": {
+    "Microsoft.DataFactory/factories/pipelines": {
+    },
+    "Microsoft.DataFactory/factories/integrationRuntimes":{
         "properties": {
             "typeProperties": {
                 "ssisProperties": {
@@ -916,7 +988,8 @@ else {
                 "linkedInfo": {
                     "key": {
                         "value": "-::secureString"
-                    }
+                    },
+                    "resourceId": "="
                 }
             }
         }
@@ -927,14 +1000,18 @@ else {
                     "parameters": {
                         "*": "="
                     }
-                },
+                },  
                 "pipelineReference.referenceName"
             ],
             "pipeline": {
                 "parameters": {
                     "*": "="
                 }
+            },
+            "typeProperties": {
+                "scope": "="
             }
+
         }
     },
     "Microsoft.DataFactory/factories/linkedServices": {
@@ -957,7 +1034,25 @@ else {
                     "tenant": "=",
                     "dataLakeStoreUri": "=",
                     "baseUrl": "=",
+                    "database": "=",
+                    "serviceEndpoint": "=",
+                    "batchUri": "=",
+                    "databaseName": "=",
+                    "systemNumber": "=",
+                    "server": "=",
+                    "url":"=",
+                    "aadResourceId": "=",
                     "connectionString": "|:-connectionString:secureString"
+                }
+            }
+        },
+        "Odbc": {
+            "properties": {
+                "typeProperties": {
+                    "userName": "=",
+                    "connectionString": {
+                        "secretName": "="
+                    }
                 }
             }
         }
@@ -970,10 +1065,118 @@ else {
                     "fileName": "="
                 }
             }
-        }
-    }
+        }}
 }
 ```
+
+**範例**：新增 Databricks 互動式叢集識別碼 （從 Databricks 連結服務） 參數檔案：
+
+```
+{
+    "Microsoft.DataFactory/factories/pipelines": {
+    },
+    "Microsoft.DataFactory/factories/integrationRuntimes":{
+        "properties": {
+            "typeProperties": {
+                "ssisProperties": {
+                    "catalogInfo": {
+                        "catalogServerEndpoint": "=",
+                        "catalogAdminUserName": "=",
+                        "catalogAdminPassword": {
+                            "value": "-::secureString"
+                        }
+                    },
+                    "customSetupScriptProperties": {
+                        "sasToken": {
+                            "value": "-::secureString"
+                        }
+                    }
+                },
+                "linkedInfo": {
+                    "key": {
+                        "value": "-::secureString"
+                    },
+                    "resourceId": "="
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/triggers": {
+        "properties": {
+            "pipelines": [{
+                    "parameters": {
+                        "*": "="
+                    }
+                },  
+                "pipelineReference.referenceName"
+            ],
+            "pipeline": {
+                "parameters": {
+                    "*": "="
+                }
+            },
+            "typeProperties": {
+                "scope": "="
+            }
+ 
+        }
+    },
+    "Microsoft.DataFactory/factories/linkedServices": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "accountName": "=",
+                    "username": "=",
+                    "userName": "=",
+                    "accessKeyId": "=",
+                    "servicePrincipalId": "=",
+                    "userId": "=",
+                    "clientId": "=",
+                    "clusterUserName": "=",
+                    "clusterSshUserName": "=",
+                    "hostSubscriptionId": "=",
+                    "clusterResourceGroup": "=",
+                    "subscriptionId": "=",
+                    "resourceGroupName": "=",
+                    "tenant": "=",
+                    "dataLakeStoreUri": "=",
+                    "baseUrl": "=",
+                    "database": "=",
+                    "serviceEndpoint": "=",
+                    "batchUri": "=",
+                    "databaseName": "=",
+                    "systemNumber": "=",
+                    "server": "=",
+                    "url":"=",
+                    "aadResourceId": "=",
+                    "connectionString": "|:-connectionString:secureString",
+                    "existingClusterId": "-"
+                }
+            }
+        },
+        "Odbc": {
+            "properties": {
+                "typeProperties": {
+                    "userName": "=",
+                    "connectionString": {
+                        "secretName": "="
+                    }
+                }
+            }
+        }
+    },
+    "Microsoft.DataFactory/factories/datasets": {
+        "*": {
+            "properties": {
+                "typeProperties": {
+                    "folderPath": "=",
+                    "fileName": "="
+                }
+            }
+        }}
+}
+```
+
 
 ## <a name="linked-resource-manager-templates"></a>連結的 Resource Manager 範本
 

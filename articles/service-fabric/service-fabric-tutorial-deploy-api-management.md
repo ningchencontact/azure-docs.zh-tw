@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 015cbadef57a3e306fea4321db4b12c3a3918683
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4685c4213ad992e8d0fcffdf91a039cd04b426ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433776"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57844202"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>整合 API 管理與 Azure 中的 Service Fabric
 
@@ -142,7 +142,7 @@ az account set --subscription <guid>
 
 * **displayName** 可以是 API 的任何名稱。 本文使用 "Service Fabric App"。
 * **name** 提供 API 的唯一和描述性名稱，例如 "service-fabric-app"。 它會顯示在開發人員和發行者入口網站中。
-* **serviceUrl** 會參考實作 API 的 HTTP 服務。 API 管理則將要求轉送至此位址。 就 Service Fabric 後端而言，並不使用此 URL 值。 您可以在這裡輸入任何值。 舉例來說，本文使用 "http://servicefabric"。
+* **serviceUrl** 會參考實作 API 的 HTTP 服務。 API 管理則將要求轉送至此位址。 就 Service Fabric 後端而言，並不使用此 URL 值。 您可以在這裡輸入任何值。 舉例來說，本文使用 "<http://servicefabric>"。
 * **path** 會附加至 API 管理服務的基底 URL 後面。 基礎 URL 是 API 管理服務主控的所有 API 所共有。 API 管理依尾碼來區分 API，因此，特定發行者的每一個 API 必須有唯一的尾碼。
 * **protocols** 會決定可使用哪些通訊協定來存取 API。 在本文中，請列出 **http** 和 **https**。
 * **path** 是 API 的尾碼。 在本文中，請使用 "myapp"。
@@ -177,7 +177,7 @@ az account set --subscription <guid>
     <set-backend-service
         backend-id="servicefabric"
         sf-service-instance-name="service-name"
-        sf-resolve-condition="@(context.LastError?.Reason == 'BackendConnectionFailure')" />
+        sf-resolve-condition="@(context.LastError?.Reason == "BackendConnectionFailure")" />
   </inbound>
   <backend>
     <base/>
@@ -226,7 +226,7 @@ $b64 = [System.Convert]::ToBase64String($bytes);
     <set-backend-service
         backend-id="servicefabric"
         sf-service-instance-name="service-name"
-        sf-resolve-condition="@(context.LastError?.Reason == 'BackendConnectionFailure')" />
+        sf-resolve-condition="@(context.LastError?.Reason == "BackendConnectionFailure")" />
   </inbound>
   <backend>
     <base/>
@@ -285,7 +285,7 @@ az group deployment create --name ApiMgmtDeployment --resource-group $ResourceGr
 
 叢集是由叢集資源本身和其他 Azure 資源所構成。 刪除叢集及其取用之所有資源的最簡單方式，就是刪除資源群組。
 
-登入 Azure 並選取您要移除叢集的訂用帳戶識別碼。  您可以登入[Azure 入口網站](http://portal.azure.com)找到您的訂用帳戶識別碼。 使用 [Remove-AzureRMResourceGroup Cmdlet](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup) 刪除資源群組和所有叢集資源。
+登入 Azure 並選取您要移除叢集的訂用帳戶識別碼。  您可以登入[Azure 入口網站](https://portal.azure.com)找到您的訂用帳戶識別碼。 使用 [Remove-AzureRMResourceGroup Cmdlet](/en-us/powershell/module/azurerm.resources/remove-azurermresourcegroup) 刪除資源群組和所有叢集資源。
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"

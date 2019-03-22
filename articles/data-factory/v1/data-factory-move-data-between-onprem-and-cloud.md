@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 77eaa6a642e02206eac319b76666bed8ae1fd165
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 72e93b99783441bda97c52ff295a89b0fcf4e629
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822420"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995886"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>利用資料管理閘道在內部部署來源和雲端之間移動資料
 > [!NOTE]
@@ -310,11 +310,11 @@ ms.locfileid: "55822420"
      {
          "name": "ADFTutorialPipelineOnPrem",
          "properties": {
-         "description": "This pipeline has one Copy activity that copies data from an on-prem SQL to Azure blob",
+         "description": "This pipeline has one Copy activity that copies data from an on premises SQL to Azure blob",
          "activities": [
            {
              "name": "CopyFromSQLtoBlob",
-             "description": "Copy data from on-prem SQL server to blob",
+             "description": "Copy data from on premises SQL server to blob",
              "type": "Copy",
              "inputs": [
                {
@@ -359,10 +359,10 @@ ms.locfileid: "55822420"
 
    * 在 activities 區段中，只會有 **type** 設定為 **Copy** 的活動。
    * 活動的**輸入**設定為 **EmpOnPremSQLTable**，活動的**輸出**則設定為 **OutputBlobTable**。
-   * 在 **typeProperties** 區段中，**來源類型**指定為 **SqlSource**，**接收類型**指定為 **BlobSink**。
+   * 在  **typeProperties**區段中， **SqlSource**指定為**來源類型**和**BlobSink**指定為**接收類型**。
    * **SqlSource** 的 **sqlReaderQuery** 屬性指定為 SQL 查詢 `select * from emp`。
 
-   開始和結束日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。 例如︰2014-10-14T16:32:41Z。 **end** 時間為選擇性項目，但在本教學課程中會用到。
+   開始和結束日期時間都必須是 [ISO 格式](https://en.wikipedia.org/wiki/ISO_8601)。 例如︰2014-10-14T16:32:41Z。 **end** 時間為選擇性項目，但在本教學課程中會用到。
 
    如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。 若要無限期地執行管線，請指定 **9/9/9999** 做為 **end** 屬性的值。
 
@@ -407,7 +407,7 @@ ms.locfileid: "55822420"
 6. 按一下 [X] 關閉所有頁面，直到您
 7. 回到 **ADFTutorialOnPremDF** 的首頁為止。
 8. (選擇性) 依序按一下 [管線] 及 [ADFTutorialOnPremDF]，然後深入檢視輸入資料表 (**已使用**) 或輸出資料集 (**已產生**)。
-9. 使用 [Microsoft 儲存體總管](http://storageexplorer.com/)等工具來確認每個小時會建立一個 Blob/檔案。
+9. 使用 [Microsoft 儲存體總管](https://storageexplorer.com/)等工具來確認每個小時會建立一個 Blob/檔案。
 
    ![Azure 儲存體總管](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 

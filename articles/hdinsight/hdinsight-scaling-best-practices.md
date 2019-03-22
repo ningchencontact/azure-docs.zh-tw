@@ -7,40 +7,40 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/02/2018
+ms.date: 02/26/2019
 ms.author: ashish
-ms.openlocfilehash: 30f96c54dd916188296ca0245d4095a32ae0bbe4
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: e8a85401c0c7282d64ebcbe2f9180f25f36f7289
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53742876"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108149"
 ---
 # <a name="scale-hdinsight-clusters"></a>調整 HDInsight 叢集
 
 HDInsight 具有彈性，可讓您選擇相應增加和相應減少叢集中的背景工作節點數。 此彈性能夠讓您在下班後或是週末時縮小叢集，並於業務需求達到高峰的期間擴大叢集。
 
-例如，如果您有一些發生頻率為一天一次或一個月一次的批次處理，HDInsight 叢集可以在該排程事件開始前幾分鐘相應增加，以便提供足夠的記憶體和 CPU 計算能力。 您可以使用 PowerShell Cmdlet [`Set–AzureRmHDInsightClusterSize`](hdinsight-administer-use-powershell.md#scale-clusters) 來自動進行調整。  之後，當處理完成且使用量再次降低時，您可以將 HDInsight 叢集相應減少為較少的背景工作節點。
+例如，如果您有一些發生頻率為一天一次或一個月一次的批次處理，HDInsight 叢集可以在該排程事件開始前幾分鐘相應增加，以便提供足夠的記憶體和 CPU 計算能力。  之後，當處理完成且使用量再次降低時，您可以將 HDInsight 叢集相應減少為較少的背景工作節點。
 
-* 若要透過 [PowerShell](hdinsight-administer-use-powershell.md) 調整叢集：
+## <a name="utilities-to-scale-clusters"></a>調整叢集的公用程式
 
-    ```powershell
-    Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
-    ```
-    
-* 若要透過 [Azure 傳統 CLI](hdinsight-administer-use-command-line.md) 調整叢集：
+Microsoft 提供下列的公用程式，來調整叢集：
 
-    ```
-    azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
-    ```
+|公用程式 | 描述|
+|---|---|
+|[PowerShell Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
+|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm/overview) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<Cluster Name> -TargetInstanceCount \<NewSize>|
+|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)|[az hdinsight resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resource-group \<Resource group> --name \<Cluster Name> --target-instance-count \<NewSize>|
+|[Azure 傳統 CLI](hdinsight-administer-use-command-line.md)|azure hdinsight 叢集調整\<clusterName >\<目標執行個體計數 >|
+|[Azure 入口網站](https://portal.azure.com)|開啟您的 HDInsight 叢集] 窗格中，選取**叢集大小**在左側功能表中，然後在 [叢集大小] 窗格中，輸入中的背景工作節點數，然後選取 [儲存。|  
 
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
-    
-* 若要透過 [Azure 入口網站](https://portal.azure.com)調整叢集，請開啟 [HDInsight 叢集] 窗格，選取左側功能表中的 [調整叢集]，然後在 [調整叢集] 窗格中輸入背景工作節點數，再選取 [儲存]。
-
-    ![調整叢集](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
+![調整叢集](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
 
 只要使用上述任一方法，您即可在幾分鐘內相應增加或相應減少 HDInsight 叢集。
+
+> [!IMPORTANT]  
+> * Azure 傳統 CLI 已被取代，只能搭配傳統部署模型。 對於所有其他的部署中，使用[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)。  
+> * PowerShell AzureRM 模組已被取代。  請改用[Az 模組](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0)盡可能。
 
 ## <a name="scaling-impacts-on-running-jobs"></a>調整對於執行中作業的影響
 
@@ -53,9 +53,10 @@ HDInsight 具有彈性，可讓您選擇相應增加和相應減少叢集中的�
 若要查看擱置和執行中作業的清單，您可以使用 YARN ResourceManager UI，並遵循下列步驟：
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在左側功能表中，依序選取 [瀏覽]、[HDInsight 叢集] 和您的叢集。
-3. 從 [HDInsight 叢集] 窗格中，選取頂端功能表中的 [儀表板] 以開啟 Ambari UI。 輸入叢集登入認證。
-4. 在左側功能表中的服務清單上按一下 [YARN]。 在 [YARN] 頁面上選取 [快速連結]、將滑鼠停留在作用中的前端節點上，然後按一下 [ResourceManager UI]。
+2. 從左側瀏覽至**所有的服務** > **Analytics** > **HDInsight 叢集**，然後選取您的叢集。
+3. 從主要檢視中，瀏覽至**叢集儀表板** > **Ambari 首頁**。 輸入叢集登入認證。
+4. 從 Ambari UI 中，選取**YARN**上左側功能表上的服務清單。  
+5. 從 [YARN] 頁面中，選取**快速連結**暫留在作用中前端節點，然後選取**ResourceManager UI**。
 
     ![ResourceManager UI](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
 
@@ -97,13 +98,11 @@ yarn application -kill "application_1499348398273_0003"
 
 ## <a name="hdinsight-name-node-stays-in-safe-mode-after-scaling-down"></a>進行相應減少後 HDInsight 名稱節點仍會處於安全模式
 
-![調整叢集](./media/hdinsight-scaling-best-practices/scale-cluster.png)
-
-如果您如上圖所示，將叢集規模縮小到最小 (也就是只有一個背景工作節點)，當背景工作節點因進行修補而重新啟動時，或在調整作業完成後的當下，Apache HDFS 可能會變成無法脫離安全模式。
+如果您將叢集縮小一個背景工作節點的最小值，Apache HDFS 可能會變得無法脫離安全模式時因為修補，或在調整作業之後立即重新啟動背景工作角色節點。
 
 此問題的主要原因是 Hive 會使用一些 `scratchdir` 檔案，而且根據預設，每個區塊應該都會有三個複本，但如果您相應減少為最小值 (也就是只有一個背景工作節點)，則只可能有一個複本。 因此，`scratchdir` 中的檔案會變成「複寫不足」的狀態。 這可能會導致服務在調整作業完成後進行重新啟動時，HDFS 仍處於安全模式。
 
-當您嘗試相應縮減規模時，HDInsight 會倚賴 Apache Ambari 管理介面，先將不需要的多餘背景工作節點解除委任 (此動作會將這些節點的 HDFS 區塊複寫至其他線上背景工作節點)，然後才放心地相應縮減叢集規模。 HDFS 在維護期間會進入安全模式，調整完成時則應該會退出該模式。 HDFS 正是可能會在此時無法脫離安全模式。
+當相應減少嘗試發生時，HDInsight 會依賴 Apache Ambari 管理介面先解除委任的多餘背景工作節點，將 HDFS 區塊複寫至其他線上背景工作節點，並再安全地向下調整叢集。 HDFS 在維護期間會進入安全模式，調整完成時則應該會退出該模式。 HDFS 正是可能會在此時無法脫離安全模式。
 
 HDFS 的 `dfs.replication` 設定會設定為 3。 因此，每當線上的背景工作節點少於三個時，暫存檔案的區塊就會有複寫不足的情形，原因是每個檔案區塊可用的複本數並非如預期般地有三個。
 
@@ -245,7 +244,7 @@ The filesystem under path '/tmp/hive/hive' is CORRUPT
 
 ![NameNode 區塊健康情況](./media/hdinsight-scaling-best-practices/ambari-hdfs-crit.png)
 
-若要清除暫存檔案，從而移除區塊複寫錯誤，請以 SSH 連線到 每個前端節點，然後執行下列命令：
+若要清除暫存檔案，移除區塊複寫錯誤，請透過 ssh 連線到每個前端節點，並且執行下列命令：
 
 ```
 hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/

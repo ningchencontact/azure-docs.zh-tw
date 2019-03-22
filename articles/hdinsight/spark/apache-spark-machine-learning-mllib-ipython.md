@@ -8,26 +8,23 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 02/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 2a566312e70e0c1d5f85a540f30ecdf0adc0e7e7
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: bf29fd8d9b707636fb5965669ad800517a6cf58f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653708"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075556"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>使用 Apache Spark MLlib 建置機器學習應用程式及分析資料集
 
 了解如何使用 Apache Spark [MLlib](https://spark.apache.org/mllib/) 建立機器學習應用程式，以在開啟的資料集上進行簡單的預測性分析。 從 Spark 的內建機器學習程式庫，此範例會透過羅吉斯迴歸使用「分類」。 
 
-> [!TIP]  
-> 本範例也作為您在 HDInsight 中所建立之 Spark (Linux) 叢集上的 [Jupyter Notebook](https://jupyter.org/) 提供使用。 Notebook 的體驗能讓您從 Notebook 本身執行 Python 程式碼片段。 若要依照 Notebook 中的教學課程執行，請建立 Spark 叢集並啟動 Jupyter Notebook (`https://CLUSTERNAME.azurehdinsight.net/jupyter`)。 然後，執行 **Python** 資料夾下的 Notebook **Spark 機器學習 - 使用 MLlib.ipynb 進行食品檢查資料的預測分析**。
-
 MLlib 是核心 Spark 程式庫之一，提供許多可用於機器學習工作的公用程式，包括具有下列用途的公用程式：
 
 * 分類
-* 迴歸
+* 回归
 * 叢集
 * 主題模型化
 * 奇異值分解 (SVD) 和主體元件分析 (PCA)
@@ -49,7 +46,7 @@ MLlib 是核心 Spark 程式庫之一，提供許多可用於機器學習工作�
 
 1. 使用 PySpark 核心建立 Jupyter Notebook。 如需指示，請參閱[建立 Jupyter Notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook)。
 
-2. 匯入此應用程式所需的類型。 複製以下程式碼並貼入空白儲存格，然後按下 **SHIFT + ENTER** 鍵。
+2. 匯入此應用程式所需的類型。 複製並貼入空白儲存格，下列程式碼，然後再按下**SHIFT + ENTER**。
 
     ```PySpark
     from pyspark.ml import Pipeline
@@ -173,7 +170,7 @@ MLlib 是核心 Spark 程式庫之一，提供許多可用於機器學習工作�
 
     ```PySpark
     %%sql -o countResultsdf
-    SELECT results, COUNT(results) AS cnt FROM CountResults GROUP BY results
+    SELECT COUNT(results) AS cnt, results FROM CountResults GROUP BY results
     ```
 
     `%%sql` magic 後面緊接著 `-o countResultsdf` 可確保查詢的輸出會保存在 Jupyter 伺服器的本機上 (通常是叢集的前端節點)。 輸出會使用指定的名稱 [countResultsdf](https://pandas.pydata.org/) ，當做 **Pandas**資料框架保存。 如需 `%%sql` magic 及 PySpark 核心提供之其他 magic 的詳細資訊，請參閱 [使用 Apache Spark HDInsight 叢集之 Jupyter Notebook 上可用的核心](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic)。
@@ -201,26 +198,18 @@ MLlib 是核心 Spark 程式庫之一，提供許多可用於機器學習工作�
 
     ![Spark 機器學習應用程式輸出 - 包含五個不同檢查結果的圓形圖](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-1.png "Spark 機器學習結果輸出")
 
-    一項檢查可以有 5 個不同的結果：
-
-    - 找不到該業者
-    - 不合格
-    - 通過
-    - 有條件通過
-    - 已結束營業
-
     若要預測食物檢查結果，您需要根據違規事項來開發模型。 由於羅吉斯迴歸是一種二元分類方法，因此將結果資料分成兩個類別，是很合理的：**不合格**和**通過**：
 
-    - 通過
-        - 通過
-        - 有條件通過
-    - 不合格
-        - 不合格
-    - 捨棄
-        - 找不到該業者
-        - 已結束營業
+   - 通過
+       - 通過
+       - 有條件通過
+   - 不合格
+       - 不合格
+   - 捨棄
+       - 找不到該業者
+       - 已結束營業
 
-    其他結果的資料 (「找不到該業者」或「已結束營業」) 並不是很有用處，而且這些資料在結果中所佔的比例非常小。
+     其他結果的資料 (「找不到該業者」或「已結束營業」) 並不是很有用處，而且這些資料在結果中所佔的比例非常小。
 
 4. 執行下列程式碼，可將現有資料框架 (`df`) 轉換為新的資料框架，其中每項檢查都以一組「標籤-違規」來表示。 在此案例中，標籤 `0.0` 代表失敗，標籤 `1.0` 代表成功，標籤 `-1.0` 代表此二者以外的某種結果。 
 
@@ -272,7 +261,7 @@ model = pipeline.fit(labeledData)
 1. 執行下列程式碼，可建立新的資料框架 **predictionsDf**，其中包含模型所產生的預測。 該程式碼片段也會根據資料框架，建立暫存資料表 **Predictions**。
 
     ```PySpark
-    testData = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
+    testData = sc.textFile('wasbs:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections2.csv')\
                 .map(csvParse) \
                 .map(lambda l: (int(l[0]), l[1], l[12], l[13]))
     testDf = spark.createDataFrame(testData, schema).where("results = 'Fail' OR results = 'Pass' OR results = 'Pass w/ Conditions'")
@@ -284,10 +273,6 @@ model = pipeline.fit(labeledData)
     您應該會看到如下的輸出：
 
     ```
-    # -----------------
-    # THIS IS AN OUTPUT
-    # -----------------
-
     ['id',
         'name',
         'results',
@@ -321,10 +306,6 @@ model = pipeline.fit(labeledData)
     輸出顯示如下：
 
     ```
-    # -----------------
-    # THIS IS AN OUTPUT
-    # -----------------
-
     There were 9315 inspections and there were 8087 successful predictions
     This is a 86.8169618894% success rate
     ```
@@ -374,10 +355,10 @@ model = pipeline.fit(labeledData)
 
     ![Spark 機器學習應用程式輸出 - 包含失敗食品檢查百分比的圓形圖。](./media/apache-spark-machine-learning-mllib-ipython/spark-machine-learning-result-output-2.png "Spark 機器學習結果輸出")
 
-    在此圖中，「肯定」結果是指未通過的食品檢查，否定結果則是指通過的檢查。
+    在该图中，“正”的结果指未通过食品检验，而“负”的结果指通过检验。
 
-## <a name="shut-down-the-notebook"></a>關閉 Notebook
-應用程式執行完畢之後，您應該關閉 Notebook 以釋放資源。 若要這樣做，請從 Notebook 的 [檔案] 功能表中，按一下 [關閉並停止]。 這樣會關機並關閉 Notebook。
+## <a name="shut-down-the-notebook"></a>关闭笔记本
+應用程式執行完畢之後，您應該關閉 Notebook 以釋放資源。 若要這麼做，請從 Notebook 的 [檔案] 功能表中，選取 [關閉並終止]。 這樣會關機並關閉 Notebook。
 
 ## <a name="seealso"></a>另請參閱
 * [概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
@@ -400,5 +381,5 @@ model = pipeline.fit(labeledData)
 * [在電腦上安裝 Jupyter 並連接到 HDInsight Spark 叢集](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>管理資源
-* [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
+* [管理 Azure HDInsight 中 Apache Spark 群集的资源](apache-spark-resource-manager.md)
 * [追蹤和偵錯在 HDInsight 中的 Apache Spark 叢集上執行的作業](apache-spark-job-debugging.md)

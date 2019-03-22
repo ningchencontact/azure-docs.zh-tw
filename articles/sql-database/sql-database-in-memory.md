@@ -7,27 +7,33 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: jodebrui
-ms.author: jodebrui
+author: CarlRabeler
+ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 235d6174153e32b40885811350d967af5b98ecc4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.date: 03/19/2019
+ms.openlocfilehash: d2c852b48c219283bba2304a993dd26e802b3252
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478350"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226975"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>使用 SQL Database 中的記憶體內部技術將效能最佳化
 
-Azure SQL Database 中的記憶體內部技術可讓您改善應用程式的效能，還能降低您的資料庫成本。 您可以藉由使用 Azure SQL Database 中的記憶體內部技術，來達成各種工作負載的效能改善：
+Azure SQL Database 中的記憶體內部技術可讓您改善應用程式的效能，還能降低您的資料庫成本。 
+
+## <a name="when-to-use-in-memory-technologies"></a>使用中記憶體內部技術的時機
+
+您可以藉由使用 Azure SQL Database 中的記憶體內部技術，來達成各種工作負載的效能改善：
 
 - **交易式** (線上交易處理 (OLTP))，其中大部分要求會讀取或更新較小的資料集 (例如 CRUD 作業)。
 - **分析** (線上分析處理 (OLAP))，其中大多數查詢具有用於報告的複雜計算，且有一定數量的查詢將載入資料並將其附加至現有資料表 (所謂的大量載入)，或刪除資料表中的資料。 
 - **混合** (混合式交易/分析處理 (HTAP))，其中 OLTP 與 OLAP 查詢都在相同的資料集上執行。
 
-記憶體內部技術可以改善這些工作負載的效能，方法是使用基礎硬體上可用的查詢原生編譯或進階處理 (例如，批次處理和 SIMD 指令)，將應該處理的資料保留到記憶體中。
+記憶體內部技術可以改善這些工作負載的效能，方法是使用基礎硬體上可用的查詢原生編譯或進階處理 (例如，批次處理和 SIMD 指令)，將應該處理的資料保留到記憶體中。 
+
+## <a name="overview"></a>概觀
 
 Azure SQL Database 擁有下列記憶體內部技術︰
 - [記憶體內部 OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) 可增加每秒交易數量並減少交易處理的延遲。 受益於記憶體內部 OLTP 的案例包括︰高輸送量的交易處理 (例如股票交易和網路遊戲)、從事件或 IoT 裝置擷取資料、快取、資料載入，以及暫存資料表和資料表變數等案例。
@@ -68,7 +74,7 @@ Azure SQL Database 擁有下列記憶體內部技術︰
 
 - [記憶體內部 OLTP 概觀和使用案例](https://msdn.microsoft.com/library/mt774593.aspx) (包括客戶案例研究參考和入門資訊)
 - [記憶體內部 OLTP 的文件](https://msdn.microsoft.com/library/dn133186.aspx)
-- [資料行存放區索引指南](https://msdn.microsoft.com/library/gg492088.aspx)
+- [列存储索引指南](https://msdn.microsoft.com/library/gg492088.aspx)
 - 混合式交易/分析處理 (HTAP)，也稱為[即時作業分析](https://msdn.microsoft.com/library/dn817827.aspx)
 
 ## <a name="in-memory-oltp"></a>記憶體內部 OLTP
@@ -77,7 +83,7 @@ Azure SQL Database 擁有下列記憶體內部技術︰
 
 - **記憶體最佳化資料列存放區**格式，其中每個資料列為不同的記憶體物件。 這是針對高效能 OLTP 工作負載進行最佳化的傳統記憶體內部 OLTP 格式。 有兩種類型的記憶體最佳化資料表，可用於記憶體最佳化資料列存放區格式：
   - 「持久性資料表」(SCHEMA_AND_DATA)，其中置於記憶體內的資料列會在伺服器重新啟動後予以保留。 這類型的資料表行為類似於傳統資料列存放區資料表，但具有記憶體內部最佳化的額外好處。
-  - 「非持久性資料表」(SCEMA_ONLY)，其中的資料列不會在重新啟動後予以保留。 這種類型的資料表專為下列項目而設計：暫存資料 (例如，取代暫存資料表)，或是您需要快速載入資料，再將它移至某個永續性資料表的資料表 (所謂的暫存資料表)。
+  - *非持久性資料表*(SCHEMA_ONLY) 其中的資料列是不保留重新啟動之後。 這種類型的資料表專為下列項目而設計：暫存資料 (例如，取代暫存資料表)，或是您需要快速載入資料，再將它移至某個永續性資料表的資料表 (所謂的暫存資料表)。
 - **記憶體最佳化資料行存放區**格式，其中的資料會組織成單欄式格式。 此結構設計用於 HTAP 案例，在此案例中，您需要在執行 OLTP 工作負載的相同資料結構上執行分析查詢。
 
 > [!Note]
@@ -88,7 +94,7 @@ Azure SQL Database 擁有下列記憶體內部技術︰
 技術的相關深入介紹影片︰
 
 - [Azure SQL Database 中的記憶體內部 OLTP](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (包含效能優點的示範，以及自行重現這些結果的步驟)
-- [In-Memory OLTP Videos:What it is and When/How to use it](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/03/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/) (記憶體內部 OLTP 影片︰其功能、使用時機和使用方式)
+- [In-Memory OLTP Videos:What it is and When/How to use it](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/) (記憶體內部 OLTP 影片︰其功能、使用時機和使用方式)
 
 您可以透過程式設計的方式，來了解給定資料庫是否支援記憶體內部 OLTP。 您可以執行下列 Transact-SQL 查詢︰
 ```
@@ -110,7 +116,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 下列項目計入記憶體內部 OLTP 儲存體容量上限︰
 
 - 記憶體最佳化資料表和資料表變數中的作用中使用者資料列。 請注意，舊資料列版本不計入上限。
-- 記憶體最佳化資料表上的索引。
+- 内存优化表中的索引。
 - ALTER TABLE 作業的作業負荷。
 
 如果您達到上限，則會收到超出配額錯誤，並再也無法插入或更新資料。 為避免此錯誤，您可以刪除資料或增加資料庫或集區的定價層。
@@ -150,7 +156,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 技術的相關深入介紹影片：
 
-- [Columnstore Index:In-Memory Analytics Videos from Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/04/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/) (資料行存放區索引：記憶體內部分析影片 (來源：Ignite 2016))
+- [Columnstore Index:In-Memory Analytics Videos from Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/) (資料行存放區索引：記憶體內部分析影片 (來源：Ignite 2016))
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>資料行存放區索引的資料大小和儲存體
 
@@ -194,7 +200,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 ### <a name="application-design"></a>應用程式設計
 
 - [In-Memory OLTP (In-Memory Optimization)](https://msdn.microsoft.com/library/dn133186.aspx)
-- [在現有的 Azure SQL 應用程式中使用記憶體內部 OLTP](sql-database-in-memory-oltp-migration.md)
+- [在现有的 Azure SQL 应用程序中使用内存中 OLTP](sql-database-in-memory-oltp-migration.md)
 
 ### <a name="tools"></a>工具
 

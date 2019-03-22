@@ -3,7 +3,7 @@ title: Azure Service Fabric 中的 ReliableConcurrentQueue
 description: ReliableConcurrentQueue 是高輸送量佇列，可進行平行加入佇列以及清除佇列。
 services: service-fabric
 documentationcenter: .net
-author: tylermsft
+author: aljo-microsoft
 manager: timlt
 editor: raja,tyadam,masnider,vturecek
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
-ms.author: twhitney
-ms.openlocfilehash: 61b53a23fdbb08b226878d9b702ec6bb2879f8bc
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.author: aljo
+ms.openlocfilehash: 6fefbd21a5c301111afdc27ec1d332d713c669ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185030"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119644"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Azure Service Fabric 中的 ReliableConcurrentQueue 簡介
 可靠的並行佇列是非同步、交易式和複寫的佇列，特徵是加入佇列與清除佇列作業的高並行存取。 它旨在提供高輸送量和低延遲，方法是將[可靠的佇列](https://msdn.microsoft.com/library/azure/dn971527.aspx)所提供的嚴格 FIFO 順序放寬，並改為提供最佳的順序。
@@ -70,7 +70,7 @@ using (var txn = this.StateManager.CreateTransaction())
 假設已順利完成工作，且沒有修改佇列的並行交易。 使用者可以預期佇列會以下列任何一個順序來包含項目︰
 
 > 10, 20
-
+> 
 > 20, 10
 
 
@@ -96,7 +96,7 @@ using (var txn = this.StateManager.CreateTransaction())
 }
 ```
 
-假設已順利完成工作、工作以平行方式執行，且沒有其他修改佇列的並行交易。 無法推斷佇列中的項目順序。 此程式碼片段中，項目會以下列 4 個之一出現！ 可能的排序。  佇列會嘗試以原始順序保留項目 (佇列)，但可能會因並行作業或錯誤而強制將它們重新排序。
+假設已順利完成工作、工作以平行方式執行，且沒有其他修改佇列的並行交易。 無法推斷佇列中的項目順序。 此程式碼片段中，項目會以下列 4 個之一出現！ 可能的排序。  队列会尝试让项保持原有的（排队）顺序，但在出现并发操作或错误的情况下，也可能会强制其重新排序。
 
 
 ### <a name="dequeueasync"></a>DequeueAsync
@@ -165,7 +165,7 @@ using (var txn = this.StateManager.CreateTransaction())
 
 當我們將交易中止時，會依下列任何一個順序將項目新增回佇列的前端︰
 > 10, 20
-
+> 
 > 20, 10
 
 這也適用於交易未成功認可的所有情況。

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: dc5439c98b5abc69b6cb1ba144e015426bb887ce
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c0571e202448951de0994d34f68e1649eabd5519
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996924"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259069"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>使用 Azure 入口網站設定內容保護原則
  您可以透過 Azure 媒體服務來保護媒體從離開電腦到進行儲存、處理和傳遞時的安全。 您可以利用媒體服務傳遞，使用進階加密標準 (AES) (使用 128 位元加密金鑰) 所動態加密的內容。 您也可以將它與一般加密 (CENC) 搭配使用，方法是使用 PlayReady 和/或 Widevine 數位版權管理 (DRM) 和 Apple FairPlay。 
@@ -43,7 +43,7 @@ ms.locfileid: "55996924"
 您可以使用入口網站，針對所有加密類型建立一個金鑰/授權的授權原則。
 
 ### <a name="open-authorization"></a>Open 授權
-Open 限制表示系統會將金鑰傳遞給提出金鑰要求的任何人。 此限制可用於測試用途。 
+Open 限制表示系統會將金鑰傳遞給提出金鑰要求的任何人。 這項限制可用於測試用途。 
 
 ### <a name="token-authorization"></a>權杖授權
 權杖限制原則必須伴隨 Security Token Service (STS) 所發出的權杖。 媒體服務支援使用簡單 Web 權杖 (SWT) 和 JSON Web 權杖 (JWT) 格式的權杖。 媒體服務不提供 STS。 您可以建立自訂 STS，或使用 Azure 存取控制服務來發行權杖。 STS 必須設定為建立使用指定的索引鍵和問題宣告您在權杖限制組態中指定簽署的權杖。 如果權杖有效，且權杖中的宣告符合針對金鑰 (或授權) 所設定的宣告，媒體服務金鑰傳遞服務會將所要求的金鑰 (或授權) 傳回給用戶端。

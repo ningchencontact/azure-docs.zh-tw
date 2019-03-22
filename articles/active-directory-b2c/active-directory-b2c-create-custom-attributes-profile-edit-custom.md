@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 1f79330f12117c6ade8884165d1538623e19c7ea
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 6be2a2d6febfe927cadbdeb12dc91b0e103d6ac4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175259"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094621"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C：在自訂設定檔編輯原則中使用自訂屬性
 
@@ -260,20 +260,20 @@ Azure AD B2C 會擴充每個使用者帳戶所儲存的屬性組合。 您也可
 
 1. 藉由變更下列 **TechnicalProfiles**，將新宣告新增至流程以登入社交帳戶。 社交和同盟帳戶會使用這兩個 **TechnicalProfiles** 來登入。 它們使用 **alternativeSecurityId** 作為使用者物件的定位器，來寫入和讀取使用者資料。
 
-  ```xml
+   ```xml
     <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 
     <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
-  ```
+   ```
 
 2. 在內建和自訂原則之間使用相同的擴充屬性。 當您透過入口網站體驗新增擴充 (或自訂) 屬性時，系統會使用存在於每個 B2C 租用戶中的 **b2c-extensions-app** 來註冊那些屬性。 採取下列步驟，在自訂原則中使用擴充屬性：
 
-  a. 在 portal.azure.com 中的 B2C 租用戶內，瀏覽至 [Azure Active Directory]，然後選取 [應用程式註冊]。  
-  b. 尋找您的 **b2c-extensions-app** 並加以選取。  
-  c. 在 [基本資訊] 之下，輸入**應用程式識別碼**和**物件識別碼**。  
-  d. 將它們包含在您的 **AAD-Common** TechnicalProfile 中繼資料內：  
+   a. 在 portal.azure.com 中的 B2C 租用戶內，瀏覽至 [Azure Active Directory]，然後選取 [應用程式註冊]。  
+   b. 尋找您的 **b2c-extensions-app** 並加以選取。  
+   c. 在 [基本資訊] 之下，輸入**應用程式識別碼**和**物件識別碼**。  
+   d. 將它們包含在您的 **AAD-Common** TechnicalProfile 中繼資料內：  
 
-  ```xml
+   ```xml
       <ClaimsProviders>
         <ClaimsProvider>
           <DisplayName>Azure Active Directory</DisplayName>
@@ -285,14 +285,14 @@ Azure AD B2C 會擴充每個使用者帳戶所儲存的屬性組合。 您也可
               <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
               <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
             </Metadata>
-  ```
+   ```
 
 3. 與入口網站體驗保持一致性。 先使用入口網站 UI 建立這些屬性，然後在自訂原則中使用它們。 當您在入口網站中建立屬性 **ActivationStatus** 時，必須以下列方式參考它：
 
-  ```
-  extension_ActivationStatus in the custom policy.
-  extension_<app-guid>_ActivationStatus via Graph API.
-  ```
+   ```
+   extension_ActivationStatus in the custom policy.
+   extension_<app-guid>_ActivationStatus via Graph API.
+   ```
 
 ## <a name="reference"></a>參考
 

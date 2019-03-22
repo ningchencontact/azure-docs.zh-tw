@@ -1,6 +1,6 @@
 ---
-title: Azure 上的 SAP HANA (大型執行個體) 的儲存體架構 | Microsoft Docs
-description: 如何部署 Azure 上的 SAP HANA (大型執行個體) 的儲存體架構。
+title: SAP HANA on Azure (大型執行個體) 的儲存體架構 | Microsoft Docs
+description: 如何部署 SAP HANA on Azure (大型執行個體) 的儲存體架構。
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
@@ -11,19 +11,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/20/2018
+ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e692cc1fd8670cc14b42e4714d84356d4d4c53a2
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.openlocfilehash: 02272ee16cf3303890a8ba6d35d38676e98c788c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275984"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006102"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>SAP HANA (大型執行個體) 儲存體架構
 
-Azure 上的 SAP HANA (大型執行個體) 的儲存體配置是由傳統部署模型根據 SAP 建議的指導方針進行設定。 這些指導方針列載於 [SAP HANA 儲存體需求](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)白皮書中。
+Azure 上的 SAP HANA (大型執行個體) 的儲存體配置是由傳統部署模型根據 SAP 建議的指導方針進行設定。 這些指引列載於 [SAP HANA 儲存體需求](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)白皮書中。
 
 類型 I 類別的 HANA 大型執行個體通常隨附存放磁碟區四倍的記憶體磁碟區。 針對類型 II 類別的 HANA 大型執行個體單位，存放裝置將不會超過四倍。 這些單位會隨附一個用來儲存 HANA 交易記錄備份的磁碟區。 如需詳細資訊，請參閱[在 Azure 上安裝和設定 SAP HANA (大型執行個體)](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
@@ -73,9 +73,9 @@ Azure 上的 SAP HANA (大型執行個體) 的儲存體配置是由傳統部署�
 
 您可以在 HANA 大型執行個體單位上，裝載多個使用中的 SAP HANA 執行個體。 若要提供儲存體快照集和災害復原等功能，這類設定在每個執行個體上都需要一個磁碟區組。 目前可使用下列方式來細分 HANA 大型執行個體單位：
 
-- **S72、S72m、S96、S144、S192**：遞增量為 256 GB，最小起始單位為 256 GB。 不同的遞增量 (例如 256 GB 和 512 GB) 可組合為該單位的記憶體最大值。
-- **S144m 和 S192m**：遞增量為 256 GB，最小單位為 512 GB。 不同的遞增量 (例如 512 GB 和 768 GB) 可組合為該單位的記憶體最大值。
-- **類型 II 類別**：遞增量為 512 GB，最小起始單位為 2 TB。 不同的遞增量 (例如 512 GB、1 TB 和 1.5 TB) 可組合為該單位的記憶體最大值。
+- **S72、 S72m、 S96、 S144、 S192**:256 GB，最小起始單位為 256 GB 為增量。 不同的遞增量 (例如 256 GB 和 512 GB) 可組合為該單位的記憶體最大值。
+- **S144m 和 S192m**:在 256 GB，最小單位為 512 GB 為單位遞增。 不同的遞增量 (例如 512 GB 和 768 GB) 可組合為該單位的記憶體最大值。
+- **類型 II 類別**:遞增量為 512 GB，與最小起始單位為 2 TB。 不同的遞增量 (例如 512 GB、1 TB 和 1.5 TB) 可組合為該單位的記憶體最大值。
 
 執行多個 SAP HANA 執行個體的一些範例看起來可能像下面這樣。
 
@@ -93,6 +93,20 @@ Azure 上的 SAP HANA (大型執行個體) 的儲存體配置是由傳統部署�
 用於「HANA 大型執行個體」的儲存體可允許在資料儲存於磁碟上時，對其進行透明加密。 部署 HANA 大型執行個體單位時，您可以啟用這種加密。 您也可以在部署就緒變更為加密磁碟區。 從非加密到已加密磁碟區的轉移過程是透明的，並不需要停機。 
 
 利用類型 I 類別的 SKU，就會將儲存開機 LUN 的磁碟區加密。 對於類型 II 類別的 HANA 大型執行個體 SKU，您需要使用 OS 方法來將開機 LUN 加密。 如需詳細資訊，請連絡 Microsoft 服務管理小組。
+
+## <a name="required-settings-for-larger-hana-instances-on-hana-large-instances"></a>針對較大的 HANA 執行個體，HANA 大型執行個體上的必要的設定
+使用 HANA 大型執行個體中的儲存體有檔案大小限制。 [大小限制為 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html)每個檔案。 不同於在 EXT3 檔案系統中的檔案大小限制 HANA 並不知道會隱含地強制執行的 HANA 大型執行個體儲存體的儲存體限制。 如此一來 HANA 不會自動建立新的資料檔案時達到 16 TB 的檔案大小限制。 因為 HANA 嘗試成長超過 16 TB 的檔案時，HANA 會報告錯誤和索引伺服器將會損毀結尾。
+
+> [!IMPORTANT]
+> 若要避免嘗試超過 16 TB 的檔案大小限制的 HANA 大型執行個體儲存體的資料檔成長的 HANA，您必須 HANA global.ini 組態檔中設定下列參數
+> 
+> - datavolume_striping=true
+> - datavolume_striping_size_gb = 15000
+> - 另請參閱 SAP 附註[#2400005](https://launchpad.support.sap.com/#/notes/2400005)
+> - SAP 附註請留意[#2631285](https://launchpad.support.sap.com/#/notes/2631285)
+
+
+
 
 **後續步驟**
 - 請參閱 [HANA 大型執行個體支援的案例](hana-supported-scenario.md)

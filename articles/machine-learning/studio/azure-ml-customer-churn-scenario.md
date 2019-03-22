@@ -5,17 +5,17 @@ description: 使用 Azure Machine Learning Studio 開發整合式模型以分析
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: a00548bd5eb88c95ea83d492524e2ae10f274bba
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 320dd28ba22d7919e3f3afdcd8baa47780f363dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453982"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57856104"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>使用 Azure Machine Learning Studio 分析客戶流失
 ## <a name="overview"></a>概觀
@@ -25,7 +25,7 @@ ms.locfileid: "56453982"
 這項實驗是由 Microsoft 的首席資料科學家 Serge Berger 和 Microsoft Azure Machine Learning Studio 的前產品經理 Roger Barga 共同開發和測試。 Azure 文件小組高度認可其專業知識，並感謝他們分享這份白皮書。
 
 > [!NOTE]
-> 這項實驗中使用的資料無法公開使用。 如需如何建置客戶流失分析的機器學習模型範例，請參閱︰[Azure AI 資源庫](http://gallery.azure.ai/)中的[零售業客戶流失模型範本](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1)
+> 這項實驗中使用的資料無法公開使用。 如需如何建置客戶流失分析的機器學習模型範例，請參閱︰[Azure AI 資源庫](https://gallery.azure.ai/)中的[零售業客戶流失模型範本](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1)
 > 
 > 
 
@@ -106,7 +106,7 @@ ms.locfileid: "56453982"
  
 
 > 請注意，這項資料為私人所有，因此不能分享模型和資料。
-> 如需使用公開可用資料的類似模型，請參閱 [Azure AI 資源庫](http://gallery.azure.ai/)中的實驗範例：[電信公司客戶流失](http://gallery.azure.ai/Experiment/31c19425ee874f628c847f7e2d93e383)。
+> 如需使用公開可用資料的類似模型，請參閱 [Azure AI 資源庫](https://gallery.azure.ai/)中的實驗範例：[電信公司客戶流失](https://gallery.azure.ai/Experiment/31c19425ee874f628c847f7e2d93e383)。
 > 
 > 若要深入了解如何使用 Cortana Intelligence Suite 實作客戶流失分析模型，我們也推薦資深程式經理 Wee Hyong Tok 的 [這段影片](https://info.microsoft.com/Webinar-Harness-Predictive-Customer-Churn-Model.html) 。 
 > 
@@ -213,13 +213,13 @@ Azure Machine Learning Studio 中另一項吸引人的功能是可以將自訂�
 ## <a name="references"></a>參考
 [1] Predictive Analytics：Beyond the Predictions (預測性分析：超出預測)，W. McKnight，資訊管理，2011 年 7 月/8 月，第 18-20 頁。  
 
-[2] 維基百科文章：[正確性和準確度](http://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2] 維基百科文章：[正確性和準確度](https://en.wikipedia.org/wiki/Accuracy_and_precision)
 
-[3] [CRISP-DM 1.0：資料採礦逐步指南](http://www.the-modeling-agency.com/crisp-dm.pdf)   
+[3] [CRISP-DM 1.0：資料採礦逐步指南](https://www.the-modeling-agency.com/crisp-dm.pdf)   
 
 [4][ 巨量資料行銷：更有效地吸引您的客戶和促進價值](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Azure AI 資源庫](http://gallery.azure.ai/)中的[電信公司客戶流失模型範本](http://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) 
+[5] [Azure AI 資源庫](https://gallery.azure.ai/)中的[電信公司客戶流失模型範本](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) 
  
 
 ## <a name="appendix"></a>附錄

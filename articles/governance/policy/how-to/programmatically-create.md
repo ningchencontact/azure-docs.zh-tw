@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b80a2effb4cdfe45ad3f37785f7e97449d60f00c
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: e929fd80e87524b62c08a159c457be6f1f21eaad
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340139"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57768599"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>以程式設計方式建立原則並檢視合規性資料
 
@@ -95,8 +95,8 @@ ms.locfileid: "56340139"
 
    以您想要的資源群組名稱取代 _ContosoRG_。
 
-   `New-AzPolicyAssignment` 上的 **Scope** 參數也適用訂用帳戶和管理群組。 此參數會使用 `Get-AzResourceGroup` 上 **ResourceId** 屬性傳回的完整資源路徑。 以下是每個容器的 **Scope** 模式。
-   請將 `{rName}`、`{rgName}`、`{subId}` 和 `{mgName}` 分別取代為您的資源名稱、資源群組名稱、訂用帳戶 ID 及管理群組名稱。 `{rType}` 會取代為資源的**資源類型**，例如，如果是 VM，則為 `Microsoft.Compute/virtualMachines`。
+   **領域**上的參數`New-AzPolicyAssignment`適用於管理群組、 訂用帳戶、 資源群組，或是單一資源。 此參數會使用 `Get-AzResourceGroup` 上 **ResourceId** 屬性傳回的完整資源路徑。 以下是每個容器的 **Scope** 模式。 請將 `{rName}`、`{rgName}`、`{subId}` 和 `{mgName}` 分別取代為您的資源名稱、資源群組名稱、訂用帳戶 ID 及管理群組名稱。
+   `{rType}` 會取代為資源的**資源類型**，例如，如果是 VM，則為 `Microsoft.Compute/virtualMachines`。
 
    - 資源 - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - 資源群組 - `/subscriptions/{subId}/resourceGroups/{rgName}`
@@ -183,24 +183,24 @@ ms.locfileid: "56340139"
 
 1. 複製下列 JSON 程式碼片段以建立 JSON 原則指派檔案。
 
-  ```json
-  {
-      "if": {
-          "allOf": [{
-                  "field": "type",
-                  "equals": "Microsoft.Storage/storageAccounts"
-              },
-              {
-                  "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
-                  "equals": "Allow"
-              }
-          ]
-      },
-      "then": {
-          "effect": "audit"
-      }
-  }
-  ```
+   ```json
+   {
+       "if": {
+           "allOf": [{
+                   "field": "type",
+                   "equals": "Microsoft.Storage/storageAccounts"
+               },
+               {
+                   "field": "Microsoft.Storage/storageAccounts/networkAcls.defaultAction",
+                   "equals": "Allow"
+               }
+           ]
+       },
+       "then": {
+           "effect": "audit"
+       }
+   }
+   ```
 
    如需撰寫原則定義的詳細資訊，請參閱 [Azure 原則定義結構](../concepts/definition-structure.md)。
 

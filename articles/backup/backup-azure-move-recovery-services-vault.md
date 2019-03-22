@@ -6,18 +6,21 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/4/2019
+ms.date: 03/19/2019
 ms.author: sogup
-ms.openlocfilehash: 0eb19ba8278df2d77466e5be13731723557e85a8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0bc1ab0586d1a591464711fb0652f81fb082e6c3
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082070"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199239"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>跨 Azure 訂用帳戶和資源群組來移動復原服務保存庫 (有限公開預覽)
 
 本文說明如何跨 Azure 訂用帳戶或往相同訂用帳戶中的另一個資源群組移動為 Azure 備份所設定的復原服務保存庫。 您可以使用 Azure 入口網站或 PowerShell 來移動復原服務保存庫。
+
+> [!NOTE]
+> 若要將復原服務保存庫和其相關聯的資源移至不同的資源群組中，您應該先[註冊的來源訂用帳戶](#register-the-source-subscription-to-move-your-recovery-services-vault)。
 
 ## <a name="prerequisites-for-moving-a-vault"></a>移動保存庫的必要條件
 
@@ -37,7 +40,7 @@ ms.locfileid: "58082070"
 -   如果您跨訂用帳戶移動含有 VM 備份資料的保存庫，則必須將 VM 移至相同的訂用帳戶，並使用相同的目標資源群組來繼續備份。<br>
 
 > [!NOTE]
-> 
+>
 > 依設定要與 **Azure Site Recovery** 搭配使用的復原服務保存庫還無法移動。 如果您已使用 **Azure Site Recovery** 來為任何 VM (Azure IaaS、Hyper-V、VMware) 或實體機器設定災害復原，則無法進行移動作業。 Site Recovery 服務的資源移動功能尚未正式運作。
 
 ## <a name="register-the-source-subscription-to-move-your-recovery-services-vault"></a>註冊來源訂用帳戶以移動復原服務保存庫

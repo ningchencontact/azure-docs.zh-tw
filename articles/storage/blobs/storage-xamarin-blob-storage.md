@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: michaelhauss
-ms.openlocfilehash: b35bec31035c0219bf34a31cb34e20f7dc3a72c5
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
-ms.translationtype: HT
+ms.openlocfilehash: b9c707dcc1628f685661f88aaed29612465a5469
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397024"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010066"
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>如何使用 Xamarin 的 Blob 儲存體
 
@@ -26,17 +26,17 @@ Xamarin 可讓開發人員使用共用的 C# 程式碼基底，使用其原生�
 ## <a name="create-a-new-xamarin-application"></a>建立新的 Xamarin 應用程式
 針對此教學課程，我們將建立以 Android、iOS 和 Windows 為目標的應用程式。 此應用程式只會建立容器，並將 blob 上傳到此容器。 我們將在 Windows 上使用 Visual Studio，但是在 macOS 上使用 Xamarin Studio 建立應用程式時，可以套用相同的做法。
 
-請遵循下列步驟來建立應用程式：
+请按以下步骤创建应用程序：
 
 1. 下載並安裝 [Xamarin for Visual Studio](https://www.xamarin.com/download)(若您尚未這麼做)。
-2. 開啟 Visual Studio，建立一個空的應用程式 (原生可攜式)︰[檔案] > [新增] > [專案] > [跨平台] > [空的應用程式 (原生可攜式)]。
+2. 開啟 Visual Studio 中，並建立空白的應用程式 （原生可攜式）：**檔案 > 新增 > 專案 > 跨平台 > 空白應用程式 （原生可攜式）**。
 3. 以滑鼠右鍵按一下 [方案總管] 窗格中的方案，然後選取 [管理方案的 NuGet 套件]。 搜尋 **WindowsAzure.Storage**，將最新穩定版安裝到您方案中的所有專案。
 4. 建置並執行專案。
 
-您現在應該有一個應用程式，在您按一下按鈕時就會遞增計數器。
+现在，应该有了这样一个应用程序：单击某个按钮即可让计数器递增。
 
 ## <a name="create-container-and-upload-blob"></a>建立容器並上傳 blob
-接下來，在您的 `(Portable)` 專案之下，將一些程式碼加入 `MyClass.cs`。 此程式碼會建立一個容器，並上傳 Blob 到此容器中。 `MyClass.cs` 看起來應該如下所示︰
+接下來，在您的 `(Portable)` 專案之下，將一些程式碼加入 `MyClass.cs`。 此程式碼會建立一個容器，並上傳 Blob 到此容器中。 `MyClass.cs` 应如下所示：
 
 ```csharp
 using Microsoft.WindowsAzure.Storage;
@@ -75,7 +75,7 @@ namespace XamarinApp
 }
 ```
 
-務必將 "your_account_name_here" 和 "your_account_key_here" 取代為您的實際帳戶名稱和帳戶金鑰。 
+请确保将“your_account_name_here”和“your_account_key_here”替换为实际帐户名和帐户密钥。 
 
 您的 iOS、Android 和 Windows Phone 專案都會有可攜式專案的參考，這表示您可以在單一位置撰寫所有的共用程式碼，而且可以在所有專案中使用該程式碼。 您現在可以將下列程式碼行加入每個專案，以開始利用：`MyClass.performBlobOperation()`
 
@@ -155,7 +155,7 @@ namespace XamarinApp.iOS
             public override void DidReceiveMemoryWarning ()
             {
                 base.DidReceiveMemoryWarning ();
-                // Release any cached data, images, etc that aren't in use.
+                // Release any cached data, images, etc. that aren't in use.
             }
         }
     }
@@ -168,7 +168,7 @@ namespace XamarinApp.iOS
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=391641
 
 namespace XamarinApp.WinPhone
 {
@@ -231,7 +231,7 @@ namespace XamarinApp.WinPhone
 ## <a name="run-the-application"></a>執行應用程式
 您現在可以在 Android 或 Windows Phone 模擬器中執行這個應用程式。 您也可以在 iOS 模擬器中執行此應用程式，但這需要 Mac 作業系統。 如需具體的做法指示，請閱讀 [將 Visual Studio 連接到 Mac](https://developer.xamarin.com/guides/ios/getting_started/installation/windows/connecting-to-mac/)
 
-一旦您執行應用程式，它會在您的儲存體帳戶中建立 `mycontainer` 容器。 它應該包含 blob `myblob`，其具有文字 `Hello, world!`。 您可以使用 [Microsoft Azure 儲存體總管](http://storageexplorer.com/)來驗證。
+一旦您執行應用程式，它會在您的儲存體帳戶中建立 `mycontainer` 容器。 它應該包含 blob `myblob`，其具有文字 `Hello, world!`。 您可以使用 [Microsoft Azure 儲存體總管](https://storageexplorer.com/)來驗證。
 
 ## <a name="next-steps"></a>後續步驟
 在本教學課程中，您已學會如何在使用 Azure 儲存體的 Xamarin 中建立跨平台的應用程式，尤其將焦點放在 Blob 儲存體中的一個案例中。 不過，除了 Blob 儲存體以外，您還可以處理更多，例如資料表、檔案和佇列儲存體。 若要深入了解，請參閱下列文章：

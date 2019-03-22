@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 93402f9124a5c2f6a251cb0e3b3dab21386fa5ff
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 9632bd339956aff7558461ed391cdd21c92f06ad
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965251"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57995170"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>範例 3 – 建置 DMZ 以透過防火牆、UDR 和 NSG 保護網路
 [返回 [安全性界限最佳作法] 頁面][HOME]
 
-此範例會建立 DMZ，其內含防火牆、四個 Windows 伺服器、使用者定義的路由、IP 轉送和網路安全性群組。 此範例也會逐步解說每個相關命令，以讓您更加深入地了解每個步驟。 另外您還會看到＜流量案例＞一節，本節提供深入的逐步說明，讓您知道流量是如何流經 DMZ 內的各個防禦層。 最後則有＜參考＞一節，本節提供完整的程式碼和指示，以供您建置此環境來測試和試驗各種案例。 
+本示例创建一个外围网络，其中包含防火墙、四个 Windows 服务器、用户定义的路由、IP 转发和网络安全组。 此範例也會逐步解說每個相關命令，以讓您更加深入地了解每個步驟。 另外您還會看到＜流量案例＞一節，本節提供深入的逐步說明，讓您知道流量是如何流經 DMZ 內的各個防禦層。 最後則有＜參考＞一節，本節提供完整的程式碼和指示，以供您建置此環境來測試和試驗各種案例。 
 
 ![具有 NVA、NSG 和 UDR 的雙向 DMZ][1]
 
@@ -142,7 +142,7 @@ VNETLocal 一律是該特定網路之 VNet 的定義位址前置詞 (也就是�
            -NextHopType VNETLocal
    ```
 
-5. 最後，在建立好路由表並填入使用者定義的路由後，路由表必須立即繫結至子網路。 在此指令碼中，Frontend 路由表也會繫結到 Frontend 子網路。 以下是 Backend 子網路的繫結指令碼。
+5. 最後，在建立好路由表並填入使用者定義的路由後，路由表必須立即繫結至子網路。 在此指令碼中，Frontend 路由表也會繫結到 Frontend 子網路。 下面是后端子网的绑定脚本。
 
    ```powershell
    Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
@@ -150,7 +150,7 @@ VNETLocal 一律是該特定網路之 VNet 的定義位址前置詞 (也就是�
        -RouteTableName $BERouteTableName
    ```
 
-## <a name="ip-forwarding"></a>IP 轉送
+## <a name="ip-forwarding"></a>IP 转发
 UDR 隨附 IP 轉送功能。 這是虛擬應用裝置的一項設定，以允許它接收不是要特別傳送到應用裝置的流量，再將流量轉送到其最終目的地。
 
 舉例來說，如果來自 AppVM01 的流量對 DNS01 伺服器提出要求，UDR 會將此流量路由傳送到防火牆。 在啟用 IP 轉送時，目的地為 DNS01 (10.0.2.4) 的流量會被應用裝置 (10.0.0.4) 所接受，然後轉送到其最終目的地 (10.0.2.4) 。 若防火牆未啟用 IP 轉送，即使路由表將防火牆做為下一個躍點，流量也不會被應用裝置所接受。 
@@ -162,7 +162,7 @@ UDR 隨附 IP 轉送功能。 這是虛擬應用裝置的一項設定，以允�
 
 設定 IP 轉送是單一命令，可在建立 VM 時執行。 在此範例的流程中，這個程式碼片段靠近指令碼結尾處，與 UDR 命令放在一起：
 
-1. 呼叫代表您的虛擬應用裝置的 VM 執行個體 (在此案例中是防火牆)，並啟用 IP 轉送 (注意：以貨幣符號開頭的紅色項目 (例如 $VMName[0]) 皆為來自本文＜參考＞一節之指令碼的使用者定義變數。 以方括弧括住的零 ([0]) 代表 VM 陣列中的第一個 VM，為了讓範例指令碼無須修改即可運作，第一個 VM (VM 0) 必須是防火牆)：
+1. 呼叫代表您的虛擬應用裝置的 VM 執行個體 (在此案例中是防火牆)，並啟用 IP 轉送 (注意：以貨幣符號開頭的紅色項目 (例如 $VMName[0]) 皆為來自本文＜參考＞一節之指令碼的使用者定義變數。 方括号中的零 [0] 代表 VM 阵列中的第一个 VM，为使示例脚本无须修改即可运行，第一个 VM (VM 0) 必须是防火墙）：
 
     ```powershell
     Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
@@ -199,13 +199,13 @@ Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
     -SubnetName $BESubnet -VirtualNetworkName $VNetName
 ```
 
-## <a name="firewall-rules"></a>防火牆規則
-防火牆上必須建立轉送規則。 因為防火牆會封鎖或轉送所有輸入、輸出和內部 VNet 流量，所以需要許多防火牆規則。 此外，所有輸入流量都會抵達安全性服務的公用 IP 位址 (在不同連接埠上)，並由防火牆進行處理。 最佳作法是先繪製邏輯流量圖，再設定子網路和防火牆規則，以避免事後還要修改。 下圖是此範例中的防火牆規則的邏輯視圖：
+## <a name="firewall-rules"></a>防火墙规则
+需要在防火墙上创建转发规则。 因為防火牆會封鎖或轉送所有輸入、輸出和內部 VNet 流量，所以需要許多防火牆規則。 此外，所有輸入流量都會抵達安全性服務的公用 IP 位址 (在不同連接埠上)，並由防火牆進行處理。 最佳作法是先繪製邏輯流量圖，再設定子網路和防火牆規則，以避免事後還要修改。 下圖是此範例中的防火牆規則的邏輯視圖：
 
 ![防火牆規則的邏輯視圖][2]
 
 > [!NOTE]
-> 根據所使用的網路虛擬應用裝置，會有不同的管理連接埠。 在此範例中，所參考的 Barracuda NextGen 防火牆使用連接埠 22、801 和 807。 請參閱應用裝置廠商的說明文件來尋找用於管理所使用裝置的確切連接埠。
+> 根据所用的网络虚拟设备，管理端口会有所不同。 在此範例中，所參考的 Barracuda NextGen 防火牆使用連接埠 22、801 和 807。 請參閱應用裝置廠商的說明文件來尋找用於管理所使用裝置的確切連接埠。
 > 
 > 
 
@@ -218,7 +218,7 @@ Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
   1. 防火牆管理規則：此應用程式重新導向規則允許流量傳遞至網路虛擬應用裝置的管理連接埠。
   2. RDP 規則 (適用於每部 Windows Server)：這四個規則 (每部伺服器一個) 會允許透過 RDP 管理個別伺服器。 根據所使用的網路虛擬應用裝置功能而定，也可將其結合成一個規則。
   3. 應用程式流量規則：應用程式流量規則有兩個，第一個適用於前端 Web 流量，第二個適用於後端流量 (例如 Web 伺服器流往資料層)。 這些規則的設定將取決於網路架構 (伺服器的放置位置) 和流量流動行為 (流量的流動方向，以及使用的連接埠)。
-     * 第一個規則會允許實際的應用程式流量抵達應用程式伺服器。 其他規則所考慮的是安全性、管理等方面的事項，而應用程式規則則是用來允許外部使用者或服務存取應用程式。 就此範例來說，連接埠 80 上有單一 Web 伺服器，因此單一防火牆應用程式規則會將流往外部 IP 的輸入流量，重新導向到 Web 伺服器的內部 IP 位址。 重新導向的流量工作階段會經過 NAT 轉譯到內部伺服器。
+     * 第一個規則會允許實際的應用程式流量抵達應用程式伺服器。 其他规则用于安全、管理等，而应用程序规则允许外部用户或服务访问应用程序。 就此範例來說，連接埠 80 上有單一 Web 伺服器，因此單一防火牆應用程式規則會將流往外部 IP 的輸入流量，重新導向到 Web 伺服器的內部 IP 位址。 重新導向的流量工作階段會經過 NAT 轉譯到內部伺服器。
      * 第二個應用程式流量規則是後端規則，可允許Web 伺服器透過任何連接埠與 AppVM01 伺服器 (而非 AppVM02) 對談。
 * 內部規則 (適用於內部 VNet 流量)
   1. 輸出到網際網路規則：此規則會允許來自任何網路的流量傳遞至選定的網路。 此規則通常是防火牆上既有的預設規則，但會處於停用狀態。 在此範例中，應啟用此規則。
@@ -269,7 +269,7 @@ Add-AzureEndpoint -Name "HTTP" -Protocol tcp -PublicPort 80 -LocalPort 80 `
 
 這會建立 FrontEnd 子網路的具名網路，您也應該對 BackEnd 子網路建立類似物件。 現在您可以更輕鬆地在防火牆規則中依名稱參考子網路。
 
-針對 DNS 伺服器物件：
+对于 DNS 服务器对象：
 
 ![建立 DNS 伺服器物件][4]
 
@@ -279,7 +279,7 @@ Add-AzureEndpoint -Name "HTTP" -Protocol tcp -PublicPort 80 -LocalPort 80 `
 
 ![預設 RDP 規則的複本][5]
 
-接著可以編輯值來代表特定伺服器的 RDP 服務。 針對 AppVM01，應該修改上述的預設 RDP 規則以反映圖 8 的圖表中所用的新服務名稱、說明和外部 RDP 連接埠 (注意：連接埠會從 RDP 預設值 3389 變更為要用於此特定伺服器的外部連接埠，在 AppVM01 這個案例中，外部連接埠是 8025)。修改過後的服務如下所示：
+接著可以編輯值來代表特定伺服器的 RDP 服務。 对于 AppVM01，应该修改上述默认 RDP 规则以反映图 8 的图表中所用的新服务名称、说明和外部 RDP 端口（注意：端口已从 RDP 默认值 3389 更改为要用于此特定服务器的外部端口，在 AppVM01 示例中，外部端口为 8025）。修改后的服务如下所示：
 
 ![AppVM01 規則][6]
 
@@ -326,7 +326,7 @@ Barracuda 網站可以找到這些規則的詳細資訊。
      
      ![防火牆 RDP 規則][11]
      
-     共需要建立四個 RDP 規則： 
+     总共需要创建四个 RDP 规则： 
      
      | 規則名稱 | 伺服器 | 服務 | 目標清單 |
      | --- | --- | --- | --- |
@@ -336,7 +336,7 @@ Barracuda 網站可以找到這些規則的詳細資訊。
      | RDP-to-AppVM02 |AppVM02 |AppVm02 RDP |10.0.2.6:3389 |
 
 > [!TIP]
-> 縮減 [來源] 和 [服務] 欄位的範圍會減少攻擊面。 請使用可讓功能正常運作的最小範圍。
+> 缩小“源”和“服务”字段的范围可减小攻击面。 請使用可讓功能正常運作的最小範圍。
 > 
 > 
 
@@ -350,13 +350,13 @@ Barracuda 網站可以找到這些規則的詳細資訊。
   
     **注意**：[目標清單] 欄位中未指定連接埠，因此輸入連接埠 80 (若為所選服務則為 443) 將會用於 Web 伺服器的重新導向。 如果 Web 伺服器正在接聽不同連接埠，例如連接埠 8080，[目標清單] 欄位則可更新為 [10.0.1.4:8080] 以同時允許連接埠重新導向。
   
-    下一個應用程式流量規則是後端規則，可允許Web 伺服器透過任何服務與 AppVM01 伺服器 (而非 AppVM02) 對談：
+    下一个应用程序流量规则是后端规则，用于允许 Web 服务器通过任何服务与 AppVM01 服务器（而非 AppVM02）对话：
   
     ![防火牆 AppVM01 規則][13]
   
     此傳遞規則允許 Frontend 子網路上的任何 IIS 伺服器在任何連接埠上連線到 AppVM01 (IP 位址 10.0.2.5)，使用任何通訊協定來存取 Web 應用程式所需的資料。
   
-    在此螢幕擷取畫面中，[目的地] 欄位使用 "\<explicit-dest\>" 來表示以 10.0.2.5 做為目的地。 這可以是如所示的明確位址或具名網路物件 (如 DNS 伺服器的必要條件中所做的)。 要使用哪一種方法全由防火牆的系統管理員來決定。 若要將 10.0.2.5 新增為明確目的地，請在 \<explicit-dest\> 底下的第一個空白資料列按兩下，並在彈出的視窗中輸入位址。
+    在此螢幕擷取畫面 」\<明確 dest\>」 會在 [目的地] 欄位來表示以 10.0.2.5 做為目的地。 這可以是如所示的明確位址或具名網路物件 (如 DNS 伺服器的必要條件中所做的)。 要使用哪一種方法全由防火牆的系統管理員來決定。 若要將 10.0.2.5 新增為明確目的地中，按兩下底下的第一個空白資料列\<明確 dest\>並在彈出的視窗中輸入的位址。
   
     使用此傳遞規則時不需要 NAT，因為這是內部流量，因此 [連線方法] 可以設為 [不使用 SNAT]。
   
@@ -381,7 +381,7 @@ Barracuda 網站可以找到這些規則的詳細資訊。
   
     ![防火牆 DNS 規則][15]
   
-    **注意**：在此螢幕擷取畫面中，包含了 [連線方法]。 此規則用於內部 IP 到內部 IP的位址流量，因此不需要 NATing，此傳遞規則的 [連線方法] 設定為 [不使用 SNAT]。
+    **注意**：在這個螢幕擷取畫面連線方法則會包含項目。 此規則用於內部 IP 到內部 IP的位址流量，因此不需要 NATing，此傳遞規則的 [連線方法] 設定為 [不使用 SNAT]。
 * **子網路對子網路規則**：此傳遞規則是經過啟用和修改的預設規則，會允許 Backend 子網路上的任何伺服器連接至 Frontend 子網路上的任何伺服器。 此規則全是內部流量，因此可將 [連線方法] 設為 [不使用 SNAT]。
   
     ![防火牆內部 VNet 規則][16]
@@ -433,7 +433,7 @@ Barracuda 網站可以找到這些規則的詳細資訊。
 1. 網際網路使用者從 SecSvc001.CloudApp.Net (網際網路面向雲端服務) 要求 HTTP 頁面
 2. 雲端服務透過連接埠 80 上的開放端點將流量傳遞至 10.0.0.4:80 上的防火牆介面
 3. 未對安全性子網路指派 NSG，因此系統 NSG 規則允許流量流往防火牆
-4. 流量抵達防火牆的內部 IP 位址 (10.0.1.4)
+4. 流量抵达防火墙的内部 IP 地址 (10.0.1.4)
 5. 防火牆開始處理規則：
    1. FW 規則 1 (FW Mgmt) 不適用，移至下一個規則
    2. FW 規則 2 - 5 (RDP 規則) 不適用，移至下一個規則
@@ -454,8 +454,8 @@ Barracuda 網站可以找到這些規則的詳細資訊。
     1. NSG 規則 1 (封鎖網際網路) 不適用，移至下一個規則
     2. 預設 NSG 規則允許子網路對子網路的流量，允許流量，停止處理 NSG 規則
 13. AppVM01 接收要求，啟動工作階段並回應
-14. Backend 子網路上的 UDR 路由讓防火牆成為下一個躍點
-15. Backend 子網路上沒有輸出 NSG 規則，所以允許回應
+14. 后端子网上的 UDR 路由使防火墙成为下一跃点
+15. 后端子网上没有出站 NSG 规则，因此允许响应
 16. 因為這會傳回已建立的工作階段上的流量，防火牆將回應傳回給 Web 伺服器 (IIS01)
 17. Frontend 子網路開始處理輸入規則：
     1. NSG 規則 1 (封鎖網際網路) 不適用，移至下一個規則
@@ -486,7 +486,7 @@ Barracuda 網站可以找到這些規則的詳細資訊。
 11. AppVM01 會提示輸入使用者名稱和密碼
 
 #### <a name="allowed-web-server-dns-lookup-on-dns-server"></a>(允許) DNS 伺服器上的 Web 伺服器 DNS 查閱
-1. Web 伺服器 IIS01 需要 www.data.gov 的資料摘要，但需要解析位址。
+1. Web 伺服器 IIS01 需要的資料摘要在 www\.data.gov，但需要解析位址。
 2. VNet 的網路組態將 DNS01 (Backend 子網路上的 10.0.2.4) 列為主要 DNS 伺服器，IIS01 將 DNS 要求傳送至 DNS01
 3. UDR 將輸出流量路由傳送至防火牆做為下一個躍點
 4. 沒有輸出 NSG 規則繫結至 Frontend 子網路，允許流量
@@ -551,13 +551,13 @@ Barracuda 網站可以找到這些規則的詳細資訊。
 3. 如果基於某些原因而開放端點，Frontend 子網路上的 NSG (封鎖網際網路) 會封鎖此流量
 4. 最後，Frontend 子網路 UDR 路由會將來自 IIS01 的任何輸出流量傳送到防火牆做為下一個躍點，防火牆會將此流量視為非對稱流量，並捨棄輸出回應。因此，網際網路和 IIS01 之間至少有三個獨立防禦層，可透過其雲端服務防止未經授權/不適當的存取。
 
-#### <a name="denied-internet-to-backend-server"></a>(拒絕) 網際網路到 Backend 伺服器
+#### <a name="denied-internet-to-backend-server"></a>（拒绝）通过 Internet 访问后端服务器
 1. 網際網路使用者嘗試透過 BackEnd001.CloudApp.Net 服務存取 AppVM01 上的檔案
 2. 因為沒有用於檔案共用的開放端點，此流量不會通過雲端服務到達伺服器
 3. 如果基於某些原因而開放端點，NSG (封鎖網際網路) 會封鎖此流量
 4. 最後，UDR 路由會將來自 AppVM01 的任何輸出流量傳送到防火牆做為下一個躍點，防火牆會將此流量視為非對稱流量，並捨棄輸出回應。因此，網際網路和 AppVM01 之間至少有三個獨立防禦層，可透過其雲端服務防止未經授權/不適當的存取。
 
-#### <a name="denied-frontend-server-to-backend-server"></a>(拒絕) Frontend 伺服器到 Backend 伺服器
+#### <a name="denied-frontend-server-to-backend-server"></a>（拒绝）前端服务器到后端服务器
 1. 假設 IIS01 遭到入侵，正在執行惡意程式碼嘗試掃描 Backend 子網路的伺服器。
 2. Frontend 子網路 UDR 路由會傳送任何來自 IIS01 的輸出流量到防火牆做為下一個躍點。 遭到入侵的 VM 無法改變這一點。
 3. 如果要求是對 AppVM01 提出，或對 DNS 伺服器提出以進行防火牆可能會允許流量的 DNS 查閱 (因為 FW 規則 7 和 9)，防火牆就會處理流量。 所有其他流量則會遭 FW 規則 11 (全部拒絕) 封鎖。
@@ -569,7 +569,7 @@ Barracuda 網站可以找到這些規則的詳細資訊。
 3. 如果基於某些原因而開放端點，Frontend 子網路上的 NSG 規則 (封鎖網際網路) 會封鎖此流量
 4. 最後，Backend 子網路 UDR 路由會將來自 DNS01 的任何輸出流量傳送到防火牆做為下一個躍點，防火牆會將此流量視為非對稱流量，並捨棄輸出回應。因此，網際網路和 DNS01 之間至少有三個獨立防禦層，可透過其雲端服務防止未經授權/不適當的存取。
 
-#### <a name="denied-internet-to-sql-access-through-firewall"></a>(拒絕) 網際網路透過防火牆對 SQL 進行存取
+#### <a name="denied-internet-to-sql-access-through-firewall"></a>（拒绝）从 Internet 通过防火墙访问 SQL
 1. 網際網路使用者從 SecSvc001.CloudApp.Net (網際網路面向雲端服務) 要求 SQL 資料
 2. 因為沒有用於 SQL 的開放端點，此流量不會通過雲端服務到達防火牆
 3. 如果基於某些原因而開放 SQL 端點，防火牆就會開始處理規則：
@@ -586,7 +586,7 @@ Barracuda 網站可以找到這些規則的詳細資訊。
 將完整指令碼儲存在 PowerShell 指令碼檔案中。 將網路組態儲存到名為 “NetworkConf2.xml” 的檔案。
 視需要修改使用者定義的變數。 執行指令碼，然後依照上面的防火牆規則設定指示進行。
 
-#### <a name="full-script"></a>完整指令碼
+#### <a name="full-script"></a>完整脚本
 根據使用者定義的變數，此指令碼會執行下列動作：
 
 1. 連線到 Azure 訂用帳戶
@@ -945,7 +945,7 @@ Barracuda 網站可以找到這些規則的詳細資訊。
 以更新的位置儲存此 xml 檔案，並將此檔案的連結加入到上述指令碼中的 $NetworkConfigFile 變數。
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>
@@ -984,13 +984,13 @@ Barracuda 網站可以找到這些規則的詳細資訊。
 
 <!--Image References-->
 [1]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3design.png "具有 NVA、NSG 和 UDR 的雙向 DMZ"
-[2]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3firewalllogical.png "防火牆規則的邏輯視圖"
+[2]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/example3firewalllogical.png "防火墙规则的逻辑视图"
 [3]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectfrontend.png "建立前端網路物件"
 [4]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectdns.png "建立 DNS 伺服器物件"
 [5]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectrdpa.png "預設 RDP 規則的複本"
 [6]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectrdpb.png "AppVM01 規則"
 [7]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/iconapplicationredirect.png "應用程式重新導向圖示"
-[8]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/icondestinationnat.png "目的地 NAT 圖示"
+[8]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/icondestinationnat.png "目标 NAT 图标"
 [9]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/iconpass.png "傳遞圖示"
 [10]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/rulefirewall.png "防火牆管理規則"
 [11]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/rulerdp.png "防火牆 RDP 規則"

@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 02/12/2019
+ms.topic: conceptual
+ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: d3c175bc4d2e5b25c8ce6d4a9b128f961e0af4aa
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5ad846a3d8a304e01425407cb2bf5297c36615e7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210742"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58257947"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>使用 Azure 入口網站開始傳遞點播內容
 
@@ -151,7 +151,7 @@ URL 便會加入 [已發佈的 URL] 清單中。
 
 * 若要開始串流，請開始執行預設串流端點。
 * 確定已發佈影片。
-* Azure 入口網站媒體播放器會從預設串流端點播放。 如果您需要從非預設串流端點播放，請選取並複製 URL，然後將它貼到其他播放器中。 例如，您可以在 [Azure 媒體播放器](http://amsplayer.azurewebsites.net/azuremediaplayer.html)上測試影片。
+* Azure 入口網站媒體播放器會從預設串流端點播放。 如果您需要從非預設串流端點播放，請選取並複製 URL，然後將它貼到其他播放器中。 例如，您可以在 [Azure 媒體播放器](https://amsplayer.azurewebsites.net/azuremediaplayer.html)上測試影片。
 
 ## <a name="provide-feedback"></a>提供意見反應
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

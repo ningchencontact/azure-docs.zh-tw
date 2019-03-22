@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli;
-ms.openlocfilehash: e0df86e40d0dc1092ad7ff04f01bbc3e5e3d1c4e
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
-ms.translationtype: HT
+ms.openlocfilehash: fb8cfd4767f6bb9afe1b5731d3b4db1c68a73056
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27743038"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107122"
 ---
 # <a name="contact-microsoft-support"></a>連絡 Microsoft 支援服務
 
@@ -45,7 +45,7 @@ StorSimple 裝置管理員可讓您在服務摘要刀鋒視窗中**登錄新的�
    1. 從 [問題類型] 下拉式清單中，選取 [技術]。
    2. 自動會選擇目前的 [訂用帳戶]、[服務] 類型和 [資源] \(StorSimple 裝置管理員服務)。 
    3. 如果您的訂用帳戶有多個相關聯的方案，請從下拉式清單選取**支援方案**。 您必須已付費購買支援方案，才能啟用技術支援。
-   4. 按 [下一步] 。
+   4. 单击“下一步”。
 
        ![透過新的入口網站連絡 MS 支援服務](./media/storsimple-8000-contact-microsoft-support/contactsupport2.png)
 
@@ -57,20 +57,20 @@ StorSimple 裝置管理員可讓您在服務摘要刀鋒視窗中**登錄新的�
     4. 提供問題開始日期與時間。
     5. 在 [檔案上傳] 中，按一下資料夾圖示，即可瀏覽至您的支援封裝。
     6. 勾選 [共用診斷資訊]。
-    7. 按 [下一步] 。
+    7. 单击“下一步”。
 
        ![透過新的入口網站連絡 MS 支援服務](./media/storsimple-8000-contact-microsoft-support/contactsupport3.png) 
 
 4. 在 [新增支援要求] 刀鋒視窗中，按一下 [步驟 3 連絡人資訊]。 在 [連絡人資訊] 刀鋒視窗中，執行下列步驟：
 
-    1. 在 [連絡人選項] 中，提供您偏好的連絡方法 (電話或電子郵件) 以及語言。 會根據您的訂用帳戶方案自動選擇回應時間。
-    2. 在 [連絡人資訊] 中，提供您的姓名、電子郵件、選用連絡方法、國家/地區。 選取 [儲存連絡人變更以供未來的支援要求使用]  核取方塊。
-    3. 按一下頁面底部的 [新增] 。
+   1. 在 [連絡人選項] 中，提供您偏好的連絡方法 (電話或電子郵件) 以及語言。 會根據您的訂用帳戶方案自動選擇回應時間。
+   2. 在 [連絡人資訊] 中，提供您的姓名、電子郵件、選用連絡方法、國家/地區。 選取 [儲存連絡人變更以供未來的支援要求使用]  核取方塊。
+   3. 按一下頁面底部的 [新增] 。
    
-        ![透過新的入口網站連絡 MS 支援服務](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
+       ![透過新的入口網站連絡 MS 支援服務](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   
 
-    Microsoft 支援服務會利用此資訊來連絡您，以取得進一步資訊、進行診斷及解決。
-提交您的要求之後，支援工程師會儘速連絡您來處理您的要求。
+      Microsoft 支援服務會利用此資訊來連絡您，以取得進一步資訊、進行診斷及解決。
+      提交您的要求之後，支援工程師會儘速連絡您來處理您的要求。
 
 ## <a name="manage-a-support-request"></a>管理支援要求
 

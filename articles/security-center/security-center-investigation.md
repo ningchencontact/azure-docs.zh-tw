@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7763807fdb5fcff7e93d54bf5a851cd4443427d3
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 6ba21c6eacd5b72d13706c08f0cc9883ccc91388
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107186"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107469"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>在 Azure 資訊安全中心調查事件和警示 (預覽)
 這份文件可協助您使用 Azure 資訊安全中心的調查功能，以調查安全性事件和警示。
@@ -29,10 +29,10 @@ ms.locfileid: "56107186"
 
 其目的是加速調查程序，方法是連結與您正在調查之事件有關的所有實體 ([安全性警示](https://docs.microsoft.com/azure/security-center/security-center-alerts-type)、使用者、電腦和事件)。  資訊安全中心可以藉由使相關資料與相關實體相互關聯，並且使用即時圖表 (協助您瀏覽物件及視覺化相關資訊) 公開此相互關聯，來完成這項工作。
 
+
 > [!NOTE]
-> 資訊安全中心的調查功能不支援[自訂警示](security-center-custom-alert.md)。
->
->
+> * 資訊安全中心的調查功能不支援[自訂警示](security-center-custom-alert.md)。
+> * 調查才支援從 Windows 伺服器收集的資料為基礎的警示。
 
 
 ## <a name="how-investigation-works"></a>調查的運作方式？
@@ -96,7 +96,7 @@ ms.locfileid: "56107186"
 
 ## <a name="how-to-perform-an-investigation"></a>如何執行調查？
 
-您可以從安全性事件或從警示開始調查，您所選擇的選項會根據您的需求而異。 從警示開始調查所採取的後續步驟：
+您可以從安全性事件或從警示開始調查，您所選擇的選項會根據您的需求而異。 應該遵循的步驟用來從警示開始調查：
 
 1.  開啟 [資訊安全中心] 儀表板。
 2.  按一下 [安全性警示]，然後選取您想要調查的事件。
@@ -110,7 +110,7 @@ ms.locfileid: "56107186"
 
 從此刻起您可以探索此事件涉及的實體，並且探索更多詳細資料。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 在本文件中，您已了解如何使用資訊安全中心的調查功能。 如要深入了解資訊安全中心，請參閱下列主題：
 
 * [管理及回應 Azure 資訊安全中心的安全性警示](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)。 了解如何在資訊安全中心管理警示，以及回應安全性事件。

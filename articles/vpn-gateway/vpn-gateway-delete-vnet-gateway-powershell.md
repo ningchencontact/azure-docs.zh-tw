@@ -6,12 +6,13 @@ author: cherylmc
 ms.service: vpn-gateway
 ms.date: 02/07/2019
 ms.author: cherylmc
-ms.openlocfilehash: 922aa739a42eddbe8cd7e3cabe46681c0c2c6d46
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: bf1cc3b95e8335b6e24dd405d82e5c51d2a8d11b
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417069"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792679"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>使用 PowerShell 刪除虛擬網路閘道
 > [!div class="op_single_selector"]
@@ -23,9 +24,9 @@ ms.locfileid: "56417069"
 
 如果您想要刪除 VPN 閘道組態的虛擬網路閘道，您可以採取幾種不同的方法。
 
-- 如果您想要刪除所有內容並重頭開始 (例如使用測試環境的情況)，您可以刪除資源群組。 刪除資源群組時，會一併刪除群組內的所有資源。 只有在您不想保留資源群組中的任何資源時，才建議使用此方法。 您無法使用這種方法，選擇性地只刪除一些資源。
+- 如果您想要刪除所有內容並重頭開始 (例如使用測試環境的情況)，您可以刪除資源群組。 删除某个资源组时，会删除该组中的所有资源。 只有在您不想保留資源群組中的任何資源時，才建議使用此方法。 您無法使用這種方法，選擇性地只刪除一些資源。
 
-- 如果您想要保留資源群組中的部分資源，刪除虛擬網路閘道會變得稍微複雜一點。 您必須先刪除任何相依於閘道的資源，才可以刪除虛擬網路閘道。 您遵循的步驟取決於您所建立的連線類型以及每個連線的相依資源。
+- 如果您想要保留資源群組中的部分資源，刪除虛擬網路閘道會變得稍微複雜一點。 您必須先刪除任何相依於閘道的資源，才可以刪除虛擬網路閘道。 遵循的步骤取决于创建的连接类型，以及每个连接的依赖资源。
 
 ## <a name="before-beginning"></a>開始之前
 
@@ -37,7 +38,7 @@ ms.locfileid: "56417069"
 
 ### <a name="2-connect-to-your-azure-account"></a>2.連線至您的 Azure 帳戶。
 
-開啟 PowerShell 主控台並連接到您的帳戶。 使用下列範例來協助您連接：
+開啟 PowerShell 主控台並連接到您的帳戶。 使用以下示例帮助建立连接：
 
 ```powershell
 Connect-AzAccount
@@ -78,7 +79,7 @@ get-Azvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$
 $Conns=get-Azvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-object {$_.VirtualNetworkGateway1.Id -eq $GW.Id}
 ```
 
-### <a name="3-delete-all-connections"></a>3.刪除所有連線。
+### <a name="3-delete-all-connections"></a>3.删除所有连接。
 
 系統可能會提示您確認刪除每個連線。
 
@@ -86,7 +87,7 @@ $Conns=get-Azvirtualnetworkgatewayconnection -ResourceGroupName "RG1" | where-ob
 $Conns | ForEach-Object {Remove-AzVirtualNetworkGatewayConnection -Name $_.name -ResourceGroupName $_.ResourceGroupName}
 ```
 
-### <a name="4-delete-the-virtual-network-gateway"></a>4.刪除虛擬網路閘道。
+### <a name="4-delete-the-virtual-network-gateway"></a>4.删除虚拟网络网关。
 
 系統可能會提示您確認刪除閘道。 如果除了 S2S 組態，您還擁有此 VNet 適用的 P2S 組態，刪除虛擬網路閘道將自動中斷連接所有的 P2S 用戶端，而不會發出任何警告。
 
@@ -138,7 +139,7 @@ $GWSub = Get-AzVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-Az
 Set-AzVirtualNetwork -VirtualNetwork $GWSub
 ```
 
-## <a name="v2v"></a>刪除 VNet 對 VNet VPN 閘道
+## <a name="v2v"></a>删除 VNet 到 VNet VPN 网关
 
 若要刪除 V2V 組態的虛擬網路閘道，您必須先刪除虛擬網路閘道的每個相關資源。 由於相依性，您必須依照特定順序刪除資源。 使用下面的範例時，某些值必須特別指定，而其他值則為輸出結果。 我們在範例中使用下列特定值，做為示範之用︰
 
@@ -197,7 +198,7 @@ $ConnsR | ForEach-Object {Remove-AzVirtualNetworkGatewayConnection -Name $_.name
 Remove-AzVirtualNetworkGateway -Name "GW1" -ResourceGroupName "RG1"
 ```
 
-此時，虛擬網路閘道已經刪除。 您可以使用後續步驟來刪除不再使用的任何資源。
+此时，虚拟网络网关已删除。 您可以使用後續步驟來刪除不再使用的任何資源。
 
 ### <a name="6-delete-the-public-ip-address-resources"></a>6.刪除公用 IP 位址資源
 
@@ -213,7 +214,7 @@ $GWIpConfigs = $Gateway.IpConfigurations
 $PubIP=Get-AzPublicIpAddress | where-object {$_.Id -In $GWIpConfigs.PublicIpAddress.Id}
 ```
 
-刪除公用 IP 資源。 系統可能會提示您確認刪除公用 IP。
+删除公共 IP 资源。 系统可能会提示确认是否要删除该公开 IP。
 
 ```powershell
 $PubIP | foreach-object {remove-AzpublicIpAddress -Name $_.Name -ResourceGroupName "<NameOfResourceGroup1>"}
@@ -285,7 +286,7 @@ $GWSub = Get-AzVirtualNetwork -ResourceGroupName "RG1" -Name "VNet1" | Remove-Az
 Set-AzVirtualNetwork -VirtualNetwork $GWSub
 ```
 
-## <a name="delete"></a>藉由刪除資源群組來刪除 VPN 閘道
+## <a name="delete"></a>通过删除资源组来删除 VPN 网关
 
 如果您不在乎保留資源群組中任何資源，而只想要從頭開始，您可以刪除整個資源群組。 這是移除所有項目的快速方法。 下列步驟僅適用於 Resource Manager 部署模型。
 
