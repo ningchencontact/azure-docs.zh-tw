@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 6ebf1abe6f3b115a254201184f47e6aad2febb2a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 2f70a180afcc8eda5d43356c3f4f96b25292c6d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55208171"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088922"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>從 VMware VM 和實體伺服器至次要網站之災害復原的支援矩陣
 
@@ -77,7 +77,7 @@ Windows Server | 64 位元的 Windows Server 2016、Windows Server 2012 R2、Win
 NFS | 是 
 SMB 3.0 | N/A 
 SAN (ISCSI) | 是 
-多重路徑 (MPIO) | 是 
+多路径 (MPIO) | 是 
 
 ### <a name="guest-or-physical-server-storage"></a>客體或實體伺服器儲存體
 
@@ -110,10 +110,10 @@ RDM | 是
 
 行動服務會協調內部部署 VMware 伺服器或實體伺服器和次要網站之間的複寫。 當您設定複寫時，必須確定您具有最新版本的行動服務，以及最新版本的其他元件。
 
-**更新** | **詳細資料** 
---- | --- 
-Scout 更新 | [了解並下載](vmware-physical-secondary-disaster-recovery.md#updates)最新的 Scout 更新 | Scout 更新是累計的。
-元件更新 | Scout 更新包含所有元件的更新，包括 RX 伺服器、設定伺服器、處理序和主要目標伺服器、vContinuum 伺服器，以及您要保護的來源伺服器。<br/><br/> [深入了解](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates)。
+| **更新** | **詳細資料** |
+| --- | --- |
+|Scout 更新 | Scout 更新是累計的。 <br/><br/> [了解並下載](vmware-physical-secondary-disaster-recovery.md#updates)最新的 Scout 更新 |
+|元件更新 | Scout 更新包含所有元件的更新，包括 RX 伺服器、設定伺服器、處理序和主要目標伺服器、vContinuum 伺服器，以及您要保護的來源伺服器。<br/><br/> [深入了解](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates)。|
 
 
 ## <a name="next-steps"></a>後續步驟

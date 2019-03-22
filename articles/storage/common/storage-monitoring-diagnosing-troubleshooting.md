@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: 25ec52b44f8d5a36868cc609c42b6db5ab939fa4
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: bfaa738b0f99594a3bd11541d519701ff5eb98f5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490241"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896155"
 ---
-# <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>監視、診斷與疑難排解 Microsoft Azure 儲存體
+# <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>对 Microsoft Azure 存储进行监视、诊断和故障排除
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
 
 ## <a name="overview"></a>概觀
@@ -36,7 +36,7 @@ ms.locfileid: "55490241"
   * [監視容量]
   * [監視可用性]
   * [監視效能]
-* [診斷儲存體問題]
+* [诊断存储问题]
   * [服務健康情況問題]
   * [效能問題]
   * [診斷錯誤]
@@ -89,7 +89,7 @@ ms.locfileid: "55490241"
 ### <a name="how-this-guide-is-organized"></a>本指南架構
 「[監視您的儲存體服務]」一節說明如何使用 Azure 儲存體分析度量 (儲存體度量) 來監視您的 Azure 儲存體服務健康情況與效能。
 
-「[診斷儲存體問題]」一節說明如何使用 Azure 儲存體分析記錄來診斷問題 (儲存體記錄)。 並說明如何透過 Storage Client Library for .NET 或是 Azure SDK for Java 之類的任何一項用戶端程式庫來啟用用戶端記錄。
+「[诊断存储问题]」一節說明如何使用 Azure 儲存體分析記錄來診斷問題 (儲存體記錄)。 並說明如何透過 Storage Client Library for .NET 或是 Azure SDK for Java 之類的任何一項用戶端程式庫來啟用用戶端記錄。
 
 「[端對端追蹤]」一節說明如何為各記錄檔與度量資料中的資訊建立相互關聯。
 
@@ -104,16 +104,16 @@ ms.locfileid: "55490241"
 
 儲存體服務會盡其所能收集各項度量，但是不一定會記錄每一次的儲存體操作。
 
-在 Azure 入口網站中，您可以檢視儲存體帳戶的計量，例如可用性、總要求總及平均延遲數。 同時設定了一個通知規則，會在可用性降至特定水準以下時，通知管理員。 藉由檢視這項資料，我們發現低於 100% 的資料表服務成功百分比是可以調查的方向之一 (如需詳細資訊，請參閱「[度量顯示低 PercentSuccess，或是分析記錄項目內含具有 ClientOtherErrors 交易狀態的作業項目]」一節說明)。
+在 Azure 入口網站中，您可以檢視儲存體帳戶的計量，例如可用性、總要求總及平均延遲數。 同時設定了一個通知規則，會在可用性降至特定水準以下時，通知管理員。 通过查看此数据，一个可能的调查方面是表服务成功百分比低于 100%（有关详细信息，请参阅“[度量顯示低 PercentSuccess，或是分析記錄項目內含具有 ClientOtherErrors 交易狀態的作業項目]”一节）。
 
 您應該藉由以下方式，持續監視您的 Azure 應用程式，確保這些程式如預期地健全並正常運作：
 
 * 建立一些應用程式的基準度量，以便您比較目前的資料並發現 Azure 儲存體與您的應用程式的行為重大改變。 在許多情況中，您的基準度量值將適用特定應用程式，因此當您要測試應用程式效能時，請建立這些基準度量。
 * 記錄每分鐘度量並使用這些度量主動監視非預期的錯誤與異常行為，例如錯誤計數或要求率的暴增情況。
 * 記錄每小時度量並使用這些度量監視一些平均值，例如平均錯誤計數與要求率。
-* 使用稍後的「[診斷儲存體問題]」一節所述之診斷工具調查潛在的問題。
+* 使用诊断工具调查潜在问题，如稍后在“[诊断存储问题]”一节中所述。
 
-下圖中的圖表說明每小時計量的平均值計算如何隱藏活動中的異常高值。 每小時度量所顯示的要求率極為穩定，而每分鐘度量顯示的才是真正發生的變動起伏情況。
+下圖中的圖表說明每小時計量的平均值計算如何隱藏活動中的異常高值。 小时度量值似乎显示稳定的请求速率，而分钟度量值却显示了实际发生的波动。
 
 ![][3]
 
@@ -123,9 +123,9 @@ ms.locfileid: "55490241"
 您可以使用 [Azure 入口網站](https://portal.azure.com)來檢視全球所有 Azure 區域中儲存體服務 (及其他 Azure 服務) 的健康情況。 監視可讓您立即瞭解，不受您控制的問題所影響的區域，是否也涵蓋了您為應用程式使用儲存體服務區域。
 
 [Azure 入口網站](https://portal.azure.com)也可以針對會影響各種 Azure 服務的事件提供通知。
-注意：此項資訊之前會隨著歷程資料一起顯示在 [Azure 服務儀表板](http://status.azure.com)上。
+注意：此項資訊之前會隨著歷程資料一起顯示在 [Azure 服務儀表板](https://status.azure.com)上。
 
-雖然 [Azure 入口網站](https://portal.azure.com)會從 Azure 資料中心內收集健康情況資訊 (從內到外的監視)，但是您也可以考慮採用從外到內的監視方式，從多個位置定期存取 Azure 裝載的 Web 應用程式，來產生綜合性的處理。 [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) 與 Application Insights for Azure DevOps 所提供的各項服務，都是此方法的範例。 如需 Application Insights for Azure DevOps 的詳細資訊，請參閱「[附錄 5：使用 Application Insights for Azure DevOps 監視](#appendix-5)」。
+雖然 [Azure 入口網站](https://portal.azure.com)會從 Azure 資料中心內收集健康情況資訊 (從內到外的監視)，但是您也可以考慮採用從外到內的監視方式，從多個位置定期存取 Azure 裝載的 Web 應用程式，來產生綜合性的處理。 [Dynatrace](https://www.dynatrace.com/en/synthetic-monitoring) 與 Application Insights for Azure DevOps 所提供的各項服務，都是此方法的範例。 如需 Application Insights for Azure DevOps 的詳細資訊，請參閱「[附錄 5：使用 Application Insights for Azure DevOps 監視](#appendix-5)」。
 
 ### <a name="monitoring-capacity"></a>監視容量
 儲存體度量只會儲存 Blob 服務的容量度量，這是因為 Blob 通常佔已儲存的資料最大宗 (寫入期間無法使用儲存體度量來監視資料表與佇列的容量)。 如果您為 Blob 服務啟用監視功能的話，可以在 **$MetricsCapacityBlob** 資料表中找到這項資料。 儲存體度量每天會記錄這項資料一次，而您可以使用 **RowKey** 的值來判斷資料列是否包含與使用者資料 (值 **data**) 或分析資料 (值 **analytics**) 相關聯的實體。 每一個儲存的實體都含有使用的儲存體容量相關資訊 (以位元組數測量的 **Capacity**)，以及儲存體帳戶中使用的目前容器編號 (**ContainerCount**) 及 Blob (**ObjectCount**)。 如需 **$MetricsCapacityBlob** 資料表中儲存的容量度量詳細資訊，請參閱 [儲存體分析度量資料表結構描述](https://msdn.microsoft.com/library/azure/hh343264.aspx)。
@@ -147,9 +147,9 @@ ms.locfileid: "55490241"
 本指南「[疑難排解指引]」一節將針對常見儲存體服務，說明一些可用性的相關問題。
 
 ### <a name="monitoring-performance"></a>監視效能
-若要監視儲存體服務效能，您可以使用下列來自每小時與每分鐘度量表的度量。
+若要监视存储服务的性能，可以使用每小时和每分钟度量值表中的以下度量值。
 
-* **AverageE2ELatency** 與 **AverageServerLatency** 資料行中的值顯示儲存體服務或是 API 操作類型用來處理要求所需的平均時間。 **AverageE2ELatency** 是一項端對端延遲量值，內含讀取要求及傳送回應所花的時間，以及處理要求所花的時間 (因此，內含一旦要求抵達儲存體服務時的網路延遲)；**AverageServerLatency** 指示一項處理時間量值，因此會將任何與用戶端通訊相關的網路延遲排除在外。 請參閱本指南稍後出現的「[度量顯示高 AverageE2ELatency 與低 AverageServerLatency]」一節，針對這兩個值之間為何會有明顯的差異進行討論。
+* **AverageE2ELatency** 與 **AverageServerLatency** 資料行中的值顯示儲存體服務或是 API 操作類型用來處理要求所需的平均時間。 **AverageE2ELatency** 是端到端延迟的度量值，除包括处理请求所需的时间外，还包括读取请求和发送响应所需的时间（因此包括请求到达存储服务后的网络延迟）；**AverageServerLatency** 只是处理时间的度量值，因此不包括与客户端通信相关的任何网络延迟。 請參閱本指南稍後出現的「[度量顯示高 AverageE2ELatency 與低 AverageServerLatency]」一節，針對這兩個值之間為何會有明顯的差異進行討論。
 * **TotalIngress** 與 **TotalEgress** 資料欄內的值以位元組為單位，顯示進出儲存體服務或是透過特定 API 操作類型的資料總量。
 * **TotalRequests** 資料欄內的值顯示 API 操作所收到的儲存體服務要求總數。 **TotalRequests** 代表儲存體服務所收到的要求總數。
 
@@ -180,14 +180,14 @@ ms.locfileid: "55490241"
 服務健康情況問題通常是您無法掌控的部分。 [Azure 入口網站](https://portal.azure.com)會提供有關 Azure 服務 (包括儲存體服務) 之任何持續出現的問題相關資訊。 若您在建立儲存體帳戶時選擇使用「讀取存取異地備援備援儲存體」，則當主要位置無法提供您的資料時，您的應用程式會暫時切換到次要位置的唯讀副本。 若要從次要位置讀取，您的應用程式必須要能切換使用主要與次要儲存位置，並能在降低功能模式下使用唯讀資料。 Azure 儲存體用戶端程式庫可讓您定義重試原則，當無法從主要儲存體讀取資料時，才能嘗試從次要儲存體讀取資料。 您的應用程式還需要了解次要位置的資料最終會與主要位置的資料維持一致。 如需詳細資訊，請參閱部落格文章 [Azure 儲存體備援選項與讀取存取異地備援儲存體](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/)。
 
 ### <a name="performance-issues"></a>效能問題
-應用程式效能是很主觀的問題，尤其是從使用者觀點來看。 因此，我們需要一套基準度量來協助您識別出現效能問題的位置。 從用戶端應用程式觀點來看，許多因素都會影響 Azure 儲存體服務的效能。 這些因素可能會影響儲存體服務、用戶端或是網路基礎結構，因此我們有必要制訂策略來找出效能問題的源頭。
+應用程式效能是很主觀的問題，尤其是從使用者觀點來看。 因此，请务必设置可用于帮助你确定是否可能存在性能问题的基准指标。 從用戶端應用程式觀點來看，許多因素都會影響 Azure 儲存體服務的效能。 這些因素可能會影響儲存體服務、用戶端或是網路基礎結構，因此我們有必要制訂策略來找出效能問題的源頭。
 
 當您從度量中找出了效能問題可能發生的位置時，就可以使用記錄檔來找出詳細資訊以便稍後進行診斷並疑難排解問題。
 
 本指南稍後的「[疑難排解指引]」一節深入說明您可能會碰到的一些常見效能相關問題。
 
 ### <a name="diagnosing-errors"></a>診斷錯誤
-您的應用程式使用者可能會通知您用戶端應用程式所回報的一些錯誤。 儲存體度量還會記錄來自儲存體服務的不同錯誤類型計數，例如 **NetworkError**、**ClientTimeoutError** 或 **AuthorizationError**。 雖然儲存體度量只會記錄不同的錯誤類型計數，不過您還是可以藉由檢視伺服器端、用戶端與網路記錄來取得個別要求的詳細資料。 一般來說，儲存體服務所傳回的 HTTP 狀態碼會指示要求失敗的原因。
+应用程序用户可能会向你通知客户端应用程序报告的错误。 儲存體度量還會記錄來自儲存體服務的不同錯誤類型計數，例如 **NetworkError**、**ClientTimeoutError** 或 **AuthorizationError**。 虽然存储度量值仅记录不同错误类型的计数，但可以通过检查服务器端日志、客户端日志和网络日志来获取有关单个请求的详细信息。 一般來說，儲存體服務所傳回的 HTTP 狀態碼會指示要求失敗的原因。
 
 > [!NOTE]
 > 請記住，您應該會看到一些間歇性錯誤：例如，因為暫時性的網路狀況而導致的錯誤或應用程式錯誤。
@@ -213,17 +213,17 @@ Azure SDK 包含一個儲存體模擬器，可供您在開發工作站上執行�
 Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體操作，收集與其相關的用戶端記錄資料。 如需詳細資訊，請參閱 [使用 .NET 儲存體用戶端程式庫在用戶端記錄](https://go.microsoft.com/fwlink/?LinkId=510868)。
 
 > [!NOTE]
-> 在某些情況下 (例如 SAS 授權失敗)，使用者可能會回報無法在伺服器端儲存體記錄中找到任何要求資料的錯誤。 您可以使用儲存體用戶端程式庫裡的記錄功能，調查問題是否出現在用戶端，或是使用網路監視工具來調查網路。
+> 在某些情况下（如 SAS 授权失败），用户可能会报告一个错误，而你可能在服务器端存储日志中找不到该错误所对应的请求数据。 您可以使用儲存體用戶端程式庫裡的記錄功能，調查問題是否出現在用戶端，或是使用網路監視工具來調查網路。
 > 
 > 
 
 ### <a name="using-network-logging-tools"></a>使用網路記錄工具
 您可以擷取用戶端與伺服器之間的流量，針對用戶端與伺服器在交換的資料，以及在底層運作的網路狀況提供詳細資訊。 有用的網路記錄工具如下：
 
-* [Fiddler](http://www.telerik.com/fiddler) 是免費的 Web 偵錯 Proxy，可讓您檢視 HTTP 與 HTTPS 要求及回應訊息的標頭與承載資料。 如需詳細資訊，請參閱 [附錄 1：使用 Fiddler 擷取 HTTP 與 HTTPS 流量](#appendix-1)。
-* [Microsoft Network Monitor (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) 與 [Wireshark](http://www.wireshark.org/) 都是免費的網路通訊協定分析器，可讓您針對廣泛的網路通訊協定檢視詳細封包資訊。 如需 Wireshark 的詳細資訊，請參閱[附錄 2：使用 Wireshark 擷取網路流量](#appendix-2)。
+* [Fiddler](https://www.telerik.com/fiddler) 是免費的 Web 偵錯 Proxy，可讓您檢視 HTTP 與 HTTPS 要求及回應訊息的標頭與承載資料。 如需詳細資訊，請參閱 [附錄 1：使用 Fiddler 擷取 HTTP 與 HTTPS 流量](#appendix-1)。
+* [Microsoft Network Monitor (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) 與 [Wireshark](https://www.wireshark.org/) 都是免費的網路通訊協定分析器，可讓您針對廣泛的網路通訊協定檢視詳細封包資訊。 如需 Wireshark 的詳細資訊，請參閱[附錄 2：使用 Wireshark 擷取網路流量](#appendix-2)。
 * 來自 Microsoft 的 Microsoft Message Analyzer 工具功能比 Netmon 更強，除了可擷取網路封包資料之外，還能協助您檢視並分析其他工具所擷取的記錄資料。 如需詳細資訊，請參閱[附錄 3：使用 Microsoft Message Analyzer 擷取網路流量](#appendix-3)。
-* 如果您想要執行基本的連線測試以確認用戶端機器能夠透過網路與 Azure 儲存體服務連線的話，您無法使用用戶端上的標準 **ping** 工具來執行。 不過，您可以使用 [**tcping** 工具](http://www.elifulkerson.com/projects/tcping.php)來檢查連線能力。
+* 如果您想要執行基本的連線測試以確認用戶端機器能夠透過網路與 Azure 儲存體服務連線的話，您無法使用用戶端上的標準 **ping** 工具來執行。 不過，您可以使用 [**tcping** 工具](https://www.elifulkerson.com/projects/tcping.php)來檢查連線能力。
 
 在許多案例中，來自儲存體記錄與儲存體用戶端程式庫的記錄資料，用來診斷問題都已綽綽有餘，但是在某些情況中，您可能需要比這些網路記錄工具所能提供的資訊還要詳盡的資料才行。 舉例來說，透過 Fiddler 來檢視 HTTP 與 HTTPS 訊息可以讓您檢視在儲存體服務之間來回傳送的標頭與裝載資料，進一步幫助您確認用戶端應用程式如何重試儲存體操作。 諸如 Wireshark 之類的通訊協定分析器可在封包層級運作，方便您檢視 TCP 資料，從而為遺失的封包與連線問題進行疑難排解。 Message Analyzer 可同時在 HTTP 與 TCP 網路層運作。
 
@@ -468,14 +468,14 @@ queueServicePoint.UseNagleAlgorithm = false;
 
 | 來源 | 詳細程度 | 詳細程度 | 用戶端要求 ID | 作業內容 |
 | --- | --- | --- | --- | --- |
-| Microsoft.WindowsAzure.Storage |資訊 |3 |85d077ab-… |從主要位置開始作業 (依據位置模式 PrimaryOnly)。 |
-| Microsoft.WindowsAzure.Storage |資訊 |3 |85d077ab -… |啟動對 https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14 的同步要求。 |
-| Microsoft.WindowsAzure.Storage |資訊 |3 |85d077ab -… |等候回應。 |
+| Microsoft.WindowsAzure.Storage |信息 |3 |85d077ab-… |從主要位置開始作業 (依據位置模式 PrimaryOnly)。 |
+| Microsoft.WindowsAzure.Storage |信息 |3 |85d077ab -… |若要起始同步要求 <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
+| Microsoft.WindowsAzure.Storage |信息 |3 |85d077ab -… |等候回應。 |
 | Microsoft.WindowsAzure.Storage |警告 |2 |85d077ab -… |等候回應時擲回例外狀況：遠端伺服器傳回錯誤：(403) 禁止。 |
-| Microsoft.WindowsAzure.Storage |資訊 |3 |85d077ab -… |收到回應。 狀態碼 = 403，要求 ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d，Content-MD5 =，ETag = . |
+| Microsoft.WindowsAzure.Storage |信息 |3 |85d077ab -… |收到回應。 狀態碼 = 403，要求 ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d，Content-MD5 =，ETag = . |
 | Microsoft.WindowsAzure.Storage |警告 |2 |85d077ab -… |作業期間擲回例外狀況：遠端伺服器傳回錯誤：(403) 禁止... |
-| Microsoft.WindowsAzure.Storage |資訊 |3 |85d077ab -… |檢查是否應該重試作業。 重試計數 = 0，HTTP 狀態碼 = 403，例外狀況 = 遠端伺服器傳回錯誤：(403) 禁止... |
-| Microsoft.WindowsAzure.Storage |資訊 |3 |85d077ab -… |以下位置已經設為「主要」(依據位置模式)。 |
+| Microsoft.WindowsAzure.Storage |信息 |3 |85d077ab -… |檢查是否應該重試作業。 重試計數 = 0，HTTP 狀態碼 = 403，例外狀況 = 遠端伺服器傳回錯誤：(403) 禁止... |
+| Microsoft.WindowsAzure.Storage |信息 |3 |85d077ab -… |以下位置已經設為「主要」(依據位置模式)。 |
 | Microsoft.WindowsAzure.Storage |Error |1 |85d077ab -… |重試原則不允許重試。 失敗時遠端伺服器傳回錯誤：(403) 禁止。 |
 
 在此案例中，您應該調查 SAS 權杖為何在用戶端將權杖傳送給伺服器之前到期：
@@ -516,16 +516,16 @@ queueServicePoint.UseNagleAlgorithm = false;
 | --- | --- |
 | 07b26a5d-... |啟動對 https://domemaildist.blob.core.windows.net/azuremmblobcontainer 的同步要求。 |
 | 07b26a5d-... |StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
-| 07b26a5d-... |等候回應。 |
+| 07b26a5d-... |正在等待响应。 |
 | 07b26a5d-... |收到回應。 狀態碼 = 200，要求 ID = eeead849-...Content-MD5 =，ETag =    &quot;0x8D14D2DC63D059B&quot;。 |
-| 07b26a5d-... |回應標頭已成功處理完畢，並繼續剩下的作業。 |
+| 07b26a5d-... |响应标头已成功处理，继续执行该操作的剩余部分。 |
 | 07b26a5d-... |正在下載回應內文。 |
 | 07b26a5d-... |作業順利完成。 |
 | 07b26a5d-... |啟動對 https://domemaildist.blob.core.windows.net/azuremmblobcontainer 的同步要求。 |
 | 07b26a5d-... |StringToSign = DELETE............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:12    GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
-| 07b26a5d-... |等候回應。 |
-| 07b26a5d-... |收到回應。 狀態碼 = 202，要求 ID = 6ab2a4cf-...，Content-MD5 = ，ETag = . |
-| 07b26a5d-... |回應標頭已成功處理完畢，並繼續剩下的作業。 |
+| 07b26a5d-... |正在等待响应。 |
+| 07b26a5d-... |收到响应。 狀態碼 = 202，要求 ID = 6ab2a4cf-...，Content-MD5 = ，ETag = . |
+| 07b26a5d-... |响应标头已成功处理，继续执行该操作的剩余部分。 |
 | 07b26a5d-... |正在下載回應內文。 |
 | 07b26a5d-... |作業順利完成。 |
 | e2d06d78-... |啟動對 https://domemaildist.blob.core.windows.net/azuremmblobcontainer 的非同步要求。</td> |
@@ -558,14 +558,14 @@ queueServicePoint.UseNagleAlgorithm = false;
 #### <a name="SAS-authorization-issue"></a>共用存取簽章 (SAS) 授權問題
 如果用戶端應用程式嘗試使用的 SAS 金鑰並未包含作業的必要權限，則儲存體服務會將 HTTP 404 (找不到) 訊息傳回給用戶端。 這時，您會在度量當中同時看到非零的 **SASAuthorizationError** 值。
 
-下列資料表顯示來自儲存體記錄檔案的伺服器端記錄訊息範例：
+下表显示了存储日志记录日志文件中的示例服务器端日志消息：
 
-| Name | 值 |
+| 名稱 | 值 |
 | --- | --- |
-| 要求開始時間 | 2014-05-30T06:17:48.4473697Z |
+| 请求开始时间 | 2014-05-30T06:17:48.4473697Z |
 | 作業類型     | GetBlobProperties            |
 | 要求狀態     | SASAuthorizationError        |
-| HTTP 狀態碼   | 404                          |
+| HTTP 状态代码   | 404                          |
 | 驗證類型| Sas                          |
 | 服務類型       | Blob                         |
 | 要求 URL        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
@@ -589,11 +589,11 @@ SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
 > 
 > 
 
-之所以發生這些錯誤，是因為網頁瀏覽器實作了 [同源原則](http://www.w3.org/Security/wiki/Same_Origin_Policy) 安全性限制，這會防止網頁呼叫與其來源網域不同之網域中的 API。
+之所以發生這些錯誤，是因為網頁瀏覽器實作了 [同源原則](https://www.w3.org/Security/wiki/Same_Origin_Policy) 安全性限制，這會防止網頁呼叫與其來源網域不同之網域中的 API。
 
-若要解決這個 JavaScript 問題，您可以針對用戶端存取的儲存體服務，設定跨原始來源資源分享 (CORS)。 如需詳細資訊，請參閱 [Azure 儲存體服務的跨原始資源共用 (CORS) 支援](https://msdn.microsoft.com/library/azure/dn535601.aspx)。
+若要解决此 JavaScript 问题，可以为客户端访问的存储服务配置跨域资源共享 (CORS)。 如需詳細資訊，請參閱 [Azure 儲存體服務的跨原始資源共用 (CORS) 支援](https://msdn.microsoft.com/library/azure/dn535601.aspx)。
 
-下例程式碼範例顯示如何設定您的 Blob 服務，以讓 JavaScript 在 Contoso 網域中執行，進而存取位於您的 Blob 儲存體服務中的 Blob：
+下面的代码示例演示如何配置 Blob 服务，以允许在 Contoso 域中运行的 JavaScript 访问 Blob 存储服务中的 Blob：
 
 ```csharp
 CloudBlobClient client = new CloudBlobClient(blobEndpoint, new StorageCredentials(accountName, accountKey));
@@ -618,7 +618,7 @@ client.SetServiceProperties(sp);
 
 伺服器端記錄還包含帶有相同 **client-request-id** 值的另一個項目 (813ea74f…)，這個值是來自同一個實體與同一個用戶端順利完成的刪除作業所產生。 此順利完成的刪除作業會在刪除要求失敗之前很快地發生。
 
-此情況最有可能的原因出在，用戶端將要刪除實體的要求傳送給資料表服務而且刪除成功，但卻為收到來自伺服器的認可 (可能是因為暫時的網路問題)。 這時用戶端又自動重試作業 (使用相同的 **client-request-id**)，但因為該實體已經刪除，因此這次重試失敗。
+此情况最有可能的原因是客户端将针对实体的删除请求发送到表服务，该请求成功，但未从服务器收到确认消息（可能是因为临时网络问题）。 這時用戶端又自動重試作業 (使用相同的 **client-request-id**)，但因為該實體已經刪除，因此這次重試失敗。
 
 如果這個問題經常發生，您應該調查為何用戶端無法收到來自資料表服務的認可。 如果此問題是間歇性發生，您應該捕捉「HTTP (404) 找不到」錯誤並記錄在用戶端裡，但同時允許用戶端繼續作業。
 
@@ -630,7 +630,7 @@ client.SetServiceProperties(sp);
 | 05:10:13.7167225 |GetContainerProperties |200 |mmcont |c9f52c89-… |
 | 05:10:13.8167325 |DeleteContainer |202 |mmcont |c9f52c89-… |
 | 05:10:13.8987407 |GetContainerProperties |404 |mmcont |bc881924-… |
-| 05:10:14.2147723 |CreateContainer |409 |mmcont |bc881924-… |
+| 05:10:14.2147723 |CreateContainer |409 |mmcont |bc881924-... |
 
 用戶端應用程式中的程式碼會刪除 Blob 容器，接著使用相同名稱立即重新建立一個 Blob 容器：**CreateIfNotExists** 方法 (用戶端要求 ID bc881924-…) 最終會失敗，並出現 HTTP 409 (衝突) 錯誤。 當用戶端刪除 Blob 容器、資料表或佇列時，需要等候簡短時間，才能使該名稱再度生效。
 
@@ -708,10 +708,10 @@ sqllocaldb create v11.0
 以下附錄說明當您為 Azure 儲存體 (與其他服務) 的相關問題進行診斷與疑難排解時，可能會有幫助的多項工具。 這些工具並非 Azure 儲存體內建的工具，有些則是協力廠商的產品。 因此，以下附錄所討論的工具，並未包含在您就 Microsoft Azure 或 Azure 儲存體所簽訂的任何支援合約內容裡，因此在您評估期間，請檢視這些工具的供應商所提供的授權與支援選項。
 
 ### <a name="appendix-1"></a>附錄 1：使用 Fiddler 擷取 HTTP 與 HTTPS 流量
-[Fiddler](http://www.telerik.com/fiddler) 便能派上用場。
+[Fiddler](https://www.telerik.com/fiddler) 便能派上用場。
 
 > [!NOTE]
-> Fiddler 可以解碼 HTTPS 流量；請仔細閱讀 Fiddler 文件，了解其運作原理，並了解其安全性意涵。
+> Fiddler 可以解码 HTTPS 通信；应仔细阅读 Fiddler 文档以了解它如何执行此操作，并了解安全隐患。
 > 
 > 
 
@@ -720,21 +720,21 @@ sqllocaldb create v11.0
 Fiddler 一經啟動後，就會開始擷取本機電腦上的 HTTP 與 HTTPS 流量。 以下提供您一些有用的命令，方便您控制 Fiddler：
 
 * 停止與開始擷取流量。 在主要功能表上，移至 [檔案] 並按一下 [擷取流量] 以開啟及關閉擷取作業。
-* 儲存擷取的流量資料。 在主功能表上，移至 [檔案]，按一下 [儲存]，然後按一下 [所有工作階段]：這麼做可讓您將流量儲存在「工作階段封存」檔案中。 您稍後可以重新載入工作階段封存以供分析，或是因應要求傳送給 Microsoft 支援服務中心。
+* 保存捕获的通信数据。 在主功能表上，移至 [檔案]，按一下 [儲存]，然後按一下 [所有工作階段]：這麼做可讓您將流量儲存在「工作階段封存」檔案中。 您稍後可以重新載入工作階段封存以供分析，或是因應要求傳送給 Microsoft 支援服務中心。
 
 若要限制 Fiddler 所擷取的流量數量，請使用您在 [篩選器] 索引標籤中設定的篩選器。以下螢幕擷取畫面顯示只會擷取傳送至 **contosoemaildist.table.core.windows.net** 儲存體端點的流量之篩選器：
 
 ![][5]
 
 ### <a name="appendix-2"></a>附錄 2：使用 Wireshark 擷取網路流量
-[Wireshark](http://www.wireshark.org/) 是一項網路通訊協定工具，能幫助您針對各式各樣的網路通訊協定檢視詳細的封包資訊。
+[Wireshark](https://www.wireshark.org/) 是一項網路通訊協定工具，能幫助您針對各式各樣的網路通訊協定檢視詳細的封包資訊。
 
 以下程序說明如何從安裝 Wireshark 的本機電腦，將詳細的流量封包資訊擷取到您的 Azure 儲存體帳戶裡的資料表服務中。
 
 1. 在本機電腦上啟動 Wireshark。
 2. 在 [開始]  區段中，選取本機網路介面或是連線至網際網路的介面。
 3. 按一下 [擷取選項] 。
-4. 在 [擷取篩選器] 文字方塊中，新增一項篩選器。 舉例來說，**host contosoemaildist.table.core.windows.net** 會將 Wireshark 設定為僅擷取 **contosoemaildist** 儲存體帳戶中資料表服務端點所流入與流出的封包。 請參閱[擷取篩選器的完整清單](http://wiki.wireshark.org/CaptureFilters)。
+4. 在 [擷取篩選器] 文字方塊中，新增一項篩選器。 舉例來說，**host contosoemaildist.table.core.windows.net** 會將 Wireshark 設定為僅擷取 **contosoemaildist** 儲存體帳戶中資料表服務端點所流入與流出的封包。 請參閱[擷取篩選器的完整清單](https://wiki.wireshark.org/CaptureFilters)。
    
    ![][6]
 5. 按一下 [啟動] 。 現在當您於本機電腦上使用用戶端應用程式時，Wireshark 會開始擷取流入/流出資料表服務端點的所有封包。
@@ -745,12 +745,12 @@ WireShark 會反白顯示任何存在 **packetlist** 視窗的錯誤。 您也�
 
 ![][7]
 
-您也可以選擇應用程式層所顯示的 TCP 資料，方法是以滑鼠右鍵按一下 TCP 資料，然後選取 [Follow TCP Stream] \(追蹤 TCP 資料流\)。 當您不使用擷取篩選器而擷取到傾印時，這個方法很有用。 如需詳細資訊，請參閱 [追蹤 TCP 串流](http://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html)。
+您也可以選擇應用程式層所顯示的 TCP 資料，方法是以滑鼠右鍵按一下 TCP 資料，然後選取 [Follow TCP Stream] \(追蹤 TCP 資料流\)。 當您不使用擷取篩選器而擷取到傾印時，這個方法很有用。 如需詳細資訊，請參閱 [追蹤 TCP 串流](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html)。
 
 ![][8]
 
 > [!NOTE]
-> 如需有關使用 Wireshark 的詳細資訊，請參閱 [Wireshark 使用者指南](http://www.wireshark.org/docs/wsug_html_chunked)。
+> 如需有關使用 Wireshark 的詳細資訊，請參閱 [Wireshark 使用者指南](https://www.wireshark.org/docs/wsug_html_chunked)。
 > 
 > 
 
@@ -765,7 +765,7 @@ contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata
 ```
 
 > [!NOTE]
-> 空格字元可分隔主機名稱。
+> 空格字符分隔主机名。
 > 
 > 
 
@@ -776,7 +776,7 @@ contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata
 Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler 來設計，可以擷取用戶端 HTTPS 流量，並顯示未加密的 HTTPS 訊息。 **Web Proxy** 追蹤功能會針對所有 HTTP 與 HTTPS 流量設定本機 Proxy，以便賦予其未加密訊息的存取權限。
 
 #### <a name="diagnosing-network-issues-using-microsoft-message-analyzer"></a>使用 Microsoft Message Analyzer 診斷網路問題
-除了使用 Microsoft Message Analyzer **Web Proxy** 追蹤功能來擷取用戶端應用程式與儲存體服務之間的 HTTP/HTTPs 流量詳細資料之外，您還可以使用內建的**本機連結層**追蹤功能來擷取網路封包資訊。 這麼做可讓您擷取到類似於使用 Wireshark 所擷取的資料，並診斷捨棄的封包之類的網路問題。
+除了使用 Microsoft Message Analyzer **Web Proxy** 追蹤功能來擷取用戶端應用程式與儲存體服務之間的 HTTP/HTTPs 流量詳細資料之外，您還可以使用內建的**本機連結層**追蹤功能來擷取網路封包資訊。 此能够实现捕获类似于使用 Wireshark 捕获的数据，并诊断丢弃的数据包等网络问题。
 
 下列螢幕擷取畫面顯示以**本機連結層**追蹤功能所擷取到的一些**知識性**訊息 (在 [DiagnosisTypes] 資料欄中)。 按下 [DiagnosisTypes]  資料欄中的圖示，即可顯示該訊息的詳細資料。 在以下範例中，由於伺服器並未收到來自用戶端的認可，因此重新傳送訊息 #305：
 
@@ -789,9 +789,9 @@ Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler
 如需有關「Microsoft Message Analyzer 本機連結層」追蹤的詳細資訊，請參閱 [Microsoft-PEF-NDIS-PacketCapture 提供者](https://technet.microsoft.com/library/jj659264.aspx)。
 
 ### <a name="appendix-4"></a>附錄 4：使用 Excel 檢視度量與記錄資料
-許多工具都可讓您從 Azure 資料表儲存體中下載使用分隔格式的儲存體度量資料，方便您將資料載入 Excel 以供檢視及分析。 來自 Azure Blob 儲存體的儲存體記錄資料已經使用分隔格式，方便您直接載入 Excel。 不過，您還需要依據[儲存體分析記錄格式](https://msdn.microsoft.com/library/azure/hh343259.aspx)與[儲存體分析度量資料表結構描述](https://msdn.microsoft.com/library/azure/hh343264.aspx)中的資訊，新增適當的資料行標題。
+許多工具都可讓您從 Azure 資料表儲存體中下載使用分隔格式的儲存體度量資料，方便您將資料載入 Excel 以供檢視及分析。 来自 Azure Blob 存储的存储日志记录数据已采用带分隔符格式加载到 Excel 中。 不過，您還需要依據[儲存體分析記錄格式](https://msdn.microsoft.com/library/azure/hh343259.aspx)與[儲存體分析度量資料表結構描述](https://msdn.microsoft.com/library/azure/hh343264.aspx)中的資訊，新增適當的資料行標題。
 
-若要將您從 Blob 儲存體下載的儲存體記錄資料匯入 Excel：
+要将存储日志记录数据导入 Excel（从 Blob 存储下载后），请执行以下操作：
 
 * 在 [資料] 功能表中，按一下 [From Text]。
 * 瀏覽至您想要檢視的記錄檔，然後按一下 [匯入] 。
@@ -817,7 +817,7 @@ Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler
 [監視可用性]: #monitoring-availability
 [監視效能]: #monitoring-performance
 
-[診斷儲存體問題]: #diagnosing-storage-issues
+[诊断存储问题]: #diagnosing-storage-issues
 [服務健康情況問題]: #service-health-issues
 [效能問題]: #performance-issues
 [診斷錯誤]: #diagnosing-errors

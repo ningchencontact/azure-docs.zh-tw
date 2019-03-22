@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 08/13/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 492bdd30a656a37196cf4d27a2510dbc3a79807d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 9547380d4636c1a72add9dab7a9eed850abd0307
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463560"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889704"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-august-2018"></a>Azure SQL 資料倉儲有哪些最新功能？ 2018 年 8 月
 Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 8 月導入的新功能和變更。
@@ -30,7 +30,7 @@ Microsoft 推出了 [Automatic Intelligent Insights](https://azure.microsoft.com
 
 ## <a name="bug-fixes"></a>錯誤修正
 
-| 標題 | 說明 |
+| 標題 | 描述 |
 |:---|:---|
 | **分割計數超過最大限制時的潛在查詢錯誤** |超過 1 百萬個檔案分割上限時，未處理的例外狀況會造成 SQL 引擎發生傾印，而且所有查詢都會失敗。 此修正程式會透過正確地處理例外狀況來解決問題，並在不造成查詢失敗的情況下傳回錯誤。 |
 | **增加 ExternalMoveReadersPerNode 預設值來改善載入效能** |造成此問題的原因是 ExternalMoveReadersPerNode 屬性設定與 Service Fabric 設定不同步。 此迴歸造成 Gen2 負載效能降低。 修正程式會在經過最佳化設計的參數內恢復 Gen2 載入效能。|
@@ -40,20 +40,20 @@ Microsoft 推出了 [Automatic Intelligent Insights](https://azure.microsoft.com
 現在您已稍微了解 SQL 資料倉儲，請了解如何快速[建立 SQL 資料倉儲][create a SQL Data Warehouse]。 如果您不熟悉 Azure，您可能會發現 [Azure 詞彙][Azure glossary]在您遇到新術語時很有幫助。 或者，也可以看一下其中一些其他 SQL 資料倉儲資源。  
 
 * [客戶成功案例]
-* [部落格]
+* [博客]
 * [功能要求]
-* [影片]
+* [视频]
 * [客戶諮詢小組部落格]
 * [Stack Overflow 論壇]
 * [Twitter]
 
 
-[部落格]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
+[博客]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [客戶諮詢小組部落格]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [客戶成功案例]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [功能要求]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Stack Overflow 論壇]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow 論壇]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
-[影片]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[视频]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [create a SQL Data Warehouse]: ./create-data-warehouse-portal.md
 [Azure glossary]: ../azure-glossary-cloud-terminology.md

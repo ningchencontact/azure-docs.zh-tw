@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 3b7aa932d24b7879ee3f46419afa2327ee48b403
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 100d33bbd888d00ed33a38680df5a777e12fd63e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000988"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120800"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>使用 Azure 監視器監視 Active Directory 複寫狀態
 
@@ -45,8 +45,8 @@ Active Directory 是企業 IT 環境的重要元件。 為了確保高可用性�
 
    > [!NOTE]
    > 在您重新啟動 Microsoft Monitoring Agent service (HealthService.exe) 後，這些變更才會生效。
-### <a name="install-solution"></a>安裝解決方案
-按照[安裝監視解決方案](solutions.md#install-a-monitoring-solution)中描述的程序操作，以新增 **Active Directory 複寫狀態**解決方案到您的 Log Analytics 工作區。 不需要進一步的組態。
+   > ### <a name="install-solution"></a>安裝解決方案
+   > 按照[安裝監視解決方案](solutions.md#install-a-monitoring-solution)中描述的程序操作，以新增 **Active Directory 複寫狀態**解決方案到您的 Log Analytics 工作區。 不需要進一步的組態。
 
 
 ## <a name="ad-replication-status-data-collection-details"></a>AD 複寫狀態資料收集詳細資料

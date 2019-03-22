@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 02/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b400af524d303fe4fbcbc8e34a394b286a048cc4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: db0bebb49007059cfe3b8b9b416c4a148c3756fc
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008803"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287327"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 資源提供者作業
 
@@ -2734,8 +2734,8 @@ ms.locfileid: "58008803"
 > |  動作 | Microsoft.Kusto/Clusters/Databases/DataConnections/write | 写入数据连接资源。 |
 > |  動作 | Microsoft.Kusto/Clusters/Databases/DataConnectionValidation/action | 验证数据库数据连接。 |
 > |  動作 | Microsoft.Kusto/Clusters/Databases/delete | 刪除資料庫資源。 |
-> |  動作 | Microsoft.Kusto/Clusters/Databases/EventHubConnections/delete | 删除事件中心连接资源。 |
-> |  動作 | Microsoft.Kusto/Clusters/Databases/EventHubConnections/read | 读取事件中心连接资源。 |
+> |  動作 | Microsoft.Kusto/Clusters/Databases/EventHubConnections/delete | 刪除事件中樞的連線資源。 |
+> |  動作 | Microsoft.Kusto/Clusters/Databases/EventHubConnections/read | 讀取的事件中樞的連線資源。 |
 > |  動作 | Microsoft.Kusto/Clusters/Databases/EventHubConnections/write | 写入事件中心连接资源。 |
 > |  動作 | Microsoft.Kusto/Clusters/Databases/EventHubConnectionValidation/action | 验证数据库事件中心连接。 |
 > |  動作 | Microsoft.Kusto/Clusters/Databases/ListPrincipals/action | 列出数据库主体。 |

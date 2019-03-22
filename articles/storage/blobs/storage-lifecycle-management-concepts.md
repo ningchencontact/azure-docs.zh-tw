@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 93c19bc39f64df21dfa9db2490ab2103aba8191d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 1428c2925ab57642899732bd4504b2d5b38781a8
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086100"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315142"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>管理 Azure Blob 儲存體生命週期 (預覽)
 
@@ -190,7 +190,7 @@ az storage account management-policy show --resource-group [resourceGroupName] -
 | 篩選名稱 | 篩選類型 | 注意 | 必要 |
 |-------------|-------------|-------|-------------|
 | blobTypes   | 預先定義的列舉值陣列。 | 預覽版本僅支援 `blockBlob`。 | 是 |
-| prefixMatch | 要比對前置詞的字串陣列。 前置詞字串必須以容器名稱開頭。 例如，如果您想要比對下的所有 blob"<https://myaccount.blob.core.windows.net/container1/foo/>...」對於規則而言是 prefixMatch `container1/foo`。 | 如果未定義 prefixMatch，規則就會套用至帳戶內的所有 Blob。 | 否 |
+| prefixMatch | 要比對前置詞的字串陣列。 前置詞字串必須以容器名稱開頭。 例如，如果您想要比對下的所有 blob"https:\//myaccount.blob.core.windows.net/container1/foo/...」對於規則而言是 prefixMatch `container1/foo`。 | 如果未定義 prefixMatch，規則就會套用至帳戶內的所有 Blob。 | 否 |
 
 ### <a name="rule-actions"></a>規則動作
 

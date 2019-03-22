@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 0a03bfe61da6a1de073401fca9c61f3212b9d0bb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ffded5705e61538a8bec886483a49705bb2298c1
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440092"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203025"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>搭配使用 Apache Sqoop 與 HDInsight 中的 Hadoop
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -56,7 +56,7 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
 在本教學課程中，您要使用這兩個資料集測試 Sqoop 匯入和匯出。
 
 ## <a name="create-cluster-and-sql-database"></a>建立叢集與 SQL Database
-本節說明如何建立叢集、SQL Database 和 SQL Database 結構描述，以使用 Azure 入口網站和 Azure Resource Manager 範本來執行本教學課程。 範本可在 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/)中找到。 Resource Manager 範本會呼叫 bacpac 套件，以將資料表結構描述部署到 SQL Database。  Bacpac 套件位於公用 Blob 容器中 (https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac)。 如果您想要針對 Bacpac 檔案使用私用容器，請在範本中使用下列值︰
+本節說明如何建立叢集、SQL Database 和 SQL Database 結構描述，以使用 Azure 入口網站和 Azure Resource Manager 範本來執行本教學課程。 範本可在[Azure 快速入門範本](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/)。 Resource Manager 範本會呼叫 bacpac 套件，以將資料表結構描述部署到 SQL Database。  Bacpac 套件位於公用 Blob 容器中 (https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac)。 如果您想要針對 Bacpac 檔案使用私用容器，請在範本中使用下列值︰
    
 ```json
 "storageKeyType": "Primary",
@@ -627,7 +627,6 @@ Get-AzureRmHDInsightJobOutput `
 [hdinsight-provision]: ../hdinsight-hadoop-provision-linux-clusters.md
 [hdinsight-get-started]:apache-hadoop-linux-tutorial-get-started.md
 [hdinsight-storage]: ../hdinsight-hadoop-use-blob-storage.md
-[hdinsight-analyze-flight-data]: hdinsight-analyze-flight-delay-data.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md

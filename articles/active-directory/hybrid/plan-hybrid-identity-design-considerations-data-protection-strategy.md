@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b35060aec8d9d040777fda247c798a42533b2ea4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3c5cad3f735494ee74156e22a9bf150911c36eb0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182675"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091472"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>定義混合式身分識別解決方案的資料保護策略
 在這項工作中，您將為混合式身分識別解決方案定義資料保護策略，以符合您已定義的商務需求：
@@ -119,9 +119,9 @@ Azure Active Directory 可為數千個 SaaS 應用程式和內部部署 Web 應�
 
 圖 X 中顯示的每個互動，分別代表 Azure AD 可以涵蓋的一個存取控制案例。 每個案例的說明如下：
 
-  1. 針對裝載在內部部署環境的應用程式所進行的條件式存取：您可以使用已註冊的裝置搭配適用於已設定為使用 AD FS with Windows Server 2012 R2 之應用程式的存取原則。
+1. 針對裝載在內部部署環境的應用程式所進行的條件式存取：您可以使用已註冊的裝置搭配適用於已設定為使用 AD FS with Windows Server 2012 R2 之應用程式的存取原則。
 
-  2. 針對 Azure 入口網站的存取控制：Azure 也可讓您使用角色型存取控制 (RBAC) 來控制對入口網站的存取。 此方法可讓公司限制個人可以在 Azure 入口網站中執行的作業數目。 使用 RBAC 來控制存取入口網站時，IT 系統管理員可以利用下列存取管理方法來委派存取：
+2. 針對 Azure 入口網站的存取控制：Azure 也可讓您使用角色型存取控制 (RBAC) 來控制對入口網站的存取。 此方法可讓公司限制個人可以在 Azure 入口網站中執行的作業數目。 使用 RBAC 來控制存取入口網站時，IT 系統管理員可以利用下列存取管理方法來委派存取：
 
    - 群組型角色指派：您可以指派存取權給可從本機 Active Directory 同步處理的 Azure AD 群組。 這可讓您運用組織目前在群組管理工具和程序方面所做的投資。 您也可以使用 Azure AD Premium 的委派群組管理功能。
    - 使用 Azure 中內建的角色：您可以使用三個角色 — 擁有者、參與者和讀者，以確保使用者和群組只擁有他們執行工作所需的權限。
@@ -131,9 +131,9 @@ Azure Active Directory 可為數千個 SaaS 應用程式和內部部署 Web 應�
    > 如果您要建置應用程式並想要自訂其存取控制，可以使用 Azure AD 應用程式角色來進行授權。 請參閱 [WebApp-RoleClaims-DotNet 範例](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) ，了解如何建置您的應用程式以使用這項功能。
 
 
-  3. 針對 Office 365 應用程式與 Microsoft Intune 的條件式存取：IT 管理員可以佈建條件式存取裝置原則來保護公司資源，同時允許相容裝置上的資訊工作者存取服務。 
+3. 針對 Office 365 應用程式與 Microsoft Intune 的條件式存取：IT 管理員可以佈建條件式存取裝置原則來保護公司資源，同時允許相容裝置上的資訊工作者存取服務。 
   
-  4. SaaS 應用程式的條件式存取：[此功能](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/)可讓您設定每個應用程式的多重要素驗證存取規則，且能夠封鎖不在受信任網路上的使用者存取。 您可以將多因素驗證規則套用至所有已指派給應用程式的使用者，或只套用至指定的安全性群組內的使用者。 如果使用者是從組織網路內的 IP 位址存取應用程式，則可從多因素驗證需求中排除這些使用者。
+4. SaaS 應用程式的條件式存取：[此功能](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/)可讓您設定每個應用程式的多重要素驗證存取規則，且能夠封鎖不在受信任網路上的使用者存取。 您可以將多因素驗證規則套用至所有已指派給應用程式的使用者，或只套用至指定的安全性群組內的使用者。 如果使用者是從組織網路內的 IP 位址存取應用程式，則可從多因素驗證需求中排除這些使用者。
 
 由於存取控制的選項採用多層式方法，因此在執行這項工作時無法比較這些選項。 請確實針對每個要求您控制資源存取權的案例，使用所有適用的選項。
 
@@ -171,5 +171,5 @@ Azure AD 中還有其他可在事件回應調查期間使用的重要內建報�
 ## <a name="next-steps"></a>後續步驟
 [判斷混合式身分識別管理工作](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 [設計考量概觀](plan-hybrid-identity-design-considerations-overview.md)

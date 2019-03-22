@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae428f18a2b927f42716a1c00b55790fe73d81a4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b42a6b667a8708aeb2edeb0c80a5ab747b6c60a9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173397"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891132"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect 同步：了解預設組態
 本文說明現成可用的組態規則。 其中說明這些規則以及這些規則對組態有何影響。 本文也會引導您完成 Azure AD Connect 同步處理的預設組態。其目的是讓讀者了解組態模型 (名為宣告式佈建) 在實際範例中的運作情形。 本文假設您已使用安裝精靈安裝並設定 Azure AD Connect Sync。
@@ -43,7 +43,7 @@ ms.locfileid: "56173397"
 下列使用者物件 **不會** 同步處理至 Azure AD：
 
 * `IsPresent([isCriticalSystemObject])`。 請確定 Active Directory 中多項現成可用的物件 (例如內建的系統管理員帳戶) 不會同步處理。
-* `IsPresent([sAMAccountName]) = False`。 請確定沒有 sAMAccountName 屬性的使用者物件不會同步處理。 這種情況實際上只會發生在從 NT4 升級的網域中。
+* `IsPresent([sAMAccountName]) = False`。 請確定沒有 sAMAccountName 屬性的使用者物件不會同步處理。 这种情况实际上只发生在从 NT4 升级的域中。
 * `Left([sAMAccountName], 4) = "AAD_"`，`Left([sAMAccountName], 5) = "MSOL_"`。 不要同步處理 Azure AD Connect Sync 和較早版本所使用的服務帳戶。
 * 請勿同步處理不會在 Exchange Online 中運作的 Exchange 帳戶。
   * `[sAMAccountName] = "SUPPORT_388945a0"`
@@ -60,7 +60,7 @@ ms.locfileid: "56173397"
   * 非萬用群組 (不會對使用者套用，但因舊版因素而存在)
   * 信箱計劃
   * 探索信箱
-* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)` 。 請不要同步處理任何複寫犧牲者物件。
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`。 請不要同步處理任何複寫犧牲者物件。
 
 適用的屬性規則如下：
 
@@ -84,7 +84,7 @@ ms.locfileid: "56173397"
 
 下列連絡人物件 **不會** 同步處理至 Azure AD：
 
-* `IsPresent([isCriticalSystemObject])` 。 請確定沒有標記為重要的連絡人物件進行同步處理。 不應該是任何使用預設組態的項目。
+* `IsPresent([isCriticalSystemObject])`。 請確定沒有標記為重要的連絡人物件進行同步處理。 不應該是任何使用預設組態的項目。
 * `((InStr([displayName], "(MSOL)") > 0) && (CBool([msExchHideFromAddressLists])))`。
 * `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`。 這些物件無法在 Exchange Online 中運作。
 * `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`。 請不要同步處理任何複寫犧牲者物件。
@@ -103,9 +103,9 @@ ms.locfileid: "56173397"
 * `IsPresent([isCriticalSystemObject])` 。 請確定 Active Directory 中多項現成可用的物件 (例如內建的系統管理員群組) 不會同步處理。
 * `[sAMAccountName] = "MSOL_AD_Sync_RichCoexistence"`。 DirSync 所使用的舊版群組。
 * `BitAnd([msExchRecipientTypeDetails],&amp;H40000000)`。 角色群組。
-* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)` 。 請不要同步處理任何複寫犧牲者物件。
+* `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)` 。 不同步任何复制牺牲者对象。
 
-### <a name="foreignsecurityprincipal-out-of-box-rules"></a>ForeignSecurityPrincipal 現成可用的規則
+### <a name="foreignsecurityprincipal-out-of-box-rules"></a>ForeignSecurityPrincipal 现成规则
 FSP 會聯結至 Metaverse 中的「任何」(\*) 物件。 實際上，此聯結只會針對使用者和安全性群組執行。 此組態可確保跨樹系成員資格會進行解析，並正確地顯示在 Azure AD 中。
 
 ### <a name="computer-out-of-box-rules"></a>電腦現成可用的規則
@@ -138,7 +138,7 @@ SRE 是一項資源套件工具，會隨 Azure AD Connect Sync 一起安裝。�
 在此窗格中，您會看到所有為您的組態建立的同步處理規則。 表格中的每一行都是一個同步處理規則。 [規則類型] 的左下方會列出兩種不同類型：[輸入] 和 [輸出]。 [輸入] 和 [輸出] 來自 Metaverse 的檢視。 您主要會將重點放在本概觀中的輸入規則。 實際的同步處理規則清單取決於在 AD 中偵測到的結構描述。 在上圖中，帳戶樹系 (fabrikamonline.com) 沒有任何服務 (例如 Exchange 和 Lync)，而且也沒有為這些服務建立任何同步處理規則。 不過，在資源樹系 (res.fabrikamonline.com) 中，您可找到這些服務的同步處理規則。 規則的內容會隨著偵測到的版本而有所不同。 比方說，在 Exchange 2013 的部署中，屬性流程比在 Exchange 2010/2007 中設定的多。
 
 ### <a name="synchronization-rule"></a>同步處理規則
-同步處理規則是一個組態物件，當滿足條件時會有一組屬性進行流動。 此規則也會用來說明連接器空間中物件與 Metaverse 中物件的關係 (稱為**聯結**或**相符項目**)。 同步處理規則具有優先順序值，指出它們彼此之間的關係。 具有較低數值的同步處理規則具有較高的優先順序，而在發生屬性流程衝突時，較高的優先順序會在衝突解決過程中勝出。
+同步處理規則是一個組態物件，當滿足條件時會有一組屬性進行流動。 此規則也會用來說明連接器空間中物件與 Metaverse 中物件的關係 (稱為**聯結**或**相符項目**)。 同步规则具有优先级值，该优先级指示这些规则彼此的相关性。 具有較低數值的同步處理規則具有較高的優先順序，而在發生屬性流程衝突時，較高的優先順序會在衝突解決過程中勝出。
 
 舉例來說，我們將了解同步處理規則 **In from AD – User AccountEnabled**。 在 SRE 中標示這一行並選取 [編輯] 。
 
@@ -148,10 +148,10 @@ SRE 是一項資源套件工具，會隨 Azure AD Connect Sync 一起安裝。�
 
 「同步化規則」有四個設定區段：[Description] \(描述\)、[Description] \(範圍篩選\)、[Join rules] \(聯結規則\) 及 [Transformations] \(轉換\)。
 
-#### <a name="description"></a>說明
+#### <a name="description"></a>描述
 第一個區段提供基本資訊，例如名稱和說明。
 
-![同步處理規則編輯器中的說明索引標籤 ](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
+![同步處理規則編輯器中的說明索引標籤](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
 
 您也可尋找一些資訊，例如哪個已連線系統與此規則有關、哪個已連線系統的物件類型適用於此規則，以及 Metaverse 物件的類型。 無法來源物件類型為使用者、iNetOrgPerson 或連絡人，Metaverse 物件類型一律為個人。 Metaverse 物件類型永遠不會改變，所以它必須以一般類型建立。 您可以將連結類型設為 Join、StickyJoin 或 Provision。 此設定會與 [聯結規則] 區段共同運作，稍後會討論其運作方式。
 
@@ -160,31 +160,31 @@ SRE 是一項資源套件工具，會隨 Azure AD Connect Sync 一起安裝。�
 #### <a name="scoping-filter"></a>範圍篩選器
 範圍篩選器區段是用來設定同步處理規則套用的時機。 由於您目前看到的同步處理規則名稱表示只應針對已啟用使用者套用，因此您必須設定該範圍，切勿將 AD 屬性 **userAccountControl** 設為位元 2。 當同步處理引擎在 AD 中尋找使用者時，如果 **userAccountControl** 設為十進位值 512 (啟用的一般使用者)，則會套用此同步處理規則。 當使用者的 **userAccountControl** 設為 514 (停用的一般使用者) 時，則不會套用此規則。
 
-![同步處理規則編輯器中的範圍索引標籤 ](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
+![同步處理規則編輯器中的範圍索引標籤](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
 
 範圍篩選器具有可為巢狀的群組和子句。 必須滿足群組中的所有子句，才能套用同步處理規則。 如果多個群組已經過定義時，則必須至少滿足一個群組才能套用該規則。 也就是說，系統會在群組間評估邏輯 OR ，而在單一群組中評估邏輯 AND。 您可以在輸出同步處理規則 **Out to AAD – Group Join**中找到此組態的範例。 同步處理篩選器有數個群組，例如，一個適用於安全性群組 (`securityEnabled EQUAL True`) 的群組，和一個適用於通訊群組 (`securityEnabled EQUAL False`) 的群組。
 
-![同步處理規則編輯器中的範圍索引標籤 ](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilterout.png)
+![同步處理規則編輯器中的範圍索引標籤](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilterout.png)
 
 此規則是用來定義哪些群組應該佈建至 Azure AD。 通訊群組必須啟用郵件，才可使用 Azure AD 進行同步處理；但是安全性群組不需要電子郵件，即可進行同步處理。
 
 #### <a name="join-rules"></a>聯結規則
 第三個區段是用來設定連接器空間中物件與 Metaverse 中物件的關係。 您先前看過的規則中並沒有任何適用於聯結規則的組態，因此您將繼續了解 **In from AD - User Join**。
 
-![同步處理規則編輯器中的聯結規則索引標籤 ](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
+![同步處理規則編輯器中的聯結規則索引標籤](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
 
 聯結規則的內容取決於安裝精靈中選取的比對選項。 針對輸入規則，評估作業將會從來源連接器空間中的物件開始進行，接著再評估聯結規則中的各個群組。 如果來源物件經評估確實符合 Metaverse 中的一個物件，且 Metaverse 使用其中一個聯結規則，物件就會聯結起來。 如果所有規則經評估後沒有任何相符項目，則會使用說明頁面上的連結類型。 如果此組態設定為為 [佈建]，則目標 (Metaverse) 中會建立新的物件。 將新物件佈建至 Metaverse，也等同於將物件**投射**至 Metaverse。
 
 只會對聯結規則評估一次。 當連接器空間物件和 Metaverse 物件聯結起來時，只要仍滿足同步處理規則的範圍，兩者就會維持聯結狀態。
 
-評估同步處理規則時，只有一個具有已定義聯結規則的同步處理規則必須在範圍內。 如果發現多個具有聯結規則的同步處理規則用於單一物件，就會擲回錯誤。 基於這個原因，最佳作法就是在多個同步處理規則都在同一個範圍內用於單一物件時，只有一個具有已定義聯結的同步處理規則。 在 Azure AD Connect 同步處理現成可用的組態中，您可以查看規則名稱來找到這些規則，並發現它們的名稱結尾都有 **Join** 一詞。 如果其他同步處理規則將物件聯結在一起，或在目標中佈建新物件，則未定義任何聯結規則的同步處理規則會套用屬性流程。
+評估同步處理規則時，只有一個具有已定義聯結規則的同步處理規則必須在範圍內。 如果發現多個具有聯結規則的同步處理規則用於單一物件，就會擲回錯誤。 基於這個原因，最佳作法就是在多個同步處理規則都在同一個範圍內用於單一物件時，只有一個具有已定義聯結的同步處理規則。 在 Azure AD Connect 同步處理現成可用的組態中，您可以查看規則名稱來找到這些規則，並發現它們的名稱結尾都有 **Join** 一詞。 如果另一个同步规则将对象联接在一起或在目标中预配了新对象，则未定义任何联接规则的同步规则将应用属性流。
 
-在檢視上圖時，您可以看到規則嘗試將 **objectSID** 與 **msExchMasterAccountSid** (Exchange) 和 **msRTCSIP-OriginatorSid** (Lync) 聯結，而這正是我們在帳戶資源樹系拓撲中所預期的。 您會發現所有樹系具有相同的規則。 我們可以假設每個樹系可能是帳戶或資源樹系。 如果您有帳戶存在於單一樹系中，且不需要聯結，也適用此組態。
+在檢視上圖時，您可以看到規則嘗試將 **objectSID** 與 **msExchMasterAccountSid** (Exchange) 和 **msRTCSIP-OriginatorSid** (Lync) 聯結，而這正是我們在帳戶資源樹系拓撲中所預期的。 会发现所有林具有相同的规则。 我們可以假設每個樹系可能是帳戶或資源樹系。 如果您有帳戶存在於單一樹系中，且不需要聯結，也適用此組態。
 
 #### <a name="transformations"></a>轉換
 轉換區段會定義當物件呈現聯結狀態並滿足範圍篩選器時，會套用至目標物件的所有屬性流程。 回到 **In from AD - User AccountEnabled** 同步處理規則時，您會看見下列轉換：
 
-![同步處理規則編輯器中的轉換索引標籤 ](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
+![同步處理規則編輯器中的轉換索引標籤](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
 
 若要將此組態放在內容中，則在帳戶-資源樹系部署中，預計會在帳戶樹系中找到啟用的帳戶，並在具有 Exchange 和 Lync 設定的資源樹系中找到停用的帳戶。 您目前看到的同步處理規則包含登入所需的屬性，而這些屬性應從具有已啟用帳戶的樹系流出。 這些屬性流程會全部放在一個同步處理規則中。
 
@@ -201,7 +201,7 @@ SRE 是一項資源套件工具，會隨 Azure AD Connect Sync 一起安裝。�
 IIF(
 // (The evaluation for IIF) Is the attribute pwdLastSet present in AD?
 IsPresent([pwdLastSet]),
-// (The True part of IIF) If it is, then from right to left, convert the AD time format to a .Net datetime, change it to the time format used by Azure AD, and finally convert it to a string.
+// (The True part of IIF) If it is, then from right to left, convert the AD time format to a .NET datetime, change it to the time format used by Azure AD, and finally convert it to a string.
 CStr(FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")),
 // (The False part of IIF) Nothing to contribute
 NULL
@@ -220,7 +220,7 @@ NULL
 ### <a name="putting-it-all-together"></a>總整理
 我們現在對同步處理規則已有足夠的認識，而能夠了解組態如何在不同的同步處理規則下運作。 如果您觀察某個使用者以及提供給 Metaverse 的屬性，則會以下列順序套用規則：
 
-| Name | 註解 |
+| 名稱 | 註解 |
 |:--- |:--- |
 | In from AD - User Join |聯結連接器空間物件與 Metaverse 的規則。 |
 | In from AD – UserAccount Enabled |登入 Azure AD 和 Office 365 所需的屬性。 我們想從已啟用的帳戶取得這些屬性。 |

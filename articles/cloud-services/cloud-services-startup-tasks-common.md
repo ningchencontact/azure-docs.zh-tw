@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: c9f0707f6d24ba899c89bf19066994ae860a69d5
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
-ms.translationtype: HT
+ms.openlocfilehash: ec3952f2bb0b4180f5c72d948d1835a903152f0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620982"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181821"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>常見的雲端服務啟動工作
 本文提供一些常見的啟動工作範例，做為您在雲端服務中執行的參考。 您可以利用啟動工作，在角色啟動之前執行作業。 您可能想要執行的作業包括安裝元件、註冊 COM 元件、設定登錄機碼，或啟動長時間執行的處理序。 
@@ -27,11 +27,11 @@ ms.locfileid: "39620982"
 請參閱 [這篇文章](cloud-services-startup-tasks.md) ，了解啟動工作的運作方式，特別是該如何建立定義啟動工作的項目。
 
 > [!NOTE]
-> 啟動工作不適用於虛擬機器，只適用於雲端服務 Web 和背景工作角色。
+> 启动任务不适用于虚拟机，只适用于云服务 Web 角色和辅助角色。
 > 
 
 ## <a name="define-environment-variables-before-a-role-starts"></a>定義角色啟動前的環境變數
-如果您需要針對特定工作定義的環境變數，可以使用 [Task] 項目中的 [Task] 項目。
+如果您需要針對特定工作定義的環境變數，可以使用 [Task] 項目中的 [Environment] 項目。
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -93,7 +93,7 @@ REM   *** Add a compression section to the Web.config file. ***
 %windir%\system32\inetsrv\appcmd set config /section:urlCompression /doDynamicCompression:True /commit:apphost >> "%TEMP%\StartupLog.txt" 2>&1
 
 REM   ERRORLEVEL 183 occurs when trying to add a section that already exists. This error is expected if this
-REM   batch file were executed twice. This can occur and must be accounted for in a Azure startup
+REM   batch file were executed twice. This can occur and must be accounted for in an Azure startup
 REM   task. To handle this situation, set the ERRORLEVEL to zero by using the Verify command. The Verify
 REM   command will safely set the ERRORLEVEL to zero.
 IF %ERRORLEVEL% EQU 183 DO VERIFY > NUL
@@ -125,13 +125,13 @@ EXIT %ERRORLEVEL%
 ```
 
 ## <a name="add-firewall-rules"></a>新增防火牆規則
-Azure 實際上擁有兩個防火牆。 第一道防火牆會控制虛擬機器與外界之間的連結。 此防火牆是由 [EndPoints] 檔案中的 [EndPoints] 項目所控制。
+Azure 實際上擁有兩個防火牆。 第一个防火墙控制虚拟机与外界之间的连接。 此防火牆是由 [EndPoints] 檔案中的 [EndPoints] 項目所控制。
 
 第二道防火牆會控制虛擬機器與該虛擬機器中處理序之間的連結。 可以透過 `netsh advfirewall firewall` 命令列工具來控制此防火牆。
 
 Azure 會針對在角色內啟動的處理序建立防火牆規則。 例如，在您啟動服務或程式時，Azure 會自動建立必要的防火牆規則，藉此允許該服務與網際網路通訊。 不過，如果您建立的服務是由角色外部的處理序啟動 (像是 COM+ 服務，或是 Windows 排程器工作)，您就必須手動建立防火牆規則以允許存取該服務。 您可以使用啟動工作建立這些防火牆規則。
 
-建立防火牆規則的啟動工作必須具有 [executionContext][task] (提高權限) 的 **executionContext**，就會執行失敗。 將以下啟動工作加入 [EndPoints] 檔案。
+建立防火牆規則的啟動工作必須具有 [executionContext][Environment] (提高權限) 的 **executionContext**，就會執行失敗。 將以下啟動工作加入 [EndPoints] 檔案。
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -186,7 +186,7 @@ powershell -ExecutionPolicy Unrestricted -command "Install-WindowsFeature Web-IP
 
 此工作可讓 **startup.cmd** 批次檔在 Web 角色每次初始化時一併執行，以確保將必要的 **ipSecurity** 區段解除鎖定。
 
-最後，修改 Web 角色 [web.config](http://www.iis.net/configreference/system.webserver/security/ipsecurity#005) 檔案中的 **system.webServer** 區段，新增具有存取權的 IP 位址清單，如以下範例所示：
+最後，修改 Web 角色 [web.config](https://www.iis.net/configreference/system.webserver/security/ipsecurity#005) 檔案中的 **system.webServer** 區段，新增具有存取權的 IP 位址清單，如以下範例所示：
 
 此範例組態 **允許** 所有 IP 存取伺服器 (另外定義的 2 個 IP 除外)。
 
@@ -247,10 +247,10 @@ REM   If an error occurred, return the errorlevel.
 EXIT /B %errorlevel%
 ```
 
-## <a name="create-files-in-local-storage-from-a-startup-task"></a>透過啟動工作在本機儲存體中建立檔案
+## <a name="create-files-in-local-storage-from-a-startup-task"></a>通过启动任务在本地存储中创建文件
 您可以使用本機儲存資源，儲存啟動工作所建立的檔案，以便日後供您的應用程式存取。
 
-若要建立本機儲存資源，請將 [LocalResources] 區段新增至 [EndPoints] 檔案，然後新增 [LocalStorage] 子項目。 將本機儲存體資源命名為不重複的名稱，然後為啟動工作提供適當的大小。
+若要建立本機儲存資源，請將 [LocalResources] 區段新增至 [EndPoints] 檔案，然後新增 [LocalStorage] 子項目。 为本地存储资源指定唯一名称，并为启动任务指定合适大小。
 
 若要在啟動工作中使用本機儲存體資源，您需要建立環境變數來參考本機儲存體資源的位置。 接著，啟動工作和應用程式就能對本機儲存資源讀取及寫入檔案。
 
@@ -302,7 +302,7 @@ string fileContent = System.IO.File.ReadAllText(System.IO.Path.Combine(localStor
 ```
 
 ## <a name="run-in-the-emulator-or-cloud"></a>在模擬器或雲端中執行
-當啟動工作在雲端中運作時，您可以讓啟動工作執行有別於在計算模擬器中運作時的步驟。 例如，在模擬器中執行時，您可能只想使用 SQL 資料的全新複本。 或者，您可能想針對雲端執行一些效能最佳化作業，而這是不需要的作業。
+當啟動工作在雲端中運作時，您可以讓啟動工作執行有別於在計算模擬器中運作時的步驟。 例如，仅当在模拟器中运行时，才可能需要使用 SQL 数据的新副本。 或者，您可能想針對雲端執行一些效能最佳化作業，而這是不需要的作業。
 
 在 [EndPoints] 檔案中建立環境變數，即可在計算模擬器和雲端上完成執行不同動作的作業。 然後，您會在啟動工作中測試該環境變數的值。
 
@@ -389,7 +389,7 @@ Visual Studio 並未提供可逐步執行批次檔的偵錯工具，因此最好
 
 若要簡化您的 XML，您可以建立包裝函式 *cmd* 檔案，該檔案會呼叫您的所有啟動工作與記錄，並確保每項子工作都共用相同的環境變數。
 
-不過，您可能會覺得在每個啟動工作的一端使用 `>> "%TEMP%\StartupLog.txt" 2>&1` 很麻煩。 您可以建立會為您處理記錄的包裝函式，以強制執行工作記錄。 此包裝函式會呼叫您要執行的實際批次檔。 來自目標批次檔的任何輸出會被重新導向至 *Startuplog.txt* 檔案。
+你可能会发现在每个启动任务的末尾都使用 `>> "%TEMP%\StartupLog.txt" 2>&1` 很是恼人。 您可以建立會為您處理記錄的包裝函式，以強制執行工作記錄。 此包裝函式會呼叫您要執行的實際批次檔。 來自目標批次檔的任何輸出會被重新導向至 *Startuplog.txt* 檔案。
 
 以下範例示範如何從啟動批次檔重新導向所有的輸出。 在此範例中，ServerDefinition.csdef 檔案會建立啟動工作，以呼叫 *logwrap.cmd*。 *logwrap.cmd* 會呼叫 *Startup2.cmd*，並將所有輸出重新導向至 **%TEMP%\\StartupLog.txt**。
 
@@ -469,15 +469,15 @@ EXIT %ERRORLEVEL%
 > 
 > 
 
-### <a name="set-executioncontext-appropriately-for-startup-tasks"></a>正確設定啟動工作的 executionContext
+### <a name="set-executioncontext-appropriately-for-startup-tasks"></a>为启动任务适当地设置 executionContext
 正確設定啟動工作的權限。 有時候，即使角色是以正常的權限執行，啟動工作也必須以較高的權限執行。
 
-[elevated][task] 屬性會設定啟動工作的權限等級。 使用 `executionContext="limited"` 表示啟動工作有和角色相同的權限等級。 使用 `executionContext="elevated"` 表示啟動工作有系統管理員權限，您不用將系統管理員權限提供給您的角色，便可讓啟動工作執行系統管理員工作。
+ [elevated][Environment] 屬性會設定啟動工作的權限等級。 使用 `executionContext="limited"` 表示啟動工作有和角色相同的權限等級。 使用 `executionContext="elevated"` 表示啟動工作有系統管理員權限，您不用將系統管理員權限提供給您的角色，便可讓啟動工作執行系統管理員工作。
 
 需要提高權限的啟動工作範例，是使用 **AppCmd.exe** 設定 IIS 的啟動工作。 **AppCmd.exe** 需使用 `executionContext="elevated"`。
 
 ### <a name="use-the-appropriate-tasktype"></a>使用正確的 taskType
-[taskType][Task] 屬性會決定執行啟動工作的方式。 此屬性有三個值：**simple**、**background** 和 **foreground**。 background 和 foreground 工作會以非同步方式啟動，而 simple 工作會以同步方式執行，一次一個。
+[taskType][environment] 屬性會決定執行啟動工作的方式。 此屬性有三個值：**simple**、**background** 和 **foreground**。 background 和 foreground 工作會以非同步方式啟動，而 simple 工作會以同步方式執行，一次一個。
 
 利用 **simple** 啟動工作後，您就可以設定工作發生的順序，亦即工作在 ServiceDefinition.csdef 檔案中列出的順序。 如果 **simple** 工作以非零的結束代碼結束，則啟動程序會隨即停止，而角色也將不會啟動。
 
@@ -507,7 +507,7 @@ EXIT %ERRORLEVEL%
 [建立和部署](cloud-services-how-to-create-deploy-portal.md) 雲端服務封裝。
 
 [EndPoints]: cloud-services-model-and-package.md#csdef
-[Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
+[Environment]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment

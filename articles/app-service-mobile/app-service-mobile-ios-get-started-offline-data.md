@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bc0afcf1ac7d9e7a777d850e1b6df7b915837f3a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956869"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57435128"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>啟用 iOS Mobile Apps 的離線同步處理
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -40,7 +40,7 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 
  若要取得同步處理資料表的參考，請在 `MSClient` 上使用 **syncTableWithName** 方法。 若要移除離線同步處理功能，請改用 **tableWithName**。
 
-必須先初始化本機存放區，才可以執行資料表作業。 以下是相關的程式碼：
+表操作之前，必须初始化本地存储区。 以下是相關的程式碼：
 
 * **Objective-C**。 在 **QSTodoService.init** 方法中：
 
@@ -101,7 +101,7 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 
           if error != nil {
               // A real application would handle various errors like network conditions,
-              // server conflicts, etc via the MSSyncContextDelegate
+              // server conflicts, etc. via the MSSyncContextDelegate
               print("Error: \(error!.description)")
 
               // We will discard our changes and keep the server's copy for simplicity
@@ -125,7 +125,7 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 
 在 Objective-C 版本中，於 `syncData`，我們會先在同步處理內容上呼叫 **pushWithCompletion**。 此方法是 `MSSyncContext` 的成員 (而非同步處理資料表本身)，因為它會將變更推送至所有資料表。 只有以某種方式在本機上修改過的記錄 (透過 CUD 作業)，才會傳送至伺服器。 接著會呼叫 **pullData** 協助程式，該程式會呼叫 **MSSyncTable.pullWithQuery** 來擷取遠端資料並存放在本機資料庫中。
 
-在 Swift 版本中，因為推送作業不是絕對必要，所以並沒有呼叫 **pushWithCompletion**。 如果同步處理內容中正在進行推送作業的資料表有任何變更擱置，則提取一律會先發出推送。 不過，如果您有一個以上的同步處理資料表，最好能明確呼叫推送，以確保所有的相關資料表都能一致。
+在 Swift 版本中，因為推送作業不是絕對必要，所以並沒有呼叫 **pushWithCompletion**。 如果同步上下文中正在进行推送操作的表存在任何挂起的更改，则提取始终会先发出推送。 不過，如果您有一個以上的同步處理資料表，最好能明確呼叫推送，以確保所有的相關資料表都能一致。
 
 在 Objective-C 與 Swift 版本中，您可以使用 **pullWithQuery** 方法來指定查詢，以篩選想要擷取的記錄。 在此範例中，查詢會擷取遠端 `TodoItem` 資料表中的所有記錄。
 
@@ -137,10 +137,10 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 
 因為每當資料修改 (Objective-C) 或 App 啟動 (Objective-C 和 Swift) 時，App 就會同步處理，故 App 假設使用者在線上。 在後續章節中，您將會更新 App，讓使用者即使是離線狀態也能進行編輯。
 
-## <a name="review-core-data"></a>檢閱核心資料模型
+## <a name="review-core-data"></a>查看 Core Data 模型
 在使用「核心資料離線」存放區時，您必須在資料模型中定義特定資料表和欄位。 範例應用程式已經包含具有正確格式的資料模型。 在這一節中，我們會逐步介紹這些資料表並示範其使用方式。
 
-開啟 **QSDataModel.xcdatamodeld**。 已定義四個資料表--其中三個由 SDK 使用，而一個是用於 To-do 項目本身：
+打开 **QSDataModel.xcdatamodeld**。 已定義四個資料表--其中三個由 SDK 使用，而一個是用於 To-do 項目本身：
   * MS_TableOperations：追蹤需要與伺服器同步的項目。
   * MS_TableOperationErrors：追蹤在離線同步處理期間發生的任何錯誤。
   * MS_TableConfig：追蹤所有提取作業的最後一次同步處理作業的上次更新時間。
@@ -155,7 +155,7 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 
 ### <a name="system-tables"></a>系統資料表
 
-**MS_TableOperations**  
+MS_TableOperations  
 
 ![MS_TableOperations 資料表屬性][defining-core-data-tableoperations-entity]
 
@@ -168,7 +168,7 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 | tableKind | 整數 16 |
 
 
-**MS_TableOperationErrors**
+MS_TableOperationErrors
 
  ![MS_TableOperationErrors 資料表屬性][defining-core-data-tableoperationerrors-entity]
 
@@ -177,7 +177,7 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 | id |字串 |
 | operationId |整數 64 |
 | properties |二進位資料 |
-| tableKind |整數 16 |
+| tableKind |16 位整数 |
 
  **MS_TableConfig**
 
@@ -187,8 +187,8 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 | --- | --- |
 | id |字串 |
 | 索引鍵 |字串 |
-| keyType |整數 64 |
-| 資料表 |字串 |
+| keyType |Integer 64 |
+| 表 |字串 |
 | value |字串 |
 
 ### <a name="data-table"></a>資料表
@@ -197,7 +197,7 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 
 | 屬性 | 類型 | 附註 |
 | --- | --- | --- |
-| id | 字串 (標示為必要) |遠端存放區中的主索引鍵 |
+| id | 字符串（标记为必需） |遠端存放區中的主索引鍵 |
 | 完成 | BOOLEAN | To-do 項目欄位 |
 | text |字串 |To-do 項目欄位 |
 | 建立時間 | 日期 | (選擇性) 對應至 **createdAt** 系統屬性 |

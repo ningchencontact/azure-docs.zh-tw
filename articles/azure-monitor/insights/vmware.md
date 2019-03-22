@@ -1,5 +1,5 @@
 ---
-title: Log Analytics 中的 VMware 監視解決方案 | Microsoft Docs
+title: Azure 監視器中的 VMware 監視解決方案 |Microsoft Docs
 description: 了解 VMware 監視解決方案如何協助您管理記錄檔和監視 ESXi 主機。
 services: log-analytics
 documentationcenter: ''
@@ -13,23 +13,23 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 9f5bdc3686e35f09b461bd5c2df695218b48ede3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: ece6c7048100a8204bfc067d9d57854b1d83c9b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993362"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074908"
 ---
-# <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Log Analytics 中的 VMware 監視 (預覽) 解決方案
+# <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Azure 監視器中的 VMware 監視 （已過時） 解決方案
 
 ![VMware 符號](./media/vmware/vmware-symbol.png)
 
 > [!NOTE]
 > VMware 監控解決方案已被取代。  已安裝此解決方案的客戶可以繼續使用，但無法將 VMware 監控加入至任何新的工作區。
 
-Log Analytics 中的 VMware 監視解決方案是一個可協助您針對大型 VMware 記錄檔建立集中記錄和監視方法的解決方案。 本文說明如何使用此解決方案在單一位置進行疑難排解、擷取和管理 ESXi 主機。 有了這個解決方案，您可以在單一位置查看所有 ESXi 主機的詳細資料。 您可以看到 VM 和 ESXi 主機上前幾名的事件計數、狀態和趨勢，透過 ESXi 主機記錄檔提供。 您可以檢視及搜尋 ESXi 主機集中記錄檔，來進行疑難排解。 而且，您可以根據記錄檔搜尋查詢來建立警示。
+Azure 監視器中的 VMware 監視解決方案是解決方案，可協助您建立的集中式的記錄和監視的方法，針對大型 VMware 記錄檔。 本文說明如何使用此解決方案在單一位置進行疑難排解、擷取和管理 ESXi 主機。 有了這個解決方案，您可以在單一位置查看所有 ESXi 主機的詳細資料。 您可以看到 VM 和 ESXi 主機上前幾名的事件計數、狀態和趨勢，透過 ESXi 主機記錄檔提供。 您可以檢視及搜尋 ESXi 主機集中記錄檔，來進行疑難排解。 而且，您可以根據記錄檔搜尋查詢來建立警示。
 
-解決方案會使用 ESXi 主機的原生 syslog 功能來將資料推播至具有 Log Analytics 代理程式的目標 VM。 但是，解決方案不會將檔案寫入目標 VM 內部的 syslog。 Log Analytics 代理程式會開啟連接埠 1514 並接聽該連接埠。 在收到資料之後，Log Analytics 代理程式就會將資料推送至 Log Analytics 中。
+解決方案會使用 ESXi 主機的原生 syslog 功能來將資料推播至具有 Log Analytics 代理程式的目標 VM。 但是，解決方案不會將檔案寫入目標 VM 內部的 syslog。 Log Analytics 代理程式會開啟連接埠 1514 並接聽該連接埠。 一旦它收到資料時，Log Analytics 代理程式會將資料推送至 「 Azure 監視器。
 
 ## <a name="install-and-configure-the-solution"></a>安裝和設定解決方案
 請使用下列資訊來安裝和設定方案。
@@ -71,7 +71,7 @@ vSphere ESXi 主機 5.5、6.0 和 6.5
     Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
     ```
 
-1. 在 Azure 入口網站中，執行 `VMware_CL` 的記錄搜尋。 Log Analytics 在收集 syslog 資料時，會保留 syslog 格式。 在入口網站中，會擷取某些特定欄位，例如 Hostname 和 ProcessName。  
+1. 在 Azure 入口網站中執行的記錄查詢`VMware_CL`。 當 Azure 監視器會收集 syslog 資料時，它會保留 syslog 格式。 在入口網站中，會擷取某些特定欄位，例如 Hostname 和 ProcessName。  
 
     ![type](./media/vmware/type.png)  
 
@@ -129,7 +129,7 @@ VMware 監視解決方案會使用您已啟用的 Log Analytics Linux 代理程�
 
 按一下任何刀鋒視窗以開啟 Log Analytics 搜尋窗格，窗格中會顯示該刀鋒視窗的詳細資訊。
 
-您可以在此編輯搜尋查詢，修改查核來尋找特定目標。 如需有關建立記錄搜尋的詳細資料，請參閱[在 Log Analytics 中使用記錄搜尋以尋找資料](../log-query/log-query-overview.md)。
+從這裡開始，您可以編輯記錄查詢，若要修改的特定項目。 如需有關建立記錄查詢的詳細資訊，請參閱 <<c0> [ 使用 Azure 監視器中的記錄檔查詢以尋找資料](../log-query/log-query-overview.md)。
 
 #### <a name="find-esxi-host-events"></a>尋找 ESXi 主機事件
 單一 ESXi 主機會產生多個記錄檔，取決於其程序。 VMware 監視解決方案會將它們集中在一起，並總結事件計數。 這個集中式的檢視可幫助您了解哪些 ESXi 主機有大量的事件，以及在您的環境中最常發生哪些事件。
@@ -151,14 +151,14 @@ VMware 監視解決方案會使用您已啟用的 Log Analytics Linux 代理程�
 
 ![深入探詢](./media/vmware/createvm.png)
 
-#### <a name="common-search-queries"></a>常見的搜尋查詢
+#### <a name="common-log-queries"></a>常見的記錄檔查詢
 這個解決方案包含其他實用的查詢，可協助您管理您的 ESXi 主機，例如高儲存量空間、儲存體延遲、路徑失敗。
 
 ![查詢](./media/vmware/queries.png)
 
 
 #### <a name="save-queries"></a>儲存查詢
-儲存搜尋查詢是 Log Analytics 中的標準功能，可協助您保留任何您認為有用的查詢。 建立您覺得有用的查詢之後，按一下 [我的最愛] 儲存它。 儲存的查詢讓您之後可從 [我的儀表板](../learn/tutorial-logs-dashboards.md) 頁面輕鬆地重複使用它們，您也可以在此建立您自己自訂的儀表板。
+正在儲存記錄檔查詢是在 Azure 監視器中的標準功能，並可協助您保留任何您認為有用的查詢。 建立您覺得有用的查詢之後，按一下 [我的最愛] 儲存它。 儲存的查詢讓您之後可從 [我的儀表板](../learn/tutorial-logs-dashboards.md) 頁面輕鬆地重複使用它們，您也可以在此建立您自己自訂的儀表板。
 
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 
@@ -195,13 +195,13 @@ syslog 時間戳記有一個 ESXi 主機錯誤。 如需詳細資訊，請參閱
   1. Log Analytics 會接聽連接埠 1514。 若要確認它是否已經開啟，請執行以下命令：`netstat -a | grep 1514`
   1. 您應該會看到連接埠 `1514/tcp` 已開啟。 如果沒有，請確認是否已正確安裝 OMS 代理程式。 如果您沒有看到連接埠資訊，表示 VM 上沒有開啟 syslog 連接埠。
 
-    a. 請使用 `ps -ef | grep oms` 確認 Log Analytics 代理程式是否在執行中。 如果它沒有執行，請執行命令 ` sudo /opt/microsoft/omsagent/bin/service_control start`
+     a. 請使用 `ps -ef | grep oms` 確認 Log Analytics 代理程式是否在執行中。 如果它沒有執行，請執行命令 ` sudo /opt/microsoft/omsagent/bin/service_control start`
 
-    b. 開啟 `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` 檔案。
+     b. 開啟 `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` 檔案。
 
-    c. 確認適當的使用者和群組設定有效，類似於：`-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+     c. 確認適當的使用者和群組設定有效，類似於：`-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
 
-    d. 如果檔案不存在或使用者和群組設定錯誤，請透過[準備 Linux 伺服器](#prepare-a-linux-server)來採取更正動作。
+     d. 如果檔案不存在或使用者和群組設定錯誤，請透過[準備 Linux 伺服器](#prepare-a-linux-server)來採取更正動作。
 
 ## <a name="next-steps"></a>後續步驟
 * 使用 Log Analytics 中的[記錄查詢](../log-query/log-query-overview.md)來檢視詳細的 VMware 主機資料。

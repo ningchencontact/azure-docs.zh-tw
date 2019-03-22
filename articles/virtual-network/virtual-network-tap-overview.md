@@ -13,35 +13,38 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 03/18/2019
 ms.author: kaanan
-ms.openlocfilehash: 7270ab6203cfa3602fc36bc6fa7d30cd622ce3a3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 45224b1b0ec4a4b3c93393c178f1f03baa58e10b
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946590"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189133"
 ---
 # <a name="virtual-network-tap"></a>虛擬網路 TAP
 
 Azure 虛擬網路 TAP (終端機存取點) 可讓您持續將虛擬機器網路流量串流到網路封包收集器或分析工具。 收集器或分析工具是由[網路虛擬設備](https://azure.microsoft.com/solutions/network-appliances/)合作夥伴所提供。 如需經驗證能與虛擬網路 TAP 相容的合作夥伴解決方案清單，請參閱[合作夥伴解決方案](#virtual-network-tap-partner-solutions)。
 
 > [!IMPORTANT]
-> 虛擬網路 TAP 目前在 WestCentralUS Azure 區域中屬於開發人員預覽版本。 若要使用虛擬網路 TAP，您必須將電子郵件傳送至 <azurevnettap@microsoft.com> 並註明訂用帳戶識別碼，以註冊預覽版。 當訂用帳戶註冊完成之後，您會收到電子郵件。 在收到確認電子郵件後才能使用此功能。 此開發人員預覽版是在沒有服務等級協定的情況下提供，不得用於生產工作負載。 可能不支援特定功能、可能已經限制功能，或者可能無法在所有 Azure 位置提供使用。 如需詳細資訊，請參閱 [Microsoft Azure 預覽專用的補充使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+> 虛擬網路 TAP 目前為預覽狀態的所有 Azure 區域中。 若要使用虛擬網路點兩下，您必須註冊在預覽中傳送電子郵件給 <azurevnettap@microsoft.com>與您的訂用帳戶識別碼。 當訂用帳戶註冊完成之後，您會收到電子郵件。 在收到確認電子郵件後才能使用此功能。 此預覽版的服務等級協定不提供，不應該用於生產工作負載。 可能不支援特定功能、可能已經限制功能，或者可能無法在所有 Azure 位置提供使用。 請參閱 [補充使用條款的 Microsoft Azure 預覽版](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 如需詳細資訊。
 
 ## <a name="virtual-network-tap-partner-solutions"></a>虛擬網路 TAP 合作夥伴解決方案
 
 ### <a name="network-packet-brokers"></a>網路封包訊息代理程式
 
 - [Big Switch Big Monitoring Fabric](https://www.bigswitch.com/products/big-monitoring-fabric/public-cloud/microsoft-azure)
-- [Flowmon](https://www.flowmon.com/blog/azure-vtap)
 - [Gigamon GigaSECURE](https://blog.gigamon.com/2018/09/13/why-microsofts-new-vtap-service-works-even-better-with-gigasecure-for-azure)
 - [Ixia CloudLens](https://www.ixiacom.com/cloudlens/cloudlens-azure)
 
 ### <a name="security-analytics-networkapplication-performance-management"></a>安全性分析、網路/應用程式效能管理
 
+- [醒著的安全性](https://awakesecurity.com/technology-partners/microsoft-azure/)
+- [Cisco Stealthwatch 雲端](https://blogs.cisco.com/security/cisco-stealthwatch-cloud-and-microsoft-azure-reliable-cloud-infrastructure-meets-comprehensive-cloud-security)
 - [ExtraHop Reveal(x)](https://www.extrahop.com/company/tech-partners/microsoft/)
 - [Fidelis Cybersecurity](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
+- [Flowmon](https://www.flowmon.com/blog/azure-vtap)
+- [NetFort LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
 - [Netscout vSTREAM]( https://www.netscout.com/technology-partners/microsoft/azure-vtap)
 - [Nubeva Prisms](https://www.nubeva.com/azurevtap)
 - [RSA NetWitness® Platform](https://www.rsa.com/azure)
@@ -59,7 +62,7 @@ Azure 虛擬網路 TAP (終端機存取點) 可讓您持續將虛擬機器網路
 
 用來對網路介面套用 TAP 設定的帳戶，必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或屬於已指派下表中必要動作的[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)：
 
-| 動作 | 名稱 |
+|  動作 | 名稱 |
 |---|---|
 | Microsoft.Network/virtualNetworkTaps/* | 必須有此動作，才能建立、更新、讀取和刪除虛擬網路 TAP 資源 |
 | Microsoft.Network/networkInterfaces/read | 必須有此動作，才能讀取要在其上設定 TAP 的網路介面資源 |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: d2e890110194b1fbe0528191fa645628cc3a1345
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 9da735f10063649222a38498af17e0404137a706
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161354"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315346"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>使用 Visual Studio Code 開發 C# Service Fabric 應用程式
 
@@ -70,11 +70,11 @@ sudo code . --user-data-dir='.'
 
    ![VS Code 中的部署應用程式命令](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-deploy-application.png)
 
-4. 部署完成時，請啟動瀏覽器並開啟 Service Fabric Explorer： http://localhost:19080/Explorer 。 您應該會看到應用程式正在執行。 這可能需要一些時間，請耐心等候。 
+4. 部署完成時，啟動瀏覽器，並開啟 Service Fabric Explorer: http:\//localhost:19080 / 總管。 您應該會看到應用程式正在執行。 這可能需要一些時間，請耐心等候。 
 
    ![Service Fabric Explorer 中的計數器服務應用程式](./media/service-fabric-develop-csharp-applications-with-vs-code/sfx-verify-deploy.png)
 
-4. 確認應用程式正在執行之後，請啟動瀏覽器並開啟此頁面： http://localhost:31002 。 這是應用程式的 Web 前端。 由於計數器的值會增加，請重新整理頁面以查看目前的值。
+4. 確認應用程式執行之後，啟動瀏覽器，並開啟此頁面： http:\//localhost:31002。 這是應用程式的 Web 前端。 由於計數器的值會增加，請重新整理頁面以查看目前的值。
 
    ![瀏覽器中的計數器服務應用程式](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
 
@@ -91,7 +91,7 @@ sudo code . --user-data-dir='.'
 
    ![VS Code 工作區中的偵錯圖示](./media/service-fabric-develop-csharp-applications-with-vs-code/debug-start.png)
 
-3. 在瀏覽器中開啟 Service Fabric Explorer： http://localhost:19080/Explorer 。 按一下 [應用程式] 並向下切入，以判斷其中正在執行 CounterService 的主要節點。 在下圖中，CounterService 的主要節點是「節點 0」。
+3. 在瀏覽器中開啟 Service Fabric Explorer: http:\//localhost:19080 / 總管。 按一下 [應用程式] 並向下切入，以判斷其中正在執行 CounterService 的主要節點。 在下圖中，CounterService 的主要節點是「節點 0」。
 
    ![CounterService 的主要節點](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-primary-node.png)
 

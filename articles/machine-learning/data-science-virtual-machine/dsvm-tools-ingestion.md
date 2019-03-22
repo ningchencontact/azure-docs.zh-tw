@@ -16,16 +16,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 824793c9897d7d728f621182a02a6092edc69e89
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 92ff5d21fc30d8fcafe97a2b452ff157a2cd5f86
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452374"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997035"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>資料科學虛擬機器資料擷取工具
 
-資料科學或 AI 專案中的第一個技術步驟是識別將使用的資料集，並將該資料集匯入分析環境。 資料科學虛擬機器 (DSVM) 提供工具和程式庫，可將不同來源的資料匯入 DSVM 本機的分析資料儲存體，或匯入雲端或內部部署的資料平台。 
+資料科學或 AI 專案中的第一個技術步驟是識別將使用的資料集，並將該資料集匯入分析環境。 資料科學虛擬機器 (DSVM) 提供工具和程式庫，才能匯入資料到分析資料儲存體在 DSVM 上的本機或在資料平台的不同來源從雲端或內部部署上。 
 
 以下是 DSVM 提供的一些資料移動工具。 
 

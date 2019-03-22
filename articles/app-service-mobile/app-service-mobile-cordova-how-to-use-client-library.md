@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: cddb3769cfc5a2ba002e19036d986f4165670dc1
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 3c22aab20a9260bfd21869f0b327211e2f3d8894
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962446"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004215"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>如何使用適用於 Azure Mobile Apps 的 Apache Cordova 用戶端程式庫
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "55962446"
 cordova plugin add cordova-plugin-ms-azure-mobile-apps
 ```
 
-如需有關建立 [第一個 Apache Cordova 應用程式]的詳細資訊，請參閱其文件。
+有关创建 [第一个 Apache Cordova 应用]的详细信息，请参阅相关文档。
 
 ## <a name="ionic"></a>設定 Ionic v2 應用程式
 
@@ -96,7 +96,7 @@ Azure App Service 支援使用各種外部識別提供者來驗證與授權應�
 1. 登入 [Azure 入口網站]
 2. 選取 [所有資源] 或 [應用程式服務]，然後按一下行動應用程式的名稱。
 3. 按一下 [工具] 
-4. 按一下 [觀察] 功能表中的 [資源總管]，然後按一下 [前往]。  新的視窗或索引標籤隨即開啟。
+4. 按一下 [觀察] 功能表中的 [資源總管]，然後按一下 [前往]。  会打开新窗口或选项卡。
 5. 在左側導覽中，展開網站的 [config]、[authsettings] 節點。
 6. 按一下 [編輯] 
 7. 尋找「allowedExternalRedirectUrls」元素。  它可能會設定為 null 或值陣列。  將此值變更為下列值︰
@@ -106,7 +106,7 @@ Azure App Service 支援使用各種外部識別提供者來驗證與授權應�
              "https://localhost:3000"
          ],
 
-    使用您服務的 URL 來取代 URL。  範例包括 "http://localhost:3000" (適用於 Node.js 範例服務) 或 "http://localhost:4400" (適用於 Ripple 服務)。  不過，這些 URL 都是範例 - 您的情況 (包括範例中提及的服務) 可能會有差異。
+    使用您服務的 URL 來取代 URL。  範例包括`http://localhost:3000`（適用於 Node.js 範例服務），或`http://localhost:4400`（適用於 Ripple 服務）。  不過，這些 URL 都是範例 - 您的情況 (包括範例中提及的服務) 可能會有差異。
 8. 按一下螢幕右上角的 [讀/寫]  按鈕。
 9. 按一下綠色 [PUT]  按鈕。
 
@@ -163,7 +163,7 @@ pushHandler.on('error', function (error) {
 });
 ```
 
-使用通知中樞 SDK 從伺服器傳送推播通知。  永遠不要直接從用戶端傳送推播通知。 這種方式會被用來對通知中樞或 PNS 觸發阻斷服務攻擊。  PNS 可能會因為這類攻擊而禁止您的流量。
+使用通知中樞 SDK 從伺服器傳送推播通知。  永遠不要直接從用戶端傳送推播通知。 這種方式會被用來對通知中樞或 PNS 觸發阻斷服務攻擊。  PNS 可能会因此类攻击而禁止相关流量。
 
 ## <a name="more-information"></a>詳細資訊
 
@@ -176,7 +176,7 @@ pushHandler.on('error', function (error) {
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
 [適用於 Azure Mobile Apps 的 Apache Cordova 外掛程式]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
-[第一個 Apache Cordova 應用程式]: https://cordova.apache.org/#getstarted
+[第一个 Apache Cordova 应用]: https://cordova.apache.org/#getstarted
 [phonegap-facebook-plugin]: https://github.com/wizcorp/phonegap-facebook-plugin
 [phonegap-plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device

@@ -11,12 +11,12 @@ ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
-ms.openlocfilehash: bb89c76fb19bff74d39d919c8d2e65d430cb0566
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: de61443da41f1015b2890e9052f38e25d3bed86a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817745"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551963"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>透過 Azure Logic Apps 中的 HTTP + Swagger 連接器呼叫 REST 端點
 
@@ -60,7 +60,7 @@ HTTP + Swagger 觸發程序和動作的功能與 [HTTP 動作](connectors-native
 
 3. 將 Swagger 檔案上傳至 Blob。 
 
-   您可以從 [Azure 入口網站](https://portal.azure.com)或 [Azure 儲存體總管](http://storageexplorer.com/)等工具執行這個步驟。
+   您可以從 [Azure 入口網站](https://portal.azure.com)或 [Azure 儲存體總管](https://storageexplorer.com/)等工具執行這個步驟。
 
 4. 參考 Azure Blob 儲存體中文件的 HTTPS 連結。 
 
@@ -74,14 +74,14 @@ HTTP + Swagger 觸發程序和動作的功能與 [HTTP 動作](connectors-native
 ## <a name="http--swagger-triggers"></a>HTTP + Swagger 觸發程序
 觸發程序是一個事件，可用來啟動邏輯應用程式中定義的工作流程。 [深入了解觸發程序。](connectors-overview.md)  HTTP + Swagger 連接器有一個觸發程序。
 
-| 觸發程序 | 說明 |
+| 觸發程序 | 描述 |
 | --- | --- |
 | HTTP + Swagger |進行 HTTP 呼叫並傳回回應內容 |
 
 ## <a name="http--swagger-actions"></a>HTTP + Swagger 動作
 動作是由邏輯應用程式中定義的工作流程所執行的作業。 [深入了解動作。](connectors-overview.md)  HTTP + Swagger 連接器有一個可能的動作。
 
-|  動作 | 說明 |
+|  動作 | 描述 |
 | --- | --- |
 | HTTP + Swagger |進行 HTTP 呼叫並傳回回應內容 |
 
@@ -92,19 +92,19 @@ HTTP + Swagger 連接器隨附一個可能的動作。 以下是關於每個動�
 在 Swagger 中繼資料的協助下提出 HTTP 輸出要求。
 星號 (*) 表示必要的欄位。
 
-| 顯示名稱 | 屬性名稱 | 說明 |
+| 顯示名稱 | 屬性名稱 | 描述 |
 | --- | --- | --- |
 | 方法 * |method |要使用的 HTTP 指令動詞。 |
 | URI* |uri |HTTP 要求的 URI。 |
 | headers |headers |要包含之 HTTP 標頭的 JSON 物件。 |
 | body |body |HTTP 要求本文。 |
-| 驗證 |驗證 |用於要求的驗證。 如需詳細資訊，請參閱 [HTTP 連接器](connectors-native-http.md#authentication)。 |
+| Authentication |驗證 |用於要求的驗證。 如需詳細資訊，請參閱 [HTTP 連接器](connectors-native-http.md#authentication)。 |
 
 **輸出詳細資料**
 
 HTTP 回應
 
-| 屬性名稱 | 資料類型 | 說明 |
+| 屬性名稱 | 資料類型 | 描述 |
 | --- | --- | --- |
 | headers |物件 |回應標頭 |
 | body |物件 |回應物件 |
@@ -113,14 +113,14 @@ HTTP 回應
 ### <a name="http-responses"></a>HTTP 回應
 呼叫不同動作時，您可能會收到特定回應。 下表概述對應的回應及說明。
 
-| Name | 說明 |
+| 名稱 | 描述 |
 | --- | --- |
 | 200 |OK |
 | 202 |已接受 |
 | 400 |不正確的要求 |
 | 401 |未經授權 |
 | 403 |禁止 |
-| 404 |找不到 |
+| 404 |未找到 |
 | 500 |內部伺服器錯誤。 發生未知錯誤。 |
 
 - - -

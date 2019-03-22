@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 66cef8369a314a76cf619e436cd25d6bdf628c45
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: be285b6a51ae5a0f4239b841ce64100f1875d785
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076296"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294343"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>管理記錄檔資料與 Azure 監視器中的工作區
 「Azure 監視器」會將記錄資料儲存在 Log Analytics 工作區中，這基本上是一個包含資料和設定資訊的容器。 若要管理對記錄資料的存取，您需執行與工作區相關的各種系統管理工作。 您或組織的其他成員可能會使用多個工作區來管理從所有或部分 IT 基礎結構收集而來的不同資料。
@@ -136,15 +136,6 @@ _存取控制模式_是每個工作區上設定，會定義如何決定該工作
 > [!NOTE]
 > 如果使用者具有工作區的資源權限，他們將只能存取工作區中使用[資源中心的模式](#access-modes)。
 
-
-### <a name="define-access-control-mode-in-azure-portal"></a>在 Azure 入口網站中定義的存取控制模式
-您可以檢視目前的工作區的存取控制模式**概觀**工作區中的頁面**Log Analytics 工作區**功能表。
-
-![檢視工作區的存取控制模式](media/manage-access/view-access-control-mode.png)
-
-您可以變更此設定上**屬性**工作區的頁面。 變更此設定將會停用，如果您沒有權限可設定的工作區。
-
-![變更工作區的存取模式](media/manage-access/change-access-control-mode.png)
 
 ### <a name="define-access-control-mode-in-azure-portal"></a>在 Azure 入口網站中定義的存取控制模式
 您可以檢視目前的工作區的存取控制模式**概觀**工作區中的頁面**Log Analytics 工作區**功能表。

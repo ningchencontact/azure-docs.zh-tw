@@ -7,20 +7,20 @@ ms.service: dns
 ms.topic: article
 ms.date: 11/3/2018
 ms.author: victorh
-ms.openlocfilehash: 2b14753237e118540da6306fa9f06816f3e58b71
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: b08eae072c2fbe420401424baf97a25b4cbbe87b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980176"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086321"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>在區域頂點裝載負載平衡的 Azure Web 應用程式
 
-DNS 通訊協定可防止在區域頂點指派 A 或 AAAA 記錄以外的任何項目。 範例區域頂點為 contoso.com。 此限制會為在流量管理員後面有負載平衡應用程式的應用程式擁有者帶來問題。 您無法從區域頂點記錄指向流量管理員設定檔。 因此，應用程式擁有者必須使用因應措施。 位於應用程式層的重新導向，必須從區域頂點重新導向至另一個網域。 例如，從 contoso.com 重新導向至 www.contoso.com。 此種安排會為重新導向功能帶來單一失敗點。
+DNS 通訊協定可防止在區域頂點指派 A 或 AAAA 記錄以外的任何項目。 範例區域頂點為 contoso.com。 此限制會為在流量管理員後面有負載平衡應用程式的應用程式擁有者帶來問題。 您無法從區域頂點記錄指向流量管理員設定檔。 因此，應用程式擁有者必須使用因應措施。 位於應用程式層的重新導向，必須從區域頂點重新導向至另一個網域。 例如，來自 contoso.com 的重新導向，www\.contoso.com。 此種安排會為重新導向功能帶來單一失敗點。
 
 透過別名記錄，此問題已不存在。 應用程式擁有者現在可以將其區域頂點記錄指向具有外部端點的流量管理員設定檔。 應用程式擁有者可以指向相同的流量管理員設定檔，以用於其 DNS 區域內的任何其他網域。
 
-例如，contoso.com 和 www.contoso.com 可以指向相同的流量管理員設定檔。 只要流量管理員設定檔僅設定外部端點，就是這種情況。
+例如，contoso.com 和 www\.contoso.com 可以指向相同的流量管理員設定檔。 只要流量管理員設定檔僅設定外部端點，就是這種情況。
 
 在本文中，您將了解如何建立網域頂點的別名記錄，並為 Web 應用程式設定流量管理員設定檔端點。
 
@@ -30,7 +30,7 @@ DNS 通訊協定可防止在區域頂點指派 A 或 AAAA 記錄以外的任何�
 
 必須提供可用的網域名稱，如此才能裝載於 Azure DNS 進行測試。 您必須擁有此網域的完整控制權。 完整控制權包括為網域設定名稱伺服器 (NS) 記錄的能力。
 
-關於在 Azure DNS 中裝載網域的指示，請參閱[教學課程：在 Azure DNS 中裝載您的網域](dns-delegate-domain-azure-dns.md)。
+將您的網域，在 Azure DNS 中裝載的指示，請參閱[教學課程：在 Azure DNS 上託管您的網域](dns-delegate-domain-azure-dns.md)。
 
 本教學課程使用的範例網域是 contoso.com，但請使用您自己的網域名稱。
 
@@ -45,8 +45,8 @@ DNS 通訊協定可防止在區域頂點指派 A 或 AAAA 記錄以外的任何�
 
 |名稱  |作業系統  |位置  |定價層  |
 |---------|---------|---------|---------|
-|ASP-01     |Windows|美國東部|開發/測試 D1-共用|
-|ASP-02     |Windows|美國中部|開發/測試 D1-共用|
+|ASP-01     | Windows|美國東部|開發/測試 D1-共用|
+|ASP-02     | Windows|美國中部|開發/測試 D1-共用|
 
 ## <a name="create-app-services"></a>建立應用程式服務
 
@@ -76,7 +76,7 @@ DNS 通訊協定可防止在區域頂點指派 A 或 AAAA 記錄以外的任何�
 
 在您的資源群組中建立流量管理員設定檔。 使用預設值，然後在 trafficmanager.net 命名空間內輸入唯一名稱。
 
-如需建立流量管理員設定檔的相關資訊，請參閱[快速入門：建立流量管理員設定檔以獲得高可用性的 Web 應用程式](../traffic-manager/quickstart-create-traffic-manager-profile.md)。
+建立流量管理員設定檔的相關資訊，請參閱[快速入門：建立高可用性的 web 應用程式的流量管理員設定檔](../traffic-manager/quickstart-create-traffic-manager-profile.md)。
 
 ### <a name="create-endpoints"></a>建立端點
 
@@ -94,7 +94,7 @@ DNS 通訊協定可防止在區域頂點指派 A 或 AAAA 記錄以外的任何�
 
 ## <a name="create-dns-zone"></a>建立 DNS 區域
 
-您可以使用現有的 DNS 區域進行測試，或者可建立新的區域。 若要在 Azure 中建立及委派新的 DNS 區域，請參閱[教學課程：在 Azure DNS 中裝載您的網域](dns-delegate-domain-azure-dns.md)。
+您可以使用現有的 DNS 區域進行測試，或者可建立新的區域。 若要建立及委派新的 DNS 區域，在 Azure 中，請參閱[教學課程：在 Azure DNS 上託管您的網域](dns-delegate-domain-azure-dns.md)。
 
 ### <a name="add-the-alias-record-set"></a>新增別名記錄集
 
@@ -141,6 +141,6 @@ DNS 通訊協定可防止在區域頂點指派 A 或 AAAA 記錄以外的任何�
 
 若要深入了解別名記錄，請參閱下列文章：
 
-- [教學課程：設定別名記錄來參考 Azure 公用 IP 位址](tutorial-alias-pip.md)
-- [教學課程：使用流量管理員來設定別名記錄以支援頂點網域名稱](tutorial-alias-tm.md)
+- [教學課程：設定別名記錄以參照 Azure 公用 IP 位址](tutorial-alias-pip.md)
+- [教學課程：使用流量管理員設定別名記錄以支援頂點網域名稱](tutorial-alias-tm.md)
 - [DNS 常見問題](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)

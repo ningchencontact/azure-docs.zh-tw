@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee5dc346def58ea7362a763d088145eb0d04a608
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 777fda4317abf431c83b7328084085841eb1f757
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656725"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007978"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -56,7 +56,7 @@ ms.locfileid: "34656725"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -206,7 +206,7 @@ ms.locfileid: "34656725"
 
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-shared-disk-on-azure"></a>在 Azure 上搭配 Windows Server 容錯移轉叢集和共用磁碟的 SAP ASCS/SCS 執行個體多重 SID 高可用性
 
-> ![Windows][Logo_Windows] Windows
+> ![ Windows][Logo_Windows]  Windows
 >
 
 Microsoft 在 2016 年 9 月發行的功能，可讓您使用 [Azure 內部負載平衡器][load-balancer-multivip-overview]管理多個虛擬 IP 位址。 這項功能已存在 Azure 外部負載平衡器。 
@@ -223,9 +223,9 @@ Microsoft 在 2016 年 9 月發行的功能，可讓您使用 [Azure 內部負�
 >一個 WSFC 叢集中 SAP ASCS/SCS 執行個體數目上限等於每個 Azure 內部負載平衡器的私人前端 IP 數目上限。
 >
 
-如需負載平衡器限制的詳細資訊，請參閱[網路限制：Azure Resource Manager][networking-limits-azure-resource-manager] 中的「每個負載平衡器的私人前端 IP」一節。
+如需負載平衡器限制的詳細資訊，請參閱[網路限制：Azure Resource Manager][networking-limits-azure-resource-manager] 中的「每個負載平衡器的私人前端 IP」。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 您已經使用**檔案共用**來設定要用於一個 SAP ASCS/SCS 執行個體的 WSFC 叢集，如下圖所示。
 
@@ -243,7 +243,7 @@ Microsoft 在 2016 年 9 月發行的功能，可讓您使用 [Azure 內部負�
 
 ![Azure 中多個 SAP ASCS/SCS 叢集執行個體][sap-ha-guide-figure-6002]
 
-如需負載平衡器限制的詳細資訊，請參閱[網路限制：Azure Resource Manager][networking-limits-azure-resource-manager] 中的「每個負載平衡器的私人前端 IP」一節。
+如需負載平衡器限制的詳細資訊，請參閱[網路限制：Azure Resource Manager][networking-limits-azure-resource-manager] 中的「每個負載平衡器的私人前端 IP」。
 
 具有兩個高度可用 SAP 系統的完整配置畫面如下所示：
 
@@ -279,7 +279,7 @@ Microsoft 在 2016 年 9 月發行的功能，可讓您使用 [Azure 內部負�
 您可以使用下列參數為 ASCS/SCS 執行個體的虛擬主機名稱建立 DNS 項目：
 
 | 新的 SAP ASCS/SCS 虛擬主機名稱 | 相關聯的 IP 位址 |
-| --- | --- | --- |
+| --- | --- |
 |pr5-sap-cl |10.0.0.50 |
 
 新的主機名稱和 IP 位址會顯示在 DNS 管理員中，如下列螢幕擷取畫面所示︰
@@ -385,7 +385,7 @@ Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$I
 
 執行下列動作：
 1. 將額外磁碟或大小相同的磁碟 (您需要等量的磁碟) 新增至每個叢集節點中，並將其格式化。
-2. 使用 SIOS DataKeeper 設定儲存體複寫。
+2. 使用 SIOS DataKeeper 配置存储复制。
 
 此程序假設您已在 WSFC 叢集機器上安裝了 SIOS DataKeeper。 如果已經安裝，您現在必須在電腦之間設定複寫。 [為 SAP ASCS/SCS 叢集共用磁碟安裝 SIOS DataKeeper Cluster Edition][sap-high-availability-infrastructure-wsfc-shared-disk-install-sios]會詳細描述此程序。  
 

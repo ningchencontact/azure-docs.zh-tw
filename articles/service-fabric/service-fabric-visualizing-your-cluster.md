@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: ba6a9a09945f0e822dfe02a74f2cdb8e21a1691c
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
-ms.translationtype: HT
+ms.openlocfilehash: 47b5e89164173869d6964e2c5e392bb99e0c8555
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674662"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317386"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>使用 Service Fabric 總管視覺化叢集
 
@@ -46,7 +46,7 @@ Service Fabric Explorer (SFX) 是開放原始碼工具，可檢查及管理 Azur
 
 ### <a name="running-service-fabric-explorer-from-the-cluster"></a>從叢集執行 Service Fabric Explorer
 
-Service Fabric Explorer 也裝載於 Service Fabric 叢集的 HTTP 管理端點。 若要在 Web 瀏覽器中啟動 SFX，您可以在任何瀏覽器中瀏覽至叢集的 HTTP 管理端點，例如 https://clusterFQDN:19080 。
+Service Fabric Explorer 也裝載於 Service Fabric 叢集的 HTTP 管理端點。 若要在 web 瀏覽器中啟動 SFX，瀏覽至叢集的 HTTP 管理端點從任何瀏覽器-例如 https:\//clusterFQDN:19080。
 
 針對開發人員工作站設定，您可以瀏覽至 https://localhost:19080/Explorer，在本機叢集上啟動 Service Fabric Explorer。 請參閱此文章以[準備您的開發環境](service-fabric-get-started.md)。
 
