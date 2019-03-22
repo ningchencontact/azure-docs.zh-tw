@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Site Recovery 為 Azure 區域間 Azure IaaS VM 進行災害復原的 Azure Site Recovery 支援矩陣 | Microsoft Docs
+title: 使用 Azure Site Recovery 的 Azure 區域之間的 Azure Vm 的災害復原的支援矩陣 |Microsoft Docs
 description: 摘要說明支援的作業系統，以及 Azure 虛擬機器 (VM) 的 Azure Site Recovery 複寫設定 (對於嚴重損壞修復 (DR) 需求，從一個區域複寫至另一個區域)。
 services: site-recovery
 author: rayne-wiselman
@@ -8,33 +8,33 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: raynew
-ms.openlocfilehash: 0dac046c359bb8affd69145c73a66cf4ac079012
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: b0fb84131f33d216e099978a7c9ba5481c1691d1
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287191"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312813"
 ---
-# <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>從一個 Azure 區域複寫至另一個區域的支援矩陣
+# <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Azure Vm 從一個區域複寫到另一個的支援矩陣
 
 本文摘要說明使用 [Azure Site Recovery](site-recovery-overview.md) 服務來部署災害復原，以將 Azure VM 從一個 Azure 區域複寫、容錯移轉及復原至另一個區域時，所支援的設定和元件。
 
 
 ## <a name="deployment-method-support"></a>部署方法的支援
 
-**部署方法** |  **支援 / 不支援**
+**部署** |  **支援**
 --- | ---
-**Azure 入口網站** | 支援
-**PowerShell** | [使用 PowerShell 進行 Azure 到 Azure 複寫](azure-to-azure-powershell.md)
-**REST API** | 支援
+**Azure 入口網站** | 支援。
+**PowerShell** | 支援。 [深入了解](azure-to-azure-powershell.md)
+**REST API** | 支援。
 **CLI** | 目前不支援
 
 
 ## <a name="resource-support"></a>資源支援
 
 **資源動作** | **詳細資料**
---- | --- 
-**在資源群組間移動保存庫** | 不支援
+--- | --- | ---
+**資源群組間移動保存庫** | 不支援
 **跨資源群組移動計算/儲存體/網路資源** | 不支援。<br/><br/> 如果您在 VM 複寫之後移動 VM 或是相關聯的元件 (例如儲存體/網路)，您必須停用該 VM 的複寫，然後再重新啟用複寫。
 **將 Azure VM 從某個訂用帳戶複寫至另一個以進行災害復原** | 在相同的 Azure Active Directory 租用戶中支援。
 **在支援的地理叢集 (在訂用帳戶內或跨訂用帳戶) 內移轉區域之間的 VM** | 在相同的 Azure Active Directory 租用戶中支援。
@@ -57,12 +57,12 @@ Azure Government    | US Gov 維吉尼亞州、US Gov 愛荷華州、US Gov 亞�
 
 >[!NOTE]
 >
-> - 對於**巴西南部區域**，您可以複寫並容錯移轉至下列其中一項：美國中南部、美國中西部、美國東部、美國東部 2、美國西部、美國西部 2 和美國中北部區域。 請注意，Site Recovery 只啟用巴西南部做為可保護虛擬機器的來源區域。 這不會做為任何 Azure 區域 (例如美國中南部) 的**目標 DR 區域**。 原因是因地理距離而觀察到的延遲，建議選取巴西南部以外的其他任何美洲區域。
->
-> - 如果您**看不見**您要**建立保存庫的區域**，請確定您的訂用帳戶具有可在該區域中建立資源的存取權。 例如︰如果您無法在法國南部中建立保存庫，則您的訂用帳戶沒有法國南部區域的存取權。 請將支援票證歸檔到問題類型「訂用帳戶管理」和問題類型「其他一般問題」之下，主旨為「將 XXX Azure 區域的訂用帳戶加入允許清單」
->
-> - 如果您在 **啟用複寫**的期間，於地理叢集內**看不到某個區域**，則請確定您的訂用帳戶具備在該區域中建立虛擬機器的存取權。 例如︰如果您想要保護法國中部到法國南部的虛擬機器，而且在區域下拉式清單下方看不到法國南部，則您的訂用帳戶沒有在該區域中部署 VM 的存取權。 請將支援票證歸檔到問題類型「訂用帳戶管理」和問題類型「其他一般問題」之下，主旨為「將 XXX Azure 區域的訂用帳戶加入允許清單」
-> - 您無法在先前所述的地理叢集之間選取區域。
+> - 針對**巴西南部**，您可以複寫並容錯移轉至這些區域：美國中南部、 美國中西部、 美國東部、 美國東部 2、 美國西部、 美國西部 2 和 North Central US。
+> - 巴西南部只可用來當做來源區域的 Vm 可以複寫使用 Site Recovery。 它無法做為目標區域。 這是因為延遲問題，因為地理距離。 
+> - 您可以使用您擁有適當的存取權的區域內。
+> - 如果未顯示您要在其中建立保存庫的區域，請確定您的訂用帳戶具有在該區域中建立資源的存取。 
+> - 如果您啟用複寫時，您無法看到地理叢集內的區域，，請確定您的訂用帳戶具有在該區域中建立 Vm 的權限。 
+
 
 
 ## <a name="cache-storage"></a>快取儲存體
@@ -195,7 +195,7 @@ OS 磁碟的大小上限 | 2048 GB | [深入了解](../virtual-machines/windows/
 適用於 Windows OS 的 Azure 磁碟加密 (ADE) | 支援啟用[使用 Azure AD 應用程式加密](https://aka.ms/ade-aad-app)的 VM |
 適用於 Linux OS 的 Azure 磁碟加密 (ADE) | 不支援 |
 熱新增/移除磁碟 | 不支援 | 如果您在 VM 上新增或移除資料磁碟，需要停用複寫，然後再次為 VM 啟用複寫。
-排除磁碟 | [透過 PowerShell 支援](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine) |   預設排除暫存磁碟。
+排除磁碟 | 支援。 您必須使用[Powershell](azure-to-azure-exclude-disks.md)設定。 |  根據預設排除暫存磁碟。
 儲存空間直接存取  | 支援損毀一致復原點。 不支援應用程式一致復原點。 |
 向外延展檔案伺服器  | 支援損毀一致復原點。 不支援應用程式一致復原點。 |
 LRS | 支援 |
@@ -203,17 +203,22 @@ GRS | 支援 |
 RA-GRS | 支援 |
 ZRS | 不支援 |
 非經常性和經常性儲存體 | 不支援 | 非經常性和經常性儲存體不支援虛擬機器磁碟
-適用於虛擬網路的 Azure 儲存體防火牆  | 支援 | 如果您要限制只有儲存體帳戶可以存取虛擬網路，請確定[「允許受信任的 Microsoft 服務」](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)。
+適用於虛擬網路的 Azure 儲存體防火牆  | 支援 | 如果虛擬網路的存取限於儲存體帳戶，啟用[允許信任的 Microsoft 服務](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)。
 一般用途 V2 儲存體帳戶 (經常性存取層和非經常性存取層) | 否 | 與一般用途 V1 儲存體帳戶相比，交易成本大幅增加
 
 >[!IMPORTANT]
-> 請務必遵守 [Linux](../virtual-machines/linux/disk-scalability-targets.md) 或 [Windows](../virtual-machines/windows/disk-scalability-targets.md) 虛擬機器的 VM 磁碟延展性和效能目標，以避免任何效能問題。 如果您遵循預設設定，Site Recovery 會根據來源設定建立所需的磁碟和儲存體帳戶。 如果您自訂並選取您自己的設定，請務必遵循您的來源 VM 磁碟延展性和效能目標。
+> 若要避免效能問題，請確定您遵循 VM 磁碟延展性和效能目標[Linux](../virtual-machines/linux/disk-scalability-targets.md)或是[Windows](../virtual-machines/windows/disk-scalability-targets.md) Vm。 如果您使用預設設定，Site Recovery 會建立所需的磁碟和儲存體帳戶，根據來源組態。 如果您自訂並選取您自己的設定，請依照您的來源 Vm 磁碟延展性和效能目標。
 
-## <a name="azure-site-recovery-limits-to-replicate-data-change-rates"></a>複寫資料變更率的 Azure Site Recovery 限制
-下表提供 Azure Site Recovery 限制。 上述限制是以我們的測試為基礎，但無法涵蓋所有可能的應用程式 I/O 組合。 實際的結果會隨著您的應用程式 I/O 混合而有所不同。 我們也應該注意有兩個需要考量的限制：每個磁碟資料變換率和每個虛擬機器資料變換率。
-例如，如果我們查看下表中的進階 P20 磁碟，則 Site Recovery 可為每個磁碟處理 5 MB/s 變換率，而每部 VM 最多五個這類磁碟，因為每部 VM 有 25 MB/秒整體變換率的限制。
+## <a name="limits-and-data-change-rates"></a>限制和資料變更率
 
-**複寫儲存體目標** | **平均來源磁碟 I/O 大小** |**平均來源磁碟資料變換** | **每日的來源磁碟資料變換總計**
+下表摘要說明 Site Recovery 限制。
+
+- 這些限制會根據我們的測試，但很明顯地不涵蓋所有可能的應用程式 I/O 組合。
+- 實際的結果可以根據您的應用程式 I/O 混合而而有所不同。
+- 有兩個需要考量，每個磁碟資料變換和每個虛擬機器資料變換限制。
+- 例如，如果我們使用下表中所述的進階 P20 磁碟 Site Recovery 可以處理 5 Mb 的每個磁碟，變換與最多五個這類磁碟的每個 VM，因為 25 MB/秒的變換總計每個 VM 限制。
+
+**儲存體目標** | **平均來源磁碟 I/O** |**平均來源磁碟資料變換** | **每日的來源磁碟資料變換總計**
 ---|---|---|---
 標準儲存體 | 8 KB | 2 MB/秒 | 每個磁碟 168 GB
 進階 P10 或 P15 磁碟 | 8 KB  | 2 MB/秒 | 每個磁碟 168 GB
@@ -222,7 +227,7 @@ ZRS | 不支援 |
 進階 P20、P30、P40 或 P50 磁碟 | 8 KB    | 5 MB/秒 | 每個磁碟 421 GB
 進階 P20、P30、P40 或 P50 磁碟 | 16 KB 或更大 |20 MB/秒 | 每個磁碟的 1684 GB
 ## <a name="replicated-machines---networking"></a>複寫的機器 - 網路
-**組態** | **支援** | **詳細資料**
+**設定** | **支援** | **詳細資料**
 --- | --- | ---
 NIC | 針對特定 Azure VM 大小支援的數目上限 | 在容錯移轉期間建立 VM 時，系統會建立 NIC。<br/><br/> 容錯移轉 VM 的 NIC 數目取決於啟用複寫時來源 VM 具有的 NIC 數量。 如果您在啟用複寫後新增或移除 NIC，不會影響容錯移轉後複寫 VM 上的 NIC 數目。
 網際網路負載平衡器 | 支援 | 使用復原方案中的 Azure 自動化指令碼，使預先設定的負載平衡器產生關聯。
@@ -235,15 +240,15 @@ NIC 上的 NSG | 支援 | 使用復原方案中的 Azure 自動化指令碼，�
 流量管理員     | 支援 | 您可以預先設定流量管理員，定期將流量傳輸到來源區域中的端點，如果發生容錯移轉，則傳輸到目標區域中的端點。
 Azure DNS | 支援 |
 自訂 DNS  | 支援 |
-未經驗證的 Proxy | 支援 | 请参阅[网络指南文档。](site-recovery-azure-to-azure-networking-guidance.md)    
+未經驗證的 Proxy | 支援 | [深入瞭解]。(site-recovery-azure-to-azure-networking-guidance.md)   
 經驗證的 Proxy | 不支援 | 如果 VM 對於輸出連線能力使用經驗證的 Proxy，則無法使用 Azure Site Recovery 加以複寫。    
-內部部署的網站對網站 VPN 與 (不論是否有 ExpressRoute)| 支援 | 請確定設定 UDR 和 NSG 時，站台復原流量不是傳送到內部部署的裝置。 請參閱[網路指引文件](site-recovery-azure-to-azure-networking-guidance.md)。  
-VNET 對 VNET 連線 | 支援 | 請參閱[網路指引文件](site-recovery-azure-to-azure-networking-guidance.md)。  
+在內部部署 VPN 站對站連線<br/><br/>（不論有無 ExpressRoute）| 支援 | 請確定設定 UDR 和 NSG 時，站台復原流量不是傳送到內部部署的裝置。 [深入了解](site-recovery-azure-to-azure-networking-guidance.md)    
+VNET 對 VNET 連線 | 支援 | [深入了解](site-recovery-azure-to-azure-networking-guidance.md)  
 虛擬網路服務端點 | 支援 | 如果您要限制只有儲存體帳戶可以存取虛擬網路，請確定受信任的 Microsoft 服務可以存取儲存體帳戶。
 加速網路 | 支援 | 必須在來源 VM 上啟用加速網路。 [深入了解](azure-vm-disaster-recovery-with-accelerated-networking.md)。
 
 
 
 ## <a name="next-steps"></a>後續步驟
-- 閱讀[複寫 Azure VM 的網路指引](site-recovery-azure-to-azure-networking-guidance.md)。
+- 讀取[網路指引](site-recovery-azure-to-azure-networking-guidance.md)針對複寫 Azure Vm。
 - 透過[複寫 Azure VM](site-recovery-azure-to-azure.md) 來部署災害復原。

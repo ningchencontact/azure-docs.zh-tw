@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f6e9641d106c40c061752b57744eda09aac157a5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: aad35aa7a958e8bdaf1479d1ffbbad5bf213d46a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821961"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339239"
 ---
 # <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>使用 Azure HDInsight 為 Apache Spark 進行疑難排解
 
@@ -23,7 +23,7 @@ ms.locfileid: "55821961"
 
 ### <a name="resolution-steps"></a>解決步驟
 
-此程序的設定值之前已在 HDInsight 中設定過。 若要判斷需要設定哪些 Spark 設定以及設為哪些值，請參閱造成 Apache Spark 應用程式 OutOfMemoryError 例外狀況的原因。 
+可微調 Spark 設定值有助於避免 Apache Spark 應用程式 OutofMemoryError 例外狀況。 下列步驟在 Azure HDInsight，Spark 設定值將顯示預設值： 
 
 1. 在叢集清單中選取 [Spark2]。
 
@@ -85,8 +85,7 @@ ms.locfileid: "55821961"
 
 ### <a name="additional-reading"></a>其他閱讀資料
 
-[Apache Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (提交 HDInsight 叢集上的 Apache Spark 作業)
-
+[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (提交 HDInsight 叢集上的 Apache Spark 作業)
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>如何使用 Jupyter Notebook 在叢集上設定 Apache Spark 應用程式？
 
@@ -100,7 +99,7 @@ ms.locfileid: "55821961"
 
 ### <a name="additional-reading"></a>其他閱讀資料
 
-[Apache Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (提交 HDInsight 叢集上的 Apache Spark 作業)
+[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (提交 HDInsight 叢集上的 Apache Spark 作業)
 
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-livy-on-clusters"></a>如何使用 Apache Livy 在叢集上設定 Apache Spark 應用程式？
@@ -117,8 +116,7 @@ ms.locfileid: "55821961"
 
 ### <a name="additional-reading"></a>其他閱讀資料
 
-[Apache Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (提交 HDInsight 叢集上的 Apache Spark 作業)
-
+[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (提交 HDInsight 叢集上的 Apache Spark 作業)
 
 ## <a name="how-do-i-configure-an-apache-spark-application-by-using-spark-submit-on-clusters"></a>如何使用 spark-submit 在叢集上設定 Apache Spark 應用程式？
 
@@ -134,7 +132,7 @@ ms.locfileid: "55821961"
 
 ### <a name="additional-reading"></a>其他閱讀資料
 
-[Apache Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (提交 HDInsight 叢集上的 Apache Spark 作業)
+[Apache Spark job submission on HDInsight clusters](https://web.archive.org/web/20190112152841/ https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (提交 HDInsight 叢集上的 Apache Spark 作業)
 
 
 ## <a name="what-causes-an-apache-spark-application-outofmemoryerror-exception"></a>造成 Apache Spark 應用程式 OutofMemoryError 例外狀況的原因為何？
@@ -205,12 +203,12 @@ java.lang.OutOfMemoryError
     spark.yarn.driver.memoryOverhead (Example: 384m for 384MB) 
     ```
 
-    若要計算所有執行程式使用的記憶體總計： 
+    若要計算所有執行程式所使用的記憶體總計： 
     
     ```apache
     spark.executor.instances * (spark.executor.memory + spark.yarn.executor.memoryOverhead) 
     ```
-   若要計算驅動程式使用的記憶體總計：
+   若要計算驅動程式所使用的總記憶體：
     
     ```apache
     spark.driver.memory + spark.yarn.driver.memoryOverhead
@@ -219,9 +217,8 @@ java.lang.OutOfMemoryError
 ### <a name="additional-reading"></a>其他閱讀資料
 
 - [Apache Spark 記憶體管理概觀](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
-- [Debug an Apache Spark application on an HDInsight cluster](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/) (在 HDInsight 叢集上偵錯 Apache Spark 應用程式)
+- [Debug an Apache Spark application on an HDInsight cluster](https://web.archive.org/web/20190112152909/ https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/) (在 HDInsight 叢集上偵錯 Apache Spark 應用程式)
 
 
-### <a name="see-also"></a>另請參閱
+### <a name="see-also"></a>另请参阅
 [使用 Azure HDInsight 進行疑難排解](../../hdinsight/hdinsight-troubleshoot-guide.md)
-

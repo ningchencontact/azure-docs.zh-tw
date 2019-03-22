@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 4dc50de7a97055e336627e34f747a17fcedc7e58
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 37a8882653ffede121d2e2cd3f3357741d8d641a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091540"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336417"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>使用 Azure HDInsight 對 Apache HBase 進行疑難排解
 
@@ -344,7 +344,7 @@ HMaster 逾時，並發生類似如下的嚴重例外狀況：「java.io.IOExcep
 
 ### <a name="issue"></a>問題
 
-區域伺服器上的重新啟動失敗可透過遵循最佳做法來加以防止。 建議您在計劃重新啟動 HBase 區域伺服器時暫停工作負載過重的活動。 如果進行關機時應用程式繼續與區域伺服器連線，區域伺服器重新啟動作業會變慢幾分鐘。 此外，先排清所有資料表也是不錯的做法。 如需如何排清資料表的參考，請參閱 [HDInsight HBase：如何藉由排清資料表來改善 Apache HBase 叢集重新啟動時間](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/)。
+區域伺服器上的重新啟動失敗可透過遵循最佳做法來加以防止。 建議您在計劃重新啟動 HBase 區域伺服器時暫停工作負載過重的活動。 如果進行關機時應用程式繼續與區域伺服器連線，區域伺服器重新啟動作業會變慢幾分鐘。 此外，先排清所有資料表也是不錯的做法。 如需如何排清資料表的參考，請參閱 [HDInsight HBase：如何藉由排清資料表來改善 Apache HBase 叢集重新啟動時間](https://web.archive.org/web/20190112153155/ https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/)。
 
 如果您從 Apache Ambari UI 對 HBase 區域伺服器起始重新啟動作業，您會立即看到區域伺服器關機，但未立即重新啟動。 
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: bdc8549f5f72d6098bf132d8395c9892170be9b0
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: a85fa543a6b26a5ea6452ce99fb91dc1ce465db7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245451"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545289"
 ---
 # <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>關於文字分析認知服務的常見問題集 (FAQ)
 
@@ -51,7 +51,7 @@ ms.locfileid: "56245451"
 
 您的問題是否與缺少特性或功能相關？ 請考慮在我們的 [UserVoice 網站](https://cognitive.uservoice.com/forums/555922-text-analytics)上要求或對它投票。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
  [StackOverflow：文字分析 API   
- [StackOverflow：認知服務](http://stackoverflow.com/questions/tagged/microsoft-cognitive)
+ [StackOverflow：認知服務](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

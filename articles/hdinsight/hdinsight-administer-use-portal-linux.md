@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: hrasheed
-ms.openlocfilehash: a0da4339586982f5210834bcec5acfe463bc1a9a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 3258f4d36d80c2a501e4ceba3b428128fc3f781b
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816436"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201002"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 HDInsight 中的 Apache Hadoop 叢集
 
@@ -56,7 +56,7 @@ ms.locfileid: "55816436"
     - **工具**：HDInsight 相關工具的說明資訊。
 
 - **[設定] 功能表**  
-  - **叢集大小**：檢查、增加和減少叢集背景工作節點的數目。 請參閱[調整叢集](hdinsight-administer-use-management-portal.md#scale-clusters)。
+  - **叢集大小**：檢查、增加和減少叢集背景工作節點的數目。 請參閱[調整叢集](hdinsight-administer-use-portal-linux.md#scale-clusters)。
   - **配額限制**︰顯示訂用帳戶的已使用和可用核心。
   - **SSH + 叢集登入**：顯示使用安全殼層 (SSH) 連線連接到叢集的指示。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
   - **Data Lake Storage Gen1**：設定存取 Data Lake Storage Gen1。  請參閱[快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
@@ -71,9 +71,9 @@ ms.locfileid: "55816436"
 
 - **[監視] 功能表**
   - **警示**：管理警示和動作。
-  - **計量**：監視 Azure Log Analytics 中的叢集計量。
+  - **計量**：監視 Azure 監視器記錄檔中的叢集計量。
   - **診斷設定**：要在其中儲存診斷計量的設定。
-  - **Operations Management Suite**：監視 Azure Operations Management Suite (OMS) 和 Azure Log Analytics 中的叢集。
+  - **Operations Management Suite**：監視 Azure Operations Management Suite (OMS) 」 和 「 Azure 監視器的記錄檔中的叢集。
 
 - **[支援 + 疑難排解] 功能表**
   - **資源健康狀態**：請參閱 [Azure 資源健康情況概觀](../service-health/resource-health-overview.md)。
@@ -186,7 +186,7 @@ ms.locfileid: "55816436"
 有許多方法可以設計程序：
 
 * 使用 Azure Data Factory。 如需建立隨選 HDInsight 連結服務，請參閱 [使用 Azure Data Factory 在 HDInsight 中建立 Linux 型隨選 Apache Handooop 叢集](hdinsight-hadoop-create-linux-clusters-adf.md)。
-* 使用 Azure PowerShell。  請參閱 [分析航班延誤資料](hdinsight-analyze-flight-delay-data.md)。
+* 使用 Azure PowerShell。  請參閱 [分析航班延誤資料](hdinsight-analyze-flight-delay-data-linux.md)。
 * 使用 Azure 傳統 CLI。 請參閱[使用 Azure CLI 管理 HDInsight 中的 Hadoop 叢集](hdinsight-administer-use-command-line.md)。
 * 使用 HDInsight .NET SDK。 請參閱[提交 Apache Hadoop 作業](hadoop/submit-apache-hadoop-jobs-programmatically.md)。
 
@@ -250,7 +250,7 @@ HDInsight 叢集可以有兩個使用者帳戶。 HDInsight 叢集使用者帳�
    | 欄位 | 值 |
    | --- | --- |
    | 指令碼類型 | 從下拉式清單中選取 [- 自訂]。|
-   | Name |「變更 SSH 密碼」 |
+   | 名稱 |「變更 SSH 密碼」 |
    | Bash 指令碼 URI |changepassword.sh 檔案的 URI |
    | 節點類型：(前端、背景工作、Nimbus、監督員、Zookeeper 等) |✓ 針對列出的所有節點類型 |
    | 參數 |輸入 SSH 使用者名稱，然後輸入密碼。 使用者名稱和密碼之間應該有一個空格。 |
@@ -258,7 +258,7 @@ HDInsight 叢集可以有兩個使用者帳戶。 HDInsight 叢集使用者帳�
 5. 按一下 [建立] 套用指令碼。 指令碼完成後，您可以使用 SSH 與新密碼連線到叢集。
 
 ## <a name="grantrevoke-access"></a>授與/撤銷存取權
-HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful 端點)：
+HDInsight 群集提供以下 HTTP Web 服务（所有这些服务都有 REST 样式的终结点）：
 
 * ODBC
 * JDBC

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/25/2019
 ms.author: juliako
-ms.openlocfilehash: 18c5e48b5f7dbf664b607b8b83473a914256590b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: eb7f368100269c4e47076bb6b78bafc23e7a6089
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104540"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57845598"
 ---
 # <a name="streaming-endpoints"></a>串流端點
 
@@ -33,13 +33,13 @@ ms.locfileid: "55104540"
 
 ## <a name="types"></a>類型  
 
-**StreamingEndpoint** 有兩種類型：「標準」和「進階」。 類型會根據您為串流端點配置的縮放單位數 (`scaleUnits`) 來定義。 
+有兩個**串流端點**類型：「標準」和「進階」。 類型會根據您為串流端點配置的縮放單位數 (`scaleUnits`) 來定義。 
 
 類型描述如下表所示：  
 
-|類型|縮放單位|說明|
+|類型|縮放單位|描述|
 |--------|--------|--------|  
-|**標準串流端點** (建議)|0|**標準**類型是幾乎所有串流案例和觀眾規模的建議選項。 **標準**類型會自動調整輸出頻寬。 <br/>針對需求極高的客戶，媒體服務提供**進階**串流端點，可用來相應增加容量，以因應極大量的網際網路觀眾。 如果您預期有大量觀眾和同時觀看人數，請透過 amsstreaming@microsoft.com 與我們連絡，以取得您否需要移至**進階**類型的指引。 |
+|**標準串流端點** (建議)|0|**標準**類型是幾乎所有串流案例和觀眾規模的建議選項。 **標準**類型會自動調整輸出頻寬。 <br/>媒體服務提供極高需求的客戶**Premium**串流端點，可用來向外延展的最大的網際網路對象的容量。 如果您預期大量對象和並行檢視者，與我們連絡 amsstreaming\@如需指引您是否需要移至 microsoft.com **Premium**型別。 |
 |**進階串流端點**|>0|**進階**串流端點適合進階工作負載，提供專用並能靈活調整的頻寬容量。 您可以藉由調整 `scaleUnits` 來移至**進階**類型。 `scaleUnits` 提供您專用的輸出容量，您可以透過每次增量 200 Mbps 的方式來購買。 使用**進階**類型時，每個啟用的單位會提供額外頻寬容量給應用程式。 |
 
 ## <a name="working-with-cdn"></a>使用 CDN
@@ -57,19 +57,58 @@ ms.locfileid: "55104540"
  
 ## <a name="properties"></a>properties 
 
-本節將詳細說明一些 StreamingEndpoint 的屬性。 如需如何建立新串流端點的範例及所有屬性的說明，請參閱[串流端點](https://docs.microsoft.com/rest/api/media/streamingendpoints/create)。 
+本節提供有關某些資料流的端點屬性的詳細資料。 如需如何建立新串流端點的範例及所有屬性的說明，請參閱[串流端點](https://docs.microsoft.com/rest/api/media/streamingendpoints/create)。 
 
-|屬性|說明|  
-|--------------|----------|
-|`accessControl`|用來設定此串流端點的下列安全性設定：Akamai 簽章標頭驗證金鑰和可以連線至此端點的 IP 位址。<br />此屬性可以在 `cdnEnabled`"` 設為 false 時進行設定。|  
-|`cdnEnabled`|指出此串流端點的 Azure CDN 整合是否已啟用 (預設為停用)。<br /><br /> 如果您將 `cdnEnabled` 設為 True，下列設定就會停用：`customHostNames` 和 `accessControl`。<br /><br />並非所有資料中心都支援 Azure CDN 整合。 若要檢查您的資料中心是否有 Azure CDN 整合，可執行下列動作：<br /><br /> - 試著將 `cdnEnabled` 設為 True。<br /><br /> - 查看 `HTTP Error Code 412` (PreconditionFailed) 的傳回結果，其中的訊息為「無法將串流端點的 CdnEnabled 屬性設定為 True，因為 CDN 功能不適用於目前的區域」。<br /><br /> 如果您收到此錯誤，表示資料中心不支援此功能。 您應該嘗試使用另一個資料中心。|  
-|`cdnProfile`|當 `cdnEnabled` 設為 True 時，您也可以傳遞 `cdnProfile` 值。 `cdnProfile` 是 CDN 設定檔的名稱，而該設定檔就是要建立 CDN 端點的位置。 您可以提供現有的 cdnProfile，或使用新的。 如果值為 NULL，而且 `cdnEnabled` 是 True，則會使用預設值 "AzureMediaStreamingPlatformCdnProfile"。 如果提供的 `cdnProfile` 已經存在，則會在其下方建立端點。 如果設定檔不存在，則會自動建立新的設定檔。|
-|`cdnProvider`|啟用 CDN 時，您也可以傳遞 `cdnProvider` 值。 `cdnProvider` 會控制將使用哪一個提供者。 目前支援三個值："StandardVerizon"、"PremiumVerizon" 和 "StandardAkamai"。 如果未提供任何值，而且 `cdnEnabled` 是 True，則會使用 "StandardVerizon" (也就是預設值)。|
-|`crossSiteAccessPolicies`|用來指定不同用戶端的跨網站存取原則。 如需詳細資訊，請參閱[跨網域原則檔案規格](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)和[使服務可跨網域界限使用](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx)。|  
-|`customHostNames`|用來將串流端點設定為可接受導向至自訂主機名稱的流量。 這可讓您透過全域流量管理員 (GTM) 進行較簡單的流量管理設定，以及使用品牌化的網域名稱作為串流端點名稱。<br /><br /> 網域名稱的擁有權必須通過 Azure 媒體服務的確認。 Azure 媒體服務會透過要求 `CName` 記錄包含 Azure 媒體服務帳戶識別碼，以作為要新增至使用中網域的元件，來驗證網域名稱的擁有權。 例如，若要將 "sports.contoso.com" 作為串流端點的自訂主機名稱，`<accountId>.contoso.com` 的記錄就必須設定為指向其中一個媒體服務驗證名稱。 驗證主機名稱會由 verifydns.\<mediaservices-dns-zone> 組成。 下表針對不同 Azure 區域，列出預期要在驗證記錄中使用的 DNS 區域。<br /><br /> 北美洲、歐洲、新加坡、香港特別行政區、日本：<br /><br /> - mediaservices.windows.net<br /><br /> - verifydns.mediaservices.windows.net<br /><br /> 中國：<br /><br /> - mediaservices.chinacloudapi.cn<br /><br /> - verifydns.mediaservices.chinacloudapi.cn<br /><br /> 例如，將 "945a4c4e-28ea-45cd-8ccb-a519f6b700ad.contoso.com" 對應到 "verifydns.mediaservices.windows.net" 的 `CName` 記錄，表示 Azure 媒體服務識別碼 945a4c4e-28ea-45cd-8ccb-a519f6b700ad 有 contoso.com 網域的擁有權，因此可讓 contoso.com 底下的任何名稱作為該帳戶底下串流端點的自訂主機名稱。<br /><br /> 若要尋找媒體服務識別碼的值，請前往 [Azure 入口網站](https://portal.azure.com/)，然後選取您的媒體服務帳戶。 媒體服務識別碼會出現在 [儀表板] 頁面的右側。<br /><br /> **警告**：如果有人嘗試設定自訂主機名稱，但沒有適當的 `CName` 記錄驗證，則 DNS 回應會失敗，然後快取會執行一段時間。 當適當的記錄就緒後，可能需要等待一段時間，才會重新驗證快取的回應。 視自訂網域的 DNS 提供者而定，重新驗證記錄可能會花費幾分鐘到一小時的時間。<br /><br /> 除了將 `<accountId>.<parent domain>` 對應到 `verifydns.<mediaservices-dns-zone>` 的 `CName`，您必須建立另一個 `CName`，將自訂主機名稱 (例如，`sports.contoso.com`) 對應到您的媒體服務 StreamingEndpont 主機名稱 (例如，`amstest.streaming.mediaservices.windows.net`)。<br /><br /> **注意**：如果串流端點位於相同的資料中心內，則不能共用相同的自訂主機名稱。<br /> 此屬性僅適用於標準和進階串流端點，而且可以在 "cdnEnabled" 設為 False 時進行設定<br/><br/> 目前 AMS 不支援使用 SSL 搭配自訂網域。  |  
-|`maxCacheAge`|覆寫媒體片段和隨選資訊清單上預設的 max-age HTTP 快取控制標頭 (由串流端點設定)。 此值的設定會以秒為單位。|
-|`resourceState`|屬性的值包括：<br /><br /> - 已停止。 串流端點建立之後的初始狀態。<br /><br /> - 啟動中。 串流端點正在轉換為執行中狀態。<br /><br /> - 執行中。 串流端點可將內容串流至用戶端。<br /><br /> - 正在調整大小。 縮放單位正在增加或減少。<br /><br /> - 停止中。 串流端點正在轉換為已停止狀態。<br/><br/> - 刪除中。 正在刪除串流端點。|
-|`scaleUnits `|scaleUnits 提供您專用的輸出容量，您可以透過每次增量 200 Mbps 的方式來購買。 如果您需要移至**進階**類型，請調整 `scaleUnits`。 |
+- `accessControl` -用來設定此串流端點的下列安全性設定：Akamai 簽章標頭驗證金鑰和可以連線至此端點的 IP 位址。<br />這個屬性時可以進行設定`cdnEnabled`設為 false。
+- `cdnEnabled` -指出此串流端點的 Azure CDN 整合已啟用 （預設為停用）。 如果您將 `cdnEnabled` 設為 True，下列設定就會停用：`customHostNames` 和 `accessControl`。
+  
+    並非所有資料中心都支援 Azure CDN 整合。 若要檢查您的資料中心有可用的 Azure CDN 整合，請執行下列作業：
+ 
+  - 嘗試設定`cdnEnabled`設為 true。
+  - 檢查傳回的結果，如`HTTP Error Code 412`(PreconditionFailed) 的訊息為 「 資料流端點 CdnEnabled 屬性無法設定為 true，因為 CDN 功能不適用於目前的區域。 」 
+
+    如果您收到此錯誤，表示資料中心不支援此功能。 您應該嘗試使用另一個資料中心。
+- `cdnProfile` -當`cdnEnabled`設為 true，您也可以傳遞`cdnProfile`值。 `cdnProfile` 是 CDN 設定檔的名稱，而該設定檔就是要建立 CDN 端點的位置。 您可以提供現有的 cdnProfile，或使用新的。 如果值為 NULL，而且 `cdnEnabled` 是 True，則會使用預設值 "AzureMediaStreamingPlatformCdnProfile"。 如果提供的 `cdnProfile` 已經存在，則會在其下方建立端點。 如果沒有設定檔，新的設定檔會自動建立。
+- `cdnProvider` -當啟用 CDN 時，您也可以傳遞`cdnProvider`值。 `cdnProvider` 會控制將使用哪一個提供者。 目前支援三個值："StandardVerizon"、"PremiumVerizon" 和 "StandardAkamai"。 如果未不提供任何值和`cdnEnabled`為 true，使用"StandardVerizon"（也就是預設值）。
+- `crossSiteAccessPolicies` -用來指定各種用戶端的跨網站存取原則。 如需詳細資訊，請參閱[跨網域原則檔案規格](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)和[使服務可跨網域界限使用](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx)。
+- `customHostNames` -用來設定串流端點，以接受流量導向至自訂主機名稱。  這個屬性僅適用於標準及進階串流端點，而且可以設定當`cdnEnabled`: false。
+    
+    媒體服務，必須確認網域名稱的擁有權。 媒體服務透過要求驗證網域名稱擁有權`CName`筆記錄，內含的媒體服務帳戶識別碼做為要加入至使用中網域的元件。 例如，若要將 "sports.contoso.com" 作為串流端點的自訂主機名稱，`<accountId>.contoso.com` 的記錄就必須設定為指向其中一個媒體服務驗證名稱。 驗證主機名稱會由 verifydns.\<mediaservices-dns-zone> 組成。 
+
+    以下是預期的 DNS 區域，用於不同 Azure 區域的驗證記錄。
+  
+  - 北美洲、歐洲、新加坡、香港特別行政區、日本：
+      
+    - `media.azure.net`
+    - `verifydns.media.azure.net`
+      
+  - 中國：
+        
+    - `mediaservices.chinacloudapi.cn`
+    - `verifydns.mediaservices.chinacloudapi.cn`
+        
+    比方說， `CName` "945a4c4e-28ea-45 cd-8ccb-a519f6b700ad 具有"到"verifydns.media.azure.net 」 會將對應的記錄可證明 Media Services 識別碼 945a4c4e-28ea-45cd-8ccb-a519f6b700ad 因此具有 contoso.com 網域的擁有權啟用要使用該帳戶下的串流端點的自訂主機名稱為 contoso.com 下的任何名稱。 若要尋找媒體服務識別碼的值，請前往 [Azure 入口網站](https://portal.azure.com/)，然後選取您的媒體服務帳戶。 **帳戶識別碼**出現在最上方的頁面。
+        
+    如果有人嘗試設定自訂主機名稱，但沒有適當的 `CName` 記錄驗證，則 DNS 回應會失敗，然後快取會執行一段時間。 當適當的記錄就緒後，可能需要等待一段時間，才會重新驗證快取的回應。 視自訂網域的 DNS 提供者而定，重新驗證記錄可能會花費幾分鐘到一小時的時間。
+        
+    除了`CName`存取子可對應`<accountId>.<parent domain>`來`verifydns.<mediaservices-dns-zone>`，您必須建立另一個`CName`對應自訂主機名稱 (比方說， `sports.contoso.com`) 您媒體服務串流端點的主機名稱 (例如`amstest-usea.streaming.media.azure.net`).
+ 
+    > [!NOTE]
+    > 串流端點位於相同資料中心內，不能共用相同的自訂主機名稱。
+
+    目前，媒體服務不支援的自訂網域的 SSL。 
+    
+- `maxCacheAge` -覆寫預設最大壽命 HTTP 快取控制標頭在媒體片段和隨選資訊清單的串流端點所設定。 此值的設定會以秒為單位。
+- `resourceState` -
+
+    - 已停止-串流端點建立之後的初始狀態
+    - 啟動-正在轉換為執行中狀態
+    - 執行-可將內容串流至用戶端
+    - 縮放-正在單位相應增加或減少
+    - 停止-正在轉換至已停止的狀態
+    - Deleting-正在刪除
+    
+- `scaleUnits ` -提供您專用的傳出功能，可以以 200 Mbps 為增量來購買。 如果您需要移至**進階**類型，請調整 `scaleUnits`。
 
 ## <a name="next-steps"></a>後續步驟
 

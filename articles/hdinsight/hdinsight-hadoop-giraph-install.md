@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4bcd7bcef0969cec82d42ead6307e72a3abea6e1
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 3b46acfbfd77015193135d1a8c7646c331340145
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978863"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200645"
 ---
 # <a name="install-and-use-apache-giraph-on-windows-based-hdinsight-clusters"></a>在 Windows 型 HDInsight 叢集上安裝和使用 Apache Giraph
 
@@ -29,26 +29,26 @@ ms.locfileid: "55978863"
 **相關文章**
 
 * [在 HDInsight Hadoop 叢集上安裝 Apache Giraph (Linux)](hdinsight-hadoop-giraph-install-linux.md)
-* [在 HDInsight 中建立 Apache Hadoop 叢集](hdinsight-provision-clusters.md)：有關建立 HDInsight 叢集的一般資訊。
-* [使用指令碼動作來自訂 HDInsight 叢集][hdinsight-cluster-customize]：關於使用指令碼動作來自訂 HDInsight 叢集的一般資訊。
+* [使用 Hadoop、Spark 及 Kafka 等在 HDInsight 中設定叢集](hdinsight-provision-clusters.md)：建立 HDInsight 叢集的一般資訊。
+* [來自訂 HDInsight 叢集使用指令碼動作][hdinsight 叢集-自訂]: 自訂 HDInsight 叢集使用指令碼動作的一般資訊。
 * [開發 HDInsight 的指令碼動作指令碼](hdinsight-hadoop-script-actions.md)
 
 ## <a name="what-is-giraph"></a>什麼是 Giraph？
-<a href="https://giraph.apache.org/" target="_blank">Apache Giraph</a> 可讓您利用 Hadoop 執行圖形處理，且可以搭配 Azure HDInsight 一起使用。 圖形可以模型化物件之間的關聯，例如大型網路 (像是網際網路) 上的路由器之間的連線，或社交網路上的人際關係 (有時稱為社交圖形)。 圖形處理可讓您分析圖形中物件之間的關聯，例如：
+<a href="https://giraph.apache.org/" target="_blank">Apache Giraph</a> 可讓您利用 Hadoop 執行圖形處理，且可以搭配 Azure HDInsight 一起使用。 图形可为对象之间的关系建模，例如，为 Internet 之类的大型网络上的路由器之间的连接建模，或者为社交网络上的人物之间的关系建模（有时称为社交图形）。 圖形處理可讓您分析圖形中物件之間的關聯，例如：
 
 * 根據目前的人際關係找出可能的朋友。
 * 識別網路中兩台電腦之間的最短路線。
-* 計算網頁的頁面排名。
+* 计算网页的排名。
 
-## <a name="install-giraph-using-portal"></a>使用入口網站安裝 Giraph
+## <a name="install-giraph-using-portal"></a>使用门户安装 Giraph
 1. 使用 [自訂建立] 選項，依[在 HDInsight 中建立 Hadoop 叢集](hdinsight-provision-clusters.md)中的描述開始建立叢集。
-2. 在精靈的 [指令碼動作] 頁面上，按一下 [加入指令碼動作] 以提供有關指令碼動作的詳細資料，如下所示：
+2. 在向导的“脚本操作”页上，单击“添加脚本操作”，提供有关脚本操作的详细信息，如下所示：
 
     ![使用指令碼動作以自訂叢集](./media/hdinsight-hadoop-giraph-install/hdi-script-action-giraph.png "使用指令碼動作以自訂叢集")
 
     |屬性|值|  
     |---|---|  
-    |Name|指定指令碼動作的名稱。 例如，**安裝 Giraph**|
+    |名稱|指定指令碼動作的名稱。 例如，**安裝 Giraph**|
     |指令碼 URI|指定為自訂叢集叫用的指令碼統一資源識別項 (URI)。 例如，*https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1*|
     |節點類型|指定執行自訂指令碼的節點。 您可以選擇 [所有節點]、[僅限前端節點] 或 [僅限背景工作節點]。
     |參數|如果指令碼要求，請指定參數。 要安裝 Giraph 的指令碼不需要任何參數，因此可以讓此處空白。|  
@@ -58,7 +58,7 @@ ms.locfileid: "55978863"
 ## <a name="use-giraph"></a>使用 Giraph
 我們使用 SimpleShortestPathsComputation 範例來示範在圖形中的物件之間找出最短路徑的基本<a href = "https://people.apache.org/~edwardyoon/documents/pregel.pdf">Pregel</a> 實作。 請使用下列步驟來上傳範例資料及範例 jar，使用 SimpleShortestPathsComputation 範例執行工作，然後檢視結果。
 
-1. 將範例資料檔案上傳至 Azure Blob 儲存體。 在本機工作站上，建立名為 **tiny_graph.txt** 的新檔案。 應該包含下列幾行：
+1. 將範例資料檔案上傳至 Azure Blob 儲存體。 在本機工作站上，建立名為 **tiny_graph.txt** 的新檔案。 该文件应该包含以下几行：
 
         [0,0,[[1,1],[3,3]]]
         [1,0,[[0,1],[2,2],[3,1]]]
@@ -70,14 +70,14 @@ ms.locfileid: "55978863"
 
     這項資料會使用 [source_id, source_value,[[dest_id], [edge_value],...]][source\_id, source\_value,[[dest\_id], [edge\_value],...]] 格式，描述一個有向圖形中物件之間的關聯性。每一行代表 **source\_id** 物件和一或多個 **dest\_id** 物件之間的關聯性。 **edge\_value** (或權數) 可以視為 **source_id** 和 **dest\_id** 之間的連線強度或距離。
 
-    如果使用值 (或權數) 當做物件之間的距離繪製出來，上述資料可能如下圖所示：
+    使用表示对象间距离的值（或权重）绘制图形后，上述数据可能与下面类似。
 
-    ![tiny_graph.txt drawn as circles with lines of varying distance between](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
+    ![tiny_graph.txt 中的对象绘制为圆圈，线条表示对象之间的不同距离](./media/hdinsight-hadoop-giraph-install/giraph-graph.png)
 
 2. 執行 SimpleShortestPathsComputation 範例。 使用 tiny_graph.txt 檔案做為輸入，即可使用下列 Azure PowerShell Cmdlet 來執行此範例。
 
     > [!IMPORTANT]  
-    > 使用 Azure Service Manager 管理 HDInsight 資源的 Azure PowerShell 支援已**被取代**，並已在 2017 年 1 月 1 日移除。 本文件中的步驟會使用可與 Azure Resource Manager 搭配使用的新 HDInsight Cmdlet。
+    > 使用 Azure Service Manager 管理 HDInsight 资源的 Azure PowerShell 支持**已弃用**，已在 2017 年 1 月 1 日删除。 本文件中的步驟會使用可與 Azure Resource Manager 搭配使用的新 HDInsight Cmdlet。
     >
     > 請遵循 [安裝和設定 Azure PowerShell](/powershell/azureps-cmdlets-docs) 中的步驟來安裝最新版的 Azure PowerShell。 如果您需要修改指令碼才能使用適用於 Azure Resource Manager 的新 Cmdlet，請參閱 [移轉至以 Azure Resource Manager 為基礎的開發工具 (適用於 HDInsight 叢集)](hdinsight-hadoop-development-using-azure-resource-manager.md) ，以取得詳細資訊。
 
@@ -135,7 +135,7 @@ ms.locfileid: "55978863"
 
         Cat example/output/shortestpaths/part*
 
-    輸出應該如下所示：
+    输出应如下所示：
 
         0    1.0
         4    5.0
@@ -150,18 +150,17 @@ ms.locfileid: "55978863"
     ![Drawing of objects as circles with shortest paths drawn between](./media/hdinsight-hadoop-giraph-install/giraph-graph-out.png)
 
 ## <a name="install-giraph-using-azure-powershell"></a>使用 Azure PowerShell 安裝 Giraph
-請參閱[使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)。  此範例示範如何使用 Azure PowerShell 安裝 Apache Spark。 您需要自訂指令碼以使用 [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1)。
+請參閱[使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。  此範例示範如何使用 Azure PowerShell 安裝 Apache Spark。 您需要自訂指令碼以使用 [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1)。
 
 ## <a name="install-giraph-using-net-sdk"></a>使用 .NET SDK 安裝 Giraph
-請參閱[使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)。 此範例示範如何使用 .NET SDK 安裝 Spark。 您需要自訂指令碼以使用 [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1)。
+請參閱[使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。 此範例示範如何使用 .NET SDK 安裝 Spark。 您需要自訂指令碼以使用 [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [在 HDInsight Hadoop 叢集上安裝 Apache Giraph (Linux)](hdinsight-hadoop-giraph-install-linux.md)
-* [在 HDInsight 中建立 Apache Hadoop 叢集](hdinsight-provision-clusters.md)：有關建立 HDInsight 叢集的一般資訊。
-* [使用指令碼動作來自訂 HDInsight 叢集][hdinsight-cluster-customize]：關於使用指令碼動作來自訂 HDInsight 叢集的一般資訊。
+* [使用 Hadoop、Spark 及 Kafka 等在 HDInsight 中設定叢集](hdinsight-provision-clusters.md)：建立 HDInsight 叢集的一般資訊。
+* [自訂 HDInsight 叢集使用指令碼動作](hdinsight-hadoop-customize-cluster-linux.md)： 自訂 HDInsight 叢集使用指令碼動作的一般資訊。
 * [開發 HDInsight 的指令碼動作指令碼](hdinsight-hadoop-script-actions.md)
 * [在 HDInsight 叢集上安裝和使用 Apache Spark][hdinsight-install-spark]：關於安裝 Spark 的指令碼動作範例。
-* [在 HDInsight 叢集上安裝 Apache Solr](hdinsight-hadoop-solr-install.md)：關於安裝 Solr 的指令碼動作範例。
 
 [tools]: https://github.com/Blackmist/hdinsight-tools
 [aps]: https://azure.microsoft.com/documentation/articles/install-configure-powershell/
@@ -169,4 +168,3 @@ ms.locfileid: "55978863"
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
-[hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md

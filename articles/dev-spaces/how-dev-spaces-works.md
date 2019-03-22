@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: 該 power Azure 開發人員空格和 azds.yaml 組態檔中的設定方式說明的程序
 keywords: azds.yaml，Azure 開發人員空格、 開發空格、 Docker、 Kubernetes、 Azure，AKS，Azure Kubernetes Service，容器
-ms.openlocfilehash: 4d0b2d24335b03fb1afc729e4cb8f7fc07f8a77e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8d17be31acc6868399e8f785255d28fa2314d48c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457333"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316111"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure 開發空間的運作方式，並已設定
 
@@ -59,7 +59,7 @@ Azure 的 Dev 空間有兩個不同的元件，與您互動： 控制器和用�
 
 當您的應用程式執行時，用戶端也工具：
 * 接收並顯示 stdout 和 stderr，從您在 AKS 中執行的應用程式。
-* 會使用[連接埠轉送](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/)允許網頁存取您的應用程式使用 http://locahost。
+* 會使用[連接埠轉送](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/)允許網頁存取您的應用程式使用 http:\//localhost。
 * 將偵錯工具附加至執行中應用程式在 AKS 中。
 * 累加建置，即可快速反覆偵測到變更時，同步處理來源到您的開發空間的程式碼。
 

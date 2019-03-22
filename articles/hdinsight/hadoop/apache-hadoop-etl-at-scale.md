@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 7897c677df38bb9b71222730a8b6a9ea11fb40bc
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: c200ca98f2a5ea32886ec12d3e732af6598254f7
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912658"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337607"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>大規模擷取、轉換和載入 (ETL)
 
@@ -128,7 +128,7 @@ Sqoop 使用 MapReduce 來匯入和匯出資料，可提供平行作業和容錯
 
 Apache Flume 是一個分散式、可靠且可用的服務，可有效率地收集、彙總及移動大量的記錄資料。 Flume 具有以串流資料流程為基礎的簡單彈性架構。 Flume 提供可微調的可靠性機制及許多容錯移轉與復原機制，既健全又能容錯。 Flume 使用已將線上分析應用程式納入考量的簡單可延伸資料模型。
 
-Apache Flume 無法與 Azure HDInsight 搭配使用。  內部部署 Hadoop 安裝可以使用 Flume，將資料傳送至 Azure 儲存體 Blob 或 Azure Data Lake Storage。  如需詳細資訊，請參閱[搭配 HDInsight 使用 Apache Flume](https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/) \(英文\)。
+Apache Flume 無法與 Azure HDInsight 搭配使用。  內部部署 Hadoop 安裝可以使用 Flume，將資料傳送至 Azure 儲存體 Blob 或 Azure Data Lake Storage。  如需詳細資訊，請參閱[搭配 HDInsight 使用 Apache Flume](https://web.archive.org/web/20190217104751/ https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/) \(英文\)。
 
 ## <a name="transform"></a>轉換
 

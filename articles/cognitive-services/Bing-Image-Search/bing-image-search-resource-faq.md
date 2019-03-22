@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: troubleshooting
-ms.date: 10/06/2017
+ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: af592e47d443caac23a3ba51a8e4b37fec069bc9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: a6d5d7b3ab83c8e405c6866562b4095434b9acff
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876482"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539015"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Bing 影像搜尋 API 的常見問題集 (FAQ)
 
@@ -63,6 +63,6 @@ ms.locfileid: "55876482"
 
 您的問題是否與缺少特性或功能相關？ 請考慮在我們的 [User Voice 網站](https://cognitive.uservoice.com/forums/555907-bing-search)上要求或對它投票。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
- Stack Overflow：認知服務](http://stackoverflow.com/questions/tagged/bing-api)
+ Stack Overflow：認知服務](https://stackoverflow.com/questions/tagged/bing-api)

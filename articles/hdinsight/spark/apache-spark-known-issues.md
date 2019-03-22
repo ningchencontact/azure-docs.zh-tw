@@ -9,14 +9,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 69a07499b5d29fb3b8d8473c85ca345aa7ce60ac
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: fd2e253d88d6cddddd35dc75c8b746e906407cb5
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330359"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337259"
 ---
-# <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>HDInsight 上的 Apache Spark 叢集已知問題
+# <a name="known-issues-for-apache-spark-cluster-on-hdinsight"></a>HDInsight 上的 Apache Spark 群集的已知问题
 
 這份文件記錄 HDInsight Spark 公開預覽版本的所有已知問題。  
 
@@ -68,7 +68,7 @@ HDInsight Spark 叢集不支援 Spark-Phoenix 連接器。
 
 **緩和：**
 
-您必須改用 Spark-HBase 連接器。 如需指示，請參閱[如何使用 Spark-HBase 連接器](https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/)。
+您必須改用 Spark-HBase 連接器。 如需指示，請參閱[如何使用 Spark-HBase 連接器](https://web.archive.org/web/20190112153146/ https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/)。
 
 ## <a name="issues-related-to-jupyter-notebooks"></a>Jupyter Notebook 的相關問題
 以下是 Jupyter Notebook 的已知問題。
@@ -81,7 +81,7 @@ HDInsight Spark 叢集不支援 Spark-Phoenix 連接器。
 
 **緩和：**
 
-如果您收到這個錯誤，並不表示您的資料已損毀或遺失。  您的 Notebook 仍在磁碟的 `/var/lib/jupyter`中，您可以透過 SSH 連線到叢集來加以存取。 如需相關資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
+如果您收到這個錯誤，並不表示您的資料已損毀或遺失。  笔记本仍在磁盘上的 `/var/lib/jupyter` 中，可以通过 SSH 连接到群集来访问它。 如需相關資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 在您使用 SSH 連線到叢集之後，您可以從叢集中將 Notebook 複製到本機電腦 (使用 SCP 或 WinSCP) 來做為備份，以避免遺失 Notebook 中的重要資料。 您接著可以在連接埠 8001 以 SSH 通道連到前端節點，以存取 Jupyter 而不透過閘道。  您可以從該處清除 Notebook 的輸出，並將其重新儲存，以盡量縮減 Notebook 的大小。
 
@@ -108,7 +108,7 @@ HDInsight Spark 叢集不支援 Spark-Phoenix 連接器。
    * 從 YARN 停止其他 Spark 應用程式。
 2. 重新啟動您先前嘗試啟動的 Notebook。 此時您應有足夠的資源可建立工作階段。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>案例
@@ -130,6 +130,6 @@ HDInsight Spark 叢集不支援 Spark-Phoenix 連接器。
 * [在電腦上安裝 Jupyter 並連接到 HDInsight Spark 叢集](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>管理資源
-* [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
+* [管理 Azure HDInsight 中 Apache Spark 群集的资源](apache-spark-resource-manager.md)
 * [追蹤和偵錯在 HDInsight 中的 Apache Spark 叢集上執行的作業](apache-spark-job-debugging.md)
 

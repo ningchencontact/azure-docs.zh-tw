@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: 3ce385149de58b185f296191bbed0f16b5331c1f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: b3eb7995dac1adf3053d28b40cf322e78c69c55f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469809"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001324"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>使用流量管理員根據使用者子網路將流量導向特定端點
 
@@ -52,12 +52,13 @@ ms.locfileid: "54469809"
 
     |設定|值|
     |---|---|
-    |Name|myIISVMEastUS|
+    |名稱|myIISVMEastUS|
     |使用者名稱| 輸入您選擇的使用者名稱。|
     |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |資源群組| 選取 [新增]，然後輸入 myResourceGroupTM1。|
     |位置| 選取 [美國東部]。|
     |||
+
 4. 在 [選擇大小] 底下選取虛擬機器大小。
 5. 針對 [設定] 選取下列值，然後選取 [確定]：
     
@@ -67,6 +68,7 @@ ms.locfileid: "54469809"
     |網路安全性群組|選取 [基本]，然後在 [選取公用輸入連接埠] 下拉式清單中，選取 **HTTP** 和 **RDP** |
     |開機診斷|選取 [已停用]。|
     |||
+
 6. 在 [摘要] 的 [建立] 底下，選取 [建立] 來開始部署虛擬機器。
 
 7. 以下列變更再次完成步驟 1-6：
@@ -78,6 +80,7 @@ ms.locfileid: "54469809"
     |虛擬機器名稱 | myIISVMWEurope|
     |虛擬網路 | 選取 [虛擬網路]，在 [建立虛擬網路] 中，針對 [名稱] 輸入 *myVNet2*，針對子網路輸入 *mySubnet*。|
     |||
+
 8. 可能需要數分鐘才會建立虛擬機器。 請等到這兩個虛擬機器都已建立，再繼續進行其餘步驟。
 
    ![建立 VM](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
@@ -135,7 +138,7 @@ ms.locfileid: "54469809"
 
     |設定|值|
     |---|---|
-    |Name|myVMEastUS|
+    |名稱|myVMEastUS|
     |使用者名稱| 輸入您選擇的使用者名稱。|
     |密碼| 輸入您選擇的密碼。 密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |資源群組| 選取 [現有]，然後選取 [myResourceGroupTM1]。|
@@ -143,6 +146,7 @@ ms.locfileid: "54469809"
 
 4. 在 [選擇大小] 底下選取虛擬機器大小。
 5. 針對 [設定] 選取下列值，然後選取 [確定]：
+
     |設定|值|
     |---|---|
     |虛擬網路| 選取 [虛擬網路]，在 [建立虛擬網路] 中，對 [名稱] 輸入 *myVNet3*，而對 [子網路] 則輸入 *mySubnet3*。|
@@ -168,9 +172,10 @@ ms.locfileid: "54469809"
 
 1. 在畫面的左上方，選取 [建立資源] > [網路] > [流量管理員設定檔] > [建立]。
 2. 在 [建立流量管理員設定檔] 中，輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [建立]：
+
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
-    | Name                   | 此名稱在 trafficmanager.net 區域內必須是唯一的，而且會產生 DNS 名稱 trafficmanager.net，用以存取您的流量管理員設定檔。                                   |
+    | 名稱                   | 此名稱在 trafficmanager.net 區域內必須是唯一的，而且會產生 DNS 名稱 trafficmanager.net，用以存取您的流量管理員設定檔。                                   |
     | 路由方法          | 選取 [子網路] 路由方法。                                       |
     | 訂用帳戶            | 選取您的訂用帳戶。                          |
     | 資源群組          | 選取 [現有]，然後輸入 *myResourceGroupTM1*。 |
@@ -190,7 +195,7 @@ ms.locfileid: "54469809"
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
     | 類型                    | Azure 端點                                   |
-    | Name           | myTestWebSiteEndpoint                                        |
+    | 名稱           | myTestWebSiteEndpoint                                        |
     | 目標資源類型           | 公用 IP 位址                          |
     | 目標資源          | **選擇公用 IP 位址**以顯示具有相同訂用帳戶下公用 IP 位址的資源清單。 在 [資源] 中，選取名為 *myIISVMEastUS-ip* 的公用 IP 位址。 這是美國東部 IIS 伺服器 VM 的公用 IP 位址。|
     |  子網路路由設定    |   新增 *myVMEastUS* 測試 VM 的 IP 位址。 任何來自此 VM 的使用者查詢都會導向至 *myTestWebSiteEndpoint*。    |
