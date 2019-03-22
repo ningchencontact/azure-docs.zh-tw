@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: danlep
-ms.openlocfilehash: fdba8969ad326565834625fe1ca7ece5e089a904
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: b09348e98a0dee85338cc9f20289d83b658eb719
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984200"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338457"
 ---
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>使用 Azure 受控識別向 Azure 容器登錄進行驗證 
 
@@ -31,7 +31,7 @@ ms.locfileid: "55984200"
 
 ## <a name="why-use-a-managed-identity"></a>為什麼要使用受控識別？
 
-適用於 Azure 資源的受控識別會在 Azure Active Directory (Azure AD) 中為 Azure 服務提供自動的受控識別。 您可以設定[某些 Azure 資源](../active-directory/managed-identities-azure-resources/services-support-msi.md)，包括虛擬機器與受控識別。 然後使用身分識別存取其他 Azure 資源，不需要使用程式碼或指令碼傳遞認證。
+適用於 Azure 資源的受控識別會在 Azure Active Directory (Azure AD) 中為 Azure 服務提供自動的受控識別。 您可以設定[某些 Azure 資源](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)，包括虛擬機器與受控識別。 然後使用身分識別存取其他 Azure 資源，不需要使用程式碼或指令碼傳遞認證。
 
 受控身分識別有兩種：
 
@@ -41,7 +41,7 @@ ms.locfileid: "55984200"
 
 以受控識別設定 Azure 資源後，請為此受控識別提供對另一項資源的存取權，就像任何安全性主體一樣。 例如，指派一個角色給受控識別，該角色可具備 Azure 中私人登錄的提取、推送和提取，或其他權限。 (如需登錄角色的完整清單，請參閱 [Azure Container Registry 角色和權限](container-registry-roles.md)。)您可以提供對一或多個資源的身分識別存取權。
 
-然後使用身分識別向任何[支援 Azure AD 驗證的服務](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication)進行驗證，不需要任何您程式碼中的認證。 若要使用身分識別從虛擬機器存取 Azure 容器登錄，可以使用 Azure Resource Manager 驗證。 請依據您的案例選擇如何使用受控識別進行驗證：
+然後使用身分識別向任何[支援 Azure AD 驗證的服務](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)進行驗證，不需要任何您程式碼中的認證。 若要使用身分識別從虛擬機器存取 Azure 容器登錄，可以使用 Azure Resource Manager 驗證。 請依據您的案例選擇如何使用受控識別進行驗證：
 
 * 使用 HTTP 或 REST 呼叫以程式設計方式[取得 Azure AD 存取權杖](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
 
@@ -126,7 +126,7 @@ userID=$(az identity show --resource-group myResourceGroup --name myACRId --quer
 spID=$(az identity show --resource-group myResourceGroup --name myACRId --query principalId --output tsv)
 ```
 
-因為您稍後在從虛擬機器登入 CLI 的步驟中需要身分識別識別碼，因此請顯示值：
+因為您需要在稍後步驟中的身分識別的識別碼，當您登入 CLI 從您的虛擬機器時，會顯示值：
 
 ```bash
 echo $userID
@@ -164,13 +164,13 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 透過 SSH 連線到使用身分識別設定的 Docker 虛擬機器。 使用 VM 上安裝的 Azure CLI 執行下列 Azure CLI 命令。
 
-首先，使用您在 VM 上設定的身分識別透過 [az login][az-login] 登入 Azure CLI。 對於 <userID>，請取代為您在上一個步驟中擷取的身分識別的識別碼。 
+首先，向使用 Azure CLI [az login][az-login]，使用您在 VM 設定的身分識別。 對於 <userID>，請取代為您在上一個步驟中擷取的身分識別的識別碼。 
 
 ```azurecli
 az login --identity --username <userID>
 ```
 
-使用 [az acr login][az-acr-login] 登入登錄。 使用此命令時，CLI 會使用您執行 `az login` 時建立的 Active Directory 權杖順暢地向容器登錄驗證您的工作階段。 (根據 VM 設定，您可能需要使用 `sudo` 執行此命令與 docker 命令。)
+然後，向登錄中以[az acr login][az-acr-login]。 使用此命令時，CLI 會使用您執行 `az login` 時建立的 Active Directory 權杖順暢地向容器登錄驗證您的工作階段。 (根據 VM 設定，您可能需要使用 `sudo` 執行此命令與 docker 命令。)
 
 ```azurecli
 az acr login --name myContainerRegistry
@@ -216,13 +216,13 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 透過 SSH 連線到使用身分識別設定的 Docker 虛擬機器。 使用 VM 上安裝的 Azure CLI 執行下列 Azure CLI 命令。
 
-首先，使用 VM 上系統指派的身分識別透過 [az login][az-login] 登入 Azure CLI。
+首先，驗證使用 Azure CLI [az login][az-login]，使用在 VM 上的系統指派的識別。
 
 ```azurecli
 az login --identity
 ```
 
-使用 [az acr login][az-acr-login] 登入登錄。 使用此命令時，CLI 會使用您執行 `az login` 時建立的 Active Directory 權杖順暢地向容器登錄驗證您的工作階段。 (根據 VM 設定，您可能需要使用 `sudo` 執行此命令與 docker 命令。)
+然後，向登錄中以[az acr login][az-acr-login]。 使用此命令時，CLI 會使用您執行 `az login` 時建立的 Active Directory 權杖順暢地向容器登錄驗證您的工作階段。 (根據 VM 設定，您可能需要使用 `sudo` 執行此命令與 docker 命令。)
 
 ```azurecli
 az acr login --name myContainerRegistry

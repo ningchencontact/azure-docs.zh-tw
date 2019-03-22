@@ -1,5 +1,5 @@
 ---
-title: 如何為 Azure AD SSPR 設定密碼回寫
+title: 如何設定 Azure AD sspr-Azure Active Directory 的密碼回寫
 description: 使用 Azure AD 和 Azure AD Connect 將密碼回寫到內部部署目錄
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4543352fc87216458aa247f5eea0c8ff5980d0e8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 17a2661883dd069e8cb719672f6b92442f1a8a0a
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209331"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312286"
 ---
 # <a name="how-to-configure-password-writeback"></a>操作說明：設定密碼回寫
 

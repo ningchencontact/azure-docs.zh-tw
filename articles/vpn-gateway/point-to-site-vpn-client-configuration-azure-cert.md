@@ -1,5 +1,5 @@
 ---
-title: 建立和安裝適用於 Azure 憑證驗證的 P2S VPN 用戶端組態檔：Azure | Microsoft Docs
+title: 建立和安裝適用於 Azure 憑證驗證的 P2S VPN 用戶端組態檔：Azure
 description: 建立和安裝 Windows、Linux、Linux (strongSwan) 及 Mac OS X VPN 用戶端組態檔以進行 P2S 憑證驗證。
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: c8bc0ad7c5113f8ffdcda0ae9e6b1df43975bbcb
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: fdf5f07f9b27a17eb4c15495c4ac9776d77f525c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294938"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313935"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>建立和安裝適用於原生 Azure 憑證驗證 P2S 組態的 VPN 用戶端組態檔
 

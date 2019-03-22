@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: ac1384827ceede0f66fd08c6c08fa8e934b1ae42
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fc8dd6770efa1c057a56374ddc0094c2d88d2eb5
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58076151"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58335725"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>建立虛擬中樞路由表以將流量引導到網路虛擬設備
 
@@ -36,7 +36,7 @@ ms.locfileid: "58076151"
 
 請確認您已符合下列條件：
 
-1. 您有網路虛擬設備 (NVA)，它是您選用的第三方軟體，通常從 Azure Marketplace (連結) 佈建到虛擬網路。
+1. 您有網路虛擬設備 (NVA)。 這是通常是從 Azure Marketplace 的虛擬網路中您所選擇的第三方軟體。
 2. 您有一個指派給 NVA 網路介面的私人 IP。 
 3. NVA 無法部署在虛擬中樞。 它必須部署在不同的 VNet。 在本文中，NVA VNet 稱為 'DMZ VNet'。
 4. 'DMZ VNet' 可以有一或多個虛擬網路與其連接。 在本文中，此 VNet 是稱為「間接輪幅 VNet」。 這些 Vnet 可以使用 VNet 對等互連連接到 DMZ VNet。
@@ -117,14 +117,6 @@ $routeTable = New-AzVirtualHubRouteTable -Route @($route1)
 
 ```powershell
 Update-AzVirtualHub -VirtualWanId $virtualWan.Id -ResourceGroupName "testRG" -Name "westushub" -RouteTable $routeTable
-```
-
-## <a name="cleanup"></a>清除資源
-
-當您不再需要這些資源時，您可以使用[移除 AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)來移除資源群組和所有其包含之資源。 將 "myResourceGroup" 取代為您的資源群組名稱，然後執行下列 PowerShell 命令：
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>後續步驟

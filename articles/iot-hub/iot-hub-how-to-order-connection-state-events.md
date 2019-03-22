@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: 5580d67f796efc809ef536818419ab91e8ee54a2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: HT
+ms.openlocfilehash: edaa0cdcd98ce529ccbf9bf6aafaacf57a3ea383
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540006"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337522"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>使用 Azure Cosmos DB 排序來自 Azure IoT 中樞的裝置連線事件
 
@@ -24,9 +24,9 @@ Azure 事件方格可協助您建置以事件為基礎的應用程式，並輕�
 
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，您可以[建立免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
-* 使用中的 Azure Cosmos DB SQL API 帳戶。 如果您尚未建立此帳戶，請參閱[建立資料庫帳戶](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#create-a-database-account)以取得逐步解說。
+* 使用中的 Azure Cosmos DB SQL API 帳戶。 如果您尚未建立此帳戶，請參閱[建立資料庫帳戶](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#create-an-account)以取得逐步解說。
 
-* 您資料庫中的集合。 請參閱[新增集合](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#add-a-collection)以取得逐步解說。
+* 您資料庫中的集合。 請參閱[新增集合](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#add-a-database-and-a-collection)以取得逐步解說。
 
 * Azure 中的 IoT 中樞。 若尚未建立，請參閱[開始使用 IoT 中樞](../iot-hub/iot-hub-csharp-csharp-getstarted.md)的逐步解說。 
 
@@ -350,5 +350,3 @@ Azure 事件方格可協助您建置以事件為基礎的應用程式，並輕�
 * [試試 IoT 中樞事件教學課程](../event-grid/publish-iot-hub-events-to-logic-apps.md)
 
 * 了解您還可使用[事件方格](../event-grid/overview.md)執行哪些作業
-
-

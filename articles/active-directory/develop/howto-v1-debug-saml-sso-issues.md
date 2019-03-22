@@ -16,12 +16,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, smalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f854c8b27065c2d2bf0c9964fe9dfce66aba423a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9fcc6cb40d83c06a1c9f0a97c72565464e74e655
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104500"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336064"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>針對 Azure Active Directory 中應用程式的 SAML 型單一登入進行偵錯
 
@@ -29,7 +29,7 @@ ms.locfileid: "58104500"
 
 ## <a name="before-you-begin"></a>開始之前
 
-建議您安裝 [My Apps 安全登入擴充功能](../user-help/active-directory-saas-access-panel-user-help.md#i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension)。 此瀏覽器延伸模組可讓您輕鬆採集 SAML 要求和您所需要的 SAML 回應資訊來解決問題的單一登入。 如果您無法安裝此擴充功能，本文會說明如何在已安裝/未安裝此擴充功能的情況下解決問題。
+建議您安裝 [My Apps 安全登入擴充功能](../user-help/my-apps-portal-end-user-troubleshoot.md#im-having-trouble-installing-the-my-apps-secure-sign-in-extension)。 此瀏覽器延伸模組可讓您輕鬆採集 SAML 要求和您所需要的 SAML 回應資訊來解決問題的單一登入。 如果您無法安裝此擴充功能，本文會說明如何在已安裝/未安裝此擴充功能的情況下解決問題。
 
 若要下載並安裝 My Apps 安全登入擴充功能，請使用下列其中一個連結。
 
@@ -64,7 +64,7 @@ ms.locfileid: "58104500"
 
 若要對這個錯誤進行偵錯，您需要錯誤訊息和 SAML 要求。 My Apps 安全登入擴充功能會自動收集此資訊，並在 Azure AD 上顯示解決指導方針。 
 
-### <a name="to-resolve-the-sign-in-error-with-the-myapps-secure-sign-in-extension-installed"></a>若要解決使用 MyApps 的安全登入錯誤登入延伸模組安裝
+### <a name="to-resolve-the-sign-in-error-with-the-my-apps-secure-sign-in-extension-installed"></a>若要解決此登入錯誤，使用 My Apps 安全登入延伸模組安裝
 
 1. 發生錯誤時，延伸模組會將您導向回 Azure AD**測試單一登入**刀鋒視窗。 
 1. 在 **測試單一登入**刀鋒視窗中，選取**下載 SAML 要求**。 
@@ -73,14 +73,14 @@ ms.locfileid: "58104500"
 
 如果沒有解決方式提供登入錯誤，我們建議您使用 [意見反應] 文字方塊中，以通知我們。
 
-### <a name="to-resolve-the-error-without-installing-the-myapps-secure-sign-in-extension"></a>若要解決此錯誤，而不需要安裝 MyApps 安全登入延伸模組
+### <a name="to-resolve-the-error-without-installing-the-my-apps-secure-sign-in-extension"></a>若要解決此錯誤，而不需要安裝 My Apps 安全登入延伸模組
 
 1. 複製頁面右下角的錯誤訊息。 錯誤訊息包括：
     - 相互關聯識別碼和時間戳記。 在向 Microsoft 建立支援案例時務必要有這些值，原因是這些值可協助工程師識別問題並提供正確的問題解決方式。
     - 可識別問題根本原因的陳述。
 1. 返回 Azure AD，並尋找 [測試單一登入] 刀鋒視窗。
 1. 在 [取得解決指導方針] 上方的文字方塊中，貼上錯誤訊息。
-1. 按一下 [取得解決指導方針] 以顯示問題的解決步驟。 此指導方針可能需要來自 SAML 要求或 SAML 回應的資訊。 如果您未使用 My Apps 安全登入擴充功能，則可能需要 [Fiddler](https://www.telerik.com/fiddler) 之類的工具來擷取 SAML 要求和回應。
+1. 按一下 [取得解決指導方針] 以顯示問題的解決步驟。 此指導方針可能需要來自 SAML 要求或 SAML 回應的資訊。 如果您不使用 My Apps 安全登入延伸模組，您需要一種工具這類[Fiddler](https://www.telerik.com/fiddler)擷取 SAML 要求和回應。
 1. 請確認 SAML 要求中的目的地會對應至 SAML 單一登入服務 URL 從 Azure AD 取得。
 1. 請確認 SAML 要求中的簽發者是您已設定 Azure AD 中的應用程式相同的識別項。 Azure AD 會使用簽發者尋找您目錄中的應用程式。
 1. 請確認 AssertionConsumerServiceURL 是應用程式預期接收來自 Azure AD 的 SAML 權杖。 您可以在 Azure AD 中設定此值，但它不是強制性如果它是 SAML 要求的一部分。

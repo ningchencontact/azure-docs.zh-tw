@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f06446cb6af1fa145e5fcec41cc85a1452af207a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5202d2775e830264543719cafefb5c48fca822d6
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839248"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316417"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
@@ -134,7 +134,7 @@ ms.locfileid: "57839248"
 
 * **[合作夥伴第 2 層支援](#partner-tier2-support)**：請勿使用。 此角色已被取代，而且未來將從 Azure AD 中移除。 此角色僅供少數 Microsoft 轉售合作夥伴使用，不適用於一般用途。
 
-* **[密碼管理員/技術支援中心管理員](#helpdesk-administrator)**：具備此角色的使用者可以變更密碼、讓重新整理權杖失效、管理服務要求，以及監視服務健康情況。 讓重新整理權杖失效會強制使用者重新登入。 技術支援中心管理員可以重設密碼，並使其失效的非系統管理員或指派下列角色的其他使用者的重新整理權杖：
+* **[技術服務人員 （密碼） 系統管理員](#helpdesk-administrator)**:具備此角色的使用者可以變更密碼、讓重新整理權杖失效、管理服務要求，以及監視服務健康情況。 讓重新整理權杖失效會強制使用者重新登入。 技術支援中心管理員可以重設密碼，並使其失效的非系統管理員或指派下列角色的其他使用者的重新整理權杖：
   * 目錄讀取器
   * 來賓邀請者
   * 服務台系統管理員
@@ -149,7 +149,7 @@ ms.locfileid: "57839248"
   * 非系統管理員，例如主管、法律顧問和人力資源員工，他們可以存取機密或私人資訊。
 
   > [!NOTE]
-  > 在 Microsoft Graph API、Azure AD Graph API 和 Azure AD PowerShell 中，會將此角色識別為「技術支援中心管理員」。 它是 [Azure 入口網站](https://portal.azure.com/)中的「密碼管理員」。
+  > 這個角色先前稱為 「 密碼管理員 」 [Azure 入口網站](https://portal.azure.com/)。 我們會將其名稱變更為 「 技術服務人員系統管理員 」，以符合其在 Azure AD PowerShell、 Azure AD Graph API 和 Microsoft Graph API 的名稱。 針對一段時間，我們會 「 技術服務人員系統管理員 」 來變更之前的 Azure 入口網站中名稱變更為 「 技術服務人員 （密碼） 系統管理員 」。
   >
   
 * **[Power BI 管理員](#power-bi-service-administrator)**：此角色的使用者具有 Microsoft Power BI (如其存在) 的全域權限，並能管理支援票證及監視服務的健康情況。 如需詳細資訊，請參閱[了解 Power BI 管理員角色](https://docs.microsoft.com/power-bi/service-admin-role)。
@@ -164,7 +164,7 @@ ms.locfileid: "57839248"
 
   <b>重要</b>：此角色授與管理的所有 Azure AD 角色，包括全域系統管理員角色指派的能力。 此角色不包含 Azure AD 中的任何其他特殊權限能力，例如建立或更新使用者。 不過，指派給這個角色的使用者可以藉由指派額外的角色，來授與自己或其他人額外權限。
 
-* **[報表讀者](#reports-reader)**：具有此角色的使用者可檢視 Office 365 系統管理中心內的使用報告資料與報表儀表板，以及 PowerBI 中的採用內容套件。 此外，此角色還可讓使用者存取 Azure AD 中的登入報告與活動，以及 Microsoft Graph 報告 API 所傳回的資料。 獲指派「報告讀者」角色的使用者只能存取相關的使用情況和採用計量。 他們並不具備任何系統管理權限，因此無法進行設定或存取產品特定的系統管理中心 (例如 Exchange)。 這個角色沒有檢視、建立或管理支援票證的存取權。
+* **[報表讀者](#reports-reader)**：與此角色的使用者可以檢視使用方式報告資料，並在 Microsoft 365 系統管理中心的報告儀表板和採用內容套件在 Power BI 中。 此外，此角色還可讓使用者存取 Azure AD 中的登入報告與活動，以及 Microsoft Graph 報告 API 所傳回的資料。 獲指派「報告讀者」角色的使用者只能存取相關的使用情況和採用計量。 他們並不具備任何系統管理權限，因此無法進行設定或存取產品特定的系統管理中心 (例如 Exchange)。 這個角色沒有檢視、建立或管理支援票證的存取權。
 
 * **[安全性系統管理員](#security-administrator)**：具備此角色的使用者有權限管理 Microsoft 365 資訊安全中心、Azure Active Directory Identity Protection、Azure 資訊保護和 Office 365 安全性與合規性中心中的安全性相關功能。 關於 Office 365 權限的詳細資訊可在 [Office 365 安全性與法規遵循中心的權限](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1)中取得。
   
@@ -208,9 +208,9 @@ ms.locfileid: "57839248"
   [Azure 資訊安全中心](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | 可檢視建議和警示、檢視安全性原則、檢視安全性狀態，但無法進行變更
   [Office 365 服務健康情況](https://docs.microsoft.com/office365/enterprise/view-service-health) | 檢視 Office 365 服務的健康情況
 
-* **[服務支援管理員](#service-support-administrator)**：此角色的使用者可以開立 Microsoft Azure 與 Office 365 服務的支援要求，以及在 Azure 入口網站及 Office 365 管理入口網站中檢視服務儀表板與訊息中心。 如需詳細資訊，請參閱 [關於 Office 365 管理員角色](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)。
+* **[服務支援管理員](#service-support-administrator)**：具備此角色的使用者可以開啟支援要求，與 Microsoft Azure 和 Office 365 服務，以及檢視服務儀表板和訊息中心中[Azure 入口網站](https://portal.azure.com)並[Microsoft 365 系統管理中心](https://admin.microsoft.com)。 如需詳細資訊，請參閱 [關於 Office 365 管理員角色](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)。
   > [!NOTE]
-  > 在 Microsoft Graph API、Azure AD Graph API 和 Azure AD PowerShell 中，會將此角色識別為「服務支援管理員」。 在 [Azure 入口網站](https://portal.azure.com)、Office 365 管理入口網站和 Intune 入口網站中，則是「服務管理員」。
+  > 在 Microsoft Graph API、Azure AD Graph API 和 Azure AD PowerShell 中，會將此角色識別為「服務支援管理員」。 處於 「 服務管理員 」 [Azure 入口網站](https://portal.azure.com)，則[Microsoft 365 系統管理中心](https://admin.microsoft.com)，並在 Intune 入口網站。
 
 * **[SharePoint 管理員](#sharepoint-service-administrator)**：具備此角色的使用者在有 Microsoft SharePoint Online 服務時，於該服務內具有全域權限，以及建立和管理所有 Office 365 群組、管理支援票證和監控服務健康情況的能力。 如需詳細資訊，請參閱 [關於 Office 365 管理員角色](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)。
   > [!NOTE]

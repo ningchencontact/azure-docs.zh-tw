@@ -4,21 +4,21 @@ description: Azure IoT Edge 模組是邏輯的容器化單位，可從遠端部�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/21/2018
+ms.date: 03/21/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 976b46a26d95b5e252b0df2383ea94b4dd280d24
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: d1e2e35dafd90c16e9d0dbf38afb1e981653d1fe
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229620"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311096"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>了解 Azure IoT Edge 模組
 
-Azure IoT Edge 可讓您在模組表單的邊緣上部署和管理商務邏輯。 Azure IoT Edge 模組是 IoT Edge 管理的最小計算單位，可以包含 Azure 服務 (例如 Azure 串流分析) 或您自己的解決方案特定程式碼。 若要了解模組如何開發、部署和維護，考慮組成模組的四個概念片段會有幫助：
+Azure IoT Edge 可讓您在模組表單的邊緣上部署和管理商務邏輯。 Azure IoT Edge 模組是 IoT Edge 管理的最小計算單位，可以包含 Azure 服務 (例如 Azure 串流分析) 或您自己的解決方案特定程式碼。 若要了解如何開發、 部署和維護，最好先將四個概念的項目，在模組的模組：
 
 * **模組映像**是套件，其中包含定義模組的軟體。
 * **模組執行個體**是在 IoT Edge 裝置上執行模組映像的計算單位。 模組執行個體是由 IoT Edge 執行階段啟動。
@@ -43,6 +43,7 @@ As use cases for Azure IoT Edge grow, new types of module images and instances w
 ## <a name="module-identities"></a>模組身分識別
 
 當 IoT Edge 執行階段建立新模組執行個體時，執行個體與對應的模組身分識別相關聯。 模組身分識別會儲存在 IoT 中樞，作為該特定模組執行個體之所有本機和雲端通訊的定址和安全性範圍。
+
 與模組執行個體相關聯的身分識別取決於在其上執行執行個體的裝置身分識別，以及您提供給解決方案中該模組的名稱。 例如，如果您將使用 Azure 串流分析的模組稱為 `insight`，並且在稱為 `Hannover01` 的裝置上部署，IoT Edge 執行階段會建立稱為 `/devices/Hannover01/modules/insight` 的對應模組身分識別。
 
 很明顯地，在案例中當您需要在相同裝置上部署一個模組映像多次時，您可以使用不同名稱部署相同映像多次。
@@ -68,7 +69,7 @@ Twin twin = await client.GetTwinAsync(); 
 
 ## <a name="offline-capabilities"></a>離線功能
 
-Azure IoT Edge 支援 IoT Edge 裝置的離線作業。 這些功能目前會受到限制。 
+Azure IoT Edge 支援 IoT Edge 裝置的離線作業。 這些功能目前會受到限制。 其他離線功能可於公開預覽中取得。 如需詳細資訊，請參閱[了解適用於 IoT Edge 裝置、模組及子裝置的擴充離線功能](offline-capabilities.md)。
 
 只要符合下列需求，即可延長 IoT Edge 模組的離線使用期間： 
 
@@ -77,11 +78,8 @@ Azure IoT Edge 支援 IoT Edge 裝置的離線作業。 這些功能目前會受
 * **在離線期間傳送訊息的模組，在連線能力恢復後仍可運作**。 重新連線至 IoT 中樞時，IoT Edge 中樞必須驗證新的模組權杖 (如果舊的已過期)，才能轉送模組訊息。 如果模組無法提供新權杖，IoT Edge 中樞就無法對模組已儲存的訊息執行動作。 
 * **IoT Edge 中樞具有可儲存訊息的磁碟空間**。 根據預設，訊息會儲存在 IoT Edge 中樞容器的檔案系統中。 您也可以透過組態選項指定用來儲存訊息的已掛接磁碟區。 無論如何，都必須要有空間可用來儲存要延遲傳遞至 IoT 中樞的訊息。  
 
-其他離線功能可於公開預覽中取得。 如需詳細資訊，請參閱[了解適用於 IoT Edge 裝置、模組及子裝置的擴充離線功能](offline-capabilities.md)。
 
 ## <a name="next-steps"></a>後續步驟
  - [了解開發 IoT Edge 模組的需求和工具](module-development.md)
  - [了解 Azure IoT Edge 執行階段和架構](iot-edge-runtime.md)
 
-<!-- Images -->
-[2]: ./media/iot-edge-modules/identity.png

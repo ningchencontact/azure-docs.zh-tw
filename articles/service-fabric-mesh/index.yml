@@ -1,24 +1,24 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 029342b5db33a7c713e915ae72066f732b6f46f0
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: eaceb3170e3b3f7bd155f42521102365401f0421
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979415"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337437"
 documentType: LandingData
 title: Azure Service Fabric Mesh 文件
 metadata:
   title: Azure Service Fabric Mesh 文件 - 教學課程和 API 參考 | Microsoft Docs
   meta.description: Azure Service Fabric Mesh is a fully managed service enabling developers to deploy containerized applications without managing virtual machines, storage, or networking resources. Learn how to use Service Fabric Mesh with our quickstarts and tutorials.
   services: service-fabric-mesh
-  author: rwike77
+  author: dkkapur
   manager: timlt
   ms.service: service-fabric-mesh
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/26/2018
-  ms.author: ryanwi
+  ms.author: dekapur
 abstract:
   description: Azure Service Fabric Mesh 是完全受控的服務，可讓開發人員建置及部署任務關鍵性應用程式，而不需要管理任何基礎結構。  視需要使用 Service Fabric Mesh 來建置，並執行可縮放的安全、分散式微服務應用程式。 了解如何透過我們的快速入門和教學課程使用 Azure Service Fabric。  若要進一步了解，請閱讀 <a href="/azure/service-fabric-mesh/service-fabric-mesh-overview">Service Fabric Mesh 概觀</a>與<a href="/azure/service-fabric-mesh/service-fabric-mesh-faq">常見問題集</a>。
 sections:

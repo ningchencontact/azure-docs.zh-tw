@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: bc5c4648a5efe53e3aa645bf1d6b121008eb86dd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0942d5ba7b31ddb2c0dec5fe979f1331d1bf3bfd
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854920"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336026"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>如何使用 App Service 和 Azure Functions 的受控身分識別
 
@@ -252,7 +252,7 @@ ms.locfileid: "57854920"
 應用程式可以使用自己的身分識別來取得權杖，存取其他受 AAD 保護的資源 (如 Azure Key Vault)。 這些權杖代表存取資源的應用程式，而不是任何特定的應用程式使用者。 
 
 > [!IMPORTANT]
-> 您可能需要設定目標資源，讓應用程式得以存取。 例如，如果您要求 Key Vault 的權杖，便需要確認是否已新增含有應用程式身分識別的存取原則。 否則即使呼叫含有權杖，依然會遭到拒絕。 若要深入了解哪些資源支援 Azure Active Directory 權杖，請參閱[支援 Azure AD 驗證的 Azure 服務](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication)。
+> 您可能需要設定目標資源，讓應用程式得以存取。 例如，如果您要求 Key Vault 的權杖，便需要確認是否已新增含有應用程式身分識別的存取原則。 否則即使呼叫含有權杖，依然會遭到拒絕。 若要深入了解哪些資源支援 Azure Active Directory 權杖，請參閱[支援 Azure AD 驗證的 Azure 服務](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)。
 
 有一個簡單的 REST 通訊協定可用來在 App Service 和 Azure Functions 中取得權杖。 對於 .NET 應用程式，Microsoft.Azure.Services.AppAuthentication 程式庫提供讓應用程式透過此通訊協定進行提取的功能，也能支援本機部署經驗。
 
@@ -287,7 +287,7 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 
 > |參數名稱|在|描述|
 > |-----|-----|-----|
-> |resource|查詢|資源的 AAD 資源 URI，也就是要取得權杖的目標資源。 這可能是其中一個[支援 Azure AD 驗證的 Azure 服務](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication)，或任何其他資源 URI。|
+> |resource|查詢|資源的 AAD 資源 URI，也就是要取得權杖的目標資源。 這可能是其中一個[支援 Azure AD 驗證的 Azure 服務](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)，或任何其他資源 URI。|
 > |api-version|查詢|要使用的權杖 API 版本。 目前唯一支援的版本為 "2017-09-01"。|
 > |secret|頁首|MSI_SECRET 環境變數的值。 此標頭用來協助減輕伺服器端要求偽造 (SSRF) 攻擊。|
 > |clientid|查詢|(選擇性) 要使用之使用者指派的身分識別的識別碼。 如果省略，則使用系統指派的身分識別。|

@@ -14,12 +14,12 @@ ms.date: 07/30/2018
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47128bce8dbbee1b28f6b0a3a5783e5ccee501bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6d0dbfeaf3fb018c8dd3f671ce7ad9d7d50e5fca
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177393"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336298"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>管理適用於雙步驟驗證的應用程式密碼
 
@@ -40,7 +40,7 @@ ms.locfileid: "58177393"
 
 您會在最初雙步驟驗證註冊期間獲得應用程式密碼。 如果需要一個以上的密碼，您可以根據使用雙步驟驗證的方式建立其他密碼：
 
-- **搭配您的公司或學校帳戶和 MyApps 入口網站使用雙步驟驗證。** 使用本文內[使用 MyApps 入口網站建立和刪除應用程式密碼](#create-and-delete-app-passwords-using-the-myapps-portal)一節中的指示，來建立和刪除您的應用程式密碼。 如需 MyApps 入口網站及其使用方式的詳細資訊，請參閱[什麼是 Azure Active Directory 中的 MyApps 入口網站？](active-directory-saas-access-panel-introduction.md)。
+- **搭配您的公司或學校帳戶和 MyApps 入口網站使用雙步驟驗證。** 使用本文內[使用 MyApps 入口網站建立和刪除應用程式密碼](#create-and-delete-app-passwords-using-the-my-apps-portal)一節中的指示，來建立和刪除您的應用程式密碼。 如需 MyApps 入口網站及其使用方式的詳細資訊，請參閱[什麼是 Azure Active Directory 中的 MyApps 入口網站？](active-directory-saas-access-panel-introduction.md)。
 
 - **搭配您的公司或學校帳戶和 Office 365 入口網站使用雙步驟驗證。** 使用本文內[使用 Office 365 入口網站建立和刪除應用程式密碼](#create-and-delete-app-passwords-using-the-office-365-portal)一節中的指示，來建立和刪除您的應用程式密碼。
 

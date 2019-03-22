@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5814e05aa65bf005a3156aa75e65747bbd46733c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fdc718429991a7bba30739d09882c51f8baf5dc9
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58171052"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336264"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>已知問題與針對 Azure Machine Learning 服務進行疑難排解
 
@@ -57,7 +57,7 @@ Databricks 與 Azure Machine Learning 問題。
 在 Azure Databricks 上的 azure 機器學習服務 SDK 安裝失敗，安裝多個套件時。 有些套件 (例如 `psutil`) 會導致發生衝突。 若要避免安裝錯誤，請透過凍結的程式庫版本中安裝套件。 此問題與 Databricks，不適用於 Azure Machine Learning 服務 SDK。 您也可能會遇到這個問題的其他程式庫。 範例：
 
 ```python
-pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
+psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
 ```
 
 或者，您可以使用 init 指令碼，如果您保留遇到安裝的 Python 程式庫的問題。 這個方法不受正式支援。 如需詳細資訊，請參閱 <<c0> [ 叢集為範圍的 init 指令碼](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts)。

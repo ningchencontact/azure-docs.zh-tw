@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
-ms.openlocfilehash: 2cb70c67bc4719eb43c4fcb70edf574c57362f26
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6f539cb905c0ed401816c7f223918a1416f95d6c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013279"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312269"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>疑難排解 Azure 流量管理員上的已降級狀態
 
@@ -47,7 +47,7 @@ ms.locfileid: "58013279"
 
 您也可以在 Internet Explorer 中，使用 [F12 偵錯工具] 的 [網路] 索引標籤來檢視 HTTP 回應。
 
-在此範例中，我們想要查看來自下列探查 URL 的回應： http://watestsdp2008r2.cloudapp.net:80/Probe。 下列 PowerShell 範例說明問題。
+此範例中我們想要查看來自探查 URL 的回應： http:\//watestsdp2008r2.cloudapp.net:80/Probe。 下列 PowerShell 範例說明問題。
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription

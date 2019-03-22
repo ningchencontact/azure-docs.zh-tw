@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8de47aab231c66f3539c2d2f0f0e4c535a04038a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4822de6f6470547b47ecaa3874bed0df4ad20cf6
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085366"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309583"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory 無縫單一登入：常見問題集
 
@@ -45,16 +45,16 @@ ms.locfileid: "58085366"
 
 | 應用程式名稱 | 要使用的應用程式 URL |
 | -- | -- |
-| 存取面板 | https://myapps.microsoft.com/contoso.com |
-| 網路版 Outlook | https://outlook.office365.com/contoso.com |
-| Office 365 入口網站 | <https://portal.office.com?domain_hint=contoso.com>、<https://www.office.com?domain_hint=contoso.com> |
+| 存取面板 | https:\//myapps.microsoft.com/contoso.com |
+| 網路版 Outlook | https:\//outlook.office365.com/contoso.com |
+| Office 365 入口網站 | https:\//portal.office.com?domain_hint=contoso.com、 https:\//www.office.com?domain_hint=contoso.com |
 
-如果應用程式將登入要求傳送至 Azure AD 的端點設定為租用戶-也就是使用者獲得無訊息登入體驗的颾魤 ㄛ https://login.microsoftonline.com/contoso.com/<..>或是 https://login.microsoftonline.com/<tenant_ID>/<..>-而不是 Azure AD 常見端點時-也就是 https://login.microsoftonline.com/common/<...>。 以下是一份不完整的應用程式清單，列出會提出這類登入要求的應用程式。
+此外，使用者收到無訊息登入體驗的應用程式傳送至 Azure AD 端點的登入要求設定為租用戶-也就是 https:\//login.microsoftonline.com/contoso.com/ <...> 或 https:\//login.microsoftonline.com/ < tenant_ID > / <...>-而不是 Azure AD 常見端點-亦即，https:\//login.microsoftonline.com/common/ <...>。 以下是一份不完整的應用程式清單，列出會提出這類登入要求的應用程式。
 
 | 應用程式名稱 | 要使用的應用程式 URL |
 | -- | -- |
-| SharePoint Online | https://contoso.sharepoint.com |
-| Azure 入口網站 | https://portal.azure.com/contoso.com |
+| SharePoint Online | https:\//contoso.sharepoint.com |
+| Azure 入口網站 | https:\//portal.azure.com/contoso.com |
 
 在上表中，請以您的網域名稱取代 "contoso.com"，以連至您租用戶的正確應用程式 URL。
 

@@ -277,7 +277,7 @@ ms.collection: M365-identity-device-management
                                                         <p>
                                                             <a href="managed-identities-azure-resources/tutorial-windows-vm-access-sql.md">使用 Windows VM 存取 Azure SQL</a><br>
                                                             <a href="managed-identities-azure-resources/how-to-use-vm-token.md"> Azure VM 取得權杖</a><br>
-                                                            <a href="managed-identities-azure-resources/services-support-msi.md">支援受控識別的服務</a><br>
+                                                            <a href="managed-identities-azure-resources/services-support-managed-identities.md">支援受控識別的服務</a><br>
                                                             <a href="managed-identities-azure-resources/index.yml"><i>更多資訊 &gt;</i></a>
                                                         </p>
                                                         <br><br>

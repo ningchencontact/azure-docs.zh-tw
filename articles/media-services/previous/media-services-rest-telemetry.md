@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: b1eb6e1458fab6de3472d68352ba7764b71007c8
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: 9c654c65577c44b1773ff98cb1206beeb5206ba4
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58292576"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317641"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>使用 REST 設定 Azure 媒體服務遙測
 
@@ -34,7 +34,7 @@ ms.locfileid: "58292576"
 - 取得通知端點
 - 建立用於監視的通知端點。 
 
-    若要建立通知端點，請將 EndPointType 設為 AzureTable (2)，並將 endPontAddress 設為儲存體資料表 (例如， https://telemetryvalidationstore.table.core.windows.net/)。
+    若要建立通知端點，請將 endpointtype 設為 AzureTable (2)，並將 endPontAddress 設為儲存體資料表 (例如，https:\//telemetryvalidationstore.table.core.windows.net/)。
   
 - 取得監視組態
 
@@ -121,12 +121,12 @@ ms.locfileid: "58292576"
     
     {  
         "Name":"monitoring",
-        "EndPointAddress":"https://telemetryvalidationstore.table.core.windows.net/",
+        "EndPointAddress":"https:\//telemetryvalidationstore.table.core.windows.net/",
         "EndPointType":2
     }
 
 > [!NOTE]
-> 別忘記將 "https://telemetryvalidationstore.table.core.windows.net" 值變更為您的儲存體帳戶。
+> 別忘了變更"https:\//telemetryvalidationstore.table.core.windows.net 」 到您的儲存體帳戶的值。
 
 ### <a name="response"></a>Response
 

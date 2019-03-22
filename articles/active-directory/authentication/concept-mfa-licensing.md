@@ -1,5 +1,5 @@
 ---
-title: Azure MFA 版本和耗用量計劃 | Microsoft Docs
+title: Azure MFA 版本和耗用量計劃-Azure Active Directory
 description: Multi-Factor Authentication 用戶端、不同的方法及可用版本的詳細資訊。
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e68175471b24c48f23cc48cff9d0b47c937f588a
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 765b9aff898cbea763d66a20db91b3390cc48bb4
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217184"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309995"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>如何取得 Azure Multi-Factor Authentication
 

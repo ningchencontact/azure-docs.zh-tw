@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Multi-Factor Authentication 使用者狀態
+title: Azure Multi-factor Authentication 使用者狀態-Azure Active Directory
 description: 了解 Azure Multi-Factor Authentication 中的使用者狀態。
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39659df99951850ced07be14f81348ae9c1c1be5
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 5411770e6f9d660557ab9360f026efe4c28a9256
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428597"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314377"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>如何要求使用者使用雙步驟驗證
 
@@ -41,7 +41,7 @@ ms.locfileid: "56428597"
 
 Azure Multi-Factor Authentication 中的使用者帳戶具有下列三種不同狀態：
 
-| 狀態 | 說明 | 受影響的非瀏覽器應用程式 | 受影響的瀏覽器應用程式 | 受影響的新式驗證 |
+| 狀態 | 描述 | 受影響的非瀏覽器應用程式 | 受影響的瀏覽器應用程式 | 受影響的新式驗證 |
 |:---:|:---:|:---:|:--:|:--:|
 | 已停用 |未註冊 Azure MFA 之新使用者的預設狀態。 |否 |否 |否 |
 | 已啟用 |已在 Azure MFA 中註冊使用者，但使用者尚未註冊。 系統將在他們下一次登入時提示他們註冊。 |沒有。  它們會繼續運作，直到註冊程序完成為止。 | 是。 工作階段到期之後，必須進行 Azure MFA 註冊。| 是。 存取權杖到期之後，必須進行 Azure MFA 註冊。 |

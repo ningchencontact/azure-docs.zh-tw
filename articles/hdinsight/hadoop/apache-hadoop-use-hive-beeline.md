@@ -4,18 +4,16 @@ description: 了解如何使用 Beeline 用戶端以 Hadoop on HDInsight 執行 
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
-keywords: beeline hive,hive beeline
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: ba9746566f0f69ea2131b8f77a14939ea561638a
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 00cf441247b9adf8547f373891bba4db29029d3f
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200476"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58335992"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>使用 Apache Beeline 用戶端搭配 Apache Hive
 
@@ -24,8 +22,11 @@ ms.locfileid: "58200476"
 Beeline 是 Hive 用戶端，隨附於您的 HDInsight 叢集的前端節點。 Beeline 會使用 JDBC 連線至 HiveServer2，它是裝載在 HDInsight 叢集上的服務。 您也可以使用 Beeline 透過網際網路從遠端存取 HDInsight 上的 Hive。 下列範例中提供用來從 Beeline 連接到 HDInsight 最常見的連接字串：
 
 * __從對前端節點或邊緣節點的 SSH 連線使用 Beeline__：`-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
+
 * __在透過 Azure 虛擬網路連線到 HDInsight 的用戶端上使用 Beeline__：`-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
-* __在透過 Azure 虛擬網路連線到 HDInsight 企業安全性套件 (ESP) 叢集的用戶端上使用 Beeline__：`-u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>`
+
+* __在透過 Azure 虛擬網路連線到 HDInsight 企業安全性套件 (ESP) 叢集的用戶端上使用 Beeline__：`-u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-DOMAIN>;auth-kerberos;transportMode=http' -n <username>` 
+
 * __在透過公用網際網路連線到 HDInsight 的用戶端上使用 Beeline__：`-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
 
 > [!NOTE]  
@@ -37,7 +38,7 @@ Beeline 是 Hive 用戶端，隨附於您的 HDInsight 叢集的前端節點。 
 >
 > 透過虛擬網路連線到叢集時，請以叢集前端節點的完整網域名稱取代 `<headnode-FQDN>`。
 >
-> 連線至「企業安全性套件」(ESP) 叢集時，請以叢集所加入的 Azure Active Directory (AAD) 名稱取代 `<AAD-Domain>`。 以網域上具備叢集存取權限的帳戶名稱取代 `<username>`。
+> 連線至「企業安全性套件」(ESP) 叢集時，請以叢集所加入的 Azure Active Directory (AAD) 名稱取代 `<AAD-DOMAIN>`。 使用大寫字串`<AAD-DOMAIN>`值，否則認證找不到。 檢查`/etc/krb5.conf`的領域名稱，如有需要。 以網域上具備叢集存取權限的帳戶名稱取代 `<username>`。 
 
 ## <a id="prereq"></a>必要條件
 

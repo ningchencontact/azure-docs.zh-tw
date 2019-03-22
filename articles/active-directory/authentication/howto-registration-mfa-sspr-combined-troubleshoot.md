@@ -1,5 +1,5 @@
 ---
-title: 疑難排解合併的註冊 Azure AD SSPR 和 MFA （預覽）
+title: Azure AD SSPR 和 MFA （預覽）-Azure Active Directory 的疑難排解合併的註冊
 description: 針對 Azure AD 多重要素驗證和自助式密碼重設結合註冊 （預覽） 進行疑難排解
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b247a733c6874b023d3dc8114b0538e422baccfd
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 8f799b671e6216b402aa988aa66da4c2cfc44693
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56589269"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317522"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>疑難排解合併安全性資訊註冊 （預覽）
 

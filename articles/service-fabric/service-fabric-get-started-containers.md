@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/25/2019
 ms.author: aljo
-ms.openlocfilehash: 4133379ff7c1c0a64bd2d9aefdafdd5cdb530491
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 91b694070147cb0591bcc1763905f471161bf07b
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875063"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336757"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>在 Windows 建立第一個 Service Fabric 容器應用程式
 
@@ -153,7 +153,7 @@ docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
 docker inspect my-web-site
 ```
 
-連線到執行中的容器。 開啟 Web 瀏覽器並指向傳回的 IP 位址，例如 " <http://172.31.194.61> "。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
+連線到執行中的容器。 開啟網頁瀏覽器指向 IP 位址傳回，例如"http:\//172.31.194.61"。 您應該會看到 "Hello World!" 標題 顯示在瀏覽器中。
 
 若要停止您的容器，請執行︰
 
@@ -360,10 +360,12 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 * IsDefaultContainerRepositoryPasswordEncrypted (布林值)
 * DefaultContainerRepositoryPasswordType (字串) --- 從 6.4 執行階段後開始支援
 
-您可以在 ClusterManifestTemplate.json 檔案的 `Hosting` 區段中新增下列範例內容。 如需詳細資訊，請參閱[變更 Azure Service Fabric 叢集設定](service-fabric-cluster-fabric-settings.md)及[管理 Azure Service Fabric 應用程式祕密](service-fabric-application-secret-management.md)
+您可以在 ClusterManifestTemplate.json 檔案的 `Hosting` 區段中新增下列範例內容。 `Hosting`可以新增區段，在建立叢集時或稍後進行組態升級。 如需詳細資訊，請參閱[變更 Azure Service Fabric 叢集設定](service-fabric-cluster-fabric-settings.md)及[管理 Azure Service Fabric 應用程式祕密](service-fabric-application-secret-management.md)
 
 ```json
-      {
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -388,6 +390,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
           }
         ]
       },
+]
 ```
 
 ## <a name="configure-isolation-mode"></a>設定隔離模式
@@ -618,10 +621,12 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## <a name="configure-time-interval-before-container-is-force-terminated"></a>在容器被迫終止前設定時間間隔
 
-您可以在啟動服務刪除 (或移至另一個節點) 之後，設定執行階段在容器移除前所要等候的間隔時間。 設定時間間隔可將 `docker stop <time in seconds>` 命令傳送至容器。  如需更多詳細資訊，請參閱 [docker stop](https://docs.docker.com/engine/reference/commandline/stop/)。 所要等候的時間間隔指定於 `Hosting` 區段之下。 下列叢集資訊清單程式碼片段示範如何設定等候間隔：
+您可以在啟動服務刪除 (或移至另一個節點) 之後，設定執行階段在容器移除前所要等候的間隔時間。 設定時間間隔可將 `docker stop <time in seconds>` 命令傳送至容器。  如需更多詳細資訊，請參閱 [docker stop](https://docs.docker.com/engine/reference/commandline/stop/)。 所要等候的時間間隔指定於 `Hosting` 區段之下。 `Hosting`可以新增區段，在建立叢集時或稍後進行組態升級。 下列叢集資訊清單程式碼片段示範如何設定等候間隔：
 
 ```json
-{
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -630,7 +635,8 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
           },
           ...
         ]
-}
+    }
+]
 ```
 預設時間間隔會設定為 10 秒。 因為此組態是動態的，所以叢集的僅限組態升級會更新逾時。 
 
@@ -641,7 +647,9 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 
 ```json
-{
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -655,7 +663,8 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
           ...
           }
         ]
-} 
+    } 
+]
 ```
 
 對於不應刪除的映像，您可以在 `ContainerImagesToSkip` 參數之下加以指定。  
@@ -666,7 +675,9 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 Service Fabric 執行階段會配置 20 分鐘來下載及擷取容器映像，這適用於大部分的容器映像。 針對大型映像或緩慢的網路連線速度，您可能需要延長中止下載及擷取映像之前的等待時間。 您可以在叢集資訊清單的 **Hosting** 區段中使用 **ContainerImageDownloadTimeout** 屬性來設定此逾時，如下列程式碼片段所示：
 
 ```json
-{
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -674,7 +685,8 @@ Service Fabric 執行階段會配置 20 分鐘來下載及擷取容器映像，�
               "value": "1200"
           }
         ]
-}
+    }
+]
 ```
 
 
@@ -694,7 +706,9 @@ Service Fabric 執行階段會配置 20 分鐘來下載及擷取容器映像，�
  
 
 ```json
-{ 
+"fabricSettings": [
+    ...,
+    { 
         "name": "Hosting", 
         "parameters": [ 
           { 
@@ -702,8 +716,8 @@ Service Fabric 執行階段會配置 20 分鐘來下載及擷取容器映像，�
             "value": "-H localhost:1234 -H unix:///var/run/docker.sock" 
           } 
         ] 
-} 
-
+    } 
+]
 ```
 
 ## <a name="next-steps"></a>後續步驟

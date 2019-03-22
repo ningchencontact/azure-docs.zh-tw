@@ -2,19 +2,19 @@
 title: Azure 串流分析輸出至 Azure SQL Database
 description: 了解從 Azure 串流分析將資料輸出至 Azure SQL Database，達到更高的寫入輸送速率。
 services: stream-analytics
-author: chetang
-ms.author: chetang
-manager: katicad
+author: chetanmsft
+ms.author: chetanmsft
+manager: katiiceva
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/21/2018
-ms.openlocfilehash: 794e2f3db44c29707400f96970159578d9e83f2d
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
-ms.translationtype: HT
+ms.date: 3/18/2019
+ms.openlocfilehash: d259fd5fc8c60837c6b6110eb751360227d70836
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303270"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338423"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Azure 串流分析輸出至 Azure SQL Database
 
@@ -33,7 +33,7 @@ Azure 串流分析中的 SQL 輸出支援平行寫入作為選項。 此選項�
 
 - **批次大小** - SQL 輸出設定允許您根據目的地資料表/工作負載的性質，指定 Azure 串流分析 SQL 輸出中的批次大小上限。 批次大小是每一次大量插入交易中傳送的記錄數上限。 在叢集資料行存放區索引中，使用約 [100K](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) 的批次大小可允許更多平行化、最小記錄及鎖定最佳化。 在磁碟式資料表中，10K (預設) 或更低的批次大小可能會是您解決方案的最佳選擇，因為更大的批次大小可能會在大量插入時觸發鎖定擴大。
 
-- **輸入訊息調整** – 若您已使用繼承資料分割及批次大小進行最佳化，增加每個資料分割每個訊息的輸入事件數可更進一步協助提高寫入輸送量。 輸入訊息調整允許 Azure 串流分析中之批次大小提高到指定的批次大小，以改善輸送量。 這可透過使用[壓縮](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs)或 Premium EventHub SKU 中更大的訊息大小來達成。
+- **輸入訊息調整** – 若您已使用繼承資料分割及批次大小進行最佳化，增加每個資料分割每個訊息的輸入事件數可更進一步協助提高寫入輸送量。 輸入訊息調整允許 Azure 串流分析中之批次大小提高到指定的批次大小，以改善輸送量。 這可藉由使用[壓縮](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs)或增加事件中樞或 Blob 中的輸入的訊息大小。
 
 ## <a name="sql-azure"></a>SQL Azure
 
@@ -43,7 +43,16 @@ Azure 串流分析中的 SQL 輸出支援平行寫入作為選項。 此選項�
 
 ## <a name="azure-data-factory-and-in-memory-tables"></a>Azure Data Factory 及記憶體內部資料表
 
-- **記憶體內部資料表作為暫存資料表** – [記憶體內部資料表](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)允許非常高速的資料載入，但資料必須要能容納在記憶體中。 效能評定顯示從記憶體內部資料表大量載入磁碟式資料表的速度，大約是使用單一寫入器直接大量插入具有識別欄位和叢集索引磁碟式資料表的 10 倍。 若要利用此大量插入效能，請[使用 Azure Data Factory 設定複製作業](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database)，從記憶體內部資料表將資料複製到以磁碟為基礎的資料表。
+- **與暫存資料表的記憶體中資料表**–[記憶體中資料表](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)允許高速資料載入，但需要納入記憶體中的資料。 效能評定顯示從記憶體內部資料表大量載入磁碟式資料表的速度，大約是使用單一寫入器直接大量插入具有識別欄位和叢集索引磁碟式資料表的 10 倍。 若要利用此大量插入效能，請[使用 Azure Data Factory 設定複製作業](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database)，從記憶體內部資料表將資料複製到以磁碟為基礎的資料表。
+
+## <a name="avoiding-performance-pitfalls"></a>避免效能問題
+大量插入資料的速度比載入使用單一插入的資料，因為重複避免傳輸資料、 剖析 insert 陳述式、 執行陳述式和發出的交易記錄的額外負荷。 相反地，更有效率的路徑是到儲存體引擎用來將資料串流。 安裝程式的成本這個路徑是不過遠高於單一 insert 陳述式中以磁碟為基礎的資料表。 損益平衡點通常是大約 100 個資料列，超過的大量載入幾乎總是會比較有效率。 
+
+如果內送事件速率較低，它可以輕鬆地建立批次大小低於 100 個資料列，會使大量插入的效率不佳，並使用太多磁碟空間。 若要解決這項限制，您可以執行其中一個動作：
+* 建立 INSTEAD OF[觸發程序](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-trigger-transact-sql)来用於每個資料列中的簡單的 insert。
+* 上一節中所述，請使用記憶體內部暫存資料表。
+
+寫入的非叢集資料行存放區索引 (NCCI)，較小的大量插入可以在其中建立太多區段，可能會損毀的索引時，就會發生另一個這類案例。 在此情況下，建議是改用非叢集資料行存放區索引。
 
 ## <a name="summary"></a>總結
 

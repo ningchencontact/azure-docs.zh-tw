@@ -9,16 +9,18 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: 'Docker，Kubernetes，Azure，AKS，Azure Kubernetes Service，容器，Helm，服務網格，服務網格路由、 kubectl，k8s '
-ms.openlocfilehash: 1ccb96bc8682ad505bc4b21e90951ea25c4c9954
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eff7f88ec6cbf8064df42fa3b22d61bb44baa451
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898077"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339579"
 ---
 # <a name="troubleshooting-guide"></a>疑難排解指南
 
 本指南包含您在使用 Azure Dev Spaces 時可能會遇到的常見問題相關資訊。
+
+如果使用 Azure 開發人員空間時，您會有任何問題，建立[Azure 開發人員空格 GitHub 存放庫中的問題](https://github.com/Azure/dev-spaces/issues)。
 
 ## <a name="enabling-detailed-logging"></a>啟用詳細記錄
 
@@ -262,11 +264,13 @@ az provider register --namespace Microsoft.DevSpaces
 ## <a name="dev-spaces-times-out-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>AKS 虛擬節點在執行到「正在等待容器映像組建...」步驟時，Dev Spaces 發生逾時
 
 ### <a name="reason"></a>原因
-當您嘗試使用 Dev Spaces 來執行服務，而服務已設定為在 [AKS 虛擬節點](https://docs.microsoft.com/azure/aks/virtual-nodes-portal)上執行時，就會發生此情形。 Dev Spaces 目前不支援在虛擬節點上建置服務或對服務進行偵錯。
+當您嘗試執行設定上執行的 service fabric 中使用開發人員空間時，就會發生此逾時[AKS 虛擬節點](https://docs.microsoft.com/azure/aks/virtual-nodes-portal)。 Dev Spaces 目前不支援在虛擬節點上建置服務或對服務進行偵錯。
 
 如果您執行 `azds up` 並搭配 `--verbose` 參數，或在 Visual Studio 中啟用詳細資訊記錄，則會看到其他詳細資料：
 
 ```cmd
+$ azds up --verbose
+
 Installed chart in 2s
 Waiting for container image build...
 pods/mywebapi-76cf5f69bb-lgprv: Scheduled: Successfully assigned default/mywebapi-76cf5f69bb-lgprv to virtual-node-aci-linux
@@ -274,7 +278,7 @@ Streaming build container logs for service 'mywebapi' failed with: Timed out aft
 Container image build failed
 ```
 
-此資料顯示服務的 Pod 已指派給 virtual-node-aci-linux，其為虛擬節點。
+上述命令會顯示服務的 pod 已指派給*虛擬節點-aci-linux*，這是虛擬節點。
 
 ### <a name="try"></a>請嘗試︰
 更新服務的 Helm 圖表，以移除任何允許服務在虛擬節點上執行的 nodeSelector 及/或 tolerations 值。 這些值通常會定義在圖表的 `values.yaml` 檔案中。

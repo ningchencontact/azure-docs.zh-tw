@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 7d877f467f06768c31679752d9deff1ca19d0003
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 023d12764e3dcfcf2f5471cb431528a14fbc1fed
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882870"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339630"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>在 Azure App Service 中針對應用程式啟用診斷記錄
 ## <a name="overview"></a>概觀
@@ -51,7 +51,7 @@ App Service 會針對來自 Web 伺服器和 Web 應用程式的記錄資訊提�
 若要在 [Azure 入口網站](https://portal.azure.com)中啟用診斷，請移至應用程式的頁面，然後按一下 [設定] > [診斷記錄]。
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
-![[記錄] 部分](./media/web-sites-enable-diagnostic-log/logspart.png)
+![記錄部分](./media/web-sites-enable-diagnostic-log/logspart.png)
 
 啟用 [應用程式診斷] 時，也會選擇 [層級]。 下表說明每個層級所包含的記錄類別：
 
@@ -115,7 +115,7 @@ App Service 會針對來自 Web 伺服器和 Web 應用程式的記錄資訊提�
 
     az webapp log download --resource-group resourcegroupname --name appname
 
-此命令會將名為 'appname' 的應用程式記錄儲存至目前目錄中名為 **diagnostics.zip** 的檔案。
+此命令會儲存名為 'appname' 為檔案的應用程式記錄**webapp_logs.zip**目前目錄中。
 
 > [!NOTE]
 > 如果您尚未安裝 Azure CLI，或尚未將其設定為使用您的「Azure 訂用帳戶」，請參閱[如何使用 Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)。
