@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 01/17/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: cc55466dac7344053e0cce3cad5f8161cef5226a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c7d895cd87122374a79a520643580a179961fba3
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57438120"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317318"
 ---
 # <a name="recommended-live-streaming-encoders"></a>建議使用即時串流編碼器
 
@@ -34,8 +34,7 @@ ms.locfileid: "57438120"
 媒體服務建議使用下列其中一種具有 RTMP 作為輸出的即時編碼器。 支援的 URL 配置是 `rtmp://` 或 `rtmps://`。
 
 > [!NOTE]
- > 透過 RTMP 串流處理時，請檢查防火牆和/或 Proxy 設定，確認輸出 TCP 連接埠 1935 和 1936 已開啟。<br/>
- 透過 RTMPS 串流處理時，請檢查防火牆和/或 Proxy 設定，確認輸出 TCP 連接埠 2935 和 2936 已開啟。
+> 透過 RTMP 串流處理時，請檢查防火牆和/或 Proxy 設定，確認輸出 TCP 連接埠 1935 和 1936 已開啟。
 
 - Adobe Flash Media Live Encoder 3.2
 - Haivision KB

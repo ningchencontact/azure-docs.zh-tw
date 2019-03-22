@@ -1,5 +1,5 @@
 ---
-title: 監視和登入 Azure AD 密碼保護
+title: 監視和記錄在 Azure AD 密碼保護-Azure Active Directory
 description: 了解 Azure AD 密碼保護的監視和記錄
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1e12addc15afe0c0745e0e8d5a9b6718483d477
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: b79e9e1a274002514561ef3f96c364bf9bc27071
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293714"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309600"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Azure AD 密碼保護的監視和記錄
 

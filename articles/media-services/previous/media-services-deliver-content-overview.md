@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 51d0c7ade46143ecbf6fe46bc54e5d383d50b382
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 3314ad4558fdd55429a5a68326dd46b5920d7daa
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58173071"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316230"
 ---
 # <a name="deliver-content-to-customers"></a>將內容傳遞給客戶
 當您將串流或點播視訊內容傳遞給客戶時，您的目標是在不同的網路條件下將高品質的視訊傳遞到各種裝置。
@@ -92,22 +92,22 @@ ms.locfileid: "58173071"
 ### <a name="mpeg-dash-format"></a>MPEG-DASH 格式
 {串流端點名稱-媒體服務帳戶名稱}.streaming.mediaservices.windows.net/{定位器識別碼}/{檔案名稱}.ism/Manifest(format=mpd-time-csf)
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
 
 ### <a name="apple-http-live-streaming-hls-v4-format"></a>Apple HTTP Live Streaming (HLS) V4 格式
 {串流端點名稱-媒體服務帳戶名稱}.streaming.mediaservices.windows.net/{定位器識別碼}/{檔案名稱}.ism/Manifest(format=m3u8-aapl)
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
 
 ### <a name="apple-http-live-streaming-hls-v3-format"></a>Apple HTTP Live Streaming (HLS) V3 格式
 {串流端點名稱-媒體服務帳戶名稱}.streaming.mediaservices.windows.net/{定位器識別碼}/{檔案名稱}.ism/Manifest(format=m3u8-aapl-v3)
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
 ### <a name="apple-http-live-streaming-hls-format-with-audio-only-filter"></a>Apple HTTP Live Streaming (HLS) 格式搭配僅限音訊的篩選條件
 根據預設，只有音訊的播放軌是包含在 HLS 資訊清單中。 這對於行動電話通訊網路的 Apple Store 認證是必要條件。 在此情況下，如果用戶端沒有足夠的頻寬，或透過 2G 網路連線，播放就會切換成只有音訊。 這可協助保護內容串流，而不需要緩衝處理，但是沒有視訊。 在某些情況中，播放程式緩衝處理可能比只有音訊更好。 如果您想要移除只有音訊的播放軌，可以將 **audio-only=false** 加入 URL。
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
 如需詳細資訊，請參閱 [Dynamic Manifest Composition support and HLS output additional features (動態資訊清單組合支援和 HLS 輸出額外功能)](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/)。
 
@@ -116,14 +116,14 @@ http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f
 
 範例：
 
-http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
+http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
 
 ### <a id="fmp4_v20"></a>Smooth Streaming 2.0 資訊清單 (舊版資訊清單)
 根據預設，Smooth Streaming 資訊清單格式包含重複的標記 (r-tag)。 不過，有些播放程式不支援 r-tag。 使用這些播放程式的用戶端可以使用停用 r-tag 的格式︰
 
 {串流端點名稱-媒體服務帳戶名稱}.streaming.mediaservices.windows.net/{定位器識別碼}/{檔案名稱}.ism/Manifest(format=fmp4-v20)
 
-    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
+    http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
 
 ## <a name="progressive-download"></a>漸進式下載
 使用漸進式下載可以在下載完整檔案前就開始播放媒體。 您無法漸進式下載 .ism* (ismv、isma、ismt 或 ismc) 檔案。

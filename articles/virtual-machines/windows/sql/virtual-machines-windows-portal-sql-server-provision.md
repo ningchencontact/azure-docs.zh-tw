@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ee6c05b2da4347ed034ae6e7318d6f5d90ea7884
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5f777ab238ed0774c4ad6afd862da1584cb06b94
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099639"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317369"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>如何在 Azure 入口網站中佈建 Windows SQL Server 虛擬機器
 
@@ -247,7 +247,7 @@ ms.locfileid: "58099639"
 
 | 參數 | 描述 | 範例 |
 | --- | --- | --- |
-| **金鑰保存庫 URL** |金鑰保存庫的位置。 |<https://contosokeyvault.vault.azure.net/> |
+| **金鑰保存庫 URL** |金鑰保存庫的位置。 |https:\//contosokeyvault.vault.azure.net/ |
 | **主體名稱** |Azure Active Directory 服务主体名称。 此名稱也稱為「用戶端識別碼」。 |fde2b411-33d5-4e11-af04eb07b669ccf2 |
 | **主體密碼** |Azure Active Directory 服務主體密碼。 此密碼也稱為「用戶端密碼」。 |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
 | **認證名稱** |**認證名稱**：AKV 集成在 SQL Server 内创建一个凭据，使 VM 具有对密钥保管库的访问权限。 選擇此認證的名稱。 |mycred1 |

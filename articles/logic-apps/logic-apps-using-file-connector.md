@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: c5128e904e540deeb3293fb687da4e8cafcfa1e0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: a933824e9553ee7f638da495b46ebed19e04169d
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57870989"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316961"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>透過 Azure Logic Apps 連線到內部部署檔案系統
 
@@ -48,7 +48,7 @@ ms.locfileid: "57870989"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，如果邏輯應用程式尚未開啟，請在邏輯應用程式設計工具中開啟邏輯應用程式。
 
-1. 在搜尋方塊中，輸入 "dropbox" 作為篩選條件。 從觸發程序清單中，選取此觸發程序：**當檔案建立時** 
+1. 在搜尋方塊中，輸入 "dropbox" 作為篩選條件。 從觸發程序清單中，選取此觸發程序：**當檔案建立時**
 
    ![選取 Dropbox 觸發程序](media/logic-apps-using-file-connector/select-dropbox-trigger.png)
 
@@ -78,7 +78,7 @@ ms.locfileid: "57870989"
    | **閘道** | 是 | <*installed-gateway-name*> | 先前所安裝閘道的名稱 | 
    ||| 
 
-1. 完成之後，請選擇 [建立]。 
+1. 完成之後，請選擇 [建立]。
 
    Logic Apps 會設定並測試連線，以確定連線運作正常。 
    如果已正確設定連線，就會針對您先前選取的動作顯示選項。 

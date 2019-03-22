@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 4d9dfbcfc1dd00209a90386bf75f0c2515a28060
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ed8159f38e2763cb897212ae4f51fecb7343a683
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854461"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315586"
 ---
 # <a name="deploy-multiple-guest-executables"></a>部署多个来宾可执行文件
 本文說明如何封裝多個來賓可執行檔並部署至 Azure Service Fabric。 若要建置和部署單一 Service Fabric 套件，請閱讀如何[將來賓可執行檔部署至 Service Fabric](service-fabric-deploy-existing-app.md)。
@@ -204,7 +204,7 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
-將應用程式順利發佈至本機叢集之後，您便可以透過我們在 Node.js 應用程式的服務資訊清單中輸入的連接埠 (例如 http://localhost:3000) 存取 Node.js 應用程式。
+一旦應用程式已成功發行至本機叢集時，您可以存取我們在 Node.js 應用程式--例如 http 的服務資訊清單中輸入連接埠上的 Node.js 應用程式：\//localhost:3000。
 
 在本教學課程中，您已看到如何輕鬆地將兩個現有應用程式封裝成一個 Service Fabric 應用程式。 还已了解如何将其部署到 Service Fabric，以便它能够从一些 Service Fabric 功能（例如高可用性和运行状况系统集成）中获益。
 

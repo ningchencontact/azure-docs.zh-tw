@@ -1,21 +1,21 @@
 ---
-title: 連線到 Dynamics 365 - Azure Logic Apps | Microsoft Docs
+title: 連接到 Dynamics 365-Azure Logic Apps
 description: 使用 Dynamics 365 (線上) REST API 和 Azure Logic Apps 建立及管理記錄
+services: logic-apps
+ms.service: logic-apps
+ms.suite: integration
 author: Mattp123
 ms.author: matp
-ms.service: logic-apps
-services: logic-apps
 ms.reviewer: estfan, LADocs
-ms.suite: integration
 ms.topic: article
 ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: 9fe41cf2946525948897635a4e30213d161431ef
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: b81efba0ce860bea5fd68dd99ce52980e6816b7e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295295"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310569"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>使用 Azure Logic Apps 管理 Dynamics 365 記錄
 
@@ -26,13 +26,13 @@ ms.locfileid: "58295295"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。 
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。
 
 * [Dynamics 365 帳戶](https://dynamics.microsoft.com)
 
 * [如何建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知識
 
-* 您要在其中存取 Dynamics 365 帳戶的邏輯應用程式。 若要使用 Dynamics 365 觸發程序啟動邏輯應用程式，您需要[空白邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 
+* 您要在其中存取 Dynamics 365 帳戶的邏輯應用程式。 若要使用 Dynamics 365 觸發程序啟動邏輯應用程式，您需要[空白邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="add-dynamics-365-trigger"></a>新增 Dynamics 365 觸發程序
 
@@ -50,8 +50,8 @@ ms.locfileid: "58295295"
 
 1. 提供以下觸發程序詳細資料：
 
-   | 屬性 | 必要項 | 描述 | 
-   |----------|----------|-------------| 
+   | 屬性 | 必要項 | 描述 |
+   |----------|----------|-------------|
    | **組織名稱** | 是 | 要監視的組織 Dynamics 365 執行個體名稱，例如「Contoso」 |
    | **實體名稱** | 是 | 要監視的實體名稱，例如「Leads」 | 
    | **頻率** | 是 | 在檢查是否有觸發程序相關更新時要對間隔使用的時間單位 |
@@ -72,21 +72,21 @@ ms.locfileid: "58295295"
 
 1. 提供以下動作詳細資料：
 
-   | 屬性 | 必要項 | 描述 | 
-   |----------|----------|-------------| 
+   | 屬性 | 必要項 | 描述 |
+   |----------|----------|-------------|
    | **組織名稱** | 是 | 要在其中建立記錄的 Dynamics 365 執行個體，不一定要與觸發程序中的執行個體相同，但在本例中為「Contoso」 |
-   | **實體名稱** | 是 | 要在其中建立記錄的實體，例如「Tasks」 | 
+   | **實體名稱** | 是 | 要在其中建立記錄的實體，例如「Tasks」 |
    | | |
 
    ![動作詳細資料](./media/connectors-create-api-crmonline/action-details.png)
 
 1. 當動作中出現 [主旨] 方塊時，按一下 [主旨] 方塊內部，讓動態內容清單出現。 從這份清單中，選取欄位值以包含在與新的潛在客戶記錄相關聯的工作記錄中：
 
-   | 欄位 | 描述 | 
-   |-------|-------------| 
+   | 欄位 | 描述 |
+   |-------|-------------|
    | **姓氏** | 作為記錄中主要連絡人的潛在客戶姓氏 |
-   | **主題** | 記錄中潛在客戶的描述性名稱 | 
-   | | | 
+   | **主題** | 記錄中潛在客戶的描述性名稱 |
+   | | |
 
    ![工作記錄詳細資料](./media/connectors-create-api-crmonline/create-record-details.png)
 
@@ -109,7 +109,7 @@ ms.locfileid: "58295295"
 
    ![指定篩選條件和順序](./media/connectors-create-api-crmonline/advanced-options.png)
 
-如需詳細資訊，請參閱下列 Dynamics 365 Customer Engagement Web API 系統查詢選項： 
+如需詳細資訊，請參閱下列 Dynamics 365 Customer Engagement Web API 系統查詢選項：
 
 * [$filter](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#filter-results)
 * [$orderby](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#order-results)
@@ -128,19 +128,19 @@ ms.locfileid: "58295295"
 | 同時需要記錄識別碼和查閱類型的欄位 | 主索引鍵 | 某些參考另一個實體記錄的欄位同時需要記錄識別碼和查閱類型。 | 
 ||||
 
-為了詳述這些欄位類型，以下是 Dynamics 365 觸發程序和動作中同時需要記錄識別碼和查閱類型的欄位範例。 此需求代表從動態清單選取的值不會有作用。 
+為了詳述這些欄位類型，以下是 Dynamics 365 觸發程序和動作中同時需要記錄識別碼和查閱類型的欄位範例。 此需求代表從動態清單選取的值不會有作用。
 
-| 欄位 | 描述 | 
+| 欄位 | 描述 |
 |-------|-------------|
-| **擁有者** | 必須是有效的使用者識別碼或小組記錄識別碼。 | 
-| **擁有者類型** | 必須是**系統使用者**或**小組**。 | 
-| **關於** | 必須是有效的記錄識別碼，例如帳戶識別碼或連絡人記錄識別碼。 | 
-| **關於類型** | 必須是查閱類型，例如**帳戶**或**連絡人**。 | 
-| **客戶** | 必須是有效的記錄識別碼，例如帳戶識別碼或連絡人記錄識別碼。 | 
-| **客戶類型** | 必須是查閱類型，例如**帳戶**或**連絡人**。 | 
+| **擁有者** | 必須是有效的使用者識別碼或小組記錄識別碼。 |
+| **擁有者類型** | 必須是**系統使用者**或**小組**。 |
+| **關於** | 必須是有效的記錄識別碼，例如帳戶識別碼或連絡人記錄識別碼。 |
+| **關於類型** | 必須是查閱類型，例如**帳戶**或**連絡人**。 |
+| **客戶** | 必須是有效的記錄識別碼，例如帳戶識別碼或連絡人記錄識別碼。 |
+| **客戶類型** | 必須是查閱類型，例如**帳戶**或**連絡人**。 |
 |||
 
-在此範例中，名為**建立新記錄**的動作會建立新的工作記錄： 
+在此範例中，名為**建立新記錄**的動作會建立新的工作記錄：
 
 ![使用記錄識別碼和查閱類型建立工作記錄](./media/connectors-create-api-crmonline/create-record-advanced.png)
 
@@ -148,13 +148,13 @@ ms.locfileid: "58295295"
 
 ![擁有者記錄識別碼和查閱類型](./media/connectors-create-api-crmonline/owner-record-id-and-lookup-type.png)
 
-此動作也會將與記錄識別碼相關聯的帳戶記錄新增到 [關於] 欄位，以及將查閱類型新增到 [關於類型] 欄位： 
+此動作也會將與記錄識別碼相關聯的帳戶記錄新增到 [關於] 欄位，以及將查閱類型新增到 [關於類型] 欄位：
 
 ![關於記錄識別碼和查閱類型](./media/connectors-create-api-crmonline/regarding-record-id-lookup-type-account.png)
 
 ## <a name="find-record-id"></a>尋找記錄識別碼
 
-若要尋找記錄識別碼，請遵循下列步驟： 
+若要尋找記錄識別碼，請遵循下列步驟：
 
 1. 在 Dynamics 365 中開啟記錄，例如帳戶記錄。
 
@@ -175,7 +175,7 @@ ms.locfileid: "58295295"
 
    ![邏輯應用程式執行狀態](./media/connectors-create-api-crmonline/run-history.png)
 
-1. 展開失敗的步驟，以便檢視詳細資訊。 
+1. 展開失敗的步驟，以便檢視詳細資訊。
 
    ![展開失敗的步驟](./media/connectors-create-api-crmonline/expand-failed-step.png)
 
@@ -187,7 +187,7 @@ ms.locfileid: "58295295"
 
 ## <a name="connector-reference"></a>連接器參考
 
-如需連接器的 Swagger 檔案所敘述的技術詳細資料 (例如，觸發程序、動作和限制)，請參閱[連接器的參考頁面](/connectors/dynamicscrmonline/)。 
+技術的詳細資訊，例如觸發程序、 動作和限制，如所述的連接器的 OpenAPI (以前稱為 Swagger) 檔案，請參閱 <<c0> [ 連接器的參考頁面](/connectors/dynamicscrmonline/)。
 
 ## <a name="get-support"></a>取得支援
 

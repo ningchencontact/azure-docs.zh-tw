@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: 91cabd6601ca8d0c0eabfdb5726d4bd6b37492a6
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: dc84d5850656a0898fba328b652d86f3d8995bef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216080"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118369"
 ---
 # <a name="use-azure-data-box-to-send-data-to-appropriate-azure-storage-blob-tier"></a>使用 Azure 資料箱將資料傳送到適當的 Azure 儲存體 Blob 層
 
@@ -109,8 +109,8 @@ Azure 封存層已離線並提供最低的儲存成本，但存取成本最高�
     >> }
     PS C:\WINDOWS\system32>
     ```
-> [!TIP]
-> 如果您想要資料在内嵌時封存，請將預設帳戶層設定成經常性存取。 如果預設層是非經常性存取，則立即將資料移動到封存會有提早 30 天刪除的懲罰。
+   > [!TIP]
+   > 如果您想要資料在内嵌時封存，請將預設帳戶層設定成經常性存取。 如果預設層是非經常性存取，則立即將資料移動到封存會有提早 30 天刪除的懲罰。
 
 ## <a name="next-steps"></a>後續步驟
 

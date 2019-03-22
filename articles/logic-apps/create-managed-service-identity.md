@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 01/22/2019
-ms.openlocfilehash: a22512a960426cc21f4f012e06b9df4fa86e637e
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 046aed64d3551d5c0b6ddae44b925452c01c297a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54807264"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337574"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>使用 Azure Logic Apps 中的受控識別驗證及存取資源
 
@@ -57,7 +57,7 @@ ms.locfileid: "54807264"
 
    ![適用於物件識別碼的 GUID](./media/create-managed-service-identity/object-id.png)
 
-   | 屬性 | 值 | 說明 | 
+   | 屬性 | 值 | 描述 | 
    |----------|-------|-------------| 
    | **物件識別碼** | <*identity-resource-ID*> | 代表 Azure AD 租用戶中邏輯應用程式之系統指派受控識別的全域唯一識別碼 (GUID) | 
    ||| 
@@ -109,7 +109,7 @@ ms.locfileid: "54807264"
 }
 ```
 
-| 屬性 | 值 | 說明 | 
+| 屬性 | 值 | 描述 | 
 |----------|-------|-------------|
 | **principalId** | <*principal-ID*> | 代表 Azure AD 租用戶中的邏輯應用程式，且有時會以「物件識別碼」或 `objectID` 之形式呈現的全域唯一識別碼 (GUID) | 
 | tenantId | <*Azure-AD-tenant-ID*> | 代表邏輯應用程式現在已是其成員之 Azure AD 租用戶的全域唯一識別碼 (GUID)。 在 Azure AD 租用戶中，服務主體會有與邏輯應用程式執行個體相同的名稱。 | 
@@ -152,7 +152,7 @@ ms.locfileid: "54807264"
 
 1. 提供該動作的必要詳細資料，例如要求**方法**與您要呼叫之資源的 **URI** 位置。
 
-   例如，假設您是搭配[這些支援 Azure AD 的 Azure 服務之一](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication)來使用 Azure Active Directory (Azure AD) 驗證。 
+   例如，假設您是搭配[這些支援 Azure AD 的 Azure 服務之一](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)來使用 Azure Active Directory (Azure AD) 驗證。 
    在 [URI] 方塊中，輸入該 Azure 服務的端點 URL。 
    因此，假設您是使用 Azure Resource Manager，請在 [URI] 屬性中輸入此值：
 
@@ -167,7 +167,7 @@ ms.locfileid: "54807264"
    > [!IMPORTANT]
    > 
    > 在 [Audience] 屬性中，資源識別碼值必須完全符合 Azure AD 所預期的值，包括任何必要的結尾斜線。 
-   > 您可以在這個[描述支援 Azure AD 之 Azure 服務的表格中](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication)找到這些資源識別碼值。 
+   > 您可以在這個[描述支援 Azure AD 之 Azure 服務的表格中](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)找到這些資源識別碼值。 
    > 例如，如果您是使用 Azure Resource Manager 資源識別碼，請確定 URI 具有結尾斜線。
 
 1. 繼續按照您想要的方式建置邏輯應用程式。

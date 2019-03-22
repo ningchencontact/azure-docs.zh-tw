@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3e1d5ed05b7acc8f7e0fcc772a4124984c6cba45
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: ae435c379a55ee2b3246cb3e757b79295c57988e
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884523"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338287"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>將內部部署 Apache Hadoop 叢集移轉至 Azure HDInsight - 儲存體最佳做法
 
@@ -34,7 +34,7 @@ Azure 儲存體可進行異地複寫。 雖然異地複寫可提供地理位置�
 
 您可以使用下列其中一種格式來存取儲存在 Azure 儲存體中的資料：
 
-|資料存取格式 |說明 |
+|資料存取格式 |描述 |
 |---|---|
 |`wasb:///`|使用未加密通訊存取預設儲存體。|
 |`wasbs:///`|使用加密通訊存取預設儲存體。|
@@ -110,8 +110,8 @@ Data Lake Storage Gen2 的基本功能是將 [階層式命名空間](../../stor
 - **最佳化的驅動程式**：Azure Blob Filesystem 驅動程式 (ABFS) 已特別針對巨量資料分析 [完成最佳化](../../storage/data-lake-storage/abfs-driver.md) 。 對應的 REST API 會透過 dfs 端點 dfs.core.windows.net 呈現。
 
 您可以使用下列其中一種格式來存取儲存在 ADLS Gen2 中的資料：
-- `abfs:///`：存取叢集的預設 Data Lake Storage。
-- `abfs[s]://file_system@account_name.dfs.core.windows.net`：與非預設 Data Lake Storage 進行通訊時使用。
+- `abfs:///`:存取叢集的預設 Data Lake Storage。
+- `abfs[s]://file_system@account_name.dfs.core.windows.net`:與非預設 Data Lake Storage 進行通訊時使用。
 
 如需詳細資訊，請參閱下列文章：
 
@@ -156,7 +156,7 @@ hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode
 
 1. 開啟 [SASToken.py](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature/blob/master/Python/SASToken.py) 檔案並變更下列值：
 
-    |權杖屬性|說明|
+    |權杖屬性|描述|
     |---|---|
     |policy_name|要建立的預存原則所要使用的名稱。|
     |storage_account_name|儲存體帳戶的名稱。|
@@ -221,7 +221,6 @@ Azure Data Lake Storage 提供本地備援儲存體 (LRS)，但您也應以符�
 
 如需詳細資訊，請參閱下列文章：
 - [將其他儲存體帳戶新增至 HDInsight](../hdinsight-hadoop-add-storage.md)
-- [將其他 Azure 儲存體帳戶連結至叢集](https://blogs.msdn.microsoft.com/ashish/2016/08/25/hdinsight-attach-additional-azure-storage-accounts/)
 
 ## <a name="next-steps"></a>後續步驟
 

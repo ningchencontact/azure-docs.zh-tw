@@ -1,5 +1,5 @@
 ---
-title: iOS 上的 Azure Active Directory 憑證式驗證
+title: IOS-Azure Active Directory 上的憑證式驗證
 description: 了解在有 iOS 裝置的解決方案中，設定憑證式驗證的支援案例和需求
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 717eef0857d6db53462ef1b5eb4786962550d44b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f7243249e7aabf588115ef74f838be8ca67a94c7
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188064"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309481"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>iOS 上的 Azure Active Directory 憑證式驗證
 
@@ -75,7 +75,7 @@ ADFS 權杖必須要有下列宣告，Azure Active Directory 才能撤銷用戶�
 
 ## <a name="exchange-activesync-clients-support"></a>Exchange ActiveSync 用戶端支援
 
-iOS 9 或更新版本支援原生 iOS 郵件用戶端。 針對其他所有 Exchange ActiveSync 應用程式，若要判斷這項功能是否受支援，請連絡您的應用程式開發人員。
+iOS 9 或更新版本支援原生 iOS 郵件用戶端。 若要确定其他所有 Exchange ActiveSync 应用程序是否支持此功能，请联系应用程序开发人员。
 
 ## <a name="next-steps"></a>後續步驟
 

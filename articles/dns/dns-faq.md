@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 3/11/2019
+ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: d0c5260fcc2e7ac2acbeec308c6a0cba7d6a81be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1d0506179f9f0044f9f05edd3395d2677310c2d0
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098088"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337100"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS 常見問題集
 
@@ -103,9 +103,11 @@ Azure DNS 僅支援裝載靜態 DNS 網域，其中所指定 DNS 記錄的每個
 ## <a name="alias-records"></a>別名記錄
 
 ### <a name="what-are-some-scenarios-where-alias-records-are-useful"></a>別名記錄可在哪些案例中派上用場？
+
 請參閱 [Azure DNS 別名記錄概觀](dns-alias.md)中的案例一節。
 
 ### <a name="what-record-types-are-supported-for-alias-record-sets"></a>別名記錄集支援哪些記錄類型？
+
 Azure DNS 區域中的下列記錄類型支援別名記錄集：
  
 - 具有使用  
@@ -116,30 +118,36 @@ Azure DNS 區域中的下列記錄類型支援別名記錄集：
 
 - **從 DNS A/AAAA 記錄集指向公用 IP 資源**。 您可以建立 A/AAAA 記錄集，並使其成為別名記錄集來指向公用 IP 資源。
 - **從 DNS A/AAAA/CNAME 記錄集指向流量管理員設定檔。** 您可以從 DNS CNAME 記錄集指向流量管理員設定檔的 CNAME。 例如，contoso.trafficmanager.net。 現在，您也可以從 DNS 區域中的 A 或 AAAA 記錄集，指向具有外部端點的流量管理員設定檔。
+- **指向 Azure 內容傳遞網路 (CDN) 端點**。 當您建立使用 Azure 儲存體和 Azure CDN 的靜態網站時，這非常有用。
 - **指向相同區域中的另一個 DNS 記錄集**。 別名記錄可以參考其他相同類型的記錄集。 例如，DNS CNAME 記錄集可以是相同類型的另一個 CNAME 記錄集所用的別名。 如果您想要讓某些記錄集成為別名，某些成為非別名，便可使用這種安排。
 
 ### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>我是否可從 Azure 入口網站建立及更新別名記錄？
+
 是。 您可以在 Azure 入口網站以及 Azure REST API、PowerShell、CLI 與 SDK 中建立或管理別名記錄。
 
 ### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-deleted-when-the-underlying-public-ip-is-deleted"></a>當刪除底層公用 IP 時，別名記錄是否會協助確保我的 DNS 記錄集也會刪除？
+
 是。 此功能是別名記錄的核心功能之一。 其可協助您避免應用程式使用者發生可能的中斷。
 
 ### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-updated-to-the-correct-ip-address-when-the-underlying-public-ip-address-changes"></a>當底層公用 IP 位址變更時，別名記錄是否會協助確保我的 DNS 記錄集更新為正確的 IP 位址？
+
 是。 此功能是別名記錄的核心功能之一。 其可協助您避免應用程式發生可能的中斷或安全性風險。
 
 ### <a name="are-there-any-restrictions-when-using-alias-record-sets-for-a-or-aaaa-records-to-point-to-traffic-manager"></a>針對 A 或 AAAA 記錄指向流量管理員使用別名記錄集時是否有任何限制？
+
 是。 若要指向流量管理員設定檔，作為來自 A 或 AAAA 記錄集的別名，則流量管理員設定檔必須只使用外部端點。 當您在流量管理員中建立外部端點時，請提供端點的實際 IP 位址。
 
 ### <a name="is-there-an-additional-charge-to-use-alias-records"></a>使用別名記錄需要額外付費嗎？
+
 必須有別名記錄才是有效的 DNS 記錄集。 別名記錄沒有額外費用。
 
 ## <a name="use-azure-dns"></a>使用 Azure DNS
 
-### <a name="can-i-cohost-a-domain-by-using-azure-dns-and-another-dns-provider"></a>我是否可以使用 Azure DNS 和另一個 DNS 提供者來共同裝載某個網域？
+### <a name="can-i-co-host-a-domain-by-using-azure-dns-and-another-dns-provider"></a>我可以共同裝載網域使用 Azure DNS 與其他 DNS 提供者嗎？
 
 是。 Azure DNS 支援與其他 DNS 服務共同裝載網域。
 
-若要設定共同裝載，請修改網域的 NS 記錄，使其指向兩個提供者的名稱伺服器。 名稱伺服器 (NS) 記錄可控制哪些提供者會收到網域的 DNS 查詢。 您可以在 Azure DNS 中、在另一個提供者中，以及在父區域中修改這些 NS 記錄。 父區域通常會透過網域名稱註冊機構來設定。 如需有關 DNS 委派的詳細資訊，請參閱 [DNS 網域委派](dns-domain-delegation.md)。
+若要設定共同裝載，修改為指向兩個提供者的名稱伺服器網域的 NS 記錄。 名稱伺服器 (NS) 記錄可控制哪些提供者會收到網域的 DNS 查詢。 您可以在 Azure DNS 中、在另一個提供者中，以及在父區域中修改這些 NS 記錄。 父區域通常會透過網域名稱註冊機構來設定。 如需有關 DNS 委派的詳細資訊，請參閱 [DNS 網域委派](dns-domain-delegation.md)。
 
 此外，請確保網域的 DNS 記錄在這兩個 DNS 提供者之間保持同步。 Azure DNS 目前不支援 DNS 區域傳輸。 您必須使用 [Azure DNS 管理入口網站](dns-operations-recordsets-portal.md)、[REST API](https://docs.microsoft.com/powershell/module/azurerm.dns) \(英文\)、[SDK](dns-sdk.md)、[PowerShell Cmdlet](dns-operations-recordsets.md) 或 [CLI 工具](dns-operations-recordsets-cli.md)，來同步處理 DNS 記錄。
 
@@ -271,10 +279,9 @@ Azure DNS 的管理是使用 Azure Resource Manager 來進行的。 Azure DNS �
 ## <a name="next-steps"></a>後續步驟
 
 - [深入了解 Azure DNS](dns-overview.md)。
-<br>
-- [深入了解如何將 Azure DNS 用於私人網域](private-dns-overview.md)。
-<br>
-- [深入了解 DNS 區域和記錄](dns-zones-records.md)。
-<br>
-- [開始使用 Azure DNS](dns-getstarted-portal.md)。
 
+- [深入了解如何將 Azure DNS 用於私人網域](private-dns-overview.md)。
+
+- [深入了解 DNS 區域和記錄](dns-zones-records.md)。
+
+- [開始使用 Azure DNS](dns-getstarted-portal.md)。

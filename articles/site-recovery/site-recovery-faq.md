@@ -2,21 +2,21 @@
 title: Azure Site Recovery：常見問題集 | Microsoft Docs
 description: 本文討論 Azure Site Recovery 的相關熱門問題。
 services: site-recovery
-author: mayurigupta13
-manager: rochakm
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 3/3/2019
-ms.author: mayg
-ms.openlocfilehash: 1abd18e294ef73e989191d189ea599bca2b4d903
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.date: 3/18/2019
+ms.author: raynew
+ms.openlocfilehash: 018368d28dd34787046ae655a98527aede28603f
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881073"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313363"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery：常見問題集 (FAQ)
-本文包含有關 Azure Site Recovery 的常見問題集。 如果您在閱讀本文後有問題，請將問題張貼在 [Azure 復原服務論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)。
+本文摘要說明 Azure Site Recovery 的相關常見問題的解答。 
 
 ## <a name="general"></a>一般
 ### <a name="what-does-site-recovery-do"></a>Site Recovery 的功能是什麼？

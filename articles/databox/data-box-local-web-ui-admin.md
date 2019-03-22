@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 12/27/2018
+ms.date: 02/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 6df44afee26570dbdc5d64b449c4e33d6a0956ae
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d5b6949930161f78c6edf4213df98471e96b1d42
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885705"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404037"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box"></a>使用本機 Web UI 來管理您的資料箱
 
@@ -25,6 +25,7 @@ ms.locfileid: "54885705"
 
 - 產生支援套件
 - 關閉或重新啟動您的裝置
+- 下載 BOM 或資訊清單檔
 - 檢視裝置的可用容量
 - 跳過總和檢查碼驗證 
 
@@ -104,6 +105,8 @@ ms.locfileid: "54885705"
     |databoxe2etest_AzFile-BOM.txt    |Azure 檔案         |SMB/NFS         |
     |databoxe2etest_PageBlock_Rest-BOM.txt     |分頁 Blob         |REST        |
     |databoxe2etest_BlockBlock_Rest-BOM.txt    |區塊 Blob         |REST         |
+    |mydbmdrg1_MDisk-BOM.txt    |受控磁碟         |SMB/NFS         |
+    |mydbmdrg2_MDisk-BOM.txt     |受控磁碟         |SMB/NFS         |
 
 在資料箱返回 Azure 資料中心之後，您可使用這份清單來確認已上傳到 Azure 儲存體帳戶的檔案。 範例資訊清單檔如下所示。
 

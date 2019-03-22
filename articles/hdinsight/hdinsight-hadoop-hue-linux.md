@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: be6b50b5cb4ea7d32f47d6eb0e19ba43a3217cb6
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: HT
+ms.openlocfilehash: 9a5a3e7354d3d89a53e94553ed504df7c8117922
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202685"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314988"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 叢集上安裝和使用 Hue
 
@@ -95,7 +95,7 @@ Hue 是一組用來與 Apache Hadoop 叢集進行互動的 Web 應用程式。 �
         hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
 
     這是 Hue 網站所在之主要前端節點的主機名稱。
-4. 使用瀏覽器開啟位於 http://HOSTNAME:8888 的 Hue 入口網站。 以您在先前步驟取得的名稱取代 HOSTNAME。
+4. 使用瀏覽器開啟 Hue 入口網站中的，http:\//HOSTNAME:8888。 以您在先前步驟取得的名稱取代 HOSTNAME。
 
    > [!NOTE]  
    > 當您第一次登入時，系統會提示您建立帳戶來登入 Hue 入口網站。 您在此處指定的認證會限制為入口網站，並且與佈建叢集時您指定的系統管理員或 SSH 使用者認證不相關。

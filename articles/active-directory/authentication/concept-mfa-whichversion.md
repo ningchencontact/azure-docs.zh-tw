@@ -1,5 +1,5 @@
 ---
-title: Azure MFA Server 或服務在內部部署環境或雲端中？
+title: Azure MFA Server 或服務在內部部署環境或雲端中？ - Azure Active Directory
 description: 為 Azure AD 系統管理員，我需要了解應該部署的 MFA 版本嗎？
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: edfc26355933db549b735c4baf9744744f46734c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: dbbcb46c3449750b6ea9ccdbd9a5103be715d8f7
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870461"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312065"
 ---
 # <a name="which-version-of-azure-mfa-is-right-for-my-organization"></a>哪個 Azure MFA 版本適合我的組織？
 

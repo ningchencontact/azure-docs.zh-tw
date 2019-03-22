@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 1ab9fcd50ad7081f8047d62e545287fa75db75e4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5057c0c781cb9ec60ecde7dd3f4bf96089b902df
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457583"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312677"
 ---
 # <a name="hosted-test-drive"></a>裝載的試用產品
 
@@ -48,12 +48,12 @@ ms.locfileid: "57457583"
 - **測試磁碟機類型**:選擇\'Microsoft 託管 （例如 Dynamics 365 for Customer Engagement） ' 選項。 這表示 Microsoft 將會裝載並維護執行試用產品使用者佈建及取消佈建的服務。
 - **最大並行測試磁碟機**:此欄位設為在指定的任何時間點都有作用中的測試磁碟機的並行使用者數目。 當使用者的試用產品為作用中時，每個使用者都會取用 Dynamics 授權，因此您必須確定您至少有這麼多的 Dynamics 授權可供試用產品使用者使用。 建議值為 3-5 個。
 - **測試磁碟機的持續時間 （小時）**:將此欄位設數測試磁碟機將會有作用中的使用者。 在經過設定的小時之後，使用者將從您的租用戶取消佈建。 建議值為 2-24 小時，視您應用程式的複雜度而定。 若使用者用完其時間而且想要再次存取試用產品，一律可以要求進行另一次試用產品。
-- **執行個體 URL**:提供試用產品使用者一開始會巡覽至啟動試用產品時的 URL。 這通常是您的應用程式與範例資料安裝所在之 Dynamics 365 執行個體的 URL。 範例值： https://testdrive.crm.dynamics.com
+- **執行個體 URL**:提供試用產品使用者一開始會巡覽至啟動試用產品時的 URL。 這通常是您的應用程式與範例資料安裝所在之 Dynamics 365 執行個體的 URL。 值範例： https:\//testdrive.crm.dynamics.com
 - **Azure AD 租用戶識別碼**:提供您的 Dynamics 365 執行個體的 Azure 租用戶的識別碼。 若要擷取此值，請登入 Azure 入口網站並瀏覽到 \'Azure Active Directory\' -\> 從功能表刀鋒視窗選取 [屬性]-\> 複製目錄識別碼。 範例值：72f988bf-86f1-41af-91ab-2d7cd0111234
 - **Azure AD 應用程式識別碼**:您在步驟 7 中建立之 Azure AD 應用程式的識別碼。 \ 範例值：53852862-a2ae-4e43-9461-faa49650a096
 - **Azure AD 應用程式金鑰**:在建立的 Azure AD 應用程式祕密步驟 7。 \ 範例值：IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=
 - **Azure AD 租用戶名稱**:提供您的 Dynamics 365 執行個體的 Azure 租用戶的名稱。 使用 \<tenantname.\>onmicrosoft.com 格式。 範例值：testdrive.onmicrosoft.com
-- **執行個體的 Web API URL**:提供您的 Dynamics 365 執行個體的 Web API URL。 您可以透過登入您的 Microsoft Dynamics 365 執行個體並瀏覽到 [設定 -\> 自訂 -\> 開發人員資源 -\> 執行個體 Web API (複製此 URL)] 以擷取此值。 範例值： https://testdrive.crm.dynamics.com/api/data/v9.0 
+- **執行個體的 Web API URL**:提供您的 Dynamics 365 執行個體的 Web API URL。 您可以透過登入您的 Microsoft Dynamics 365 執行個體並瀏覽到 [設定 -\> 自訂 -\> 開發人員資源 -\> 執行個體 Web API (複製此 URL)] 以擷取此值。 範例值： https:\//testdrive.crm.dynamics.com/api/data/v9.0 
 - **角色名稱**:提供您建立試用產品的自訂 Dynamics 365 安全性角色的名稱。 這是在使用者的試用產品期間將指派給使用者的角色。 範例值： testdriverole
 
 ## <a name="next-steps"></a>後續步驟

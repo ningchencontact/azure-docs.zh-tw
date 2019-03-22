@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: 92f9fcc8a10f90c0886667f33f3c7d4dec09bc8e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 9d48f47f66bea0bb8c5e3c982f983f3673bcb157
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884671"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316987"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>佈建適用於 Linux (Ubuntu) 的資料科學虛擬機器
 
@@ -144,9 +144,9 @@ Linux VM 已經佈建了 X2Go 伺服器，並準備接受用戶端連接。 若�
 
 ### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub 和 JupyterLab
 
-Ubuntu DSVM 執行 [JupyterHub](https://github.com/jupyterhub/jupyterhub)，這是一個多使用者的 Jupyter 伺服器。 若要連線，請在您的膝上型電腦或桌上型電腦瀏覽至 https://your-vm-ip:8000，輸入您用來建立 VM 的使用者名稱和密碼，然後登入。 有許多範例筆記本可供您瀏覽和嘗試。
+Ubuntu DSVM 執行 [JupyterHub](https://github.com/jupyterhub/jupyterhub)，這是一個多使用者的 Jupyter 伺服器。 若要連線，請瀏覽至 https:\// 您-vm-在您的膝上型電腦或桌上型電腦，ip:8000 輸入使用者名稱和您用來建立 VM，並登入的密碼。 有許多範例筆記本可供您瀏覽和嘗試。
 
-也提供 JupyterLab (新一代的 Jupyter 筆記本) 與 JupyterHub。 若要存取，請登入 JupyterHub，然後瀏覽至 URL https://your-vm-ip:8000/user/your-username/lab。 您可以在 /etc/jupyterhub/jupyterhub_config.py 中加入下面這一行，設定 JupyterLab 為預設的筆記本伺服器：
+也提供 JupyterLab (新一代的 Jupyter 筆記本) 與 JupyterHub。 若要存取它，登入 JupyterHub，然後瀏覽至 URL https:\// 您的 vm-ip:8000/使用者/您的使用者名稱/實驗室。 您可以在 /etc/jupyterhub/jupyterhub_config.py 中加入下面這一行，設定 JupyterLab 為預設的筆記本伺服器：
 
     c.Spawner.default_url = '/lab'
 

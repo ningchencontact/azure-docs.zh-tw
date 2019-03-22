@@ -3,33 +3,33 @@ title: 使用 Visual Studio 在 ASP.NET 專案中新增 Key Vault 支援 - Azure
 description: 使用本教學課程，以協助您了解如何在 ASP.NET 或 ASP.NET Core Web 應用程式中新增 Key Vault 支援。
 services: key-vault
 author: ghogen
-manager: douge
-ms.prod: visual-studio-dev15
+manager: jillfra
+ms.prod: visual-studio
 ms.technology: vs-azure
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/21/2019
 ms.author: ghogen
-ms.openlocfilehash: de849ae290228826ee500ae1c7e623210e585d34
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: d95bd114be712953b79ef5afbb0915173f6de26c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113243"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339273"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>使用 Visual Studio 連線服務在 Web 應用程式中新增 Key Vault
 
-在本教學課程中，您將了解如何輕鬆地新增所需的項目，以便開始在 Visual Studio 中使用 Azure Key Vault 來管理 Web 專案的祕密，而不論您使用的是 ASP.NET Core 或任何類型的 ASP.NET 專案。 藉由使用 Visual Studio 2017 中的「連線服務」功能，您可以讓 Visual Studio 自動新增所需的所有 NuGet 封裝和組態設定，以連線到 Azure 中的 Key Vault。 
+在本教學課程中，您將了解如何輕鬆地新增所需的項目，以便開始在 Visual Studio 中使用 Azure Key Vault 來管理 Web 專案的祕密，而不論您使用的是 ASP.NET Core 或任何類型的 ASP.NET 專案。 在 Visual Studio 中使用已連接服務功能，您可以使用 Visual Studio 會自動加入所有的 NuGet 套件和組態設定，您需要連接至 Azure 金鑰保存庫。 
 
-針對「連線服務」在您專案中為啟用 Key Vault 所做的變更，如需詳細資料，請參閱 [Key Vault 連線服務 - 我的 ASP.NET 4.7.1 專案發生什麼情形](vs-key-vault-aspnet-what-happened.md)或 [Key Vault 連線服務 - 我的 ASP.NET Core 專案發生什麼情形](vs-key-vault-aspnet-core-what-happened.md)。
+針對「連線服務」在您專案中為啟用 Key Vault 所做的變更，如需詳細資料，請參閱 [Key Vault 連線服務 - 我的 ASP.NET 4.7.1 專案發生什麼情形](#how-your-aspnet-framework-project-is-modified)或 [Key Vault 連線服務 - 我的 ASP.NET Core 專案發生什麼情形](#how-your-aspnet-core-project-is-modified)。
 
 ## <a name="prerequisites"></a>必要條件
 
 - **Azure 訂用帳戶**。 如果您沒有訂用帳戶，您可以註冊 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
-- **Visual Studio 2017 版本 15.7**，並且已安裝**網頁程式開發**工作負載。 [立即下載](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。
-- 針對 ASP.NET (不是 Core)，您需要預設不會安裝的 .NET Framework 4.7.1 開發工具。 若要安裝它們，請啟動 Visual Studio 安裝程式、選擇 [修改]，然後選擇 [個別元件]，接著在右側展開 [ASP.NET 與網頁程式開發]，並選擇 [.NET Framework 4.7.1 開發工具]。
-- ASP.NET 4.7.1 或 ASP.NET Core 2.0 Web 專案隨即開啟。
+- **Visual Studio 2019**或是**Visual Studio 2017 15.7 版**具有**Web 開發**安裝工作負載。 [立即下載](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)。
+- 使用 Visual Studio 2017 的 asp.net （不是核心），您需要的.NET Framework 4.7.1 或更新版本的開發工具，預設不會安裝。 若要安裝它們，請啟動 Visual Studio 安裝程式、選擇 [修改]，然後選擇 [個別元件]，接著在右側展開 [ASP.NET 與網頁程式開發]，並選擇 [.NET Framework 4.7.1 開發工具]。
+- ASP.NET 4.7.1 或更新版本，或開啟的 ASP.NET Core 2.0 web 專案。
 
 ## <a name="add-key-vault-support-to-your-project"></a>在專案中新增 Key Vault 支援
 
@@ -107,20 +107,26 @@ ms.locfileid: "58113243"
         private static string GetKeyVaultEndpoint() => "https://<YourKeyVaultName>.vault.azure.net";
     }
    ```
-3. 接下來開啟 About.cshtml.cs 檔案，並撰寫下列程式碼
-   1. 通過此 using 陳述式包含對 Microsoft.Extensions.Configuration 的參考    
-       ```
+
+3. 接下來開啟 About.cshtml.cs 檔案，並撰寫下列程式碼：
+   1. 將參考併入 Microsoft.Extensions.Configuration 由此 using 陳述式：
+
+       ```csharp
        using Microsoft.Extensions.Configuration
        ```
-   2. 新增此建構函式
-       ```
+
+   1. 加入這個建構函式：
+
+       ```csharp
        public AboutModel(IConfiguration configuration)
        {
            _configuration = configuration;
        }
        ```
-   3. 更新 OnGet 方法。 使用您在上述命令中建立的祕密名稱更新此處顯示的預留位置的值
-       ```
+
+   1. 更新 OnGet 方法。 更新如下所示，使用您在上述命令中建立的密碼名稱的預留位置值。
+
+       ```csharp
        public void OnGet()
        {
            //Message = "Your application description page.";
@@ -128,7 +134,7 @@ ms.locfileid: "58113243"
        }
        ```
 
-瀏覽至 [關於] 頁面，在本機執行應用程式。 您應該擷取您的密碼值
+瀏覽至 [關於] 頁面，在本機執行應用程式。 您應該會看到擷取密碼值。
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -137,6 +143,94 @@ ms.locfileid: "58113243"
 1. 在入口網站頂端的 [搜尋] 方塊中，輸入資源群組的名稱。 當您在搜尋結果中看到本快速入門中使用的資源群組時，請加以選取。
 2. 選取 [刪除資源群組]。
 3. 在 [輸入資源群組名稱:] 方塊中輸入資源群組的名稱，然後選取 [刪除]。
+
+## <a name="how-your-aspnet-core-project-is-modified"></a>修改您的 ASP.NET Core 專案的方式
+
+本節說明當新增金鑰保存庫已連線的服務使用 Visual Studio ASP.NET 專案所做的變更。
+
+### <a name="added-references"></a>新增的參考
+
+會影響專案檔.NET 參考和 NuGet 套件參考。
+
+| 類型 | 參考 |
+| --- | --- |
+| NuGet | Microsoft.AspNetCore.AzureKeyVault.HostingStartup |
+
+### <a name="added-files"></a>已新增檔案
+
+- 已新增 ConnectedService.json，其中記錄一些關於連線服務提供者、版本及文件連結的資訊。
+
+### <a name="project-file-changes"></a>專案檔變更
+
+- 已新增連線服務 ItemGroup 和 ConnectedServices.json 檔案。
+
+### <a name="launchsettingsjson-changes"></a>launchsettings.json 變更
+
+- 已將下列環境變數項目新增至 IIS Express 設定檔及符合您 Web 專案名稱的設定檔：
+
+    ```json
+      "environmentVariables": {
+        "ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONENABLED": "true",
+        "ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONVAULT": "<your keyvault URL>"
+      }
+    ```
+
+### <a name="changes-on-azure"></a>Azure 上的變更
+
+- 已建立資源群組 (或使用了現有的資源群組)。
+- 已在指定的資源群組中建立 Key Vault。
+
+## <a name="how-your-aspnet-framework-project-is-modified"></a>修改您的 ASP.NET Framework 專案的方式
+
+本節說明當新增金鑰保存庫已連線的服務使用 Visual Studio ASP.NET 專案所做的變更。
+
+### <a name="added-references"></a>新增的參考
+
+會影響專案檔的.NET 參考和`packages.config`（NuGet 參考）。
+
+| 類型 | 參考 |
+| --- | --- |
+| .NET; NuGet | Microsoft.Azure.KeyVault |
+| .NET; NuGet | Microsoft.Azure.KeyVault.WebKey |
+| .NET; NuGet | Microsoft.Rest.ClientRuntime |
+| .NET; NuGet | Microsoft.Rest.ClientRuntime.Azure |
+
+### <a name="added-files"></a>已新增檔案
+
+- 已新增 ConnectedService.json，其中記錄一些關於連線服務提供者、版本及文件連結的資訊。
+
+### <a name="project-file-changes"></a>專案檔變更
+
+- 已新增連線服務 ItemGroup 和 ConnectedServices.json 檔案。
+- 對[新增的參考](#added-references)一節中所述 .NET 組件的參考。
+
+### <a name="webconfig-or-appconfig-changes"></a>web.config 或 app.config 的變更
+
+- 已新增下列組態項目：
+
+    ```xml
+    <configSections>
+      <section
+           name="configBuilders"
+           type="System.Configuration.ConfigurationBuildersSection, System.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" 
+           restartOnExternalChanges="false"
+           requirePermission="false" />
+    </configSections>
+    <configBuilders>
+      <builders>
+        <add 
+             name="AzureKeyVault"
+             vaultName="vaultname"
+             type="Microsoft.Configuration.ConfigurationBuilders.AzureKeyVaultConfigBuilder, Microsoft.Configuration.ConfigurationBuilders.Azure, Version=1.0.0.0, Culture=neutral" 
+             vaultUri="https://vaultname.vault.azure.net" />
+      </builders>
+    </configBuilders>
+    ```
+
+### <a name="changes-on-azure"></a>Azure 上的變更
+
+- 已建立資源群組 (或使用了現有的資源群組)。
+- 已在指定的資源群組中建立 Key Vault。
 
 ## <a name="next-steps"></a>後續步驟
 

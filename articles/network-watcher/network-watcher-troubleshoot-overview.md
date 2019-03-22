@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 8048dde6158d9eaa9bf38a8c3020420b81bdd55b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: aa7fce21228d4413dc4964d6e828bf60478aee27
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099768"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901826"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Azure 網路監看員中的資源疑難排解簡介
 
@@ -107,7 +107,7 @@ ms.locfileid: "55099768"
 > [!NOTE]
 > 在某些情況下，只有部分的記錄檔會寫入至儲存體。
 
-如需從 Azure 儲存體帳戶下載檔案的指示，請參閱[以 .NET 開始使用 Azure Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md)。 另一項可用工具為儲存體總管。 如需有關「儲存體總管」的詳細資訊，請參閱下列連結：[儲存體總管](http://storageexplorer.com/)
+如需從 Azure 儲存體帳戶下載檔案的指示，請參閱[以 .NET 開始使用 Azure Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md)。 另一項可用工具為儲存體總管。 如需有關「儲存體總管」的詳細資訊，請參閱下列連結：[儲存體總管](https://storageexplorer.com/)
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 

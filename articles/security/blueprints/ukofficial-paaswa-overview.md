@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 7ac210d9b30a05fd5dbfd46c41c3e62a1d610357
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: b30ef7d0b373f0d9a440b6649f819e429e28328c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891098"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314921"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure 安全性與合規性藍圖：適用於 UK OFFICIAL 工作負載的 PaaS Web 應用程式裝載
 
@@ -119,7 +119,7 @@ App Service 符合 [ISO、SOC 和 PCI 規範](https://www.microsoft.com/TrustCen
 
 #### <a name="azure-sql-database"></a>連接字串
 
-SQL Database 是 Microsoft Azure 中的一般用途關聯式資料庫受控服務，可支援關聯式資料、JSON、空間和 XML 等結構。 SQL Database 提供受控的單一 SQL 資料庫、[彈性集區](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)中的受控 SQL 資料庫，以及 SQL [受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (處於公開預覽狀態)。 除了實現 [可動態調整的效能](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers) 外，更能提供各種選項，例如用於極限分析和報告的 [資料行存放區索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)，以及用來處理極限交易的 [記憶體內部 OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory)。 Microsoft 可順暢地處理 SQL 程式碼基底的所有修補和更新，並抽走基礎結構的所有管理功能。
+SQL Database 是 Microsoft Azure 中的一般用途關聯式資料庫受控服務，可支援關聯式資料、JSON、空間和 XML 等結構。 SQL Database 提供受控的單一 SQL 資料庫、[彈性集區](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)中的受控 SQL 資料庫，以及 SQL [受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) (處於公開預覽狀態)。 除了實現[可動態調整的效能](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers)外，更能提供各種選項，例如用於極限分析和報告的[資料行存放區索引](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)，以及用來處理極限交易的[記憶體內部 OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) Microsoft 可順暢地處理 SQL 程式碼基底的所有修補和更新，並抽走基礎結構的所有管理功能。
 
 此藍圖中的 Azure SQL Database
 

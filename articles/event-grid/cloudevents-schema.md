@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: 1eab0be59de90ad68cbf9601b7e2200e640875f4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0195ce82396a7b05335242a38a2881e1b2d1afb3
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58178062"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317488"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>透過事件方格使用 CloudEvents 結構描述
 
@@ -70,7 +70,7 @@ CloudEvents v0.1 具有下列可用屬性：
 | 來源             | URI      | "/mycontext"                     | 說明事件產生者                                       | topic#subject
 | eventID            | 字串   | "1234-1234-1234"                 | 事件的識別碼                                                    | id
 | eventTime          | Timestamp| "2018-04-05T17:31:00Z"           | 事件發生時的時間戳記 (選用)                    | eventTime
-| schemaURL          | URI      | "https://myschema.com"           | 資料屬性所符合之結構描述的連結 (選用) | *未使用*
+| schemaURL          | URI      | "https:\//myschema.com"           | 資料屬性所符合之結構描述的連結 (選用) | *未使用*
 | contentType        | 字串   | "application/json"               | 說明資料編碼格式 (選用)                       | *未使用*
 | 擴充功能         | 對應      | { "extA": "vA", "extB", "vB" }  | 任何其他中繼資料 (選用)                                 | *未使用*
 | data               | Object   | { "objA": "vA", "objB", "vB" }  | 事件承載 (選用)                                       | data

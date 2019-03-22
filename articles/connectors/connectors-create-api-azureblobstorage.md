@@ -1,5 +1,5 @@
 ---
-title: 連線至 Azure Blob 儲存體 - Azure Logic Apps | Microsoft Docs
+title: 連接到 Azure blob 儲存體-Azure Logic Apps
 description: 使用 Azure Logic Apps 在 Azure 儲存體中建立和管理 Blob
 services: logic-apps
 ms.service: logic-apps
@@ -10,36 +10,36 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: 7d6845624c838ac0cf49e5963cae1ca0ea15ec15
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: ea3e97db9ec560306788943d92a7670025f38bdc
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230602"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310365"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>使用 Azure Logic Apps 在 Azure Blob 儲存體中建立和管理 Blob
 
 本文說明如何使用 Azure Blob 儲存體連接器，從邏輯應用程式內存取和管理 Azure 儲存體帳戶中儲存為 Blob 的檔案。 這樣一來，您就可以建立邏輯應用程式，來自動執行用於管理檔案的工作和工作流程。 例如，您可以建置邏輯應用程式，以在儲存體帳戶中建立、取得、更新和刪除檔案。
 
-假設您有一個會在 Azure 網站上進行更新的工具。 並將它作為邏輯應用程式的觸發程序。 當此事件發生時，您可以讓邏輯應用程式更新 Blob 儲存體容器中的某些檔案，而這是邏輯應用程式中的其中一個動作。 
+假設您有一個會在 Azure 網站上進行更新的工具。 並將它作為邏輯應用程式的觸發程序。 當此事件發生時，您可以讓邏輯應用程式更新 Blob 儲存體容器中的某些檔案，而這是邏輯應用程式中的其中一個動作。
 
 > [!NOTE]
-> Logic Apps 不支援透過防火牆直接連線至 Azure 儲存體帳戶。 若要存取這些儲存體帳戶，請使用以下任一個選項： 
+> Logic Apps 不支援透過防火牆直接連線至 Azure 儲存體帳戶。 若要存取這些儲存體帳戶，請使用以下任一個選項：
 >
-> * 建立[整合服務環境](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)，此環境可連線至 Azure 虛擬網路中的資源。 
-> 
+> * 建立[整合服務環境](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)，此環境可連線至 Azure 虛擬網路中的資源。
+>
 > * 如果您已經使用「API 管理」，則可以針對這個案例使用這個服務。 如需詳細資訊，請參閱[簡單的企業整合架構](https://aka.ms/aisarch)。
 
-如果您還不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
+如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps](../logic-apps/logic-apps-overview.md) 和[快速入門：建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 如需連接器專屬的技術資訊，請參閱 <a href="https://docs.microsoft.com/connectors/azureblobconnector/" target="blank">Azure Blob 儲存體連接器參考</a>。
 
 ## <a name="prerequisites"></a>必要條件
 
-* 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。 
+* 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。
 
 * [Azure 儲存體帳戶和儲存體容器](../storage/blobs/storage-quickstart-blobs-portal.md)
 
-* 需要從中存取 Azure Blob 儲存體帳戶的邏輯應用程式。 若要使用 Azure Blob 儲存體觸發程序來啟動邏輯應用程式，您需要[空白邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 
+* 需要從中存取 Azure Blob 儲存體帳戶的邏輯應用程式。 若要使用 Azure Blob 儲存體觸發程序來啟動邏輯應用程式，您需要[空白邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 <a name="add-trigger"></a>
 
@@ -53,7 +53,7 @@ ms.locfileid: "50230602"
 
 2. 在搜尋方塊中，輸入「azure blob」作為篩選條件。 從觸發程序清單中，選取您想要的觸發程序。
 
-   此範例會使用下列觸發程序：**Azure Blob 儲存體 - 新增或修改 Blob 時 (僅限屬性)**
+   此範例會使用此觸發程序：**Azure Blob 儲存體-當 blob 新增或修改 （僅限屬性）**
 
    ![選取觸發程序](./media/connectors-create-api-azureblobstorage/azure-blob-trigger.png)
 
@@ -63,7 +63,7 @@ ms.locfileid: "50230602"
 
    1. 在 [容器] 方塊中，選取 [資料夾] 圖示。
 
-   2. 在資料夾清單中，選擇右角括弧 ( **>** )，然後一直瀏覽，直到您找到並選取您想要的資料夾。 
+   2. 在資料夾清單中，選擇右角括弧 ( **>** )，然後一直瀏覽，直到您找到並選取您想要的資料夾。
 
       ![選取資料夾](./media/connectors-create-api-azureblobstorage/trigger-select-folder.png)
 
@@ -90,11 +90,11 @@ ms.locfileid: "50230602"
 
 3. 在搜尋方塊中，輸入「azure blob」作為篩選條件。 從 [動作] 清單中，選取您想要的動作。
 
-   此範例會使用下列動作：**Azure Blob 儲存體 - 取得 Blob 內容**
+   此範例會使用這項動作：**Azure Blob 儲存體-取得 blob 內容**
 
    ![選取動作](./media/connectors-create-api-azureblobstorage/azure-blob-action.png) 
 
-4. 如果系統提示您輸入連線詳細資料，請[立即建立 Azure Blob 儲存體連線](#create-connection)。 或者，如果連線已存在，請提供動作的必要資訊。 
+4. 如果系統提示您輸入連線詳細資料，請[立即建立 Azure Blob 儲存體連線](#create-connection)。 或者，如果連線已存在，請提供動作的必要資訊。
 
    針對此範例，請選取您想要的檔案。
 
@@ -119,7 +119,7 @@ ms.locfileid: "50230602"
 
 ## <a name="connector-reference"></a>連接器參考
 
-如需連接器的 Swagger 檔案所敘述的技術詳細資料 (例如，觸發程序、動作和限制)，請參閱[連接器的參考頁面](/connectors/azureblobconnector/)。 
+取得技術詳細資料，例如觸發程序、 動作和連接器的 Open API 所述的限制 (以前稱為 Swagger) 檔案，請參閱 <<c0> [ 連接器的參考頁面](/connectors/azureblobconnector/)。
 
 ## <a name="get-support"></a>取得支援
 

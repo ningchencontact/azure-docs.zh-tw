@@ -1,5 +1,5 @@
 ---
-title: 針對 Azure MFA NPS 擴充功能的錯誤碼進行移難排解 | Microsoft Docs
+title: 疑難排解錯誤碼以 Azure MFA NPS 擴充功能-Azure Active Directory
 description: 協助您解決 Azure Multi-Factor Authentication NPS 擴充功能的問題
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c831a5a939e946d7189e4d35eaf051508e904a4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f80ecf02a7e517300c41e84986659a66cfa11c90
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999518"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313425"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>解決 Azure Multi-Factor Authentication NPS 擴充功能的錯誤訊息
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: 6068f054a2ce695a889351b1f959319c64eb73fd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 6e4a83eb8b3488c4ce2816151ca31b4a594dd742
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235593"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338627"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure 客體作業系統可支援性和淘汰原則
 本頁面中的資訊涉及雲端服務背景工作和 Web 角色 (PaaS) 適用的 Azure 客體作業系統 ([客體 OS](cloud-services-guestos-update-matrix.md))。 這些資訊不適用於虛擬機器 (IaaS)。
@@ -30,14 +30,14 @@ Microsoft 已發佈 [客體 OS 支援原則](https://support.microsoft.com/gp/az
 
 1. Microsoft 將支援至少兩個 **最新系列的客體 OS**。 當某個系列遭到淘汰時，客戶有 12 個月的時間 (從官方淘汰日期開始計算) 更新為較新的受支援客體作業系統系列。
 2. Microsoft 會支援**至少兩個最新版本的支援客體 OS系列**。
-3. Microsoft 會支援**至少兩個最新版本的 Azure SDK**。 當某個版本的 SDK 遭到淘汰時，客戶有 12 個月的時間 (從官方淘汰日期開始計算) 更新為較新版本。
+3. Microsoft 會支援**至少兩個最新版本的 Azure SDK**。 在某个 SDK 版本停用后，客户可以在从正式停用之日起的 12 个月内更新为较新的版本。
 
 Microsoft 有時候會支援兩個以上的系列或版本。 正式的客體 OS 支援資訊會公告於「 [Azure 客體 OS 版本與 SDK 相容性比較表](cloud-services-guestos-update-matrix.md)」中。
 
 ## <a name="when-a-guest-os-version-is-retired"></a>當客體作業系統版本遭到淘汰時
 Microsoft 大約會每月推出新的客體 OS **版本** ，以納入最新的 MSRC 更新。 因每月定期更新之故，每個客體作業系統版本通常會在發行的大約 60 天後遭到停用。 此活動會保持每個系列至少有兩個客體 OS 版本可供使用。
 
-### <a name="process-during-a-guest-os-family-retirement"></a>客體作業系統系列淘汰期間的程序
+### <a name="process-during-a-guest-os-family-retirement"></a>来宾 OS 系列停用期间的过程
 從 Microsoft 公佈淘汰資訊到正式移除服務中最舊的系列，客戶有 12 個月的「轉換」期。 Microsoft 會斟酌是否延長這段轉換時間。 更新資訊會張貼在「 [Azure 客體 OS 版本與 SDK 相容性比較表](cloud-services-guestos-update-matrix.md)」。
 
 漸進式淘汰程序將會在轉換期的六 (6) 個月前開始。 在這段時間：
@@ -51,11 +51,13 @@ Microsoft 將繼續推出併入最新 MSRC 更新的新客體作業系統版本�
 ### <a name="process-during-a-guest-os-version-retirement"></a>客體作業系統版本淘汰期間的程序
 如果客戶將客體作業系統設定為自動更新，他們永遠不需要擔心該如何處置客體作業系統版本的問題。 他們一律能使用最新版本的客體作業系統。
 
-Microsoft 會在每個月發行客體作業系統。 由於定期發行頻繁之故，每個版本都有固定的週期。
+Microsoft 會在每個月發行客體作業系統。 由于常规发布的速率，每个版本都具有固定生存期。
 
 到了週期的第 60 天，版本即會遭到「停用」。 「停用」表示會從入口網站移除該版本。 您也無法再從 CSCFG 組態檔設定該版本。 現有部署仍可繼續執行。 但新部署和現有部署的程式碼與設定更新將遭到禁止。
 
-「停用」一段時間後，客體 OS 版本會「過期」，屆時所有仍執行該版本的安裝將受迫升級，以及設定為在未來自動更新客體 OS。 到期係以批次進行，因此從停用到到期之間的這段期間不盡相同。
+一段時間之後成為 「 停用 」，客體 OS 版本 「 過期 」，而所有仍執行該過期的版本安裝會公開至安全性與漏洞問題。 一般而言，到期日會執行批次，因此從停用到期的期間可能會不同。
+
+設定其服務，以手動更新客體 OS 的客戶應該確保他們的部署正在執行支援的客體作業系統上。 如果服務設定為自動更新客體 OS，基礎平台可確保合規性，並會升級至最新的客體 OS。
 
 Microsoft 可自行決定是否延長該期間，以緩和客戶轉換時的不便。 所有的更新資訊都會發佈於「 [Azure 客體 OS 版本與 SDK 相容性比較表](cloud-services-guestos-update-matrix.md)」。
 
@@ -72,7 +74,7 @@ Microsoft 可自行決定是否延長該期間，以緩和客戶轉換時的不�
 2. 設定暫時性的測試部署，以測試在新系列上運作的雲端服務。
 3. 將客體 OS 版本設為 **Automatic** ( [.CSCFG](cloud-services-model-and-package.md#cscfg) 檔案中的 osVersion=*)，新客體 OS 版本的移轉作業即能自動執行。
 
-**如果 Web 應用程式需要與 OS 更深入的整合，該怎麼辦？**
+**如果 Web 应用程序需要与 OS 深入集成，该怎么办？**
 
 如果 Web 應用程式架構依賴作業系統的基礎功能，您可以使用[啟動工作](cloud-services-startup-tasks.md)之類的平台支援功能或其他擴充性機制。 您也可以使用 [Azure 虛擬機器](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – 基礎結構即服務)，只不過您需要自行負責維護基礎作業系統。
 

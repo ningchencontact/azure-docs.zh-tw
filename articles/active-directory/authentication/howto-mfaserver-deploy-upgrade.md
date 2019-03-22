@@ -1,5 +1,5 @@
 ---
-title: Azure MFA Server 升級
+title: 升級 Azure MFA Server-Azure Active Directory
 description: 將 Azure Multi-Factor Authentication Server 升級為較新版本的步驟和指引。
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: faf04c870ec72f7ff62234b5bcaadde0b8a0a144
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6c01c7a22800d633696382687feb7090a4ed8b60
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190070"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315656"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>升級為最新的 Azure Multi-Factor Authentication Server
 
@@ -95,12 +95,12 @@ ms.locfileid: "56190070"
 
    如果發生錯誤並指出「需要 Microsoft Visual C++ 2015 可轉散發套件更新 1 或更新版本」，可從[Microsoft 下載中心](https://www.microsoft.com/download/)下載並安裝最新的更新套件。 同時安裝 x86 和 x64 版本。
 
-3. 移至 [AD FS] > [驗證原則] > [編輯全域多重要素驗證原則]。 取消勾選 **[WindowsAzureMultiFactorAuthentication]** 或 **[AzureMFAServerAuthentication]** \(根據目前安裝的版本而定)。
+3. 转到“AD FS” > “身份验证策略” > “编辑全局多重身份验证策略”。 取消勾選 **[WindowsAzureMultiFactorAuthentication]** 或 **[AzureMFAServerAuthentication]** \(根據目前安裝的版本而定)。
 
    完成此步驟之後，您必須先完成步驟 8，才能在此 AD FS 叢集中透過 MFA Server 進行雙步驟驗證。
 
 4. 執行 Unregister-MultiFactorAuthenticationAdfsAdapter.ps1 PowerShell 指令碼來取消註冊舊版的 AD FS 配接器。 確認 *-Name* 參數 (可以是 “WindowsAzureMultiFactorAuthentication” 或 "AzureMFAServerAuthentication") 符合步驟 3 中顯示的名稱。 這適用於相同 AD FS 叢集中的所有伺服器，因為有一個中央組態。
-5. 執行 Register-MultiFactorAuthenticationAdfsAdapter.ps1 PowerShell 指令碼來註冊新的 AD FS 配接器。 這適用於相同 AD FS 叢集中的所有伺服器，因為有一個中央組態。
+5. 執行 Register-MultiFactorAuthenticationAdfsAdapter.ps1 PowerShell 指令碼來註冊新的 AD FS 配接器。 这一点适用于同一 AD FS 群集中的所有服务器，因为这些服务器进行了集中配置。
 6. 在已從 AD FS 伺服器陣列中移除的每部伺服器上重新啟動 AD FS 服務。
 7. 將更新的伺服器加回 AD FS 伺服器陣列，並從該伺服器陣列中移除其他伺服器。
 8. 移至 [AD FS] > [驗證原則] > [編輯全域多重要素驗證原則]。 勾選 [AzureMfaServerAuthentication]。

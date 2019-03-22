@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dfbb618bafd9ae3cbb0c691e63a243ab2c2c31e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 645fb4e939e308eecdd2b6933197493919c2dd1d
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996533"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338576"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>如何使用 Azure VM 的 Azure 資源受控識別進行登入 
 
@@ -80,7 +80,7 @@ Azure 資源的受控識別提供[服務主體物件](../develop/developer-gloss
 
 ## <a name="resource-ids-for-azure-services"></a>Azure 服務的資源識別碼
 
-關於支援 Azure AD 且經過 Azure 資源受控識別所測試的資源及其各自資源識別碼的清單，請參閱[支援 Azure AD 驗證的 Azure 服務](services-support-msi.md#azure-services-that-support-azure-ad-authentication)。
+關於支援 Azure AD 且經過 Azure 資源受控識別所測試的資源及其各自資源識別碼的清單，請參閱[支援 Azure AD 驗證的 Azure 服務](services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)。
 
 ## <a name="error-handling-guidance"></a>錯誤處理指引 
 

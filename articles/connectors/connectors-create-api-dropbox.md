@@ -1,65 +1,79 @@
 ---
-title: 連線到 Dropbox - Azure Logic Apps | Microsoft Docs
+title: 連接到 Dropbox-Azure Logic Apps
 description: 使用 Dropbox REST API 和 Azure Logic Apps上傳及管理檔案
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 07/15/2016
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
+ms.service: logic-apps
 ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.topic: article
+ms.date: 03/01/2019
 tags: connectors
-ms.openlocfilehash: 256a0b34d5050e17abe5bb98ca0c13ab0b61787e
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: 5a1bfe8ca38fc23f09b13195fb8ca5bd443a4afd
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094433"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314411"
 ---
-# <a name="get-started-with-the-dropbox-connector"></a>開始使用 Dropbox 連接器
-連線到 Dropbox 來管理您的檔案。 您可以執行各種動作，例如上傳、更新、取得及刪除 Dropbox 中的檔案。
+# <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>上傳及管理使用 Azure Logic Apps 的 Dropbox 中的檔案
 
-若要使用[任何連接器](apis-list.md)，您必須先建立邏輯應用程式。 您可以從[立即建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)來開始。
+使用 Dropbox 連接器與 Azure Logic Apps，您可以建立自動化工作流程，上傳及管理您的 Dropbox 帳戶中的檔案。 
 
-## <a name="connect-to-dropbox"></a>連接至 Dropbox。
-您必須先建立與服務的連線，才能透過邏輯應用程式存取任何服務。 連線可讓邏輯應用程式與另一個服務連線。 例如，若要連線至 Dropbox，您必須先建立 Dropbox *連線*。 若要建立連線，您需要提供平常用來存取所要連線之服務的認證。 因此，在 Dropbox 範例中，您需要 Dropbox 帳戶的認證，才能建立與 Dropbox 的連線。 
+本文說明如何從邏輯應用程式，連接到 Dropbox，然後新增 Dropbox**當檔案建立時**觸發程序，Dropbox**使用路徑取得檔案內容**動作。
 
-### <a name="create-a-connection-to-dropbox"></a>建立 Dropbox 連線
-> [!INCLUDE [Steps to create a connection to Dropbox](../../includes/connectors-create-api-dropbox.md)]
-> 
-> 
+## <a name="prerequisites"></a>必要條件
 
-## <a name="use-a-dropbox-trigger"></a>使用 Dropbox 觸發程序
-觸發程序是可用來啟動邏輯應用程式中所定義之工作流程的事件。 [深入了解觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請先<a href="https://azure.microsoft.com/free/" target="_blank">註冊免費的 Azure 帳戶</a>。
 
-在此範例中，我們將使用**建立檔案時**觸發程序。 當此觸發程序發生時，我們會呼叫**使用路徑來取得檔案內容** Dropbox 動作。 
+* A [Dropbox 帳戶](https://www.dropbox.com/)，其中您可以免費註冊。 您的帳戶認證所需的邏輯應用程式與您的 Dropbox 帳戶之間建立連接。
 
-1. 在 Logic Apps 設計工具的搜尋方塊中輸入 *dropbox*，然後選取 [Dropbox - 建立檔案時] 觸發程序。      
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger.PNG)  
-2. 選取您想要追蹤檔案建立所在的資料夾。 選取 [...]\(以紅色方塊識別)，並瀏覽至您想要針對觸發程序的輸入而選取的資料夾。  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)  
+* [如何建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知識。 針對此範例，您需要空白的邏輯應用程式。
 
-## <a name="use-a-dropbox-action"></a>使用 Dropbox 動作
-動作是由邏輯應用程式中定義的工作流程所執行的作業。 [深入了解動作](../logic-apps/logic-apps-overview.md#logic-app-concepts)。
+## <a name="add-trigger"></a>新增觸發程序
 
-現在已新增觸發程序，請遵循下列步驟來新增將會取得新檔案內容的動作。
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. 選取 [+ 新的步驟] 來新增您想要在新檔案建立時採取的動作。  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action.PNG)
-2. 選取 [新增動作]。 這會開啟搜尋方塊，您可以在其中搜尋任何想要採取的動作。  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-2.PNG)
-3. 輸入 *dropbox* 以搜尋與 Dropbox 相關的動作。  
-4. 選取 [Dropbox - 使用路徑來取得檔案內容]，做為在選取的 Dropbox 資料夾中建立新檔案時所要採取的動作。 動作控制區塊便會開啟。 如果您未曾授權邏輯應用程式存取您的 Dropbox 帳戶，系統會提示您這麼做。  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-3.PNG)  
-5. 選取 [...]\(位於 [檔案路徑] 控制項的右側)，並瀏覽至您想要使用的檔案路徑。 或者，使用**檔案路徑**權杖來加速建立邏輯應用程式。  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)  
-6. 儲存您的工作並在 Dropbox 中建立新檔案，以啟動您的工作流程。  
+1. 在搜尋方塊下方，選擇 [全部]。 在搜尋方塊中，輸入 "dropbox" 作為篩選條件。
+從觸發程序清單中，選取此觸發程序：**當檔案建立時**
 
-## <a name="connector-specific-details"></a>連接器特定的詳細資料
+   ![選取 Dropbox 觸發程序](media/connectors-create-api-dropbox/select-dropbox-trigger.png)
 
-檢視 Swagger 中定義的任何觸發程序和動作，另請參閱[連接器詳細資料](/connectors/dropbox/)的所有限制。
+1. 使用您的 Dropbox 帳戶認證登入，並授與 Azure Logic Apps 存取您的 Dropbox 資料的權限。
 
-## <a name="more-connectors"></a>其他連接器
-返回 [API 清單](apis-list.md)。
+1. 為您的觸發程序提供必要的資訊。 
+
+   在此範例中，選取您要追蹤檔案建立的資料夾。 若要瀏覽您的資料夾，請選擇的資料夾圖示旁**資料夾** 方塊中。
+
+## <a name="add-action"></a>新增動作
+
+現在加入任何新的檔案中取得內容的動作。
+
+1. 在觸發程序下方，選擇 [下一個步驟]。 
+
+1. 在搜尋方塊下方，選擇 [全部]。 在搜尋方塊中，輸入 "dropbox" 作為篩選條件。
+從 [動作] 清單中，選取此動作：**使用路徑來取得檔案內容**
+
+1. 如果您還沒有已獲授權存取 Dropbox 的 Azure Logic Apps，請立即授權的存取。
+
+1. 若要瀏覽至您想要使用，接下來的檔案路徑**檔案路徑**方塊中，選擇省略符號 (**...**) 按鈕。 
+
+   您也可以按一下內**檔案路徑**方塊中，然後從動態內容清單中，選取**檔案路徑**，其值可為您在上一節中新增觸發程序的輸出。
+
+1. 完成後，儲存邏輯應用程式。
+
+1. 若要觸發邏輯應用程式，請在 Dropbox 中建立新的檔案。
+
+## <a name="connector-reference"></a>連接器參考
+
+技術的詳細資訊，例如觸發程序、 動作和限制，如所述的連接器的 OpenAPI (以前稱為 Swagger) 檔案，請參閱 <<c0> [ 連接器的參考頁面](/connectors/dropbox/)。
+
+## <a name="get-support"></a>取得支援
+
+* 如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
+* 若要提交或票選功能構想，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
+
+## <a name="next-steps"></a>後續步驟
+
+* 了解其他 [Logic Apps 連接器](../connectors/apis-list.md)

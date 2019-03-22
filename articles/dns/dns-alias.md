@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 2/20/2019
+ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: 1f6d6b2ae5fd3a0c08d37b93c73656ac6bb71d67
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 87ca7cae8e9170c8c437d0961cb1acb2e0dd0eb1
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295635"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337641"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Azure DNS 別名記錄概觀
 
@@ -20,9 +20,9 @@ DNS 記錄集必須要有 Azure DNS 別名記錄。 它們可以參考您的 DNS
 
 Azure DNS 區域中的下列記錄類型支援別名記錄集： 
 
-- 具有使用  
-- AAAA 
-- CNAME 
+- 具有使用 
+- AAAA
+- CNAME
 
 > [!NOTE]
 > 如果您想要使用 A 或 AAAA 記錄類型的別名記錄以指向 [Azure 流量管理員設定檔](../traffic-manager/quickstart-create-traffic-manager-profile.md)，您必須確保流量管理員設定檔只有[外部端點](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints)。 您必須針對流量管理員中的外部端點，提供 IPv4 或 IPv6 位址。 在理想情況下，請使用靜態 IP 位址。
@@ -32,7 +32,7 @@ Azure DNS 區域中的下列記錄類型支援別名記錄集：
 - **從 DNS A/AAAA 記錄集指向公用 IP 資源**。 您可以建立 A/AAAA 記錄集，並使其成為別名記錄集來指向公用 IP 資源。 如果公用 IP 位址變更或已刪除，DNS 記錄集會是自動的。 系統會避免使用指向不正確 IP 位址的懸空 DNS 記錄。
 
 - **從 DNS A/AAAA/CNAME 記錄集指向流量管理員設定檔。** 您可以建立 A/AAAA 或 CNAME 記錄設定，並使用別名記錄將其指向流量管理員設定檔。 當您因為區域頂點不支援傳統的 CNAME 記錄，而需要在區域頂點路由傳送流量時，這點格外有用。 例如，假設您的流量管理員設定檔為 myprofile.trafficmanager.net，而您公司的 DNS 區域為 contoso.com。 您可以針對 contoso.com (區域頂點) 建立 A/AAAA 類型的別名記錄集，並指向 myprofile.trafficmanager.net。
-
+- **指向 Azure 內容傳遞網路 (CDN) 端點**。 當您建立使用 Azure 儲存體和 Azure CDN 的靜態網站時，這非常有用。
 - **指向相同區域中的另一個 DNS 記錄集**。 別名記錄可以參考其他相同類型的記錄集。 例如，DNS CNAME 記錄集可以是另一個 CNAME 記錄集所用的別名。 如果您想要讓某些記錄集成為別名，某些成為非別名，便可使用這種安排。
 
 ## <a name="scenarios"></a>案例
@@ -61,6 +61,7 @@ DNS 通訊協定可防止在區域頂點指派 CNAME 記錄。 例如，如果�
 例如，contoso.com 和 www\.contoso.com 可以指向相同的流量管理員設定檔。 若要深入了解使用 Azure 流量管理員設定檔的別名記錄，請參閱「後續步驟」一節。
 
 ### <a name="point-zone-apex-to-azure-cdn-endpoints"></a>指向的 Azure CDN 端點的區域頂點
+
 就像一個流量管理員設定檔中，您也可以使用別名記錄的 Azure CDN 端點指向您的 DNS 區域頂點。 當您建立使用 Azure 儲存體和 Azure CDN 的靜態網站時，這非常有用。 然後，您就可以不含前面加上"www"您的 DNS 名稱來存取網站。
 
 比方說，如果您的靜態網站名稱為 www.contoso.com，您的使用者可以存取您的網站使用 contoso.com，而不需要在前面加上 www 的 DNS 名稱。

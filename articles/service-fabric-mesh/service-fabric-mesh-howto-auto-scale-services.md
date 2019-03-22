@@ -3,7 +3,7 @@ title: 自動調整 Azure Service Fabric Mesh 中所執行應用程式的大小 
 description: 深入了解如何設定 Service Fabric Mesh 應用程式服務的自動調整原則。
 services: service-fabric-mesh
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2018
-ms.author: ryanwi
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f34c27addb61ce3dc24406598663d6bfbddf448b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 2233dffabd7c76ca55cf215f8bc04e66134f5799
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969432"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338797"
 ---
 # <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>建立 Service Fabric Mesh 應用程式的自動調整原則
 將應用程式部署到 Service Fabric Mesh 的其中一個主要優點是可讓您輕鬆相應縮小或放大服務。這應用於處理您服務上不同數量的負載，或是改善可用性。 您可以手動相應縮小或相應放大您的服務，或設定自動調整原則。

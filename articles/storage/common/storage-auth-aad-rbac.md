@@ -1,19 +1,19 @@
 ---
-title: 使用 Azure 入口網站來管理對容器與使用 RBAC （預覽）-Azure 儲存體佇列的 Azure AD 存取權限 |Microsoft Docs
+title: 使用 Azure 入口網站來管理對容器與使用 RBAC （預覽）-Azure 儲存體佇列的 Azure AD 存取權限
 description: 您可以使用從 Azure 入口網站的角色型存取控制 (RBAC) 來指派存取權給容器和安全性主體的佇列。 Azure 儲存體支援透過 Azure AD 的驗證內建和自訂的 RBAC 角色。
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8050027bac3d2f13ac457edcdad9275c040305da
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a38cce7d15b4796bb66803d06f3589569985cb37
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431851"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319494"
 ---
 # <a name="grant-access-to-azure-containers-and-queues-with-rbac-in-the-azure-portal-preview"></a>授與存取權的 Azure 容器和佇列使用 RBAC 在 Azure 入口網站 （預覽）
 
@@ -101,14 +101,6 @@ RBAC 角色指派給 Azure AD 安全性主體時，Azure 授與存取這些資�
 
 > [!NOTE]
 > 僅適用於需要存取 blob 或佇列使用 Azure 入口網站的使用者必須指派 「 讀者 」 角色。 
-
-## <a name="use-azure-ad-credentials-with-the-portal"></a>使用入口網站中使用 Azure AD 認證
-
-若要存取 blob 或佇列，在 Azure 入口網站中使用 Azure AD 認證，使用 [預覽] 連結，如下圖所示：
-
-![存取 blob 或佇列，使用入口網站中的 Azure AD 認證](media/storage-auth-aad-rbac/access-data-azure-ad.png)
-
-如果您存取使用生產環境的連結，而不是預覽連結的 blob 或佇列資料時，Azure 入口網站會使用您的帳戶金鑰來授權存取，而不是使用 Azure AD。
 
 ## <a name="next-steps"></a>後續步驟
 

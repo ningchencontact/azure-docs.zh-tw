@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 567890f3beec1eff30effeec0ce23284c5fee141
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: fd109a72b092e963bc4fda7894bf67f998b7d0c5
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109285"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309798"
 ---
 # <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(已淘汰) 透過 Marathon REST API 的 DC/OS 容器管理
 
@@ -30,7 +30,7 @@ DC/OS 提供環境來部署及調整叢集工作負載，同時將基礎硬體�
 * [連接到 Azure 容器服務叢集](../container-service-connect.md)
 
 ## <a name="access-the-dcos-apis"></a>存取 DC/OS API
-連接到 Azure 容器服務叢集之後，您可以透過 http://localhost:local-port 存取 DC/OS 和相關的 REST API。 本文件中的範例假設您的通道為連接埠 80。 例如，在開頭是 `http://localhost/marathon/v2/` 的 URL 可以觸達 Marathon 端點。 
+您已連線到 Azure Container Service 叢集之後，您可以透過 http 存取 DC/OS 和相關的 REST Api:\//localhost:local-連接埠。 本文件中的範例假設您的通道為連接埠 80。 比方說，可以達到 Marathon 端點的 uri 開頭為 http:\/localhost/marathon/v2 /。 
 
 如需各種 API 的詳細資訊，請參閱 [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) 和 [Chronos API](https://mesos.github.io/chronos/docs/api.html) 的 Mesosphere 文件，以及 [Mesos 排程器 API](http://mesos.apache.org/documentation/latest/scheduler-http-api/) 的 Apache 文件。
 
@@ -123,7 +123,7 @@ Nginx 伺服器的輸出大致如下：
 從通道連線執行下列命令來相應放大應用程式。
 
 > [!NOTE]
-> URI 是 http://localhost/marathon/v2/apps/ 後接要調整的應用程式的識別碼。 如果您是使用這裡提供的 Nginx 範例，則 URI 會是 http://localhost/marathon/v2/apps/nginx。
+> URI 是 http: \/ /localhost/marathon/v2/apps/後面接著要調整應用程式的識別碼。 如果您使用的 Nginx 範例，提供以下，則 URI 會是 http:\//localhost/marathon/v2/apps/nginx。
 
 ```bash
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
@@ -180,7 +180,7 @@ Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentTy
 執行下列命令來相應放大應用程式：
 
 > [!NOTE]
-> URI 是 http://localhost/marathon/v2/apps/ 後接要調整的應用程式的識別碼。 如果您是使用這裡提供的 Nginx 範例，則 URI 會是 http://localhost/marathon/v2/apps/nginx。
+> URI 是 http: \/ /localhost/marathon/v2/apps/後面接著要調整應用程式的識別碼。 如果您在此使用所提供的 Nginx 範例，則 URI 會是 http:\//localhost/marathon/v2/apps/nginx。
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: c0a86b76622862b477d539c25dd98c925f09192c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 5d3525952ec09474d60618c4f99138cef1fce57a
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55812033"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317505"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>部署 StorSimple Virtual Array - 透過 Azure 入口網站設定為 iSCSI 伺服器
 
@@ -88,7 +88,7 @@ ms.locfileid: "55812033"
       > 如果將您的 iSCSI 加入網域，請確定您的虛擬陣列位於它自己的 Microsoft Azure Active Directory 組織單位 (OU) 中，且沒有套用群組原則物件 (GPO)。
       > 
       > 
-   4. 此時畫面會出現對話方塊。 請以指定格式輸入網域認證。 按一下核取圖示  ![核取圖示](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png)》一文中的指示來佈建虛擬裝置，並與該虛擬裝置連線。 系統將會驗證該網域認證。 如果認證不正確，畫面會出現錯誤訊息。
+   4. 此時畫面會出現對話方塊。 請以指定格式輸入網域認證。 按一下核取圖示  ![勾号图标](./media/storsimple-virtual-array-deploy3-iscsi-setup/image15.png)》一文中的指示來佈建虛擬裝置，並與該虛擬裝置連線。 系統將會驗證該網域認證。 如果認證不正確，畫面會出現錯誤訊息。
       
        ![認證](./media/storsimple-virtual-array-deploy3-iscsi-setup/image8.png)
    5. 按一下 [套用]。 這將會套用並驗證裝置設定。
@@ -98,7 +98,7 @@ ms.locfileid: "55812033"
    
     在 [Web Proxy]  頁面上：
    
-   1. 以此格式提供 **Web proxy URL**：*http://host-IP 位址* 或 *FQDN:連接埠號碼*。 請注意，此處不支援 HTTPS URL。
+   1. 提供**Web proxy URL**格式如下： *http:\//host-IP 位址*或是*fqdn: port 數目*。 請注意，此處不支援 HTTPS URL。
    2. 將 [驗證] 指定為 [基本] 或 [無]。
    3. 如果您要使用驗證功能，您也必須提供 [使用者名稱] 和 [密碼]。
    4. 按一下 [套用]。 這將會驗證並套用您設定的 Web Proxy 設定。
@@ -215,7 +215,7 @@ ms.locfileid: "55812033"
 12. 指派一個磁碟機代號給磁碟區，然後按 [下一步] 。
     
     ![新增磁碟區精靈 2](./media/storsimple-virtual-array-deploy3-iscsi-setup/image30.png)
-13. 輸入要格式化磁碟區所需的參數。 **Windows Server 只支援 NTFS。** 將配置單位大小設定為 64K。 並提供您磁碟區的標籤。 建議的最佳做法是這個名稱與您在 StorSimple Virtual Array 上提供的磁碟區名稱相同。 按 [下一步] 。
+13. 輸入要格式化磁碟區所需的參數。 **Windows Server 只支援 NTFS。** 將配置單位大小設定為 64K。 並提供您磁碟區的標籤。 建議的最佳做法是這個名稱與您在 StorSimple Virtual Array 上提供的磁碟區名稱相同。 单击“下一步”。
     
     ![新增磁碟區精靈 3](./media/storsimple-virtual-array-deploy3-iscsi-setup/image31.png)
 14. 查看您磁碟區的各個值，然後按一下 [完成] 。
@@ -236,10 +236,10 @@ ms.locfileid: "55812033"
 
 #### <a name="to-get-the-iqn-of-a-windows-host"></a>取得 Windows 主機的 IQN
 
-1. 在 Windows 主機上啟動 Microsoft iSCSI 啟動器。
+1. 在 Windows 主机上启动 Microsoft iSCSI 发起程序。
 2. 在 [iSCSI 啟動器屬性] 視窗的 [設定] 索引標籤上，選取並複製 [啟動器名稱] 欄位的字串。
    
-    ![iSCSI 啟動器屬性](./media/storsimple-virtual-array-deploy3-iscsi-setup/image34.png)
+    ![iSCSI 发起程序属性](./media/storsimple-virtual-array-deploy3-iscsi-setup/image34.png)
 3. 儲存這個字串。
 
 <!--Reference link-->

@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7b5ca738ef71e25dfe5e71a1983d701bb8868fe5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 434cbb18a109308844dbc7ff219d40948678e86e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57896801"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310722"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>分析 Azure SQL 資料倉儲的工作負載 | Microsoft Docs
 
@@ -67,7 +67,7 @@ SQL 資料倉儲具有下列等候類型：
 * **LocalQueriesConcurrencyResourceType**：位於並行存取插槽架構外部的查詢。 DMV 查詢及 `SELECT @@VERSION` 這類的系統函數是本機查詢的範例。
 * **UserConcurrencyResourceType**：位於並行存取插槽架構內部的查詢。 針對使用者資料表的查詢代表會使用此資源類型的範例。
 * **DmsConcurrencyResourceType**：資料移動作業所產生的等候。
-* **BackupConcurrencyResourceType**：此等候指出正在備份資料庫。 此資源類型的最大值為 1。 如果在同一時間要求多個備份，其他備份會排入佇列。
+* **BackupConcurrencyResourceType**：此等候指出正在備份資料庫。 此資源類型的最大值為 1。 如果在同一時間要求多個備份，其他備份會排入佇列。 一般情況下，我們建議 10 分鐘的連續快照之間的最小時間。 
 
 `sys.dm_pdw_waits` DMV 可用來查看要求正在等待哪些資源。
 

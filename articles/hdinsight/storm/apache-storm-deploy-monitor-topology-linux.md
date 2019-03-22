@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: d194a5929e648c09eb204860c528e48bc55259ee
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 5f6708a9c22939395f992c2ac58a7e510b35f763
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635392"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317267"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>部署和管理 HDInsight 上的 Apache Storm 拓撲 
 
@@ -34,7 +34,7 @@ ms.locfileid: "53635392"
 
 * (選擇性) **Visual Studio**：Azure SDK 2.5.1 或更新版本，以及 Data Lake Tools for Visual Studio。 如需詳細資訊，請參閱[開始使用 Data Lake Tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)。
 
-    下列其中一個 Visual Studio 版本：
+    下列其中一个版本的 Visual Studio：
 
   * Visual Studio 2012 (含 Update 4)
 
@@ -77,14 +77,14 @@ HDInsight Tools 可以用來將 C# 或混合式拓撲提交至 Storm 叢集。 �
 
     如需使用 SSH 連線至 HDInsight 叢集的詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-2. 使用下列命令以啟動範例拓撲：
+2. 使用以下命令启动示例拓扑：
 
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology WordCount
 
     這個命令會在叢集上啟動範例 WordCount 拓撲。 這個拓撲會隨機產生句子，並計算句子中每個字詞的出現次數。
 
    > [!NOTE]  
-   > 將拓撲提交至叢集時，您必須先複製包含叢集的 jar 檔案，再使用 `storm` 命令。 若要將檔案複製到叢集，您可以使用 `scp` 命令。 例如， `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
+   > 將拓撲提交至叢集時，您必須先複製包含叢集的 jar 檔案，再使用 `storm` 命令。 若要將檔案複製到叢集，您可以使用 `scp` 命令。 例如： `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
    >
    > WordCount 範例和其他 Storm 入門範例都已經包含在叢集中，位置是 `/usr/hdp/current/storm-client/contrib/storm-starter/`。
 
@@ -130,13 +130,13 @@ HDInsight Tools 可以用來將 C# 或混合式拓撲提交至 Storm 叢集。 �
 
     storm list
 
-此命令會傳回類似以下文字的資訊：
+此命令返回类似于以下文本的信息：
 
     Topology_name        Status     Num_tasks  Num_workers  Uptime_secs
     -------------------------------------------------------------------
     WordCount            ACTIVE     29         2            263
 
-### <a name="deactivate-and-reactivate"></a>停用和重新啟動
+### <a name="deactivate-and-reactivate"></a>停用和重新激活
 
 停用拓撲會暫停它，直到刪除或重新啟動。 使用下列命令來停用和重新啟動：
 
@@ -144,15 +144,15 @@ HDInsight Tools 可以用來將 C# 或混合式拓撲提交至 Storm 叢集。 �
 
     storm Activate TOPOLOGYNAME
 
-### <a name="kill-a-running-topology"></a>刪除執行中拓撲
+### <a name="kill-a-running-topology"></a>终止正在运行的拓扑
 
-Storm 拓撲一旦啟動之後，就會繼續執行直到停止。 若要停止拓撲，請使用下列命令：
+Storm 拓撲一旦啟動之後，就會繼續執行直到停止。 若要停止拓扑，请使用以下命令：
 
     storm kill TOPOLOGYNAME
 
 ### <a name="rebalance"></a>重新平衡
 
-重新平衡拓撲可以讓系統修訂拓撲的平行處理原則。 例如，如果您已調整叢集的大小來新增更多節點，重新平衡可讓拓撲看見新的節點。
+重新平衡拓撲可以讓系統修訂拓撲的平行處理原則。 例如，如果调整了群集的大小以添加更多节点，则重新平衡允许拓扑查看新节点。
 
 > [!WARNING]  
 > 重新平衡拓撲首先會停用拓撲，然後跨叢集平均重新分佈背景工作角色，最後讓拓撲返回發生重新平衡之前的狀態。 因此，如果拓撲是作用中，它會再次變成作用中。 如果已停用，它就會保持停用。
@@ -170,19 +170,19 @@ Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsigh
 
 Storm UI 的主頁面會提供下列資訊：
 
-* **叢集摘要**：Storm 叢集的基本資訊。
+* **叢集摘要**：有關 Storm 叢集的基本資訊。
 * **拓撲摘要**：執行中拓撲的清單。 使用本節中的連結來檢視特定拓撲的詳細資訊。
-* **監督員摘要**：Storm 監督員的資訊。
-* **Nimbus 設定**：叢集的 Nimbus 設定。
+* **監督員摘要**：Storm 監督員的相關資訊。
+* **Nimbus 設定**：適用於叢集的 Nimbus 設定。
 
 ### <a name="topology-summary"></a>拓撲摘要
 
 選取 [拓撲摘要]  區段中的連結會顯示拓撲的下列資訊：
 
-* **拓撲摘要**：拓撲的基本資訊。
+* **拓撲摘要**：有關拓撲的基本資訊。
 * **拓撲動作**：您可以針對拓撲執行的管理動作。
 
-  * **啟用**：繼續處理已停用的拓撲。
+  * **啟動**：繼續處理已停用的拓撲。
   * **停用**：暫停執行中拓撲。
   * **重新平衡**：調整拓撲的平行處理原則。 變更叢集中的節點數目之後，您應該重新平衡執行中拓撲。 這個作業可讓拓撲調整平行處理原則，以彌補叢集中增加或減少的節點數目。
 
@@ -197,11 +197,11 @@ Storm UI 的主頁面會提供下列資訊：
 
 從 [Spout] 或 [Bolt] 區段中選取 Spout 會顯示所選取項目的下列資訊：
 
-* **元件摘要**：Spout 或 Bolt 的基本資訊。
+* **元件摘要**：有關 Spout 或 Bolt 的基本資訊。
 * **Spout/Bolt 統計資料**：Spout 或 Bolt 的統計資料。 若要設定頁面上其餘項目的時間範圍，請使用 [視窗] 資料行中的連結。
-* **輸入統計資料** (僅限 Bolt)：Bolt 所使用輸入資料流的資訊。
+* **輸入統計資料** (僅限 Bolt)：Bolt 所取用之輸入串流的相關資訊。
 * **輸出統計資料**：Spout 或 Bolt 所發出資料流的資訊。
-* **執行程式**：Spout 或 Bolt 執行個體的資訊。 選取特定執行程式的 [連接埠]  項目，以檢視針對此執行個體所產生之診斷資訊的記錄。
+* **執行程式**：Spout 或 Bolt 執行個體的相關資訊。 選取特定執行程式的 [連接埠]  項目，以檢視針對此執行個體所產生之診斷資訊的記錄。
 * **錯誤**：Spout 或 Bolt 的任何錯誤資訊。
 
 ## <a name="monitor-and-manage-rest-api"></a>監視及管理：REST API
@@ -215,15 +215,15 @@ Storm UI 是以 REST API 為建置基礎，因此您可以使用 REST API 執行
 
 ### <a name="base-uri"></a>基底 URI
 
-以 Linux 為基礎的 HDInsight 叢集上 REST API 的基底 URI 可在前端節點 (位於 **https://HEADNODEFQDN:8744/api/v1/**) 上取得。 前端節點的網域名稱是在叢集建立期間產生，而不是靜態的。
+在以 Linux 為基礎的 HDInsight 叢集上 REST API 的基底 URI 可在前端節點上**https:\//HEADNODEFQDN:8744/api/v1/**。 前端節點的網域名稱是在叢集建立期間產生，而不是靜態的。
 
 您可以用幾種不同的方式尋找叢集前端節點的完整網域名稱 (FQDN)：
 
 * **從 SSH 工作階段**：使用命令 `headnode -f` (從 SSH 工作階段到叢集)。
 * **從 Ambari Web**：從頁面頂端選取 [服務]，然後選取 [Storm]。 從 [摘要] 索引標籤，選取 [Storm UI 伺服器]。 託管 Storm UI 和 REST API 的節點 FQDN 位於頁面頂端。
-* **從 Ambari REST API**：使用命令 `curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` 來擷取 Storm UI 和 REST API 執行所在節點的相關資訊。 將 **CLUSTERNAME** 取代為叢集名稱。 出現提示時，請輸入登入 (系統管理員) 帳戶的密碼。 在回應中，"host_name" 項目包含節點的 FQDN。
+* **從 Ambari REST API**：使用命令 `curl -u admin -G "https:\//CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/STORM/components/STORM_UI_SERVER"` 來擷取 Storm UI 和 REST API 執行所在節點的相關資訊。 將 **CLUSTERNAME** 取代為叢集名稱。 出現提示時，請輸入登入 (系統管理員) 帳戶的密碼。 在回應中，"host_name" 項目包含節點的 FQDN。
 
-### <a name="authentication"></a>驗證
+### <a name="authentication"></a>Authentication
 
 REST API 的要求必須使用 **基本驗證**，因此請使用 HDInsight 叢集管理員名稱和密碼。
 

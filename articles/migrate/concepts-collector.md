@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 228d7b6994c67f9e14424624d264061634d80f27
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 78ef88d0710e8a82d30fa26b60073aa75e363c15
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080060"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315295"
 ---
 # <a name="about-the-collector-appliance"></a>關於收集器設備
 
@@ -82,7 +82,7 @@ ms.locfileid: "58080060"
 ### <a name="connect-to-the-internet-via-a-proxy"></a>透過 Proxy 連線至網際網路
 
 - 如果 proxy 伺服器需要驗證，您可以在設定收集器時，指定使用者名稱和密碼。
-- Proxy 伺服器的 IP 位址/FQDN 應該以 *http://IPaddress* 或 *http://FQDN* 的形式指定。
+- 應指定 Proxy 伺服器 IP 位址/FQDN *http:\//IPaddress*或是*http:\//FQDN*。
 - 僅支援 HTTP Proxy。 收集器不支援 HTTPS 型 Proxy 伺服器。
 - 如果 Proxy 伺服器是攔截 Proxy，您就必須將 Proxy 憑證匯入至收集器 VM。
   1. 在收集器 VM 中，移至 [開始] 功能表 > [管理電腦憑證]。

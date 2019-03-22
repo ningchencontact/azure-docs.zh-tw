@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
 ms.subservice: common
-ms.openlocfilehash: 5f2052576d0c6a1e663e3b84534fa0784a26e175
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fd72e2a75c00c30fdc5497e0d88e9c83dc5fcad8
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006503"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317352"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>移轉至 Azure 進階儲存體 (非受控磁碟)
 
@@ -158,7 +158,7 @@ VM 必須完全關閉，才能以全新狀態移轉。 在迁移完成之前会�
 若是資料磁碟，您可以選擇將一些資料磁碟保留在標準儲存體帳戶中 (例如，具有散熱器儲存體的磁碟)，但我們強烈建議您移動生產工作負載的所有資料以使用進階儲存體。
 
 #### <a name="copy-vhd-with-azcopy-or-powershell"></a>步驟 3. 使用 AzCopy 或 PowerShell 複製 VHD
-您必須尋找您的容器路徑和儲存體帳戶金鑰，才能處理這兩個選項之一。 容器路徑和儲存體帳戶金鑰位於 **Azure 入口網站** > **儲存體**。 容器 URL 會類似 「 https://myaccount.blob.core.windows.net/mycontainer/」。
+您必須尋找您的容器路徑和儲存體帳戶金鑰，才能處理這兩個選項之一。 容器路徑和儲存體帳戶金鑰位於 **Azure 入口網站** > **儲存體**。 容器 URL 會類似"https:\//myaccount.blob.core.windows.net/mycontainer/"。
 
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>選項 1：使用 AzCopy 複製 VHD (非同步複製)
 您可以使用 AzCopy，透過網際網路輕鬆上傳 VHD。 根據 VHD 的大小，這可能需要一些時間。 使用這個選項時，請記得檢查儲存體帳戶輸入/輸出限制。 如需詳細資訊，請參閱 [Azure 儲存體延展性和效能目標](storage-scalability-targets.md) 。

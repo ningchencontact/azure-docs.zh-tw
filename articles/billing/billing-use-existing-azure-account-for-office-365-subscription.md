@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
-ms.openlocfilehash: 5ac05991bc79dcfd24a527a13084b3a9383b4839
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b67f3c590be290515329af390b4d3d79a9746112
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903977"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339222"
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>使用 Azure 帳戶註冊 Office 365 訂用帳戶
 如果您是 Azure 訂閱者，您可以使用 Azure 帳戶來註冊 Office 365 訂用帳戶。 如果您屬於具有 Azure 訂用帳戶的組織，您可以為現有 Azure Active Directory (Azure AD) 中的使用者建立 Office 365 訂用帳戶。 使用具有 Azure Active Directory 租用戶中全域管理員或帳務管理員權限的帳戶，來註冊 Office 365。 如需詳細資訊，請參閱[在 Azure AD 中檢查我的帳戶權限](#RoleInAzureAD)和[在 Azure Active Directory 中指派系統管理員角色](../active-directory/users-groups-roles/directory-assign-admin-roles.md)。
@@ -43,12 +43,13 @@ ms.locfileid: "57903977"
 
     ![Office 365 訂單收據的螢幕擷取畫面](./media/billing-use-existing-azure-account-office-365-subscription/15-office-365-order-receipt.png)
 
-這樣就準備好了。 如果您已建立組織的 Office 365 訂用帳戶，請使用下列步驟來檢查您的 Azure AD 使用者目前在 Office 365 中。
+這樣就準備好了。
+如果您已建立組織的 Office 365 訂用帳戶，請使用下列步驟來檢查您的 Azure AD 使用者目前在 Office 365 中。
 
-1. 開啟 Office 365 系統管理中心。
+1. 開啟 Microsoft 365 系統管理中心。
 2. 展開 [使用者]，然後按一下 [作用中使用者]。
 
-    ![Office 365 系統管理中心使用者的螢幕擷取畫面](./media/billing-use-existing-azure-account-office-365-subscription/16-office-365-admin-center-users.png)
+    ![Microsoft 365 系統管理中心使用者的螢幕擷取畫面](./media/billing-use-existing-azure-account-office-365-subscription/16-microsoft-365-admin-center-users.png)
 
 在您註冊之後，系統會將 Office 365 訂用帳戶新增至 Azure 訂用帳戶隸屬的同一個 Azure Active Directory 執行個體。 如需詳細資訊，請參閱[深入了解 Azure 和 Office 365 訂用帳戶](billing-use-existing-office-365-account-azure-subscription.md#more-about-subs)和[Azure 訂用帳戶如何與 Azure Active Directory 產生關聯](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)。
 
@@ -58,12 +59,12 @@ ms.locfileid: "57903977"
 
     ![Azure 入口網站中 Active Directory 的螢幕擷取畫面](./media/billing-use-existing-azure-account-office-365-subscription/billing-more-services-active-directory.png)
 3. 按一下 [使用者和群組] > [所有使用者]。
-4. 選取使用者名稱。 
+4. 選取使用者名稱。
 
     ![顯示 Azure Active Directory 使用者的螢幕擷取畫面](./media/billing-use-existing-azure-account-office-365-subscription/billing-users-groups.png)
 
 5. 按一下 [目錄角色]。
-  
+
     ![顯示 Azure 入口網站目錄角色的螢幕擷取畫面](./media/billing-use-existing-azure-account-office-365-subscription/billing-user-directory-role.png)
 6.  需具備**全域管理員**或**受限的管理員** > 和**帳務管理員**角色，才能為現有 Azure Active Directory 中的使用者建立 Office 365 訂用帳戶。
 
@@ -71,4 +72,4 @@ ms.locfileid: "57903977"
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
-如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。 
+如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。

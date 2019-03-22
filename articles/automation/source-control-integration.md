@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/20/2019
+ms.date: 03/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5b8ec726c81dfab710d30c37d6fb1aac97c12265
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: c689a8fe35133456c476106e96336420640ebf66
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293970"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58335975"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure 自動化中的原始檔控制整合
 
@@ -30,6 +30,7 @@ Azure 自動化支援三種類型的原始檔控制：
 
 * 原始檔控制儲存機制 （GitHub 或 Azure 儲存機制）
 * A[執行身分帳戶](manage-runas-account.md)
+* 請確定您已[最新的 Azure 模組](automation-update-azure-modules.md)在您的自動化帳戶
 
 > [!NOTE]
 > 原始檔控制同步處理作業會在使用者的自動化帳戶之下執行，而且會以與其他自動化作業相同的費率計費。
@@ -49,10 +50,10 @@ Azure 自動化支援三種類型的原始檔控制：
 |原始檔控制名稱     | 原始檔控制的易記名稱        |
 |原始檔控制類型     | 原始檔控制來源的類型。 可用選項包括：</br> GitHub</br>Azure 儲存機制 (Git)</br> Azure 儲存機制 (TFVC)        |
 |存放庫     | 存放庫或專案的名稱。 會傳回前 200 個儲存機制。 若要搜尋存放庫，在欄位中輸入名稱，然後按一下**GitHub 上的搜尋**。|
-|分支     | 此分支可從中提取原始程式檔。 分支目標不適用於 TFVC 原始檔控制類型。          |
+|分支     | 此分支可從中提取原始程式檔。 目標分支不適用於 TFVC 原始檔控制類型。          |
 |資料夾路徑     | 包含要同步處理之 Runbook 的資料夾。範例：/Runbooks </br>*只有在指定的資料夾中的 runbook 會同步處理。不支援遞迴。*        |
 |自動同步處理     | 在原始檔控制存放庫中進行認可時開啟或關閉自動同步處理         |
-|發佈 Runbook     | 如果設定為 [開啟]，從原始檔控制同步處理 Runbook 之後，就會自動發佈 Runbook。         |
+|發佈 Runbook     | 如果設定為**上**之後從原始檔控制它們將會自動發佈的 runbook 會同步處理。         |
 |描述     | 用來提供其他詳細資料的文字欄位        |
 
 ![原始檔控制摘要](./media/source-control-integration/source-control-summary.png)
@@ -62,7 +63,7 @@ Azure 自動化支援三種類型的原始檔控制：
 
 ## <a name="configure-source-control---powershell"></a>設定原始檔控制-PowerShell
 
-您也可以使用 PowerShell 在 Azure 自動化中設定原始檔控制。 若要使用 PowerShell cmdlet 設定原始檔控制[個人存取權杖 (PAT)](#personal-access-token)需要。 您使用[新增 AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl)建立原始檔控制連接。 此 cmdlet 需要安全字串的個人存取權杖，以了解如何建立安全字串，請參閱 < [Convertto-securestring](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6)。
+您也可以使用 PowerShell 在 Azure 自動化中設定原始檔控制。 若要使用 PowerShell cmdlet 設定原始檔控制，需要個人存取權杖 (PAT)。 您使用[新增 AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl)建立原始檔控制連接。 此 cmdlet 需要安全字串的個人存取權杖，以了解如何建立安全字串，請參閱 < [Convertto-securestring](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6)。
 
 ### <a name="azure-repos-git"></a>Azure 儲存機制 (Git)
 
@@ -168,7 +169,7 @@ Source Control Sync Summary:
 
 ## <a name="encoding"></a>編碼
 
-如果多人正在使用不同的編輯器編輯您的原始檔控制儲存機制中的 runbook 沒有機會執行為編碼問題。 這可以在 runbook 中插入正確的字元。 若要深入了解，請參閱[常見編碼問題的原因](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
+如果多人正在使用不同的編輯器編輯您的原始檔控制儲存機制中的 runbook，就沒有機會執行為編碼問題。 這種情況可能會導致不正確的字元，在您的 runbook。 若要深入了解，請參閱[常見編碼問題的原因](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
 
 ## <a name="next-steps"></a>後續步驟
 

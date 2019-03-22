@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 61b3a9e066a3ee20effa97f1c6c7a0bd1ae90ac0
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: 18013050546cc5e204d9cc07a2f499388596164c
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285833"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319443"
 ---
 # <a name="application-gateway-configuration-overview"></a>應用程式閘道設定概觀
 
@@ -33,9 +33,9 @@ ms.locfileid: "58285833"
 
 #### <a name="size-of-the-subnet"></a>子網路的大小
 
-應用程式閘道會針對每個執行個體取用一個私人 IP 位址，如果已設定私人前端 IP 組態，則會再取用另一個私人 IP 位址。 此外，Azure 會保留每個子網路中的前四個和最後一個 IP 位址，以供內部使用。 比方說，如果應用程式閘道三個執行個體與不含私人前端 IP 設定，然後至少八個 IP 位址必須在子網路： 用於內部用途的五個 IP 位址和應用程式閘道的三個執行個體的三個 IP 位址。 因此，在此情況下使用/29 子網路大小或更新版本需要。 如果您有三個執行個體，而且 IP 位址的私人前端 IP 組態，則九個 IP 位址將會需要應用程式閘道的三個執行個體的三個 IP 位址一個 IP 位址的私人前端 IP 和五個 IP 位址內部使用。 因此，以此案例而言是/28 子網路大小或更新版本需要。
+應用程式閘道會針對每個執行個體取用一個私人 IP 位址，如果已設定私人前端 IP 組態，則會再取用另一個私人 IP 位址。 此外，Azure 會保留五個 IP 位址-前四個和最後一個 IP 位址-供內部使用的每個子網路中。 例如，如果應用程式閘道設定為 15 個執行個體與不含私人前端 IP，然後至少 20 個 IP 位址必須在子網路： 用於內部用途的五個 IP 位址和 15 的 IP 位址，應用程式閘道的 15 個執行個體。 因此，以此案例而言是/27 子網路大小或更新版本需要。 如果您有 27 的執行個體和 IP 位址的私人前端 IP 組態，則 33 的 IP 位址將會需要 27 27 的執行個體的應用程式閘道的 IP 位址就會有一個 IP 位址的私人前端 IP 和五個 IP 位址供內部使用中。 因此，在此情況下 / 26 需要子網路大小或更高。
 
-最佳做法是，使用至少/28 子網路大小。 這可讓您 11 可用的位址。 如果您的應用程式的負載需要超過 10 個執行個體，您應該考慮/27 或/26 子網路大小。
+建議使用至少/28 子網路大小。 這可讓您 11 可用的位址。 如果您的應用程式的負載需要超過 10 個執行個體，您應該考慮/27 或/26 子網路大小。
 
 #### <a name="network-security-groups-supported-on-the-application-gateway-subnet"></a>支援的應用程式閘道子網路上的網路安全性群組
 

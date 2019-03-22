@@ -14,18 +14,18 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: ef6a4171c582e3eb82fbcc73171797e1c806de05
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: fc35d442be7eea0406e4ba55876c53d7d94fee01
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770599"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310143"
 ---
 # <a name="manage-web-traffic-with-azure-powershell"></a>使用 Azure PowerShell 管理網路流量
 
 這個指令碼會建立應用程式閘道，它使用虛擬機器擴展集作為後端伺服器。 然後可以設定應用程式閘道來管理網路流量。 執行指令碼之後，您可以使用應用程式閘道的公用 IP 位址來進行測試。
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -38,7 +38,7 @@ ms.locfileid: "32770599"
 執行下列命令來移除資源群組、應用程式閘道和所有相關資源。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroupAG
+Remove-AzResourceGroup -Name myResourceGroupAG
 ```
 
 ## <a name="script-explanation"></a>指令碼說明
@@ -47,28 +47,28 @@ Remove-AzureRmResourceGroup -Name myResourceGroupAG
 
 | 命令 | 注意 |
 |---|---|
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 建立用來存放所有資源的資源群組。 |
-| [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig) | 建立子網路組態。 |
-| [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) | 使用子網路組態建立虛擬網路。 |
-| [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) | 建立應用程式閘道的公用 IP 位址。 |
-| [New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration) | 建立組態，該組態讓子網路與應用程式閘道產生關聯。 |
-| [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig) | 建立組態，該組態將公用 IP 位址指派給應用程式閘道。 |
-| [New-AzureRmApplicationGatewayFrontendPort](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendport) | 指派要用來存取應用程式閘道的連接埠。 |
-| [New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool) | 為應用程式閘道建立後端集區。 |
-| [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings) | 設定後端集區的設定。 |
-| [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) | 建立接聽程式。 |
-| [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule) | 建立路由規則。 |
-| [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku) | 指定應用程式閘道的層級和容量。 |
-| [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway) | 建立應用程式閘道。 |
-| [Set-AzureRmVmssStorageProfile](/powershell/module/azurerm.compute/set-azurermvmssstorageprofile) | 建立擴展集的儲存體設定檔。 |
-| [Set-AzureRmVmssOsProfile](/powershell/module/azurerm.compute/set-azurermvmssosprofile) | 定義擴展集的作業系統。 |
-| [Add-AzureRmVmssNetworkInterfaceConfiguration](/powershell/module/azurerm.compute/add-azurermvmssnetworkinterfaceconfiguration) | 定義擴展集的網路介面。 |
-| [New-AzureRmVmss](/powershell/module/azurerm.compute/new-azurermvm) | 建立虛擬機器擴展集。 |
-| [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) | 取得應用程式閘道的公用 IP 位址。 |
-|[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 移除資源群組及其內含的所有資源。 | 
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 建立用來存放所有資源的資源群組。 |
+| [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | 建立子網路組態。 |
+| [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | 使用子網路組態建立虛擬網路。 |
+| [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | 建立應用程式閘道的公用 IP 位址。 |
+| [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration) | 建立組態，該組態讓子網路與應用程式閘道產生關聯。 |
+| [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig) | 建立組態，該組態將公用 IP 位址指派給應用程式閘道。 |
+| [New-AzApplicationGatewayFrontendPort](/powershell/module/az.network/new-azapplicationgatewayfrontendport) | 指派要用來存取應用程式閘道的連接埠。 |
+| [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool) | 為應用程式閘道建立後端集區。 |
+| [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsettings) | 設定後端集區的設定。 |
+| [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) | 建立接聽程式。 |
+| [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule) | 建立路由規則。 |
+| [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku) | 指定應用程式閘道的層級和容量。 |
+| [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway) | 建立應用程式閘道。 |
+| [Set-AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) | 建立擴展集的儲存體設定檔。 |
+| [Set-AzVmssOsProfile](/powershell/module/az.compute/set-azvmssosprofile) | 定義擴展集的作業系統。 |
+| [Add-AzVmssNetworkInterfaceConfiguration](/powershell/module/az.compute/add-azvmssnetworkinterfaceconfiguration) | 定義擴展集的網路介面。 |
+| [New-AzVmss](/powershell/module/az.compute/new-azvm) | 建立虛擬機器擴展集。 |
+| [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) | 取得應用程式閘道的公用 IP 位址。 |
+|[Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 移除資源群組及其內含的所有資源。 | 
 
 ## <a name="next-steps"></a>後續步驟
 
 如需有關 Azure PowerShell 模組的詳細資訊，請參閱 [Azure PowerShell 文件](/powershell/azure/overview)。
 
-您可以在 [Azure 應用程式閘道文件](../powershell-samples.md)中找到其他的應用程式閘道 PowerShell 指令碼範例。
+您可以在 [Azure 應用程式閘道文件](../powershell-samples.md)中找到其他應用程式閘道的 PowerShell 指令碼範例。

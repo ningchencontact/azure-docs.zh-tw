@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: 87f608163e20d98179eb6c666158386a99858eeb
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 82cc8b03bb8f6476602307958174f6724076553b
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188374"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339613"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>適用於 Eclipse Java 應用程式開發的 Service Fabric 外掛程式
 Eclipse 是 Java 開發人員最普遍使用的整合式的開發環境 (IDE) 之一。 在本文中，我們將說明如何設定 Eclipse 開發環境來使用 Azure Service Fabric。 了解如何安裝 Service Fabric 外掛程式、建立 Service Fabric 應用程式，以及將 Service Fabric 應用程式部署到 Eclipse 中的本機或遠端 Service Fabric 叢集。 
@@ -54,7 +54,7 @@ Eclipse 是 Java 開發人員最普遍使用的整合式的開發環境 (IDE) �
 3. 更新 Service Fabric 外掛程式後，請同時重新整理 Gradle 專案。  以滑鼠右鍵按一下 [build.gradle]，然後選取 [重新整理]。
 
 > [!NOTE]
-> 如果安裝或更新 Service Fabric 外掛程式時很緩慢，可能是因為 Eclipse 設定。 Eclipse 會收集所有變更的中繼資料，以更新使用您 Eclipse 執行個體註冊的網站。 若要加速檢查及安裝 Service Fabric 外掛程式更新的程序，前往 [可用的軟體站台]。 清除所有網站的核取方塊，但指向 Service Fabric 外掛程式位置 (https://dl.microsoft.com/eclipse/azure/servicefabric)) 的網站除外。
+> 如果安裝或更新 Service Fabric 外掛程式時很緩慢，可能是因為 Eclipse 設定。 Eclipse 會收集所有變更的中繼資料，以更新使用您 Eclipse 執行個體註冊的網站。 若要加速檢查及安裝 Service Fabric 外掛程式更新的程序，前往 [可用的軟體站台]。 清除核取方塊，除了指向 Service Fabric 外掛程式位置的所有站台 (https:\//dl.microsoft.com/eclipse/azure/servicefabric)。
 
 > [!NOTE]
 >如果 Eclipse 在 Mac 上未如預期一般運作，或需要您以進階使用者身分執行，請移至 **ECLIPSE_INSTALLATION_PATH** 資料夾，並瀏覽至子資料夾 **Eclipse.app/Contents/MacOS**。 執行 `./eclipse` 來啟動 Eclipse。

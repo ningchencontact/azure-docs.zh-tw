@@ -4,17 +4,18 @@ description: 了解如何使用 Azure 入口網站在 Azure Active Directory B2C
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: davidmu
-ms.openlocfilehash: 1f9a4f2f0ac44c8815e33957b49b4215c998eae3
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.subservice: B2C
+ms.openlocfilehash: f79ecd96b15ff4ff96a3bb93061f0c9d7598191f
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754161"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338151"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>教學課程：在 Azure Active Directory B2C 中註冊應用程式
 

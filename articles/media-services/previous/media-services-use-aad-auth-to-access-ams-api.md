@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: fa13ffe450b60bd8c896636911268a98b49bbc0f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: b6071bef4e4bbd9aaca3f587e5dfa584831d082e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104126"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316869"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>使用 Azure AD 驗證存取 Azure 媒體服務 API  
  

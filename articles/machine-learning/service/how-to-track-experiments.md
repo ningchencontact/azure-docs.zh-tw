@@ -1,7 +1,7 @@
 ---
-title: 追蹤實驗與定型計量
+title: 在定型執行的記錄度量
 titleSuffix: Azure Machine Learning service
-description: 使用 Azure Machine Learning 服務，您可以追蹤您的實驗並監視計量，以加強模型建立程序。 了解如何將記錄新增至您的訓練指令碼、如何提交實驗、如何檢查執行中作業的進度，以及如何檢視執行結果。
+description: 您可以追蹤您的實驗，並監視度量，以提高模型建立程序。 了解如何將記錄新增至您的訓練指令碼、如何提交實驗、如何檢查執行中作業的進度，以及如何檢視執行結果。
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 79247c4c1f26fadcd5f0291b55c9dd8d4d9aa2af
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 835d1f41ffe940422554a8ca59d0a91ac8e98607
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008826"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336589"
 ---
-# <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>使用 Azure Machine Learning 追蹤實驗與訓練計量
+# <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>記錄度量在定型期間執行 Azure Machine Learning 中
 
 在 Azure Machine Learning 服務中，您可以追蹤您的實驗並監視計量，以加強模型建立程序。 在這篇文章，了解如何將記錄新增至您的訓練指令碼、 提交實驗執行、 監視執行，以及檢視測試回合的結果。
 
@@ -218,7 +218,7 @@ ms.locfileid: "58008826"
    ```
 
 ## <a name="cancel-a-run"></a>取消執行
-在提交執行之後，只要您知道實驗的名稱和執行識別碼，即使您已失去物件參考仍可將它取消。 
+提交測試回合之後，您可以取消它，即使您遺失物件參考，只要您知道實驗名稱，並執行識別碼。 
 
 ```python
 from azureml.core import Experiment

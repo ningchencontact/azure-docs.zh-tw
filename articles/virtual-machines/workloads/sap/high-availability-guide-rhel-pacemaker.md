@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: 791c63b7b7fed55f95905ba7131d6a1d4bb414ff
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1a8e5fd82b44577aa1915d59fc7c29900a1f14ea
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010500"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319511"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>在 Azure 中的 Red Hat Enterprise Linux 上設定 Pacemaker
 
@@ -85,6 +85,8 @@ ms.locfileid: "58010500"
    sudo subscription-manager attach --pool=&lt;pool id&gt;
    </code></pre>
 
+   請注意，藉由附加至 Azure Marketplace PAYG RHEL 映像的集區，您將會是有效的雙精度浮點數計費 RHEL 使用量： 一次 PAYG 映像，一次您將連接集區中的 RHEL 權限。 若要緩解這個情況，Azure 現在提供 BYOS RHEL 映像。 如需詳細資訊[此處](https://aka.ms/rhel-byos)。
+
 1. **[A]** 啟用 RHEL for SAP 存放庫
 
    若要安裝必要的封裝，請啟用下列存放庫。
@@ -144,10 +146,10 @@ ms.locfileid: "58010500"
    <pre><code>sudo pcs cluster auth <b>prod-cl1-0</b> <b>prod-cl1-1</b> -u hacluster
    sudo pcs cluster setup --name <b>nw1-azr</b> <b>prod-cl1-0</b> <b>prod-cl1-1</b> --token 30000
    sudo pcs cluster start --all
-   
+
    # Run the following command until the status of both nodes is online
    sudo pcs status
-   
+
    # Cluster name: nw1-azr
    # WARNING: no stonith devices and stonith-enabled is not false
    # Stack: corosync
@@ -179,11 +181,10 @@ ms.locfileid: "58010500"
 STONITH 裝置會使用服務主體來對 Microsoft Azure 授權。 請遵循下列步驟來建立服務主體。
 
 1. 移至 <https://portal.azure.com>。
-1. 開啟 [Azure Active Directory] 刀鋒視窗  
-   移至 [屬性]，並記下目錄識別碼。 這是「租用戶識別碼」。
+1. 開啟 [Azure Active Directory] 刀鋒視窗移至內容並記下目錄識別碼。 這是「租用戶識別碼」。
 1. 按一下 [應用程式註冊]
 1. 按一下 [新增]
-1. 輸入名稱、 選取應用程式類型 [Web 應用程式/API]、 輸入登入 URL (例如`http://localhost`)，然後按一下建立
+1. 輸入名稱、 選取應用程式類型 [Web 應用程式/API]、 輸入登入 URL (例如 http:\//localhost)，然後按一下建立
 1. 登入 URL 並未使用，而且可以是任何有效的 URL
 1. 選取新的應用程式，然後按一下 [設定] 索引標籤中的金鑰
 1. 輸入新金鑰的說明、選取 [永不過期]，然後按一下 [儲存]

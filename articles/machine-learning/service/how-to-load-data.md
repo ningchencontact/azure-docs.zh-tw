@@ -6,18 +6,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: cforbe
-author: cforbe
+ms.author: sihhu
+author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 2/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: fe676cbba89a99a3dbd29609f181274062b37d86
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 34dd20826928d1ab2ba1fc7980c7d47b796ea663
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000278"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311011"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>使用 Azure Machine Learning 載入和讀取資料
 
@@ -291,7 +291,7 @@ servicePrincipalAppId = "8dd38f34-1fcb-4ff9-accd-7cd60b757174"
 
 ### <a name="acquire-an-oauth-access-token"></a>取得 OAuth 存取權杖
 
-使用 `adal` 套件 (`pip install adal`) 在 MSFT 租用戶上建立驗證內容，並取得 OAuth 存取權杖。 針對 ADLS，權杖要求中的資源必須適用於 '[https://datalake.azure.net](https://datalake.azure.net)'，這與大部分的其他 Azure 資源不同。
+使用 `adal` 套件 (`pip install adal`) 在 MSFT 租用戶上建立驗證內容，並取得 OAuth 存取權杖。 如需 ADLS，權杖要求中的資源必須是 ' https:\//datalake.azure.net'，這是不同於大部分其他 Azure 資源。
 
 ```python
 import adal

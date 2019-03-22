@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 175fdcc1bf8d28c0eeb6eeccaa54c996c837ef81
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: HT
+ms.openlocfilehash: b5e7864eae56a6f066590191373d35cb57693f37
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744440"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311674"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>使用資料分析管線進行作業
 
@@ -150,7 +150,7 @@ Oozie 會根據「動作」、「工作流程和「協調器」來描述其管�
 
 2. 藉由瀏覽至以下位址，在前端節點上瀏覽至 Ambari，以確認通道可運作：
 
-    http://headnodehost:8080
+    http:\//headnodehost:8080
 
 3. 若要從 Ambari 內存取 [Oozie Web 主控台]，選取 [Oozie]、[快速連結]，然後選取 [Oozie Web 主控台]。
 
@@ -176,7 +176,7 @@ Oozie 會根據「動作」、「工作流程和「協調器」來描述其管�
 
 此範例資料目前可供使用。 不過，管線需要兩個 Hive 資料表以供處理使用，一個用於內送資料 (`rawFlights`)，另一個用於彙總資料 (`flights`)。 如下所示，在 Ambari 中建立這些資料表。
 
-1. 瀏覽到 [http://headnodehost:8080](http://headnodehost:8080) 以登入 Ambari。
+1. 瀏覽至 http 登入 Ambari:\//headnodehost:8080。
 2. 從服務清單中，選取 [Hive]。
 
     ![在 Ambari 中選取 Hive](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)

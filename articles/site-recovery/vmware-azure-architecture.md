@@ -1,18 +1,18 @@
 ---
 title: Azure Site Recovery 中的 VMware 至 Azure 災害復原架構 | Microsoft Docs
 description: 本文概述使用 Azure Site Recovery 來設定從內部部署 VMware VM 至 Azure 的災害復原時，所使用的元件和架構
-author: mayurigupta13
+author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 3/3/2019
-ms.author: mayg
-ms.openlocfilehash: 5f9ead8df3d0dfb2695def46087d2ea994b8b75b
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: HT
+ms.date: 03/13/2019
+ms.author: raynew
+ms.openlocfilehash: d9fdd6f42e1443c0515c2c38496e9d474c87715c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340427"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310756"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware 至 Azure 災害復原架構
 

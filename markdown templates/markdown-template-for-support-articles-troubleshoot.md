@@ -14,12 +14,12 @@ ms.tgt_pltfrm: may be required
 ms.workload: required
 ms.date: mm/dd/yyyy
 ms.author: Your MSFT alias or your full email address;semicolon separates two or more
-ms.openlocfilehash: e791ff0377137557b6e9f38a8e1b6b35be948ab6
-ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
-ms.translationtype: HT
+ms.openlocfilehash: 46a7bc52e94189b932b0475e80f55d880a2e3ee9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2018
-ms.locfileid: "26730549"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58191651"
 ---
 # <a name="title-maximum-120-characters-target-the-primary-keyword"></a>標題 (最多 120 個字元，目標為主要關鍵字)
 *在描述中使用 2-3 個次要關鍵字。*
@@ -28,9 +28,7 @@ ms.locfileid: "26730549"
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)] 傳統部署模型。
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-[!INCLUDE [learn-about-deployment-models](../../learn-about-deployment-models-both-include.md)]
+[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
 [開頭段落]
 
@@ -73,7 +71,7 @@ ms.locfileid: "26730549"
 
 *選取適用於您情況的其中一個版本。*
 
-| <em>版本 1：您的文章與部署模型無關</em> | <em>版本 2：Resource Manager 和傳統大致相同的步驟</em> | <em>版本 3：Resource Manager 和傳統大致不同的步驟。 <br />在此情況下，使用 <a href="https://github.com/Azure/azure-content-pr/blob/master/contributor-guide/custom-markdown-extensions.md#simple-selectors">GitHub 中的簡單選取器技術</a>。 <br />請注意：ARM 的 VM 文件為例外狀況，且不應該使用 ARM/傳統選取器。</em> |
+| <em>第 1 版：您的文章與部署模型無關</em> | <em>第 2 版：Resource Manager 和傳統的步驟大致相同</em> | <em>第 3 版：步驟 Resource Manager 和傳統大致不同。 <br />在此情況下，使用 <a href="https://github.com/Azure/azure-content-pr/blob/master/contributor-guide/custom-markdown-extensions.md#simple-selectors">GitHub 中的簡單選取器技術</a>。 <br />注意：ARM 的 VM 文件是例外狀況，並不應該使用 ARM/傳統選取器。</em> |
 |:--- |:--- |:--- |
 | <p><h3>[問題 1] \ |[錯誤 1]</h3><h4>原因</h4>[原因詳細資料]</p><p><h4>解決方案 1</h4><em>(最簡單且最有效)</em></p><ol><li>[步驟 1]</li><li>[步驟 2]</li></ol><p><h4>解決方案 2</h4><em>(較不簡單或有效)</em></p><ol><li>[步驟 1]</li><li>[步驟 2]</li></ol><p><h3>[問題 2] \ |[錯誤 2]</h3><h4>原因</h4>[原因詳細資料]</p><p><h4>解決方案 1</h4><em>(最簡單且最有效)</em></p><ol><li>[步驟 1]</li><li>[步驟 2]</li></ol><p><h4>解決方案 2</h4><em>(最簡單且最有效)</em></p><ol><li>[步驟 1]</li><li>[步驟 2]</li></ol><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /> |
 

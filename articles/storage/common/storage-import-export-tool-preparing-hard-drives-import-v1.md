@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 7db50e8bd1de609256bad58b293af8b7b1ea5dbb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 03b504524b2f489f1ee042c6e825ccffe0a60bb3
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086712"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315057"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>針對匯入作業準備硬碟
 若要準備匯入工作的一個或多個硬碟，請依照下列步驟執行︰
@@ -43,10 +43,10 @@ ms.locfileid: "58086712"
 
 |來源檔案或目錄|目的地 Blob 或虛擬目錄|
 |------------------------------|-------------------------------------------|
-|H:\Video|https://mystorageaccount.blob.core.windows.net/video|
-|H:\Photo|https://mystorageaccount.blob.core.windows.net/photo|
-|K:\Temp\FavoriteVideo.ISO|https://mystorageaccount.blob.core.windows.net/favorite/FavoriteVideo.ISO|
-|\\\myshare\john\music|https://mystorageaccount.blob.core.windows.net/music|
+|H:\Video|https:\//mystorageaccount.blob.core.windows.net/video|
+|H:\Photo|https:\//mystorageaccount.blob.core.windows.net/photo|
+|K:\Temp\FavoriteVideo.ISO|https:\//mystorageaccount.blob.core.windows.net/favorite/FavoriteVideo.ISO|
+|\\\myshare\john\music|https:\//mystorageaccount.blob.core.windows.net/music|
 
 ## <a name="determine-how-many-drives-are-needed"></a>判斷需要多少個磁碟機
  接著，您必須判斷︰

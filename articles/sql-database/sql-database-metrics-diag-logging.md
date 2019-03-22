@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 76c7519a166bfbfe5d2a7695a077b809aa971489
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7cb1632fe8c0ae873afcf37504dbd13bcfc753e8
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904026"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338066"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄
 
@@ -104,7 +104,7 @@ ms.locfileid: "57904026"
 
    ![設定彈性集區的診斷功能](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 
-> [!NOTE]
+> [!IMPORTANT]
 > 除了設定彈性集區的診斷遙測，您也需要設定診斷遙測的每個資料庫在彈性集區中，如下所述。 
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-single-datatbase-or-database-in-elastic-pool"></a>設定診斷遙測，單一的能力，或在彈性集區中的資料庫的資料流
@@ -159,7 +159,7 @@ ms.locfileid: "57904026"
 
    ![設定受控執行個體的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
-> [!NOTE]
+> [!IMPORTANT]
 > 除了設定受管理的執行個體的診斷遙測，您也需要設定診斷遙測，每個執行個體資料庫，如下所述。 
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases"></a>設定串流診斷遙測的執行個體資料庫

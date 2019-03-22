@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 270708496fbe13b9061abe5d64d5577193db4027
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 600b18997ced80a63b7e86f66bc447ddd7932687
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450646"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310739"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>在 HDInsight 上使用 Apache Hive 與 Apache Hadoop 分析 Twitter 資料
 
@@ -41,7 +41,7 @@ Twitter 可讓您透過 REST API 抓取每則推文資料，作為 JavaScript �
    |:--- |:--- |
    | 名稱 |MyHDInsightApp |
    | 描述 |MyHDInsightApp |
-   | 網站 |https://www.myhdinsightapp.com |
+   | 網站 |https:\//www.myhdinsightapp.com |
 
 4. 核取 [是，我同意] 然後按一下 [建立 Twitter 應用程式]。
 

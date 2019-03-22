@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: ea41f09269e3ad46db1f254965fd7d7df25232be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: d66db88dd1e962acc63c960270bb5685218aa391
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095597"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316047"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 安全性與驗證 
 
@@ -88,7 +88,7 @@ Webhook 是從 Azure 事件方格接收事件的眾多方法之一。 當新事�
 
 ### <a name="checklist"></a>檢查清單
 
-在事件訂閱建立期間，如果您看到「嘗試驗證提供的端點 https://your-endpoint-here 失敗。 如需詳細資訊，請瀏覽 https://aka.ms/esvalidation」之類的錯誤訊息，即表示驗證交握失敗。 若要解決此錯誤，請執行以下幾方面的驗證：
+事件訂用帳戶建立期間，如果您看見錯誤訊息，例如 「 嘗試驗證提供的端點 https:\//your-endpoint-here 失敗。 如需詳細資訊，請瀏覽 https:\//aka.ms/esvalidation 」，它會指出在驗證信號交換會失敗。 若要解決此錯誤，請執行以下幾方面的驗證：
 
 * 您是否有權控制目標端點中的應用程式程式碼？ 例如，如果您要撰寫以 HTTP 觸發程序為基礎的 Azure 函式，您是否能夠存取應用程式的程式碼而加以變更？
 * 如果您有應用程式程式碼的存取權，請實作以 ValidationCode 為基礎的交握機制，如上述範例所示。

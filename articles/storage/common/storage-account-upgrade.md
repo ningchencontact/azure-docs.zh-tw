@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: tamram
-ms.openlocfilehash: d57023063fe23db9f57d52ab9cdf99e0687c1fdf
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: df9bc1680f20fe6264da0109cd52db1072fd9fc5
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217286"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311130"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>升級至一般用途 v2 儲存體帳戶
 
@@ -29,14 +29,14 @@ ms.locfileid: "57217286"
 2. 瀏覽至儲存體帳戶。
 3. 在 [設定] 區段中，按一下 [組態]。
 4. 在 [帳戶類型] 下，按一下 [升級]。
-5. 在 [確認升級] 下，輸入您的帳戶名稱。 
+5. 在 [確認升級] 下，輸入您的帳戶名稱。
 6. 按一下刀鋒視窗底部的 [升級]。
 
 ## <a name="upgrade-with-powershell"></a>使用 PowerShell 升級
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-若要使用 PowerShell 將一般用途 v1 帳戶升級至一般用途 v2 帳戶，請先更新 PowerShell 以使用最新版的 **Az.Storage** 模組。 如需安裝 PowerShell 的相關資訊，請參閱[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)。 
+若要使用 PowerShell 將一般用途 v1 帳戶升級至一般用途 v2 帳戶，請先更新 PowerShell 以使用最新版的 **Az.Storage** 模組。 如需安裝 PowerShell 的相關資訊，請參閱[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)。
 
 接下來，請呼叫下列命令，並取代為您的資源群組與儲存體帳戶的名稱，以升級帳戶：
 
@@ -46,17 +46,17 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 
 ## <a name="upgrade-with-azure-cli"></a>使用 Azure CLI 升級
 
-若要使用 Azure CLI 將一般用途 v1 帳戶升級至一般用途 v2 帳戶，請先安裝最新版的 Azure CLI。 如需安裝 CLI 的相關資訊，請參閱[安裝 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。 
+若要使用 Azure CLI 將一般用途 v1 帳戶升級至一般用途 v2 帳戶，請先安裝最新版的 Azure CLI。 如需安裝 CLI 的相關資訊，請參閱[安裝 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。
 
 接下來，請呼叫下列命令，並取代為您的資源群組與儲存體帳戶的名稱，以升級帳戶：
 
 ```cli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
-``` 
+```
 
 ## <a name="specify-an-access-tier-for-blob-data"></a>指定 Blob 資料的存取層
 
-一般用途 v2 帳戶能支援所有 Azure 儲存體服務與資料物件，但存取層僅適用於 Blob 儲存體中的區塊 Blob。 當您升級至一般用途 v2 儲存體帳戶時，您可以指定 Blob 資料的存取層。 
+一般用途 v2 帳戶能支援所有 Azure 儲存體服務與資料物件，但存取層僅適用於 Blob 儲存體中的區塊 Blob。 當您升級至一般用途 v2 儲存體帳戶時，您可以指定 Blob 資料的存取層。
 
 存取層可讓您根據預期的使用模式，選擇最符合成本效益的儲存體。 區塊 Blob 可以儲存於經常性存取層、非經常性存取層或封存存取層。 如需存取層的詳細資訊，請參閱 [Azure Blob 儲存體：經常性存取、非經常性存取和封存儲存層](../blobs/storage-blob-storage-tiers.md)。
 
@@ -96,7 +96,7 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
     - 有多少資料儲存在儲存體帳戶中？
     - 每月的資料量變更為何？新資料是否會不斷取代舊資料？
 * 您 Blob 儲存體資料的主要存取模式，包括：
-    - 儲存體帳戶的讀取和寫入資料量有多少？ 
+    - 儲存體帳戶的讀取和寫入資料量有多少？
     - 在儲存體帳戶中的資料上發生多少讀取作業和寫入作業？
 
 為了協助決定符合您需求的最佳存取層，您應該判斷 Blob 資料容量，以及該資料的使用狀況。 最佳做法則是查看您帳戶的監視計量。
@@ -108,7 +108,7 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 如需詳細資訊，請參閱[關於儲存體分析計量](https://msdn.microsoft.com/library/azure/hh343258.aspx)和[儲存體分析計量資料表結構描述](https://msdn.microsoft.com/library/azure/hh343264.aspx)
 
 > [!NOTE]
-> Blob 儲存體帳戶會公開僅適用於儲存和存取該帳戶計量資料的表格服務端點。 
+> Blob 儲存體帳戶會公開僅適用於儲存和存取該帳戶計量資料的表格服務端點。
 
 若要監視 Blob 儲存體的儲存體使用情況，您必須啟用容量計量。
 啟用此度量後，系統會每日記錄儲存體帳戶的 Blob 服務容量資料，而該資料會以資料表項目形式記錄並寫入至相同儲存體帳戶內的 $MetricsCapacityBlob  資料表。
@@ -120,7 +120,7 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 若要取得資料使用和存取模式的適當近似值，建議您針對代表一般使用情況的度量選擇保留期，並進行推斷。 其中一個選項是保留度量資料 7 天並每週收集資料，以便月底進行分析。 另一個選項是保留最近 30 天的度量資料，並在 30 天期間的結尾收集和分析資料。
 
-如需啟用、收集和檢視度量資料的詳細資訊，請參閱[啟用 Azure 儲存體度量和檢視度量資料](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
+如需啟用的詳細資訊，收集和檢視計量資料，請參閱[儲存體分析度量](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
 
 > [!NOTE]
 > 就如同一般使用者資料，儲存、存取和下載分析資料也需付費。

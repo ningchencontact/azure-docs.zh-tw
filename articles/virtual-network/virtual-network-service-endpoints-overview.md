@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: ac166161624840aae39e84aa4b149fe58a6c978e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: HT
+ms.openlocfilehash: 72cbf71077a8df2b81b366d9f29ae006100da471
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780859"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310535"
 ---
 # <a name="virtual-network-service-endpoints"></a>虛擬網路服務端點
 
@@ -42,6 +42,7 @@ ms.locfileid: "57780859"
 **公開預覽**
 
 - **[適用於 MariaDB 的 Azure 資料庫](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)**：在所有提供「適用於 MariaDB 的 Azure 資料庫」的 Azure 區域，都可供預覽。
+- **[Azure Container Registry](../container-registry/container-registry-vnet.md)**:現在提供預覽 Azure Container Registry 可使用的所有 Azure 區域中。
 
 如需最新通知，請查看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network)頁面。
 

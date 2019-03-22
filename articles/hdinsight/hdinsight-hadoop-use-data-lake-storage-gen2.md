@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4e8649096d4f7de49c9cf0d569422919f865bb3b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 45b34d12fbcecbf5f6bf1225c5bb82c5385224ed
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094087"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338389"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>搭配 Azure HDInsight 叢集使用 Data Lake Storage Gen2
 
@@ -26,46 +26,52 @@ Data Lake 儲存體 Gen2 可從幾乎所有的 Azure HDInsight 叢集類型的�
 > [!Note] 
 > 選取做為 Data Lake 儲存體 Gen2 之後您**主要儲存體類型**，您無法選取 Data Lake 儲存體 Gen1 帳戶作為其他儲存體。
 
-## <a name="create-an-hdinsight-cluster-with-data-lake-storage-gen2"></a>建立 HDInsight 叢集搭配 Data Lake 儲存體 Gen2
-
-## <a name="use-the-azure-portal"></a>使用 Azure 入口網站
+## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-portal"></a>建立叢集與 Data Lake 儲存體 Gen2，透過 Azure 入口網站
 
 若要建立使用 Data Lake 儲存體 Gen2 儲存體的 HDInsight 叢集，請遵循下列步驟來設定 Data Lake 儲存體 Gen2 帳戶。
 
-1. 建立使用者指派的受控識別 (如果您還沒有的話)。 請參閱[使用 Azure 入口網站對使用者指派的受控識別建立、列出、刪除或指派角色](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)。
+### <a name="create-a-user-managed-identity"></a>建立受管理的使用者身分識別
 
-    ![建立使用者指派的受控識別](./media/hdinsight-hadoop-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png)
+建立使用者指派的受控識別 (如果您還沒有的話)。 請參閱[使用 Azure 入口網站對使用者指派的受控識別建立、列出、刪除或指派角色](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)。 如需有關如何管理 Azure HDInsight 中的身分識別工作的詳細資訊，請參閱 <<c0> [ 管理 Azure HDInsight 中的身分識別](hdinsight-managed-identities.md)。
 
-1. 建立 Azure Data Lake Storage Gen2 儲存體帳戶。 請確定**階層式命名空間**啟用選項。 如需詳細資訊，請參閱[快速入門：建立 Azure Data Lake Storage Gen2 儲存體帳戶](../storage/blobs/data-lake-storage-quickstart-create-account.md)。
+![建立使用者指派的受控識別](./media/hdinsight-hadoop-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png)
 
-    ![顯示在 Azure 入口網站建立儲存體帳戶的螢幕擷取畫面](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
- 
-1. 將受控識別指派給儲存體帳戶上的**儲存體 Blob 資料擁有者 (預覽)** 角色。 如需詳細資訊，請參閱[使用 RBAC 來管理 Azure Blob 和佇列資料的存取權限 (預覽)](../storage/common/storage-auth-aad-rbac.md)。
+### <a name="create-a-data-lake-storage-gen2-account"></a>建立 Data Lake Storage Gen2 帳戶
 
-    1. 在 [Azure 入口網站](https://portal.azure.com)中，移至您的儲存體帳戶。
-    1. 選取儲存體帳戶，然後選取**存取控制 (IAM)** 顯示帳戶的存取控制設定。 選取 [角色指派] 索引標籤，以查看角色指派的清單。
+建立 Azure Data Lake Storage Gen2 儲存體帳戶。 請確定**階層式命名空間**啟用選項。 如需詳細資訊，請參閱[快速入門：建立 Azure Data Lake Storage Gen2 儲存體帳戶](../storage/blobs/data-lake-storage-quickstart-create-account.md)。
+
+![顯示在 Azure 入口網站建立儲存體帳戶的螢幕擷取畫面](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
+
+### <a name="setup-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account"></a>設定 Data Lake 儲存體 Gen2 帳戶上的受管理身分識別的權限
+
+將受控識別指派給儲存體帳戶上的**儲存體 Blob 資料擁有者 (預覽)** 角色。 如需詳細資訊，請參閱[使用 RBAC 來管理 Azure Blob 和佇列資料的存取權限 (預覽)](../storage/common/storage-auth-aad-rbac.md)。
+
+1. 在 [Azure 入口網站](https://portal.azure.com)中，移至您的儲存體帳戶。
+1. 選取儲存體帳戶，然後選取**存取控制 (IAM)** 顯示帳戶的存取控制設定。 選取 [角色指派] 索引標籤，以查看角色指派的清單。
     
-        ![顯示儲存體存取控制設定的螢幕擷取畫面](./media/hdinsight-hadoop-data-lake-storage-gen2/portal-access-control.png)
+    ![顯示儲存體存取控制設定的螢幕擷取畫面](./media/hdinsight-hadoop-data-lake-storage-gen2/portal-access-control.png)
     
-    1. 選取  **+ 新增角色指派**按鈕以新增新的角色。
-    1. 在 [新增角色指派] 視窗中，選取 [儲存體 Blob 資料擁有者 (預覽)] 角色。 然後，選取包含受控識別和儲存體帳戶的訂用帳戶。 接著，搜尋並找出您先前建立的使用者指派受控識別。 最後，選取 受管理的身分識別，並將會列在**選取的成員**。
+1. 選取  **+ 新增角色指派**按鈕以新增新的角色。
+1. 在 [新增角色指派] 視窗中，選取 [儲存體 Blob 資料擁有者 (預覽)] 角色。 然後，選取包含受控識別和儲存體帳戶的訂用帳戶。 接著，搜尋並找出您先前建立的使用者指派受控識別。 最後，選取 受管理的身分識別，並將會列在**選取的成員**。
     
-        ![顯示如何指派 RBAC 角色的螢幕擷取畫面](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role3.png)
+    ![顯示如何指派 RBAC 角色的螢幕擷取畫面](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role3.png)
     
-    1. 選取 [ **儲存**]。 您選取的使用者指派身分識別此時會列在 [參與者] 角色下方。
+1. 選取 [ **儲存**]。 您選取的使用者指派身分識別現在會列在 選取的角色中。
+1. 完成此初始設定後，您可以透過入口網站建立叢集。 此叢集必須與儲存體帳戶位在相同的 Azure 區域中。 在叢集建立功能表的 [儲存體] 區段中，選取下列選項︰
+        
+    * 針對**主要儲存體類型**，選取**Azure Data Lake 儲存體 Gen2**。
+    * 底下**選取儲存體帳戶**，搜尋並選取新建立的 Data Lake 儲存體 Gen2 儲存體帳戶。
+        
+        ![搭配 Azure HDInsight 使用 Data Lake Storage Gen2 的儲存體設定](./media/hdinsight-hadoop-data-lake-storage-gen2/primary-storage-type-adls-gen2.png)
+    
+    * 底下**識別**選取正確的訂用帳戶，新建立的使用者指派受管理的識別。
+        
+        ![搭配 Azure HDInsight 使用 Data Lake Storage Gen2 的身分識別設定](./media/hdinsight-hadoop-data-lake-storage-gen2/managed-identity-cluster-creation.png)
+        
+> [!Note]
+> 您可以新增一或多個 Data Lake 儲存體 Gen2 帳戶做為相同的叢集上的次要儲存體。 請重複上述步驟，在您想要新增使用相同的受管理身分識別的每個 Data Lake 儲存體 Gen2 帳戶。
 
-    1. 完成此初始設定後，您可以透過入口網站建立叢集。 此叢集必須與儲存體帳戶位在相同的 Azure 區域中。 在叢集建立功能表的 [儲存體] 區段中，選取下列選項︰
-        
-        * 針對**主要儲存體類型**，選取**Azure Data Lake 儲存體 Gen2**。
-        * 底下**選取儲存體帳戶**，搜尋並選取新建立的 Data Lake 儲存體 Gen2 儲存體帳戶。
-        
-            ![搭配 Azure HDInsight 使用 Data Lake Storage Gen2 的儲存體設定](./media/hdinsight-hadoop-data-lake-storage-gen2/primary-storage-type-adls-gen2.png)
-        
-        * 底下**識別**選取正確的訂用帳戶，新建立的使用者指派受管理的識別。
-        
-            ![搭配 Azure HDInsight 使用 Data Lake Storage Gen2 的身分識別設定](./media/hdinsight-hadoop-data-lake-storage-gen2/managed-identity-cluster-creation.png)
-
-### <a name="use-an-azure-resource-manager-template-deployed-with-the-azure-cli"></a>使用 Azure Resource Manager 範本部署使用 Azure CLI
+## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-cli"></a>使用 Data Lake 儲存體 Gen2，透過 Azure CLI 建立叢集
 
 您可以[下載範例範本檔案](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json)並[下載範例參數檔](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json)。 之前使用範本時，取代字串`<SUBSCRIPTION_ID>`並提供您實際的 Azure 訂用帳戶識別碼。 此外，取代字串`<PASSWORD>`具有您所選的密碼，可以設定兩個登入到您的叢集，您將使用的密碼和 SSH 密碼。
 

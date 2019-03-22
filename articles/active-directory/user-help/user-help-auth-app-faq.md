@@ -13,12 +13,12 @@ ms.date: 01/31/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83c071629ba18ab9f40ecec3b2e09290f57ad2fe
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 996b4df9d8723da3d1df799ea9f8656debb1395b
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996559"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311929"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft Authenticator 應用程式常見問題集
 
@@ -50,7 +50,7 @@ Microsoft Authenticator 應用程式取代了 Azure Authenticator 應用程式�
 |為什麼適用於 Apple Watch 的 Microsoft Authenticator 隨附應用程式不會在我的 Watch 上進行同步處理或顯示呢？|如果應用程式未出現在您的 Watch 上，請嘗試下列動作： <ol><li>確定您的 Watch 正在執行 watchOS 4.0 或更新版本。</li><li>再次同步處理您的 Watch。</li></ol>|
 |我的 Apple Watch 附屬應用程式當機。 可以將我的當機記錄傳送給您，讓您可以進行調查嗎？ |首先，必須確定您已選擇要與我們共用您的分析。 如果您是 TestFlight 使用者，則您已經註冊。 否則，您可以移至 [設定] > [隱私權] > [分析]，然後同時選取 [共用 iPhone 與 Watch 分析] 和 [與應用程式開發人員共用] 選項。<br><br>註冊之後，您可以嘗試重現當機狀況，如此一來，您的當機記錄就會自動傳送給我們以利調查。 不過，如果您無法重現當機狀況，您可以手動複製記錄檔並將它們傳送給我們。<ol><li>在手機上開啟 Watch 應用程式、移至 [設定] > [一般]，然後按一下 [複製 Watch 分析]。</li><li>在 [設定] > [隱私權] > [分析] > [分析資料] 下方尋找對應的當機，然後手動複製整個文字。</li><li>在手機上開啟 Microsoft Authenticator 應用程式，將複製的文字貼到 [傳送記錄] 頁面上的 [與應用程式開發人員共用] 文字方塊中。</li></ol>|
 |什麼是應用程式鎖定功能，其如何協助提升我使用裝置時的安全性？|若要讓單次密碼、應用程式資訊和應用程式設定更加安全，您可以在 Microsoft Authenticator 應用程式中開啟應用程式鎖定功能。 從 Microsoft Authenticator 應用程式的 [設定] 畫面開啟 [應用程式鎖定]，代表系統會在您每次開啟 Microsoft Authenticator 應用程式時，要求您使用 PIN 碼或生物特徵辨識進行驗證。 這項功能可提供額外的保護，您在 Microsoft Authenticator 應用程式中核准通知的方式並不會改變。<br><br>**注意**<br>如果您在不到 30 秒內返回在 Android 裝置上執行的 Microsoft Authenticator 應用程式，系統不會再次提示您進行驗證。|
-|為什麼我會收到關於帳戶活動的通知？|為了讓您更了解個人 Microsoft 帳戶的現況，我們會將活動通知傳送至您的 Microsoft Authenticator 應用程式。 這些通知會發生變更後立即顯示，以利確保您的安全性。 我們之前透過電子郵件和簡訊傳送這些通知，而現在已擴充為包括應用程式。 如需這些活動通知的詳細資訊，請參閱[若您的帳戶出現異常登入，將會如何](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in)。 若要變更接收通知的位置，請登入 https://account.live.com/SecurityNotifications/Update。
+|為什麼我會收到關於帳戶活動的通知？|為了讓您更了解個人 Microsoft 帳戶的現況，我們會將活動通知傳送至您的 Microsoft Authenticator 應用程式。 這些通知會發生變更後立即顯示，以利確保您的安全性。 我們之前透過電子郵件和簡訊傳送這些通知，而現在已擴充為包括應用程式。 如需這些活動通知的詳細資訊，請參閱[若您的帳戶出現異常登入，將會如何](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in)。 若要變更您在何處接收通知，請登入 https:\//account.live.com/SecurityNotifications/Update。
 
 
 ## <a name="next-steps"></a>後續步驟

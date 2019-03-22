@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: 4c2ed5fa65528a690d618e45c118d2433820ddc6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 223486ec2dc184e6bbe02e1f6862b9d79d773a2c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57871488"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339535"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux 上的 Azure App Service 常見問題集
 
@@ -42,10 +42,10 @@ ms.locfileid: "57871488"
 | 堆疊     | 需要的值                                                                |
 |-----------|-------------------------------------------------------------------------------|
 | Java SE   | 一個命令以啟動您`.jar`應用程式                                    |
-| Tomcat    | 若要為您的應用程式執行任何必要的 configruations 指令碼的位置 |
-| Node.js   | PM2 組態檔或指令碼檔案                                |          
+| Tomcat    | 若要執行應用程式的任何設定指令碼的位置          |
+| Node.js   | PM2 組態檔或指令碼檔案                                |
 | .Net Core | 已編譯的 DLL 名稱 `dotnet <myapp>.dll`                                 |
-| Ruby      | 您想要初始化您的應用程式的 Ruby 指令碼                     
+| Ruby      | 您想要初始化您的應用程式的 Ruby 指令碼                     |
 
 ## <a name="management"></a>管理性
 

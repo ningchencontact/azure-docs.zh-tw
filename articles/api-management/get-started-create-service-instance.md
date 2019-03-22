@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 4a9ffdd9f81a7d46d3476f3395a4456dea6c0341
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: ef874e5d773e87963b6de8371986ac2196fc38f3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156726"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901384"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>建立新的 Azure API 管理服務執行個體
 
@@ -52,7 +52,7 @@ ms.locfileid: "54156726"
 | **資源群組**      | *apimResourceGroup*                           | 您可以選取新的或現有的資源。 資源群組是共用生命週期、權限及原則的資源集合。 [在此](../azure-resource-manager/resource-group-overview.md#resource-groups)深入了解。                                                                                                  |
 | **位置**            | *美國西部*                                    | 選取您附近的地理區域。 只有可用的 API 管理服務區域才會出現在下拉式清單方塊中。                                                                                                                                                                                                          |
 | **組織名稱**   | 您的組織名稱                 | 此名稱會在有許多地方使用，包括開發人員入口網站的標題和通知電子郵件的傳送者。                                                                                                                                                                                                             |
-| **管理員電子郵件** | *admin@org.com*                               | 設定電子郵件地址以接收所有來自 **API 管理**的通知。                                                                                                                                                                                                                                              |
+| **管理員電子郵件** | *admin\@org.com*                               | 設定電子郵件地址以接收所有來自 **API 管理**的通知。                                                                                                                                                                                                                                              |
 | **定價層**        | *開發人員*                                   | 設定 [開發人員] 層來評估服務。 此階層不適用於生產環境。 如需有關調整 API 管理層規模的詳細資訊，請參閱[升級和調整規模](upgrade-and-scale.md)。                                                                                                                                    |
 
 3. 選擇 [建立] 。

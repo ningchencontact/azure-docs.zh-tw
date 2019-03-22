@@ -1,5 +1,5 @@
 ---
-title: 兩步驟驗證和 AD FS - Azure MFA | Microsoft Docs
+title: 雙步驟驗證 Azure MFA 和 AD FS-Azure Active Directory
 description: 這是說明如何開始使用 Azure MFA 和 AD FS 的 Azure Multi-Factor Authentication 頁面。
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab1f54ee8c3ebb5ae41d28b70f1cffcb244af39f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c2f5d623c23f2d3dd661f725a8d7999bfbd28377
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075998"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314531"
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services"></a>開始使用 Azure Multi-Factor Authentication Server 和 Active Directory Federation Services
 

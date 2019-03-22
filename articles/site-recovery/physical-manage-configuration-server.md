@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: 11b1b46e29ac9a4147c4dc319753edd0fadce8bc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 338c4a97bced7d9e524f96fcd82f19e5230ff143
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088905"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317335"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>管理實體伺服器災害復原的組態伺服器
 
@@ -149,7 +149,7 @@ ProxyPassword="Password"
 您可以修改組態伺服器機器的 proxy 組態，如下所示：
 
 1. 登入組態伺服器。
-2. 使用捷徑啟動 cspsconfigtool.exe。
+2. 使用桌面上的捷徑啟動 cspsconfigtool.exe。
 3. 按一下 [保存庫註冊] 索引標籤。
 4. 從入口網站下載新的保存庫註冊檔案，並提供給工具作為輸入。
 

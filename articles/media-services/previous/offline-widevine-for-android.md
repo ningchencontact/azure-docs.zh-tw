@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: bf2f2db57f33645389fd751c8c00f9f135416c50
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9570982e18f2698400c2798dd3e29b0ca6160b8c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864128"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309737"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>適用於 Android 的離線 Widevine 串流  
 
@@ -153,7 +153,7 @@ Android 5.0 Lollipop 或更新版本不會發生此問題，因為 Android 5.0 �
 
 上述的開放原始碼 PWA 應用程式是以 Node.js 撰寫。 如果您想在 Ubuntu 伺服器上裝載自己的版本，請留意下列會阻礙播放的常見問題：
 
-1. CORS 問題：範例應用程式中的範例視訊是裝載於 https://storage.googleapis.com/biograf-video-files/videos/。 Google 已為所有裝載於 Google Cloud Storage 貯體中的測試範例設定 CORS。 它們也會搭配 CORS 標頭提供，明確指定出 CORS 項目 https://biograf-155113.appspot.com (Google 用來裝載其範例的網域)，防止由其他網站存取。 如果您試圖存取，將會看到下列 HTTP 錯誤：無法載入 https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: 要求的資源上沒有 'Access-Control-Allow-Origin' 標頭。 因此不允許存取來源 'https://13.85.80.81:8080'。 如果不透明回應適合您的需求，請將要求的模式設定為 'no-cors' 以在停用 CORS 之下擷取資源。
+1. CORS 問題：範例應用程式中的範例視訊是裝載於 https://storage.googleapis.com/biograf-video-files/videos/。 Google 已為所有裝載於 Google Cloud Storage 貯體中的測試範例設定 CORS。 它們也會搭配 CORS 標頭提供，明確指定出 CORS 項目 https://biograf-155113.appspot.com (Google 用來裝載其範例的網域)，防止由其他網站存取。 如果您試圖存取，將會看到下列 HTTP 錯誤：無法載入 https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: 要求的資源上沒有 'Access-Control-Allow-Origin' 標頭。 原點 ' https:\//13.85.80.81:8080' 因此不允許存取。 如果不透明回應適合您的需求，請將要求的模式設定為 'no-cors' 以在停用 CORS 之下擷取資源。
 2. 憑證問題：從 Chrome v 58 開始，針對 Widevine 的 EME 將要求使用 HTTPS。 因此，您必須搭配 X509 憑證透過 HTTPS 裝載範例應用程式。 由於下列需求使得一般測試憑證沒有作用：您必須先取得符合以下最低需求的憑證：
     - Chrome 和 Firefox 都需要憑證中存在 SAN (主體別名) 設定
     - 憑證必須要有信任的 CA，自我簽署的開發憑證將不會有作用

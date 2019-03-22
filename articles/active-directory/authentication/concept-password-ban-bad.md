@@ -1,5 +1,5 @@
 ---
-title: Azure AD 中的動態禁用密碼
+title: 動態禁用的密碼]-[Azure Active Directory
 description: 使用 Azure AD 動態禁用密碼而在環境中禁用弱式密碼
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7dcac665dadef7f3f192e7f0e359b6b7c244bde
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: 645dd7fe35ba3e7d83a3ee374d7ab566ad193cc2
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287021"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314122"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>避免在組織中使用不當密碼
 

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 8b5c5f316ff2c3ada035736755c7898270c49dee
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3752e9c227e4db0f583b2f6b21d6c0aa3106d248
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551818"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337692"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs 常見問題集
 獲得一些關於 Azure DevTest Labs 最常見問題的解答。
@@ -27,8 +27,27 @@ ms.locfileid: "57551818"
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 **一般**
+
+## <a name="blog-post"></a>部落格文章
+我們的 DevTest Labs 小組部落格自 20 年 3 月 2019年起已淘汰。 
+
+### <a name="where-can-i-track-feature-updates-going-forward"></a>其中可以追蹤從現在開始的功能更新？
+接下來，我們刊登功能更新和/或具資訊性的部落格文章 Azure 部落格上，Azure 會更新。 每當需要這些部落格文章也會連結到我們的文件。
+
+訂閱[DevTest Labs Azure 部落格](https://azure.microsoft.com/blog/tag/azure-devtest-labs/)並[DevTest Labs Azure 更新](https://azure.microsoft.com/updates/?product=devtest-lab)掌握在 DevTest Labs 中的新功能。
+
+### <a name="what-happens-to-the-existing-blog-posts"></a>現有的部落格文章會發生什麼事？
+我們目前正在移轉現有的部落格文章 （不包括中斷的更新） 到我們[DevTest Labs 文件](devtest-lab-overview.md)。 當已被取代的 MSDN 部落格時，將重新導向至文件的概觀，適用於 DevTest Labs。 一旦被重新導向，您可以搜尋您要尋找 「 藉由篩選 」 標題中的發行項。 請注意，我們還沒有移轉所有貼文，但應該由本月份的結尾。 
+
+
+### <a name="where-do-i-see-outage-updates"></a>哪裡可以查看中斷的更新？
+我們將會張貼中斷使用我們的 Twitter 控制代碼，接下來的更新。 若要取得最新的更新，在中斷與已知的 bug 的 Twitter 上追隨我們的結果。
+
+### <a name="twitter"></a>Twitter 
+我們的 Twitter 控制代碼： azlabservices
+
 ## <a name="what-if-my-question-isnt-answered-here"></a>如果這裡沒有解答我的問題該怎麼辦？
-如果這裡未列出您的問題，請告訴我們，好讓我們能協助您找到答案。
+如果此處未列出您的問題，請告訴我們，和我們可以協助您找到答案。
 
 * 將問題張貼在此常見問題集尾端。 與 Azure 快取小組和其他社群成員一起討論本文。
 * 若要觸及更多讀者，可將問題張貼在 [Azure DevTest Labs MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs)。 與 Azure DevTest Labs 小組和社群的其他成員交流。
@@ -41,7 +60,7 @@ Azure DevTest Labs 可讓您的小組節省時間和金錢。 開發人員可以
 零煩惱的自助方式表示開發人員和測試人員可以視需要建立自己的環境。 系統管理員可獲得保障，知道 DevTest Labs 可以協助他們儘可能減少浪費和管控成本。 系統管理員可以指定允許的 VM 大小、VM 數目上限，以及何時啟動和關閉 VM。 DevTest Labs 也可讓成本監視和警示設定動作變得簡單，以便協助您隨時注意實驗室資源的使用情形。
 
 ## <a name="how-can-i-use-devtest-labs"></a>如何使用 DevTest Labs？
-每當您需要開發或測試環境，而且想要加以快速重現或以節省成本的原則進行管理時，DevTest Labs 便能派上用場。
+每當您需要開發或測試環境，並想要加以快速重現或使用節省成本的原則進行管理，DevTest Labs 是很有用。
 
 以下是我們的客戶使用 DevTest Labs 的一些案例︰
 
@@ -106,8 +125,8 @@ DevTest Labs 是免費的服務。 在 DevTest Labs 建立實驗室和設定原�
 
 
 **虛擬機器**
-## <a name="why-cant-i-see-vms-on-the-virtual-machines-blade-that-i-see-in-devtest-labs"></a>為何無法在 [虛擬機器] 刀鋒視窗上看到我在 DevTest Labs 中看到的 VM？
-當您在 DevTest Labs 中建立 VM 時，您會獲得該 VM 的存取權限。 在 [實驗室] 刀鋒視窗上以及 [虛擬機器] 刀鋒視窗上，您都可以檢視 VM。 指派到 DevTest Labs 實驗室使用者角色的使用者，可以在實驗室的 [所有虛擬機器] 刀鋒視窗上看到實驗室內所建立的所有 VM。 不過，具有 DevTest Labs 實驗室使用者角色的使用者不會自動獲得其他使用者所建立之 VM 資源的讀取權限。 因此，這些 VM 不會顯示在 [虛擬機器] 刀鋒視窗上。
+## <a name="why-cant-i-see-vms-on-the-virtual-machines-page-that-i-see-in-devtest-labs"></a>為什麼我看到在 DevTest Labs 中的虛擬機器 頁面上看不到 Vm？
+當您在 DevTest Labs 中建立 VM 時，您會獲得該 VM 的存取權限。 您可以檢視 VM 的 [實驗室] 頁面上和在**虛擬機器**頁面。 指派給 DevTest Labs 實驗室使用者角色的使用者可以看到在實驗室的實驗室中所建立的所有 Vm**的所有虛擬機器**頁面。 不過，具有 DevTest Labs 實驗室使用者角色的使用者不會自動獲得其他使用者所建立之 VM 資源的讀取權限。 因此，這些 Vm 不會顯示在**虛擬機器**頁面。
 
 ## <a name="what-is-the-difference-between-a-custom-image-and-a-formula"></a>自訂映像和公式有何差異？
 自訂映像是虛擬硬碟 (VHD)。 公式則是可以透過其他設定來加以設定，然後儲存並重現的映像。 如果您想要使用相同的不可變基底映像快速建立幾個環境，自訂映像可能較合適。 如果您想要使用最新版本來重現 VM 的組態、將 VM 的組態重現為虛擬網路或子網路的一部分，或是將 VM 的組態重現為特定大小的 VM，則公式可能較合適。 如需更深入的說明，請參閱[比較 DevTest Labs 中的自訂映像和公式](devtest-lab-comparing-vm-base-image-types.md)。
@@ -184,7 +203,7 @@ DevTest Labs 是免費的服務。 在 DevTest Labs 建立實驗室和設定原�
 
 **構件**
 ## <a name="what-are-artifacts"></a>何謂構件？
-構件是可用來在 VM 中部署最新版本或開發工具的可自訂項目。 在建立 VM 時，請將構件連結至 VM。 VM 佈建好之後，構件就會部署並設定 VM。 您可以在[公用 GitHub 存放庫](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)取得各種既存構件。 您也可以[撰寫您自己的構件](devtest-lab-artifact-author.md)。
+構件是可用來在 VM 中部署最新版本或開發工具的可自訂項目。 在建立 VM 時，請將構件連結至 VM。 VM 佈建好之後，構件就會部署並設定 VM。 中有許多既存構件我們[公用 GitHub 存放庫](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)。 您也可以[撰寫您自己的構件](devtest-lab-artifact-author.md)。
 
 
 **實驗室組態**
@@ -232,7 +251,7 @@ Microsoft 帳戶是您使用 Microsoft 裝置和服務來執行幾乎所有作�
 VM 是資源群組中實驗室下的子資源。 當您使用 Resource Manager 範本透過 PowerShell 部署 VM 時，在 PowerShell 指令碼中提供的資源群組名稱應該是實驗室的資源群組名稱。 如需詳細資訊，請參閱[對常見的 Azure 部署錯誤進行疑難排解](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors)。
 
 ## <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>當 VM 部署失敗時，我可以在哪裡找到更多錯誤資訊？
-VM 部署錯誤會擷取至活動記錄中。 您可以在實驗室 VM 刀鋒視窗 (在您從 [我的虛擬機器] 清單中選取 VM 之後，該刀鋒視窗便會出現) 中資源功能表上的 [稽核記錄] 或 [虛擬機器診斷] 底下找到實驗室 VM 活動記錄。
+VM 部署錯誤會擷取至活動記錄中。 您可以找到實驗室 VM 活動記錄檔底下**稽核記錄檔**或**虛擬機器診斷**實驗室的 VM 上的 [資源] 功能表上 (頁面隨即出現在您選取的 VM 之後**我虛擬機器**清單)。
 
 系統有時候會在 VM 部署開始之前就發生部署錯誤。 舉例來說，如果您超過隨 VM 一起建立之資源的訂用帳戶限制時。 在此情況下，系統會將錯誤詳細資料擷取到實驗室層級的活動記錄中。 活動記錄位於 [組態和原則] 設定底部。 如需在 Azure 中使用活動記錄的詳細資訊，請參閱[檢視活動記錄以稽核對資源的動作](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)。
 

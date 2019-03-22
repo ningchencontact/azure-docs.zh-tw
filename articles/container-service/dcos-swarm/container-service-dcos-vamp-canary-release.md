@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 647923ce87e66314d7a95beb88cc842230f28774
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f1b3c08cce2cb33feab899ea082fc6fb40225182
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077066"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311212"
 ---
 # <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(已淘汰) Azure Container Service DC/OS 叢集上具備 Vamp 的 Canary 版本微服務
 
@@ -44,7 +44,7 @@ ms.locfileid: "58077066"
 
 ## <a name="set-up-vamp"></a>設定 Vamp
 
-現在您已擁有執行中的 DC/OS 叢集，可以從 DC/OS UI (http://localhost:80) 安裝 Vamp。 
+已執行的 DC/OS 叢集之後，您可以安裝 Vamp DC/OS ui (http:\//localhost:80)。 
 
 ![DC/OS UI](./media/container-service-dcos-vamp-canary-release/01_set_up_vamp.png)
 

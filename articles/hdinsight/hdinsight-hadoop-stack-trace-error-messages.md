@@ -1,6 +1,6 @@
 ---
 title: Hadoop 堆疊追蹤錯誤訊息 - Azure HDInsight
-description: Azure HDInsight 中 Hadoop 堆疊追蹤錯誤訊息的索引。 查看清單中的錯誤，以了解疑難排解資訊。
+description: Azure HDInsight 中 Hadoop 堆疊追蹤錯誤訊息的索引。 在列表中查找错误以查看故障排除信息。
 keywords: 堆疊追蹤，錯誤訊息
 services: hdinsight
 ms.service: hdinsight
@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 371685ba8a65fe3ca9d8835f4afcacc8ff2e07ed
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
-ms.translationtype: HT
+ms.openlocfilehash: 20d13f3df730ff4a81c7304ae1ad7e4158403521
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383248"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337777"
 ---
 # <a name="index-of-apache-hadoop-in-hdinsight-troubleshooting-articles"></a>HDInsight 中的 Apache Hadoop 疑難排解文章索引
 文章是依錯誤的類型加以整理。
@@ -25,7 +25,7 @@ ms.locfileid: "53383248"
 
 ## <a name="apache-hive-query-performance"></a>Apache Hive 查詢效能
 * [將 Hdinsight 中 Apache Hadoop 的 Apache Hive 查詢最佳化](hdinsight-hadoop-optimize-hive-query.md)：本文涵蓋一些您可以套用至 Hive 查詢的最常見 Hive 效能最佳化方法。
-* [針對 HDInsight Hadoop 叢集中的 Apache Hive 查詢效能問題進行疑難排解](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/) \(英文\)。
+* [使用 Azure HDInsight 來進行疑難排解的 Apache Hive](hdinsight-troubleshoot-hive.md)。
 
 ## <a name="more-troubleshooting-articles"></a>更多疑難排解文章
 * [在 Linux 上使用 HDInsight 的相關資訊](hdinsight-hadoop-linux-information.md)

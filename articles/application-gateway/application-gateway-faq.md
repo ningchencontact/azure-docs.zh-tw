@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/20/2019
 ms.author: victorh
-ms.openlocfilehash: ae55f2abf9815174e7258c2ace949078794c380d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: f549f9c612797c1c956d6921fe4898a5f8bee9e6
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286188"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319409"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>應用程式閘道的常見問題集
 
@@ -59,7 +59,7 @@ ms.locfileid: "58286188"
 
 ### <a name="in-what-order-are-listeners-processed"></a>接聽程式的處理順序為何？
 
-接聽程式會依其顯示順序處理。 因此，如果基本接聽程式符合傳入的要求，就會先處理它。  多站台接聽程式應在基本接聽程式之前設定，以確保流量會路由傳送到正確的後端。
+請參閱[順序處理接聽程式](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-listeners)。
 
 ### <a name="where-do-i-find-application-gateways-ip-and-dns"></a>哪裡可找到應用程式閘道的 IP 和 DNS？
 
@@ -83,16 +83,13 @@ V1 sku 的保持連線逾時是 120 秒。 v2 sku 的保持連線逾時是 75 �
 
 ### <a name="how-large-should-i-make-my-subnet-for-application-gateway"></a>應用程式閘道的子網路應該要多大？
 
-應用程式閘道會針對每個執行個體取用一個私人 IP 位址，如果已設定私人前端 IP 組態，則會再取用另一個私人 IP 位址。 此外，Azure 會保留每個子網路中的前四個和最後一個 IP 位址，以供內部使用。
-例如，如果應用程式閘道已設定為三個執行個體且沒有私人前端 IP，則需要 /29 子網路大小或更大。 在本案例中，應用程式閘道會使用 3 個 IP 位址。 如果您有三個執行個體和一個用於私人前端 IP 組態的 IP 位址，則需要 /28 子網路大小或更大，因為四個 IP 位址是必要的。
-
-最佳做法是，使用至少/28 子網路大小。 這可讓您 11 可用的位址。 如果您的應用程式的負載需要超過 10 個執行個體，您應該考慮/27 或/26 子網路大小。
+請參閱[應用程式閘道子網路大小的考量](https://docs.microsoft.com/azure/application-gateway/configuration-overview#size-of-the-subnet)若要了解您的部署所需的子網路大小。
 
 ### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>問： 可以將多個應用程式閘道資源部署到單一子網路嗎？
 
 可以，除了具有指定應用程式閘道部署的多個執行個體以外，您可以將另一個唯一的應用程式閘道資源佈建到含有不同應用程式閘道資源的現有子網路。
 
-不支援在相同子網路上混合使用 Standard_v2 和標準應用程式閘道。 此外，如果已啟用自動調整，一個子網路只可以有一個應用程式閘道。
+不支援在相同子網路上混合使用 Standard_v2 和標準應用程式閘道。
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>應用程式閘道是否支援 x-forwarded-for 標頭？
 
@@ -152,13 +149,7 @@ v2 SKU 會自動確保將新執行個體分散在各個容錯網域和更新網�
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>應用程式閘道子網路是否支援網路安全性群組？
 
-應用程式閘道子網路支援網路安全性群組 (NSG)，但有下列限制：
-
-* 必須針對應用程式閘道 v1 SKU 之連接埠 65503-65534 和 v2 SKU 之連接埠 65200 - 65535 上的傳入流量，設定例外。 Azure 基礎結構通訊需要此連接埠範圍。 它們受到 Azure 憑證的保護 (鎖定)。 若沒有適當的憑證，外部實體 (包括這些閘道的客戶) 將無法對這些端點起始任何變更。
-
-* 無法封鎖輸出網際網路連線。 NSG 中的默认出站规则已经允许 Internet 连接。 建议不要删除默认的出站规则，且不要创建其他拒绝出站 Internet 连接的出站规则。
-
-* 必須允許來自 AzureLoadBalancer 標籤的流量。
+請參閱[應用程式閘道子網路的網路安全性群組限制](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-supported-on-the-application-gateway-subnet)深入了解應用程式閘道子網路支援網路安全性群組。
 
 ### <a name="are-user-defined-routes-supported-on-the-application-gateway-subnet"></a>應用程式閘道子網路是否支援使用者定義路由？
 
@@ -190,7 +181,7 @@ v2 SKU 會自動確保將新執行個體分散在各個容錯網域和更新網�
 
 ### <a name="how-are-rules-processed"></a>規則的處理方式為何？
 
-規則會依其設定順序處理。 建議在基本規則前設定多站台規則，以減少流量路由傳送到不適當後端的機會，因為在評估多站台規則之前，基本規則會根據連接埠比對流量。
+請參閱[順序處理規則](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-rules)若要了解如何路由規則會在應用程式閘道中的程序。
 
 ### <a name="what-does-the-host-field-for-custom-probes-signify"></a>自訂探查的 [主機] 欄位表示什麼？
 
@@ -356,7 +347,7 @@ WAF 目前支援 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 
 ### <a name="backend-health-returns-unknown-status-what-could-be-causing-this-status"></a>後端健康情況傳回不明狀態，什麼導致這個狀態？
 
-最常見的原因是後端的存取遭到 NSG 或自訂 DNS 所封鎖。 若要深入了解，請參閱[應用程式閘道的後端健康情況、診斷記錄和計量](application-gateway-diagnostics.md)。
+最常見的原因是存取後端會封鎖 NSG，自訂的 DNS，或您有應用程式閘道子網路的 UDR。 若要深入了解，請參閱[應用程式閘道的後端健康情況、診斷記錄和計量](application-gateway-diagnostics.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

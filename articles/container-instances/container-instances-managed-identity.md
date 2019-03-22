@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 321dfaa1a58cc806394f4807c38cbdc599cfd7a0
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: ac0a84aa3121c6ebb91860c96c0f6692827c8a3f
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311558"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336519"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>如何搭配 Azure 容器執行個體使用受控識別
 
@@ -33,7 +33,7 @@ ms.locfileid: "56311558"
 
 ## <a name="why-use-a-managed-identity"></a>為什麼要使用受控識別？
 
-您可以在執行中的容器使用受控身分識別，向任何[支援 Azure AD 驗證的服務](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication)進行驗證，而無須在您的容器程式碼中管理認證。 針對不支援 AD 驗證的服務，您可以將祕密儲存在 Azure Key Vault 中，並使用受控識別來存取 Key Vault 以擷取認證。 如需有關使用受控識別的詳細資訊，請參閱[什麼是適用於 Azure 資源的受控識別？](../active-directory/managed-identities-azure-resources/overview.md)
+您可以在執行中的容器使用受控身分識別，向任何[支援 Azure AD 驗證的服務](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)進行驗證，而無須在您的容器程式碼中管理認證。 針對不支援 AD 驗證的服務，您可以將祕密儲存在 Azure Key Vault 中，並使用受控識別來存取 Key Vault 以擷取認證。 如需有關使用受控識別的詳細資訊，請參閱[什麼是適用於 Azure 資源的受控識別？](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!IMPORTANT]
 > 此功能目前為預覽狀態。 若您同意[補充的使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。 目前，只有在 Linux 容器執行個體上才支援受控識別。
@@ -252,7 +252,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-現在，使用存取權杖向 Key Vault 進行驗證並讀取祕密。 請務必替換 URL (*https://mykeyvault.vault.azure.net/...*) 中您的金鑰保存庫名稱：
+現在，使用存取權杖向 Key Vault 進行驗證並讀取祕密。 請務必替換成您在 URL 中的金鑰保存庫的名稱 (*https:\//mykeyvault.vault.azure.net/...*):
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"

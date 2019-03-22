@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/27/2018
 ms.author: iainfou
-ms.openlocfilehash: bb42891d3ca636dcb2415b2be8ce69e19575c408
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: c7a34256bff46247ed6c97bc2931942f631bbf09
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002226"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56589494"
 ---
 > [!WARNING]
 >  **Azure Container Service (ACS) 即將淘汰。ACS 不會再新增任何新的特性或功能。所有 API、入口網站體驗、CLI 命令和文件均會標示為已淘汰。**
@@ -18,10 +18,6 @@ ms.locfileid: "53002226"
 >
 > 建議您部署下列其中一種 Azure Marketplace 解決方案：
 >
-> * Docker EE for Azure
->   * [Standard/Enterprise 版](https://azuremarketplace.microsoft.com/marketplace/apps/docker.dockerdatacenter?tab=Overview)
->   * [Basic 版](https://azuremarketplace.microsoft.com/marketplace/apps/docker.docker4azure-st?tab=Overview)
->  
 > * Mesosphere DC/OS
 >   * [Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/mesosphere.enterprise-dcos?tab=Overview)
 >   * [開放原始碼版本](https://azuremarketplace.microsoft.com/marketplace/apps/mesosphere.dcos?tab=overview)

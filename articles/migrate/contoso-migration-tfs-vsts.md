@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 8098196abc415dedba392737fc17a4de5739339d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 21396a10543d388b6ac360f426272f1841b2f510
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100235"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314105"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-azure-devops-services"></a>Contoso 移轉：將 Team Foundation Server 部署重構到 Azure DevOps Services
 
@@ -156,7 +156,7 @@ Contoso 管理員會對 ContosoDev 集合資料庫執行 TFS 移轉工具而加�
 
 2. 他們會指定專案集合的 URL 並執行此工具，以執行驗證：
 
-        **TfsMigrator validate /collection:http://contosotfs:8080/tfs/ContosoDev**
+   **TfsMigrator 驗證 /collection:http:\//contosotfs:8080/tfs/ContosoDev**
 
 
 3. 此工具會顯示錯誤。
@@ -175,7 +175,7 @@ Contoso 管理員會對 ContosoDev 集合資料庫執行 TFS 移轉工具而加�
 
      ![TFS](./media/contoso-migration-tfs-vsts/collection5.png)
 
-6. 他們再次執行驗證命令，並包含此值，以及他們的 Azure AD 名稱：**TfsMigrator validate /collection:http://contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com**。
+6. 他們再次執行驗證命令，並包含此值，以及他們的 Azure AD 名稱：**TfsMigrator 驗證 /collection:http:\//tenantDomainName:contosomigration.onmicrosoft.com /contosotfs:8080/tfs/ContosoDev**。
 
     ![TFS](./media/contoso-migration-tfs-vsts/collection7.png)
 
@@ -195,7 +195,7 @@ Contoso 管理員會對 ContosoDev 集合資料庫執行 TFS 移轉工具而加�
 
 1. 他們在此工具中執行準備步驟。
 
-    **TfsMigrator prepare /collection:http://contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com /accountRegion:cus**
+    **TfsMigrator 準備 /collection:http:\//contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com /accountRegion:cus**
 
      ![準備](./media/contoso-migration-tfs-vsts/prep1.png)
 

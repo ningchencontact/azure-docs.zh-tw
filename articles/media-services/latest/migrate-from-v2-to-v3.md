@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/12/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2d7dc6eb5ee77804f0c8c87ee2e5a5dd1d0dc30a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 61ebebaf61d1cbbc72f3e12b5ff516924cc9b8c7
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57841118"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317743"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>從媒體服務 v2 移動至 v3 的移轉指導
 
@@ -29,7 +29,7 @@ ms.locfileid: "57841118"
 如果您現今已經在[舊版媒體服務 v2 API](../previous/media-services-overview.md) 上開發影片服務，您應該先檢閱下列指導方針和考量，然後再移轉至 v3 API。 v3 API 中有許多優點和新功能，可改善媒體服務的開發人員經驗和功能。 不過，如本文[已知問題](#known-issues)一節中所提出，由於 API 版本之間的變更，因此也有一些限制。 此頁面將經過維護，因為媒體服務團隊會一直持續不斷地改進 v3 API，並解決版本之間的差距。 
 
 > [!NOTE]
-> 目前您無法使用 Azure 入口網站管理 v3 資源。 請使用 [REST API](https://aka.ms/ams-v3-rest-sdk)、CLI 或其中一個支援的 SDK。
+> 目前您無法使用 Azure 入口網站管理 v3 資源。 使用[REST API](https://aka.ms/ams-v3-rest-ref)， [CLI](https://aka.ms/ams-v3-cli-ref)，或其中一個支援[Sdk](developers-guide.md)。
 
 ## <a name="benefits-of-media-services-v3"></a>媒體服務 v3 的優點
 

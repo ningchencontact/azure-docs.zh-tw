@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: dc0e326cf3b188a51708115e5496cfbb52a95611
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 46da7c7931eaf163c24f057bac5de35f3c727519
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57836958"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311861"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>自訂 Service Fabric 叢集設定
 本文說明您可以為 Service Fabric 叢集自訂的各種網狀架構設定。 針對裝載於 Azure 中的叢集，您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來自訂設定。 如需詳細資訊，請參閱[升級 Azure 叢集的設定](service-fabric-cluster-config-upgrade-azure.md)。 針對獨立叢集，您會透過更新 *ClusterConfig.json* 檔案並在叢集上執行設定升級來自訂設定。 如需詳細資訊，請參閱[升級獨立叢集的設定](service-fabric-cluster-config-upgrade-windows-server.md)。
@@ -614,13 +614,13 @@ ms.locfileid: "57836958"
 ## <a name="security"></a>安全性
 | **參數** | **允許的值** |**升級原則**| **指引或簡短描述** |
 | --- | --- | --- | --- |
-|AADCertEndpointFormat|字串，預設值為 ""|靜態|AAD 憑證端點格式，預設環境為 Azure Commercial，針對非預設環境 (例如 Azure Government "https://login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml") 需指定 |
+|AADCertEndpointFormat|字串，預設值為 ""|靜態|AAD 憑證端點，Azure Commercial 的預設指定格式的非預設的環境，例如 Azure Government"https:\//login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" |
 |AADClientApplication|字串，預設值為 ""|靜態|代表網狀架構用戶端的原生用戶端應用程式名稱或識別碼 |
 |AADClusterApplication|字串，預設值為 ""|靜態|代表叢集的 Web API 應用程式名稱或識別碼 |
-|AADLoginEndpoint|字串，預設值為 ""|靜態|AAD 登入端點，預設環境為 Azure Commercial，針對非預設環境 (例如 Azure Government "https://login.microsoftonline.us") 需指定 |
+|AADLoginEndpoint|字串，預設值為 ""|靜態|AAD 登入端點，Azure Commercial 的預設值為非預設的環境，例如 Azure Government 指定"https:\//login.microsoftonline.us" |
 |AADTenantId|字串，預設值為 ""|靜態|租用戶識別碼 (GUID) |
 |AdminClientCertThumbprints|字串，預設值為 ""|動態|系統管理員角色的用戶端所使用的憑證指紋。 這是以逗號分隔的名稱清單。 |
-|AADTokenEndpointFormat|字串，預設值為 ""|靜態|AAD 權杖端點，預設環境為 Azure Commercial，針對非預設環境 (例如 Azure Government "https://login.microsoftonline.us/{0}") 需指定 |
+|AADTokenEndpointFormat|字串，預設值為 ""|靜態|AAD 權杖端點，Azure Commercial 的預設值為非預設的環境，例如 Azure Government 指定"https:\//login.microsoftonline.us/{0}" |
 |AdminClientClaims|字串，預設值為 ""|動態|系統管理員用戶端預期會發出的所有可能宣告，其格式與 ClientClaims 相同，此清單會於內部新增至 ClientClaims，因此不必再將相同的項目新增至 ClientClaims。 |
 |AdminClientIdentities|字串，預設值為 ""|動態|系統管理員角色之網狀架構用戶端的 Windows 身分識別，可用來授權特殊權限的網狀架構作業。 它是以逗號分隔的清單，每個項目都是網域帳戶名稱或群組名稱。 為了方便，系統會自動對執行 fabric.exe 的帳戶指派系統管理員角色，ServiceFabricAdministrators 群組也是如此。 |
 |AppRunAsAccountGroupX509Folder|字串，預設值為 /home/sfuser/sfusercerts |靜態|AppRunAsAccountGroup X509 憑證和私密金鑰的所在資料夾 |

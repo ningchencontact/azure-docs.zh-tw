@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 432120c324aa81107946fc30548e6e49acce6575
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d6ab18d68d6508a18f0b36ab5a39e15fa7c0555a
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002328"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311657"
 ---
 # <a name="saas-sell-through-azure---apis"></a>透過 Azure API 銷售 SaaS 
 
@@ -65,8 +65,8 @@ Azure 不會對 SaaS 服務向終端使用者顯示的驗證施加任何限制�
      - 針對在裝置本機上安裝的[用戶端應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application)選取 [原生]。 此設定適用於 OAuth 公用[原生用戶端](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client)。
      - 針對安裝在安全伺服器上的[用戶端應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application)和[資源/API 應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server)選取 [Web 應用程式/API]。 此設定適用於 OAuth 機密 [Web 用戶端](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client)和公用[使用者代理程式型用戶端](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client)。
      相同的應用程式也可以公開用戶端和資源/API。
-   - **登入 URL**：針對 Web 應用程式/API 應用程式，請提供應用程式的基底 URL。 例如，**http://localhost:31544** 可能是在您的本機電腦上執行之 Web 應用程式的 URL。 接著，使用者會使用此 URL 來登入 Web 用戶端應用程式。
-   - **重新導向 URI**：針對原生應用程式，請提供 Azure AD 用來傳回權杖回應的 URI。 輸入應用程式特定的值，例如 **http://MyFirstAADApp**。
+   - **登入 URL**：針對 Web 應用程式/API 應用程式，請提供應用程式的基底 URL。 例如， **http:\//localhost:31544**可能是您本機電腦上執行的 web 應用程式的 URL。 接著，使用者會使用此 URL 來登入 Web 用戶端應用程式。
+   - **重新導向 URI**：針對原生應用程式，請提供 Azure AD 用來傳回權杖回應的 URI。 您的應用程式中，輸入特定的值，例如**http:\//MyFirstAADApp**。
 
      ![SaaS AD 應用程式註冊](./media/saas-offer-app-registration-2.png)如需 Web 應用程式或原生應用程式的特定範例，請參閱 [Azure AD 開發人員指南](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide) [開始使用] 一節中提供的快速入門引導設定。
 

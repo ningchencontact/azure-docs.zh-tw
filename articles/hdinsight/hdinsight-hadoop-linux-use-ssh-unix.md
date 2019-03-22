@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: a7ba66fae3f2a8426cc333cca109a4c6793d1da2
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 56eb7e7372d2041b52af6bbae2b9186b99f97bbb
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724313"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337811"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>使用 SSH 連線到 HDInsight (Apache Hadoop)
 
@@ -57,7 +57,7 @@ Microsoft Windows 預設不會安裝任何 SSH 用戶端。 `ssh` 和 `scp` 用�
 
 * [位於 Windows 10 之 Ubuntu 上的 Bash](https://msdn.microsoft.com/commandline/wsl/about)：`ssh` 和`scp` 命令可透過 Windows 命令列上的 Bash 來取得。
 
-* [OpenSSH 用戶端 (搶鮮版 (Beta))](https://blogs.msdn.microsoft.com/powershell/2017/12/15/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/)：這是在 Windows 10 Fall Creators Update 中導入的選用功能。
+* [OpenSSH 用戶端 (搶鮮版 (Beta))](https://devblogs.microsoft.com/powershell/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/)：這是在 Windows 10 Fall Creators Update 中導入的選用功能。
 
 * [Azure Cloud Shell](../cloud-shell/quickstart.md)：Cloud Shell 在瀏覽器中提供 Bash 環境，並提供 `ssh`、`scp` 和其他常見的 Linux 命令。
 
@@ -97,7 +97,7 @@ SSH 金鑰會使用[公開金鑰加密](https://en.wikipedia.org/wiki/Public-key
 
 ### <a name="create-hdinsight-using-the-public-key"></a>使用公開金鑰建立 HDInsight
 
-| 建立方法 | 如何使用公開金鑰 |
+| 创建方法 | 如何使用公開金鑰 |
 | ------- | ------- |
 | **Azure 入口網站** | 取消核取 [使用與叢集登入相同的密碼]，然後選取 [公開金鑰] 作為 SSH 驗證類型。 最後，選取公開金鑰檔案，或將檔案的文字內容貼到 [SSH 公開金鑰] 欄位。</br>![建立 HDInsight 叢集時的 [SSH 公開金鑰] 對話方塊](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
 | **Azure PowerShell** | 使用 `New-AzureRmHdinsightCluster` Cmdlet 的 `-SshPublicKey` 參數，並以字串形式傳遞公開金鑰的內容。|
@@ -200,7 +200,7 @@ sudo service sshd restart
 > [!IMPORTANT]  
 > 以下步驟假設您使用以 Linux 或 UNIX 為基礎的系統，並使用 Bash on Windows 10 進行操作。 如果這些步驟不適用於您的系統，您可能需要參閱 SSH 用戶端的文件。
 
-1. 使用文字編輯器開啟 `~/.ssh/config`。 如果該檔案不存在，您可以藉由在命令列中輸入 `touch ~/.ssh/config` 加以建立。
+1. 使用文本编辑器打开 `~/.ssh/config`。 如果此文件不存在，可以在命令行中输入 `touch ~/.ssh/config` 来创建。
 
 2. 將下列文字新增至 `config` 檔案。
 

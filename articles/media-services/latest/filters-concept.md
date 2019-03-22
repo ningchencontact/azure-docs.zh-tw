@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 60623ab4b41c343cab0f9be1abd8ab45051b3f9e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 78d6ac0a4ecde8d60a0ef3aa22515c7ce1ea4e07
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889353"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309532"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>定義帳戶篩選器和資產篩選器  
 
@@ -88,7 +88,11 @@ ms.locfileid: "56889353"
 |**名稱**|使用資料軌的名稱來篩選。|
 |**類型**|使用資料軌的類型來篩選。<br/><br/>允許下列值："video"、"audio" 或 "text"。|
 
-## <a name="example"></a>範例
+## <a name="associate-filters-with-streaming-locator"></a>串流定位器相關聯的篩選器
+
+您可以指定資產或帳戶會套用到您的串流定位器的篩選器清單。 [動態封裝程式](dynamic-packaging-overview.md)適用於這份清單，以及那些用戶端在 URL 中所指定的篩選條件。 這個組合會產生[dyanamic 資訊清單](filters-dynamic-manifest-overview.md)，根據在 URL 中的篩選器 + 串流定位器指定的篩選條件。 我們建議您使用這項功能，如果您想要套用篩選，但不是想要公開 （expose） 在 URL 中的篩選條件名稱。
+
+## <a name="definition-example"></a>定義範例
 
 ```json
 {

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: d1ecac243ee4cfd3385d0fc69c9ce7c9e2afd95c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 36ef27dfb4a5d77ec2e595013a82f55cdf240c0b
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57898834"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312456"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>使用 Azure Webhook 監視 .NET 的媒體服務作業通知 
 
@@ -61,7 +61,7 @@ ms.locfileid: "57898834"
 |名稱|定義|範例| 
 |---|---|---|
 |SigningKey |簽署金鑰。| j0txf1f8msjytzvpe40nxbpxdcxtqcgxy0nt|
-|WebHookEndpoint | 一個 webhook 端點位址。 建立您的 Webhook 函式之後，您就可以從 [取得函式 URL] 連結複製 URL。 | https://juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g== 。|
+|WebHookEndpoint | 一個 webhook 端點位址。 建立您的 Webhook 函式之後，您就可以從 [取得函式 URL] 連結複製 URL。 | https:\//juliakofuncapp.azurewebsites.net/api/Notification_Webhook_Function?code=iN2phdrTnCxmvaKExFWOTulfnm4C71mMLIy8tzLr7Zvf6Z22HHIK5g==.|
 
 ## <a name="create-a-function"></a>建立函式
 

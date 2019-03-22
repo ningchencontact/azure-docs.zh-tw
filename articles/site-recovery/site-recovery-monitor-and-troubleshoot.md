@@ -1,20 +1,20 @@
 ---
 title: 監視 Azure Site Recovery | Microsoft Docs
 description: 使用入口網站為 Azure Site Recovery 複寫問題和各項作業進行監視及疑難排解
-author: bsiva
-manager: abhemra
+author: raynew
+manager: carmonm
 ms.service: site-recovery
-ms.topic: troubleshooting
-ms.date: 11/27/2018
-ms.author: bsiva
-ms.openlocfilehash: 5bbde2f1059982424c2557d6a767692b3491f6aa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.topic: conceptual
+ms.date: 03/18/2019
+ms.author: rayne-wiselman
+ms.openlocfilehash: 605421196c2ec7f62826e2f6c823d50262af8144
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098469"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316638"
 ---
-# <a name="monitor-and-troubleshoot-site-recovery"></a>進行 Site Recovery 的監視和疑難排解
+# <a name="monitor-site-recovery"></a>監視 Site Recovery
 
 透過本文，可了解如何使用 Azure Site Recovery 內建的監視功能進行監視和疑難排解。 
 

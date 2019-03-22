@@ -1,5 +1,5 @@
 ---
-title: Azure MFA Server Mobile App Web 服務 | Microsoft Docs
+title: Azure MFA Server Mobile App Web 服務-Azure Active Directory
 description: 設定 MFA 伺服器以將推播通知傳送給具有 Microsoft Authenticator App 的使用者。
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e0b6a6c2789bfcd5fa462c9ea2cda80f9b5144d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ac59b68f1ddda695fba8f1a4ceacb90bfa4102a2
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162895"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313697"
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>使用 Azure Multi-Factor Authentication Server 來啟用行動應用程式驗證
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 2272414c185388df0ccbc9e21b7d166432fc7a52
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cf1cba6f6d26d66fc560c86ea42459fa276cc880
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110404"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310841"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>關於 Azure 儲存體移轉的常見問題集
 
@@ -282,7 +282,7 @@ Azure 檔案共用不允許使用進階儲存體。
 
     - **SAS 權杖**：使用 SAS 權杖以存取來自端點的資料。 如需詳細資訊，請參閱[使用共用存取簽章](storage-dotnet-shared-access-signature-part-1.md)。
 
-**如何將 HTTPS 自訂網域與我的儲存體帳戶搭配使用？例如，如何讓 "<https://mystorageaccountname.blob.core.windows.net/images/image.gif>" 顯示為 "<https://www.contoso.com/images/image.gif>"？**
+**如何將 HTTPS 自訂網域與我的儲存體帳戶搭配使用？比方說，如何讓"https:\//mystorageaccountname.blob.core.windows.net/images/image.gif"會顯示為"https:\//www.contoso.com/images/image.gif 」？**
 
 具有自訂網域的儲存體帳戶目前不支援 SSL。
 但可以使用非 HTTPS 的自訂網域。 如需詳細資訊，請參閱[針對 Blob 儲存體端點設定自訂網域名稱](../blobs/storage-custom-domain-name.md)。

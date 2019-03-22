@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: e4a48312dc516010b7a7fe1471ba7e555a2f92f2
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.openlocfilehash: fdb9b6c09e81ce29d2587fb0faca1aa80d28ea38
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382262"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309974"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>本機部署遠端監視解決方案加速器 - Visual Studio
 
@@ -96,7 +96,7 @@ npm install
 npm start
 ```
 
-啟動完成時，您的瀏覽器會顯示頁面 **http://localhost:3000/dashboard**。 此頁面上的錯誤一如預期。 若要檢視沒有錯誤的應用程式，請完成下列步驟。
+啟動完成時，您的瀏覽器會顯示頁面**http:\//localhost:3000 / 儀表板**。 此頁面上的錯誤一如預期。 若要檢視沒有錯誤的應用程式，請完成下列步驟。
 
 ### <a name="configure-and-run-nginx"></a>設定和執行 NGINX
 
@@ -109,7 +109,7 @@ npm start
 
 ### <a name="connect-to-the-dashboard"></a>連線至儀表板
 
-若要存取遠端監視解決方案儀表板，請在瀏覽器中瀏覽至 [http://localhost:9000](http://localhost:9000)。
+若要存取遠端監視解決方案儀表板，請瀏覽至 http:\//localhost:9000 瀏覽器中的。
 
 ## <a name="clean-up"></a>清除
 

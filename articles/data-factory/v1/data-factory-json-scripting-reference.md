@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 7a3819eedc57e1e349814c9105a0880bf3d4d9ec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3fcc2e31431f0deb15332aec7636e2bfefeffe9b
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891251"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317539"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON 指令碼參考
 > [!NOTE]
@@ -4595,7 +4595,7 @@ auto-
 
 | 屬性 | 描述 | 必要項 |
 | --- | --- | --- |
-| environmentUrl | 指定 Salesforce 執行個體的 URL。 <br><br> - 預設為「 https://login.salesforce.com」。 <br> - 若要從沙箱複製資料，請指定「 https://test.salesforce.com」。 <br> - 若要從自訂網域複製資料，舉例來說，請指定 "https://[網域].my.salesforce.com"。 |否 |
+| environmentUrl | 指定 Salesforce 執行個體的 URL。 <br><br> -預設值是"https:\//login.salesforce.com"。 <br> - 若要從沙箱複製資料，請指定「 https://test.salesforce.com」。 <br> - 若要從自訂網域複製資料，舉例來說，請指定 "https://[網域].my.salesforce.com"。 |否 |
 | username |指定使用者帳戶的使用者名稱。 |是 |
 | password |指定使用者帳戶的密碼。 |是 |
 | securityToken |指定使用者帳戶的安全性權杖。 如需如何重設/取得安全性權杖的指示，請參閱 [取得安全性權杖](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) 。 若要整體了解安全性權杖，請參閱[安全性和 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)。 |是 |

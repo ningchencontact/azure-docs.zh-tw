@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 58be8a222f649abe4be6de272a1ef2b686336262
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8ac0fbb1c62e4162e1c4ad040365a16d055e4552
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847122"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310012"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>在發佈入口網站中設定您的應用程式
 
@@ -53,7 +53,7 @@ ms.locfileid: "57847122"
 
 這是在發行者設定檔內供應項目的唯一識別碼。 此識別碼會出現在產品 URL 中。 此識別碼只能包含小寫英數字元或連字號 (-)。 此識別碼不能以連字號結尾，且不能超過 50 個字元。 供應項目上架後，此欄位便會鎖住。
 
-例如，若發行者 **"contoso"** 建立了供應項目識別碼為 **"sample-WebApp"** 的供應項目，其於 AppSource 中將會顯示為 "https://appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview"。
+比方說，如果 「 發行者 」 **"contoso"** 發行者的供應項目 id 建立供應項目 **」 範例 WebApp"**，它會顯示在 AppSource 為"https:\//appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview"
 
 ### <a name="publisher-id"></a>發行者識別碼
 

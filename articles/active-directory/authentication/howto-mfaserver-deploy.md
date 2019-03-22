@@ -1,5 +1,5 @@
 ---
-title: 開始使用 Azure Multi-Factor Authentication Server | Microsoft Docs
+title: 開始使用 Azure Multi-factor Authentication Server-Azure Active Directory
 description: 逐步開始進行 Azure MFA Server 內部部署
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1cf1d5bb87eea8054d2797634756d1b6c38464d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 260da2d58ab6e3342fe372bd51e4877d83b26bfd
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075964"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313051"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>開始使用 Azure Multi-Factor Authentication Server
 

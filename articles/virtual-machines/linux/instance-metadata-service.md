@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/15/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 923931eec2a7deaa8cf92bec61bc623615c9420d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 3f42aa57a4db445f0fb222905a6350b57c2c2a62
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847054"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315610"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務
 
@@ -39,16 +39,12 @@ Azure 的執行個體中繼資料服務是透過 [Azure Resource Manager](https:
 
 區域                                        | 可用性？                                 | 支援的版本
 -----------------------------------------------|-----------------------------------------------|-----------------
-[所有正式推出的全域 Azure 區域](https://azure.microsoft.com/regions/)     | 正式推出   | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01
-[Azure China](https://www.azure.cn/)                                                           | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01
-[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01
-[公用美國中西部](https://azure.microsoft.com/regions/)     | 正式推出   | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01
+[所有正式推出的全域 Azure 區域](https://azure.microsoft.com/regions/)     | 正式推出   | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01
+[Azure China](https://www.azure.cn/)                                                           | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | 正式推出 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01
 
 當有服務更新和/或有新支援的版本可取得時，此表格便會更新。
-
-> [!NOTE]
-> 2018-10-01 目前正在推出，很快就會在其他區域提供。 當有服務更新和/或提供新支援的版本時，此表格便會更新
 
 若要試用執行個體中繼資料服務，請從 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) 或 [Azure 入口網站](https://portal.azure.com)的上述區域中建立 VM，並遵循以下的範例。
 
@@ -355,7 +351,7 @@ resourceGroupName | 虛擬機器的[資源群組](../../azure-resource-manager/r
 placementGroupId | 虛擬機器擴展集的[放置群組](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
 計劃 | [計劃](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan)vm，以在其 Azure Marketplace 映像，包含名稱、 產品和發行者 | 2018-04-02
 provider | VM 的提供者 | 2018-10-01
-publicKeys | 指派給 VM 和路徑的公開金鑰集合[https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] | 2018-04-02
+publicKeys | [公開金鑰的集合](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey)指派給 VM 和路徑 | 2018-04-02
 vmScaleSetName | 虛擬機器擴展集的[虛擬機器擴展集名稱](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
 區域 | 您虛擬機器的[可用性區域](../../availability-zones/az-overview.md) | 2017-12-01
 ipv4/privateIpAddress | VM 的本機 IPv4 位址 | 2017-04-02

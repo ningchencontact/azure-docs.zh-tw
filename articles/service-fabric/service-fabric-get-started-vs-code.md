@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 197010271518347025157968012be31c71b3b667
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c31f3ec503f22ab0d272ff96b85cf0f76a837d11
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121021"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316046"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>適用於 Visual Studio Code 的 Service Fabric
 
@@ -107,7 +107,7 @@ ms.locfileid: "58121021"
 “Service Fabric:部署应用程序”命令将 Service Fabric 应用程序部署到本地群集。 在使用命令之前，請先確定您的本機叢集正在執行。 
 
 1. 选择“Service Fabric:部署应用程序”命令
-2. 使用 Service Fabric Explorer (http://localhost:19080/Explorer) 檢視本機叢集，確認應用程式是否已安裝。 這可能需要一些時間，請耐心等候。
+2. 檢視本機叢集使用 Service Fabric Explorer (http:\//localhost:19080 / Explorer) 來確認已安裝應用程式。 這可能需要一些時間，請耐心等候。
 3. 也可以在未在 Cloud.json 文件中设置任何参数的情况下，使用“Service Fabric:发布应用程序”命令部署到本地群集。
 
 > [!NOTE]

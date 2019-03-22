@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/28/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e37d5b050c5ca957b59c1e0a60c88171c1fc4a23
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: df57faad770b252228b6c55d4caff775acfe3594
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582236"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531159"
 ---
 # <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站以 Azure 防火牆 DNAT 篩選輸入流量
 
@@ -37,7 +37,7 @@ ms.locfileid: "52582236"
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
-1. 在 [http://portal.azure.com](http://portal.azure.com) 登入 Azure 入口網站。
+1. 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 2. 在 Azure 入口網站首頁上，按一下 [資源群組]，然後按一下 [新增]。
 3. 在 [資源群組名稱] 中，輸入 **RG-DNAT-Test**。
 4. 在 [訂用帳戶] 中，選取您的訂用帳戶。
@@ -150,11 +150,11 @@ ms.locfileid: "52582236"
 
    |設定  |值  |
    |---------|---------|
-   |名稱     |FW-DNAT-test|
+   |Name     |FW-DNAT-test|
    |訂用帳戶     |\<您的訂用帳戶\>|
-   |資源群組     |**使用現有的**：RG-DNAT-Test |
+   |資源群組     |**使用現有項目**︰RG-DNAT-Test |
    |位置     |選取您先前使用的相同位置|
-   |選擇虛擬網路     |**使用現有的**：VN-Hub|
+   |選擇虛擬網路     |**使用現有項目**︰VN-Hub|
    |公用 IP 位址     |**建立新項目**。 公用 IP 位址必須是標準 SKU 類型。|
 
 5. 按一下 [檢閱 + 建立]。

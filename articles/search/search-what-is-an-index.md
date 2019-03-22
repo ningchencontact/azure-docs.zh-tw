@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 1a07661d97561319b847323981dd2aa8522b0e84
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 645f3177913b903e8262c1fec08c452130e2a671
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537587"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337862"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>在 Azure 搜尋服務中建立基本索引
 
@@ -46,7 +46,7 @@ ms.locfileid: "57537587"
 
 6. 繼續使用程式碼來逐一查看您的設計。  
 
-因為服務中會建立實體結構，所以每當您對現有欄位定義進行實質變更時，就需要[卸除並重建索引](search-howto-reindex.md)。 這表示在開發期間，您應該規劃經常重建。 您可以考慮處理部份的資料，讓重建更快速。 
+因為在服務中，會建立實體的結構[卸除並重新建立索引](search-howto-reindex.md)是必要的每當您變更資料時對現有的欄位定義。 這表示在開發期間，您應該規劃經常重建。 您可以考慮處理部份的資料，讓重建更快速。 
 
 建議將程式碼 (而非入口網站方法) 用於反覆式設計。 如果您依賴入口網站進行索引定義，則必須在每次重建時填妥索引定義。 另外，當開發專案仍在早期階段時，[Postman 和 REST API](search-fiddler.md) 之類的工具對於概念證明測試很有幫助。 您可以對要求主體中的索引定義進行累加變更，然後將要求傳送至您的服務，以使用更新後的結構描述來重建索引。
 

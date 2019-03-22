@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 57007674e11271e6a3d5bdf660531d01b1eff82c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2da4ee5d60290485d87af86885dda0d72a625fef
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861429"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314802"
 ---
 # <a name="dynamic-manifests"></a>動態資訊清單
 
@@ -64,7 +64,7 @@ ms.locfileid: "57861429"
 
 ![轉譯篩選範例][renditions2]
 
-下列範例使用編碼器將夾層資產編碼成七個 ISO MP4 視訊轉譯 (從 180p 到 1080p)。 編碼資產可以動態地封裝至下列任何一個資料流通訊協定：HLS、MPEG DASH 和 Smooth。  圖表頂端顯示不含篩選器的資產其 HLS 資訊清單 (包含全部七個轉譯)。  左下角顯示名為 "ott" 的篩選器已套用到 HLS 資訊清單。 "ott" 篩選器指定要移除所有不到 1 Mbps 的位元速率，因此將最差的兩個品質等級從回應中去除。 右下角顯示名為 "mobile" 的篩選器已套用到 HLS 資訊清單中。 "mobile" 篩選器指定要移除的解析度大於 720p 的轉譯，因此去除兩個 1080p 的轉譯。
+下列範例使用編碼器將夾層資產編碼成七個 ISO MP4 視訊轉譯 (從 180p 到 1080p)。 可以是編碼的資產[動態封裝](dynamic-packaging-overview.md)至任何下列串流通訊協定：HLS、MPEG DASH 和 Smooth。  圖表頂端顯示不含篩選器的資產其 HLS 資訊清單 (包含全部七個轉譯)。  左下角顯示名為 "ott" 的篩選器已套用到 HLS 資訊清單。 "ott" 篩選器指定要移除所有不到 1 Mbps 的位元速率，因此將最差的兩個品質等級從回應中去除。 右下角顯示名為 "mobile" 的篩選器已套用到 HLS 資訊清單中。 "mobile" 篩選器指定要移除的解析度大於 720p 的轉譯，因此去除兩個 1080p 的轉譯。
 
 ![轉譯篩選][renditions1]
 
@@ -122,12 +122,16 @@ ms.locfileid: "57861429"
 
 如需詳細資訊，請參閱 [此部落格](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) 。
 
+## <a name="associate-filters-with-streaming-locator"></a>串流定位器相關聯的篩選器
+
+您可以指定資產或帳戶會套用到您的串流定位器的篩選器清單。 [動態封裝程式](dynamic-packaging-overview.md)適用於這份清單，以及那些用戶端在 URL 中所指定的篩選條件。 這個組合會產生[dyanamic 資訊清單](filters-dynamic-manifest-overview.md)，根據在 URL 中的篩選器 + 串流定位器指定的篩選條件。 我們建議您使用這項功能，如果您想要套用篩選，但不是想要公開 （expose） 在 URL 中的篩選條件名稱。
+
 ## <a name="considerations-and-limitations"></a>考量與限制
 
 - 不應為 VoD 篩選器設定 **forceEndTimestamp**、**presentationWindowDuration** 和 **liveBackoffDuration** 的值。 它們僅適用於即時篩選器案例。 
 - 動態資訊清單會在 GOP 界限 (主要畫面格) 中運作，因此修剪後能夠有精確的 GOP。 
 - 您可以將相同的篩選器名稱用於帳戶和資產篩選器。 資產篩選器有較高的優先順序，因此會覆寫帳戶篩選器。
-- 如果您更新篩選器，則資料流端點需要 2 分鐘的時間來重新整理規則。 如果內容是透過使用某些篩選器提供的 (並在 Proxy 和 CDN 快取中快取)，則更新這些篩選器會導致播放程式失敗。 建議您在更新篩選器之後清除快取。 如果這個選項無法執行，請考慮使用不同的篩選器。
+- 如果您更新篩選器時，可能需要 2 分鐘的時間來重新整理規則的串流端點。 如果內容是透過使用某些篩選器提供的 (並在 Proxy 和 CDN 快取中快取)，則更新這些篩選器會導致播放程式失敗。 建議您在更新篩選器之後清除快取。 如果這個選項無法執行，請考慮使用不同的篩選器。
 - 客戶必須手動下載資訊清單，並剖析確切的 startTimestamp 和時間範圍。
     
     - 若要判斷 Asset 中資料軌的屬性，請[取得並檢查資訊清單檔案](#get-and-examine-manifest-files)。

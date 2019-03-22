@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: c28bf3ac85709fb996cfb067b83530645fdccba1
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 30f853bd65c83b922faf008fbb5279c28f197f68
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008900"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339001"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>在 Azure 監視器中具有動態閾值的計量警示 (公開預覽)
 
@@ -83,7 +83,7 @@ ms.locfileid: "57008900"
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>觸發警示時，不需要多少資料？
 
-動態臨界值需要至少三天的資料，以確保正確的臨界值觸發警示之前。
+如果您有新的資源或遺漏的計量資料，動態臨界值將不會在前三天的資料可確保精確的臨界值觸發警示。
 
 ## <a name="dynamic-thresholds-best-practices"></a>動態閾值最佳做法
 

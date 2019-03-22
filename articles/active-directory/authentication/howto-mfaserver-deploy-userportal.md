@@ -1,5 +1,5 @@
 ---
-title: Azure MFA Server 使用者入口網站 | Microsoft Docs
+title: Azure MFA Server-Azure Active Directory 的使用者入口網站
 description: 開始使用 Azure MFA 和使用者入口網站。
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddf84ea9fa2367c6bdf7b258611eca526dd2abd9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bbee5316b78838bedc62454e8c1954eb5f9205ff
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175195"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317115"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication Server 的使用者入口網站
 
@@ -126,7 +126,7 @@ Web 服務 SDK 必須受到 SSL 憑證保護。 自我簽署憑證適用於這�
 
 Azure Multi-Factor Authentication 伺服器為使用者入口網站提供數個選項。 下表提供這些選項及其用途說明的清單。
 
-| 使用者入口網站設定 | 說明 |
+| 使用者入口網站設定 | 描述 |
 |:--- |:--- |
 | 使用者入口網站 URL | 輸入裝載入口網站的 URL。 |
 | 主要驗證 | 指定登入入口網站時所使用的驗證類型。 Windows、Radius 或 LDAP 驗證。 |

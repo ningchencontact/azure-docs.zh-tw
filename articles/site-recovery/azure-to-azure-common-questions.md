@@ -4,30 +4,19 @@ description: 本文摘要說明使用 Azure Site Recovery 來設定從 Azure VM 
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.date: 12/12/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: bf7a8ea00fe94e6896c097b8e27c22c0831f71da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2c1890570f153de68d187c37dc0a7bca156c2d47
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008646"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312048"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>常見問題：Azure 對 Azure 複寫
 
 本文針對有關使用 Azure Site Recovery 來部署從 Azure VM 至另一個 Azure 區域之災害復原 (DR) 的常見問題，提供解答。 如果您在閱讀本文後有問題，請將問題張貼在 [Azure 復原服務論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)。
-
-
-## <a name="in-this-article"></a>本文內容 
-1.  **[關於 Azure 至 Azure 的一般問題](#general)** 
-1.  **[複寫](#replication)** 
-1.  **[複寫原則](#replication-policy)** 
-1.  **[多 VM 一致性](#multi-vm-consistency)** 
-1.  **[復原計畫](#recovery-plan)** 
-1.  **[重新保護和容錯回復](#reprotection-and-failback)** 
-2.  **[容量](#capacity)**
-1.  **[安全性](#security)** 
 
 
 ## <a name="general"></a>一般
@@ -186,7 +175,7 @@ Site Recovery 會在容錯移轉時嘗試提供 IP 位址。 如果另一部虛�
 ### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>什麼是虛擬機器容錯移轉的 RTO？
 Site Recovery 有 [2 小時的 RTO SLA](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/)。 不過在大部分情況下，Site Recovery 會在幾分鐘內容錯移轉虛擬機器。 若要計算 RTO，您可以移置容錯移轉作業查看它啟動 VM 所花的時間。 針對復原計畫 RTO，請參閱下節。 
 
-## <a name="recovery-plan"></a>復原計畫
+## <a name="recovery-plans"></a>復原方案
 
 ### <a name="what-is-a-recovery-plan"></a>什麼是復原方案？
 Site Recovery 中的復原方案會協調 VM 的容錯移轉復原。 這有助於讓復原「保持一致精確」、「可重複執行」及「自動化」。 復原方案可滿足使用者的下列需求：
@@ -221,7 +210,7 @@ Site Recovery 中的復原方案會協調 VM 的容錯移轉復原。 這有助�
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>容錯回復需要花費多久時間？
 進行重新保護之後，容錯回復所需的時間通常與從主要區域容錯移轉至次要區域類似。 
 
-## <a name="capacity"></a>容量
+## <a name="capacity"></a>Capacity
 ### <a name="does-site-recovery-work-with-reserved-instance"></a>Site Recovery 運作與保留的執行個體嗎？
 是，您可以購買[保留執行個體](https://azure.microsoft.com/pricing/reserved-vm-instances/)在 DR 區域和 ASR 容錯移轉作業將會使用它們。 </br> 客戶需要額外的設定。
 

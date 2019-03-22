@@ -1,5 +1,5 @@
 ---
-title: 內部部署 Azure AD 密碼保護代理程式版本發行記錄
+title: 內部部署上的 Azure AD 密碼保護代理程式版本發行歷程記錄-Azure Active Directory
 description: 文件版本發行和行為變更歷程記錄
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e09127f8ed2e8e949711631a20fa5a9cd855311
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: fd1a96393f3dd9481705e3de8cc42375de7869e7
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58284794"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311540"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Azure AD 密碼保護代理程式版本記錄
 

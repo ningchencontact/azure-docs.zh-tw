@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: glenga
-ms.openlocfilehash: 292b25987f183df2091667312d4e6730b7f40dda
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: HT
+ms.openlocfilehash: 57126c87879da9f99d224457433bbbd5f95ef021
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990895"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336723"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>從套件檔案執行 Azure Functions
 
@@ -44,7 +44,7 @@ ms.locfileid: "56990895"
 
 | 值  | 描述  |
 |---------|---------|
-| **`1`**  | 建議在 Windows 上執行的函式應用程式。 從函式應用程式中 `d:\home\data\SitePackages` 資料夾內的套件檔案執行。 如果不是 [部署 zip 部署] (#integration-使用-zip-部署]，這個選項要求也具有一個名為檔案的資料夾`packagename.txt`。 此檔案只會包含資料夾內套件檔案的名稱，且不含任何空白字元。 |
+| **`1`**  | 建議在 Windows 上執行的函式應用程式。 從函式應用程式中 `d:\home\data\SitePackages` 資料夾內的套件檔案執行。 如果沒有[部署與 zip 部署](#integration-with-zip-deployment)，這個選項要求也具有一個名為檔案的資料夾`packagename.txt`。 此檔案只會包含資料夾內套件檔案的名稱，且不含任何空白字元。 |
 |**`<url>`**  | 所要執行的特定套件檔案所在的位置。 使用 Blob 儲存體時，請搭配使用私用容器與[共用存取簽章 (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) 來讓 Functions 執行階段能夠存取套件。 您可以使用 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)將套件檔案上傳至 Blob 儲存體帳戶。         |
 
 > [!CAUTION]

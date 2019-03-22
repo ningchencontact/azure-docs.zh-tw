@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: bef2e5da1a151fd6178298f3b993337fd07bd294
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 780f87924bcd25f0485bfed1b9640915b7d8e1d3
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313326"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309464"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>將 Linux Service Fabric 叢集部署到 Azure 虛擬網路
 
@@ -64,7 +64,7 @@ ms.locfileid: "56313326"
 
 在 **Microsoft.Network/loadBalancers** 資源中，會為下列連接埠設定負載平衡器，並進行探查和規則的設定：
 
-* 用戶端連線端點：19000
+* 客户端连接终结点：19000
 * HTTP 閘道端點：19080
 * 應用程式連接埠：80
 * 應用程式連接埠：443
@@ -73,8 +73,8 @@ ms.locfileid: "56313326"
 
 虛擬網路和子網路的名稱會在範本參數中宣告。  虛擬網路和子網路的位址空間也會在範本參數中宣告，並設定於 **Microsoft.Network/virtualNetworks** 資源中：
 
-* 虛擬網路位址空間：10.0.0.0/16
-* Service Fabric 子網路位址空間：10.0.2.0/24
+* 虚拟网络地址空间：10.0.0.0/16
+* Service Fabric 子网地址空间：10.0.2.0/24
 
 如果需要任何其他應用程式連接埠，則您必須調整 Microsoft.Network/loadBalancers 資源，以允許流量進入。
 
@@ -89,7 +89,7 @@ ms.locfileid: "56313326"
 |clusterName|mysfcluster123| 叢集的名稱。 |
 |location|southcentralus| 叢集的位置。 |
 |certificateThumbprint|| <p>如果建立自我簽署憑證或提供憑證檔案，則值應該空白。</p><p>若要使用先前上傳至金鑰保存庫的現有憑證，請填入憑證 SHA1 指紋值。 例如 "6190390162C988701DB5676EB81083EA608DCCF3"。 </p>|
-|certificateUrlValue|| <p>如果建立自我簽署憑證或提供憑證檔案，則值應該空白。</p><p>若要使用先前上傳至金鑰保存庫的現有憑證，請填入憑證 URL。 例如，"https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346"。</p>|
+|certificateUrlValue|| <p>如果建立自我簽署憑證或提供憑證檔案，則值應該空白。</p><p>若要使用先前上傳至金鑰保存庫的現有憑證，請填入憑證 URL。 例如，"https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346"。</p>|
 |sourceVaultValue||<p>如果建立自我簽署憑證或提供憑證檔案，則值應該空白。</p><p>若要使用先前上傳至金鑰保存庫的現有憑證，請填入來源保存庫值。 例如 "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT"。</p>|
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
