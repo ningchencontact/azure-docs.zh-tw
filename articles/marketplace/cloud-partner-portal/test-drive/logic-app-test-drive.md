@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d784941c43da13a2c1bd120599aa02fe14e5a5b4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: HT
+ms.openlocfilehash: 4fd946b53956509844ad0a9396575f1ee2450414
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457263"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338593"
 ---
 <a name="logic-app-test-drive"></a>邏輯應用程式試用產品
 ====================
@@ -137,6 +137,10 @@ ms.locfileid: "57457263"
 **Azure AD App 金鑰 -** *[必填欄位]* 最後一個欄位是要產生驗證金鑰。 在 [金鑰] 下，新增 [金鑰描述] 並將期間設定為永不到期，然後選取 [儲存]。 **務必**避免擁有已到期的金鑰，這將會使得生產環境中的試用產品中斷。 複製此值並將它貼到您的必填 [試用產品] 欄位中。
 
 ![Azure Active Directory 金鑰區段](./media/azure-resource-manager-test-drive/subdetails8.png)
+
+> [!CAUTION]
+> 您無法使用 Azure 應用程式註冊預覽版，因為它目前不會產生 base64 編碼索引鍵。
+
 
 <a name="next-steps"></a>後續步驟
 ----------

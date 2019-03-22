@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94d0e469614204a7507ba666ac04e59774eebde7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 225065e35e40c06d324bee89fa65a765a2727233
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204404"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123754"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Azure Active Directory v2.0 端點中的權限和同意
 
@@ -88,19 +88,19 @@ v2.0 的 OpenID Connect 實作有一些定義妥善但不會套用至特定資�
 
 `email` 範圍可以與 `openid` 範圍及任何其他範圍搭配使用。 它會以 `email` 宣告的形式為應用程式提供使用者主要電子郵件地址的存取權。 只有當電子郵件地址與使用者帳戶關聯 (兩者並不一定會關聯) 時，`email` 宣告才會包含在權杖中。 如果它使用 `email` 範圍，您的應用程式就應該做好準備，以處理權杖中沒有 `email` 宣告的情況。
 
-### <a name="profile"></a>設定檔
+### <a name="profile"></a>个人资料
 
 `profile` 範圍可以與 `openid` 範圍及任何其他範圍搭配使用。 它會為應用程式提供大量使用者相關資訊的存取權。 它能存取的資訊包括但不限於使用者的名字、姓氏、慣用使用者名稱及物件識別碼。 如需特定使用者之識別碼權杖中可用的設定檔宣告完整清單，請參閱 [`id_tokens` 參考](id-tokens.md)。
 
 ### <a name="offlineaccess"></a>offline_access
 
-[`offline_access` 範圍](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess)可延長您應用程式代表使用者存取資源的時間。 在同意頁面上，此範圍會顯示為「維持存取您可存取的資料」權限。 當使用者核准 `offline_access` 範圍時，您的應用程式將可從 v2.0 權杖端點收到重新整理權杖。 重新整理權杖是長期權杖。 您的應用程式可以在舊存取權杖到期時取得新的存取權杖。
+[`offline_access` 範圍](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess)可延長您應用程式代表使用者存取資源的時間。 在同意頁面上，此範圍會顯示為「維持存取您可存取的資料」權限。 當使用者核准 `offline_access` 範圍時，您的應用程式將可從 v2.0 權杖端點收到重新整理權杖。 刷新令牌的生存期较长。 您的應用程式可以在舊存取權杖到期時取得新的存取權杖。
 
 如果您的應用程式並未明確地要求 `offline_access` 範圍，則不會收到重新整理權杖。 這意謂著當您在 [OAuth 2.0 授權碼流程](active-directory-v2-protocols.md)中兌換授權碼時，您只會從 `/token` 端點收到存取權杖。 存取權杖的有效期短。 存取權杖的有效期通常在一小時內。 屆時，您的應用程式將必須把使用者重新導向回 `/authorize` 端點，以擷取新的授權碼。 在此重新導向期間，視應用程式的類型而定，使用者可能需要重新輸入其認證或重新同意權限。  請注意，雖然伺服器會自動要求 `offline_access` 範圍，但您的用戶端仍必須要求它，以便接收重新整理權杖。 
 
 如需有關如何取得及使用重新整理權杖的詳細資訊，請參閱 [v2.0 通訊協定參考](active-directory-v2-protocols.md)。
 
-## <a name="requesting-individual-user-consent"></a>要求個別使用者同意
+## <a name="requesting-individual-user-consent"></a>请求单个用户的许可
 
 在 [OpenID Connect 或 OAuth 2.0](active-directory-v2-protocols.md) 授權要求中，應用程式可以使用 `scope` 查詢參數來要求它所需的權限。 例如，當使用者登入應用程式時，應用程式會傳送如以下範例的要求 (加入分行符號是為了增加可讀性)：
 
@@ -174,7 +174,7 @@ Microsoft 生態系統中的某些高特權權限可以設定為「受系統管�
 
 將使用者登入應用程式時，您可以先識別系統管理員所屬的組織，然後再要求他們核准必要的權限。 雖然這並非絕對必要，但這麼做可協助您為組織使用者建立更直覺式的體驗。 若要讓使用者登入，請遵循我們的 [v2.0 通訊協定教學課程](active-directory-v2-protocols.md)。
 
-### <a name="request-the-permissions-from-a-directory-admin"></a>向目錄管理員要求權限
+### <a name="request-the-permissions-from-a-directory-admin"></a>向目录管理员请求权限
 
 當您已準備好向組織的系統管理員要求權限時，您可以將使用者重新導向到 v2.0「系統管理員同意端點」。
 
@@ -195,11 +195,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&state=12345&redirect_uri=http://localhost/myapp/permissions
 ```
 
-| 參數 | 條件 | 說明 |
+| 參數 | 條件 | 描述 |
 | --- | --- | --- |
-| `tenant` | 必要 | 您想要要求權限的目錄租用戶。 可以提供 GUID 或易記的名稱格式，或是一般會參考使用 `common` (如範例所示)。 |
-| `client_id` | 必要 | 應用程式 (用戶端) 識別碼，[應用程式註冊入口網站](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)或[新的應用程式註冊 (預覽) 入口網站](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)已指派給您的應用程式。 |
-| `redirect_uri` | 必要 |您想要傳送回應以供應用程式處理的重新導向 URI。 它必須與您在應用程式註冊入口網站中註冊的其中一個重新導向 URI 完全相符。 |
+| `tenant` | 必要項 | 您想要要求權限的目錄租用戶。 可以提供 GUID 或易記的名稱格式，或是一般會參考使用 `common` (如範例所示)。 |
+| `client_id` | 必要項 | 應用程式 (用戶端) 識別碼，[應用程式註冊入口網站](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)或[新的應用程式註冊 (預覽) 入口網站](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)已指派給您的應用程式。 |
+| `redirect_uri` | 必要項 |您想要傳送回應以供應用程式處理的重新導向 URI。 它必須與您在應用程式註冊入口網站中註冊的其中一個重新導向 URI 完全相符。 |
 | `state` | 建議 | 同樣會隨權杖回應傳回之要求中所包含的值。 它可以是您想要的任何內容的字串。 請在驗證要求出現之前，先使用此狀態在應用程式中將使用者狀態的相關資訊 (例如他們之前所在的網頁或檢視) 編碼。 |
 
 此時，Azure AD 會要求租用戶系統管理員登入來完成要求。 系統會請系統管理員核准您在應用程式註冊入口網站中，為您應用程式要求的所有權限。
@@ -212,10 +212,10 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| 參數 | 說明 |
-| --- | --- | --- |
+| 參數 | 描述 |
+| --- | --- |
 | `tenant` | 將應用程式所要求的權限授與應用程式的目錄租用戶 (採用 GUID 格式)。 |
-| `state` | 一個包含在要求中而將一併在權杖回應中傳回的值。 它可以是您想要的任何內容的字串。 此狀態用於在驗證要求出現之前，於應用程式中編碼使用者的狀態資訊，例如之前所在的網頁或檢視。 |
+| `state` | 一個包含在要求中而將一併在權杖回應中傳回的值。 可以是所需的任何内容的字符串。 此狀態用於在驗證要求出現之前，於應用程式中編碼使用者的狀態資訊，例如之前所在的網頁或檢視。 |
 | `admin_consent` | 將設定為 `True`。 |
 
 #### <a name="error-response"></a>錯誤回應
@@ -226,8 +226,8 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
-| 參數 | 說明 |
-| --- | --- | --- |
+| 參數 | 描述 |
+| --- | --- |
 | `error` | 用以分類發生的錯誤類型與回應錯誤的錯誤碼字串。 |
 | `error_description` | 可協助開發人員識別錯誤根本原因的特定錯誤訊息。 |
 
@@ -235,7 +235,7 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 ## <a name="using-permissions"></a>使用權限
 
-在使用者同意您的應用程式的權限之後，您的應用程式即可取得存取權杖，而這些權杖代表您的應用程式存取資源的權限。 一個存取權杖只能用於一個單一資源，但存取權杖內部所編碼的是您應用程式針對該資源已獲得的每項權限。 若要取得存取權杖，您的應用程式可以對 v2.0 權杖端點提出要求，像這樣：
+用户许可应用的权限之后，应用即可获取访问令牌，这些令牌表示应用以某种身份访问资源的权限。 一個存取權杖只能用於一個單一資源，但存取權杖內部所編碼的是您應用程式針對該資源已獲得的每項權限。 若要取得存取權杖，您的應用程式可以對 v2.0 權杖端點提出要求，像這樣：
 
 ```
 POST common/oauth2/v2.0/token HTTP/1.1

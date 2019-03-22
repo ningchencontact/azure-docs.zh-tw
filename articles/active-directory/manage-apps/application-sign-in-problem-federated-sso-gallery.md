@@ -16,12 +16,12 @@ ms.date: 02/18/2019
 ms.author: celested
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 225676b144d042c51a97fe14a20a5a78f0a77244
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 623d684f701df8b1a7c4b84a2bd3840f039ad174
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013088"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312694"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>登入針對同盟單一登入設定之資源庫應用程式的問題
 
@@ -33,7 +33,7 @@ ms.locfileid: "58013088"
 
 ## <a name="application-not-found-in-directory"></a>在目錄中找不到應用程式
 
-*錯誤 AADSTS70001：在目錄中未找到具有識別碼 ‘https://contoso.com’ 的應用程式*。
+*錯誤 AADSTS70001：應用程式識別碼為 ' https:\//contoso.com' 找不到目錄中*。
 
 **可能的原因**
 
@@ -63,7 +63,7 @@ ms.locfileid: "58013088"
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>回覆地址與為應用程式設定的回覆地址不符
 
-*錯誤 AADSTS50011：回覆地址 ‘https://contoso.com’ 與為應用程式設定的回覆地址不符*
+*錯誤 AADSTS50011：回覆位址 ' https:\//contoso.com' 不符合為應用程式設定的回覆地址*
 
 **可能的原因**
 
@@ -162,7 +162,7 @@ Azure AD 不支援進行單一登入應用程式所傳送的 SAML 要求。 以�
 
 ## <a name="misconfigured-application"></a>設定不正確的應用程式
 
-*錯誤 AADSTS650056:設定不正確的應用程式。這可能是下列其中一個原因所造成：用戶端具有未列出任何 ' AAD Graph' 要求的權限，在用戶端應用程式註冊中的權限。或者，系統管理員尚未同意的租用戶中。或者，您也可以檢查應用程式中的識別項的要求，以確保其符合設定的用戶端應用程式識別碼。請連絡您的系統管理員修正組態，或代表租用戶的同意。*.
+*錯誤 AADSTS650056:設定不正確的應用程式。這可能是下列其中一個原因所造成：用戶端具有未列出任何 ' AAD Graph' 要求的權限，在用戶端應用程式註冊中的權限。或者，系統管理員尚未同意的租用戶中。或者，您也可以檢查應用程式中的識別項的要求，以確保其符合設定的用戶端應用程式識別碼。請連絡您的系統管理員修正組態，或代表租用戶的同意。*
 
 **可能的原因**
 

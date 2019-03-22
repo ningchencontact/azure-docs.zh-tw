@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3b46acfbfd77015193135d1a8c7646c331340145
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: HT
+ms.openlocfilehash: 96a334b4bd39513bfad128a8f1b59f319fef013e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200645"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317403"
 ---
 # <a name="install-and-use-apache-giraph-on-windows-based-hdinsight-clusters"></a>在 Windows 型 HDInsight 叢集上安裝和使用 Apache Giraph
 
@@ -49,7 +49,7 @@ ms.locfileid: "58200645"
     |屬性|值|  
     |---|---|  
     |名稱|指定指令碼動作的名稱。 例如，**安裝 Giraph**|
-    |指令碼 URI|指定為自訂叢集叫用的指令碼統一資源識別項 (URI)。 例如，*https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1*|
+    |指令碼 URI|指定為自訂叢集叫用的指令碼統一資源識別項 (URI)。 例如， *https:\//hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1*|
     |節點類型|指定執行自訂指令碼的節點。 您可以選擇 [所有節點]、[僅限前端節點] 或 [僅限背景工作節點]。
     |參數|如果指令碼要求，請指定參數。 要安裝 Giraph 的指令碼不需要任何參數，因此可以讓此處空白。|  
 
