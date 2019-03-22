@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: 40557d4e71dfea5996396cde634f7a1c80913556
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 2fe786d90612feff312983dbd25dc6d691be6e70
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430534"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089772"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>從 VM 設定備份 Azure VM
 
@@ -44,18 +44,18 @@ ms.locfileid: "56430534"
 3. 在 VM 清單中，選取要備份的 VM。
 4. 在 VM 功能表中，按一下 [備份]。 
 5. 在 [復原服務保存庫] 中，執行下列動作：
-  - 如果您已經有保存庫，請按一下 [選取現有項目]，然後選取保存庫。
-  - 如果您沒有保存庫，請按一下 [新建]。 指定保存庫名稱。 保存庫會建立在與 VM 相同的區域和資源群組中。 若您直接從 VM 設定啟用備份，則無法修改這些設定。
+   - 如果您已經有保存庫，請按一下 [選取現有項目]，然後選取保存庫。
+   - 如果您沒有保存庫，請按一下 [新建]。 指定保存庫名稱。 保存庫會建立在與 VM 相同的區域和資源群組中。 若您直接從 VM 設定啟用備份，則無法修改這些設定。
 
-  ![啟用備份精靈](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
+   ![啟用備份精靈](./media/backup-azure-vms-first-look-arm/vm-menu-enable-backup-small.png)
 
 6. 在 [選擇備份原則] 中，執行下列動作：
 
-  - 保留預設原則。 此原則會每天一次地在指定時間備份 VM，並讓備份在保存庫中保留 30 天。
-  - 如果您已有備份原則，請選取現有的原則。
-  - 建立新的原則，並定義原則設定。  
+   - 保留預設原則。 此原則會每天一次地在指定時間備份 VM，並讓備份在保存庫中保留 30 天。
+   - 如果您已有備份原則，請選取現有的原則。
+   - 建立新的原則，並定義原則設定。  
 
-  ![選取備份原則](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
+   ![選取備份原則](./media/backup-azure-vms-first-look-arm/set-backup-policy.png)
 
 7. 按一下 [啟用備份]。 這會使備份原則與 VM 相關聯。 
 
@@ -64,9 +64,9 @@ ms.locfileid: "56430534"
 8. 您可以在入口網站通知中，追蹤設定進度。
 9. 作業完成後，請在 VM 功能表中按一下 [備份]。 頁面會顯示 VM 的備份狀態、復原點資訊、執行的作業及發出的警示。
 
-  ![備份狀態](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
+   ![備份狀態](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
-10. 啟用備份之後，就會執行[初始備份](#run-the-initial-backup)。 您可以立即啟動初始備份，或根據備份排程來啟動。
+10. 啟用備份之後，會執行初始備份。 您可以立即啟動初始備份，或根據備份排程來啟動。
     - 在完成初始備份之前，[上次備份狀態] 會顯示為 [警告 (待執行初始備份)]。
     - 若要查看下一個排定的備份會在何時執行，請按一下備份原則名稱。
     

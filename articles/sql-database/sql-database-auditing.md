@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 08c71ac1aba659a2e0fbb6655b6ee0a21576bf5d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: ce691ec0622749f1cb7252e237dae25b2657d115
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339782"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010520"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
 
@@ -30,6 +30,8 @@ ms.locfileid: "56339782"
 
 > [!NOTE] 
 > 本主題適用於 Azure SQL 伺服器，以及在 Azure SQL Server 上建立的 SQL Database 和 SQL 資料倉儲資料庫。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 
 ## <a id="subheading-1"></a>Azure SQL 資料庫稽核概觀
@@ -85,7 +87,7 @@ ms.locfileid: "56339782"
 
     ![瀏覽窗格][3]
 
-5. **新增** - 您現在有多個選項可設定要寫入稽核記錄的位置。 您可以將記錄寫入至 Azure 儲存體帳戶、Log Analytics 工作區 (以供 Log Analytics 取用) 或事件中樞 (以使用事件中樞來取用)。 您可以設定這些選項的任何組合，並將稽核記錄寫入至每個組合。
+5. **新增** - 您現在有多個選項可設定要寫入稽核記錄的位置。 Azure 儲存體帳戶、 Log Analytics 工作區，供 Azure 監視器記錄檔，或使用事件中樞取用的事件中樞，您可以寫入記錄。 您可以設定這些選項的任何組合，並將稽核記錄寫入至每個組合。
 
     ![儲存體選項](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
@@ -95,7 +97,7 @@ ms.locfileid: "56339782"
 
 7. 若要設定將稽核記錄寫入至 Log Analytics 工作區，請選取 [Log Analytics (預覽)]，然後開啟 [Log Analytics 詳細資料]。 選取或建立將寫入記錄的 Log Analytics 工作區，然後按一下 [確定]。
 
-    ![Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
+    ![Log Analytics 工作區](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
 8. 若要設定將稽核記錄寫入至事件中樞，請選取 [事件中樞 (預覽)]，然後開啟 [事件中樞詳細資料]。 選取要寫入記錄的事件中樞，然後按一下 [確定]。 請確定事件中樞與您的資料庫和伺服器位於相同的區域。
 
@@ -112,7 +114,7 @@ ms.locfileid: "56339782"
 
 ## <a id="subheading-3"></a>分析稽核記錄和報告
 
-如果您選擇將稽核記錄寫入至 Log Analytics：
+如果您選擇的稽核記錄寫入 Azure 監視器的記錄：
 
 - 使用 [Azure 入口網站](https://portal.azure.com)。  開啟相關的資料庫。 在資料庫的 [稽核] 頁面頂端，按一下 [檢視稽核記錄]。
 
@@ -123,16 +125,16 @@ ms.locfileid: "56339782"
     ![在 Log Analytics 中開啟](./media/sql-database-auditing-get-started/auditing_open_in_oms.png)
 
 - 或者，您也可以從 Log Analytics 刀鋒視窗存取稽核記錄。 開啟 Log Analytics 工作區，然後在 [一般] 區段下，按一下 [記錄]。 您可以從簡單的查詢開始，例如：「搜尋 "SQLSecurityAuditEvents"」以檢視稽核記錄。
-    從這裡，您也可以使用 [Log Analytics](../log-analytics/log-analytics-log-search.md)，對您的稽核記錄資料執行進階搜尋。 Log Analytics 可讓您在所有工作負載和伺服器之間，使用整合式搜尋和自訂儀表板輕易地分析數百萬筆記錄，提供您即時的深入操作資訊。 如需 Log Analytics 搜尋語言和命令的其他實用資訊，請參閱 [Log Analytics 搜尋參考](../log-analytics/log-analytics-log-search.md)。
+    從這裡開始，您也可以使用[Azure 監視器記錄](../log-analytics/log-analytics-log-search.md)執行進階的搜尋稽核記錄檔資料。 Azure 監視器記錄檔可讓您輕易地分析數百萬筆記錄，跨所有工作負載和伺服器使用整合式的搜尋和自訂儀表板的即時操作深入資訊。 如需 Azure 監視器的記錄搜尋語言和命令的其他有用資訊，請參閱[Azure 監視器記錄檔搜尋參考](../log-analytics/log-analytics-log-search.md)。
 
 如果您選擇將稽核記錄寫入至事件中樞：
 
 - 若要取用來自事件中樞的稽核記錄資料，您必須設定資料流取用事件並將其寫入至目標。 如需詳細資訊，請參閱 [Azure 事件中樞文件](https://docs.microsoft.com/azure/event-hubs/)。
-- 系統會在 [Apache Avro](http://avro.apache.org/) \(英文\) 事件的主體中擷取事件中樞的稽核記錄，並使用以 UTF-8 編碼方式格式化的 JSON 來儲存。 若要讀取稽核記錄，您可以使用 [Avro Tools](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) 或類似工具來處理這種格式。
+- 系統會在 [Apache Avro](https://avro.apache.org/) \(英文\) 事件的主體中擷取事件中樞的稽核記錄，並使用以 UTF-8 編碼方式格式化的 JSON 來儲存。 若要讀取稽核記錄，您可以使用 [Avro Tools](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) 或類似工具來處理這種格式。
 
 如果您選擇將稽核記錄寫入至 Azure 儲存體帳戶，您可使用數種方法來檢視記錄：
 
-- 稽核記錄會在您於設定期間選擇的帳戶中彙總。 您可以使用工具 (例如 [Azure 儲存體總管](http://storageexplorer.com/)) 來查看稽核記錄。 在 Azure 儲存體中，稽核記錄是以 Blob 檔案集合的方式儲存在名為 **sqldbauditlogs** 的容器內。 如需有關儲存體資料夾階層、命名慣例、記錄格式的進一步詳細資訊，請參閱 [Blob 稽核記錄格式參考](https://go.microsoft.com/fwlink/?linkid=829599)。
+- 稽核記錄會在您於設定期間選擇的帳戶中彙總。 您可以使用工具 (例如 [Azure 儲存體總管](https://storageexplorer.com/)) 來查看稽核記錄。 在 Azure 儲存體中，稽核記錄是以 Blob 檔案集合的方式儲存在名為 **sqldbauditlogs** 的容器內。 如需有關儲存體資料夾階層、命名慣例、記錄格式的進一步詳細資訊，請參閱 [Blob 稽核記錄格式參考](https://go.microsoft.com/fwlink/?linkid=829599)。
 
 - 使用 [Azure 入口網站](https://portal.azure.com)。  開啟相關的資料庫。 在資料庫的 [稽核] 頁面頂端，按一下 [檢視稽核記錄]。
 
@@ -158,8 +160,8 @@ ms.locfileid: "56339782"
 
     4. 合併的檔案會在 SSMS 中開啟，您可以在其中檢視和分析該檔案，以及將其匯出至 XEL 或 CSV 檔案，或是匯出至資料表。
 
-- 使用 Power BI。 您可以在 Power BI 中檢視和分析稽核記錄資料。 如需詳細資訊，以及若要存取可下載的範本，請參閱 [Analyzie audit log data in Power BI](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/) (在 Power BI 中分析稽核記錄資料)。
-- 透過入口網站或使用工具 (例如 [Azure 儲存體總管](http://storageexplorer.com/)) 從 Azure 儲存體 Blob 容器下載記錄檔。
+- 使用 Power BI。 您可以在 Power BI 中檢視和分析稽核記錄資料。 如需詳細資訊，以及若要存取可下載的範本，請參閱 [Analyzie audit log data in Power BI](https://blogs.msdn.microsoft.com/azuresqldbsupport/20../../sql-azure-blob-auditing-basic-power-bi-dashboard/) (在 Power BI 中分析稽核記錄資料)。
+- 透過入口網站或使用工具 (例如 [Azure 儲存體總管](https://storageexplorer.com/)) 從 Azure 儲存體 Blob 容器下載記錄檔。
   - 在您將記錄檔下載到本機之後，按兩下檔案，以在 SSMS 中開啟、檢視及分析記錄。
   - 您也可以透過 Azure 儲存體總管同時下載多個檔案。 若要執行這項作業，請以滑鼠右鍵按一下特定子資料夾，然後選取 [另存新檔] 儲存在本機資料夾。
 
@@ -168,8 +170,8 @@ ms.locfileid: "56339782"
   - 下載多個檔案或包含記錄檔的子資料夾後，可以在本機合併這些檔案，如先前所述的 SSMS 合併稽核檔案指示中所述。
   - 以程式設計方式檢視 Blob 稽核記錄：
 
-    - 使用[擴充事件讀取器](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/) C# 程式庫。
-    - 使用 PowerShell [查詢擴充事件檔案](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/)。
+    - 使用[擴充事件讀取器](https://blogs.msdn.microsoft.com/extended_events/20../../introducing-the-extended-events-reader/) C# 程式庫。
+    - 使用 PowerShell [查詢擴充事件檔案](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/)。
 
 ## <a id="subheading-5"></a>實際作法
 
@@ -187,7 +189,7 @@ ms.locfileid: "56339782"
     >[!IMPORTANT]
     >使用資料庫層級稽核時，次要資料庫的儲存體設定將會和主要資料庫上的設定完全相同，這會導致跨地區流量。 建議您只啟用伺服器層級稽核，並讓所有資料庫的資料庫層級稽核保留在停用狀態。
     > [!WARNING]
-    > 目前，次要異地複寫資料庫不支援使用事件中樞或 Log Analytics 作為伺服器層級的稽核記錄目標。
+    > 使用事件中樞或 Azure 監視器記錄檔為目標的伺服器層級的稽核記錄是目前不支援異地複寫的次要資料庫。
 
 ### <a id="subheading-6">儲存體金鑰重新產生</a>
 
@@ -228,35 +230,35 @@ ms.locfileid: "56339782"
 
 **PowerShell Cmdlet (包含其他篩選的 WHERE 子句支援)**：
 
-- [建立或更新資料庫 Blob 稽核原則 (Set-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
-- [建立或更新伺服器 Blob 稽核原則 (Set-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
+- [建立或更新資料庫稽核原則 (設定 AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
+- [建立或更新伺服器稽核原則 (設定 AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
 - [取得資料庫稽核原則 (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
-- [取得伺服器 Blob 稽核原則 (Get-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
+- [取得伺服器稽核原則 (Get AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
 
 如需指令碼範例，請參閱[使用 PowerShell 設定稽核與威脅偵測](scripts/sql-database-auditing-and-threat-detection-powershell.md)。
 
 ## <a id="subheading-9"></a>使用 REST API 管理 SQL 資料庫稽核
 
-**REST API - Blob 稽核**：
+**REST API**：
 
-- [建立或更新資料庫 Blob 稽核原則](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
-- [建立或更新伺服器 Blob 稽核原則](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
-- [取得資料庫 Blob 稽核原則](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
-- [取得伺服器 Blob 稽核原則](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
+- [建立或更新資料庫稽核原則](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
+- [建立或更新伺服器稽核原則](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [取得資料庫稽核原則](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
+- [取得伺服器稽核原則](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 具有 WHERE 子句而可支援其他篩選的擴充原則：
 
-- [建立或更新資料庫「擴充的」Blob 稽核原則](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
-- [建立或更新伺服器「擴充的」Blob 稽核原則](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
-- [取得資料庫「擴充的」Blob 稽核原則](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
-- [取得伺服器「擴充的」Blob 稽核原則](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
+- [建立或更新資料庫*擴充*稽核原則](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+- [建立或更新伺服器*擴充*稽核原則](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [取得資料庫*擴充*稽核原則](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
+- [取得伺服器*擴充*稽核原則](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 ## <a id="subheading-10"></a>使用 ARM 範本管理 SQL 資料庫稽核
 
 您可以使用 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 範本來管 Azure SQL 資料庫，如下列範例所示：
 
 - [部署啟用稽核的 Azure SQL Server 以將稽核記錄寫入至 Azure Blob 儲存體帳戶](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage) \(英文\)
-- [部署啟用稽核的 Azure SQL Server 以將稽核記錄寫入 Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
+- [部署 Azure SQL Server 以啟用稽核來稽核記錄寫入 Azure 監視器的記錄](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
 - [部署啟用稽核的 Azure SQL Server 以將稽核記錄寫入事件中樞](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
 
 <!--Anchors-->

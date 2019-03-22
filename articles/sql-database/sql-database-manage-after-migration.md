@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 148dff16d56755755f71e24e658e29c116ac5df1
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 2b8c35450ab4586f619993aeb9a578c83cafc0c6
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417630"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57216929"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>雲端中的新 DBA - 在 Azure SQL Database 中管理您的單一和集區資料庫
 
@@ -253,17 +253,17 @@ SQL Azure 平台會分析伺服器中不同資料庫的使用量歷程記錄，�
 
 #### <a name="dynamic-management-views"></a>動態管理檢視
 
-您可以查詢 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 動態管理檢視，以傳回過去一小時的資源耗用量統計資料歷程記錄，而查詢 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 系統目錄檢視，可傳回過去 14 天的歷程記錄。
+可以查询 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 动态管理视图，以返回最近一个小时的资源使用统计信息历史记录，也可以查询 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 系统目录视图，返回过去 14 天的历史记录。
 
-#### <a name="query-performance-insight"></a>查詢效能深入解析
+#### <a name="query-performance-insight"></a>Query Performance Insight
 
 [查詢效能深入解析](sql-database-query-performance.md)可讓您針對特定的資料庫，查看前幾名資源耗用查詢和長時間執行查詢的歷程記錄。 您可以依資源使用量、期間和執行頻率快速識別排名最前面的查詢。 您可以追蹤查詢並偵測迴歸。 這項功能需要啟用[查詢存放區](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)，而且對資料庫有作用。
 
 ![查詢效能深入解析](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-#### <a name="azure-sql-analytics-preview-in-log-analytics"></a>Log Analytics 中的 Azure SQL 分析 (預覽)
+#### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Azure SQL 分析 （預覽） 中 Azure 監視器記錄檔
 
-[Azure Log Analytics](../azure-monitor/insights/azure-sql.md) 可讓您收集和視覺化主要的 Azure SQL Azure 效能計量，每個工作區最多支援 150,000 個 SQL Database 和 5,000 個彈性集區。 您可以使用它來監視和收到通知。 您可以監視跨多個 Azure 訂用帳戶和彈性集區的 SQL Database 和彈性集區計量，並可用來識別應用程式堆疊的各層問題。
+[Azure 監視器記錄](../azure-monitor/insights/azure-sql.md)可讓您收集和視覺化主要的 Azure SQL Azure 效能計量，最多支援 150,000 個 SQL Database 和 5,000 個 SQL 彈性集區，每個工作區。 您可以使用它來監視和收到通知。 您可以監視跨多個 Azure 訂用帳戶和彈性集區的 SQL Database 和彈性集區計量，並可用來識別應用程式堆疊的各層問題。
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>我注意到效能問題：我的 SQL Database 和 SQL Server 疑難排解方法有何不同
 

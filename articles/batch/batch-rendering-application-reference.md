@@ -2,16 +2,17 @@
 title: 使用轉譯應用程式 - Azure Batch
 description: 如何透過 Azure Batch 使用轉譯應用程式
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4c7fdbfcc34cdb6e10177d50bea707f1fa5f223e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 4c93abdfb5c523d48ce115ed7d3251a346937f5f
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53534745"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57789585"
 ---
 # <a name="rendering-applications"></a>轉譯應用程式
 
@@ -58,7 +59,7 @@ ms.locfileid: "53534745"
 
 ### <a name="task-command-line"></a>工作命令列
 
-在工作命令列中會使用 `renderer.exe` 命令列轉譯器。 命令列轉譯器的相關資訊載於 [Maya 說明中](http://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4)。
+在工作命令列中會使用 `renderer.exe` 命令列轉譯器。 命令列轉譯器的相關資訊載於 [Maya 說明中](https://help.autodesk.com/view/MAYAUL/2018/ENU/?guid=GUID-EB558BC0-5C2B-439C-9B00-F97BCB9688E4)。
 
 在下列範例中，會使用作業準備工作將場景檔案和資產複製到作業準備工作目錄、使用輸出資料夾來儲存轉譯的映像，並轉譯畫面格 10。
 

@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 1/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: abf1ed8e06bf9f78c7df07194567ffb5bfdc2709
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7aa0e11ed47219829830369d17b300270d3fbffb
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842714"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259409"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務在 FPGA 上將模型部署為 Web 服務
 
@@ -45,10 +45,6 @@ ms.locfileid: "57842714"
     ```shell
     pip install "tensorflow==1.10"
     ```
-
-### <a name="get-the-notebook"></a>取得 Notebook
-
-為了方便起見，此教學課程以 Jupyter Notebook 形式提供。 請遵循以下程式碼或執行[快速入門筆記本](https://github.com/Azure/aml-real-time-ai/blob/master/notebooks/project-brainwave-quickstart.ipynb)。
 
 ## <a name="create-and-deploy-your-model"></a>建立及部署您的模型
 建立管線，以在前置處理輸入的映像，使其使用 ResNet 50 FPGA 上, 一項功能，並再跑 ImageNet 資料集上定型分類器的功能。

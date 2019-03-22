@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: 6907382fccaa463fe305ac5049b3858e59b8631b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fa1f90cf0236a589d1df96658c672a555195be6b
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991390"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888809"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>使用 Azure PowerShell 管理 Azure DNS 中的 DNS 記錄和記錄集
 
@@ -238,7 +238,7 @@ $recordsets = Get-AzDnsRecordSet -Zone $zone
 Get-AzDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Add-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet
 ```
 
-上述範例顯示如何將 'A' 記錄新增至類型 'A' 的現有記錄集。 作業的類似序列也可用來將記錄新增至其他類型的記錄集，可透過每一個記錄類型專屬的其他變數取代 `Add-AzDnsRecordConfig` 的 `-Ipv4Address` 變數。 每個記錄類型的參數對 `New-AzDnsRecordConfig`cmdlet 而言是相同的，如以上[其他記錄類型範例](#additional-record-type-examples)所示。
+上述範例顯示如何將 'A' 記錄新增至類型 'A' 的現有記錄集。 作業的類似序列也可用來將記錄新增至其他類型的記錄集，可透過每一個記錄類型專屬的其他變數取代 `Add-AzDnsRecordConfig` 的 `-Ipv4Address` 變數。 每個記錄類型的參數對 `New-AzDnsRecordConfig` Cmdlet 而言是相同的，如以上「其他記錄類型範例」所示。
 
 類型 'CNAME' 或 'SOA' 的記錄集不能包含多個記錄。 這個條件是起因於 DNS 標準。 而非 Azure DNS 的限制。
 
@@ -272,7 +272,7 @@ Get-AzDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyR
 Get-AzDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Remove-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet
 ```
 
-藉由將特定類型的適當參數傳遞至 `Remove-AzDnsRecordSet`，以支援不同的記錄類型。 每個記錄類型的參數對 `New-AzDnsRecordConfig`cmdlet 而言是相同的，如以上[其他記錄類型範例](#additional-record-type-examples)所示。
+藉由將特定類型的適當參數傳遞至 `Remove-AzDnsRecordSet`，以支援不同的記錄類型。 每個記錄類型的參數對 `New-AzDnsRecordConfig` Cmdlet 而言是相同的，如以上「其他記錄類型範例」所示。
 
 
 ## <a name="modify-an-existing-record-set"></a>修改現有記錄集

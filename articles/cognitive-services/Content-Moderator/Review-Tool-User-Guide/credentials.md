@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: f3138a9d0fe201a9486c34c08b8cdb3cca47e1d7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 0da6b6b0fef0f998e20789253b2a65c54121532c
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207542"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260004"
 ---
 # <a name="manage-content-moderator-service-credentials"></a>管理 Content Moderator 服務認證
 
@@ -61,7 +61,7 @@ ms.locfileid: "55207542"
 
 第一個部分列出您的**審查 API 端點**、**小組識別碼** 和 **Ocp-Apim-Subscription-Key (Content Moderator 試用金鑰)** (在建立審核小組的過程中產生)。 使用它們來呼叫所有 Content Moderator API，包括審核 API。
 
-此外，記下您 API 端點的區域識別碼。 例如 **uswest** 是 "https://westus.api.cognitive.microsoft.com/contentmoderator/review/v1.0" 中的區域
+此外，記下您 API 端點的區域識別碼。 例如， **westus**是中的區域 「 https:\//westus.api.cognitive.microsoft.com/contentmoderator/review/v1.0"
 
 ![審查工具中的 Content Moderator 金鑰](images/credentials-trialkey.PNG)
 

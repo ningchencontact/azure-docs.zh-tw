@@ -5,14 +5,14 @@ author: ganganarayanan
 ms.author: gangan
 ms.date: 1/31/2017
 ms.topic: article
-ms.service: microsoft-docs
+ms.service: azure
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-ms.openlocfilehash: c3557d54b9fb3fd0173eec1e327050ac7cc80fc2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: HT
+ms.openlocfilehash: d98d0637c6d520193b11f4267c59016772ef063a
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31392896"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792475"
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>使用 Azure 角色型存取控制 (RBAC) 控制建立及管理支援要求的存取權
 
@@ -20,7 +20,7 @@ ms.locfileid: "31392896"
 Azure 入口網站 ([portal.azure.com](https://portal.azure.com)) 中建立支援要求的功能是使用 Azure 的 RBAC 模型來定義可以建立及管理支援要求的人員。
 在訂用帳戶、資源群組和應用程式等特定範圍，將適當的 RBAC 角色指派給使用者、群組和應用程式，即可授與存取權。
 
-我們來看一個範例：您是資源群組擁有者，且擁有訂用帳戶範圍讀取權限，您可以管理資源群組中的所有資源，如網站、虛擬機器，以及子網路。
+讓我們來看一個範例：為具有訂用帳戶範圍的讀取權限的資源群組擁有者，您可以管理下的資源群組，例如網站、 虛擬機器和子網路的所有資源。
 不過，當您嘗試建立虛擬機器資源的支援要求時，會遇到錯誤如下
 
 ![訂用帳戶錯誤](./media/create-manage-support-requests-using-access-control/subscription-error.png)

@@ -13,18 +13,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: db6646c2066be940b2c058653fe8f2ceb9bff3a2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 30cd77799837f9b1ef08a9c609e518fd679b9b15
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169693"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871417"
 ---
 # <a name="live-event-latency-in-media-services"></a>媒體服務中的實況活動延遲
 
 本文說明如何在[實況活動](https://docs.microsoft.com/rest/api/media/liveevents)上設定低延遲。 它也會討論您在各種播放器中使用低延遲設定時會看到的典型結果。 結果會隨著 CDN 和網路延遲而有所不同。
 
-若要使用新的 **LowLatency** 功能，您可以在 **LiveEvent** 上將 **StreamOptionsFlag** 設定為 **LowLatency**。 在建立 [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) 以便播放 HLS 時，請將 [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) 設定為 1。 啟動並執行資料流後，您可以使用 [Azure 媒體播放器](http://ampdemo.azureedge.net/) (AMP 示範頁面)，並將播放選項設定為使用 [低延遲啟發學習法設定檔]。
+若要使用新的 **LowLatency** 功能，您可以在 **LiveEvent** 上將 **StreamOptionsFlag** 設定為 **LowLatency**。 在建立 [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) 以便播放 HLS 時，請將 [LiveOutput.Hls.fragmentsPerTsSegment](https://docs.microsoft.com/rest/api/media/liveoutputs/create#hls) 設定為 1。 啟動並執行資料流後，您可以使用 [Azure 媒體播放器](https://ampdemo.azureedge.net/) (AMP 示範頁面)，並將播放選項設定為使用 [低延遲啟發學習法設定檔]。
 
 > [!NOTE]
 > 目前，Azure 媒體播放器中的 LowLatency HeuristicProfile 是設計為播放使用 DASH 通訊協定或 HLS (搭配 CMAF) 的資料流。 如果您鎖定透過 HLS (搭配 TS) 的 MacOS 或 iOS 裝置 (例如 `format=m3u8-aapl` 或 `format=m3u8-aapl-v3`)，則請勿使用此設定，因為在這種情況下，AMP 會直接使用作業系統所提供的原生播放程式。

@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: aac59e087ba106bc20d94fea85cb8a3cd9273482
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: d73a43aedde9a88e009ddca1f0363dbcd92e1379
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233067"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080449"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>在 Azure Logic Apps 中根據群組狀態和範圍執行動作
 
@@ -54,7 +54,7 @@ ms.locfileid: "50233067"
 
 1. 請先登入 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a> (如果您尚未登入)。 建立空白邏輯應用程式。
 
-1. 使用下列設定新增**排程 - 週期**觸發程序：**間隔** =「1」，以及**頻率** =「分鐘」
+1. 新增**排程-週期**觸發程序，使用這些設定：**間隔**="1"和**頻率**= 「 分鐘 」
 
    ![設定「排程 - 週期」觸發程序](./media/logic-apps-control-flow-run-steps-group-scopes/recurrence.png)
 
@@ -65,7 +65,7 @@ ms.locfileid: "50233067"
 
    1. 如果您尚未與 Bing 地圖連線，系統會要求您建立連線。
 
-      | 設定 | 值 | 說明 |
+      | 設定 | 值 | 描述 |
       | ------- | ----- | ----------- |
       | 連線名稱 | BingMapsConnection | 為您的連線提供一個名稱。 | 
       | **API 金鑰** | <*your-Bing-Maps-key*> | 輸入您先前收到的 Bing 地圖服務金鑰。 | 
@@ -77,21 +77,22 @@ ms.locfileid: "50233067"
 
       如需這些參數的詳細資訊，請參閱[計算路線](https://msdn.microsoft.com/library/ff701717.aspx)。
 
-      | 設定 | 值 | 說明 |
+      | 設定 | 值 | 描述 |
       | ------- | ----- | ----------- |
       | **導航點 1** | <起點> | 輸入您的路線起點。 | 
       | **導航點 2** | <終點> | 輸入您路線的目的地。 | 
       | **避開** | None | 輸入路線所要避開的項目，例如高速公路、收費站等等。 如需可能使用的值，請參閱[計算路線](https://msdn.microsoft.com/library/ff701717.aspx)。 | 
       | **最佳化** | timeWithTraffic | 選取可將路線最佳化的參數，例如距離、和使用目前交通資訊的時間等等。 此範例會使用此值："timeWithTraffic" | 
-      | **距離單位** | <*your-preference*> | 輸入要計算您路線的距離單位。 此範例會使用此值：「英里」 | 
+      | **距離單位** | <*your-preference*> | 輸入要計算您路線的距離單位。 此範例會使用此值：「 英里 」 | 
       | **行進模式** | 開車 | 輸入路線的旅行模式。 此範例會使用此值：「開車」 | 
       | **運輸日期時間** | None | 僅適用於運輸模式。 | 
       | **運輸日期類型** | None | 僅適用於運輸模式。 | 
       ||||  
 
-1. [新增條件](../logic-apps/logic-apps-control-flow-conditional-statement.md)以檢查目前交通下的旅行時間是否超過指定時間。 針對此範例，請遵循下列步驟：
+1. [新增條件](../logic-apps/logic-apps-control-flow-conditional-statement.md)以檢查目前交通下的旅行時間是否超過指定時間。 
+   針對此範例，請遵循下列步驟：
 
-   1. 以此描述重新命名條件：**如果交通時間超過指定時間**
+   1. 以下列描述為條件重新命名：**如果流量時間超過指定的時間**
 
    1. 在最左邊的資料行中，按一下 [選擇值] 方塊，即可顯示動態內容清單。 從清單中，選取 [旅行期間交通] 欄位 (以秒為單位)。 
 
@@ -99,13 +100,14 @@ ms.locfileid: "50233067"
 
    1. 在中間的方塊中，選取此運算子：**大於**
 
-   1. 在最右邊的資料行中輸入此比較值，也就是等於 10 分鐘的秒數：**600**
+   1. 在右側的資料行中，輸入此比較值，也就是對等項目為 10 分鐘與秒：**600**
 
       當您完成時，您的條件看起來就像下面這個範例︰
 
       ![已完成的條件](./media/logic-apps-control-flow-run-steps-group-scopes/finished-condition.png)
 
-1. 在 [若為 true] 分支中，新增適用於您電子郵件提供者的「傳送電子郵件」動作。 請遵循此影像下的步驟來設定此動作：
+1. 在 [若為 true] 分支中，新增適用於您電子郵件提供者的「傳送電子郵件」動作。 
+   請遵循此影像下的步驟來設定此動作：
 
    ![將「傳送電子郵件」動作新增至「若為 true」分支](./media/logic-apps-control-flow-run-steps-group-scopes/send-email.png)
 
@@ -124,7 +126,7 @@ ms.locfileid: "50233067"
    1. 在動態內容清單中，選擇 [運算式]。
 
    1. 尋找並選取 **div( )** 函式。 
-   將游標置於函式的括號內。
+      將游標置於函式的括號內。
 
    1. 當游標位於函式的括號內時，選擇 [動態內容]，動態內容清單會隨即顯示。 
    
@@ -144,11 +146,11 @@ ms.locfileid: "50233067"
 
    1. 完成時，選擇 [確定]。
 
-  1. 解析運算式之後，新增下列文字，並加上前置空格：``` minutes```
+   1. 解析運算式之後，加入下列文字空格： ``` minutes```
   
-     您的 [內文] 欄位現在看起來就像下面這個範例︰
+       您的 [內文] 欄位現在看起來就像下面這個範例︰
 
-     ![完成的 [內文] 欄位](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+       ![完成的 [內文] 欄位](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
 
 1. 儲存您的邏輯應用程式。
 

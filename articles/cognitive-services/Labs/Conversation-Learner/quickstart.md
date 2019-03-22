@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 0990ae2c21017c0d6ff25478eb4b5e3bfb4f0d11
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 743b4d4888738579a023e879dc7b6e95cd23ccc7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251430"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994363"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>如何使用 Node.js 建立對話學習模組模型
 
@@ -33,7 +33,7 @@ ms.locfileid: "55251430"
   
 - LUIS 撰寫金鑰：
 
-  1. 登入 [http://www.luis.ai](http://www.luis.ai)。
+  1. 登入 [https://www.luis.ai](https://www.luis.ai)。
 
   2. 按一下右上角的名稱，然後按一下 [設定]
 
@@ -78,35 +78,35 @@ ms.locfileid: "55251430"
 
     這會執行 `cl-bot-01/src/app.ts` 中的一般空白 Bot。
 
-3. 將瀏覽器開啟至 http://localhost:3978
+3. 將瀏覽器開啟至 `http://localhost:3978`
 
 您現在正在使用對話學習模組，並且可以建立及教導對話學習模組模型。  
 
 > [!NOTE]
-> 在啟動時，專案對話學習模組可透過邀請供您使用。  如果 http://localhost:3978/ui 顯示 HTTP `403` 錯誤，這表示您的帳戶尚未獲得邀請。  請[申請邀請](https://aka.ms/conversation-learner-request-invite)。
+> 在啟動時，專案對話學習模組可透過邀請供您使用。  如果 `http://localhost:3978/ui` 顯示 HTTP `403` 錯誤，這表示您的帳戶尚未獲得邀請。  請[申請邀請](https://aka.ms/conversation-learner-request-invite)。
 
 ## <a name="tutorials-demos-and-switching-between-bots"></a>教學課程、示範以及在 Bot 之間切換
 
 上述指示啟動了一般空白 Bot。  若要改為執行教學課程或示範 Bot：
 
-1. 如果您已開啟對話學習模組 Web UI，請返回位於 http://localhost:3978/ui/home 的模型清單。
+1. 如果您已開啟對話學習模組 Web UI，請返回位於 `http://localhost:3978/ui/home` 的模型清單。
     
 2. 如果正在執行另一個 Bot (如 `npm start` 或 `npm run demo-pizza`)，請將其停止。  您不需要停止 UI 處理序，或關閉網頁瀏覽器。
 
 3. 從命令列執行示範 Bot (上述的步驟 2)。  示範包括：
 
-  ```bash
-  npm run tutorial-general
-  npm run tutorial-entity-detection
-  npm run tutorial-session-callbacks
-  npm run tutorial-api-calls
-  npm run tutorial-hybrid
-  npm run demo-password
-  npm run demo-pizza
-  npm run demo-storage
-  ```
+   ```bash
+   npm run tutorial-general
+   npm run tutorial-entity-detection
+   npm run tutorial-session-callbacks
+   npm run tutorial-api-calls
+   npm run tutorial-hybrid
+   npm run demo-password
+   npm run demo-pizza
+   npm run demo-storage
+   ```
 
-4. 如果您尚未開啟，請在 Chrome 中載入 http://localhost:3978/ui/home，以切換到對話學習模組 Web UI。 
+4. 如果您尚未開啟，請在 Chrome 中載入 `http://localhost:3978/ui/home`，以切換到對話學習模組 Web UI。 
 
 5. 按一下 [匯入教學課程]，並選取對話學習模組 UI 中與您所啟動的示範相對應的示範模型。
 
@@ -114,7 +114,7 @@ ms.locfileid: "55251430"
 
 ## <a name="create-a-bot-which-includes-back-end-code"></a>建立包括後端程式碼的 Bot
 
-1. 如果您已開啟對話學習模組 Web UI，請返回位於 http://localhost:3978/ui/home 的模型清單。
+1. 如果您已開啟對話學習模組 Web UI，請返回位於 `http://localhost:3978/ui/home` 的模型清單。
     
 2. 如果正在執行 Bot (如 `npm run demo-pizza`)，請將其停止。  您不需要停止 UI 處理序，或關閉網頁瀏覽器。
 
@@ -127,7 +127,7 @@ ms.locfileid: "55251430"
     npm start
     ```
 
-5. 如果您尚未開啟，請在 Chrome 中載入 http://localhost:3978/ui/home，以切換到對話學習模組 Web UI。 
+5. 如果您尚未開啟，請在 Chrome 中載入 `http://localhost:3978/ui/home`，以切換到對話學習模組 Web UI。 
 
 6. 在 UI 中建立新的對話學習模組模型，並開始進行教導。
 

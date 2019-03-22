@@ -7,23 +7,23 @@ services: microsoft-genomics
 author: ruchir
 editor: jasonwhowell
 ms.author: ruchir
-ms.service: microsoft-genomics
+ms.service: genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 10/29/2018
-ms.openlocfilehash: 2c10259e4b9fa180d09ceef0359e7ec99e8200b1
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
-ms.translationtype: HT
+ms.openlocfilehash: 78084e6beac7b390b1ea1afe888030c5224856b6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239894"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078052"
 ---
 # <a name="troubleshooting-guide"></a>疑難排解指南
 
 以下是使用 Microsoft Genomics 服務 (MSGEN) 時，可能發生之一些常見問題的疑難排解祕訣。
 
  如需與疑難排解不相關的常見問題集，請參閱[常見問題](frequently-asked-questions-genomics.md)。
-## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>步驟 1：尋找與工作流程相關聯的錯誤碼
+## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>步驟 1：找出與工作流程關聯的錯誤碼
 
 您可以透過下列方式，找到與工作流程相關聯的錯誤訊息：
 
@@ -73,8 +73,8 @@ msgen status -u URL -k KEY -w ID
                 Bases Processed : 1,348,613,600 (1 GBase)
         ```
 
- > [!NOTE]
- >  您也可以包含設定檔的路徑，而非直接輸入 URL 和 KEY。 如果您在命令列和設定檔中包含這些引數，命令列引數將具有優先權。  
+  > [!NOTE]
+  >  您也可以包含設定檔的路徑，而非直接輸入 URL 和 KEY。 如果您在命令列和設定檔中包含這些引數，命令列引數將具有優先權。  
 
 若工作識別碼為 1001，且 config.txt 檔案放在與 msgen 可執行檔相同的路徑中，則命令看起來會像這樣：
 
@@ -93,14 +93,14 @@ msgen status -w 1001 -f "config.txt"
 若要進行疑難排解，請檢查 standardoutput.txt 的內容，並記下出現的任何錯誤訊息。
 
 
-## <a name="step-2-try-recommended-steps-for-common-errors"></a>步驟 2：嘗試適用於常見錯誤的建議步驟
+## <a name="step-2-try-recommended-steps-for-common-errors"></a>步驟 2：請嘗試為常見錯誤的建議的步驟
 
 本節簡短說明 Microsoft Genomics 服務 (msgen) 輸出的常見錯誤，以及您可以用來解決那些錯誤的策略。 
 
 Microsoft Genomics 服務 (msgen) 可能擲出下列兩種錯誤：
 
-1. 內部服務錯誤：發生在服務內部，無法藉由修正參數或輸入檔案來解決的錯誤。 有時候重新提交工作流程，可能可以修正這些錯誤。
-2. 輸入錯誤：可藉由使用正確的引數或修正檔案格式來解決的錯誤。
+1. 內部服務錯誤：內部的服務，藉由修正參數或輸入的檔案可能無法解析的錯誤。 有時候重新提交工作流程，可能可以修正這些錯誤。
+2. 輸入的錯誤：使用正確的引數，或修正可解決的錯誤檔案格式。
 
 ### <a name="1-internal-service-errors"></a>1.內部服務錯誤
 
@@ -116,7 +116,7 @@ Microsoft Genomics 服務 (msgen) 可能擲出下列兩種錯誤：
 
 | 檔案類型 | 錯誤碼 | 錯誤訊息                                                                           | 建議的疑難排解步驟                                                                                         |
 |--------------|------------|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| 任意          | 701        | 讀取 [readId] 有 [numberOfBases] 個基底，但限制為 [maxReadLength]           | 此錯誤最常見的原因是檔案毀損而造成兩次讀取串連。 請檢查輸入檔。 |                                |
+| 任意          | 701        | 讀取 [readId] 有 [numberOfBases] 個基底，但限制為 [maxReadLength]           | 此錯誤最常見的原因是檔案毀損而造成兩次讀取串連。 請檢查輸入檔。 |
 | BAM          | 200        |   無法讀取檔案 '[yourFileName]'。                                                                                       | 請檢查 BAM 檔案的格式。 使用正確格式的檔案，再次提交工作流程。                                                                           |
 | BAM          | 201        |  無法讀取 BAM 檔案 [File_name]。                                                                                      |請檢查 BAM 檔案的格式。  使用正確格式的檔案提交工作流程。                                                                            |
 | BAM          | 202        | 無法讀取 BAM 檔案 [File_name]。 檔案太小，且遺漏標頭。                                                                                        | 請檢查 BAM 檔案的格式。  使用正確格式的檔案提交工作流程。                                                                            |
@@ -137,7 +137,7 @@ Microsoft Genomics 服務 (msgen) 可能擲出下列兩種錯誤：
 | FASTQ        | 308        |  FASTQ 讀取錯誤。 兩個讀取都以不同方式回應。 您是否選擇了正確的 FASTQ 檔案？                                                                                       | 請修正 FASTQ 檔案的格式，然後再次提交工作流程。                                                                         |
 |        |       |                                                                                        |                                                                           |
 
-## <a name="step-3-contact-microsoft-genomics-support"></a>步驟 3：連絡 Microsoft Genomics 支援服務
+## <a name="step-3-contact-microsoft-genomics-support"></a>步驟 3：請連絡 Microsoft Genomics 支援服務
 
 如果持續發生作業失敗，或是有任何其他問題，請從 Azure 入口網站連絡 Microsoft Genomics 支援服務。 您可以在[此處](file-support-ticket-genomics.md)找到如何提交支援要求的其他資訊。
 

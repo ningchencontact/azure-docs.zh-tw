@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: ''
+ms.date: 02/02/2019
 ms.author: haroldw
-ms.openlocfilehash: 6a4af0efb14d8ad45add906262ffd2121e8b78d0
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
-ms.translationtype: HT
+ms.openlocfilehash: f94189e8f39771e0c3d7856ccbb8a23ba81d94aa
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085788"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57447269"
 ---
 # <a name="troubleshoot-openshift-deployment-in-azure"></a>針對 Azure 中的 OpenShift 部署進行疑難排解
 
 如果 OpenShift 叢集部署不成功，則 Azure 入口網站會提供錯誤輸出。 輸出可能難以讀取，以致難以找出問題。 快速掃描此輸出中是否有結束代碼 3、4 或 5。 以下提供這三個結束代碼的資訊：
 
-- 結束代碼 3：您的 Red Hat 訂用帳戶使用者名稱 / 密碼或組織識別碼 / 啟用金鑰不正確
-- 結束代碼 4：您的 Red Hat 集區識別碼不正確，或沒有可用的權利
-- 結束代碼 5：無法佈建 Docker 精簡集區磁碟區
+- 結束代碼 3:您的 Red Hat 訂用帳戶使用者名稱 / 密碼或組織識別碼 / 啟用金鑰不正確
+- 結束代碼 4:您的 Red Hat 集區識別碼不正確，或沒有可用的權利
+- 結束代碼 5:無法佈建 Docker 精簡集區磁碟區
 
 對於所有其他結束代碼，透過 ssh 連線到主機以檢視記錄檔。
 

@@ -16,25 +16,25 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: bbd73035993d3a981744eb5377fe0bf2c9d55b63
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 92f9fcc8a10f90c0886667f33f3c7d4dec09bc8e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268850"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884671"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>佈建適用於 Linux (Ubuntu) 的資料科學虛擬機器
 
 適用於 Linux 的資料科學虛擬機器是以 Ubuntu 為基礎的虛擬機器映像，可幫助您在 Azure 上輕鬆展開機器學習，包括深度學習。 深入學習工具包含：
 
-  * [Caffe](http://caffe.berkeleyvision.org/):一種深入學習架構，講求速度、表現度及模組化
+  * [Caffe](https://caffe.berkeleyvision.org/):一種深入學習架構，講求速度、表現度及模組化
   * [Caffe2](https://github.com/caffe2/caffe2):Caffe 的跨平台版本
   * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK)：來自 Microsoft Research 的深度學習軟體工具組
   * [H2O](https://www.h2o.ai/)：開放原始碼巨量資料平台和圖形化使用者介面
   * [Keras](https://keras.io/)：以 Python 撰寫、適用於 TensorFlow、Microsoft Cognitive Toolkit 及 Theano 的高層級神經網路 API
-  * [MXNet](http://mxnet.io/)：彈性、有效率的深入學習程式庫，包含許多語言繫結
+  * [MXNet](https://mxnet.io/)：彈性、有效率的深入學習程式庫，包含許多語言繫結
   * [NVIDIA DIGITS](https://developer.nvidia.com/digits)：一種圖形化系統，可簡化常見的深入學習工作
-  * [PyTorch](http://pytorch.org/)：高層級的 Python 程式庫，支援動態網路
+  * [PyTorch](https://pytorch.org/)：高層級的 Python 程式庫，支援動態網路
   * [TensorFlow](https://www.tensorflow.org/)：Google 提供的機器智慧開放原始碼程式庫
   * [Theano](http://deeplearning.net/software/theano/)：一種 Python 程式庫，可定義、最佳化和有效地評估涉及多維陣列的數學運算式
   * [Torch](http://torch.ch/)：廣泛支援機器學習演算法的科學運算架構
@@ -120,7 +120,7 @@ Linux 適用的資料科學虛擬機器可以大幅減輕這樣的負擔。 使�
 
 ### <a name="ssh"></a>SSH
 
-建立 VM 之後，您就可以使用 SSH 登入。 針對文字殼層介面，使用您在步驟 3 的 **基本** 區段中建立的帳戶認證。 在 Windows 上，您可以下載 SSH 用戶端工具，例如 [Putty](http://www.putty.org)。 如果您偏好圖形化桌面 (X Windows 系統)，您可以在 Putty 上使用 X11 轉寄或安裝 X2Go 用戶端。
+建立 VM 之後，您就可以使用 SSH 登入。 針對文字殼層介面，使用您在步驟 3 的 **基本** 區段中建立的帳戶認證。 在 Windows 上，您可以下載 SSH 用戶端工具，例如 [Putty](https://www.putty.org)。 如果您偏好圖形化桌面 (X Windows 系統)，您可以在 Putty 上使用 X11 轉寄或安裝 X2Go 用戶端。
 
 > [!NOTE]
 > 在測試中，X2Go 用戶端的效能優於 X11 轉寄。 我們建議您使用 X2Go 用戶端作為圖形化桌面介面。
@@ -130,7 +130,7 @@ Linux 適用的資料科學虛擬機器可以大幅減輕這樣的負擔。 使�
 ### <a name="x2go"></a>X2Go
 Linux VM 已經佈建了 X2Go 伺服器，並準備接受用戶端連接。 若要連線到 Linux VM 圖形化桌面，請在用戶端上完成下列程序：
 
-1. 從 [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient)下載並安裝您用戶端平台適用的 X2Go 用戶端。    
+1. 從 [X2Go](https://wiki.x2go.org/doku.php/doc:installation:x2goclient)下載並安裝您用戶端平台適用的 X2Go 用戶端。    
 1. 執行 X2Go 用戶端，然後選取 [新增工作階段] 。 會開啟具有多個索引標籤的組態視窗。 輸入下列組態參數︰
    * **[工作階段] 索引標籤**：
      * **主機**：「Linux 資料科學 VM」的主機名稱或 IP 位址。
@@ -205,7 +205,7 @@ R 是其中一種最受歡迎的資料分析和機器學習語言。 如果您�
 
 若要啟動 R 主控台，您只需在殼層中輸入 **R**。 這會帶您前往互動式環境。 若要開發 R 程式，您通常會使用編輯器 (例如 Emacs 或 vi)，然後在 R 內執行指令碼。使用 RStudio，您就會有完整的圖形化整合式開發環境 (IDE) 來開發 R 程式。
 
-如果您想要的話，另外也會有 R 指令碼讓您安裝[最熱門的 20 個 R 套件](http://www.kdnuggets.com/2015/06/top-20-r-packages.html)。 當您位於 R 互動式介面 (在殼層中輸入 **R** (如上所述)，即可進入) 時，就可以執行這個指令碼。  
+如果您想要的話，另外也會有 R 指令碼讓您安裝[最熱門的 20 個 R 套件](https://www.kdnuggets.com/2015/06/top-20-r-packages.html)。 當您位於 R 互動式介面 (在殼層中輸入 **R** (如上所述)，即可進入) 時，就可以執行這個指令碼。  
 
 ### <a name="python"></a>Python
 Anaconda Python 是隨著 Python 2.7 和 3.5 環境一起安裝。 2.7 環境稱為 _root_，而 3.5 環境稱為 _py35_。 這個散發套件包含基本的 Python 以及大約 300 個最受歡迎的數學運算、工程設計和資料分析封裝。 
@@ -271,12 +271,12 @@ Apache Spark 的獨立執行個體已預先安裝在 Linux DSVM，可協助您�
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-您可以在不需要它們時停止 Hadoop 相關服務，方法是執行 ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn``` 示範如何在遠端 Spark 內容中開發和測試 MRS (這是 DSVM 上的獨立 Spark 執行個體) 的範例，以及 `/dsvm/samples/MRS` 目錄中的可用項目。 
+您可以停止 Hadoop 相關服務，當您不需要它們執行```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```範例，示範如何在開發和測試 MRS （這是 DSVM 上的獨立 Spark 執行個體） 的遠端 Spark 內容會提供，而且可在`/dsvm/samples/MRS`目錄。 
 
 ### <a name="ides-and-editors"></a>IDE 和編輯器
 您可以選擇數個程式碼編輯器。 這包括 vi/VIM、Emacs、PyCharm、RStudio 和 IntelliJ。 IntelliJ、RStudio 和 PyCharm 是圖形化編輯器，您需要登入圖形化桌面才能使用它們。 這些編輯器有桌面和應用程式功能表的捷徑可以啟動它們。
 
-**VIM** 和 **Emacs** 是文字型編輯器。 在 Emacs 上，我們已安裝稱為 Emacs Speaks Statistics (ESS) 的附加元件封裝，它可以方便於在 Emacs 編輯器中使用 R。 如需詳細資訊，請參閱 [ESS](http://ess.r-project.org/)。
+**VIM** 和 **Emacs** 是文字型編輯器。 在 Emacs 上，我們已安裝稱為 Emacs Speaks Statistics (ESS) 的附加元件封裝，它可以方便於在 Emacs 編輯器中使用 R。 如需詳細資訊，請參閱 [ESS](https://ess.r-project.org/)。
 
 **LaTex** 透過 texlive 封裝與 Emacs 附加元件 [auctex](https://www.gnu.org/software/auctex/manual/auctex/auctex.html) 封裝一起安裝，可簡化 Emacs 內的 LaTex 文件撰寫。  
 

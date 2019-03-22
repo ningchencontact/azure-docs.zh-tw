@@ -1,6 +1,6 @@
 ---
 title: Azure 監視器記錄查詢中的 app() 運算式 |Microsoft Docs
-description: 在 Azure監視器記錄查詢中，app 運算式可用來從相同資源群組、其他資源群組或其他訂用帳戶中的特定 Application Insights 應用程式擷取資料。
+description: 應用程式運算式用於 Azure 監視器記錄檔查詢中，以擷取特定的 Application Insights 應用程式相同的資源群組、 另一個資源群組或另一個訂用帳戶中的資料。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: bwren
-ms.openlocfilehash: 0abe2c869a05d359f692db105eb647f9e6a69df8
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: a1a605bc733597430f64dceeb6c485db0abf657b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56266419"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889449"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Azure 監視器查詢中的 app() 運算式
 
@@ -35,7 +35,7 @@ ms.locfileid: "56266419"
 
 - *識別碼*：使用下表中的其中一個格式來識別應用程式。
 
-| 識別碼 | 說明 | 範例
+| 識別碼 | 描述 | 範例
 |:---|:---|:---|
 | 資源名稱 | 人類可閱讀的應用程式名稱 (也稱為「元件名稱」) | app("fabrikamapp") |
 | 完整名稱 | 使用下列形式的應用程式完整名稱："subscriptionName/resourceGroup/componentName" | app('AI-Prototype/Fabrikam/fabrikamapp') |

@@ -11,25 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d3b0f7cdacfb781ba7925be8146c10919c5269b
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 63bdbeb08872988fb043413f8233281d22423731
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455529"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284743"
 ---
-# <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>預覽：Azure AD 密碼保護內部部署 - 常見問題集
-
-|     |
-| --- |
-| Azure AD 密碼保護是 Azure Active Directory 的公開預覽功能。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD 密碼保護內部部署 - 常見問題集
 
 ## <a name="general-questions"></a>一般問題
-
-**問：Azure AD 密碼保護何時公開上市 (GA)？**
-
-預計在 Q1 CY2019 公開上市 (2019 年 3 月底之前)。 感謝至今每一位提供功能意見反應的你們 - 我們由衷感謝！
 
 **問：使用者可以使用哪些指引來了解如何選取安全密碼？**
 
@@ -44,6 +35,14 @@ ms.locfileid: "56455529"
 **問：如何讓內部部署使用者的子集受益於 Azure AD 密碼保護？**
 
 不支援。 部署並啟用之後，Azure AD 密碼保護會一視同仁，所有使用者都會受惠於相同的安全性優點。
+
+**問：密碼變更和已設定密碼 （或重設） 之間的差異為何？**
+
+密碼變更時，使用者選擇新密碼之後證明他們已經知道舊密碼。 比方說，這是在使用者登入 Windows，而且系統會接著提示選擇新密碼時，會發生什麼事。
+
+（有時稱為 「 密碼重設 」） 已設定密碼時，系統管理員帳戶的密碼以取代新的密碼，例如使用 Active Directory 使用者和電腦 管理工具。 這項作業需要高層級的權限 （通常是網域系統管理員），而且通常執行作業的人員沒有舊密碼的知識。 技術服務人員案例通常這樣做，例如當協助忘記密碼的使用者。 您也會看到 設定事件時正在第一次使用密碼建立全新的使用者帳戶的密碼。
+
+密碼驗證原則的行為相同，不論是否已完成密碼變更或設定。 Azure AD 密碼保護 DC 代理程式服務會記錄不同的事件，通知您是否變更密碼，或設定作業已完成。  請參閱[監視和記錄的 Azure AD 密碼保護](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor)。
 
 **問：是否支援同時安裝 Azure AD 密碼保護與其他密碼篩選產品？**
 
@@ -82,6 +81,10 @@ FRS (DFSR 之前的技術) 有許多已知問題，而且在更新版本的 Wind
 **問：Azure AD 密碼保護 Proxy 服務是否可以與其他服務 (例如 Azure AD Connect) 一起部署？**
 
 是。 Azure AD 密碼保護 Proxy 服務與 Azure AD Connect 之間永遠不會產生直接衝突。
+
+**問：以何種順序應該 DC 代理程式和 proxy 安裝並註冊嗎？**
+
+支援的 Proxy 代理程式安裝、 DC 代理程式安裝、 樹系註冊和 Proxy 註冊的任何排序。
 
 **問：是否應該顧慮到部署此功能時，對網域控制站造成的效能衝擊？**
 

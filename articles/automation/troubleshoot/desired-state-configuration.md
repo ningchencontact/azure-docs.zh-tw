@@ -9,18 +9,38 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 997f332e14fd1accf32d8cc3f51557fe005acab5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: a34dea7e1eb53531db55dc62df8fbad8541f7a35
+ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421637"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56586795"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>針對 Desired State Configuration (DSC) 問題進行疑難排解
 
 本文提供有關針對 Desired State Configuration (DSC) 問題進行疑難排解的資訊。
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>使用 Desired State Configuration (DSC) 時的常見錯誤
+
+### <a name="unsupported-characters"></a>案例：无法从门户删除带有特殊字符的配置
+
+#### <a name="issue"></a>問題
+
+尝试通过门户删除 DSC 配置时，将看到以下错误：
+
+```
+An error occured while deleteing the DSC configuration '<name>'.  Error-details: The arguement configurationName with the value <name> is not valid.  Valid configuration names can contain only letters,  numbers, and underscores.  The name must start with a letter.  The length of the name must be between 1 and 64 characters.
+```
+
+#### <a name="cause"></a>原因
+
+这是一个计划要解决的临时问题。
+
+#### <a name="resolution"></a>解決方案
+
+* 使用 Az Cmdlet "Remove-AzAutomationDscConfiguration" 删除配置。
+* 此 cmdlet 的文档尚未更新。  在此之前，请参阅 AzureRM 模块的文档。
+  * [Remove-AzureRmAutomationDSCConfiguration](https://docs.microsoft.com/en-us/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration?view=azurermps-6.13.0)
 
 ### <a name="failed-not-found"></a>案例：節點處於失敗狀態，並發生「找不到」錯誤
 

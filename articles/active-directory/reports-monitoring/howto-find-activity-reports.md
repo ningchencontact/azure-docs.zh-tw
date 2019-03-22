@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ff5b998222f9a7320384edea1ed69e7a65e9139
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 65e803ca373fb9853fc23d17f1a27ecadc6a209c
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171293"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295210"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>在 Azure 入口網站中尋找活動報告
 
@@ -48,15 +48,46 @@ ms.locfileid: "56171293"
 
 ### <a name="filtering-on-audit-logs"></a>篩選稽核記錄
 
-您可以使用稽核報告中的進階篩選功能來存取特定類別的稽核資料，只要在 [活動類別] 篩選器中指定類別即可。 例如，若要檢視與自助式密碼重設相關的所有活動，可選擇 [自助式密碼管理] 類別。 
+您可以使用進階篩選稽核報告中指定它來存取特定類別的稽核資料**分類**篩選器。 例如，若要檢視與使用者相關的所有活動，請選取**UserManagement**類別目錄。 
 
-活動類別包括︰
+類別包括：
 
+- 全部
+- AdministrativeUnit
+- ApplicationManagement
+- Authentication
+- Authorization
+- 連絡人
+- 裝置
+- DeviceConfiguration
+- DirectoryManagement
+- EntitlementManagement
+- GroupManagement
+- 其他
+- 原則
+- ResourceManagement
+- RoleManagement
+- UserManagement
+
+您也可以篩選特定的服務，使用**服務**下拉式清單中的篩選條件。 例如，若要取得自助式密碼管理相關的所有稽核事件，請選取**自助式密碼管理**篩選器。
+
+各項服務包括：
+
+- 全部
+- 存取權檢閱
+- 帳戶佈建 
+- 應用程式 SSO
+- 驗證方法
+- B2C
+- 條件式存取
 - 核心目錄
-- 自助式密碼管理
+- 權利管理
+- 身分識別保護
+- 受邀的使用者
+- PIM
 - 自助式群組管理
-- 帳戶佈建
-
+- 自助式密碼管理
+- 使用條款
 
 ## <a name="sign-ins-report"></a>登入報告 
 
@@ -122,11 +153,11 @@ ms.locfileid: "56171293"
  
 #### <a name="cause"></a>原因
 
-當您在 Azure 入口網站中下載活動記錄時，我們會將級別限制為 5000 筆記錄，依最新記錄先排序。 
+當您下載活動記錄檔，在 Azure 入口網站中的時，我們將級別限制為 250000 記錄，依最新的第一個排序。 
 
 #### <a name="resolution"></a>解決方案
 
-您可以利用 [Azure AD 報告 API](concept-reporting-api.md) 在任何指定時間點擷取最多一萬筆記錄。 我們建議的方法是[定期執行指令碼](tutorial-signin-logs-download-script.md)，呼叫報告 API 以增量方式來擷取一段時間的記錄 (例如，每天或每週)。 
+您可以利用 [Azure AD 報告 API](concept-reporting-api.md) 在任何指定時間點擷取最多一萬筆記錄。
 
 ### <a name="missing-audit-data-for-recent-actions-in-the-azure-portal"></a>Azure 入口網站中遺漏最近動作的稽核記錄
 

@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 03/12/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bfa9bbb9816148182b79a8231f2ddb3e46433804
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: d5fdae09055f922fe9783f6eb074457af12c60df
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413238"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880410"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>在 Azure 搜尋服務中連結認知服務資源與技能 
 
@@ -60,21 +60,7 @@ ms.locfileid: "54413238"
 
 1. 針對 [建立新的認知服務資源]，會開啟新的索引標籤，以便讓您能夠建立資源。 請為資源提供一個唯一名稱。
 
-1. 選擇與「Azure 搜尋服務」相同的位置。 目前，支援認知技能索引編製功能的區域如下：
-
-  * 美國中西部
-  * 美國中南部
-  * 美國東部
-  * 美國東部 2
-  * 美國西部 2
-  * 加拿大中部
-  * 西歐
-  * 英國南部
-  * 北歐
-  * 巴西南部
-  * 東南亞
-  * 印度中部
-  * 澳洲東部
+1. 如果您建立新的認知服務資源，**選擇相同的區域**與您的 Azure 搜尋服務資源。
 
 1. 選擇多功能定價層 [S0]。 此層提供支援認知搜尋中預先定義之技能的「視覺」和「語言」功能。
 

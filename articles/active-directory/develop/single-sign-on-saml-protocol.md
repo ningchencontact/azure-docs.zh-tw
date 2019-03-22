@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a46bc954d137ad610310d83d3ad7f54370b9177b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d9cb9877015f2cfe61799a56be6490a3f4e2fb60
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184035"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012770"
 ---
 # <a name="single-sign-on-saml-protocol"></a>單一登入 SAML 通訊協定
 
@@ -47,11 +47,11 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 </samlp:AuthnRequest>
 ```
 
-| 參數 |  | 說明 |
+| 參數 |  | 描述 |
 | --- | --- | --- |
-| ID | 必要 | Azure AD 使用這個屬性來填入所傳回回應的 `InResponseTo` 屬性。 識別碼的開頭不能是數字，因此常見的策略是在 GUID 的字串表示法前面加上 "id" 等字串。 例如， `id6c1c178c166d486687be4aaf5e482730` 便是有效的識別碼。 |
-| 版本 | 必要 | 此參數應該設定為 **2.0**。 |
-| IssueInstant | 必要 | 這是具有 UTC 值和 [來回行程格式 ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx)的日期時間字串。 Azure AD 必須要有這種類型的日期時間值，但不會評估或使用此值。 |
+| ID | 必要項 | Azure AD 使用這個屬性來填入所傳回回應的 `InResponseTo` 屬性。 識別碼的開頭不能是數字，因此常見的策略是在 GUID 的字串表示法前面加上 "id" 等字串。 例如， `id6c1c178c166d486687be4aaf5e482730` 便是有效的識別碼。 |
+| 版本 | 必要項 | 此參數應該設定為 **2.0**。 |
+| IssueInstant | 必要項 | 這是具有 UTC 值和 [來回行程格式 ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx)的日期時間字串。 Azure AD 必須要有這種類型的日期時間值，但不會評估或使用此值。 |
 | AssertionConsumerServiceUrl | 選用 | 如果提供，此參數必須符合 Azure AD 中雲端服務的 `RedirectUri`。 |
 | ForceAuthn | 選用 | 這是布林值。 如果為 true，表示即使使用者在 Azure AD 中具有有效的工作階段，也會強制使用者重新驗證。 |
 | IsPassive | 選用 | 這是布林值，指定 Azure AD 是否以無訊息模式驗證使用者，不需要使用者互動，如果有工作階段 cookie 的話則使用此 cookie。 如果是這種情況，Azure AD 會嘗試使用工作階段 cookie 驗證使用者。 |
@@ -82,10 +82,10 @@ Azure AD 也會忽略 `AuthnRequest` 中的 `Conditions` 元素。
 
 如果提供 `NameIDPolicy`，您可以包含其選擇性的 `Format` 屬性。 `Format` 屬性只能有下列其中一個值；其他任何值都會產生錯誤。
 
-* `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`：Azure Active Directory 發出 NameID 宣告來做為成對識別碼。
-* `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`：Azure Active Directory 發出電子郵件地址格式的 NameID 宣告。
-* `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`：這個值允許 Azure Active Directory 選取宣告格式。 Azure Active Directory 發出 NameID 來做為成對識別碼。
-* `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`：Azure Active Directory 發出 NameID 宣告做為隨機產生的值，此值對目前的 SSO 作業來說是唯一值。 這表示此值只是暫時性的，而且不能用來識別驗證的使用者。
+* `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`:Azure Active Directory 發出 NameID 宣告來做為成對識別碼。
+* `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`:Azure Active Directory 發出電子郵件地址格式的 NameID 宣告。
+* `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`:這個值允許 Azure Active Directory 選取宣告格式。 Azure Active Directory 發出 NameID 來做為成對識別碼。
+* `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`:Azure Active Directory 發出 NameID 宣告做為隨機產生的值，此值對目前的 SSO 作業來說是唯一值。 這表示此值只是暫時性的，而且不能用來識別驗證的使用者。
 
 Azure AD 會忽略 `AllowCreate` 屬性。
 
@@ -153,8 +153,8 @@ Azure AD 會忽略 `AuthnRequest` 元素中的 `Subject` 元素。
 
 `Response` 元素包含授權要求的結果。 Azure AD 會設定 `Response` 元素中的 `ID`、`Version` 和 `IssueInstant` 值。 它也會設定下列屬性︰
 
-* `Destination`：當登入順利完成時，這會設定為服務提供者 (雲端服務) 的 `RedirectUri`。
-* `InResponseTo`：這會設定為起始回應的 `AuthnRequest` 元素的 `ID` 屬性。
+* `Destination`:當登入順利完成時，這會設定為服務提供者 (雲端服務) 的 `RedirectUri`。
+* `InResponseTo`:這會設定為起始回應的 `AuthnRequest` 元素的 `ID` 屬性。
 
 ### <a name="issuer"></a>簽發者
 
@@ -170,7 +170,7 @@ Azure AD 會將 `Issuer` 元素設為 `https://login.microsoftonline.com/<Tenant
 
 `Status` 元素會傳遞登入的成功或失敗。 它包含 `StatusCode` 元素，此元素中包含一個代碼或一組巢狀代碼來表示要求的狀態。 它也包含 `StatusMessage` 元素，此元素中包含登入程序期間所產生的自訂錯誤訊息。
 
-<!-- TODO: Add a authentication protocol error reference -->
+<!-- TODO: Add an authentication protocol error reference -->
 
 下列範例是登入嘗試失敗的 SAML 回應。
 
@@ -240,7 +240,7 @@ Azure AD 會簽署判斷提示以回應成功的登入。 `Signature` 元素包�
 
 `NotBefore` 和 `NotOnOrAfter` 屬性會指定判斷提示的有效間隔期間。
 
-* `NotBefore` 屬性值等於或稍微晚於 (不到一秒) `Assertion` 元素的 `IssueInstant` 屬性值。 Azure AD 不會考慮本身與雲端服務 (服務提供者) 之間的任何時間差，而且不會對此時間加上任何緩衝。
+* `NotBefore` 屬性值等於或稍微晚於 (不到一秒) `Assertion` 元素的 `IssueInstant` 屬性值。 Azure AD 不考虑自身与云服务（服务提供者）之间的任何时间差，并且不对此时间添加任何缓冲。
 * `NotOnOrAfter` 屬性值比 `NotBefore` 屬性值晚 70 分鐘。
 
 #### <a name="audience"></a>對象

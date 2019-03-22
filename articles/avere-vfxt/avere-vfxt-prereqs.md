@@ -4,14 +4,14 @@ description: Avere vFXT for Azure 的必要條件
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 9c3301ba16bfaeb7014658a380e287a36a505be8
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 5642f3acd108d0d3f504fc132522936d1b5ab870
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299199"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082580"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>準備建立 Avere vFXT
 
@@ -57,7 +57,7 @@ ms.locfileid: "55299199"
 
 |Azure 元件|Quota|
 |----------|-----------|
-|虛擬機器|3 個或更多 D16s_v3 或 E32s_v3|
+|虛擬機器|3 個或多個 E32s_v3|
 |進階 SSD 儲存體|200 GB 的 OS 空間，外加每個節點 1 TB 到 4 TB 的快取空間 |
 |儲存體帳戶 (選擇性) |v2|
 |資料後端儲存體 (選擇性) |一個新的 LRS Blob 容器 |
@@ -151,6 +151,30 @@ ms.locfileid: "55299199"
    ```
 
 建立叢集時會使用角色名稱。 在此範例中，該名稱為 ``avere-operator``。
+
+## <a name="create-a-storage-service-endpoint-in-your-virtual-network-if-needed"></a>在虛擬網路 （如有需要） 中建立儲存體服務端點
+
+A[服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)保留本機而不是路由虛擬網路外部的 Azure Blob 資料傳輸。 建議您針對任何 Avere vFXT 後, 端資料儲存體使用 Azure Blob 的 Azure 叢集。 
+
+如果您是提供現有的 vnet，並為您的後端儲存體中建立新的 Azure Blob 容器，在叢集建立期間，您必須有 Microsoft 儲存體的 vnet 中的服務端點。 此端點必須存在，才能建立叢集，或建立將會失敗。 
+
+即使稍後新增儲存體使用 Azure Blob 儲存體的 Azure 叢集的任何 Avere vFXT 並建議儲存體服務端點。 
+
+> [!TIP] 
+> * 如果您要在叢集建立期間建立新的虛擬網路，請略過此步驟。 
+> * 這個步驟是選擇性，如果您未在叢集建立期間建立 Blob 儲存體。 在此情況下，您可以建立服務端點稍後如果您決定使用 Azure Blob。
+
+從 Azure 入口網站中建立的儲存體服務端點。 
+
+1. 從入口網站中，按一下左側的 [虛擬網路]。
+1. 選取您的叢集的 vnet。 
+1. 按一下左側的 [服務端點]。
+1. 按一下頂端的 [新增]。
+1. 將做為服務保持``Microsoft.Storage``選擇叢集的子網路。
+1. 在底部按一下 [新增]。
+
+   ![含有建立服務端點之註解的 Azure 入口網站螢幕擷取畫面](media/avere-vfxt-service-endpoint.png)
+
 
 ## <a name="next-step-create-the-vfxt-cluster"></a>下一步：建立 vFXT 叢集
 

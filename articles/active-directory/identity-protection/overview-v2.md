@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e60804e6bdf37607a08b6c530fd900e0f481a45b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2c3543b217339c39ad79c2125afdef8f087a70b3
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204503"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57336681"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>什麼是 Azure Active Directory Identity Protection (已改版)？
 
@@ -58,6 +58,7 @@ Identity Protection 體驗已經過改版，可以更完善地保護組織的身
 
 Azure AD Identity Protection 是 Azure Active Directory Premium P2 功能之一，可讓您設定適當原則，以在使用者的身分識別遭到入侵時，或是帳戶擁有者以外的其他人嘗試使用其身分識別登入時，自動予以回應。 除了 Azure AD 所提供的其他條件式存取控制以外，這些原則還可以自動封鎖存取或起始緩解動作，例如重設密碼或強制執行多重要素驗證。 此外，Identity Protection 也提供監視和報告功能，讓您更深入了解組織中的風險和可能遭受的危害。 
 
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWsS6Q]
 
 
 ## <a name="risk-events"></a>風險事件
@@ -66,7 +67,7 @@ Azure AD Identity Protection 可偵測下列風險事件：
 
  
 
-| 風險事件類型 | 說明 | 偵測類型 |
+| 風險事件類型 | 描述 | 偵測類型 |
 | ---             | ---         | ---            |
 | 非慣用登入位置 | 以使用者最近的登入為準，從非慣用的位置登入。 | 離線 |
 | 匿名 IP 位址 | 從匿名 IP 位址登入 (例如：Tor 瀏覽器、Anonymizer VPN)。 | 即時 |
@@ -211,11 +212,11 @@ Identity Protection 支援 Azure AD 中的 3 種角色，以平衡與您的部�
 
 | 功能 | Azure AD Premium P2 | Azure AD Premium P1 | Azure AD Basic/Free |
 | --- | --- | --- | --- |
-| 使用者風險原則 | yes | 否 | 否 |
-| 登入風險原則 | yes | 否 | 否 |
+| 使用者風險原則 | 是 | 否 | 否 |
+| 登入風險原則 | 是 | 否 | 否 |
 | 具風險使用者報告 | 完整存取 | 有限資訊 | 有限資訊 |
 | 有風險的登入報告 | 完整存取 | 有限資訊 | 有限資訊 |
-| MFA 註冊原則 | yes | 否 | 否 |
+| MFA 註冊原則 | 是 | 否 | 否 |
 
 
 

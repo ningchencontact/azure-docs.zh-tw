@@ -1,6 +1,6 @@
 ---
-title: 部署 Azure AD 密碼保護 (預覽)
-description: 部署 Azure AD 密碼保護預覽，以禁止不正確的密碼在內部部署
+title: 部署 Azure AD 密碼保護
+description: 部署 Azure AD 密碼保護，禁止使用不正確的密碼在內部部署
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 832f29d16e5976493da56b304c3de0288b83c9b6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 54d2d600771316b0a88ea0a2486c0dedd0f84594
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848740"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286528"
 ---
-# <a name="preview-deploy-azure-ad-password-protection"></a>預覽：部署 Azure AD 密碼保護
-
-|     |
-| --- |
-| Azure Active Directory (Azure AD) 密碼保護是 Azure ad 的公開預覽功能。 如需預覽的詳細資訊，請參閱[補充使用條款的 Microsoft Azure 預覽版](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="deploy-azure-ad-password-protection"></a>部署 Azure AD 密碼保護
 
 既然您了解[如何強制執行 Windows Server Active Directory 的 Azure AD 密碼保護](concept-password-ban-bad-on-premises.md)下, 一個步驟是計劃和執行您的部署。
 

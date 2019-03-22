@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f699e40a4a31b6d57b12a43ae307806d3f010015
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: a931b303e40e41bc23e8b586e1d37e600625b1a8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267176"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57881056"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>部署 StorSimple Virtual Array - 透過 Azure 入口網站設定為檔案伺服器
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -129,15 +129,15 @@ ms.locfileid: "54267176"
     ![設定檔案伺服器](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs3m.png)
 3. 按一下命令列上的 [設定]。 這會開啟 [設定] 刀鋒視窗。 在 [設定] 刀鋒視窗中，執行下列動作：
    
-    1. 檔案伺服器名稱會自動填入。
+   1. 檔案伺服器名稱會自動填入。
     
-    2. 請確定雲端儲存體加密已設定為 [已啟用]。 這將會所有傳送至雲端的資料加密。 
+   2. 請確定雲端儲存體加密已設定為 [已啟用]。 這將會所有傳送至雲端的資料加密。 
     
-    3. 256 位元 AES 金鑰與使用者定義的金鑰搭配用來加密。 指定 32 個字元的金鑰，然後重新輸入金鑰來加以確認。 將金鑰記錄在金鑰管理應用程式中，供日後參考。
+   3. 256 位元 AES 金鑰與使用者定義的金鑰搭配用來加密。 指定 32 個字元的金鑰，然後重新輸入金鑰來加以確認。 將金鑰記錄在金鑰管理應用程式中，供日後參考。
     
-    4. 按一下 [進行必要的設定]，以指定要用於裝置的儲存體帳戶認證。 如果未設定儲存體帳戶認證，請按一下 [新增]。 **請確認您使用的儲存體帳戶支援區塊 Blob。不支援分頁 Blob。** 關於 [區塊 Blob 和分頁 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 的其他資訊。
+   4. 按一下 [進行必要的設定]，以指定要用於裝置的儲存體帳戶認證。 如果未設定儲存體帳戶認證，請按一下 [新增]。 **請確認您使用的儲存體帳戶支援區塊 Blob。不支援分頁 Blob。** 關於 [區塊 Blob 和分頁 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 的其他資訊。
    
-    ![設定檔案伺服器](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
+      ![設定檔案伺服器](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. 在 [新增儲存體帳戶認證] 刀鋒視窗中，執行下列動作︰ 
 
     1. 如果儲存體帳戶與服務位於相同的訂用帳戶中，請選擇目前的訂用帳戶。 如果儲存體帳戶在服務訂用帳戶外，請選擇其他。 
@@ -175,26 +175,26 @@ ms.locfileid: "54267176"
    ![新增共用](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs15m.png)
 2. 指定下列共用設定：
 
-    1. 共用的唯一名稱。 該名稱必須為包含 3 至 127 個字元的字串。
+   1. 共用的唯一名稱。 該名稱必須為包含 3 至 127 個字元的字串。
     
-    2. 共用的選擇性 [說明]。 說明將可協助識別共用的擁有者。
+   2. 共用的選擇性 [說明]。 說明將可協助識別共用的擁有者。
     
-    3. 共用的 [類型]。 類型可以是 [階層式] 或 [固定在本機]，而預設選項是 [階層式]。 對於需要本機保證、低延遲，以及高效能的工作負載，請選取 [固定在本機]  共用。 對於所有其他資料，請選取 [階層式]  共用。
-    固定在本機的共用會密集佈建，且會確保共用中的主要資料會保留在裝置上，不會溢出到雲端。 而另一方面，階層式共用則是以精簡方式佈建。 當您建立階層式共用時，10% 的空間會佈建在本機層上，而 90% 的空間會佈建在雲端中。 舉例來說，如果您佈建 1 TB 的磁碟區，當資料使用階層式共用時，其中 100 GB 會位於本機的空間，900 GB 會位於雲端。 然而這也代表，如果裝置已沒有可用的本機空間，您就無法佈建階層式共用。
+   3. 共用的 [類型]。 類型可以是 [階層式] 或 [固定在本機]，而預設選項是 [階層式]。 對於需要本機保證、低延遲，以及高效能的工作負載，請選取 [固定在本機]  共用。 對於所有其他資料，請選取 [階層式]  共用。
+      固定在本機的共用會密集佈建，且會確保共用中的主要資料會保留在裝置上，不會溢出到雲端。 而另一方面，階層式共用則是以精簡方式佈建。 當您建立階層式共用時，10% 的空間會佈建在本機層上，而 90% 的空間會佈建在雲端中。 舉例來說，如果您佈建 1 TB 的磁碟區，當資料使用階層式共用時，其中 100 GB 會位於本機的空間，900 GB 會位於雲端。 然而這也代表，如果裝置已沒有可用的本機空間，您就無法佈建階層式共用。
    
-    4. 在 [將預設完整權限設為] 欄位中，指派權限給存取此共用的使用者或群組。 請以下列格式指定使用者或使用者群組的名稱：*john@contoso.com*。 我們建議您利用使用者群組 (而非單一使用者)，來授予可存取這些共用的系統管理員權限。 當您在此指派權限之後，就可以使用 [檔案總管] 來修改這些權限。
+   4. 在 [將預設完整權限設為] 欄位中，指派權限給存取此共用的使用者或群組。 指定的使用者或使用者群組名稱*john\@contoso.com*格式。 我們建議您利用使用者群組 (而非單一使用者)，來授予可存取這些共用的系統管理員權限。 當您在此指派權限之後，就可以使用 [檔案總管] 來修改這些權限。
    
-    5. 按一下 [新增] 以建立共用。 
+   5. 按一下 [新增] 以建立共用。 
     
-        ![新增共用](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
+       ![新增共用](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
    
-        正在建立共用時會通知您。
+       正在建立共用時會通知您。
    
-        ![新增共用](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
+       ![新增共用](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
    
-    使用指定的設定來建立共用之後，[共用] 刀鋒視窗將會更新以反映新的共用。 根據預設，共用會啟用監視及備份。
+      使用指定的設定來建立共用之後，[共用] 刀鋒視窗將會更新以反映新的共用。 根據預設，共用會啟用監視及備份。
    
-    ![新增共用](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
+      ![新增共用](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
 
 ## <a name="step-4-connect-to-the-share"></a>步驟 4：連線至共用
 您現在必須連接至您在上一個步驟所建立的一或多個共用。 請在連接至 StorSimple Virtual Array 的 Windows Server 主機上執行這些步驟。

@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: a5ad7005a2ab3d6ed5f9c8fe38db9552e3925a30
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d2e628fb7fc502ef9ba81d20680d66f24fd7d138
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871314"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004936"
 ---
 # <a name="evaluate-method"></a>評估模型
 
@@ -27,10 +27,12 @@ ms.locfileid: "55871314"
 https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate? 
 ```   
 <br>
+
 ## <a name="request-parameters"></a>要求參數  
-Name     | 值 | 必要？  | 說明
+
+名稱     | 值 | 必要？  | 描述
 -----------|-----------|---------|--------
-**expr**       | 文字字串 | yes | 可指定應傳回哪些實體的查詢運算式。
+**expr**       | 文字字串 | 是 | 可指定應傳回哪些實體的查詢運算式。
 **model**      | 文字字串 | 否  | 想要查詢的模型名稱。  目前，此值會預設為 latest。        
 **attributes** | 文字字串 | 否<br>預設值：id | 以逗號分隔的清單，可指定回應中包含的屬性值。 屬性名稱區分大小寫。
 **count**        | 數字 | 否<br>預設值：10 | 要傳回的結果數目。
@@ -38,14 +40,17 @@ Name     | 值 | 必要？  | 說明
 **orderby** |   文字字串 | 否<br>預設值：藉由減少 prob | 用來排序實體的屬性名稱。 (選擇性) 可以指定遞增/遞減。 格式為：name:asc 或 name:desc。
   
  <br>
+
 ## <a name="response-json"></a>回應 (JSON)
-Name | 說明
+
+名稱 | 描述
 -------|-----   
 **expr** |  要求中的 *expr* 參數。
 **entities** |  一個陣列，內含 0 或多個符合查詢運算式的實體。 每個實體都包含自然對數機率值和其他要求的屬性值。
 **aborted** | 如果要求逾時，則為 true。
 
 <br>
+
 #### <a name="example"></a>範例：
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?expr=

@@ -3,20 +3,20 @@ title: 使用 Azure Data Factory 中的 Spark 活動轉換資料 | Microsoft Doc
 description: 了解如何使用 Spark 活動從 Azure Data Factory 管線執行 Spark 程式以轉換資料。
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/31/2018
-ms.author: douglasl
-ms.openlocfilehash: a25505a976be9d9ae38f562591d86ca9b56b8859
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: cdf4dba3996668b3c9fe31df10050ff2cbff6cb3
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025603"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576195"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Spark 活動轉換資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,7 +60,7 @@ Data Factory [管線](concepts-pipelines-activities.md)中的 Spark 活動會在
 
 下表說明 JSON 定義中使用的 JSON 屬性：
 
-| 屬性              | 說明                              | 必要 |
+| 屬性              | 描述                              | 必要項 |
 | --------------------- | ---------------------------------------- | -------- |
 | name                  | 管線中的活動名稱。    | 是      |
 | 說明           | 說明活動用途的文字。  | 否       |
@@ -80,7 +80,7 @@ Spark 作業比 Pig/Hive 作業更具擴充性。 對於 Spark 作業，您可�
 
 在 HDInsight 連結服務所參考的 Azure Blob 儲存體中，建立下列資料夾結構。 然後，將相依檔案上傳至根資料夾中以 **entryFilePath** 表示的適當子資料夾。 比方說，將 python 檔案上傳至根資料夾的 pyFiles 子資料夾，將 jar 檔案上傳至 jars 子資料夾。 在執行階段，Data Factory 服務會預期 Azure Blob 儲存體中有下列資料夾結構︰     
 
-| Path                  | 說明                              | 必要 | 類型   |
+| Path                  | 描述                              | 必要項 | 類型   |
 | --------------------- | ---------------------------------------- | -------- | ------ |
 | `.` (root)            | Spark 作業在儲存體連結服務中的根路徑 | 是      | 資料夾 |
 | &lt;使用者定義&gt; | 指向 Spark 作業輸入檔案的路徑 | 是      | 檔案   |

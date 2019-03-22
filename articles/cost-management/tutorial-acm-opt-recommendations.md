@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 2255f14d026d406dc41802c321d0a673ee2f2f23
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 8471ae8ed0b391df11d81569b5660a2b098f5793
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766855"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000912"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>教學課程：透過建議最佳化成本
 
@@ -29,7 +29,7 @@ Azure 成本管理可搭配 Azure Advisor，提供成本最佳化建議。 Azure
 > * 驗證動作，確保虛擬機器的大小已成功調整
 
 ## <a name="prerequisites"></a>必要條件
-這些建議適用於各種不同的 Azure 帳戶類型，包括 [Enterprise 合約 (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) 客戶。 若要檢視所支援帳戶類型的完整清單，請參閱[了解成本管理資料](understand-cost-mgt-data.md)。 您必須至少具備一或多個下列範圍的讀取存取，才能檢視成本資料。
+建議可供各種不同的範圍和 Azure 的帳戶類型，包括[Enterprise 合約 (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)客戶。 若要檢視所支援帳戶類型的完整清單，請參閱[了解成本管理資料](understand-cost-mgt-data.md)。 您必須至少具備一或多個下列範圍的讀取存取，才能檢視成本資料。 如需有關範圍的詳細資訊，請參閱 <<c0> [ 了解及使用範圍](understand-work-scopes.md)。
 
 - 訂用帳戶
 - 資源群組
@@ -41,7 +41,9 @@ Azure 成本管理可搭配 Azure Advisor，提供成本最佳化建議。 Azure
 
 ## <a name="view-cost-optimization-recommendations"></a>檢視成本最佳化建議
 
-在 Azure 入口網站中，按一下服務清單中的 [成本管理與帳單]。 然後，在 [成本管理] 下方的清單中，選取 [Advisor 建議]。 隨即顯示 Advisor 成本建議。
+若要檢視訂用帳戶的成本最佳化建議，請開啟 在 Azure 入口網站，然後選取 所需的範圍內**Advisor 建議**。
+
+若要檢視管理群組的建議，請開啟 在 Azure 入口網站，然後選取 所需的範圍內**成本分析**功能表中。 使用**範圍**丸切換至不同的範圍，例如管理群組。 選取  **Advisor 建議**功能表中。 如需有關範圍的詳細資訊，請參閱 <<c0> [ 了解及使用範圍](understand-work-scopes.md)。
 
 ![顯示在 Azure 入口網站中的成本管理 Advisor 建議](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
 

@@ -5,15 +5,15 @@ services: storage
 author: artemuwka
 ms.service: storage
 ms.topic: article
-ms.date: 10/09/2018
+ms.date: 02/24/2019
 ms.author: artemuwka
 ms.subservice: common
-ms.openlocfilehash: c9009e898b00212dba4dec9bf38af2bfa057b8ea
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 111c24c1cd608542a5ef7da85f93ca22082af6d9
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244601"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726714"
 ---
 # <a name="transfer-data-with-the-azcopy-v10-preview"></a>使用 AzCopy v10 (預覽) 傳輸資料
 
@@ -24,9 +24,9 @@ AzCopy v10 (預覽) 是新一代的命令列公用程式，可在 Microsoft Azur
 - 將檔案系統同步處理到 Azure Blob，反之亦然。 使用 `azcopy sync <source> <destination>`。 適用於增量複製案例。
 - 支援 Azure Data Lake Storage Gen2 API。 使用 `myaccount.dfs.core.windows.net` 作為用來呼叫 ADLS Gen2 API 的 URI。
 - 支援將整個帳戶 (僅限 Blob 服務) 複製到另一個帳戶。
-- 帳戶對帳戶的複製現在會使用新的 [Put from URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API。 不需要傳輸任何資料到用戶端，所以傳輸速度更快！
+- 帳戶複製到帳戶正在使用新[放置的區塊，從 URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) Api。 不需要傳輸任何資料到用戶端，所以傳輸速度更快！
 - 列出/移除指定路徑中的檔案和 Blob。
-- 在路徑中支援萬用字元模式以及 --include 和 --exclude 旗標。
+- 支援萬用字元模式比對的路徑以及做為中-排除旗標。
 - 提升復原能力：每個 AzCopy 執行個體都會建立作業順序和相關的記錄檔。 您可以檢視和重新啟動先前的作業，並繼續失敗的作業。 AzCopy 也會在失敗之後自動重試傳輸作業。
 - 一般效能改進。
 
@@ -35,9 +35,9 @@ AzCopy v10 (預覽) 是新一代的命令列公用程式，可在 Microsoft Azur
 ### <a name="latest-preview-version-v10"></a>最新預覽版本 (v10)
 
 下載 AzCopy 的最新預覽版本：
-- [Windows](https://aka.ms/downloadazcopy-v10-windows)
-- [Linux](https://aka.ms/downloadazcopy-v10-linux)
-- [MacOS](https://aka.ms/downloadazcopy-v10-mac)
+- [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
+- [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
+- [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
 ### <a name="latest-production-version-v81"></a>最新生產版本 (v8.1)
 
@@ -49,18 +49,23 @@ AzCopy v10 (預覽) 是新一代的命令列公用程式，可在 Microsoft Azur
 
 ## <a name="post-installation-steps"></a>後續安裝步驟
 
-AzCopy v10 不需要安裝。 請開啟慣用的命令列應用程式，並瀏覽至 `azcopy.exe` 可執行檔所在的資料夾。 若有需要，您可以在您的系統路徑中加入 AzCopy 資料夾位置。
+AzCopy v10 不需要安裝。 開啟慣用的命令列應用程式，並瀏覽至資料夾所在`azcopy.exe`(Windows) 或`azcopy`(Linux) 的可執行檔。 若有需要，您可以在您的系統路徑中加入 AzCopy 資料夾位置。
 
 ## <a name="authentication-options"></a>驗證選項
 
 AzCopy v10 可讓您在向 Azure 儲存體進行驗證時使用下列選項：
-- **[Blob 和 ADLS Gen2 服務支援的] Azure Active Directory**。 使用 Azure Active Directory 透過 ```.\azcopy login``` 來登入。  使用者應該[獲派「儲存體 Blob 資料參與者」角色](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac)，才能使用 Azure Active Directory 驗證寫入至 Blob 儲存體。
+- **[Blob 和 ADLS Gen2 服務支援的] Azure Active Directory**。 使用 Azure Active Directory 透過 ```.\azcopy login``` 來登入。  使用者應該[獲派「儲存體 Blob 資料參與者」角色](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac)，才能使用 Azure Active Directory 驗證寫入至 Blob 儲存體。 使用受控服務識別 (MSI) 驗證，使用`azcopy login --identity`資料參與者角色授與 Azure 計算執行個體之後。
 - **[Blob 和檔案服務支援的] SAS 權杖**。 將 SAS 權杖附加至命令列上的 Blob 路徑中來加以使用。 您可以使用 Azure 入口網站、[儲存體總管](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)、[PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken) 或您選擇的其他工具來產生 SAS 權杖。 如需詳細資訊，請參閱[範例](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)。
 
-> [!IMPORTANT]
-> 提交支援要求給 Microsoft 支援服務 (或針對涉及任何協力廠商的問題進行疑難排解) 時，請共用您正嘗試執行之命令的編校版本，以確保不會意外與任何人共用 SAS。 您可以在記錄檔開頭找到編校的版本。 如需詳細資訊，請檢閱本文稍後的＜疑難排解＞一節。
-
 ## <a name="getting-started"></a>開始使用
+
+> [!TIP]
+> **偏好圖形化使用者介面？**
+>
+> 請嘗試[Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)，桌面用戶端，可簡化管理的 Azure 儲存體資料，並**現在會使用 AzCopy**來加速資料傳輸及移出 Azure 儲存體。
+>
+> 只要啟用儲存體總管中的 AzCopy 功能 「 預覽 」 功能表底下。 儲存體總管就會使用 AzCopy 上傳和下載資料至 Blob 儲存體，以改善效能時。
+> ![為 Azure 儲存體總管中的傳輸引擎讓 AzCopy](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
 
 AzCopy v10 的自我記載語法很簡單。 登入 Azure Active Directory 時的一般語法如下所示：
 
@@ -80,7 +85,7 @@ AzCopy v10 的自我記載語法很簡單。 登入 Azure Active Directory 時�
 用來取得可用命令清單的方法如下：
 
 ```azcopy
-.\azcopy -help
+.\azcopy --help
 # Using the alias instead
 .\azcopy -h
 ```
@@ -88,7 +93,7 @@ AzCopy v10 的自我記載語法很簡單。 登入 Azure Active Directory 時�
 若要查看特定命令的說明頁面和範例，請執行下列命令：
 
 ```azcopy
-.\azcopy <cmd> -help
+.\azcopy <cmd> --help
 # Example:
 .\azcopy cp -h
 ```
@@ -153,7 +158,7 @@ AzCopy v10 的自我記載語法很簡單。 登入 Azure Active Directory 時�
 
 若要在兩個儲存體帳戶之間複製資料，請使用下列命令：
 ```azcopy
-.\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
+.\azcopy cp "https://account.blob.core.windows.net/<sastoken>" "https://otheraccount.blob.core.windows.net/<sastoken>" --recursive=true
 ```
 
 > [!NOTE]
@@ -161,27 +166,35 @@ AzCopy v10 的自我記載語法很簡單。 登入 Azure Active Directory 時�
 
 ## <a name="copy-a-vhd-image-to-a-storage-account"></a>將 VHD 映像複製到儲存體帳戶
 
-AzCopy v10 依預設會將資料上傳至區塊 Blob。 不過，如果來源檔案的副檔名是 vhd，則 AzCopy v10 依預設會將它上傳至分頁 Blob。 此行為目前無法設定。
+使用`--blob-type=PageBlob`上傳至 Blob 儲存體作為分頁 Blob 的磁碟映像。
 
-## <a name="sync-incremental-copy-and-delete-blob-storage-only"></a>同步處理：累加複製和刪除 (僅限 Blob 儲存體)
+```azcopy
+.\azcopy cp "C:\myimages\diskimage.vhd" "https://account.blob.core.windows.net/mycontainer/diskimage.vhd<sastoken>" --blob-type=PageBlob
+```
+
+## <a name="sync-incremental-copy-and-optional-delete-blob-storage-only"></a>同步處理： 累加複製和 （選擇性） 刪除 （Blob 儲存）
+
+同步命令會同步處理內容的來源目錄中的目的地比較的檔案名稱和上次修改時間戳記的目錄。 如果這些不存在來源中這項作業包括刪除目的地檔案的 （選擇性） 當`--delete-destination=prompt|true`會提供旗標。 預設會停用 「 刪除 」 行為。
 
 > [!NOTE]
-> Sync 命令會將內容從來源同步處理到目的地，此外，這也會刪除目的地檔案 (如果這些檔案不存在於來源中)。 請確定您所使用的是想要同步處理的目的地。
+> 使用`--delete-destination`謹慎的旗標。 啟用[虛刪除](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)功能之前啟用同步，才能夠防止意外刪除您帳戶中的刪除行為。
+>
+> 當`--delete-destination`設為 true，則 AzCopy 會刪除不存在於目的地，而不需要任何提示的來源給使用者的檔案。 如果您想要收到確認提示，使用`--delete-destination=prompt`。
 
 若要將本機檔案系統同步處理到儲存體帳戶，請使用下列命令：
 
 ```azcopy
-.\azcopy sync "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
+.\azcopy sync "C:\local\path" "https://account.blob.core.windows.net/mycontainer<sastoken>"
 ```
 
 您可以透過相同方式將 Blob 容器同步處理到本機檔案系統：
 
 ```azcopy
 # If you're using Azure Active Directory authentication the sastoken is not required
-.\azcopy sync "https://account.blob.core.windows.net/mycontainer1" "C:\local\path" --recursive=true
+.\azcopy sync "https://account.blob.core.windows.net/mycontainer" "C:\local\path"
 ```
 
-此命令可讓您根據上一次修改的時間戳記，以累加方式將來源同步處理到目的地。 如果您在來源中新增或刪除檔案，AzCopy v10 也會在目的地進行相同操作。 刪除之前，AzCopy 會提示您確認刪除檔案。
+此命令可讓您根據上一次修改的時間戳記，以累加方式將來源同步處理到目的地。 如果您在來源中新增或刪除檔案，AzCopy v10 也會在目的地進行相同操作。 如果刪除行為已啟用同步處理命令中，則 AzCopy 會在如果它們不存在於原始檔再刪除檔案目的地。
 
 ## <a name="advanced-configuration"></a>進階組態
 
@@ -214,13 +227,6 @@ export AZCOPY_CONCURRENCY_VALUE=<value>
 # If the value is blank then the default value is currently in use
 ```
 
-## <a name="troubleshooting"></a>疑難排解
-
-AzCopy v10 會為所有作業建立記錄檔和方案檔。 您可以使用記錄來調查任何可能的問題並進行疑難排解。 記錄會包含失敗狀態 (UPLOADFAILED、COPYFAILED 和 DOWNLOADFAILED)、完整路徑和失敗原因。 作業記錄和方案檔位於 Windows 上的 %USERPROFILE\\.azcopy 資料夾中，或在 Mac 和 Linux 上的 $HOME\\.azcopy 資料夾中。
-
-> [!IMPORTANT]
-> 提交支援要求給 Microsoft 支援服務 (或針對涉及任何協力廠商的問題進行疑難排解) 時，請共用您正嘗試執行之命令的編校版本，以確保不會意外與任何人共用 SAS。 您可以在記錄檔開頭找到編校的版本。
-
 ### <a name="change-the-location-of-the-log-files"></a>變更記錄檔的位置
 
 您可以視需要變更記錄檔的位置，或避免填滿 OS 磁碟。
@@ -237,6 +243,17 @@ export AZCOPY_LOG_LOCATION=<value>
 # If the value is blank then the default value is currently in use
 ```
 
+### <a name="change-the-default-log-level"></a>變更預設記錄層級
+
+根據預設，AzCopy 記錄層級設定為 INFO。 如果您想要減少記錄詳細資訊以節省磁碟空間，請使用 ``--log-level`` 選項來覆寫此設定。 可用記錄層級如下：DEBUG、INFO、WARNING、ERROR、PANIC 及 FATAL
+
+## <a name="troubleshooting"></a>疑難排解
+
+AzCopy v10 會為所有作業建立記錄檔和方案檔。 您可以使用記錄來調查任何可能的問題並進行疑難排解。 記錄會包含失敗狀態 (UPLOADFAILED、COPYFAILED 和 DOWNLOADFAILED)、完整路徑和失敗原因。 作業記錄和計劃檔案位於 %USERPROFILE%\\.azcopy 資料夾，在 Windows 或 $HOME\\.azcopy 在 Mac 和 Linux 上的資料夾。
+
+> [!IMPORTANT]
+> 提交支援要求給 Microsoft 支援服務 (或針對涉及任何協力廠商的問題進行疑難排解) 時，請共用您正嘗試執行之命令的編校版本，以確保不會意外與任何人共用 SAS。 您可以在記錄檔開頭找到編校的版本。
+
 ### <a name="review-the-logs-for-errors"></a>檢閱記錄以了解錯誤
 
 下列命令會從 04dc9ca9-158f-7945-5933-564021086c79 記錄取得狀態為 UPLOADFAILED 的所有錯誤：
@@ -244,6 +261,8 @@ export AZCOPY_LOG_LOCATION=<value>
 ```azcopy
 cat 04dc9ca9-158f-7945-5933-564021086c79.log | grep -i UPLOADFAILED
 ```
+
+或者，您可以看到檔案名稱，而無法傳輸使用`azcopy jobs show <jobid> --with-status=Failed`命令。
 
 ### <a name="view-and-resume-jobs"></a>檢視和繼續作業
 
@@ -270,10 +289,6 @@ cat 04dc9ca9-158f-7945-5933-564021086c79.log | grep -i UPLOADFAILED
 ```azcopy
 .\azcopy jobs resume <jobid> --sourcesastokenhere --destinationsastokenhere
 ```
-
-### <a name="change-the-default-log-level"></a>變更預設記錄層級
-
-根據預設，AzCopy 記錄層級設定為 INFO。 如果您想要減少記錄詳細資訊以節省磁碟空間，請使用 ``--log-level`` 選項來覆寫此設定。 可用記錄層級如下：DEBUG、INFO、WARNING、ERROR、PANIC 及 FATAL
 
 ## <a name="next-steps"></a>後續步驟
 

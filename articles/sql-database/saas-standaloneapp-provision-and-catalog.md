@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: 57a8a89c73e2be51e54130d9c37194a7513a47d8
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 28deb9b7ba15744b9bd3d273d02db4398d2b2ef3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562509"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896937"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>使用每一租用戶一個應用程式 SaaS 模式，佈建新租用戶及編目
 
@@ -99,7 +99,7 @@ Azure Resource Manager 範本可用來部署及設定應用程式、建立租用
 現在，請查看您建立的資源。
 
 1. 開啟 [Azure 入口網站](https://portal.azure.com/)，然後瀏覽至資源群組。  開啟 **wingtip-sa-catalog-\<user\>** 資源群組，並記下目錄伺服器和資料庫。
-1. 在入口網站中開啟資料庫，再從左側功能表選取 [資料總管]。  按一下 [登入] 命令，然後輸入密碼 = **P@ssword1**。
+1. 在入口網站中開啟資料庫，再從左側功能表選取 [資料總管]。  按一下 [登入] 命令，然後輸入密碼 = **P\@ssword1**。
 
 
 1. 探索 *tenantcatalog* 資料庫的結構描述。  

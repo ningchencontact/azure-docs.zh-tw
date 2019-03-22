@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 79f0e58ea11d8bdb8c30ca1e50fae2635f719681
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 3368be291770133cdfa10158f6e30540e17b8223
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118015"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084305"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>將來自 SQL Database 的參考資料用於 Azure 串流分析作業 (預覽)
 
@@ -134,21 +134,46 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 使用差異查詢時，建議使用 [Azure SQL Database 中的時態表](../sql-database/sql-database-temporal-tables.md)。
 
-1. 撰寫快照集查詢。 
+1. Azure SQL Database 中建立的時態表。
+   
+   ```SQL 
+      CREATE TABLE DeviceTemporal 
+      (  
+         [DeviceId] int NOT NULL PRIMARY KEY CLUSTERED 
+         , [GroupDeviceId] nvarchar(100) NOT NULL
+         , [Description] nvarchar(100) NOT NULL 
+         , [ValidFrom] datetime2 (0) GENERATED ALWAYS AS ROW START
+         , [ValidTo] datetime2 (0) GENERATED ALWAYS AS ROW END
+         , PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo)
+      )  
+      WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.DeviceHistory));  -- DeviceHistory table will be used in Delta query
+   ```
+2. 撰寫快照集查詢。 
 
-   使用 **@snapshotTime** 參數來指導串流分析執行階段根據系統時間從有效的 SQL 資料庫時態表中取得參考資料集。 如果您不提供此參數，則可能會因時鐘誤差而取得不正確的基底參考資料集。 完整快照集查詢的範例如下所示：
-
-   ![串流分析快照集查詢](./media/sql-reference-data/snapshot-query.png)
+   使用 **\@snapshotTime**參數來指示 Stream Analytics 執行階段，以取得從 SQL database 時態表上的系統時間有效的參考資料集。 如果您不提供此參數，則可能會因時鐘誤差而取得不正確的基底參考資料集。 完整快照集查詢的範例如下所示：
+   ```SQL
+      SELECT DeviceId, GroupDeviceId, [Description]
+      FROM dbo.DeviceTemporal
+      FOR SYSTEM_TIME AS OF @snapshotTime
+   ```
  
 2. 撰寫差異查詢。 
    
-   此查詢會擷取 SQL 資料庫中在開始時間 (**@deltaStartTime**) 和結束時間 (**@deltaEndTime**) 之間插入或刪除的所有資料列。 差異查詢必須傳回和快照集查詢相同的資料行，以集 **_operation_** 資料行。 此資料行會定義資料列是否已在 **@deltaStartTime** 和 **@deltaEndTime**之間插入或刪除。 如果記錄已插入，結果的資料列會被標示為 **1**；如果已刪除，則會被標示為 **2**。 
+   此查詢會擷取所有插入或刪除在 開始時間，SQL database 中的資料列 **\@deltaStartTime**，和結束時間 **\@deltaEndTime**。 差異查詢必須傳回和快照集查詢相同的資料行，以集 **_operation_** 資料行。 此資料行定義，如果資料列插入或刪除之間 **\@deltaStartTime**並 **\@deltaEndTime**。 如果記錄已插入，結果的資料列會被標示為 **1**；如果已刪除，則會被標示為 **2**。 
 
    針對已更新的記錄，時態表會透過擷取插入和刪除作業來進行記錄。 串流分析執行階段接著便會將差異查詢的結果套用到先前的快照集，以將參考資料保持為最新狀態。 差異查詢的範例如下所示：
 
-   ![串流分析差異查詢](./media/sql-reference-data/delta-query.png)
+   ```SQL
+      SELECT DeviceId, GroupDeviceId, Description, 1 as _operation_
+      FROM dbo.DeviceTemporal
+      WHERE ValidFrom BETWEEN @deltaStartTime AND @deltaEndTime   -- records inserted
+      UNION
+      SELECT DeviceId, GroupDeviceId, Description, 2 as _operation_
+      FROM dbo.DeviceHistory   -- table we created in step 1
+      WHERE ValidTo BETWEEN @deltaStartTime AND @deltaEndTime     -- record deleted
+   ```
  
-  請注意，除了差異查詢之外，串流分析執行階段可能會定期執行快照集查詢以儲存檢查點。
+   請注意，除了差異查詢之外，串流分析執行階段可能會定期執行快照集查詢以儲存檢查點。
 
 ## <a name="faqs"></a>常見問題集
 
@@ -158,7 +183,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 **如何確認已從 SQL DB 查詢資料快照集，並已將它用於 Azure 串流分析作業？**
 
-有兩個依 [邏輯名稱] (位於計量 Azure 入口網站) 篩選的計量，可供您用來監視 SQL 資料庫參考資料輸入的健康情況。
+有兩個由邏輯 （在計量的 Azure 入口網站） 的名稱可用來監視 SQL 資料庫的參考資料輸入的健全狀況篩選的計量。
 
    * InputEvents：此計量會測量從 SQL 資料庫參考資料集載入的記錄數目。
    * InputEventBytes：此計量會測量載入串流分析作業之記憶體的參考資料快照集大小。 

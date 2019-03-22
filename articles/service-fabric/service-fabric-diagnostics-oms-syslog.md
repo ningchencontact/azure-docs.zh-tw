@@ -14,16 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: 30b064e3c20b184023cb6ada25d673f5cab6597c
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 25452d3d65518511c47087d1cb712d0a512416fc
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297662"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245551"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Syslog 中的 Service Fabric Linux 叢集事件
 
 Service Fabric 會公開一組平台事件，以通知您叢集中的重要活動。 [此處](service-fabric-diagnostics-event-generation-operational.md)有完整的公開事件清單。 使用這些事件的方式有很多種。 在本文中，我們將討論如何設定 Service Fabric 來將這些事件寫入 Syslog。
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="introduction"></a>簡介
 
@@ -93,8 +95,8 @@ SyslogConsumer 會使用 `Local0` 設施 (Facility) 寫入所有平台事件。 
     }
 ```
 
-## <a name="log-analytics-integration"></a>Log Analytics 整合
-您可以在監視工具 (例如 Log Analytics) 中讀取這些 Syslog 事件。 您可以使用這些 [指示].(../azure-monitor/learn/quick-create-workspace.md)，透過 Azure Marketplace 建立 Log Analytics 工作區。您也必須將 Log Analytics 代理程式新增至您的叢集，以收集此資料並將其傳送至工作區。 這是用來收集效能計數器的相同代理程式。 
+## <a name="azure-monitor-logs-integration"></a>Azure 監視器記錄整合
+您可以讀取這些監視工具，例如 Azure 監視器記錄檔中的 Syslog 事件。 您可以使用這些 [指示].(../azure-monitor/learn/quick-create-workspace.md)，透過 Azure Marketplace 建立 Log Analytics 工作區。您也必須將 Log Analytics 代理程式新增至您的叢集，以收集此資料並將其傳送至工作區。 這是用來收集效能計數器的相同代理程式。 
 
 1. 瀏覽至 `Advanced Settings` 刀鋒視窗
 
@@ -120,6 +122,6 @@ SyslogConsumer 會使用 `Local0` 設施 (Facility) 寫入所有平台事件。 
 
 ## <a name="next-steps"></a>後續步驟
 * [部署 Log Analytics 代理程式](service-fabric-diagnostics-oms-agent.md)至您的節點，以收集效能計數器，並收集您容器的 Docker 統計資料和記錄
-* 熟悉 Log Analytics 的[記錄搜尋和查詢](../log-analytics/log-analytics-log-searches.md)功能
-* [在 Log Analytics 中使用檢視設計工具來建立自訂檢視](../log-analytics/log-analytics-view-designer.md)
-* 如何[整合 Log Analytics 與 Syslog](../log-analytics/log-analytics-data-sources-syslog.md) 的參考。
+* 熟悉[記錄搜尋和查詢](../log-analytics/log-analytics-log-searches.md)作為 Azure 監視器記錄的一部分提供的功能
+* [使用 Azure 監視器記錄檔中建立自訂檢視的檢視表設計工具](../log-analytics/log-analytics-view-designer.md)
+* 如需參考[Azure 監視器會記錄與 Syslog 整合](../log-analytics/log-analytics-data-sources-syslog.md)。

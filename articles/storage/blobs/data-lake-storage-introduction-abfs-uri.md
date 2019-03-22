@@ -8,16 +8,16 @@ ms.author: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: fe020ab1091b91ba21174b59d0ce25ab0c6122ca
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c851044393adbacb6b80e264c6a4393b1c083efb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878301"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58006127"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>使用 Azure Data Lake Storage Gen2 URI
 
-與 Azure Data Lake Storage Gen2 相容的 [Hadoop Filesystem](http://www.aosabook.org/en/hdfs.html) 驅動程式，以其配置識別碼 `abfs` (Azure Blob 檔案系統) 而聞名。 ABFS 驅動程式和其他 Hadoop Filesystem 驅動程式一樣，都使用 URI 格式來處理 Data Lake Storage Gen2 支援帳戶中的檔案和目錄。
+與 Azure Data Lake Storage Gen2 相容的 [Hadoop Filesystem](https://www.aosabook.org/en/hdfs.html) 驅動程式，以其配置識別碼 `abfs` (Azure Blob 檔案系統) 而聞名。 ABFS 驅動程式和其他 Hadoop Filesystem 驅動程式一樣，都使用 URI 格式來處理 Data Lake Storage Gen2 支援帳戶中的檔案和目錄。
 
 ## <a name="uri-syntax"></a>URI 語法
 

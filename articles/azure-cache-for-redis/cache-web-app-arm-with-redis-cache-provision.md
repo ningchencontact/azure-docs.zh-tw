@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: yegu
-ms.openlocfilehash: 52c5fb8a6da7e3f12d621406542f0e31f7ece1de
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 23b8e4e7e88f5b993f9b0f9981bbae6b884e2818
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233280"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880002"
 ---
 # <a name="create-a-web-app-plus-azure-cache-for-redis-using-a-template"></a>使用範本來建立 Web 應用程式加 Azure Redis 快取
 
@@ -35,7 +35,7 @@ ms.locfileid: "56233280"
 在此範本中，您將部署：
 
 * Azure Web 應用程式
-* Azure Redis 快取。
+* Azure Cache for Redis
 
 若要自動執行部署，請按一下下列按鈕：
 
@@ -46,7 +46,7 @@ ms.locfileid: "56233280"
 
 [!INCLUDE [cache-deploy-parameters](../../includes/cache-deploy-parameters.md)]
 
-## <a name="variables-for-names"></a>名稱的變數
+## <a name="variables-for-names"></a>名称变量
 這個範本會使用變數來建構資源的名稱。 它會使用 [uniqueString](../azure-resource-manager/resource-group-template-functions-string.md#uniquestring) 函式，根據資源群組識別碼來建構值。
 
     "variables": {
@@ -86,7 +86,7 @@ ms.locfileid: "56233280"
 ### <a name="web-app"></a>Web 應用程式
 使用 **webSiteName** 變數中所指定的名稱來建立 Web 應用程式。
 
-請注意，Web 應用程式上會設定可讓它與「Azure Redis 快取」搭配運作的應用程式設定屬性。 此應用程式設定是根據部署期間所提供的值動態建立。
+請注意，Web 應用程式上會設定可讓它與「Azure Redis 快取」搭配運作的應用程式設定屬性。 這些設定會以動態方式建立的應用程式根據在部署期間提供的值。
 
     {
       "apiVersion": "2015-08-01",

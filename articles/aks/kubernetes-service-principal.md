@@ -4,15 +4,15 @@ description: 為 Azure Kubernetes Service (AKS) 中的叢集建立及管理 Azur
 services: container-service
 author: iainfoulds
 ms.service: container-service
-ms.topic: get-started-article
-ms.date: 09/26/2018
+ms.topic: conceptual
+ms.date: 03/04/2019
 ms.author: iainfou
-ms.openlocfilehash: b8cbeacda98aec639724f30fe3a7e94346f05ba4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: dc2e2f010de3dfe265cddbbaa6c050d081bd05dc
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308749"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778547"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>服務主體與 Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ ms.locfileid: "56308749"
 
 若要建立 Azure AD 服務主體，您必須有足夠權限向 Azure AD 租用戶註冊應用程式，並將應用程式指派給您訂用帳戶中的角色。 如果您沒有必要的權限，您可能需要要求您的 Azure AD 或訂用帳戶系統管理員指派必要權限，或或要求其預先建立服務主體以供您搭配 AKS 叢集使用。
 
-您也必須安裝並設定 Azure CLI 版本 2.0.46 或更新版本。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
+您也需要 Azure CLI 2.0.59 版或更新版本安裝並設定。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>自動建立並使用服務主體
 
@@ -33,7 +33,7 @@ ms.locfileid: "56308749"
 在下列 Azure CLI 範例中，未指定服務主體。 在此案例中，Azure CLI 會為 AKS 叢集建立服務主體。 若要成功完成此作業，您的 Azure 帳戶必須有建立服務主體的適當權限。
 
 ```azurecli
-az aks create --name myAKSCluster --resource-group myResourceGroup --generate-ssh-keys
+az aks create --name myAKSCluster --resource-group myResourceGroup
 ```
 
 ## <a name="manually-create-a-service-principal"></a>手動建立服務主體
@@ -49,8 +49,8 @@ az ad sp create-for-rbac --skip-assignment
 ```json
 {
   "appId": "559513bd-0c19-4c1a-87cd-851a26afd5fc",
-  "displayName": "azure-cli-2018-09-25-21-10-19",
-  "name": "http://azure-cli-2018-09-25-21-10-19",
+  "displayName": "azure-cli-2019-03-04-21-35-28",
+  "name": "http://azure-cli-2019-03-04-21-35-28",
   "password": "e763725a-5eee-40e8-a466-dc88d980f415",
   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db48"
 }
@@ -77,9 +77,9 @@ az aks create \
 
 ## <a name="delegate-access-to-other-azure-resources"></a>將存取權委派給其他 Azure 資源
 
-AKS 叢集的服務主體可用來存取其他資源。 例如，如果您想要使用進階網路功能來連線到現有的虛擬網路，或連線到 Azure Container Registry (ACR)，則需要將存取權委派給服務主體。
+AKS 叢集的服務主體可用來存取其他資源。 例如，如果您想要部署您的 AKS 叢集到現有的 Azure 虛擬網路子網路或連線至 Azure Container Registry (ACR)，您要委派給服務主體的這些資源的存取權。
 
-若要委派權限，您可以使用 [az role assignment create][az-role-assignment-create] 命令來建立角色指派。 您可以將 `appId` 指派給特定範圍，例如資源群組或虛擬網路資源。 接著，角色會定義資源上的服務主體可擁有哪些權限，如下列範例所示：
+若要委派權限，使用下列方法建立角色指派[az 角色指派建立][ az-role-assignment-create]命令。 指派`appId`給特定的範圍，例如資源群組或虛擬網路資源。 接著，角色會定義資源上的服務主體可擁有哪些權限，如下列範例所示：
 
 ```azurecli
 az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
@@ -123,6 +123,7 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 當使用 AKS 與 Azure AD 服務主體時，請記住下列考量。
 
 - Kubernetes 的服務主體是叢集組態的一部分。 不過，請勿使用身分識別來部署叢集。
+- 根據預設，服務主體認證的有效期為一年。 您可以[更新或替換服務主體認證][ update-credentials]在任何時間。
 - 每個服務主體都會與 Azure AD 應用程式相關聯。 Kubernetes 叢集的服務主體可與任何有效的 Azure AD 應用程式名稱相關聯 (例如：*https://www.contoso.org/example*)。 應用程式的 URL 不一定是實際端點。
 - 當您指定服務主體**用戶端識別碼**時，請使用 `appId` 的值。
 - 在 Kubernetes 叢集中的主要和節點 VM 上，服務主體認證會儲存在 `/etc/kubernetes/azure.json` 檔案中。
@@ -136,7 +137,9 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 
 ## <a name="next-steps"></a>後續步驟
 
-如需有關 Azure Active Directory 服務主體的詳細資訊，請參閱[應用程式與服務主體物件][service-principal]
+如需有關 Azure Active Directory 服務主體的詳細資訊，請參閱 <<c0> [ 應用程式和服務主體物件][service-principal]。
+
+如需如何更新的認證資訊，請參閱[更新或替換為 AKS 中的服務主體的認證][update-credentials]。
 
 <!-- LINKS - internal -->
 [aad-service-principal]:../active-directory/develop/app-objects-and-service-principals.md
@@ -154,3 +157,4 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 [rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [aks-to-acr]: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json#grant-aks-access-to-acr
+[update-credentials]: update-credentials.md

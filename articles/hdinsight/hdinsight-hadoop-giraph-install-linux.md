@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 027f8ad854cfc4c412a56a293de3b02a425d6858
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: a2f964915efda6ce83439c3c1970de58b0467456
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713823"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201716"
 ---
 # <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>在 HDInsight Hadoop 叢集上安裝 Apache Giraph 並使用 Giraph 來處理大規模圖形
 
@@ -53,7 +53,7 @@ ms.locfileid: "53713823"
 
     https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
-本節提供有關如何在使用 Azure 入口網站建立叢集時使用範例指令碼的指示。
+本部分说明了如何在通过 Azure 门户创建群集时使用示例脚本。
 
 > [!NOTE]  
 > 您可以使用下列任何方法套用指令碼動作︰
@@ -112,7 +112,7 @@ ms.locfileid: "53713823"
     [4,0,[[3,4],[2,4]]]
     ```
 
-    此資料使用 `[source_id, source_value,[[dest_id], [edge_value],...]]` 格式，描述有向圖形中物件之間的關聯。 每一行代表 `source_id` 物件和一或多個 `dest_id` 物件之間的關聯性。 `edge_value` 可以視為 `source_id` 和 `dest\_id` 之間的連線強度或距離。
+    此資料使用 `[source_id, source_value,[[dest_id], [edge_value],...]]` 格式，描述有向圖形中物件之間的關聯。 每一行代表 `source_id` 对象与一个或多个 `dest_id` 对象之间的关系。 `edge_value` 可以視為 `source_id` 和 `dest\_id` 之間的連線強度或距離。
 
     使用值 (或權數) 當作物件之間的距離繪製出來後，資料可能如下圖所示：
 
@@ -142,7 +142,7 @@ ms.locfileid: "53713823"
    | `-ca mapred.job.tracker` |叢集的前端節點。 |
    | `-vif` |用於輸入資料的輸入格式。 |
    | `-vip` |輸入資料檔案。 |
-   | `-vof` |輸出格式。 在此範例中，識別碼和值是純文字。 |
+   | `-vof` |输出格式。 在此範例中，識別碼和值是純文字。 |
    | `-op` |輸出位置。 |
    | `-w 2` |要使用的背景工作角色數目。 在此範例中是 2。 |
 
@@ -171,5 +171,3 @@ ms.locfileid: "53713823"
 ## <a name="next-steps"></a>後續步驟
 
 * [在 HDInsight 叢集上安裝及使用 Hue](hdinsight-hadoop-hue-linux.md)。
-
-* [在 HDInsight 叢集上安裝 Apache Solr](hdinsight-hadoop-solr-install-linux.md)。

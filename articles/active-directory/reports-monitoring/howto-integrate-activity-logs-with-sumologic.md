@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 085b23fe43db4936a0fd459872ec841f2b45e221
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 98134a8fd7609a6f8857d633d2c45251e4c9197b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194269"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081571"
 ---
 # <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor-preview"></a>使用 Azure 監視器將 Azure Active Directory 記錄與 SumoLogic 整合 (預覽)
 
@@ -40,7 +40,7 @@ ms.locfileid: "56194269"
 2. 設定 SumoLogic 執行個體以[收集 Azure Active Directory 的記錄](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Collect_Logs_for_Azure_Active_Directory)。
 3. [安裝 Azure AD SumoLogic 應用程式](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards)，以使用可即時分析環境的預先設定儀表板。
 
- ![儀表板](./media/howto-integrate-activity-logs-with-sumologic/overview-dashboard.png)
+   ![儀表板](./media/howto-integrate-activity-logs-with-sumologic/overview-dashboard.png)
 
 ## <a name="next-steps"></a>後續步驟
 

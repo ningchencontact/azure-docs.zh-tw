@@ -11,18 +11,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 18cb4aae9470766b75c3c6519473660ac24ad4f0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 4be33b809ee2e620a565c9907a5b77833a279567
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003800"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848808"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>使用 Azure CLI 2.0 建立 Log Analytics 工作區
 
-Azure CLI 2.0 用於從命令列或在指令碼中建立和管理 Azure 資源。 本快速入門示範如何使用 Azure CLI 2.0 來部署 Azure 監視器中的 Log Analytics 工作區。 Log Analytics 工作區是 Azure 監視器記錄資料的唯一環境。 每個工作區有它自己的資料存放庫與設定，而且資料來源和解決方案已設定為將資料儲存在特定工作區中。 如果您想從下列來源收集資料，您需要 Log Analytics 工作區：
+Azure CLI 2.0 用於從命令列或在指令碼中建立和管理 Azure 資源。 本快速入門示範如何使用 Azure CLI 2.0 來部署 Azure 監視器中的 Log Analytics 工作區。 Log Analytics 工作區是 Azure 監視器記錄資料的唯一環境。 每個工作區都有自己的資料存放庫與設定，而且資料來源和解決方案會設定為將其資料儲存在特定的工作區中。 如果您想從下列來源收集資料，就必須要有 Log Analytics 工作區：
 
 * 訂用帳戶中的 Azure 資源  
 * System Center Operations Manager 監視的內部部署電腦  
@@ -43,6 +43,8 @@ Azure CLI 2.0 用於從命令列或在指令碼中建立和管理 Azure 資源�
 
 ## <a name="create-a-workspace"></a>建立工作區
 使用 [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create) 建立工作區。 下列範例會在 *eastus* 位置的資源群組 *Lab* 中，使用 Resource Manager 範本從您的本機電腦建立名為 *TestWorkspace* 的工作區。 JSON 範本會設定為只提示您輸入工作區的名稱，並針對您環境中可能作為標準組態使用的其他參數，指定預設值。 或者，您可以將範本儲存在 Azure 儲存體帳戶中，以在組織內共用存取。 如需使用範本的詳細資訊，請參閱 [使用 Resource Manager 範本和 Azure CLI 部署資源](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+
+如需支援的區域資訊，請參閱 < [Log Analytics 的可用區域](https://azure.microsoft.com/regions/services/)，並從 Azure 監視器的搜尋**搜尋產品**欄位。 
 
 下列參數會設定預設值：
 
@@ -96,7 +98,7 @@ Azure CLI 2.0 用於從命令列或在指令碼中建立和管理 Azure 資源�
         {
             "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2015-11-01-preview",
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
@@ -111,12 +113,12 @@ Azure CLI 2.0 用於從命令列或在指令碼中建立和管理 Azure 資源�
     }
     ```
 
-2. 編輯範本以符合您的需求。  檢閱 [Microsoft.OperationalInsights/workspaces 範本](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces)參考，以了解支援哪些屬性和值。 
+2. 編輯範本以符合您的需求。 檢閱 [Microsoft.OperationalInsights/workspaces 範本](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces)參考，以了解支援哪些屬性和值。 
 3. 將此檔案儲存為本機資料夾的 deploylaworkspacetemplate.json。   
 4. 您已準備好部署此範本。 從包含範本的資料夾使用下列命令：
 
     ```azurecli
-    azure group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
+    az group deployment create --resource-group <my-resource-group> --name <my-deployment-name> --template-file deploylaworkspacetemplate.json
     ```
 
 部署需要幾分鐘的時間才能完成。 完成後，您會看到類似下列包含結果的訊息：

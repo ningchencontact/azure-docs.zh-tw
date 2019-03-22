@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 0d8bb451c821a4883c81e0e51c5d98e146e3008e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 2d59235b067d9571bc8b64c33799431be6489502
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243533"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58087205"
 ---
 # <a name="restore-azure-sql-data-warehouse-portal"></a>還原 Azure SQL 資料倉儲 (入口網站)
 > [!div class="op_single_selector"]
@@ -23,9 +23,9 @@ ms.locfileid: "55243533"
 > * [入口網站][Portal]
 > * [PowerShell][PowerShell]
 > * [REST][REST]
->
->
-在本文中，您將了解如何使用 Azure 入口網站來還原 Azure SQL 資料倉儲。
+> 
+> 
+> 在本文中，您將了解如何使用 Azure 入口網站來還原 Azure SQL 資料倉儲。
 
 ## <a name="before-you-begin"></a>開始之前
 **請驗證您的 DTU 容量。** SQL 資料倉儲的每個執行個體均由具有預設資料配額單位 (DTU) 的 SQL Database 裝載 (例如，myserver.database.windows.net)。 在您還原 SQL 資料倉儲之前，請確認您的 SQL 伺服器有足夠的剩餘 DTU 配額可供要還原的資料庫使用。 若要了解如何計算所需 DTU 配額或要求更多 DTU，請參閱 [要求 DTU 配額變更][Request a DTU quota change]。
@@ -33,7 +33,7 @@ ms.locfileid: "55243533"
 ## <a name="restore-an-active-or-paused-database"></a>還原作用中或已暫停的資料庫
 還原資料庫：
 
-1. 登入 [Azure 入口網站][Azure portal]。
+1. 登录到 [Azure 门户][Azure portal]。
 2. 在左窗格中，選取 [瀏覽]，然後選取 [SQL Server]。
 
     ![選取 [瀏覽] > [SQL Server]](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
@@ -46,7 +46,7 @@ ms.locfileid: "55243533"
 5. 在 [資料倉儲] 刀鋒視窗頂端，選取 [還原]。
 
     ![選取 [還原]](./media/sql-data-warehouse-restore-database-portal/01-select-restore-from-active.png)
-6. 指定新的 **資料庫名稱**。
+6. 指定新的“数据库名称” 。
 7. 選取最新的 **還原點**。
 
    確定您選擇了最新的還原點。 還原點會以國際標準時間 (UTC) 顯示，因此預設選項可能不是最新的還原點。
@@ -69,7 +69,7 @@ ms.locfileid: "55243533"
     ![選取 [瀏覽] > [SQL Server]](./media/sql-data-warehouse-restore-database-portal/01-browse-for-sql-server.png)
 3. 尋找您的伺服器，然後選取它。
 
-    ![選取您的伺服器](./media/sql-data-warehouse-restore-database-portal/02-select-server.png)
+    ![选择服务器](./media/sql-data-warehouse-restore-database-portal/02-select-server.png)
 4. 在伺服器的刀鋒視窗上捲動至 [作業] 區段。
 5. 選取 [已刪除的資料庫] 圖格。
 

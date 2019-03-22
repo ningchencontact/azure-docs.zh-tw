@@ -1,7 +1,7 @@
 ---
 title: 使用 Azure 搜尋服務 Blob 索引子，為 CSV Blob 編製索引 - Azure 搜尋服務
 description: 使用 Azure 搜尋服務索引，搜耙 Azure Blob 儲存體中的 CSV Blob 以用於全文檢索搜尋。 索引子可為選取的資料來源 (例如 Azure Blob 儲存體) 將資料擷取自動化。
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: eac0c1f2f7ded35cf09eec12f0406c754621f49c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 0bbb131b5fb155443c8c3dc340185f3a6fa950a3
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465457"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312902"
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>使用 Azure 搜尋服務 Blob 索引子編製索引 CSV Blob
 根據預設， [Azure 搜尋服務 Blob 索引子](search-howto-indexing-azure-blob-storage.md) 會將分隔符號文字 Blob 剖析為單一的文字區塊。 不過，使用包含 CSV 資料的 blob，您通常想要將 blob 中的每一行當做個別文件。 例如，在給訂下列分隔文字時，您可能想要將它剖析為 2 個文件，每個都包含 [識別碼]、[發佈日期] 和 [標籤] 欄位： 
@@ -26,9 +26,8 @@ ms.locfileid: "54465457"
 
 在本文中，您將深入了解如何使用 Azure 搜尋服務 Blob 索引子來剖析 CSV Blob。 
 
-> [!IMPORTANT]
-> CSV Blob 索引目前處於公開預覽狀態，不應該用於生產環境。 如需詳細資訊，請參閱 [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md)。 
-> 
+> [!NOTE]
+> 請依照下列中的索引子組態建議[-一對多編製索引](search-howto-index-one-to-many-blobs.md)輸出從一個 Azure blob 的多個搜尋文件。
 
 ## <a name="setting-up-csv-indexing"></a>設定 CSV 編製索引
 若要對 CSV blob 編製索引，請使用 `delimitedText` 剖析模式建立或更新索引子定義︰  

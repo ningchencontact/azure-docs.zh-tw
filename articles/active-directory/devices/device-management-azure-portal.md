@@ -17,12 +17,12 @@ ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 830825c6ad54a6ff300fb7ee223b32ee0571a55a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: bb244cb03ed5419762541e93784bb72fcf252676
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58163529"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258049"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>如何使用 Azure 入口網站來管理裝置
 
@@ -83,7 +83,7 @@ Azure 入口網站可提供您一個集中管理裝置的位置。 您可以使�
 
 - **使用者可以在裝置間同步設定及應用程式資料** - 根據預設，這項設定會設定為 [無]。 選取特定使用者或群組，或是選取 [全部]，以便在使用者的 Windows 10 裝置間同步其設定及應用程式資料。 深入了解同步在 Windows 10 中的運作方式。
 此選項是可透過 Azure AD Premium 或 Enterprise Mobility Suite (EMS) 等產品使用的進階功能。
- 
+
 
 
 
@@ -119,7 +119,7 @@ Azure 入口網站可提供您一個集中管理裝置的位置。 您可以使�
 
 ## <a name="device-management-tasks"></a>裝置管理工作
 
-身為全域管理員，您可以管理已註冊或已加入的裝置。 Intune 服務管理員可以：
+身為全域管理員或雲端裝置系統管理員，您可以管理已註冊或已加入裝置。 Intune 服務管理員可以：
  
 - 更新裝置 – 範例為啟用/停用裝置等每日作業
 
@@ -151,7 +151,7 @@ Azure 入口網站可提供您一個集中管理裝置的位置。 您可以使�
 
 **備註：**
 
-- 您必須是 Azure AD 中的全域管理員，才能啟用/停用裝置。 
+- 您需要是全域管理員，或啟用 / 停用裝置的 Azure AD 中雲端裝置系統管理員。 
 - 停用裝置，可防止裝置已成功向 Azure AD 中，藉此防止裝置存取您裝置 CA 所保護的 Azure AD 資源，或使用 WH4B 認證。 
 
 

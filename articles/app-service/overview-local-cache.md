@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ea17db9af92887ff775e580224b66fed22c65d41
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 1d6e233509b50f0b03678f2e62267169d02133a1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55963857"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57990772"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure App Service 本機快取概觀
 
@@ -35,7 +35,7 @@ Azure App Service 的內容儲存在 Azure 儲存體中，並且會持久顯示�
 * 內容會由應用程式的多個虛擬機器 (VM) 執行個體共用。
 * 內容具有持久性，且可透過執行應用程式來修改。
 * 記錄檔和診斷資料檔案會在相同的共用內容資料夾底下提供使用。
-* 發佈新內容時會直接更新內容資料夾。 透過 SCM 網站和執行應用程式即可立即檢視相同的內容 (通常來說，ASP.NET 之類的某些技術確實會在某些檔案變更時讓應用程式重新啟動以取得最新內容)。
+* 發佈新內容時會直接更新內容資料夾。 您可以立即檢視相同的內容，透過 SCM 網站，並執行應用程式 （通常是 ASP.NET 之類的某些技術進行起始應用程式重新啟動在某些檔案變更，以取得最新的內容）。
 
 雖然許多應用程式會使用上述其中一項功能或所有功能，但某些應用程式只需要可從中執行的內容存放區，而且此存放區具備高效能、唯讀和高可用性。 這些應用程式可以受益於特定本機快取的 VM 執行個體。
 

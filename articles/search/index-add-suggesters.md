@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 7128e4d3b0675775dc713451ef672b28a4991499
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: fd4b29134fd45ed2888fbc81ded413ecf7286959
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269921"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308647"
 ---
 # <a name="add-suggesters-to-an-azure-search-index"></a>將建議工具新增到 Azure 搜尋服務索引
 
@@ -34,52 +34,52 @@ ms.locfileid: "56269921"
 
 針對每個索引，您只能有一個**建議工具**資源 (具體而言，就是**建議工具**集合中只能有一個**建議工具**)。
 
-## <a name="creating-a-suggester"></a>建立建議工具 
+## <a name="creating-a-suggester"></a>建立建議工具
 
-您隨時都可以建立**建議工具**，但其對您索引所產生的影響會根據欄位而有所不同。 
+您隨時都可以建立**建議工具**，但其對您索引所產生的影響會根據欄位而有所不同。
 
 + 以相同更新的形式新增到建議工具的新欄位造成的影響較小，因為不需要進行任何索引重建。
 + 不過，將現有的欄位新增至建議工具會變更欄位定義，並導致需對索引進行完整重建。
 
- **建議工具**最適合用來建議特定文件，而非鬆散的詞彙或片語。 最佳的候選欄位是標題、名稱，以及可識別項目的其他相關簡短片語。 不太有效的是重複的欄位 (例如，類別和標記) 或非常長的欄位 (例如，說明或註解欄位)。  
+**建議工具**最適合用來建議特定文件，而非鬆散的詞彙或片語。 最佳的候選欄位是標題、名稱，以及可識別項目的其他相關簡短片語。 不太有效的是重複的欄位 (例如，類別和標記) 或非常長的欄位 (例如，說明或註解欄位)。
 
-在建立建議工具之後，請將[建議 API](https://docs.microsoft.com/rest/api/searchservice/suggestions) \(英文\) 新增到您的查詢邏輯中以叫用該功能。  
+在建立建議工具之後，請將[建議 API](https://docs.microsoft.com/rest/api/searchservice/suggestions) \(英文\) 新增到您的查詢邏輯中以叫用該功能。
 
-定義**建議工具**的屬性包括下列項目：  
+定義**建議工具**的屬性包括下列項目：
 
-|屬性|說明|  
-|--------------|-----------------|  
-|`name`|**建議工具**的名稱。 您會在呼叫[建議 &#40;Azure 搜尋服務 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/suggestions) \(英文\) 時使用**建議工具**的名稱。|  
-|`searchMode`|用來搜尋候選片語的策略。 目前唯一支援的模式是 `analyzingInfixMatching`，其可在句子開頭或中間執行彈性的片語比對。|  
-|`sourceFields`|建議之內容來源的一或多個欄位清單。 只有類型 `Edm.String` 和 `Collection(Edm.String)` 的欄位可以用來做為提供建議的來源。 您只能使用未設定自訂語言分析器的欄位。 |  
+|屬性|描述|
+|--------------|-----------------|
+|`name`|**建議工具**的名稱。 您會在呼叫[建議 &#40;Azure 搜尋服務 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/suggestions) \(英文\) 時使用**建議工具**的名稱。|
+|`searchMode`|用來搜尋候選片語的策略。 目前唯一支援的模式是 `analyzingInfixMatching`，其可在句子開頭或中間執行彈性的片語比對。|
+|`sourceFields`|建議之內容來源的一或多個欄位清單。 只有類型 `Edm.String` 和 `Collection(Edm.String)` 的欄位可以用來做為提供建議的來源。 您只能使用未設定自訂語言分析器的欄位。 |
 
-## <a name="suggester-example"></a>建議工具範例  
- **建議工具**是索引定義的一部分。 在目前版本中，連同**欄位**集合和 **scoringProfiles**，**建議工具**集合中只能存在一個**建議工具**。  
+## <a name="suggester-example"></a>建議工具範例
+**建議工具**是索引定義的一部分。 在目前版本中，連同**欄位**集合和 **scoringProfiles**，**建議工具**集合中只能存在一個**建議工具**。
 
-```  
-{  
-  "name": "hotels",  
-  "fields": [  
-     . . .   
-   ],  
-  "suggesters": [  
-    {  
-    "name": "sg",  
-    "searchMode": "analyzingInfixMatching",  
-    "sourceFields": ["hotelName", "category"]  
-    }  
-  ],  
-  "scoringProfiles": [  
-     . . .   
-  ]  
-}  
+```
+{
+  "name": "hotels",
+  "fields": [
+    . . .
+  ],
+  "suggesters": [
+    {
+      "name": "sg",
+      "searchMode": "analyzingInfixMatching",
+      "sourceFields": ["hotelName", "category"]
+    }
+  ],
+  "scoringProfiles": [
+    . . .
+  ]
+}
 
-```  
+```
 
-## <a name="see-also"></a>另請參閱  
- [建立索引 &#40;Azure 搜尋服務 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) \(英文\)  
- [更新索引 &#40;Azure 搜尋服務 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/update-index) \(英文\)  
- [建議 &#40;Azure 搜尋服務 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/suggestions) \(英文\)  
- [索引作業 &#40;Azure 搜尋服務 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/index-operations) \(英文\)  
- [Azure 搜尋服務 REST](https://docs.microsoft.com/rest/api/searchservice/) \(英文\)  
- [Azure 搜尋服務 .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
+## <a name="see-also"></a>請參閱
+[建立索引 &#40;Azure 搜尋服務 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) \(英文\)  
+[更新索引&#40;Azure 搜尋服務 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/update-index)  
+[建議&#40;Azure 搜尋服務 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/suggestions)  
+[索引作業&#40;Azure 搜尋服務 REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/index-operations)  
+[Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice/)  
+[Azure 搜尋服務 .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)

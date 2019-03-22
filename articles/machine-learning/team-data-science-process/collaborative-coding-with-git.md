@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 045f2d12eb6836d14a09ea96c8eca3cad0e5246d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 551d0cd149c4d1555a40ccf0d7baeff97c6809c2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55458210"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863292"
 ---
 # <a name="collaborative-coding-with-git"></a>使用 Git 共同作業撰寫程式碼
 
@@ -36,7 +36,7 @@ Azure DevOps Services 提供連結工作項目 (劇本或工作) 與 Git 分支�
 
 為每個劇本工作項目建立 Git 分支是很好的做法。 然後，您可以根據劇本分支，為每個工作工作項目建立分支。 以對應到劇本-工作關係的這種階層方式組織分支，在您有許多人員使用相同專案的不同劇本時，或者有許多人員使用相同劇本的不同工作時，都很有幫助。 當每個小組成員使用不同的分支時，以及當共用分支的時候每個成員使用不同程式碼或其他構件時，衝突能夠降至最低。 
 
-下圖說明建議的 TDSP 分支策略。 您可能不需要像這裡示範的這麼多分支，特別是當您只有一個或兩個人員使用相同專案，或只有一個人員使用劇本的所有工作。 但是將開發分支與主要分支分隔開來，永遠是良好的作法。 這可協助防止發行分支被開發活動中斷。 可以在[成功的 Git 分支模型](http://nvie.com/posts/a-successful-git-branching-model/)中找到 Git 分支模型的完整說明。
+下圖說明建議的 TDSP 分支策略。 您可能不需要像這裡示範的這麼多分支，特別是當您只有一個或兩個人員使用相同專案，或只有一個人員使用劇本的所有工作。 但是將開發分支與主要分支分隔開來，永遠是良好的作法。 這可協助防止發行分支被開發活動中斷。 可以在[成功的 Git 分支模型](https://nvie.com/posts/a-successful-git-branching-model/)中找到 Git 分支模型的完整說明。
 
 ![3](./media/collaborative-coding-with-git/3-git-branches.png)
 

@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 464f3768ec6bd679513e7817d1b5185787094044
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 04c921282d3591e7326d326c230bf72e7f5c1812
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461300"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57313008"
 ---
 # <a name="migrate-your-solution-to-azure-sql-data-warehouse"></a>將您的解決方案移轉至 Azure SQL 資料倉儲
 查看將現有資料庫解決方案移轉至 Azure SQL 資料倉儲所需採取的步驟。 
@@ -48,7 +48,7 @@ ms.locfileid: "55461300"
 若要成功執行移轉，您必須移轉資料表結構描述、程式碼及資料。 如需這些移轉主題的指引，請參閱：
 
 -  [移轉結構描述](sql-data-warehouse-migrate-schema.md)
--  [遷移程式碼](sql-data-warehouse-migrate-code.md)
+-  [迁移代码](sql-data-warehouse-migrate-code.md)
 -  [移轉資料](sql-data-warehouse-migrate-data.md)。 
 
 <!--
@@ -63,7 +63,7 @@ ms.locfileid: "55461300"
 -->
 
 ## <a name="next-steps"></a>後續步驟
-CAT (客戶諮詢小組) 也會透過部落格發佈一些實用的 SQL 資料倉儲指引。  請瀏覽他們的[將資料移轉到 Azure SQL 資料倉儲的實際作法][Migrating data to Azure SQL Data Warehouse in practice]一文，以取得關於移轉的額外指導方針。
+CAT (客戶諮詢小組) 也會透過部落格發佈一些實用的 SQL 資料倉儲指引。  有关迁移的其他指南，请参阅他们的[在实践中将数据迁移到 Azure SQL 数据仓库][Migrating data to Azure SQL Data Warehouse in practice] 一文。
 
 <!--Image references-->
 
@@ -72,4 +72,4 @@ CAT (客戶諮詢小組) 也會透過部落格發佈一些實用的 SQL 資料�
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Migrating data to Azure SQL Data Warehouse in practice]: https://blogs.msdn.microsoft.com/sqlcat/2016/08/18/migrating-data-to-azure-sql-data-warehouse-in-practice/
+[Migrating data to Azure SQL Data Warehouse in practice]: https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/

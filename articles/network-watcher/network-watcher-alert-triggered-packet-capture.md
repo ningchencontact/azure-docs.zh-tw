@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: fd7e7151d8ec676239ed810fb700149aab0fe0fa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 71e71b417f12b58fc03c581826c0e5c2412e684b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427397"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57876641"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>使用封包擷取搭配警示和 Azure Functions 進行主動式網路監視
 
@@ -110,13 +110,13 @@ ms.locfileid: "54427397"
 
     此範例會提供您 Azure PowerShell 模組的本機路徑。 在接下來的步驟中會用到這些資料夾。 此案例中使用的模組有︰
 
-    * AzureRM.Network
+   * AzureRM.Network
 
-    * AzureRM.Profile
+   * AzureRM.Profile
 
-    * AzureRM.Resources
+   * AzureRM.Resources
 
-    ![PowerShell 資料夾][functions5]
+     ![PowerShell 資料夾][functions5]
 
 1. 選取 [函數應用程式設定] > [前往 App Service 編輯器]。
 
@@ -146,7 +146,7 @@ ms.locfileid: "54427397"
 
     ![PowerShell 檔案][functions7]
 
-### <a name="authentication"></a>驗證
+### <a name="authentication"></a>Authentication
 
 若要使用 PowerShell Cmdlet，您必須進行驗證。 您可以在函數應用程式中設定驗證。 若要設定驗證，您必須設定環境變數，並將加密金鑰檔案上傳至函數應用程式。
 
@@ -344,7 +344,7 @@ $Encryptedpassword
   |**設定** | **值** | **詳細資料** |
   |---|---|---|
   |**名稱**|TCP_Segments_Sent_Exceeded|警示規則的名稱。|
-  |**說明**|傳送的 TCP 區段超出閾值|警示規則的描述。||
+  |**說明**|傳送的 TCP 區段超出閾值|警示規則的描述。|
   |**計量**|傳送的 TCP 區段| 用以觸發警示的計量。 |
   |**Condition**|大於| 評估計量所用的條件。|
   |**閾值**|100| 觸發警示的計量值。 此值應該設為您環境的有效值。|
@@ -362,7 +362,7 @@ $Encryptedpassword
 
 如果擷取檔案儲存在本機，則可登入虛擬機器進行擷取。
 
-如需從 Azure 儲存體帳戶下載檔案的指示，請參閱[以 .NET 開始使用 Azure Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md)。 另一個可用的工具是[儲存體總管](http://storageexplorer.com/)。
+如需從 Azure 儲存體帳戶下載檔案的指示，請參閱[以 .NET 開始使用 Azure Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md)。 另一個可用的工具是[儲存體總管](https://storageexplorer.com/)。
 
 下載您的擷取後，您可以使用可讀取 **.cap** 檔案的任何工具來檢視它。 以下是其中兩個工具的連結︰
 

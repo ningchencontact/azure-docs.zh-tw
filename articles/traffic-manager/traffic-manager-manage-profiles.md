@@ -1,23 +1,23 @@
 ---
 title: 管理 Azure 流量管理員設定檔 | Microsoft Docs
-description: 本文會協助您建立、停用、啟用及刪除 Azure 流量管理員設定檔。
+description: 這篇文章可協助您建立、 停用、 啟用和刪除 Azure 流量管理員設定檔。
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
 ms.service: traffic-manager
 manager: twooley
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.openlocfilehash: 01c295ac12886e9a3a93cfbf5f4f3e96545cd5ec
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: 7b52d07db076b62845465ee9f22a3d794c8cdf76
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229502"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839520"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>管理 Azure 流量管理員設定檔
 
@@ -25,11 +25,11 @@ ms.locfileid: "54229502"
 
 ## <a name="create-a-traffic-manager-profile"></a>建立流量管理員設定檔
 
-您可以使用 Azure 入口網站來建立流量管理員設定檔。 建立設定檔之後，您就可以在 Azure 入口網站中設定端點、監視及其他設定。 流量管理員每個設定檔最多支援 200 個端點。 不過，大部分的使用案例僅需要少量的端點。
+您可以使用 Azure 入口網站來建立流量管理員設定檔。 建立設定檔之後，您就可以在 Azure 入口網站中設定端點、監視及其他設定。 流量管理器支持每个配置文件最多 200 个终结点。 不過，大部分的使用案例僅需要少量的端點。
 
 ### <a name="to-create-a-traffic-manager-profile"></a>若要建立流量管理員設定檔
 
-1. 從瀏覽器登入 [Azure 入口網站](http://portal.azure.com)。 如果您沒有帳戶，您可以註冊[免費試用一個月](https://azure.microsoft.com/free/)。 
+1. 從瀏覽器登入 [Azure 入口網站](https://portal.azure.com)。 如果您沒有帳戶，您可以註冊[免費試用一個月](https://azure.microsoft.com/free/)。 
 2. 按一下 [建立資源] > [網路] > [流量管理員設定檔] > [建立]。
 4. 在 [建立流量管理員設定檔] 中，如下所示操作：
     1. 在 [名稱]中，提供設定檔的名稱。 此名稱在 trafficmanager.net 區域內必須是唯一的，而且會產生 DNS 名稱 <name>, trafficmanager.net，用以存取您的流量管理員設定檔。
@@ -40,7 +40,7 @@ ms.locfileid: "54229502"
     6. 按一下頁面底部的 [新增] 。
     7. 當流量管理員設定檔的全球部署完成時，它會列為個別資源群組的其中一個資源。
 
-## <a name="disable-enable-or-delete-a-profile"></a>停用、啟用或刪除設定檔
+## <a name="disable-enable-or-delete-a-profile"></a>禁用、启用或删除配置文件
 
 您可以停用現有的設定檔，流量管理員就不會將使用者要求轉介到設定的端點。 當您停用流量管理員設定檔時，設定檔和設定檔內含的資訊將保持不變，而且可在流量管理員介面中進行編輯。  當您重新啟用設定檔時，就會繼續轉介。 當您在 Azure 入口網站中建立流量管理員設定檔時，它會自動啟用。 如果您決定不再需要某個設定檔，可以將它刪除。
 
@@ -48,14 +48,14 @@ ms.locfileid: "54229502"
 
 1. 如果您使用的是自訂網域名稱，則變更網際網路 DNS 伺服器上的 CNAME 記錄，它就不會再指向流量管理員設定檔。
 2. 流量會停止導向至透過流量管理員設定檔設定的端點。
-3. 從瀏覽器登入 [Azure 入口網站](http://portal.azure.com)。
+3. 從瀏覽器登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在入口網站的搜尋列中，搜尋您想要修改的**流量管理員設定檔**名稱，然後按一下結果中顯示的流量管理員設定檔。
 3. 按一下 [概觀] > [停用]。
 4. 確認停用流量管理員設定檔。
 
 ### <a name="to-enable-a-profile"></a>啟用設定檔
 
-1. 從瀏覽器登入 [Azure 入口網站](http://portal.azure.com)。
+1. 從瀏覽器登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在入口網站的搜尋列中，搜尋您想要修改的**流量管理員設定檔**名稱，然後按一下結果中顯示的流量管理員設定檔。
 3. 按一下 [概觀] > [啟用]。
 1. 如果您使用的是自訂網域名稱，請在網際網路 DNS 伺服器上建立 CNAME 資源記錄，以指向流量管理員設定檔的網域名稱。
@@ -70,7 +70,7 @@ ms.locfileid: "54229502"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [新增端點。](traffic-manager-endpoints.md)
+* [添加终结点](traffic-manager-endpoints.md)
 * [設定優先順序路由方法](traffic-manager-configure-priority-routing-method.md)
 * [設定地理路由方法](traffic-manager-configure-geographic-routing-method.md) 
 * [設定加權路由方法](traffic-manager-configure-weighted-routing-method.md)

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/10/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4782afa71919a3545bd023f33f873969c86b6cc6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6d3bb9708c7bab41f87ad9c2b6ae18ac62849a2d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208345"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223915"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>使用 Azure CLI 在 Azure VM 上設定 Azure 資源的受控識別
 
@@ -107,12 +107,8 @@ az vm update -n myVM -g myResourceGroup --set identity.type='UserAssigned'
 ```azurecli-interactive
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
-
-若要移除 Azure 資源 VM 擴充功能的受控識別 (計劃在 2019 年 1 月淘汰)，請使用 `-n ManagedIdentityExtensionForWindows` 或 `-n ManagedIdentityExtensionForLinux` 參數 (視 VM 類型而定) 搭配 [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/)：
-
-```azurecli-interactive
-az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
-```
+> [!NOTE]
+> 如果您已佈建 Azure 資源 （要被取代） 的 VM 延伸模組的受管理身分識別，您需要先使用  [az vm 擴充功能刪除](https://docs.microsoft.com/cli/azure/vm/)。 如需詳細資訊，請參閱 <<c0> [ 從 VM 延伸模組移轉至 Azure 進行驗證的 IMDS](howto-migrate-vm-extension.md)。
 
 ## <a name="user-assigned-managed-identity"></a>使用者指派的受控識別
 
@@ -135,7 +131,7 @@ az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentit
    ```azurecli-interactive
    az identity create -g myResourceGroup -n myUserAssignedIdentity
    ```
-   回應會包含所建立之使用者指派的受控識別詳細資料，與下列內容類似。 指派給使用者指派受控識別的資源識別碼值會使用於下列步驟。
+   回應會包含所建立使用者指派受控識別的詳細資料，與下列內容類似。 指派給 指派使用者給受控身分識別的資源識別碼值會在下一個步驟。
 
    ```json
    {

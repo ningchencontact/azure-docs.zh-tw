@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: d7122b78-6daa-4bea-883b-ff832cfecef3
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 6f36879828f5927cbb5477b32cdb6b4832010d4c
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
-ms.translationtype: HT
+ms.openlocfilehash: cfce5765cda1e3a1dfb7eb073719191b13b0696e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413127"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089194"
 ---
 # <a name="quickstart-clone-a-notebook"></a>快速入門：複製筆記本
 
@@ -40,13 +40,13 @@ ms.locfileid: "53413127"
 
 1. 在顯示的 [上傳 GitHub 存放庫] 中，輸入或設定下列詳細資料，然後選取 [匯入]：
 
-    - **GitHub 存放庫**：Microsoft/cognitive-services-notebooks (此名稱可在 [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks) 複製 Azure 認知服務的 Jupyter 筆記本)。
-    - **以遞迴方式複製**：(已清除)
-    - **專案名稱**：認知服務複製
-    - **專案識別碼**：cognitive-services-clone
-    - **公用**：(已清除)
+   - **GitHub 存放庫**：Microsoft/cognitive-services-notebooks (此名稱可在 [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks) 複製 Azure 認知服務的 Jupyter 筆記本)。
+   - **以遞迴方式複製**：(已清除)
+   - **專案名稱**：認知服務複製
+   - **專案識別碼**：cognitive-services-clone
+   - **公用**：(已清除)
 
-    ![上傳 GitHub 存放庫快顯視窗以收集存放庫資訊](media/quickstarts/upload-github-repo-popup.png)
+     ![上傳 GitHub 存放庫快顯視窗以收集存放庫資訊](media/quickstarts/upload-github-repo-popup.png)
 
 1. 請耐心等候此程序完成；複製存放庫可能需要幾分鐘的時間。
 

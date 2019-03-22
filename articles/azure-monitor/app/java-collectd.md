@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: c8320a0f504927830c47400f1f1ef0369c0e1cad
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 783cef6ff4e107838bb3ff7502fb4a8e9189ec3d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54116529"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011197"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd：Application Insights 中的 Linux 效能計量
 
@@ -26,14 +26,12 @@ ms.locfileid: "54116529"
 
 如果您已[使用 Application Insights 檢測您的 Java Web 服務][java]，通常您會使用 collectd。 提供給您更多資料來幫助您增強應用程式的效能或診斷問題。 
 
-![範例圖表](./media/java-collectd/sample.png)
-
 ## <a name="get-your-instrumentation-key"></a>取得檢測金鑰
 在 [Microsoft Azure 入口網站](https://portal.azure.com)中，開啟您要顯示資料的 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 資源。 (或[建立新的資源](../../azure-monitor/app/create-new-resource.md )。)
 
 取得一份可識別資源的檢測金鑰。
 
-![瀏覽全部，開啟您的資源，然後在 [Essentials] 下拉式清單中，選取並複製檢測金鑰](./media/java-collectd/02-props.png)
+![瀏覽全部，開啟您的資源，然後在 [Essentials] 下拉式清單中，選取並複製檢測金鑰](./media/java-collectd/instrumentation-key-001.png)
 
 ## <a name="install-collectd-and-the-plug-in"></a>安裝 collectd 和外掛程式
 在您的 Linux 伺服器機器上：
@@ -93,9 +91,7 @@ ms.locfileid: "54116529"
 根據其 [手冊](https://collectd.org/wiki/index.php/First_steps)重新啟動 collectd。
 
 ## <a name="view-the-data-in-application-insights"></a>在 Application Insights 中檢視資料
-在您的 Application Insights 資源中，開啟[計量瀏覽器並加入圖表][metrics]，從 [自訂] 類別選取您想要查看的度量。
-
-![](./media/java-collectd/result.png)
+在 Application Insights 資源中，開啟[計量並新增圖表][metrics]，選取您想要從 [自訂] 類別中查看的度量。
 
 根據預設，會對收集度量來源的所有主機電腦彙總度量。 若要檢視每一主機的度量，在圖表的 [詳細資料] 刀鋒視窗中，開啟 [群組]，然後選擇依 CollectD-Host 群組。
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5739c878812c09a8f2646320df4b1069dfa8810e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: eced1b92aba24c8083cbdc2ece099fab95567db7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189034"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877950"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>教學課程：Azure Active Directory 與 Zscaler Three 整合
 
@@ -159,43 +159,43 @@ ms.locfileid: "56189034"
 
 ### <a name="configure-zscaler-three-single-sign-on"></a>設定 Zscaler Three 單一登入
 
-9. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入 Zscaler Three 公司網站。
+1. 在不同的 Web 瀏覽器視窗中，以系統管理員身分登入 Zscaler Three 公司網站。
 
-10. 移至 管理 > 驗證 > 驗證設定 並執行下列步驟：
+1. 移至 管理 > 驗證 > 驗證設定 並執行下列步驟：
    
-    ![管理](./media/zscaler-three-tutorial/ic800206.png "管理")
+   ![管理](./media/zscaler-three-tutorial/ic800206.png "管理")
 
-    a. 在 [驗證類型] 下選擇 [SAML]。
+   a. 在 [驗證類型] 下選擇 [SAML]。
 
-    b. 按一下 [設定 SAML]。
+   b. 按一下 [設定 SAML]。
 
-11. 在 [編輯 SAML] 視窗上執行下列步驟，然後按一下 [儲存]。  
+1. 在 [編輯 SAML] 視窗上執行下列步驟，然後按一下 [儲存]。  
             
-    ![管理使用者和驗證](./media/zscaler-three-tutorial/ic800208.png "管理使用者和驗證")
+   ![管理使用者和驗證](./media/zscaler-three-tutorial/ic800208.png "管理使用者和驗證")
     
-    a. 在 [SAML 入口網站 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL]。
+   a. 在 [SAML 入口網站 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL]。
 
-    b. 在 [登入名稱屬性] 文字方塊中，輸入 **NameID**。
+   b. 在 [登入名稱屬性] 文字方塊中，輸入 **NameID**。
 
-    c. 按一下 [上傳]，以上傳您從 Azure 入口網站的 [公開 SSL 憑證] 下載的 Azure SAML 簽署憑證。
+   c. 按一下 [上傳]，以上傳您從 Azure 入口網站的 [公開 SSL 憑證] 下載的 Azure SAML 簽署憑證。
 
-    d. 切換 [啟用 SAML 自動佈建]。
+   d. 切換 [啟用 SAML 自動佈建]。
 
-    e. 如果您想要啟用 displayName 屬性的 SAML 自動佈建，請在 [使用者顯示名稱屬性] 文字方塊中，輸入 **displayName**。
+   e. 如果您想要啟用 displayName 屬性的 SAML 自動佈建，請在 [使用者顯示名稱屬性] 文字方塊中，輸入 **displayName**。
 
-    f. 如果您想要啟用 memberOf 屬性的 SAML 自動佈建，請在 [群組名稱屬性] 文字方塊中，輸入 **memberOf**。
+   f. 如果您想要啟用 memberOf 屬性的 SAML 自動佈建，請在 [群組名稱屬性] 文字方塊中，輸入 **memberOf**。
 
-    g. 如果您想要啟用 department 屬性的 SAML 自動佈建，請在 [部門名稱屬性] 文字方塊中，輸入 **department**。
+   g. 如果您想要啟用 department 屬性的 SAML 自動佈建，請在 [部門名稱屬性] 文字方塊中，輸入 **department**。
 
-    i. 按一下 [檔案] 。
+   i. 按一下 [檔案] 。
 
-12. 在 [設定使用者驗證]  對話方塊頁面上執行下列步驟：
+1. 在 [設定使用者驗證]  對話方塊頁面上執行下列步驟：
 
-    ![系統管理](./media/zscaler-three-tutorial/ic800207.png)
+   ![系統管理](./media/zscaler-three-tutorial/ic800207.png)
 
-    a. 將滑鼠停留在靠近左下方的 [啟用] 功能表上。
+   a. 將滑鼠停留在靠近左下方的 [啟用] 功能表上。
 
-    b. 按一下 [啟用]。
+   b. 按一下 [啟用]。
 
 ## <a name="configuring-proxy-settings"></a>進行 Proxy 設定
 ### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>在 Internet Explorer 中進行 Proxy 設定
@@ -246,7 +246,7 @@ ms.locfileid: "56189034"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 **使用者名**欄位中，輸入**brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 依序選取 [屬性] [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: a61e78ff54cdc2a3db6c166686c2c51a19856a9c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: b03da04c97475dcb9ce15f2ed69d7ca333d6f431
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252298"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456205"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Azure 分頁 Blob 的概觀
 
@@ -29,7 +29,7 @@ Azure 分頁 Blob 的主要功能包括其 REST 介面、基礎儲存體的持�
 
 第一方 Microsoft 服務 (例如 Azure Site Recovery、Azure 備份)，以及許多第三方協力廠商的開發人員，皆使用分頁 Blob 的 REST 介面來實作領先業界的創新功能。 以下是一些實作於 Azure 上的獨特案例： 
 * 應用程式導向的累加快照集管理：應用程式可以利用分頁 Blob 快照集和 REST API 來儲存應用程式檢查點，以免於因複製資料所帶來高成本。 Azure 儲存體支援針對分頁 Blob 的本機快照集，此功能並不需要複製整個 Blob。 這些公用快照集 API 也能提供針對快照集間差異的存取及複製。
-* 將應用程式和資料從內部部署即時移轉至雲端：複製內部部署資料，並在內部部署 VM 持續執行的情況下，使用 REST API 直接寫入至 Azure 分頁 Blob。 一旦趕上目標之後，您可以使用該資料快速地容錯移轉至 Azure VM。 透過這個方式，您可在停機時間最短的情況下，將 VM 與虛擬磁碟從內部部署移轉至雲端，因為資料移轉是在背景中發生，使得您可以繼續使用 VM，且容錯移轉所需的停機時間會很短 (幾分鐘便能完成)。
+* 應用程式和資料從內部部署至雲端的即時移轉：在內部部署資料複製並使用 REST Api 直接寫入至 Azure 分頁 blob 時在內部部署 VM 持續執行。 一旦趕上目標之後，您可以使用該資料快速地容錯移轉至 Azure VM。 如此一來，您可以將 Vm 移轉，因此虛擬磁碟從內部部署至雲端最短停機時間，因為資料移轉就會發生在背景中，同時繼續使用 VM，且容錯移轉所需的停機時間短 （以分鐘為單位）。
 * [SAS 型](../common/storage-dotnet-shared-access-signature-part-1.md)共用存取，可實現如多個讀取器及單一寫入器並支援並行控制的案例。
 
 ## <a name="page-blob-features"></a>分頁 Blob 功能

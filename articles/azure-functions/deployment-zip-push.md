@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: glenga
-ms.openlocfilehash: 03cb9384beba1afcb97a765824e63e79ca34aa62
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
-ms.translationtype: HT
+ms.openlocfilehash: 2762e5c4f2b67415a0e42e80a34ae5b34c57adc9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717213"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086576"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Azure Functions 的 ZIP 部署
 
@@ -51,13 +51,13 @@ Azure Functions 擁有 Azure App Service 所提供的全套持續部署與整合
 
 + **從 Azure 入口網站：**
 
-    1. 登入 [Azure 入口網站](https://portal.azure.com)，然後移至您的函式應用程式。
+  1. 登入 [Azure 入口網站](https://portal.azure.com)，然後移至您的函式應用程式。
 
-    2. 在 [概觀] 索引標籤上，選取 [下載應用程式內容]。 選取下載選項，然後選取 [下載]。
+  2. 在 [概觀] 索引標籤上，選取 [下載應用程式內容]。 選取下載選項，然後選取 [下載]。
 
-        ![下載函式應用程式專案](./media/deployment-zip-push/download-project.png)
+      ![下載函式應用程式專案](./media/deployment-zip-push/download-project.png)
 
-    所下載的 .zip 檔案會採用正確格式，以便您可以使用 .zip 推送部署加以重新發佈至函式應用程式。 入口網站下載也可新增直接在 Visual Studio 中開啟您函式應用程式所需的檔案。
+     所下載的 .zip 檔案會採用正確格式，以便您可以使用 .zip 推送部署加以重新發佈至函式應用程式。 入口網站下載也可新增直接在 Visual Studio 中開啟您函式應用程式所需的檔案。
 
 + **使用 REST API：**
 

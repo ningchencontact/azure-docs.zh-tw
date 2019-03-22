@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 03/20/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: f8941f84e85f330713cb4b263f2154acb80b520c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 51be74d0adbd5ce75234be2a5b7c99fcd36ca91c
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532389"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295261"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服務配額和限制
 
@@ -65,6 +65,7 @@ ms.locfileid: "57532389"
 | [並行工作](batch-parallel-node-tasks.md)  | 4 x 節點的核心數目 |
 | [應用程式](batch-application-packages.md)  | 20 |
 | 每個應用程式的應用程式封裝 | 40 |
+| 每個集區的應用程式封裝 | 10 |
 | 工作存留期上限 | 180 天<sup>1</sup> |
 
 <sup>1</sup> 工作的最長存留期 (從它新增至作業到完成時) 為 180 天。 已完成的工作會保留 7 天；無法存取未在最長存留期內完成之工作的資料。

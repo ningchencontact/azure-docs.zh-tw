@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 68f3fe0dbd16d3d71dc66af05de6f90156d67dfa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: fb4b5dde63d8c7c75419d3202d9848cd6fde8b8a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246356"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547634"
 ---
-# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 雲端服務之應用程式和服務可用性問題：常見問題集 (FAQ)
+# <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>應用程式和服務可用性問題的 Azure 雲端服務：常見問題集 (FAQ)
 
 本文包含 [Microsoft Azure 雲端服務](https://azure.microsoft.com/services/cloud-services)之應用程式和服務可用性問題的相關常見問題集。 您也可以參閱 [雲端服務 VM 大小頁面](cloud-services-sizes-specs.md) 以取得大小資訊。
 
@@ -41,8 +41,8 @@ Microsoft 大約一個月會發行一次適用於 Windows Azure PaaS VM 的新�
 可以定期將 Internet Information Services (IIS) 應用程式集區進行回收，以避免不穩定的狀態，可能會導致應用程式當機、停止回應，或記憶體流失等問題。
 
 下列文件將協助您了解並減輕這個問題：
-* [修正 IIS 的緩慢初始載入](http://stackoverflow.com/questions/13386471/fixing-slow-initial-load-for-iis)
-* [應用程式集區回收非常緩慢之後 IIS 7.5 Web 應用程式的第一個要求](http://stackoverflow.com/questions/13917205/iis-7-5-web-application-first-request-after-app-pool-recycle-very-slow)
+* [修正 IIS 的緩慢初始載入](https://stackoverflow.com/questions/13386471/fixing-slow-initial-load-for-iis)
+* [應用程式集區回收非常緩慢之後 IIS 7.5 Web 應用程式的第一個要求](https://stackoverflow.com/questions/13917205/iis-7-5-web-application-first-request-after-app-pool-recycle-very-slow)
 
 如果您想要變更 IIS 的預設行為，將需要使用啟動工作，因為如果您以手動方式將變更套用至 Web 角色執行個體，所做的變更最終將會遺失。
 

@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30627994a8fe8cfe73e7945dadf2153ea60860b8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ef8f66cda7e80ffdafefbbac5de24d45f01401af
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175127"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286925"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>設定自訂禁用密碼清單
-
-|     |
-| --- |
-| Azure AD 密碼保護是 Azure Active Directory 的公開預覽功能。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
 
 許多組織發現，其使用者會使用常見的當地用語 (例如，學校、球隊或知名人士) 建立密碼，因此很容易讓人猜到。 當使用者和系統管理員嘗試變更或重設密碼時，Microsoft 的自訂禁用密碼清單可讓組織在全域禁用密碼清單外，再新增要評估和封鎖的字串。
 
@@ -31,7 +26,7 @@ ms.locfileid: "56175127"
 
 要設定自訂禁用密碼清單，需要有 Azure Active Directory Premium P1 或 P2 授權。 如需 Azure Active Directory 授權的詳細資訊，請參閱 [Azure Active Directory 定價頁面](https://azure.microsoft.com/pricing/details/active-directory/)。
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)，然後瀏覽至 [Azure Active Directory]、[驗證方法] 和 [密碼保護 (預覽)]。
+1. 登入[Azure 入口網站](https://portal.azure.com)並瀏覽至**Azure Active Directory**，**驗證方法**，然後**密碼保護**。
 1. 將 [強制使用自訂清單] 選項設定為 [是]。
 1. 在 [自訂禁用密碼清單] 中新增字串，每行一個字串
    * 自訂禁用密碼清單最多可以包含 1000 個字組。

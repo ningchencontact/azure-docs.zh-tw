@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/25/2018
+ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: 01273ca241769c5e3bb7b7222355d32b29fd51b9
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 4c395a062b1132710f888cc5a315529db082a805
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308497"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850021"
 ---
 # <a name="export-or-delete-user-data-in-custom-vision"></a>匯出或刪除自訂視覺中的使用者資料
 
-自訂視覺會收集使用者資料來操作本服務，但是客戶可以完整控制資料的檢視、匯出和刪除，並使用自訂視覺服務[訓練 API](https://go.microsoft.com/fwlink/?linkid=865446)。
+自訂辨識會收集使用者資料，以操作本服務中，但客戶擁有檢視、 匯出及刪除使用自訂視覺其資料的完整控制權[訓練 Api](https://go.microsoft.com/fwlink/?linkid=865446)。
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-如需如何匯出和刪除自訂視覺中使用者資料的詳細資訊，請參閱下表。
+若要了解如何匯出及刪除自訂視覺中的使用者資料，請參閱下表。
 
 | 資料 | 匯出作業 | 刪除作業 |
 | ---- | ---------------- | ---------------- |
@@ -34,4 +34,4 @@ ms.locfileid: "56308497"
 | 專案和專案詳細資料 | [GetProject](https://go.microsoft.com/fwlink/?linkid=865446) 和 [GetProjects](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteProject](https://go.microsoft.com/fwlink/?linkid=865446) | 
 | 影像標籤 | [GetTag](https://go.microsoft.com/fwlink/?linkid=865446) 和 [GetTags](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteTag](https://go.microsoft.com/fwlink/?linkid=865446) | 
 | 映像 | [GetTaggedImages](https://go.microsoft.com/fwlink/?linkid=865446) (提供下載影像的 URI) 和 [GetUntaggedImages](https://go.microsoft.com/fwlink/?linkid=865446) (提供下載影像的 URI) | [DeleteImages](https://go.microsoft.com/fwlink/?linkid=865446) | 
-| 匯出的模型 | [GetExports](https://go.microsoft.com/fwlink/?linkid=865446) | 刪除帳戶時刪除 | 
+| 匯出的模型 | [GetExports](https://go.microsoft.com/fwlink/?linkid=865446) | 刪除帳戶時刪除 |

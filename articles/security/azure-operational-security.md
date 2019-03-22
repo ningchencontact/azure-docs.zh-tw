@@ -1,6 +1,6 @@
 ---
 title: Azure 作業安全性 | Microsoft Docs
-description: 了解 Microsoft Azure Log Analytics、其服務及其運作方式。
+description: 了解 Microsoft Azure 監視器記錄檔、 其服務，以及其運作方式。
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: cc820d0e8a19ae3905fbd26a1b9a98e948ecfb63
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: ab5b50433b85416ff471546171998e992293b0ea
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107273"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901503"
 ---
 # <a name="azure-operational-security"></a>Azure 作業安全性
 ## <a name="introduction"></a>簡介
@@ -53,36 +53,36 @@ Azure 作業安全性是指使用者可在 Microsoft Azure 中用來保護其資
 6.  [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
 
 
-## <a name="microsoft-azure-log-analytics"></a>Microsoft Azure Log Analytics
+## <a name="microsoft-azure-monitor-logs"></a>Microsoft Azure 監視器記錄檔
 
-Microsoft Azure Log Analytics 是適用於混合式雲端的 IT 管理解決方案。 透過單獨使用或擴充現有的 System Center 部署，Log Analytics 可為您基礎結構的雲端式管理提供最大的彈性和控制。
+Microsoft Azure 監視器記錄檔是混合式雲端 IT 管理解決方案。 單獨使用或擴充您現有的 System Center 部署、 Azure 監視器記錄檔提供您的最大的彈性和控制雲端為基礎的管理基礎結構。
 
-![Log Analytics](./media/azure-operational-security/azure-operational-security-fig1.png)
+![Azure 監視器記錄](./media/azure-operational-security/azure-operational-security-fig1.png)
 
-透過 Log Analytics，您就能以低於競爭解決方案的成本來管理任何雲端中的任何執行個體，包括內部部署、Azure、AWS、Windows Server、Linux、VMware 和 OpenStack。 由於 Log Analytics 是針對雲端優先的世界建置的，因此，可提供一種新方法來管理您的企業，此為最快速且最符合成本效益的方式，可符合新的商業挑戰並適應新的工作負載、應用程式及雲端環境。
+使用 Azure 監視器記錄檔，您可以管理任何執行個體，在任何雲端中，包括內部部署、 Azure、 AWS、 Windows Server、 Linux、 VMware 和 OpenStack 比競爭解決方案低的成本。 建置的雲端優先的世界，Azure 監視器記錄檔提供一種管理您是當今最快速、 最具成本效益的方式，以符合新的商業挑戰並適應新的工作負載，應用程式和雲端環境的企業中的新方法。
 
-### <a name="log-analytics-services"></a>Log Analytics 服務
+### <a name="azure-monitor-services"></a>Azure 監視器服務
 
-Log Analytics 的核心功能是由在 Azure 中執行的一組服務所提供。 每個服務會提供特定的管理功能，您可以合併服務以達成不同的管理案例。
+Azure 監視器記錄檔的核心功能是由一組在 Azure 中執行的服務提供。 每個服務會提供特定的管理功能，您可以合併服務以達成不同的管理案例。
 
-| 服務  | 說明|
+| 服務  | 描述|
 | :------------- | :-------------|
-| Log Analytics | 監視及分析不同資源 (包括實體和虛擬機器) 的可用性和效能。 |
+| Azure 監視器記錄 | 監視及分析不同資源 (包括實體和虛擬機器) 的可用性和效能。 |
 |自動化 | 讓手動程序自動化，並強制設定實體和虛擬機器。 |
 | Backup  | 備份及還原重要資料。 |
 | Site Recovery | 為重要應用程式提供高可用性。 |
 
-### <a name="log-analytics"></a>Log Analytics
+### <a name="azure-monitor-logs"></a>Azure 監視器記錄
 
-[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics) 藉由將受控資源中的資料收集到中央存放庫，來提供監視服務。 此資料可能包含事件、效能資料或透過 API 提供的自訂資料。 所收集的資料即可用於警示、分析和匯出。
+[Azure 監視器記錄](https://azure.microsoft.com/documentation/services/log-analytics)受控資源中的資料收集到中央存放庫中提供的監視服務。 此資料可能包含事件、效能資料或透過 API 提供的自訂資料。 所收集的資料即可用於警示、分析和匯出。
 
 
 這個方法可讓您合併各種來源的資料，以便結合來自 Azure 服務與現有內部部署環境的資料。 它也可清楚劃分資料的收集與對該資料採取的動作，而讓所有類型的資料可以使用所有的動作。
 
 
-![Log Analytics](./media/azure-operational-security/azure-operational-security-fig2.png)
+![Azure 監視器記錄](./media/azure-operational-security/azure-operational-security-fig2.png)
 
-Log Analytics 服務會使用下列方法安全地管理您以雲端為基礎的資料：
+Azure 監視器服務會藉由使用下列方法安全地管理您雲端架構的資料：
 -   資料隔離
 -   資料保留
 -   實體安全性
@@ -92,22 +92,22 @@ Log Analytics 服務會使用下列方法安全地管理您以雲端為基礎的
 
 ### <a name="azure-backup"></a>Azure 備份
 
-[Azure 備份](https://azure.microsoft.com/documentation/services/backup)提供資料備份及還原服務，其為產品和服務之 Log Analytics 套件的一部分。
+[Azure 備份](https://azure.microsoft.com/documentation/services/backup)提供資料的備份及還原服務，是產品和服務的 Azure 監視套件的一部分。
 它可保護您的應用程式資料並保留數年，而您完全不必投入資本投資，並且只需要最少的營運成本。 它可以備份實體和虛擬 Windows 伺服器中的資料，以及應用程式工作負載 (例如 SQL Server 和 SharePoint)。 [System Center Data Protection Manager (DPM) (英文)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) 也可以使用它，將受保護資料複寫到 Azure 以進行備援與長期儲存。
 
 
 Azure 備份中受保護的資料會儲存在位於特定地理區域的備份保存庫中。 資料是在相同的區域內進行複寫，而且根據保存庫類型，也可能會複寫到另一個區域，以供進一步復原。
 
 ### <a name="management-solutions"></a>管理解決方案
-[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) 是 Microsoft 的雲端型 IT 管理解決方案，可協助您管理並保護內部部署和雲端基礎結構。
+[Azure 監視器](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started)是 Microsoft 的雲端型 IT 管理解決方案，可協助您管理並保護您內部部署和雲端基礎結構。
 
 
-[管理解決方案](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions)是預先封裝的邏輯集合，可使用一或多項 Log Analytics 服務實作特定管理案例。 Microsoft 和合作夥伴會提供不同的解決方案，您可以輕鬆地將其新增至您的 Azure 訂用帳戶，以提升您的 Log Analytics 投資價值。 身為合作夥伴的您可以建立自己的解決方案，來支援您的應用程式和服務，並透過 Azure Marketplace 或快速入門範本將其提供給使用者。
+[管理解決方案](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solutions)是預先封裝的實作特定管理案例使用一或多個 Azure 監視器服務的邏輯集合。 會提供 Microsoft 和合作夥伴，您可以輕鬆加入您 Azure 訂用帳戶，以增加您的投資，在 Azure 監視器中的值不同的解決方案。 身為合作夥伴的您可以建立自己的解決方案，來支援您的應用程式和服務，並透過 Azure Marketplace 或快速入門範本將其提供給使用者。
 
 
 ![管理解決方案](./media/azure-operational-security/azure-operational-security-fig4.png)
 
-[更新管理解決方案](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management)就是使用多項服務來提供其他功能的良好解決方案範例。 這個解決方案使用 Windows 和 Linux 適用的 [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 代理程式，來收集每個代理程式上必要更新的相關資訊。 它會將此資料寫入至 Log Analytics 儲存機制，以便透過內含的儀表板分析資料。
+[更新管理解決方案](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management)就是使用多項服務來提供其他功能的良好解決方案範例。 此解決方案會使用[Azure 監視器記錄](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)適用於 Windows 和 Linux 來收集資訊的代理程式所需的每個代理程式上的更新。 它會將此資料寫入 Azure 監視器記錄檔存放庫包含的儀表板與分析它。
 
 當您建立部署時，可以使用 [Azure 自動化](https://docs.microsoft.com/azure/automation/automation-intro)中的 Runbook 來安裝必要的更新。 您可在入口網站中管理這整個程序，而不需擔心基礎詳細資料。
 
@@ -149,7 +149,7 @@ Azure 資訊安全中心可協助保護您的 Azure 資源。 它提供您 Azure
 
 -   **資料隔離**：資料會以邏輯方式分開保存在服務的每個元件上。 每個組織加上標記的所有資料。 這項標記作業在整個資料生命週期持續發生，它會強制執行服務的每個層級。
 
--   **資料存取**：為了提供安全性建議和調查潛在的安全性威脅，Microsoft 人員可能會存取 Azure 服務所收集或分析的資訊，包含損毀傾印檔案、處理建立事件、VM 磁碟快照集和構件，這些資訊可能會在無意中包含客戶資料或您虛擬機器中的個人資料。 我們會遵守 [Microsoft Online Services Terms 和隱私權聲明 (英文)](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)，其中陳述 Microsoft 不會使用客戶資料或從中衍生資訊作為任何廣告或類似的商業用途。
+-   **資料存取**：為了提供安全性建議和調查潛在的安全性威脅，Microsoft 人員可能會存取 Azure 服務所收集或分析的資訊，包含損毀傾印檔案、處理建立事件、VM 磁碟快照集和構件，這些資訊可能會在無意中包含客戶資料或您虛擬機器中的個人資料。 我們會遵守 [Microsoft Online Services Terms 和隱私權聲明 (英文)](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)，其中陳述 Microsoft 不會使用客戶資料或從中衍生資訊作為任何廣告或類似的商業用途。
 
 -   **資料使用**：Microsoft 使用可見於多個租用戶的模式和威脅智慧來加強我們的防護和偵測功能；我們會根據[隱私權聲明](https://www.microsoft.com/en-us/privacystatement/OnlineServices/)中所述的隱私權承諾進行。
 
@@ -164,7 +164,7 @@ Azure 資訊安全中心會收集損毀傾印檔案的暫時複本並加以分�
 
 ## <a name="azure-monitor"></a>Azure 監視器
 
-[Log Analytics 安全性](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources)與稽核解決方案可讓 IT 人員主動監視所有資源，此舉有助於將安全性事件的影響降至最低。 Log Analytics 安全性和稽核具備可用來監視資源的安全性網域。 安全性網域提供特定選項的快速存取方式，並基於安全性監視目的，更詳盡地涵蓋下列網域：
+[Azure 監視器記錄安全性](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources)和稽核解決方案可讓 IT 人員主動監視所有資源，此舉有助於將安全性事件的影響降到最低。 Azure 監視器記錄檔安全性和稽核有可用來監視資源的安全性網域。 安全性網域提供特定選項的快速存取方式，並基於安全性監視目的，更詳盡地涵蓋下列網域：
 
 -   惡意程式碼評估
 -   更新評估
@@ -175,9 +175,9 @@ Azure 監視器提供特定資源類型詳細資訊的指標。 它會針對來�
 ![Azure 監視器](./media/azure-operational-security/azure-operational-security-fig6.png)
 
 
-雲端應用程式相當複雜，且具有許多移動組件。 監視會提供資料，以確保應用程式持續運作並以健全的狀態執行。 它也可協助您預防潛在問題，或是針對過去所發生的問題進行疑難排解。
+雲端應用程式相當複雜，且具有許多移動組件。 監視會提供資料，以確保應用程式持續運作並以健全的狀態執行。 监视还有助于避免潜在问题，或者解决过去的问题。
 
-除此之外，您還可以使用監視資料來取得應用程式的深入解析。 這些知識可協助您提升應用程式效能或維護性，或是將原本需要手動介入的動作自動化。
+此外，还可以利用监视数据深入了解应用程序的情况。 這些知識可協助您提升應用程式效能或維護性，或是將原本需要手動介入的動作自動化。
 
 ### <a name="azure-activity-log"></a>Azure 活動記錄檔
 
@@ -271,6 +271,7 @@ Azure 監視器可讓您取用遙測來查看您 Azure 工作負載的效能與�
 | 使用共用存取簽章 (SAS) 的要求，包括失敗和成功的要求 |用戶端與伺服器的逾時錯誤 |
 |   分析資料的要求 |    失敗的 GET 要求，錯誤碼為 304 (未修改) |
 | 系統不會記錄儲存體分析本身所提出的要求 (例如，記錄檔的建立或刪除)。 記錄資料的完整清單記錄於[儲存體分析記錄作業和狀態訊息](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages)及[儲存體分析記錄檔格式](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format)主題中。 | 系統不會記錄所有其他失敗的匿名要求。 記錄資料的完整清單記錄於[儲存體分析記錄作業和狀態訊息](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages)及[儲存體分析記錄格式](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics-log-format)中。 |
+
 ## <a name="azure-active-directory"></a>Azure Active Directory
 
 Azure AD 也包含一組完整的身分識別管理功能，包括多重要素驗證、裝置註冊、自助式密碼管理、自助式群組管理、特殊權限的帳戶管理、角色型存取控制、應用程式使用量監視、豐富的稽核，以及安全性監視和警示。
@@ -293,7 +294,7 @@ Azure Active Directory (Azure AD) 包括您的目錄的安全性、活動和稽�
 |從可能受感染的裝置登入 |個別使用者活動 |   |
 |具有異常登入活動的使用者 |群組活動報告 |   |
 | |密碼重設登錄活動報告 |   |
-| |密碼重設活動 |   | |
+| |密碼重設活動 |   |
 
 
 
@@ -312,7 +313,7 @@ Azure AD 稽核報告中的事件會保留 180 天。
 
 本文說明
 
--   在 Log Analytics 中收集、處理和保護資料的方式。
+-   如何收集、 處理和資料保護的 Azure 監視套件中。
 
 -   快速分析多個資料來源中的事件。 識別安全性風險，並了解威脅和攻擊的範圍和影響，以減輕安全性缺口的損害。
 
@@ -335,7 +336,7 @@ Azure AD 稽核報告中的事件會保留 180 天。
 
 Microsoft 在設計其服務與軟體時已將安全性納入考量，以協助確保其雲端基礎結構有彈性且可抵禦攻擊。
 
-- [Log Analytics | 安全性與合規性](https://www.microsoft.com/cloud-platform/security-and-compliance)
+- [Azure 監視器記錄檔 |安全性與合規性](https://www.microsoft.com/cloud-platform/security-and-compliance)
 
 使用 Microsoft 安全性資料和分析，來執行更聰明且有效的威脅偵測。
 

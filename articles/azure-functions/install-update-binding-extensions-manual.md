@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/26/2018
 ms.author: glenga
-ms.openlocfilehash: 77b863bc32442261e220b5dd3f11c0bd33b4fa7a
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: cda977ba59070c3ddaac05784277d6c0b5109f0f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805498"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727106"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>從入口網站手動安裝或更新 Azure Functions 繫結延伸模組
 
-Azure Functions 2.x 版執行階段使用繫結延伸模組來實作觸發程序和繫結的程式碼。 繫結延伸模組是在 NuGet 套件中提供的。 若要註冊延伸模組，您基本上會安裝套件。 開發函式時，安裝繫結延伸模組的方式取決於開發環境。 如需詳細資訊，請參閱觸發程序和繫結文章中的[註冊繫結延伸模組](functions-triggers-bindings.md#register-binding-extensions)。
+Azure Functions 2.x 版執行階段使用繫結延伸模組來實作觸發程序和繫結的程式碼。 繫結延伸模組是在 NuGet 套件中提供的。 若要註冊延伸模組，您基本上會安裝套件。 開發函式時，安裝繫結延伸模組的方式取決於開發環境。 如需詳細資訊，請參閱觸發程序和繫結文章中的[註冊繫結延伸模組](./functions-bindings-register.md)。
 
 有時，您需要在 Azure 入口網站中手動安裝或更新繫結延伸模組。 例如，您可能需要將某個已註冊的繫結更新至較新的版本。 您可能也需要在入口網站的 [整合] 索引標籤中，註冊某個已支援但無法安裝的繫結。
 

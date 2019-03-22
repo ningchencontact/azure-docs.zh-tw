@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: a6607fa91d9c8556881a5532527a63b6f21ad4d1
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: f6f4858740288facb1e206eed3a8cd4ee1854daa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977451"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111441"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>部署使用憑證通用名稱 (而非指紋) 的 Service Fabric 叢集
 由於憑證的指紋皆不相同，導致叢集憑證變換或管理變成艱難的任務。 然而，不同的憑證卻能擁有相同的通用名稱或主體。  使用憑證通用名稱的叢集能大幅簡化憑證管理工作的難度。 本文章描述如何部署 Service Fabric 叢集才能使用憑證通用名稱，而非憑證指紋。
@@ -158,36 +158,36 @@ Write-Host "Common Name              :"  $CommName
           },
     ```
 
-4.  在 **Microsoft.ServiceFabric/clusters** 資源中，將 API 版本更新為 "2018-02-01"。  另外，新增 **certificateCommonNames** 設定並使用 **commonNames** 屬性，同時移除 **certificate** 設定 (使用 thumbprint 屬性)，如以下範例所示：
-    ```json
-    {
-        "apiVersion": "2018-02-01",
-        "type": "Microsoft.ServiceFabric/clusters",
-        "name": "[parameters('clusterName')]",
-        "location": "[parameters('clusterLocation')]",
-        "dependsOn": [
-        "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
-        ],
-        "properties": {
-        "addonFeatures": [
-            "DnsService",
-            "RepairManager"
-        ],        
-        "certificateCommonNames": {
-            "commonNames": [
-            {
-                "certificateCommonName": "[parameters('certificateCommonName')]",
-                "certificateIssuerThumbprint": "[parameters('certificateIssuerThumbprint')]"
-            }
-            ],
-            "x509StoreName": "[parameters('certificateStoreValue')]"
-        },
-        ...
-    ```
-> [!NOTE]
-> [certificateIssuerThumbprint] 欄位允許搭配指定的主體一般名稱來指定預期的憑證簽發者。 此欄位會接受以逗號分隔的 SHA1 指紋列舉。 請注意，這是對憑證驗證的強化；在未指定簽發者或簽發者為空白的情況下，若憑證的鏈結可以建置，且會落在受驗證者信任的根目錄下，系統將會接受該憑證。 若指定簽發者，在憑證直接簽發者的指紋符合此欄位中所指定之任何值的情況下 (無論根目錄是否被信任)，系統將會接受該憑證。 請注意，PKI 可能會使用不同的憑證授權單位來為相同的主體簽發憑證，因此請務必針對指定主體指定所有預期的簽發者指紋。
->
-> 指定簽發者是最佳的做法；雖然省略它仍然可以運作 (針對鏈結至受信任根目錄的憑證)，此行為仍具有限制，並可能會在不久的將來被移除。 此外，請注意到在 Azure 中部署、受到由私人 PKI 簽發的 X509 憑證所保護，並由主體所宣告的叢集，在該 PKI 的憑證原則不可探索、不可用且不可存取的情況下，該叢集可能會無法由 Azure Service Fabric 服務進行驗證 (針對叢集對服務通訊)。 
+4. 在 **Microsoft.ServiceFabric/clusters** 資源中，將 API 版本更新為 "2018-02-01"。  另外，新增 **certificateCommonNames** 設定並使用 **commonNames** 屬性，同時移除 **certificate** 設定 (使用 thumbprint 屬性)，如以下範例所示：
+   ```json
+   {
+       "apiVersion": "2018-02-01",
+       "type": "Microsoft.ServiceFabric/clusters",
+       "name": "[parameters('clusterName')]",
+       "location": "[parameters('clusterLocation')]",
+       "dependsOn": [
+       "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]"
+       ],
+       "properties": {
+       "addonFeatures": [
+           "DnsService",
+           "RepairManager"
+       ],        
+       "certificateCommonNames": {
+           "commonNames": [
+           {
+               "certificateCommonName": "[parameters('certificateCommonName')]",
+               "certificateIssuerThumbprint": "[parameters('certificateIssuerThumbprint')]"
+           }
+           ],
+           "x509StoreName": "[parameters('certificateStoreValue')]"
+       },
+       ...
+   ```
+   > [!NOTE]
+   > [certificateIssuerThumbprint] 欄位允許搭配指定的主體一般名稱來指定預期的憑證簽發者。 此欄位會接受以逗號分隔的 SHA1 指紋列舉。 請注意，這是對憑證驗證的強化；在未指定簽發者或簽發者為空白的情況下，若憑證的鏈結可以建置，且會落在受驗證者信任的根目錄下，系統將會接受該憑證。 若指定簽發者，在憑證直接簽發者的指紋符合此欄位中所指定之任何值的情況下 (無論根目錄是否被信任)，系統將會接受該憑證。 請注意，PKI 可能會使用不同的憑證授權單位來為相同的主體簽發憑證，因此請務必針對指定主體指定所有預期的簽發者指紋。
+   >
+   > 指定簽發者是最佳的做法；雖然省略它仍然可以運作 (針對鏈結至受信任根目錄的憑證)，此行為仍具有限制，並可能會在不久的將來被移除。 此外，請注意到在 Azure 中部署、受到由私人 PKI 簽發的 X509 憑證所保護，並由主體所宣告的叢集，在該 PKI 的憑證原則不可探索、不可用且不可存取的情況下，該叢集可能會無法由 Azure Service Fabric 服務進行驗證 (針對叢集對服務通訊)。 
 
 ## <a name="deploy-the-updated-template"></a>部署更新的範本
 完成變更之後，重新部署更新的範本。

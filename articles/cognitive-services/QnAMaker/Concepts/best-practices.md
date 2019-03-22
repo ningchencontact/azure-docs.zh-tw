@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 02/26/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 038d41ae299076754a2f778ec67aac04e630d476
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 72a3bead4ba8670187c35856f9cd4e4f4b975a30
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270176"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311690"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>QnA Maker 知識庫的最佳做法
 [知識庫開發生命週期](../Concepts/development-lifecycle-knowledge-base.md)可引導您了解如何從頭到尾管理知識庫。 使用下列最佳做法可改善您的知識庫，並為您的應用程式/聊天機器人使用者提供更好的結果。
@@ -78,7 +78,7 @@ QnA Maker 服務會持續改進從內容中擷取 QnA 的演算法，並擴充�
 |Is parking available?|Do you have car park?|文句結構|
  |Hi|Yo<br>Hey there!|字組樣式或俚語|
 
-<a name="#use-metadata-filters"></a>
+<a name="use-metadata-filters"></a>
 
 ### <a name="use-metadata-tags-to-filter-questions-and-answers"></a>使用中繼資料標記來篩選問題和答案
 
@@ -108,7 +108,7 @@ QnA Maker 可讓使用者對知識庫進行[共同作業](../How-to/collaborate-
 
 ## <a name="active-learning"></a>主動學習
 
-[主動式學習](../How-to/improve-knowledge-base.md)具有各種品質和數量的使用者查詢時，其在建議替代問題方面的表現最好。 務必讓用戶端應用程式的使用者查詢參與主動式回饋迴圈，而不需要審查。
+[主動式學習](../How-to/improve-knowledge-base.md)具有各種品質和數量的使用者查詢時，其在建議替代問題方面的表現最好。 務必讓用戶端應用程式的使用者查詢參與主動式回饋迴圈，而不需要審查。 一旦 QnA Maker 入口網站中，所建議的問題，您需要檢閱並接受或拒絕這些建議。 
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -2,29 +2,29 @@
 title: 包含檔案
 description: 包含檔案
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: include
-ms.date: 09/06/2018
-ms.author: raynew
+ms.date: 02/28/2019
+ms.author: mayg
 ms.custom: include file
-ms.openlocfilehash: 2ca4916d48da6fe8a2c061056a1ea0fed9a78bb6
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
-ms.translationtype: HT
+ms.openlocfilehash: 7c682105113dac7c1d457489cf926210ead77993
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44058308"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57343548"
 ---
 1. 執行統一安裝的安裝檔案。
 2. 在 [開始之前] 選取 [安裝設定伺服器和處理序伺服器]。
 
     ![開始之前](./media/site-recovery-add-configuration-server/combined-wiz1.png)
 
-3. 在 [協力廠商軟體授權] 中，按一下 [我接受] 來下載並安裝 MySQL。
+3. 在“第三方软件许可证”中单击“我接受”，下载并安装 MySQL。
 
-    ![協力廠商軟體](./media/site-recovery-add-configuration-server/combined-wiz2.png)
-4. 在 [註冊] 中，選取您從保存庫下載的註冊金鑰。
+    ![第三方软件](./media/site-recovery-add-configuration-server/combined-wiz2.png)
+4. 在“注册”中，选择从保管库下载的注册密钥。
 
     ![註冊](./media/site-recovery-add-configuration-server/combined-wiz3.png)
 5. 在 [網際網路設定] 中，指定在設定伺服器上執行的 Provider 要如何透過網際網路連接到 Azure Site Recovery。 確定您已允許必要的 URL。
@@ -40,15 +40,15 @@ ms.locfileid: "44058308"
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz6.png)
 8. 在 [環境詳細資料] 中，如果您要複寫 Azure Stack VM 或實體伺服器，請選取 [否]。 
-9. 在 [安裝位置] 中，選取您要安裝二進位檔及儲存快取的位置。 您選取的磁碟機至少必須有 5 GB 的可用磁碟空間，但我們建議快取磁碟機至少有 600 GB 的可用空間。
+9. 在 [安裝位置] 中，選取您要安裝二進位檔及儲存快取的位置。 所选驱动器必须至少有 5 GB 的可用磁盘空间，但建议选择至少有 600 GB 可用空间的缓存驱动器。
 
     ![安裝位置](./media/site-recovery-add-configuration-server/combined-wiz8.png)
-10. 在 [網路選取] 中，指定設定伺服器用來傳送和接收複寫資料的接聽程式 (網路介面卡和 SSL 連接埠)。 連接埠 9443 是用來傳送及接收複寫流量的預設連接埠，但您可以修改此連接埠號碼，以符合您的環境需求。 除了連接埠 9443 之外，我們也會開啟網頁伺服器用來協調複寫作業的連接埠 443。 請勿使用連接埠 443 來傳送或接收複寫流量。
+10. 在 **網路選取項目**，先選取 內建處理序伺服器使用的探索與推入安裝行動服務，在來源機器上的 NIC，然後選取 設定伺服器連線時使用的 NIC使用 Azure。 連接埠 9443 是用來傳送及接收複寫流量的預設連接埠，但您可以修改此連接埠號碼，以符合您的環境需求。 除了連接埠 9443 之外，我們也會開啟網頁伺服器用來協調複寫作業的連接埠 443。 請勿使用連接埠 443 來傳送或接收複寫流量。
 
     ![網路選擇](./media/site-recovery-add-configuration-server/combined-wiz9.png)
 
 
-11. 在 [摘要] 中檢閱資訊，然後按一下 [安裝]。 安裝完成時，會產生複雜密碼。 在您啟用複寫時會需要它，所以請將它複製並保存在安全的位置。
+11. 在 [摘要] 中檢閱資訊，然後按一下 [安裝]。 安装完成后，将生成密码。 在您啟用複寫時會需要它，所以請將它複製並保存在安全的位置。
 
     ![總結](./media/site-recovery-add-configuration-server/combined-wiz10.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Azure 通知中樞卸除的通知診斷
+title: Azure 通知中樞-診斷已卸除通知
 description: 了解如何透過 Azure 通知中樞卸除的通知診斷常見問題。
 services: notification-hubs
 documentationcenter: Mobile
@@ -14,14 +14,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 9dd6a66ea416ad61682b8e33c6163db3ac345d92
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: c0fd7dec31a2c4054c59db3bae52cdb15ba01eed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447712"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884416"
 ---
-# <a name="diagnose-dropped-notifications-in-notification-hubs"></a>診斷通知中樞卸除的通知
+# <a name="azure-notification-hubs---diagnose-dropped-notifications"></a>Azure 通知中樞-診斷已卸除通知
 
 Azure 通知中樞客戶最常遇到的其中一項問題是，用戶端裝置上未出現從應用程式發送的通知時，如何進行疑難排解。 他們想要知道卸除通知的位置和原因，以及如何修正此問題。 本文介紹卸除通知的可能原因，或裝置未收到通知的可能原因。 了解如何分析及判斷根本原因。
 
@@ -246,10 +246,7 @@ The Token obtained from the Token Provider is wrong
 
 * **程式設計存取**
 
-如需程式設計存取的詳細資訊，請參閱下列文章：
-
-* [程式設計遙測存取]  
-* [透過 API 進行遙測存取的範例]
+如需有關以程式設計方式存取的詳細資訊，請參閱[程式設計遙測存取]
 
 > [!NOTE]
 > 幾個與遙測有關的功能，例如匯出和匯入註冊，以及透過 API 進行遙測存取，只能在標準服務層上使用。 如果您嘗試從免費層或基本服務層使用這些功能，若您使用 SDK，則會收到例外狀況錯誤，若直接從 REST API 使用這些功能，則會收到 HTTP 403 (禁止) 錯誤。
@@ -274,12 +271,11 @@ The Token obtained from the Token Provider is wrong
 [Templates]: https://msdn.microsoft.com/library/dn530748.aspx
 [APNs 概觀]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
 [關於 FCM 訊息]: https://firebase.google.com/docs/cloud-messaging/concept-options
-[Export and modify registrations in bulk]: http://msdn.microsoft.com/library/dn790624.aspx
+[Export and modify registrations in bulk]: https://msdn.microsoft.com/library/dn790624.aspx
 [服務匯流排總管]: https://msdn.microsoft.com/library/dn530751.aspx#sb_explorer
 [服務匯流排總管程式碼]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
-[檢視通知中樞的裝置註冊]: http://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
-[深入探討：Visual Studio 2013 Update 2 RC 和 Azure SDK 2.3]: http://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
-[宣佈發行 Visual Studio 2013 Update 3 和 Azure SDK 2.4]: http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
+[檢視通知中樞的裝置註冊]: https://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
+[深入探討：Visual Studio 2013 Update 2 RC 和 Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
+[宣佈發行 Visual Studio 2013 Update 3 和 Azure SDK 2.4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
 [EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
-[程式設計遙測存取]: http://msdn.microsoft.com/library/azure/dn458823.aspx
-[透過 API 進行遙測存取的範例]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
+[程式設計遙測存取]: https://msdn.microsoft.com/library/azure/dn458823.aspx

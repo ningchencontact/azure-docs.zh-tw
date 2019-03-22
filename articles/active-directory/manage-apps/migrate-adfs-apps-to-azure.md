@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/02/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d43a8a316ff28d2cdb9e231057aea3de85d7d444
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f2739b5d2d944ea9a8b8cefdcc741abc8a2b632a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205574"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113396"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>從 AD FS 將應用程式移至 Azure AD 
 
@@ -96,10 +96,10 @@ AD FS 與 Azure AD 的運作方式相似，所以設定信任、登入及登出 
 - AD FS 字詞：信賴憑證者或信賴憑證者信任。
 - Azure AD 字詞：企業應用程式或應用程式註冊 (取決於應用程式的類型)。
 
-|應用程式組態元素|說明|AD FS 組態中的位置|Azure AD 組態中的相對應位置|SAML 權杖元素|
+|應用程式組態元素|描述|AD FS 組態中的位置|Azure AD 組態中的相對應位置|SAML 權杖元素|
 |-----|-----|-----|-----|-----|
 |應用程式登入 URL|此應用程式的登入頁面 URL。 在 SP 所起始的 SAML 流程中，使用者會前往此處以登入應用程式。|N/A|在 Azure AD 中，登入 URL 會在 Azure 入口網站內應用程式的 [單一登入] 屬性中設定為登入 URL。</br></br>(您可能必須選取 [顯示進階 URL 設定] 才能看到登入 URL)。|N/A|
-|應用程式回覆 URL|以識別提供者 (IdP) 觀點看待的應用程式 URL。 使用者在 IdP 登入後，使用者和權杖會被送往此 URL。</br></br> 有時候，這稱為「SAML 判斷提示消費者端點」。|可在應用程式的 AD FS 信賴憑證者信任中找到此項目。 以滑鼠右鍵按一下信賴憑證者，選取 [屬性]，然後選取 [端點] 索引標籤。|在 Azure AD 中，此回覆 URL 會在 Azure 入口網站內應用程式的 [單一登入] 屬性中設定為回覆 URL。</br></br>(您可能必須選取 [顯示進階 URL 設定] 才能看到回覆 URL)。|對應至 SAML 權杖中的 [目的地] 元素。</br></br> 值範例： https://contoso.my.salesforce.com|
+|應用程式回覆 URL|以識別提供者 (IdP) 觀點看待的應用程式 URL。 使用者在 IdP 登入後，使用者和權杖會被送往此 URL。</br></br> 有時候，這稱為「SAML 判斷提示消費者端點」。|可在應用程式的 AD FS 信賴憑證者信任中找到此項目。 以滑鼠右鍵按一下信賴憑證者，選取 [屬性]，然後選取 [端點] 索引標籤。|在 Azure AD 中，此回覆 URL 會在 Azure 入口網站內應用程式的 [單一登入] 屬性中設定為回覆 URL。</br></br>(您可能必須選取 [顯示進階 URL 設定] 才能看到回覆 URL)。|對應至 SAML 權杖中的 [目的地] 元素。</br></br> 值範例：`https://contoso.my.salesforce.com`|
 |應用程式登出 URL|當使用者登出某個應用程式時，該 URL 會收到「登出清除」要求，也就是要從 IdP 讓使用者登入的其他所有應用程式登出。|可在 AD FS 管理的 [信賴憑證者信任] 下找到此項目。 以滑鼠右鍵按一下信賴憑證者，選取 [屬性]，然後選取 [端點] 索引標籤。|N/A。 Azure AD 不支援「單一登出」(表示登出所有的應用程式)。 它只會讓使用者登出 Azure AD 本身。|N/A|
 |應用程式識別碼|以 IdP 觀點看待的應用程式識別碼。 登入 URL 值經常用於此識別碼 (但並不一定)。</br></br> 有時候，應用程式會將此稱為「實體識別碼」。|在 AD FS 中，這是信賴憑證者識別碼。 以滑鼠右鍵按一下信賴憑證者信任，選取 [屬性]，然後選取 [識別碼] 索引標籤。|在 Azure AD 中，此識別碼會在 Azure 入口網站內應用程式的 [單一登入] 屬性中設定為 [網域及 URL] 之下的識別碼。 (您可能必須選取 [顯示進階 URL 設定] 核取方塊)。|對應到 SAML 權杖中的 [對象] 元素。|
 |應用程式同盟中繼資料|應用程式的同盟中繼資料位置。 IdP 會使用此位置來自動更新特定組態設定，例如端點或加密憑證。|在應用程式的 AD FS 信賴憑證者信任中尋找應用程式的同盟中繼資料 URL。 以滑鼠右鍵按一下信任，選取 [屬性]，然後選取 [監視] 索引標籤。|N/A。 Azure AD 不支援直接取用應用程式同盟中繼資料。|N/A|
@@ -119,7 +119,7 @@ AD FS 與 Azure AD 的運作方式相似，所以設定信任、登入及登出 
 
 下表說明在應用程式中進行 SSO 設定時所需的重要 IdP 設定元素，以及其在 AD FS 和 Azure AD 中的值或位置。 下表的參考架構是 SaaS 應用程式，而 SaaS 應用程式必須知道會將驗證要求傳送到哪裡，以及如何驗證所收到的權杖。
 
-|設定元素|說明|AD FS|Azure AD|
+|設定元素|描述|AD FS|Azure AD|
 |---|---|---|---|
 |IdP </br>登入 </br>URL|以應用程式觀點看待的 IdP 登入 URL (使用者會被重新導向以便登入)。|AD FS 登入 URL 為 AD FS 同盟服務名稱後面加上 “/adfs/ls/”。 例如：https&#58;//fs.contoso.com/adfs/ls/|Azure AD 的對應值會遵循此模式，其中 {tenant-id} 會取代為您的租用戶識別碼。 此項目即為 Azure 入口網站中 [Azure Active Directory] > [屬性] 下的 [目錄識別碼]。</br></br>若為使用 SAML-P 通訊協定的應用程式：https&#58;//login.microsoftonline.com/{tenant-id}/saml2 </br></br>若為使用 WS-同盟通訊協定的應用程式：https&#58;//login.microsoftonline.com/{tenant-id}/wsfed|
 |IdP </br>登出 </br>URL|以應用程式觀點看待的 IdP 登出 URL (使用者選擇登出應用程式時會被重新導向)。|在 AD FS 中，登出 URL 與登入 URL 相同，或是附加 “wa=wsignout1.0” 的相同 URL。 例如：https&#58;//fs.contoso.com/adfs/ls/?wa=wsignout1.0|Azure AD 的對應值取決於應用程式是否支援 SAML 2.0 登出。</br></br>如果應用程式支援 SAML 登出，此值會遵循此模式，其中 {tenant-id} 會取代為租用戶識別碼。 此項目即為 Azure 入口網站中 [Azure Active Directory] > [屬性] 下的 [目錄識別碼]：https&#58;//login.microsoftonline.com/{tenant-id}/saml2</br></br>如果應用程式不支援 SAML 登出：https&#58;//login.microsoftonline.com/common/wsfederation?wa=wsignout1.0|

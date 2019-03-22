@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 57290971185d1fd64b3b5ca6ac37535070ddab9e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 6a2e022697ced90d968075b7a4abe4163be7a539
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496477"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082801"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>從備份組還原 StorSimple 磁碟區
 
@@ -110,9 +110,9 @@ ms.locfileid: "55496477"
    3. 在下拉式清單中，針對要選取的備份選擇磁碟區或備份原則。
    4. 按一下 [套用] 以執行此查詢。
 
-    與選取的磁碟區或備份原則相關聯的備份應該會出現在備份組清單中。
+      與選取的磁碟區或備份原則相關聯的備份應該會出現在備份組清單中。
    
-    ![備份組清單](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)     
+      ![備份組清單](./media/storsimple-8000-restore-from-backup-set-u2/bucatalog.png)     
      
 3. 展開備份組以檢視相關聯的磁碟區。 您必須先在主機和裝置上將這些磁碟區離線，才能還原它們。 存取您裝置上 [磁碟區] 刀鋒視窗上的磁碟區，然後依照[讓磁碟區離線](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline)中的步驟來讓它們離線。
    
@@ -127,9 +127,9 @@ ms.locfileid: "55496477"
    
     ![確認電子郵件](./media/storsimple-8000-restore-from-backup-set-u2/restorebu2.png)
 
-7.  按一下 [還原]。 這將會起始還原工作，而您可以存取 [工作] 頁面來檢視。
+7. 按一下 [還原]。 這將會起始還原工作，而您可以存取 [工作] 頁面來檢視。
 
-    ![確認電子郵件](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
+   ![確認電子郵件](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
 
 8. 還原完成之後，請確認磁碟區的內容已由備份的磁碟區所取代。
 

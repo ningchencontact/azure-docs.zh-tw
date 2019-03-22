@@ -1,19 +1,19 @@
 ---
 title: 了解 Azure IoT 中樞端點 | Microsoft Docs
 description: 開發人員指南 - IoT 中樞裝置對向端點和服務對向端點的相關參考資訊。
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.author: dobett
-ms.openlocfilehash: 43e2101f413985974b964f2261d852692bcac61d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 085a4ffbe0b615408bfd8aa70c027013e16f0136
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251435"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201427"
 ---
 # <a name="reference---iot-hub-endpoints"></a>參考 - IoT 中樞端點
 
@@ -23,13 +23,11 @@ ms.locfileid: "51251435"
 
 您可以在入口網站中，於 IoT 中樞的 [概觀] 頁面上找到端點裝載所在的 IoT 中樞主機名稱。 根據預設，IoT 中樞的 DNS 名稱看起來像：`{your iot hub name}.azure-devices.net`。
 
-您可以使用 Azure DNS 來建立 IoT 中樞的自訂 DNS 名稱。 如需詳細資訊，請參閱[使用 Azure DNS 為 Azure 服務提供自訂網域設定](../dns/dns-custom-domain.md)。
-
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>內建 IoT 中樞端點清單
 
 Azure IoT 中樞是一項多租用戶服務，可將其功能公開給各種動作項目。 下圖顯示 IoT 中樞公開的各種端點。
 
-![IoT 中樞端點](./media/iot-hub-devguide-endpoints/endpoints.png)
+![IoT 中心终结点](./media/iot-hub-devguide-endpoints/endpoints.png)
 
 下列清單說明這些端點：
 
@@ -53,7 +51,7 @@ Azure IoT 中樞是一項多租用戶服務，可將其功能公開給各種動�
 
   * *接收直接方法要求*。 裝置使用此端點來接聽[直接方法](iot-hub-devguide-direct-methods.md)的要求。
 
-    公開這些端點時，是使用 [MQTT v3.1.1](http://mqtt.org/)、HTTPS 1.1 及 [AMQP 1.0](https://www.amqp.org/) 通訊協定來公開。 您也可以透過連接埠 443 上的 [WebSockets](https://tools.ietf.org/html/rfc6455) 取得 AMQP。
+    公開這些端點時，是使用 [MQTT v3.1.1](https://mqtt.org/)、HTTPS 1.1 及 [AMQP 1.0](https://www.amqp.org/) 通訊協定來公開。 您也可以透過連接埠 443 上的 [WebSockets](https://tools.ietf.org/html/rfc6455) 取得 AMQP。
 
 * **服務端點**。 每個 IoT 中樞都會公開一組端點，供您的解決方案後端用來與您的裝置通訊。 但有一個例外狀況，這些端點只會在使用 [AMQP](https://www.amqp.org/) 通訊協定時公開。 方法引動過程端點會透過 HTTPS 通訊協定來公開。
   
@@ -61,7 +59,7 @@ Azure IoT 中樞是一項多租用戶服務，可將其功能公開給各種動�
   
   * *傳送雲端到裝置的訊息及接收傳遞通知*。 這些端點可讓您的解決方案後端傳送可靠的[雲端到裝置訊息](iot-hub-devguide-messages-c2d.md)，以及接收相對應的傳遞或到期通知。
   
-  * *接收檔案通知*。 此訊息的端點可讓您接收您的裝置已成功上傳檔案的通知。 
+  * *接收檔案通知*。 此消息传递终结点允许在设备成功上传文件时接收通知。 
   
   * *直接方法叫用*。 此端點可讓後端服務在裝置上叫用[直接方法](iot-hub-devguide-direct-methods.md)。
   
@@ -84,9 +82,18 @@ IoT 中樞目前支援下列 Azure 服務做為額外的端點︰
 
 如需您可以新增的端點數目限制，請參閱[配額和節流](iot-hub-devguide-quotas-throttling.md)。
 
+您可以使用 REST API[取得的端點健全狀況](https://docs.microsoft.com/de-de/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth)取得端點的健全狀況狀態。 我們建議您使用[IoT 中樞度量](iot-hub-metrics.md)與路由的訊息延遲，找出並無作用或狀況不良端點健康情況時，偵錯錯誤相關。
+
+|健全狀況狀態|描述|
+|---|---|
+|healthy|端點會接受訊息，如預期般運作。|
+|狀況不良|端點不接受訊息，如預期般，IoT 中樞正在重試將資料傳送至這個端點。 IoT 中樞已建立最終一致的健全狀況狀態時，將更新的狀況不良的端點狀態為狀況良好。|
+|未知|IoT 中樞已不會建立與端點的連線。 已傳遞到任何訊息或拒絕此端點。|
+|無效信件|端點不接受訊息，IoT 中樞重試傳送訊息的 retrial 期間之後。|
+
 ## <a name="field-gateways"></a>現場閘道器
 
-在 IoT 解決方案中， *現場閘道*位於裝置和 IoT 中樞端點之間。 它通常位於接近您的裝置的位置。 您的裝置會使用裝置所支援的通訊協定，直接與現場閘道器通訊。 現場閘道會使用 IoT 中樞所支援的通訊協定來連線到 IoT 中樞端點。 現場閘道可能是專用的硬體裝置或是執行自訂閘道軟體的低功率電腦。
+在 IoT 解決方案中， *現場閘道*位於裝置和 IoT 中樞端點之間。 它通常位于靠近设备的位置。 您的裝置會使用裝置所支援的通訊協定，直接與現場閘道器通訊。 現場閘道會使用 IoT 中樞所支援的通訊協定來連線到 IoT 中樞端點。 現場閘道可能是專用的硬體裝置或是執行自訂閘道軟體的低功率電腦。
 
 您可以使用 [Azure IoT Edge](/azure/iot-edge/) 來實作現場閘道。 IoT Edge 提供某些功能，例如對從多個裝置到相同 IoT 中樞連線的通訊進行多工處理。
 

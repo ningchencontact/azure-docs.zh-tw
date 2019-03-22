@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 03/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa9872ef76264956430bb69856a197042c196dfd
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 6399f5b208bc4d7182622f29bd522cfc9a088e9d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550185"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224544"
 ---
 # <a name="combined-security-information-registration-preview"></a>合併的安全性資訊註冊 （預覽）
 
@@ -68,11 +68,11 @@ MyProfile 頁面會取決於電腦存取 頁面上的目前語言設定來當地
 
 ## <a name="combined-registration-modes"></a>合併的註冊模式
 
-有兩種 「 模式 」 的合併的註冊： 插斷和管理。 
+有兩種 「 模式 」 的合併的註冊： 插斷和管理。
 
-中斷模式，是一種類似精靈的體驗，在註冊或重新整理其在登入時的安全性資訊時，向使用者顯示。 
+中斷模式，是一種類似精靈的體驗，在註冊或重新整理其在登入時的安全性資訊時，向使用者顯示。
 
-管理模式是使用者的設定檔的一部分，讓他們能夠管理其安全性資訊。 
+管理模式是使用者的設定檔的一部分，讓他們能夠管理其安全性資訊。
 
 這兩種模式中，如果使用者先前已註冊的方法，可用於 MFA，他們必須執行 MFA，才能存取其安全性資訊。
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7c87a0f478b6efbe7ae9ff07def8b4d0d730b111
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 47a77def43a9577e5a3506899da47db2f684b495
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478486"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835107"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>移動資料至 Azure 虛擬機器上的 SQL Server
 
@@ -50,7 +50,7 @@ ms.locfileid: "55478486"
 如果您的資料位於一般檔案 (使用資料列或資料行格式排列) 中，可透過下列方法，將它移到 Azure 上的 SQL Server VM：
 
 1. [命令列大量複製公用程式 (BCP)](#insert-tables-bcp)
-2. [大量插入 SQL 查詢 ](#insert-tables-bulkquery)
+2. [大量插入 SQL 查詢](#insert-tables-bulkquery)
 3. [SQL Server 中的圖形化內建公用程式 (匯入/匯出，SSIS)](#sql-builtin-utilities)
 
 ### <a name="insert-tables-bcp"></a>命令列大量複製公用程式 (BCP)
@@ -58,7 +58,7 @@ BCP 是與 SQL Server 一起安裝的命令列公用程式，是最快速移動�
 
 > [!NOTE]
 > **我應該針對 BCP 將資料放置於何處？**  
-> 雖然並非必要，但是，擁有包含與目標 SQL Server 位於相同電腦上之來源資料的檔案可讓傳輸速度 (網路速度與本機磁碟 IO 速度) 變得更快。 您可以使用像是 [AZCopy](../../storage/common/storage-use-azcopy.md)、[Azure 儲存體總管](http://storageexplorer.com/)或透過遠端桌面通訊協定 (RDP) 進行的 Windows 複製/貼上等各種檔案複製工具，將包含資料的一般檔案移到安裝 SQL Server 的電腦上。
+> 雖然並非必要，但是，擁有包含與目標 SQL Server 位於相同電腦上之來源資料的檔案可讓傳輸速度 (網路速度與本機磁碟 IO 速度) 變得更快。 您可以使用像是 [AZCopy](../../storage/common/storage-use-azcopy.md)、[Azure 儲存體總管](https://storageexplorer.com/)或透過遠端桌面通訊協定 (RDP) 進行的 Windows 複製/貼上等各種檔案複製工具，將包含資料的一般檔案移到安裝 SQL Server 的電腦上。
 >
 >
 
@@ -75,10 +75,10 @@ CREATE TABLE <tablename>
 )
 ```
 
-2. 從安裝 BCP 的電腦命令列中發出下列命令，以產生說明資料表結構描述的格式檔案。
+1. 從安裝 BCP 的電腦命令列中發出下列命令，以產生說明資料表結構描述的格式檔案。
 
     `bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
-3. 使用 BCP 命令來將資料插入資料庫，如下所示。 若假設 SQL Server 安裝於同一部電腦上，這應該就能從命令列順利運作：
+1. 使用 BCP 命令來將資料插入資料庫，如下所示。 若假設 SQL Server 安裝於同一部電腦上，這應該就能從命令列順利運作：
 
     `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attempt -t \t -r \n`
 
@@ -142,7 +142,7 @@ Set-ExecutionPolicy Restricted #reset the execution policy
 ```sql
 SET DATEFORMAT ymd;
 ```
-2. 使用大量匯入陳述式來匯入資料：
+1. 使用大量匯入陳述式來匯入資料：
 
 ```sql
 BULK INSERT <tablename>
@@ -195,7 +195,7 @@ SSIS 適用於兩種 Studio 環境。 如需詳細資料，請參閱 [Integratio
 4. 使用 [從檔案來源移動資料](#filesource_to_sqlonazurevm) 一節中所述的任何方法，將一般檔案中的資料移至 SQL Server。
 
 ### <a name="sql-migration"></a>SQL Database 移轉精靈
-[SQL Server 資料庫移轉精靈](http://sqlazuremw.codeplex.com/) 提供方便使用的方式，讓您在兩個 SQL Server 執行個體之間移動資料。 它讓使用者能夠對應來源與目的地資料表之間的資料結構描述，選擇資料行類型和其他各種功能。 它會在幕後使用大量複製 (BCP) 功能。 SQL Database 移轉精靈歡迎畫面的螢幕擷取畫面如下所示。  
+[SQL Server 資料庫移轉精靈](https://sqlazuremw.codeplex.com/) 提供方便使用的方式，讓您在兩個 SQL Server 執行個體之間移動資料。 它讓使用者能夠對應來源與目的地資料表之間的資料結構描述，選擇資料行類型和其他各種功能。 它會在幕後使用大量複製 (BCP) 功能。 SQL Database 移轉精靈歡迎畫面的螢幕擷取畫面如下所示。  
 
 ![SQL Server 移轉精靈][2]
 

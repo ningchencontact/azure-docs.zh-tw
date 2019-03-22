@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/25/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 664a2c6bfc4a73b7d792b71c4b81df54b05fcd74
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 373312b4c7f05fe41c9ca8165b8ff6f1b0e56f1b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081844"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454964"
 ---
 # <a name="dynamics-365-for-customer-engagement-application-test-drive-tab"></a>Dynamics 365 for Customer Engagement 應用程式試用產品索引標籤
 
-使用 [試用產品] 索引標籤，為您的客戶建立試用體驗。  它可讓客戶以自我引導方式實際試用您供應項目的主要功能與優點，而且是以實際的實作案例來示範的。  在可用的試用選項中，試用產品是獲得高品質潛在客戶及提高那些潛在客戶轉換為付費客戶之轉換率最有效的方式。  如需詳細資訊，請參閱[什麼是試用產品？](../../cloud-partner-portal-orig/what-is-test-drive.md)
+使用 [試用產品] 索引標籤，為您的客戶建立試用體驗。  它可讓客戶以自我引導方式實際試用您供應項目的主要功能與優點，而且是以實際的實作案例來示範的。  在可用的試用選項中，試用產品是獲得高品質潛在客戶及提高那些潛在客戶轉換為付費客戶之轉換率最有效的方式。  如需詳細資訊，請參閱[什麼是試用產品？](../test-drive/what-is-test-drive.md)
 
-Dynamics 365 應用程式的試用產品體驗會自動執行為 Microsoft 裝載的解決方案。  如需詳細資訊，請參閱[裝載的試用產品](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/hosted-test-drive)。
+Dynamics 365 應用程式的試用產品體驗會自動執行為 Microsoft 裝載的解決方案。  如需詳細資訊，請參閱[裝載的試用產品](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive)。
 
 [試用產品] 索引標籤有三個可用區段：**試用產品**、**詳細資料**和**技術設定**。  在您啟用「試用產品」功能後，才會顯示最後兩個區段。  欄位名稱上附加的星號 (*) 表示此為必填欄位。 
 
@@ -43,11 +43,11 @@ Dynamics 365 應用程式的試用產品體驗會自動執行為 Microsoft 裝�
 
 下表說明為 Dynamics 365 應用程式設定「試用產品」所需的欄位。
 
-|      欄位                    |    說明                  |
+|      欄位                    |    描述                  |
 |    ---------                  |  ---------------                |
-|      說明              |   說明可在試用產品上完成的動作。 您可以使用基本 HTML 標記來設定這個說明的格式。 例如，&lt;p&gt;、&lt;em&gt;、&lt;ul&gt;、&lt;li&gt;、&lt;ol&gt; 及標題。  |
+|      描述              |   說明可在試用產品上完成的動作。 您可以使用基本 HTML 標記來設定這個說明的格式。 例如，&lt;p&gt;、&lt;em&gt;、&lt;ul&gt;、&lt;li&gt;、&lt;ol&gt; 及標題。  |
 |  使用者手冊                  |   上傳客戶可用來逐步進行試用產品體驗的使用者手冊。 這份文件必須是 .pdf 檔案。              |
-|  試用產品示範影片 (選擇性) |  您可以提供試用產品的影片逐步解說。 客戶可以先觀看這段影片，然後再取得試用產品。 提供影片在 YouTube 或 Vimeo 上的 URL。 如果您選取 [+ 新增影片]，系統將會提示您提供下列資訊：<ul><li>Name</li><li>URL</li><li>縮圖 (.png 格式，533 x 324 像素)</li></ul>  |
+|  試用產品示範影片 (選擇性) |  您可以提供試用產品的影片逐步解說。 客戶可以先觀看這段影片，然後再取得試用產品。 提供影片在 YouTube 或 Vimeo 上的 URL。 如果您選取 [+ 新增影片]，系統將會提示您提供下列資訊：<ul><li>名稱</li><li>URL</li><li>縮圖 (.png 格式，533 x 324 像素)</li></ul>  |
 |   |   |
 
 
@@ -59,7 +59,7 @@ Dynamics 365 應用程式的試用產品體驗會自動執行為 Microsoft 裝�
 
 其中的欄位具有下列用途：
 
-|      欄位                    |    說明                  |
+|      欄位                    |    描述                  |
 |    ---------                  |  ---------------                |
 | 試用產品的類型            | 選擇 [Microsoft 裝載 (Dynamics 365 for Customer Engagement)]。  |
 | 並行試用產品數上限    | 在任何指定的時間點處於作用中狀態的並行試用產品執行個體數目。 當使用者的試用產品為作用中時，每個使用者都會取用 Dynamics 授權，因此您必須確定您至少有這麼多的 Dynamics 授權可供試用產品使用者使用。 建議值為 3-5 個。  |

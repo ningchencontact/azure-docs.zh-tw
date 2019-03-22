@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/21/2019
 ms.author: monhaber
-ms.openlocfilehash: d92d9c444985989cdec3e94840ff21f4a79fe3ad
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: cbda94b8ceeaf7a225117e1ca73445135a32a243
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104919"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088990"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Azure 資訊安全中心的自適性應用程式控制
 了解如何利用此逐步解說，在 Azure 資訊安全中心設定應用程式控制。
@@ -60,33 +60,33 @@ ms.locfileid: "56104919"
 ### <a name="configure-a-new-application-control-policy"></a>設定新的應用程式控制原則
 1. 針對具有應用程式控制建議的群組清單，按一下 [建議] 索引標籤：
 
-  ![建議](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
+   ![建議](./media/security-center-adaptive-application/security-center-adaptive-application-fig3.png)
 
-  此清單包括：
+   此清單包括：
 
-  - **名稱**：訂用帳戶和群組的名稱
-  - **VM**：群組中的虛擬機器數目
-  - **狀態**：建議的狀態
-  - **嚴重性**：建議的嚴重性層級
+   - **名稱**：訂用帳戶和群組的名稱
+   - **VM**：群組中的虛擬機器數目
+   - **狀態**：建議的狀態
+   - **嚴重性**：建議的嚴重性層級
 
 2. 按一下群組以開啟 [建立應用程式控制規則] 選項。
 
-  ![應用程式控制規則](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
+   ![應用程式控制規則](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
 
 3. 在 [選取 VM] 中，檢閱建議的 VM 清單，並取消選取任何不想套用應用程式允許清單原則的 VM。 接下來，您會看到兩份清單：
 
-  - **建議應用程式**：此群組中 VM 上經常使用的應用程式清單，建議您允許執行。
-  - **更多應用程式**：此群組中 VM 上較不常使用或稱為「易受利用」(詳情請參閱下文) 的應用程式清單，建議您加以檢閱。
+   - **建議應用程式**：此群組中 VM 上經常使用的應用程式清單，建議您允許執行。
+   - **更多應用程式**：此群組中 VM 上較不常使用或稱為「易受利用」(詳情請參閱下文) 的應用程式清單，建議您加以檢閱。
 
 4. 檢閱每份清單中的應用程式，並取消選取您不想套用的應用程式。 每份清單都包括：
 
-  - **名稱**：應用程式的憑證資訊或完整路徑
-  - **檔案類型**：應用程式檔案類型。 這可以是 EXE、指令碼、MSI 或這些類型的任何排列。
-  - **可利用進行攻擊**：警告圖示會指出攻擊者是否可能使用特定應用程式來略過應用程式允許清單解決方案。 建議您在核准之前檢閱這些應用程式。
-  - **使用者**：允許執行應用程式的建議使用者
+   - **名稱**：應用程式的憑證資訊或完整路徑
+   - **檔案類型**：應用程式檔案類型。 這可以是 EXE、指令碼、MSI 或這些類型的任何排列。
+   - **可利用進行攻擊**：警告圖示會指出攻擊者是否可能使用特定應用程式來略過應用程式允許清單解決方案。 建議您在核准之前檢閱這些應用程式。
+   - **使用者**：允許執行應用程式的建議使用者
 
 5. 一旦完成您的選擇，請選取 [建立]。 <br>
-選取 [建立] 之後，Azure 資訊安全中心會自動根據 Windows 伺服器 (AppLocker) 上可用的內建應用程式允許清單解決方案，建立適當的規則。
+   選取 [建立] 之後，Azure 資訊安全中心會自動根據 Windows 伺服器 (AppLocker) 上可用的內建應用程式允許清單解決方案，建立適當的規則。
 
 > [!NOTE]
 > - 資訊安全中心會依賴至少兩週的資料，以建立基準，並且在每個虛擬機器群組填入唯一建議。 資訊安全中心標準層的新客戶預期會有標準行為，也就是他們的虛擬機器群組一開始會出現在 [不推薦] 索引標籤底下。
@@ -98,23 +98,23 @@ ms.locfileid: "56104919"
 
 1. 若要編輯和監視已設定應用程式允許清單原則的群組，請回到 [自適性應用程式控制] 頁面，然後選取 [VM 群組] 下的 [已設定]：
 
-  ![群組](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
+   ![群組](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
 
-  此清單包括：
+   此清單包括：
 
-  - **名稱**：訂用帳戶和群組的名稱
-  - **VM**：群組中的虛擬機器數目
-  - **模式**：「稽核」模式會記錄執行未列入允許清單應用程式的嘗試；「強制」模式則不允許未列入允許清單的應用程式執行
-  - **警示**：目前所有的違規情形
+   - **名稱**：訂用帳戶和群組的名稱
+   - **VM**：群組中的虛擬機器數目
+   - **模式**：「稽核」模式會記錄執行未列入允許清單應用程式的嘗試；「強制」模式則不允許未列入允許清單的應用程式執行
+   - **警示**：目前所有的違規情形
 
 2. 按一下群組以在 [編輯應用程式控制原則] 頁面中進行變更。
 
-  ![保護](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
+   ![保護](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
 
 3. 在 [保護模式] 之下，您可以選取下列選項：
 
-  - **稽核**：在此模式中，應用程式控制解決方案不會強制執行規則，而只會稽核受保護虛擬機器上的活動。 此模式建議用於下列情況：您想在封鎖要在目標 VM 中執行的應用程式之前，先觀察整體行為。
-  - **強制**：在此模式中，應用程式控制解決方案會強制執行規則，並確定不得執行的應用程式會遭到封鎖。
+   - **稽核**：在此模式中，應用程式控制解決方案不會強制執行規則，而只會稽核受保護虛擬機器上的活動。 此模式建議用於下列情況：您想在封鎖要在目標 VM 中執行的應用程式之前，先觀察整體行為。
+   - **強制**：在此模式中，應用程式控制解決方案會強制執行規則，並確定不得執行的應用程式會遭到封鎖。
 
    > [!NOTE]
    > -  [強制執行] 保護模式已停用，直到進一步通知為止。
@@ -124,14 +124,14 @@ ms.locfileid: "56104919"
 4. 在 [原則擴充功能] 底下，新增想允許的任何應用程式路徑。 新增路徑之後，資訊安全中心會針對所選 VM 群組內的 VM 更新應用程式允許清單原則，除了既有的規則外，再為這些應用程式建立適當的規則。
 
 5. 檢閱 [最近的警示] 區段中列出的目前違規情形。 按下每一行以重新導向到 Azure 資訊安全中心內的 [警示] 頁面，並檢視 Azure 資訊安全中心在相關聯 VM 上偵測到的所有警示。
-  - **警示**：已記錄的任何違規情形。
-  - **VM 數目**：具有此警示類型的虛擬機器數目。
+   - **警示**：已記錄的任何違規情形。
+   - **VM 數目**：具有此警示類型的虛擬機器數目。
 
 6. 在 [發行者白名單規則]、[路徑白名單規則] 和 [雜湊白名單規則] 底下，可以根據規則集合類型，查看群組中的 VM 上目前設定了哪些應用程式白名單規則。 在每個規則中，您可以看到：：
 
-  - **規則**：特定的參數，AppLocker 會根據這些參數來檢查應用程式，判斷是否允許執行應用程式。
-  - **檔案類型**：特定規則所涵蓋的檔案類型。 這可以是下列任何一項：EXE、指令碼、MSI 或這些檔案類型的任何排列。
-  - **使用者**：使用者的名稱或數目，這些使用者可以執行應用程式允許清單規則所涵蓋的應用程式。
+   - **規則**：特定的參數，AppLocker 會根據這些參數來檢查應用程式，判斷是否允許執行應用程式。
+   - **檔案類型**：特定規則所涵蓋的檔案類型。 這可以是下列任何一項：EXE、指令碼、MSI 或這些檔案類型的任何排列。
+   - **使用者**：使用者的名稱或數目，這些使用者可以執行應用程式允許清單規則所涵蓋的應用程式。
 
    ![列入允許清單規則](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)
 

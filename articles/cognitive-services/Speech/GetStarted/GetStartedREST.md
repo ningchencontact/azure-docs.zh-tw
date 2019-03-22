@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: fc40f20349e3424dbcf50f5ca0395b06a818566f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: ead4026ecec4878c69bc21a9ebc989eaf3d69a13
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224049"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259936"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>快速入門：使用 Bing 語音辨識 REST API
 
@@ -32,7 +33,7 @@ Speech API 是「認知服務」(先前稱為 Project Oxford) 的組件。 您�
 > [!IMPORTANT]
 >* 取得訂用帳戶金鑰。 您必須有[訂用帳戶金鑰](https://azure.microsoft.com/try/cognitive-services/)，才能存取 REST API。
 >
->* 使用您的訂用帳戶金鑰。 在下列 REST 範例中，請以您自己的訂用帳戶金鑰取代 YOUR_SUBSCRIPTION_KEY。 
+>* 使用您的訂用帳戶金鑰。 在下列 REST 範例中，請以您自己的訂用帳戶金鑰取代 YOUR_SUBSCRIPTION_KEY。
 >
 >* 如需了解如何取得訂用帳戶金鑰，請參考[驗證](../how-to/how-to-authentication.md)頁面。
 
@@ -65,9 +66,9 @@ https://speech.platform.bing.com/speech/recognition/<RECOGNITION_MODE>/cognitive
 
 | 辨識模式  | 語言 | 輸出格式 | 服務 URI |
 |---|---|---|---|
-| `interactive` | pt-BR | 預設值 | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| `conversation` | en-US | 詳細 |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
-| `dictation` | fr-FR | 簡單 | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
+| `interactive` | pt-BR | 預設值 | https:\//speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
+| `conversation` | en-US | 詳細 | https:\//speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
+| `dictation` | fr-FR | 簡單 | https:\//speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
 
 > [!NOTE]
 > 只有當您的應用程式使用 REST API 來呼叫語音辨識服務時，才需要服務 URI。 如果您使用其中一個[用戶端程式庫](GetStartedClientLibraries.md)，則通常不需要知道所使用的 URI。 用戶端程式庫可能使用不同的服務 URI，這些 URI 僅適用於特定的用戶端程式庫。 如需詳細資訊，請參閱您所選擇的用戶端程式庫。
@@ -76,8 +77,8 @@ https://speech.platform.bing.com/speech/recognition/<RECOGNITION_MODE>/cognitive
 
 以下是必須在要求標頭中設定的欄位：
 
-- `Ocp-Apim-Subscription-Key`：每當您呼叫服務時，都必須在 `Ocp-Apim-Subscription-Key` 標頭中傳遞您的訂用帳戶金鑰。 「語音服務」也支援傳遞授權權杖來取代傳遞訂用帳戶金鑰。 如需詳細資訊，請參閱[驗證](../How-to/how-to-authentication.md)。
-- `Content-type`：`Content-type` 欄位會描述音訊資料流的格式和轉碼器。 目前僅支援 WAV 檔案和 PCM 單聲道 16000 編碼。 此格式的 Content-type 值是 `audio/wav; codec=audio/pcm; samplerate=16000`。
+- `Ocp-Apim-Subscription-Key`:每當您呼叫服務時，都必須在 `Ocp-Apim-Subscription-Key` 標頭中傳遞您的訂用帳戶金鑰。 「語音服務」也支援傳遞授權權杖來取代傳遞訂用帳戶金鑰。 如需詳細資訊，請參閱[驗證](../How-to/how-to-authentication.md)。
+- `Content-type`:`Content-type` 欄位會描述音訊資料流的格式和轉碼器。 目前僅支援 WAV 檔案和 PCM 單聲道 16000 編碼。 此格式的 Content-type 值是 `audio/wav; codec=audio/pcm; samplerate=16000`。
 
 `Transfer-Encoding` 是選擇性欄位。 如果您將此欄位設定為 `chunked`，便可以將音訊切割成小區塊。 如需詳細資訊，請參閱[區塊傳輸](../How-to/how-to-chunked-transfer.md)。
 

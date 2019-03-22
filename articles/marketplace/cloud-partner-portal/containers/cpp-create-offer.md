@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 71a69a8c299d4469c151102b0dbd5cdb70c296ec
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: 3b2a34a5ed2c6b57bfce0b9a4cf35cdf14cff9c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980155"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900075"
 ---
 # <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>使用 Cloud Partner 入口網站建立新的容器供應項目
 
@@ -34,7 +34,7 @@ ms.locfileid: "50980155"
 
 ## <a name="new-offer-form"></a>新增供應項目表單 
 
-登入 [Cloud Partner 入口網站](http://cloudpartner.azure.com/)後，選取左側功能表列上的 [+ 新增供應項目]。 在 [新增供應項目] 功能表中，選取 [容器] 以顯示 [新增供應項目] 表單，並開始定義新容器供應項目資產的程序。
+登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/)後，選取左側功能表列上的 [+ 新增供應項目]。 在 [新增供應項目] 功能表中，選取 [容器] 以顯示 [新增供應項目] 表單，並開始定義新容器供應項目資產的程序。
 
 ![選取容器選項以新增項目](./media/azure-container-offer.png)
 

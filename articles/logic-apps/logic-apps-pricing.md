@@ -10,13 +10,13 @@ ms.reviewer: estfan, LADocs
 manager: carmonm
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
-ms.date: 10/16/2018
-ms.openlocfilehash: 04fb86f9b8f8be2c013f9bd7449dd5a4b2bcf90c
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
-ms.translationtype: HT
+ms.date: 02/26/2019
+ms.openlocfilehash: 9b5452f112c6325dafd5edbe693b90ec2a94abc0
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854113"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990232"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps 的定價模式
 
@@ -33,12 +33,12 @@ ms.locfileid: "51854113"
 
 ## <a name="fixed-pricing-model"></a>固定定價模式
 
-對於在[*整合服務環境* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) 中執行的新邏輯應用程式，您每個月會支付固定的費用來使用其內建的動作與標準 ISE 標示的連接器。 ISE 可讓您建立和執行隔離的邏輯應用程式，以便存取 Azure 虛擬網路中的資源。  
+新的邏輯應用程式內執行的[ *integration service 環境*(ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)，內建動作和標準連接器中支付每月費用固定。 ISE 可讓您建立和執行隔離的邏輯應用程式，以便存取 Azure 虛擬網路中的資源。 
 
-您的 ISE 包含了一個免費的企業連接器，其中包含您想要的連線數目。 額外企業連接器的使用量會根據企業使用量價格計費。 
+ISE 基底單元有固定的容量，因此如果您需要更多的輸送量，您可以[新增更多縮放單位](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity)，請在建立期間或之後。 您的 ISE 包含了一個免費的企業連接器，其中包含您想要的連線數目。 額外企業連接器的使用量會根據企業使用量價格計費。 
 
 > [!NOTE]
-> 整合服務環境目前為*個人預覽版*。 若要要求存取，請在[這裡建立您的加入要求](https://aka.ms/iseprivatepreview)。 如需詳細資訊，請參閱 [Logic Apps 價格](https://azure.microsoft.com/pricing/details/logic-apps)。
+> ISE 處於[*公開預覽*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 如需詳細資訊，請參閱 [Logic Apps 價格](https://azure.microsoft.com/pricing/details/logic-apps)。
 
 <a name="triggers"></a>
 

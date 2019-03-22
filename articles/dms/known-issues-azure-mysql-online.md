@@ -3,20 +3,20 @@ title: 線上移轉到適用於 MySQL 的 Azure 資料庫已知問題/移轉限�
 description: 深入了解線上移轉到適用於 MySQL 的 Azure 資料庫已知問題/移轉限制。
 services: database-migration
 author: HJToland3
-ms.author: scphang
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: ebe2af858aafaff62a7e3b629c0a8c84bbf49584
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: e2b82c8a7bcdc1982ed4489e9422a4a0efd64f3c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721643"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58175094"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>線上移轉到適用於 MySQL 的 Azure 資料庫已知問題/移轉限制
 
@@ -64,14 +64,14 @@ ms.locfileid: "53721643"
 
     **因應措施**：在來源 MySQL 資料庫中將 JSON 資料類型修改為中長文字或長文字。
 
-- **限制**：如果資料表中沒有主索引鍵，持續同步會失敗。
+- **限制**：如果資料表上沒有主索引鍵，持續同步將會失敗。
  
     **因應措施**：暫時設定資料表的主索引鍵讓移轉繼續。 您可以在資料移轉完成之後，移除主索引鍵。
 
 ## <a name="lob-limitations"></a>LOB 限制
 大型物件 (LOB) 資料行是可能會在大小上增長的資料行。 針對 MySQL，中長文字、長文字、Blob、Mediumblob、Longblob 等等，是一些 LOB 的資料類型。
 
-- **限制**：如果 LOB 資料類型作為主索引鍵，移轉將會失敗。
+- **限制**：如果 LOB 資料類型會用來作為主索引鍵，則移轉將會失敗。
 
     **因應措施**：使用不是 LOB 的其他資料類型或資料行，取代主索引鍵。
 
@@ -80,7 +80,7 @@ ms.locfileid: "53721643"
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **因應措施**：如果您有大於 32 KB 的 LOB 物件，請連絡工程小組：[dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com)。 
+    **因應措施**：如果您有大於 32 KB 的 LOB 物件時，請連絡工程團隊[詢問的 Azure 資料庫移轉](mailto:AskAzureDatabaseMigrations@service.microsoft.com)。 
 
 ## <a name="other-limitations"></a>其他限制
 - 不支援在開頭或結尾具有左右大括弧 {  } 的密碼字串。 限制同時適用於連線到來源 MySQL，以及與目標適用於 MySQL 的 Azure 資料庫。

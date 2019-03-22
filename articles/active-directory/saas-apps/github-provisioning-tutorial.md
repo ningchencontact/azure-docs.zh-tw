@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac25473ecce86c2721eda9ede01b6d299c4b727b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 31f10ba0c04ccbd9f52b95c43fea7cc551fe64ee
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56179326"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888010"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>教學課程：設定 GitHub 來自動佈建使用者
 
@@ -33,11 +33,11 @@ ms.locfileid: "56179326"
 本教學課程中說明的案例假設您已經具有下列項目：
 
 *   Azure Active Directory 租用戶
-*   已啟用[商務雲端方案](https://help.github.com/articles/organization-billing-plans/#github-business-cloud)或更好方案的 GitHub 租用戶 
-*   GitHub 中具有管理員權限的使用者帳戶 
+*   在 [GitHub Enterprise 雲端](https://help.github.com/articles/github-s-products/#github-enterprise)中建立的 GitHub 組織，需使用 [GitHub Enterprise 的計費方案](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
+*   GitHub 中具有組織的系統管理員權限的使用者帳戶
 
 > [!NOTE]
-> Azure AD 佈建整合仰賴 [GitHub SCIM API](https://developer.github.com/v3/scim/) \(英文\)，這在商務方案或更好方案中可供 GitHub 小組使用。
+> Azure AD 佈建整合仰賴[GitHub SCIM API](https://developer.github.com/v3/scim/)，這是可[GitHub Enterprise 雲端](https://help.github.com/articles/github-s-products/#github-enterprise)客戶[GitHub Enterprise 的計費方案](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations).
 
 ## <a name="assigning-users-to-github"></a>將使用者指派給 GitHub
 

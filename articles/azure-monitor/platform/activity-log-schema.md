@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 2f7d671dd70571ce167d9c5abd632cdebff329da
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 63c649f0850c4ffc60ce2087e91f3f69917e4837
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888136"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56868539"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 活動記錄事件結構描述
 透過「Azure 活動記錄」，您可深入了解 Azure 中發生的任何訂用帳戶層級事件。 本文說明每個資料類別的事件結構描述。 資料的結構描述取決於您是在入口網站、PowerShell、CLI，或直接透過 REST API 讀取資料，還是[使用記錄設定檔，將資料串流處理至儲存體或事件中樞](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile)。 下列範例顯示透過入口網站、PowerShell、CLI 和 REST API 提供的結構描述。 本文結尾會提供這些屬性與 [Azure 診斷記錄結構描述](./diagnostic-logs-schema.md)的對應。
@@ -110,24 +110,27 @@ ms.locfileid: "54888136"
 ```
 
 ### <a name="property-descriptions"></a>屬性描述
-| 元素名稱 | 說明 |
+| 元素名稱 | 描述 |
 | --- | --- |
-| 授權 |事件的 RBAC 屬性的 blob。 通常包括 action、role 和 scope 屬性。 |
-| 呼叫者 |已執行作業的使用者的電子郵件地址，根據可用性的 UPN 宣告或 SPN 宣告。 |
+| authorization |事件的 RBAC 屬性的 blob。 通常包括“action”、“role”和“scope”属性。 |
+| caller |已執行作業的使用者的電子郵件地址，根據可用性的 UPN 宣告或 SPN 宣告。 |
 | 通道 |下列其中一個值：“Admin”、“Operation” |
 | claims |Active Directory 用來驗證使用者或應用程式，以便在 Resource Manager 中執行此作業的 JWT 權杖。 |
-| correlationId |通常是字串格式的 GUID。 具有相同 correlationId、屬於同一 uber 動作的事件。 |
+| correlationId |通常是字串格式的 GUID。 共享 correlationId 的事件属于同一 uber 操作。 |
 | 說明 |事件的靜態文字描述。 |
 | eventDataId |事件的唯一識別碼。 |
+| eventName | 管理事件的易記名稱。 |
+| category | 一律 「 系統管理 」 |
 | httpRequest |描述 HTTP 要求的 blob。 通常包括 “clientRequestId”、“clientIpAddress”和 “method” (HTTP 方法。 例如，PUT)。 |
-| 層級 |事件的層級。 下列其中一個值：「重大」、「錯誤」、「警告」和「告知性」 |
-| resourceGroupName |受影響資源的資源群組的名稱。 |
+| 级别 |事件的層級。 下列其中一個值：「重大」、「錯誤」、「警告」和「告知性」 |
+| resourceGroupName |受影响资源的资源组的名称。 |
 | resourceProviderName |受影響資源的資源提供者的名稱。 |
+| resourceType | 系統管理的事件受影響資源的類型。 |
 | ResourceId |受影響資源的資源識別碼。 |
 | operationId |對應至單一作業的事件共用的 GUID。 |
 | operationName |作業名稱。 |
 | properties |描述事件詳細資料的一組 `<Key, Value>` 配對 (也就是字典)。 |
-| status |字串，描述作業的狀態。 以下為一些值：「已啟動」、「進行中」、「成功」、「失敗」、「使用中」、「已解決」。 |
+| 状态 |字串，描述作業的狀態。 以下為一些值：「已啟動」、「進行中」、「成功」、「失敗」、「使用中」、「已解決」。 |
 | 子狀態 |通常是對應 REST 呼叫的 HTTP 狀態碼，但也可以包含其他描述子狀態的字串，例如以下常見的值：正常 (HTTP 狀態碼:200)、已建立 (HTTP 狀態碼:201)、已接受 (HTTP 狀態碼:202)、無內容 (HTTP 狀態碼:204)、錯誤的要求 (HTTP 狀態碼:400)、找不到 (HTTP 狀態碼:404)、衝突 (HTTP 狀態碼:409)、內部伺服器錯誤 (HTTP 狀態碼:500)、無法使用服務 (HTTP 狀態碼:503)、閘道逾時 (HTTP 狀態碼:504)。 |
 | eventTimestamp |處理與事件對應之要求的Azure 服務產生事件時的時間戳記。 |
 | submissionTimestamp |當事件變成可供查詢時的時間戳記。 |
@@ -254,7 +257,7 @@ ms.locfileid: "54888136"
 ```
 
 ### <a name="property-descriptions"></a>屬性描述
-| 元素名稱 | 說明 |
+| 元素名稱 | 描述 |
 | --- | --- |
 | 通道 | 一律是 “Admin, Operation” |
 | correlationId | 字串格式的 GUID。 |
@@ -347,7 +350,7 @@ ms.locfileid: "54888136"
 ```
 
 ### <a name="property-descriptions"></a>屬性描述
-| 元素名稱 | 說明 |
+| 元素名稱 | 描述 |
 | --- | --- |
 | 呼叫者 | 一律是 Microsoft.Insights/alertRules |
 | 通道 | 一律是 “Admin, Operation” |
@@ -362,7 +365,7 @@ ms.locfileid: "54888136"
 | operationId |對應至單一作業的事件共用的 GUID。 |
 | operationName |作業名稱。 |
 | properties |描述事件詳細資料的一組 `<Key, Value>` 配對 (也就是字典)。 |
-| status |字串，描述作業的狀態。 以下為一些值：「已啟動」、「進行中」、「成功」、「失敗」、「使用中」、「已解決」。 |
+| 状态 |字串，描述作業的狀態。 以下為一些值：「已啟動」、「進行中」、「成功」、「失敗」、「使用中」、「已解決」。 |
 | 子狀態 | 針對警示通常為 null。 |
 | eventTimestamp |處理與事件對應之要求的Azure 服務產生事件時的時間戳記。 |
 | submissionTimestamp |當事件變成可供查詢時的時間戳記。 |
@@ -372,7 +375,7 @@ ms.locfileid: "54888136"
 屬性欄位將依據警示事件來源包含不同的值。 兩個常見的警示事件提供者為活動記錄警示和計量警示。
 
 #### <a name="properties-for-activity-log-alerts"></a>活動記錄警示的屬性
-| 元素名稱 | 說明 |
+| 元素名稱 | 描述 |
 | --- | --- |
 | properties.subscriptionId | 導致啟用此活動記錄警示規則之活動記錄事件的訂用帳戶識別碼。 |
 | properties.eventDataId | 導致啟用此活動記錄警示規則之活動記錄事件的事件資料識別碼。 |
@@ -383,7 +386,7 @@ ms.locfileid: "54888136"
 | properties.status | 導致啟用此活動記錄警示規則之活動記錄事件的狀態。|
 
 #### <a name="properties-for-metric-alerts"></a>計量警示屬性
-| 元素名稱 | 說明 |
+| 元素名稱 | 描述 |
 | --- | --- |
 | properties.RuleUri | 計量警示規則本身的資源識別碼。 |
 | properties.RuleName | 計量警示規則的名稱。 |
@@ -456,7 +459,7 @@ ms.locfileid: "54888136"
 ```
 
 ### <a name="property-descriptions"></a>屬性描述
-| 元素名稱 | 說明 |
+| 元素名稱 | 描述 |
 | --- | --- |
 | 呼叫者 | 一律是 Microsoft.Insights/autoscaleSettings |
 | 通道 | 一律是 “Admin, Operation” |
@@ -546,7 +549,7 @@ ms.locfileid: "54888136"
 ```
 
 ### <a name="property-descriptions"></a>屬性描述
-| 元素名稱 | 說明 |
+| 元素名稱 | 描述 |
 | --- | --- |
 | 通道 | 一律為 “Operation” |
 | correlationId | 字串格式的 GUID。 |
@@ -626,7 +629,7 @@ ms.locfileid: "54888136"
 
 ```
 ### <a name="property-descriptions"></a>屬性描述
-| 元素名稱 | 說明 |
+| 元素名稱 | 描述 |
 | --- | --- |
 | 通道 | 一律為 “Operation” |
 | correlationId | 字串格式的 GUID。 |
@@ -736,13 +739,13 @@ ms.locfileid: "54888136"
 
 ### <a name="policy-event-property-descriptions"></a>原則事件屬性描述
 
-| 元素名稱 | 說明 |
+| 元素名稱 | 描述 |
 | --- | --- |
 | 授權 | 事件的 RBAC 屬性陣列。 針對新資源，這是觸發評估的要求其動作和範圍。 針對現有的資源，此動作為「Microsoft.Resources/checkPolicyCompliance/read」。 |
 | 呼叫者 | 針對新資源，則為啟動部署的身分識別。 針對現有的資源，則為 Microsoft Azure Policy Insights RP 的 GUID。 |
 | 通道 | 原則事件僅使用「作業」通道。 |
 | claims | Active Directory 用來驗證使用者或應用程式，以便在 Resource Manager 中執行此作業的 JWT 權杖。 |
-| correlationId | 通常是字串格式的 GUID。 具有相同 correlationId、屬於同一 uber 動作的事件。 |
+| correlationId | 通常是字串格式的 GUID。 共享 correlationId 的事件属于同一 uber 操作。 |
 | 說明 | 原則事件的這個欄位是空白的。 |
 | eventDataId | 事件的唯一識別碼。 |
 | eventName | 「BeginRequest」或「EndRequest」。 「BeginRequest」用於延遲的 auditIfNotExists 和 deployIfNotExists 評估，以及當 deployIfNotExists 效果開始範本部署時。 所有其他的作業都會傳回「EndRequest」。 |

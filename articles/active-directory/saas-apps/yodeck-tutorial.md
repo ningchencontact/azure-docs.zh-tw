@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/20/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 071054e2ec5fead3ce6181925b3c5f4e99a26736
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7564710b282c7e2ac586980896a28c00bcb2fe80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164221"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872597"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yodeck"></a>教學課程：Azure Active Directory 與 Yodeck 整合
 
@@ -200,7 +200,7 @@ Yodeck 需以手動方式佈建。
 
     b. 在 [姓氏] 文字方塊中，輸入使用者的姓氏，例如 **Simon**。
 
-    c. 在 [電子郵件] 文字方塊中，輸入使用者的電子郵件地址，例如 **brittasimon@contoso.com**。
+    c. 在 **電子郵件**文字方塊中，輸入電子郵件地址的使用者，例如**brittasimon\@contoso.com**。
 
     d. 根據您的組織需求，選取適當的**帳戶權限**選項。
     

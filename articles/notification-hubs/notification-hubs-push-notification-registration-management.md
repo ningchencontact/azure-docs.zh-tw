@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 01/23/2019
-ms.openlocfilehash: d87cd174e3fca7ce2088ad270a74b08de4ac7cb5
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 028e9a2973ed524037f6415d9e802f947458cfa6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566145"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58166764"
 ---
 # <a name="registration-management"></a>註冊管理
 
@@ -31,7 +31,7 @@ ms.locfileid: "55566145"
 
 向「通知中樞」註冊裝置是藉由使用 [註冊] 或 [安裝] 來完成。
 
-### <a name="registrations"></a>註冊
+### <a name="registrations"></a>注册
 
 註冊會將裝置的「平台通知服務」(PNS) 控制代碼與標記 (以及也可能與範本) 建立關聯。 PNS 控制代碼可能是 ChannelURI、裝置權杖或 FCM 註冊識別碼。標記是用來將通知路由至一組正確的裝置控制代碼。 如需詳細資訊，請參閱 [路由與標記運算式](notification-hubs-tags-segment-push-message.md)。 範本是用來實作每一註冊的轉換。 如需詳細資訊，請參閱 [範本](notification-hubs-templates-cross-platform-push-messages.md)。
 
@@ -168,7 +168,7 @@ var channel = await PushNotificationChannelManager.CreatePushNotificationChannel
 string installationId = null;
 var settings = ApplicationData.Current.LocalSettings.Values;
 
-// If we have not stored a installation id in application data, create and store as application data.
+// If we have not stored an installation id in application data, create and store as application data.
 if (!settings.ContainsKey("__NHInstallationId"))
 {
     installationId = Guid.NewGuid().ToString();
@@ -265,7 +265,7 @@ catch (Microsoft.WindowsAzure.Messaging.RegistrationGoneException e)
 
 從後端管理註冊的優點包括：即使裝置上對應的 app 不是處於使用中，也能夠修改註冊的標記；以及能夠在將標記新增到用戶端 app 的註冊之前，先驗證該 app。
 
-### <a name="example-code-to-register-with-a-notification-hub-from-a-backend-using-an-installation"></a>使用安裝從後端向通知中樞註冊的範例程式碼
+### <a name="example-code-to-register-with-a-notification-hub-from-a-backend-using-an-installation"></a>使用安装从后端向通知中心注册的示例代码
 
 用戶端裝置仍會如先前一樣取得其 PNS 控制代碼及相關的安裝屬性，然後在可以執行註冊及授權標記等的後端上呼叫自訂 API。後端可以利用[適用於後端作業的通知中樞 SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)。
 

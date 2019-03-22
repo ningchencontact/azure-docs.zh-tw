@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: 67778a269aa962b3184bf55c692154570e8357ba
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: c2089f9f6267f318dafe641a6a5b22e7e87427ca
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387379"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441061"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Azure 虛擬機器的效能診斷
 
@@ -143,10 +143,10 @@ Azure 入口網站提供下列分析案例。 請根據您的效能問題，選�
 ### <a name="how-do-i-share-this-data-with-microsoft-customer-support"></a>如何與 Microsoft 客戶支援共用這項資料？ 
 您可以以多種方式來與 Microsoft 共用診斷報告。
 
-**選項 1：** 自動共用最近的報告  
+**選項 1：** 自動分享最新的報告  
 當您開啟與 Microsoft 的支援票證時，請務必共用效能診斷報告。 如果您選擇在執行診斷時與 Microsoft 共用這項資訊 (藉由選取 [我同意與 Microsoft 共用診斷資訊] 核取方塊)，Microsoft 將能夠在執行日期起 30 天內，使用輸出 ZIP 檔案的 SAS 連結從您的儲存體帳戶存取報告。 只會提供最近的報告給支援工程師。 
 
-**選項 2：** 產生診斷報告壓縮檔的共用存取簽章  
+**選項 2：** 產生診斷報告壓縮檔案的共用存取簽章  
 您可以使用共用存取簽章來分享報告壓縮檔的連結。 若要這樣做，請遵循下列步驟： 
 1.  在 Azure 入口網站中，瀏覽至儲存診斷資料的儲存體帳戶。
 1.  在 [Blob 服務] 區段下，選取 [Blob]。 
@@ -156,7 +156,7 @@ Azure 入口網站提供下列分析案例。 請根據您的效能問題，選�
 1.  按一下 [產生 Blob SAS 權杖和 URL]。
 1.  複製 **Blob SAS URL** 並與支援工程師共用。 
 
-**選項 3：** 從儲存體帳戶下載報告
+**選項 3:** 從儲存體帳戶下載報表
 
 您也可以使用選項 2 中的步驟 1-4 來尋找效能診斷報告壓縮檔。 選取以下載檔案，然後透過電子郵件共用，或詢問支援工程師有關上傳檔案的指示。  
 

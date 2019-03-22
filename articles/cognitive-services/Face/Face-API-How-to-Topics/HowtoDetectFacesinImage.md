@@ -1,180 +1,148 @@
 ---
-title: 範例：偵測影像中的臉部 - 臉部 API
+title: 检测图像中的人脸 - 人脸 API
 titleSuffix: Azure Cognitive Services
-description: 使用臉部 API 偵測影像中的人臉。
+description: 了解如何使用人脸检测功能返回的各种数据。
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
-ms.topic: sample
-ms.date: 03/01/2018
+ms.topic: conceptual
+ms.date: 02/22/2019
 ms.author: sbowles
-ms.openlocfilehash: 30d5294defe02ca6c8cfd588648429859bdf19ad
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: bf3af8f5d1d2f063199a8275c2f49c70140e8732
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856389"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588766"
 ---
-# <a name="example-how-to-detect-faces-in-image"></a>範例：如何偵測影像中的人臉
+# <a name="get-face-detection-data"></a>获取人脸检测数据
 
-本指南會示範如何偵測影像中的人臉及臉部屬性，例如性別、年齡或所擷取的姿勢。 這些範例是使用「臉部 API」用戶端程式庫以 C# 撰寫的。 
+本指南演示如何使用人脸检测功能从给定的图像中提取性别、年龄或姿势等特性。 本指南中的代码片段是使用人脸 API 客户端库以 C# 语言编写的，但可通过 [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 使用相同的功能。
 
-## <a name="concepts"></a>概念
+本指南将介绍以下操作：
 
-如果您不熟悉本指南中的下列任何概念，請隨時參閱[詞彙](../Glossary.md)中的定義： 
+- 获取图像中人脸的位置和维度。
+- 获取图像中各个人脸特征点（瞳孔、鼻子、嘴巴等）的位置。
+- 猜测性别、年龄和情绪，以及检测到的人脸的其他特性。
 
-- 臉部偵測
-- 臉部特徵點
-- 頭部姿勢
-- 臉部屬性
+## <a name="setup"></a>設定
 
-## <a name="preparation"></a>準備工作
+本指南假设你已使用人脸订阅密钥和终结点 URL 构造了名为 `faceClient` 的 **[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)** 对象。 在此处，可以通过调用 **[DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet)**（本指南中使用）或 **[DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet)** 来使用人脸检测功能。 有关设置方法的说明，请参阅 [C# 人脸检测快速入门](../quickstarts/csharp-detect-sdk.md)。
 
-此範例會示範下列功能： 
+本指南重点介绍有关检测调用的具体信息 &mdash; 可以传递哪些参数，以及可对返回的数据执行哪些操作。 我们建议仅查询所需的特征，因为每个操作需要花费额外的时间才能完成。
 
-- 偵測影像中的人臉，並使用矩形框架加以標示
-- 分析瞳孔、鼻子或嘴巴的位置，然後在影像中標示出來
-- 分析臉部的頭部姿勢、性別和年齡
+## <a name="get-basic-face-data"></a>获取基本人脸数据
 
-為了能夠執行這些功能，您必須準備至少有一張清楚臉部的影像。 
+若要查找人脸并获取其在图像中的位置，请在将 _returnFaceId_ 参数设置为 **true**（默认值）的情况下调用该方法。
 
-## <a name="step-1-authorize-the-api-call"></a>步驟 1：授權 API 呼叫
-
-每次呼叫臉部 API 時，都需要訂用帳戶金鑰。 這個金鑰必須透過查詢字串參數傳遞，或者在要求標頭中指定。 若要透過查詢字串傳遞訂用帳戶金鑰，請參閱所舉出的[臉部 - 偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)要求 URL 範例：
-
-```
-https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes]
-&subscription-key=<Subscription Key>
+```csharp
+IList<DetectedFace> faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, false, null);
 ```
 
-或者，也可以在 HTTP 要求標頭中指定訂用帳戶密鑰：**ocp-apim-subscription-key:&lt;訂用帳戶金鑰&gt;** 使用用戶端程式庫時，訂用帳戶金鑰會透過 FaceServiceClient 類別的建構函式傳入。 例如︰
-```CSharp
-faceServiceClient = new FaceServiceClient("<Subscription Key>");
-```
+可在返回的 **[DetectedFace](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet)** 对象中查询其唯一 ID，矩形提供了人脸的像素坐标。
 
-## <a name="step-2-upload-an-image-to-the-service-and-execute-face-detection"></a>步驟 2：將影像上傳至服務並執行臉部偵測
-
-若要執行臉部偵測，最基本的方式是直接上傳影像。 您可以傳送 "POST" 要求並附上應用程式/八位元資料流內容類型以及從 JPEG 影像讀取的資料，便可搞定一切。 影像大小上限為 4 MB。
-
-使用用戶端程式庫時，藉由傳入資料流物件即可透過上傳方式執行臉部偵測。 請參閱下面的範例：
-
-```CSharp
-using (Stream s = File.OpenRead(@"D:\MyPictures\image1.jpg"))
+```csharp
+foreach (var face in faces)
 {
-    var faces = await faceServiceClient.DetectAsync(s, true, true);
- 
-    foreach (var face in faces)
-    {
-        var rect = face.FaceRectangle;
-        var landmarks = face.FaceLandmarks;
-    }
+    string id = face.FaceId.ToString();
+    FaceRectangle rect = face.FaceRectangle;
 }
 ```
 
-請注意，FaceServiceClient 的 DetectAsync 方法是「非同步的」。 呼叫的方法也應該標示為非同步，才能使用 await 子句。
-如果影像已在網路上且具有 URL，您也可以藉由提供 URL 來執行臉部偵測。 在這個範例中，要求主體將會是包含 URL 的 JSON 字串。
-使用用戶端程式庫時，可以藉由使用 DetectAsync 方法的另一個多載，輕鬆地透過 URL 執行臉部偵測。
+有关如何分析人脸位置和维度的信息，请参阅 **[FaceRectangle](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.facerectangle?view=azure-dotnet)**。 通常情况下，此矩形包含眼睛、眉毛、鼻子和嘴巴，不一定包括头顶、耳朵和下巴。 若要使用人脸矩形来裁剪整个头部或中景肖像（身份证类型的图像），可在特定的边缘朝每个方向拉伸矩形。
 
-```CSharp
-string imageUrl = "http://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceServiceClient.DetectAsync(imageUrl, true, true);
- 
+## <a name="get-face-landmarks"></a>获取人脸特征点
+
+人脸特征点是人脸上的一组易于查找的点，例如瞳孔或鼻尖。 可以通过将 _returnFaceLandmarks_ 参数设置为 **true** 来获取人脸特征点数据。
+
+```csharp
+IList<DetectedFace> faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, null);
+```
+
+預設會有 27 個預先定義的臉部特徵點。 下图显示了所有 27 个点：
+
+![标有所有 27 个特征点的人脸插图](../Images/landmarks.1.jpg)
+
+返回的点以像素为单位，就像人脸矩形框一样。 以下代码演示如何检索鼻子和瞳孔的位置：
+
+```csharp
 foreach (var face in faces)
 {
-    var rect = face.FaceRectangle;
     var landmarks = face.FaceLandmarks;
-}
-``` 
 
-基本上，和偵測到的臉部一起傳回的 FaceRectangle 屬性，會是臉部上的各個位置 (以像素為單位)。 這個矩形通常會包含眼睛、眉毛、鼻子和嘴巴 – 頭頂、耳朵和下巴則不會包含在內。 如果您裁剪出完整的頭部或中景人像 (附照證件類型的影像)，由於這類影像的臉部區域對某些應用程式來說可能太小，建議您將其矩形臉部框架的區域擴大。 若要更精準地定位臉部，請使用下一節所述且證明有用的特徵點 (定位臉部特徵或臉部方向機制)。
-
-## <a name="step-3-understanding-and-using-face-landmarks"></a>步驟 3：了解和使用臉部特徵點
-
-臉部特徵點是臉部上的一系列細部位置點；通常是臉部器官的位置點，例如瞳孔、兩眥或鼻子。 臉部特徵點是選擇性屬性，可在臉部偵測進行期間加以分析。 您可以在呼叫[臉部 - 偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)時對 returnFaceLandmarks 查詢參數傳遞布林值 'true'，也可以對 FaceServiceClient 類別 DetectAsync 方法使用 returnFaceLandmarks 選擇性參數，以便在偵測結果中包括臉部特徵點。
-
-預設會有 27 個預先定義的臉部特徵點。 下圖顯示這 27 個位置點的定義方式：
-
-![HowToDetectFace](../Images/landmarks.1.jpg)
-
-所傳回的位置點是以像素為單位，就和臉部矩形框架一樣。 因此，您可以輕鬆地在影像中標出感興趣的特定位置點。 下列程式碼示範如何擷取鼻子和瞳孔的位置：
-
-```CSharp
-var faces = await faceServiceClient.DetectAsync(imageUrl, returnFaceLandmarks:true);
- 
-foreach (var face in faces)
-{
-    var rect = face.FaceRectangle;
-    var landmarks = face.FaceLandmarks;
- 
     double noseX = landmarks.NoseTip.X;
     double noseY = landmarks.NoseTip.Y;
- 
+
     double leftPupilX = landmarks.PupilLeft.X;
     double leftPupilY = landmarks.PupilLeft.Y;
- 
+
     double rightPupilX = landmarks.PupilRight.X;
     double rightPupilY = landmarks.PupilRight.Y;
 }
-``` 
+```
 
-除了在影像中標出臉部特徵外，臉部特徵點也可用來正確計算臉部的朝向。 例如，我們可以將臉部的朝向定義為從嘴巴中心點到雙眼中心點的向量。 下列程式碼會對此做出詳細說明：
+人脸特征点数据还可用于准确计算人脸的方向。 例如，可以将人脸的旋转角定义为从嘴巴中心到眼睛中心的矢量。 以下代码计算此矢量：
 
-```CSharp
-var landmarks = face.FaceLandmarks;
- 
+```csharp
 var upperLipBottom = landmarks.UpperLipBottom;
 var underLipTop = landmarks.UnderLipTop;
- 
+
 var centerOfMouth = new Point(
     (upperLipBottom.X + underLipTop.X) / 2,
     (upperLipBottom.Y + underLipTop.Y) / 2);
- 
+
 var eyeLeftInner = landmarks.EyeLeftInner;
 var eyeRightInner = landmarks.EyeRightInner;
- 
+
 var centerOfTwoEyes = new Point(
     (eyeLeftInner.X + eyeRightInner.X) / 2,
     (eyeLeftInner.Y + eyeRightInner.Y) / 2);
- 
+
 Vector faceDirection = new Vector(
     centerOfTwoEyes.X - centerOfMouth.X,
     centerOfTwoEyes.Y - centerOfMouth.Y);
-``` 
+```
 
-藉由知道臉部的朝向，您就可以旋轉矩形臉部框架以與臉部貼齊。 很顯然地，使用臉部特徵點可以提供更多細節和用處。
+知道人脸的方向后，可以旋转矩形人脸框，使人脸更适当地对齐。 若要裁剪图像中的人脸，可以编程方式旋转图像，使人脸始终朝上。
 
-## <a name="step-4-using-other-face-attributes"></a>步驟 4：使用其他臉部屬性
+## <a name="get-face-attributes"></a>获取人脸特性
 
-除了臉部特徵點外，「臉部 - 偵測」API 也可以分析臉部的數個其他屬性。 這些屬性包括：
+除了人脸矩形和特征点以外，人脸检测 API 还可以分析人脸的几个概念特性。 其中包含：
 
 - 年齡
 - 性別
 - 笑容程度
 - 臉部毛髮
-- 3D 頭部姿勢
+- 眼镜
+- 3D 头部姿势
+- 表情 API
 
-這些屬性是使用統計演算法來做出預測的，不一定會 100% 精確。 不過，當您想要以這些屬性來將臉部分類時，這些屬性仍然很有用。 如需各個屬性的詳細資訊，請參閱[詞彙](../Glossary.md)。
+> [!IMPORTANT]
+> 这些属性是使用统计算法预测的，不一定准确。 根据特性数据做出决策时请小心。
+>
 
-以下是在臉部偵測進行期間擷取臉部屬性的簡單範例：
+若要分析人脸特性，请将 _returnFaceAttributes_ 参数设置为 **[FaceAttributeType 枚举](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** 值的列表。
 
-```CSharp
+```csharp
 var requiredFaceAttributes = new FaceAttributeType[] {
-                FaceAttributeType.Age,
-                FaceAttributeType.Gender,
-                FaceAttributeType.Smile,
-                FaceAttributeType.FacialHair,
-                FaceAttributeType.HeadPose,
-                FaceAttributeType.Glasses
-            };
-var faces = await faceServiceClient.DetectAsync(imageUrl,
-    returnFaceLandmarks: true,
-    returnFaceAttributes: requiredFaceAttributes);
+    FaceAttributeType.Age,
+    FaceAttributeType.Gender,
+    FaceAttributeType.Smile,
+    FaceAttributeType.FacialHair,
+    FaceAttributeType.HeadPose,
+    FaceAttributeType.Glasses,
+    FaceAttributeType.Emotion
+};
+var faces = await faceClient.DetectWithUrlAsync(imageUrl, true, false, requiredFaceAttributes);
+```
 
+然后，获取对返回的数据的引用，并根据需要执行进一步的操作。
+
+```csharp
 foreach (var face in faces)
 {
-    var id = face.FaceId;
     var attributes = face.FaceAttributes;
     var age = attributes.Age;
     var gender = attributes.Gender;
@@ -182,15 +150,17 @@ foreach (var face in faces)
     var facialHair = attributes.FacialHair;
     var headPose = attributes.HeadPose;
     var glasses = attributes.Glasses;
+    var emotion = attributes.Emotion;
 }
-``` 
+```
 
-## <a name="summary"></a>總結
+若要详细了解每个特性，请参阅[词汇表](../Glossary.md)。
 
-在本指南中，您已了解[臉部 - 偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API 的功能；它會如何偵測本機上傳影像或網路上影像 URL 的臉部；它會如何藉由傳回矩形臉部框架來偵測臉部；以及它也會如何分析臉部特徵點、3D 頭部姿勢和其他臉部屬性。
+## <a name="next-steps"></a>後續步驟
 
-如需 API 詳細資料的詳細資訊，[請參閱](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)的 API 參考指南。
+本指南介绍了如何使用人脸检测的各项功能。 接下来请参阅[词汇表](../Glossary.md)，以更详细地了解检索到的人脸数据。
 
 ## <a name="related-topics"></a>相關主題
 
-[如何識別影像中的人臉](HowtoIdentifyFacesinImage.md)
+- [参考文档 (REST)](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
+- [參考文件 (.NET SDK)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/face?view=azure-dotnet)

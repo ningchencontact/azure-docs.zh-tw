@@ -15,20 +15,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 33e968ac608c393d65f69bfd6abbc0d205fb9bd9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 195a2dd88f443120f337ba441358389f0dc290f8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718872"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078783"
 ---
-# <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>使用適用於 Azure Mobile Apps 的 .NET 後端伺服器 SDK
+# <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>使用适用于 Azure 移动应用的 .NET 后端服务器 SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
 
 本主題說明如何在主要的 Azure App Service Mobile Apps 案例中使用 .NET 後端伺服器 SDK Azure Mobile Apps SDK 可協助您從 ASP.NET 應用程式使用行動用戶端。
 
 > [!TIP]
-> [適用於 Azure Mobile Apps 的 .NET 伺服器 SDK][2]是 GitHub 上的開放原始碼。 儲存機制包含所有原始程式碼，其中包括整個伺服器 SDK 單元測試組件和一些範例專案。
+> [適用於 Azure Mobile Apps 的 .NET 伺服器 SDK][2]是 GitHub 上的開放原始碼。 存储库包含所有源代码，包括整个服务器 SDK 单元测试套件以及一些示例项目。
 >
 >
 
@@ -40,7 +40,7 @@ ms.locfileid: "53718872"
 
 如果您將行動功能新增至現有的專案，請參閱 [下載並初始化 SDK](#install-sdk) 一節。
 
-### <a name="create-a-net-backend-using-the-azure-portal"></a>使用 Azure 入口網站建立 .NET 後端
+### <a name="create-a-net-backend-using-the-azure-portal"></a>使用 Azure 门户创建 .NET 后端
 若要建立 App Service 行動後端，請遵循[快速入門教學課程][3]或遵循下列步驟︰
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
@@ -131,9 +131,9 @@ Azure 入口網站的伺服器快速入門會呼叫 **UseDefaultConfiguration()*
 下列 NuGet 型擴充套件提供了許多您應用程式可以使用的行動功能。 您可以使用 **MobileAppConfiguration** 物件，在初始化期間啟用擴充功能。
 
 * [Microsoft.Azure.Mobile.Server.Quickstart] 支援基本的 Mobile Apps 設定。 在初始化期間，透過呼叫 **UseDefaultConfiguration** 擴充方法來新增到組態。 此擴充包含下列擴充功能：通知、驗證、實體、資料表、跨網域和首頁封裝。 此封裝由 Azure 入口網站上可取得的 Mobile Apps 快速入門使用。
-* [Microsoft.Azure.Mobile.Server.Home](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) 實作網站根目錄的預設 [此行動應用程式已啟動並執行中] 頁面。 透過呼叫 **AddMobileAppHomeController** 擴充方法來新增到組態。
-* [Microsoft.Azure.Mobile.Server.Tables](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) 包含適用於處理資料與設定資料管線的類別。 透過呼叫 **AddTables** 擴充方法來加入設定中。
-* [Microsoft.Azure.Mobile.Server.Entity](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) 讓 Entity Framework 能存取 SQL Database 中的資料。 透過呼叫 **AddTablesWithEntityFramework** 擴充方法來加入設定中。
+* [Microsoft.Azure.Mobile.Server.Home](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) 實作網站根目錄的預設 [此行動應用程式已啟動並執行中] 頁面。 通过调用 **AddMobileAppHomeController** 扩展方法添加到配置。
+* [Microsoft.Azure.Mobile.Server.Tables](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) 包含適用於處理資料與設定資料管線的類別。 通过调用 **AddTables** 扩展方法添加到配置。
+* [Microsoft.Azure.Mobile.Server.Entity](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) 讓 Entity Framework 能存取 SQL Database 中的資料。 通过调用 **AddTablesWithEntityFramework** 扩展方法添加到配置。
 * [Microsoft.Azure.Mobile.Server.Authentication] 啟用驗證，並設定用來驗證權杖的 OWIN 中介軟體。 透過呼叫 **AddAppServiceAuthentication** 與 **IAppBuilder**.**UseAppServiceAuthentication** 擴充方法來新增到組態。
 * [Microsoft.Azure.Mobile.Server.Notifications] 啟用推播通知，並定義推播註冊端點。 透過呼叫 **AddPushNotifications** 擴充方法來加入設定中。
 * [Microsoft.Azure.Mobile.Server.CrossDomain](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) 建立從行動應用程式提供資料給舊版網頁瀏覽器的控制器。 透過呼叫 **MapLegacyCrossDomainController** 擴充方法來加入設定中。
@@ -143,7 +143,7 @@ Azure 入口網站的伺服器快速入門會呼叫 **UseDefaultConfiguration()*
 本節說明如何從 Visual Studio 發佈 .NET 後端專案。 您也可以使用 [Git](../app-service/deploy-local-git.md) 或那裡提供的任何其他方法來部署後端專案。
 
 1. 在 Visual Studio 中，重新建置專案以還原 NuGet 封裝。
-2. 在 [方案總管] 中，於專案上按一下滑鼠右鍵，然後按一下 [發佈] 。 第一次發佈時，您必須定義發行設定檔。 在定義設定檔後，您可以選取該設定檔，然後按一下 [發佈]。
+2. 在 [方案總管] 中，於專案上按一下滑鼠右鍵，然後按一下 [發佈] 。 首次发布时，需要定义发布配置文件。 在定義設定檔後，您可以選取該設定檔，然後按一下 [發佈]。
 3. 如果系統要求您選取發佈目標，請按一下 [Microsoft Azure App Service] > [下一步]，然後視需要使用您的 Azure 認證來登入。
    Visual Studio 會直接從 Azure 下載並安全地儲存您的發佈設定。
 
@@ -263,7 +263,7 @@ Azure Mobile Apps 會使用 App Service 驗證 / 授權來保護您的行動後�
 > 若要啟用自訂驗證，您必須先啟用 App Service 驗證，但不需在 Azure 入口網站中選取 App Service 的提供者。 這會在裝載時啟用 WEBSITE_AUTH_SIGNING_KEY 環境變數。
 > 
 > 
-如果您不想要使用其中一個 App Service 驗證/授權提供者，您可以實作自己的登入系統。 安裝 [Microsoft.Azure.Mobile.Server.Login] 封裝，協助產生驗證權杖。  提供您自己的程式碼來驗證使用者認證。 例如，您可以針對資料庫中的 salted 和雜湊密碼進行檢查。 在下列範例中， `isValidAssertion()` 方法 (定義於其他地方) 會負責這些檢查。
+> 如果您不想要使用其中一個 App Service 驗證/授權提供者，您可以實作自己的登入系統。 安裝 [Microsoft.Azure.Mobile.Server.Login] 封裝，協助產生驗證權杖。  提供您自己的程式碼來驗證使用者認證。 例如，您可以針對資料庫中的 salted 和雜湊密碼進行檢查。 在下列範例中， `isValidAssertion()` 方法 (定義於其他地方) 會負責這些檢查。
 
 自訂驗證的公開方式為建立 ApiController 及公開 `register` 和 `login` 動作。 用戶端應該使用的自訂 UI，向使用者收集資訊。  此資訊會接著透過標準 HTTP POST 呼叫提交至 API。 伺服器驗證這項判斷提示之後，便使用 `AppServiceLoginHandler.CreateToken()` 方法來發行權杖。  ApiController **不得**使用 `[MobileAppController]`屬性。
 
@@ -350,7 +350,7 @@ App Service 也可讓您向登入提供者要求特定宣告。 每個識別提�
 新增 `System.Security.Principal` 的 using 陳述式，以提供 **GetAppServiceIdentityAsync** 擴充方法。
 
 ### <a name="authorize"></a>操作說明：限制授權使用者的資料存取
-在上一節中，我們已說明如何取出已驗證使用者的使用者識別碼。 您可以根據此值限制存取資料和其他資源。 例如，將 userId 資料行新增到資料表，以及依使用者識別碼篩選查詢結果，是一種將傳回的資料限制為只有授權使用者的簡單方式。 下列程式碼只有在 SID 符合 TodoItem 資料表上 UserId 資料行中的值時才會傳回資料：
+在上一節中，我們已說明如何取出已驗證使用者的使用者識別碼。 您可以根據此值限制存取資料和其他資源。 例如，將 userId 資料行新增到資料表，以及依使用者識別碼篩選查詢結果，是一種將傳回的資料限制為只有授權使用者的簡單方式。 以下代码只会在 SID 与 TodoItem 表上 UserId 列中的值匹配时才返回数据行：
 
     // Get the SID of the current user.
     var claimsPrincipal = this.User as ClaimsPrincipal;
@@ -438,7 +438,7 @@ Azure App Service 提供了數個適用於 ASP.NET 應用程式的偵錯和疑�
 ### <a name="logging"></a>記錄
 您可以使用標準的 ASP.NET 追蹤寫入來寫入 App Service 診斷記錄： 您必須在行動應用程式後端中啟用診斷，才能寫入至記錄檔。
 
-若要啟用診斷並寫入至記錄檔：
+若要启用诊断并写入日志，请执行以下操作：
 
 1. 依照 [如何啟用診斷](../app-service/troubleshoot-diagnostic-logs.md#enablediag)中的步驟執行。
 2. 在您的程式碼檔案中新增下列 using 陳述式：

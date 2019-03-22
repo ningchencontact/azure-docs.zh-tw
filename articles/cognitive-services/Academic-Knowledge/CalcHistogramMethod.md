@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 1e922f1c02876f09dcf51b192bc08c4f4fccac9e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: a228c5b90e47c9c24c5da70484a1a28f9a3054b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879015"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100474"
 ---
 # <a name="calchistogram-method"></a>CalcHistogram 方法
 
@@ -27,12 +27,12 @@ ms.locfileid: "55879015"
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
 ``` 
 <br>
-  
+
 ## <a name="request-parameters"></a>要求參數
 
-Name  |值 | 必要？  |說明
+名稱  |值 | 必要？  |描述
 -----------|----------|--------|----------
-**expr**    |文字字串 | yes  |查詢運算式，用來指定用於計算長條圖的實體。
+**expr**    |文字字串 | 是  |查詢運算式，用來指定用於計算長條圖的實體。
 **model** |文字字串 | 否 |選取您想要查詢的模型名稱。  目前，此值會預設為 latest。
 **attributes** | 文字字串 | 否<br>預設值： | 以逗號分隔的清單，可指定回應中包含的屬性值。 屬性名稱區分大小寫。
 **count** |數字 | 否<br>預設值：10 |要傳回的結果數目。
@@ -41,7 +41,7 @@ Name  |值 | 必要？  |說明
 
 ## <a name="response-json"></a>回應 (JSON)
 
-Name | 說明
+名稱 | 描述
 --------|---------
 **expr**  |要求中的 expr 參數。
 **num_entities** | 相符實體的總數。

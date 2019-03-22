@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3c4c4bb924ed6faf1b194273a3cf8c17b16d741
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6e425efda49e02c895d288b517635525e7fa444e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209875"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895680"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kintone"></a>教學課程：Azure Active Directory 與 Kintone 整合
 
@@ -116,6 +116,7 @@ Kintone 與 Azure AD 整合提供下列優點：
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<companyname>.kintone.com`
 
     b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
+    
     | |
     |--|
     | `https://<companyname>.cybozu.com`|

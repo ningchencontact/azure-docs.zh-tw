@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: fb12fe381cb4df6139fae7289279220f72984484
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: e72b115420e49a50f18ae9a27c6243394427ea4a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078009"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000414"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Azure Marketplace 列名指導方針
 
@@ -72,16 +72,18 @@ ms.locfileid: "54078009"
 ----
 
 ## <a name="container-offer-requirements"></a>容器供應項目需求
+
 |  | 列名項目 | 基本需求 | 最佳需求 | 
 |:--- |:--- |:--- |:--- |
 |1 |供應項目設定 | <br>• 供應項目識別碼：最多 50 個字元 <br>• 發行者識別碼：從下拉式清單選取 <br>• 名稱：最多 50 個字元 | 描述中已提供鏡像標題樣式，不需要長標題。 | 
-| 2 | SKU | 合作夥伴按一下新的 SKU| 描述中已提供鏡像標題樣式，不需要長標題。  |  |
+| 2 | SKU | 合作夥伴按一下新的 SKU| 描述中已提供鏡像標題樣式，不需要長標題。  |
 | 3 | Marketplace 成品 | 正確地顯示標誌 |<br>• 標誌包含「主圖影像」，其為 Azure 入口網站中的大型格式影像 <br>• 標誌：必須有小型 (48x48) 和大型 (216x216) <br>• 主圖影像需求： https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish<br>• 螢幕擷取畫面 (最多 5 個)：CPP 要求 .png 影像，解析度 1280 x 720。|
 | 4 | 潛在客戶管理 |<br>• 潛在客戶管理：選取將儲存您潛在客戶的系統。 <br>• 在[這裡](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads)了解如何連線 CRM 系統 | |
 
 ----
 
 ## <a name="consulting-offer-requirements"></a>諮詢供應項目需求
+
 |  | 列名項目 | 基本需求 | 最佳需求 |
 |:--- |:--- |:--- |:--- |
 | 1 | 供應項目標題  |  <br>• 必須以下列格式清楚地列出服務類型和持續時間：名稱：持續期間類型。 (亦即「供應項目業務開發：1 週概念證明」)  | <br>• 不重複的發行者名稱 <br>• 描述中已提供鏡像標題樣式，不需要長標題。 | 
@@ -103,4 +105,4 @@ ms.locfileid: "54078009"
 *   [決定您解決方案的清單類型](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)。
 
  
----  
+---

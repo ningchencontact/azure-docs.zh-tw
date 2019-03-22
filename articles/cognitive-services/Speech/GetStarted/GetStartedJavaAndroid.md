@@ -10,16 +10,17 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 3d7bbdb25815027625b6f56b25e64c4a07b3728f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 147042e300e629dd7e354d4e9079cc4855a8146c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222485"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547007"
 ---
-[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
-
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>快速入門：在 Android 上於 Java 中使用 Bing 語音辨識 API
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 使用「Bing 語音辨識 API」時，您可以開發使用雲端式「Bing 語音服務」將語音轉換成文字的 Android 應用程式。 此 API 支援即時串流，因此您的應用程式能夠在將音訊傳送給服務的同時，以同時且非同步方式接收部分辨識結果。
 
@@ -29,7 +30,7 @@ ms.locfileid: "55222485"
 
 ### <a name="platform-requirements"></a>平台需求
 
-此範例是 [Android Studio](http://developer.android.com/sdk/index.html) 以 Java 針對 Windows 開發的範例。
+此範例是 [Android Studio](https://developer.android.com/sdk/index.html) 以 Java 針對 Windows 開發的範例。
 
 ### <a name="get-the-client-library-and-sample-application"></a>取得用戶端程式庫和範例應用程式
 
@@ -116,8 +117,8 @@ void initializeRecoClient()
 
 此用戶端類別針對語音辨識中的典型案例，提供預先實作的辨識用戶端類別：
 
-* `DataRecognitionClient`：使用 PCM 資料 (例如來自檔案或音訊來源) 的語音辨識。 系統會將資料分解成緩衝區，然後將每個緩衝區傳送給「語音服務」。 由於不會對緩衝區進行任何修改，因此使用者可以視需要套用自己的無聲偵測。 如果資料是從 WAV 檔案提供的，您便可以將來自檔案的資料直接傳送給「語音服務」。 如果您有原始資料 (例如來自藍牙的音訊)，則需以格式標頭在前、資料在後的方式傳送給「語音服務」。
-* `MicrophoneRecognitionClient`：音訊來自麥克風的語音辨識。 請確定已開啟麥克風，且系統會將來自麥克風的資料傳送給語音辨識服務。 在將麥克風資料傳送給辨識服務之前，系統會先在該資料上套用內建的「無聲偵測器」。
+* `DataRecognitionClient`:使用 PCM 資料 (例如來自檔案或音訊來源) 的語音辨識。 系統會將資料分解成緩衝區，然後將每個緩衝區傳送給「語音服務」。 由於不會對緩衝區進行任何修改，因此使用者可以視需要套用自己的無聲偵測。 如果資料是從 WAV 檔案提供的，您便可以將來自檔案的資料直接傳送給「語音服務」。 如果您有原始資料 (例如來自藍牙的音訊)，則需以格式標頭在前、資料在後的方式傳送給「語音服務」。
+* `MicrophoneRecognitionClient`:音訊來自麥克風的語音辨識。 請確定已開啟麥克風，且系統會將來自麥克風的資料傳送給語音辨識服務。 在將麥克風資料傳送給辨識服務之前，系統會先在該資料上套用內建的「無聲偵測器」。
 * `DataRecognitionClientWithIntent` 和 `MicrophoneRecognitionClientWithIntent`：除了辨識文字之外，這些用戶端還會傳回有關說話者意圖的結構化資訊，可供應用程式用來驅動進一步的動作。 若要使用「意圖」，您必須先使用 [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) 將模型定型。
 
 ### <a name="recognition-language"></a>辨識語言
@@ -128,8 +129,8 @@ void initializeRecoClient()
 
 使用 `SpeechRecognitionServiceFactory` 來建立用戶端時，您還需要指定 `SpeechRecognitionMode`：
 
-* `ShortPhrase`：語句最長為 15 秒。 將資料傳送給服務時，用戶端會收到多個部分結果，以及一個含有多個前 N 名最佳選項的最終結果。
-* `LongDictation`：語句最長為 2 分鐘。 將資料傳送給服務時，用戶端會根據服務識別句子暫停的位置，收到多個部分結果和多個最終結果。
+* `ShortPhrase`:語句最長為 15 秒。 將資料傳送給服務時，用戶端會收到多個部分結果，以及一個含有多個前 N 名最佳選項的最終結果。
+* `LongDictation`:語句最長為 2 分鐘。 將資料傳送給服務時，用戶端會根據服務識別句子暫停的位置，收到多個部分結果和多個最終結果。
 
 ### <a name="attach-event-handlers"></a>連結事件處理常式
 

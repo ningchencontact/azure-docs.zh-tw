@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/26/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 6f36000eb5a17e58d1450a064897dd9caef89bad
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: fe15cafceea8128735f7241fa5e4187d4d9c47a9
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859346"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960049"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker 知識庫的限制和界限
 QnA Maker 的完整限制清單。
@@ -52,7 +52,7 @@ QnA Maker 的完整限制清單。
 * 檔案名稱的長度：200
 * 支援的檔案格式：".tsv"、".pdf"、".txt"、".docx"、".xlsx"。
 * 替代問題數目上限：100
-* 問答組數目上限：取決於所選的 [Azure 搜尋服務層](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) 
+* 問答組數目上限：取決於[Azure 搜尋服務層](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits)選擇。 問題和答案組會對應至 Azure 搜尋服務索引上的文件。 
 
 ## <a name="create-knowledge-base-call-limits"></a>建立知識庫呼叫限制：
 這些代表每個建立知識庫動作的限制；也就是，按一下 [建立知識庫] 或呼叫 CreateKnowledgeBase API。
@@ -71,6 +71,6 @@ QnA Maker 的完整限制清單。
 
 了解何時及如何變更服務層級：
 
-* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku)：如果需要超過您目前層次的更多問題和答案放入您的知識庫，請將 QnA Maker 服務定價層升級。
-* [Search](how-to/upgrade-qnamaker-service.md#upgrade-app-service) - 當您的知識庫需要為來自用戶端應用程式的更多要求提供服務時，請將 App Service 定價層升級。
-* [應用程式服務](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service)：如果您打算有許多知識庫，請將 Azure 搜尋服務定價層升級。
+* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku):當您需要有多個原始程式檔，或在您的知識庫，超越您目前的層次，文件愈大升級 QnA Maker 服務定價層。
+* [App Service](how-to/upgrade-qnamaker-service.md#upgrade-app-service):當您的知識庫需要為來自用戶端應用程式的更多要求提供服務時，請將 App Service 定價層升級。
+* [Azure 搜尋服務](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service):如果您打算有許多知識庫，請將 Azure 搜尋服務定價層升級。

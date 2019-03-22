@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 1ef779e64995c6996538b68b892cb45f11788067
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: b5299af375646e7759d0770139df2cd6d7ce105c
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54477459"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314072"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>將 Azure 診斷記錄串流至事件中樞
 您可以使用入口網站中內建的「匯出至事件中樞」選項，或透過 Azure PowerShell Cmdlet 或 Azure CLI 來啟用診斷設定中事件中樞授權規則識別碼的方式，以近乎即時的速度將 **[Azure 診斷記錄](diagnostic-logs-overview.md)** 串流至任何應用程式。
@@ -83,10 +83,12 @@ ms.locfileid: "54477459"
 
 ### <a name="via-powershell-cmdlets"></a>透過 PowerShell Cmdlet
 
-若要透過 [Azure PowerShell Cmdlet](../../azure-monitor/platform/powershell-quickstart-samples.md) 啟用串流功能，您可以使用 `Set-AzureRmDiagnosticSetting` Cmdlet 搭配下列參數︰
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+若要透過 [Azure PowerShell Cmdlet](../../azure-monitor/platform/powershell-quickstart-samples.md) 啟用串流功能，您可以使用 `Set-AzDiagnosticSetting` Cmdlet 搭配下列參數︰
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
 ```
 
 「事件中樞授權規則識別碼」是一個採用下列格式的字串︰`{Event Hub namespace resource ID}/authorizationrules/{key name}`，例如 `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`。 您目前無法在 PowerShell 中選取特定的事件中樞名稱。
@@ -177,10 +179,10 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 }
 ```
 
-| 元素名稱 | 說明 |
+| 元素名稱 | 描述 |
 | --- | --- |
 | 記錄數 |此承載中的所有記錄事件的陣列。 |
-| 分析 |事件發生的時間。 |
+| time |事件發生的時間。 |
 | category |此事件的記錄檔分類。 |
 | ResourceId |產生此事件之資源的資源識別碼。 |
 | operationName |作業名稱。 |

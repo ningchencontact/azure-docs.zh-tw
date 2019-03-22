@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako;johndeu;anilmur
-ms.openlocfilehash: 7358f259d4c38157a203369e9eadae28710f4290
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fb24c856138bb9e59d9cb3ea07c9182454e6463a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993702"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080196"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>使用工作流程設計工具建立進階編碼工作流程  
 ## <a name="overview"></a>概觀
@@ -37,13 +37,11 @@ ms.locfileid: "55993702"
 
 > [!NOTE]
 > 若想取得工作流程設計工具的複本，請連絡 mepd@microsoft.com。
-> 
-> 
 
 建立工作流程檔案後，此檔案可上傳做為資產，然後用來編碼媒體檔案。 如需如何使用 **.NET** 以 **Media Encoder Premium Workflow** 進行編碼的相關資訊，請參閱[使用 Media Encoder Premium Workflow 進行進階編碼](media-services-encode-with-premium-workflow.md)。
 
 ## <a id="existing_workflows"></a>修改現有的工作流程
-可以使用設計工具來修改預設的 [已發佈工作流程](media-services-workflow-designer.md#existing_workflows) 。 您可在 [這裡](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)取得預設的工作流程檔案。 資料夾也包含這些檔案的說明。
+可以使用設計工具來修改預設的 [已發佈工作流程](media-services-workflow-designer.md#existing_workflows) 。 您可在 [這裡](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)取得預設的工作流程檔案。 该文件夹还包含这些文件的相关说明。
 
 下列影片示範如何使用設計工具。
 
@@ -52,7 +50,7 @@ ms.locfileid: "55993702"
 
 * 設計工具概觀
 * 基本工作流程 – "Hello World"
-* 建立多個搭配 Azure 媒體服務串流的輸出 MP4 檔案
+* 创建多个用于 Azure 媒体服务流式处理的输出 MP4 文件
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-1/player]
 > 
@@ -63,7 +61,7 @@ ms.locfileid: "55993702"
 
 * 不同來源檔案的案例 – 處理音訊
 * 使用進階邏輯的工作流程
-* 圖形階段
+* 图形阶段
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Premium-Encoder-Workflow-Designer-Training-Videos-Day-2/player]
 > 
@@ -90,6 +88,6 @@ ms.locfileid: "55993702"
 
 如果您需要支援或有任何關於在工作流程設計工具中建立自訂工作流程的問題，請傳送電子郵件至 mepd@microsoft.com。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 [Azure Premium 編碼器工作流程設計工具訓練影片](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 

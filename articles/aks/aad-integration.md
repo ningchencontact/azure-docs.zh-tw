@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 0dced367f62ab97d62cd4b11758e13a05278442e
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 0cf83180647c142c9db2a1229674de96fec6a6bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099253"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087528"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>整合 Azure Active Directory 與 Azure Kubernetes Service
 
@@ -40,47 +40,47 @@ Azure Kubernetes Service (AKS) 可以設定為使用 Azure Active Directory (AD)
 
 1. 選取 [Azure Active Directory] > [應用程式註冊] > [新應用程式註冊]。
 
-  提供應用程式名稱，針對應用程式類型選取 [Web 應用程式 / API]，然後針對 [登入 URL] 輸入任何 URI 格式化值。 完成後選取 [建立]。
+   提供應用程式名稱，針對應用程式類型選取 [Web 應用程式 / API]，然後針對 [登入 URL] 輸入任何 URI 格式化值。 完成後選取 [建立]。
 
-  ![建立 Azure AD 註冊](media/aad-integration/app-registration.png)
+   ![建立 Azure AD 註冊](media/aad-integration/app-registration.png)
 
 2. 選取 [資訊清單]，並將 `groupMembershipClaims` 值編輯為 `"All"`。
 
-  完成後儲存更新。
+   完成後儲存更新。
 
-  ![將群組成員資格更新為全部](media/aad-integration/edit-manifest.png)
+   ![將群組成員資格更新為全部](media/aad-integration/edit-manifest.png)
 
 3. 回到 Azure AD 應用程式，選取 [建立] > [金鑰]。
 
-  新增金鑰描述，選取到期期限，然後選取 [儲存]。 記下金鑰值。 部署已啟用 Azure AD 的 AKS 叢集時，這個值就是指 `Server application secret`。
+   新增金鑰描述，選取到期期限，然後選取 [儲存]。 記下金鑰值。 部署已啟用 Azure AD 的 AKS 叢集時，這個值就是指 `Server application secret`。
 
-  ![取得應用程式私密金鑰](media/aad-integration/application-key.png)
+   ![取得應用程式私密金鑰](media/aad-integration/application-key.png)
 
 4. 返回 Azure AD 應用程式，選取 [設定] > [必要的權限] > [新增] > [選取 API] > [Microsoft Graph] > [選取]。
 
-  ![請選取圖表 API](media/aad-integration/graph-api.png)
+   ![請選取圖表 API](media/aad-integration/graph-api.png)
 
 5. 在 [應用程式權限] 之下 [讀取目錄資料] 的旁邊標上核取記號。
 
-  ![設定應用程式圖表權限](media/aad-integration/read-directory.png)
+   ![設定應用程式圖表權限](media/aad-integration/read-directory.png)
 
 6. 在 [委派的權限] 之下 [登入並讀取使用者設定檔] 和 [讀取目錄資料] 的旁邊標上核取記號。 完成後儲存更新。
 
-  ![設定應用程式圖表權限](media/aad-integration/delegated-permissions.png)
+   ![設定應用程式圖表權限](media/aad-integration/delegated-permissions.png)
 
-  選取 [完成] 。
+   選取 [完成] 。
 
 7. 從 API 清單中選擇 [Microsoft Graph]，然後選取 [授與權限]。 如果目前的帳戶不是租用戶系統管理員，此步驟將會失敗。
 
-  ![設定應用程式圖表權限](media/aad-integration/grant-permissions.png)
+   ![設定應用程式圖表權限](media/aad-integration/grant-permissions.png)
 
-  成功授與權限時，入口網站會顯示下列通知：
+   成功授與權限時，入口網站會顯示下列通知：
 
-  ![成功授與權限的通知](media/aad-integration/permissions-granted.png)
+   ![成功授與權限的通知](media/aad-integration/permissions-granted.png)
 
 8. 返回應用程式並記下 [應用程式識別碼]。 部署已啟用 Azure AD 的 AKS 叢集時，這個值就是指 `Server application ID`。
 
-  ![取得應用程式識別碼](media/aad-integration/application-id.png)
+   ![取得應用程式識別碼](media/aad-integration/application-id.png)
 
 ## <a name="create-client-application"></a>建立用戶端應用程式
 
@@ -88,27 +88,27 @@ Azure Kubernetes Service (AKS) 可以設定為使用 Azure Active Directory (AD)
 
 1. 選取 [Azure Active Directory] > [應用程式註冊] > [新應用程式註冊]。
 
-  提供應用程式名稱，針對應用程式類型選取 [原生]，然後針對 [重新導向 URI] 輸入任何 URI 格式化值。 完成後選取 [建立]。
+   提供應用程式名稱，針對應用程式類型選取 [原生]，然後針對 [重新導向 URI] 輸入任何 URI 格式化值。 完成後選取 [建立]。
 
-  ![建立 AAD 註冊](media/aad-integration/app-registration-client.png)
+   ![建立 AAD 註冊](media/aad-integration/app-registration-client.png)
 
 2. 從 Azure AD 應用程式，選取 [設定] > [必要的權限] > [新增] > [選取 API]，並搜尋在本文件最後一個步驟中建立的伺服器應用程式名稱。
 
-  ![設定應用程式權限](media/aad-integration/select-api.png)
+   ![設定應用程式權限](media/aad-integration/select-api.png)
 
 3. 在應用程式的旁邊標上核取記號，然後按一下 [選取]。
 
-  ![選取 AKS AAD 伺服器應用程式端點](media/aad-integration/select-server-app.png)
+   ![選取 AKS AAD 伺服器應用程式端點](media/aad-integration/select-server-app.png)
 
-  選取 [完成] 
+   選取 [完成] 
 
 4. 從清單中選取您的伺服器 API，然後選擇 [授與權限]：
 
-  ![授與權限](media/aad-integration/grant-permissions-client.png)
+   ![授與權限](media/aad-integration/grant-permissions-client.png)
 
 5. 回到 AD 應用程式，記下 [應用程式識別碼]。 部署已啟用 Azure AD 的 AKS 叢集時，這個值就是指 `Client application ID`。
 
-  ![取得應用程式識別碼](media/aad-integration/application-id-client.png)
+   ![取得應用程式識別碼](media/aad-integration/application-id-client.png)
 
 ## <a name="get-tenant-id"></a>取得租用戶識別碼
 

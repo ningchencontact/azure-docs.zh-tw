@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a31d41dedf7b925287a5beda15c7bfeb2bc59c96
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: HT
+ms.openlocfilehash: 81d09978c3333a5b76c09f8c7dac85998d342f03
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201869"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287225"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>在 Azure AD 中保護混合式部署和雲端部署的特殊權限存取
 
@@ -261,7 +261,7 @@ Azure AD Identity Protection 是一種以演算法為基礎的監視和報告工
 
 #### <a name="determine-exposure-to-password-based-sign-in-protocols-if-using-exchange-online"></a>判斷密碼式登入通訊協定的風險 (如果使用 Exchange Online)
 
-在過去，通訊協定會假設使用者名稱/密碼組合已內嵌在裝置、電子郵件帳戶、電話等項目中。 但現在由於雲端中潛藏網路攻擊的風險，我們建議您識別每個可能因為認證遭破解而對組織造成嚴重危害的使用者，並藉由實作強式驗證需求和條件式存取，使其無法透過使用者名稱/密碼登入電子郵件。 
+在過去，通訊協定會假設使用者名稱/密碼組合已內嵌在裝置、電子郵件帳戶、電話等項目中。 但現在由於雲端中潛藏網路攻擊的風險，我們建議您識別每個可能因為認證遭破解而對組織造成嚴重危害的使用者，並藉由實作強式驗證需求和條件式存取，使其無法透過使用者名稱/密碼登入電子郵件。 您可以封鎖[使用條件式存取的舊版驗證](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/block-legacy-authentication)。 請檢查詳細資料[如何封鎖基本驗證](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online)透過線上 Exchnage。 
 
 #### <a name="complete-a-roles-review-assessment-for-office-365-roles-if-using-office-365"></a>完成 Office 365 角色的角色檢閱評估 (如果使用 Office 365)
 
