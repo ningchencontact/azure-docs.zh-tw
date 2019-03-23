@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 402a2d6afc7b58d4dfc1c9fa67e354b4d157bd4c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 5c81a9f3891130f1c6fc2f1a665d7065fb983227
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310229"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370184"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory 智慧鎖定
 
@@ -40,8 +40,8 @@ ms.locfileid: "58310229"
 
 使用[傳遞驗證](../hybrid/how-to-connect-pta.md)時，您必須確定：
 
-   * Azure AD 的鎖定閾值「小於」Active Directory 帳戶的鎖定閾值。 請適當設定這些值，使 Active Directory 帳戶的鎖定閾值比 Azure AD 鎖定閾值至少長兩到三倍。 
-   * Azure AD 的鎖定持續期間 **(以秒表示)** 比 Active Directory 的「下列時間過後重設帳戶鎖定計數器」持續期間 **(分鐘)**「還長」。
+* Azure AD 的鎖定閾值「小於」Active Directory 帳戶的鎖定閾值。 請適當設定這些值，使 Active Directory 帳戶的鎖定閾值比 Azure AD 鎖定閾值至少長兩到三倍。 
+* Azure AD 的鎖定持續期間 **(以秒表示)** 比 Active Directory 的「下列時間過後重設帳戶鎖定計數器」持續期間 **(分鐘)**「還長」。
 
 > [!IMPORTANT]
 > 目前，如果使用者的雲端帳戶已被智慧鎖定功能鎖定，則系統管理員無法將其解除鎖定。 系統管理員必須等待鎖定持續期間結束。
@@ -55,7 +55,7 @@ ms.locfileid: "58310229"
 3. 瀏覽到 **[電腦設定]** > **[原則]** > **[Windows 設定]** > **[安全性設定]** > **[帳戶原則]** > **[帳戶鎖定原則]**。
 4. 確認 [帳戶鎖定閾值] 和 [下列時間過後重設帳戶鎖定計數器] 的值。
 
-![使用群組原則物件修改內部部署 Active Directory 帳戶鎖定原則](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
+![修改內部部署 Active Directory 帳戶鎖定原則](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
 
 ## <a name="manage-azure-ad-smart-lockout-values"></a>管理 Azure AD 智慧鎖定值
 
@@ -78,9 +78,7 @@ ms.locfileid: "58310229"
 
 **您的帳戶已暫時鎖定以防未經授權的使用。請稍後再試一次，如果仍有問題，請連絡您的管理員。**
 
-
 ## <a name="next-steps"></a>後續步驟
 
-[了解如何使用 Azure AD 在組織中禁用不當密碼。](howto-password-ban-bad.md)
-
-[設定自助式密碼重設以允許使用者解除鎖定其本身的帳戶。](quickstart-sspr.md)
+* [了解如何使用 Azure AD 在組織中禁用不當密碼。](howto-password-ban-bad.md)
+* [設定自助式密碼重設以允許使用者解除鎖定其本身的帳戶。](quickstart-sspr.md)

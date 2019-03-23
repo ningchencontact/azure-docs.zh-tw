@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: cc5aae0e46e181e8063a4e01a832e68eab0eae0e
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 32f96a28e027bfd0e65d934bb47bb98400af459d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226602"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360716"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>自動定型時間序列預測的模型
 
@@ -27,7 +27,7 @@ ms.locfileid: "58226602"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure Machine Learning 服務工作區。 若要建立工作區，請參閱[開始使用 Azure Machine Learning 服務](quickstart-get-started.md)。
+* Azure Machine Learning 服務工作區。 若要建立工作區，請參閱[建立 Azure 機器學習服務工作區](setup-create-workspace.md)。
 * 本文假設基本的熟悉設定自動化的機器學習服務實驗。 請遵循[教學課程](tutorial-auto-train-models.md)或是[how-to](how-to-configure-auto-train.md)查看基本自動化的機器學習服務實驗設計模式。
 
 ## <a name="preparing-data"></a>準備資料

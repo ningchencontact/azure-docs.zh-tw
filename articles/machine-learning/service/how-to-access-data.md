@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: e6e1b304b90b37c93bed22bcb720a646680ee083
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: c171e35c6542febffc666ad5abfab50e093bb698
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223609"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359274"
 ---
 # <a name="access-data-from-your-datastores"></a>從您的資料存放區存取資料
 
@@ -32,7 +32,7 @@ ms.locfileid: "58223609"
 
 若要使用資料存放區，您需要[工作區](concept-azure-machine-learning-architecture.md#workspace)第一次。 
 
-從[建立新工作區](quickstart-create-workspace-with-python.md)，或擷取現有工作區開始：
+從[建立新工作區](setup-create-workspace.md#sdk)，或擷取現有工作區開始：
 
 ```Python
 import azureml.core
@@ -40,8 +40,6 @@ from azureml.core import Workspace, Datastore
 
 ws = Workspace.from_config()
 ```
-
-或者，[遵循本 Python 快速入門](quickstart-create-workspace-with-python.md)若要建立您的工作區，並開始使用 SDK。
 
 <a name="access"></a>
 

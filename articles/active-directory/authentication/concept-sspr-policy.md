@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36959582a3866426f8dc0e9969210e29e751ea60
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 4d9055ef11bc5c117efc6d4de87d4ca8ec73a661
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311895"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360498"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>密碼原則和 Azure Active Directory 中的限制
 
@@ -93,7 +93,7 @@ ms.locfileid: "58311895"
 
 ## <a name="set-password-expiration-policies-in-azure-ad"></a>在 Azure AD 中設定密碼到期原則
 
-Microsoft 雲端服務的全域管理員可以使用「適用於 Windows PowerShell 的 Microsoft Azure AD 模組」，將使用者密碼設為不會到期。 您亦可使用 Windows PowerShell Cmdlet 移除永不到期組態，或是查看哪些使用者密碼設為永不到期。 
+全域管理員或使用者的 Microsoft 雲端服務的系統管理員可以使用 Windows PowerShell 的 Microsoft Azure AD 模組來設定使用者密碼未過期。 您亦可使用 Windows PowerShell Cmdlet 移除永不到期組態，或是查看哪些使用者密碼設為永不到期。 
 
 本指引適用於其他提供者 (例如 Intune 和 Office 365)，它們也仰賴 Azure AD 提供身分識別和目錄服務。 密碼到期是原則中唯一可變更的部分。
 
@@ -107,7 +107,7 @@ Microsoft 雲端服務的全域管理員可以使用「適用於 Windows PowerSh
 
 ### <a name="check-the-expiration-policy-for-a-password"></a>檢查密碼的到期原則
 
-1. 使用您公司的管理員認證連線至 Windows PowerShell。
+1. 使用您的使用者系統管理員或公司系統管理員認證，以連線至 Windows PowerShell。
 1. 執行下列其中一個命令：
 
    * 若要查看單一使用者的密碼是否設定為永不過期，請執行下列 cmdlet 的 upn (例如*aprilr\@contoso.onmicrosoft.com*) 或您想要檢查之使用者的使用者識別碼： `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
@@ -115,7 +115,7 @@ Microsoft 雲端服務的全域管理員可以使用「適用於 Windows PowerSh
 
 ### <a name="set-a-password-to-expire"></a>設定密碼到期
 
-1. 使用您公司的管理員認證連線至 Windows PowerShell。
+1. 使用您的使用者系統管理員或公司系統管理員認證，以連線至 Windows PowerShell。
 1. 執行下列其中一個命令：
 
    * 若要將某位使用者的密碼設為會到期，請透過使用 UPN 或使用者的使用者識別碼，執行下列 Cmdlet：`Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None`
@@ -123,7 +123,7 @@ Microsoft 雲端服務的全域管理員可以使用「適用於 Windows PowerSh
 
 ### <a name="set-a-password-to-never-expire"></a>設定密碼為永久有效
 
-1. 使用您公司的管理員認證連線至 Windows PowerShell。
+1. 使用您的使用者系統管理員或公司系統管理員認證，以連線至 Windows PowerShell。
 1. 執行下列其中一個命令：
 
    * 若要將某位使用者的密碼設為永不過期，請透過使用使用者主體名稱 (UPN) 或使用者的使用者識別碼，來執行下列 Cmdlet：`Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration`

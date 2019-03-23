@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 534307cfd71551de5427a196902b275a15ad44b5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e8c06f0a3a33133c7b1595db52204d15b03d6aab
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436369"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372466"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>在 Log Analytics 中使用 SQL Server 健康情況檢查方案最佳化 SQL 環境
 
@@ -53,7 +53,7 @@ ms.locfileid: "57436369"
 
 1. 如果 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 已不再監視伺服器，則安裝 [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md)。
 2. 如果伺服器受到 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 監視，而管理群組未與 Log Analytics 服務整合，則該伺服器可以是具有 Log Analytics 的多重主目錄，以便收集資料並轉送至該服務，且仍然受到 Operations Manager 監視。  
-3. 除此之外，如果您的 Operations Manager 管理群組已與服務整合，則在工作區中啟用方案後，您需要讓服務依循[新增代理程式的受控電腦](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-log-analytics)下的步驟，來新增網域控制站以收集資料。  
+3. 除此之外，如果您的 Operations Manager 管理群組已與服務整合，則在工作區中啟用方案後，您需要讓服務依循[新增代理程式的受控電腦](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor)下的步驟，來新增網域控制站以收集資料。  
 
 SQL Server 上的代理程式會向 Operations Manager 管理群組報告、收集資料、轉送至其指派的管理伺服器，然後直接從管理伺服器傳送至 Log Analytics 服務。  資料並不會寫入 Operations Manager 資料庫。  
 

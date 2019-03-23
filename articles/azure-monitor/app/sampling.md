@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: 83c286be6429376d4d0b4009b18c5f751a4b158f
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: cd0369f45529082ac929b1d87608204033cd78f6
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226686"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370511"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights 中的取樣
 
@@ -517,7 +517,14 @@ union requests,dependencies,pageViews,browserTimings,exceptions,traces
 
 *我一律想要看見特定罕見的事件。我要如何讓它們通過取樣模組？*
 
-* 使用新的 TelemetryConfiguration (非預設使用中的組態) 初始化個別的 TelemetryClient 執行個體。 使用該執行個體來傳送您的罕見的事件。
+* 若要達到此目的，最好是撰寫自訂[TelemetryProcessor](../../azure-monitor/app/api-filtering-sampling.md#filtering)，集合`SamplingPercentage`100 的遙測項目上要保留的如下所示。 這可確保所有的取樣技巧將會忽略這個項目，從任何取樣的考量。
+
+```csharp
+    if(somecondition)
+    {
+        ((ISupportSampling)item).SamplingPercentage = 100;
+    }
+```
 
 ## <a name="next-steps"></a>後續步驟
 

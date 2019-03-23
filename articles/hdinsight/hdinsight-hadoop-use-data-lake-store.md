@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: fe195ba485e6653cee4a45f4a33067bf536334ad
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: b567f5e74737c6020a3dd08484354383d45ecb7d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338609"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361876"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>搭配 Azure HDInsight 叢集使用 Data Lake Storage Gen1
 
@@ -28,6 +28,7 @@ ms.locfileid: "56338609"
 > [!NOTE]  
 > Data Lake Storage Gen1 一律透過安全通道存取，因此不會有 `adls` 檔案系統配置名稱。 您會一律使用 `adl`。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="availability-for-hdinsight-clusters"></a>HDInsight 叢集的可用性
 
@@ -42,11 +43,11 @@ HDInsight 叢集可透過兩種方式來使用 Data Lake Storage Gen1︰
 
 | HDInsight 叢集類型 | 使用 Data Lake Storage Gen1 作為預設儲存體 | 使用 Data Lake Storage Gen1 作為其他儲存體| 注意 |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight 3.6 版 | yes | yes | HBase 的例外狀況|
-| HDInsight 3.5 版 | yes | yes | HBase 的例外狀況|
-| HDInsight 3.4 版 | 否 | yes | |
+| HDInsight 3.6 版 | 是 | 是 | HBase 的例外狀況|
+| HDInsight 3.5 版 | 是 | 是 | HBase 的例外狀況|
+| HDInsight 3.4 版 | 否 | 是 | |
 | HDInsight 3.3 版 | 否 | 否 | |
-| HDInsight 3.2 版 | 否 | yes | |
+| HDInsight 3.2 版 | 否 | 是 | |
 | Storm | | |您可以使用 Data Lake Storage Gen1 從 Storm 拓撲寫入資料。 您也可以使用 Data Lake Storage 做為參考資料，該資料稍後可以由 Storm 拓撲讀取。|
 
 > [!WARNING]  
@@ -94,7 +95,7 @@ $identityCertificate = [System.Convert]::ToBase64String($certBytes)
 然後，您可以使用 `$identityCertificate` 來部署新的叢集，如下列程式碼片段所示：
 
 ```powershell
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateFile $pathToArmTemplate `
     -identityCertificate $identityCertificate `
@@ -211,21 +212,21 @@ elseif($certSource -eq 2)
     $certString =[System.Convert]::ToBase64String($certBytes)
 }
 
-Login-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId $subscriptionId
+Login-AzAccount
+Select-AzSubscription -SubscriptionId $subscriptionId
 
 if($addNewCertKeyCredential)
 {
     Write-Host "Creating new KeyCredential for the app"
     $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
-    New-AzureRmADAppCredential -ApplicationId $appId -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
+    New-AzADAppCredential -ApplicationId $appId -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
     Write-Host "Waiting for 30 seconds for the permissions to get propagated"
     Start-Sleep -s 30
 }
 
 Write-Host "Updating the certificate on HDInsight cluster..."
 
-Invoke-AzureRmResourceAction `
+Invoke-AzResourceAction `
     -ResourceGroupName $resourceGroupName `
     -ResourceType 'Microsoft.HDInsight/clusters' `
     -ResourceName $clusterName `

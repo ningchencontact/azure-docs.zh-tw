@@ -8,14 +8,15 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: f7bfb4f403104bb91fb1a9ba4b70cb164e0738b4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e9b562cb04bb8916245d9df7b9b6d526bd443a24
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113294"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352131"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>支援 Azure 監視器的計量
+
 Azure 監視器提供數種與計量進行互動的方式，包括在入口網站中製作計量圖表、透過 REST API 存取計量，或使用 PowerShell 或 CLI 查詢計量。 以下是目前可供 Azure 監視器計量管線使用的所有計量完整清單。 其他計量可在入口網站中或使用舊版 API 提供。 下列清單只包含使用彙總 Azure 監視器計量管線時可供使用的計量。 若要查詢及存取這些計量，請使用 [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
 
 > [!NOTE]
@@ -660,7 +661,6 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 | MetadataRequests |    中繼資料要求   |計數| 計數   | 中繼資料要求計數。 Azure Cosmos DB 會維護每個帳戶的系統中繼資料集合，可讓您免費列舉集合、資料庫等及其設定。    | DatabaseName、CollectionName、Region、StatusCode| 全部|  |用來依中繼資料要求而監視節流。|
 | MongoRequests |   Mongo 要求| 計數 | 計數|  已提出的 Mongo 要求數目   | DatabaseName、CollectionName、Region、CommandName、ErrorCode| 全部 |Mongo 查詢要求率、Mongo 更新要求率、Mongo 刪除要求率、Mongo 插入要求率，Mongo 計數要求速率|   用於監視 Mongo 要求錯誤、各命令類型的使用量。 |
 
-
 ### <a name="request-unit-metrics"></a>要求單位計量
 
 |計量|計量顯示名稱|單位|彙總類型|描述|維度| 時間資料粒度| 舊版計量對應 | 使用量 |
@@ -673,7 +673,7 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 
 |計量|計量顯示名稱|單位|彙總類型|描述|維度| 時間資料粒度| 舊版計量對應 | 使用量 |
 |---|---|---|---|---|---| ---| ---| ---|
-| AvailableStorage| 可用的儲存體   |位元組| 總計|  各區域每 5 分鐘資料粒度報告的總可用儲存體|   DatabaseName、CollectionName、Region|   5M| 可用的儲存體|   用於監視可用的儲存體容量 (僅適用於固定的儲存體集合) 最小資料粒度應為 5 分鐘。| 
+| AvailableStorage| 可用的儲存體   |位元組| 總計|  各區域每 5 分鐘資料粒度報告的總可用儲存體|   DatabaseName、CollectionName、Region|   5M| 可用的儲存體|   用於監視可用的儲存體容量 (僅適用於固定的儲存體集合) 最小資料粒度應為 5 分鐘。|
 | DataUsage |資料使用量 |位元組| 總計   |各區域每 5 分鐘資料粒度報告的總資料使用量|    DatabaseName、CollectionName、Region|   5M  |資料大小  | 用來監視在集合和區域的總資料使用方式，最小資料粒度應為 5 分鐘。|
 | IndexUsage|   索引使用量|    位元組|  總計   |各區域每 5 分鐘資料粒度報告的總索引使用量|    DatabaseName、CollectionName、Region|   5M| 索引大小| 用來監視在集合和區域的總資料使用方式，最小資料粒度應為 5 分鐘。 |
 | DocumentQuota|    文件配額| 位元組|  總計|  各區域每 5 分鐘資料粒度報告的總儲存體配額。 適用於固定的儲存體的集合| DatabaseName、CollectionName、Region|   5M  |儲存體容量|  用來監視在集合和區域的總配額，最小資料粒度應為 5 分鐘。|
@@ -805,6 +805,7 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |ScaleActionsInitiated|已起始的調整規模動作數|計數|總計|調整規模作業的方向。|ScaleDirection|
 
 ## <a name="microsoftinsightscomponents"></a>Microsoft.Insights/Components
+
 (公開預覽)
 
 |計量|計量顯示名稱|單位|彙總類型|描述|維度|
@@ -1224,7 +1225,6 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |更新|更新|計數|平均值|更新|Computer、Product、Classification、UpdateState、Optional、Approved|
 |Event|Event|計數|平均值|Event|Source、EventLog、Computer、EventCategory、EventLevel、EventLevelName、EventID|
 
-
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/capacities
 
 |計量|計量顯示名稱|單位|彙總類型|描述|維度|
@@ -1608,7 +1608,7 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |MemoryPercentage|記憶體百分比|百分比|平均值|記憶體百分比|執行個體|
 
 ## <a name="next-steps"></a>後續步驟
+
 * [了解 Azure 監視器中的計量](../../azure-monitor/platform/data-collection.md)
 * [建立計量警示](../../azure-monitor/platform/alerts-overview.md)
 * [將計量匯出至儲存體、事件中樞或 Log Analytics](../../azure-monitor/platform/diagnostic-logs-overview.md)
-

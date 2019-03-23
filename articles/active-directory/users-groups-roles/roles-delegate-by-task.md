@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e81d5513f43882093883256cf9eab4a22e9ca01
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 59c06ae83327683942885190e4b401617dc020f9
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875269"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361365"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>在 Azure Active Directory 中依管理工作區分的系統管理員角色
 
@@ -235,13 +235,13 @@ Task | 最低特殊權限角色 | 其他角色
 
 Task | 最低特殊權限角色 | 其他角色
 ---- | --------------------- | ----------------
-設定驗證方法 | 全域管理員 | 
-設定自訂 | 全域管理員 | 
-設定通知 | 全域管理員 | 
-設定內部部署整合 | 全域管理員 | 
-設定密碼重設屬性 | 全域管理員 | 
-設定註冊 | 全域管理員 | 
-讀取所有設定 | 安全性系統管理員、使用者管理員 | 
+設定驗證方法 | 全域管理員 |
+設定自訂 | 全域管理員 |
+設定通知 | 全域管理員 |
+設定內部部署整合 | 全域管理員 |
+設定密碼重設屬性 | 使用者管理員 | 全域管理員
+設定註冊 | 全域管理員 |
+讀取所有設定 | 安全性系統管理員 | 使用者管理員 |
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 

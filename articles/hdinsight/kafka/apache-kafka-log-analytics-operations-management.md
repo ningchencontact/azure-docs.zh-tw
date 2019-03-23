@@ -9,18 +9,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 281b4b8d20957cbbbf0f4ff52166e8c3a78b3e7d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5154058bb1562b670e24f8813e979588a536f086
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108132"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359852"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>在 HDInsight 上分析 Apache Kafka 的記錄
 
 了解如何使用 Azure 監視器記錄來分析 Apache Kafka on HDInsight 所產生的記錄。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="enable-azure-monitor-logs-for-apache-kafka"></a>適用於 Apache Kafka 中啟用 Azure 監視器記錄檔
 
@@ -33,7 +35,7 @@ ms.locfileid: "58108132"
 3. 設定 Kafka 叢集以使用 Azure 監視器記錄檔。 如需詳細資訊，請參閱 <<c0> [ 使用 Azure 監視器記錄來監視 HDInsight](../hdinsight-hadoop-oms-log-analytics-tutorial.md)文件。
 
     > [!NOTE]  
-    > 您也可以設定叢集使用 Azure 監視器記錄檔使用`Enable-AzureRmHDInsightOperationsManagementSuite`cmdlet。 這個 Cmdlet 需要下列資訊︰
+    > 您也可以設定叢集使用 Azure 監視器記錄檔使用`Enable-AzHDInsightOperationsManagementSuite`cmdlet。 這個 Cmdlet 需要下列資訊︰
     >
     > * HDInsight 叢集名稱。
     > * Azure 監視器記錄工作區識別碼。 您可以在 Log Analytics 工作區中找到工作區識別碼。

@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25450d49fd32adf12ac6c8a71671a9cb796b06c4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c5d7f9623a7594aaa79c4cff187486360b1befc8
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317437"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369015"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>結合的啟用安全性資訊註冊 （預覽）
 
 啟用新的體驗前, 檢閱文件[結合安全性資訊註冊 （預覽）](concept-registration-mfa-sspr-combined.md)以確保您了解的功能和影響這項功能。
 
-![合併的安全性資訊註冊增強體驗要求在登入時的詳細資訊。 範例會顯示為第一種方法註冊 Microsoft Authenticator 應用程式。](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
+![合併的安全性資訊註冊增強的體驗](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
 
 |     |
 | --- |
@@ -37,7 +37,7 @@ ms.locfileid: "58317437"
 2. 瀏覽至 [Azure Active Directory] > [使用者設定] > [管理存取面板預覽功能的設定]。
 3. 底下**使用者可以使用預覽功能註冊和管理的安全性資訊-重新整理**，選擇啟用**選取**的使用者或群組**所有**使用者。
 
-![啟用合併的安全性資訊的預覽體驗，Azure AD 入口網站中的所有使用者](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
+![啟用合併的安全性資訊預覽版體驗的所有使用者](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
 
 > [!IMPORTANT]
 > 從於 2019 年 3 月開始撥打電話選項將無法使用免費/試用 Azure AD 租用戶中的 MFA 和 SSPR 的使用者。 這項變更不會影響簡訊。 通話會繼續在使用者可使用付費 Azure AD 租用戶。 這項變更只會影響免費/試用 Azure AD 租用戶。

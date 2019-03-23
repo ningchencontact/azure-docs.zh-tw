@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6bd67e500756fe5a7ba5ee29db88b9aedb103e4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 3e21f7a67b11caf0180959de68d698f0ff4a1af1
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315975"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371854"
 ---
 # <a name="what-are-authentication-methods"></a>驗證方法有哪些？
 
@@ -155,13 +155,13 @@ Microsoft Authenticator 應用程式或其他第三方應用程式可以作為�
 
 OATH 是一項開放標準，可指定單次密碼 (OTP) 程式碼的產生方式。 Azure AD 將會支援使用每 30 秒或 60 秒變換一次的 OATH-TOTP SHA-1 權杖。 客戶可以從他們選擇的廠商購買這些權杖。 請注意，祕密金鑰限制為 128 個字元，可能會與所有權杖不相容。
 
-![將 OATH 權杖上傳至 Azure 入口網站中的 [MFA Server OATH 權杖] 刀鋒視窗](media/concept-authentication-methods/oath-tokens-azure-ad.png)
+![將 OATH 權杖上傳至 MFA Server OATH 權杖 刀鋒視窗](media/concept-authentication-methods/oath-tokens-azure-ad.png)
 
 OATH 硬體權杖已支援作為公開預覽的一部分。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
 
 取得權杖後，必須使用逗號分隔值 (CSV) 檔案格式加以上傳，包括 UPN、序號、祕密金鑰、時間間隔、製造商和模型，如下列範例所示。
 
-```
+```csv
 upn,serial number,secret key,timeinterval,manufacturer,model
 Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
 ```

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 645dd7fe35ba3e7d83a3ee374d7ab566ad193cc2
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 795abcadb1cee7599665f7bc3b8e0d3e08a3da05
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314122"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369066"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>避免在組織中使用不當密碼
 
@@ -32,7 +32,7 @@ Microsoft 一直努力在網路罪犯發生前加以防範。 因此，Azure AD 
 
 自訂禁用密碼清單和啟用內部部署 Active Directory 整合的能力，都可使用 Azure 入口網站來管理。
 
-![在 Azure 入口網站中的 [驗證方法] 下修改自訂禁用密碼清單](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
+![修改自訂遭到禁用的密碼清單，在驗證方法](./media/concept-password-ban-bad/authentication-methods-password-protection.png)
 
 ## <a name="on-premises-hybrid-scenarios"></a>內部部署混合式案例
 

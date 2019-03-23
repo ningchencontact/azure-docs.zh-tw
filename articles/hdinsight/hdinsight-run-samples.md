@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0a174c3de33b01f936eec599c1de68e2cebbf9c5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 3d27a9cc8dd4b460a75e2a43106413ed9ee1d559
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55820414"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361518"
 ---
 # <a name="run-mapreduce-samples-in-windows-based-hdinsight"></a>在以 Windows 為基礎的 HDInsight 中執行 MapReduce 範例
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
@@ -42,6 +42,8 @@ ms.locfileid: "55820414"
 
 **必要條件**：
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 * **HDInsight 叢集**。 如需有關可建立這類叢集之各種方式的指示，請參閱 [在 HDInsight 中建立 Apache Hadoop 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 * **具有 Azure PowerShell 的工作站**。
@@ -51,7 +53,7 @@ ms.locfileid: "55820414"
     >
     > 請遵循[安裝和設定 Azure PowerShell](/powershell/azureps-cmdlets-docs) 中的步驟來安裝最新版的 Azure PowerShell。 如果您需要修改指令碼才能使用適用於 Azure Resource Manager 的新 Cmdlet，請參閱[移轉至以 Azure Resource Manager 為基礎的開發工具 (適用於 HDInsight 叢集)](hdinsight-hadoop-development-using-azure-resource-manager.md)。
 
-## <a name="hdinsight-sample-wordcount"></a>字數統計 - Java
+## <a name="hdinsight-sample-wordcount"></a>字数统计 - Java
 如果要提交 MapReduce 專案，您可以先建立 MapReduce 工作定義。 在工作定義中，您指定 MapReduce 程式 jar 檔案和該 jar 檔案的位置，這會是 **wasb:///example/jars/hadoop-mapreduce-examples.jar**、類別名稱和引數。  字數統計 MapReduce 程式會採用兩個引數：用來統計字數的原始程式檔與輸出的位置。
 
 在附錄 A 中找到可以原始程式碼。
@@ -60,7 +62,7 @@ ms.locfileid: "55820414"
 
 **提交字數統計 MapReduce 工作**
 
-1. 開啟 **Windows PowerShell ISE**。 如需指示，請參閱[安裝和設定 Azure PowerShell][powershell-install-configure]。
+1. 開啟 **Windows PowerShell ISE**。 有关说明，请参阅 [安装和配置 Azure PowerShell][powershell-install-configure]。
 2. 貼上下列 PowerShell 指令碼：
 
     ```powershell
@@ -68,35 +70,35 @@ ms.locfileid: "55820414"
     $resourceGroupName = "<Resource Group Name>"
     $clusterName = "<HDInsight cluster name>"             # HDInsight cluster name
 
-    Select-AzureRmSubscription -SubscriptionName $subscriptionName
+    Select-AzSubscription -SubscriptionName $subscriptionName
 
     # Define the MapReduce job
-    $mrJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
+    $mrJobDefinition = New-AzHDInsightMapReduceJobDefinition `
                                 -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "wordcount" `
                                 -Arguments "wasb:///example/data/gutenberg/davinci.txt", "wasb:///example/data/WordCountOutput"
 
     # Submit the job and wait for job completion
     $cred = Get-Credential -Message "Enter the HDInsight cluster HTTP user credential:"
-    $mrJob = Start-AzureRmHDInsightJob `
+    $mrJob = Start-AzHDInsightJob `
                         -ResourceGroupName $resourceGroupName `
                         -ClusterName $clusterName `
                         -HttpCredential $cred `
                         -JobDefinition $mrJobDefinition
 
-    Wait-AzureRmHDInsightJob `
+    Wait-AzHDInsightJob `
         -ResourceGroupName $resourceGroupName `
         -ClusterName $clusterName `
         -HttpCredential $cred `
         -JobId $mrJob.JobId
 
     # Get the job output
-    $cluster = Get-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
+    $cluster = Get-AzHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $clusterName
     $defaultStorageAccount = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
-    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount)[0].Value
+    $defaultStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccount)[0].Value
     $defaultStorageContainer = $cluster.DefaultStorageContainer
 
-    Get-AzureRmHDInsightJobOutput `
+    Get-AzHDInsightJobOutput `
         -ResourceGroupName $resourceGroupName `
         -ClusterName $clusterName `
         -HttpCredential $cred `
@@ -107,8 +109,8 @@ ms.locfileid: "55820414"
         -DisplayOutputType StandardError
 
     # Download the job output to the workstation
-    $storageContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccount -StorageAccountKey $defaultStorageAccountKey
-    Get-AzureStorageBlobContent -Container $defaultStorageContainer -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
+    $storageContext = New-AzStorageContext -StorageAccountName $defaultStorageAccount -StorageAccountKey $defaultStorageAccountKey
+    Get-AzStorageBlobContent -Container $defaultStorageContainer -Blob example/data/WordCountOutput/part-r-00000 -Context $storageContext -Force
 
     # Display the output file
     cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
@@ -117,7 +119,7 @@ ms.locfileid: "55820414"
     MapReduce 工作會產生一個名為 *part-r-00000*的檔案，內有文字和字數。 指令碼使用 **findstr** 命令列出包含 "there" 的所有文字。
 3. 設定前三個變數，然後執行指令碼。
 
-## <a name="hdinsight-sample-csharp-streaming"></a>字數統計 - C# 串流
+## <a name="hdinsight-sample-csharp-streaming"></a>字数统计 - C# 流式处理
 Hadoop 提供 MapReduce 一個串流 API，可讓您以 Java 以外的語言撰寫 map 和 reduce 函數。
 
 > [!NOTE]  
@@ -127,7 +129,7 @@ Hadoop 提供 MapReduce 一個串流 API，可讓您以 Java 以外的語言撰�
 
 在已為 **mappers**指定可執行檔的情況下，當 mapper 初始化時，每個 mapper 工作都會將可執行檔啟動成為個別的處理程序。 當 mapper 工作執行時，它會將輸入傳換成行，並將這些行饋送至處理程序的 [stdin][stdin-stdout-stderr]。
 
-同時，mapper 會收集來自處理程序 stdout 的行導向輸出。 它會將每一行轉換成索引鍵/值組，其會做為 mapper 的輸出來收集。 根據預設，從一行的前置詞一直到第一個定位字元即是索引鍵，行的其餘部分 (不包含定位字元) 則為值。 如果行中沒有定位字元，則整行都會被視為索引鍵，而值則為 null。
+同时，映射器从进程的 stdout 中收集面向行的输出。 它會將每一行轉換成索引鍵/值組，其會做為 mapper 的輸出來收集。 根據預設，從一行的前置詞一直到第一個定位字元即是索引鍵，行的其餘部分 (不包含定位字元) 則為值。 如果行中沒有定位字元，則整行都會被視為索引鍵，而值則為 null。
 
 在已為 **reducers**指定可執行檔的情況下，當 reducer 初始化時，每個 reducer 工作都會將可執行檔啟動成為個別的處理程序。 當 reducer 工作執行時，它會將輸入索引鍵/值組傳換成行，並將這些行饋送至處理程序的 [stdin][stdin-stdout-stderr]。
 
@@ -138,7 +140,7 @@ Hadoop 提供 MapReduce 一個串流 API，可讓您以 Java 以外的語言撰�
 * 遵循「字數統計 - Java」中的程序，並使用下行內容取代作業定義：
 
     ```powershell
-    $mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
+    $mrJobDefinition = New-AzHDInsightStreamingMapReduceJobDefinition `
                             -Files "/example/apps/cat.exe","/example/apps/wc.exe" `
                             -Mapper "cat.exe" `
                             -Reducer "wc.exe" `
@@ -151,7 +153,7 @@ Hadoop 提供 MapReduce 一個串流 API，可讓您以 Java 以外的語言撰�
         example/data/StreamingOutput/wc.txt/part-00000
 
 ## <a name="hdinsight-sample-pi-estimator"></a>PI 估算器
-Pi 估算器會使用統計 (擬蒙特卡羅法) 方法來估計 pi 的值。 單位正方形內隨機散佈的點，也會落在該正方形的內切圓之內，且機率等於圓面積 Pi/4。 Pi 的值可從 4R 的值來估計，其中 R 是圓內點數佔正方形內總點數的比例。 使用的樣本點越多，估計越準確。
+Pi 估算器會使用統計 (擬蒙特卡羅法) 方法來估計 pi 的值。 單位正方形內隨機散佈的點，也會落在該正方形的內切圓之內，且機率等於圓面積 Pi/4。 Pi 的值可從 4R 的值來估計，其中 R 是圓內點數佔正方形內總點數的比例。 点数越多，估算值越准确。
 
 此範例的提供指令碼會提交 Hadoop jar 工作，且設定為以 16 個對應的值來執行，每個對應都必須依參數值來計算 1 千萬個樣本點。 這些參數可變更來改善 Pi 的估計值。 Pi 的前 10 位小數是 3.1415926535，供您參考。
 
@@ -160,7 +162,7 @@ Pi 估算器會使用統計 (擬蒙特卡羅法) 方法來估計 pi 的值。 �
 * 遵循「字數統計 - Java」中的程序，並使用下行內容取代作業定義：
 
     ```powershell
-    $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
+    $mrJobJobDefinition = New-AzHDInsightMapReduceJobDefinition `
                                 -JarFile "wasb:///example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "pi" `
                                 -Arguments "16", "10000000"
@@ -172,7 +174,7 @@ Pi 估算器會使用統計 (擬蒙特卡羅法) 方法來估計 pi 的值。 �
 本範例使用三組 MapReduce 程式：
 
 1. **TeraGen** 是可用來產生排序資料列的 MapReduce 程式。
-2. **TeraSort** 可取樣輸入資料並利用 MapReduce 將資料依全序排列。 TeraSort 是 MapReduce 函數的標準排序，但自訂分割器除外，它使用 N-1 個樣本索引鍵的排序清單來定義每次歸納的索引鍵範圍。 尤其是，會傳送使得 sample[i-1] <= key < sample[i] 的所有索引鍵給歸納 i。 這保證歸納 i 的輸出全都小於歸納 i+1 的輸出。
+2. **TeraSort** 可取樣輸入資料並利用 MapReduce 將資料依全序排列。 TeraSort 是 MapReduce 函数的一种标准排序，但自定义的分区程序除外，此分区程序使用 N-1 个抽样键（用于定义每次简化的键范围）的已排序列表。 尤其是，會傳送使得 sample[i-1] <= key < sample[i] 的所有索引鍵給歸納 i。 這保證歸納 i 的輸出全都小於歸納 i+1 的輸出。
 3. **TeraValidate** 是一個驗證全域排序輸出的 MapReduce 程式。 它會在輸出目錄中為每一個檔案建立一個對應，而每個對應可確保每一個索引鍵一定小於或等於前一個對應。 對應函數也會產生每個檔案的第一個和最後一個索引鍵的記錄，而歸納函數可確保檔案 i 的第一個索引鍵大於檔案 i-1 的最後一個索引鍵。 任何問題皆會回報為具錯誤索引鍵的歸納輸出。
 
 這三個應用程式所使用的輸入和輸出格式會以正確格式讀取和寫入文字檔。 歸納的輸出將複寫設為 1，而不是預設值 3，因為效能評定競賽不需要將輸出資料複寫至多個節點。
@@ -188,17 +190,17 @@ Pi 估算器會使用統計 (擬蒙特卡羅法) 方法來估計 pi 的值。 �
 * 遵循「字數統計 - Java」中的程序，並使用下列工作定義：
 
     ```powershell
-    $teragen = New-AzureRmHDInsightMapReduceJobDefinition `
+    $teragen = New-AzHDInsightMapReduceJobDefinition `
                                 -JarFile "/example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "teragen" `
                                 -Arguments "-Dmapred.map.tasks=50", "100000000", "/example/data/10GB-sort-input"
 
-    $terasort = New-AzureRmHDInsightMapReduceJobDefinition `
+    $terasort = New-AzHDInsightMapReduceJobDefinition `
                                 -JarFile "/example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "terasort" `
                                 -Arguments "-Dmapred.map.tasks=50", "-Dmapred.reduce.tasks=25", "/example/data/10GB-sort-input", "/example/data/10GB-sort-output"
 
-    $teravalidate = New-AzureRmHDInsightMapReduceJobDefinition `
+    $teravalidate = New-AzHDInsightMapReduceJobDefinition `
                                 -JarFile "/example/jars/hadoop-mapreduce-examples.jar" `
                                 -ClassName "teravalidate" `
                                 -Arguments "-Dmapred.map.tasks=50", "-Dmapred.reduce.tasks=25", "/example/data/10GB-sort-output", "/example/data/10GB-sort-validate"
@@ -285,7 +287,7 @@ System.exit(job.waitForCompletion(true) ? 0 : 1);
 ```
 
 ## <a name="appendix-b---the-word-count-streaming-source-code"></a>附錄 B - 字數統計串流原始程式碼
-MapReduce 程式使用 cat.exe 應用程式做為對應介面以將文字串流至主控台，並使用 wc.exe 應用程式做為縮減介面以計算從文件串流的字數。 mapper 和 reducer 都會從標準輸入資料流 (stdin) 逐行讀取字元並寫入至標準輸出資料流 (stdout)。
+MapReduce 程式使用 cat.exe 應用程式做為對應介面以將文字串流至主控台，並使用 wc.exe 應用程式做為縮減介面以計算從文件串流的字數。 映射器和化简器都从标准输入流 (stdin) 逐行读取字符，并写入到标准输出流 (stdout)。
 
 ```csharp
 // The source code for the cat.exe (Mapper).

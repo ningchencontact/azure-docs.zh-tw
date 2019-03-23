@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd0ce02a92c0a2e803866b6f070dba113c566f5d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9ce388c53a28d6b04bf7685da397eade4b1fd94
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112206"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371769"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>2.0 通訊協定 - 使用隱含流程的 SPA
 
@@ -55,7 +55,7 @@ ms.locfileid: "58112206"
 若要開始將使用者登入應用程式，您可以傳送 [OpenID Connect](v2-protocols-oidc.md) 授權要求，並透過 v2.0 端點取得 `id_token`。
 
 > [!IMPORTANT]
-> 若要成功要求識別碼權杖，[註冊入口網站](https://apps.dev.microsoft.com)中的應用程式註冊必須為 Web 用戶端啟用 [允許隱含流程]。 如果未啟用，會傳回 `unsupported_response` 錯誤：**不允許此用戶端使用為輸入參數 "response_type" 提供的值。值應為 'code'**
+> 若要成功要求識別碼權杖，應用程式註冊[Azure 入口網站-應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)分頁必須具有正確，選取啟用的隱含授與流程**存取權杖**和**識別碼權杖**底下**隱含授與**一節。 如果未啟用，會傳回 `unsupported_response` 錯誤：**不允許此用戶端使用為輸入參數 "response_type" 提供的值。值應為 'code'**
 
 ```
 // Line breaks for legibility only
@@ -77,7 +77,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | 參數 |  | 描述 |
 | --- | --- | --- |
 | `tenant` | 必要 |要求路徑中的 `{tenant}` 值可用來控制可登入應用程式的人員。 可以使用的值包括 `common`、`organizations`、`consumers` 和租户标识符。 如需更多詳細資訊，請參閱 [通訊協定基本概念](active-directory-v2-protocols.md#endpoints)。 |
-| `client_id` | 必要 |註冊入口網站 ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) 指派給應用程式的應用程式識別碼。 |
+| `client_id` | 必要 |（用戶端） 應用程式識別碼[Azure 入口網站-應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)指派給您的應用程式的頁面。 |
 | `response_type` | 必要 |必須包含 OpenID Connect 登入的 `id_token` 。 它也可能包含 response_type `token`。 這裡使用 `token` ，讓您的應用程式能夠立即從授權端點接收存取權杖，而不需要向授權端點進行第二次要求。 如果您使用 `token` response_type，`scope` 參數必須包含範圍，以指出要對哪個資源發出權杖。 |
 | `redirect_uri` | 建議使用 |应用的 redirect_uri，应用可向其发送及从其接收身份验证响应。 其必須完全符合您在入口網站中註冊的其中一個 redirect_uris，不然就必須得是編碼的 url。 |
 | `scope` | 必要 |[範圍](v2-permissions-and-consent.md)的空格分隔清單。 針對 OpenID Connect，即必須包含範圍 `openid`，其會在同意 UI 中轉譯成「讓您登入」權限。 (選擇性) 您也可以包含 `email` 或 `profile` 範圍，以取得額外使用者資料的存取權。 您也可以在此要求中包含其他範圍，以要求同意各種資源。 |

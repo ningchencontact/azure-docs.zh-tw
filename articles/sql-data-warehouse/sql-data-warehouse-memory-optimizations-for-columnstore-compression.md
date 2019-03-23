@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 03/18/2019
+ms.date: 03/22/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 859f0d168dcf1cc999f79ef22b5ba6669da79593
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: e7ab09522184f5c2d1c5168b24b2948f58e5189e
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189558"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368956"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>最大化資料行存放區的資料列群組品質
 
@@ -67,7 +67,7 @@ from cte;
 ```
 
 trim_reason_desc 會告知是否已修剪資料列群組 (trim_reason_desc = NO_TRIM 表示沒有修剪，且資料列群組屬於最佳品質)。 下列修剪原因表示過早修剪了資料列群組：
-- 大量載入：當傳入的負載資料列批次具有少於 1 百萬個的資料列時，會使用這個修剪原因。 如果插入了多於 100,000 個資料列 (而不是插入到差異存放區)，則引擎會建立壓縮的資料列群組，但是會將修剪原因設定為大量載入。 在此情況下，請考慮增加您的批次載入空檔以累積更多資料列。 此外，重新評估您的資料分割配置，確保它不會太過細微，因為資料列群組不能跨越資料分割界限。
+- 大量載入：當傳入的負載資料列批次具有少於 1 百萬個的資料列時，會使用這個修剪原因。 如果插入了多於 100,000 個資料列 (而不是插入到差異存放區)，則引擎會建立壓縮的資料列群組，但是會將修剪原因設定為大量載入。 在此案例中，請考慮增加您的批次載入包含多個資料列。 此外，重新評估您的資料分割配置，確保它不會太過細微，因為資料列群組不能跨越資料分割界限。
 - MEMORY_LIMITATION：若要建立包含 1 百萬個資料列的資料列群組，引擎會需要特定數量的工作記憶體。 當載入工作階段的可用記憶體小於所需的工作記憶體時，會提前修剪資料列群組。 下列各節說明如何評估所需記憶體及配置更多記憶體。
 - DICTIONARY_SIZE：這個修剪原因表示因為至少有一個字串資料行具有寬/或高基數字串而發生資料列群組修剪。 記憶體中的字典大小限制為 16 MB，且一旦達到此限制，便會壓縮資料列群組。 如果您遇到這種情況，請考慮將問題資料行隔離到單獨的資料表中。
 

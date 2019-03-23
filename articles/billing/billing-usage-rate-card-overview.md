@@ -16,12 +16,12 @@ ms.workload: billing
 ms.date: 5/10/2018
 ms.author: erikre
 ms.custom: seodec18
-ms.openlocfilehash: 944623943fc49f4f6856c3a62f30ea61f901c16d
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
-ms.translationtype: HT
+ms.openlocfilehash: cd1688cd9d3d19242800b04e7e29c8875879cffc
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579408"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351554"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>使用 Azure 計費 API 來以程式設計方式深入了解 Azure 使用情況
 使用 Azure 計費 API 將使用情況和資源資料提取到您慣用的資料分析工具。 Azure 資源使用情況和 RateCard API 可協助您準確地預測並管理成本。 這些 API 會實作為資源提供者，並成為 Azure Resource Manager 所公開之 API 系列的一部分。  
@@ -30,7 +30,7 @@ ms.locfileid: "53579408"
 [完成加入](billing-manage-access.md#opt-in)之後，請使用預覽版[發票 API](/rest/api/billing) 來下載發票。 這些功能包括：
 
 * **Azure 角色型存取控制** - 在 [Azure 入口網站](https://portal.azure.com)上或透過 [Azure PowerShell Cmdlet](/powershell/azure/overview) 設定存取原則，以指定哪些使用者或應用程式可以存取訂用帳戶的使用情況資料。 呼叫端必須使用標準的 Azure Active Directory 權杖進行驗證。 將呼叫端新增到「發票讀者」、「讀者」、「擁有者」或「參與者」角色，以存取特定 Azure 訂用帳戶的使用情況資料。
-* **日期篩選** - 使用 `$filter` 參數可依發票期間結束日期的相反時間順序取得所有發票。 
+* **日期篩選** - 使用 `$filter` 參數可依發票期間結束日期的相反時間順序取得所有發票。
 
 > [!NOTE]
 > 此功能目前為第一個預覽版本，可能會進行與舊版不相容的變更。 目前，某些訂用帳戶供應項目 (不支援 EA、CSP、AIO) 和 Azure 德國無法使用此功能。
@@ -48,7 +48,7 @@ ms.locfileid: "53579408"
 使用 [Azure 資源 RateCard API](https://msdn.microsoft.com/library/azure/mt219005) 來取得可用 Azure 資源的清單，以及每個資源的預估價格資訊。 此 API 包含︰
 
 * **Azure 角色型存取控制** - 在 [Azure 入口網站](https://portal.azure.com)上或透過 [Azure PowerShell Cmdlet](/powershell/azure/overview) 設定存取原則，以指定哪些使用者或應用程式可以存取 RateCard 資料。 呼叫端必須使用標準的 Azure Active Directory 權杖進行驗證。 將呼叫端新增至讀取者、擁有者或參與者角色，以存取特定 Azure 訂用帳戶的使用情況資料。
-* **支援隨收隨付、MSDN、貨幣承諾、貨幣信用額度供應項目 (不支援 EA 和 [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-pricelist#get-prices-by-using-the-azure-rate-card))** - 此 API 提供 Azure 供應項目層級費率資訊。  此 API 的呼叫端必須輸入供應項目資訊以取得資源詳細資料和費率。 由於 EA 供應項目已自訂每個註冊的費率，所以我們目前無法提供 EA 費率。 
+* **支援隨收隨付、MSDN、貨幣承諾、貨幣信用額度供應項目 (不支援 EA 和 [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-pricelist#get-prices-by-using-the-azure-rate-card))** - 此 API 提供 Azure 供應項目層級費率資訊。  此 API 的呼叫端必須輸入供應項目資訊以取得資源詳細資料和費率。 由於 EA 供應項目已自訂每個註冊的費率，所以我們目前無法提供 EA 費率。
 
 ## <a name="scenarios"></a>案例
 以下是一些案例，可產生使用情況和 RateCard API 的組合：
@@ -58,12 +58,10 @@ ms.locfileid: "53579408"
 * **預測計費** – 取得預估的耗用量及雲端花費，並應用機器學習演算法來預測在計費週期結束時的計費情形。
 * **耗用前成本分析** – 使用 RateCard API 來預測當您將工作負載移至 Azure 時，所預期的使用量需要多少費用。 如果您有其他雲端或私用雲端中的現有工作負載，您也可以對應您的使用情況和 Azure 費率，以取得 Azure 花費的較佳評估。 此預估可讓您以供應項目為依據來進行選擇，並比較和對比隨收隨付以外的不同供應項目類型，包含貨幣承諾和貨幣信用額度。 此 API 也可讓您依區域查看成本差異，並可讓您執行假設成本分析，以幫助您做出部署決定。
 * **假設分析** -
-  
+
   * 您可以判斷是在另一個區域執行工作負載，還是在 Azure 資源的另一個組態上執行工作負載會比較符合成本效益。 Azure 資源成本可能會因為您所使用的 Azure 區域而有所不同。
   * 您也可以判斷另一個 Azure 供應項目類型是否會在 Azure 資源上提供更好的費率。
-  
-## <a name="partner-solutions"></a>合作夥伴解決方案
-[Cloud Cruiser 和 Microsoft Azure 計費 API 整合](billing-usage-rate-card-partner-solution-cloudcruiser.md)描述 [Azure Pack 適用的 Cloud Cruiser Express](http://www.cloudcruiser.com/partners/microsoft/)如何直接從 Windows Azure Pack (WAP) 入口網站運作。 您可以順暢地從單一使用者介面管理 Microsoft Azure 私人或託管公用雲端的作業和財務等方面。   
+
 
 ## <a name="next-steps"></a>後續步驟
 * 查看 GitHub 上的程式碼範例：
@@ -73,7 +71,4 @@ ms.locfileid: "53579408"
 
   * [RateCard API 程式碼範例 (英文)](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
 
-* 若要深入了解 Azure Resource Manager，請參閱 [Azure Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md)。 
-
-
-
+* 若要深入了解 Azure Resource Manager，請參閱 [Azure Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md)。

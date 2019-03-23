@@ -12,21 +12,22 @@ manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0422cc3376caa6c2f99a0838684d84047a5937ed
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: f97b4ee364ecadde7738b8fe077f21d5732365f6
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313561"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371803"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA Server 與 Active Directory 之間的目錄整合
 
 使用 Azure MFA Server 的 [目錄整合] 區段來與 Active Directory 或另一個 LDAP 目錄整合。 您可以設定相關屬性以比對目錄結構描述，並設定自動使用者同步處理。
 
 ## <a name="settings"></a>設定
+
 根據預設，Azure Multi-Factor Authentication (MFA) Server 會設定為從 Active Directory 匯入或同步處理使用者。  [目錄整合] 索引標籤可讓您覆寫預設行為，並繫結至不同的 LDAP 目錄、ADAM 目錄或特定 Active Directory 網域控制站。  它也支援使用 LDAP 驗證來代理 LDAP 或 LDAP 繫結做為 RADIUS 目標、IIS 驗證的預先驗證，或使用者入口網站的主要驗證。  下表描述個別設定。
 
-![設定](./media/howto-mfaserver-dir-ad/dirint.png)
+![編輯 LDAP 組態，在 MFA Server](./media/howto-mfaserver-dir-ad/dirint.png)
 
 | 功能 | 描述 |
 | --- | --- |
@@ -50,9 +51,10 @@ ms.locfileid: "58313561"
 | 測試按鈕 |按一下 [測試] 以測試 LDAP 伺服器繫結。  <br><br>您不需要選取 [使用 LDAP] 選項來測試繫結。 這樣可以在使用 LDAP 組態之前先測試繫結。 |
 
 ## <a name="filters"></a>篩選器
+
 篩選可讓您在執行目錄搜尋時，設定準則來限定記錄。  您可以設定篩選以限定想要同步處理的物件範圍。  
 
-![篩選器](./media/howto-mfaserver-dir-ad/dirint2.png)
+![設定 MFA Server 中的目錄篩選](./media/howto-mfaserver-dir-ad/dirint2.png)
 
 Azure Multi-Factor Authentication 具有下列三個篩選選項：
 
@@ -61,11 +63,12 @@ Azure Multi-Factor Authentication 具有下列三個篩選選項：
 * **使用者篩選** - 指定執行目錄搜尋時，用來限定使用者記錄的篩選準則。  對於 Active Directory 和 ADAM，通常會使用 (&(objectClass=user)(objectCategory=person))。  對於其他 LDAP 目錄，請根據目錄結構描述，使用 (objectClass = inetOrgPerson) 或類似的準則。 <br>注意：如果空白，預設會使用 (&(objectCategory=person)(objectClass=user))。
 
 ## <a name="attributes"></a>屬性
+
 您可以視需要自訂特定目錄的屬性。  這可讓您新增自訂屬性，並微調到只同步處理您需要的屬性。 中的每個屬性欄位值的目錄結構描述所定義，請使用屬性的名稱。 下表提供每項功能的其他相關資訊。
 
 您可以手動輸入屬性，並不需要符合屬性清單中的屬性。
 
-![屬性](./media/howto-mfaserver-dir-ad/dirint3.png)
+![自訂 MFA Server 中的目錄整合屬性](./media/howto-mfaserver-dir-ad/dirint3.png)
 
 | 功能 | 描述 |
 | --- | --- |
@@ -96,9 +99,10 @@ Azure Multi-Factor Authentication 具有下列三個篩選選項：
 
 若要編輯屬性，按一下 [屬性] 索引標籤上的 [編輯] 按鈕。這會帶出您可以在其中編輯屬性的視窗。 選取任何屬性旁邊的 [...] 可開啟視窗供您選擇要顯示的屬性。
 
-![編輯屬性](./media/howto-mfaserver-dir-ad/dirint4.png)
+![編輯在 MFA Server 中的目錄屬性對應](./media/howto-mfaserver-dir-ad/dirint4.png)
 
 ## <a name="synchronization"></a>同步處理
+
 同步處理可將 Azure MFA 使用者資料庫與 Active Directory 或另一個輕量型目錄存取通訊協定 (LDAP) 目錄中的使用者保持同步。 此程序類似於從 Active Directory 手動匯入使用者，但會定期輪詢 Active Directory 使用者和安全性群組是否有需要處理的變更。  它也可停用或移除已從容器、安全性群組或 Active Directory 中移除的使用者。
 
 Multi-Factor Auth ADSync 服務是會定期輪詢 Active Directory 的 Windows 服務。  請勿與 Azure AD Sync 或 Azure AD Connect 搞混。  Multi-Factor Auth ADSync 雖然是根據類似的程式碼基底建置，但為 Azure Multi-Factor Authentication Server 所專用。  它會安裝成「已停止」狀態，在設定為執行時才由 Multi-Factor Auth Server 服務啟動。  如果您有多伺服器 Multi-Factor Auth Server 組態，Multi-Factor Auth ADSync 只能在單一伺服器上執行。
@@ -107,7 +111,7 @@ Multi-Factor Auth ADSync 服務使用 Microsoft 所提供的 DirSync LDAP 伺服
 
 如果 LDAP 目錄支援 DirSync 並為其進行設定，則輪詢使用者和安全性群組的變更時，就如同輪詢 Active Directory 的變更一樣。  如果 LDAP 目錄不支援 DirSync 控制，則會在每個週期執行完整同步處理。
 
-![同步處理](./media/howto-mfaserver-dir-ad/dirint5.png)
+![同步處理至 MFA Server 的目錄物件](./media/howto-mfaserver-dir-ad/dirint5.png)
 
 下表包含各項 [同步處理] 索引標籤設定的其他資訊。
 
@@ -133,7 +137,8 @@ Multi-Factor Auth ADSync 服務使用 Microsoft 所提供的 DirSync LDAP 伺服
 > [!TIP]
 > 移除同步處理項目之後應該執行完整同步處理。  排序同步處理項目之後應該執行完整同步處理。  按一下 [立即同步處理] 以執行完整同步處理。
 
-## <a name="multi-factor-auth-servers"></a>Multi-Factor Auth Server
-可以設定其他 Multi-Factor Auth Server 做為備份 RADIUS Proxy、LDAP Proxy 或是用於 IIS 驗證。 所有代理程式會共用同步處理組態。 但其中只有一個代理程式會執行 Multi-Factor Auth Server 服務。 此索引標籤可讓您選取應該啟用同步處理的 Multi-Factor Auth Server。
+## <a name="multi-factor-authentication-servers"></a>Multi-factor Authentication server
 
-![Multi-Factor-Auth Server](./media/howto-mfaserver-dir-ad/dirint6.png)
+其他的 Multi-factor Authentication server 可以設定以做為備份 RADIUS proxy、 LDAP proxy 或是用於 IIS 驗證。 所有代理程式會共用同步處理組態。 不過，只有其中一個這些代理程式可能會有 Multi-factor Authentication server 服務執行。 此索引標籤可讓您選取要進行同步處理的 Multi-factor Authentication server。
+
+![相關的 Multi-factor Authentication Server](./media/howto-mfaserver-dir-ad/dirint6.png)

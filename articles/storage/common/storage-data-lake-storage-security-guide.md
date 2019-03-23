@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/21/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 22b070e6d70208057c85ad6a2322cc440d12a0fa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ce01301455c7abcd26006e622fcfbb8127e1c511
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008204"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372483"
 ---
 # <a name="azure-data-lake-storage-gen2-security-guide"></a>Azure Data Lake Storage Gen2 安全性指南
 
@@ -134,7 +134,7 @@ Azure Data Lake Storage Gen2 是一組建置在 Azure 儲存體帳戶上的功�
 有三個選項可供您授權 Azure 儲存體資料物件的存取權，包括：
 
 - 使用 Azure AD 來授權檔案系統和佇列的存取權。 Azure AD 在授權方面的優勢勝過其他方法，包括不需要在程式碼中儲存祕密。 如需詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權](storage-auth-aad.md)。 
-- 使用儲存體帳戶金鑰來透過共用金鑰授權存取權。 透過共用金鑰授權時，需要在應用程式中儲存儲存體帳戶金鑰，因此 Microsoft 建議盡可能改為使用 Azure AD。 對於生產應用程式，或是要授權 Azure 資料表和檔案的存取權，請在 Azure AD 整合處於預覽狀態時，繼續使用共用金鑰。
+- 使用儲存體帳戶金鑰來透過共用金鑰授權存取權。 透過共用金鑰授權時，需要在應用程式中儲存儲存體帳戶金鑰，因此 Microsoft 建議盡可能改為使用 Azure AD。
 - 使用共用存取簽章，來授與一段特定時間對特定資料物件的受控權限。
 
 除了透過授權限制存取，您也可以使用[防火牆和虛擬網路](storage-network-security.md)，根據網路規則來限制對儲存體帳戶的存取。  此方法可讓您拒絕對公用網際網路流量的存取，只授與對特定 Azure 虛擬網路或公用網際網路 IP 位址範圍的存取。

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8bd754533758d2c736e3951e5c7a10f63bb72bd8
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: 77d2d0b5b9f994668abdd02640a9c6d5f463e137
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53410171"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360753"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>使用 PowerShell 執行 Apache Hive 查詢
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -25,6 +25,8 @@ ms.locfileid: "53410171"
 > 本文件不提供範例中使用的 HiveQL 陳述式所執行的工作詳細的描述。 如需此範例中使用的 HiveQL 的相關資訊，請參閱 [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Hive](hdinsight-use-hive.md)。
 
 ## <a name="prerequisites"></a>必要條件
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * HDInsight 叢集 3.4 版或更新版本上以 Linux 為基礎的 Apache Hadoop。
 
@@ -41,13 +43,13 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Hi
 
 在遠端 HDInsight 叢集中執行 Hive 查詢時，會使用下列 Cmdlet：
 
-* `Connect-AzureRmAccount`：向您的 Azure 訂用帳戶驗證 Azure PowerShell。
-* `New-AzureRmHDInsightHiveJobDefinition`：使用指定的 HiveQL 陳述式建立「作業定義」。
-* `Start-AzureRmHDInsightJob`：將作業定義傳送至 HDInsight，並啟動作業。 系統會傳回「作業」物件。
-* `Wait-AzureRmHDInsightJob`：使用作業物件來檢查作業的狀態。 它會等到工作完成，或等到等候時間超過。
-* `Get-AzureRmHDInsightJobOutput`：用來擷取作業的輸出。
-* `Invoke-AzureRmHDInsightHiveJob`：用來執行 HiveQL 陳述式。 這個 Cmdlet 會阻止查詢完成，然後傳回結果。
-* `Use-AzureRmHDInsightCluster`：設定要用於 `Invoke-AzureRmHDInsightHiveJob` 命令的現行叢集。
+* `Connect-AzAccount`:向您的 Azure 訂用帳戶驗證 Azure PowerShell。
+* `New-AzHDInsightHiveJobDefinition`:使用指定的 HiveQL 陳述式建立「作業定義」。
+* `Start-AzHDInsightJob`:將作業定義傳送至 HDInsight，並啟動作業。 系統會傳回「作業」物件。
+* `Wait-AzHDInsightJob`:使用作業物件來檢查作業的狀態。 它會等到工作完成，或等到等候時間超過。
+* `Get-AzHDInsightJobOutput`:用來擷取作業的輸出。
+* `Invoke-AzHDInsightHiveJob`:用來執行 HiveQL 陳述式。 這個 Cmdlet 會阻止查詢完成，然後傳回結果。
+* `Use-AzHDInsightCluster`:設定要用於 `Invoke-AzHDInsightHiveJob` 命令的現行叢集。
 
 下列步驟示範如何使用這些 Cmdlet，在您的 HDInsight 叢集中執行工作：
 
@@ -81,7 +83,7 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Hi
    > [!NOTE]  
    > 如果 HiveQL 查詢的時間很長，您可以使用 Azure PowerShell **Here-Strings** Cmdlet 或 HiveQL 指令碼檔案。 下列程式碼片段說明如何使用 `Invoke-Hive` Cmdlet 來執行 HiveQL 指令碼檔案。 您必須將 HiveQL 指令碼檔案上傳至 wasb://。
    >
-   > `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
+   > `Invoke-AzHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    >
    > 如需 **Here-Strings** 的詳細資訊，請參閱<a href="https://technet.microsoft.com/library/ee692792.aspx" target="_blank">使用 Windows PowerShell Here-Strings</a>。
 
@@ -91,7 +93,7 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Hi
 
 ```powershell
 # Print the output of the Hive job.
-Get-AzureRmHDInsightJobOutput `
+Get-AzHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $job.JobId `
         -HttpCredential $creds `

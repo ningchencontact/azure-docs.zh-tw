@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: e6185a7b62e3c599a7c3588824e3a9c4ac60cb53
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 7edce5175a1dda66abf3316cb8f0eb33e9f64ef7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467623"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371463"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>使用 Resource Manager 範本在建立資源時自動啟用診斷設定
-在本文中，我們示範如何在建立資源時使用 [Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md) 設定診斷設定。 這可讓您在建立資源時，自動開始將您的診斷記錄檔和度量串流至事件中樞、將它們封存在儲存體帳戶中，或將它們傳送至 Log Analytics。
+在本文中，我們示範如何在建立資源時使用 [Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md) 設定診斷設定。 這可讓您串流處理您的診斷記錄和度量到事件中樞、 將它們封存在儲存體帳戶，或將它們傳送到 Log Analytics 工作區中，建立資源時，自動啟動。
 
 > [!WARNING]
 > 2018 年 11 月 1 日起，儲存體帳戶中的記錄資料格式將變更為 JSON 資料行。 [請參閱本文以了解影響的描述，以及如何更新您的工具，來處理新的格式。](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
@@ -30,7 +30,7 @@ ms.locfileid: "54467623"
 
 在本文中，我們會說明如何使用這兩種方法來設定診斷。
 
-基本步驟如下：
+基本步骤如下所示：
 
 1. 建立一個描述如何建立資源的 JSON 檔案做為範本，然後啟用診斷功能。
 2. [使用任何部署方法部署範本](../../azure-resource-manager/resource-group-template-deploy.md)。
@@ -40,7 +40,7 @@ ms.locfileid: "54467623"
 ## <a name="non-compute-resource-template"></a>非計算資源範本
 如是非計算資源，您需要做兩件事︰
 
-1. 將參數新增至儲存體帳戶名稱、事件中樞授權規則識別碼，和/或 Log Analytics 工作區識別碼的參數 blob (可啟用儲存體帳戶中診斷記錄的封存、串流記錄至事件中樞，和/或將記錄傳送至 Log Analytics)。
+1. 將參數加入的參數 blob 儲存體帳戶名稱、 事件中樞授權規則識別碼，和/或 Log Analytics 工作區識別碼 （可啟用儲存體帳戶，記錄串流至事件中樞和/或將記錄傳送到 Azure 監視器中的診斷記錄封存）。
    
     ```json
     "settingName": {
@@ -116,7 +116,7 @@ ms.locfileid: "54467623"
     ]
     ```
 
-診斷設定的屬性 blob 遵循 [這篇文章中所述的格式](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)。 新增 `metrics` 屬性可讓您同時傳送資源計量到這些相同的輸出，但前提是[資源支援 Azure 監視器計量](../../azure-monitor/platform/metrics-supported.md)。
+诊断设置的属性 blob 遵循 [此文所述的格式](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)。 新增 `metrics` 屬性可讓您同時傳送資源計量到這些相同的輸出，但前提是[資源支援 Azure 監視器計量](../../azure-monitor/platform/metrics-supported.md)。
 
 以下的完整範例會建立邏輯應用程式，並開啟串流至事件中樞和儲存體帳戶中的儲存體。
 

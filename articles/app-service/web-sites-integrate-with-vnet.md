@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ed99bd3626bb44bff68e4122d6b50523f19e1797
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 768179f8569eac14166bcbb0a888e1cdbe41d497
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112614"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369695"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>將您的應用程式與 Azure 虛擬網路整合
 本文件說明 Azure App Service 虛擬網路整合功能，以及示範如何使用 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)中的應用程式來設定此功能。 [Azure 虛擬網路][VNETOverview] (VNet) 可讓您將許多 Azure 資源，放在非網際網路可路由網路中。 然後，可以使用 VPN 技術，將這些網路連線到您的內部部署網路。 
@@ -247,7 +247,7 @@ ASP VNet 整合 UI 會向您顯示 ASP 中的應用程式所使用的所有 VNet
 
 混合式連線需要您在網路中安裝稱為混合式連線管理員 (HCM) 的轉送代理程式。 HCM 必須同時能夠連接至 Azure 和您的應用程式。 混合式連線不需要遠端網路的輸入網際網路可存取端點，這是 VPN 連線所需的。 HCM 只在 Windows 上執行，而且您最多可有五個執行個體同時執行，以提供高可用性。 雖然混合式連線只支援 TCP，但是每個 HC 端點必須符合特定的主機:連接埠組合。 
 
-App Service 環境功能可讓您在 VNet 中執行 Azure App Service 的單一租用戶執行個體。 如果您的應用程式位於 App Service 環境中，那麼您的應用程式可以存取 VNet 中的資源，而不需要任何額外的步驟。 使用 App Service 環境，您的應用程式可以在更強大的背景工作角色上執行，並且可以擴充到多達 100 個 ASP 執行個體。 App Service 環境適用於所有網路功能，包括 ExpressRoute 和服務端點。  
+App Service 環境功能可讓您在 VNet 中執行 Azure App Service 的單一租用戶執行個體。 如果您的應用程式位於 App Service 環境中，那麼您的應用程式可以存取 VNet 中的資源，而不需要任何額外的步驟。 App Service Environment 與您的應用程式在更強大的背景工作角色上執行中，而且可以擴展最多 100 個 ASP 執行個體也一樣。 App Service 環境適用於所有網路功能，包括 ExpressRoute 和服務端點。  
 
 儘管有使用案例重疊的情況，但這些功能無法彼此取代。 知道使用哪個功能取決於您的需求。 例如︰
 

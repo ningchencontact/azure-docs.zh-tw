@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 8bbbe7a924c98c9628ce967892177599a1d13017
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9cb3abff10482ec7e58b4b049f051e99178cb742
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854988"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371974"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>透過使用整合服務環境 (ISE) 從 Azure Logic Apps 連線至 Azure 虛擬網路
 
@@ -46,7 +46,14 @@ ms.locfileid: "57854988"
 
 * [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)。 如果您沒有虛擬網路，請了解如何[建立 Azure 虛擬網路](../virtual-network/quick-create-portal.md)。 
 
-  * 您的虛擬網路必須有四個*空*個子網路以便進行部署，並在您的 ISE 中建立資源。 您可以事先建立這些子網路，或您可以等到建立其中您可以建立子網路，同時您 ISE。 深入了解[子網路需求](#create-subnet)。
+  * 您的虛擬網路必須有四個*空*個子網路以便進行部署，並在您的 ISE 中建立資源。 您可以事先建立這些子網路，或您可以等到建立其中您可以建立子網路，同時您 ISE。 深入了解[子網路需求](#create-subnet)。 
+  
+    > [!NOTE]
+    > 如果您使用[ExpressRoute](../expressroute/expressroute-introduction.md)，以提供 Microsoft 雲端服務的私人連線，您必須[新增至每個子網路的下列路由](../virtual-network/virtual-network-manage-subnet.md)供您 ISE。 如果您使用與您的子網路的路由表[加入您的路由表中的下列路由](../virtual-network/manage-route-table.md):
+    > 
+    > **名稱**：D3655BASE-route<br>
+    > **位址前置詞**:0.0.0.0/0<br>
+    > **下一個躍點**：Internet
 
   * 請確定您的虛擬網路[提供這些連接埠](#ports)讓您 ISE 可正常運作，並保持可存取。
 
@@ -138,6 +145,12 @@ ms.locfileid: "57854988"
      * `10.0.0.0/28` 具有只有 16 個位址，而且太小，因為 2<sup>(32-28)</sup>為 2<sup>4</sup>或 16。
 
      若要深入了解計算位址，請參閱[IPv4 CIDR 區塊](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks)。
+
+   * 如果您使用[ExpressRoute](../expressroute/expressroute-introduction.md)，請記得[新增至每個子網路的下列路由](../virtual-network/virtual-network-manage-subnet.md)供您 ISE。 如果您使用與您的子網路的路由表[將下列路徑加入至該路由表](../virtual-network/manage-route-table.md):
+
+     **名稱**：D3655BASE-route<br>
+     **位址前置詞**:0.0.0.0/0<br>
+     **下一個躍點**：Internet
 
    1. 在 [子網路] 清單底下，選擇 [管理子網路設定]。
 

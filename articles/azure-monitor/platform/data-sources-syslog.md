@@ -11,17 +11,17 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/28/2018
+ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: fa94bffc05879be9d6bbaaa7cd884c36ffe7e0b8
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 41ea6222689516f224fc23ce6a658d17f7f81866
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451275"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372296"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Azure 監視器中的 Syslog 資料來源
-Syslog 是通用於 Linux 的事件記錄通訊協定。  應用程式將傳送的訊息可能會儲存在本機電腦上，或傳遞到 Syslog 收集器。  安裝 Log Analytics Linux 代理程式時，它會設定本機 Syslog 精靈來將訊息轉送到代理程式。  然後，代理程式會將訊息傳送至 Azure 監視器 (建立相對應記錄的位置)。  
+Syslog 是通用於 Linux 的事件記錄通訊協定。 應用程式將傳送的訊息可能會儲存在本機電腦上，或傳遞到 Syslog 收集器。 安裝 Log Analytics Linux 代理程式時，它會設定本機 Syslog 精靈來將訊息轉送到代理程式。 然後，代理程式會將訊息傳送至 Azure 監視器 (建立相對應記錄的位置)。  
 
 > [!NOTE]
 > Azure 監視器支援收集由 rsyslog 或 syslog-ng 所傳送的訊息，其中 rsyslog 是預設精靈。 Red Hat Enterprise Linux 第 5 版、CentOS 和 Oracle Linux 版本 (sysklog) 不支援預設 syslog 精靈，進行 syslog 事件收集。 若要從這些散發套件的這個版本收集 syslog 資料，應該安裝並設定 [rsyslog 精靈](http://rsyslog.com) 來取代 sysklog。
@@ -30,20 +30,38 @@ Syslog 是通用於 Linux 的事件記錄通訊協定。  應用程式將傳送�
 
 ![Syslog 收集](media/data-sources-syslog/overview.png)
 
+Syslog 收集器支援下列功能：
+
+* 沒有什麼
+* user
+* mail
+* daemon
+* auth
+* syslog
+* lpr
+* news
+* uucp
+* cron
+* authpriv
+* ftp
+* local0-local7
+
+針對其他設備[的自訂記錄檔資料來源設定](data-sources-custom-logs.md)Azure 監視器中。
+ 
 ## <a name="configuring-syslog"></a>設定 Syslog
-Log Analytics Linux 代理程式只會收集具有其設定中指定之設備和嚴重性的事件。  您可以透過 Azure 入口網站，或藉由管理您 Linux 代理程式上的組態檔來設定 Syslog。
+Log Analytics Linux 代理程式只會收集具有其設定中指定之設備和嚴重性的事件。 您可以透過 Azure 入口網站，或藉由管理您 Linux 代理程式上的組態檔來設定 Syslog。
 
 ### <a name="configure-syslog-in-the-azure-portal"></a>在 Azure 入口網站中設定 Syslog
-從 [[進階設定] 中的 [資料] 功能表](agent-data-sources.md#configuring-data-sources)設定 Syslog。  這個組態會傳遞到每個 Linux 代理程式上的組態檔。
+從 [[進階設定] 中的 [資料] 功能表](agent-data-sources.md#configuring-data-sources)設定 Syslog。 這個組態會傳遞到每個 Linux 代理程式上的組態檔。
 
-您可以輸入新設備的名稱，然後按一下 **+** 設定 Syslog。  針對每個設備，僅會收集包含所選嚴重性的訊息。  請檢查您想要收集之特定設備的嚴重性。  您無法提供任何其他準則來篩選訊息。
+您可以輸入新設備的名稱，然後按一下 **+** 設定 Syslog。 針對每個設備，僅會收集包含所選嚴重性的訊息。  請檢查您想要收集之特定設備的嚴重性。 您無法提供任何其他準則來篩選訊息。
 
 ![設定 Syslog](media/data-sources-syslog/configure.png)
 
-根據預設，所有設定變更都會自動發送給所有代理程式。  如果您想在每個 Linux 代理程式上手動設定 Syslog，則可取消核取 *[Apply below configuration to my Linux machines]* \(將下列設定套用至我的 Linux 機器) 方塊。
+根據預設，所有設定變更都會自動發送給所有代理程式。 如果您想在每個 Linux 代理程式上手動設定 Syslog，則可取消核取 *[Apply below configuration to my Linux machines]* \(將下列設定套用至我的 Linux 機器) 方塊。
 
 ### <a name="configure-syslog-on-linux-agent"></a>在 Linux 代理程式上設定 Syslog
-當 [Log Analytics 代理程式安裝於 Linux 用戶端](../../azure-monitor/learn/quick-collect-linux-computer.md)時，它會安裝預設的 syslog 組態檔，其中定義所收集資訊的設備和嚴重性。  您可以修改此檔案來變更組態。  組態檔會根據用戶端已安裝的 Syslog 精靈而有所不同。
+當 [Log Analytics 代理程式安裝於 Linux 用戶端](../../azure-monitor/learn/quick-collect-linux-computer.md)時，它會安裝預設的 syslog 組態檔，其中定義所收集資訊的設備和嚴重性。 您可以修改此檔案來變更組態。 組態檔會根據用戶端已安裝的 Syslog 精靈而有所不同。
 
 > [!NOTE]
 > 如果您編輯 syslog 組態，則必須重新啟動 syslog 精靈，變更才會生效。
@@ -51,7 +69,7 @@ Log Analytics Linux 代理程式只會收集具有其設定中指定之設備和
 >
 
 #### <a name="rsyslog"></a>rsyslog
-Rsyslog 的組態檔位於 **/etc/rsyslog.d/95-omsagent.conf**。  其預設內容如下所示。  這會針對層級為警告或以上的所有設備收集傳送自本機代理程式的 syslog 訊息。
+Rsyslog 的組態檔位於 **/etc/rsyslog.d/95-omsagent.conf**。 其預設內容如下所示。 這會針對層級為警告或以上的所有設備收集傳送自本機代理程式的 syslog 訊息。
 
     kern.warning       @127.0.0.1:25224
     user.warning       @127.0.0.1:25224
@@ -71,13 +89,13 @@ Rsyslog 的組態檔位於 **/etc/rsyslog.d/95-omsagent.conf**。  其預設內�
     local6.warning     @127.0.0.1:25224
     local7.warning     @127.0.0.1:25224
 
-您可以藉由移除組態檔的設備區段來移除該設備。  您可以藉由修改特定設備的項目，來限制針對該設備所收集的嚴重性。  例如，若要將使用者設備限制為嚴重性為錯誤或以上的訊息，您要將組態檔的那一行修改為下列內容：
+您可以藉由移除組態檔的設備區段來移除該設備。 您可以藉由修改特定設備的項目，來限制針對該設備所收集的嚴重性。 例如，若要將使用者設備限制為嚴重性為錯誤或以上的訊息，您要將組態檔的那一行修改為下列內容：
 
     user.error    @127.0.0.1:25224
 
 
 #### <a name="syslog-ng"></a>syslog-ng
-Syslog-ng 的組態檔位於 **/etc/syslog-ng/syslog-ng.conf**。  其預設內容如下所示。  這會針對所有設備和所有嚴重性收集傳送自本機代理程式的 syslog 訊息。   
+Syslog-ng 的組態檔位於 **/etc/syslog-ng/syslog-ng.conf**。  其預設內容如下所示。 這會針對所有設備和所有嚴重性收集傳送自本機代理程式的 syslog 訊息。   
 
     #
     # Warnings (except iptables) in one file:
@@ -128,7 +146,7 @@ Syslog-ng 的組態檔位於 **/etc/syslog-ng/syslog-ng.conf**。  其預設內�
     filter f_user_oms { level(alert,crit,debug,emerg,err,info,notice,warning) and facility(user); };
     log { source(src); filter(f_user_oms); destination(d_oms); };
 
-您可以藉由移除組態檔的設備區段來移除該設備。  您可以限制針對特定設備收集的嚴重性，方法是從其清單中移除它們。  例如，若要將使用者設備限制為只有警示和重大訊息，您要將組態檔的那一個區段修改為下列內容：
+您可以藉由移除組態檔的設備區段來移除該設備。 您可以限制針對特定設備收集的嚴重性，方法是從其清單中移除它們。  例如，若要將使用者設備限制為只有警示和重大訊息，您要將組態檔的那一個區段修改為下列內容：
 
     #OMS_facility = user
     filter f_user_oms { level(alert,crit) and facility(user); };
@@ -168,7 +186,7 @@ Log Analytics 代理程式會在本機用戶端的連接埠 25224 上接聽 Sysl
         daemon.warning            @127.0.0.1:%SYSLOG_PORT%
         auth.warning              @127.0.0.1:%SYSLOG_PORT%
 
-* 應修改 syslog ng 組態，方法是複製如下所示的範例組態，並將自訂修改的設定新增至位於 `/etc/syslog-ng/` 之 syslog ng.conf 組態檔的結尾。  請**勿**使用預設標籤 **%workspace_id%_oms** 或 **%workspace_id_oms**，定義自訂標籤可協助您辨別變更。  
+* 應修改 syslog ng 組態，方法是複製如下所示的範例組態，並將自訂修改的設定新增至位於 `/etc/syslog-ng/` 之 syslog ng.conf 組態檔的結尾。 請**勿**使用預設標籤 **%workspace_id%_oms** 或 **%workspace_id_oms**，定義自訂標籤可協助您辨別變更。  
 
     > [!NOTE]
     > 如果您在組態檔中修改預設值，就會在代理程式套用預設組態時將它覆寫。

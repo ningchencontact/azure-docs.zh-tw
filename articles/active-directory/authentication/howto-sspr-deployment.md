@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 338032b19d22432c34891de68c6a5ba71de60555
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cb9333845a78204ea1c6e56e17b3b6f9e5513c9c
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170681"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370670"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>如何成功推出自助式密碼重設
 
@@ -49,7 +49,7 @@ ms.locfileid: "56170681"
 * **SSPR 表格三角立牌**：您可以放在午餐食堂、會議室或桌子上的表格三角立牌，以鼓勵您的使用者完成註冊。
 * **SSPR 貼紙**：您可以自訂及列印的貼紙範本，貼在筆記型電腦、監視器、鍵盤或行動電話上以提醒如何存取 SSPR。
 
-![SSPR 電子郵件範例][Email]
+![SSPR 首度發行給使用者的電子郵件範例][Email]
 
 ## <a name="create-your-own-password-portal"></a>建立您自己的密碼入口網站
 

@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 03/21/2019
 ms.author: danlep
-ms.openlocfilehash: b254adb050aa9826170c0849c3811380db6d9b38
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
-ms.translationtype: HT
+ms.openlocfilehash: ef34985e7897aa751275231a28c6031d6c9747b0
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321028"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369954"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>使用重新啟動原則執行容器化工作
 
@@ -26,7 +26,7 @@ ms.locfileid: "53321028"
 
 當您在 Azure Container Instances 中建立[容器群組](container-instances-container-groups.md)時，您可以指定三個重新啟動原則設定的其中一個。
 
-| 重新啟動原則   | 說明 |
+| 重新啟動原則   | 描述 |
 | ---------------- | :---------- |
 | `Always` | 容器群組中的容器一律會重新啟動。 這是在建立容器之際未指定重新啟動原則時，套用的**預設**設定。 |
 | `Never` | 容器群組中的容器永不重新啟動。 容器最多執行一次。 |
@@ -46,7 +46,7 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>執行至完成範例
 
-若要查看作用中的重新啟動原則，從 [microsoft/aci-wordcount][aci-wordcount-image] 映像建立容器執行個體，然後指定 `OnFailure` 重新啟動原則。 此範例容器會執行 Python 指令碼，根據預設，它會分析 Shakespeare 的 [Hamlet](http://shakespeare.mit.edu/hamlet/full.html) 的文字，將 10 個最常見的字詞寫入 STDOUT，然後結束。
+若要查看作用中的重新啟動原則，請從 Microsoft 中建立容器執行個體[aci wordcount] [ aci-wordcount-image]映像，並指定`OnFailure`重新啟動原則。 此範例容器會執行 Python 指令碼，根據預設，它會分析 Shakespeare 的 [Hamlet](http://shakespeare.mit.edu/hamlet/full.html) 的文字，將 10 個最常見的字詞寫入 STDOUT，然後結束。
 
 使用下列 [az container create][az-container-create] 命令執行範例容器：
 
@@ -54,7 +54,7 @@ az container create \
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure
 ```
 
@@ -129,7 +129,7 @@ az container logs --resource-group myResourceGroup --name mycontainer
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer2 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure \
     --environment-variables NumWords=5 MinLength=8
 ```
@@ -164,7 +164,7 @@ az container logs --resource-group myResourceGroup --name mycontainer2
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer3 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure \
     --environment-variables NumWords=3 MinLength=5 \
     --command-line "python wordcount.py http://shakespeare.mit.edu/romeo_juliet/full.html"
@@ -189,7 +189,7 @@ az container logs --resource-group myResourceGroup --name mycontainer3
 如需如何保存執行至完成之容器的輸入的詳細資訊，請參閱[使用 Azure Container Instances 來掛接 Azure 檔案共用](container-instances-mounting-azure-files-volume.md)。
 
 <!-- LINKS - External -->
-[aci-wordcount-image]: https://hub.docker.com/r/microsoft/aci-wordcount/
+[aci-wordcount-image]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create

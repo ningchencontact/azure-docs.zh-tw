@@ -5,21 +5,21 @@ services: storage
 author: cbrooksmsft
 ms.service: storage
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c7f7768406ae64615b46abeb396b5469caf2f6e9
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: c34af90f946542608eaf20f4f21d4986f3c80e6b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750645"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369389"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>設定 Azure 儲存體防火牆和虛擬網路
 
 Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組特定的支援網路來保護儲存體帳戶。 設定網路規則時，只有透過一組特定網路發出要求資料的應用程式可以存取儲存體帳戶。
 
-應用程式若在網路規則生效時存取儲存體帳戶，則要求上必須有適當的授權。 支援使用 Azure Active Directory (AD) 認證 (適用於 Blob 和佇列) (預覽)、有效的帳戶存取金鑰或 SAS 權杖來進行授權。
+應用程式若在網路規則生效時存取儲存體帳戶，則要求上必須有適當的授權。 支援使用適用於 blob 和佇列的 Azure Active Directory (Azure AD) 認證、 使用有效的帳戶存取金鑰，或使用 SAS 權杖的授權。
 
 > [!IMPORTANT]
 > 開啟儲存體帳戶的防火牆規則會預設封鎖傳入的資料要求，除非要求來自 Azure 虛擬網路 (VNet) 內運作的服務。 封鎖的要求包括來自其他 Azure 服務、Azure 入口網站及記錄與計量服務等等的要求。

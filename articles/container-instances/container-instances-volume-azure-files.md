@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f3d4bfa7d8ffda1ab2789927d03a777fab0ed89c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: 365264d40554f45533e2ddf0aeb9d85f3e8f8d2d
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281576"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370613"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>在 Azure 容器執行個體中掛接 Azure 檔案共用
 
@@ -70,7 +70,7 @@ echo $STORAGE_KEY
 az container create \
     --resource-group $ACI_PERS_RESOURCE_GROUP \
     --name hellofiles \
-    --image microsoft/aci-hellofiles \
+    --image mcr.microsoft.com/azuredocs/aci-hellofiles \
     --dns-name-label aci-demo \
     --ports 80 \
     --azure-file-volume-account-name $ACI_PERS_STORAGE_ACCOUNT_NAME \
@@ -83,7 +83,7 @@ az container create \
 
 ## <a name="manage-files-in-mounted-volume"></a>管理已掛接磁碟區中的檔案
 
-容器啟動後，即可使用透過 [microsoft/aci-hellofiles][aci-hellofiles] 映像部署的簡單 Web 應用程式，在您指定之掛接路徑上的 Azure 檔案共用中建立小型文字檔。 使用 [az container show][az-container-show] 命令取得 Web 應用程式的完整網域名稱 (FQDN)：
+容器啟動後，您可以使用 Microsoft 部署簡單的 web 應用程式[aci hellofiles] [ aci-hellofiles]中位於指定掛接路徑之 Azure 檔案共用中建立的小型文字檔案的映像。 使用 [az container show][az-container-show] 命令取得 Web 應用程式的完整網域名稱 (FQDN)：
 
 ```azurecli-interactive
 az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --query ipAddress.fqdn
@@ -140,7 +140,7 @@ az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles --
 * [在 Azure 容器執行個體中掛接秘密磁碟區](container-instances-volume-secret.md)
 
 <!-- LINKS - External -->
-[aci-hellofiles]: https://hub.docker.com/r/microsoft/aci-hellofiles/
+[aci-hellofiles]: https://hub.docker.com/_/microsoft-azuredocs-aci-hellofiles 
 [portal]: https://portal.azure.com
 [storage-explorer]: https://storageexplorer.com
 

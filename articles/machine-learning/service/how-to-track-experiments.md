@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 835d1f41ffe940422554a8ca59d0a91ac8e98607
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 50cd5969ce02ee5eea0637c950069d684d67b5d3
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336589"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361450"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>記錄度量在定型期間執行 Azure Machine Learning 中
 
@@ -32,7 +32,7 @@ ms.locfileid: "58336589"
 |清單|函式：<br>`run.log_list(name, value, description='')`<br><br>範例：<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | 使用指定名稱將值清單記錄到執行中。|
 |資料列|函式：<br>`run.log_row(name, description=None, **kwargs)`<br>範例：<br>run.log_row("Y over X", x=1, y=0.4) | 使用 log_row 建立計量，並於其中包含 kwargs 中描述的多個資料行。 每個具名的參數都會產生一個具有指定值的資料行。  可以呼叫一次 *log_row* 以記錄任意 Tuple，或者在迴圈中多次呼叫以產生完整的資料表。|
 |資料表|函式：<br>`run.log_table(name, value, description='')`<br><br>範例：<br>run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]}) | 使用指定名稱將字典物件記錄到執行中。 |
-|映像|函式：<br>`run.log_image(name, path=None, plot=None)`<br><br>範例：<br>run.log_image("ROC", plt) | 將映像記錄到執行記錄中。 使用 log_image 將映像檔案或 matplotlib 繪圖記錄到執行中。  這些映像會顯示在執行記錄中，並可供比較。|
+|映像|函式：<br>`run.log_image(name, path=None, plot=None)`<br><br>範例：<br>`run.log_image("ROC", plt)` | 將映像記錄到執行記錄中。 使用 log_image 將映像檔案或 matplotlib 繪圖記錄到執行中。  這些映像會顯示在執行記錄中，並可供比較。|
 |標記執行|函式：<br>`run.tag(key, value=None)`<br><br>範例：<br>run.tag("selected", "yes") | 使用字串索引鍵和可選字串值標記執行。|
 |上傳檔案或目錄|函式：<br>`run.upload_file(name, path_or_stream)`<br> <br> 範例：<br>run.upload_file("best_model.pkl", "./model.pkl") | 將檔案上傳到執行記錄。 執行會自動擷取特定輸出目錄中的檔案，對於大多數執行類型，預設為「./outputs」。  只有在需要上傳其他檔案或未指定輸出目錄時，才使用 upload_file。 我們建議在名稱中加上 `outputs`，以便將其上傳到輸出目錄。 您可以透過呼叫 `run.get_file_names()`，列出與該執行記錄相關聯的所有檔案|
 
@@ -48,7 +48,7 @@ ms.locfileid: "58336589"
 ## <a name="set-up-the-workspace"></a>設定工作區
 新增記錄並提交實驗之前，您必須先設定工作區。
 
-1. 使用工作區。 若要深入了解設定工作區設定，請依照[快速入門](https://docs.microsoft.com/azure/machine-learning/service/quickstart-get-started)進行操作。
+1. 使用工作區。 若要深入了解設定工作區設定，請依照中的步驟[建立 Azure 機器學習服務工作區](setup-create-workspace.md#sdk)。
 
    ```python
    from azureml.core import Experiment, Run, Workspace
@@ -218,7 +218,9 @@ ms.locfileid: "58336589"
    ```
 
 ## <a name="cancel-a-run"></a>取消執行
-提交測試回合之後，您可以取消它，即使您遺失物件參考，只要您知道實驗名稱，並執行識別碼。 
+
+提交 Alter 執行時，您可以取消它即使您遺失物件參考，只要您知道實驗名稱，並執行識別碼。 
+
 
 ```python
 from azureml.core import Experiment
@@ -239,7 +241,7 @@ print(type(r), r.get_status())
 if r.get_status() not in ['Complete', 'Failed']:
     r.cancel()
 ```
-請注意，目前只有 ScriptRun 和 PipelineRun 型別支援取消作業。
+目前只有 ScriptRun 和 PipelineRun 類型支援取消作業。
 
 此外，您也可以透過 CLI 使用下列命令來取消執行：
 ```shell
@@ -261,7 +263,7 @@ az ml run cancel -r <run_id> -p <project_path>
 
    ![Jupyter Notebook 小工具的螢幕擷取畫面](./media/how-to-track-experiments/widgets.PNG)
 
-2. **[適用於自動化機器學習回合]** 存取來自上一個回合的圖表。 請將 `<<experiment_name>>` 取代為適當的實驗名稱：
+2. **[適用於自動化機器學習回合]** 存取來自上一個回合的圖表。 取代`<<experiment_name>>`具有適當的實驗名稱：
 
    ``` 
    from azureml.widgets import RunDetails

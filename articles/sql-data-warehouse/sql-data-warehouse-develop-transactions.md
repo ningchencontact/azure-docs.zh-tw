@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 02/10/2019
-ms.author: cakarst
+ms.date: 03/22/2019
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: ac2bc9fc05a7014cd575ec531ef0a6ba08b2609e
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 0b4ce6f4479552f42d32124149f64614b7e3cb70
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100137"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369491"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>在 SQL 資料倉儲中使用交易
 在 Azure SQL 資料倉儲中實作交易以便開發解決方案的秘訣。
@@ -34,7 +34,30 @@ SQL 資料倉儲實作 ACID 交易。 不過，交易支援的隔離等級僅限
 * 已發生的資料平均散發 
 * 平均資料列長度是 250 個位元組
 
-| [DWU](sql-data-warehouse-overview-what-is.md) | 每個散發的容量 (GiB) | 散發的數目 | 交易大小上限 (GiB) | 每個散發的資料列數 | 每個交易的資料列數上限 |
+## <a name="gen2"></a>Gen2
+
+| [DWU](sql-data-warehouse-overview-what-is.md) | 限制每個散發套件 (GB) | 散發的數目 | 交易大小上限 (GB) | 每個散發的資料列數 | 每個交易的資料列數上限 |
+| --- | --- | --- | --- | --- | --- |
+| DW100c |1 |60 |60 |4,000,000 |240,000,000 |
+| DW200c |1.5 |60 |90 |6,000,000 |360,000,000 |
+| DW300c |2.25 |60 |135 |9,000,000 |540,000,000 |
+| DW400c |3 |60 |180 |12,000,000 |720,000,000 |
+| DW500c |3.75 |60 |225 |15,000,000 |900,000,000 |
+| DW1000c |7.5 |60 |450 |30,000,000 |1,800,000,000 |
+| DW1500c |11.25 |60 |675 |45,000,000 |2,700,000,000 |
+| DW2000c |15 |60 |900 |60,000,000 |3,600,000,000 |
+| DW2500c |18.75 |60 |1125 |75,000,000 |4,500,000,000 |
+| DW3000c |22.5 |60 |1,350 |90,000,000 |5,400,000,000 |
+| DW5000c |37.5 |60 |2,250 |150,000,000 |9,000,000,000 |
+| DW6000c |45 |60 |2,700 |180,000,000 |10,800,000,000 |
+| DW7500c |56.25 |60 |3,375 |225,000,000 |13,500,000,000 |
+| DW10000c |75 |60 |4,500 |300,000,000 |18,000,000,000 |
+| DW15000c |112.5 |60 |6,750 |450,000,000 |27,000,000,000 |
+| DW30000c |225 |60 |13,500 |900,000,000 |54,000,000,000 |
+
+## <a name="gen1"></a>Gen1
+
+| [DWU](sql-data-warehouse-overview-what-is.md) | 限制每個散發套件 (GB) | 散發的數目 | 交易大小上限 (GB) | 每個散發的資料列數 | 每个事务的最大行数 |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200 |1.5 |60 |90 |6,000,000 |360,000,000 |
@@ -148,7 +171,7 @@ END
 SELECT @xact_state AS TransactionState;
 ```
 
-目前已觀察到預期的行為。 已管理交易中的錯誤，且 ERROR_* 函式提供了預期的值。
+现在观察到了预期行为。 已管理交易中的錯誤，且 ERROR_* 函式提供了預期的值。
 
 唯一的變更就是交易的 ROLLBACK 必須在讀取 CATCH 區塊中的錯誤資訊之前發生。
 

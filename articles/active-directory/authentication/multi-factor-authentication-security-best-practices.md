@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4441bf945b14a275f5b19ffe39f5ffd419e74e58
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 436b7899b1a9d4f9cab1ca2581ff9b5b162de8ac
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310654"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368201"
 ---
 # <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>搭配 Azure AD 帳戶使用 Azure Multi-Factor Authentication 的安全性指引
 
@@ -30,7 +30,8 @@ ms.locfileid: "58310654"
 * 建立 Multi-Factor Auth Provider，並依每個使用者或每次驗證付費
 
 ### <a name="licenses"></a>授權
-![EMS](./media/multi-factor-authentication-security-best-practices/ems.png)
+
+![套用到使用者的授權、 啟用、 通知](./media/multi-factor-authentication-security-best-practices/ems.png)
 
 如果您有 Azure AD Premium 或 Enterprise Mobility + Security 授權，則您已經有 Azure MFA。 您的組織不需要任何其他項目，即可將雙步驟驗證功能延伸到所有使用者。 您只需要將授權指派給使用者，接著就可以開啟 MFA。
 
@@ -41,7 +42,8 @@ ms.locfileid: "58310654"
 * 唯有當您將內部部署 Active Directory 環境與 Azure AD 目錄同步處理時，才需要 Azure AD Connect。 如果您使用不與內部部署 Active Directory 執行個體同步處理的 Azure AD 目錄，就不需要 Azure AD Connect。
 
 ### <a name="multi-factor-auth-provider"></a>Multi-Factor Auth Provider
-![Multi-Factor Auth Provider](./media/multi-factor-authentication-security-best-practices/authprovider.png)
+
+![Multi-factor Authentication 提供者](./media/multi-factor-authentication-security-best-practices/authprovider.png)
 
 如果沒有包含 Azure MFA 的授權，您可以[建立 MFA 驗證提供者](concept-mfa-authprovider.md)。
 
@@ -56,15 +58,17 @@ ms.locfileid: "58310654"
   * 每個啟用的使用者︰會針對啟用 Azure MFA 的每個使用者向您數費。 如果您有某些使用者具有 Azure AD Premium 或 Enterprise Mobility Suite 授權，有些則沒有，請使用此模型。
 
 ### <a name="supportability"></a>支援能力
+
 因為大多數使用者已經習慣僅使用密碼來驗證，所以公司務必讓所有使用者了解此程序。 這番了解可以避免使用者因為 MFA 的小問題就連絡技術人員。 不過，有一些案例是需要暫時停用 MFA。 使用下列指導方針了解如何處理這些案例：
 
 * 如果使用者因為行動裝置應用程式未收到通知或電話來電而無法登入，請訓練您的技術支援工作人員處理這種情況。 技術支援人員可以[啟用單次許可](howto-mfa-mfasettings.md#one-time-bypass)，讓使用者「略過」雙步驟驗證而只需要驗證一次。 許可只是暫時性，經過指定的秒數之後就會到期。
 * 請考慮使用 Azure MFA 中的[信任的 IP 功能](howto-mfa-mfasettings.md#trusted-ips)，以盡量避免雙步驟驗證。 受控或同盟租用戶的管理員可以利用此功能，讓從公司近端內部網路登入的使用者略過雙步驟驗證。 這些功能適用於擁有 Azure AD Premium、Enterprise Mobility Suite 或 Azure Multi-Factor Authentication 授權的 Azure AD 租用戶。
 
 ## <a name="best-practices-for-an-on-premises-deployment"></a>內部部署的最佳作法
+
 如果您的公司決定採用自己的基礎結構來啟用 MFA，則您需要[在內部部署中部署 Azure Multi-Factor Authentication Server](howto-mfaserver-deploy.md)。 下圖顯示 MFA Server 元件：
 
-![MFA Server 預設元件︰主控台、同步處理引擎、管理入口網站、雲端服務](./media/multi-factor-authentication-security-best-practices/server.png) \*依預設未安裝\**已安裝，但依預設未啟用
+![預設的 MFA Server 元件](./media/multi-factor-authentication-security-best-practices/server.png)\*不會安裝預設\** 已安裝，但預設並未啟用
 
 Azure Multi-Factor Authentication Server 可以使用同盟來保護雲端資源和內部部署資源的安全。 您必須擁有 AD FS 並讓它與您的 Azure AD 租用戶同盟。
 設定 Multi-Factor Authentication Server 時，請考慮下列詳細資料：
@@ -74,6 +78,7 @@ Azure Multi-Factor Authentication Server 可以使用同盟來保護雲端資源
 * Multi-Factor Authentication AD FS 配接器安裝精靈會在 Active Directory 中建立名為 PhoneFactor Admins 的安全性群組，然後將 AD FS 服務帳戶新增至這個群組。 確認確實已在網域控制站上建立 PhoneFactor Admins 群組，而且 AD FS 服務帳戶是此群組的成員。 如有必要，請以手動方式將 AD FS 服務帳戶加入至網域控制站上的 PhoneFactor Admins 群組。
 
 ### <a name="user-portal"></a>使用者入口網站
+
 使用者入口網站允許自助功能，且提供一組完整的使用者管理功能。 它在 Internet Information Server (IIS) 網站中執行。 遵循下列指導方針以設定此元件：
 
 * 使用 IIS 6 或更新版本
@@ -81,29 +86,32 @@ Azure Multi-Factor Authentication Server 可以使用同盟來保護雲端資源
 * 請確定此伺服器可以部署在周邊網路中
 
 ### <a name="app-passwords"></a>應用程式密碼
+
 如果您的組織使用 SSO 與 Azure AD 同盟，而且您想要使用 Azure MFA 時，請注意下列細節：
 
 * 應用程式密碼由 Azure AD 驗證，因此會略過同盟。 唯有在設定應用程式密碼時才會使用同盟。
-* 對於同盟 (SSO) 使用者，密碼會儲存在組織識別碼中。如果使用者離開公司，這些資訊必須使用 DirSync 流向組織識別碼。 停用/刪除帳戶可能需要長達三個小時才能完成同步處理，導致 Azure AD 中停用/刪除應用程式密碼時延遲。
+* 對於同盟 (SSO) 使用者，密碼會儲存在組織識別碼中。 如果使用者離開公司，這些資訊必須使用 DirSync 流向組織識別碼。 停用/刪除帳戶可能需要長達三個小時才能完成同步處理，導致 Azure AD 中停用/刪除應用程式密碼時延遲。
 * 應用程式密碼不會遵守內部部署用戶端存取控制設定。
 * 應用程式密碼不適用內部部署驗證記錄/稽核功能。
 * 某些進階架構設計在使用雙步驟驗證時，可能需要搭配使用組織使用者名稱和密碼及應用程式密碼，需視驗證的位置而定。 對於根據內部部署基礎結構進行驗證的用戶端，您可以使用組織使用者名稱和密碼。 对于针对 Azure AD 进行身份验证的客户端，会使用应用密码。
 * 根據預設，使用者無法建立應用程式密碼。 如果您需要允許使用者建立應用程式密碼，請選取 [允許使用者建立應用程式密碼以登入非瀏覽器應用程式] 選項。
 
 ## <a name="additional-considerations"></a>其他考量
+
 針對部署在內部部署的每個元件，請使用此清單以了解其他考量和最佳做法：
 
-- 搭配 [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md) 來設定 Multi-Factor Authentication。
-- 搭配 [RADIUS 驗證](howto-mfaserver-dir-radius.md)來安裝和設定 Azure MFA Server。
-- 搭配 [IIS 驗證](howto-mfaserver-iis.md)來安裝和設定 Azure MFA Server。
-- 搭配 [Windows 驗證](howto-mfaserver-windows.md)來安裝和設定 Azure MFA Server。
-- 搭配 [LDAP 驗證](howto-mfaserver-dir-ldap.md)來安裝和設定 Azure MFA Server。
-- 搭配[使用 RADIUS 的遠端桌面閘道和 Azure Multi-Factor Authentication Server](howto-mfaserver-nps-rdg.md)，以安裝和設定 Azure MFA Server。
-- 安裝和設定 Azure MFA Server 和 [ndows Server Active Directory](howto-mfaserver-dir-ad.md)之間的同步處理。
-- [部署 Azure Multi-Factor Authentication Server 行動裝置應用程式 Web 服務](howto-mfaserver-deploy-mobileapp.md)。
-- [採用 Azure Multi-Factor Authentication 的進階 VPN 設定](howto-mfaserver-nps-vpn.md)，適用於使用 LDAP 或 RADIUS 的 Cisco ASA、Citrix Netscaler 和 Juniper/Pulse 安全 VPN 應用裝置。
+* 搭配 [Active Directory Federation Service](multi-factor-authentication-get-started-adfs.md) 來設定 Multi-Factor Authentication。
+* 搭配 [RADIUS 驗證](howto-mfaserver-dir-radius.md)來安裝和設定 Azure MFA Server。
+* 搭配 [IIS 驗證](howto-mfaserver-iis.md)來安裝和設定 Azure MFA Server。
+* 搭配 [Windows 驗證](howto-mfaserver-windows.md)來安裝和設定 Azure MFA Server。
+* 搭配 [LDAP 驗證](howto-mfaserver-dir-ldap.md)來安裝和設定 Azure MFA Server。
+* 搭配[使用 RADIUS 的遠端桌面閘道和 Azure Multi-Factor Authentication Server](howto-mfaserver-nps-rdg.md)，以安裝和設定 Azure MFA Server。
+* 安裝和設定 Azure MFA Server 和 [ndows Server Active Directory](howto-mfaserver-dir-ad.md)之間的同步處理。
+* [部署 Azure Multi-Factor Authentication Server 行動裝置應用程式 Web 服務](howto-mfaserver-deploy-mobileapp.md)。
+* [採用 Azure Multi-Factor Authentication 的進階 VPN 設定](howto-mfaserver-nps-vpn.md)，適用於使用 LDAP 或 RADIUS 的 Cisco ASA、Citrix Netscaler 和 Juniper/Pulse 安全 VPN 應用裝置。
 
 ## <a name="next-steps"></a>後續步驟
+
 雖然這篇文章強調 Azure MFA 的一些最佳做法，還有其他資源您也可以在規劃 MFA 部署時使用。 以下清單有可以在此程序期間協助您的一些關鍵文章：
 
 * [Azure Multi-Factor Authentication 中的報告](howto-mfa-reporting.md)

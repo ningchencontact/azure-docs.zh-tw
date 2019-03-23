@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: danlep
-ms.openlocfilehash: af1fbe66c805517c07975b2e4cf6e13e87ec661c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: 70593bffbf30b3a0c0978e56c2af1a856a22f2ec
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388267"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369653"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>在 Azure 容器執行個體中掛接 gitRepo 磁碟區
 
@@ -27,7 +27,7 @@ ms.locfileid: "49388267"
 
 當您掛接 *gitRepo* 磁碟區時，您可以設定三個屬性來設定磁碟區：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | -------- | -------- | ----------- |
 | `repository` | 是 | 要複製之 Git 存放庫的完整 URL，包括 `http://` 或 `https://`。|
 | `directory` | 否 | 要在其中複製存放庫的目錄。 路徑不能包含或開頭為 "`..`"。  如果您指定 "`.`"，存放庫會複製到磁碟區的目錄中。 否則，Git 存放庫會複製到磁碟區目錄內指定名稱的子目錄中。 |
@@ -37,13 +37,13 @@ ms.locfileid: "49388267"
 
 當您使用 [Azure CLI](/cli/azure) 部署容器執行個體時，若要掛接 gitRepo 磁碟區，請將 `--gitrepo-url` 和 `--gitrepo-mount-path` 參數提供給 [az container create][az-container-create] 命令。 您可以選擇性地指定磁碟區內要複製存放庫到其中的目錄 (`--gitrepo-dir`)，以及要複製的修訂認可雜湊 (`--gitrepo-revision`)。
 
-此範例命令會將 [aci-helloworld][aci-helloworld] 範例應用程式複製到容器執行個體中的 `/mnt/aci-helloworld`：
+此範例命令會複製 Microsoft [aci helloworld] [ aci-helloworld]範例應用程式到`/mnt/aci-helloworld`容器執行個體中：
 
 ```azurecli-interactive
 az container create \
     --resource-group myResourceGroup \
     --name hellogitrepo \
-    --image microsoft/aci-helloworld \
+    --image mcr.microsoft.com/azuredocs/aci-helloworld \
     --dns-name-label aci-demo \
     --ports 80 \
     --gitrepo-url https://github.com/Azure-Samples/aci-helloworld \
@@ -68,7 +68,8 @@ drwxr-xr-x    2 root     root          4096 Apr 16 16:35 app
 
 例如，下列 Resource Manager 範本會建立一個由單一容器組成的容器群組。 容器會複製由 *gitRepo* 磁碟區區塊所指定的兩個 GitHub 存放庫。 第二個磁碟區包含指定要複製到其中之目錄的其他屬性，和要複製之指定修訂的認可雜湊。
 
-<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-gitrepo.json --> [!code-json[volume-gitrepo](~/azure-docs-json-samples/container-instances/aci-deploy-volume-gitrepo.json)]
+<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-gitrepo.json -->
+[!code-json[volume-gitrepo](~/azure-docs-json-samples/container-instances/aci-deploy-volume-gitrepo.json)]
 
 上述範本中定義的兩個已複製存放庫的結果目錄結構是：
 
@@ -97,9 +98,9 @@ drwxr-xr-x    2 root     root          4096 Apr 16 16:35 app
 
 如需 GitHub 和 Azure Repos 的個人存取權杖詳細資訊，請參閱下列項目：
 
-GitHub：[針對命令列建立個人存取權杖][pat-github]
+GitHub:[建立個人存取權杖以供命令列][pat-github]
 
-Azure Repos：[建立個人存取權杖來驗證存取][pat-repos]
+Azure Repos：[建立個人存取權杖來驗證的存取][pat-repos]
 
 ## <a name="next-steps"></a>後續步驟
 

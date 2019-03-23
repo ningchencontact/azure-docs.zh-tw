@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 647d40db87f76a9e1a13a108c5f55fac40524017
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9f6698eebf184d1df80920b7779512e2fda83a0c
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012787"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369083"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>使用 Azure 儲存體 REST API
 
@@ -266,7 +266,7 @@ Content-Length: 1511
 ## <a name="creating-the-authorization-header"></a>建立授權標頭
 
 > [!TIP]
-> Azure 儲存體現在支援 Blob 和佇列服務的 Azure Active Directory (Azure AD) 整合 (預覽)。 Azure AD 可提供更簡單的 Azure 儲存體要求授權體驗。 如需使用 Azure AD 來授權 REST 作業的詳細資訊，請參閱[使用 Azure Active Directory 進行驗證 (預覽)](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory)。 如需 Azure AD 與 Azure 儲存體整合的概觀，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權 (預覽)](storage-auth-aad.md)。
+> Azure 儲存體現在支援 Azure Active Directory (Azure AD) 整合的 blob 和佇列。 Azure AD 可提供更簡單的 Azure 儲存體要求授權體驗。 如需有關如何使用 Azure AD 授權 REST 作業的詳細資訊，請參閱 <<c0> [ 向 Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory)。 如需使用 Azure 儲存體的 Azure AD 整合的概觀，請參閱 <<c0> [ 驗證存取 Azure 儲存體使用 Azure Active Directory](storage-auth-aad.md)。
 
 有一篇在概念上說明 (沒有程式碼) 如何執行 [Azure 儲存體服務驗證](/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services)的文章。
 讓我們萃取該文章的精華，並顯示程式碼。

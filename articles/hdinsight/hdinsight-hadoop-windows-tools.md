@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 05/17/2017
-ms.openlocfilehash: d336d659a15f5b4cb1cbc917a8ae10ab8224d029
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: b8bad1d0f53ce4e4c924734201165e1b050c153f
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426313"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361467"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>從 Windows 電腦在 HDInsight 上的 Apache Hadoop 生態系統中作業
 
@@ -30,7 +30,7 @@ Azure PowerShell 是一種指令碼環境，可讓您從 Windows 在 HDInsight �
 * [使用 PowerShell 執行 Apache Hive 查詢](hadoop/apache-hadoop-use-hive-powershell.md)。
 * [使用 PowerShell 管理叢集](hdinsight-administer-use-powershell.md)。
 
-請遵循步驟來[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) 以取得最新的版本。 如果您需要修改指令碼才能使用適用於 Azure Resource Manager 的新 Cmdlet，請參閱[移轉至以 Azure Resource Manager 為基礎的開發工具 (適用於 HDInsight 叢集)](hdinsight-hadoop-development-using-azure-resource-manager.md)。
+請遵循步驟來[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) 以取得最新的版本。 如果您需要修改指令碼才能使用適用於 Azure Resource Manager 的新 Cmdlet，請參閱[移轉至以 Azure Resource Manager 為基礎的開發工具 (適用於 HDInsight 叢集)](hdinsight-hadoop-development-using-azure-resource-manager.md)。
 
 ## <a name="utilities-you-can-run-in-a-browser"></a>您可以在瀏覽器中執行的公用程式
 下列公用程式具有可在瀏覽器中執行的 Web UI：

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5411770e6f9d660557ab9360f026efe4c28a9256
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 2d5a196af8ee6a7d41833185136a76255be4082a
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314377"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371737"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>如何要求使用者使用雙步驟驗證
 
@@ -66,10 +66,10 @@ Azure Multi-Factor Authentication 中的使用者帳戶具有下列三種不同�
 
 1. 使用上述步驟來取得 Azure Multi-Factor Authentication **使用者**頁面。
 2. 尋找您想要啟用 Azure MFA 的使用者。 建議您在頂端變更檢視方式。
-   ![尋找使用者 - 螢幕擷取畫面](./media/howto-mfa-userstates/enable1.png)
+   ![選取要變更的狀態從 [使用者] 索引標籤的使用者](./media/howto-mfa-userstates/enable1.png)
 3. 勾選其名稱旁的方塊。
 4. 在右邊的**快速步驟**下，選擇 [啟用] 或 [停用]。
-   ![啟用所選的使用者 - 螢幕擷取畫面](./media/howto-mfa-userstates/user1.png)
+   ![啟用選取的使用者啟用功能表上的 快速步驟](./media/howto-mfa-userstates/user1.png)
 
    > [!TIP]
    > 「已啟用」的使用者會在註冊 Azure MFA 時自動切換為「已強制」。 請勿手動將使用者狀態變更為「已強制」。
@@ -90,45 +90,52 @@ Azure Multi-Factor Authentication 中的使用者帳戶具有下列三種不同�
 
 請先安裝模組，使用：
 
-       Install-Module MSOnline
-       
+   ```PowerShell
+   Install-Module MSOnline
+   ```
+
 > [!TIP]
 > 別忘了先使用 **Connect-MsolService** 連線
 
+這個範例 PowerShell 指令碼會為個別使用者啟用 MFA：
 
- 這個範例 PowerShell 指令碼會為個別使用者啟用 MFA：
-
-        Import-Module MSOnline
-        $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "*"
-        $st.State = "Enabled"
-        $sta = @($st)
-        Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
+   ```PowerShell
+   Import-Module MSOnline
+   $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
+   $st.RelyingParty = "*"
+   $st.State = "Enabled"
+   $sta = @($st)
+   Set-MsolUser -UserPrincipalName bsimon@contoso.com -StrongAuthenticationRequirements $sta
+   ```
 
 當您需要大量啟用使用者時，使用 PowerShell 是一個不錯的選項。 例如，下列指令碼會對使用者清單執行迴圈，並針對使用者的帳戶啟用 MFA：
 
-    $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
-    foreach ($user in $users)
-    {
-        $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
-        $st.RelyingParty = "*"
-        $st.State = "Enabled"
-        $sta = @($st)
-        Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
-    }
-    
+   ```PowerShell
+   $users = "bsimon@contoso.com","jsmith@contoso.com","ljacobson@contoso.com"
+   foreach ($user in $users)
+   {
+       $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
+       $st.RelyingParty = "*"
+       $st.State = "Enabled"
+       $sta = @($st)
+       Set-MsolUser -UserPrincipalName $user -StrongAuthenticationRequirements $sta
+   }
+   ```
+
 若要停用 MFA，請使用此指令碼：
 
-    Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
-    
+   ```PowerShell
+   Get-MsolUser -UserPrincipalName user@domain.com | Set-MsolUser -StrongAuthenticationRequirements @()
+   ```
+
 這也可以縮短為：
 
-    Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
+   ```PowerShell
+   Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
+   ```
 
 ## <a name="next-steps"></a>後續步驟
 
-系統會還是不會提示使用者執行 MFA 的原因？ 請參閱＜Azure Multi-Factor Authentication 中的報告＞文件中的 [Azure AD 登入報告](howto-mfa-reporting.md#azure-ad-sign-ins-report)一節。
-
-若要設定信任的 IP、自訂語音訊息及詐騙警示等額外設定，請參閱[設定 Azure Multi-Factor Authentication 設定](howto-mfa-mfasettings.md)
-
-如需管理 Azure Multi-Factor Authentication 使用者設定的詳細資訊，請參閱[在雲端中管理 Azure Multi-Factor Authentication 的使用者設定](howto-mfa-userdevicesettings.md)一文
+* 系統會還是不會提示使用者執行 MFA 的原因？ 請參閱＜Azure Multi-Factor Authentication 中的報告＞文件中的 [Azure AD 登入報告](howto-mfa-reporting.md#azure-ad-sign-ins-report)一節。
+* 若要設定信任的 IP、自訂語音訊息及詐騙警示等額外設定，請參閱[設定 Azure Multi-Factor Authentication 設定](howto-mfa-mfasettings.md)
+* 如需管理 Azure Multi-Factor Authentication 使用者設定的詳細資訊，請參閱[在雲端中管理 Azure Multi-Factor Authentication 的使用者設定](howto-mfa-userdevicesettings.md)一文

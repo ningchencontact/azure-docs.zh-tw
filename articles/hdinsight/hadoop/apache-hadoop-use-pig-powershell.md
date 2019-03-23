@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 69a45a0c2c21ffafde8a4b366e1f3e90b7c8f59a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bb00f6ccd22be75a235d9cd6fc174741207a76e0
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58012613"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359155"
 ---
 # <a name="use-azure-powershell-to-run-apache-pig-jobs-with-hdinsight"></a>使用 Azure PowerShell 執行 Apache Pig 作業與 HDInsight
 
@@ -26,6 +26,8 @@ ms.locfileid: "58012613"
 > 本文件不提供範例中使用的 Pig Latin 陳述式所執行的工作詳細的描述。 如需此範例中使用的 Pig Latin 相關資訊，請參閱 [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Pig](hdinsight-use-pig.md)。
 
 ## <a id="prereq"></a>必要條件
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * **Azure HDInsight 叢集**
 
@@ -40,11 +42,11 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Pi
 
 在遠端 HDInsight 叢集上執行 Pig 工作時，會使用下列 Cmdlet：
 
-* **Connect-AzureRmAccount**:向您的 Azure 訂用帳戶驗證 Azure PowerShell。
-* **New-AzureRmHDInsightPigJobDefinition**：使用指定的 Pig Latin 陳述式建立「作業定義」。
-* **Start-AzureRmHDInsightJob**：將作業定義傳送給 HDInsight，並啟動作業。 系統會傳回「作業」物件。
-* **Wait-AzureRmHDInsightJob**：使用作業物件來檢查作業的狀態。 它會等到作業完成，或超過等候時間。
-* **Get-AzureRmHDInsightJobOutput**：用來擷取作業的輸出。
+* **連接 AzAccount**:向您的 Azure 訂用帳戶驗證 Azure PowerShell。
+* **新 AzHDInsightPigJobDefinition**:使用指定的 Pig Latin 陳述式建立「作業定義」。
+* **開始 AzHDInsightJob**:將作業定義傳送給 HDInsight，並啟動作業。 系統會傳回「作業」物件。
+* **等候 AzHDInsightJob**:使用作業物件來檢查作業的狀態。 它會等到作業完成，或超過等候時間。
+* **Get-AzHDInsightJobOutput**:用來擷取作業的輸出。
 
 下列步驟示範如何使用這些 Cmdlet，在您的 HDInsight 叢集上執行工作。
 
@@ -76,7 +78,7 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Pi
 
     # Print the output of the Pig job.
     Write-Host "Display the standard error output ..." -ForegroundColor Green
-    Get-AzureRmHDInsightJobOutput `
+    Get-AzHDInsightJobOutput `
             -Clustername $clusterName `
             -JobId $pigJob.JobId `
             -HttpCredential $creds `

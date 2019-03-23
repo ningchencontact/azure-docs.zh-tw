@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 906b1dde3d145268df4fb1ff5c243c7daa8396ec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a102216a6a2a7dec471678e14f7050cb4ef41d77
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992435"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370103"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 中的存取控制
 
@@ -279,7 +279,18 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="why-do-i-sometimes-see-guids-in-acls"></a>為什麼我有時候會在 ACL 中看到 GUID？
 
-如果項目代表使用者，而使用者已不存在於 Azure AD 中，則會顯示 GUID。 當使用者已離開公司，或已在 Azure AD 中刪除其帳戶時，通常會發生這種情形。 此外，服務主體和安全性群組並沒有使用者主體名稱 (UPN) 可資識別，因此會藉由其 OID 屬性 (GUID) 來顯示。 
+如果項目代表使用者，而使用者已不存在於 Azure AD 中，則會顯示 GUID。 當使用者已離開公司，或已在 Azure AD 中刪除其帳戶時，通常會發生這種情形。 此外，服務主體和安全性群組並沒有使用者主體名稱 (UPN) 可資識別，因此會藉由其 OID 屬性 (GUID) 來顯示。
+
+### <a name="how-do-i-set-acls-correctly-for-a-service-principal"></a>如何設定 Acl 正確的服務主體？
+
+當您定義 Acl 的服務主體時，務必要使用物件識別碼 (OID) 的*服務主體*您所建立的應用程式註冊。 請務必請注意，已註冊的應用程式就會有不同的服務主體中的特定 Azure AD 租用戶。 已註冊的應用程式都有 OID，會顯示在 Azure 入口網站中，但*服務主體*有另一個 （差異） 的 OID。
+
+若要取得服務主體，對應至應用程式註冊的 OID，您可以使用`az ad sp show`命令。 指定應用程式識別碼做為參數。 以下是範例取得對應至應用程式識別碼的應用程式註冊為服務主體的 OID = 18218b12-1895年-43e9-ad80-6e8fc1ea88ce。 在 Azure CLI 中執行下列命令：
+
+`az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
+<<OID will be displayed>>`
+
+當您有正確的 OID，服務主體時，請移至儲存體總管**Manage Access**頁面以新增 OID，並指派適當的權限的 OID。 請確定您選取**儲存**。
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2 是否支援 ACL 的繼承？
 

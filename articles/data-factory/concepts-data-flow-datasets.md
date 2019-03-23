@@ -1,18 +1,18 @@
 ---
 title: Azure Data Factory 對應資料流程資料集
-description: Azure Data Factory 對應資料流程 」 有 sepecific 資料集的相容性
+description: Azure Data Factory 對應資料流程 」 有特定的資料集的相容性
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: ad6cfdad519ab3901c58979970ea07439b3106e9
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 4e36e96947e6a8595230023065eb9f44a5a1f3d2
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726918"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371310"
 ---
 # <a name="mapping-data-flow-datasets"></a>對應資料流程資料集
 
@@ -42,6 +42,12 @@ ms.locfileid: "57726918"
 ## <a name="import-schemas"></a>匯入結構描述
 
 當匯入「資料流程」資料集的結構描述時，您會看到的 [匯入結構描述] 按鈕。 按一下按鈕將顯示兩個選項：從來源匯入或從本機檔案匯入。 在大部分情況下，您會直接從來源匯入結構描述。 不過，如果您有現有的結構描述檔案 (含標頭的 Parquet 檔案或 CSV)，您可以指向該本機檔案，Data Factory 將會根據該結構描述檔案定義結構描述。
+
+## <a name="create-new-table"></a>建立新資料表
+
+在資料流程中，您可以提出 ADF 到目標資料庫中建立新的資料表定義，藉由設定中有新的資料表名稱的 「 接收 」 轉換的資料集。 在 SQL 資料集，按一下 [編輯] 下方的資料表名稱並輸入新的資料表名稱。 然後，在 「 接收 」 轉換中，開啟 「 允許結構描述漂移 」。 Seth 「 匯入結構描述 」 設定為 None。
+
+![來源轉換結構描述](media/data-flow/dataset2.png "SQL 結構描述")
 
 ## <a name="delimited-text-dataset"></a>分隔的文字資料集
 

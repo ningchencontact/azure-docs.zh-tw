@@ -10,18 +10,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/04/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: a47a30995f651204782325a9f984086fdf382a03
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: bf1c7360157b3b4af467cf53634056d70b91ebd2
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202192"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361331"
 ---
 # <a name="use-time-based-apache-oozie-coordinator-with-apache-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>搭配 HDInsight 中的 Apache Hadoop 使用時間型 Apache Oozie 協調器，以定義工作流程和協調作業
 在本文中，您將了解如何定義工作流程和協調器，以及如何觸發以時間為基礎的協調器工作。 閱讀本文之前，建議先瀏覽[搭配 HDInsight 使用 Oozie][hdinsight-use-oozie]。 除了 Oozie，您也可以使用 Azure Data Factory 排定工作。 若要了解 Azure Data Factory，請參閱 [將 Apache Pig 和 Apache Hive 與 Data Factory 搭配使用](../data-factory/transform-data.md)。
 
 > [!NOTE]  
 > 本文章需有以 Windows 為基礎的 HDInsight 叢集。 如需在以 Linux 為基礎之叢集上使用 Oozie (包括以時間為基礎的作業) 的相關資訊，請參閱 [在以 Linux 為基礎的 HDInsight 上搭配 Hadoop 使用 Oozie 來定義並執行工作流程](hdinsight-use-oozie-linux-mac.md)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-is-oozie"></a>什麼是 Oozie
 Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。 它可與 Hadoop 堆疊整合，並且支援 Apache Hadoop MapReduce、Apache Pig、Apache Hive 和 Apache Sqoop 的 Hadoop 作業。 它也可用來排程系統的特定工作，例如 Java 程式或 Shell 指令碼。
@@ -328,15 +330,15 @@ HDInsight 使用 Azure Blob 儲存體來儲存資料。 wasb:// 是 Azure Blob �
 
     ```powershell
     # Create a storage context object
-    $storageaccountkey = get-azurestoragekey $storageAccountName | %{$_.Primary}
-    $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
+    $storageaccountkey = get-AzStoragekey $storageAccountName | %{$_.Primary}
+    $destContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
 
     function uploadOozieFiles()
     {
         Write-Host "Copy HiveQL script, workflow definition and coordinator definition ..." -ForegroundColor Green
-        Set-AzureStorageBlobContent -File $hiveQLScript -Container $containerName -Blob "$destFolder/useooziewf.hql" -Context $destContext
-        Set-AzureStorageBlobContent -File $workflowDefinition -Container $containerName -Blob "$destFolder/workflow.xml" -Context $destContext
-        Set-AzureStorageBlobContent -File $coordDefinition -Container $containerName -Blob "$destFolder/coordinator.xml" -Context $destContext
+        Set-AzStorageBlobContent -File $hiveQLScript -Container $containerName -Blob "$destFolder/useooziewf.hql" -Context $destContext
+        Set-AzStorageBlobContent -File $workflowDefinition -Container $containerName -Blob "$destFolder/workflow.xml" -Context $destContext
+        Set-AzStorageBlobContent -File $coordDefinition -Container $containerName -Blob "$destFolder/coordinator.xml" -Context $destContext
     }
 
     function prepareHiveDataFile()
@@ -686,9 +688,9 @@ $sqlDatabaseName = "<SQLDatabaseName>"
 $sqlDatabaseTableName = "log4jLogsCount"
 
 Write-host "Delete the Hive script output file ..." -ForegroundColor Green
-$storageaccountkey = get-azurestoragekey $storageAccountName | %{$_.Primary}
-$destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
-Remove-AzureStorageBlob -Context $destContext -Blob "tutorials/useoozie/output/000000_0" -Container $containerName
+$storageaccountkey = get-AzStoragekey $storageAccountName | %{$_.Primary}
+$destContext = New-AzStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageaccountkey
+Remove-AzStorageBlob -Context $destContext -Blob "tutorials/useoozie/output/000000_0" -Container $containerName
 
 Write-host "Delete all the records from the log4jLogsCount table ..." -ForegroundColor Green
 $conn = New-Object System.Data.SqlClient.SqlConnection

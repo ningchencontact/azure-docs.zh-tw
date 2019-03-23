@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 949bf52a586603fc6a82c0da553cf70877a8f4be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3b5da6c9046fc694bd5eb0f55cf031b82b6d0103
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085009"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370528"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>在 Azure 監視器中使用 Active Directory 健康情況檢查解決方案來最佳化 Active Directory 環境
 
@@ -55,7 +55,7 @@ ms.locfileid: "58085009"
 
 1. 如果 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 已不再監視網域控制站，則安裝 [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md)。
 2. 如果控制站受到 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 監視，而管理群組未與 Azure 監視器服務整合，則該網域控制站可以是具有 Azure 監視器的多重主目錄，以便收集資料並轉送至該服務，且仍然受到 Operations Manager 監視。  
-3. 除此之外，如果您的 Operations Manager 管理群組已與服務整合，則在工作區中啟用方案後，您需要讓服務依循[新增代理程式的受控電腦](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-log-analytics)下的步驟，來新增網域控制站以收集資料。  
+3. 除此之外，如果您的 Operations Manager 管理群組已與服務整合，則在工作區中啟用方案後，您需要讓服務依循[新增代理程式的受控電腦](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-azure-monitor)下的步驟，來新增網域控制站以收集資料。  
 
 網域控制站上的代理程式會向 Operations Manager 管理群組報告、收集資料、轉送至其指派的管理伺服器，然後直接從管理伺服器傳送至 Azure 監視器服務。  資料並不會寫入 Operations Manager 資料庫。  
 

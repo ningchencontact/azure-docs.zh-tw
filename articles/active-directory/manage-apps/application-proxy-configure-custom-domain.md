@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05c537b061619aa458663a9dcfcc97155d8a6614
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 59663346fce415d73609f09345048ff321f1a234
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106792"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359819"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 中的自訂網域
 
@@ -60,7 +60,8 @@ ms.locfileid: "58106792"
 
 6. 上傳 PFX 憑證，然後輸入憑證的密碼。 
 7. 選取 [儲存] 來儲存變更。 
-8. 新增 [DNS 記錄](../../dns/dns-operations-recordsets-portal.md)，此記錄會將新的外部 URL 重新導向至 msappproxy.net 網域。 
+8. 新增 [DNS 記錄](../../dns/dns-operations-recordsets-portal.md)，此記錄會將新的外部 URL 重新導向至 msappproxy.net 網域。
+9. 檢查是否設定正確的 DNS 記錄[nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx)命令，以查看您的外部 URL 是否連線到 msapproxy.net 網域會顯示做為別名。
 
 >[!TIP] 
 >您只需要針對每個自訂網域上傳一個憑證。 一旦上傳憑證，您即可在發佈新應用程式時選擇自訂網域，而不需要進行額外的設定 (DNS 記錄除外)。 

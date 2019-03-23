@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: danlep
-ms.openlocfilehash: 5382c565e5afc42d65a3198d797b51d1b1a9dde6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c6c82ee26fdbd824bdf42720ed7fc08135a872da
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550765"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372398"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>將容器執行個體部署至 Azure 虛擬網路
 
@@ -114,13 +114,13 @@ ms.locfileid: "57550765"
 
 首先，部署容器群組，並為新的虛擬網路及子網路指定參數。 當您指定這些參數時，Azure 會建立虛擬網路及子網路，將子網路委派至 Azure 容器執行個體，以及建立網路設定檔。 當您建立這些資源後，您的容器群組就會部署至子網路。
 
-請執行下列 [az container create][az-container-create] 命令，為新的虛擬網路及子網路指定設定。 您必須提供在以下區域中建立的資源群組名稱：[支援](#preview-limitations)虛擬網路中的容器群組。 此命令會部署 [microsoft/aci-helloworld][aci-helloworld] 容器，該容器執行小型 Node.js 網頁伺服器來提供靜態網頁服務。 在下一節中，您會對同一個子網路部署第二個容器群組，並測試兩個容器執行個體之間的通訊。
+請執行下列 [az container create][az-container-create] 命令，為新的虛擬網路及子網路指定設定。 您必須提供在以下區域中建立的資源群組名稱：[支援](#preview-limitations)虛擬網路中的容器群組。 此命令會部署 Microsoft 的公用[aci helloworld] [ aci-helloworld]執行小型 Node.js web 伺服器提供靜態網頁上的容器。 在下一節中，您會對同一個子網路部署第二個容器群組，並測試兩個容器執行個體之間的通訊。
 
 ```azurecli
 az container create \
     --name appcontainer \
     --resource-group myResourceGroup \
-    --image microsoft/aci-helloworld \
+    --image mcr.microsoft.com/azuredocs/aci-helloworld \
     --vnet aci-vnet \
     --vnet-address-prefix 10.0.0.0/16 \
     --subnet aci-subnet \
@@ -181,11 +181,11 @@ index.html           100% |*******************************|  1663   0:00:00 ETA
 
 您也可以使用 YAML 檔案將容器群組部署至現有的虛擬網路。 若要部署至虛擬網路中的子網路，您要在 YAML 中額外指定幾項屬性：
 
-* `ipAddress`：容器群組的 IP 位址設定。
-  * `ports`：要開啟的連接埠 (如果有的話)。
-  * `protocol`：已開啟連接埠的通訊協定 (TCP 或 UDP)。
-* `networkProfile`：為 Azure 資源指定網路設定，例如虛擬網路及子網路。
-  * `id`：`networkProfile` 的完整 Resource Manager 資源識別碼。
+* `ipAddress`:容器群組的 IP 位址設定。
+  * `ports`:要開啟的連接埠 (如果有的話)。
+  * `protocol`:已開啟連接埠的通訊協定 (TCP 或 UDP)。
+* `networkProfile`:為 Azure 資源指定網路設定，例如虛擬網路及子網路。
+  * `id`:`networkProfile` 的完整 Resource Manager 資源識別碼。
 
 若要使用 YAML 檔案將容器群組部署至虛擬網路，您需要先取得網路設定檔的識別碼。 請執行 [az network profile list][az-network-profile-list] 命令，指定包含您虛擬網路及委派子網路的資源群組名稱。
 
@@ -210,7 +210,7 @@ properties:
   containers:
   - name: appcontaineryaml
     properties:
-      image: microsoft/aci-helloworld
+      image: mcr.microsoft.com/azuredocs/aci-helloworld
       ports:
       - port: 80
         protocol: TCP
@@ -241,9 +241,9 @@ az container create --resource-group myResourceGroup --file vnet-deploy-aci.yaml
 
 ```console
 $ az container show --resource-group myResourceGroup --name appcontaineryaml --output table
-Name              ResourceGroup    Status    Image                     IP:ports     Network    CPU/Memory       OsType    Location
-----------------  ---------------  --------  ------------------------  -----------  ---------  ---------------  --------  ----------
-appcontaineryaml  myResourceGroup  Running   microsoft/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
+Name              ResourceGroup    Status    Image                                       IP:ports     Network    CPU/Memory       OsType    Location
+----------------  ---------------  --------  ------------------------------------------  -----------  ---------  ---------------  --------  ----------
+appcontaineryaml  myResourceGroup  Running   mcr.microsoft.com/azuredocs/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
 ```
 
 ## <a name="clean-up-resources"></a>清除資源
@@ -310,7 +310,7 @@ az network vnet delete --resource-group $RES_GROUP --name aci-vnet
 [aci-vnet-01]: ./media/container-instances-vnet/aci-vnet-01.png
 
 <!-- LINKS - External -->
-[aci-helloworld]: https://hub.docker.com/r/microsoft/aci-helloworld/
+[aci-helloworld]: https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->

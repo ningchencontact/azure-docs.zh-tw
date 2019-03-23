@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: d1e896aee4ba699704ce01e0cff8210d53700993
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8b10cb0d66103410159a09ca156be3ea180c068b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899803"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371922"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Azure 監視代理程式概觀 
 Microsoft Azure 提供了多種方法，可從裝載於 Azure、資料中心或其他雲端提供者中，且執行 Microsoft Windows 和 Linux 的虛擬機器收集不同類型的資料。 三種可用來監視 VM 的代理程式類型為：
@@ -49,10 +49,10 @@ Microsoft Azure 提供了多種方法，可從裝載於 Azure、資料中心或�
 * 根據客體 OS 計量自動調整虛擬機器擴展集和傳統雲端服務。
 * 使用[開機診斷](../../virtual-machines/troubleshooting/boot-diagnostics.md)調查 VM 的開機問題。
 * 使用 [Application Insights](../../azure-monitor/overview.md) 了解您的應用程式表現如何，並主動識別對其造成影響的問題。
-* 設定 Log Analytics，以匯入從儲存在 Azure 儲存體帳戶中的雲端服務、傳統 VM 和 Service Fabric 節點收集到的計量和記錄資料。
+* 設定 Azure 監視器，以匯入的計量和記錄資料從雲端服務，傳統 Vm，收集並儲存在 Azure 儲存體帳戶的 Service Fabric 節點。
 
 ## <a name="log-analytics-agent"></a>Log Analytics 代理程式
-進階監視您需要多個會收集計量和記錄的子集，（也稱為做為 Microsoft Monitoring Agent (MMA)） 的 Windows 和 Linux 的 Log Analytics 代理程式則是必要項目。 Log Analytics 代理程式的開發目的，是為了要全方位管理內部部署的實體和虛擬機器、System Center Operations Manager 所監視的電腦，和裝載在其他雲端中的 VM。 Windows 和 Linux 代理程式會連線到 Log Analytics 工作區，以收集以監視解決方案為基礎的資料，和您所設定的自訂資料來源。
+進階監視您需要多個會收集計量和記錄的子集，（也稱為做為 Microsoft Monitoring Agent (MMA)） 的 Windows 和 Linux 的 Log Analytics 代理程式則是必要項目。 Log Analytics 代理程式的開發目的，是為了要全方位管理內部部署的實體和虛擬機器、System Center Operations Manager 所監視的電腦，和裝載在其他雲端中的 VM。 Windows 和 Linux 代理程式連接到 Azure 監視器來收集監視解決方案基礎的資料以及您所設定的自訂資料來源中的 Log Analytics 工作區。
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -70,7 +70,7 @@ Microsoft Azure 提供了多種方法，可從裝載於 Azure、資料中心或�
 * [Application Insights](https://docs.microsoft.com/azure/application-insights/) 和 [Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/)等 Azure 服務，這些服務會在原生狀態將其資料直接儲存在 Log Analytics 中。  
 
 ## <a name="dependency-agent"></a>相依性代理程式
-相依性代理程式經開發後成為服務對應解決方案的一部分，而後者原本是在 Microsoft 外部開發的。 [服務對應](../insights/service-map.md)和[適用於 VM 的 Azure 監視器](../insights/vminsights-overview.md)在 Windows 和 Linux 上必須要有相依性代理程式，此代理程式會與 Log Analytics 代理程式整合，以收集虛擬機器上所執行程序的相關探索資料，以及外部程序相依性。 Dependency Agent 會將此資料儲存在 Log Analytics 中，並以視覺化方式呈現探索到的互連元件。
+相依性代理程式經開發後成為服務對應解決方案的一部分，而後者原本是在 Microsoft 外部開發的。 [服務對應](../insights/service-map.md)和[適用於 VM 的 Azure 監視器](../insights/vminsights-overview.md)在 Windows 和 Linux 上必須要有相依性代理程式，此代理程式會與 Log Analytics 代理程式整合，以收集虛擬機器上所執行程序的相關探索資料，以及外部程序相依性。 它會將此資料儲存在 Log Analytics 工作區中，並以視覺化方式呈現探索到的互連的元件。
 
 您可能需要適當組合這些代理程式，以監視您的 VM。 代理程式可作為 Azure 擴充功能並存地安裝，不過在 Linux 上，Log Analytics 代理程式*必須*先行安裝，否則安裝將會失敗。 
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f36ce51a9f385933cbc21e27280828b0ff0e43e2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6eae536bd19a2c0e5707d8e0b379774b6eb2707a
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58016706"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58395522"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>在 Azure 中可使用哪些磁碟類型？
 
@@ -27,9 +27,9 @@ Azure 受控的磁碟目前提供四種磁碟類型，其中三個已正式運�
 |---------|---------|---------|---------|---------|
 |磁碟類型   |SSD   |SSD   |SSD   |HDD   |
 |案例   |IO 密集的工作負載 (例如 SAP HANA)、最上層資料庫 (例如 SQL、Oracle)，以及其他高交易量的工作負載。   |生產環境和重視效能的工作負載   |網頁伺服器，輕量使用的企業應用程式和開發/測試   |備份、不重要、存取不頻繁   |
-|磁碟大小   |65,536 GiB (預覽)   |4,095 GiB (GA)、32,767 GiB (預覽)    |4,095 (GA) GiB、32,767 GiB (預覽)   |4,095 GiB (GA)、32,767 GiB (預覽)   |
-|最大輸送量   |2,000 MiB/秒 (預覽)   |250 (GA) MiB/秒、750 MiB/秒 (預覽)   |60 MiB/秒 (GA)、500 MiB/秒 (預覽)   |60 Mib/秒 (GA)、500 MiB/秒 (預覽)   |
-|最大 IOPS   |160,000 (預覽)   |7500 (GA)、20,000 (預覽)   |500 (GA)、2,000 (預覽)   |500 (GA)、2,000 (預覽)   |
+|磁碟大小   |65,536 GiB (預覽)   |32,767 GiB    |32,767 GiB   |32,767 GiB   |
+|最大輸送量   |2,000 MiB/秒 (預覽)   |900 MiB/s   |750 MiB/s   |500 MiB/s   |
+|最大 IOPS   |160,000 (預覽)   |20,000   |6,000   |2,000   |
 
 ## <a name="ultra-ssd-preview"></a>Ultra SSD (預覽)
 

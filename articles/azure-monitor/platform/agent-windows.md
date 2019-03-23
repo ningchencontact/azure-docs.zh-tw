@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: d433a480165424e47d4d84e67e7fd02648ebe2d1
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: f9df65d143fbb0eaf6276a0f38971e19c0741786
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223422"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370953"
 ---
-# <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>將 Windows 電腦連接到 Azure 中的 Log Analytics 服務
+# <a name="connect-windows-computers-to-azure-monitor"></a>將 Windows 電腦連線到 Azure 監視器
 
-為了要使用 Log Analytics 監視及管理本機資料中心或其他雲端環境中的虛擬機器或實體電腦，您需要部署 Log Analytics 代理程式 (也稱為 Microsoft Monitoring Agent (MMA))，並將它設定為向一或多個 Log Analytics 工作區報告。 此代理程式也支援 Azure 自動化的混合式 Runbook 背景工作角色。  
+若要監視及管理虛擬機器或本機資料中心或其他雲端環境中使用 Azure 監視器的實體電腦，您必須部署 Log Analytics 代理程式 （也稱為做為 Microsoft Monitoring Agent (MMA)），並將它設定為回報給一或多個 Log Analytics 工作區。 此代理程式也支援 Azure 自動化的混合式 Runbook 背景工作角色。  
 
-在受監視的 Windows 電腦上，會將此代理程式列為 Microsoft Monitoring Agent 服務。 Microsoft Monitoring Agent 服務會從記錄檔和 Windows 事件記錄檔、效能資料及其他遙測收集事件。 即使代理程式無法與 Log Analytics 服務 (它的報告對象) 通訊，代理程式仍會繼續執行，並將收集到的資料佇列在受監視電腦的磁碟上。 當連線恢復時，Microsoft Monitoring Agent 服務會將收集的資料傳送給服務。
+在受監視的 Windows 電腦上，會將此代理程式列為 Microsoft Monitoring Agent 服務。 Microsoft Monitoring Agent 服務會從記錄檔和 Windows 事件記錄檔、效能資料及其他遙測收集事件。 即使代理程式無法與 Azure 監視器，它會報告來通訊，代理程式會繼續執行，並在磁碟上的受監視的電腦上收集的資料排入佇列。 當連線恢復時，Microsoft Monitoring Agent 服務會將收集的資料傳送給服務。
 
 可以使用下列其中一種方法安裝代理程式。 大部分安裝會使用這些方法的組合，視需要為不同的電腦集合進行安裝。  使用每種方法的詳細資料會在本文稍後提供。
 
@@ -40,7 +40,7 @@ ms.locfileid: "58223422"
 若要了解支援的組態，請檢閱[支援的 Windows 作業系統](log-analytics-agent.md#supported-windows-operating-systems)和[網路防火牆組態](log-analytics-agent.md#network-firewall-requirements)。
 
 ## <a name="obtain-workspace-id-and-key"></a>取得工作區識別碼和金鑰
-安裝適用於 Windows 的 Log Analytics 代理程式之前，您需要 Log Analytics 工作區的工作區識別碼和金鑰。  每種安裝方法都需要這項資訊，才能正確設定代理程式，並確保它能與 Azure Commercial 和 US Government 雲端中的 Log Analytics 順利進行通訊。  
+安裝適用於 Windows 的 Log Analytics 代理程式之前，您需要 Log Analytics 工作區的工作區識別碼和金鑰。  這項資訊才能正確設定代理程式，並確保與 Azure 監視器中 Azure commercial 和 US Government 雲端可以順利進行通訊的每種安裝方法安裝期間是必要的。  
 
 1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
 2. 在您的 Log Analytics 工作區清單中，選取您要設定讓代理程式向哪個工作區報告。
@@ -68,7 +68,7 @@ ms.locfileid: "58223422"
 5. 重新啟動系統來使設定生效。 
 
 ## <a name="install-the-agent-using-setup-wizard"></a>使用安裝精靈安裝代理程式
-下列步驟會在您的電腦上，使用代理程式的安裝精靈來安裝並設定適用於 Azure 和 Azure Government Cloud 中 Log Analytics 的代理程式。 如果您想要了解如何設定代理程式，以同時回報至 System Center Operations Manager 管理群組，請參閱[使用代理程式安裝精靈部署 Operations Manager 代理程式](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard)。
+下列步驟安裝，並在 Azure 和 Azure Government 雲端中設定 Log Analytics 代理程式，使用您的電腦上的代理程式安裝精靈。 如果您想要了解如何設定代理程式，以同時回報至 System Center Operations Manager 管理群組，請參閱[使用代理程式安裝精靈部署 Operations Manager 代理程式](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard)。
 
 1. 在 Log Analyics 工作區中，從您稍早瀏覽的 [Windows 伺服器] 頁面，根據 Windows 作業系統的處理器架構，選取適當的 [下載 Windows 代理程式] 版本來下載。   
 2. 執行安裝程式以在您的電腦上安裝代理程式。
@@ -184,15 +184,14 @@ ms.locfileid: "58223422"
 
 在電腦的 [控制台] 中，找到 [Microsoft Monitoring Agent]。  選取它，然後代理程式應該會在 [Azure Log Analytics] 索引標籤上顯示訊息，指出：[Microsoft Monitoring Agent 已成功與 Microsoft Operations Management Suite 服務連線。]<br><br> ![MMA 對 Log Analytics 的連線狀態](media/agent-windows/log-analytics-mma-laworkspace-status.png)
 
-您也可以在 Azure 入口網站中執行簡單的記錄搜尋。  
+您也可以在 Azure 入口網站中執行簡單的記錄檔查詢。  
 
-1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。  
-2. 在 Log Analytics 工作區頁面中，選取目標工作區，然後選取 [記錄搜尋] 圖格。 
-2. 在 [記錄搜尋] 窗格的查詢欄位中輸入：  
+1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中，輸入**Azure 監視器**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取  **Azure 監視器**。  
+2. 選取 **記錄檔**功能表中。 
+2. 在 [記錄] 窗格的查詢欄位中輸入：  
 
     ```
-    search * 
-    | where Type == "Heartbeat" 
+    Heartbeat 
     | where Category == "Direct Agent" 
     | where TimeGenerated > ago(30m)  
     ```

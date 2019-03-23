@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: 6e4a83eb8b3488c4ce2816151ca31b4a594dd742
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: ce66d44c0ddb84ed8c2908d02b8062195d6b461d
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338627"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351009"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure 客體作業系統可支援性和淘汰原則
 本頁面中的資訊涉及雲端服務背景工作和 Web 角色 (PaaS) 適用的 Azure 客體作業系統 ([客體 OS](cloud-services-guestos-update-matrix.md))。 這些資訊不適用於虛擬機器 (IaaS)。
@@ -57,7 +57,7 @@ Microsoft 會在每個月發行客體作業系統。 由于常规发布的速率
 
 一段時間之後成為 「 停用 」，客體 OS 版本 「 過期 」，而所有仍執行該過期的版本安裝會公開至安全性與漏洞問題。 一般而言，到期日會執行批次，因此從停用到期的期間可能會不同。
 
-設定其服務，以手動更新客體 OS 的客戶應該確保他們的部署正在執行支援的客體作業系統上。 如果服務設定為自動更新客體 OS，基礎平台可確保合規性，並會升級至最新的客體 OS。
+設定其服務，以手動更新客體 OS 的客戶應該確定其服務正在執行支援的客體作業系統上。 如果服務設定為自動更新客體 OS，基礎平台可確保合規性，並會升級至最新的客體 OS。
 
 Microsoft 可自行決定是否延長該期間，以緩和客戶轉換時的不便。 所有的更新資訊都會發佈於「 [Azure 客體 OS 版本與 SDK 相容性比較表](cloud-services-guestos-update-matrix.md)」。
 

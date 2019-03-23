@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 20491981cb02e428ff4114b9456d74b0de651be8
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 54302f97913fd01dc8f8e4a8d987a407c8bdf9a7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569020"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369160"
 ---
 # <a name="mapping-data-flow-source-transformation"></a>對應資料流程來源轉換
 
@@ -74,7 +74,7 @@ ms.locfileid: "57569020"
 ## <a name="source-file-management"></a>來源檔案管理
 ![新增來源設定](media/data-flow/source2.png "新增設定")
 
-* 萬用字元路徑，從您的來源資料夾中挑選一系列符合模式的檔案。 這會覆寫您已設定您的資料集定義中的任何檔案。
+* 萬用字元挑選一系列符合模式的檔案從來源資料夾的路徑。 這會覆寫您已設定您的資料集定義中的任何檔案。
 * 檔案清單。 與檔案集相同。 指向您建立的文字檔案，其中包含一份要處理的相對路徑檔案清單。
 * 要儲存檔案名稱的資料行會在您資料的資料行中，儲存來源中的檔案名稱。 在此輸入新的名稱以儲存檔案名稱字串。
 * 完成之後 (在資料流執行之後，您可以選擇不對來源檔案執行任何作業、刪除來源檔案或移動來源檔案。) 用於移動的路徑都是相對路徑。
@@ -83,7 +83,7 @@ ms.locfileid: "57569020"
 
 當您使用 Azure SQL DB 或 Azure SQL DW 作為來源時，您會有其他選項。
 
-* 查詢：對您的來源輸入 SQL 查詢。 設定查詢將會覆寫您在資料集中選擇的任何資料表。 請注意，這裡不支援 Order By 子句。
+* 查詢：對您的來源輸入 SQL 查詢。 設定查詢將會覆寫您在資料集中選擇的任何資料表。 請注意，這裡不支援 Order By 子句。 不過，您可以完整 SELECT FROM 陳述式在此處設定。
 
 * 批次大小：輸入批次大小，以將大量資料分成批次大小的讀取。
 

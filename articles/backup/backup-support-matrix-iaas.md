@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: 637ec63d1c3e5a3eb1ce26765b1ab22e9823e9a1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 63821ef5ebc36f49d4f3a43a7fbfbcf8fda12c50
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317420"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352029"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 備份的支援矩陣
 您可以使用[Azure 備份服務](backup-overview.md)備份內部部署機器和工作負載和 Azure 虛擬機器 (Vm)。 本文摘要說明支援設定和限制，當您使用 Azure 備份的 Azure Vm 備份。
@@ -82,7 +82,7 @@ ms.locfileid: "58317420"
 - Azure 備份不支援 Core OS Linux。
 - Azure 備份不支援 32 位元作業系統。
 - 其他攜帶您自己的 Linux 散發套件可能運作，只要[適用於 Linux 的 Azure VM 代理程式](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux)可用的 VM 上，且只要支援 Python。
-- Azure 備份不支援執行的 VM  **Python 2.6 版*只** 使用 proxy 設定。
+- Azure 備份不支援只使用設定的 proxy 執行 Python 版本 2.6* VM。
 
 
 

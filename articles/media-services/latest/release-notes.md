@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/21/2019
 ms.author: juliako
-ms.openlocfilehash: 236e4e7079da792d055a8de148d03852ca1012ab
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a6746fa193331aff66b8726da1cb3afe49fdc9bf
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877355"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351538"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure 媒體服務 v3 版本資訊
 
@@ -34,9 +34,13 @@ ms.locfileid: "57877355"
 
 如需詳細資訊，請參閱[從媒體服務 v2 移至 v3 的移轉指導](migrate-from-v2-to-v3.md#known-issues)。
 
+## <a name="march-2019"></a>2019 年 3 月
+
+動態封裝現在支援 Dolby Atmos. 如需詳細資訊，請參閱 <<c0> [ 音訊轉碼器支援動態封裝](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging)。
+
 ## <a name="february-2019"></a>2019 年 2 月
 
-Azure 的國家/地區雲端中現已支援媒體服務 v3。 尚未在所有雲端中提供所有功能。 如需詳細資訊，請參閱[存在 Azure 媒體服務 v3 的雲端和區域](azure-clouds-regions.md)。
+媒體服務 v3 現已支援在 Azure 的國家/地區雲端中。 尚未在所有雲端中提供所有功能。 如需詳細資訊，請參閱[存在 Azure 媒體服務 v3 的雲端和區域](azure-clouds-regions.md)。
 
 [Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) 事件已被新增至適用於媒體服務的 Azure 事件格線結構描述。
 

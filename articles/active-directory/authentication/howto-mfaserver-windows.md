@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43c21fb3c3e7c00ecdbadb1e730ba5ce303dc869
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 36172850c345fc190c3326413f2883dc2b070e98
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312184"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58367885"
 ---
 # <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Windows 驗證與 Azure Multi-Factor Authentication Server
 
@@ -29,9 +29,10 @@ ms.locfileid: "58312184"
 > [!NOTE]
 > 在 Windows Server 2012 R2 上，不支援這項功能來保護終端機服務。
 
-## <a name="to-secure-an-application-with-windows-authentication-use-the-following-procedure"></a>若要使用 Windows 驗證來保護應用程式，請使用下列程序。
+## <a name="to-secure-an-application-with-windows-authentication-use-the-following-procedure"></a>若要保護的應用程式使用 Windows 驗證，使用下列程序
+
 1. 在 Azure Multi-Factor Authentication Server 中，按一下 [Windows 驗證] 圖示。
-   ![Windows 驗證](./media/howto-mfaserver-windows/windowsauth.png)
+   ![MFA Server 中的 Windows 驗證](./media/howto-mfaserver-windows/windowsauth.png)
 2. 核取 [啟用 Windows 驗證] 核取方塊。 預設不核取此方塊。
 3. [應用程式] 索引標籤可讓系統管理員設定一或多個應用程式要經過 Windows 驗證。
 4. 選取伺服器或應用程式 – 指定是否啟用伺服器/應用程式。 按一下 [確定]。

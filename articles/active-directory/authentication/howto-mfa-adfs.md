@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f508475166346c56b3bd0c8607c27beb7aba66c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0abf2eca52616638f0c4dce89691c0d4f7875106
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316468"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371523"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>使用 Azure Multi-Factor Authentication 與 AD FS 保護雲端資源
 
@@ -30,15 +30,15 @@ ms.locfileid: "58316468"
 2. 在左側選取 [信賴憑證者信任]。
 3. 以滑鼠右鍵按一下 [Microsoft Office 365 身分識別平台]，然後選取 [編輯宣告規則]。
 
-   ![雲端](./media/howto-mfa-adfs/trustedip1.png)
+   ![ADFS 主控台中為信賴憑證者信任](./media/howto-mfa-adfs/trustedip1.png)
 
 4. 在 [發佈轉換規則] 上，按一下 [新增規則]。
 
-   ![雲端](./media/howto-mfa-adfs/trustedip2.png)
+   ![編輯發行轉換規則](./media/howto-mfa-adfs/trustedip2.png)
 
 5. 在 [新增轉換宣告規則精靈] 上，從下拉式清單選取 [通過或篩選傳入宣告]，然後按 [下一步]。
 
-   ![雲端](./media/howto-mfa-adfs/trustedip3.png)
+   ![新增轉換宣告規則精靈](./media/howto-mfa-adfs/trustedip3.png)
 
 6. 指定規則的名稱。 
 7. 選取 [驗證方法參考] 做為傳入宣告類型。
@@ -58,15 +58,15 @@ ms.locfileid: "58316468"
 
 1. 開啟 [AD FS 管理]。
 2. 在左側選取 [信賴憑證者信任]。
-3. 以滑鼠右鍵按一下 **[Microsoft Office 365 身分識別平台]**，然後選取 **[編輯宣告規則...]**。
-   ![雲端](./media/howto-mfa-adfs/trustedip1.png)
-4. 在 [發佈轉換規則] 上，按一下 **[新增規則]**。
-   ![雲端](./media/howto-mfa-adfs/trustedip2.png)
+3. 以滑鼠右鍵按一下**Microsoft Office 365 識別平台**，然後選取**編輯宣告規則...** 
+    ![ADFS 主控台-編輯宣告規則](./media/howto-mfa-adfs/trustedip1.png)
+4. 在 發佈轉換規則上按一下**新增規則。**
+   ![新增宣告規則](./media/howto-mfa-adfs/trustedip2.png)
 5. 在 [新增轉換宣告規則精靈] 上，從下拉式清單選取 [通過或篩選傳入宣告]，然後按 [下一步]。
-   ![雲端](./media/howto-mfa-adfs/trustedip3.png)
+   ![新增轉換宣告規則精靈](./media/howto-mfa-adfs/trustedip3.png)
 6. 在 [宣告規則名稱] 旁邊的方塊中，命名您的規則。 例如︰InsideCorpNet。
 7. 從 [連入宣告類型] 旁邊的下拉式清單中，選取 [位於公司網路之內]。
-   ![雲端](./media/howto-mfa-adfs/trustedip4.png)
+   ![公司網路內新增宣告](./media/howto-mfa-adfs/trustedip4.png)
 8. 按一下 [完成] 。
 9. 在 [發佈轉換規則] 上，按一下 [新增規則]。
 10. 在 [新增轉換宣告規則精靈] 上，從下拉式清單選取 [使用自訂規則傳送宣告]，然後按 [下一步]。
@@ -75,7 +75,7 @@ ms.locfileid: "58316468"
 
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
-    ![雲端](./media/howto-mfa-adfs/trustedip5.png)
+    ![建立自訂宣告，以保持使用者登入](./media/howto-mfa-adfs/trustedip5.png)
 13. 按一下 [完成] 。
 14. 按一下 [套用]。
 15. 按一下 [確定] 。

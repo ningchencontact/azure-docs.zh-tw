@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0f4a648227e62642bb071a76cbd1f3a50bf78ae
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b55b439f61c76d6d0524c1f01ba5fef745187d04
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314497"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368284"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Android 上的 Azure Active Directory 憑證式驗證
 
@@ -35,16 +35,16 @@ ms.locfileid: "58314497"
 
 | 應用程式 | 支援 |
 | --- | --- |
-| Azure 資訊保護應用程式 |![勾選][1] |
-| Intune 公司入口網站 |![勾選][1] |
-| Microsoft Teams |![勾選][1] |
-| OneNote |![勾選][1] |
-| OneDrive |![勾選][1] |
-| Outlook |![勾選][1] |
-| Power BI |![勾選][1] |
-| 商務用 Skype |![勾選][1] |
-| Word / Excel / PowerPoint |![勾選][1] |
-| Yammer |![勾選][1] |
+| Azure 資訊保護應用程式 |![核取記號表示此應用程式的支援][1] |
+| Intune 公司入口網站 |![核取記號表示此應用程式的支援][1] |
+| Microsoft Teams |![核取記號表示此應用程式的支援][1] |
+| OneNote |![核取記號表示此應用程式的支援][1] |
+| OneDrive |![核取記號表示此應用程式的支援][1] |
+| Outlook |![核取記號表示此應用程式的支援][1] |
+| Power BI |![核取記號表示此應用程式的支援][1] |
+| 商務用 Skype |![核取記號表示此應用程式的支援][1] |
+| Word / Excel / PowerPoint |![核取記號表示此應用程式的支援][1] |
+| Yammer |![核取記號表示此應用程式的支援][1] |
 
 ### <a name="implementation-requirements"></a>實作需求
 

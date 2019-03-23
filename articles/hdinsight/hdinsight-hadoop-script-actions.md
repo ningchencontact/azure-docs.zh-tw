@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 93313557781c6b3788d8b4d43d6676fc17625709
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: d8f7808401b2e11a38b239a353e3b7af2ffcffb3
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201308"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361297"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>開發 HDInsight Windows 型叢集指令碼動作指令碼
 了解如何寫入 HDInsight 的指令碼動作指令碼 如需使用指令碼動作指令碼的資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。 如需針對 Linux 型 HDInsight 叢集撰寫的相同文章，請參閱[開發 HDInsight 的指令碼動作指令碼](hdinsight-hadoop-script-actions-linux.md)。
@@ -32,6 +32,8 @@ ms.locfileid: "58201308"
 > System.Management.Automation.CommandNotFoundException; ExceptionMessage :無法辨識 'Save-HDIFile' 詞彙是否為 Cmdlet、函數、指令檔或可執行程式的名稱。 請檢查名稱拼字，如果名稱含有路徑，請確認路徑正確，然後再試一次。
 > 
 > 這是因為您沒有包括協助程式方法。  請參閱 [自訂指令碼的協助程式方法](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts)。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="sample-scripts"></a>範例指令碼
 為了在 Windows 作業系統上建立 HDInsight 叢集，指令碼動作是 Azure PowerShell 指令碼。 下列指令碼是設定站台設定檔的範例：
@@ -191,8 +193,8 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 
 在此範例中，您必須確定儲存體帳戶 `somestorageaccount` 中的容器 `somecontainer` 可公開存取。 否則，指令碼會擲回「找不到」例外狀況而失敗。
 
-### <a name="pass-parameters-to-the-add-azurermhdinsightscriptaction-cmdlet"></a>傳遞參數到 Add-AzureRmHDInsightScriptAction Cmdlet
-若要將多個參數傳遞至 Add-AzureRmHDInsightScriptAction cmdlet，您必須先格式化字串值以包含指令碼的所有參數。 例如︰
+### <a name="pass-parameters-to-the-add-azhdinsightscriptaction-cmdlet"></a>將參數傳遞至新增 AzHDInsightScriptAction cmdlet
+若要新增 AzHDInsightScriptAction cmdlet 傳遞多個參數，您需要設定要包含指令碼的所有參數的字串值的格式。 例如︰
 
     "-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
 

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 7701ef463124fafd4c750fbb9f23aa03d6bc25ab
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: 963fd1bfd67a20033f0712d3b447091abda40d11
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262484"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369891"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>管理和維護適用於 Windows 和 Linux 的 Log Analytics 代理程式
 
-初始部署 Log Analytics 的 Windows 或 Linux 代理程式後，您可能需要重新設定代理程式，或是在代理程式達到生命週期的淘汰階段時從電腦中移除它。 您可以手動或自動的方式輕鬆地管理這些例行維護工作，後者可以降低操作錯誤和費用。
+初始部署後的 Log Analytics 的 Windows 或 Linux 代理程式在 Azure 監視器中的，您可能需要重新設定代理程式，或從電腦中，如果已達到其生命週期的淘汰階段中移除它。 您可以手動或自動的方式輕鬆地管理這些例行維護工作，後者可以降低操作錯誤和費用。
 
 ## <a name="adding-or-removing-a-workspace"></a>新增或移除工作區
 
@@ -115,7 +115,7 @@ $mma.ReloadConfiguration()
 
 #### <a name="update-settings-using-powershell"></a>使用 PowerShell 更新設定
 
-複製下列 PowerShell 程式碼範例，以您環境的特定資訊加以更新，並使用 PS1 副檔名進行儲存。 在直接連線到 Log Analytics 服務的每一部電腦上執行指令碼。
+複製下列 PowerShell 程式碼範例，以您環境的特定資訊加以更新，並使用 PS1 副檔名進行儲存。 直接連線到 Log Analytics 工作區，在 Azure 監視器中的每部電腦上執行指令碼。
 
 ```PowerShell
 param($ProxyDomainName="https://proxy.contoso.com:30443", $cred=(Get-Credential))

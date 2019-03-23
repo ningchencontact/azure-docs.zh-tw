@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: raynew
-ms.openlocfilehash: b12809627bc7a3ab3f17f4c3b11bc3a899fd0485
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 98ffe145103b4be04014627ed04d04dcf7542015
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849919"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368947"
 ---
 # <a name="azure-backup-architecture"></a>Azure 備份架構
 
@@ -179,7 +179,7 @@ Azure VM 會使用磁碟來儲存其作業系統、應用程式和資料。 每�
 您可以使用進階儲存體使用 Azure 備份來備份 Azure Vm:
 
 - 在備份進階儲存體的 Vm 的過程中，備份服務會建立暫存的預備位置，名為*AzureBackup-*，儲存體帳戶中。 預備位置的大小等於復原點快照集的大小。
-- 確定進階儲存體帳戶有足夠的可用空間可容納暫存位置。 [深入了解](../storage/common/storage-scalability-targets.md#premium-storage-account-scale-limits)。 請勿修改暫存位置。
+- 確定進階儲存體帳戶有足夠的可用空間可容納暫存位置。 [深入了解](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits)。 請勿修改暫存位置。
 - 備份作業完成後，就會刪除暫存位置。
 - 用於暫存位置的儲存體，價格會與[進階儲存體價格](../virtual-machines/windows/disks-types.md#billing)一致。
 

@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b433d8556377206ea53ece2764e251dcb266eb95
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e2ba6b2d33c3fb5d9fda6821718ac61513a958b7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192348"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369134"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>將您的工作裝置加入組織的網路
 將您工作用的 Windows 10 裝置加入組織的網路，如此就能存取可能受限的資源。
@@ -26,7 +26,7 @@ ms.locfileid: "56192348"
 ## <a name="what-happens-when-you-join-your-device"></a>當您加入裝置時會發生什麼事
 當您將 Windows 10 裝置加入組織的網路時，將會發生下列動作：
 
-- Windows 會向貴組織的網路註冊您的裝置，讓您可以使用個人帳戶存取您的資源。 註冊裝置之後，Windows 接著會將您的裝置加入網路，讓您能夠使用貴組織的使用者名稱和密碼來登入並存取受限的資源。
+- Windows 會註冊您的裝置到貴組織的網路，讓您存取您使用您的個人帳戶的資源。 註冊裝置之後，Windows 接著會將您的裝置加入網路，讓您能夠使用貴組織的使用者名稱和密碼來登入並存取受限的資源。
 
 - (選擇性) 根據組織的選擇，可能會要求您透過 [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) 或[安全性資訊](user-help-security-info-overview.md)設定雙步驟驗證。
 

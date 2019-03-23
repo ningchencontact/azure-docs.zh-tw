@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 18dfc6badf640afb418e661e6c464442fbb41945
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e8f3cf3889b3f79e930630ff0e768a0c4875eec6
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875164"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361722"
 ---
 # <a name="security-frame-session-management"></a>安全框架︰工作階段管理
 | 產品/服務 | 文章 |
@@ -389,18 +389,17 @@ void Page_Init (object sender, EventArgs e) {
 ```
 
 ## <a id="threat-detection"></a>在 Azure SQL 上啟用威脅偵測功能
-```
 
-| Title                   | Details      |
+| 標題                   | 詳細資料      |
 | ----------------------- | ------------ |
-| **Component**               | Web Application | 
-| **SDL Phase**               | Build |  
-| **Applicable Technologies** | Web Forms |
-| **Attributes**              | N/A  |
-| **References**              | [forms Element for authentication (ASP.NET Settings Schema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
-| **Steps** | Set the Forms Authentication Ticket cookie timeout to 15 minutes|
+| **元件**               | Web 應用程式 | 
+| **SDL 階段**               | 建置 |  
+| **適用的技術** | Web Form |
+| **屬性**              | N/A  |
+| **參考**              | [驗證 （ASP.NET 設定結構描述） 的 forms 項目](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
+| **步驟** | 將表單驗證票證 Cookie 逾時設定為 15 分鐘|
 
-### Example
+### <a name="example"></a>範例
 ```XML
 <forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
 </forms>

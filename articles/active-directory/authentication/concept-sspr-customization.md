@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a77c6ce205c40b5814f9b26f9099d868d434d3ce
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d38d93a1c9716cc3a71d904b7b1a46fb8b1c2ee0
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316443"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369219"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>自訂 Azure AD 的自助式密碼重設功能
 
@@ -26,12 +26,12 @@ ms.locfileid: "58316443"
 
 即使未啟用 SSPR，使用者在密碼重設入口網站上仍然會有 [請連絡您的系統管理員] 連結。 如果使用者選取此連結，它將會執行下列其中一項操作：
 
-   * 傳送電子郵件給系統管理員，請他們協助關變更使用者密碼。
-   * 將使用者傳送到您所指定的 URL 以取得協助。
+* 傳送電子郵件給系統管理員，請他們協助關變更使用者密碼。
+* 將使用者傳送到您所指定的 URL 以取得協助。
 
 建議您將此連絡人設定為使用者已針對支援問題使用的電子郵件地址或網站等項目。
 
-![連絡人][Contact]
+![若要重設電子郵件傳送給系統管理員的範例要求][Contact]
 
 這封連絡人電子郵件會依下列順序傳送給下列收件者︰
 
@@ -68,8 +68,8 @@ Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwor
 
 * 在使用者輸入其使用者名稱之後
 * 如果使用者存取自訂的 URL，則會透過下列方式：
-    * 藉由傳遞`whr`參數到密碼重設頁面，例如 `https://login.microsoftonline.com/?whr=contoso.com`
-    * 藉由傳遞`username`參數到密碼重設頁面，例如 `https://login.microsoftonline.com/?username=admin@contoso.com`
+   * 藉由傳遞`whr`參數到密碼重設頁面，例如 `https://login.microsoftonline.com/?whr=contoso.com`
+   * 藉由傳遞`username`參數到密碼重設頁面，例如 `https://login.microsoftonline.com/?username=admin@contoso.com`
 
 如需有關如何設定公司商標的詳細資料，請參閱[將公司商標新增至 Azure AD 中的登入頁面](../fundamentals/customize-branding.md)一文。
 

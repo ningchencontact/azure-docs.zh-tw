@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: hrasheed
-ms.openlocfilehash: 40bfa8317effd25cf3d9aa28b8f63e292213a83b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 8b65cb05643ffca3cbf25a207dce683d2d60fd64
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425977"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361569"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>教學課程：使用 Azure Data Factory 在 HDInsight 中建立隨選 Apache Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -37,7 +37,9 @@ ms.locfileid: "54425977"
 
 ## <a name="prerequisites"></a>必要條件
 
-- Azure PowerShell。 如需指示，請參閱 [安裝並設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0)。
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+- Azure PowerShell。 如需指示，請參閱 [安裝並設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
 - Azure Active Directory 服務主體。 當您建立服務主體之後，請務必使用連結文章中的指示來擷取**應用程式識別碼**和**驗證金鑰**。 在本教學課程後續的內容中，您會需要這些值。 此外，請確定服務主體是訂用帳戶的「參與者」角色成員，或建立叢集所在的資源群組成員。 如需擷取所需的值並為角色指派權限的指示，請參閱[建立 Azure Active Directory 服務主體](../active-directory/develop/howto-create-service-principal-portal.md)。
 
@@ -75,7 +77,7 @@ $destContainerName = "adfgetstarted" # don't change this value.
 ####################################
 #region - Connect to Azure subscription
 Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-Login-AzureRmAccount
+Login-AzAccount
 #endregion
 
 ####################################
@@ -85,25 +87,25 @@ Login-AzureRmAccount
 #region - create Azure resources
 Write-Host "`nCreating resource group, storage account and blob container ..." -ForegroundColor Green
 
-New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-New-AzureRmStorageAccount `
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzStorageAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $destStorageAccountName `
     -type Standard_LRS `
     -Location $location
 
-$destStorageAccountKey = (Get-AzureRmStorageAccountKey `
+$destStorageAccountKey = (Get-AzStorageAccountKey `
     -ResourceGroupName $resourceGroupName `
     -Name $destStorageAccountName)[0].Value
 
-$sourceContext = New-AzureStorageContext `
+$sourceContext = New-AzStorageContext `
     -StorageAccountName $sourceStorageAccountName `
     -Anonymous
-$destContext = New-AzureStorageContext `
+$destContext = New-AzStorageContext `
     -StorageAccountName $destStorageAccountName `
     -StorageAccountKey $destStorageAccountKey
 
-New-AzureStorageContainer -Name $destContainerName -Context $destContext
+New-AzStorageContainer -Name $destContainerName -Context $destContext
 #endregion
 
 ####################################
@@ -112,16 +114,16 @@ New-AzureStorageContainer -Name $destContainerName -Context $destContext
 #region - copy files
 Write-Host "`nCopying files ..." -ForegroundColor Green
 
-$blobs = Get-AzureStorageBlob `
+$blobs = Get-AzStorageBlob `
     -Context $sourceContext `
     -Container $sourceContainerName
 
-$blobs|Start-AzureStorageBlobCopy `
+$blobs|Start-AzStorageBlobCopy `
     -DestContext $destContext `
     -DestContainer $destContainerName
 
 Write-Host "`nCopied files ..." -ForegroundColor Green
-Get-AzureStorageBlob -Context $destContext -Container $destContainerName
+Get-AzStorageBlob -Context $destContext -Container $destContainerName
 #endregion
 
 Write-host "`nYou will use the following values:" -ForegroundColor Green
@@ -180,7 +182,7 @@ Write-host "`nScript completed" -ForegroundColor Green
 
     輸入或選取下列值：
     
-    |屬性  |說明  |
+    |屬性  |描述  |
     |---------|---------|
     |**名稱** |  輸入資料處理站的名稱。 此名稱必須是全域唯一的。|
     |**訂用帳戶**     |  選取 Azure 訂用帳戶。 |
@@ -237,9 +239,9 @@ Write-host "`nScript completed" -ForegroundColor Green
 
     輸入下列值，並使其餘各項保留預設值。
 
-    | 屬性 | 說明 |
+    | 屬性 | 描述 |
     | --- | --- |
-    | Name | 輸入 HDInsight 連結服務的名稱 |
+    | 名稱 | 輸入 HDInsight 連結服務的名稱 |
     | 類型 | 選取 [隨選 HDInsight] |
     | Azure 儲存體連結服務 | 選取您稍早建立的儲存體連結服務。 |
     | 叢集類型 | 選取 [Hadoop] |

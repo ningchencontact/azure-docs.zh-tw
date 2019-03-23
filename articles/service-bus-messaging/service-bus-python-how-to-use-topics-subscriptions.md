@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/20/2018
 ms.author: aschhab
-ms.openlocfilehash: 476c51d1835a1be0178faf28e6dd8a3c95371929
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: a12288de2f9a7682fb433dd0d5c7905cc76c12b9
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240961"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351655"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>如何透過 Python 使用服務匯流排主題和訂用帳戶
 
@@ -167,7 +167,7 @@ msg.delete()
 
 與在訂閱內鎖定訊息相關的還有逾時，如果應用程式無法在鎖定逾時到期之前處理訊息 (例如，如果應用程式當機)，則服務匯流排會自動解除鎖定訊息，並讓訊息可以被重新接收。
 
-如果應用程式在處理訊息之後，尚未呼叫 `delete` 方法時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。 這通常稱為 「至少處理一次」*，也就是說，每個訊息至少會被處理一次，但在特定狀況下，可能會重新傳遞相同訊息。 如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。 您可使用訊息的 **MessageId** 屬性來完成此操作，該屬性在各個傳遞嘗試中會保持不變。
+如果應用程式在處理訊息之後，尚未呼叫 `delete` 方法時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。 這通常稱為 至少一次處理\*; 亦即每則訊息會至少處理一次，但在某些情況下可能會重新傳遞相同訊息。 如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。 您可使用訊息的 **MessageId** 屬性來完成此操作，該屬性在各個傳遞嘗試中會保持不變。
 
 ## <a name="delete-topics-and-subscriptions"></a>刪除主題和訂用帳戶
 

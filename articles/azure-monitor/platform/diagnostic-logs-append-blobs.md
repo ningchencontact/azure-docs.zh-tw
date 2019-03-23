@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: f626ef4cfb385a62f68ab611b77dd0c307cd3820
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: ab5fba6bbbf6ade83c7699edec937ba02b222939
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882374"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370052"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>為 Azure 監視器的診斷記錄在封存至儲存體帳戶時的格式變更做好準備
 
@@ -24,7 +24,7 @@ ms.locfileid: "54882374"
 
 ## <a name="what-is-changing"></a>變更內容
 
-Azure 監視器提供一種功能，可讓您將資源診斷資料和活動記錄資料傳送至 Azure 儲存體帳戶、事件中樞命名空間或 Log Analytics。 為解決系統效能問題，用來將記錄資料傳送至 Blob 儲存體的格式將會在 **2018 年 11 月 1 日午夜 12:00 UTC** 變更。 如果您有工具會從 Blob 儲存體讀取資料，便需要更新工具才能了解新的資料格式。
+Azure 監視器提供一種功能，可讓您將資源的診斷資料和活動記錄資料傳送至 Azure 儲存體帳戶，而事件中樞命名空間，或在 Azure 監視器中的 Log Analytics 工作區。 為解決系統效能問題，用來將記錄資料傳送至 Blob 儲存體的格式將會在 **2018 年 11 月 1 日午夜 12:00 UTC** 變更。 如果您有工具會從 Blob 儲存體讀取資料，便需要更新工具才能了解新的資料格式。
 
 * 在 2018 年 11 月 1 日星期四午夜 12:00 UTC，Blob 格式將會變更為 [JSON 資料行](http://jsonlines.org/)。 這表示每筆記錄都會以新行字元隔開、沒有外部記錄陣列，而且 JSON 記錄之間沒有逗號。
 * 所有訂用帳戶和所有診斷設定的 Blob 格式都將會同時變更。 11 月 1 日發出的第一個 PT1H.json 檔案將會使用這個新格式。 Blob 和容器名稱維持不變。

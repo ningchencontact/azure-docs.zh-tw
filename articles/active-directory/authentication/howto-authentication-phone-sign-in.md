@@ -12,18 +12,18 @@ manager: daveba
 ms.reviewer: librown
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26dd1bd6717fe0216545d6b3aa729ac2cb19dc9d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 47e8541b82a1cd38f07684508a96b9789df20e92
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313323"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370376"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>使用 Microsoft Authenticator 應用程式進行無密碼的手機登入 (公開預覽)
 
 Microsoft Authenticator 應用程式可用來登入任何 Azure AD 帳戶 (而不需使用密碼)。 類似於 [Windows Hello 企業版](/windows/security/identity-protection/hello-for-business/hello-identity-verification) 的技術，Microsoft Authenticator 會使用金鑰型驗證來啟用已繫結至裝置並使用生物特徵識別或 PIN 的使用者認證。
 
-![要求使用者在其 Microsoft Authenticator 應用程式中核准登入嘗試的瀏覽器登入範例](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
+![在瀏覽器登入使用者的登入核准要求的範例](./media/howto-authentication-phone-sign-in/phone-sign-in-microsoft-authenticator-app.png)
 
 已在 Microsoft Authenticator 應用程式中啟用手機登入的人員會看到一則訊息，告訴他們點選其應用程式中的數字，而不會在輸入使用者名稱之後看到輸入密碼的提示。 在應用程式中，使用者必須符合數目，選擇 [核准]，然後提供他們的 PIN 或生物特徵辨識，然後驗證將會完成。
 
@@ -40,17 +40,20 @@ Microsoft Authenticator 應用程式可用來登入任何 Azure AD 帳戶 (而�
 ### <a name="steps-to-enable"></a>啟用的步驟
 
 1. 確保您有 Azure Active Directory V2 PowerShell 模組的最新公開預覽版本。 您可藉由執行下列命令，解除安裝後並重新安裝來確認這點：
+
     ```powershell
     Uninstall-Module -Name AzureADPreview
     Install-Module -Name AzureADPreview
     ```
 
 2. 向 Azure AD 租用戶進行驗證，以使用 Azure AD V2 PowerShell 模組。 使用的帳戶必須是安全性管理員或全域管理員。
+
     ```powershell
     Connect-AzureAD
     ```
 
 3. 建立 Authenticator 登入原則：
+
     ```powershell
     New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn
     ```

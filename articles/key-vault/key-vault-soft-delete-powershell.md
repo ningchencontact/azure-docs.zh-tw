@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d34ef1bb5bea6f5f099f7fa2a24ddec2362b44ea
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: ecc87e03a80ce10bedbe26b3ebb452ec704eefcb
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336179"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368675"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>如何使用 Key Vault 虛刪除與 PowerShell
 
@@ -49,9 +49,6 @@ Key Vault 作業透過角色型存取控制 (RBAC) 權限來分別管理，如�
 ## <a name="enabling-soft-delete"></a>啟用虛刪除
 
 您可啟用「虛刪除」來允許復原已刪除的金鑰保存庫，或金鑰保存庫中儲存的物件。
-
-> [!IMPORTANT]
-> 在金鑰保存庫上的啟用「虛刪除」是無法復原的動作。 將虛刪除屬性設定為 "true" 後，就無法加以變更或移除。  
 
 ### <a name="existing-key-vault"></a>現有的金鑰保存庫
 

@@ -13,39 +13,39 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: magoedte
-ms.openlocfilehash: a497662ac7a885b53e69bb8c86a646045bd2eef7
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 47b589d32accc4a699e7260b9e4b2de4cca58f2b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314665"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369610"
 ---
-# <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway"></a>使用 Log Analytics 閘道沒有網際網路存取的電腦連接
+# <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Azure 監視器中使用 Log Analytics 閘道沒有網際網路存取的電腦連接
 
 >[!NOTE]
 >為 Microsoft Operations Management Suite (OMS) 轉換為 Microsoft Azure 監視器中，會變更的術語。 這篇文章會將 Azure Log Analytics 閘道稱為的 OMS 閘道。 
 >
 
-本文說明如何使用 Log Analytics 閘道直接連接，或由 Operations Manager 監視的電腦已無法存取網際網路時，設定與 Azure 自動化和 Log Analytics 的通訊。 
+本文說明如何使用 Log Analytics 閘道直接連接，或由 Operations Manager 監視的電腦已無法存取網際網路時，設定與 Azure 自動化和 Azure 監視器的通訊。 
 
-Log Analytics 閘道是使用 HTTP CONNECT 命令支援 HTTP 通道的 HTTP 正向 proxy。 此閘道可以收集資料，並將它傳送至 Azure 自動化和 Log Analytics 中，代表未連線到網際網路的電腦。  
+Log Analytics 閘道是使用 HTTP CONNECT 命令支援 HTTP 通道的 HTTP 正向 proxy。 此閘道可以收集資料，並將它傳送至 Azure 自動化和 Log Analytics 工作區在 Azure 監視器中，代表未連線到網際網路的電腦。  
 
 Log Analytics 閘道支援︰
 
 * 報告到相同的四個 Log Analytics 工作區的代理程式，位於且與 Azure 自動化混合式 Runbook 背景工作角色設定。  
-* Windows 電腦的 Microsoft Monitoring Agent 直接連線到 Log Analytics 工作區。
-* Linux 適用於 Linux 的 Log Analytics 代理程式直接連接至 Log Analytics 工作區的電腦。  
+* Windows 電腦的 Microsoft Monitoring Agent 直接連線到 Azure 監視器中的 Log Analytics 工作區。
+* 在其適用於 Linux 的 Log Analytics 代理程式直接連接到 Log Analytics 工作區，Azure 監視器中的 Linux 電腦。  
 * System Center Operations Manager 2012 SP1 UR7、 Operations Manager 2012 R2 UR3，或在 Operations Manager 2016 或更新版本的管理群組與 Log Analytics 整合。  
 
-某些 IT 安全性原則不允許之網路電腦的網際網路連線。 這些未連線的電腦可能是銷售點 (POS) 裝置或支援 IT 服務，例如的伺服器。 若要將這些裝置連線到 Azure 自動化或 Log Analytics，讓您可以管理和監視，將其設定為直接與 Log Analytics 閘道通訊。 Log Analytics 閘道可以接收組態資訊和其代表的資料轉送。 如果您的電腦設定與 Log Analytics 代理程式直接連接到 Log Analytics 工作區，與 Log Analytics 閘道改為通訊的電腦。  
+某些 IT 安全性原則不允許之網路電腦的網際網路連線。 這些未連線的電腦可能是銷售點 (POS) 裝置或支援 IT 服務，例如的伺服器。 若要將這些裝置連線到 Azure 自動化或 Log Analytics 工作區，因此您可以管理和監視，將其設定為直接與 Log Analytics 閘道通訊。 Log Analytics 閘道可以接收組態資訊和其代表的資料轉送。 如果您的電腦設定與 Log Analytics 代理程式直接連接到 Log Analytics 工作區，與 Log Analytics 閘道改為通訊的電腦。  
 
 Log Analytics 閘道將資料從代理程式服務直接傳輸。 它不會分析任何傳輸中的資料。
 
 管理伺服器與 Log Analytics 整合的 Operations Manager 管理群組時，可以設定為連線至 Log Analytics 的閘道，以接收組態資訊和傳送收集的資料，根據您已啟用的解決方案.  Operations Manager 代理程式會將一些資料傳送至管理伺服器。 例如，代理程式可能會傳送 Operations Manager 警示、 組態評估資料、 執行個體的空間資料和容量資料。 其他大量資料，例如 Internet Information Services (IIS) 記錄檔、 效能資料，以及安全性事件，會直接傳送至 Log Analytics 閘道。 
 
-如果監視未受信任的系統，在周邊網路或隔離的網路中部署一或多個 Operations Manager 閘道伺服器，這些伺服器無法與 Log Analytics 閘道通訊。  Operations Manager 閘道伺服器可以只向管理伺服器報告。  當您將 Operations Manager 管理群組設定為與 Log Analytic 閘道通訊時，Proxy 組態資訊會自動發佈到每個受代理程式管理、並已設定為會收集資料以供 Log Analytics 使用的電腦，即使設定是空的也會如此。    
+如果監視未受信任的系統，在周邊網路或隔離的網路中部署一或多個 Operations Manager 閘道伺服器，這些伺服器無法與 Log Analytics 閘道通訊。  Operations Manager 閘道伺服器可以只向管理伺服器報告。  當 Operations Manager 管理群組設定為與 Log Analytics 閘道通訊時，proxy 組態資訊會自動發佈到每個代理程式管理的電腦設定為針對 Azure 監視器來收集記錄資料即使設定是空的。    
 
-若要直接提供的高可用性連線，或透過閘道與 Log Analytics 通訊的 Operations Management 群組使用網路負載平衡 (NLB) 以重新導向，以及將流量分散到多部閘道伺服器。 如此一來，如果某個閘道伺服器故障時，將流量重新導向至另一個可用的節點。  
+若要直接提供的高可用性連線或與閘道，透過 Log Analytics 工作區通訊的 Operations Management 群組使用網路負載平衡 (NLB) 以重新導向，以及將流量分散到多部閘道伺服器。 如此一來，如果某個閘道伺服器故障時，將流量重新導向至另一個可用的節點。  
 
 執行 Log Analytics 閘道的電腦需要 Log Analytics Windows 代理程式，以找出閘道必須與通訊的服務端點。 代理程式也必須直接向相同的工作區回報的閘道，代理程式或 Operations Manager 閘道的管理群組設定。 此組態允許閘道和代理程式使用其指派的工作區通訊。
 

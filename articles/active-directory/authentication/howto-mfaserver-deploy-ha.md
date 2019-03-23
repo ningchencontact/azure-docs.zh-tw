@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba8a1976fa9fc2a02f7f3e8419de10ebba7df950
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 71b7784d054f279dfccdb3a2424fd427789ca658
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316298"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370069"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>針對高可用性設定 Azure Multi-Factor Authentication Server
 
@@ -26,7 +26,7 @@ ms.locfileid: "58316298"
 
 Azure MFA Server 服務架構包含數個元件，如下圖所示：
 
- ![MFA Server 架構](./media/howto-mfaserver-deploy-ha/mfa-ha-architecture.png)
+ ![MFA Server 架構元件](./media/howto-mfaserver-deploy-ha/mfa-ha-architecture.png)
 
 MFA Server 是已安裝 Azure Multi-Factor Authentication 軟體的 Windows Server。 MFA Server 執行個體必須透過 Azure MFA 服務啟用才能運作。 您可以在內部部署安裝多部 MFA Server。
 

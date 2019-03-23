@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 56c09d9c6d1249713de7c6a0428ad2a124eee157
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e0c8d4883bb9183f866450477df972fc66c960c5
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013066"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369738"
 ---
 # <a name="azure-storage-security-guide"></a>Azure 儲存體安全性指南
 
@@ -22,7 +22,7 @@ ms.locfileid: "58013066"
 - 所有寫入至「Azure 儲存體」的資料都會使用[儲存體服務加密 (SSE)](storage-service-encryption.md)來自動加密。 如需詳細資訊，請參閱[宣佈 Azure Blob、檔案、資料表及佇列儲存體的預設加密](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/) \(英文\)。
 - Azure Active Directory (Azure AD) 和角色型存取控制 (RBAC) 可支援 Azure 儲存體，以便進行資源管理作業和資料作業，如下所示：   
     - 您可以將儲存體帳戶範圍內的 RBAC 角色指派給安全性主體，以及使用 Azure AD 來授權資源管理作業，例如金鑰管理。
-    - Blob 和佇列服務的資料作業預覽版支援 Azure AD 整合。 您可以將訂用帳戶、資源群組、儲存體帳戶或個別的容器或佇列範圍內的 RBAC 角色，指派給安全性主體或 Azure 資源的受控識別。 如需詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權 (預覽)](storage-auth-aad.md)。   
+    - Azure AD 的整合支援 blob 和佇列資料作業。 您可以將訂用帳戶、資源群組、儲存體帳戶或個別的容器或佇列範圍內的 RBAC 角色，指派給安全性主體或 Azure 資源的受控識別。 如需詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權](storage-auth-aad.md)。   
 - 您可以使用[用戶端加密](../storage-client-side-encryption.md)、HTTPS 或 SMB 3.0，在應用程式和 Azure 之間進行傳輸時保護資料的安全。  
 - 您可以使用 [Azure 磁碟加密](../../security/azure-security-disk-encryption.md)來加密 Azure 虛擬機器所使用的 OS 和資料磁碟。 
 - Azure 儲存體中資料物件的委派存取權可以使用 [共用存取簽章](../storage-dotnet-shared-access-signature-part-1.md)來授與。
@@ -155,8 +155,8 @@ ms.locfileid: "58013066"
 
 有三個選項可供您授權 Azure 儲存體資料物件的存取權，包括：
 
-- 使用 Azure AD 來授權容器和佇列的存取權 (預覽)。 Azure AD 在授權方面的優勢勝過其他方法，包括不需要在程式碼中儲存祕密。 如需詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權 (預覽)](storage-auth-aad.md)。 
-- 使用儲存體帳戶金鑰來透過共用金鑰授權存取權。 透過共用金鑰授權時，需要在應用程式中儲存儲存體帳戶金鑰，因此 Microsoft 建議盡可能改為使用 Azure AD。 對於生產應用程式，或是要授權 Azure 資料表和檔案的存取權，請在 Azure AD 整合處於預覽狀態時，繼續使用共用金鑰。
+- 您可以使用 Azure AD 來授權存取容器和佇列。 Azure AD 在授權方面的優勢勝過其他方法，包括不需要在程式碼中儲存祕密。 如需詳細資訊，請參閱[使用 Azure Active Directory 來驗證 Azure 儲存體的存取權](storage-auth-aad.md)。 
+- 使用儲存體帳戶金鑰來透過共用金鑰授權存取權。 透過共用金鑰授權時，需要在應用程式中儲存儲存體帳戶金鑰，因此 Microsoft 建議盡可能改為使用 Azure AD。
 - 使用共用存取簽章，來授與一段特定時間對特定資料物件的受控權限。
 
 此外，針對 Blob 儲存體，您可以藉由設定要據以保存 Blob 之容器的存取層級，來允許對您的 Blob 進行公用存取。 如果您將容器的存取權設定為「Blob」或「容器」，將允許該容器中 Blob 的公用讀取存取權。 這表示 URL 指向該容器中 Blob 的任何人都可以在瀏覽器中開啟它，而不需使用共用存取簽章或擁有儲存體帳戶金鑰。

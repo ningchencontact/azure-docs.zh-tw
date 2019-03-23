@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: de88fbc2960be452df0c9067dca3715d9f6febb0
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: HT
+ms.openlocfilehash: df8e15bbde5ad60d2e5cb90ba37892c135070f41
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744032"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359291"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-apache-hadoop-in-hdinsight-powershell"></a>透過在 HDInsight 上將 Apache Mahout 與 Apache Hadoop 搭配使用來產生電影推薦 (PowerShell)
 
@@ -23,6 +23,8 @@ ms.locfileid: "53744032"
 了解如何使用搭配 Azure HDInsight 的 [Apache Mahout](https://mahout.apache.org) 機器學習庫產生電影推薦。 本文件中的範例使用 Azure PowerShell 來執行 Mahout 作業。
 
 ## <a name="prerequisites"></a>必要條件
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * 以 Linux 為基礎的 HDInsight 叢集。 如需有關建立叢集的資訊，請參閱[開始在 HDInsight 中使用以 Linux 為基礎的 Hadoop][getstarted]。
 
@@ -38,7 +40,7 @@ ms.locfileid: "53744032"
 >
 > 如需使用 SSH 連線到 HDInsight 並在叢集上直接執行 Mahout 範例的範例，請參閱[使用 Apache Mahout 和 HDInsight (SSH) 來產生電影推薦](hadoop/apache-hadoop-mahout-linux-mac.md)。
 
-Mahout 提供的其中一項功能是推薦引擎。 這個引擎接受 `userID``itemId` 和 `prefValue` (使用者偏好的項目) 格式的資料。 Mahout 會使用資料以偏好的類似項目判斷使用者，並以此做出推薦。
+Mahout 提供的其中一項功能是推薦引擎。 此引擎接受 `userID`、`itemId` 和 `prefValue` 格式（项的用户首选项）的数据。 Mahout 會使用資料以偏好的類似項目判斷使用者，並以此做出推薦。
 
 下列範例是簡化的逐步解說，說明建議程序如何運作：
 
@@ -62,19 +64,19 @@ user-ratings.txt 內包含的資料具有 `userID`、`movieID`、`userRating` �
     244    51     2    880606923
     166    346    1    886397596
 
-### <a name="run-the-job"></a>執行工作
+### <a name="run-the-job"></a>运行作业
 
 使用下列 Windows PowerShell 指令碼執行工作，以透過 Mahout 推薦引擎來處理影片資料：
 
 > [!NOTE]  
-> 這個檔案會提示您輸入用來連接到 HDInsight 叢集並執行作業的資訊。 可能需要幾分鐘的時間來完成作業，並且下載 output.txt 檔案。
+> 這個檔案會提示您輸入用來連接到 HDInsight 叢集並執行作業的資訊。 完成作业和下载 output.txt 文件可能需要几分钟时间。
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/mahout/use-mahout.ps1?range=5-98)]
 
 > [!NOTE]  
-> Mahout 工作不會移除處理工作時所建立的暫存資料。 範例工作中所指定的 `--tempDir` 參數會將暫存檔隔離到特定的目錄。
+> Mahout 作业不删除在处理作业时创建的临时数据。 範例工作中所指定的 `--tempDir` 參數會將暫存檔隔離到特定的目錄。
 
-Mahout 工作不會將輸出傳回 STDOUT。 相反地，其會將該輸出儲存在指定的輸出目錄 **part-r-00000**中。 指令碼會下載這個檔案到您工作站上目前目錄的 **output.txt** 檔。
+Mahout 工作不會將輸出傳回 STDOUT。 相反地，其會將該輸出儲存在指定的輸出目錄 **part-r-00000**中。 该脚本将此文件下载到工作站上的当前目录中的 **output.txt** 中。
 
 下列文字是此檔案內容的範例：
 
@@ -83,7 +85,7 @@ Mahout 工作不會將輸出傳回 STDOUT。 相反地，其會將該輸出儲�
     3    [284:5.0,285:4.828125,508:4.7543354,845:4.75,319:4.705128,124:4.7045455,150:4.6938777,311:4.6769233,248:4.65625,272:4.649266]
     4    [690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
 
-第一欄是 `userID`。 '[' 和 ']' 中包含的值是 `movieId`:`recommendationScore`。
+第一欄是 `userID`。 “[”和“]”中包含的值为 `movieId`:`recommendationScore`。
 
 指令碼也會下載使輸出格式更具可讀性所需的 `moviedb.txt` 和 `user-ratings.txt` 檔案。
 
@@ -134,17 +136,17 @@ Mahout 工作不會將輸出傳回 STDOUT。 相反地，其會將該輸出儲�
 
 ### <a name="cannot-overwrite-files"></a>無法覆寫檔案
 
-Mahout 工作不會清除在處理期間所建立的暫存檔。 此外，作業也不會覆寫現有的輸出檔。
+Mahout 作业不清理在处理期间创建的临时文件。 此外，作業也不會覆寫現有的輸出檔。
 
 為了避免執行 Mahout 作業時發生錯誤，請在每次執行之前刪除暫存檔和輸出檔。 若要移除本文件中先前指令碼所建立的檔案，請使用下列 PowerShell 指令碼︰
 
 ```powershell
 # Login to your Azure subscription
 # Is there an active Azure subscription?
-$sub = Get-AzureRmSubscription -ErrorAction SilentlyContinue
+$sub = Get-AzSubscription -ErrorAction SilentlyContinue
 if(-not($sub))
 {
-    Connect-AzureRmAccount
+    Connect-AzAccount
 }
 
 # Get cluster info
@@ -152,32 +154,32 @@ $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
 $creds=Get-Credential -Message "Enter the login for the cluster"
 
 #Get the cluster info so we can get the resource group, storage, etc.
-$clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+$clusterInfo = Get-AzHDInsightCluster -ClusterName $clusterName
 $resourceGroup = $clusterInfo.ResourceGroup
 $storageAccountName = $clusterInfo.DefaultStorageAccount.split('.')[0]
 $container = $clusterInfo.DefaultStorageContainer
-$storageAccountKey = (Get-AzureRmStorageAccountKey `
+$storageAccountKey = (Get-AzStorageAccountKey `
     -Name $storageAccountName `
 -ResourceGroupName $resourceGroup)[0].Value
 
 #Create a storage context and upload the file
-$context = New-AzureStorageContext `
+$context = New-AzStorageContext `
     -StorageAccountName $storageAccountName `
     -StorageAccountKey $storageAccountKey
 
 #Azure PowerShell can't delete blobs using wildcard,
 #so have to get a list and delete one at a time
 # Start with the output
-$blobs = Get-AzureStorageBlob -Container $container -Context $context -Prefix "example/out"
+$blobs = Get-AzStorageBlob -Container $container -Context $context -Prefix "example/out"
 foreach($blob in $blobs)
 {
-    Remove-AzureStorageBlob -Blob $blob.Name -Container $container -context $context
+    Remove-AzStorageBlob -Blob $blob.Name -Container $container -context $context
 }
 # Next the temp files
-$blobs = Get-AzureStorageBlob -Container $container -Context $context -Prefix "example/temp"
+$blobs = Get-AzStorageBlob -Container $container -Context $context -Prefix "example/temp"
 foreach($blob in $blobs)
 {
-    Remove-AzureStorageBlob -Blob $blob.Name -Container $container -context $context
+    Remove-AzStorageBlob -Blob $blob.Name -Container $container -context $context
 }
 ```
 

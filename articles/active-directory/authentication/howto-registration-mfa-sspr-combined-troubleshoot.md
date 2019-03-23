@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f799b671e6216b402aa988aa66da4c2cfc44693
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d926f7312b62e788289939dfd81c236a33503b43
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317522"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370460"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>疑難排解合併安全性資訊註冊 （預覽）
 
@@ -31,7 +31,7 @@ ms.locfileid: "58317522"
 
 合併的註冊記錄的事件是 Azure AD 中的 驗證方法 類別下稽核記錄檔。
 
-![Azure AD 稽核記錄檔的目錄中顯示一些安全性資訊註冊事件，新的使用者介面](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
+![Azure AD 稽核記錄顯示註冊事件的介面](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
 
 以下列出所合併的註冊產生的所有稽核事件：
 
@@ -162,4 +162,4 @@ foreach($line in Get-Content $path)
 
 ## <a name="next-steps"></a>後續步驟
 
-[深入了解合併的註冊自助式密碼重設和 Azure Multi-factor Authentication 的公開預覽](concept-registration-mfa-sspr-combined.md)
+* [深入了解合併的註冊自助式密碼重設和 Azure Multi-factor Authentication 的公開預覽](concept-registration-mfa-sspr-combined.md)

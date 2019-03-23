@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: qianw211
-ms.openlocfilehash: 1efe65feaac6e71437958451e8c1a44027495fce
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
-ms.translationtype: HT
+ms.openlocfilehash: c3294aaa2b6c88e08028c8958d2ab3a7297aea74
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620008"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351808"
 ---
 # <a name="private-offers"></a>私人供應項目
 
@@ -55,6 +55,9 @@ ms.locfileid: "52620008"
 ![[私人供應項目]](./media/marketplace-publishers-guide/private-offer.png)
 
 私人供應項目也會出現在搜尋結果中。 只尋找「私人」徽章。
+
+> [!Note]
+> 透過轉銷商的雲端解決方案提供者方案 (CSP) 所建立的訂用帳戶不支援私人產品/服務。
 
 ## <a name="next-steps"></a>後續步驟
 

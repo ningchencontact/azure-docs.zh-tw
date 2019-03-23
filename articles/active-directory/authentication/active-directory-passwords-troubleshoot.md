@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 297d32311b6b697b0141488878d170b3f2f4c359
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 81519a9452bf578c2640b547b2102b8e162e2878
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315482"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369780"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>針對自助式密碼重設進行疑難排解
 
@@ -35,7 +35,6 @@ ms.locfileid: "58315482"
 | UserNotProperlyConfigured = 14 | 很抱歉，因為缺少您帳戶所需要的資訊，此時您無法重設密碼。 您無法採取進一步的動作來解決這種情況。 請連絡您的系統管理員，並要求他們為您重設密碼。 當您再次可以存取您的帳戶之後，必須註冊所需的資訊。 若要註冊資訊，請遵循[註冊自助式密碼重設](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-reset-register)一文。 | SSPR_0014：重設密碼所需要的其他安全性資訊。 若要繼續進行，請連絡您的系統管理員，並要求他們重設您的密碼。 當您可以存取您的帳戶之後，可在 https://aka.ms/ssprsetup 註冊其他安全性資訊。 您的系統管理員可以遵循[設定與閱讀密碼重設的驗證資料](howto-sspr-authenticationdata.md)中的步驟，將其他安全性資訊新增至您的帳戶中。 |
 | OnPremisesAdminActionRequired = 29 | 很抱歉，因為貴組織的密碼重設設定發生問題，此時無法重設密碼。 您無法採取進一步的動作來解決這種情況。 請連絡您的系統管理員，並要求他們調查。 若要深入了解潛在問題，請參閱[疑難排解密碼回寫](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback)。 | SSPR_0029：因為您的內部部署設定發生錯誤，我們無法重設您的密碼。 請連絡您的系統管理員，並要求他們調查。 |
 | OnPremisesConnectivityError = 30 | 很抱歉，因為貴組織的連線發生問題，此時我們無法重設密碼。 現在無需採取任何動作，但如果您稍後再試，可能會解決問題。 如果問題持續發生，請連絡您的系統管理員，並要求他們調查。 若要深入了解連線問題，請參閱[針對密碼回寫連線問題進行疑難排解](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-troubleshoot#troubleshoot-password-writeback-connectivity)。 | SSPR_0030：因為您內部部署環境的連線不佳，我們無法重設您的密碼。 請連絡您的系統管理員，並要求他們調查。|
-
 
 ## <a name="troubleshoot-the-password-reset-configuration-in-the-azure-portal"></a>在 Azure 入口網站中，針對密碼重設設定進行疑難排解
 
@@ -94,7 +93,7 @@ ms.locfileid: "58315482"
 
 ## <a name="password-writeback-event-log-error-codes"></a>密碼回寫事件記錄錯誤碼
 
-針對「密碼回寫」問題進行疑難排解時，最佳做法是檢查 Azure AD Connect 電腦上的「應用程式事件記錄」。 這個事件記錄包含「密碼回寫」兩個相關來源的事件。 PasswordResetService 來源會說明與「密碼回寫」作業相關的作業和問題。 ADSync 來源會說明與 Active Directory 環境中的密碼設定相關的作業和問題。
+疑難排解密碼回寫的問題時，最佳做法是檢查您的 Azure AD Connect 電腦上的應用程式事件記錄檔。 這個事件記錄包含「密碼回寫」兩個相關來源的事件。 PasswordResetService 來源會說明與「密碼回寫」作業相關的作業和問題。 ADSync 來源會說明與 Active Directory 環境中的密碼設定相關的作業和問題。
 
 ### <a name="if-the-source-of-the-event-is-adsync"></a>如果事件來源是 ADSync
 
@@ -168,8 +167,8 @@ ms.locfileid: "58315482"
 
 對於 Azure AD Connect 1.1.443.0 版和更新版本，您需要擁有下列各項的輸出 HTTPS 存取權：
 
-   - passwordreset.microsoftonline.com
-   - servicebus.windows.net
+* passwordreset.microsoftonline.com
+* servicebus.windows.net
 
 如需詳細資訊，請參閱 [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) (Microsoft Azure Datacenter IP 範圍) 的更新清單，該清單會在每星期三更新、隔週星期一生效。
 
@@ -184,7 +183,7 @@ ms.locfileid: "58315482"
 1. 找出 **Microsoft Azure AD Sync** 項目。
 1. 以滑鼠右鍵按一下服務項目，選取 [重新啟動]，然後等候作業完成。
 
-   ![重新啟動 Azure AD Sync 服務][Service restart]
+   ![重新啟動使用 GUI 的 Azure AD Sync 服務][Service restart]
 
 這些步驟會重新建立您與雲端服務的連線，解決您可能會遇到的任何中斷問題。 如果重新啟動 ADSync 服務並未解決您的問題，建議您接下來嘗試先將「密碼回寫」功能停用，然後再重新啟用。
 
@@ -215,7 +214,6 @@ ms.locfileid: "58315482"
 
 > [!WARNING]
 > 如果您已自訂現成可用的同步處理規則，先備份這些規則，然後再繼續進行升級，並於完成後以手動方式重新部署這些規則。
->
 
 1. 從 [Microsoft 下載中心](https://go.microsoft.com/fwlink/?LinkId=615771)下載最新版的 Azure AD Connect。
 1. 由於您已安裝 Azure AD Connect，需要執行就地升級，即可將 Azure AD Connect 安裝更新為最新版。
@@ -231,33 +229,27 @@ Azure AD Connect 需要 Active Directory **重設密碼**權限才能執行密�
 
 1. 登入 Azure AD Connect 伺服器，並啟動 **Synchronization Service Manager**，方法是選取 [開始] > [同步處理服務]。
 1. 在 [連接器] 索引標籤下，選取內部部署 [Active Directory Domain Services] 連接器，然後選取 [屬性]。  
-   ![有效權限 - 步驟 2](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
+   ![示範如何編輯內容的同步處理服務管理員](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
   
 1. 在快顯視窗中，選取 [連線到 Active Directory 樹系] 索引標籤，然後記下 [使用者名稱] 屬性。 這個屬性是 Azure AD Connect 用來執行目錄同步作業的 AD DS 帳戶。 若要讓 Azure AD Connect 能夠執行密碼回寫，AD DS 帳戶必須有「重設密碼」權限。  
-   
-   ![有效權限 - 步驟 3](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
+
+   ![尋找同步處理服務的 Active Directory 使用者帳戶](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
   
 1. 登入內部部署網域控制站，然後啟動 **Active Directory 使用者和電腦**應用程式。
 1. 選取 [檢視]，並確定 [進階功能] 選項已啟用。  
-   
-   ![有效權限 - 步驟 5](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
+
+   ![Active Directory 使用者和電腦顯示 進階功能](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
   
 1. 尋找您需要確認的 Active Directory 使用者帳戶。 以滑鼠右鍵按一下帳戶名稱，然後選取 [屬性]。  
-   
-   ![有效權限 - 步驟 6](./media/active-directory-passwords-troubleshoot/checkpermission04.png) 
-
 1. 在快顯視窗中，移至 [安全性] 索引標籤，然後選取 [進階]。  
-   
-   ![有效權限 - 步驟 7](./media/active-directory-passwords-troubleshoot/checkpermission05.png) 
-   
 1. 在 [系統管理員的進階安全性設定] 快顯視窗中，移至 [有效存取權] 索引標籤。
 1. 選取 [選取使用者]，選取 Azure AD Connect 所使用的 AD DS 帳戶 (請參閱步驟 3)，然後再選取 [檢視有效存取權]。
 
-   ![有效權限 - 步驟 9](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
+   ![有效存取 索引標籤顯示同步處理帳戶](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
   
 1. 向下捲動並尋找 [重設密碼]。 如果該項目有核取記號，AD DS 帳戶就有權限可重設選定 Active Directory 使用者帳戶的密碼。  
-   
-   ![有效權限 - 步驟 10](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
+
+   ![驗證同步處理帳戶已重設密碼 」 權限](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
 ## <a name="azure-ad-forums"></a>Azure AD 論壇
 
@@ -272,17 +264,17 @@ Azure AD Connect 需要 Active Directory **重設密碼**權限才能執行密�
 * **錯誤的一般描述**：錯誤為何？ 注意到何種行為？ 我們如何才能重現錯誤？ 請提供盡可能詳細的資料。
 * **頁面**：您注意到錯誤時的所在頁面？ 盡可能包含 URL 和頁面的螢幕擷取畫面。
 * **支援碼**：使用者看到錯誤時所產生的支援碼？
-  * 若要找到支援碼，請重現錯誤，然後按一下畫面底部的 [支援碼] 連結，將所產生的 GUID 傳送給支援工程師。
+   * 若要找到支援碼，請重現錯誤，然後按一下畫面底部的 [支援碼] 連結，將所產生的 GUID 傳送給支援工程師。
 
-    ![尋找畫面底部的支援碼][Support code]
+   ![尋找畫面底部的支援碼][Support code]
 
   * 如果您所在的頁面底部沒有支援碼，請選取 F12，搜尋 SID 和 CID，然後將這兩個結果傳送給支援工程師。
 * **日期、時間和時區**：請包含發生錯誤的精確日期和時間 (含時區)。
 * **使用者識別碼**：看到錯誤的使用者是誰？ 例如，*使用者\@contoso.com*。
-    * 這是同盟使用者嗎？
-    * 這是傳遞驗證使用者嗎？
-    * 這是密碼雜湊同步使用者嗎？
-    * 這是否僅限雲端的使用者？
+   * 這是同盟使用者嗎？
+   * 這是傳遞驗證使用者嗎？
+   * 這是密碼雜湊同步使用者嗎？
+   * 這是否僅限雲端的使用者？
 * **授權**：使用者是否已獲得 Azure AD Premium 或 Basic 授權？
 * **應用程式事件記錄**：如果您使用密碼回寫，而且錯誤位於您的內部部署基礎結構中，請包含來自 Azure AD Connect 伺服器的應用程式事件記錄壓縮複本。
 

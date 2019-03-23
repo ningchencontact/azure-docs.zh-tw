@@ -11,20 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: beeeea13c46c489fbd0e5c26d18d3d8c7994dccd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6404356edca606d78656011b9dec654e9f29edd3
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314226"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368572"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-iis-web-apps"></a>針對 IIS Web 應用程式設定 Azure Multi-Factor Authentication Server
 
 使用 Azure Multi-Factor Authentication (MFA) Server 的 [IIS 驗證] 區段來啟用及設定 IIS 驗證，以便與 Microsoft IIS Web 應用程式整合。 Azure MFA Server 會安裝一個外掛程式，可以篩選對 IIS Web 伺服器提出的要求，以新增 Azure Multi-Factor Authentication。 IIS 外掛程式支援表單架構驗證和整合式 Windows HTTP 驗證。 信任的 IP 也可以設定為將內部 IP 位址免除雙因素驗證。
 
-![IIS 驗證](./media/howto-mfaserver-iis/iis.png)
+![MFA Server 中的 IIS 驗證](./media/howto-mfaserver-iis/iis.png)
 
 ## <a name="using-form-based-iis-authentication-with-azure-multi-factor-authentication-server"></a>搭配 Azure Multi-Factor Authentication Server 使用表單架構 IIS 驗證
+
 為了保護使用表單架構驗證的 IIS Web 應用程式，請在 IIS Web 伺服器上安裝 Azure Multi-Factor Authentication Server，並依照下列程序設定伺服器：
 
 1. 在 Azure Multi-Factor Authentication Server 中，按一下左功能表中的 [IIS 驗證] 圖示。
@@ -48,6 +49,7 @@ ms.locfileid: "58314226"
 14. 偵測到或已輸入 URL 和頁面變數後，網站資料就會顯示在表單架構面板中。
 
 ## <a name="using-integrated-windows-authentication-with-azure-multi-factor-authentication-server"></a>搭配 Azure Multi-Factor Authentication Server 使用整合式 Windows 驗證
+
 為了保護使用整合式 Windows HTTP 驗證的 IIS Web 應用程式，請在 IIS Web 伺服器上安裝 Azure MFA Server，並使用下列步驟來設定伺服器：
 
 1. 在 Azure Multi-Factor Authentication Server 中，按一下左功能表中的 [IIS 驗證] 圖示。
@@ -60,6 +62,7 @@ ms.locfileid: "58314226"
 8. 按一下 [確定]。
 
 ## <a name="enable-iis-plug-ins-for-azure-multi-factor-authentication-server"></a>啟用 Azure Multi-Factor Authentication Server 的 IIS 外掛程式
+
 設定表單架構驗證或 HTTP 驗證 URL 及設定之後，請在 IIS 中選取應該載入和啟用 Azure Multi-Factor Authentication IIS 外掛程式的位置。 請使用下列程序：
 
 1. 如果是在 IIS 6 上執行，請按一下 [ISAPI] 索引標籤。選取執行 Web 應用程式的網站 (例如 [預設的網站])，來為該網站啟用 Azure Multi-Factor Authentication ISAPI 篩選外掛程式。
@@ -67,6 +70,7 @@ ms.locfileid: "58314226"
 3. 按一下畫面頂端的 [啟用 IIS 驗證] 方塊。 Azure Multi-Factor Authentication 現在會保護選取的 IIS 應用程式。 確定使用者已匯入到「伺服器」。
 
 ## <a name="trusted-ips"></a>信任的 IP
+
 信任的 IP 可讓使用者對源自特定 IP 位址或子網路的網站要求略過 Azure Multi-Factor Authentication。 例如，您可以讓使用者從辦公室登入時免除 Azure Multi-Factor Authentication。 為此，您可以將辦公室子網路指定為信任的 IP 項目。 若要設定「可信任 IP」，請使用下列程序：
 
 1. 在 [IIS 驗證] 區段中，按一下 [信任的 IP] 索引標籤。

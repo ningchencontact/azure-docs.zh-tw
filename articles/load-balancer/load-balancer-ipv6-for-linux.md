@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/22/2019
 ms.author: kumud
-ms.openlocfilehash: ea1ef845f55fbdadeea1992e167ef6568572abc9
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: HT
+ms.openlocfilehash: 66777ec314e95d81a4be57082f06ef16dc170186
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141708"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369627"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>設定 Linux VM 的 DHCPv6
 
@@ -54,7 +54,18 @@ Azure Marketplace 中的一些 Linux 虛擬機器映像沒有預設的動態主�
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
+從 Ubuntu 17.10，預設的網路組態機制就[NETPLAN]( https://netplan.io)。  NETPLAN 安裝/具現化時，從這個位置的 YAML 組態檔讀取網路組態: / {lib,etc,run}/netplan/*.yaml。
 
+請附上*dhcp6:true*每個乙太網路介面組態中的陳述式。  例如︰
+  
+        network:
+          version: 2
+          ethernets:
+            eno1:
+              dhcp6: true
+
+在早期開機，netplan 「 網路轉譯器 」 寫入設定，以指定的網路服務精靈的參考資訊 NETPLAN，關閉裝置的控制權交給執行，請參閱 https://netplan.io/reference。
+ 
 ## <a name="debian"></a>Debian
 
 1. 編輯 */etc/dhcp/dhclient6.conf* 檔案，並新增下行：

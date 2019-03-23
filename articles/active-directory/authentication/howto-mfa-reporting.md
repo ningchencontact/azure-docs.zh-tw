@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dd26bbb06310439aae065349c14c6df1c1c12e6
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 1f78a3135fca290d50370652b33fe0a4d16a6f83
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316927"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369041"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 中的報告
 
@@ -36,9 +36,7 @@ Azure Multi-Factor Authentication 提供數個報告，可供您和貴組織透�
 2. 在左側，選取 [Azure Active Directory] > [MFA Server]。
 3. 選取您要檢視的報告。
 
-   <center>
-   
-   ![雲端](./media/howto-mfa-reporting/report.png)</center>
+   ![在 Azure 入口網站中的 MFA Server 伺服器狀態報告](./media/howto-mfa-reporting/report.png)
 
 ## <a name="azure-ad-sign-ins-report"></a>Azure AD 登入報告
 
@@ -55,7 +53,7 @@ Azure Multi-Factor Authentication 提供數個報告，可供您和貴組織透�
 
 此資料可透過 [Azure 入口網站](https://portal.azure.com)和[報告 API](../reports-monitoring/concept-reporting-api.md) 取得。
 
-![雲端](./media/howto-mfa-reporting/sign-in-report.png)
+![在 Azure 入口網站中的 azure AD 登入報告](./media/howto-mfa-reporting/sign-in-report.png)
 
 ### <a name="sign-ins-report-structure"></a>登入報告結構
 

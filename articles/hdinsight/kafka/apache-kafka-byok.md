@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 26e4b921b4050efa5217e3b599b9dc942a003090
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 61a4be19000265910493963db9f29df143a7e21c
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58173918"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360345"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>在 Azure HDInsight 上攜帶您自己的 Apache Kafka 金鑰 (預覽)
 
@@ -26,6 +26,8 @@ BYOK 加密是單一步驟的程序，您可在叢集建立期間免費處理此
 所有傳送到 Kafka 叢集的訊息 (包括 Kafka 所維護的複本) 都會使用對稱資料加密金鑰 (DEK) 來加密。 DEK 會使用金鑰保存庫中的金鑰加密金鑰 (KEK) 來加以保護。 加密和解密程序完全由 Azure HDInsight 來處理。 
 
 您可以使用 Azure 入口網站或 Azure CLI，在金鑰保存庫中安全地輪替金鑰。 金鑰輪替時，HDInsight Kafka 叢集就會在幾分鐘內開始使用新的金鑰。 啟用「不要清除」和「虛刪除」金鑰保護功能，即可防範勒索軟體案例及意外刪除。 沒有這些保護功能的金鑰則不受支援。
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="get-started-with-byok"></a>開始使用 BYOK
 
@@ -99,7 +101,7 @@ BYOK 加密是單一步驟的程序，您可在叢集建立期間免費處理此
 
 **如果金鑰已刪除，要如何復原叢集？**
 
-   由於只支援啟用「虛刪除」的金鑰，所以如果在金鑰保存庫中還原金鑰，叢集應該就能重新存取金鑰。 若要還原 Azure Key Vault 的金鑰，請參閱 [Restore-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)。
+   由於只支援啟用「虛刪除」的金鑰，所以如果在金鑰保存庫中還原金鑰，叢集應該就能重新存取金鑰。 若要還原的 Azure 金鑰保存庫金鑰，請參閱[還原 AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey)。
 
 **是否可以讓生產者/消費者應用程式同時與 BYOK 叢集和非 BYOK 叢集搭配運作？**
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a7752fac54f9dfb2f8fb0aecd3b6249c52c3bcf
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 57d3e955059724756eb7102c1b9fbbf55ed203ab
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316349"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370443"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>作法：從 Windows 7、8 和 8.1 啟用密碼重設
 
@@ -46,7 +46,7 @@ ms.locfileid: "58316349"
 1. 重新開機後，在登入畫面中選擇使用者，然後按一下 [忘記密碼?] 來起始密碼重設工作流程。
 1. 完成工作流程，遵循螢幕上的步驟來重設密碼。
 
-![在 Windows7 中按下「忘記密碼？」的範例 自助式密碼重設流程](media/howto-sspr-windows-7-8/windows-7-sspr.png)
+![在 Windows7 中按下「忘記密碼？」的範例 SSPR 流程](media/howto-sspr-windows-7-8/windows-7-sspr.png)
 
 ### <a name="silent-installation"></a>無訊息安裝
 
@@ -67,13 +67,11 @@ ms.locfileid: "58316349"
 
 Azure AD 事件會包含 IP 位址相關資訊以及發生密碼重設的 ClientType。
 
-![Azure AD 稽核記錄中的 Windows 7 登入畫面密碼重設範例](media/howto-sspr-windows-7-8/windows-7-sspr-azure-ad-audit-log.png)
+![範例 Windows 7 中密碼重設 Azure AD 稽核記錄檔](media/howto-sspr-windows-7-8/windows-7-sspr-azure-ad-audit-log.png)
 
 如果需要額外的記錄，則可變更電腦上的登錄機碼來啟用詳細資訊記錄。 只能為了進行疑難排解而啟用詳細資訊記錄。
 
-```
-HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}
-```
+`HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
 * 若要啟用詳細資訊記錄，請建立 REG_DWORD:“EnableLogging”，並將其設定為 1。
 * 若要停用詳細資訊記錄，請將 REG_DWORD “EnableLogging” 變更為 0。
@@ -82,4 +80,4 @@ HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Provide
 
 ## <a name="next-steps"></a>後續步驟
 
-[讓 Windows 10 使用者在登入畫面重設其密碼](tutorial-sspr-windows.md)
+* [讓 Windows 10 使用者在登入畫面重設其密碼](tutorial-sspr-windows.md)

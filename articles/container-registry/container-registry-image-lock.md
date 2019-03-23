@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 02/19/2019
 ms.author: danlep
-ms.openlocfilehash: cdf457eefc88edcc22f1fbaab4859fbcf3b69bca
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: ebbfaba158e7ddb669111f097eb1adde2373aa6c
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56654621"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361280"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>鎖定在 Azure container registry 的容器映像
 
@@ -35,6 +35,24 @@ ms.locfileid: "56654621"
 請參閱下列各節的範例。
 
 ## <a name="lock-an-image-or-repository"></a>鎖定存放庫的映像 
+
+### <a name="show-the-current-repository-attributes"></a>顯示目前的存放庫屬性
+若要查看目前的儲存機制的屬性，請執行下列[az acr 存放庫 show] [ az-acr-repository-show]命令：
+
+```azurecli
+az acr repository show \
+    --name myregistry --repository myrepo
+    --output jsonc
+```
+
+### <a name="show-the-current-image-attributes"></a>顯示目前的映像屬性
+若要查看目前的標記屬性，請執行下列[az acr 存放庫 show] [ az-acr-repository-show]命令：
+
+```azurecli
+az acr repository show \
+    --name myregistry --image image:tag \
+    --output jsonc
+```
 
 ### <a name="lock-an-image-by-tag"></a>鎖定所標記的映像
 

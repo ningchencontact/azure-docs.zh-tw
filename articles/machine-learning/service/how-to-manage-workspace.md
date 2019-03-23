@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: c7dd2fba852881680b43ceabafec2ac6b2751df4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e65f739a9641181381205c7255d0472325e8055c
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839588"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359881"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>建立及管理 Azure Machine Learning services 工作區
 
@@ -28,24 +28,19 @@ ms.locfileid: "57839588"
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="view-a-workspace"></a>檢視工作區
+## <a name="view"></a>檢視工作區
 
 1. 在入口網站的左上角，選取 [所有服務]。 
 
-1. 在 [所有服務] 篩選欄位中，輸入 **Machine Learning services 工作區**。  
+1. 在 **所有的服務**篩選欄位中，輸入**機器學習服務**。  
 
-   ![搜尋 Azure Machine Learning services 工作區](media/how-to-manage-workspace/allservices-search1.png)
+1. 選取 **機器學習服務工作區**。
 
-1. 在篩選結果中，選取 [Machine Learning services 工作區] 以顯示您的工作區清單。 
-
-   ![列出 Azure Machine Learning 服務工作區](media/how-to-manage-workspace/allservices-search.PNG)
+   ![搜尋 Azure 機器學習服務工作區](media/how-to-manage-workspace/all-services.png)
 
 1. 查看找到的工作區清單。 您可以根據訂用帳戶、資源群組和位置來篩選。  
 
-   ![檢視工作區](media/how-to-manage-workspace/allservices_view_workspace.PNG)
-
-1. 選取您剛才建立的工作區來顯示其屬性。
-
+1. 選取工作區以顯示其屬性。
    ![工作區屬性](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
 
 ## <a name="delete-a-workspace"></a>刪除工作區

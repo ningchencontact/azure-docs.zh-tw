@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1e55552e238e16f2221b138b6e12afa5635d2ab2
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: d248db787db1e3945fb632c6770d45e4bf9a8f02
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202668"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360991"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>使用 Azure 儲存體共用存取簽章來限制 HDInsight 對資料的存取
 
@@ -27,6 +27,8 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 > HDInsight 必須有叢集預設儲存體的完整存取權。
 
 ## <a name="requirements"></a>需求
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * Azure 訂用帳戶
 * C# 或 Python。 已提供 C# 示例代码作为 Visual Studio 解决方案。
@@ -160,12 +162,12 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 1. 從提示字元使用下列命令來驗證您的 Azure 訂用帳戶：
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
     出現提示時，使用帳戶登入您的 Azure 訂用帳戶。
 
-    如果您的帳戶會與多個 Azure 訂用帳戶相關聯，您可能需要使用 `Select-AzureRmSubscription` 來選取您想要使用的訂用帳戶。
+    如果您的帳戶會與多個 Azure 訂用帳戶相關聯，您可能需要使用 `Select-AzSubscription` 來選取您想要使用的訂用帳戶。
 
 4. 從提示字元中，將目錄變更至包含 HDInsightSAS.ps1 檔案的 `CreateCluster` 目錄。 然後使用下列命令以執行指令碼
 
@@ -273,11 +275,11 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 
 **徵兆**：當使用 PowerShell 指令碼建立叢集時，您可能會收到下列錯誤訊息：
 
-    New-AzureRmHDInsightCluster : A task was canceled.
+    New-AzHDInsightCluster : A task was canceled.
     At C:\Users\larryfr\Documents\GitHub\hdinsight-azure-storage-sas\CreateCluster\HDInsightSAS.ps1:62 char:5
-    +     New-AzureRmHDInsightCluster `
+    +     New-AzHDInsightCluster `
     +     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        + CategoryInfo          : NotSpecified: (:) [New-AzureRmHDInsightCluster], CloudException
+        + CategoryInfo          : NotSpecified: (:) [New-AzHDInsightCluster], CloudException
         + FullyQualifiedErrorId : Hyak.Common.CloudException,Microsoft.Azure.Commands.HDInsight.NewAzureHDInsightClusterCommand
 
 **原因**：如果您使用用於叢集或 (對於以 Linux 為基礎的叢集) SSH 使用者的 admin/HTTP 密碼，則會發生此錯誤。

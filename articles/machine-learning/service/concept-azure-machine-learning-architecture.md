@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1640b1cdb9410f33f6556667f36aafcfe575a082
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ec35e383a182cf783c253b9242e6abb73e39385d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080317"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361093"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 服務的運作方式：架構和概念
 
@@ -70,7 +70,7 @@ ms.locfileid: "58080317"
 
 實驗是從指定之指令碼的許多回合組成的群組。 它一律屬於某個工作區。 當您提交回合時，必須提供一個實驗名稱。 回合的資訊會儲存在該實驗底下。 如果提交回合並指定不存在的實驗名稱，就會自動以新指定的名稱建立一個新的實驗。
 
-如需使用實驗的範例，請參閱[快速入門：開始使用 Azure Machine Learning 服務](quickstart-get-started.md)。
+如需使用實驗的範例，請參閱[快速入門：開始使用 Azure Machine Learning 服務](quickstart-run-cloud-notebook.md)。
 
 ## <a name="model"></a>模型
 
@@ -80,7 +80,7 @@ ms.locfileid: "58080317"
 
 Azure Machine Learning 服務與架構無關。 建立模型時，您可以使用任何常用的機器學習服務架構，例如 Scikit-learn、XGBoost、PyTorch、TensorFlow、Chainer 與 Microsoft Cognitive Toolkit (先前稱為 CNTK)。
 
-如需定型模型的範例，請參閱[快速入門：建立 Machine Learning 服務工作區](quickstart-get-started.md)。
+定型模型的範例，請參閱[教學課程：使用 Azure Machine Learning 服務將映像分類模型定型](tutorial-train-models-with-aml.md)。
 
 ### <a name="model-registry"></a>模型登錄
 
@@ -143,7 +143,7 @@ Azure Machine Learning 服務與架構無關。 建立模型時，您可以使�
 
 您可以指定包含定型指令碼與相關聯檔案的目錄，以將模型定型。 您也可以指定用來儲存定型期間所收集資訊的實驗名稱。 在定型期間，整個目錄會複製到定型環境 (計算目標)，然後啟動回合組態指定的指令碼。 目錄的快照集也會儲存在工作區中的實驗底下。
 
-如需範例，請參閱[使用 Python 建立工作區](quickstart-get-started.md)。
+如需範例，請參閱[教學課程：使用 Azure Machine Learning 服務將映像分類模型定型](tutorial-train-models-with-aml.md)。
 
 ## <a name="run"></a>執行
 
@@ -156,7 +156,7 @@ Azure Machine Learning 服務與架構無關。 建立模型時，您可以使�
 
 當您提交指令碼以將模型定型時，就會產生回合。 回合可以有 0 或多個子回合。 例如，最上層回合可能有兩個子回合，其中每個可能都有自己的子回合。
 
-如需檢視定型模型所產生之回合的範例，請參閱[快速入門：開始使用 Azure Machine Learning 服務](quickstart-get-started.md)。
+如需檢視定型模型所產生之回合的範例，請參閱[快速入門：開始使用 Azure Machine Learning 服務](quickstart-run-cloud-notebook.md)。
 
 ## <a name="snapshot"></a>快照
 
@@ -206,7 +206,7 @@ Azure Machine Learning 可以建立兩種類型的映像：
 
 ### <a name="iot-module"></a>IoT 模組
 
-已部署的 IoT 模組是一個 Docker 容器，其中包含您的模型與相關聯的指令碼或應用程式，以及任何額外的相依性。 您可以在邊緣裝置上使用 Azure IoT Edge 部署這些模型。
+已部署的 IoT 模組是一個 Docker 容器，其中包含您的模型與相關聯的指令碼或應用程式，以及任何額外的相依性。 您可以在 edge 裝置上使用 Azure IoT Edge 部署這些模組。
 
 如果您已經啟用監視功能，Azure 就會從 Azure IoT Edge 模組內部的模型收集遙測資料。 遙測資料只有您才能存取，而且會儲存在您的儲存體帳戶執行個體中。
 
@@ -227,6 +227,6 @@ Azure IoT Edge 會確保模組正在執行，並監視裝載模組的裝置。
 若要開始使用 Azure Machine Learning 服務，請參閱：
 
 * [什麼是 Azure Machine Learning 服務？](overview-what-is-azure-ml.md)
-* [快速入門：使用 Python 來建立工作區](quickstart-get-started.md)
+* [建立 Azure 機器學習服務工作區](setup-create-workspace.md)
 * [教學課程：將模型定型](tutorial-train-models-with-aml.md)
 * [使用 Resource Manager 範本建立工作區](how-to-create-workspace-template.md)

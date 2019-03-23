@@ -9,16 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1a8c0ec8a7926d443963075fec576b9e2168d41f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 6c57b62d63be55abc51b85327957afffa5dd3a42
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052622"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360192"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>將內部部署 Apache Hadoop 叢集遷移到 Azure HDInsight - 基礎結構最佳做法
 
 本文提供管理 Azure HDInsight 叢集基礎結構的建議。 本文是系列文章中的一篇，提供有助於將內部部署 Apache Hadoop 系統移轉至 Azure HDInsight 的最佳做法。
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="plan-for-hdinsight-cluster-capacity"></a>HDInsight 叢集容量的規劃
 
@@ -109,14 +111,14 @@ HDInsight 提供預先撰寫的指令碼以在 HDInsight 叢集上安裝下列�
 # hive-site.xml configuration
 $hiveConfigValues = @{"hive.metastore.client.socket.timeout"="90"}
 
-$config = New—AzureRmHDInsightClusterConfig '
-    | Set—AzureRmHDInsightDefaultStorage
+$config = New—AzHDInsightClusterConfig '
+    | Set—AzHDInsightDefaultStorage
     —StorageAccountName "$defaultStorageAccountName.blob. core.windows.net" `
     —StorageAccountKey "defaultStorageAccountKey " `
-    | Add—AzureRmHDInsightConfigValues `
+    | Add—AzHDInsightConfigValues `
         —HiveSite $hiveConfigValues
 
-New—AzureRmHDInsightCluster `
+New—AzHDInsightCluster `
     —ResourceGroupName $existingResourceGroupName `
     —Cluster-Name $clusterName `
     —Location $location `
@@ -153,7 +155,7 @@ HDInsight 具有彈性，可讓您選擇相應增加和相應減少叢集中的�
 ### <a name="powershell-cmdlet"></a>PowerShell Cmdlet
 
 ```powershell
-Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
+Set-AzHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
 ```
 
 ### <a name="azure-cli"></a>Azure CLI

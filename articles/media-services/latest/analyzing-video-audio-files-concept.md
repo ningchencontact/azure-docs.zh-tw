@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 03/21/2019
 ms.author: juliako
-ms.openlocfilehash: 247d72396d1737d568a89656c544bbe699f11e30
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 8f8af438d4034fc945a717fee0b720e3fe13cf56
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342383"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351995"
 ---
 # <a name="analyzing-video-and-audio-files"></a>分析視訊和音訊檔案
 
@@ -25,7 +25,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 若要使用媒體服務 v3 分析您的內容，請建立**轉換**，並提交使用下列其中一個預設值的**作業**：[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset) 或 **AudioAnalyzerPreset**。 下列文章示範如何使用 **VideoAnalyzerPreset**：[教學課程：使用 Azure 媒體服務分析影片](analyze-videos-tutorial-with-api.md)。
 
 > [!NOTE]
-> 使用視訊或音訊分析程式的預設時，可使用 Azure 入口網站將帳戶設定為擁有 10 個 S3 編碼保留單元。 如需詳細資訊，請參閱[調整媒體處理](../previous/media-services-scale-media-processing-overview.md)。
+> 使用視訊或音訊分析程式的預設時，可使用 Azure 入口網站將帳戶設定為擁有 10 個 S3 編碼保留單元。 如需詳細資訊，請參閱[調整媒體處理](media-reserved-units-cli-how-to.md)。
 
 ## <a name="built-in-presets"></a>內建預設
 
@@ -61,7 +61,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 ### <a name="transcript"></a>文字記錄
 
-|Name|說明|
+|名稱|描述|
 |---|---|
 |id|行識別碼。|
 |text|文字記錄本身。|
@@ -99,7 +99,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 ### <a name="ocr"></a>ocr
 
-|Name|說明|
+|名稱|描述|
 |---|---|
 |id|OCR 行識別碼。|
 |text|OCR 文字。|
@@ -142,7 +142,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 ### <a name="faces"></a>臉部
 
-|Name|說明|
+|名稱|描述|
 |---|---|
 |id|臉部識別碼。|
 |name|臉部名稱。 它可以是 Unknown #0、已識別的名人或客戶培訓人員。|
@@ -187,7 +187,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 ### <a name="shots"></a>擷取畫面
 
-|Name|說明|
+|名稱|描述|
 |---|---|
 |id|擷取畫面識別碼。|
 |keyFrames|擷取畫面的主要畫面清單 (每個主要畫面都有一個識別碼和執行個體的時間範圍清單)。 主要畫面格執行個體中有縮圖識別碼欄位，其中包含主要畫面格的縮圖識別碼。|
@@ -244,7 +244,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 ### <a name="statistics"></a>統計資料
 
-|Name|說明|
+|名稱|描述|
 |---|---|
 |CorrespondenceCount|影片中的對應數目。|
 |WordCount|每個說話者的字數。|
@@ -257,7 +257,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 人氣會依據其 sentimentType 欄位 (Positive/Neutral/Negative) 加以彙總。 例如：0-0.1、0.1-0.2。
 
-|Name|說明|
+|名稱|描述|
 |---|---|
 |id|人氣識別碼。|
 |averageScore |所有該人氣類型執行個體的總分平均值 - Positive/Neutral/Negative|
@@ -292,7 +292,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 ### <a name="labels"></a>標籤
 
-|Name|說明|
+|名稱|描述|
 |---|---|
 |id|標籤識別碼。|
 |name|標籤名稱 (例如，電腦、電視)。|
@@ -351,7 +351,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 ### <a name="keywords"></a>關鍵字
 
-|Name|說明|
+|名稱|描述|
 |---|---|
 |id|關鍵字識別碼。|
 |text|關鍵字。|
@@ -402,7 +402,7 @@ visualContentModeration 區塊包含影片索引器偵測到可能含有成人�
 
 經發現含有成人或猥褻內容的影片，只能供私人檢視。 使用者可以要求人工審核影片內容，在此情況下，IsAdult 屬性將包含人工審核的結果。
 
-|Name|說明|
+|名稱|描述|
 |---|---|
 |id|視覺內容仲裁識別碼。|
 |adultScore|成人分數 (由內容仲裁提供)。|

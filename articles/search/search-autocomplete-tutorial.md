@@ -1,23 +1,25 @@
 ---
-title: 加入您的搜尋方塊-Azure 搜尋服務中的自動完成的範例
-description: 舉例說明如何使用 Azure 搜尋服務的自動完成和建議 API，來對以資料為中心的應用程式改善終端使用者體驗。
+title: 在搜尋方塊-Azure 搜尋服務中加入自動提示的自動完成範例
+description: 啟用 Azure 搜尋服務中的自動提示查詢動作藉由建立建議工具，並擬定填滿與已完成的詞彙或片語搜尋方塊中的要求。
 manager: pablocas
 author: mrcarter8
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 03/22/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: b754f00e9bed34717734c4aec81e5489d2c12b63
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: b78fdf0c493e4631e4cdd7e26b154570b6226d1f
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200271"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369562"
 ---
-# <a name="example-add-autocomplete-to-your-search-box-using-azure-search"></a>範例：使用 Azure 搜尋服務在搜尋方塊中新增自動完成
+# <a name="example-add-autocomplete-to-partial-term-inputs-in-azure-search"></a>範例：將自動完成功能新增至 Azure 搜尋服務中的部份字詞輸入
+
+這項預覽功能 「 完成 」 的部份字詞輸入所提供的 Azure 搜尋服務索引中的文件已完成的詞彙。 您可能已經注意到這項功能在商業的搜尋引擎。 您可以現在加入這項功能，目前在公開預覽，Azure 搜尋服務解決方案，以簡化查詢吸納。
 
 在此範例中，您將了解如何使用[建議](https://docs.microsoft.com/rest/api/searchservice/suggestions)，[自動完成](https://docs.microsoft.com/rest/api/searchservice/autocomplete)並[facet](search-faceted-navigation.md)中[Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/)及[.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet)建置功能強大的搜尋方塊中。 
 

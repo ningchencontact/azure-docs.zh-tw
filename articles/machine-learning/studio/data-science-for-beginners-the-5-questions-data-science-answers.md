@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: garyericson
-ms.author: garye
+author: sdgilley
+ms.author: sgilley
 ms.custom: seodec18
-ms.date: 01/03/2018
-ms.openlocfilehash: 4483fc82ad4bf935153c76922fbece84c6ca2ea8
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.date: 03/22/2019
+ms.openlocfilehash: d89a701f1d4528e1f3dff08daf31873891778f07
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816893"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369185"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>適用於初學者的資料科學影片 1：資料科學可以回答的 5 個問題
 從頂尖資料科學家所提供之「適用於初學者的資料科學」的五個簡短影片中快速認識資料科學。 無論您是對從事資料科學有興趣，或您是和資料科學家一起工作，這些影片都能為您提供基本但很有用的知識。

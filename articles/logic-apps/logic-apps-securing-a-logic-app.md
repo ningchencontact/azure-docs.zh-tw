@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 02/05/2019
-ms.openlocfilehash: 34076b790a91b1c0e9d8bee224423aab0db7c8f3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6f878e05255be8f65868d8d1dcdbacb3ccfa2729
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891802"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369933"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>在 Azure Logic Apps 中安全存取
 
@@ -34,7 +34,7 @@ ms.locfileid: "57891802"
 當您的邏輯應用程式使用 HTTP 要求型觸發程序 (例如[要求](../connectors/connectors-native-reqres.md)或 [Webhook](../connectors/connectors-native-webhook.md) 觸發程序) 時，您可以將存取限制為僅限已授權的用戶端才可啟動邏輯應用程式。 邏輯應用程式收到的所有要求，都會使用安全通訊端層 (SSL) 通訊協定加密並保護。 以下是您可以保護此觸發程序類型存取的不同方式：
 
 * [產生共用存取簽章](#sas)
-* [限制連入 IP 位址](#restrict-incoming-IP)
+* [限制連入 IP 位址](#restrict-incoming-ip-addresses)
 * [新增 Azure Active Directory、OAuth 或其他安全性](#add-authentication)
 
 <a name="sas"></a>

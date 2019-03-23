@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 03/21/2019
 ms.author: danlep
-ms.openlocfilehash: ffc9cf24e686924878a752b5d9df31160328ef0a
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.openlocfilehash: 10f2340bd85da3dabcd50d51a4dd56d58d31675b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854706"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372432"
 ---
 # <a name="deploy-a-multi-container-container-group-with-yaml"></a>使用 YAML 部署多容器的容器群組
 
@@ -34,17 +34,17 @@ Azure 容器執行個體支援使用[容器群組](container-instances-container
 
 一開始先將下列 YAML 複製到名為 **deploy-aci.yaml** 的新檔案中。
 
-此 YAML 檔案會定義名為 "myContainerGroup"，且含有兩個容器 (一個公用 IP 位址和兩個公開連接埠) 的容器群組。 群組中第一個容器會執行網際網路對向的 Web 應用程式。 第二個容器 sidecar 會透過容器群組的區域網路，定期對第一個容器中執行的 Web 應用程式執行 HTTP 要求。
+此 YAML 檔案會定義名為 "myContainerGroup"，且含有兩個容器 (一個公用 IP 位址和兩個公開連接埠) 的容器群組。 容器會從公用 Microsoft 映像進行部署。 群組中第一個容器會執行網際網路對向的 Web 應用程式。 第二個容器 sidecar 會透過容器群組的區域網路，定期對第一個容器中執行的 Web 應用程式執行 HTTP 要求。
 
 ```YAML
-apiVersion: 2018-06-01
+apiVersion: 2018-10-01
 location: eastus
 name: myContainerGroup
 properties:
   containers:
   - name: aci-tutorial-app
     properties:
-      image: microsoft/aci-helloworld:latest
+      image: mcr.microsoft.com/azuredocs/aci-helloworld:latest
       resources:
         requests:
           cpu: 1
@@ -54,7 +54,7 @@ properties:
       - port: 8080
   - name: aci-tutorial-sidecar
     properties:
-      image: microsoft/aci-tutorial-sidecar
+      image: mcr.microsoft.com/azuredocs/aci-tutorial-sidecar
       resources:
         requests:
           cpu: 1
@@ -98,9 +98,9 @@ az container show --resource-group myResourceGroup --name myContainerGroup --out
 若要檢視執行中的應用程式，請在瀏覽器中瀏覽至其公用 IP 位址。 例如，在此範例輸出中，IP 是 `52.168.26.124`：
 
 ```bash
-Name              ResourceGroup    ProvisioningState    Image                                                           IP:ports               CPU/Memory       OsType    Location
-----------------  ---------------  -------------------  --------------------------------------------------------------  ---------------------  ---------------  --------  ----------
-myContainerGroup  myResourceGroup  Succeeded            microsoft/aci-helloworld:latest,microsoft/aci-tutorial-sidecar  52.168.26.124:80,8080  1.0 core/1.5 gb  Linux     eastus
+Name              ResourceGroup    Status    Image                                                                                               IP:ports              Network    CPU/Memory       OsType    Location
+----------------  ---------------  --------  --------------------------------------------------------------------------------------------------  --------------------  ---------  ---------------  --------  ----------
+myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tutorial-sidecar,mcr.microsoft.com/azuredocs/aci-helloworld:latest  20.42.26.114:80,8080  Public     1.0 core/1.5 gb  Linux     eastus
 ```
 
 ## <a name="view-logs"></a>檢視記錄檔
@@ -115,9 +115,9 @@ az container logs --resource-group myResourceGroup --name myContainerGroup --con
 
 ```console
 listening on port 80
-::1 - - [09/Jan/2018:23:17:48 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [09/Jan/2018:23:17:51 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [09/Jan/2018:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [21/Mar/2019:23:17:48 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [21/Mar/2019:23:17:51 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
 若要查看 Sidecar 容器的記錄，請執行相同命令來指定第二個容器名稱。
@@ -129,7 +129,7 @@ az container logs --resource-group myResourceGroup --name myContainerGroup --con
 輸出：
 
 ```console
-Every 3s: curl -I http://localhost                          2018-01-09 23:25:11
+Every 3s: curl -I http://localhost                          2019-03-21 20:36:41
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -142,7 +142,7 @@ Last-Modified: Wed, 29 Nov 2017 06:40:40 GMT
 ETag: W/"67f-16006818640"
 Content-Type: text/html; charset=UTF-8
 Content-Length: 1663
-Date: Tue, 09 Jan 2018 23:25:11 GMT
+Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
@@ -162,7 +162,7 @@ Connection: keep-alive
 例如，下列 YAML 部署的容器群組包含了單一容器，其映像就是取自名為"myregistry" 的私人 Azure 容器登錄：
 
 ```YAML
-apiVersion: 2018-06-01
+apiVersion: 2018-10-01
 location: eastus
 name: myContainerGroup2
 properties:
@@ -215,7 +215,7 @@ properties:
   - name: aci-tutorial-app
     properties:
       environmentVariables: []
-      image: microsoft/aci-helloworld:latest
+      image: mcr.microsoft.com/azuredocs/aci-helloworld:latest
 ```
 
 ## <a name="next-steps"></a>後續步驟

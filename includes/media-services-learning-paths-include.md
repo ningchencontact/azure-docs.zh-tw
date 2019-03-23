@@ -2,21 +2,27 @@
 author: Juliako
 ms.service: media-services
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 4c803b4915823b3a723728732479b605d9d7ee8a
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.openlocfilehash: 135232e3e9894bcef1ef657e41f5ad3a5e307289
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52269331"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352434"
 ---
-請參閱 Azure 媒體服務的最新版本：[Azure 媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。
+### <a name="media-services-v3-latest"></a>媒體服務 v3 （最新版）
 
-您可以從下列主題著手： 
+查看最新版的 Azure 媒體服務 ！ 
 
 * [概觀](https://docs.microsoft.com/azure/media-services/latest/media-services-overview)
-* [使用 API 上傳、編碼和串流影片](https://docs.microsoft.com/azure/media-services/latest/stream-files-tutorial-with-api)
-* [分析](https://docs.microsoft.com/azure/media-services/latest/analyze-videos-tutorial-with-api)
-* [即時串流](https://docs.microsoft.com/azure/media-services/latest/stream-live-tutorial-with-api)
-* [保護內容](https://docs.microsoft.com/azure/media-services/latest/protect-with-aes128)
+* [概念](https://docs.microsoft.com/azure/media-services/latest/concepts-overview)
+* [開始進行開發](https://docs.microsoft.com/azure/media-services/latest/developers-guide)
+* [從 v2 至 v3 的移轉指導方針](https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3)
+
+### <a name="media-services-v2-legacy"></a>媒體服務 v2 （舊版）
+
+* [概觀](https://docs.microsoft.com/azure/media-services/previous/media-services-overview)
+* [建立帳戶](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-create-account)
+* [傳遞隨](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-vod-get-started)
+* [即時傳遞](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-live-passthrough-get-started)

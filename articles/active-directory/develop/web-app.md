@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e9704ce014e520350360c336c7a17940cae95fb
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0337f3de40e75ada86c0a5265fc99b34f1c2ecae
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197890"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58367910"
 ---
 # <a name="web-apps"></a>Web 應用程式
 
@@ -36,7 +36,7 @@ Web 應用程式是向 Web 應用程式驗證 Web 瀏覽器中使用者的應用
 
 1. 當使用者造訪應用程式且需要登入時，他們透過登入要求而重新導向 Azure AD 中的驗證端點。
 1. 使用者在登入頁面上登入。
-1. 如果驗證成功，Azure AD 會建立驗證權杖，並將登入回應傳回到 Azure 入口網站中所設的應用程式回覆 URL。 對於實際執行應用程式，此回覆 URL 應該為 HTTPS。 傳回的權杖包含應用程式驗證權杖所需的使用者與 Azure AD 宣告。
+1. 如果驗證成功，Azure AD 會建立驗證權杖，並將登入回應傳回到 Azure 入口網站中所設的應用程式回覆 URL。 對於實際執行應用程式，此回覆 URL 應該為 HTTPS。 返回的令牌包括应用程序对该令牌进行验证所需的关于用户和 Azure AD 的声明。
 1. 應用程式會使用 Azure AD 的同盟中繼資料文件可用的公開簽署金鑰和簽發者資訊來驗證權杖。 應用程式會在驗證權杖之後，對使用者啟動新的工作階段。 此工作階段可讓使用者存取應用程式，直到過期為止。
 
 ## <a name="code-samples"></a>程式碼範例

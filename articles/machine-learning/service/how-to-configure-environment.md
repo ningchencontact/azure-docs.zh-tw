@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6a51e57cfac326663d41b545c9f2883a446467d3
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 1d4144a2a6cf41d594ee096d8802ccc5b29009a5
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340757"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361790"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>設定 Azure Machine Learning 的開發環境
 
@@ -40,7 +40,7 @@ ms.locfileid: "57340757"
 
 ## <a name="prerequisites"></a>必要條件
 
-- Azure Machine Learning 服務工作區。 若要建立工作區，請參閱[開始使用 Azure Machine Learning 服務](quickstart-get-started.md)。
+- Azure Machine Learning 服務工作區。 若要建立工作區，請參閱[建立 Azure 機器學習服務工作區](setup-create-workspace.md)。
 
 - 任一[Anaconda](https://www.anaconda.com/download/)或是[Miniconda](https://conda.io/miniconda.html)封裝管理員。
 
@@ -61,7 +61,7 @@ ms.locfileid: "57340757"
 * Azure Machine Learning SDK 已安裝。
 * 在 Azure 入口網站中建立 Azure Machine Learning 服務工作區後，您可以按一下按鈕來自動設定您的 Azure Notebook 環境，以使用工作區。
 
-若要開始使用 Azure Notebooks 進行開發，請參閱[開始使用 Azure Machine Learning 服務](quickstart-get-started.md)。
+若要開始使用 Azure Notebooks 進行開發，請參閱[開始使用 Azure Machine Learning 服務](quickstart-run-cloud-notebook.md)。
 
 根據預設，Azure Notebooks 使用免費服務層，其限制為 4 GB 記憶體和 1GB 資料。 不過，您可以將資料科學虛擬機器執行個體附加到 Azure Notebooks 專案來移除這些限制。 如需詳細資訊，請參閱[管理和設定 Azure Notebooks 專案 - 計算層](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)。
 
@@ -350,7 +350,7 @@ SDK databricks **WITH**自動化機器學習服務![SDK 會自動安裝在 Datab
 
 您可以透過三種方式建立組態檔：
 
-* **依照 [Azure Machine Learning 快速入門](quickstart-get-started.md)**：*config.json* 檔案是在 Azure Notebook 程式庫中建立的。 此檔案包含您工作區的組態資訊。 您可以將此 *config.json* 下載或複製到其他開發環境。
+* **請依照下列中的步驟[建立 Azure 機器學習服務工作區](setup-create-workspace.md#sdk)**:*config.json* 檔案是在 Azure Notebook 程式庫中建立的。 此檔案包含您工作區的組態資訊。 您可以將此 *config.json* 下載或複製到其他開發環境。
 
 * **手動建立檔案**：使用此方法時，您可以使用文字編輯器。 您可以透過瀏覽 [Azure 入口網站](https://portal.azure.com)中的工作區，來尋找組態檔中的值。 複製工作區名稱、資源群組和訂用帳戶識別碼值，並在組態檔中使用它們。
 

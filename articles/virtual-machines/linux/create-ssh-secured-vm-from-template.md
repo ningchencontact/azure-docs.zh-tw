@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ff8beb1995359bad93449744718091c338e4994
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 334f69390e4506c6db76c1814f8ec8f1e4417ee9
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226550"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372330"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>如何使用 Azure Resource Manager 範本建立 Linux 虛擬機器
 
-本文示範如何使用 Azure Resource Manager 範本和 Azure CLI，快速部署 Linux 虛擬機器 (VM)。 
+了解如何使用 Azure Resource Manager 範本和 Azure CLI 從 Azure Cloud shell 中建立 Linux 虛擬機器 (VM)。 若要建立 Windows 虛擬機器，請參閱[從 Resource Manager 範本建立 Windows 虛擬機器](../windows/ps-template.md)。
 
 ## <a name="templates-overview"></a>範本概觀
 
@@ -84,8 +84,8 @@ ssh <adminUsername>@<ipAddress>
 
 若要深入了解如何建立範本，請針對您部署的資源類型檢視 JSON 語法和屬性：
 
-* [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)
-* [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
-* [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
-* [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
-* [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)
+- [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)
+- [Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)
+- [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
+- [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces)
+- [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines)

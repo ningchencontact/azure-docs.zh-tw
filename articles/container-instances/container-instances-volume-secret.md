@@ -2,18 +2,17 @@
 title: 在 Azure 容器執行個體中掛接秘密磁碟區
 description: 了解如何掛接秘密磁碟區，以儲存供您的容器執行個體存取的機密資訊
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 07/19/2018
-ms.author: marsma
-ms.openlocfilehash: 572e6701bbe69bbb07c76d468a309030fc37d984
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
-ms.translationtype: HT
+ms.author: danlep
+ms.openlocfilehash: 3c1c83bb0c3e46a7eaab519050d9c556e2cc1a7a
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159884"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372246"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>在 Azure 容器執行個體中掛接秘密磁碟區
 
@@ -32,7 +31,7 @@ ms.locfileid: "39159884"
 az container create \
     --resource-group myResourceGroup \
     --name secret-volume-demo \
-    --image microsoft/aci-helloworld \
+    --image mcr.microsoft.com/azuredocs/aci-helloworld \
     --secrets mysecret1="My first secret FOO" mysecret2="My second secret BAR" \
     --secrets-mount-path /mnt/secrets
 ```
@@ -69,7 +68,7 @@ properties:
   - name: aci-tutorial-app
     properties:
       environmentVariables: []
-      image: microsoft/aci-helloworld:latest
+      image: mcr.microsoft.com/azuredocs/aci-helloworld:latest
       ports: []
       resources:
         requests:
@@ -106,7 +105,8 @@ az container create --resource-group myResourceGroup --file deploy-aci.yaml
 
 下列 Resource Manager 範本可定義含有一個容器的容器群組，而該容器會在 `/mnt/secrets` 掛接「祕密」磁碟區。 此祕密磁碟區有兩個祕密 "mysecret1" 和 "mysecret2"。
 
-<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json --> [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
+<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
+[!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 
 若要透過 Resource Manager 範本進行部署，請將上述 JSON 儲存到名為 `deploy-aci.json` 的檔案，然後使用 `--template-file` 參數執行 [az group deployment create][az-group-deployment-create] 命令：
 

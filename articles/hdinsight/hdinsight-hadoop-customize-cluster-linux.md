@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: ccb408a427680cffc339797bd3421ed9f53af640
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 80c2d25fa24acff92a462f0289259792f217fbfd
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200679"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361688"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>使用指令碼動作來自訂 Linux 型 HDInsight 叢集
 
@@ -26,6 +26,8 @@ Azure HDInsight 提供名為**指令碼動作**的設定方法，會叫用自訂
 > Linux 是 HDInsight 版本 3.4 或更新版本上唯一使用的作業系統。 如需詳細資訊，請參閱 [HDInsight Windows 停用項目](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 指令碼動作也可以發佈到 Azure Marketplace 做為 HDInsight 應用程式。 如需有關 HDInsight 應用程式的詳細資訊，請參閱[將 HDInsight 應用程式發佈到 Azure Marketplace](hdinsight-apps-publish-applications.md)。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="permissions"></a>權限
 
@@ -131,7 +133,7 @@ Azure HDInsight 提供名為**指令碼動作**的設定方法，會叫用自訂
 >
 > 指令碼動作會以根權限執行。 請先確定您了解指令碼的作用，再將它套用到您的叢集。
 
-當您將指令碼套用至叢集時，叢集狀態會從 [正在執行] 變更為 [已接受]。 然後，它會變更為 [HDInsight 設定]，最後，如果指令碼成功，就會再變更回 [正在執行]。 指令碼狀態會記錄在指令碼動作歷程記錄中。 此資訊會告訴您指令碼成功還是失敗。 例如，`Get-AzureRmHDInsightScriptActionHistory` PowerShell Cmdlet 會顯示指令碼的狀態。 它會傳回類似以下文字的資訊：
+當您將指令碼套用至叢集時，叢集狀態會從 [正在執行] 變更為 [已接受]。 然後，它會變更為 [HDInsight 設定]，最後，如果指令碼成功，就會再變更回 [正在執行]。 指令碼狀態會記錄在指令碼動作歷程記錄中。 此資訊會告訴您指令碼成功還是失敗。 例如，`Get-AzHDInsightScriptActionHistory` PowerShell Cmdlet 會顯示指令碼的狀態。 它會傳回類似以下文字的資訊：
 
     ScriptExecutionId : 635918532516474303
     StartTime         : 8/14/2017 7:40:55 PM
@@ -223,7 +225,7 @@ HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>在建立叢集期間從 Azure PowerShell 使用指令碼動作
 
-本節中，您使用 [Add-AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) Cmdlet 叫用指令碼以自訂叢集。 在您開始之前，請務必先安裝和設定 Azure PowerShell。 如需有關設定工作站以執行 HDInsight Powershell Cmdlet 的資訊，請參閱 [Azure PowerShell 概觀](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install)。
+在本節中，您會使用[新增 AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) cmdlet 以叫用來自訂叢集的指令碼。 在您開始之前，請務必先安裝和設定 Azure PowerShell。 如需有關設定工作站以執行 HDInsight Powershell Cmdlet 的資訊，請參閱 [Azure PowerShell 概觀](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install)。
 
 下列指令碼示範如何使用 PowerShell 在建立叢集時套用指令碼動作：
 
@@ -368,13 +370,13 @@ HDInsight .NET SDK 提供用戶端程式庫，可讓您更輕鬆地從 .NET 應�
 
 | Cmdlet | 函式 |
 | --- | --- |
-| `Get-AzureRmHDInsightPersistedScriptAction` |擷取持續性指令碼動作的相關資訊。 |
-| `Get-AzureRmHDInsightScriptActionHistory` |擷取已套用到叢集的指令碼動作歷程記錄，或特定指令碼的詳細資料。 |
-| `Set-AzureRmHDInsightPersistedScriptAction` |將臨時性指令碼動作升階為持續性指令碼動作。 |
-| `Remove-AzureRmHDInsightPersistedScriptAction` |將持續性指令碼動作降階為臨時性動作。 |
+| `Get-AzHDInsightPersistedScriptAction` |擷取持續性指令碼動作的相關資訊。 |
+| `Get-AzHDInsightScriptActionHistory` |擷取已套用到叢集的指令碼動作歷程記錄，或特定指令碼的詳細資料。 |
+| `Set-AzHDInsightPersistedScriptAction` |將臨時性指令碼動作升階為持續性指令碼動作。 |
+| `Remove-AzHDInsightPersistedScriptAction` |將持續性指令碼動作降階為臨時性動作。 |
 
 > [!IMPORTANT]  
-> `Remove-AzureRmHDInsightPersistedScriptAction` 不會復原指令碼所執行的動作。 此 Cmdlet 只會移除持續性旗標。
+> `Remove-AzHDInsightPersistedScriptAction` 不會復原指令碼所執行的動作。 此 Cmdlet 只會移除持續性旗標。
 
 下列範例指令碼示範如何使用 Cmdlet 將指令碼先升級後再降級。
 

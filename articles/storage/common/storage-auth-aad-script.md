@@ -5,25 +5,25 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f8fd3cdcf73749d787fc6f1c2222946961091f80
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6c57367a3a11aeb5bdded8e19ce57b7e265aeea9
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57849834"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369236"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell"></a>使用 Azure AD 身分識別來存取使用 CLI 或 PowerShell 的 Azure 儲存體
 
-Azure 儲存體提供 Azure CLI 和 PowerShell 可讓您登入並執行指令碼的命令，在 Azure Active Directory (Azure AD) 身分識別之下的延伸模組。 Azure AD 身分識別可以是使用者、群組或應用程式服務主體，也可以是 [Azure 資源的受控識別](../../active-directory/managed-identities-azure-resources/overview.md)。 您可以透過角色型存取控制 (RBAC)，將存取儲存體資源的權限指派給 Azure AD 身分識別。 如需 Azure 儲存體中 RBAC 角色的詳細資訊，請參閱[使用 RBAC 管理 Azure 儲存體資料的存取權限 (預覽)](storage-auth-aad-rbac.md)。
+Azure 儲存體提供 Azure CLI 和 PowerShell 可讓您登入，並執行指令碼的命令，在 Azure Active Directory (Azure AD) 身分識別的延伸模組。 Azure AD 身分識別可以是使用者、群組或應用程式服務主體，也可以是 [Azure 資源的受控識別](../../active-directory/managed-identities-azure-resources/overview.md)。 您可以透過角色型存取控制 (RBAC)，將存取儲存體資源的權限指派給 Azure AD 身分識別。 如需有關 Azure 儲存體中的 RBAC 角色的詳細資訊，請參閱 < [Azure 儲存體資料，使用 RBAC 管理存取權限](storage-auth-aad-rbac.md)。
 
-當您使用 Azure AD 身分識別登入 Azure CLI 或 PowerShell 時，系統會傳回存取權杖，以便在該身分識別之下存取 Azure 儲存體。 然後 CLI 或 PowerShell 會自動使用該權杖，針對 Azure 儲存體對作業進行授權。 針對支援的作業，您不需要再使用命令傳遞帳戶金鑰或 SAS 權杖。
+當您登入 Azure CLI 或 PowerShell 的 Azure AD 身分識別時，會傳回該識別存取 Azure 儲存體的存取權杖。 然後 CLI 或 PowerShell 會自動使用該權杖，針對 Azure 儲存體對作業進行授權。 針對支援的作業，您不需要再使用命令傳遞帳戶金鑰或 SAS 權杖。
 
 ## <a name="supported-operations"></a>支援的作業
 
-對容器和佇列作業支援的延伸模組。 您會呼叫哪些作業，取決於您用來登入 Azure CLI 或 PowerShell 的 Azure AD 身分識別所獲得的授權。 給予 Azure 儲存體容器或佇列的權限，是透過角色型存取控制 (RBAC) 指派的。 例如，如果將資料讀者角色指派給身分識別，則您可以執行讀取容器或佇列資料的指令碼命令。 如果將資料參與者角色指派給身分識別，則您可以執行讀取、寫入或刪除容器或佇列或其中所含資料的指令碼命令。 
+對容器和佇列作業支援的延伸模組。 您可以呼叫哪些作業取決於與您登入 Azure CLI 或 PowerShell 的 Azure AD 身分識別授與的權限。 給予 Azure 儲存體容器或佇列的權限，是透過角色型存取控制 (RBAC) 指派的。 例如，如果將資料讀者角色指派給身分識別，則您可以執行讀取容器或佇列資料的指令碼命令。 如果將資料參與者角色指派給身分識別，則您可以執行讀取、寫入或刪除容器或佇列或其中所含資料的指令碼命令。 
 
 如需容器或佇列上每個 Azure 儲存體作業所需權限的詳細資訊，請參閱[呼叫 REST 作業的權限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)。  
 
@@ -61,10 +61,10 @@ Azure CLI 支援`--auth-mode`對 Azure 儲存體的資料作業的參數：
         --encryption-services blob
     ```
     
-1. 建立容器之前，先指派[儲存體 Blob 資料參與者 （預覽）](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview)給您自己的角色。 雖然您是帳戶擁有者，您需要明確的權限以執行資料作業的儲存體帳戶。 如需有關指派 RBAC 角色的詳細資訊，請參閱[授與存取權的 Azure 容器，使用 RBAC 在 Azure 入口網站 （預覽） 中的佇列](storage-auth-aad-rbac.md)。
+1. 建立容器之前，先指派[儲存體 Blob 資料參與者](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview)給您自己的角色。 雖然您是帳戶擁有者，您需要明確的權限以執行資料作業的儲存體帳戶。 如需有關指派 RBAC 角色的詳細資訊，請參閱[授與存取權的 Azure 容器和 Azure 入口網站中的使用 RBAC 佇列](storage-auth-aad-rbac.md)。
 
     > [!IMPORTANT]
-    > 在預覽期間的 Azure AD 支援適用於 blob 和佇列，RBAC 角色指派可能需要 5 分鐘的時間傳播。
+    > RBAC 角色指派可能需要幾分鐘的時間傳播。
     
 1. 呼叫[az 儲存體容器建立](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create)命令搭配`--auth-mode`參數設定為`login`建立容器，使用您的 Azure AD 認證：
 
@@ -114,10 +114,10 @@ Azure CLI 支援`--auth-mode`對 Azure 儲存體的資料作業的參數：
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. 建立容器之前，先指派[儲存體 Blob 資料參與者 （預覽）](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview)給您自己的角色。 雖然您是帳戶擁有者，您需要明確的權限以執行資料作業的儲存體帳戶。 如需有關指派 RBAC 角色的詳細資訊，請參閱[授與存取權的 Azure 容器，使用 RBAC 在 Azure 入口網站 （預覽） 中的佇列](storage-auth-aad-rbac.md)。
+1. 建立容器之前，先指派[儲存體 Blob 資料參與者](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview)給您自己的角色。 雖然您是帳戶擁有者，您需要明確的權限以執行資料作業的儲存體帳戶。 如需有關指派 RBAC 角色的詳細資訊，請參閱[授與存取權的 Azure 容器和 Azure 入口網站中的使用 RBAC 佇列](storage-auth-aad-rbac.md)。
 
     > [!IMPORTANT]
-    > 在預覽期間的 Azure AD 支援適用於 blob 和佇列，RBAC 角色指派可能需要 5 分鐘的時間傳播。
+    > RBAC 角色指派可能需要幾分鐘的時間傳播。
 
 1. 建立容器，藉由呼叫[新增 AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer)。 由於這個呼叫會使用在先前步驟中建立的內容，會建立容器，使用您的 Azure AD 認證。 
 
@@ -128,6 +128,6 @@ Azure CLI 支援`--auth-mode`對 Azure 儲存體的資料作業的參數：
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入了解 Azure 儲存體的 RBAC 角色，請參閱[使用 RBAC 管理儲存體資料的存取權限 (預覽)](storage-auth-aad-rbac.md)。
-- 若要了解搭配 Azure 儲存體使用適用於 Azure 資源之受控身分識別的相關資訊，請參閱[使用適用於 Azure 資源的 Azure 受控身分識別驗證針對 Blob 與佇列的存取 (預覽)](storage-auth-aad-msi.md)。
+- 若要深入了解 Azure 儲存體的 RBAC 角色，請參閱[儲存體的資料，使用 RBAC 管理存取權限](storage-auth-aad-rbac.md)。
+- 若要了解如何使用受管理的身分識別與 Azure 儲存體的 Azure 資源，請參閱[適用於 Azure 資源管理身分識別的驗證的存取權的 blob 和佇列與 Azure](storage-auth-aad-msi.md)。
 - 若要深入了解如何從儲存體應用程式內授權容器和佇列的存取權，請參閱[使用 Azure AD 與儲存體應用程式](storage-auth-aad-app.md)。

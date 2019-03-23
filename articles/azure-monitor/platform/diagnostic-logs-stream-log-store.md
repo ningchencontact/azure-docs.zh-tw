@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 3d187851fda9054bbfbae245ef34440b66ad017e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: bd760fca20a602127e7d33913547dcb2c6bc95f6
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309310"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351540"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>將 Azure 診斷記錄檔串流至 Log Analytics
 
@@ -100,6 +100,39 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 ## <a name="how-do-i-query-the-data-in-log-analytics"></a>如何查詢 Log Analytics 中的資料？
 
 在入口網站的 [記錄搜尋] 刀鋒視窗或 Log Analytics 隨附的 [進階分析] 體驗中，您可以在 [AzureDiagnostics] 資料表底下查詢「記錄管理」解決方案隨附的診斷記錄。 此外，也有[數個適用於 Azure 資源的解決方案](../../azure-monitor/insights/solutions.md)，您可以安裝這些解決方案來立即深入了解要傳送到 Log Analytics 的記錄資料。
+
+### <a name="known-limitation-column-limit-in-azurediagnostics"></a>已知限制： AzureDiagnostics 中的資料行限制
+因為許多資源可讓您傳送的資料型別會傳送至相同的資料表 (_AzureDiagnostics_)，此資料表的結構描述是超級組所收集的所有不同的資料類型的結構描述。 例如，如果您已建立下列資料類型之集合的診斷設定，所有傳送至相同的工作區：
+- 稽核記錄檔的資源 1 （具有 A、 B 和 C 資料行所組成的結構描述）  
+- （具有資料行 D、 E 和 F 所組成的結構描述） 的資源 2 的錯誤記錄檔  
+- 為資源 3 （具有資料行 G，H，和我所組成的結構描述） 的資料流量記錄  
+ 
+[AzureDiagnostics] 資料表會以特定範例資料，如下所示，看起來：  
+ 
+| ResourceProvider | 類別 | 具有使用  | b | C | D | E | F | G | H | I |
+| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+| Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
+| Microsoft.Resource2 | ErrorLogs | | | | q1 | w1 | e1 |
+| Microsoft.Resource3 | DataFlowLogs | | | | | | | j1 | k1 | l1|
+| Microsoft.Resource2 | ErrorLogs | | | | q2 | w2 | e2 |
+| Microsoft.Resource3 | DataFlowLogs | | | | | | | j3 | k3 | l3|
+| Microsoft.Resource1 | AuditLogs | x5 | y5 | z5 |
+| ... |
+ 
+沒有任何指定的 Azure 記錄檔資料表，不需要超過 500 個資料行的明確限制。 一旦達到，任何包含資料的前 500 個以外的任何資料行的資料列皆會予以捨棄在擷取階段。 [AzureDiagnostics] 資料表是特別容易受到要影響這項限制。 這通常是因為各種資料來源傳送到相同的工作區，或多個傳送至相同的工作區的非常詳細的資料來源。 
+ 
+#### <a name="azure-data-factory"></a>Azure Data Factory  
+Azure Data Factory 中，由於一組非常詳細的記錄檔，是特別會受到這項限制已知的資源。 特別是：  
+- *針對您的管線中的任何活動所定義的使用者參數*： 會為每個唯一命名的使用者參數，針對任何活動建立新的資料行。 
+- *活動的輸入和輸出*： 這些而有所不同，活動間產生大量的資料行，因為其詳細資訊的性質。 
+ 
+為更廣泛的因應措施提案，建議將 ADF 記錄檔隔離至其自己的工作區，以影響您工作區中收集其他記錄類型的這些記錄檔的機會降到最低。 我們希望能彙總了記錄檔可用的 Azure Data factory 所 2019 年 4 月。
+ 
+#### <a name="workarounds"></a>因應措施
+短期內，直到重新定義 500 資料行限制，建議分成不同的工作區，以減少可能會達到限制的詳細資訊的資料類型。
+ 
+就長期來說，Azure 診斷將會移開統一、 疏鬆的結構描述至每個資料類型; 每個個別的資料表搭配動態類型的支援，如此可大幅改善資料傳入 Azure 記錄檔，透過 Azure 診斷機制的可用性。 您已看出這選取 Azure 資源類型，例如[Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics)或是[Intune](https://docs.microsoft.com/intune/review-logs-using-azure-monitor)記錄檔。 請尋找新的資源類型，在 Azure 上支援這些策劃的記錄檔中新消息[Azure 更新](https://azure.microsoft.com/updates/)部落格 ！
+
 
 ## <a name="next-steps"></a>後續步驟
 

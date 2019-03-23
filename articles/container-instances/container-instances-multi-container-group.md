@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 2dfe1bbf01b7e1fae8c07602ac4faa40ae74ecc9
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 93f73e133e99025b479d0b38512e26088a8eaefa
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729511"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369103"
 ---
 # <a name="deploy-a-multi-container-group-with-a-resource-manager-template"></a>部署多容器群組中的，使用 Resource Manager 範本
 
@@ -37,7 +37,7 @@ Azure 容器執行個體支援使用[容器群組](container-instances-container
 
 由建立名為 `azuredeploy.json` 的檔案開始，並將下列 JSON 複製到該檔案中。
 
-此 Resource Manager 範本會定義含有兩個容器、一個公用 IP 位址和兩個已公開連接埠的容器群組。 群組中的第一個容器會執行網際網路對向應用程式。 第二個容器 (也就是 Sidecar) 會透過群組的區域網路向主要 Web 應用程式提出 HTTP 要求。
+此 Resource Manager 範本會定義含有兩個容器、一個公用 IP 位址和兩個已公開連接埠的容器群組。 容器會從公用 Microsoft 映像進行部署。 群組中的第一個容器會執行網際網路對向應用程式。 第二個容器 (也就是 Sidecar) 會透過群組的區域網路向主要 Web 應用程式提出 HTTP 要求。
 
 ```JSON
 {
@@ -54,15 +54,15 @@ Azure 容器執行個體支援使用[容器群組](container-instances-container
   },
   "variables": {
     "container1name": "aci-tutorial-app",
-    "container1image": "microsoft/aci-helloworld:latest",
+    "container1image": "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
     "container2name": "aci-tutorial-sidecar",
-    "container2image": "microsoft/aci-tutorial-sidecar"
+    "container2image": "mcr.microsoft.com/azuredocs/aci-tutorial-sidecar"
   },
   "resources": [
     {
       "name": "[parameters('containerGroupName')]",
       "type": "Microsoft.ContainerInstance/containerGroups",
-      "apiVersion": "2018-04-01",
+      "apiVersion": "2018-10-01",
       "location": "[resourceGroup().location]",
       "properties": {
         "containers": [
@@ -164,9 +164,9 @@ az container show --resource-group myResourceGroup --name myContainerGroup --out
 若要檢視執行中的應用程式，請在瀏覽器中瀏覽至其公用 IP 位址。 例如，在此範例輸出中，IP 是 `52.168.26.124`：
 
 ```bash
-Name              ResourceGroup    ProvisioningState    Image                                                           IP:ports               CPU/Memory       OsType    Location
-----------------  ---------------  -------------------  --------------------------------------------------------------  ---------------------  ---------------  --------  ----------
-myContainerGroup  myResourceGroup  Succeeded            microsoft/aci-helloworld:latest,microsoft/aci-tutorial-sidecar  52.168.26.124:80,8080  1.0 core/1.5 gb  Linux     westus
+Name              ResourceGroup    Status    Image                                                                                               IP:ports              Network    CPU/Memory       OsType    Location
+----------------  ---------------  --------  --------------------------------------------------------------------------------------------------  --------------------  ---------  ---------------  --------  ----------
+myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tutorial-sidecar,mcr.microsoft.com/azuredocs/aci-helloworld:latest  20.42.26.114:80,8080  Public     1.0 core/1.5 gb  Linux     eastus
 ```
 
 ## <a name="view-logs"></a>檢視記錄檔
@@ -181,9 +181,9 @@ az container logs --resource-group myResourceGroup --name myContainerGroup --con
 
 ```bash
 listening on port 80
-::1 - - [09/Jan/2018:23:17:48 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [09/Jan/2018:23:17:51 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
-::1 - - [09/Jan/2018:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [21/Mar/2019:23:17:48 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [21/Mar/2019:23:17:51 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
+::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
 若要查看 Sidecar 容器的記錄，請執行相同命令來指定第二個容器名稱。
@@ -195,7 +195,7 @@ az container logs --resource-group myResourceGroup --name myContainerGroup --con
 輸出：
 
 ```bash
-Every 3s: curl -I http://localhost                          2018-01-09 23:25:11
+Every 3s: curl -I http://localhost                          2019-03-21 20:36:41
 
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -208,7 +208,7 @@ Last-Modified: Wed, 29 Nov 2017 06:40:40 GMT
 ETag: W/"67f-16006818640"
 Content-Type: text/html; charset=UTF-8
 Content-Length: 1663
-Date: Tue, 09 Jan 2018 23:25:11 GMT
+Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 

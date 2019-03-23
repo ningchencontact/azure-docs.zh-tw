@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: tylerfox
-ms.openlocfilehash: b8e9ad31c2ce7b001297012bca2aa7dd526f732a
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 20b232c53427c8ce13ded2cd722a74b1a686b536
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201274"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360421"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 HDInsight 上的 Apache Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -22,6 +22,8 @@ ms.locfileid: "58201274"
 Azure PowerShell 可讓您在 Azure 中用來控制和自動化工作負載的部署及管理。 在本文中，您將了解如何使用 Azure PowerShell 來管理 Azure HDInsight 中的 [Apache Hadoop](https://hadoop.apache.org/) 叢集。 如需 HDInsight PowerShell Cmdlet 的清單，請參閱 [HDInsight Cmdlet 參考文件](https://msdn.microsoft.com/library/azure/dn479228.aspx)。
 
 **先決條件**
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 開始閱讀本文之前，您必須有下列各項：
 
@@ -35,7 +37,7 @@ Azure PowerShell 可讓您在 Azure 中用來控制和自動化工作負載的�
 檢查已安裝的 PowerShell 版本：
 
 ```powershell
-Get-Module *azure*
+Get-Module *Az*
 ```
 
 若要解除安裝較舊的版本，請在控制台中執行 [程式和功能]。
@@ -47,27 +49,27 @@ Get-Module *azure*
 使用下列命令列出目前訂用帳戶中的所有叢集：
 
 ```powershell
-Get-AzureRmHDInsightCluster
+Get-AzHDInsightCluster
 ```
 
 ## <a name="show-cluster"></a>顯示叢集
 使用下列命令顯示目前訂用帳戶中特定叢集的詳細資料：
 
 ```powershell
-Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
+Get-AzHDInsightCluster -ClusterName <Cluster Name>
 ```
 
 ## <a name="delete-clusters"></a>刪除叢集
 使用下列命令來刪除叢集：
 
 ```powershell
-Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
+Remove-AzHDInsightCluster -ClusterName <Cluster Name>
 ```
 
 您也可以移除包含叢集的資源群組來刪除叢集。 刪除資源群組會刪除群組中的所有資源 (包括預設儲存體帳戶)。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name <Resource Group Name>
+Remove-AzResourceGroup -Name <Resource Group Name>
 ```
 
 ## <a name="scale-clusters"></a>調整叢集
@@ -120,7 +122,7 @@ Remove-AzureRmResourceGroup -Name <Resource Group Name>
 若要使用 Azure PowerShell 更改 Hadoop 群集大小，请从客户端计算机运行以下命令：
 
 ```powershell
-Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
+Set-AzHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
 ```
 
 
@@ -136,7 +138,7 @@ HDInsight 群集提供以下 HTTP Web 服务（所有这些服务都有 REST 样
 預設會授與這些服務的存取權。 您可以撤銷/授與存取權。 撤銷：
 
 ```powershell
-Revoke-AzureRmHDInsightHttpServicesAccess -ClusterName <Cluster Name>
+Revoke-AzHDInsightHttpServicesAccess -ClusterName <Cluster Name>
 ```
 
 授與：
@@ -153,7 +155,7 @@ $credential = New-Object System.Management.Automation.PSCredential($hadoopUserNa
 # Credential option 2
 #$credential = Get-Credential -Message "Enter the HTTP username and password:" -UserName "admin"
 
-Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
+Grant-AzHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $credential
 ```
 
 > [!NOTE]  
@@ -168,10 +170,10 @@ Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredenti
 下列 PowerShell 指令碼示範如何取得預設儲存體帳戶名稱和相關資訊：
 
 ```powershell
-#Connect-AzureRmAccount
+#Connect-AzAccount
 $clusterName = "<HDInsight Cluster Name>"
 
-$clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+$clusterInfo = Get-AzHDInsightCluster -ClusterName $clusterName
 $storageInfo = $clusterInfo.DefaultStorageAccount.split('.')
 $defaultStoreageType = $storageInfo[1]
 $defaultStorageName = $storageInfo[0]
@@ -182,8 +184,8 @@ echo "Default Storage account type: $defaultStoreageType"
 if ($defaultStoreageType -eq "blob")
 {
     $defaultBlobContainerName = $cluster.DefaultStorageContainer
-    $defaultStorageAccountKey = (Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
-    $defaultStorageAccountContext = New-AzureStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
+    $defaultStorageAccountKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName -Name $defaultStorageAccountName)[0].Value
+    $defaultStorageAccountContext = New-AzStorageContext -StorageAccountName $defaultStorageAccountName -StorageAccountKey $defaultStorageAccountKey
 
     echo "Default Blob container name: $defaultBlobContainerName"
     echo "Default Storage account key: $defaultStorageAccountKey"
@@ -197,7 +199,7 @@ if ($defaultStoreageType -eq "blob")
 ```powershell
 $clusterName = "<HDInsight Cluster Name>"
 
-$cluster = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+$cluster = Get-AzHDInsightCluster -ClusterName $clusterName
 $resourceGroupName = $cluster.ResourceGroup
 ```
 

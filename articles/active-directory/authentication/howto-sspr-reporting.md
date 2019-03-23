@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f8411cf2aebf5ab3e25239d1cb1a9b81cfda4c2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 53140c7b02dd657036b76db0dd137bd770d97f4d
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163891"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369525"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 密碼管理的報告選項
 
 部署之後，許多組織會想要知道如何或是否實際上正在使用自助式密碼重設 (SSPR)。 Azure Active Directory (Azure AD) 提供的報告功能可協助您使用預先建立的報告來回答問題。 如果您已適當地取得授權，則也可以建立自訂查詢。
 
-![報告][Reporting]
+![提出 SSPR 報告 Azure AD 中使用稽核記錄][Reporting]
 
 存在於 [Azure 入口網站](https://portal.azure.com/)中的報告可以回答下列問題：
 
@@ -173,7 +173,6 @@ ms.locfileid: "56163891"
 
      >[!NOTE]
      >失敗並不代表使用者無法重設自己的密碼。 這表示它們未完成註冊程序。 如果帳戶上有未驗證但正確的資料 (例如未驗證的電話號碼)，即使此電話號碼尚未驗證，仍然可用來重設密碼。
-     >
 
 ## <a name="next-steps"></a>後續步驟
 

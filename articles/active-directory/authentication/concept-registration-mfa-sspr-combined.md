@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2865c19e747ca1c5b0a6cda84b8be18bfaeb9335
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 536d26abf563f18ed7cec6668fcd1d4223f5a135
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317658"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370154"
 ---
 # <a name="combined-security-information-registration-preview"></a>合併的安全性資訊註冊 （預覽）
 
 之前合併的註冊，使用者會註冊驗證方法，Azure Multi-factor Authentication (MFA) 和自助式密碼重設 (SSPR) 透過兩種不同的體驗。 有人混淆，Azure MFA 和 SSPR 使用類似的方法，但他們必須個別註冊的每個功能。 現在，使用合併的註冊，使用者可以註冊一次，並獲得 Azure MFA 和 SSPR 的優點。
 
-![結合安全性資訊-我的設定檔顯示已註冊的使用者，包括 Microsoft Authenticator 和電話的目錄中的範例使用者的安全性資訊。](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
+![我的設定檔顯示已註冊使用者的安全性資訊](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
 啟用新的體驗前, 檢閱此系統管理員為焦點的文件和使用者為主的說明文件，以確保您了解的功能和影響這項功能。 您的訓練，在新體驗中準備您的使用者，並協助確保成功首度發行的使用者文件的基底。
 
@@ -36,7 +36,7 @@ ms.locfileid: "58317658"
 
 MyProfile 頁面會取決於電腦存取 頁面上的目前語言設定來當地語系化。 Microsoft 會儲存最新的語言，來存取後續的嘗試才能繼續轉譯在上次使用的語言中使用瀏覽器快取中。 清除快取會導致重新轉譯頁面。 如果您想要強制執行特定的語言加入`?lng=de-DE`到 URL 結尾其中`de-DE`設定適當的語言程式碼將會強制以該語言所呈現的頁面。
 
-![我的設定檔的介面，顯示的安全性資訊，以及設定 SSPR 或其他額外的安全性驗證方法的使用者的能力。](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
+![設定 SSPR 或其他額外的安全性驗證方法](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
 
 ## <a name="methods-available-in-converged-registration"></a>聚合式註冊中的可用方法
 
@@ -99,7 +99,7 @@ MyProfile 頁面會取決於電腦存取 頁面上的目前語言設定來當地
 
 以下流程圖說明哪些方法會顯示給使用者時中斷，在登入期間註冊：
 
-![結合安全性資訊流程圖說明一些時需要更多的資訊，在登入時所需的方法。 如果只需要 MFA 或只 SSPR 時，這可以變更](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
+![合併的安全性資訊流程圖表](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
 
 如果您有 MFA 和啟用 SSPR，我們建議您強制執行 MFA 註冊。
 

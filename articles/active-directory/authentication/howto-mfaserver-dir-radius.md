@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34cfd37caf45d709fdc0b3639a218e2e587e8164
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0c1a05cc25be7a5763a8891b92e870a92792191d
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314343"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372169"
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>將 RADIUS 驗證與 Azure Multi-Factor Authentication Server 整合
 
@@ -27,7 +27,7 @@ RADIUS 是接受驗證要求並處理這些要求的標準通訊協定。 Azure 
 >
 > 在此組態中，單向 SMS 和 OATH 權杖沒有作用，因為 MFA Server 無法使用替代通訊協定來起始成功的 RADIUS 挑戰回應。
 
-![Radius 驗證](./media/howto-mfaserver-dir-radius/radius.png)
+![在 MFA Server 的 radius 驗證](./media/howto-mfaserver-dir-radius/radius.png)
 
 ## <a name="add-a-radius-client"></a>新增 RADIUS 用戶端
 
@@ -66,9 +66,10 @@ RADIUS 是接受驗證要求並處理這些要求的標準通訊協定。 Azure 
 
 重複這些步驟來新增更多 RADIUS 伺服器。 使用 [上移] 和 [下移] 按鈕來設定 Azure MFA Server 應呼叫它們的順序。
 
-您已成功設定 Azure Multi-Factor Authentication Server。 「伺服器」正在設定的連接埠上接聽來自設定的用戶端的 RADIUS 存取要求。   
+您已成功設定 Azure Multi-Factor Authentication Server。 「伺服器」正在設定的連接埠上接聽來自設定的用戶端的 RADIUS 存取要求。
 
 ## <a name="radius-client-configuration"></a>RADIUS 用戶端組態
+
 若要設定 RADIUS 用戶端，請遵循下列指導方針：
 
 * 將您的應用裝置/伺服器設定為透過 RADIUS 向 Azure Multi-Factor Authentication Server (作為 RADIUS 伺服器) 的 IP 位址驗證。
