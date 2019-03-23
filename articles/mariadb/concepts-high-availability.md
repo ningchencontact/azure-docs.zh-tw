@@ -1,17 +1,17 @@
 ---
 title: 適用於 MariaDB 的 Azure 資料庫中之高可用性概念
 description: 此主題提供使用「適用於 MariaDB 的 Azure 資料庫」時的高可用性資訊
-author: jasonwhowell
-ms.author: jasonh
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: e1e4103360c2864f6a63f2eb0c7f146cac779cb6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: ba561cba21b0b83b6a19fffc2fdfebe8ec8b8ed9
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538152"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351230"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mariadb"></a>適用於 MariaDB 的 Azure 資料庫中之高可用性概念
 「適用於 MariaDB 的 Azure 資料庫」服務可提供保證的高可用性等級。 以財務為後盾的服務等級協定 (SLA) 在正式運作時可達 99.99%。 使用此服務時幾乎不會有應用程式停機時間。
