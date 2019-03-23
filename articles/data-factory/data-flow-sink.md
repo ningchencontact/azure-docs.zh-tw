@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 3829fb3c045b149552d3f022e31f30f9cfae8182
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a56f391aa76bd1216fd51d516adb836a2093bcba
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852435"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371134"
 ---
 # <a name="mapping-data-flow-sink-transformation"></a>對應資料流程接收轉換
 
@@ -57,7 +57,7 @@ ms.locfileid: "57852435"
 ## <a name="file-name-options"></a>檔案名稱選項
 
    * 預設值：可讓 Spark 根據 PART 預設值來命名檔案
-   * 模式：輸入輸出檔案的名稱
+   * 模式：輸入您的輸出檔案的模式。 比方說，將會建立 「 貸款 [n]"loans1.csv、 loans2.csv，...
    * 每個分割區：輸入每個分割區的檔案名稱
    * 作為資料行中的資料：將輸出檔案設定為資料行的值
 
@@ -66,11 +66,16 @@ ms.locfileid: "57852435"
 
 ## <a name="database-options"></a>資料庫選項
 
-* 允許插入、 更新、 刪除、 更新插入。 預設值是允許插入。 如果您想要更新、 更新插入或插入資料列，您必須先將 alter 資料列轉換加入標記資料列，這些特定的動作。
+* 允許插入、 更新、 刪除、 更新插入。 預設值是允許插入。 如果您想要更新、 更新插入或刪除資料列，您必須先將 alter 資料列轉換加入標記資料列，這些特定的動作。 關閉 「 允許插入 」，將 ADF 停止從來源插入新資料列。
 * 截斷的資料表 （移除所有資料列目標資料表中完成的資料流程之前）
 * 重新建立的資料表 （不會執行卸除/建立目標資料表的資料流程在完成之前）
 * 大型資料載入的批次大小。 貯體寫入輸入的數字分成多個區塊
 * 啟用預備環境：這將指示 ADF 載入 Azure 為您的接收資料集的資料倉儲時使用 Polybase
+
+> [!NOTE]
+> 在資料流程中，您可以提出 ADF 到目標資料庫中建立新的資料表定義，藉由設定中有新的資料表名稱的 「 接收 」 轉換的資料集。 在 SQL 資料集，按一下 [編輯] 下方的資料表名稱並輸入新的資料表名稱。 然後，在 「 接收 」 轉換中，開啟 「 允許結構描述漂移 」。 Seth 「 匯入結構描述 」 設定為 None。
+
+![來源轉換結構描述](media/data-flow/dataset2.png "SQL 結構描述")
 
 ![SQL 接收選項](media/data-flow/alter-row2.png "SQL 選項")
 

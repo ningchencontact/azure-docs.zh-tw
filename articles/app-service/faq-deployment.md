@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 07d233ba50f4253b4ea3097748b9c58142e08a91
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 9d38e3caf3d835eaf73df90282157eed76c5ea25
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549423"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58350635"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure 中 Web 應用程式的部署常見問題集
 
@@ -90,7 +90,7 @@ App Service 支援兩種認證類型，用於本機 Git 部署和 FTP/S 部署�
 
 您有兩個選項可以使用 Azure DevOps 進行持續部署：
 
-*   使用 Git 專案。 藉由使用該存放庫的部署選項以透過 App Service 連線。
+*   使用 Git 專案。 使用部署中心連線透過 App Service。
 *   使用 Team Foundation 版本控制 (TFVC) 專案。 藉由使用 App Service 的組建代理程式來部署。
 
 這兩個選項的持續程式碼部署取決於現有的開發人員工作流程和簽入程序。 如需詳細資訊，請參閱這些文章： 

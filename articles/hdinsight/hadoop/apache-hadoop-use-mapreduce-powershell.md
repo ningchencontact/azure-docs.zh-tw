@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6f1620c9977f997b4037fbf3f823c429e43b4f6a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: 015728a43e091e36dcf02b5cc17f0135a64428ca
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436257"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361943"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>使用 PowerShell 搭配執行 MapReduce 工作與 HDInsight 上的 Apache Hadoop
 
@@ -24,7 +24,9 @@ ms.locfileid: "53436257"
 
 ## <a id="prereq"></a>必要條件
 
-* **Azure HDInsight (HDInsight 上的 Hadoop) 叢集**
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+* **Azure HDInsight（HDInsight 上的 Hadoop）群集**
 
   > [!IMPORTANT]  
   > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
@@ -37,15 +39,15 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Ma
 
 在遠端 HDInsight 叢集中執行 MapReduce 工作時，會使用下列 Cmdlet。
 
-* **Connect-AzureRmAccount**：向您的 Azure 訂用帳戶驗證 Azure PowerShell。
+* **連接 AzAccount**:向您的 Azure 訂用帳戶驗證 Azure PowerShell。
 
-* **New-AzureRmHDInsightMapReduceJobDefinition**：使用指定的 MapReduce 資訊來建立新的「作業定義」。
+* **New-AzHDInsightMapReduceJobDefinition**:使用指定的 MapReduce 資訊來建立新的「作業定義」。
 
-* **Start-AzureRmHDInsightJob**：將作業定義傳送給 HDInsight，並啟動作業。 系統會傳回「作業」物件。
+* **開始 AzHDInsightJob**:將作業定義傳送給 HDInsight，並啟動作業。 系統會傳回「作業」物件。
 
-* **Wait-AzureRmHDInsightJob**：使用作業物件來檢查作業的狀態。 它會等到工作完成，或等到等候時間超過。
+* **等候 AzHDInsightJob**:使用作業物件來檢查作業的狀態。 它會等到工作完成，或等到等候時間超過。
 
-* **Get-AzureRmHDInsightJobOutput**：用來擷取作業的輸出。
+* **Get-AzHDInsightJobOutput**:用來擷取作業的輸出。
 
 下列步驟示範如何使用這些 Cmdlet，在您的 HDInsight 叢集中執行工作。
 
@@ -74,7 +76,7 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Ma
     此輸出表示工作已順利完成。
 
     > [!NOTE]  
-    > 如果 **ExitCode** 的值不是 0，請參閱 [疑難排解](#troubleshooting)。
+    > 如果 **ExitCode** 的值不是 0，请参阅[故障排除](#troubleshooting)。
 
     此範例也會將下載的檔案儲存到您執行指令碼所在目錄中的 **output.txt** 檔案。
 
@@ -92,7 +94,7 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Ma
 ```powershell
 # Print the output of the WordCount job.
 Write-Host "Display the standard output ..." -ForegroundColor Green
-Get-AzureRmHDInsightJobOutput `
+Get-AzHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $wordCountJob.JobId `
         -HttpCredential $creds `

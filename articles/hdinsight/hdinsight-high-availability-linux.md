@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 84251b16d91ca74e11298c7aa54c9a7a8b7fd6d6
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: ca6b072ba81f55802bc01d61ed44b06680cedbb2
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576713"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361994"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>HDInsight 中 Apache Hadoop 叢集的可用性和可靠性
 
@@ -248,6 +248,8 @@ Ambari REST API 可透過網際網路提供。 HDInsight 公用閘道器會處�
 
 ## <a name="how-to-configure-the-node-size"></a>如何配置节点大小
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 只能在叢集建立期間選取節點的大小。 您可以在 [HDInsight 價格頁面](https://azure.microsoft.com/pricing/details/hdinsight/)找到 HDInsight 可用之不同 VM 大小的清單。
 
 建立叢集時，您可以指定節點的大小。 以下資訊提供如何使用 [Azure 入口網站][preview-portal]、[Azure PowerShell][azure-powershell] 和 [Azure Classic CLI][azure-cli] 指定大小的指引：
@@ -258,7 +260,7 @@ Ambari REST API 可透過網際網路提供。 HDInsight 公用閘道器會處�
 
 * **Azure 傳統 CLI**：使用 `azure hdinsight cluster create` 命令時，您可以使用 `--headNodeSize`、`--workerNodeSize` 和 `--zookeeperNodeSize` 參數來設定前端、背景工作及 ZooKeeper 節點的大小。
 
-* **Azure PowerShell**：使用 `New-AzureRmHDInsightCluster` Cmdlet 時，您可以使用 `-HeadNodeVMSize`、`-WorkerNodeSize` 和 `-ZookeeperNodeSize` 參數來設定前端、背景工作及 ZooKeeper 節點的大小。
+* **Azure PowerShell**：使用 `New-AzHDInsightCluster` Cmdlet 時，您可以使用 `-HeadNodeVMSize`、`-WorkerNodeSize` 和 `-ZookeeperNodeSize` 參數來設定前端、背景工作及 ZooKeeper 節點的大小。
 
 ## <a name="next-steps"></a>後續步驟
 
