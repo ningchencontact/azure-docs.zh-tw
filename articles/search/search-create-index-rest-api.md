@@ -1,6 +1,6 @@
 ---
-title: 使用 PowerShell 和 REST API-Azure 搜尋服務的程式碼中建立索引
-description: 使用 HTTP 要求與 Azure 搜尋服務 REST API，以程式碼建立全文檢索可搜尋索引。
+title: 建立、 載入及查詢使用 PowerShell 和 REST API-Azure 搜尋服務索引
+description: 建立、 載入和使用 PowerShell、 Invoke-restmethod 和 Azure 搜尋服務 REST API 查詢索引。
 ms.date: 03/15/2019
 author: heidisteen
 manager: cgronlun
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 87da5cdd31abb41a774a46d3891006eb58ac5e4d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 9e1b6fc0dc4e6a6c2c191960fa061c810e3a2e79
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285119"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372109"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>快速入門：建立使用 PowerShell 和 REST API 的 Azure 搜尋服務索引
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "58285119"
 
 [PowerShell 5.1 或更新版本](https://github.com/PowerShell/PowerShell)，並使用[Invoke-restmethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod)循序和互動式步驟。
 
-URL 端點，並管理您的搜尋服務的 api 金鑰。 搜尋服務是同時建立，因此如果您將 Azure 搜尋服務新增至您的訂用帳戶，請遵循下列步驟來取得必要的資訊：
+取得 URL 端點，並管理您的搜尋服務的 api 金鑰。 搜尋服務是同時建立，因此如果您將 Azure 搜尋服務新增至您的訂用帳戶，請遵循下列步驟來取得必要的資訊：
 
 1. 在 Azure 入口網站中，搜尋服務中**概觀**頁面上，取得 URL。 範例端點看起來會像 https:\//my-service-name.search.windows.net。
 
@@ -371,11 +371,7 @@ Invoke-RestMethod -Uri $url -Headers $headers -Method Delete
         {
             "@search.action": "merge",
             "hotelId": "2",
-            "description_fr": "Hôtel le moins cher en ville",
-        },
-        {
-            "@search.action": "delete",
-            "hotelId": "6"
+            "description_fr": "Hôtel le moins cher en ville"
         }
     ]
 }
