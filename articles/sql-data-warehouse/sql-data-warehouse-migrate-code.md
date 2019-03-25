@@ -10,20 +10,22 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 14b3d62235cfcc8bbc8a929757a16cf99b860753
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: fae3ae16ee0100ad446c0b6c7851553a3376bb4f
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815756"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400985"
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>將您的 SQL 程式碼移轉至 SQL 資料倉儲
+
 本文說明將您的程式碼從另一個資料庫移轉到 SQL 資料倉儲時，可能需要進行的程式碼變更。 某些 SQL 資料倉儲功能設計為以分散式方式運作，可以大幅改善效能。 不過，為了維持效能和延展性，某些功能也無法使用。
 
-## <a name="common-t-sql-limitations"></a>常見 T-SQL 限制
+## <a name="common-t-sql-limitations"></a>常见的 T-SQL 限制
+
 下列清單摘要說明 SQL 資料倉儲不支援的最常見功能。 此連結會帶您前往不支援功能的因應措施：
 
-* [更新時的 ANSI 聯結][ANSI joins on updates]
+* [Update 中的 ANSI Join][ANSI joins on updates]
 * [刪除時的 ANSI 聯結][ANSI joins on deletes]
 * [merge 陳述式][merge statement]
 * 跨資料庫聯結
@@ -45,12 +47,12 @@ ms.locfileid: "55815756"
 * [group by 子句搭配 rollup / cube / grouping sets 選項][group by clause with rollup / cube / grouping sets options]
 * [巢狀層級超過 8][nesting levels beyond 8]
 * [透過檢視表更新][updating through views]
-* [使用 select 進行變數指派][use of select for variable assignment]
 * [動態 SQL 字串沒有 MAX 資料類型][no MAX data type for dynamic SQL strings]
 
 幸好這些限制大部分都可以克服。 上面提及的相關開發文章中已提供說明。
 
 ## <a name="supported-cte-features"></a>支援的 CTE 功能
+
 SQL 資料倉儲針對通用資料表運算式 (CTE) 提供部分支援。  目前支援下列 CTE 功能：
 
 * CTE 可以指定於 SELECT 陳述式中。
@@ -63,6 +65,7 @@ SQL 資料倉儲針對通用資料表運算式 (CTE) 提供部分支援。  目�
 * CTE 中可以定義多個 CTE 查詢定義。
 
 ## <a name="cte-limitations"></a>CTE 限制
+
 通用資料表運算式在 SQL 資料倉儲中有某些限制，包含：
 
 * CTE 後面必須接著單一 SELECT 陳述式。 INSERT、UPDATE、DELETE 和 MERGE 陳述式不受支援。
@@ -72,10 +75,12 @@ SQL 資料倉儲針對通用資料表運算式 (CTE) 提供部分支援。  目�
 * 當某批次中的陳述式使用 CTE 時，它前面的陳述式後面必須接著分號。
 * 在用於 sp_prepare 所準備的陳述式時，CTE 的行為會與 PDW 中的其他 SELECT 陳述式相同。 不過，如果 CTE 是做為 sp_prepare 所準備之 CETAS 中的一部分時，就會因為針對 sp_prepare 實作繫結的方式而導致其行為與 SQL Server 和其他 PDW 陳述式不同。 如果參考 CTE 的 SELECT 使用不存在於 CTE 的錯誤資料行，sp_prepare 將會通過而不會偵測到錯誤，但在 sp_execute 期間則會擲回錯誤。
 
-## <a name="recursive-ctes"></a>遞迴 CTE
-SQL 資料倉儲並不支援遞迴 CTE。  遞迴 CTE 的移轉可能會有點複雜，而最佳做法便是將它細分成多個步驟。 一般來說，您可以使用迴圈，並在逐一執行遞迴中間的查詢時填入暫存資料表。 一旦暫存資料表填完之後，您可以將資料傳回做為單一結果集。 [group by 子句搭配 rollup / cube / grouping sets 選項][group by clause with rollup / cube / grouping sets options]一文中使用類似的方法來解決 `GROUP BY WITH CUBE`。
+## <a name="recursive-ctes"></a>递归 CTE
 
-## <a name="unsupported-system-functions"></a>不支援的系統函式
+SQL 資料倉儲並不支援遞迴 CTE。  遞迴 CTE 的移轉可能會有點複雜，而最佳做法便是將它細分成多個步驟。 通常可以使用循环，并在循环访问递归的临时查询时填充临时表。 一旦暫存資料表填完之後，您可以將資料傳回做為單一結果集。 [group by 子句搭配 rollup / cube / grouping sets 選項][group by clause with rollup / cube / grouping sets options]一文中使用類似的方法來解決 `GROUP BY WITH CUBE`。
+
+## <a name="unsupported-system-functions"></a>不支持的系统函数
+
 另外還有一些不支援的系統函式。 您通常可能會發現資料倉儲中使用的主要函式包括：
 
 * NEWSEQUENTIALID()
@@ -88,11 +93,12 @@ SQL 資料倉儲並不支援遞迴 CTE。  遞迴 CTE 的移轉可能會有點�
 這些問題中有部分可以解決。
 
 ## <a name="rowcount-workaround"></a>@@ROWCOUNT 因應措施
+
 若要解決缺乏 @@ROWCOUNT 支援的問題，請建立會從 sys.dm_pdw_request_steps 擷取最後一個資料列計數的預存程序，然後在 DML 陳述式之後執行 `EXEC LastRowCount`。
 
 ```sql
 CREATE PROCEDURE LastRowCount AS
-WITH LastRequest as 
+WITH LastRequest as
 (   SELECT TOP 1    request_id
     FROM            sys.dm_pdw_exec_requests
     WHERE           session_id = SESSION_ID()
@@ -111,6 +117,7 @@ SELECT TOP 1 row_count FROM LastRequestRowCounts ORDER BY step_index DESC
 ```
 
 ## <a name="next-steps"></a>後續步驟
+
 如需所有所支援 T-SQL 陳述式的完整清單，請參閱 [Transact-SQL 主題][Transact-SQL topics]。
 
 <!--Image references-->
