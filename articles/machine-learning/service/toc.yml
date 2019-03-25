@@ -10,14 +10,19 @@ items:
     displayName: desktop ui Workbench upgrade update transfer
     href: overview-what-happened-to-workbench.md
   expanded: true
+- name: 設定
+  items:
+  - name: 建立工作區
+    displayName: install sdk workspace
+    href: setup-create-workspace.md
 - name: 快速入門
   items:
-  - name: 開始使用 - 入口網站
-    displayName: install sdk workspace
-    href: quickstart-get-started.md
-  - name: 開始使用 - Python
-    displayName: create workspace install sdk
-    href: quickstart-create-workspace-with-python.md
+  - name: 透過雲端 Notebook 進行實驗
+    displayName: workspace
+    href: quickstart-run-cloud-notebook.md
+  - name: 透過本機 Notebook 進行實驗
+    displayName: workspace install sdk
+    href: quickstart-run-local-notebook.md
 - name: 教學課程
   items:
   - name: 影像分類 (MNIST 資料)
@@ -193,9 +198,9 @@ items:
   - name: 比較 ML 產品
     href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
     maintainContext: true
-ms.openlocfilehash: c022e3607466db482e37f1ace283577dad6a37b8
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 0e40f17725cb56dbc346fffcce0f672f2394ca1d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338525"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359971"

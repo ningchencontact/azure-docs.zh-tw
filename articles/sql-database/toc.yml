@@ -17,8 +17,11 @@ items:
     href: sql-database-managed-instance-quickstart-guide.md
   - name: 建立
     items:
-    - name: 單一資料庫
+    - name: 單一資料庫 - 入口網站
       href: sql-database-single-database-get-started.md
+    - name: 單一資料庫 - 範本
+      displayName: Azure Resource Manager template, ARM
+      href: sql-database-single-database-get-started-template.md
     - name: 受控執行個體
       href: sql-database-managed-instance-get-started.md
   - name: 設定
@@ -724,9 +727,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: 解除安裝彈性工作 (取代)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 41379e27d936db125261459c106687fc6c74a098
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 0db2ed5be57c4ee8a523e9626fed1ed437f971b7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226992"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372568"

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/12/2019
+ms.date: 03/22/2019
 ms.author: markvi
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b475eae337b7e6a7e26b3e5a7518be0e461c9fa4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6a303319a3f87f684b72bcddd8d30cd4a2c60642
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170610"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351519"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 條件式存取設定參考
 
@@ -144,20 +144,25 @@ ms.locfileid: "58170610"
 此設定適用於所有瀏覽器。 不過，為了滿足像是符合裝置需求規範的裝置原則，因此支援下列作業系統和瀏覽器：
 
 
-| 作業系統                     | 瀏覽器                            | 支援     |
-| :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer、Microsoft Edge、Chrome     | ![勾選][1] |
-| Windows 8 / 8.1        | Internet Explorer、Chrome           | ![勾選][1] |
-| Windows 7              | Internet Explorer、Chrome           | ![勾選][1] |
-| iOS                    | Safari、Intune Managed Browser      | ![勾選][1] |
-| Android                | Chrome、Intune Managed Browser      | ![勾選][1] |
-| Windows Phone          | Internet Explorer、Microsoft Edge             | ![勾選][1] |
-| Windows Server 2016    | Internet Explorer、Microsoft Edge             | ![勾選][1] |
-| Windows Server 2016    | Chrome                              | 敬請期待 |
-| Windows Server 2012 R2 | Internet Explorer、Chrome           | ![勾選][1] |
-| Windows Server 2008 R2 | Internet Explorer、Chrome           | ![勾選][1] |
-| macOS                  | Chrome、Safari                      | ![勾選][1] |
+| 作業系統                     | 瀏覽器                                      |
+| :--                    | :--                                           |
+| Windows 10             | Internet Explorer、Microsoft Edge、Chrome     |
+| Windows 8 / 8.1        | Internet Explorer、Chrome                     |
+| Windows 7              | Internet Explorer、Chrome                     |
+| iOS                    | Safari、Intune Managed Browser                |
+| Android                | Chrome、Intune Managed Browser                |
+| Windows Phone          | Internet Explorer、Microsoft Edge             |
+| Windows Server 2016    | Internet Explorer、Microsoft Edge             |
+| Windows Server 2016    | Chrome                                        |
+| Windows Server 2012 R2 | Internet Explorer、Chrome                     |
+| Windows Server 2008 R2 | Internet Explorer、Chrome                     |
+| macOS                  | Chrome、Safari                                |
+ 
 
+
+#### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>為什麼看到提示瀏覽器中的憑證
+
+Windows 7、 iOS、 Android 及 macOS 上 Azure AD 會使用與 Azure AD 註冊裝置時，會佈建用戶端憑證將裝置識別。  當使用者第一次登入時透過瀏覽器會提示使用者選取的憑證。 使用者必須選取此憑證，才能使用瀏覽器。
 
 
 #### <a name="chrome-support"></a>Chrome 支援

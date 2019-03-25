@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: 51d8b9bad4bb4a3663b07a711f363b263f5d64db
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
+ms.openlocfilehash: 6edb1abae91a675a3fe47b417a112f0951886aaf
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339681"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351910"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>对 Microsoft Azure 存储进行监视、诊断和故障排除
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -246,7 +246,7 @@ Storage Client Library for .NET 能讓您針對應用程式所執行的儲存體
 >
 
 ### <a name="server-request-id"></a>伺服器要求 ID
-儲存體服務會自動產生伺服器要求 ID。
+儲存體服務會自動產生的伺服器要求 Id。
 
 * 在伺服器端的儲存體記錄中，伺服器要求識別碼會顯示在 [要求識別碼標頭] 資料行。
 * 以 Fiddler 所擷取的網路追蹤為例，伺服器要求識別碼會顯示在回應訊息中，並呈現為 **x-ms-request-id** HTTP 標頭值。
@@ -814,9 +814,9 @@ Microsoft Message Analyzer 內建的 **Web Proxy** 追蹤功能是依據 Fiddler
 * [在 Azure 入口網站中監視儲存體帳戶](storage-monitor-storage-account.md)
 * [儲存體分析](storage-analytics.md)
 * [儲存體分析度量](storage-analytics-metrics.md)
-* [儲存體分析度量資料表結構描述](/rest/api/storageservices/storage-analytics-metrics-table-schema.md)
+* [儲存體分析度量資料表結構描述](/rest/api/storageservices/storage-analytics-metrics-table-schema)
 * [儲存體分析記錄](storage-analytics-logging.md)
-* [儲存體分析記錄格式](/rest/api/storageservices/storage-analytics-log-format.md)
+* [儲存體分析記錄格式](/rest/api/storageservices/storage-analytics-log-format)
 
 <!--Anchors-->
 [簡介]: #introduction

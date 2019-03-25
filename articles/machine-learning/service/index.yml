@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b7765fc5506129cdf594ef3fd0424f8771de5ef4
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: a97c11b49574d0014ea7fa97f42420b22f9568d7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651663"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371151"
 documentType: LandingData
 title: Azure Machine Learning 服務文件
 metadata:
@@ -36,12 +36,12 @@ sections:
 - title: 5 分鐘快速入門
   items:
   - type: paragraph
-    text: 若要使用這項服務，您需要工作區和相關聯的資源。  透過以下項目開始使用：
+    text: 為 Azure Machine Learning 服務  <a href="setup-create-workspace">建立工作區</a>之後，您可以使用這些快速入門開始使用：
   - type: list
     style: unordered
     items:
-    - html: <a href="quickstart-get-started">Azure 入口網站快速入門</a>：取得工作區並執行實驗，而不需要安裝任何項目。
-    - html: <a href="quickstart-create-workspace-with-python">Python 快速入門</a>：安裝主要 SDK、建立工作區並在本機 Notebook 伺服器中建立。
+    - html: <a href="quickstart-run-cloud-notebook">在雲端中執行實驗</a> (無需安裝)。
+    - html: <a href="quickstart-run-local-notebook">使用本機 Notebook 伺服器執行實驗</a> (本機 SDK 安裝)。
 - title: 逐步教學課程
   items:
   - type: paragraph

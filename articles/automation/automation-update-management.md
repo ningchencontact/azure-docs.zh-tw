@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 85b920767cbdc5ba60c2046563c32e87f6ad7ef8
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 5267467b2874c1cc36c8a9f5f27cc1c348eba7ac
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259392"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369763"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -172,7 +172,7 @@ Heartbeat
 
 在執行評估之後，新增的 Linux 代理程式狀態會顯示為「已更新」。 此程序可能需要多達 6 小時的時間。
 
-若要確認 Operations Manager 管理群組正在通訊與 Azure 監視器記錄檔，請參閱[驗證 Operations Manager 與 Azure 監視器記錄檔整合](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-log-analytics)。
+若要確認 Operations Manager 管理群組正在通訊與 Azure 監視器記錄檔，請參閱[驗證 Operations Manager 與 Azure 監視器記錄檔整合](../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-azure-monitor)。
 
 ## <a name="data-collection"></a>資料收集
 

@@ -1,22 +1,22 @@
 ---
-title: 設定使用者設定檔共用的主應用程式集區-Azure
-description: 如何設定 Windows 虛擬桌面 （預覽） 的主應用程式集區 FSLogix 設定檔容器。
+title: 設定使用者設定檔共用 Windows 虛擬桌面預覽主應用程式集區-Azure
+description: 如何設定 Windows 虛擬桌面預覽主應用程式集區 FSLogix 設定檔容器。
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 9dfbda6e17cf954369fd6caa533ba9eef41fd451
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: c9c2ca2cc27c5fa757b8ff6846e0a6a8f7087875
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336009"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403709"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>設定主應用程式集區的使用者設定檔共用
 
-Windows 虛擬桌面服務 （預覽） 提供建議的使用者設定檔方案 FSLogix 設定檔的容器。 我們不建議使用使用者設定檔磁碟 (UPD) 方案，並將 Windows 虛擬桌面的未來版本中被取代。
+Windows 虛擬桌面預覽服務提供建議的使用者設定檔方案 FSLogix 設定檔的容器。 我們不建議使用使用者設定檔磁碟 (UPD) 方案，並將 Windows 虛擬桌面的未來版本中被取代。
 
 本節會告訴您如何設定主應用程式集區的 FSLogix 設定檔容器共用。
 

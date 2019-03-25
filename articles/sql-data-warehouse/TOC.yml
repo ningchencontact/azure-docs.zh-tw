@@ -26,10 +26,6 @@ items:
     href: gen2-migration-schedule.md
   - name: 封存的版本資訊
     items:
-    - name: 2018 年 12 月
-      href: release-notes-december-2018.md
-    - name: 2018 年 10 月
-      href: release-notes-october-2018.md
     - name: 2018 年 9 月
       href: release-notes-september-2018.md
     - name: 2018 年 8 月
@@ -245,16 +241,18 @@ items:
     items:
     - name: 分析工作負載
       href: analyze-your-workload.md
-  - name: 監視與微調
+  - name: 管理和監視
     items:
-    - name: 使用 DMV 監視工作負載
-      href: sql-data-warehouse-manage-monitor.md
     - name: 升級至 Gen2
       href: upgrade-to-latest-generation.md
-    - name: 監視 Gen2 快取
-      href: sql-data-warehouse-how-to-monitor-cache.md
     - name: 還原資料倉儲
       href: sql-data-warehouse-restore.md
+    - name: 監視工作負載 - 入口網站
+      href: sql-data-warehouse-monitor-workload-portal.md
+    - name: 監視工作負載 - DMV
+      href: sql-data-warehouse-manage-monitor.md
+    - name: 監視 Gen2 快取
+      href: sql-data-warehouse-how-to-monitor-cache.md
   - name: 整合
     items:
     - name: 使用機器學習服務
@@ -319,9 +317,9 @@ items:
       href: sql-data-warehouse-partner-data-integration.md
     - name: 資料管理
       href: sql-data-warehouse-partner-data-management.md
-ms.openlocfilehash: 1ee4b1806047d93cbdbe0758b728dd4d835cf8eb
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: e206a9a171736ac7755e670838ee4854dabcdffb
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309447"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402859"
