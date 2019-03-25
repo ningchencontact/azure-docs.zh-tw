@@ -6,31 +6,27 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 03/08/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 4fd52510abd61c4d319a3fcbc8f722df5edbc476
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0aaee4b0582f8acb9302c75463c0bc52698acaeb
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120596"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403462"
 ---
-# <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge-preview"></a>教學課程：連線、設定及啟用 Azure Data Box Edge (預覽) 
+# <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>教學課程：連接、 設定和啟動 Azure 資料方塊邊緣 
 
-本教學課程說明如何使用本機 Web UI 來連線、設定及啟用 Azure Data Box Edge 裝置。 
+本教學課程說明如何使用本機 Web UI 來連線、設定及啟用 Azure Data Box Edge 裝置。
 
-設定和啟用程序可能需要約 20 分鐘才能完成。 
+設定和啟用程序可能需要約 20 分鐘才能完成。
 
 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 連線至實體裝置
 > * 設定並啟動實體裝置
-
-> [!IMPORTANT]
-> Data Box Edge 目前處於預覽狀態。 在訂購及部署此解決方案之前，請先檢閱 [Azure 預覽版使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 
-
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -41,26 +37,29 @@ ms.locfileid: "58120596"
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>連線至本機 Web UI 設定 
 
-1. 使用靜態 IP 位址 192.168.100.5 和子網路 255.255.255.0，設定要連線到 Edge 裝置之電腦上的乙太網路介面卡。
+1. 在您的電腦連線至具有靜態 IP 位址 192.168.100.5 和子網路 255.255.255.0 的資料方塊的邊緣裝置上設定乙太網路介面卡。
 
-1. 將電腦連線到裝置上的連接埠 1。 
+2. 將電腦連線到裝置上的連接埠 1。 請使用下圖以識別您裝置上的連接埠 1。
 
-1. 開啟瀏覽器視窗，然後在 https://192.168.100.10 存取裝置的本機 Web UI。  
+    ![已連接纜線的裝置後擋板](./media/data-box-edge-deploy-install/backplane-cabled.png)
+
+
+3. 開啟瀏覽器視窗，然後在 https://192.168.100.10 存取裝置的本機 Web UI。  
     在您開啟裝置之後，此動作可能需要花費幾分鐘的時間。 
 
     您會看到錯誤或警告指出網站的安全性憑證有問題。 
    
     ![網站安全性憑證錯誤訊息](./media/data-box-edge-deploy-connect-setup-activate/image2.png)
 
-1. 選取 [繼續瀏覽此網頁]。  
+4. 選取 [繼續瀏覽此網頁]。  
     這些步驟可能會因您使用的瀏覽器而有所不同。
 
-1. 登入裝置的 Web UI。 預設密碼為 *Password1*。 
+5. 登入裝置的 Web UI。 預設密碼為 *Password1*。 
    
     ![Data Box Edge 裝置登入頁面](./media/data-box-edge-deploy-connect-setup-activate/image3.png)
 
-1. 出現提示時，變更裝置系統管理員密碼。  
-    新密碼必須包含 8 到 16 個字元。 此密碼必須包含下列其中 3 種字元：大寫、小寫、數字及特殊字元。
+6. 出現提示時，變更裝置系統管理員密碼。  
+    新的密碼必須包含 8 到 16 個字元之間。 此密碼必須包含下列其中 3 種字元：大寫、小寫、數字及特殊字元。
 
 您現在位於裝置的儀表板上。
 
@@ -68,17 +67,17 @@ ms.locfileid: "58120596"
  
 您的儀表板會顯示向 Data Box Edge 服務設定及註冊實體裝置所需的各種設定。 [裝置名稱]、[網路設定]、[Web Proxy 設定] 及 [時間設定] 是可省略的。 只有 [雲端設定] 是必要的設定。
    
-![Data Box Edge 服務儀表板](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-1.png)
+![本機 web UI 」 儀表板 頁面](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-1.png)
 
 1. 在左側窗格中，選取 [裝置名稱]，然後為您的裝置輸入一個易記的名稱。  
-    易記名稱必須包含 1 到 15 個字元，且包含字母、數字及連字號。
+    易記名稱必須包含 1 到 15 個字元，且包含字母、 數字和連字號。
 
-    ![[裝置名稱] 頁面](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
+    ![本機 web UI 的 [裝置名稱] 頁面](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
 
-1. (選擇性) 在左側窗格中，選取 [網路設定]，然後進行設定。  
-    您的實體裝置上有六個網路介面。 連接埠 1 和連接埠 2 是 1 Gbps 的網路介面。 連接埠 3、連接埠 4、連接埠 5 和連接埠 6 則都是 25 Gbps 的網路介面。 連接埠 1 會自動設定為管理專用連接埠，連接埠 2 到連接埠 6 則都是資料連接埠。 [網路設定] 頁面如下所示。
+2. (選擇性) 在左側窗格中，選取 [網路設定]，然後進行設定。  
+    您的實體裝置上有六個網路介面。 連接埠 1 和連接埠 2 是 1 Gbps 的網路介面。 連接埠 3 連接埠 4、 5 連接埠和連接埠 6 是也可以做為 10 Gbps 網路介面的所有 25 Gbps 網路介面。 連接埠 1 會自動設定為管理專用連接埠，連接埠 2 到連接埠 6 則都是資料連接埠。 **網路設定**頁面是如下所示。
     
-    ![[網路設定] 頁面](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
+    ![本機 web UI 的 [網路設定] 頁面](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
    
     進行網路設定時，請牢記下列事項：
 
@@ -89,9 +88,9 @@ ms.locfileid: "58120596"
      >[!NOTE] 
      > 我們建議您不要將網路介面的本機 IP 位址從靜態切換成 DCHP，除非您有另一個連接到裝置的 IP 位址。 如果使用一個網路介面並切換至 DHCP，就無法判斷 DHCP 位址。 如果您想要變更為 DHCP 位址，請等到裝置已向服務註冊之後再變更。 然後，您就可以在您服務的 Azure 入口網站中於 [裝置屬性] 中檢視所有介面卡的 IP。
 
-1. (選擇性) 在左側窗格中，選取 [Web Proxy 設定]，然後設定 Web Proxy 伺服器。 雖然 Web Proxy 設定是選用的，但如果您使用 Web Proxy，便只能在此頁面上設定它。
+3. (選擇性) 在左側窗格中，選取 [Web Proxy 設定]，然後設定 Web Proxy 伺服器。 雖然 Web Proxy 設定是選用的，但如果您使用 Web Proxy，便只能在此頁面上設定它。
    
-   ![[Web Proxy 設定] 頁面](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-4.png)
+   ![本機 web UI 的 [Web proxy 設定] 頁面](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-4.png)
    
    在 [Web Proxy 設定] 頁面上，執行下列動作：
    
@@ -103,37 +102,41 @@ ms.locfileid: "58120596"
 
    d. 若要驗證並套用所設定的 Web Proxy 設定，請選取 [套用設定]。
 
-1. (選擇性) 在左側窗格中，選取 [時間設定]，然後設定您裝置的時區，以及主要和次要 NTP 伺服器。  
+4. (選擇性) 在左側窗格中，選取 [時間設定]，然後設定您裝置的時區，以及主要和次要 NTP 伺服器。  
     NTP 伺服器是必要的，因為您的裝置必須讓時間同步，才能與您的雲端服務提供者進行驗證。
-    
-    ![[時間設定] 頁面](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
-    
+       
     在 [時間設定] 頁面上，執行下列操作：
     
-    a. 在 [時區] 下拉式清單中，選取與裝置部署所在地理位置相對應的時區。  
+    1. 在 [時區] 下拉式清單中，選取與裝置部署所在地理位置相對應的時區。
         裝置的預設時區是太平洋標準時間。 裝置將針對所有排程的操作使用這個時區。
 
-    b. 在 [主要 NTP 伺服器]  方塊中，輸入您裝置的主要伺服器，或接受預設值 time.windows.com。  
+    2. 在 [主要 NTP 伺服器]  方塊中，輸入您裝置的主要伺服器，或接受預設值 time.windows.com。  
         請確定您的網路允許 NTP 流量從您的資料中心通過到網際網路。
 
-    c. (選擇性) 在 [次要 NTP 伺服器]  方塊中，輸入您裝置的次要伺服器。
+    3. (選擇性) 在 [次要 NTP 伺服器]  方塊中，輸入您裝置的次要伺服器。
 
-    d. 若要驗證並套用所設定的時間設定，請選取 [套用]。
+    4. 若要驗證及套用設定的時間設定，請選取**套用設定**。
 
-6. 在左側窗格中，選取 [雲端設定]，然後向 Azure 入口網站中的 Data Box Edge 服務啟用您的裝置。
+        ![本機 web UI 的 [時間設定] 頁面](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
+
+5. 在左側窗格中，選取 [雲端設定]，然後向 Azure 入口網站中的 Data Box Edge 服務啟用您的裝置。
     
-    a. 在 [啟用金鑰] 方塊中，輸入您在[取得啟用金鑰](data-box-edge-deploy-prep.md#get-the-activation-key)中為 Data Box Edge 取得的啟用金鑰。
-
-    b. 選取 [套用] 。 
+    1. 在 [啟用金鑰] 方塊中，輸入您在[取得啟用金鑰](data-box-edge-deploy-prep.md#get-the-activation-key)中為 Data Box Edge 取得的啟用金鑰。
+    2. 選取 [套用] 。
        
-    ![[雲端設定] 頁面](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-6.png)
-    
-    裝置成功啟用之後，您會看到連線模式選項。 如果您需要使用處於部分中斷連線或已中斷連線模式的裝置，便會設定這些設定。 
+        ![本機 web UI 的 [雲端設定] 頁面](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-6.png)
 
-    ![[雲端設定] 啟用確認](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)    
+    3. 第一次啟用該裝置。 裝置接著會掃描任何重大更新，如果有的話，會自動套用更新。 您會看到該項影響的通知。
+
+        對話方塊也有修復金鑰，您應該用來複製，並將它儲存在安全的位置。 此金鑰用來復原資料，萬一裝置無法開機。
+
+        ![本機 web UI 的 [雲端設定] 頁面更新](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)
+
+    4. 您可能需要等候幾分鐘後已成功完成更新。 此頁面會更新以指出裝置已成功啟動。
+
+        ![本機 web UI 的 [雲端設定] 頁面更新](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-8.png)
 
 裝置設定完成。 您現在可以在裝置上新增共用。
-
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -142,7 +145,6 @@ ms.locfileid: "58120596"
 > [!div class="checklist"]
 > * 連線至實體裝置
 > * 設定並啟動實體裝置
-
 
 若要了解如何使用 Data Box Edge 裝置來傳輸資料，請參閱：
 

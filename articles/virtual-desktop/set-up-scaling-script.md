@@ -1,22 +1,22 @@
 ---
-title: 自動調整規模的工作階段主機-Azure
-description: 描述如何設定 Windows 虛擬桌面 （預覽） 的工作階段主機的自動調整指令碼。
+title: 自動調整 Windows 虛擬桌面預覽工作階段主機-Azure
+description: 描述如何設定 Windows 虛擬桌面預覽工作階段主機的自動調整指令碼。
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: d800b45310ae476ec0c54460d9719c17e35dfe5a
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: bee02549d68b1dbdba3f0e62477b28bbd475ea32
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318355"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402485"
 ---
 # <a name="automatically-scale-session-hosts"></a>自動調整工作階段主機
 
-在 Azure 中的許多 Windows 虛擬桌面部署，如虛擬機器費用則代表總 Windows 虛擬桌面部署成本的重要部分。 為了降低成本，最好是以關閉和解除配置的工作階段主機虛擬機器 (Vm) 在離峰的使用量時段，然後重新啟動這些尖峰使用時間。
+許多 Windows 虛擬桌面預覽 Azure 部署中，虛擬機器費用則代表總 Windows 虛擬桌面部署成本的重要部分。 為了降低成本，最好是以關閉和解除配置的工作階段主機虛擬機器 (Vm) 在離峰的使用量時段，然後重新啟動這些尖峰使用時間。
 
 本文章會使用簡單的調整指令碼來自動調整 Windows 虛擬桌面環境中的 工作階段主機的虛擬機器。 若要深入了解調整指令碼的運作方式，請參閱[調整指令碼的運作方式](#how-the-scaling-script-works)一節。
 

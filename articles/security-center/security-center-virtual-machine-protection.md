@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/25/2019
+ms.date: 3/20/2019
 ms.author: monhaber
-ms.openlocfilehash: dd7dad51f29b4b5034c72085cd789077747faa0b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fa664952f3eb7d6f9e611fb87a9e484e97f388a2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106554"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403828"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>保護 Azure 資訊安全中心內的機器和應用程式
-「Azure 資訊安全中心」會分析 Azure 資源的安全性狀態。 當資訊安全中心發現潛在的安全性弱點時，它會建立可引導您完成所需控制之設定程序的建議。 這些建議適用於下列 Azure 資源類型︰虛擬機器 (VM) 和電腦、應用程式、網路、SQL、身分識別與存取。
+Azure 資訊安全中心會分析您的 Azure 資源、 非 Azure 伺服器和虛擬機器的安全性狀態。 當資訊安全中心發現潛在的安全性弱點時，它會建立可引導您完成所需控制之設定程序的建議。 這些建議適用於下列 Azure 資源類型︰虛擬機器 (VM) 和電腦、應用程式、網路、SQL、身分識別與存取。
 
 本文說明適用於機器和應用程式的建議。
 
@@ -53,7 +53,7 @@ ms.locfileid: "58106554"
 在您可有多個區段的每個索引標籤中，以及在每個區段中，您可以選取一個個別的選項，以查看有關解決該特定問題之建議步驟的更多詳細資訊。
 
 ### 未受監視的 VM 和電腦<a name="unmonitored-vms-and-computers"></a>
-如果機器未執行 Microsoft Monitoring Agent 擴充功能，VM 或電腦就不會由資訊安全中心監視。 機器可能已安裝本機代理程式，例如 OMS 直接代理程式或 SCOM 代理程式。 具有這些代理程式的機器會識別為未受監視，因為資訊安全中心無法完整支援這些代理程式。 若要能完整享有資訊安全中心的所有功能，則需要 Microsoft Monitoring Agent 擴充功能。
+如果機器未執行 Microsoft Monitoring Agent 擴充功能，VM 或電腦就不會由資訊安全中心監視。 機器可能已安裝本機代理程式，例如 OMS 直接代理程式 」 或 「 System Center Operations Manager 代理程式。 具有這些代理程式的機器會識別為未受監視，因為資訊安全中心無法完整支援這些代理程式。 若要能完整享有資訊安全中心的所有功能，則需要 Microsoft Monitoring Agent 擴充功能。
 
 除了已安裝的本機代理程式，您還可以在未受監視的 VM 或電腦上安裝擴充功能。 以相同方式設定這兩種代理程式，並連線至相同工作區。 這可讓資訊安全中心與 Microsoft Monitoring Agent 擴充功能互動和收集資料。 請參閱[啟用 VM 擴充公能](../azure-monitor/learn/quick-collect-azurevm.md)，取得如何安裝 Microsoft Monitoring Agent 擴充功能的指示。
 
@@ -103,7 +103,7 @@ ms.locfileid: "58106554"
 ![Azure 傳統 VM](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon3.png) Azure 傳統 VM。
 
 
-![從工作區識別的 VM](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) 僅只從已檢視訂用帳戶中的工作區識別的 VM。 這包括來自向此訂用帳戶中的工作區回報之其他訂用帳戶的 VM，以及使用 SCOM 直接代理程式安裝的 VM (沒有資源識別碼)。
+![從工作區識別的 VM](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) 僅只從已檢視訂用帳戶中的工作區識別的 VM。 這包括來自其他訂用帳戶該報表中此訂用帳戶，並已安裝 Operations Manager 直接代理程式的 Vm 工作區，並不有任何資源識別碼。
 
 每個建議底下出現的圖示，可協助您快速識別需要關注的 VM 和電腦，以及建議的類型。 您也可以使用篩選，依**資源類型**及依**嚴重性**來搜尋清單。
 
@@ -172,7 +172,7 @@ ms.locfileid: "58106554"
 
 如果您想要設定新的擴展集來自動安裝 Microsoft Monitoring Agent：
 1. 移至 Azure 原則，然後按一下 [定義]。
-2. 搜尋 [為 Windows VM 擴展集部署 Log Analytics 代理程式] 原則，並加以點選。
+2. 搜尋原則**部署 Log Analytics 代理程式，適用於 Windows 虛擬機器擴展集**並加以點選。
 3. 按一下 [指派]。
 4. 設定 [範圍] 和 [Log Analytics 工作區]，然後按一下 [指派]。
 

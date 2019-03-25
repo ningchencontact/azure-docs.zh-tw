@@ -10,14 +10,16 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 997babef5860488232f0b530c90b44aba6608ac5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 5102755c9e830f43fa92e8546e5125960e0a2f9a
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56007466"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401549"
 ---
 # <a name="about-using-javascript-and-page-contract-versions-in-a-user-flow"></a>關於在使用者流程中使用 JavaScript 和頁面合約版本
+
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 Azure AD B2C 為使用者流程中的使用者介面元素提供一組包含 HTML、 CSS 和 JavaScript 的封裝內容。 如果您打算在使用者流程中啟用 [JavaScript](javascript-samples.md) 用戶端程式碼，那麼您需要確定根據 JavaScript 的元素是固定不變。 否則，任何變更都可能導致使用者流程頁面出現非預期的行為。 若要避免這些問題，您可以強制頁面合約用於使用者流程，並指定頁面合約版本。 如此一來，可確保您根據 JavaScript 的所有內容定義都是不可變的。 即使您不打算為使用者流程啟用 JavaScript，也可以為使用者流程頁面指定頁面合約版本。
 

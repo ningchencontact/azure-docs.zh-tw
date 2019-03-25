@@ -2,18 +2,18 @@
 title: 經常性存取、 非經常性存取和封存 blob-Azure 儲存體的存取層
 description: 經常性存取、 非經常性存取和封存存取層，Azure 儲存體帳戶。
 services: storage
-author: Xansky
+author: mhopkins-msft
 ms.service: storage
 ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: mhopkins
 ms.subservice: blobs
-ms.openlocfilehash: 424ca1cccd1b82c26a801af3f85f41eb2991e2d7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 78158f49748a8e9e08f3695860d95a2a6eff9fd4
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370120"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402434"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob 儲存體︰ 經常性存取、 非經常性存取和封存存取層
 

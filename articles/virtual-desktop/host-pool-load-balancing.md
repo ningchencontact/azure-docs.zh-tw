@@ -1,22 +1,22 @@
 ---
-title: 主應用程式集區的負載平衡方法 （預覽）-Azure
-description: 主應用程式集區的負載平衡方法適用於 Windows 的虛擬桌面環境。
+title: Windows 虛擬桌面預覽主應用程式集區的負載平衡方法-Azure
+description: 主應用程式集區的負載平衡方法的 Windows 虛擬桌面預覽環境。
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 0a07406c8bad4ad0bef2949103d1f2c78e7dd8af
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 8b18224339654c067d8ab9b543fa49a9c7d55ddd
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318505"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400197"
 ---
 # <a name="host-pool-load-balancing-methods"></a>主應用程式集區的負載平衡方法
 
-Windows 虛擬桌面 （預覽） 支援兩種負載平衡方法。 每個方法會判斷哪一個工作階段主機會裝載連線至主應用程式集區中的資源時的使用者工作階段。
+Windows 虛擬桌面的預覽支援兩種負載平衡方法。 每個方法會判斷哪一個工作階段主機會裝載連線至主應用程式集區中的資源時的使用者工作階段。
 
 下列的負載平衡方法可用於 Windows 的虛擬桌面：
 

@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 0ad94799320e25d88f616117f1bfcf9f0513aadf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d46d74544181a6b9cbfd049b2f5461b20b928483
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873014"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401437"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway-preview"></a>管理 Azure 資料箱閘道 (預覽) 的存取、電源和連線模式
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>管理您 Azure 的 Data Gateway 的存取、 電源和連線模式
 
 本文說明如何管理 Azure 資料箱閘道的存取、電源和連線模式。 這些作業都是透過本機 Web UI 或 Azure 入口網站執行。
 
@@ -26,16 +26,13 @@ ms.locfileid: "55873014"
 > * 管理連線模式
 > * 管理電源
 
-> [!IMPORTANT]
-> 資料箱閘道處於預覽狀態。 部署訂購並部署此解決方案之前，請檢閱 [Azure 預覽版使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
-
 ## <a name="manage-device-access"></a>管理裝置存取
 
-資料箱閘道裝置的存取是由裝置管理員密碼使用來控制。 您可以透過本機 Web UI 變更系統管理員密碼。 您也可以在 Azure 入口網站中重設裝置管理員密碼。
+您的資料方塊閘道裝置的存取會受到使用裝置密碼。 您可以透過變更密碼的本機 web UI。 您也可以重設裝置密碼，在 Azure 入口網站中。
 
-### <a name="change-device-administrator-password"></a>變更裝置管理員密碼
+### <a name="change-device-password"></a>變更裝置密碼
 
-請在本機 UI 中依照下列步驟變更裝置管理員密碼。
+遵循下列步驟，在本機的使用者介面，來變更裝置密碼。
 
 1. 在本機 Web UI 中，移至 [維護] > [密碼變更]。
 2. 輸入目前的密碼，然後輸入新密碼。 所提供的密碼必須介於 8 到 16 個字元。 此密碼必須有下列其中 3 種字元：大寫、小寫、數字和特殊字元。 確認新的密碼。
@@ -44,7 +41,7 @@ ms.locfileid: "55873014"
 
 3. 按一下 [變更密碼]。
  
-### <a name="reset-device-administrator-password"></a>重設裝置管理員密碼
+### <a name="reset-device-password"></a>重設裝置密碼
 
 重設工作流程不需要使用者重新叫用舊密碼，在密碼遺失時很好用。 此工作流程會在 Azure 入口網站中執行。
 

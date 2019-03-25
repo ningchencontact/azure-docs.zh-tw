@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: e3a24117cfd01c1c0bd0f08e8eca5adddf5ee7b6
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: 43de22f7e56178559df4fc45980d064962580d2b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58119780"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403386"
 ---
-# <a name="data-box-edge-security-and-data-protection-preview"></a>方塊邊緣的資料安全性和資料保護 （預覽）
+# <a name="data-box-edge-security-and-data-protection"></a>方塊邊緣的資料安全性和資料保護
 
 安全性是主要考量時採用新技術，特別是當技術用於機密或專屬資料。 Microsoft Azure 資料方塊邊緣解決方案可協助確保只有已獲授權的實體，可以檢視、 修改或刪除您的資料。
 
@@ -27,9 +27,6 @@ Azure 資料方塊邊緣解決方案是由四個彼此互動的主要元件所�
 - **資料方塊邊緣裝置**– 寄送到您內部部署資料匯入 Azure 傳輸裝置。
 - **用戶端/主機連線到裝置**– 基礎結構中的用戶端，連接到資料方塊的邊緣裝置，並包含要保護的資料。
 - **雲端儲存體** – Azure 雲端中儲存資料的位置。 這個位置通常是儲存體帳戶連結到您所建立之資料方塊邊緣資源。
-
-> [!IMPORTANT]
-> Data Box Edge 目前處於預覽狀態。 在訂購及部署此解決方案之前，請先檢閱 [Azure 預覽版使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 
 
 
 ## <a name="data-box-edgedata-box-gateway-service-protection"></a>方塊邊緣/資料方塊閘道服務保護資料
@@ -44,7 +41,7 @@ Azure 資料方塊邊緣解決方案是由四個彼此互動的主要元件所�
 資料方塊的邊緣裝置是在內部部署裝置，可協助您在本機處理它，然後將它傳送至 Azure 來轉換資料。 您的裝置：
 
 - 必須啟用金鑰來存取資料方塊邊緣/資料方塊閘道服務。
-- 受位於所有時間裝置系統管理員密碼。
+- 在所有時間裝置密碼保護。
 - 是鎖定的裝置。 裝置 BMC 和 BIOS 是用於將 BIO 的限制使用者存取受密碼保護。
 - 已啟用安全開機。
 - 執行 Windows Defender Device Guard。 Device Guard 可讓您執行只受信任的應用程式，您在程式碼完整性原則中定義。 
@@ -68,14 +65,14 @@ Azure 資料方塊邊緣解決方案是由四個彼此互動的主要元件所�
 您可以：
 
 - 連接到本機 web UI，透過瀏覽器的裝置，然後提供 使用密碼來登入裝置。
-- 遠端連線到裝置的 PowerShell 介面透過 HTTP。 依預設會開啟遠端管理。 然後，您可以提供裝置系統管理員密碼，登入裝置。 如需詳細資訊，請移至[從遠端連接至您的資料方塊的邊緣裝置](data-box-edge-connect-powershell-interface.md#connect-to-the-powershell-interface)。
+- 遠端連線到裝置的 PowerShell 介面透過 HTTP。 依預設會開啟遠端管理。 然後，您可以提供裝置密碼來登入裝置。 如需詳細資訊，請移至[從遠端連接至您的資料方塊的邊緣裝置](data-box-edge-connect-powershell-interface.md#connect-to-the-powershell-interface)。
 
 請記住下列最佳做法：
 
 - 資料方塊邊緣的服務無法擷取現有的密碼： 它只能重設他們的 Azure 入口網站。 建議您將所有密碼儲存在安全的地方，讓您在忘記密碼時無需重設密碼。 如果您重設密碼，請務必通知所有使用者，然後您將它重設。
 - 使用本機 web UI 來[變更密碼](data-box-gateway-manage-access-power-connectivity-mode.md#manage-device-access)。 如果您變更密碼，請務必通知所有遠端存取使用者，讓它們不會遇到登入失敗。
 - 您可以透過 HTTP 的遠端存取您的裝置的 Windows PowerShell 介面。 最佳安全性做法，您應該只在受信任的網路上使用 HTTP。
-- 請確定裝置系統管理員密碼是強式且受到妥善保護。 請遵循[密碼的最佳作法](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices#enable-password-management)。
+- 請確定裝置密碼強式且受到妥善保護。 請遵循[密碼的最佳作法](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices#enable-password-management)。
 
 ## <a name="protect-the-data"></a>保護資料
 

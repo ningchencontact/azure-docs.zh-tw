@@ -1,22 +1,22 @@
 ---
-title: 使用 Azure Resource Manager 範本 （預覽）-Azure 中建立主應用程式集區
-description: 如何使用 Azure Resource Manager 範本建立的主應用程式集區中 Windows 虛擬桌面。
+title: 使用 Azure Resource Manager 範本-Azure 中建立 Windows 虛擬桌面預覽主應用程式集區
+description: 如何使用 Azure Resource Manager 範本建立 Windows 虛擬桌面預覽中的主應用程式集區。
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 7f4849c19d56bb385e7ad3ce0aa95e16d5c53c23
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 262ec35a8a177652dff12bccb3b5435cb5856d81
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318460"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401425"
 ---
-# <a name="create-a-host-pool-with-an-azure-resource-manager-template-preview"></a>使用 Azure Resource Manager 範本 （預覽） 中建立主應用程式集區
+# <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立的主應用程式集區
 
-主應用程式集區是一或多個相同的虛擬機器在 Windows 虛擬桌面的租用戶 （預覽） 環境中的集合。 每個主應用程式集區可以包含實體的桌上型電腦上，使用者可以與互動的應用程式群組。
+主應用程式集區是一或多個相同的虛擬機器在 Windows 虛擬桌面預覽租用戶環境中的集合。 每個主應用程式集區可以包含實體的桌上型電腦上，使用者可以與互動的應用程式群組。
 
 請遵循本節中的指示使用 Microsoft 所提供的 Azure Resource Manager 範本建立 Windows 虛擬桌面租用戶的主應用程式集區。 這篇文章會告訴您如何建立主應用程式集區中 Windows 虛擬桌面、 與 Vm 建立的資源群組中的 Azure 訂用帳戶、 將這些 Vm 加入 AD 網域，以及向 Windows 虛擬桌面的 Vm。
 

@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 03/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 757d6aeecc6c97726e890076b0e27a82a1a45d27
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d5af557a62f4bd35c242d334c28a38c3d632f7cf
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57556700"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58404069"
 ---
 1. [連線到 PowerShell 介面](#connect-to-the-powershell-interface)。
 2. 使用`Get-HcsApplianceInfo`以取得您裝置的資訊。
@@ -54,5 +54,5 @@ ms.locfileid: "57556700"
     | HcsVersion                     | 裝置上執行的 HCS 軟體版本。 比方說，對應至資料方塊邊緣 1902年的 HCS 軟體版本是 1.4.771.324。            |   |
     | LocalCapacityInMb              | 單位是 mb / 裝置的本機容量總計。                                                                                                        |   |
     | IsRegistered                   | 這個值表示是否您的裝置就會啟動服務。                                                                                         |   |
-    ```
+
 

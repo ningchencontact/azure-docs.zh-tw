@@ -1,6 +1,6 @@
 ---
-title: 設定 Azure NetApp Files 磁碟區的匯出原則 | Microsoft Docs
-description: 說明如何設定匯出原則以控制 Azure NetApp Files 磁碟區的存取權
+title: 設定 NFS 磁碟區使用 Azure NetApp 檔案的匯出原則 |Microsoft Docs
+description: 描述如何設定來控制存取使用 Azure NetApp 檔案 NFS 磁碟區的 匯出原則
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/28/2018
+ms.date: 03/20/2019
 ms.author: b-juche
-ms.openlocfilehash: 1098c5c2f42b242b3ba2f68ec7480de90dd7c22e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8cda5921a1aec86d28beabbd9cea5b07a203a0e8
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766643"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401492"
 ---
-# <a name="configure-export-policy-for-a-volume"></a>設定磁碟區的匯出原則
+# <a name="configure-export-policy-for-an-nfs-volume"></a>設定 NFS 磁碟區的 匯出原則
 
-您可以選擇性地設定匯出原則，以控制 Azure NetApp Files 磁碟區的存取權。 
+您可以選擇性地設定匯出原則，以控制 Azure NetApp Files 磁碟區的存取權。 只支援 NFS 磁碟區匯出原則。 
 
 ## <a name="steps"></a>步驟 
 
@@ -47,7 +47,7 @@ ms.locfileid: "57766643"
 
     * **通訊協定**   
         指定要用於匯出原則的通訊協定。   
-        目前 Azure NetApp Files 僅支援 NFSv3。
+        目前，Azure NetApp 檔案匯出原則支援只 NFSv3。
 
     ![匯出原則](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 

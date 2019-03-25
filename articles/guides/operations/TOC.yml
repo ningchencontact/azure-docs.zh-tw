@@ -1,0 +1,70 @@
+items:
+- name: 適用於 IT 運算子的 Azure
+  items:
+  - name: 開始使用 Azure
+    href: azure-operations-guide.md
+  - name: 快速入門
+    items:
+    - name: 虛擬機器
+      items:
+      - name: Windows 虛擬機器
+        href: ../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+      - name: Linux 虛擬機器
+        href: ../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+    - name: 虛擬網路
+      items:
+      - name: 使用 Azure 入口網站建立虛擬網路
+        href: ../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+    - name: 安全性
+      items:
+      - name: 使用角色指派來管理資源
+        href: ../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+    - name: Azure Stack
+      items:
+      - name: Azure Stack 部署概觀
+        href: ../../azure-stack/azure-stack-deploy-overview.md
+    - name: Azure 備份
+      items:
+      - name: 在 Azure 入口網站中備份虛擬機器
+        href: ../../backup/quick-backup-vm-portal.md
+    - name: Azure Site Recovery
+      items:
+      - name: 將 Azure VM 複寫到另一個 Azure 區域
+        href: ../../site-recovery/azure-to-azure-quickstart.md
+  - name: 教學課程
+    items:
+    - name: 虛擬機器
+      items:
+      - name: 建立與管理 Windows VM
+        href: ../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+      - name: 建立與管理 Linux VM
+        href: ../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+      - name: Jenkins CI/CD 管線
+        href: ../../virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+      - name: 平衡 VM 的負載
+        href: ../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+      - name: 編寫 Azure 資源管理員範本
+        href: ../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+      - name: 大規模備份 VM
+        href: ../../backup/tutorial-backup-vm-at-scale.md
+  - name: 使用說明指南
+    items:
+    - name: 如何下載您的 Azure 帳單發票和每日使用量資料
+      href: ../../billing/billing-download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json
+  - name: 資源
+    items:
+    - name: Azure 產品目錄
+      href: https://docs.microsoft.com/azure/#pivot=products
+    - name: Azure 藍圖
+      href: https://azure.microsoft.com/roadmap/
+    - name: 定價計算機
+      href: https://azure.microsoft.com/pricing/calculator/
+    - name: Microsoft Azure 入口網站概觀
+      href: https://azure.microsoft.com/documentation/articles/azure-portal-overview/
+  - name: 參考
+ms.openlocfilehash: baa4d388f26c46974c1037c3ecf723a445774591
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341351"

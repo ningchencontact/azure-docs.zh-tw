@@ -8,19 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 8ef35709e90c0a58cc0ff8df1afb6e864adc0a23
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: ab3d3a13f8bfa69bd9e13dae344cfbcc3731cc77
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57994710"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402587"
 ---
-# <a name="azure-data-box-edge-technical-specifications-preview"></a>Azure 資料方塊邊緣技術規格 （預覽）
+# <a name="azure-data-box-edge-technical-specifications"></a>Azure 資料方塊邊緣的技術規格
 
 您的 Microsoft Azure 資料方塊邊緣裝置的硬體元件符合技術規格和這篇文章中所述的法規標準。 技術規格描述電源供應器單元 (PSUs)、 儲存體容量、 機箱和環境標準。 
-
-> [!IMPORTANT]
-> Data Box Edge 目前處於預覽狀態。 在訂購及部署此解決方案之前，請先檢閱 [Azure 預覽版使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 
 
 ## <a name="power-supply-unit-specifications"></a>電源供應器單位規格
 
@@ -28,7 +25,7 @@ ms.locfileid: "57994710"
 
 | 規格           | 750 W PSU 已運轉                  |
 |-------------------------|----------------------------|
-| 最大輸出電力    |  750 W                     |
+| 最大輸出電力    | 750 W                     |
 | 頻率               | 50/60 Hz                   |
 | 選取電壓範圍 | 自動設定範圍：100-240 V AC |
 | 隨插即用           | 是                        |

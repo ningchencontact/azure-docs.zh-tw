@@ -1,6 +1,6 @@
 ---
 title: 使用 REST API 和範本部署資源 | Microsoft Docs
-description: 使用 Azure Resource Manager 和 Resource Manager REST API 將資源部署到 Azure。 資源會定義在 Resource Manager 範本中。
+description: 使用 Azure Resource Manager 和 Resource Manager REST API 將資源部署至 Azure。 資源會定義在 Resource Manager 範本中。
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -10,28 +10,30 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2019
+ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: bd574eb2d3537d3e5c0774f57e37283817cc7879
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3468f5b625911cd637b22e2c1d35a47fb7d7b0e4
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112019"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402825"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>使用 Resource Manager 範本和 Resource Manager REST API 部署資源
 
 這篇文章說明如何使用 Resource Manager REST API 與 Resource Manager 範本來將您的資源部署至 Azure。  
 
-> [!TIP]
-> 有关在部署过程中调试错误的帮助，请参阅：
-> 
-> * [檢視部署作業](resource-manager-deployment-operations.md)，以了解有關取得可協助您針對錯誤進行疑難排解的資訊
-> * [針對使用 Azure Resource Manager 將資源部署至 Azure 時常見的錯誤進行疑難排解](resource-manager-common-deployment-errors.md) ，以了解如何解決常見的部署錯誤
-> 
-> 
-
 您可以在要求本文中納入範本，也可以連結至檔案。 使用檔案時，該檔案可以是本機檔案，也可以是透過 URI 所取得的外部檔案。 當範本位於儲存體帳戶中時，您可以限制範本的存取權，並在部署期間提供共用存取簽章 (SAS) 權杖。
+
+## <a name="deployment-scope"></a>部署範圍
+
+您可以針對您的 Azure 訂用帳戶或訂用帳戶內的資源群組的部署。 在大部分情況下，您會針對部署至資源群組。 使用訂用帳戶部署來套用原則和角色指派，在訂用帳戶。 您也可以使用訂用帳戶部署來建立資源群組，並將資源部署到它。 根據部署的範圍，您可以使用不同的命令。
+
+若要部署到**資源群組**，使用[Deployments-建立](/rest/api/resources/deployments/createorupdate)。
+
+若要部署到**訂用帳戶**，使用[Deployments-建立在訂用帳戶範圍](/rest/api/resources/deployments/createorupdateatsubscriptionscope)。
+
+這篇文章中的範例會使用資源群組部署。 如需有關訂用帳戶部署的詳細資訊，請參閱[建立資源群組和資源的訂用帳戶層級](deploy-to-subscription.md)。
 
 ## <a name="deploy-with-the-rest-api"></a>使用 REST API 部署
 1. 設定[一般參數和標頭](/rest/api/azure/) (包括驗證權杖)。

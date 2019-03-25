@@ -2,20 +2,20 @@
 title: 使用 Azure Machine Learning 分析資料 | Microsoft Docs
 description: 使用 Azure Machine Learning，根據 Azure 資料倉儲中儲存的資料建置預測性機器學習模型。
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
-ms.date: 04/17/2018
-ms.author: kavithaj
+ms.date: 03/22/2019
+ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 8a33d733f4737bf19e7baad6d80d8fa72999268f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 7f9500adc6871c4c9f81c32bf456bc36cf91db4b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477653"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402553"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>使用 Azure Machine Learning 分析資料
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "55477653"
 > 
 > 
 
-本教學課程會使用 Azure Machine Learning，根據 Azure 資料倉儲中儲存的資料建置預測性機器學習模型。 具體來說，這會為 Adventure Work 建置鎖定目標的行銷活動，預測客戶是否可能購買自行車。
+本教程使用 Azure 机器学习，基于存储在 Azure SQL 数据仓库中的数据生成预测机器学习模型。 具體來說，這會為 Adventure Work 建置鎖定目標的行銷活動，預測客戶是否可能購買自行車。
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Integrating-Azure-Machine-Learning-with-Azure-SQL-Data-Warehouse/player]
 > 
@@ -36,15 +36,15 @@ ms.locfileid: "55477653"
 ## <a name="prerequisites"></a>必要條件
 若要逐步執行本教學課程，您需要：
 
-* 預先載入 AdventureWorksDW 範例資料的 SQL 資料倉儲。 若要進行佈建，請參閱[建立 SQL 資料倉儲][Create a SQL Data Warehouse]並選擇載入範例資料。 如果您已經有資料倉儲但沒有範例資料，您可以[手動載入範例資料][load sample data manually]。
+* 已随 AdventureWorksDW 示例数据预先加载的 SQL 数据仓库。 若要進行佈建，請參閱[建立 SQL 資料倉儲][Create a SQL Data Warehouse]並選擇載入範例資料。 如果您已經有資料倉儲但沒有範例資料，您可以[手動載入範例資料][load sample data manually]。
 
 ## <a name="1-get-the-data"></a>1.取得資料
 此資料位於 AdventureWorksDW 資料庫的 dbo.vTargetMail 檢視中。 如何讀取此資料：
 
 1. 登入 [Azure Machine Learning Studio][Azure Machine Learning studio] 並按一下我的實驗。
-2. 按一下 [+ 新增] 並選取 [空白實驗]。
+2. 按一下  **+ 新增**左下方的畫面，然後選取**空白實驗**。
 3. 輸入您的實驗名稱：精準行銷。
-4. 將 [讀取器]  模組從模組窗格拖曳到畫布上。
+4. 拖曳**匯入資料**下方的模組**資料輸入和輸出**從模組窗格至畫布。
 5. 在 [屬性] 窗格中指定 SQL 資料倉儲資料庫的詳細資料。
 6. 指定資料庫 **查詢** 以利讀取感興趣的資料。
 
@@ -77,7 +77,7 @@ FROM [dbo].[vTargetMail]
 ## <a name="2-clean-the-data"></a>2.清除資料
 若要清除資料，請卸除與模型無關的某些資料行。 作法：
 
-1. 將 [專案資料行]  模組拖曳到畫布上。
+1. 拖曳**選取資料集中的資料行**下方的模組**資料轉換 < 操作**至畫布。 此模組來連接**匯入資料**模組。
 2. 按一下 [屬性] 窗格中的 [啟動資料行選取器]  來指定您想要卸除的資料行。
    ![][4]
 3. 排除兩個資料行：CustomerAlternateKey 和 GeographyKey。
@@ -87,21 +87,19 @@ FROM [dbo].[vTargetMail]
 我們將會以 80-20 的比例分割資料：80% 訓練機器學習模型以及 20% 測試模型。 我們將使用「二元」演算法處理這個二進位分類問題。
 
 1. 將 [分割]  模組拖曳至畫布。
-2. 在 [屬性] 窗格中第一個輸出資料集的 [比例] 資料列輸入 0.8。
+2. 在 [屬性] 窗格中，輸入 0.8 的第一個輸出資料集中的資料列的分數。
    ![將資料分成訓練集和測試集][6]
 3. 將 [二元促進式決策樹]  模組拖曳至畫布。
-4. 將 [培訓模型]  模組拖曳至畫布並指定輸入。 然後，按一下 [屬性] 窗格中的 [啟動資料行選取器]  。
-   * 第一項輸入：ML 演算法。
-   * 第二項輸入：用來將演算法定型的資料。
+4. 拖曳**訓練模型**至畫布並連接至指定的輸入**二級促進式決策樹**（ML 演算法） 和**分割**(資料以訓練在演算法） 的模組。 
      ![連接培訓模型模組][7]
-5. 選取 **BikeBuyer** 資料行做為要預測的資料行。
+5. 然後，按一下 [屬性] 窗格中的 [啟動資料行選取器]  。 選取 **BikeBuyer** 資料行做為要預測的資料行。
    ![選取要預測的資料行][8]
 
 ## <a name="4-score-the-model"></a>4.評分模型
 現在，我們將測試模型如何在測試資料上執行。 我們將會比較我們選擇的演算法和不同的演算法，以查看何者的執行效果比較好。
 
-1. 將 [分數模型]  拖曳至畫布。
-    第一項輸入：定型模型 第二項輸入：測試資料 ![模型評分][9]
+1. 拖曳**評分模型**至畫布並連接到**定型模型**並**分割資料**模組。
+   ![評分模型][9]
 2. 將 [二元貝氏點機器]  拖曳至實驗畫布。 我們將會比較這個演算法和二元促進式決策樹的執行效果。
 3. 複製定型模型和分數模型等模組並貼在畫布上。
 4. 將 [評估模型]  模組拖曳至畫布以比較兩個演算法。
@@ -124,18 +122,18 @@ FROM [dbo].[vTargetMail]
 若要深入了解如何建置預測性機器學習模型，請參閱 [Azure 上的機器學習服務簡介][Introduction to Machine Learning on Azure]。
 
 <!--Image references-->
-[1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1_reader.png
-[2]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2_visualize.png
-[3]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3_readerdata.png
-[4]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4_projectcolumns.png
-[5]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5_columnselector.png
-[6]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6_split.png
-[7]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7_train.png
-[8]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8_traincolumnselector.png
-[9]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9_score.png
-[10]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10_evaluate.png
-[11]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11_evalresults.png
-[12]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12_scoreresults.png
+[1]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img1-reader-new.png
+[2]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img2-visualize-new.png
+[3]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img3-readerdata-new.png
+[4]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img4-projectcolumns-new.png
+[5]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img5-columnselector-new.png
+[6]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img6-split-new.png
+[7]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img7-train-new.png
+[8]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img8-traincolumnselector-new.png
+[9]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img9-score-new.png
+[10]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img10-evaluate-new.png
+[11]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img11-evalresults-new.png
+[12]: media/sql-data-warehouse-get-started-analyze-with-azure-machine-learning/img12-scoreresults-new.png
 
 
 <!--Article references-->

@@ -134,8 +134,11 @@ ms.collection: M365-identity-device-management
                     <div class="cardText">
                         <h3>「我的應用程式」入口網站說明</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/active-directory-saas-access-panel-introduction">什麼是「我的應用程式」入口網站？</a><br/>
-                        <a href="/azure/active-directory/active-directory-saas-access-panel-user-help">疑難排解</a>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-access">存取和使用「我的應用程式」入口網站</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-update-profile">更新您的設定檔和帳戶資訊</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-groups">更新您的群組相關資訊</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-access-reviews">執行您自己的存取權檢閱</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-troubleshoot">疑難排解</a>
                         </p>
                     </div>
                 </div>

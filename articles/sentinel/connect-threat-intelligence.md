@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2c5a7dc08886e21ef8e287540d9139ec555b11a2
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: bc8a644f99d9a84e1f2c177a87e2668ae9a57868
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242287"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400638"
 ---
 # <a name="collect-data-from-threat-intelligence-providers"></a>從 威脅情報提供者收集資料 
 
@@ -31,6 +31,8 @@ ms.locfileid: "57242287"
 若要可讓您跨洽詢您的警示和規則，則為 true 的威脅情報，例如，如果您收到警示來自特定 IP 位址，您的威脅情報提供者整合都能夠讓您知道是否最近找到該 IP 位址為惡意Azure 的 Sentinel 可整合[威脅情報提供者](https://aka.ms/graphsecuritytips)。 
 
 可以從 威脅情報提供者的記錄檔串流至 Azure 的 Sentinel，只要按一下。 此連線可讓您將指標包含各種類型的可預見值，例如 IP 位址、 網域、 URL 和檔案雜湊，以搜尋，並建立自訂警示規則，在 Azure 的 Sentinel。  
+> [!NOTE]
+> 您可以輸入自訂的威脅指標 Azure Sentinel 警示規則、 儀表板和追捕案例中使用藉由整合[Microsoft Graph Security tiIndicator](https://aka.ms/graphsecuritytiindicators)實體或使用[Microsoft圖形安全性整合威脅智慧平台](https://aka.ms/graphsecuritytips)。
 
 ## <a name="prerequisites"></a>必要條件  
 

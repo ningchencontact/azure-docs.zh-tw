@@ -1,37 +1,60 @@
 ---
-title: Azure VM 備份常見問題集
-description: 有關以下常見問題的解答：Azure VM 備份的運作方式、限制，以及原則變更時會發生什麼情況
+title: 關於備份 Azure Vm 使用 Azure 備份常見問題集
+description: 備份 Azure Vm 使用 Azure 備份的常見問題的解答。
 services: backup
 author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/16/2018
+ms.date: 03/22/2019
 ms.author: sogup
-ms.openlocfilehash: 10b49c5ebcd73010a52da1fada32ba55198b287a
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: ef46c37fec3e5438aeb4f9309201d45365a96fdc
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961528"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402060"
 ---
-# <a name="frequently-asked-questions-azure-backup"></a>常見問題集 - Azure 備份
+# <a name="frequently-asked-questions-back-up-azure-vms"></a>常見問題集的問題-備份 Azure Vm
 
-本文提供有關 [Azure 備份](backup-introduction-to-azure-backup.md)服務的常見問題解答。
-
-## <a name="general-questions"></a>一般問題
-
-### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>您可以使用 Azure 備份來備份哪些 Azure VM？
-請[檢閱](backup-azure-arm-vms-prepare.md#before-you-start)支援的作業系統和限制。
+這篇文章回答有關 Azure Vm 備份常見問題[Azure 備份](backup-introduction-to-azure-backup.md)服務。
 
 
 ## <a name="backup"></a>Backup 
 
+### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>哪些 VM 映像可以啟用備份時建立它們？
+當您建立 VM 時，您可以執行的 Vm 啟用備份[支援的作業系統](backup-support-matrix-iaas.md#supported-backup-actions)
+ 
+### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>是包含 VM 成本中的備份成本？ 
+
+沒有。 備份的成本會分開 VM 的成本。 深入了解[Azure 備份定價](https://azure.microsoft.com/pricing/details/backup/)。
+ 
+### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>若要啟用 VM 的備份需要哪些權限？ 
+
+如果您是 VM 參與者 」 時，您可以啟用 VM 上的備份。 如果您使用自訂角色，您需要下列權限，才能在 VM 上啟用備份： 
+
+- Microsoft.RecoveryServices/Vaults/write 
+- Microsoft.RecoveryServices/Vaults/read 
+- Microsoft.RecoveryServices/locations/* 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write 
+- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write 
+- Microsoft.RecoveryServices/Vaults/backupPolicies/read 
+- Microsoft.RecoveryServices/Vaults/backupPolicies/write 
+ 
+如果您的復原服務保存庫和 VM 有不同的資源群組，請確定您在復原服務保存庫的資源群組中具有寫入權限。  
+
+
+### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>您可以使用 Azure 備份來備份哪些 Azure VM？
+
+檢閱[支援矩陣](backup-support-matrix-iaas.md)支援詳細資料和限制。
+
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>隨選備份作業是否會使用與排定備份相同的保留排程？
-沒有。 您應該指定隨選備份作業的保留範圍。 根據預設，若從入口網站觸發，則會保留 30 天。
+沒有。 指定隨選備份作業的保留範圍。 根據預設，若從入口網站觸發，則會保留 30 天。
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>我在最近一些 VM 上啟用了 Azure 磁碟加密。 我的備份是否會繼續運作？
-您需要為 Azure 備份提供權限來存取 Key Vault。 在 PowerShell 中指定權限，如 [Azure 備份 PowerShell](backup-azure-vms-automation.md) 文件的**啟用備份**一節中所述。
+提供適用於 Azure 備份來存取 Key Vault 的權限。 在 PowerShell 中指定權限，如 [Azure 備份 PowerShell](backup-azure-vms-automation.md) 文件的**啟用備份**一節中所述。
 
 ### <a name="i-migrated-vm-disks-to-managed-disks-will-my-backups-continue-to-work"></a>我已將 VM 磁碟遷移至受控磁碟。 我的備份是否會繼續運作？
 是，備份會順利運作。 不需要重新設定任何項目。
@@ -57,7 +80,7 @@ ms.locfileid: "56961528"
 Azure 備份可以備份最多具有 16 個磁碟的 VM。 [立即還原](backup-instant-restore-capability.md)中提供 16 個磁碟的支援。
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Azure 備份是否支援標準 SSD 受控磁碟？
-Azure 備份支援[標準 SSD 受控磁碟](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)。 SSD 受控磁碟會為 Azure VM 提供新類型的耐久性儲存體。 [立即還原](backup-instant-restore-capability.md)中提供 SSD 受控磁碟的支援。
+Azure 備份支援[標準 SSD 受控磁碟](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)。 SSD 受控磁碟提供持久儲存體的新類型的 Azure Vm。 [立即還原](backup-instant-restore-capability.md)中提供 SSD 受控磁碟的支援。
 
 ### <a name="can-we-back-up-a-vm-with-a-write-accelerator-wa-enabled-disk"></a>我們可以備份具有已啟用寫入加速器 (WA) 之磁碟的 VM 嗎？
 您無法在已啟用 WA 的磁碟上建立快照集。 不過，Azure 備份服務可以從備份中排除已啟用 WA 的磁碟。 僅針對已升級到「立即還原」的訂用帳戶，提供對具有已啟用 WA 之磁碟的 VM 進行磁碟排除的支援。
@@ -65,17 +88,17 @@ Azure 備份支援[標準 SSD 受控磁碟](https://azure.microsoft.com/blog/ann
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>我的 VM 具有寫入加速器 (WA) 磁碟並已安裝 SAP HANA。 該如何備份？
 Azure 備份無法備份已啟用 WA 的磁碟，但可從備份中排除該磁碟。 不過，備份將不會提供資料庫一致性，因為系統不會備份已啟用 WA 之磁碟的相關資訊。 如果您想要作業系統磁碟備份以及未啟用 WA 的磁碟備份，您可以使用此設定來備份磁碟。
 
-我們利用 15 分鐘的 RPO 來提供 SAP HANA 備份的個人預覽版。 它會以類似 SQL DB 備份的方式建置，並針對 SAP HANA 所認證的協力廠商解決方案使用 backInt 介面。 如果您對個人預覽版感興趣，可經由 ` AskAzureBackupTeam@microsoft.com ` 寄送電子郵件給我們，並將主旨註明為**註冊 Azure VM 中適用於 SAP HANA 備份的個人預覽版**。
+我們正在執行 SAP HANA 備份的私人的預覽使用 15 分鐘的 RPO。 它會以類似 SQL DB 備份的方式建置，並針對 SAP HANA 所認證的協力廠商解決方案使用 backInt 介面。 如果您想要傳送電子郵件來信` AskAzureBackupTeam@microsoft.com `主旨**登入，以在 Azure Vm 中的 SAP hana 備份的私人預覽**。
 
 
 ## <a name="restore"></a>Restore
 
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>如何決定是否只要還原磁碟，還是要還原整個 VM？
-將 VM 還原視為 Azure VM 的快速建立選項。 此選項會變更磁碟名稱、磁碟所使用的容器、公用 IP 位址和網路介面名稱。 變更會在建立 VM 時維護唯一的資源。 VM 不會新增至可用性設定組。
+將 VM 還原視為 Azure VM 的快速建立選項。 此選項會變更磁碟名稱、 磁碟、 公用 IP 位址和網路介面名稱所使用的容器。 變更會在建立 VM 時維護唯一的資源。 VM 不會新增至可用性設定組。
 
 如果您想要，您可以使用還原磁碟選項：
   * 自訂所建立的 VM。 例如，變更大小。
-  * 新增備份時不存在的組態設定
+  * 新增組態設定有不在備份的時間。
   * 控制所建立資源的命名慣例。
   * 將 VM 新增至可用性設定組。
   * 新增任何其他必須使用 PowerShell 或範本設定的設定。
@@ -114,6 +137,6 @@ VM 會使用已修改或新的原則中的排程和保留期設定來備份。
 
 1. 暫時停止備份並保留備份資料。
 2. 將 VM 移至目標資源群組。
-3. 已在相同或新的保存庫中重新啟用備份。
+3. 在相同或新的保存庫中的重新啟用的備份。
 
 您可以從移動作業之前所建立的可用還原點來還原 VM。

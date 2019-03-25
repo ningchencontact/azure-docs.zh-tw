@@ -1,22 +1,22 @@
 ---
-title: 找出問題的診斷功能 （預覽）-Azure
-description: 說明 Windows 虛擬桌面診斷功能，以及如何使用它。
+title: 找出問題的 Windows 虛擬桌面預覽診斷功能-Azure
+description: 說明 Windows 虛擬桌面預覽診斷功能，以及如何使用它。
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: f44f4d632fa1fc607f3933be8e15eb939e20a8ae
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: a9b8be58e8dfb27fbe896cf1c8d8dc0e91e3b24c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318610"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402842"
 ---
-# <a name="identify-issues-with-the-diagnostics-feature-preview"></a>找出問題的診斷功能 （預覽）
+# <a name="identify-issues-with-the-diagnostics-feature"></a>找出問題的診斷功能
 
-Windows 虛擬桌面 （預覽） 提供診斷功能 （預覽），可讓系統管理員識別問題，透過單一介面。 每當使用者與系統互動診斷活動記錄的 Windows 虛擬桌面的角色。 每個記錄檔包含例如參與交易、 錯誤訊息、 租用戶的詳細資訊，以及使用者資訊的 Windows 虛擬桌面角色的相關資訊。 診斷活動建立的使用者和系統管理動作，並可分類成三個主要貯體：
+Windows 虛擬桌面預覽提供診斷功能，可讓管理員識別問題，透過單一介面。 每當使用者與系統互動診斷活動記錄的 Windows 虛擬桌面的角色。 每個記錄檔包含例如參與交易、 錯誤訊息、 租用戶的詳細資訊，以及使用者資訊的 Windows 虛擬桌面角色的相關資訊。 診斷活動建立的使用者和系統管理動作，並可分類成三個主要貯體：
 
 * 訂用帳戶活動的摘要： 使用者在嘗試連線至其透過 Microsoft 遠端桌面應用程式的摘要時就會觸發這些活動。
 * 連接活動： 每當在嘗試連線到桌上型電腦或 RemoteApp 透過 Microsoft 遠端桌面應用程式，使用者會觸發這些活動。
@@ -145,7 +145,7 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
 |8000|InvalidAuthorizationRoleScope|您輸入的角色名稱不符合任何現有的角色名稱。 檢閱角色名稱有錯字，並再試一次。 |
 |8001|UserNotFound |您輸入的使用者名稱不符合任何現有的使用者名稱。 檢閱名稱有錯字，並再試一次。|
 |8005|UserNotFoundInAAD |您輸入的使用者名稱不符合任何現有的使用者名稱。 檢閱名稱有錯字，並再試一次。|
-|8008|TenantConsentRequired|請依照下列指示[此處](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-service)以供您的租用戶的同意。|
+|8008|TenantConsentRequired|請依照下列指示[此處](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service)以供您的租用戶的同意。|
 
 ### <a name="external-connection-error-codes"></a>外部連線錯誤碼
 
@@ -164,6 +164,6 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解 Windows 虛擬桌面中的角色，請參閱[Windows 的虛擬桌面環境](environment-setup.md)。
+若要深入了解 Windows 虛擬桌面中的角色，請參閱[Windows 虛擬桌面預覽環境](environment-setup.md)。
 
 若要查看 Windows 的虛擬桌面可以使用 PowerShell cmdlet 的清單，請參閱[PowerShell 參考](/powershell/windows-virtual-desktop/overview)。

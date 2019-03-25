@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/12/2019
 ms.author: rkarlin
-ms.openlocfilehash: 30f6d08594bdf2e5d78bc8c7881a135d6e57f397
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b6ea852c9a1bb8ea6eb51df310aab97e9b10d48e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852185"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399686"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>內建的 Azure Sentinel 預覽
 
@@ -75,7 +75,6 @@ Azure 的 Sentinel 會藉由連線至服務，並將事件和記錄檔轉送到 
 在底部，Azure Sentinel 提供的建議的儀表板，您應該安裝每個連接器讓您可以立即取得有趣的深入解析您的資料。 <br> 遵循安裝指示或[，請參閱相關的連接指南](connect-data-sources.md)如需詳細資訊。 如需資料連接器的資訊，請參閱[連接的 Microsoft 服務](connect-data-sources.md)。
 
 在您的資料來源連接之後, 您的資料開始串流處理至 Azure 的 Sentinel，並且可供您開始使用。 您可以檢視中的記錄檔[內建儀表板](quickstart-get-visibility.md)，並開始建立 Log Analytics 中的查詢[調查資料](tutorial-investigate-cases.md)。
-
 
 
 

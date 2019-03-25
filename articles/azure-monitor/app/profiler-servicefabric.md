@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 73e453385a6916b6999691afbacd1f102ce7270d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0b1a06d181fc4d2a44d389d47d1f9480c2fdcb40
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865730"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401095"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>使用 Application Insights 來分析即時 Azure Service Fabric 應用程式
 
@@ -55,7 +55,7 @@ Application Insights Profiler 會隨附於 Azure 診斷。 您可以使用 Azure
   如果設定全都正確，就會在安裝 Azure 診斷擴充功能時，安裝並啟用 Application Insights Profiler。 
 
 1. 在 Service Fabric 應用程式中新增 Application Insights。  
-  若要讓 Profiler 收集要求的設定檔，您的應用程式必須將要求資料傳送至 Application Insights。 如需詳細資訊，請移至[適用於 Service Fabric 專案的 Application Insights SDK](https://github.com/Microsoft/ApplicationInsights-ServiceFabric) 頁面。
+  Profiler 收集您的要求的設定檔，為您的應用程式必須追蹤使用 Application Insights 的作業。 對於無狀態 Api，您可以參考的指示[追蹤要求的程式碼剖析](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json)。 如需有關追蹤其他種類的應用程式中的自訂作業的詳細資訊，請參閱[使用 Application Insights.NET SDK 追蹤自訂作業](custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json)。
 
 1. 重新部署應用程式。
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 0ca570235ac2a87b62c5d0fcebbd24dc5186e37d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 67caaa2c6c9bd615d0b88bdd5de3442b46aa32cb
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57556510"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403488"
 ---
 # <a name="manage-an-azure-data-box-gateway-device-via-windows-powershell"></a>管理透過 Windows PowerShell 在 Azure 中部署資料閘道裝置
 
@@ -30,18 +30,9 @@ Azure 中部署資料閘道解決方案，可讓您透過網路傳送資料至 A
 - 在非 DHCP 環境中啟動
 - 檢視裝置資訊
 
-> [!IMPORTANT]
-> Azure 資料方塊閘道目前處於公開預覽狀態。
-> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
-> 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
-
 ## <a name="connect-to-the-powershell-interface"></a>連線到 PowerShell 介面
 
 [!INCLUDE [Connect to admin runspace](../../includes/data-box-edge-gateway-connect-minishell.md)]
-
-## <a name="start-a-support-session"></a>啟動支援工作階段
-
-[!INCLUDE [Connect to support runspace](../../includes/data-box-edge-gateway-connect-support.md)]
 
 ## <a name="create-a-support-package"></a>建立支援封裝
 

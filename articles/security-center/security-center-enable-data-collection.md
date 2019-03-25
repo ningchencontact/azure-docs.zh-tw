@@ -12,28 +12,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2018
+ms.date: 03/20/2018
 ms.author: monhaber
-ms.openlocfilehash: 7be86ae7b425c8497b017672ae2e828ccbf65049
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 2ce3a94b7ea4745ec3727e508cd10bb580a74c98
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223694"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401022"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure 資訊安全中心的資料收集
-資訊安全中心會從您的 Azure 虛擬機器 (Vm)、 虛擬機器擴展集 (VMSS)、 IaaS 容器和監視安全性漏洞與威脅 （包括內部部署） 的非 Azure 電腦收集資料。 資料是使用 Microsoft Monitoring Agent 收集而得，收集的方式是讀取機器的各種安全性相關組態和事件記錄檔，並將資料複製到工作區進行分析。 這類資料的範例包括︰作業系統類型和版本、作業系統記錄檔 (Windows 事件記錄檔)、執行中程序、電腦名稱、IP 位址和已登入的使用者。 Microsoft Monitoring Agent 代理程式也會將損毀傾印檔案複製到您的工作區中。
+資訊安全中心會從您的 Azure 虛擬機器 (Vm)、 虛擬機器擴展集、 IaaS 容器和監視安全性漏洞與威脅 （包括內部部署） 的非 Azure 電腦收集資料。 資料是使用 Microsoft Monitoring Agent 收集而得，收集的方式是讀取機器的各種安全性相關組態和事件記錄檔，並將資料複製到工作區進行分析。 這類資料的範例包括︰作業系統類型和版本、作業系統記錄檔 (Windows 事件記錄檔)、執行中程序、電腦名稱、IP 位址和已登入的使用者。 Microsoft Monitoring Agent 代理程式也會將損毀傾印檔案複製到您的工作區中。
 
 必須收集資料，才能掌握遺漏的更新、設定錯誤的 OS 安全性設定、端點保護啟用，以及健康情況和威脅偵測。 
 
 本文提供的指引有關於如何安裝 Microsoft Monitoring Agent，以及設定用於儲存所收集資料的 Log Analytics 工作區。 需要執行這兩項作業，才能啟用資料收集。 
 
 > [!NOTE]
-
 > - 計算資源 （Vm、 虛擬機器擴展集、 IaaS 容器和非 Azure 電腦） 才需要資料收集。 即使您未佈建代理程式，也可受惠於 Azure 資訊安全中心；不過，您的安全性有限，而且不支援以上所列的功能。  
 > - 如需支援的平台清單，請參閱 [Azure 資訊安全中心支援的平台](security-center-os-coverage.md)。
 > - 目前不支援虛擬機器擴展集的資料收集。
-
+> - 將資料儲存在 Log Analytics，不論您是使用新的或現有工作區中，可能會產生額外費用，來儲存資料，請參閱定價頁面以取得詳細資料。
 
 ## 啟用 Microsoft Monitoring Agent 的自動佈建 <a name="auto-provision-mma"></a>
 
@@ -88,7 +87,8 @@ ms.locfileid: "58223694"
 1. 資訊安全中心會依據為訂用帳戶設定的定價層，在工作區上自動啟用資訊安全中心解決方案。 
 
 > [!NOTE]
-> Log analytics 定價層的資訊安全中心所建立的工作區不會影響資訊安全中心計費。 資訊安全中心的計費一律根據您的資訊安全中心的安全性原則，以及工作區安裝的解決方案。 針對免費層，資訊安全中心在預設工作區啟用 SecurityCenterFree 解決方案。 對於標準層，資訊安全中心在預設工作區啟用 Security 解決方案。
+> 資訊安全中心所建立工作區的 Log Analytics 定價層不會影響資訊安全中心的收費。 資訊安全中心的計費一律根據您的資訊安全中心的安全性原則，以及工作區安裝的解決方案。 針對免費層，資訊安全中心在預設工作區啟用 SecurityCenterFree 解決方案。 對於標準層，資訊安全中心在預設工作區啟用 Security 解決方案。
+> 將資料儲存在 Log Analytics 中，可能會產生額外的資料儲存空間費用，如需詳細資訊，請參閱定價頁面。
 
 如需詳細資訊，請參閱[資訊安全中心價格](https://azure.microsoft.com/pricing/details/security-center/)。
 
@@ -102,7 +102,7 @@ ms.locfileid: "58223694"
 
 > [!NOTE]
 > 在現有工作區上啟用的解決方案將套用至所連線的 Azure VM。 若為付費解決方案，這可能導致額外的費用。 對於資料隱私權考量，請確定您選取的工作區位於正確的地理區域中。
->
+> 將資料儲存在 log analytics 中，可能會產生額外費用，來儲存資料，請參閱定價頁面以取得詳細資料。
 
 若要選取現有的 Log Analytics 工作區：
 
@@ -211,9 +211,9 @@ ms.locfileid: "58223694"
 現有的機器上的訂用帳戶上架到資訊安全中心之前 2019年-03-17，當將偵測到現有的代理程式，將不會安裝 Microsoft Monitoring Agent 擴充功能，以及機器不會受到影響。 這些機器，請參閱解決代理程式安裝問題，在這些電腦上的監視您的機器上的代理程式健全狀況問題的 「 解決 」 建議。
 
   
-- 在電腦上安裝 SCOM 代理程式<br>
-資訊安全中心將會安裝至現有的 SCOM 的 Microsoft Monitoring Agent 擴充功能-並存。 現有的 SCOM 代理程式會繼續正常報表與 SCOM 伺服器。 請注意，SCOM 代理程式和 Microsoft Monitoring Agent 共用通用執行階段程式庫，此處理序將會更新為最新版本。
-請注意，如果安裝 SCOM 代理程式版本 2012年，則**沒有**自動佈建。<br>
+- 在電腦上安裝 system Center Operations Manager 代理程式<br>
+資訊安全中心將會安裝至現有的 Operations Manager 的 Microsoft Monitoring Agent 擴充功能-並存。 現有的 Operations Manager 代理程式會繼續正常回報至 Operations Manager 伺服器。 請注意，Microsoft Monitoring Agent 與 Operations Manager 代理程式共用常見的執行階段程式庫，其會更新為最新版本，在此程序。
+請注意，如果已安裝 Operations Manager 2012 的代理程式版本，**沒有**自動佈建。<br>
 
 - 預先存在的 VM 擴充功能已存在<br>
     - 安裝監視代理程式時做為擴充，可讓擴充功能組態報告至一個工作區。 資訊安全中心不會覆寫既存的使用者工作區連線。 資訊安全中心會在工作區中已連線，請儲存 VM 的安全性資料，前提是已在其上安裝的 「 安全性 」 或 「 securityFree 」 方案。 資訊安全中心可以升級擴充功能版本，在此程序為最新版本。  
@@ -225,7 +225,7 @@ ms.locfileid: "58223694"
 
 
 1. 返回 [資訊安全中心] 主功能表，並選取 [安全性原則]。
-2. 選取您想要停用自動佈建的訂用帳戶。
+2. 按一下 **編輯設定**您想要停用自動佈建的訂用帳戶的資料列中。
 3. 在 [安全性原則 - 資料收集] 刀鋒視窗的 [自動佈建] 下，選取 [關閉]。
 4. 選取 [ **儲存**]。
 
@@ -271,7 +271,9 @@ ms.locfileid: "58223694"
    > [!NOTE]
    > **收集事件和效能資料**一節是選擇性的。
    >
-6. 若要使用 PowerShell 來部署擴充功能，使用下列 PowerShell 範例：  [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+6. 若要使用 PowerShell 來部署擴充功能，請使用下列 PowerShell 範例︰
+   
+   [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
    
    1. 移至 **Log Analytics** ，然後按一下 [進階設定]。
     
@@ -285,7 +287,6 @@ ms.locfileid: "58223694"
      
            $PublicConf = '{
                "workspaceId": "WorkspaceID value",
-               "MultipleConnections": true
            }' 
  
            $PrivateConf = '{

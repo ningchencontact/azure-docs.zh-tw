@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d664c33c4535d25ec93fd1f36c990f2764a4e071
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: ea1b4bd904a9936c401f6b0ea6ac9663c20bc92b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000808"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400035"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>適用於 Azure Active Directory B2C 中的 JavaScript 範例
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 您可以將自己的 JavaScript 用戶端程式碼新增到您的 Azure Active Directory (Azure AD) B2C 應用程式。 本文說明如何變更[使用者流程](user-flow-javascript-overview.md)或[自訂原則](active-directory-b2c-overview-custom.md)，以啟用指令碼執行。
 

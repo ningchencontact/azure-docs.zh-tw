@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 9cb3abff10482ec7e58b4b049f051e99178cb742
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2f84c48092581a313ff7bead7a862221e0fe4eee
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371974"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400932"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>透過使用整合服務環境 (ISE) 從 Azure Logic Apps 連線至 Azure 虛擬網路
 
@@ -49,9 +49,9 @@ ms.locfileid: "58371974"
   * 您的虛擬網路必須有四個*空*個子網路以便進行部署，並在您的 ISE 中建立資源。 您可以事先建立這些子網路，或您可以等到建立其中您可以建立子網路，同時您 ISE。 深入了解[子網路需求](#create-subnet)。 
   
     > [!NOTE]
-    > 如果您使用[ExpressRoute](../expressroute/expressroute-introduction.md)，以提供 Microsoft 雲端服務的私人連線，您必須[新增至每個子網路的下列路由](../virtual-network/virtual-network-manage-subnet.md)供您 ISE。 如果您使用與您的子網路的路由表[加入您的路由表中的下列路由](../virtual-network/manage-route-table.md):
+    > 如果您使用[ExpressRoute](../expressroute/expressroute-introduction.md)，以提供 Microsoft 雲端服務的私人連線，您必須[建立路由表](../virtual-network/manage-route-table.md)具有下列路由傳送，並將該資料表連結供您 ISE 每個子網路：
     > 
-    > **名稱**：D3655BASE-route<br>
+    > **名稱**: <*路由名稱*><br>
     > **位址前置詞**:0.0.0.0/0<br>
     > **下一個躍點**：Internet
 
@@ -146,9 +146,9 @@ ms.locfileid: "58371974"
 
      若要深入了解計算位址，請參閱[IPv4 CIDR 區塊](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks)。
 
-   * 如果您使用[ExpressRoute](../expressroute/expressroute-introduction.md)，請記得[新增至每個子網路的下列路由](../virtual-network/virtual-network-manage-subnet.md)供您 ISE。 如果您使用與您的子網路的路由表[將下列路徑加入至該路由表](../virtual-network/manage-route-table.md):
+   * 如果您使用[ExpressRoute](../expressroute/expressroute-introduction.md)，請記得[建立路由表](../virtual-network/manage-route-table.md)具有下列路由傳送，並將該資料表連結供您 ISE 每個子網路：
 
-     **名稱**：D3655BASE-route<br>
+     **名稱**: <*路由名稱*><br>
      **位址前置詞**:0.0.0.0/0<br>
      **下一個躍點**：Internet
 

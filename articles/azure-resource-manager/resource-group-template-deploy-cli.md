@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure CLI 與範本部署資源 | Microsoft Docs
-description: 使用 Azure Resource Manager 和 Azure CLI，將資源部署至 Azure。 資源會定義在 Resource Manager 範本中。
+description: 使用 Azure Resource Manager 和 Azure CLI 將資源部署至 Azure。 資源會定義在 Resource Manager 範本中。
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -10,24 +10,40 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2019
+ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0c298ba2074a57bd182b23e5fd9bc6b68ee496ad
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: f64a76fa6063ebc5681b546b53fe9d6ca7bc5037
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300444"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400401"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>使用 Resource Manager 範本與 Azure CLI 部署資源
 
 本文說明如何使用 Azure CLI 與 Resource Manager 範本，將您的資源部署至 Azure。 如果您不熟悉部署和管理 Azure 解決方案的相關概念，請參閱 [Azure Resource Manager 概觀](resource-group-overview.md)。  
 
-您部署的 Resource Manager 範本可以是電腦上的本機檔案，或是位於類似 GitHub 等存放庫中的外部檔案。 您在本文中部署的範本可作為 [GitHub 中的儲存體帳戶範本](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json)。
-
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
 如果您沒有安裝 Azure CLI，可以使用 [Cloud Shell](#deploy-template-from-cloud-shell)。
+
+## <a name="deployment-scope"></a>部署範圍
+
+您可以針對您的 Azure 訂用帳戶或訂用帳戶內的資源群組的部署。 在大部分情況下，您會針對部署至資源群組。 使用訂用帳戶部署來套用原則和角色指派，在訂用帳戶。 您也可以使用訂用帳戶部署來建立資源群組，並將資源部署到它。 根據部署的範圍，您可以使用不同的命令。
+
+若要部署到**資源群組**，使用[az 群組部署建立](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
+
+```azurecli
+az group deployment create --resource-group <resource-group-name> --template-file <path-to-template>
+```
+
+若要部署到**訂用帳戶**，使用[az 部署建立](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create):
+
+```azurecli
+az deployment create --location <location> --template-file <path-to-template>
+```
+
+這篇文章中的範例會使用資源群組部署。 如需有關訂用帳戶部署的詳細資訊，請參閱[建立資源群組和資源的訂用帳戶層級](deploy-to-subscription.md)。
 
 ## <a name="deploy-local-template"></a>部署本機範本
 
@@ -50,17 +66,17 @@ az group deployment create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-部署需要幾分鐘的時間才能完成。 完成後，您會看到包含結果的訊息：
+部署可能需要几分钟才能完成。 完成後，您會看到包含結果的訊息：
 
 ```azurecli
 "provisioningState": "Succeeded",
 ```
 
-## <a name="deploy-external-template"></a>部署外部範本
+## <a name="deploy-remote-template"></a>部署遠端的範本
 
 您可能希望將 Resource Manager 範本儲存在外部位置，而不是儲存在您的本機電腦。 您可以將範本儲存在原始檔控制存放庫 (例如 GitHub) 中。 或者，您可以將它們儲存在 Azure 儲存體帳戶中，以在組織內共用存取。
 
-若要部署外部範本，請使用 **template-uri** 參數。 在範例中使用 URI 以部署來自 GitHub 的範例範本。
+若要部署外部模板，请使用 **template-uri** 参数。 在範例中使用 URI 以部署來自 GitHub 的範例範本。
    
 ```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
@@ -83,10 +99,6 @@ az group deployment create --resource-group examplegroup \
   --template-uri <copied URL> \
   --parameters storageAccountType=Standard_GRS
 ```
-
-## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>部署至多個資源群組或訂用帳戶
-
-一般而言，您要將範本中的所有資源部署至單一資源群組。 不過，在某些情況下，您要將一組資源部署在一起，但將它們放在不同的資源群組或訂用帳戶中。 您在單一部署中只能部署至五個資源群組。 如需詳細資訊，請參閱[將 Azure 資源部署至多個訂用帳戶或資源群組](resource-manager-cross-resource-group-deployment.md)。
 
 ## <a name="redeploy-when-deployment-fails"></a>部署失敗時重新部署
 
@@ -197,10 +209,9 @@ az group deployment create \
   --parameters exampleArray=@arrtest.json
 ```
 
-
 ## <a name="test-a-template-deployment"></a>測試範本部署
 
-若要測試您的範本和參數值而不實際部署任何資源，請使用 [az group deployment validate](/cli/azure/group/deployment#az-group-deployment-validate)。 
+若要测试模板和参数值而不实际部署任何资源，请使用 [az group deployment validate](/cli/azure/group/deployment#az-group-deployment-validate)。 
 
 ```azurecli-interactive
 az group deployment validate \

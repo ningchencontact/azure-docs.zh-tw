@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: monhaber
-ms.openlocfilehash: 7e4a4572a53338dc0c7b5d7d11dca7130c8979be
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 276b2815b36f05aa49183681b6c9e622155938e9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226890"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401141"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure 資訊安全中心常見問題集 (FAQ)
 這個常見問題集回答「Azure 資訊安全中心」的相關問題，此資訊安全中心是一項針對 Microsoft Azure 資源的安全性提供更深入的洞悉和更佳控制的服務，可協助您預防、偵測及回應威脅。
@@ -291,11 +291,14 @@ Microsoft Security Response Center (MSRC) 執行 Azure 網路和基礎結構的�
 Azure 資訊安全中心會監視下列 Azure 資源：
 
 * 虛擬機器 (VM) (包括 [雲端服務](../cloud-services/cloud-services-choose-me.md))
+* 虛擬機器擴展集 (VMSSs)
 * Azure 虛擬網路
 * Azure SQL 服務
 * Azure 儲存體帳戶
 * Azure Web Apps (在 [App Service 環境](../app-service/environment/intro.md)中)
 * 與您的 Azure 訂用帳戶整合的合作夥伴解決方案，例如 VM 和 App Service 環境上的 Web 應用程式防火牆
+
+颾魤 ㄛ （包括內部部署） 的非 Azure 電腦可以也受到 Azure 資訊安全中心 (兩者[Windows 電腦](./quick-onboard-windows-computer.md)並[Linux 電腦](./quick-onboard-linux-computer.md)支援)
 
 ## <a name="virtual-machines"></a>虛擬機器
 ### <a name="what-types-of-virtual-machines-are-supported"></a>支援哪些類型的虛擬機器？

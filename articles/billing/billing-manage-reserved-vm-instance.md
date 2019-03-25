@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 03/22/2019
 ms.author: banders
-ms.openlocfilehash: dbfb559516177d496f5b16dc31f0ef8d0603cf68
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b37f198052ee927ea986d2a6046bfd93b6ee5d5e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904009"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399983"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>管理 Azure 資源的保留
 
@@ -28,7 +28,7 @@ ms.locfileid: "57904009"
 
 ## <a name="change-the-scope-for-a-reservation"></a>變更保留範圍
 
- 保留折扣適用於符合保留且在保留範圍內執行的虛擬機器、SQL 資料庫、Azure Cosmos DB 或其他資源。 保留的範圍可以是單一訂用帳戶或您的計費內容中的所有訂用帳戶。 如果您將範圍設定為單一訂用帳戶，此保留會對應至所選訂用帳戶中執行的資源。 如果您將範圍設定為共用，Azure 會將保留對應至計費內容中所有訂用帳戶上執行的資源。 計費內容取決於購買此保留所用的訂用帳戶。
+ 您的保留折扣適用於虛擬機器、 SQL 資料庫、 Azure Cosmos DB 或符合保留且在保留範圍內執行的其他資源。 計費內容取決於購買此保留所用的訂用帳戶。
 
 更新保留範圍：
 
@@ -115,6 +115,10 @@ ms.locfileid: "57904009"
 4. 選取 [設定] > [組態]。
 5. 變更**最佳化設定**。
 
+## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
+
+如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+
 ## <a name="next-steps"></a>後續步驟
 
 若要深入了解 Azure 保留項目，請參閱下列文章：
@@ -130,7 +134,3 @@ ms.locfileid: "57904009"
 - [了解隨用隨付方案訂用帳戶的保留項目使用量](billing-understand-reserved-instance-usage.md)
 - [了解 Enterprise 註冊的保留項目使用量](billing-understand-reserved-instance-usage-ea.md)
 - [Windows 軟體成本不包含在 Reservations 內](billing-reserved-instance-windows-software-costs.md)
-
-## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
-
-如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。

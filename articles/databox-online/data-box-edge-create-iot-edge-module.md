@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 81407a298ccfe1b9884fc5d5b815ac8c18ffee6a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 522dddde4994bb019e6547fcd18465b201f048d8
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094672"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401719"
 ---
-# <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge-preview"></a>在 Data Box Edge (預覽) 上開發 C# IoT Edge 模組來移動檔案
+# <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>開發C#IoT Edge 模組，來移動資料方塊的邊緣上的檔案
 
 本文將逐步引導您如何建立 IoT Edge 模組，以使用您的 Data Box Edge 裝置進行部署。 Azure Data Box Edge 是允許您處理資料並將它透過網路傳送到 Azure 的儲存體解決方案。
 
@@ -27,19 +27,13 @@ ms.locfileid: "58094672"
 > * 建立容器登錄來儲存和管理模組 (Docker 映像)。
 > * 建立要在 Data Box Edge 裝置上部署的 IoT Edge 模組。
 
-> [!IMPORTANT]
-> Data Box Edge 目前處於預覽狀態。 部署訂購並部署此解決方案之前，請檢閱 [Azure 預覽版使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 
 
 ## <a name="about-the-iot-edge-module"></a>關於 IoT Edge 模組
 
 您的 Data Box Edge 裝置可以部署和執行 IoT Edge 模組。 Edge 模組本質上是可執行特定工作的 Docker 容器，例如，從裝置內嵌訊息、轉換訊息或將訊息傳送到 IoT 中樞。 在本文中，您將在 Data Box Edge 裝置上建立模組，將檔案從本機共用複製到雲端共用。
 
 1. 檔案會寫入到 Data Box Edge 裝置上的本機共用。
-2. 檔案事件產生器會針對寫入到本機共用的每個檔案建立檔案事件。 接著將檔案事件傳送到 IoT Edge 中樞 (位於 IoT Edge 執行階段)。
-
-   > [!IMPORTANT]
-   > 只會針對新建立的檔案產生檔案事件。 修改現有的檔案不會產生任何檔案事件。
-
+2. 檔案事件產生器會針對寫入到本機共用的每個檔案建立檔案事件。 當有檔案遭到修改時，也會產生檔案的事件。 接著將檔案事件傳送到 IoT Edge 中樞 (位於 IoT Edge 執行階段)。
 3. IoT Edge 自訂模組會處理檔案事件以建立檔案事件物件，此物件也包含該檔案的相對路徑。 此模組會使用相對的檔案路徑來產生絕對路徑，並將檔案從本機共用複製到雲端共用。 模組接著會從本機共用中刪除該檔案。
 
 ![Azure IoT Edge 模組在 Data Box Edge 上的運作方式](./media/data-box-edge-create-iot-edge-module/how-module-works.png)
@@ -52,8 +46,9 @@ ms.locfileid: "58094672"
 
 - 執行中的 Data Box Edge 裝置。
 
-    - 裝置也會有相關聯的 IoT 中樞資源。 如需詳細資訊，請參閱如何針對您的 Data Box Edge [建立 IoT 中樞資源](data-box-edge-deploy-configure-compute.md#create-an-iot-hub-resource)。
-    - 裝置已設定 Edge 計算角色。 如需詳細資訊，請參閱如何在您的 Data Box Edge 上[設定計算角色](data-box-edge-deploy-configure-compute.md#set-up-compute-role)。
+    - 裝置也會有相關聯的 IoT 中樞資源。
+    - 裝置已設定 Edge 計算角色。
+    如需詳細資訊，請移至[設定計算](data-box-edge-deploy-configure-compute.md#configure-compute)針對您資料的方塊邊緣。
 
 - 下列開發資源：
 
@@ -128,7 +123,7 @@ Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其�
 
 ### <a name="update-the-module-with-custom-code"></a>使用自訂程式碼來更新模組
 
-1. 在 VS Code 總管中，開啟 [modules]> [CSharpModule] > [Program.cs]。
+1. 在 VS Code 總管中，開啟**模組 > FileCopyModule > Program.cs**。
 2. 在 **FileCopyModule 命名空間**頂端，為稍後用到的類型新增下列 using 陳述式。 **Microsoft.Azure.Devices.Client.Transport.Mqtt** 是將訊息傳送至 IoT Edge 中樞的通訊協定。
 
     ```
@@ -141,12 +136,9 @@ Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其�
     class Program
         {
             static int counter;
-            private const string InputFolderPath = "/home/LocalShare";
-            private const string OutputFolderPath = "/home/CloudShare";
+            private const string InputFolderPath = "/home/input";
+            private const string OutputFolderPath = "/home/output";
     ```
-
-    > [!IMPORTANT]
-    > 記下 `InputFolderPath` 與 `OutputFolderPath`。 當您部署此模組時，將必須提供這些路徑。
 
 4. 將 **MessageBody** 類別新增至 Program 類別。 這些類別會定義內送郵件本文的預期結構描述。
 
@@ -189,7 +181,7 @@ Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其�
 6. 插入適用於 **FileCopy** 的程式碼。
 
     ```
-            /// <summary>
+        /// <summary>
         /// This method is called whenever the module is sent a message from the IoT Edge Hub. 
         /// This method deserializes the file event, extracts the corresponding relative file path, and creates the absolute input file path using the relative file path and the InputFolderPath.
         /// This method also forms the absolute output file path using the relative file path and the OutputFolderPath. It then copies the input file to output file and deletes the input file after the copy is complete.
@@ -241,8 +233,6 @@ Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其�
             Console.WriteLine($"Processed event.");
             return MessageResponse.Completed;
         }
-
-    }
     ```
 
 7. 儲存這個檔案。
@@ -251,7 +241,8 @@ Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其�
 
 在上一節中，您已建立 IoT Edge 解決方案，並將程式碼新增至 FileCopyModule，以將檔案從本機共用複製到雲端共用。 現在，您需要建置容器映像形式的解決方案，並將它推送到容器登錄。
 
-1. 透過在 Visual Studio Code 整合式終端機中輸入下列命令，來登入 Docker。
+1. 在 VSCode 中，前往 終端機 > 新終端機來開啟新的 Visual Studio Code 整合式終端機。
+2. 在整合式終端機中輸入下列命令登入 Docker。
 
     `docker login <ACR login server> -u <ACR username>`
 
@@ -282,4 +273,4 @@ Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其�
 
 ## <a name="next-steps"></a>後續步驟
 
-若要在 Data Box Edge 上部署和執行此模組，請參閱[新增自訂模組](data-box-edge-deploy-configure-compute.md#add-a-custom-module)中的步驟。
+若要部署和資料方塊的邊緣上執行此模組，請參閱中的步驟[新增模組](data-box-edge-deploy-configure-compute.md#add-a-module)。

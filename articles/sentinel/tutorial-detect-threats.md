@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 03/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 08f84a3e037301837da984b0891d978027dc2e11
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a0a16fbda662ee1d3718dbafc4231de67aab277e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083159"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400680"
 ---
 # <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>教學課程：偵測到以 Azure Sentinel 預覽版的威脅
 
@@ -27,18 +27,21 @@ ms.locfileid: "58083159"
 > Azure 的 Sentinel 目前處於公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-本教學課程可協助您偵測與 Azure Sentinel 的威脅。
-
 之後您[連接的資料來源](quickstart-onboard.md)Sentinel Azure，您要在發生可疑發生時收到通知。 為了讓您執行這項操作，Azure Sentinel 可讓您建立進階產生情況下，您可以將指定的警示規則和用以深入調查異常和您的環境中的威脅。 
 
-
+本教學課程可協助您偵測與 Azure Sentinel 的威脅。
 > [!div class="checklist"]
 > * 建立 偵測規則
 > * 回應威脅
 
 ## <a name="create-detection-rules"></a>建立 偵測規則
 
-若要調查的情況下，您首先必須建立偵測規則。 偵測規則類型為基礎的威脅與異常狀況可能是您想要立即了解您環境中的可疑確保它們呈現、 調查，並進行補救。 
+若要調查的情況下，您首先必須建立偵測規則。 
+
+> [!NOTE]
+> 在 Azure Sentinel 所產生的警示都是透過[Microsoft Graph Security](https://aka.ms/securitygraphdocs)。 請參閱[Microsoft Graph 安全性警示文件](https://aka.ms/graphsecurityreferencebetadocs)詳情及整合合作夥伴。
+
+偵測規則類型為基礎的威脅與異常狀況可能是您想要立即了解您環境中的可疑確保它們呈現、 調查，並進行補救。 
 
 1. 在 Azure 入口網站中 Azure Sentinel 底下，選取**Analytics**。
 
@@ -87,7 +90,9 @@ Azure 的 Sentinel，可讓您使用劇本的威脅回應的兩個主要選項�
 
 
 ## <a name="next-steps"></a>後續步驟
-在本教學課程中，您已了解如何開始使用 Azure Sentinel 的潛在威脅的偵測。 繼續進行教學課程[如何回應潛在威脅，使用自動化的腳本](tutorial-respond-threats-playbook.md)。
+在本教學課程中，您已了解如何開始使用 Azure Sentinel 的潛在威脅的偵測。 
+
+若要了解如何以自動化您的回應威脅，[如何回應潛在威脅，使用自動化的腳本](tutorial-respond-threats-playbook.md)。
 > [!div class="nextstepaction"]
 > [因應威脅](tutorial-respond-threats-playbook.md)自動化威脅的回應。
 

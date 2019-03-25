@@ -1,22 +1,22 @@
 ---
 title: 準備和自訂母片的 VHD 映像-Azure
-description: 如何準備、 自訂及上傳至 Azure 的 Windows 虛擬桌面 （預覽） 的主要映像。
+description: 如何準備、 自訂及 Windows 的虛擬桌面的預覽母片映像上傳至 Azure。
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 53bf33aad6511cc282f53659bbe43873cacfc3ff
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ca186090f28f04811030e83b159782a9bfeb87f9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318415"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400782"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>準備和自訂母片的 VHD 映像
 
-這篇文章會告訴您如何準備上傳至 Azure，包括如何建立虛擬機器 (Vm) 並安裝，並在其上設定軟體的主要虛擬硬碟 (VHD) 映像。 這些指示是針對 Windows 虛擬桌面特定 （預覽） 的組態，可以搭配您的組織現有的程序。
+這篇文章會告訴您如何準備上傳至 Azure，包括如何建立虛擬機器 (Vm) 並安裝，並在其上設定軟體的主要虛擬硬碟 (VHD) 映像。 這些指示是針對適用於您的組織現有的程序的 Windows 虛擬桌面預覽專屬組態。
 
 ## <a name="create-a-vm"></a>建立 VM
 
@@ -370,8 +370,8 @@ remove CorporateWerServer* from Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\W
 
 有映像之後，您可以建立或更新主應用程式集區。 若要深入了解如何建立和更新主應用程式集區，請參閱下列文章：
 
-- [使用 Azure Resource Manager 範本 （預覽） 中建立主應用程式集區](create-host-pools-arm-template.md)
-- [教學課程：建立主應用程式集區，Azure Marketplace （預覽）](create-host-pools-azure-marketplace.md)
-- [使用 PowerShell （預覽） 中建立主應用程式集區](create-host-pools-powershell.md)
+- [使用 Azure Resource Manager 範本建立的主應用程式集區](create-host-pools-arm-template.md)
+- [教學課程：使用 Azure Marketplace 中建立主應用程式集區](create-host-pools-azure-marketplace.md)
+- [使用 PowerShell 建立主應用程式集區](create-host-pools-powershell.md)
 - [設定主應用程式集區的使用者設定檔共用](create-host-pools-user-profile.md)
 - [設定 Windows 虛擬桌面負載平衡方法](configure-host-pool-load-balancing.md)

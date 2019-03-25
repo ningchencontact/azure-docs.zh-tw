@@ -10,19 +10,18 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 777aca4754d4d5dc893f930994ffe61db18362fd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ca3fd76cfeb09fe4e18a04bff38e166928ef38b2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089330"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401785"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>在 Azure AD B2C 中設定資源擁有者密碼認證流程
 
 資源擁有者密碼認證 (ROPC) 流程是一項 OAuth 標準驗證流程，在此流程中，應用程式 (也稱為信賴憑證者) 會以有效認證 (例如使用者識別碼和密碼) 交換識別碼權杖、存取權杖和重新整理權杖。 
 
-> [!NOTE]
-> 這項功能處於預覽狀態。
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 Azure Active Directory (Azure AD) B2C 支援下列選項：
 

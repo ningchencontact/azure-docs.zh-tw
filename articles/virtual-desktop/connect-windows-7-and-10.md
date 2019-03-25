@@ -1,24 +1,24 @@
 ---
-title: 連接與 Windows 7 和 Windows 10 （預覽）-Azure
-description: 如何連線至 Windows 虛擬桌面的 HTML5 web 用戶端。
+title: 連接到 Windows 虛擬桌面的預覽與 Windows 7 和 Windows 10-Azure
+description: 如何連接到 Windows 7 或 Windows 10 的 Windows 虛擬桌面預覽用戶端。
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 925d762bb065567f6462fdb1614fc308e87b5247
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 644a1d650384f151d9c43b9efa5f47532c58ce14
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318235"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399736"
 ---
-# <a name="connect-with-windows-7-and-windows-10-preview"></a>連接與 Windows 7 和 Windows 10 （預覽）
+# <a name="connect-with-windows-7-and-windows-10"></a>連接與 Windows 7 和 Windows 10
 
 > 適用於Windows 7 和 Windows 10。
 
-可下載的用戶端也可以從執行 Windows 7 和 Windows 10 裝置的 Windows 虛擬桌面 （預覽） 的資源提供存取。
+可下載的用戶端可存取 Windows 虛擬桌面預覽資源從執行 Windows 7 和 Windows 10 的裝置。
 
 ## <a name="install-the-client"></a>安裝用戶端
 

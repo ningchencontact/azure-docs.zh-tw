@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/04/2019
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 52d2061262fd04e68ed13aac8932c23b7074f83e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 125ad28f049662ae6d91c61bb5ee79c1c1428af5
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113765"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401764"
 ---
-# <a name="azure-data-box-edge-system-requirements-preview"></a>Azure Data Box Edge 系統需求 (預覽)
+# <a name="azure-data-box-edge-system-requirements"></a>Azure 資料方塊邊緣的系統需求
 
 本文將針對 Microsoft Azure Data Box Edge 解決方案以及連線至 Azure Data Box Edge 的用戶端，說明其各自的重要系統需求。 我們建議您先仔細檢閱這些資訊，然後再部署您的 Data Box Edge。 您可以在部署和後續作業期間，視需要回來參考此資訊。
 
@@ -23,9 +23,6 @@ Data Box Edge 的系統需求包括：
 
 - **主機的軟體需求**：說明支援的平台、本機設定 UI 的瀏覽器、SMB 用戶端，以及可存取裝置的用戶端其他需求。
 - **裝置的網路需求**：提供實體裝置作業的任何網路需求相關資訊。
-
-> [!IMPORTANT]
-> Data Box Edge 目前處於預覽狀態。 部署此解決方案之前，請先檢閱[預覽版使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 ## <a name="supported-os-for-clients-connected-to-device"></a>支援的 OS (適用於連線至裝置的用戶端)
 
@@ -61,12 +58,9 @@ Azure IoT Edge 允許使用支援的 IoT Hub 通訊協定，進行從內部部�
 
 針對裝載 Azure IoT Edge 執行階段的伺服器，使用下表來進行連接埠設定：
 
-| 連接埠號碼 | 內或外 | 連接埠範圍 | 必要 | 指引 |
+| 連接埠號碼 | 內或外 | 連接埠範圍 | 必要項 | 指引 |
 |----------|-----------|------------|----------|----------|
-| TCP 5671 (AMQP)| 外       | WAN        | yes      | IoT Edge 的預設通訊協定。 如果未設定 Azure IoT Edge 使用其他支援的通訊協定，或者 AMQP 是所需的通訊協定，則必須是開啟狀態。 <br>IoT Edge 不支援適用於 AMQP 的 5672。 <br>當 Azure IoT Edge 使用不同的 IoT Hub 已支援通訊協定時，請封鎖此連接埠。 |
-| TCP 443 (HTTPS)| 外       | WAN        | yes      | 開啟來佈建 IoT Edge 的輸出。 假設您具有透明的閘道，其中具有可能會傳送方法要求的分葉裝置。 在此情況下，無須對外部網路開啟連接埠 443，即可連線至 IoT 中樞，或透過 Azure IoT Edge 提供 IoT 中樞服務。 因此，可將傳入規則限制為只開啟來自內部網路的輸入。 |
-| TCP 5671 (AMQP) | 在        |            | 否       | 應該封鎖輸入連線。|
-| TCP 443 (HTTPS) | 在        |            | 在某些情況下，請參閱註解 | 輸入連線應該只會針對特定案例加以開啟。 如果無法設定非 HTTP 通訊協定 (例如 AMQP、MQTT)，則可使用連接埠 443，透過 WebSocket 來傳送訊息。 |
+| TCP 443 (HTTPS)| 外       | WAN        | 是      | 開啟來佈建 IoT Edge 的輸出。 使用手動指令碼或 Azure IoT 裝置佈建服務 (DPS) 時，就需要此設定。|
 
 如需完整資訊，請參閱[適用於 IoT Edge 部署的防火牆和連接埠設定規則](https://docs.microsoft.com/azure/iot-edge/troubleshoot)。
 

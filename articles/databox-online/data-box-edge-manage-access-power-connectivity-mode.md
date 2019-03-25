@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/21/2019
 ms.author: alkohli
-ms.openlocfilehash: e0aa3468bda9f904d62e9e20545ac5f990cef521
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: e0b8b35c654f0716fae1e6ab785f57dcf04e1a5a
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57905290"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400893"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge-preview"></a>適用於您的 Azure 資料方塊 Edge （預覽） 管理存取、 電源和連線模式
 
@@ -31,11 +31,11 @@ ms.locfileid: "57905290"
 
 ## <a name="manage-device-access"></a>管理裝置存取
 
-存取您的資料方塊的邊緣裝置會受到使用的裝置系統管理員密碼。 您可以透過本機 Web UI 變更系統管理員密碼。 您也可以在 Azure 入口網站中重設裝置管理員密碼。
+存取您的資料方塊的邊緣裝置會受到使用的裝置密碼。 您可以透過變更密碼的本機 web UI。 您也可以重設裝置密碼，在 Azure 入口網站中。
 
-### <a name="change-device-administrator-password"></a>變更裝置管理員密碼
+### <a name="change-device-password"></a>變更裝置密碼
 
-請在本機 UI 中依照下列步驟變更裝置管理員密碼。
+遵循下列步驟，在本機的使用者介面，來變更裝置密碼。
 
 1. 在本機 Web UI 中，移至 [維護] > [密碼變更]。
 2. 輸入目前的密碼，然後輸入新密碼。 所提供的密碼必須介於 8 到 16 個字元。 此密碼必須有下列其中 3 種字元：大寫、小寫、數字和特殊字元。 確認新的密碼。
@@ -44,7 +44,7 @@ ms.locfileid: "57905290"
 
 3. 選取 [變更密碼] 。
  
-### <a name="reset-device-administrator-password"></a>重設裝置管理員密碼
+### <a name="reset-device-password"></a>重設裝置密碼
 
 重設工作流程不需要使用者重新叫用舊密碼，在密碼遺失時很好用。 此工作流程會在 Azure 入口網站中執行。
 
@@ -63,7 +63,7 @@ ms.locfileid: "57905290"
 
 - **完全連接**-這是裝置會運作正常的預設模式。 在雲端上傳和下載的資料會在此模式中啟用。 您可以使用 Azure 入口網站或本機 web UI 來管理裝置。
 
-- **已部分中斷連線** – 在此模式中，裝置無法將任何資料上傳到共用，不過可透過 Azure 入口網站加以管理。
+- **部分中斷**– 在此模式中，裝置無法上傳或下載資料但可透過 Azure 入口網站的任何共用。
 
     此模式通常使用於計量付費的衛星網路，其目標在於減少網路頻寬使用量。 裝置監視作業仍可能需要最低網路使用量。
 

@@ -10,14 +10,16 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5bc9e44cc1f1759231d405e64fab097d73d48486
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 51342a7544295b465d1f2dfc3e1b27d8285b3588
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160521"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403811"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>使用 Application Insights 在 Azure Active Directory B2C 中追蹤使用者行為
+
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 當您使用 Azure Active Directory (Azure AD) B2C 搭配 Azure Application Insights 時，可以取得您使用者旅程圖的詳細及自訂事件記錄。 在本文中，您將了解：
 
@@ -25,9 +27,6 @@ ms.locfileid: "55160521"
 * 在開發或實際執行時對您自己的原則進行疑難排解。
 * 測量效能。
 * 從 Application Insights 建立通知。
-
-> [!NOTE]
-> 這項功能處於預覽狀態。
 
 ## <a name="how-it-works"></a>運作方式
 

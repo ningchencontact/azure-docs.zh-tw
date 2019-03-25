@@ -1,18 +1,18 @@
 ---
-title: Microsoft Azure Data Box Gateway 使用案例 | Microsoft Docs
-description: 描述 Azure Data Box Gateway 的使用案例，此虛擬設備儲存體解決方案可讓您將資料傳輸到 Azure
+title: Microsoft Azure 資料方塊的閘道器使用案例 |Microsoft Docs
+description: 描述使用案例，Azure 資料方塊的閘道，可讓您將資料傳輸至 Azure 的虛擬應用裝置儲存體解決方案
 services: databox
 author: alkohli
 ms.service: databox
 ms.topic: article
-ms.date: 01/17/2019
+ms.date: 03/2/2019
 ms.author: alkohli
-ms.openlocfilehash: d1367504182eb8d8335796dc37800c30e0a563b8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 37ec1d05d07f33343b9ff21380a277d00b242b7c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438587"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403794"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Azure Data Box Gateway 的使用案例
 
@@ -26,8 +26,6 @@ Azure Data Box Gateway 是您內部部署的雲端儲存空間閘道裝置，可
 
 下列各節將詳細說明這些案例。
 
-> [!IMPORTANT]
-> 資料箱閘道處於預覽狀態。 部署此解決方案之前，請先檢閱[預覽版使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 ## <a name="continuous-data-ingestion"></a>持續擷取資料
 

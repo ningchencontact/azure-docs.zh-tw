@@ -10,38 +10,51 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: daeff897cf284df6e820afbcdd35ee54bf88db08
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 8005b187f300375b62c254516a61f4993675b0b9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405397"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403103"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>使用 Resource Manager 範本與 Azure PowerShell 來部署資源
 
 了解如何使用 Azure PowerShell 與 Resource Manager 範本，將您的資源部署至 Azure。 如需 Azure 解決方案部署和管理概念的詳細資訊，請參閱 [Azure Resource Manager 概觀](resource-group-overview.md)。
 
-若要部署範本，您通常需要進行兩個步驟：
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. 建立資源群組。 資源群組可作為所部署資源的容器。 資源群組的名稱只能包含英數字元、句點 (.)、底線、連字號及括弧。 最多可有 90 個字元。 不能以句點結束。
-2. 部署範本。 範本會定義要建立的資源。  部署會在指定的資源群組中建立資源。
+## <a name="deployment-scope"></a>部署範圍
 
-本文會使用這個雙步驟部署方法。  另一個方法選項是同時部署資源群組和資源。  如需詳細資訊，請參閱[建立資源群組並部署資源](./deploy-to-subscription.md#create-resource-group-and-deploy-resources)。
+您可以針對您的 Azure 訂用帳戶或訂用帳戶內的資源群組的部署。 在大部分情況下，您會針對部署至資源群組。 使用訂用帳戶部署來套用原則和角色指派，在訂用帳戶。 您也可以使用訂用帳戶部署來建立資源群組，並將資源部署到它。 根據部署的範圍，您可以使用不同的命令。
+
+若要部署到**資源群組**，使用[新增 AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
+
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
+```
+
+若要部署到**訂用帳戶**，使用[新增 AzDeployment](/powershell/module/az.resources/new-azdeployment):
+
+```azurepowershell
+New-AzDeployment -Location <location> -TemplateFile <path-to-template>
+```
+
+這篇文章中的範例會使用資源群組部署。 如需有關訂用帳戶部署的詳細資訊，請參閱[建立資源群組和資源的訂用帳戶層級](deploy-to-subscription.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
+您需要部署範本。 如果您還沒有其中一個，下載並儲存[範例範本](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json)從 Azure 快速入門範本存放庫。 本文所使用的本機檔案名稱是 **c:\MyTemplates\azuredeploy.json**。
+
 除非您使用 [Azure Cloud Shell](#deploy-templates-from-azure-cloud-shell) 來部署範本，否則您需要安裝 Azure PowerShell 並連線至 Azure：
+
 - **在本機電腦上安裝 Azure PowerShell Cmdlet。** 如需詳細資訊，請參閱[開始使用 Azure PowerShell](/powershell/azure/get-started-azureps)。
 - **使用 [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)** 來連線至 Azure。 如果您有多個 Azure 訂用帳戶，則可能還需要執行 [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext)。 如需詳細資訊，請參閱[使用多個 Azure 訂用帳戶](/powershell/azure/manage-subscriptions-azureps)。
-- *下載並儲存[快速入門範本](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json)。 本文所使用的本機檔案名稱是 **c:\MyTemplates\azuredeploy.json**。
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="deploy-local-template"></a>部署本機範本
 
-## <a name="deploy-templates-stored-locally"></a>部署儲存在本機的範本
-
-下列範例會建立資源群組，並從您的本機電腦部署範本：
+下列範例會建立資源群組，並會從本機電腦的範本部署。 資源群組的名稱只能包含英數字元、句點 (.)、底線、連字號及括弧。 最多可有 90 個字元。 不能以句點結束。
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -52,11 +65,9 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
   -TemplateFile c:\MyTemplates\azuredeploy.json
 ```
 
-請注意，c:\MyTemplates\azuredeploy.json 是快速入門範本。  請參閱[必要條件](#prerequisites)。
-
 部署需要幾分鐘的時間才能完成。
 
-## <a name="deploy-templates-stored-externally"></a>部署儲存在外部的範本
+## <a name="deploy-remote-template"></a>部署遠端的範本
 
 您可能希望將 Resource Manager 範本儲存在外部位置，而不是儲存在您的本機電腦。 您可以將範本儲存在原始檔控制存放庫 (例如 GitHub) 中。 或者，您可以將它們儲存在 Azure 儲存體帳戶中，讓組織共用存取。
 
@@ -73,7 +84,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 
 上述範例針對範本需要可公開存取 URI，這適用於大部分的案例，因為您的範本不應該包含機密資料。 如果您需要指定機密資料 (例如系統管理員密碼)，請將該值以安全參數傳遞。 不過，如果不希望將範本公開存取，您可以將它儲存在私人儲存體容器中加以保護。 如需部署需要共用存取簽章 (SAS) 權杖之範本的相關資訊，請參閱[使用 SAS 權杖部署私人範本](resource-manager-powershell-sas-token.md)。 若要進行教學課程，請參閱[教學課程：在 Resource Manager 範本部署中整合 Azure Key Vault](./resource-manager-tutorial-use-key-vault.md)。
 
-## <a name="deploy-templates-from-azure-cloud-shell"></a>從 Azure Cloud Shell 部署範本
+## <a name="deploy-from-azure-cloud-shell"></a>從 Azure Cloud shell 部署
 
 您可以使用 [Azure Cloud Shell](https://shell.azure.com) 來部署範本。 若要部署外部範本，請提供範本的 URI。 若要部署本機範本，您必須先將範本載入 Cloud Shell 的儲存體帳戶。 若要將檔案上傳到殼層，請從殼層視窗選取 [上傳/下載檔案] 功能表圖示。
 
@@ -89,10 +100,6 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 ```
 
 若要將程式碼貼到殼層中，請在殼層內按一下滑鼠右鍵，然後選取 [貼上]。
-
-## <a name="deploy-to-multiple-resource-groups-or-subscriptions"></a>部署至多個資源群組或訂用帳戶
-
-一般而言，您要將範本中的所有資源部署至單一資源群組。 不過，在某些情況下，您要將一組資源部署在一起，但將它們放在不同的資源群組或訂用帳戶中。 您在單一部署中只能部署至五個資源群組。 如需詳細資訊，請參閱[將 Azure 資源部署至多個資源群組和訂用帳戶](resource-manager-cross-resource-group-deployment.md)。
 
 ## <a name="redeploy-when-deployment-fails"></a>部署失敗時重新部署
 

@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb21ddc36141dfee1be6f0e42811e6ccbeb44143
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2750de16c71e7d678810316f281e28ca8c40553d
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217491"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403148"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory 應用程式資訊清單
 
@@ -48,7 +48,7 @@ ms.locfileid: "56217491"
 > [!NOTE]
 > 如果您看不到 [描述] 之後的 [範例值] 資料行，請將瀏覽器視窗放到最大並捲動/撥動，直到您看到 [範例值] 資料行為止。
 
-| Key  | 值類型 | 說明  | 範例值 |
+| Key  | 值類型 | 描述  | 範例值 |
 |---------|---------|---------|---------|
 | `accessTokenAcceptedVersion` | 可為 null 的 Int32 | 指定資源所需的存取權杖版本。 與用於要求存取權杖的端點或用戶端無關，這會變更另外產生之 JWT 的版本和格式。<br/><br/>由客戶端選擇的使用端點 v1.0 或 v2.0 僅影響 id_tokens 的版本。 資源必須明確設定 `accesstokenAcceptedVersion`，以表示支援的存取權杖格式。<br/><br/>`accesstokenAcceptedVersion` 的可能值為 1、2 或 Null。 如果值為 Null，則預設值為 1，其對應至 v1.0 端點。 | `2` |
 | `allowPublicClient` | 布林值 | 指定後援應用程式類型。 根據預設，Azure AD 會從 replyUrlsWithType 推斷應用程式類型。 在某些情況中，Azure AD 無法判斷用戶端應用程式類型 (例如 [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) 流程，其會發生沒有 URL 重新導向的 HTTP 要求)。 在這些情況下，Azure AD 會根據這個屬性的值來解譯應用程式類型。 如果此值設為 true，後援應用程式類型就會設定為公用用戶端，例如在行動裝置上執行的已安裝應用程式。 預設值為 false，這表示後援應用程式類型是機密用戶端，例如 Web 應用程式。 | `false` |
@@ -77,6 +77,14 @@ ms.locfileid: "56217491"
 | `signInUrl` | 字串 | 指定應用程式首頁的 URL。 | `https://MyRegisteredApp` |
 | `signInAudience` | 字串 | 指定目前的應用程式支援哪些 Microsoft 帳戶。 支援的值包括：<ul><li>**AzureADMyOrg** - 使用者具有本組織 Azure AD 租用戶中的 Microsoft 公司或學校帳戶 (也就是單一租用戶)</li><li>**AzureADMultipleOrgs** - 使用者具有任何組織 Azure AD 租用戶中的 Microsoft 公司或學校帳戶 (也就是多租用戶)</li> <li>**AzureADandPersonalMicrosoftAccount** - 使用者具有個人 Microsoft 帳戶，或任何組織 Azure AD 租用戶中的公司或學校帳戶</li></ul> | `AzureADandPersonalMicrosoftAccount` |
 | `tags` | 字串陣列 | 可用來分類及識別應用程式的自訂字串。 | <code>[<br>&nbsp;&nbsp;"ProductionApp"<br>]</code> |
+
+
+## <a name="manifest-limits"></a>資訊清單的限制
+應用程式資訊清單有多個稱為集合，例如 approles、 keycredentials、 knownClientApplications、 identifierUris、 rediretUris、 requiredResourceAccess、 oauth2Permissions 屬性等等。 在完整的應用程式資訊清單中的任何應用程式，結合的所有集合中的項目總數有已在 1200年的上限。 如果您已經有 100 重新導向 URI 的應用程式資訊清單中指定，就只有左側 1100年剩餘要使用的所有其他集合的項目會合併其組成資訊清單。
+
+> [!NOTE]
+> 如果您嘗試在應用程式資訊清單中新增超過 1200年的項目。 您可能會收到錯誤 **」 無法更新應用程式 xxxxxx。錯誤詳細資料：資訊清單的大小已超過其限制。請減少值的數目，然後重試您的要求。**"
+
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,22 +1,22 @@
 ---
-title: 使用 PowerShell （預覽）-Azure 中建立主應用程式集區
-description: 如何使用 PowerShell cmdlet 建立 Windows 虛擬桌面中的主應用程式集區。
+title: 使用 PowerShell-Azure 中建立 Windows 虛擬桌面預覽主應用程式集區
+description: 如何使用 PowerShell cmdlet 建立 Windows 虛擬桌面預覽中的主應用程式集區。
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 4b65d7614db94a9cc3fdca3f4b784c2c84ebaef8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 7b9b7ffbb034a7fb1256d9cc44048cfa55b02245
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318535"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402723"
 ---
-# <a name="create-a-host-pool-with-powershell-preview"></a>使用 PowerShell （預覽） 中建立主應用程式集區
+# <a name="create-a-host-pool-with-powershell"></a>使用 PowerShell 建立主應用程式集區
 
-主應用程式集區是一或多個相同的虛擬機器在 Windows 虛擬桌面的租用戶 （預覽） 環境中的集合。 每個主應用程式集區可以包含實體的桌上型電腦上，使用者可以與互動的應用程式群組。
+主應用程式集區是一或多個相同的虛擬機器在 Windows 虛擬桌面預覽租用戶環境中的集合。 每個主應用程式集區可以包含實體的桌上型電腦上，使用者可以與互動的應用程式群組。
 
 ## <a name="use-your-powershell-client-to-create-a-host-pool"></a>使用您的 PowerShell 用戶端建立主應用程式集區
 
@@ -70,12 +70,12 @@ $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hos
 - [從受控映像建立虛擬機器](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
 - [從非受控映像建立虛擬機器](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
-## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-agent-installations"></a>Windows 虛擬桌面代理程式安裝準備虛擬機器
+## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-preview-agent-installations"></a>Windows 虛擬桌面預覽代理程式安裝準備虛擬機器
 
 您需要執行下列動作來準備您的虛擬機器，您才能安裝 Windows 的虛擬桌面代理程式，並向您的 Windows 虛擬桌面主應用程式集區中的虛擬機器：
 
 - 您必須將機器加入網域的功能。 這可讓連入的 Windows 虛擬桌面使用者從他們的 Azure Active Directory 帳戶對應到其 Active Directory 帳戶，而且成功地允許存取虛擬機器。
-- 如果虛擬機器正在執行 Windows Server 作業系統，您必須安裝遠端桌面工作階段主機 (RDSH) 角色 （預覽）。 RDSH 角色可讓 Windows 虛擬桌面代理程式，才能順利安裝。
+- 如果虛擬機器正在執行 Windows Server 作業系統，您必須安裝 「 遠端桌面工作階段主機 (RDSH) 角色。 RDSH 角色可讓 Windows 虛擬桌面代理程式，才能順利安裝。
 
 若要成功加入網域，執行每部虛擬機器上的下列事項：
 
@@ -85,7 +85,7 @@ $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hos
 4. 選取 **網域**，然後輸入虛擬網路上的 Active Directory 網域。
 5. 驗證程式的電腦加入網域的權限的網域帳戶。
 
-## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>註冊至 Windows 虛擬桌面的主應用程式集區的虛擬機器
+## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>註冊至 Windows 虛擬桌面預覽主應用程式集區的虛擬機器
 
 註冊至 Windows 虛擬桌面主應用程式集區的虛擬機器只需要安裝 Windows 的虛擬桌面代理程式。
 
@@ -114,7 +114,7 @@ $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hos
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已擬定主應用程式集區，就可以填入 RemoteApps （預覽）。 若要深入了解如何管理 Windows 虛擬桌面中的應用程式，請參閱管理應用程式群組教學課程。
+既然您已擬定主應用程式集區，您可以將它填入 Remoteapp。 若要深入了解如何管理 Windows 虛擬桌面中的應用程式，請參閱管理應用程式群組教學課程。
 
 > [!div class="nextstepaction"]
 > [管理應用程式群組教學課程](./manage-app-groups.md)

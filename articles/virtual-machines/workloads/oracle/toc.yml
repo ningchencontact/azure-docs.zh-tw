@@ -1,0 +1,35 @@
+items:
+- name: 概觀
+  items:
+  - name: Oracle VM 的考量
+    href: oracle-considerations.md
+- name: 快速入門
+  items:
+  - name: 建立 Oracle DB
+    href: oracle-database-quick-create.md
+- name: 教學課程
+  items:
+  - name: 設定 Oracle ASM
+    href: configure-oracle-asm.md
+  - name: 設定 Oracle DataGuard
+    href: configure-oracle-dataguard.md
+  - name: 設定 Oracle GoldenGate
+    href: configure-oracle-golden-gate.md
+- name: 概念
+  items:
+  - name: 建置 Oracle DB
+    href: oracle-design.md
+  - name: Oracle DB 適用的備份策略
+    href: oracle-backup-recovery.md
+  - name: Oracle 災害復原選項
+    href: oracle-disaster-recovery.md
+- name: 資源
+  items:
+  - name: Azure 藍圖
+    href: https://azure.microsoft.com/roadmap/
+ms.openlocfilehash: 9c8aba887e728904aed51d3db2db5bb02c03d7b8
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58340603"

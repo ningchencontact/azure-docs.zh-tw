@@ -15,14 +15,18 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: d0c39462bc046b13a2756d37c089ba0e68c90452
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 0c5ceda99fe35fafff23f2bcf4ea766d7dd42b75
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456634"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403216"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-active-directory-sign-in"></a>設定 App Service 應用程式使用 Azure Active Directory 登入
+
+> [!NOTE]
+> 在這個階段，AAD V2 （包括 MSAL） 不支援 Azure App Service 和 Azure Functions。 請稍後回來查看更新。
+>
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 

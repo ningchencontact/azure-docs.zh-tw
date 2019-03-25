@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/04/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: be51e6c829c5f12d17c6302bb951039711f12075
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 73f97128dc7b71179c0b0ab41340af6c0f371da1
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113221"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402961"
 ---
-# <a name="azure-data-box-gateway-system-requirements-preview"></a>Azure 資料箱閘道的系統需求 (預覽)
+# <a name="azure-data-box-gateway-system-requirements"></a>Azure 中部署資料閘道的系統需求
 
 本文會針對 Microsoft Azure 資料箱閘道解決方案以及連線至 Azure 資料箱閘道的用戶端，說明其各自的重要系統需求。 建議您先仔細檢閱此資訊再部署資料箱閘道，之後在進行部署和後續作業期間若有必要，也請回頭查閱。
 
@@ -24,14 +24,12 @@ ms.locfileid: "56113221"
 - **主機的軟體需求** - 說明支援的平台、本機組態 UI 的瀏覽器、SMB 用戶端，以及可以連線到裝置的主機其他需求。
 - **裝置的網路需求** - 提供虛擬裝置作業的任何網路需求相關資訊。
 
-> [!IMPORTANT]
-> 資料箱閘道處於預覽狀態。 部署此解決方案之前，請先檢閱[預覽版使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 
 
 ## <a name="specifications-for-the-virtual-device"></a>虛擬裝置的規格
 
 「資料箱閘道」的基礎主機系統能夠將下列資源專門用來佈建您的虛擬裝置：
 
-| 規格                                          | 說明              |
+| 規格                                          | 描述              |
 |---------------------------------------------------------|--------------------------|
 | 虛擬處理器 (核心)   | 最少 4 個 |            
 | 記憶體  | 最少 8 GB|

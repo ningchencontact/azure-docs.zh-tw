@@ -1,0 +1,57 @@
+items:
+- name: Windows 虛擬桌面
+  href: index.yml
+- name: 概觀
+  items:
+  - name: 什麼是 Windows 虛擬桌面？
+    href: overview.md
+- name: 教學課程
+  items:
+  - name: 1. 在 Windows 虛擬桌面中建立租用戶
+    href: tenant-setup-azure-active-directory.md
+  - name: 2. 透過 Azure Marketplace 建立主機集區
+    href: create-host-pools-azure-marketplace.md
+  - name: 3. 管理應用程式群組
+    href: manage-app-groups.md
+  - name: 4. 使用 PowerShell 建立服務主體和角色指派
+    href: create-service-principal-role-powershell.md
+- name: 作法
+  items:
+  - name: 連線至 Windows 虛擬桌面資源
+    items:
+    - name: 與 Windows 7 和 Windows 10 連線
+      href: connect-windows-7-and-10.md
+    - name: 與 Web 用戶端連線
+      href: connect-web.md
+  - name: 使用 Azure Resource Manager 範本建立主機集區
+    href: create-host-pools-arm-template.md
+  - name: 使用 PowerShell 建立主機集區
+    href: create-host-pools-powershell.md
+  - name: 設定主機集區的使用者設定檔共用
+    href: create-host-pools-user-profile.md
+  - name: 設定 Windows 虛擬桌面負載平衡方法
+    href: configure-host-pool-load-balancing.md
+  - name: 找出診斷功能的問題
+    href: diagnostics-role-service.md
+  - name: 準備和自訂主要 VHD 映像
+    href: set-up-customize-master-image.md
+  - name: 自動調整工作階段主機
+    href: set-up-scaling-script.md
+- name: 概念
+  items:
+  - name: Windows 虛擬桌面環境
+    href: environment-setup.md
+  - name: Windows 虛擬桌面中委派的存取權
+    href: delegated-access-virtual-desktop.md
+  - name: 主機集區負載平衡方法
+    href: host-pool-load-balancing.md
+- name: 參考
+  items:
+  - name: PowerShell
+    href: /powershell/windows-virtual-desktop/overview
+ms.openlocfilehash: 2f321b25d6ba1ad8545bf161dd37e270890efcec
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318764"

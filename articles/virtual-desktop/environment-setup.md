@@ -1,22 +1,22 @@
 ---
-title: Windows 虛擬桌面環境 （預覽）-Azure
-description: Windows 虛擬桌面環境的基本項目。
+title: Windows 虛擬桌面預覽環境-Azure
+description: Windows 虛擬桌面預覽環境的基本項目。
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: c503f665e3e2f99cd59f207c3fc4823b927eaac3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ceed6a8bb74206b7c6689ce542482148800e4ba9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318445"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403505"
 ---
-# <a name="windows-virtual-desktop-environment-preview"></a>Windows 虛擬桌面環境 （預覽）
+# <a name="windows-virtual-desktop-preview-environment"></a>Windows 虛擬桌面預覽環境
 
-Windows 虛擬桌面 （預覽） 是一項服務，可讓使用者輕鬆又安全地存取其虛擬的桌面及 Remoteapp。 本主題會告訴您更多有關於 Windows 虛擬桌面環境的一般結構。
+Windows 虛擬桌面 Preview 是一項服務，可讓使用者輕鬆又安全地存取其虛擬的桌面及 Remoteapp。 本主題會告訴您更多有關於 Windows 虛擬桌面環境的一般結構。
 
 ## <a name="tenants"></a>租用戶
 
@@ -57,11 +57,11 @@ Windows 虛擬桌面，在 Windows 虛擬桌面的租用戶會是大部分的安
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解委派的存取權，以及如何將角色指派給使用者[中 Windows 虛擬桌面的委派存取](delegated-access-virtual-desktop.md)。
+深入了解委派的存取權，以及如何將角色指派給使用者[委派的存取，在 Windows 虛擬桌面預覽](delegated-access-virtual-desktop.md)。
 
-若要了解如何設定 Windows 虛擬桌面租用戶，請參閱[建立租用戶中 Windows 虛擬桌面](tenant-setup-azure-active-directory.md)。
+若要了解如何設定 Windows 虛擬桌面租用戶，請參閱[建立租用戶中 Windows 虛擬桌面預覽](tenant-setup-azure-active-directory.md)。
 
 若要了解如何連線到 Windows 虛擬桌面，請參閱下列文章：
 
 - [連接到 Windows 7 和 Windows 10 的遠端桌面用戶端](connect-windows-7-and-10.md)
-- [連線至 Windows 虛擬桌面 web 用戶端](connect-web.md)
+- [連線至 Windows 虛擬桌面預覽 web 用戶端](connect-web.md)

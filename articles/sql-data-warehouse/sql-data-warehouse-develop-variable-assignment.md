@@ -10,17 +10,19 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 29b86d430fb5d65e7f089c616651da5f488b675c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: ee97f7e5cda8b954fb697f73746e416d88d38c2d
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455978"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401700"
 ---
 # <a name="assigning-variables-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中指派變數
+
 在 Azure SQL 資料倉儲中指派 T-SQL 變數以便開發解決方案的秘訣。
 
 ## <a name="setting-variables-with-declare"></a>使用 DECLARE 設定宣告
+
 SQL 資料倉儲中的變數是使用 `DECLARE` 陳述式或 `SET` 陳述式進行設定的。 使用 DECLARE 初始化變數是在 SQL 資料倉儲中設定變數值的其中一種最具彈性的方式。
 
 ```sql
@@ -45,6 +47,7 @@ DECLARE @p1 int = 0
 ```
 
 ## <a name="setting-values-with-set"></a>使用 SET 設定值
+
 SET 是設定單一變數時常見的方法。
 
 下列陳述式是使用 SET 設定變數所有的有效方法：
@@ -59,8 +62,9 @@ SET     @v +=1;
 您一次只能使用 SET 設定一個變數。 不過，允許複合運算子。
 
 ## <a name="limitations"></a>限制
-您無法使用 SELECT 或 UPDATE 進行變數指派。
+
+您無法使用 UPDATE 進行變數指派。
 
 ## <a name="next-steps"></a>後續步驟
-如需更多開發秘訣，請參閱[開發概觀](sql-data-warehouse-overview-develop.md)。
 
+如需更多開發秘訣，請參閱[開發概觀](sql-data-warehouse-overview-develop.md)。

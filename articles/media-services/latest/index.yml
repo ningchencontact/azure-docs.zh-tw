@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: fdda67921db38b912679d27bf5a8c897775ad82b
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d4e80fd18de40c7df806f0a72612cec7bb71e2d2
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53137985"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339176"
 documentType: LandingData
 title: Azure 媒體服務文件 v3 文件
 metadata:
@@ -18,11 +18,27 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10-15-2018
+  ms.date: 03/20/2019
   ms.author: juliako
 abstract:
   description: 了解如何使用媒體服務 v3 來串流隨選影片、即時廣播及分析您的影片。 教學課程、API 參考和其他文件會示範如何安全地提供可針對數百萬位使用者調整的隨選和即時視訊或音訊串流。 <br/> SDK 是以<a href="https://aka.ms/ams-v3-rest-sdk">媒體服務 v3 OpenAPI 規格 (Swagger)</a>為根據。
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 2
+    items:
+    - image:
+        src: 
+      html: <p>了解媒體服務基本概念。</p>
+      href: /azure/media-services/latest/concepts-overview/
+      title: 了解概念
+    - image:
+        src: 
+      html: <p>您目前無法使用 Azure 入口網站管理 v3 資源。 請使用 REST API、CLI 或其中一個支援的 SDK。</p>
+      href: /azure/media-services/latest/developers-guide/
+      title: 使用 v3 API 進行開發
 - title: 5 分鐘快速入門
   items:
   - type: paragraph
