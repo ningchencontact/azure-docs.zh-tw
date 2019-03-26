@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/14/2018
+ms.date: 3/25/2019
 ms.author: subsarma
-ms.openlocfilehash: 9130fef895d4f9cd31f643b20a735c0e821923b8
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: ea15468722fcf1b9e2649236ef4dd05549d8f460
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193988"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418732"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 虛擬網路中的資源名稱解析
 
@@ -74,6 +74,7 @@ Azure 提供的名稱解析包含下列功能：
 * 主機名稱必須與 DNS 相容。 名稱只能使用 0-9、a-z 和 '-'，無法以 '-' 開始或結束。
 * 每個 VM 的 DNS 查詢流量已經過節流。 節流應該不會影響大部分的應用程式。 如果觀察到要求節流，請確定用戶端快取已啟用。 如需詳細資訊，請參閱 [DNS 用戶端組態](#dns-client-configuration)。
 * 只有前 180 個雲端服務中的 VM 會在傳統部署模型中為每個虛擬網路註冊。 此限制並不適用於 Azure Resource Manager 中的虛擬網路。
+* Azure DNS 的 IP 位址是 168.63.129.16。 這是靜態的 IP 位址，而且不會變更。
 
 ## <a name="dns-client-configuration"></a>DNS 用戶端設定
 

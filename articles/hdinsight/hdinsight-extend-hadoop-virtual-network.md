@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: e7d264e5d5d289117dbc30b71e317506006e1f30
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: b9462866f0be62d288e121b71119d0f9885a0d39
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401565"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439408"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虛擬網路延伸 Azure HDInsight
 
@@ -284,6 +284,7 @@ HDInsight 為受控服務，需要不受限制地存取 HDInsight 健康情況�
     | 中國 | 中國北部 | 42.159.96.170</br>139.217.2.219</br></br>42.159.198.178</br>42.159.234.157 | 443 | 輸入 |
     | &nbsp; | 中國東部 | 42.159.198.178</br>42.159.234.157</br></br>42.159.96.170</br>139.217.2.219 | 443 | 輸入 |
     | &nbsp; | 中國北部 2 | 40.73.37.141</br>40.73.38.172 | 443 | 輸入 |
+    | &nbsp; | 中國東部 2 | 139.217.227.106</br>139.217.228.187 | 443 | 輸入 |
     | 歐洲 | 北歐 | 52.164.210.96</br>13.74.153.132 | 443 | 輸入 |
     | &nbsp; | 西歐| 52.166.243.90</br>52.174.36.244 | 443 | 輸入 |
     | 法國 | 法國中部| 20.188.39.64</br>40.89.157.135 | 443 | 輸入 |

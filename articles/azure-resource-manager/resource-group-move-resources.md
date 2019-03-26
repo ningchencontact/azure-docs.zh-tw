@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 03/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 80577b4585a6c9e4ec83a8f21b358b7609d85268
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 98236133a90cfddfe2ea476486556318b2c88b10
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081248"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418885"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -49,7 +49,7 @@ ms.locfileid: "58081248"
 
 ## <a name="services-that-can-be-moved"></a>可以移動的服務
 
-下列清單提供可移至新資源群組和訂用帳戶之 Azure 服務的一般摘要。 如需更多詳細資料，請參閱[資源的移動作業支援](move-support-resources.md)。
+下列清單提供可移至新資源群組和訂用帳戶之 Azure 服務的一般摘要。 如需哪一個資源類型支援移動的清單，請參閱[移動資源的作業支援](move-support-resources.md)。
 
 * Analysis Services
 * API 管理
@@ -143,7 +143,7 @@ ms.locfileid: "58081248"
 * Dynamics LCS
 * ExpressRoute
 * Kubernetes 服務
-* 實驗室服務 - 已啟用移動至相同訂用帳戶中新資源群組的功能，但未啟用跨訂用帳戶之間的移動。
+* 實驗室服務-教室實驗室無法移到新的資源群組或訂用帳戶。 DevTest Labs 可以移至新的資源群組相同的訂用帳戶，但不是會跨訂用帳戶中。
 * 受控應用程式
 * Microsoft Genomics
 * SAP HANA on Azure

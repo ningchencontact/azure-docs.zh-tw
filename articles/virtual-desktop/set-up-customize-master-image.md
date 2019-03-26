@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: ca186090f28f04811030e83b159782a9bfeb87f9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: ccea3ebae4bcc19410cfb5537a7140f69b04c4e7
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400782"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438779"
 ---
-# <a name="prepare-and-customize-a-master-vhd-image"></a>準備和自訂母片的 VHD 映像
+# <a name="prepare-and-customize-a-master-vhd-image"></a>準備和自訂主要 VHD 映像
 
 這篇文章會告訴您如何準備上傳至 Azure，包括如何建立虛擬機器 (Vm) 並安裝，並在其上設定軟體的主要虛擬硬碟 (VHD) 映像。 這些指示是針對適用於您的組織現有的程序的 Windows 虛擬桌面預覽專屬組態。
 
@@ -162,8 +162,8 @@ reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hide
 
 若要停用自動更新：
 
-1. 依照中的指示安裝 Office365 [Office 映像準備](set-up-customize-master-image.md#office-image-preparation)。
-2. 安裝任何其他的應用程式中的指示[使用者設定檔設定 (FSLogix)](set-up-customize-master-image.md#user-profile-setup-fslogix)， [Windows Defender](set-up-customize-master-image.md#windows-defender)，和[其他應用程式和登錄設定](set-up-customize-master-image.md#other-applications-and-registry-configuration).
+1. 依照中的指示安裝 Office365[軟體準備及安裝](set-up-customize-master-image.md#software-preparation-and-installation)。
+2. 安裝任何其他的應用程式中的指示[設定使用者設定檔的容器 (FSLogix)](set-up-customize-master-image.md#set-up-user-profile-container-fslogix)，[設定 Windows Defender](set-up-customize-master-image.md#configure-windows-defender)，和[其他應用程式和登錄設定](set-up-customize-master-image.md#other-applications-and-registry-configuration)。
 3. 停用本機 VM 上的 Windows 自動更新服務。
 4. 開啟**本機群組原則編輯器\\系統管理範本\\Windows 元件\\Windows Update**。
 5. 以滑鼠右鍵按一下**設定自動更新**並將它設定為**停用**。
@@ -171,7 +171,7 @@ reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hide
 您也可以執行下列命令，在命令提示字元，以停用自動更新。
 
 ```batch
-reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
+reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
 
 執行此命令來指定適用於 Windows 10 電腦的 [開始] 配置。
@@ -232,9 +232,7 @@ Windows 虛擬桌面不正式支援的商務和小組 Skype。
 
 ### <a name="set-up-user-profile-container-fslogix"></a>設定使用者設定檔的容器 (FSLogix)
 
-若要納入 FSLogix 容器映像，請依照中的指示[設定主應用程式集區的使用者設定檔共用](create-host-pools-user-profile.md#configure-the-fslogix-profile-container)。
-
-在設定檔案共用登錄機碼時，使用您在中建立檔案共用[設定為檔案伺服器的權限](set-up-customize-master-image.md#configure-permissions-for-the-file-server)您計劃用來儲存設定檔的容器。 您也可以測試 FSLogix 容器，使用此功能[快速入門](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start)。
+若要納入 FSLogix 容器映像，請依照中的指示[設定主應用程式集區的使用者設定檔共用](create-host-pools-user-profile.md#configure-the-fslogix-profile-container)。 您可以測試的 FSLogix 容器與功能[本快速入門](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start)。
 
 ### <a name="configure-windows-defender"></a>設定 Windows Defender
 

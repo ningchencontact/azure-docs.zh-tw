@@ -16,12 +16,12 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc27e5cd6af19f06a5eab73e30d3034fada0ccc2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a65af5a5ea0629b617c4e736d8c110cbb9aa540c
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838386"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438296"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>标识同步和重复属性复原
 「重複屬性恢復功能」是 Azure Active Directory 中的一項功能，可在執行 Microsoft 的其中一個同步處理工具時，用來消除 **UserPrincipalName** 和 **ProxyAddress** 衝突所造成的不便。
@@ -40,7 +40,7 @@ ms.locfileid: "57838386"
 
 ## <a name="behavior-with-duplicate-attribute-resiliency"></a>重複屬性恢復功能的行為
 Azure Active Directory 並不是完全無法佈建或更新具有重複屬性的物件，而是會「隔離」違反唯一性條件約束的重複屬性。 如果佈建時需要此屬性 (例如 UserPrincipalName)，則服務會指派預留位置值。 這些暫存值的格式為  
-「***<OriginalPrefix>+ < 4DigitNumber >\@<InitialTenantDomain>。 onmicrosoft.com***"。  
+「***\<OriginalPrefix > +\<4DigitNumber >\@\<InitialTenantDomain >。 onmicrosoft.com***"。  
 如果不需要此屬性 (例如 **ProxyAddress**)，Azure Active Directory 就會隔離衝突屬性，然後繼續建立或更新物件。
 
 隔離屬性時，衝突相關資訊會以舊版行為中使用的相同錯誤報告電子郵件傳送。 不過，此資訊只會出現在錯誤報告中一次，發生隔離時，將不會繼續記錄在未來的電子郵件中。 此外，由于此对象已成功导出，因此同步客户端不会记录错误，并且不会在后续的同步周期中重试创建/更新操作。
@@ -65,8 +65,8 @@ Azure Active Directory 並不是完全無法佈建或更新具有重複屬性的
 > [!NOTE]
 > 在為租用戶開啟該功能之前，您無法再使用 Set-MsolDirSyncFeature Cmdlet 來主動啟用重複屬性復原功能。 若要測試該功能，您需要建立新的 Azure Active Directory 租用戶。
 
-## <a name="identifying-objects-with-dirsyncprovisioningerrors"></a>识别具有 DirSyncProvisioningErrors 的对象
-目前有兩個方法可識別因為重複屬性衝突而發生錯誤的物件：Azure Active Directory PowerShell 和 Office 365 系統管理入口網站。 未來計劃擴充其他以入口網站為基礎的報告。
+## <a name="identifying-objects-with-dirsyncprovisioningerrors"></a>識別具有 DirSyncProvisioningErrors 的物件
+目前有兩種方法可以找出有這些錯誤，因為重複屬性衝突，Azure Active Directory PowerShell 的物件和[Microsoft 365 系統管理中心](https://admin.microsoft.com)。 未來計劃擴充其他以入口網站為基礎的報告。
 
 ### <a name="azure-active-directory-powershell"></a>Azure Active Directory PowerShell
 對於本主題中的 PowerShell Cmdlet，下列項目為真︰
@@ -113,19 +113,19 @@ Azure Active Directory 並不是完全無法佈建或更新具有重複屬性的
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -SearchString User`
 
 #### <a name="in-a-limited-quantity-or-all"></a>以有限的數量或全部
-1. **MaxResults <Int>** 可用來將查詢的值數量限制為特定數目。
+1. **MaxResults \<Int >** 可用來將查詢指定的數字值的限制。
 2. **All** 可用於確保在有大量錯誤的情況下擷取所有的結果。
 
 `Get-MsolDirSyncProvisioningError -ErrorCategory PropertyConflict -MaxResults 5`
 
-## <a name="office-365-admin-portal"></a>Office 365 系統管理入口網站
-您可以在 Office 365 系統管理中心檢視目錄同步處理錯誤。 Office 365 入口網站中的報告只會顯示有這些錯誤的 **User** 物件。 它不显示有关 Groups 和 Contacts 之间的冲突的信息。
+## <a name="microsoft-365-admin-center"></a>Microsoft 365 系統管理中心
+您可以在 Microsoft 365 系統管理中心檢視目錄同步處理錯誤。 Microsoft 365 系統管理員中的報告中心只顯示**使用者**有這些錯誤的物件。 並不會顯示「群組」和「連絡人」之間的衝突相關資訊。
 
-![活动用户](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "活动用户")
+![作用中使用者](./media/how-to-connect-syncservice-duplicate-attribute-resiliency/1234.png "作用中使用者")
 
-如需有關如何在 Office 365 系統管理中心檢視目錄同步處理錯誤的指示，請參閱[在 Office 365 中識別目錄同步處理錯誤](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)。
+如需有關如何在 Microsoft 365 系統管理中心檢視目錄同步處理錯誤的指示，請參閱 <<c0> [ 找出 Office 365 中的目錄同步處理錯誤](https://support.office.com/article/Identify-directory-synchronization-errors-in-Office-365-b4fc07a5-97ea-4ca6-9692-108acab74067)。
 
-### <a name="identity-synchronization-error-report"></a>标识同步错误报告
+### <a name="identity-synchronization-error-report"></a>身分識別同步處理錯誤報告
 當利用這個新行為處理具有重複屬性衝突的物件時，通知會包含在標準身分識別同步處理錯誤報告電子郵件中，而該電子郵件回傳送給租用戶的技術通知連絡人。 不過，此行為有一項重大變更。 在过去，有关重复属性冲突的信息包含在每个后续错误报告中，直到解决冲突为止。 利用這個新行為，給定衝突的錯誤通知只會出現一次 - 在衝突的屬性遭到隔離時。
 
 ProxyAddress 冲突的电子邮件通知示例如下所示：  

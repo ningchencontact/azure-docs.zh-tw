@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: d007f688483366f2f714a78b5bf9b56a67c55490
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: b367251e6799031ed96058d21e606446e14636c7
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730110"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407601"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>在 Azure App Service 中對網域和 SSL 憑證問題進行疑難排解
 
@@ -278,7 +278,7 @@ App Service 憑證必須經過網域驗證才能使用。 當您選取 [驗證] 
 
 **可以使用 Azure 入口網站中購買的網域以改為指向 Azure VM 嗎？**
 
-是，您可以將網域指向儲存體等的 VM。如需詳細資訊，請參閱 <<c0> [ 在 Azure 入口網站中建立 Windows VM 自訂的 FQDN](../virtual-machines/windows/portal-create-fqdn.md)。
+是，您可以指向網域的 vm。 如需詳細資訊，請參閱[使用 Azure DNS 為 Azure 服務提供自訂網域設定](../dns/dns-custom-domain.md)。
 
 **我的網域裝載在 GoDaddy 或 Azure DNS？**
 

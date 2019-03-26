@@ -1,20 +1,19 @@
 ---
-title: 使用 Azure Site Recovery 將 VMware VM 複寫至 Azure 進行 VMware 災害復原 | Microsoft Docs
-description: 本文說明如何使用 Azure Site Recovery 將 VMware VM 複寫至 Azure 進行災害復原。
+title: 啟用 VMware Vm 複寫至 Azure Site Recovery 與 Azure 的災害復原 |Microsoft Docs'
+description: 本文說明如何使用 Azure Site Recovery 將 VMware Vm 啟用複寫至 Azure 的災害復原。
 author: mayurigupta13
 ms.service: site-recovery
 ms.date: 3/6/2019
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 41ff32f840b7a0e9e5fa5d8f7bf25a93fa679955
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 472ff7810852bd03ef322cd5eb647c3d61f09b01
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098690"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418103"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>讓 VMware VM 能夠複寫至 Azure
-
 
 本文說明如何啟用將內部部署 VMware VM 複寫至 Azure 的作業。
 
@@ -22,113 +21,114 @@ ms.locfileid: "58098690"
 
 本文假設您已經：
 
-1.  [設定內部部署來源環境](vmware-azure-set-up-source.md)。
-2.  [在 Azure 中設定目標環境](vmware-azure-set-up-target.md)。
-
+- [設定您的內部部署來源環境](vmware-azure-set-up-source.md)。
+- [設定您在 Azure 中的目標環境](vmware-azure-set-up-target.md)。
 
 ## <a name="before-you-start"></a>開始之前
-當您要複寫 VMware 虛擬機器時︰
+當您要複寫 VMware 虛擬機器時，請注意這項資訊：
 
 * 您的 Azure 使用者帳戶必須具有特定[權限](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines)，才能將新的虛擬機器複寫至 Azure。
-* 系統會每隔 15 分鐘探索 VMware VM 一次。 在探索之後，可能需要 15 分鐘以上，VMware VM 才會出現在 Azure 入口網站中。 同樣地，當您加入新的 vCenter 伺服器或 vSphere 主機時，探索可能需要 15 分鐘以上。
-* 虛擬機器上的環境變更 (例如 VMware 工具安裝) 會花上 15 分鐘以上的時間，才會在入口網站更新。
-* 您可以在 [組態伺服器] 頁面上 vCenter 伺服器/vSphere 主機的 [上次連絡時間] 欄位中，查看 VMware VM 的上次探索時間。
-* 若要新增要複寫的機器而不等候已排定的探索，請反白選取組態伺服器 (不要按它)，然後按一下 [重新整理] 按鈕。
-* 當您啟用複寫時，如果機器已準備好，處理序伺服器會自動在其上安裝行動服務。
-
+* 系統會每隔 15 分鐘探索 VMware VM 一次。 它可能需要 15 分鐘或更久，才會出現在 Azure 入口網站，在探索之後的 Vm。 同樣地，探索可能需要 15 分鐘或更久，當您將加入新的 vCenter 伺服器或 vSphere 主機。
+* 它可能需要 15 分鐘或更久 （例如 VMware 工具安裝） 的虛擬機器上的環境變更，在入口網站中更新。
+* 您可以查看 VMware Vm 的上次探索時間：請參閱**上次連絡時間**欄位**組態伺服器**vCenter server/vSphere 主機的頁面。
+* 若要新增虛擬機器的複寫，而不等候已排定的探索，反白選取組態伺服器 （但不要按它），然後選取**重新整理**。
+* 當您啟用複寫時，如果虛擬機器已準備好時，處理序伺服器會自動在其上安裝 Azure Site Recovery 行動服務。
 
 ## <a name="enable-replication"></a>啟用複寫
 
->[!NOTE]
->* Azure Site Recovery 現在會直接複寫至受控磁碟的所有新的複寫。 處理序伺服器會將複寫記錄檔寫入目標區域中的快取儲存體帳戶。 這些記錄檔用來建立複本受控磁碟中的復原點。 
->* 在容錯移轉時，客戶所選取的復原點用來建立目標的受控的磁碟。
->* 先前已複寫到目標儲存體帳戶的 Vm 將不會受到影響。 
->* 複寫至新的機器的儲存體帳戶才可透過 REST API 和 Powershell。 使用 API 2016-08-10 或 2018年-01-10 版本複寫到儲存體帳戶。
+請遵循本節中的步驟之前，請注意下列資訊：
+* Azure Site Recovery 現在會直接複寫至受控磁碟的所有新的複寫。 處理序伺服器會將複寫記錄檔寫入的目標區域中的快取儲存體帳戶。 這些記錄檔用來建立複本受控磁碟中的復原點。
+* 在容錯移轉時，您選取的復原點用來建立目標受控磁碟。
+* 先前已設定為複寫到目標儲存體帳戶的 Vm 不會受到影響。
+* 只有透過 Representational State Transfer (REST) API 和 Powershell 使用新的虛擬機器的儲存體帳戶的複寫。 使用 Azure REST API 2016-08-10 或 2018年-01-10 版本複寫到儲存體帳戶。
 
-1. 按一下 [步驟 2：複寫應用程式] > [來源]。 第一次啟用複寫之後，請按一下保存庫中的 [+複寫]，以對其他機器啟用複寫。
-2. 在 [來源] 頁面 > [來源] 中，選取組態伺服器。
-3. 在 [機器類型] 中，選取 [虛擬機器] 或 [實體機器]。
-4. 在 [vCenter/vSphere Hypervisor] 中，選取管理 vSphere 主機的 vCenter 伺服器，或選取主機。 如果您是複寫實體機器，則這個設定不相關。
-5. 如果您尚未建立任何額外的處理序伺服器，則選取處理序伺服器，將是設定伺服器的名稱。 然後按一下 [確定] 。
+1. 移至**步驟 2:** 複寫應用程式 > 來源。 為第一次啟用複寫之後，請選取 **+ 複寫**保存庫啟用額外的虛擬機器的複寫中。
+1. 在 [來源] 頁面 > [來源] 中，選取組態伺服器。
+1. 針對**機器類型**，選取**虛擬機器**或是**實體機器**。
+1. 在 [vCenter/vSphere Hypervisor] 中，選取管理 vSphere 主機的 vCenter 伺服器，或選取主機。 此設定不相關，如果您複寫實體電腦。
+1. 選取處理序伺服器，會設定伺服器，如果您尚未建立任何額外的處理序伺服器。 然後選取 [確定]。
 
-    ![啟用複寫來源](./media/vmware-azure-enable-replication/enable-replication2.png)
+    ![啟用複寫來源視窗](./media/vmware-azure-enable-replication/enable-replication2.png)
 
-6. 在 [目標] 中，選取您想要在其中建立容錯移轉虛擬機器的訂用帳戶和資源群組。 選擇您需要在 Azure 中針對容錯移轉虛擬機器使用的部署模型。
+1. 針對**目標**，選取您想要用來建立容錯移轉虛擬機器的訂用帳戶和資源群組。 選擇您想要在 Azure 中用於容錯移轉 Vm 的部署模型。
 
-7. 選取 Azure VM 在容錯移轉後啟動時所要啟動的 Azure 網路和子網路。 此網路必須位於與復原服務保存庫相同的區域中。 選取 [立即設定選取的機器]，將網路設定套用至您選取要進行保護的所有機器。 選取 [稍後設定] 以選取每部機器的 Azure 網路。 如果您沒有網路，則必須建立一個。 若要使用 Resource Manager 建立網路，請按一下 [新建]。 選取子網路 (如果適用的話)，然後按一下 [確定]。
+1. 選取 Azure 網路和 Azure Vm 在容錯移轉之後，將會連接到的子網路。 網路必須位於與 Site Recovery 服務保存庫相同的區域。
+
+   選取 **立即設定選取的機器**將網路設定套用到您選定要提供保護的所有虛擬機器。 選取 **稍後再設定**以選取每個虛擬機器的 Azure 網路。 如果您沒有網路，則必須建立一個。 若要使用 Azure Resource Manager 建立網路，請選取**新建**。 選取的子網路，如果適用的話，，然後選取**確定**。
    
-   ![啟用複寫目標設定](./media/vmware-azure-enable-replication/enable-rep3.png)
+   ![啟用複寫目標視窗](./media/vmware-azure-enable-replication/enable-rep3.png)
 
-8. 在 [虛擬機器] > [選取虛擬機器] 中，選取您要複寫的每部機器。 您只能選取可以啟用複寫的機器。 然後按一下 [確定] 。 如果您無法檢視/選取任何特定虛擬機器，請按一下[這裡](https://aka.ms/doc-plugin-VM-not-showing)以解決問題。
+1. 針對**虛擬機器** > **選取 虛擬機器**，選取您想要複寫的每部虛擬機器。 您只能選取可以啟用複寫的虛擬機器。 然後選取 [確定]。 如果您無法看到或選取特定的任何虛擬機器，請參閱[來源機器未列在 Azure 入口網站](https://aka.ms/doc-plugin-VM-not-showing)來解決此問題。
 
-    ![啟用複寫選取虛擬機器](./media/vmware-azure-enable-replication/enable-replication5.png)
+    ![啟用複寫選取虛擬機器視窗](./media/vmware-azure-enable-replication/enable-replication5.png)
 
-9. 在 [屬性] > [設定屬性] 中，選取處理序伺服器要用來在電腦上自動安裝行動服務的帳戶。 而且請選擇您想要複寫到資料為基礎的目標受控磁碟的類型變換模式。
-10. 根據預設，會複寫來源機器的所有磁碟。 若要從複寫排除磁碟，請取消選取**Include**核取方塊，針對任何您不想要複寫的磁碟。  然後按一下 [確定] 。 您可以稍後再設定其他屬性。 [深入了解](vmware-azure-exclude-disk.md)排除磁碟。
+1. 針對**屬性** > **設定屬性**，選取 處理序伺服器自動安裝在虛擬機器上的 Site Recovery 行動服務所使用的帳戶。 而且請選擇要複寫至取決於您的資料變換圖樣的目標受控磁碟的類型。
+10. 根據預設，會複寫來源虛擬機器的所有磁碟。 若要從複寫排除磁碟，請清除**Include**任何您不想要複寫的磁碟的核取方塊。 然後選取 [確定]。 您可以稍後再設定其他屬性。 深入了解[排除磁碟](vmware-azure-exclude-disk.md)。
 
-    ![啟用複寫設定屬性](./media/vmware-azure-enable-replication/enable-replication6.png)
+    ![啟用複寫設定屬性 視窗](./media/vmware-azure-enable-replication/enable-replication6.png)
 
-11. 在 [複寫設定] > [設定複寫設定] 中，確認已選取正確的複寫原則。 您可以在 [設定]  >  [複寫原則] > 原則名稱 > [編輯設定] 中修改複寫原則設定。 套用到原則的變更將會套用到複寫和新的機器。
-12. 如果您想要將機器聚集成一個複寫群組，請啟用 [多部 VM 一致性]。 指定群組的名稱，然後按一下 [確定]。 
+1. 在**複寫設定** > **設定複寫設定**，確認已選取正確的複寫原則。 您可以修改複寫原則設定，在**設定** > **複寫原則** > ***原則名稱*** >  **編輯設定**。 您套用到原則的變更也會套用到複寫和新虛擬機器。
+1. 啟用**多部 VM 一致性**如果您想要虛擬機器聚集成一個複寫群組。 指定群組名稱，然後再選取**確定**。
 
     > [!NOTE]
-    > 
-    >    * 複寫群組中的機器會一起複寫，並且在容錯移轉時會有共用的損毀一致和應用程式一致的復原點。
-    >    * 將 VM 與實體伺服器一起收集，讓它們鏡像您的工作負載。 啟用多 VM 一致性可能會影響工作負載的效能。 僅在電腦執行相同的工作負載且需要一致性時，才應該使用它。
+    >    * 複寫群組中的虛擬機器一起複寫，並在容錯移轉時會有共用損毀一致和應用程式一致復原點。
+    >    * 將 VM 與實體伺服器一起收集，讓它們鏡像您的工作負載。 啟用多 VM 一致性可能會影響工作負載的效能。 只有當虛擬機器執行相同的工作負載，且需要一致性，請執行這項操作。
 
-    ![啟用複寫](./media/vmware-azure-enable-replication/enable-replication7.png)
+    ![啟用複寫 視窗](./media/vmware-azure-enable-replication/enable-replication7.png)
     
-13. 按一下 [啟用複寫] 。 您可以在 [設定]  >  [作業]  >  [Site Recovery 作業] 中，追蹤 [啟用保護] 作業的進度。 執行 [完成保護] 作業之後，機器即準備好進行容錯移轉。
+1. 選取 [啟用複寫]。 您可以追蹤進度**啟用保護**在作業**設定** > **工作** > **Site Recovery 作業**. 執行「完成保護」作業之後，虛擬機器即準備好進行容錯移轉。
 
 ## <a name="view-and-manage-vm-properties"></a>檢視及管理 VM 屬性
 
-接著確認來源機器的屬性。 請記住，Azure VM 名稱應該符合 [Azure 虛擬機器需求](vmware-physical-azure-support-matrix.md#replicated-machines)。
+接下來，請確認來源虛擬機器的屬性。 請記住，Azure VM 名稱應該符合 [Azure 虛擬機器需求](vmware-physical-azure-support-matrix.md#replicated-machines)。
 
-1. 按一下 [設定] > [複寫的項目]，然後選取機器。 [程式集] 頁面會顯示機器設定與狀態的相關資訊。
-2. 在 [屬性] 中，您可以檢視 VM 的複寫和容錯移轉資訊。
-3. 在 [計算和網路] > [計算屬性] 中，您可以變更多個 VM 屬性：
-   * Azure VM 名稱 - 視需要修改名稱以符合 Azure 需求
-   * 目標 VM 大小或 VM 類型-預設 VM 大小會根據選擇的來源 VM 大小。 您可以在容錯移轉之前，隨時根據需求選取不同的 VM 大小。 請注意，VM 磁碟大小也是以來源磁碟大小為基礎，而且只能在容錯移轉後變更。 我們的[磁碟適用的延展性目標](../virtual-machines/windows/disk-scalability-targets.md)文章中深入了解磁碟大小與 IOPS。
+1. 移至**設定** > **複寫的項目**，然後選取 虛擬機器。 **Essentials**頁面會顯示 VM 的設定與狀態相關資訊。
+1. 在 [屬性] 中，您可以檢視 VM 的複寫和容錯移轉資訊。
+1. 在 **計算與網路** > **計算屬性**，您可以變更多個 VM 屬性。 
 
-     ![計算和網路屬性](./media/vmware-azure-enable-replication/vmproperties.png)
+    ![計算與網路的 [屬性] 視窗](./media/vmware-azure-enable-replication/vmproperties.png)
 
-   * 資源群組 - 您可以選取電腦將成為其後置容錯移轉一部分的[資源群組](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines)。 您可以在容錯移轉之前隨時變更這項設定。 容錯移轉後，如果將電腦移轉到不同的資源群組，則電腦的保護設定將會中斷。
-   * 可用性設定組 - 如果您的電腦必須是其中一個後置容錯移轉，您可以選取[可用性設定組](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines)。 選取可用性設定組時，請記住︰
+    * Azure VM 名稱：如有必要，請修改以符合 Azure 需求，名稱。
+    * 目標 VM 大小或 VM 類型：預設 VM 大小會根據來源 VM 大小選擇。 您可以選取不同的 VM 大小，根據您的需求，在容錯移轉之前的任何時間。 請注意，VM 磁碟大小也根據來源磁碟大小，而且只能在容錯移轉之後加以變更。 深入了解磁碟大小和 IOPS 比率[在 Windows 上的虛擬機器磁碟的延展性和效能目標](../virtual-machines/windows/disk-scalability-targets.md)。
 
-       * 只將屬於指定之資源群組的可用性設定組列出。  
-       * 虛擬網路不同的電腦不可在相同的可用性設定組中。
-       * 只有相同大小的虛擬機器可在相同的可用性設定組中。
-4. 您也可以檢視和加入目標網路、子網路的相關資訊，以及將指派給 Azure VM 的 IP 位址。
-5. 在 [磁碟] 中，您可以看見 VM 上將要複寫的作業系統和資料磁碟。
+    *  資源群組：您可以選取[資源群組](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines)，從虛擬電腦將成為其後置容錯移轉的一部分。 您可以變更此設定在容錯移轉之前的任何時間。 容錯移轉之後，如果您將虛擬機器移轉至不同的資源群組，該虛擬機器的保護設定會中斷。
+    * 可用性設定組：您可以選取[可用性設定組](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines)如果您的虛擬機器需要容錯移轉後的一部分。 當您選取可用性設定組時，記住下列資訊：
+
+        * 只有屬於指定的資源群組的可用性設定組列出。  
+        * 在不同的虛擬網路上的 Vm 不能在相同的可用性設定組。
+        * 只有相同大小的虛擬機器可在相同的可用性設定組中。
+1. 您也可以新增目標網路、 子網路，以及指派給 Azure VM 的 IP 位址的相關資訊。
+2. 在 [磁碟] 中，您可以看見 VM 上將要複寫的作業系統和資料磁碟。
 
 ### <a name="configure-networks-and-ip-addresses"></a>設定網路和 IP 位址
 
-- 您可以設定目標 IP 位址。 如果您未提供地址，容錯移轉的電腦就會使用 DHCP。 如果您設定的位址在容錯移轉時無法使用，容錯移轉就無法運作。 如果位址可用於測試容錯移轉網路，則相同的目標 IP 位址可用於測試容錯移轉。
-- 網路介面卡的數目會視您指定給目標虛擬機器的大小而有所不同，如下所示：
-    - 如果來源電腦上的網路介面卡數目小於或等於針對目標機器大小所允許的介面卡數目，則目標將具備與來源相同的介面卡數目。
-    - 如果來源虛擬機器的介面卡數目超過針對目標大小所允許的數目，則使用目標大小的最大值。
-    例如，如果來源電腦具有兩張網路介面卡，而目標電腦大小支援四張，目標電腦就會有兩張介面卡。 如果來源電腦具有兩張介面卡，但支援的目標大小僅支援一張介面卡，目標電腦就只會有一張介面卡。
-    - 如果虛擬機器有多張網路介面卡，就會全部連線至相同的網路。 此外，清單中顯示的第一項就會變成 Azure 虛擬機器中的*預設*網路介面卡。
+您可以設定目標 IP 位址。 如果您未提供地址，容錯移轉的虛擬機器會使用 DHCP。 如果您設定的位址在容錯移轉時無法使用，容錯移轉就無法運作。 如果位址可用於測試容錯移轉網路，您可以使用相同的目標 IP 位址進行測試容錯移轉。
+
+網路介面卡的數目取決於大小，您指定目標虛擬機器，如下所示：
+
+- 如果來源虛擬機器上的網路介面卡數目小於或等於針對目標 VM 大小所允許的介面卡數目，目標會有相同數目的介面卡做為來源。
+- 如果來源虛擬機器的介面卡數目超過針對目標 VM 大小所允許的數目，則會使用目標大小的最大值。 例如，如果來源虛擬機器具有兩張網路介面卡，目標 VM 大小支援四張，目標虛擬機器會有兩張介面卡。 如果來源 VM 具有兩張介面卡，但目標大小僅支援一張，目標 VM 會有一個介面卡。
+- 如果虛擬機器有多張網路介面卡，就會全部連線至相同的網路。 此外，顯示在清單中的第一個配接器會變成*預設*Azure 虛擬機器中的網路介面卡。 
 
 ### <a name="azure-hybrid-benefit"></a>Azure Hybrid Benefit
 
-微軟軟體保證客戶可以使用 Azure Hybrid Benefit，節省移轉至 Azure 之 Windows Server 電腦的授權成本，或使用 Azure 進行災害復原。 如果您有權使用 Azure Hybrid Benefit，可以將獲指派這項權益的虛擬機器指定為 Azure Site Recovery 在容錯移轉時建立的一部虛擬機器。 作法：
-- 移至複寫之虛擬機器的 [計算與網路屬性] 區段。
-- 回答問題，了解您是否具備 Windows Server 授權，讓您符合使用 Azure Hybrid Benefit 的資格。
-- 選取核取方塊，確認您具備擁有軟體保證的合格 Windows Server 授權，可讓您在容錯移轉時建立的電腦上套用 Azure Hybrid Benefit。
-- 儲存複寫機器的設定。
+Microsoft 軟體保證客戶可以使用 Azure Hybrid Benefit，節省移轉至 Azure 的 Windows Server 電腦的授權成本。 優點也適用於 Azure 的災害復原。 若您符合資格，您可以指派到容錯移轉時，Site Recovery 會建立虛擬機器的優點。 若要這樣做，請遵循下列步驟：
+1. 移至**電腦與網路屬性**複寫的虛擬機器。
+2. 當系統詢問您是否具備 Windows Server 授權，讓您符合 Azure Hybrid Benefit 的資格，請回答。
+3. 請確認您有可用來將權益套用至將會在容錯移轉建立 VM 的軟體保證的合格 Windows Server 授權。
+4. 儲存複寫的虛擬機器的設定。
 
 深入了解 [Azure Hybrid Benefit](https://aka.ms/azure-hybrid-benefit-pricing)。
 
-## <a name="common-issues"></a>常見問題
+## <a name="resolve-common-issues"></a>解決常見的問題
 
-* 各磁碟大小必須都小於 4 TB。
-* OS 磁碟應該是基本磁碟而非動態磁碟。
-* 針對第 2 代/已啟用 UEFI 的虛擬機器，作業系統系列應為 Windows，而且開機磁碟應小於 300 GB。
+* 每個磁碟應該小於 4 TB。
+* OS 磁碟應該是基本磁碟，而非動態磁碟。
+* 針對層代 2/已啟用 UEFI 的虛擬機器，作業系統系列應為 Windows，而且開機磁碟應小於 300 GB。
 
 ## <a name="next-steps"></a>後續步驟
 
-保護完成且機器達到受保護的狀態之後，您可以嘗試[容錯移轉](site-recovery-failover.md)，以檢查應用程式是否會出現在 Azure 中。
+虛擬機器達到受保護的狀態後，請嘗試[容錯移轉](site-recovery-failover.md)來檢查您的應用程式是否出現在 Azure 中。
 
 * 了解如何[清除註冊與保護設定](site-recovery-manage-registration-and-protection.md)，以停用複寫。
-* 了解如何[使用 PowerShell 自動進行虛擬機器的複寫](vmware-azure-disaster-recovery-powershell.md)
+* 了解如何[使用 Powershell 自動化您的虛擬機器的複寫](vmware-azure-disaster-recovery-powershell.md)。

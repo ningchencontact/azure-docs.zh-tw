@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 692113257e483f67eaaee038c07d8702d95a7b31
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ee50a0e9c7fca8f01f12b3508c86d901b5315120
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116804"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418817"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>在 Java Web 應用程式中篩選遙測
 
@@ -253,6 +253,20 @@ ms.locfileid: "58116804"
     </ApplicationInsights>
 
 ```
+
+### <a name="3-invoke-your-filter-java-spring"></a>3.叫用您的篩選條件 (Java Spring)
+
+Spring framework 為基礎的應用程式，自訂的遙測處理器必須註冊您的主應用程式類別中為 bean。 應用程式啟動時，它們會被已自動連接。
+
+```Java
+@Bean
+public TelemetryProcessor successFilter() {
+      return new SuccessFilter();
+}
+```
+
+您必須建立您自己的篩選參數，在`application.properties`並運用 Spring Boot 已外部化的組態架構將這些參數傳遞至您的自訂篩選。 
+
 
 ## <a name="troubleshooting"></a>疑難排解
 

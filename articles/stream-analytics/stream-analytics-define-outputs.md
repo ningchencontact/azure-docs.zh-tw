@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0a3fd2cc66a066d2790d2e12822e3246dc3db382
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c22b82dcd3438a8175457aa0963d52e84d582abf
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898868"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438494"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>了解來自 Azure 串流分析的輸出
 本文說明適用於 Azure 串流分析作業的不同輸出類型。 輸出可讓您存放並儲存串流分析作業的結果。 透過使用輸出資料，您可以對資料進行進一步的商務分析及資料倉儲處理。
@@ -127,6 +127,7 @@ Azure 中國 (21Vianet) 和 Azure 德國 (T-Systems International) 區域目前�
 | 編碼 | 對於 CSV 和 JSON 而言，UTF-8 是目前唯一支援的編碼格式。 |
 | 分隔符號 | 僅適用於 CSV 序列化。 串流分析可支援多種以 CSV 格式序列化資料常用的分隔符號。 支援的值是逗號、分號、空格、索引標籤和分隔號。 |
 | 格式 | 僅適用於 JSON 序列化。 分隔的行會指定輸出的格式化方式為利用新行分隔每個 JSON 物件。 陣列會指定輸出將會格式化為 JSON 物件的陣列。 只有在作業停止或串流分析已移動到下一個時間範圍時，才會關閉這個陣列。 一般情況下，最好使用分行的 JSON，因為它不需要任何特殊處理，同時仍會寫入輸出檔案。 |
+| 屬性資料行 [選用] | 以逗號分隔的資料行，需要為使用者屬性，而不是承載的外寄訊息的連接。 「 自訂輸出的中繼資料屬性 」 一節中的這項功能的詳細資訊 |
 
 ## <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com/) 當做串流分析工作的輸出，來為分析結果提供豐富的視覺體驗。 這項功能可以用於可運作的儀表板、產生報告，以及度量驅動的報告。
@@ -230,6 +231,7 @@ datetime | 字串 | 字串 |  datetime | 字串
 | 編碼 |對於 CSV 和 JSON 而言，UTF-8 是目前唯一支援的編碼格式 |
 | 分隔符 |僅適用於 CSV 序列化。 串流分析可支援多種以 CSV 格式序列化資料常用的分隔符號。 支援的值是逗號、分號、空格、索引標籤和分隔號。 |
 | 格式 |僅適用於 JSON 類型。 分隔的行會指定輸出的格式化方式為利用新行分隔每個 JSON 物件。 陣列會指定輸出將會格式化為 JSON 物件的陣列。 |
+| 屬性資料行 [選用] | 以逗號分隔的資料行，需要為使用者屬性，而不是承載的外寄訊息的連接。 「 自訂輸出的中繼資料屬性 」 一節中的這項功能的詳細資訊 |
 
 分割區數目是[根據服務匯流排 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分割區索引鍵是每個分割區的唯一整數值。
 
@@ -248,6 +250,7 @@ datetime | 字串 | 字串 |  datetime | 字串
 | 事件序列化格式 |輸出資料的序列化格式。 支援 JSON、CSV 和 Avro。 |
 | 編碼 |如果使用 CSV 或 JSON 格式，則必須指定編碼。 UTF-8 是目前唯一支援的編碼格式 |
 | 分隔符號 |僅適用於 CSV 序列化。 串流分析可支援多種以 CSV 格式序列化資料常用的分隔符號。 支援的值是逗號、分號、空格、索引標籤和分隔號。 |
+| 屬性資料行 [選用] | [選用]以逗號分隔的資料行，需要為使用者屬性，而不是承載的外寄訊息的連接。 「 自訂輸出的中繼資料屬性 」 一節中的這項功能的詳細資訊 |
 
 分割區數目是[根據服務匯流排 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分割區索引鍵是每個分割區的唯一整數值。
 
@@ -293,6 +296,25 @@ Azure 串流分析會透過 HTTP 觸發程序叫用 Azure Functions。 新的 Az
 
 此外，如果在某個時間範圍內沒有登陸任何事件，則不會產生任何輸出。 如此一來，就不會呼叫 computeResult 函式。 此行為與內建的視窗型彙總函式一致。
 
+## <a name="custom-metadata-properties-for-output"></a>輸出的自訂中繼資料屬性 
+
+這項功能可讓您為使用者屬性的查詢資料行附加至外寄訊息。 這些資料行不會進入裝載。 這些屬性是字典的輸出訊息的形式出現在項目。 索引鍵是資料行名稱和值是屬性字典中的資料行值。 Stream Analytics 的所有資料類型都支援記錄和陣列除外。  
+
+支援的輸出： 
+* 服務匯流排佇列 
+* 服務匯流排主題 
+* 事件中樞 
+
+範例：在下列範例中，我們會新增 DeviceId 和 DeviceStatus 2 個欄位的中繼資料。 
+* 查詢： `select *, DeviceId, DeviceStatus from iotHubInput` 。
+* 輸出組態： `DeviceId,DeviceStatus`。
+
+![屬性資料行](./media/stream-analytics-define-outputs/10-stream-analytics-property-columns.png)
+
+輸出訊息屬性中使用事件中樞會檢查[Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)。
+
+   ![事件的自訂屬性](./media/stream-analytics-define-outputs/09-stream-analytics-custom-properties.png)
+
 ## <a name="partitioning"></a>分割
 
 下表摘要說明分割支援，和每個輸出類型的輸出寫入器數目：
@@ -302,7 +324,7 @@ Azure 串流分析會透過 HTTP 觸發程序叫用 Azure Functions。 新的 Az
 | Azure Data Lake Store | 是 | 在路徑前置詞模式中使用 {date} 和 {time} 權杖。 選擇日期格式，例如 YYYY/MM/DD、DD/MM/YYYY、MM-DD-YYYY。 HH 用於時間格式。 | 遵循[完整可平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 |
 | 連接字串 | 是 | 以查詢中的 PARTITION BY 子句為依據 | 遵循[完整可平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 若要深入了解如何在將資料載入 Azure SQL Database 時達到更佳寫入輸送效能，請造訪 [Azure 串流分析輸出至 Azure SQL Database](stream-analytics-sql-output-perf.md)。 |
 | Azure Blob 儲存體 | 是 | 使用來自路徑模式中事件欄位的 {date} 和 {time} 權杖。 選擇日期格式，例如 YYYY/MM/DD、DD/MM/YYYY、MM-DD-YYYY。 HH 用於時間格式。 您可依照單一自訂事件屬性 {fieldname} 或 {datetime:\<specifier>} 分割 Blob 輸出。 | 遵循[完整可平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 |
-| Azure 事件中樞 | 是 | 是 | 根據分割區對齊方式而有所不同。<br /> 當輸出事件中樞分割區索引鍵與上游 (先前的) 查詢步驟同等對齊時，寫入器的數目將會和輸出事件中樞分割區的數目相同。 每個寫入器都會使用事件中樞的 [EventHubSender 類別](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet)來將事件傳送至特定的分割區。 <br /> 當輸出事件中樞分割區索引鍵沒有與上游 (先前的) 查詢步驟同等對齊時，寫入器的數目將會和先前步驟中的分割區數目相同。 每個寫入器會使用 EventHubClient [SendBatchAsync 類別](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) \(英文\) 來將事件傳送至所有輸出分割區。 |
+| Azure 事件中樞 | 是 | 是 | 根據分割區對齊方式而有所不同。<br /> 當輸出事件中樞分割區索引鍵與上游 (先前的) 查詢步驟同等對齊時，寫入器的數目將會和輸出事件中樞分割區的數目相同。 每個寫入器都會使用事件中樞的 [EventHubSender 類別](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet)來將事件傳送至特定的分割區。 <br /> 當輸出事件中樞分割區索引鍵沒有與上游 (先前的) 查詢步驟同等對齊時，寫入器的數目將會和先前步驟中的分割區數目相同。 每個寫入器會使用 EventHubClient [SendBatchAsync 類別](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) \(英文\) 來將事件傳送至所有輸出分割區。 |
 | Power BI | 否 | None | 不適用。 |
 | Azure 資料表儲存體 | 是 | 任何輸出資料行。  | 遵循[完整平行化查詢](stream-analytics-scale-jobs.md)的輸入資料分割。 |
 | Azure 服務匯流排主題 | 是 | 自動選擇。 分割區數目是根據[服務匯流排 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分割區索引鍵是每個分割區的唯一整數值。| 與輸出主題中的分割區數目相同。  |

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: aedd81af8b5821b1f8032faad1896790804df2a0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 846f07051ee65a542b56624fa84a9bdc4ca0f4e6
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119287"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418001"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>使用應用程式閘道來重寫 HTTP 標頭 (公開預覽)
 
@@ -96,10 +96,12 @@ HTTP 標頭允許用戶端和伺服器透過要求或回應傳遞其他資訊。
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | 會傳回用戶端所支援的加密方式          |
 | ciphers_used               | 會傳回用於所建立 SSL 連線的加密方式字串 |
+| client_ip                  | 用戶端; IP 位址在客戶想要重寫應用程式閘道所設定的 X 轉送的標頭，以便標頭包含只有不含連接埠資訊的 IP 位址的案例中特別有用。 |
 | client_port                | 用戶端連接埠                                                  |
 | client_tcp_rtt             | 有關用戶端 TCP 連線的資訊；是支援 TCP_INFO 通訊端選項之系統上的可用變數 |
 | client_user                | 使用 HTTP 驗證時，為驗證提供的使用者名稱 |
 | host                       | 優先順序如下：來自要求行的主機名稱或來自 “Host” 要求標頭欄位的主機名稱，或是與要求相符的伺服器名稱 |
+| cookie_*name*              | *名稱*cookie |
 | http_method                | 用來提出 URL 要求的方法。 例如 GET、POST 等。 |
 | http_status                | 工作階段狀態，例如：200、400、403 等。                       |
 | http_version               | 要求通訊協定，通常是 “HTTP/1.0”、“HTTP/1.1” 或 “HTTP/2.0” |
@@ -120,10 +122,6 @@ HTTP 標頭允許用戶端和伺服器透過要求或回應傳遞其他資訊。
 - 只有在新 SKU [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) 上才支援 HTTP 標頭重寫支援。 在舊 SKU 上將不支援此功能。
 
 - 目前尚不支援重寫 Connect、Upgrade 及 Host 標頭。
-
-- 目前尚不支援兩個重要的伺服器變數 client_ip (提出要求之用戶端的 IP 位址) 和 cookie_*name* (*name* Cookie)。 在客戶想要重寫「應用程式閘道」所設定 x-forwarded-for 標頭的案例中，client_ip 伺服器變數會特別有用，如此可讓標頭只包含用戶端的 IP 位址，而不包含連接埠資訊。
-
-  這兩個伺服器變數都即將受到支援。
 
 - 近期將會推出可依條件重寫 HTTP 標頭的功能。
 

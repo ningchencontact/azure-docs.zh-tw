@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 1794aa26fc725207c4a901c11c345eeaa3d2f65d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a72182091721dd6a1104cb8e3495aee1a3b25eb8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867728"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439376"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure 儲存體中的靜態網站代管
 Azure 儲存體 GPv2 帳戶可讓您直接從名為 *$web* 的儲存體容器提供靜態內容 (HTML、CSS、JavaScript 和影像檔)。 利用 Azure 儲存體中的代管，讓您能夠使用無伺服器架構，包括 [Azure Functions](/azure/azure-functions/functions-overview) 和其他 PaaS 服務。
@@ -46,6 +46,9 @@ https://contoso.z4.web.core.windows.net/image.png
 ```
 
 未提供檔案名稱時，即會在根目錄和所有子目錄中使用選取的預設檔案名稱。 如果伺服器傳回 404，而您未提供錯誤文件路徑，則會將預設的 404 頁面傳回給使用者。
+
+> [!NOTE]
+> 檔案的預設公用存取層級是私用。 因為檔案會提供透過匿名存取要求，則會忽略此設定。 沒有公用存取權的所有檔案，並會忽略 RBAC 權限。
 
 ## <a name="cdn-and-ssl-support"></a>CDN 和 SSL 支援
 

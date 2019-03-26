@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6e502ed1e0865aca167915493eca400ce026f0e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2fcb77fe257a1b99525d009a1756a473e7e61a5d
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096141"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438511"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>如何為不在資源庫內的應用程式設定同盟單一登入
 
@@ -140,7 +140,7 @@ ms.locfileid: "58096141"
 
 8. 移至 [SAML 簽署憑證] 區段，然後按一下 [下載] 資料行值。 根據應用程式設定單一登入時所需的項目，您會看到下載中繼資料 XML 或憑證的選項。
 
-Azure AD 也會提供用來取得中繼資料的 URL。 請遵循此模式來取得應用程式特有的中繼資料 URL： https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>。
+Azure AD 也會提供用來取得中繼資料的 URL。 遵循此模式來取得應用程式特定的中繼資料 URL：`https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`。
 
 ## <a name="assign-users-to-the-application"></a>將使用者指派給應用程式
 

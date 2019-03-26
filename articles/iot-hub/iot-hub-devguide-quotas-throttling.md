@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.openlocfilehash: 20e92317e748ebe19661a7c35d68829229b62378
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 4656cc5a27d459c4f30f7cf23cc41b9525e79dcd
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791366"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437617"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>參考 - IoT 中樞配額和節流
 
@@ -42,6 +42,7 @@ ms.locfileid: "57791366"
 | 雲端到裝置的接收<sup>1</sup> <br/> (僅限裝置使用 HTTPS 時)| 16.67/秒/單位 (1000/分鐘/單位) | 16.67/秒/單位 (1000/分鐘/單位) | 833.33/秒/單位 (50000/分鐘/單位) |
 | 檔案上傳 | 1.67 檔案上傳通知/秒/單位 (100/分鐘/單位) | 1.67 檔案上傳通知/秒/單位 (100/分鐘/單位) | 83.33 檔案上傳通知/秒/單位 (5000/分鐘/單位) |
 | 直接方法<sup>1</sup> | 160 KB/秒/單位<sup>2</sup> | 480 KB/秒/單位<sup>2</sup> | 24 MB/秒/單位<sup>2</sup> | 
+| 查詢 | 20/秒/單位 | 20/秒/單位 | 1000/秒/單位 |
 | 對應項 (裝置與模組) 讀取<sup>1</sup> | 100/秒 | 100/秒 」 或 「 10/秒/單位較高者 | 500/秒/單位 |
 | 對應項更新 (裝置與模組)<sup>1</sup> | 50/秒 | 50/秒或 5/秒/單位較高者 | 250/秒/單位 |
 | 作業操作 <sup>1、3</sup> <br/> (建立、更新、列出、刪除) | 1.67/秒/单位（100/分钟/单位） | 1.67/秒/單位 (100/分鐘/單位) | 83.33/秒/單位 (5000/分鐘/單位) |

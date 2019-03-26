@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 03/25/2019
 ms.author: magattus
-ms.openlocfilehash: 5be1835de2aa1631c4ec2115dd34ea85f0267403
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 954d19fb557540e4fdc6b17f313127e01eba97a7
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870885"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435595"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>針對內容傳遞類型將 Azure CDN 最佳化
 
@@ -38,6 +38,8 @@ ms.locfileid: "56870885"
 
 * [一般 Web 傳遞](#general-web-delivery)。 此最佳化也可用於媒體串流處理和大型檔案下載。
 
+> [!NOTE]
+> 透過提供來自 Microsoft 的動態網站加速[Azure 前端服務](https://docs.microsoft.com/azure/frontdoor/front-door-overview)。
 
 **來自 Verizon 的 Azure CDN 標準**和**來自 Verizon 的 Azure CDN 進階**設定檔支援下列最佳化：
 
@@ -120,6 +122,9 @@ Azure 媒體服務的客戶經常發生此狀況。 當您使用 Azure 媒體服
 ### <a name="dynamic-site-acceleration"></a>動態網站加速
 
  動態網站加速 (DSA) 適用於**來自 Akamai 的 Azure CDN 標準**、**來自 Verizon 的 Azure CDN 標準**與**來自 Verizon 的 Azure CDN 進階**設定檔。 使用此最佳化需要額外付費；如需詳細資訊，請參閱[內容傳遞網路定價](https://azure.microsoft.com/pricing/details/cdn/)。
+
+> [!NOTE]
+> 透過提供來自 Microsoft 的動態網站加速[Azure 前端服務](https://docs.microsoft.com/azure/frontdoor/front-door-overview)即為全域[任一傳播](https://en.wikipedia.org/wiki/Anycast)運用 Microsoft 的私用的全球網路提供您的應用程式工作負載的服務。
 
 DSA 包括有益於動態內容延遲和效能的各種技術。 相關技術包括路由和網路最佳化、TCP 最佳化等等。 
 

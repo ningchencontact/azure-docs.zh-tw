@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 9ba1b5a9b231822fd12d5a349e2518bc77669274
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 77cbc73c6c6aef40c482b0cfe456dcbd4b7e85d0
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351400"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435307"
 ---
 # <a name="dynamic-packaging"></a>動態封裝
 
@@ -30,32 +30,20 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS 
 
 因此，您只需要儲存及支付一種儲存格式之檔案的費用，媒體服務會根據用戶端的要求建置及提供適當的回應。 
 
-在 Media Services 會使用動態封裝，是否您串流處理實況或點播。 下圖顯示使用動態封裝工作流程上隨選資料流。
-
-![動態封裝](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
-
-> [!NOTE]
-> 目前您無法使用 Azure 入口網站管理 v3 資源。 使用[REST API](https://aka.ms/ams-v3-rest-ref)， [CLI](https://aka.ms/ams-v3-cli-ref)，或其中一個支援[Sdk](developers-guide.md)。
-
-## <a name="delivery-protocols"></a>傳遞通訊協定
-
-|通訊協定|範例|
-|---|---|
-|HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
-|HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
-|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`|
-|MPEG DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
-|MPEG DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
-|Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
+在 Media Services 會使用動態封裝，是否您串流處理實況或點播。 
 
 ## <a name="common-on-demand-workflow"></a>常見的依需求工作流程
 
 以下是常見的媒體服務，串流工作流程使用動態封裝的位置。
 
-1. 上傳輸入檔案 (稱為夾層檔)。 例如，H.264、MP4 或 WMV (如需支援格式清單，請參閱 [媒體編碼器標準所支援的格式](media-encoder-standard-formats.md))。
+1. 上傳輸入檔案 (稱為夾層檔)。 比方說，MP4、 MOV 或 MXF (如需支援格式清單，請參閱[媒體編碼器標準所支援的格式](media-encoder-standard-formats.md)。
 2. 將夾層檔編碼為 H.264 MP4 自動調整位元速率集。
 3. 發佈包含自適性位元速率 MP4 集的資產。 建立您發佈**串流定位器**。
 4. 建立以不同格式 （HLS、 Dash 和 Smooth Streaming） 為目標的 Url。 **串流端點**會負責正確的資訊清單和這些不同的格式的要求提供服務。
+
+下圖顯示使用動態封裝工作流程上隨選資料流。
+
+![動態封裝](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
 ### <a name="encode-to-adaptive-bitrate-mp4s"></a>編碼為調適性位元速率 mp4
 
@@ -87,13 +75,16 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS 
 
 ![即時通行](./media/live-streaming/pass-through.svg)
 
-## <a name="dynamic-encryption"></a>動態加密
+## <a name="delivery-protocols"></a>傳遞通訊協定
 
-**動態加密**可讓您動態加密您的即時或點播內容，使用 AES-128 或三個主要數位版權管理 (DRM) 系統中任一個：Microsoft PlayReady、Google Widevine 和 Apple FairPlay。 媒體服務也提供服務，可傳遞 AES 金鑰和 DRM (PlayReady、Widevine 和 FairPlay) 授權給授權用戶端。 如需詳細資訊，請參閱 <<c0> [ 動態加密](content-protection-overview.md)。
-
-## <a name="dynamic-manifest"></a>動態資訊清單
-
-動態篩選用來控制播放軌、 格式、 位元速率，以及展示給玩家送出的時間範圍的數目。 如需詳細資訊，請參閱 <<c0> [ 篩選器與動態資訊清單](filters-dynamic-manifest-overview.md)。
+|通訊協定|範例|
+|---|---|
+|HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
+|HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
+|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`|
+|MPEG DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
+|MPEG DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
+|Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
 
 ## <a name="video-codecs-supported-by-dynamic-packaging"></a>支援的動態封裝的視訊轉碼器
 
@@ -105,6 +96,10 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS 
 
 > [!NOTE]
 > 動態封裝不支援包含 [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) 音訊的檔案 (它是舊版的轉碼器)。
+
+## <a name="dynamic-encryption"></a>動態加密
+
+**動態加密**可讓您動態加密您的即時或點播內容，使用 AES-128 或三個主要數位版權管理 (DRM) 系統中任一個：Microsoft PlayReady、Google Widevine 和 Apple FairPlay。 媒體服務也提供服務，可傳遞 AES 金鑰和 DRM (PlayReady、Widevine 和 FairPlay) 授權給授權用戶端。 如需詳細資訊，請參閱 <<c0> [ 動態加密](content-protection-overview.md)。
 
 ## <a name="manifests"></a>資訊清單 
  
@@ -195,6 +190,14 @@ Smooth Streaming 資訊清單的範例如下：
    </StreamIndex>
 </SmoothStreamingMedia>
 ```
+
+## <a name="dynamic-manifest"></a>動態資訊清單
+
+動態篩選用來控制播放軌、 格式、 位元速率，以及展示給玩家送出的時間範圍的數目。 如需詳細資訊，請參閱 <<c0> [ 篩選器與動態資訊清單](filters-dynamic-manifest-overview.md)。
+
+> [!NOTE]
+> 目前您無法使用 Azure 入口網站管理 v3 資源。 使用[REST API](https://aka.ms/ams-v3-rest-ref)， [CLI](https://aka.ms/ams-v3-cli-ref)，或其中一個支援[Sdk](developers-guide.md)。
+
 ## <a name="next-steps"></a>後續步驟
 
 [上傳、編碼、串流影片](stream-files-tutorial-with-api.md)

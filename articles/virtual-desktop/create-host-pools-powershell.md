@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 7b9b7ffbb034a7fb1256d9cc44048cfa55b02245
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: bd46e5f7428bab58508521b2c7d4d7cca25d689b
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402723"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439068"
 ---
-# <a name="create-a-host-pool-with-powershell"></a>使用 PowerShell 建立主應用程式集區
+# <a name="create-a-host-pool-with-powershell"></a>使用 PowerShell 建立主機集區
 
 主應用程式集區是一或多個相同的虛擬機器在 Windows 虛擬桌面預覽租用戶環境中的集合。 每個主應用程式集區可以包含實體的桌上型電腦上，使用者可以與互動的應用程式群組。
 
@@ -54,7 +54,7 @@ Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGr
 
 **新增 RdsAppGroupUser** cmdlet 不支援新增安全性群組，並只加入一位使用者每次應用程式群組。 如果您想要將多個使用者新增至應用程式群組，請重新執行的 cmdlet 搭配適當的使用者主體名稱。
 
-執行下列 cmdlet 來匯出給變數，您將在稍後使用的註冊權杖[註冊到 Windows 虛擬桌面的主應用程式集區的虛擬機器](#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool)。
+執行下列 cmdlet 來匯出給變數，您將在稍後使用的註冊權杖[註冊到 Windows 虛擬桌面的主應用程式集區的虛擬機器](#register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool)。
 
 ```powershell
 $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname>).Token

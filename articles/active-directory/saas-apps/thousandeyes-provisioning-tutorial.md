@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74b9b39cfc6ac760c41b58c050cb1ebf39d3f93a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f008e981abb11a4927ec045c33342bbac9a05bd8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180924"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436790"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>教學課程：設定 ThousandEyes 來自動佈建使用者
 
@@ -33,11 +33,14 @@ ms.locfileid: "56180924"
 本教學課程中說明的案例假設您已經具有下列項目：
 
 *   Azure Active Directory 租用戶
-*   已啟用[標準方案](https://www.thousandeyes.com/pricing)或更進階方案的 ThousandEyes 租用戶 
-*   ThousandEyes 中具有管理員權限的使用者帳戶 
+*   使用中[ThousandEyes 帳戶](https://www.thousandeyes.com/pricing)
+*   已指派的角色，其中包含下列 3 個權限的 ThousandEyes 使用者帳戶：
+    * 檢視所有使用者
+    * 編輯使用者
+    * API 存取權限
 
 > [!NOTE]
-> Azure AD 佈建整合仰賴 [ThousandEyes SCIM API](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK)，這在標準方案或更進階的方案中可供 ThousandEyes 小組使用。
+> Azure AD 佈建整合仰賴[ThousandEyes SCIM API](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK_ThousandEyes-support-for-SCIM)。 
 
 ## <a name="assigning-users-to-thousandeyes"></a>將使用者指派給 ThousandEyes
 
@@ -51,7 +54,19 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 *   建議將單一 Azure AD 使用者指派給 ThousandEyes，以測試佈建設定。 其他使用者及/或群組可能會稍後再指派。
 
-*   將使用者指派給 ThousandEyes 時，您必須在 [指派] 對話方塊中選取 [使用者] 角色，或另一個有效的應用程式特有角色 (如果有的話)。 [預設存取] 角色不適用於佈建，系統會略過這些使用者。
+*   當將使用者指派給 ThousandEyes，您必須選取**使用者**角色或另一個有效應用程式特有角色 （如果有的話） 在 [指派] 對話方塊中的。 [預設存取] 角色不適用於佈建，系統會略過這些使用者。
+
+## <a name="configure-auto-provisioned-user-roles-in-thousandeyes"></a>在 ThousandEyes 中設定自動佈建使用者角色
+
+每個帳戶群組，您會自動佈建到您的使用者可以設定一組新的使用者帳戶建立時套用的角色。 根據預設，自動佈建的使用者指派_一般使用者_所有帳戶的角色群組，除非另外設定。
+
+1. 若要指定一組新的自動佈建使用者的角色登入 ThousandEyes 並瀏覽至 [SCIM 設定] 區段 **> 您在右上角的使用者圖示 > 帳戶設定 > 組織 > 安全性和驗證。** 
+
+   ![瀏覽至 SCIM API 設定](https://monosnap.com/file/kqY8Il7eysGFAiCLCQWFizzM27PiBG)
+
+2. 加入每個帳戶群組的項目，然後指派一組角色*儲存*您的變更。
+
+   ![透過 SCIM API 所建立的使用者設定預設角色和帳戶群組](https://monosnap.com/file/16siam6U8xDQH1RTnaxnmIxvsZuNZG)
 
 
 ## <a name="configuring-user-provisioning-to-thousandeyes"></a>設定使用者佈建至 ThousandEyes 
@@ -59,7 +74,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 本節會引導您將 Azure AD 連線至 ThousandEyes 的使用者帳戶佈建 API，以及根據 Azure AD 中的使用者和群組指派，設定佈建服務以在 ThousandEyes 中建立、更新和停用指派的使用者帳戶。
 
 > [!TIP]
-> 您也可以選擇啟用 ThousandEyes 的 SAML 型單一登入，請遵循 [Azure 入口網站](https://portal.azure.com)中提供的指示。 可以獨立設定自動佈建的單一登入，雖然這兩個功能彼此補充。
+> 您也可以選擇啟用 SAML 型單一登入 (SSO) thousandeyes，遵循[提供 Azure 的知識庫中的指示](https://docs.microsoft.com/azure/active-directory/saas-apps/thousandeyes-tutorial)完成 SSO。 您可以獨立設定自動佈建的 SSO，雖然這兩個功能彼此補充。
 
 
 ### <a name="configure-automatic-user-account-provisioning-to-thousandeyes-in-azure-ad"></a>在 Azure AD 中設定將使用者帳戶自動佈建至 ThousandEyes
@@ -75,7 +90,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
     ![ThousandEyes 佈建](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
-5. 在 [管理員認證] 區段底下，輸入您 ThousandEyes 帳戶所產生的 [OAuth Bearer Token] \(OAuth 持有人權杖\) (您可以在 ThousandEyes 帳戶的 [Profile] \(設定檔\) 區段底下找到或產生權杖)。
+5. 底下**系統管理員認證**區段中，輸入**OAuth 持有人權杖**ThousandEyes 的帳戶所產生 (您可以尋找及或產生權杖，在您的 ThousandEyes 帳戶下**設定檔**區段)。
 
     ![ThousandEyes 佈建](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: b1b5dffed0a82e3e3c91efd4024bafdc64f0d3d2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c5087a038e31c4819ef1ef173bb32faa41e04c97
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119032"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417763"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫中的伺服器記錄
 在適用於 MySQL 的 Azure 資料庫中，使用者可以使用慢速查詢記錄。 不支援存取交易記錄。 慢速查詢記錄檔可以用來找出效能瓶頸，以進行疑難排解。 
@@ -53,31 +53,31 @@ ms.locfileid: "58119032"
 
 | **屬性** | **說明** |
 |---|---|
-| TenantId | 您的租用戶識別碼 |
-| SourceSystem | `Azure` |
-| TimeGenerated [UTC] | 以 UTC 記錄記錄時的時間戳記 |
-| 類型 | 記錄的類型。 一律為 `AzureDiagnostics` |
-| SubscriptionId | 伺服器所屬訂用帳戶的 GUID |
-| ResourceGroup | 伺服器所屬資源群組的名稱 |
-| ResourceProvider | 資源提供者名稱。 一律為 `MICROSOFT.DBFORMYSQL` |
-| ResourceType | `Servers` |
-| ResourceId | 資源 URI |
-| 資源 | 伺服器的名稱 |
-| 類別 | `MySqlSlowLogs` |
-| OperationName | `LogEvent` |
-| Logical_server_name_s | 伺服器名稱 |
-| start_time_t [UTC] | 查詢開始時間 |
-| query_time_s | 執行查詢所花費的總時間 |
-| lock_time_s | 查詢遭到鎖定的總時間 |
-| user_host_s | 使用者名稱 |
-| rows_sent_s | 傳送的資料列數目 |
-| rows_examined_s | 檢查的資料列數目 |
-| last_insert_id_s | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
-| insert_id_s | 插入識別碼 |
-| sql_text_s | 完整查詢 |
-| server_id_s | 伺服器的識別碼 |
-| thread_id_s | 執行緒識別碼 |
-| \_ResourceId | 資源 URI |
+| `TenantId` | 您的租用戶識別碼 |
+| `SourceSystem` | `Azure` |
+| `TimeGenerated` [UTC] | 以 UTC 記錄記錄時的時間戳記 |
+| `Type` | 記錄的類型。 一律為 `AzureDiagnostics` |
+| `SubscriptionId` | 伺服器所屬訂用帳戶的 GUID |
+| `ResourceGroup` | 伺服器所屬資源群組的名稱 |
+| `ResourceProvider` | 資源提供者名稱。 一律為 `MICROSOFT.DBFORMYSQL` |
+| `ResourceType` | `Servers` |
+| `ResourceId` | 資源 URI |
+| `Resource` | 伺服器的名稱 |
+| `Category` | `MySqlSlowLogs` |
+| `OperationName` | `LogEvent` |
+| `Logical_server_name_s` | 伺服器的名稱 |
+| `start_time_t` [UTC] | 查詢開始時間 |
+| `query_time_s` | 執行查詢所花費的總時間 |
+| `lock_time_s` | 查詢遭到鎖定的總時間 |
+| `user_host_s` | 使用者名稱 |
+| `rows_sent_s` | 傳送的資料列數目 |
+| `rows_examined_s` | 檢查的資料列數目 |
+| `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
+| `insert_id_s` | 插入識別碼 |
+| `sql_text_s` | 完整查詢 |
+| `server_id_s` | 伺服器的識別碼 |
+| `thread_id_s` | 執行緒識別碼 |
+| `\_ResourceId` | 資源 URI |
 
 ## <a name="next-steps"></a>後續步驟
 - [如何從 Azure CLI 設定和存取伺服器記錄](howto-configure-server-logs-in-cli.md)。

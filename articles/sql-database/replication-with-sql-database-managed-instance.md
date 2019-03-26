@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 164448f2e96b796d21419e90a3965390f22d7d38
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b20a119a69ac796bc9ea85083d335f0a7d2fdf2d
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762971"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417950"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>在 Azure SQL Database 受控執行個體資料庫中設定複寫
 
@@ -45,13 +45,13 @@ ms.locfileid: "57762971"
 支援：
 
 - 混用 SQL Server 內部部署和 Azure SQL Database 中受控執行個體的異動與快照式複寫。
-- 訂閱者可以是內部部署 SQL Server 資料庫、Azure SQL Database 中的單一資料庫，或 Azure SQL Database 彈性集區中的集區資料庫。
+- 訂閱者可以在內部部署 SQL Server 資料庫，在 Azure SQL Database 或 Azure SQL Database 彈性集區中的集區的資料庫中的 單一資料庫/受控執行個體。
 - 單向或雙向複寫。
 
 Azure SQL Database 的受控執行個體中不支援下列功能：
 
 - 可更新的訂用帳戶。
-- 作用中的異地複寫。
+- [作用中異地複寫](sql-database-active-geo-replication.md)並[自動容錯移轉群組](sql-database-auto-failover-group.md)不應在異動複寫設定。
 
 ## <a name="configure-publishing-and-distribution-example"></a>設定發行與散發範例
 

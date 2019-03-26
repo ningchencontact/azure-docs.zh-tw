@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: fbb8eabebd5728c3ff772f78f01b8ea93ff0a526
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 719cbe1ec8962b320aa2850053d44cdef7f56a8c
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400203"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437811"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>設定 ASP.NET 網站的 Application Insights
 
@@ -125,16 +125,16 @@ Application Insights 設定畫面：
 
 如果您已對 ApplicationInsights.config 進行任何的自訂，請在升級前儲存複本。 然後，將您的變更合併至新版本中。
 
+## <a name="video"></a>影片
+
+* 關於外部逐步影片[使用從零開始的.NET 應用程式設定 Application Insights](https://www.youtube.com/watch?v=blnGAVgMAfA)。
+
 ## <a name="next-steps"></a>後續步驟
 
 如果您對下列內容感興趣，請查看其他主題︰
 
 * [在執行階段檢測 Web 應用程式](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [Azure 雲端服務](../../azure-monitor/app/cloudservices.md)
-
-## <a name="video"></a>影片
-
-* 關於外部逐步影片[使用從零開始的.NET 應用程式設定 Application Insights](https://www.youtube.com/watch?v=blnGAVgMAfA)。
 
 ### <a name="more-telemetry"></a>更多遙測
 

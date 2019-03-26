@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 03/20/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 92bd57822226e683f17582bb1534b84961f61032
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 7921454cc9269278db58fcc50bc63ca49b41b1e0
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187159"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417928"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的自訂原則
 
@@ -29,10 +29,10 @@ ms.locfileid: "55187159"
 |-|-------------------|-----------------|
 | 目標使用者 | 所有具備或不具備身分識別專業知識的應用程式開發人員。 | 身分識別專業人員、系統整合人員、顧問和內部身分識別小組。 他們熟悉 OpenIDConnect 流程，也了解身分識別提供者和宣告型驗證。 |
 | 設定方法 | 有使用者介面 (UI) 方便使用的 Azure 入口網站。 | 直接編輯 XML 檔案，然後上傳至 Azure 入口網站。 |
-| UI 自訂 | 完整的 UI 自訂，包括 HTML 和 CSS。<br><br>使用自訂字串支援多語言。 | 相同 |
+| UI 自訂 | 完整的 UI 自訂，包括 HTML、 CSS 和 JavaScript。<br><br>使用自訂字串支援多語言。 | 相同 |
 | 屬性自訂 | 標準和自訂屬性。 | 相同 |
 | 權杖和工作階段管理 | 自訂權杖和多個工作階段選項。 | 相同 |
-| 識別提供者 | 預先定義的本機或社交提供者。 | 標準式 OIDC、OAUTH 和 SAML。 |
+| 識別提供者 | 預先定義的本機或社交提供者，大部分的 OIDC 身分識別提供者，例如與 Azure Active Directory 租用戶的同盟。 | 標準式 OIDC、OAUTH 和 SAML。  使用 REST Api 的整合，也可以驗證。 |
 | 身分識別工作 | 使用本機或許多社交帳戶來註冊或登入。<br><br>自助式密碼重設。<br><br>設定檔編輯。<br><br>Multi-Factor Authentication。<br><br>自訂權杖和工作階段。<br><br>存取權杖流程。 | 使用自訂識別提供者完成與使用者流程相同的工作，或使用自訂範圍。<br><br>註冊時將使用者帳戶佈建在另一個系統中。<br><br>使用您自己的電子郵件服務提供者傳送歡迎電子郵件。<br><br>使用 Azure AD B2C 外部的使用者存放區。<br><br>使用 API 向受信任的系統驗證使用者所提供的資訊。 |
 
 ## <a name="policy-files"></a>原則檔

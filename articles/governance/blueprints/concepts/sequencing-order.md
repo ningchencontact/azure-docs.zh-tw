@@ -1,24 +1,24 @@
 ---
 title: 了解部署順序
-description: 了解藍圖經過的生命週期與每個階段的詳細資料。
+description: 了解藍圖定義將會經歷的生命週期和每個階段的詳細資料。
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 11/12/2018
+ms.date: 03/25/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: b3adec799da582dc30ecd716a530ca6032f5c2e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8451b858717e1a3e66214f66db624ee41f6da375
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57990574"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58434801"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>了解 Azure 藍圖中的部署順序
 
-Azure 藍圖會在處理藍圖指派時使用**排序順序**來判斷資源的建立順序。 本文說明下列概念：
+Azure 藍圖會使用**排序順序**處理指派藍圖定義時，決定資源的建立順序。 本文說明下列概念：
 
 - 使用的預設排序順序
 - 如何自訂順序
@@ -30,7 +30,7 @@ Azure 藍圖會在處理藍圖指派時使用**排序順序**來判斷資源的�
 
 ## <a name="default-sequencing-order"></a>預設排序順序
 
-若藍圖沒有包含用於部署成品的順序指示詞，或是指示詞為 Null，則會使用下列順序：
+如果藍圖定義包含才能部署成品沒有指示詞，或指示詞為 null，則會使用下列順序：
 
 - 訂用帳戶層級**角色指派**成品，依成品名稱排序
 - 訂用帳戶層級**原則指派**成品，依成品名稱排序
@@ -45,16 +45,14 @@ Azure 藍圖會在處理藍圖指派時使用**排序順序**來判斷資源的�
 
 ## <a name="customizing-the-sequencing-order"></a>自訂排序順序
 
-撰寫大型藍圖時，可能需要依照特定順序建立資源。 此案例最常見的使用模式便是藍圖包含數個 Azure Resource Manager 範本時。 藍圖會藉由允許定義排序順序來處理此模式。
+當您在撰寫大型藍圖定義，可能必須在以特定順序中建立的資源。 此案例的最常見的使用模式時，藍圖定義包含數個 Azure Resource Manager 範本。 藍圖會藉由允許定義排序順序來處理此模式。
 
-排序可透過在 JSON 中定義 `dependsOn` 屬性來完成。 只有藍圖 (適用於資源群組) 及成品物件支援此屬性。 `dependsOn` 為成品名稱字串陣列，代表在其建立前必須建立的特定成品。
+排序可透過在 JSON 中定義 `dependsOn` 屬性來完成。 藍圖定義中，資源群組和成品物件支援此屬性。 `dependsOn` 為成品名稱字串陣列，代表在其建立前必須建立的特定成品。
 
-> [!NOTE]
-> **資源群組**成品支援 `dependsOn` 屬性，但不能是任何成品類型的 `dependsOn` 目標。
+### <a name="example---ordered-resource-group"></a>範例-排序資源群組
 
-### <a name="example---blueprint-with-ordered-resource-group"></a>範例 - 使用已排序資源群組
-
-此範例藍圖具備透過宣告 `dependsOn` 值來定義自訂排序順序的資源群組，以及一個標準資源群組。 在此範例中，名為 **assignPolicyTags** 的成品會在 **ordered-rg** 資源群組之前進行處理。 **standard-rg** 會根據預設排序順序進行處理。
+此範例藍圖定義有資源群組宣告的值定義自訂的排序順序`dependsOn`，以及標準的資源群組。 在此範例中，名為 **assignPolicyTags** 的成品會在 **ordered-rg** 資源群組之前進行處理。
+**standard-rg** 會根據預設排序順序進行處理。
 
 ```json
 {
@@ -101,6 +99,42 @@ Azure 藍圖會在處理藍圖指派時使用**排序順序**來判斷資源的�
     "id": "/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/mySequencedBlueprint/artifacts/assignPolicyTags",
     "type": "Microsoft.Blueprint/artifacts",
     "name": "assignPolicyTags"
+}
+```
+
+### <a name="example---subscription-level-template-artifact-depending-on-a-resource-group"></a>範例-根據資源群組的訂用帳戶層級範本成品
+
+這個範例是在訂用帳戶層級取決於資源群組部署的 Resource Manager 範本。 在預設排序，會在任何資源群組和資源群組中的子成品之前建立的訂用帳戶層級成品。 像這樣的 blueprint （藍圖） 定義中定義的資源群組：
+
+```json
+"resourceGroups": {
+    "wait-for-me": {
+        "metadata": {
+            "description": "Resource Group that is deployed prior to the subscription level template artifact"
+        }
+    }
+}
+```
+
+取決於訂用帳戶層級範本成品**等候-對-我**資源群組定義如下：
+
+```json
+{
+    "properties": {
+        "template": {
+            ...
+        },
+        "parameters": {
+            ...
+        },
+        "dependsOn": ["wait-for-me"],
+        "displayName": "SubLevelTemplate",
+        "description": ""
+    },
+    "kind": "template",
+    "id": "/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/mySequencedBlueprint/artifacts/subtemplateWaitForRG",
+    "type": "Microsoft.Blueprint/blueprints/artifacts",
+    "name": "subtemplateWaitForRG"
 }
 ```
 

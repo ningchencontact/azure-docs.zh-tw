@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/21/2019
 ms.author: wesmc
-ms.openlocfilehash: 941455e39a32405097563b043046866aeb5c7964
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 0c6189dfd02a4bdd3662f4fa50dbb812fe995884
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351927"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438460"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>將 IoT DevKit AZ3166 連線至 Azure IoT 中樞
 
@@ -24,7 +24,9 @@ ms.locfileid: "58351927"
 
 ## <a name="what-you-do"></a>您要做什麼
 
-將 DevKit 連線到您建立的 Azure IoT 中樞。 然後收集來自感應器的溫度與溼度，並傳送資料至 IoT 中樞。
+在本文中，您將使用[Visual Studio Code](https://code.visualstudio.com/)，跨平台來源程式碼編輯器，連同[Azure IoT 工具](https://aka.ms/azure-iot-tools)延伸模組套件。
+
+您會將 DevKit 連接到您所建立的 Azure IoT 中樞。 然後收集來自感應器的溫度與溼度，並傳送資料至 IoT 中樞。
 
 還沒有 DevKit 嗎？ 請試用 [DevKit 模擬器](https://azure-samples.github.io/iot-devkit-web-simulator/)或[購買 DevKit](https://aka.ms/iot-devkit-purchase)。
 
@@ -119,7 +121,9 @@ IoT 專案依賴網際網路連線。 請使用下列指示設定 DevKit，使�
 
 ### <a name="install-azure-iot-tools"></a>安裝 Azure IoT Tools
 
-建議使用適用於 Visual Studio Code 的 [Azure IoT Tools](https://aka.ms/azure-iot-tools) 延伸模組套件在 DevKit 上進行開發。 Azure IoT Tools 包含 [Azure IoT Device Workbench](https://aka.ms/iot-workbench) 和 [Azure IoT Hub Toolkit](https://aka.ms/iot-toolkit)，前者可讓您在各種 IoT devkit 裝置上進行開發和偵錯，後者可讓您管理 Azure IoT 中樞並與其互動。
+在本節中，您會安裝[Arduino IDE](https://www.arduino.cc/en/Main/Software)連同[Visual Studio Code](https://code.visualstudio.com/)，跨平台來源的程式碼編輯器。
+
+您也會安裝[Azure IoT 工具](https://aka.ms/azure-iot-tools)適用於 Visual Studio Code 的延伸模組套件。 我們建議您使用[Azure IoT 工具](https://aka.ms/azure-iot-tools)開發 DevKit 上的應用程式的 Visual Studio Code 的延伸模組組件。 Azure IoT 工具延伸模組組件包含[Azure IoT 裝置 Workbench](https://aka.ms/iot-workbench)用來開發及偵錯各種 IoT devkit 裝置上。 [Azure IoT 中樞 Toolkit](https://aka.ms/iot-toolkit)也隨附的 Azure IoT 工具延伸模組組件，用來管理，以及與 Azure IoT 中樞互動。
 
 您可以觀看下列 [Channel 9 影片](https://channel9.msdn.com/)，大致了解其功用：
 * [Introduction to the new IoT Workbench extension for VS Code](https://channel9.msdn.com/Shows/Internet-of-Things-Show/IoT-Workbench-extension-for-VS-Code) (適用於 VS Code 的新 IoT Workbench 延伸模組簡介)

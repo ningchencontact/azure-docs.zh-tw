@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: ce691ec0622749f1cb7252e237dae25b2657d115
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a98ec18f2ed38b290d04c3fdc36d9a6ff80a675a
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010520"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407346"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
 
@@ -170,7 +170,6 @@ ms.locfileid: "58010520"
   - 下載多個檔案或包含記錄檔的子資料夾後，可以在本機合併這些檔案，如先前所述的 SSMS 合併稽核檔案指示中所述。
   - 以程式設計方式檢視 Blob 稽核記錄：
 
-    - 使用[擴充事件讀取器](https://blogs.msdn.microsoft.com/extended_events/20../../introducing-the-extended-events-reader/) C# 程式庫。
     - 使用 PowerShell [查詢擴充事件檔案](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/)。
 
 ## <a id="subheading-5"></a>實際作法
@@ -258,8 +257,11 @@ ms.locfileid: "58010520"
 您可以使用 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 範本來管 Azure SQL 資料庫，如下列範例所示：
 
 - [部署啟用稽核的 Azure SQL Server 以將稽核記錄寫入至 Azure Blob 儲存體帳戶](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage) \(英文\)
-- [部署 Azure SQL Server 以啟用稽核來稽核記錄寫入 Azure 監視器的記錄](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
+- [部署啟用稽核的 Azure SQL Server 以將稽核記錄寫入 Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
 - [部署啟用稽核的 Azure SQL Server 以將稽核記錄寫入事件中樞](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+
+> [!NOTE]
+> 連結的範例位於外部公用儲存機制，而提供 ' 為 '，不提供擔保，並不受任何 Microsoft 支援的程式/服務。
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

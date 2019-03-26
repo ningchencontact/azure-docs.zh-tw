@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: edc38296374538fd708a74f575d5b0c77770c005
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: da9b82b1e17a62aa9b3d606b0b16295acf04eb85
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901537"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418749"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Azure 自動化中的原始檔控制整合 - 舊版
 
@@ -65,17 +65,17 @@ ms.locfileid: "57901537"
      
      | **參數** | **值** |
      |:--- |:--- |
-     | 名稱 |Microsoft.Azure.Automation.SourceControl.Connection |
-     | 類型 |字串 |
-     | 值 |{"Branch":\<您的分支名稱>,"RunbookFolderPath":\<Runbook 資料夾路徑>,"ProviderType":\<GitHub 的值為 1>,"Repository":\<您的儲存機制名稱>,"Username":\<您的 GitHub 使用者名稱>} |
+     | `Name`  |Microsoft.Azure.Automation.SourceControl.Connection |
+     | `Type`  |字串 |
+     | `Value` |{"Branch":\<您的分支名稱>,"RunbookFolderPath":\<Runbook 資料夾路徑>,"ProviderType":\<GitHub 的值為 1>,"Repository":\<您的儲存機制名稱>,"Username":\<您的 GitHub 使用者名稱>} |
 
      * **Microsoft.Azure.Automation.SourceControl.OauthToken**變數包含 OAuthToken 的安全加密值。  
 
      |**參數**            |**值** |
      |:---|:---|
-     | 名稱  | Microsoft.Azure.Automation.SourceControl.OauthToken |
-     | 類型 | Unknown(Encrypted) |
-     | 值 | <*已加密的 OAuthToken*> |  
+     | `Name`  | Microsoft.Azure.Automation.SourceControl.OauthToken |
+     | `Type`  | Unknown(Encrypted) |
+     | `Value` | <*已加密的 OAuthToken*> |  
 
      ![變數](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
 

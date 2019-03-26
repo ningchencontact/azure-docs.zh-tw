@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: 7c391e84f335e013ce1914063ccec75ba20f8685
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: db8fd40b9c573d04d9442c64fb058902a771eca0
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980086"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418868"
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>處理 Windows 虛擬機器預定進行的維修作業通知
 
@@ -88,14 +88,15 @@ Get-AzVM -ResourceGroupName rgName -Name vmName -Status
 ```
 
 下列是 MaintenanceRedeployStatus 下傳回的內容： 
-| 值 | 說明   |
+
+| 值 | 描述   |
 |-------|---------------|
-| IsCustomerInitiatedMaintenanceAllowed | 指出您目前是否可以在 VM 上開始維修 ||
-| PreMaintenanceWindowStartTime         | 維修自助期間的開始，此時您可以在 VM 上起始維修 ||
-| PreMaintenanceWindowEndTime           | 維修自助期間的結束，此時您可以在 VM 上起始維修 ||
-| MaintenanceWindowStartTime            | 排定維護開始，此時 Azure 會在您的虛擬機器上起始維護 ||
-| MaintenanceWindowEndTime              | 排定維護期間結束，此時 Azure 會在您的虛擬機器上停止維護 ||
-| LastOperationResultCode               | 前次嘗試在 VM 上起始維修的結果 ||
+| IsCustomerInitiatedMaintenanceAllowed | 指出您目前是否可以在 VM 上開始維修 |
+| PreMaintenanceWindowStartTime         | 維修自助期間的開始，此時您可以在 VM 上起始維修 |
+| PreMaintenanceWindowEndTime           | 維修自助期間的結束，此時您可以在 VM 上起始維修 |
+| MaintenanceWindowStartTime            | 排定維護開始，此時 Azure 會在您的虛擬機器上起始維護 |
+| MaintenanceWindowEndTime              | 排定維護期間結束，此時 Azure 會在您的虛擬機器上停止維護 |
+| LastOperationResultCode               | 前次嘗試在 VM 上起始維修的結果 |
 
 
 

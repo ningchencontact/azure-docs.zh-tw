@@ -12,12 +12,12 @@ ms.date: 01/08/2019
 ms.author: celested
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dfef0e27dd3e38e5a965f47a47619671a3127b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eefde6173156ea86f210ecc196c848fd97aaa0c8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117654"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435776"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>在 Azure Active Directory 中設定非資源庫應用程式的單一登入
 
@@ -124,7 +124,7 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
 
 ### <a name="set-up-target-application"></a>設定目標應用程式
 
-若要為應用程式設定單一登入，請找出應用程式的說明文件。 將 SAML 型單一登入組態頁面捲動至結尾處，然後按一下 [設定 ]<application name>，即可找到需要的文件。 
+若要為應用程式設定單一登入，請找出應用程式的說明文件。 若要尋找的文件，請捲動到 [SAML 型登入組態] 頁面中，結尾，然後按一下**設定\<應用程式名稱 >**。 
 
 必要的值會根據應用程式而有所不同。 如需詳細資訊，請參閱應用程式的 SAML 文件。 登入和登出服務 URL 都會解析至相同的端點，該端點即是 Azure AD 執行個體的 SAML 要求處理端點。 SAML 實體 ID 值在核發給應用程式的 SAML 權杖中會顯示為簽發者。
 

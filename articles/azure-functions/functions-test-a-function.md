@@ -9,14 +9,14 @@ keywords: azure functions, 函數, 事件處理, webhook, 動態計算, 無伺�
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 030/25/2019
 ms.author: cshoe
-ms.openlocfilehash: d3da5cc9e0eff27fde6bcd503c033db12f49371e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4b3cba7e7656ea13a6e7b36be4cb2fef99893867
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767697"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439323"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>在 Azure Functions 中測試程式碼的策略
 
@@ -44,7 +44,7 @@ ms.locfileid: "57767697"
 2. [從範本建立 HTTP 函式](./functions-create-first-azure-function.md)，並將它命名為 *HttpTrigger*。
 3. [從範本建立計時器函式](./functions-create-scheduled-function.md)，並將它命名為 *TimerTrigger*。
 4. 在 Visual Studio 中按一下 [檔案] > [新增] > [專案] > [Visual C#] > [.NET Core] > [xUnit 測試專案] 來[建立 xUnit 測試應用程式](https://xunit.github.io/docs/getting-started-dotnet-core)，並將它命名為 *Functions.Test*。 
-5. 使用 Nuget，從測試應用程式將參考新增至 [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/) 和 [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
+5. 使用 Nuget 將參考加入測試應用程式從[Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
 6. 從 *Functions.Test* 應用程式[參考 *Functions* 應用程式](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017)。
 
 ### <a name="create-test-classes"></a>建立測試類別
@@ -55,11 +55,28 @@ ms.locfileid: "57767697"
 
 `ListLogger` 是用來實作 `ILogger` 介面且會保留內部訊息清單，以供測試期間評估使用。
 
-**以滑鼠右鍵按一下** *Functions.Test* 應用程式，並選取 [新增] > [類別]，將它命名為 **ListLogger.cs**，然後輸入下列程式碼：
+**以滑鼠右鍵按一下**上*Functions.Test*應用程式，然後選取**新增 > 類別**，其命名為**NullScope.cs**並輸入下列程式碼：
+
+```csharp
+using System;
+
+namespace Functions.Tests
+{
+    public class NullScope : IDisposable
+    {
+        public static NullScope Instance { get; } = new NullScope();
+
+        private NullScope() { }
+
+        public void Dispose() { }
+    }
+}
+```
+
+下一步**上按一下滑鼠右鍵**上*Functions.Test*應用程式，然後選取**新增 > 類別**，其命名為**ListLogger.cs**輸入下列程式碼：
 
 ```csharp
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions.Internal;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -94,7 +111,7 @@ namespace Functions.Tests
 
 `ListLogger` 類別實作下列成員，如 `ILogger` 介面所縮減：
 
-- **BeginScope**：設定新增內容至記錄的範圍。 在此案例中，測試只會指向 [NullScope](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.abstractions.internal.nullscope) 類別上的靜態執行個體，以讓測試運作。
+- **BeginScope**：設定新增內容至記錄的範圍。 在此情況下，測試就會指向靜態執行個體上`NullScope`類別，以允許測試函式。
 
 - **IsEnabled**：提供的預設值為 `false`。
 

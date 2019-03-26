@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 7d44f7f5d97e558121c5611bc34282989b12f535
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8e3f34210627fbb455a1eca0b415cdd6de9b3681
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761237"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407618"
 ---
 # <a name="use-an-external-azure-cache-for-redis-in-azure-api-management"></a>在 Azure API 管理中使用外部 Azure Redis 快取
 
@@ -66,7 +66,7 @@ ms.locfileid: "57761237"
 ![在 APIM 中使用自備的快取](media/api-management-howto-cache-external/add-external-cache.png)
 
 > [!NOTE]
-> [使用來源] 設定可在 API 管理的多區域組態情況下，指定哪個 API 管理區域部署會與所設定的快取進行通訊。 指定為 [預設] 的快取會由具有區域值的快取所覆寫。
+> **使用從**設定可指定地區的部署會進行通訊的 API 管理與設定的快取，如果多區域 API 管理的組態。 指定為 [預設] 的快取會由具有區域值的快取所覆寫。
 >
 > 例如，如果 API 管理裝載於美國東部、東南亞和西歐區域，而而且已設定兩個快取，一個用於 [預設]，另一個用於 [東南亞]，則 [東南亞] 的 API 管理會使用自己的快取，而其他兩個區域則會使用 [預設] 快取項目。
 
@@ -76,7 +76,7 @@ ms.locfileid: "57761237"
 2. 從左側功能表中選取 [外部快取] 索引標籤。
 3. 按一下 [+新增] 按鈕。
 4. 在 [快取執行個體] 下拉式欄位中選取您的快取。
-5. 選取 [預設]，或在 [使用來源] 下拉式欄位中指定所需的區域。
+5. 選取 **預設**，或指定所需的區域中**使用從**下拉式清單中的欄位。
 6. 按一下 [檔案] 。
 
 ### <a name="add-an-azure-cache-for-redis-hosted-outside-of-the-current-azure-subscription-or-azure-in-general"></a>新增裝載於目前 Azure 訂用帳戶或整體 Azure 外的 Azure Redis 快取
@@ -85,7 +85,7 @@ ms.locfileid: "57761237"
 2. 從左側功能表中選取 [外部快取] 索引標籤。
 3. 按一下 [+新增] 按鈕。
 4. 在 [快取執行個體] 下拉式欄位中選取 [自訂]。
-5. 選取 [預設]，或在 [使用來源] 下拉式欄位中指定所需的區域。
+5. 選取 **預設**，或指定所需的區域中**使用從**下拉式清單中的欄位。
 6. 在 [連接字串] 欄位中提供您的「Azure Redis 快取」連接字串。
 7. 按一下 [檔案] 。
 

@@ -1,5 +1,5 @@
 ---
-title: 簡單的查詢範例 - Azure 搜尋服務
+title: 使用 「 簡單 」 的搜尋語法-Azure 搜尋服務的查詢範例
 description: 全文檢索搜尋、篩選搜尋、地理搜尋、多面向搜尋，和其他用來查詢 Azure 搜尋服務索引的查詢字串適用的簡單查詢範例。
 author: HeidiSteen
 manager: cgronlun
@@ -7,17 +7,17 @@ tags: Simple query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/09/2018
+ms.date: 03/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: a975c95af75e9f3e09e5d0142716795ab4b90e28
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9b7147971bd320a11606a93ab4d988e924cf93b2
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136473"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439105"
 ---
-# <a name="simple-syntax-query-examples-for-building-queries-in-azure-search"></a>在 Azure 搜尋服務中建置查詢的簡單語法查詢範例
+# <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>使用 Azure 搜尋服務中的 「 簡單 」 的搜尋語法的查詢範例
 
 [簡單查詢語法](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)會叫用預設查詢剖析器，以對 Azure 搜尋服務索引執行全文檢索搜尋查詢。 簡單查詢分析器速度快，可處理 Azure 搜尋服務中的常見案例，包括全文檢索搜尋、篩選搜尋、多面向搜尋和地理搜尋。 本文中的範例示範在使用簡單語法時可用的查詢作業，請逐步執行這些範例。
 
@@ -55,7 +55,9 @@ URL 組合具有下列元素：
 
 ## <a name="send-your-first-query"></a>傳送第一個查詢
 
-在驗證步驟中，將下列要求貼到 GET 中，然後按一下 [傳送]。 結果會以詳細 JSON 文件的形式傳回。 您可以將此 URL 複製並貼到下方的第一個範例中。
+在驗證步驟中，將下列要求貼到 GET 中，然後按一下 [傳送]。 結果會以詳細 JSON 文件的形式傳回。 會傳回整個文件，可讓您查看所有欄位和所有的值。
+
+將此 URL 貼入 REST 用戶端上，做為驗證步驟，以及檢視文件結構。
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=*
@@ -74,6 +76,20 @@ URL 組合具有下列元素：
 第一個範例不是剖析器專屬的，但我們會介紹第一個基本查詢概念：內含項目。 此範例會將查詢執行和回應範圍限定為少數特定欄位。 當您的工具是 Postman 或搜尋總管時，了解如何建構可讀取的 JSON 回應很重要。 
 
 為求簡潔，查詢僅以 *business_title* 欄位為目標，且指定僅傳回公司職稱。 語法為 **searchFields** 可將執行查詢限制為只有 business_title 欄位，而 **select** 可指定要包含在回應中的欄位。
+
+### <a name="partial-query-string"></a>部分查詢字串
+
+```http
+searchFields=business_title&$select=business_title&search=*
+```
+
+以下是使用逗號分隔的清單中的多個欄位相同的查詢。
+
+```http
+search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
+```
+
+### <a name="full-url"></a>完整的 URL
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&search=*

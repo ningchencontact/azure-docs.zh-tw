@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 7c38de9c1dbb5e8a286fa1b72d0461dd74ed6f25
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4e1ea3d822c8b032617b7f202f1c176aeb966210
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770522"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436773"
 ---
 # <a name="azure-service-bus-to-azure-event-grid-integration-examples"></a>Azure 服務匯流排與 Azure Event Grid 的整合範例
 
@@ -27,7 +27,7 @@ ms.locfileid: "57770522"
  
 * 建立簡單測試 Azure 函式，以便偵錯及檢視來自 Event Grid 的初始事件流程。 不論您是否執行其他步驟，都要執行此步驟。
 * 建立 Azure 函式來接收和處理 Azure 服務匯流排訊息 (以 Event Grid 事件為基礎)。
-* 利用 Azure App Service 的 Logic Apps 功能。
+* 利用 Azure App service 的 Logic Apps 功能。
 
 您建立的範例假設服務匯流排主題有兩個訂用帳戶。 此範例還假設所建立的 Event Grid 訂用帳戶只會針對一個服務匯流排訂用帳戶傳送事件。 
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 3676a1e4bf69f7d31bb347f99787c4e2f08721a9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 287a4104104c12e33fa2c50c398f422f9e6ea8c5
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107588"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418698"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>針對組態伺服器問題進行疑難排解
 
@@ -48,11 +48,10 @@ ms.locfileid: "58107588"
     3. 請確認[自防毒程式排除的 Site Recovery 資料夾](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program)中所列的資料夾已自防毒軟體排除。  
     4. 在您解決問題後，請依照[向設定伺服器註冊來源電腦](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server)中的指導方針重試註冊。
 
-7. 在 Linux 上，如果 <INSTALLATION_DIR\>/etc/drscout.conf 中的平台值損毀，則註冊會失敗。 若要識別此問題，請開啟 /var/log/ua_install.log 檔案。 搜尋字串 **Aborting configuration as VM_PLATFORM value is either null or it is not VmWare/Azure**。 平台應設為 **VmWare** 或 **Azure**。 如果 drscout.conf 檔案已損毀，建議您[解除安裝行動代理程式](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service)，然後重新安裝行動代理程式。 如果解除安裝失敗，請完成下列步驟：
-    1. 開啟 Installation_Directory/uninstall.sh 檔案，並為 **StopServices** 函式的呼叫加上註解。
-    2. 開啟 Installation_Directory/Vx/bin/uninstall.sh 檔案，並為 **stop_services** 函式的呼叫加上註解。
-    3. 開啟 Installation_Directory/Fx/uninstall.sh 檔案，並將嘗試停止 Fx 服務的整個區段加上註解。
-    4. [解除安裝](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service)行動代理程式。 成功解除安裝之後，請將系統重新開機，然後嘗試重新安裝代理程式。
+7. 在 Linux 上，如果 <INSTALLATION_DIR\>/etc/drscout.conf 中的平台值損毀，則註冊會失敗。 若要識別此問題，請開啟 /var/log/ua_install.log 檔案。 搜尋字串 **Aborting configuration as VM_PLATFORM value is either null or it is not VmWare/Azure**。 平台應設為 **VmWare** 或 **Azure**。 如果 drscout.conf 檔案已損毀，建議您[解除安裝行動代理程式](vmware-physical-manage-mobility-service.md#uninstall-mobility-service)，然後重新安裝行動代理程式。 如果解除安裝失敗，請完成下列步驟：。 開啟 Installation_Directory/uninstall.sh 檔案，並為 **StopServices** 函式的呼叫加上註解。
+    b. 開啟 Installation_Directory/Vx/bin/uninstall.sh 檔案，並為 **stop_services** 函式的呼叫加上註解。
+    c. 開啟 Installation_Directory/Fx/uninstall.sh 檔案，並將嘗試停止 Fx 服務的整個區段加上註解。
+    d. [解除安裝](vmware-physical-manage-mobility-service.md#uninstall-mobility-service)行動代理程式。 成功解除安裝之後，請將系統重新開機，然後嘗試重新安裝代理程式。
 
 ## <a name="installation-failure-failed-to-load-accounts"></a>安裝失敗：無法載入帳戶
 
@@ -80,9 +79,9 @@ ms.locfileid: "58107588"
 
 無法建立驗證 Site Recovery 所需的憑證。 請先確定您是以本機系統管理員身分執行安裝程式，再重新執行安裝程式。
 
-## <a name="failure-to-activate-windows-licence-from-server-standard-evaluation-to-server-standard"></a>無法啟用從 Server Standard 評估版到 Server Standard 的 Windows 授權
+## <a name="failure-to-activate-windows-license-from-server-standard-evaluation-to-server-standard"></a>若要啟用伺服器標準的 Windows 授權伺服器標準的評估失敗
 
-1. 透過 OVF 組態伺服器部署的一部分，會使用 evaluation 授權，其有效期限為 180 天。 您必須在此授權過期前啟用此授權。 否則，這會導致組態伺服器頻繁關機，因而阻礙複寫活動。
+1. 透過 OVF 組態伺服器部署的一部分，會使用 evaluation 授權，其有效期限為 180 天。 您必須在此授權過期前啟用此授權。 否則，這可以導致頻繁的關機，組態伺服器，並因此會導致複寫活動的障礙。
 2. 如果您無法啟用 Windows 的授權，請連絡 [Windows 支援小組](https://aka.ms/Windows_Support)來解決此問題。
 
 ## <a name="register-source-machine-with-configuration-server"></a>向設定伺服器註冊來源電腦
@@ -146,7 +145,7 @@ ms.locfileid: "58107588"
    
     `Syntax: Unregister-ASRComponent.pl -IPAddress <IP_ADDRESS_OF_MACHINE_TO_UNREGISTER> -Component <Source/ PS / MT>`
  
-    如果您有 IP 位址為 10.0.0.4 的來源伺服器項目 "OnPrem-VM01"，則改用下列命令。
+    如果您的 ip 位址為 10.0.0.4"OnPrem VM01"的來源伺服器項目則改為使用下列命令。
  
     `perl Unregister-ASRComponent.pl -IPAddress 10.0.0.4 -Component Source`
  

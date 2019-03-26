@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 82483d8d84349a929ef4892d5e9571ea65b9a88a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 081adc9421a97f7cafcf7fba946ce0b901a00a0c
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104833"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439425"
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C：使用 OAuth 2.0 隱含流程的單一頁面應用程式登入
 
@@ -27,7 +27,7 @@ ms.locfileid: "56104833"
 
 為了支援這些應用程式，Azure Active Directory B2C (Azure AD B2C) 使用 OAuth 2.0 隱含流程。 如需 OAuth 2.0 授權隱含授權流程的說明，請參閱 [OAuth 2.0 規格的 4.2 節](https://tools.ietf.org/html/rfc6749) 。 在隱含流程中，應用程式會直接從 Azure Active Directory (Azure AD) 授權端點接收權杖，而不需執行任何伺服器對伺服器交換。 所有驗證邏輯和工作階段處理完全都在 JavaScript 用戶端中進行，而不需執行其他的頁面重新導向。
 
-Azure AD B2C 會擴充標準的 OAuth 2.0 隱含流程，功能更強大，而不僅止於簡單的驗證與授權。 Azure AD B2C 導入了[原則參數](active-directory-b2c-reference-policies.md)。 利用原則參數，您可以使用 OAuth 2.0 來為應用程式新增原則，例如註冊、登入和設定檔管理使用者流程。 在本文中，我們會說明如何使用隱含流程與 Azure AD，在您的單一頁面應用程式中實作這些體驗。 為了協助您快速入門，請查看我們的 [Node.js](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) \(英文\) 或 [Microsoft .NET](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) \(英文\) 範例。
+Azure AD B2C 會擴充標準的 OAuth 2.0 隱含流程，功能更強大，而不僅止於簡單的驗證與授權。 Azure AD B2C 導入了[原則參數](active-directory-b2c-reference-policies.md)。 利用原則參數，您可以使用 OAuth 2.0 來為應用程式新增原則，例如註冊、登入和設定檔管理使用者流程。 在本文中，我們會說明如何使用隱含流程與 Azure AD，在您的單一頁面應用程式中實作這些體驗。
 
 在本文的範例 HTTP 要求中，我們會使用範例 Azure AD B2C 目錄 **fabrikamb2c.onmicrosoft.com**。 此外，也會使用我們自己的範例應用程式和使用者流程。 您可以使用這些值來自行試驗要求，也可以將它們換成您自己的值。
 了解如何[取得您自己的 Azure AD B2C 目錄、應用程式和使用者流程](#use-your-own-azure-ad-b2c-tenant)。
@@ -83,16 +83,16 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_edit_profile
 ```
 
-| 參數 | 必要？ | 說明 |
+| 參數 | 必要？ | 描述 |
 | --- | --- | --- |
-| client_id |必要 |在 [Azure 入口網站](https://portal.azure.com)中指派給應用程式的應用程式識別碼。 |
-| response_type |必要 |必須包含 OpenID Connect 登入的 `id_token` 。 它也可能包含回應類型 `token`。 如果您使用 `token`，您的應用程式就能立即從授權端點接收存取權杖，而不需向授權端點進行第二次要求。  如果您使用 `token` 回應類型，`scope` 參數就必須包含範圍，以指出要對哪個資源發出權杖。 |
+| client_id |必要項 |在 [Azure 入口網站](https://portal.azure.com)中指派給應用程式的應用程式識別碼。 |
+| response_type |必要項 |必須包含 OpenID Connect 登入的 `id_token` 。 它也可能包含回應類型 `token`。 如果您使用 `token`，您的應用程式就能立即從授權端點接收存取權杖，而不需向授權端點進行第二次要求。  如果您使用 `token` 回應類型，`scope` 參數就必須包含範圍，以指出要對哪個資源發出權杖。 |
 | redirect_uri |建議 |應用程式的重新導向 URI，您的應用程式可在此傳送及接收驗證回應。 它必須與您在入口網站中註冊的其中一個重新導向 URI 完全相符，不過必須是 URL 編碼格式。 |
 | response_mode |建議 |指定用來將產生的權杖送回應用程式的方法。  針對隱含流程，請使用 `fragment`。 |
-| scope |必要 |範圍的空格分隔清單。 向 Azure AD 指出要求兩個權限的單一範圍值。 `openid` 範圍指示使用識別碼權杖形式的權限，以登入使用者及取得使用者相關資料。 (我們將在本文稍後深入討論這部分)。對於 Web 應用程式， `offline_access` 範圍是選擇性。 它指出您的應用程式需要重新整理權杖，才能長久存取資源。 |
+| scope |必要項 |範圍的空格分隔清單。 向 Azure AD 指出要求兩個權限的單一範圍值。 `openid` 範圍指示使用識別碼權杖形式的權限，以登入使用者及取得使用者相關資料。 (我們將在本文稍後深入討論這部分)。對於 Web 應用程式， `offline_access` 範圍是選擇性。 它指出您的應用程式需要重新整理權杖，才能長久存取資源。 |
 | state |建議 |包含於也會隨權杖回應傳回之要求中的值。 它可以是您想要使用之任何內容的字串。 通常會使用隨機產生的唯一值來防止跨網站偽造要求攻擊。 驗證要求出現前，也會先使用此狀態來為使用者在應用程式中的狀態相關資訊編碼，例如他們先前所在的網頁。 |
-| nonce |必要 |要求中所含的值 (由應用程式產生)，它會以宣告形式包含於產生的識別碼權杖中。 應用程式接著便可確認此值，以減少權杖重新執行攻擊。 此值通常是隨機的唯一字串，可用以識別要求的來源。 |
-| p |必要 |要執行的原則。 這是在您的 Azure AD B2C 租用戶中建立的原則 (使用者流程) 名稱。 原則名稱值的開頭應該為**b2c\_1\_**。 如需詳細資訊，請參閱 [Azure AD B2C 使用者流程](active-directory-b2c-reference-policies.md)。 |
+| nonce |必要項 |要求中所含的值 (由應用程式產生)，它會以宣告形式包含於產生的識別碼權杖中。 應用程式接著便可確認此值，以減少權杖重新執行攻擊。 此值通常是隨機的唯一字串，可用以識別要求的來源。 |
+| p |必要項 |要執行的原則。 這是在您的 Azure AD B2C 租用戶中建立的原則 (使用者流程) 名稱。 原則名稱值的開頭應該為**b2c\_1\_**。 如需詳細資訊，請參閱 [Azure AD B2C 使用者流程](active-directory-b2c-reference-policies.md)。 |
 | prompt |選用 |需要的使用者互動類型。 目前唯一支援的值為 `login`。 這會強制使用者在該要求上輸入認證。 單一登入將沒有作用。 |
 
 此時會要求使用者完成原則的工作流程。 這可能會牽涉到讓使用者輸入自己的使用者名稱及密碼、以社交身分識別登入、註冊目錄，或是其他任何數目的步驟。 使用者動作取決於使用者流程的定義方式。
@@ -112,7 +112,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &state=arbitrary_data_you_sent_earlier
 ```
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | access_token |應用程式要求的存取權杖。  存取權杖不得進行解碼或檢查。 其可被視為不透明的字串。 |
 | token_type |權杖類型值。 Azure AD 唯一支援的類型是 Bearer。 |
@@ -131,7 +131,7 @@ error=access_denied
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | 錯誤 |用於將發生之錯誤分類的錯誤碼字串。 您也可以使用錯誤碼進行錯誤處理。 |
 | error_description |可協助您識別驗證錯誤根本原因的特定錯誤訊息。 |
@@ -194,18 +194,18 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_in
 ```
 
-| 參數 | 必要？ | 說明 |
+| 參數 | 必要？ | 描述 |
 | --- | --- | --- |
-| client_id |必要 |在 [Azure 入口網站](https://portal.azure.com)中指派給應用程式的應用程式識別碼。 |
-| response_type |必要 |必須包含 OpenID Connect 登入的 `id_token` 。  它也可能包含回應類型 `token`。 如果您在這裡使用 `token`，應用程式就能立即從授權端點接收存取權杖，而不需向授權端點進行第二次要求。 如果您使用 `token` 回應類型，`scope` 參數就必須包含範圍，以指出要對哪個資源發出權杖。 |
+| client_id |必要項 |在 [Azure 入口網站](https://portal.azure.com)中指派給應用程式的應用程式識別碼。 |
+| response_type |必要項 |必須包含 OpenID Connect 登入的 `id_token` 。  它也可能包含回應類型 `token`。 如果您在這裡使用 `token`，應用程式就能立即從授權端點接收存取權杖，而不需向授權端點進行第二次要求。 如果您使用 `token` 回應類型，`scope` 參數就必須包含範圍，以指出要對哪個資源發出權杖。 |
 | redirect_uri |建議 |應用程式的重新導向 URI，您的應用程式可在此傳送及接收驗證回應。 它必須與您在入口網站中註冊的其中一個重新導向 URI 完全相符，不過必須是 URL 編碼格式。 |
-| scope |必要 |範圍的空格分隔清單。  若要取得權杖，請包含您針對所需資源要求的所有範圍。 |
+| scope |必要項 |範圍的空格分隔清單。  若要取得權杖，請包含您針對所需資源要求的所有範圍。 |
 | response_mode |建議 |指定將產生之權杖送回到應用程式要使用的方法。  可以是 `query`、`form_post` 或 `fragment`。 |
 | state |建議 |會隨權杖回應傳回之要求中所包含的值。  它可以是您想要使用之任何內容的字串。  通常會使用隨機產生的唯一值來防止跨網站偽造要求攻擊。  此狀態也用來在驗證要求出現之前，於應用程式中將使用者狀態的相關資訊編碼。 例如，使用者所在的網頁或檢視。 |
-| nonce |必要 |要求中所含的值 (由應用程式產生)，它會以宣告形式包含於產生的識別碼權杖中。  應用程式接著便可確認此值，以減少權杖重新執行攻擊。 此值通常是隨機的唯一字串，可用以識別要求的來源。 |
-| prompt |必要 |若要重新整理並取得隱藏 iframe 中的權杖，請使用 `prompt=none` 以確保 iframe 不會停滯在登入頁面上，並立即返回。 |
-| login_hint |必要 |若要重新整理並取得隱藏 iframe 中的權杖，請在此提示中包含使用者的使用者名稱，以區分使用者在特定時間點可能具有的多個工作階段。 您可以使用 `preferred_username` 宣告來擷取先前登入的使用者名稱。 |
-| domain_hint |必要 |可以是 `consumers` 或 `organizations`。  若要重新整理並取得隱藏 iframe 中的權杖，您必須在要求中包含 `domain_hint` 值。  從先前登入的識別碼權杖擷取 `tid` 宣告，以判斷要使用哪一個值。  如果 `tid` 宣告值是 `9188040d-6c67-4c5b-b112-36a304b66dad`，請使用 `domain_hint=consumers`。  否則，使用 `domain_hint=organizations`。 |
+| nonce |必要項 |要求中所含的值 (由應用程式產生)，它會以宣告形式包含於產生的識別碼權杖中。  應用程式接著便可確認此值，以減少權杖重新執行攻擊。 此值通常是隨機的唯一字串，可用以識別要求的來源。 |
+| prompt |必要項 |若要重新整理並取得隱藏 iframe 中的權杖，請使用 `prompt=none` 以確保 iframe 不會停滯在登入頁面上，並立即返回。 |
+| login_hint |必要項 |若要重新整理並取得隱藏 iframe 中的權杖，請在此提示中包含使用者的使用者名稱，以區分使用者在特定時間點可能具有的多個工作階段。 您可以使用 `preferred_username` 宣告來擷取先前登入的使用者名稱。 |
+| domain_hint |必要項 |可以是 `consumers` 或 `organizations`。  若要重新整理並取得隱藏 iframe 中的權杖，您必須在要求中包含 `domain_hint` 值。  從先前登入的識別碼權杖擷取 `tid` 宣告，以判斷要使用哪一個值。  如果 `tid` 宣告值是 `9188040d-6c67-4c5b-b112-36a304b66dad`，請使用 `domain_hint=consumers`。  否則，使用 `domain_hint=organizations`。 |
 
 一旦設定 `prompt=none` 參數，此要求就會立即成功或失敗，並返回您的應用程式。  藉由使用 `response_mode` 參數中指定的方法，以指定的重新導向 URI 將成功的回應傳送至您的應用程式。
 
@@ -221,7 +221,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &scope=https%3A%2F%2Fapi.contoso.com%2Ftasks.read
 ```
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | access_token |應用程式要求的權杖。 |
 | token_type |權杖類型一律為持有人。 |
@@ -238,7 +238,7 @@ error=user_authentication_required
 &error_description=the+request+could+not+be+completed+silently
 ```
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
 | 錯誤 |可用於將發生的錯誤分類的錯誤碼字串。 您也可以使用字串來回應錯誤。 |
 | error_description |可協助您識別驗證錯誤根本原因的特定錯誤訊息。 |
@@ -259,9 +259,9 @@ p=b2c_1_sign_in
 &post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```
 
-| 參數 | 必要？ | 說明 |
+| 參數 | 必要？ | 描述 |
 | --- | --- | --- |
-| p |必要 |用來將使用者登出應用程式的原則。 |
+| p |必要項 |用來將使用者登出應用程式的原則。 |
 | post_logout_redirect_uri |建議 |使用者在成功登出之後，應該要前往的 URL。若未包含此項，Azure AD B2C 就會向使用者顯示一般訊息。 |
 
 > [!NOTE]
@@ -275,9 +275,4 @@ p=b2c_1_sign_in
 1. [建立 Azure AD B2C 租用戶](active-directory-b2c-get-started.md)。 在要求中使用您租用戶的名稱。
 2. [建立應用程式](active-directory-b2c-app-registration.md)來取得應用程式識別碼和 `redirect_uri` 值。 在應用程式中加入 Web 應用程式或 Web API。 (選擇性) 您可以建立應用程式祕密。
 3. [建立您的使用者流程](active-directory-b2c-reference-policies.md)以取得您的使用者流程名稱。
-
-## <a name="samples"></a>範例
-
-* [使用 Node.js 建立單一頁面應用程式](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-nodejs-webapi) \(英文\)
-* [使用 .NET 建立單一頁面應用程式](https://github.com/Azure-Samples/active-directory-b2c-javascript-singlepageapp-dotnet-webapi) \(英文\)
 

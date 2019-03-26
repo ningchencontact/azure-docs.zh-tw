@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/09/2019
+ms.date: 03/24/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f2de9274e1b6c996e75148d1a1f018d73a721bb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3f6ac8a693e09d0efbac080d7effc6ce21c6a094
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443448"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418961"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 使用規定特性
 Azure AD 使用規定提供一種簡單的方法，組織可用來將資訊呈現給終端使用者。 此呈現可確保使用者看到合法或合規性需求的相關免責聲明。 本文將說明如何開始使用使用規定。
@@ -190,11 +190,15 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 
 ![使用者網頁登入](./media/active-directory-tou/user-tou.png)
 
+使用者可以檢視使用規定，如果有必要，請使用按鈕來放大和縮小。
+
+![檢視與縮放按鈕的使用規定](./media/active-directory-tou/zoom-buttons.png)
+
 下列畫面顯示行動裝置上的使用規定。
 
 ![使用者行動裝置登入](./media/active-directory-tou/mobile-tou.png)
 
-使用者只需要接受使用規定一次，後續登入時不會再看到使用規定。
+使用者只需要接受使用條款之後，它們將不會看到的使用規定再次後續的登入。
 
 ### <a name="how-users-can-review-their-terms-of-use"></a>使用者可檢閱使用規定的方式
 使用者可以使用下列程序，檢閱並查看他們已接受的使用規定。

@@ -8,19 +8,19 @@ manager: jeconnoc
 editor: ''
 tags: ''
 keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架構
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: ab050a683913e62c6671bf01397e76311a08952b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f0d4a607676285ed4f0f91d8ce8c83ddf1313b89
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006784"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437793"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>適用於 Azure Functions 的 SignalR Service 繫結
 

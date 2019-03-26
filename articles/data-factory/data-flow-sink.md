@@ -6,18 +6,18 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: a56f391aa76bd1216fd51d516adb836a2093bcba
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a39fa0949276b7e86c7fdd0d0861492a9a0b723e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371134"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438627"
 ---
 # <a name="mapping-data-flow-sink-transformation"></a>對應資料流程接收轉換
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-![接收選項](media/data-flow/windows1.png "接收 1")
+![接收選項](media/data-flow/sink1.png "接收 1")
 
 在資料流程轉換完成時，您可以將已轉換的資料接收到目的地資料集中。 在「接收」轉換中，您可以選擇您要用於目的地輸出資料的資料集定義。 您可以有資料流程所需數量的接收轉換。
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: raynew
-ms.openlocfilehash: e83698af6bb1caab1568375b726753d34a8c8467
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1cc86470b9e45469d633d47121869b3c2dc1b052
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861344"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439000"
 ---
 # <a name="delete-a-recovery-services-vault"></a>刪除復原服務保存庫
 
@@ -31,7 +31,7 @@ ms.locfileid: "57861344"
 - 如果您不想要保留在復原服務保存庫中的任何資料，而且想要刪除保存庫，您可以刪除強制的保存庫。
 - 如果您嘗試刪除保存庫，但是無法刪除，則保存庫仍會設定為接收備份資料。
 
-若要了解如何刪除保存庫，請參閱[從 Azure 入口網站刪除保存庫](backup-azure-delete-vault.md#delete-a-vault-from-azure-portal)一節。 如果區段中，[刪除保存庫強制](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force)。 如果您不確定保存庫中有什麼，但必須確認您可以刪除保存庫，請參閱[移除保存庫相依性並刪除保存庫](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault)。
+若要了解如何刪除保存庫，請參閱[從 Azure 入口網站刪除保存庫](#delete-a-vault-from-the-azure-portal)一節。 如果區段中，[刪除保存庫強制](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force)。 如果您不確定保存庫中有什麼，但必須確認您可以刪除保存庫，請參閱[移除保存庫相依性並刪除保存庫](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault)。
 
 ## <a name="delete-a-vault-from-the-azure-portal"></a>從 Azure 入口網站中刪除保存庫
 
@@ -90,7 +90,7 @@ ms.locfileid: "57861344"
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-9. 如果保存庫不的空的您會收到錯誤，「 如有此保存庫內的現有資源，無法刪除保存庫 」 集。 若要移除所包含的保存庫中，執行下列作業：
+9. 如果保存庫不的空的您會收到錯誤，「 如有此保存庫內的現有資源，無法刪除保存庫 」 集。 若要移除保存庫內的容器，執行下列作業：
 
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01

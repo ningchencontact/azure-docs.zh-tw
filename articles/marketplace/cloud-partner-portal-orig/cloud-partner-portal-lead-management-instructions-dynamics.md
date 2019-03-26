@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8c432146d33db992a0ae612dfc56ace9460ade17
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
-ms.translationtype: HT
+ms.openlocfilehash: a1398d172a5c578ec3c0f16627eadd1da3fd1e45
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870854"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437606"
 ---
 # <a name="configure-lead-management-for-dynamics-crm-online"></a>設定 Dynamics CRM Online 的潛在客戶管理
 
 此文章說明如何設定 Dynamics CRM Online 以處理銷售潛在客戶。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 需要有下列使用者權限才能完成此文章中的步驟：
 - 您必須是 Dynamics CRM Online 執行個體上的系統管理員，才能安裝解決方案。
@@ -63,7 +63,8 @@ ms.locfileid: "48870854"
 1.  登入 [Azure 入口網站](https://portal.azure.com/)，然後選取 [Azure Active Directory 服務]。
 
 2.  選取 [屬性]，然後複製**目錄識別碼**。這是您需要在 Cloud Partner 入口網站中使用的租用戶帳戶識別碼。
-    ![取得目錄識別碼](./media/cloud-partner-portal-lead-management-instructions-dynamics/directoryid.png)
+
+    ![取得 Directory 識別碼](./media/cloud-partner-portal-lead-management-instructions-dynamics/directoryid.png)
 
 3.  選取 [應用程式註冊]，然後選取 [新增應用程式註冊]。
 4.  輸入應用程式名稱。
@@ -77,6 +78,7 @@ ms.locfileid: "48870854"
 11. 在 [金鑰] 功能表中，選取 [複製金鑰值]。 請儲存此值的複本，因為您需要為 Cloud Partner 入口網站提供此值。
     
     ![Dynamics 取得已註冊金鑰](./media/cloud-partner-portal-lead-management-instructions-dynamics/registerkeys.png)
+    
 12. 選取 [必要權限]，然後選取 [新增]。 
 13. 選取 [Dynamics CRM Online] 作為新的 API，並檢查 [以組織使用者身分存取 CRM Online] 的權限。
 
@@ -84,24 +86,27 @@ ms.locfileid: "48870854"
     
     ![應用程式使用者](./media/cloud-partner-portal-lead-management-instructions-dynamics/applicationuserfirst.PNG)
 
-15. 選取 [新增] 以建立新的使用者。 選取 [使用者：應用程式使用者] 下拉式清單。
+15. 選取 [新增] 以建立新的使用者。 選取**使用者：應用程式使用者**下拉式清單。
     
     ![加入新的應用程式使用者](./media/cloud-partner-portal-lead-management-instructions-dynamics/applicationuser.PNG)
 
 16. 在 [新使用者] 中，提供要與此連線一起使用的名稱和電子郵件。 在 Azure 入口網站中，貼上您所建立之應用程式的**應用程式識別碼**。
+
      ![設定新的使用者](./media/cloud-partner-portal-lead-management-instructions-dynamics/leadgencreateuser.PNG)
 
 17. 移至此文章中的「安全性設定」以完成設定此使用者的連線。
 
 ### <a name="office-365"></a>Office 365
 
-如果您不想使用 Azure Active Directory，則可以在 Office 365 系統管理員入口網站上註冊新的使用者。 您需要每 90 天更新一次使用者名稱/密碼，以繼續獲得潛在客戶。
+如果您不想使用 Azure Active Directory，您可以在註冊新的使用者*Microsoft 365 系統管理中心*。 您需要每 90 天更新一次使用者名稱/密碼，以繼續獲得潛在客戶。
 
 使用下列步驟為 Dynamics CRM 設定 Office 365。
 
-1. 登入 [Microsoft Office 365 系統管理員入口網站](https://go.microsoft.com/fwlink/?LinkId=225975)。
+1. 登入[Microsoft 365 系統管理中心](https://admin.microsoft.com)。
 
-2. 選取 [系統管理員] 圖格  ![Office Online 系統管理員](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline3.png)
+2. 選取  **Admin**圖格。
+
+    ![Office Online Admin](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline3.png)
 
 3. 選取 [新增使用者]。
 
@@ -112,7 +117,8 @@ ms.locfileid: "48870854"
     -   提供密碼，然後取消核取 [讓這名使用者，第一次登入時變更密碼] 選項。
     -   選取 [使用者 (沒有系統管理員存取權)] 作為使用者的角色。
     -   選取下一個螢幕擷取畫面中所示的產品授權。 您將需要支付您所選擇的授權。 該解決方案也適用於 Dynamics CRM Online 基本授權。
-    ![設定使用者權限與授權](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline5.png)
+    
+    ![設定使用者權限和授權](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline5.png)
 
 ## <a name="security-settings"></a>安全性設定
 
@@ -124,13 +130,15 @@ ms.locfileid: "48870854"
     ![安全性設定](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline6.png)
 
 3.  在 [使用者權限] 中選取您建立的使用者，然後選取 [管理使用者角色]。 核取 [Microsoft Marketplace 潛在客戶寫入器] 以指派角色。
+
     ![指派使用者角色](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline7.png)\
 
     >[!NOTE]
     >此角色由您匯入的解決方案所建立，僅擁有寫入潛在客戶，以及追蹤解決方案版本以確保相容性的權限。
 
 4.  在 [安全性] 中，選取 [安全性角色] 並尋找 Microsoft Marketplace 潛在客戶寫入器的角色。
-    ![配置安全主管編寫器](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline10.jpg) \
+    
+    ![設定安全性的潛在客戶寫入器](./media/cloud-partner-portal-lead-management-instructions-dynamics/crmonline10.jpg)\
 
 5. 選取 [核心記錄] 索引標籤。為使用者實體 UI 啟用建立/讀取/寫入。
 
@@ -140,5 +148,5 @@ ms.locfileid: "48870854"
 
 通過將產生的帳戶資訊新增至 Cloud Partner 入口網站，完成為潛在客戶管理設定 Dynamics CRM。 例如︰
 
--   **Azure Active Directory** - **應用程式識別碼** (範例：*23456052-aaaa-bbbb-8662-1234df56788f*)、**目錄識別碼** (範例：*12345678-8af1-4asf-1234-12234d01db47*)，以及**應用程式金鑰** (範例：*1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=*)。
--   **Office 365** - **Url** (範例：*https://contoso.crm4.dynamics.com*)、**使用者名稱** (範例：*contoso\@contoso.onmicrosoft.com*)，以及**密碼** (範例：*P\@ssw0rd*)。
+-   **Azure Active Directory** - **Application-id** (範例：*23456052-aaaa-bbbb-8662-1234df56788f*)， **Directory 識別碼**(範例：*12345678-8af1-4asf-1234年-12234d01db47*)，並**應用程式金鑰**(範例：*1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=*).
+-   **Office 365** - **Url** (範例： *https://contoso.crm4.dynamics.com*)，**使用者名**(範例： *contoso\@contoso.onmicrosoft.com*)，並**密碼**(範例：*P\@ssw0rd*)。

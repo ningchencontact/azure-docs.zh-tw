@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: a9b8be58e8dfb27fbe896cf1c8d8dc0e91e3b24c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 6b79a26d63c02dd06b62ea6ad09941f947704dc0
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402842"
+ms.locfileid: "58418630"
 ---
-# <a name="identify-issues-with-the-diagnostics-feature"></a>找出問題的診斷功能
+# <a name="identify-issues-with-the-diagnostics-feature"></a>找出診斷功能的問題
 
 Windows 虛擬桌面預覽提供診斷功能，可讓管理員識別問題，透過單一介面。 每當使用者與系統互動診斷活動記錄的 Windows 虛擬桌面的角色。 每個記錄檔包含例如參與交易、 錯誤訊息、 租用戶的詳細資訊，以及使用者資訊的 Windows 虛擬桌面角色的相關資訊。 診斷活動建立的使用者和系統管理動作，並可分類成三個主要貯體：
 
@@ -32,20 +32,20 @@ Windows 虛擬桌面的診斷使用只在一個 PowerShell 指令程式，但包
 
 ### <a name="retrieve-diagnostic-activities-in-your-tenant"></a>擷取您租用戶中的診斷活動
 
-您可以擷取診斷活動的輸入**Get RdsDiagnosticsActivities** cmdlet。 下列範例 cmdlet 會傳回最舊的診斷的活動，從最大排序清單。
+您可以擷取診斷活動的輸入**Get RdsDiagnosticActivities** cmdlet。 下列範例 cmdlet 會傳回最舊的診斷的活動，從最大排序清單。
 
 ```powershell
-Get-RdsDiagnosticsActivities -TenantName <tenantName>
+Get-RdsDiagnosticActivities -TenantName <tenantName>
 ```
 
 就像其他 Windows 虛擬桌面 PowerShell cmdlet，您必須使用 **-TenantName**參數來指定您想要用來查詢租用戶的名稱。 適用於幾乎所有的診斷活動查詢租用戶名稱。
 
 ### <a name="retrieve-detailed-diagnostic-activities"></a>擷取詳細的診斷活動
 
-**-詳細**參數傳回每個診斷活動提供其他詳細資料。 每個活動的格式會根據其活動類型而有所不同。 **-詳細**參數可以加入至任何**Get RdsDiagnosticsActivities**查詢，如下列範例所示。
+**-詳細**參數傳回每個診斷活動提供其他詳細資料。 每個活動的格式會根據其活動類型而有所不同。 **-詳細**參數可以加入至任何**Get RdsDiagnosticActivities**查詢，如下列範例所示。
 
 ```powershell
-Get-RdsDiagnosticsActivities -TenantName <tenantName> -Detailed
+Get-RdsDiagnosticActivities -TenantName <tenantName> -Detailed
 ```
 
 ### <a name="retrieve-a-specific-diagnostic-activity-by-activity-id"></a>擷取特定的診斷活動的活動識別碼

@@ -11,16 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b79e9e1a274002514561ef3f96c364bf9bc27071
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ae2d18541788e769e4f1b44319aa1be200921b88
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309600"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437538"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Azure AD 密碼保護的監視和記錄
 
 部署 Azure AD 密碼保護之後，監視和報告即為必要工作。 本文將深入探討以協助您了解各種監視技術，包括每個服務要將資訊記錄於何處，以及如何報告 Azure AD 密碼保護的使用情形。
+
+事件記錄檔訊息或執行 PowerShell cmdlet 來完成監視和報告。 DC 代理程式和 proxy 服務這兩個記錄事件記錄檔訊息。 如下所述的所有 PowerShell cmdlet 都才有提供的 proxy 伺服器 （請參閱 AzureADPasswordProtection PowerShell 模組）。 DC 代理程式軟體不會安裝 PowerShell 模組。
 
 ## <a name="dc-agent-event-logging"></a>DC 代理程式事件記錄
 

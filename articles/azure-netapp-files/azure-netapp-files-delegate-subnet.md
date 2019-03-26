@@ -14,22 +14,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: b-juche
-ms.openlocfilehash: 6c1a6bf4e7042c28239f57af6b39c0822b63b5e8
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1cac267be026d0e472db9a7a321f5fff6ab3e917
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768071"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58434767"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>將子網路委派至 Azure NetApp Files 
 
 您必須將子網路委派至 Azure NetApp Files。   在建立磁碟區時，您必須指定已委派的子網路。
 
-## <a name="about-this-task"></a>關於此工作
+## <a name="considerations"></a>考量
 * 新建子網路的精靈會預設為 /24 網路遮罩，供 251 個可用的 IP 位址使用。 使用 /28 網路遮罩供 16 個可用的 IP 位址使用，對服務而言就已足夠。
-* 您無法在已委派的子網路中指定網路安全性群組或服務端點。 這樣做會導致子網路委派失敗。
 * 在每個 Azure 虛擬網路 (Vnet) 中，都只有一個子網路可委派給 Azure NetApp Files。
-* 目前不支援從對等互連的虛擬網路存取磁碟區。
+* 您無法在已委派的子網路中指定網路安全性群組或服務端點。 這樣做會導致子網路委派失敗。
+* 目前不支援全域對等互連的虛擬網路中的磁碟區的存取。
+* 建立[使用者定義的自訂路由](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes)位址的 VM 子網路上要委派給 Azure NetApp 檔案的子網路的前置詞 （目的地） 不支援選項，會影響 VM 連線。
 
 ## <a name="steps"></a>步驟 
 1.  從 Azure 入口網站移至 [虛擬網路] 刀鋒視窗，並選取要用於 Azure NetApp Files 的虛擬網路。    

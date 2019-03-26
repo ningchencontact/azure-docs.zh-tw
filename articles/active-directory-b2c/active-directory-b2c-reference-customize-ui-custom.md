@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a51c2987781184539edfcc8be9b9f483a215a157
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 88abd3d17218f1168119a66701f1474d27244acf
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122921"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438252"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>使用自訂原則來自訂使用者旅程的 UI
 
@@ -150,7 +150,7 @@ Azure AD B2C 可讓您在各種頁面上自訂使用者體驗 (UX) 的外觀與�
 
 您可以藉由直接編輯自訂原則，將 HTML5/CSS 範本的連結新增至使用者旅程。
 
-要在使用者旅程中使用的自訂 HTML5/CSS 範本，必須在可用於這些使用者旅程的內容定義清單加以指定。 為此，您必須在自訂原則 XML 檔的 <BuildingBlocks> 區段下，宣告選擇性的 <ContentDefinitions> XML 元素。
+要在使用者旅程中使用的自訂 HTML5/CSS 範本，必須在可用於這些使用者旅程的內容定義清單加以指定。 基於這個目的，選擇性 *\<ContentDefinitions >* 下，必須宣告 XML 項目 *\<BuildingBlocks >* 您自訂原則 XML 檔的區段。
 
 下表說明 Azure AD B2C 身分識別體驗引擎所能辨識之內容定義識別碼的集合，以及與這些識別碼有關的頁面類型。
 

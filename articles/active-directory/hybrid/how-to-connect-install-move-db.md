@@ -11,12 +11,12 @@ ms.date: 03/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeeb9989b6bf0233354d493f5dbb6916c806cfdb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3485639062f33d013152cd30f6785df4d1c79790
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076831"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437776"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>將 Azure AD Connect 資料庫從 SQL Server Express 移至 SQL Server 
 
@@ -42,7 +42,7 @@ ms.locfileid: "58076831"
 8. 連結資料庫之後，請回到 Azure AD Connect 伺服器並安裝 Azure AD Connect。
 9. 一旦 MSI 安裝完成後，Azure AD Connect 精靈就會開始使用快速模式安裝。 按一下 [結束] 圖示將畫面關閉。
    ![歡迎使用](./media/how-to-connect-install-move-db/db1.png)
-10. 啟動新的命令提示字元或 PowerShell 工作階段。 瀏覽至 <drive>\program files\Microsoft Azure AD Connect 資料夾。 執行 .\AzureADConnect.exe /useexistingdatabase 命令，可在「使用現有資料庫」安裝模式中啟動 Azure AD Connect 精靈。
+10. 啟動新的命令提示字元或 PowerShell 工作階段。 瀏覽至資料夾\<磁碟機 > \program files\Microsoft Azure AD Connect。 執行 .\AzureADConnect.exe /useexistingdatabase 命令，可在「使用現有資料庫」安裝模式中啟動 Azure AD Connect 精靈。
     ![PowerShell](./media/how-to-connect-install-move-db/db2.png)
 11. [歡迎使用 Azure AD Connect] 畫面隨即迎接您。 一旦您同意授權條款及隱私權注意事項後，請按一下 [繼續]。
     ![歡迎使用](./media/how-to-connect-install-move-db/db3.png)

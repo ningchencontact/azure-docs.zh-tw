@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 7c8e2297426b098fa6e86a5cda81afc2d71b08f4
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: cdc3e7ec6ec55c3376aeb545e1f64079ad1f6323
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214634"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407397"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>切換記錄警示的 API 喜好設定
 
@@ -37,13 +37,18 @@ ms.locfileid: "57214634"
 
 ## <a name="process-of-switching-from-legacy-log-alerts-api"></a>從舊版記錄警示 API 切換的程序
 
-從[舊版 Log Analytics 警示 API](api-alerts.md) 移轉警示規則的程序，不包含以任何方式變更您的警示定義、查詢或設定。 使用者可以自行選擇使用[舊版 Log Analytics 警示 API](api-alerts.md) 或新的 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)。 無論以哪個 API 建立的警示規則，都將*只能以相同的 API 來管理* - 以及從 Azure 入口網站來管理。 根據預設，Azure 監視器將會繼續使用[舊版 Log Analytics 警示 API](api-alerts.md) 從 Azure 入口網站建立任何新的警示規則。
+從[舊版 Log Analytics 警示 API](api-alerts.md) 移轉警示規則的程序，不包含以任何方式變更您的警示定義、查詢或設定。 警示規則和監視都不會影響和警示將不會停止，或停止，期間或之後的參數。
+
+使用者可以自行選擇使用[舊版 Log Analytics 警示 API](api-alerts.md) 或新的 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)。 無論以哪個 API 建立的警示規則，都將*只能以相同的 API 來管理* - 以及從 Azure 入口網站來管理。 根據預設，Azure 監視器將會繼續使用[舊版 Log Analytics 警示 API](api-alerts.md) 從 Azure 入口網站建立任何新的警示規則。
 
 喜好設定切換至 scheduledQueryRules API 的影響如下所述：
 
 - 為了透過程式設計介面來管理記錄警示所做的所有互動，現在都必須改用 [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 來完成。 如需詳細資訊，請參閱[透過 Azure 資源範本的使用範例](alerts-log.md#managing-log-alerts-using-azure-resource-template)和[透過 Azure CLI 和 PowerShell 的使用範例](alerts-log.md#managing-log-alerts-using-powershell-cli-or-api)
-- 任何在 Azure 入口網站中建立的新記錄警示規則，都將使用 [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 來建立，並且也允許使用者透過 Azure 入口網站使用[新 API 的其他功能](#Benefits-of-switching-to-new-Azure-API)
+- 任何在 Azure 入口網站中建立的新記錄警示規則，都將使用 [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 來建立，並且也允許使用者透過 Azure 入口網站使用[新 API 的其他功能](#benefits-of-switching-to-new-azure-api)
 - 記錄警示規則的嚴重性將會從轉換：*重大、 警告和資訊*，以*嚴重性值 0、 1 與 2*。 以及用於建立/更新警示規則嚴重性以及 4 的選項。
+
+> [!CAUTION]
+> 當使用者選擇要切換至新的喜好設定[scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)，選擇 上一步或還原為較舊的使用方式的規則無法[舊版 Log Analytics 警示 API](api-alerts.md)。
 
 任何自願切換至新的 [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)，並停止使用[舊版 Log Analytics 警示 API](api-alerts.md) 的客戶，都可在下列 API 執行 PUT 呼叫，以切換所有與特定 Log Analytics 工作區相關聯的警示規則，而達到此目的。
 

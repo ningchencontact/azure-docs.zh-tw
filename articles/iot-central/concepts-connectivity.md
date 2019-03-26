@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 0790b7d5280b3fdf26c34c3903a6257d21bc877c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 28aef1c1b5091db75b4a1fb6786ee712b42a1ea2
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835827"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418766"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IoT Central 中的裝置連線能力
 
@@ -33,9 +33,9 @@ ms.locfileid: "57835827"
 本做法文章會說明下列四個使用案例：
 
 1. [快速連線使用單一裝置的 SAS](#connect-a-single-device)
-1. 使用 SAS 大規模的裝置連線
+1. [使用 SAS 大規模的裝置連線](#connect-devices-at-scale-using-sas)
 1. [連接的裝置使用 X.509 憑證的大量](#connect-devices-using-x509-certificates)這是建議用於生產環境的方法。
-1. 將裝置來連線但先不註冊 
+1. [將裝置連線但先不註冊](#connect-without-registering-devices)
 
 ## <a name="connect-a-single-device"></a>將單一裝置連線
 

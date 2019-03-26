@@ -18,16 +18,16 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a286b3578cc159b6771df3f91bcd3f2fd35a161
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0d4f9c69d6ddcbef96a88a0df10c3b0974cd5b74
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201666"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437079"
 ---
 # <a name="single-sign-out-saml-protocol"></a>單一登出 SAML 通訊協定
 
-Azure Active Directory (Azure AD) 支援 SAML 2.0 Web 瀏覽器單一登出設定檔。 若要讓單一登出正常運作，在應用程式註冊期間必須明確向 Azure AD 註冊應用程式的 **LogoutURL**。 使用者登出之後，Azure AD 使用此 LogoutURL 將他們重新導向。
+Azure Active Directory (Azure AD) 支持 SAML 2.0 Web 浏览器单一注销配置文件。 若要讓單一登出正常運作，在應用程式註冊期間必須明確向 Azure AD 註冊應用程式的 **LogoutURL**。 使用者登出之後，Azure AD 使用此 LogoutURL 將他們重新導向。
 
 下圖顯示 Azure AD 單一登出程序的工作流程。
 
@@ -51,7 +51,7 @@ Azure Active Directory (Azure AD) 支援 SAML 2.0 Web 瀏覽器單一登出設�
 * `IssueInstant` - 這是具有國際標準時間 (UTC) 值和[來回行程格式 ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx) 的 `DateTime` 字串。 Azure AD 會預期此類型的值，但不會強制。
 
 ### <a name="issuer"></a>簽發者
-`LogoutRequest` 中的 `Issuer` 元素必須完全符合 Azure AD 中雲端服務的其中一個 **ServicePrincipalNames**。 一般而言，這會設定為應用程式註冊期間指定的 **應用程式識別碼 URI** 。
+`LogoutRequest` 中的 `Issuer` 元素必須完全符合 Azure AD 中雲端服務的其中一個 **ServicePrincipalNames**。 通常，此参数设置为应用程序注册期间指定的 **应用 ID URI** 。
 
 ### <a name="nameid"></a>NameID
 `NameID` 元素的值必須完全符合正在登出的使用者的 `NameID`。
@@ -72,7 +72,7 @@ Azure AD 會傳送 `LogoutResponse` 以回應 `LogoutRequest` 元素。 下列�
 Azure AD 會設定 `LogoutResponse` 元素中的 `ID`、`Version` 和 `IssueInstant` 值。 它也會將 `InResponseTo` 元素設定為導出回應的 `LogoutRequest` 的 `ID` 屬性值。
 
 ### <a name="issuer"></a>簽發者
-Azure AD 會將此值設為 `https://login.microsoftonline.com/<TenantIdGUID>/`，其中，<TenantIdGUID> 是 Azure AD 租用戶的租用戶識別碼。
+Azure AD 會將此值設為`https://login.microsoftonline.com/<TenantIdGUID>/`其中\<TenantIdGUID > 是 Azure AD 租用戶的租用戶識別碼。
 
 若要評估 `Issuer` 元素的值，請使用應用程式註冊期間提供的 **應用程式識別碼 URI** 的值。
 

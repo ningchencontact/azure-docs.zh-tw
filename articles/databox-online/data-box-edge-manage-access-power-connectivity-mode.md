@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: e0b8b35c654f0716fae1e6ab785f57dcf04e1a5a
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 813563b500b9365289285a89536f2724fb87acad
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400893"
+ms.locfileid: "58417797"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge-preview"></a>適用於您的 Azure 資料方塊 Edge （預覽） 管理存取、 電源和連線模式
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>管理您的 Azure 資料方塊邊緣的存取、 電源和連線模式
 
 本文說明如何管理您的 Azure 資料方塊邊緣的存取、 電源和連線能力的模式。 這些作業都是透過本機 Web UI 或 Azure 入口網站執行。
 
@@ -26,8 +26,6 @@ ms.locfileid: "58400893"
 > * 管理連線模式
 > * 管理電源
 
-> [!IMPORTANT]
-> Data Box Edge 目前處於預覽狀態。 部署訂購並部署此解決方案之前，請檢閱 [Azure 預覽版使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 ## <a name="manage-device-access"></a>管理裝置存取
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: a3c0e94e213b861714bfc5f38e20e4d9a1de3a19
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8387b7e03c867026741801cd0de910bc9da85e92
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107911"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407074"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>使用群組相依性對應調整群組
 
@@ -63,7 +63,7 @@ Azure Migrate 會利用 Azure 監視器記錄檔，以啟用機器的相依性�
 4. 在 [代理程式安裝選項] 中，選取 [Azure Log Analytics] > [下一步]。
 5. 按一下 [新增] 以新增 Log Analytics 工作區。 貼上您從入口網站複製的工作區識別碼和金鑰。 单击“下一步”。
 
-您可以從命令列或使用自動化方法 (例如 Azure Automation DSC、System Center Configuration Manager) 來安裝代理程式，或者如果您已經在您的資料中心部署 Microsoft Azure Stack，請使用 Azure Resource Manager 範本。 [了解更多](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent)有關如何使用這些方法來安裝 MMA 代理程式。
+您可以從命令列或使用 System Center Configuration Manager 等自動化的方法來安裝代理程式。 [了解更多](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent)有關如何使用這些方法來安裝 MMA 代理程式。
 
 #### <a name="install-the-agent-on-a-linux-machine"></a>在 Linux 電腦上安裝代理程式
 

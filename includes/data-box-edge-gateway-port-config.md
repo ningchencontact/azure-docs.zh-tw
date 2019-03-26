@@ -1,8 +1,16 @@
-      ---
-author: alkohli ms.service: databox  
-ms.topic： 包含 ms.date:03/21/2019 ms.author: alkohli
 ---
-
+author: alkohli
+ms.service: databox
+ms.topic: include
+ms.date: 03/25/2019
+ms.author: alkohli
+ms.openlocfilehash: 98f9e0377e560fa0bba2fd470ff01431b2ed21d9
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.translationtype: MT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58431626"
+---
 | 連接埠號碼| 內或外 | 連接埠範圍| 必要項|   注意 |   |
 |--------|-----|-----|-----------|----------|-----------|
 | TCP 80 (HTTP)|外|WAN |否|輸出連接埠用於網際網路存取以擷取更新。 <br>輸出 Web Proxy 可由使用者設定。 |
@@ -15,4 +23,3 @@ ms.topic： 包含 ms.date:03/21/2019 ms.author: alkohli
 | TCP 443 (HTTPS)|Out/In|LAN|是|此連接埠是裝置上用於本機管理本機 UI 的輸入連接埠。 |
 | TCP 445 (SMB)|在|LAN|在某些情況下<br>請參閱附註|只有當您透過 SMB 連線時，才需要此連接埠。 |
 | TCP 2049 (NFS)|在|LAN|在某些情況下<br>請參閱附註|只有當您透過 NFS 連線時，才需要此連接埠。 |
-

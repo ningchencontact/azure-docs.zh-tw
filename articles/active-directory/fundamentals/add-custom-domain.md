@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9820fcae0dfb366c1722c50c95400c7de0fbeb12
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: fb29fb5ef2e755ff456ad177b66349792b2fa21c
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285780"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418851"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>使用 Azure Active Directory 入口網站新增自訂網域名稱
 每個新的 Azure AD 租用戶皆隨附初始網域名稱 (*domainname*.onmicrosoft.com)。 您無法變更或刪除初始網域名稱，但您可以將貴組織的名稱新增至清單。 新增自訂網域名稱可協助您建立使用者熟悉的名稱給您的使用者，例如*alain\@contoso.com*。
@@ -84,6 +84,8 @@ ms.locfileid: "58285780"
 4. 在 [Contoso] 頁面上，選取 [驗證]，確定您的自訂網域已正確註冊，而且在 Azure AD 中有效。
 
     ![包含 DNS 項目資訊和 [驗證] 按鈕的 Contoso 頁面](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
+
+確認您的自訂網域名稱之後，您可以刪除您的驗證 TXT 或 MX 檔案。
 
 ## <a name="common-verification-issues"></a>常見驗證問題
 - 如果 Azure AD 無法驗證自訂網域名稱，請嘗試下列建議：

@@ -448,6 +448,12 @@ Azure 服務和功能導覽 </a>
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/data-explorer">
+                                                <img src="media/index/azure_data_explorer.svg" alt="" />
+                                                <p>Azure 資料總管</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/azure-cache-for-redis/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
                                                 <p>Azure Cache for Redis</p>
@@ -494,7 +500,7 @@ Azure 服務和功能導覽 </a>
                                                 <img src="media/index/database-migration.svg" alt="" />
                                                 <p>Azure 資料庫移轉服務</p>
                                             </a>
-                                        </li>
+                                        </li>                                        
                                     </ul>
                                     <h3>容器</h3>
                                     <ul>
@@ -1158,7 +1164,7 @@ Azure 服務和功能導覽 </a>
                                         </li>
                                         <li>
                                             <a href="/azure/data-explorer/">
-                                                <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="" />
+                                                <img src="media/index/azure_data_explorer.svg" alt="" />
                                                 <p>Azure 資料總管</p>
                                             </a>
                                         </li>
@@ -3086,6 +3092,25 @@ Azure 服務和功能導覽 </a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/data-explorer">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure_data_explorer.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure 資料總管</h3>
+                                                    <p>一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/azure-cache-for-redis/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3236,7 +3261,7 @@ Azure 服務和功能導覽 </a>
                                         </div>
                                     </div>
                                 </a>
-                            </li>
+                            </li>                            
                         </ul>
                     </li>
                     <li>
@@ -3325,7 +3350,7 @@ Azure 服務和功能導覽 </a>
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="https://docs.microsoft.com/media/logos/logo_azure.svg" alt="" />
+                                                        <img src="media/index/azure_data_explorer.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -6407,7 +6432,7 @@ Azure 架構中心包含在 Microsoft Azure 上建立端對端解決方案的指
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure 應用程式架構指南</h3>
-                                                    <p>本指南會告訴您在 Azure 上設定可擴充、可復原和高可用性應用程式的結構化方法。 者是以我們與客戶合作後了解到的實證做法作為基礎。</p>
+                                                    <p>指南會告訴您在 Azure 上設定可擴充、可復原和高可用性應用程式的結構化方法。 者是以我們與客戶合作後了解到的實證做法作為基礎。</p>
                                                 </div>
                                             </div>
                                         </div>
