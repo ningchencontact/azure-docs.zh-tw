@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 6a7d79d8a9328eaf0808c79ed359299e1ec37d1a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4c2c22d2d3d68080b1d4e05410121ea1d1be283d
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862708"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439170"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>教學課程：使用影片索引器 API
 
@@ -73,19 +73,6 @@ ms.locfileid: "57862708"
 存取權杖會在 1 小時後過期。 請先確定您的存取權杖有效，再使用作業 API。 如果過期，請再次呼叫授權 API 以取得新的存取權杖。
  
 您已可以開始整合 API。 請探索[每個影片索引器 REST API 的詳細描述](https://api-portal.videoindexer.ai/)。
-
-## <a name="location"></a>位置
-
-所有作業 API 都需要位置參數，以指示呼叫應路由至哪個區域，以及在哪個區域內建立帳戶。
-
-下表將說明適用的值。 **參數值**是您在使用 API 時傳遞的值。
-
-|**名稱**|**參數值**|**說明**|
-|---|---|---|
-|試用版|試用|用於試用帳戶。|
-|美國西部|westus2|用於 Azure 美國西部 2 區域。|
-|北歐 |northeurope|用於 Azure 北歐區域。|
-|東亞|eastasia|用於 Azure 東亞區域。|
 
 ## <a name="account-id"></a>帳戶識別碼 
 
@@ -224,6 +211,6 @@ Debug.WriteLine(playerWidgetLink);
 
 ## <a name="next-steps"></a>後續步驟
 
-[查看輸出 JSON 的詳細資料](video-indexer-output-json-v2.md)。
-
-[影片索引子概觀](video-indexer-overview.md)
+- [查看輸出 JSON 的詳細資料](video-indexer-output-json-v2.md)。
+- [影片索引子概觀](video-indexer-overview.md)
+- [區域](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)

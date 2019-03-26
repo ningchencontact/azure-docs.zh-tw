@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2018
+ms.date: 03/25/2019
 ms.author: magattus
-ms.openlocfilehash: 4fa681e800197ea241ba1c6cf2180ba04b6e565b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: 6bd1d24cdece91265a7355678ea2bc0b0f9e3910
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092573"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439153"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>透過 Azure CDN 進行動態網站加速
 
@@ -27,7 +27,7 @@ ms.locfileid: "49092573"
 
 標準內容傳遞網路 (CDN) 功能包含快取接近使用者的檔案，從而加速靜態檔案傳遞。 不過，使用動態 Web 應用程式，就無法在邊緣位置中快取該內容，因為伺服器所產生的內容是用以回應使用者的行為。 相較於傳統的邊緣快取，要加速傳遞這類內容更為複雜，並且需要端對端解決方案，在從開始到傳遞的整個資料路徑上微調每個元素。 使用 Azure CDN 動態網站加速 (DSA) 最佳化後，能顯著提升具有動態內容的網頁效能。
 
-**Akamai 中的 Azure CDN** 和 **Verizon 中的 Azure CDN** 都會在端點建立期間透過 [最佳化] 功能表來提供 DSA 最佳化。
+**Akamai 中的 Azure CDN** 和 **Verizon 中的 Azure CDN** 都會在端點建立期間透過 [最佳化] 功能表來提供 DSA 最佳化。 透過提供來自 Microsoft 的動態網站加速[Azure 前端服務](https://docs.microsoft.com/azure/frontdoor/front-door-overview)。
 
 > [!Important]
 > 針對**來自 Akamai 的 Azure CDN**設定檔，您可以在 CDN 端點建立之後，變更其最佳化。
@@ -109,9 +109,9 @@ TCP「慢速啟動」是 TCP 通訊協定的演算法，可藉由限制透過網
 
 1. 健康狀態和頻寬監視用來測量 PoP Edge Server 之間的連線頻寬。
     
-2. PoP Edge Server 之間會共用這些計量數據，因此每一部伺服器都會知道其他周遭 PoP 的網路狀況和伺服器健康情況。  
+2. PoP Edge Server 之間會共用這些計量數據，因此每一部伺服器都會知道其他周遭 PoP 的網路狀況和伺服器健康情況。  
     
-3. CDN Edge Server 會提出某些傳輸參數的假設，例如與其附近的其他 CDN Edge Server 通訊時的最佳視窗大小。 這個步驟表示，如果 CDN Edge Server 之間的連線健康情況能夠負荷較高的封包資料傳輸，就可增加初始壅塞視窗的大小。  
+3. CDN Edge Server 會提出某些傳輸參數的假設，例如與其附近的其他 CDN Edge Server 通訊時的最佳視窗大小。 這個步驟表示，如果 CDN Edge Server 之間的連線健康情況能夠負荷較高的封包資料傳輸，就可增加初始壅塞視窗的大小。  
 
 #### <a name="leveraging-persistent-connections"></a>利用持續連線
 
@@ -157,7 +157,7 @@ JPEG 壓縮 | .jpg、.jpeg、.jpe、.jig、.jgig、.jgi
 
 存取快取規則：
 
-1. 從 [CDN 設定檔] 頁面的 [設定] 底下，選取 [快取規則]。  
+1. 從 [CDN 設定檔] 頁面的 [設定] 底下，選取 [快取規則]。  
     
     ![CDN [快取規則] 按鈕](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
 
@@ -169,7 +169,7 @@ JPEG 壓縮 | .jpg、.jpeg、.jpe、.jig、.jgig、.jgi
 
 存取規則引擎：
     
-1. 從 [CDN 設定檔] 頁面選取 [管理]。  
+1. 從 [CDN 設定檔] 頁面選取 [管理]。  
     
     ![CDN 設定檔管理按鈕](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
@@ -183,7 +183,7 @@ JPEG 壓縮 | .jpg、.jpeg、.jpe、.jig、.jgig、.jgi
 
 此外，您可以使用兩個 CDN 端點：一個使用 DSA 最佳化的端點用來傳遞動態資產，另一個使用靜態最佳化類型 (例如一般 Web 傳遞) 最佳化的端點用來傳遞可快取的資產。 將網頁 URL 修改為直接連結至您打算使用之 CDN 端點上的資產。 
 
-例如：`mydynamic.azureedge.net/index.html` 是從 DSA 端點載入的動態網頁。  HTML 網頁會參考多個靜態資產 (例如 JavaScript 程式庫)，或參考從靜態 CDN 端點載入的映像 (例如 `mystatic.azureedge.net/banner.jpg` 和 `mystatic.azureedge.net/scripts.js`)。 
+例如：`mydynamic.azureedge.net/index.html` 是從 DSA 端點載入的動態網頁。  HTML 網頁會參考多個靜態資產 (例如 JavaScript 程式庫)，或參考從靜態 CDN 端點載入的映像 (例如 `mystatic.azureedge.net/banner.jpg` 和 `mystatic.azureedge.net/scripts.js`)。 
 
 
 

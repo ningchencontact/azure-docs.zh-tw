@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: f685521adbbd8b9be9128ff77ab38b42860518b6
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: fc6db4d02898ea0e8eed3cdf3d0b1a9788d943e9
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351043"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439291"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>透過分散式追蹤來追蹤 Azure IoT 裝置到雲端的訊息 (預覽)
 
@@ -174,7 +174,7 @@ IoT 中樞是其中一項最先支援分散式追蹤的 Azure 服務。 隨著�
 
 它有**毫無意義**預覽分散式的追蹤功能，而不使用 C SDK。 因此，不建議這種方法。
 
-首先，，您必須在您的訊息實作所有的 IoT 中樞通訊協定基本項目依照開發人員指南[建立及讀取的 IoT 中樞訊息](iot-hub-devguide-messages-construct.md)。 接著，編輯中的通訊協定屬性 MQTT/AMQP 訊息，以新增`tracestate`做為**system-property**。 具體而言，
+首先，，您必須在您的訊息實作所有的 IoT 中樞通訊協定基本項目依照開發人員指南[建立及讀取的 IoT 中樞訊息](iot-hub-devguide-messages-construct.md)。 接著，編輯 通訊協定的屬性，以新增 MQTT/AMQP 訊息中`tracestate`作為**system-property**。 具體而言，
 
 * 針對 MQTT、 新增`%24.tracestate=timestamp%3d1539243209`至訊息主題，其中`1539243209`應該取代成 unix 時間戳記格式中的訊息的建立時間。 例如，請參閱實作[C SDK 中](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761)
 * AMQP，新增`key("tracestate")`和`value("timestamp=1539243209")`做為訊息的附註。 如需參考實作，請參閱[此處](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527)。
