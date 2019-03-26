@@ -1,19 +1,19 @@
 ---
-title: 安裝行動服務以進行從 VMware VM 和實體伺服器至 Azure 的災害復原 | Microsoft Docs
-description: 了解如何安裝行動服務代理程式，以使用 Azure Site Recovery 服務進行從 VMware VM 和實體伺服器至 Azure 的災害復原。
+title: 準備來源機器以便安裝行動服務透過推入安裝進行災害復原的 VMware Vm 和實體伺服器至 Azure |Microsoft Docs
+description: 了解如何準備您的伺服器，以安裝行動代理程式，透過推入安裝的 VMware 虛擬機器的災害復原和實體伺服器至 Azure 中使用 Azure Site Recovery 服務。
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 30b177578464653499cdcde8cacf65defa5548ef
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 628be573d03d42ec62a358071074facfe228852d
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846907"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418664"
 ---
-# <a name="install-the-mobility-service-for-disaster-recovery-of-vmware-vms-and-physical-servers"></a>安裝行動服務以進行 VMware VM 和實體伺服器的災害復原
+# <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>準備要推入安裝行動代理程式的來源機器
 
 當您使用 [Azure Site Recovery](site-recovery-overview.md) 為 VMware VM 和實體伺服器設定災害復原時，會在每個內部部署 VMware VM 和實體伺服器上安裝 [Site Recovery 行動服務](vmware-physical-mobility-service-overview.md)。  行動服務會擷取機器上的資料寫入，然後將它們轉送給 Site Recovery 處理伺服器。
 
@@ -51,7 +51,7 @@ ms.locfileid: "52846907"
 6. 取消該行的註解，並將值變更為 **yes**。
 7. 找到以 **Subsystem** 開頭這一行，並取消其註解。
 
-      ![Linux](./media/vmware-azure-install-mobility-service/mobility2.png)
+      ![ Linux](./media/vmware-azure-install-mobility-service/mobility2.png)
 
 8. 重新啟動 **sshd** 服務。
 9. 新增您在 CSPSConfigtool 中建立的帳戶。 若要這樣做，請登入您的設定伺服器。
@@ -59,6 +59,10 @@ ms.locfileid: "52846907"
 11. 在 [管理帳戶] 索引標籤上，選取 [新增帳戶]。
 12. 加入您所建立的帳戶。
 13. 輸入您為電腦啟用複寫時使用的認證。
+
+## <a name="anti-virus-on-replicated-machines"></a>在複寫的機器上防毒
+
+如果您要複寫的機器正在執行作用中的防毒軟體，請務必從防毒作業中排除行動性服務安裝資料夾 (C:\ProgramData\ASR\agent)。 這可確保複寫運作正常。
 
 ## <a name="next-steps"></a>後續步驟
 

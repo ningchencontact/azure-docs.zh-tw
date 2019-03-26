@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 9f5ea30c458954a3e87b9575b5632fbfb0df97b8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 283808c0bd3f5297011b25619d6f978c99d4dc32
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318595"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439221"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Enterprise 合約從遷移到 Microsoft 的客戶合約 Api
 
@@ -463,7 +463,7 @@ Microsoft 客戶合約，請在下一節中使用的資訊。 它提供用於 Mi
 | offerId | 不適用。 對應至在 MCA productOrderName。 |
 | meterCategory  | 不適用。 對應至在 MCA 中的服務。 |
 | unit | 不適用。 可以從 unitOfMeasure 剖析。 |
-| currencyCode | 如同在 MCA pricingCurrency。 |
+| currencyCode | 在 MCA pricingCurrency 相同。 |
 | meterLocation | 在 MCA meterRegion 相同。 |
 | partNumber partnumber | 不適用，因為組件編號未列在 MCA 發票。 而不是 partnumber，使用的 meterId productOrderName 組合來唯一識別價格。 |
 | totalIncludedQuantity | 不適用。 |
