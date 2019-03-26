@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/30/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 94893a5b5716c9bd207ad2a8bc8ca457974dddd4
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: HT
+ms.openlocfilehash: 233834bd040362e27ffadc3d0003a87827012352
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58395706"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407783"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>關於 Azure IaaS VM 磁碟及受控和非受控進階磁碟的常見問題集
 
@@ -300,7 +300,7 @@ DS 系列的快取和本機 SSD 合併限制是每個核心 4,000 IOPS，以及�
 
 **作業系統和資料磁碟支援的最大受控磁碟大小是多少？**
 
-Azure 針對作業系統磁碟所支援的磁碟分割類型是主開機記錄 (MBR)。 MBR 格式支援的磁碟大小上限為 2 TiB。 Azure 針對作業系統磁碟支援的大小上限為 2 TiB。 Azure 支援最大 32 TiB 的受控資料磁碟。 大於 4 TiB 的受控的磁碟大小目前為預覽版。 如需它們的詳細資訊，請參閱我們[部落格文章](https://aka.ms/azure-large-disk-32TB-preview-blog)。
+Azure 針對作業系統磁碟所支援的磁碟分割類型是主開機記錄 (MBR)。 MBR 格式支援的磁碟大小上限為 2 TiB。 Azure 針對作業系統磁碟支援的大小上限為 2 TiB。 Azure 支援最多 32 TiB 中全域 Azure，Azure sovereign cloud 中的 4 TiB 的受控的資料磁碟。
 
 **作業系統和資料磁碟支援的最大非受控磁碟大小是多少？**
 
@@ -335,7 +335,7 @@ Azure 支援的分頁 Blob 大小上限是 8 TiB (8,191 GiB)。 連結至 VM 作
 
 **可以您現有的受控磁碟大小從調整大小少於 4 個用於 (TiB) 最多 32 TiB 的新導入新的磁碟大小嗎？**
 
-新的 8 TiB、16 TiB 和 32 Tib 受控磁碟大小目前處於預覽狀態。 我們尚不支援將現有磁碟大小重新調整為新的磁碟大小。
+是。
 
 **Azure 備份和 Azure Site Recovery 服務所支援的最大磁碟大小為何？**
 

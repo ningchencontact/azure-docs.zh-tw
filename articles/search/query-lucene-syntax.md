@@ -4,7 +4,7 @@ description: 用於 Azure 搜尋服務的完整 Lucene 語法參考。
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 03/25/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: a2576a0489ad62aba0a85a45f110acb8ac220847
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f1eba2da1404f5b47d137b3c4f7b4cb9ceab43ea
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107180"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438048"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Azure 搜尋服務中的 Lucene 查詢語法
 您可以基礎根據適用於特殊查詢形式的豐富 [Lucene 查詢剖析器](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)語法，為 Azure 搜尋服務撰寫查詢：萬用字元、模糊搜尋、鄰近搜尋、規則運算式只是其中一些範例。 大部分的 Lucene 查詢剖析器語法都可[完整移植到 Azure 搜尋服務中實作](search-lucene-query-architecture.md)，唯一的例外是*範圍搜尋*，這必須在 Azure 搜尋服務中透過 `$filter` 運算式來建構。 
@@ -35,7 +35,7 @@ ms.locfileid: "58107180"
 
 <a name="bkmk_example"></a> 
 
-## <a name="example-showing-full-syntax"></a>顯示完整語法的範例
+### <a name="example-showing-full-syntax"></a>顯示完整語法的範例
 
 下列範例會使用 Lucene 查詢語法 (這可從 `queryType=full` 參數輕易看出) 尋找索引中的文件。 此查詢會傳回類別欄位包含「預算」一詞以及所有可搜尋欄位包含「最近翻新」詞組的旅館。 包含「最近翻新」片語的文件會因為字詞提升值 (3) 而排在比較前面。  
 
@@ -60,50 +60,6 @@ POST /indexes/hotels/docs/search?api-version=2015-02-28
 
 > [!NOTE]  
 >  Azure 搜尋服務也支援[簡單查詢語法](query-simple-syntax.md)，這種簡單又健全的查詢語言可用於單純的關鍵字搜尋。  
-
-
-##  <a name="bkmk_fields"></a>欄位範圍查詢  
- 您可以指定 `fieldname:searchterm` 建構以定義特定欄位的查詢作業，其中的欄位是單字，搜尋字詞也是單字或片語，並選擇性使用布林運算子。 某些範例包括以下內容：  
-
-- genre:jazz NOT history  
-
-- artists:("Miles Davis" "John Coltrane")
-
-  如果您想要將字串視為單一實體評估，請務必將多個字串放在引號中，就此案例而言，即搜尋 `artists` 欄位中的兩個不同藝人。  
-
-  `fieldname:searchterm` 中指定的欄位必須是 `searchable` 欄位。  如需欄位定義中索引屬性使用方式的詳細資訊，請參閱[建立索引](https://docs.microsoft.com/rest/api/searchservice/create-index)。  
-
-##  <a name="bkmk_fuzzy"></a>模糊搜尋  
- 模糊搜尋會尋找具有類似建構的相符項目。 在每個 [Lucene 文件](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)中，模糊搜尋以 [Damerau-Levenshtein 距離](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance)為基礎。  
-
- 若要執行模糊搜尋，請在單一文字結尾使用波狀符號 "~"，加上選擇性參數，介於 0 和 2 (預設值) 之間且指定編輯距離的數值。 例如，"blue~" 或 "blue~1" 會傳回 "blue"、"blues" 和 "glue"。
-
- 模糊搜尋只能套用至字詞，無法套用至片語。 模糊搜尋可將一個字詞擴充為最多 50 個符合距離準則的字詞。
-
-##  <a name="bkmk_proximity"></a>鄰近搜尋  
- 鄰近搜尋可用來尋找文件中彼此相近的詞彙。 在片語的結尾插入波狀符號 "~"，後面加上建立鄰近界限的字數。 例如，`"hotel airport"~5` 會在文件中尋找相隔 5 個字以內的「飯店」和「機場」等字詞。  
-
-
-##  <a name="bkmk_termboost"></a>字詞提升  
- 提升一詞指的是如果文件包含提升詞彙，則將其評等提高，高於不包含該詞彙的文件。 這與評分設定檔的不同之處在於評分設定檔會提升特定欄位，而不是特定詞彙。  
-
-下列範例可協助說明差異。 假設有一個評分設定檔可提升特定欄位中的相符項目，例如 [musicstoreindex 範例](index-add-scoring-profiles.md#bkmk_ex)中的 *genre*。 詞彙提升可用來進一步提升某些搜尋詞彙，使其高於其他詞彙。 例如，`rock^2 electronic` 可提升包含搜尋字詞的文件﹐使其在 genre 欄位中高於索引中的其他可搜尋欄位。 此外，包含搜尋字詞 *rock* 的文件排名會比另一個搜尋字詞 *electronic* 還高，此為字詞提升值 (2) 的結果。  
-
- 若要提升字詞，請使用插入號 "^"，並在搜尋字詞的結尾加上提升係數 (數字)。 您也可以提升片語。 提升係數越高，該詞彙相對於其他搜尋詞彙的關聯性也越高。 根據預設，提升係數為 1。 雖然提升係數必須是正數，但是它可能會小於 1 (例如，0.20)。  
-
-##  <a name="bkmk_regex"></a>規則運算式搜尋  
- 規則運算式搜尋會根據正斜線 "/" 之間的內容尋找相符項目，如 [RegExp 類別](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html)中所記錄。  
-
- 例如，若要尋找包含 "motel" 或 "hotel" 的文件，請指定 `/[mh]otel/`。  規則運算式搜尋會比對單字。   
-
-##  <a name="bkmk_wildcard"></a>萬用字元搜尋  
- 您可以使用一般辨識語法進行多個 (*) 或單一 (?) 字元的萬用字元搜尋。 請注意，Lucene 查詢剖析器支援搭配使用這些符號與單一詞彙，而不是片語。  
-
- 例如，若要尋找包含以 "note" 開頭的文字 (例如 "notebook" 或 "notepad") 的文件，請指定 "note*"。  
-
-> [!NOTE]  
->  您無法使用 * 或 ? 符號做為搜尋的第一個字元。  
->  對萬用字元搜尋查詢不會執行文字分析。 在查詢時，萬用字元查詢字詞將會與搜尋索引中已分析的字詞進行比對，並進行擴充。
 
 ##  <a name="bkmk_syntax"></a>語法基礎  
  下列語法基礎適用於所有使用 Lucene 語法的查詢。  
@@ -139,19 +95,19 @@ POST /indexes/hotels/docs/search?api-version=2015-02-28
 ### <a name="searchmode-parameter-considerations"></a>SearchMode 參數考量  
  如同 [Azure 搜尋服務中的簡單查詢語法](query-simple-syntax.md)所說明，`searchMode` 對於查詢的影響同樣適用於 Lucene 查詢語法。 也就是說，如果您不清楚您設定參數的方式會有何影響，`searchMode` 與 NOT 運算子搭配使用時可能會產生出乎您預期的查詢結果。 如果您保留預設值 `searchMode=any`，並使用 NOT 運算子，則會以 OR 動作計算作業，而使 "New York" NOT "Seattle" 傳回所有不是 Seattle 的城市。  
 
-##  <a name="bkmk_boolean"></a>布林運算子  
+##  <a name="bkmk_boolean"></a> 布林運算子 (AND、 OR、 NOT) 
  文字布林運算子 (AND、OR、NOT) 須一律全部以大寫指定。  
 
-#### <a name="or-operator-or-or-"></a>OR 運算子 `OR` 或 `||`
+### <a name="or-operator-or-or-"></a>OR 運算子 `OR` 或 `||`
 
 OR 運算子是分隔號或直立線字元。 例如：`wifi || luxury` 會搜尋包含 "wifi" 或 "luxury" (或兩者) 的文件。 OR 是預設的連接詞運算子，因此您也可以將其省略，而使 `wifi luxury` 相當於 `wifi || luxuery`。
 
-#### <a name="and-operator-and--or-"></a>AND 運算子 `AND`、`&&` 或 `+`
+### <a name="and-operator-and--or-"></a>AND 運算子 `AND`、`&&` 或 `+`
 
 AND 運算子是 & 符號或加號。 例如：`wifi && luxury` 會搜尋同時包含 "wifi" 和 "luxury" 的文件。 加號字元 (+) 用於需要的字詞。 例如，`+wifi +luxury` 會指定這兩個字詞必須出現單一文件的某個欄位中。
 
 
-#### <a name="not-operator-not--or--"></a>NOT 運算子 `NOT`、`!` 或 `-`
+### <a name="not-operator-not--or--"></a>NOT 運算子 `NOT`、`!` 或 `-`
 
 NOT 運算子是驚歎號或負號。 例如：`wifi !luxury` 會搜尋含有 "wifi" 一詞且/或不含 "luxury" 的文件。 在沒有 + 或 || 運算子的情況下，`searchMode` 選項會控制使用 NOT 運算子的字詞與查詢中的其他字詞之間應使用 AND 還是 OR 來處理。 先前提過，`searchMode` 可設為 `any` (預設值) 或 `all`。
 
@@ -164,6 +120,50 @@ NOT 運算子是驚歎號或負號。 例如：`wifi !luxury` 會搜尋含有 "w
 
 ##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a>萬用字元和 regex 查詢的評分
  Azure 搜尋服務對文字查詢會使用以頻率為基礎的評分 ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf))。 不過，針對字詞範圍可能很廣泛的萬用字元和 regex 查詢，則會忽略頻率因素，以防止罕見字詞的相符項目誤獲較高的排名。 系統對於萬用字元和 regex 搜尋的所有相符項目，會同等視之。
+
+##  <a name="bkmk_fields"></a>欄位範圍查詢  
+ 您可以指定 `fieldname:searchterm` 建構以定義特定欄位的查詢作業，其中的欄位是單字，搜尋字詞也是單字或片語，並選擇性使用布林運算子。 某些範例包括以下內容：  
+
+- genre:jazz NOT history  
+
+- artists:("Miles Davis" "John Coltrane")
+
+  如果您想要將字串視為單一實體評估，請務必將多個字串放在引號中，就此案例而言，即搜尋 `artists` 欄位中的兩個不同藝人。  
+
+  `fieldname:searchterm` 中指定的欄位必須是 `searchable` 欄位。  如需欄位定義中索引屬性使用方式的詳細資訊，請參閱[建立索引](https://docs.microsoft.com/rest/api/searchservice/create-index)。  
+
+##  <a name="bkmk_fuzzy"></a>模糊搜尋  
+ 模糊搜尋會尋找具有類似建構的相符項目。 在每個 [Lucene 文件](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)中，模糊搜尋以 [Damerau-Levenshtein 距離](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance)為基礎。 模糊搜尋可將一個字詞擴充為最多 50 個符合距離準則的字詞。 
+
+ 若要執行模糊搜尋，請在單一文字結尾使用波狀符號 "~"，加上選擇性參數，介於 0 和 2 (預設值) 之間且指定編輯距離的數值。 例如，"blue~" 或 "blue~1" 會傳回 "blue"、"blues" 和 "glue"。
+
+ 模糊搜尋只可以套用至詞彙，而不是片語，但您可以在每個詞彙的多重部分名稱或片語中的個別附加波狀符號。 例如，"Unviersty ~ 的 ~"Wshington ~"會比對"University of Washington"。
+ 
+
+##  <a name="bkmk_proximity"></a>鄰近搜尋  
+ 鄰近搜尋可用來尋找文件中彼此相近的詞彙。 在片語的結尾插入波狀符號 "~"，後面加上建立鄰近界限的字數。 例如，`"hotel airport"~5` 會在文件中尋找相隔 5 個字以內的「飯店」和「機場」等字詞。  
+
+
+##  <a name="bkmk_termboost"></a>字詞提升  
+ 提升一詞指的是如果文件包含提升詞彙，則將其評等提高，高於不包含該詞彙的文件。 這與評分設定檔的不同之處在於評分設定檔會提升特定欄位，而不是特定詞彙。  
+
+下列範例可協助說明差異。 假設有一個評分設定檔可提升特定欄位中的相符項目，例如 [musicstoreindex 範例](index-add-scoring-profiles.md#bkmk_ex)中的 *genre*。 詞彙提升可用來進一步提升某些搜尋詞彙，使其高於其他詞彙。 例如，`rock^2 electronic` 可提升包含搜尋字詞的文件﹐使其在 genre 欄位中高於索引中的其他可搜尋欄位。 此外，包含搜尋字詞 *rock* 的文件排名會比另一個搜尋字詞 *electronic* 還高，此為字詞提升值 (2) 的結果。  
+
+ 若要提升字詞，請使用插入號 "^"，並在搜尋字詞的結尾加上提升係數 (數字)。 您也可以提升片語。 提升係數越高，該詞彙相對於其他搜尋詞彙的關聯性也越高。 根據預設，提升係數為 1。 雖然提升係數必須是正數，但是它可能會小於 1 (例如，0.20)。  
+
+##  <a name="bkmk_regex"></a>規則運算式搜尋  
+ 規則運算式搜尋會根據正斜線 "/" 之間的內容尋找相符項目，如 [RegExp 類別](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html)中所記錄。  
+
+ 例如，若要尋找包含 "motel" 或 "hotel" 的文件，請指定 `/[mh]otel/`。  規則運算式搜尋會比對單字。   
+
+##  <a name="bkmk_wildcard"></a>萬用字元搜尋  
+ 您可以使用一般辨識語法進行多個 (*) 或單一 (?) 字元的萬用字元搜尋。 請注意，Lucene 查詢剖析器支援搭配使用這些符號與單一詞彙，而不是片語。  
+
+ 例如，若要尋找包含以 "note" 開頭的文字 (例如 "notebook" 或 "notepad") 的文件，請指定 "note*"。  
+
+> [!NOTE]  
+>  您無法使用 * 或 ? 符號做為搜尋的第一個字元。  
+>  對萬用字元搜尋查詢不會執行文字分析。 在查詢時，萬用字元查詢字詞將會與搜尋索引中已分析的字詞進行比對，並進行擴充。
 
 ## <a name="see-also"></a>請參閱  
 

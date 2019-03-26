@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 2daaa1275d9a97bec43f277e726518ead6eca9ff
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 92294700ac9a491bfdbfa3b3d3f781eb18d5339e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876359"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437096"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge 的常見問題和解決方案
 
@@ -338,6 +338,39 @@ Azure IoT Edge 允许使用支持的 IoT 中心协议从本地服务器来与 Az
 |AMQP|5671|已封鎖 (預設值)|開放 (預設值)|<ul> <li>IoT Edge 的預設通訊協定。 <li> 如果未設定 Azure IoT Edge 使用其他支援的通訊協定，或 AMQP 是所需的通訊協定，則必須設定為「開放」。<li>IoT Edge 不支援適用於 AMQP 的 5672。<li>當 Azure IoT Edge 使用不同的 IoT Hub 已支援通訊協定時，請封鎖此連接埠。<li>應該將傳入 (輸入) 連線封鎖。</ul></ul>|
 |HTTPS|443|已封鎖 (預設值)|開放 (預設值)|<ul> <li>設定連出 (輸出) 在 443 上開啟以進行 IoT Edge 佈建。 使用手動指令碼或 Azure IoT 裝置佈建服務 (DPS) 時，就需要此設定。 <li>「傳入」(輸入) 連線應該只有針對特定案例才設定為「開放」： <ul> <li>  如果您有透明閘道，而此閘道具有可能傳送方法要求的分葉裝置。 在此情況下，無須對外部網路開放連接埠 443，即可連線至 IoTHub 或透過 Azure IoT Edge 提供 IoTHub 服務。 因此，可將傳入規則限制成只從內部網路開放「傳入」(輸入)。 <li> 針對「用戶端到裝置」(C2D) 案例。</ul><li>IoT Edge 不支援適用於 HTTP 的 80。<li>如果無法在企業中設定非 HTTP 通訊協定 (例如 AMQP 或 MQTT)；則可透過 WebSocket 傳送訊息。 在該情況下，會使用連接埠 443 來進行 WebSocket 通訊。</ul>|
 
+## <a name="edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device"></a>Edge 代理程式模組持續報告 '空的組態檔' 和任何模組在裝置上啟動
+
+裝置具有無法啟動部署中定義的模組。 只有 edgeAgent 正在執行，但持續報告 '...空的組態檔'。
+
+### <a name="potential-root-cause"></a>可能的根本原因
+根據預設，IoT Edge 會在自己的隔離的容器網路中啟動模組。 裝置可能會發生此私人網路內的 DNS 名稱解析問題。
+
+### <a name="resolution"></a>解決方案
+指定 DNS 伺服器，為您的環境中的容器引擎設定。 建立名為`daemon.json`指定要使用的 DNS 伺服器。 例如︰
+
+```
+{
+    "dns": ["1.1.1.1"]
+}
+```
+
+上述範例中可公開存取的 DNS 服務設定 DNS 伺服器。 如果 edge 裝置無法存取此 IP，從其環境，請將它取代為可存取的 DNS 伺服器位址。
+
+位置`daemon.json`適用於您平台的正確位置： 
+
+| 平台 | 位置 |
+| --------- | -------- |
+|  Linux | `/etc/docker` |
+| 使用 Windows 容器的 Windows 主機 | `C:\ProgramData\iotedge-moby-data\config` |
+
+如果位置已包含`daemon.json`檔案中，新增**dns**金鑰給它，然後儲存檔案。
+
+*重新啟動容器引擎，讓更新生效*
+
+| 平台 | 命令 |
+| --------- | -------- |
+|  Linux | `sudo systemctl restart docker` |
+| Windows (系統管理員的 Powershell) | `Restart-Service iotedge-moby -Force` |
 
 ## <a name="next-steps"></a>後續步驟
 您在 IoT Edge 平台中發現到錯誤嗎？ [提交問題](https://github.com/Azure/iotedge/issues)，讓我們可以持續進行改善。 
