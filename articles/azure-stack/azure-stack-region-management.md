@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 03/21/2018
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2018
-ms.openlocfilehash: c28fce9c6c9d7b0ddeba54e1ba643817436adb4e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 29e4bb23b4b80f6e472d2dcb27fe5e5279a35890
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244958"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337709"
 ---
 # <a name="region-management-in-azure-stack"></a>Azure Stack 中的區域管理
 
@@ -29,7 +29,7 @@ ms.locfileid: "55244958"
 
 Azure Stack 使用「區域」概念，也就是由邏輯實體組成硬體資源以形成 Azure Stack 基礎結構。 在區域管理中，您可以找到成功操作 Azure Stack 基礎結構所需的所有資源。
 
-一個整合系統部署 (稱為「Azure Stack 雲端」) 可構成一個區域。 每個「Azure Stack 開發套件」都有一個名為 **local**的區域。 如果您部署第二個 Azure Stack 整合系統，或是在個別的硬體上設定另一個開發套件執行個體，則此 Azure Stack 雲端為不同的區域。
+一個整合系統部署 (稱為「Azure Stack 雲端」) 可構成一個區域。 每個「Azure Stack 開發套件 (ASDK)」都有一個名為 **local** 的區域。 如果您部署第二個 Azure Stack 整合系統，或是在個別的硬體上設定另一個開發套件執行個體，則此 Azure Stack 雲端為不同的區域。
 
 ## <a name="information-available-through-the-region-management-tile"></a>透過區域管理圖格提供的資訊
 
@@ -39,7 +39,7 @@ Azure Stack 具有一組可用於 [區域管理] 磚的區域管理功能。 Azu
 
 如果您按一下 [區域管理] 圖格中的區域，則可以存取下列資訊：
 
-[ ![區域管理 刀鋒視窗上窗格的描述](media/azure-stack-region-management/regionssm.png "區域管理 刀鋒視窗") ](media/azure-stack-region-management/regions.png#lightbox)
+[![區域管理刀鋒視窗上的窗格描述](media/azure-stack-region-management/regionssm.png "區域管理刀鋒視窗")](media/azure-stack-region-management/regions.png#lightbox)
 
 1. [資源功能表]。 存取特定的基礎結構管理領域，以及檢視和管理使用者資源，例如儲存體帳戶和虛擬網路。
 

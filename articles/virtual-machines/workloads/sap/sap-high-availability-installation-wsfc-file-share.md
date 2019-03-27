@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4f9628be1d1f1d146ed0dbc5ebd9579f0512aeac
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a0192b88525d326840283f79ecea7027516ce8c7
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997373"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483433"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>在 Azure 之 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和檔案共用上安裝 SAP NetWeaver 高可用性
 
@@ -253,7 +253,7 @@ SWMP 已在 C:\\usr\\sap 資料夾上建立 SAPMNT 本機共用。
 
 執行下列 PowerShell 指令碼：
 
-```PowerShell
+```powershell
 Remove-SmbShare sapmnt -ScopeName * -Force
  ```
 
@@ -261,7 +261,7 @@ Remove-SmbShare sapmnt -ScopeName * -Force
 
 執行下列 PowerShell 指令碼：
 
-```PowerShell
+```powershell
 #Create SAPLOC share and set security
 $SAPSID = "PR1"
 $DomainName = "SAPCLUSTER"
@@ -289,12 +289,12 @@ New-SmbShare -Name saploc -Path c:\usr\sap -FullAccess "BUILTIN\Administrators",
 若要建立具有鏡像復原的 CSV 磁碟區，請在其中一個 SOFS 叢集節點上執行下列 PowerShell Cmdlet：
 
 
-```PowerShell
+```powershell
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR1 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
 若要建立 SAPMNT 並設定資料夾和共用安全性，請在其中一個 SOFS 叢集節點上執行下列 PowerShell 指令碼：
 
-```PowerShell
+```powershell
 # Create SAPMNT on file share
 $SAPSID = "PR1"
 $DomainName = "SAPCLUSTER"
@@ -354,7 +354,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 在其中一個 SAP ASCS/SCS 叢集節點上執行下列 PowerShell 指令碼：
 
-```PowerShell
+```powershell
 # Grant <DOMAIN>\SAP_<SID>_GlobalAdmin group access to the cluster
 
 $SAPSID = "PR1"
@@ -419,7 +419,7 @@ Get-ClusterAccess
 
 將 [**SAPScripts.psm1**][sap-powershell-scrips] 複製到本機磁碟機 C:\tmp，並執行下列 PowerShell Cmdlet：
 
-```PowerShell
+```powershell
 Import-Module C:\tmp\SAPScripts.psm1
 
 Update-SAPASCSSCSProfile -PathToAscsScsInstanceProfile \\sapglobal\sapmnt\PR1\SYS\profile\PR1_ASCS00_ascs-1 -NewASCSHostName pr1-ascs -NewSAPGlobalHostName sapglobal -Verbose  
@@ -463,7 +463,7 @@ _**圖 1**:SAPScripts.psm1 輸出_
 
 若要建立 SAP \<SID > 叢集群組、ASCS/SCS 網路名稱和對應的 IP 位址，請執行下列 PowerShell Cmdlet：
 
-```PowerShell
+```powershell
 # Create SAP Cluster Group
 $SAPSID = "PR1"
 $SAPClusterGroupName = "SAP $SAPSID"
@@ -533,7 +533,7 @@ _**圖 2**:重新安裝 SAP 服務_
 
 執行下列 PowerShell cmdlet：
 
-```PowerShell
+```powershell
 $SAPSID = "PR1"
 $SAPInstanceNumber = "00"
 $SAPNetworkNameClusterResourceName = "pr1-ascs"

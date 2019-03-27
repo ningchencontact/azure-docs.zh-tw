@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 3/25/2019
+ms.date: 3/26/2019
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 5029fb29aecda1f1bef14dc95f6301b539c60441
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: c632989ea85033c6cbdd4188351d34345e919c49
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58419099"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500656"
 ---
 ### <a name="what-is-azure-firewall"></a>何謂 Azure 防火牆？
 
@@ -45,10 +45,11 @@ Azure 防火牆是受控、雲端式網路安全性服務，可以保護您的 A
 
 Azure 防火牆支援規則和規則集合。 規則集合是一組共用相同順序和優先順序的規則。 規則集合會依其優先順序執行。 網路規則集合的優先順序高於應用程式規則集合，而所有規則都將終止。
 
-規則集合有兩種類型：
+有三種類型的規則集合：
 
-* *應用程式規則*：能夠讓您設定可從子網路存取的完整網域名稱 (FQDN)。
-* *網路規則*：能夠讓您設定包含來源位址、通訊協定、目的地連接埠及目的地位址的規則。
+* *應用程式規則*：設定可從子網路存取的完整的網域名稱 (Fqdn)。
+* *網路規則*：設定包含來源位址、 通訊協定、 目的地連接埠及目的地位址的規則。
+* *NAT 規則*:設定 DNAT 規則以允許連入連線。
 
 ### <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Azure 防火牆是否支援輸入流量篩選？
 
@@ -94,19 +95,19 @@ Azure 防火牆有固定成本和變動成本：
 ```azurepowershell
 # Stop an exisitng firewall
 
-$azfw = Get-AzureRmFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+$azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
 $azfw.Deallocate()
-Set-AzureRmFirewall -AzureFirewall $azfw
+Set-AzFirewall -AzureFirewall $azfw
 ```
 
 ```azurepowershell
 #Start a firewall
 
-$azfw = Get-AzureRmFirewall -Name "FW Name" -ResourceGroupName "RG Name"
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
-$publicip = Get-AzureRmPublicIpAddress -Name "Public IP Name" -ResourceGroupName " RG Name"
+$azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+$vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
+$publicip = Get-AzPublicIpAddress -Name "Public IP Name" -ResourceGroupName " RG Name"
 $azfw.Allocate($vnet,$publicip)
-Set-AzureRmFirewall -AzureFirewall $azfw
+Set-AzFirewall -AzureFirewall $azfw
 ```
 
 > [!NOTE]
@@ -124,6 +125,14 @@ Set-AzureRmFirewall -AzureFirewall $azfw
 
 是。 不過，設定相同的 VNET 中的子網路之間的流量重新導向至 Udr 需要多加注意。 雖然對 UDR 而言，使用 VNET 位址範圍作為目標前置詞已足夠，但這也會使得所有流量透過 Azure 防火牆執行個體從一部機器路由至相同子網路中的另一部機器。 若要避免此狀況，需在下一個躍點類型為 **VNET** 的 UDR 中包括子網路的路由。 管理這些路由可能會很麻煩，而且容易出錯。 對於內部網路區隔的建議方法是使用網路安全性群組，而這不需要 UDR。
 
+### <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>強制通道/鏈結至支援網路虛擬設備嗎？
+
+是。
+
+Azure 的防火牆必須有直接的網際網路連線。 根據預設，AzureFirewallSubnet 具有 0.0.0.0/0 路由的 NextHopType 值設為**網際網路**。
+
+如果您啟用強制通道，在內部透過 ExpressRoute 或 VPN 閘道，您可能需要明確且 NextHopType 值設定為 網際網路設定 0.0.0.0/0 的使用者定義路由 (UDR)，並將它與您 AzureFirewallSubnet 產生關聯。 這會覆寫潛在的預設閘道回到您的內部部署網路的 BGP 公告。 如果您的組織需要 Azure 防火牆，以將預設閘道流量回到您的內部部署網路的強制通道，請連絡支援服務。 我們可以在維護您的訂用帳戶，以確保必要的網際網路連線防火牆的白名單。
+
 ### <a name="are-there-any-firewall-resource-group-restrictions"></a>是否有任何防火牆資源群組的限制？
 
 是。 防火牆、子網路、VNet 和公用 IP 位址全都必須在相同的資源群組中。
@@ -131,3 +140,7 @@ Set-AzureRmFirewall -AzureFirewall $azfw
 ### <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>在設定傳入網路流量的 DNAT 時，是否也需要設定對應的網路規則，才能允許該流量？
 
 沒有。 NAT 規則會隱含地新增對應的網路規則，以允許已轉譯的流量。 若要覆寫這個行為，您可以明確地使用符合已轉譯流量的拒絕規則來新增網路規則集合。 若要深入了解 Azure 防火牆規則處理邏輯，請參閱 [Azure 防火牆規則處理邏輯](../articles/firewall/rule-processing.md)。
+
+### <a name="how-to-wildcards-work-in-an-application-rule-target-fqdn"></a>萬用字元的如何運作的應用程式規則的目標 FQDN？
+
+如果您設定 ***。 contoso.com**，它可讓*anyvalue*。 contoso.com，但不是 contoso.com （網域頂點）。 如果您想要允許網域頂點，您必須明確地設定它做為目標的 FQDN。

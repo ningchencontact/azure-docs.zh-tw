@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 3f23f62554ce7f4b90b4116fdd6085027e71650d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0ebd17eca363d7fc02daeb851bb24b8d1d307efc
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770156"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339596"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>使用 Azure ExpressRoute 將 Azure Stack 連線至 Azure
 
@@ -159,7 +159,7 @@ Azure ExpressRoute 可讓您透過連線提供者所提供的私人連線，將�
    > [!IMPORTANT]
    > 對於 Azure Stack 閘道和 ExpressRoute 路由器之間的站對站 VPN 連線，這個範例假設您使用靜態路由。
 
-1. 確認 [訂用帳戶]、[資源群組] 和 [位置] 正確無誤。 接著，按一下 [建立]。
+1. 確認 [訂用帳戶]、[資源群組] 和 [位置] 正確無誤。 然後選取 [建立]。
 
 #### <a name="create-the-connection"></a>建立連線
 
@@ -230,7 +230,7 @@ Azure Stack 開發套件是獨立的，而且與部署實體主機的網路隔�
 #### <a name="configure-the-nat"></a>設定 NAT
 
 1. 以系統管理員帳戶登入 Azure Stack 主機電腦。
-1. 複製並編輯下列 PowerShell 指令碼。 將 `"your administrator password"` 更換為系統管理員密碼，然後在提升權限的 PowerShell ISE 中執行指令碼。 此指令碼會傳回「外部 BGPNAT 位址」。
+1. 複製並編輯下列 PowerShell 指令碼。 將 `your administrator password` 更換為系統管理員密碼，然後在提升權限的 PowerShell ISE 中執行指令碼。 此指令碼會傳回「外部 BGPNAT 位址」。
 
    ```PowerShell
    cd \AzureStack-Tools-master\connect
@@ -243,7 +243,7 @@ Azure Stack 開發套件是獨立的，而且與部署實體主機的網路隔�
     -Password $Password
    ```
 
-1. 若要設定 NAT，請複製並編輯下列 PowerShell 指令碼。 編輯指令碼以將 `'External BGPNAT address'` 和 `'Internal IP address'` 更換為下列值範例：
+1. 若要設定 NAT，請複製並編輯下列 PowerShell 指令碼。 編輯指令碼以將 `External BGPNAT address` 和 `Internal IP address` 更換為下列值範例：
 
    * 針對 [外部 BGPNAT 位址]，請使用 10.10.0.62
    * 針對 [內部 IP 位址]，請使用 192.168.102.1
@@ -289,12 +289,11 @@ Azure Stack 開發套件是獨立的，而且與部署實體主機的網路隔�
       -InternalIPAddress $Using:IntBgpNat `
       -ExternalPort 4500 `
       -InternalPort 4500}
-
    ```
 
 ## <a name="configure-azure"></a>設定 Azure
 
-完成 Azure Stack 的設定之後，您就可以部署 Azure 資源。 下圖說明 Azure 中的租用戶虛擬網路範例。 針對您在 Azure 中的 VNet，您可以使用任何名稱和定址配置。 不過，在 Azure 和 Azure Stack 中，VNet 的位址範圍必須是唯一的，而且不能重疊。
+完成 Azure Stack 的設定之後，您就可以部署 Azure 資源。 下圖說明 Azure 中的租用戶虛擬網路範例。 針對您在 Azure 中的 VNet，您可以使用任何名稱和定址配置。 不過，在 Azure 和 Azure Stack 中，VNet 的位址範圍必須是唯一的，而且不能重疊：
 
 *圖 3.Azure VNet*
 
@@ -367,7 +366,7 @@ Azure 網路基礎結構範例的設定方式如下：
 
 下列 Cisco ASR 1000 Series Aggregation Services Router 設定範例可支援「ExpressRoute 路由器設定」圖表顯示的網路基礎結構。
 
-```
+```shell
 ip vrf Tenant 1
  description Routing Domain for PRIVATE peering to Azure for Tenant 1
  rd 1:1
@@ -628,7 +627,7 @@ New-NetFirewallRule `
 1. 使用租用戶帳戶登入 Azure Stack 使用者入口網站，然後選取 [所有資源]。
 1. 瀏覽至 VPN 閘道的資源群組，然後選取 [連線] 物件類型。
 1. 選取清單中的 [ConnectToAzure] 連線。
-1. 在 [連線] > [概觀] 底下，您可以看到 [資料輸入] 和 [資料輸出] 的統計資料。您應該會看到一些非零值。
+1. 在 [連線]  >  [概觀] 底下，您可以看到 [資料輸入] 和 [資料輸出] 的統計資料。您應該會看到一些非零值。
 
    ![資料輸入和資料輸出](media/azure-stack-connect-expressroute/DataInDataOut.png)
 

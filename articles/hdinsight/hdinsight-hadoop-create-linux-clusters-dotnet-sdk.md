@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: mamccrea
-ms.openlocfilehash: 52f67d21c3a130df4d85c220baca9c6af8eb06c1
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 0106063cfe376f31040b5dcd6856282ee09ae5c9
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793473"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447946"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>在 HDInsight 中使用 .NET SDK 建立以 Linux 為基礎的叢集
 
@@ -396,5 +396,5 @@ static void Main(string[] args)
 * [使用 .NET SDK 在 HDInsight 中執行 Apache Hive 作業](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
 * [使用 .NET SDK 在 HDInsight 中執行 Apache Pig 作業](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
 * [使用 .NET SDK 在 HDInsight 中執行 Apache Sqoop 作業](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
-* [在 HDInsight 中執行 Apache Oozie 作業](hdinsight-use-oozie.md)
+* [在 HDInsight 中執行 Apache Oozie 作業](hdinsight-use-oozie-linux-mac.md)
 

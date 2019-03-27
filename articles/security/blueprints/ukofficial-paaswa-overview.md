@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: b30ef7d0b373f0d9a440b6649f819e429e28328c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 95e10f4727de239016a2e3c88571e74267e3967b
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314921"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482978"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure 安全性與合規性藍圖：適用於 UK OFFICIAL 工作負載的 PaaS Web 應用程式裝載
 
@@ -95,7 +95,7 @@ Azure 藍圖是由指引文件和自動化範本所組成，可部署雲端式�
 
 [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-overview) 是個人化的雲端顧問，可協助您依最佳做法來最佳化您的 Azure 部署。 它可分析您的資源組態和使用量遙測，然後建議可協助您改善 Azure 資源的成本效益、效能、高可用性和安全性的解決方案。
 
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) 是即時保護功能，有助於識別和移除病毒、間諜軟體和其他惡意軟體。 預設安裝於基礎 PaaS 虛擬機器基礎結構，並由 Azure 網狀架構以透明方式對客戶進行管理。
+[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) 是即時保護功能，有助於識別和移除病毒、間諜軟體和其他惡意軟體。 這預設安裝在基礎的 PaaS 虛擬機器基礎結構，而且由 Azure 網狀架構，看不到客戶管理。
 
 ### <a name="paas-services-in-this-blueprint"></a>此藍圖中的 PaaS 服務
 

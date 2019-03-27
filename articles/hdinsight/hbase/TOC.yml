@@ -79,21 +79,6 @@ items:
       - name: 將 HDInsight 應用程式發佈到 Azure Marketplace
         href: ../hdinsight-apps-publish-applications.md
         maintainContext: true
-      - name: 安裝已發行的應用程式 - Cask 資料應用程式平台 (CDAP)
-        href: ../hdinsight-apps-install-cask.md
-        maintainContext: true
-      - name: 安裝已發行的應用程式 - Dataiku
-        href: ../hdinsight-apps-install-dataiku.md
-        maintainContext: true
-      - name: 安裝已發行的應用程式 - Datameer
-        href: ../hdinsight-apps-install-datameer.md
-        maintainContext: true
-      - name: 安裝已發行的應用程式 - H2O
-        href: ../hdinsight-apps-install-h2o.md
-        maintainContext: true
-      - name: 安裝已發行的應用程式 - Streamsets
-        href: ../hdinsight-apps-install-streamsets.md
-        maintainContext: true
   - name: 安全
     items:
     - name: 搭配使用 SSH 與 HDInsight
@@ -231,9 +216,6 @@ items:
       - name: 記憶體不足錯誤的 Apache Hive 設定修正
         href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
         maintainContext: true
-      - name: 使用 Apache Ambari 檢視來為 Apache TEZ 作業偵錯
-        href: ../hdinsight-debug-ambari-tez-view.md
-        maintainContext: true
       - name: 最佳化 Apache Hive 查詢
         href: ../hdinsight-hadoop-optimize-hive-query.md
         maintainContext: true
@@ -303,33 +285,6 @@ items:
     - name: 將 .NET 解決方案移轉至 Linux 叢集
       href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
       maintainContext: true
-    - name: 執行 Apache Hadoop MapReduce 範例
-      href: ../hdinsight-run-samples.md
-      maintainContext: true
-    - name: 使用 Apache Giraph 處理大規模圖形
-      href: ../hdinsight-hadoop-giraph-install.md
-      maintainContext: true
-    - name: 使用 Apache Oozie 進行工作流程
-      href: ../hdinsight-use-oozie.md
-      maintainContext: true
-    - name: 部署和管理 Apache Storm 拓撲
-      href: ../storm/apache-storm-deploy-monitor-topology.md
-      maintainContext: true
-    - name: 使用 Apache Maven 建置 Java 應用程式
-      href: ../hdinsight-hbase-build-java-maven.md
-      maintainContext: true
-    - name: 存取 Apache Hadoop YARN 應用程式記錄
-      href: ../hdinsight-hadoop-access-yarn-app-logs.md
-      maintainContext: true
-    - name: 使用 Apache Mahout 來產生電影推薦
-      href: ../hdinsight-mahout.md
-      maintainContext: true
-    - name: 開發指令碼動作
-      href: ../hdinsight-hadoop-script-actions.md
-      maintainContext: true
-    - name: 使用 Apache Ambari API 監視叢集
-      href: ../hdinsight-monitor-use-ambari-api.md
-      maintainContext: true
 - name: 資源
   items:
   - name: 版本資訊
@@ -352,9 +307,9 @@ items:
   - name: HDInsight 適用的 Windows 工具
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: e00619810711e0a27c2c49224e96818e7d184d1f
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 39bc984d593f9026a3f6db85da8b8d1b80038335
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360015"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444408"
