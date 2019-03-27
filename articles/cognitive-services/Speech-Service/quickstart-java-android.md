@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 2ee5028e0766ec52c407bf0ef0e18885c11734d8
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 9458f052258993ee598ddfbca262faf8f6cb4ab9
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961039"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258542"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Android 上以 Java 辨識語音
 
@@ -61,11 +61,11 @@ Android Studio 需要一些時間來準備您新的 Android 專案。 接著，�
 認知服務語音 SDK 目前的版本為 `1.3.1`。
 
 適用於 Android 的語音 SDK 會封裝成 [AAR (Android 程式庫)](https://developer.android.com/studio/projects/android-library) \(英文\)，其中包含必要的程式庫及所需的 Android 權限。
-它會裝載在位於 https://csspeechstorage.blob.core.windows.net/maven/ 的 Maven 存放庫中。
+它會裝載在位於 https:\//csspeechstorage.blob.core.windows.net/maven/ 的 Maven 存放庫中。
 
 將您的專案設定為使用語音 SDK。 從 Android Studio 功能表列中選擇 [檔案] > [專案結構]，以開啟 [專案結構] 視窗。 在 [專案結構] 視窗中，進行下列變更：
 
-1. 在位於視窗左側的清單中，選取 [專案]。 在單引號中附加逗號和我們的 Maven 存放庫 URL，以編輯 [預設程式庫存放庫]。 'https://csspeechstorage.blob.core.windows.net/maven/'
+1. 在位於視窗左側的清單中，選取 [專案]。 在單引號中附加逗號和我們的 Maven 存放庫 URL，以編輯 [預設程式庫存放庫]。 'https:\//csspeechstorage.blob.core.windows.net/maven/'
 
    ![專案結構視窗的螢幕擷取畫面](media/sdk/qs-java-android-06-add-maven-repository.png)
 
