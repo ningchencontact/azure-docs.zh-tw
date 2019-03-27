@@ -11,16 +11,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 03/11/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: a638d5cdfbd3af46335cfb8e4970306534fc1c3b
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: ba2a322cdbcf929bef586f9f35ec2dc394f7af53
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445979"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778513"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Azure Stack 概觀上的 App Service
 
@@ -53,7 +53,7 @@ App Service 提供數個「應用程式類型」，而每個類型主要裝載�
 - 將兩者 (前端和 API) 部署至單一 Web 應用程式
 - 將前端程式碼部署至 Web 應用程式，而將後端程式碼部暑至 API 應用程式。
 
-   [ ![使用監視資料的 App Service 概觀](media/azure-stack-app-service-overview/image01.png "使用監視資料的 App Service 概觀") ](media/azure-stack-app-service-overview/image01.png#lightbox)
+   [![使用監視資料的 App Service 概觀](media/azure-stack-app-service-overview/image01.png "使用監視資料的 App Service 概觀")](media/azure-stack-app-service-overview/image01.png#lightbox)
 
 ## <a name="what-is-an-app-service-plan"></a>什麼是 App Service 方案？
 

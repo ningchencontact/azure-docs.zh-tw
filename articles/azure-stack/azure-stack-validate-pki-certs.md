@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/08/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 898fb12c4e38804cca71be6ef08b078f92633e32
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 1e5154f4f6c77e9a024ced58f3b75a0111a614c3
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240148"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769366"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>驗證 Azure Stack PKI 憑證
 
@@ -75,7 +75,7 @@ ms.locfileid: "55240148"
     ```PowerShell  
     New-Item C:\Certificates -ItemType Directory
     
-    $directories = 'ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
+    $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'Admin Extension Host', 'Admin Portal', 'api_appservice', 'ARM Admin', 'ARM Public', 'ftp_appservice', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal', 'sso_appservice', 'wildcard_dbadapter', 'wildcard_sso_appservice'
     
     $destination = 'c:\certificates'
     
@@ -83,7 +83,11 @@ ms.locfileid: "55240148"
     ```
     
     > [!Note]  
-    > 如果您使用 AD FS 作為身分識別系統，則需要 AD FS 和 Graph。
+    > 如果您使用 AD FS 作為身分識別系統，則需要 AD FS 和 Graph。 例如︰
+    >
+    > ```PowerShell  
+    > $directories = 'ACSBlob', 'ACSQueue', 'ACSTable', 'ADFS', 'Admin Extension Host', 'Admin Portal', 'api_appservice', 'ARM Admin', 'ARM Public', 'ftp_appservice', 'Graph', 'KeyVault', 'KeyVaultInternal', 'Public Extension Host', 'Public Portal', 'sso_appservice', 'wildcard_dbadapter', 'wildcard_sso_appservice'
+    > ```
     
      - 將您的憑證放在上一個步驟中建立的適當目錄。 例如︰  
         - `c:\certificates\ACSBlob\CustomerCertificate.pfx`
@@ -250,17 +254,17 @@ Invoke-AzsCertificateValidation Completed
 
 | 目錄 | 憑證 |
 | ---    | ----        |
-| acsBlob | wildcard_blob_\< region>\< externalFQDN> |
-| ACSQueue  |  wildcard_queue\< region>\< externalFQDN> |
-| ACSTable  |  wildcard_table\< region>\< externalFQDN> |
-| 管理員延伸主機  |  wildcard_adminhosting\< region>\< externalFQDN> |
-| 管理入口網站  |  adminportal\< region>\< externalFQDN> |
-| SSL 管理員  |  adminmanagement\< region>\< externalFQDN> |
-| ARM 公用  |  management\< region>\< externalFQDN> |
-| KeyVault  |  wildcard_vault\< region>\< externalFQDN> |
-| KeyVaultInternal  |  wildcard_adminvault\< region>\< externalFQDN> |
-| 公用延伸主機  |  wildcard_hosting\< region>\< externalFQDN> |
-| 公用入口網站  |  portal\< region>_\< externalFQDN> |
+| acsBlob | wildcard_blob_\<region>_\<externalFQDN> |
+| ACSQueue  |  wildcard_queue_\<region>_\<externalFQDN> |
+| ACSTable  |  wildcard_table_\<region>_\<externalFQDN> |
+| 管理員延伸主機  |  wildcard_adminhosting_\<region>_\<externalFQDN> |
+| 管理入口網站  |  adminportal_\<region>_\<externalFQDN> |
+| SSL 管理員  |  adminmanagement_\<region>_\<externalFQDN> |
+| ARM 公用  |  management_\<region>_\<externalFQDN> |
+| KeyVault  |  wildcard_vault_\<region>_\<externalFQDN> |
+| KeyVaultInternal  |  wildcard_adminvault_\<region>_\<externalFQDN> |
+| 公用延伸主機  |  wildcard_hosting_\<region>_\<externalFQDN> |
+| 公用入口網站  |  portal_\<region>_\<externalFQDN> |
 
 ## <a name="using-validated-certificates"></a>使用驗證的憑證
 

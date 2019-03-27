@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 03a6f649f15f6a4905433d6e2ec292a901340929
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b498283ee117935438c55e5162e92acdb0f5ebfe
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55249675"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56649895"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Azure Stack Marketplace 中的 Windows Server 常見問題集
 
@@ -38,7 +38,7 @@ ms.locfileid: "55249675"
 
 Microsoft 透過 Azure Stack Marketplace 提供兩種版本的 Windows Server 映像：
 
-- **隨用即付**：這些映像會執行完整價格的 Windows 計量。 
+- **隨用即付**：這些映像會執行完整價格的 Windows 計量。
    適合對象：使用*使用量計費模型*的 Enterprise 合約 (EA) 客戶、不想使用 SPLA 授權的 CSP。
 - **自備授權 (BYOL)**：這些映像會執行基本計量。
    適合對象：具有 Windows Server 授權的 EA 客戶、使用 SPLA 授權的 CSP。
@@ -74,20 +74,20 @@ Azure Stack 不支援 Azure Hybrid Use Benefit (AHUB)。 透過「容量」模�
 
 ### <a name="how-can-i-verify-that-my-virtual-machine-is-activated"></a>我如何確認虛擬機器已經啟用？
 
-從提高權限的命令提示字元中執行下列命令： 
+從提高權限的命令提示字元中執行下列命令：
 
 ```shell
 slmgr /dlv
-``` 
+```
 
 如果虛擬機器已正確啟用，您將能在 `slmgr` 輸出中清楚看見指出此情況的訊息與主機名稱。 請不要依賴顯示器上的浮水印，因為它們可能不是最新狀態，或是顯示位於您虛擬機器後其他虛擬機器的狀態。
 
 ### <a name="my-vm-is-not-set-up-to-use-avma-how-can-i-fix-it"></a>我的 VM 沒有設定為使用 AVMA，該如何修正它？
 
-從提高權限的命令提示字元中執行下列命令： 
+從提高權限的命令提示字元中執行下列命令：
 
 ```shell
-slmgr /ipk <AVMA key> 
+slmgr /ipk <AVMA key>
 ```
 
 請參閱[自動虛擬機器啟用](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) \(英文\) 一文，以取得用於您映像的金鑰。

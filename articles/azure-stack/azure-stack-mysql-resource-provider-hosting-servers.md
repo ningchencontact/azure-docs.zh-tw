@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 02/28/2019
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: e1a00ea36efa6af816c371f5498085fc2cf491b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: 68e8bfa16c56b8c864ac99cdf6c19243bc7e881c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165020"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101868"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>為 SMySQL 資源提供者新增主控伺服器
 
@@ -44,6 +44,8 @@ MySQL 5.6、5.7 和 8.0 版可用於您的主控伺服器。 MySQL RP 不支援 
 4. 提供 MySQL 伺服器執行個體的連線詳細資料。
 
    * 針對 [MySQL 主控伺服器名稱]，提供完整網域名稱 (FQDN) 或有效的 IPv4 位址。 請勿使用簡短的 VM 名稱。
+   * Azure Stack 市集中提供的 Bitnami MySQL 映像的預設系統管理員**使用者名稱**為 *root*。 
+   * 如果您不知道根**密碼**，請參閱 [Bitnami 文件](https://docs.bitnami.com/azure/faq/#how-to-find-application-credentials)以了解如何取得此密碼。 
    * 由於未提供預設的 MySQL 執行個體，因此您必須指定**主控伺服器的大小 (以 GB 為單位)**。 輸入的大小應該接近資料庫伺服器的容量。
    * 保留 [訂用帳戶] 的預設設定。
    * 針對 [資源群組]，您可以建立新群組或使用現有的群組。
@@ -58,8 +60,8 @@ MySQL 5.6、5.7 和 8.0 版可用於您的主控伺服器。 MySQL RP 不支援 
    SKU 的 [名稱] 應反映 SKU 屬性，以便使用者將其資料庫部署到適當的 SKU。
 
 6. 選取 [確定] 以建立 SKU。
-> [!NOTE]
-> 最多需要一小時才能在入口網站中看到 SKU。 您必須等到 SKU 部署完畢並開始執行之後，才能建立資料庫。
+   > [!NOTE]
+   > 最多需要一小時才能在入口網站中看到 SKU。 您必須等到 SKU 部署完畢並開始執行之後，才能建立資料庫。
 
 7. 在 [新增 MySQL 主控伺服器] 下方，選取 [建立]。
 

@@ -15,12 +15,12 @@ ms.date: 02/08/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 89e75afd3b9001f7a0b8a027744ef71c8bb69690
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 4e623c6a2423d2e61334932d0c40f05e548d3c38
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56299559"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109860"
 ---
 # <a name="install-powershell-for-azure-stack"></a>安裝適用於 Azure Stack 的 PowerShell
 
@@ -106,8 +106,8 @@ Azure Stack 需要 Azure Stack 版本 1808 或更新版本的 **2018-03-01-hybri
     ```
 
     > [!Note]  
-    > Azure Stack 模組版本 1.7.0 是一項重大變更。 若要從 Azure Stack 1.6.0 移轉，請參閱[移轉指南](https://aka.ms/azspshmigration170)。
-
+    > Azure Stack 模組 1.7.0 版是重大變更版本。 若要從 Azure Stack 1.6.0 移轉，請參閱[移轉指南](https://aka.ms/azspshmigration170)。
+    > AzureRm 模組 2.4.0 版附有 Cmdlet Remove-AzureRmStorageAccount 的重大變更。 此 Cmdlet 預期應指定 -Force 參數，以直接移除儲存體帳戶而無須確認。
 - Azure Stack 1811：
 
     ```PowerShell
@@ -217,6 +217,12 @@ Get-Module -Name "Azs*" -ListAvailable
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
     ```
+
+    > [!NOTE]
+    > 在沒有網際網路連線的電腦上，建議您執行下列 Cmdlet 以停用遙測資料收集。 若未停用遙測資料收集，可能會發生 Cmldet 效能降低的狀況。 不具網際網路連線的電腦才有可能發生此狀況
+    > ```PowerShell
+    > Disable-AzureRmDataCollection
+    > ```
 
 ### <a name="enable-additional-storage-features"></a>啟用其他儲存體功能
 

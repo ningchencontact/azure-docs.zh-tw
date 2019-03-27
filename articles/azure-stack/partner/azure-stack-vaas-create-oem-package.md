@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 415cdecc33b7360d482d37a3cb9d4f1bce528ab1
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 568817c6e25952f15a396e5748d314187345945b
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251787"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769041"
 ---
 # <a name="create-an-oem-package"></a>建立 OEM 套件
 
@@ -30,11 +30,10 @@ ms.locfileid: "55251787"
 
 ## <a name="creating-the-package"></a>建立套件
 
-OEM 延伸模組套件在建立並通過驗證之後，便可在 VaaS 中使用。  在繼續進行之前，請確定您已完成[建立 OEM 套件](https://microsoft.sharepoint.com/:w:/r/teams/cloudsolutions/Sacramento/_layouts/15/Doc.aspx?sourcedoc=%7BD7406069-7661-419C-B3B1-B6A727AB3972%7D&file=Azure%20Stack%20OEM%20Extension%20Package.docx&action=default&mobileredirect=true)的步驟。 接著會將此套件連同 VaaS 測試結果一起提交給 Microsoft，以在「解決方案驗證」工作流程中進行簽署。 下列步驟會詳細說明如何將所產生的檔案組成 VaaS 能夠取用的單一 ZIP 檔案。
+OEM 延伸模組套件在建立並通過驗證之後，便可在 VaaS 中使用。  在繼續進行之前，請確定您已完成[建立 OEM 套件](https://microsoft.sharepoint.com/:w:/r/teams/cloudsolutions/Sacramento/_layouts/15/Doc.aspx?sourcedoc=%7BD7406069-7661-419C-B3B1-B6A727AB3972%7D&file=Azure%20Stack%20OEM%20Extension%20Package.docx&action=default&mobileredirect=true)的步驟。 接著會將此套件連同 VaaS 測試結果一起提交給 Microsoft，以供在「套件驗證」工作流程中簽署。 下列步驟會詳細說明如何將所產生的檔案組成 VaaS 能夠取用的單一 ZIP 檔案。
 
 1. 識別下列用於套件的內容：
-    - 一個名為 `<Publisher>-<Model>-<Version>.exe` 的可執行檔
-    - 一或多個名為 `<Publisher><Model>-<Version>-#.bin` 的二進位檔案，其中 # 是從 1 開始的序號。 二進位檔案數目取決於套件內容的總大小。
+    - 包含套件內容的 ZIP 檔案
     - 一個名為 `oemMetadata.xml` 資訊清單檔，此檔案的內容應該與套件內容根目錄中的 metadata.xml 檔案相同。
 
 2. 選取內容檔案，然後從內容建立 ZIP 檔案：
@@ -51,7 +50,7 @@ OEM 延伸模組套件在建立並通過驗證之後，便可在 VaaS 中使用�
 
 ![以正確方式壓縮的套件內容](media/vaas-create-oem-package-3.png)
 
-ZIP 檔案現在已可上傳到 VaaS，並由 Microsoft 在「解決方案驗證」工作流程中簽署。
+ZIP 檔案現在已可上傳到 VaaS，並由 Microsoft 在「套件驗證」工作流程中簽署。
 
 ## <a name="next-steps"></a>後續步驟
 

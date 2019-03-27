@@ -16,12 +16,12 @@ ms.date: 05/18/2018
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: 0fa938b02b24bd79017bede5346b882e6587bd5d
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: d57b06a33421a94c4f849a1c1fd7cd6f1f4248dd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766919"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57848893"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>App Service on Azure Stack 更新 2 版本資訊
 
@@ -56,7 +56,7 @@ Azure App Service on Azure Stack 更新 2 包含下列改良功能和修正：
 - 用來改善可靠性和錯誤訊息以利進行常見問題診斷的核心服務更新。
 
 - **下列應用程式架構和工具的更新**：
-  - 已新增 .Net Framework 4.7.1
+  - 已新增 .NET Framework 4.7.1
   - 已新增 **Node.JS** 版本：
     - NodeJS 6.12.3
     - NodeJS 8.9.4
@@ -64,7 +64,7 @@ Azure App Service on Azure Stack 更新 2 包含下列改良功能和修正：
     - NodeJS 8.11.1
   - 已新增 **NPM** 版本：
     - 5.6.0
-  - 已將 .Net Core 元件更新為與公用雲端中的 Azure App Service 一致。
+  - 已將 .NET Core 元件更新為與公用雲端中的 Azure App Service 一致。
   - 已更新 Kudu
 
 - 已啟用部署位置的自動交換功能 - [設定自動交換](https://docs.microsoft.com/azure/app-service/deploy-staging-slots#configure-auto-swap)
@@ -84,15 +84,15 @@ Azure App Service on Azure Stack 更新 2 包含下列改良功能和修正：
 - 將應用程式服務部署在現有的虛擬網路中且只能在私人網路上使用檔案伺服器時，背景工作角色無法連線到檔案伺服器。
 
 如果您選擇要部署到現有的虛擬網路並以內部 IP 位址連線到檔案伺服器，便必須新增輸出安全性規則，以啟用背景工作角色子網路與檔案伺服器之間的 SMB 流量。 若要這樣做，請移至管理入口網站中的 WorkersNsg，然後使用下列屬性新增輸出安全性規則：
- * 來源：任意
- * 來源連接埠範圍：*
- * 目的地：IP 位址
- * 目的地 IP 位址範圍：檔案伺服器的 IP 範圍
- * 目的地連接埠範圍：445
- * 通訊協定：TCP
- * 動作：允許
- * 優先順序：700
- * 名稱：Outbound_Allow_SMB445
+* 來源：任意
+* 來源連接埠範圍：*
+* 目的地：IP 位址
+* 目的地 IP 位址範圍：檔案伺服器的 IP 範圍
+* 目的地連接埠範圍：445
+* 通訊協定：TCP
+* 動作：允許
+* 優先順序：700
+* 名稱：Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>雲端管理員操作 Azure App Service on Azure Stack 時的已知問題
 

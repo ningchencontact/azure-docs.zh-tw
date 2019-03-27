@@ -291,7 +291,7 @@ ms.topic: hub-page
                         <h3>視覺 API</h3>
                         <p><a href="/azure/cognitive-services/computer-vision/">電腦視覺</a></p>
                         <p><a href="/azure/cognitive-services/content-moderator/">內容仲裁</a></p>
-                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/"><span>自訂視覺服務&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/">自訂視覺服務</a></p>
                         <p><a href="/azure/cognitive-services/face/">臉部 API</a></p>
                         <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">影片索引子</a></p>
                     </div>
@@ -366,20 +366,8 @@ ms.topic: hub-page
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>實驗室</h3>
-                        <p><a href="https://docs.microsoft.com/gestures/">手勢專案</a></p>
-                        <p><a href="/azure/cognitive-services/project-personality-chat/overview">個人化聊天專案</a></p>
-                        <p><a href="https://labs.cognitive.microsoft.com/en-us/Project-Cuzco/documentation/overview">事件追蹤專案</a></p>
-                        <p><a href="/azure/cognitive-services/academic-knowledge/home">學術知識專案</a></p>
-                        <p><a href="https://labs.cognitive.microsoft.com/en-us/Project-Wollongong/documentation">當地見解專案</a></p>
-                        <p><a href="/azure/cognitive-services/kes/overview">知識探索服務計畫</a></p>
-                        <p><a href="/azure/cognitive-services/entitylinking/home">實體連結計畫</a></p>
-                        <p><a href="/azure/cognitive-services/labs/url-preview/overview">URL 預覽計畫</a></p>
-                        <p><a href="/azure/cognitive-services/labs/answer-search/overview">答案搜尋計畫</a></p>
-                        <p><a href="/azure/cognitive-services/labs/anomaly-finder/overview">異常搜尋工具計畫</a></p>
-                        <p><a href="/azure/cognitive-services/labs/conversation-learner/overview">對話學習模組計畫</a></p>
-                        <p><a href="/azure/cognitive-services/acoustics/what-is-acoustics">Project Acoustics</a></p>
-                        <p><a href="/azure/cognitive-services/custom-decision-service/"><span>自訂決策服務&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
+                        <h3>異常偵測</h3>
+                        <p><a href="/azure/cognitive-services/anomaly-detector/">異常偵測器<span>&nbsp;預覽<sup style="font-size:70%"></sup></span></a></p>               
                     </div>
                 </div>
             </div>

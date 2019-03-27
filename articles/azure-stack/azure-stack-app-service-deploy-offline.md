@@ -12,32 +12,32 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 315a96680674636f7cab9d93b362febcb25f9922
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: b6950e3445f2320f2e3a45f55726befd7077119a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447060"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835904"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>將 App Service 資源提供者新增至中斷連線且受 AD FS 保護的 Azure Stack 環境
 
 *適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 > [!IMPORTANT]
-> 在部署 Azure App Service 1.4 之前，請先將 1809 更新套用到您的 Azure Stack 整合式系統，或部署最新的 Azure Stack 開發套件。
+> 在部署 Azure App Service 1.5 之前，請先將 1901 更新套用到您的 Azure Stack 整合式系統，或部署最新的 Azure Stack 開發套件。
 
 您可以遵循本文章中的指示，安裝 [App Service 資源提供者](azure-stack-app-service-overview.md)至以下 Azure Stack 環境：
 
 - 未連線至網際網路
 - 受 Active Directory 同盟服務 (AD FS) 保護。
 
- > [!IMPORTANT]
- > 在部署資源提供者之前，請先檢閱版本資訊，以了解有哪些新功能、修正，以及任何可能對部署造成影響的已知問題。
- 
+> [!IMPORTANT]  
+> 在執行資源提供者安裝程式之前，請先確定您已遵循[在您開始之前](azure-stack-app-service-before-you-get-started.md)中的指導方針並閱讀過 1.5 版本附帶的[版本資訊](azure-stack-app-service-release-notes-update-five.md)，了解可能影響您的部署的新功能、修正程式，以及任何已知的問題。
+
 若要將 App Service 資源提供者新增至您的離線 Azure Stack 部署，您必須完成三個最上層工作：
 
 1. 完成[先決條件步驟](azure-stack-app-service-before-you-get-started.md) (例如：購買憑證可能需要幾天才會收到憑證)。
@@ -82,30 +82,30 @@ ms.locfileid: "56447060"
     ![App Service 安裝程式][3]
 
 7. 在下一個頁面上：
-    1. 按一下 [Azure Stack 訂用帳戶] 方塊旁邊的 [連線] 按鈕。
-        - 提供您的管理帳戶。 例如： cloudadmin@azurestack.local。 輸入您的密碼，然後按一下 [登入]。
-    2. 在 [Azure Stack 訂用帳戶] 方塊中，選取 [預設提供者訂用帳戶]。
+   1. 按一下 [Azure Stack 訂用帳戶] 方塊旁邊的 [連線] 按鈕。
+      - 提供您的管理帳戶。 例如： cloudadmin@azurestack.local。 輸入您的密碼，然後按一下 [登入]。
+   2. 在 [Azure Stack 訂用帳戶] 方塊中，選取 [預設提供者訂用帳戶]。
     
-    > [!NOTE]
-    > App Service 只能部署到「預設提供者訂用帳戶」。
-    >
+      > [!NOTE]
+      > App Service 只能部署到「預設提供者訂用帳戶」。
+      >
     
-    3. 在 [Azure Stack 位置] 方塊中，選取對應到您要部署之區域的位置。 例如，如果要部署至 Azure Stack 開發套件，請選取 [本機]。
-    4. 按 [下一步] 。
+   3. 在 [Azure Stack 位置] 方塊中，選取對應到您要部署之區域的位置。 例如，如果要部署至 Azure Stack 開發套件，請選取 [本機]。
+   4. 按 [下一步] 。
 
-    ![App Service 安裝程式][4]
+      ![App Service 安裝程式][4]
 
 8. 您現在可以選擇部署至現有的虛擬網路 (透過[這裡](azure-stack-app-service-before-you-get-started.md#virtual-network)的步驟所設定)，或是允許 App Service 安裝程式建立虛擬網路及關聯的子網路。
-    1. 選取 [使用預設設定來建立 VNet]，接受預設值，然後按 [下一步]，或者；
-    2. 選取 [使用現有的 VNet 和子網路]。
-        1. 選取包含您的虛擬網路的**資源群組**；
-        2. 選擇要作為部署目的地的正確**虛擬網路**名稱；
-        3. 為每個必要角色子網路選取正確的**子網路**值；
-        4. 按一下 [下一步] 
+   1. 選取 [使用預設設定來建立 VNet]，接受預設值，然後按 [下一步]，或者；
+   2. 選取 [使用現有的 VNet 和子網路]。
+       1. 選取包含您的虛擬網路的**資源群組**；
+       2. 選擇要作為部署目的地的正確**虛擬網路**名稱；
+       3. 為每個必要角色子網路選取正確的**子網路**值；
+       4. 按一下 [下一步] 
 
-    ![App Service 安裝程式][5]
+      ![App Service 安裝程式][5]
 
-9. 輸入檔案共用的資訊，然後按 [下一步]。 檔案共用的位址必須使用檔案伺服器的完整網域名稱或 IP 位址。 例如，\\\appservicefileserver.local.cloudapp.azurestack.external\websites 或 \\\10.0.0.1\websites
+9. 輸入檔案共用的資訊，然後按 [下一步]。 檔案共用的位址必須使用檔案伺服器的完整網域名稱或 IP 位址。 例如，\\\appservicefileserver.local.cloudapp.azurestack.external\websites 或 \\\10.0.0.1\websites。  如果您要使用已加入網域的檔案伺服器，則必須提供包括網域的完整使用者名稱，例如 myfileserverdomain\FileShareOwner。
 
     > [!NOTE]
     > 在繼續進行之前，安裝程式會先嘗試測試是否能夠與檔案共用連線。  不過，如果您已選擇在現有的虛擬網路中部署，安裝程式可能會無法連線至檔案共用，而會顯示警告來詢問您是否要繼續進行。  請確認檔案共用資訊，如果正確，便繼續進行。
@@ -152,7 +152,7 @@ ms.locfileid: "56447060"
     > ```
     > 如需更多詳細資料，請參閱 [Azure App Service on Azure Stack 1.3 的版本資訊](azure-stack-app-service-release-notes-update-three.md)。
    
-   ![App Service 安裝程式][12]
+    ![App Service 安裝程式][12]
 
 13. 檢閱角色執行個體和 SKU 選項。 填入的預設值為「ASDK 部署」中每個角色的執行個體數目下限和最低 SKU。 系統會提供 vCPU 和記憶體的需求摘要，以協助您規劃部署。 進行選擇之後，按一下 [下一步]。
 
@@ -172,7 +172,7 @@ ms.locfileid: "56447060"
     ![App Service 安裝程式][14]
 
     > [!NOTE]
-    > **Windows Server 2016 Core 不是支援的平台映像，無法與 Azure Stack 上的 Azure App Service 搭配使用。請勿將評估映像用於生產環境部署。Azure App Service on Azure Stack 要求在用於部署的映像上必須啟用 Microsoft.Net 3.5.1 SP1。 Marketplace 同步發佈的 Windows Server 2016 映像並未啟用這項功能，因此您必須建立並使用已預先啟用此功能的 Windows Server 2016 映像。**
+    > **Windows Server 2016 Core 不是支援的平台映像，無法與 Azure Stack 上的 Azure App Service 搭配使用。請勿將評估映像用於生產環境部署。Azure App Service on Azure Stack 要求在用於部署的映像上必須啟用 Microsoft.NET 3.5.1 SP1。 Marketplace 同步發佈的 Windows Server 2016 映像並未啟用這項功能，因此您必須建立並使用已預先啟用此功能的 Windows Server 2016 映像。**
 
 14. 在 [選取平台映像] 方塊中，從可以在適用於 App Service 雲端的運算資源提供者的可用映像中，選擇您的部署 Windows Server 2016 虛擬機器映像。 按 [下一步] 。
 
@@ -196,6 +196,11 @@ ms.locfileid: "56447060"
 
     ![App Service 安裝程式][18]
 
+## <a name="post-deployment-steps"></a>部署後步驟
+
+> [!IMPORTANT]  
+> 如果您已對 App Service RP 提供 SQL Always On 執行個體，就必須[將 appservice_hosting 和 appservice_metering 資料庫新增至可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)並同步處理資料庫，以避免在資料庫進行容錯移轉時中斷服務。
+
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>確認 Azure Stack 上的 App Service 安裝
 
 1. 在 Azure Stack 管理入口網站中，前往 [管理 - App Service]。
@@ -205,7 +210,7 @@ ms.locfileid: "56447060"
     ![App Service 管理](media/azure-stack-app-service-deploy/image12.png)
 
 > [!NOTE]
-> 如果您已選擇部署到現有的虛擬網路和內部 IP 位址以連線到您的檔案伺服器，便必須新增輸出安全性規則，以在背景工作角色子網路與檔案伺服器之間啟用 SMB 流量。  若要這樣做，請移至管理入口網站中的 WorkersNsg，然後使用下列屬性新增輸出安全性規則：
+> 如果您選擇要部署到現有的虛擬網路並以內部 IP 位址連線到檔案伺服器，便必須新增輸出安全性規則，以啟用背景工作角色子網路與檔案伺服器之間的 SMB 流量。  若要這樣做，請移至管理入口網站中的 WorkersNsg，然後使用下列屬性新增輸出安全性規則：
 > * 來源：任意
 > * 來源連接埠範圍：*
 > * 目的地：IP 位址
@@ -248,7 +253,7 @@ ms.locfileid: "56447060"
 
 1. 在 Azure Stack 租用戶入口網站中，按一下 [+]、移至 Azure Marketplace、部署 Django 網站，然後等待順利完成。 Django Web 平台會使用以檔案系統為基礎的資料庫。 它不需要任何額外的資源提供者，例如 SQL 或 MySQL。
 
-2. 如果您也會部署 MySQL 資源提供者，就可以從 Marketplace 部署 WordPress 網站。 當系統提示您提供資料庫參數時，請使用您選擇的使用者名稱和伺服器名稱，以 User1@Server1 形式輸入使用者名稱。
+2. 如果您也會部署 MySQL 資源提供者，就可以從 Marketplace 部署 WordPress 網站。 當系統提示您提供資料庫參數時，請使用您選擇的使用者名稱和伺服器名稱，以「User1\@Server1」形式輸入使用者名稱。
 
 3. 如果您也會部署 SQL Server 資源提供者，就可以從 Marketplace 部署 DNN 網站。 當系統提示您提供資料庫參數時，請選擇執行 SQL Server 且已連線到您資源提供者之電腦中的資料庫。
 

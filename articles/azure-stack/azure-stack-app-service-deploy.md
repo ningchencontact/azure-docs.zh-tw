@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
-ms.author: jeffgilb
+ms.date: 02/27/2019
+ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 60767c3c61b0d386e4ac9b0a93d16ad161c59949
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: d66254cdad596e3b10482b2c937326162e2e075d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445929"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886825"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>將 App Service 資源提供者新增到 Azure Stack
 
@@ -30,7 +30,7 @@ ms.locfileid: "56445929"
 使用本文中的指引在 Azure Stack 中部署 App Service。
 
 > [!IMPORTANT]  
-> 在部署 Azure App Service 1.4 之前，請先將 1809 更新套用到您的 Azure Stack 整合式系統，或部署最新的 Azure Stack 開發套件 (ASDK)。
+> 在部署 Azure App Service 1.5 之前，請先將 1901 更新套用到您的 Azure Stack 整合式系統，或部署最新的 Azure Stack 開發套件 (ASDK)。
 
 您可以讓使用者具有建立 Web 和 API 應用程式的能力。 若要讓使用者能夠建立這些應用程式，您需要：
 
@@ -38,19 +38,19 @@ ms.locfileid: "56445929"
  - 安裝 App Service 資源提供者之後，您可以將它併入至您的供應項目和方案中。 然後使用者可以訂閱以取得服務，並開始建立應用程式。
 
 > [!IMPORTANT]  
-> 在執行資源提供者安裝程式之前，請確定您已依照[開始之前](azure-stack-app-service-before-you-get-started.md)中的指導方針進行。
+> 在執行資源提供者安裝程式之前，請先確定您已遵循[在您開始之前](azure-stack-app-service-before-you-get-started.md)中的指導方針並閱讀過 1.5 版本附帶的[版本資訊](azure-stack-app-service-release-notes-update-five.md)，以了解可能影響您的部署的新功能、修正程式，以及任何已知的問題。
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>執行 App Service 資源提供者安裝程式
 
 安裝 App Service 資源提供者至少需要一個小時。 所需的時間長度取決於您將部署多少角色執行個體。 在部署期間，安裝程式會執行下列工作：
 
- - 在指定的 Azure Stack 儲存體帳戶中建立 Blob 容器。
- - 建立適用於 App Service 的 DNS 區域與項目。
- - 註冊 App Service 資源提供者。
- - 註冊 App Service 資源庫項目。
+- 在指定的 Azure Stack 儲存體帳戶中建立 Blob 容器。
+- 建立適用於 App Service 的 DNS 區域與項目。
+- 註冊 App Service 資源提供者。
+- 註冊 App Service 資源庫項目。
 
- > [!IMPORTANT]
- > 在部署資源提供者之前，請先檢閱版本資訊，以了解有哪些新功能、修正，以及任何可能對部署造成影響的已知問題。
+  > [!IMPORTANT]
+  > 在部署資源提供者之前，請先檢閱版本資訊，以了解有哪些新功能、修正，以及任何可能對部署造成影響的已知問題。
 
 若要部署 App Service 資源提供者，請遵循下列步驟：
 
@@ -74,8 +74,8 @@ ms.locfileid: "56445929"
 
     a. 選取 [Azure Stack 訂用帳戶] 旁邊的 [連線]。
 
-     - 如果您使用 Azure Active Directory (Azure AD)，請輸入部署 Azure Stack 時所提供的 Azure AD 管理員帳戶和密碼。 選取 [登入]。
-     - 如果您使用 Active Directory 同盟服務 (AD FS)，請提供您的管理帳戶。 例如： cloudadmin@azurestack.local。 輸入您的密碼，然後選取 [登入]。
+   - 如果您使用 Azure Active Directory (Azure AD)，請輸入部署 Azure Stack 時所提供的 Azure AD 管理員帳戶和密碼。 選取 [登入]。
+   - 如果您使用 Active Directory 同盟服務 (AD FS)，請提供您的管理帳戶。 例如： cloudadmin@azurestack.local。 輸入您的密碼，然後選取 [登入]。
 
    b. 在 [Azure Stack 訂用帳戶] 中，選取 [預設提供者訂用帳戶]。
 
@@ -99,7 +99,7 @@ ms.locfileid: "56445929"
 
    ![App Service 安裝程式][4]
 
-8. 輸入檔案共用的資訊，然後選取 [下一步]。 檔案共用的位址必須使用完整網域名稱 (FQDN) 或是檔案伺服器的 IP 位址。 例如，\\\appservicefileserver.local.cloudapp.azurestack.external\websites 或 \\\10.0.0.1\websites。
+8. 輸入檔案共用的資訊，然後選取 [下一步]。 檔案共用的位址必須使用完整網域名稱 (FQDN) 或是檔案伺服器的 IP 位址。 例如，\\\appservicefileserver.local.cloudapp.azurestack.external\websites 或 \\\10.0.0.1\websites。  如果您要使用已加入網域的檔案伺服器，則必須提供包括網域的完整使用者名稱，例如 myfileserverdomain\FileShareOwner。
 
    >[!NOTE]
    >在繼續進行之前，安裝程式會先嘗試測試是否能夠與檔案共用連線。 不過，如果您要部署到現有的虛擬網路，此連線能力測試可能失敗。 您會收到警告和繼續的提示。 如果檔案共用資訊正確，請繼續部署。
@@ -132,22 +132,7 @@ ms.locfileid: "56445929"
 
     ![App Service 安裝程式][10]
 
-11. 針對用來裝載 App Service 資源提供者資料庫的伺服器執行個體，輸入 SQL Server 詳細資料，然後選取 [下一步]。 按 [下一步]，安裝程式即會驗證 SQL 連線屬性。
-
-    > [!NOTE]
-    > 在繼續進行之前，安裝程式會先嘗試測試是否能夠與 SQL Server 連線。 不過，如果您要部署到現有的虛擬網路，此連線能力測試可能失敗。 您會收到警告和繼續的提示。 如果 SQL Server 資訊正確，請繼續部署。
-    >
-    > 從 Azure App Service on Azure Stack 1.3 開始，安裝程式將會檢查 SQL Server 是否已在 SQL Server 層級啟用資料庫的內含項目。  如果未啟用，系統將會以下列例外狀況提示您：
-    > ```sql
-    >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
-    >    ***********************************************************
-    >    sp_configure 'contained database authentication', 1;  
-    >    GO  
-    >    RECONFIGURE;  
-    >    GO
-    >    ***********************************************************
-    > ```
-    > 如需更多詳細資料，請參閱 [Azure App Service on Azure Stack 1.3 的版本資訊](azure-stack-app-service-release-notes-update-three.md)。
+11. 針對用來裝載 App Service 資源提供者資料庫的伺服器執行個體，輸入 SQL Server 詳細資料，然後選取 [下一步]。 按 [下一步]，安裝程式即會驗證 SQL 連線屬性。<br><br>在繼續進行之前，App Service 安裝程式會先嘗試測試是否能夠與 SQL Server 連線。 如果您要部署到現有的虛擬網路，此連線能力測試可能失敗。 您會收到警告和繼續的提示。 如果 SQL Server 資訊正確，請繼續部署。
 
     ![App Service 安裝程式][11]
 
@@ -198,6 +183,11 @@ ms.locfileid: "56445929"
     b. 當安裝程式順利完成之後，選取 [結束]。
 
     ![App Service 安裝程式][17]
+
+## <a name="post-deployment-steps"></a>部署後步驟
+
+> [!IMPORTANT]  
+> 如果您已對 App Service RP 提供 SQL Always On 執行個體，就必須[將 appservice_hosting 和 appservice_metering 資料庫新增至可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)並同步處理資料庫，以避免在資料庫進行容錯移轉時中斷服務。
 
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>確認 Azure Stack 上的 App Service 安裝
 
@@ -253,7 +243,7 @@ ms.locfileid: "56445929"
 
 1. 在 Azure Stack 租用戶入口網站中，選取 [+]、移至 Azure Marketplace、部署 Django 網站，然後等待部署完成。 Django Web 平台會使用以檔案系統為基礎的資料庫。 它不需要任何額外的資源提供者，例如 SQL 或 MySQL。
 
-2. 如果您也會部署 MySQL 資源提供者，就可以從 Marketplace 部署 WordPress 網站。 當系統提示您提供資料庫參數時，請使用您選擇的使用者名稱和伺服器名稱，以 User1@Server1 形式輸入使用者名稱。
+2. 如果您也會部署 MySQL 資源提供者，就可以從 Marketplace 部署 WordPress 網站。 當系統提示您提供資料庫參數時，請使用您選擇的使用者名稱和伺服器名稱，以「User1\@Server1」形式輸入使用者名稱。
 
 3. 如果您也會部署 SQL Server 資源提供者，就可以從 Marketplace 部署 DNN 網站。 當系統提示您提供資料庫參數時，請選擇執行 SQL Server 且已連線到您資源提供者之電腦中的資料庫。
 

@@ -10,17 +10,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 11736b978242416bcfb95d3025975028e4148e98
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: bbf5076c195fde6a7c5fcabd8e347b7a0d433e8f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486533"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57763244"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack 儲存體：差異與注意事項
 
@@ -44,6 +44,7 @@ ms.locfileid: "55486533"
 |區塊 Blob 大小上限|4.75 TB (100 MB X 50,000 個區塊)|適用於 1802 更新或更新版本的 4.75 TB (100 MB x 50,000 個區塊)。 適用於舊版的 50,000 X 4 MB (大約 195 GB)。
 |分頁 blob 快照集複製|不支援對連結至執行中 VM 的 Azure 非受控 VM 進行備份|尚不支援。
 |分頁 Blob 增量快照複製|支援進階和標準 Azure 分頁 Blob|尚不支援。
+|分頁 Blob 計費|無論唯一的分頁是在 Blob 或快照集中，唯一的分頁都會產生費用。 在您更新基礎 Blob 之前，與該 Blob 相關聯的快照集不會再產生費用。|基礎 Blob 和相關聯的快照集會產生費用。 每個個別的快照集會再產生費用。
 |Blob 儲存體的儲存層|經常性存取、非經常性存取和封存儲存層。|尚不支援。
 |Blob 儲存體的虛刪除|正式運作|尚不支援。
 |分頁 Blob 大小上限|8 TB|1 TB

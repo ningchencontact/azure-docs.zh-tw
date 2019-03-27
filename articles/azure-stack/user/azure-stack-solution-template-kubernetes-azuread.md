@@ -15,12 +15,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: b7214230d55831fa33d547ecf9e65051aa5bb4d9
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 6e4402be7108f242e1d285ebe91dfece744f0805
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891448"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532145"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-azure-active-directory"></a>使用 Azure Active Directory 將 Kubernetes 部署至 Azure Stack
 
@@ -53,7 +53,7 @@ ms.locfileid: "55891448"
 
 在 Azure 中建立服務主體。 服務主體可讓您的應用程式存取 Azure Stack 資源。
 
-1. 登入全域 [Azure 入口網站](http://portal.azure.com)。
+1. 登入全域 [Azure 入口網站](https://portal.azure.com)。
 
 1. 確認您已使用與 Azure Stack 執行個體相關聯的 Azure AD 租用戶登入。 您可以按一下 Azure 工具列中的篩選圖示切換登入。
 
@@ -167,3 +167,5 @@ ms.locfileid: "55891448"
 ## <a name="next-steps"></a>後續步驟
 
 [連線至您的叢集](azure-stack-solution-template-kubernetes-deploy.md#connect-to-your-cluster)
+
+[啟用 Kubernetes 儀表板](azure-stack-solution-template-kubernetes-dashboard.md)

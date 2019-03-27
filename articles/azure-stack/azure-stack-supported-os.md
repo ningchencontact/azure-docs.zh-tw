@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 2/17/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 67022b1d00c8982d7b6e6eff77ffb648bfc557ec
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 1ab59dfc42213fc5c5ce22841e572e2724e239aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301276"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118998"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack 上的支援客體作業系統
 
@@ -32,7 +32,7 @@ ms.locfileid: "56301276"
 Azure Stack 支援下表所列的 Windows 客體作業系統：
 
 | 作業系統 | 說明 | Marketplace 中有提供 |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- |
 | Windows Server 1709 版 | 64 位元 | 包含容器的 Core |
 | Windows Server 2016 | 64 位元 |  Datacenter、Datacenter Core、包含容器的 Datacenter |
 | Windows Server 2012 R2 | 64 位元 |  資料中心 |
@@ -53,12 +53,12 @@ Marketplace 中有 Datacenter 版本可供下載；客戶可以自備包括其�
 列為 Marketplace 中可用的 Linux 發行版本包含必要的 Windows Azure Linux 代理程式 (WALA)。 如果您自備映像到 Azure Stack，請遵循[將 Linux 映像新增到 Azure Stack](azure-stack-linux.md) 中的方針。
 
 > [!NOTE]
-> 請使用最新公開的 WALA 版本或是版本 2.2.20 來建置自訂映像。 2.2.20 以前的版本以及 2.2.20 和 2.2.35 (不含) 之間的版本，可能無法在 Azure Stack 上正常運作。 
+> 請使用最新公開的 WALA 版本或是版本 2.2.20 來建置自訂映像。 2.2.20 之前的版本以及 2.2.20 和 2.2.36 之間的版本可能無法在 Azure Stack 上正常運作。 
 >
 > Azure Stack 目前不支援 [cloud-init](https://cloud-init.io/)。
 
 | 配送映像 | 說明 | 發行者 | Marketplace |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | CentOS 型 6.9 | 64 位元 | Rogue Wave | yes |
 | CentOS 型 7.4 | 64 位元 | Rogue Wave | yes |
 | ClearLinux | 64 位元 | ClearLinux.org | yes |

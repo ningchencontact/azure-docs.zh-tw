@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 2555ce4b9485ba6464bde3422df114343b579641
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 5108d4f65208f12875ad592e2e9222f8e1fdb130
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243414"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991076"
 ---
 # <a name="app-service-on-azure-stack-update-4-release-notes"></a>App Service on Azure Stack 更新 4 版本資訊
 
@@ -95,6 +95,11 @@ Azure App Service on Azure Stack 更新 4 包含下列改良功能和修正：
 - 當資源提供者控制平面無法連線到所設定的 SQL Server 執行個體時，在 App Service 管理員入口網站體驗中顯示錯誤訊息
 
 - 確定在新的函式應用程式中指定結束點時，也會在自訂儲存體連接字串中指定結束點
+
+### <a name="post-deployment-steps"></a>部署後步驟
+
+> [!IMPORTANT]  
+> 如果您已對 App Service RP 提供 SQL Always On 執行個體，就必須[將 appservice_hosting 和 appservice_metering 資料庫新增至可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)並同步處理資料庫，以避免在資料庫進行容錯移轉時中斷服務。
 
 ### <a name="post-update-steps-optional"></a>更新後的步驟 (選擇性)
 

@@ -10,16 +10,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 02/25/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 026e37534169fda8dbbf5a568f72046bc6ff55f7
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 28b8971b61ff09346b2a2f89cd5ea8ae04e44079
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252042"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56819355"
 ---
 # <a name="use-the-azure-stack-portal"></a>使用 Azure Stack 入口網站
 
@@ -40,6 +40,10 @@ ms.locfileid: "55252042"
 儀表板包含一組預設圖格。 您可以選取 [編輯儀表板] 來修改預設儀表板，或是選取 [新增儀表板] 來建立自訂儀表板。 您可以透過新增或移除圖格，輕鬆地自訂儀表板。 例如，若要新增 [計算] 圖格，請選取 [+ 建立資源]。 在 [計算] 上按一下滑鼠右鍵，然後選取 [釘選到儀表板]。
 
 ![Azure Stack 使用者入口網站的螢幕擷取](media/azure-stack-use-portal/userportal.png)
+
+若要將儀表板還原為原始設定：
+1.  選取 [編輯儀表板]。 
+2.  按一下滑鼠右鍵，然後選取 [重設回預設狀態]。
 
 ## <a name="create-subscription-and-browse-available-resources"></a>建立訂用帳戶及瀏覽可用的資源
 

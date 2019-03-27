@@ -1,6 +1,6 @@
 ---
-title: App Service on Azure Stack 更新 3 版本資訊 | Microsoft Docs
-description: 了解適用於 App Service on Azure Stack 更新 3 的新功能、已知問題，以及可下載更新的位置。
+title: App Service on Azure Stack 更新 5 版本資訊 | Microsoft Docs
+description: 了解適用於 App Service on Azure Stack 更新 5 的新功能、已知問題，以及可下載更新的位置。
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -12,76 +12,76 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 02/27/2019
 ms.author: anwestg
-ms.reviewer: sethm
-ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: 765701188de6375a5dfe0c9a6c04afe1ee9f6740
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.reviewer: ''
+ms.openlocfilehash: 0a0eb9586e78442947138831dd774298906aaf9c
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886434"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56993446"
 ---
-# <a name="app-service-on-azure-stack-update-3-release-notes"></a>App Service on Azure Stack 更新 3 版本資訊
+# <a name="app-service-on-azure-stack-update-5-release-notes"></a>App Service on Azure Stack 更新 5 版本資訊
 
 *適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
-這些版本資訊說明 Azure App Service on Azure Stack 更新 3 的增強功能和修正，以及任何已知問題。 已知問題分為直接與部署、更新程序相關的問題，以及組建 (安裝後) 的相關問題。
+這些版本資訊說明 Azure App Service on Azure Stack 更新 5 的增強功能和修正，以及任何已知問題。 已知問題分為直接與部署、更新程序相關的問題，以及組建 (安裝後) 的相關問題。
 
 > [!IMPORTANT]
-> 在部署 Azure App Service 1.3 之前，請先將 1807 更新套用到您的 Azure Stack 整合式系統，或部署最新的 Azure Stack 開發套件。
->
->
+> 在部署 Azure App Service 1.5 之前，請先將 1901 更新套用到您的 Azure Stack 整合式系統，或部署最新的 Azure Stack 開發套件。
+
 
 ## <a name="build-reference"></a>建置參考
 
-App Service on Azure Stack 更新 3 組建編號是 **74.0.13698.31**
+App Service on Azure Stack 更新 5 組建編號是 **80.0.2.15**
 
 ### <a name="prerequisites"></a>必要條件
 
 開始部署之前，請參閱[「在您開始之前」文件](azure-stack-app-service-before-you-get-started.md)。
 
-開始將 Azure App Service on Azure Stack 升級至 1.3 之前，請確定所有角色都已在 Azure Stack 管理入口網站的 Azure App Service 管理中就緒
+開始將 Azure App Service on Azure Stack 升級至 1.5 之前：
 
-![App Service 角色狀態](media/azure-stack-app-service-release-notes-update-three/image01.png)
+- 確定 Azure Stack 管理入口網站的 Azure App Service 管理中所有角色都已就緒
+
+- 備份 App Service 和 Master 資料庫：
+  - AppService_Hosting;
+  - AppService_Metering;
+  - Master
+
+- 備份租用戶應用程式內容檔案共用
+
+- 從 Marketplace 同步發佈**自訂指令碼擴充功能** **1.9.1** 版
 
 ### <a name="new-features-and-fixes"></a>新功能和修正
 
-Azure App Service on Azure Stack 更新 3 包含下列改良功能和修正：
-
-- 支援對 Azure App Service 資源提供者資料庫使用 SQL Server Always On。
-
-- 在 Create-AADIdentityApp 協助程式指令碼中新增環境變數，以協助將不同的 AAD 區域當作目標。
+Azure App Service on Azure Stack 更新 5 包含下列改良功能和修正：
 
 - **App Service 租用戶、系統管理員、Functions 入口網站和 Kudu 工具**的更新。 與 Azure Stack 入口網站 SDK 版本保持一致。
+
+- 更新 **Kudu 工具**來解決操作**已中斷連線** Azure Stack 的客戶所遇到的樣式設定和功能方面的問題。 
 
 - 用來改善可靠性和錯誤訊息以利進行常見問題診斷的核心服務更新。
 
 - **下列應用程式架構和工具的更新**：
-  - 已新增 ASP.NET Core 2.1.2
-  - 新增 NodeJS 10.0.0
-  - 新增 Zulu OpenJDK 8.30.0.1
-  - 新增 Tomcat 8.5.31 和 9.0.8
-  - 新增 PHP 版本︰
-    - 5.6.36
-    - 7.0.30
-    - 7.1.17
-    - 7.2.5
-  - 新增 Wincache 2.0.0.8
-  - 將 Git for Windows 更新為 v 2.17.1.2
-  - 將 Kudu 更新為 74.10611.3437
+  - 已新增 NodeJS 10.14.1
+  - 已新增 NPM 6.4.1
+  - 已將 Kudu 更新為 79.20129.3767
   
 - **所有角色的基礎作業系統更新**：
-  - [適用於 Windows Server 2016 (x64 型系統) 的服務堆疊更新 (KB4132216)](https://support.microsoft.com/help/4132216/servicing-stack-update-for-windows-10-1607-may-17-2018)
-  - [適用於 Windows Server 2016 (x64 型系統) 的 2018-07 累積更新 (KB4338822)](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822)
+  - [適用於 Windows Server 2016 (x64 型系統) 的 2019-02 累積更新 (KB4487006)](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006)
 
-### <a name="post-update-steps-optional"></a>更新後的步驟 (選擇性)
+### <a name="post-deployment-steps"></a>部署後步驟
 
-對於想要遷移至 Azure Stack 部署上現有 Azure App Service 自主資料庫的客戶，請在 Azure App Service on Azure Stack 1.3 更新完成之後，執行這些步驟：
+> [!IMPORTANT]  
+> 如果您已對 App Service RP 提供 SQL Always On 執行個體，就必須[將 appservice_hosting 和 appservice_metering 資料庫新增至可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)並同步處理資料庫，以避免在資料庫進行容錯移轉時中斷服務。
+
+### <a name="post-update-steps"></a>更新後步驟
+
+對於想要遷移至 Azure Stack 部署上現有 Azure App Service 自主資料庫的客戶，請在 Azure App Service on Azure Stack 1.5 更新完成之後，執行這些步驟：
 
 > [!IMPORTANT]
-> 此程序需要大約 5-10 分鐘才能完成。  此程序可能會終止現有的資料庫登入工作階段。  請規劃停機時間，以遷移 Azure App Service on Azure Stack，並在遷移後進行驗證
+> 移轉程序需要大約 5-10 分鐘才能完成。  此程序可能會終止現有的資料庫登入工作階段。  請規劃停機時間，以遷移 Azure App Service on Azure Stack，並在遷移後進行驗證。  如果在更新至 Azure App Service on Azure Stack 1.3 之後完成這些步驟，則不需要這些步驟。
 >
 >
 
@@ -96,7 +96,7 @@ Azure App Service on Azure Stack 更新 3 包含下列改良功能和修正：
             GO
     ```
 
-1. 將資料庫轉換成部分自主。  此步驟將會使機器停止，因為所有使用中的工作階段都必須終止
+1. 將資料庫轉換為「部分自主」，此轉換會造成停機，因為所有作用中的工作階段都必須終止
 
     ```sql
         /******** [appservice_metering] Migration Start********/
@@ -182,9 +182,9 @@ Azure App Service on Azure Stack 更新 3 包含下列改良功能和修正：
 
 ### <a name="known-issues-post-installation"></a>已知問題 (安裝後)
 
-- 將應用程式服務部署在現有的虛擬網路中且只能在私人網路上使用檔案伺服器時，背景工作角色無法連線到檔案伺服器。  這也會在 Azure Stack 上的 Azure App Service 部署文件中提及。
+- 將應用程式服務部署在現有的虛擬網路中且只能在私人網路上使用檔案伺服器時，背景工作角色無法連線到檔案伺服器，如 Azure App Service on Azure Stack 部署文件中所述。
 
-如果您選擇要部署到現有的虛擬網路並以內部 IP 位址連線到檔案伺服器，便必須新增輸出安全性規則，以啟用背景工作角色子網路與檔案伺服器之間的 SMB 流量。 若要這樣做，請移至管理入口網站中的 WorkersNsg，然後使用下列屬性新增輸出安全性規則：
+如果您選擇要部署到現有的虛擬網路並以內部 IP 位址連線到檔案伺服器，便必須新增輸出安全性規則，以啟用背景工作角色子網路與檔案伺服器之間的 SMB 流量。 移至管理入口網站中的 WorkersNsg，然後使用下列屬性新增輸出安全性規則：
  * 來源：任意
  * 來源連接埠範圍：*
  * 目的地：IP 位址
@@ -197,7 +197,7 @@ Azure App Service on Azure Stack 更新 3 包含下列改良功能和修正：
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>雲端管理員操作 Azure App Service on Azure Stack 時的已知問題
 
-請參閱 Azure Stack 1807 版本資訊中的文件。
+請參閱 [Azure Stack 1809 版本資訊](azure-stack-update-1809.md)中的文件
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,22 +1,31 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e4bd3de3dee3219619c0146eb0e455cd9b25c59e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 34de58f7a3f9307714ccc4594d9ac92523c55f69
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840957"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482212"
 documentType: LandingData
 title: Azure 資料總管文件
 metadata:
   title: Azure 資料總管文件 - 快速入門、教學課程、語言和 API 參考
   description: Azure 資料總管是針對特定巨量資料查詢最佳化的記錄分析雲端平台。
-  author: mgblythe
-  ms.author: mblythe
+  author: orspod
+  ms.author: orspodek
   ms.service: data-explorer
   ms.topic: landing-page
-  ms.date: 09/24/2018
+  ms.date: 03/24/2019
 abstract:
-  description: <p>Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 可協助您處理新式軟體所發出的許多資料流，以便您收集、儲存及分析資料。 Azure 資料總管很適合用於分析來自任何資料來源 (例如網站、應用程式、IoT 裝置等等) 的大量多樣資料。</p><p>了解如何利用我們的快速入門、教學課程和參考內容來使用 Azure 資料總管。</p>
+  description: <p>Azure 資料總管是快速、完全受控的資料分析服務，可即時分析來自應用程式、網站、IoT 裝置等的大量資料流。 您可以使用 Azure 資料總管來收集、儲存及分析各種不同的資料，以改善產品、增強客戶體驗、監視裝置以及提升作業成效。</p><p>了解如何利用我們的快速入門、教學課程和參考內容來使用 Azure 資料總管。</p>
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/index/video.png
+      width: 250
+    title: 什麼是 Azure 資料總管？ (19:47)
+    href: https://youtu.be/D_AJk2lAepw
+    width: 250
 sections:
 - title: 5 分鐘快速入門
   items:

@@ -9,17 +9,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: How to
-ms.date: 11/26/2018
+ms.topic: conceptual
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: cb26aae743d267866a8a7d1de76a319a0a681a08
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: 3fb5c3deeddb6f3ee381ca45df76feebf3405b21
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252059"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766559"
 ---
 # <a name="scheduling-a-test"></a>排程測試
 
@@ -53,7 +53,7 @@ ms.locfileid: "55252059"
 
 ![Alt 鍵文字](media/vaas_test_pass_parameters.png)
 
-為您的解決方案定義工作流程。 工作流程具有用來測試您解決方案的程序步驟。
+提供會套用至工作流程內所有測試的參數。
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
 2. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
@@ -63,18 +63,19 @@ ms.locfileid: "55252059"
 
 ## <a name="select-tests-to-run"></a>選取要執行的測試
 
-選擇要在您工作流程中執行的測試。
+工作流程建立好之後，就會對您選取的測試進行排程。
 
 1. 選取要在您工作流程中執行的測試。
 
     如果您想要覆寫任何測試的通用參數 (也就是在上一節中提供的參數)，請接著選取 [編輯] 連結來指定新值。
 
 1. [!INCLUDE [azure-stack-vaas-workflow-step_select-agent](includes/azure-stack-vaas-workflow-step_select-agent.md)]
+
 1. 選取 [下一步] 以檢閱工作流程。
 
 ## <a name="review-and-submit"></a>檢閱並提交
 
-檢閱、建立，然後排定您的工作流程。
+完成工作流程的建立。
 
 1. 檢閱所顯示的資訊。
 

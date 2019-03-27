@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 03/11/2019
 ms.author: patricka
-ms.reviewer: unknown
-ms.lastreviewed: 12/06/2018
-ms.openlocfilehash: 03c1879c34a00bb09b5a4dee6af7da7b984045fc
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.reviewer: fiseraci
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: 3565bf4c4a19bcf1b136b4cbb781006658865a1c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241180"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767204"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>使用 Azure Stack 角色型存取控制來管理資源存取
 
@@ -93,8 +93,8 @@ Azure [角色指派](https://docs.microsoft.com/azure/role-based-access-control/
 2. 在左側導覽窗格中，選取 [資源群組]。
 3. 選擇想要設定權限的資源群組名稱。
 4. 在資源群組瀏覽窗格中，選擇 [存取控制 (IAM)]。 [角色指派] 檢視會列出可存取資源群組的項目。 您可以篩選結果並將其分組。
-5. 在 [存取控制] 功能表列上，選擇 [新增角色指派]。
-6. 在 [新增角色指派] 窗格上：
+5. 在 [存取控制] 功能表列上，選擇 [新增]。
+6. 在 [新增權限] 窗格上：
 
    * 從 [角色] 下拉式清單中，選擇想要從指派的角色。
    * 從 [存取權指派對象為] 下拉式清單中，選擇想要從指派的資源。

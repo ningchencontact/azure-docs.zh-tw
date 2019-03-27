@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 03/07/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 6825524667c473496b62cecbce54f6e249742bae
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: b358609526c61b5acab83c02bdedd8cc06721425
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977706"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536475"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 服務原則
 
@@ -52,10 +52,11 @@ Microsoft 預期每月發行軟體更新封裝。 不過，可能一個月內發
 在[管理更新概觀](azure-stack-updates.md)文件中可找到如何規劃和管理更新，以及如何判斷您目前的版本。
 
 如需特定更新的詳細資訊，包括如何下載更新，請參閱該更新的版本資訊：
+
+- [Azure Stack 1902 更新](azure-stack-update-1902.md)
 - [Azure Stack 1901 更新](azure-stack-update-1901.md)
 - [Azure Stack 1811 更新](azure-stack-update-1811.md)
 - [Azure Stack 1809 更新](azure-stack-update-1809.md)
-- [Azure Stack 1808 更新](azure-stack-update-1808.md)
 
 ## <a name="hotfixes"></a>Hotfix
 

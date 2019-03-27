@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 02/22/2010
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 0ac20ee9f6197a8322bb741020aee813c690847e
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 839fa7fe8374f1f85b019178d4c3fe53f7137372
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445878"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729639"
 ---
 # <a name="app-service-on-azure-stack-add-more-infrastructure-or-worker-roles"></a>Azure Stack 上的 App Service：新增更多基礎結構或背景工作角色
 
@@ -37,11 +37,6 @@ ms.locfileid: "56445878"
 如果您不確定已透過 Azure Stack 安裝上的預設 App Service 部署了哪個背景工作層，您可以在 [Azure Stack 上的 App Service 概觀](azure-stack-app-service-overview.md)中檢閱其他資訊。
 
 Azure App Service on Azure Stack 會使用虛擬機器擴展集部署所有角色，實質上利用此工作負載的縮放功能。 因此，所有背景工作層的縮放是透過 App Service 管理員完成。
-
-> [!IMPORTANT]
-> 目前無法如 Azure Stack 版本資訊中所述，在入口網站中調整虛擬機器擴展集，因此請使用 PowerShell 範例來相應放大規模。
->
->
 
 ## <a name="add-additional-workers-with-powershell"></a>使用 PowerShell 來新增額外的背景工作
 
@@ -80,7 +75,7 @@ Azure App Service on Azure Stack 會使用虛擬機器擴展集部署所有角�
 
 3. 在 App Service 的 [管理] 中監視新角色執行個體的狀態，若要檢查個別角色執行個體的狀態，請按一下清單中的角色類型。
 
-## <a name="add-additional-workers-directly-within-the-app-service-resource-provider-admin"></a>直接在 App Service 資源提供者系統管理內新增其他背景工作角色。
+## <a name="add-additional-workers-using-the-administration-portal"></a>使用系統管理入口網站新增其他背景工作角色
 
 1. 以服務管理員身分登入 Azure Stack 管理入口網站。
 

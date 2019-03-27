@@ -301,16 +301,22 @@ items:
         items:
         - name: 入口網站
           href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: CLI 或 PowerShell
+          href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: 使用 RBAC 管理存取權限
+        items:
+        - name: 入口網站
+          href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: CLI
+          href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: PowerShell
+          href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: 使用 Azure AD 進行驗證
         items:
-        - name: 管理在 Azure 入口網站中使用 RBAC 的存取權限
-          href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 從應用程式進行驗證
           href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 使用受控識別進行驗證
           href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: 使用搭配 CLI 或 PowerShell 的 Azure AD 身分識別
-          href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: 使用共用金鑰進行授權
         items:
         - name: 設定連接字串
@@ -571,7 +577,7 @@ items:
       - name: 設定防火牆和虛擬網路
         href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: 使用 RBAC 管理存取權限
-        href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: 設定檔案和目錄層級權限
         href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md
     - name: 與 Azure 服務整合
@@ -626,9 +632,9 @@ items:
       href: https://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: 影片
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: b3b06751950a1c14cf445c6ea7d95a18c942d7c4
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 1f831e742f034d210a59c5723526442114f594ec
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369593"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446892"

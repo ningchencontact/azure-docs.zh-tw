@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: a9cf502f169f4a9c4650545b1b37e11cc16a0a95
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: 58117bce8de667c9750b2e0c19992b99716945cc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694375"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124196"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 更新
 
@@ -42,7 +42,7 @@ Azure Stack 1809 更新組建編號為 **1.1809.0.90**。
 
 - 在此版本中，Azure Stack 整合系統支援 4-16 個節點的設定。 您可以使用 [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) 來協助規劃 Azure Stack 容量與設定。
 
-- <!--  2712869   | IS  ASDK -->  **Azure Stack syslog 用戶端 (正式運作)**  此用戶端允許將與 Azure Stack 基礎結構相關的稽核、警示和安全性記錄，轉寄到 Azure Stack 外的 syslog 伺服器或安全性資訊與事件管理 (SIEM) 軟體。 Syslog 用戶端現在支援 syslog 伺服器目前接聽的指定連接埠。
+- <!--  2712869   | IS  ASDK -->  **Azure Stack syslog 用戶端 (正式運作)**  此用戶端允許將與 Azure Stack 基礎結構相關的稽核和安全性記錄，轉寄到 Azure Stack 外的 syslog 伺服器或安全性資訊與事件管理 (SIEM) 軟體。 Syslog 用戶端現在支援 syslog 伺服器目前接聽的指定連接埠。
 
    此版本中，syslog 用戶端已正式運作，且可用於實際執行環境。
 
@@ -63,21 +63,21 @@ Azure Stack 1809 更新組建編號為 **1.1809.0.90**。
 - 下列受控磁碟問題已在 1809 中修正，同時也在 1808 [Azure Stack Hotfix 1.1808.9.117](https://support.microsoft.com/help/4481066/) 中修正： 
 
    <!--  2966665 – IS, ASDK --> 
-   - 已修正將 SSD 資料磁碟連結至進階大小受控磁碟虛擬機器 (DS、DSv2、Fs、Fs_V2) 會失敗並發生錯誤的問題：*無法更新虛擬機器 ‘vmname’ 的磁碟。錯誤：因為對 VM 大小 ‘Standard_DS/Ds_V2/FS/Fs_v2’ 不支援儲存體帳戶類型 ‘Premium_LRS’，所以無法執行要求的作業*。 
+  - 已修正將 SSD 資料磁碟連結至進階大小受控磁碟虛擬機器 (DS、DSv2、Fs、Fs_V2) 會失敗並發生錯誤的問題：*無法更新虛擬機器 ‘vmname’ 的磁碟。錯誤：因為對 VM 大小 ‘Standard_DS/Ds_V2/FS/Fs_v2’ 不支援儲存體帳戶類型 ‘Premium_LRS’，所以無法執行要求的作業*。 
    
-   - 使用 **createOption** 建立受控磁碟 VM：**連結**失敗，並發生下列錯誤：*長時間執行的作業失敗，狀態為「失敗」。* 其他資訊：「發生內部執行錯誤」。
-   ErrorCode：InternalExecutionError ErrorMessage：發生內部執行錯誤。
+  - 使用 **createOption** 建立受控磁碟 VM：**連結**失敗，並發生下列錯誤：*長時間執行的作業失敗，狀態為「失敗」。* 其他資訊：「發生內部執行錯誤」。
+    ErrorCode：InternalExecutionError ErrorMessage：發生內部執行錯誤。
    
-   已修正此問題。
+    已修正此問題。
 
-- <!-- 2702741 -  IS, ASDK --> 過去針對使用「動態」配置方法來部署的公用 IP，不保證在發出 Stop-Deallocate 之後還能予以保留，此問題已修正。 現在這些 IP 會予以保留。
+- <!-- 2702741 -  IS, ASDK --> 過去針對使用「動態」配置方法部署的公用 IP，不保證在發出 Stop-Deallocate 之後還能予以保留，此問題已修正。 現在這些 IP 會予以保留。
 
 - <!-- 3078022 - IS, ASDK --> 如果 VM 在 1808 版本以前停止解除配置，則無法在 1808 更新後重新配置。  此問題已在 1809 版本修正。 經過此次修正，過去在此狀態的執行個體和無法啟動的執行個體將可於 1809 版本中啟動。 此修正也可避免此問題再次發生。
 
 ### <a name="changes"></a>變更
 
 <!-- 2635202 - IS, ASDK -->
-- 基礎結構備份服務已從[公用基礎結構網路](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-infrastructure-network)移至[公用 VIP 網路](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network)。 客戶將必須確定服務已從公用 VIP 網路存取備份儲存體位置。  
+- 基礎結構備份服務已從[公用基礎結構網路](https://docs.microsoft.com/azure/azure-stack/azure-stack-network)移至[公用 VIP 網路](https://docs.microsoft.com/azure/azure-stack/azure-stack-network#public-vip-network)。 客戶將必須確定服務已從公用 VIP 網路存取備份儲存體位置。  
 
 > [!IMPORTANT]  
 > 若您的防火牆不允許從公用 VIP 網路到檔案伺服器的連線，此變更將會導致基礎結構備份因「錯誤 53 找不到網路路徑。」而失敗。 這是中斷性變更，因此沒有合理的因應措施。 Microsoft 將會以客戶意見反應為基礎在 Hotfix 中還原此變更。 請檢閱[更新後步驟](#post-update-steps)一節以取得 1809 可用之 Hotfix 的詳細資訊。 一旦 Hotfix 推出，只有在您的網路原則不允許公用 VIP 網路存取基礎結構資源的情況下才在更新到 1809 之後套用它。 在 1811 中，此變更將套用到所有系統。 若您在 1809 中套用該 Hotfix，不需要採取進一步的動作。  
@@ -147,17 +147,19 @@ Azure Stack 1809 更新組建編號為 **1.1809.0.90**。
 
   ```PowerShell
   Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
-  ``` 
+  ```
+
+- 當 Azure Stack 由 System Center Operations Manager (SCOM) 進行管理時，請務必先將適用於 Microsoft Azure Stack 的管理組件更新為 1.0.3.11 版，再套用 1809。
 
 ### <a name="known-issues-with-the-update-process"></a>關於更新程序的已知問題
 
 - 當您在 1809 更新之後執行 [Test-AzureStack](azure-stack-diagnostic-test.md) 時，來自基礎板管理控制器 (BMC) 的警告訊息隨即顯示。 您可以放心地忽略此警告。
 
-- <!-- 2468613 - IS -->在安裝 1807 更新期間，您可能會看到警示，標題為「錯誤 - FaultType UserAccounts.New 的範本已遺失」  您可以放心地忽略這些警示。 在此更新完成之後，這些警示會自動關閉。
+- <!-- 2468613 - IS --> 在安裝更新期間，您可能會看到警示，標題為「錯誤 - FaultType UserAccounts.New 的範本已遺失。」  您可以放心地忽略這些警示。 在此更新完成之後，這些警示會自動關閉。
 
 - <!-- 2489559 - IS --> 在此更新安裝期間，請勿嘗試建立虛擬機器。 如需管理更新的詳細資訊，請參閱[在 Azure Stack 中管理更新概觀](azure-stack-updates.md#plan-for-updates)。
 
-- <!-- 3139614 | IS --> 如果您已從 OEM 套用 Azure Stack 更新，那麼 [已有可用的更新] 通知可能不會出現在 Azure Stack 系統管理員入口網站中。 若要安裝 Microsoft 更新，請使用此處[在 Azure Stack 中套用更新](azure-stack-apply-updates.md)的指示，手動下載並匯入它。
+- <!-- 3139614 | IS --> 如果您已從 OEM 套用 Azure Stack 更新，Azure Stack 系統管理員入口網站中可能就不會出現「已有可用的更新」通知。 若要安裝 Microsoft 更新，請使用此處[在 Azure Stack 中套用更新](azure-stack-apply-updates.md)的指示，手動下載並匯入它。
 
 ### <a name="post-update-steps"></a>更新後步驟
 
@@ -295,10 +297,10 @@ Azure Stack 1809 更新組建編號為 **1.1809.0.90**。
 <!-- TBD - IS ASDK --> 
 - 套用 1809 更新之後，在部署具有「受控磁碟」的 VM 時，您可能會遇到下列問題：
 
-   - 如果訂用帳戶是在 1808 更新之前建立的，部署具有受控磁碟的 VM 可能會失敗，且會有內部錯誤訊息。 若要解決此錯誤，請針對每個訂用帳戶遵循下列步驟：
-      1. 在租用戶入口網站中，移至 [訂用帳戶] 並尋找訂用帳戶。 按一下 [資源提供者]，按一下 [Microsoft.Compute]，然後按一下 [重新註冊]。
-      2. 在相同的訂用帳戶底下，移至 [存取控制 (IAM)]，並確認 [AzureStack-DiskRP-Client] 角色已列出。
-   2. 如果您已設定多租用戶環境，則在與來賓目錄相關聯的訂用帳戶中部署 VM 可能會失敗，且會有內部錯誤訊息。 若要解決此錯誤，請依照[這篇文章](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步驟重新設定您的每個來賓目錄。
+  - 如果訂用帳戶是在 1808 更新之前建立的，部署具有受控磁碟的 VM 可能會失敗，且會有內部錯誤訊息。 若要解決此錯誤，請針對每個訂用帳戶遵循下列步驟：
+     1. 在租用戶入口網站中，移至 [訂用帳戶] 並尋找訂用帳戶。 按一下 [資源提供者]，按一下 [Microsoft.Compute]，然後按一下 [重新註冊]。
+     2. 在相同的訂用帳戶底下，移至 [存取控制 (IAM)]，並確認 [AzureStack-DiskRP-Client] 角色已列出。
+  - 如果您已設定多租用戶環境，則在與來賓目錄相關聯的訂用帳戶中部署 VM 可能會失敗，且會有內部錯誤訊息。 若要解決此錯誤，請依照[這篇文章](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步驟重新設定您的每個來賓目錄。
 
 - 所建立的 Ubuntu 18.04 VM 如果已啟用 SSH 授權，將不會允許您使用 SSH 金鑰來登入。 因應措施是，請在佈建後使用「適用於 Linux 的 VM 存取」延伸模組來實作 SSH 金鑰，或使用密碼型驗證。
 

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 02/28/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 09e1f99c7d0b56f5e2af893385dde19b8f358a19
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: ddcf3428f32698c9825f13975929bc4677139acf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099134"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081044"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 更新
 
@@ -50,7 +50,7 @@ Azure Stack 會定期發行 Hotfix。 將 Azure Stack 更新成 1811 之前，�
 - **1809**：[KB 4481548 – Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/)
 - **1811**：沒有目前的 Hotfix 可供使用。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 > [!IMPORTANT]
 > 在安裝 1811 更新的期間，您必須確保所有系統管理員入口網站執行個體都已關閉。 使用者入口網站可以保持開啟，但系統管理員入口網站必須關閉。
@@ -87,6 +87,8 @@ Azure Stack 會定期發行 Hotfix。 將 Azure Stack 更新成 1811 之前，�
 
     在安裝此更新的期間，於設定延伸主機時會無法使用 Azure Stack 使用者入口網站。 延伸主機的設定最多可能需要 5 小時的時間。 在這段期間，您可以檢查更新狀態，或是使用 [Azure Stack 系統管理員 PowerShell 或具有特殊權限的端點](azure-stack-monitor-update.md)來繼續安裝失敗的更新。
 
+- 當 Azure Stack 由 System Center Operations Manager (SCOM) 進行管理時，請務必先將適用於 Microsoft Azure Stack 的管理組件更新為 1.0.3.11 版，再套用 1811。
+
 ## <a name="new-features"></a>新功能
 
 此更新包含下列適用於 Azure Stack 的新功能和改良功能：
@@ -120,13 +122,13 @@ Azure Stack 會定期發行 Hotfix。 將 Azure Stack 更新成 1811 之前，�
 - 此版本為 Azure Stack 操作員導入了警示**修復**動作。 1811 中的一些警示在警示中有提供 [修復] 按鈕，可供您選取來解決問題。 如需詳細資訊，請參閱[在 Azure Stack 中監視健康情況和警示](azure-stack-monitor-health.md)。
 
 - 更新 Azure Stack 中的更新體驗。 更新增強功能包括： 
-    - 從更新記錄中分割更新的索引標籤，以便對進行中和已完成的更新進行更好的追蹤。
-    - [essentials] 區段中已增強的狀態視覺效果，其中含有適用於目前和 OEM 版本的新圖示和版面配置，以及上次更新日期。
-    - 版本資訊資料行的 [檢視] 連結讓使用者能夠直接存取該更新特定的文件，而不是一般更新頁面。
-    - [更新記錄] 索引標籤，可用來判斷每個更新的執行次數，以及增強的篩選功能。  
-    - 已連線的 Azure Stack 縮放單位仍然將在其變成可用時，自動收到**有可用的更新**。
-    - 未連線的 Azure Stack 縮放單位可以像以前一樣匯入更新。 
-    - 從入口網站下載 JSON 記錄的程序中沒有任何變更。 Azure Stack 操作員將會看到表示進度的展開步驟。
+  - 從更新記錄中分割更新的索引標籤，以便對進行中和已完成的更新進行更好的追蹤。
+  - [essentials] 區段中已增強的狀態視覺效果，其中含有適用於目前和 OEM 版本的新圖示和版面配置，以及上次更新日期。
+  - 版本資訊資料行的 [檢視] 連結讓使用者能夠直接存取該更新特定的文件，而不是一般更新頁面。
+  - [更新記錄] 索引標籤，可用來判斷每個更新的執行次數，以及增強的篩選功能。  
+  - 已連線的 Azure Stack 縮放單位仍然將在其變成可用時，自動收到**有可用的更新**。
+  - 未連線的 Azure Stack 縮放單位可以像以前一樣匯入更新。 
+  - 從入口網站下載 JSON 記錄的程序中沒有任何變更。 Azure Stack 操作員將會看到表示進度的展開步驟。
 
     如需詳細資訊，請參閱[在 Azure Stack 中套用更新](azure-stack-apply-updates.md)。
 
@@ -174,7 +176,7 @@ Azure Stack 會定期發行 Hotfix。 將 Azure Stack 更新成 1811 之前，�
 - 1811 中已導入新的方式來檢視及編輯方案中的配額。 如需詳細資訊，請參閱[檢視現有的配額](azure-stack-quota-types.md#view-an-existing-quota)。
 
 <!-- 3083238 IS -->
-- 此更新中的安全性增強功能導致目錄服務角色的備份大小增加。 如需已更新的外部儲存體位置大小調整指引，請參閱[基礎結構備份文件](azure-stack-backup-reference.md#storage-location-sizing)。 此變更導致需要更多時間才能完成備份，因為資料傳輸大小變大。 此變更會影響整合式系統。 
+- 此更新中的安全性增強功能導致目錄服務角色的備份大小增加。 如需已更新的外部儲存體位置大小調整指引，請參閱[基礎結構備份文件](azure-stack-backup-reference.md#storage-location-sizing)。 這項變更導致需要更多時間才能完成備份，因為資料傳輸大小變大。 這項變更會影響整合式系統。 
 
 - 現有用來擷取 BitLocker 修復金鑰的 PEP Cmdlet 在 1811 中已從 Get-AzsCsvsRecoveryKeys 重新命名為 Get-AzsRecoveryKeys。 如需有關擷取 BitLocker 修復金鑰的詳細資訊，請參閱[有關如何擷取金鑰的指示](azure-stack-security-bitlocker.md)。
 
@@ -218,7 +220,7 @@ Azure Stack 會定期發行 Hotfix。 將 Azure Stack 更新成 1811 之前，�
 
 - 當您執行 [Test-AzureStack](azure-stack-diagnostic-test.md) 時，會顯示來自「基礎板管理控制器」(BMC) 的警告訊息。 您可以放心地忽略此警告。
 
-- <!-- 2468613 - IS --> 在安裝此更新的期間，您可能會看到具有下列標題的警示：`Error – Template for FaultType UserAccounts.New is missing.`  您可以放心地忽略這些警示。 在此更新安裝完成之後，這些警示會自動關閉。
+- <!-- 2468613 - IS --> 安裝此更新時，您可能會看到具有下列標題的警示：`Error – Template for FaultType UserAccounts.New is missing.`。您可以放心地忽略這些警示。 在此更新安裝完成之後，這些警示會自動關閉。
 
 - <!-- 3139614 | IS --> 如果您已從 OEM 套用 Azure Stack 更新，Azure Stack 系統管理員入口網站中可能就不會出現「已有可用的更新」通知。 若要安裝 Microsoft 更新，請使用此處[在 Azure Stack 中套用更新](azure-stack-apply-updates.md)的指示，手動下載並匯入它。
 
@@ -254,17 +256,17 @@ Azure Stack 會定期發行 Hotfix。 將 Azure Stack 更新成 1811 之前，�
 <!-- 1264761 - IS ASDK -->  
 - 您可能會看到「健康情況控制器」元件出現具有下列詳細資料的警示：  
 
-    - 警示 #1：
-       - 名稱：基礎結構角色狀況不良
-       - 嚴重性：警告
-       - 元件：健康情況控制器
-       - 描述：健康情況控制器活動訊號掃描器無法使用。 這可能會影響健康情況報告和計量。  
+  - 警示 #1：
+     - 名稱：基礎結構角色狀況不良
+     - 嚴重性：警告
+     - 元件：健康情況控制器
+     - 描述：健康情況控制器活動訊號掃描器無法使用。 這可能會影響健康情況報告和計量。  
 
-    - 警示 #2：
-       - 名稱：基礎結構角色狀況不良
-       - 嚴重性：警告
-       - 元件：健康情況控制器
-       - 描述：健康情況控制器錯誤掃描器無法使用。 這可能會影響健康情況報告和計量。
+  - 警示 #2：
+     - 名稱：基礎結構角色狀況不良
+     - 嚴重性：警告
+     - 元件：健康情況控制器
+     - 描述：健康情況控制器錯誤掃描器無法使用。 這可能會影響健康情況報告和計量。
 
     您可以放心地忽略這兩個警示。 這兩個警示會在一段時間過後自動關閉。  
 
@@ -344,7 +346,7 @@ Azure Stack 會定期發行 Hotfix。 將 Azure Stack 更新成 1811 之前，�
 - 在 Azure Stack「祕密輪替」期間，會有一段 2 到 5 分鐘的期間無法存取公用 IP 位址。
 
 <!-- 2664148 - IS ASDK --> 
--   在租用戶使用 S2S VPN 通道來存取虛擬機器的案例中，如果在已經建立區域網路閘道之後，才將內部部署子網路新增至該閘道，租用戶就可能遇到連線嘗試失敗的情況。 
+- 在租用戶使用 S2S VPN 通道來存取虛擬機器的案例中，如果在已經建立區域網路閘道之後，才將內部部署子網路新增至該閘道，租用戶就可能遇到連線嘗試失敗的情況。 
 
 - 在 Azure Stack 入口網站中，針對已連結至 VM 執行個體的網路介面卡，當您變更與其繫結之 IP 設定的靜態 IP 位址時，將會看到內容如下的警告訊息： 
 
@@ -356,9 +358,9 @@ Azure Stack 會定期發行 Hotfix。 將 Azure Stack 更新成 1811 之前，�
 
 - 在入口網站中，如果您新增連入安全性規則並選取 [服務標籤] 作為來源，[服務標籤] 清單中會顯示數個 Azure Stack 無法使用的選項。 在 Azure Stack 中有效的選項僅限於下列幾個：
 
-    - **Internet**
-    - **VirtualNetwork**
-    - **AzureLoadBalancer**
+  - **Internet**
+  - **VirtualNetwork**
+  - **AzureLoadBalancer**
   
     其他選項在 Azure Stack 中不支援用來作為來源標籤。 同樣地，如果您新增連出安全性規則並選取 [服務標籤] 作為目的地，會顯示與 [來源標籤] 相同的選項清單。 僅有的有效選項與 [來源標籤] 的有效選項相同，如以上清單所述。
 

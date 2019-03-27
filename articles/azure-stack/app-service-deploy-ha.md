@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: ''
-ms.date: 03/13/2019
+ms.date: 03/23/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
-ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: db95be94028fcf16871a9dcfee5f0d87eb5d2cdc
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.lastreviewed: 03/23/2019
+ms.openlocfilehash: 1c105548f19994c4ca0ce161eedcfe11736864c7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285661"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370018"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>以高可用性設定部署 App Service
 
@@ -54,8 +54,7 @@ ms.locfileid: "58285661"
 ### <a name="deploy-the-app-service-infrastructure"></a>部署 App Service 基礎結構
 使用此節中的步驟，使用 **appservice-fileshare-sqlserver-ha** Azure Stack 快速入門範本建立自訂部署。
 
-1. 
-   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+1. [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. 選取 [\+ 建立資源] > [自訂]，然後選取 [範本部署]。
 
@@ -94,8 +93,7 @@ ms.locfileid: "58285661"
 
 請遵循下列步驟來探索範本輸出值：
 
-1. 
-   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+1. [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. 在系統管理入口網站中，選取 [資源群組]，然後選取您針對自訂部署建立的資源群組名稱 (在此範例中是 **app-service-ha**)。 
 
@@ -168,9 +166,20 @@ ms.locfileid: "58285661"
 
     ![檔案共用輸出資訊](media/app-service-deploy-ha/07.png)
 
-9. 因為用來安裝 App Service 的機器與用來裝載 App Service 檔案共用的檔案伺服器不在相同的 VNet 上，因此您將無法解析該名稱。 這是預期行為。<br><br>確認為檔案共用 UNC 路徑和帳戶資訊輸入的資訊是否正確，並在 [警示] 對話方塊中按 [是] 以繼續安裝 App Service。
+9. 因為用來安裝 App Service 的機器與用來裝載 App Service 檔案共用的檔案伺服器不在相同的 VNet 上，因此您將無法解析該名稱。 **這是預期行為**。<br><br>確認為檔案共用 UNC 路徑和帳戶資訊輸入的資訊是否正確，並在 [警示] 對話方塊中按 [是] 以繼續安裝 App Service。
 
     ![預期的錯誤對話方塊](media/app-service-deploy-ha/08.png)
+
+    如果您選擇要部署到現有的虛擬網路並以內部 IP 位址連線到檔案伺服器，便必須新增輸出安全性規則，以啟用背景工作角色子網路與檔案伺服器之間的 SMB 流量。 移至管理入口網站中的 WorkersNsg，然後使用下列屬性新增輸出安全性規則：
+    - 來源：任意
+    - 來源連接埠範圍：*
+    - 目的地：IP 位址
+    - 目的地 IP 位址範圍：檔案伺服器的 IP 範圍
+    - 目的地連接埠範圍：445
+    - 通訊協定：TCP
+    - 動作：允許
+    - 優先順序：700
+    - 名稱：Outbound_Allow_SMB445
 
 10. 提供身分識別應用程式識別碼，以及身分識別憑證的路徑和密碼，然後按一下 [下一步]：
     - 身分識別應用程式憑證 (格式為 **sso.appservice.local.azurestack.external.pfx**)
@@ -189,7 +198,7 @@ ms.locfileid: "58285661"
 
     ![SQL Server 連線資訊](media/app-service-deploy-ha/10.png)
 
-12. 因為用來安裝 App Service 的機器與用來裝載 App Service 資料庫的 SQL Server 不在相同的 VNet 上，因此您將無法解析該名稱。  這是預期行為。<br><br>確認為 SQL Server 名稱和帳戶資訊輸入的資訊是否正確，並按 [是] 以繼續安裝 App Service。 按 [下一步] 。
+12. 因為用來安裝 App Service 的機器與用來裝載 App Service 資料庫的 SQL Server 不在相同的 VNet 上，因此您將無法解析該名稱。  **這是預期行為**。<br><br>確認為 SQL Server 名稱和帳戶資訊輸入的資訊是否正確，並按 [是] 以繼續安裝 App Service。 按 [下一步] 。
 
     ![SQL Server 連線資訊](media/app-service-deploy-ha/11.png)
 
@@ -231,3 +240,5 @@ ms.locfileid: "58285661"
 [相應放大 App Service](azure-stack-app-service-add-worker-roles.md)。 您可能需要新增其他 App Service 基礎結構背景工作角色，以符合環境中預期的應用程式需求。 根據預設，Azure Stack 上的 App Service 支援免費和共用背景工作角色層。 若要新增其他背景工作角色層，您需要新增更多背景工作角色。
 
 [設定部署來源](azure-stack-app-service-configure-deployment-sources.md)。 需要額外的設定以支援來自多個原始檔控制提供者 (例如 GitHub、BitBucket、OneDrive 和 DropBox) 的依需求部署。
+
+[備份 App Service](app-service-back-up.md)。 部署成功之後請設定 App Service，請確保災害復原所需的所有元件均已備份以防止資料損失，同時避免在復原作業期間造成不必要的服務中斷。

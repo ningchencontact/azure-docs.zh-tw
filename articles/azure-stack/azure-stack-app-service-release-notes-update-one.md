@@ -16,12 +16,12 @@ ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: 9288ffa406b0e5765b35fa9b23aa13dee5754e9a
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 99b4134f8f2d6ed2f521a7f488c33e06c0f436bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240018"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58165823"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>App Service on Azure Stack 更新 1 版本資訊
 
@@ -58,7 +58,7 @@ Azure App Service on Azure Stack 更新 1 包含下列改良功能和修正：
 - **App Service 租用戶、系統管理員、Functions 入口網站和 Kudu 工具**的更新。 與 Azure Stack 入口網站 SDK 版本保持一致。
 
 - **下列應用程式架構和工具的更新**：
-    - 已新增 **.Net Core 2.0** 支援
+    - 已新增 **.NET Core 2.0** 支援
     - 已新增 **Node.JS** 版本：
         - 6.11.2
         - 6.11.5

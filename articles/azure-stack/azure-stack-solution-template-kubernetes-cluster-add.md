@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/09/2019
+ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: d0051f081f005d61a1eed43d177a11781b2b3fa8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: ca58059716ebebfaf663412b37014ae4f534d0e3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997078"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081503"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>將 Kubernetes 新增至 Azure Stack Marketplace
 
@@ -31,7 +31,7 @@ ms.locfileid: "55997078"
 
 您能以 Marketplace 項目的方式向使用者提供 Kubernetes。 接著您的使用者可以在單一協調作業中部署 Kubernetes。
 
-以下文章說明如何使用 Azure Resource Manager 範本來部署及佈建獨立 Kubernetes 叢集的資源。 Kubernetes Cluster Marketplace 項目 0.3.0 需要 Azure Stack 1808 版。 開始之前，請檢查您的 Azure Stack 和全域的 Azure 租用戶設定。 收集有關您 Azure Stack 的必要資訊。 將必要的資源新增到您的租用戶及 Azure Stack Marketplace。 叢集仰賴 Ubuntu 伺服器、自訂指令碼和會在 Marketplace 中的 Kubernetes 項目。
+以下文章說明如何使用 Azure Resource Manager 範本來部署及佈建獨立 Kubernetes 叢集的資源。 開始之前，請檢查您的 Azure Stack 和全域的 Azure 租用戶設定。 收集有關您 Azure Stack 的必要資訊。 將必要的資源新增到您的租用戶及 Azure Stack Marketplace。 叢集須仰賴 Ubuntu 伺服器、自訂指令碼，和會放在市集中的 Kubernetes 叢集市集項目。
 
 ## <a name="create-a-plan-an-offer-and-a-subscription"></a>建立方案、供應項目和訂用帳戶
 
@@ -67,7 +67,7 @@ ms.locfileid: "55997078"
 
 1. 建立並匯出用來建立服務主體的自我簽署憑證。 
 
-    - 您需要下列幾個資訊：
+    - 您需要下列幾項資訊：
 
        | 值 | 說明 |
        | ---   | ---         |
@@ -112,7 +112,7 @@ ms.locfileid: "55997078"
 
 3. 使用憑證來建立服務主體。
 
-    - 您需要下列幾個資訊：
+    - 您需要下列幾項資訊：
 
        | 值 | 說明                     |
        | ---   | ---                             |
@@ -220,12 +220,12 @@ ms.locfileid: "55997078"
 1. 輸入 `Custom Script for Linux` 。
 
 1. 選取具有下列設定檔的指令碼：
-    - **供應項目**：Custom Script for Linux 2.0
-    - **版本**：2.0.6 (或最新版本)
-    - **發行者**：Microsoft Corp
+   - **供應項目**：Custom Script for Linux 2.0
+   - **版本**：2.0.6 (或最新版本)
+   - **發行者**：Microsoft Corp
 
-    > [!Note]  
-    > 列出的 Custom Script for Linux 版本可能會超過一個。 您必須新增最新版的項目。
+     > [!Note]  
+     > 列出的 Custom Script for Linux 版本可能會超過一個。 您必須新增最新版的項目。
 
 1. 選取 [下載]。
 

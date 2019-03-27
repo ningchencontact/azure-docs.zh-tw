@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/14/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: 5ececb2d3c52a1da8c1a537e6223f17a9b83921f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1c21cc778ed398c28077ef1a20ebbb7b295c2baa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207529"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012396"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure Stack 整合式系統的一般資料中心整合考量
 如果您對 Azure Stack 整合式系統有興趣，您應瞭解有關部署的重大規劃考量，以及系統如何融入您的資料中心。 本文提供這些考量的高階概觀，協助您為 Azure Stack 多節點系統做出重要的基礎結構決策。 與您的 OEM 硬體廠商一起將 Azure Stack 部署到您的資料中心時，瞭解這些考量有所助益。  
@@ -162,7 +162,7 @@ Azure Stack 解決方案隨附的硬體生命週期主機是 Azure Stack 外部�
 | 領域 | 外部監視解決方案 |
 | -- | -- |
 | Azure Stack 軟體 | [Operations Manager 的 Azure Stack 管理組件](https://azure.microsoft.com/blog/management-pack-for-microsoft-azure-stack-now-available/) \(英文\)<br>[Nagios 外掛程式](https://exchange.nagios.org/directory/Plugins/Cloud/Monitoring-AzureStack-Alerts/details) \(英文\)<br>REST 型 API 呼叫 | 
-| 實體伺服器 (透過 IPMI 的 BMC) | OEM 硬體 - Operations Manager 廠商管理組件<br>OEM 硬體廠商提供的解決方案<br>硬體廠商 Nagios 外掛程式 | OEM 合作夥伴支援的監視解決方案 (包含) | 
+| 實體伺服器 (透過 IPMI 的 BMC) | OEM 硬體 - Operations Manager 廠商管理組件<br>OEM 硬體廠商提供的解決方案<br>硬體廠商 Nagios 外掛程式。<br>OEM 合作夥伴支援的監視解決方案 (包含) | 
 | 網路裝置 (SNMP) | Operations Manager 網路裝置探索<br>OEM 硬體廠商提供的解決方案<br>Nagios 交換器外掛程式 |
 | 租用戶訂用帳戶健康情況監視 | [System Center Management Pack for Windows Azure](https://www.microsoft.com/download/details.aspx?id=50013) | 
 |  |  | 

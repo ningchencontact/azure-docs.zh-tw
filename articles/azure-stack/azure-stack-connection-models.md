@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 9760e6b9cdcd6f03f4377277f3426189b1fe0a61
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.lastreviewed: 02/21/2019
+ms.openlocfilehash: f58d4e4f8b0e095fe64489fb42f78ef82c5af359
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182012"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57407811"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Azure Stack 整合式系統連線模型
 如果您對購買 Azure Stack 整合式系統有興趣，您將需要了解[數個資料中心整合考量](azure-stack-datacenter-integration.md)，如此 Azure Stack 部署才能判斷如何將系統融入您的資料中心。 此外，您必須決定如何將 Azure Stack 整合到您的混合式雲端環境中。 本文提供這些主要決策 (包括 Azure 連線、身分識別儲存和計費模型決策) 的概觀。
@@ -38,12 +38,14 @@ ms.locfileid: "56182012"
 
 
 |選項|已連線至 Azure|已中斷與 Azure 的連線|
-|-----|-----|-----|
+|-----|:-----:|:-----:|
 |Azure AD|![支援](media/azure-stack-connection-models/check.png)| |
 |AD FS|![支援](media/azure-stack-connection-models/check.png)|![支援](media/azure-stack-connection-models/check.png)|
 |以耗用量為基礎的計費|![支援](media/azure-stack-connection-models/check.png)| |
 |以容量為基礎的計費|![支援](media/azure-stack-connection-models/check.png)|![支援](media/azure-stack-connection-models/check.png)|
-|將更新套件直接下載到 Azure Stack|![支援](media/azure-stack-connection-models/check.png)|  |
+|授權| Enterprise 合約或雲端解決方案提供者 | Enterprise 合約 |
+|修補和更新|可以直接從網際網路將更新套件下載到 Azure Stack |  必要<br><br>也需要卸除式媒體<br> 及個別的連接裝置 |
+| 註冊 | 自動化 | 必要<br><br>也需要卸除式媒體<br> 及個別的連接裝置 |
 
 在您決定要用於 Azure Stack 部署的 Azure 連線模型之後，必須針對身分識別儲存和計費方法進行其他連線相關決策。 
 

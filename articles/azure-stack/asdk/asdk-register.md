@@ -15,12 +15,12 @@ ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 23adf2903a50727d920e4a20b8a325313fa39e2a
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: dc146c6e8877a99570aab25d198ba365abbe7c86
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428002"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078171"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack 註冊
 您可以向 Azure 註冊 Azure Stack 開發套件 (ASDK) 安裝，以便從 Azure 下載市集項目，以及設定向 Microsoft 回報商務資料的功能。 必須註冊才能支援完整的 Azure Stack 功能，包括 Marketplace 摘要整合。 需要註冊才能讓您測試重要的 Azure Stack 功能，例如市集摘要整合和使用方式報告。 註冊 Azure Stack 之後，使用方式會回報給 Azure 商務。 您可以在註冊時所使用的訂用帳戶下看到這項資訊。 然而，ASDK 使用者將不需針對回報的任何使用方式支付費用。
@@ -38,7 +38,7 @@ $ExecutionContext.SessionState.LanguageMode
 
 確定輸出有傳回 **FullLanguageMode**。 如果傳回任何其他語言模式，則必須在另一部電腦上執行註冊，或是必須將語言模式設定為 **FullLanguageMode**，才能繼續。
 
-用於註冊的 Azure AD 帳戶必須具有 Azure 訂用帳戶的存取權，而且有權在與該訂用帳戶相關聯的目錄中建立身分識別應用程式和服務主體。 建議您[建立註冊用的服務帳戶](..\azure-stack-registration-role.md)以使用最低權限管理向 Azure 註冊 Azure Stack，而不要使用全域管理員認證。
+用於註冊的 Azure AD 帳戶必須具有 Azure 訂用帳戶的存取權，而且有權在與該訂用帳戶相關聯的目錄中建立身分識別應用程式和服務主體。 建議您[建立註冊用的服務帳戶](../azure-stack-registration-role.md)以使用最低權限管理向 Azure 註冊 Azure Stack，而不要使用全域管理員認證。
 
 ## <a name="register-azure-stack-with-azure"></a>向 Azure 註冊 Azure Stack
 請遵循這些步驟來向 Azure 註冊 ASDK。
@@ -214,7 +214,7 @@ $ExecutionContext.SessionState.LanguageMode
 
 2. 從儀表板中，選取 [Region management] \(區域管理\)。
 
-    [ ![Region management 圖格](media/asdk-register/admin1sm.png "Region management 區域管理 圖格") ](media/asdk-register/admin1.png#lightbox)
+    [![區域管理圖格](media/asdk-register/admin1sm.png "區域管理圖格")](media/asdk-register/admin1.png#lightbox)
 
 3. 選取 [屬性] 。 此刀鋒視窗會顯示您環境的狀態和詳細資料。 狀態可以是 [已註冊] 或 [未註冊]。 如果是已註冊，則會一併顯示您用來註冊 Azure Stack 的 Azure 訂用帳戶 ID，以及註冊資源群組和名稱。
 

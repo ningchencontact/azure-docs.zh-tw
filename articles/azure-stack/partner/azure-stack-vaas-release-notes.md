@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
-ms.openlocfilehash: 5252eed66018cd2028545567dfe62ca7ba17be7e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: 96325d7c21ccf7d93deaafbad974009004030157
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247811"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091982"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>驗證即服務的版本資訊
 
@@ -28,14 +28,13 @@ ms.locfileid: "55247811"
 本文包含有「Azure Stack 驗證即服務」的版本資訊。
 
 ## <a name="version-405"></a>4.0.5 版
+
 2019 年 1 月 17 日
 
--  更新磁碟識別測試以解決儲存體集區的不一致。 版本：5.1.14.0  -> 5.1.15.0
--  更新 Azure Stack 每月更新驗證以解決已核准軟體和內容驗證的不一致。 版本：5.1.14.0  -> 5.1.15.0
--  更新 OEM 延伸模組套件驗證以在 Azure Stack 更新步驟「之前」先執行必要的檢查。 版本：5.1.14.0 -> 5.1.15.0
--  內部錯誤修正
-
-
+- 更新磁碟識別測試以解決儲存體集區的不一致。 版本：5.1.14.0 -> 5.1.15.0
+- 更新 Azure Stack 每月更新驗證以解決已核准軟體和內容驗證的不一致。 版本：5.1.14.0 -> 5.1.17.0
+- OEM 擴充功能套件驗證已更新，會在 Azure Stack 更新步驟之前先執行必要的檢查。 版本：5.1.14.0 -> 5.1.16.0
+- 內部錯誤修正
 
 ## <a name="version-402"></a>4.0.2 版
 
@@ -43,10 +42,10 @@ ms.locfileid: "55247811"
 
 如果您執行 Azure Stack 每月更新驗證工作流程，而且您的 OEM 更新套件版本不是 1810 或更高版本，您就會在進行 OEM 更新步驟時收到錯誤。 這是一個錯誤 (bug)。 正在開發修正程式。風險降低步驟如下所示：
 
-1.  如往常一樣執行 OEM 更新。
-2.  在成功套用套件之後執行 Test-AzureStack 並儲存輸出。
-3.  取消測試。
-4.  將儲存的輸出傳送至 VaaSHelp@microsoft.com，以接收回合的傳遞結果。
+1. 如往常一樣執行 OEM 更新。
+2. 在成功套用套件之後執行 Test-AzureStack 並儲存輸出。
+3. 取消測試。
+4. 將儲存的輸出傳送至 VaaSHelp@microsoft.com，以接收回合的傳遞結果。
 
 ## <a name="version-402"></a>4.0.2 版
 
@@ -77,7 +76,7 @@ ms.locfileid: "55247811"
 
 - VaaS 先決條件和 VHD 更新
 
-    `Install-VaaSPrerequisites` 現在需要雲端管理員認證，以處理解決方案驗證期間的問題。 位於[下載並安裝代理程式](azure-stack-vaas-local-agent.md#download-and-install-the-agent)的文件已進行下列更新：
+    `Install-VaaSPrerequisites` 現在需要雲端管理員認證，以處理套件驗證期間的問題。 位於[下載並安裝代理程式](azure-stack-vaas-local-agent.md#download-and-install-the-agent)的文件已進行下列更新：
 
     ```PowerShell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
@@ -104,11 +103,11 @@ ms.locfileid: "55247811"
 
   - 套件簽署通知
 
-    在「解決方案驗證」工作流程中一併提交 OEM 自訂套件時，系統會驗證套件格式，以確保格式遵守已發佈的規格。 如果套件不符合規範，執行就會失敗。 系統會將電子郵件通知傳送給租用戶的已註冊 Azure Active Directory 連絡人電子郵件地址。
+    當在「套件驗證」工作流程中一併提交 OEM 自訂套件時，系統會驗證套件格式，以確保格式遵守已發佈的規格。 如果套件不符合規範，執行就會失敗。 系統會將電子郵件通知傳送給租用戶的已註冊 Azure Active Directory 連絡人電子郵件地址。
 
   - 互動式測試分類
 
-    已新增**互動式**測試分類。 這些測試可讓合作夥伴執行互動式、非自動化的 Azure Stack 案例。
+    已新增**互動式**測試分類。 這些測試會執行互動式、非自動化的 Azure Stack 案例。
 
   - 互動式功能驗證
 

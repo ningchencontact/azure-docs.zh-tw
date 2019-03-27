@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/11/2018
-ms.author: jeffgilb
+ms.date: 03/11/2019
+ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: 0be1814fd501824056bc80d4aeb561ff58735125
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.lastreviewed: 03/11/2019
+ms.openlocfilehash: 58be7b6dc9eeeadd69fe82f1dc03d959aa94f9c8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447441"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088429"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>開始使用 Azure Stack 上的 App Service 之前
 
@@ -30,7 +30,7 @@ ms.locfileid: "56447441"
 在部署 Azure Stack 上的 Azure App Service 之前，您必須完成本文中的先決條件步驟。
 
 > [!IMPORTANT]
-> 在部署 Azure App Service 1.4 之前，請先將 1809 更新套用到您的 Azure Stack 整合式系統，或部署最新的 Azure Stack 開發套件 (ASDK)。
+> 在部署 Azure App Service 1.5 之前，請先將 1901 更新套用到您的 Azure Stack 整合系統，或部署最新的 Azure Stack 開發套件 (ASDK)。
 
 ## <a name="download-the-installer-and-helper-scripts"></a>下載安裝程式與協助程式指令碼
 
@@ -49,15 +49,7 @@ ms.locfileid: "56447441"
 
 ## <a name="syndicate-the-custom-script-extension-from-the-marketplace"></a>從 Marketplace 同步發佈自訂指令碼擴充功能
 
-Azure App Service on Azure Stack 需要自訂指令碼擴充功能 v1.9.0。  此擴充功能必須先[從 Marketplace 同步發佈](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item)，才能開始部署或升級 Azure App Service on Azure Stack。
-
-## <a name="high-availability"></a>高可用性
-
-Azure Stack 1802 更新已增加對容錯網域的支援。 Azure Stack 上的 Azure App Service 的新部署將會分布至各個容錯網域並提供容錯移轉功能。
-
-針對在 1802 更新之前部署的 Azure Stack 上的 Azure App Service 現有部署，請參閱[跨容錯網域重新平衡 App Service 資源提供者](azure-stack-app-service-fault-domain-update.md)一文。
-
-此外，在高可用性設定中，部署所需的檔案伺服器和 SQL Server 執行個體。
+Azure App Service on Azure Stack 需要自訂指令碼擴充功能 v1.9.1。  此擴充功能必須先[從 Marketplace 同步發佈](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item)，才能開始部署或升級 Azure App Service on Azure Stack。
 
 ## <a name="get-certificates"></a>取得憑證
 
@@ -155,11 +147,11 @@ API 憑證位於管理角色中。 資源提供者會使用它來協助保護 AP
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
-
 ### <a name="validate-certificates"></a>驗證憑證
-在部署應用程式服務資源提供者之前，應先使用 [PowerShell 資源庫](https://aka.ms/AzsReadinessChecker)所提供的 Azure Stack 整備檢查工具，來[驗證要使用的憑證](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation)。 Azure Stack 整備檢查工具會驗證產生的 PKI 憑證是否適用於應用程式服務部署。 
 
-最佳做法就是在使用任何必要的 [Azure Stack PKI 憑證](azure-stack-pki-certs.md)時，應該規劃保留足夠的時間以便測試和重新發行憑證 (如有必要)。 
+在部署應用程式服務資源提供者之前，應先使用 [PowerShell 資源庫](https://aka.ms/AzsReadinessChecker)所提供的 Azure Stack 整備檢查工具，來[驗證要使用的憑證](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation)。 Azure Stack 整備檢查工具會驗證產生的 PKI 憑證是否適用於應用程式服務部署。
+
+最佳做法就是在使用任何必要的 [Azure Stack PKI 憑證](azure-stack-pki-certs.md)時，應該規劃保留足夠的時間以便測試和重新發行憑證 (如有必要)。
 
 ## <a name="virtual-network"></a>虛擬網路
 
@@ -178,6 +170,15 @@ Azure Stack 上的 Azure App Service 可讓您將資源提供者部署至現有�
 - PublishersSubnet /24
 - WorkersSubnet /21
 
+## <a name="licensing-concerns-for-required-file-server-and-sql-server"></a>必要的檔案伺服器和 SQL Server 的授權考量
+
+Azure App Service on Azure Stack 需要檔案伺服器和 SQL Server 才能運作。  您可以選擇使用位於 Azure Stack 部署外的既有資源，或將資源部署在 Azure Stack 預設提供者訂用帳戶中。
+
+如果您選擇將資源部署在 Azure Stack 預設提供者訂用帳戶中，這些資源的授權 (Windows Server 授權及 SQL Server 授權) 將會納入 Azure App Service on Azure Stack 的成本中，並受到下列條件約束：
+
+- 基礎結構會部署到「預設提供者訂用帳戶」中；
+- Azure App Service on Azure Stack 資源提供者會以獨佔方式使用基礎結構。  其他工作負載、系統管理 (其他資源提供者，例如 SQL-RP) 或租用戶 (例如，需要資料庫的租用戶應用程式)，皆不可使用此基礎結構。
+
 ## <a name="prepare-the-file-server"></a>準備檔案伺服器
 
 Azure App Service 需要使用檔案伺服器。 在實際執行的部署中，必須將檔案伺服器設定為高度可用，且能夠處理失敗。
@@ -188,7 +189,7 @@ Azure App Service 需要使用檔案伺服器。 在實際執行的部署中，�
 
 ### <a name="quickstart-template-for-highly-available-file-server-and-sql-server"></a>高可用性檔案伺服器和 SQL Server 的快速入門範本
 
-現已提供[參考架構快速入門範本](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha)，該範本會部署檔案伺服器、SQL Server，並在設定為支援 Azure App Service on Azure Stack 高可用性部署的虛擬網路中支援 Active Directory 基礎結構。  
+現已提供[參考架構快速入門範本](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha)，該範本會部署檔案伺服器、SQL Server，並在設定為支援 Azure App Service on Azure Stack 高可用性部署的虛擬網路中支援 Active Directory 基礎結構。
 
 ### <a name="steps-to-deploy-a-custom-file-server"></a>部署自訂檔案伺服器的步驟
 
@@ -303,10 +304,19 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 Azure Stack 上的 Azure App Service 的 SQL Server 執行個體必須能夠從所有 App Service 角色存取。 您可以在 Azure Stack 中的預設提供者訂用帳戶中部署 SQL Server。 或者，您可以使用組織中現有的基礎結構 (請確認可以連線到 Azure Stack)。 如果您使用 Azure Marketplace 映像，請記得設定適用的防火牆。
 
->[!NOTE]
+> [!NOTE]
 > 您可以透過 Marketplace 管理功能取得一些 SQL IaaS 虛擬機器映像。 請確定在使用 Marketplace 項目部署 VM 之前，一律會下載最新版的 SQL IaaS 延伸模組。 SQL 映像與 Azure 中提供的 SQL VM 相同。 針對從這些映像建立的 SQL VM，IaaS 延伸模組和對應的入口網站增強功能，可提供自動修補和備份功能之類的功能。
->
-針對任何 SQL Server 角色，您可以使用預設執行個體或具名執行個體。 如果您使用具名執行個體，請務必手動啟動 SQL Server Browser 服務並開啟連接埠 1434。
+> 
+> 針對任何 SQL Server 角色，您可以使用預設執行個體或具名執行個體。 如果您使用具名執行個體，請務必手動啟動 SQL Server Browser 服務並開啟連接埠 1434。
+
+App Service 安裝程式將會檢查並確認 SQL Server 已啟用資料庫的內含項目。 若要在要裝載 App Service 資料庫的 SQL Server 上啟用資料庫內含項目，請執行下列 SQL 命令：
+
+```sql
+sp_configure 'contained database authentication', 1;
+GO
+RECONFIGURE;
+GO
+```
 
 >[!IMPORTANT]
 > 如果您選擇在現有的虛擬網路中部署 App Service，則應該將 SQL Server 部署至與 App Service 和「檔案伺服器」不同的子網路。

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: c16f218903557a6d3a10f3ef201587d2885fffa9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 469213ae67f1f2bcece6afa5d9b7873bfdfe8d6c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239096"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095733"
 ---
 # <a name="azure-monitor-on-azure-stack"></a>Azure Stack 上的 Azure 監視器
 
@@ -27,16 +27,16 @@ ms.locfileid: "55239096"
 
 本文提供 Azure Stack 中 Azure 監視器服務的概觀。 文中會討論 Azure 監視器的作業，以及關於如何在 Azure Stack 上使用 Azure 監視器的其他資訊。 
 
-如需簡介、概觀以及如何開始使用 Azure 監視器，請參閱全域 Azure 文章[開始使用 Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started)。
+如需簡介、概觀以及開始使用 Azure 監視器的方式，請參閱全域 Azure 文章[在 Azure Stack 上開始使用 Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started)。
 
 ![Azure Stack [監視器] 刀鋒視窗](./media/azure-stack-metrics-azure-data/azs-monitor.png)
 
 Azure 監視器是平台服務，提供監視 Azure 資源的單一來源。 您可以使用 Azure 監視器來視覺化、查詢、路由、封存，以及針對來自 Azure 資源的度量和記錄檔採取其他行動。 您可以使用 Azure Stack 管理員入口網站、監視器 PowerShell Cmdlet、跨平台 CLI 或 Azure 監視器 REST API 來使用此資料。 若要了解 Azure Stack 所支援的特定連線，請參閱[如何取用 Azure Stack 中的監視資料](azure-stack-metrics-monitor.md)
 
-> [!Note]  
-Azure Stack 開發套件無法使用計量和診斷記錄。
+> [!Note]
+> Azure Stack 開發套件無法使用計量和診斷記錄。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites-for-azure-monitor-on-azure-stack"></a>在 Azure Stack 上使用 Azure 監視器的必要條件
 
 在訂用帳戶的供應項目資源提供者設定上，註冊 **Microsoft.insights** 資源提供者。 您可以確認與訂用帳戶相關聯的供應項目中，是否有該資源提供者可供使用：
 
@@ -46,13 +46,13 @@ Azure Stack 開發套件無法使用計量和診斷記錄。
 4. 在 [設定] 下，選取 [資源提供者]。 
 5. 在清單中尋找 **Microsoft.Insights**，並確認其狀態為 [已註冊]。
 
-## <a name="overview"></a>概觀
+## <a name="overview-of-azure-monitor-on-azure-stack"></a>在 Azure Stack 上使用 Azure 監視器的概觀
 
 和 Azure 上的 Azure 監視器一樣，Azure Stack 上的 Azure 監視器也可為大部分服務提供基底層級的基礎結構計量和記錄。
 
 ## <a name="azure-monitor-sources-compute-subset"></a>Azure 監視器來源：計算子集
 
-![Azure 監視器來源 - 計算子集](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
+![Azure Stack 上的 Azure 監視器來源 - 計算子集](media//azure-stack-metrics-azure-data/azs-monitor-computersubset.png)
 
 Azure Stack 中的 **Microsoft.Compute** 資源提供者包括：
  - 虛擬機器 
@@ -86,7 +86,7 @@ Azure Stack 中的 **Microsoft.Compute** 資源提供者包括：
 
 ## <a name="azure-monitor-sources-everything-else"></a>Azure 監視器來源：其他項目
 
-![Azure 監視器來源 - 其他項目](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
+![Azure Stack 上的 Azure 監視器來源 - 其他項目](media//azure-stack-metrics-azure-data/azs-monitor-othersubset.png)
 
 ### <a name="resources---metrics-and-diagnostics-logs"></a>資源 - 計量和診斷記錄
 

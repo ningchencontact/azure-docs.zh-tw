@@ -7,16 +7,16 @@ manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: kivenkat
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 3f1c84961f2ad6bd15612917d33982ec96824257
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d7b2c0a39d6d7287b3f956d824239a40e373ea36
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252263"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594758"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>在 Azure Stack 中提供虛擬機器擴展集
 
@@ -27,6 +27,7 @@ ms.locfileid: "55252263"
 本文引導您完成讓擴展集可在 Azure Stack Marketplace 中使用的程序。 完成此程序之後，您的使用者可以將虛擬機器擴展集新增至其訂用帳戶。
 
 Azure Stack 上的虛擬機器擴展集類似 Azure 上的虛擬機器擴展集。 如需詳細資訊，請參閱下列視訊：
+
 * [Mark Russinovich 講述 Azure 擴展集](https://channel9.msdn.com/Blogs/Regular-IT-Guy/Mark-Russinovich-Talks-Azure-Scale-Sets/)
 * [Guy Bowerman 與虛擬機器擴展集](https://channel9.msdn.com/Shows/Cloud+Cover/Episode-191-Virtual-Machine-Scale-Sets-with-Guy-Bowerman)
 
@@ -34,15 +35,15 @@ Azure Stack 上的虛擬機器擴展集類似 Azure 上的虛擬機器擴展集�
 
 ## <a name="prerequisites"></a>必要條件
 
-- **Marketplace：** 向全域 Azure 註冊 Azure Stack 以在 Marketplace 中啟用項目的可用性。 請遵循[向 Azure 註冊 Azure Stack](azure-stack-registration.md) 中的指示。
-- **作業系統映像：** 能夠建立虛擬機器擴展集 (VMSS) 之前，您必須先從 [Azure Stack Marketplace](azure-stack-download-azure-marketplace-item.md) 下載要在 VMSS 中使用的 VM 映像。 該映像必須已經存在，使用者才能建立新的 VMSS。 
+* **Marketplace：** 向全域 Azure 註冊 Azure Stack 以在 Marketplace 中啟用項目的可用性。 請遵循[向 Azure 註冊 Azure Stack](azure-stack-registration.md) 中的指示。
+* **作業系統映像：** 能夠建立虛擬機器擴展集 (VMSS) 之前，您必須先從 [Azure Stack Marketplace](azure-stack-download-azure-marketplace-item.md) 下載要在 VMSS 中使用的 VM 映像。 該映像必須已經存在，使用者才能建立新的 VMSS。
 
-## <a name="use-the-azure-stack-portal"></a>使用 Azure Stack 入口網站 
+## <a name="use-the-azure-stack-portal"></a>使用 Azure Stack 入口網站
 
 >[!IMPORTANT]  
 > 當您的 Azure Stack 為 1808 版或更新版本時，才適用本節中的資訊。 如果您的版本為 1807 或先前版本，請參閱[新增虛擬機器擴展集 (1808 之前)](#add-the-virtual-machine-scale-set-prior-to-version-1808)。
 
-1. 登入 Azure Stack 入口網站。 然後，依序移至 [所有服務] 和 [虛擬機器擴展集]，接著在 [計算] 底下，選取 [虛擬機器擴展集]。 
+1. 登入 Azure Stack 入口網站。 然後，依序移至 [所有服務] 和 [虛擬機器擴展集]，接著在 [計算] 底下，選取 [虛擬機器擴展集]。
    ![選取虛擬機器擴展集](media/azure-stack-compute-add-scalesets/all-services.png)
 
 2. 選取 [建立虛擬機器擴展集]。
@@ -51,7 +52,7 @@ Azure Stack 上的虛擬機器擴展集類似 Azure 上的虛擬機器擴展集�
 3. 填寫空白欄位，從 [作業系統磁碟映像]、[訂用帳戶] 和 [執行個體大小] 的下拉式清單選擇。 針對 [使用受控磁碟] 選擇 [是]。 然後按一下 [ **建立**]。
     ![設定並建立](media/azure-stack-compute-add-scalesets/create.png)
 
-4. 若要查看新的虛擬機器擴展集，請移至 [所有資源]，搜尋虛擬機器擴展集的名稱，然後在搜尋中選取其名稱。 
+4. 若要查看新的虛擬機器擴展集，請移至 [所有資源]，搜尋虛擬機器擴展集的名稱，然後在搜尋中選取其名稱。
    ![檢視擴展集](media/azure-stack-compute-add-scalesets/search.png)
 
 ## <a name="add-the-virtual-machine-scale-set-prior-to-version-1808"></a>新增虛擬機器擴展集 (1808 之前的版本)
@@ -73,7 +74,7 @@ Azure Stack 上的虛擬機器擴展集類似 Azure 上的虛擬機器擴展集�
 
 1. 虛擬機器擴展集部署範本會指定**最新**的 **version (版本)**：  
 
-   當 `version` 在擴展集範本的 `imageReference` 區段中設定為 **latest** 時，擴展集的相應放大作業會針對擴展集執行個體使用映像可用的最新版本。 相應放大完成之後，您可以刪除較舊的虛擬機器擴展集執行個體。 `publisher`、`offer` 和 `sku` 的值維持不變。 
+   當 `version` 在擴展集範本的 `imageReference` 區段中設定為 **latest** 時，擴展集的相應放大作業會針對擴展集執行個體使用映像可用的最新版本。 相應放大完成之後，您可以刪除較舊的虛擬機器擴展集執行個體。 `publisher`、`offer` 和 `sku` 的值維持不變。
 
    下列的 JSON 範例會指定 `latest`：  
 
@@ -88,12 +89,12 @@ Azure Stack 上的虛擬機器擴展集類似 Azure 上的虛擬機器擴展集�
 
    您必須先下載新映像，相應放大才可使用這個新映像：  
 
-   - 當 Marketplace 上的映像版本比擴展集中的映像還要新時，請下載新映像以取代舊映像。 取代映像之後，使用者可以繼續相應放大。 
+   * 當 Marketplace 上的映像版本比擴展集中的映像還要新時，請下載新映像以取代舊映像。 取代映像之後，使用者可以繼續相應放大。
 
-   - 當 Marketplace 上的映像版本與擴展集中的映像相同時，請刪除擴展集中使用的映像，然後下載新映像。 在移除原始映像與下載新映像之間的這段時間內，您無法相應放大。 
-      
-     您必須執行此程序，才能重新整合使用疏鬆檔案格式 (在版本 1803 中引進) 的映像。 
- 
+   * 當 Marketplace 上的映像版本與擴展集中的映像相同時，請刪除擴展集中使用的映像，然後下載新映像。 在移除原始映像與下載新映像之間的這段時間內，您無法相應放大。
+
+     您必須執行此程序，才能重新整合使用疏鬆檔案格式 (在版本 1803 中引進) 的映像。
+
 2. 虛擬機器擴展集部署範本**不會指定最新的** version，而會改為指定一個版本號碼：  
 
     如果您下載較新版本的映像 (它會變更可用版本)，則無法相應放大擴展集。 這是因為根據設計，擴展集範本中指定的映像版本必須可以使用。  
@@ -107,13 +108,14 @@ Azure Stack 上的虛擬機器擴展集類似 Azure 上的虛擬機器擴展集�
 1. 在入口網站中，選取您的擴展集，然後選取 [調整]。
 
 2. 使用滑桿調整此虛擬機器擴展集的新層級，然後按一下 [儲存]。
-     ![調整集合](media/azure-stack-compute-add-scalesets/scale.png)
+
+     ![調整擴展集大小](media/azure-stack-compute-add-scalesets/scale.png)
 
 ## <a name="remove-a-virtual-machine-scale-set"></a>移除虛擬機器擴展集
 
 若要移除虛擬機器擴充集資源庫項目，請執行下列 PowerShell 命令：
 
-```PowerShell  
+```powershell  
 Remove-AzsGalleryItem
 ```
 
@@ -122,4 +124,4 @@ Remove-AzsGalleryItem
 
 ## <a name="next-steps"></a>後續步驟
 
-[將市集項目從 Azure 下載到 Azure Stack](azure-stack-download-azure-marketplace-item.md)
+* [將市集項目從 Azure 下載到 Azure Stack](azure-stack-download-azure-marketplace-item.md)

@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
-ms.author: jeffgilb
+ms.date: 03/13/2019
+ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 20b79b3c2581db94627746f52ed6837aa80b6be5
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.lastreviewed: 03/13/2019
+ms.openlocfilehash: 06bafbcf3e668ba17b1245b9352e942e02569997
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447731"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852359"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Azure Stack 中的 Azure App Service 伺服器角色容量規劃
 
@@ -93,9 +93,17 @@ Azure App Service 管理角色負責 App Service Azure Resource Manager 和 API 
 
    如需有關新增更多背景工作執行個體的資訊，請參閱[新增更多背景工作角色](azure-stack-app-service-add-worker-roles.md)。
 
+### <a name="additional-considerations-for-dedicated-workers-during-upgrade-and-maintenance"></a>專用背景工作角色在升級和維護期間的其他考量
+
+在升級和維護背景工作角色期間，Azure Stack 上的 Azure App Service 一次會對每個背景工作角色層的 20% 資源執行維護。  因此，雲端管理員一律必須讓每一背景工作角色層保有 20% 的未配置背景工作角色集區，來確保其租用戶不會在升級和維護期間遇到中斷服務的情形。  例如，如果您的背景工作角色層有 10 個背景工作角色，就應該確保其中有 2 個尚未配置以便能夠用於升級和維護，如果 10 個背景工作角色全都配置出去，就應該相應增加背景工作角色層來保有未配置的背景工作角色集區。 在升級和維護期間，Azure App Service 會將工作負載移到未配置的背景工作角色，以確保工作負載會繼續運作，如果升級期間沒有可用的未配置背景工作角色，則租用戶的工作負載就有可能會停止運作。  關於共用的背景工作角色，客戶不需要佈建額外的背景工作角色，因為服務會自動在可用的背景工作角色內配置租用戶應用程式，以提供高可用性，不過，此層內至少要有兩個背景工作角色。
+
+雲端管理員可以在 Azure Stack 系統管理入口網站的 [App Service 管理] 區域中監視其背景工作角色層的配置。  請瀏覽至 App Service，然後選取左窗格中的 [背景工作角色層]。  [背景工作角色層] 資料表會顯示背景工作角色層名稱、大小、使用的映像、可用背景工作角色數目 (未配置)、每層內的背景工作角色總數，以及背景工作角色層的整體狀態。
+
+![App Service 管理 - 背景工作角色層][1]
+
 ## <a name="file-server-role"></a>檔案伺服器角色
 
-針對檔案伺服器角色，您可以使用獨立檔案伺服器進行開發和測試，例如在 Azure Stack 開發套件 (ASDK) 上部署 Azure App Service 時，您可以使用此範本： https://aka.ms/appsvconmasdkfstemplate。 對於生產環境用途，則應該使用預先設定的 Windows 檔案伺服器或預先設定的非 Windows 檔案伺服器。
+針對檔案伺服器角色，您可以使用獨立檔案伺服器進行開發和測試，例如在 Azure Stack 開發套件 (ASDK) 上部署 Azure App Service 時，您可以使用此[範本](https://aka.ms/appsvconmasdkfstemplate)。  對於生產環境用途，則應該使用預先設定的 Windows 檔案伺服器或預先設定的非 Windows 檔案伺服器。
 
 在生產環境中，檔案伺服器角色會遇到大量的磁碟 I/O。 該角色存放了使用者網站的所有內容與應用程式檔案，因此您應該為該角色預先設定下列其中一項資源：
 
@@ -105,10 +113,13 @@ Azure App Service 管理角色負責 App Service Azure Resource Manager 和 API 
 - 非 Windows 檔案伺服器叢集
 - NAS (網路連接儲存裝置) 裝置
 
-如需詳細資訊，請參閱[佈建檔案伺服器](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server)。
+如需詳細資訊，請參閱下列文章：[佈建檔案伺服器](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server)。
 
 ## <a name="next-steps"></a>後續步驟
 
 如需詳細資訊，請參閱下列文章：
 
 [開始使用 Azure Stack 上的 App Service 之前](azure-stack-app-service-before-you-get-started.md)
+
+<!--Image references-->
+[1]: ./media/azure-stack-app-service-capacity-planning/worker-tier-allocation.png

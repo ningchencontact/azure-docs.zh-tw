@@ -15,12 +15,12 @@ ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: alfredop
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: a075fdceaf57625280ef73499d868d5c3724426c
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1211edde43d802a4c48cbd936473b1a6f83af705
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236476"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342083"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>在 Azure Stack 中委派供應項目
 
@@ -78,7 +78,7 @@ ms.locfileid: "56236476"
 | 使用者 |使用者 |
 
  > [!NOTE]
-   > 在 CSP 轉售商的案例中，若要建立此委派的提供者，則 Tenant-Directory 中需要這些使用者 (使用者 AAD)。 Azure Stack 操作員必須先讓該租用戶 AAD [上線](https://docs.microsoft.com/azure/azure-stack/azure-stack-enable-multitenancy)，然後遵循[這些步驟](https://docs.microsoft.com/azure/azure-stack/azure-stack-csp-howto-register-tenants)來設定使用量和計費方式。
+ > 在 CSP 轉售商的案例中，若要建立此委派提供者，則租用戶目錄 (使用者 AAD) 中需要有這些使用者。 Azure Stack 操作員必須先讓該租用戶 AAD [上線](azure-stack-enable-multitenancy.md)，然後遵循[這些步驟](azure-stack-csp-howto-register-tenants.md)來設定使用量和計費方式。
 
 ### <a name="identify-the-delegated-provider"></a>識別委派的提供者
 

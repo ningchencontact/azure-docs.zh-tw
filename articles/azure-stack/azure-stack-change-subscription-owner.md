@@ -11,17 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: sethm
 ms.reviewer: shnatara
 ms.lastreviewed: 10/19/2018
-ms.openlocfilehash: de5c20cf2113bcd6ce902a05d4613376145a4da3
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 1d9dd7d19c196679ead9b552bcf296b4acd4ca68
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649402"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842884"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>變更 Azure Stack 使用者訂用帳戶的擁有者
 
@@ -49,7 +49,7 @@ Azure Stack 操作員可以使用 PowerShell 來變更使用者訂用帳戶的�
 - **$ArmEndpoint**：您環境的 Resource Manager 端點。
 - **$TenantId**：您的租用戶識別碼。
 - **$SubscriptionId**：您的訂用帳戶識別碼。
-- **$OwnerUpn**：要新增為新計費擁有者的帳戶，例如 **user@example.com**。
+- **$OwnerUpn**：要新增為新計費擁有者的帳戶，例如 **user\@example.com**。
 
 ```powershell
 # Set up Azure Stack admin environment

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 02/26/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.lastreviewed: 11/08/2018
-ms.openlocfilehash: 92774592f86a71a8482fd3d44eca404fcf2d4e6e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.lastreviewed: 02/26/2019
+ms.openlocfilehash: 9f835382cbfe56c1601267ae994a94b56c0c3692
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429548"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727037"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Azure Stack 使用量 API 的常見問題集
 
@@ -197,15 +197,15 @@ ms.locfileid: "56429548"
 **單位**：GB\*月      
 **注意**：進階受控磁碟的實際磁碟大小 
 
-**計量識別碼**：75d4b707-1027-4403-9986-6ec7c05579c8  
+**計量識別碼**：108fa95b-be0d-4cd9-96e8-5b0d59505df1  
 **計量名稱**：ActualStandardSnapshotSize   
 **單位**：GB\*月   
 **注意**：受控標準快照集的實際磁碟大小。  
 
-**計量識別碼**：5ca1cbb9-6f14-4e76-8be8-1ca91547965e   
+**計量識別碼**：578ae51d-4ef9-42f9-85ae-42b52d3d83ac   
 **計量名稱**：ActualPremiumSnapshotSize   
 **單位**：GB\*月   
-**注意**：受控進階磁碟的實際大小。   
+**注意**：受控進階快照集磁碟上的實際大小。   
 
 **計量識別碼**：5d76e09f-4567-452a-94cc-7d1f097761f0   
 **計量名稱**：S4   
@@ -285,7 +285,11 @@ ms.locfileid: "56429548"
 **計量識別碼**：95b0c03f-8a82-4524-8961-ccfbf575f536   
 **計量名稱**：ActualPremiumSnapshotSize   
 **單位**：位元組\*小時   
-**注意**：受控進階磁碟的實際大小 (已淘汰) 
+**注意**：受控進階快照集磁碟上的實際大小 (專用) 
+
+**計量識別碼**：75d4b707-1027-4403-9986-6ec7c05579c8 **計量名稱**：ActualStandardSnapshotSize **單位**：GB\*月 **附註**：受控標準快照集的實際磁碟大小 (已淘汰)  
+
+**計量識別碼**：5ca1cbb9-6f14-4e76-8be8-1ca91547965e **計量名稱**：ActualPremiumSnapshotSize **單位**：GB\*月 **附註**：受控進階快照集磁碟上的實際大小 (專用)  
 
 ### <a name="sql-rp"></a>Sql RP
   
@@ -407,6 +411,10 @@ ms.locfileid: "56429548"
 | 400/不正確的要求 |*SubscriptionIdMissingInRequest* |缺少呼叫者的訂用帳戶識別碼。 |
 | 400/不正確的要求 |*InvalidAggregationGranularity* |所要求的彙總細微性無效。 有效的值為每日與每小時。 |
 | 503 |*ServiceUnavailable* |發生可重試的錯誤，因為服務忙碌中或呼叫已由系統進行節流處理。 |
+
+## <a name="what-is-the-policy-for-charging-for-vms"></a>VM 的收費原則為何？
+
+執行中和已停止的 VM 都會產生使用量資料。 與 Azure 一致，您必須解除配置才能停止發出使用量資料。 在無法使用入口網站，但計算資源提供者仍在執行的情況下，將會發出使用量。
 
 ## <a name="next-steps"></a>後續步驟
 [Azure Stack 中的客戶帳務與退款](azure-stack-billing-and-chargeback.md)

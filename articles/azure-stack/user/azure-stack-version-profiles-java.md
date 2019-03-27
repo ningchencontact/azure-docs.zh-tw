@@ -16,12 +16,12 @@ ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 09/28/2018
-ms.openlocfilehash: cd02845f648275ee17f763bd5a94b386f7ed64fd
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: eef9e45d71dd5a8c29112f74deaf8342dc0d1406
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246359"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101494"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>在 Azure Stack 中使用 API 版本設定檔搭配 Java
 
@@ -62,11 +62,11 @@ API 設定檔是資源提供者和 API 版本的組合。 您可以使用 API �
 
 使用下列步驟來安裝 Java SDK：
 
-1.  依照官方指示安裝 Git。 如需相關指示，請參閱[使用者入門 - 安裝 Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
+1. 依照官方指示安裝 Git。 如需相關指示，請參閱[使用者入門 - 安裝 Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
 
-2.  請依照官方指示安裝 [Java SDK](http://zulu.org/download/) 和 [Maven](https://maven.apache.org/)。 Java Developer Kit 的正確版本是第 8 版。 Apache Maven 的正確版本是 3.0 版或更新版本。 JAVA_HOME 環境變數必須設定為 Java Development Kit 的安裝位置，才能完成快速入門。 如需詳細資訊，請參閱[使用 Java 和 Maven 建立您的第一個函式](../../azure-functions/functions-create-first-java-maven.md)。
+2. 請依照官方指示安裝 [Java SDK](https://zulu.org/download/) 和 [Maven](https://maven.apache.org/)。 Java Developer Kit 的正確版本是第 8 版。 Apache Maven 的正確版本是 3.0 版或更新版本。 JAVA_HOME 環境變數必須設定為 Java Development Kit 的安裝位置，才能完成快速入門。 如需詳細資訊，請參閱[使用 Java 和 Maven 建立您的第一個函式](../../azure-functions/functions-create-first-java-maven.md)。
 
-3.  若要安裝正確的相依性套件，請在您的 Java 應用程式中開啟 Pom.xml 檔案。 新增相依性，如以下程式碼所示：
+3. 若要安裝正確的相依性套件，請在您的 Java 應用程式中開啟 Pom.xml 檔案。 新增相依性，如以下程式碼所示：
 
    ```xml  
    <dependency>
@@ -76,17 +76,17 @@ API 設定檔是資源提供者和 API 版本的組合。 您可以使用 API �
    </dependency>
    ```
 
-4.  需要安裝的套件取決於您想要使用的設定檔版本。 設定檔版本的套件名稱是：
+4. 需要安裝的套件取決於您想要使用的設定檔版本。 設定檔版本的套件名稱是：
     
    - **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**
    - **com.microsoft.azure**
-      - **最新**
+     - **最新**
 
-5.  如果無法使用，請建立訂用帳戶，並儲存訂用帳戶識別碼以供後續使用。 如需如何建立訂用帳戶的指示，請參閱[在 Azure Stack 中建立供應項目的訂用帳戶](../azure-stack-subscribe-plan-provision-vm.md)。
+5. 如果無法使用，請建立訂用帳戶，並儲存訂用帳戶識別碼以供後續使用。 如需如何建立訂用帳戶的指示，請參閱[在 Azure Stack 中建立供應項目的訂用帳戶](../azure-stack-subscribe-plan-provision-vm.md)。
 
-6.  建立服務主體，並儲存用戶端識別碼和用戶端密碼。 如需如何建立 Azure Stack 服務主體的指示，請參閱[為 Azure Stack 提供應用程式存取](../azure-stack-create-service-principals.md)。 請注意，在建立服務主體時，用戶端識別碼也稱為應用程式識別碼。
+6. 建立服務主體，並儲存用戶端識別碼和用戶端密碼。 如需如何建立 Azure Stack 服務主體的指示，請參閱[為 Azure Stack 提供應用程式存取](../azure-stack-create-service-principals.md)。 請注意，在建立服務主體時，用戶端識別碼也稱為應用程式識別碼。
 
-7.  確保服務主體在訂用帳戶中擁有參與者/擁有者角色。 如需如何對服務主體指派角色的指示，請參閱[為 Azure Stack 提供應用程式存取](../azure-stack-create-service-principals.md)。
+7. 確保服務主體在訂用帳戶中擁有參與者/擁有者角色。 如需如何對服務主體指派角色的指示，請參閱[為 Azure Stack 提供應用程式存取](../azure-stack-create-service-principals.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -117,6 +117,22 @@ Set AZURE_TENANT_ID=<Your_Tenant_ID>
 
 ```shell
 Export AZURE_TENANT_ID=<Your_Tenant_ID>
+```
+
+### <a name="trust-the-azure-stack-ca-root-certificate"></a>信任 Azure Stack CA 根憑證
+
+如果您使用 ASDK，您將必須信任遠端機器上的 CA 根憑證。 您不需要透過整合系統執行此動作。
+
+#### <a name="windows"></a> Windows
+
+1. 將 Azure Stack 的自我簽署憑證匯出至您的桌面
+
+1. 在 CMD Shell 中，將目錄切換至 %JAVA_HOME%\bin
+
+1. 執行下列 CMD：
+
+```shell
+      .\keytool.exe -importcert -noprompt -file <location of the exported certificate here> -alias root -keystore %JAVA_HOME%\lib\security\cacerts -trustcacerts -storepass changeit
 ```
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Azure Stack Resource Manager 端點
@@ -162,10 +178,10 @@ Microsoft Azure Resource Manager 是可讓系統管理員進行部署、管理�
 
 ```java
 AzureTokenCredentials credentials = new ApplicationTokenCredentials(client, tenant, key, AZURE_STACK)
-                    .withDefaultSubscriptionId(subscriptionId);
+                    .withDefaultSubscriptionID(subscriptionID);
 Azure azureStack = Azure.configure()
                     .withLogLevel(com.microsoft.rest.LogLevel.BASIC)
-                    .authenticate(credentials, credentials.defaultSubscriptionId());
+                    .authenticate(credentials, credentials.defaultSubscriptionID());
 ```
 
 這可讓您使用 API 設定檔相依性，將應用程式成功地部署至 Azure Stack。
@@ -181,8 +197,8 @@ AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>(
                     put("resourceManagerEndpointUrl", armEndpoint);
                     put("galleryEndpointUrl", settings.get("galleryEndpoint"));
                     put("activeDirectoryEndpointUrl", settings.get("login_endpoint"));
-                    put("activeDirectoryResourceId", settings.get("audience"));
-                    put("activeDirectoryGraphResourceId", settings.get("graphEndpoint"));
+                    put("activeDirectoryResourceID", settings.get("audience"));
+                    put("activeDirectoryGraphResourceID", settings.get("graphEndpoint"));
                     put("storageEndpointSuffix", armEndpoint.substring(armEndpoint.indexOf('.')));
                     put("keyVaultDnsSuffix", ".vault" + armEndpoint.substring(armEndpoint.indexOf('.')));
                 }
@@ -226,33 +242,33 @@ HttpResponse response = httpClient.execute(getRequest);
 
 ### <a name="sample-unit-test-project"></a>單元測試專案範例 
 
-1.  使用下列命令來複製存放庫：
+1. 使用下列命令來複製存放庫：
     
-    `git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
+   `git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
 
-2.  建立 Azure 服務主體並指派用以存取訂用帳戶的角色。 如需建立服務主體的指示，請參閱[使用 Azure PowerShell 建立具有憑證的服務主體](../azure-stack-create-service-principals.md)。
+2. 建立 Azure 服務主體並指派用以存取訂用帳戶的角色。 如需建立服務主體的指示，請參閱[使用 Azure PowerShell 建立具有憑證的服務主體](../azure-stack-create-service-principals.md)。
 
-3.  擷取下列必要的環境變數值：
+3. 擷取下列必要的環境變數值：
     
-    -  AZURE_TENANT_ID
-    -  AZURE_CLIENT_ID
-    -  AZURE_CLIENT_SECRET
-    -  AZURE_SUBSCRIPTION_ID
-    -  ARM_ENDPOINT
-    -  RESOURCE_LOCATION
+   -  AZURE_TENANT_ID
+   -  AZURE_CLIENT_ID
+   -  AZURE_CLIENT_SECRET
+   -  AZURE_SUBSCRIPTION_ID
+   -  ARM_ENDPOINT
+   -  RESOURCE_LOCATION
 
-4.  在使用命令提示字元所建立的服務主體中，以從中擷取的資訊設定下列環境變數：
+4. 在使用命令提示字元所建立的服務主體中，以從中擷取的資訊設定下列環境變數：
     
-    - export AZURE_TENANT_ID={您的租用戶識別碼}
-    - export AZURE_CLIENT_ID={您的用戶端識別碼}
-    - export AZURE_CLIENT_SECRET={您的用戶端密碼}
-    - export AZURE_SUBSCRIPTION_ID = {您的訂用帳戶識別碼}
-    - export ARM_ENDPOINT={您的 Azure Stack Resource Manager URL}
-    - export RESOURCE_LOCATION={Azure Stack 的位置}
+   - export AZURE_TENANT_ID={您的租用戶識別碼}
+   - export AZURE_CLIENT_ID={您的用戶端識別碼}
+   - export AZURE_CLIENT_SECRET={您的用戶端密碼}
+   - export AZURE_SUBSCRIPTION_ID = {您的訂用帳戶識別碼}
+   - export ARM_ENDPOINT={您的 Azure Stack Resource Manager URL}
+   - export RESOURCE_LOCATION={Azure Stack 的位置}
 
    在 Windows 上，請使用 **set** 而非 **export**。
 
-5.  使用 `getactivedirectorysettings` 程式碼擷取 arm 中繼資料端點，並使用 HTTP 用戶端設定端點資訊。
+5. 使用 `getactivedirectorysettings` 程式碼擷取 arm 中繼資料端點，並使用 HTTP 用戶端設定端點資訊。
 
    ```java
    public static HashMap<String, String> getActiveDirectorySettings(String armEndpoint) {
@@ -274,7 +290,7 @@ HttpResponse response = httpClient.execute(getRequest);
    HttpResponse response = httpClient.execute(getRequest);
    ```
 
-6.  在 pom.xml 檔案中，新增下列相依性以使用 Azure Stack 的 2018-03-01-hybrid 設定檔。 此相依性會安裝與此設定檔相關聯的計算、網路、儲存體、KeyVault 和 App Services 資源提供者適用模組。
+6. 在 pom.xml 檔案中，新增下列相依性以使用 Azure Stack 的 2018-03-01-hybrid 設定檔。 此相依性會安裝與此設定檔相關聯的計算、網路、儲存體、KeyVault 和 App Services 資源提供者適用模組。
       
    ```xml
    <dependency>
@@ -284,7 +300,7 @@ HttpResponse response = httpClient.execute(getRequest);
    </dependency>
    ```
 
-8.  在為設定環境變數而開啟的命令提示字元中，輸入下面這一行：
+8. 在為設定環境變數而開啟的命令提示字元中，輸入下面這一行：
     
    ```shell
    mvn clean compile exec:java

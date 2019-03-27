@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 1585eb460cc5f8ae437ee59a596dc7a854a108e7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.lastreviewed: 03/14/2019
+ms.openlocfilehash: 98f793b7d94cd554d426a0eec30d8bb4553d3d81
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995725"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105398"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>從系統管理入口網站啟用 Azure Stack 的備份
 透過系統管理入口網站啟用基礎結構備份服務，以便 Azure Stack 產生基礎結構備份。 發生[嚴重失敗](./azure-stack-backup-recover-data.md)情況時，硬體合作夥伴可以透過雲端復原使用這些備份來還原環境。 雲端復原的目的在於確保您的操作員和使用者在復原完成後，可以重新登入入口網站。 使用者將會還原其訂用帳戶，包括角色型存取權限與角色、原始方案、供應項目，以及先前定義的計算、儲存體、網路配額和 Key Vault 祕密。
@@ -67,12 +67,15 @@ ms.locfileid: "55995725"
             -FilePath c:\certs\AzSIBCCert.cer 
     ```
 
-    > [!Note]  
-    > **1901 與更新版本**：Azure Stack 可接受憑證來加密基礎結構備份資料。 請務必將包含公開和私密金鑰的憑證儲存在安全的位置。 基於安全性理由，建議您不要使用包含公開和私密金鑰的憑證來設定備份設定。 如需如何管理此憑證生命週期的詳細資訊，請參閱[基礎結構備份服務的最佳做法](azure-stack-backup-best-practices.md)。
+   > [!Note]
+   > **1901 與更新版本**：Azure Stack 可接受憑證來加密基礎結構備份資料。 請務必將包含公開和私密金鑰的憑證儲存在安全的位置。 基於安全性理由，建議您不要使用包含公開和私密金鑰的憑證來設定備份設定。 如需如何管理此憑證生命週期的詳細資訊，請參閱[基礎結構備份服務的最佳做法](azure-stack-backup-best-practices.md)。
+   > 
+   > **1811 或更早版本**：Azure Stack 接受以對稱金鑰為基礎結構備份資料加密。 請使用 [New-AzsEncryptionKey64 Cmdlet 建立金鑰](https://docs.microsoft.com/en-us/powershell/module/azs.backup.admin/new-azsencryptionkeybase64)。 從 1811 升級至 1901 之後，備份設定將會保留加密金鑰。 建議您更新備份設定以使用憑證。 加密金鑰支援現已淘汰。 您至少會有 3 個版本可更新設定以使用憑證。 
 
 10. 選取 [確定] 以儲存備份控制器設定。
 
 ![Azure Stack - 備份控制器設定](media/azure-stack-backup/backup-controller-settings-certificate.png)
+
 
 ## <a name="start-backup"></a>開始備份
 若要開始備份，請按一下 [立即備份] 來開始隨選備份。 隨選備份不會修改下一個已排定備份的時間。 在工作完成之後，您可以在 [基本資訊]中確認設定：
@@ -115,7 +118,7 @@ ms.locfileid: "55995725"
 ![Azure Stack - 檢視憑證指紋](media/azure-stack-backup/encryption-settings-thumbprint.png)
 
 ### <a name="backwards-compatibility-mode"></a>回溯相容性模式
-如果在更新至 1901 之前設定備份，則會繼續進行設定而不會變更行為。 在此情況下，會針對回溯相容性支援加密金鑰。 您可以選擇更新加密金鑰，或切換為使用憑證。 您將有三個版本繼續更新加密金鑰。 使用此時間轉換為憑證。 
+如果在更新至 1901 之前設定備份，則會繼續進行設定而不會變更行為。 在此情況下，會針對回溯相容性支援加密金鑰。 您可以選擇更新加密金鑰，或切換為使用憑證。 您至少會有三個版本可繼續更新加密金鑰。 使用此時間轉換為憑證。 若要建立新的加密金鑰，請使用 [New-AzsEncryptionKeyBase64 Cmdlet](https://docs.microsoft.com/en-us/powershell/module/azs.backup.admin/new-azsencryptionkeybase64)。
 
 ![Azure Stack - 在回溯相容性模式中使用加密金鑰](media/azure-stack-backup/encryption-settings-backcompat-encryption-key.png)
 

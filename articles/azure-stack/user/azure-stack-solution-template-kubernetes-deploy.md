@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: c96fdbfb56fe5274de941c0f9ab1a12cbcc241b6
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 6b00f63fac0110a8964270b9cbcad5330ac44645
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658414"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56986238"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>將 Kubernetes 部署至 Azure Stack
 
@@ -39,7 +39,7 @@ ms.locfileid: "55658414"
 
 - 開發可大幅調整、可升級，並且可在短短數秒內完成部署的應用程式。 
 - 簡化您的應用程式設計，並透過不同的 Helm 應用程式改善其可靠性。 [Helm](https://github.com/kubernetes/helm) 是開放原始碼的封裝工具，可協助您安裝和管理 Kubernetes 應用程式的生命週期。
-- 透過調整與升級功能輕鬆監視和診斷應用程式的健康情況。
+- 輕鬆監視和診斷應用程式的健康情況。
 
 您只須支付支援您叢集節點所需的計算使用量。 如需詳細資訊，請參閱 [Azure Stack 中的使用量和計費](https://docs.microsoft.com/azure/azure-stack/azure-stack-billing-and-chargeback)。
 
@@ -60,6 +60,8 @@ ms.locfileid: "55658414"
 您也可能會發現 **Helm** 套件管理員很適合用來對叢集安裝和部署應用程式。 如需對叢集安裝和使用 Helm 的指示，請參閱 [helm.sh](https://helm.sh/)。
 
 ## <a name="next-steps"></a>後續步驟
+
+[啟用 Kubernetes 儀表板](azure-stack-solution-template-kubernetes-dashboard.md)
 
 [將 Kubernetes 新增至 Marketplace (適用於 Azure Stack 操作員)](../azure-stack-solution-template-kubernetes-cluster-add.md)
 

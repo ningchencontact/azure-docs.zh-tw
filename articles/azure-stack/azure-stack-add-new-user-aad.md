@@ -16,16 +16,16 @@ ms.date: 02/12/2019
 ms.author: patricka
 ms.reviewer: unknown
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 5c07288bbfbf70be62723f835192cf09d92166ab
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d7dc690f719dd9265317b2bba3b87521e9a00d6b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56163218"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106571"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>在 Azure Active Directory 中新增 Azure Stack 租用戶帳戶
 
-在[部署 Azure Stack 開發套件](azure-stack-run-powershell-script.md)之後，您將需要租用戶使用者帳戶，以便可以瀏覽租用戶入口網站並測試您的供應項目與方案。 您可以[使用 Azure 入口網站](#create-an-azure-stack-tenant-account-using-the-azure-portal)或[使用 PowerShell](#create-an-azure-stack-tenant-account-using-powershell) 來建立租用戶帳戶。
+在[部署 Azure Stack 開發套件](azure-stack-run-powershell-script.md)之後，您將需要租用戶使用者帳戶，以便可以瀏覽租用戶入口網站並測試您的供應項目與方案。 您可以[使用 Azure 入口網站](#create-an-azure-stack-tenant-account-using-the-azure-portal)或使用 PowerShell 來建立租用戶帳戶。
 
 ## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>使用 Azure 入口網站建立 Azure Stack 租用戶帳戶
 
@@ -41,11 +41,11 @@ ms.locfileid: "56163218"
 
     ![新增使用者，包含使用者資訊的 [使用者] 頁面](media/azure-stack-add-new-user-aad/new-user-user.png)
 
-    - **名稱 (必要)。** 新使用者的姓氏與名字。 例如，Mary Parker。
-    - **使用者名稱 (必要)。** 新使用者的使用者名稱。 例如： mary@contoso.com。
-        使用者名稱的網域部分必須使用初始預設網域名稱 (<_yourdomainname_>.onmicrosoft.com)，或自訂網域名稱，例如 contoso.com。 如需如何建立自訂網域名稱的詳細資訊，請參閱[如何將自訂網域名稱新增到 Azure Active Directory](../active-directory/fundamentals/add-custom-domain.md)。
-    - **設定檔。** (選擇性) 您可以新增更多有關使用者的資訊。 您也可以稍後新增使用者資訊。 如需新增使用者資訊的詳細資訊，請參閱[如何新增或變更使用者設定檔資訊](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)。
-    - **目錄角色。**  選擇 [使用者]。
+   - **名稱 (必要)。** 新使用者的姓氏與名字。 例如，Mary Parker。
+   - **使用者名稱 (必要)。** 新使用者的使用者名稱。 例如： mary@contoso.com。
+       使用者名稱的網域部分必須使用初始預設網域名稱 (<_yourdomainname_>.onmicrosoft.com)，或自訂網域名稱，例如 contoso.com。 如需如何建立自訂網域名稱的詳細資訊，請參閱[如何將自訂網域名稱新增到 Azure Active Directory](../active-directory/fundamentals/add-custom-domain.md)。
+   - **設定檔。** (選擇性) 您可以新增更多有關使用者的資訊。 您也可以稍後新增使用者資訊。 如需新增使用者資訊的詳細資訊，請參閱[如何新增或變更使用者設定檔資訊](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)。
+   - **目錄角色。**  選擇 [使用者]。
 
 5. 勾選 [顯示密碼]，並且複製在 [密碼] 方塊中提供的自動產生密碼。 您在初始登入程序中需要此密碼。
 

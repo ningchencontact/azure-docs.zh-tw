@@ -1,22 +1,22 @@
 ---
 title: Azure Stack 的延伸主機準備 | Microsoft Docs
-description: 了解如何為透過未來 Azure Stack 更新套件自動啟用的延伸主機做好準備。
+description: 了解如何針對未來的 Azure Stack 更新套件所自動啟用的延伸主機做好準備。
 services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 02/07/2019
+ms.date: 03/07/2019
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: b0d3b3e4901fbcece13c201938be8bccb1bb9c82
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.lastreviewed: 03/07/2019
+ms.openlocfilehash: 47cc7d9f09b7fb22cf99ad010f1dc75e6388c314
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962361"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57731915"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Azure Stack 的延伸主機準備
 
@@ -66,15 +66,14 @@ Azure Stack 整備檢查工具可讓您為兩個必要的新 SSL 憑證建立憑
     > [!Note]  
     > 如果您使用 Azure Active Directory 同盟服務 (AD FS) 進行部署，必須將下列目錄新增至指令碼中的 **$directories**：`ADFS`、`Graph`。
 
-4. 執行下列 Cmdlet 來啟動憑證檢查：
+4. 將現有憑證 (亦即您目前在 Azure Stack 中使用的憑證) 放在適當的目錄。 例如，將**管理員 ARM** 憑證放入 `Arm Admin` 資料夾。 然後，將新建立的裝載憑證放入 `Admin extension host` 和 `Public extension host` 目錄。
+5. 執行下列 Cmdlet 來啟動憑證檢查：
 
     ```PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
     Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
     ```
-
-5. 將您的憑證放在上適當目錄。
 
 6. 檢查輸出，所有憑證都通過所有測試。
 
@@ -141,7 +140,7 @@ Azure Stack 整備檢查工具可讓您為兩個必要的新 SSL 憑證建立憑
 
 ### <a name="publish-new-endpoints"></a>發佈新端點
 
-有兩個新端點需透過您的防火牆來發佈。 您可使用下列程式碼來擷取來自公用 VIP 集區的已配置 IP；您必須透過您 Azure Stack [環境的具特殊權限端點](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint)來執行該程式碼。
+有兩個新端點需透過您的防火牆來發佈。 您可使用下列程式碼來擷取來自公用 VIP 集區的已配置 IP；您必須從您 Azure Stack [環境的具特殊權限端點](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint)來執行該程式碼。
 
 ```PowerShell
 # Create a PEP Session

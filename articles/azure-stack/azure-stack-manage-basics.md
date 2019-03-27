@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 2c4a95bddea85d298ff9343bfd813d0b79b24b51
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ba1e7d7f9226b3ca42d4117be33b9c236f0557b0
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164017"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867315"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack 管理基本知識
 若您還不熟悉 Azure Stack 管理，有幾件事需要知道。 本文提供您身為 Azure Stack 操作員的角色概觀，以及您需要告知使用者哪些事項，使他們能夠快速上手。

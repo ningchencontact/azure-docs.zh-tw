@@ -251,6 +251,8 @@ items:
       href: how-to-connect-sync-best-practices-changing-default-configuration.md
     - name: 變更預設組態
       href: how-to-connect-sync-change-the-configuration.md
+    - name: 修正已修改的預設規則
+      href: how-to-connect-fix-default-rules.md
     - name: 設定目錄擴充
       href: how-to-connect-sync-feature-directory-extensions.md
     - name: 設定慣用資料位置
@@ -273,6 +275,8 @@ items:
         href: how-to-connect-sync-service-manager-ui-mvsearch.md
   - name: 疑難排解
     items:
+    - name: 什麼是 Azure AD Connect 管理代理程式？
+      href: whatis-aadc-admin-agent.md
     - name: 什麼是 ADConnectivityTools PowerShell 模組？
       href: how-to-connect-adconnectivitytools.md
     - name: 連線能力
@@ -337,9 +341,9 @@ items:
     href: reference-connect-adsynctools.md
   - name: ADConnectivityTools 參考
     href: reference-connect-adconnectivitytools.md
-ms.openlocfilehash: 613adb5c19c3ca7fa2f47700a0358a51beac98e4
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: aac9615fde8547493851ba513156ec860c51c13c
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193699"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498276"
