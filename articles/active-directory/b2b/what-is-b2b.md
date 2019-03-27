@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fa36ab67957dcba7b5282e219706e442be9dc97
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a77d502182da8128624bfb5fc0481f2f8786ec37
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674475"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293629"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>什麼是 Azure Active Directory B2B 中的來賓使用者存取權？
 
@@ -34,7 +35,7 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 共同作業，可讓您
 - 您不需要管理外部帳戶或密碼。 
 - 您不需要同步處理帳戶或管理帳戶的生命週期。  
 
-![新增成員](media/what-is-b2b/add-member.png)
+![顯示 [新增成員] 頁面的螢幕擷取畫面](media/what-is-b2b/add-member.png)
 
 ## <a name="invite-guest-users-with-a-simple-invitation-and-redemption-process"></a>使用簡單的邀請與兌換程序邀請來賓使用者
 來賓使用者使用自己的公司、學校或社交身分識別登入您的應用程式與服務。 如果來賓使用者沒有 Microsoft 帳戶或 Azure AD 帳戶，系統就會在他們兌換其邀請時為他們建立一個帳戶。 
@@ -42,7 +43,7 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 共同作業，可讓您
 - 傳送應用程式的直接連結，或向來賓使用者本身的存取面板傳送邀請。 
 - 來賓使用者只需幾個簡單的兌換步驟即可登入。
 
-![存取面板](media/what-is-b2b/consentscreen.png)
+![顯示 [檢閱權限] 頁面的螢幕擷取畫面](media/what-is-b2b/consentscreen.png)
 
 ## <a name="use-policies-to-securely-share-your-apps-and-services"></a>使用原則來安全地共用您的應用程式與服務
 您可以使用授權原則保護您的公司內容。 可以強制執行條件式存取原則，例如多重要素驗證：
@@ -50,7 +51,7 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 共同作業，可讓您
 - 在應用程式層級。
 - 針對特定來賓使用者來保護公司應用程式與資料。
 
-![新增來賓使用者](media/what-is-b2b/tutorial-mfa-policy-2.png)
+![顯示 [條件式存取] 選項的螢幕擷取畫面](media/what-is-b2b/tutorial-mfa-policy-2.png)
 
 
 ## <a name="easily-add-guest-users-in-the-azure-ad-portal"></a>輕鬆地在 Azure AD 入口網站中新增來賓使用者
@@ -60,7 +61,7 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 共同作業，可讓您
 - 來賓使用者會立即收到可自訂的邀請，讓他們登入存取面板。
 - 目錄中的來賓使用者可以指派至應用程式或群組。  
 
-![新增來賓使用者](media/what-is-b2b/adding-b2b-users-admin.png)
+![顯示 [新增來賓使用者] 進入頁面的螢幕擷取畫面](media/what-is-b2b/adding-b2b-users-admin.png)
 
 ## <a name="let-application-and-group-owners-manage-their-own-guest-users"></a>讓應用程式與群組擁有者管理自己的來賓使用者
 
@@ -68,7 +69,7 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 共同作業，可讓您
  - 系統管理員可設定自助式應用程式與群組管理。
  - 非系統管理員必須使用其[存取面板](https://myapps.microsoft.com)將來賓使用者新增到應用程式或群組。
 
-![新增來賓使用者](media/what-is-b2b/access-panel-manage-app.png)
+![顯示來賓使用者存取面板的螢幕擷取畫面](media/what-is-b2b/access-panel-manage-app.png)
 
 ## <a name="use-apis-and-sample-code-to-easily-build-applications-to-onboard"></a>使用 API 和範例程式碼來輕鬆建置要上架的應用程式
 
@@ -76,7 +77,7 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 共同作業，可讓您
 - 使用 [B2B 共同作業邀請 API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) 來自訂上架體驗，包括建立自助式註冊入口網站。 
 - 使用我們在 [GitHub](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web) \(英文\) 上針對自助入口網站提供的範例程式碼。
 
-![註冊入口網站](media/what-is-b2b/sign-up-portal.png)
+![顯示範例註冊入口網站的螢幕擷取畫面](media/what-is-b2b/sign-up-portal.png)
 
 ## <a name="next-steps"></a>後續步驟
 

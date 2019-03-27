@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: e677a161-1662-4eb3-b48a-b2835470b59e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7f8d868b958b533ccdb112bd24d76585232f560
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: fd5f32fd43d75ee91460a5d94ec4bcd57edb0769
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880439"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57876505"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gtnexus-sso-system"></a>教學課程：Azure Active Directory 與 GTNexus SSO 系統整合
 
@@ -28,7 +28,7 @@ ms.locfileid: "56880439"
 GTNexus SSO 系統與 Azure AD 整合提供下列優點：
 
 * 您可以在 Azure AD 中控制可存取 GTNexus SSO 系統的人員。
-* 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 GTNexus SSO 系統 (單一登入)。
+* 您可以讓使用者使用其 Azure AD 帳戶自動登入 GTNexus SSO 系統 (單一登入)。
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
@@ -45,7 +45,7 @@ GTNexus SSO 系統與 Azure AD 整合提供下列優點：
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* GTNexus SSO 系統支援 **IDP** 初始化的 SSO
+* GTNexus SSO System 支援由 **IDP** 起始的 SSO
 
 ## <a name="adding-gtnexus-sso-system-from-the-gallery"></a>從資源庫新增 GTNexus SSO 系統
 
@@ -71,10 +71,10 @@ GTNexus SSO 系統與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 GTNexus SSO 系統設定及測試 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 GTNexus SSO System 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 GTNexus SSO 系統中相關使用者之間的連結關聯性。
 
-若要設定及測試與 GTNexus SSO 系統搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 GTNexus SSO System 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 GTNexus SSO 系統單一登入](#configure-gtnexus-sso-system-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -87,7 +87,7 @@ GTNexus SSO 系統與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要設定與 GTNexus SSO 系統搭配運作的 Azure AD 單一登入，請執行下列步驟：
+若要設定與 GTNexus SSO System 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [GTNexus SSO 系統] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -144,7 +144,7 @@ GTNexus SSO 系統與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -161,7 +161,7 @@ GTNexus SSO 系統與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [GTNexus SSO 系統]。
 
-    ![應用程式清單中的 GTNexus SSO 系統連結](common/all-applications.png)
+    ![應用程式清單中的 [GTNexus SSO System] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

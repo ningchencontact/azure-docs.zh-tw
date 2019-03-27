@@ -2,19 +2,19 @@
 title: 什麼是 Azure Container Instances？
 description: Azure Container Instances 服務提供最簡單快速的方法，讓您無需管理虛擬機器或採用更高層級的協調器，就能在 Azure 中執行隔離的容器。
 services: container-instances
-author: seanmck
+author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
 ms.date: 11/30/2018
-ms.author: seanmck
+ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: ba454965ff2bb78ebe526e71d9280200b1f4b08b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8362ae5e9647c023ff950a363f9ba7bfde37fdb6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187189"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863316"
 ---
 # <a name="what-is-azure-container-instances"></a>什麼是 Azure Container Instances？
 
@@ -48,9 +48,14 @@ Azure Container Instances 可讓您利用 IP 位址和完整網域名稱 (FQDN)�
 
 Azure Container Instances 可讓您使用相同的 API 來排程 Windows 和 Linux 容器。 當您建立[容器群組](container-instances-container-groups.md)時，只須指定 OS 類型。
 
-某些功能目前僅限於 Linux 容器。 雖然我們致力於將類似的功能帶入 Windows 容器，但是您可以在 [Azure Container Instances 配額和區域可用性](container-instances-quotas.md)中找到目前的平台差異。
+某些功能目前僅限於 Linux 容器：
 
-Azure 容器執行個體支援以長期維護通道 (LTSC) 版本為基礎的 Windows 映像。 Windows 半年通道 (SAC) 版本 (例如 1709 和 1803) 不受支援。
+* 每個容器群組的多個容器
+* 磁碟區掛接 ([Azure 檔案儲存體](container-instances-volume-azure-files.md)、[emptyDir](container-instances-volume-emptydir.md)、[GitRepo](container-instances-volume-gitrepo.md)、[祕密](container-instances-volume-secret.md))
+* [虛擬網路部署模型](container-instances-vnet.md) (預覽)
+* [GPU 資源](container-instances-gpu.md) (預覽)
+
+Azure 容器執行個體支援以長期維護通道 (LTSC) 版本為基礎的 Windows Server 2016 映像。 Windows 半年通道 (SAC) 版本 (例如 1709 和 1803) 不受支援。
 
 ## <a name="co-scheduled-groups"></a>共同排程的群組
 

@@ -6,16 +6,16 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.devlang: NA
-ms.topic: conceptual
-ms.date: 01/18/2019
+ms.topic: overview
+ms.date: 03/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d2086f02cc981ad944c030ad40083d153c520359
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 3c2567564e015ef19adf9f8c776e1f377a9cdf30
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447322"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58133054"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>什麼是 Azure 搜尋服務的「認知搜尋」？
 
@@ -92,31 +92,9 @@ Azure 搜尋服務中的認知技術是以認知服務 API 中的機器學習模
 
 ## <a name="where-do-i-start"></a>我該從哪裡開始？
 
-**步驟 1：在提供 API 的區域中[建立 Azure 搜尋服務資源](search-create-service-portal.md)** 
+**步驟 1：[建立 Azure 搜尋服務索引](search-create-service-portal.md)** 
 
-+ 美國中西部
-+ 美國中南部
-+ 美國中北部
-+ 美國東部
-+ 美國東部 2
-+ 美國西部
-+ 美國西部 2
-+ 美國中部
-+ 加拿大中部
-+ 西歐
-+ 北歐
-+ 英國南部
-+ 法國中部
-+ 巴西南部
-+ 東亞
-+ 東南亞
-+ 印度中部
-+ 日本西部
-+ 日本東部
-+ 南韓中部
-+ 澳洲東部
-
-**步驟 2：實際操作工作流程加以熟悉**
+**步驟 2：請嘗試一些快速入門和範例，以獲得實際操作經驗**
 
 + [快速入門 (入口網站)](cognitive-search-quickstart-blob.md)
 + [教學課程 (HTTP 要求)](cognitive-search-tutorial-blob.md)

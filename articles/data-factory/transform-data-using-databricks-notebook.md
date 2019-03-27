@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 181e2c1d1a9758d6f196c9cb2b281eefa141d81a
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: fcf3fe85b6dd184b4f58060aab4fcf3ce146af13
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984759"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58015167"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>在 Azure Data Factory 中使用 Databricks Notebook 活動執行 Databricks Notebook
 
@@ -151,7 +151,7 @@ ms.locfileid: "56984759"
 
           ![建立新的資料夾](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       1. [建立新的 Notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python)，在 **adftutorial** 資料夾下將它稱為 **mynotebook**，按一下 [建立]。
+       1. [建立新的 Notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) \(英文\) (Python)，在 **adftutorial** 資料夾下將它稱為 **mynotebook**，然後按一下 [建立]。
 
           ![建立新的 Notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 
@@ -173,13 +173,13 @@ ms.locfileid: "56984759"
 
        1. 在此例中，[Notebook 路徑] 是 **/adftutorial/mynotebook**
 
-1.  切換回 **Data Factory UI 撰寫工具**。 瀏覽至 [Notebook1 活動] 之下的 [設定] 索引標籤。 
-    
+1.  切換回 **Data Factory UI 撰寫工具**。 瀏覽至 [Notebook1 活動] 之下的 [設定] 索引標籤。
+
     a.  [新增參數] 至 Notebook 活動。 您可使用先前新增至 [管線] 的相同參數。
 
        ![新增參數](media/transform-data-using-databricks-notebook/new-adf-parameters.png)
 
-    b.  將參數命名為 **input**，並提供此值作為 **@pipeline().parameters.name** 運算式。
+    b.  將參數命名為 **input**，並提供此值作為 **\@pipeline().parameters.name** 運算式。
 
 1.  若要驗證管線，選取工具列上的 [驗證] **** 按鈕。 若要關閉驗證視窗，請選取  **\>\>** (向右箭頭) 按鈕。
 

@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
-ms.openlocfilehash: 36d37c2d18823273b5c0f82ecae0f9420e35768c
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: e3fcc8be68282f6ce491ff49f0dc5059d79fa98f
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35621274"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730955"
 ---
 # <a name="what-is-azure-batch"></a>什麼是 Azure Batch？
 
@@ -30,7 +30,7 @@ ms.locfileid: "35621274"
 
 使用 Batch 不會額外收費。 您只須針對取用的基礎資源付費，例如虛擬機器、儲存體和網路。
 
-如需 Batch 與 Azure 中其他 HPC 解決方案選項的比較，請參閱 [HPC、Batch 和 Big Compute 解決方案](../virtual-machines/linux/high-performance-computing.md)。
+如需 Batch 與 Azure 中其他 HPC 解決方案選項的比較，請參閱 [Azure 上的高效能運算 (HPC)](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) \(英文\)。
 
 ## <a name="run-parallel-workloads"></a>執行平行工作負載
 Batch 很適合處理本質平行 (也稱為「超簡單平行」) 的工作負載。 本質平行的工作負載是指應用程式可獨立執行，且每個執行個體各自完成一部分的工作。 應用程式可能會在執行時存取一些通用資料，但不會與應用程式的其他執行個體進行通訊。 因此，本質平行的工作負載可大規模執行，而這是由可用來同時執行應用程式的計算資源數量所決定。

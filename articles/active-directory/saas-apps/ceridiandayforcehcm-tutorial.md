@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 7adf1eb3-d063-45d6-96a8-fd53b329b3f3
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3442497561af4fb9a5cfa6bdcb0dfe31fa0b8e05
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 79741d9ec71dd7735ef94ef8172921965a9e9df1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881017"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57905251"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>教學課程：Azure Active Directory 與 Ceridian Dayforce HCM 整合
 
@@ -71,7 +71,7 @@ Ceridian Dayforce HCM 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 Ceridian Dayforce HCM 設定及測試 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Ceridian Dayforce HCM 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Ceridian Dayforce HCM 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 Ceridian Dayforce HCM 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
@@ -80,7 +80,7 @@ Ceridian Dayforce HCM 與 Azure AD 整合提供下列優點：
 2. **[設定 Ceridian Dayforce HCM 單一登入](#configure-ceridian-dayforce-hcm-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 Ceridian Dayforce HCM 測試使用者](#create-ceridian-dayforce-hcm-test-user)** - 在 Ceridian Dayforce HCM 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表使用者的項目連結。
+5. **[建立 Ceridian Dayforce HCM 測試使用者](#create-ceridian-dayforce-hcm-test-user)** - 在 Ceridian Dayforce HCM 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
@@ -193,7 +193,7 @@ Ceridian Dayforce HCM 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -210,7 +210,7 @@ Ceridian Dayforce HCM 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Ceridian Dayforce HCM] 。
 
-    ![應用程式清單中的 Ceridian Dayforce HCM 連結](common/all-applications.png)
+    ![應用程式清單中的 [Ceridian Dayforce HCM] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

@@ -1,5 +1,5 @@
 ---
-title: 在 Azure AD 中還原已刪除的 Office 365 群組 | Microsoft Docs
+title: 還原已刪除的 Office 365 群組 - Azure AD | Microsoft Docs
 description: 如何還原已刪除的群組、檢視可還原的群組，以及永久刪除 Azure Active Directory 中的群組
 services: active-directory
 author: curtand
@@ -8,19 +8,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
-ms.custom: it-pro
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cacd4a24becab1dfe797fe29aea125c016527192
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 81bf41dd183944a43d9558d0aec0c416d30620b2
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734382"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202566"
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>在 Azure Active Directory 中還原已刪除的 Office 365 群組
+
 當您在 Azure Active Directory (Azure AD) 中刪除 Office 365 群組時，從刪除日起算，仍會保留已刪除的群組 30 天，但您看不見該群組。 此行為便能讓您視需要還原該群組及其內容。 此功能專屬於 Azure AD 中的 Office 365 群組。 無法針對安全性群組和發佈群組使用。
 
 > [!NOTE]
@@ -30,22 +31,22 @@ ms.locfileid: "56734382"
 
 角色 | 權限
 --------- | ---------
-公司系統管理員、合作夥伴第 2 層支援，以及 Intune 服務管理員 | 可以還原任何已刪除的 Office 365 群組
-使用者帳戶管理員和合作夥伴第 1 層支援 | 可以還原任何已刪除的 Office 365 群組，但指派給公司系統管理員角色的群組除外
-使用者 | 可以還原他們所擁有的任何已刪除的 Office 365 群組
+全域管理員、合作夥伴第 2 層支援，以及 Intune 管理員 | 可以還原任何已刪除的 Office 365 群組
+使用者管理員和合作夥伴第 1 層支援 | 可以還原任何已刪除的 Office 365 群組，但指派給公司系統管理員角色的群組除外
+使用者 | 可以還原他們擁有的任何已刪除的 Office 365 群組
 
 ## <a name="view-and-manage-the-deleted-office-365-groups-that-are-available-to-restore"></a>檢視及管理可供還原的已刪除 Office 365 群組
 
-1. 使用系統管理員帳戶登入 [Azure AD 系統管理中心](https://aad.portal.azure.com)。
+1. 使用使用者管理員帳戶登入 [Azure AD 系統管理中心](https://aad.portal.azure.com)。
 
 2. 選取 [群組]，然後選取 [已刪除的群組] 以檢視可供還原的已刪除群組。
 
-    ![已刪除的群組刀鋒視窗](media/groups-lifecycle/deleted-groups3.png)
+    ![檢視可供還原的群組](media/groups-lifecycle/deleted-groups3.png)
 
 3. 在 [已刪除的群組] 刀鋒視窗上，您可以：
 
-  - 選取 [還原群組]，以還原已刪除的群組及其內容。
-  - 選取 [永久刪除] 可永久移除已刪除的群組。 若要永久移除群組，您必須是系統管理員。
+   - 選取 [還原群組]，以還原已刪除的群組及其內容。
+   - 選取 [永久刪除] 可永久移除已刪除的群組。 若要永久移除群組，您必須是系統管理員。
 
 ## <a name="view-the-deleted-office-365-groups-that-are-available-to-restore-using-powershell"></a>使用 Powershell 檢視可供還原的已刪除 Office 365 群組
 您可以使用下列 Cmdlet 來檢視已刪除的群組，以確認您感興趣的一或多個群組尚未被永久清除。 這些 Cmdlet 屬於 [Azure AD PowerShell 模組](https://www.powershellgallery.com/packages/AzureAD/)。 如需此模組的詳細資訊，請參閱 [Azure Active Directory PowerShell 第 2 版](/powershell/azure/install-adv2?view=azureadps-2.0)一文。

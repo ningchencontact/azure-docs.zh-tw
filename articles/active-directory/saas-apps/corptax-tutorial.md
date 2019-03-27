@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: fdad2893-41f4-4056-b6d2-ec3d050eb350
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4aee3474741e7483dabe31eec80b42badda40baf
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f150522c8ea4d3bcb69b7ffe274f1d40d831ab2b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875492"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864910"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-corptax"></a>教學課程：Azure Active Directory 與 CorpTax 整合
 
@@ -87,7 +87,7 @@ CorpTax 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要使用 CorpTax 設定 Azure AD 單一登入，請執行下列步驟：
+若要設定與 CorpTax 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [CorpTax] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -103,7 +103,7 @@ CorpTax 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![CorpTax 網域與 URL 單一登入資訊](common/sp_intiated.png)
+    ![CorpTax 網域及 URL 單一登入資訊](common/sp_intiated.png)
 
     在 [登入 URL] 文字方塊中，輸入 URL：`https://asp.corptax.com`
 
@@ -133,7 +133,7 @@ CorpTax 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
 
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -150,7 +150,7 @@ CorpTax 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，輸入 **CorpTax** 並加以選取。
 
-    ![應用程式清單中的 CorpTax 連結](common/all_applications.png)
+    ![應用程式清單中的 [CorpTax] 連結](common/all_applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -168,7 +168,7 @@ CorpTax 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-corptax-test-user"></a>建立 CorpTax 測試使用者
 
-在本節中，您要在 CorpTax 中建立名為 Britta Simon 的使用者。 請與  [CorpTax 支援小組](mailto:bgraves@corptax.com) 合作，在 CorpTax 平台中加入使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 CorpTax 中建立名為 Britta Simon 的使用者。 請與  [CorpTax 支援小組](mailto:bgraves@corptax.com) 合作，在 CorpTax 平台中加入使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

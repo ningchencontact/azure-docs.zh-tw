@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/16/2019
+ms.date: 03/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 43dc9edf715e20c84515d6acf4884e97c3b28184
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 07ccd2aaec6b2325d6eef09a466a5d0707836b4b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451879"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834263"
 ---
 # <a name="tutorial-order-azure-data-box"></a>教學課程：訂購 Azure 資料箱
 
@@ -38,7 +38,7 @@ Azure 資料箱是一項混合式解決方案，可讓您以快速、簡便而�
 - 請確定您用於資料箱服務的訂用帳戶是下列其中一種類型：
     - Microsoft Enterprise 合約 (EA)。 深入了解 [EA 訂用帳戶](https://azure.microsoft.com/pricing/enterprise-agreement/)。
     - 雲端解決方案提供者 (CSP)。 深入了解 [Azure CSP 方案](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)。
-    - Microsoft Azure 贊助。 深入了解 [Azure 贊助方案](https://azure.microsoft.com/offers/ms-azr-0036p/)。 
+    - Microsoft Azure 贊助。 深入了解 [Azure 贊助方案](https://azure.microsoft.com/offers/ms-azr-0036p/)。
 
 - 請確定您有訂用帳戶的擁有者或參與者存取權，才能建立資料箱訂單。
 
@@ -61,6 +61,7 @@ Azure 資料箱是一項混合式解決方案，可讓您以快速、簡便而�
 3. 按一下頁面底部的 [新增] 。
 
 4. 確認您的區域是否適用資料箱服務。 輸入或選取下列資訊，然後按一下 [套用]。 
+
     |設定  |值  |
     |---------|---------|
     |訂用帳戶     | 為資料箱服務選取 EA、CSP 或 Azure 贊助訂用帳戶。 <br> 訂用帳戶會連結到您的帳單帳戶。       |
@@ -68,7 +69,7 @@ Azure 資料箱是一項混合式解決方案，可讓您以快速、簡便而�
     |來源國家/地區     |   選取您的資料目前所在的國家/地區。         |
     |目的地 Azure 區域     |     選取要傳輸資料的 Azure 區域。        |
 
-5. 選取 [資料箱]。 單一訂單的解決方案最大容量是 80 TB。 您可以建立多份訂單以訂購更大的資料大小。
+5. 選取 [資料箱]。 單一訂單的最大可用容量是 786 TB。 您可以建立多份訂單以訂購更大的資料大小。
 
       [![選取資料箱選項 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 
@@ -79,8 +80,22 @@ Azure 資料箱是一項混合式解決方案，可讓您以快速、簡便而�
     |Name     |  提供用來追蹤訂單的易記名稱。 <br> 名稱長度可介於 3 到 24 個字元之間，且可以是字母、數字和連字號。 <br> 名稱必須以字母或數字為開頭或結尾。      |
     |資源群組     |   使用現有的群組或建立新群組。 <br> 資源群組是適用於資源而可一併管理或部署的邏輯容器：         |
     |目的地 Azure 區域     | 選取儲存體帳戶的區域。 <br> 如需詳細資訊，請移至[區域可用性](data-box-overview.md#region-availability)。        |
-    |儲存體帳戶     | 根據指定的 Azure 區域，從現有儲存體帳戶的篩選清單中選取一或多個儲存體帳戶。 資料箱可以與最多 10 個儲存體帳戶連結。 <br> 您也可以建立新的**一般用途 v1**、**一般用途 v2** 或 **Blob 儲存體帳戶**。 您無法使用已設定規則的儲存體帳戶。 儲存體帳戶必須**允許來自防火牆和虛擬網路區段中所有網路的存取**。|
-    
+    |儲存體目的地     | 從儲存體帳戶、受控磁碟或兩者中進行選擇。 <br> 根據指定的 Azure 區域，從現有儲存體帳戶的篩選清單中選取一或多個儲存體帳戶。 資料箱可以與最多 10 個儲存體帳戶連結。 <br> 您也可以建立新的**一般用途 v1**、**一般用途 v2** 或 **Blob 儲存體帳戶**。 <br>支援具有虛擬網路的儲存體帳戶。 若要允許資料箱服務使用受保護的儲存體帳戶來運作，請在儲存體帳戶網路防火牆設定內啟用受信任的服務。 如需詳細資訊，請參閱如何[新增 Azure 資料箱作為受信任的服務](../storage/common/storage-network-security.md#exceptions)。|
+
+    如果使用儲存體帳戶作為儲存體目的地，您就會看到下列螢幕擷取畫面：
+
+    ![儲存體帳戶的資料箱訂單](media/data-box-deploy-ordered/order-storage-account.png)
+
+    如果使用資料箱以從內部部署 VHD 建立受控磁碟，您也必須提供下列資訊：
+
+    |設定  |值  |
+    |---------|---------|
+    |資源群組     | 如果您想要從內部部署 VHD 建立受控磁碟，請建立新的資源群組。 只有當資源群組是在資料箱服務建立受控磁碟的資料箱訂單之前建立的，您才能使用現有的資源群組。 <br> 指定以分號分隔的多個資源群組。 最多支援 10 個資源群組。|
+
+    ![受控磁碟的資料箱訂單](media/data-box-deploy-ordered/order-managed-disks.png)
+
+    針對受控磁碟指定的儲存體帳戶不能當成暫存的儲存體帳戶來使用。 資料箱服務會先將 VHD 以分頁 Blob 形式上傳至暫存的儲存體帳戶，然後再將它轉換為受控磁碟並移至資源群組。 如需詳細資訊，請參閱[確認資料上傳至 Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure)。
+
 7. 在 [交貨地址] 中，提供您的姓名、公司的名稱和郵寄地址，以及有效的電話號碼。 按一下 [驗證地址]。 服務會驗證交貨地址以確認服務可用性。 如果服務可提供至指定的交貨地址，您將會收到該項通知。 按 [下一步] 。
 
 8. 在 [通知詳細資料] 中，指定電子郵件地址。 服務會將關於任何訂單狀態更新的電子郵件通知傳送至指定的電子郵件地址。
@@ -89,7 +104,7 @@ Azure 資料箱是一項混合式解決方案，可讓您以快速、簡便而�
 
 9. 檢閱與訂單、連絡人、通知和隱私權條款有關的資訊**摘要**。 請勾選隱私權條款合約的對應方塊。
 
-10. 按一下 [訂單]。 建立訂單需要幾分鐘的時間。 
+10. 按一下 [訂單]。 建立訂單需要幾分鐘的時間。
 
 
 ## <a name="track-the-order"></a>追蹤訂單狀態
@@ -98,9 +113,9 @@ Azure 資料箱是一項混合式解決方案，可讓您以快速、簡便而�
 
 如果裝置無法使用，您會收到通知。 如果可使用服務，Microsoft 會識別要寄送的裝置，並準備出貨。 在裝置準備期間，會執行下列動作：
 
-- 系統會針對與裝置相關聯的每個儲存體帳戶建立 SMB 共用。 
+- 系統會針對與裝置相關聯的每個儲存體帳戶建立 SMB 共用。
 - 針對每個共用，會產生例如使用者名稱和密碼的存取認證。
-- 也會產生可協助將裝置解除鎖定的裝置密碼。 
+- 也會產生可協助將裝置解除鎖定的裝置密碼。
 - 資料箱會鎖定，防止任何對裝置的未經授權存取。
 
 裝置準備完成後，入口網站會顯示訂單處於 [已處理] 狀態。

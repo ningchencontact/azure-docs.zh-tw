@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: dfc634fd-1b55-4ba8-94a8-b8288429b6a9
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de0e20eb096ba127790019c1c07fbdd504d3a480
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b22a7a86862f02c3320b7c14cc1ed878a57bd23d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877906"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901945"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>教學課程：Azure Active Directory 與 BlueJeans 整合
 
@@ -45,7 +45,7 @@ ms.locfileid: "56877906"
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* BlueJeans 支援 **SP** 起始的 SSO
+* BlueJeans 支援由 **SP** 起始的 SSO
 
 * BlueJeans 支援[**自動**使用者佈建](bluejeans-provisioning-tutorial.md)
 
@@ -182,7 +182,7 @@ ms.locfileid: "56877906"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -199,7 +199,7 @@ ms.locfileid: "56877906"
 
 2. 在應用程式清單中，選取 [BlueJeans]。
 
-    ![應用程式清單中的 BlueJeans 連結](common/all-applications.png)
+    ![應用程式清單中的 [BlueJeans] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -217,7 +217,7 @@ ms.locfileid: "56877906"
 
 ### <a name="create-bluejeans-test-user"></a>建立 BlueJeans 測試使用者
 
-本節的目標是在 BlueJeans 中建立名為 Britta Simon 的使用者。 BlueJeans 支援自動使用者佈建，該功能預設為啟用。 您可以在[這裡](bluejeans-provisioning-tutorial.md)找到關於如何設定自動使用者佈建的更多詳細資料。
+本節的目標是要在 BlueJeans 中建立一個名為 Britta Simon 的使用者。 BlueJeans 支援自動使用者佈建，該功能預設為啟用。 您可以在[這裡](bluejeans-provisioning-tutorial.md)找到關於如何設定自動使用者佈建的更多詳細資料。
 
 **如果您需要手動建立使用者，請執行下列步驟：**
 
@@ -244,7 +244,7 @@ ms.locfileid: "56877906"
 
     e. 在 [公司] 文字中，輸入您的公司。
 
-    f. 在 [電子郵件地址] 文字方塊中，輸入使用者的電子郵件，例如 **brittasimon@contoso.com**。
+    f. 在 [Email Address] \(電子郵件地址\) 文字方塊中，輸入使用者的電子郵件地址，例如 **brittasimon\@contoso.com**。
 
     g. 在 [建立 BlueJeans 會議識別碼] 文字方塊中，輸入您的會議識別碼。
 

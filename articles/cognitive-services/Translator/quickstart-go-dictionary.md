@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: b9f1b3b7ab99ca878227d8bf618545ec90aca4ac
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 356c414d6e3823f927cbb201aeb0a0186e421b5e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732036"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175528"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-go"></a>快速入門：使用 Go 在雙語字典中查詢單字
 
@@ -32,7 +32,7 @@ ms.locfileid: "56732036"
 
 ## <a name="create-a-project-and-import-required-modules"></a>建立專案，並匯入所需的模組
 
-使用您慣用的 IDE 或編輯器建立新的 Go 專案。 然後，將下列程式碼片段複製到您的專案中名為 `alt-translations.go` 的檔案。
+使用您最愛的 IDE/編輯器，或在您桌面上的新資料夾中，建立新的 Go 專案。 然後，將下列程式碼片段複製到您的專案/資料夾中名為 `alt-translations.go` 的檔案。
 
 ```go
 package main
@@ -60,7 +60,7 @@ func main() {
      * Read your subscription key from an env variable.
      * Please note: You can replace this code block with
      * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
-     * want to use env variables.
+     * want to use env variables. Then, be sure to delete the "os" import.
      */
     subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
     if subscriptionKey == "" {
@@ -227,10 +227,10 @@ go run alt-translations.go
 
 ## <a name="next-steps"></a>後續步驟
 
-從 GitHub 上的 [Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go) (英文)，探索認知服務 API 的 Go 套件。
+從 GitHub 上的 [Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go) /(英文/)，探索認知服務 API 的 Go 範例。
 
 > [!div class="nextstepaction"]
-> [探索 GitHub 上的 Go 套件](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices) (英文)
+> [瀏覽 GitHub 上的 Go 範例](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
 
 ## <a name="see-also"></a>另請參閱
 

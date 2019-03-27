@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 7be5331b-0481-48f7-9d6b-619dfec657e1
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb6943ef6c75f634cdb68557ed2339574bdc2602
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: eba63f8295fb5bebffdc8480f763c852521e331b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878280"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880903"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp"></a>教學課程：Azure Active Directory 與 ADP
 
@@ -36,7 +36,7 @@ ms.locfileid: "56878280"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 ADP 整合，您需要下列項目：
+若要設定 Azure AD 與 ADP 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 ADP 單一登入的訂用帳戶
@@ -115,7 +115,7 @@ ms.locfileid: "56878280"
 
 5. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![ADP 網域與 URL 單一登入資訊](common/idp-identifier.png)
+    ![ADP 網域及 URL 單一登入資訊](common/idp-identifier.png)
 
     在 [識別碼 (實體識別碼)] 文字方塊中，輸入 URL：`https://fed.adp.com`
 
@@ -187,7 +187,7 @@ ms.locfileid: "56878280"
 
 5. 在 Azure 入口網站的 **ADP** 應用程式整合頁面上，按一下 [屬性] 索引標籤，然後執行下列步驟：  
 
-    ![單一登入已連結的屬性](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
+    ![與單一登入連結的屬性](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
 
     a.  將 [為使用者啟用登入] 欄位值設定為 [是]。
 
@@ -259,7 +259,7 @@ ms.locfileid: "56878280"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -276,7 +276,7 @@ ms.locfileid: "56878280"
 
 2. 在應用程式清單中，輸入 **ADP** 並加以選取。
 
-    ![應用程式清單中的 ADP 連結](common/all-applications.png)
+    ![應用程式清單中的 [ADP] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

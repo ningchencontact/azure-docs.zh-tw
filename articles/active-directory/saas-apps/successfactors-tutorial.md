@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 32bd8898-c2d2-4aa7-8c46-f1f5c2aa05f1
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/3/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c964d4e070bafc6e8e66535c3963d82803d3cd1e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2281fb046ca9b96aa5800150d630b9086236c5c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865768"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57846917"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>教學課程：Azure Active Directory 與 SuccessFactors 整合
 
@@ -45,7 +45,7 @@ SuccessFactors 與 Azure AD 整合提供下列優點：
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* SuccessFactors 支援 **SP** 起始的 SSO
+* SuccessFactors 支援由 **SP** 起始的 SSO
 
 ## <a name="adding-successfactors-from-the-gallery"></a>從資源庫新增 SuccessFactors
 
@@ -74,20 +74,20 @@ SuccessFactors 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 SuccessFactors 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 SuccessFactors 中相關使用者之間的連結關聯性。
 
-若要設定及測試對 SuccessFactors 的 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 SuccessFactors 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 SuccessFactors 單一登入](#configure-successfactors-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 SuccessFactors 測試使用者](#create-successfactors-test-user)** - 在 SuccessFactors 中建立一個與 Azure AD 中代表 Britta Simon 之項目連結的對應項目。
+5. **[建立 SuccessFactors 測試使用者](#create-successfactors-test-user)** - 在 SuccessFactors 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要使用 SuccessFactors 設定 Azure AD 單一登入，請執行下列步驟：
+若要設定與 SuccessFactors 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [SuccessFactors] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -106,6 +106,7 @@ SuccessFactors 與 Azure AD 整合提供下列優點：
     ![SuccessFactors 網域及 URL 單一登入資訊](common/sp-identifier-reply.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰
+
     | |
     |--|
     | `https://<companyname>.successfactors.com/<companyname>`|
@@ -114,6 +115,7 @@ SuccessFactors 與 Azure AD 整合提供下列優點：
     | `https://<companyname>.sapsf.eu`|
 
     b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
+
     | |
     |--|
     | `https://www.successfactors.com/<companyname>`|
@@ -127,6 +129,7 @@ SuccessFactors 與 Azure AD 整合提供下列優點：
     | `https://www.successfactors.cn/<companyname>`|
 
     c. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：
+
     | |
     |--|
     | `https://<companyname>.successfactors.com/<companyname>`|
@@ -242,7 +245,7 @@ SuccessFactors 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -285,7 +288,7 @@ SuccessFactors 與 Azure AD 整合提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [SuccessFactors] 圖格時，應該會自動登入您設定 SSO 的 SuccessFactors。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [SuccessFactors] 圖格時，應該會自動登入您已設定 SSO 的 SuccessFactors。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

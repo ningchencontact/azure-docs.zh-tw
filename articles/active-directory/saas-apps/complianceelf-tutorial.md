@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 69c6efc3-54c7-49ec-b827-33177c09aa13
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0a005753b7d17464bfbe7aec8cac8672ce61d26
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: e5330d398a75105b78cb2caa0373b78fa2e32a99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876529"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57878052"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>教學課程：Azure Active Directory 與 Compliance ELF 整合
 
@@ -71,7 +71,7 @@ Compliance ELF 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者身分，設定及測試與 Compliance ELF 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Compliance ELF 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Compliance ELF 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 Compliance ELF 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
@@ -80,7 +80,7 @@ Compliance ELF 與 Azure AD 整合提供下列優點：
 2. **[設定 Compliance ELF 單一登入](#configure-compliance-elf-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 Compliance ELF 測試使用者](#create-compliance-elf-test-user)** - 在 Compliance ELF 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表該使用者的項目連結。
+5. **[建立 Compliance ELF 測試使用者](#create-compliance-elf-test-user)** - 在 Compliance ELF 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
@@ -142,7 +142,7 @@ Compliance ELF 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -159,7 +159,7 @@ Compliance ELF 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Compliance ELF]。
 
-    ![應用程式清單中的 Compliance ELF 連結](common/all-applications.png)
+    ![應用程式清單中的 [Compliance ELF] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -183,7 +183,7 @@ Compliance ELF 與 Azure AD 整合提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 Compliance ELF 圖格時，應該會自動登入您設定 SSO 的 Compliance ELF。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 Compliance ELF 圖格時，應該會自動登入您已設定 SSO 的 Compliance ELF。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d627158744ae89e3c614d10a64886cee6879a3fb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 0c89cdc34c23c461e5cebf3026cb0774bf91b75d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116044"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998557"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-app-service"></a>教學課程：將現有的自訂 SSL 憑證繫結至 Azure App Service
 
@@ -264,7 +264,7 @@ New-AzWebAppSSLBinding `
 ## <a name="public-certificates-optional"></a>公開憑證 (選擇性)
 如果應用程式需要以用戶端身分存取遠端資源，而且遠端資源需要驗證憑證，您可以將[公開憑證](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) \(英文\) 上傳至您的應用程式。 為應用程式進行 SSL 繫結時，則不需要公開憑證。
 
-如需關於在應用程式中載入及使用公開憑證的詳細資訊，請參閱[在 Azure App Service 中的應用程式程式碼中使用 SSL 憑證](app-service-web-ssl-cert-load.md)。 您也可以在 App Service Environment 中對應用程式使用公開憑證。 如果您需要將憑證儲存於 LocalMachine 憑證存放區，就必須使用 App Service 環境上的應用程式。 如需詳細資訊，請參閱[如何設定 App Service 應用程式的公開憑證](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer) \(英文\)。
+如需關於在應用程式中載入及使用公開憑證的詳細資訊，請參閱[在 Azure App Service 中的應用程式程式碼中使用 SSL 憑證](app-service-web-ssl-cert-load.md)。 您也可以在 App Service Environment 中對應用程式使用公開憑證。 如果您需要將憑證儲存在 LocalMachine 憑證存放區中，就必須使用「App Service 環境」上的應用程式。 如需詳細資訊，請參閱[如何設定 App Service 應用程式的公開憑證](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer) \(英文\)。
 
 ![上傳公開憑證](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 

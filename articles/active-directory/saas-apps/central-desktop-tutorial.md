@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: b805d485-93db-49b4-807a-18d446c7090e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50ef84c9795065d4186fae9542c18d4df06c85c2
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2e5ddc8a1190161d9492cd083a50120ca9d5fc5f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880371"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901282"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>教學課程：Azure Active Directory 與 Central Desktop 整合
 
@@ -28,7 +28,7 @@ ms.locfileid: "56880371"
 將 Central Desktop 與 Azure AD 整合可提供下列優點：
 
 * 您可以在 Azure AD 中控制可存取 Central Desktop 的人員。
-* 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Central Desktop (單一登入)。
+* 您可以讓使用者使用其 Azure AD 帳戶自動登入 Central Desktop (單一登入)。
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
@@ -36,7 +36,7 @@ ms.locfileid: "56880371"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Central Desktop 整合，您需要下列項目：
+若要設定 Azure AD 與 Central Desktop 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Central Desktop 單一登入的訂用帳戶
@@ -45,7 +45,7 @@ ms.locfileid: "56880371"
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* Central Desktop 支援 **SP** 起始的 SSO
+* Central Desktop 支援由 **SP** 起始的 SSO
 
 ## <a name="adding-central-desktop-from-the-gallery"></a>從資源庫新增 Central Desktop
 
@@ -108,6 +108,7 @@ ms.locfileid: "56880371"
     a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<companyname>.centraldesktop.com`
 
     b. 在 [識別碼] 方塊中，使用下列模式輸入 URL：
+    
     | |
     |--|
     | `https://<companyname>.centraldesktop.com/saml2-metadata.php`|
@@ -185,7 +186,7 @@ ms.locfileid: "56880371"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -202,7 +203,7 @@ ms.locfileid: "56880371"
 
 2. 在應用程式清單中，選取 [Central Desktop]。
 
-    ![應用程式清單中的 Central Desktop 連結](common/all-applications.png)
+    ![應用程式清單中的 [Central Desktop] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -248,7 +249,7 @@ ms.locfileid: "56880371"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Central Desktop] 圖格時，應該會自動登入您設定 SSO 的 Central Desktop。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [Central Desktop] 圖格時，應該會自動登入您已設定 SSO 的 Central Desktop。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

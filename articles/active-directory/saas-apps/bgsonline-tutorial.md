@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 4fd6b29b-1b46-4fd1-9f5e-16b1c9d892cd
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66cbcc563750f4fb45aaf92c01b5c6de015600e9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 3da6277d2e816960f3db8964fd8b849c7d2a497c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875730"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57876930"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bgs-online"></a>教學課程：Azure Active Directory 與 BGS Online 整合
 
@@ -36,7 +36,7 @@ ms.locfileid: "56875730"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 BGS Online 整合，您需要下列項目：
+若要設定 Azure AD 與 BGS Online 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 BGS Online 單一登入的訂用帳戶
@@ -103,7 +103,7 @@ ms.locfileid: "56875730"
 
 4. 在 [以 SAML 設定單一登入] 頁面上，執行下列步驟：
 
-    ![BGS Online 網域和 URL 單一登入資訊](common/idp-intiated.png)
+    ![BGS Online 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
     a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：
 
@@ -156,7 +156,7 @@ ms.locfileid: "56875730"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -173,7 +173,7 @@ ms.locfileid: "56875730"
 
 2. 在應用程式清單中，選取 [BGS Online]。
 
-    ![應用程式清單中的 BGS Online 連結](common/all-applications.png)
+    ![應用程式清單中的 [BGS Online] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -191,7 +191,7 @@ ms.locfileid: "56875730"
 
 ### <a name="create-bgs-online-test-user"></a>建立 BGS Online 測試使用者
 
-在本節中，您會在 BGS Online 中建立名為 Britta Simon 的使用者。 請與  [BGS Online 支援小組](mailto:bgsdashboardteam@millwardbrown.com)合作，在 BGS Online 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 BGS Online 中建立名為 Britta Simon 的使用者。 請與 [BGS Online 支援小組](mailto:bgsdashboardteam@millwardbrown.com)合作，在 BGS Online 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

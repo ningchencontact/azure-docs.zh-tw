@@ -10,44 +10,42 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: c866bb1ff5603f08377ed96ddd81eedf71e243bf
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 55c9120547472bb9a9a74533fe532d346844e89c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593229"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081758"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>教學課程：設定驗證即服務的資源
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-您必須建立解決方案。 驗證即服務 (VaaS) 解決方案代表特定硬體用料表的 Azure Stack 解決方案。 您可以使用此解決方案檢查您的硬體是否支援執行的 Azure Stack。 請遵循本教學課程，做好將此服務用於解決方案的準備。
+驗證即服務 (VaaS) 為用來驗證並支援市場中 Azure Stack 解決方案的 Azure 服務。 在使用該服務驗證解決方案之前，請先閱讀本文。
 
 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
-> * 設定 Azure AD (Azure AD) 執行個體以準備使用 VaaS。
+> * 設定 Azure Active Directory (AD) 以準備使用 VaaS。
 > * 建立儲存體帳戶。
 
 ## <a name="configure-an-azure-ad-tenant"></a>設定 Azure AD 租用戶
 
-必須具有 Azure AD 租用戶，才能使用 VaaS 進行驗證和註冊。 合作夥伴會使用租用戶的角色型存取控制 (RBAC) 功能，來管理合作夥伴組織中有誰可以使用 VaaS。
-
-請註冊您的組織 Azure AD 租用戶目錄 (而不是用於 Azure Stack 的 Azure AD 租用戶目錄)，並建立用來管理使用者帳戶的原則。 如需詳細資訊，請參閱[管理 Azure Active Directory 租用戶](https://docs.microsoft.com/azure/active-directory/active-directory-administer)。
+Azure AD 租用戶是用來註冊組織並搭配 VaaS 驗證使用者。 合作夥伴將會使用租用戶的角色型存取控制 (RBAC) 功能，來管理合作夥伴組織中的哪些人員可以使用 VaaS。 如需詳細資訊，請參閱[什麼是 Azure Active Directory？](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis)。
 
 ### <a name="create-a-tenant"></a>建立租用戶
 
-請建立專門用於 VaaS 且具有描述性名稱 (例如 `ContosoVaaS@onmicrosoft.com`) 的租用戶。
+建立組織將用來存取 VaaS 服務的租用戶。 使用描述性的名稱，例如 `ContosoVaaS@onmicrosoft.com`。
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中建立 Azure AD 租用戶，或使用現有的租用戶。 <!-- For instructions on creating new Azure AD tenants, see [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). -->
 
 2. 將您的組織成員新增至租用戶。 這些使用者將負責使用服務來檢視或排程測試。 完成註冊之後，您會定義使用者的存取層級。
- 
+
     請指派下列其中一個角色，為您租用戶中的使用者授與在 VaaS 中執行動作的權限：
 
     | 角色名稱 | 說明 |
@@ -58,13 +56,13 @@ ms.locfileid: "56593229"
 
     若要在 **Azure Stack 驗證服務**應用程式中指派角色：
 
-    1. 登入 [Azure 入口網站](https://portal.azure.com)。
-    2. 在 [身分識別] 區段下，選取 [所有服務] > [Azure Active Directory]。
-    3. 選取 [企業應用程式] > [Azure Stack 驗證服務] 應用程式。
-    4. 選取 [使用者和群組]。 [Azure Stack 驗證服務 - 使用者和群組] 刀鋒視窗會列出具有使用應用程式權限的使用者。
-    5. 選取 [+ 新增使用者]，以從您的租用戶新增使用者並指派角色。
-   
-    如果您想要區隔組織內不同群組間的 VaaS 資源和動作，您可以建立多個 Azure AD 租用戶目錄。
+   1. 登入 [Azure 入口網站](https://portal.azure.com)。
+   2. 在 [身分識別] 區段下，選取 [所有服務] > [Azure Active Directory]。
+   3. 選取 [企業應用程式] > [Azure Stack 驗證服務] 應用程式。
+   4. 選取 [使用者和群組]。 [Azure Stack 驗證服務 - 使用者和群組] 刀鋒視窗會列出具有使用應用程式權限的使用者。
+   5. 選取 [+ 新增使用者]，以從您的租用戶新增使用者並指派角色。
+
+      如果您想要區隔組織內不同群組間的 VaaS 資源和動作，您可以建立多個 Azure AD 租用戶目錄。
 
 ### <a name="register-your-tenant"></a>註冊您的租用戶
 
@@ -102,10 +100,7 @@ Azure 儲存體帳戶會裝載於 Azure 公用雲端中，而不是您的 Azure 
 
 3. 在 [資源群組] 下方，選取 [新建]。 為新的資源群組輸入名稱。
 
-4. 輸入儲存體帳戶的名稱。 您選擇的名稱必須：
-    - 在 Azure 中具有唯一性
-    - 介於 3 到 24 個字元之間
-    - 只包含數字和小寫字母
+4. 檢閱 Azure 儲存體帳戶的[命名慣例](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#storage)。 輸入儲存體帳戶的名稱。
 
 5. 為您的儲存體帳戶選取 [美國西部] 區域。
 
@@ -119,7 +114,7 @@ Azure 儲存體帳戶會裝載於 Azure 公用雲端中，而不是您的 Azure 
     - [複寫] 欄位依預設會設定為 [本地備援儲存體 (LRS)]。
     - [存取層] 預設會設定為 [經常性存取層]。
 
-7. 按一下 [檢閱 + 建立]，以檢閱您的儲存體帳戶設定並建立帳戶。
+7. 選取 [檢閱 + 建立]，以檢閱您的儲存體帳戶設定並建立帳戶。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 634b175ec0b5771e3ff2fa061532106eb124ea4e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 9dada3c6f0718db41a24368aca594bbd3215fec5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338422"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994870"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>使用 REST API 定義和指派 Azure 藍圖
 
@@ -70,6 +70,9 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 
 - `{YourMG}` - 取代為您的管理群組識別碼
 - `{subscriptionId}` - 以您的訂用帳戶識別碼取代
+
+> [!NOTE]
+> 藍圖也可能在訂用帳戶層級建立。 若要查看範例，請參閱[在訂用帳戶建立藍圖範例](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint)。
 
 1. 建立初始_藍圖_物件。 **要求本文**包含藍圖的屬性、要建立的任何資源群組，以及所有藍圖層級參數。 這些參數會在指派期間設定，並且供後續步驟中新增的成品使用。
 
@@ -262,7 +265,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
                      "tags": {
                         "[parameters('tagNameFromBP')]": "[parameters('tagValueFromBP')]"
                      },
-                     "location": "[resourceGroup().location]",
+                     "location": "[resourceGroups('storageRG').location]",
                      "sku": {
                          "name": "[parameters('storageAccountTypeFromBP')]"
                      },
@@ -435,9 +438,9 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 
 ## <a name="next-steps"></a>後續步驟
 
-- 了解[藍圖生命週期](./concepts/lifecycle.md) (英文)
-- 了解如何使用[靜態和動態參數](./concepts/parameters.md) (英文)
-- 了解如何自訂[藍圖排序順序](./concepts/sequencing-order.md) (英文)
-- 了解如何使用[藍圖資源鎖定](./concepts/resource-locking.md)
-- 了解如何[更新現有的指派](./how-to/update-existing-assignments.md)
-- 使用[一般疑難排解](./troubleshoot/general.md)來解決藍圖指派期間發生的問題
+- 了解[藍圖生命週期](./concepts/lifecycle.md)。
+- 了解如何使用[靜態與動態參數](./concepts/parameters.md)。
+- 了解如何自訂[藍圖排序順序](./concepts/sequencing-order.md)。
+- 了解如何使用[藍圖資源鎖定](./concepts/resource-locking.md)。
+- 了解如何[更新現有的指派](./how-to/update-existing-assignments.md)。
+- 使用[一般疑難排解](./troubleshoot/general.md)來解決藍圖指派期間發生的問題。

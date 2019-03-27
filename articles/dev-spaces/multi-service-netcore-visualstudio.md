@@ -1,23 +1,22 @@
 ---
-title: 使用 .NET Core 和 Visual Studio 執行多個相依服務 | Microsoft Docs
+title: 使用 .NET Core 和 Visual Studio 執行多個相依服務
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
-ms.openlocfilehash: 6a9058d7f84b336b332ffdaf9b41abfb660433e6
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s '
+ms.openlocfilehash: e302a4edc54b98f0dd731f65d0d45aa592cc72ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819849"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076763"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>使用 Azure Dev Spaces 進行多服務開發
 
@@ -35,7 +34,7 @@ ms.locfileid: "56819849"
 1. 在個別的 Visual Studio 視窗中開啟專案 `mywebapi`。
 1. 從啟動設定下拉式清單中選取 [Azure 開發人員空間]，如同您先前對 `webfrontend` 專案所做的。 這次請不要建立新的 AKS 叢集，而應選取您已建立的同一個叢集。 與之前相同，將 [空間] 保留為預設的 `default`，然後按一下 [確定]。 在 [輸出] 視窗中，您可能會發現 Visual Studio 開始在開發人員空間中「準備」這項新服務，以在您開始偵錯時加速作業。
 1. 按 F5，並等候服務進行建置和部署。 當 Visual Studio 的狀態列變成橙色時，即表示已就緒
-1. 記下 [輸出] 視窗的 [適用於 AKS 的 Azure 開發人員空間] 窗格中顯示的 URL 端點。 輸出應該會類似於 http://localhost:\<portnumber\>。 容器可能看起來像在本機執行，但實際是在 Azure 的開發人員空間中執行。
+1. 記下 [輸出] 視窗的 [適用於 AKS 的 Azure 開發人員空間] 窗格中顯示的 URL 端點。 輸出應該會類似於 `http://localhost:<portnumber>`。 容器可能看起來像在本機執行，但實際是在 Azure 的開發人員空間中執行。
 2. 當 `mywebapi` 就緒時，請開啟瀏覽器並進入 localhost 位址，然後將 `/api/values` 附加至 URL，以叫用 `ValuesController` 的預設 GET API。 
 3. 如果所有步驟都已成功，您應該會看到 `mywebapi` 服務產生如下的回應。
 

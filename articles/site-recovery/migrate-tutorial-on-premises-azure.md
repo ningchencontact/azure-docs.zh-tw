@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6c97289cd1ad406769613621afdc16c8096f4aeb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: d5b229d96c0f63e27e36fb95122b36d3d8c128ac
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116162"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110302"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>將內部部署機器移轉至 Azure
 
@@ -36,6 +36,8 @@ ms.locfileid: "56116162"
 
 開始之前，最好先針對災害復原檢閱 [VMware](vmware-azure-architecture.md) 或 [Hyper-V](hyper-v-azure-architecture.md) 架構。
 
+> [!TIP]
+> 正在尋找可將 VMware VM 移轉至 Azure 的無代理程式方式嗎？ [按一下這裡](https://aka.ms/migrateVMs-signup)
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -54,7 +56,6 @@ ms.locfileid: "56116162"
    ![新增保存庫](./media/migrate-tutorial-on-premises-azure/onprem-to-azure-vault.png)
 
 新的保存庫會新增到主要 [復原服務保存庫] 頁面上 [所有資源] 之下的 [儀表板]。
-
 
 
 ## <a name="select-a-replication-goal"></a>選取複寫目標
@@ -112,10 +113,10 @@ ms.locfileid: "56116162"
 5. 確認 Azure VM 如預期般出現在 Azure 中。
 6. 在 [複寫的項目] 中，以滑鼠右鍵按一下 VM > [完成移轉]。 這會執行以下動作：
 
-    - 完成移轉程序、停止 AWS VM 的複寫，並停止 VM 的 Site Recovery 計費。
-    - 此步驟會清除複寫資料。 但並不會刪除已遷移的 VM。
+   - 完成移轉程序、停止 AWS VM 的複寫，並停止 VM 的 Site Recovery 計費。
+   - 此步驟會清除複寫資料。 但並不會刪除已遷移的 VM。
 
-    ![完成移轉](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
+     ![完成移轉](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
 
 
 > [!WARNING]

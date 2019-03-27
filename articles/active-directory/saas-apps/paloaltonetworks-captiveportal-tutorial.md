@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 67a0b476-2305-4157-8658-2ec3625850d5
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 627275855f231f5a4336075df3864448325127f2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0a62aa573d49ccdd237e692b63a6fda0dd83d52a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211864"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888292"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>教學課程：Azure Active Directory 與 Palo Alto Networks Captive Portal 整合
 
@@ -76,7 +76,7 @@ Palo Alto Networks Captive Portal 支援下列案例：
 
 您會以名為 *Britta Simon* 的測試使用者為基礎，設定及測試與 Palo Alto Networks Captive Portal 搭配運作的 Azure AD 單一登入。 若要讓單一登入能夠運作，您必須建立 Azure AD 使用者與 Palo Alto Networks Captive Portal 中的相同使用者之間的關聯性。 
 
-若要設定及測試與 Palo Alto Networks Captive Portal 搭配運作的 Azure AD 單一登入，請完成下列建置組塊：
+若要設定及測試與 Palo Alto Networks Captive Portal 搭配運作的 Azure AD 單一登入，請完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)**：讓使用者能夠使用這項功能。
 2. **[設定 Palo Alto Networks Captive Portal 單一登入](#configure-palo-alto-networks-captive-portal-single-sign-on)**：在應用程式中設定單一登入設定。
@@ -105,12 +105,12 @@ Palo Alto Networks Captive Portal 支援下列案例：
 
     ![Palo Alto Networks Captive Portal 基本 SAML 組態窗格](common/idp-intiated.png)
 
-    1. 針對 [識別碼]，輸入具有 `https://<customer_firewall_host_name>/SAML20/SP` 模式的 URL。
+   1. 針對 [識別碼]，輸入具有 `https://<customer_firewall_host_name>/SAML20/SP` 模式的 URL。
 
-    2. 針對 [回覆 URL]，輸入具有 `https://<customer_firewall_host_name>/SAML20/SP/ACS` 模式的 URL。
+   2. 針對 [回覆 URL]，輸入具有 `https://<customer_firewall_host_name>/SAML20/SP/ACS` 模式的 URL。
 
-    > [!NOTE]
-    > 請使用實際的識別碼和回覆 URL 更新此步驟中的預留位置值。 若要取得實際值，請連絡 [Palo Alto Networks Captive Portal 用戶端支援小組](https://support.paloaltonetworks.com/support)。
+      > [!NOTE]
+      > 請使用實際的識別碼和回覆 URL 更新此步驟中的預留位置值。 若要取得實際值，請連絡 [Palo Alto Networks Captive Portal 用戶端支援小組](https://support.paloaltonetworks.com/support)。
 
 5. 在 [SAML 簽署憑證] 區段中的 [同盟中繼資料 XML] 旁邊，選取 [下載]。 將下載的檔案儲存在電腦上。
 
@@ -158,7 +158,7 @@ Palo Alto Networks Captive Portal 支援下列案例：
 
     1. 針對 [名稱]，輸入 **BrittaSimon**。
   
-    2. 針對 [使用者名稱]，輸入 **BrittaSimon@\<your_company_domain\>**。 例如：**BrittaSimon@contoso.com**。
+    2. 針對 [使用者名稱]，輸入 **BrittaSimon\@\<your_company_domain\>**。 例如 **BrittaSimon\@contoso.com**。
 
     3. 針對 [密碼]，輸入密碼。 建議您為輸入的密碼保留記錄。 您可以選取 [顯示密碼] 核取方塊，以顯示密碼。
 
@@ -174,7 +174,7 @@ Palo Alto Networks Captive Portal 支援下列案例：
 
 2. 在應用程式清單中輸入 [Palo Alto Networks - Captive Portal]，然後選取該應用程式。
 
-    ![應用程式清單中的 Palo Alto Networks - Captive Portal 連結](common/all-applications.png)
+    ![應用程式清單中的 [Palo Alto Networks - Captive Portal] 連結](common/all-applications.png)
 
 3. 在功能表中，選取 [使用者和群組]。
 
@@ -192,7 +192,7 @@ Palo Alto Networks Captive Portal 支援下列案例：
 
 ### <a name="create-a-palo-alto-networks-captive-portal-test-user"></a>建立 Palo Alto Networks Captive Portal 測試使用者
 
-接著，在 Palo Alto Networks Captive Portal 中建立名為 *Britta Simon* 的使用者。 Palo Alto Networks Captive Portal 支援依預設啟用的 Just-in-Time 佈建。 在本節中，您不需要完成任何工作。 如果 Palo Alto Networks Captive Portal 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
+接著，在 Palo Alto Networks Captive Portal 中建立名為 *Britta Simon* 的使用者。 Palo Alto Networks Captive Portal 支援預設會啟用的 Just-in-Time 佈建。 在本節中，您不需要完成任何工作。 如果 Palo Alto Networks Captive Portal 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
 > [!NOTE]
 > 如果您想要手動建立使用者，請連絡 [Palo Alto Networks Captive Portal 用戶端支援小組](https://support.paloaltonetworks.com/support)。

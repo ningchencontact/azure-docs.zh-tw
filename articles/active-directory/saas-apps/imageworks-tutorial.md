@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 635d86a1-b512-442d-8851-3b18ec1a24a5
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9e3ab524d65aaef36bbc61ab9dd6839a217e15d
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 0aaa93c03236f1a3bd87d8fdd5e1be0930ee1381
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985406"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887301"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-works"></a>教學課程：Azure Active Directory 與 IMAGE WORKS 整合
 
@@ -39,7 +39,7 @@ ms.locfileid: "56985406"
 若要設定 Azure AD 與 IMAGE WORKS 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
-* 已啟用 IMAGE WORKS 單一登入功能的訂用帳戶
+* 已啟用 IMAGE WORKS 單一登入的訂用帳戶
 
 ## <a name="scenario-description"></a>案例描述
 
@@ -71,10 +71,10 @@ ms.locfileid: "56985406"
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者身分，設定及測試與 IMAGE WORKS 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 IMAGE WORKS 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 IMAGE WORKS 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 IMAGE WORKS 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 IMAGE WORKS 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 IMAGE WORKS 單一登入](#configure-image-works-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -87,7 +87,7 @@ ms.locfileid: "56985406"
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要使用 IMAGE WORKS 設定 Azure AD 單一登入，請執行下列步驟：
+若要設定與 IMAGE WORKS 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [IMAGE WORKS] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -148,7 +148,7 @@ ms.locfileid: "56985406"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -157,7 +157,7 @@ ms.locfileid: "56985406"
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會把 IMAGE WORKS 的存取權授予 Britta Simon，讓 Britta Simon 能夠使用 Azure 單一登入。
+在本節中，您會將 IMAGE WORKS 的存取權授予 Britta Simon，讓 Britta Simon 能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [IMAGE WORKS]。
 
@@ -165,7 +165,7 @@ ms.locfileid: "56985406"
 
 2. 在應用程式清單中，選取 [IMAGE WORKS]。
 
-    ![應用程式清單中的 IMAGE WORKS 連結](common/all-applications.png)
+    ![應用程式清單中的 [IMAGE WORKS] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -183,7 +183,7 @@ ms.locfileid: "56985406"
 
 ### <a name="create-image-works-test-user"></a>建立 IMAGE WORKS 測試使用者
 
-在本節中，您要在 IMAGE WORKS 中建立名為 Britta Simon 的使用者。 請與 [IMAGE WORKS 支援小組](mailto:iw-sd-support@fujifilm.com)合作，在 IMAGE WORKS 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 IMAGE WORKS 中建立名為 Britta Simon 的使用者。 請與 [IMAGE WORKS 支援小組](mailto:iw-sd-support@fujifilm.com)合作，在 IMAGE WORKS 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

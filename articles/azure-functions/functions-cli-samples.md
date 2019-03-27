@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 01/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 99ea221dcd236d3e8c42aec25d651b5fda2ae1d1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ba0ecda0ec24bf0a07acbf1bf5bfef494c3eabdd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887424"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57836924"
 ---
 # <a name="azure-cli-samples"></a>Azure CLI 範例
 
@@ -34,7 +34,7 @@ ms.locfileid: "48887424"
 | | |
 |**連續部署**||
 | [從 GitHub 部署](scripts/functions-cli-create-function-app-github-continuous.md) | 建立從 GitHub 存放庫部署的函數應用程式。  |
-| [從 Azure DevOps 部署](scripts/functions-cli-create-function-app-vsts-continuous.md) | 建立從 Azure DevOps 存放庫部署的函數應用程式。  |
+| [從 Azure DevOps 部署](scripts/functions-cli-create-function-app-vsts-continuous.md) | 建立會從 Azure DevOps 存放庫部署的函數應用程式。  |
 | | |
 |**設定應用程式**||
 | [將自訂網域對應至函式應用程式](scripts/functions-cli-configure-custom-domain.md) | 定義函式的自訂網域。  |

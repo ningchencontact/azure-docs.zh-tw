@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 87afdd9e949ec866c6ee962c2b68af42590bee67
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8007d576a6b896f12423087cfd4a483d9171abc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878709"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104364"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>快速入門：使用 Node.js 將搜尋要求傳送至 Bing 實體搜尋 REST API
 
@@ -87,24 +87,24 @@ ms.locfileid: "55878709"
 
 1. 建立名為 `Search` 的函式，以傳送搜尋要求。 在其中執行下列步驟。
 
-    1. 建立包含要求參數的 JSON 物件：使用 `Get` 方法，然後新增主機和路徑資訊。 將訂用帳戶金鑰新增至 `Ocp-Apim-Subscription-Key` 標頭。 
-    2. 使用 `https.request()` 以稍早建立的回應處理常式傳送要求與搜尋參數。
+   1. 建立包含要求參數的 JSON 物件：使用 `Get` 方法，然後新增主機和路徑資訊。 將訂用帳戶金鑰新增至 `Ocp-Apim-Subscription-Key` 標頭。 
+   2. 使用 `https.request()` 以稍早建立的回應處理常式傳送要求與搜尋參數。
     
-    ```javascript
-    let Search = function () {
-        let request_params = {
-            method : 'GET',
-            hostname : host,
-            path : path + query,
-            headers : {
-                'Ocp-Apim-Subscription-Key' : subscriptionKey,
-            }
-        };
+      ```javascript
+      let Search = function () {
+       let request_params = {
+           method : 'GET',
+           hostname : host,
+           path : path + query,
+           headers : {
+               'Ocp-Apim-Subscription-Key' : subscriptionKey,
+           }
+       };
     
-        let req = https.request (request_params, response_handler);
-        req.end ();
-    }
-    ```
+       let req = https.request (request_params, response_handler);
+       req.end ();
+      }
+      ```
 
 2. 呼叫 `Search()` 函式。
 
@@ -148,7 +148,7 @@ ms.locfileid: "55878709"
         "_type": "Restaurant",
         "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
         "name": "Munson's Pickles and Preserves Farm",
-        "url": "http://www.princi.com/",
+        "url": "https://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [

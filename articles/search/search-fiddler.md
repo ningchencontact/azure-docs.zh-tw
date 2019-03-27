@@ -1,23 +1,23 @@
 ---
-title: 在 Postman 或 Fiddler Web HTTP 測試工具中探索 REST API - Azure 搜尋服務
-description: 如何使用 Fiddler 或 Postman 以對 Azure 搜尋服務發出 HTTP 要求和 REST API 呼叫。
+title: 在 Postman 或 Fiddler 中探索 REST API - Azure 搜尋服務
+description: 如何使用 Postman 或 Fiddler 對 Azure 搜尋服務發出 HTTP 要求和 REST API 呼叫。
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 04/20/2018
+ms.date: 03/12/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 06e2667b59b27039ad3c62379f654dd693999f99
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 946d8196fbe49e452dab8fa36e4c746a1bcaf490
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756070"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58137618"
 ---
-# <a name="explore-azure-search-rest-apis-using-postman-or-fiddler"></a>使用 Postman 或 Fiddler 探索 Azure 搜尋服務 REST API
+# <a name="quickstart-explore-azure-search-rest-apis-using-postman-or-fiddler"></a>快速入門：使用 Postman 或 Fiddler 探索 Azure 搜尋服務 REST API
 
 探索 [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice) 的最簡單方式之一，就是使用 Postman 或 Fiddler 來制訂 HTTP 要求及檢查回應。 透過適當的工具與下列指示，您可以在撰寫任何程式碼前，先傳送要求並檢視回應。
 
@@ -31,7 +31,7 @@ ms.locfileid: "55756070"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)，然後[註冊 Azure 搜尋服務](search-create-service-portal.md)。
 
-## <a name="download-and-install-tools"></a>下載並安裝工具
+## <a name="download-tools"></a>下載工具
 
 下列工具廣泛用於 Web 開發，但是如果您熟悉其他工具，仍然應該套用本文中的指示。
 
@@ -42,11 +42,16 @@ ms.locfileid: "55756070"
 
 REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同時建立，因此如果您將 Azure 搜尋服務新增至您的訂用帳戶，請遵循下列步驟來取得必要的資訊：
 
-1. 在 Azure 入口網站中，從儀表板開啟搜尋服務分頁，或在服務清單中[尋找服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。
-2. 在 [概觀] > [基本功能] > [URL] 中取得端點。 範例端點看起來會像是 `https://my-service-name.search.windows.net`。
-3. 在 [設定] > [金鑰] 中取得 API 金鑰。 如果您想要復原金鑰，有兩個管理員金鑰可供備援。 管理員金鑰會授與您的服務之寫入存取權，這是建立和載入索引的必要權限。 您可以針對寫入作業使用主要或次要金鑰。
+1. 在 Azure 入口網站中，您的搜尋服務 [概觀] 頁面上，取得 URL。 範例端點看起來會像是 `https://my-service-name.search.windows.net`。
 
-## <a name="configure-request-headers"></a>設定要求標頭
+2. 在 [設定]  >  [金鑰] 中，取得服務上完整權限的管理金鑰。 可互換的管理金鑰有兩個，可在您需要變換金鑰時提供商務持續性。 您可以在新增、修改及刪除物件的要求上使用主要或次要金鑰。
+
+![取得 HTTP 端點和存取金鑰](media/search-fiddler/get-url-key.png "取得 HTTP 端點和存取金鑰")
+
+所有要求都需要在傳送至您服務上的每個要求上使用 API 金鑰。 擁有有效的金鑰就能為每個要求在傳送要求之應用程式與處理要求之服務間建立信任。
+
+
+## <a name="configure-headers"></a>設定標頭
 
 每個工具會保存工作階段的要求標頭資訊，這表示您只需要輸入一次 URL 端點、API 版本、API 金鑰和內容類型。
 
@@ -56,13 +61,20 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 + HTTPS 前置詞。
 + 服務 URL，從入口網站取得。
-+ 資源，在您的服務上建立物件的作業。 在此步驟中，它是名為旅館的索引。
++ 資源，在您的服務上建立物件的作業。 在此步驟中，它是名為 *hotels* 的索引。
 + API 版本，必要的小寫字串，針對目前版本指定為 "?api-version=2017-11-11"。 [API 版本](search-api-versions.md)會定期更新。 在每個要求上包括 API 版本可讓您具備所使用之版本的完整控制權。  
 
 要求標頭組合包含兩個元素，也就是前一節中所述的內容類型和 API 金鑰：
 
-         content-type: application/json
-         api-key: <placeholder>
+    api-key: <placeholder>
+    Content-Type: application/json
+
+
+### <a name="postman"></a>postman
+
+制訂如下列螢幕擷取畫面所示的要求。 選擇 **PUT** 作為動詞。 
+
+![Postman 要求標頭][6]
 
 ### <a name="fiddler"></a>Fiddler
 
@@ -71,15 +83,9 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 ![Fiddler 要求標頭][1]
 
 > [!Tip]
-> 您可以關閉 Web 流量以隱藏與您正在執行之工作不相關的外來 HTTP 活動。 在 Fiddler 中，請移至 [檔案] 功能表並且關閉 [擷取流量]。 
+> 關閉 Web 流量以隱藏無關且不相關的 HTTP 活動。 在 Fiddler 的 [檔案] 功能表中，關閉 [擷取流量]。 
 
-### <a name="postman"></a>postman
-
-制訂如下列螢幕擷取畫面所示的要求。 選擇 **PUT** 作為動詞。 
-
-![Postman 要求標頭][6]
-
-## <a name="create-the-index"></a>建立索引
+## <a name="1---create-an-index"></a>1 - 建立索引
 
 要求本文包含索引定義。 新增要求本文會完成要求 (產生您的索引)。
 
@@ -109,11 +115,6 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 如果您收到 HTTP 504，請確認 URL 所指定的是 HTTPS。 如果您看見 HTTP 400 或 404，請查看要求本文以確認並沒有「複製-貼上」錯誤。 HTTP 403 通常表示 API 金鑰有問題 (可能是金鑰無效或是用來指定 API 金鑰的語法有問題)。
 
-### <a name="fiddler"></a>Fiddler
-
-將索引定義複製到要求本文，類似於以下螢幕擷取畫面，然後按一下右上方的 [執行] 以傳送完成的要求。
-
-![Fiddler 要求本文][7]
 
 ### <a name="postman"></a>postman
 
@@ -121,7 +122,13 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 ![Postman 要求本文][8]
 
-## <a name="load-documents"></a>載入文件
+### <a name="fiddler"></a>Fiddler
+
+將索引定義複製到要求本文，類似於以下螢幕擷取畫面，然後按一下右上方的 [執行] 以傳送完成的要求。
+
+![Fiddler 要求本文][7]
+
+## <a name="2---load-documents"></a>2 - 載入文件
 
 建立索引和填入索引是個別的步驟。 在 Azure 搜尋服務中，索引會包含所有可搜尋的資料，您可以提供來作為 JSON 文件。 若要檢閱此作業的 API，請參閱[新增、更新或刪除文件 (REST)](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)。
 
@@ -199,11 +206,6 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 > [!Tip]
 > 針對選取的資料來源，您可以選擇替代「索引子」方法，這個方法可簡化並減少編制索引所需的程式碼數量。 如需詳細資訊，請參閱[索引子作業](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)。
 
-### <a name="fiddler"></a>Fiddler
-
-將動詞變更為 **POST**。 變更 URL 以包含 `/docs/index`。 將文件複製到要求本文，類似於下列螢幕擷取畫面，然後執行要求。
-
-![Fiddler 要求裝載][9]
 
 ### <a name="postman"></a>postman
 
@@ -211,8 +213,14 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 ![Postman 要求裝載][10]
 
-## <a name="query-the-index"></a>查詢索引
-現在已載入索引和文件，您可以對其發出查詢。 如需此 API 的詳細資訊，請參閱[搜尋文件 (REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents)  
+### <a name="fiddler"></a>Fiddler
+
+將動詞變更為 **POST**。 變更 URL 以包含 `/docs/index`。 將文件複製到要求本文，類似於下列螢幕擷取畫面，然後執行要求。
+
+![Fiddler 要求裝載][9]
+
+## <a name="3---search-an-index"></a>3 - 搜尋索引
+現在已載入索引和文件，您可以使用[搜尋文件](https://docs.microsoft.com/rest/api/searchservice/search-documents) REST API 對其發出查詢。
 
 + 針對此步驟將動詞變更為 **GET**。
 + 變更端點以包含查詢參數，包括搜尋字串。 查詢 URL 看起來會像是 `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
@@ -234,7 +242,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
         GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2017-11-11
 
-## <a name="query-index-properties"></a>查詢索引屬性
+## <a name="get-index-properties"></a>取得索引屬性
 您也可以查詢系統資訊以取得文件計數和儲存體用量：`https://my-app.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`
 
 在 Postman 中，您的要求看起來應該與下方項目類似，回應會包括文件計數和使用的空格 (以位元組表示)。
@@ -254,9 +262,8 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 REST 用戶端對於臨時探索相當寶貴，但是現在您知道 REST API 的運作方式，您可以繼續進行程式碼。 對於您的下一個步驟，請參閱下列連結：
 
-+ [建立索引 (REST)](search-create-index-rest-api.md)
-+ [匯入資料 (REST)](search-import-data-rest-api.md)
-+ [搜尋索引 (REST)](search-query-rest-api.md)
++ [快速入門：使用 .NET SDK 建立索引](search-create-index-dotnet.md)
++ [快速入門：使用 PowerShell 建立索引 (REST)](search-create-index-rest-api.md)
 
 <!--Image References-->
 [1]: ./media/search-fiddler/fiddler-url.png

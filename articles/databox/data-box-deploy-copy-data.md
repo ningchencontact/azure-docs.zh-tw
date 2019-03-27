@@ -8,16 +8,16 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 62675df9f440df77d1098d5c89bd6810349fb3af
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 3474d4ee8751bcd472aa109e9e541d639344276d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749999"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118079"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>教學課程：透過 SMB 將資料複製到 Azure 資料箱
 
-本教學課程說明如何使用本機 Web UI 連線至主機電腦並從中複製資料。
+本教學課程說明如何使用本機 Web UI 來連線至主機電腦並從中複製資料。
 
 在本教學課程中，您了解如何：
 
@@ -41,7 +41,8 @@ ms.locfileid: "56749999"
 
 根據選取的儲存體帳戶，資料箱最多會建立：
 - 每個相關聯的儲存體帳戶三個共用 (針對 GPv1 與 GPv2)。
-- 進階或 Blob 儲存體帳戶的一個共用。
+- 一個適用於進階儲存體的共用。 
+- 一個適用於 Blob 儲存體帳戶的共用。 
 
 在區塊 Blob 與分頁 Blob 共用底下，第一層實體是容器，而第二層實體是 Blob。 在 Azure 檔案共用底下，第一層實體是共用，第二層實體是檔案。
 
@@ -195,8 +196,8 @@ ms.locfileid: "56749999"
 若要將效能最佳化，複製資料時請使用下列 robocopy 參數。
 
 |    平台    |    大部分是 < 512 KB 的小檔案                           |    大部分是 512 KB - 1 MB 的中型檔案                      |    大部分是 > 1 MB 的大檔案                             |   
-|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
-|    資料箱         |    2 個 Robocopy 工作階段 <br> 每個工作階段 16 個執行緒    |    3 個 Robocopy 工作階段 <br> 每個工作階段 16 個執行緒    |    2 個 Robocopy 工作階段 <br> 每個工作階段 24 個執行緒    |  |
+|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
+|    資料箱         |    2 個 Robocopy 工作階段 <br> 每個工作階段 16 個執行緒    |    3 個 Robocopy 工作階段 <br> 每個工作階段 16 個執行緒    |    2 個 Robocopy 工作階段 <br> 每個工作階段 24 個執行緒    |
 
 
 如需 Robocopy 命令的詳細資訊，請移至 [Robocopy 和數個範例](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx)。

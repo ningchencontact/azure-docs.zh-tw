@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 09d43386b994ffc046f8c3e22c82f13ec15acd38
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: bfe4abe4a83a6b22d05942f91f4152d5c0e62be9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428966"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124073"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站記錄往返於虛擬機器的網路流量
 
@@ -100,7 +100,10 @@ NSG 流量記錄需要 **Microsoft.Insights** 提供者。 若要註冊提供者
 
 6. 從 NSG 清單中，選取名為 **myVm-nsg** 的 NSG。
 7. 在 [流量記錄設定] 下，選取 [開啟]。
-8. 選取流程記錄版本。 第 2 版包含流程工作階段統計資料 (位元組和封包)。 ![選取流程記錄版本](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+8. 選取流程記錄版本。 第 2 版包含流量工作階段統計資料 (位元組和封包)
+
+   ![選取流量記錄版本](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+
 9. 選取您在步驟 3 建立的儲存體帳戶。
 10. 將 [保留 (天數)] 設定為 5，然後選取 [儲存]。
 
@@ -109,17 +112,13 @@ NSG 流量記錄需要 **Microsoft.Insights** 提供者。 若要註冊提供者
 1. 從入口網站的網路監看員中，選取 [記錄] 下方的 [NSG 流量記錄]。
 2. 選取 [您可從設定的儲存體帳戶下載流量記錄]，如下圖所示：
 
-  ![下載流量記錄](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
+   ![下載流量記錄](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. 選取您在步驟 2 ([啟用 NSG 流量記錄](#enable-nsg-flow-log)) 設定的儲存體帳戶。
-4. 在 [BLOB 服務] 下選取 [容器]，然後選取 **insights-logs-networksecuritygroupflowevent** 容器，如下圖所示：
+4. 在 [Blob 服務] 下選取 [Blob]，然後選取 **insights-logs-networksecuritygroupflowevent** 容器。
+5. 在容器中，瀏覽資料夾階層，直到看到 PT1H.json 檔案為止，如下圖所示。 記錄檔會寫入至遵循下列命名慣例的資料夾階層： https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 
-    ![選取容器](./media/network-watcher-nsg-flow-logging-portal/select-container.png)
-5. 瀏覽資料夾階層，直到看到 PT1H.json 檔案，如下圖所示：
-
-    ![記錄檔](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
-
-    記錄檔會寫入遵循下列命名慣例的資料夾階層： https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
+   ![流量記錄](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
 
 6. 選取 PT1H.json 檔案右邊的 [...]，然後選取 [下載]。
 
@@ -196,7 +195,6 @@ NSG 流量記錄需要 **Microsoft.Insights** 提供者。 若要註冊提供者
 }
 ```
 
-
 上述輸出中的 **mac** 值是網路介面的 MAC 位址，該網路介面是在建立 VM 時建立的。 以逗號分隔的 **flowTuples** 資訊代表下列內容：
 
 | 範例資料 | 資料代表的意義   | 說明                                                                              |
@@ -213,7 +211,7 @@ NSG 流量記錄需要 **Microsoft.Insights** 提供者。 若要註冊提供者
 | 30 | 已傳送的封包數 - 來源到目的地 **僅限第 2 版** | 上次更新之後從來源傳送到目的地的 TCP 或 UDP 封包總數。 |
 | 16978 | 已傳送的位元組數 - 來源到目的地 **僅限第 2 版** | 上次更新之後從來源傳送到目的地的 TCP 或 UDP 封包位元組總數。 封包位元組包括封包標頭與承載。 | 
 | 24 | 已傳送的封包數 - 目的地到來源 **僅限第 2 版** | 上次更新之後從目的地傳送到來源的 TCP 或 UDP 封包總數。 |
-| 14008| 已傳送的位元組數 - 目的地到來源 **僅限第 2 版** | 上次更新之後從目的地傳送到來源的 TCP 與 UDP 封包位元組總數。 封包位元組包括封包標頭與承載。| |
+| 14008| 已傳送的位元組數 - 目的地到來源 **僅限第 2 版** | 上次更新之後從目的地傳送到來源的 TCP 與 UDP 封包位元組總數。 封包位元組包括封包標頭與承載。|
 
 ## <a name="next-steps"></a>後續步驟
 

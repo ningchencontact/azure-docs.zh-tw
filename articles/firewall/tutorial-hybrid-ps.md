@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 1/30/2019
+ms.date: 3/18/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: cf3c691553f2bc7ae8f10345daee92a8380aba25
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 973d5c5c3822eaddce2bc77d06d01930606994c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815739"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182569"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>教學課程：使用 Azure PowerShell 在混合式網路中部署及設定 Azure 防火牆
 
@@ -25,7 +25,7 @@ ms.locfileid: "55815739"
 
 - **VNet-Hub** - 防火牆位於此虛擬網路中。
 - **VNet-Spoke** - 輪輻虛擬網路代表位於 Azure 的工作負載。
-- **VNet-Onprem** - 內部部署虛擬網路代表內部部署網路。 在實際的部署中，可藉由 VPN 或路由連線來與其連線。 為了簡單起見，本教學課程使用 VPN 閘道連線，而位於 Azure 的虛擬網路用來代表內部部署網路。
+- **VNet-Onprem** - 內部部署虛擬網路代表內部部署網路。 在實際部署中，它可經由 VPN 或 ExpressRoute 連線來連線。 為了簡單起見，本教學課程使用 VPN 閘道連線，而位於 Azure 的虛擬網路用來代表內部部署網路。
 
 ![混合式網路中的防火牆](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
@@ -51,13 +51,16 @@ ms.locfileid: "55815739"
 
 - 輪輻子網路上使用者定義的路由 (UDR) 會指向 Azure 防火牆 IP 位址，作為預設閘道。 此路由表上的 BGP 路由傳播必須 [已停用]。
 - 中樞閘道子網路上的 UDR 必須指向防火牆 IP 位址，作為輪輻網路的下一個躍點。
-- Azure 防火牆子網路不需要任何 UDR，因為可從 BGP 得知路由。
+
+   Azure 防火牆子網路不需要任何 UDR，因為可從 BGP 得知路由。
 - 請務必在將 VNet-Hub 對等互連至 VNet-Spoke 時設定 **AllowGatewayTransit**，以及在將 VNet-Spoke 對等互連至 VNet-Hub 時設定 **UseRemoteGateways**。
 
-請參閱本教學課程中的＜建立路由＞一節，了解如何建立這些路由。
+請參閱本教學課程中的[建立路由](#create-the-routes)一節，了解如何建立這些路由。
 
 >[!NOTE]
->「Azure 防火牆」必須能夠直接連線到網際網路。 如果您已啟用透過 ExpressRoute 或「應用程式閘道」以強制通道連線至內部部署環境的功能，就必須搭配將 **NextHopType** 值設定為 **Internet** 來設定 UDR 0.0.0.0/0，然後將其指派給 **AzureFirewallSubnet**。
+>「Azure 防火牆」必須能夠直接連線到網際網路。 根據預設，AzureFirewallSubnet 應該只允許 **NextHopType** 值設為 **Internet** 的 UDR 0.0.0.0/0。
+>
+>如果您透過 ExpressRoute 或應用程式閘道啟用強制通道至內部部署，則可能必須明確地設定 NextHopType 值設為 **Internet** 的 UDR 0.0.0.0/0，然後將其關聯至您的 AzureFirewallSubnet。 如果您的組織需要對 Azure 防火牆流量啟用強制通道，請連絡支援人員，讓我們可將您的訂用帳戶加入白名單，並確保能夠維持必要的防火牆網際網路連線能力。
 
 >[!NOTE]
 >即使 UDR 指向「Azure 防火牆」作為預設閘道，系統仍會直接路由直接對等互連之 VNet 間的流量。 在此案例中若要將子網路對子網路流量傳送到防火牆，UDR 必須在這兩個子網路上同時明確包含目標子網路網路首碼。

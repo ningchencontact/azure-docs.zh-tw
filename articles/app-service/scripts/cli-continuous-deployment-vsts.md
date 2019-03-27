@@ -16,18 +16,18 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: jeconnoc
 ms.custom: seodec18
-ms.openlocfilehash: 90eaf7f57f524cb6e47d9d0f4e160855acd6daf5
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 67e4f99046820aa21392ff1238318e1b48bb5354
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633652"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901078"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-using-azure-cli"></a>使用 Azure CLI 建立可持續部署的 App Service 應用程式
 
-此範例指令碼會在 App Service 中建立應用程式及其相關資源，然後設定從 Azure DevOps 存放庫持續部署。 針對此範例，您需要：
+此範例指令碼會在 App Service 中建立應用程式及其相關資源，然後設定從 Azure DevOps 存放庫進行的持續部署。 針對此範例，您需要：
 
-* 具有應用程式程式碼的 Azure DevOps 存放庫 (您必須有此存放庫的系統管理權限)。
+* 一個您具備系統管理權限且含有應用程式程式碼的 Azure DevOps 存放庫。
 * 您 Azure DevOps 組織的[個人存取權杖 (PAT)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts)。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

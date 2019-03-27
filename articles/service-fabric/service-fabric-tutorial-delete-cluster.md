@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 09/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: d4f530e38b6fd69d814765f4133201dd12a87f22
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 62372b4ce4032e019219b5be8c5a49ea135782c1
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668577"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223269"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>教學課程：移除在 Azure 中執行的 Service Fabric 叢集
 
-本教學課程是系列中的第四部分，示範如何刪除 Azure 中執行的 Service Fabric 叢集。 若要完全刪除 Service Fabric 叢集，您也必須刪除叢集所使用的資源。 做法有兩種︰刪除叢集所在的資源群組 (這會刪除叢集資源和資源群組中的所有其他資源)，或明確刪除叢集資源和其相關聯資源 (而不是資源群組中的其他資源)。
+本教學課程是一個系列中的第五部分，示範如何刪除 Azure 中執行的 Service Fabric 叢集。 若要完全刪除 Service Fabric 叢集，您也必須刪除叢集所使用的資源。 做法有兩種︰刪除叢集所在的資源群組 (這會刪除叢集資源和資源群組中的所有其他資源)，或明確刪除叢集資源和其相關聯資源 (而不是資源群組中的其他資源)。
 
 在本教學課程中，您了解如何：
 
@@ -35,6 +35,7 @@ ms.locfileid: "56668577"
 在本教學課程系列中，您將了解如何：
 > [!div class="checklist"]
 > * 在 Azure 上使用範本建立安全的 [Windows 叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+> * [監視叢集](service-fabric-tutorial-monitor-cluster.md)
 > * [將叢集相應縮小或相應放大](service-fabric-tutorial-scale-cluster.md)
 > * [升級叢集的執行階段](service-fabric-tutorial-upgrade-cluster.md)
 > * 刪除叢集
@@ -50,7 +51,7 @@ ms.locfileid: "56668577"
 ## <a name="delete-the-resource-group-containing-the-service-fabric-cluster"></a>刪除包含 Service Fabric 叢集的資源群組
 刪除叢集及其取用之所有資源的最簡單方式，就是刪除資源群組。
 
-登入 Azure 並選取您要移除叢集的訂用帳戶識別碼。  您可以登入[Azure 入口網站](http://portal.azure.com)找到您的訂用帳戶識別碼。 使用 [Remove-AzureRMResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) Cmdlet 或 [az group delete](/cli/azure/group?view=azure-cli-latest) 命令刪除資源群組和所有叢集資源。
+登入 Azure 並選取您要移除叢集的訂用帳戶識別碼。  您可以登入[Azure 入口網站](https://portal.azure.com)找到您的訂用帳戶識別碼。 使用 [Remove-AzureRMResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) Cmdlet 或 [az group delete](/cli/azure/group?view=azure-cli-latest) 命令刪除資源群組和所有叢集資源。
 
 ```powershell
 Connect-AzureRmAccount

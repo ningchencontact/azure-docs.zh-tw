@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2f95b226-1465-47f4-b8b7-de4b0772abbc
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90d82e8c253cd89664aefb9b690a8323d99318c2
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 1d48eb0605648ba09478d5481d35b61ff4f06a45
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880762"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901095"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-captivate-prime"></a>教學課程：Azure Active Directory 與 Adobe Captivate Prime 整合
 
@@ -28,7 +28,7 @@ ms.locfileid: "56880762"
 Adobe Captivate Prime 與 Azure AD 整合提供下列優點：
 
 * 您可以在 Azure AD 中控制可存取 Adobe Captivate Prime 的人員。
-* 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Adobe Captivate Prime (單一登入)。
+* 您可以讓使用者使用其 Azure AD 帳戶自動登入 Adobe Captivate Prime (單一登入)。
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
@@ -36,7 +36,7 @@ Adobe Captivate Prime 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Adobe Captivate Prime 整合，您需要下列項目：
+若要設定 Azure AD 與 Adobe Captivate Prime 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Adobe Captivate Prime 單一登入的訂用帳戶
@@ -45,7 +45,7 @@ Adobe Captivate Prime 與 Azure AD 整合提供下列優點：
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* Adobe Captivate Prime 支援 **IDP** 起始的 SSO
+* Adobe Captivate Prime 支援由 **IDP** 起始的 SSO
 
 ## <a name="adding-adobe-captivate-prime-from-the-gallery"></a>從資源庫新增 Adobe Captivate Prime
 
@@ -71,10 +71,10 @@ Adobe Captivate Prime 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者身分，搭配 Adobe Captivate Prime 設定及測試 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Adobe Captivate Prime 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Adobe Captivate Prime 中相關使用者之間的連結關聯性。
 
-若要搭配 Adobe Captivate Prime 設定及測試 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 Adobe Captivate Prime 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Adobe Captivate Prime 單一登入](#configure-adobe-captivate-prime-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -87,7 +87,7 @@ Adobe Captivate Prime 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要搭配 Adobe Captivate Prime 設定 Azure AD 單一登入，請執行下列步驟：
+若要設定與 Adobe Captivate Prime 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Adobe Captivate Prime] 應用程式整合頁面上，按一下 [單一登入]。
 
@@ -149,7 +149,7 @@ Adobe Captivate Prime 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -166,7 +166,7 @@ Adobe Captivate Prime 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Adobe Captivate Prime]。
 
-    ![應用程式清單中的 Adobe Captivate Prime 連結](common/all-applications.png)
+    ![應用程式清單中的 [Adobe Captivate Prime] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -190,7 +190,7 @@ Adobe Captivate Prime 與 Azure AD 整合提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Adobe Captivate Prime] 圖格時，應該會自動登入您設定 SSO 的 Adobe Captivate Prime。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [Adobe Captivate Prime] 圖格時，應該會自動登入您已設定 SSO 的 Adobe Captivate Prime。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

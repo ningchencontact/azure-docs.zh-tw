@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 815147abba444f0a55a8455c0a818aa048271b92
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: e2678200e2f8c55111e53ab0a341804fd17623a3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309636"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994944"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>開始使用知識探索服務
 
@@ -64,7 +64,7 @@ ms.locfileid: "56309636"
 
 ## <a name="generate-data"></a>產生資料
 
-資料檔案可描述要編製索引之出版物的清單，其中每行都會以 [JSON 格式](http://json.org/)指定論文的屬性值。  下列範例是資料檔案 *Academic.data* 中的一行，並設定為方便閱讀的格式：
+資料檔案可描述要編製索引之出版物的清單，其中每行都會以 [JSON 格式](https://json.org/)指定論文的屬性值。  下列範例是資料檔案 *Academic.data* 中的一行，並設定為方便閱讀的格式：
 
 ```
 ...
@@ -207,7 +207,7 @@ ms.locfileid: "56309636"
 
 ## <a name="host-the-grammar-and-index-in-a-web-service"></a>在 Web 服務中裝載文法和索引
 
-若要快速進行原型設計，您可以在本機電腦的 Web 服務中，使用 [`kes.exe host_service`](CommandLine.md#host_service-command) 裝載文法和索引。 接著，您可以透過 [Web API](WebAPI.md) 存取該服務，以驗證資料正確性和文法設計。 在此範例中，您要在 http://localhost:8000/ 裝載文法檔案 *Academic.grammar* 和索引檔案 *Academic.index*。 使用下列命令：
+若要快速進行原型設計，您可以在本機電腦的 Web 服務中，使用 [`kes.exe host_service`](CommandLine.md#host_service-command) 裝載文法和索引。 接著，您可以透過 [Web API](WebAPI.md) 存取該服務，以驗證資料正確性和文法設計。 在此範例中，您要在 `http://localhost:8000/` 裝載文法檔案 *Academic.grammar* 和索引檔案 *Academic.index*。 使用下列命令：
 
 `kes.exe host_service Academic.grammar Academic.index --port 8000`
 
@@ -238,7 +238,7 @@ ms.locfileid: "56309636"
 
 `kes.exe build_index http://<account>.blob.core.windows.net/<container>/Academic.schema http://<account>.blob.core.windows.net/<container>/Academic.full.data http://<account>.blob.core.windows.net/<container>/Academic.full.index --remote <vm_size>`
 
-請注意，佈建臨時 VM 來建置索引可能需要 5-10 分鐘的時間。 若要快速進行原型設計，您可以：
+請注意，佈建暫存 VM 來建置索引，可能需要 5-10 分鐘的時間。 若要快速進行原型設計，您可以：
 - 使用較小的資料集，在任何電腦本機開發。
 - 手動[建立 Azure VM](../../../articles/virtual-machines/windows/quick-create-portal.md)、透過遠端桌面[連線到該 VM](../../../articles/virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine)、安裝[知識探索服務 SDK](https://www.microsoft.com/en-us/download/details.aspx?id=51488)，然後從 VM 內執行 [`kes.exe`](CommandLine.md)。
 

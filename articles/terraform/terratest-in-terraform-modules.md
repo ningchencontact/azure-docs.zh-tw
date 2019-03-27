@@ -2,21 +2,24 @@
 title: 在 Azure 中使用 Terratest 測試 Terraform 模組
 description: 了解如何使用 Terratest 來測試 Terraform 模組。
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, 儲存體帳戶, azure, terratest, 單元測試, 整合測試
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/19/2018
-ms.openlocfilehash: fce70916cef96cee6496478503305e2bb1e73c09
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.date: 03/19/2019
+ms.openlocfilehash: 9d621905122ab7bf64432323d7d11cf8f1b50750
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656324"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224000"
 ---
 # <a name="test-terraform-modules-in-azure-by-using-terratest"></a>在 Azure 中使用 Terratest 測試 Terraform 模組
+
+> [!NOTE]
+> 本文中的範例程式碼無法搭配 0.12 版 (和更新版本) 使用。
 
 您可以使用 Azure Terraform 模組來建立可重複使用、可組合和可測試的元件。 Terraform 模組納入封裝，其在實作基礎結構作為程式碼程序時很實用。
 

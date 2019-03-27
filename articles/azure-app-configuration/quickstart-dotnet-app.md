@@ -14,22 +14,22 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: b5e41b1f9ee982b8ff8c86232f715d5dab705cd6
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 551b884f032eaba3f052fcb7571ba907038152ff
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56962157"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226839"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>快速入門：使用 Azure 應用程式設定建立 .NET Framework 應用程式
 
-Azure 應用程式設定是 Azure 中的受控設定服務。 其可讓您輕鬆地在與程式碼分開的單一位置，儲存和管理您所有的應用程式設定。 本快速入門會示範如何將該服務併入以 .NET Framework 為基礎的 Windows 桌面主控台應用程式。
+Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆地在與程式碼分開的單一位置，儲存和管理您所有的應用程式設定。 本快速入門會示範如何將該服務併入以 .NET Framework 為基礎的 Windows 桌面主控台應用程式。
 
 ![快速入門完成 (本機)](./media/quickstarts/dotnet-fx-app-run.png)
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本快速入門，請安裝 [Visual Studio 2017](https://visualstudio.microsoft.com/vs) 和 [.NET Framework 4.7.1](https://dotnet.microsoft.com/download) 或更新版本 (如果您尚未安裝的話)。
+若要進行本快速入門，請安裝 [Visual Studio 2017](https://visualstudio.microsoft.com/vs) 和 [.NET Framework 4.7.1](https://dotnet.microsoft.com/download) 或更新版本 (如果您尚未安裝的話)。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -41,17 +41,17 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 其可讓您輕鬆
 
 1. 啟動 Visual Studio，然後選取 [檔案] > [新增] > [專案]。
 
-2. 在 [新專案] 對話方塊中選取 [已安裝]，展開 [Visual C#] > [Windows 桌面] 並選取 [主控台應用程式 (.NET Framework)]，輸入您專案的**名稱**，然後選擇 [.NET Framework 4.7.1] 或更新版本，並按一下 [確定]。
+2. 在 [新增專案] 中，選取 [已安裝] > [Visual C#] > [Windows 桌面]。 選取 [主控台應用程式 (.NET Framework)]，然後輸入專案的名稱。 選取 **.NET Framework 4.7.1** 或以上，然後選取 [確定]。
 
-## <a name="connect-to-app-configuration-store"></a>連線至應用程式設定存放區
+## <a name="connect-to-an-app-configuration-store"></a>連線至應用程式設定存放區
 
-1. 以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 套件...]。在 [瀏覽] 索引標籤上搜尋下列 NuGet 套件，並將其新增至您的專案 (如果找不到，請核取 [包含發行前版本] 方塊)。
+1. 以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 套件]。 在 [瀏覽] 索引標籤上，搜尋下列 NuGet 套件並新增至您的專案。 如果您找不到它們，請選取 [包括發行前版本] 核取方塊。
     ```
     Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration 1.0.0 preview or later
     Microsoft.Configuration.ConfigurationBuilders.Environment 2.0.0 preview or later
     ```
 
-2. 更新您專案的 App.config 檔案，如下所示：
+2. 更新您專案的 *App.config* 檔案，如下所示：
 
     ```xml
     <configSections>
@@ -71,9 +71,9 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 其可讓您輕鬆
     </appSettings>
     ```
 
-   請注意，由於我們會從環境變數 `ConnectionString` 讀取您應用程式設定存放區的連接字串，因此，在 `appSettings` 區段的 `configBuilders` 屬性中，請務必將 `Environment` 設定產生器新增在 `MyConfigStore` 之前。
+   從環境變數 `ConnectionString` 讀取應用程式設定存放區的連接字串。 在 `appSettings` 區段的 `configBuilders` 屬性中，於 `MyConfigStore` 之前新增 `Environment` 設定建立器。
 
-3. 開啟 Program.cs，並藉由呼叫 `ConfigurationManager` 將 `Main` 方法更新為使用應用程式設定。
+3. 開啟 *Program.cs*，並藉由呼叫 `ConfigurationManager` 將 `Main` 方法更新為使用應用程式設定。
 
     ```csharp
     static void Main(string[] args)
@@ -94,7 +94,7 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 其可讓您輕鬆
 
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
-2. 重新啟動 Visual Studio 以允許變更生效，然後在鍵盤上按下 **Ctrl + F5** 來建置並執行主控台應用程式。
+2. 重新啟動 Visual Studio，以讓變更生效。 按 Ctrl + F5 以建置並執行主控台應用程式。
 
 ## <a name="clean-up-resources"></a>清除資源
 

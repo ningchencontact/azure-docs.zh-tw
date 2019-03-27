@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 0ecd0603a5750b6d03da7cf2c577c668482048aa
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 58835b66824d55b64b77e34df64d34c8da1c269a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077312"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864808"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>使用 Jenkins 外掛程式來部署到 Azure App Service 
 
@@ -77,7 +77,7 @@ sudo apt-get install -y maven
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
     ```
     
-3. 設定您應用程式所需的 Java 執行階段組態。 下列 Azure CLI 命令會將 Web 應用程式設定為在最新的 JDK 8 和 [Apache Tomcat](http://tomcat.apache.org/) 8.0 版上執行：
+3. 設定您應用程式所需的 Java 執行階段組態。 下列 Azure CLI 命令會將 Web 應用程式設定為在最新的 JDK 8 和 [Apache Tomcat](https://tomcat.apache.org/) 8.0 版上執行：
     ```azurecli-interactive
     az webapp config set \
     --name <myAppName> \
@@ -90,7 +90,7 @@ sudo apt-get install -y maven
 ### <a name="set-up-the-jenkins-job"></a>設定 Jenkins 作業
 
 1. 在 Jenkins 儀表板上建立新的**自由樣式**專案。
-2. 將 [Source Code Management] \(原始程式碼管理\) 欄位設定為使用您的[適用於 Azure 的簡單 Java Web 應用程式](https://github.com/azure-devops/javawebappsample)本機分支。 提供 [Repository URL] \(儲存機制 URL\) 值。 例如： http://github.com/&ltyour_ID>/javawebappsample。
+2. 將 [Source Code Management] \(原始程式碼管理\) 欄位設定為使用您的[適用於 Azure 的簡單 Java Web 應用程式](https://github.com/azure-devops/javawebappsample)本機分支。 提供 [Repository URL] \(儲存機制 URL\) 值。 例如：http:\//github.com/&lt;your_ID>/javawebappsample。
 3. 使用 Maven 藉由新增**執行 shell** 命令來新增一個建置專案的步驟。 在此範例中，我們需要一個額外的命令來將目標資料夾中的 \*.war 檔案重新命名為 **ROOT.war**：   
     ```bash
     mvn clean package
@@ -143,7 +143,7 @@ Linux 上的 Web Apps 也支援 Git 和檔案上傳等傳統部署方法，但�
 ### <a name="set-up-the-jenkins-job-for-docker"></a>設定 Docker 的 Jenkins 作業
 
 1. 在 Jenkins 儀表板上建立新的**自由樣式**專案。
-2. 將 [Source Code Management] \(原始程式碼管理\) 欄位設定為使用您的[適用於 Azure 的簡單 Java Web 應用程式](https://github.com/azure-devops/javawebappsample)本機分支。 提供 [Repository URL] \(儲存機制 URL\) 值。 例如： http://github.com/&ltyour_ID>/javawebappsample。
+2. 將 [Source Code Management] \(原始程式碼管理\) 欄位設定為使用您的[適用於 Azure 的簡單 Java Web 應用程式](https://github.com/azure-devops/javawebappsample)本機分支。 提供 [Repository URL] \(儲存機制 URL\) 值。 例如：http:\//github.com/&lt;your_ID>/javawebappsample。
 3. 使用 Maven 藉由新增**執行 shell** 命令來新增一個建置專案的步驟。 在命令中包含下列一行：
     ```bash
     mvn clean package

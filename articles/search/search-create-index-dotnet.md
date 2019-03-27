@@ -1,60 +1,72 @@
 ---
 title: 使用 .NET API 以程式碼建立索引 - Azure 搜尋服務
 description: 了解如何使用 Azure 搜尋服務 .NET SDK 與 C# 範例程式碼建立全文檢索的可搜尋索引。
-author: brjohnstmsft
-manager: jlembicz
+author: heidisteen
+manager: cgronlun
+ms.author: heidist
 tags: azure-portal
 services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/22/2017
-ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: 6d111b1be310a345e23c440f1af9da4183efff43
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.date: 03/20/2019
+ms.openlocfilehash: dbaac1478fdbf1b42fc6b597c3a5c541e007e413
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312590"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287140"
 ---
-# <a name="create-an-azure-search-index-using-the-net-sdk"></a>使用 .NET SDK 建立 Azure 搜尋服務索引
-> [!div class="op_single_selector"]
-> * [概觀](search-what-is-an-index.md)
-> * [入口網站](search-create-index-portal.md)
-> * [.NET](search-create-index-dotnet.md)
-> * [REST](search-create-index-rest-api.md)
-> 
-> 
+# <a name="quickstart-1---create-an-azure-search-index-in-c"></a>快速入門：1 - 在 C# 中建立 Azure 搜尋服務索引
 
-本文將逐步引導您完成使用 [Azure 搜尋服務 .NET SDK](https://aka.ms/search-sdk) 建立 Azure 搜尋服務[索引](https://docs.microsoft.com/rest/api/searchservice/Create-Index)的程序。
+本文將逐步引導您完成使用 C# 和 [.NET SDK](https://aka.ms/search-sdk) 建立 [Azure 搜尋服務索引](search-what-is-an-index.md)的程序。 這是建立、載入和查詢索引的 3 部分練習中的第 1 課。 索引建立是透過執行這些工作來完成的：
 
-在按照本指南進行並建立索引錢，請先 [建立好 Azure 搜尋服務](search-create-service-portal.md)。
+> [!div class="checklist"]
+> * 建立 [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) 物件以連接到搜尋服務。
+> * 建立 [`Index`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 物件以傳遞作為 `Indexes.Create` 上的參數。
+> * 呼叫 `SearchServiceClient` 上的 `Indexes.Create` 方法，將 `Index` 傳送至服務。
 
-> [!NOTE]
-> 本文中的所有範例程式碼均以 C# 撰寫。 您可以 [在 GitHub](https://aka.ms/search-dotnet-howto)找到完整的原始程式碼。 您也可以閱讀 [Azure 搜尋服務 .NET SDK](search-howto-dotnet-sdk.md)，以取得更詳細的範例程式碼逐步說明。
+## <a name="prerequisites"></a>必要條件
+
+[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。
+
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)任何版本。 範例程式碼和指示已在免費的社群版上測試過。
+
+您搜尋服務的 URL 端點和管理 API 金鑰。 搜尋服務是同時建立，因此如果您將 Azure 搜尋服務新增至您的訂用帳戶，請遵循下列步驟來取得必要的資訊：
+
+  1. 在 Azure 入口網站中，您的搜尋服務 [概觀] 頁面上，取得 URL。 範例端點看起來會像是 `https://mydemo.search.windows.net`。
+
+  2. 在 [設定]  >  [金鑰] 中，取得服務上完整權限的管理金鑰。 可互換的管理金鑰有兩個，可在您需要變換金鑰時提供商務持續性。 您可以在新增、修改及刪除物件的要求上使用主要或次要金鑰。
+
+  ![取得 HTTP 端點和存取金鑰](media/search-fiddler/get-url-key.png "取得 HTTP 端點和存取金鑰")
+
+所有要求均都需要在傳送至您服務上的每個要求上使用 API 金鑰。 擁有有效的金鑰就能為每個要求在傳送要求之應用程式與處理要求之服務間建立信任。
+
+## <a name="1---open-the-project"></a>1 - 開啟專案
+
+從 GitHub 下載範例程式碼 [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)。 
+
+在 appsettings.json 中，將預設內容取代為下列範例，然後提供您服務的服務名稱和管理 API 金鑰。 針對服務名稱，只需要名稱本身。 例如，如果您的 URL 是 https://mydemo.search.windows.net，請將 `mydemo` 新增至 JSON 檔案。
 
 
-## <a name="identify-your-azure-search-services-admin-api-key"></a>識別 Azure 搜尋服務的系統管理 API 金鑰
-既然您已佈建好 Azure 搜尋服務，您幾乎已經準備好針對使用 .NET SDK 的服務端點發出要求。 首先，必須取得一個針對您佈建的搜尋服務所產生的管理員 API 金鑰。 .NET SDK 將會在每個要求上將此 API 金鑰傳送給您的服務。 擁有有效的金鑰就能為每個要求在傳送要求之應用程式與處理要求之服務間建立信任。
+```json
+{
+    "SearchServiceName": "Put your search service name here",
+    "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
+}
+```
 
-1. 若要尋找服務的 API 金鑰，請登入 [Azure 入口網站](https://portal.azure.com/)
-2. 前往 Azure 搜尋服務的刀鋒視窗。
-3. 按一下 [金鑰] 圖示。
+設定好這些值之後，您可以 F5 建置用來執行主控台應用程式的解決方案。 本練習中的其餘步驟和後面的步驟將探討此程式碼的工作方式。 
 
-服務會有系統管理金鑰和查詢金鑰。
-
-* 主要和次要系統管理金鑰  會授與所有作業的完整權限，包括管理服務以及建立和刪除索引、索引子與資料來源的能力。 由於有兩個金鑰，因此如果您決定重新產生主要金鑰，您可以繼續使用次要金鑰，反之亦然。
-* 查詢金鑰  會授與索引和文件的唯讀存取權，且通常會分派給發出搜尋要求的用戶端應用程式。
-
-主要或次要系統管理金鑰都可用於建立索引。
+或者，您也可以參考[如何從 .NET 應用程式使用 Azure 搜尋服務](search-howto-dotnet-sdk.md)，取得 SDK 行為的更詳細內容。 
 
 <a name="CreateSearchServiceClient"></a>
 
-## <a name="create-an-instance-of-the-searchserviceclient-class"></a>建立 SearchServiceClient 類別的執行個體
-若要開始使用 Azure 搜尋服務 .NET SDK，您必須建立 `SearchServiceClient` 類別的執行個體。 這個類別有數個建構函式。 您所需的建構函式會取得您的搜尋服務名稱和 `SearchCredentials` 物件作為參數。 `SearchCredentials` 會包裝您的 API 金鑰。
+## <a name="2---create-a-client"></a>2 - 建立用戶端
 
-下列程式碼會使用搜尋服務名稱的值，以及儲存於應用程式組態檔中的 API 金鑰 (在[範例應用程式](https://aka.ms/search-dotnet-howto)的情況下為 `appsettings.json`)，來建立新的 `SearchServiceClient`：
+若要開始使用 Azure 搜尋服務 .NET SDK，請建立 `SearchServiceClient` 類別的執行個體。 這個類別有數個建構函式。 您所需的建構函式會取得您的搜尋服務名稱和 `SearchCredentials` 物件作為參數。 `SearchCredentials` 會包裝您的 API 金鑰。
+
+下列程式碼可在 Program.cs 檔案中找到。 它會使用搜尋服務名稱的值，以及儲存於應用程式組態檔 (appsettings.json) 中的 API 金鑰，來建立新的 `SearchServiceClient`。
 
 ```csharp
 private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
@@ -76,20 +88,21 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 
 <a name="DefineIndex"></a>
 
-## <a name="define-your-azure-search-index"></a>定義 Azure 搜尋服務索引
-對 `Indexes.Create` 方法的單一呼叫會建立您的索引。 這個方法會將 `Index` 物件作為參數，來定義您的 Azure 搜尋服務索引。 您必須建立 `Index` 物件並將它初始化，如下所示 ︰
+## <a name="3---construct-index"></a>3 - 建構索引
+對 `Indexes.Create` 方法的單一呼叫會建立索引。 這個方法會將 `Index` 物件作為參數，來定義 Azure 搜尋服務索引。 建立 `Index` 物件並將它初始化，如下所示︰
 
 1. 將 `Index` 物件的 `Name` 屬性設定為索引的名稱。
+
 2. 將 `Index` 物件的 `Fields` 屬性設定為 `Field` 物件的陣列。 建立 `Field` 物件最簡單的方式是藉由呼叫 `FieldBuilder.BuildForType` 方法，傳遞類型參數的模型類別。 模型類別具有會對應至您索引欄位的屬性。 這可讓您將來自您搜尋索引的文件繫結至模型類別的執行個體。
 
 > [!NOTE]
-> 如果您不打算使用模型類別，仍然可以藉由直接建立 `Field` 物件來定義您的索引。 您可以為建構函式提供欄位的名稱，以及資料類型 (或字串欄位的分析器)。 您也可以設定其他屬性，例如 `IsSearchable`、`IsFilterable` 等屬性。
+> 如果您不打算使用模型類別，仍然可以藉由直接建立 `Field` 物件來定義您的索引。 您可以為建構函式提供欄位的名稱，以及資料類型 (或字串欄位的分析器)。 您也可以設定其他屬性，例如 `IsSearchable`、`IsFilterable` 等等。
 >
 >
 
-由於必須為每個欄位指派[適當屬性](https://docs.microsoft.com/rest/api/searchservice/Create-Index)，因此在設計索引時，請務必牢記搜尋服務使用者體驗和商務需求。 這些屬性可控制要對哪些欄位套用哪些搜尋功能 (篩選、面向設定、排序全文檢索搜尋等)。 針對您未明確設定的任何屬性，除非您特別啟用，否則 `Field` 類別預設會停用對應的搜尋功能。
+在設計索引時，請務必牢記搜尋服務使用者體驗和商務需求。 每個欄位必須指派[屬性](https://docs.microsoft.com/rest/api/searchservice/Create-Index)，屬性控制著哪些搜尋功能 (篩選、Facet、排序等等) 要套用至哪些欄位。 針對您未明確設定的任何屬性，除非您特別啟用，否則 `Field` 類別預設會停用對應的搜尋功能。
 
-在我們的範例中，我們已將索引命名為 "hotels"，並使用模型類別定義欄位。 每個模型類別的屬性皆具有屬性，會判斷對應索引欄位的搜尋相關行為。 會定義模型類別，如下所示︰
+在此範例中，索引名稱為 "hotels"，而欄位是使用模型類別來定義的。 每個模型類別的屬性皆具有屬性，會判斷對應索引欄位的搜尋相關行為。 會定義模型類別，如下所示︰
 
 ```csharp
 using System;
@@ -149,10 +162,10 @@ public partial class Hotel
 
 請注意，`string` 類型的索引中必須有一個欄位 (且只有一個) 指定為 key 欄位，方法是新增 `Key`屬性 (請參閱上述範例中的 `HotelId`)。
 
-`description_fr` 欄位會用來儲存法文文字，因此上述索引定義會對此欄位使用語言分析器。 如需語言分析器的詳細資訊，請參閱[語言支援主題](https://docs.microsoft.com/rest/api/searchservice/Language-support)以及對應的[部落格文章](https://azure.microsoft.com/blog/language-support-in-azure-search/)。
+`description_fr` 欄位會用來儲存法文文字，因此上述索引定義會對此欄位使用語言分析器。 如需詳細資訊，請參閱[將語言分析器新增至 Azure 搜尋服務索引](index-add-language-analyzers.md)。
 
 > [!NOTE]
-> 根據預設，模型類別中的每個屬性名稱會用來作為索引中對應欄位的名稱。 如果您想要將所有屬性名稱對應至駝峰式欄位名稱，使用 `SerializePropertyNamesAsCamelCase` 屬性來標示類別。 如果您想要對應至不同的名稱，您可以使用 `JsonProperty` 屬性，類似上述 `DescriptionFr` 屬性。 `JsonProperty` 屬性會優先於 `SerializePropertyNamesAsCamelCase` 屬性。
+> 根據預設，模型類別中的每個屬性名稱會對應到索引中的欄位名稱。 如果您想要將所有屬性名稱對應至駝峰式欄位名稱，使用 `SerializePropertyNamesAsCamelCase` 屬性來標示類別。 如果您想要對應至不同的名稱，您可以使用 `JsonProperty` 屬性，類似上述 `DescriptionFr` 屬性。 `JsonProperty` 屬性會優先於 `SerializePropertyNamesAsCamelCase` 屬性。
 > 
 > 
 
@@ -166,8 +179,8 @@ var definition = new Index()
 };
 ```
 
-## <a name="create-the-index"></a>建立索引
-您現在已初始化 `Index` 物件，您只需在 `SearchServiceClient` 物件上呼叫 `Indexes.Create`，就能建立索引：
+## <a name="4---call-indexescreate"></a>4 - 呼叫 Indexes.Create
+您現在已初始化 `Index` 物件，請在 `SearchServiceClient` 物件上呼叫 `Indexes.Create`來建立索引：
 
 ```csharp
 serviceClient.Indexes.Create(definition);
@@ -175,7 +188,7 @@ serviceClient.Indexes.Create(definition);
 
 若要求成功，方法將會正常傳回。 如果要求發生問題 (例如無效的參數)，方法即會擲回 `CloudException`。
 
-索引已使用完畢而想要將其刪除時，只需在 `SearchServiceClient` 上呼叫 `Indexes.Delete` 方法。 例如，以下是我們刪除 "hotels" 索引的方式：
+索引已使用完畢而想要將其刪除時，請在 `SearchServiceClient` 上呼叫 `Indexes.Delete` 方法。 例如︰
 
 ```csharp
 serviceClient.Indexes.Delete("hotels");
@@ -187,5 +200,7 @@ serviceClient.Indexes.Delete("hotels");
 > 
 
 ## <a name="next-steps"></a>後續步驟
-建立 Azure 搜尋服務索引後，您就可以 [將內容上傳到索引](search-what-is-data-import.md) ，以便開始搜尋資料。
+在本快速入門中，您會根據定義欄位資料類型和行為的結構描述來建立空的 Azure 搜尋服務索引。 本系列的下一個快速入門會說明如何載入具有可搜尋的內容的索引。
 
+> [!div class="nextstepaction"]
+> [使用 C# 將資料載入 Azure 搜尋服務索引](search-import-data-dotnet.md)

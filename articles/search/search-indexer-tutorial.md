@@ -1,32 +1,31 @@
 ---
 title: 在 Azure 入口網站中對 Azure SQL 資料庫編製索引的教學課程 - Azure 搜尋服務
-description: 在本教學課程中，對 Azure SQL 資料庫進行編目，以擷取可搜尋的資料，並填入 Azure 搜尋服務索引。
+description: 在本教學課程中，連線至 Azure SQL 資料庫、擷取可搜尋的資料，並將其載入至 Azure 搜尋服務索引。
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/10/2018
+ms.date: 03/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 872871d2ab9a9c693ad81081f24c8de68457982d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 4e94f4c1b5de47e36dd9a5be6b9e7f43d264de82
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312046"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201393"
 ---
 # <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>教學課程：使用 Azure 搜尋索引子搜耙 Azure SQL 資料庫
 
-本教學課程示範如何設定索引子，以便從範例 Azure SQL Database 擷取可搜尋的資料。 [索引子](search-indexer-overview.md)是 Azure 搜尋服務的元件，可搜耙外部資料來源，以內容填入[搜尋索引](search-what-is-an-index.md)。 在所有索引子中，Azure SQL Database 的索引子最廣泛使用。 
+了解如何設定索引子，以便從範例 Azure SQL 資料庫擷取可搜尋的資料。 [索引子](search-indexer-overview.md)是 Azure 搜尋服務的元件，可搜耙外部資料來源，以內容填入[搜尋索引](search-what-is-an-index.md)。 在所有索引子中，最廣泛使用的是 Azure SQL Database 的索引子。 
 
 索引子設定的熟練度很有幫助，因為它可簡化您必須撰寫和維護的程式碼數量。 您不需準備及推送結構描述相容的 JSON 資料集，而是可以將索引子附加至資料來源，讓索引子擷取資料並將其插入索引中，並選擇性地依照週期性排程執行索引子，以掌握基礎來源中的變更。
 
 在本教學課程中，使用 [Azure 搜尋服務 .NET 用戶端程式庫](https://aka.ms/search-sdk)和 .NET Core 主控台應用程式，執行下列工作：
 
 > [!div class="checklist"]
-> * 下載並設定解決方案
 > * 將搜尋服務資訊新增至應用程式設定
 > * 在 Azure SQL Database 中準備外部資料集 
 > * 檢閱範例程式碼中的索引和索引子定義
@@ -38,16 +37,16 @@ ms.locfileid: "53312046"
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 搜尋服務。 如需設定搜尋服務的說明，請參閱[建立搜尋服務](search-create-service-portal.md)。
+[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本教學課程的免費服務。
 
-* 可提供索引子所用外部資料來源的 Azure SQL Database。 範例解決方案會提供 SQL 資料檔案，以建立資料表。
+* 可提供索引子所用外部資料來源的 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)。 範例解決方案會提供 SQL 資料檔案，以建立資料表。
 
-* Visual Studio 2017。 您可以使用免費的 [Visual Studio 2017 Community 版本](https://www.visualstudio.com/downloads/)。 
+* + [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 的任何版本。 範例程式碼和指示已在免費的 Community 版本上經過測試。
 
 > [!Note]
 > 如果您使用免費的 Azure 搜尋服務，則受限於三個索引、三個索引子，以及三個資料來源。 本教學課程會各建立一個。 確定您的服務有空間可接受新的資源。
 
-## <a name="download-the-solution"></a>下載解決方案
+### <a name="download-the-solution"></a>下載解決方案
 
 本教學課程中使用的索引子解決方案是來自一個主要下載中傳遞的 Azure 搜尋服務範例集合。 本教學課程使用的解決方案是 DotNetHowToIndexers。
 
@@ -63,7 +62,7 @@ ms.locfileid: "53312046"
 
 6. 在 [方案總管] 中，以滑鼠右鍵按一下頂端節點父代方案 > [還原 NuGet 套件]。
 
-## <a name="set-up-connections"></a>設定連線
+### <a name="set-up-connections"></a>設定連線
 必要服務的連線資訊會指定於方案的 **appsettings.json** 檔案中。 
 
 在 [方案總管] 中，開啟 **appsettings.json**，以便您使用本教學課程中的指示來填入每項設定。  
@@ -90,22 +89,22 @@ ms.locfileid: "53312046"
 
 4. 複製並貼上該服務名稱，作為您在 Visual Studio 的 **appsettings.json** 中輸入的第一項資料。
 
-  > [!Note]
-  > 服務名稱屬於包含 search.windows.net 的端點。 如果您很好奇，您可以在 [概觀] 頁面上的 [基本資訊] 中查看完整 URL。 URL 看起來像這個範例： https://your-service-name.search.windows.net
+   > [!Note]
+   > 服務名稱屬於包含 search.windows.net 的端點。 如果您很好奇，您可以在 [概觀] 頁面上的 [基本資訊] 中查看完整 URL。 URL 看起來像這個範例： https://your-service-name.search.windows.net
 
 5. 在左側的 [設定] > [金鑰] 中，複製其中一個系統管理金鑰並將它當作第二個項目貼到 **appsettings.json** 中。 金鑰是在佈建期間為您的服務產生的英數字元字串，而且是獲得授權存取服務作業的必要項目。 
 
-  新增這兩個設定之後，您的檔案應類似以下範例所示：
+   新增這兩個設定之後，您的檔案應類似以下範例所示：
 
-  ```json
-  {
+   ```json
+   {
     "SearchServiceName": "azs-tutorial",
     "SearchServiceAdminApiKey": "A1B2C3D4E5F6G7H8I9J10K11L12M13N14",
     . . .
-  }
-  ```
+   }
+   ```
 
-## <a name="prepare-an-external-data-source"></a>準備外部資料來源
+## <a name="prepare-sample-data"></a>準備範例資料
 
 在此步驟中，建立索引子可以搜耙的外部資料來源。 本教學課程的資料檔案為 hotels.sql (在 \DotNetHowToIndexers 解決方案資料夾中提供)。 
 
@@ -125,7 +124,7 @@ ms.locfileid: "53312046"
 
 4. 開啟新資料庫的 [SQL Database] 頁面 (如果尚未開啟的話)。 資源名稱應該為 SQL Database，而非 SQL Server。
 
-  ![SQL 資料庫頁面](./media/search-indexer-tutorial/hotels-db.png)
+   ![SQL 資料庫頁面](./media/search-indexer-tutorial/hotels-db.png)
 
 4. 在命令列上，按一下 [工具] > [查詢編輯器]。
 
@@ -135,24 +134,24 @@ ms.locfileid: "53312046"
 
 7. 選取檔案，然後按一下 [開啟]。 指令碼應該會看起來如下列螢幕擷取畫面所示：
 
-  ![SQL 指令碼](./media/search-indexer-tutorial/sql-script.png)
+   ![SQL 指令碼](./media/search-indexer-tutorial/sql-script.png)
 
 8. 按一下 [執行] 來執行查詢。 在 [結果] 窗格中，您應會看到查詢成功訊息 (3 個資料列)。
 
 9. 若要從這個資料表傳回資料列集，您可以執行下列查詢作為驗證步驟：
 
-   ```sql
-   SELECT HotelId, HotelName, Tags FROM Hotels
-   ```
-   典型查詢 `SELECT * FROM Hotels` 不適用於查詢編輯器中。 範例資料包含 [位置] 欄位中的地理座標，目前並未在編輯器中處理該欄位。 如需要查詢的其他資料行清單，您可以執行此陳述式：`SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
+    ```sql
+    SELECT HotelId, HotelName, Tags FROM Hotels
+    ```
+    典型查詢 `SELECT * FROM Hotels` 不適用於查詢編輯器中。 範例資料包含 [位置] 欄位中的地理座標，目前並未在編輯器中處理該欄位。 如需要查詢的其他資料行清單，您可以執行此陳述式：`SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
 
 10. 您現在有外部資料集，請複製資料庫的 ADO.NET 連接字串。 在您資料庫的 [SQL Database] 頁面上，移至 [設定] > [連接字串]，並複製 ADO.NET 連接字串。
  
-  ADO.NET 連接字串如下列範例所示，已修改成使用有效的資料庫名稱、使用者名稱和密碼。
+    ADO.NET 連接字串如下列範例所示，已修改成使用有效的資料庫名稱、使用者名稱和密碼。
 
-  ```sql
-  Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
-  ```
+    ```sql
+    Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+    ```
 11. 將連接字串貼到 "AzureSqlConnectionString" 中，作為 Visual Studio 的 **appsettings.json** 檔案中的第三個項目。
 
     ```json
@@ -250,15 +249,15 @@ public string HotelName { get; set; }
 
 2. 按一下 [搜尋] 按鈕來發出空白搜尋。 
 
-  您的索引中的三個項目會以 JSON 文件形式傳回。 搜尋總管會以 JSON 傳回文件，以便您檢視整個結構。
+   您的索引中的三個項目會以 JSON 文件形式傳回。 搜尋總管會以 JSON 傳回文件，以便您檢視整個結構。
 
 3. 接下來，輸入搜尋字串：`search=river&$count=true`。 
 
-  此查詢會叫用 `river` 字詞的全文檢索搜尋，而結果會包含相符文件的計數。 在測試包含數千甚至數百萬份文件的大型索引案例時，傳回相符文件的計數很實用。 在此情況下，只有一份文件符合查詢。
+   此查詢會叫用 `river` 字詞的全文檢索搜尋，而結果會包含相符文件的計數。 在測試包含數千甚至數百萬份文件的大型索引案例時，傳回相符文件的計數很實用。 在此情況下，只有一份文件符合查詢。
 
 4. 最後，輸入搜尋字串，將 JSON 輸出限制為感興趣的欄位：`search=river&$count=true&$select=hotelId, baseRate, description`。 
 
-  查詢回應會縮減為選取的欄位，導致更簡潔的輸出。
+   查詢回應會縮減為選取的欄位，導致更簡潔的輸出。
 
 ## <a name="view-indexer-configuration"></a>檢視索引子組態
 
@@ -268,7 +267,7 @@ public string HotelName { get; set; }
 2. 向下捲動以尋找 [索引子] 和 [資料來源] 的圖格。
 3. 按一下圖格，以開啟每個資源的清單。 您可以選取個別的索引子或資料來源，以檢視或修改組態設定。
 
-  ![索引子和資料來源圖格](./media/search-indexer-tutorial/tiles-portal.png)
+   ![索引子和資料來源圖格](./media/search-indexer-tutorial/tiles-portal.png)
 
 
 ## <a name="clean-up-resources"></a>清除資源

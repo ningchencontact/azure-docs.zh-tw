@@ -10,19 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/16/2019
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5f8dffa01b2d7dd7fa966d2b417019f1d2afb1bc
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 25dda12ca33165cfc64ffd949a2068acb5150b84
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867009"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097144"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>教學課程：建立連結的 Azure Resource Manager 範本
 
 了解如何建立連結的 Azure Resource Manager 範本。 使用連結的範本，您可以讓一個範本呼叫另一個範本。 此功能非常適合用來將範本模組化時。 在此教學課程中，您會使用與在[教學課程：使用相依資源建立 Azure Resource Manager 範本](./resource-manager-tutorial-create-templates-with-dependent-resources.md)中使用的相同範本，此範本會建立虛擬機器、虛擬網路與其他相依資源，包括儲存體帳戶。 您會將儲存體帳戶資源建立分散到連結的範本。
+
+呼叫連結的範本就像進行函式呼叫一樣。  您也會了解如何將參數值傳遞給連結的範本，以及如何從連結的範本取得「傳回值」。
 
 本教學課程涵蓋下列工作：
 
@@ -34,6 +36,8 @@ ms.locfileid: "56867009"
 > * 設定相依性
 > * 部署範本
 > * 其他做法
+
+如需詳細資訊，請參閱[在部署 Azure 資源時使用連結與巢狀的範本](./resource-group-linked-templates.md)。
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -67,95 +71,97 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 3. 選取 [開啟] 以開啟檔案。
 4. 範本中定義了五項資源：
 
-    * `Microsoft.Storage/storageAccounts` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)。 
-    * `Microsoft.Network/publicIPAddresses` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)。 
-    * `Microsoft.Network/virtualNetworks` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)。 
-    * `Microsoft.Network/networkInterfaces` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)。 
-    * `Microsoft.Compute/virtualMachines` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)。
+   * [`Microsoft.Storage/storageAccounts`](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)
+   * [`Microsoft.Network/publicIPAddresses`](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)
+   * [`Microsoft.Network/virtualNetworks`](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)
+   * [`Microsoft.Network/networkInterfaces`](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)
+   * [`Microsoft.Compute/virtualMachines`](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)
 
-    自訂範本之前，最好能初步了解範本。
+     在自訂範本之前，先對範本結構描述有一些基本了解會相當有幫助。
 5. 選取 [檔案]>[另存新檔]，以名稱 **azuredeploy.json** 將檔案的複本儲存至您的本機電腦。
 6. 選取 [檔案]>[另存新檔] 以使用名稱 **linkedTemplate.json** 建立該檔案的複本。
 
 ## <a name="create-the-linked-template"></a>建立連結的範本
 
-連結的範本會建立儲存體帳戶。 連結的範本幾乎與建立儲存體帳戶的獨立範本一模一樣。 在此教學課程中，連結的範本必須將一個值傳遞回主範本。 此值是在 `outputs` 元素中所定義。
+連結的範本會建立儲存體帳戶。 連結的範本可用來作為獨立範本以建立儲存體帳戶。 在本教學課程中，連結的範本會接受兩個參數，然後將一個值傳回給主要範本。 這個「傳回」值是在 `outputs` 元素中定義的。
 
-1. 在 Visual Studio Code 中開啟 linkedTemplate.json (如果此檔案尚未開啟)。
+1. 在 Visual Studio Code 中開啟 **linkedTemplate.json** (如果尚未開啟此檔案)。
 2. 進行下列變更：
 
-    * 移除所有資源，儲存體帳戶除外。 您必須移除總共四個資源。
+    * 移除 **location** 以外的所有參數。
+    * 新增稱為 **storageAccountName** 的參數。 
+        ```json
+        "storageAccountName":{
+          "type": "string",
+          "metadata": {
+              "description": "Azure Storage account name."
+          }
+        },
+        ```
+        儲存體帳戶名稱和位置會以參數形式從主要範本傳遞給連結的範本。
+        
+    * 移除 **variables** 元素及所有的變數定義。
+    * 移除儲存體帳戶以外的所有資源。 您必須移除總共四個資源。
     * 將儲存體帳戶資源的 **name** 元素值更新為：
 
         ```json
           "name": "[parameters('storageAccountName')]",
         ```
-    * 移除 **variables** 元素及所有的變數定義。
-    * 移除 **location** 以外的所有參數。
-    * 新增稱為 **storageAccountName** 的參數。 儲存體帳戶名稱會以參數形式從主範本傳遞到連結的範本。
 
-        ```json
-        "storageAccountName":{
-        "type": "string",
-        "metadata": {
-            "description": "Azure Storage account name."
-        }
-        },
-        ```
     * 更新 **outputs** 元素，讓它看起來像這樣：
-
+    
         ```json
         "outputs": {
-            "storageUri": {
-                "type": "string",
-                "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
-              }
+          "storageUri": {
+              "type": "string",
+              "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
+            }
         }
         ```
-        主範本中的虛擬機器資源定義需要 **storageUri**。  您必須將該值傳遞回主範本做為輸出值。
+       主範本中的虛擬機器資源定義需要 **storageUri**。  您必須將該值傳遞回主範本做為輸出值。
 
-    當您完成時，範本看起來應該像這樣：
+        當您完成時，範本看起來應該像這樣：
 
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-          "storageAccountName":{
-            "type": "string",
-            "metadata": {
-              "description": "Azure Storage account name."
+        ```json
+        {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "storageAccountName": {
+              "type": "string",
+              "metadata": {
+                "description": "Azure Storage account name."
+              }
+            },
+            "location": {
+              "type": "string",
+              "defaultValue": "[resourceGroup().location]",
+              "metadata": {
+                "description": "Location for all resources."
+              }
             }
           },
-          "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-              "description": "Location for all resources."
+          "resources": [
+            {
+              "type": "Microsoft.Storage/storageAccounts",
+              "name": "[parameters('storageAccountName')]",
+              "location": "[parameters('location')]",
+              "apiVersion": "2018-07-01",
+              "sku": {
+                "name": "Standard_LRS"
+              },
+              "kind": "Storage",
+              "properties": {}
+            }
+          ],
+          "outputs": {
+            "storageUri": {
+              "type": "string",
+              "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
             }
           }
-        },
-        "resources": [
-          {
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[parameters('storageAccountName')]",
-            "apiVersion": "2016-01-01",
-            "location": "[parameters('location')]",
-            "sku": {
-              "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {}
-          }
-        ],
-        "outputs": {
-            "storageUri": {
-                "type": "string",
-                "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
-              }
         }
-    }
-    ```
+        ```
 3. 儲存變更。
 
 ## <a name="upload-the-linked-template"></a>上傳連結的範本
@@ -227,7 +233,7 @@ echo "Linked template URI with SAS token: $templateURI"
 
 主範本的名稱是 azuredeploy.json。
 
-1. 在 Visual Studio Code 中開啟 azuredeploy.json (若尚未開啟)。
+1. 在 Visual Studio Code 中開啟 **azuredeploy.json** (若尚未開啟)。
 2. 從範本刪除儲存體帳戶資源定義：
 
     ```json
@@ -302,8 +308,6 @@ echo "Linked template URI with SAS token: $templateURI"
     linkedTemplate 是部署資源的名稱。  
 3. 更新 **properties/diagnosticsProfile/bootDiagnostics/storageUri**，如上一個螢幕擷取畫面所示。
 4. 儲存修改過的範本。
-
-如需詳細資訊，請參閱[在部署 Azure 資源時使用連結與巢狀的範本](./resource-group-linked-templates.md)。
 
 ## <a name="deploy-the-template"></a>部署範本
 

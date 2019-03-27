@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2745e165-94ab-43b1-970a-4547b4e5b501
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71ea0679262268d26baf7cc1aa6dc0957ad5685b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 6f498cdc4331c07125426b8efc12a3414f8cab1d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874999"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835185"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-carlson-wagonlit-travel"></a>教學課程：Azure Active Directory 與 Carlson Wagonlit Travel 整合
 
@@ -36,7 +36,7 @@ ms.locfileid: "56874999"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Carlson Wagonlit Travel 整合，您需要下列項目：
+若要設定 Azure AD 與 Carlson Wagonlit Travel 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Carlson Wagonlit Travel 單一登入的訂用帳戶
@@ -143,7 +143,7 @@ ms.locfileid: "56874999"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -160,7 +160,7 @@ ms.locfileid: "56874999"
 
 2. 在應用程式清單中，選取 [Carlson Wagonlit Travel]。
 
-    ![應用程式清單中的 Carlson Wagonlit Travel 連結](common/all-applications.png)
+    ![應用程式清單中的 [Carlson Wagonlit Travel] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: overview
 ms.date: 9/24/2018
 ms.author: victorh
-ms.openlocfilehash: 07230b061f9b18e1efe6ce8c65abe0f7e7f73b34
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 62043128b6415a064e35adca6be4d60ccfcae308
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55893488"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294309"
 ---
 # <a name="what-is-azure-dns"></a>什麼是 Azure DNS？
 
@@ -38,6 +38,8 @@ Azure DNS 中的 DNS 網域裝載於 Azure 的 DNS 名稱伺服器全球網路�
 
 如需詳細資訊，請參閱[如何保護 DNS 區域和記錄](dns-protect-zones-recordsets.md)。 
 
+## <a name="dnssec"></a>DNSSEC
+Azure DNS 目前不支援 DNSSEC。 在大部分情況下，您可以藉著在您的應用程式中一致使用 HTTPS/TLS 來減少 DNSSEC 的需求。 如果 DNSSEC 是您 DNS 區域的關鍵需求，可以使用協力廠商 DNS 主機服務提供者來裝載這些區域。
 
 ## <a name="ease-of-use"></a>容易使用
 

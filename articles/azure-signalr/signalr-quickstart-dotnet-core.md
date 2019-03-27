@@ -5,14 +5,14 @@ author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/13/2018
+ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 1bfe0026e52107c85bf2c7e66414e937ad27f715
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 248861848aa905f9cbff01ab60affd7cf21aae78
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267745"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004807"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>快速入門：使用 SignalR 服務建立聊天室
 
@@ -97,7 +97,7 @@ Azure SignalR 服務是可以協助開發人員使用即時功能輕鬆地建置
 
     祕密管理員將只會被用來測試於本機裝載的 Web 應用程式。 在稍後的教學課程中，您會將聊天 Web 應用程式部署至 Azure。 在 Web 應用程式部署至 Azure 之後，您將會使用應用程式設定，而非搭配祕密管理員儲存連接字串。
 
-    此祕密可使用組態 API 來存取。 在所有支援的平台上，組態 API 的組態名稱中都適用冒號 (:)，請參閱[取決於環境的組態](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0)。 
+    此祕密可使用設定 API 來存取。 在所有支援的平台上，組態 API 的組態名稱中都適用冒號 (:)，請參閱[取決於環境的組態](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0)。 
 
 
 4. 開啟 *Startup.cs* 並更新 `ConfigureServices` 方法，以透過呼叫 `services.AddSignalR().AddAzureSignalR()` 來使用 Azure SignalR 服務：
@@ -267,6 +267,6 @@ connection.start()
 在此快速入門中，您已建立新的 Azure SignalR 服務資源，並搭配 ASP.NET Core Web 應用程式使用它，來將內容更新即時推送至多個已連線的用戶端。 若要深入了解 Azure SignalR 服務的使用，請繼續進行下一個示範驗證的教學課程。
 
 > [!div class="nextstepaction"]
-> [Azure SignalR 服務驗證](./signalr-authenticate-oauth.md)
+> [Azure SignalR 服務驗證](./signalr-concept-authenticate-oauth.md)
 
 

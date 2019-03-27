@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 073f8641-b64d-4754-b1a6-2b91c865b13d
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 689d0cdea70da4f4ad3c11ba25025ac4f9f342fb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 192db67f481f3a4c420c19be7ce1febe55342050
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866142"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901367"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>教學課程：Azure Active Directory 與 Gra-Pe 整合
 
@@ -35,7 +35,7 @@ Gra-Pe 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Gra-Pe 整合，您需要下列項目：
+若要設定 Azure AD 與 Gra-Pe 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Gra-Pe 單一登入的訂用帳戶
@@ -102,7 +102,7 @@ Gra-Pe 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Gra-Pe 網域和 URL 單一登入資訊](common/sp-signonurl.png)
+    ![Gra-Pe 網域及 URL 單一登入資訊](common/sp-signonurl.png)
 
     在 [登入 URL] 文字方塊中，輸入 URL：`https://btm.tts.co.jp/portal/apl/SSOLogin.aspx`
 
@@ -122,7 +122,7 @@ Gra-Pe 與 Azure AD 整合提供下列優點：
 
 ### <a name="configure-gra-pe-single-sign-on"></a>設定 Gra-Pe 單一登入
 
-若要設定 **Gra-Pe** 端的單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)] 和複製的適當 URL 傳送給 [Gra-Pe 支援小組](https://www.toppantravel.com/inquiry/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **Gra-Pe** 端設定單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)] 和複製的適當 URL 傳送給 [Gra-Pe 支援小組](https://www.toppantravel.com/inquiry/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
@@ -142,7 +142,7 @@ Gra-Pe 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -159,7 +159,7 @@ Gra-Pe 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取[Gra-Pe]。
 
-    ![應用程式清單中的 Gra-Pe 連結](common/all-applications.png)
+    ![應用程式清單中的 [Gra-Pe] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3883ddcad1c41e131d52016e4fa94a3e668adcd1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 93b59a108d5d87479c12174e97713d4c12d84f2e
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209722"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200050"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>教學課程：自動新增或移除群組成員
 
@@ -28,7 +28,7 @@ ms.locfileid: "56209722"
 
 在本教學課程中，您了解如何：
 > [!div class="checklist"]
-> * 從特定合作夥伴公司建立會自動填入的來賓使用者群組
+> * 從合作夥伴公司建立自動填入的來賓使用者群組
 > * 為來賓使用者群組指派存取合作夥伴專屬功能的授權
 > * 額外好處：藉由移除來賓使用者，以便您為成員指定僅限內部網站的使用者存取權 (舉例而言)，以保障**所有使用者**群組的安全性
 
@@ -36,7 +36,7 @@ ms.locfileid: "56209722"
 
 ## <a name="prerequisites"></a>必要條件
 
-您必須是租用戶的系統管理員，且具有一個 Azure AD Premium 授權，才能使用此功能。 如果您沒有授權，請在 Azure AD 中選取 [授權] > [產品] > [試用/購買]。
+您必須是租用戶的全域管理員，且具有一個 Azure AD Premium 授權，才能使用此功能。 如果您沒有授權，請在 Azure AD 中選取 [授權] > [產品] > [試用/購買]。
 
 您不需要為使用者指派授權，他們即會成為動態群組的成員。 只要您在租用戶中具有最低數量的可用 Azure AD Premium P1 授權，即可涵蓋所有這類的使用者。 
 
@@ -46,13 +46,13 @@ ms.locfileid: "56209722"
 
 1. 使用具備租用戶全域管理員身分的帳戶來登入 Azure 入口網站 (https://portal.azure.com)。
 2. 選取 [Azure Active Directory] > [群組] > [新增群組]。
-  ![選取新增群組命令](./media/groups-dynamic-tutorial/new-group.png)
+   ![選取命令來開始一個新的群組](./media/groups-dynamic-tutorial/new-group.png)
 3. 在 [群組] 刀鋒視窗上：
   
-  * 選取 [安全性] 作為群組類型
-  * 輸入 `Guest users Contoso` 作為群組的名稱和描述
-  * 將 [成員資格類型] 變更為 [動態使用者]
-  * 選取 [新增動態查詢]
+   * 選取 [安全性] 作為群組類型
+   * 輸入 `Guest users Contoso` 作為群組的名稱和描述
+   * 將 [成員資格類型] 變更為 [動態使用者]
+   * 選取 [新增動態查詢]
   
 4. 選取 [進階規則]，然後在 [進階規則] 方塊中輸入：`(user.userType -eq "Guest") -and (user.companyName -eq "Contoso")`
 5. 選取 [新增查詢] 以關閉刀鋒視窗。

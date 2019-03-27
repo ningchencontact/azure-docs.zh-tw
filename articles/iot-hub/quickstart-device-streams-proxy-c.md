@@ -8,18 +8,20 @@ services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/15/2019
+ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 300b42c9452fc58c857d075a7fd8c42fd6a1c409
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 59a84190386b554716472b4cb46c94030a66a4cb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731728"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077100"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-application-preview"></a>快速入門：使用 C Proxy 應用程式透過 IoT 中樞裝置串流進行 SSH/RDP 輸送 (預覽)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
+
+Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 [IoT 中樞裝置串流](./iot-hub-device-streams-overview.md)可讓服務和裝置應用程式以安全且便於設定防火牆的方式進行通訊。 如需設定概觀，請參閱[此頁面](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp)。
 
@@ -29,7 +31,6 @@ ms.locfileid: "55731728"
 下圖說明如何設定將會在 SSH 用戶端與 SSH 服務精靈程序之間啟用端對端連線的裝置和服務本機 Proxy 程式。 在公開預覽期間，C SDK 僅支援裝置端上的裝置串流。 因此，本快速入門僅提供執行裝置本機 Proxy 應用程式的指示。 您應執行 [C# 快速入門](./quickstart-device-streams-proxy-csharp.md)或 [Node.js 快速入門](./quickstart-device-streams-proxy-nodejs.md)指南中提及的隨附服務本機 Proxy 應用程式。
 
 ![替代文字](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg "本機 Proxy 設定")
-
 
 1. 服務本機 Proxy 連線至 IoT 中樞，並起始對目標裝置的裝置串流。
 
@@ -48,6 +49,11 @@ ms.locfileid: "55731728"
 
 ## <a name="prerequisites"></a>必要條件
 
+* 裝置串流的預覽版目前僅支援在下列區域建立的 IoT 中樞：
+
+  * **美國中部**
+  * **美國中部 EUAP**
+
 * 安裝 [Visual Studio 2017](https://www.visualstudio.com/vs/) 並啟用[使用 C++ 的桌面開發](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/)工作負載。
 * 安裝最新版的 [Git](https://git-scm.com/download/)。
 
@@ -55,21 +61,20 @@ ms.locfileid: "55731728"
 
 針對此快速入門，您將使用[適用於 C 的 Azure IoT 裝置 SDK](iot-hub-device-sdk-c-intro.md)。您將會準備用來從 GitHub 複製並建置 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 的開發環境。 GitHub 上的 SDK 包括此快速入門中使用的範例程式碼。 
 
-
-1. 從 [GitHub](https://github.com/Kitware/CMake/releases/tag/v3.11.4) 下載 [CMake 建置系統](https://cmake.org/download/) 3.11.4 版。 請確認下載的二進位檔使用對應的密碼編譯雜湊值。 下列範例使用 Windows PowerShell 來驗證 x64 MSI 發行版本 3.11.4 的密碼編譯雜湊：
+1. 下載 [CMake 建置系統](https://cmake.org/download/) 3.13.4 版。 請確認下載的二進位檔使用對應的密碼編譯雜湊值。 下列範例使用 Windows PowerShell 來驗證 x64 MSI 發行版本 3.13.4 的密碼編譯雜湊：
 
     ```PowerShell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True
     ```
-    
-    在撰寫此文章時，CMake 網站上列出了3.11.4 版的下列雜湊值：
+
+    在撰寫此文章時，CMake 網站上列出了3.13.4 版的下列雜湊值：
 
     ```
-    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
-    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
-    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
+    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
+    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
+    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
     ```
 
     在開始安裝 `CMake` **之前**，請務必將 Visual Studio 先決條件 (Visual Studio 和「使用 C++ 進行桌面開發」工作負載) 安裝在您的機器上。 在符合先決條件，並且驗證過下載項目之後，請安裝 CMake 建置系統。
@@ -81,7 +86,6 @@ ms.locfileid: "55731728"
     ```
     此存放庫的大小目前約為 220 MB。 預期此作業需要幾分鐘的時間才能完成。
 
-
 3. 在 git 存放庫的根目錄中建立 `cmake` 子目錄，並瀏覽至該資料夾。 
 
     ```
@@ -90,28 +94,27 @@ ms.locfileid: "55731728"
     cd cmake
     ```
 
-4. 執行下列命令 (該命令會建置您開發用戶端平台特有的 SDK 版本)。 在 Windows 中，模擬裝置的 Visual Studio 解決方案會在 `cmake` 目錄中產生。 
+4. 從 `cmake` 目錄執行下列命令 (該命令會建置您開發用戶端平台特有的 SDK 版本)。
 
-```
-    # In Linux
-    cmake ..
-    make -j
-```
+   * 在 Linux 中：
 
-在 Windows 中，請在 Visual Studio 2015 或 2017 提示的開發人員命令提示字元中執行下列命令：
+      ```bash
+      cmake ..
+      make -j
+      ```
 
-```
-    rem In Windows
-    rem For VS2015
-    cmake .. -G "Visual Studio 15 2015"
+   * 在 Windows 中，請在 Visual Studio 2015 或 2017 的開發人員命令提示字元中執行下列命令。 `cmake` 目錄中會產生模擬裝置的 Visual Studio 解決方案。
 
-    rem Or for VS2017
-    cmake .. -G "Visual Studio 15 2017"
+      ```cmd
+      rem For VS2015
+      cmake .. -G "Visual Studio 14 2015"
 
-    rem Then build the project
-    cmake --build . -- /m /p:Configuration=Release
-```
-    
+      rem Or for VS2017
+      cmake .. -G "Visual Studio 15 2017"
+
+      rem Then build the project
+      cmake --build . -- /m /p:Configuration=Release
+      ```
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 
@@ -146,61 +149,60 @@ ms.locfileid: "55731728"
 
     您稍後會在快速入門中使用此值。
 
-
 ## <a name="ssh-to-a-device-via-device-streams"></a>透過裝置串流使用 SSH 連線至裝置
 
 ### <a name="run-the-device-local-proxy-application"></a>執行裝置本機 Proxy 應用程式
 
-- 編輯原始程式檔 `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample/iothub_client_c2d_streaming_proxy_sample.c`，並提供您的裝置連接字串、目標裝置的 IP/主機名稱，以及 RDP 連接埠 22：
-```C
-  /* Paste in the your iothub connection string  */
-  static const char* connectionString = "[Connection string of IoT Hub]";
-  static const char* localHost = "[IP/Host of your target machine]"; // Address of the local server to connect to.
-  static const size_t localPort = 22; // Port of the local server to connect to.
-```
+1. 編輯原始程式檔 `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample/iothub_client_c2d_streaming_proxy_sample.c`，並提供您的裝置連接字串、目標裝置的 IP/主機名稱，以及 SSH 連接埠 22：
 
-- 依照下列方式編譯範例︰
+   ```C
+   /* Paste in the your iothub connection string  */
+   static const char* connectionString = "[Connection string of IoT Hub]";
+   static const char* localHost = "[IP/Host of your target machine]"; // Address of the local server to connect to.
+   static const size_t localPort = 22; // Port of the local server to connect to.
+   ```
 
-```
+2. 編譯範例：
+
+   ```bash
     # In Linux
     # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
     make -j
-```
+   ```
 
-```
+   ```cmd
     rem In Windows
     rem Go to cmake at root of repository
     cmake --build . -- /m /p:Configuration=Release
-```
+   ```
 
-- 在裝置上執行已編譯的程式：
-```
+3. 在裝置上執行已編譯的程式：
+
+   ```bash
     # In Linux
-    # Go to sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
+    # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
     ./iothub_client_c2d_streaming_proxy_sample
-```
+   ```
 
-```
+   ```cmd
     rem In Windows
-    rem Go to sample's release folder cmake\iothub_client\samples\iothub_client_c2d_streaming_proxy_sample\Release
+    rem Go to the sample's release folder cmake\iothub_client\samples\iothub_client_c2d_streaming_proxy_sample\Release
     iothub_client_c2d_streaming_proxy_sample.exe
-```
+   ```
 
 ### <a name="run-the-service-local-proxy-application"></a>執行服務本機 Proxy 應用程式
 
-如[先前](#how-it-works)所說明，要建立用來輸送 SSH 流量的端對端串流，兩端 (亦即服務和裝置) 都必須要有本機 Proxy。 但在公開預覽期間，IoT 中樞 C SDK 僅支援裝置端上的裝置串流。 對於服務本機 Proxy，請改用 [C#快速入門](./quickstart-device-streams-proxy-csharp.md)或 [Node.js 快速入門](./quickstart-device-streams-proxy-nodejs.md)中隨附的指南。
-
+如[先前](#how-it-works)所說明，要建立用來輸送 SSH 流量的端對端串流，兩端 (即服務和裝置) 都必須要有本機 Proxy。 在公開預覽期間，IoT 中樞 C SDK 僅支援裝置端上的裝置串流。 若要建置及執行服務本機 Proxy，請遵循 [C#快速入門](./quickstart-device-streams-proxy-csharp.md)或 [Node.js 快速入門](./quickstart-device-streams-proxy-nodejs.md)中提供的步驟。
 
 ### <a name="establish-an-ssh-session"></a>建立 SSH 工作階段
 
-假設裝置和服務本機 Proxy 皆執行中，請使用 SSH 用戶端程式，並經由連接埠 2222 連線至服務本機 Proxy (而不是直接使用 SSH 精靈)。 
+當裝置和服務本機 Proxy 皆在執行中之後，請使用 SSH 用戶端程式，並經由連接埠 2222 連線至服務本機 Proxy (而不是直接使用 SSH 精靈)。
 
-```
+```cmd/sh
 ssh <username>@localhost -p 2222
 ```
 
 此時，您會看到要求您輸入認證的 SSH 登入提示。
-
 
 經由 `IP_address:22` 連線至 SSH 精靈的裝置本機 Proxy 上的主控台輸出：![替代文字](./media/quickstart-device-streams-proxy-c/device-console-output.PNG "裝置本機 Proxy 輸出")
 

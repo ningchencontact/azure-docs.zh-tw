@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2f115be6-4fbe-42aa-9319-7462e7a75736
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ba9386eafda7c5eb7414b14374342dfc21e5bbb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2b99c5c68c2dc01537a0c4360286b922130e64bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864782"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887878"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-awardspring"></a>教學課程：Azure Active Directory 與 AwardSpring 整合
 
@@ -36,7 +36,7 @@ AwardSpring 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 AwardSpring 整合，您需要下列項目：
+若要設定 Azure AD 與 AwardSpring 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 AwardSpring 單一登入的訂用帳戶
@@ -72,10 +72,10 @@ AwardSpring 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 AwardSpring 設定及測試 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 AwardSpring 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 AwardSpring 中相關使用者之間的連結關聯性。
 
-若要搭配 AwardSpring 來設定及測試 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 AwardSpring 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 AwardSpring 單一登入](#configure-awardspring-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -88,7 +88,7 @@ AwardSpring 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要搭配 AwardSpring 設定 Azure AD 單一登入，請執行下列步驟：
+若要設定與 AwardSpring 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [AwardSpring] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -190,7 +190,7 @@ AwardSpring 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -207,7 +207,7 @@ AwardSpring 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [AwardSpring]。
 
-    ![應用程式清單中的 AwardSpring 連結](common/all-applications.png)
+    ![應用程式清單中的 [AwardSpring] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -225,7 +225,7 @@ AwardSpring 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-awardspring-test-user"></a>建立 AwardSpring 測試使用者
 
-本節會在 AwardSpring 中建立名為 Britta Simon 的使用者。 AwardSpring 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 AwardSpring 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
+本節會在 AwardSpring 中建立名為 Britta Simon 的使用者。 AwardSpring 支援預設會啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 AwardSpring 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
 > [!Note]
 > 如果您需要手動建立使用者，請連絡 [AwardSpring 支援小組](maito:support@awardspring.com)。
@@ -234,7 +234,7 @@ AwardSpring 與 Azure AD 整合提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [AwardSpring] 圖格時，應該會自動登入您設定 SSO 的 AwardSpring。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [AwardSpring] 圖格時，應該會自動登入您已設定 SSO 的 AwardSpring。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 314003d6-ca66-4456-88c3-934254d4a9a2
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d0ee67a921358eecf143df08b96d58f111c30c9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 43a231a4317aa2500b6377b512ae9311b2c7acda
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879572"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900347"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hpe-saas"></a>教學課程：Azure Active Directory 與 HPE SaaS 整合
 
@@ -71,10 +71,10 @@ HPE SaaS 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者身分，設定及測試與 HPE SaaS 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 HPE SaaS 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 HPE SaaS 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 HPE SaaS 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 HPE SaaS 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 HPE SaaS 單一登入](#configure-hpe-saas-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -87,7 +87,7 @@ HPE SaaS 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要使用 HPE SaaS 設定 Azure AD 單一登入，請執行下列步驟：
+若要設定與 HPE SaaS 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [HPE SaaS] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -103,7 +103,7 @@ HPE SaaS 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![HPE SaaS 網域與 URL 單一登入資訊](common/sp-identifier.png)
+    ![HPE SaaS 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
     a. 在 [登入 URL] 文字方塊中，將 URL 輸入為：`https://login.saas.hpe.com/msg`
 
@@ -112,7 +112,7 @@ HPE SaaS 與 Azure AD 整合提供下列優點：
     > [!NOTE]
     > 識別碼值不是實際值。 請使用實際的「識別碼」來更新此值。 請連絡 [HPE SaaS 用戶端支援小組](https://saas.hpe.com/en-us/contact)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
+5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
@@ -148,7 +148,7 @@ HPE SaaS 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -165,7 +165,7 @@ HPE SaaS 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [HPE SaaS] 。
 
-    ![應用程式清單中的 HPE SaaS 連結](common/all-applications.png)
+    ![應用程式清單中的 [HPE SaaS] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -183,7 +183,7 @@ HPE SaaS 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-hpe-saas-test-user"></a>建立 HPE SaaS 測試使用者
 
-在本節中，您要在 HPE SaaS 中建立名為 Britta Simon 的使用者。 請與 [HPE SaaS 支援小組](https://saas.hpe.com/en-us/contact)合作，在 HPE SaaS 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 HPE SaaS 中建立名為 Britta Simon 的使用者。 請與 [HPE SaaS 支援小組](https://saas.hpe.com/en-us/contact)合作，在 HPE SaaS 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

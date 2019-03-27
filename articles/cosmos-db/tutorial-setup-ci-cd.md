@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: b4d8214608e8193172da078fc352c66145253ada
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c8f7e3cd6a2b4b6105547d7a4429803a00f6999f
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878960"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285508"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>使用 Azure Cosmos DB 模擬器建置工作在 Azure DevOps 中設定 CI/CD 管線
 
@@ -31,15 +31,15 @@ Azure Cosmos DB 模擬器提供了一個模擬 Azure Cosmos DB 服務的本機�
 接下來，選擇要在其中安裝擴充功能的組織。 
 
 > [!NOTE]
-> 若要將擴充功能安裝到 Azure DevOps 組織，您必須是帳戶擁有者或是專案集合系統管理員。 如果您沒有權限，但是您是帳戶成員，可以改為要求擴充功能。 [深入了解。](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
+> 若要將擴充功能安裝到 Azure DevOps 組織，您必須是帳戶擁有者或專案集合管理員。 如果您沒有權限，但是您是帳戶成員，可以改為要求擴充功能。 [深入了解。](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
 
-![選擇要在其中安裝擴充功能的 Azure DevOps 組織](./media/tutorial-setup-ci-cd/addExtension_2.png)
+![選擇要安裝擴充功能的 Azure DevOps 組織](./media/tutorial-setup-ci-cd/addExtension_2.png)
 
 ## <a name="create-a-build-definition"></a>建立組建定義
 
 在安裝擴充功能後，現在請登入您 Azure DevOps 的帳戶，並從專案儀表板中尋找您的專案。 您可以將[組建管線](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav)新增至您的專案，或修改現有的組建管線。 如果您已有組建定義，可以直接跳到[將模擬器建置工作新增至組建定義](#addEmulatorBuildTaskToBuildDefinition)。
 
-1. 若要建立新的組建定義，請瀏覽至 Azure DevOps 中的 [**組建**] 索引標籤。 選取 [**+新建**]。 > **新增組建管線**
+1. 若要建立新的組建定義，請瀏覽至 Azure DevOps 中的 [**組建**] 索引標籤。 選取 [**+新建**]。 \> [新增組建管線]
 
    ![建立新的組建管線](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
 

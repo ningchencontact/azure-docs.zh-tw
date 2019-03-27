@@ -1,6 +1,6 @@
 ---
-title: 快速入門 - 在 Azure Container Instances 中執行應用程式 - 入口網站
-description: 在本快速入門中，您會使用 Azure 入口網站部署 Docker 容器應用程式，以便在 Azure Container Instances 中隔離的容器內執行
+title: 快速入門 - 將 Docker 容器部署至 Azure 容器執行個體 - 入口網站
+description: 在本快速入門中，您可以使用 Azure 入口網站快速地部署在隔離式 Azure 容器執行個體中執行的容器化的 Web 應用程式
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,16 +8,18 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: d6a1d442eca0cf5e433a82fb52ed54b09b56c779
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 41313a8b140886247b830db7ca9b34a22257de96
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566082"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729154"
 ---
-# <a name="quickstart-run-a-container-application-in-azure-container-instances-in-the-azure-portal"></a>快速入門：在 Azure 入口網站的 Azure Container Instances 中執行容器應用程式
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站部署容器執行個體
 
-使用 Azure Container Instances 在 Azure 中簡潔且快速地執行 Docker 容器。 您不需要部署虛擬機器，也不需要使用完整的容器協調流程平台，如 Kubernetes。 在本快速入門中，您會使用 Azure 入口網站在 Azure 中建立容器，並使用完整網域名稱 (FQDN) 讓其應用程式可供使用。 在設定一些設定並部署容器之後，您可以瀏覽至執行中的應用程式：
+使用 Azure 容器執行個體在 Azure 中簡潔且快速地執行無伺服器 Docker 容器。 當您不需要像 Azure Kubernetes Service 的完整容器協調流程平台時，請視需要將應用程式部署至容器執行個體。
+
+在本快速入門中，您會使用 Azure 入口網站部署隔離式 Docker 容器，並使用完整網域名稱 (FQDN) 讓其應用程式可供使用。 在設定一些設定並部署容器之後，您可以瀏覽至執行中的應用程式：
 
 ![在瀏覽器中檢視部署至 Azure Container Instances 的應用程式][aci-portal-07]
 
@@ -41,9 +43,9 @@ ms.locfileid: "55566082"
 
 ![在 Azure 入口網站中設定新容器執行個體的基本設定][aci-portal-03]
 
-在本快速入門中，保留 [公用] 預設設定，以部署公用 Docker Hub 登錄中的 `microsoft/aci-helloworld` 映像。 此映像會封裝以 Node.js 撰寫並提供靜態 HTML 網頁的小型 Web 應用程式。
+在本快速入門中，保留 [公用] 預設設定，以部署公用 `microsoft/aci-helloworld` 映像。 此映像會封裝以 Node.js 撰寫並提供靜態 HTML 網頁的小型 Web 應用程式。
 
-在 [組態] 下，為您的容器指定 [DNS 名稱標籤]。 此名稱在您建立容器執行個體所在的 Azure 區域中必須是唯一的。 您的容器將可在 `<dns-name-label>.<region>.azurecontainer.io` 讓他人公開存取。
+在 [組態] 下，為您的容器指定 [DNS 名稱標籤]。 這在您建立容器執行個體所在的 Azure 區域中，必須是唯一的名稱。 您的容器將可在 `<dns-name-label>.<region>.azurecontainer.io` 讓他人公開存取。 如果出現「DNS 名稱標籤無法使用」錯誤訊息，請嘗試使用不同的 DNS 名稱標籤。
 
 將 [設定] 中的其他設定保留預設值，然後選取 [確定] 以驗證設定。
 

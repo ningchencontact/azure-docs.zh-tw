@@ -9,25 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 28c2d65e1b1858b653775b4b298c9ab3e1d31e6e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d8256f96a79969103b17047c4ebb55fb140eb0bc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991407"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121106"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>使用 Azure 地圖服務建立商店定位器
 
 本教學課程將引導您完成使用 Azure 地圖服務建立簡單商店定位器的程序。 商店定位器是通用的。 這類應用程式中使用的概念大多也都適用於許多其他類型的應用程式。 大多數直接對消費者進行銷售的企業，都有需要為客戶提供商店定位器。 在本教學課程中，您了解如何：
     
 > [!div class="checklist"]
-* 使用 Azure 地圖控制項 API 建立新的網頁。
-* 從檔案載入自訂資料，並顯示在地圖上。
-* 使用 Azure 地圖服務搜尋服務來尋找地址或輸入查詢。
-* 從瀏覽器取得使用者的位置，並將其顯示在地圖上。
-* 結合多個圖層以建立地圖上的自訂符號。  
-* 叢集資料點。  
-* 將縮放控制項新增至地圖。
+> * 使用 Azure 地圖控制項 API 建立新的網頁。
+> * 從檔案載入自訂資料，並顯示在地圖上。
+> * 使用 Azure 地圖服務搜尋服務來尋找地址或輸入查詢。
+> * 從瀏覽器取得使用者的位置，並將其顯示在地圖上。
+> * 結合多個圖層以建立地圖上的自訂符號。  
+> * 叢集資料點。  
+> * 將縮放控制項新增至地圖。
 
 <a id="Intro"></a>
 
@@ -42,12 +42,16 @@ ms.locfileid: "55991407"
 在跳到程式碼之前，先進行設計是個不錯的做法。 商店定位器可依據您的需要調整複雜或簡單程度。 在本教學課程中，我們會建立簡單的商店定位器。 我們在過程中提供了一些秘訣，可協助您依個人需求擴充某些功能。 我們會為名為 Contoso Coffee 的虛構公司建立商店定位器。 下圖顯示我們在本教學課程中建置的商店定位器所採用的一般配置框線：
 
 <br/>
-<center>![Contoso Coffee 咖啡廳所在位置的商店定位器框線](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
+<center>
+
+![Contoso Coffee 咖啡廳所在位置的商店定位器框線](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
 為了充分發揮此商店定位器的實用性，我們加入了回應式配置，可在使用者的螢幕寬度小於 700 個像素時進行調整。 回應式配置可方便您在小型螢幕上使用商店定位器，例如行動裝置。 以下是小型螢幕配置的框線：  
 
 <br/>
-<center>![Contoso Coffee 商店定位器在行動裝置上的框線](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
+<center>
+
+![Contoso Coffee 商店定位器在行動裝置上的框線](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
 框線可直觀地顯示應用程式。 應用程式具有搜尋方塊、鄰近商店清單、附有一些標記 (符號) 的地圖，和一個在使用者選取標記時顯示相關資訊的快顯視窗。 以下詳細列出我們在本教學課程中建置到此商店定位器的功能：
 
@@ -70,7 +74,9 @@ ms.locfileid: "55991407"
 在開發商店定位器應用程式之前，我們必須先為要顯示在地圖上的商店建立資料集。 在本教學課程中，我們將使用虛構咖啡廳 Contoso Coffee 的資料集。 我們以 Excel 活頁簿來管理此簡單商店定位器的資料集。 資料集中包含 10,213 個遍布於九個國家/地區的 Contoso Coffee 咖啡廳所在位置：美國、加拿大、英國、法國、德國、義大利、荷蘭、丹麥和西班牙。 其資料如下列螢幕擷取畫面所示：
 
 <br/>
-<center>![Excel 活頁簿中的商店定位器資料的螢幕擷取畫面](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
+<center>
+
+![Excel 活頁簿中商店定位器資料的螢幕擷取畫面](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
 
 您可以[下載 Excel 活頁簿](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data)。 
 
@@ -90,12 +96,16 @@ ms.locfileid: "55991407"
 若要將活頁簿轉換成一般文字檔案，請將活頁簿儲存為 Tab 鍵分隔檔案。 每個資料行都會以 Tab 字元分隔，以便在我們的程式碼中剖析資料行。 您可以使用逗號分隔值 (CSV) 格式，但該選項需要較多剖析邏輯。 周圍有逗號的任何欄位都會在兩側加上引號。 若要將此資料匯出為 Excel 中的 Tab 鍵分隔檔案，請選取 [另存新檔]。 在 [存檔類型] 下拉式清單中，選取 [文字 (Tab 鍵分隔) (*.txt)]。 將檔案命名為 *ContosoCoffee.txt*。 
 
 <br/>
-<center>![存檔類型對話方塊的螢幕擷取畫面](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
+<center>
+
+![[存檔類型] 對話方塊的螢幕擷取畫面](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
 
 如果您在「記事本」中開啟文字檔，檔案會如下圖所示：
 
 <br/>
-<center>![顯示 Tab 鍵分隔資料集的記事本檔案螢幕擷取畫面](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
+<center>
+
+![顯示 Tab 字元分隔資料集的記事本檔案螢幕擷取畫面](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
 
 
 ## <a name="set-up-the-project"></a>設定專案
@@ -103,7 +113,9 @@ ms.locfileid: "55991407"
 若要建立專案，您可以使用 [Visual Studio](https://visualstudio.microsoft.com) 或您選擇的程式碼編輯器。 請在您的專案資料夾中建立三個檔案：*index.html*、*index.css* 和 *index.js*。 這些檔案會定義應用程式的版面配置、樣式和邏輯。 建立名為 *data* 的資料夾，並將 *ContosoCoffee.txt* 新增至該資料夾。 建立名為 *images* 的另一個資料夾。 我們在此應用程式中使用十個影像來表示地圖上的圖示、按鈕和標記。 您可以[下載這些影像](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data)。 您的專案資料夾此時會如下圖所示︰
 
 <br/>
-<center>![簡單商店定位器專案資料夾的螢幕擷取畫面](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
+<center>
+
+![簡單商店定位器專案資料夾的螢幕擷取畫面](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
 
 ## <a name="create-the-user-interface"></a>建立使用者介面
 
@@ -395,12 +407,12 @@ ms.locfileid: "55991407"
 
 1. 將程式碼新增至 *index.js*。 下列程式碼會初始化地圖、新增等候頁面完成載入的[事件接聽程式](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)、連接事件以監視地圖載入的情形，並啟用搜尋按鈕和 [我的位置] 按鈕。 
 
-  當使用者選取搜尋按鈕時，或是當使用者在搜尋方塊中輸入位置之後按下 Enter 鍵時，就會起始對使用者查詢的模糊搜尋。 將國家/地區 ISO 2 值的陣列傳入 `countrySet` 選項，可限制這些國家/地區的搜尋結果。 限制要搜尋的國家/地區，有助於提高傳回結果的精確度。 
+   當使用者選取搜尋按鈕時，或是當使用者在搜尋方塊中輸入位置之後按下 Enter 鍵時，就會起始對使用者查詢的模糊搜尋。 將國家/地區 ISO 2 值的陣列傳入 `countrySet` 選項，可限制這些國家/地區的搜尋結果。 限制要搜尋的國家/地區，有助於提高傳回結果的精確度。 
   
-  搜尋完成後，請取用第一項結果，並設定該區域的地圖相機。 當使用者選取 [我的位置] 按鈕時，請使用瀏覽器中內建的 HTML5 地理位置 API 來擷取使用者的位置，並以其位置作為地圖的中心點。  
+   搜尋完成後，請取用第一項結果，並設定該區域的地圖相機。 當使用者選取 [我的位置] 按鈕時，請使用瀏覽器中內建的 HTML5 地理位置 API 來擷取使用者的位置，並以其位置作為地圖的中心點。  
 
-  > [!Tip]
-  > 當您使用的快顯視窗時，建議您最好建立單一 `Popup` 執行個體，並藉由更新內容和位置重複使用該執行個體。 您新增至程式碼的每個 `Popup` 執行個體，會有多個 DOM 元素新增至頁面。 頁面上的 DOM 元素越多，瀏覽器所須追蹤的項目就越多。 如果項目過多，瀏覽器可能會變慢。
+   > [!Tip]
+   > 當您使用的快顯視窗時，建議您最好建立單一 `Popup` 執行個體，並藉由更新內容和位置重複使用該執行個體。 您新增至程式碼的每個 `Popup` 執行個體，會有多個 DOM 元素新增至頁面。 頁面上的 DOM 元素越多，瀏覽器所須追蹤的項目就越多。 如果項目過多，瀏覽器可能會變慢。
 
     ```Javascript
     function initialize() { 
@@ -542,7 +554,7 @@ ms.locfileid: "55991407"
 
 1. 將資料集載入至地圖的 `load` 事件接聽程式之後，請定義一組用來呈現資料的圖層。 泡泡圖層用來呈現叢集的資料點。 符號圖層用來呈現泡泡圖層之上每個叢集中的點數。 第二個符號圖層會呈現地圖上個別位置的自訂圖示。 
 
-  將 `mouseover` 和 `mouseout` 事件新增至泡泡和圖示圖層，可變更使用者將滑鼠停留在地圖上的叢集或圖示上方時的滑鼠游標。 將 `click` 事件新增至叢集泡泡圖層。 此 `click` 事件會在使用者選取任何叢集時將地圖縮放兩個層級，並以該叢集作為地圖的中心點。 將 `click` 事件新增至圖示圖層。 此 `click` 事件會在使用者選取個別位置圖示時顯示快顯視窗，以呈現咖啡廳的詳細資料。 在地圖上新增用來監視地圖何時完成移動的事件。 此事件引發時，請更新清單面板中的項目。  
+   將 `mouseover` 和 `mouseout` 事件新增至泡泡和圖示圖層，可變更使用者將滑鼠停留在地圖上的叢集或圖示上方時的滑鼠游標。 將 `click` 事件新增至叢集泡泡圖層。 此 `click` 事件會在使用者選取任何叢集時將地圖縮放兩個層級，並以該叢集作為地圖的中心點。 將 `click` 事件新增至圖示圖層。 此 `click` 事件會在使用者選取個別位置圖示時顯示快顯視窗，以呈現咖啡廳的詳細資料。 在地圖上新增用來監視地圖何時完成移動的事件。 此事件引發時，請更新清單面板中的項目。  
 
     ```Javascript
     //Create a bubble layer to render clustered data points. 
@@ -916,30 +928,36 @@ ms.locfileid: "55991407"
 在使用者第一次選取 [我的位置] 按鈕時，瀏覽器會顯示安全性警告，要求提供存取使用者所在位置的權限。 如果使用者同意共用其位置，地圖就會放大使用者的位置，並顯示附近的咖啡廳。 
 
 <br/>
-<center>![瀏覽器要求存取使用者所在位置的螢幕擷取畫面](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
+<center>
+
+![瀏覽器要求存取使用者所在位置的螢幕擷取畫面](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
 
 當您將咖啡廳所在位置的區域放大足夠的程度時，叢集就會分成個別的位置。 選取地圖上的其中一個圖示，或選取側邊面板中的項目，就會顯示一個快顯視窗，內含該位置的相關資訊。
 
 <br/>
-<center>![此螢幕擷取畫面顯示已完成的商店定位器](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
+<center>
+
+![已完成之商店定位器的螢幕擷取畫面](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
 
 如果您將瀏覽器視窗的大小調整為少於 700 個像素的寬度，或是在行動裝置上開啟應用程式，版面配置將會變更為適用於較小螢幕的設定。 
 
 <br/>
-<center>![此螢幕擷取畫面顯示小型螢幕版本的商店定位器](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
+<center>
+
+![小型螢幕版商店定位器的螢幕擷取畫面](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
 
 ## <a name="next-steps"></a>後續步驟
 
 在本教學課程中，您已了解如何使用 Azure 地圖服務建立基本的商店定位器。 您在本教學課程中建立的商店定位器可能已有您所需的所有功能。 您可以在商店定位器中新增功能，或使用更進階的功能以滿足自訂使用者體驗： 
 
 > [!div class="checklist"]
-* 啟用[在搜尋方塊中鍵入時提供建議](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI)的功能。  
-* 新增[支援多種語言](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization)。 
-* 允許使用者[沿路線篩選位置](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route)。 
-* 新增[設定篩選](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property)的功能。 
-* 新增使用查詢字串指定初始搜尋值的支援。 當您在商店定位器中納入此選項時，使用者可以將搜尋加入書籤和共用搜尋。 此外也可讓您輕鬆地將其他頁面上的搜尋傳至此頁面。  
-* 將商店定位器部署為 [Azure App Service Web 應用程式](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html)。 
-* 將資料儲存在資料庫中和搜尋附近的位置。 若要深入了解，請參閱 [SQL Server 空間資料類型概觀](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017)和[查詢最接近像素的空間資料](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017)。
+> * 啟用[在搜尋方塊中鍵入時提供建議](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI)的功能。  
+> * 新增[支援多種語言](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization)。 
+> * 允許使用者[沿路線篩選位置](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route)。 
+> * 新增[設定篩選](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property)的功能。 
+> * 新增使用查詢字串指定初始搜尋值的支援。 當您在商店定位器中納入此選項時，使用者可以將搜尋加入書籤和共用搜尋。 此外也可讓您輕鬆地將其他頁面上的搜尋傳至此頁面。  
+> * 將商店定位器部署為 [Azure App Service Web 應用程式](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html)。 
+> * 將資料儲存在資料庫中和搜尋附近的位置。 若要深入了解，請參閱 [SQL Server 空間資料類型概觀](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017)和[查詢最接近像素的空間資料](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017)。
 
 您可以在這裡存取本教學課程的程式碼範例：
 

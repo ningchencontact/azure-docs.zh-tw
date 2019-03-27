@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: 70159b975fd38c918f0b21a384b76666957f058b
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: a5a364c2065a7f4b9607eb4b078456324f261ce8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593143"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121871"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>使用變更追蹤資訊，以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體 
 在本教學課程中，您會建立一個 Azure Data Factory 並讓其具有管線，以根據來源 Azure SQL Database 中的**變更追蹤**資訊，將差異資料載入到 Azure Blob 儲存體。  
@@ -67,7 +67,7 @@ ms.locfileid: "56593143"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 * **Azure SQL Database**。 您需要使用資料庫作為**來源**資料存放區。 如果您沒有 Azure SQL Database，請參閱[建立 Azure SQL 資料庫](../sql-database/sql-database-get-started-portal.md)一文，按照步驟建立資料庫。
 * **Azure 儲存體帳戶**。 您需要使用 Blob 儲存體作為**接收**資料存放區。 如果您沒有 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)一文，按照步驟來建立帳戶。 建立名為 **adftutorial** 的容器。 
 
@@ -144,7 +144,10 @@ ms.locfileid: "56593143"
     ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-依照[如何安裝和設定 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)中的指示，安裝最新的 Azure PowerShell 模組。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+依照[如何安裝和設定 Azure PowerShell](/powershell/azure/install-Az-ps)中的指示，安裝最新的 Azure PowerShell 模組。
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
@@ -257,7 +260,7 @@ ms.locfileid: "56593143"
 
     1. 選取 [AzureStorageLinkedService] 作為 [連結服務]。
     2. 在 [檔案路徑] 的**資料夾**部分輸入 **adftutorial/incchgtracking**。
-    3. 在 [檔案路徑] 的**檔案**部分輸入 **@CONCAT('Incremental-', pipeline().RunId, '.txt')**。  
+    3. 在 [檔案路徑] 的**檔案**部分輸入 **\@CONCAT('Incremental-', pipeline().RunId, '.txt')**。  
 
        ![接收資料集 - 連線](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png)
 
@@ -369,29 +372,29 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
     ![查閱活動 - 名稱](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
 6. 在 [屬性] 視窗中切換至 [設定] ，執行下列步驟：
 
-    1. 在 [來源資料集] 欄位選取 [SourceDataset]。
-    2. 為 [使用查詢] 選取 [查詢]。 
-    3. 輸入下列 SQL 查詢作為 [查詢]。 
+   1. 在 [來源資料集] 欄位選取 [SourceDataset]。
+   2. 為 [使用查詢] 選取 [查詢]。 
+   3. 輸入下列 SQL 查詢作為 [查詢]。 
 
-        ```sql
-        SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
-        ```
+       ```sql
+       SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion
+       ```
 
-    ![查閱活動 - 設定](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
+      ![查閱活動 - 設定](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
 7. 在 [活動] 工具箱中展開 [資料流程]，並將 [複製] 活動拖放至管線設計工具介面。 將活動的名稱設定為 **IncrementalCopyActivity**。 此活動會將上次變更追蹤版本和目前變更追蹤版本之間的資料，複製到目的地資料存放區。 
 
     ![複製活動 - 名稱](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png)
 8. 在 [屬性] 視窗中切換至 [來源] 索引標籤，執行下列步驟：
 
-    1. 選取 [SourceDataset] 作為 [來源資料集]。 
-    2. 為 [使用查詢] 選取 [查詢]。 
-    3. 輸入下列 SQL 查詢作為 [查詢]。 
+   1. 選取 [SourceDataset] 作為 [來源資料集]。 
+   2. 為 [使用查詢] 選取 [查詢]。 
+   3. 輸入下列 SQL 查詢作為 [查詢]。 
 
-        ```sql
-        select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) as CT on data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}
-        ```
+       ```sql
+       select data_source_table.PersonID,data_source_table.Name,data_source_table.Age, CT.SYS_CHANGE_VERSION, SYS_CHANGE_OPERATION from data_source_table RIGHT OUTER JOIN CHANGETABLE(CHANGES data_source_table, @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.SYS_CHANGE_VERSION}) as CT on data_source_table.PersonID = CT.PersonID where CT.SYS_CHANGE_VERSION <= @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}
+       ```
     
-    ![複製活動 - 來源設定](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-source-settings.png)
+      ![複製活動 - 來源設定](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-source-settings.png)
 9. 切換至 [接收] 索引標籤，在 [接收資料集] 欄位選取 [SinkDataset]。 
 
     ![複製活動 - 接收設定](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-sink-settings.png)
@@ -422,9 +425,9 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 15. 按一下工具列上的 [驗證]。 確認沒有任何驗證錯誤。 按一下 **>>** 關閉 [管線驗證報告] 視窗。 
 
     ![驗證按鈕](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
-16.  按一下 [全部發佈] 按鈕，將實體 (連結的服務、資料集、管線) 發佈至 Data Factory 服務。 請靜待 [發佈成功] 訊息顯示。 
+16. 按一下 [全部發佈] 按鈕，將實體 (連結的服務、資料集、管線) 發佈至 Data Factory 服務。 請靜待 [發佈成功] 訊息顯示。 
 
-        ![發佈按鈕](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
+       ![發佈按鈕](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### <a name="run-the-incremental-copy-pipeline"></a>執行累加複製管線
 1. 按一下管線工具列上的 [觸發]，然後按一下 [立即觸發]。 

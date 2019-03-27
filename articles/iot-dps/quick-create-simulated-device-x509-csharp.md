@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 832d7306c7e397a92e92fb25018b5021e4ac87fb
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 02054824d62030b96f8353140aa49ee0fa5c2265
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672282"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864519"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>使用適用於 IoT 中樞裝置佈建服務的 C# 裝置 SDK 來建立及佈建模擬 X.509 裝置
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -35,7 +35,7 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>準備開發環境 
 
-1. 確定您已在電腦上安裝 [.Net Core 2.1 SDK 或更新版本](https://www.microsoft.com/net/download/windows)。 
+1. 確定您已在電腦上安裝 [.NET Core 2.1 SDK 或更新版本](https://www.microsoft.com/net/download/windows)。 
 
 1. 確定 `git` 已安裝在電腦上，並已新增至命令視窗可存取的環境變數。 請參閱[軟體自由保護協會的 Git 用戶端工具](https://git-scm.com/download/)以取得所要安裝的最新版 `git` 工具，其中包括 **Git Bash** (您可用來與本機 Git 存放庫互動的命令列應用程式)。 
 
@@ -77,15 +77,15 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 5. 在裝置佈建服務摘要刀鋒視窗上，選取 [管理註冊]。 選取 [個別註冊] 索引標籤，然後按一下頂端的 [新增個別註冊] 按鈕。 
 
 6. 在 [新增註冊] 面板之下，輸入下列資訊：
-    - 選取 [X.509] 作為身分識別證明「機制」。
-    - 在 [主要 .pem 或 .cer 憑證檔案] 之下，按一下 [選取檔案] 以選取在先前步驟中建立的憑證檔案 **certificate.cer**。
-    - 將 [裝置識別碼] 保留空白。 您的裝置會進行佈建，其裝置識別碼在 X.509 憑證中會設為一般名稱 (CN)，**iothubx509device1**。 這也就是用於個別註冊項目之註冊識別碼的名稱。 
-    - 您可以選擇性地提供下列資訊：
-        - 選取與您的佈建服務連結的 IoT 中樞。
-        - 使用裝置所需的初始組態更新**初始裝置對應項狀態**。
-    - 完成後，按一下 [儲存] 按鈕。 
+   - 選取 [X.509] 作為身分識別證明「機制」。
+   - 在 [主要 .pem 或 .cer 憑證檔案] 之下，按一下 [選取檔案] 以選取在先前步驟中建立的憑證檔案 **certificate.cer**。
+   - 將 [裝置識別碼] 保留空白。 您的裝置會進行佈建，其裝置識別碼在 X.509 憑證中會設為一般名稱 (CN)，**iothubx509device1**。 這也就是用於個別註冊項目之註冊識別碼的名稱。 
+   - 您可以選擇性地提供下列資訊：
+       - 選取與您的佈建服務連結的 IoT 中樞。
+       - 使用裝置所需的初始組態更新**初始裝置對應項狀態**。
+   - 完成後，按一下 [儲存] 按鈕。 
 
-    [![在入口網站中新增 X.509 證明的個別註冊](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png#lightbox)
+     [![在入口網站中新增 X.509 證明的個別註冊](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png)](./media/quick-create-simulated-device-x509-csharp/device-enrollment.png#lightbox)
     
    註冊成功時，您的 X.509 註冊項目會在 [個別註冊] 索引標籤下的 [註冊識別碼] 資料行中顯示為 **iothubx509device1**。 
 

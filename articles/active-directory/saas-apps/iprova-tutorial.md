@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 1eaeef9b-4479-4a9f-b1b2-bc13b857c75c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c65f8e023e087c3ca49e0d53f5760fbcd9a5f4d9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 395d3887e35d6e9c043d4d947b605e71eb58bd6b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869202"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897328"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iprova"></a>教學課程：Azure Active Directory 與 iProva 整合
 
@@ -45,7 +45,7 @@ iProva 與 Azure AD 整合可提供下列優點：
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入：
 
-* iProva 支援 SP 起始的 SSO。
+* iProva 支援由 SP 起始的 SSO。
 
 ## <a name="add-iprova-from-the-gallery"></a>從資源庫新增 iProva
 
@@ -72,7 +72,7 @@ iProva 與 Azure AD 整合可提供下列優點：
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
 在本節中，您會以名為 Britta Simon 的測試使用者為基礎，設定及測試與 iProva 搭配運作的 Azure AD 單一登入。
-若要讓單一登入能夠運作，您必須建立 Azure AD 使用者與 iProva 中相關使用者之間的連結關聯性。
+若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 iProva 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 iProva 搭配運作的 Azure AD 單一登入，請完成下列建構元素：
 
@@ -126,7 +126,7 @@ iProva 與 Azure AD 整合可提供下列優點：
 
     c. 使用 [iProva SAML2 資訊] 頁面上的 [登入 URL] 標籤後面所顯示的值，填入 [登入 URL] 方塊。 此頁面仍在您的另一個瀏覽器索引標籤中開啟。
 
-    ![iProva 網域與 URL 單一登入資訊](common/sp-identifier-reply.png)
+    ![iProva 網域及 URL 單一登入資訊](common/sp-identifier-reply.png)
 
 5. iProva 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上選取 [編輯] 圖示，以開啟 [使用者屬性] 對話方塊。
 
@@ -221,7 +221,7 @@ iProva 與 Azure AD 整合可提供下列優點：
 
     a. 在 [名稱] 方塊中，輸入 **BrittaSimon** 之類的名稱。
   
-    b. 在 [使用者名稱] 方塊中，輸入 yourname@yourcompanydomain.extension。 
+    b. 在 [使用者名稱] 方塊中，輸入 *yourname\@yourcompanydomain.extension*。 
     例如 BrittaSimon@contoso.com。
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -230,7 +230,7 @@ iProva 與 Azure AD 整合可提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會把 iProva 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在本節中，您會將 iProva 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，選取 [企業應用程式] > [所有應用程式] > [iProva]。
 
@@ -238,7 +238,7 @@ iProva 與 Azure AD 整合可提供下列優點：
 
 2. 在應用程式清單中，選取[iProva]。
 
-    ![應用程式清單中的 iProva 連結](common/all-applications.png)
+    ![應用程式清單中的 [iProva] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -266,14 +266,14 @@ iProva 與 Azure AD 整合可提供下列優點：
 
 5. 選取 [新增] 。
 
-6. 在 [使用者名稱] 方塊中，輸入 brittasimon@yourcompanydomain.extension。 
+6. 在 [Username] \(使用者名稱\) 方塊中，輸入 *brittasimon\@yourcompanydomain.extension*。 
     例如 BrittaSimon@contoso.com。
 
 7. 在 [全名] 方塊中，輸入 **BrittaSimon** 之類的全名。
 
 8. 選取 [無密碼 (使用單一登入)] 選項。
 
-9. 在 [電子郵件地址] 方塊中，輸入 yourname@yourcompanydomain.extension。 
+9. 在 [E-mail address] \(電子郵件地址\) 方塊中，輸入 *yourname\@yourcompanydomain.extension*。 
    例如 BrittaSimon@contoso.com。
 
 10. 向下捲動至頁面結尾處，然後選取 [完成]。

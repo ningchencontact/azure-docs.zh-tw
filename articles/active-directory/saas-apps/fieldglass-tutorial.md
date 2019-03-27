@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2510195f-d5b1-4684-b3da-283fb8619df2
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 607167494381d8fc0bb5a3c0dce190c4af64e670
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 0a2c66eba95f286dfa7a84c05c66c14768629312
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865751"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877899"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fieldglass"></a>教學課程：Azure Active Directory 與 Fieldglass 整合
 
@@ -36,7 +36,7 @@ Fieldglass 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Fieldglass 整合，您需要下列項目：
+若要設定 Azure AD 與 Fieldglass 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Fieldglass 單一登入的訂用帳戶
@@ -74,7 +74,7 @@ Fieldglass 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Fieldglass 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Fieldglass 中相關使用者之間的連結關聯性。
 
-如要設定及測試搭配 Fieldglass 的 Azure AD 單一登入，您需要完成下列構成元素：
+如要設定及測試與 Fieldglass 搭配運作的 Azure AD 單一登入，您需要完成下列構成元素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Fieldglass 單一登入](#configure-fieldglass-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -103,11 +103,12 @@ Fieldglass 與 Azure AD 整合提供下列優點：
 
 4. 在 [以 SAML 設定單一登入] 頁面上，執行下列步驟：
 
-    ![Fieldglass 網域和 URL 單一登入資訊](common/idp-intiated.png)
+    ![Fieldglass 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
     a. 在 [識別碼] 文字方塊中，輸入 URL `https://www.fieldglass.com` 或依下列模式輸入︰`https://<company name>.fgvms.com`
 
     b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：
+    
     | |
     |--|
     | `https://www.fieldglass.net/<company name>`|
@@ -132,7 +133,7 @@ Fieldglass 與 Azure AD 整合提供下列優點：
 
 ### <a name="configure-fieldglass-single-sign-on"></a>設定 Fieldglass 單一登入
 
-若要設定 **Fieldglass** 端的單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)] 和複製的適當 URL 傳送給 [Fieldglass 支援小組](https://www.fieldglass.com/customer-support)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **Fieldglass** 端設定單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)] 和複製的適當 URL 傳送給 [Fieldglass 支援小組](https://www.fieldglass.com/customer-support)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
@@ -152,7 +153,7 @@ Fieldglass 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -169,7 +170,7 @@ Fieldglass 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Fieldglass]。
 
-    ![應用程式清單中的 Fieldglass 連結](common/all-applications.png)
+    ![應用程式清單中的 [Fieldglass] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

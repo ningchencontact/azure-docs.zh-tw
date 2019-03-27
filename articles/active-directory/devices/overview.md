@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/31/2019
+ms.date: 03/01/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3711f2b2901ddbe49b4d6a49cabef12ac5dab3e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b303841dffd09e2c2f8250e4a7885fda36ab4a38
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192467"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58168600"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>什麼是 Azure Active Directory 中的裝置管理？
 
@@ -89,7 +89,7 @@ Azure AD 加入裝置的目標是簡化：
 
 實作 Azure AD 加入裝置提供下列優點：
 
-- **單一登入 (SSO)** Azure 受控 SaaS 應用程式和服務。 存取工作資源時，您的使用者看不到額外的驗證提示。 即使它們未連線到網域網路，也可使用 SSO 功能。
+- **單一登入 (SSO)** Azure 受控 SaaS 應用程式和服務。 存取工作資源時，您的使用者看不到額外的驗證提示。 您的使用者即使未連線到網域網路，也可以使用 SSO 功能。
 
 - 在跨加入裝置之間進行使用者設定的**企業符合規範漫遊**。 使用者不需要連線 Microsoft 帳戶 (例如 Hotmail) 以查看裝置之間的設定。
 

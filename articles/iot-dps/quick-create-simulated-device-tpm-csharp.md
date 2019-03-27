@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f574c85252614fd24734657affe3264d72130dd3
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 9ec8f8f1c6e1d1b806c5d965d3c2287027885c44
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996994"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901574"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>使用適用於 IoT 中樞裝置佈建服務的 C# 裝置 SDK 來建立及佈建模擬 TPM 裝置
 
@@ -37,7 +37,7 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>準備開發環境 
 
-1. 確定您已在電腦上安裝 [.Net Core 2.1 SDK 或更新版本](https://www.microsoft.com/net/download/windows)。 
+1. 確定您已在電腦上安裝 [.NET Core 2.1 SDK 或更新版本](https://www.microsoft.com/net/download/windows)。 
 
 1. 確定 `git` 已安裝在電腦上，並已新增至命令視窗可存取的環境變數。 請參閱[軟體自由保護協會的 Git 用戶端工具](https://git-scm.com/download/)以取得所要安裝的最新版 `git` 工具，其中包括 **Git Bash** (您可用來與本機 Git 存放庫互動的命令列應用程式)。 
 
@@ -78,14 +78,14 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 4. 在 Azure 入口網站的 [裝置佈建服務摘要] 刀鋒視窗上，選取 [管理註冊]。 選取 [個別註冊] 索引標籤，然後按一下頂端的 [新增個別註冊] 按鈕。 
 
 5. 在 [新增註冊] 之下，輸入下列資訊：
-    - 選取 [TPM] 作為身分識別證明「機制」。
-    - 輸入先前所記下的 TPM 裝置 [註冊識別碼] 和 [簽署金鑰]。
-    - (選擇性) 選取與佈建服務連結的 IoT 中樞。
-    - 輸入唯一的裝置識別碼。 您可以輸入輸出範例中所建議的裝置識別碼，或輸入您自己的裝置識別碼。 如果您使用自己的裝置識別碼，則在替裝置命名時，請務必要避免使用敏感性資料。 
-    - 選擇性地使用裝置所需的初始組態，更新**初始裝置對應項狀態**。
-    - 完成後，按一下 [儲存] 按鈕。 
+   - 選取 [TPM] 作為身分識別證明「機制」。
+   - 輸入先前所記下的 TPM 裝置 [註冊識別碼] 和 [簽署金鑰]。
+   - (選擇性) 選取與佈建服務連結的 IoT 中樞。
+   - 輸入唯一的裝置識別碼。 您可以輸入輸出範例中所建議的裝置識別碼，或輸入您自己的裝置識別碼。 如果您使用自己的裝置識別碼，則在替裝置命名時，請務必要避免使用敏感性資料。 
+   - 選擇性地使用裝置所需的初始組態，更新**初始裝置對應項狀態**。
+   - 完成後，按一下 [儲存] 按鈕。 
 
-    ![在入口網站刀鋒視窗中輸入裝置註冊資訊](./media/quick-create-simulated-device-tpm-csharp/enterdevice-enrollment.png)  
+     ![在入口網站刀鋒視窗中輸入裝置註冊資訊](./media/quick-create-simulated-device-tpm-csharp/enterdevice-enrollment.png)  
 
    註冊成功時，您裝置的「登錄識別碼」將會出現在「個別註冊」索引標籤之下的清單中。 
 

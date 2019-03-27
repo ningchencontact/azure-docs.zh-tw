@@ -5,18 +5,18 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 2/19/2019
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 9ed0c8763835add485d6c60a43f4e4113ecde12e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: 43df80e060ff698537f7fd65075006e6dfffe6c1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429276"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117144"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>教學課程：在自訂網域中建立 Web 應用程式的 DNS 記錄 
 
-您可以設定 Azure DNS 來裝載 Web 應用程式的自訂網域。 例如，您可以建立一個 Azure Web 應用程式，並讓使用者使用 www.contoso.com 或 contoso.com 作為完整網域名稱 (FQDN) 存取該應用程式。
+您可以設定 Azure DNS 來裝載 Web 應用程式的自訂網域。 例如，您可以建立一個 Azure Web 應用程式，並讓使用者使用 www\.contoso.com 或 contoso.com 作為完整網域名稱 (FQDN) 存取該應用程式。
 
 > [!NOTE]
 > 本教學課程會使用 Contoso.com 作為範例。 用您自己的網域名稱來取代 contoso.com。
@@ -47,12 +47,13 @@ ms.locfileid: "56429276"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- [建立 App Service 應用程式](../app-service/app-service-web-get-started-html.md)，或使用您針對另一個教學課程建立的應用程式。
+* 您必須提供可用的網域名稱，才能使用可裝載於 Azure DNS 的網域名稱進行測試。 您必須擁有此網域的完整控制權。 完整控制權包括為網域設定名稱伺服器 (NS) 記錄的能力。
+* [建立 App Service 應用程式](../app-service/app-service-web-get-started-html.md)，或使用您針對另一個教學課程建立的應用程式。
 
-- 在 Azure DNS 中建立 DNS 區域，並將註冊機構中的區域委派給 Azure DNS。
+* 在 Azure DNS 中建立 DNS 區域，並將註冊機構中的區域委派給 Azure DNS。
 
    1. 若要建立 DNS 區域，請依照 [建立 DNS 區域](dns-getstarted-create-dnszone.md)的步驟進行。
-   2. 若要將區域委派給 Azure DNS，請依照 [DNS 網域委派](dns-domain-delegation.md)中的步驟進行。
+   2. 若要將區域委派給 Azure DNS，請依照 [DNS 網域委派](dns-delegate-domain-azure-dns.md)中的步驟進行。
 
 建立區域並委派給 Azure DNS 之後，便可以為您的自訂網域建立記錄。
 
@@ -72,7 +73,7 @@ A 記錄可用來將名稱對應到其 IP 位址。 在下列範例中，我們�
 
 ### <a name="create-the-a-record"></a>建立 A 記錄
 
-```powershell
+```azurepowershell
 New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
  -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 `
  -DnsRecords (New-AzDnsRecordConfig -IPv4Address "<your web app IP address>")
@@ -82,7 +83,10 @@ New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
 
 應用程式服務只會在設定時使用此記錄，以確認您擁有自訂網域。 系統驗證您的自訂網域並在 App Service 中設定之後，您就可以刪除此 TXT 記錄。
 
-```powershell
+> [!NOTE]
+> 如果您想要確認網域名稱，但不要將生產流量路由傳送至 Web 應用程式，則只需針對驗證步驟指定 TXT 記錄。  除了 TXT 記錄，驗證不需要 A 或 CNAME 記錄。
+
+```azurepowershell
 New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
  -Name "@" -RecordType "txt" -Ttl 600 `
  -DnsRecords (New-AzDnsRecordConfig -Value  "contoso.azurewebsites.net")
@@ -96,7 +100,7 @@ New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 ### <a name="create-the-record"></a>建立記錄
 
-```powershell
+```azurepowershell
 New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName "MyAzureResourceGroup" `
  -Name "www" -RecordType "CNAME" -Ttl 600 `
  -DnsRecords (New-AzDnsRecordConfig -cname "contoso.azurewebsites.net")
@@ -158,7 +162,7 @@ contoso.com text =
 
 現在您可以將自訂主機名稱新增至 Web 應用程式：
 
-```powershell
+```azurepowershell
 set-AzWebApp `
  -Name contoso `
  -ResourceGroupName MyAzureResourceGroup `

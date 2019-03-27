@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 42a0eb7c-5cb7-44a9-b00b-b0e7df4b63e8
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79ac7bd20c547f4f43a2991f05fef947bb3e01c4
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: dcb5e5bc7803c5a63a7244b0606102597a7ef057
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868956"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888258"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halosys"></a>教學課程：Azure Active Directory 與 Halosys 整合
 
@@ -148,7 +148,7 @@ Halosys 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -165,7 +165,7 @@ Halosys 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Halosys]。
 
-    ![應用程式清單中的 Halosys 連結](common/all-applications.png)
+    ![應用程式清單中的 [Halosys] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -183,7 +183,7 @@ Halosys 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-halosys-test-user"></a>建立 Halosys 測試使用者
 
-在本節中，您要在 Halosys 中建立名為 Britta Simon 的使用者。 請與  [Halosys 支援小組](https://halosys.com/halosys#contact)合作，在 Halosys 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 Halosys 中建立名為 Britta Simon 的使用者。 請與  [Halosys 支援小組](https://halosys.com/halosys#contact)合作，在 Halosys 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

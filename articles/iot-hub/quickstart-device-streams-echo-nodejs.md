@@ -8,18 +8,20 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/15/2019
+ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 590faaf727345dcfe8ab61a1860ca46d78256b22
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 1e7efe28918cafb3fa9547c144be3360768d549c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219000"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079890"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>快速入門：透過 IoT 中樞裝置串流與使用 Node.js 的裝置應用程式進行通訊 (預覽)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
+
+Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 [IoT 中樞裝置串流](./iot-hub-device-streams-overview.md)可讓服務和裝置應用程式以安全且便於設定防火牆的方式進行通訊。 在公開預覽期間，Node.js SDK 僅支援服務端上的裝置串流。 因此，本快速入門僅提供執行服務端應用程式的指示。 您應執行 [C 快速入門](./quickstart-device-streams-echo-c.md)或 [C# 快速入門](./quickstart-device-streams-echo-csharp.md)指南中提及的隨附裝置端應用程式。
 
@@ -37,6 +39,11 @@ ms.locfileid: "55219000"
 
 
 ## <a name="prerequisites"></a>必要條件
+
+裝置串流的預覽版目前僅支援在下列區域建立的 IoT 中樞：
+
+  - **美國中部**
+  - **美國中部 EUAP**
 
 若要執行本快速入門中的服務端應用程式，您的開發電腦上需要 Node.js 4.x.x 版或更新版本。
 
@@ -80,7 +87,7 @@ node --version
     **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --hub-name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name YourIoTHubName
     ```
 
     記下顯示如下的傳回值：
@@ -100,7 +107,7 @@ node --version
 假設裝置端應用程式正在執行中，請依照下列步驟執行使用 Node.js 的服務端應用程式：
 
 - 提供您的服務認證和裝置識別碼，作為環境變數。
-```
+  ```
   # In Linux
   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
   export STREAMING_TARGET_DEVICE="MyDevice"
@@ -108,11 +115,11 @@ node --version
   # In Windows
   SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
   SET STREAMING_TARGET_DEVICE=MyDevice
-```
-將變更 `MyDevice` 為您為裝置選擇的裝置識別碼。
+  ```
+  將變更 `MyDevice` 為您為裝置選擇的裝置識別碼。
 
 - 在解壓縮的專案資料夾中瀏覽至 `Quickstarts/device-streams-service`，並使用節點執行範例。
-```
+  ```
   cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
   
   # Install the preview service SDK, and other dependencies
@@ -120,7 +127,7 @@ node --version
   npm install
 
   node echo.js
-```
+  ```
 
 在最後一個步驟結束時，服務端程式將會對您的裝置起始串流，且在建立之後，會透過串流將字串緩衝區傳送至服務。 在此範例中，服務端程式會直接讀取終端機上的 stdin，並將其傳送至裝置，而裝置隨後會加以回應。 這示範了兩個應用程式之間成功的雙向通訊。
 

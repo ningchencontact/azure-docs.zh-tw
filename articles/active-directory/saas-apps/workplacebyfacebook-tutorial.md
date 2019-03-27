@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 30f2ee64-95d3-44ef-b832-8a0a27e2967c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7be803d229990359846bdc3c447a7d09c3143c8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 27173c8beeecf2be43e80f59df8907952734c06b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878637"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900874"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>教學課程：Azure Active Directory 與 Workplace by Facebook 整合
 
@@ -84,7 +84,7 @@ ms.locfileid: "56878637"
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 Workplace by Facebook 設定和測試 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Workplace by Facebook 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Workplace by Facebook 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 Workplace by Facebook 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
@@ -93,14 +93,14 @@ ms.locfileid: "56878637"
 2. **[設定 Workplace by Facebook 單一登入](#configure-workplace-by-facebook-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 Workplace by Facebook 測試使用者](#create-workplace-by-facebook-test-user)** - 使 Workplace by Facebook 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+5. **[建立 Workplace by Facebook 測試使用者](#create-workplace-by-facebook-test-user)** - 在 Workplace by Facebook 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要使用 Workplace by Facebook 設定 Azure AD 單一登入，請執行下列步驟：
+若要設定與 Workplace by Facebook 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Workplace by Facebook] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -162,9 +162,9 @@ ms.locfileid: "56878637"
 
     d. 在從 Azure 入口網站下載的記事本檔案中開啟您的 **base-64 編碼憑證**，將憑證的內容複製到剪貼簿，再貼到 [SAML 憑證] 文字方塊。
 
-    e. 複製執行個體的 [對象 URL]，並將其貼入 Azure 入口網站上 [基本 SAML 設定] ****  區段中的 [識別碼 (實體識別碼)] **** 文字方塊內。
+    e. 複製執行個體的 [Audience URL] \(對象 URL\)，並將其貼到 Azure 入口網站上 [基本 SAML 設定] 區段中的 [識別碼 (實體識別碼)] 文字方塊內。
 
-    f. 複製執行個體的 [收件者 URL]，並將其貼入 Azure 入口網站上 [基本 SAML 設定] ****  區段中的 [登入 URL] **** 文字方塊內。
+    f. 複製執行個體的 [Recipient URL] \(收件者 URL\)，並將其貼到 Azure 入口網站上 [基本 SAML 設定] 區段中的 [登入 URL] 文字方塊內。
 
     g. 捲動到區段的底部，然後按一下 [測試 SSO] 按鈕。 快顯視窗中的這個結果隨即顯示，並會出現 Azure AD 登入頁面。 如往常輸入您的認證以進行驗證。
 
@@ -205,7 +205,7 @@ ms.locfileid: "56878637"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -222,7 +222,7 @@ ms.locfileid: "56878637"
 
 2. 在應用程式清單中，輸入 **Workplace by Facebook** 並加以選取。
 
-    ![應用程式清單中的 Workplace by Facebook 連結](common/all-applications.png)
+    ![應用程式清單中的 [Workplace by Facebook] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -251,7 +251,7 @@ ms.locfileid: "56878637"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Workplace by Facebook] 圖格時，應該會自動登入您設定 SSO 的 Workplace by Facebook。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [Workplace by Facebook] 圖格時，應該會自動登入您已設定 SSO 的 Workplace by Facebook。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

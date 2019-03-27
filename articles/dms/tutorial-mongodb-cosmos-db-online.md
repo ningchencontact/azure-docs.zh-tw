@@ -2,21 +2,21 @@
 title: 教學課程：使用 Azure 資料庫移轉服務在線上狀態下將 MongoDB 移轉至 Azure Cosmos DB 的 Mongo 版 API | Microsoft Docs
 description: 了解如何使用 Azure 資料庫移轉服務，在線上狀態下從內部部署 MongoDB 移轉至 Azure Cosmos DB 的 Mongo 版 API。
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/27/2019
-ms.openlocfilehash: 06e76b8eed283c6ef09f38e876c60b05477cf0ce
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.date: 03/12/2019
+ms.openlocfilehash: dd14ec4f4b6395e5733f4f17165e94ca7e77f883
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985813"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008640"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms-preview"></a>教學課程：使用 DMS 在線上狀態下將 MongoDB 移轉至 Azure Cosmos DB 的 Mongo 版 API (預覽)
 您可以使用 Azure 資料庫移轉服務，在線上狀態下 (以最短的停機時間) 將資料庫從內部部署或雲端的 MongoDB 執行個體移轉至 Azure Cosmos DB 的 Mongo 版 API。
@@ -45,6 +45,15 @@ ms.locfileid: "56985813"
 若要完成本教學課程，您需要：
 - [建立 Azure Cosmos DB 的 Mongo 版 API 帳戶](https://ms.portal.azure.com/#create/Microsoft.DocumentDB)。
 - 使用 Azure Resource Manager 部署模型建立 Azure 資料庫移轉服務的 Azure 虛擬網路 (VNET)，以使用 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 或 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) 為您的內部部署來源伺服器提供站對站連線能力。
+
+    > [!NOTE]
+    > 在 VNET 設定期間，如果您搭配與 Microsoft 對等互連的網路使用 ExpressRoute，請將下列服務[端點](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)新增至將佈建服務的子網路：
+    > - 目標資料庫端點 (例如，SQL 端點、Cosmos DB 端點等)
+    > - 儲存體端點
+    > - 服務匯流排端點
+    >
+    > 此為必要設定，因為 Azure 資料庫移轉服務沒有網際網路連線。
+
 - 確定您的 VNET 網路安全性群組規則不會封鎖下列通訊埠：443、53、9354、445 及 12000。 如需 Azure VNET NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)。
 - 變更來源伺服器的防火牆，以允許 Azure 資料庫移轉服務存取來源 MongoDB 伺服器 (依預設會使用 TCP 連接埠 27017)。
 - 使用來源資料庫前面的防火牆應用裝置時，您可能必須新增防火牆規則，才能讓 Azure 資料庫移轉服務存取來源資料庫，以進行移轉。
@@ -117,20 +126,20 @@ ms.locfileid: "56985813"
 1. 在 [來源詳細資料] 畫面上，指定來源 MongoDB 伺服器的連線詳細資料。
 
     有三種模式可連線至來源：
-       * **標準模式**，可接受完整網域名稱或 IP 位址、連接埠號碼和連線認證。
-       * **連接字串模式**，可接受[連接字串 URI 格式](https://docs.mongodb.com/manual/reference/connection-string/)一文中說明的 MongoDB 連接字串。
-       * **來自 Azure 儲存體的資料**，可接受 Blob 容器 SAS URL。 如果 Blob 容器含有 MongoDB [bsondump 工具](https://docs.mongodb.com/manual/reference/program/bsondump/)所產生的 BSON 傾印，請選取 [Blob 包含 BSON 傾印]，如果容器包含 JSON 檔案，則將其取消選取。
+   * **標準模式**，可接受完整網域名稱或 IP 位址、連接埠號碼和連線認證。
+   * **連接字串模式**，可接受[連接字串 URI 格式](https://docs.mongodb.com/manual/reference/connection-string/)一文中說明的 MongoDB 連接字串。
+   * **來自 Azure 儲存體的資料**，可接受 Blob 容器 SAS URL。 如果 Blob 容器含有 MongoDB [bsondump 工具](https://docs.mongodb.com/manual/reference/program/bsondump/)所產生的 BSON 傾印，請選取 [Blob 包含 BSON 傾印]，如果容器包含 JSON 檔案，則將其取消選取。
 
-      如果您選取此選項，請確定儲存體帳戶連接字串以下列格式顯示：
+     如果您選取此選項，請確定儲存體帳戶連接字串以下列格式顯示：
 
-    ```
-    https://blobnameurl/container?SASKEY
-    ```
-      此外，根據 Azure 儲存體中的類型傾印資訊，請留意下列詳細資料。
+     ```
+     https://blobnameurl/container?SASKEY
+     ```
+     此外，根據 Azure 儲存體中的類型傾印資訊，請留意下列詳細資料。
 
-      * 就 BSON 傾印而言，Blob 容器內的資料必須採用 bsondump 格式，使資料檔案以 collection.bson 的格式放入依所屬資料庫命名的資料夾中。 中繼資料檔案 (如果有的話) 則應使用 *collection*.metadata.json 的格式命名。
+     * 就 BSON 傾印而言，Blob 容器內的資料必須採用 bsondump 格式，使資料檔案以 collection.bson 的格式放入依所屬資料庫命名的資料夾中。 中繼資料檔案 (如果有的話) 則應使用 *collection*.metadata.json 的格式命名。
 
-      * 就 JSON 傾印而言，Blob 容器中的檔案必須放入依所屬資料庫命名的資料夾中。 在每個資料庫資料夾中，資料檔案必須放在名為「資料」的子資料夾中，並使用 *collection*.json 的格式命名。 中繼資料檔案 (如果有的話) 必須放在名為「中繼資料」的子資料夾中，並使用相同的格式 *collection*.json 命名。 中繼資料檔案必須採用 MongoDB bsondump 工具所產生的相同格式。
+     * 就 JSON 傾印而言，Blob 容器中的檔案必須放入依所屬資料庫命名的資料夾中。 在每個資料庫資料夾中，資料檔案必須放在名為「資料」的子資料夾中，並使用 *collection*.json 的格式命名。 中繼資料檔案 (如果有的話) 必須放在名為「中繼資料」的子資料夾中，並使用相同的格式 *collection*.json 命名。 中繼資料檔案必須採用 MongoDB bsondump 工具所產生的相同格式。
 
    如果無法解析 DNS 名稱，您可以使用 IP 位址。
 
@@ -155,7 +164,7 @@ ms.locfileid: "56985813"
 
     如果字串 **Create** 出現在資料庫名稱旁邊，則代表 Azure 資料庫移轉服務未找到目標資料庫，且服務會為您建立該資料庫。
 
-    這個移轉階段中，如果資料庫上需要共用輸送量，請指定輸送量 RU。 在 Cosmos DB 中，您可以在資料庫層級或以個別進行的方式，為每個集合佈建輸送量。 輸送量會以[要求單位](https://docs.microsoft.com/azure/cosmos-db/request-units) (RU) 來測量。 深入了解 [Azure Cosmos DB 定價](https://azure.microsoft.com/pricing/details/cosmos-db/)。
+    在這個移轉階段，如果您想要在資料庫上共用輸送量，請指定輸送量 RU。 在 Cosmos DB 中，您可以在資料庫層級或以個別進行的方式，為每個集合佈建輸送量。 輸送量會以[要求單位](https://docs.microsoft.com/azure/cosmos-db/request-units) (RU) 來測量。 深入了解 [Azure Cosmos DB 定價](https://azure.microsoft.com/pricing/details/cosmos-db/)。
 
     ![對應到目標資料庫](media/tutorial-mongodb-to-cosmosdb-online/dms-map-target-databases1.png)
 

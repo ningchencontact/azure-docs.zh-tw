@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: a1f49bb8-6b17-433d-8f25-9d26fb390e77
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: cadd97ba4d5b3bda035dd47d3d07bf60b689c760
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 2dd08ca77af14b0646fbff7b461c2703ddb0b992
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983894"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897553"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-merchlogix"></a>教學課程：Azure Active Directory 與 Merchlogix 整合
 
@@ -70,10 +70,10 @@ Merchlogix 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 Merchlogix 設定及測試 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Merchlogix 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Merchlogix 中相關使用者之間的連結關聯性。
 
-若要使用 Merchlogix 設定及測試與 Azure AD 單一登入，您需要完成下列構成要素：
+若要設定及測試與 Merchlogix 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Merchlogix 單一登入](#configure-merchlogix-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -86,7 +86,7 @@ Merchlogix 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要使用 Merchlogix 設定 Azure AD 單一登入，請執行下列步驟：
+若要設定與 Merchlogix 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Merchlogix] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -102,7 +102,7 @@ Merchlogix 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Merchlogix 網域與 URL 單一登入資訊](common/sp-identifier.png)
+    ![Merchlogix 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<DOMAIN>/login.php?saml=true`
 
@@ -147,7 +147,7 @@ Merchlogix 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -156,7 +156,7 @@ Merchlogix 與 Azure AD 整合提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會把 Merchlogix 的存取權授予 Britta Simon，讓 Britta Simon 能夠使用 Azure 單一登入。
+在本節中，您會將 Merchlogix 的存取權授予 Britta Simon，讓 Britta Simon 能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Merchlogix]。
 
@@ -164,7 +164,7 @@ Merchlogix 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Merchlogix]。
 
-    ![應用程式清單中的 Merchlogix 連結](common/all-applications.png)
+    ![應用程式清單中的 [Merchlogix] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -182,7 +182,7 @@ Merchlogix 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-merchlogix-test-user"></a>建立 Merchlogix 測試使用者
 
-在本節中，您要在 Merchlogix 中建立名為 Britta Simon 的使用者。 請與 [Merchlogix 支援小組](https://www.merchlogix.com/contact/)合作，在 Merchlogix 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 Merchlogix 中建立名為 Britta Simon 的使用者。 請與 [Merchlogix 支援小組](https://www.merchlogix.com/contact/)合作，在 Merchlogix 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: f9385723-8fe7-4340-8afb-1508dac3e92b
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9af11c7c347481921f04e63276e946e679b03cdd
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8942ebf3f006c2e1cc72b322dd243d46bf69f04d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876206"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888122"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>教學課程：Azure Active Directory 與 Adobe Sign 整合
 
@@ -89,7 +89,7 @@ ms.locfileid: "56876206"
 
 若要設定與 Adobe Sign 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Adobe Sign] 應用程式整合頁面中，選取 [單一登入]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Adobe Sign] 應用程式整合頁面上，選取 [單一登入]。
 
     ![設定單一登入連結](common/select-sso.png)
 
@@ -103,7 +103,7 @@ ms.locfileid: "56876206"
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Adobe Sign 網域和 URL 單一登入資訊](common/sp-identifier.png)
+    ![Adobe Sign 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.echosign.com/`
 
@@ -128,7 +128,7 @@ ms.locfileid: "56876206"
 
 ### <a name="configure-adobe-sign-single-sign-on"></a>設定 Adobe Sign 單一登入
 
-7. 設定之前，請先連絡 [Adobe Sign Client 支援小組](https://helpx.adobe.com/in/contact/support.html)，以將您的網域列入 Adobe Sign 的允許清單中。 以下是新增網域的方式：
+1. 設定之前，請先連絡 [Adobe Sign Client 支援小組](https://helpx.adobe.com/in/contact/support.html)，以將您的網域列入 Adobe Sign 的允許清單中。 以下是新增網域的方式：
 
     a. [Adobe Sign Client 支援小組](https://helpx.adobe.com/in/contact/support.html)會傳送隨機產生的權杖給您。 您網域的權杖會如下所示：**adobe-sign-verification= xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
 
@@ -147,33 +147,33 @@ ms.locfileid: "56876206"
     * 以 Adobe 提供的完整權杖值新增 TXT 記錄。
     * 儲存您的變更。
 
-8. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Adobe Sign 公司網站。
+1. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 Adobe Sign 公司網站。
 
-9. 在 [SAML] 功能表中，選取 [Account Settings] \(帳戶設定\) > [SAML Settings] \(SAML 設定\)。
+1. 在 [SAML] 功能表中，選取 [Account Settings] \(帳戶設定\) > [SAML Settings] \(SAML 設定\)。
    
     ![Adobe Sign [SAML Settings] \(SAML 設定\) 頁面的螢幕擷取畫面](./media/adobe-echosign-tutorial/ic789520.png "Account (\帳戶\)")
 
-10. 在 [SAML 設定] 區段中，執行下列步驟：
+1. 在 [SAML 設定] 區段中，執行下列步驟：
   
-    ![[SAML Settings] \(SAML 設定\) 的螢幕擷取畫面](./media/adobe-echosign-tutorial/ic789521.png "SAML Settings \(SAML 設定\)")
+   ![[SAML Settings] \(SAML 設定\) 的螢幕擷取畫面](./media/adobe-echosign-tutorial/ic789521.png "SAML Settings \(SAML 設定\)")
    
-    ![[SAML Settings] \(SAML 設定\) 的螢幕擷取畫面](./media/adobe-echosign-tutorial/ic789522.png "SAML Settings \(SAML 設定\)")
+   ![[SAML Settings] \(SAML 設定\) 的螢幕擷取畫面](./media/adobe-echosign-tutorial/ic789522.png "SAML Settings \(SAML 設定\)")
 
-    a. 在 [SAML Mode] \(SAML 模式\) 底下，選取 [SAML Mandatory] \(SAML 強制\)。
+   a. 在 [SAML Mode] \(SAML 模式\) 底下，選取 [SAML Mandatory] \(SAML 強制\)。
    
-    b. 選取 [Allow Echosign Account Administrators to log in using their Echosign Credentials] \(允許 EchoSign 帳戶管理員使用其 EchoSign 認證登入\)。
+   b. 選取 [Allow Echosign Account Administrators to log in using their Echosign Credentials] \(允許 EchoSign 帳戶管理員使用其 EchoSign 認證登入\)。
    
-    c. 在 [User Creation] \(使用者建立\) 底下，選取 [Automatically add users authenticated through SAML] \(透過 SAML 自動新增已驗證的使用者\)。
+   c. 在 [User Creation] \(使用者建立\) 底下，選取 [Automatically add users authenticated through SAML] \(透過 SAML 自動新增已驗證的使用者\)。
 
-    d. 將從 Azure 入口網站複製的 [Azure AD 識別碼] 貼到 [Idp 實體識別碼] 文字方塊中。
+   d. 將從 Azure 入口網站複製的 [Azure AD 識別碼] 貼到 [Idp 實體識別碼] 文字方塊中。
     
-    e. 在 [Idp 登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL]。
+   e. 在 [Idp 登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL]。
    
-    f. 在 [Idp 登出 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL]。
+   f. 在 [Idp 登出 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL]。
 
-    g. 在「記事本」中開啟所下載的**憑證 (Base64)** 檔案。 將其內容複製到剪貼簿，然後貼到 [IdP Certificate] \(IdP 憑證\) 文字方塊中。
+   g. 在「記事本」中開啟所下載的**憑證 (Base64)** 檔案。 將其內容複製到剪貼簿，然後貼到 [IdP Certificate] \(IdP 憑證\) 文字方塊中。
 
-    h. 選取 [Save Changes] \(儲存變更\)。
+   h. 選取 [Save Changes] \(儲存變更\)。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
@@ -193,7 +193,7 @@ ms.locfileid: "56876206"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -210,7 +210,7 @@ ms.locfileid: "56876206"
 
 2. 在應用程式清單中，輸入 **Adobe Sign** 並加以選取。
 
-    ![應用程式清單中的 Adobe Sign 連結](common/all-applications.png)
+    ![應用程式清單中的 [Adobe Sign] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

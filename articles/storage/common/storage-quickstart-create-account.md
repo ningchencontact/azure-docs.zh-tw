@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/18/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5266ca3f50a2d8163dbab95109cb967fb5a63ed8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ebe23c606d95baa6c79c668fc929177c8bc37e44
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474576"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57862942"
 ---
 # <a name="create-a-storage-account"></a>建立儲存體帳戶
 
@@ -55,6 +55,10 @@ Azure Cloud Shell 是免費的 Bash Shell，您可以直接在 Azure 入口網�
 
 您也可以在本機安裝及使用 Azure CLI。 本快速入門需要您執行 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 
 
+# <a name="templatetabtemplate"></a>[範本](#tab/template)
+
+無。
+
 ---
 
 ## <a name="log-in-to-azure"></a>登入 Azure
@@ -80,6 +84,10 @@ Connect-AzAccount
 ```cli
 az login
 ```
+
+# <a name="templatetabtemplate"></a>[範本](#tab/template)
+
+N/A
 
 ---
 
@@ -170,6 +178,33 @@ az storage account create \
 |異地備援儲存體 (GRS)     |Standard_GRS         |
 |讀取權限異地備援儲存體 (GRS)     |Standard_RAGRS         |
 
+# <a name="templatetabtemplate"></a>[範本](#tab/template)
+
+您可以使用 Azure PowerShell 或 Azure CLI 來部署 Resource Manager 範本以建立儲存體帳戶。 本快速入門中使用的範本是來自 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/101-storage-account-create/)。 若要執行指令碼，請選取 [試試看] 開啟 Azure Cloud shell。 若要貼上指令碼，請以滑鼠右鍵按一下 Shell，然後選取 [貼上]。
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+
+New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+```
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+echo "Enter the location (i.e. centralus):" &&
+read location &&
+az group create --name $resourceGroupName --location "$location" &&
+az group deployment create --resource-group $resourceGroupName --template-file "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+```
+
+若要了解如何建立範本，請參閱：
+
+- [Azure Resource Manager 文件](/azure/azure-resource-manager/)。
+- [儲存體帳戶範本參考](/azure/templates/microsoft.storage/allversions)。
+- [其他儲存體帳戶範本範例](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage)。
+
 ---
 
 如需可用複寫選項的詳細資訊，請參閱[儲存體複寫選項](storage-redundancy.md)。
@@ -202,6 +237,21 @@ Remove-AzResourceGroup -Name $resourceGroup
 az group delete --name storage-quickstart-resource-group
 ```
 
+# <a name="templatetabtemplate"></a>[範本](#tab/template)
+
+若要移除資源群組及其相關聯的資源，包括新的儲存體帳戶，請使用 Azure PowerShell 或 Azure CLI。
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+```
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName
+```
+
 ---
 
 ## <a name="next-steps"></a>後續步驟
@@ -222,5 +272,10 @@ az group delete --name storage-quickstart-resource-group
 
 > [!div class="nextstepaction"]
 > [使用 Azure CLI 處理 Blob](../blobs/storage-quickstart-blobs-cli.md)
+
+# <a name="templatetabtemplate"></a>[範本](#tab/template)
+
+> [!div class="nextstepaction"]
+> [使用 Azure 入口網站處理 Blob](../blobs/storage-quickstart-blobs-portal.md)
 
 ---

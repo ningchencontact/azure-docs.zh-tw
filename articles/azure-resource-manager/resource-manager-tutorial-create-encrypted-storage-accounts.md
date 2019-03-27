@@ -10,22 +10,24 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/06/2018
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 1f831f2d962626de6f847e2fe775605b7bfca5b8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 68199083369018cab1c9f83dd6781653a8cae37c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097585"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849290"
 ---
 # <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>教學課程：利用 Azure Resource Manager 範本參考
 
 了解如何尋找範本結構描述資訊，以及使用此資訊來建立 Azure Resource Manager 範本。
 
 在本教學課程中，您會使用 Azure 快速入門範本中的基底範本。 您可以使用範本參考文件來自訂範本，用以建立加密的儲存體帳戶。
+
+![Resource Manager 範本參考 - 部署加密的儲存體帳戶](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-tutorial-deploy-encrypted-storage-account.png)
 
 本教學課程涵蓋下列工作：
 
@@ -76,9 +78,9 @@ ms.locfileid: "53097585"
 
 ## <a name="find-the-template-reference"></a>尋找範本參考
 
-1. 瀏覽至 [Azure 範本](https://docs.microsoft.com/azure/templates/)。
-2. 在 [依標題篩選] 中，輸入**儲存體帳戶**。
-3. 選取 [參考/範本參考/儲存體/<Version>/儲存體帳戶]，如下列螢幕擷取畫面所示：
+1. 瀏覽至[Azure 範本參考](https://docs.microsoft.com/azure/templates/)。
+2. 在 [依標題篩選] 方塊中，輸入**儲存體帳戶**。
+3. 選取 [參考]/[範本參考]/[儲存體]/[&lt;版本>]/[儲存體帳戶]，如以下螢幕擷取畫面所示：
 
     ![Resource Manager 範本參考儲存體帳戶](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
 

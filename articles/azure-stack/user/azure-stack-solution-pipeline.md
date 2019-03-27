@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: deaf7defe5aca4f53df073b19e471a52bd7b8a5d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9c7e6640bdb17e9f996545c2c3315c0c1ade42d1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878739"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57902207"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>教學課程：將應用程式部署至 Azure 和 Azure Stack
 
@@ -78,17 +78,17 @@ ms.locfileid: "56878739"
 ### <a name="azure-stack-requirements"></a>Azure Stack 需求
 
 * 使用 Azure Stack 整合系統，或部署 Azure Stack 開發套件 (ASDK)。 若要部署 ASDK：
-    * [教學課程：使用安裝程式部署 ASDK](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy) 會提供詳細的部署指示。
-    * 使用 [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) PowerShell 指令碼，將 ASDK 部署後步驟自動化。
+  * [教學課程：使用安裝程式部署 ASDK](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy) 會提供詳細的部署指示。
+  * 使用 [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) PowerShell 指令碼，將 ASDK 部署後步驟自動化。
 
     > [!Note]
     > ASDK 安裝程序需要約七個小時才能完成，因此請據以規劃時段。
 
- * 將 [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS 服務部署至 Azure Stack。
- * 在 Azure Stack 中建立[方案/供應項目](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview)。
- * 在 Azure Stack 中建立[租用戶訂用帳戶](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm)。
- * 在租用戶訂用帳戶中建立 Web 應用程式。 記下新的 Web 應用程式 URL，以供後續使用。
- * 在租用戶訂用帳戶中部署 Windows Server 2012 虛擬機器。 您將以此伺服器作為組建伺服器，並用它來執行 Azure DevOps Services。
+  * 將 [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS 服務部署至 Azure Stack。
+  * 在 Azure Stack 中建立[方案/供應項目](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview)。
+  * 在 Azure Stack 中建立[租用戶訂用帳戶](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm)。
+  * 在租用戶訂用帳戶中建立 Web 應用程式。 記下新的 Web 應用程式 URL，以供後續使用。
+  * 在租用戶訂用帳戶中部署 Windows Server 2012 虛擬機器。 您將以此伺服器作為組建伺服器，並用它來執行 Azure DevOps Services。
 * 對虛擬機器 (VM) 提供附有 .NET 3.5 的 Windows Server 2016 映像。 此 VM 會建置在 Azure Stack 上，作為私用組建代理程式。
 
 ### <a name="developer-tool-requirements"></a>開發人員工具需求
@@ -97,8 +97,8 @@ ms.locfileid: "56878739"
 * [安裝 Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) 並[登入 Azure DevOps Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services)。
 * 連線至專案並[在本機複製](https://www.visualstudio.com/docs/git/gitquickstart)。
 
- > [!Note]
- > Azure Stack 環境需要同步發佈正確的映像以執行 Windows Server 和 SQL Server。 此環境也必須部署 App Service。
+  > [!Note]
+  > Azure Stack 環境需要同步發佈正確的映像以執行 Windows Server 和 SQL Server。 此環境也必須部署 App Service。
 
 ## <a name="prepare-the-private-azure-pipelines-agent-for-azure-devops-services-integration"></a>準備私人 Azure Pipelines 代理程式以進行 Azure DevOps Services 整合
 
@@ -363,7 +363,7 @@ Azure DevOps 的最新更新可讓您使用以憑證進行驗證的服務主體�
 
 2. 巡覽至專案的 [組建 Web 應用程式] 頁面。
 
-3. 在 [引數] 中，新增 **-r win10-x64** 程式碼。 這是觸發 .Net Core 的獨立部署時所需的程式碼。
+3. 在 [引數] 中，新增 **-r win10-x64** 程式碼。 這是觸發 .NET Core 的獨立部署時所需的程式碼。
 
     ![新增引數組建管線](media/azure-stack-solution-hybrid-pipeline/020_publish_additions.png)
 

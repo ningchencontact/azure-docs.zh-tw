@@ -10,16 +10,16 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8fede6907b2b5fac475758b1bb8b1493b86ed408
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: a1f1b464b2ac6fc62ea23a80a3887961ebe2d87e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756541"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100712"
 ---
 # <a name="tutorial-create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>教學課程：使用 Azure CLI 建立裝載多個網站的應用程式閘道
 
-您可以使用 Azure CLI，在建立[應用程式閘道](overview.md)時設定[裝載多個網站](multiple-site-overview.md)。 在本教學課程中，您可以使用虛擬機器擴展集定義後端位址集區。 接著，您可以根據擁有的網域來設定接聽程式和規則，確保網路流量會抵達集區中的適當伺服器。 本教學課程假設您擁有多個網域，並使用 *www.contoso.com* 和 *www.fabrikam.com* 的範例。
+您可以使用 Azure CLI，在建立[應用程式閘道](overview.md)時設定[裝載多個網站](multiple-site-overview.md)。 在本教學課程中，您可以使用虛擬機器擴展集定義後端位址集區。 接著，您可以根據擁有的網域來設定接聽程式和規則，確保網路流量會抵達集區中的適當伺服器。 本教學課程假設您擁有多個網域，並使用 *www\.contoso.com* 和 *www\.fabrikam.com* 範例。
 
 在本教學課程中，您了解如何：
 

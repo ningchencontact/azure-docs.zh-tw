@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ad14e552bd685c42289e7007002f5ddf039f8925
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: ddd56b8479678b288424dd896baadea6a41a2aef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297951"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008136"
 ---
 # <a name="quickstart-deploy-a-java-reliable-services-application-to-service-fabric"></a>快速入門：將 Java 可靠服務應用程式部署至 Service Fabric
 
@@ -75,7 +75,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
     ![本機發佈對話方塊](./media/service-fabric-quickstart-java/localjson.png)
 
-7. 開啟您最愛的網頁瀏覽器，並存取 **http://localhost:8080** 以存取應用程式。
+7. 開啟您最愛的網頁瀏覽器，並存取 `http://localhost:8080` 以存取應用程式。
 
     ![本機應用程式前端](./media/service-fabric-quickstart-java/runninglocally.png)
 

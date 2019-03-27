@@ -15,21 +15,16 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c1a8b18062f61be9eb020beefd3ad741c41b55f8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c5ff1a0373fcce339bea2b235d86f20dc861a15c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38652697"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444254"
 ---
 # <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>教學課程：偵錯在本機 Service Fabric 叢集上部署的 Java 應用程式
 
 本教學課程是一個系列的第二部分。 您會了解如何使用適用於 Service Fabric 應用程式的 Eclipse 來連結遠端偵錯工具。 此外，您會了解如何將執行中應用程式的記錄重新導向至開發人員方便取用的位置。
-
-在本系列的第二部分中，您將瞭解如何：
-> [!div class="checklist"]
-> * 使用 Eclipse 部署 Java 應用程式
-> * 將記錄重新導向至可設定的位置
 
 在本教學課程系列中，您將了解如何：
 > [!div class="checklist"]
@@ -39,7 +34,14 @@ ms.locfileid: "38652697"
 > * [設定應用程式的監視和診斷](service-fabric-tutorial-java-elk.md)
 > * [設定 CI/CD](service-fabric-tutorial-java-jenkins.md)
 
-## <a name="prerequisites"></a>先決條件
+
+在本系列的第二部分中，您將瞭解如何：
+> [!div class="checklist"]
+> * 使用 Eclipse 部署 Java 應用程式
+> * 將記錄重新導向至可設定的位置
+
+
+## <a name="prerequisites"></a>必要條件
 
 開始進行本教學課程之前：
 
@@ -53,7 +55,7 @@ ms.locfileid: "38652697"
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 ```
 
-[建置解決方案並部署](service-fabric-tutorial-create-java-app.md#deploy-application-to-local-cluster)至本機開發叢集。
+[建置並部署](service-fabric-tutorial-create-java-app.md#deploy-application-to-local-cluster)應用程式至本機開發叢集。
 
 ## <a name="debug-java-application-using-eclipse"></a>使用 Eclipse 部署 Java 應用程式
 
@@ -63,7 +65,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 3. 在 [匯入專案] 視窗中，選擇 [選取根目錄] 選項，然後挑選 [Voting] 目錄。 如果您遵循教學課程系列的第 1 部分，則 [Voting] 目錄位於 [Eclipse-workspace] 目錄中。
 
-4. 更新您要偵錯之服務的 entryPoint.sh，使其以遠端偵錯參數啟動 Java 程序。 此教學課程會使用無狀態前端：Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh。此範例已設定連接埠 8001 來進行偵錯。
+4. 更新您要偵錯之服務的 entryPoint.sh，使其以遠端偵錯參數啟動 Java 程序。 本教學課程中會使用無狀態前端：*Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*。此範例已設定連接埠 8001 來進行偵錯。
 
     ```bash
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar
@@ -89,13 +91,15 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 10. 在 Eclipse IDE 中，選取 [Run] (執行) -> [Debug Configurations] (偵錯組態) -> [Remote Java Application] (遠端 Java 應用程式)，按一下您建立的 [Voting] 組態，然後按一下 [Debug] (偵錯)。
 
-11. 請移至您的網頁瀏覽器並存取 **localhost:8080** 以叫用中斷點，然後在 Eclipse 中輸入**Debug perspective**。
+11. 移至您的網頁瀏覽器，並存取 **localhost:8080**。 這將自動叫用中斷點，而 Eclipse 將進入**偵錯透視圖**。
+
+現在您可以套用這些相同步驟，以在 Eclipse 中偵錯任何 Service Fabric 應用程式。
 
 ## <a name="redirect-application-logs-to-custom-location"></a>將應用程式記錄重新導向至自訂位置
 
 下列步驟逐步解說如何將預設 /var/log/syslog 位置中的應用程式記錄重新導向至自訂位置。
 
-1. 目前，在 Service Fabric Linux 叢集中執行的應用程式支援挑選單一記錄檔。 因此，記錄一律會移至 /tmp/mysfapp0.0.log。 在下列位置 Voting/VotingApplication/VotingWebPkg/Code/logging.properties 建立名為 logging.properties 的檔案並新增下列內容。
+1. 目前，在 Service Fabric Linux 叢集中執行的應用程式僅支援挑選單一記錄檔。 若要設定應用程式，以使記錄一律會寫入至 */tmp/mysfapp0.0.log*，請在下列位置 *Voting/VotingApplication/VotingWebPkg/Code/logging.properties* 建立名為 logging.properties 的檔案並新增下列內容。
 
     ```
     handlers = java.util.logging.FileHandler
@@ -103,7 +107,8 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
     java.util.logging.FileHandler.level = ALL
     java.util.logging.FileHandler.formatter = java.util.logging.SimpleFormatter
 
-    # This value specifies your custom location. You will have to ensure this path has read and write access by the process running the SF Application
+    # This value specifies your custom location.
+    # You will have to ensure this path has read and write access by the process running the SF Application
     java.util.logging.FileHandler.pattern = /tmp/mysfapp0.0.log
     ```
 
@@ -113,7 +118,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
     -Djava.util.logging.config.file=logging.properties
     ```
 
-    下列範例顯示執行範例：
+    下列範例使用已連結的偵錯工具來示範範例執行，類似於上一節中的執行。
 
     ```bash
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=logging.properties -jar VotingWeb.jar

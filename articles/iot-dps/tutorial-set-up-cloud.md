@@ -1,20 +1,20 @@
 ---
 title: 在入口網站中為雲端設定 Azure IoT 中樞裝置佈建服務 | Microsoft Docs
 description: 在 Azure 入口網站中自動進行 IoT 中樞裝置佈建
-author: sethmanheim
-ms.author: sethm
+author: wesmc7777
+ms.author: wesmc
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 971b00f54d59782d5aa7ca752fc06e490d372760
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8f06d3f033a2bf5907dc2ee324359bef0eb247d0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514837"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170729"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>設定雲端資源以使用 IoT 中樞裝置佈建服務來佈建裝置
 
@@ -81,23 +81,23 @@ ms.locfileid: "51514837"
 
 4. 在 [新增 IoT 中樞的連結] 頁面中提供下列資訊，然後按一下 [儲存]：
 
-    * **訂用帳戶：** 確定已選取包含 IoT 中樞的訂用帳戶。 您可以連結至位於不同訂用帳戶的 IoT 中樞。
+    * **訂用帳戶︰** 確定已選取包含 IoT 中樞的訂用帳戶。 您可以連結至位於不同訂用帳戶的 IoT 中樞。
 
     * **IoT 中樞：** 選擇要與此裝置佈建服務執行個體連結的 IoT 中樞名稱。
 
-    * **存取原則：** 選取 [iothubowner] 作為認證，用以建立 IoT 中樞的連結。
+    * **存取原則：** 選取 [iothubowner] 作為認證，以用來建立 IoT 中樞的連結。
 
    ![在入口網站中連結中樞名稱，以連結至裝置佈建服務](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
 ## <a name="set-the-allocation-policy-on-the-device-provisioning-service"></a>對裝置佈建服務設定配置原則
 
-配置原則是 IoT 中樞裝置佈建服務的一項設定，可決定要如何將裝置指派到 IoT 中樞。 共有三個支援的配置原則： 
+配置原則是一個 IoT 中樞裝置佈建服務設定，可判斷如何將裝置指派給 IoT 中樞。 共有三個支援的配置原則： 
 
-1. **最低延遲**：將裝置佈建到裝置延遲最低的 IoT 中樞。
+1. **最低延遲**：根據對裝置具有最低延遲的 IoT 中樞，將裝置佈建到該中樞。
 
-2. **平均加權分佈** (預設值)：連結的 IoT 中樞有同樣的機率會讓系統在其中佈建裝置。 這項設定是預設值。 如果您只要將裝置佈建到一個 IoT 中樞，可以保留此設定。 
+2. **權重相等的分佈** (預設)：裝置佈建到每個已連結 IoT 中樞的機率都一樣。 這項設定是預設值。 如果您只要將裝置佈建到一個 IoT 中樞，可以保留此設定。 
 
-3. **透過註冊清單進行靜態設定**：您在註冊清單中指定使用的 IoT 中樞，其優先順序高於裝置佈建服務層級的配置原則。
+3. **透過註冊清單進行靜態設定**：註冊清單中所需 IoT 中樞的規格，其優先順序高於裝置佈建服務層級的配置原則。
 
 若要設定配置原則，請在 [裝置佈建服務] 頁面中按一下 [管理配置原則]。 請確實地將配置原則設為 [平均加權分佈] \(預設值)。 如果有進行任何變更，請於變更完成後按一下 [儲存]。
 

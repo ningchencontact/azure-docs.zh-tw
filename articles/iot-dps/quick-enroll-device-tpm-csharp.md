@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 48409fec8a9edd8a56f6e0664e1451e9677c4281
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: e3b0aeeacadc918d9b17e1cd873170c73eced510
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155029"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834756"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>使用 C# 服務 SDK 向 IoT 中樞裝置佈建服務註冊 TPM 裝置
 
@@ -27,7 +27,7 @@ ms.locfileid: "50155029"
 ## <a name="prepare-the-development-environment"></a>準備開發環境
 
 1. 確定您已在電腦上安裝 [Visual Studio 2017](https://www.visualstudio.com/vs/)。 
-2. 確定您已在電腦上安裝 [.Net Core SDK](https://www.microsoft.com/net/download/windows)。 
+2. 確定您已在電腦上安裝 [.NET Core SDK](https://www.microsoft.com/net/download/windows)。 
 3. 繼續之前，請務必完成[使用 Azure 入口網站設定 IoT 中樞裝置佈建服務](./quick-setup-auto-provision.md)中的步驟。
 4. (選擇性) 如果您需要註冊本快速入門結尾處的模擬裝置，請遵循[使用 C# 裝置 SDK 來建立及佈建模擬的 TPM 裝置](quick-create-simulated-device-tpm-csharp.md)中的步驟，直到您取得裝置之簽署金鑰的步驟為止。 請記下簽署金鑰、註冊 ID 和 (選擇性) 裝置識別碼，您稍後在本快速入門中需要用到它們。 **請勿遵循使用 Azure 入口網站建立個別註冊的步驟。**
 

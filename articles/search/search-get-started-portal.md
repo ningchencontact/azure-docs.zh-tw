@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 260dfc829d0869b1fc4f58ae399351c5f68dd926
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 85fc8a42f5220aa8f05495aa260d05ce009884f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270329"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58137822"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>快速入門：使用內建入口網站工具進行 Azure 搜尋服務的匯入、編製索引和查詢
 
@@ -34,13 +34,7 @@ ms.locfileid: "56270329"
 
 ## <a name="prerequisites"></a>必要條件
 
-[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下尋找現有服務。
-
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 開啟 Azure 搜尋服務的服務儀表板。 如果您並未將服務圖格釘選至儀表板，可以用以下方式找到您的服務︰
-
-   * 在導向列中，按一下左導覽窗格上的 [所有服務]。
-   * 在搜尋方塊中，鍵入 search 以取得訂用帳戶的搜尋相關服務清單。 按一下 [搜尋服務]。 您的服務應該會出現在清單中。
+[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。 
 
 ### <a name="check-for-space"></a>檢查空間
 

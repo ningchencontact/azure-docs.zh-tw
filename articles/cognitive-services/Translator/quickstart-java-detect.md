@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 6e83cdb93a1fc14e088a5d3874a31bc228db3363
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: c7e56043e8ec6e8764800d4437ee071d33d79d5e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727123"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58178028"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-java"></a>快速入門：搭配使用翻譯工具文字 API 與 Java 來偵測文字語言
 
@@ -180,6 +180,8 @@ gradle run
 ```
 
 ## <a name="sample-response"></a>範例回應
+
+請在此[語言清單](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support)中尋找國家/地區縮寫。
 
 ```json
 [

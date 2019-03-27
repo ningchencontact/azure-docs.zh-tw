@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 81c50614-f49b-4bbc-97d5-3cf77154305f
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: beccce5c7d2378533bdeb9f2fbcee1c742ef6bd4
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2019c61ccbffa1e68c1ef53c718d4839a604aa44
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881306"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849953"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>教學課程：Azure Active Directory 與 Mimecast Admin Console 整合
 
@@ -28,7 +28,7 @@ ms.locfileid: "56881306"
 Mimecast Admin Console 與 Azure AD 整合提供下列優點：
 
 * 您可以在 Azure AD 中控制可存取 Mimecast Admin Console 的人員。
-* 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Mimecast Admin Console (單一登入)。
+* 您可以讓使用者使用其 Azure AD 帳戶自動登入 Mimecast Admin Console (單一登入)。
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
@@ -45,7 +45,7 @@ Mimecast Admin Console 與 Azure AD 整合提供下列優點：
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* Mimecast Admin Console 支援 **SP** 起始的 SSO
+* Mimecast Admin Console 支援由 **SP** 起始的 SSO
 
 ## <a name="adding-mimecast-admin-console-from-the-gallery"></a>從資源庫新增 Mimecast Admin Console
 
@@ -71,10 +71,10 @@ Mimecast Admin Console 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者身分，設定及測試與 Mimecast Admin Console 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Mimecast Admin Console 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Mimecast Admin Console 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Mimecast Admin Console 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 Mimecast Admin Console 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Mimecast Admin Console 單一登入](#configure-mimecast-admin-console-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -103,9 +103,10 @@ Mimecast Admin Console 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Mimecast Admin Console 網域與 URL 單一登入資訊](common/sp-signonurl.png)
+    ![Mimecast Admin Console 網域及 URL 單一登入資訊](common/sp-signonurl.png)
 
     在 [登入 URL] 文字方塊中，輸入 URL：
+    
     | |
     | -- |
     | `https://webmail-uk.mimecast.com`|
@@ -187,7 +188,7 @@ Mimecast Admin Console 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -204,7 +205,7 @@ Mimecast Admin Console 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，輸入 [Mimecast Admin Console] 並加以選取。
 
-    ![應用程式清單中的 Mimecast Admin Console 連結](common/all-applications.png)
+    ![應用程式清單中的 [Mimecast Admin Console] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -257,7 +258,7 @@ Mimecast Admin Console 與 Azure AD 整合提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 Mimecast Admin Console 圖格時，應該會自動登入您設定 SSO 的 Mimecast Admin Console。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 Mimecast Admin Console 圖格時，應該會自動登入您已設定 SSO 的 Mimecast Admin Console。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

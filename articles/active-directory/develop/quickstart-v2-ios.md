@@ -3,8 +3,8 @@ title: Azure AD v2 iOS 快速入門 | Microsoft Docs
 description: 了解如何在 iOS 原生應用程式中登入使用者及查詢 Microsoft Graph。
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: danieldobalian
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/23/2018
-ms.author: andret
+ms.date: 03/20/2019
+ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30e80aa57896bec5e5b1ed68d754c0a838193042
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9134f939e771f92453b184aad643d41089623e19
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194057"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201461"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>快速入門：從 iOS 原生應用程式登入使用者及呼叫 Microsoft Graph API
 
@@ -30,7 +30,7 @@ ms.locfileid: "56194057"
 
 本快速入門包含示範原生 iOS 應用程式如何登入個人、公司與學校帳戶、取得存取權杖，以及呼叫 Microsoft Graph API 的程式碼範例。
 
-![本快速入門所產生之範例應用程式的運作方式](media/quickstart-v2-ios/ios-intro.png)
+![示範本快速入門所產生之範例應用程式的運作方式](media/quickstart-v2-ios/ios-intro-updated.png)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download"></a>註冊及下載

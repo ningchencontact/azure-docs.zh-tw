@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 55dcd2fb-96b7-46ec-9e69-eee71c535773
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 017664e29f1ecf7d35411a3bc941df932c195856
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 873bc340d738704418310e22c34b0042f71a96bd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880150"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890894"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-highgear"></a>教學課程：Azure Active Directory 與 HighGear 整合
 
@@ -74,7 +74,7 @@ HighGear 與 Azure AD 整合可提供下列優點：
 在本節中，您將了解如何以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 HighGear 系統搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 HighGear 系統中相關使用者之間的連結關聯性。
 
-若要設定及測試與 HighGear 系統搭配運作的 Azure AD 單一登入，您必須完成下列建置組塊：
+若要設定及測試與 HighGear 系統搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 HighGear 單一登入](#configure-highgear-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -103,7 +103,7 @@ HighGear 與 Azure AD 整合可提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![HighGear 網域和 URL 單一登入資訊](common/idp-intiated.png)
+    ![HighGear 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
     a. 在 [識別碼] 文字方塊中，貼上在 HighGear 系統的 [單一登入設定] 頁面上位於 [服務提供者實體識別碼] 欄位內的值。
 
@@ -120,7 +120,7 @@ HighGear 與 Azure AD 整合可提供下列優點：
 
     c. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-     ![HighGear 網域和 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
+     ![HighGear 網域及 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
 
      在 [登入 URL] 文字方塊中，貼上在 HighGear 系統的 [單一登入設定] 頁面上位於 [服務提供者實體識別碼] 欄位內的值。 (此實體識別碼也是由 SP 起始的登入所將使用的 HighGear 系統基底 URL)。
 
@@ -181,7 +181,7 @@ HighGear 與 Azure AD 整合可提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -198,7 +198,7 @@ HighGear 與 Azure AD 整合可提供下列優點：
 
 2. 在應用程式清單中，選取 [HighGear]。
 
-    ![應用程式清單中的 HighGear 連結](common/all-applications.png)
+    ![應用程式清單中的 [HighGear] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

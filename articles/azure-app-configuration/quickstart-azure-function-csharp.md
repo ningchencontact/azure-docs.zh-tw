@@ -14,24 +14,24 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 5f28e213a5f824562df62a05b98f0f92f71bc591
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 22ec05660682f000d8bc3b9780732d5adf9b5c24
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957431"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226703"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>快速入門：使用應用程式設定建立 Azure 函式
 
-Azure 應用程式設定是 Azure 中的受控設定服務。 其可讓您輕鬆地在與程式碼分開的單一位置，儲存和管理您所有的應用程式設定。 本快速入門會示範如何將該服務納入 Azure 函式中。 
+Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆地在與程式碼分開的單一位置，儲存和管理您所有的應用程式設定。 本快速入門會示範如何將該服務納入 Azure 函式中。 
 
-您可以使用任何程式碼編輯器來完成本快速入門中的步驟。 不過，於 Windows、macOS 和 Linux 平台上所提供的 [Visual Studio Code](https://code.visualstudio.com/) 是項不錯的選擇。
+您可以使用任何程式碼編輯器來進行本快速入門中的步驟。 於 Windows、macOS 和 Linux 平台上所提供的 [Visual Studio Code](https://code.visualstudio.com/) 是項不錯的選擇。
 
 ![快速入門完成 (本機)](./media/quickstarts/dotnet-core-function-launch-local.png)
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本快速入門，請安裝 [Visual Studio 2017](https://visualstudio.microsoft.com/vs) (並確定也已經安裝 **Azure 開發**工作負載) 和[最新的 Azure Functions 工具](../azure-functions/functions-develop-vs.md#check-your-tools-version)。
+若要進行本快速入門，請安裝 [Visual Studio 2017](https://visualstudio.microsoft.com/vs)。 確定也已經安裝 **Azure 開發**工作負載。 還要安裝[最新的 Azure Functions 工具](../azure-functions/functions-develop-vs.md#check-your-tools-version)。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,9 +43,9 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 其可讓您輕鬆
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-## <a name="connect-to-app-configuration-store"></a>連線至應用程式設定存放區
+## <a name="connect-to-an-app-configuration-store"></a>連線至應用程式設定存放區
 
-1. 開啟 Function1.cs，並新增應用程式設定 .NET Core 設定提供者的參考。
+1. 開啟 *Function1.cs*，並新增應用程式設定 .NET Core 設定提供者的參考。
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -89,13 +89,13 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 其可讓您輕鬆
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
-2. 若要測試您的函式，請按 **F5**。 如果出現提示，請接受 Visual Studio 所發出要下載及安裝 **Azure Functions Core (CLI)** 工具的要求。 您可能也需要啟用防火牆例外狀況，工具才能處理 HTTP 要求。
+2. 若要測試您的函式，請按 F5。 如果出現提示，請接受 Visual Studio 所發出要下載及安裝 **Azure Functions Core (CLI)** 工具的要求。 您可能也需要啟用防火牆例外狀況，工具才能處理 HTTP 要求。
 
 3. 從 Azure Functions 執行階段輸出複製函式的 URL。
 
     ![VS 中的函式偵錯快速入門](./media/quickstarts/function-visual-studio-debugging.png)
 
-4. 將 HTTP 要求的 URL 貼到瀏覽器的網址列。 下圖顯示瀏覽器中對於函式傳回之本機 GET 要求所做出的回應︰
+4. 將 HTTP 要求的 URL 貼到瀏覽器的網址列。 下圖顯示瀏覽器中對於函式傳回之本機 GET 要求所做出的回應。
 
     ![快速入門函式啟動本機](./media/quickstarts/dotnet-core-function-launch-local.png)
 

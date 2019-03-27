@@ -9,12 +9,12 @@ ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6acdbdf5ed5312dc9bc9aa5120bad6e7cf0935b7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7a5a92635114be87e59fe8f779c36d4c401a1427
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075823"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087154"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>教學課程：使用自訂視覺服務在邊緣執行影像分類
 
@@ -22,13 +22,18 @@ Azure IoT Edge 可藉由將工作負載從雲端移至邊緣，來提升 IoT 解
 
 例如，IoT Edge 裝置上的自訂視覺無法判斷高速公路的車流量較平常高或低，也無法判斷停車場的某一排是否有停車位。 這些深入解析可與其他服務共用以便採取動作。 
 
-
 在本教學課程中，您了解如何： 
 
 > [!div class="checklist"]
+>
 > * 使用電腦視覺建置影像分類器。
 > * 開發 IoT Edge 模組來查詢裝置上的自訂視覺 Web 伺服器。
 > * 將影像分類器的結果傳送至 IoT 中樞。
+
+<center>
+
+![圖表 - 教學課程架構、階段和部署分類器](./media/tutorial-deploy-custom-vision/custom-vision-architecture.png)
+</center>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,7 +48,7 @@ Azure IoT Edge 裝置：
 
 * Azure 中的標準層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。 
 * 容器登錄。 本教學課程使用的是 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)。 
-    * 知悉容器登錄[系統管理員帳戶](../container-registry/container-registry-authentication.md#admin-account)的認證。
+* 知悉容器登錄[系統管理員帳戶](../container-registry/container-registry-authentication.md#admin-account)的認證。
 
 開發資源：
 

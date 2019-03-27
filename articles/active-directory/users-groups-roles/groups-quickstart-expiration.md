@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94e799c1728175431f94f720ec57b6332147741b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e0573448c753c763e818d641216033dbeacb9e9a
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194473"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199302"
 ---
 # <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>快速入門：設定 Office 365 群組 Azure Active Directory 中的到期日
 
@@ -35,15 +35,15 @@ ms.locfileid: "56194473"
 
 ## <a name="prerequisite"></a>必要條件
 
-您必須是租用戶中的全域管理員角色或使用者帳戶管理員，才能設定群組到期日。
+您必須是組織中的全域管理員或使用者管理員，才能設定群組到期日。
 
 ## <a name="turn-on-user-creation-for-groups"></a>開啟使用者建立群組的功能
 
-1. 使用具備目錄的全域管理員或使用者帳戶管理員身分的帳戶，登入 [Azure 入口網站](https://portal.azure.com)。
+1. 使用具備組織的全域管理員或使用者管理員身分的帳戶，登入 [Azure 入口網站](https://portal.azure.com)。
 
 2. 選取 [群組]，然後選取 [一般]。
   
-  ![自助式群組設定](./media/groups-quickstart-expiration/self-service-settings.png)
+   ![自助式群組設定頁面](./media/groups-quickstart-expiration/self-service-settings.png)
 
 3. 將 [使用者可以建立 Office 365 群組] 設定為 [是]。
 
@@ -51,9 +51,9 @@ ms.locfileid: "56194473"
 
 ## <a name="set-group-expiration"></a>設定群組到期日
 
-1. 連結至 [Azure 入口網站](https://portal.azure.com)、選取 [Azure Active Directory] > [群組] > [到期]，以開啟到期設定。
+1. 登入 [Azure 入口網站](https://portal.azure.com)、選取 [Azure Active Directory] > [群組] > [到期]，以開啟到期設定。
   
-  ![到期設定](./media/groups-quickstart-expiration/expiration-settings.png)
+   ![群組的到期設定頁面](./media/groups-quickstart-expiration/expiration-settings.png)
 
 2. 設定到期間隔。 選取預設值，或輸入 31 天以上的自訂值。 
 
@@ -67,13 +67,13 @@ ms.locfileid: "56194473"
 
 ## <a name="clean-up-resources"></a>清除資源
 
-**移除到期原則**
+### <a name="to-remove-the-expiration-policy"></a>移除到期原則
 
 1. 確實使用具備租用戶全域管理員身分的帳戶來登入 [Azure 入口網站](https://portal.azure.com)。
 2. 選取 [Azure Active Directory] > [群組] > [到期]。
 3. 將 [啟用這些 Office 365 群組的到期日] 設定為 [無]。
 
-**關閉使用者建立群組的功能**
+### <a name="to-turn-off-user-creation-for-groups"></a>關閉使用者建立群組的功能
 
 1. 選取 [Azure Active Directory] > [群組] > [一般]。 
 2. 將 [使用者可在 Azure 入口網站中建立 Office 365 群組] 設定為 [否]。

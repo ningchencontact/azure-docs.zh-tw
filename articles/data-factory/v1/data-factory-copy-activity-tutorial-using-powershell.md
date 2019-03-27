@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 12c4241da2f4a65205d128d72f86ce2bc91a853c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7031e003ad05d647ccfaebf9239f26ef0af00a7d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435578"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110710"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>教學課程：使用 Azure PowerShell 建立 Data Factory 管線來移動資料
 > [!div class="op_single_selector"]
@@ -42,13 +42,16 @@ ms.locfileid: "54435578"
 一個管線中可以有多個活動。 您可以將一個活動的輸出資料集設為另一個活動的輸入資料集，藉此鏈結兩個活動 (讓一個活動接著另一個活動執行)。 如需詳細資訊，請參閱[管線中的多個活動](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline)。
 
 > [!NOTE]
-> 這篇文章並未涵蓋所有的 Data Factory Cmdlet。 如需這些 Cmdlet 的完整文件，請參閱 [Data Factory Cmdlet 參考](/powershell/module/azurerm.datafactories)。
+> 這篇文章並未涵蓋所有的 Data Factory Cmdlet。 如需這些 Cmdlet 的完整文件，請參閱 [Data Factory Cmdlet 參考](/powershell/module/az.datafactory)。
 > 
 > 本教學課程中的資料管線會將資料從來源資料存放區，複製到目的地資料存放區。 如需如何使用 Azure Data Factory 轉換資料的教學課程，請參閱[教學課程︰使用 Hadoop 叢集建置管線來轉換資料](data-factory-build-your-first-pipeline.md)。
 
 ## <a name="prerequisites"></a>必要條件
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 - 請完成[教學課程必要條件](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)一文中所列的必要條件。
-- 安裝 **Azure PowerShell**。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) 中的指示。
+- 安裝 **Azure PowerShell**。 遵循[如何安裝並設定 Azure PowerShell](/powershell/azure/install-Az-ps) 中的指示。
 
 ## <a name="steps"></a>步驟
 以下是您會在本教學課程中執行的步驟：
@@ -80,31 +83,31 @@ ms.locfileid: "54435578"
     執行下列命令，並輸入您用來登入 Azure 入口網站的使用者名稱和密碼：
 
     ```PowerShell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```   
    
     執行下列命令以檢視此帳戶的所有訂用帳戶：
 
     ```PowerShell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
     執行下列命令以選取您要使用的訂用帳戶。 以您的 Azure 訂用帳戶名稱取代 **&lt;NameOfAzureSubscription**&gt;：
 
     ```PowerShell
-    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
     ```
 1. 執行以下命令，建立名為 **ADFTutorialResourceGroup** 的 Azure 資源群組：
 
     ```PowerShell
-    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
     
     本教學課程的某些步驟會假設您使用名為 **ADFTutorialResourceGroup**的資源群組。 如果使用不同的資源群組，您必須以該群組取代本教學課程中的 ADFTutorialResourceGroup。
-1. 執行 **New-AzureRmDataFactory** Cmdlet，以建立名為 **ADFTutorialDataFactoryPSH** 的 Data Factory：  
+1. 執行 **New-AzDataFactory** Cmdlet，來建立名為 **ADFTutorialDataFactoryPSH** 的資料處理站：  
 
     ```PowerShell
-    $df=New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
+    $df=New-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
     ```
     此名稱可能已被使用。 因此，新增前置詞或後置詞 (例如︰ADFTutorialDataFactoryPSH05152017) 並再次執行命令，讓資料處理站的名稱成為唯一的。  
 
@@ -122,13 +125,13 @@ ms.locfileid: "54435578"
   * 在 Azure PowerShell 中，執行下列命令以註冊 Data Factory 提供者：
 
     ```PowerShell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
     執行下列命令來確認已註冊 Data Factory 提供者：
 
     ```PowerShell
-    Get-AzureRmResourceProvider
+    Get-AzResourceProvider
     ```
   * 使用 Azure 訂用帳戶登入 [Azure 入口網站](https://portal.azure.com)。 請移至 Data Factory 刀鋒視窗，或在 Azure 入口網站中建立 Data Factory。 此動作會自動為您註冊提供者。
 
@@ -161,10 +164,10 @@ AzureSqlLinkedService 會將 Azure SQL Database 連結至資料處理站。 從 
      }
     ``` 
 1. 在 **Azure PowerShell** 中，切換到 **ADFGetStartedPSH** 資料夾。
-1. 執行 **New-AzureRmDataFactoryLinkedService** Cmdlet 建立連結服務：**AzureStorageLinkedService**。 此 Cmdlet 和您在本教學課程中使用的其他 Data Factory Cmdlet，皆需要您將值傳給 **ResourceGroupName** 和 **DataFactoryName** 參數。 或者，您可以傳遞 New-AzureRmDataFactory Cmdlet 所傳回的 DataFactory 物件，就不需要在每次執行 Cmdlet 時輸入 ResourceGroupName 和 DataFactoryName。 
+1. 執行 **New-AzDataFactoryLinkedService** Cmdlet 來建立連結服務：**AzureStorageLinkedService**。 此 Cmdlet 和您在本教學課程中使用的其他 Data Factory Cmdlet，皆需要您將值傳給 **ResourceGroupName** 和 **DataFactoryName** 參數。 或者，您可以傳遞 New-AzDataFactory Cmdlet 所傳回的 DataFactory 物件，就不需要在每次執行 Cmdlet 時輸入 ResourceGroupName 和 DataFactoryName。 
 
     ```PowerShell
-    New-AzureRmDataFactoryLinkedService $df -File .\AzureStorageLinkedService.json
+    New-AzDataFactoryLinkedService $df -File .\AzureStorageLinkedService.json
     ```
     以下是範例輸出：
 
@@ -179,7 +182,7 @@ AzureSqlLinkedService 會將 Azure SQL Database 連結至資料處理站。 從 
     其他建立此連結服務的方法就是指定資源群組名稱和資料處理站名稱，而不是指定 DataFactory 物件。  
 
     ```PowerShell
-    New-AzureRmDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName <Name of your data factory> -File .\AzureStorageLinkedService.json
+    New-AzDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName <Name of your data factory> -File .\AzureStorageLinkedService.json
     ```
 
 ### <a name="create-a-linked-service-for-an-azure-sql-database"></a>建立 Azure SQL Database 的連結服務
@@ -204,7 +207,7 @@ AzureSqlLinkedService 會將 Azure SQL Database 連結至資料處理站。 從 
 1. 執行以下命令建立連結服務：
 
     ```PowerShell
-    New-AzureRmDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
+    New-AzDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
     ```
     
     以下是範例輸出：
@@ -288,7 +291,7 @@ Azure 儲存體連結服務會指定 Data Factory 服務在執行階段用來連
 1. 執行以下命令建立 Data Factory 資料集。
 
     ```PowerShell  
-    New-AzureRmDataFactoryDataset $df -File .\InputDataset.json
+    New-AzDataFactoryDataset $df -File .\InputDataset.json
     ```
     以下是範例輸出：
 
@@ -351,7 +354,7 @@ Azure 儲存體連結服務會指定 Data Factory 服務在執行階段用來連
 1. 執行下列命令來建立 Data Factory 資料集。
 
     ```PowerShell   
-    New-AzureRmDataFactoryDataset $df -File .\OutputDataset.json
+    New-AzDataFactoryDataset $df -File .\OutputDataset.json
     ```
 
     以下是範例輸出：
@@ -420,23 +423,23 @@ Azure 儲存體連結服務會指定 Data Factory 服務在執行階段用來連
     ```
     請注意下列幾點：
    
-    - 在活動區段中，只會有一個 **type** 設為 **Copy** 的活動。 如需複製活動的詳細資訊，請參閱[資料移動活動](data-factory-data-movement-activities.md)。 在 Data Factory 解決方案中，您也可以使用[資料轉換活動](data-factory-data-transformation-activities.md)。
-    - 活動的輸入設定為 **InputDataset**，活動的輸出則設定為 **OutputDataset**。 
-    - 在 **typeProperties** 區段中，來源類型指定為 **BlobSource**，接收類型指定為 **SqlSink**。 如需複製活動作為來源和接收器支援的資料存放區完整清單，請參閱[支援的資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)。 若要了解如何使用特定支援的資料存放區作為來源/接收器，請按一下資料表中的連結。  
+   - 在活動區段中，只會有一個 **type** 設為 **Copy** 的活動。 如需複製活動的詳細資訊，請參閱[資料移動活動](data-factory-data-movement-activities.md)。 在 Data Factory 解決方案中，您也可以使用[資料轉換活動](data-factory-data-transformation-activities.md)。
+   - 活動的輸入設定為 **InputDataset**，活動的輸出則設定為 **OutputDataset**。 
+   - 在 **typeProperties** 區段中，來源類型指定為 **BlobSource**，接收類型指定為 **SqlSink**。 如需複製活動作為來源和接收器支援的資料存放區完整清單，請參閱[支援的資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)。 若要了解如何使用特定支援的資料存放區作為來源/接收器，請按一下資料表中的連結。  
      
-    將 **start** 屬性的值替換為目前日期，並將 **end**值替換為隔天的日期。 在日期時間中，您只指定日期部分，並略過時間部分。 例如，"2016-02-03"，這相當於 "2016-02-03T00:00:00Z"
+     將 **start** 屬性的值替換為目前日期，並將 **end**值替換為隔天的日期。 在日期時間中，您只指定日期部分，並略過時間部分。 例如，"2016-02-03"，這相當於 "2016-02-03T00:00:00Z"
      
-    開始和結束日期時間都必須是 [ISO 格式](http://en.wikipedia.org/wiki/ISO_8601)。 例如︰2016-10-14T16:32:41Z. **end** 時間為選擇性項目，但在本教學課程中會用到。 
+     開始和結束日期時間都必須是 [ISO 格式](https://en.wikipedia.org/wiki/ISO_8601)。 例如︰2016-10-14T16:32:41Z. **end** 時間為選擇性項目，但在本教學課程中會用到。 
      
-    如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。 若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。
+     如果您未指定 **end** 屬性的值，則會以「**start + 48 小時**」計算。 若要無限期地執行管線，請指定 **9999-09-09** 做為 **end** 屬性的值。
      
-    在上述範例中，由於每小時即產生一個資料配量，共會有 24 個資料配量。
+     在上述範例中，由於每小時即產生一個資料配量，共會有 24 個資料配量。
 
-    如需管線定義中 JSON 屬性的說明，請參閱[建立管線](data-factory-create-pipelines.md)一文。 如需複製活動定義中 JSON 屬性的說明，請參閱[資料移動活動](data-factory-data-movement-activities.md)。 如需 BlobSource 所支援 JSON 屬性的說明，請參閱 [Azure Blob 連接器](data-factory-azure-blob-connector.md)一文。 如需 SqlSink 支援的 JSON 屬性說明，請參閱 [Azure SQL Database 連接器](data-factory-azure-sql-connector.md)一文。
+     如需管線定義中 JSON 屬性的說明，請參閱[建立管線](data-factory-create-pipelines.md)一文。 如需複製活動定義中 JSON 屬性的說明，請參閱[資料移動活動](data-factory-data-movement-activities.md)。 如需 BlobSource 所支援 JSON 屬性的說明，請參閱 [Azure Blob 連接器](data-factory-azure-blob-connector.md)一文。 如需 SqlSink 支援的 JSON 屬性說明，請參閱 [Azure SQL Database 連接器](data-factory-azure-sql-connector.md)一文。
 1. 執行下列命令來建立 Data Factory 資料表。
 
     ```PowerShell   
-    New-AzureRmDataFactoryPipeline $df -File .\ADFTutorialPipeline.json
+    New-AzDataFactoryPipeline $df -File .\ADFTutorialPipeline.json
     ```
 
     以下是範例輸出： 
@@ -454,15 +457,15 @@ Azure 儲存體連結服務會指定 Data Factory 服務在執行階段用來連
 ## <a name="monitor-the-pipeline"></a>監視管線
 在此步驟中，您會使用 Azure PowerShell 來監視 Azure Data Factory 的運作情形。
 
-1. 以您的資料處理站名稱取代 &lt;DataFactoryName&gt; 並執行 **Get-AzureRmDataFactory**，然後將輸出指派給變數 $df。
+1. 以您的資料處理站名稱取代 &lt;DataFactoryName&gt; 並執行 **Get-AzDataFactory**，然後將輸出指派給變數 $df。
 
     ```PowerShell  
-    $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name <DataFactoryName>
+    $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name <DataFactoryName>
     ```
 
     例如︰
     ```PowerShell
-    $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH0516
+    $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH0516
     ```
     
     然後，執行列印 $df 的內容可看到下列輸出︰ 
@@ -478,10 +481,10 @@ Azure 儲存體連結服務會指定 Data Factory 服務在執行階段用來連
     Properties        : Microsoft.Azure.Management.DataFactories.Models.DataFactoryProperties
     ProvisioningState : Succeeded
     ```
-1. 執行 **Get-AzureRmDataFactorySlice**，以取得 **OutputDataset** (管線的輸出資料表) 所有配量的詳細資料。  
+1. 執行 **Get-AzDataFactorySlice**，來取得 **OutputDataset** (此為管線的輸出資料集) 所有配量的詳細資料。  
 
     ```PowerShell   
-    Get-AzureRmDataFactorySlice $df -DatasetName OutputDataset -StartDateTime 2017-05-11T00:00:00Z
+    Get-AzDataFactorySlice $df -DatasetName OutputDataset -StartDateTime 2017-05-11T00:00:00Z
     ```
 
    此設定應符合管線 JSON 中的 **Start** 值。 您應該會看到 24 個配量，從今天 12 AM 到隔天 12 AM，每小時各一個。
@@ -522,10 +525,10 @@ Azure 儲存體連結服務會指定 Data Factory 服務在執行階段用來連
     LatencyStatus     :
     LongRetryCount    : 0
     ```
-1. 執行 **Get-AzureRmDataFactoryRun**，以取得**特定**配量的活動執行詳細資料。 從前一個命令的輸出複製日期時間值，以指定 StartDateTime 參數的值。 
+1. 執行 **Get-AzDataFactoryRun**，來取得**特定**配量的活動回合詳細資料。 從前一個命令的輸出複製日期時間值，以指定 StartDateTime 參數的值。 
 
     ```PowerShell  
-    Get-AzureRmDataFactoryRun $df -DatasetName OutputDataset -StartDateTime "5/11/2017 09:00:00 PM"
+    Get-AzDataFactoryRun $df -DatasetName OutputDataset -StartDateTime "5/11/2017 09:00:00 PM"
     ```
 
    以下是範例輸出： 
@@ -550,7 +553,7 @@ Azure 儲存體連結服務會指定 Data Factory 服務在執行階段用來連
     Type                : Copy  
     ```
 
-如需 Data Factory Cmdlet 的完整文件，請參閱 [Data Factory Cmdlet 參考](/powershell/module/azurerm.datafactories)。
+如需 Data Factory Cmdlet 的完整文件，請參閱 [Data Factory Cmdlet 參考](/powershell/module/az.datafactory)。
 
 ## <a name="summary"></a>總結
 在本教學課程中，您已建立要將資料從 Azure Blob 複製到 Azure SQL 資料庫的 Azure Data Factory。 您已使用 PowerShell 建立 Data Factory、連結服務、資料集和管線。 以下是您在本教學課程中執行的高階步驟：  

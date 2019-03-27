@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: ae609583-f875-4cb8-b68e-1b0b7938e9a7
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2029b90b4f23b22fa20ad8a89af308f6c16b410e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8eec05507cd66e2b856e3110bfb60f24c87dfdf7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872568"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57879954"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>教學課程：Azure Active Directory 與 Arc Publishing - SSO 整合
 
@@ -36,7 +36,7 @@ Arc Publishing - SSO 與 Azure AD 整合可提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Arc Publishing - SSO 整合，您需要下列項目：
+若要設定 Azure AD 與 Arc Publishing - SSO 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Arc Publishing - SSO 單一登入的訂用帳戶
@@ -75,7 +75,7 @@ Arc Publishing - SSO 與 Azure AD 整合可提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Arc Publishing - SSO 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Arc Publishing - SSO 中相關使用者之間的連結關聯性。
 
-若要搭配 Arc Publishing - SSO 設定及測試 Azure AD 單一登入，您需要完成下列建置組塊：
+若要搭配 Arc Publishing - SSO 設定及測試 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Arc Publishing - SSO 單一登入](#configure-arc-publishing---sso-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -154,11 +154,11 @@ Arc Publishing - SSO 與 Azure AD 整合可提供下列優點：
     > [!NOTE]
     > 這裡的 **groups** 屬性會對應到 **user.assignedroles**。 這些自訂角色會建立於 Azure AD 中，以對應回應用程式中的群組名稱。 您可以在[這裡](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) \(機器翻譯\) 找到更多如何在 Azure AD 中建立自訂角色的指導方針。 
 
-8. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
+1. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
 
     ![憑證下載連結](common/certificatebase64.png)
 
-9. 在 [設定 Arc Publishing - SSO] 區段上，依據您的需求複製適當的 URL。
+1. 在 [設定 Arc Publishing - SSO] 區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -170,7 +170,7 @@ Arc Publishing - SSO 與 Azure AD 整合可提供下列優點：
 
 ### <a name="configure-arc-publishing---sso-single-sign-on"></a>設定 Arc Publishing - SSO 單一登入
 
-若要設定 **Arc Publishing - SSO** 端的單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)] 和複製的適當 URL 傳送給 [Arc Publishing - SSO 支援小組](mailto:inf@washpost.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **Arc Publishing - SSO** 端設定單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)] 和複製的適當 URL 傳送給 [Arc Publishing - SSO 支援小組](mailto:inf@washpost.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -190,7 +190,7 @@ Arc Publishing - SSO 與 Azure AD 整合可提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -199,7 +199,7 @@ Arc Publishing - SSO 與 Azure AD 整合可提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 Arc Publishing - SSO 的存取權授與 Britta Simon，使其能夠使用 Azure 單一登入。
+在本節中，您會將 Arc Publishing - SSO 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Arc Publishing - SSO]。
 
@@ -207,7 +207,7 @@ Arc Publishing - SSO 與 Azure AD 整合可提供下列優點：
 
 2. 在應用程式清單中，選取 [Arc Publishing - SSO]。
 
-    ![應用程式清單中的 Arc Publishing - SSO 連結](common/all-applications.png)
+    ![應用程式清單中的 [Arc Publishing - SSO] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -225,7 +225,7 @@ Arc Publishing - SSO 與 Azure AD 整合可提供下列優點：
 
 ### <a name="create-arc-publishing---sso-test-user"></a>建立 Arc Publishing - SSO 測試使用者
 
-本節會在 Arc Publishing - SSO 中建立名為 Britta Simon 的使用者。 Arc Publishing - SSO 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Arc Publishing - SSO 中還沒有使用者存在，在驗證之後就會建立新的使用者。
+本節會在 Arc Publishing - SSO 中建立名為 Britta Simon 的使用者。 Arc Publishing - SSO 支援預設會啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Arc Publishing - SSO 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
 > [!Note]
 > 如果您需要手動建立使用者，請連絡 [Arc Publishing - SSO 支援小組](mailto:inf@washpost.com)。

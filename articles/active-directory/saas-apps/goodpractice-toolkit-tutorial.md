@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 65b2979d-9e2f-4530-bc08-546975269ebc
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae010825e16178cdfb8544c7bd1c6fd0e9c57b90
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: fd8453c93b4e48a076d8efbe1d438d15d8131fc9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874642"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864400"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-goodpractice-toolkit"></a>教學課程：Azure Active Directory 與 GoodPractice Toolkit 整合
 
@@ -69,17 +69,17 @@ ms.locfileid: "56874642"
 4. 在搜尋方塊中，輸入 **GoodPractice Toolkit**，從結果面板中選取 [GoodPractice Toolkit]，然後按一下 [新增] 按鈕以新增應用程式。
 
      ![結果清單中的 GoodPractice Toolkit](common/search-new-app.png)
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
+   ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 GoodPractice Toolkit 設定及測試 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 GoodPractice Toolkit 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 GoodPractice Toolkit 中相關使用者之間的連結關聯性。
 
-若要使用 GoodPractice Toolkit 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 GoodPractice Toolkit 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 GoodPractice Toolkit 單一登入](#configure-goodpractice-toolkit-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-4. **[建立 GoodPractice Toolkit 測試使用者](#create-goodpractice-toolkit-test-user)** - 在 GoodPractice Toolkit 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表使用者的項目連結。
+4. **[建立 GoodPractice Toolkit 測試使用者](#create-goodpractice-toolkit-test-user)** - 在 GoodPractice Toolkit 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
 5. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
@@ -103,7 +103,7 @@ ms.locfileid: "56874642"
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![GoodPractice Toolkit 網域與 URL 單一登入資訊](common/sp-intiated.png)
+    ![GoodPractice Toolkit 網域及 URL 單一登入資訊](common/sp-intiated.png)
 
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId> `。
 
@@ -146,7 +146,7 @@ ms.locfileid: "56874642"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -163,7 +163,7 @@ ms.locfileid: "56874642"
 
 2. 在應用程式清單中，選取 [GoodPractice Toolkit]。
 
-    ![應用程式清單中的 GoodPractice Toolkit 連結](common/all-applications.png)
+    ![應用程式清單中的 [GoodPractice Toolkit] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -187,7 +187,7 @@ ms.locfileid: "56874642"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [GoodPractice Toolkit] 圖格時，應該會自動登入您設定 SSO 的 GoodPractice Toolkit。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [GoodPractice Toolkit] 圖格時，應該會自動登入您已設定 SSO 的 GoodPractice Toolkit。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

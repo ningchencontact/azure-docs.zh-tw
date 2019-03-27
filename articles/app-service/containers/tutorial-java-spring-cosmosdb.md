@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: a0a07a78d36e4c0d11132d0c7d5ff947f7073029
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 792346edf1d2b2326f7f5f5f53304ceca347508d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353561"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901112"
 ---
 # <a name="tutorial-build-a-java-web-app-using-spring-and-azure-cosmos-db"></a>教學課程：使用 Spring 和 Azure Cosmos DB 來建置 Java Web 應用程式
 
@@ -45,7 +45,7 @@ ms.locfileid: "54353561"
 本教學課程將使用具有 Web UI 的 TODO 清單應用程式範例，此 UI 可用來呼叫由 [Azure Cosmos DB](https://github.com/Microsoft/spring-data-cosmosdb) 支援的 Spring REST API。 您可在 [GitHub](https://github.com/Microsoft/spring-todo-app) 上找到應用程式的程式碼。 若要深入了解如何使用 Spring 和 Cosmos DB 撰寫 Java 應用程式，請參閱[搭配 Azure Cosmos DB SQL API 使用 Spring Boot Starter 的教學課程](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db )和 [Spring Data Azure Cosmos DB 快速入門](https://github.com/Microsoft/spring-data-cosmosdb#quick-start)。
 
 
-在您的終端機中執行以下命令，即可複製存放庫範例及設定應用程式範例的環境。
+在您的終端機中執行下列命令，即可複製範例存放庫並設定範例應用程式環境。
 
 ```bash
 git clone --recurse-submodules https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2.git
@@ -101,7 +101,7 @@ export COSMOSDB_URI=<put-your-COSMOS-DB-documentEndpoint-URI-here>
 export COSMOSDB_KEY=<put-your-COSMOS-DB-primaryMasterKey-here>
 export COSMOSDB_DBNAME=<put-your-COSMOS-DB-name-here>
 
-// App Service Linux Configuration
+# App Service Linux Configuration
 export RESOURCEGROUP_NAME=<put-your-resource-group-name-here>
 export WEBAPP_NAME=<put-your-Webapp-name-here>
 export REGION=<put-your-REGION-here>
@@ -171,7 +171,7 @@ Spring TODO 應用程式啟動之後，您可以使用以下連結從本機存�
 
  ![](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
-如果您看到例外狀況，而不是「啟動 TodoApplication」訊息，請確認上一個步驟中的 `bash` 指令碼是否正確地匯出環境變數，以及這些值是否適用於您建立的 Azure Cosmos DB 資料庫。
+如果您看到例外狀況，而不是「啟動 TodoApplication」訊息，請確認上一個步驟中的 `bash` 指令碼是否已正確匯出環境變數，以及這些值是否適用於您建立的 Azure Cosmos DB 資料庫。
 
 ## <a name="configure-azure-deployment"></a>設定 Azure 部署
 
@@ -230,7 +230,7 @@ Spring TODO 應用程式啟動之後，您可以使用以下連結從本機存�
 
 ```bash
 
-// Deploy
+# Deploy
 bash-3.2$ mvn azure-webapp:deploy
 [INFO] Scanning for projects...
 [INFO] 

@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: e14fc310-bac4-4f09-99ef-87e5c77288b6
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc89475ea0338165e7a4477e861ddb199bd73de7
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d5839329f78fc349210f9439c5b1580a21f5172a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879895"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834399"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>教學課程：Azure Active Directory 與 Citrix ShareFile 整合
 
@@ -74,7 +74,7 @@ Citrix ShareFile 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Citrix ShareFile 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Citrix ShareFile 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Citrix ShareFile 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 Citrix ShareFile 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Citrix ShareFile 單一登入](#configure-citrix-sharefile-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -103,7 +103,7 @@ Citrix ShareFile 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Citrix ShareFile 網域與 URL 單一登入資訊](common/sp-identifier-reply.png)
+    ![Citrix ShareFile 網域及 URL 單一登入資訊](common/sp-identifier-reply.png)
 
     a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<tenant-name>.sharefile.com/saml/login`
 
@@ -119,6 +119,7 @@ Citrix ShareFile 與 Azure AD 整合提供下列優點：
     | |
     
     c. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：
+    
     | |
     |---|
     | `https://<tenant-name>.sharefile.com/saml/acs`|
@@ -186,7 +187,7 @@ Citrix ShareFile 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -203,7 +204,7 @@ Citrix ShareFile 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，輸入並選取 [Citrix ShareFile]。
 
-    ![應用程式清單中的 Citrix ShareFile 連結](common/all-applications.png)
+    ![應用程式清單中的 [Citrix ShareFile] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -235,7 +236,7 @@ Citrix ShareFile 與 Azure AD 整合提供下列優點：
    
     ![基本資訊](./media/sharefile-tutorial/IC799951.png "的基本資訊")
    
-    a. 在 [電子郵件地址] 文字方塊中，將 Britta Simon 的電子郵件地址輸入為 **brittasimon@contoso.com**。
+    a. 在 [Email Address] \(電子郵件地址\) 文字方塊中，以 **brittasimon\@contoso.com** 形式輸入 Britta Simon 帳戶的電子郵件地址。
    
     b. 在 [名字] 文字方塊中，輸入 **Britta** 作為使用者的**名字**。
    

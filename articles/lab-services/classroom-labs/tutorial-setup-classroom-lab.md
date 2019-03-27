@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/07/2019
+ms.date: 03/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 4abec80df4aeeb4c20d56b43ba122ee7266905a6
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 31bf2de7417a1be6139de3ec9dcc8d531df586d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649576"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090316"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>教學課程：設定教室實驗室 
 您將在本教學課程中設定教室實驗室，且其中包含教室中學生所使用的虛擬機器。  
@@ -69,9 +69,9 @@ ms.locfileid: "56649576"
 
     ![在範本頁面完成後加以設定](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. 在 [設定範本] 頁面上，執行下列步驟：這些都是本教學課程的**選擇性**步驟。
-    2. 選取 [連線] 以連線至範本 VM。 
-    3. 在您的範本 VM 上安裝並設定軟體。     
-    5. 輸入範本的 [描述]
+    1. 選取 [連線] 以連線至範本 VM。 
+    2. 在您的範本 VM 上安裝並設定軟體。     
+    3. 輸入範本的 [描述]
 9. 選取 [範本] 頁面上的 [下一步]。 
 10. 在 [發佈範本] 頁面上，執行下列動作。 
     1. 若要立即發佈範本，請選取 [發佈]。  
@@ -108,15 +108,15 @@ ms.locfileid: "56649576"
     ![使用者清單](../media/how-to-configure-student-usage/users-list-new.png)
 
 
-## <a name="send-registration-link-to-students"></a>將註冊連結傳送給學生
-
+## <a name="send-an-email-with-the-registration-link"></a>傳送含有註冊連結的電子郵件
 1. 如果您尚未在 [使用者] 頁面上，請切換至該檢視。 
-2. 選取工具列上的 [取得註冊連結]。
-1. 在 [使用者註冊] 對話方塊中，選取 [複製] 按鈕。 連結會複製到剪貼簿中。
+2. 在清單中選取特定或所有使用者。 若要選取特定使用者，選取清單第一個資料行中的核取方塊。 若要選取所有使用者，則選取第一個資料行標題 (**名稱**) 前面的核取方塊，或全部選取清單中所有使用者的核取方塊。
+3. 選取工具列上的 [傳送邀請]。 您也可以將滑鼠停留在清單中的學生名稱上，並傳送電子郵件圖示。 
 
-    ![註冊連結](../media/tutorial-setup-classroom-lab/registration-link.png)
-1. 在 [使用者註冊] 對話方塊上，選取 [關閉]。 
-2. 將註冊連結分享給學生，讓他們能夠註冊課程。
+    ![透過電子郵件傳送註冊連結](../media/tutorial-setup-classroom-lab/send-email.png)
+4. 在 [透過電子郵件傳送註冊連結] 頁面上，遵循下列步驟： 
+    1. 輸入您想要傳送給學生的**選擇性訊息**。 電子郵件會自動包含註冊連結。 
+    2. 在 [透過電子郵件傳送註冊連結] 頁面上，選取 [傳送]。 
 
 ## <a name="next-steps"></a>後續步驟
 在本教學課程中，您已建立教室實驗室並已設定實驗室。 若要了解學生可以如何使用註冊連結，來存取實驗室中的 VM，請前往下一個教學課程：

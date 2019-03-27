@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: a8c4ef5df586c87862ea8e1634e9a72356401d0b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: bcb538cf2e546e4913ccb223e143c2343e114de7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247420"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57896189"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>教學課程：使用 Azure 建立跨雲端縮放解決方案
 
@@ -128,7 +128,7 @@ Azure Repos
 
 1. 登入 Azure Pipelines 以確認能夠建立組建定義。
 
-2. 新增 **-r win10-x64** 程式碼。 這是觸發 .Net Core 的獨立部署時所需的程式碼。
+2. 新增 **-r win10-x64** 程式碼。 這是觸發 .NNE Core 獨立部署所需的程式碼。
 
     ![替代文字](media/azure-stack-solution-cloud-burst/image4.png)
 
@@ -266,7 +266,7 @@ Azure Pipelines 和 Azure DevOps Server 提供具有高度設定和管理能力�
 
 請使用 [Azure Resource Manager 範本](https://azure.microsoft.com/resources/templates/) (例如來自 Azure Repos 的 Web 應用程式程式碼) 以部署至這兩個雲端。
 
-### <a name="add-code-to-a-azure-repos-project"></a>將程式碼新增至 Azure Repos 專案
+### <a name="add-code-to-an-azure-repos-project"></a>將程式碼新增至 Azure Repos 專案
 
 1.  使用在 Azure Stack 上具有專案建立權限的帳戶登入 Azure Repos。 下一個螢幕擷取畫面顯示如何連線至 HybridCICD 專案。
 
@@ -286,7 +286,7 @@ Azure Pipelines 和 Azure DevOps Server 提供具有高度設定和管理能力�
 
 2.  巡覽至專案的 [組建 Web 應用程式] 頁面。
 
-3.  在 [引數] 中，新增 **-r win10-x64** 程式碼。 這是觸發 .Net Core 的獨立部署時所需的程式碼。
+3.  在 [引數] 中，新增 **-r win10-x64** 程式碼。 這是觸發 .NET Core 的獨立部署時所需的程式碼。
 
 4.  執行組建。 [獨立的部署組建](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)程序將會發佈可在 Azure 和 Azure Stack 上執行的成品。
 

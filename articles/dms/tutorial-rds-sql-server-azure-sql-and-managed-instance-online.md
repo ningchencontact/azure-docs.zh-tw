@@ -1,29 +1,29 @@
 ---
-title: 教學課程：使用 Azure 資料庫移轉服務，執行從 RDS SQL Server 至 Azure SQL Database 或 Azure SQL Database 受控執行個體的線上移轉 | Microsoft Docs
-description: 了解如何使用 Azure 資料庫移轉服務，執行從內部部署 RDS SQL Server 至 Azure SQL Database 或 Azure SQL Database 受控執行個體的線上移轉。
+title: 教學課程：使用 Azure 資料庫移轉服務執行從 RDS SQL Server 至 Azure SQL Database 或 Azure SQL Database 受控執行個體的線上移轉 | Microsoft Docs
+description: 了解如何使用 Azure 資料庫移轉服務，執行從 RDS SQL Server 至 Azure SQL Database 或 Azure SQL Database 受控執行個體的線上移轉。
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/11/2019
-ms.openlocfilehash: 00291cbcb23a3bcff320d391e56ff210c0a24af0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 03/12/2019
+ms.openlocfilehash: 5b91e3082dba2ac8ea19606f4269e65a0f537ce1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56006367"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183130"
 ---
-# <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-online-using-dms"></a>教學課程：使用 DMS 在線上從 RDS SQL Server 遷移至 Azure SQL Database
-您可以使用 Azure 資料庫移轉服務，以最短停機時間將內部部署 RDS SQL Server 執行個體的資料庫遷移至 [Azure SQL Database 受控執行個體](https://docs.microsoft.com/azure/sql-database/)或 [Azure SQL Database 受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index)。 在本教學課程中，您會使用 Azure 資料庫移轉服務，將已還原至 SQL Server 2012 (或更新版本) RDS SQL Server 執行個體的 **Adventureworks2012** 資料庫遷移到 Azure SQL Database / 受控執行個體。
+# <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>教學課程：使用 DMS 將 RDS SQL Server 線上移轉至 Azure SQL Database 或 Azure SQL Database 受控執行個體
+您可以使用 Azure 資料庫移轉服務，以最短停機時間將資料庫從 RDS SQL Server 執行個體移轉至 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) 或 [Azure SQL Database 受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index)。 在本教學課程中，您會使用 Azure 資料庫移轉服務，將已還原至 SQL Server 2012 (或更新版本) RDS SQL Server 執行個體的 **Adventureworks2012** 資料庫移轉至 Azure SQL Database 或 Azure SQL Database 受控執行個體。
 
 在本教學課程中，您了解如何：
 > [!div class="checklist"]
-> * 在 Azure SQL Database 受控執行個體上建立 Azure SQL Database 的執行個體。 
+> * 建立 Azure SQL Database 的執行個體或 Azure SQL Database 受控執行個體。 
 > * 使用 Data Migration Assistant 移轉範例結構描述。
 > * 建立 Azure 資料庫移轉服務的執行個體。
 > * 使用 Azure 資料庫移轉服務來建立移轉專案。
@@ -39,7 +39,7 @@ ms.locfileid: "56006367"
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-本文說明如何在線上從 RDS SQL Server 遷移至 Azure SQL Database 或 Azure SQL Database 受控執行個體。
+本文說明如何從 RDS SQL Server 線上移轉至 Azure SQL Database 或 Azure SQL Database 受控執行個體。
 
 ## <a name="prerequisites"></a>必要條件
 若要完成本教學課程，您需要：
@@ -48,16 +48,25 @@ ms.locfileid: "56006367"
 - 您可以依照[在 Azure 入口網站中建立 Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal) 一文中的詳細資料來建立 Azure SQL Database。
 
     > [!NOTE]
-    > 如果您要遷移至 Azure SQL Database 受控執行個體，請依照[建立 Azure SQL Database 受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started)一文中的詳細資料進行，然後建立名為 **AdventureWorks2012** 的空資料庫。 
+    > 如果您要移轉至 Azure SQL Database 受控執行個體，請依照[建立 Azure SQL Database 受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started)一文中的詳細資料進行，然後建立名為 **AdventureWorks2012** 的空資料庫。 
  
 - 下載並安裝 [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) v3.3 或更新版本。
-- 使用 Azure Resource Manager 部署模型，為 Azure 資料庫移轉服務建立 Azure 虛擬網路 (VNET)。 如果您要遷移至 Azure SQL Database 受控執行個體，請務必在用於 Azure SQL Database 受控執行個體的相同 VNET 中建立 DMS 執行個體 (但在不同的子網路中)。  或者，如果您對 DMS 使用不同的 VNET，則需要建立兩個 VNET 之間的 VNET 對等互連。
-- 確定您的 Azure VNET 網路安全性群組規則不會封鎖下列通訊埠：443、53、9354、445、12000。 如需 Azure VNET NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)。
+- 使用 Azure Resource Manager 部署模型，為 Azure 資料庫移轉服務建立 Azure 虛擬網路 (VNET)。 如果您要移轉至 Azure SQL Database 受控執行個體，請務必在用於 Azure SQL Database 受控執行個體的相同 VNET 中建立 DMS 執行個體 (但在不同的子網路中)。  或者，如果您對 DMS 使用不同的 VNET，則需要建立兩個 VNET 之間的 VNET 對等互連。
+ 
+    > [!NOTE]
+    > 在 VNET 設定期間，如果您搭配與 Microsoft 對等互連的網路使用 ExpressRoute，請將下列服務[端點](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)新增至將佈建服務的子網路：
+    > - 目標資料庫端點 (例如，SQL 端點、Cosmos DB 端點等)
+    > - 儲存體端點
+    > - 服務匯流排端點
+    >
+    > 此為必要設定，因為 Azure 資料庫移轉服務沒有網際網路連線。 
+ 
+- 確定您的 VNET 網路安全性群組規則不會封鎖下列通訊埠：443、53、9354、445、12000。 如需 Azure VNET NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)。
 - 設定[用於 Database Engine 存取的 Windows 防火牆](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)。
 - 開啟您的 Windows 防火牆以允許 Azure 資料庫移轉服務存取來源 SQL Server，其預設會通過 TCP 連接埠 1433。
 - 針對 Azure SQL Database 伺服器建立伺服器層級的[防火牆規則](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)，以允許 Azure 資料庫移轉服務存取目標資料庫。 提供用於 Azure 資料庫移轉服務之 VNET 的子網路範圍。
 - 確定用來連線到來源 RDS SQL Server 執行個體的認證，與所有要遷移的資料庫上屬於 “Processadmin” 伺服器角色成員和 "db_owner" 資料庫角色成員的帳戶相關聯。
-- 確定用來連線至目標 Azure SQL DB 執行個體的認證，在目標 Azure SQL 資料庫上具有 CONTROL DATABASE 權限，而且是 sysadmin 角色的成員 (如果遷移至 Azure SQL Database 受控執行個體)。
+- 確定用來連線至目標 Azure SQL Database 執行個體的認證，在目標 Azure SQL 資料庫上具有 CONTROL DATABASE 權限，而且是 sysadmin 角色的成員 (如果要移轉至 Azure SQL Database 受控執行個體)。
 - 來源 RDS SQL Server 版本必須是 SQL Server 2012 或更新版本。 若要確認您的 SQL Server 執行個體正在執行的版本，請參閱[如何判斷 SQL Server 及其元件的版本、版次及更新層級](https://support.microsoft.com/help/321185/how-to-determine-the-version-edition-and-update-level-of-sql-server-an)一文。
 - 在 RDS SQL Server 資料庫以及選取要遷移的所有使用者資料表上啟用異動資料擷取 (CDC)。
     > [!NOTE]
@@ -227,8 +236,8 @@ ms.locfileid: "56006367"
     | 設定 | 說明 |
     | ------------- | ------------- |
     | **要平行載入的資料表數目上限** | 指定 DMS 在移轉期間平行執行的資料表數目。 預設值為 5，但可將其設定為最佳值，以符合任何 POC 移轉的特定移轉需求。 |
-    | **當來源資料表已截斷時** | 指定 DMS 是否會在移轉期間截斷目標資料表。 如果有一或多個資料表在移轉過程中遭到截斷，這很有幫助。 |
-    | **進行大型物件 (LOB) 資料的設定** | 指定 DMS 是否能遷移無限制的 LOB 資料，或限制遷移至特定大小的 LOB 資料。  當遷移的 LOB 資料有所限制時，則會截斷任何超出該限制的 LOB 資料。 對於生產遷移，建議選取 [不限制 LOB 大小] 以免資料遺失。 指定不限制 LOB 大小時，請選取 [當 LOB 大小小於指定的 (KB) 時遷移單一區塊中的 LOB 資料] 核取方塊，以改善效能。 |
+    | **當來源資料表已截斷時** | 指定 DMS 是否會在移轉期間截斷目標資料表。 如果會在移轉過程中截斷一或多個資料表，則此設定很有幫助。 |
+    | **進行大型物件 (LOB) 資料的設定** | 指定 DMS 是否能遷移無限制的 LOB 資料，或限制遷移至特定大小的 LOB 資料。  當移轉的 LOB 資料有所限制時，就會截斷任何超出該限制的 LOB 資料。 對於生產遷移，建議選取 [不限制 LOB 大小] 以免資料遺失。 指定不限制 LOB 大小時，請選取 [當 LOB 大小小於指定的 (KB) 時遷移單一區塊中的 LOB 資料] 核取方塊，以改善效能。 |
     
     ![設定進階線上移轉設定](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-advanced-online-migration-settings.png)
 
@@ -267,4 +276,4 @@ ms.locfileid: "56006367"
 - 如需執行線上移轉至 Azure SQL Database 時的已知問題和限制，請參閱 [Azure SQL Database 線上移轉的已知問題和因應措施](known-issues-azure-sql-online.md)一文。
 - 如需 Azure 資料庫移轉服務的相關資訊，請參閱[什麼是 Azure 資料庫移轉服務？](https://docs.microsoft.com/azure/dms/dms-overview)一文。
 - 如需 Azure SQL Database 的相關資訊，請參閱[什麼是 Azure SQL Database 服務？](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview)。
-- 如需 Azure SQL Database 受控執行個體的相關資訊，請參閱 [Azure SQL Database 受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index)。
+- 如需 Azure SQL Database 受控執行個體的相關資訊，請參閱 [Azure SQL Database 受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index)頁面。

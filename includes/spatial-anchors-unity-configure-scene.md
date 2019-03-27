@@ -4,11 +4,13 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/2/2019
 ms.author: crtreasu
-ms.openlocfilehash: 139f2f2c32c8974d08e0a9c4278304a5b17892bc
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 4badd7b3ea308968e514a58463f08e58243a3387
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752479"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57908513"
 ---
-在 [階層] 窗格中，選取 **AzureSpatialAnchors** 遊戲物件。 然後，在 [偵測器] 窗格中，輸入 `Account Key` (來自稍早建立的 Spatial Anchors 資源) 作為 `Spatial Anchors Account Key` 的值，並輸入 `Account ID` (來自稍早建立的 Spatial Anchors 資源) 作為 `Spatial Anchors Account Id` 的值。
+下一個步驟是將應用程式設定為使用您的帳戶識別碼和帳戶金鑰。 在[設定空間錨點資源](#create-a-spatial-anchors-resource)時，將它們複製到文字編輯器中。
+
+在 [階層] 窗格中，選取 **AzureSpatialAnchors** 遊戲物件。 然後，在 [偵測器] 窗格中，輸入 `Account Key` 做為 `Spatial Anchors Account Key` 的值，並輸入 `Account ID` 做為 `Spatial Anchors Account Id` 的值。

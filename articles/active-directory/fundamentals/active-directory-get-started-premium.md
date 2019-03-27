@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97c70c6187672c47a9f6dc09e1ccb8e6eadeff6a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ed01b2b122724ba1428fb685bb3f1f52b7099a7b
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187669"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287055"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>註冊 Azure Active Directory Premium 版本
 您可以使用您的 Azure 訂用帳戶來購買 Azure Active Directory (Azure AD) Premium 版本並與其產生關聯。 如果您需要建立新的 Azure 訂用帳戶，您也需要啟用授權方案及 Azure AD 服務存取。
@@ -65,17 +65,17 @@ Enterprise Mobility + Security 是一個套件，其中包含 Azure AD Premium�
 ### <a name="to-activate-your-license-plan"></a>啟用您的授權方案
 - 開啟您在註冊後從 Microsoft 接收到的確認電子郵件，然後按一下 [登入] 或 [註冊]。
    
-    ![登入](media/active-directory-get-started-premium/MOLSEmail.png)
+    ![含有登入與註冊連結的確認電子郵件](media/active-directory-get-started-premium/MOLSEmail.png)
 
     - **登入**： 如果您有現有的租用戶，請選擇這個連結，然後使用現有的系統管理員帳戶登入。 您必須是要啟用授權之租用戶的全域管理員。
 
     - **註冊**： 如果您想要開啟 [建立帳戶設定檔] 頁面，並針對授權方案建立新的 Azure AD 租用戶，請選擇這個連結。
 
-        ![建立帳戶設定檔](media/active-directory-get-started-premium/MOLSAccountProfile.png)
+        ![包含範例資訊的建立帳戶設定檔頁面](media/active-directory-get-started-premium/MOLSAccountProfile.png)
 
 完成時，您將會看到感謝您為租用戶啟用授權方案的確認方塊。
 
-![確認](media/active-directory-get-started-premium/MOLSThankYou.png)
+![包含感謝您文字的確認方塊](media/active-directory-get-started-premium/MOLSThankYou.png)
 
 ## <a name="activate-your-azure-ad-access"></a>啟用您的 Azure AD 存取
 如果您要將新的 Azure AD Premium 授權新增到現有的訂用帳戶中，系統應該已經啟用您的 Azure AD 存取。 否則，您必須在收到**歡迎電子郵件**之後啟用 Azure AD 存取權。  
@@ -89,11 +89,11 @@ Enterprise Mobility + Security 是一個套件，其中包含 Azure AD Premium�
 
 1. 開啟**歡迎電子郵件**，然後按一下 [登入]。
    
-    ![歡迎電子郵件](media/active-directory-get-started-premium/AADEmail.png)
+    ![反白顯示登入連結的歡迎電子郵件](media/active-directory-get-started-premium/AADEmail.png)
 
 2. 成功登入之後，您必須使用行動裝置完成雙步驟驗證。
    
-    ![行動裝置驗證](media/active-directory-get-started-premium/SignUppage.png)
+    ![使用行動裝置驗證的雙步驟驗證頁面](media/active-directory-get-started-premium/SignUppage.png)
 
 啟用程序通常只需花費數分鐘的時間，然後您便能使用 Azure AD 租用戶。 
 

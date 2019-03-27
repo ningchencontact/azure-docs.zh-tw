@@ -4,22 +4,22 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: 3ee9aca1ee86b04998e357875b98b14782b3e56d
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 0dab71b6d169e26a3d7dc208dd09efe1143fbe13
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56963328"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305310"
 ---
-### <a name="launch-the-publish-wizard"></a>啟動發佈精靈
+### <a name="open-the-publish-wizard"></a>開啟發佈精靈
 
 在 [方案總管] 中，以滑鼠右鍵按一下 **SharingService** 專案並選取 [發佈]。
 
-發佈精靈會自動啟動。 選取 [App Service] >  [發佈] 以開啟 [建立 App Service] 對話方塊。
+發佈精靈隨即啟動。 選取 [App Service] > [發佈] 以開啟 [建立 App Service] 對話方塊。
 
 ### <a name="sign-in-to-azure"></a>登入 Azure
 
-在 [建立 App Service] 對話方塊中，按一下 [新增帳戶]，然後登入您的 Azure 訂用帳戶。 若您已經登入，請從下拉式清單中選取要使用的帳戶。
+在 [建立 App Service] 對話方塊中，選取 [新增帳戶]，然後登入您的 Azure 訂用帳戶。 如果已經登入，請從下拉式清單中選取要使用的帳戶。
 
 > [!NOTE]
 > 如果您已經登入，請勿選取 [建立]。
@@ -39,13 +39,13 @@ ms.locfileid: "56963328"
 
 選取 [主控方案]旁的 [新增]。
 
-在 [設定主控方案] 對話方塊中，使用表格中的設定。
+在 [設定主控方案] 對話方塊中，使用以下設定：
 
 | 設定 | 建議的值 | 說明 |
 |-|-|-|
 |App Service 方案| MySharingServicePlan | App Service 方案的名稱。 |
 | 位置 | 美國西部 | 裝載 Web 應用程式的資料中心。 |
-| 大小 | 免費 | [定價層](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)可決定裝載功能。 |
+| 大小 | 免費 | 決定裝載功能的[定價層](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。 |
 
 選取 [確定] 。
 
@@ -55,8 +55,8 @@ ms.locfileid: "56963328"
 
 選取 [建立] 開始建立 Azure 資源。
 
-精靈完成後，它會將 ASP.NET Core Web 應用程式發佈至 Azure，然後在預設瀏覽器中啟動該應用程式。
+精靈完成後，系統會將 ASP.NET Core Web 應用程式發佈至 Azure，然後在預設瀏覽器中開啟該應用程式。
 
 ![Azure 中已發佈的 ASP.NET Web 應用程式](./media/spatial-anchors-azure/web-app-running-live.png)
 
-在[建立及發佈步驟](#create-and-publish-the-web-app)中指定的應用程式名稱會作為 URL 首碼，其格式為 `https://<app_name>.azurewebsites.net`。 記下此 URL，稍後會用到。
+您在本區段中使用的應用程式名稱會被用來作為 URL 首碼，其格式為 `https://<app_name>.azurewebsites.net`。 請記下此 URL，因為您將會用到它。

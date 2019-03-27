@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: d6e4d893-1f14-4522-ac20-0c73b18c72a5
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b546f4f5b2ed18e161826ff4bc3826488602439
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 6b9fdc6bf46cff1f3a38d40a4e7abad5bfe56c47
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882547"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877831"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>教學課程：Azure Active Directory 與 Symantec Web Security Service (WSS) 整合
 
@@ -39,7 +39,7 @@ Symantec Web Security Service (WSS) 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Symantec Web Security Service (WSS) 整合，您需要下列項目：
+若要設定 Azure AD 與 Symantec Web Security Service (WSS) 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Symantec Web Security Service (WSS) 單一登入的訂用帳戶
@@ -48,7 +48,7 @@ Symantec Web Security Service (WSS) 與 Azure AD 整合提供下列優點：
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* Symantec Web Security Service (WSS) 支援 **SP** 起始的 SSO
+* Symantec Web Security Service (WSS) 支援由 **SP** 起始的 SSO
 
 ## <a name="adding-symantec-web-security-service-wss-from-the-gallery"></a>從資源庫新增 Symantec Web Security Service (WSS)
 
@@ -77,7 +77,7 @@ Symantec Web Security Service (WSS) 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Symantec Web Security Service (WSS) 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Symantec Web Security Service (WSS) 中相關使用者之間的連結關聯性。
 
-若要使用 Symantec Web Security Service (WSS) 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 Symantec Web Security Service (WSS) 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **設定 Symantec Web Security Service (WSS) 單一登入** - 在應用程式端設定單一登入設定。
@@ -90,7 +90,7 @@ Symantec Web Security Service (WSS) 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要使用 Symantec Web Security Service (WSS) 設定 Azure AD 單一登入，請執行下列步驟：
+若要設定與 Symantec Web Security Service (WSS) 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/) 的 [Symantec Web Security Service (WSS)] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -106,7 +106,7 @@ Symantec Web Security Service (WSS) 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 對話方塊上，執行下列步驟：
 
-    ![Symantec Web Security Service (WSS) 的網域和 URL 單一登入資訊](common/idp-intiated.png)
+    ![Symantec Web Security Service (WSS) 的網域及 URL 單一登入資訊](common/idp-intiated.png)
 
     a. 在 [識別碼] 文字方塊中，鍵入 URL：`https://saml.threatpulse.net:8443/saml/saml_realm`
 
@@ -141,7 +141,7 @@ Symantec Web Security Service (WSS) 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -176,7 +176,7 @@ Symantec Web Security Service (WSS) 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-symantec-web-security-service-wss-test-user"></a>建立 Symantec Web Security Service (WSS) 測試使用者
 
-在本節中，您要在 Symantec Web Security Service (WSS) 中建立名為 Britta Simon 的使用者。 您可以在 WSS 入口網站中手動建立對應的使用者名稱，您也可以等候幾分鐘 (~ 15 分鐘)，讓 Azure AD 中佈建的使用者/群組同步處理至 WSS 入口網站。 您必須先建立和啟動使用者，然後才能使用單一登入。 將用來瀏覽網站的使用者電腦公用 IP 位址也必須佈建到 Symantec Web Security Service (WSS) 入口網站中。
+在本節中，您會在 Symantec Web Security Service (WSS) 中建立名為 Britta Simon 的使用者。 您可以在 WSS 入口網站中手動建立對應的使用者名稱，您也可以等候幾分鐘 (~ 15 分鐘)，讓 Azure AD 中佈建的使用者/群組同步處理至 WSS 入口網站。 您必須先建立和啟動使用者，然後才能使用單一登入。 將用來瀏覽網站的使用者電腦公用 IP 位址也必須佈建到 Symantec Web Security Service (WSS) 入口網站中。
 
 > [!NOTE]
 > 請[按一下這裡](https://www.bing.com/search?q=my+ip+address&qs=AS&pq=my+ip+a&sc=8-7&cvid=29A720C95C78488CA3F9A6BA0B3F98C5&FORM=QBLH&sp=1)以取得您機器的公用 IP 位址。

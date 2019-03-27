@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: de2a164d-2115-43e7-a9ed-e54f483f4aeb
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbd51700ec3045e6fbe66f7005444d9b56082869
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: cb82c3112634163328e08b330083f5b4942798ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875273"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880942"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-communifire"></a>教學課程：Azure Active Directory 與 Communifire 整合
 
@@ -76,7 +76,7 @@ Communifire 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Communifire 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Communifire 中相關使用者之間的連結關聯性。
 
-若要使用 Communifire 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 Communifire 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Communifire 單一登入](#configure-communifire-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -105,7 +105,7 @@ Communifire 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，若您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
 
-    ![Communifire 網域與 URL 單一登入資訊](common/idp-intiated.png)
+    ![Communifire 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
     a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.communifire.com`
 
@@ -113,7 +113,7 @@ Communifire 與 Azure AD 整合提供下列優點：
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-    ![Communifire 網域與 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
+    ![Communifire 網域及 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
 
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<subdomain>.communifire.com/login`
 
@@ -166,7 +166,7 @@ Communifire 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -183,7 +183,7 @@ Communifire 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Communifire]。
 
-    ![應用程式清單中的 Communifire 連結](common/all-applications.png)
+    ![應用程式清單中的 [Communifire] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

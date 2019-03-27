@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 39877e01eb8b9690dc1ac7b1dbb79bab450814c4
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 7511b85384c2c64c823d93df4369b0fea3e64b51
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456923"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226210"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>教學課程：Azure SQL Database 中使用 Azure AD 伺服器主體 (登入) 的受控執行個體安全性
 
@@ -148,13 +148,13 @@ ms.locfileid: "56456923"
 
 1. 使用 SQL Server Management Studio，以 Azure AD 伺服器主體 (登入) 連線至受控執行個體。 輸入受控執行個體的主機名稱。 若要在 SSMS 中驗證，使用 Azure AD 帳戶登入時會有三個選項可供選擇：
 
-    - Active Directory - 通用，具 MFA 支援
-    - Active Directory - 密碼
-    - Active Directory - 整合式 </br>
+   - Active Directory - 通用，具 MFA 支援
+   - Active Directory - 密碼
+   - Active Directory - 整合式 </br>
 
-    ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
+     ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
 
-    如需詳細資訊，請參閱下列文章：[SQL Database 和 SQL 資料倉儲的通用驗證 (MFA 的 SSMS 支援)](sql-database-ssms-mfa-authentication.md)
+     如需詳細資訊，請參閱下列文章：[SQL Database 和 SQL 資料倉儲的通用驗證 (MFA 的 SSMS 支援)](sql-database-ssms-mfa-authentication.md)
 
 1. 選取 [Active Directory - 通用，具 MFA 支援]。 此時會出現 Multi-Factor Authentication (MFA) 登入視窗。 使用 Azure AD 密碼來登入。
 
@@ -207,10 +207,10 @@ ms.locfileid: "56456923"
 1. 在 [物件總管] 中，以滑鼠右鍵按一下伺服器，然後針對新連線選擇 [新增查詢]。
 1. 執行下列命令，檢查新建立的 Azure AD 伺服器主體 (登入) 的伺服器權限：
 
-    ```sql
-    SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
-    GO
-    ```
+      ```sql
+      SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
+      GO
+      ```
 
 > [!NOTE]
 > 只有在新增為 Azure AD 群組的一部分時，才支援在受控執行個體登入中使用 Azure AD 來賓使用者。 Azure AD 來賓使用者是受邀從另一個 Azure AD 加入受控執行個體所屬 Azure AD 的帳戶。 例如，joe@contoso.com (Azure AD 帳戶) 或 steve@outlook.com (MSA 帳戶) 可以新增至 Azure AD aadsqlmi 中的群組。 在將使用者新增至群組後，便能使用 **CREATE LOGIN** 語法在受控執行個體的**主要**資料庫中，為該群組建立登入。 屬於此群組成員的來賓使用者可以使用其目前的登入 (例如 joe@contoso.com 或 steve@outlook.com) 連線至受控執行個體。
@@ -360,7 +360,7 @@ ms.locfileid: "56456923"
     GO
     ```
 
-1. 使用下列命令來查看您在執行預存程序時所模擬的使用者是 **bob@aadsqlmi.net**。
+1. 使用下列命令查看您在執行預存程序時所模擬的使用者是否為 **bob\@aadsqlmi.net**。
 
     ```sql
     Exec dbo.usp_Demo

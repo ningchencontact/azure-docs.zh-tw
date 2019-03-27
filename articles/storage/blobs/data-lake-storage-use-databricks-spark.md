@@ -1,19 +1,19 @@
 ---
 title: 教學課程：使用 Spark 以 Azure Databricks 存取 Azure Data Lake Storage Gen2 資料 | Microsoft Docs
-description: 本教學課程說明如何在 Azure Databricks 叢集上執行 Spark 查詢，以存取 Azure Data Lake Storage Gen2 儲存體帳戶中的資料。
+description: 本教學課程顯示如何在 Azure Databricks 叢集上執行 Spark 查詢，以存取 Azure Data Lake Storage Gen2 儲存體帳戶中的資料。
 services: storage
 author: dineshmurthy
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/29/2019
+ms.date: 03/11/2019
 ms.author: dineshm
-ms.openlocfilehash: 14e8d54b7b9cf579bb5dcbce595e2591c158b841
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 7f712bcf3e82005480d4960484cb0ea3ad51fbff
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585419"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226754"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>教學課程：使用 Spark 以 Azure DataBricks 存取 Data Lake Storage Gen2 資料
 
@@ -38,16 +38,16 @@ ms.locfileid: "56585419"
 
 * 安裝 AzCopy v10。 請參閱[使用 AzCopy v10 轉送資料](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
-*  建立服務主體。 請參閱[如何：使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)。
+* 建立服務主體。 請參閱[如何：使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)。
 
-   在執行該文章中的步驟時，您必須執行幾個特定動作。
+  在執行該文章中的步驟時，您必須執行幾個特定動作。
 
-   :heavy_check_mark:在執行該文章的[將應用程式指派給角色](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role)一節中的步驟時，請確實將 [儲存體 Blob 資料參與者] 角色指派給服務主體。
+  :heavy_check_mark:在執行該文章的[將應用程式指派給角色](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role)一節中的步驟時，請確實將 [儲存體 Blob 資料參與者] 角色指派給服務主體。
 
-   > [!IMPORTANT]
-   > 請務必在 Data Lake Storage Gen2 儲存體帳戶的範圍中指派該角色。 您可以將角色指派給父資源群組或訂用帳戶，但在這些角色指派傳播至儲存體帳戶之前，您將會收到與權限有關的錯誤。
+  > [!IMPORTANT]
+  > 請務必在 Data Lake Storage Gen2 儲存體帳戶的範圍中指派該角色。 您可以將角色指派給父資源群組或訂用帳戶，但在這些角色指派傳播至儲存體帳戶之前，您將會收到與權限有關的錯誤。
 
-   :heavy_check_mark:在執行該文章的[取得值以便登入](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)一節中的步驟時，請將租用戶識別碼、應用程式識別碼和驗證金鑰值貼到文字檔中。 您很快就會用到這些資料。
+  :heavy_check_mark:在執行該文章的[取得值以便登入](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)一節中的步驟時，請將租用戶識別碼、應用程式識別碼和驗證金鑰值貼到文字檔中。 您很快就會用到這些資料。
 
 ### <a name="download-the-flight-data"></a>下載航班資料
 
@@ -147,12 +147,12 @@ ms.locfileid: "56585419"
 
    * `storage-account-name` 是您 Azure Data Lake Storage Gen2 儲存體帳戶的名稱。
 
-    > [!NOTE]
-    > 在生產環境設定中，請考慮將驗證金鑰儲存在 Azure Databricks 中。 然後，將查閱索引鍵新增至程式碼區塊，而不是驗證金鑰。 完成此快速入門之後，請參閱 Azure Databricks 網站上的 [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 一文，以檢視此方法的範例。
+   > [!NOTE]
+   > 在生產環境設定中，請考慮將驗證金鑰儲存在 Azure Databricks 中。 然後，將查閱索引鍵新增至程式碼區塊，而不是驗證金鑰。 完成此快速入門之後，請參閱 Azure Databricks 網站上的 [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 一文，以檢視此方法的範例。
 
 19. 按 **SHIFT + ENTER** 鍵以執行此區塊中的程式碼。
 
-    讓此筆記本保持開啟，以便稍後在其中新增命令。
+   讓此筆記本保持開啟，以便稍後在其中新增命令。
 
 ## <a name="ingest-data"></a>擷取資料
 
@@ -171,9 +171,10 @@ ms.locfileid: "56585419"
 2. 若要從 .csv 帳戶複製資料，請輸入下列命令。
 
    ```bash
-   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time
+   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time.csv
    ```
-   * 將 `<csv-folder-path>` 預留位置值更換為 .csv 檔案的目錄路徑 (不包括檔案名稱)。
+
+   * 將 `<csv-folder-path>` 預留位置值更換為 *.csv* 檔案的名稱。
 
    * 使用您的儲存體帳戶名稱取代 `storage-account-name` 預留位置值。
 
@@ -181,28 +182,28 @@ ms.locfileid: "56585419"
 
 ### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>使用 Databricks Notebook 將 CSV 轉換成 Parquet
 
-在先前建立的筆記本中新增資料格，然後將下列程式碼貼到該資料格。 將此程式碼片段中的 `storage-account-name` 預留位置值，更換為 csv 檔案儲存所在資料夾的名稱。
+在先前建立的筆記本中新增資料格，然後將下列程式碼貼到該資料格。 
 
 ```python
 # Use the previously established DBFS mount point to read the data.
 # create a data frame to read data.
 
-flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time/<your-folder-name>/*.csv")
+flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/*.csv")
 
 # read the airline csv file and write the output to parquet format for easy query.
- flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
- print("Done")
- ```
+flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
+print("Done")
+```
 
 ## <a name="explore-data"></a>探索資料
 
-在新的資料格中貼上下列程式碼，以取得透過 AzCopy 所上傳 CSV 檔案的清單。 將 `<csv-folder-path>` 預留位置值更換為稍早對該預留位置所使用的同一個值。
+在新的資料格中貼上下列程式碼，以取得透過 AzCopy 所上傳 CSV 檔案的清單。
 
 ```python
 import os.path
 import IPython
 from pyspark.sql import SQLContext
-display(dbutils.fs.ls("/mnt/flightdata/On_Time/<your-folder-name>"))
+display(dbutils.fs.ls("/mnt/flightdata"))
 ```
 
 若要建立新檔案，並列出 *parquet/flights* 資料夾中的檔案，請執行此指令碼：
@@ -220,13 +221,11 @@ dbutils.fs.ls("/mnt/flightdata/parquet/flights")
 
 若要建立資料來源的資料框架，請執行下列指令碼：
 
-* 將 `<csv-folder-path>` 預留位置值更換為 .csv 檔案的目錄路徑 (不包括檔案名稱)。
-
-* 將 `<your-csv-file-name` 預留位置值更換為 csv 檔案的名稱。
+* 將 `<csv-folder-path>` 預留位置值更換為 *.csv* 檔案的名稱。
 
 ```python
 #Copy this into a Cmd cell in your notebook.
-acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time/<your-folder-name>/<your-csv-file-name>.csv")
+acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time.csv")
 acDF.write.parquet('/mnt/flightdata/parquet/airlinecodes')
 
 #read the existing parquet file for the flights database that was created earlier
@@ -285,5 +284,5 @@ print('Airlines that fly to/from Texas: ', out1.show(100, False))
 
 ## <a name="next-steps"></a>後續步驟
 
-[!div class="nextstepaction"] 
+> [!div class="nextstepaction"] 
 > [使用 Azure HDInsight 上的 Apache Hive 來擷取、轉換和載入資料](data-lake-storage-tutorial-extract-transform-load-hive.md)

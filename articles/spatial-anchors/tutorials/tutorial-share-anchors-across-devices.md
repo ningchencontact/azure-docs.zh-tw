@@ -1,6 +1,6 @@
 ---
 title: 教學課程 - 透過 Azure Spatial Anchors 跨工作階段和裝置進行共用 | Microsoft Docs
-description: 在本教學課程中，您將了解如何透過後端服務在 Unity 中的裝置之間共用 Azure Spatial Anchors 識別碼。
+description: 在本教學課程中，您將了解如何在 Unity 中透過後端服務於 Adroid/iOS 裝置之間共用 Azure Spatial Anchors 識別碼。
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: df7f8aa5b49e3fe17be3b17a6e0f5d8861b26253
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 7d9fe58b7db60513eed81aae628ebd7ca754a53a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753442"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901299"
 ---
 # <a name="tutorial-sharing-across-sessions-and-devices-with-azure-spatial-anchors"></a>教學課程：透過 Azure Spatial Anchors 跨工作階段和裝置進行共用
 
@@ -37,9 +37,13 @@ Azure Spatial Anchors 是一款跨平台開發人員服務，可讓您使用在�
 
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-share-sample-prereqs.md)]
 
-應注意的是，雖然您在本教學課程中將使用 Unity 和 ASP.NET Core Web 應用程式，但這只為了提供範例來說明如何與其他裝置共用 Azure Spatial Anchor 識別碼。 您可以使用其他語言和後端技術來達到相同的目標。 此外，本教學課程所使用的 ASP.NET Core Web 應用程式具有對 .NET Core 2.2 SDK 的相依性。 它在一般 Azure Web Apps (適用於 Windows) 上可正常運作，但目前不適用於 Azure Web Apps for Linux。
+應注意的是，雖然您在本教學課程中將使用 Unity 和 ASP.NET Core Web 應用程式，但這只為了提供範例來說明如何與其他裝置共用 Azure Spatial Anchor 識別碼。 您可以使用其他語言和後端技術達到相同的目標。 此外，本教學課程所使用的 ASP.NET Core Web 應用程式具有對 .NET Core 2.2 SDK 的相依性。 它在一般 Azure Web Apps (適用於 Windows) 上可正常運作，但目前不適用於 Azure Web Apps for Linux。
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
+
+## <a name="open-the-sample-project-in-unity"></a>在 Unity 中開啟範例專案
+
+[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
 ## <a name="deploy-your-sharing-anchors-service"></a>部署共用錨點服務
 
@@ -47,13 +51,19 @@ Azure Spatial Anchors 是一款跨平台開發人員服務，可讓您使用在�
 
 [!INCLUDE [Publish Azure](../../../includes/spatial-anchors-publish-azure.md)]
 
+## <a name="open-the-sample-project-in-unity"></a>在 Unity 中開啟範例專案
+
+[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
+
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已在 Azure 中部署 ASP.NET Core Web 應用程式，然後設定並部署 Unity 應用程式。 您使用應用程式建立了 Spatial Anchors，並使用 ASP.NET Core Web 應用程式與其他裝置共用這些錨點。 若要深入了解如何改善 ASP.NET Core Web 應用程式，使其能夠使用 Cosmos DB 儲存共用的 Spatial Anchors，請繼續下一個教學課程。
+在本教學課程中，您已在 Azure 中部署 ASP.NET Core Web 應用程式，然後設定並部署 Unity 應用程式。 您使用應用程式建立了 Spatial Anchors，並使用 ASP.NET Core Web 應用程式與其他裝置共用這些錨點。
+
+若要深入了解如何改善 ASP.NET Core Web 應用程式，使它能夠使用 Azure Cosmos DB 儲存共用的 Spatial Anchors，請繼續下一個教學課程。
 
 > [!div class="nextstepaction"]
-> [教學課程：使用 Cosmos DB 儲存錨點](./tutorial-use-cosmos-db-to-store-anchors.md)
+> [教學課程：使用 Azure Cosmos DB 儲存錨點](./tutorial-use-cosmos-db-to-store-anchors.md)

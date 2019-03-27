@@ -11,13 +11,13 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
-ms.date: 02/12/2019
-ms.openlocfilehash: 61c4edc5ec9c690944047ce67f619f0f69f62f6c
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 03/01/2019
+ms.openlocfilehash: e15cf93514f921223fea37aa480730bba46dd195
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236731"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864944"
 ---
 # <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>快速入門：在 Azure SQL Database (預覽) 中使用機器學習服務 (搭配 R)
 
@@ -29,8 +29,12 @@ ms.locfileid: "56236731"
 
 如果您沒有 Azure 訂用帳戶，請先[建立帳戶](https://azure.microsoft.com/free/)再開始。
 
-> [!NOTE]
-> Azure SQL Database 中的機器學習服務 (搭配 R) 目前是公開預覽版。 [註冊預覽版](sql-database-machine-learning-services-overview.md#signup)。
+> [!IMPORTANT]
+> Azure SQL Database 機器學習服務目前是公開預覽版。
+> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。
+> 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+>
+> [註冊預覽版](sql-database-machine-learning-services-overview.md#signup)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -154,7 +158,7 @@ GRANT EXECUTE ANY EXTERNAL SCRIPT TO <username>
 
     ![從資料表傳回資料的 R 指令碼輸出](./media/sql-database-connect-query-r/r-output-rtestdata.png)
 
-3. 我們將變更輸入或輸出變數的名稱。 上述指令碼使用預設的輸入和輸出變數名稱，即 _InputDataSet_ 和 _OutputDataSet_。 若要定義與 _InputDatSet_ 相關聯的輸入資料，您應使用 *@input_data_1* 變數。
+3. 我們將變更輸入或輸出變數的名稱。 上述指令碼使用預設的輸入和輸出變數名稱，即 _InputDataSet_ 和 _OutputDataSet_。 若要定義與 _InputDatSet_ 相關聯的輸入資料，您應使用 *\@input_data_1* 變數。
 
     在此指令碼中，預存程序的輸出和輸入變數名稱已變更為 *SQL_out* 和 *SQL_in*：
 
@@ -170,7 +174,7 @@ GRANT EXECUTE ANY EXTERNAL SCRIPT TO <username>
 
     請注意，R 會區分大小寫，因此 `@input_data_1_name` 和 `@output_data_1_name` 中的輸入和輸出變數必須與 `@script` 中的 R 程式碼使用相同的大小寫。 
 
-    此外，參數的順序也很重要。 您必須先指定必要參數 *@input_data_1* 和 *@output_data_1*，才能使用選用參數 *@input_data_1_name* 和 *@output_data_1_name*。
+    此外，參數的順序也很重要。 您必須先指定必要參數 *\@input_data_1* 和 *\@output_data_1*，才能使用選擇性參數 *\@input_data_1_name*和 *\@output_data_1_name*。
 
     只有一個輸入資料集可以傳入作為參數，而且您只能傳回一個資料集。 不過，您可以從 R 程式碼內呼叫其他資料集，而且可以在資料集以外傳回其他類型的輸出。 您也可以為任何參數加上 OUTPUT 關鍵字，使其與結果一起傳回。 
 
@@ -271,34 +275,34 @@ Microsoft 會在提供多個隨機器學習服務預先安裝在 SQL 資料庫�
 
     線性模型的需求很簡單：
 
-    - 定義一個公式來說明應變數 `speed` 與自變數 `distance` 之間的關聯性。
+   - 定義一個公式來說明應變數 `speed` 與自變數 `distance` 之間的關聯性。
 
-    - 提供定型模型時所使用的輸入資料。
+   - 提供定型模型時所使用的輸入資料。
 
-    > [!TIP]
-    > 如果您需要複習一下線性模型，建議您使用下列教學課程，其中說明了使用 rxLinMod 來配適模型的程序：[配適線性模型](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
+     > [!TIP]
+     > 如果您需要複習一下線性模型，建議您使用下列教學課程，其中說明了使用 rxLinMod 來配適模型的程序：[配適線性模型](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
 
-    若要建置模型，您必須在 R 程式碼內定義公式，並傳入資料作為輸入參數。
+     若要建置模型，您必須在 R 程式碼內定義公式，並傳入資料作為輸入參數。
 
-    ```sql
-    DROP PROCEDURE IF EXISTS generate_linear_model;
-    GO
-    CREATE PROCEDURE generate_linear_model
-    AS
-    BEGIN
-        EXEC sp_execute_external_script
-        @language = N'R'
-        , @script = N'lrmodel <- rxLinMod(formula = distance ~ speed, data = CarsData);
-            trained_model <- data.frame(payload = as.raw(serialize(lrmodel, connection=NULL)));'
-        , @input_data_1 = N'SELECT [speed], [distance] FROM CarSpeed'
-        , @input_data_1_name = N'CarsData'
-        , @output_data_1_name = N'trained_model'
-        WITH RESULT SETS ((model VARBINARY(max)));
-    END;
-    GO
-    ```
+     ```sql
+     DROP PROCEDURE IF EXISTS generate_linear_model;
+     GO
+     CREATE PROCEDURE generate_linear_model
+     AS
+     BEGIN
+       EXEC sp_execute_external_script
+       @language = N'R'
+       , @script = N'lrmodel <- rxLinMod(formula = distance ~ speed, data = CarsData);
+           trained_model <- data.frame(payload = as.raw(serialize(lrmodel, connection=NULL)));'
+       , @input_data_1 = N'SELECT [speed], [distance] FROM CarSpeed'
+       , @input_data_1_name = N'CarsData'
+       , @output_data_1_name = N'trained_model'
+       WITH RESULT SETS ((model VARBINARY(max)));
+     END;
+     GO
+     ```
 
-    rxLinMod 的第一個引數是將距離定義為相依於速度的*公式*參數。 輸入資料儲存在變數 `CarsData` 中，會由 SQL 查詢填入。 如果您未將特定名稱指派給輸入資料，預設變數名稱將是 _InputDataSet_。
+     rxLinMod 的第一個引數是將距離定義為相依於速度的*公式*參數。 輸入資料儲存在變數 `CarsData` 中，會由 SQL 查詢填入。 如果您未將特定名稱指派給輸入資料，預設變數名稱將是 _InputDataSet_。
 
 2. 接下來，建立用來儲存模型的資料表，以便您將模型重新定型或用於預測。 建立模型的 R 套件輸出通常是**二進位物件**。 因此，資料表必須提供 **VARBINARY(max)** 類型的資料行。
 
@@ -397,23 +401,23 @@ Microsoft 會在提供多個隨機器學習服務預先安裝在 SQL 資料庫�
 
     指令碼會執行下列步驟：
 
-    + 使用 SELECT 陳述式從資料表中取得單一模型，並將其傳入作為輸入參數。
+   + 使用 SELECT 陳述式從資料表中取得單一模型，並將其傳入作為輸入參數。
 
-    + 從資料表中擷取模型之後，請對模型呼叫 `unserialize` 函式。
+   + 從資料表中擷取模型之後，請對模型呼叫 `unserialize` 函式。
 
-        > [!TIP] 
-        > 同時請查看 RevoScaleR 提供的新[序列化函式](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel)，這些函式支援即時評分。
-    + 將 `rxPredict` 函式搭配適當的引數套用至模型，並提供新的輸入資料。
+       > [!TIP] 
+       > 同時請查看 RevoScaleR 提供的新[序列化函式](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel)，這些函式支援即時評分。
+   + 將 `rxPredict` 函式搭配適當的引數套用至模型，並提供新的輸入資料。
 
-    + 在此範例中，會在測試階段加入 `str` 函式，以檢查從 R 傳回的資料結構描述。您可於稍後移除陳述式。
+   + 在此範例中，會在測試階段加入 `str` 函式，以檢查從 R 傳回的資料結構描述。您可於稍後移除陳述式。
 
-    + R 指令碼中使用的資料行名稱不一定要傳至預存程序輸出。 在此我們使用 WITH RESULTS 子句來定義一些新的資料行名稱。
+   + R 指令碼中使用的資料行名稱不一定要傳至預存程序輸出。 在此我們使用 WITH RESULTS 子句來定義一些新的資料行名稱。
 
-    **結果**
+     **結果**
 
-    ![預測煞停距離的結果集](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
+     ![預測煞停距離的結果集](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
 
-    您也可以使用 [Transact-SQL 中的 PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql)，根據預存模型產生預測的值或分數。
+     您也可以使用 [Transact-SQL 中的 PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql)，根據預存模型產生預測的值或分數。
 
 <a name="add-package"></a>
 

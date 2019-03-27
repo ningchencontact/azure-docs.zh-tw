@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 08/22/2018
+ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 420a0769af85d050f2786b65eb929a24d8b9da5d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7209df902f03a7055e142dcbbb7743b6832958b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874153"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863775"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-java"></a>快速入門：使用適用於 Java 的 Bing Web 搜尋 SDK
 
@@ -28,15 +28,16 @@ Bing Web 搜尋 SDK 可讓您輕鬆地將 Bing Web 搜尋整合到 Java 應用�
 另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
 ## <a name="prerequisites"></a>必要條件
+
 以下是執行本快速入門之前的幾個必備項目：
 
 * [JDK 7 或 8](https://aka.ms/azure-jdks) (英文)
 * [Apache Maven](https://maven.apache.org/download.cgi) 或您最愛的組建自動化工具
 * 訂用帳戶金鑰
 
-## <a name="create-a-project-and-configure-your-pom-file"></a>建立專案並設定您的 POM 檔案
+## <a name="create-a-project-and-set-up-your-pom-file"></a>建立專案並設定您的 POM 檔案
 
-使用 Maven 或您最愛的組建自動化工具，建立新的 Java 專案。 假設您使用 Maven，請將下列幾行新增至您的 POM 檔案。 以您的應用程式取代 `mainClass` 的所有執行個體。
+使用 Maven 或您最愛的組建自動化工具，建立新的 Java 專案。 假設您使用 Maven，請將下列幾行新增至您的[專案物件模型 (POM)](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) 檔案。 以您的應用程式取代 `mainClass` 的所有執行個體。
 
 ```xml
 <build>
@@ -180,7 +181,7 @@ public static boolean runSample(BingWebSearchAPI client) {
 ```java
 /*
 * WebPages
-* If the search response contains web pages, the first result's name
+* If the search response has web pages, the first result's name
 * and url are printed.
 */
 if (webData != null && webData.webPages() != null && webData.webPages().value() != null &&
@@ -200,7 +201,7 @@ if (webData != null && webData.webPages() != null && webData.webPages().value() 
 }
 /*
  * Images
- * If the search response contains images, the first result's name
+ * If the search response has images, the first result's name
  * and url are printed.
  */
 if (webData != null && webData.images() != null && webData.images().value() != null &&
@@ -220,7 +221,7 @@ if (webData != null && webData.images() != null && webData.images().value() != n
 }
 /*
  * News
- * If the search response contains news articles, the first result's name
+ * If the search response has news articles, the first result's name
  * and url are printed.
  */
 if (webData != null && webData.news() != null && webData.news().value() != null &&
@@ -240,7 +241,7 @@ if (webData != null && webData.news() != null && webData.news().value() != null 
 
 /*
  * Videos
- * If the search response contains videos, the first result's name
+ * If the search response has videos, the first result's name
  * and url are printed.
  */
 if (webData != null && webData.videos() != null && webData.videos().value() != null &&

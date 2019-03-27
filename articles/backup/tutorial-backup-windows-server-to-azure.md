@@ -7,15 +7,15 @@ manager: shivamg
 keywords: Windows Server 備份; 備份 Windows Server; 備份與災害復原
 ms.service: backup
 ms.topic: tutorial
-ms.date: 2/14/2018
+ms.date: 8/22/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: d52866a4f441a74bbc4b63f6dc362989865151b3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f5cfa3de962c51ac7ff43d9b83bdea9f408f5bcf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34609013"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097418"
 ---
 # <a name="back-up-windows-server-to-azure"></a>將 Windows Server 備份到 Azure
 
@@ -29,9 +29,9 @@ ms.locfileid: "34609013"
 > * 執行臨機操作備份
 
 
-## <a name="log-in-to-azure"></a>登入 Azure
+## <a name="sign-in-to-azure"></a>登入 Azure
 
-在 http://portal.azure.com 上登入 Azure 入口網站。
+在 https://portal.azure.com 登入 Azure 入口網站。
 
 ## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫
 
@@ -41,11 +41,11 @@ ms.locfileid: "34609013"
 
    ![開啟復原服務保存庫](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
-2.  在 [復原服務保存庫] 功能表上，按一下 [新增]。
+2. 在 [復原服務保存庫] 功能表上，按一下 [新增]。
 
    ![提供保存庫的資訊](./media/tutorial-backup-windows-server-to-azure/provide-vault-detail-2.png)
 
-3.  在 [復原服務保存庫] 功能表中，
+3. 在 [復原服務保存庫] 功能表中，
 
     - 在 [名稱] 中鍵入 *myRecoveryServicesVault*。
     - 目前的訂用帳戶識別碼會出現在 [訂用帳戶] 中。
@@ -59,27 +59,28 @@ ms.locfileid: "34609013"
 
 Microsoft Azure 復原服務 (MARS) 代理程式可在您的 Windows Server 及您的復原服務保存庫間建立關聯。 下列程序說明如何將代理程式下載到您的伺服器。
 
-1.  在復原服務保存庫清單中，選取 [myRecoveryServicesVault] 來開啟其儀表板。
+1. 在復原服務保存庫清單中，選取 [myRecoveryServicesVault] 來開啟其儀表板。
 
    ![提供保存庫的資訊](./media/tutorial-backup-windows-server-to-azure/open-vault-from-list.png)
 
-2.  在 [保存庫儀表板] 功能表中，按一下 [備份]。
+2. 在 [保存庫儀表板] 功能表中，按一下 [備份]。
 
-3.  在 [備份目標] 功能表中：
+3. 在 [備份目標] 功能表中：
 
-    - 針對 [工作負載的執行位置?]，選取 [內部部署]。 
-    - 針對 [您要備份什麼?]，選取 [檔案和資料夾]，以及 [系統狀態] 
+   * 針對 [工作負載的執行位置?]，選取 [內部部署]， 
+   * 針對 [您要備份什麼?]，選取 [檔案和資料夾]，以及 [系統狀態]
 
-    ![提供保存庫的資訊](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
-    
-4.  按一下 [準備基礎結構] 以開啟 [準備基礎結構] 功能表。
-5.  在 [準備基礎結構] 功能表上，按一下 [下載 Windows Server 或 Windows Client 的代理程式] 以下載 *MARSAgentInstaller.exe*。 
+   ![提供保存庫的資訊](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
+
+4. 按一下 [準備基礎結構] 以開啟 [準備基礎結構] 功能表。
+
+5. 在 [準備基礎結構] 功能表上，按一下 [下載 Windows Server 或 Windows Client 的代理程式] 以下載 *MARSAgentInstaller.exe*。 
 
     ![準備基礎結構](./media/tutorial-backup-windows-server-to-azure/prepare-infrastructure.png)
 
     安裝程式會開啟另一個瀏覽器視窗，並下載 **MARSAgentInstaller.exe**。
  
-6.  在您執行下載的檔案之前，請按一下 [準備基礎結構] 刀鋒視窗上的 [下載] 按鈕下載並儲存**保存庫認證**檔案。 您必須要有此檔案才能讓 MARS 代理程式與復原服務保存庫連線。
+6. 在您執行下載的檔案之前，請在 [準備基礎結構] 功能表上按一下 [下載]，並儲存**保存庫認證**檔案。 必須要有保存庫認證，才能連接 MARS 代理程式與復原服務保存庫。
 
     ![準備基礎結構](./media/tutorial-backup-windows-server-to-azure/download-vault-credentials.png)
  
@@ -87,11 +88,11 @@ Microsoft Azure 復原服務 (MARS) 代理程式可在您的 Windows Server 及�
 
 1. 找出並按兩下已下載的 **MARSagentinstaller.exe**。
 2. **Microsoft Azure 復原服務代理程式安裝精靈** 便會出現。 當您執行精靈時，請在程式提示的時候提供下列資訊，然後按一下 [註冊]。
-    - 安裝及快取資料夾位置。
-    - Proxy 伺服器資訊 (若您使用 Proxy 伺服器來連線到網際網路的話)。
-    - 您的使用者名稱及密碼詳細資料 (若您使用驗證 Proxy 的話)
+   - 安裝及快取資料夾位置。
+   - Proxy 伺服器資訊 (若您使用 Proxy 伺服器來連線到網際網路的話)。
+   - 您的使用者名稱及密碼詳細資料 (若您使用驗證 Proxy 的話)
 
-    ![準備基礎結構](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
+     ![準備基礎結構](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
 
 3. 在精靈結束時，按一下 [繼續註冊] 並提供您在先前步驟中下載的**保存庫認證**檔案。
  
@@ -115,13 +116,17 @@ Microsoft Azure 復原服務 (MARS) 代理程式可在您的 Windows Server 及�
 
 5. 按 [下一步] 。
 
-6. 在 [指定備份排程 (系統狀態)] 頁面上，為系統狀態指定要觸發備份的一天或一週當中的時間，然後按一下 [下一步] 
+6. 在 [指定備份排程 (系統狀態)] 頁面上，為系統狀態指定要觸發備份的一天或一週當中的時間，然後按 [下一步]。
 
-7.  在 [選取保留原則 (系統狀態)] 頁面上，為系統狀態的備份複本選取保留原則，然後按一下 [下一步]
+7. 在 [選取保留原則 (系統狀態)] 頁面上，為系統狀態的備份複本選取保留原則，然後按 [下一步]。
+
 8. 同樣地，為選取的檔案和資料夾選取備份排程及保留原則。 
-8.  在 [Choose Initial Back up Type] (選擇初始備份類型) 頁面上，將選取選項維持在 [自動透過網路]，然後按一下 [下一步]。
-9.  在 [確認] 頁面上檢閱資訊，然後按一下 [完成]。
-10. 當精靈建立好備份排程時，請按一下 [關閉] 。
+
+9. 在 [選擇初始備份類型] 頁面上，選取 [自動透過網路]，然後按 [下一步]。
+
+10. 在 [確認] 頁面上檢閱資訊，然後按一下 [完成]。
+
+11. 當精靈建立好備份排程時，請按一下 [關閉] 。
 
 ## <a name="perform-an-ad-hoc-back-up"></a>執行臨機操作備份
 
@@ -139,7 +144,7 @@ Microsoft Azure 復原服務 (MARS) 代理程式可在您的 Windows Server 及�
 
 ## <a name="next-steps"></a>後續步驟
 
-在這篇教學中，您使用了 Azure 入口網站來： 
+在本教學課程中，您已使用 Azure 入口網站來： 
  
 > [!div class="checklist"] 
 > * 建立復原服務保存庫 

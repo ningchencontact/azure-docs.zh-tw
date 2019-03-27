@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 058626e4-73b3-4dc2-86ca-b060d002d70a
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0de0f05a2f3609a522b7f400ca94ffcd41b83751
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 1bc4118e54b2049f7e5d6cf4ed3b92bfc5e41ae7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867893"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904945"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-domo"></a>教學課程：Azure Active Directory 與 Domo 整合
 
@@ -73,7 +73,7 @@ Domo 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 Domo 設定及測試 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Domo 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Domo 中相關使用者之間的連結關聯性。
 
 如要設定及測試搭配 Domo 的 Azure AD 單一登入，您需要完成下列構成元素：
@@ -82,7 +82,7 @@ Domo 與 Azure AD 整合提供下列優點：
 2. **[設定 Domo 單一登入](#configure-domo-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 Domo 測試使用者](#create-domo-test-user)** - 在 Domo 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表使用者的項目連結。
+5. **[建立 Domo 測試使用者](#create-domo-test-user)** - 在 Domo 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
@@ -105,13 +105,14 @@ Domo 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Domo 網域與 URL 單一登入資訊](common/sp-identifier.png)
+    ![Domo 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.domo.com`
 
     b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：
+    
     | |
-    |--|    
+    |--|
     | `https://<companyname>.domo.com` |
     | `https://<companyname>.beta.domo.com` |
     | `https://<companyname>.demo.domo.com` |
@@ -193,7 +194,7 @@ Domo 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -210,7 +211,7 @@ Domo 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Domo] 。
 
-    ![應用程式清單中的 Domo 連結](common/all-applications.png)
+    ![應用程式清單中的 [Domo] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -228,7 +229,7 @@ Domo 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-domo-test-user"></a>建立 Domo 測試使用者
 
-本節會在 Domo 中建立名為 Britta Simon 的使用者。 Domo 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Domo 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
+本節會在 Domo 中建立名為 Britta Simon 的使用者。 Domo 支援預設會啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Domo 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

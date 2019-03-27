@@ -7,20 +7,20 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 8569cae1-87dd-4c40-9bbb-527ac80d6a96
-ms.service: Azure-Active-Directory
+ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/12/2019
+ms.date: 03/13/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecfdd76e171ed237e3e87c98f6596634784faea1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d58da4781a7c5c93d897e0efd7cf3d5aee612d78
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865309"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225668"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-figma"></a>教學課程：Azure Active Directory 與 Figma 整合
 
@@ -28,18 +28,20 @@ ms.locfileid: "56865309"
 Figma 與 Azure AD 整合提供下列優點：
 
 * 您可以在 Azure AD 中控制可存取 Figma 的人員。
-* 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Figma (單一登入)。
+* 您可以讓使用者使用其 Azure AD 帳戶自動登入 Figma (單一登入)。
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
-如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Figma 整合，您需要下列項目：
+若要設定 Azure AD 與 Figma 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
-* 已啟用 Figma 單一登入的訂用帳戶
+* Figma 組織方案
+
+>[!NOTE]
+>若要測試本教學課程中的步驟，我們不建議使用生產環境。 Figma 專業團隊的新客戶和有效訂閱者可以連絡 Figma 來將其訂用帳戶升級成 [Figma 組織方案](https://www.figma.com/pricing/)。
 
 ## <a name="scenario-description"></a>案例描述
 
@@ -89,7 +91,7 @@ Figma 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要使用 Figma 設定 Azure AD 單一登入，請執行下列步驟：
+若要設定與 Figma 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Figma] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -105,22 +107,22 @@ Figma 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，若您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
 
-    ![Figma 網域與 URL 單一登入資訊](common/idp-intiated.png)
+    ![Figma 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://www.figma.com/saml/<TENANT ID>`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>/consume`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://www.figma.com/saml/<TENANT ID>/consume`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-    ![Figma 網域與 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
+    ![Figma 網域及 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
 
-    在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>/start`
+    在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://www.figma.com/saml/<TENANT ID>/start`
 
     > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的「識別碼」、「回覆 URL」及「登入 URL」來更新這些值。 請連絡 [Figma 用戶端支援小組](mailto:support@figma.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這些都不是真正的值。 請使用實際的「識別碼」、「回覆 URL」及「登入 URL」來更新這些值。 您將從 Figma 的[設定 Azure Active Directory SAML SSO 程序](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso) \(英文\) 一文步驟 11 取得 `TENANT ID`。
 
-6. Figma 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應加入 SAML 權杖屬性設定中。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] 圖示以新增屬性。
+6. Figma 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應加入 SAML 權杖屬性設定中。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯]圖示以開啟 **[使用者屬性]** 對話方塊。
 
     ![映像](common/edit-attribute.png)
 
@@ -154,13 +156,13 @@ Figma 與 Azure AD 整合提供下列優點：
 
     g. 按一下 [檔案] 。
 
-8. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [複製] 按鈕以複製 [應用程式同盟中繼資料 URL]，並將資料儲存在您的電腦上。
+8. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [複製] 按鈕以複製 [應用程式同盟中繼資料 URL]，並將其儲存在您的電腦上。
 
     ![憑證下載連結](common/copy-metadataurl.png)
-
+  
 ### <a name="configure-figma-single-sign-on"></a>設定 Figma 單一登入
 
-若要設定 Figma 端的單一登入，請填寫此表單：[https://goo.gl/forms/XkRB1z5ed4eVUzXn2](https://goo.gl/forms/XkRB1z5ed4eVUzXn2)。 它會接受您步驟 8 中的**應用程式同盟中繼資料 URL**。
+若要在 Figma 端設定單一登入，您必須依照 Figma 的[設定 Azure Active Directory SAML SSO 程序](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso) \(英文\) 一文進行操作。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
@@ -180,7 +182,7 @@ Figma 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -189,7 +191,7 @@ Figma 與 Azure AD 整合提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會把 Figma 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在本節中，您會將 Figma 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Figma]。
 
@@ -197,7 +199,7 @@ Figma 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Figma]。
 
-    ![應用程式清單中的 Figma 連結](common/all-applications.png)
+    ![應用程式清單中的 [Figma] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -215,7 +217,7 @@ Figma 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-figma-test-user"></a>建立 Figma 測試使用者
 
-本節會在 Figma 中建立名為 Britta Simon 的使用者。 Figma 支援預設啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 如果 Figma 中還沒有使用者存在，在您嘗試存取 Figma 時就會建立新的使用者。
+本節會在 Figma 中建立名為 Britta Simon 的使用者。 Figma 支援預設會啟用的 Just-In-Time 佈建。 在這一節沒有您需要進行的動作項目。 如果 Figma 中還沒有任何使用者存在，在您嘗試存取 Figma 時就會建立新的使用者。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 
@@ -230,3 +232,4 @@ Figma 與 Azure AD 整合提供下列優點：
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

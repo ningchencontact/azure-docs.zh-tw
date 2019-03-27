@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: f329341b-fb77-42e5-b6a6-0cd641d19670
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce6d6f08cd507f18db1d072984aecae634aab8db
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 4e40890459315bacf88fa6a12bc5eed7c0708b1c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877124"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835759"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appinux"></a>教學課程：Azure Active Directory 與 Appinux 整合
 
@@ -36,7 +36,7 @@ Appinux 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定與 Appinux 的 Azure AD 整合，您需要下列項目：
+若要設定 Azure AD 與 Appinux 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Appinux 單一登入的訂用帳戶
@@ -90,7 +90,7 @@ Appinux 與 Azure AD 整合提供下列優點：
 
 若要設定與 Appinux 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Appinux] 應用程式整合頁面中，選取 [單一登入]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Appinux] 應用程式整合頁面上，選取 [單一登入]。
 
     ![設定單一登入連結](common/select-sso.png)
 
@@ -104,7 +104,7 @@ Appinux 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Appinux 網域與 URL 單一登入資訊](common/sp-identifier.png)
+    ![Appinux 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<Appinux_SUBDOMAIN>.appinux.com`
 
@@ -186,7 +186,7 @@ Appinux 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -195,7 +195,7 @@ Appinux 與 Azure AD 整合提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會把 Appinux 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在本節中，您會將 Appinux 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Appinux]。
 
@@ -203,7 +203,7 @@ Appinux 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Appinux]。
 
-    ![應用程式清單中的 Appinux 連結](common/all-applications.png)
+    ![應用程式清單中的 [Appinux] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -221,7 +221,7 @@ Appinux 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-appinux-test-user"></a>建立 Appinux 測試使用者
 
-本節會在 Appinux 中建立名為 Britta Simon 的使用者。 Appinux 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Appinux 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
+本節會在 Appinux 中建立名為 Britta Simon 的使用者。 Appinux 支援預設會啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Appinux 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
 > [!Note]
 > 如果您需要手動建立使用者，請連絡  [Appinux 支援小組](https://support.appinux.com)。

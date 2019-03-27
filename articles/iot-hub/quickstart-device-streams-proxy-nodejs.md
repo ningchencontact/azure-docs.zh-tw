@@ -8,18 +8,20 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/15/2019
+ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 0231b67ee56de5e1729c02ed3d87b2461f025b84
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: a737413f6692b4ee811d0590351a385552cc9a8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887422"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085570"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-nodejs-proxy-application-preview"></a>快速入門：使用 Node.js Proxy 應用程式透過 IoT 中樞裝置串流進行 SSH/RDP 輸送 (預覽)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
+
+Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 [IoT 中樞裝置串流](./iot-hub-device-streams-overview.md)可讓服務和裝置應用程式以安全且便於設定防火牆的方式進行通訊。 本快速入門指南說明如何在服務端執行 Node.js Proxy 應用程式，使 SSH 和 RDP 流量能夠透過裝置串流傳送至裝置。 如需設定概觀，請參閱[這裡](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp)。 在公開預覽期間，Node.js SDK 僅支援服務端上的裝置串流。 因此，本快速入門指南僅提供執行服務本機 Proxy 的指示。 您應執行 [C 快速入門](./quickstart-device-streams-proxy-c.md)或 [C# 快速入門](./quickstart-device-streams-proxy-csharp.md)指南中提及的隨附裝置端 Proxy。
 
@@ -32,6 +34,11 @@ ms.locfileid: "54887422"
 
 
 ## <a name="prerequisites"></a>必要條件
+
+裝置串流的預覽版目前僅支援在下列區域建立的 IoT 中樞：
+
+  - **美國中部**
+  - **美國中部 EUAP**
 
 若要執行本快速入門中的服務本機應用程式，您的開發電腦上需要 Node.js 4.x.x 版或更新版本。
 
@@ -75,7 +82,7 @@ node --version
     **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --hub-name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name YourIoTHubName
     ```
 
     記下顯示如下的傳回值：
@@ -95,7 +102,7 @@ node --version
 假設[裝置端 Proxy](#run-the-device-local-proxy) 正在執行中，請依照下列步驟來執行以 Node.js 撰寫的服務本機 Proxy。
 
 - 提供您的服務認證、SSH 精靈執行所在的目標裝置識別碼，以及在裝置上執行的 Proxy 所使用的連接埠號碼，作為環境變數。
-```
+  ```
   # In Linux
   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
   export STREAMING_TARGET_DEVICE="MyDevice"
@@ -105,11 +112,11 @@ node --version
   SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
   SET STREAMING_TARGET_DEVICE=MyDevice
   SET PROXY_PORT=2222
-```
-變更上述的值，使其符合您的裝置識別碼和連線字串。
+  ```
+  變更上述的值，使其符合您的裝置識別碼和連線字串。
 
 - 在解壓縮的專案資料夾中瀏覽至 `Quickstarts/device-streams-service`，並執行服務本機 Proxy。
-```
+  ```
   cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
 
   # Install the preview service SDK, and other dependencies
@@ -118,7 +125,7 @@ node --version
 
   # Run the service-local proxy application
   node proxy.js
-```
+  ```
 
 ### <a name="ssh-to-your-device-via-device-streams"></a>透過裝置串流使用 SSH 連線至您的裝置
 在 Linux 中，在終端機上使用 `ssh $USER@localhost -p 2222` 執行 SSH。 在 Windows 中，請使用您慣用的 SSH 用戶端 (例如 PuTTY)。

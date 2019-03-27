@@ -7,13 +7,13 @@ ms.author: v-orspod
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 2/5/2019
-ms.openlocfilehash: c171962fd6177a01afdb8e9605b09574c99f485e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.date: 3/14/2019
+ms.openlocfilehash: 422813c1ddb77aa11195d3021484744839c4e3bf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889217"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994343"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>教學課程：在 Azure 資料總管中內嵌資料，而不需任何一行程式碼
 
@@ -38,29 +38,44 @@ ms.locfileid: "56889217"
 
 ## <a name="azure-monitor-data-provider-diagnostic-and-activity-logs"></a>Azure 監視器資料提供者：診斷和活動記錄
 
-檢視並了解 Azure 監視器診斷和活動記錄所提供的資料。 我們將根據這些資料結構描述建立擷取管線。
+檢視並了解以下 Azure 監視器診斷和活動記錄所提供的資料。 我們將根據這些資料結構描述建立擷取管線。 請注意，記錄 (Log) 中的每個事件都具有記錄 (Record) 陣列。 本教學課程稍後將會分割此記錄陣列。
 
 ### <a name="diagnostic-logs-example"></a>診斷記錄範例
 
-Azure 診斷記錄是由 Azure 服務發出的計量，以提供關於該服務作業的資料。 資料會以 1 分鐘的時間粒紋進行彙總。 診斷記錄中的每個事件各包含一筆記錄。 以下範例顯示 Azure 資料總管對於查詢持續時間的計量事件結構描述：
+Azure 診斷記錄是由 Azure 服務發出的計量，以提供關於該服務作業的資料。 資料會以 1 分鐘的時間粒紋進行彙總。 以下範例顯示 Azure 資料總管對於查詢持續時間的計量事件結構描述：
 
 ```json
 {
-    "count": 14,
-    "total": 0,
-    "minimum": 0,
-    "maximum": 0,
-    "average": 0,
-    "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
-    "time": "2018-12-20T17:00:00.0000000Z",
-    "metricName": "QueryDuration",
-    "timeGrain": "PT1M"
+    "records": [
+    {
+        "count": 14,
+        "total": 0,
+        "minimum": 0,
+        "maximum": 0,
+        "average": 0,
+        "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
+        "time": "2018-12-20T17:00:00.0000000Z",
+        "metricName": "QueryDuration",
+        "timeGrain": "PT1M"
+    },
+    {
+        "count": 12,
+        "total": 0,
+        "minimum": 0,
+        "maximum": 0,
+        "average": 0,
+        "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
+        "time": "2018-12-21T17:00:00.0000000Z",
+        "metricName": "QueryDuration",
+        "timeGrain": "PT1M"
+    }
+    ]
 }
 ```
 
 ### <a name="activity-logs-example"></a>活動記錄範例
 
-Azure 活動記錄是訂用帳戶層級記錄，其中包含記錄的集合。 此記錄可讓您深入了解對訂用帳戶中的資源所執行的作業。 不同於診斷記錄，活動記錄中的每個事件都有記錄陣列。 我們稍後必須在本教學課程中分割此記錄陣列。 以下是用來檢查存取的活動記錄事件範例：
+Azure 活動記錄為訂用帳戶層級的記錄，可針對在訂用帳戶中資源上所執行的作業提供深入解析。 以下是用來檢查存取的活動記錄事件範例：
 
 ```json
 {
@@ -129,6 +144,8 @@ Azure 活動記錄是訂用帳戶層級記錄，其中包含記錄的集合。 �
 
 ### <a name="create-the-target-tables"></a>建立目標資料表
 
+Azure 監視器記錄的結構不是表格式的。 您將操作資料，並將每個事件展開為一或多個記錄。 未經處理的資料將針對活動記錄內嵌至名為 *ActivityLogsRawRecords* 的中繼資料表，並針對診斷記錄內嵌至名為 *DiagnosticLogsRawRecords* 的中繼資料表。 屆時會操作並展開資料。 使用更新原則，接著會針對活動記錄將展開的資料內嵌至 *ActivityLogsRecords* 資料表，並針對診斷記錄內嵌至 *DiagnosticLogsRecords*。 這表示您必須建立兩個不同的資料表以用來內嵌活動記錄，並建立兩個不同的資料表以用來內嵌診斷記錄。
+
 使用 Azure 資料總管 Web UI，在 Azure 資料總管資料庫中建立目標資料表。
 
 #### <a name="the-diagnostic-logs-table"></a>診斷記錄資料表
@@ -143,9 +160,13 @@ Azure 活動記錄是訂用帳戶層級記錄，其中包含記錄的集合。 �
 
     ![執行查詢](media/ingest-data-no-code/run-query.png)
 
-#### <a name="the-activity-logs-tables"></a>活動記錄資料表
+1. 使用下列查詢，在 *TestDatabase* 資料庫中建立名為 *DiagnosticLogsRawRecords* 的中繼資料資料表，以用來操作資料。 選取 [執行] 以建立資料表。
 
-由於活動記錄的結構並非表格式，因此您必須操作資料，並將每個事件展開為一或多筆記錄。 未經處理的資料會內嵌至名為 *ActivityLogsRawRecords* 的中繼資料表。 屆時會操作並展開資料。 接著會使用更新原則，將展開的資料內嵌到 *ActivityLogsRecords* 資料表中。 這表示您必須建立兩個不同的資料表，用以內嵌活動記錄。
+    ```kusto
+    .create table DiagnosticLogsRawRecords (Records:dynamic)
+    ```
+
+#### <a name="the-activity-logs-tables"></a>活動記錄資料表
 
 1. 在 *TestDatabase* 資料庫中建立名為 *ActivityLogsRecords* 的資料表，用以接收活動記錄的記錄。 若要建立資料表，請執行下列 Azure 資料總管查詢：
 
@@ -174,7 +195,7 @@ Azure 活動記錄是訂用帳戶層級記錄，其中包含記錄的集合。 �
 若要將診斷記錄的資料對應至資料表，請使用下列查詢：
 
 ```kusto
-.create table DiagnosticLogsRecords ingestion json mapping 'DiagnosticLogsRecordsMapping' '[{"column":"Timestamp","path":"$.time"},{"column":"ResourceId","path":"$.resourceId"},{"column":"MetricName","path":"$.metricName"},{"column":"Count","path":"$.count"},{"column":"Total","path":"$.total"},{"column":"Minimum","path":"$.minimum"},{"column":"Maximum","path":"$.maximum"},{"column":"Average","path":"$.average"},{"column":"TimeGrain","path":"$.timeGrain"}]'
+.create table DiagnosticLogsRawRecords ingestion json mapping 'DiagnosticLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
 #### <a name="table-mapping-for-activity-logs"></a>活動記錄的資料表對應
@@ -185,9 +206,11 @@ Azure 活動記錄是訂用帳戶層級記錄，其中包含記錄的集合。 �
 .create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
-### <a name="create-the-update-policy-for-activity-logs-data"></a>建立活動記錄資料的更新原則
+### <a name="create-the-update-policy-for-log-data"></a>建立記錄資料的更新原則
 
-1. 建立可展開記錄集合的[函式](/azure/kusto/management/functions)，讓集合中的每個值收到不同的資料列。 使用 [`mvexpand`](/azure/kusto/query/mvexpandoperator) 運算子：
+#### <a name="activity-log-data-update-policy"></a>活動記錄資料更新原則
+
+1. 建立可展開活動記錄之記錄集合的[函式](/azure/kusto/management/functions)，讓集合中的每個值都能收到不同的資料列。 使用 [`mvexpand`](/azure/kusto/query/mvexpandoperator) 運算子：
 
     ```kusto
     .create function ActivityLogRecordsExpand() {
@@ -212,6 +235,32 @@ Azure 活動記錄是訂用帳戶層級記錄，其中包含記錄的集合。 �
 
     ```kusto
     .alter table ActivityLogsRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
+    ```
+
+#### <a name="diagnostic-log-data-update-policy"></a>診斷記錄資料更新原則
+
+1. 建立可展開診斷記錄之記錄集合的[函式](/azure/kusto/management/functions)，讓集合中的每個值都能收到不同的資料列。 使用 [`mvexpand`](/azure/kusto/query/mvexpandoperator) 運算子：
+     ```kusto
+    .create function DiagnosticLogRecordsExpand() {
+        DiagnosticLogsRawRecords
+        | mvexpand events = Records
+        | project
+            Timestamp = todatetime(events["time"]),
+            ResourceId = tostring(events["resourceId"]),
+            MetricName = tostring(events["metricName"]),
+            Count = toint(events["count"]),
+            Total = todouble(events["total"]),
+            Minimum = todouble(events["minimum"]),
+            Maximum = todouble(events["maximum"]),
+            Average = todouble(events["average"]),
+            TimeGrain = tostring(events["timeGrain"])
+    }
+    ```
+
+2. 將[更新原則](/azure/kusto/concepts/updatepolicy)新增至目標資料表。 此原則會對 *DiagnosticLogsRawRecords* 中繼資料資料表中任何新內嵌的資料自動執行查詢，並將其結果內嵌至 *DiagnosticLogsRecords* 資料表：
+
+    ```kusto
+    .alter table DiagnosticLogsRecords policy update @'[{"Source": "DiagnosticLogsRawRecords", "Query": "DiagnosticLogRecordsExpand()", "IsEnabled": "True"}]'
     ```
 
 ## <a name="create-an-azure-event-hubs-namespace"></a>建立 Azure 事件中樞命名空間
@@ -252,12 +301,12 @@ Azure 診斷記錄能夠將計量匯出至儲存體帳戶或事件中樞。 在�
     ![診斷設定](media/ingest-data-no-code/diagnostic-settings.png)
 
 1. [診斷設定] 窗格隨即開啟。 請執行下列步驟：
-    1. 將您的診斷記錄資料命名為 *ADXExportedData*。
-    1. 在 [計量] 下方，選取 [AllMetrics] 核取方塊 (選擇性)。
-    1. 選取 [串流至事件中樞] 核取方塊。
-    1. 選取 [設定] 。
+   1. 將您的診斷記錄資料命名為 *ADXExportedData*。
+   1. 在 [計量] 下方，選取 [AllMetrics] 核取方塊 (選擇性)。
+   1. 選取 [串流至事件中樞] 核取方塊。
+   1. 選取 [設定] 。
 
-    ![診斷設定窗格](media/ingest-data-no-code/diagnostic-settings-window.png)
+      ![診斷設定窗格](media/ingest-data-no-code/diagnostic-settings-window.png)
 
 1. 在 [選取事件中樞] 窗格中，設定如何將診斷記錄中的資料匯出至您所建立的事件中樞：
     1. 在 [選取事件中樞命名空間] 清單中，選取 [AzureMonitoringData]。
@@ -330,7 +379,7 @@ Azure 診斷記錄能夠將計量匯出至儲存體帳戶或事件中樞。 在�
 
      **設定** | **建議的值** | **欄位描述**
     |---|---|---|
-    | **資料表** | *DiagnosticLogsRecords* | 您在 *TestDatabase* 資料庫中建立的資料表。 |
+    | **資料表** | *DiagnosticLogsRawRecords* | 您在 *TestDatabase* 資料庫中建立的資料表。 |
     | **資料格式** | *JSON* | 在資料表中使用的格式。 |
     | **資料行對應** | *DiagnosticLogsRecordsMapping* | 您在 *TestDatabase* 資料庫中建立的對應，會將傳入的 JSON 資料對應至 *DiagnosticLogsRecords* 資料表的資料行名稱與資料類型。|
     | | |
@@ -400,6 +449,7 @@ ActivityLogsRecords
 ```
 
 查詢結果：
+
 |   |   |
 | --- | --- |
 |   |  avg(DurationMs) |

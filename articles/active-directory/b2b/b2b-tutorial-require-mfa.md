@@ -9,14 +9,15 @@ ms.date: 06/25/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70f6718c13534e7f43b183400a1ccf25c3f8d1e1
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 94e5f4eaf32815dd0342ef73705efb2c575b71bc
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668999"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293987"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>教學課程：為 B2B 來賓使用者強制執行多重要素驗證
 
@@ -24,7 +25,7 @@ ms.locfileid: "56668999"
 
 範例：
 
-![要求使用 MFA 的 B2B 應用程式](media/tutorial-mfa/aad-b2b-mfa-example.png)
+![顯示來賓使用者登入公司應用程式的圖](media/tutorial-mfa/aad-b2b-mfa-example.png)
 
 1.  A 公司的系統管理員或員工邀請某位來賓使用者使用已設定為要求使用 MFA 進行存取的雲端或內部部署應用程式。
 2.  來賓使用者以自己的工作、學校或社交身分識別登入。 
@@ -56,11 +57,11 @@ ms.locfileid: "56668999"
 3.  在 [管理] 底下選取 [使用者]。
 4.  選取 [新增來賓使用者]。
 
-    ![選取 Azure Active Directory](media/tutorial-mfa/tutorial-mfa-user-3.png)
+    ![顯示要在哪裡選取 [新增來賓使用者] 選項的螢幕擷取畫面](media/tutorial-mfa/tutorial-mfa-user-3.png)
 
 5.  在 [使用者名稱] 下，輸入外部使用者的電子郵件地址。 您也可以選擇納入歡迎訊息。 
 
-    ![選取 Azure Active Directory](media/tutorial-mfa/tutorial-mfa-user-4.png)
+    ![顯示要在哪裡輸入來賓邀請訊息的螢幕擷取畫面](media/tutorial-mfa/tutorial-mfa-user-4.png)
 
 6.  選取 [邀請] 即可自動對來賓使用者傳送邀請。 將會顯示「已成功邀請使用者」訊息。 
 7.  在傳送邀請之後，系統就會自動將使用者帳戶以來賓身分新增至目錄。
@@ -79,26 +80,26 @@ ms.locfileid: "56668999"
 6.  在 [指派] 區段中，選取 [使用者和群組]。
 7.  在 [使用者和群組] 頁面上，選擇 [選取使用者與群組]，然後選取 [所有來賓使用者 (預覽)]。
 
-    ![選取 Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-6.png)
+    ![顯示選取所有來賓使用者的螢幕擷取畫面](media/tutorial-mfa/tutorial-mfa-policy-6.png)
 9.  選取 [完成] 。
 10. 在 [新增] 頁面的 [指派] 區段中，選取 [雲端應用程式]。
 11. 在 [雲端應用程式] 頁面上，選擇 [選取應用程式]，然後選擇 [選取]。
 
-    ![選取 Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-10.png)
+    ![顯示 [雲端應用程式] 頁面和 [選取] 選項的螢幕擷取畫面](media/tutorial-mfa/tutorial-mfa-policy-10.png)
 
 12. 在 [選取] 頁面上，選擇 [Microsoft Azure 管理]，然後選擇 [選取]。
 
-    ![選取 Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-11.png)
+    ![顯示已選取 [Microsoft Azure 管理] 應用程式的螢幕擷取畫面](media/tutorial-mfa/tutorial-mfa-policy-11.png)
 
 13. 在 [雲端應用程式] 頁面上，選取 [完成]。
 14. 在 [新增] 頁面的 [存取控制] 區段中，選取 [授與]。
 15. 在 [授與] 頁面上，選擇 [授與存取權]，選取 [需要多重要素驗證] 核取方塊，然後選擇 [選取]。
 
-    ![選取 Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-13.png)
+    ![顯示 [需要多重要素驗證] 選項的螢幕擷取畫面](media/tutorial-mfa/tutorial-mfa-policy-13.png)
 
 16. 在 [啟用原則] 底下，選取 [開啟]。
 
-    ![選取 Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-14.png)
+    ![顯示 [啟用原則] 選項已設定為 [開啟] 的螢幕擷取畫面](media/tutorial-mfa/tutorial-mfa-policy-14.png)
 
 17. 選取 [建立] 。
 
@@ -106,27 +107,27 @@ ms.locfileid: "56668999"
 
 1.  在 [條件式存取 - 原則] 頁面上，選取 [What If]。 
 
-    ![選取 Azure Active Directory](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
+    ![顯示要在哪裡選取 [What If] 選項的螢幕擷取畫面](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
 
 2.  選取 [使用者]，選擇您的測試來賓使用者，然後選擇 [選取]。
 
-    ![選取 Azure Active Directory](media/tutorial-mfa/tutorial-mfa-whatif-2.png)
+    ![顯示已選取某個來賓使用者的螢幕擷取畫面](media/tutorial-mfa/tutorial-mfa-whatif-2.png)
 
 3.  選取 [雲端應用程式]。
 4.  在 [雲端應用程式] 頁面上，選擇 [選取應用程式]，然後按一下 [選取]。 在應用程式清單中，選取 [Microsoft Azure 管理]，然後按一下 [選取]。 
 
-    ![選取 Azure Active Directory](media/tutorial-mfa/tutorial-mfa-whatif-3.png)
+    ![顯示已選取 [Microsoft Azure 管理] 應用程式的螢幕擷取畫面](media/tutorial-mfa/tutorial-mfa-whatif-3.png)
 
 5.  在 [雲端應用程式] 頁面上，選取 [完成]。
 6.  選取 [What If]，然後確認您的新原則出現在 [評估結果] 底下的 [會套用的原則] 索引標籤上。
 
-    ![選取 Azure Active Directory](media/tutorial-mfa/tutorial-mfa-whatif-4.png)
+    ![顯示要在哪裡選取 [What If] 選項的螢幕擷取畫面](media/tutorial-mfa/tutorial-mfa-whatif-4.png)
 
 ## <a name="test-your-conditional-access-policy"></a>測試條件式存取原則
 1.  使用您的測試使用者名稱和密碼來登入 [Azure 入口網站](https://portal.azure.com/)。
 2.  您應該會看到需要其他驗證方法的要求。 請注意，可能需要一些時間，原則才會生效。
 
-    ![選取 Azure Active Directory](media/tutorial-mfa/mfa-required.png)
+    ![顯示 [需要更多資訊] 訊息的螢幕擷取畫面](media/tutorial-mfa/mfa-required.png)
  
 3.  登出。
 
@@ -139,5 +140,6 @@ ms.locfileid: "56668999"
 5.  在左窗格中，選取 [Azure Active Directory]。
 6.  在 [安全性] 底下，選取 [條件式存取]。
 7.  在 [原則名稱] 清單中，選取您測試原則的操作功能表 (...)，然後選取 [刪除]。 選取 [是]  加以確認。
+
 ## <a name="next-steps"></a>後續步驟
 在此教學課程中，您已建立會要求來賓使用者在登入您其中一個雲端應用程式時使用 MFA 的條件式存取原則。 若要深入了解如何新增共同作業的來賓使用者，請參閱[在 Azure 入口網站中新增 Azure Active Directory B2B 共同作業使用者](add-users-administrator.md)。

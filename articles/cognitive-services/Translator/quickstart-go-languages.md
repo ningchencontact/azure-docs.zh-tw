@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 3bccf50d9236fb5b51b89f31ffc2ec9b0d2c74cd
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: bf33860b111900fed850158d6b80d5a9d4404893
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727276"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181600"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-go"></a>快速入門：搭配使用翻譯工具文字 API 與 Go 來取得支援的語言清單
 
@@ -29,7 +29,7 @@ ms.locfileid: "56727276"
 
 ## <a name="create-a-project-and-import-required-modules"></a>建立專案，並匯入所需的模組
 
-使用您慣用的 IDE 或編輯器建立新的 Go 專案。 然後，將下列程式碼片段複製到您的專案中名為 `get-languages.go` 的檔案。
+使用您最愛的 IDE 或編輯器，或在您桌面上的新資料夾中，建立新的 Go 專案。 然後，將下列程式碼片段複製到您的專案/資料夾中名為 `get-languages.go` 的檔案。
 
 ```go
 package main
@@ -134,6 +134,8 @@ go run get-languages.go
 如果想要將您的程式碼與我們的做比較，請使用 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go) 上提供的完整範例。
 
 ## <a name="sample-response"></a>範例回應
+
+請在此[語言清單](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support)中尋找國家/地區縮寫。
 
 成功的回應會以 JSON 格式傳回，如下列範例所示：
 

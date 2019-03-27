@@ -3,8 +3,8 @@ title: Azure AD v2.0 ASP.NET Web 伺服器快速入門 | Microsoft Docs
 description: 了解如何使用 OpenID Connect 在 ASP.NET Web 應用程式上實作 Microsoft 登入。
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2018
-ms.author: andret
+ms.date: 03/20/2019
+ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdc5200156533abf940ce8fc7ff2186ba3a961bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9ae388798716565c1fdeeb10b274c2a168ca86ea
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200474"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200254"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>快速入門：將「使用 Microsoft 登入」新增至 ASP.NET Web 應用程式
 
@@ -29,7 +29,7 @@ ms.locfileid: "56200474"
 
 在本快速入門中，您將了解 ASP.NET Web 應用程式如何從任何 Azure Active Directory (Azure AD) 執行個體登入個人帳戶 (hotmail.com、outlook.com 等) 與公司和學校帳戶。
 
-![本快速入門所產生之範例應用程式的運作方式](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.png)
+![示範本快速入門所產生之範例應用程式的運作方式](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro-updated.png)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>註冊並下載快速入門應用程式
@@ -147,7 +147,7 @@ public void Configuration(IAppBuilder app)
 > |Where  |  |
 > |---------|---------|
 > | `ClientId`     | 來自註冊於 Azure 入口網站中之應用程式的應用程式識別碼 |
-> | `Authority`    | 供使用者用於驗證的 STS 端點。 通常針對公用雲端為 https://login.microsoftonline.com/{tenant}/v2.0，其中 {tenant} 為您租用戶的名稱、您的租用戶識別碼，或 *common* 以參考一般端點 (用於多租用戶應用程式) |
+> | `Authority`    | 供使用者用於驗證的 STS 端點。 通常針對公用雲端為 <https://login.microsoftonline.com/{tenant}/v2.0>，其中 {tenant} 為您租用戶的名稱、您的租用戶識別碼，或 *common* 以參考一般端點 (用於多租用戶應用程式) |
 > | `RedirectUri`  | 在使用者針對 Azure AD v2.0 端點完成驗證之後，會被送往的 URL |
 > | `PostLogoutRedirectUri`     | 在使用者登出之後，會被送往的 URL |
 > | `Scope`     | 所要求之範圍的清單 (以空格分隔) |

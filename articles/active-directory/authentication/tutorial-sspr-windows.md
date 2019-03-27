@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0463a2ad3fa74f33a52e15a246dfd4ffd63107a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0f8e0b79d5aebd1e92dd71bba72efa7430aa475b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200865"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224646"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>教學課程：從登入畫面重設 Azure AD 密碼
 
@@ -33,8 +33,10 @@ ms.locfileid: "56200865"
    * [已加入 Azure AD](../device-management-azure-portal.md) 或
    * [已加入混合式 Azure AD](../device-management-hybrid-azuread-joined-devices-setup.md) (可透過網路連線至網域控制站)。
 * 您必須啟用 Azure AD 自助式密碼重設。
-* 如果您的 Windows 10 裝置位在 Proxy 伺服器或防火牆後面，您必須將 URL (`passwordreset.microsoftonline.com` 和 `ajax.aspnetcdn.com`) 新增至您 HTTPS 流量 (連接埠 443) 允許的 URL 清單。
+* 如果您的 Windows 10 裝置位在 Proxy 伺服器或防火牆後面，您就必須將 URL (`passwordreset.microsoftonline.com` 和 `ajax.aspnetcdn.com`) 新增至您 HTTPS 流量 (連接埠 443) 允許的 URL 清單。
+* 只有機器層級 Proxy 才支援 Windows 10 的 SSPR
 * 在您的環境中試用這項功能之前，請先檢閱以下限制。
+* 如果使用映像，請在進行 sysprep 之前，先確定已針對內建系統管理員清除 Web 快取，然後才執行 CopyProfile 步驟。 如需有關這項操作的詳細資訊，請參閱[使用自訂預設使用者設定檔時效能不佳](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile) \(機器翻譯\) 支援文章。
 
 ## <a name="configure-reset-password-link-using-intune"></a>使用 Intune 來設定重設密碼連結
 

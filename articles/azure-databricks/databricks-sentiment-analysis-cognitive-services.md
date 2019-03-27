@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 12/07/2018
-ms.openlocfilehash: 6509db136524d90db11b83acb701bda71c541060
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 54a7f308163cb2463554da32f0fae8b897c0742f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882608"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080534"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>教學課程：使用 Azure Databricks 對串流資料進行情感分析
 
@@ -40,6 +40,10 @@ ms.locfileid: "56882608"
 > * 對推文執行情感分析
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
+
+> [!Note]
+> 本教學課程不適用 **Azure 免費試用版的訂用帳戶**。
+> 若要使用免費帳戶建立 Azure Databricks 叢集，在建立叢集之前，請先移至您的設定檔，並將訂用帳戶變更為**隨用隨付**。 如需詳細資訊，請參閱 [Azure 免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -97,11 +101,11 @@ ms.locfileid: "56882608"
 
     接受下列值以外的所有其他預設值：
 
-    * 輸入叢集的名稱。
-    * 針對本文，使用 **4.0 搶鮮版 (Beta)** 執行階段建立叢集。
-    * 請確定您已選取 [在活動\_\_分鐘後終止] 核取方塊。 請提供用來終止叢集的叢集未使用持續時間 (以分鐘為單位)。
+   * 輸入叢集的名稱。
+   * 針對本文，使用 **4.0 搶鮮版 (Beta)** 執行階段建立叢集。
+   * 請確定您已選取 [在活動\_\_分鐘後終止] 核取方塊。 請提供用來終止叢集的叢集未使用持續時間 (以分鐘為單位)。
 
-    選取 [建立叢集]。 叢集在執行後，您就可以將 Notebook 連結至叢集，並執行 Spark 作業。
+     選取 [建立叢集]。 叢集在執行後，您就可以將 Notebook 連結至叢集，並執行 Spark 作業。
 
 ## <a name="create-a-twitter-application"></a>建立 Twitter 應用程式
 
@@ -125,16 +129,16 @@ ms.locfileid: "56882608"
 
 在本教學課程中，您會使用 Twitter API 將推文傳送至事件中樞。 您也會使用 [Apache Spark 事件中樞連接器](https://github.com/Azure/azure-event-hubs-spark)來讀取資料並將資料寫入至 Azure 事件中樞。 若要在叢集中使用這些 API，請將其作為程式庫新增至 Azure Databricks，然後讓這些 API 與您的 Spark 叢集產生關聯。 下列指示說明如何將程式庫新增至工作區中的 [共用] 資料夾。
 
-1.  在 Azure Databricks 工作區中，選取 [工作區]，然後以滑鼠右鍵按一下 [共用]。 從快顯功能表中，選取 [建立] > [程式庫]。
+1. 在 Azure Databricks 工作區中，選取 [工作區]，然後以滑鼠右鍵按一下 [共用]。 從快顯功能表中，選取 [建立] > [程式庫]。
 
-    ![新增程式庫對話方塊](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-option.png "新增程式庫對話方塊")
+   ![新增程式庫對話方塊](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-option.png "新增程式庫對話方塊")
 
 2. 在 [新增程式庫] 頁面上，於 [來源] 中選取 [Maven 座標]。 在 [座標] 中輸入您要新增之套件的座標。 以下是本教學課程所使用之程式庫的 Maven 座標：
 
-    * Spark 事件中樞連接器 - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5`
-    * Twitter API - `org.twitter4j:twitter4j-core:4.0.6`
+   * Spark 事件中樞連接器 - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5`
+   * Twitter API - `org.twitter4j:twitter4j-core:4.0.6`
 
-    ![提供 Maven 座標](./media/databricks-sentiment-analysis-cognitive-services/databricks-eventhub-specify-maven-coordinate.png "提供 Maven 座標")
+     ![提供 Maven 座標](./media/databricks-sentiment-analysis-cognitive-services/databricks-eventhub-specify-maven-coordinate.png "提供 Maven 座標")
 
 3. 選取 [建立程式庫]。
 
@@ -164,13 +168,13 @@ ms.locfileid: "56882608"
 
     ![建立認知服務帳戶](./media/databricks-sentiment-analysis-cognitive-services/create-cognitive-services-account.png "建立認知服務帳戶")
 
-    - 輸入認知服務帳戶的名稱。
-    - 選取據以建立帳戶的 Azure 訂用帳戶。
-    - 選取 Azure 位置。
-    - 選取服務的定價層。 如需認知服務定價的詳細資訊，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/cognitive-services/)。
-    - 指定您是要建立新的資源群組，還是選取現有資源群組。
+   - 輸入認知服務帳戶的名稱。
+   - 選取據以建立帳戶的 Azure 訂用帳戶。
+   - 選取 Azure 位置。
+   - 選取服務的定價層。 如需認知服務定價的詳細資訊，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/cognitive-services/)。
+   - 指定您是要建立新的資源群組，還是選取現有資源群組。
 
-    選取 [建立] 。
+     選取 [建立] 。
 
 5. 建立帳戶之後，從 [概觀] 索引標籤選取 [顯示存取金鑰]。
 

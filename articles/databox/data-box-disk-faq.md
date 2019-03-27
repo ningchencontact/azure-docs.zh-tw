@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 02/14/2019
+ms.date: 02/26/2019
 ms.author: alkohli
-ms.openlocfilehash: 5f44e3c4a1b7f28133ecd232fc49a34931bddfa4
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 97794675f3d489e1154d9c327c18d40708dd5b53
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729813"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877848"
 ---
 # <a name="what-is-azure-data-box-disk"></a>什麼是 Azure 資料箱磁碟？
 
@@ -51,7 +51,7 @@ A.  若要取得 Azure 資料箱磁碟，請登入 Azure 入口網站，並建�
 A. 就各有 8 TB (可用容量為 7 TB) 的 5 個磁碟而言，可用容量上限為 35 TB。 因此，您可以在一個執行個體中傳輸 35 TB 的資料。 若要傳輸更多資料，您必須訂購更多磁碟。
 
 ### <a name="q-how-can-i-check-if-data-box-disks-are-available-in-my-region"></a>問： 如何確認在我的區域中是否適用資料箱磁碟？ 
-A.  資料箱磁碟目前適用於美國、加拿大、澳大利亞和歐盟的所有國家/地區。  
+A.  若要查看目前何處可以使用資料箱磁碟，請前往[區域可用性](data-box-disk-overview.md#region-availability)。  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>問： 在哪些區域中可以使用資料箱磁碟來儲存資料？
 A. 美國、加拿大、澳大利亞、西歐和北歐內的所有區域均支援資料箱磁碟。 只有 Azure 公用雲端區域受到支援。 Azure Government 或其他主權雲端不受支援。
@@ -126,14 +126,14 @@ A.  沒有。 目前僅支援對資料箱磁碟使用一個儲存體帳戶 (一�
 A. 資料箱磁碟隨附的工具組包含三項工具：
  - **資料箱磁碟解除鎖定工具**：使用此工具可將 Microsoft 寄送的加密磁碟解除鎖定。 使用此工具將磁碟解除鎖定時，您必須提供可從 Azure 入口網站中的資料箱磁碟訂單取得的通行金鑰。 
  - **資料箱磁碟驗證工具**：使用此工具可根據 Azure 命名慣例來驗證大小、格式和 Blob 名稱。 它也會為複製的資料產生總和檢查碼，後續可用來驗證上傳至 Azure 的資料。
- - **資料箱磁碟分割複製工具**：如果您使用多個磁碟，且其中包含必須分割並複製到所有磁碟上的大型資料集，請使用此工具。 此工具目前適用於 Windows。
+ - **資料箱磁碟分割複製工具**：如果您使用多個磁碟，且其中包含必須分割並複製到所有磁碟上的大型資料集，請使用此工具。 此工具目前適用於 Windows。 受控磁碟不支援此工具。 這項工具在複製資料時，也會進行驗證，因此您使用此工具時可以略過驗證步驟。
 
 工具組則同時適用於 Windows 和 Linux。 您可以從下列位置下載工具組：
- - [下載適用於 Windows 的資料箱磁碟工具組](https://aka.ms/databoxdisktoolswin) 
- - [下載適用於 Linux 的資料箱磁碟工具組](https://aka.ms/databoxdisktoolslinux)
+- [下載適用於 Windows 的資料箱磁碟工具組](https://aka.ms/databoxdisktoolswin) 
+- [下載適用於 Linux 的資料箱磁碟工具組](https://aka.ms/databoxdisktoolslinux)
  
-### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>問： 是否可以使用資料箱磁碟將資料傳輸至 Azure 檔案儲存體，然後再搭配 Azure 檔案同步來使用資料？ 
-A. 資料箱磁碟不支援 Azure 檔案儲存體。 如果檔案資料稍後會搭配 Azure 檔案同步來使用，則中繼資料也不會保留下來。
+  ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>問： 是否可以使用資料箱磁碟將資料傳輸至 Azure 檔案儲存體，然後再搭配 Azure 檔案同步來使用資料？ 
+  A. 資料箱磁碟支援 Azure 檔案儲存體，但將不適合使用 Azure 檔案同步。如果檔案資料會搭配 Azure 檔案同步來使用，則中繼資料不會保留下來。
 
 
 ## <a name="verify-and-upload"></a>確認和上傳
@@ -142,10 +142,10 @@ A. 資料箱磁碟不支援 Azure 檔案儲存體。 如果檔案資料稍後會
 A.  當複製資料的訂單狀態顯示為完成時，您就應該能夠立即存取您的資料。
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>問： 我的資料在上傳後會存放於 Azure 的何處？
-A.  當您在磁碟上的 *BlockBlob* 和 *PageBlob* 資料夾下複製資料後，系統會在 Azure 儲存體帳戶中為 *BlockBlob* 和 *PageBlob* 資料夾下的每個子資料夾建立容器。 如果您直接複製 *BlockBlob* 和 *PageBlob* 資料夾下的檔案，這些檔案將會位於 Azure 儲存體帳戶下的預設容器 *$root* 中。
+A.  當您在磁碟上的 *BlockBlob* 和 *PageBlob* 資料夾下複製資料後，系統會在 Azure 儲存體帳戶中為 *BlockBlob* 和 *PageBlob* 資料夾下的每個子資料夾建立容器。 如果您直接複製 *BlockBlob* 和 *PageBlob* 資料夾下的檔案，這些檔案將會位於 Azure 儲存體帳戶下的預設容器 *$root* 中。 當您將資料複製到 *AzureFile* 資料夾下的資料夾中，隨即會建立檔案共用。
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>問： 我剛剛發現我的容器並未遵循 Azure 命名需求。 我的資料會不會無法上傳至 Azure？
-A. 如果容器名稱包含大寫字母，這些字母會自動轉換為小寫。 如果名稱在其他方面不符合規範 (特殊字元、其他語言等等)，則會上傳失敗。 如需詳細資訊，請移至 [Azure 命名慣例](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions)。
+A. 如果容器名稱包含大寫字母，這些字母會自動轉換為小寫。 如果名稱在其他方面不符合規範 (特殊字元、其他語言等等)，則會上傳失敗。 如需詳細資訊，請移至 [Azure 命名慣例](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions)。
 
 ### <a name="q-how-do-i-verify-the-data-i-copied-onto-multiple-data-box-disks"></a>問： 如何驗證我複製到多個資料箱磁碟上的資料？
 A.  資料複製完成後，您可以執行 DataBoxDiskImport 資料夾中提供的 `DataBoxDiskValidation.cmd`，以產生驗證的總和檢查碼。 如果您有多個磁碟，您必須為每個磁碟開啟一個命令視窗，並執行此命令。 請記住，此作業可能十分耗時 (數小時)，視資料大小而定。
@@ -160,7 +160,13 @@ A.  資料箱磁碟會使用 AES-128 Microsoft BitLocker 加密進行加密。 �
 A. 是。 如果您決定要驗證資料 (建議您這麼做)，則必須在新增更多資料磁碟後重新執行驗證。
 
 ### <a name="q-i-used-all-my-disks-to-transfer-data-and-need-to-order-more-disks-is-there-a-way-to-quickly-place-the-order"></a>問： 我所有的磁碟都已用來傳輸資料，且需要訂購更多磁碟。 有快速下訂單的方法嗎？
-A. 您可以複製您的上一筆訂單。 複製會建立與之前相同的訂單，因此您只需編輯訂單詳細資料即可，而不需要輸入地址、連絡人和通知詳細資料。 
+A. 您可以複製您的上一筆訂單。 複製會建立與之前相同的訂單，因此您只需編輯訂單詳細資料即可，而不需要輸入地址、連絡人和通知詳細資料。
+
+### <a name="q-i-copied-data-to-manageddisk-folder-i-dont-see-any-managed-disks-with-the-resource-group-specified-for-managed-disks-was-my-data-uploaded-to-azure-and-how-can-i-locate-it"></a>問： 我已將資料複製到 ManagedDisk 資料夾。 卻沒有看到任何受控磁碟使用為受控磁碟指定的資源群組。 我的資料是否上傳至 Azure，以及該如何尋找？
+A. 是。 您的資料已上傳至 Azure，但如果您沒有看到任何受控磁碟使用指定的資源群組，可能是因為該資料無效。 如果分頁 Blob、區塊 Blob、Azure 檔案儲存體及受控磁碟無效，則全都會移至下列資料夾：
+ - 分頁 Blob 會移至開頭為 *databoxdisk-invalid-pb-* 的區塊 Blob 容器。
+ - Azure 檔案儲存體會移至開頭為 *databoxdisk-invalid-af-* 的區塊 Blob 容器。
+ - 受控磁碟會移至開頭為 *databoxdisk-invliad-md-* 的區塊 Blob 容器。
 
 ## <a name="next-steps"></a>後續步驟
 

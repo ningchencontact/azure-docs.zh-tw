@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: b9bcba78600e90c28f95c4ea842bf4b25b1c0da7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: c5eb69ddd9c621024799b940ef58c34e7caaa3ff
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722783"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294020"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>教學課程：將自訂網域新增至 Azure CDN 端點
 本教學課程說明如何將自訂網域新增至 Azure 內容傳遞網路 (CDN) 端點。 使用 CDN 端點來傳遞內容時，如果您想要在 CDN URL 中顯示您自己的網域名稱，則需要自訂網域。 有可見的網域名稱對您的客戶而言較為方便，並且也有助於宣傳商標。 
@@ -45,10 +45,12 @@ ms.locfileid: "53722783"
 
 ## <a name="create-a-cname-dns-record"></a>建立 CNAME DNS 記錄
 
-您必須先透過網域提供者指向您的 CDN 端點以建立正式名稱 (CNAME) 記錄，才可在 Azure CDN 端點使用自訂網域。 CNAME 記錄是一種將來源網域名稱對應至目的地網域名稱的 DNS 記錄。 在 Azure CDN 中，來源網域名稱是您的自訂網域名稱，而目的地網域名稱是您的 CDN 端點主機名稱。 在 Azure CDN 驗證您所建立的 CNAME 記錄後，定址到來源自訂網域 (例如 www.contoso.com) 的流量會路由至指定的目的地 CDN 端點主機名稱 (例如 contoso.azureedge.net)。 
+您必須先透過網域提供者指向您的 CDN 端點以建立正式名稱 (CNAME) 記錄，才可在 Azure CDN 端點使用自訂網域。 CNAME 記錄是一種將來源網域名稱對應至目的地網域名稱的 DNS 記錄。 在 Azure CDN 中，來源網域名稱是您的自訂網域名稱，而目的地網域名稱是您的 CDN 端點主機名稱。 在 Azure CDN 驗證您所建立的 CNAME 記錄之後，定址到來源自訂網域 (例如 www\.contoso.com) 的流量會路由傳送至指定的目的地 CDN 端點主機名稱 (例如 contoso.azureedge.net)。 
 
 自訂網域及其子網域一次只能與單一端點相關聯。 不過，您可以使用多個 CNAME 記錄，將來自相同自訂網域的不同子網域用於不同的 Azure 服務端點。 您也可以將具有不同子網域的自訂網域對應至相同的 CDN 端點。
 
+> [!NOTE]
+> 如果您使用 Azure DNS 作為網域提供者，則可將任何別名記錄類型用於自訂網域。 本逐步解說會使用 CNAME 記錄類型。 如果您使用 A 或 AAAA 記錄類型，則以您選擇的記錄類型取代 CNAME 時，只需依照以下相同步驟即可。 如果您使用別名記錄來新增根網域作為自訂網域，並且想要啟用 SSL，就必須使用手動驗證，如[這裡](https://docs.microsoft.com/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#custom-domain-is-not-mapped-to-your-cdn-endpoint)所述
 
 ## <a name="map-the-temporary-cdnverify-subdomain"></a>對應暫時 cdnverify 子網域
 
@@ -68,7 +70,7 @@ ms.locfileid: "53722783"
     |---------------------------|-------|---------------------------------|
     | cdnverify.www.contoso.com | CNAME | cdnverify.contoso.azureedge.net |
 
-    - 來源：以下列格式輸入您的自訂網域名稱 (包括 cdnverify 子網域)：cdnverify._&lt;自訂網域名稱&gt;。 例如 cdnverify.www.contoso.com。
+    - 來源：以下列格式輸入您的自訂網域名稱 (包括 cdnverify 子網域)：cdnverify.&lt;自訂網域名稱&gt;。 例如 cdnverify.www.contoso.com。
 
     - 輸入：輸入 CNAME。
 
@@ -123,7 +125,7 @@ ms.locfileid: "53722783"
 
 4. 對於 [端點主機名稱]，系統會從您的 CDN 端點 URL 衍生要作為 CNAME 記錄之目的地網域的端點主機名稱，並預先填入：*&lt;endpoint hostname&gt;*.azureedge.net。 無法予以變更。
 
-5. 針對 [自訂主機名稱]，請輸入您的自訂網域 (包括子網域)，以作為 CNAME 記錄的來源網域。 例如 www.contoso.com 或 cdn.contoso.com。 請勿使用 cdnverify 子網域名稱。
+5. 針對 [自訂主機名稱]，請輸入您的自訂網域 (包括子網域)，以作為 CNAME 記錄的來源網域。 例如 www\.contoso.com 或 cdn.contoso.com。 請勿使用 cdnverify 子網域名稱。
 
    ![CDN 自訂網域對話方塊](./media/cdn-map-content-to-custom-domain/cdn-add-custom-domain.png)
 
@@ -160,13 +162,13 @@ ms.locfileid: "53722783"
 
     | 來源          | 類型  | 目的地           |
     |-----------------|-------|-----------------------|
-    | www.contoso.com | CNAME | contoso.azureedge.net |
+    | <www.contoso.com> | CNAME | contoso.azureedge.net |
 
-    - 來源：輸入您的自訂網域名稱 (例如 www.contoso.com)。
+   - 來源：輸入您的自訂網域名稱 (例如 www\.contoso.com)。
 
-    - 輸入：輸入 CNAME。
+   - 輸入：輸入 CNAME。
 
-    - 目的地：輸入您的 CDN 端點主機名稱。 此名稱必須是下列格式：_&lt;端點名稱&gt;_.azureedge.net。 例如 contoso.azureedge.net。
+   - 目的地：輸入您的 CDN 端點主機名稱。 此名稱必須是下列格式：_&lt;端點名稱&gt;_.azureedge.net。 例如 contoso.azureedge.net。
 
 4. 儲存您的變更。
 

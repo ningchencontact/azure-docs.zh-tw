@@ -4,7 +4,7 @@ description: 深入了解 JavaScript 應用程式如何呼叫需要來自 Azure 
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a97e03f3c195b9fbd0ee7a09950414b7a940c7c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fe8c2287da7a7eabc26ff134d8bb44c5e45085f1
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217474"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203042"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>快速入門：登入使用者及從 JavaScript 應用程式取得存取權杖
 
@@ -29,7 +29,7 @@ ms.locfileid: "56217474"
 
 在本快速入門中，您會了解如何使用程式碼範例，該範例示範 JavaScript 單頁應用程式 (SPA) 如何登入個人帳戶、公司和學校帳戶、取得存取權杖以呼叫 Microsoft Graph API 或任何 Web API。
 
-![本快速入門所產生之範例應用程式的運作方式](media/quickstart-v2-javascript/javascriptspa-intro.png)
+![示範本快速入門所產生之範例應用程式的運作方式](media/quickstart-v2-javascript/javascriptspa-intro-updated.png)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>註冊並下載快速入門應用程式
@@ -74,14 +74,15 @@ ms.locfileid: "56217474"
 * [下載 Visual Studio 專案](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
 
 將 ZIP 檔案解壓縮至本機資料夾 (例如，**C:\Azure-Samples**)。
+若要在開啟資料夾中的檔案，請使用 [Visual Studio Code](https://code.visualstudio.com/) 等編輯器。
 
 #### <a name="step-3-configure-your-javascript-app"></a>步驟 3：設定您的 JavaScript 應用程式
 
 > [!div renderon="docs"]
-> 編輯 `index.html`，並在 `applicationConfig` 下方設定 `clientID` 和 `authority` 值。
+> 在 *JavaScriptSPA* 資料夾下，編輯 `index.html`，於 `applicationConfig` 下設定 `clientID` 與 `authority` 值。
 
 > [!div class="sxs-lookup" renderon="portal"]
-> 編輯 `index.html` 並將 `applicationConfig` 取代為：
+> 在 *JavaScriptSPA* 資料夾下，編輯 `index.html`，並將 `applicationConfig` 取代成：
 
 ```javascript
 var applicationConfig = {
@@ -103,13 +104,9 @@ var applicationConfig = {
 > > [!TIP]
 > > 若要尋找 [應用程式 (用戶端) 識別碼]、[目錄 (租用戶) 識別碼] 和 [支援的帳戶類型] 的值，請在 Azure 入口網站中移至應用程式的 [概觀] 頁面。
 
-> [!NOTE]
-> 伺服器會在 [Node.js](https://nodejs.org/en/download/) 專案的 *server.js* 檔案中和 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 專案的 *.csproj* 檔案中設定為在連接埠 30662 上接聽。
->
-
 #### <a name="step-4-run-the-project"></a>步驟 4：執行專案
 
-* 如果您使用 Node.js：
+* 如果您使用 [Node.js](https://nodejs.org/en/download/)：
 
     1. 從專案的目錄執行下列命令以啟動伺服器：
 
@@ -122,7 +119,7 @@ var applicationConfig = {
     1. 按一下 [登入] 按鈕開始登入，然後呼叫 Microsoft Graph API。
 
 
-* 如果您使用 Visual Studio，請務必選取專案解決方案，然後按 **F5** 來執行專案。
+* 如果您使用 [Visual Studio](https://visualstudio.microsoft.com/downloads/)，請務必選取專案解決方案，然後按 **F5** 來執行專案。
 
 ## <a name="more-information"></a>相關資訊
 
@@ -217,9 +214,9 @@ myMSALObj.acquireTokenPopup(applicationConfig.graphScopes).then(function (access
 ### <a name="learn-the-steps-to-create-the-application-for-this-quickstart"></a>了解建立本快速入門應用程式的步驟
 
 > [!div class="nextstepaction"]
-> [呼叫 Graph API 教學課程](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-javascriptspa)
+> [登入和呼叫 MS Graph 的教學課程](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-javascriptspa)
 
 ### <a name="browse-the-msal-repo-for-documentation-faq-issues-and-more"></a>瀏覽 MSAL 存放庫的文件、常見問題集問題等等
 
 > [!div class="nextstepaction"]
-> [msal.js GitHub 存放庫](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+> [MSAL.js GitHub 存放庫](https://github.com/AzureAD/microsoft-authentication-library-for-js)

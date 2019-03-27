@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: e34856704b474ac1b7d25d589be5f98be2b113cc
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 02f973af71f0ee7e1fd1bcf712a08e001ec41667
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671551"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224952"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>教學課程：在 Azure 中升級 Service Fabric 叢集的執行階段
 
-本教學課程是一系列教學課程中的第三部分，可示範如何升級 Azure Service Fabric 叢集上的 Service Fabric 執行階段。 這部分的教學課程是針對在 Azure 上執行的 Service Fabric 叢集所撰寫，並不適用於獨立的 Service Fabric 叢集。
+本教學課程是一系列教學課程中的第四部分，會顯示如何升級 Azure Service Fabric 叢集上的 Service Fabric 執行階段。 這部分的教學課程是針對在 Azure 上執行的 Service Fabric 叢集所撰寫，並不適用於獨立的 Service Fabric 叢集。
 
 > [!WARNING]
 > 這個部分的教學課程需要 PowerShell。 Azure CLI 工具尚不支援叢集執行階段的升級。 或者，您也可以在入口網站中升級叢集。 如需詳細資訊，請參閱[升級 Azure Service Fabric 叢集](service-fabric-cluster-upgrade.md)。
@@ -40,6 +40,7 @@ ms.locfileid: "56671551"
 在本教學課程系列中，您將了解如何：
 > [!div class="checklist"]
 > * 在 Azure 上使用範本建立安全的 [Windows 叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+> * [監視叢集](service-fabric-tutorial-monitor-cluster.md)
 > * [將叢集相應縮小或相應放大](service-fabric-tutorial-scale-cluster.md)
 > * 升級叢集的執行階段
 > * [刪除叢集](service-fabric-tutorial-delete-cluster.md)

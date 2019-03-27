@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: cfaae4bb-e8e5-41d1-ac88-8cc369653036
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ada3c9a6ed08895727d395363b7e8a9cb1f2f08f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 6a9fb661e0b43e71cf9543e9b7042155763d1aa1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864391"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856170"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-litmos"></a>教學課程：Azure Active Directory 與 Litmos 整合
 
@@ -36,7 +36,7 @@ ms.locfileid: "56864391"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Litmos 整合，您需要下列項目：
+若要設定 Azure AD 與 Litmos 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Litmos 單一登入的訂用帳戶
@@ -206,7 +206,7 @@ ms.locfileid: "56864391"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -223,7 +223,7 @@ ms.locfileid: "56864391"
 
 2. 在應用程式清單中，選取 [Litmos] 。
 
-    ![應用程式清單中的 Litmos 連結](common/all-applications.png)
+    ![應用程式清單中的 [Litmos] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -241,7 +241,7 @@ ms.locfileid: "56864391"
 
 ### <a name="create-litmos-test-user"></a>建立 Litmos 測試使用者
 
-本節的目標是要在 Litmos 中建立名為 Britta Simon 的使用者。 Litmos 應用程式支援 Just-in-Time 佈建。 這表示，在使用存取面板嘗試存取應用程式期間，必要時會自動建立使用者帳戶。
+本節的目標是要在 Litmos 中建立一個名為 Britta Simon 的使用者。 Litmos 應用程式支援 Just-in-Time 佈建。 這表示，在使用存取面板嘗試存取應用程式期間，必要時會自動建立使用者帳戶。
 
 **若要在 Litmos 中建立名為 Britta Simon 的使用者，請執行下列步驟：**
 

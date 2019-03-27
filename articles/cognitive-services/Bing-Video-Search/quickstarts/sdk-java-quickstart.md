@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: rosh
-ms.openlocfilehash: ff214a545023364b09a0e757462a1b3f3d963d44
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d421abf0a3cc402cf8d040363dfe79b07b66bf95
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55885016"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105704"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-java"></a>快速入門：使用適用於 Java 的 Bing 影片搜尋 SDK 來執行影片搜尋
 
@@ -41,7 +41,7 @@ ms.locfileid: "55885016"
   </dependencies> 
 ```
 
-## <a name="create-and-initalize-a-project"></a>建立專案並將其初始化
+## <a name="create-and-initialize-a-project"></a>建立專案並將其初始化
 
 
 在您最愛的 IDE 或編輯器中建立新的 Java 專案，並匯入下列程式庫。
@@ -61,7 +61,7 @@ ms.locfileid: "55885016"
 
 ## <a name="create-a-search-client"></a>建立搜尋用戶端
 
-2. 實作 `VideoSearchAPIImpl` 用戶端，這需要 API 端點及 `ServiceClientCredentials` 類別的執行個體。
+1. 實作 `VideoSearchAPIImpl` 用戶端，這需要 API 端點及 `ServiceClientCredentials` 類別的執行個體。
 
     ```java
     public static VideoSearchAPIImpl getClient(final String subscriptionKey) {
@@ -115,7 +115,7 @@ ms.locfileid: "55885016"
         //...
         ```
 
-## <a name="send-a-search-request-and-recieve-the-response"></a>傳送搜尋要求並接收回應 
+## <a name="send-a-search-request-and-receive-the-response"></a>傳送搜尋要求並接收回應 
 
 1. 建立名為 `VideoSearch()` 的函式，並將您的訂用帳戶金鑰當作字串。 具現化稍早建立的搜尋用戶端。
     

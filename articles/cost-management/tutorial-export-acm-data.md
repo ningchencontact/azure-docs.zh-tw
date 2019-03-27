@@ -1,21 +1,21 @@
 ---
 title: 教學課程 - 建立及管理 Azure 成本管理的匯出資料 |Microsoft Docs
-description: 本文說明如何建立及管理匯出的 Azure 成本管理資料來將其用於外部系統中。
+description: 本文示範如何建立及管理匯出的 Azure 成本管理資料，以將其用於外部系統中。
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: a7c503fba534b72323472fa58b14188bc412003c
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: a0b50b86ca164199ca723354e39e194c6cd7423f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100681"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014124"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>教學課程：建立和管理匯出的資料
 
@@ -30,7 +30,7 @@ ms.locfileid: "56100681"
 > * 驗證已收集資料
 
 ## <a name="prerequisites"></a>必要條件
-資料匯出適用於各種不同的 Azure 帳戶類型，包括 [Enterprise 合約 (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) 客戶。 若要檢視所支援帳戶類型的完整清單，請參閱[了解成本管理資料](understand-cost-mgt-data.md)。 使用者及群組資料匯出的每個訂用帳戶皆支援下列 Azure 權限：
+資料匯出適用於各種不同的 Azure 帳戶類型，包括 [Enterprise 合約 (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) 客戶。 若要檢視所支援帳戶類型的完整清單，請參閱[了解成本管理資料](understand-cost-mgt-data.md)。 針對依使用者和群組的資料匯出，每個訂用帳戶皆支援下列 Azure 權限或範圍。 如需有關範圍的詳細資訊，請參閱[了解並使用範圍](understand-work-scopes.md)。
 
 - 擁有者 - 可以建立、修改或刪除已排程的訂用帳戶匯出。
 - 參與者 - 可以建立、修改或刪除他們自己的排程匯出。 可以修改其他人所建立的排程匯出名稱。
@@ -45,9 +45,9 @@ ms.locfileid: "56100681"
 
 ## <a name="create-a-daily-export"></a>建立每日匯出
 
-[成本管理 + 帳單] &gt; [成本管理] &gt; 選取訂用帳戶或訂用帳戶中的資源群組 &gt; [匯出] &gt; [新增]。
+若要建立或檢視資料匯出，或是排程匯出，請在 Azure 入口網站開啟所需的範圍，然後在功能表中選取 [成本分析]。 例如，瀏覽至 [訂用帳戶]、從清單中選取訂用帳戶，然後在功能表中選取 [成本分析]。 在 [成本分析] 頁面頂端，按一下 [匯出]，然後選擇匯出選項。 例如，按一下 [排程匯出]。 如需有關範圍的詳細資訊，請參閱[了解並使用範圍](understand-work-scopes.md)。
 
-輸入匯出的名稱，然後選取 [每日匯出月初至今的成本] 選項。 按 [下一步] 。
+按一下 [新增]、輸入匯出的名稱，然後選取 [當月費用的每日匯出] 選項。 按 [下一步] 。
 
 ![顯示匯出類型的新匯出範例](./media/tutorial-export-acm-data/basics_exports.png)
 

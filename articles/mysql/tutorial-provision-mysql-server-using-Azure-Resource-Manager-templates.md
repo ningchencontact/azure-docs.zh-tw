@@ -8,12 +8,12 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: bb7a48b08fde07380276d33393225c3f5220b93f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5d5398f4da7563c6f53c17d0305f54c4360f1c65
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880694"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076848"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>教學課程：使用 Azure Resource Manager 範本佈建「適用於 MySQL 的 Azure 資料庫」伺服器
 
@@ -87,8 +87,8 @@ Azure Resource Manager 會利用基礎的 REST API 來宣告和程式化大規�
 +   `storageProfile/geoRedundantBackup` - 根據異地災害復原需求指定 [啟用/停用]。
 +   `sku/tier` - 指定 Basic、GeneralPurpose 或 MemoryOptimized 層的部署。
 +   `sku/capacity` - 指定虛擬核心容量。 可能的值包括 2、4、8、16、32 或 64。
-+   `sku/family` -指定 Gen4 或 Gen5 以選擇伺服器部署的硬體世代。
-+   `sku/name` - 指定 TierPrefix_family_capacity。 例如 B_Gen4_1、GP_Gen5_16、MO_Gen5_32。 請參閱[定價層](./concepts-pricing-tiers.md)文件，以了解每個區域和每一層的有效值。
++   `sku/family` -指定 Gen5 以選擇伺服器部署的硬體世代。
++   `sku/name` - 指定 TierPrefix_family_capacity。 例如 B_Gen5_1、GP_Gen5_16、MO_Gen5_32。 請參閱[定價層](./concepts-pricing-tiers.md)文件，以了解每個區域和每一層的有效值。
 +   `resources/properties/virtualNetworkSubnetId` - 指定 VNet 中要用來放置 Azure MySQL 伺服器的子網路所具備的 Azure 識別碼。 
 +   `tags(optional)` - 指定選擇性標記，以標示您用來分類計費用資源的索引鍵值組。
 
@@ -127,8 +127,8 @@ az mysql server show --resource-group myresourcegroup --name mydemoserver
   "resourceGroup": "myresourcegroup",
  "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },
@@ -207,5 +207,5 @@ SELECT * FROM inventory;
 > * 載入範例資料
 > * 查詢資料
 > * 更新資料
-
+> 
 > [如何將應用程式連線至 Azure Database for MySQL](./howto-connection-string.md)

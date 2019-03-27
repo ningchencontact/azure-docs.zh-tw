@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 8cb31a4c-9309-469b-93ac-daf0d3c7a3e6
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ededde4f8458051fafd09c388ce556dedaea3efc
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2e50cdd19510f0bf160c075c763e645120622674
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870618"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835691"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ethicspoint-incident-management-epim"></a>教學課程：Azure Active Directory 與 EthicsPoint Incident Management (EPIM) 整合
 
@@ -80,7 +80,7 @@ EthicsPoint Incident Management (EPIM) 與 Azure AD 整合提供下列優點：
 2. **[設定 EthicsPoint Incident Management (EPIM) 單一登入](#configure-ethicspoint-incident-management-epim-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 EthicsPoint Incident Management (EPIM) 測試使用者](#create-ethicspoint-incident-management-epim-test-user)** - 在 EthicsPoint Incident Management (EPIM) 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表使用者的項目連結。
+5. **[建立 EthicsPoint Incident Management (EPIM) 測試使用者](#create-ethicspoint-incident-management-epim-test-user)** - 在 EthicsPoint Incident Management (EPIM) 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
@@ -103,9 +103,10 @@ EthicsPoint Incident Management (EPIM) 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![EthicsPoint Incident Management (EPIM) 網域與 URL 單一登入資訊](common/sp-identifier-reply.png)
+    ![EthicsPoint Incident Management (EPIM) 網域及 URL 單一登入資訊](common/sp-identifier-reply.png)
 
     a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰
+    
     | |
     |--|
     | `https://<companyname>.navexglobal.com`|
@@ -154,7 +155,7 @@ EthicsPoint Incident Management (EPIM) 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -163,7 +164,7 @@ EthicsPoint Incident Management (EPIM) 與 Azure AD 整合提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會把 EthicsPoint Incident Management (EPIM) 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在本節中，您會將 EthicsPoint Incident Management (EPIM) 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [EthicsPoint Incident Management (EPIM)]。
 
@@ -171,7 +172,7 @@ EthicsPoint Incident Management (EPIM) 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [EthicsPoint Incident Management (EPIM)]。
 
-    ![應用程式清單中的 EthicsPoint Incident Management (EPIM) 連結](common/all-applications.png)
+    ![應用程式清單中的 [EthicsPoint Incident Management (EPIM)] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -189,7 +190,7 @@ EthicsPoint Incident Management (EPIM) 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-ethicspoint-incident-management-epim-test-user"></a>建立 EthicsPoint Incident Management (EPIM) 測試使用者
 
-在本節中，您要在 EthicsPoint Incident Management (EPIM) 中建立名為 Britta Simon 的使用者。 請與  [EthicsPoint Incident Management (EPIM) 支援小組](https://www.navexglobal.com/company/contact-us)合作，在 EthicsPoint Incident Management (EPIM) 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 EthicsPoint Incident Management (EPIM) 中建立名為 Britta Simon 的使用者。 請與  [EthicsPoint Incident Management (EPIM) 支援小組](https://www.navexglobal.com/company/contact-us)合作，在 EthicsPoint Incident Management (EPIM) 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

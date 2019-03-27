@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 1/22/2019
+ms.date: 03/20/2019
 ms.author: victorh
-ms.openlocfilehash: c574e3ab82f97f5fffc7c834a53d19df93fc426f
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: bb849e80e83edc4a25ad2f891d2c6c433ba0d106
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448937"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225530"
 ---
 # <a name="what-is-azure-application-gateway"></a>什麼是 Azure 應用程式閘道？
 
@@ -70,11 +70,15 @@ Web 應用程式防火牆 (WAF) 是一項應用程式閘道功能，可提供 We
 
 Web 應用程式已逐漸成為利用常見已知弱點的惡意攻擊目標。 這些攻擊中最常見的是 SQL 插入式攻擊、跨網站指令碼攻擊等等。 想要防止應用程式的程式碼受到這類攻擊會非常困難，而且可能需要對許多層次的應用程式拓撲執行嚴格的維護、修補和監視工作。 集中式 Web 應用程式防火牆有助於簡化安全性管理作業，且更加確保應用程式管理員能夠對抗威脅或入侵。 相較於保護每個個別的 Web 應用程式，WAF 方案還可透過在中央位置修補已知弱點，更快地因應安全性威脅。 現有的應用程式閘道可以輕易地轉換成已啟用 Web 應用程式防火牆的應用程式閘道。
 
+如需詳細資訊，請參閱[應用程式閘道中的 Web 應用程式防火牆 (WAF)](https://docs.microsoft.com/azure/application-gateway/waf-overview) \(機器翻譯\)。
+
 ## <a name="url-based-routing"></a>URL 型路由
 
 URL 路徑型路由可讓您根據要求的 URL 路徑，將流量路由傳送至後端伺服器集區。 有一個案例是將對於不同內容類型的要求路由傳送至不同的集區。
 
 例如，對 `http://contoso.com/video/*` 的要求會路由傳送至 VideoServerPool，而對 `http://contoso.com/images/*` 的要求則會路由傳送至 ImageServerPool。 如果沒有任何路徑模式相符，則會選取 DefaultServerPool。
+
+如需詳細資訊，請參閱[使用應用程式閘道的 URL 型路由](https://docs.microsoft.com/azure/application-gateway/url-route-overview) \(機器翻譯\)。
 
 ## <a name="multiple-site-hosting"></a>多網站裝載
 
@@ -83,6 +87,8 @@ URL 路徑型路由可讓您根據要求的 URL 路徑，將流量路由傳送�
 對 `http://contoso.com` 的要求會路由傳送至 ContosoServerPool，而對 `http://fabrikam.com` 的要求則會路由傳送至 FabrikamServerPool。
 
 同樣地，相同父系網域的兩個子網域也可以裝載在相同的應用程式閘道部署上。 使用子網域的範例可能包括單一應用程式閘道部署上裝載的 `http://blog.contoso.com` 和 `http://app.contoso.com`。
+
+如需詳細資訊，請參閱[使用應用程式閘道的多網站裝載](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview) \(機器翻譯\)。
 
 ## <a name="redirection"></a>重新導向
 
@@ -96,6 +102,8 @@ URL 路徑型路由可讓您根據要求的 URL 路徑，將流量路由傳送�
 - 路徑式重新導向。 這類型的重新導向只允許在特定網站區域上進行 HTTP 至 HTTPS 重新導向，例如以 `/cart/*` 表示的購物車區域。
 - 重新導向至外部網站。
 
+如需詳細資訊，請參閱[使用應用程式閘道將流量重新導向](https://docs.microsoft.com/azure/application-gateway/redirect-overview) \(機器翻譯\)。
+
 ## <a name="session-affinity"></a>工作階段親和性
 
 當您想要在同一個後端保留使用者工作階段時，以 Cookie 為基礎的工作階段親和性非常有用。 使用受閘道管理的 Cookie，應用程式閘道即可將來自使用者工作階段的後續流量導向至同一部伺服器進行處理。 當使用者工作階段的工作階段狀態儲存在伺服器本機時，這項功能很重要。
@@ -105,6 +113,8 @@ URL 路徑型路由可讓您根據要求的 URL 路徑，將流量路由傳送�
 應用程式閘道可對 WebSocket 和 HTTP/2 通訊協定提供原生支援。 使用者無法進行設定來選擇要啟用或停用 WebSocket 支援。
 
 WebSocket 和 HTTP/2 通訊協定都可透過長時間執行的 TCP 連線，讓伺服器與用戶端之間能進行全雙工通訊。 此功能可讓網頁伺服器和用戶端之間進行互動性更高的通訊，此通訊可以是雙向的，而不需要像 HTTP 型實作所要求的進行輪詢。 不同於 HTTP，這些通訊協定的負荷很低，而且可以對多個要求/回應重複使用相同的 TCP 連線，進而提升資源使用效率。 這些通訊協定設計為透過傳統 HTTP 連接埠 80 和 443 進行運作。
+
+如需詳細資訊，請參閱 [WebSocket 支援](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) \(機器翻譯\) 與 [HTTP/2 支援](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support) \(機器翻譯\)。 
 
 ## <a name="rewrite-http-headers-public-preview"></a>重新撰寫 HTTP 標頭 (公開預覽)
 

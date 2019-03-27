@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f2e18db7bd1766901ffb36cc74172f4c8414135c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4c2f2ebca40ee3e4b5a9a32767783694af52944b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232876"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106639"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>教學課程：針對 Azure 資料箱磁碟打開包裝、連線然後解除鎖定
 
@@ -70,7 +70,7 @@ ms.locfileid: "51232876"
 請執行下列步驟，以連接磁碟並解除鎖定。
      
 1. 在 Azure 入口網站中，移至 [一般] > [裝置詳細資料]。 
-2. 下載對應至 Windows 用戶端的資料箱磁碟工具組。 此工具組包含 3 個工具：資料箱磁碟解除鎖定工具、資料箱磁碟驗證工具及資料箱磁碟分割複製工具。 
+2. 下載對應至 Windows 用戶端的資料箱磁碟工具組。 此工具組包含 3 個工具：資料箱磁碟解除鎖定工具、資料箱磁碟驗證工具，以及資料箱磁碟分割複製工具。 
 
     在此程序中，您將只使用資料箱磁碟解除鎖定工具。 其他兩個工具會在稍後使用。
 
@@ -170,39 +170,39 @@ ms.locfileid: "51232876"
     
  
 5. 輸入 `y` 繼續安裝。 指令碼安裝的套件如下︰ 
-    - **epel-release** - 包含下列三個套件的存放庫。 
-    - **dislocker 和 fuse-dislocker** - 此公用程式可協助將 BitLocker 加密磁碟解密。 
-    - **ntfs-3g** - 可協助掛接 NTFS 磁碟區的套件。 
+   - **epel-release** - 包含下列三個套件的存放庫。 
+   - **dislocker 和 fuse-dislocker** - 此公用程式可協助將 BitLocker 加密磁碟解密。 
+   - **ntfs-3g** - 可協助掛接 NTFS 磁碟區的套件。 
  
-    成功安裝套件後，終端機會顯示該效果的通知。     
-    ```
-    Dependency Installed: compat-readline5.x86 64 0:5.2-17.I.el6 dislocker-libs.x86 64 0:0.7.1-8.el6 mbedtls.x86 64 0:2.7.4-l.el6        ruby.x86 64 0:1.8.7.374-5.el6 
-    ruby-libs.x86 64 0:1.8.7.374-5.el6 
-    Complete! 
-    Loaded plugins: fastestmirror, refresh-packagekit, security 
-    Setting up Remove Process 
-    Resolving Dependencies 
-    --> Running transaction check 
-    ---> Package epel-release.noarch 0:6-8 will be erased --> Finished Dependency Resolution 
-    Dependencies Resolved 
-    Package        Architecture        Version        Repository        Size 
-    Removing:  epel-release        noarch         6-8        @extras        22 k 
-    Transaction Summary                                 
-    Remove        1 Package(s) 
-    Installed size: 22 k 
-    Downloading Packages: 
-    Running rpmcheckdebug 
-    Running Transaction Test 
-    Transaction Test Succeeded 
-    Running Transaction 
-    Erasing : epel-release-6-8.noarch 
-    Verifying : epel-release-6-8.noarch 
-    Removed: 
-    epel-release.noarch 0:6-8 
-    Complete! 
-    Dislocker is installed by the script. 
-    OpenSSL is already installed.
-    ```
+     成功安裝套件後，終端機會顯示該效果的通知。     
+     ```
+     Dependency Installed: compat-readline5.x86 64 0:5.2-17.I.el6 dislocker-libs.x86 64 0:0.7.1-8.el6 mbedtls.x86 64 0:2.7.4-l.el6        ruby.x86 64 0:1.8.7.374-5.el6 
+     ruby-libs.x86 64 0:1.8.7.374-5.el6 
+     Complete! 
+     Loaded plugins: fastestmirror, refresh-packagekit, security 
+     Setting up Remove Process 
+     Resolving Dependencies 
+     --> Running transaction check 
+     ---> Package epel-release.noarch 0:6-8 will be erased --> Finished Dependency Resolution 
+     Dependencies Resolved 
+     Package        Architecture        Version        Repository        Size 
+     Removing:  epel-release        noarch         6-8        @extras        22 k 
+     Transaction Summary                                 
+     Remove        1 Package(s) 
+     Installed size: 22 k 
+     Downloading Packages: 
+     Running rpmcheckdebug 
+     Running Transaction Test 
+     Transaction Test Succeeded 
+     Running Transaction 
+     Erasing : epel-release-6-8.noarch 
+     Verifying : epel-release-6-8.noarch 
+     Removed: 
+     epel-release.noarch 0:6-8 
+     Complete! 
+     Dislocker is installed by the script. 
+     OpenSSL is already installed.
+     ```
 
 6. 執行資料箱磁碟解除鎖定工具。 在 Azure 入口網站中提供您在[連接到磁碟並取得通行金鑰](#Connect-to-disks-and-get-the-passkey)中取得的通行金鑰。 選擇性地指定要解除鎖定的 BitLocker 加密磁碟區清單。 通行金鑰和磁碟區清單應該指定於單引號內。 
 

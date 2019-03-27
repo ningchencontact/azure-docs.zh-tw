@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dc56384d550854c05a813157b32ac36f5ebfb76
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: df2c4e447ff41e56c4d8b9862282b6fcb452a8c9
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211915"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224289"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>什麼是適用於 Azure 資源的受控識別？
 
@@ -64,13 +64,12 @@ Azure 訂用帳戶的 Azure AD 可免費使用適用於 Azure 資源的受控識
     1. 使用服務主體用戶端識別碼和憑證來更新 Azure Instance Metadata Service 身分識別端點。
     1. 佈建 VM 擴充功能 (已計劃在 2019 年 1 月淘汰)，並新增服務主體用戶端識別碼和憑證。 (此步驟已規劃要淘汰。)
 4. 在 VM 具有身分識別後，使用服務主體資訊對 VM 授與 Azure 資源的存取權。 若要呼叫 Azure Resource Manager，請在 Azure AD 中使用角色型存取控制 (RBAC)，將適當的角色指派給 VM 服務主體。 若要呼叫 Key Vault，請將 Key Vault 中特定祕密或金鑰的存取權授與您的程式碼。
-5. 您在 VM 上執行的程式碼可以向僅可從 VM 內存取的兩個端點要求權杖：
+5. 您在 VM 上執行的程式碼可向能從 VM 內存取的 Azure Instance Metadata Service 端點要求權杖：`http://169.254.169.254/metadata/identity/oauth2/token`
+    - resource 參數指定將權杖傳送至哪個服務。 若要向 Azure Resource Manager 進行驗證，請使用 `resource=https://management.azure.com/`。
+    - API 版本參數會使用 api-version=2018-02-01 或更高版本來指定 IMDS 版本。
 
-    - Azure Instance Metadata Service 身分識別端點 (建議選項)：`http://169.254.169.254/metadata/identity/oauth2/token`
-        - resource 參數指定將權杖傳送至哪個服務。 若要向 Azure Resource Manager 進行驗證，請使用 `resource=https://management.azure.com/`。
-        - API 版本參數會使用 api-version=2018-02-01 或更高版本來指定 IMDS 版本。
-    - VM 擴充端點 (已計劃在 2019 年 1 月淘汰)：`http://localhost:50342/oauth2/token` 
-        - resource 參數指定將權杖傳送至哪個服務。 若要向 Azure Resource Manager 進行驗證，請使用 `resource=https://management.azure.com/`。
+> [!NOTE]
+> 您的程式碼也可以向 VM 擴充功能端點要求權杖，但這已列入規劃，即將淘汰。 如需 VM 擴充功能的詳細資訊，請參閱[從 VM 擴充功能移轉至 Azure IMDS 進行驗證](howto-migrate-vm-extension.md)。
 
 6. 使用步驟 3 所設定的用戶端識別碼和憑證，呼叫 Azure AD 以要求步驟 5 所指定的存取權杖。 Azure AD 會傳回 JSON Web 權杖 (JWT) 存取權杖。
 7. 您的程式碼會在呼叫上傳送存取權杖給支援 Azure AD 驗證的服務。
@@ -87,16 +86,14 @@ Azure 訂用帳戶的 Azure AD 可免費使用適用於 Azure 資源的受控識
    > [!Note]
    > 您也可以在步驟 3 之前執行這個步驟。
 
-5. 您在 VM 上執行的程式碼可以向僅可從 VM 內存取的兩個端點要求權杖：
+5. 您在 VM 上執行的程式碼可向能從 VM 內存取的 Azure Instance Metadata Service 身分識別端點要求權杖：`http://169.254.169.254/metadata/identity/oauth2/token`
+    - resource 參數指定將權杖傳送至哪個服務。 若要向 Azure Resource Manager 進行驗證，請使用 `resource=https://management.azure.com/`。
+    - 用戶端識別碼參數會指定為其要求權杖的身分識別。 當單一 VM 上有多個使用者指派的身分識別時，需要此值才能釐清。
+    - API 版本參數可指定 Azure 執行個體中繼資料服務版本。 使用 `api-version=2018-02-01` 或更高版本。
 
-    - Azure Instance Metadata Service 身分識別端點 (建議選項)：`http://169.254.169.254/metadata/identity/oauth2/token`
-        - resource 參數指定將權杖傳送至哪個服務。 若要向 Azure Resource Manager 進行驗證，請使用 `resource=https://management.azure.com/`。
-        - 用戶端識別碼參數會指定為其要求權杖的身分識別。 當單一 VM 上有多個使用者指派的身分識別時，需要此值才能釐清。
-        - API 版本參數可指定 Azure 執行個體中繼資料服務版本。 使用 `api-version=2018-02-01` 或更高版本。
+> [!NOTE]
+> 您的程式碼也可以向 VM 擴充功能端點要求權杖，但這已列入規劃，即將淘汰。 如需 VM 擴充功能的詳細資訊，請參閱[從 VM 擴充功能移轉至 Azure IMDS 進行驗證](howto-migrate-vm-extension.md)。
 
-    - VM 擴充端點 (已計劃在 2019 年 1 月淘汰)：`http://localhost:50342/oauth2/token`
-        - resource 參數指定將權杖傳送至哪個服務。 若要向 Azure Resource Manager 進行驗證，請使用 `resource=https://management.azure.com/`。
-        - 用戶端識別碼參數會指定為其要求權杖的身分識別。 當單一 VM 上有多個使用者指派的身分識別時，需要此值才能釐清。
 6. 使用步驟 3 所設定的用戶端識別碼和憑證，呼叫 Azure AD 以要求步驟 5 所指定的存取權杖。 Azure AD 會傳回 JSON Web 權杖 (JWT) 存取權杖。
 7. 您的程式碼會在呼叫上傳送存取權杖給支援 Azure AD 驗證的服務。
 

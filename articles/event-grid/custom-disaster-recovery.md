@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: babanisa
-ms.openlocfilehash: a77c208c208ef7e0df170733dbe89963fc5cb846
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: fa0ffa9ad913f0dc3afe8dc31aeaa0254fa2d241
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727174"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863163"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>為事件方格中的自訂主題建置您自己的災害復原
 
@@ -28,7 +28,7 @@ ms.locfileid: "56727174"
 
 1. 選取 [部署至 Azure]，將解決方案部署至您的訂用帳戶。 在 Azure 入口網站中，提供參數的值。
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 1. 部署需要幾分鐘的時間才能完成。 成功部署之後，檢視 Web 應用程式，確定它正在執行。 在網頁瀏覽器中，瀏覽至：`https://<your-site-name>.azurewebsites.net`
 請確實記下此 URL，稍後您將會用到此資訊。
@@ -54,10 +54,10 @@ ms.locfileid: "56727174"
 
 1. 在 [事件方格主題] 功能表中選取 [+新增]，以建立主要主題。
 
-    * 為主題指定邏輯名稱，並新增 "-primary" 尾碼，以方便追蹤。
-    * 此主題的區域將是您的主要區域。
+   * 為主題指定邏輯名稱，並新增 "-primary" 尾碼，以方便追蹤。
+   * 此主題的區域將是您的主要區域。
 
-    ![事件方格主要主題建立對話方塊](./media/custom-disaster-recovery/create-primary-topic.png)
+     ![事件方格主要主題建立對話方塊](./media/custom-disaster-recovery/create-primary-topic.png)
 
 1. 主題建立後，請瀏覽至該主題並複製 [主題端點]。 您稍後將會用到此 URI。
 
@@ -69,11 +69,11 @@ ms.locfileid: "56727174"
 
 1. 在 [主題] 刀鋒視窗中，按一下 [+事件訂用帳戶] 以建立訂用帳戶，用以訂閱您在本教學課程的必要條件中建立的事件接收器網站。
 
-    * 為事件訂用帳戶指定邏輯名稱，並新增 "-primary" 尾碼，以方便追蹤。
-    * 選取端點類型 Web Hook。
-    * 將端點設為您事件接收器的事件 URL，應會顯示如下：`https://<your-event-reciever>.azurewebsites.net/api/updates`
+   * 為事件訂用帳戶指定邏輯名稱，並新增 "-primary" 尾碼，以方便追蹤。
+   * 選取端點類型 Web Hook。
+   * 將端點設為您事件接收器的事件 URL，應會顯示如下：`https://<your-event-reciever>.azurewebsites.net/api/updates`
 
-    ![事件方格主要事件訂用帳戶](./media/custom-disaster-recovery/create-primary-es.png)
+     ![事件方格主要事件訂用帳戶](./media/custom-disaster-recovery/create-primary-es.png)
 
 1. 重複相同的流程以建立次要主題和訂用帳戶。 這次請將 "-primary" 尾碼取代為 "-secondary"，以方便追蹤。 最後，請確實將其放在不同的 Azure 區域中。 雖然您可以將其放在您想要的任何位置，但建議您使用 [Azure 配對區域](../best-practices-availability-paired-regions.md)。 將次要主題和訂用帳戶放在不同的區域中，可確保即使主要區域中斷運作，您的新事件仍會傳送。
 
@@ -91,7 +91,7 @@ ms.locfileid: "56727174"
 
 ### <a name="basic-client-side-implementation"></a>基本用戶端實作
 
-下列範例程式碼說明一律會先嘗試發佈至主要主題的簡單 .Net 發行者。 如果不成功，則會容錯移轉至次要主題。 在任一情況下，它也都會在 `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health` 上執行 GET，以檢查其他主題的健康情況 API。 在 **/api/health** 端點上進行 GET 時，狀況良好的主題應一律會回應 **200 確定**。
+下列範例程式碼說明一律會先嘗試發佈至主要主題的簡單 .NET 發行者。 如果不成功，則會容錯移轉至次要主題。 在任一情況下，它也都會在 `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health` 上執行 GET，以檢查其他主題的健康情況 API。 在 **/api/health** 端點上進行 GET 時，狀況良好的主題應一律會回應 **200 確定**。
 
 ```csharp
 using System;

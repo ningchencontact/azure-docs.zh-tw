@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: 6b57c3a172f39c596250b05024ad954a5d065440
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: ee91c9f152d72fbcc58cb4707af9420a57a1517b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984812"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224188"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>針對用於容器的 Web 應用程式使用自訂 Docker 映像
 
@@ -193,7 +193,7 @@ v1.0.0: digest: sha256:21f2798b20555f4143f2ca0591a43b4f6c8138406041f2d32ec908974
 
 ## <a name="deploy-app-to-azure"></a>將應用程式部署到 Azure
 
-若要建立應用程式來使用您剛推送的映像，您需要執行 Azure CLI 命令，依序建立群組、服務方案及 Web 應用程式本身。 
+若要建立應用程式來使用您剛推送的映像，您需要執行 Azure CLI 命令來依序建立群組、服務方案及 Web 應用程式本身。 
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
@@ -526,6 +526,9 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 > [!NOTE]
 > \<docker-registry-server-url>中需要 `https://`。
 >
+> [!NOTE]
+> 使用登錄而不是 dockerhub 時，`docker-custom-image-name` 必須包含您登錄的完整網域名稱 (FQDN)。  
+> 若為 Azure Container Registry，這會看起來像 `<azure-container-registry>.azurecr.io/mydockerimage`。
 
 此命令顯示的輸出類似下列的 JSON 字串，顯示設定變更成功：
 

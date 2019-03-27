@@ -10,19 +10,17 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/27/2018
+ms.date: 03/05/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9f548fbb9611b6d4b16efe5c4d26db73d85c9654
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c9cdac53e43d57feb0d2dc5a8a7153dc05be8a7d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882292"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170627"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>教學課程：使用 Azure Deployment Manager 搭配 Resource Manager 範本 (個人預覽版)
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 了解如何使用 [Azure 部署管理員](./deployment-manager-overview.md)跨多個區域部署您的應用程式。 若要使用部署管理員，您必須建立兩個範本：
 
@@ -59,6 +57,13 @@ ms.locfileid: "56882292"
     ```powershell
     Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease
     ```
+
+    如果您已安裝 Azure PowerShell Az 模組，則需要兩個額外的參數：
+
+    ```powershell
+    Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease -AllowClobber -Force
+    ```
+
 * [Microsoft Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)。 您不一定要使用 Azure 儲存體總管，但若使用操作會更輕鬆。
 
 ## <a name="understand-the-scenario"></a>了解案例
@@ -204,9 +209,6 @@ ms.locfileid: "56882292"
 - **dependsOn**：所有的服務拓撲資源皆相依於成品來源資源。
 - **artifacts** 指向範本成品。  本文使用相對路徑。 完整路徑由 artifactSourceSASLocation (定義於成品來源中)、artifactRoot (定義於成品來源中) 和 templateArtifactSourceRelativePath (或 parametersArtifactSourceRelativePath) 串連建構而成。
 
-> [!NOTE]
-> 服務單位名稱必須包含 31 個或更少字元。 
-
 ### <a name="topology-parameters-file"></a>拓撲參數檔案
 
 您必須建立用於拓樸範本的參數檔案。
@@ -276,7 +278,7 @@ ms.locfileid: "56882292"
 2. 填入參數值：
 
     - **namePrefix**：輸入含有 4-5 個字元的字串。 此前置詞用來建立唯一的 Azure 資源名稱。
-    - **azureResourceLocation**：目前，Azure 部署管理員資源只能在美國中部或**美國東部 2** 建立。
+    - **azureResourceLocation**：目前，Azure 部署管理員資源只能在**美國中部**或**美國東部 2** 建立。
     - **artifactSourceSASLocation**：輸入部署的服務單位範本和參數檔案儲存所在的根目錄 (Blob 容器) 的 SAS URI。  請參閱[準備成品](#prepare-the-artifacts)。
     - **binaryArtifactRoot**：除非您變更了成品的資料夾結構，否則在本教學課程中請使用 **binaries/1.0.0.0**。
     - **managedIdentityID**：輸入使用者指派的受控識別。 請參閱[建立使用者指派的受控識別](#create-the-user-assigned-managed-identity)。 語法為：
@@ -294,13 +296,13 @@ Azure PowerShell 可用來部署範本。
 
 1. 執行部署服務拓撲的指令碼。
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     $resourceGroupName = "<Enter a Resource Group Name>"
     $location = "Central US"  
     $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
     
     # Create a resource group
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+    New-AzureRmResourceGroup -Name $resourceGroupName -Location "$location"
     
     # Create the service topology
     New-AzureRmResourceGroupDeployment `
@@ -317,7 +319,7 @@ Azure PowerShell 可用來部署範本。
 
 3. <a id="deploy-the-rollout-template"></a>部署首度發行範本：
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     # Create the rollout
     New-AzureRmResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
@@ -327,19 +329,60 @@ Azure PowerShell 可用來部署範本。
 
 4. 使用下列 PowerShell 指令碼查看首度發行進度：
 
-    ```azurepowershell-interactive
+    ```azurepowershell
     # Get the rollout status
     $rolloutname = "<Enter the Rollout Name>" # "adm0925Rollout" is the rollout name used in this tutorial
     Get-AzureRmDeploymentManagerRollout `
         -ResourceGroupName $resourceGroupName `
-        -Name $rolloutName
+        -Name $rolloutName `
+        -Verbose
     ```
 
-    必須安裝部署管理員 PowerShell Cmdlet，才能執行此 Cmdlet。 請參閱＜必要條件＞。
+    必須安裝部署管理員 PowerShell Cmdlet，才能執行此 Cmdlet。 請參閱＜必要條件＞。 -Verbose 參數可用來查看整個輸出。
 
     下列範例顯示執行中狀態：
     
     ```
+    VERBOSE: 
+    
+    Status: Succeeded
+    ArtifactSourceId: /subscriptions/<AzureSubscriptionID>/resourceGroups/adm0925rg/providers/Microsoft.DeploymentManager/artifactSources/adm0925ArtifactSourceRollout
+    BuildVersion: 1.0.0.0
+    
+    Operation Info:
+        Retry Attempt: 0
+        Skip Succeeded: False
+        Start Time: 03/05/2019 15:26:13
+        End Time: 03/05/2019 15:31:26
+        Total Duration: 00:05:12
+    
+    Service: adm0925ServiceEUS
+        TargetLocation: EastUS
+        TargetSubscriptionId: <AzureSubscriptionID>
+    
+        ServiceUnit: adm0925ServiceEUSStorage
+            TargetResourceGroup: adm0925ServiceEUSrg
+    
+            Step: Deploy
+                Status: Succeeded
+                StepGroup: stepGroup3
+                Operation Info:
+                    DeploymentName: 2F535084871E43E7A7A4CE7B45BE06510adm0925ServiceEUSStorage
+                    CorrelationId: 0b6f030d-7348-48ae-a578-bcd6bcafe78d
+                    Start Time: 03/05/2019 15:26:32
+                    End Time: 03/05/2019 15:27:41
+                    Total Duration: 00:01:08
+                Resource Operations:
+    
+                    Resource Operation 1:
+                    Name: txq6iwnyq5xle
+                    Type: Microsoft.Storage/storageAccounts
+                    ProvisioningState: Succeeded
+                    StatusCode: OK
+                    OperationId: 64A6E6EFEF1F7755
+
+    ...
+
     ResourceGroupName       : adm0925rg
     BuildVersion            : 1.0.0.0
     ArtifactSourceId        : /subscriptions/<SubscriptionID>/resourceGroups/adm0925rg/providers/Microsoft.DeploymentManager/artifactSources/adm0925ArtifactSourceRollout

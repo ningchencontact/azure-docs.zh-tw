@@ -8,12 +8,12 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 0096a7a57cb4a404f5c8e36d8b69eac2c20c1fab
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 31330c3d2b10e6245db775da4039fd1948539df4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139806"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106010"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>教學課程：將 Azure 串流分析部署為 IoT Edge 模組
 
@@ -33,6 +33,7 @@ Azure 串流分析針對雲端中或 IoT Edge 上的資料，提供了豐富結�
 > * 從 Azure 入口網站將 Azure 串流分析作業部署至 IoT Edge 裝置。
 
 <center>
+
 ![圖表 - 教學課程架構、階段和部署 ASA 作業](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 
@@ -215,9 +216,9 @@ Azure IoT Edge 裝置：
    ```cmd/sh
    iotedge list  
    ```
-<!--
+   <!--
    ![Docker output](./media/tutorial-deploy-stream-analytics/docker_output.png)
--->
+   -->
 1. 檢視所有系統記錄和計量資料。 使用串流分析模組名稱：
 
    ```cmd/sh

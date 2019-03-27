@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 24809e9d-a4aa-4504-95a9-e4fcf484f431
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 63e4769a0089259ee337931e2dbc0e8bcc9290c5
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9275129c4339a6eae7ea8a44b22cbc78303cbf01
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869015"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889534"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>教學課程：Azure Active Directory 與 ArcGIS Enterprise 整合
 
@@ -36,7 +36,7 @@ ArcGIS Enterprise 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 ArcGIS Enterprise 整合，您需要下列項目：
+若要設定 Azure AD 與 ArcGIS Enterprise 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 ArcGIS Enterprise 單一登入的訂用帳戶
@@ -107,7 +107,7 @@ ArcGIS Enterprise 與 Azure AD 整合提供下列優點：
 
 4. 若您想要以 **IDP** 起始模式設定應用程式，請在 [基本 SAML 組態] 區段執行下列步驟：
 
-    ![ArcGIS Enterprise 網域與 URL 單一登入資訊](common/idp-intiated.png)
+    ![ArcGIS Enterprise 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
     a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`<EXTERNAL_DNS_NAME>.portal`
 
@@ -115,7 +115,7 @@ ArcGIS Enterprise 與 Azure AD 整合提供下列優點：
 
     c. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-    ![ArcGIS Enterprise 網域與 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
+    ![ArcGIS Enterprise 網域及 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
 
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
@@ -150,7 +150,7 @@ ArcGIS Enterprise 與 Azure AD 整合提供下列優點：
 
     b. 在 [URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [應用程式同盟中繼資料 Url] 值。
 
-    c. 按一下 [顯示進階設定] 並複製 [實體識別碼] 值，然後將它貼至 Azure 入口網站中 [ArcGIS Enterprise 網域和 URL] 區段的 [識別碼] 文字方塊。
+    c. 按一下 [Show advanced settings] \(顯示進階設定\) 並複製 [Entity ID] \(實體識別碼\) 值，然後將它貼到 Azure 入口網站上 [ArcGIS Enterprise 網域及 URL] 區段的 [識別碼] 文字方塊。
     
     ![ArcGIS Enterprise 設定](./media/arcgisenterprise-tutorial/configure5.png)
 
@@ -174,7 +174,7 @@ ArcGIS Enterprise 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -191,7 +191,7 @@ ArcGIS Enterprise 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，輸入並選取 [ArcGIS Enterprise]。
 
-    ![應用程式清單中的 ArcGIS Enterprise 連結](common/all-applications.png)
+    ![應用程式清單中的 [ArcGIS Enterprise] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -209,7 +209,7 @@ ArcGIS Enterprise 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-arcgis-enterprise-test-user"></a>建立 ArcGIS Enterprise 測試使用者
 
-本節會在 ArcGIS Enterprise 中建立名為 Britta Simon 的使用者。 ArcGIS Enterprise 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 ArcGIS Enterprise 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
+本節會在 ArcGIS Enterprise 中建立名為 Britta Simon 的使用者。 ArcGIS Enterprise 支援預設會啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 ArcGIS Enterprise 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
 > [!Note]
 > 如果您需要手動建立使用者，請連絡  [ArcGIS Enterprise 支援小組](mailto:support@esri.com)。

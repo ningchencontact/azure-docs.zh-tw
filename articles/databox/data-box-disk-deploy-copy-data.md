@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 75a78e303991e5426c97b8ceb0eb1375e03be2a2
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 47c14379a01da86f547ac917472260a041b67f99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868182"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106894"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>教學課程：將資料複製到 Azure 資料箱磁碟並確認
 
@@ -32,35 +32,53 @@ ms.locfileid: "56868182"
 - 您已完成[教學課程：安裝和設定您的 Azure 資料箱磁碟](data-box-disk-deploy-set-up.md)。
 - 您的磁碟已解除鎖定，並連線到用戶端電腦。
 - 您用來將資料複製到磁碟的用戶端電腦必須執行[支援的作業系統](data-box-disk-system-requirements.md##supported-operating-systems-for-clients)。
-- 請確定資料的預定儲存體類型符合[支援的儲存體類型](data-box-disk-system-requirements.md#supported-storage-types)。
+- 請確定資料的預定儲存體類型符合[支援的儲存體類型](data-box-disk-system-requirements.md#supported-storage-types-for-upload)。
+- 檢閱 [Azure 物件大小限制中的受控磁碟限制](data-box-disk-limits.md#azure-object-size-limits)。
 
 
 ## <a name="copy-data-to-disks"></a>將資料複製到磁碟
 
+檢閱下列考量，然後再將資料複製到磁碟：
+
+- 您必須負責確保將資料複製到資料夾中，該資料夾對應至適當的資料格式。 例如，將區塊 Blob 資料複製到區塊 Blob 的資料夾。 如果資料格式與適當資料夾 (儲存體類型) 不相符，則在稍後步驟中，資料上傳至 Azure 會失敗。
+- 複製資料時，請確定資料大小符合 [Azure 儲存體和資料箱磁碟限制](data-box-disk-limits.md)中所述的大小限制。
+- 如果資料 (由資料箱磁碟上傳) 同時由資料箱磁碟以外的其他應用程式上傳，則可能導致上傳作業失敗和資料損毀。
+
+如果您在訂單中指定了受控磁碟，請檢閱下列其他考量：
+
+- 在所有預先建立的資料夾之間以及在所有資料箱磁碟之間，您在一個資源群組中只能有一個具指定名稱的受控磁碟。 這表示上傳至預先建立資料夾的 VHD 應具備唯一名稱。 請確定指定的名稱不會與資源群組中現有的受控磁碟相符。 如果 VHD 具有相同名稱，則只會將一個 VHD 轉換為具該名稱的受控磁碟。 其他 VHD 會以分頁 Blob 形式上傳至暫存的儲存體帳戶。
+- 一律將 VHD 複製到其中一個預先建立的資料夾。 如果您在這些資料夾外部或您所建立的資料夾中複製 VHD，就會將 VHD 上傳至 Azure 儲存體帳戶以作為分頁 Blob，而非受控磁碟。
+- 只能上傳固定的 VHD 來建立受控磁碟。 不支援動態 VHD、差異 VHD 或 VHDX 檔案。
+
+
 執行下列步驟以從電腦連線到資料箱磁碟，並且複製資料。
 
-1. 檢視已解除鎖定磁碟機的內容。
+1. 檢視已解除鎖定磁碟機的內容。 根據建立資料箱磁碟訂單時所選取的選項而定，磁碟中預先建立的資料夾和子資料夾清單會有所不同。
 
-    ![檢視磁碟機內容](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
+    |選取的儲存體目的地  |儲存體帳戶類型|暫存的儲存體帳戶類型 |資料夾和子資料夾  |
+    |---------|---------|---------|------------------|
+    |儲存體帳戶     |GPv1 或 GPv2                 | NA | BlockBlob <br> PageBlob <br> AzureFile        |
+    |儲存體帳戶     |Blob 儲存體帳戶         | NA | BlockBlob        |
+    |受控磁碟     |NA | GPv1 或 GPv2         | ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>        |
+    |儲存體帳戶 <br> 受控磁碟     |GPv1 或 GPv2 | GPv1 或 GPv2         |BlockBlob <br> PageBlob <br> AzureFile <br> ManagedDisk<ul> <li> PremiumSSD </li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
+    |儲存體帳戶 <br> 受控磁碟    |Blob 儲存體帳戶 | GPv1 或 GPv2         |BlockBlob <br> ManagedDisk<ul> <li>PremiumSSD</li><li>StandardSSD</li><li>StandardHDD</li></ul>         |
+
+    以下顯示已指定 GPv2 儲存體帳戶的訂單範例螢幕擷取畫面：
+
+    ![磁碟機的內容](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
  
-2. 將需要以區塊 Blob 形式匯入的資料複製到 BlockBlob 資料夾。 同樣地，將 VHD/VHDX 等資料複製到 PageBlob 資料夾。 
+2. 將需要以區塊 Blob 形式匯入的資料複製到 *BlockBlob* 資料夾。 同樣地，將 VHD/VHDX 等資料複製到 *PageBlob* 資料夾，並將資料複製到 *AzureFile* 資料夾中。
 
     系統會在 Azure 儲存體帳戶中為 BlockBlob 和 PageBlob 資料夾下的每個子資料夾建立容器。 BlockBlob 和 PageBlob 資料夾下的所有檔案，都會複製到 Azure 儲存體帳戶下的預設容器 `$root`。 `$root` 容器中的任何檔案一律會上傳為區塊 Blob。
 
+   將檔案複製到 *AzureFile* 資料夾內的資料夾。 *AzureFile* 資料夾內的子資料夾會建立檔案共用。 直接複製到 *AzureFile* 資料夾的檔案會失敗並上傳為區塊 Blob。
+
     如果根目錄中有檔案和資料夾存在，則您必須在開始複製資料之前，將這些項目移到不同的資料夾。
 
-    針對容器和 Blob 名稱請遵循 Azure 命名需求。
+    > [!IMPORTANT]
+    > 所有的容器、Blob 及檔案名稱都應符合 [Azure 命名慣例](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions)。 如果未遵循這些規則，則將資料上傳至 Azure 會失敗。
 
-    #### <a name="azure-naming-conventions-for-container-and-blob-names"></a>容器和 Blob 名稱的 Azure 命名慣例
-    |實體   |慣例  |
-    |---------|---------|
-    |容器會為區塊 Blob 和分頁 Blob 命名     |必須以字母或數字開頭，且只能包含小寫字母、數字和連字號 (-)。 每個連字號 (-) 字元的前面和後面必須緊接著字母或數字。 名稱中不允許連續的連字號。 <br>必須是有效的 DNS 名稱，也就是 3 到 63 個字元的長度。          |
-    |區塊 Blob 和分頁 Blob 的 Blob 名稱    |Blob 名稱會區分大小寫，而且可以包含字元的任意組合。 <br>Blob 名稱長度必須介於 1 到 1,024 個字元之間。<br>保留的 URL 字元必須正確逸出。<br>構成 Blob 名稱的路徑區段數目不可超過 254 個。 路徑線段是連續分隔符號字元 (例如，正斜線 '/') 之間的字串，會對應到虛擬目錄的名稱。         |
-
-    > [!IMPORTANT] 
-    > 所有容器和 Blob 都應符合 [Azure 命名慣例](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions)。 如果未遵循這些規則，則將資料上傳至 Azure 會失敗。
-
-3. 複製檔案時，請確定檔案的區塊 Blob 不超過約 4.7 TB，而分頁 Blob 不超過約 8 TB。 
+3. 複製檔案時，確定檔案的區塊 Blob 不會超過約 4.7 TiB、分頁 Blob 不會超過約 8 TiB，而 Azure 檔案儲存體不會超過約 1 TiB。 
 4. 您可以使用檔案總管的拖放功能來複製資料。 您也可以使用任何 SMB 相容的檔案複製工具 (例如 Robocopy) 來複製資料。 可以使用下列 Robocopy 命令來起始多個複製作業：
 
     `Robocopy <source> <destination>  * /MT:64 /E /R:1 /W:1 /NFL /NDL /FFT /Log:c:\RobocopyLog.txt` 
@@ -80,7 +98,7 @@ ms.locfileid: "56868182"
     |/FFT                | 假設 FAT 檔案時間 (兩秒精確度)。        |
     |/Log:<Log File>     | 將狀態輸出寫入至記錄檔 (覆寫現有記錄檔)。         |
 
-    您可採平行方式使用多個磁碟，在每個磁碟上執行多項作業。 
+    您可採平行方式使用多個磁碟，在每個磁碟上執行多項作業。
 
 6. 當作業正在進行中時，檢查複製狀態。 下列範例顯示將檔案複製到資料箱磁碟的 robocopy 命令輸出。
 
@@ -151,8 +169,8 @@ ms.locfileid: "56868182"
     若要將效能最佳化，複製資料時請使用下列 robocopy 參數。
 
     |    平台    |    大部分是 < 512 KB 的小檔案                           |    大部分是 512 KB - 1 MB 的中型檔案                      |    大部分是 > 1 MB 的大檔案                             |   
-    |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
-    |    資料箱磁碟        |    4 個 Robocopy 工作階段* <br> 每個工作階段 16 個執行緒    |    2 個 Robocopy 工作階段* <br> 每個工作階段 16 個執行緒    |    2 個 Robocopy 工作階段* <br> 每個工作階段 16 個執行緒    |  |
+    |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
+    |    資料箱磁碟        |    4 個 Robocopy 工作階段* <br> 每個工作階段 16 個執行緒    |    2 個 Robocopy 工作階段* <br> 每個工作階段 16 個執行緒    |    2 個 Robocopy 工作階段* <br> 每個工作階段 16 個執行緒    |
     
     **每個 Robocopy 工作階段最多可以有 7,000 個目錄和 1 億 5 千萬個檔案。*
     
@@ -163,17 +181,13 @@ ms.locfileid: "56868182"
 
 6. 開啟目標資料夾，以檢視並確認已複製的檔案。 如果您在複製程序期間遇到任何錯誤，請下載記錄檔以進行疑難排解。 記錄檔位於 robocopy 命令所指定的位置。
  
-> [!IMPORTANT]
-> - 您必須負責確保將資料複製到資料夾中，該資料夾對應至適當的資料格式。 例如，將區塊 Blob 資料複製到區塊 Blob 的資料夾。 如果資料格式與適當資料夾 (儲存體類型) 不相符，則在稍後步驟中，資料上傳至 Azure 會失敗。
-> -  複製資料時，請確定資料大小符合 [Azure 儲存體和資料箱磁碟限制](data-box-disk-limits.md)中所述的大小限制。
-> - 如果資料 (由資料箱磁碟上傳) 同時由資料箱磁碟以外的其他應用程式上傳，則可能導致上傳作業失敗和資料損毀。
-
 ### <a name="split-and-copy-data-to-disks"></a>將資料分割並複製到磁碟
 
 如果您使用多個磁碟，而且具有必須加以分割並複製到所有磁碟上的大型資料集，則您可能會用到此選擇性程序。 「資料箱分割複製」工具可協助您分割和複製 Windows 電腦上的資料。
 
 >[!IMPORTANT]
 > 「資料箱分割複製」工具也會驗證您的資料。 如果您使用「資料箱分割複製」工具來複製資料，您可以略過[驗證步驟](#validate-data)。
+> 受控磁碟不支援分割複製工具。
 
 1. 在您的 Windows 電腦上，請確定已下載「資料箱分割複製」工具，並且已在本機資料夾中解壓縮。 此工具會在您下載適用於 Windows 的資料箱磁碟工具組時一併下載。
 2. 開啟檔案總管。 請記下指派給資料箱磁碟的資料來源磁碟機和磁碟機代號。 
@@ -195,10 +209,10 @@ ms.locfileid: "56868182"
  
 5. 修改 `SampleConfig.json` 檔案。
  
-    - 提供作業名稱。 這會在資料箱磁碟中建立資料夾，而這最後會在與這些磁碟相關聯的 Azure 儲存體帳戶中成為容器。 作業名稱必須遵循 Azure 容器的命名慣例。 
-    - 提供來源路徑並記下 `SampleConfigFile.json` 中的路徑格式。 
-    - 輸入對應到目標磁碟的磁碟機代號。 資料會取自來源路徑，並複製到多個磁碟。
-    - 提供記錄檔的路徑。 根據預設，這會傳送到 `.exe` 目前所在的目錄。
+   - 提供作業名稱。 這會在資料箱磁碟中建立資料夾，而這最後會在與這些磁碟相關聯的 Azure 儲存體帳戶中成為容器。 作業名稱必須遵循 Azure 容器的命名慣例。 
+   - 提供來源路徑並記下 `SampleConfigFile.json` 中的路徑格式。 
+   - 輸入對應到目標磁碟的磁碟機代號。 資料會取自來源路徑，並複製到多個磁碟。
+   - 提供記錄檔的路徑。 根據預設，這會傳送到 `.exe` 目前所在的目錄。
 
      ![分割複製資料](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 

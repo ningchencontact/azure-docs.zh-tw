@@ -6,43 +6,42 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 07/12/2018
+ms.date: 03/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ba9b34dbd9d0959e79c755abc8dad9fe1d358a50
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 1c8ce14dd3961eff33a54a14c2bd0b27650d8a50
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632937"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201342"
 ---
 # <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>教學課程：在 Azure 雲端儲存體中搜尋半結構化資料
 
-在這個兩部分的教學課程系列中，您可以了解如何使用 Azure 搜尋服務來搜尋半結構化及未結構化資料。 [第 1 部分](../storage/blobs/storage-unstructured-search.md)不僅引導您完成非結構化資料的搜尋步驟，也說明了本教學課程的重要必要條件 (如建立儲存體帳戶)。 
+Azure 搜尋服務可以在 Azure Blob 儲存體中，使用[索引子](search-indexer-overview.md)來為 JSON 文件和陣列編製索引，以了解如何讀取半結構化資料。 半結構化資料會包含在資料內分隔內容的標籤或標記。 這些資料會將不同的內容區分為必須完整編製索引的未結構化資料，以及遵循資料模型 (例如關聯式資料庫結構描述) 且可依據欄位逐一編製索引的正式結構化資料。
 
-在第 2 部分，我們將焦點轉移到 JSON 這類儲存在 Azure Blob 中的半結構化資料。 半結構化資料會包含在資料內分隔內容的標籤或標記。 這些資料將不同的內容區分為必須整體編製索引的未結構化資料，以及遵循資料模型 (如關聯式資料庫結構描述)，而且可依據欄位逐一搜耙的正式結構化資料。
-
-在第 2 部分中，您將學習如何：
+在本教學課程中，使用 [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/) 和 REST 用戶端來執行下列工作：
 
 > [!div class="checklist"]
 > * 設定 Azure Blob 容器的 Azure 搜尋服務資料來源
-> * 建立及填入 Azure 搜尋服務索引和索引子，以便搜耙容器和擷取可搜尋內容
+> * 建立 Azure 搜尋服務索引以包含可搜尋的內容
+> * 設定並執行索引子以讀取容器，並從 Azure Blob 儲存體擷取可搜尋的內容
 > * 搜尋剛剛建立的索引
-
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
-
-## <a name="prerequisites"></a>必要條件
-
-* 完成[上一個教學課程](../storage/blobs/storage-unstructured-search.md)，提供在該課程中建立的儲存體帳戶和搜尋服務。
-
-* 安裝 REST 用戶端並了解如何建構 HTTP 要求。 基於本教學課程的目的，我們使用的是 [Postman](https://www.getpostman.com/) \(英文\)。 如果您已經很熟悉某個特定的 REST 用戶端，即可隨意使用不同的用戶端。
 
 > [!NOTE]
 > 本教學課程仰賴 JSON 陣列支援，該功能目前是 Azure 搜尋服務中的預覽功能， 因此入口網站並未提供。 基於此因素，我們使用提供這項功能的預覽 REST API 和 REST 用戶端工具來呼叫 API。
 
+## <a name="prerequisites"></a>必要條件
+
+[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本教學課程的免費服務。
+
+[建立 Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)以包含範例資料。
+
+[使用 Postman](https://www.getpostman.com/) \(英文\) 或另一個 REST 用戶端來傳送您的要求。 下一節會提供在 Postman 中設定 HTTP 要求的指示。
+
 ## <a name="set-up-postman"></a>設定 Postman
 
-啟動 Postman 及設定 HTTP 要求。 如果您不熟悉此工具，請參閱[使用 Fiddler 或 Postman 探索 Azure 搜尋服務 REST API](search-fiddler.md) 來取得詳細資訊。
+啟動 Postman 及設定 HTTP 要求。 如果您不熟悉此工具，請參閱[使用 Postman 探索 Azure 搜尋服務 REST API](search-fiddler.md)。
 
 本教學課程中每個呼叫的要求方法都是 "POST"。 標頭金鑰為 "Content-type" 和 "api-key"。 標頭金鑰的值分別為 "application/json" 和您的「管理金鑰」(管理金鑰是您搜尋主索引鍵的預留位置)。 主體是您放置呼叫實際內容的地方。 根據使用的用戶端而定，您用以建構查詢的方式可能會有一些變化，但那些都是基本的。
 
@@ -52,21 +51,13 @@ ms.locfileid: "53632937"
 
   ![半結構化搜尋](media/search-semi-structured-data/keys.png)
 
-## <a name="download-the-sample-data"></a>下載範例資料
+## <a name="prepare-sample-data"></a>準備範例資料
 
-目前已為您備妥範例資料集。 **下載 [clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)** 並將它解壓縮至它本身的資料夾。
+1. **下載 [clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)** 並將它解壓縮至它本身的資料夾。 資料源自 [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results)，已針對本教學課程轉換為 JSON。
 
-範例中所含的是範例 JSON 檔案，其原本是從 [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results) \(英文\) 取得的文字檔。 我們已將其轉換為 JSON，方便供您使用。
+2. 登入 [Azure 入口網站](https://portal.azure.com)、瀏覽至您的 Azure 儲存體帳戶、開啟**資料**容器，然後按一下 [上傳]。
 
-## <a name="sign-in-to-azure"></a>登入 Azure
-
-登入 [Azure 入口網站](https://portal.azure.com)。
-
-## <a name="upload-the-sample-data"></a>上傳範例資料
-
-在 Azure 入口網站中，瀏覽回到在[上一個教學課程](../storage/blobs/storage-unstructured-search.md)中建立的儲存體帳戶。 接著開啟 [資料] 容器，然後按一下 [上傳]。
-
-按一下 [進階]、輸入 "clinical-trials-json"，然後上傳您已下載的所有 JSON 檔案。
+3. 按一下 [進階]、輸入 "clinical-trials-json"，然後上傳您已下載的所有 JSON 檔案。
 
   ![半結構化搜尋](media/search-semi-structured-data/clinicalupload.png)
 
@@ -76,17 +67,15 @@ ms.locfileid: "53632937"
 
 我們使用 Postman 來對您的搜尋服務進行三個 API 呼叫，以建立資料來源、索引及索引子。 資料來源包括指向您儲存體帳戶和您 JSON 資料的指標。 您的搜尋服務會在載入資料時進行連線。
 
-查詢字串必須包含 **api-version=2016-09-01-Preview**，而每個呼叫都應傳回 **201 Created**。 公開推出的 api-version 尚未具備以 jsonArray 方式處理 json 的功能，目前只有預覽的 api-version 能夠做到。
+查詢字串必須包含一個預覽 API (例如 **api-version=2017-11-11-Preview**)，而每個呼叫都應傳回「201 已建立」。 公開推出的 api-version 尚未具備以 jsonArray 方式處理 json 的功能，目前只有預覽的 api-version 能夠做到。
 
 從您的 REST 用戶端執行下列三個 API 呼叫。
 
-### <a name="create-a-datasource"></a>建立資料來源
+## <a name="create-a-data-source"></a>建立資料來源
 
-資料來源會指定要編製索引的資料。
+資料來源是一個 Azure 搜尋服務物件，可指定要編製索引的資料。
 
-此呼叫的端點為 `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`。 使用您的搜尋服務名稱來取代 `[service name]`。
-
-針對此呼叫，您需要您的儲存體帳戶名稱和儲存體帳戶金鑰。 儲存體帳戶金鑰可以在 Azure入口網站中，於儲存體帳戶的**存取金鑰**內部找到。 下面的影像顯示該位置：
+此呼叫的端點為 `https://[service name].search.windows.net/datasources?api-version=2016-09-01-Preview`。 使用您的搜尋服務名稱來取代 `[service name]`。 針對此呼叫，您需要您的儲存體帳戶名稱和儲存體帳戶金鑰。 儲存體帳戶金鑰可以在 Azure入口網站中，於儲存體帳戶的**存取金鑰**內部找到。 下面的影像顯示該位置：
 
   ![半結構化搜尋](media/search-semi-structured-data/storagekeys.png)
 
@@ -123,9 +112,9 @@ ms.locfileid: "53632937"
 }
 ```
 
-### <a name="create-an-index"></a>建立索引
+## <a name="create-an-index"></a>建立索引
     
-第二個 API 呼叫會建立索引。 索引會指定所有參數及其屬性。
+第二個 API 呼叫會建立 Azure 搜尋服務索引。 索引會指定所有參數及其屬性。
 
 此呼叫的 URL 是 `https://[service name].search.windows.net/indexes?api-version=2016-09-01-Preview`。 使用您的搜尋服務名稱來取代 `[service name]`。
 
@@ -213,13 +202,13 @@ ms.locfileid: "53632937"
 }
 ```
 
-### <a name="create-an-indexer"></a>建立索引子
+## <a name="create-and-run-an-indexer"></a>建立及執行索引子
 
-索引子會將資料來源連接至目標搜尋索引，並選擇性地提供排程來將資料重新整理自動化。
+索引子會與資料來源連線、將資料匯入至目標搜尋索引，並選擇性地提供排程來將資料重新整理自動化。
 
 此呼叫的 URL 是 `https://[service name].search.windows.net/indexers?api-version=2016-09-01-Preview`。 使用您的搜尋服務名稱來取代 `[service name]`。
 
-首先，取代 URL。 接著複製下列程式碼並貼至您的主體，然後執行查詢。
+首先，取代 URL。 接著，複製下列程式碼並貼至您的本文，然後傳送要求。 立即處理要求。 當回應傳回時，您將具備可進行全文檢索搜尋的索引。
 
 ```json
 {
@@ -258,11 +247,9 @@ ms.locfileid: "53632937"
 
 ## <a name="search-your-json-files"></a>搜尋您的 JSON 檔案
 
-您的搜尋服務現已連線至資料容器，因此可以開始搜尋檔案。
+您現在可以針對索引發出查詢。 針對此工作，在入口網站中使用[**搜尋總管**](search-explorer.md)。
 
-開啟 Azure 入口網站，並瀏覽回到您的搜尋服務。 就像您在上一個教學課程中所做的。
-
-  ![未結構化搜尋](media/search-semi-structured-data/indexespane.png)
+  ![非結構化搜尋](media/search-semi-structured-data/indexespane.png)
 
 ### <a name="user-defined-metadata-search"></a>使用者定義的中繼資料搜尋
 

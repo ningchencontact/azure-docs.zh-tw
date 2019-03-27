@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 2c756e9e2944895cc493aa56d1dd20254e5d8ea0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: e135c7fa9907d218ed32b6bdb0fd60da0ecf1851
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188491"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084703"
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>收集關於 Azure 虛擬機器的資料
 [Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md) 可將環境中 Azure 虛擬機器和其他資源的資料直接收集到單一存放庫，以供詳細分析和相互關聯。  本快速入門向您示範如何以幾個簡單步驟來設定和收集 Azure Linux 或 Windows VM 的資料。  
@@ -36,13 +36,13 @@ ms.locfileid: "53188491"
 
 2. 按一下 [建立]，然後選取下列項目的選項：
 
-  * 為新的 [Log Analytics 工作區] 提供名稱，例如 DefaultLAWorkspace。 OMS 工作區現在稱為 Log Analytics 工作區。  
-  * 如果選取的預設值不合適，請從下拉式清單中選取要連結的 [訂用帳戶]。
-  * 對於 [資源群組]，選取包含一或多個 Azure 虛擬機器的現有資源群組。  
-  * 選取要部署 VM 的 [位置]。  如需詳細資訊，請查看 [Log Analytics 的可用區域](https://azure.microsoft.com/regions/services/)。
-  * 如果您要在 2018 年 4 月 2 之後建立的新訂用帳戶中建立工作區，系統會自動使用「每 GB」定價方案和選項來選取將無法使用的定價層。  如果您要為在 4 月 2 日之前建立的現有訂用帳戶，或已繫結至現有 EA 註冊的訂用帳戶建立工作區，請選取您偏好的定價層。  如需特定層的詳細資訊，請參閱 [Log Analytics 價格詳細資料](https://azure.microsoft.com/pricing/details/log-analytics/)。
+   * 為新的 [Log Analytics 工作區] 提供名稱，例如 DefaultLAWorkspace。 OMS 工作區現在稱為 Log Analytics 工作區。  
+   * 如果選取的預設值不合適，請從下拉式清單中選取要連結的 [訂用帳戶]。
+   * 對於 [資源群組]，選取包含一或多個 Azure 虛擬機器的現有資源群組。  
+   * 選取要部署 VM 的 [位置]。  如需詳細資訊，請查看 [Log Analytics 的可用區域](https://azure.microsoft.com/regions/services/)。
+   * 如果您要在 2018 年 4 月 2 之後建立的新訂用帳戶中建立工作區，系統會自動使用「每 GB」定價方案和選項來選取將無法使用的定價層。  如果您要為在 4 月 2 日之前建立的現有訂用帳戶，或已繫結至現有 EA 註冊的訂用帳戶建立工作區，請選取您偏好的定價層。  如需特定層的詳細資訊，請參閱 [Log Analytics 價格詳細資料](https://azure.microsoft.com/pricing/details/log-analytics/)。
   
-        ![Create Log Analytics resource blade](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
+        ![[建立 Log Analytics] 資源刀鋒視窗](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
 
 3. 在 [Log Analytics 工作區] 窗格上提供必要資訊之後，按一下 [確定]。  
 

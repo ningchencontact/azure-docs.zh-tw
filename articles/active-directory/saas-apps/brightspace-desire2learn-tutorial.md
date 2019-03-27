@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: e2d3065b-1f6c-4c45-af78-0d5da3266999
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27881854bea6194b601496a1fc32f24beccd5273
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 3e927aa4b407103b1efed33a4305532c590780d9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878509"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849987"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightspace-by-desire2learn"></a>教學課程：Azure Active Directory 與 Brightspace by Desire2Learn 整合
 
@@ -80,7 +80,7 @@ ms.locfileid: "56878509"
 2. **[設定 Brightspace by Desire2Learn 單一登入](#configure-brightspace-by-desire2learn-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 Brightspace by Desire2Learn 測試使用者](#create-brightspace-by-desire2learn-test-user)** - 在 Brightspace by Desire2Learn 中建立一個與 Azure AD 中代表 Britta Simon 之項目連結的 Britta Simon 對應項目。
+5. **[建立 Brightspace by Desire2Learn 測試使用者](#create-brightspace-by-desire2learn-test-user)** - 在 Brightspace by Desire2Learn 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
@@ -106,6 +106,7 @@ ms.locfileid: "56878509"
     ![Brightspace by Desire2Learn 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
     a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：
+    
     | |
     |--|
     | `https://<companyname>.tenants.brightspace.com/samlLogin`|
@@ -152,7 +153,7 @@ ms.locfileid: "56878509"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -169,7 +170,7 @@ ms.locfileid: "56878509"
 
 2. 在應用程式清單中，選取 [Brightspace by Desire2Learn]。
 
-    ![應用程式清單中的 Brightspace by Desire2Learn 連結](common/all-applications.png)
+    ![應用程式清單中的 [Brightspace by Desire2Learn] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

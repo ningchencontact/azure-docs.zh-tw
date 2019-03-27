@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 4536fd49-3a65-4cff-9620-860904f726d0
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 13c3b74c50c8417d8d410f8a1975a8c50eb9fdd9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 3dab784d706228793c6acc0f930f39ba1962caeb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875526"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57848978"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-m-files"></a>教學課程：Azure Active Directory 與 M-Files 整合
 
@@ -35,7 +35,7 @@ M-Files 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定與 M-Files 的 Azure AD 整合，您需要下列項目：
+若要設定 Azure AD 與 M-Files 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 M-Files 單一登入的訂用帳戶
@@ -102,14 +102,14 @@ M-Files 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![M-Files 網域和 URL 單一登入資訊](common/sp-identifier.png)
+    ![M-Files 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<tenantname>.cloudvault.m-files.com/authentication/MFiles.AuthenticationProviders.Core/sso`
 
     b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://<tenantname>.cloudvault.m-files.com`
 
     > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [M-Files 客戶支援小組](mailto:support@m-files.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [M-Files 用戶端支援小組](mailto:support@m-files.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
@@ -174,7 +174,7 @@ M-Files 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -191,7 +191,7 @@ M-Files 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [M-Files]。 
 
-    ![應用程式清單中的 M-Files 連結](common/all-applications.png)
+    ![應用程式清單中的 [M-Files] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -209,7 +209,7 @@ M-Files 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-m-files-test-user"></a>建立 M-Files 測試使用者
 
-本節的目標是要在 M-Files 中建立名為 Britta Simon 的使用者。 請與 [M-Files 支援小組](mailto:support@m-files.com)合作，在 M-Files 中新增使用者。
+本節的目標是要在 M-Files 中建立一個名為 Britta Simon 的使用者。 請與 [M-Files 支援小組](mailto:support@m-files.com)合作，在 M-Files 中新增使用者。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

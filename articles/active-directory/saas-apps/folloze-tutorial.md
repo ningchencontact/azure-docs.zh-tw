@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: b6265bbf-8216-4229-bda7-8dd1023a5f80
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0e20ade5756b59d42836a012eb15e85888e0bbd
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 41f867e2700c7b3f5d70d76c78a32e0fa3361d56
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868726"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892620"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-folloze"></a>教學課程：Azure Active Directory 與 Folloze 整合
 
@@ -72,10 +72,10 @@ Folloze 與 Azure AD 的整合可提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者身分，設定及測試與 Folloze 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Folloze 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Folloze 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Folloze 搭配運作的 Azure AD 單一登入，您必須完成下列建置組塊：
+若要設定及測試與 Folloze 搭配運作的 Azure AD 單一登入，您必須完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Folloze 單一登入](#configure-folloze-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -104,7 +104,7 @@ Folloze 與 Azure AD 的整合可提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段中，使用者不需要執行任何步驟，因為應用程式已預先與 Azure 整合。
 
-    ![Folloze 網域與 URL 單一登入資訊](common/preintegrated.png)
+    ![Folloze 網域及 URL 單一登入資訊](common/preintegrated.png)
 
 5. Folloze 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
 
@@ -151,7 +151,7 @@ Folloze 與 Azure AD 的整合可提供下列優點：
 
 ### <a name="configure-folloze-single-sign-on"></a>設定 Folloze 單一登入
 
-若要設定 **Folloze** 端的單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)] 和複製的適當 URL 傳送給 [Folloze 支援小組](mailto:support@folloze.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **Folloze** 端設定單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)] 和複製的適當 URL 傳送給 [Folloze 支援小組](mailto:support@folloze.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
@@ -171,7 +171,7 @@ Folloze 與 Azure AD 的整合可提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -188,7 +188,7 @@ Folloze 與 Azure AD 的整合可提供下列優點：
 
 2. 在應用程式清單中，輸入 **Folloze** 並加以選取。
 
-    ![應用程式清單中的 Folloze 連結](common/all_applications.png)
+    ![應用程式清單中的 [Folloze] 連結](common/all_applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -206,13 +206,13 @@ Folloze 與 Azure AD 的整合可提供下列優點：
 
 ### <a name="create-folloze-test-user"></a>建立 Folloze 測試使用者
 
-本節會在 Folloze 中建立名為 Britta Simon 的使用者。 Folloze 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Folloze 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
+本節會在 Folloze 中建立名為 Britta Simon 的使用者。 Folloze 支援預設會啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Folloze 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Folloze] 圖格時，應該會自動登入您設定 SSO 的 Folloze。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [Folloze] 圖格時，應該會自動登入您已設定 SSO 的 Folloze。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

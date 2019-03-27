@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: f8b4cdcc-cbf6-4229-9427-05632e33f942
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04d80d7a660bb9fabbe926471dc08c7269882569
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c19dae4af1007d8444097db06bded51d714e74ff
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879555"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57837141"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-schoox"></a>教學課程：Azure Active Directory 與 Schoox 整合
 
@@ -36,7 +36,7 @@ Schoox 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Schoox 整合，您需要下列項目：
+若要設定 Azure AD 與 Schoox 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Schoox 單一登入的訂用帳戶
@@ -71,7 +71,7 @@ Schoox 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者身分，設定及測試與 Schoox 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Schoox 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Schoox 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 Schoox 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
@@ -152,7 +152,7 @@ Schoox 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -169,7 +169,7 @@ Schoox 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Schoox]。
 
-    ![應用程式清單中的 Schoox 連結](common/all-applications.png)
+    ![應用程式清單中的 [Schoox] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

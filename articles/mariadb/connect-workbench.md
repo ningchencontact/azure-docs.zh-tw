@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 121766a312db1970981b7ffb1c718f27c9f5d3d1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 8f2ae27e19acb5bf324202b463d2b3027ad2ea5a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538737"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888224"
 ---
 # <a name="azure-database-for-mariadb-use-mysql-workbench-to-connect-and-query-data"></a>適用於 MariaDB 的 Azure 資料庫：使用 MySQL Workbench 連線並查詢資料
 
@@ -41,37 +41,37 @@ ms.locfileid: "53538737"
 
 4. 在伺服器的 [概觀] 頁面上，記下 [伺服器名稱] 和 [伺服器管理員登入名稱] 的值。 如果您忘記密碼，您也可以在此頁面上重設密碼。
 
- ![適用於 MariaDB 的 Azure 資料庫的伺服器名稱和伺服器管理員登入名稱](./media/connect-workbench/1_server-overview-name-login.png)
+   ![適用於 MariaDB 的 Azure 資料庫的伺服器名稱和伺服器管理員登入名稱](./media/connect-workbench/1_server-overview-name-login.png)
 
 ## <a name="connect-to-the-server-by-using-mysql-workbench"></a>使用 MySQL Workbench 來連線到伺服器
 
 若要使用 MySQL Workbench 連線到適用於 MariaDB 的 Azure 資料庫伺服器：
 
-1.  在電腦上開啟 MySQL Workbench。 
+1. 在電腦上開啟 MySQL Workbench。 
 
-2.  在 [設定新連線] 對話方塊的 [參數] 索引標籤上，輸入下列資訊︰
+2. 在 [設定新連線] 對話方塊的 [參數] 索引標籤上，輸入下列資訊︰
 
-    | 設定 | 建議的值 | 欄位描述 |
-    |---|---|---|
-    |   連線名稱 | **示範連線** | 指定此連線的標籤。 |
-    | 連線方式 | **標準 (TCP/IP)** | 標準 (TCP/IP) 就足夠了。 |
-    | 主機名稱 | 伺服器名稱 | 指定您建立適用於 MariaDB 的 Azure 資料庫執行個體時所使用的伺服器名稱值。 範例伺服器是 **mydemoserver.mariadb.database.azure.com**。 使用完整網域名稱 (\*.mariadb.database.azure.com)，如範例所示。 如果您不記得伺服器名稱，請完成上一節中的步驟以取得連線資訊。  |
-    | Port | **3306** | 連線到適用於 MariaDB 的 Azure 資料庫時，請一律使用連接埠 3306。 |
-    | 使用者名稱 |  伺服器管理員登入名稱 | 輸入您建立適用於 MariaDB 的 Azure 資料庫執行個體時所使用的伺服器管理員登入使用者名稱。 我們的範例使用者名稱為 **myadmin@mydemoserver**。 如果您不記得伺服器管理員登入名稱，請完成上一節中的步驟以取得連線資訊。 格式為 *username@servername*。
-    | 密碼 | 您的密碼 | 若要儲存密碼，請選取 [儲存在保存庫]。 |
+   | 設定 | 建議的值 | 欄位描述 |
+   |---|---|---|
+   |   連線名稱 | **示範連線** | 指定此連線的標籤。 |
+   | 連線方式 | **標準 (TCP/IP)** | 標準 (TCP/IP) 就足夠了。 |
+   | 主機名稱 | 伺服器名稱 | 指定您建立適用於 MariaDB 的 Azure 資料庫執行個體時所使用的伺服器名稱值。 範例伺服器是 **mydemoserver.mariadb.database.azure.com**。 使用完整網域名稱 (\*.mariadb.database.azure.com)，如範例所示。 如果您不記得伺服器名稱，請完成上一節中的步驟以取得連線資訊。  |
+   | Port | **3306** | 連線到適用於 MariaDB 的 Azure 資料庫時，請一律使用連接埠 3306。 |
+   | 使用者名稱 |  伺服器管理員登入名稱 | 輸入您建立適用於 MariaDB 的 Azure 資料庫執行個體時所使用的伺服器管理員登入使用者名稱。 我們的範例使用者名稱為 **myadmin\@mydemoserver**。 如果您不記得伺服器管理員登入名稱，請完成上一節中的步驟以取得連線資訊。 格式是 *username\@servername*。
+   | 密碼 | 您的密碼 | 若要儲存密碼，請選取 [儲存在保存庫]。 |
 
-    ![設定新的連線](./media/connect-workbench/2-setup-new-connection.png)
+   ![設定新的連線](./media/connect-workbench/2-setup-new-connection.png)
 
-3.   若要確認所有參數均已正確設定，請選取 [測試連線]。 
+3. 若要確認所有參數均已正確設定，請選取 [測試連線]。 
 
-4.   選取 [確定] 以儲存連線。 
+4. 選取 [確定] 以儲存連線。 
 
-5.   在 [MySQL 連線] 下方，選取與您的伺服器相對應的圖格。 等候連線建立。
+5. 在 [MySQL 連線] 下方，選取與您的伺服器相對應的圖格。 等候連線建立。
 
-    新的 SQL 索引標籤隨即開啟並出現空白的編輯器，可供您輸入查詢。
+   新的 SQL 索引標籤隨即開啟並出現空白的編輯器，可供您輸入查詢。
     
-    > [!NOTE]
-    > 依預設將需要 SSL 連線安全性，且會在適用於 MariaDB 的 Azure 資料庫伺服器上強制執行。 一般而言，您雖然不需要對 SSL 憑證進行其他設定，就能讓 MySQL Workbench 連線到您的伺服器，但還是建議您將 SSL CA 憑證繫結到 MySQL Workbench。 如果您需要停用 SSL，請在 Azure 入口網站中的伺服器概觀頁面上，從功能表中選取 [連線安全性]。 針對 [強制執行 SSL 連線]，選取 [已停用]。
+   > [!NOTE]
+   > 依預設將需要 SSL 連線安全性，且會在適用於 MariaDB 的 Azure 資料庫伺服器上強制執行。 一般而言，您雖然不需要對 SSL 憑證進行其他設定，就能讓 MySQL Workbench 連線到您的伺服器，但還是建議您將 SSL CA 憑證繫結到 MySQL Workbench。 如果您需要停用 SSL，請在 Azure 入口網站中的伺服器概觀頁面上，從功能表中選取 [連線安全性]。 針對 [強制執行 SSL 連線]，選取 [已停用]。
 
 ## <a name="create-table-and-insert-read-update-and-delete-data"></a>建立資料表，並插入、讀取、更新和刪除資料
 

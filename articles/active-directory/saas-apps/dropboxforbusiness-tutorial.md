@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 63502412-758b-4b46-a580-0e8e130791a1
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/20/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad1770584b7b84888b42d2ddb74d6eef6eef898c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: e54ea079789ddfb2a6d85f808453589637522f1d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882853"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57896172"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>教學課程：Azure Active Directory 與 Dropbox for Business 整合
 
@@ -36,7 +36,7 @@ Dropbox for Business 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Dropbox for Business 整合，您需要下列項目：
+若要設定 Azure AD 與 Dropbox for Business 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Dropbox for Business 單一登入的訂用帳戶
@@ -45,7 +45,7 @@ Dropbox for Business 與 Azure AD 整合提供下列優點：
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* Dropbox for Business 支援 **SP** 起始的 SSO
+* Dropbox for Business 支援由 **SP** 起始的 SSO
 
 * Dropbox for Business 支援 **Just In Time** 使用者佈建
 
@@ -162,7 +162,7 @@ Dropbox for Business 與 Azure AD 整合提供下列優點：
 
     c. 按一下 [上傳憑證]，然後瀏覽至您從 Azure 入口網站下載的 **Base64 編碼憑證檔案**。
 
-    d. 按一下 [複製連結]，並在 Azure 入口網站中，將複製的值貼到 [商務用 Dropbox 網域和 URL] 區段的 [登入 URL] 文字方塊。
+    d. 按一下 [Copy link] \(複製連結\)，然後將複製的值貼到 Azure 入口網站上 [商務用 Dropbox 網域及 URL] 區段的 [登入 URL] 文字方塊中。
 
     e. 按一下 [檔案] 。
 
@@ -184,7 +184,7 @@ Dropbox for Business 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -201,7 +201,7 @@ Dropbox for Business 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，輸入並選取 [Dropbox for Business]。
 
-    ![應用程式清單中的商務用 Dropbox](common/all-applications.png)
+    ![應用程式清單中的 [商務用 Dropbox] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -219,7 +219,7 @@ Dropbox for Business 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-dropbox-for-business-test-user"></a>建立 Dropbox for Business 測試使用者
 
-本節會在 Dropbox for Business 中建立名為 Britta Simon 的使用者。 Dropbox for Business 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Dropbox for Business 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
+本節會在 Dropbox for Business 中建立名為 Britta Simon 的使用者。 Dropbox for Business 支援預設會啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Dropbox for Business 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
 >[!Note]
 >如果您需要手動建立使用者，請連絡 [Dropbox for Business 用戶端支援小組](https://www.dropbox.com/business/contact)
@@ -228,7 +228,7 @@ Dropbox for Business 與 Azure AD 整合提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Dropbox for Business] 圖格時，應該會自動登入您已設定 SSO 的 Dropbox for Business。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [商務用 Dropbox] 圖格時，應該會自動登入您已設定 SSO 的 Dropbox for Business。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

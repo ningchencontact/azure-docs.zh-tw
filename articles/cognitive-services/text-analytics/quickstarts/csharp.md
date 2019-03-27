@@ -10,17 +10,17 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: assafi
-ms.openlocfilehash: 9b56104934c1ddcc60222c988efdf173ca33d77b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: bc4553df239dbb8b62a31414539b10998cd74f02
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871004"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189643"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>快速入門：使用 C# 來呼叫文字分析認知服務
 <a name="HOLTop"></a>
 
-本文示範如何使用 [文字分析 API](//go.microsoft.com/fwlink/?LinkID=759711)  與 C# 來偵測語言、分析情感及擷取關鍵片語。 程式碼以能在 .Net Core 應用程式上運作，且參考最少量外部程式庫的方式撰寫，因此您也可以在 Linux 或 MacOS 上執行。
+本文示範如何使用 [文字分析 API](//go.microsoft.com/fwlink/?LinkID=759711)  與 C# 來偵測語言、分析情感及擷取關鍵片語。 程式碼以能在 .NET Core 應用程式上運作，且參考最少量外部程式庫的方式撰寫，因此您也可以在 Linux 或 MacOS 上執行。
 
 如需 API 的技術文件，請參閱 [API 定義](//go.microsoft.com/fwlink/?LinkID=759346)。
 
@@ -30,26 +30,25 @@ ms.locfileid: "56871004"
 
 您也必須具備註冊時產生的[端點和存取金鑰](../How-tos/text-analytics-how-to-access-key.md)。
 
-
 ## <a name="install-the-nuget-sdk-package"></a>安裝 NuGet SDK 套件
 1. 在 Visual Studio 中建立新的主控台解決方案。
 1. 以滑鼠右鍵按一下方案，然後按一下 [管理方案的 NuGet 套件]。
 1. 標記 [包括發行前版本] 核取方塊。
 1. 選取 [瀏覽] 索引標籤，搜尋 **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**
-1. 選取 NuGet 套件並加以安裝。
+1. 選取 NuGet 套件並加以安裝。 除非軟體中的錯誤 (bug) 已經解決，否則您目前可能需要 v2.8.0 (3-18-2019)，而非 v3.0.0。
 
 > [!Tip]
 >  雖然您可以直接從 C# 呼叫 [HTTP 端點](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)，但是 Microsoft.Azure.CognitiveServices.Language SDK 可以讓您更輕鬆地呼叫服務，而不必擔心序列化和還原序列化 JSON。
 >
 > 以下是幾個實用的連結：
-> - [SDK NuGet 頁面](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
+> - [SDK NuGet 頁面](<https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics>)
 > - [SDK 程式碼](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
 
-
 ## <a name="call-the-text-analytics-api-using-the-sdk"></a>使用 SDK 呼叫文字分析 API
+
 1. 將 Program.cs 取代為下面提供的程式碼。 此程式以 3 個區段 (語言擷取、關鍵片語擷取和情感分析) 示範文字分析 API 的功能。
 1. 以對您訂用帳戶有效的存取金鑰取代 `Ocp-Apim-Subscription-Key` 標頭值。
-1. 將 `Endpoint` 中的位置取代為您註冊的端點。 您可以在 Azure 入口網站資源中尋找端點。 端點通常會以 "https://[region].api.cognitive.microsoft.com" 開頭，在此請僅包含通訊協定和主機名稱。
+1. 取代 `Endpoint` 中的區域。 您可以在 [Azure 入口網站](<https://ms.portal.azure.com>)，於文字分析資源的概觀區段中，找到端點。 請只包含您端點的這部分："https://[region].api.cognitive.microsoft.com"。
 1. 執行程式。
 
 ```csharp
