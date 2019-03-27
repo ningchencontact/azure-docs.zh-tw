@@ -2,19 +2,19 @@
 title: 檢查裝置對 Azure IoT 中樞的連線能力
 description: 在開發期間使用 IoT 中樞工具，排解將裝置連線至您的 IoT 中樞時所發生的問題。
 services: iot-hub
-author: dominicbetts
-manager: timlt
-ms.author: dobett
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.custom: mvc
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: ebd206f6de031ea73d621568e091632e2e8123b9
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: cd60129e2da0b0c2130b300159953bd81c4aeb82
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674494"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077559"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>教學課程：使用模擬裝置來測試與您 IoT 中樞的連線能力
 
@@ -135,7 +135,7 @@ az iot hub generate-sas-token --device-id MyTestDevice --hub-name {YourIoTHubNam
 
 完整記下產生的 SAS 權杖文字。 SAS 權杖顯示如下：`SharedAccessSignature sr=tutorials-iot-hub.azure-devices.net%2Fdevices%2FMyTestDevice&sig=....&se=1524155307`
 
-在開發機器的終端機視窗中，瀏覽至您下載的範例 Node.js 專案的根資料夾。 然後，瀏覽至 **iot-hub\Tutorials\ConnectivityTests\simulated-device** 資料夾。
+在開發機器的終端機視窗中，瀏覽至您下載的範例 Node.js 專案的根資料夾。 然後，瀏覽至 **iot-hub\Tutorials\ConnectivityTests** 資料夾。
 
 在終端機視窗中，執行下列命令以安裝模擬的裝置應用程式所需的程式庫並執行模擬的裝置應用程式：
 
@@ -176,7 +176,7 @@ node SimulatedDevice-2.js "{Your SAS token}"
 az iot hub device-identity show-connection-string --device-id MyTestDevice --output table --hub-name {YourIoTHubName}
 ```
 
-若要執行會傳送訊息的模擬裝置，請在您下載的程式碼中瀏覽至 **iot-hub\Tutorials\ConnectivityTests\simulated-device** 資料夾。
+若要執行會傳送訊息的模擬裝置，請在您下載的程式碼中瀏覽至 **iot-hub\Tutorials\ConnectivityTests** 資料夾。
 
 在終端機視窗中，執行下列命令以安裝模擬的裝置應用程式所需的程式庫並執行模擬的裝置應用程式：
 

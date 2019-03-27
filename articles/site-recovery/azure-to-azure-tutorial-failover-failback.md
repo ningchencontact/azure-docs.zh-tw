@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 46dae28fd6c9eaa3d5e03f5f06c5e92449653679
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ba1e65ca915c576d2424b166488b89baa92c24a9
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737717"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729046"
 ---
-# <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>在 Azure 區域之間容錯移轉及容錯回復 Azure VM
+# <a name="fail-over-and-reprotect-azure-vms-between-azure-regions"></a>在 Azure 區域之間容錯移轉及重新保護 Azure VM
 
 [Azure Site Recovery](site-recovery-overview.md) 服務可藉由管理及協調內部部署電腦與 Azure 虛擬機器 (VM) 的複寫、容錯移轉及容錯回復，為您的災害復原策略做出貢獻。
 
@@ -24,9 +24,7 @@ ms.locfileid: "56737717"
 
 > [!div class="checklist"]
 > * 容錯移轉 Azure VM
-> * 重新保護次要 Azure VM，使其能複寫到主要區域
-> * 容錯回復次要 VM
-> * 將主要 VM 放回次要區域保護
+> * 重新保護次要 Azure VM，使其能複寫到主要區域。
 
 > [!NOTE]
 > 本教學課程旨在透過最少的自訂來逐步引導使用者對目標區域進行容錯移轉及容錯回復；如果您想要深入了解容錯移轉的各個相關層面，包括網路功能考量、自動化或疑難排解，請參閱 Azure VM 的「操作說明」文件。
@@ -74,12 +72,5 @@ ms.locfileid: "56737717"
 > 如需重新保護工作流程和重新保護期間會發生什麼情況的詳細資訊，請參閱[「操作說明」一節](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection)。
 
 
-## <a name="fail-back-to-the-primary-region"></a>容錯回復至主要區域
-
-重新保護 VM 之後，您可視需要容錯回復到主要區域。 若要這樣做，請設定從次要區域到主要區域的容錯移轉，如本文所述。
-
-![按一下滑鼠右鍵可重新保護](./media/azure-to-azure-tutorial-failover-failback/failback.png)
-
-如果您看到上述螢幕擷取畫面，則表示 "ContosoWin2016" VM 已從美國中部容錯移轉至美國東部，並從美國東部容錯回復至美國中部。
-
-容錯移轉會關閉次要區域 (亦即災害復原區域) 中的 VM，然後在主要區域中建立 VM 並加以啟動。 請**注意** DR VM 會停留在關機的已解除配置狀態，如上所示。 這是故意設計的行為，因為 Azure Site Recovery 會儲存虛擬機器的資訊，這可能會對之後從主要區域到次要區域的容錯移轉很有用。 已解除配置的虛擬機器不會收費，因此請讓其保持原狀。
+## <a name="next-steps"></a>後續步驟
+- 請參閱[如何容錯回復](azure-to-azure-tutorial-failback.md)。

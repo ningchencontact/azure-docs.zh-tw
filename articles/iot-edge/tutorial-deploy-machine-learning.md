@@ -1,20 +1,20 @@
 ---
-title: 將 Azure Machine Learning 部署至裝置的教學課程 - Azure IoT Edge | Microsoft Docs
-description: 在本教學課程中，將 Azure Machine Learning 當作模組部署至邊緣裝置
+title: 將 Azure Machine Learning 部署至裝置 - Azure IoT Edge | Microsoft Docs
+description: 在本教學課程中，您將建立一個 Azure Machine Learning 模型，然後將其當作模組部署至 Edge 裝置
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/21/2019
+ms.date: 03/07/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 0f7201ffd71a6bc3e68f83f005c693cae4fef84a
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 985f1f73fbfc8c75df8393615fca32f5d1c08b9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56648995"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078307"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>教學課程：將 Azure Machine Learning 部署為 IoT Edge 模組 (預覽)
 
@@ -40,13 +40,15 @@ ms.locfileid: "56648995"
 
 Azure IoT Edge 裝置：
 
-* 您可以遵循 [Linux](quickstart-linux.md) 或 [Windows 裝置](quickstart.md)快速入門中的步驟，使用您的開發電腦或虛擬機器作為邊緣裝置。
+* 您可以遵循 [Linux](quickstart-linux.md) 快速入門中的步驟，使用 Azure 虛擬機器作為 IoT Edge 裝置。
+* Azure Machine Learning 模組不支援 Windows 容器。
 * Azure Machine Learning 模組不支援 ARM 處理器。
 
 雲端資源：
 
 * Azure 中的免費或標準層 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)。
-* Azure Machine Learning 工作區。 請依照[準備在 IoT Edge 上部署模型](../machine-learning/service/how-to-deploy-to-iot.md)中的指示建立。
+* Azure Machine Learning 工作區。 請依照[透過 Azure 入口網站開始使用 Azure Machine Learning](../machine-learning/service/quickstart-get-started.md) 中的指示來建立一個，並了解如何使用它。
+   * 記下工作區名稱、資源群組和訂用帳戶識別碼。 這些值全都適用於 Azure 入口網站中的工作區概觀。 您會在本教學課程稍後使用這些值，來將 Azure 筆記本連線至您的工作區資源。 
 
 
 ### <a name="disable-process-identification"></a>停用程序識別
@@ -54,9 +56,9 @@ Azure IoT Edge 裝置：
 >[!NOTE]
 >
 > 預覽版的 Azure Machine Learning 不支援 IoT Edge 所預設啟用的程序識別安全性功能。
-> 以下是此功能的停用步驟。 不過，這不適合生產環境使用。 這些步驟只須在 Linux 上執行，因為在執行 Windows Edge 執行階段安裝時，此步驟已於先前完成。
+> 以下是此功能的停用步驟。 不過，這不適合生產環境使用。 只有在 Linux 裝置上才需要這些步驟。 
 
-若要在 IoT Edge 裝置上停用程序識別，您必須在 IoT Edge 精靈設定的 [連線] 區段中，對 **workload_uri** 和 **management_uri** 提供 IP 位址和連接埠。
+若要在 IoT Edge 裝置上停用程序識別，您必須在 IoT Edge 精靈設定的 [連線] 區段中，針對 **workload_uri** 和 **management_uri** 提供 IP 位址和連接埠。
 
 先取得 IP 位址。 在命令列中輸入 `ifconfig`，然後複製 **docker0** 介面的 IP 位址。
 
@@ -81,74 +83,75 @@ listen:
   workload_uri: "http://172.17.0.1:15581"
 ```
 
-使用 management_uri 位址建立環境變數 IOTEDGE_HOST (若要永久設定此變數，請將變數新增至 `/etc/environment`)。例如：
+儲存並關閉設定檔。
+
+使用 management_uri 位址建立環境變數 IOTEDGE_HOST (若要永久設定此變數，請將變數新增至 `/etc/environment`)。 例如︰
 
 ```cmd/sh
 export IOTEDGE_HOST="http://172.17.0.1:15580"
 ```
 
+重新啟動 IoT Edge 服務以讓變更生效。
 
-## <a name="create-the-azure-machine-learning-service-container"></a>建立 Azure Machine Learning 服務容器
-在本節中，您會下載定型模型檔案，並將它們轉換成 Azure Machine Learning 服務容器。
+```cmd/sh
+sudo systemctl restart iotedge
+```
 
-請依照[準備在 IoT Edge 上部署模型](../machine-learning/service/how-to-deploy-to-iot.md)文件中的指示，使用您的機器學習模型建立 Docker 容器。  Docker 映像所需的所有元件都在[適用於 Azure IoT Edge 的 AI 工具組 Git 存放庫](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial)中。
+## <a name="create-and-deploy-azure-machine-learning-module"></a>建立並部署 Azure Machine Learning 模組
 
-### <a name="view-the-container-repository"></a>檢視容器存放庫
+在本節中，您會將定型的機器學習模型檔案轉換成 Azure Machine Learning 服務容器。 Docker 映像所需的所有元件都在[適用於 Azure IoT Edge 的 AI 工具組 Git 存放庫](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial)中。 請遵循下列步驟，將該存放庫上傳至 Microsoft Azure Notebooks 以建立容器，並將它推送至 Azure Container Registry。
 
-檢查容器映像是否已成功建立，並且儲存在與機器學習環境相關聯的 Azure Container Registry 中。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，移至 [所有服務]，然後選取 [容器登錄]。
-2. 選取您的登錄。 名稱應該以 **mlcr** 開頭，並且屬於您用來設定模組管理的資源群組、位置及訂用帳戶。
-3. 選取 [存取金鑰]
-4. 複製 [登入伺服器]、[使用者名稱] 及 [密碼]。  您需要這些值以便從 Edge 裝置存取登錄。
-5. 選取 [存放庫]
-6. 選取 [machinelearningmodule]
-7. 現在您有容器的完整映像路徑。 記下此映像路徑以在下一節中使用。 看起來如下所示：**<registry_name>.azurecr.io/machinelearningmodule:1**
+1. 巡覽至您的 Azure Notebooks 專案。 您可以從 [Azure 入口網站](https://portal.azure.com)的 Azure Machine Learning 服務工作區中取得它們，或使用您的 Azure 帳戶登入至 [Microsoft Azure Notebooks](https://notebooks.azure.com/home/projects) 來取得它們。
 
-## <a name="deploy-to-your-device"></a>部署至裝置
+2. 選取 [上傳 GitHub 存放庫]。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您的 IoT 中樞。
+3. 提供下列 GitHub 存放庫名稱：`Azure/ai-toolkit-iot-edge`。 如果您想要讓專案保持私人狀態，請取消核取 [公用] 方塊。 選取 [匯入]。 
 
-1. 移至 [IoT Edge] 並選取您的 IoT Edge 裝置。
+4. 匯入完成之後，巡覽至新的 **ai-toolkit-iot-edge** 專案，然後開啟 **IoT Edge anomaly detection tutorial** 資料夾。 
 
-1. 選取 [設定模組]。
+5. 確認您的專案正在執行。 若未執行，請選取 [在免費 Compute 上執行]。
 
-1. 在 [登錄設定] 區段中，新增您從 Azure Container Registry 複製得到的認證。
+   ![在免費 Compute 上執行](./media/tutorial-deploy-machine-learning/run-on-free-compute.png)
 
-   ![將登錄認證新增至資訊清單](./media/tutorial-deploy-machine-learning/registry-settings.png)
+6. 開啟 **aml_config/config.json** 檔案。
 
-1. 如果您先前在 IoT Edge 裝置上部署過 tempSensor 模組，可能會自動填入。 如果尚未在模組清單中，請新增它。
+7. 編輯設定檔，以包含適用於您 Azure 訂用帳戶識別碼的值、訂用帳戶中的資源群組，以及您的 Azure Machine Learning 服務工作區名稱。 您可以在 Azure 中從工作區的 [概觀] 區段取得所有這些值。 
 
-    1. 按一下 [新增]，然後選取 [IoT Edge 模組]。
-    2. 在 [名稱] 欄位中，輸入 `tempSensor`。
-    3. 在 [映像 URI] 欄位中，輸入 `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`。
-    4. 選取 [ **儲存**]。
+8. 儲存組態檔。
 
-1. 新增您建立的機器學習模組。
+9. 開啟 **00-anomaly-detection-tutorial.ipynb** 檔案。
 
-    1. 按一下 [新增]，然後選取 [IoT Edge 模組]。
-    1. 在 [名稱] 欄位中，輸入 `machinelearningmodule`
-    1. 在 [映像] 欄位中，輸入您的映像地址，例如`<registry_name>.azurecr.io/machinelearningmodule:1`。
-    1. 選取 [ **儲存**]。
+10. 出現提示時，選取 **Python 3.6** 核心，然後選取 [設定核心]。
 
-1. 回到 [新增模組] 步驟中，選取 [下一步]。
+11. 根據註解中的指示來編輯筆記本中的第一個資料格。 使用您新增至設定檔的相同資源群組、訂用帳戶識別碼及工作區名稱。
 
-1. 在 [指定路由] 步驟中，將下列 JSON 複製到文字方塊。 第一個路由會透過所有 Azure Machine Learning 模組使用的「amlInput」端點，將訊息從溫度感應器傳輸到機器學習模組。 第二個路由會將訊息從機器學習模組傳輸到 IoT 中樞。 在此路由中，「amlInput」是所有 Azure Machine Learning 模組用來輸出資料的端點，而「$upstream」代表 IoT 中樞。
+12. 藉由在筆記本中選取儲存格，然後選取 [執行] 或按 `Shift + Enter` 來執行它們。
 
-    ```json
-    {
-        "routes": {
-            "sensorToMachineLearning":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/machinelearningmodule/inputs/amlInput\")",
-            "machineLearningToIoTHub": "FROM /messages/modules/machinelearningmodule/outputs/amlOutput INTO $upstream"
-        }
-    }
-    ```
+    >[!TIP]
+    >異常偵測教學課程筆記本中的某些資料格是選擇性的，因為它們會建立某些使用者或許具備的資源，例如 IoT 中樞。 如果您將現有的資源資訊放置於第一個資料格，當您執行建立新資源的儲存格時，將會收到錯誤，因為 Azure 將不會建立重複的資源。 這很正常，而您可以忽略錯誤，或完全略過那些選擇性區段。 
 
-1. 選取 [下一步] 。
+完成筆記本中的所有步驟之後，您就已將異常偵測模型定型、建置它作為 Docker 容器映像，並將該映像推送至 Azure Container Registry。 接著，測試了模型，最後將它部署到您的 IoT Edge 裝置。 
 
-1. 在 [檢閱部署] 步驟中，選取 [提交]。
+## <a name="view-container-repository"></a>檢視容器存放庫
 
-1. 返回裝置的詳細資料頁面，選取 [重新整理]。  您應該會看到新的 **machinelearningmodule** 正在與 **tempSensor** 模組和 IoT Edge 執行階段模組一起執行。
+檢查容器映像是否已成功建立，並儲存於與您機器學習環境相關聯的 Azure Container Registry 中。 您在上一節中使用的筆記本會自動將容器映像及登錄認證提供給您的 IoT Edge 裝置，但您應該知道它們的儲存位置，讓您稍後可自行找到該資訊。 
+
+1. 在 [Azure 入口網站](https://portal.azure.com)中，巡覽至您的 Machine Learning 服務工作區。 
+
+2. [概觀] 區段會列出工作區詳細資料及其相關聯的資源。 選取 [登錄] 值，此值應該是您工作區名稱，後面接著隨機數字。 
+
+3. 在容器登錄中，選取 [存放庫]。 您應該會看到稱為 **tempanomalydetection** 的存放庫，此存放庫是您在上一節中執行的筆記本所建立的。 
+
+4. 選取 [tempanomalydetection]。 您應該會看到存放庫有一個標記：**1**。 
+
+   既然您已經知道登錄名稱、存放庫名稱和標記，您就會知道容器的完整映像路徑。 映像路徑看起來類似  **\<registry_name>\>.azurecr.io/tempanomalydetection:1**。 您可以使用映像路徑來將此容器部署到 IoT Edge 裝置。 
+
+5. 在容器登錄中，選取 [存取金鑰]。 您應該會看到數個存取認證，包括**登入伺服器**，以及管理使用者的**使用者名稱**和**密碼**。
+
+   這些認證可以包含於部署資訊清單中，為您的 IoT Edge 裝置提供存取權限來從登錄中提取容器映像。 
+
+您現在知道 Machine Learning 容器映像的儲存位置。 下一節將逐步解說步驟，以查看如何在您的 IoT Edge 裝置上將其當成已部署的模組來執行。 
 
 ## <a name="view-generated-data"></a>檢視產生的資料
 
@@ -158,7 +161,7 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 
 在 IoT Edge 裝置上，您可以檢視會從每個模組傳來的訊息。
 
-如果您在 Linux 裝置上執行這些命令，則可能需要使用 `sudo` 以獲得較高的權限。
+您可能需要針對提升的權限使用 `sudo`，才能執行 `iotedge` 命令。 登出然後再次登入至您的裝置，即會自動更新您的權限。
 
 1. 在 IoT Edge 裝置上檢視所有模組。
 
@@ -199,9 +202,6 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 否則，可以刪除您在本文中建立的本機組態和 Azure 資源，以避免產生費用。
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
-
-[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
-
 
 ## <a name="next-steps"></a>後續步驟
 

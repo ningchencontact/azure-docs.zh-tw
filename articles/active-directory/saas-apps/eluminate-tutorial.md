@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 94c28db4-dbca-446b-8eef-9b728f18ca9a
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a179864cbbf59c2b51cfefa45cb3036f81f58b9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8b62be58a4ba08aa77e32f08ed85c5600c48a050
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881629"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888037"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-eluminate"></a>教學課程：Azure Active Directory 與 eLuminate 整合
 
@@ -74,7 +74,7 @@ eLuminate 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 eLuminate 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 eLuminate 中相關使用者之間的連結關聯性。
 
-若要使用 eLuminate 來設定和測試 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 eLuminate 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 eLuminate 單一登入](#configure-eluminate-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -138,7 +138,7 @@ eLuminate 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -155,7 +155,7 @@ eLuminate 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [eLuminate]。
 
-    ![應用程式清單中的 eLuminate 連結](common/all-applications.png)
+    ![應用程式清單中的 [eLuminate] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
