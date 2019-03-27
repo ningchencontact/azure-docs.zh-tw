@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: e16a46db-5de2-4681-b7e0-94c670e3e54e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: c9b2770f861098993623d69f6b9f6a1577c9cf27
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: d1cc7735b8caa952a5ab7695d3e1f35b03fec1bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890511"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890673"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purecloud-by-genesys"></a>教學課程：Azure Active Directory 與 PureCloud by Genesys 整合
 
@@ -35,7 +35,7 @@ ms.locfileid: "56890511"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定與 PureCloud by Genesys 的 Azure AD 整合，您需要下列項目：
+若要設定 Azure AD 與 PureCloud by Genesys 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 PureCloud by Genesys 單一登入的訂用帳戶
@@ -102,9 +102,10 @@ ms.locfileid: "56890511"
 
 4. 在 [基本 SAML 組態] 區段上，若您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
 
-    ![PureCloud by Genesys 網域和 URL 單一登入資訊](common/idp-intiated.png)
+    ![PureCloud by Genesys 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
     a. 在 [識別碼] 文字方塊中，依據您的區域輸入 URL：
+
     | |
     |--|
     | `https://login.mypurecloud.com/saml` |
@@ -114,6 +115,7 @@ ms.locfileid: "56890511"
     | `https://login.mypurecloud.au/saml` |
 
     b. 在 [回覆 URL] 文字方塊中，依據您的區域輸入 URL：
+
     | |
     |--|
     | `https://login.mypurecloud.com/saml` |
@@ -124,9 +126,10 @@ ms.locfileid: "56890511"
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-    ![PureCloud by Genesys 網域和 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
+    ![PureCloud by Genesys 網域及 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
 
     在 [登入 URL] 文字方塊中，依據您的區域輸入 URL：
+    
     | |
     |--|
     | `https://login.mypurecloud.com` |
@@ -220,7 +223,7 @@ ms.locfileid: "56890511"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -229,7 +232,7 @@ ms.locfileid: "56890511"
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 PureCloud by Genesys 的存取權授與 Britta Simon，讓其能夠使用 Azure 單一登入。
+在本節中，您會將 PureCloud by Genesys 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [PureCloud by Genesys]。
 
@@ -237,7 +240,7 @@ ms.locfileid: "56890511"
 
 2. 在應用程式清單中，選取 [PureCloud by Genesys]。
 
-    ![應用程式清單中的 PureCloud by Genesys 連結](common/all-applications.png)
+    ![應用程式清單中的 [PureCloud by Genesys] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -275,7 +278,7 @@ ms.locfileid: "56890511"
 
     a. 在 [全名] 文字方塊中，輸入使用者的姓名，例如 **Brittasimon**。
 
-    b. 在 [電子郵件] 文字方塊中，輸入使用者的電子郵件，例如 **brittasimon@contoso.com**。
+    b. 在 [Email] \(電子郵件\) 文字方塊中，輸入使用者的電子郵件地址，例如 **brittasimon\@contoso.com**。
     
     c. 按一下頁面底部的 [新增] 。
 

@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 83a83d07-ff9c-46c4-b5ba-25fe2b2cd003
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e00432b13b255db5a321e5fbb2a35b3327b8063
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 0ddac8a87bb557daadf0a6ea0f1303545ec63d50
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869117"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835532"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-achieve3000"></a>教學課程：Azure Active Directory 與 Achieve3000 整合
 
@@ -36,7 +36,7 @@ Achieve3000 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定與 Achieve3000 的 Azure AD 整合，您需要下列項目：
+若要設定 Azure AD 與 Achieve3000 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Achieve3000 單一登入的訂用帳戶
@@ -74,7 +74,7 @@ Achieve3000 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Achieve3000 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Achieve3000 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Achieve3000 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 Achieve3000 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Achieve3000 單一登入](#configure-achieve3000-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -103,7 +103,7 @@ Achieve3000 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Achieve3000 網域與 URL 單一登入資訊](common/sp-identifier.png)
+    ![Achieve3000 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://saml.achieve3000.com/district/<District Identifier>`
 
@@ -177,7 +177,7 @@ Achieve3000 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -194,7 +194,7 @@ Achieve3000 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Achieve3000] 。
 
-    ![應用程式清單中的 Achieve3000 連結](common/all-applications.png)
+    ![應用程式清單中的 [Achieve3000] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -212,7 +212,7 @@ Achieve3000 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-achieve3000-test-user"></a>建立 Achieve3000 測試使用者
 
-在本節中，您要在 Achieve3000 中建立名為 Britta Simon 的使用者。 請與  [Achieve3000 支援小組](https://www.achieve3000.com/contact-us/) \(英文\) 合作，以在Achieve3000 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 Achieve3000 中建立名為 Britta Simon 的使用者。 請與 [Achieve3000 支援小組](https://www.achieve3000.com/contact-us/)合作，在Achieve3000 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

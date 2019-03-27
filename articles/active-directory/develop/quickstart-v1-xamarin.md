@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6266ec1f01a50756f745c3e8185c9fe34e102b4a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2e25848359de91d67925f49901c6c170978ea592
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56196190"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078698"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>快速入門：建置可整合 Microsoft 登入的 Xamarin 應用程式
 
@@ -59,11 +59,12 @@ Xamarin 可讓您使用 C# 撰寫可在 iOS、Android 和 Windows (行動裝置�
 3. 按一下左窗格中的 [所有服務]，然後選取 [Azure Active Directory]。
 4. 按一下 [應用程式註冊]，然後選取 [新增]。
 5. 若要建立新的**原生用戶端應用程式**，請遵照提示進行。
-  * [名稱] 向使用者說明該應用程式。
-  * [重新導向 URI] 是配置與字串的組合，Azure AD 會用它來傳回權杖回應。 輸入一個值 (例如， http://DirectorySearcher) 。
+   * [名稱] 向使用者說明該應用程式。
+   * [重新導向 URI] 是配置與字串的組合，Azure AD 會用它來傳回權杖回應。 輸入一個值 (例如，`http://DirectorySearcher`)。
 6. 完成註冊之後，Azure AD 會為應用程式指派唯一的應用程式識別碼。 從 [應用程式] 索引標籤複製值，因為稍後將會需要它。
 7. 在 [設定] 頁面中，選取 [必要的權限]，然後選取 [新增]。
-8. 選取 [Microsoft Graph] 做為 API。 在 [委派的權限] 下，新增 [讀取目錄資料] 權限。 這個動作可讓應用程式查詢使用者的圖形 API。
+8. 選取 [Microsoft Graph] 做為 API。 在 [委派的權限] 下，新增 [讀取目錄資料] 權限。 
+   這個動作可讓應用程式查詢使用者的圖形 API。
 
 ## <a name="step-3-install-and-configure-adal"></a>步驟 3：安裝及設定 ADAL
 
@@ -95,9 +96,9 @@ Xamarin 可讓您使用 C# 撰寫可在 iOS、Android 和 Windows (行動裝置�
 2. 在 DirectorySearcherLib 專案中，開啟 DirectorySearcher.cs。
 3. 將類別成員值取代為您在 Azure 入口網站中輸入的值。 每當使用 ADAL 時，您的程式碼便會參考這些值。
 
-  * *tenant* 是您 Azure AD 租用戶的網域 (例如 contoso.onmicrosoft.com)。
-  * *clientId* 是您從入口網站複製的應用程式用戶端識別碼。
-  * returnUri 是您在入口網站中輸入的重新導向 URI (例如， http://DirectorySearcher) 。
+   * *tenant* 是您 Azure AD 租用戶的網域 (例如 contoso.onmicrosoft.com)。
+   * *clientId* 是您從入口網站複製的應用程式用戶端識別碼。
+   * *returnUri* 是您在入口網站中輸入的重新導向 URI (例如，`http://DirectorySearcher`)。
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>步驟 4：使用 ADAL 從 Azure AD 取得權杖
 

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58b0d2c12a4e2088964e397b1bc499fa4adfdff3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 172bc96857c6aa0ab19fd4f1a13870dd493100bf
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244550"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295703"
 ---
 # <a name="what-is-authentication"></a>什麼是驗證？
 
@@ -79,7 +79,7 @@ Azure AD 會代表遵循特定模型的應用程式，此模型是為了滿足�
 
 在 Azure AD 中，**應用程式物件**會將應用程式描述抽象實體。 開發人員會處理應用程式。 在部署期間，Azure AD 會使用指定的應用程式物件作為藍圖來建立**服務主體**，其代表目錄或租用戶內之應用程式的實體執行個體。 它是能定義應用程式在某個特定目標目錄中可執行哪些作業、誰可以使用該應用程式，以及該應用程式可存取哪些資源等的服務主體。 Azure AD 會透過**同意**從應用程式物件建立服務主體。
 
-下圖顯示由同意驅動的簡化 Azure AD 佈建流程。
+下圖顯示由同意驅動的簡化 Azure AD 佈建流程。  當中存在兩個租用戶 (A 與 B)，其中的租用戶 A 擁有應用程式，而租用戶 B 透過服務主體將應用程式具現化。  
 
 ![由同意驅動的簡化佈建流程](./media/authentication-scenarios/simplified-provisioning-flow-consent.png)
 
@@ -87,14 +87,14 @@ Azure AD 會代表遵循特定模型的應用程式，此模型是為了滿足�
 
 |   |   |
 |---|---|
-| 1 | 來自 B 的使用者嘗試登入應用程式 |
+| 1 | 來自租用戶 B 的使用者嘗試登入應用程式 |
 | 2 | 系統會取得並驗證使用者認證 |
 | 3 | 系統會提示使用者同意讓應用程式存取租用戶 B |
-| 4 | Azure AD 會使用 A 中的應用程式物件作為藍圖，在 B 中建立服務主體 |
+| 4 | Azure AD 會使用 A 中的應用程式物件作為藍圖，在租用戶 B 中建立服務主體 |
 | 5 | 使用者會收到要求的權杖 |
 |   |   |
 
-您可以視需要針對其他租用戶 (C、D 等) 無數次地重複此程序。 目錄 A 會保留應用程式的藍圖 (應用程式物件)。 應用程式已取得同意之所有其他租用戶的使用者和系統管理員，都可以透過每個租用戶中相對應的服務主體物件，保留控制應用程式可執行哪些作業的能力。 如需詳細資訊，請參閱 [Azure AD 中的應用程式和服務主體物件](app-objects-and-service-principals.md)。
+您可以視需要針對其他租用戶 (C、D 等) 無數次地重複此程序。 租用戶 A 會保留應用程式的藍圖 (應用程式物件)。 應用程式已取得同意之所有其他租用戶的使用者和系統管理員，都可以透過每個租用戶中相對應的服務主體物件，保留控制應用程式可執行哪些作業的能力。 如需詳細資訊，請參閱 [Azure AD 中的應用程式和服務主體物件](app-objects-and-service-principals.md)。
 
 ## <a name="claims-in-azure-ad-security-tokens"></a>Azure AD 安全性權杖中的宣告
 

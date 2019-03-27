@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: f57c5fef-49b0-4591-91ef-fc0de6d654ab
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89e7301d0ecff3ae2c3156ba827ef16fbe40b89a
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 550ffb146db9bb644b46467a7feb8c30792f6ad8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877175"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877406"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cornerstone-ondemand"></a>教學課程：Azure Active Directory 與 Cornerstone OnDemand 整合
 
@@ -104,7 +104,7 @@ Cornerstone OnDemand 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Cornerstone OnDemand 網域與 URL 單一登入資訊](common/sp-identifier.png)
+    ![Cornerstone OnDemand 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<company>.csod.com`
 
@@ -149,7 +149,7 @@ Cornerstone OnDemand 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -166,7 +166,7 @@ Cornerstone OnDemand 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，輸入並選取 **Cornerstone OnDemand**。
 
-    ![應用程式清單中的 Cornerstone OnDemand 連結](common/all-applications.png)
+    ![應用程式清單中的 [Cornerstone OnDemand] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

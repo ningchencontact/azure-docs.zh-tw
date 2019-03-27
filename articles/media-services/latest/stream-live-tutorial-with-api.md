@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: 394efd023382f9153a6869944a8a3a815203f9dd
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 410955936e07b79128e1892d72644eaeb18ee036
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338592"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863758"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>教學課程：透過媒體服務 v3 使用 .NET 進行即時串流
 
@@ -33,7 +33,7 @@ ms.locfileid: "56338592"
 > [!div class="checklist"]
 > * 下載本主題中所述的範例應用程式
 > * 檢查執行即時串流的程式碼
-> * 使用 http://ampdemo.azureedge.net 上的 [Azure 媒體播放器](http://amp.azure.net/libs/amp/latest/docs/index.html)監看事件
+> * 使用 https://ampdemo.azureedge.net 上的 [Azure 媒體播放器](https://amp.azure.net/libs/amp/latest/docs/index.html)監看事件
 > * 清除資源
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -81,9 +81,9 @@ ms.locfileid: "56338592"
 
 ### <a name="create-a-live-event"></a>建立即時事件
 
-本節說明如何建立**傳遞**類型的即時事件 (LiveEventEncodingType 設定為 [無])。 如果您想要建立已啟用即時編碼功能的即時事件，請將 LiveEventEncodingType 設定為 **Standard**。 
-
-您在建立即時事件時也可以進行下列指定：
+本節說明如何建立**傳遞**類型的即時事件 (LiveEventEncodingType 設定為 [無])。 如需可用的即時事件類型詳細資訊，請參閱[即時事件類型](live-events-outputs-concept.md#live-event-types)。 
+ 
+您可能想要在建立即時事件時指定下列各項：
 
 * 媒體服務位置 
 * 即時事件的串流通訊協定 (目前支援 RTMP 和 Smooth Streaming 通訊協定)。<br/>當「實況活動」或其相關「實況輸出」正在執行時，您無法變更通訊協定選項。 如果您需要不同的通訊協定，則應該為每個串流通訊協定建立個別的「實況活動」。  
@@ -166,7 +166,7 @@ foreach (StreamingPath path in paths.StreamingPaths)
 
 ## <a name="watch-the-event"></a>監看事件
 
-若要監看事件，請複製您根據「建立串流定位器」中所述來執行程式碼時取得的串流 URL，並使用您所選擇的播放器。 您可以使用 http://ampdemo.azureedge.net 上的 [Azure 媒體播放器](http://amp.azure.net/libs/amp/latest/docs/index.html)來測試您的資料流。 
+若要監看事件，請複製您根據「建立串流定位器」中所述來執行程式碼時取得的串流 URL，並使用您所選擇的播放器。 您可以使用 https://ampdemo.azureedge.net 上的 [Azure 媒體播放器](https://amp.azure.net/libs/amp/latest/docs/index.html)來測試您的資料流。 
 
 即時事件會在停止時將事件自動轉換為點播內容。 只要您未刪除資產，即使在停止並刪除事件之後，使用者還是可以視需求將封存的內容串流為視訊。 如果事件使用資產，則無法刪除資產；必須先刪除事件。 
 

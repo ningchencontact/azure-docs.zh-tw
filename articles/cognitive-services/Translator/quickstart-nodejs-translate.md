@@ -10,19 +10,18 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: e89593e33dd7330ce64c46c826c9d0437c4c27d2
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 08dca771050f1b62cd85208a4b8f3d39340fb97d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738040"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834285"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-with-nodejs"></a>快速入門：搭配使用翻譯工具文字 API 和 Node.js 翻譯字串
 
 在本快速入門中，您將了解如何搭配使用 Node.js 和翻譯工具文字 REST API 將文字字串從英文翻譯成義大利文和德文。
 
 本快速入門需要 [Azure 認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)和翻譯工具文字資源。 如果您還沒有帳戶，可以使用[免費試用](https://azure.microsoft.com/try/cognitive-services/)來取得訂用帳戶金鑰。
-
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -33,7 +32,7 @@ ms.locfileid: "56738040"
 
 ## <a name="create-a-project-and-import-required-modules"></a>建立專案，並匯入所需的模組
 
-使用您慣用的 IDE 或編輯器建立新的專案。 然後，將下列程式碼片段複製到您的專案中名為 `translate-text.js` 的檔案。
+使用您最愛的 IDE 或編輯器，或在您桌面上的新資料夾 (內含名為 `translate-text.js` 的檔案) 中，建立新的專案。 接著，將下列程式碼片段複製到您的專案/檔案中：
 
 ```javascript
 const request = require('request');

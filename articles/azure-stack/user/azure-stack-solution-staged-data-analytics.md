@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/01/2018
+ms.date: 03/04/2018
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: be7bf4596989cf8dfd154e0a366f93650546224b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c3ea877e3271dcb5bea527d661e12827eb64fa0c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247352"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997411"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>教學課程：使用 Azure 和 Azure Stack 來建立暫存資料分析解決方案 
 
@@ -54,7 +54,7 @@ ms.locfileid: "55247352"
 
 -   Azure 訂用帳戶。 ([建立免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 
--   下載並安裝 [Microsoft Azure 儲存體總管](http://storageexplorer.com/)。
+-   下載並安裝 [Microsoft Azure 儲存體總管](https://storageexplorer.com/)。
 
 -   您必須提供您自己的資料，讓函式進行處理。 資料必須是產生的，並可供上傳至 Azure Stack 儲存體 Blob 容器。
 
@@ -110,7 +110,7 @@ Azure 函式及儲存體解決方案會進行縮放，以滿足資料量和處�
 
 6.  在 [帳戶] 刀鋒視窗中的 [BLOB 服務] 標題底下，選取 [容器]。
 
-7.  在刀鋒視窗的頂端，選取 [+ 容器]，然後選取**容器**。
+7.  在刀鋒視窗頂端選取 [+容器]， 然後選取 [容器]。
 
     ![替代文字](media/azure-stack-solution-staged-data-analytics/image2.png)
 
@@ -175,25 +175,25 @@ Azure 函式及儲存體解決方案會進行縮放，以滿足資料量和處�
 
 ## <a name="create-a-blob-storage-triggered-function"></a>建立由 Blob 儲存體所觸發的函式
 
-1.  展開函式應用程式，然後選取 [函式] 旁的 [+] 按鈕。
+1. 展開函式應用程式，然後選取 [函式] 旁的 [+] 按鈕。
 
-2.  在 [搜尋] 欄位中，輸入 `blob`，然後選擇需要的 **Blob 觸發程序**範本語言。
+2. 在 [搜尋] 欄位中，輸入 `blob`，然後選擇需要的 **Blob 觸發程序**範本語言。
 
-  ![選擇 Blob 儲存體觸發程序範本。](media/azure-stack-solution-staged-data-analytics/image10.png)
+   ![選擇 Blob 儲存體觸發程序範本。](media/azure-stack-solution-staged-data-analytics/image10.png)
 
-3.  使用下列表格中所指定的設定：
+3. 使用下列表格中所指定的設定：
 
-    | 設定 | 建議的值 | 說明 |
-    | ------- | ------- | ------- |
-    | 名稱 | 函式應用程式中的唯一名稱 | 這個由 blob 所觸發之函式的名稱。 |
-    | Path | \<上述儲存體位置中的路徑> | 受監視 Blob 儲存體中的位置。 在繫結中，Blob 的檔案名稱會以「名稱」參數的形式來傳遞。 |
-    | 儲存體帳戶連線 | 函式應用程式連線 | 您可以使用應用程式函式已在使用的儲存體帳戶連線，或建立新的連線。 |
+   | 設定 | 建議的值 | 說明 |
+   | ------- | ------- | ------- |
+   | 名稱 | 函式應用程式中的唯一名稱 | 這個由 blob 所觸發之函式的名稱。 |
+   | Path | \<上述儲存體位置中的路徑> | 受監視 Blob 儲存體中的位置。 在繫結中，Blob 的檔案名稱會以「名稱」參數的形式來傳遞。 |
+   | 儲存體帳戶連線 | 函式應用程式連線 | 您可以使用應用程式函式已在使用的儲存體帳戶連線，或建立新的連線。 |
 
-    **範例：**
+   **範例：**
 
-    ![建立由 Blob 儲存體所觸發的函式。](media/azure-stack-solution-staged-data-analytics/image11.png)
+   ![建立由 Blob 儲存體所觸發的函式。](media/azure-stack-solution-staged-data-analytics/image11.png)
 
-4.  選取 [建立] 以建立函式。
+4. 選取 [建立] 以建立函式。
 
 ### <a name="test-the-function"></a>測試函式
 
@@ -253,21 +253,21 @@ Azure 函式及儲存體解決方案會進行縮放，以滿足資料量和處�
 
 ## <a name="test-the-queue-triggered-function"></a>測試由佇列觸發的函式
 
-1.  在 Azure Stack 入口網站中，瀏覽至函式。 展開頁面底部的**記錄**，並確定記錄串流並未暫停。
+1. 在 Azure Stack 入口網站中，瀏覽至函式。 展開頁面底部的**記錄**，並確定記錄串流並未暫停。
 
-2.  開啟 [儲存體總管] 並連線至本節開頭所建立的儲存體帳戶。
+2. 開啟 [儲存體總管] 並連線至本節開頭所建立的儲存體帳戶。
 
-3.  依序展開儲存體帳戶、**Blob 容器**，和您稍早建立的 Blob。 依序選取 [上傳] 和 [上傳檔案]。
+3. 依序展開儲存體帳戶、**Blob 容器**，和您稍早建立的 Blob。 依序選取 [上傳] 和 [上傳檔案]。
 
-    ![將檔案上傳至 Blob 容器。](media/azure-stack-solution-staged-data-analytics/image12.png)
+   ![將檔案上傳至 Blob 容器。](media/azure-stack-solution-staged-data-analytics/image12.png)
 
-4.  在 [上傳檔案] 對話方塊中，選取 [檔案] 欄位。 瀏覽至本機電腦上的檔案 (例如影像檔)，加以選取，然後依序選取 [開啟] 和 [上傳]。
+4. 在 [上傳檔案] 對話方塊中，選取 [檔案] 欄位。 瀏覽至本機電腦上的檔案 (例如影像檔)，加以選取，然後依序選取 [開啟] 和 [上傳]。
 
-5.  返回函式記錄，並確認系統已讀取 Blob。
+5. 返回函式記錄，並確認系統已讀取 Blob。
 
-  **範例：**
+   **範例：**
 
-    ![檢視記錄中的訊息。](media/azure-stack-solution-staged-data-analytics/image13.png)
+   ![檢視記錄中的訊息。](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="securely-stored-and-accessed-compliant-data"></a>安全地儲存和存取符合規範的資料
 

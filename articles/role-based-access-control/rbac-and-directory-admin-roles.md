@@ -15,12 +15,12 @@ ms.date: 02/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: c53b9f13c365a5ace227f792f5b0c80ae8fac6ff
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 1b7183da84b994da8694440183e367f143722002
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807349"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295163"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>傳統訂用帳戶管理員角色、Azure RBAC 角色和 Azure AD 管理員角色
 
@@ -98,7 +98,7 @@ Azure AD 管理員用來管理目錄中的 Azure AD 資源，例如建立或編�
 | Azure AD 管理員角色 | 權限 | 注意 |
 | --- | --- | --- |
 | [全域管理員](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) | <ul><li>管理 Azure Active Directory 中所有系統管理功能的存取權，以及 Azure Active Directory 同盟服務</li><li>將管理員角色指派給其他人</li><li>為任何使用者和所有其他管理員重設密碼</li></ul> | 註冊 Azure Active Directory 租用戶的人員會變成全域管理員。 |
-| [使用者管理員](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-account-administrator) | <ul><li>建立及管理使用者與群組的所有層面</li><li>管理支援票證</li><li>監視服務健康情況</li><li>變更使用者、技術支援中心管理員及其他使用者管理員的密碼</li></ul> |  |
+| [使用者管理員](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-administrator) | <ul><li>建立及管理使用者與群組的所有層面</li><li>管理支援票證</li><li>監視服務健康情況</li><li>變更使用者、技術支援中心管理員及其他使用者管理員的密碼</li></ul> |  |
 | [計費管理員](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>進行購買</li><li>管理訂用帳戶</li><li>管理支援票證</li><li>監視服務健康狀態</li></ul> |  |
 
 在 Azure 入口網站中，您可以在 [角色和管理員] 刀鋒視窗上看到 Azure AD 管理員角色清單。 如需所有 Azure AD 管理員角色的清單，請參閱 [Azure Active Directory 中的系統管理員角色權限](../active-directory/users-groups-roles/directory-assign-admin-roles.md)。
@@ -114,7 +114,7 @@ Azure AD 管理員用來管理目錄中的 Azure AD 資源，例如建立或編�
 | 管理 Azure 資源的存取權 | 管理 Azure Active Directory 資源的存取權 |
 | 支援自訂角色 | 無法建立您自己的角色 |
 | 您可以在多個層級指定範圍 (管理群組、訂用帳戶、資源群組、資源) | 範圍是在租用戶層級 |
-| 可以在 Azure 入口網站、Azure CLI、Azure PowerShell、Azure Resource Manager 範本、Azure CLI 中存取角色資訊 | 可以在 Azure 入口網站、Office 365 管理入口網站、Microsoft Graph、AzureAD PowerShell 中存取角色資訊 |
+| 可以在 Azure 入口網站、Azure CLI、Azure PowerShell、Azure Resource Manager 範本、Azure CLI 中存取角色資訊 | 可以在 Azure 入口網站、Microsoft 365 管理中心、Microsoft Graph、AzureAD PowerShell 中存取角色資訊 |
 
 ### <a name="do-azure-rbac-roles-and--azure-ad-administrator-roles-overlap"></a>Azure RBAC 角色與 Azure AD 管理員角色是否重疊？
 

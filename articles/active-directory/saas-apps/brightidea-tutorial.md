@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 3adae3e0-f43b-492f-b373-6a512d2d6046
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 589aa227352a839e1d77a35412d2193fa05df420
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: bc45c63d3168a15b4701dcaff7bb531f759d47ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873437"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888701"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>教學課程：Azure Active Directory 與 Brightidea 整合
 
@@ -163,18 +163,18 @@ ms.locfileid: "56873437"
     
     ![Brightidea 設定](./media/brightidea-tutorial/configure4.png)
     
-     * 輸入 [SAML Profile Name] \(SAML 設定檔名稱\)，例如 `Azure Ad SSO`
+   * 輸入 [SAML Profile Name] \(SAML 設定檔名稱\)，例如 `Azure Ad SSO`
     
-     * 針對 [Upload Metadata] \(上傳中繼資料\)，按一下 [Choose File] \(選擇檔案\)，然後上傳從 Azure 入口網站下載的中繼資料檔案。
+   * 針對 [Upload Metadata] \(上傳中繼資料\)，按一下 [Choose File] \(選擇檔案\)，然後上傳從 Azure 入口網站下載的中繼資料檔案。
 
      > [!NOTE]
      > 上傳中繼資料檔案之後，剩餘的欄位 [Single Sign-on Service] \(單一登入服務\)、[Identity Provider Issuer] \(身分識別提供者簽發者\)、[Upload Public Key] \(上傳公開金鑰\) 中將會自動填入資料。
 
-     * 在 [Email] \(電子郵件\) 文字方塊中，將值輸入為 `mail`。
+   * 在 [Email] \(電子郵件\) 文字方塊中，將值輸入為 `mail`。
      
-     * 在 [Screen Name] \(畫面名稱\) 文字方塊中，將值輸入為 `givenName`。
+   * 在 [Screen Name] \(畫面名稱\) 文字方塊中，將值輸入為 `givenName`。
      
-     * 按一下 [儲存變更] 。  
+   * 按一下 [儲存變更] 。  
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
@@ -194,7 +194,7 @@ ms.locfileid: "56873437"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -211,7 +211,7 @@ ms.locfileid: "56873437"
 
 2. 在應用程式清單中，選取 [Brightidea]。
 
-    ![應用程式清單中的 Brightidea 連結](common/all-applications.png)
+    ![應用程式清單中的 [Brightidea] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -229,13 +229,13 @@ ms.locfileid: "56873437"
 
 ### <a name="create-brightidea-test-user"></a>建立 Brightidea 測試使用者
 
-本節會在 Brightidea 中建立名為 Britta Simon 的使用者。 Brightidea 支援預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Brightidea 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
+本節會在 Brightidea 中建立名為 Britta Simon 的使用者。 Brightidea 支援預設會啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Brightidea 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在「存取面板」中按一下 [Brightidea] 圖格時，應該會自動登入您已設定 SSO 的 Brightidea。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [Brightidea] 圖格時，應該會自動登入您已設定 SSO 的 Brightidea。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

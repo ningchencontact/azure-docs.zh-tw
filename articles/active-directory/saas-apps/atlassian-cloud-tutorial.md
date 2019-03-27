@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 729b8eb6-efc4-47fb-9f34-8998ca2c9545
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 601f2dc69c7b390ea05cb66976dc7bbcc98d9502
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 49d44fa0926afac917ae0ba355d37f13a354f432
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880493"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887929"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>教學課程：Azure Active Directory 與 Atlassian Cloud 整合
 
@@ -28,7 +28,7 @@ ms.locfileid: "56880493"
 Atlassian Cloud 與 Azure AD 整合提供下列優點：
 
 * 您可以在 Azure AD 中控制可存取 Atlassian Cloud 的人員。
-* 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Atlassian Cloud (單一登入)。
+* 您可以讓使用者使用其 Azure AD 帳戶自動登入 Atlassian Cloud (單一登入)。
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
@@ -36,7 +36,7 @@ Atlassian Cloud 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Atlassian Cloud 整合，您需要下列項目：
+若要設定 Azure AD 與 Atlassian Cloud 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Atlassian Cloud 單一登入的訂用帳戶
@@ -46,7 +46,7 @@ Atlassian Cloud 與 Azure AD 整合提供下列優點：
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* Atlassian Cloud 支援由 **SP 和 IDP** 初始化的 SSO
+* Atlassian Cloud 支援由 **SP 和 IDP** 起始的 SSO
 
 ## <a name="adding-atlassian-cloud-from-the-gallery"></a>從資源庫新增 Atlassian Cloud
 
@@ -68,7 +68,7 @@ Atlassian Cloud 與 Azure AD 整合提供下列優點：
 
 4. 在搜尋方塊中，輸入 **Atlassian Cloud**，從結果面板中選取 [Atlassian Cloud]，然後按一下 [新增] 按鈕以新增應用程式。
 
-     ![結果清單中的 [Atlassian Cloud]](common/search-new-app.png)
+     ![結果清單中的 Atlassian Cloud](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
@@ -88,7 +88,7 @@ Atlassian Cloud 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要使用 Atlassian Cloud 設定 Azure AD 單一登入，請執行下列步驟：
+若要設定與 Atlassian Cloud 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Atlassian Cloud] 應用程式整合分頁上，選取 [單一登入]。
 
@@ -104,7 +104,7 @@ Atlassian Cloud 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，若您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
 
-    ![[Application Name] 網域與 URL 單一登入資訊](common/idp-relay.png)
+    ![[Application Name] 網域及 URL 單一登入資訊](common/idp-relay.png)
 
     a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://auth.atlassian.com/saml/<unique ID>`
 
@@ -119,7 +119,7 @@ Atlassian Cloud 與 Azure AD 整合提供下列優點：
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-    ![[Application Name] 網域與 URL 單一登入資訊](common/both-signonurl.png)
+    ![[Application Name] 網域及 URL 單一登入資訊](common/both-signonurl.png)
 
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<instancename>.atlassian.net`
 
@@ -195,7 +195,7 @@ Atlassian Cloud 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -253,7 +253,7 @@ Atlassian Cloud 與 Azure AD 整合提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Atlassian Cloud] 圖格時，應該會自動登入您設定 SSO 的 Atlassian Cloud。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [Atlassian Cloud] 圖格時，應該會自動登入您已設定 SSO 的 Atlassian Cloud。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

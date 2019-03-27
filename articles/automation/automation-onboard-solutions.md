@@ -9,12 +9,12 @@ manager: carmonm
 ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 5d03ec7c5e0aaa68c1db34fedbd428f264e49e43
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: d247369647106cf1671a8770a6dce21f1a34a4b9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830515"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082189"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>將更新與變更追蹤解決方案上線至 Azure 自動化
 
@@ -27,7 +27,7 @@ ms.locfileid: "34830515"
 > * 匯入上線 Runbook
 > * 啟動 Runbook
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成此教學課程，需要有下列項目：
 
@@ -81,7 +81,7 @@ ms.locfileid: "34830515"
    ![啟用虛擬機器的更新解決方案](media/automation-onboard-solutions/enable-update.png)
 
 > [!NOTE]
-> 如果您沒有等待其他解決方案完成，在啟用下一個解決方案時，您會收到內容如下的訊息：此虛擬機器或不同虛擬機器上正在安裝另一個解決方案。安裝完成時，即可使用 [啟用] 按鈕，然後您就可以要求在這部虛擬機器上安裝解決方案。
+> 如果您沒有等待另一個解決方案完成，則在啟用下一個解決方案時，就會收到內容如下的訊息：*另一個解決方案正於這部或其他虛擬機器上安裝。當該安裝完成時，就能使用 [啟用] 按鈕，屆時您可以要求將解決方案安裝在此虛擬機器上。*
 
 ## <a name="install-and-update-modules"></a>安裝和更新模組
 
@@ -105,7 +105,7 @@ ms.locfileid: "34830515"
 1. 選取 [瀏覽資源庫]。
 1. 搜尋 [更新與變更追蹤]，按一下 [Runbook] 並在 [檢視來源] 頁面上選取 [匯入]。 選取 [確定]，然後將 Runbook 匯入至自動化帳戶。
 
-  ![匯入上線 Runbook](media/automation-onboard-solutions/import-from-gallery.png)
+   ![匯入上線 Runbook](media/automation-onboard-solutions/import-from-gallery.png)
 
 1. 在 [Runbook] 頁面上，選取 [編輯]，然後選取 [發佈]。 在 [發佈 Runbook] 對話方塊中，選取 [是] 以發佈 Runbook。
 

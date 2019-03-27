@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/07/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cbb7684f3d684588ab4263683806e602e1346d5d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 57905b3d3c062c299a0f414ae6110dd0b6249198
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217797"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57848025"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>教學課程：使用 Windows VM 系統指派的受控識別來存取 Azure SQL
 
@@ -40,12 +40,12 @@ ms.locfileid: "56217797"
 
 ## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>將您的 VM 存取權授與 Azure SQL 伺服器中的資料庫
 
-若要為 Azure SQL Server 中的資料庫授與您的 VM 存取權，您可以使用現有的 SQL 伺服器，或建立新的伺服器。  若要使用 Azure 入口網站建立新的伺服器和資料庫，請遵循此 [Azure SQL 快速入門](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal)的作法。 在 [Azure SQL 文件](https://docs.microsoft.com/azure/sql-database/)中也有使用 Azure CLI 和 Azure PowerShell 的快速入門作法。
+若要為 Azure SQL Server 中的資料庫授與您的 VM 存取權，您可以使用現有的 SQL 伺服器，或建立新的伺服器。 若要使用 Azure 入口網站建立新的伺服器和資料庫，請遵循此 [Azure SQL 快速入門](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal)的作法。 在 [Azure SQL 文件](https://docs.microsoft.com/azure/sql-database/)中也有使用 Azure CLI 和 Azure PowerShell 的快速入門作法。
 
 為資料庫授與 VM 存取權的作業有兩個步驟：
 
-1.  啟用 SQL Server 的 Azure AD 驗證。
-2.  在資料庫中建立**內含的使用者**，以代表 VM 系統指派的身分識別。
+1. 啟用 SQL Server 的 Azure AD 驗證。
+2. 在資料庫中建立**內含的使用者**，以代表 VM 系統指派的身分識別。
 
 ## <a name="enable-azure-ad-authentication-for-the-sql-server"></a>啟用 SQL Server 的 Azure AD 驗證
 
@@ -65,45 +65,45 @@ ms.locfileid: "56217797"
 - [SQL Database 和 SQL 資料倉儲的通用驗證 (MFA 的 SSMS 支援)](/azure/sql-database/sql-database-ssms-mfa-authentication)
 - [使用 SQL Database 或 SQL 資料倉儲設定和管理 Azure Active Directory 驗證](/azure/sql-database/sql-database-aad-authentication-configure)
 
-SQL DB 需要唯一的 AAD 顯示名稱。 因此，AAD 帳戶 (例如使用者、群組和服務主體 (應用程式)) 和針對受控識別啟用的 VM 名稱，在 AAD 中都必須具有唯一定義的顯示名稱。 SQL DB 會在這類使用者的 T-SQL 建立期間檢查 AAD 顯示名稱，如果這不是唯一的名稱，則命令無法要求對指定的帳戶提供唯一的 AAD 顯示名稱。
+SQL DB 需要唯一的 AAD 顯示名稱。 因此，AAD 帳戶 (例如使用者、群組和服務主體 (應用程式)) 和針對受控識別啟用的 VM 名稱，在 AAD 中都必須具有唯一定義的顯示名稱。 SQL DB 會在 T-SQL 建立這類使用者時檢查 AAD 顯示名稱，如果這不是唯一的名稱，命令就無法要求為指定的帳戶提供唯一的 AAD 顯示名稱。
 
-1.  啟動 SQL Server Management Studio。
-2.  在 [連線到伺服器] 對話方塊中，在 [伺服器名稱] 欄位中輸入您的 SQL 伺服器名稱。
-3.  在 [驗證] 欄位中，選取 [具 MFA 支援的 Active Directory - 通用]。
-4.  在 [使用者名稱] 欄位中，輸入您設為伺服器系統管理員的 Azure AD 帳戶名稱，例如 helen@woodgroveonline.com。
-5.  按一下 [選項] 。
-6.  在 [連 線至資料庫] 欄位中，輸入您想要設定的非系統資料庫的名稱。
-7.  按一下 [ **連接**]。  完成登入程序。
-8.  在 [物件總管] 中展開 [資料庫] 資料夾。
-9.  在使用者資料庫上按一下滑鼠右鍵，然後按一下 [新增查詢]。
+1. 啟動 SQL Server Management Studio。
+2. 在 [連線到伺服器] 對話方塊中，在 [伺服器名稱] 欄位中輸入您的 SQL 伺服器名稱。
+3. 在 [驗證] 欄位中，選取 [具 MFA 支援的 Active Directory - 通用]。
+4. 在 [使用者名稱] 欄位中，輸入您設為伺服器系統管理員的 Azure AD 帳戶名稱，例如 helen@woodgroveonline.com。
+5. 按一下 [選項] 。
+6. 在 [連 線至資料庫] 欄位中，輸入您想要設定的非系統資料庫的名稱。
+7. 按一下 [ **連接**]。 完成登入程序。
+8. 在 [物件總管] 中展開 [資料庫] 資料夾。
+9. 在使用者資料庫上按一下滑鼠右鍵，然後按一下 [新增查詢]。
 10. 在查詢視窗中，輸入下列這一行，然後按一下工具列中的 [執行]︰
 
     > [!NOTE]
     > 下列命令中的 `VMName` 是在必要條件一節中已將系統指派的身分識別啟用的 VM 名稱。
     
-     ```
-     CREATE USER [VMName] FROM EXTERNAL PROVIDER
-     ```
+    ```
+    CREATE USER [VMName] FROM EXTERNAL PROVIDER
+    ```
     
-     命令應該會順利完成，為 VM 系統指派的身分識別建立內含的使用者。
-11.  清除查詢視窗，輸入下列這一行，然後按一下工具列中的 [執行]︰
+    命令應該會順利完成，為 VM 系統指派的身分識別建立內含的使用者。
+11. 清除查詢視窗，輸入下列這一行，然後按一下工具列中的 [執行]︰
 
     > [!NOTE]
     > 下列命令中的 `VMName` 是在必要條件一節中已將系統指派的身分識別啟用的 VM 名稱。
-     
-     ```
-     ALTER ROLE db_datareader ADD MEMBER [VMName]
-     ```
+    
+    ```
+    ALTER ROLE db_datareader ADD MEMBER [VMName]
+    ```
 
-     命令應該會順利完成，將讀取整個資料庫的能力授與包含的使用者。
+    命令應該會順利完成，將讀取整個資料庫的能力授與包含的使用者。
 
 在 VM 中執行的程式碼現在可以使用其系統指派的受控識別取得權杖，並使用此權杖向 SQL 伺服器進行驗證。
 
-## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-sql"></a>使用 VM 系統指派的受控識別來取得存取權杖，以用來呼叫 Azure SQL 
+## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-sql"></a>使用 VM 系統指派的受控識別來取得存取權杖，以用來呼叫 Azure SQL
 
-Azure SQL 原生支援 Azure AD 驗證，因此可直接接受使用適用於 Azure 資源的受控識別所取得的存取權杖。  您使用 **access token** 方法來建立 SQL 連線。  這是 Azure AD 與 Azure SQL 整合的一部分，與在連接字串上提供認證不同。
+Azure SQL 原生支援 Azure AD 驗證，因此可直接接受使用適用於 Azure 資源的受控識別所取得的存取權杖。 您使用 **access token** 方法來建立 SQL 連線。 這是 Azure AD 與 Azure SQL 整合的一部分，與在連接字串上提供認證不同。
 
-以下是使用存取權杖開啟 SQL 連線的 .Net 程式碼範例。  此程式碼必須在 VM 上執行，才能夠存取 VM 系統指派的受控識別端點。  需使用 **.Net framework 4.6** 或更高版本，才可使用的 access token 方法。  將 AZURE-SQL-SERVERNAME 和 DATABASE 的值取代為實際值。  請注意，Azure SQL 資源識別碼是「 https://database.windows.net/」。
+以下是使用存取權杖來開啟與 SQL 之連線的 .NET 程式碼範例。 此程式碼必須在 VM 上執行，才能夠存取 VM 系統指派的受控識別端點。 必須要有 **.NET Framework 4.6** 或更新版本，才能使用存取權杖方法。 將 AZURE-SQL-SERVERNAME 和 DATABASE 的值取代為實際值。 請注意，Azure SQL 的資源識別碼是 `https://database.windows.net/`。
 
 ```csharp
 using System.Net;
@@ -125,7 +125,7 @@ try
     HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
     // Pipe response Stream to a StreamReader and extract access token.
-    StreamReader streamResponse = new StreamReader(response.GetResponseStream()); 
+    StreamReader streamResponse = new StreamReader(response.GetResponseStream());
     string stringResponse = streamResponse.ReadToEnd();
     JavaScriptSerializer j = new JavaScriptSerializer();
     Dictionary<string, string> list = (Dictionary<string, string>) j.Deserialize(stringResponse, typeof(Dictionary<string, string>));
@@ -149,13 +149,13 @@ if (accessToken != null) {
 
 或者，另一個測試端對端安裝程式，而不需要在 VM 上撰寫和部署應用程式的快速方法，是使用 PowerShell。
 
-1.  在入口網站中，瀏覽至 [虛擬機器] 並移至您的 Windows 虛擬機器，在 [概觀] 中按一下 [連線]。 
-2.  輸入您建立 Windows VM 時新增的**使用者名稱**和**密碼**。 
-3.  現在您已經建立虛擬機器的**遠端桌面連線**，請在遠端工作階段中開啟 **PowerShell**。 
+1.  在入口網站中，瀏覽至 [虛擬機器] 並移至您的 Windows 虛擬機器，在 [概觀] 中按一下 [連線]。
+2.  輸入您建立 Windows VM 時新增的**使用者名稱**和**密碼**。
+3.  現在您已經建立虛擬機器的**遠端桌面連線**，請在遠端工作階段中開啟 **PowerShell**。
 4.  使用 PowerShell 的 `Invoke-WebRequest`，向本機受控識別的端點提出要求，以取得 Azure SQL 的存取權杖。
 
     ```powershell
-       $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatabase.windows.net%2F' -Method GET -Headers @{Metadata="true"}
+        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatabase.windows.net%2F' -Method GET -Headers @{Metadata="true"}
     ```
     
     將來自 JSON 物件的回應轉換為 PowerShell 物件。 
@@ -170,7 +170,7 @@ if (accessToken != null) {
     $AccessToken = $content.access_token
     ```
 
-5.  開啟 SQL伺服器連線。 記得取代 AZURE-SQL-SERVERNAME 和 DATABASE 的值。
+5. 開啟 SQL伺服器連線。 記得取代 AZURE-SQL-SERVERNAME 和 DATABASE 的值。
     
     ```powershell
     $SqlConnection = New-Object System.Data.SqlClient.SqlConnection
@@ -179,7 +179,7 @@ if (accessToken != null) {
     $SqlConnection.Open()
     ```
 
-    接下來，建立查詢並傳送至伺服器。  記得取代 TABLE 的值。
+    接下來，建立查詢並傳送至伺服器。 記得取代 TABLE 的值。
 
     ```powershell
     $SqlCmd = New-Object System.Data.SqlClient.SqlCommand
@@ -195,7 +195,7 @@ if (accessToken != null) {
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何使用系統指派的受控識別，來存取 Azure SQL 伺服器。  若要深入了解 Azure SQL Server，請參閱：
+在本教學課程中，您已了解如何使用系統指派的受控識別，來存取 Azure SQL 伺服器。 若要深入了解 Azure SQL Server，請參閱：
 
 > [!div class="nextstepaction"]
->[Azure SQL Database 服務](/azure/sql-database/sql-database-technical-overview)
+> [Azure SQL Database 服務](/azure/sql-database/sql-database-technical-overview)

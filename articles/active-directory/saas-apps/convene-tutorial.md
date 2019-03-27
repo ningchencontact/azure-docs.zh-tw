@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2540ac46-1aea-496b-a8c5-575a2690f7db
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fb602b158fc97f6737aaaf5297adf48f63790f1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 84029b9f6a3e447ee914e5a53b79df89d683259d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873919"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889262"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-convene"></a>教學課程：Azure Active Directory 與 Convene 整合
 
@@ -73,7 +73,7 @@ Convene 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在此節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 Convene 設定及測試 Azure AD 單一登入。
+在此節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Convene 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Convene 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 Convene 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
@@ -105,13 +105,13 @@ Convene 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 設定] 區段上，如果您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
 
-    ![Convene 網域與 URL 單一登入資訊](common/both-replyurl.png)
+    ![Convene 網域及 URL 單一登入資訊](common/both-replyurl.png)
 
     在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://portal.convene.me.uk/saml/acs/<UID>`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-    ![Convene 網域與 URL 單一登入資訊](common/both-signonurl.png)
+    ![Convene 網域及 URL 單一登入資訊](common/both-signonurl.png)
 
     在 [登入 URL] 文字方塊中，輸入 URL：`https://portal.convene.me.uk/login`
 
@@ -182,7 +182,7 @@ Convene 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -199,7 +199,7 @@ Convene 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Convene]。
 
-    ![應用程式清單中的 Convene 連結](common/all-applications.png)
+    ![應用程式清單中的 [Convene] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -217,7 +217,7 @@ Convene 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-convene-test-user"></a>建立 Convene 測試使用者
 
-本節會在 Convene 中建立名為 Britta Simon 的使用者。 Convene 支援依預設啟用的 **Just-In-Time 使用者佈建**。 在這一節沒有您需要進行的動作項目。 如果 Convene 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
+本節會在 Convene 中建立名為 Britta Simon 的使用者。 Convene 支援預設會啟用的 **Just-In-Time 使用者佈建**。 在這一節沒有您需要進行的動作項目。 如果 Convene 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
 >[!Note]
 >如果您需要手動建立使用者，請連絡 [Convene 支援小組](mailto:support@convene.me.uk)。
@@ -226,7 +226,7 @@ Convene 與 Azure AD 整合提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Convene] 圖格時，應該會自動登入您設定 SSO 的 Convene。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [Convene] 圖格時，應該會自動登入您已設定 SSO 的 Convene。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

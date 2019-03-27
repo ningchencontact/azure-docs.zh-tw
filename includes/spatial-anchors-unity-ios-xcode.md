@@ -4,20 +4,23 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: b802c9dbd0cef65325cb03538b68b49c57b85bb3
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: e8daaaf5b6b15eb3095f11e94c707a33b4b18e28
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56890967"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305219"
 ---
-選取 [組建] 以開啟對話方塊。 然後，選取要匯出 Xcode 專案的資料夾。
+選取 [組建]。 在開啟的對話方塊中，選取要匯出 Xcode 專案的目的地資料夾。
 
-匯出完成時，資料夾會顯示出已包含匯出的 Xcode 專案。
+匯出完成時，會顯示含有匯出的 Xcode 專案的資料夾。
+
+> [!NOTE]
+> 如果出現詢問您是否要取代或附加的視窗，我們建議您選取 [附加]，因為速度較快。 如果您是變更場景中的資產，應該只需要選取 [取代]。 (例如，如果您新增、移除或變更父/子關連性，或者如果您新增、移除或變更屬性。)如果您只是變更原始程式碼，[附加] 應該就夠了。
 
 ### <a name="open-the-xcode-project"></a>開啟 Xcode 專案
 
-在匯出的 Xcode 專案資料夾中，執行下列命令以安裝專案所需的 CocoaPods：
+在匯出的 Xcode 專案資料夾中，在終端機執行此命令以安裝專案所需的 CocoaPods：
 
 ```bash
 pod install --repo-update
@@ -30,11 +33,11 @@ open ./Unity-iPhone.xcworkspace
 ```
 
 > [!NOTE]
-> 如果您看到 `library not found for -lPods-Unity-iPhone` 錯誤，您可能開到 `.xcodeproj` 檔案，而不是 `.xcworkspace`。 開啟 `.xcworkspace`，然後再試一次。
+> 如果您看到 `library not found for -lPods-Unity-iPhone` 錯誤，您可能開到 `.xcodeproj` 檔案，而不是 `.xcworkspace` 檔案。 
 
 選取根 **Unity-iPhone** 節點以檢視專案設定，然後選取 [一般] 索引標籤。
 
-在 [簽署] 底下選取 [自動管理簽署]。 在用來重設組建設定的對話方塊中選取 [自動啟用]。
+在 [簽署] 底下，確認 [自動管理簽署] 已啟用。 如果未啟用，請啟用它，然後在出現的對話方塊中選取 [啟用自動] 以重設組建設定。
 
 在 [部署資訊] 底下，確定 [部署目標] 已設定為 `11.0`。
 

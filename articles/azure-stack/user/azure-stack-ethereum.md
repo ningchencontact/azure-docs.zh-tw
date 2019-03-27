@@ -12,12 +12,12 @@ ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
 ms.lastreviewed: 02/04/2019
-ms.openlocfilehash: 6c9893aac349b05580f49a445bd088ed5c76044b
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: a1902ae2bf663c432876a0f73e2bb17616023b8a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697464"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006923"
 ---
 # <a name="deploy-an-ethereum-blockchain-network-on-azure-stack"></a>在 Azure Stack 上部署以太坊區塊鏈網路
 
@@ -39,7 +39,7 @@ ms.locfileid: "55697464"
 - Custom Script for Linux 2.0
 - Windows 的自訂指令碼延伸模組
 
-如需區塊鏈案例的詳細資訊，請參閱[以太坊工作量證明聯盟解決方案範本](../../blockchain/templates/ethereum-deployment.md)。
+如需區塊鏈案例的詳細資訊，請參閱 [Ethereum 權威證明聯盟解決方案範本](../../blockchain/templates/ethereum-poa-deployment.md)。
 
 ## <a name="deployment-architecture"></a>部署架構
 

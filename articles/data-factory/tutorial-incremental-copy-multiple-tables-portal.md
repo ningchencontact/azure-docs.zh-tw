@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: e6a24bfe25513b1b4eacd8bc192caa5518c896c6
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 12ca210e1fe7aa60515f5b8c4c0ad830dcdd9594
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593194"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078953"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>以累加方式將 SQL Server 中多個資料表的資料載入到 Azure SQL Database
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從內部部署 SQL Server 中的多個資料表，載入到 Azure SQL Database。    
@@ -382,7 +382,7 @@ END
    ![接收資料集 - 連線](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
 
    
- 1. 按一下 [完成] 後，您會看到資料表名稱顯示為 **@dataset().SinkTableName**。
+   1. 按一下 [完成] 後，您會看到資料表名稱顯示為 **\@dataset().SinkTableName**。
    
    ![接收資料集 - 連線](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
@@ -424,11 +424,11 @@ END
     ![管線名稱](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-name.png)
 1. 在 [屬性] 視窗中，執行下列步驟： 
 
-    1. 按一下 [+ 新增]。 
-    1. 輸入 **tableList** 作為參數的 [名稱]。 
-    1. 選取 [物件] 作為參數**類型**。
+   1. 按一下 [+ 新增]。 
+   1. 輸入 **tableList** 作為參數的 [名稱]。 
+   1. 選取 [物件] 作為參數**類型**。
 
-    ![管線參數](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
+      ![管線參數](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
 1. 在 [活動] 工具箱中展開 [反覆項目與條件]，並將 [ForEach] 活動拖放至管線設計工具介面。 在 [屬性] 視窗的 [一般] 索引標籤中，輸入 **IterateSQLTables**。 
 
     ![ForEach 活動 - 名稱](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-name.png)
@@ -457,69 +457,69 @@ END
     ![第二個查閱活動 - 名稱](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-name.png)
 1. 切換到 [設定]  索引標籤。
 
-    1. 選取 [SourceDataset] 作為 [來源資料集]。 
-    1. 為 [使用查詢] 選取 [查詢]。
-    1. 輸入下列 SQL 查詢作為 [查詢]。
+     1. 選取 [SourceDataset] 作為 [來源資料集]。 
+     1. 為 [使用查詢] 選取 [查詢]。
+     1. 輸入下列 SQL 查詢作為 [查詢]。
 
-        ```sql    
-        select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
-        ```
+         ```sql    
+         select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
+         ```
     
-        ![第二個查閱活動 - 設定](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
+         ![第二個查閱活動 - 設定](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
 1. 拖放 [活動] 工具箱中的 [複製] 活動，並輸入 **IncrementalCopyActivity** 作為 [名稱]。 
 
-    ![複製活動 - 名稱](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-name.png)
+     ![複製活動 - 名稱](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-name.png)
 1. 逐一將 [查閱] 活動連線至 [複製] 活動。 若要連線，請先將連結至 [查閱] 活動的**綠色**方塊拖放到 [複製] 活動上。 當 [複製] 活動的框線顏色變為**藍色**時，即鬆開滑鼠按鈕。
 
-    ![將 [查閱] 活動連線至 [複製] 活動](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
+     ![將 [查閱] 活動連線至 [複製] 活動](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
 1. 選取管線中的 [複製] 活動。 在 [屬性] 視窗中切換至 [來源] 索引標籤。 
 
-    1. 選取 [SourceDataset] 作為 [來源資料集]。 
-    1. 為 [使用查詢] 選取 [查詢]。 
-    1. 輸入下列 SQL 查詢作為 [查詢]。
+     1. 選取 [SourceDataset] 作為 [來源資料集]。 
+     1. 為 [使用查詢] 選取 [查詢]。 
+     1. 輸入下列 SQL 查詢作為 [查詢]。
 
-        ```sql
-        select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
-        ```
+         ```sql
+         select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
+         ```
 
-        ![複製活動 - 來源設定](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
+         ![複製活動 - 來源設定](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
 1. 切換至 [接收] 索引標籤，然後選取 **SinkDataset** 作為 [接收資料集]。 
         
-    ![複製活動 - 接收設定](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
+     ![複製活動 - 接收設定](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
 1. 切換至 [參數] 索引標籤，並執行下列步驟：
 
-    1. 針對 [接收預存程序名稱] 屬性，輸入 `@{item().StoredProcedureNameForMergeOperation}`。
-    1. 針對 [接收資料表類型] 屬性，輸入 `@{item().TableType}`。
-    1. 在 [接收資料集] 區段中，針對 **SinkTableName** 參數輸入 `@{item().TABLE_NAME}`。
+     1. 針對 [接收預存程序名稱] 屬性，輸入 `@{item().StoredProcedureNameForMergeOperation}`。
+     1. 針對 [接收資料表類型] 屬性，輸入 `@{item().TableType}`。
+     1. 在 [接收資料集] 區段中，針對 **SinkTableName** 參數輸入 `@{item().TABLE_NAME}`。
 
-        ![複製活動 - 參數](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
+         ![複製活動 - 參數](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. 將 [活動] 工具箱中的 [預存程序] 活動拖放至管線設計工具介面。 將 [複製] 活動連線至 [預存程序] 活動。 
 
-    ![複製活動 - 參數](./media/tutorial-incremental-copy-multiple-tables-portal/connect-copy-to-sproc.png)
+     ![複製活動 - 參數](./media/tutorial-incremental-copy-multiple-tables-portal/connect-copy-to-sproc.png)
 1. 在管線中選取 [預存程序] 活動，然後在 [屬性] 視窗的 [一般] 索引標籤中輸入 **StoredProceduretoWriteWatermarkActivity** 作為 [名稱]。 
 
-    ![預存程序活動 - 名稱](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-name.png)
+     ![預存程序活動 - 名稱](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-name.png)
 1. 切換至 [SQL 帳戶] 索引標籤，然後選取 **AzureSqlDatabaseLinkedService** 作為 [連結服務]。
 
-    ![預存程序活動 - SQL 帳戶](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
+     ![預存程序活動 - SQL 帳戶](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 1. 切換至 [預存程序] 索引標籤，然後執行下列步驟：
 
-    1. 針對 [預存程序名稱]，選取 `usp_write_watermark`。 
-    1. 選取 [匯入參數]。 
-    1. 指定參數的下列值︰ 
+     1. 針對 [預存程序名稱]，選取 `usp_write_watermark`。 
+     1. 選取 [匯入參數]。 
+     1. 指定參數的下列值︰ 
 
-        | Name | 類型 | 值 | 
-        | ---- | ---- | ----- |
-        | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
-        | TableName | 字串 | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
+         | Name | 類型 | 值 | 
+         | ---- | ---- | ----- |
+         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
+         | TableName | 字串 | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
-        ![預存程序活動 - 預存程序設定](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
+         ![預存程序活動 - 預存程序設定](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
 1. 在左窗格中按一下 [發佈]。 此動作會將您建立的實體發佈至 Data Factory 服務。 
 
-    ![發佈按鈕](./media/tutorial-incremental-copy-multiple-tables-portal/publish-button.png)
+     ![發佈按鈕](./media/tutorial-incremental-copy-multiple-tables-portal/publish-button.png)
 1. 請靜待 [發佈成功] 訊息顯示。 若要檢視通知，請按一下 [顯示通知] 連結。 按一下 **X** 以關閉通知視窗。
 
-    ![顯示通知](./media/tutorial-incremental-copy-multiple-tables-portal/notifications.png)
+     ![顯示通知](./media/tutorial-incremental-copy-multiple-tables-portal/notifications.png)
 
  
 ## <a name="run-the-pipeline"></a>執行管道

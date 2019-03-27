@@ -5,25 +5,25 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2018
+ms.date: 03/14/2019
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: e526d7fac3c66c5eaf9686db3c9f9f9506d6fc6b
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 69f91949347eadcffb3c0d3ff833a40b5e483e24
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768652"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003170"
 ---
 # <a name="what-is-azure-cost-management"></a>什麼是 Azure 成本管理？
 
-成本管理是您有效規劃及控制商務相關成本的程序。 成本管理工作通常是由財務、管理和應用程式小組執行。 Azure 成本管理可協助組織在規劃時考量成本。 它也有助於有效地分析成本，並採取動作來將雲端費用最佳化。 若要深入了解如何以組織身分進行成本管理，請查看 [Azure 成本管理最佳做法](cost-mgt-best-practices.md)一文。
+成本管理是有效規劃和控制商務相關成本的流程。 成本管理工作通常是由財務、管理和應用程式小組執行。 Azure 成本管理可協助組織在規劃時考量成本。 它也有助於有效地分析成本，並採取動作來將雲端費用最佳化。 若要深入了解如何以組織身分進行成本管理，請查看 [Azure 成本管理最佳做法](cost-mgt-best-practices.md)一文。
 
 雖然計費與成本管理相關，則實則不同。 計費是涉及向客戶開立商品或服務發票以及管理商業關係的程序。  採購和財務小組通常會進行計費工作。
 
-成本管理會利用進階分析來顯示組織的成本和使用量模式。 成本管理中的報告會顯示 Azure 成本、使用量、保留執行個體及 Azure Hybrid Benefit 使用情況。 整體而言，這些報告會針對使用量和 Azure Marketplace 費用，顯示您的內部和外部成本。 其他費用，例如保留購買、支援和稅金還不會顯示在報告中。 這些報告可協助您了解您的費用和資源使用情況，並可協助您找出異常的費用。 也可提供預測性分析。 成本管理會使用 Azure 管理群組、預算及建議，清楚地說明如何組織您的費用以及如何降低成本。
+成本管理會利用進階分析來顯示組織的成本和使用量模式。 成本管理報告顯示依使用量計費的 Azure 服務與協力廠商 Marketplace 方案所耗用的成本。 成本是根據議定的價格，並計入保留和 Azure Hybrid Benefit 折扣要素而定。 整體而言，這些報告會針對使用量和 Azure Marketplace 費用，顯示您的內部和外部成本。 其他費用，例如保留購買、支援和稅金還不會顯示在報告中。 這些報告可協助您了解您的費用和資源使用情況，並可協助您找出異常的費用。 也可提供預測性分析。 成本管理會使用 Azure 管理群組、預算及建議，清楚地說明如何組織您的費用以及如何降低成本。
 
 您可以使用 Azure 入口網站或適用於匯出自動化的各種 API ，來與外部系統和程序整合。 也可使用自動化計費資料匯出和排程定報告。
 
@@ -41,7 +41,7 @@ ms.locfileid: "55768652"
 
 ## <a name="consider-cloudyn"></a>考慮 Cloudyn
 
-[Cloudyn](overview.md) 是一項與成本管理相關的 Azure 服務。 透過 Cloudyn，您可以追蹤 Azure 資源的雲端使用量和支出。 它也支援其他雲端提供者，包括 AWS 和 Google。 淺顯易懂的儀表板報告有助於成本配置和回報 (showback)/計費 (chargeback)。 成本管理目前不支援回報/退款或其他雲端服務提供者。 不過，Cloudyn 是「不」支援雲端提供者的選項。 成本管理目前僅支援 Azure EA 帳戶。 雖然它不支援個別或預付型帳戶或 Microsoft 雲端服務提供者帳戶，但 Cloudyn 提供支援。 如果您有上述其中一個帳戶，您可以使用 Cloudyn 協助管理您的成本。
+[Cloudyn](overview.md) 是一項與成本管理相關的 Azure 服務。 透過 Cloudyn，您可以追蹤 Azure 資源的雲端使用量和支出。 它也支援其他雲端提供者，包括 AWS 和 Google。 淺顯易懂的儀表板報告有助於成本配置和回報 (showback)/計費 (chargeback)。 成本管理目前不支援回報/退款或其他雲端服務提供者。 不過，Cloudyn 是「不」支援雲端提供者的選項。 目前，成本管理不支援 Microsoft Cloud 服務提供者 (CSP) 帳戶，但 Cloudyn 支援。 如果您有 CSP 帳戶，或想要使用帳單明細/退款，您可以使用 Cloudyn 來協助管理成本。
 
 ## <a name="additional-azure-tools"></a>其他 Azure 工具
 

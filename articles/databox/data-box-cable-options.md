@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 10/24/2018
 ms.author: alkohli
-ms.openlocfilehash: ab6048ff54f9c593bb62fb3e9c40af930bf1edad
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 4759676eff03606998759a586f758b7a26ead23d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091584"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077542"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Azure 資料箱的佈線選項
 
@@ -62,10 +62,10 @@ ms.locfileid: "50091584"
 2. 使用 DATA 3 的 RJ45 或 SFP+ 纜線將 DATA 1 或 DATA 2 連接到作為資料來源的伺服器。 建議您使用 10-GbE DATA 1 或 DATA 2 連接埠以達到良好效能。
 3. 在伺服器上，進行下列設定：
 
-    - 將 **IP 位址**設為 192.168.100.5
-    - 將**子網路**設為 255.255.255.0
+   - 將 **IP 位址**設為 192.168.100.5
+   - 將**子網路**設為 255.255.255.0
 
-    ![雙連接埠設定](media/data-box-cable-options/cabling-2-port-setup.png)
+     ![雙連接埠設定](media/data-box-cable-options/cabling-2-port-setup.png)
 
 3. 在下列位址存取裝置的本機 Web UI：192.168.100.10。 從 Azure 入口網站登入資料箱，並使用解除鎖定密碼將其解除鎖定。
 4. 將靜態 IP 指派給您已設定的資料連接埠。
@@ -78,10 +78,10 @@ ms.locfileid: "50091584"
 2. 使用 DATA 3 的 RJ45 或 SFP+ 纜線將 DATA 1 或 DATA 2 連接到伺服器。 建議您使用 10-GbE DATA 1 或 DATA 2 連接埠以達到良好效能。 資料連接埠會透過 10-GbE 交換器連接到具有資料的伺服器。
 3. 使用下列位址，為您要用來連接到裝置的膝上型電腦設定乙太網路介面卡：
 
-    - **IP 位址** 192.168.100.5
-    - **子網路** 255.255.255.0。
+   - **IP 位址** 192.168.100.5
+   - **子網路** 255.255.255.0。
 
-    ![具有交換器的雙連接埠設定](media/data-box-cable-options/cabling-with-static-ip.png)
+     ![具有交換器的雙連接埠設定](media/data-box-cable-options/cabling-with-static-ip.png)
 
 3. 在下列位址存取裝置的本機 Web UI：192.168.100.10。 從 Azure 入口網站登入資料箱，並使用解除鎖定密碼將其解除鎖定。
 4. 識別 DHCP 伺服器所指派的 IP 位址。
@@ -102,10 +102,10 @@ ms.locfileid: "50091584"
 2. 使用 DATA 3 的 RJ45 或 SFP+ 纜線將 DATA 1 或 DATA 2 連接到伺服器。 建議您使用 10-GbE DATA 1 或 DATA 2 連接埠以達到良好效能。
 3. 使用下列位址，為您要用來連接到裝置的膝上型電腦設定乙太網路介面卡：
 
-    - **IP 位址** 192.168.100.5
-    - **子網路** 255.255.255.0。
+   - **IP 位址** 192.168.100.5
+   - **子網路** 255.255.255.0。
 
-    ![具有交換器的雙連接埠設定](media/data-box-cable-options/cabling-with-switch-static-ip.png)
+     ![具有交換器的雙連接埠設定](media/data-box-cable-options/cabling-with-switch-static-ip.png)
 
 3. 在下列位址存取裝置的本機 Web UI：192.168.100.10。 從 Azure 入口網站登入資料箱，並使用解除鎖定密碼將其解除鎖定。
 4. 將靜態 IP 指派給您已設定的資料連接埠。

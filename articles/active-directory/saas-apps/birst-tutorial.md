@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 677183b1-5348-4302-88cc-5c8ab63a3c6c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 636331c5ad39887ec8d8c92720cfa4fb3b3b3663
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 632ae913214794a114bc12019d92b6902172fca7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883380"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887895"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-birst-agile-business-analytics"></a>教學課程：Azure Active Directory 與 Birst Agile Business Analytics 整合
 
@@ -39,7 +39,7 @@ ms.locfileid: "56883380"
 若要設定 Azure AD 與 Birst Agile Business Analytics 的整合，需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
-* 已啟用 Birst Agile Business Analytics 單一登入功能的訂用帳戶
+* 已啟用 Birst Agile Business Analytics 單一登入的訂用帳戶
 
 ## <a name="scenario-description"></a>案例描述
 
@@ -80,7 +80,7 @@ ms.locfileid: "56883380"
 2. **[設定 Birst Agile Business Analytics 單一登入](#configure-birst-agile-business-analytics-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 Birst Agile Business Analytics 測試使用者](#create-birst-agile-business-analytics-test-user)** - 在 Birst Agile Business Analytics 中建立一個與 Azure AD 中代表 Britta Simon 之項目連結的 Britta Simon 對應項目。
+5. **[建立 Birst Agile Business Analytics 測試使用者](#create-birst-agile-business-analytics-test-user)** - 在 Birst Agile Business Analytics 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
@@ -109,12 +109,12 @@ ms.locfileid: "56883380"
 
     此 URL 取決於您 Birst 帳戶所在的資料中心：
 
-    * 針對美國資料中心，請使用下列模式：`https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID`
+   * 針對美國資料中心，請使用下列模式：`https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID`
 
-    * 針對歐洲資料中心，請使用下列模式：`https://login.eu1.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID`
+   * 針對歐洲資料中心，請使用下列模式：`https://login.eu1.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID`
 
-    > [!NOTE]
-    > 這不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [Birst Agile Business Analytics 用戶端支援小組](mailto:info@birst.com)以取得此值。
+     > [!NOTE]
+     > 這不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [Birst Agile Business Analytics 用戶端支援小組](mailto:info@birst.com)以取得此值。
 
 5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
 
@@ -155,7 +155,7 @@ ms.locfileid: "56883380"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -172,7 +172,7 @@ ms.locfileid: "56883380"
 
 2. 在應用程式清單中，選取 [Birst Agile Business Analytics]。
 
-    ![應用程式清單中的 Birst Agile Business Analytics 連結](common/all-applications.png)
+    ![應用程式清單中的 [Birst Agile Business Analytics] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -190,7 +190,7 @@ ms.locfileid: "56883380"
 
 ### <a name="create-birst-agile-business-analytics-test-user"></a>建立 Birst Agile Business Analytics 測試使用者
 
-在本節中，您要在 Birst Agile Business Analytics 中建立名為 Britta Simon 的使用者。 請與  [Birst Agile Business Analytics 支援小組](mailto:info@birst.com)合作，在 Birst Agile Business Analytics 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 Birst Agile Business Analytics 中建立名為 Britta Simon 的使用者。 請與  [Birst Agile Business Analytics 支援小組](mailto:info@birst.com)合作，在 Birst Agile Business Analytics 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

@@ -14,22 +14,22 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: cd4115aaeec15d14d48dcb71cbdc75212c6dc2db
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 5501e92b9a9d977f74bf4ed028b3cd3de4e56133
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960666"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225377"
 ---
-# <a name="quickstart-create-an-net-core-app-with-app-configuration"></a>快速入門：使用應用程式設定建立 .NET Core 應用程式
+# <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>快速入門：使用應用程式設定建立 .NET Core 應用程式
 
-Azure 應用程式設定是 Azure 中的受控設定服務。 其可讓您輕鬆地在與程式碼分開的單一位置，儲存和管理您所有的應用程式設定。 本快速入門會示範如何將該服務納入 .NET Core 主控台應用程式中。
+Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆地在與程式碼分開的單一位置，儲存和管理您所有的應用程式設定。 本快速入門會示範如何將該服務納入 .NET Core 主控台應用程式中。
 
-您可以使用任何程式碼編輯器來完成本快速入門中的步驟。 不過，於 Windows、macOS 和 Linux 平台上所提供的 [Visual Studio Code](https://code.visualstudio.com/) 是項不錯的選擇。
+您可以使用任何程式碼編輯器來進行本快速入門中的步驟。 於 Windows、macOS 和 Linux 平台上所提供的 [Visual Studio Code](https://code.visualstudio.com/) 是項不錯的選擇。
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本快速入門，請安裝 [.NET Core SDK](https://dotnet.microsoft.com/download)。
+若要進行本快速入門，請安裝 [.NET Core SDK](https://dotnet.microsoft.com/download)。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -47,17 +47,17 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 其可讓您輕鬆
 
         dotnet new console
 
-## <a name="connect-to-app-configuration-store"></a>連線至應用程式設定存放區
+## <a name="connect-to-an-app-configuration-store"></a>連線至應用程式設定存放區
 
 1. 透過執行下列命令，將參考新增至 `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet 套件：
 
         dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
 
-2. 執行下列命令以還原您專案的套件。
+2. 執行下列命令以還原您專案的套件：
 
         dotnet restore
 
-3. 開啟 Program.cs，並藉由呼叫 `builder.AddAzureAppConfiguration()` 方法將 `Main` 方法更新為使用應用程式設定。
+3. 開啟 *Program.cs*，並藉由呼叫 `builder.AddAzureAppConfiguration()` 方法將 `Main` 方法更新為使用應用程式設定。
 
     ```csharp
     static void Main(string[] args)

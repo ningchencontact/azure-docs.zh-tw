@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 5c0dc1ea-7ff4-4554-b60b-0f2fa9f5abaa
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27fa12f7c5c0a1c6b8a8b3bef9416a9dff69ae0e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 1a72b2c44550c0e481f7be4e37152e3bbe3a22f3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881187"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889857"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>教學課程：Azure Active Directory 與 Datahug 整合
 
@@ -71,7 +71,7 @@ Datahug 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 Datahug 設定及測試 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Datahug 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Datahug 中相關使用者之間的連結關聯性。
 
 如要設定及測試搭配 Datahug 的 Azure AD 單一登入，您需要完成下列構成元素：
@@ -87,7 +87,7 @@ Datahug 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要使用 Datahug 設定 Azure AD 單一登入，請執行下列步驟：
+若要設定與 Datahug 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Datahug] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -103,7 +103,7 @@ Datahug 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，若您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
 
-    ![Datahug 網域與 URL 單一登入資訊](common/idp-intiated.png)
+    ![Datahug 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
     a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://apps.datahug.com/identity/<uniqueID>`
 
@@ -111,7 +111,7 @@ Datahug 與 Azure AD 整合提供下列優點：
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-    ![Datahug 網域與 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
+    ![Datahug 網域及 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
 
     在 [登入 URL] 文字方塊中，輸入 URL：`https://apps.datahug.com/`
 
@@ -166,7 +166,7 @@ Datahug 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -183,7 +183,7 @@ Datahug 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Datahug]。
 
-    ![應用程式清單中的 Datahug 連結](common/all-applications.png)
+    ![應用程式清單中的 [Datahug] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

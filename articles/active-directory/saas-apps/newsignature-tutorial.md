@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 4ea9f47c-25ca-42b0-a878-9e7aa6f34973
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96937c5e90cc143f41d9577298fee13f1756aa8c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 81351fc13ddf36d8aeb4fa5cecab10daf152406f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873299"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57875918"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-management-portal-for-microsoft-azure"></a>教學課程：Azure Active Directory 與 Cloud Management Portal for Microsoft Azure 整合
 
@@ -28,7 +28,7 @@ ms.locfileid: "56873299"
 整合 Cloud Management Portal for Microsoft Azure 與 Azure AD 可以提供下列優點：
 
 * 您可以在 Azure AD 中控制誰有 Cloud Management Portal for Microsoft Azure 的存取權。
-* 您可以讓使用者利用自己的 Azure AD 帳戶，來自動登入 Cloud Management Portal for Microsoft Azure (單一登入)。
+* 您可以讓使用者使用其 Azure AD 帳戶，來自動登入 Cloud Management Portal for Microsoft Azure (單一登入)。
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
@@ -45,7 +45,7 @@ ms.locfileid: "56873299"
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* Cloud Management Portal for Microsoft Azure 支援 **SP** 起始的 SSO
+* Cloud Management Portal for Microsoft Azure 支援由 **SP** 起始的 SSO
 
 ## <a name="adding-cloud-management-portal-for-microsoft-azure-from-the-gallery"></a>從資源庫新增 Cloud Management Portal for Microsoft Azure
 
@@ -71,10 +71,10 @@ ms.locfileid: "56873299"
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者身分，設定及測試與 Cloud Management Portal for Microsoft Azure 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Cloud Management Portal for Microsoft Azure 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Cloud Management Portal for Microsoft Azure 中相關使用者之間的連結關聯性。
 
-如要設定及測試搭配 Cloud Management Portal for Microsoft Azure 的 Azure AD 單一登入，您需要完成下列構成元素：
+如要設定及測試與 Cloud Management Portal for Microsoft Azure 搭配運作的 Azure AD 單一登入，您需要完成下列構成元素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Cloud Management Portal for Microsoft Azure 單一登入](#configure-cloud-management-portal-for-microsoft-azure-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -87,7 +87,7 @@ ms.locfileid: "56873299"
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-如要設定搭配 Cloud Management Portal for Microsoft Azure 的 Azure AD 單一登入，請執行下列步驟：
+如要設定與 Cloud Management Portal for Microsoft Azure 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Cloud Management Portal for Microsoft Azure] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -106,18 +106,21 @@ ms.locfileid: "56873299"
     ![Cloud Management Portal for Microsoft Azure 網域及 URL 單一登入資訊](common/sp-identifier-reply.png)
 
     a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰
+
     | |
     |--|
     | `https://portal.newsignature.com/<instancename>` |   
     | `https://portal.igcm.com/<instancename>` |
 
     b. 在 [識別碼] 方塊中，使用下列模式輸入 URL：
+
     | |
     |--|
     | `https://<subdomain>.igcm.com` |
     | `https://<subdomain>.newsignature.com` |
 
     c. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：
+
     | |
     |--|
     | `https://<subdomain>.igcm.com/<instancename>` |
@@ -163,7 +166,7 @@ ms.locfileid: "56873299"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -172,7 +175,7 @@ ms.locfileid: "56873299"
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會把 Cloud Management Portal for Microsoft Azure 的存取權授予 Britta Simon，讓 Britta Simon 能夠使用 Azure 單一登入。
+在本節中，您會將 Cloud Management Portal for Microsoft Azure 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Cloud Management Portal for Microsoft Azure]。
 
@@ -180,7 +183,7 @@ ms.locfileid: "56873299"
 
 2. 在應用程式清單中，選取 [Cloud Management Portal for Microsoft Azure] 。
 
-    ![應用程式清單中的 Cloud Management Portal for Microsoft Azure 連結](common/all-applications.png)
+    ![應用程式清單中的 [Cloud Management Portal for Microsoft Azure] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -204,7 +207,7 @@ ms.locfileid: "56873299"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 Cloud Management Portal for Microsoft Azure 圖格時，應該會自動登入您設定 SSO 的 Cloud Management Portal for Microsoft Azure。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [Cloud Management Portal for Microsoft Azure] 圖格時，應該會自動登入您已設定 SSO 的 Cloud Management Portal for Microsoft Azure。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

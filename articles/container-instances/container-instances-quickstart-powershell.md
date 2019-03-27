@@ -1,6 +1,6 @@
 ---
-title: 快速入門 - 在 Azure Container Instances 中執行應用程式 - PowerShell
-description: 在本快速入門中，您會使用 Azure PowerShell 將 Docker 容器應用程式部署至具有 Azure PowerShell 的 Azure Container Instances
+title: 快速入門 - 將 Docker 容器部署至 Azure 容器執行個體 - PowerShell
+description: 在本快速入門中，您可以使用 Azure PowerShell 快速地部署在隔離式 Azure 容器執行個體中執行的容器化的 Web 應用程式
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,16 +8,18 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b8cb84523288f45dfb719d69e4f7d227039598a9
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 00f5f8e045a2ec78751d115db3d9d75ec76189e8
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806907"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732298"
 ---
-# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-azure-powershell"></a>快速入門：使用 Azure PowerShell，在 Azure Container Instances 中執行容器應用程式
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>快速入門：使用 Azure PowerShell 部署容器執行個體
 
-使用 Azure Container Instances 在 Azure 中簡潔且快速地執行 Docker 容器。 您不需要部署虛擬機器，也不需要使用完整的容器協調流程平台，如 Kubernetes。 在本快速入門中，您會使用 Azure 入口網站在 Azure 中建立 Windows 容器，並使用完整網域名稱 (FQDN) 讓其應用程式可供使用。 執行單一部署命令的幾秒之後，您可以瀏覽至執行中的應用程式：
+使用 Azure 容器執行個體在 Azure 中簡潔且快速地執行無伺服器 Docker 容器。 當您不需要像 Azure Kubernetes Service 的完整容器協調流程平台時，請視需要將應用程式部署至容器執行個體。
+
+在本快速入門中，您會使用 Azure PowerShell 部署隔離式 Windows 容器，並使用完整網域名稱 (FQDN) 讓其應用程式可供使用。 執行單一部署命令的幾秒之後，您可以瀏覽至容器中執行的應用程式：
 
 ![在瀏覽器中檢視部署至 Azure Container Instances 的應用程式][qs-powershell-01]
 
@@ -45,7 +47,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 您可以指定一或多個要開啟的連接埠和 (或) DNS 名稱標籤，以將您的容器公開至網際網路。 在本快速入門中，您會部署附有 DNS 名稱標籤的一個容器，以便公開觸達 IIS。
 
-執行下列命令以啟動容器執行個體。 `-DnsNameLabel` 值在您建立執行個體所在的 Azure 區域中必須是唯一的。 如果出現「DNS 名稱標籤無法使用」錯誤訊息，請嘗試使用不同的 DNS 名稱標籤。
+執行和下列類似的命令，以啟動容器執行個體。 設定 `-DnsNameLabel` 值，其在您建立執行個體所在的 Azure 區域中必須是唯一的。 如果出現「DNS 名稱標籤無法使用」錯誤訊息，請嘗試使用不同的 DNS 名稱標籤。
 
  ```azurepowershell-interactive
 New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win

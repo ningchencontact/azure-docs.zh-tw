@@ -8,24 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 1a02862d3ea2e17cfa25a2a2d96e1454699ae7f1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ba132adc6b0fd2b8423a7bce30ad6d52fccc898e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166278"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858196"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>快速入門：使用 PHP 來呼叫 Bing Web 搜尋 API  
 
 使用本快速入門進行對 Bing Web 搜尋 API 第一次的呼叫，並接收 JSON 回應。 這個 Node.js 應用程式會將搜尋要求傳送給 API，並顯示回應。 雖然此應用程式是以 JavaScript 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
 
 ## <a name="prerequisites"></a>必要條件
+
 以下是執行本快速入門之前的幾個必備項目：
 
-* [PHP 5.6.x](http://php.net/downloads.php) (英文) 或更新版本
+* [PHP 5.6.x](https://php.net/downloads.php) (英文) 或更新版本
 * 訂用帳戶金鑰  
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
@@ -34,11 +35,11 @@ ms.locfileid: "56166278"
 
 開始之前，請找出 `php.ini` 並取消註解這一行：
 
-```
-;extension=php_openssl.dll
+```php
+; extension=php_openssl.dll
 ```
 
-## <a name="create-a-project-and-define-variables"></a>建立專案並定義變數  
+## <a name="create-a-project-and-define-variables"></a>建立專案並定義變數
 
 在您最愛的 IDE 或編輯器中建立新的 PHP 專案。 別忘了將 `<?php` 和 `?>` 加上開頭和結尾標記。
 

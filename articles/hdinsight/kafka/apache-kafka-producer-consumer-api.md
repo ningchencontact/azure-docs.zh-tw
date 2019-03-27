@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: 23a676c64ec2788ec4a9b3d61f86529fa437079f
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 556fc1f04cc6a1d1b594bdd3787ed43d30f607c6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580377"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091166"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>教學課程：使用 Apache Kafka Producer 和 Consumer API
 
@@ -134,6 +134,8 @@ consumer = new KafkaConsumer<>(properties);
 
 ## <a name="build-and-deploy-the-example"></a>建置並部署範例
 
+您可以略過步驟 1 和 2 來進行建置，並從 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars) 下載預先建置的 jars (kafka-producer-consumer.jar)。 您接著可以將這個 jar 複製到您的 HDInsight 叢集。
+
 1. 從 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) 下載範例。
 
 2. 將目錄變更為 `Producer-Consumer` 目錄的位置並使用下列命令︰
@@ -216,7 +218,7 @@ tmux new-session 'java -jar kafka-producer-consumer.jar consumer test $KAFKABROK
 indow -h 'java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygroup' \; attach
 ```
 
-此命令會使用 `tmux` 將終端機分割成兩個資料行。 取用者會在每個資料行中啟動 (使用相同的群組識別碼值)。 取用者完成讀取後，請留意到每個取用者僅讀取了記錄的一部分。 請使用 __Ctrl + C __ 兩次來結束 `tmux`。
+此命令會使用 `tmux` 將終端機分割成兩個資料行。 取用者會在每個資料行中啟動 (使用相同的群組識別碼值)。 取用者完成讀取後，請留意到每個取用者僅讀取了記錄的一部分。 請使用 __Ctrl + C__ 兩次來結束 `tmux`。
 
 透過主題的資料分割處理相同群組內的用戶端取用。 在此程式碼範例中，稍早建立的 `test` 主題有八個分割區。 如果您啟動八個取用者，則每個取用者都會從主題的單一分割區讀取記錄。
 

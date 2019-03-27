@@ -3,23 +3,22 @@ title: 從 Azure IoT 中樞同步處理裝置狀態 | Microsoft Docs
 description: 使用裝置對應項同步處理您的裝置與 IoT 中樞之間的狀態
 services: iot-hub
 documentationcenter: ''
-author: dominicbetts
-manager: timlt
-ms.assetid: ''
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/18/2019
-ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 63ef5a36dc5a9d770e3474e15b4733d4165b9937
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b0e6e75f962383055d4f28356c3db57aac4a088b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421907"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088072"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -76,7 +75,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later:
-az iot hub show-connection-string --hub-name $hubname -o table
+az iot hub show-connection-string --name $hubname -o table
 
 ```
 
@@ -241,7 +240,7 @@ node ServiceClient.js "{your service connection string}"
 
 ![模擬裝置](./media/tutorial-device-twins/SimulatedDevice2.png)
 
-下列螢幕擷取畫面顯示後端應用程式的輸出，並醒目提示它如何裝置擷取及處理報告屬性更新：
+下列螢幕擷取畫面顯示後端應用程式的輸出，並醒目提示它如何接收及處理來自某個裝置的報告屬性更新：
 
 ![後端應用程式](./media/tutorial-device-twins/BackEnd2.png)
 
@@ -263,4 +262,4 @@ az group delete --name tutorial-iot-hub-rg
 在本教學課程中，您已了解如何同步處理您的裝置與 IoT 中樞之間的狀態資訊。 繼續進行下一個教學課程，以了解如何使用裝置對應項實作韌體更新程序。
 
 > [!div class="nextstepaction"]
-[實作裝置韌體更新程序](tutorial-firmware-update.md)
+> [實作裝置韌體更新程序](tutorial-firmware-update.md)

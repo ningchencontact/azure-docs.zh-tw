@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 1a51e677-c62b-4aee-9c61-56926aaaa899
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c3cd6a299cdad93cf9e403cb04a4b7dfda85cbb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 19e46c77d3204cc6cd037e5ef8252aa7598d624d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883108"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880699"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bitabiz"></a>教學課程：Azure Active Directory 與 BitaBIZ 整合
 
@@ -103,7 +103,7 @@ BitaBIZ 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 設定] 區段上，如果您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
 
-    ![BitaBIZ 網域與 URL 單一登入資訊](common/idp-identifier.png)
+    ![BitaBIZ 網域及 URL 單一登入資訊](common/idp-identifier.png)
 
     在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://www.bitabiz.com/<instanceId>`
 
@@ -178,7 +178,7 @@ BitaBIZ 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -195,7 +195,7 @@ BitaBIZ 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [BitaBIZe]。
 
-    ![應用程式清單中的 BitaBIZ 連結](common/all-applications.png)
+    ![應用程式清單中的 [BitaBIZ] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

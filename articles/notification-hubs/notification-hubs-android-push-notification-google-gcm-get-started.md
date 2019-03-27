@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 54c5daa45a7a31334a8f4f437e914dff64752499
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 6e82ec9563832c7569fa1cff735a46dad50a8b3b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55963058"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887573"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging"></a>教學課程：使用 Azure 通知中樞和 Google 雲端通訊將通知推送至 Android 裝置
 
@@ -31,6 +31,9 @@ ms.locfileid: "55963058"
 
 本教學課程說明如何使用 Azure 通知中樞傳送推播通知到 Android 應用程式。
 您將建立可使用 Google 雲端通訊 (GCM) 接收推播通知的空白 Android 應用程式。
+
+> [!IMPORTANT]
+> Google 雲端通訊 (GCM) 已被取代，將[儘速](https://developers.google.com/cloud-messaging/faq)移除。
 
 > [!IMPORTANT]
 > 本主題示範使用 Google 雲端通訊 (GCM) 的推播通知。 如果您是使用 Google 的 Firebase 雲端通訊 (FCM)，請參閱 [使用 Azure 通知中樞和 FCM 將推播通知傳送至 Android](notification-hubs-android-push-notification-google-fcm-get-started.md)。
@@ -89,15 +92,15 @@ ms.locfileid: "55963058"
 1. 在 **app** 的 `Build.Gradle` 檔案中，於 **dependencies** 區段中新增下列數行。
 
     ```gradle
-    compile 'com.microsoft.azure:notification-hubs-android-sdk:0.4@aar'
-    compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
+    implementation 'com.microsoft.azure:notification-hubs-android-sdk:0.6@aar'
+    implementation 'com.microsoft.azure:azure-notifications-handler:1.0.1@aar'
     ```
 2. 加入下列儲存機制到 **dependencies** 一節之後。
 
     ```gradle
     repositories {
         maven {
-            url "http://dl.bintray.com/microsoftazuremobile/SDK"
+            url "https://dl.bintray.com/microsoftazuremobile/SDK"
         }
     }
     ```
@@ -158,19 +161,19 @@ ms.locfileid: "55963058"
 
     請在 `NotificationSettings` 類別的下列程式碼中更新這三個預留位置：
 
-   * `SenderId`：您稍早在 [Google Cloud Console](http://cloud.google.com/console) 中取得的專案編號。
+   * `SenderId`：您稍早在 [Google Cloud Console](https://cloud.google.com/console) 中取得的專案編號。
    * `HubListenConnectionString`：您中樞的 `DefaultListenAccessSignature` 連接字串。 在 [Azure 入口網站]中，按一下中樞 [設定] 頁面上的 [存取原則]，即可複製該連接字串。
    * `HubName`：使用出現在 [Azure 入口網站]中樞頁面中的通知中樞名稱。
 
      `NotificationSettings` 程式碼︰
 
-    ```java
-    public class NotificationSettings {
+     ```java
+     public class NotificationSettings {
         public static String SenderId = "<Your project number>";
         public static String HubName = "<Your HubName>";
         public static String HubListenConnectionString = "<Your default listen connection string>";
-    }
-    ```
+     }
+     ```
 2. 新增另一個名為 `MyInstanceIDService` 的新類別。 此類別是執行個體識別碼接聽程式服務實作。
 
     此類別的程式碼會呼叫 `IntentService` 以在背景[重新整理 GCM 權杖](https://developers.google.com/instance-id/guides/android-implementation#refresh_tokens)。
@@ -544,7 +547,7 @@ ms.locfileid: "55963058"
 
     ```java
     /**
-        * Example code from http://msdn.microsoft.com/library/azure/dn495627.aspx
+        * Example code from https://msdn.microsoft.com/library/azure/dn495627.aspx
         * to parse the connection string so a SaS authentication token can be
         * constructed.
         *
@@ -573,7 +576,7 @@ ms.locfileid: "55963058"
 
     ```java
     /**
-        * Example code from http://msdn.microsoft.com/library/azure/dn495627.aspx to
+        * Example code from https://msdn.microsoft.com/library/azure/dn495627.aspx to
         * construct a SaS token from the access key to authenticate a request.
         *
         * @param uri The unencoded resource URI string for this operation. The resource
@@ -647,7 +650,7 @@ ms.locfileid: "55963058"
                 try
                 {
                     // Based on reference documentation...
-                    // http://msdn.microsoft.com/library/azure/dn223273.aspx
+                    // https://msdn.microsoft.com/library/azure/dn223273.aspx
                     ParseConnectionString(NotificationSettings.HubFullAccess);
                     URL url = new URL(HubEndpoint + NotificationSettings.HubName +
                             "/messages/?api-version=2015-01");
@@ -734,8 +737,8 @@ ms.locfileid: "55963058"
 <!-- URLs. -->
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md 
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
-[Referencing a library project]: http://go.microsoft.com/fwlink/?LinkId=389800
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Referencing a library project]: https://go.microsoft.com/fwlink/?LinkId=389800
+[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Azure 入口網站]: https://portal.azure.com

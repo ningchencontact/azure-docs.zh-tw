@@ -5,20 +5,20 @@ author: tomarchermsft
 manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: devops
+ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: jenkins
 ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 651e8505c6d3a3952347bba5e598ec9a0a518e8e
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 7cd7b8f7b49915db9fcf17602429e47c1b9da95d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074762"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901418"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>教學課程：使用 Jenkins 和 Azure DevOps Services 在 Azure 中將應用程式部署至 Linux 虛擬機器
 
@@ -60,7 +60,7 @@ ms.locfileid: "54074762"
 建立此應用程式的分支並記下位置 (URL)，此教學課程的後續步驟中會用到此位置。 如需詳細資訊，請參閱[分支存放庫](https://help.github.com/articles/fork-a-repo/)。    
 
 > [!NOTE]
-> 應用程式是透過 [Yeoman](http://yeoman.io/learning/index.html) 進行建置。 它會使用 Express、Bower 和 Grunt。 同時其具有某些 npm 套件作為相依項目。
+> 應用程式是透過 [Yeoman](https://yeoman.io/learning/index.html) 進行建置。 它會使用 Express、Bower 和 Grunt。 同時其具有某些 npm 套件作為相依項目。
 > 此範例也包含設定 Nginx 和部署應用程式的指令碼。 其執行於虛擬機器上。 具體來說，指令碼可以：
 > 1. 安裝 Node、Nginx 和 PM2。
 > 2. 設定 Nginx 和 PM2。
@@ -141,7 +141,7 @@ ms.locfileid: "54074762"
 8. 安裝之後，系統會提示您提供部署群組標記。 接受預設值。
 9. 在 Azure DevOps Services 中，檢查您在 [部署群組] 下的 [目標] 中新註冊的虛擬機器。
 
-## <a name="create-a-azure-pipelines-release-pipeline"></a>建立 Azure Pipelines 發行管線
+## <a name="create-an-azure-pipelines-release-pipeline"></a>建立 Azure Pipelines 發行管線
 
 發行管線會指定 Azure Pipelines 用來部署應用程式的流程。 在此範例中，您要執行殼層指令碼。
 

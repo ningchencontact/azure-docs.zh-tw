@@ -9,14 +9,15 @@ ms.date: 07/02/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb01ae6514dfb97cc8a923619513383ace0b09a5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: f4935cc15bf3edeccd6b6ce9da701904a32606db
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669970"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295023"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中將來賓使用者新增到您的目錄
 
@@ -39,15 +40,15 @@ ms.locfileid: "56669970"
 2. 在左窗格中，選取 [Azure Active Directory]。
 3.  在 [管理] 底下選取 [使用者]。
 
-    ![選取 Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-user.png)
+    ![顯示要在哪裡選取 [使用者] 選項的螢幕擷取畫面](media/quickstart-add-users-portal/quickstart-users-portal-user.png)
 
 4.  選取 [新增來賓使用者]。
 
-    ![選取 Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
+    ![顯示要在哪裡選取 [新增來賓使用者] 選項的螢幕擷取畫面](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
 
 5.  在 [使用者名稱] 下，輸入外部使用者的電子郵件地址。 在 [包含個人訊息與邀請] 下，輸入歡迎使用訊息。 
 
-    ![選取 Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-user-4.png)
+    ![顯示要在哪裡輸入來賓使用者邀請訊息的螢幕擷取畫面](media/quickstart-add-users-portal/quickstart-users-portal-user-4.png)
 
 6. 選取 [邀請] 即可自動對來賓使用者傳送邀請。 右上角會顯示一則通知，其中顯示訊息 [已成功邀請使用者]。 
 7.  在傳送邀請之後，系統就會自動將使用者帳戶以來賓身分新增至目錄。
@@ -59,7 +60,7 @@ ms.locfileid: "56669970"
 3.  選取 [新增應用程式]。
 4. 在 [從資源庫新增] 底下，搜尋 **Salesforce**，然後選取它。
 
-    ![選取 Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)
+    ![顯示 [從資源庫新增] 搜尋方塊的螢幕擷取畫面](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)
 5. 選取 [新增] 。
 6. 在 [管理] 下，選取 [單一登入]，然後在 [單一登入模式] 下，選取 [密碼登入]，然後按一下 [儲存]。
 7. 在 [管理] 下選取 [使用者和群組] > [新增使用者] > [使用者和群組]。
@@ -71,11 +72,11 @@ ms.locfileid: "56669970"
 1.  登入測試來賓使用者的電子郵件帳戶。
 2.  在您的收件匣中，尋找「您已收到邀請」電子郵件。
 
-    ![B2B 邀請電子郵件](media/quickstart-add-users-portal/quickstart-users-portal-email-small.png)
+    ![顯示 B2B 邀請電子郵件的螢幕擷取畫面](media/quickstart-add-users-portal/quickstart-users-portal-email-small.png)
 
 3.  在電子郵件內文中，選取 [開始使用]。 將在瀏覽器中開啟 [檢閱權限] 頁面。 
 
-    ![B2B 接受邀請頁面](media/quickstart-add-users-portal/quickstart-users-portal-accept.png)
+    ![顯示 [檢閱權限] 頁面的螢幕擷取畫面](media/quickstart-add-users-portal/quickstart-users-portal-accept.png)
 
 4. 選取 [接受]。 隨即開啟 [存取面板]，其中列出來賓使用者可以存取的應用程式。
 

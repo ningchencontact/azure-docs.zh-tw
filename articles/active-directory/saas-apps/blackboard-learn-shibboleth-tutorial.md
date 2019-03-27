@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: e435cbb4-c0f0-400e-943c-5c923fa8ddf2
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b15d49792499ad9d6ded1105e5a4f74f67a0bf9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 861e8dec9383309a549cdd2c24ecd58d6dfdf25e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870698"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892382"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn---shibboleth"></a>教學課程：Azure Active Directory 與 Blackboard Learn - Shibboleth 整合
 
@@ -36,7 +36,7 @@ ms.locfileid: "56870698"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Blackboard Learn - Shibboleth 整合，您需要下列項目：
+若要設定 Azure AD 與 Blackboard Learn - Shibboleth 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Blackboard Learn - Shibboleth 單一登入的訂用帳戶
@@ -103,7 +103,7 @@ ms.locfileid: "56870698"
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Blackboard Learn - Shibboleth 網域和 URL 單一登入資訊](common/sp-identifier-reply.png)
+    ![Blackboard Learn - Shibboleth 網域及 URL 單一登入資訊](common/sp-identifier-reply.png)
 
     a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<yourblackoardlearnserver>.blackboardlearn.com/Shibboleth.sso/Login`
 
@@ -150,7 +150,7 @@ ms.locfileid: "56870698"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -167,7 +167,7 @@ ms.locfileid: "56870698"
 
 2. 在應用程式清單中，選取 [Blackboard Learn - Shibboleth]。
 
-    ![應用程式清單中的 Blackboard Learn - Shibboleth 連結](common/all-applications.png)
+    ![應用程式清單中的 [Blackboard Learn - Shibboleth] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -185,7 +185,7 @@ ms.locfileid: "56870698"
 
 ### <a name="create-blackboard-learn---shibboleth-test-user"></a>建立 Blackboard Learn - Shibboleth 測試使用者
 
-在本節中，您會在 Blackboard Learn - Shibboleth 中建立名為 Britta Simon 的使用者。 請與  [Blackboard Learn - Shibboleth 支援小組](https://www.blackboard.com/forms/contact-us_form.aspx)合作，在 Blackboard Learn - Shibboleth 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 Blackboard Learn - Shibboleth 中建立名為 Britta Simon 的使用者。 請與 [Blackboard Learn - Shibboleth 支援小組](https://www.blackboard.com/forms/contact-us_form.aspx)合作，在 Blackboard Learn - Shibboleth 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

@@ -9,12 +9,12 @@ ms.date: 01/03/2019
 ms.author: tamram
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: b031e7b772389aa81fd214d31365c20018cf48ae
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f00f11e66d33c37ff2107cbb8282b49994fe0d3b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874438"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013591"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>教學課程：建置採用 Blob 儲存體的高可用性應用程式
 
@@ -49,15 +49,14 @@ RA-GRS 的運作方式是將交易從主要區域複寫到次要區域。 此複
 * 安裝 [Python](https://www.python.org/downloads/)
 * 下載並安裝 [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python)
 
-# <a name="java-v7-sdk-tabjava-v7"></a>[Java V7 SDK ](#tab/java-v7)
-
-* 安裝 [Maven](http://maven.apache.org/download.cgi) 並設定成從命令列運作
-* 安裝並設定 [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
-* 安裝 [Maven](http://maven.apache.org/download.cgi) 並設定成從命令列運作
-* 安裝並設定 [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* 安裝 [Maven](https://maven.apache.org/download.cgi) 並設定成從命令列運作
+* 安裝並設定 [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+* 安裝 [Node.js](https://nodejs.org)。
 
 ---
 
@@ -78,20 +77,20 @@ RA-GRS 的運作方式是將交易從主要區域複寫到次要區域。 此複
 
    | 設定       | 建議的值 | 說明 |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **名稱** | mystorageaccount | 用於儲存體帳戶的唯一值 |
-   | **部署模型** | Resource Manager  | Resource Manager 含有最新的功能。|
-   | **帳戶類型** | StorageV2 | 如需帳戶類型的詳細資訊，請參閱[儲存體帳戶的類型](../common/storage-introduction.md#types-of-storage-accounts) |
+   | **訂用帳戶** | 您的訂用帳戶 |如需訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.windowsazure.com/Subscriptions)。 |
+   | **資源群組** | myResourceGroup |如需有效的資源群組名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 |
+   | **儲存體帳戶名稱** | mystorageaccount | 用於儲存體帳戶的唯一值 |
+   | **位置** | 美國東部 | 選擇位置。 |
    | **效能** | 標準 | 標準便足供此案例範例使用。 |
+   | **帳戶類型** | StorageV2 | 如需帳戶類型的詳細資訊，請參閱[儲存體帳戶的類型](../common/storage-introduction.md#types-of-storage-accounts) |
    | **複寫**| 讀取權限異地備援儲存體 (RA-GRS) | 這是讓範例起作用的必要項目。 |
-   |**訂用帳戶** | 您的訂用帳戶 |如需訂用帳戶的詳細資訊，請參閱[訂用帳戶](https://account.windowsazure.com/Subscriptions)。 |
-   |**ResourceGroup** | myResourceGroup |如需有效的資源群組名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 |
-   |**位置** | 美國東部 | 選擇位置。 |
+   | **存取層** | 經常性存取 | 經常性存取便足供此案例範例使用。 |
 
 ![建立儲存體帳戶](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## <a name="download-the-sample"></a>下載範例
 
-# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 [下載範例專案](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip)並擷取 (解壓縮) storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip 檔案。 您也可以使用 [git](https://git-scm.com/) 將應用程式的複本下載到您的開發環境。 此範例專案包含一個主控台應用程式。
 
@@ -99,7 +98,7 @@ RA-GRS 的運作方式是將交易從主要區域複寫到次要區域。 此複
 git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git 
 ```
 
-# <a name="python-tabpython"></a>[Python] (#tab/python)
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 [下載範例專案](https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip)並擷取 (解壓縮) storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.zip 檔案。 您也可以使用 [git](https://git-scm.com/) 將應用程式的複本下載到您的開發環境。 此範例專案包含基本 Python 應用程式。
 
@@ -107,15 +106,7 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# <a name="java-v7-sdk--tabjava-v7"></a>[Java V7 SDK ] (#tab/java-v7)
-
-[下載範例專案](https://github.com/Azure-Samples/storage-java-ha-ra-grs)並解壓縮 storage-java-ragrs.zip 檔案。 您也可以使用 [git](https://git-scm.com/) 將應用程式的複本下載到您的開發環境。 此範例專案包含基本 Java 應用程式。
-
-```bash
-git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
-```
-
-# <a name="java-v10-sdk-tabjava-v10"></a>[Java V10 SDK] (#tab/java-v10)
+# <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
 [下載範例專案](https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs)並解壓縮 storage-java-ragrs.zip 檔案。 您也可以使用 [git](https://git-scm.com/) 將應用程式的複本下載到您的開發環境。 此範例專案包含基本 Java 應用程式。
 
@@ -123,62 +114,57 @@ git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
 git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
 ```
 
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+[下載範例專案](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs)並將檔案解壓縮。 您也可以使用 [git](https://git-scm.com/) 將應用程式的複本下載到您的開發環境。 此範例專案包含基本 Node.js 應用程式。
+
+```bash
+git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
+```
+
 ---
 
-# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+## <a name="configure-the-sample"></a>設定範例
 
-在應用程式，您必須提供儲存體帳戶的連接字串。 建議您在執行應用程式的本機電腦上，將此連接字串儲存在環境變數內。 請根據您的作業系統，遵循以下其中一個範例來建立環境變數。
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-在 Azure 入口網站中，瀏覽至您的儲存體帳戶。 在儲存體帳戶中選取 [設定] 下的 [存取金鑰]。 從主要或次要金鑰複製**連接字串**。 根據您的作業系統執行下列其中一個命令，將 \<yourconnectionstring\> 取代為您的實際連接字串。 此命令會將一個環境變數儲存至本機電腦。 在 Windows 中，必須重新載入**命令提示字元**或您所使用的殼層，才能使用此環境變數。 取代下列範例中的 **\<storageConnectionString\>**：
+在應用程式，您必須提供儲存體帳戶的連接字串。 您可以在執行應用程式的本機電腦上，將此連接字串儲存在環境變數內。 請根據您的作業系統，遵循以下其中一個範例來建立環境變數。
 
-### <a name="linux"></a> Linux
-
-```
-export storageconnectionstring=\<yourconnectionstring\> 
-```
-### <a name="windows"></a> Windows
-
-```PowerShell
-setx storageconnectionstring "\<yourconnectionstring\>"
-```
-
-# <a name="python-tabpython"></a>[Python] (#tab/python)
-
-在應用程式，您必須提供儲存體帳戶的連接字串。 建議您在執行應用程式的本機電腦上，將此連接字串儲存在環境變數內。 請根據您的作業系統，遵循以下其中一個範例來建立環境變數。
-
-在 Azure 入口網站中，瀏覽至您的儲存體帳戶。 在儲存體帳戶中選取 [設定] 下的 [存取金鑰]。 從主要或次要金鑰複製**連接字串**。 根據您的作業系統執行下列其中一個命令，將 \<yourconnectionstring\> 取代為您的實際連接字串。 此命令會將一個環境變數儲存至本機電腦。 在 Windows 中，必須重新載入**命令提示字元**或您所使用的殼層，才能使用此環境變數。 取代下列範例中的 **\<storageConnectionString\>**：
+在 Azure 入口網站中，瀏覽至您的儲存體帳戶。 在儲存體帳戶中選取 [設定] 下的 [存取金鑰]。 從主要或次要金鑰複製**連接字串**。 根據您的作業系統執行下列其中一個命令，將 \<yourconnectionstring\> 取代為實際的連接字串。 此命令會將一個環境變數儲存至本機電腦。 在 Windows 中，必須重新載入**命令提示字元**或您所使用的殼層，才能使用此環境變數。
 
 ### <a name="linux"></a> Linux
 
 ```
-export storageconnectionstring=\<yourconnectionstring\> 
+export storageconnectionstring=<yourconnectionstring>
 ```
 ### <a name="windows"></a> Windows
 
 ```PowerShell
-setx storageconnectionstring "\<yourconnectionstring\>"
+setx storageconnectionstring "<yourconnectionstring>"
 ```
 
-# <a name="java-v7-sdk--tabjava-v7"></a>[Java V7 SDK ] (#tab/java-v7)
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
-在應用程式，您必須提供儲存體帳戶的連接字串。 建議您在執行應用程式的本機電腦上，將此連接字串儲存在環境變數內。 請根據您的作業系統，遵循以下其中一個範例來建立環境變數。
+您必須在應用程式中提供儲存體帳戶認證。 您可以在執行應用程式的本機電腦上，將此資訊儲存在環境變數中。 視您的作業系統而定，遵循以下其中一個範例來建立環境變數。
 
-在 Azure 入口網站中，瀏覽至您的儲存體帳戶。 在儲存體帳戶中選取 [設定] 下的 [存取金鑰]。 從主要或次要金鑰複製**連接字串**。 根據您的作業系統執行下列其中一個命令，將 \<yourconnectionstring\> 取代為您的實際連接字串。 此命令會將一個環境變數儲存至本機電腦。 在 Windows 中，必須重新載入**命令提示字元**或您所使用的殼層，才能使用此環境變數。 取代下列範例中的 **\<storageConnectionString\>**：
+在 Azure 入口網站中，瀏覽至您的儲存體帳戶。 在儲存體帳戶中選取 [設定] 下的 [存取金鑰]。 將 [儲存體帳戶名稱] 和 [金鑰] 值貼到下列命令中，取代 \<youraccountname\> 和 \<youraccountkey\> 預留位置。 此命令會將環境變數儲存至本機電腦。 在 Windows 中，必須重新載入**命令提示字元**或您所使用的殼層，才能使用此環境變數。
 
 ### <a name="linux"></a> Linux
 
 ```
-export storageconnectionstring=\<yourconnectionstring\> 
+export accountname=<youraccountname>
+export accountkey=<youraccountkey>
 ```
 ### <a name="windows"></a> Windows
 
 ```PowerShell
-setx storageconnectionstring "\<yourconnectionstring\>"
+setx accountname "<youraccountname>"
+setx accountkey "<youraccountkey>"
 ```
 
-# <a name="java-v10-sdk-tabjava-v10"></a>[Java V10 SDK] (#tab/java-v10)
+# <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
-使用此範例時，您必須安全地儲存您的儲存體帳戶名稱和金鑰。 請將其儲存在執行範例的電腦本機的環境變數中。 根據您的作業系統，使用 Linux 或 Windows 範例來建立環境變數。 在 Windows 中，必須重新載入**命令提示字元**或您所使用的殼層，才能使用此環境變數。
+使用此範例時，您必須安全地儲存您的儲存體帳戶名稱和金鑰。 請將其儲存在執行範例的電腦本機的環境變數中。 根據您的作業系統，使用 Linux 或 Windows 範例來建立環境變數。 
 
 ### <a name="linux-example"></a>Linux 範例
 
@@ -194,11 +180,26 @@ setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
 setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 ```
 
+您可以在 Azure 入口網站中，瀏覽至儲存體帳戶，然後在 [設定] 區段中選取 [存取金鑰]，即可找到此資訊。 
+
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+若要執行此範例，必須將儲存體帳戶認證新增到 `.env.example` 檔案，然後將它重新命名為 `.env`。
+
+```
+AZURE_STORAGE_ACCOUNT_NAME=<replace with your storage account name>
+AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
+```
+
+您可以在 Azure 入口網站中，瀏覽至儲存體帳戶，然後在 [設定] 區段中選取 [存取金鑰]，即可找到此資訊。 
+
+您也必須安裝必要的相依項目。 若要這樣做，請開啟命令提示字元，瀏覽至範例資料夾，然後輸入 `npm install`。
+
 ---
 
 ## <a name="run-the-console-application"></a>執行主控台應用程式
 
-# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 在 Visual Studio 中，按下 **F5** 或選取 [啟動]，開始對應用程式進行偵錯。 如有設定，Visual Studio 會自動還原缺少的 NuGet 套件，如需深入了解，請造訪[透過套件還原來安裝和解除安裝套件](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview)。
 
@@ -208,7 +209,7 @@ setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 
 在程式碼範例中，系統會使用 `Program.cs` 檔案中的 `RunCircuitBreakerAsync` 工作，透過 [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 方法從儲存體帳戶下載影像。 在下載之前，系統會先定義 [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet)。 作業內容會定義事件處理常式，當下載作業成功完成，或下載作業失敗而正在重試時，便會引發這些處理常式。
 
-# <a name="python-tabpython"></a>[Python] (#tab/python)
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 若要在終端機或命令提示字元上執行應用程式，請移至 **circuitbreaker.py** 目錄，然後輸入 `python circuitbreaker.py`。 此應用程式會將 **HelloWorld.png** 影像從解決方案上傳到儲存體帳戶。 此應用程式會進行檢查，以確保影像已複寫到次要 RA-GRS 端點。 之後，則會開始下載影像，最多會下載 999 次。 每次的讀取都會以 **P** 或 **S** 來表示。其中，**P** 代表主要端點，**S** 則代表次要端點。
 
@@ -220,17 +221,11 @@ setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 
 在下載之前，會定義服務物件 [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 和 [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 函式。 這些函式會定義事件處理常式，當下載作業成功完成，或下載作業失敗而正在重試時，便會引發這些處理常式。  
 
-# <a name="java-v7-sdk-tabjava-v7"></a>[Java V7 SDK] (#tab/java-v7)
-
-您可以開啟將範圍設定於已下載的應用程式資料夾的終端機或命令提示字元，以執行應用程式。 在該處輸入 `mvn compile exec:java`，以執行應用程式。 接著，應用程式會將 **HelloWorld.png** 影像從目錄上傳到您的儲存體帳戶，並確認影像已複寫至次要 RA-GRS 端點。 確認完成後，應用程式會開始重複下載影像，同時回報它從中下載影像的端點。
-
-儲存體物件重試函式會設為使用線性重試原則。 重試函式會決定是否要重試要求，並指定每次重試之間等待的秒數。 **BlobRequestOptions** 的 **LocationMode** 屬性會設為 **PRIMARY\_THEN\_SECONDARY**。 這可讓應用程式在嘗試下載 **HelloWorld.png** 期間無法連線到主要位置時，能夠自動切換至次要位置。
-
-# <a name="java-v10-sdk-tabjava-v10"></a>[Java V10 SDK] (#tab/java-v10)
+# <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
 若要執行範例，請在命令列使用 Maven。
 
-1. 開啟殼層，然後瀏覽至複製目錄內的 **storage-blobs-java-v10-quickstart**。
+1. 開啟殼層，然後瀏覽至複製目錄內的 **storage-blobs-java-v10-tutorial-master**。
 2. 輸入 `mvn compile exec:java` 。
 
 此範例會在預設目錄中建立測試檔案，對於 Windows 使用者而言，此目錄為 **AppData\Local\Temp**。此範例接著會顯示您可以輸入的下列命令選項：
@@ -270,11 +265,38 @@ Cleaning up the sample and exiting!
 
 您可以控制範例，因此請輸入命令，使其執行程式碼。 輸入會區分大小寫。
 
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+若要執行範例，請開啟命令提示字元，瀏覽至範例資料夾，然後輸入 `node index.js`。
+
+範例會在您的 Blob 儲存體帳戶中建立容器、將 **HelloWorld.png** 上傳到容器中，然後重複檢查容器和映像是否已複寫到次要區域。 複寫之後，系統將會提示您輸入 **D** 或 **Q** (接著按下 ENTER) 以下載或結束。 輸出看起來應類似下列範例：
+
+```
+Created container successfully: newcontainer1550799840726
+Uploaded blob: HelloWorld.png
+Checking to see if container and blob have replicated to secondary region.
+[0] Container has not replicated to secondary region yet: newcontainer1550799840726 : ContainerNotFound
+[1] Container has not replicated to secondary region yet: newcontainer1550799840726 : ContainerNotFound
+...
+[31] Container has not replicated to secondary region yet: newcontainer1550799840726 : ContainerNotFound
+[32] Container found, but blob has not replicated to secondary region yet.
+...
+[67] Container found, but blob has not replicated to secondary region yet.
+[68] Blob has replicated to secondary region.
+Ready for blob download. Enter (D) to download or (Q) to quit, followed by ENTER.
+> D
+Attempting to download blob...
+Blob downloaded from primary endpoint.
+> Q
+Exiting...
+Deleted container newcontainer1550799840726
+```
+
 ---
 
 ## <a name="understand-the-sample-code"></a>了解範例程式碼
 
-# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 ### <a name="retry-event-handler"></a>重試事件處理常式
 
@@ -325,7 +347,7 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
-# <a name="python-tabpython"></a>[Python] (#tab/python) 
+# <a name="pythontabpython"></a>[Python](#tab/python) 
 
 ### <a name="retry-event-handler"></a>重試事件處理常式
 
@@ -367,22 +389,9 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-# <a name="java-v7-sdk--tabjava-v7"></a>[Java V7 SDK ] (#tab/java-v7)
+# <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
-使用 Java 時，如果 **BlobRequestOptions** 的 **LocationMode** 屬性設為 **PRIMARY\_THEN\_SECONDARY**，則不需要定義回呼處理常式。 這可讓應用程式在嘗試下載 **HelloWorld.png** 期間無法連線到主要位置時，能夠自動切換至次要位置。
-
-```java
-    BlobRequestOptions myReqOptions = new BlobRequestOptions();
-    myReqOptions.setRetryPolicyFactory(new RetryLinearRetry(deltaBackOff, maxAttempts));
-    myReqOptions.setLocationMode(LocationMode.PRIMARY_THEN_SECONDARY);
-    blobClient.setDefaultRequestOptions(myReqOptions);
-
-    blob.downloadToFile(downloadedFile.getAbsolutePath(),null,blobClient.getDefaultRequestOptions(),opContext);
-```
-
-# <a name="java-v10-sdk-tabjava-v10"></a>[Java V10 SDK] (#tab/java-v10)
-
-使用 Java V10 SDK 範例建立的，仍不需要定義回呼處理常式，且 SDK 現在與 V7 SDK 有一些基本差異。 我們有次要**管線**，而沒有 LocationMode。 您可以透過 **RequestRetryOptions** 定義次要管線，若已定義，則允許應用程式在無法透過主要管線觸達您的資料時，自動切換到次要管線。
+使用 Java V10 SDK 範例建立的，不需要定義回呼處理常式，且 SDK 現在與 V7 SDK 有一些基本差異。 我們有次要**管線**，而沒有 LocationMode。 您可以透過 **RequestRetryOptions** 定義次要管線，若已定義，則允許應用程式在無法透過主要管線觸達您的資料時，自動切換到次要管線。
 
 ```java
 // We create pipeline options here so that they can be easily used between different pipelines
@@ -391,6 +400,30 @@ myOptions.withRequestRetryOptions(new RequestRetryOptions(RetryPolicyType.EXPONE
 // We are using a default pipeline here, you can learn more about it at https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview
 final ServiceURL serviceURL = new ServiceURL(new URL("https://" + accountName + ".blob.core.windows.net"), StorageURL.createPipeline(creds, myOptions));
 ```
+
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+使用 Node.js V10 SDK 時，並不需要回呼處理常式。 相反地，此範例會建立已設定重試選項和次要端點的管線。 這可允許應用程式在無法透過主要管線取得您的資料時，自動切換到次要管線。 
+
+```javascript
+const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
+const storageAccessKey = process.env.AZURE_STORAGE_ACCOUNT_ACCESS_KEY;
+const sharedKeyCredential = new SharedKeyCredential(accountName, storageAccessKey);
+
+const primaryAccountURL = `https://${accountName}.blob.core.windows.net`;
+const secondaryAccountURL = `https://${accountName}-secondary.blob.core.windows.net`;
+
+const pipeline = StorageURL.newPipeline(sharedKeyCredential, {
+  retryOptions: {
+    maxTries: 3, 
+    tryTimeoutInMs: 10000,
+    retryDelayInMs: 500, 
+    maxRetryDelayInMs: 1000,
+    secondaryHost: secondaryAccountURL
+  }
+});
+```
+
 ---
 
 ## <a name="next-steps"></a>後續步驟

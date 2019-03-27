@@ -1,6 +1,6 @@
 ---
-title: 快速入門 - 在 Azure Container Instances 中執行應用程式 - CLI
-description: 在本快速入門中，您會使用 Azure CLI 部署 Docker 容器應用程式，以便在 Azure Container Instances 中隔離的容器內執行
+title: 快速入門 - 將 Docker 容器部署至 Azure 容器執行個體 - CLI
+description: 在本快速入門中，您可以使用 Azure CLI 快速地部署在隔離式 Azure 容器執行個體中執行的容器化的 Web 應用程式
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,16 +8,18 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 93a41610035d91774256410cea6af1d06b085d30
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 7252636287d634927979d70954f48cab5aecde5d
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562057"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732287"
 ---
-# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-the-azure-cli"></a>快速入門：使用 Azure CLI，在 Azure Container Instances 中執行容器應用程式
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>快速入門：使用 Azure CLI 部署容器執行個體
 
-使用 Azure Container Instances 在 Azure 中簡潔且快速地執行 Docker 容器。 您不需要部署虛擬機器，也不需要使用完整的容器協調流程平台，如 Kubernetes。 在本快速入門中，您會使用 Azure CLI 在 Azure 中建立容器，並使用完整網域名稱 (FQDN) 讓其應用程式可供使用。 執行單一部署命令的幾秒之後，您可以瀏覽至執行中的應用程式：
+使用 Azure 容器執行個體在 Azure 中簡潔且快速地執行無伺服器 Docker 容器。 當您不需要像 Azure Kubernetes Service 的完整容器協調流程平台時，請視需要將應用程式部署至容器執行個體。
+
+在本快速入門中，您會使用 Azure CLI 部署隔離式 Docker 容器，並使用完整網域名稱 (FQDN) 讓其應用程式可供使用。 執行單一部署命令的幾秒之後，您可以瀏覽至容器中執行的應用程式：
 
 ![在瀏覽器中檢視部署至 Azure Container Instances 的應用程式][aci-app-browser]
 
@@ -25,7 +27,7 @@ ms.locfileid: "55562057"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-您可以使用 Azure Cloud Shell 或安裝在本機的 Azure CLI 來完成此快速入門。 如果您想要在本機使用，您需要 2.0.27 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
+您可以使用 Azure Cloud Shell 或安裝在本機的 Azure CLI 來完成此快速入門。 如果您想要在本機使用，建議使用 2.0.55 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][azure-cli-install]。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
@@ -39,11 +41,11 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>建立容器
 
-有了資源群組之後，現在您可以在 Azure 中執行容器。 若要使用 Azure CLI 建立容器執行個體，請在 [az container create][az-container-create] 命令中提供資源群組名稱、容器執行個體名稱和 Docker 容器映像。 在此快速入門中，您可以使用公用 Docker Hub 登錄中的 `microsoft/aci-helloworld` 映像。 此映像會封裝以 Node.js 撰寫並提供靜態 HTML 網頁的小型 Web 應用程式。
+有了資源群組之後，現在您可以在 Azure 中執行容器。 若要使用 Azure CLI 建立容器執行個體，請在 [az container create][az-container-create] 命令中提供資源群組名稱、容器執行個體名稱和 Docker 容器映像。 在此快速入門中，您可以使用公用 `microsoft/aci-helloworld` 映像。 此映像會封裝以 Node.js 撰寫並提供靜態 HTML 網頁的小型 Web 應用程式。
 
 您可以指定一或多個要開啟的連接埠和 (或) DNS 名稱標籤，以將您的容器公開至網際網路。 在本快速入門中，您會部署附有 DNS 名稱標籤的一個容器，以便公開觸達 Web 應用程式。
 
-執行下列命令以啟動容器執行個體。 `--dns-name-label` 值在您建立執行個體所在的 Azure 區域中必須是唯一的。 如果出現「DNS 名稱標籤無法使用」錯誤訊息，請嘗試使用不同的 DNS 名稱標籤。
+執行和下列類似的命令，以啟動容器執行個體。 設定 `--dns-name-label` 值，其在您建立執行個體所在的 Azure 區域中必須是唯一的。 如果出現「DNS 名稱標籤無法使用」錯誤訊息，請嘗試使用不同的 DNS 名稱標籤。
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainer --image microsoft/aci-helloworld --dns-name-label aci-demo --ports 80
@@ -97,13 +99,13 @@ listening on port 80
 首先，請執行 [az container attach][az-container-attach] 命令，將本機主控台附加至容器的輸出資料流：
 
 ```azurecli-interactive
-az container attach --resource-group myResourceGroup -n mycontainer
+az container attach --resource-group myResourceGroup --name mycontainer
 ```
 
 在附加之後，重新整理瀏覽器幾次以產生一些額外的輸出。 作業完成後，請使用 `Control+C` 將主控台中斷連結。 您應該會看到如下所示的輸出：
 
 ```console
-$ az container attach --resource-group myResourceGroup -n mycontainer
+$ az container attach --resource-group myResourceGroup --name mycontainer
 Container 'mycontainer' is in state 'Running'...
 (count: 1) (last timestamp: 2018-03-15 21:17:59+00:00) pulling image "microsoft/aci-helloworld"
 (count: 1) (last timestamp: 2018-03-15 21:18:05+00:00) Successfully pulled image "microsoft/aci-helloworld"
@@ -155,7 +157,7 @@ az group delete --name myResourceGroup
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git
 [azure-account]: https://azure.microsoft.com/free/
-[node-js]: http://nodejs.org
+[node-js]: https://nodejs.org
 
 <!-- LINKS - Internal -->
 [az-container-attach]: /cli/azure/container#az-container-attach

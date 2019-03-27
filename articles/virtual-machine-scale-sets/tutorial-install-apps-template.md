@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 262d7a6a4399a72e762c4ad3c87a878c54e22af4
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 176cf31d7a87b08755ee2acb94aea23684647213
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750387"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996578"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>教學課程：使用 Azure 範本在虛擬機器擴展集中安裝應用程式
 若要在擴展集的虛擬機器 (VM) 執行個體上執行應用程式，您需要先安裝應用程式元件和必要的檔案。 在先前的教學課程中，您已了解如何建立及使用自訂 VM 映像來部署您的 VM 執行個體。 此自訂映像已包含手動應用程式安裝和組態。 您也可以在部署好每個 VM 執行個體後，讓應用程式自動安裝到擴展集，或更新已在擴展集上執行的應用程式。 在本教學課程中，您將了解如何：
@@ -115,7 +115,7 @@ az network public-ip show \
 
 
 ## <a name="update-app-deployment"></a>更新應用程式部署
-在擴展集的整個生命週期中，您可能需要部署更新版的應用程式。 透過自訂指令碼擴充功能，您可以參考已更新的部署指令碼，然後將擴充功能重新套用至擴展集。 在上一個步驟中建立擴展集時，*upgradePolicy` 已設定為「自動」。 此設定可讓擴展集中的 VM 執行個體自動更新並套用最新版的應用程式。
+在擴展集的整個生命週期中，您可能需要部署更新版的應用程式。 透過自訂指令碼擴充功能，您可以參考已更新的部署指令碼，然後將擴充功能重新套用至擴展集。 在上一個步驟中建立擴展集時，*upgradePolicy* 已被設定為 [自動]。 此設定可讓擴展集中的 VM 執行個體自動更新並套用最新版的應用程式。
 
 若要更新自訂指令碼擴充功能的定義，請編輯您的範本，以參考新的安裝指令碼。 新的檔案名稱必須用於讓自訂指令碼擴充功能辨識變更。 自訂指令碼擴充功能不會檢查指令碼內容來判斷任何變更。 下列定義會使用更新的安裝指令碼，並將_v2  附加至其名稱：
 

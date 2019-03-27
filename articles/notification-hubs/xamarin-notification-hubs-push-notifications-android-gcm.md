@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/04/2019
+ms.date: 1/4/2019
 ms.author: jowargo
-ms.openlocfilehash: 5d287bfc38f7bbdda7aab928a5fca6e9209c1faa
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: f7088179f43c69fb9f72eacd6ff3703a926cabe2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447076"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886553"
 ---
 # <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至 Xamarin.Android 應用程式
 
@@ -46,7 +46,7 @@ ms.locfileid: "54447076"
 
 ## <a name="create-a-firebase-project-and-enable-firebase-cloud-messaging"></a>建立 Firebase 專案並啟用 Firebase 雲端通訊
 
-[!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
+[!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging-xamarin.md)]
 
 ## <a name="create-a-notification-hub"></a>建立通知中樞
 
@@ -66,10 +66,18 @@ ms.locfileid: "54447076"
 
 ### <a name="create-visual-studio-project-and-add-nuget-packages"></a>建立 Visual Studio 專案並新增 NuGet 套件
 
-1. 在 Visual Studio 中，開啟 [檔案] 功能表，選取 [新增]，然後選取 [專案]。
+1. 在 Visual Studio 中，開啟 [檔案] 功能表，選取 [新增]，然後選取 [專案]。 在 [新增專案] 視窗中，執行下列步驟： 
+    1. 依序展開 [已安裝] 和 [Visual C#]，然後按一下 [Android]。
+    2. 從清單中選取 [Android 應用程式 (Xamarin)]。 
+    3. 輸入專案的 [名稱]  。 
+    4. 選取專案的 [位置]  。 
+    5. 選取 [確定] 
 
-    ![Visual Studio - 建立新的 Android 專案](./media/partner-xamarin-notification-hubs-android-get-started/new-project-dialog.png)
-2. 在 [方案總管] 視窗中展開 [屬性]，然後按一下 **AndroidManifest.xml**。 更新套件名稱，使其符合您在 Google Firebase 主控台中將 Firebase 雲端通訊新增至專案時輸入的套件名稱。
+        ![[新增專案] 對話方塊](./media/partner-xamarin-notification-hubs-android-get-started/new-project-dialog-new.png)        
+2. 在 [新的 Android 應用程式] 對話方塊中，選取 [空白應用程式]，然後選取 [確定]。 
+
+    ![[新增專案] 對話方塊](./media/partner-xamarin-notification-hubs-android-get-started/new-android-app-dialog.png)
+1. 在 [方案總管] 視窗中展開 [屬性]，然後按一下 **AndroidManifest.xml**。 更新套件名稱，使其符合您在 Google Firebase 主控台中將 Firebase 雲端通訊新增至專案時輸入的套件名稱。
 
     ![GCM 中的套件名稱](./media/partner-xamarin-notification-hubs-android-get-started/package-name-gcm.png)
 3. 以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 套件...]。
@@ -281,17 +289,17 @@ ms.locfileid: "54447076"
 [30]: ./media/notification-hubs-android-get-started/notification-hubs-test-send.png
 
 <!-- URLs. -->
-[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Submit an app page]: https://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: https://go.microsoft.com/fwlink/p/?LinkId=262253
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 [Visual Studio 搭配 Xamarin]: https://docs.microsoft.com/visualstudio/install/install-visual-studio
 [Visual Studio for Mac]: https://www.visualstudio.com/vs/visual-studio-mac/
 [Azure 入口網站]: https://portal.azure.com/
-[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs How-To for Android]: http://msdn.microsoft.com/library/dn282661.aspx
+[wns object]: https://go.microsoft.com/fwlink/p/?LinkId=260591
+[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for Android]: https://msdn.microsoft.com/library/dn282661.aspx
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 [GitHub]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/Xamarin/GetStartedXamarinAndroid

@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ebc9b83c3aa135c90f18ff982621e862cb01d72
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5ff065816e287e0d4e37cdea9a7770c9ff806520
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879604"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890741"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench 發生什麼事？
 
@@ -60,7 +60,7 @@ Azure Machine Learning Workbench 應用程式和一些其他早期的功能已�
 
 只有在 Microsoft Edge、Chrome 和 Firefox 上才支援入口網站的工作區儀表板：
 
-[![線上入口網站](./media/overview-what-happened-to-workbench/image001.png)] (./media/overview-what-happened-to-workbench/image001.png#lightbox)
+[![線上入口網站](./media/overview-what-happened-to-workbench/image001.png)](./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
 開始使用新的 CLI 和 SDK 來訓練模型以及追蹤執行歷程記錄。 您可以了解如何使用[教學課程：使用 Azure Machine Learning 服務訓練模型](tutorial-train-models-with-aml.md)。
 
@@ -68,7 +68,7 @@ Azure Machine Learning Workbench 應用程式和一些其他早期的功能已�
 
 您現有的資料準備檔案無法攜帶到最新的版本，因為我們已經沒有 Machine Learning Workbench。 但您仍可準備任何規模的資料集來進行模型化。   
 
-對於任何規模的資料集，您可以藉由撰寫 Python 程式碼，使用 [Azure Machine Learning 資料準備 SDK](http://aka.ms/data-prep-sdk) 在模型化之前快速準備您的資料。 
+對於任何規模的資料集，您可以藉由撰寫 Python 程式碼，使用 [Azure Machine Learning 資料準備 SDK](https://aka.ms/data-prep-sdk) 在模型化之前快速準備您的資料。 
 
 您可以遵循[本教學課程](tutorial-data-prep.md)，來深入了解如何使用 Azure Machine Learning 資料準備 SDK。
 
@@ -84,7 +84,7 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 了解如何[透過主要 SDK](quickstart-create-workspace-with-python.md) 或使用 [Azure 入口網站](quickstart-get-started.md)來開始使用 Python。
 
 ## <a name="what-about-my-registered-models-and-images"></a>那麼我的註冊模型和映像呢？
- 
+
 如果您要繼續使用在舊模型登錄中註冊的模型，您必須將它們遷移到新工作區。 若要移轉模型，請下載模型並在新的工作區中重新加以註冊。 
 
 您在舊映像登錄中建立的映像，必須在新工作區中重新建立才能繼續使用它們。 您可以按照[設定與建立映像](how-to-deploy-and-where.md#configureimage)章節中的步驟來重新建立這些映像。 
@@ -109,7 +109,7 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 
 在這個最新版本中，擴充功能已重新命名為「適用於 Visual Studio Code 的 Azure Machine Learning」，並已經過擴充和改善，可與上述新功能搭配運作。
 
-[![適用於 Visual Studio Code 的 Azure Machine Learning](./media/overview-what-happened-to-workbench/vscode.png)] (./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
+[![適用於 Visual Studio Code 的 Azure Machine Learning](./media/overview-what-happened-to-workbench/vscode.png)](./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
 
 ## <a name="what-about-domain-packages"></a>那麼領域套件呢？
 

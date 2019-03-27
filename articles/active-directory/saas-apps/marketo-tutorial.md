@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: b88c45f5-d288-4717-835c-ca965add8735
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 6eb7c294b884b94586458f1e6e3dc283549ee31e
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 152d45e004b3c26a8e6b80489dd07f0ae211e10a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984283"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898528"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>教學課程：Azure Active Directory 與 Marketo 整合
 
@@ -70,7 +70,7 @@ Marketo 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您將以名為 **Britta Simon** 的測試使用者身分，設定及測試與 Marketo 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Marketo 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Marketo 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 Marketo 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
@@ -86,7 +86,7 @@ Marketo 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要使用 Marketo 設定 Azure AD 單一登入，請執行下列步驟：
+若要設定與 Marketo 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/) 的 [Marketo] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -102,7 +102,7 @@ Marketo 與 Azure AD 整合提供下列優點：
 
 4. 在 [以 SAML 設定單一登入] 頁面上，執行下列步驟：
 
-    ![Marketo 網域與 URL 單一登入資訊](common/idp-intiated.png)
+    ![Marketo 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
     a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://saml.marketo.com/sp`
 
@@ -218,7 +218,7 @@ Marketo 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -227,7 +227,7 @@ Marketo 與 Azure AD 整合提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您將把 Marketo 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在本節中，您會將 Marketo 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Marketo]。
 
@@ -235,7 +235,7 @@ Marketo 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Marketo] 。
 
-    ![應用程式清單中的 Marketo 連結](common/all-applications.png)
+    ![應用程式清單中的 [Marketo] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -253,7 +253,7 @@ Marketo 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-marketo-test-user"></a>建立 Marketo 測試使用者
 
-在本節中，您要在 Marketo 中建立名為 Britta Simon 的使用者。 遵循以下步驟在 Marketo 平台中建立使用者。
+在本節中，您會在 Marketo 中建立名為 Britta Simon 的使用者。 遵循以下步驟在 Marketo 平台中建立使用者。
 
 1. 使用管理員認證登入 Marketo 應用程式。
 

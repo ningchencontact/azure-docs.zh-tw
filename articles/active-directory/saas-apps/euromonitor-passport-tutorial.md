@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 7740905c-04c4-4d8c-ad90-523a6cd1e206
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da24aba207bca7fbcf3d34933ffe1ba83336722b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 1cdf8f78a54c89ac89441a87ca0ba34d61a3d2a2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880320"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888309"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-euromonitor-passport"></a>教學課程：Azure Active Directory 與 Euromonitor Passport 整合
 
@@ -169,7 +169,7 @@ ms.locfileid: "56880320"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -186,7 +186,7 @@ ms.locfileid: "56880320"
 
 2. 在應用程式清單中，選取 [Euromonitor Passport]。
 
-    ![應用程式清單中的 Euromonitor Passport 連結](common/all-applications.png)
+    ![應用程式清單中的 [Euromonitor Passport] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -210,7 +210,7 @@ ms.locfileid: "56880320"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在「存取面板」中按一下 [Euromonitor Passport] 圖格時，應該會自動登入您已設定 SSO 的 Euromonitor Passport。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [Euromonitor Passport] 圖格時，應該會自動登入您已設定 SSO 的 Euromonitor Passport。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

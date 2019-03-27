@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24d050cbfbe3def0e6475b807f88102f3edfe4f7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3bae4012f20d5f655dba014a0e71616101bc42a2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204656"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092050"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>教學課程：使用 Linux VM 系統指派的受控識別來存取 Azure Data Lake Store
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-本教學課程說明如何將系統指派的受控識別用於 Linux 虛擬機器 (VM)，以存取 Cosmos DB。 您會了解如何： 
+本教學課程說明如何將系統指派的受控識別用於 Linux 虛擬機器 (VM)，以存取 Azure Data Lake Store。 您會了解如何： 
 
 在本教學課程中，您了解如何：
 
@@ -71,7 +71,7 @@ Azure Data Lake Store 原生支援 Azure AD 驗證，因此可直接接受透過
 
 1. 在入口網站中，瀏覽至您的 Linux VM。 在 [概觀] 中，選取 [連線]。  
 2. 使用您所選擇的 SSH 用戶端來連線到 VM。 
-3. 在終端機視窗中，使用 CURL 向 Azure 資源端點的本機受控識別提出要求，以取得 Data Lake Store 的存取權杖。 Data Lake Store 的資源識別碼是 "https://datalake.azure.net/"。  請務必包含資源識別項中的結尾斜線。
+3. 在終端機視窗中，使用 CURL 向 Azure 資源端點的本機受控識別提出要求，以取得 Data Lake Store 的存取權杖。 Data Lake Store 的資源識別碼是 `https://datalake.azure.net/`。  請務必包含資源識別項中的結尾斜線。
     
    ```bash
    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -H Metadata:true   

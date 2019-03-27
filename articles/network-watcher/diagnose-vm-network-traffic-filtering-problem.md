@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 6d5c159d030303b90128513d3521a19419e4277e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: d469ee5148e3742f30795c09acf1a217db1b997a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429225"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004644"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站診斷虛擬機器網路流量篩選問題
 
@@ -85,7 +85,7 @@ ms.locfileid: "56429225"
     | 方向         | 輸出                                                                                          |
     | 本機 IP 位址  | 10.0.0.4                                                                                          |
     | 本機連接埠      | 60000                                                                                                |
-    | 遠端 IP 位址 | 13.107.21.200 (www.bing.com 的其中一個位址)。                                             |
+    | 遠端 IP 位址 | 13.107.21.200 (<www.bing.com> 的其中一個位址)。                                             |
     | 遠端連接埠       | 80                                                                                                |
 
     ![IP 流量驗證](./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-outbound.png)

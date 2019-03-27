@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 32f33e4ac66ad456b5ff8807d6a1b5ea5f541fed
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 0d05a2f3de92791572f0a5e6313777b5388af3df
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161392"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57845217"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-projects"></a>教學課程：使用 Azure DevOps Projects 部署 ASP.NET 應用程式和 Azure SQL Database 程式碼
 
@@ -49,7 +49,7 @@ DevOps Projects 會在 Azure Pipelines 中建立 CI/CD 管線。 您可以建立
 
 1. 在左窗格中選取 [建立資源]。
 
-1. 在搜尋方塊中，輸入 **DevOps Projects**，然後選取 [建立]。
+1. 在 [搜尋] 方塊中，輸入 **DevOps Projects**，然後選取 [建立]。
 
     ![DevOps Projects 儀表板](_img/azure-devops-project-github/fullbrowser.png)
 
@@ -100,7 +100,7 @@ DevOps Projects 會在 Azure Repos 中自動設定完整的 CI/CD 管線。 您�
     DevOps Projects 已自動建立 CI 觸發程序，且每次對存放庫的認可都會啟動新的建置。 您可以選擇性地選擇要在 CI 程序中包含還是排除分支。
 
 1. 選取 [保留期]。  
-    根據您的案例，您可以指定原則來保留或移除特定數目的組建。
+    根據案例，您可以指定原則來保留或移除特定數目的組建。
 
 ## <a name="examine-the-cd-pipeline"></a>檢查 CD 管線
 
@@ -109,7 +109,7 @@ DevOps Projects 會自動建立並設定必要的步驟，以從 Azure DevOps �
 1. 選取 [建置及發行]，然後選取 [版本]。  
     DevOps Projects 會建立發行管線來管理 Azure 的部署。
 
-1. 選取您發行管線旁邊的省略符號 (...)，然後選取 [編輯]。  
+1. 選取發行管線旁邊的省略符號 (...)，然後選取 [編輯]。  
     發行管線中包含 [管線]，它會定義發行程序。
 
 1. 在 [成品] 下，選取 [置放]。  
@@ -122,8 +122,8 @@ DevOps Projects 會自動建立並設定必要的步驟，以從 Azure DevOps �
     
 1. 從左側選取 [變數]。 
 
-  > [!NOTE]
-  > 只有在變更 SQL Server 密碼後，才要執行下列步驟。 目前有單一密碼變數。
+   > [!NOTE]
+   > 只有在變更 SQL Server 密碼後，才要執行下列步驟。 目前有單一密碼變數。
   
 1. 在 [值] 方塊旁邊，選取掛鎖圖示、輸入新密碼，然後選取 [儲存]。
 
@@ -135,14 +135,14 @@ DevOps Projects 會自動建立並設定必要的步驟，以從 Azure DevOps �
 
 1. 從右側選取 [檢視版本]，以顯示版本的歷程記錄。
 
-1. 選取您發行旁邊的省略符號 (...)，然後選取 [開啟]。  
-    您可以瀏覽數個功能表，例如版本摘要、相關聯的工作項目及測試。
+1. 選取發行旁邊的省略符號 (...)，然後選取 [開啟]。  
+     您可以瀏覽數個功能表，例如版本摘要、相關聯的工作項目及測試。
 
 1. 選取 [認可]。  
-    此檢視會顯示與此部署相關聯的程式碼認可。 請比較版本，以查看部署的認可差異。
+     此檢視會顯示與此部署相關聯的程式碼認可。 請比較版本，以查看部署的認可差異。
 
 1. 選取 [記錄]。  
-    記錄包含關於部署程序的實用資訊。 您可以在部署期間和部署之後加以檢視。
+     記錄包含關於部署程序的實用資訊。 您可以在部署期間和部署之後加以檢視。
 
 ## <a name="commit-changes-to-azure-repos-and-automatically-deploy-them-to-azure"></a>將變更認可至 Azure Repos 並自動部署至 Azure 
 
@@ -182,21 +182,21 @@ DevOps Projects 會自動建立並設定必要的步驟，以從 Azure DevOps �
 
     現在，您可以選擇性地使用 SQL Server Management Studio 或 Visual Studio 之類的用戶端工具，連線至 SQL Server 和 Azure SQL Database。 請使用 [伺服器名稱] 屬性進行連線。
 
-    如果您一開始在 DevOps Projects 中設定專案時，並未變更資料庫使用者名稱，則您的使用者名稱會是電子郵件地址的本機部分。 例如，如果您的電子郵件地址 johndoe@microsoft.com，您的使用者名稱就是 johndoe。
+    如果您一開始在 DevOps Projects 中設定專案時，並未變更資料庫使用者名稱，則您的使用者名稱會是電子郵件地址的本機部分。 例如，如果您的電子郵件地址是 *johndoe\@microsoft.com*，您的使用者名稱就是 *johndoe*。
 
- > [!NOTE]
- > 如果您變更 SQL 登入的密碼，則必須依照「檢查 CD 管線」一節中的說明，變更發行管線變數中的密碼。
+   > [!NOTE]
+   > 如果您變更 SQL 登入的密碼，則必須依照「檢查 CD 管線」一節中的說明，變更發行管線變數中的密碼。
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您要測試，您可以清除資源，以避免產生費用。 如果不再需要，您可以刪除在此教學課程中建立的 Azure SQL Database 和相關資源。 若要這樣做，請使用 DevOps Projects 儀表板上的 [刪除] 功能。
+如果要進行測試，您可以清除資源，以避免產生費用。 如果不再需要，您可以刪除在此教學課程中建立的 Azure SQL Database 和相關資源。 若要這樣做，請使用 DevOps Projects 儀表板上的 [刪除] 功能。
 
 > [!IMPORTANT]
 > 下列程序會永久刪除資源。 「刪除」功能會終結 Azure DevOps Projects 專案在 Azure 和 Azure DevOps 中建立的資料，而且您將無法再擷取這些資料。 請務必在仔細閱讀提示之後，再使用此程序。
 
 1. 在 Azure 入口網站中，移至 DevOps Projects 儀表板。
 2. 在右上方，選取 [刪除]。 
-3. 在提示中，請選取 [是] 可「永久刪除」資源。
+3. 在提示中，請選取 [是] 以*永久刪除*資源。
 
 ## <a name="next-steps"></a>後續步驟
 

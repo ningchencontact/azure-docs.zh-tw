@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: acab1200-32d3-4f4b-953f-f2a7e812b6a3
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e97a80e3f8c646c4bdfc3356db87939794eddc48
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 0bc1ff022b1639c11ca244b5ea97118a0f06e7cb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877770"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858111"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firstbird"></a>教學課程：Azure Active Directory 與 Firstbird 整合
 
@@ -81,7 +81,7 @@ Firstbird 與 Azure AD 整合提供下列優點：
 2. **[設定 Firstbird 單一登入](#configure-firstbird-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 Firstbird 測試使用者](#create-firstbird-test-user)** - 在 Firstbird 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表使用者的項目連結。
+5. **[建立 Firstbird 測試使用者](#create-firstbird-test-user)** - 在 Firstbird 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
@@ -104,7 +104,7 @@ Firstbird 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Firstbird 網域和 URL 單一登入資訊](common/idp_intiated.png)
+    ![Firstbird 網域及 URL 單一登入資訊](common/idp_intiated.png)
 
     a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<company-domain>.auth.1brd.com/saml/sp`
 
@@ -112,7 +112,7 @@ Firstbird 與 Azure AD 整合提供下列優點：
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-    ![Firstbird 網域和 URL 單一登入資訊](common/metadata_upload_additional_signon.png)
+    ![Firstbird 網域及 URL 單一登入資訊](common/metadata_upload_additional_signon.png)
 
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<company-domain>.1brd.com/login`
 
@@ -180,7 +180,7 @@ Firstbird 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
 
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -189,7 +189,7 @@ Firstbird 與 Azure AD 整合提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會把 Firstbird 的存取權授與 Britta Simon，以使用 Azure 單一登入。
+在本節中，您會將 Firstbird 的存取權授與 Britta Simon，以使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式]及 [Firstbird]。
 
@@ -197,7 +197,7 @@ Firstbird 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，輸入 **Firstbird** 並加以選取。
 
-    ![應用程式清單中的 Firstbird 連結](common/all_applications.png)
+    ![應用程式清單中的 [Firstbird] 連結](common/all_applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -221,7 +221,7 @@ Firstbird 與 Azure AD 整合提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Firstbird] 圖格時，應該會自動登入您設定 SSO 的 Firstbird。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [Firstbird] 圖格時，應該會自動登入您已設定 SSO 的 Firstbird。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

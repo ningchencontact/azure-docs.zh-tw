@@ -7,20 +7,20 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 7561c20b-2325-4d97-887f-693aa383c7be
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/16/2019
+ms.date: 02/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e49bc5a468777197eaf88a492566a606e7b9f93
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 6f58c8c3ea76cf44730a54897e6b77ef6e648a49
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961868"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901656"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>教學課程：Azure Active Directory 與 Amazon Web Services (AWS) 整合
 
@@ -106,7 +106,7 @@ c. 您可以對應用程式指派個別的應用程式擁有者，讓該擁有�
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Amazon Web Services (AWS) 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Amazon Web Services (AWS) 中相關使用者之間的連結關聯性。
 
-若要使用 Amazon Web Services (AWS) 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 Amazon Web Services (AWS) 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Amazon Web Services (AWS) 單一登入](#configure-amazon-web-services-aws-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -133,7 +133,7 @@ c. 您可以對應用程式指派個別的應用程式擁有者，讓該擁有�
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 在 [基本 SAML 組態] 區段中，使用者不需要執行任何步驟，因為應用程式已預先與 Azure 整合。  按一下 [檔案] 。
+4. 在 [基本 SAML 設定] 設定區段上，已預先設定好應用程式，並已經為 Azure 預先填入必要的 URL。 使用者必須按一下 [儲存] 按鈕，才能儲存設定。
 
     ![映像](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_url.png)
 
@@ -141,7 +141,7 @@ c. 您可以對應用程式指派個別的應用程式擁有者，讓該擁有�
 
     `https://signin.aws.amazon.com/saml#2`
 
-    ![Amazon Web Services (AWS) 網域和 URL 單一登入資訊](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_identifier.png)
+    ![Amazon Web Services (AWS) 網域及 URL 單一登入資訊](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_identifier.png)
 
 6. Amazon Web Services (AWS) 應用程式會預期要有特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
 
@@ -401,7 +401,7 @@ c. 您可以對應用程式指派個別的應用程式擁有者，讓該擁有�
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -418,7 +418,7 @@ c. 您可以對應用程式指派個別的應用程式擁有者，讓該擁有�
 
 2. 在應用程式清單中，輸入 [Amazon Web Services (AWS)] 並加以選取。
 
-    ![[應用程式] 清單中的 Amazon Web Services (AWS) 連結](common/all-applications.png)
+    ![應用程式清單中的 [Amazon Web Services (AWS)] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

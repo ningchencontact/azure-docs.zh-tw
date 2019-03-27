@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: 3cb8f52677991997a0176a9f8d408e2fd6d2d8d9
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: de920a9addf9d2053a3c101c6b1f9a2c1a2feb27
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974266"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106741"
 ---
 # <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>快速入門：使用適用於 Power BI 的 Azure 資料總管連接器將資料視覺化
 
@@ -53,7 +53,7 @@ Azure 資料總管提供三個選項以便連線到 Power BI 中的資料：使�
     |---|---|---|
     | 叢集 | *https://help.kusto.windows.net* | 說明叢集的 URL。 對於其他叢集，URL 的格式為 *https://\<ClusterName\>.\<Region\>.kusto.windows.net*。 |
     | 資料庫 | 保留空白 | 裝載於所要連線叢集上的資料庫。 我們會在稍後步驟中選取此項目。 |
-    | 資料表名稱 | 保留空白 | 資料庫的其中一個資料表，或 'StormEvents | take 1000` 之類的查詢。 我們會在稍後步驟中選取此項目。 |
+    | 資料表名稱 | 保留空白 | 資料庫的其中一個資料表，或是 <code>StormEvents \| take 1000</code>之類的查詢。 我們會在稍後步驟中選取此項目。 |
     | 進階選項 | 保留空白 | 您查詢的選項，例如結果集大小。 |
     | 資料連線模式 | *DirectQuery* | 決定 Power BI 是否匯入資料或直接連線到資料來源。 您可以使用任一選項搭配此連接器。 |
     | | | |

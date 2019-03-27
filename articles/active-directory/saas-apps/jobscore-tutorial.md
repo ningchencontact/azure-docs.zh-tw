@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 30f51b32-e55c-4c66-96e8-50a2f9c2194a
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77b19cf63528a508d66f2727587a82723bfd6d69
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: c0dd10eef70986e20b71c7e3735091c16d11ef59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985133"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863146"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscore"></a>教學課程：Azure Active Directory 與 JobScore 整合
 
@@ -71,7 +71,7 @@ JobScore 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者身分，設定及測試與 JobScore 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 JobScore 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 JobScore 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 JobScore 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
@@ -87,7 +87,7 @@ JobScore 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要使用 JobScore 設定 Azure AD 單一登入，請執行下列步驟：
+若要設定與 JobScore 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [JobScore] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -103,14 +103,14 @@ JobScore 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![JobScore 網域與 URL 單一登入資訊](common/sp-signonurl.png)
+    ![JobScore 網域及 URL 單一登入資訊](common/sp-signonurl.png)
 
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://hire.jobscore.com/auth/adfs/<company name>`
 
     > [!NOTE]
     > 這不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [JobScore 用戶端支援小組](mailto:support@jobscore.com)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
+5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
@@ -146,7 +146,7 @@ JobScore 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -155,7 +155,7 @@ JobScore 與 Azure AD 整合提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會把 JobScore 的存取權授與，讓 Britta Simon 能夠使用 Azure 單一登入。
+在本節中，您會將 JobScore 的存取權授與，讓 Britta Simon 能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [JobScore]。
 
@@ -163,7 +163,7 @@ JobScore 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [JobScore]。
 
-    ![應用程式清單中的 JobScore 連結](common/all-applications.png)
+    ![應用程式清單中的 [JobScore] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -181,7 +181,7 @@ JobScore 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-jobscore-test-user"></a>建立 JobScore 測試使用者
 
-在本節中，您要在 JobScore 中建立名為 Britta Simon 的使用者。 請與 [JobScore 支援小組](mailto:support@jobscore.com)合作，在 JobScore 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 JobScore 中建立名為 Britta Simon 的使用者。 請與 [JobScore 支援小組](mailto:support@jobscore.com)合作，在 JobScore 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

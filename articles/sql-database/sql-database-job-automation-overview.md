@@ -3,7 +3,6 @@ title: Azure SQL 作業自動化 | Microsoft Docs
 description: 使用作業自動化，跨越一或多個 Azure SQL 資料庫執行 Transact-SQL (T-SQL) 指令碼
 services: sql-database
 ms.service: sql-database
-ms.subservice: database-features
 ms.custom: ''
 ms.devlang: ''
 ms.topic: overview
@@ -12,18 +11,20 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1fd524e858b20c75aef4101ad98ac54c4f485d1e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4e80bbc868376a41212d924bd31df6ac70a52ded
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457202"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901962"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>使用資料庫作業將管理工作自動化
 
 Azure SQL Database 可讓您建立及排程可針對一或多個資料庫定期執行的作業，以便執行 T-SQL 查詢及執行維護工作。 每項作業會記錄執行狀態，如果發生任何失敗，也會自動重試作業。
 您可以定義將執行作業的目標資料庫或 Azure SQL 資料庫群組，也可定義可供執行作業的排程。
 作業可處理登入目標資料庫的工作。 您也要定義、維護及保存要在 Azure SQL 資料庫群組中執行的 Transact-SQL 指令碼。
+
+## <a name="when-to-use-automated-jobs"></a>使用自動化工作的時機
 
 您可以使用工作自動化的案例有數個：
 
@@ -36,8 +37,10 @@ Azure SQL Database 可讓您建立及排程可針對一或多個資料庫定期�
   - 將 Azure SQL 資料庫集合中的資料彙總到單一目的地資料表中。
   - 跨大型資料庫集合執行較長的執行資料處理查詢，例如客戶遙測的集合。 結果會收集到單一目的地資料表做進一步的分析。
 - 資料移動
- - 建立一些作業，以將在您資料庫中所做的變更複寫到其他資料庫，或收集在遠端資料庫中所進行的更新並且在資料庫中套用變更。
- - 建立一些作業，以使用 SQL Server Integration Services (SSIS) 在您的資料庫中載入資料。
+  - 建立一些作業，以將在您資料庫中所做的變更複寫到其他資料庫，或收集在遠端資料庫中所進行的更新並且在資料庫中套用變更。
+  - 建立一些作業，以使用 SQL Server Integration Services (SSIS) 在您的資料庫中載入資料。
+
+## <a name="overview"></a>概觀
 
 Azure SQL Database 中可用的作業排程技術如下：
 
@@ -158,9 +161,9 @@ EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS',
 - SQL 代理程式設定是唯讀狀態。 受控執行個體中不支援 `sp_set_agent_properties` 程序。
 - 受控執行個體目前不支援啟用/停用代理程式。 SQL Agent 一直在執行中。
 - 部分支援通知
- - 不支援呼叫器。
- - 不支援 NetSend。
- - 尚不支援警示。
+  - 不支援呼叫器。
+  - 不支援 NetSend。
+  - 尚不支援警示。
 - 不支援 Proxy。
 - 不支援 Eventlog。
 

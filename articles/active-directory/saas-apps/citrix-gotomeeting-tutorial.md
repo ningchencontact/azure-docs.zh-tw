@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: bcaf19f2-5809-4e1c-acbc-21a8d3498ccf
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9377ebdcc26305ca9652b947e8bd16d98374ef5d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9faf82918619301335f191d39453d317dcf5988b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873741"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856118"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>教學課程：Azure Active Directory 與 GoToMeeting 整合
 
@@ -28,7 +28,7 @@ ms.locfileid: "56873741"
 GoToMeeting 與 Azure AD 整合提供下列優點：
 
 * 您可以在 Azure AD 中控制可存取 GoToMeeting 的人員。
-* 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 GoToMeeting (單一登入)。
+* 您可以讓使用者使用其 Azure AD 帳戶自動登入 GoToMeeting (單一登入)。
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
@@ -36,7 +36,7 @@ GoToMeeting 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 GoToMeeting 整合，您需要下列項目：
+若要設定 Azure AD 與 GoToMeeting 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 GoToMeeting 單一登入的訂用帳戶
@@ -71,10 +71,10 @@ GoToMeeting 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者身分，設定及測試與 GoToMeeting 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 GoToMeeting 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 GoToMeeting 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 GoToMeeting 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 GoToMeeting 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 GoToMeeting 單一登入](#configure-gotomeeting-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -87,7 +87,7 @@ GoToMeeting 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要使用 GoToMeeting 設定 Azure AD 單一登入，請執行下列步驟：
+若要設定與 GoToMeeting 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [GoToMeeting] 應用程式整合分頁上，選取 [單一登入]。
 
@@ -103,7 +103,7 @@ GoToMeeting 與 Azure AD 整合提供下列優點：
 
 4. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [基本 SAML 組態] 對話方塊。
 
-    ![GoToMeeting 網域與 URL 單一登入資訊](common/both-allurls.png)
+    ![GoToMeeting 網域及 URL 單一登入資訊](common/both-allurls.png)
 
     a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://authentication.logmeininc.com/saml/sp`
 
@@ -115,16 +115,16 @@ GoToMeeting 與 Azure AD 整合提供下列優點：
 
     e. 在 [RelayState] 文字方塊中，使用下列模式來輸入 URL：
 
-    - 對於 GoToMeeting 應用程式，使用 `https://global.gotomeeting.com`
+   - 對於 GoToMeeting 應用程式，使用 `https://global.gotomeeting.com`
 
-    - 對於 GoToTraining，使用 `https://global.gototraining.com`
+   - 對於 GoToTraining，使用 `https://global.gototraining.com`
 
-    - 對於 GoToWebinar，使用 `https://global.gotowebinar.com` 
+   - 對於 GoToWebinar，使用 `https://global.gotowebinar.com` 
 
-    - 對於 GoToAssist，使用 `https://app.gotoassist.com`
+   - 對於 GoToAssist，使用 `https://app.gotoassist.com`
 
-    > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [GoToMeeting 用戶端支援小組](https://go.microsoft.com/fwlink/?linkid=845985)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+     > [!NOTE]
+     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [GoToMeeting 用戶端支援小組](https://go.microsoft.com/fwlink/?linkid=845985)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
 
@@ -164,7 +164,7 @@ GoToMeeting 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -181,7 +181,7 @@ GoToMeeting 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [GoToMeeting]。
 
-    ![應用程式清單中的 GoToMeeting 連結](common/all-applications.png)
+    ![應用程式清單中的 [GoToMeeting] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -210,7 +210,7 @@ GoToMeeting 與 Azure AD 整合提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 GoToMeeting 圖格時，應該會自動登入您設定 SSO 的 GoToMeeting。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [GoToMeeting] 圖格時，應該會自動登入您已設定 SSO 的 GoToMeeting。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -4,135 +4,170 @@ description: 了解如何使用 Azure PowerShell 來備份虛擬機器
 services: backup
 author: rayne-wiselman
 manager: carmonm
-tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 01/31/2019
+ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c62f6f41711308f1a7150c79ab71570190af825a
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: aa637571ca11ea294b1f95df49855d7ee81b3001
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55495542"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258865"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>使用 PowerShell 在 Azure 中備份虛擬機器
-Azure PowerShell 模組用於從命令列或在指令碼中建立和管理 Azure 資源。 您可以定期建立備份以保護您的資料。 Azure 備份會建立復原點，其可儲存在異地備援復原保存庫中。 本文詳述如何使用 Azure PowerShell 模組備份虛擬機器 (VM)。 您也可以使用 [Azure CLI](quick-backup-vm-cli.md) 或 [Azure 入口網站](quick-backup-vm-portal.md)來執行這些步驟。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+[Azure PowerShell AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) 模組用於從命令列或在指令碼中建立和管理 Azure 資源。 
+
+[Azure 備份](backup-overview.md)會備份內部部署機器與應用程式，以及 Azure VM。 本文說明如何使用 AZ 模組來備份 Azure VM。 此外，您可以使用 [Azure CLI](quick-backup-vm-cli.md) 或在[Azure 入口網站](quick-backup-vm-portal.md)中備份 VM。
 
 本快速入門能夠在現有的 Azure VM 上進行備份。 如果您需要建立 VM，您可以[使用 Azure PowerShell 來建立 VM](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json)。
 
-本快速入門需要 Azure PowerShell 模組 4.4 版或更新版本。 執行 ` Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。
+本快速入門需要 Azure PowerShell AZ 模組 1.0.0 版或更新版本。 執行 ` Get-Module -ListAvailable Az` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。
 
 
-## <a name="log-in-to-azure"></a>登入 Azure
-使用 `Connect-AzureRmAccount` 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
+## <a name="log-in-and-register"></a>登入並註冊
 
-```powershell
-Connect-AzureRmAccount
-```
+1. 使用 `Connect-AzAccount` 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
 
-第一次使用 Azure 備份時，您必須使用 [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) 在您的訂用帳戶中註冊 Azure 復原服務提供者。
+    ```powershell
+    Connect-AzAccount
+    ```
+2. 第一次使用 Azure 備份時，您必須使用 [Register-AzResourceProvider](/powershell/module/az.Resources/Register-azResourceProvider) 在您的訂用帳戶中註冊 Azure 復原服務提供者，如下所示：
 
-```powershell
-Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
-```
+    ```powershell
+    Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    ```
 
 
-## <a name="create-a-recovery-services-vaults"></a>建立復原服務保存庫
-復原服務保存庫是一個邏輯容器，可儲存每個受保護資源 (例如 Azure VM) 的備份資料。 執行受保護資源的備份作業時，它會在復原服務保存庫內建立復原點。 然後您可以使用其中一個復原點，將資料還原到指定的時間點。
+## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫
 
-使用 [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault) 來建立復原服務保存庫。 指定與您想要保護的 VM 相同的資源群組和位置。 如果您使用了[範例指令碼](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json)來建立 VM，則資源群組會命名為 *myResourceGroup*、VM 會命名為 *myVM*，而資源位於 *WestEurope* 位置。
+[復原服務保存庫](backup-azure-recovery-services-vault-overview.md)是一個邏輯容器，可儲存受保護資源 (例如 Azure VM) 的備份資料。 執行備份作業時，它會在復原服務保存庫內建立復原點。 然後您可以使用其中一個復原點，將資料還原到指定的時間點。
 
-```powershell
-New-AzureRmRecoveryServicesVault `
-    -ResourceGroupName "myResourceGroup" `
-    -Name "myRecoveryServicesVault" `
+當您建立保存庫：
+
+- 針對資源群組和位置，指定您想要備份的資源群組和 VM 的位置。
+- 如果您使用[範例指令碼](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json)來建立 VM，則資源群組為 **myResourceGroup**、VM 為***myVM**，而資源位於 **WestEurope** 區域。
+- Azure 備份會自動處理用於備份資料的儲存體。 根據預設，保存庫會使用[異地備援儲存體 (GRS)](../storage/common/storage-redundancy-grs.md)。 異地備援可確保會將備份的資料複寫到與主要區域相距數百英哩的次要 Azure 區域。
+
+現在請建立保存庫。
+
+
+1. 使用 [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) 來建立保存庫：
+
+    ```powershell
+    New-AzRecoveryServicesVault `
+        -ResourceGroupName "myResourceGroup" `
+        -Name "myRecoveryServicesVault" `
     -Location "WestEurope"
-```
+    ```
 
-根據預設，已針對異地備援儲存體設定保存庫。 若要進一步保護您的資料，此儲存體備援層級可確保備份資料會複寫到與主要地區距離數百英哩的次要 Azure 地區。
+2. 使用 [Set-AzRecoveryServicesVaultContext](/powershell/module/az.RecoveryServices/Set-azRecoveryServicesVaultContext) 設定保存庫內容，如下所示：
 
-若要在剩餘的步驟中使用此保存庫，請使用 [Set-AzureRmRecoveryServicesVaultContext](/powershell/module/AzureRM.RecoveryServices/Set-AzureRmRecoveryServicesVaultContext) 設定保存庫內容。
-
-```powershell
-Get-AzureRmRecoveryServicesVault `
-    -Name "myRecoveryServicesVault" | Set-AzureRmRecoveryServicesVaultContext
-```
+    ```powershell
+    Get-AzRecoveryServicesVault `
+        -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesVaultContext
+    ```
 
 
 ## <a name="enable-backup-for-an-azure-vm"></a>啟用 Azure VM 的備份
-您可以建立和使用相關原則，來定義備份作業的執行時以及復原點的儲存時間長度。 預設保護原則會每天執行備份作業並將復原點保留 30 天。 您可以使用這些預設原則值來快速保護您的 VM。 首先，使用 [Get-AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/AzureRM.RecoveryServices.Backup/Get-AzureRmRecoveryServicesBackupProtectionPolicy) 設定預設原則：
 
-```powershell
-$policy = Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "DefaultPolicy"
-```
+您可以啟用 Azure VM 的備份功能，並指定備份原則。
 
-若要啟用 VM 的備份保護，請使用 [Enable-AzureRmRecoveryServicesBackupProtection](/powershell/module/AzureRM.RecoveryServices.Backup/Enable-AzureRmRecoveryServicesBackupProtection)。 指定要使用的原則，然後指定要保護的資源群組和 VM：
+- 原則可定義何時執行備份，以及備份所建立的復原點應保留多長的時間。
+- 預設保護原則會每天對 VM 執行備份一次，並將建立的復原點保留 30 天。 您可以使用此預設原則來快速保護您的 VM。 
 
-```powershell
-Enable-AzureRmRecoveryServicesBackupProtection `
-    -ResourceGroupName "myResourceGroup" `
-    -Name "myVM" `
-    -Policy $policy
-```
+請依照下列方式啟用備份：
+
+1. 首先，使用 [Get-AzRecoveryServicesBackupProtectionPolicy](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy) 設定預設原則：
+
+    ```powershell
+    $policy = Get-AzRecoveryServicesBackupProtectionPolicy     -Name "DefaultPolicy"
+    ```
+
+2. 使用 [Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) 啟用 VM 備份。 指定原則、資源群組及 VM 名稱。
+
+    ```powershell
+    Enable-AzRecoveryServicesBackupProtection `
+        -ResourceGroupName "myResourceGroup" `
+        -Name "myVM" `
+        -Policy $policy
+    ```
 
 
 ## <a name="start-a-backup-job"></a>開始備份作業
-若要立即開始備份，而非等候預設原則在排定的時間執行此作業，請使用 [Backup-AzureRmRecoveryServicesBackupItem](/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem)。 這第一個備份作業會建立完整復原點。 此初始備份之後的每個備份作業會建立增量復原點。 增量復原點符合儲存和時間效率，因為它只會傳輸自上次備份後所做的變更。
 
-在下列命令中，您可使用 [Get-AzureRmRecoveryServicesBackupContainer](/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupcontainer) 指定復原服務保存庫中用於保留備份資料的容器。 要備份的每個 VM 都會被視為一個項目。 若要開始備份作業，請使用 [Get-AzureRmRecoveryServicesBackupItem](/powershell/module/AzureRM.RecoveryServices.Backup/Get-AzureRmRecoveryServicesBackupItem) 取得 VM 項目的相關資訊。
+根據備份原則中指定的排程執行備份。 您也可以執行臨機操作備份：
 
-```powershell
-$backupcontainer = Get-AzureRmRecoveryServicesBackupContainer `
-    -ContainerType "AzureVM" `
-    -FriendlyName "myVM"
+- 第一個初始備份作業會建立完整復原點。
+- 在初始備份之後，每個備份作業都會建立增量復原點。
+- 增量復原點符合儲存和時間效率，因為它只會傳輸自上次備份後所做的變更。
 
-$item = Get-AzureRmRecoveryServicesBackupItem `
-    -Container $backupcontainer `
-    -WorkloadType "AzureVM"
+若要執行臨機操作備份，請您使用 [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem)。 
+- 使用 [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer)，指定保留備份資料的保存庫容器。
+- 要備份的每個 VM 都會被視為一個項目。 若要開始備份作業，請使用[Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) 取得 VM 的相關資訊。
 
-Backup-AzureRmRecoveryServicesBackupItem -Item $item
-```
+執行臨機操作備份作業，如下所示：
 
-因為這第一個備份作業會建立完整復原點，所以程序可能需要長達 20 分鐘。
+1. 指定容器，取得 VM 資訊，然後執行備份。
+
+    ```powershell
+    $backupcontainer = Get-AzRecoveryServicesBackupContainer `
+        -ContainerType "AzureVM" `
+        -FriendlyName "myVM"
+
+    $item = Get-AzRecoveryServicesBackupItem `
+        -Container $backupcontainer `
+        -WorkloadType "AzureVM"
+
+    Backup-AzRecoveryServicesBackupItem -Item $item
+    ```
+
+2. 因為第一個備份作業會建立完整復原點，所以您可能需要等待長達 20 分鐘。 請監視作業，如下一個程序所述。
 
 
 ## <a name="monitor-the-backup-job"></a>監視備份作業
-若要監視備份作業的狀態，請使用 [Get-AzureRmRecoveryservicesBackupJob](/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupjob)：
+
+1. 執行 [Get-AzRecoveryservicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) 以監視作業狀態。
+
+    ```powershell
+    Get-AzRecoveryservicesBackupJob
+    ```
+    輸出會類似下列範例，其顯示的作業為 [進行中]︰
+
+    ```
+    WorkloadName   Operation         Status       StartTime              EndTime                JobID
+    ------------   ---------         ------       ---------              -------                -----
+    myvm           Backup            InProgress   9/18/2017 9:38:02 PM                          9f9e8f14
+    myvm           ConfigureBackup   Completed    9/18/2017 9:33:18 PM   9/18/2017 9:33:51 PM   fe79c739
+    ```
+
+2. 當作業狀態為 [已完成] 時，表示 VM 受到保護，並已儲存完整的復原點。
+
+
+## <a name="clean-up-the-deployment"></a>清除部署
+
+如果您不再需要備份 VM，便可加以清除。
+- 如果您想要嘗試還原 VM，請略過清除程序。
+- 如果您使用現有的 VM，可以略過最後的 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) Cmdlet，讓資源群組和 VM 留在原處。
+
+請停用保護，移除還原點和保存庫，然後刪除資源群組和相關聯的 VM 資源，如下所示：
 
 ```powershell
-Get-AzureRmRecoveryservicesBackupJob
-```
-
-輸出會類似下列範例，其顯示的備份作業為 InProgress︰
-
-```
-WorkloadName   Operation         Status       StartTime              EndTime                JobID
-------------   ---------         ------       ---------              -------                -----
-myvm           Backup            InProgress   9/18/2017 9:38:02 PM                          9f9e8f14
-myvm           ConfigureBackup   Completed    9/18/2017 9:33:18 PM   9/18/2017 9:33:51 PM   fe79c739
-```
-
-當備份作業的「狀態」回報 Completed，您的 VM 已受復原服務保護並已儲存完整復原點。
-
-
-## <a name="clean-up-deployment"></a>清除部署
-不再需要時，您可以停用 VM 的保護功能，移除還原點和復原服務保存庫，然後刪除資源群組和相關聯的 VM 資源。 如果您使用現有的 VM，可以略過最後的 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 命令，讓資源群組和 VM 留在原處。
-
-如果您要繼續進行說明如何為您的 VM 還原資料的備份教學課程，請略過本節中的步驟並前往[後續步驟](#next-steps)。 
-
-```powershell
-Disable-AzureRmRecoveryServicesBackupProtection -Item $item -RemoveRecoveryPoints
-$vault = Get-AzureRmRecoveryServicesVault -Name "myRecoveryServicesVault"
-Remove-AzureRmRecoveryServicesVault -Vault $vault
-Remove-AzureRmResourceGroup -Name "myResourceGroup"
+Disable-AzRecoveryServicesBackupProtection -Item $item -RemoveRecoveryPoints
+$vault = Get-AzRecoveryServicesVault -Name "myRecoveryServicesVault"
+Remove-AzRecoveryServicesVault -Vault $vault
+Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
 
 ## <a name="next-steps"></a>後續步驟
-在本快速入門中，您已建立復原服務保存庫、啟用 VM 的保護功能，並建立初始復原點。 若要深入了解 Azure 備份和復原服務，請繼續進行教學課程。
 
-> [!div class="nextstepaction"]
-> [備份多個 Azure VM](./tutorial-backup-vm-at-scale.md)
+在本快速入門中，您已建立復原服務保存庫、啟用 VM 的保護功能，並建立初始復原點。 
+
+- [了解如何](tutorial-backup-vm-at-scale.md)在 Azure 入口網站中備份 VM。
+- [了解如何](tutorial-restore-disk.md)快速還原的 VM

@@ -8,21 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 3233357d9013c2a1f9d77178c217ca9310a34ac4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 95a27ff17ca74f930fc1a739c0eb94a90bd82ec4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198196"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834484"
 ---
-# <a name="search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>使用 Bing Web 搜尋 REST API 和 Node.js 來搜尋 Web
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>快速入門：使用 Bing Web 搜尋 REST API 和 Node.js 來搜尋 Web
 
 使用本快速入門進行對 Bing Web 搜尋 API 第一次的呼叫，並接收 JSON 回應。 這個 Node.js 應用程式會將搜尋要求傳送給 API，並顯示回應。 雖然此應用程式是以 JavaScript 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
 
 ## <a name="prerequisites"></a>必要條件
+
 以下是執行本快速入門之前的幾個必備項目：
 
 * [Node.js 6](https://nodejs.org/en/download/) (英文) 或更新版本
@@ -43,7 +44,7 @@ const https = require('https')
 
 ## <a name="set-the-subscription-key"></a>設定訂用帳戶金鑰
 
-此程式碼片段會使用 `AZURE_SUBSCRIPTION_KEY` 環境變數來儲存您的訂用帳戶金鑰，此作法可有效避免在部署程式碼時意外洩露您的金鑰。 [按一下這裡](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7)可查閱您的訂用帳戶金鑰。
+此程式碼片段會使用 `AZURE_SUBSCRIPTION_KEY` 環境變數來儲存您的訂用帳戶金鑰，此作法可有效避免在部署程式碼時意外洩露您的金鑰。 移至[您的 API 頁面](https://azure.microsoft.com/try/cognitive-services/my-apis/?apiSlug=search-api-v7)，以查閱您的訂用帳戶金鑰。
 
 如果您不熟悉環境變數的使用方式，或想要盡快執行此應用程式，您可以將 `process.env['AZURE_SUBSCRIPTION_KEY']` 取代為您設定為字串的訂用帳戶金鑰。
 
@@ -110,7 +111,7 @@ bingWebSearch(query)
 const https = require('https')
 const SUBSCRIPTION_KEY = process.env['AZURE_SUBSCRIPTION_KEY']
 if (!SUBSCRIPTION_KEY) {
-  throw new Error('Missing the AZURE_SUBSCRIPTION_KEY environment varable')
+  throw new Error('Missing the AZURE_SUBSCRIPTION_KEY environment variable')
 }
 function bingWebSearch(query) {
   https.get({

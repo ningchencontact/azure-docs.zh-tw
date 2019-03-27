@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: ea392d8c-c8aa-4475-99d0-b08524ef0f3a
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0bdb8612294c07593abaf02e4c0e3ea02e72a00
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 0fddbcbea23226bef68f36369341afcf1b100b77
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868033"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57847326"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cylanceprotect"></a>教學課程：Azure Active Directory 與 CylancePROTECT 整合
 
@@ -87,7 +87,7 @@ CylancePROTECT 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要使用 CylancePROTECT 設定 Azure AD 單一登入，請執行下列步驟：
+若要設定與 CylancePROTECT 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [CylancePROTECT] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -103,7 +103,7 @@ CylancePROTECT 與 Azure AD 整合提供下列優點：
 
 4. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [基本 SAML 組態] 對話方塊。
 
-    ![CylancePROTECT 網域與 URL 單一登入資訊](common/idp-intiated.png)
+    ![CylancePROTECT 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
     a. 在 [識別碼] 文字方塊中，輸入 URL：
     
@@ -161,7 +161,7 @@ CylancePROTECT 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -178,7 +178,7 @@ CylancePROTECT 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [CylancePROTECT]。
 
-    ![應用程式清單中的 CylancePROTECT 連結](common/all-applications.png)
+    ![應用程式清單中的 [CylancePROTECT] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -196,13 +196,13 @@ CylancePROTECT 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-cylanceprotect-test-user"></a>建立 CylancePROTECT 測試使用者
 
-在本節中，您要在 CylancePROTECT 中建立名為 Britta Simon 的使用者。 請與主控台管理員合作，在 CylancePROTECT 平台中新增使用者。 Azure Active Directory 帳戶的持有者會收到一封電子郵件，並依照連結在啟用其帳戶前進行確認。
+在本節中，您會在 CylancePROTECT 中建立名為 Britta Simon 的使用者。 請與主控台管理員合作，在 CylancePROTECT 平台中新增使用者。 Azure Active Directory 帳戶的持有者會收到一封電子郵件，並依照連結在啟用其帳戶前進行確認。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 CylancePROTECT 圖格時，應該會自動登入您設定 SSO 的 CylancePROTECT。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 CylancePROTECT 圖格時，應該會自動登入您已設定 SSO 的 CylancePROTECT。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

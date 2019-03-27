@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 11/5/2018
 ms.author: areddish
-ms.openlocfilehash: 691e95c666edf290dcfd79a6007e7b29d168a605
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 48bd10a19254540d970a1cb5ebd19b63a1975df0
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881188"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727020"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>快速入門：使用適用於自訂視覺 Python SDK 建立物件偵測專案
 
@@ -70,7 +70,7 @@ project = trainer.create_project("My Detection Project", domain_id=obj_detection
 
 ### <a name="create-tags-in-the-project"></a>在專案中建立標記
 
-若要在專案中建立分類標記，請在 sample.py 結尾新增以下程式碼：
+若要在專案中建立物件標記，請在 *sample.py* 結尾新增以下程式碼：
 
 ```Python
 # Make two tags in the new project

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0885671d777d79c6f8a9fc993aa1224312705bce
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 5d6a7d77b442383817179fadc5878f02dfe86628
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650898"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089517"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>教學課程：將現有的自訂 DNS 名稱對應至 Azure App Service
 
@@ -145,7 +145,7 @@ ms.locfileid: "56650898"
 
 [新增主機名稱] 頁面隨即顯示。 
 
-請確定 [主機名稱記錄類型] 設為 [CNAME (www.example.com 或任何子網域)]。
+確定 [主機名稱記錄類型] 已設定為 [CNAME (www\.example.com 或任何子網域)]。
 
 選取 [新增主機名稱]。
 
@@ -282,7 +282,7 @@ ms.locfileid: "56650898"
 
 [新增主機名稱] 按鈕會啟用。 
 
-請確定 [主機名稱記錄類型] 設為 [CNAME 記錄 (www.example.com 或任何子網域)]。
+確定 [主機名稱記錄類型] 已設定為 [CNAME 記錄 (www\.example.com 或任何子網域)]。
 
 選取 [新增主機名稱]。
 

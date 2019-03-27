@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 6748f168624a20e17491a2f84b63b966ce5ad4c6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 03/12/2019
+ms.openlocfilehash: cdb53685e744401f9d2d229a5deaffa72502e26b
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539280"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730202"
 ---
 # <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>適用於 PostgreSQL 的 Azure 資料庫：使用 Ruby 連線並查詢資料
 本快速入門示範如何使用 [Ruby](https://www.ruby-lang.org) 應用程式來連線到 Azure Database for PostgreSQL。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本文中的步驟假設您已熟悉使用 Ruby 進行開發，但不熟悉適用於 PostgreSQL 的 Azure 資料庫。
@@ -23,36 +23,9 @@ ms.locfileid: "53539280"
 - [建立 DB - 入口網站](quickstart-create-server-database-portal.md)
 - [建立 DB - Azure CLI](quickstart-create-server-database-azure-cli.md)
 
-## <a name="install-ruby"></a>安裝 Ruby
-在自己的電腦上安裝 Ruby。 
-
-### <a name="windows"></a> Windows
-- 下載並安裝最新版的 [Ruby](https://rubyinstaller.org/downloads/)。
-- 在 MSI 安裝程式的完成畫面上，核取表示「執行 'ridk install' 以安裝 MSYS2 和開發工具鏈」的方塊。 然後按一下 [完成] 以啟動下一個安裝程式。
-- RubyInstaller2 for Windows 安裝程式隨即啟動。 輸入 2 以安裝 MSYS2 存放庫更新。 在完成並返回安裝提示之後，請關閉命令視窗。
-- 從 [開始] 功能表啟動新的命令提示 (cmd)。
-- 測試 Ruby 安裝 `ruby -v` 以查看安裝的版本。
-- 測試 Gem 安裝 `gem -v` 以查看安裝的版本。
-- 執行 `gem install pg` 命令以使用 Gem 建置 PostgreSQL 模組。
-
-### <a name="macos"></a>MacOS
-- 執行 `brew install ruby` 命令以使用 Homebrew 安裝 Ruby。 如需其他安裝選項，請參閱 Ruby [安裝文件](https://www.ruby-lang.org/en/documentation/installation/#homebrew)
-- 測試 Ruby 安裝 `ruby -v` 以查看安裝的版本。
-- 測試 Gem 安裝 `gem -v` 以查看安裝的版本。
-- 執行 `gem install pg` 命令以使用 Gem 建置 PostgreSQL 模組。
-
-### <a name="linux-ubuntu"></a>Linux (Ubuntu)
-- 執行 `sudo apt-get install ruby-full` 命令來安裝 Ruby。 如需其他安裝選項，請參閱 Ruby [安裝文件](https://www.ruby-lang.org/en/documentation/installation/)。
-- 測試 Ruby 安裝 `ruby -v` 以查看安裝的版本。
-- 執行 `sudo gem update --system` 命令以安裝 Gem 的最新更新。
-- 測試 Gem 安裝 `gem -v` 以查看安裝的版本。
-- 執行 `sudo apt-get install build-essential` 命令以安裝 gcc、make 和其他建置工具。
-- 執行 `sudo apt-get install libpq-dev` 命令以安裝 PostgreSQL 程式庫。
-- 執行 `sudo gem install pg` 命令以使用 Gem 建置 Ruby pg 模組。
-
-## <a name="run-ruby-code"></a>執行 Ruby 程式碼 
-- 將程式碼儲存到副檔名為 .rb 的文字檔中，並將該檔案儲存到專案資料夾中，例如 `C:\rubypostgres\read.rb` 或 `/home/username/rubypostgres/read.rb`
-- 若要執行程式碼，請啟動命令提示字元或 bash shell。 將目錄變更為您的專案資料夾 `cd rubypostgres`，然後輸入 `ruby read.rb` 命令來執行應用程式。
+您也必須已安裝：
+- [Ruby](https://www.ruby-lang.org/en/downloads/)
+- Ruby pg，適用於 Ruby 的 PostgreSQL 模組
 
 ## <a name="get-connection-information"></a>取得連線資訊
 取得連線到 Azure Database for PostgreSQL 所需的連線資訊。 您需要完整的伺服器名稱和登入認證。
@@ -63,12 +36,17 @@ ms.locfileid: "53539280"
 4. 從伺服器的 [概觀] 面板，記下 [伺服器名稱] 和 [伺服器管理員登入名稱]。 如果您忘記密碼，您也可以從此面板重設密碼。
  ![適用於 PostgreSQL 的 Azure 資料庫伺服器名稱](./media/connect-ruby/1-connection-string.png)
 
+> [!NOTE]
+> Azure Postgres 使用者名稱中的 `@` 符號已在所有連線字串中以 URL 編碼為 `%40`。 
+
 ## <a name="connect-and-create-a-table"></a>連線及建立資料表
 使用下列程式碼搭配 **CREATE TABLE** SQL 陳述式 (後面接著 **INSERT INTO** SQL 陳述式) 來連線和建立資料表，進而將資料列新增至資料表中。
 
 程式碼會使用 [PG::Connection](https://www.rubydoc.info/gems/pg/PG/Connection) 物件搭配建構函式 [new()](https://www.rubydoc.info/gems/pg/PG%2FConnection:initialize)，以連線至 Azure Database for PostgreSQL。 然後它會呼叫 [exec()](https://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) 方法來執行 DROP、CREATE TABLE 和 INSERT INTO 命令。 程式碼會使用 [PG::Error](https://www.rubydoc.info/gems/pg/PG/Error) 類別檢查錯誤。 然後它會呼叫 [close()](https://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) 方法，在終止前關閉連線。
 
 以您自己的值取代 `host`、`database`、`user` 和 `password` 字串。 
+
+
 ```ruby
 require 'pg'
 
@@ -76,7 +54,7 @@ begin
     # Initialize connection variables.
     host = String('mydemoserver.postgres.database.azure.com')
     database = String('postgres')
-    user = String('mylogin@mydemoserver')
+    user = String('mylogin%40mydemoserver')
     password = String('<server_admin_password>')
 
     # Initialize connection object.
@@ -119,7 +97,7 @@ begin
     # Initialize connection variables.
     host = String('mydemoserver.postgres.database.azure.com')
     database = String('postgres')
-    user = String('mylogin@mydemoserver')
+    user = String('mylogin%40mydemoserver')
     password = String('<server_admin_password>')
 
     # Initialize connection object.
@@ -153,7 +131,7 @@ begin
     # Initialize connection variables.
     host = String('mydemoserver.postgres.database.azure.com')
     database = String('postgres')
-    user = String('mylogin@mydemoserver')
+    user = String('mylogin%40mydemoserver')
     password = String('<server_admin_password>')
 
     # Initialize connection object.
@@ -187,7 +165,7 @@ begin
     # Initialize connection variables.
     host = String('mydemoserver.postgres.database.azure.com')
     database = String('postgres')
-    user = String('mylogin@mydemoserver')
+    user = String('mylogin%40mydemoserver')
     password = String('<server_admin_password>')
 
     # Initialize connection object.

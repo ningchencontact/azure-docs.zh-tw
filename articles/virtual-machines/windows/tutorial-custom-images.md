@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 192ecf0cf4f97a709808fa04f676035e8a672b79
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 74087a6d1ce00293c968837e72c636847081e39e
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976941"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285970"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>教學課程：使用 Azure PowerShell 建立 Azure VM 的自訂映像
 
@@ -65,7 +65,7 @@ Sysprep 會移除您的所有個人帳戶資訊以及其他項目，並準備電
 
 若要建立映像，必須將 VM 解除配置並在 Azure 中標示為一般化。
 
-使用 [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) 將 VM 解除配置。
+使用 [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) \(英文\) 將 VM 解除配置。
 
 ```azurepowershell-interactive
 Stop-AzVM `
@@ -162,7 +162,7 @@ Remove-AzImage `
 > * 列出訂用帳戶中的所有映像
 > * 删除映像
 
-請前進到下一個教學課程，以了解如何使虛擬機器具備高可用性。
+請前進到下一個教學課程，以了解如何建立高可用性的虛擬機器。
 
 > [!div class="nextstepaction"]
 > [建立高可用性 VM](tutorial-availability-sets.md)

@@ -12,12 +12,12 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 07/31/2018
-ms.openlocfilehash: 9d2fe2c18452537f734a8bf176130e1ad68d40e1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: e1d845d1d90a3a70590778013504fea7c0aec85c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231027"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097656"
 ---
 # <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>快速入門：使用 Azure Logic Apps 建立和自動執行工作、程序和工作流程 - Visual Studio
 
@@ -83,11 +83,13 @@ ms.locfileid: "50231027"
 
 建立 Azure 資源群組專案之後，從 [空白邏輯應用程式] 範本開始建立並建置邏輯應用程式。
 
-1. 在 [方案總管] 中，開啟 LogicApp.json 檔案的捷徑功能表。 選取 [以邏輯應用程式設計工具開啟]。 (鍵盤：Ctrl+L)
+1. 在 [方案總管] 中，開啟 LogicApp.json 檔案的捷徑功能表。 
+   選取 [以邏輯應用程式設計工具開啟]。 (鍵盤：Ctrl+L)
 
    ![以邏輯應用程式設計工具開啟邏輯應用程式 .json 檔案](./media/quickstart-create-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
-2. 針對 [訂用帳戶]，選取您要使用的 Azure 訂用帳戶。 針對 [資源群組]，選取 [建立新的...] 以建立新的 Azure 資源群組。 
+2. 針對 [訂用帳戶]，選取您要使用的 Azure 訂用帳戶。 
+   針對 [資源群組]，選取 [建立新的...] 以建立新的 Azure 資源群組。 
 
    ![選取 Azure 訂用帳戶、資源群組和資源位置](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-location.png)
 
@@ -101,7 +103,8 @@ ms.locfileid: "50231027"
    | **位置** | MyLogicApp-RG2 <br> (美國西部) | 如果您不想要使用資源群組位置，則為不同的位置 |
    ||||
 
-3. Logic Apps 設計工具會開啟並顯示含有簡介影片和常用觸發程序的頁面。 將影片與觸發程序捲動過去。 在 [範本] 底下，選取 [空白邏輯應用程式]。
+3. Logic Apps 設計工具會開啟並顯示含有簡介影片和常用觸發程序的頁面。 
+   將影片與觸發程序捲動過去。 在 [範本] 底下，選取 [空白邏輯應用程式]。
 
    ![選取 [空白邏輯應用程式]](./media/quickstart-create-logic-apps-with-visual-studio/choose-blank-logic-app-template.png)
 
@@ -109,7 +112,7 @@ ms.locfileid: "50231027"
 
 接下來，新增可在新的 RSS 摘要項目出現時引發的[觸發程序](../logic-apps/logic-apps-overview.md#logic-app-concepts)。 每個邏輯應用程式都必須使用觸發程序啟動，而該觸發程序會在符合特定條件時引發。 每次引發觸發程序時，Logic Apps 引擎會建立邏輯應用程式執行個體，以執行您的工作流程。
 
-1. 在邏輯應用程式設計工具的搜尋方塊中輸入 "rss"。 選取此觸發程序︰**摘要項目發佈時**
+1. 在邏輯應用程式設計工具的搜尋方塊中輸入 "rss"。 選取此觸發程序：**摘要項目發佈時**
 
    ![藉由新增觸發程序和動作來建置邏輯應用程式](./media/quickstart-create-logic-apps-with-visual-studio/add-trigger-logic-app.png)
 

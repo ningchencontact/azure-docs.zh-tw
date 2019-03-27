@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 20e18819-e330-4e40-bd8d-2ff3b98e035f
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 434a22c56e0ac6476138ef258e7d83a2bfecb63f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d0875e271a34577ed694caae4281df99b6b63411
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871242"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901860"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>教學課程：Azure Active Directory 與 SAML SSO for Jira by resolution GmbH 整合
 
@@ -74,7 +74,7 @@ SAML SSO for Jira by resolution GmbH 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 SAML SSO for Jira by resolution GmbH 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 SAML SSO for Jira by resolution GmbH 中相關使用者之間的連結關聯性。
 
-若要使用 SAML SSO for Jira by resolution GmbH 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 SAML SSO for Jira by resolution GmbH 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 SAML SSO for Jira by resolution GmbH 單一登入](#configure-saml-sso-for-jira-by-resolution-gmbh-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -103,7 +103,7 @@ SAML SSO for Jira by resolution GmbH 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，若您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
 
-    ![SAML SSO for Jira by resolution GmbH 網域和 URL 單一登入資訊](common/idp-intiated.png)
+    ![SAML SSO for Jira by resolution GmbH 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
     a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<server-base-url>/plugins/servlet/samlsso`
 
@@ -111,7 +111,7 @@ SAML SSO for Jira by resolution GmbH 與 Azure AD 整合提供下列優點：
 
     c. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-    ![SAML SSO for Jira by resolution GmbH 網域和 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
+    ![SAML SSO for Jira by resolution GmbH 網域及 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
 
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<server-base-url>/plugins/servlet/samlsso`
 
@@ -228,7 +228,7 @@ SAML SSO for Jira by resolution GmbH 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -245,7 +245,7 @@ SAML SSO for Jira by resolution GmbH 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，輸入並選取 [SAML SSO for Jira by resolution GmbH]。
 
-    ![應用程式清單中的 SAML SSO for Jira by resolution GmbH 連結](common/all-applications.png)
+    ![應用程式清單中的 [SAML SSO for Jira by resolution GmbH] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -300,7 +300,7 @@ SAML SSO for Jira by resolution GmbH 與 Azure AD 整合提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您按一下 [存取面板] 中的 [SAML SSO for Jira by resolution GmbH] 圖格時，應該會自動登入您已設定 SSO 的 SAML SSO for Jira by resolution GmbH。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [SAML SSO for Jira by resolution GmbH] 圖格時，應該會自動登入您已設定 SSO 的 SAML SSO for Jira by resolution GmbH。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

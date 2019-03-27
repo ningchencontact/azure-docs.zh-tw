@@ -10,21 +10,23 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/25/2019
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 57e71261bad950b409da7a58b53712d84dc1b3df
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 023be5d0a5320163b3eabfe80f35894763ab89fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56815853"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099605"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>教學課程：在 Azure Resource Manager 範本中使用條件
 
 深入了解如何根據條件部署 Azure 資源。
 
 在[設定資源部署順序](./resource-manager-tutorial-create-templates-with-dependent-resources.md)教學課程中，您建立了虛擬機器、虛擬網路和其他相依資源，包括儲存體帳戶。 您可以不用每次都建立新的儲存體帳戶，而是讓使用者在建立新的儲存體帳戶與使用現有的儲存體帳戶之間做選擇。 為了達成此目標，您會定義額外的參數。 如果參數的值是 "new"，則會建立新的儲存體帳戶。
+
+![Resource Manager 範本使用條件圖](./media/resource-manager-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
 
 本教學課程涵蓋下列工作：
 
@@ -61,13 +63,13 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 3. 選取 [開啟] 以開啟檔案。
 4. 範本中定義了五項資源：
 
-    * `Microsoft.Storage/storageAccounts` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)。
-    * `Microsoft.Network/publicIPAddresses` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)。
-    * `Microsoft.Network/virtualNetworks` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)。
-    * `Microsoft.Network/networkInterfaces` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)。
-    * `Microsoft.Compute/virtualMachines` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)。
+   * `Microsoft.Storage/storageAccounts` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)。
+   * `Microsoft.Network/publicIPAddresses` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)。
+   * `Microsoft.Network/virtualNetworks` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)。
+   * `Microsoft.Network/networkInterfaces` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)。
+   * `Microsoft.Compute/virtualMachines` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)。
 
-    自訂範本之前，最好能初步了解範本。
+     自訂範本之前，最好能初步了解範本。
 5. 選取 [檔案]>[另存新檔]，以名稱 **azuredeploy.json** 將檔案的複本儲存至您的本機電腦。
 
 ## <a name="modify-the-template"></a>修改範本

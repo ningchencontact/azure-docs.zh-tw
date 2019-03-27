@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/26/2019
+ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: de1bd8599682baae860737401d02c7c1dec9e223
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 018392db2ffb510d41385d8e0af19635c35678e6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960644"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003411"
 ---
 # <a name="what-is-azure-media-services-v3"></a>什麼是 Azure 媒體服務 v3？
 
@@ -49,9 +49,9 @@ v3 是會統一的 API 表面為基礎，併公開建置於 Azure Resource Manag
 
 * **轉換**可協助您定義媒體處理或分析工作的簡單工作流程。 轉換是處理您的視訊和音訊檔案的配方。 然後藉由將工作提交至轉換，您可以重複地套用它來處理內容庫中的所有檔案。
 * **工作**可處理 (編碼或分析) 您的視訊。 您可以使用 HTTPS URL、SAS URL 或 Azure Blob 儲存體中的檔案路徑，在作業上指定輸入內容。 目前，AMS v3 不支援透過 HTTPS URL 的區塊傳送編碼。
-* **通知**可監視工作進度或狀態，或直播頻道開始/停止及錯誤事件。 通知會與 Azure Event Grid 通知系統整合。 您輕鬆就能在 Azure 媒體服務中的數個資源上訂閱活動。 
-* **Azure Resource Management** 範本可用於建立及部署轉換、串流端點、頻道等等。
-* **角色型存取控制**可以設定在資源層級，讓您能鎖定對特定資源 (如轉換、頻道等) 的存取。
+* **通知**可監視工作進度或狀態，或即時事件開始/停止及錯誤事件。 通知會與 Azure Event Grid 通知系統整合。 您輕鬆就能在 Azure 媒體服務中的數個資源上訂閱活動。 
+* **Azure 資源管理**範本可用於建立及部署轉換、串流端點、即時事件等等。
+* **角色型存取控制**可以設定在資源層級，讓您能鎖定對特定資源 (如轉換、即時事件等) 的存取。
 * **用戶端 SDK** 有多種語言：.NET、.NET Core、Python、Go、Java 和 Node.js。
 
 ## <a name="naming-conventions"></a>命名慣例

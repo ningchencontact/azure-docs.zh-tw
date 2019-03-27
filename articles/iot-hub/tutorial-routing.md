@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: cc3f7c72acc0723c522b595ea106f72947e9d014
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 87d0339de117330bf6d586cd653b0d4d16a8cbca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728721"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087698"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>教學課程：使用 IoT 中樞設定訊息路由
 
@@ -144,7 +144,7 @@ echo "Service Bus namespace = " $sbNameSpace
 az servicebus namespace create --resource-group $resourceGroup \
     --name $sbNameSpace \
     --location $location
-    
+
 # The Service Bus queue name must be globally unique, so add a random number to the end.
 sbQueueName=ContosoSBQueue$RANDOM
 echo "Service Bus queue name = " $sbQueueName
@@ -276,7 +276,7 @@ New-AzServiceBusQueue -ResourceGroupName $resourceGroup `
 
 現在來設定儲存體帳戶的路由。 移至 [訊息路由] 窗格，然後新增路由。 在新增路由時，定義新的路由端點。 設定好之後，其 **level** 屬性設定為 **storage** 的訊息會自動寫入儲存體帳戶。 
 
-資料會以 Avro 格式寫入至 Blob 儲存體。
+資料預設會以 Avro 格式寫入至 Blob 儲存體。
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [資源群組]，然後選取您的資源群組。 本教學課程使用 **ContosoResources**。 
 
@@ -301,8 +301,9 @@ New-AzServiceBusQueue -ResourceGroupName $resourceGroup `
    > 
    > 例如，如果中樞名稱是 ContosoTestHub，且日期/時間是 2018 年 10 月 30 日上午 10:56，請使用預設 Blob 檔案名稱格式，Blob 名稱看起來像這樣：`ContosoTestHub/0/2018/10/30/10/56`。
    > 
-   > Blob 會以 Avro 格式寫入。
-   >
+   > Blob 預設會以 Avro 格式寫入。 您可以選擇以 JSON 格式寫入檔案。 將 JSON 格式編碼的功能，在所有可使用 IoT 中樞的區域中均為預覽狀態，但美國東部、美國西部和歐洲西部除外。 請參閱[路由傳送至 Blob 儲存體的指引](iot-hub-devguide-messages-d2c.md#azure-blob-storage)。
+   > 
+   > 路由傳送至 Blob 儲存體時，建議您登錄 Blob，然後逐一查看它們，以確保會讀取所有容器，而不需進行任何分割假設。 分割範圍可能會在 [Microsoft 起始的容錯移轉](iot-hub-ha-dr.md#microsoft-initiated-failover)或 IoT 中樞[手動容錯移轉](iot-hub-ha-dr.md#manual-failover-preview)期間變更。 若要了解如何列舉 Blob 清單，請參閱[路由傳送至 Blob 儲存體](iot-hub-devguide-messages-d2c.md#azure-blob-storage)。
 
 8. 按一下 [建立] 來建立儲存體端點，並將它新增至路由。 您會返回 [新增路由] 窗格。
 
@@ -311,15 +312,15 @@ New-AzServiceBusQueue -ResourceGroupName $resourceGroup `
    **名稱**：輸入路由查詢的名稱。 本教學課程使用 **StorageRoute**。
 
    **端點**：這會顯示您剛才設定的端點。 
-   
+
    **資料來源**：從下拉式清單選取 [裝置遙測訊息]。
 
    **啟用路由**：務必啟用此選項。
-   
+
    **路由查詢**：輸入 `level="storage"` 作為查詢字串。 
 
    ![顯示建立儲存體帳戶路由查詢的螢幕擷取畫面。](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
-   
+
    按一下 [檔案] 。 完成時會返回 [訊息路由] 窗格，您可以在其中看到儲存體的新路由查詢。 關閉 [路由] 窗格即會返回 [資源群組] 頁面。
 
 ### <a name="routing-to-a-service-bus-queue"></a>路由至服務匯流排佇列 
@@ -337,14 +338,14 @@ New-AzServiceBusQueue -ResourceGroupName $resourceGroup `
 4. 填寫欄位：
 
    **端點名稱**：輸入端點的名稱。 本教學課程使用 **CriticalQueue**。
-   
+
    **服務匯流排命名空間**：按一下此欄位以顯示下拉式清單；選取您在準備步驟中設定的服務匯流排命名空間。 本教學課程使用 **ContosoSBNamespace**。
 
    **服務匯流排佇列**：按一下此欄位以顯示下拉式清單；從下拉式清單選取服務匯流排佇列。 本教學課程使用 **contososbqueue**。
 
 5. 按一下 [建立] 以新增服務匯流排佇列端點。 您會返回 [新增路由] 窗格。 
 
-6.  現在，請完成其餘路由查詢資訊。 此查詢會指定準則，來規範如何將訊息傳送至您剛才新增為端點的服務匯流排佇列。 填寫畫面上的欄位。 
+6. 現在，請完成其餘路由查詢資訊。 此查詢會指定準則，來規範如何將訊息傳送至您剛才新增為端點的服務匯流排佇列。 填寫畫面上的欄位。 
 
    **名稱**：輸入路由查詢的名稱。 本教學課程使用 **SBQueueRoute**。 
 
@@ -401,7 +402,7 @@ New-AzServiceBusQueue -ResourceGroupName $resourceGroup `
    ![顯示設定服務匯流排佇列連線的螢幕擷取畫面。](./media/tutorial-routing/logic-app-define-connection.png)
 
    按一下服務匯流排命名空間。 本教學課程使用 **ContosoSBNamespace**。 當您選取命名空間時，入口網站會查詢服務匯流排命名空間來擷取金鑰。 選取 [RootManageSharedAccessKey]，然後按一下 [建立]。 
-   
+
    ![顯示完成設定連線的螢幕擷取畫面。](./media/tutorial-routing/logic-app-finish-connection.png)
 
 6. 在下一個畫面上，從下拉式清單中選取佇列的名稱 (本教學課程使用 **contososbqueue**)。 其他欄位可使用預設值。 
@@ -442,9 +443,9 @@ New-AzServiceBusQueue -ResourceGroupName $resourceGroup `
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>將輸入新增至串流分析作業
 
-4. 在 [作業拓撲] 之下，按一下 [輸入]。
+1. 在 [作業拓撲] 之下，按一下 [輸入]。
 
-5. 在 [輸入] 窗格中，按一下 [新增資料流輸入] 並選取 IoT 中樞。 在顯示的畫面上，填寫下列欄位：
+1. 在 [輸入] 窗格中，按一下 [新增資料流輸入] 並選取 IoT 中樞。 在顯示的畫面上，填寫下列欄位：
 
    **輸入別名**：本教學課程使用 **contosoinputs**。
 
@@ -457,12 +458,12 @@ New-AzServiceBusQueue -ResourceGroupName $resourceGroup `
    **共用存取原則名稱**：選取 [iothubowner]。 入口網站會為您填入共用存取原則金鑰。
 
    **取用者群組**：選取您稍早建立的取用者群組。 本教學課程使用 **contosoconsumers**。
-   
+
    對於其餘欄位，請採用預設值。 
 
    ![顯示如何為串流分析作業設定輸入的螢幕擷取畫面。](./media/tutorial-routing/stream-analytics-job-inputs.png)
 
-6. 按一下 [檔案] 。
+1. 按一下 [檔案] 。
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>將輸出新增至串流分析作業
 
@@ -631,4 +632,4 @@ Remove-AzResourceGroup -Name $resourceGroup
 前進至下一個教學課程，以了解如何管理 IoT 裝置的狀態。 
 
 > [!div class="nextstepaction"]
-[搭配 IoT 中樞來設定及使用計量和診斷記錄](tutorial-use-metrics-and-diags.md)
+> [搭配 IoT 中樞來設定及使用計量和診斷記錄](tutorial-use-metrics-and-diags.md)

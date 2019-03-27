@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 3/3/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cfbbe9a5297627dec69683b819aabd721b3c33d7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ccd62c0b0832622bbc74542674c1d09f59ea301b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470778"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57848825"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>為內部部署 VMware VM 設定災害復原至 Azure
 
@@ -41,6 +41,14 @@ ms.locfileid: "54470778"
     - 設定[複寫來源](vmware-azure-set-up-source.md)和[組態伺服器](vmware-azure-deploy-configuration-server.md)。
     - 設定[複寫目標](vmware-azure-set-up-target.md)。
     - 設定[複寫原則](vmware-azure-set-up-replication.md)及[啟用複寫](vmware-azure-enable-replication.md)。
+- 本教學課程將示範如何複寫單一 VM。 如果您要部署多個 VM，則應該使用[部署規劃工具](https://aka.ms/asr-deployment-planner)來協助規劃您的部署。 [深入了解](site-recovery-deployment-planner.md) 此工具。
+
+此外，請檢閱下列提示：
+- 本教學課程會使用 OVA 範本來建立組態伺服器 VMware VM。 如果您無法這麼做，請遵循[這些指示](physical-manage-configuration-server.md)，手動進行設定伺服器的設定。
+- 在本教學課程中，Site Recovery 會下載 MySQL 並並安裝到組態伺服器。 如果您願意，您可以改為手動設定它。 [深入了解](vmware-azure-deploy-configuration-server.md#configure-settings)。
+  >您可以直接從 [Microsoft 下載中心](https://aka.ms/asrconfigurationserver)，下載最新版的設定伺服器範本。
+  使用 OVF 範本所提供的授權是有效期 180 天的評估授權。 在 VM 上執行 Windows 必須使用必要的授權來啟動。 
+
 
 
 ## <a name="select-a-protection-goal"></a>選取保護目標
@@ -52,25 +60,18 @@ ms.locfileid: "54470778"
 5. 在 [您的電腦虛擬化了嗎] 中，選取 [是，使用 VMware vSphere Hyperviso]。 然後選取 [確定]。
 
 
-## <a name="plan-your-deployment"></a>規劃您的部署
-
-在此教學課程中，我們會說明如何複寫單一 VM，然後在 [部署規劃] 中，我們將選取 [是，我已完成]。 如果您要部署多個 VM，我們建議您不要略過此步驟。 我們提供[部署規劃工具](https://aka.ms/asr-deployment-planner)來協助您。 [深入了解](site-recovery-deployment-planner.md) 此工具。
 
 ## <a name="set-up-the-source-environment"></a>設定來源環境
 
-在第一個部署步驟中，設定您的來源環境。 您需要單一、高可用性、內部部署電腦，以裝載內部部署 Site Recovery 元件。 元件包含設定伺服器、處理序伺服器和主要目標伺服器：
+在您的來源環境中，您需要單一、高可用性、內部部署的電腦來裝載 Site Recovery 元件。 元件包含設定伺服器、處理序伺服器和主要目標伺服器：
 
 - 設定伺服器會協調內部部署與 Azure 之間的通訊，以及管理資料複寫。
-- 處理序伺服器可作為複寫閘道。 負責接收複寫資料，以快取、壓縮和加密進行最佳化，然後將複寫資料傳送至 Azure 儲存體。 處理序伺服器也會在您要複寫的 VM 上安裝行動服務，並且在內部部署 VMware VM 上執行自動探索。
+- 處理序伺服器可作為複寫閘道。 負責接收複寫資料，以快取、壓縮和加密進行最佳化，然後將其傳送至 Azure 中的快取儲存體帳戶。 處理序伺服器也會在您要複寫的 VM 上安裝行動服務，並且在內部部署 VMware VM 上執行自動探索。
 - 主要目標伺服器會在從 Azure 容錯回復期間，處理複寫資料。
 
 若要將設定伺服器設定為高可用性 VMware VM，請下載備妥的開放式虛擬化應用程式 (OVA) 範本，然後將範本匯入 VMware 以建立 VM。 在設定好設定伺服器之後，在保存庫中加以註冊。 註冊之後，Site Recovery 會探索內部部署 VMware VM。
 
-> [!TIP]
-> 本教學課程會使用 OVA 範本來建立組態伺服器 VMware VM。 如果您無法這麼做，您可以[手動設定組態伺服器](physical-manage-configuration-server.md)。
 
-> [!TIP]
-> 在本教學課程中，Site Recovery 會下載 MySQL 並並安裝到組態伺服器。 如果您不想 Site Recovery 這麼做，您可以手動設定它。 [深入了解](vmware-azure-deploy-configuration-server.md#configure-settings)。
 
 
 ### <a name="download-the-vm-template"></a>下載 VM 範本
@@ -80,13 +81,10 @@ ms.locfileid: "54470778"
 3. 在 [新增伺服器] 中，檢查 [VMware 的組態伺服器] 是否出現在 [伺服器類型] 中。
 4. 下載設定伺服器的 OVF 範本。
 
- > [!TIP]
- >您可以直接從 [Microsoft 下載中心](https://aka.ms/asrconfigurationserver)，下載最新版的設定伺服器範本。
 
->[!NOTE]
-使用 OVF 範本所提供的授權是有效期 180 天的評估授權。 客戶必須使用所購買的授權來啟用時段。
 
 ## <a name="import-the-template-in-vmware"></a>在 VMware 中匯入範本
+
 
 1. 透過 VMWare vSphere 用戶端，登入 VMware vCenter 伺服器或 vSphere ESXi 主機。
 2. 在 [檔案] 功能表上，選取 [部署 OVF 範本] 以啟動 [部署 OVF 範本精靈]。 
@@ -100,8 +98,8 @@ ms.locfileid: "54470778"
 7. 在精靈的其餘頁面上，接受所有的預設設定。
 8. 在 [準備完成] 上，若要使用預設設定來設定 VM，請選取 [在部署後開啟電源] > [完成]。
 
-    > [!TIP]
-  如果您想要新增額外的 NIC，請清除 [在部署後開啟電源] > [完成]。 根據預設，此範本包含單一 NIC。 您可以在部署後新增其他 NIC。
+   > [!TIP]
+   > 如果您想要新增額外的 NIC，請清除 [在部署後開啟電源] > [完成]。 根據預設，此範本包含單一 NIC。 您可以在部署後新增其他 NIC。
 
 ## <a name="add-an-additional-adapter"></a>新增其他介面卡
 
@@ -126,7 +124,7 @@ ms.locfileid: "54470778"
 
 ### <a name="configure-settings-and-add-the-vmware-server"></a>進行設定與新增 VMware 伺服器
 
-1. 在設定伺服器管理精靈中，選取 [設定連線]，然後選取 NIC，處理序伺服器會用其來接收來自虛擬機器的複寫流量。 然後選取 [儲存]。 您在設定後便無法變更此設定。
+1. 在設定伺服器管理精靈中，選取 [設定連線]。 從下拉式清單中，先選取內建處理序伺服器用來在來源機器上進行行動服務探索及推入安裝的 NIC，然後選取設定伺服器用來與 Azure 連線的 NIC。 然後選取 [儲存]。 一旦進行此設定之後便無法變更。
 2. 在 [選取復原服務保存庫] 中，選取您的 Azure 訂用帳戶及相關的資源群組和保存庫。
 3. 在 [安裝第三方軟體] 中，接受授權合約。 選取 [下載並安裝] 以安裝 MySQL Server。 如果您在路徑中放置 MySQL，則會略過此步驟。
 4. 選取 [安裝 VMware PowerCLI]。 在您執行這項作業之前，確定所有瀏覽器視窗都已關閉。 然後選取 [繼續]。
@@ -150,7 +148,7 @@ Site Recovery 會使用指定的設定連線至 VMware 伺服器並探索 VM。
 選取並確認目標資源。
 
 1. 選取 [準備基礎結構] > [目標]。 選取您要使用的 Azure 訂用帳戶。 我們會使用 Resource Manager 模型。
-2. Site Recovery 會檢查您是否有一或多個相容的 Azure 儲存體帳戶和網路。 當您在本教學課程系列的[第一個教學課程](tutorial-prepare-azure.md)中設定 Azure 元件時，您應擁有這些。
+2. Site Recovery 會檢查您具有一或多個虛擬網路。 當您在本教學課程系列的[第一個教學課程](tutorial-prepare-azure.md)中設定 Azure 元件時，您應擁有這些。
 
    ![目標索引標籤](./media/vmware-azure-tutorial/storage-network.png)
 
@@ -174,22 +172,22 @@ Site Recovery 會使用指定的設定連線至 VMware 伺服器並探索 VM。
 啟用複寫的執行方式如下：
 
 1. 選取 [複寫應用程式] > [來源]。
-2. 在 [來源] 中，選取 [內部部署]，然後選取 [來源位置] 中的組態伺服器。
-3. 在 [機器類型] 中，選取 [虛擬機器]
-4. 在 [vCenter/vSphere Hypervisor] 中，選取 vSphere 主機，或可管理該主機的 vCenter 伺服器。
-5. 選取處理序伺服器 (依預設安裝在組態伺服器 VM 上)。 然後選取 [確定]。
-6. 在 [目標] 中，選取您想要在其中建立容錯移轉 VM 的訂用帳戶和資源群組。 我們會使用 Resource Manager 部署模型。 
-7. 選取您要用來複寫資料的 Azure 儲存體帳戶，以及 Azure VM 在容錯移轉後所要連線的 Azure 網路和子網路。
-8. 選取 [立即設定選取的機器]，將網路設定套用到您啟用複寫的所有 VM 上。 選取 [稍後設定] 以選取每部機器的 Azure 網路。
-9. 在 [虛擬機器] > [選取虛擬機器] 中，選取您要複寫的每部機器。 您只能選取可以啟用複寫的機器。 然後選取 [確定]。 如果您無法檢視/選取任何特定虛擬機器，請按一下 [[這裡]](https://aka.ms/doc-plugin-VM-not-showing) 以解決問題。
-10. 在 [屬性] > [設定屬性] 中，選取處理序伺服器要用來在電腦上自動安裝行動服務的帳戶。
-11. 在 [複寫設定] > [設定複寫設定] 中，確認已選取正確的複寫原則。
-12. 選取 [啟用複寫]。 Site Recovery 會在 VM 已啟用複寫時安裝行動服務。
-13. 您可以在 [設定]  >  [作業]  >  [Site Recovery 作業] 中，追蹤 [啟用保護] 作業的進度。 執行 [完成保護] 作業之後，機器即準備好進行容錯移轉。
-- 可能需要 15 分鐘或更久的時間，變更才會生效並顯示在入口網站中。
-- 若要監視您新增的 VM，請在 [設定伺服器] >  [上次連絡時間] 中查看上次探索 VM 的時間。 若要新增 VM 而不等候已排定的探索，請醒目提示設定伺服器 (但不要選取)，然後選取 [重新整理]。
+1. 在 [來源] 中，選取 [內部部署]，然後選取 [來源位置] 中的組態伺服器。
+1. 在 [機器類型] 中，選取 [虛擬機器]
+1. 在 [vCenter/vSphere Hypervisor] 中，選取 vSphere 主機，或可管理該主機的 vCenter 伺服器。
+1. 選取處理序伺服器 (依預設安裝在組態伺服器 VM 上)。 然後選取 [確定]。
+1. 在 [目標] 中，選取您想要在其中建立容錯移轉 VM 的訂用帳戶和資源群組。 我們會使用 Resource Manager 部署模型。 
+1. 選取 Azure VM 在容錯移轉後所要連線的 Azure 網路和子網路。
+1. 選取 [立即設定選取的機器]，將網路設定套用到您啟用複寫的所有 VM 上。 選取 [稍後設定] 以選取每部機器的 Azure 網路。
+1. 在 [虛擬機器] > [選取虛擬機器] 中，選取您要複寫的每部機器。 您只能選取可以啟用複寫的機器。 然後選取 [確定]。 如果您無法檢視/選取任何特定虛擬機器，請按一下 [[這裡]](https://aka.ms/doc-plugin-VM-not-showing) 以解決問題。
+1. 在 [屬性] > [設定屬性] 中，選取處理序伺服器要用來在電腦上自動安裝行動服務的帳戶。
+1. 在 [複寫設定] > [設定複寫設定] 中，確認已選取正確的複寫原則。
+1. 選取 [啟用複寫]。 Site Recovery 會在 VM 已啟用複寫時安裝行動服務。
+1. 您可以在 [設定]  >  [作業]  >  [Site Recovery 作業] 中，追蹤 [啟用保護] 作業的進度。 執行 [完成保護] 作業之後，機器即準備好進行容錯移轉。
+1. 可能需要 15 分鐘或更久的時間，變更才會生效並顯示在入口網站中。
+1. 若要監視您新增的 VM，請在 [設定伺服器] >  [上次連絡時間] 中查看上次探索 VM 的時間。 若要新增 VM 而不等候已排定的探索，請醒目提示設定伺服器 (但不要選取)，然後選取 [重新整理]。
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [執行災害復原演練](site-recovery-test-failover-to-azure.md)
+> 啟用複寫之後，[執行災害復原演練](site-recovery-test-failover-to-azure.md)，以確定一切會如預期般運作。

@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 183a6ddf3fd47be552ba13ce42c1f6e29fca4410
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3a30281012d28489a40e3366585164628d87c220
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162232"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994604"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>教學課程：大量邀請 Azure AD B2B 共同作業使用者
 
@@ -119,7 +119,7 @@ foreach ($email in $invitations)
 ```powershell
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
-您應該會看到系統以 *emailaddress*#EXT#@*domain*格式的使用者主體名稱 (UPN) 列出您所邀請的使用者。 例如 *lstokes_fabrikam.com#EXT#@contoso.onmicrosoft.com*，其中 contoso.onmicrosoft.com 是您傳送邀請時的來源組織。
+您應該會看到系統以 *emailaddress*#EXT#\@*domain*格式的使用者主體名稱 (UPN) 列出您所邀請的使用者。 例如 *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com*，其中 contoso.onmicrosoft.com 是您傳送邀請時的來源組織。
 
 ## <a name="clean-up-resources"></a>清除資源
 

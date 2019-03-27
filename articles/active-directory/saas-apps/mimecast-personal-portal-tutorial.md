@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 345b22be-d87e-45a4-b4c0-70a67eaf9bfd
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fd08de2711e8584b9f2bbe17716fe14400c8bf7
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ed7d8d1a2c2f8c515fa520f6701068e4655cad35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871366"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898579"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>教學課程：Azure Active Directory 與 Mimecast Personal Portal 整合
 
@@ -74,7 +74,7 @@ Mimecast Personal Portal 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Mimecast Personal Portal 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Mimecast Personal Portal 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Mimecast Personal Portal 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 Mimecast Personal Portal 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Mimecast Personal Portal 單一登入](#configure-mimecast-personal-portal-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -103,7 +103,7 @@ Mimecast Personal Portal 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Mimecast Personal Portal 網域與 URL 單一登入資訊](common/sp-identifier-reply.png)
+    ![Mimecast Personal Portal 網域及 URL 單一登入資訊](common/sp-identifier-reply.png)
 
     a. 在 [登入 URL] 文字方塊中，輸入 URL： 
 
@@ -136,7 +136,7 @@ Mimecast Personal Portal 與 Azure AD 整合提供下列優點：
     | 海外        | `https://jer-api.mimecast.com/login/saml`|
 
     > [!NOTE]
-    > 識別碼值不是實際值。 請使用實際的「識別碼」來更新此值。 請連絡 [Mimecast Personal Portal 客戶支援小組](https://www.mimecast.com/customer-success/technical-support/)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 識別碼值不是實際值。 請使用實際的「識別碼」來更新此值。 請連絡 [Mimecast Personal Portal 用戶端支援小組](https://www.mimecast.com/customer-success/technical-support/)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 4. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
 
@@ -208,7 +208,7 @@ Mimecast Personal Portal 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -225,7 +225,7 @@ Mimecast Personal Portal 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，輸入並選取 [Mimecast Personal Portal]。
 
-    ![應用程式清單中的 Mimecast Personal Portal 連結](common/all-applications.png)
+    ![應用程式清單中的 [Mimecast Personal Portal] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -267,7 +267,7 @@ Mimecast Personal Portal 與 Azure AD 整合提供下列優點：
    
     ![儲存](./media/mimecast-personal-portal-tutorial/ic795006.png "儲存")
    
-    a. 在 [電子郵件地址] 文字方塊中，輸入使用者的**電子郵件地址**：**BrittaSimon@contoso.com**。
+    a. 在 [Email Address] \(電子郵件\) 文字方塊中，以 **BrittaSimon\@contoso.com** 形式輸入使用者的**電子郵件地址**。
     
     b. 在 [全域名稱] 文字方塊中，輸入**使用者名稱**：**BrittaSimon**。
 

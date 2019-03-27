@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 8c9dc6e6-5d85-4553-8a35-c7137064b928
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 44ac9f811682c48d75f9055c6a9890405a4729c3
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: ced28f5bc3ca947bb4754b7de716b37062f9859a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985014"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898562"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>教學課程：Azure Active Directory 與 Lessonly.com 整合
 
@@ -35,7 +35,7 @@ ms.locfileid: "56985014"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Lessonly.com 整合，您需要下列項目：
+若要設定 Azure AD 與 Lessonly.com 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Lessonly.com 單一登入的訂用帳戶
@@ -44,7 +44,7 @@ ms.locfileid: "56985014"
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* Lessonly.com 支援 **SP** 起始的 SSO
+* Lessonly.com 支援由 **SP** 起始的 SSO
 * Lessonly.com 支援 **Just In Time** 使用者佈建
 
 ## <a name="adding-lessonlycom-from-the-gallery"></a>從資源庫新增 Lessonly.com
@@ -71,7 +71,7 @@ ms.locfileid: "56985014"
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 Lessonly.com 設定及測試 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Lessonly.com 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Lessonly.com 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 Lessonly.com 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
@@ -103,7 +103,7 @@ ms.locfileid: "56985014"
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Lessonly.com 網域與 URL 單一登入資訊](common/sp-identifier.png)
+    ![Lessonly.com 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.lessonly.com/signin`
 
@@ -163,7 +163,7 @@ ms.locfileid: "56985014"
 
 ### <a name="configure-lessonlycom-single-sign-on"></a>設定 Lessonly.com 單一登入
 
-若要設定 **Lessonly.com** 端的單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)] 和複製的適當 URL 傳送給 [ 支援小組](mailto:support@lessonly.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **Lessonly.com** 端設定單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)] 和複製的適當 URL 傳送給 [ 支援小組](mailto:support@lessonly.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -183,7 +183,7 @@ ms.locfileid: "56985014"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -200,7 +200,7 @@ ms.locfileid: "56985014"
 
 2. 在應用程式清單中，選取 [Lessonly.com]。
 
-    ![應用程式清單中的 Lessonly.com 連結](common/all-applications.png)
+    ![應用程式清單中的 [Lessonly.com] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -218,7 +218,7 @@ ms.locfileid: "56985014"
 
 ### <a name="create-lessonlycom-test-user"></a>建立 Lessonly.com 測試使用者
 
-本節的目標是要在 Lessonly.com 中建立名為 Britta Simon 的使用者。 Lessonly.com 支援預設啟用的 Just-In-Time 佈建。
+本節的目標是要在 Lessonly.com 中建立一個名為 Britta Simon 的使用者。 Lessonly.com 支援預設會啟用的 Just-In-Time 佈建。
 
 在這一節沒有您需要進行的動作項目。 嘗試存取 Lessonly.com 時，如果使用者還不存在，就會建立新使用者。
 
@@ -229,7 +229,7 @@ ms.locfileid: "56985014"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 Lessonly.com 圖格時，應該會自動登入您已設定 SSO 的 Lessonly.com。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [Lessonly.com] 圖格時，應該會自動登入您已設定 SSO 的 Lessonly.com。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

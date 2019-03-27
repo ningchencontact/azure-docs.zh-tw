@@ -1,5 +1,5 @@
 ---
-title: 呼叫認知搜尋 API 的教學課程 - Azure 搜尋服務
+title: 在索引管線中呼叫認知服務 API 的教學課程 - Azure 搜尋服務
 description: 在本教學課程中，將逐步說明資料擷取和轉換的 Azure 搜尋服務索引中，資料擷取、自然語言和影像 AI 處理的範例。
 manager: pablocas
 author: luiscabrer
@@ -7,19 +7,19 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 03/18/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: a4481e1bbc6248a9616fa7b3fe1d67c7d90af56e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: c888c134054f50bc8ab17d17524a4f89d5081dfc
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429412"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259613"
 ---
-# <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>教學課程：了解如何呼叫認知搜尋 API (預覽)
+# <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>教學課程：在 Azure 搜尋服務索引管線中呼叫認知服務 API (預覽)
 
-在本教學課程中，您將了解在 Azure 搜尋服務中使用*認知技能*進行資料擴充程式設計的機制。 認知技能是會擷取影像的文字和文字表示法，並偵測語言、實體、關鍵片語等項目的自然語言處理 (NLP) 和影像分析作業。 其最終結果是，認知搜尋索引管線會在 Azure 搜尋服務索引中建立豐富的額外內容。 
+在本教學課程中，您將了解在 Azure 搜尋服務中使用*認知技能*進行資料擴充程式設計的機制。 技能會受到自然語言處理 (NLP) 與認知服務中的映像分析功能所支援。 透過技能組合和設定，您可以擷取文字，以及映像或所掃描文件檔案的文字表示法。 您也可以偵測語言、實體、關鍵片語等。 其最終結果是，AI 支援的索引管線會在 Azure 搜尋服務索引中建立豐富的額外內容。 
 
 在本教學課程中，您會發出 REST API 呼叫以執行下列工作：
 
@@ -55,27 +55,27 @@ Azure 搜尋服務的輸出是全文檢索的可搜尋索引。 您可以使用�
 
 1. 按一下 [建立資源]，搜尋「Azure Search 搜尋服務」，然後按一下 [建立]。 如果您是第一次設定搜尋服務，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md)。
 
-  ![儀表板入口網站](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "在入口網站中建立 Azure 搜尋服務")
+   ![儀表板入口網站](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "在入口網站中建立 Azure 搜尋服務")
 
 1. 針對資源群組建立資源群組，以包含您在本教學課程中建立的所有資源。 這可讓您在完成教學課程後能夠更輕鬆地清除資源。
 
-1. 針對位置，請選擇其中一個[支援的區域](https://docs.microsoft.com/azure/search/cognitive-search-quickstart-blob#supported-regions)以進行認知搜尋。
+1. 針對位置，選擇接近您的資料和其他雲端應用程式的區域。
 
 1. 針對 [定價層]，您可以建立 [免費] 服務以完成教學課程和快速入門。 若要使用您自己的資料進行深入調查，請建立[付費服務](https://azure.microsoft.com/pricing/details/search/)，例如**基本**或**標準**。 
 
-  「免費」服務僅限使用 3 個索引、上限為 16 MB 的 Blob 大小，以及 2 分鐘的索引編製，這對執行完整認知搜尋功能而言是不夠的。 若要檢視不同層級的限制，請參閱[服務限制](search-limits-quotas-capacity.md)。
+   「免費」服務僅限使用 3 個索引、上限為 16 MB 的 Blob 大小，以及 2 分鐘的索引編製，這對執行完整認知搜尋功能而言是不夠的。 若要檢視不同層級的限制，請參閱[服務限制](search-limits-quotas-capacity.md)。
 
-  ![入口網站中的服務定義頁面](./media/cognitive-search-tutorial-blob/create-search-service1.png "入口網站中的服務定義頁面")
-  ![入口網站中的服務定義頁面](./media/cognitive-search-tutorial-blob/create-search-service2.png "入口網站中的服務定義頁面")
+   ![入口網站中的服務定義頁面](./media/cognitive-search-tutorial-blob/create-search-service1.png "入口網站中的服務定義頁面")
+   ![入口網站中的服務定義頁面](./media/cognitive-search-tutorial-blob/create-search-service2.png "入口網站中的服務定義頁面")
 
  
 1. 將服務釘選到儀表板，以快速存取服務資訊。
 
-  ![入口網站中的服務定義頁面](./media/cognitive-search-tutorial-blob/create-search-service3.png "入口網站中的服務定義頁面")
+   ![入口網站中的服務定義頁面](./media/cognitive-search-tutorial-blob/create-search-service3.png "入口網站中的服務定義頁面")
 
 1. 建立服務之後，請收集下列資訊：[概觀] 頁面中的 [URL]，以及 [金鑰] 頁面中的 [API 金鑰] (主要或次要)。
 
-  ![入口網站中的端點和金鑰資訊](./media/cognitive-search-tutorial-blob/create-search-collect-info.png "入口網站中的端點和金鑰資訊")
+   ![入口網站中的端點和金鑰資訊](./media/cognitive-search-tutorial-blob/create-search-collect-info.png "入口網站中的端點和金鑰資訊")
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>設定 Azure Blob 服務並載入範例資料
 
@@ -89,7 +89,7 @@ Azure 搜尋服務的輸出是全文檢索的可搜尋索引。 您可以使用�
 
 1. 範例檔案載入之後，請取得 Blob 儲存體的容器名稱和連接字串。 您可以瀏覽至 Azure 入口網站中的儲存體帳戶，以執行此動作。 在 [存取金鑰] 上，複製 [連接字串] 欄位。
 
-  連接字串應為類似於下列範例的 URL：
+   連接字串應為類似於下列範例的 URL：
 
       ```http
       DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
@@ -106,21 +106,21 @@ Azure 搜尋服務的輸出是全文檢索的可搜尋索引。 您可以使用�
 ### <a name="sample-request"></a>範例要求
 ```http
 POST https://[service name].search.windows.net/datasources?api-version=2017-11-11-Preview
-Content-Type: application/json  
-api-key: [admin key]  
+Content-Type: application/json
+api-key: [admin key]
 ```
 #### <a name="request-body-syntax"></a>要求本文的語法
 ```json
-{   
-    "name" : "demodata",  
-    "description" : "Demo files to demonstrate cognitive search capabilities.",  
-    "type" : "azureblob",
-    "credentials" :
-    { "connectionString" :
-      "DefaultEndpointsProtocol=https;AccountName=<your account name>;AccountKey=<your account key>;"
-    },  
-    "container" : { "name" : "<your blob container name>" }
-}  
+{
+  "name" : "demodata",
+  "description" : "Demo files to demonstrate cognitive search capabilities.",
+  "type" : "azureblob",
+  "credentials" :
+  { "connectionString" :
+    "DefaultEndpointsProtocol=https;AccountName=<your account name>;AccountKey=<your account key>;"
+  },
+  "container" : { "name" : "<your blob container name>" }
+}
 ```
 傳送要求。 Web 測試工具應會傳回確認成功的狀態碼 201。 
 
@@ -158,7 +158,7 @@ Content-Type: application/json
 #### <a name="request-body-syntax"></a>要求本文的語法
 ```json
 {
-  "description": 
+  "description":
   "Extract entities, detect language and extract key-phrases",
   "skills":
   [
@@ -193,26 +193,26 @@ Content-Type: application/json
     },
     {
       "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
-      "textSplitMode" : "pages", 
+      "textSplitMode" : "pages",
       "maximumPageLength": 4000,
       "inputs": [
-      {
-        "name": "text",
-        "source": "/document/content"
-      },
-      { 
-        "name": "languageCode",
-        "source": "/document/languageCode"
-      }
-    ],
-    "outputs": [
-      {
-            "name": "textItems",
-            "targetName": "pages"
-      }
-    ]
-  },
-  {
+        {
+          "name": "text",
+          "source": "/document/content"
+        },
+        {
+          "name": "languageCode",
+          "source": "/document/languageCode"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "textItems",
+          "targetName": "pages"
+        }
+      ]
+    },
+    {
       "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
       "context": "/document/pages/*",
       "inputs": [
@@ -256,7 +256,7 @@ Content-Type: application/json
 
 此練習會使用下列欄位和欄位類型：
 
-| 欄位名稱： | id       | 內容   | languageCode | keyPhrases         | 組織     |
+| 欄位名稱： | `id`       | 內容   | languageCode | keyPhrases         | 組織     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | 欄位類型： | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
@@ -351,41 +351,41 @@ Content-Type: application/json
   "targetIndexName" : "demoindex",
   "skillsetName" : "demoskillset",
   "fieldMappings" : [
-        {
-          "sourceFieldName" : "metadata_storage_path",
-          "targetFieldName" : "id",
-          "mappingFunction" : 
-            { "name" : "base64Encode" }
-        },
-        {
-          "sourceFieldName" : "content",
-          "targetFieldName" : "content"
-        }
-   ],
-  "outputFieldMappings" : 
+    {
+      "sourceFieldName" : "metadata_storage_path",
+      "targetFieldName" : "id",
+      "mappingFunction" :
+        { "name" : "base64Encode" }
+    },
+    {
+      "sourceFieldName" : "content",
+      "targetFieldName" : "content"
+    }
+  ],
+  "outputFieldMappings" :
   [
-        {
-          "sourceFieldName" : "/document/organizations", 
-          "targetFieldName" : "organizations"
-        },
-        {
-          "sourceFieldName" : "/document/pages/*/keyPhrases/*", 
-          "targetFieldName" : "keyPhrases"
-        },
-        {
-            "sourceFieldName": "/document/languageCode",
-            "targetFieldName": "languageCode"
-        }      
+    {
+      "sourceFieldName" : "/document/organizations",
+      "targetFieldName" : "organizations"
+    },
+    {
+      "sourceFieldName" : "/document/pages/*/keyPhrases/*",
+      "targetFieldName" : "keyPhrases"
+    },
+    {
+      "sourceFieldName": "/document/languageCode",
+      "targetFieldName": "languageCode"
+    }
   ],
   "parameters":
   {
     "maxFailedItems":-1,
     "maxFailedItemsPerBatch":-1,
-    "configuration": 
+    "configuration":
     {
-        "dataToExtract": "contentAndMetadata",
-        "imageAction": "generateNormalizedImages"
-        }
+      "dataToExtract": "contentAndMetadata",
+      "imageAction": "generateNormalizedImages"
+    }
   }
 }
 ```
@@ -443,7 +443,7 @@ Content-Type: application/json
 
 對其他欄位重複前述步驟：此練習中的內容、語言、關鍵片語和組織。 您可以透過使用逗號分隔清單的 `$select` 傳回多個欄位。
 
-您可以使用 GET 或 POST，視查詢字串的複雜度和長度而定。 如需詳細資訊，請參閱[使用 REST API 進行查詢](https://docs.microsoft.com/azure/search/search-query-rest-api)。
+您可以使用 GET 或 POST，視查詢字串的複雜度和長度而定。 如需詳細資訊，請參閱[使用 REST API 進行查詢](https://docs.microsoft.com/rest/api/searchservice/search-documents)。
 
 <a name="access-enriched-document"></a>
 

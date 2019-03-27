@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: c064874c7eeeae0ae0b1176e3756be24f225e7fb
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e30e65ba2efaf60a0e2d0a6df409c96db4d6285e
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818624"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295805"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>教學課程：使用自動機器學習建置迴歸模型
 
@@ -35,7 +35,7 @@ ms.locfileid: "56818624"
 > * 使用自訂參數在本機執行模型。
 > * 探索結果。
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](http://aka.ms/AMLFree)。
+如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
 >[!NOTE]
 > 本文中的程式碼已使用 Azure Machine Learning SDK 1.0.0 版進行測試。
@@ -82,18 +82,19 @@ ms.locfileid: "56818624"
 
     ```shell
     jupyter notebook
+    ```
 
-## <a name="start"></a>Set up your development environment
+## <a name="start"></a>設定您的開發環境
 
-All the setup for your development work can be accomplished in a Python notebook. Setup includes the following actions:
+針對您開發工作的所有設定都可以在 Python Notebook 中完成。 設定包含下列動作：
 
-* Install the SDK
-* Import Python packages
-* Configure your workspace
+* 安裝 SDK
+* 匯入 Python 套件
+* 設定您的工作區
 
-### Install and import packages
+### <a name="install-and-import-packages"></a>安裝並匯入套件
 
-If you are following the tutorial in your own Python environment, use the following to install necessary packages.
+如果您要在自己的 Python 環境中進行本教學課程，請使用下列程序安裝必要套件。
 
 ```shell
 pip install azureml-sdk[automl,notebooks] matplotlib
@@ -111,7 +112,7 @@ import os
 
 ### <a name="configure-workspace"></a>設定工作區
 
-從現有的工作區建立工作區物件。 `Workspace` 是會接受您 Azure 訂用帳戶和資源資訊的類別。 它也會建立雲端資源來監視及追蹤您的模型執行。
+從現有的工作區建立工作區物件。 [Workspace](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) \(英文\) 是會接受您 Azure 訂用帳戶和資源資訊的類別。 它也會建立雲端資源來監視及追蹤您的模型執行。
 
 `Workspace.from_config()` 會讀取檔案 **aml_config/config.json**，並將詳細資料載入到名為 `ws` 的物件。  `ws` 用於本教學課程的其餘程式碼。
 

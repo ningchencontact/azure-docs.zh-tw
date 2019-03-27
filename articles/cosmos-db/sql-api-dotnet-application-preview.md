@@ -1,6 +1,6 @@
 ---
-title: 此教學課程說明如何使用 .Net 預覽 SDK，透過 Azure Cosmos DB 開發 ASP.NET MVC Web 應用程式。
-description: 此教學課程說明如何使用 Azure Cosmos DB 建立 ASP .NET MVC Web 應用程式。 您將會儲存並存取來自待辦事項應用程式 (裝載在 Azure 上) 的 JSON 資料。
+title: 使用 .NET 預覽 SDK 透過 Azure Cosmos DB 開發 ASP.NET MVC Web 應用程式的教學課程。
+description: 本教學課程說明如何使用 Azure Cosmos DB 來建立 ASP .NET MVC Web 應用程式。 您將會儲存並存取來自待辦事項應用程式 (裝載在 Azure 上) 的 JSON 資料。
 author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.author: dech
-ms.openlocfilehash: e3ad852246b4b78d5ed7ac938348e59e9b7e6ce0
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: bf1da7e8a1041b15076ebda6eeac9b0a75c567c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037118"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857159"
 ---
-# <a name="tutorial-develop-an-aspnet-mvc-web-application-with-azure-cosmos-db-by-using-net-preview-sdk"></a>教學課程：使用 .Net 預覽 SDK，透過 Azure Cosmos DB 開發 ASP.NET MVC Web 應用程式 
+# <a name="tutorial-develop-an-aspnet-mvc-web-application-with-azure-cosmos-db-by-using-net-preview-sdk"></a>教學課程：使用 .NET 預覽 SDK，透過 Azure Cosmos DB 開發 ASP.NET MVC Web 應用程式 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -26,9 +26,9 @@ ms.locfileid: "54037118"
 > * [Xamarin](mobile-apps-with-xamarin.md)
 
 
-本教學課程說明如何使用 Azure Cosmos DB，以儲存和存取來自 ASP.NET MVC 應用程式 (裝載在 Azure 上) 的資料。 在本教學課程中，您會使用 .Net SDK V3 (目前為預覽版)。 下圖顯示您會藉由使用本文範例來建置的網頁：
+本教學課程說明如何使用 Azure Cosmos DB，以儲存和存取來自 ASP.NET MVC 應用程式 (裝載在 Azure 上) 的資料。 在本教學課程中，您會使用 .NET SDK V3 (目前為預覽版)。 下圖顯示您會藉由使用本文範例來建置的網頁：
  
-![本教學課程所建立的待辦事項清單 Web 應用程式的螢幕擷取畫面 - ASP NET MVC 教學課程逐步解說](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-image01.png)
+![本教學課程所建立待辦事項清單 MVC Web 應用程式的螢幕擷取畫面 - ASP NET MVC 教學課程逐步解說](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-image01.png)
 
 如果您沒有時間完成本教學課程，則可以從 [GitHub][GitHub] 下載完整的範例專案。 
 
@@ -77,7 +77,7 @@ ms.locfileid: "54037118"
 
 3. 在 [名稱]  方塊中，輸入專案的名稱。 本教學課程使用 "todo" 名稱。 如果您選擇使用其他名稱，則每當本教學課程提及 todo 命名空間時，請調整所提供的程式碼範例，以便使用您為應用程式所命名的名稱。 
 
-4. 選取 [瀏覽] 以瀏覽至您要在其中建立專案的資料夾，然後選擇 [.Net Framework 4.6.1] 或更高版本。 選取 [確定] 。 
+4. 選取 [瀏覽] 以瀏覽至您要在其中建立專案的資料夾，然後選擇 [.NET Framework 4.6.1] 或更新版本。 選取 [確定] 。 
 
 5. [新增 ASP.NET Web 應用程式] 對話方塊隨即出現。 在 [範本] 窗格中，選取 [MVC] 。
 
@@ -91,7 +91,7 @@ ms.locfileid: "54037118"
 
 1. Azure Cosmos DB .NET SDK 會進行封裝，並以 NuGet 封裝形式加以散發。 若要在 Visual Studio 中取得 NuGet 封裝，請使用 Visual Studio 中的 NuGet 封裝管理員，方法是以滑鼠右鍵按一下 [方案總管] 中的專案，然後選取 [管理 NuGet 封裝]。
    
-   ![[方案總管] 中 Web 應用程式專案的滑鼠右鍵選項螢幕擷取畫面，內含反白顯示的 [管理 NuGet 套件]。](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-manage-nuget.png)
+   ![[方案總管] 中 Web 應用程式專案滑鼠右鍵選項的螢幕擷取畫面，其中已醒目提示 [管理 NuGet 套件]。](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-manage-nuget.png)
    
 2. [ **管理 NuGet 封裝** ] 對話方塊隨即出現。 在 NuGet [瀏覽] 方塊中，輸入「Microsoft.Azure.Cosmos」。 從結果中，安裝 **Microsoft.Azure.Cosmos** 3.0.0.1-preview 版本。 這會下載和安裝 Azure Cosmos DB 套件及其相依性，例如 Newtonsoft.Json。 選取 [預覽] 視窗中的 [確定]，以及 [接受授權] 視窗中的 [我接受] 來完成安裝。
    
@@ -127,9 +127,9 @@ ms.locfileid: "54037118"
 
 1. 從 [方案總管] 中，以滑鼠右鍵按一下 **Controllers** 資料夾，選取 [新增]，然後選取 [控制器]。 [ **新增 Scaffold** ] 對話方塊隨即出現。
 
-1. 選取 [Web API 5 控制器 - 空]，然後選取 [新增]。
+1. 選取 [Web API 5 控制器 - 空白]，然後選取 [新增]。
 
-   ![[新增 Scaffold] 對話方塊的螢幕擷取畫面，內含反白顯示的 [MVC 5 控制器 - 空的] 選項](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-controller-add-scaffold.png)
+   ![[新增 Scaffold] 對話方塊的螢幕擷取畫面，其中已醒目提示 [MVC 5 控制器 - 空白] 選項](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-controller-add-scaffold.png)
 
 1. 將您的新控制器命名為 **ItemController，然後以下列程式碼取代該檔案中的程式碼：
 
@@ -151,7 +151,7 @@ ms.locfileid: "54037118"
 
 1. 在 [方案總管] 中，展開 **Views** 資料夾，以滑鼠右鍵按一下稍早您在建立 **ItemController** 時，Visual Studio 為您建立的空白 **Item** 資料夾，按一下 [新增]，然後按一下 [檢視]。
    
-   ![顯示 Visual Studio 方案建立之 Item 資料夾的 [方案總管] 螢幕擷取畫面，內含反白顯示的 [新增檢視] 命令](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-add-view.png)
+   ![顯示 Visual Studio 建立之 [Item] 資料夾的 [方案總管] 螢幕擷取畫面，其中已醒目提示 [新增檢視] 命令](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-add-view.png)
 
 2. 在 [新增檢視] 對話方塊中，更新下列值：
    
@@ -235,13 +235,13 @@ ms.locfileid: "54037118"
    defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
    ```
 
-  如果您未在 URL 中指定控制路由行為的值，此程式碼會讓 ASP.NET MVC 知道改用 **Item** (**Home**) 作為控制器，並使用**索引**作為檢視。
+   如果您未在 URL 中指定控制路由行為的值，此程式碼會讓 ASP.NET MVC 知道改用 **Item** (**Home**) 作為控制器，並使用**索引**作為檢視。
 
 現在如果您執行應用程式，它將會呼叫 **ItemController**，後者再從您在下一節中定義的 TodoItemService 類別呼叫 GetItems 方法。 
 
 如果建置並立即執行此專案，您現在應該會看到如下的內容。    
 
-![本資料庫教學課程所建立的待辦事項清單 Web 應用程式的螢幕擷取畫面](./media/sql-api-dotnet-application-preview/build-and-run-the-project-now.png)
+![本資料庫教學課程所建立待辦事項清單 Web 應用程式的螢幕擷取畫面](./media/sql-api-dotnet-application-preview/build-and-run-the-project-now.png)
 
 
 ## <a name="run-the-application"></a>步驟 6：在本機執行應用程式
@@ -250,7 +250,7 @@ ms.locfileid: "54037118"
 
 1. 在 Visual Studio 中按 F5，即可在偵錯模式下建置應用程式。 這樣應該可以建置應用程式，並啟動含有先前所看過之空白方格頁面的瀏覽器：
    
-   ![本資料庫教學課程所建立的待辦事項清單 Web 應用程式的螢幕擷取畫面](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-create-an-item-a.png)
+   ![本資料庫教學課程所建立待辦事項清單 Web 應用程式的螢幕擷取畫面](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-create-an-item-a.png)
        
 2. 按一下 [新建] 連結，並在 [名稱] 和 [描述] 欄位中新增值。 將 [已完成] 核取方塊保持為未選取狀態，否則，新項目會以已完成的狀態新增，但不會出現在初始清單中。
    
@@ -260,7 +260,7 @@ ms.locfileid: "54037118"
   
 4. 按一下清單上 [項目] 旁邊的 [編輯]，您便會被帶到 [編輯] 檢視，您可以在此更新物件的任何屬性 (包括 [已完成] 旗標)。 如果您標示 [完成] 旗標，然後按一下 [儲存]，則**項目**會從未完成的工作清單中移除。
    
-   ![[索引] 檢視的螢幕擷取畫面，內含勾選的 [已完成] 方塊](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-completed-item.png)
+   ![[索引] 檢視的螢幕擷取畫面，其中已勾選 [已完成] 方塊](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-completed-item.png)
 
 5. 完成測試應用程式後，按 Ctrl + F5 停止偵錯應用程式。 您現在可以開始進行部署。
 
@@ -282,7 +282,7 @@ ms.locfileid: "54037118"
 幾秒後，Visual Studio 便會發佈 Web 應用程式並啟動瀏覽器，您可以在瀏覽器中看到您的專案已在 Azure 中執行！
 
 ## <a name="next-steps"></a>後續步驟
-在本教學課程中，您已了解如何建置 ASP.NET MVC Web 應用程式，以存取 Azure Cosmos DB 中所儲存的資料。 您現在可以繼續進行下一篇文章：
+在本教學課程中，您已了解如何建置能夠存取 Azure Cosmos DB 中所儲存資料的 ASP.NET MVC Web 應用程式。 您現在可以繼續進行下一篇文章：
 
 > [!div class="nextstepaction"]
 > [建置 Java 應用程式以存取 Azure Cosmos DB SQL API 帳戶中所儲存的資料]( sql-api-java-application.md)

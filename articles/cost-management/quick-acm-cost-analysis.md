@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 931732c047a5ffe22ad456a115c36d7c882d01bc
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 55407ec1846a0fe2eb037756dc2e97d8b05e7330
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769846"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997312"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>快速入門：使用成本分析探索及分析成本
 
@@ -51,7 +51,7 @@ ms.locfileid: "55769846"
 
 ## <a name="review-costs-in-cost-analysis"></a>在成本分析中檢閱成本
 
-若要使用成本分析來檢閱成本，請在 Azure 入口網站中瀏覽至 [成本管理 + 計費] &gt; [成本分析]。 選取 [範圍: ScopeName]，選擇某個範圍，然後按一下 [選取]。
+若要在成本分析中檢閱您的成本，請在 Azure 入口網站中開啟所需的範圍，然後選取功能表中的 [成本分析]。 例如，瀏覽至 [訂用帳戶]、從清單中選取訂用帳戶，然後在功能表中選取 [成本分析]。 使用 [範圍] 框，以切換至成本分析中的不同範圍。 如需有關範圍的詳細資訊，請參閱[了解並使用範圍](understand-work-scopes.md)。
 
 您選取的範圍使用於成本管理，可提供資料彙總，以及控制成本資訊的存取權。 當您使用範圍時，您不會多重選取。 您可以選取其他人所彙總至的較大範圍，然後篩選出您想要的範圍。 請務必了解這一點，因為有些人無法存取子範圍所彙總至的父代範圍。
 

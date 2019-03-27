@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 0340d7f3-ab54-49ef-b77c-62a0efd5d49c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 873b9d89889317a5c406313811c74286caf7d0e1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 203c082275dc75a7dcf948eb42a383300955f355
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882037"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858094"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-comm100-live-chat"></a>教學課程：Azure Active Directory 與 Comm100 Live Chat 整合
 
@@ -36,7 +36,7 @@ Comm100 Live Chat 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定與 Comm100 Live Chat 的 Azure AD 整合，您需要下列項目：
+若要設定 Azure AD 與 Comm100 Live Chat 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Comm100 Live Chat 單一登入的訂用帳戶
@@ -45,7 +45,7 @@ Comm100 Live Chat 與 Azure AD 整合提供下列優點：
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* Comm100 Live Chat 支援 **SP** 起始的 SSO
+* Comm100 Live Chat 支援由 **SP** 起始的 SSO
 
 ## <a name="adding-comm100-live-chat-from-the-gallery"></a>從資源庫新增 Comm100 Live Chat
 
@@ -71,7 +71,7 @@ Comm100 Live Chat 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 Comm100 Live Chat 設定及測試 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Comm100 Live Chat 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Comm100 Live Chat 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 Comm100 Live Chat 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
@@ -103,7 +103,7 @@ Comm100 Live Chat 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Comm100 Live Chat 網域與 URL 單一登入資訊](common/sp-signonurl.png)
+    ![Comm100 Live Chat 網域及 URL 單一登入資訊](common/sp-signonurl.png)
 
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<SUBDOMAIN>.comm100.com/AdminManage/LoginSSO.aspx?siteId=<SITEID>`
 
@@ -154,29 +154,29 @@ Comm100 Live Chat 與 Azure AD 整合提供下列優點：
 
 ### <a name="configure-comm100-live-chat-single-sign-on"></a>設定 Comm100 Live Chat 單一登入
 
-9. 在不同的網頁瀏覽器視窗中，以安全性系統管理員身分登入 Comm100 Live Chat。
+1. 在不同的網頁瀏覽器視窗中，以安全性系統管理員身分登入 Comm100 Live Chat。
 
-10. 按一下頁面右上方的 [我的帳戶]。
+1. 按一下頁面右上方的 [我的帳戶]。
 
-    ![Comm100 Live Chat myaccount](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
+   ![Comm100 Live Chat myaccount](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
 
-11. 從功能表左側，按一下 [安全性]，然後按一下 [代理程式單一登入]。
+1. 從功能表左側，按一下 [安全性]，然後按一下 [代理程式單一登入]。
 
-    ![Comm100 Live Chat 安全性](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
+   ![Comm100 Live Chat 安全性](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
 
-12. 在 [代理程式單一登入] 頁面上，執行下列步驟：
+1. 在 [代理程式單一登入] 頁面上，執行下列步驟：
 
-    ![Comm100 Live Chat 安全性](./media/comm100livechat-tutorial/tutorial_comm100livechat_singlesignon.png)
+   ![Comm100 Live Chat 安全性](./media/comm100livechat-tutorial/tutorial_comm100livechat_singlesignon.png)
 
-    a. 複製第一個醒目提示的連結，並將其貼到 Azure 入口網站上 [Comm100 Live Chat 網域與 URL] 區段中的 [登入 URL] 文字方塊。
+   a. 複製第一個醒目提示的連結，然後將其貼到 Azure 入口網站上 [Comm100 Live Chat 網域及 URL] 區段的 [登入 URL] 文字方塊中。
 
-    b. 在 [SAML SSO URL] 文字方塊中，貼上您從 Azure 入口網站複製的**登入 URL** 值。
+   b. 在 [SAML SSO URL] 文字方塊中，貼上您從 Azure 入口網站複製的**登入 URL** 值。
 
-    c. 在 [遠端登出 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL] 值。
+   c. 在 [遠端登出 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL] 值。
 
-    d. 按一下 [選擇檔案]，將您從 Azure 入口網站下載的 base-64 編碼憑證上傳至 [憑證]。
+   d. 按一下 [選擇檔案]，將您從 Azure 入口網站下載的 base-64 編碼憑證上傳至 [憑證]。
 
-    e. 按一下 [儲存變更]
+   e. 按一下 [儲存變更]
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
@@ -196,7 +196,7 @@ Comm100 Live Chat 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -213,7 +213,7 @@ Comm100 Live Chat 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Comm100 Live Chat]。
 
-    ![應用程式清單中的 Comm100 Live Chat 連結](common/all-applications.png)
+    ![應用程式清單中的 [Comm100 Live Chat] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -249,7 +249,7 @@ Comm100 Live Chat 與 Azure AD 整合提供下列優點：
 
     ![Comm100 Live Chat 新增代理程式](./media/comm100livechat-tutorial/tutorial_comm100livechat_newagent.png)
 
-    a. a. 在 [電子郵件] 文字方塊中，輸入使用者的電子郵件，例如 **Brittasimon@contoso.com**。
+    a. a. 在 [Email] \(電子郵件\) 文字方塊中，輸入使用者的電子郵件地址，例如 **Brittasimon\@contoso.com**。
 
     b. 在 [名字] 文字方塊中，輸入使用者的名字，例如 **Britta**。
 
@@ -265,7 +265,7 @@ Comm100 Live Chat 與 Azure AD 整合提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Comm100 Live Chat] 圖格時，應該會自動登入您設定 SSO 的 Comm100 Live Chat。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [Comm100 Live Chat] 圖格時，應該會自動登入您已設定 SSO 的 Comm100 Live Chat。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: dafa0864-aef2-4f5e-9eac-770504688ef4
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9c1b7b60069b4ea59828bc552c4dc1e6da6b001
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 73bb37607af681fcd505706ae99b308024be2c2d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869041"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887420"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>教學課程：Azure Active Directory 與 NetSuite 整合
 
@@ -28,7 +28,7 @@ ms.locfileid: "56869041"
 NetSuite 與 Azure AD 整合提供下列優點：
 
 * 您可以在 Azure AD 中控制可存取 NetSuite 的人員。
-* 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 NetSuite (單一登入)。
+* 您可以讓使用者使用其 Azure AD 帳戶自動登入 NetSuite (單一登入)。
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
@@ -36,10 +36,10 @@ NetSuite 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 NetSuite 整合，您需要下列項目：
+若要設定 Azure AD 與 NetSuite 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
-* 啟用 NetSuite 單一登入的訂用帳戶
+* 已啟用 NetSuite 單一登入的訂用帳戶
 
 ## <a name="scenario-description"></a>案例描述
 
@@ -73,10 +73,10 @@ NetSuite 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 NetSuite 來設定及測試 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 NetSuite 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 NetSuite 中相關使用者之間的連結關聯性。
 
-若要使用 NetSuite 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 NetSuite 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 NetSuite 單一登入](#configure-netsuite-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -89,7 +89,7 @@ NetSuite 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要使用 NetSuite 設定 Azure AD 單一登入，請執行下列步驟：
+若要設定與 NetSuite 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [NetSuite] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -105,7 +105,7 @@ NetSuite 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![NetSuite 網域和 URL 單一登入資訊](common/idp-reply.png)
+    ![NetSuite 網域及 URL 單一登入資訊](common/idp-reply.png)
 
     在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：
 
@@ -122,7 +122,7 @@ NetSuite 與 Azure AD 整合提供下列優點：
     `https://<tenant-name>.na2.sandbox.NetSuite.com/saml2/acs`
 
     > [!NOTE]
-    > 這不是真正的值。 請使用實際的「回覆 URL」來更新此值。 請連絡 [NetSuite 客戶支援小組](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這不是真正的值。 請使用實際的「回覆 URL」來更新此值。 請連絡 [NetSuite 用戶端支援小組](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 5. NetSuite 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
 
@@ -279,7 +279,7 @@ NetSuite 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -296,7 +296,7 @@ NetSuite 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，輸入 **NetSuite** 並加以選取。
 
-    ![應用程式清單中的 NetSuite 連結](common/all-applications.png)
+    ![應用程式清單中的 [NetSuite] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -314,13 +314,13 @@ NetSuite 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-netsuite-test-user"></a>建立 NetSuite 測試使用者
 
-本節會在 NetSuite 中建立名為 Britta Simon 的使用者。 NetSuite 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 NetSuite 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
+本節會在 NetSuite 中建立名為 Britta Simon 的使用者。 NetSuite 支援預設會啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 NetSuite 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [NetSuite] 圖格時，應該會自動登入您設定 SSO 的 NetSuite。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [NetSuite] 圖格時，應該會自動登入您已設定 SSO 的 NetSuite。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

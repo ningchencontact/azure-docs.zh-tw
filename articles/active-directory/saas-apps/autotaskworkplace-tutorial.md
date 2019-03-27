@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: a9a7ff71-c389-4169-aafd-d7a505244797
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff5476c3f6d59f7599fe9deb4534f6c8a20ba824
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 00e838dd3df417bd0b26167d5f316225520e7263
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875628"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889585"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-workplace"></a>教學課程：Azure Active Directory 與 Autotask Workplace
 
@@ -28,7 +28,7 @@ ms.locfileid: "56875628"
 將 Autotask Workplace 與 Azure AD 整合可提供下列優點：
 
 * 您可以在 Azure AD 中控制可存取 Autotask Workplace 的人員。
-* 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 Autotask Workplace (單一登入)。
+* 您可以讓使用者使用其 Azure AD 帳戶自動登入 Autotask Workplace (單一登入)。
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
@@ -39,7 +39,7 @@ ms.locfileid: "56875628"
 若要設定 Azure AD 與 Autotask Workplace 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
-* 已啟用 Autotask Workplace 單一登入功能的訂用帳戶
+* 已啟用 Autotask Workplace 單一登入的訂用帳戶
 * 已啟用 Autotask Workplace 單一登入功能的訂用帳戶
 * 您必須是工作地點的系統管理員或進階系統管理員。
 * 您必須擁有 Azure AD 的 Administrator 帳戶。
@@ -49,7 +49,7 @@ ms.locfileid: "56875628"
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* Autotask Workplace 支援 **SP 和 IDP** 起始的 SSO
+* Autotask Workplace 支援由 **SP 和 IDP** 起始的 SSO
 
 ## <a name="adding-autotask-workplace-from-the-gallery"></a>從資源庫新增 Autotask Workplace
 
@@ -107,7 +107,7 @@ ms.locfileid: "56875628"
 
 4. 在 [基本 SAML 組態] 區段上，若您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
 
-    ![Autotask Workplace 網域與 URL 單一登入資訊](common/idp-intiated.png)
+    ![Autotask Workplace 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
     a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.awp.autotask.net/singlesignon/saml/metadata`
 
@@ -115,7 +115,7 @@ ms.locfileid: "56875628"
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-    ![Autotask Workplace 網域與 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
+    ![Autotask Workplace 網域及 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
 
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<subdomain>.awp.autotask.net/loginsso`
 
@@ -178,7 +178,7 @@ ms.locfileid: "56875628"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -195,7 +195,7 @@ ms.locfileid: "56875628"
 
 2. 在應用程式清單中，選取 [Autotask Workplace]。
 
-    ![應用程式清單中的 Autotask Workplace 連結](common/all-applications.png)
+    ![應用程式清單中的 [Autotask Workplace] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -219,7 +219,7 @@ ms.locfileid: "56875628"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Autotask Workplace] 圖格時，應該會自動登入您設定 SSO 的 Autotask Workplace。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [Autotask Workplace] 圖格時，應該會自動登入您已設定 SSO 的 Autotask Workplace。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

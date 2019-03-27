@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2ca2298d-9a0c-4f14-925c-fa23f2659d28
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfcf637810a3cbbc70216af39918847e703ca32f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f7925e6fe66579c8bf702acbe165c50d2aed536e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869729"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891064"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halogen-software"></a>教學課程：Azure Active Directory 與 Halogen Software 整合
 
@@ -74,7 +74,7 @@ Halogen Software 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Halogen Software 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Halogen Software 中相關使用者之間的連結關聯性。
 
-若要使用 Halogen Software 設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 Halogen Software 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Halogen Software 單一登入](#configure-halogen-software-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -103,7 +103,7 @@ Halogen Software 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Halogen Software 網域和 URL 單一登入資訊](common/sp-identifier.png)
+    ![Halogen Software 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://global.hgncloud.com/<companyname>`
 
@@ -181,7 +181,7 @@ Halogen Software 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -198,7 +198,7 @@ Halogen Software 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Halogen Software] 。
 
-    ![應用程式清單中的 Halogen Software 連結](common/all-applications.png)
+    ![應用程式清單中的 [Halogen Software] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

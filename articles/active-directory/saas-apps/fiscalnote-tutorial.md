@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 55274f26-be7e-4514-964c-7186ecb55c4a
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55eb93b77d2a23bafbb36763755a6bc1138b0433
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 592d885656ee7753054f020f5768a75a5d43a489
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868676"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886315"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fiscalnote"></a>教學課程：Azure Active Directory 與 FiscalNote 整合
 
@@ -28,7 +28,7 @@ ms.locfileid: "56868676"
 整合 FiscalNote 與 Azure AD 可提供下列優點：
 
 * 您可以在 Azure AD 中控制可存取 FiscalNote 的人員。
-* 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 FiscalNote (單一登入)。
+* 您可以讓使用者使用其 Azure AD 帳戶自動登入 FiscalNote (單一登入)。
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
@@ -45,7 +45,7 @@ ms.locfileid: "56868676"
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* FiscalNote 支援 **SP** 起始的 SSO
+* FiscalNote 支援由 **SP** 起始的 SSO
 
 * FiscalNote 支援 **Just In Time** 使用者佈建
 
@@ -76,7 +76,7 @@ ms.locfileid: "56868676"
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 FiscalNote 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 FiscalNote 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 FiscalNote 搭配運作的 Azure AD 單一登入，您必須完成下列建置組塊：
+若要設定及測試與 FiscalNote 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 FiscalNote 單一登入](#configure-fiscalnote-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -105,7 +105,7 @@ ms.locfileid: "56868676"
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![FiscalNote 網域和 URL 單一登入資訊](common/sp-identifier.png)
+    ![FiscalNote 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<InstanceName>.fiscalnote.com/login?client=<ClientID>&redirect_uri=https://app.fiscalnote.com/saml-login.html&audience=https://api.fiscalnote.com/&connection=<CONNECTION_NAME>&response_type=id_token%20token`
 
@@ -159,7 +159,7 @@ ms.locfileid: "56868676"
 
 ### <a name="configure-fiscalnote-single-sign-on"></a>設定 FiscalNote 單一登入
 
-若要設定 **FiscalNote** 端的單一登入，您必須將從 Azure 入口網站下載的 [憑證 (原始)] 和複製的適當 URL 傳送給 [FiscalNote 支援小組](mailto:support@fiscalnote.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **FiscalNote** 端設定單一登入，您必須將從 Azure 入口網站下載的 [憑證 (原始)] 和複製的適當 URL 傳送給 [FiscalNote 支援小組](mailto:support@fiscalnote.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
@@ -179,7 +179,7 @@ ms.locfileid: "56868676"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -196,7 +196,7 @@ ms.locfileid: "56868676"
 
 2. 在應用程式清單中，選取 [FiscalNote]。
 
-    ![應用程式清單中的 FiscalNote 連結](common/all-applications.png)
+    ![應用程式清單中的 [FiscalNote] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -214,7 +214,7 @@ ms.locfileid: "56868676"
 
 ### <a name="create-fiscalnote-test-user"></a>建立 FiscalNote 測試使用者
 
-本節會在 FiscalNote 中建立名為 Britta Simon 的使用者。 FiscalNote 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 FiscalNote 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
+本節會在 FiscalNote 中建立名為 Britta Simon 的使用者。 FiscalNote 支援預設會啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 FiscalNote 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
 >[!Note]
 >如果您需要手動建立使用者，請連絡 [FiscalNote 支援小組](mailto:support@fiscalnote.com)。
@@ -223,7 +223,7 @@ ms.locfileid: "56868676"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [FiscalNote] 圖格時，應該會自動登入您設定 SSO 的 FiscalNote。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [FiscalNote] 圖格時，應該會自動登入您已設定 SSO 的 FiscalNote。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

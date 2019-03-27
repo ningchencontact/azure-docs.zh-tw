@@ -8,14 +8,18 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: c9944aeae425d3173fa4700caa004097d29d417d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 10acb353e282508c838bee89b131d94dcd3fa7ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870054"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877814"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>快速入門：使用 Azure CLI 建立 Azure Database for MySQL 伺服器
+
+> [!TIP]
+> 請考慮使用較簡單的 [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) Azure CLI 命令 (目前在預覽狀態)。 試用[快速入門](./quickstart-create-server-up-azure-cli.md)。
+
 本快速入門說明如何使用 Azure CLI，在大約 5 分鐘內於 Azure 資源群組中建立 Azure Database for MySQL 伺服器。 Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
@@ -45,7 +49,7 @@ az group create --name myresourcegroup --location westus
 ---|---|---
 name | mydemoserver | 選擇可識別 Azure Database for MySQL 伺服器的唯一名稱。 伺服器名稱只能包含小寫字母、數字及連字號 (-) 字元。 此名稱必須包含 3 到 63 個字元。
 resource-group | myresourcegroup | 提供 Azure 資源群組的名稱。
-sku-name | GP_Gen4_2 | SKU 的名稱。 遵循簡短形式的慣例 {pricing tier}_{compute generation}_{vCores}。 請參閱下表，以取得有關 sku-name 參數的詳細資訊。
+sku-name | GP_Gen5_2 | SKU 的名稱。 遵循簡短形式的慣例 {pricing tier}\_{compute generation}\_{vCores}。 請參閱下表，以取得有關 sku-name 參數的詳細資訊。
 backup-retention | 7 | 備份應保留的時間長度。 單位為天。 範圍為 7-35 天。 
 geo-redundant-backup | 已停用 | 是否應針對此伺服器啟用異地備援備份。 允許的值：Enabled、Disabled。
 location | westus | 伺服器的 Azure 位置。
@@ -57,7 +61,7 @@ admin-password | *安全密碼* | 系統管理員使用者的密碼。 其必須
 
 
 sku-name 參數值會遵循慣例 {pricing tier}\_{compute generation}\_{vCores}，如下列範例所示：
-+ `--sku-name B_Gen4_1` 對應於基本、第 4 代和 1 個虛擬核心。 此選項是最小的可用 SKU。
++ `--sku-name B_Gen5_1` 對應於基本、第 5 代和 1 個虛擬核心。 此選項是最小的可用 SKU。
 + `--sku-name GP_Gen5_32` 對應於一般用途、第 5 代和 32 個 vCore。
 + `--sku-name MO_Gen5_2` 對應於記憶體最佳化、第 5 代和 2 個 vCore。
 
@@ -66,7 +70,7 @@ sku-name 參數值會遵循慣例 {pricing tier}\_{compute generation}\_{vCores}
 下列範例會使用伺服器系統管理員登入 `myadmin` 在 `myresourcegroup` 您的資源群組中建立且名為 `mydemoserver` 的 MySQL 5.7 伺服器 (位於美國西部)。 這是**第 4 代** **一般用途**伺服器，它具有 2 個 **vCore**。 將 `<server_admin_password>` 替換成您自己的值。
 
 ```azurecli-interactive
-az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
+az mysql server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
 ```
 
 > [!NOTE]
@@ -116,8 +120,8 @@ az mysql server show --resource-group myresourcegroup --name mydemoserver
   "resourceGroup": "myresourcegroup",
   "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },
@@ -140,15 +144,15 @@ az mysql server show --resource-group myresourcegroup --name mydemoserver
 輸入下一個命令： 
 
 1. 使用 **mysql** 命令列工具連線到伺服器︰
-```bash
- mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
-```
+   ```bash
+   mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
+   ```
 
 2. 檢視伺服器狀態：
-```sql
- mysql> status
-```
-如果一切順利，命令列工具應輸出下列文字︰
+   ```sql
+   mysql> status
+   ```
+   如果一切順利，命令列工具應輸出下列文字︰
 
 ```dos
 C:\Users\>mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
@@ -194,9 +198,9 @@ mysql>
 > 如需其他命令，請參閱 [MySQL 5.7 參考手冊 - 第 4.5.1 章](https://dev.mysql.com/doc/refman/5.7/en/mysql.html)。
 
 ## <a name="connect-to-the-server-using-the-mysql-workbench-gui-tool"></a>使用 MySQL Workbench GUI 工具連線到伺服器
-1.  在您的用戶端電腦上啟動 MySQL Workbench 應用程式。 您可以從[這裡](https://dev.mysql.com/downloads/workbench/)下載並安裝 MySQL Workbench。
+1. 在您的用戶端電腦上啟動 MySQL Workbench 應用程式。 您可以從[這裡](https://dev.mysql.com/downloads/workbench/)下載並安裝 MySQL Workbench。
 
-2.  在 [設定新連線] 對話方塊的 [參數] 索引標籤上輸入下列資訊︰
+2. 在 [設定新連線] 對話方塊的 [參數] 索引標籤上輸入下列資訊︰
 
    ![設定新連線](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
 

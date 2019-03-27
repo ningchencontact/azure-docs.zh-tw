@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 1055bba6-f4df-462e-bc9b-1ad5ada0f638
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 1cb2eb42757d321648ea1ace000913916b1b7a05
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 3dcbbfcdff0f30b8300e4fe767e27efb65723c5b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880660"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857822"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshgrade"></a>教學課程：Azure Active Directory 與 FreshGrade 整合
 
@@ -35,7 +35,7 @@ FreshGrade 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 FreshGrade 整合，您需要下列項目：
+若要設定 Azure AD 與 FreshGrade 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 FreshGrade 單一登入的訂用帳戶
@@ -73,7 +73,7 @@ FreshGrade 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 FreshGrade 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 FreshGrade 中相關使用者之間的連結關聯性。
 
-若要使用 FreshGrade 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 FreshGrade 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 FreshGrade 單一登入](#configure-freshgrade-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -102,15 +102,17 @@ FreshGrade 與 Azure AD 整合提供下列優點：
 
 4. 在 [以 SAML 設定單一登入] 頁面上，執行下列步驟：
 
-    ![FreshGrade 網域和 URL 單一登入資訊](common/sp-identifier.png)
+    ![FreshGrade 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
      a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰
+
       | |
       |--|
       | `https://<subdomain>.freshgrade.com/login` |
       | `https://<subdomain>.onboarding.freshgrade.com/login` |
 
     b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：
+    
       | |
       |--|
       | `https://login.onboarding.freshgrade.com:443/saml/metadata/alias/<instancename>` |
@@ -145,7 +147,7 @@ FreshGrade 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -162,7 +164,7 @@ FreshGrade 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [FreshGrade]。
 
-    ![應用程式清單中的 FreshGrade 連結](common/all-applications.png)
+    ![應用程式清單中的 [FreshGrade] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 77dc8a98-c0e7-4129-ab88-28e7643e432a
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27d1c51a9957461fab97e9dfdddac1963d0d2f28
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b2b35deab4c4fb20c58e135c0de01a0aa05b1c33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865989"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904604"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fidelity-netbenefits"></a>教學課程：Azure Active Directory 與 Fidelity NetBenefits 整合
 
@@ -76,13 +76,13 @@ Fidelity NetBenefits 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Fidelity NetBenefits 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Fidelity NetBenefits 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Fidelity NetBenefits 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 Fidelity NetBenefits 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Fidelity NetBenefits 單一登入](#configure-fidelity-netbenefits-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 Fidelity NetBenefits 測試使用者](#create-fidelity-netbenefits-test-user)** - 在 Fidelity NetBenefits 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表使用者的項目連結。
+5. **[建立 Fidelity NetBenefits 測試使用者](#create-fidelity-netbenefits-test-user)** - 在 Fidelity NetBenefits 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
@@ -105,7 +105,7 @@ Fidelity NetBenefits 與 Azure AD 整合提供下列優點：
 
 4. 在 [以 SAML 設定單一登入] 頁面上，執行下列步驟：
 
-    ![Fidelity NetBenefits 網域與 URL 單一登入資訊](common/idp-intiated.png)
+    ![Fidelity NetBenefits 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
     a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：
 
@@ -158,7 +158,7 @@ Fidelity NetBenefits 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -175,7 +175,7 @@ Fidelity NetBenefits 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Fidelity NetBenefits]。
 
-    ![應用程式清單中的 Fidelity NetBenefits 連結](common/all-applications.png)
+    ![應用程式清單中的 [Fidelity NetBenefits] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -193,7 +193,7 @@ Fidelity NetBenefits 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-fidelity-netbenefits-test-user"></a>建立 Fidelity NetBenefits 測試使用者
 
-在本節中，您要在 Fidelity NetBenefits 中建立名為 Britta Simon 的使用者。 如果您要建立靜態同盟，請與指派的 **Fidelity 用戶端服務管理員**合作，在 Fidelity NetBenefits 平台中建立使用者。 您必須先建立和啟動這些使用者，然後才能使用單一登入。
+在本節中，您會在 Fidelity NetBenefits 中建立名為 Britta Simon 的使用者。 如果您要建立靜態同盟，請與指派的 **Fidelity 用戶端服務管理員**合作，在 Fidelity NetBenefits 平台中建立使用者。 您必須先建立和啟動這些使用者，然後才能使用單一登入。
 
 若要使用動態同盟，您可以使用 Just-In-Time 使用者佈建來建立使用者。 若要使用 JIT 型佈建，客戶還必須在 Azure AD 中新增一些宣告，如使用者的生日等。這些詳細資料會由指派的 **Fidelity 用戶端服務管理員**提供，他們必須為您的執行個體啟用該動態同盟。
 

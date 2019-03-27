@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: b80d2212-cc5f-4adb-836c-570640810c39
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23ba6e46d5f92e8b07077aaf82ad03f49dc2df7a
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 829e0c08191e3eeba9dc410dda74502dc9ada327
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865207"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887335"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowbe4-security-awareness-training"></a>教學課程：Azure Active Directory 與 KnowBe4 Security Awareness Training 整合
 
@@ -36,7 +36,7 @@ ms.locfileid: "56865207"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 KnowBe4 Security Awareness Training 的整合作業，需要下列項目：
+若要設定 Azure AD 與 KnowBe4 Security Awareness Training 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 KnowBe4 Security Awareness Training 單一登入的訂用帳戶
@@ -105,7 +105,7 @@ ms.locfileid: "56865207"
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![KnowBe4 Security Awareness Training 網域和 URL 單一登入資訊](common/sp-identifier.png)
+    ![KnowBe4 Security Awareness Training 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.KnowBe4.com/auth/saml/<instancename>`
 
@@ -133,7 +133,7 @@ ms.locfileid: "56865207"
 
 ### <a name="configure-knowbe4-security-awareness-training-single-sign-on"></a>設定 KnowBe4 Security Awareness Training 單一登入
 
-若要設定 **KnowBe4 Security Awareness Training** 端的單一登入，您必須將從 Azure 入口網站下載的 [憑證 (原始)] 和複製的適當 URL 傳送給 [KnowBe4 Security Awareness Training 支援小組](mailto:support@KnowBe4.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **KnowBe4 Security Awareness Training** 端設定單一登入，您必須將從 Azure 入口網站下載的 [憑證 (原始)] 和複製的適當 URL 傳送給 [KnowBe4 Security Awareness Training 支援小組](mailto:support@KnowBe4.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -153,7 +153,7 @@ ms.locfileid: "56865207"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -170,7 +170,7 @@ ms.locfileid: "56865207"
 
 2. 在應用程式清單中，選取 [KnowBe4 Security Awareness Training]。
 
-    ![應用程式清單中的 KnowBe4 Security Awareness Training 連結](common/all-applications.png)
+    ![應用程式清單中的 [KnowBe4 Security Awareness Training] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -188,7 +188,7 @@ ms.locfileid: "56865207"
 
 ### <a name="create-knowbe4-security-awareness-training-test-user"></a>建立 KnowBe4 Security Awareness Training 測試使用者
 
-本節的目標是要在 KnowBe4 Security Awareness Training 中建立名為 Britta Simon 的使用者。 KnowBe4 Security Awareness Training 支援預設啟用的 Just-In-Time 佈建。
+本節的目標是要在 KnowBe4 Security Awareness Training 中建立一個名為 Britta Simon 的使用者。 KnowBe4 Security Awareness Training 支援預設會啟用的 Just-In-Time 佈建。
 
 在這一節沒有您需要進行的動作項目。 嘗試存取 KnowBe4 Security Awareness Training 期間會建立新使用者 (如果尚不存在)。
 

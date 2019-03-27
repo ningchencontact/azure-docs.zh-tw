@@ -1,7 +1,7 @@
 ---
-title: 何謂 Project Acoustics？
+title: 聲場專案概觀
 titlesuffix: Azure Cognitive Services
-description: Project Acoustics Unity 外掛程式可針對以 VR 和傳統螢幕為目標的專案，提供封閉、迴響和空間處理等音效。
+description: 聲場專案是一種聲場引擎，可提供 3D 互動式體驗，整合聲場模擬波形物理特性模擬與互動式設計控制項。
 services: cognitive-services
 author: kegodin
 manager: nitinme
@@ -10,56 +10,48 @@ ms.subservice: acoustics
 ms.topic: overview
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 8305eca478854eeff29268a86e4e49b697261ca2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3d99ea5767c7b2e62f7228440201b4a9b6593b02
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868254"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58136595"
 ---
 # <a name="what-is-project-acoustics"></a>何謂 Project Acoustics？
-Project Acoustics Unity 外掛程式可針對以 VR 和傳統螢幕為目標的專案，提供封閉、迴響和空間處理等音效。 它提供設計遊戲原音的方法，將設計者的意圖鋪排到物理式波浪模擬上。
+聲場專案是可提供 3D 互動式體驗的聲場引擎。 它可模擬複雜場景中的繞射、傳送及殘響等聲波效果，完全不需要手動加上區域標記。 它也包含遊戲引擎和音訊中介軟體整合。 聲場專案的原理類似於靜態光照：離線詳細模擬物理特性以提供實際基準，並透過清楚表達的設計控制項，使用輕量的執行階段，實現您的藝術目標。
 
-## <a name="why-use-acoustics-in-virtual-environments"></a>為何要在虛擬環境中使用原音？
-人類透過視聽提示了解其所處的世界。 在虛擬世界中，空間音訊與原音的結合可提高使用者的沉浸體驗。 此處所述的原音工具會分析虛擬世界，以建立真正的原音模擬，並支援模擬後的設計程序。 分析包括虛擬世界中各種表層的幾何構造與組成材質。 模擬則包含到達方向 (傳送)、迴響功率、衰減時間等參數，以及封閉和阻礙效果。
+![設計檢視](media/gears-with-voxels.jpg)
 
-## <a name="how-does-this-approach-to-acoustics-work"></a>此一原音設計方法是如何運作的？
-系統須依賴虛擬世界的離線計算，這樣可以支援比在執行階段執行分析更複雜的模擬。 離線計算會產生原音參數的查閱資料表。 設計者可指定在執行階段對參數套用的規則。 調整這些規則可產生更多的背景音效，讓強烈的情緒或擬真的場景達到超逼真的效果。
+## <a name="using-wave-physics-for-interactive-acoustics"></a>使用互動式聲場的波形物理特性
+聲線聲場方法可使用單一音源對聆聽者的聲線投射，來檢查是否遭到阻隔，或透過使用一些聲線評估本機場景音量來促進殘響。 但這些技術並不可靠，因為小卵石與大圓石的阻隔程度相當。 聲線並不能說明聲音環繞物件的方式 (稱為繞射現象)。 聲場專案模擬使用波形模擬來獲得這些效果。 結果不僅更可預測，也更加可靠。
 
-## <a name="design-process-comparison"></a>設計程序比較
-Project Acoustics 外掛程式支援對 Unity 場景中的原音使用新的設計程序。 為了說明這個新的設計程序，我們要將其與現今最廣受使用的方法之一相比較。
+結合聲場模擬與傳統音效設計概念可說是聲場專案的重大創新。 它可將模擬結果轉譯為傳統的音訊 DSP參數，用於阻隔、傳送及殘響。 設計工具會透過此轉譯程序來使用控制項。 如需聲場專案背後的核心技術詳細資訊，請瀏覽[研究專案頁面](https://www.microsoft.com/en-us/research/project/project-triton/) \(英文\)。
 
-### <a name="typical-approach-to-acoustics-today"></a>目前常用的原音設計方法
-在目前常用的原音設計方法中，您會繪製迴響音量：
+![設計檢視](media/wave-simulation.gif)
 
-![設計檢視](media/reverbZonesAltSPace2.png)
+## <a name="setup"></a>設定
+[聲場專案 Unity 整合](unity-integration.md)採取拖放式作業，並包含 Unity 音訊引擎外掛程式。 透過在每個音訊物件附加聲場專案 C# 控制項元件，來加強 Unity 音訊來源控制項。
 
-然後，調整每個區域的參數：
+[聲場專案 Unreal 整合](unreal-integration.md)包含 Unreal 的編輯器與遊戲外掛程式，以及 Wwise 混音器外掛程式。 自訂的音訊元件可透過即時音場設計控制項，擴充 Unreal 內眾所熟悉的 Wwise 功能。 設計控制項也會在 Wwise 混音器外掛程式公開。
 
-![設計檢視](media/TooManyReverbParameters.png)
+## <a name="workflow"></a>工作流程
+* **預先模擬聲場：** 一開始先選取聲場的幾何回應　(例如忽略光束)，來設定聲場模擬。 接著，編輯自動指派的材質，然後選取要引導聆聽者取樣的導覽區域。 完全不必手動對殘響/傳送/空間區域加上標記。
+* **聲場模擬：** 在本機執行的分析步驟，根據上述的選取範圍針對場景執行體素化或其他幾何分析。 在編輯器中將結果視覺化，以驗證場景設定。 在聲場模擬提交時，您會將體素資料送往 Azure，並取回聲場遊戲資產。
+* **執行階段：** 在將資產載入您的層級後，便已準備好可以在您的層級接聽聲場。 根據原始程式碼控制細微調整，在編輯器中即時設計聲場。 您也可以從層級指令碼來驅動控制項。
 
-最後，加入光跡追蹤邏輯，讓整個場景產生正確的封閉和阻礙過濾，以及傳送的路徑搜尋邏輯。 此程式碼可能會增加執行階段成本。 此外也會有邊角平滑度的問題，且不規則形狀的場景中會有邊緣案例。
-
-### <a name="an-alternative-approach-with-physics-based-design"></a>物理式設計的替代方法
-透過 Project Acoustics 的 Unity 外掛程式所提供的方法，您可以提供靜態場景的圖形和材質。 由於場景會體素化，且程序不會使用光跡追蹤，因此您無須提供簡化或水密原音網格。 您也無須在場景中標記迴響音量。 外掛程式會將場景上傳至雲端，而它在該處會使用物理式波浪模擬。 結果會在您的專案中整合為查閱資料表，並可基於美觀或遊戲效果進行修改。
-
-![設計檢視](media/GearsWithVoxels.jpg)
-
-## <a name="requirements"></a>需求
-* Unity 2018.2+ (用於原音製作) 和 Unity 5.2+ (用於音效設計和部署)
-* Windows 64 位元 Unity 編輯器
-* Azure Batch 訂用帳戶 (用於原音製作)
-* Unity 指令碼執行階段必須設定為 [.NET 4.x 對等項目]
-
-## <a name="platform-support"></a>平台支援
-* Windows 桌面 (x86 和 AMD64)
-* Windows UWP (x86、AMD64 和 ARM)
-* Android (x86 和 ARM64)
+## <a name="platforms"></a>平台
+目前可將聲場專案執行階段外掛程式部署至下列平台：
+*  Windows
+* Android
+* Xbox One
 
 ## <a name="download"></a>下載
-如果您想要評估聲場外掛程式，請在[這裡](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)註冊以加入「設計人員預覽」。
+* [聲場專案外掛程式與範例](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
+  * 如需 Xbox 二進位檔與支援，請透過下面的「註冊」表單，與我們連絡
+* [聲場專案論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics)
+* [註冊以接收聲場專案更新](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
 
 ## <a name="next-steps"></a>後續步驟
-* 深入了解[設計程序](design-process.md)
-* 開始[在 Unity 專案中整合原音](getting-started.md)
+* 試用 [Unreal](unreal-quickstart.md) 或 [Unity 聲場專案快速入門](unity-quickstart.md)
+* 探索[聲場專案的音效設計原理](design-process.md)
 

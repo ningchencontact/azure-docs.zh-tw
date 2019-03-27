@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 0b36e020-175a-4534-b341-85260739f889
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c60adff56a5c7fe0400ca6fc818b8d501be40166
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 3655b720b1d8bad7eb60f0be1192f9a200c75647
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878926"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57848774"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-certify"></a>教學課程：Azure Active Directory 與 Certify 整合
 
@@ -36,7 +36,7 @@ ms.locfileid: "56878926"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Certify 整合，您需要下列項目：
+若要設定 Azure AD 與 Certify 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Certify 單一登入的訂用帳戶
@@ -124,7 +124,7 @@ ms.locfileid: "56878926"
 
 ### <a name="configure-certify-single-sign-on"></a>設定 Certify 單一登入
 
-若要設定 **Certify** 端的單一登入，您必須將從 Azure 入口網站下載的 [憑證 (原始)] 和複製的適當 URL 傳送給 [Certify 支援小組](mailto:support@certify.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **Certify** 端設定單一登入，您必須將從 Azure 入口網站下載的 [憑證 (原始)] 和複製的適當 URL 傳送給 [Certify 支援小組](mailto:support@certify.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
@@ -144,7 +144,7 @@ ms.locfileid: "56878926"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -161,7 +161,7 @@ ms.locfileid: "56878926"
 
 2. 在應用程式清單中，選取 [Certify] 。
 
-    ![應用程式清單中的 Certify 連結](common/all-applications.png)
+    ![應用程式清單中的 [Certify] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -179,7 +179,7 @@ ms.locfileid: "56878926"
 
 ### <a name="create-certify-test-user"></a>建立 Certify 測試使用者
 
-本節會在 Certify 中建立名為 Britta Simon 的使用者。 Certify 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Certify 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
+本節會在 Certify 中建立名為 Britta Simon 的使用者。 Certify 支援預設會啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Certify 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
 > [!NOTE]
 > 如果您需要手動建立使用者，您需要連絡 [Certify 支援小組](mailto:support@certify.com)。
@@ -188,7 +188,7 @@ ms.locfileid: "56878926"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Certify] 圖格時，應該會自動登入您設定 SSO 的 Certify。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [Certify] 圖格時，應該會自動登入您已設定 SSO 的 Certify。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

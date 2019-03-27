@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6cd463a728d8362221aaf7789258d7815566b23
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: eabc30b28ec6c32295c5eeff0f19b31fba622056
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176249"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095614"
 ---
 # <a name="quickstart-self-service-password-reset"></a>快速入門：自助式密碼重設
 
@@ -42,11 +42,11 @@ ms.locfileid: "56176249"
 3. 在 [驗證方法] 頁面中，選擇下列項目：
    * 需要重設的方法數：**1**
    * 使用者可用方法：
-      * **行動電話**
-      * **辦公室電話**
+      * **電子郵件**
+      * **行動應用程式代碼 (預覽)**
    * 按一下 [檔案] 。
 
-    ![驗證][Authentication]
+     ![驗證][Authentication]
 
 4. 在 [註冊] 頁面中，選擇下列項目：
    * 要求使用者在登入時註冊：**是**

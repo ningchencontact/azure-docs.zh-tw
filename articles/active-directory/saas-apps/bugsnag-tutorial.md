@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: f08b8a14-ef69-42a7-ac9d-da95f2e36287
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 54ec962d5f750ab5f78a576d0fdbb1293b72634b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 01877e4d982433608dd10fb44f2506b8bf71aff6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865683"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858817"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bugsnag"></a>教學課程：Azure Active Directory 與 Bugsnag 整合
 
@@ -35,7 +35,7 @@ Bugsnag 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Bugsnag 整合，您需要下列項目：
+若要設定 Azure AD 與 Bugsnag 的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Bugsnag 單一登入的訂用帳戶
@@ -71,7 +71,7 @@ Bugsnag 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 Bugsnag 設定及測試 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Bugsnag 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Bugsnag 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 Bugsnag 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
@@ -87,7 +87,7 @@ Bugsnag 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要使用 Bugsnag 設定 Azure AD 單一登入，請執行下列步驟：
+若要設定與 Bugsnag 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Bugsnag] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -103,7 +103,7 @@ Bugsnag 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 設定] 區段上，如果您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
 
-    ![Bugsnag 網域與 URL 單一登入資訊](common/both-replyurl.png)
+    ![Bugsnag 網域及 URL 單一登入資訊](common/both-replyurl.png)
 
     在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://app.bugsnag.com/user/sign_in/saml/<org_slug>/acs`
 
@@ -112,7 +112,7 @@ Bugsnag 與 Azure AD 整合提供下列優點：
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-    ![Bugsnag 網域與 URL 單一登入資訊](common/both-signonurl.png)
+    ![Bugsnag 網域及 URL 單一登入資訊](common/both-signonurl.png)
 
     在 [登入 URL] 文字方塊中，輸入如下：`https://app.bugsnag.com/user/identity_provider`
 
@@ -142,7 +142,7 @@ Bugsnag 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -159,7 +159,7 @@ Bugsnag 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Bugsnag]。
 
-    ![應用程式清單中的 Bugsnag 連結](common/all-applications.png)
+    ![應用程式清單中的 [Bugsnag] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -177,7 +177,7 @@ Bugsnag 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-bugsnag-test-user"></a>建立 Bugsnag 測試使用者
 
-本節會在 Bugsnag 中建立名為 Britta Simon 的使用者。 Bugsnag 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Bugsnag 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
+本節會在 Bugsnag 中建立名為 Britta Simon 的使用者。 Bugsnag 支援預設會啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Bugsnag 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

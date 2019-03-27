@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: ab89f8ee-2507-4625-94bc-b24ef3d5e006
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad35d8d3ff04de7e3d99976d637c4fad47c0cd6c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7bc40c5043cefad7892eaead8fe8058ac3707865
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868998"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904706"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>教學課程：Azure Active Directory 與 Envi MMIS 整合
 
@@ -74,20 +74,20 @@ Envi MMIS 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Envi MMIS 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Envi MMIS 中相關使用者之間的連結關聯性。
 
-若要使用 Envi MMIS 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
+若要設定及測試與 Envi MMIS 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Envi MMIS 單一登入](#configure-envi-mmis-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 Envi MMIS 測試使用者](#create-envi-mmis-test-user)** - 在 Envi MMIS 中建立 Britta Simon 的對應者，讓其連結至使用者的 Azure AD 代表。
+5. **[建立 Envi MMIS 測試使用者](#create-envi-mmis-test-user)** - 在 Envi MMIS 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要使用 Envi MMIS 設定 Azure AD 單一登入，請執行下列步驟：
+若要設定與 Envi MMIS 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Envi MMIS] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -184,7 +184,7 @@ Envi MMIS 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -193,7 +193,7 @@ Envi MMIS 與 Azure AD 整合提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會把 Envi MMIS 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在本節中，您會將 Envi MMIS 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Envi MMIS]。
 
@@ -201,7 +201,7 @@ Envi MMIS 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Envi MMIS]。
 
-    ![應用程式清單中的 Envi MMIS 連結](common/all-applications.png)
+    ![應用程式清單中的 [Envi MMIS] 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -237,7 +237,7 @@ Envi MMIS 與 Azure AD 整合提供下列優點：
 
     ![新增員工](./media/envimmis-tutorial/user3.png)
 
-    a. 在 [使用者名稱] 文字方塊中，輸入 Britta Simon 帳戶的使用者名稱，例如 **brittasimon@contoso.com**。
+    a. 在 [User Name] \(使用者名稱\) 文字方塊中，輸入 Britta Simon 帳戶的使用者名稱，例如 **brittasimon\@contoso.com**。
     
     b. 在 [名字] 文字方塊中，輸入 BrittaSimon 的名字，例如 **Britta**。
 
@@ -245,9 +245,9 @@ Envi MMIS 與 Azure AD 整合提供下列優點：
 
     d. 在 [稱呼] 文字方塊中輸入使用者的職稱。
     
-    e. 在 [電子郵件地址] 文字方塊中，輸入 Britta Simon 帳戶的電子郵件地址，例如 **brittasimon@contoso.com**。
+    e. 在 [Email Address] \(電子郵件地址\) 文字方塊中，輸入 Britta Simon 帳戶的電子郵件地址，例如 **brittasimon\@contoso.com**。
 
-    f. 在 [SSO 使用者名稱] 文字方塊中，輸入 Britta Simon 帳戶的使用者名稱，例如 **brittasimon@contoso.com**。
+    f. 在 [SSO User Name] \(SSO 使用者名稱\) 文字方塊中，輸入 Britta Simon 帳戶的使用者名稱，例如 **brittasimon\@contoso.com**。
 
     g. 按一下 [檔案] 。
 

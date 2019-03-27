@@ -5,22 +5,22 @@ services: functions
 keywords: ''
 author: ggailey777
 ms.author: glenga
-ms.date: 11/28/2018
+ms.date: 03/12/2019
 ms.topic: quickstart
 ms.service: azure-functions
-ms.custom: mvc
+ms.custom: mvc, fasttrack-edit
 ms.devlang: javascript
 manager: jeconnoc
-ms.openlocfilehash: b6df653f89f05a9b253ecea102ed8310ff2a53b7
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 78c2f599ba7d22e6de070f5867398e111a396d45
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438266"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849732"
 ---
 # <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli-preview"></a>使用 Core Tools 和 Azure CLI 建立第一個在 Linux 上裝載的函式 (預覽)
 
-Azure Functions 可讓您在[無伺服器](https://azure.com/serverless) Linux 環境中執行程式碼，而不需要先建立 VM 或發佈 Web 應用程式。 Linux 裝載功能目前為預覽狀態，並且需要 [Functions 2.0 執行階段](functions-versions.md)。 若要深入了解在 Linux 上執行函式應用程式的預覽版本注意事項，請參閱[這篇在 Linux 上的 Functions 文章](https://aka.ms/funclinux)。
+Azure Functions 可讓您在[無伺服器](https://azure.com/serverless) Linux 環境中執行程式碼，而不需要先建立 VM 或發佈 Web 應用程式。 Linux 裝載功能需要 [Functions 2.0 執行階段](functions-versions.md)。 支援以無伺服器[取用量方案](functions-scale.md#consumption-plan)在 Linux 上執行的函數應用程式，目前處於預覽狀態。 若要深入了解，請參閱[此預覽考量文章](https://aka.ms/funclinux)。
 
 本快速入門文章會逐步解說如何使用 Azure CLI 建立第一個在 Linux 上執行的函式應用程式。 您可以使用 [Azure Functions Core Tools](functions-run-local.md) 在本機建立函式程式碼，然後將其部署至 Azure。
 
@@ -49,7 +49,7 @@ func init MyFunctionProj
 當出現提示時，請使用方向鍵從下列語言選項中選取背景工作角色執行階段：
 
 + `dotnet`：建立 .NET 類別庫專案 (.csproj)。
-+ `node`：建立 JavaScript 專案。
++ `node`：建立 JavaScript 或 TypeScript 專案。 出現提示時，請選擇 `JavaScript`。
 + `python`：建立 Python 專案。 對於 Python 函式，請參閱 [Python 快速入門](functions-create-first-function-python.md)。
 
 當命令執行時，您會看到如下輸出：
@@ -59,6 +59,12 @@ Writing .gitignore
 Writing host.json
 Writing local.settings.json
 Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
+```
+
+使用下列命令來瀏覽至新的 `MyFunctionProj` 專案資料夾。
+
+```bash
+cd MyFunctionProj
 ```
 
 [!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
@@ -71,23 +77,16 @@ Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
 
 [!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
 
-## <a name="create-a-linux-app-service-plan"></a>建立 Linux App Service 方案
-
-[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
-
 ## <a name="create-a-linux-function-app-in-azure"></a>在 Azure 中建立 Linux 函式應用程式
 
 您必須擁有函式應用程式以便在 Linux 上主控函式的執行。 函式應用程式可提供無伺服器環境讓您執行函式程式碼。 它可讓您將多個函式群組為邏輯單位，以方便您管理、部署和共用資源。 使用 [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 命令，建立在 Linux 上執行的函式應用程式。
 
-在下列命令中，請使用唯一函式應用程式名稱來替代您看到的 `<app_name>` 預留位置，並使用儲存體帳戶名稱來替代 `<storage_name>`。 `<app_name>` 也是函式應用程式的預設 DNS 網域。 此名稱在 Azure 中的所有應用程式之間必須是唯一的。 您也應該從 `dotnet` (C#)、`node` (JavaScript) 或 `python`，設定函式應用程式的 `<language>` 執行階段。
+在下列命令中，請使用唯一函式應用程式名稱來替代您看到的 `<app_name>` 預留位置，並使用儲存體帳戶名稱來替代 `<storage_name>`。 `<app_name>` 也是函式應用程式的預設 DNS 網域。 此名稱在 Azure 中的所有應用程式之間必須是唯一的。 您也應該從 `dotnet` (C#)、`node` (JavaScript/TypeScript) 或 `python`，設定函數應用程式的 `<language>` 執行階段。
 
 ```azurecli-interactive
 az functionapp create --resource-group myResourceGroup --consumption-plan-location westus --os-type Linux \
 --name <app_name> --storage-account  <storage_name> --runtime <language>
 ```
-
-> [!NOTE]
-> 如果您有現有的資源群組名為 `myResourceGroup`，且該群組中含有任何非 Linux App Service 應用程式，您就必須使用不同的資源群組。 您無法將 Windows 和 Linux 應用程式裝載在相同的資源群組中。  
 
 建立函式應用程式之後，您會看到下列訊息：
 
@@ -104,9 +103,4 @@ To active this function app, publish your app content using Azure Functions Core
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
-## <a name="next-steps"></a>後續步驟
-
-本文說明如何在預設的 Azure App Service 容器中裝載函式應用程式。 您也可以在 Linux 上將函式裝載到自己的的自訂容器中。
-
-> [!div class="nextstepaction"]
-> [在使用自訂映像的 Linux 上建立函式](functions-create-function-linux-custom-image.md)
+[!INCLUDE [functions-quickstart-next-steps-cli](../../includes/functions-quickstart-next-steps-cli.md)]

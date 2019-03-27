@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 64e5e78f93488b2c375c617e8857c84ba2171f00
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 8f2a5fdaf2222de7a802e8ff2a1f6fdb37dae4c3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822390"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880030"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>快速入門：使用 Azure Spatial Anchors 建立 Android 應用程式
 
@@ -33,6 +33,8 @@ ms.locfileid: "56822390"
 若要完成本快速入門，請確定您具備︰
 
 - 具有 <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3+</a> 的 Windows 或 macOS 機器。
+  - 如果在 Windows 上執行，您也需要 <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>。
+  - 如果在 macOS 上執行，請透過 HomeBrew 安裝 Git。 在終端機的單一行輸入以下命令：`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`。 然後執行 `brew install git`。
   - 若要建置 NDK 範例，您也必須在 Android Studio 中安裝 NDK 和 CMake 3.6 SDK Tools。
 - <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">由開發人員啟用</a>且<a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">具備 ARCore 功能</a>的 Android 裝置。
 - 您的應用程式必須以 ARCore 1.5 為目標 (ARCore 1.6+ 即將推出)
@@ -59,7 +61,7 @@ ms.locfileid: "56822390"
 
 ## <a name="configure-account-identifier-and-key"></a>設定帳戶識別碼和金鑰
 
-下一個步驟是使用先前設定 Spatial Anchors 資源時所記下的帳戶識別碼和帳戶金鑰，來設定應用程式。
+下一個步驟是將應用程式設定為使用您的帳戶識別碼和帳戶金鑰。 [設定空間錨點資源](#create-a-spatial-anchors-resource)時，將它們複製到文字編輯器中。
 
 # <a name="javatabopenproject-java"></a>[Java](#tab/openproject-java)
 
