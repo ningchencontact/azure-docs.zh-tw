@@ -17,7 +17,7 @@ ms.author: alkohli
 <p>Azure 資料箱系列會提供具有不同儲存容量的產品，協助您以快速、實惠和可靠的方式，將數 TB 的資料傳送至 Azure。 Microsoft 會寄送給您能夠離線或透過網路傳輸資料的專屬儲存裝置，以加速安全的資料轉送。</p>
 <h2>離線資料轉送</h2>
 <p>網路頻寬受限或沒有網路</p>
-<ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
+<ul class="cardsA panelContent singlePanelContent cols cols3">
     <li>
         <a href="/azure/databox/data-box-disk-overview">
             <div class="cardSize">
@@ -29,7 +29,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p>適用於資料大小小於 40 TB 的<b>資料箱磁碟</b>。 Microsoft 會寄送給您 1 至 5 個已加密的固態硬碟 (SSD)，以便複製資料並且送回。</p>
+                            <p>適用於資料大小 &lt; 40 TB 的<b>資料箱磁碟</b>。 Microsoft 會寄送給您 1 至 5 個已加密的固態硬碟 (SSD)，以便複製資料並且送回。</p>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p>適用於資料大小 > 500 TB 的 <b>Data Box Heavy <SUP>預覽</SUP></b>。 Microsoft 會透過貨運寄送給您 1 PB 的裝置，以便複製資料並且送回。</p>
+                            <p>適用於資料大小 &gt; 500 TB 的 <b>Data Box Heavy</b>。 Microsoft 會透過貨運寄送給您 1 PB 的裝置，以便複製資料並且送回。</p>
                         </div>
                     </div>
                 </div>
@@ -87,7 +87,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p>使用儲存體的<b>資料箱閘道 <SUP>預覽</SUP></b> 虛擬裝置。 使用此裝置透過網路將資料傳送至 Azure。</p>
+                            <p>使用儲存體的 <b>Data Box Gateway</b> 虛擬裝置。 使用此裝置透過網路將資料傳送至 Azure。</p>
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p>使用儲存體和計算的 <b>Data Box Edge <SUP>預覽</SUP></b> 實體裝置。 當您想要分析、轉換或篩選移至 Azure 的資料時，請使用此裝置。</p>
+                            <p>使用儲存體和計算的 <b>Data Box Edge</b> 實體裝置。 當您想要分析、轉換或篩選移至 Azure 的資料時，請使用此裝置。</p>
                         </div>
                     </div>
                 </div>

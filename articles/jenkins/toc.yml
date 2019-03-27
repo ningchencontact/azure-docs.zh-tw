@@ -8,82 +8,74 @@ items:
 - name: 快速入門
   items:
   - name: 建立 Jenkins 伺服器
-    href: /azure/jenkins/install-jenkins-solution-template
-    maintainContext: true
+    href: install-jenkins-solution-template.md
   expanded: true
 - name: 教學課程
   items:
-  - name: App Service 中的 CI/CD
-    href: /azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service
-  - name: Kubernetes 中的 CI/CD
-    href: /azure/aks/jenkins-continuous-deployment
-    maintainContext: true
-  - name: Linux VM 中的 CI/CD
-    href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
-    maintainContext: true
-  - name: 在管線作業中建立 Azure 資源
-    href: /azure/jenkins/execute-cli-jenkins-pipeline
-  - name: 用 Azure VM 代理程式進行調整
-    href: /azure/jenkins/jenkins-azure-vm-agents
-  - name: 使用 Azure Container Instances 建置
-    href: /azure/container-instances/container-instances-jenkins
-    maintainContext: true
-  - name: 使用藍色/綠色模式部署至 AKS
-    href: /azure/jenkins/jenkins-aks-blue-green-deployment
-  - name: 部署至 Azure Functions
-    href: ./jenkins-azure-functions-deploy.md
+  - name: 1. Install
+    items:
+    - name: 建立 Jenkins 伺服器
+      href: install-jenkins-solution-template.md
+  - name: 2. 設定
+    items:
+    - name: 用 Azure VM 代理程式進行調整
+      href: jenkins-azure-vm-agents.md
+  - name: 3. 實作 CI/CD
+    items:
+    - name: AKS
+      items:
+      - name: Kubernetes 中的 CI/CD
+        href: /azure/aks/jenkins-continuous-deployment
+        maintainContext: true
+      - name: 使用藍色/綠色模式部署至 AKS
+        href: jenkins-aks-blue-green-deployment.md
+    - name: App Service 方案
+      items:
+      - name: 在管線作業中建立 Azure 資源
+        href: execute-cli-jenkins-pipeline.md
+      - name: 從 GitHub 將應用程式部署至 App Service
+        href: tutorial-jenkins-deploy-web-app-azure-app-service.md
+    - name: 使用 Azure Container Instances 建置
+      href: /azure/container-instances/container-instances-jenkins
+      maintainContext: true
+    - name: 使用 Jenkins 搭配 Azure DevOps
+      href: /azure/virtual-machines/linux/tutorial-build-deploy-jenkins
+      maintainContext: true
+    - name: 部署至 Azure Functions
+      href: jenkins-azure-functions-deploy.md
+    - name: 發佈至 Azure 儲存體
+      href: /azure/storage/storage-java-jenkins-continuous-integration-solution
+      maintainContext: true
+    - name: Linux VM 中的 CI/CD
+      href: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
+      maintainContext: true
+    - name: Service Fabric 服務
+      href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
+      maintainContext: true
 - name: 作法
   items:
-  - name: 保護 Azure 上的 Jenkins
-    href: https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/
   - name: 使用 App Service 外掛程式
     href: deploy-jenkins-app-service-plugin.md
-  - name: 發佈至 Azure 儲存體
-    href: /azure/storage/storage-java-jenkins-continuous-integration-solution
-    maintainContext: true
-  - name: 使用 Jenkins 搭配 Azure DevOps
-    href: https://www.visualstudio.com/docs/build/apps/jenkins/build-deploy-jenkins
-  - name: 部署 Service Fabric 應用程式
-    href: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
-    maintainContext: true
 - name: 範例
   items:
   - name: 範例作業和指令碼
     href: https://github.com/azure/jenkins
 - name: 資源
   items:
-  - name: 外掛程式
-    items:
-    - name: Azure App Service 外掛程式
-      href: https://plugins.jenkins.io/azure-app-service
-    - name: Azure AD 外掛程式
-      href: https://plugins.jenkins.io/azure-ad
-    - name: Azure Container 代理程式外掛程式
-      href: https://plugins.jenkins.io/azure-container-agents
-    - name: Azure Container Service 外掛程式
-      href: https://plugins.jenkins.io/azure-acs
-    - name: Azure 認證外掛程式
-      href: https://plugins.jenkins.io/azure-credentials
-    - name: Azure Function 外掛程式
-      href: https://plugins.jenkins.io/azure-function
-    - name: Azure Service Fabric 外掛程式
-      href: https://plugins.jenkins.io/service-fabric
-    - name: Azure 儲存體外掛程式
-      href: https://plugins.jenkins.io/windows-azure-storage
-    - name: Azure VM 代理程式外掛程式
-      href: https://plugins.jenkins.io/azure-vm-agents
-    - name: Azure 虛擬機器擴展集外掛程式
-      href: https://plugins.jenkins.io/azure-vmss
+  - name: 適用於 Azure 的 Jenkins 外掛程式
+    href: jenkins-plugins.md
   - name: Azure 藍圖
     href: https://azure.microsoft.com/roadmap/
   - name: Jenkins 首頁
     href: https://jenkins.io/
+  - name: Jenkins X Home
+    href: https://jenkins-x.io
   - name: Jenkins 架構
     href: /azure/architecture/reference-architectures/jenkins/
     maintainContext: true
-ms.openlocfilehash: 4d6b7848d1eab5da3baa04f72add5f97256498b1
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 2cfd843c0a7fc11a98d2450cc5ec499cdc1f580e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56819613"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438675"

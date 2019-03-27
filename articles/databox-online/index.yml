@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 44c7f6d32737fe83e80a2f2df15f0ae078a5849e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 376f2bd792cb1b3190507f5571a8b7a33daf2542
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400274"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439104"
 documentType: LandingData
 title: Azure 資料箱文件 - 線上傳輸
 metadata:
@@ -16,10 +16,10 @@ metadata:
   ms.service: databox
   ms.subservice: edge
   ms.topic: landing-page
-  ms.date: 03/22/2019
+  ms.date: 03/25/2019
   ms.author: alkohli
 abstract:
-  description: Azure 資料箱系列可讓您以快速、實惠和可靠的方式，將數百 TB 的資料轉送到 Azure 中。 使用資料箱裝置，透過網路進行高效能資料轉送。<p>選擇資料箱閘道 <SUP>預覽</SUP> 來傳送資料，以便雲端封存、災害復原，或以雲端規模處理資料。  當您的資料移至 Azure 時，使用 Data Box Edge <SUP>預覽</SUP> 來篩選、分析及轉換資料。</p><p>透過我們的教學課程，了解如何運用資料箱閘道和 Data Box Edge 進行網路式傳輸。</p>
+  description: Azure 資料箱系列可讓您以快速、實惠和可靠的方式，將數百 TB 的資料轉送到 Azure 中。 使用資料箱裝置，透過網路進行高效能資料轉送。<p>選擇 Data Box Gateway 來傳送資料，以便雲端封存、災害復原，或以雲端規模處理資料。  當您的資料移至 Azure 時，使用 Data Box Edge 來篩選、分析及轉換資料。</p><p>透過我們的教學課程，了解如何運用資料箱閘道和 Data Box Edge 進行網路式傳輸。</p>
 sections:
 - title: 教學課程
   items:

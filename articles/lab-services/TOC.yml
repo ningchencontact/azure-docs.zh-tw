@@ -91,6 +91,15 @@ items:
       href: personal-data-delete-export.md
     - name: 從另一個實驗室匯入虛擬機器
       href: import-virtual-machines-from-another-lab.md
+    - name: 建立映像處理站
+      href: image-factory-create.md
+      items:
+      - name: 從 AzureDevOps 執行映像處理站
+        href: image-factory-set-up-devops-lab.md
+      - name: 儲存自訂映像並散發至多個實驗室
+        href: image-factory-save-distribute-custom-images.md
+      - name: 設定保留原則並執行清除指令碼
+        href: image-factory-set-retention-policy-cleanup.md
     - name: 在企業中設定 DevTest Labs 基礎結構
       href: devtest-lab-guidance-prescriptive-adoption.md
       items:
@@ -132,6 +141,8 @@ items:
         href: devtest-lab-redeploy-vm.md
       - name: 匯入 VM
         href: devtest-lab-import-vm.md
+      - name: 使用 PowerShell 或 CLI 啟動或停止 VM
+        href: use-command-line-start-stop-virtual-machines.md
     - name: 在實驗室環境中
       items:
       - name: 建立環境
@@ -252,9 +263,9 @@ items:
       href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
     - name: 常見問題集
       href: devtest-lab-faq.md
-ms.openlocfilehash: a0b21dfaa64b351e98b6f505568bdbc06c48dd1c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 03ae5399295c0f9fac29fb4cd88cea85130881f7
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338372"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435629"

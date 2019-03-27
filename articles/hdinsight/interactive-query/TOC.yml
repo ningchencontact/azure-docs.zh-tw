@@ -139,21 +139,6 @@ items:
       - name: 將 HDInsight 應用程式發佈到 Azure Marketplace
         href: ../hdinsight-apps-publish-applications.md
         maintainContext: true
-      - name: 安裝已發行的應用程式 - Cask 資料應用程式平台 (CDAP)
-        href: ../hdinsight-apps-install-cask.md
-        maintainContext: true
-      - name: 安裝已發行的應用程式 - Dataiku
-        href: ../hdinsight-apps-install-dataiku.md
-        maintainContext: true
-      - name: 安裝已發行的應用程式 - Datameer
-        href: ../hdinsight-apps-install-datameer.md
-        maintainContext: true
-      - name: 安裝已發行的應用程式 - H2O
-        href: ../hdinsight-apps-install-h2o.md
-        maintainContext: true
-      - name: 安裝已發行的應用程式 - Streamsets
-        href: ../hdinsight-apps-install-streamsets.md
-        maintainContext: true
   - name: 安全
     items:
     - name: 搭配使用 SSH 與 HDInsight
@@ -287,9 +272,6 @@ items:
       - name: 記憶體不足錯誤的 Apache Hive 設定修正
         href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
         maintainContext: true
-      - name: 使用 Apache Ambari 檢視來為 Apache TEZ 作業偵錯
-        href: ../hdinsight-debug-ambari-tez-view.md
-        maintainContext: true
       - name: 最佳化 Apache Hive 查詢
         href: ../hdinsight-hadoop-optimize-hive-query.md
         maintainContext: true
@@ -383,9 +365,9 @@ items:
   - name: HDInsight 適用的 Windows 工具
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: c948dfdffe08512b8ac6e69e1ef6175c8a4a03ce
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 4ff59bd9aeb59ad3dd835edaff3d1e5048f2e58e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361025"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444130"
