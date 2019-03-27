@@ -114,6 +114,20 @@ items:
       href: notification-hubs-php-push-notification-tutorial.md
     - name: 建立通知中樞 - Python
       href: notification-hubs-python-push-notification-tutorial.md
+  - name: 設定平台通知服務設定
+    items:
+    - name: 設定 Apple Push Notification Service 設定
+      href: configure-apple-push-notification-service.md
+    - name: 設定 Google Firebase Cloud Messaging 設定
+      href: configure-google-firebase-cloud-messaging.md
+    - name: 設定 Windows 推播通知服務
+      href: configure-windows-push-notification-service.md
+    - name: 設定 Microsoft 推播通知服務
+      href: configure-microsoft-push-notification-service.md
+    - name: 設定 Android 裝置傳訊
+      href: configure-android-device-messaging.md
+    - name: 設定百度雲端推播
+      href: configure-baidu-cloud-push.md
   - name: 向應用程式後端註冊
     href: notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md
   - name: 搭配 Apple 裝置使用以權杖為基礎的驗證
@@ -150,9 +164,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: 支援選項
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: a618c3788c501f28d822021b35c925fcf85c7b3c
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: a5681a615638fdd14aecb2654e2c6d46f0a7bda4
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438762"
+ms.locfileid: "58486949"

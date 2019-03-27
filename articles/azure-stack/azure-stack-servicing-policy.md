@@ -16,12 +16,12 @@ ms.date: 03/07/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: b358609526c61b5acab83c02bdedd8cc06721425
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a61820dc05752d43774b13399d071c5a2be98483
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536475"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400540"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 服務原則
 
@@ -35,7 +35,7 @@ Microsoft 除了發行 Hotfix 套件來解決特定問題之外，也會發行�
 
 Hotfix 更新套件裝載在相同的安全 Azure 端點中。 您可以使用個別 Hotfix 知識庫文章中內嵌的連結 (例如 [Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114)) 來手動下載它們。 與完整的每月更新套件類似，Azure Stack 操作員可以下載 .xml、.bin 及 .exe 檔案，然後使用[在 Azure Stack 中套用更新](azure-stack-apply-updates.md)中的程序來匯入這些檔案。 Azure Stack 操作員如果具有已連線的縮放單位，就會看到 Hotfix 自動出現在系統管理員入口網站中並顯示「已有可用的更新」訊息。
 
-如果您的縮放單位未連線，而您想要收到每個 Hotfix 版本的通知，請訂閱每個版本中註明的 [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … ) 或 [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …) 摘要。  
+如果您的縮放單位未連線，而您想要收到每個 Hotfix 版本的通知，請訂閱每個版本中註明的 [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) 或 [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) 摘要。  
 
 ## <a name="update-package-types"></a>更新封裝類型
 
