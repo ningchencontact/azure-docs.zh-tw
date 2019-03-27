@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 01/14/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 450b27d21cf4079bdef6fc20c3f2e83f4e47cbd2
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 8d432d588cfd563ee48b93f9042339e9590bb5e2
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806553"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481768"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>從 Azure PowerShell 管理 IoT Central
 
@@ -33,13 +33,13 @@ ms.locfileid: "56806553"
 
 執行下列命令來檢查已安裝在您 PowerShell 環境中的 [IoT Central 模組](https://docs.microsoft.com/powershell/module/az.iotcentral/) \(英文\)：
 
-```PowerShell
+```powershell
 Get-InstalledModule -name Az.I*
 ```
 
 如果已安裝模組的清單沒有包含 **Az.IotCentral**，請執行下列命令：
 
-```PowerShell
+```powershell
 Install-Module Az.IotCentral
 ```
 
@@ -47,13 +47,13 @@ Install-Module Az.IotCentral
 
 使用 [New-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/New-AzIotCentralApp) \(英文\) Cmdlet 來在您的 Azure 訂用帳戶中建立 IoT Central 應用程式。 例如︰
 
-```PowerShell
+```powershell
 # Create a resource group for the IoT Central application
 New-AzResourceGroup -ResourceGroupName "MyIoTCentralResourceGroup" `
   -Location "East US"
 ```
 
-```PowerShell
+```powershell
 # Create an IoT Central application
 New-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
   -Name "myiotcentralapp" -Subdomain "mysubdomain" `
@@ -89,7 +89,7 @@ New-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
 
 使用 [Set-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/set-aziotcentralapp) \(英文\) Cmdlet 來更新 IoT Central 應用程式的中繼資料。 例如，若要變更應用程式的顯示名稱：
 
-```PowerShell
+```powershell
 Set-AzIotCentralApp -Name "myiotcentralapp" `
   -ResourceGroupName "MyIoTCentralResourceGroup" `
   -DisplayName "My new display name"
@@ -99,7 +99,7 @@ Set-AzIotCentralApp -Name "myiotcentralapp" `
 
 使用 [Remove-AzIotCentralApp](https://docs.microsoft.com/powershell/module/az.iotcentral/Remove-AzIotCentralApp) \(英文\) Cmdlet 來刪除 IoT Central 應用程式。 例如︰
 
-```PowerShell
+```powershell
 Remove-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
  -Name "myiotcentralapp"
 ```

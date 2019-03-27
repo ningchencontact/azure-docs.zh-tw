@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: bb33427712533e669ecf41f48474c02313e2a411
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: d636d5f31e78828a518882091af29b25f7219304
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57568871"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443997"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>針對 Linux VM 裝置名稱變更進行疑難排解
 
@@ -36,15 +36,17 @@ ms.locfileid: "57568871"
 
 Linux 中的裝置路徑不保證會在重新啟動之間保持一致。 裝置名稱是由主要號碼 (字母) 和次要號碼所組成。 當 Linux 儲存裝置驅動程式偵測到新的裝置時，該驅動程式會從裝置的可用範圍中指派主要和次要號碼。 移除裝置時，即會釋放裝置號碼，以供重複使用。
 
-問題發生的原因是因為 Linux 中由 SCSI 子系統所排定的裝置掃描是以非同步方式執行。 因此，裝置路徑名稱可能會在重新啟動之間有所不同。 
+問題發生的原因是因為 Linux 中由 SCSI 子系統所排定的裝置掃描是以非同步方式執行。 因此，裝置路徑名稱可能會在重新啟動之間有所不同。
 
 ## <a name="solution"></a>解決方法
 
-若要解決這個問題，請使用永續性命名。 有四種方式可使用永續性命名：依檔案系統標籤、依 UUID、依識別碼，或依路徑。 我們建議針對 Azure Linux VM 使用檔案系統標籤或 UUID。 
+若要解決這個問題，請使用永續性命名。 有四種方式可使用永續性命名：依檔案系統標籤、依 UUID、依識別碼，或依路徑。 我們建議針對 Azure Linux VM 使用檔案系統標籤或 UUID。
 
-大部分的散發套件都會提供 `fstab` **nofail** 或 **nobootwait** 參數。 即使磁碟在啟動時無法掛接，這些參數也能讓系統開機。 請檢查散發版本的文件，以取得這些參數的相關資訊。 如需如何在您新增資料磁碟時設定 Linux VM 以使用 UUID 的詳細資訊，請參閱[連接到 Linux VM 以掛接新磁碟](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk)。 
+大部分的散發套件都會提供 `fstab` **nofail** 或 **nobootwait** 參數。 即使磁碟在啟動時無法掛接，這些參數也能讓系統開機。 請檢查散發版本的文件，以取得這些參數的相關資訊。 如需如何在您新增資料磁碟時設定 Linux VM 以使用 UUID 的詳細資訊，請參閱[連接到 Linux VM 以掛接新磁碟](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk)。
 
 在 VM 上安裝 Azure Linux 代理程式時，代理程式會使用 Udev 規則，在 /dev/disk/azure 路徑下方建構一組符號連結。 應用程式與指令碼會使用 Udev 規則，來識別連接至 VM 的磁碟，以及磁碟類型與磁碟 LUN。
+
+如果您已經編輯您的 fstab 方式，您的 VM 無法開機，而且無法以 ssh 連線到您的 VM，您可以使用[VM 序列主控台](./serial-console-linux.md)輸入[單一使用者模式](./serial-console-grub-single-user-mode.md)並修改您的 fstab。
 
 ### <a name="identify-disk-luns"></a>識別磁碟 LUN
 
@@ -83,29 +85,29 @@ Linux 中的裝置路徑不保證會在重新啟動之間保持一致。 裝置�
 
     $ az vm show --resource-group testVM --name testVM | jq -r .storageProfile.dataDisks
     [
-      {
-        "caching": "None",
-          "createOption": "empty",
-        "diskSizeGb": 1023,
-          "image": null,
-        "lun": 0,
-        "managedDisk": null,
-        "name": "testVM-20170619-114353",
-        "vhd": {
-          "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-114353.vhd"
-        }
-      },
-      {
-        "caching": "None",
-        "createOption": "empty",
-        "diskSizeGb": 512,
-        "image": null,
-        "lun": 1,
-        "managedDisk": null,
-        "name": "testVM-20170619-121516",
-        "vhd": {
-          "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-121516.vhd"
-        }
+    {
+    "caching": "None",
+      "createOption": "empty",
+    "diskSizeGb": 1023,
+      "image": null,
+    "lun": 0,
+    "managedDisk": null,
+    "name": "testVM-20170619-114353",
+    "vhd": {
+      "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-114353.vhd"
+    }
+    },
+    {
+    "caching": "None",
+    "createOption": "empty",
+    "diskSizeGb": 512,
+    "image": null,
+    "lun": 1,
+    "managedDisk": null,
+    "name": "testVM-20170619-121516",
+    "vhd": {
+      "uri": "https://testVM.blob.core.windows.net/vhd/testVM-20170619-121516.vhd"
+      }
       }
     ]
 
@@ -138,7 +140,7 @@ Azure Linux 代理程式 Udev 規則會在 /dev/disk/azure 路徑下方建構一
 
     lrwxrwxrwx 1 root root 10 Jun 19 15:57 /dev/disk/by-uuid/b0048738-4ecc-4837-9793-49ce296d2692 -> ../../sdc1
 
-    
+
 ### <a name="get-the-latest-azure-storage-rules"></a>取得最新的 Azure 儲存體規則
 
 若要取得最新的 Azure 儲存體規則，請執行下列命令：

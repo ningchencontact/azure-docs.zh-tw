@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 02/15/2019
-ms.openlocfilehash: 6ec32a40cea4f95d9225134cfb36d4930245d1c5
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: e306245da2c76560ad447358fa1a57e491c370ee
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750594"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855685"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>教學課程：使用 Azure Databrick 擷取、轉換和載入資料
 
@@ -40,6 +40,10 @@ ms.locfileid: "56750594"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
+> [!Note]
+> 本教學課程不適用 **Azure 免費試用版的訂用帳戶**。
+> 若要使用免費帳戶建立 Azure Databricks 叢集，在建立叢集之前，請先移至您的設定檔，並將訂用帳戶變更為**隨用隨付**。 如需詳細資訊，請參閱 [Azure 免費帳戶](https://azure.microsoft.com/free/)。
+     
 ## <a name="prerequisites"></a>必要條件
 
 開始進行本教學課程前，請先完成下列工作：

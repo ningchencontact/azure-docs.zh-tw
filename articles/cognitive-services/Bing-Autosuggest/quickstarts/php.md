@@ -1,31 +1,31 @@
 ---
-title: 快速入門：Bing 自動建議 API (PHP)
+title: 快速入門：使用 Bing 自動建議 REST API 與 PHP 建議搜尋查詢
 titlesuffix: Azure Cognitive Services
-description: 取得資訊和程式碼範例，以協助您快速開始使用 Bing 自動建議 API。
+description: 了解如何快速開始使用 Bing 自動建議 API，即時建議搜尋字詞。
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 09/14/2017
-ms.author: v-jaswel
-ms.openlocfilehash: 139c7149173285283041f5f4b30d2002e40810c2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/20/2019
+ms.author: aahi
+ms.openlocfilehash: bfaab155c98b0721868a46a6d34c3402d08c053f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872912"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547906"
 ---
-# <a name="quickstart-for-bing-autosuggest-api-with-php"></a>以 PHP 撰寫之 Bing 快速建議 API 的快速入門
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-php"></a>快速入門：使用 Bing 自動建議 REST API 與 PHP 建議搜尋查詢
 
-本文說明如何搭配使用 [Bing 自動建議 API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) 與 PHP。 Bing 自動建議 API 會根據使用者在搜尋方塊中輸入的部分字串，傳回建議的查詢清單。 通常，每次使用者在搜尋方塊中鍵入新字元時，都會呼叫此 API，然後在搜尋方塊的下拉式清單中顯示建議。 本文示範如何傳送要求，以針對 *sail* 傳回建議的查詢字串。
+使用本快速入門開始呼叫 Bing 自動建議 API，並取得 JSON 回應。 這個簡單的 PHP 應用程式會將部分搜尋查詢傳送至 API，並傳回搜尋建議。 雖然此應用程式是以 PHP 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
 
 ## <a name="prerequisites"></a>必要條件
 
-您需要 [PHP 5.6.x](http://php.net/downloads.php) 以執行此程式碼。
+* [PHP 5.6.x](https://php.net/downloads.php) (英文) 或更新版本
 
-您必須有具備 **Bing 自動建議 API v7** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/#search)即足以供本快速入門使用。 您必須要有啟用免費試用版時所提供的存取金鑰，或者您可以從 Azure 儀表板使用付費訂用帳戶金鑰。
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
 ## <a name="get-autosuggest-results"></a>取得自動建議的結果
 
@@ -61,7 +61,7 @@ function get_suggestions ($host, $path, $key, $mkt, $query) {
     "Ocp-Apim-Subscription-Key: $key\r\n";
 
   // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-  // http://php.net/manual/en/function.stream-context-create.php
+  // https://php.net/manual/en/function.stream-context-create.php
   $options = array (
     'http' => array (
       'header' => $headers,

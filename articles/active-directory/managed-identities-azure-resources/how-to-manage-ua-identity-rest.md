@@ -3,7 +3,7 @@ title: 如何使用 REST 管理 Azure 使用者指派的受控識別
 description: 逐步說明如何建立、列出和刪除使用者指派的受控識別，以進行 REST API 呼叫。
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 948873c38d7e681015efd87061b23d689c64f569
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 75867242358881c963ab4470bdb7963d0ea4671c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209383"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444388"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>使用 REST API 呼叫建立、列出和刪除使用者指派的受控識別
 
@@ -60,14 +60,14 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 **要求標頭**
 
-|要求標頭  |說明  |
+|要求標頭  |描述  |
 |---------|---------|
 |*Content-Type*     | 必要。 設定為 `application/json`。        |
 |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        |
 
 **要求本文**
 
-|Name  |說明  |
+|名稱  |描述  |
 |---------|---------|
 |location     | 必要。 資源位置。        |
 
@@ -83,7 +83,7 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview HTTP/1.1
 ```
 
-|要求標頭  |說明  |
+|要求標頭  |描述  |
 |---------|---------|
 |*Content-Type*     | 必要。 設定為 `application/json`。        |
 |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        |
@@ -103,7 +103,7 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 ```HTTP
 DELETE https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourceGroups/TestRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview HTTP/1.1
 ```
-|要求標頭  |說明  |
+|要求標頭  |描述  |
 |---------|---------|
 |*Content-Type*     | 必要。 設定為 `application/json`。        |
 |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        |

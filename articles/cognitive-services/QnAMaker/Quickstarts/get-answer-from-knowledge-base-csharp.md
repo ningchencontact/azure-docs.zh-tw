@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 11/19/2018
+ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: f2b5089f1ec334f80ccb4ce80ba9b512f3305859
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2d011dffa4db68a0cdf6ac3415ff1316906a4e87
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861114"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57883996"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-c"></a>使用 C# 從知識庫取得答案
 
-本快速入門會逐步引導您以程式設計方式從已發佈的 QnA Maker 知識庫取得答案。 QnA Maker 會從[資料來源](../Concepts/data-sources-supported.md)中的半結構化內容 (如常見問題集) 自動擷取問題和答案。 問題會以 JSON 格式在 API 要求的本文中傳送。 
+本快速入門會逐步引導您以程式設計方式從已發佈的 QnA Maker 知識庫取得答案。 知識庫包含[資料來源](../Concepts/data-sources-supported.md)中的問題和答案，例如常見問題集。 [問題](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration)會傳送至 QnA Maker 服務。 [回應](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties)包含位居預測首位的答案。 
 
 
 ## <a name="prerequisites"></a>必要條件
@@ -58,6 +58,8 @@ ms.locfileid: "55861114"
 [!code-csharp[Add a POST request to send question to knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=32-57 "Add a POST request to send question to knowledge base")]
 
 `Authorization` 標頭的值包含字串 `EndpointKey `。 
+
+深入了解[要求](../how-to/metadata-generateanswer-usage.md#generateanswer-request)和[回應](../how-to/metadata-generateanswer-usage.md#generateanswer-response)。 
 
 ## <a name="build-and-run-the-program"></a>建置並執行程式
 

@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
-ms.openlocfilehash: a59de5fad7f457fffcc36ed55fd5862bc9329a1d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2830772dd69ac94c2b8373936665b9445f9f5f10
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037152"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431193"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>使用 Azure Cosmos DB 建置 Python Flask Web 應用程式
 
@@ -105,7 +105,7 @@ ms.locfileid: "54037152"
 2. 儲存 **requirements.txt** 檔案。 
 3. 在「方案總管」中以滑鼠右鍵按一下 [env]，然後按一下 [從 requirements.txt 安裝]。
    
-    ![螢幕擷取畫面，顯示從清單中反白顯示的 requirements.txt 安裝時選取的 env (Python 2.7)。](./media/sql-api-python-application/cosmos-db-python-install-from-requirements.png)
+    ![螢幕擷取畫面，顯示從清單中反白顯示的 requirements.txt 安裝時選取的 env (Python 2.7)](./media/sql-api-python-application/cosmos-db-python-install-from-requirements.png)
    
     成功安裝之後，輸出視窗會顯示下列資訊：
    
@@ -391,7 +391,7 @@ def vote():
      ![[方案總管] 中選取之教學課程 (具有反白顯示的 [發佈] 選項) 的螢幕擷取畫面](./media/sql-api-python-application/image20.png)
 6. 在 [發佈] 對話方塊中，選取 [Microsoft Azure App Service]，選取 [新建]，然後按一下 [發佈]。
    
-    ![醒目提示 Microsoft Azure App Service 之 [發佈 Web] 視窗的螢幕擷取畫面](./media/sql-api-python-application/cosmos-db-python-publish.png)
+    ![醒目提示 Microsoft Azure App Service 的 [發佈 Web] 視窗螢幕擷取畫面](./media/sql-api-python-application/cosmos-db-python-publish.png)
 7. 在 [建立 App Service] 對話方塊中，輸入您的 Web 應用程式名稱和 [訂用帳戶]、[資源群組]，以及 [App Service 方案]，然後按一下 [建立]。
    
     ![[Microsoft Azure Web Apps 視窗] 視窗的螢幕擷取畫面](./media/sql-api-python-application/cosmos-db-python-create-app-service.png)

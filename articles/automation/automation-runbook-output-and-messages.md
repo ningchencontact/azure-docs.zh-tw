@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ec71f8998f7db07cafca7f8141acb9898b016328
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 1cbf91af4e91f41fff30a7edfa869d07a21b881e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821348"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487663"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Azure 自動化中的 Runbook 輸出與訊息
 大部分 Azure 自動化 Runbook 都有一些輸出形式。 此輸出可能是給使用者的錯誤訊息，或是您想要與另一個 Runbook 搭配使用的物件。 Windows PowerShell 提供 [多個資料流](/powershell/module/microsoft.powershell.core/about/about_redirection) 從指令碼或工作流程傳送輸出。 Azure 自動化會以不同方式處理這些資料流中的每一個。 建立 Runbook 時，應遵循如何使用每個資料流的最佳做法。
@@ -35,7 +35,7 @@ ms.locfileid: "56821348"
 
 您可以使用 [Write-Output](https://technet.microsoft.com/library/hh849921.aspx) ，或將物件放在 Runbook 中它自己所屬的那一行，來將資料寫入到輸出資料流。
 
-```PowerShell
+```powershell
 #The following lines both write an object to the output stream.
 Write-Output –InputObject $object
 $object
@@ -46,7 +46,7 @@ $object
 
 請考慮以下的 Runbook 範例：
 
-```PowerShell
+```powershell
 Workflow Test-Runbook
 {
   Write-Verbose "Verbose outside of function" -Verbose
@@ -90,7 +90,7 @@ Verbose inside of function
 
 以下範例 Runbook 會輸出字串物件，並包含其輸出類型的宣告。 如果您的 Runbook 會輸出特定類型的陣列，那麼您仍應指定類型而非陣列類型。
 
-```PowerShell
+```powershell
 Workflow Test-Runbook
 {
   [OutputType([string])]
@@ -126,7 +126,7 @@ Workflow Test-Runbook
 
 使用 [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) 或 [Write-Error](https://technet.microsoft.com/library/hh849962.aspx) Cmdlet 來建立警告或錯誤訊息。 活动可能也会向这些流写入数据。
 
-```PowerShell
+```powershell
 #The following lines create a warning message and then an error message that will suspend the runbook.
 
 $ErrorActionPreference = "Stop"
@@ -141,7 +141,7 @@ Write-Error –Message "This is an error message that will stop the runbook beca
 
 使用 [Write-Verbose](https://technet.microsoft.com/library/hh849951.aspx) Cmdlet 建立詳細訊息。
 
-```PowerShell
+```powershell
 #The following line creates a verbose message.
 
 Write-Verbose –Message "This is a verbose message."
@@ -183,7 +183,7 @@ Windows PowerShell 使用 [喜好設定變數](https://technet.microsoft.com/lib
 
 下列範例會啟動 Runbook 範例，然後等候它完成。 完成後，將會從工作收集其輸出資料流。
 
-```PowerShell
+```powershell
 $job = Start-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
   –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
 
@@ -221,7 +221,7 @@ Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
    ![圖形化編寫的 [記錄和追蹤] 頁面](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
 ### <a name="microsoft-azure-monitor-logs"></a>Microsoft Azure 監視器記錄檔
-「自動化」可以將 Runebook 工作狀態和工作資料流傳送到您的 Log Analytics 工作區。 使用 Azure 監視器記錄檔中，您可以，
+「自動化」可以將 Runebook 工作狀態和工作資料流傳送到您的 Log Analytics 工作區。 可以使用 Azure Monitor 日志进行以下操作：
 
 * 針對自動化工作取得深入解析 
 * 根據您的 Runbook 作業狀態 (例如已失敗或已暫停) 觸發電子郵件或警示 
@@ -229,7 +229,7 @@ Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
 * 在自動化帳戶之間相互關聯工作 
 * 視覺化一段時間的工作歷程記錄    
 
-如需有關如何使用 Azure 監視器來收集、 相互關聯及處理作業資料的記錄檔中設定整合的詳細資訊，請參閱 <<c0> [ 作業狀態和作業串流從自動化將轉送至 Azure 監視器記錄](automation-manage-send-joblogs-log-analytics.md)。
+有关如何配置与 Azure Monitor 日志的集成以收集、关联和处理作业数据的详细信息，请参阅[将作业状态和作业流从自动化转发到 Azure Monitor 日志](automation-manage-send-joblogs-log-analytics.md)。
 
 ## <a name="next-steps"></a>後續步驟
 * 若要深入了解 Runbook 執行方式、如何監視 Runbook 工作，以及其他技術性詳細資料，請參閱 [追蹤 Runbook 工作](automation-runbook-execution.md)

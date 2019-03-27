@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: 338c4a97bced7d9e524f96fcd82f19e5230ff143
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b4a35cb853326aa3e54c7b261eaa72f15929a84c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317335"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483959"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>管理實體伺服器災害復原的組態伺服器
 
@@ -158,7 +158,7 @@ ProxyPassword="Password"
 6. 開啟系統管理 PowerShell 命令視窗。
 7. 執行以下命令：
 
-   ```PowerShell
+   ```powershell
    $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
    net stop obengine
@@ -178,7 +178,7 @@ ProxyPassword="Password"
 6. 開啟系統管理 PowerShell 命令視窗。
 7. 執行下列命令
 
-    ```PowerShell
+    ```powershell
     $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
     Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
     net stop obengine
@@ -265,7 +265,7 @@ ProxyPassword="Password"
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>將組態伺服器刪除或取消註冊 (PowerShell)
 
-1. [安裝](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell 模組
+1. [安裝](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) Azure PowerShell 模組
 2. 使用命令登入您的 Azure 帳戶
     
     `Connect-AzureRmAccount`
@@ -274,7 +274,7 @@ ProxyPassword="Password"
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
 3.  現在設定保存庫內容
     
-    ```PowerShell
+    ```powershell
     $Vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
     Set-AzureRmSiteRecoveryVaultSettings -ARSVault $Vault
     ```

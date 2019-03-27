@@ -12,12 +12,12 @@ ms.date: 01/16/2019
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60fc8cb8be39b2ffc217641464a991d8d2f3b997
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 06fd83ee815e9e207c1fa5a1c6767280122c4d0c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674288"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482686"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Azure Active Directory 中用於存取內部部署網站的 Cookie 設定
 
@@ -47,7 +47,7 @@ Azure Active Directory (Azure AD) 有可透過「應用程式 Proxy」存取內�
 
 若要查看目前的 cookie 設定，應用程式，請使用此 PowerShell 命令：  
 
-```PowerShell
+```powershell
 Get-AzureADApplicationProxyApplication -ObjectId <ObjectId> | fl * 
 ```
 
@@ -57,21 +57,21 @@ Get-AzureADApplicationProxyApplication -ObjectId <ObjectId> | fl *
 
 **僅限 http Cookie** 
 
-```PowerShell
+```powershell
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsHttpOnlyCookieEnabled $true 
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsHttpOnlyCookieEnabled $false 
 ```
 
 **Secure Cookie**
 
-```PowerShell
+```powershell
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsSecureCookieEnabled $true 
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsSecureCookieEnabled $false 
 ```
 
 **永續性 Cookie**
 
-```PowerShell
+```powershell
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsPersistentCookieEnabled $true 
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsPersistentCookieEnabled $false 
 ```

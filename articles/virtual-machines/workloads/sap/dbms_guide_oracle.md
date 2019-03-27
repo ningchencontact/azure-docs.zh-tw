@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6ef8498ae1aa9be0322f508b3723778311e2cdd5
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 6abfd26e63cc8001f501371fffce0a4c10f4ff85
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327777"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483507"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-workload"></a>適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署
 
@@ -158,7 +158,7 @@ ms.locfileid: "56327777"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -172,7 +172,7 @@ ms.locfileid: "56327777"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -314,7 +314,7 @@ ms.locfileid: "56327777"
 您可以在 SAP 附註 [2039619] 中找到支援在 Azure 的 Oracle 上執行 SAP 的 Oracle 版本和對應的 OS 版本。
 
 有關在 Oracle 上執行 SAP 商務套件的一般資訊，可以在 [Oracle 上的 SAP](https://www.sap.com/community/topic/oracle.html) \(英文\) 中找到。
-Oracle 支援 Oracle 軟體在 Microsoft Azure 上執行。 如需 Windows Hyper-V 和 Azure 之一般支援的詳細資訊，請查看 [Oracle 和 Microsoft Azure 常見問題集](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html) \(英文\)。 
+Oracle 支援 Oracle 軟體在 Microsoft Azure 上執行。 如需 Windows Hyper-V 和 Azure 之一般支援的詳細資訊，請查看 [Oracle 和 Microsoft Azure 常見問題集](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html) \(英文\)。 
 
 ## <a name="sap-notes-relevant-for-oracle-sap-and-azure"></a>與 Oracle、SAP 和 Azure 相關的 SAP 附註 
 
@@ -426,7 +426,7 @@ Azure 磁碟具有 IOPS 輸送量上的配額。 此概念已詳述於[適用於
 [適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)也說明其他與搭配 Oracle Database 的 VM 部署相關的重要概念，包括 Azure 可用性設定組和 SAP 監視。
 
 ## <a name="specifics-for-oracle-database-on-oracle-linux"></a>Oracle Linux 上 Oracle Database 專屬的詳細資料
-Oracle 支援 Oracle 軟體在以 Oracle Linux 為客體 OS 的 Microsoft Azure 上執行。 如需 Windows Hyper-V 和 Azure 之一般支援的詳細資訊，請參閱 [Azure 和 Oracle 常見問題集](http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html) \(英文\)。 
+Oracle 支援 Oracle 軟體在以 Oracle Linux 為客體 OS 的 Microsoft Azure 上執行。 如需 Windows Hyper-V 和 Azure 之一般支援的詳細資訊，請參閱 [Azure 和 Oracle 常見問題集](https://www.oracle.com/technetwork/topics/cloud/faq-1963009.html) \(英文\)。 
 
 同時也支援運用 Oracle Database 之 SAP 應用程式的特定案例。 詳細資料將在本文件的下一個部分中討論。
 
@@ -463,12 +463,13 @@ Oracle Database 檔案不支援網路磁碟機或遠端共用 (例如 Azure 檔�
 若要識別支援的 Azure VM 類型，請參閱 SAP 附註 [1928533]。
 
 最小設定：
+
 | 元件 | 磁碟 | 快取 | 移除* |
 | --- | ---| --- | --- |
-| /oracle/<SID>/origlogaA & mirrlogB | 進階 | None | 不需要 |
-| /oracle/<SID>/origlogaB & mirrlogA | 進階 | None | 不需要 |
-| /oracle/<SID>/sapdata1...n | 進階 | 唯讀 | 可以使用 |
-| /oracle/<SID>/oraarch | 標準 | None | 不需要 |
+| /oracle/\<SID > / origlogaA & mirrlogB | 進階 | None | 不需要 |
+| /oracle/\<SID > / origlogaB & mirrlogA | 進階 | None | 不需要 |
+| /oracle/\<SID>/sapdata1...n | 進階 | 唯讀 | 可以使用 |
+| /oracle/\<SID > / oraarch | 標準 | None | 不需要 |
 | Oracle Home、saptrace... | 作業系統磁碟 | | 不需要 |
 
 *移除：使用 RAID0 的 LVM stripe 或 MDADM
@@ -476,15 +477,16 @@ Oracle Database 檔案不支援網路磁碟機或遠端共用 (例如 Azure 檔�
 裝載 Oracle 線上重做記錄檔之磁碟的選取，應由 IOPS 需求來決定。 可以將所有 sapdata1...n (資料表空間) 儲存在單一已掛接磁碟上，前提是其容量、IOPS 及輸送量必須能滿足需求。 
 
 效能設定：
+
 | 元件 | 磁碟 | 快取 | 移除* |
 | --- | ---| --- | --- |
-| /oracle/<SID>/origlogaA | 進階 | None | 可以使用  |
-| /oracle/<SID>/origlogaB | 進階 | None | 可以使用 |
-| /oracle/<SID>/mirrlogAB | 進階 | None | 可以使用 |
-| /oracle/<SID>/mirrlogBA | 進階 | None | 可以使用 |
-| /oracle/<SID>/sapdata1...n | 進階 | 唯讀 | 建議  |
-| /oracle/SID/sapdata(n+1)* | 進階 | None | 可以使用 |
-| /oracle/<SID>/oraarch* | 進階 | None | 不需要 |
+| /oracle/\<SID>/origlogaA | 進階 | None | 可以使用  |
+| /oracle/\<SID > / origlogaB | 進階 | None | 可以使用 |
+| /oracle/\<SID>/mirrlogAB | 進階 | None | 可以使用 |
+| /oracle/\<SID>/mirrlogBA | 進階 | None | 可以使用 |
+| /oracle/\<SID>/sapdata1...n | 進階 | 唯讀 | 建議  |
+| /oracle/\<SID>/sapdata(n+1)* | 進階 | None | 可以使用 |
+| /oracle/\<SID > / oraarch * | 進階 | None | 不需要 |
 | Oracle Home、saptrace... | 作業系統磁碟 | 不需要 |
 
 *移除：使用 RAID0 的 LVM stripe 或 MDADM

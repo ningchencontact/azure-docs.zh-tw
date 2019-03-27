@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: 6ef020ff1054416e2b9af5af824b9aa27f0b1e64
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ad005ff879ef5e4c0fb2fb72ce3062a5dd25d99a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57247234"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486779"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL Database 中的 managed 執行個體的連線架構 
 
@@ -67,7 +67,7 @@ Microsoft 管理及部署服務執行的虛擬網路外部。 透過有公用 IP
 
 ![虛擬叢集的連線架構](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-使用主機名稱的格式，用戶端連線到受管理的執行個體`<mi_name>.<dns_zone>.database.windows.net`。 此主機名稱解析的私人 IP 位址，雖然它會在公用網域名稱系統 (DNS) 區域中註冊，而且是可公開解析。 `zone-id`會自動產生，當您建立叢集。 如果新建立的叢集裝載的次要的 managed 執行個體，它會與主要叢集共用其區域識別碼。 如需詳細資訊，請參閱 <<c0> [ 使用 autofailover 群組來啟用多個資料庫的透明且協調容錯移轉](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets)。
+使用主機名稱的格式，用戶端連線到受管理的執行個體`<mi_name>.<dns_zone>.database.windows.net`。 此主機名稱解析的私人 IP 位址，雖然它會在公用網域名稱系統 (DNS) 區域中註冊，而且是可公開解析。 `zone-id`會自動產生，當您建立叢集。 如果新建立的叢集裝載的次要的 managed 執行個體，它會與主要叢集共用其區域識別碼。 如需詳細資訊，請參閱 <<c0> [ 使用自動容錯移轉群組來啟用多個資料庫的透明且協調容錯移轉](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets)。
 
 此私人 IP 位址所屬的 managed 執行個體的內部負載平衡器。 負載平衡器會將導向至受管理的執行個體閘道的流量。 由於多個受管理的執行個體可以在相同叢集內執行，閘道會使用受管理的執行個體的主機名稱，將流量重新導向至正確的 SQL 引擎服務。
 
@@ -109,6 +109,8 @@ Microsoft 會管理受管理的執行個體所使用的管理端點。 這個端
 |------------|--------------|--------|-----------------|-----------|------|
 |管理  |80、443、12000|TCP     |任意              |Internet   |允許 |
 |mi_subnet   |任意           |任意     |任意              |MI SUBNET*  |允許 |
+
+> 請確定沒有針對連接埠 9000，只有一個輸入的規則 9003，1438年、 1440年、 1452年和一個輸出的規則，用於連接埠 80、 443、 12000。 受控執行個體佈建透過 ARM 部署可能會失敗，如果輸入和輸出規則針對每個連接埠分別設定。 
 
 \* MI 的子網路是指表單 10.x.x.x/y 中的子網路的 IP 位址範圍。 您可以在 Azure 入口網站中，子網路屬性中找到這項資訊。
 
@@ -167,6 +169,6 @@ Microsoft 會管理受管理的執行個體所使用的管理端點。 這個端
 - [計算的子網路大小](sql-database-managed-instance-determine-size-vnet-subnet.md)您要部署受管理的執行個體的位置。
 - 了解如何建立受控執行個體：
   - 從 [Azure 入口網站](sql-database-managed-instance-get-started.md)。
-  - 藉由使用[PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/)。
+  - 藉由使用[PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md)。
   - 藉由使用[Azure Resource Manager 範本](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/)。
   - 藉由使用[（使用 JumpBox，具有包含 SSMS） 的 Azure Resource Manager 範本](https://portal.azure.com/)。

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 0889476d84bbeaf620d9fc952efe102601a1eaf8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1276d1e581caf477449ce9a4c928d4493a6354d3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857839"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487595"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>使用 Azure 網路監看員來針對虛擬網路閘道和連線進行疑難排解
 
@@ -50,7 +50,7 @@ ms.locfileid: "57857839"
 
 ## <a name="log-in-with-armclient"></a>使用 ARMClient 登入
 
-```PowerShell
+```powershell
 armclient login
 ```
 

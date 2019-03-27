@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: a72182091721dd6a1104cb8e3495aee1a3b25eb8
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 67d3dcad4ec73ee09ec40282b2fbdea945daefe4
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439376"
+ms.locfileid: "58472764"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure 儲存體中的靜態網站代管
 Azure 儲存體 GPv2 帳戶可讓您直接從名為 *$web* 的儲存體容器提供靜態內容 (HTML、CSS、JavaScript 和影像檔)。 利用 Azure 儲存體中的代管，讓您能夠使用無伺服器架構，包括 [Azure Functions](/azure/azure-functions/functions-overview) 和其他 PaaS 服務。
@@ -112,7 +112,7 @@ az storage blob upload-batch -s <SOURCE_PATH> -d \$web --account-name <ACCOUNT_N
 以下是可用來將內容部署至儲存體容器的方法：
 
 - [AzCopy](../common/storage-use-azcopy.md)
-- [儲存體總管](https://azure.microsoft.com/features/storage-explorer/)
+- [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)
 - [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/)
 - [Visual Studio Code 擴充功能](https://code.visualstudio.com/tutorials/static-website/getting-started) \(英文\)
 

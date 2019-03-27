@@ -17,16 +17,16 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeb5a06aa4eb21ba374344623f9f96ce92a59ff5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 39f3f0954a271f3abd30e99e306ebfc940e20a7f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168812"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547804"
 ---
 # <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站下載登入報告
 
-在此快速入門中，您將學到如何下載您租用戶過去 24 小時內的登入資料。 您可以從 Azure 入口網站最多下載 5000 筆記錄。 這些記錄會依「時間上最近」方式來排序，因此根據預設，您會取得最近的 5000 筆記錄。 
+在此快速入門中，您將學到如何下載您租用戶過去 24 小時內的登入資料。 您最多可以從 Azure 入口網站下載 250,000 筆記錄。 這些記錄會依「最近期」方式排序，因此根據預設，您會取得最近的 250,000 筆記錄。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -41,7 +41,7 @@ ms.locfileid: "56168812"
 2. 從左側瀏覽窗格選取 [Azure Active Directory] 並使用 [切換目錄] 按鈕來選取您的 Active Directory。
 3. 從儀表板選取 [Azure Active Directory]，然後選取 [登入]。 
 4. 在 [日期] 篩選下拉式清單中選擇 [過去 24 小時]，然後選取 [套用] 以檢視過去 24 小時的登入。 
-5. 選取 [下載] 按鈕以下載包含已篩選之記錄的 CSV 檔案。 
+5. 選取 [下載] 按鈕、選取 **CSV** 作為檔案格式，並指定檔案名稱，以下載包含篩選記錄的 CSV 檔案。 
 
 ![報告](./media/quickstart-download-sign-in-report/download-sign-ins.png)
 

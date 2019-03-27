@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/02/2019
 ms.author: ambapat
-ms.openlocfilehash: 4b3225dd25fee2859a36f98add51fcf612a45c83
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: c54b78a24068758fabb0918cfeb7d6516fd1bce5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108886"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487230"
 ---
 # <a name="configure-azure-key-vault-firewalls-and-virtual-networks"></a>設定 Azure Key Vault 防火牆和虛擬網路
 
@@ -84,33 +84,33 @@ ms.locfileid: "56108886"
 1. 安裝最新的 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)，然後[登入](https://docs.microsoft.com/powershell/azure/authenticate-azureps)。
 
 2. 列出可用的虛擬網路規則。 如果您還沒有為此金鑰保存庫設定任何規則，清單會是空的。
-   ```PowerShell
+   ```powershell
    (Get-AzKeyVault -VaultName "mykeyvault").NetworkAcls
    ```
 
 3. 在現有的虛擬網路和子網路上啟用 Key Vault 的服務端點。
-   ```PowerShell
+   ```powershell
    Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.1.1.0/24" -ServiceEndpoint "Microsoft.KeyVault" | Set-AzVirtualNetwork
    ```
 
 4. 為虛擬網路和子網路新增網路規則。
-   ```PowerShell
+   ```powershell
    $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
    Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -VirtualNetworkResourceId $subnet.Id
    ```
 
 5. 新增允許流量來自的 IP 位址範圍。
-   ```PowerShell
+   ```powershell
    Add-AzKeyVaultNetworkRule -VaultName "mykeyvault" -IpAddressRange "16.17.18.0/24"
    ```
 
 6. 如果有任何信任的服務需要存取此金鑰保存庫，請將 `bypass` 設定為 `AzureServices`。
-   ```PowerShell
+   ```powershell
    Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -Bypass AzureServices
    ```
 
 7. 將預設動作設定為 `Deny` 以開啟網路規則。
-   ```PowerShell
+   ```powershell
    Update-AzKeyVaultNetworkRuleSet -VaultName "mykeyvault" -DefaultAction Deny
    ```
 

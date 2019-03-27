@@ -5,18 +5,18 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 10/30/2018
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: a952eb679810f36008425ae5daacc4261db50c77
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: c0c5c5fe899c9b9b898973a88c7dac4256959ee4
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999606"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779771"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>教學課程：在 Azure DNS 上裝載您的網域
 
-您可以使用 Azure DNS 來裝載 DNS 網域，以及管理您的 DNS 記錄。 只要將您的網域裝載於 Azure，就可以像管理其他 Azure 服務一樣，使用相同的認證、API、工具和計費方式來管理 DNS 記錄。 
+您可以使用 Azure DNS 來裝載 DNS 網域，以及管理您的 DNS 記錄。 只要將您的網域裝載於 Azure，就可以像管理其他 Azure 服務一樣，使用相同的認證、API、工具和計費方式來管理 DNS 記錄。
 
 假設您項網域名稱註冊機構購買了網域 contoso.net，然後在 Azure DNS 中建立名為 contoso.net 的區域。 由於您是網域的擁有者，註冊機構會提供選項，讓您設定網域的名稱伺服器 (NS) 記錄。 註冊機構會將 NS 記錄儲存在 .net 父系網域中。 然後，當世界各地的網際網路使用者嘗試解析 contoso.net 中的 DNS 記錄時，系統會將他們導向至您在 Azure DNS 區域中的網域。
 
@@ -31,6 +31,12 @@ ms.locfileid: "53999606"
 
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+
+## <a name="prerequisites"></a>必要條件
+
+您必須提供可用的網域名稱，才能使用可裝載於 Azure DNS 的網域名稱進行測試。 您必須擁有此網域的完整控制權。 完整控制權包括為網域設定名稱伺服器 (NS) 記錄的能力。
+
+本教學課程使用的範例網域是 contoso.net，但請使用您自己的網域名稱。
 
 ## <a name="create-a-dns-zone"></a>建立 DNS 區域
 

@@ -3,7 +3,7 @@ title: 在 Azure 中建立 Linux Service Fabric 叢集 | Microsoft Docs
 description: 了解如何使用 Azure CLI 將 Linux Service Fabric 叢集部署到現有的 Azure 虛擬網路。
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 780f87924bcd25f0485bfed1b9640915b7d8e1d3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 890f7c207b373781c55e4261a58505d849298d82
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309464"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499143"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>將 Linux Service Fabric 叢集部署到 Azure 虛擬網路
 
@@ -34,6 +34,7 @@ ms.locfileid: "58309464"
 * 安裝 [Service Fabric CLI](service-fabric-cli.md)
 * 安裝 [Azure CLI](/cli/azure/install-azure-cli)
 * 若要學習叢集的主要概念，請閱讀 [Azure 叢集概觀](service-fabric-azure-clusters-overview.md)
+* [規劃和準備](service-fabric-cluster-azure-deployment-preparation.md)針對生產環境叢集部署。
 
 下列程序會建立含七個節點的 Service Fabric 叢集。 若要計算在 Azure 中執行 Service Fabric 叢集產生的成本，請使用 [Azure 價格計算機](https://azure.microsoft.com/pricing/calculator/)。
 
