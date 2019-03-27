@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: c199073f-02ce-45c2-b515-8285d4bbbca2
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 225945c3accb9a92cc4a04faa9ba029092feae57
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 35bd52904ab081e41cb43a346288234c18a7f43b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868683"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904043"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>教學課程：Azure Active Directory 與 Adobe Creative Cloud 整合
 
@@ -205,7 +205,7 @@ Adobe Creative Cloud 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -249,9 +249,9 @@ Adobe Creative Cloud 與 Azure AD 整合提供下列優點：
 2. 在 Adobe 主控台內將使用者新增為同盟識別碼，並將它們指派給產品設定檔。 如需新增使用者的詳細資訊，請參閱[在 Adobe Admin Console 中新增使用者](https://helpx.adobe.com/enterprise/using/users.html#Addusers) 
 
 3. 此時，在 Adobe 登入表單中輸入您的電子郵件地址/upn，按下 tab 鍵，隨後應備份至 Azure AD 同盟：
-    * Web 存取：www.adobe.com > 登入
-    * 在桌面應用程式公用程式內 > 登入
-    * 在應用程式內 > 說明 > 登入
+   * Web 存取：www\.adobe.com > 登入
+   * 在桌面應用程式公用程式內 > 登入
+   * 在應用程式內 > 說明 > 登入
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 12/10/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: e4ae0c944323f18876ffcd1ee5c21aa29e9806cc
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 4b95c75b863cdc86dd8a1ebe8347b77b637b110c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650813"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999110"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>快速入門：在 Linux 上的 App Service 中建立 Java 應用程式
 
@@ -55,25 +55,18 @@ code pom.xml
     <!--*************************************************-->
     <!-- Deploy to Tomcat in App Service Linux           -->
     <!--*************************************************-->
-      
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
         <version>1.5.3</version>
         <configuration>
-            <!-- Specify v2 schema -->
-            <schemaVersion>v2</schemaVersion>
             <!-- App information -->
             <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
             <appName>${WEBAPP_NAME}</appName>
             <region>${REGION}</region>
    
             <!-- Java Runtime Stack for App on Linux-->
-            <runtime>
-                <os>linux</os>
-                <javaVersion>jre8</javaVersion>
-                <webContainer>tomcat 8.5</webContainer>
-            </runtime>
+            <linuxRuntime>tomcat 8.5-jre8</linuxRuntime> 
         </configuration>
     </plugin>
 </plugins>
@@ -115,7 +108,8 @@ mvn package azure-webapp:deploy
 在本快速入門中，您已使用 Maven 建立 Java 應用程式、設定[適用於 Azure Web Apps 的 Maven 外掛程式](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)，然後將以網頁封存封裝的 Java 應用程式部署至 Linux 上的 App Service。 如需在 Linux 上的 App Service 中裝載 Java 應用程式的詳細資訊，請參閱下列教學課程和操作說明文章。
 
 - [教學課程：使用 PostgreSQL 部署 Java Enterprise 應用程式](tutorial-java-enterprise-postgresql-app.md)
-- [設定 Tomcat 資料來源](app-service-linux-java.md#connecting-to-data-sources)
+- [設定 Tomcat 資料來源](app-service-linux-java.md#tomcat)
 - [使用 Jenkins 的 CI/CD](/azure/jenkins/deploy-jenkins-app-service-plugin)
 - [設定應用程式效能監視工具](how-to-java-apm-monitoring.md)
+- [Linux 上 App Service 的 Java 開發人員指南](app-service-linux-java.md)
 

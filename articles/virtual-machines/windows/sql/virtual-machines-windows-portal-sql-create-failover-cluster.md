@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 19910782142bf78c10dda155f40a5c41bdd64958
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3bb829e7cc99ee0d6e2d02f7ed3880d6c0226123
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842748"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486313"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虛擬機器上設定 SQL Server 容錯移轉叢集執行個體
 
@@ -115,7 +115,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
    - 在 [建立可用性設定組] 刀鋒視窗中，設定下列值︰
       - **名稱**：可用性設定組的名稱。
       - 訂用帳戶：您的 Azure 訂用帳戶。
-      - **資源群組**：若您想要使用現有的群組，請按一下 [使用現有的] 並從下拉式清單中選取該群組。 否則，選擇 [建立新的] 並輸入群組名稱。
+      - **资源组**：若您想要使用現有的群組，請按一下 [使用現有的] 並從下拉式清單中選取該群組。 否則，選擇 [建立新的] 並輸入群組名稱。
       - **位置**：設定您計劃建立虛擬機器的位置。
       - **容錯網域**：使用預設值 (3)。
       - **更新網域**：使用預設值 (5)。
@@ -222,7 +222,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 
    若要透過 PowerShell 安裝容錯移轉叢集功能，請在其中一部虛擬機器上執行下列來自系統管理員 PowerShell 工作階段的指令碼。
 
-   ```PowerShell
+   ```powershell
    $nodes = ("<node1>","<node2>")
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
@@ -253,7 +253,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 
 若要使用 PowerShell 验证群集，请在某个虚拟机上通过管理员 PowerShell 会话运行以下脚本。
 
-   ```PowerShell
+   ```powershell
    Test-Cluster –Node ("<node1>","<node2>") –Include "Storage Spaces Direct", "Inventory", "Network", "System Configuration"
    ```
 
@@ -270,7 +270,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 
 下列 PowerShell 會建立容錯移轉叢集。 使用節點名稱 (虛擬機器名稱) 和 Azure VNET 中可用的 IP 位址來更新指令碼：
 
-```PowerShell
+```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
 ```   
 
@@ -294,7 +294,7 @@ S2D 的磁碟需為空白且不含分割區或其他資料。 若要清理磁碟
 
    下列 PowerShell 會啟用儲存空間直接存取。  
 
-   ```PowerShell
+   ```powershell
    Enable-ClusterS2D
    ```
 
@@ -304,7 +304,7 @@ S2D 的磁碟需為空白且不含分割區或其他資料。 若要清理磁碟
 
    S2D 的其中一項功能，是會在您啟用時自動建立儲存集區。 您現在可以開始建立磁碟區。 PowerShell commandlet `New-Volume` 會自動執行磁碟區建立程序，包括格式化、新增至叢集、和建立叢集共用磁碟區 (CSV)。 下列範列會建立 800 GB 的 CSV。
 
-   ```PowerShell
+   ```powershell
    New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
    ```   
 
@@ -431,7 +431,7 @@ S2D 的磁碟需為空白且不含分割區或其他資料。 若要清理磁碟
 
 若要設定叢集探查連接埠參數，請將下列指令碼中的變數更新為您環境中的值。 從指令碼移除角括弧 `<>`。 
 
-   ```PowerShell
+   ```powershell
    $ClusterNetworkName = "<Cluster Network Name>"
    $IPResourceName = "<SQL Server FCI IP Address Resource Name>" 
    $ILBIP = "<n.n.n.n>" 
@@ -444,20 +444,20 @@ S2D 的磁碟需為空白且不含分割區或其他資料。 若要清理磁碟
 
 在上述指令碼中，設定您環境的值。 下列清單說明這些值：
 
-   - `<Cluster Network Name>`：網路的 Windows Server 容錯移轉叢集名稱。 在 **[容錯移轉叢集管理員]** > **[網路]** 中，以滑鼠右鍵按一下網路，然後按一下 [內容]。 正確的值在 [一般] 索引標籤的 [名稱] 底下。 
+   - `<Cluster Network Name>`:網路的 Windows Server 容錯移轉叢集名稱。 在 **[容錯移轉叢集管理員]** > **[網路]** 中，以滑鼠右鍵按一下網路，然後按一下 [內容]。 正確的值在 [一般] 索引標籤的 [名稱] 底下。 
 
-   - `<SQL Server FCI IP Address Resource Name>`：SQL Server FCI IP 位址資源名稱。 在 **[容錯移轉叢集管理員]** > **[角色]** 中，SQL Server FCI 角色的 [伺服器名稱] 底下，以滑鼠右鍵按一下 IP 位址資源，然後按一下 [內容]。 正確的值在 [一般] 索引標籤的 [名稱] 底下。 
+   - `<SQL Server FCI IP Address Resource Name>`:SQL Server FCI IP 位址資源名稱。 在 **[容錯移轉叢集管理員]** > **[角色]** 中，SQL Server FCI 角色的 [伺服器名稱] 底下，以滑鼠右鍵按一下 IP 位址資源，然後按一下 [內容]。 正確的值在 [一般] 索引標籤的 [名稱] 底下。 
 
-   - `<ILBIP>`：ILB IP 位址。 此位址在 Azure 入口網站中會設定為 ILB 前端位址。 這也是 SQL Server FCI IP 位址。 您可以在 [容錯移轉叢集管理員] 中，您找到 `<SQL Server FCI IP Address Resource Name>` 所在位置的相同內容頁面上找到該位址。  
+   - `<ILBIP>`:ILB IP 位址。 此位址在 Azure 入口網站中會設定為 ILB 前端位址。 這也是 SQL Server FCI IP 位址。 您可以在 [容錯移轉叢集管理員] 中，您找到 `<SQL Server FCI IP Address Resource Name>` 所在位置的相同內容頁面上找到該位址。  
 
-   - `<nnnnn>`：您在負載平衡器健康情況探查中設定的探查連接埠。 任何未使用的 TCP 連接埠都有效。 
+   - `<nnnnn>`:您在負載平衡器健康情況探查中設定的探查連接埠。 任何未使用的 TCP 連接埠都有效。 
 
 >[!IMPORTANT]
 >叢集參數的子網路遮罩必須是 TCP IP 廣播位址：`255.255.255.255`。
 
 設定叢集探查之後，您可以在 PowerShell 中查看所有叢集參數。 執行下列指令碼：
 
-   ```PowerShell
+   ```powershell
    Get-ClusterResource $IPResourceName | Get-ClusterParameter 
   ```
 

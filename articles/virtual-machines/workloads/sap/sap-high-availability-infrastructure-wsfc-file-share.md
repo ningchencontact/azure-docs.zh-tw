@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 064daa7ed8fb5be34524d9ea27cfa6c22b9c3e66
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 58cd76e93b9d0888211e8339ae17170685e71e74
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008366"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480005"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>使用 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和檔案共用，為 SAP 高可用性準備 Azure 基礎結構
 
@@ -276,7 +276,7 @@ ms.locfileid: "58008366"
 您可藉由執行下列程式碼，以手動方式部署 Microsoft 向外延展檔案伺服器叢集，如 [Azure 中的儲存空間直接存取][ms-blog-s2d-in-azure]部落格所述：  
 
 
-```PowerShell
+```powershell
 # Set an execution policy - all cluster nodes
 Set-ExecutionPolicy Unrestricted
 

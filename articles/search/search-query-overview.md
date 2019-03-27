@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 6afc9325cb2aababb286f653323531c9ebb04b4a
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: cfc9b44963f6880e97859bc7ab77bff12d258471
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438796"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500163"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>如何在 Azure 搜尋服務中撰寫查詢
 
@@ -76,7 +76,7 @@ Azure 搜尋服務緊密結合了索引設計和查詢設計。 事先要知道�
 上述螢幕擷取畫面列出了一部分不動產範例的索引屬性。 您可以在入口網站中檢視整個索引結構描述。 如需索引屬性的詳細資訊，請參閱[建立索引 REST API](https://docs.microsoft.com/rest/api/searchservice/create-index)。
 
 > [!Note]
-> 某些查詢功能會在整個索引 (而非個別欄位) 啟用。 這些功能包括：[同義字地圖](search-synonyms.md)、[自訂分析器](index-add-custom-analyzers.md)、[建議工具建構 (用於自動完成和自動建議)](index-add-suggesters.md)、[結果排名的評分邏輯](index-add-scoring-profiles.md)。
+> 某些查詢功能會在整個索引 (而非個別欄位) 啟用。 這些功能包括：[同義字地圖](search-synonyms.md)，[自訂分析器](index-add-custom-analyzers.md)， [（適用於自動完成和建議的查詢） 的建議工具建構](index-add-suggesters.md)，[評分邏輯排名結果](index-add-scoring-profiles.md)。
 
 ## <a name="elements-of-a-query-request"></a>查詢要求的元素
 

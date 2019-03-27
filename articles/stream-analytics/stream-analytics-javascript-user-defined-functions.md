@@ -1,24 +1,20 @@
 ---
 title: '教學課程：Azure 串流分析 JavaScript 使用者定義函式 | Microsoft Docs '
 description: 在此教學課程中，您將使用 JavaScript 使用者定義函式來執行進階查詢技術
-keywords: javascript, 使用者定義函式, udf
 services: stream-analytics
 author: rodrigoamicrosoft
-manager: kfile
-ms.assetid: ''
+ms.author: rodrigoa
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.workload: data-services
-ms.author: rodrigoa
-ms.openlocfilehash: e33b90d6f70bb1b765f5170ac37880d31e87f3a5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ff8e61c53774429087ffe1a9137d40b155eb3f68
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088869"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192270"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>教學課程：Azure 串流分析 JavaScript 使用者定義函式
  
@@ -50,12 +46,19 @@ JavaScript 使用者定義的函式支援無狀態且只做為計算用途的純
 雖然沒有在函式定義中封鎖 **Date.GetDate()** 或 **Math.random()** 等函式，您仍應避免使用它們。 這些函式**不會**在每次呼叫時都傳回同樣的結果，且「串流分析」服務不會記錄函式叫用和傳回值的日誌。 若函式針對同樣事件傳回不同的值，當您或串流分析重新啟動某作業之後，將不保證它具有可重覆性。
 
 ## <a name="add-a-javascript-user-defined-function-in-the-azure-portal"></a>在 Azure 入口網站中新增 JavaScript 使用者定義函式
-若要在現有串流分析作業下建立簡單的 JavaScript 使用者定義函式，請執行下列步驟：
+若要在現有串流分析作業下建立簡單的 JavaScript 使用者定義函式，請依照下列步驟執行：
+
+> [!NOTE]
+> 下列步驟適用於設定為在雲端執行的 Stream Analytics 作業。 如果您的串流分析作業設定為在 Azure IoT Edge 上執行，請改為使用 Visual Studio 並[使用C# 撰寫使用者定義的函式](stream-analytics-edge-csharp-udf.md)。
 
 1.  在 Azure 入口網站中，找出您的串流分析作業。
-2.  在 [作業拓撲] 下，選取您的函式。 空白的函式清單隨即出現。
-3.  若要建立新的使用者定義函式，請選取 [新增]。
+
+2. 在 [作業拓撲] 標題之下，選取 [函式]。 空白的函式清單隨即出現。
+
+3.  若要建立新的使用者定義函式，請選取 [+新增]。
+
 4.  在 [新增函式] 刀鋒視窗中，針對 [函式類型]，選取 [JavaScript]。 預設的函式範本會出現在編輯器中。
+
 5.  針對 **UDF 別名**，輸入 **hex2Int**，並變更函式實作，如下所示：
 
     ```javascript
@@ -70,7 +73,7 @@ JavaScript 使用者定義的函式支援無狀態且只做為計算用途的純
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>在查詢中呼叫 JavaScript 使用者定義函式
 
-1. 在查詢編輯器中，於 [作業拓撲] 下，選取 [查詢]。
+1. 在查詢編輯器的 [作業拓撲] 標題之下，選取 [查詢]。
 2.  編輯您的查詢，然後呼叫使用者定義函式，就像這樣：
 
     ```SQL
@@ -97,7 +100,7 @@ Azure 串流分析 JavaScript 使用者定義函式支援標準的內建 JavaScr
 串流分析 | JavaScript
 --- | ---
 bigint | Number (JavaScript 只能準確地表示最高到 2^53 的整數)
-Datetime | Date (JavaScript 只支援毫秒)
+DateTime | Date (JavaScript 只支援毫秒)
 double | 數字
 nvarchar(MAX) | 字串
 Record | Object
@@ -111,7 +114,7 @@ NULL | Null
 JavaScript | 串流分析
 --- | ---
 數字 | Bigint (若數字為整數且介於 long.MinValue 和 long.MaxValue 之間，否則為 double)
-日期 | Datetime
+日期 | DateTime
 字串 | nvarchar(MAX)
 Object | Record
 陣列 | 陣列

@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 7/25/2018
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 5559e2fc9b9cce95bd7d5d02a64d134e5eaa03be
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: 2758817d58fdd2e80b302b5f833308dbde1a6b63
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100609"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779159"
 ---
 # <a name="create-an-azure-dns-private-zone-using-the-azure-cli"></a>使用 Azure CLI 建立 Azure DNS 私人區域
 
@@ -47,7 +47,7 @@ az group create --name MyAzureResourceGroup --location "East US"
 
 ## <a name="create-a-dns-private-zone"></a>建立 DNS 私人區域
 
-使用 `az network dns zone create` 命令搭配值為 "Private" 的 **ZoneType** 參數來建立 DNS 區域。 下列範例會在 **MyAzureResourceGroup** 資源群組中建立 **contoso.local** DNS 區域，並使 **MyAzureVnet** 虛擬網路能夠使用此 DNS 區域。
+使用 `az network dns zone create` 命令搭配值為 "Private" 的 **ZoneType** 參數來建立 DNS 區域。 下列範例會在 **MyAzureResourceGroup** 資源群組中建立名為 **private.contoso.com** 的 DNS 區域，並使 **MyAzureVnet** 虛擬網路能夠使用此 DNS 區域。
 
 如果省略 **ZoneType** 參數，則會將區域建立為公用區域，因此，這就是建立私人區域的必要參數。
 
@@ -61,7 +61,7 @@ az network vnet create \
   --subnet-prefixes 10.2.0.0/24
 
 az network dns zone create -g MyAzureResourceGroup \
-   -n contoso.local \
+   -n private.contoso.com \
   --zone-type Private \
   --registration-vnets myAzureVNet
 ```
@@ -118,12 +118,12 @@ az vm create \
 
 若要建立 DNS 記錄，請使用 `az network dns record-set [record type] add-record` 命令。 如需說明，例如 A 記錄，請參閱 `azure network dns record-set A add-record --help`。
 
- 下列範例會在資源群組 **MyAzureResourceGroup** 中的 DNS 區域 **contoso.local** 中，建立具有相對名稱 **db** 的記錄。 記錄集的完整名稱是 **db.contoso.local**。 記錄類型為 "A"，IP 位址是 "10.2.0.4"。
+ 下列範例會在資源群組 **MyAzureResourceGroup** 中的 DNS 區域 **private.contoso.com** 中，建立具有相對名稱 **db** 的記錄。 記錄集的完整名稱是 **db.private.contoso.com**。 記錄類型為 "A"，IP 位址是 "10.2.0.4"。
 
 ```azurecli
 az network dns record-set a add-record \
   -g MyAzureResourceGroup \
-  -z contoso.local \
+  -z private.contoso.com \
   -n db \
   -a 10.2.0.4
 ```
@@ -135,13 +135,13 @@ az network dns record-set a add-record \
 ```azurecli
 az network dns record-set list \
   -g MyAzureResourceGroup \
-  -z contoso.local
+  -z private.contoso.com
 ```
 請記住，您不會看到針對兩部測試虛擬機器自動建立的 A 記錄。
 
 ## <a name="test-the-private-zone"></a>測試私人區域
 
-現在您可以測試 **contoso.local** 私人區域的名稱解析。
+現在，您可以測試 **private.contoso.com** 私人區域的名稱解析。
 
 ### <a name="configure-vms-to-allow-inbound-icmp"></a>設定 VM，以允許輸入 ICMP
 
@@ -160,13 +160,13 @@ az network dns record-set list \
 
 1. 從 myVM02 Windows PowerShell 命令提示字元中，使用自動註冊的主機名稱 Ping myVM01：
    ```
-   ping myVM01.contoso.local
+   ping myVM01.private.contoso.com
    ```
    您應該會看到如下所示的輸出：
    ```
-   PS C:\> ping myvm01.contoso.local
+   PS C:\> ping myvm01.private.contoso.com
 
-   Pinging myvm01.contoso.local [10.2.0.4] with 32 bytes of data:
+   Pinging myvm01.private.contoso.com [10.2.0.4] with 32 bytes of data:
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time=1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
@@ -180,13 +180,13 @@ az network dns record-set list \
    ```
 2. 現在 Ping 您先前建立的 **db** 名稱：
    ```
-   ping db.contoso.local
+   ping db.private.contoso.com
    ```
    您應該會看到如下所示的輸出：
    ```
-   PS C:\> ping db.contoso.local
+   PS C:\> ping db.private.contoso.com
 
-   Pinging db.contoso.local [10.2.0.4] with 32 bytes of data:
+   Pinging db.private.contoso.com [10.2.0.4] with 32 bytes of data:
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128

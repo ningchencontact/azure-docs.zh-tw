@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 84287191af60a5e9306f03ca2ebd10f9e347c9ac
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 87c5d24f0e9077acf66bacd97097cfc32bd49ead
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453047"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432102"
 ---
 # <a name="what-is-computer-vision"></a>什麼是電腦視覺？
 
@@ -28,7 +28,7 @@ Azure 的電腦視覺服務可供開發人員存取進階演算法，以處理�
 
 您可以分析影像，以偵測並提供與其視覺特徵和特性有關的深入解析。 下表中的所有功能是由[分析影像](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API 所提供。
 
-|  動作 | 說明 |
+| 動作 | 說明 |
 | ------ | ----------- |
 |**[標記視覺特徵](concept-tagging-images.md)**|從一組數千個可辨識的物件、生物、景象和動作，識別及標記影像中的視覺特徵。 若標記不明確或不屬於常識，API 回應會提供「提示」來釐清標記在已知設定內容中的意涵。 標記並未限定於主體 (例如前景中的人物)，而是包含周遭環境 (室內或室外)、家具、工具、植物、動物、配件和小工具等。|
 |**[偵測物件](concept-object-detection.md)**| 物件偵測與標記功能類似，但 API 會傳回每個所套用標記的週框方塊座標。 例如，如果影像包含狗、貓或人物，「偵測」作業就會列出這些物件及其在影像中的座標。 您可以使用此功能來處理影像中物件間的進一步關聯性。 當影像中有多個相同標記的執行個體時，此功能也會讓您知道。|
@@ -42,12 +42,11 @@ Azure 的電腦視覺服務可供開發人員存取進階演算法，以處理�
 |**[產生縮圖](concept-generating-thumbnails.md)**|分析影像的內容，為其產生適當的縮圖。 「電腦視覺」會先產生高品質的縮圖，然後分析該影像內的物件，以判斷「關注區域」。 接著，「電腦視覺」會裁剪影像以符合關注區域的需求。 產生的縮圖可以使用與原始影像的外觀比例不同的外觀比例來呈現，視您的需求而定。|
 |**[取得關注區域](concept-generating-thumbnails.md#area-of-interest)**|分析影像的內容以傳回「關注區域」的座標。 這與用來產生縮圖的功能相同，但「電腦視覺」會傳回該區域的週框方塊座標，而不會裁剪影像，因此呼叫端應用程式可以視需要修改原始影像。|
 
-
 ## <a name="extract-text-from-images"></a>擷取影像中的文字
 
-您可以使用電腦視覺功能，將影像中的[文字擷取 (使用光學字元辨識 (OCR))](concept-extracting-text-ocr.md) 為機器可讀取的字元資料流。 如有需要，OCR 會校正已辨識文字的旋轉角度，並提供每個字的框架座標。 OCR 支援 25 種語言，且會根據辨識的文字自動偵測其語言。
+您可以使用電腦視覺功能，利用[光學字元辨識 (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api) 將影像中的文字擷取為機器可讀取的字元資料流。 如有需要，OCR 會校正已辨識文字的旋轉角度，並提供每個字的框架座標。 OCR 支援 25 種語言，且會根據辨識的文字自動偵測其語言。
 
-您也可以在影像中[辨識印刷和手寫文字](concept-recognizing-text.md)。 電腦視覺可從表層和背景不同的各種物件影像中偵測並擷取出印刷和手寫的文字，例如收據、海報、名片、信件和白板等。 目前，印刷和手寫文字的辨識功能處於預覽階段，英文是唯一支援的語言。 
+您也可以使用[閱讀 API](concept-recognizing-text.md#read-api)，從影像和大量文字的文件中擷取列印和手寫文字。 讀取 API 會使用已更新的模型，並處理表層和背景不同的各種物件，例如收據、海報、名片、信件和白板等。 目前，讀取 API 處於預覽階段，英文是唯一支援的語言。
 
 ## <a name="moderate-content-in-images"></a>調節影像中的內容
 

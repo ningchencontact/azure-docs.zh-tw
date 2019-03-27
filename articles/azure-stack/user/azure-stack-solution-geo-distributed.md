@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7c7279f1895764c2a3ed73e824d44c2eed68240c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 3df5bd177dfd88e74a8dbc72dd1966a18a61d0f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244568"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860579"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>教學課程：使用 Azure 和 Azure Stack 來建立異地分散應用程式解決方案
 
@@ -135,7 +135,7 @@ ms.locfileid: "55244568"
 
 1. **登入 Azure Pipelines** 以確認能夠建立組建定義。
 
-2. 新增 **-r win10-x64** 程式碼。 這是觸發 .Net Core 的獨立部署時所需的程式碼。
+2. 新增 **-r win10-x64** 程式碼。 這是觸發 .NNE Core 的獨立部署時所需的程式碼。
 
     ![替代文字](media/azure-stack-solution-geo-distributed/image4.png)
 
@@ -154,9 +154,9 @@ Azure DevOps 和 Azure DevOps Server 提供具有高度設定和管理能力的�
 
 ![替代文字](media/azure-stack-solution-geo-distributed/image5.png)
 
-1.  在 Visual Studio Online (VSO) 的 [建置及發行] 頁面的 [發行] 索引標籤下選取**加號**按鈕，以新增發行。
+1. 在 Visual Studio Online (VSO) 的 [建置及發行] 頁面的 [發行] 索引標籤下選取**加號**按鈕，以新增發行。
 
-    ![替代文字](media/azure-stack-solution-geo-distributed/image6.png)
+   ![替代文字](media/azure-stack-solution-geo-distributed/image6.png)
 
 2. 套用 **Azure App Service 部署**範本。
 
@@ -210,7 +210,7 @@ Azure DevOps 和 Azure DevOps Server 提供具有高度設定和管理能力的�
 
 14. 選取 Azure Stack 端點的**訂用帳戶**。
 
-  ![替代文字](media/azure-stack-solution-geo-distributed/image20.png)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image20.png)
 
 15. 將 Azure Stack Web 應用程式名稱設定為 **App Service 名稱**。
 
@@ -299,11 +299,11 @@ Azure DevOps 和 Azure DevOps Server 提供具有高度設定和管理能力的�
 
 ![DNS 記錄頁面範例](media/azure-stack-solution-geo-distributed/image28.png)
 
-1.  在 [網域名稱註冊機構] 中，選取 [新增或建立] 以建立記錄。 某些提供者有不同的連結來新增其他記錄類型。 請參閱提供者的文件。
+1. 在 [網域名稱註冊機構] 中，選取 [新增或建立] 以建立記錄。 某些提供者有不同的連結來新增其他記錄類型。 請參閱提供者的文件。
 
-2.  新增 CNAME 記錄以將子網域對應至應用程式的預設主機名稱。
+2. 新增 CNAME 記錄以將子網域對應至應用程式的預設主機名稱。
 
-  在 www.northwindcloud.com 網域範例中，請新增將名稱對應至 <app\_name>.azurewebsites.net 的 CNAME 記錄。
+   在 www.northwindcloud.com 網域範例中，請新增將名稱對應至 <app\_name>.azurewebsites.net 的 CNAME 記錄。
 
 新增 CNAME 之後，DNS 記錄分頁看起來如下列範例所示：
 
@@ -311,47 +311,47 @@ Azure DevOps 和 Azure DevOps Server 提供具有高度設定和管理能力的�
 
 ### <a name="enable-the-cname-record-mapping-in-azure"></a>在 Azure 中啟用 CNAME 記錄對應
 
-1.  在新的索引標籤中，登入 Azure 入口網站。
+1. 在新的索引標籤中，登入 Azure 入口網站。
 
-2.  瀏覽至 App Service。
+2. 瀏覽至 App Service。
 
-3.  選取 Web 應用程式。
+3. 選取 Web 應用程式。
 
-4.  在 Azure 入口網站之應用程式分頁的左側導覽中，選取 [自訂網域]。
+4. 在 Azure 入口網站之應用程式分頁的左側導覽中，選取 [自訂網域]。
 
-5.  選取 [新增主機名稱] 旁的 **+** 圖示。
+5. 選取 [新增主機名稱] 旁的 **+** 圖示。
 
-1.  輸入完整網域名稱，例如 `www.northwindcloud.com`。
+1. 輸入完整網域名稱，例如 `www.northwindcloud.com`。
 
-2.  選取 [驗證]。
+2. 選取 [驗證]。
 
-3.  如有指示，請再將其他類型的記錄 (`A` 或 `TXT`) 新增至網域名稱註冊機構 DNS 記錄。 Azure 會提供這些記錄的類型與值：
+3. 如有指示，請再將其他類型的記錄 (`A` 或 `TXT`) 新增至網域名稱註冊機構 DNS 記錄。 Azure 會提供這些記錄的類型與值：
 
-    a.  **A** 記錄對應至應用程式的 IP 位址。
+   a.  **A** 記錄對應至應用程式的 IP 位址。
 
-    b.  **TXT** 記錄對應至應用程式的預設主機名稱 <app_name>.azurewebsites.net。 App Service 只會在設定時使用此記錄，以確認自訂網域擁有權。 確認之後，請刪除 TXT 記錄。
+   b.  **TXT** 記錄對應至應用程式的預設主機名稱 <app_name>.azurewebsites.net。 App Service 只會在設定時使用此記錄，以確認自訂網域擁有權。 確認之後，請刪除 TXT 記錄。
 
-4.  在網域註冊機構索引標籤中完成這項工作並重新驗證，直到 [新增主機名稱] 按鈕啟動為止。
+4. 在網域註冊機構索引標籤中完成這項工作並重新驗證，直到 [新增主機名稱] 按鈕啟動為止。
 
-5.  確定 **[主機名稱記錄類型] 設為 [CNAME (www.example.com 或任何子網域)]。
+5. 確定 **[主機名稱記錄類型] 設為 [CNAME (www.example.com 或任何子網域)]。
 
-6.  選取 [新增主機名稱]。
+6. 選取 [新增主機名稱]。
 
-7.  輸入完整網域名稱，例如 `northwindcloud.com`。
+7. 輸入完整網域名稱，例如 `northwindcloud.com`。
 
-8.  選取 [驗證]。
+8. 選取 [驗證]。
 
-9.  [新增] 已啟動。
+9. [新增] 已啟動。
 
 10. 確定 **[主機名稱記錄類型] 設為 [A 記錄 (example.com)]。
 
 11. **新增主機名稱**。
 
-  可能需要一些時間，新的主機名稱才會反映在應用程式的 [自訂網域] 頁面中。 嘗試重新整理瀏覽器以更新資料。
+    可能需要一些時間，新的主機名稱才會反映在應用程式的 [自訂網域] 頁面中。 嘗試重新整理瀏覽器以更新資料。
   
-  ![替代文字](media/azure-stack-solution-geo-distributed/image31.png) 
+    ![替代文字](media/azure-stack-solution-geo-distributed/image31.png) 
   
-  如果發生錯誤，頁面底部會出現驗證錯誤通知。 ![驗證錯誤](media/azure-stack-solution-geo-distributed/image32.png)
+    如果發生錯誤，頁面底部會出現驗證錯誤通知。 ![驗證錯誤](media/azure-stack-solution-geo-distributed/image32.png)
 
 > [!Note]  
 >  您可以重複執行上述步驟，以對應萬用字元網域 (\*.northwindcloud.com)。 如此即可直接將其他子網域新增至此應用程式服務，而無須為每個子網域建立個別的 CNAME 記錄。 請依照註冊機構的指示進行此設定。
@@ -482,15 +482,15 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 #### <a name="upload-the-ssl-certificate"></a>上傳 SSL 憑證
 
-1.  在 Web 應用程式的左側導覽中選取 [SSL 設定]。
+1. 在 Web 應用程式的左側導覽中選取 [SSL 設定]。
 
-2.  選取 [上傳憑證]。
+2. 選取 [上傳憑證]。
 
-3.  在 [PFX 憑證檔案] 中，選取 PFX 檔案。
+3. 在 [PFX 憑證檔案] 中，選取 PFX 檔案。
 
-4.  4. 在 [憑證密碼] 中，輸入匯出 PFX 檔案時所建立的密碼。
+4. 1. 在 [憑證密碼] 中，輸入匯出 PFX 檔案時所建立的密碼。
 
-5.  選取 [上傳] 。
+5. 選取 [上傳] 。
 
 ![Upload certificate](media/azure-stack-solution-geo-distributed/image38.png)
 
@@ -507,9 +507,9 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 1.  在 [新增 SSL 繫結] 頁面中，使用下拉式清單選取要保護的網域名稱，以及要使用的憑證。
 
-2.  在 [SSL 類型]中，選擇要使用[**伺服器名稱指示 (SNI)**](http://en.wikipedia.org/wiki/Server_Name_Indication) 還是以 IP 為基礎的 SSL。
+2.  在 [SSL 類型]中，選擇要使用[**伺服器名稱指示 (SNI)**](https://en.wikipedia.org/wiki/Server_Name_Indication) 還是以 IP 為基礎的 SSL。
 
--   **以 SNI 為基礎的 SSL** - 可能會新增多個以 SNI 為基礎的 SSL 繫結。 此選項可允許多個 SSL 憑證保護同一個 IP 位址上的多個網域。 大多數現代化的瀏覽器 (包括 Internet Explorer、Chrome、Firefox 和 Opera) 都支援 SNI (可在[伺服器名稱指示](http://wikipedia.org/wiki/Server_Name_Indication)找到更完整的瀏覽器支援資訊)。
+-   **以 SNI 為基礎的 SSL** - 可能會新增多個以 SNI 為基礎的 SSL 繫結。 此選項可允許多個 SSL 憑證保護同一個 IP 位址上的多個網域。 大多數現代化的瀏覽器 (包括 Internet Explorer、Chrome、Firefox 和 Opera) 都支援 SNI (可在[伺服器名稱指示](https://wikipedia.org/wiki/Server_Name_Indication)找到更完整的瀏覽器支援資訊)。
 
 -   **以 IP 為基礎的 SSL** - 可能只會新增一個以 IP 為基礎的 SSL 繫結。 此選項只允許一個 SSL 憑證保護專用的公用 IP 位址。 若要保護多個網域，請全部使用相同的 SSL 憑證來保護它們。 這是 SSL 繫結的傳統選項。
 
@@ -588,23 +588,23 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 ### <a name="add-traffic-manager-endpoints"></a>新增流量管理員端點
 
-1.  在入口網站的搜尋列中，搜尋您在上一節建立的 **流量管理員設定檔** 名稱，然後在顯示的結果中選取流量管理員設定檔。
+1. 在入口網站的搜尋列中，搜尋您在上一節建立的 **流量管理員設定檔** 名稱，然後在顯示的結果中選取流量管理員設定檔。
 
-2.  在 [流量管理員設定檔] 的 [設定] 區段中，選取 [端點]。
+2. 在 [流量管理員設定檔] 的 [設定] 區段中，選取 [端點]。
 
-3.  選取 [新增] 。
+3. 選取 [新增] 。
 
-4.  新增 Azure Stack 端點。
+4. 新增 Azure Stack 端點。
 
-5.  針對 [類型]，選取 [外部端點]。
+5. 針對 [類型]，選取 [外部端點]。
 
-6.  提供此端點的 [名稱]，最好是 Azure Stack 的名稱。
+6. 提供此端點的 [名稱]，最好是 Azure Stack 的名稱。
 
-7.  針對完整網域名稱 (**FQDN**)，請使用 Azure Stack Web 應用程式的外部 URL。
+7. 針對完整網域名稱 (**FQDN**)，請使用 Azure Stack Web 應用程式的外部 URL。
 
-8.  在 [地區對應] 下方，選取資源所在的區域/洲別，例如**歐洲**。
+8. 在 [地區對應] 下方，選取資源所在的區域/洲別，例如**歐洲**。
 
-9.  在顯示的 [國家/區域] 下拉式清單下方，選取將套用到此端點的國家/地區，例如**德國**。
+9. 在顯示的 [國家/區域] 下拉式清單下方，選取將套用到此端點的國家/地區，例如**德國**。
 
 10. 維持不勾選 [新增為已停用]。
 
@@ -628,12 +628,12 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 16. 選取 [確定]
 
-  > [!Note]  
-  >  建立至少一個地理範圍為 [全部 (全球)] 的端點，作為資源的預設端點。
+    > [!Note]  
+    >  建立至少一個地理範圍為 [全部 (全球)] 的端點，作為資源的預設端點。
 
-1.  這兩個端點新增完畢後，它們會顯示在 [流量管理員設定檔] 中，而且監視狀態是 [線上]。
+1. 這兩個端點新增完畢後，它們會顯示在 [流量管理員設定檔] 中，而且監視狀態是 [線上]。
 
-  ![替代文字](media/azure-stack-solution-geo-distributed/image46.png)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image46.png)
 
 **國際企業需依賴 Azure 異地分散功能**
 

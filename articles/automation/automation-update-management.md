@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5267467b2874c1cc36c8a9f5f27cc1c348eba7ac
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a2adb0dbbacbec28f241ae89d1b9f763e0f00b90
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369763"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447608"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -238,7 +238,7 @@ Heartbeat
 
 ### <a name="multi-tenant"></a>跨租用戶更新部署
 
-如果您有另一個 Azure 租用戶的電腦向「更新管理」報告您需要修補，則您必須使用下列因應措施進行排程。 您可以將 [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule?view=azurermps-6.13.0) Cmdlet 搭配參數 `-ForUpdate` 使用以建立排程，然後使用 [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration?view=azurermps-6.13.0
+如果您有另一個 Azure 租用戶的電腦向「更新管理」報告您需要修補，則您必須使用下列因應措施進行排程。 您可以將 [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) Cmdlet 搭配參數 `-ForUpdate` 使用以建立排程，然後使用 [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
 ) Cmdlet 並將其他租用戶中的機器傳遞到 `-NonAzureComputer` 參數。 下列範例顯示做法：
 
 ```azurepowershell-interactive

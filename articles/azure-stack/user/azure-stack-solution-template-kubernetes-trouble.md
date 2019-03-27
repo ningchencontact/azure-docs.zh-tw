@@ -5,22 +5,21 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/05/2019
-ms.author: mabrigg
+ms.author: mabvrigg
+ms.date: 03/20/2019
 ms.reviewer: waltero
-ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 551958317249cbfa25e3af9922f9ded6850c2521
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.lastreviewed: 03/20/2019
+ms.openlocfilehash: 01a9405c98160149782ab2cf248f64818d631dde
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752291"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293782"
 ---
 # <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>針對 Azure Stack 上的 Kubernetes 部署進行疑難排解
 
@@ -67,8 +66,8 @@ ms.locfileid: "55752291"
 
     指令碼會執行下列工作：
     - 安裝 etcd、Docker 和 Kubernetes 資源，例如 kubelet。 etcd 是分散式金鑰值存放區，可供您跨電腦叢集來儲存儲存。 Docker 支援簡易的作業系統層級虛擬化 (稱為容器)。 Kubelet 是在每個 Kubernetes 節點上執行的節點代理程式。
-    - 設定 etcd 服務。
-    - 設定 Kubelet 服務。
+    - 設定 **etcd** 服務。
+    - 設定 **kubelet** 服務。
     - 啟動 kubelet。 此工作涉及下列步驟：
         1. 啟動 API 服務。
         2. 啟動控制器服務。
@@ -78,16 +77,16 @@ ms.locfileid: "55752291"
 7. 下載並執行自訂指令碼擴充功能。
 
 7. 執行代理程式指令碼。 代理程式自訂指令碼會執行下列工作：
-    - 安裝 etcd
-    - 設定 Kubelet 服務
-    - 加入 Kubernetes 叢集
+    - 安裝 **etcd**。
+    - 設定 **kubelet** 服務。
+    - 加入 Kubernetes 叢集。
 
 ## <a name="steps-for-troubleshooting"></a>疑難排解步驟
 
 您可以在支援 Kubernetes 叢集的 VM 上收集記錄。 您也可以檢閱部署記錄。 您可能也需要詢問 Azure Stack 系統管理員來確認您需要使用的 Azure Stack 版本，並從 Azure Stack 取得與部署相關的記錄。
 
 1. 檢閱[部署狀態](#review-deployment-status)，並從 Kubernetes 叢集中的主要節點[擷取記錄](#get-logs-from-a-vm)。
-2. 務必使用最新版的 Azure Stack。 如果您不確定您使用的是哪一個版本，請連絡您的 Azure Stack 管理員。 Kubernetes Cluster Marketplace 項目 0.3.0 需要 Azure Stack 1808 版或更新版本。
+2. 務必使用最新版的 Azure Stack。 如果您不確定您使用的是哪一個版本，請連絡您的 Azure Stack 管理員。
 3.  檢閱 VM 建立檔案。 您可能會有下列問題：  
     - 公開金鑰可能無效。 檢閱您建立的金鑰。  
     - 建立 VM 時可能觸發了內部錯誤，或觸發了建立錯誤。 有數個因素可能會造成錯誤，包括 Azure Stack 訂用帳戶的容量限制。
@@ -120,60 +119,52 @@ ms.locfileid: "55752291"
 
     每個項目都有綠色或紅色的狀態圖示。
 
-## <a name="get-logs-from-a-vm"></a>從 VM 取得記錄
+## <a name="review-deployment-logs"></a>檢閱部署記錄
 
-若要產生記錄，您需要連線至叢集的主要 VM，開啟 Bash 提示字元，然後執行指令碼。 您可以在叢集資源群組中找到主要 VM，其名稱為 `k8s-master-<sequence-of-numbers>`。 
+如果 Azure Stack 入口網站未提供足夠的資訊來供您進行疑難排解或克服部署失敗，則下一個步驟是深入了解叢集記錄檔。 若要手動擷取部署記錄檔，您通常需要連接到叢集的其中一個主要虛擬機器。 更簡單的替代方法是下載並執行 Azure Stack 團隊提供的下列 [Bash 指令碼](https://aka.ms/AzsK8sLogCollectorScript)。 此指令碼會連線到 DVM 和叢集的虛擬機器，收集相關的系統和叢集記錄檔，並將它們下載回您的工作站。
 
 ### <a name="prerequisites"></a>必要條件
 
-在您用來管理 Azure Stack 的電腦上需要 Bash 提示字元。 使用 bash 來執行指令碼以存取記錄。 在 Windows 電腦上，您可以使用隨 Git 一起安裝的 Bash 提示字元。 若要取得最新版的 Git，請參閱 [Git 下載](https://git-scm.com/downloads) \(英文\)。
+您需要在用來管理 Azure Stack 的電腦上具有 Bash 提示字元。 在 Windows 電腦上，您可以通過安裝 [Git for Windows](https://git-scm.com/downloads) 來取得 Bash 提示字元。 安裝完成後，在開始功能表中尋找 _Git Bash_。
 
-### <a name="get-logs"></a>取得記錄
+### <a name="retrieving-the-logs"></a>擷取記錄檔
 
-若要取得記錄，請採取下列步驟：
+請遵循下列步驟來收集和下載叢集記錄檔：
 
-1. 開啟 bash 提示字元。 如果您在 Windows 電腦上使用 Git，則可從下列路徑開啟 Bash 提示字元：`c:\programfiles\git\bin\bash.exe`。
-2. 執行下列 bash 命令：
+1. 開啟 Bash 提示字元。 從 Windows 電腦，開啟 _Git Bash_ 或執行：`C:\Program Files\Git\git-bash.exe`。
+
+2. 透過在 Bash 提示字元中執行下列命令來下載記錄檔收集器指令碼：
 
     ```Bash  
     mkdir -p $HOME/kuberneteslogs
     cd $HOME/kuberneteslogs
     curl -O https://raw.githubusercontent.com/msazurestackworkloads/azurestack-gallery/master/diagnosis/getkuberneteslogs.sh
-    sudo chmod 744 getkuberneteslogs.sh
+    chmod 744 getkuberneteslogs.sh
     ```
 
-    > [!Note]  
-    > 在 Windows 上，您不需要執行 `sudo`。 相反地，您可以只使用 `chmod 744 getkuberneteslogs.sh`。
+3. 尋找指令碼所需的資訊並執行它：
 
-3. 在相同的工作階段中執行下列命令，並更新參數以符合您的環境：
-
-    ```Bash  
-    ./getkuberneteslogs.sh --identity-file id_rsa --user azureuser --vmdhost 192.168.102.37
-    ```
-
-4. 請檢閱參數並根據環境來設定其值。
     | 參數           | 說明                                                                                                      | 範例                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-    | -i, --identity-file | 要與 Kubernetes 主要 VM 連線的 RSA 私密金鑰檔案。 金鑰必須以 `-----BEGIN RSA PRIVATE KEY-----` 開頭 | C:\data\privatekey.pem                                                        |
-    | -h, --host          | Kubernetes 叢集主要 VM 的公用 IP 或完整網域名稱 (FQDN)。 VM 名稱的開頭為 `k8s-master-`。                       | IP：192.168.102.37<br><br>FQDN：k8s-12345.local.cloudapp.azurestack.external      |
-    | -u, --user          | Kubernetes 叢集主要 VM 的使用者名稱。 您可以在設定 Marketplace 項目時設定此名稱。                                                                    | azureuser                                                                     |
-    | -d, --vmdhost       | DVM 的公用 IP 或 FQDN。 VM 名稱的開頭為 `vmd-`。                                                       | IP：192.168.102.38<br><br>DNS：vmd-dnsk8-frog.local.cloudapp.azurestack.external |
+    | -d, --vmd-host      | DVM 的公用 IP 或完整網域名稱 (FQDN)。 虛擬機器名稱以 `vmd-` 開頭。 | IP：192.168.102.38<br>DNS: vmd-myk8s.local.cloudapp.azurestack.external |
+    | -h, --help  | 列印命令使用方式。 | |
+    | -i, --identity-file | 建立 Kubernetes 叢集時，RSA 私密金鑰檔案會傳遞至 marketplace 項目。 需要遠端存取 Kubernetes 節點。 | C:\data\id_rsa.pem (Putty)<br>~/.ssh/id_rsa (SSH)
+    | -m, --master-host   | Kubernetes 主要節點的公用 IP 或完整網域名稱 (FQDN)。 虛擬機器名稱以 `k8s-master-` 開頭。 | IP：192.168.102.37<br>FQDN：k8s-12345.local.cloudapp.azurestack.external      |
+    | -u, --user          | 建立 Kubernetes 叢集時，使用者名稱會傳遞至 marketplace 項目。 需要遠端存取 Kubernetes 節點 | azureuser (預設值) |
 
-   當您新增參數值時，它可能看起來像下列程式碼：
+
+   當您新增參數值時，您的命令可能看起來可能像這樣：
 
     ```Bash  
-    ./getkuberneteslogs.sh --identity-file "C:\secretsecret.pem" --user azureuser --vmdhost 192.168.102.37
+    ./getkuberneteslogs.sh --identity-file "C:\id_rsa.pem" --user azureuser --vmd-host 192.168.102.37
      ```
 
-    執行成功後便會建立記錄。
+4. 幾分鐘後，指令碼會將收集的記錄檔輸出到名為 `KubernetesLogs_{{time-stamp}}` 的目錄。 在那裡，您可以找到屬於該叢集的每個虛擬機器的目錄。
 
-    ![產生的記錄](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-generated-logs.png)
+    記錄檔收集器指令碼也會在記錄檔中尋找錯誤，並在找到已知的問題時包含疑難排解步驟。 請確定您執行的是最新版本的指令碼，以增加尋找已知的問題的機率。
 
-
-4. 在命令所建立的資料夾中擷取記錄。 命令會建立新的資料夾，並在資料夾加上時間戳記。
-    - KubernetesLogsYYYY-MM-DD-XX-XX-XX-XXX
-        - Dvmlogs
-        - Acsengine-kubernetes-dvm.log
+> [!Note]  
+> 查看此 GitHub [存放庫](https://github.com/msazurestackworkloads/azurestack-gallery/tree/master/diagnosis) \(英文\)，以深入了解有關記錄檔收集器指令碼的詳細資訊。
 
 ## <a name="next-steps"></a>後續步驟
 

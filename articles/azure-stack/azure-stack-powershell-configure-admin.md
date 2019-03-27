@@ -11,16 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 03/15/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: d5b2b1a73a15874072caacd7549c1c328e7edb26
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: a0411e3aa8f4df1039a129fd73ebdad5a58c5a0c
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116553"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58257579"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>以操作員的身分使用 PowerShell 連線到 Azure Stack
 
@@ -80,5 +80,6 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 ## <a name="next-steps"></a>後續步驟
 
- - [開發適用於 Azure Stack 的範本](user/azure-stack-develop-templates.md)
- - [使用 PowerShell 部署範本](user/azure-stack-deploy-template-powershell.md)
+- [開發適用於 Azure Stack 的範本](user/azure-stack-develop-templates.md)
+- [使用 PowerShell 部署範本](user/azure-stack-deploy-template-powershell.md)
+  - [Azure Stack 模組參考](https://docs.microsoft.com/powershell/azure/azure-stack/overview)  

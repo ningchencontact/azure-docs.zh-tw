@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/19/2016
 ms.author: mbullwin
-ms.openlocfilehash: 91790f372dce4322d316b42c4bfa7ad36625c91d
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 8a7b19dd6e5bc08c0c7e278b514ecaa9dc13a00e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315566"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485233"
 ---
 # <a name="powershell-script-to-create-an-application-insights-resource"></a>建立 Application Insights 資源的 PowerShell 指令碼
 
@@ -42,7 +42,7 @@ ms.locfileid: "57315566"
 
 *PowerShell 指令碼*  
 
-```PowerShell
+```powershell
 
 
 ###########################################

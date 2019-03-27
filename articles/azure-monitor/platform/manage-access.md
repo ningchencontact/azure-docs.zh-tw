@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: be285b6a51ae5a0f4239b841ce64100f1875d785
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 6990bed4065183ecabb502ea90b5ddf26db563b4
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294343"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500180"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>管理記錄檔資料與 Azure 監視器中的工作區
 「Azure 監視器」會將記錄資料儲存在 Log Analytics 工作區中，這基本上是一個包含資料和設定資訊的容器。 若要管理對記錄資料的存取，您需執行與工作區相關的各種系統管理工作。 您或組織的其他成員可能會使用多個工作區來管理從所有或部分 IT 基礎結構收集而來的不同資料。
@@ -114,7 +114,7 @@ _存取模式_是指使用者如何存取 Log Analytics 工作區，並定義其
 |:---|:---|:---|
 | 為每個模型的適用對象？ | 中央系統管理。 系統管理員必須設定資料收集和使用者需要存取各種不同的資源。 也目前需要有存取 Azure 外部的資源的記錄檔的使用者。 | 應用程式的團隊。 受監視的 Azure 資源的系統管理員。 |
 | 哪些使用者需要檢視記錄檔？ | 工作區的權限。 請參閱**工作區的權限**中[管理帳戶和使用者](#manage-accounts-and-users)。 | 讀取資源的存取權。 請參閱**資源的權限**中[管理帳戶和使用者](#manage-accounts-and-users)。 權限可以是繼承的 （例如從內含的資源群組），或直接指派給資源。 將自動指派資源的記錄檔的權限。 |
-| 什麼是權限範圍？ | 工作區。 存取工作區的使用者可以查詢資料表中他們擁有權限的該工作區中的所有記錄檔。 請參閱[資料表存取控制](#table-access-control) | Azure 資源。 使用者可以查詢記錄檔的資源有從任何工作區的存取權的人員，但無法查詢其他資源的記錄檔。 |
+| 什麼是權限範圍？ | 工作區。 存取工作區的使用者可以查詢資料表中他們擁有權限的該工作區中的所有記錄檔。 請參閱[資料表存取控制](#table-level-rbac) | Azure 資源。 使用者可以查詢記錄檔的資源有從任何工作區的存取權的人員，但無法查詢其他資源的記錄檔。 |
 | 如何使用者存取記錄檔？ | 開始**記錄檔**從**Azure 監視器**功能表或**Log Analytics 工作區**。 | 開始**記錄檔**功能表中的 Azure 資源。 |
 
 
@@ -150,13 +150,13 @@ _存取控制模式_是每個工作區上設定，會定義如何決定該工作
 
 您可以使用下列命令來檢查訂用帳戶中的所有工作區的存取控制模式：
 
-```PowerShell
+```powershell
 Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {$_.Name + ": " + $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions} 
 ```
 
 您可以使用下列指令碼來設定特定的工作區的存取控制模式：
 
-```PowerShell
+```powershell
 $WSName = "my-workspace"
 $Workspace = Get-AzResource -Name $WSName -ExpandProperties
 if ($Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
@@ -168,7 +168,7 @@ Set-AzResource -ResourceId $Workspace.ResourceId -Properties $Workspace.Properti
 
 使用下列指令碼來設定訂用帳戶中的所有工作區的存取控制模式
 
-```PowerShell
+```powershell
 Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {
 if ($_.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
     { $_.Properties.features | Add-Member enableLogAccessUsingOnlyResourcePermissions $true -Force }
@@ -273,13 +273,13 @@ Log Analytics 參與者角色包含下列 Azure 動作：
 
 此權限通常授與角色，其中包含從 _\*/讀取或_ _\*_ 例如內建的權限[讀取器](../../role-based-access-control/built-in-roles.md#reader)並[參與者](../../role-based-access-control/built-in-roles.md#contributor)角色。 請注意，包含特定動作的自訂角色或專用的內建角色可能不會包含此權限。
 
-請參閱[定義每個資料表的存取控制](#defining-per-table-access-control)下方如果您想要建立不同資料表的不同的存取控制。
+請參閱[定義每個資料表的存取控制](#table-level-rbac)下方如果您想要建立不同資料表的不同的存取控制。
 
 
 ## <a name="table-level-rbac"></a>資料表層級 RBAC
 **資料表 層級 RBAC**可讓您提供更細微的控制，除了其他的權限的 Log Analytics 工作區中的資料。 這個控制項可讓您定義只有一組特定的使用者能夠存取的特定資料類型。
 
-實作使用的資料表存取控制[Azure 的自訂角色](../../role-based-access-control/custom-roles.md)授與或拒絕存取特定[資料表](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized)工作區中。 這些角色會套用至工作區為主或以資源為中心的工作區[存取控制模式](#access-control-modes)使用者不論[存取模式](#access-mode)。
+實作使用的資料表存取控制[Azure 的自訂角色](../../role-based-access-control/custom-roles.md)授與或拒絕存取特定[資料表](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized)工作區中。 這些角色會套用至工作區為主或以資源為中心的工作區[存取控制模式](#access-control-mode)使用者不論[存取模式](#access-modes)。
 
 建立[自訂角色](../../role-based-access-control/custom-roles.md)執行下列動作，以定義資料表的存取控制的存取權。
 

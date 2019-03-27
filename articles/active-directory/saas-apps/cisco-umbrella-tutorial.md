@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 675dca98-f119-4463-8350-d6a45d5601e3
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f51ade234c8792f235bd8c9218b3c6ef9f22de7
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9a1b0763e33607367939476ca155040295de864c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870817"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57837978"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>教學課程：Azure Active Directory 與 Cisco Umbrella 整合
 
@@ -173,7 +173,7 @@ ms.locfileid: "56870817"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -229,7 +229,7 @@ Cisco Umbrella 需以手動方式佈建。
 
     c. 從 [選擇委派管理員角色]，選取您的角色。
   
-    d. 在 [電子郵件地址] 欄位中，輸入使用者的電子郵件地址，像是 **brittasimon@contoso.com**。
+    d. 在 [電子郵件地址] 欄位中，輸入使用者的電子郵件地址，例如 **brittasimon\@contoso.com**。
 
     e. 在 [密碼] 欄位中，輸入您的密碼。
 

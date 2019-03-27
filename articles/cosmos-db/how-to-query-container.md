@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 445ddb3c580218e21410c961c614a8a9e29d21a0
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 2ea228a1db204170f947b5fe71f1865a4620b0f4
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328328"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549029"
 ---
 # <a name="query-an-azure-cosmos-container"></a>查詢 Azure Cosmos 容器
 
@@ -32,7 +32,7 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
 
 下列查詢沒有根據資料分割索引鍵 (`DeviceId`) 的篩選，且已展開至對資料分割索引執行它的所有資料分割。 若要跨分割區執行查詢，請將 `EnableCrossPartitionQuery` 設為 true (或在 REST API 中設為 `x-ms-documentdb-query-enablecrosspartition` )。
 
-EnablecrossPartitionQuery 屬性接受布林值。 在設定為 true 的狀況下，如果查詢沒有分割區索引鍵，Azure Cosmos DB 會將查詢分散到各個分割區。 分散方式是將個別查詢發給所有分割區。 若要讀取查詢結果，用戶端應用程式應該從 FeedResponse 取用結果，並查看 ContinuationToken 屬性。 若要讀取所有結果，請逐一查看資料，直到 ContinuationToken 為 null。 
+EnableCrossPartitionQuery 屬性接受布林值。 在設定為 true 的狀況下，如果查詢沒有分割區索引鍵，Azure Cosmos DB 會將查詢分散到各個分割區。 分散方式是將個別查詢發給所有分割區。 若要讀取查詢結果，用戶端應用程式應該從 FeedResponse 取用結果，並查看 ContinuationToken 屬性。 若要讀取所有結果，請逐一查看資料，直到 ContinuationToken 為 null。 
 
 ```csharp
 // Query across partition keys into a class called, DeviceReading

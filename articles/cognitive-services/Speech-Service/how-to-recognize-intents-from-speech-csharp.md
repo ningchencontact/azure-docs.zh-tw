@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 680c10d8402853f1ac2f519b8f07f81b9718ab9e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a9b3d8a2670a0b4e6bed2d5e9a9b64e597adcb16
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866988"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855719"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>教學課程：使用適用於 C# 的語音 SDK 從語音辨識意圖
 
@@ -47,7 +47,7 @@ ms.locfileid: "56866988"
 
 LUIS 會與語音服務整合以從語音辨識意圖。 您不需要語音服務訂用帳戶，只要有 LUIS 即可。
 
-LUIS 會使用兩種金鑰： 
+LUIS 會使用兩種金鑰：
 
 |金鑰類型|目的|
 |--------|-------|
@@ -56,7 +56,7 @@ LUIS 會使用兩種金鑰：
 
 端點金鑰是本教學課程需要的 LUIS 金鑰。 本教學課程使用「家庭自動化」LUIS 應用程式 (app) 範例，遵循[使用預先建置的家庭自動化應用程式 (app)](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) 即可建立。 如果您已建立自有 LUIS 應用程式 (app)，則可以改用此應用程式 (app)。
 
-當您建立 LUIS 應用程式 (app) 時，系統會自動產生入門金鑰，讓您可以使用文字查詢來測試應用程式 (app)。 此金鑰不會啟用語音服務整合，且無法用於本教學課程。 您必須在 Azure 儀表板中建立 LUIS 資源，並將它指派給 LUIS 應用程式 (app)。 在本教學課程中，您可以使用免費訂用帳戶層。 
+當您建立 LUIS 應用程式 (app) 時，系統會自動產生入門金鑰，讓您可以使用文字查詢來測試應用程式 (app)。 此金鑰不會啟用語音服務整合，且無法用於本教學課程。 您必須在 Azure 儀表板中建立 LUIS 資源，並將它指派給 LUIS 應用程式 (app)。 在本教學課程中，您可以使用免費訂用帳戶層。
 
 在 Azure 儀表板中建立 LUIS 資源之後，登入 [LUIS 入口網站](https://www.luis.ai/home)，在 [我的應用程式] 頁面選擇應用程式 (application)，然後切換至應用程式 (app) 的 [管理] 頁面。 最後，按一下提要欄位中的 [金鑰和端點]。
 
@@ -174,7 +174,7 @@ result.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_Js
 
 另一個功能是從 WAV 檔案讀取含有所要處理語音的音訊。 這牽涉到建立音訊設定以供建立意圖辨識器時使用。 檔案必須是取樣率為 16 kHz 的單聲道 (mono)。
 
-若要試用這些功能，請將 `RecognizeIntentAsync()` 方法的主體更換為下列程式碼。 
+若要試用這些功能，請將 `RecognizeIntentAsync()` 方法的主體更換為下列程式碼。
 
 [!code-csharp[Intent recognition by using events from a file](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentContinuousRecognitionWithFile)]
 

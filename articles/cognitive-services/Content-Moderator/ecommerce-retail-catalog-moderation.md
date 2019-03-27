@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 41437933f715af092dea563b0b1be4794c71925c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5c4d2320ffd54054eb8a5bb26ef14c8e99dabb33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863154"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855949"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>教學課程：使用 Azure Content Moderator 仲裁電子商務產品影像
 
@@ -43,7 +43,7 @@ GitHub 上的[範例電子商務目錄仲裁](https://github.com/MicrosoftConten
 
 ## <a name="create-a-review-team"></a>建立檢閱小組
 
-如需有關如何註冊 [Content Moderator 審核工具](https://contentmoderator.cognitive.microsoft.com/)並建立審核小組的指示，請參閱[熟悉 Content Moderator](quick-start.md) 快速入門。 請記下 [認證] 頁面上的 [小組識別碼] 值。
+如需有關如何註冊 [Content Moderator 審核工具](https://contentmoderator.cognitive.microsoft.com/)並建立審核小組的指示，請參閱[在 Web 上試用 Content Moderator](quick-start.md) 快速入門。 請記下 [認證] 頁面上的 [小組識別碼] 值。
 
 ## <a name="create-custom-moderation-tags"></a>建立自訂仲裁標記
 

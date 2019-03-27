@@ -3,20 +3,20 @@ title: 在 Azure IoT Central 中設定規則和動作 | Microsoft Docs
 description: 本教學課程將為建置者說明如何在 Azure IoT Central 應用程式中設定以遙測為基礎的規則和動作。
 author: ankitscribbles
 ms.author: ankitgup
-ms.date: 10/12/2018
+ms.date: 01/28/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: d7269f61579ce1ffd9a686634effd153837a2f25
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 096daa28b7548401adc857c3c6c8327ef1d1eb00
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662975"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769399"
 ---
-# <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>教學課程：在 Azure IoT Central 中為您的裝置設定規則和動作
+# <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central-new-ui-design"></a>教學課程：在 Azure IoT Central 中為您的裝置設定規則和動作 (新的 UI 設計)
 
 *本文適用於操作員、建置員及系統管理員。*
 
@@ -28,31 +28,23 @@ ms.locfileid: "55662975"
 > * 建立以遙測為基礎的規則
 > * 新增動作
 
-[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
-
 ## <a name="prerequisites"></a>必要條件
 
 在開始之前，您應先完成[在應用程式中定義新的裝置類型](tutorial-define-device-type.md)教學課程，以建立要搭配使用的**連線的空調**裝置範本。
 
 ## <a name="create-a-telemetry-based-rule"></a>建立以遙測為基礎的規則
 
-1. 若要將以遙測為基礎的新規則新增至應用程式，請在左側導覽功能表中選擇 [Device Explorer]：
+1. 若要將以遙測為基礎的新規則新增至應用程式，請在左側導覽功能表中選取 [裝置範本]：
 
-    ![Device Explorer 工具](media/tutorial-configure-rules/explorerpage1.png)
+    ![裝置範本頁面](media/tutorial-configure-rules/templatespage1.png)
 
-    您會看到**連線的空調 (1.0.0)** 裝置範本，以及您在上一個教學課程中建立的**連線的空調-1** 裝置。
+    您會看到在上一個教學課程中建立的**連線的空調 (1.0.0)** 裝置範本。
 
-2. 若要開始自訂連線的空調裝置，請選擇您在上一個教學課程中建立的裝置：
+2. 若要自訂您的裝置範本，請選取您在上一個教學課程中建立的「連線的空調」範本。
 
-    ![連線的空調頁面](media/tutorial-configure-rules/builderdevicelist1.png)
+3. 若要在 [規則] 檢視中新增以遙測為基礎的規則，請依序選取 [規則]、[+ 新增規則] 和 [遙測]：
 
-3. 若要開始在 [規則] 檢視中新增規則，請選擇 [規則]，然後按一下 [編輯範本]：
-
-    ![規則檢視](media/tutorial-configure-rules/builderedittemplate.png)
-
-4. 若要建立以閾值為基礎的遙測規則，請依序按一下 [新增規則] 和 [遙測]。
-
-    ![編輯範本](media/tutorial-configure-rules/buildernewrule.png)
+    ![規則檢視](media/tutorial-configure-rules/newrule.png)
 
 5. 若要定義規則，請使用下表中的資訊：
 
@@ -60,19 +52,20 @@ ms.locfileid: "55662975"
     | -------------------------------------------- | ------------------------------    |
     | Name                                         | 空調溫度警示 |
     | 為此範本的所有裝置啟用規則 | 另一                                |
-    | 在此裝置啟用規則                   | 另一                                |
     | 條件                                    | 溫度大於 90 度    |
     | 彙總                                  | None                              |
 
-    ![溫度規則條件](media/tutorial-configure-rules/buildertemperaturerule1.png)
+    ![溫度規則條件](media/tutorial-configure-rules/temperaturerule.png)
+
+    然後選取 [儲存]。
 
 ## <a name="add-an-action"></a>新增動作
 
-在定義規則時，您也須定義在符合規則條件時所要執行的動作。 在本教學課程中，您所新增的動作將會傳送規則所觸發的電子郵件通知。
+在定義規則時，您也須定義在符合規則條件時所要執行的動作。 在本教學課程中，您建立的規則會包含傳送電子郵件通知的動作。
 
-1. 若要新增 [動作]，請先 [儲存] 規則，然後在 [設定遙測規則] 面板上向下捲動，並選擇 [動作] 旁的 [+]，接著選擇 [電子郵件]：
+1. 若要新增 [動作]，請先 [儲存] 規則，然後在 [設定遙測規則] 面板上向下捲動。 選擇 [動作] 旁的 [+]，接著選擇 [電子郵件]：
 
-    ![溫度規則動作](media/tutorial-configure-rules/builderaddaction1.png)
+    ![溫度規則動作](media/tutorial-configure-rules/addaction.png)
 
 2. 若要定義動作，請使用下表中的資訊：
 
@@ -84,23 +77,16 @@ ms.locfileid: "55662975"
     > [!NOTE]
     > 若要接收電子郵件通知，電子郵件地址必須是[應用程式中的使用者識別碼](howto-administer.md)，且該使用者必須已至少登入應用程式一次。
 
-    ![應用程式建置者溫度動作](media/tutorial-configure-rules/buildertemperatureaction.png)
+    ![溫度動作](media/tutorial-configure-rules/temperatureaction.png)
 
-3. 選擇 [儲存]。 您的規則會列在 [規則] 頁面上：
-
-    ![應用程式建置者規則](media/tutorial-configure-rules/builderrules1.png)
-
-4. 選擇 [完成] 以結束 [編輯範本] 模式。
- 
+3. 選取 [ **儲存**]。 您的規則會列在 [規則] 頁面上。
 
 ## <a name="test-the-rule"></a>測試規則
 
 規則在您儲存之後，不久即會生效。 符合規則中定義的條件時，應用程式即會傳送訊息至您在動作中指定的電子郵件地址。
 
-![電子郵件動作](media/tutorial-configure-rules/email.png)
-
 > [!NOTE]
-> 測試完成後，請關閉規則以停止在收件匣中接收警示。 
+> 測試完成後，請關閉規則以停止在收件匣中接收警示。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 43e4cf27d9a57db58c0f90b269e7a52622508ee1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 130dca5efdf39936fdf2a4dc4409f8b29d15bbcd
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57998773"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487680"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>使用 SAP ASCS/SCS 的 Windows 容錯移轉叢集和共用磁碟，為 SAP HA 準備 Azure 基礎結構
 
@@ -235,14 +235,14 @@ _**圖 1：** 設定 SAP 高可用性 Azure Resource Manager 參數_
 2. 在 [SUBNETID] 方塊中，新增已備妥的 Azure 網路子網路識別碼的完整字串，這是您打算用來部署 Azure 虛擬機器的位置。
 3. 若要取得所有 Azure 網路子網路的清單，請執行此 PowerShell 命令：
 
-   ```PowerShell
+   ```powershell
    (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets
    ```
 
    [ID] 欄位顯示子網路識別碼的值。
 4. 若要取得所有子網路識別碼值的清單，請執行此 PowerShell 命令：
 
-   ```PowerShell
+   ```powershell
    (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets.Id
    ```
 

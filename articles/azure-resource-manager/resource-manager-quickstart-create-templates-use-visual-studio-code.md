@@ -10,19 +10,23 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/25/2019
+ms.date: 03/04/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 33bc10bb601fa14a34b6032c54b0c751a3608ccc
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: c73084b03736a422e5e3b617ec058ade1de0fbb9
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823649"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317113"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>快速入門：使用 Visual Studio Code 建立 Azure Resource Manager 範本
 
 了解如何使用 Visual Studio Code 和 Azure Resource Manager Tools 擴充功能來建立及編輯 Azure Resource Manager 範本。 不需使用擴充功能，即可在 Visual Studio Code 中建立 Resource Manager 範本，但擴充功能會提供可簡化範本開發的自動完成選項。 若要了解部署和管理 Azure 解決方案的相關概念，請參閱 [Azure Resource Manager 概觀](resource-group-overview.md)。
+
+在本教學課程中，您會部署儲存體帳戶：
+
+![Resource Manager 範本快速入門的 Visual Studio 程式碼圖表](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-template-quickstart-vscode-diagram.png)
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -90,15 +94,24 @@ ms.locfileid: "56823649"
 
 ## <a name="deploy-the-template"></a>部署範本
 
-有許多方法可用來部署範本。  在本快速入門中，您會使用 Azure Cloud Shell。 Cloud Shell 是 Web 應用程式，無需任何設定。 其支援 Azure CLI 和 Azure PowerShell。
+有許多方法可用來部署範本。 本快速入門會使用 Azure Cloud Shell。 Cloud Shell 支援 Azure CLI 和 Azure PowerShell。 使用索引標籤選取器來選擇 CLI 或 PowerShell。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-
 1. 登入 [Azure Cloud Shell](https://shell.azure.com)
 
+2. 藉由選取左上角的 **PowerShell** 或 **Bash** (CLI) 來選擇您慣用的環境。  切換時必須重新啟動殼層。
+
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
+
     ![Azure 入口網站的 Cloud Shell CLI](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
-2. 藉由選取左上角的 **PowerShell** 或 **Bash** 來選擇您慣用的環境。 若要使用 CLI，您必須開啟 Bash 工作階段。 若要執行 Azure PowerShell，您必須開啟 PowerShell 工作階段。 選取向下箭號，以在 Bash 與 PowerShell 之間切換。 請參閱上一個螢幕擷取畫面。 切換時必須重新啟動殼層。
+
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+
+    ![Azure 入口網站的 Cloud Shell PowerShell](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-powershell.png)
+
+    ---
+
 3. 選取 [上傳/下載檔案]，然後選取 [上傳]。
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)

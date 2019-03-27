@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 03/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 79d013e5836555547cbf254bb25c06add0a717e1
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 0de6cf9be01fc93a26a782189a2062d19eaf73e8
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295380"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499262"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>設定自動化機器學習實驗
 
@@ -39,21 +39,24 @@ ms.locfileid: "58295380"
 
 雖然自動化機器學習功能一般可供使用，但**預測仍處於公開預覽狀態。**
 
-在自動化和調整程序期間，自動化機器學習支援下列演算法。 身為使用者，您不需要指定演算法。
+在自動化和調整程序期間，自動化機器學習支援下列演算法。 身為使用者，您不需要指定演算法。 在定型期間，DNN 演算法可供使用，而自動化的 ML 就不會建置 DNN 模型。
 
 分類 | 迴歸 | 預測
 |-- |-- |--
 [羅吉斯迴歸](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [彈性網路](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [彈性網路](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
-[隨機梯度下降 (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
-[貝氏機率分類](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|[漸層停駐提升](https://scikit-learn.org/stable/modules/ensemble.html#regression)|[漸層停駐提升](https://scikit-learn.org/stable/modules/ensemble.html#regression)
-[C 支援向量分類 (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)|[決策樹](https://scikit-learn.org/stable/modules/tree.html#regression)|[決策樹](https://scikit-learn.org/stable/modules/tree.html#regression)
-[線性 SVC](https://scikit-learn.org/stable/modules/svm.html#classification)|[K 最近鄰演算法](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K 最近鄰演算法](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
-[K 最近鄰演算法](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
-[決策樹](https://scikit-learn.org/stable/modules/tree.html#decision-trees)|[隨機梯度下降 (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)|[隨機梯度下降 (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
+[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
+[漸層停駐提升](https://scikit-learn.org/stable/modules/ensemble.html#classification)|[漸層停駐提升](https://scikit-learn.org/stable/modules/ensemble.html#regression)|[漸層停駐提升](https://scikit-learn.org/stable/modules/ensemble.html#regression)
+[決策樹](https://scikit-learn.org/stable/modules/tree.html#decision-trees)|[決策樹](https://scikit-learn.org/stable/modules/tree.html#regression)|[決策樹](https://scikit-learn.org/stable/modules/tree.html#regression)
+[K 最近鄰演算法](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K 最近鄰演算法](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K 最近鄰演算法](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
+[線性 SVC](https://scikit-learn.org/stable/modules/svm.html#classification)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
+[C 支援向量分類 (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)|[隨機梯度下降 (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)|[隨機梯度下降 (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
 [隨機樹系](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[隨機樹系](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[隨機樹系](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
 [極度隨機樹狀結構](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[極度隨機樹狀結構](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[極度隨機樹狀結構](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
-[漸層停駐提升](https://scikit-learn.org/stable/modules/ensemble.html#classification)|
-[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|
+[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)|[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)| [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
+[DNN 分類](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier)|[DNN 迴歸輸入變數](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [DNN 迴歸輸入變數](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
+[DNN 線性分類器](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[線性迴歸輸入變數](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)|[線性迴歸輸入變數](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
+[貝氏機率分類](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
+[隨機梯度下降 (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
 
 
 ## <a name="data-source-and-format"></a>資料來源和格式
@@ -156,15 +159,15 @@ y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelec
 
 ### <a name="k-folds-cross-validation"></a>k 疊交叉驗證
 
-使用 `n_cross_validations` 設定來指定交叉驗證的數目。 訓練資料集會隨機分割為相同大小的 `n_cross_validations` 疊。 在每個交叉驗證回合中，將使用其中一個疊來驗證以其餘幾疊進行訓練的模型。 此程序會重複執行 `n_cross_validations` 回合，直到每一疊都已作為驗證集執行一次。 將會報告 `n_cross_validations` 個回合的總平均分數，並以整個訓練資料集重新訓練對應的模型。
+使用 `n_cross_validations` 設定來指定交叉驗證的數目。 訓練資料集會隨機分割為相同大小的 `n_cross_validations` 疊。 在每個交叉驗證回合中，將使用其中一個疊來驗證以其餘幾疊進行訓練的模型。 此程序會重複執行 `n_cross_validations` 回合，直到每一疊都已作為驗證集執行一次。 將會報告 `n_cross_validations` 個回合的總平均分數，並以整個訓練資料集重新訓練對應的模型。 
 
 ### <a name="monte-carlo-cross-validation-aka-repeated-random-sub-sampling"></a>蒙地卡羅交叉驗證 (也稱為 重複隨機子取樣)
 
-使用 `validation_size` 指定應該用於驗證的訓練資料集百分比，並使用 `n_cross_validations` 指定交叉驗證的數目。 在每個交叉驗證回合中，將隨機選取 `validation_size` 大小的子集來驗證以其餘資料進行訓練的模型。 最後將會報告 `n_cross_validations` 個回合的總平均分數，並以整個訓練資料集重新訓練對應的模型。
+使用 `validation_size` 指定應該用於驗證的訓練資料集百分比，並使用 `n_cross_validations` 指定交叉驗證的數目。 在每個交叉驗證回合中，將隨機選取 `validation_size` 大小的子集來驗證以其餘資料進行訓練的模型。 最後將會報告 `n_cross_validations` 個回合的總平均分數，並以整個訓練資料集重新訓練對應的模型。 Monte Carlo 不支援時間序列預測。
 
 ### <a name="custom-validation-dataset"></a>自訂驗證資料集
 
-如果隨機分割不可行，請使用自訂驗證資料集 (通常是時間序列資料或不平衡的資料)。 您可以指定自己的驗證資料集。 系統會根據指定的驗證資料集來評估模型，而不是隨機的資料集。
+使用自訂的驗證資料集不接受隨機劃分的資料時，通常是時間序列資料或不平衡的資料。 您可以指定自己的驗證資料集。 系統會根據指定的驗證資料集來評估模型，而不是隨機的資料集。
 
 ## <a name="compute-to-run-experiment"></a>要執行實驗的計算
 
@@ -178,7 +181,7 @@ y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelec
 
 ## <a name="configure-your-experiment-settings"></a>設定您的實驗設定
 
-有數個選項可用來設定自動化機器學習實驗。 將 `AutoMLConfig` 物件具現化即可設定這些參數。
+有數個選項可用來設定自動化機器學習實驗。 將 `AutoMLConfig` 物件具現化即可設定這些參數。 如需完整的參數清單，請參閱 [AutoMLConfig 類別](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py)。  
 
 部分範例包括：
 
@@ -223,6 +226,7 @@ y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelec
     * GradientBoosting
     * TensorFlowDNN
     * TensorFlowLinearClassifier
+    * XGBoostClassifier
 * 迴歸
     * ElasticNet
     * GradientBoosting
@@ -235,6 +239,7 @@ y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelec
     * LightGBM
     * TensorFlowLinearRegressor
     * TensorFlowDNN
+    * XGBoostRegressor
 * 預測
     * ElasticNet
     * GradientBoosting
@@ -247,8 +252,7 @@ y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelec
     * LightGBM
     * TensorFlowLinearRegressor
     * TensorFlowDNN
-
-如需完整的參數清單，請參閱 [AutoMLConfig 類別](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py)。  
+    * XGBoostRegressor
 
 ## <a name="data-pre-processing-and-featurization"></a>資料預先處理與特徵化
 
@@ -265,6 +269,44 @@ y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelec
     * 具有極少唯一值的數值特徵轉換成類別特徵。
     * 視類別特徵的基數而定，執行標籤編碼或 (雜湊) 或 one-hot 編碼。
 
+## <a name="time-series-forecasting"></a>時間序列預測
+時間序列預測的工作類型，您會有額外的參數定義。
+1. time_horizon_name-這是必要的參數定義的定型資料包含日期/時間序列的資料行的名稱。 
+1. max_horizon-這會定義您想要預測出根據定型資料的週期性的時間長度。 比方說如果您有與每日的時間粒紋的定型資料，則您幅度縮小定義天後您想要定型的模型中。
+1. grain_column_names-這會定義包含定型資料中的個別的時間序列資料的資料行的名稱。 比方說，如果您預測的存放區的特定品牌的銷售，您會將存放區和品牌的資料行定義為您的資料粒度資料行。
+
+這些範例，請參閱下面所使用的設定，notebook 範例是可用[此處](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)。
+
+```python
+# Setting Store and Brand as grains for training.
+grain_column_names = ['Store', 'Brand']
+nseries = data.groupby(grain_column_names).ngroups
+
+# View the number of time series data with defined grains
+print('Data contains {0} individual time-series.'.format(nseries))
+```
+
+```python
+time_series_settings = {
+    'time_column_name': time_column_name,
+    'grain_column_names': grain_column_names,
+    'drop_column_names': ['logQuantity'],
+    'max_horizon': n_test_periods
+}
+
+automl_config = AutoMLConfig(task='forecasting',
+                             debug_log='automl_oj_sales_errors.log',
+                             primary_metric='normalized_root_mean_squared_error',
+                             iterations=10,
+                             X=X_train,
+                             y=y_train,
+                             n_cross_validations=5,
+                             enable_ensembling=False,
+                             path=project_folder,
+                             verbosity=logging.INFO,
+                             **time_series_settings)
+```
+
 ## <a name="run-experiment"></a>執行實驗
 
 提交實驗以執行與產生模型。 將 `AutoMLConfig` 傳至 `submit` 方法以產生模型。
@@ -277,6 +319,13 @@ run = experiment.submit(automl_config, show_output=True)
 >相依性會先安裝在新的機器上。  最多可能需要 10 分鐘才會顯示輸出。
 >將 `show_output` 設定為 `True`，會使輸出顯示在主控台上。
 
+## <a name="exit-criteria"></a>允出準則 
+那里幾個選項您可以定義完成您的實驗。
+1. 沒有準則-如果您沒有定義任何結束實驗將會繼續進行任何進一步的處理對您主要的度量的參數。 
+1. 數字的反覆項目-您可以定義執行測試的反覆項目數目。 您可以選擇性新增 iteration_timeout_minutes 定義在每個反覆項目每分鐘的時間限制。
+1. 一段時間-在您設定，您可以定義以分鐘為單位的時間長度應該繼續執行中的實驗中使用的 experiment_timeout_minutes 後結束。
+1. 分數已達到-使用您可以選擇在達到您主要的計量為基礎的分數之後完成 experiement experiment_exit_score 後，就會結束。
+
 
 ## <a name="explore-model-metrics"></a>探索模型計量
 如果您使用 Notebook，您可以在小工具中或以內嵌方式檢視結果。 請參閱[追蹤和評估模型](how-to-track-experiments.md#view-run-details)以取得更多詳細資料。
@@ -285,7 +334,7 @@ run = experiment.submit(automl_config, show_output=True)
 ### <a name="classification-metrics"></a>分類計量
 在每次反覆運算分類工作時會儲存下列計量。
 
-|主要計量|描述|計算|額外的參數
+|計量|描述|計算|額外的參數
 --|--|--|--|
 AUC_Macro| AUC 是「接收者作業特性曲線」下方的面積。 Macro 是每個類別 AUC 的算術平均值。  | [計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="macro"|
 AUC_Micro| AUC 是「接收者作業特性曲線」下方的面積。 Micro 是透過將每個類別的真肯定和誤判結合在一起全域計算而得| [計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | average="micro"|
@@ -311,7 +360,7 @@ weighted_accuracy|Weighted accuracy 是給予每個範例的權重等於範例�
 ### <a name="regression-and-forecasting-metrics"></a>迴歸和預測計量
 下列計量儲存在迴歸或預測工作的每個反覆項目中。
 
-|主要計量|描述|計算|額外的參數
+|計量|描述|計算|額外的參數
 --|--|--|--|
 explained_variance|Explained variance 是所給予資料集其變化的數學模型帳戶的比例。 它是原始資料其變異數中減少至錯誤變異數的百分比。 當錯誤的平均值為 0 時，它會等於 Explained variance。|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|None|
 r2_score|R2 是與輸出平均值的基線模型相比的確定係數，或平方誤差減少的百分比。 當錯誤的平均值為 0 時，它會等於 Explained variance。|[計算](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|None|

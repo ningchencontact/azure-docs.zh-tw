@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: a00ecf6e-917a-4284-b998-41506931585e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5523394387802e895c487ed1a7df2e4e28125d9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 12eb3c9bc011a6dd0af2054d8a0f3b1568d0ed21
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869185"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850831"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-empcenter"></a>教學課程：Azure Active Directory 與 EmpCenter 整合
 
@@ -106,6 +106,7 @@ EmpCenter 與 Azure AD 整合提供下列優點：
     ![EmpCenter 網域和 URL 單一登入資訊](common/sp-signonurl.png)
 
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰
+    
     | |
     |--|
     | `https://<subdomain>.EmpCenter.com/<instancename>` |
@@ -150,7 +151,7 @@ EmpCenter 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: bc4896f634bb98b4663dfc3fbc6bad7ba9bace3e
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: 5a4426b665c58dd2c0bf7f5b5b41ebfca158e782
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319617"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444713"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>使用 Azure 入口網站來存取 blob 或佇列資料
 
@@ -43,7 +43,7 @@ ms.locfileid: "58319617"
 - 您已獲指派新的 Azure Resource Manager[讀取器](../../role-based-access-control/built-in-roles.md#reader)角色，且至少已設定領域的儲存體帳戶層級或更高版本。 **讀取器**角色會授與的限制最嚴格的權限，但另一個 Azure Resource Manager 角色，授與儲存體帳戶管理資源的存取權也可以接受。
 - 請提供對 blob 或佇列資料存取的內建或自訂角色，您已獲指派。
 
-**讀取器**角色指派或另一個 Azure Resource Manager 角色指派是必要的使用者可以檢視並瀏覽 Azure 入口網站中的儲存體帳戶管理資源。 授與 blob 或佇列資料的存取權的 RBAC 角色不會授與儲存體帳戶管理資源的存取權。 若要存取入口網站中的 blob 或佇列資料，使用者必須瀏覽儲存體帳戶資源的權限。 如需有關這項需求的詳細資訊，請參閱 <<c0> [ 指派 「 讀者 」 角色存取入口網站](../common/storage-auth-aad-rbac.md#assign-the-reader-role-for-portal-access)。
+**讀取器**角色指派或另一個 Azure Resource Manager 角色指派是必要的使用者可以檢視並瀏覽 Azure 入口網站中的儲存體帳戶管理資源。 授與 blob 或佇列資料的存取權的 RBAC 角色不會授與儲存體帳戶管理資源的存取權。 若要存取入口網站中的 blob 或佇列資料，使用者必須瀏覽儲存體帳戶資源的權限。 如需有關這項需求的詳細資訊，請參閱 <<c0> [ 指派 「 讀者 」 角色存取入口網站](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access)。
 
 支援的 blob 或佇列資料存取的內建角色包括：
 
@@ -96,5 +96,7 @@ ms.locfileid: "58319617"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [驗證存取 Azure blob 和佇列使用 Azure Active Directory （預覽）](storage-auth-aad.md)
-- [授與存取權的 Azure 容器和佇列使用 RBAC 在 Azure 入口網站 （預覽）](storage-auth-aad-rbac.md)
+- [驗證存取 Azure blob 和佇列使用 Azure Active Directory](storage-auth-aad.md)
+- [Azure 容器和佇列使用 RBAC 在 Azure 入口網站中的授與存取權](storage-auth-aad-rbac-portal.md)
+- [授與存取權與使用 Azure CLI 的 RBAC 的 Azure blob 和佇列資料](storage-auth-aad-rbac-cli.md)
+- [使用 RBAC，使用 PowerShell 的 Azure blob 和佇列資料的授與存取權](storage-auth-aad-rbac-powershell.md)

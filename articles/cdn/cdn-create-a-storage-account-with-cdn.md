@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 025f2ecef070170fef216d7533150359cf11c50f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ea4134c486310592f1f0f344ae26a11276143faf
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092572"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193359"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>快速入門：整合 Azure 儲存體帳戶與 Azure CDN
 在本快速入門中，您可以啟用 [Azure 內容傳遞網路 (CDN)](cdn-overview.md)，從 Azure 儲存體快取內容。 Azure CDN 提供開發人員一套傳遞高頻寬內容的全域解決方案。 在北美洲、歐洲、亞洲、澳洲及南美洲的實體節點上，皆可快取 blob 和計算執行個體的靜態內容。
@@ -31,7 +31,7 @@ ms.locfileid: "49092572"
 使用您的 Azure 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶
-使用下列程序，為 Azure 訂用帳戶建立新的儲存體帳戶。 有了儲存體帳戶，才能存取 Azure 儲存體服務。 儲存體帳戶代表最高層級的命名空間，用於存取每個 Azure 儲存體服務元件：Azure Blob、佇列和資料表儲存。 如需詳細資訊，請參閱 [Microsoft Azure 儲存體簡介](../storage/common/storage-introduction.md)。
+使用下列程序，為 Azure 訂用帳戶建立新的儲存體帳戶。 有了儲存體帳戶，才能存取 Azure 儲存體服務。 儲存體帳戶代表最高層級的命名空間，用於存取每個 Azure 儲存體服務元件：Azure Blob、佇列和資料表儲存體。 如需詳細資訊，請參閱 [Microsoft Azure 儲存體簡介](../storage/common/storage-introduction.md)。
 
 若要建立儲存體帳戶，您必須是服務管理員或是相關訂用帳戶的共同管理員。
 
@@ -96,9 +96,10 @@ ms.locfileid: "49092572"
 
     | 設定  | 值 |
     | -------- | ----- |
-    | **CDN 設定檔** | 選取 [新建]，然後輸入 my-cdn-profile-123 作為設定檔名稱。 此名稱必須是全域唯一的；如果已在使用中，您可以輸入不同名稱。  |
+    | **CDN 設定檔** | 選取 [新建] 並輸入設定檔名稱，例如 my-cdn-profile-123。 此名稱必須是全域唯一的。  |
     | **定價層** | 從下拉式清單中選取 [標準 Verizon]。 |
-    | **CDN 端點名稱** | 輸入 *my-endpoint-123* 作為您的端點主機名稱。 此名稱必須是全域唯一的；如果已在使用中，您可以輸入不同名稱。 此名稱可用來存取位於網域 _&lt;endpoint name&gt;_.azureedge.net 的快取資源。 根據預設，新的 CDN 端點會使用儲存體帳戶的主機名稱作為原始伺服器。|
+    | **CDN 端點名稱** | 輸入您的端點主機名稱，亦即 my-endpoint-123。 此名稱必須是全域唯一的。 此名稱可用來存取位於網域 _&lt;endpoint name&gt;_.azureedge.net 的快取資源。 |
+    | **原始主機名稱** | 根據預設，新的 CDN 端點會使用儲存體帳戶的主機名稱作為原始伺服器。 |
 
 3. 選取 [建立] 。 端點建立之後，即會出現在端點清單中。
 

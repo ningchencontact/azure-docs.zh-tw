@@ -6,17 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: hning86
-ms.author: haining
-ms.reviewer: sgilley
+author: sdgilley
+ms.author: sgilley
 ms.date: 01/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7397546d4dc576a8488f605e20a0bfe15a01d7c
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: cc0631052fa915ae946e791c907e405d70713ad2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311166"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860548"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>教學課程：使用 Azure Machine Learning 服務將映像分類模型定型
 
@@ -29,13 +28,12 @@ ms.locfileid: "56311166"
 > [!div class="checklist"]
 > * 設定您的開發環境。
 > * 存取及檢查資料。
-> * 使用熱門的 scikit-learn 機器學習程式庫，在本機進行簡單的羅吉斯迴歸定型。 
-> * 在遠端叢集上將多個模型定型。
+> * 在遠端叢集上定型簡單的羅吉斯迴歸模型。
 > * 檢閱定型結果並註冊最佳模型。
 
 您會在[本教學課程的第二部分](tutorial-deploy-models-with-aml.md)中，了解如何選取模型及部署模型。 
 
-如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](http://aka.ms/AMLFree)。
+如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
 >[!NOTE]
 > 本文中的程式碼已進行過 Azure Machine Learning SDK 1.0.8 版的測試。

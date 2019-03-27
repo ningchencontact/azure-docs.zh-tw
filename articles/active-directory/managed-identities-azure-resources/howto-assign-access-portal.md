@@ -3,7 +3,7 @@ title: 如何使用 Azure 入口網站為受控識別指派對 Azure 資源的�
 description: 以下逐步指示說明如何使用 Azure 入口網站為一項資源的受控識別指派對另一項資源的存取權。
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfeec56de5507694a08c1e3b80cd394906022473
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 958b3d72a3a8df4a3b67f62e7db788d7142ca667
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169168"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445477"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-by-using-the-azure-portal"></a>使用 Azure 入口網站為受控識別指派對資源的存取權
 

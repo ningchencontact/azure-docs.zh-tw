@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: 4911a872a4b5479abe84c2e06573256092185cf2
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 6a576f2817069d7095ea863198168be083d0c6b5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669696"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450937"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>使用 Visual Studio 中已連線的服務來連線到電腦視覺 API
 
@@ -92,7 +92,7 @@ ms.locfileid: "56669696"
       }
    ```
 
-1. 在專案的 wwwroot 資料夾中，新增影像資料夾，然後將影像檔案新增至 wwwroot 資料夾。 例如，您可以使用這個[電腦視覺 API 頁面](https://azure.microsoft.com/services/cognitive-services/computer-vision/)上的其中一個影像。 在其中一個影像上按一下滑鼠右鍵，儲存到本機硬碟機，然後在 [方案總管] 中的影像資料夾上按一下滑鼠右鍵，然後選擇 [新增] > [現有項目]，將它新增至您的專案。 您的專案在 [方案總管] 中看起來應該如下所示： 
+1. 在專案的 wwwroot 資料夾中，新增影像資料夾，然後將影像檔案新增至 wwwroot 資料夾。 例如，您可以使用這個[電腦視覺 API 頁面](https://azure.microsoft.com/services/cognitive-services/computer-vision/)上的其中一個影像。 在其中一個影像上按一下滑鼠右鍵，儲存到本機硬碟，然後在 [方案總管] 中的影像資料夾上按一下滑鼠右鍵，然後選擇 [新增] > [現有項目]，將它新增至您的專案。 您的專案在 [方案總管] 中看起來應該如下所示： 
   
    ![已選取影像檔之方案總管檢視的螢幕擷取畫面](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
 

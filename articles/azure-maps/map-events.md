@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 16455719f05688793e2aee6f10fa00a707d553c0
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 4fce8eae25942d098bb3f3277938bfaa3dafa00b
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469523"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499180"
 ---
 # <a name="interact-with-the-map---mouse-events"></a>與地圖互動 - 滑鼠事件
 
@@ -51,7 +51,7 @@ ms.locfileid: "54469523"
 請參閱下列文章中的完整程式碼範例：
 
 > [!div class="nextstepaction"]
-> [顯示搜尋結果](./map-search-location.md)
+> [使用 Azure Maps 服務模組](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
 > [程式碼範例頁面](https://aka.ms/AzureMapsSamples) \(英文\)

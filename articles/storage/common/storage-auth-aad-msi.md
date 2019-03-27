@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 4372045590938df701dd00e58a111215f6e8e56d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 76bf36f63051f02d6c37261799342f424609f9b2
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369644"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58442288"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources"></a>驗證適用於 Azure 資源的存取權的 blob 和佇列與受管理的身分識別
 
@@ -22,8 +22,6 @@ Azure Blob 和佇列儲存體支援使用 [Azure 資源的受控識別](../../ac
 若要對 Blob 容器或佇列授與受控識別的權限，請將角色型存取控制 (RBAC) 角色 (包含該資源在適當範圍內的權限) 指派給該受控識別。 如需有關儲存體中的 RBAC 角色的詳細資訊，請參閱[儲存體的資料，使用 RBAC 管理存取權限](storage-auth-aad-rbac.md)。 
 
 本文說明如何從 Azure VM 使用受控識別向 Azure Blob 或佇列儲存體進行驗證。  
-
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="enable-managed-identities-on-a-vm"></a>在 VM 上啟用受控識別
 
@@ -42,6 +40,8 @@ Azure Blob 和佇列儲存體支援使用 [Azure 資源的受控識別](../../ac
 ## <a name="get-a-managed-identity-access-token"></a>取得受控識別的存取權杖
 
 若要使用受控識別進行驗證，應用程式或指令碼必須取得受控識別存取權杖。 若要了解如何取得存取權杖，請參閱[如何在 Azure VM 上使用 Azure 資源的受控識別來取得存取權杖](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)。
+
+若要以 OAuth 權杖為 Blob 和佇列作業授權，您必須使用 HTTPS。
 
 ## <a name="net-code-example-create-a-block-blob"></a>.NET 程式碼範例：建立區塊 Blob
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: c42de8cf189c0ebaf5f13ef5971ad91d14d862fb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c07b325f3de6cd2cf3aaa436736786d2cdc42881
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850270"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498123"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>使用 Application Insights 來分析 Azure 中的生產應用程式
 ## <a name="enable-application-insights-profiler-for-your-application"></a>為您的應用程式啟用 Application Insights Profiler
@@ -75,7 +75,7 @@ Microsoft 服務分析工具會合併使用取樣方法和檢測功能，來分�
 
 ### <a id="ngencold"></a>載入程式碼 ([COLD])
 
-如果方法名稱包含 **[COLD]** (例如 **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**)，即表示 .NET Framework 執行階段是第一次執行程式碼，該程式碼尚未由[特性指引最佳化](https://msdn.microsoft.com/library/e7k32f4k.aspx)進行最佳化。 在程序執行期間，每個方法最多應該只會顯示此名稱一次。
+如果方法名稱包含 **[COLD]** (例如 **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**)，即表示 .NET Framework 執行階段是第一次執行程式碼，該程式碼尚未由[特性指引最佳化](/cpp/build/profile-guided-optimizations)進行最佳化。 在程序執行期間，每個方法最多應該只會顯示此名稱一次。
 
 如果某個要求在載入程式碼時花費相當長的時間，表示該要求是第一個執行方法中未最佳化部分的要求。 請考慮先使用熱身程序來執行該部分的程式碼，再讓使用者存取該程式碼。
 

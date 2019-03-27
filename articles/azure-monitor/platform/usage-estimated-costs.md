@@ -9,12 +9,12 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 1ae35c30e0379ed7a0f1fac16c279651e3bcd8fd
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 7911bd398b6760fb4f83382868f040382b86cd1f
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315872"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480532"
 ---
 # <a name="monitoring-usage-and-estimated-costs"></a>監視使用量和估計成本
 
@@ -138,7 +138,7 @@ isGrandFatherableSubscription optedInDate
 
 若要將此訂用帳戶移轉至新的定價模型執行：
 
-```PowerShell
+```powershell
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
 Invoke-AzResourceAction `
  -ResourceId $ResourceID `
@@ -149,7 +149,7 @@ Invoke-AzResourceAction `
 
 若要確認變更成功，請重新執行：
 
-```PowerShell
+```powershell
 $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
 Invoke-AzResourceAction `
  -ResourceId $ResourceID `
@@ -170,7 +170,7 @@ optInDate 現在包含此訂用帳戶選擇加入新的定價模型時的時間�
 
 如果您需要還原回舊的定價模型，您可以執行：
 
-```PowerShell
+```powershell
  $ResourceID ="/subscriptions/<Subscription-ID-Here>/providers/microsoft.insights"
 Invoke-AzResourceAction `
  -ResourceId $ResourceID `
@@ -183,7 +183,7 @@ Invoke-AzResourceAction `
 
 如果您想要移轉裝載在相同租用戶的多個訂用帳戶，可使用下列指令碼的片段建立您自己的變體：
 
-```PowerShell
+```powershell
 #Query tenant and create an array comprised of all of your tenants subscription ids
 $TenantId = <Your-tenant-id>
 $Tenant =Get-AzSubscription -TenantId $TenantId
@@ -192,7 +192,7 @@ $Subscriptions = $Tenant.Id
 
 若要檢查您租用戶中的所有訂用帳戶是否適合新的定價模型，您可以執行：
 
-```PowerShell
+```powershell
 Foreach ($id in $Subscriptions)
 {
 $ResourceID ="/subscriptions/$id/providers/microsoft.insights"
@@ -206,7 +206,7 @@ Invoke-AzResourceAction `
 
 建立產生三個陣列的指令碼可以進一步重新調整指令碼。 一個陣列將包含 ```isGrandFatherableSubscription``` 是設為 True 的所有訂用帳戶識別碼，且 optedInDate 目前沒有值。 目前在新定價模型上的任何訂用帳戶第二陣列。 僅填入租用戶訂用帳戶識別碼 (不適合新的定價模型) 的第三陣列：
 
-```PowerShell
+```powershell
 [System.Collections.ArrayList]$Eligible= @{}
 [System.Collections.ArrayList]$NewPricingEnabled = @{}
 [System.Collections.ArrayList]$NotEligible = @{}
@@ -242,7 +242,7 @@ $Result= Invoke-AzResourceAction `
 
 由於您將訂用帳戶分為三個陣列，因此您應該仔細檢閱您的結果。 您會想要備份陣列的內容，以便未來有需要時還原變更。 如果您已決定，您會想要將目前在舊的定價模型上的所有合格訂用帳戶轉換為新的定價模型，此工作現在應該會完成：
 
-```PowerShell
+```powershell
 Foreach ($id in $Eligible)
 {
 $ResourceID ="/subscriptions/$id/providers/microsoft.insights"

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 02/21/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 80c9944628eaa828a34ea16eb9f79271d6cd5728
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 79f0474950cf1f48f3552b1ae843a29b5d8dbb24
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729205"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57883367"
 ---
 # <a name="what-is-translator-text-api"></a>什麼是翻譯工具文字 API？
 
@@ -28,7 +28,7 @@ ms.locfileid: "56729205"
 
 Microsoft Translator 是一個雲端式機器翻譯服務。 核心服務是翻譯工具文字 API，此 API 可為多種 Microsoft 產品和服務提供技術支援，並由全球數千個企業運用在其應用程式和工作流程中，使其內容得以觸及全球各地的用戶。
 
-語音翻譯由翻譯工具文字 API 提供技術支援，也可透過 [Microsoft 語音服務](https://docs.microsoft.com/azure/cognitive-services/speech-service/)來使用。 它將翻譯工具語音 API、Bing 語音 API 和自訂語音服務 (預覽) 的功能結合為統合且可完整自訂的服務。 翻譯工具語音 API 將取代為語音服務，且將於 2019 年 10 月 15 日除役。
+語音翻譯由翻譯工具文字 API 提供技術支援，也可透過 [Microsoft 語音服務](https://docs.microsoft.com/azure/cognitive-services/speech-service/)來使用。 此服務將翻譯工具語音 API 和自訂語音服務的功能結合為統合且可完整自訂的服務。 翻譯工具語音 API 將取代為語音服務，且將於 2019 年 10 月 15 日除役。
 
 ## <a name="language-support"></a>語言支援
 

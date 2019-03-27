@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: overview
 ms.date: 07/25/2018
-ms.openlocfilehash: 69e9a49bf83be5b58faf3e71ab0ffbfb6c6f11a1
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 86d32726280cce12888f125c65254a7b02166704
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329699"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194745"
 ---
 # <a name="azure-and-jenkins"></a>Azure 與 Jenkins
 
@@ -29,7 +29,7 @@ ms.locfileid: "54329699"
 - [Azure 虛擬機器](/azure/virtual-machines/linux/overview)。 請參閱我們的[教學課程](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd)以在 VM 上建立 Jenkins 執行個體。
 - 在 [Azure Container Service](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough) 中執行的 Kubernetes 叢集上，請參閱我們的[作法](/azure/container-service/kubernetes/container-service-kubernetes-jenkins)。
 
-使用 [Log Analytics](/azure/log-analytics/log-analytics-overview) 和 [Azure CLI](/cli/azure) 來監視和管理 Azure Jenkins 部署。
+使用 [Azure 監視器記錄](/azure/log-analytics/log-analytics-overview)和 [Azure CLI](/cli/azure) 來監視和管理 Azure Jenkins 部署。
 
 ## <a name="scale-your-build-automation-on-demand"></a>依照需求調整您的組建自動化
 

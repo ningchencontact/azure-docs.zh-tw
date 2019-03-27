@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e92c812ffc8b72fe79248c602e48ff01ef9fefcb
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 21a10bcedc25ddce63ba468e400dcea1f77148a0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961002"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863112"
 ---
 # <a name="quickstart-create-an-android-unity-app-with-azure-spatial-anchors"></a>快速入門：使用 Azure Spatial Anchors 建立 Android Unity 應用程式
 
@@ -35,7 +35,9 @@ ms.locfileid: "56961002"
 
 若要完成本快速入門，請確定您具備︰
 
-- 已安裝 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3+</a> 和 <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3+</a> 的 Windows 或 macOS 機器。
+- 具有 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3+</a> 和 <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3+</a> 的 Windows 或 macOS 機器。
+  - 如果在 Windows 上執行，您也需要 <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>。
+  - 如果在 macOS 上執行，請透過 HomeBrew 安裝 Git。 在終端機的單一行輸入以下命令：`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`。 然後執行 `brew install git`。
 - <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">由開發人員啟用</a>且<a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">具備 ARCore 功能</a>的 Android 裝置。
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
@@ -58,32 +60,12 @@ ms.locfileid: "56961002"
 
 [!INCLUDE [Export Unity Project](../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
-選取 [匯出] 以開啟對話方塊。 然後選取資料夾，以匯出 Android Studio 專案。
-
-匯出完成時將會顯示一個資料夾，其中包含已匯出的 Android Studio 專案，和一個名為 **HelloAR U3D** 的子資料夾。
-
-## <a name="deploy-the-android-application"></a>部署 Android 應用程式
-
-開啟 Android Studio，並選取 [開啟現有的 Android Studio 專案]。 然後，從匯出的 Android Studio 專案中選取 **HelloAR U3D** 子資料夾，並按一下 [確定]。
-
-在開啟時，會出現要求您使用 Gradle 包裝函式的提示。 請選取 [確定] 以使用 Gradle 包裝函式並開啟專案。
-
-將 Android 裝置開機並登入，然後使用 USB 纜線將其連接到電腦。
-
-在 Android Studio 工具列中選取 [執行]。
-
-![Android Studio 的部署和執行](./media/get-started-unity-android/android-studio-deploy-run.png)
-
-在 [選取部署目標] 對話方塊中選取 Android 裝置，然後選取 [確定] 以在 Android 裝置上執行應用程式。
+請確定 [匯出專案] 核取方塊並未勾選。 按一下 [建置並執行]。 系統會要求您儲存 `.apk` 檔案，您可以選擇任何名稱。
 
 依照應用程式中的指示放置及回收錨點。
 
 > [!NOTE]
 > 在執行應用程式時，如果您看到的背景不是相機 (例如，您看到空白、藍色或其他紋理的背景)，則可能需要在 Unity 中重新匯入資產。 請停止應用程式。 在 Unity 的頂端功能表中，選擇 [資產] -> [全部重新匯入]。 然後，再次執行應用程式。
-
-在 Android Studio 工具列中選取 [停止]，以停止應用程式。
-
-![Android Studio 的停止](./media/get-started-unity-android/android-studio-stop.png)
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

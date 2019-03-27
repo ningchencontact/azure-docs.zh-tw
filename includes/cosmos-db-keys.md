@@ -4,12 +4,12 @@ ms.service: cosmos-db
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: sngun
-ms.openlocfilehash: 918254078789ecf035df325db7186db4bf07473e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 25ac3da36727c33cc916a208f1e7974a35c545ad
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51571920"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57456681"
 ---
   現在瀏覽至 Azure Cosmos DB 帳戶頁面，然後按一下 [金鑰]，因為這些值會使用於您後續建立的 Web 應用程式中。
 

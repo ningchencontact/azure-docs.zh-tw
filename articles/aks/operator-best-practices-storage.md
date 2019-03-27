@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: iainfou
-ms.openlocfilehash: 691decb88188a428edfeab1ea9e99c48876b6d9f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 7476747de31819907cf144e5a6b33cb29e1f866f
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110959"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496169"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中進行儲存和備份的最佳做法
 
@@ -91,9 +91,9 @@ AKS 節點會以 Azure VM 的形式執行。 有不同類型和大小的 VM 可�
 
 ## <a name="secure-and-back-up-your-data"></a>保護並備份您的資料
 
-**最佳做法指引** - 使用適用於您儲存體類型的工具備份您的資料，例如 Heptio Ark 或 Azure Site Recovery。 驗證那些備份的完整性及安全性。
+**最佳作法指引**： 備份資料，可針對您的儲存體類型，例如 Velero 或 Azure Site Recovery 使用適當的工具。 驗證那些備份的完整性及安全性。
 
-當您的應用程式儲存及使用保存在磁碟上或檔案中的資料時，您必須對該資料進行定期備份或擷取快照集。 Azure 磁碟可以使用內建的快照集技術。 在執行快照集作業之前，您可能需要應用程式的勾點，以針對磁碟進行清除寫入。 [Heptio Ark][heptio-ark] 可以連同其他的叢集資源和設定一起備份永續性磁碟區。 如果您無法[從應用程式移除狀態][remove-state]，請備份來自永續性磁碟區的資料並定期測試還原作業，以確認資料完整性及必要的處理程序。
+當您的應用程式儲存及使用保存在磁碟上或檔案中的資料時，您必須對該資料進行定期備份或擷取快照集。 Azure 磁碟可以使用內建的快照集技術。 在執行快照集作業之前，您可能需要應用程式的勾點，以針對磁碟進行清除寫入。 [Velero] [ velero]可以備份以及其他叢集資源和組態的永續性磁碟區。 如果您無法[從應用程式移除狀態][remove-state]，請備份來自永續性磁碟區的資料並定期測試還原作業，以確認資料完整性及必要的處理程序。
 
 請了解不同資料備份方法的限制，以及您是否需要在擷取快照集之前使資料靜止。 資料備份並不一定能讓您還原您的叢集部署應用程式環境。 如需那些案例的詳細資訊，請參閱 [AKS 中商務持續性和災害復原的最佳做法][best-practices-multi-region]。
 
@@ -102,7 +102,7 @@ AKS 節點會以 Azure VM 的形式執行。 有不同類型和大小的 VM 可�
 本文著重於 AKS 中的儲存體最佳做法。 如需 Kubernetes 中儲存體基本概念的詳細資訊，請參閱 [AKS 中適用於應用程式的儲存體概念][aks-concepts-storage]。
 
 <!-- LINKS - External -->
-[heptio-ark]: https://github.com/heptio/ark
+[velero]: https://github.com/heptio/velero
 [dysk]: https://github.com/Azure/kubernetes-volume-drivers/tree/master/flexvolume/dysk
 [blobfuse]: https://github.com/Azure/azure-storage-fuse
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: bee02549d68b1dbdba3f0e62477b28bbd475ea32
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 379e73c33aa4570c3e56f902b011d75944c94a8d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402485"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497892"
 ---
 # <a name="automatically-scale-session-hosts"></a>自動調整工作階段主機
 
@@ -81,7 +81,7 @@ ms.locfileid: "58402485"
 | currentAzureSubscriptionId    | 工作階段主機的 Vm 執行所在的 Azure 訂用帳戶的識別碼                        |
 | tenantName                    | Windows 虛擬桌面的租用戶名稱                                                    |
 | hostPoolName                  | Windows 虛擬桌面主應用程式集區名稱                                                 |
-| RDBroker                      | WVD 服務時，預設值的 URL <https://rdbroker.wvd.microsoft.com>             |
+| RDBroker                      | URL WVD 服務時，預設值，https:\//rdbroker.wvd.microsoft.com             |
 | 使用者名稱                      | （它是可以在 AADApplicationId 中有相同的服務主體） 的服務主體的應用程式識別碼或標準使用者不經過 multi-factor authentication |
 | isServicePrincipal            | 接受的值為**真**或是**false**。 表示第二組所使用的認證是否為服務主體 」 或 「 標準帳戶。 |
 | BeginPeakTime                 | 尖峰使用時間的開始時                                                            |

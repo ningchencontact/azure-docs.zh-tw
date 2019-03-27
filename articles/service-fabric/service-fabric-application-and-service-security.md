@@ -3,7 +3,7 @@ title: 深入了解 Azure Service Fabric 應用程式安全性 | Microsoft Docs
 description: 如何安全地在 Service Fabric 上執行微服務應用程式的概觀。 深入了解如何在不同的安全性帳戶底下執行服務和啟動指令碼、驗證和授權使用者、管理應用程式祕密、保護服務通訊、使用 API 閘道，以及保護應用程式待用資料。
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: msfussell
 manager: timlt
 editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
-ms.author: ryanwi
-ms.openlocfilehash: 91e7fdd215d246156f601d3b5e6e05b7f8f71f59
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.author: mfussell
+ms.openlocfilehash: fd90bdba94a985a2a3529f605972217382b23b2a
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116451"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498344"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric 應用程式和服務安全性
 微服務架構可以帶來[許多優點](service-fabric-overview-microservices.md)。 不過，管理微服務的安全性是一種挑戰，而且與管理傳統的整合型應用程式安全性有所不同。 
@@ -53,18 +53,18 @@ ms.locfileid: "56116451"
 ## <a name="manage-application-secrets"></a>管理應用程式密碼
 密碼可以是任何機密資訊，例如儲存體連接字串、密碼或其他不會以純文字處理的值。 本文使用 Azure Key Vault 來管理金鑰和祕密。 不過，應用程式中的密碼「使用」  是由平台驗證，讓應用程式可部署至裝載在任何位置的叢集。
 
-建議透過[服務組態套件][config-package]來管理服務組態設定。 組態套件會有各種版本，並可透過含有健全狀況驗證和自動復原的受控輪流升級來進行升級。 這是慣用的全域組態，因為可以減少全域服務中斷的機會。 加密的密碼也不例外。 Service Fabric 具有內建的功能，可使用憑證加密來加密或解密組態套件 Settings.xml 檔案中的值。
+建議透過[服務組態套件][config-package]來管理服務組態設定。 可以通过包含运行状况验证和自动回滚的托管滚动升级机制来控制配置包版本以及对其进行更新。 這是慣用的全域組態，因為可以減少全域服務中斷的機會。 加密的密碼也不例外。 Service Fabric 具有內建的功能，可使用憑證加密來加密或解密組態套件 Settings.xml 檔案中的值。
 
 下圖說明 Service Fabric 應用程式中密碼管理的基本流程︰
 
 ![密碼管理概觀][overview]
 
-此流程有四個主要步驟︰
+此流程包括四个主要步骤：
 
 1. 取得資料編密憑證。
 2. 在叢集中安裝憑證。
 3. 在部署應用程式時以憑證來加密密碼的值，並將其插入服務的 Settings.xml 組態檔。
-4. 藉由以相同的編密憑證進行解密，從 Settings.xml 讀取加密的值。 
+4. 通过使用相同的加密证书进行解密，从 Settings.xml 中读取加密值。 
 
 [Azure Key Vault][key-vault-get-started] 在此是當做憑證的安全儲存位置，以及讓憑證安裝在 Azure 中的 Service Fabric 叢集上的方法。 如果您沒有要部署至 Azure，您不需要使用金鑰保存庫管理 Service Fabric 應用程式中的密碼。
 

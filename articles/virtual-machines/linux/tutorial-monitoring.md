@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7916995d2630e9b33e3695c5c505925851ba4934
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: fba54fa1d2ca6675b41728b460a07515b05758f8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092745"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531584"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>教學課程：在 Azure 中監視和更新 Linux 虛擬機器
 
@@ -189,7 +189,7 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 
 ![啟用更新管理解決方案](./media/tutorial-monitoring/manage-updates-update-enable.png)
 
-啟用解決方案可能需要 15 分鐘。 在此期間，請勿關閉瀏覽器視窗。 啟用解決方案之後，有關在 VM 上遺漏更新的相關資訊會流向 Log Analytics。 可能需要 30 分鐘到 6 小時，資料才可供分析。
+啟用解決方案可能需要 15 分鐘。 在此期間，請勿關閉瀏覽器視窗。 啟用解決方案之後，有關在 VM 上遺漏更新的相關資訊會流向 Azure 監視器記錄。 可能需要 30 分鐘到 6 小時，資料才可供分析。
 
 ### <a name="view-update-assessment"></a>檢視更新評量
 
@@ -294,7 +294,7 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --na
 
 從 VM 連線至的 Log Analytics 工作區，您也可以利用[豐富2查詢語言](../../azure-monitor/log-query/log-query-overview.md)來擷取、彙總及分析所收集的資料。 
 
-![Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+![Log Analytics 工作區](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## <a name="next-steps"></a>後續步驟
 

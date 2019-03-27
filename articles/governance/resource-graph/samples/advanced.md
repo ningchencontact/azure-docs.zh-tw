@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 8bb1733090ac2a4f3fad837e55943706309c4a5a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 9cb43cfdf930b14449f5c7130df275ef0b8d6484
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56344007"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842612"
 ---
 # <a name="advanced-resource-graph-queries"></a>進階 Resource Graph 查詢
 
@@ -74,7 +74,7 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 ## <a name="vm-regex"></a>依 RegEx 比對虛擬機器
 
 此查詢會尋找符合[規則運算式](/dotnet/standard/base-types/regular-expression-language-quick-reference) (亦稱為 _RegEx_) 的虛擬機器。
-**matches regex @** 可讓我們定義要比對的 RegEx，也就是 `^Contoso(.*)[0-9]+$`。 該 RegEx 定義說明如下：
+**matches regex \@** 可讓我們定義要比對的 RegEx，也就是 `^Contoso(.*)[0-9]+$`。 該 RegEx 定義說明如下：
 
 - `^`：比對必須從字串的開頭開始。
 - `Contoso`：區分大小寫的字串。

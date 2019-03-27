@@ -8,24 +8,28 @@ ms.topic: quickstart
 ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 0ba18b1ef0ba6c0a73759577c83ab80550baa6f8
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: eb0f73d31abced8decbed31e5604a2056584eb98
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754739"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549420"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>快速入門：使用 Azure 應用程式閘道引導網路流量 - Azure CLI
 
-本快速入門說明如何使用 Azure CLI，快速建立在其後端集區中具有兩個虛擬機器的應用程式閘道。 然後進行測試以確定它正常運作。 您會使用 Azure 應用程式閘道，將接聽程式指派給連接埠、建立規則以及將資源新增至後端集區，來將應用程式網路流量導向至特定資源。
+本快速入門說明如何使用 Azure 入門網站建立應用程式閘道。  建立應用程式閘道之後，您要加以測試，確定它可正常運作。 您會使用 Azure 應用程式閘道，將接聽程式指派給連接埠、建立規則，以及將資源新增至後端集區，來將應用程式網路流量導向至特定資源。 為了簡單起見，本文使用簡單的設定，包括公用前端 IP、在此應用程式閘道上裝載單一網站的基本接聽程式、用於後端集區的兩部虛擬機器，以及基本的要求路由規則。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
+## <a name="prerequisites"></a>必要條件
+
+### <a name="azure-powershell-module"></a>Azure PowerShell 模組
+
 如果您選擇在本機安裝和使用 CLI，請執行 Azure CLI 2.0.4 版或更新版本。 若要尋找版本，請執行 **az --version**。 如需安裝或升級的相關資訊，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
-## <a name="create-a-resource-group"></a>建立資源群組
+### <a name="resource-group"></a>資源群組
 
 在 Azure 中，您可以將相關資源配置到資源群組。 使用 [az group create](/cli/azure/group#az-group-create) 建立資源群組。 
 
@@ -35,9 +39,9 @@ ms.locfileid: "55754739"
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## <a name="create-network-resources"></a>建立網路資源 
+### <a name="required-network-resources"></a>必要的網路資源 
 
-在建立虛擬網路時，應用程式閘道可與其他資源進行通訊。 您建立應用程式閘道時，可以同時建立虛擬網路。 在此範例中您會建立兩個子網路：一個用於應用程式閘道，另一個用於虛擬機器。 應用程式閘道子網路只能包含應用程式閘道。 不允許任何其他資源。
+Azure 需要虛擬網路才能在您所建立的資源之間進行通訊。  應用程式閘道子網路只能包含應用程式閘道。 不允許任何其他資源。  您可以為應用程式閘道建立新的子網路，或使用現有的子網路。 在此範例中您會建立兩個子網路：一個用於應用程式閘道，另一個用於後端伺服器。 您可以根據自己的使用案例，將應用程式閘道的前端 IP 設定為「公用」或「私人」。 在此範例中，我們會選擇公用前端 IP。
 
 若要建立虛擬網路和子網路，請使用 [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)。 執行 [az network public-ip create](/cli/azure/network/public-ip) 可建立公用 IP 位址。
 
@@ -59,11 +63,11 @@ az network public-ip create \
   --name myAGPublicIPAddress
 ```
 
-## <a name="create-backend-servers"></a>建立後端伺服器
+### <a name="backend-servers"></a>後端伺服器
 
-在此範例中，您會建立兩個虛擬機器，供 Azure 作為應用程式閘道的後端伺服器。 
+後端可以包含 NIC、虛擬機器擴展集、公用 IP、內部 IP、完整網域名稱 (FQDN)，以及多租用戶後端，例如 Azure App Service。 在此範例中，您會建立兩個虛擬機器，供 Azure 作為應用程式閘道的後端伺服器。 您也可以在虛擬機器上安裝 IIS，以確認 Azure 已成功建立應用程式閘道。
 
-### <a name="create-two-virtual-machines"></a>建立兩部虛擬機器
+#### <a name="create-two-virtual-machines"></a>建立兩部虛擬機器
 
 請在虛擬機器上安裝 [NGINX Web 伺服器](https://docs.nginx.com/nginx/)，以確認已成功建立應用程式閘道。 您可以使用 cloud-init 組態檔來安裝 NGINX，並在 Linux 虛擬機器上執行 "Hello World" Node.js 應用程式。 如需 Cloud-init 的詳細資訊，請參閱 [Azure 中虛擬機器的 Cloud-init 支援](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)。
 
@@ -169,13 +173,13 @@ az network public-ip show \
   --name myAGPublicIPAddress \
   --query [ipAddress] \
   --output tsv
-``` 
+```
 
 將公用 IP 位址複製並貼到瀏覽器的網址列中。
     
 ![測試應用程式閘道](./media/quick-create-cli/application-gateway-nginxtest.png)
 
-當您重新整理瀏覽器時，您應該會看到第二個 VM 的名稱。
+當您重新整理瀏覽器時，您應該會看到第二個 VM 的名稱。 有效的回應會確認應用程式閘道已成功建立，並能與後端順利連線。
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -184,7 +188,7 @@ az network public-ip show \
 ```azurecli-interactive 
 az group delete --name myResourceGroupAG
 ```
- 
+
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]

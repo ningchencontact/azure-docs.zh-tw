@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: 該 power Azure 開發人員空格和 azds.yaml 組態檔中的設定方式說明的程序
 keywords: azds.yaml，Azure 開發人員空格、 開發空格、 Docker、 Kubernetes、 Azure，AKS，Azure Kubernetes Service，容器
-ms.openlocfilehash: b6f178628961001c4022ffc86bc13ee0e529e3c4
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 622a0780d74618fe694e5b9da0327490e0ec38dd
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438966"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500554"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure 開發空間的運作方式，並已設定
 
@@ -96,7 +96,7 @@ Azure 的 Dev 空間有兩個不同的元件，與您互動： 控制器和用�
 * 移除名為任何 Kubernetes 命名空間*azds*，如果它存在，而且會建立一個新。
 * 部署 Kubernetes 初始設定式物件。
 
-![Azure 開發人員空間準備叢集]](media/how-dev-spaces-works/prepare-cluster.svg)
+![Azure 開發人員空間準備叢集](media/how-dev-spaces-works/prepare-cluster.svg)
 
 若要使用 Azure 開發人員的空格，必須至少一個開發人員的空間。 Azure 開發人員空間開發空間使用 Kubernetes AKS 叢集內的命名空間。 安裝在控制站時，它會提示您建立新的 Kubernetes 命名空間，或選擇現有的命名空間來做為您的第一個開發空間。 當命名空間指定為開發人員的空間時，控制器便會新增*azds.io/space=true*標籤以將其識別為開發人員空間，該命名空間。 準備您的叢集之後，預設會選取您建立或指定的初始開發空間。 選取空格時，它正由 Azure 開發人員的空間來建立新的工作負載。
 

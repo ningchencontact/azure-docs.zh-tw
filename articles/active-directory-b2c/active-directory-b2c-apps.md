@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 116abd259d11e66be2dc158d833c569f06aaa923
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 5324f1ed92ae4513dcd877853cb6fa2f4c7dd8f3
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446370"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497953"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>可以在 Active Directory B2C 中使用的應用程式類型
 
@@ -108,7 +108,7 @@ Web API 接收的權杖可以來自許多類型的用戶端，包括 Web 應用�
 
 安裝在裝置上的應用程式 (例如行動和桌面應用程式) 通常需要代表使用者來存取後端服務或 Web API。 您可以將自訂的身分識別管理體驗新增至原生應用程式，並使用 Azure AD B2C 和 [OAuth 2.0 授權碼流程](active-directory-b2c-reference-oauth-code.md)以安全地呼叫後端服務。  
 
-在此流程中，應用程式會執行[原則](active-directory-b2c-reference-policies.md)，並在使用者完成原則之後，從 Azure AD 接收 `authorization_code`。 `authorization_code` 代表應用程式有權代表目前登入的使用者來呼叫後端服務。 然後應用程式就可在背景中以 `authorization_code` 交換 `id_token` 和 `refresh_token`。  應用程式可以在 HTTP 要求中使用 `id_token` 來向後端 Web API 進行驗證。 它也可以使用 `refresh_token` 來取得新的 `id_token` (當舊的已過期時)。
+在此流程中，應用程式會執行[原則](active-directory-b2c-reference-policies.md)，並在使用者完成原則之後，從 Azure AD 接收 `authorization_code`。 `authorization_code` 代表應用程式有權代表目前登入的使用者來呼叫後端服務。 然後應用程式就可在背景中以 `authorization_code` 交換 `access_token` 和 `refresh_token`。  應用程式可以在 HTTP 要求中使用 `access_token` 來向後端 Web API 進行驗證。 它也可以使用 `refresh_token` 來取得新的 `access_token` (當舊的已過期時)。
 
 ## <a name="current-limitations"></a>目前的限制
 

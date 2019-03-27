@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5fe3d9369958984b76fd704583460a95868da85e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: c85644e3cab39f9e0864af91722ee54aab6d59f3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114208"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486864"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>設定 Azure App Service 的 PremiumV2 層
 
@@ -116,7 +116,7 @@ az appservice plan create \
 
 下列命令會在 P1V2 建立 App Service 方案。 `-WorkerSize` 選項包括 [小型]、[中型] 和 [大型]。
 
-```PowerShell
+```powershell
 New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
     -Name <app_service_plan_name> `
     -Location <region_name> `

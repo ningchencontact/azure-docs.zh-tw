@@ -3,7 +3,7 @@ title: 了解 Azure Service Fabric 術語 | Microsoft Docs
 description: Service Fabric 的術語概觀 討論重要術語概念和文件其餘部分中使用的詞彙。
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: masnider
 manager: timlt
 editor: chackdan;subramar
 ms.assetid: 3a970679-e19e-43b3-9be8-71773f307c57
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/17/2018
-ms.author: ryanwi
-ms.openlocfilehash: fda6af0f253457aaf3aef1e8444850592255b318
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: masnider
+ms.openlocfilehash: d9012ff37693b406d4e91560c880d6bed66c051b
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113668"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498293"
 ---
 # <a name="service-fabric-terminology-overview"></a>Service Fabric 術語概觀
 Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務。  您可以[隨處裝載 Service Fabric 叢集](service-fabric-deploy-anywhere.md)：在 Azure 中、在內部部署資料中心中，或是在任何雲端提供者上。  Service Fabric 是支援 [Azure Service Fabric Mesh](/azure/service-fabric-mesh) 的協調器。 您可以使用任何架構來撰寫服務，並從多種環境中選擇要執行應用程式的位置。 本文詳細說明 Service Fabric 中所使用的術語，以利您了解文件中使用的詞彙。

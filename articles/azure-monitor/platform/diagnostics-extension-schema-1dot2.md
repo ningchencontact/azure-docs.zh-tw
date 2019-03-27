@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 6a0061c03a10f5a5bd518c9ea01d8edd542e4e39
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 1ffeab91933bfcba9f3ffa0b557e849a1e6890f5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470557"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486150"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Azure 診斷 1.2 組態結構描述
 > [!NOTE]
@@ -28,7 +28,7 @@ Azure 診斷要與 Azure 監視器、Application Insights 和 Log Analytics 等�
 
  執行下列 PowerShell 命令，以下載公用組態檔結構描述定義：  
 
-```PowerShell  
+```powershell  
 (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File –Encoding utf8 -FilePath 'C:\temp\WadConfig.xsd'  
 ```  
 
@@ -96,7 +96,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="publicconfig-element"></a>PublicConfig 元素  
  診斷組態檔的最上層元素。 下表說明組態檔的元素。  
 
-|元素名稱|說明|  
+|元素名稱|描述|  
 |------------------|-----------------|  
 |**WadCfg**|必要。 要收集之遙測資料的組態設定。|  
 |**StorageAccount**|要儲存資料的 Azure 儲存體帳戶名稱。 這可能也會在執行 Set-AzureServiceDiagnosticsExtension Cmdlet 時指定為參數。|  
@@ -105,7 +105,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="wadcfg-element"></a>WadCFG 元素  
 定義要收集之遙測資料的組態設定。 下表說明子元素：  
 
-|元素名稱|說明|  
+|元素名稱|描述|  
 |------------------|-----------------|  
 |**DiagnosticMonitorConfiguration**|必要。 選用屬性包括：<br /><br /> -                     **overallQuotaInMB** - 可供 Azure 診斷所收集的各種類型診斷資料取用的本機磁碟空間量上限。 預設設定為 5120 MB。<br /><br /> -                     **useProxyServer** - 設定 Azure 診斷來使用 Proxy 伺服器設定，如 IE 設定中所設定。|  
 |**CrashDumps**|啟用收集損毀傾印。 選用屬性包括：<br /><br /> -                     **containerName** - 在您的 Azure 儲存體帳戶中用來儲存損毀傾印的 Blob 容器名稱。<br /><br /> -                     **crashDumpType** - 設定 Azure 診斷來收集迷你或完整的損毀傾印。<br /><br /> -                     **directoryQuotaPercentage**- 設定要在 VM 上保留以供損毀傾印使用的 **overallQuotaInMB** 百分比。|  
@@ -119,7 +119,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="crashdumps-element"></a>CrashDumps 元素  
  啟用收集損毀傾印。 下表說明子元素：  
 
-|元素名稱|說明|  
+|元素名稱|描述|  
 |------------------|-----------------|  
 |**CrashDumpConfiguration**|必要。 必要屬性：<br /><br /> **processName** - 您希望 Azure 診斷收集損毀傾印的處理序名稱。|  
 |**crashDumpType**|設定 Azure 診斷來收集迷你或完整的損毀傾印。|  
@@ -128,7 +128,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="directories-element"></a>Directories 元素  
  啟用收集目錄、IIS 失敗的存取要求記錄和/或 IIS 記錄的內容。 下表說明子元素：  
 
-|元素名稱|說明|  
+|元素名稱|描述|  
 |------------------|-----------------|  
 |**DataSources**|要監視的目錄清單。|  
 |**FailedRequestLogs**|在組態中包含此元素，就能夠收集對於 IIS 站台或應用程式之失敗要求的相關記錄。 您也必須在 **Web.config** 的 **system.WebServer** 下啟用追蹤選項。|  
@@ -137,14 +137,14 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="datasources-element"></a>DataSources 元素  
  要監視的目錄清單。 下表說明子元素：  
 
-|元素名稱|說明|  
+|元素名稱|描述|  
 |------------------|-----------------|  
 |**DirectoryConfiguration**|必要。 必要屬性：<br /><br /> **containerName** - 在您的 Azure 儲存體帳戶中用來儲存記錄檔的 Blob 容器名稱。|  
 
 ## <a name="directoryconfiguration-element"></a>DirectoryConfiguration 元素  
  **DirectoryConfiguration** 可能包括 **Absolute** 或 **LocalResource** 元素，但非兩者。 下表說明子元素：  
 
-|元素名稱|說明|  
+|元素名稱|描述|  
 |------------------|-----------------|  
 |**Absolute**|要監視之目錄的絕對路徑。 以下為必要屬性：<br /><br /> -                     **Path** - 要監視之目錄的絕對路徑。<br /><br /> -                      **expandEnvironment** - 設定是否要展開 Path 中的環境變數。|  
 |**LocalResource**|相對於要監視之本機資源的路徑。 必要屬性包括：<br /><br /> -                     **Name** - 包含要監視之目錄的本機資源<br /><br /> -                     **relativePath** - 包含要監視目錄之 Name 的相對路徑|  
@@ -152,7 +152,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="etwproviders-element"></a>EtwProviders 元素  
  設定要收集來自 EventSource 和/或以 ETW 資訊清單為基礎之提供者的 ETW 事件。 下表說明子元素：  
 
-|元素名稱|說明|  
+|元素名稱|描述|  
 |------------------|-----------------|  
 |**EtwEventSourceProviderConfiguration**|設定要收集從 [EventSource 類別](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx)產生的事件。 必要屬性：<br /><br /> **provider** - EventSource 事件的類別名稱。<br /><br /> 選用屬性包括：<br /><br /> -                     **scheduledTransferLogLevelFilter** - 要傳輸至儲存體帳戶的最低嚴重性層級。<br /><br /> -                     **scheduledTransferPeriod** - 排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](https://www.w3schools.com/xml/schema_dtypes_date.asp)。|  
 |**EtwManifestProviderConfiguration**|必要屬性：<br /><br /> **provider** - 事件提供者的 GUID<br /><br /> 選用屬性包括：<br /><br /> - **scheduledTransferLogLevelFilter** - 要傳輸至儲存體帳戶的最低嚴重性層級。<br /><br /> -                     **scheduledTransferPeriod** - 排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](https://www.w3schools.com/xml/schema_dtypes_date.asp)。|  
@@ -160,7 +160,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration 元素  
  設定要收集從 [EventSource 類別](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx)產生的事件。 下表說明子元素：  
 
-|元素名稱|說明|  
+|元素名稱|描述|  
 |------------------|-----------------|  
 |**DefaultEvents**|選用屬性：<br /><br /> **eventDestination** - 要儲存事件的資料表名稱|  
 |**Event**|必要屬性：<br /><br /> **id** - 事件的識別碼。<br /><br /> 選用屬性：<br /><br /> **eventDestination** - 要儲存事件的資料表名稱|  
@@ -168,7 +168,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="etwmanifestproviderconfiguration-element"></a>EtwManifestProviderConfiguration 元素  
  下表說明子元素：  
 
-|元素名稱|說明|  
+|元素名稱|描述|  
 |------------------|-----------------|  
 |**DefaultEvents**|選用屬性：<br /><br /> **eventDestination** - 要儲存事件的資料表名稱|  
 |**Event**|必要屬性：<br /><br /> **id** - 事件的識別碼。<br /><br /> 選用屬性：<br /><br /> **eventDestination** - 要儲存事件的資料表名稱|  
@@ -176,28 +176,28 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="metrics-element"></a>Metrics 元素  
  讓您能夠產生已最佳化的效能計數器資料表來進行快速查詢。 下表說明子元素：  
 
-|元素名稱|說明|  
+|元素名稱|描述|  
 |------------------|-----------------|  
 |**MetricAggregation**|必要屬性：<br /><br /> **scheduledTransferPeriod** - 排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](https://www.w3schools.com/xml/schema_dtypes_date.asp)。|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters 元素  
  啟用收集效能計數器。 下表說明子元素：  
 
-|元素名稱|說明|  
+|元素名稱|描述|  
 |------------------|-----------------|  
 |**PerformanceCounterConfiguration**|以下為必要屬性：<br /><br /> -                     **counterSpecifier** - 效能計數器的名稱。 例如： `\Processor(_Total)\% Processor Time`。 若要在主機上取得效能計數器清單，請執行 `typeperf` 命令。<br /><br /> -                     **sampleRate** - 應針對計數器進行取樣的頻率。<br /><br /> 選用屬性：<br /><br /> **unit** - 計數器的測量單位。|  
 
 ## <a name="performancecounterconfiguration-element"></a>PerformanceCounterConfiguration 元素  
  下表說明子元素：  
 
-|元素名稱|說明|  
+|元素名稱|描述|  
 |------------------|-----------------|  
 |**annotation**|必要屬性：<br /><br /> **displayName** - 計數器的顯示名稱<br /><br /> 選用屬性：<br /><br /> **locale** - 顯示計數器名稱時所使用的地區設定|  
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog 元素  
  下表說明子元素：  
 
-|元素名稱|說明|  
+|元素名稱|描述|  
 |------------------|-----------------|  
 |**DataSource**|要收集的 Windows 事件記錄檔。 必要屬性：<br /><br /> **name** - 說明要收集之 Windows 事件的 XPath 查詢。 例如︰<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> 若要收集所有事件，請指定 "*"。|
 

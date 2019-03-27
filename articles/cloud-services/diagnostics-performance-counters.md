@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2018
 ms.author: jeconnoc
-ms.openlocfilehash: 7713b449d5e5291ce1dd6c9b814ebefd07bc53a9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 68101be211335d51eb4bf99361ea36b73fa19218
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737666"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485394"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>為您的 Azure 雲端服務收集效能計數器
 
@@ -29,7 +29,7 @@ ms.locfileid: "56737666"
 
 效能計數器是由兩個部分組成，集合名稱 (也稱為分類) 和一或多個計數器。 您可以使用 PowerShell 以取得可用效能計數器的清單：
 
-```PowerShell
+```powershell
 Get-Counter -ListSet * | Select-Object CounterSetName, Paths | Sort-Object CounterSetName
 
 CounterSetName                                  Paths
@@ -56,7 +56,7 @@ Authorization Manager Applications              {\Authorization Manager Appl...
 
 若要取得集合的所有計數器，請使用 `CounterSetName` 值並展開 `Paths` 集合。 每個路徑項目都是您可以查詢的計數器。 例如，若要取得與 `Processor` 集合相關的可用計數器，請展開 `Paths` 集合：
 
-```PowerShell
+```powershell
 Get-Counter -ListSet * | Where-Object CounterSetName -eq "Processor" | Select -ExpandProperty Paths
 
 \Processor(*)\% Processor Time

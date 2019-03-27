@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 4d3d45434a90e89e011bf8aa7c3fd37909e25386
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: a035789af08aa4c0d877a06295d9bd6fdedf6844
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203059"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449493"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>分析 Apache Hadoop 記錄
 
@@ -315,6 +315,5 @@ Azure HDInsight 中的每個 Apache Hadoop 叢集都有一個 Azure 儲存體帳
 
 ## <a name="next-steps"></a>後續步驟
 
-* [在 HDInsight 上使用 Apache Ambari 檢視來為 Apache Tez 作業偵錯](../hdinsight-debug-ambari-tez-view.md)
 * [在以 Linux 為基礎的 HDInsight 上啟用 Apache Hadoop 服務的堆積傾印](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [使用 Apache Ambari Web UI 管理 HDInsight 叢集](../hdinsight-hadoop-manage-ambari.md)

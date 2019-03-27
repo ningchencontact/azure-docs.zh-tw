@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 3f378edb-9ac9-494d-a84a-03357b923ee1
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: aad6abce87ce56c0a4ef546e208bf23b14068247
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 94686d62e8019bfc5dba1ccd4a00142512930c0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808861"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57862211"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>教學課程：Azure Active Directory 與 Periscope Data 整合
 
@@ -105,6 +105,7 @@ Periscope Data 與 Azure AD 整合提供下列優點：
     ![Periscope Data 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
     a. 在 [登入 URL] 文字方塊中，輸入任何 URL：
+    
     | |
     |--|
     | `https://app.periscopedata.com/` |
@@ -165,7 +166,7 @@ Periscope Data 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -218,7 +219,7 @@ Periscope Data 與 Azure AD 整合提供下列優點：
 
     b. 在 [姓氏] 文字方塊中，輸入使用者的姓氏，例如 **Simon**。
 
-    c. 在 [電子郵件] 文字方塊中，輸入使用者的電子郵件，例如 **brittasimon@contoso.com**。
+    c. 在 [電子郵件] 文字方塊中，輸入使用者的電子郵件地址，例如 **brittasimon\@contoso.com**。
 
     d. 按一下 [新增]。
 

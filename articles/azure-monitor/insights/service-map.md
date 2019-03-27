@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 143d14df3019aa0c5c5dd798f656f95c8ebde372
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 2abec4d9d74cf58503dec667080f478b1fec06ff
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731090"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485147"
 ---
 # <a name="using-service-map-solution-in-azure"></a>在 Azure 中使用服務對應解決方案
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 有了服務對應，您就可將伺服器視為您心目中提供重要服務的互連式系統。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序、輸入和輸出連線的延遲，和連接埠之間的連線。
@@ -374,50 +374,50 @@ Linux：
 
 | 屬性 | 描述 |
 |:--|:--|
-| 類型 | *ServiceMapComputer_CL* |
-| SourceSystem | *OpsManager* |
-| ResourceId | 工作區中機器的唯一識別碼 |
-| ResourceName_s | 工作區中機器的唯一識別碼 |
-| ComputerName_s | 電腦 FQDN |
-| Ipv4Addresses_s | 伺服器的 IPv4 位址清單 |
-| Ipv6Addresses_s | 伺服器的 IPv6 位址清單 |
-| DnsNames_s | DNS 名稱的陣列 |
-| OperatingSystemFamily_s | Windows 或 Linux |
-| OperatingSystemFullName_s | 作業系統的完整名稱  |
-| Bitness_s | 機器的運算位元數 (32 位元或 64 位元)  |
-| PhysicalMemory_d | 實體記憶體 (MB) |
-| Cpus_d | CPU 數目 |
-| CpuSpeed_d | CPU 速度 (MHz)|
-| VirtualizationState_s | *unknown**physical**virtual* *hypervisor* |
-| VirtualMachineType_s | *hyperv*、*vmware* 等等 |
-| VirtualMachineNativeMachineId_g | VM 識別碼 (由其 Hypervisor 指派) |
-| VirtualMachineName_s | VM 的名稱 |
-| BootTime_t | 開機時間 |
+| `Type` | *ServiceMapComputer_CL* |
+| `SourceSystem` | *OpsManager* |
+| `ResourceId` | 工作區中機器的唯一識別碼 |
+| `ResourceName_s` | 工作區中機器的唯一識別碼 |
+| `ComputerName_s` | 電腦 FQDN |
+| `Ipv4Addresses_s` | 伺服器的 IPv4 位址清單 |
+| `Ipv6Addresses_s` | 伺服器的 IPv6 位址清單 |
+| `DnsNames_s` | DNS 名稱的陣列 |
+| `OperatingSystemFamily_s` | Windows 或 Linux |
+| `OperatingSystemFullName_s` | 作業系統的完整名稱  |
+| `Bitness_s` | 機器的運算位元數 (32 位元或 64 位元)  |
+| `PhysicalMemory_d` | 實體記憶體 (MB) |
+| `Cpus_d` | CPU 數目 |
+| `CpuSpeed_d` | CPU 速度 (MHz)|
+| `VirtualizationState_s` | *unknown**physical**virtual* *hypervisor* |
+| `VirtualMachineType_s` | *hyperv*、*vmware* 等等 |
+| `VirtualMachineNativeMachineId_g` | VM 識別碼 (由其 Hypervisor 指派) |
+| `VirtualMachineName_s` | VM 的名稱 |
+| `BootTime_t` | 開機時間 |
 
 ### <a name="servicemapprocesscl-type-records"></a>ServiceMapProcess_CL 類型記錄
 類型為 *ServiceMapProcess_CL* 的記錄會有伺服器 (具有服務對應代理程式) 上 TCP 連線處理程序的清查資料。 這些記錄具有下表中的屬性：
 
 | 屬性 | 描述 |
 |:--|:--|
-| 類型 | *ServiceMapProcess_CL* |
-| SourceSystem | *OpsManager* |
-| ResourceId | 工作區中處理序的唯一識別碼 |
-| ResourceName_s | 在執行處理序的機器上，處理序的唯一識別碼|
-| MachineResourceName_s | 機器的資源名稱 |
-| ExecutableName_s | 處理序可執行檔的名稱 |
-| StartTime_t | 處理序集區的開始時間 |
-| FirstPid_d | 處理序集區中的第一個 PID |
-| Description_s | 處理序的描述 |
-| CompanyName_s | 公司的名稱 |
-| InternalName_s | 內部名稱 |
-| ProductName_s | 產品的名稱 |
-| ProductVersion_s | 產品版本 |
-| FileVersion_s | 檔案版本 |
-| CommandLine_s | 命令列 |
-| ExecutablePath _s | 可執行檔的路徑 |
-| WorkingDirectory_s | 工作目錄 |
-| UserName | 執行處理序的帳戶 |
-| UserDomain | 執行處理序的網域 |
+| `Type | *ServiceMapProcess_CL* |
+| `SourceSystem` | *OpsManager* |
+| `ResourceId` | 工作區中處理序的唯一識別碼 |
+| `ResourceName_s` | 在執行處理序的機器上，處理序的唯一識別碼|
+| `MachineResourceName_s` | 機器的資源名稱 |
+| `ExecutableName_s` | 處理序可執行檔的名稱 |
+| `StartTime_t` | 處理序集區的開始時間 |
+| `FirstPid_d` | 處理序集區中的第一個 PID |
+| `Description_s` | 處理序的描述 |
+| `CompanyName_s` | 公司的名稱 |
+| `InternalName_s` | 內部名稱 |
+| `ProductName_s` | 產品的名稱 |
+| `ProductVersion_s` | 產品版本 |
+| `FileVersion_s` | 檔案版本 |
+| `CommandLine_s` | 命令列 |
+| `ExecutablePath _s` | 可執行檔的路徑 |
+| `WorkingDirectory_s` | 工作目錄 |
+| `UserName` | 執行處理序的帳戶 |
+| `UserDomain` | 執行處理序的網域 |
 
 ## <a name="sample-log-searches"></a>記錄搜尋範例
 

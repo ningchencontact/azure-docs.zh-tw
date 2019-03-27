@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 16473b7814763d80f7e850acf44839f5ef640a18
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 13526268480c69798ee52078f7448605fc1afa9a
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109039"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242032"
 ---
 # <a name="what-is-azure-security-center"></a>什麼是 Azure 資訊安全中心？
 
@@ -128,7 +128,7 @@ Azure 資訊安全中心的價值核心在於其建議。 建議是專為工作�
 
 ## <a name="get-secure-faster"></a>更快保障安全
 
-原生 Azure 整合 (包括 Azure 原則與 Log Analytics) 結合與之緊密整合的其他 Microsoft 安全性解決方案，例如 Microsoft Cloud App Security 與 Windows Defender 進階威脅防護，可協助確保您的安全性解決方案完善周全且容易上架和推出。
+原生 Azure 整合 (包括 Azure 原則與 Azure 監視器記錄) 結合了與之緊密整合的其他 Microsoft 安全性解決方案，例如 Microsoft Cloud App Security 與 Windows Defender 進階威脅防護，可協助確保您的安全性解決方案完善周全且容易上架和推出。
 
 此外，您可以將整個解決方案擴充到 Azure 外部於其他雲端上和內部部署資料中心內執行的工作負載。
 

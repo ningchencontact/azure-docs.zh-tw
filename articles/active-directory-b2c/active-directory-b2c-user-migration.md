@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0ca35c5d7a882a67bdce5e006b94d1f16daf9130
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4ebe77d26360776140db8e2a4b0209475d9d6367
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57893199"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484707"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C：使用者移轉
 當您將識別提供者移轉到 Azure Active Directory B2C (Azure AD B2C) 時，可能也需要移轉使用者帳戶。 本文說明如何將任何識別提供者的現有使用者帳戶移轉至 Azure AD B2C。 本文章並非是為了做出規定，而是要說明數個案例。 每種方法是否適合則屬開發人員的責任。
@@ -104,7 +104,7 @@ Azure AD B2C 的本機帳戶密碼原則是以 Azure AD 原則為基礎的。 Az
    
 1. 使用**應用程式識別碼**來為應用程式指派使用者帳戶管理員角色。 這些角色都有已知的識別碼，您只需要在指令碼中輸入您的**應用程式識別碼**即可。
    
-```PowerShell
+```powershell
 Connect-AzureAD
 
 $AppId = "<Your application ID>"

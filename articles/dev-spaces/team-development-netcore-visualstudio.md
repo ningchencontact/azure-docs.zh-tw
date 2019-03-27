@@ -1,23 +1,22 @@
 ---
-title: 使用 .NET Core 和 Visual Studio 來以 Azure Dev Spaces 進行小組開發 | Microsoft Docs
+title: 使用 .NET Core 和 Visual Studio 透過 Azure Dev Spaces 進行小組開發
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.subservice: azds-kubernetes
 author: DrEsteban
 ms.author: stevenry
 ms.date: 12/09/2018
 ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
-ms.openlocfilehash: af0a4a719f964e400119be313842f385b410406c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由, kubectl, k8s '
+ms.openlocfilehash: 25b72b6770e088a2999f1e70f3dc3559587cd0e2
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817417"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774808"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>使用 Azure Dev Spaces 進行小組開發
 

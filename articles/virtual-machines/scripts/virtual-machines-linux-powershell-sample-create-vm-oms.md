@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell 指令碼範例 - Log Analytics | Microsoft Docs
-description: Azure PowerShell 指令碼範例 - Log Analytics
+title: Azure PowerShell 指令碼範例 - Azure 監視器記錄 | Microsoft Docs
+description: Azure PowerShell 指令碼範例 - Azure 監視器記錄 | Microsoft Docs
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 33dbaea4b4658e189555f39ddeff9d33c7b48112
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: e32729ba9a8ae4e10fe696c130b32b76bcf8fd2c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984047"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536420"
 ---
-# <a name="create-a-log-analytics-monitored-vm-with-powershell"></a>使用 PowerShell 建立由 Log Analytics 監視的 VM
+# <a name="create-an-azure-monitor-vm-with-powershell"></a>使用 PowerShell 建立 Azure 監視器 VM
 
 此指令碼會建立 Azure 虛擬機器、安裝 Log Analytics 代理程式，並向 Log Analytics 工作區註冊系統。 執行此指令碼後，就能在主控台中看到虛擬機器。
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8502ab3257bc1d121e0440ba765dfd19a6722cec
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 3be702d1f75b0a96e22ea03602c924be580b0968
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311963"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499245"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>部署 Azure AD 密碼保護
 
@@ -36,7 +36,7 @@ ms.locfileid: "58311963"
 
 ## <a name="deployment-requirements"></a>部署需求
 
-* 所有網域控制站服務安裝的 Azure AD 密碼保護，必須執行 Windows Server 2012 或更新版本，取得 DC 代理程式。
+* 所有網域控制站服務安裝的 Azure AD 密碼保護，必須執行 Windows Server 2012 或更新版本，取得 DC 代理程式。 這項需求並不表示，Active Directory 網域或樹系必須也是在 Windows Server 2012 網域或樹系功能等級。 中所述[設計原則](concept-password-ban-bad-on-premises.md#design-principles)，沒有任何最低網域功能等級為或 FFL 所需的 DC 代理程式或 proxy 軟體執行。
 * 取得 proxy 服務已安裝的 Azure AD 密碼保護，必須執行 Windows Server 2012 R2 或更新版本的所有機器。
 * 安裝 Azure AD 密碼保護 Proxy 服務的所有機器都必須都有安裝的.NET 4.7。
   完整地進行更新的 Windows Server 上時，應該已安裝.NET 4.7。 如果這不是這樣，下載並執行安裝程式，請參閱[for Windows 的.NET Framework 4.7 離線安裝程式](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows)。
@@ -85,7 +85,7 @@ ms.locfileid: "58311963"
 1. 以系統管理員身分開啟 PowerShell 視窗。
    * 密碼保護 proxy 軟體包含新的 PowerShell 模組*AzureADPasswordProtection*。 下列步驟執行此 PowerShell 模組中的各種指令程式。 如下所示匯入新的模組：
 
-      ```PowerShell
+      ```powershell
       Import-Module AzureADPasswordProtection
       ```
 
@@ -106,7 +106,7 @@ ms.locfileid: "58311963"
 
      * 互動式驗證模式：
 
-        ```PowerShell
+        ```powershell
         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
         > [!NOTE]
@@ -114,7 +114,7 @@ ms.locfileid: "58311963"
 
      * 裝置代碼驗證模式：
 
-        ```PowerShell
+        ```powershell
         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
         To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
         ```
@@ -123,7 +123,7 @@ ms.locfileid: "58311963"
 
      * 無訊息 (密碼型) 驗證模式：
 
-        ```PowerShell
+        ```powershell
         $globalAdminCredentials = Get-Credential
         Register-AzureADPasswordProtectionProxy -AzureCredential $globalAdminCredentials
         ```
@@ -146,7 +146,7 @@ ms.locfileid: "58311963"
 
      * 互動式驗證模式：
 
-        ```PowerShell
+        ```powershell
         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
         > [!NOTE]
@@ -154,7 +154,7 @@ ms.locfileid: "58311963"
 
      * 裝置代碼驗證模式：
 
-        ```PowerShell
+        ```powershell
         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com' -AuthenticateUsingDeviceCode
         To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XYZABC123 to authenticate.
         ```
@@ -162,7 +162,7 @@ ms.locfileid: "58311963"
         您接著會依據不同的裝置上顯示的指示完成驗證。
 
      * 無訊息 (密碼型) 驗證模式：
-        ```PowerShell
+        ```powershell
         $globalAdminCredentials = Get-Credential
         Register-AzureADPasswordProtectionForest -AzureCredential $globalAdminCredentials
         ```
@@ -221,7 +221,7 @@ ms.locfileid: "58311963"
 1. 選用：Proxy 服務設定為接聽特定通訊埠上的密碼保護。
    * 網域控制站上的密碼保護的 DC 代理程式軟體會使用 RPC over TCP 通訊的 proxy 服務。 根據預設，proxy 服務會接聽任何可用的動態 RPC 端點。 但如果這是因為網路拓樸或您的環境中的防火牆需求所需，您可以設定為接聽特定 TCP 通訊埠，服務。
       * <a id="static" /></a>若要設定靜態連接埠之下執行服務，請使用`Set-AzureADPasswordProtectionProxyConfiguration`cmdlet。
-         ```PowerShell
+         ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>
          ```
 
@@ -229,7 +229,7 @@ ms.locfileid: "58311963"
          > 您必須將服務停止後再重新啟動，這些變更才會生效。
 
       * 若要設定動態連接埠之下執行服務，使用相同的程序，但設定*StaticPort*設回零：
-         ```PowerShell
+         ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort 0
          ```
 
@@ -241,7 +241,7 @@ ms.locfileid: "58311963"
 
    * 若要查詢的目前組態的服務，請使用`Get-AzureADPasswordProtectionProxyConfiguration`cmdlet:
 
-      ```PowerShell
+      ```powershell
       Get-AzureADPasswordProtectionProxyConfiguration | fl
 
       ServiceName : AzureADPasswordProtectionProxy

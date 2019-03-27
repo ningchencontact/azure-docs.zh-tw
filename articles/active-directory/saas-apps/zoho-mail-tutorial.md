@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 9874e1f3-ade5-42e7-a700-e08b3731236a
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5ca65ca74e24579f15512722dffd0900a231230
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: dfd3afea4a5f09f1e572030b28d3511b31d81b69
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873333"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904266"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho"></a>教學課程：Azure Active Directory 與 Zoho 整合
 
@@ -170,7 +170,7 @@ Zoho 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -228,7 +228,7 @@ Zoho 與 Azure AD 整合提供下列優點：
 
     b. 在 [姓氏] 文字方塊中，輸入使用者的姓氏，例如 **Simon**。
 
-    c. 在 [電子郵件識別碼] 文字方塊中，輸入像是 **brittasimon@contoso.com** 的使用者電子郵件識別碼。
+    c. 在 [電子郵件識別碼] 文字方塊中，輸入使用者的電子郵件識別碼，例如 **brittasimon\@contoso.com**。
 
     d. 在 [密碼] 文字方塊中，輸入使用者的密碼。
    

@@ -1,73 +1,81 @@
 ---
-title: 快速入門：Bing 自動建議 API (Python)
+title: 快速入門：使用 Bing 自動建議 REST API 與 Python 建議搜尋查詢
 titlesuffix: Azure Cognitive Services
 description: 取得資訊和程式碼範例，以協助您快速開始使用 Bing 自動建議 API。
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 09/14/2017
-ms.author: v-jaswel
-ms.openlocfilehash: 94903d00d47eee70f974fb8bf79703f49cdc08fd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.date: 02/20/2019
+ms.author: aahi
+ms.openlocfilehash: 463ace3aa9004bdffe07a16a062a4871b8daf699
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868152"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008401"
 ---
-# <a name="quickstart-for-bing-autosuggest-api-with-python"></a>搭配使用 Bing 自動建議 API 與 Python 的快速入門
+# <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-python"></a>快速入門：使用 Bing 自動建議 REST API 與 Python 建議搜尋查詢
 
-本文說明如何搭配使用 [Bing 自動建議 API](https://azure.microsoft.com/services/cognitive-services/autosuggest/) 與 Python。 Bing 自動建議 API 會根據使用者在搜尋方塊中輸入的部分字串，傳回建議的查詢清單。 通常，每次使用者在搜尋方塊中鍵入新字元時，都會呼叫此 API，然後在搜尋方塊的下拉式清單中顯示建議。 本文示範如何傳送要求，以針對 *sail* 傳回建議的查詢字串。
+使用本快速入門，呼叫 Bing 自動建議 API，並取得 JSON 回應。 這個簡單的 Python 應用程式會將部分搜尋查詢傳送至 API，並傳回搜尋建議。 雖然此應用程式是以 Python 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。 您可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingAutosuggestv7.py) 上找到此範例的原始程式碼
 
 ## <a name="prerequisites"></a>必要條件
 
-您將需要有 [Python 3.x](https://www.python.org/downloads/)，才能執行此程式碼。
+* [Python 3.x](https://www.python.org/downloads/) 
 
-您必須有具備 **Bing 自動建議 API v7** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/#search)即足以供本快速入門使用。 您必須要有啟用免費試用版時所提供的存取金鑰，或者您可以從 Azure 儀表板使用付費訂用帳戶金鑰。
+[!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-autosuggest-signup-requirements.md)]
 
-## <a name="get-autosuggest-results"></a>取得自動建議結果
+## <a name="create-a-new-application"></a>建立新的應用程式
 
-1. 在您最愛的 IDE 中建立新的 Python 專案。
-2. 新增下方提供的程式碼。
-3. 以訂用帳戶有效的存取金鑰來取代 `subscriptionKey` 值。
-4. 執行程式。
+1. 在您最愛的 IDE 或編輯器中，建立新的 Python 檔案。 新增下列匯入：
 
-```python
-# -*- coding: utf-8 -*-
+    ```python
+    import http.client, urllib.parse, json
+    ```
 
-import http.client, urllib.parse, json
+2. 針對您的 API 主機與路徑、[市場代碼](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes)及部份搜尋查詢，建立變數。
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
+    ```python
+    subscriptionKey = 'enter key here'
+    host = 'api.cognitive.microsoft.com'
+    path = '/bing/v7.0/Suggestions'
+    mkt = 'en-US'
+    query = 'sail'
+    ```
 
-# Replace the subscriptionKey string value with your valid subscription key.
-subscriptionKey = 'enter key here'
+3. 透過對 `?mkt=` 參數附加市場代碼，並對 `&q=` 參數附加查詢，來建立參數字串。
 
-host = 'api.cognitive.microsoft.com'
-path = '/bing/v7.0/Suggestions'
+    ```python
+    params = '?mkt=' + mkt + '&q=' + query
+    ```
 
-mkt = 'en-US'
-query = 'sail'
+## <a name="create-and-send-an-api-request"></a>建立和傳送 API 要求
 
-params = '?mkt=' + mkt + '&q=' + query
+1. 將訂用帳戶金鑰新增至 `Ocp-Apim-Subscription-Key` 標頭。
+    
+    ```python
+    headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
+    ```
 
-def get_suggestions ():
-  "Gets Autosuggest results for a query and returns the information."
+2. 使用 `HTTPSConnection()` 連線到 API，並傳送含有您的要求參數的 `GET` 要求。
+    
+    ```python
+    conn = http.client.HTTPSConnection(host)
+    conn.request ("GET", path + params, None, headers)
+    response = conn.getresponse ()
+    return response.read ()
+    ```
 
-  headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
-  conn = http.client.HTTPSConnection(host)
-  conn.request ("GET", path + params, None, headers)
-  response = conn.getresponse ()
-  return response.read ()
+3. 取得並列印 JSON 回應。
 
-result = get_suggestions ()
-print (json.dumps(json.loads(result), indent=4))
-```
+    ```python
+    result = get_suggestions ()
+    print (json.dumps(json.loads(result), indent=4))
+    ```
 
-### <a name="response"></a>Response
+## <a name="example-json-response"></a>範例 JSON 回應
 
 如以下範例所示，成功的回應會以 JSON 格式來傳回： 
 
@@ -138,7 +146,7 @@ print (json.dumps(json.loads(result), indent=4))
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [Bing 自動建議教學課程l](../tutorials/autosuggest.md)
+> [建立單頁 Web 應用程式](../tutorials/autosuggest.md)
 
 ## <a name="see-also"></a>另請參閱
 

@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: sample
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: 35ce6a09b77b1cebe00f3ee11f09d526dd9b0b22
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: cf296d8bb494307dbb58b9de522d55a83892c6d5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768601"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57537315"
 ---
 # <a name="azure-cosmos-db-python-examples"></a>Azure Cosmos DB Python 範例
 
@@ -48,7 +48,7 @@ ms.locfileid: "55768601"
    > 
 
 ## <a name="database-examples"></a>資料庫範例
-[DatabaseManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement) 專案的 [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement/Program.py) 檔案說明如何執行下列工作：
+[DatabaseManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement) 專案的 [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement/Program.py) 檔案說明如何執行下列工作。 若要在執行下列範例之前了解 Azure Cosmos 資料庫，請參閱[使用資料庫、容器和項目](databases-containers-items.md)概念性文章。 
 
 | Task | API 參考資料 |
 | --- | --- |
@@ -58,7 +58,7 @@ ms.locfileid: "55768601"
 | [刪除資料庫](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DatabaseManagement/Program.py#L113-L126) |[CosmosClient.DeleteDatabase](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#deletedatabase-database-link--options-none-) |
 
 ## <a name="collection-examples"></a>集合範例
-[CollectionManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement) 專案的 [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement/Program.py) 檔案說明如何執行下列工作：
+[CollectionManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement) 專案的 [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement/Program.py) 檔案說明如何執行下列工作。 若要在執行下列範例之前了解 Azure Cosmos 集合，請參閱[使用資料庫、容器和項目](databases-containers-items.md)概念性文章。 
 
 | Task | API 參考資料 |
 | --- | --- |
@@ -69,7 +69,7 @@ ms.locfileid: "55768601"
 | [刪除集合](https://github.com/Azure/azure-documentdb-python/blob/master/samples/CollectionManagement/Program.py#L224-L238) |[CosmosClient.DeleteContainer](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#deletecontainer-collection-link--options-none-) |
 
 ## <a name="document-examples"></a>文件範例
-[DocumentManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DocumentManagement) 專案的 [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DocumentManagement/Program.py) 檔案說明如何執行下列工作：
+[DocumentManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DocumentManagement) 專案的 [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/DocumentManagement/Program.py) 檔案說明如何執行下列工作。 若要在執行下列範例之前了解 Azure Cosmos 文件，請參閱[使用資料庫、容器和項目](databases-containers-items.md)概念性文章。 
 
 | Task | API 參考資料 |
 | --- | --- |
@@ -80,7 +80,7 @@ ms.locfileid: "55768601"
 | [以條件式 ETag 檢查取代文件](https://github.com/Azure/azure-cosmos-python/blob/a21f6fb4bad3f59909ef43558b598f9fb476b7bc/test/crud_tests.py#L1216-L1218) | [CosmosClient.ReplaceItem](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#replaceitem-document-link--new-document--options-none-) |
 
 ## <a name="indexing-examples"></a>索引範例
-[IndexManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement) 專案的 [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py) 檔案說明如何執行下列工作：
+[IndexManagement](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement) 專案的 [Program.py](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py) 檔案說明如何執行下列工作。  若要在執行下列範例之前了解如何在 Azure Cosmos DB 中編製索引，請參閱[為原則編製索引](index-policy.md)、[為類型編製索引](index-types.md)及[為路徑編製索引](index-paths.md)等概念性文章。 
 
 | Task | API 參考資料 |
 | --- | --- |
@@ -92,7 +92,8 @@ ms.locfileid: "55768601"
 | [執行索引轉換](https://github.com/Azure/azure-documentdb-python/blob/master/samples/IndexManagement/Program.py#L514-L559) |[CosmosClient.ReplaceContainer](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient#replacecontainer-collection-link--collection--options-none-) |
 
 ## <a name="query-examples"></a>查詢範例
-範例專案也會示範如何執行下列查詢工作：
+範例專案也會示範如何執行下列查詢工作。 若要在執行下列範例之前了解 Azure Cosmos DB 中的 SQL 查詢參考，請參閱 [SQL 查詢範例](how-to-sql-query.md)概念性文章。 若要在執行下列範例之前了解 Azure Cosmos DB 中的 SQL 查詢參考，請參閱 [SQL 查詢範例](how-to-sql-query.md)概念性文章。 
+
 
 | Task | API 參考資料 |
 | --- | --- |

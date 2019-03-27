@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 01/30/2019
+ms.date: 02/22/2019
 ms.author: diberry
-ms.openlocfilehash: 3fe549a63f0fb4662ba5beb2e28f1ca72fcc1ee4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 33541d2a61c52476f6e314f6981a623390de8fa9
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55855878"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193733"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats"></a>教學課程：新增通用模式範本語句格式
 
@@ -221,22 +221,7 @@ ms.locfileid: "55855878"
 
 **當模式可讓您提供較少的範例語句時，如果偵測不到實體，模式就不會進行比對。**
 
-本教學課程中新增兩個意圖：`OrgChart-Manager` 和 `OrgChart-Reports`。 
-
-|意圖|語句|
-|--|--|
-|OrgChart-Manager|Jill Jones 的上司是誰？|
-|OrgChart-Reports|Jill Jones 是誰的上司？|
-
-當 LUIS 將預測傳回用戶端應用程式之後，意圖名稱就可用來作為用戶端應用程式中的函式名稱，而員工實體可用來作為該函式的參數。
-
-```javascript
-OrgChartManager(employee){
-    ///
-}
-```
-
-請記住，員工是在[清單實體教學課程](luis-quickstart-intent-and-list-entity.md)中建立的。
+## <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>新增 OrgChart-Manager 意圖的模式
 
 1. 在上方功能表中，選取 [建置]。
 
@@ -259,7 +244,7 @@ OrgChartManager(employee){
 
     [![為意圖輸入範本語句的螢幕擷取畫面](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
-4. 選取 [OrgChart-Reports] 意圖，然後輸入下列範本語句：
+4. 同樣在 [模式] 頁面上，選取 [OrgChart-Reports] 意圖，然後輸入下列範本語句：
 
     |範本語句|
     |:--|
@@ -272,11 +257,13 @@ OrgChartManager(employee){
 
 ## <a name="query-endpoint-when-patterns-are-used"></a>使用模式時查詢端點
 
+模式現在已新增至應用程式，請在預測執行階段端點定型、發佈及查詢應用程式。
+
 1. 再次將應用程式定型並發佈。
 
-2. 將瀏覽器索引標籤切換回 [端點 URL] 索引標籤。
+1. 將瀏覽器索引標籤切換回 [端點 URL] 索引標籤。
 
-3. 移至位址中的 URL 結尾並輸入 `Who is the boss of Jill Jones?` 作為語句。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 
+1. 移至位址中的 URL 結尾並輸入 `Who is the boss of Jill Jones?` 作為語句。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 
 
     ```json
     {
@@ -362,11 +349,11 @@ OrgChartManager(employee){
     }
     ```
 
-現在會大幅提高意圖預測。
+意圖預測現在更為有信心。
 
 ## <a name="working-with-optional-text-and-prebuilt-entities"></a>使用選用文字和預先建置的實體
 
-本教學課程中的前幾個模式範本語句有一些選用文字範例，例如使用字母 s 的所有格用法 (`'s`)，以及問號用法 (`?`)。 假設端點語句要說明經理和人力資源代表正在尋找歷史資料，以及公司內未來要發生的員工異動計畫。
+本教學課程中的前幾個模式範本語句有一些選用文字範例，例如使用字母 s 的所有格用法 (`'s`)，以及問號用法 (`?`)。 假設您需要允許在語句文字中使用目前和未來日期。
 
 範例語句如下：
 
@@ -379,23 +366,22 @@ OrgChartManager(employee){
 
 這裡的每句範例都使用動詞時態 `was`、`is`、`will be`，以及日期 `March 3`、`now` 和 `in a month`，而 LUIS 必須正確地預測這些內容。 請注意，最後兩個範例中，除了 `in` 和 `on` 之外，其他幾乎都使用相同的文字。
 
-範本語句的範例：
+允許這項選擇性資訊的範本語句範例： 
+
 |意圖|包含選用文字和預先建置實體的語句範例|
 |:--|:--|
 |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
 |OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
-|OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
-|OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+
 
 使用方括號 `[]`的選用語法可讓此選用文字輕鬆地加入範本語句，並且能以巢狀方式 `[[]]` 增加至第二個層級，然後包含實體或文字。
 
-**問題：為什麼無法將最後兩個範例語句結合成單一範本語句？** 模式範本不支援 OR 語法。 若要同時擷取到 `in` 版本和 `on` 版本，每個版本都必須是個別的範本語句。
 
 **問題：為什麼所有 `w` 字母 (每個範本語句的第一個字母) 都是小寫？不能選擇大寫或小寫嗎？** 用戶端應用程式提交至查詢端點的語句會轉換成小寫。 範本語句可以是大寫或小寫，而端點語句也可以是大寫或小寫。 但比對一律會在轉換成小寫之後完成。
 
 **問題：如果 March 3 (3 月 3 日) 會預測為數字 `3` 及日期 `March 3`，為什麼預先建置的號碼不是範例語句的一部分？** 根據上下文，此範本語句使用的是日期，日期可以是常值 (`March 3`) 或抽象表示 (`in a month`)。 日期可以包含數字，但數字不一定會被視為日期。 每次使用實體時，該實體應要最能代表要在預測 JSON 結果中傳回的類型。  
 
-**問題：為什麼剖析 `Who will {Employee}['s] manager be on March 3?` 之類的語句時，效果很差。** 文法上，不同動詞時態必須是新的範本語句 (例如此處的 `will` 和 `be` 是分開的)。 現有範本語句並不符合此原則。 雖然語句的意圖沒有變更，但字組在語句中的位置已變更。 此變更會影響 LUIS 中的預測。
+**問題：為什麼剖析 `Who will {Employee}['s] manager be on March 3?` 之類的語句時，效果很差。** 文法上，不同動詞時態必須是新的範本語句 (例如此處的 `will` 和 `be` 是分開的)。 現有範本語句並不符合此原則。 雖然語句的意圖沒有變更，但字組在語句中的位置已變更。 此變更會影響 LUIS 中的預測。 您可以使用 [group 和 or ](#use-the-or-operator-and-groups) 處理動詞時態，以結合這些語句。 
 
 **請記住：系統會先找出實體，然後比對模式。**
 
@@ -403,11 +389,9 @@ OrgChartManager(employee){
 
 1. 在 LUIS 網站上，選取頂端功能表中的 [建置]，然後在左側功能表中選取 [模式]。 
 
-2. 尋找現有的範本語句 `Who is {Employee}['s] manager[?]`，然後選取右側的省略符號 (...)。 
+1. 搜尋現有範本語句 `Who is {Employee}['s] manager[?]`，選取右側的省略符號 (...)，然後從快顯功能表中選取 [編輯]。 
 
-3. 從快顯功能表中選取 [編輯]。 
-
-4. 將範本語句變更為：`who is {Employee}['s] manager [[on]{datetimeV2}?]]`
+1. 將範本語句變更為：`who is {Employee}['s] manager [[on]{datetimeV2}?]`
 
 ## <a name="add-new-pattern-template-utterances"></a>新增模式範本語句
 
@@ -416,7 +400,6 @@ OrgChartManager(employee){
     |意圖|包含選用文字和預先建置實體的語句範例|
     |--|--|
     |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
-    |OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
     |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
     |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
 
@@ -426,7 +409,7 @@ OrgChartManager(employee){
 
 4. 輸入數個測試語句，以驗證模式符合，而且意圖分數相當高。 
 
-    輸入第一個語句之後，請選取結果下方的 [檢查]，然後您就可以看到所有預測結果。
+    輸入第一個語句之後，請選取結果下方的 [檢查]，然後您就可以看到所有預測結果。 每個語句應該都有 **OrgChart-Manager** 意圖，且應該擷取 Employee 和 datetimeV2 實體的值。
 
     |語句|
     |--|
@@ -438,6 +421,51 @@ OrgChartManager(employee){
     |Who will be Jill Jones manager in a month? (一個月後誰將會是 Jill jones 經理)|
 
 所有這些語句中都可找到實體，因此這些語句皆符合相同模式，並且具有很高的預測分數。
+
+## <a name="use-the-or-operator-and-groups"></a>使用 OR 運算子和群組
+
+先前數個範本語句都非常接近。 使用 **group** `()` 和 **OR** `|` 語法來減少範本語句。 
+
+使用 group `()` 和 OR `|` 語法，可以將下列 2 個模式合併成單一模式。
+
+|意圖|包含選用文字和預先建置實體的語句範例|
+|--|--|
+|OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
+|OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+
+新的範本語句會是： 
+
+`who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]` 。 
+
+這會使用 **group** 圍住必要的動詞時態，以及使用選用的 `in` 和 `on` (兩者之間有 **or** 垂直線)。 
+
+1. 在 [模式] 頁面上，選取 **OrgChart-Manager** 篩選器。 藉由搜尋 `manager` 來縮小清單。 
+
+    ![在 OrgChart-Manager 意圖模式中搜尋 'manager' 字詞](./media/luis-tutorial-pattern/search-patterns.png)
+
+1. 保留一個範本語句版本 (以在下一個步驟中編輯) 並刪除其他變化。 
+
+1. 將範本語句變更為： 
+
+    `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]` 。
+
+1. 將應用程式定型。
+
+1. 使用 [測試] 窗格來測試語句的版本：
+
+    |要在 [測試] 窗格中輸入的語句|
+    |--|
+    |`Who is Jill Jones manager this month`|
+    |`Who is Jill Jones manager on July 5th`|
+    |`Who was Jill Jones manager last month`|
+    |`Who was Jill Jones manager on July 5th`|    
+    |`Who will be Jill Jones manager in a month`|
+    |`Who will be Jill Jones manager on July 5th`|
+
+
+## <a name="use-the-utterance-beginning-and-ending-anchors"></a>使用語句開頭和結尾錨點
+
+模式語法提供插入號 `^` 的開頭和結尾語句錨點。 開頭和結尾語句錨點可一起用來瞄準以非常明確且可能字面的語句，或分別來瞄準意圖。 
 
 ## <a name="clean-up-resources"></a>清除資源
 

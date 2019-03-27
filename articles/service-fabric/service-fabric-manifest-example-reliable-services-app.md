@@ -3,7 +3,7 @@ title: Azure Service Fabric Reliable Services 應用程式資訊清單範例 | M
 description: 了解如何設定 Reliable Services Service Fabric 應用程式的應用程式和服務資訊清單設定。
 services: service-fabric
 documentationcenter: na
-author: rwike77
+author: peterpogorski
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
-ms.author: ryanwi
-ms.openlocfilehash: 1d0a0c2c6a965ac14002257484c5f840666e6fc1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: pepogors
+ms.openlocfilehash: 202999ed6521cd3013685742b0dec92ef30fc8bc
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57885261"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499840"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Reliable Services 應用程式和服務資訊清單範例
 以下舉例說明 Service Fabric 應用程式 (具有 ASP.NET Core Web 前端和具狀態後端) 的應用程式和服務資訊清單。 這些範例的目的是要說明有哪些設定可供使用以及要如何使用。 這些應用程式和服務資訊清單是以 [Service Fabric .NET 快速入門](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)的資訊清單作為基礎。

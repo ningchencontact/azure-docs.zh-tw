@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: 02f698d531555aa9b5498060918a2a361b28817e
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: ec40c587ea4c609b1f8201e9860eb0e98e06ec62
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361246"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448181"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>從以 Windows 為基礎的 HDInsight 叢集移轉至以 Linux 為基礎的叢集
 
@@ -238,7 +238,7 @@ Oozie 工作流程允許殼層動作。 殼層動作會使用作業系統的預�
 
 在以 Linux 為基礎的叢集上，HBase 的 znode 父項目為 `/hbase-unsecure`。 針對任何使用原生 HBase Java API 的 Java 用戶端應用程式，在組態中設定此值。
 
-如需設定此值的範例用戶端，請參閱 [建置以 JAVA 為基礎的 Apache HBase 應用程式](hdinsight-hbase-build-java-maven.md)。
+如需設定此值的範例用戶端，請參閱 [建置以 JAVA 為基礎的 Apache HBase 應用程式](hbase/apache-hbase-build-java-maven-linux.md)。
 
 ## <a name="spark"></a>Spark
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: ae4e4487b3d9df4b2cf756174f0a56e721af91c4
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 034abe4e3c37c94afbe431a51efd9493b707fa89
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406895"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498531"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>收集 Azure 服務的記錄和計量以便使用於 Log Analytics
 
@@ -81,8 +81,6 @@ ms.locfileid: "57406895"
 ### <a name="enable-diagnostics-with-powershell"></a>啟用 PowerShell 的診斷功能
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-您需要 2016 年 11 月 (v2.3.0) 或更新版本的 [Azure PowerShell](/powershell/azure/overview)。
 
 下列 PowerShell 範例示範如何使用[組 AzDiagnosticSetting](/powershell/module/Az.Monitor/Set-AzDiagnosticSetting)上的網路安全性群組啟用診斷。 同樣的方法適用於所有支援的資源 - 只要將 `$resourceId` 設定為您想要啟用診斷之資源的資源識別碼即可。
 

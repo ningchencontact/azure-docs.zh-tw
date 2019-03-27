@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: 715b0f9c5a5a68bb1fc42ed4206ca81ad85b844f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4ebd53db9622c5a40f67cba04aa35cbfbaa78c8d
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450680"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446111"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>使用 Azure Resource Manager 來建立 Service Fabric 叢集 
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ az account set --subscription $subscriptionId
 下列命令可以建立 Windows 或 Linux 叢集，您需要指定適用的作業系統。 PowerShell/CLI 命令也會在指定的 CertificateOutputFolder 中輸出憑證，但是請確定已建立憑證資料夾。 此命令也需要其他參數如 VM SKU。
 
 > [!NOTE]
-> 下列 PowerShell 命令僅適用於 Azure Resource Manager PowerShell 6.1 以上的版本。 若要檢查 Azure Resource Manager PowerShell 的目前版本，請執行下列 PowerShell 命令 "Get-Module AzureRM"。 遵循[此連結](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.3.0)即可升級 Azure Resource Manager PowerShell 版本。 
+> 下列 PowerShell 命令僅適用於 Azure Resource Manager PowerShell 6.1 以上的版本。 若要檢查 Azure Resource Manager PowerShell 的目前版本，請執行下列 PowerShell 命令 "Get-Module AzureRM"。 遵循[此連結](/powershell/azure/azurerm/install-azurerm-ps)即可升級 Azure Resource Manager PowerShell 版本。 
 >
 >
 

@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/14/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: b1ac2edd39ac2e5a765eaf6223ba01c9f9e5df91
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 4dc0be045bceaaac4b71c653d82f7f9db834c3ec
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238328"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486036"
 ---
 # <a name="tutorial-use-elastic-query-to-access-data-in-azure-sql-data-warehouse-from-azure-sql-database"></a>教學課程：使用彈性查詢，從 Azure SQL Database 存取 Azure SQL 資料倉儲中的資料
 
@@ -94,8 +94,8 @@ ms.locfileid: "55238328"
    ```sql
    CREATE TABLE [dbo].[OrderInformation]
    ( 
-       [OrderID] [int] NOT NULL 
-   ,   [CustomerID] [int] NOT NULL 
+       [OrderID] [int] NOT NULL, 
+       [CustomerID] [int] NOT NULL 
    ) 
    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (123, 1) 
    INSERT INTO [dbo].[OrderInformation] ([OrderID], [CustomerID]) VALUES (149, 2) 
@@ -106,19 +106,19 @@ ms.locfileid: "55238328"
 
 3. 使用 SSMS 或其他查詢用戶端，開啟對邏輯伺服器上 **SQL 資料庫**的新查詢。
 
-4. 提交下列查詢，以建立指向資料倉儲執行個體中 **OrdersInformation** 資料表的外部資料表定義。
+4. 提交下列查詢，以建立外部資料表定義，指向**OrderInformation**資料倉儲執行個體中的資料表。
 
    ```sql
    CREATE EXTERNAL TABLE [dbo].[OrderInformation]
    ( 
-       [OrderID] [int] NOT NULL
-   ,   [CustomerID] [int] NOT NULL 
+       [OrderID] [int] NOT NULL,
+       [CustomerID] [int] NOT NULL 
    ) 
    WITH 
    (
-        DATA_SOURCE = EnterpriseDwSrc
-   ,    SCHEMA_NAME = N'dbo'
-   ,    OBJECT_NAME = N'OrderInformation'
+        DATA_SOURCE = EnterpriseDwSrc,
+    SCHEMA_NAME = N'dbo',
+    OBJECT_NAME = N'OrderInformation'
    )
    ```
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 3b302c60aefec1c4cd37a7dde82a2f11a9eeed33
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 20c58647b8a6283de4ca2b90c830fe54db927095
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57862857"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484181"
 ---
 # <a name="secure-access-to-a-key-vault"></a>針對金鑰保存庫的存取進行保護
 
@@ -150,14 +150,14 @@ Azure Key Vault 是用來保護加密金鑰和祕密 (例如憑證、連接字�
 
 訂用帳戶管理員會將 `key vault Contributor` 和 `User Access Administrator` 角色指派給安全性小組。 這些角色可讓安全性小組管理其他資源和金鑰保存庫 (兩者均位於 **ContosoAppRG** 資源群組) 的存取權。
 
-```PowerShell
+```powershell
 New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "key vault Contributor" -ResourceGroupName ContosoAppRG
 New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "User Access Administrator" -ResourceGroupName ContosoAppRG
 ```
 
 安全性小組會建立金鑰保存庫，並設定記錄和存取權限。 如需 Key Vault 存取原則權限的詳細資訊，請參閱[關於 Azure Key Vault 金鑰、祕密和憑證](about-keys-secrets-and-certificates.md)。
 
-```PowerShell
+```powershell
 # Create a key vault and enable logging
 $sa = Get-AzStorageAccount -ResourceGroup ContosoAppRG -Name contosologstorage
 $kv = New-AzKeyVault -Name ContosoKeyVault -ResourceGroup ContosoAppRG -SKU premium -Location 'westus' -EnabledForDeployment

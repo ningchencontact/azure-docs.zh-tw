@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0f0a22ea4a24a82cb4acf7a3b20a743ee7425c72
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: ac1c1c4ae21ebd184b833fe4d23084f7cf324d2c
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294904"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500469"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>管理 HDInsight 叢集的記錄
 
@@ -98,7 +98,7 @@ HDInsight [指令碼動作](hdinsight-hadoop-customize-cluster-linux.md)會以�
 
 ### <a name="access-the-hadoop-log-files"></a>存取 Hadoop 記錄檔
 
-HDInsight 會將其記錄檔同時儲存在叢集檔案系統和 Azure 儲存體中。 您可以檢查在叢集中的記錄檔 %installationdirectory [SSH](/hdinsight-hadoop-linux-use-ssh-unix.md)連線到叢集，並瀏覽檔案系統中，或使用遠端前端節點伺服器上的 Hadoop YARN 狀態入口網站。 您可以使用任何能夠存取和下載 Azure 儲存體中資料的工具，來檢查 Azure 儲存體中的記錄檔。 範例包括[AzCopy](../storage/common/storage-use-azcopy.md)， [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)，和 Visual Studio 伺服器總管。 您也可以使用 PowerShell 和「Azure 儲存體用戶端」程式庫或 Azure .NET SDK，來存取 Azure Blob 儲存體中的資料。
+HDInsight 會將其記錄檔同時儲存在叢集檔案系統和 Azure 儲存體中。 您可以檢查在叢集中的記錄檔 %installationdirectory [SSH](hdinsight-hadoop-linux-use-ssh-unix.md)連線到叢集，並瀏覽檔案系統中，或使用遠端前端節點伺服器上的 Hadoop YARN 狀態入口網站。 您可以使用任何能夠存取和下載 Azure 儲存體中資料的工具，來檢查 Azure 儲存體中的記錄檔。 範例包括[AzCopy](../storage/common/storage-use-azcopy.md)， [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)，和 Visual Studio 伺服器總管。 您也可以使用 PowerShell 和「Azure 儲存體用戶端」程式庫或 Azure .NET SDK，來存取 Azure Blob 儲存體中的資料。
 
 Hadoop 會將作業的工作以「工作嘗試」的形式在叢集中的各種節點上執行。 HDInsight 可以起始理論式工作嘗試，其中會先終止所有其他未完成的工作嘗試。 這會產生將即時記錄至控制器、stderr 及 syslog 記錄檔的重要活動。 此外，多個工作嘗試會同時執行，但記錄檔只能以線性方式顯示結果。
 

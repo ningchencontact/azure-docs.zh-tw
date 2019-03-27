@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 0fc34c913453abd174009213233a54e30b9346d3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3a0df408e70ed61355ffba319f6261f90d8e4348
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57881379"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499153"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>在 IoT Edge (預覽) 使用 Azure Blob 儲存體，以便在邊緣儲存資料
 
@@ -345,7 +345,7 @@ Azure IoT Edge 提供 Visual Studio Code 中的範本協助您開發解決方案
     }
 
    ```
-  ## <a name="logs"></a>記錄檔
+## <a name="logs"></a>記錄檔
 
 請遵循指示以[設定您的 IoT Edge 模組的 docker 記錄](production-checklist.md#set-up-logs-and-diagnostics)
 
@@ -383,9 +383,10 @@ Azure Blob 儲存體文件集包括有數種語言的範例程式碼的快速入
 * [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md) 
 
 ### <a name="azure-storage-explorer"></a>Azure 儲存體總管
-您也可以嘗試[Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)連接到您的本機儲存體帳戶。 我們試著使用[舊版 1.5.0](https://github.com/Microsoft/AzureStorageExplorer/releases/tag/v1.5.0)的 Azure 檔案總管。
+您也可以嘗試連接到您的本機儲存體帳戶的 「 Azure 儲存體總管 」。 它適用於[1.5.0 版的 Azure 儲存體總管](https://github.com/Microsoft/AzureStorageExplorer/releases/tag/v1.5.0)。
+
 > [!NOTE]
-> 您可能會執行下列步驟時遇到錯誤，略過並重新整理。 
+> 執行下列步驟中的，例如將連接加入至本機儲存體帳戶，或在本機儲存體帳戶中建立容器時，您可能會遇到錯誤。 請忽略，並重新整理。 
 
 1. 下載並安裝 Azure 儲存體總管
 2. 連接到 Azure 儲存體使用的連接字串

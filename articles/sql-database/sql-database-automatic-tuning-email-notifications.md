@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 0d0452cba099bbc568f2b9e926258eb16060eaf4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 25a100a224984b0d5608ba933b7a4fa024c22c9d
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855915"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481156"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>針對自動調整的電子郵件通知
 
@@ -91,7 +91,7 @@ SQL Database 的調整建議是由 Azure SQL Database [自動調整](sql-databas
 
 若有多個訂用帳戶，您能以逗號分隔的格式將它們加入到指令碼標頭中的 "$subscriptions" 屬性。
 
-```PowerShell
+```powershell
 # PowerShell script to retrieve Azure SQL Database Automatic tuning recommendations.
 #
 # Provided “as-is” with no implied warranties or support.

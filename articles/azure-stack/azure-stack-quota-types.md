@@ -16,12 +16,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: aff9dade7fe0238c0ea8ccc3ae5bba57437c6f89
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 3d9376ba5945c97d18f6cf68c242d5217beee679
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339539"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58349700"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack 中的配額類型
 
@@ -40,7 +40,10 @@ ms.locfileid: "58339539"
 | 標準受控磁碟的容量上限 (以 GB 為單位) | 2048 | 可以在這個位置建立的標準受控磁碟容量上限。 |
 | 進階受控磁碟的容量上限 (以 GB 為單位) | 2048 | 可以在這個位置建立的進階受控磁碟容量上限。 |
 
-## <a name="storage-quota-types"></a>儲存體配額類型
+> [!NOTE]  
+> 非受控磁碟 (分頁 Blob) 的最大容量是與受控磁碟配額分開的，應該在「儲存體配額」中設定。
+
+## <a name="storage-quota-types"></a>儲存體配額類型 
 
 | **Item** | **預設值** | **說明** |
 | --- | --- | --- |
@@ -48,7 +51,7 @@ ms.locfileid: "58339539"
 | 儲存體帳戶的總數 |20 |訂用帳戶可以在這個位置建立的儲存體帳戶數目上限。 |
 
 > [!NOTE]  
-> 最多可能需要兩個小時，才會強制使用儲存體配額。
+> 最多可能需要兩個小時，才會強制使用儲存體配額。 受控磁碟的最大容量是與總儲存體配額分開的，應該在「計算配額」中設定。
 
 ## <a name="network-quota-types"></a>網路配額類型
 

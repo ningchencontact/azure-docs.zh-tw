@@ -1,28 +1,28 @@
 ---
-title: 在使用自訂映像 (預覽版) 的 Linux 上建立函式 | Microsoft Docs
+title: 在 Linux 上使用自訂映像建立 Azure Functions
 description: 了解如何建立在自訂 Linux 映像上執行的 Azure Functions。
 services: functions
 keywords: ''
 author: ggailey777
 ms.author: glenga
-ms.date: 10/19/2018
+ms.date: 02/25/2019
 ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 2c80f988583571f3394a29747a6f452951cea878
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 976bab529dc77621ce92dff0d2ae665777023a01
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978029"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57337569"
 ---
-# <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>在使用自訂映像 (預覽版) 的 Linux 上建立函式
+# <a name="create-a-function-on-linux-using-a-custom-image"></a>在 Linux 上使用自訂映像建立函式
 
-Azure Functions 可讓您在 Linux 的自訂容器中裝載函式。 您也可以[在預設的 Azure App Service 容器上裝載](functions-create-first-azure-function-azure-cli-linux.md)。 這項功能目前為預覽狀態並且需要 [Functions 2.0 執行階段](functions-versions.md)。
+Azure Functions 可讓您在 Linux 的自訂容器中裝載函式。 您也可以[在預設的 Azure App Service 容器上裝載](functions-create-first-azure-function-azure-cli-linux.md)。 此功能需要 [Functions 2.x 執行階段](functions-versions.md)。
 
-在本教學課程中，您將了解如何以自訂 Docker 映像的形式將函式部署到 Azure。 當您需要自訂內建的 App Service 容器映像時，此模式相當有用。 當您的函式需要特定的語言版本，或需要內建映像未提供的特定相依性或設定時，您可能會想使用自訂映像。
+在本教學課程中，您將了解如何以自訂 Docker 映像的形式將函式部署到 Azure。 當您需要自訂內建的 App Service 容器映像時，此模式相當有用。 當您的函式需要特定的語言版本，或需要內建映像未提供的特定相依性或設定時，您可能會想使用自訂映像。 在 [Azure Functions 基底映像存放庫](https://hub.docker.com/_/microsoft-azure-functions-base)中可找到針對 Azure Functions 支援的基底映像。 [Python 支援](functions-reference-python.md)目前處於預覽階段。
 
 本教學課程會引導您使用 Azure Functions Core Tools 在自訂 Linux 映像中建立建立函式。 您會將此映像發佈到 Azure 中使用 Azure CLI 建立的函式應用程式。
 
@@ -36,6 +36,7 @@ Azure Functions 可讓您在 Linux 的自訂容器中裝載函式。 您也可�
 > * 建立 Linux App Service 方案。
 > * 從 Docker Hub 部署函式應用程式。
 > * 將應用程式設定加入函式應用程式。
+> * 啟用持續部署
 
 下列步驟適用於 Mac、Windows 或 Linux 電腦。  
 
@@ -67,6 +68,8 @@ func init MyFunctionProj --docker
 * `dotnet`：建立 .NET 類別庫專案 (.csproj)。
 * `node`：建立 JavaScript 專案。
 * `python`：建立 Python 專案。
+
+[!INCLUDE functions-python-preview-note]
 
 當命令執行時，您會看到如下輸出：
 
@@ -101,7 +104,7 @@ COPY . /home/site/wwwroot
 ```
 
 > [!NOTE]
-> 在私人容器登錄中裝載映像時，您應該使用 Dockerfile 中的 **ENV** 變數將連線設定加入函式應用程式。 本教學課程無法保證您使用私人登錄，因此[在部署後使用 Azure CLI 加入](#configure-the-function-app)連線設定是最佳安全性做法。
+> 在 [Azure Functions 基底映像頁面](https://hub.docker.com/_/microsoft-azure-functions-base)中可找到針對 Azure Functions 支援的完整基底映像清單。
 
 ### <a name="run-the-build-command"></a>執行 `build` 命令
 在根資料夾中，執行 [docker build](https://docs.docker.com/engine/reference/commandline/build/) 命令，然後提供名稱、`mydockerimage` 和標記 (`v1.0.0`)。 將 `<docker-id>` 取代為 Docker Hub 帳戶識別碼。 此命令會建置容器的 Docker 映像。
@@ -223,20 +226,20 @@ az functionapp create --name <app_name> --storage-account  <storage_name>  --res
 }
 ```
 
-_deployment-container-image-name_ 參數表示裝載於 Docker Hub 上用於建立函式應用程式的映像。
+_deployment-container-image-name_ 參數表示裝載於 Docker Hub 上用於建立函式應用程式的映像。 使用 [az functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) 命令來檢視部署所用映像的相關資訊。 使用 [az functionapp config container set](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) 命令，從不同映像進行部署。
 
 ## <a name="configure-the-function-app"></a>設定函式應用程式
 
 此函式需要連接字串以連接到預設儲存體帳戶。 當您將自訂映像發佈至私人容器帳戶時，應使用 [ENV 指令](https://docs.docker.com/engine/reference/builder/#env) \(英文\) 或類似指令將 Dockerfile 中的這些應用程式設定改設為環境變數。
 
-在本例中，`<storage_account>` 是您建立的儲存體帳戶名稱。 使用 [az storage account show-connection-string](/cli/azure/storage/account) 命令取得連接字串。 使用 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) 命令，在函式應用程式中新增這些應用程式設定。
+在本例中，`<storage_name>` 是您建立的儲存體帳戶名稱。 使用 [az storage account show-connection-string](/cli/azure/storage/account) 命令取得連接字串。 使用 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) 命令，在函式應用程式中新增這些應用程式設定。
 
 ```azurecli-interactive
-$storageConnectionString=$(az storage account show-connection-string \
---resource-group myResourceGroup --name <storage_account> \
+storageConnectionString=$(az storage account show-connection-string \
+--resource-group myResourceGroup --name <storage_name> \
 --query connectionString --output tsv)
 
-az functionapp config appsettings set --name <function_app> \
+az functionapp config appsettings set --name <app_name> \
 --resource-group myResourceGroup \
 --settings AzureWebJobsDashboard=$storageConnectionString \
 AzureWebJobsStorage=$storageConnectionString
@@ -252,6 +255,24 @@ AzureWebJobsStorage=$storageConnectionString
 您現在可以在 Azure 中測試在 Linux 上執行的函式。
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
+
+## <a name="enable-continuous-deployment"></a>啟用持續部署
+
+使用容器的優點之一，就是能夠在登錄中更新容器時自動部署更新。 使用 [az functionapp deployment container config](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-config) 命令啟用持續部署。
+
+```azurecli-interactive
+az functionapp deployment container config --enable-cd \
+--query CI_CD_URL --output tsv \
+--name <app_name> --resource-group myResourceGroup
+```
+
+啟用持續部署之後，此命令會傳回部署 Webhook URL。 您也可以使用 [az functionapp deployment container show-cd-url](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-show-cd-url) 命令來傳回此 URL。 
+
+複製部署 URL 並瀏覽至您的 DockerHub 存放庫，選擇 [Webhook] 索引標籤，輸入 Webhook 的 [Webhook 名稱]，在 [Webhook URL] 中貼上您的 URL，然後選擇加號 (**+**)。
+
+![在 DockerHub 存放庫中新增 Webhook](media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
+
+設定 Webhook 之後，任何對 DockerHub 中連結映像的更新都會導致函式應用程式下載並安裝最新的映像。
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 

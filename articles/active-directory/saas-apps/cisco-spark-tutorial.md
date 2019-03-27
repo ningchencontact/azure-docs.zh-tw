@@ -7,20 +7,20 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: c47894b1-f5df-4755-845d-f12f4c602dc4
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/15/2019
+ms.date: 02/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ef0638afd162dc179a2a7dec54b60bfb1f89144
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: eb64495d727429ff4dcfc233adee7dd5c60aaa8d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869763"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852129"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>教學課程：Azure Active Directory 與 Cisco Webex 整合
 
@@ -46,6 +46,8 @@ ms.locfileid: "56869763"
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
 * Cisco Webex 支援 **SP** 起始的 SSO
+
+* Cisco Webex 支援**自動**使用者佈建
 
 ## <a name="adding-cisco-webex-from-the-gallery"></a>從資源庫新增 Cisco Webex
 
@@ -190,7 +192,7 @@ ms.locfileid: "56869763"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -243,7 +245,7 @@ ms.locfileid: "56869763"
 
     b. 在 [姓氏] 文字方塊中，輸入使用者的姓氏，例如 **Simon**。
 
-    c. 在 [電子郵件地址] 文字方塊中，輸入像是 **britta.simon@contoso.com** 的使用者電子郵件地址。
+    c. 在 [電子郵件地址] 文字方塊中，輸入像是 **britta.simon\@contoso.com** 的使用者電子郵件地址。
 
 5. 按一下加號以新增 Britta Simon。 然後按 [下一步] 。
 
@@ -262,3 +264,5 @@ ms.locfileid: "56869763"
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [設定使用者佈建](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-spark-provisioning-tutorial) 

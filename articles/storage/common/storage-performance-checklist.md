@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 1b6c8b1af00c2819632c60a27d61d7cf8db44885
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d39c2414aa8299282b3896a9ceb57897fdb25ff1
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012323"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446004"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Microsoft Azure 儲存體效能與延展性檢查清單
 ## <a name="overview"></a>概觀
@@ -98,7 +98,7 @@ Azure 儲存體本身的上限是每訂用帳戶每區域 250 個儲存體帳戶
 如果您的特定訂用帳戶/區域組合中的儲存體帳戶正接近上限，請評估您的應用程式和儲存體帳戶使用方式，並判斷是否符合下列任一情況。
 
 * 使用儲存體帳戶當作非受控磁碟，並將這些磁碟新增至您的虛擬機器。 在此情節中，我們建議使用[受控磁碟](../../virtual-machines/windows/managed-disks-overview.md)，因為它們可為您處理儲存體磁碟延展性，而且您不必建立及管理個別的儲存體帳戶。
-* 基於資料隔離目的，每個客戶使用一個儲存體帳戶。 在此情節中，我們建議每個客戶 (而不是整個儲存體帳戶) 使用儲存體容器。 Azure 儲存體現在可讓您以每個[容器為基礎](storage-auth-aad-rbac.md)指定角色型存取控制。
+* 基於資料隔離目的，每個客戶使用一個儲存體帳戶。 在此情節中，我們建議每個客戶 (而不是整個儲存體帳戶) 使用儲存體容器。 Azure 儲存體現在可讓您以每個[容器為基礎](storage-auth-aad-rbac-portal.md)指定角色型存取控制。
 * 使用多個儲存體帳戶來分區，達到輸入/輸出/iops/容量的更大延展性。 在此情節中，可能的話，我們建議您善用標準儲存體帳戶的[增加限制](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)，以降低您的工作負載所需的儲存體帳戶數目。
 
 如果您的應用程式即將達到單一儲存體帳戶的延展性目標，您可以考慮採用下列其中一個方法：  

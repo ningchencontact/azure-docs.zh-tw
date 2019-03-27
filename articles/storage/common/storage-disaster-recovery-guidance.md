@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e14e35cc8589bb524bae791ccd74952da90bdb04
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f0963e7f558de7b591576a49a74750d6697d7127
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871531"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486037"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Azure 儲存體中的災害復原和儲存體帳戶容錯移轉 (預覽)
 
@@ -121,14 +121,14 @@ Microsoft 也建議您將應用程式設計成可以因應可能的寫入失敗�
 
 若要註冊預覽，請在 PowerShell 中執行下列命令。 請務必將括號中的預留位置取代為您自己的訂用帳戶識別碼：
 
-```PowerShell
+```powershell
 Connect-AzureRmAccount -SubscriptionId <subscription-id>
 Register-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 您可能需要等候 1 至 2 天才會收到預覽的核准。 若要確任您的註冊是否已被核准，請執行下列命令：
 
-```PowerShell
+```powershell
 Get-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
@@ -164,6 +164,7 @@ Azure 虛擬機器 (VM) 不會隨著帳戶容錯移轉一起容錯移轉。 如�
 - 無法容錯移轉使用 Azure Data Lake Storage Gen2 階層命名空間的儲存體帳戶。
 - 無法容錯移轉包含封存 Blob 的儲存體帳戶。 請在您不打算進行容錯移轉的個別儲存體帳戶中維護封存 Blob。
 - 無法容錯移轉包含進階區塊 Blob 的儲存體帳戶。 支援進階區塊 Blob 的儲存體帳戶目前不支援異地備援。
+- 完成容錯移轉之後的下列功能將會停止運作，如果最初啟用：[事件訂用帳戶](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview)，[生命週期原則](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts)，[儲存體分析記錄](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging)。
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>將複製資料作為容錯移轉的替代項目
 

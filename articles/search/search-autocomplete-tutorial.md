@@ -1,5 +1,5 @@
 ---
-title: 在搜尋方塊-Azure 搜尋服務中加入自動提示的自動完成範例
+title: 在 [搜尋] 方塊-Azure 搜尋服務中新增的建議和自動完成
 description: 啟用 Azure 搜尋服務中的自動提示查詢動作藉由建立建議工具，並擬定填滿與已完成的詞彙或片語搜尋方塊中的要求。
 manager: pablocas
 author: mrcarter8
@@ -7,85 +7,74 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 03/25/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: b78fdf0c493e4631e4cdd7e26b154570b6226d1f
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 9fb3cdd4b4b809e45180cd95b8fe930cce86826e
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369562"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498803"
 ---
-# <a name="example-add-autocomplete-to-partial-term-inputs-in-azure-search"></a>範例：將自動完成功能新增至 Azure 搜尋服務中的部份字詞輸入
+# <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>範例：將建議或自動完成功能新增至您的 Azure 搜尋服務應用程式
 
-這項預覽功能 「 完成 」 的部份字詞輸入所提供的 Azure 搜尋服務索引中的文件已完成的詞彙。 您可能已經注意到這項功能在商業的搜尋引擎。 您可以現在加入這項功能，目前在公開預覽，Azure 搜尋服務解決方案，以簡化查詢吸納。
+在此範例中，了解如何使用[建議](https://docs.microsoft.com/rest/api/searchservice/suggestions)並[自動完成](https://docs.microsoft.com/rest/api/searchservice/autocomplete)建置功能強大的搜尋方塊中支援搜尋---輸入時的行為。
 
-在此範例中，您將了解如何使用[建議](https://docs.microsoft.com/rest/api/searchservice/suggestions)，[自動完成](https://docs.microsoft.com/rest/api/searchservice/autocomplete)並[facet](search-faceted-navigation.md)中[Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/)及[.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet)建置功能強大的搜尋方塊中。 
++ *建議*是一份建議產生當您輸入時，其中每項建議是符合您已到目前為止輸入索引的單一結果的結果。 
 
-+ *建議*可根據使用者到目前為止已輸入的內容，提供實際結果的建議。 
-+ 自動完成是 Azure 搜尋服務的一項[新預覽功能](search-api-preview.md)，可提供來自索引的詞彙以完成使用者目前正在輸入的內容。 
++ *自動完成*，[預覽功能](search-api-preview.md)，「 完成 」 的單字或片語，在使用者目前輸入。 如同建議，已完成的單字或片語被基於索引中相符項目。 
 
-我們會比較多種技術，藉由直接在使用者輸入搜尋內容時為他們提供豐富的搜尋結果，提升使用者的產能。
+您可以下載並執行範例應用程式**DotNetHowToAutocomplete**來評估這些功能。 範例程式碼為目標的預先建置的索引，填入[為 NYCJobs 示範資料](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)。 為 NYCJobs 索引包含[建議工具建構](index-add-suggesters.md)，這是建議或自動完成是必要項。 您可以使用裝載在沙箱服務中，已備妥之的索引或[填入您自己的索引](#configure-app)為 NYCJobs 範例方案中使用的資料載入器。 
 
-此範例將逐步引導您使用的 ASP.NET MVC 型應用程式透過C#來呼叫[Azure 搜尋服務.NET 用戶端程式庫](https://aka.ms/search-sdk)，和直接呼叫 Azure 搜尋服務 REST API 的 JavaScript。 此範例中的應用程式的目標索引填入[為 NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)範例資料。 您可以使用已在 NYC Jobs 示範中完成設定的索引，也可以透過 NYCJobs 解決方案範例中的資料載入器填入您自己的索引。 此範例會使用 [jQuery UI](https://jqueryui.com/autocomplete/) 和 [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) JavaScript 程式庫來建置支援自動完成的搜尋方塊。 使用這些元件以及 Azure 搜尋服務，您就會看到多個範例，了解如何在搜尋方塊中支援自動完成與預先輸入。
+**DotNetHowToAutocomplete**範例會示範建議和自動完成，在C#和 JavaScript 語言版本。 C#開發人員可以逐步執行的 ASP.NET MVC 為基礎的應用程式使用[Azure 搜尋服務.NET SDK](https://aka.ms/search-sdk)。 HomeController.cs 檔案中可進行自動完成和建議的查詢呼叫的邏輯。 JavaScript 開發人員會發現在 IndexJavaScript.cshtml，其中包含直接呼叫的對等的查詢邏輯[Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/)。 
 
-您會執行下列工作：
+如需這兩種語言版本，前端使用者經驗為基礎[jQuery UI](https://jqueryui.com/autocomplete/)並[XDSoft](https://xdsoft.net/jqplugins/autocomplete/)程式庫。 我們可以使用這些程式庫來建置支援建議和自動完成功能的 [搜尋] 方塊。 收集在搜尋方塊中輸入要搭配建議和自動完成動作，例如 HomeController.cs 或 IndexJavaScript.cshtml 所定義。
+
+本練習將逐步引導您完成下列工作：
 
 > [!div class="checklist"]
-> * 下載並設定解決方案
-> * 將搜尋服務資訊新增至應用程式設定
-> * 實作搜尋輸入方塊
-> * 針對從遠端來源提取的自動完成清單新增支援 
-> * 擷取的建議和使用.NET SDK 和 REST API 的自動完成
-> * 支援用戶端快取以改善效能 
+> * 在 JavaScript 並發出要求中實作搜尋輸入的方塊，建議的相符項目或自動完成條款
+> * 在C#，在 HomeController.cs 中定義的建議和自動完成動作
+> * 在 JavaScript 中，呼叫 REST Api 直接提供相同的功能
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-* Visual Studio 2017。 您可以使用免費的 [Visual Studio 2017 Community 版本](https://www.visualstudio.com/downloads/)。 
+Azure 搜尋服務是針對此練習中選擇性的因為解決方案會使用即時沙箱服務裝載的已備妥的為 NYCJobs 示範索引也一樣。 如果您想要在您自己的搜尋服務上執行這個範例，請參閱[設定 NYC 工作索引](#configure-app)如需相關指示。
 
-* 下載範例[原始程式碼](https://github.com/azure-samples/search-dotnet-getting-started)範例。
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)，任何版本。 免費的 Community edition 上測試範例程式碼和指示。
 
-* (選擇性) 有效的 Azure 帳戶和 Azure 搜尋服務。 如果您沒有 Azure 帳戶，您可以註冊[免費試用](https://azure.microsoft.com/free/)。 如需有關服務佈建的說明，請參閱[建立搜尋服務](search-create-service-portal.md)。 帳戶和服務是選擇性，因為可以完成此範例中，針對不同的示範使用已就地裝載為 NYCJobs 索引。
+* 下載[DotNetHowToAutoComplete 範例](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)。
 
-* (選擇性) 下載 [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) 程式碼範例，以將 NYCJobs 資料匯入所擁有 Azure 搜尋服務的索引內。
+此範例是全方位、 涵蓋建議、 自動完成、 多面向導覽，和用戶端快取。 您應該檢閱的讀我檔案和如需完整的範例所提供的功能描述的註解。
 
-> [!Note]
-> 如果您使用免費的 Azure 搜尋服務，則最多只能使用三個索引。 NYCJobs 資料載入器會建立兩個索引。 請確定服務內有空間可接受新的索引。
+## <a name="run-the-sample"></a>執行範例
 
-### <a name="set-up-azure-search-optional"></a>設定 Azure 搜尋服務 (選擇性)
+1. 開啟**AutocompleteTutorial.sln** Visual Studio 中。 此方案包含 ASP.NET MVC 專案中使用的 NYC 工作示範索引的連接。
 
-如果您想要將 NYCJobs 應用程式範例的資料匯入所擁有的索引內，請遵循本節中的步驟。 此為選用步驟。  如果您想要使用所提供的索引範例，請直接跳到下一節來執行範例。
+2. 按 F5 執行專案，並在所選擇的瀏覽器中載入頁面。
 
-1. 在 NYCJobs 程式碼範例的 DataLoader 資料夾中，於 Visual Studio 開啟 DataLoader.sln 解決方案檔案。
+在頂端，您會看到可供選取 C# 或 JavaScript 的選項。 C#選項呼叫 HomeController 從瀏覽器，並使用 Azure 搜尋服務.NET SDK 擷取結果。 
 
-1. 更新 Azure 搜尋服務的連線資訊。  開啟 DataLoader 專案中的 App.config，然後變更 TargetSearchServiceName 和 TargetSearchServiceApiKey appSettings 以反映 Azure 搜尋服務和 Azure 搜尋服務 API 金鑰。  這些資料可以在 Azure 入口網站中找到。
+JavaScript 選項會直接從瀏覽器呼叫 Azure 搜尋服務 REST API。 此選項會將控制器拿到流程外，因此其效能通常會顯著提升。 您可以選擇適合您需求和語言喜好設定的選項。 頁面上有幾個自動完成範例，且各有一些指導方針。 每個範例都有一些建議的文字範例可供您嘗試。  
 
-1. 按 F5 啟動應用程式。  這會建立 2 個索引，並匯入 NYCJob 資料範例。
+請嘗試在每個搜尋方塊中輸入幾個字母來看看會發生什麼事情。
 
-1. 在範例的範例程式碼中，開啟 AutocompleteTutorial.sln 方案檔，在 Visual Studio 中。  開啟 AutocompleteTutorial 專案內的 Web.config，並將 SearchServiceName 和 SearchServiceApiKey 值變更為與上述值相同。
+## <a name="search-box"></a>搜尋方塊
 
-### <a name="running-the-sample"></a>執行範例
+兩個C#和 JavaScript 的版本中，搜尋方塊實作方式完全相同。 
 
-您現在已準備好執行範例的範例應用程式。  若要執行範例的 Visual Studio 中開啟 AutocompleteTutorial.sln 方案檔。  此解決方案包含 ASP.NET MVC 專案。  按 F5 執行專案，並在所選擇的瀏覽器中載入頁面。  在頂端，您會看到可供選取 C# 或 JavaScript 的選項。  C#選項呼叫 HomeController 從瀏覽器，並使用 Azure 搜尋服務.NET SDK 擷取結果。  JavaScript 選項會直接從瀏覽器呼叫 Azure 搜尋服務 REST API。  此選項會將控制器拿到流程外，因此其效能通常會顯著提升。  您可以選擇適合您需求和語言喜好設定的選項。  頁面上有幾個自動完成範例，且各有一些指導方針。  每個範例都有一些建議的文字範例可供您嘗試。  請嘗試在每個搜尋方塊中輸入幾個字母來看看會發生什麼事情。
-
-## <a name="how-this-works-in-code"></a>此功能在程式碼中的運作方式
-
-您已經看過瀏覽器中的範例，接下來請逐步了解第一個範例的細節，以檢閱所涉及的元件和元件的運作方式。
-
-### <a name="search-box"></a>搜尋方塊
-
-不論您選擇哪一種語言，其搜尋方塊都完全相同。  開啟 \Views\Home 資料夾底下的 Index.cshtml 檔案。 搜尋方塊本身很簡單：
+開啟**Index.cshtml**下檢視程式碼資料夾 \Views\Home 檔案：
 
 ```html
 <input class="searchBox" type="text" id="example1a" placeholder="search">
 ```
 
-這是簡單的輸入的文字方塊中的類別樣式、 JavaScript 和預留位置文字所要參考的識別碼。  其神奇之處在 JavaScript 中。
+這是簡單的輸入的文字方塊中的類別樣式、 JavaScript 和預留位置文字所要參考的識別碼。  Magic 位於內嵌的 JavaScript。
 
-### <a name="javascript-code-c"></a>JavaScript 程式碼 (C#)
+C#語言的範例使用在 Index.cshtml 中運用 JavaScript [jQuery UI 自動完成程式庫](https://jqueryui.com/autocomplete/)。 此程式庫會新增至搜尋方塊自動完成體驗，藉由對 MVC 控制器的非同步呼叫，以擷取建議。 JavaScript 語言版本處於 IndexJavaScript.cshtml。 它包含下列指令碼搜尋列中，以及 Azure 搜尋服務 REST API 呼叫。
 
-C# 語言範例會在 Index.cshtml 中使用 JavaScript，以運用 jQuery UI 的自動完成程式庫。  此程式庫會對 MVC 控制器發出非同步呼叫以擷取建議，藉此在搜尋方塊中新增自動完成體驗。  請看第一個範例的 JavaScript 程式碼：
+讓我們看看第一個範例中，它會呼叫 jQuery UI 自動完成函式，在要求中傳遞的建議的 JavaScript 程式碼：
 
 ```javascript
 $(function () {
@@ -100,17 +89,17 @@ $(function () {
 });
 ```
 
-此程式碼會在頁面載入期間於瀏覽器中執行，以對 "example1a" 輸入方塊設定自動完成。  `minLength: 3` 可確保在搜尋方塊中至少有三個字元時，才會顯示建議。  來源值很重要：
+若要設定 「 example1a"的輸入方塊的 jQuery UI 自動完成的頁面載入上，瀏覽器中執行上述程式碼。  `minLength: 3` 可確保在搜尋方塊中至少有三個字元時，才會顯示建議。  來源值很重要：
 
 ```javascript
 source: "/home/suggest?highlights=false&fuzzy=false&",
 ```
 
-這一行會讓自動完成 API 知道，要到哪裡取得項目清單以便在搜尋方塊下顯示。  由於這是 MVC 專案，它會在 HomeController.cs 中呼叫建議函式。  下一節會有更多這方面的探討。  它也會傳遞幾個參數來控制醒目提示、模糊比對和字詞。  自動完成 JavaScript API 會新增字詞參數。
+上述程式碼說明的 jQuery UI 自動完成函式來取得要在搜尋方塊中顯示的項目清單的位置。 由於這是 MVC 專案時，它會呼叫中包含的邏輯傳回查詢建議 （在下一節中的建議相關的更多） 的 HomeController.cs 建議函式。 此函式也會將控制項反白顯示、 模糊比對和詞彙的幾個參數。 自動完成 JavaScript API 會新增字詞參數。
 
-#### <a name="extending-the-sample-to-support-fuzzy-matching"></a>延伸範例以支援模糊比對
+### <a name="extending-the-sample-to-support-fuzzy-matching"></a>延伸範例以支援模糊比對
 
-當使用者在搜尋方塊中拼錯字組時，模糊搜尋依然可讓其根據相近的字組取得結果。  請將來源程式行變更為啟用模糊比對，試試這項功能。
+當使用者在搜尋方塊中拼錯字組時，模糊搜尋依然可讓其根據相近的字組取得結果。 雖然並非必要，它會大幅改善自動提示體驗的強固性。 請將來源程式行變更為啟用模糊比對，試試這項功能。
 
 將下面這行從：
 
@@ -128,15 +117,54 @@ source: "/home/suggest?highlights=false&fuzzy=true&",
 
 試試看輸入「execative」之類的字詞，並注意其變回「executive」結果的情形 (雖然這些結果並未與您所輸入的字母完全相符)。
 
-### <a name="homecontrollercs-c"></a>HomeController.cs (C#)
+### <a name="jquery-autocomplete--backed-by-azure-search-autocomplete"></a>由 Azure 搜尋服務自動完成的 jQuery 自動完成支援
 
-我們已經檢閱過此範例的 JavaScript 程式碼，接著請看看會使用 Azure 搜尋服務 .NET SDK 實際擷取建議的 C# 控制器程式碼。
+到目前為止，有已搜尋 UX 程式碼置於建議。 下一步 的程式碼區塊顯示傳入要求，Azure 搜尋服務自動完成功能的 jQuery UI 自動完成函式 (列 91 的在 index.cshtml，):
 
-1. 開啟 Controllers 目錄下的 HomeController.cs 檔案。 
+```javascript
+$(function () {
+    // using modified jQuery Autocomplete plugin v1.2.6 http://xdsoft.net/jqplugins/autocomplete/
+    // $.autocomplete -> $.autocompleteInline
+    $("#example2").autocompleteInline({
+        appendMethod: "replace",
+        source: [
+            function (text, add) {
+                if (!text) {
+                    return;
+                }
 
-1. 您可能會先注意到類別頂端稱為 InitSearch 的方法。  此方法會建立已對 Azure 搜尋服務進行驗證的 HTTP 索引用戶端。  如果您想要深入了解其運作方式，請瀏覽以下的範例：[如何從 .NET 應用程式使用 Azure 搜尋服務](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+                $.getJSON("/home/autocomplete?term=" + text, function (data) {
+                    if (data && data.length > 0) {
+                        currentSuggestion2 = data[0];
+                        add(data);
+                    }
+                });
+            }
+        ]
+    });
 
-1. 移至建議函式。
+    // complete on TAB and clear on ESC
+    $("#example2").keydown(function (evt) {
+        if (evt.keyCode === 9 /* TAB */ && currentSuggestion2) {
+            $("#example2").val(currentSuggestion2);
+            return false;
+        } else if (evt.keyCode === 27 /* ESC */) {
+            currentSuggestion2 = "";
+            $("#example2").val("");
+        }
+    });
+});
+```
+
+## <a name="c-version"></a>C#版本
+
+既然我們已檢閱了網頁的 JavaScript 程式碼，讓我們看看C#實際擷取建議的相符項目使用 Azure 搜尋服務.NET SDK 的伺服器端控制器程式碼。
+
+開啟**HomeController.cs** [Controllers] 目錄下的檔案。 
+
+您可能會注意到第一件事是一種方法呼叫的類別頂端`InitSearch`。 此方法會建立已對 Azure 搜尋服務進行驗證的 HTTP 索引用戶端。 如需詳細資訊，請參閱 <<c0> [ 如何使用 Azure 搜尋服務.NET 應用程式](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)。
+
+該行 41 時，請注意建議函式。 它根據[DocumentsOperationsExtensions.Suggest 方法](https://docs.microsoft.com/dotnet/api/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet-preview)。
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)
@@ -168,14 +196,44 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
 }
 ```
 
-建議函式會採用兩個參數，以決定是要傳回命中結果醒目提示，還是要使用搜尋字詞輸入外加模糊比對。  此方法會建立 SuggestParameters 物件，然後傳遞給建議 API。 結果接著會轉換為 JSON，以供在用戶端中顯示。
-(選擇性) 在建議函式開頭新增中斷點，然後逐步執行程式碼。  請注意 SDK 所傳回的回應，以及它會如何轉換為方法所傳回的結果。
+建議函式會採用兩個參數，以決定是要傳回命中結果醒目提示，還是要使用搜尋字詞輸入外加模糊比對。 此方法會建立[SuggestParameters 物件](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet)，然後傳遞到建議 API。 結果接著會轉換為 JSON，以供在用戶端中顯示。
 
-頁面上的其他範例會遵循相同模式，新增命中結果醒目提示、自動完成建議的預先輸入和 Facet，以支援自動完成結果的用戶端快取。  檢閱上述每一個項目以了解其運作方式，以及如何在搜尋體驗中運用這些項目。
+在第 69 行，請注意自動完成函式。 它根據[DocumentsOperationsExtensions.Autocomplete 方法](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet-preview)。
 
-### <a name="javascript-language-example"></a>JavaScript 語言範例
+```csharp
+public ActionResult AutoComplete(string term)
+{
+    InitSearch();
+    //Call autocomplete API and return results
+    AutocompleteParameters ap = new AutocompleteParameters()
+    {
+        AutocompleteMode = AutocompleteMode.OneTermWithContext,
+        UseFuzzyMatching = false,
+        Top = 5
+    };
+    AutocompleteResult autocompleteResult = _indexClient.Documents.Autocomplete(term, "sg", ap);
 
-在 JavaScript 語言範例中，IndexJavaScript.cshtml 頁面中的 JavaScript 程式碼會運用 jQuery UI 自動完成。  這是一個程式庫，會擔當重任來呈現美觀的搜尋方塊，並讓您輕鬆地對 Azure 搜尋服務發出非同步呼叫以擷取建議。  請看第一個範例的 JavaScript 程式碼：
+    // Conver the Suggest results to a list that can be displayed in the client.
+    List<string> autocomplete = autocompleteResult.Results.Select(x => x.Text).ToList();
+    return new JsonResult
+    {
+        JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+        Data = autocomplete
+    };
+}
+```
+
+自動完成函式會搜尋詞彙輸入。 此方法會建立[AutoCompleteParameters 物件](https://docs.microsoft.com/rest/api/searchservice/autocomplete)。 結果接著會轉換為 JSON，以供在用戶端中顯示。
+
+(選擇性) 在建議函式開頭新增中斷點，然後逐步執行程式碼。 請注意，SDK，以及如何轉換至從方法傳回的結果所傳回的回應。
+
+在頁面上的其他範例會遵循相同的模式，將搜尋結果醒目提示和以支援用戶端快取的自動完成結果的 facet。 檢閱上述每一個項目以了解其運作方式，以及如何在搜尋體驗中運用這些項目。
+
+## <a name="javascript-version-with-rest"></a>使用 REST 的 JavaScript 版本
+
+如需 JavaScript 實作中，開啟**IndexJavaScript.cshtml**。 請注意，jQuery UI 自動完成函式也會用於搜尋方塊中，收集搜尋詞彙輸入進行非同步呼叫以擷取 Azure 搜尋服務建議的相符項目或完成條款。 
+
+請看第一個範例的 JavaScript 程式碼：
 
 ```javascript
 $(function () {
@@ -211,15 +269,50 @@ $(function () {
 });
 ```
 
-如果您比較這個範例與上述會呼叫首頁控制器的範例，您會發現幾個相似之處。  `minLength` 和 `position` 的自動完成設定完全相同。  這邊的重大變更是來源。  而不是呼叫在首頁控制器的建議方法，REST 要求中的 JavaScript 函式會建立，並且使用 Ajax 來執行。  回應接著會「成功」處理，並作為來源。
+如果您比較這個範例與上述會呼叫首頁控制器的範例，您會發現幾個相似之處。  `minLength` 和 `position` 的自動完成設定完全相同。 
 
-## <a name="takeaways"></a>重要心得
+這邊的重大變更是來源。 而不是呼叫在首頁控制器的建議方法，REST 要求中的 JavaScript 函式會建立，並且使用 Ajax 來執行。 回應接著會「成功」處理，並作為來源。
 
-此範例示範建置搜尋方塊中，支援自動完成和建議的基本步驟。  您已看到如何，您便可以建置 ASP.NET MVC 應用程式上，並使用 Azure 搜尋服務.NET SDK 或 REST API 擷取建議。
+REST 呼叫會使用 Uri 來指定是否[Autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete)或是[建議](https://docs.microsoft.com/rest/api/searchservice/suggestions)進行 API 呼叫。 下列 Uri 分別為 9 和 10 行上。
+
+```javascript
+var suggestUri = "https://" + searchServiceName + ".search.windows.net/indexes/" + indexName + "/docs/suggest?api-version=" + apiVersion;
+var autocompleteUri = "https://" + searchServiceName + ".search.windows.net/indexes/" + indexName + "/docs/autocomplete?api-version=" + apiVersion;
+```
+
+該行 148 時，您可以找到呼叫的指令碼`autocompleteUri`。 第一次呼叫`suggestUri`一行 39。
+
+> [!Note]
+> 進行服務的 REST 呼叫，在 JavaScript 中會提供為方便示範的 REST API，但不是應將其做為最佳作法或建議。 包含 API 金鑰和端點在指令碼會開啟您最多阻絕服務攻擊，可以讀取這些值的指令碼的任何人的服務。 使用 JavaScript，為了方便學習其安全，同時可能索引裝載在免費服務，我們建議使用 Java 或C#在實際執行程式碼中的編製索引和查詢作業。 
+
+<a name="configure-app"></a>
+
+## <a name="configure-nycjobs-to-run-on-your-service"></a>設定您的服務上執行的為 NYCJobs
+
+到目前為止，您已使用的裝載為 NYCJobs 示範索引。 如果您想要完整可見性的所有程式碼，包括索引，請遵循下列指示來建立並載入您自己的搜尋服務中的索引。
+
+1. [建立 Azure 搜尋服務](search-create-service-portal.md)或是[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)目前訂用帳戶。 您可以使用此範例中的免費服務。 
+
+   > [!Note]
+   > 如果您使用免費的 Azure 搜尋服務，則最多只能使用三個索引。 NYCJobs 資料載入器會建立兩個索引。 請確定服務內有空間可接受新的索引。
+
+1. 下載[為 NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)範例程式碼。
+
+1. 在 為 NYCJobs 範例程式碼的 DataLoader 資料夾中，開啟**DataLoader.sln** Visual Studio 中。
+
+1. 新增 Azure 搜尋服務的連接資訊。 開啟 DataLoader 專案中的 App.config，然後變更 TargetSearchServiceName 和 TargetSearchServiceApiKey appSettings 以反映 Azure 搜尋服務和 Azure 搜尋服務 API 金鑰。 這些資料可以在 Azure 入口網站中找到。
+
+1. 按 F5 以啟動應用程式，建立兩個索引和匯入 NYCJob 範例資料。
+
+1. 開啟**AutocompleteTutorial.sln**並編輯中的 Web.config **AutocompleteTutorial**專案。 將 SearchServiceName 和 SearchServiceApiKey 值變更為 適用於您的搜尋服務的值。
+
+1. 按 F5 執行應用程式。 範例 web 應用程式會在預設瀏覽器中開啟。 體驗與沙箱版本相同，只有索引和資料裝載於您的服務。
 
 ## <a name="next-steps"></a>後續步驟
 
-請將建議和自動完成整合到搜尋體驗。  請考慮如何直接使用.NET SDK 或 REST API 可協助您將 Azure 搜尋服務的強大功能給您的使用者當他們輸入使其更具生產力。
+此範例示範建置搜尋方塊中，支援自動完成和建議的基本步驟。 您已看到如何，您便可以建置 ASP.NET MVC 應用程式上，並使用 Azure 搜尋服務.NET SDK 或 REST API 擷取建議。
+
+在下一個步驟，嘗試整合到您的搜尋體驗的建議和自動完成功能。 下列參考文件應該幫助。
 
 > [!div class="nextstepaction"]
 > [自動完成 REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete)

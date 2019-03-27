@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: 32862d06cfa6a9a8dd9b99459362ec53fd88cec2
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 02f2bd78ca5656534b106c6f7f18c05165b4b9ff
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978932"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444508"
 ---
 # <a name="create-a-windows-virtual-machine-with-the-simplified-new-azvm-cmdlet-in-cloud-shell"></a>在 Cloud Shell 中使用簡化的 New-AzVM Cmdlet 來建立 Windows 虛擬機器 
 
-[New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm?view=azurermps-6.8.1) Cmdlet 已新增一組簡化的參數，用於使用 PowerShell 建立新的 VM。 本主題說明如何在 Azure Cloud Shell 中使用 PowerShell 搭配預先安裝的最新版本 New-AzureVM Cmdlet 來建立新的 VM。 我們將使用會使用智慧型預設值來自動建立所有必要資源的簡化參數集。 
+[New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) Cmdlet 已新增一組簡化的參數，用於使用 PowerShell 建立新的 VM。 本主題說明如何在 Azure Cloud Shell 中使用 PowerShell 搭配預先安裝的最新版本 New-AzureVM Cmdlet 來建立新的 VM。 我們將使用會使用智慧型預設值來自動建立所有必要資源的簡化參數集。 
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -36,7 +36,7 @@ ms.locfileid: "55978932"
 
 ## <a name="create-the-vm"></a>建立 VM
 
-您可以使用 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm?view=azurermps-6.8.1) Cmdlet 來建立虛擬機器，其中包括使用來自於 Azure Marketplace 的 Windows Server 2016 Datacenter 映像等智慧型預設值。 您可以使用 New-AzVM 僅搭配 **-Name** 參數，它將會使用該值做為所有資源名稱。 在此範例中，我們將 **-Name** 參數設為 *myVM*。 
+您可以使用 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) Cmdlet 來建立虛擬機器，其中包括使用來自於 Azure Marketplace 的 Windows Server 2016 Datacenter 映像等智慧型預設值。 您可以使用 New-AzVM 僅搭配 **-Name** 參數，它將會使用該值做為所有資源名稱。 在此範例中，我們將 **-Name** 參數設為 *myVM*。 
 
 請確定已在 Cloud Shell 中選取了 **PowerShell**，然後鍵入：
 

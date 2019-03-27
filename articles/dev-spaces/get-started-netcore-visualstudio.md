@@ -1,23 +1,22 @@
 ---
-title: 使用 .NET Core 和 Visual Studio 在雲端建立 Kubernetes 開發人員空間 | Microsoft Docs
+title: 使用 .NET Core 和 Visual Studio 在雲端建立 Kubernetes 開發人員空間
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
-ms.openlocfilehash: f345ff2e64670536771a639a7619c6e1d4d2d82d
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s
+ms.openlocfilehash: 9b5f5d41a35b608ecec5e9ab2161a6c122e7aa82
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823938"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894150"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>在使用 .NET Core 和 Visual Studio 的 Azure Dev Spaces 上開始使用
 
@@ -34,18 +33,17 @@ ms.locfileid: "56823938"
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>建立已針對 Azure Dev Spaces 啟用的 Kubernetes 叢集
 
-1. 在 http://portal.azure.com 登入 Azure 入口網站。
+1. 在 https://portal.azure.com 登入 Azure 入口網站。
 1. 選擇 [建立資源] > 搜尋 **Kubernetes** > 選取 [Kubernetes Service] > [建立]。
 
-   完成建立 AKS 叢集表單中每個標題底下的下列步驟。
+   在每個「建立 Kubernetes 叢集」表單的標題底下完成下列步驟，並確認您所選擇的[地區支援 Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams)。
 
-    - **專案詳細資料**：選取 Azure 訂用帳戶，以及新的或現有的 Azure 資源群組。
-    - **叢集詳細資料**：輸入 AKS 叢集的名稱、地區 (目前，您必須選擇 EastUS、EastUS2、美國中部、WestEurope、WestUS2、SoutheastAsia、CanadaCentral 或 CanadaEast)、版本及 DNS 名稱前置詞。
-    - **級別**：選取 AKS 代理程式節點的 VM 大小和節點數目。 如果您開始使用 Azure Dev Spaces，一個節點就足以瀏覽所有功能。 節點計數可以輕易在叢集部署後隨時調整。 請注意，VM 大小無法在 AKS 叢集建立後變更。 不過，部署 AKS 叢集後，您就可以輕鬆地建立具有較大 VM 的新 AKS 叢集，而如果您需要相應增加，請使用 Dev Spaces 重新部署到該較大叢集。
-
-   務必選擇 Kubernetes 1.9.6 版或更新版本。
+   - **專案詳細資料**：選取 Azure 訂用帳戶，以及新的或現有的 Azure 資源群組。
+   - **叢集詳細資料**：輸入 AKS 叢集的名稱、地區、版本及 DNS 名稱前置詞。
+   - **級別**：選取 AKS 代理程式節點的 VM 大小和節點數目。 如果您開始使用 Azure Dev Spaces，一個節點就足以瀏覽所有功能。 節點計數可以輕易在叢集部署後隨時調整。 請注意，VM 大小無法在 AKS 叢集建立後變更。 不過，部署 AKS 叢集後，您就可以輕鬆地建立具有較大 VM 的新 AKS 叢集，而如果您需要相應增加，請使用 Dev Spaces 重新部署到該較大叢集。
 
    ![Kubernetes 組態設定](media/common/Kubernetes-Create-Cluster-2.PNG)
+
 
    完成時，選取 [下一步:驗證]。
 
@@ -63,7 +61,7 @@ ms.locfileid: "56823938"
 
 ## <a name="create-a-web-app-running-in-a-container"></a>建立在容器中執行的 Web 應用程式
 
-在本節中，您會建立 ASP.NET Core Web 應用程式，並使其在 Kubernetes 的容器中執行。
+在本節中，您將建立 ASP.NET Core Web 應用程式，並使其在 Kubernetes 的容器中執行。
 
 ### <a name="create-an-aspnet-web-app"></a>建立 ASP.NET Web 應用程式
 

@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 5b2b3a3ec0e9aec603a69211a7493afc31e83283
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 9d789572abf0545eb51b357da091e5a1d712eab2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236544"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433802"
 ---
 # <a name="what-is-azure-cache-for-redis"></a>什麼是 Azure Cache for Redis
 
@@ -57,7 +57,7 @@ Azure Cache for Redis 可在以下層級使用：
 
 快取建立好之後，您可以將快取提升至更高的層級。 但不支援向下調整至較低層級。 如需調整階層的逐步指示，請參閱[如何調整 Azure Cache for Redis](cache-how-to-scale.md) 和[如何將調整作業自動化](cache-how-to-scale.md#how-to-automate-a-scaling-operation)。
 
-### <a name="feature-comparision"></a>功能比較
+### <a name="feature-comparison"></a>功能比較
 
 [Azure Cache for Redis 價格](https://azure.microsoft.com/pricing/details/cache/)頁面會提供每一層的詳細比較。 下表可協助說明階層所支援的一些功能：
 

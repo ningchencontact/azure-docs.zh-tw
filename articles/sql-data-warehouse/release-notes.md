@@ -9,12 +9,12 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
 ms.date: 02/09/2019
-ms.openlocfilehash: 2ac60287c9d92ab6230e1dd6777504036e54492d
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: e77556ac0d6f64797906c0f3b4181f147b1668e2
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244669"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448414"
 ---
 # <a name="azure-sql-data-warehouse-release-notes-and-documentation-updates"></a>Azure SQL 資料倉儲版本資訊與文件更新
 
@@ -22,9 +22,10 @@ Azure SQL 資料倉儲 (SQL DW) 是雲端式企業資料倉儲，利用大量平
 
 按一下下列連結，深入了解您可在最新版 Azure SQL 資料倉儲中取得的新功能和改進功能。 您應可在識別的維護排程期間收到這些服務更新。
 
-- [SQL 資料倉儲版本 10.0.10106.0 (一月)](./release-notes-10-0-10106-0.md)
-- [2018 年 12 月](./release-notes-december-2018.md)
-- [2018 年 10 月](./release-notes-october-2018.md)
+- [2019 年 3 月](./release-notes-10-0-10106-0.md#march-2019)
+- [2019 年 1 月](./release-notes-10-0-10106-0.md#january-2019)
+- [2018 年 12 月](./release-notes-10-0-10106-0.md#december-2018)
+- [2018 年 10 月](./release-notes-10-0-10106-0.md#october-2018)
 - [2018 年 9 月](./release-notes-september-2018.md)
 - [2018 年 8 月](./release-notes-august-2018.md)
 - [2018 年 7 月](./release-notes-july-2018.md)
@@ -39,9 +40,9 @@ Azure SQL 資料倉儲 (SQL DW) 是雲端式企業資料倉儲，利用大量平
 SELECT @@VERSION AS 'SQL Data Warehouse';
 ```
 
-範例輸出︰![SQL 資料倉儲版本](./media/release-notes/dw-version.png)
+範例輸出︰![SQL 資料倉儲版本](./media/release-notes/sql_data_warehouse_version.png)
 
-請使用識別的版本來確認哪個版本已套用至您的 Azure SQL 資料倉儲。 
+請使用識別的日期來確認哪個版本已套用至您的 Azure SQL 資料倉儲。 
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/12/2019
-ms.openlocfilehash: 669da18c889d906c629a7656eaa766993bf67373
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 7b932cf8a1623dfcff02baff409db26135e5aa20
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238346"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57837553"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>快速入門：使用 Visual Studio Code 連接及查詢 Azure SQL Database
 
@@ -50,7 +50,7 @@ ms.locfileid: "56238346"
 
 ### <a name="mac-os"></a>**Mac OS**
 
-對於 macOS，您必須安裝 OpenSSL，這是 mssql 擴充功能所用 .Net Core 的必要條件。 開啟您的終端機，並輸入下列命令以安裝 **brew** 和 **OpenSSL**。 
+對於 macOS，您必須安裝 OpenSSL，這是 mssql 擴充功能所用 .NET Core 的必要條件。 開啟您的終端機，並輸入下列命令以安裝 **brew** 和 **OpenSSL**。 
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

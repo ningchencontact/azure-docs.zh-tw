@@ -3,18 +3,18 @@ title: 在 Azure IoT Central 中監視您的裝置 | Microsoft Docs
 description: 身為操作員，您可以使用 Azure IoT Central 應用程式監視您的裝置。
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/12/2018
+ms.date: 02/01/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 941fbffaa7a0129de30d6fdf14d3d0559429309f
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 561477d8bf3a64397e9964499339c368dec5470d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200236"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760467"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>教學課程：使用 Azure IoT Central 監視您的裝置
 
@@ -41,7 +41,7 @@ Azure IoT Central 會以電子郵件訊息傳送關於裝置的通知。 建置�
 
 開啟您在[為您的裝置設定規則和動作](tutorial-configure-rules.md)教學課程末尾收到的電子郵件訊息。 在電子郵件中，選擇 [按一下這裡以開啟您的裝置]：
 
-![應用程式建置者規則](media/tutorial-monitor-devices/email.png)
+![警示通知電子郵件](media/tutorial-monitor-devices/email.png)
 
 您在先前的教學課程中建立的**連線的空調-1** 模擬裝置的 [裝置] 頁面，會在您的瀏覽器中開啟：
 
@@ -55,13 +55,13 @@ Azure IoT Central 會以電子郵件訊息傳送關於裝置的通知。 建置�
 
 ![裝置儀表板](media/tutorial-monitor-devices/initial_screen.png)
 
-儀表板上的圖表會顯示裝置溫度的繪圖。 您也可以在 [設定目標溫度] 圖格中檢視裝置目前的目標溫度。 您判定目標溫度過高。
+儀表板上的圖表會顯示裝置溫度的繪圖。 您也可以在 [裝置屬性] 圖格中檢視裝置目前的目標溫度。 您判定目標溫度過高。
 
 ## <a name="remediate-an-issue"></a>補救問題
 
 若要變更裝置的目標溫度，請使用 [設定] 頁面：
 
-1. 選擇 [設定]。 將 [設定溫度] 變更為 75。 選擇 [更新]，以將新的目標溫度傳送至裝置。 當裝置確認設定變更之後，設定值的狀態將會變更為 [已同步]：
+1. 選擇 [設定]。 將 [設定溫度] 變更為 75。 選擇 [更新]，以將新的目標溫度傳送至裝置。 當裝置確認設定變更之後，設定的狀態將會變更為 [已同步]：
 
     ![更新設定](media/tutorial-monitor-devices/change_settings.png)
 

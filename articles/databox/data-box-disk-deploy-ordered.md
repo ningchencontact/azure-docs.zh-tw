@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 02/27/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: db10361707d83fcda20f0e4bf2adc2abc4176808
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 67f4eb5383452a81ba288f5fe611242259217951
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156166"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404887"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>教學課程：訂購 Azure 資料箱磁碟
 
@@ -80,11 +80,25 @@ Azure 資料箱磁碟是一項混合式雲端解決方案，可讓您以快速�
     |Name|提供用來追蹤訂單的易記名稱。<br> 名稱長度可介於 3 到 24 個字元之間，且可以是字母、數字和連字號。 <br> 名稱必須以字母或數字為開頭或結尾。 |
     |資源群組| 使用現有的群組或建立新群組。 <br> 資源群組是適用於資源而可一併管理或部署的邏輯容器： |
     |目的地 Azure 區域| 選取儲存體帳戶的區域。<br> 目前支援全美國、西歐和北歐、加拿大及澳大利亞地區的儲存體帳戶。 |
-    |儲存體帳戶|根據指定的 Azure 區域，從現有儲存體帳戶的篩選清單中進行選取。 <br>您也可以建立新的一般用途 v1 或一般用途 v2 帳戶。 |
     |預估資料大小 (TB)| 輸入以 TB 為單位的估計值。 <br>Microsoft 會根據資料大小為您傳送適當數目的 8 TB SSD (可用容量為 7 TB)。 <br>5 個磁碟的可用容量上限為 35 TB。 |
     |磁碟通行金鑰| 如果您核取了 [使用自訂金鑰而非 Azure 產生的通行金鑰]，請提供磁碟通行金鑰。 <br> 請提供 12 到 32 個字元的英數字元金鑰，且至少須包含一個數字和一個特殊字元。 允許的特殊字元為 `@?_+`。 <br> 您可以選擇略過此選項並使用 Azure 產生的通行金鑰，將您的磁碟解除鎖定。|
+    |儲存體目的地     | 從儲存體帳戶、受控磁碟或兩者中進行選擇。 <br> 根據指定的 Azure 區域，從現有儲存體帳戶的篩選清單中選取儲存體帳戶。 資料箱可以與最多 10 個儲存體帳戶連結。 <br> 您也可以建立新的**一般用途 v1**、**一般用途 v2** 或 **Blob 儲存體帳戶**。 <br>您無法使用已設定規則的儲存體帳戶。 儲存體帳戶必須**允許來自防火牆和虛擬網路區段中所有網路的存取**。|
 
-13. 按 [下一步] 。 
+    如果使用儲存體帳戶作為儲存體目的地，您就會看到下列螢幕擷取畫面：
+
+    ![儲存體帳戶的資料箱磁碟訂單](media/data-box-disk-deploy-ordered/order-storage-account.png)
+
+    如果使用資料箱磁碟以從內部部署 VHD 建立受控磁碟，您也必須提供下列資訊：
+
+    |設定  |值  |
+    |---------|---------|
+    |資源群組     | 如果您想要從內部部署 VHD 建立受控磁碟，請建立新的資源群組。 只有現有資源群組是由資料箱服務針對受控磁碟的資料箱磁碟訂單建立時，才能使用該資源群組。 <br> 僅支援一個資源群組。|
+
+    ![受控磁碟的資料箱磁碟訂單](media/data-box-disk-deploy-ordered/order-managed-disks.png)
+
+    針對受控磁碟指定的儲存體帳戶不能當成暫存的儲存體帳戶來使用。 資料箱服務會將 VHD 上傳至暫存儲存體帳戶，然後再將其轉換為受控磁碟並移至資源群組。 如需詳細資訊，請參閱[確認資料上傳至 Azure](data-box-disk-deploy-picked-up.md#verify-data-upload-to-azure)。
+
+13. 按 [下一步] 。
 
     ![提供訂單詳細資料](media/data-box-disk-deploy-ordered/data-box-order-details.png)
 
@@ -102,7 +116,7 @@ Azure 資料箱磁碟是一項混合式雲端解決方案，可讓您以快速�
  
 ## <a name="track-the-order"></a>追蹤訂單狀態
 
-在您下訂單之後，可以從 Azure 入口網站來追蹤訂單狀態。 請移至您的訂單，然後移至 [概觀] 以檢視狀態。 入口網站會顯示處於 [已訂購] 狀態的作業。 
+在您下訂單之後，可以從 Azure 入口網站來追蹤訂單狀態。 請移至您的訂單，然後移至 [概觀] 以檢視狀態。 入口網站會顯示處於 [已訂購] 狀態的作業。
 
 ![已訂購的資料箱磁碟狀態](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png) 
 
@@ -118,9 +132,9 @@ Azure 資料箱磁碟是一項混合式雲端解決方案，可讓您以快速�
 
 ## <a name="cancel-the-order"></a>取消訂單
 
-若要取消此訂單，請在 Azure 入口網站中移至 [概觀]，然後從命令列按一下 [取消]。 
+若要取消此訂單，請在 Azure 入口網站中移至 [概觀]，然後從命令列按一下 [取消]。
 
-在訂購磁碟後，您只能在訂單仍在進行出貨處理時取消訂單。 一旦訂單已處理完畢，您即無法取消訂單。 
+在訂購磁碟後，您只能在訂單仍在進行出貨處理時取消訂單。 一旦訂單已處理完畢，您即無法取消訂單。
 
 ![取消訂單](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
@@ -140,5 +154,3 @@ Azure 資料箱磁碟是一項混合式雲端解決方案，可讓您以快速�
 
 > [!div class="nextstepaction"]
 > [設定您的 Azure 資料箱磁碟](./data-box-disk-deploy-set-up.md)
-
-

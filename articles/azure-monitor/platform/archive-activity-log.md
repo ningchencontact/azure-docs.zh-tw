@@ -8,20 +8,15 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: nikiest
 ms.subservice: logs
-ms.openlocfilehash: 5328173090bce3e3adf51a1503e18c8da5532b0e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b6009471048232b52020e4bef6272ed8cb1bd35b
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310892"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497749"
 ---
 # <a name="archive-the-azure-activity-log"></a>封存 Azure 活動記錄檔
 在本文中，我們示範如何使用 Azure 入口網站、PowerShell Cmdlet 或跨平台 CLI 封存儲存體帳戶中的 [**Azure 活動記錄檔**](../../azure-monitor/platform/activity-logs-overview.md)。 如果您想要保留活動記錄檔超過 90 天 (而且對保留原則有完全的控制)，以便稽核、靜態分析或備份，這個選項非常有用。 如果您只需要保留事件 90 天或更短，則不需要設定封存至儲存體帳戶，因為在不啟用封存的情況下，活動記錄檔就會在 Azure 平台保留 90 天。
-
-> [!WARNING]
-> 2018 年 11 月 1 日起，儲存體帳戶中的記錄資料格式將變更為 JSON 資料行。 [請參閱本文以了解影響的描述，以及如何更新您的工具，來處理新的格式。](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
->
-> 
 
 ## <a name="prerequisites"></a>必要條件
 在開始之前，您需要 [建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md) ，以便將活動記錄檔封存至此。 我們強烈建議您不要使用已儲存了其他非監視資料的現有儲存體帳戶，這樣您對監視資料才能有更好的存取控制。 不過，如果您也要封存診斷記錄檔和度量至儲存體帳戶，則將同一儲存體帳戶用於活動記錄檔合情合理，因為可以將所有監視資料集中在一個位置。 儲存體帳戶不一定要和訂用帳戶發出記錄檔屬於相同的訂用帳戶，只要使用者有適當的設定可 RBAC 存取這兩個訂用帳戶即可。
@@ -65,7 +60,7 @@ ms.locfileid: "57310892"
 | --- | --- | --- |
 | StorageAccountId |是 |資源識別碼，活動記錄檔應該要儲存至此儲存體帳戶。 |
 | 位置 |是 |以逗號分隔的區域清單，其中列出您要收集的活動記錄檔事件的區域。 您可以使用 `(Get-AzLocation).Location` 來檢視您訂用帳戶的所有區域清單。 |
-| RetentionInDays |否 |事件應保留的天數，1 到 2147483647 之間。 值為 0 會無限期地 (永遠) 儲存記錄檔。 |
+| RetentionInDays |否 |哪些事件應保留，介於 1 到 365 之間的日數。 值為 0 會無限期地 (永遠) 儲存記錄檔。 |
 | 類別 |否 |以逗號分隔的類別清單，其中列出應該收集的事件類別。 可能的值有 Write、Delete、Action。  如果未提供，則會採用所有可能的值 |
 
 ## <a name="archive-the-activity-log-via-cli"></a>透過 CLI 封存活動記錄檔
@@ -79,7 +74,7 @@ ms.locfileid: "57310892"
 | name |是 |記錄檔設定檔的名稱。 |
 | storage-account-id |是 |資源識別碼，活動記錄檔應該要儲存至此儲存體帳戶。 |
 | 位置 |是 |以空格分隔的區域清單，其中列出您要收集的活動記錄事件的區域。 您可以使用 `az account list-locations --query [].name` 來檢視您訂用帳戶的所有區域清單。 |
-| days |是 |事件應保留的天數，1 到 2147483647 之間。 值為 0 會無限期地 (永遠) 儲存記錄檔。  如果是零，則啟用的參數應設為 true。 |
+| days |是 |哪些事件應保留，介於 1 到 365 之間的日數。 值為 0 會無限期地 (永遠) 儲存記錄檔。  如果是零，則啟用的參數應設為 true。 |
 |已啟用 | 是 |True 或 False。  用來啟用或停用保留原則。  如果為 True，則 days 參數必須是大於 0 的值。
 | 類別 |是 |以空格分隔的類別清單，其中列出應收集的事件類別。 可能的值有 Write、Delete、Action。 |
 

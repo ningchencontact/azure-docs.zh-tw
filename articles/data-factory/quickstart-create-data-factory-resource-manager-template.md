@@ -3,21 +3,20 @@ title: 使用 Resource Manager 範本建立 Azure Data Factory | Microsoft Docs
 description: 在本教學課程中，您會使用 Azure Resource Manager 範本來建立範例 Azure Data Factory 管線。
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 02/20/2019
-ms.author: douglasl
-ms.openlocfilehash: c3a9864a901d44d0c84c6946c55e5dc2c700cbac
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
+ms.openlocfilehash: 1d4eb3d2978be98d81b42dd66a75b21563c23a1a
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447594"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576645"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>教學課程：使用 Azure Resource Manager 範本建立 Azure Data Factory
 
@@ -34,7 +33,9 @@ ms.locfileid: "56447594"
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-依照[如何安裝和設定 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)中的指示，安裝最新的 Azure PowerShell 模組。
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+依照[如何安裝和設定 Azure PowerShell](/powershell/azure/install-Az-ps)中的指示，安裝最新的 Azure PowerShell 模組。
 
 ## <a name="resource-manager-templates"></a>Resource Manager 範本
 
@@ -51,7 +52,7 @@ ms.locfileid: "56447594"
 ```json
 {
     "contentVersion": "1.0.0.0",
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "parameters": {
         "dataFactoryName": {
             "type": "string",
@@ -328,7 +329,7 @@ ms.locfileid: "56447594"
 在 PowerShell 中，執行下列命令，使用您稍早在本快速入門中建立的 Resource Manager 範本來部署 Data Factory 實體。
 
 ```PowerShell
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
 ```
 
 您會看到類似以下的範例：
@@ -368,9 +369,9 @@ DeploymentDebugLogLevel :
 - 具有複製活動的管線
 - 可觸發管線的觸發程序
 
-部署的觸發程序處於已停止狀態。 啟動觸發程序的其中一個方式是使用 **Start-AzureRmDataFactoryV2Trigger** PowerShell cmdlet。 下列程序會提供詳細的步驟：
+部署的觸發程序處於已停止狀態。 啟動觸發程序的其中一個方式，是使用 **Start-AzDataFactoryV2Trigger** PowerShell Cmdlet。 下列程序會提供詳細的步驟：
 
-1. 在 PowerShell 視窗中，建立變數，以保留資源群組的名稱。 將下列指令碼複製到 PowerShell 視窗中，然後按 ENTER。 如果您為 New-AzureRmResourceGroupDeployment 命令指定了不同的資源群組名稱，請在此更新此值。
+1. 在 PowerShell 視窗中，建立變數，以保留資源群組的名稱。 將下列指令碼複製到 PowerShell 視窗中，然後按 ENTER。 如果您為 New-AzResourceGroupDeployment 命令指定了不同的資源群組名稱，請在此更新其值。
 
     ```powershell
     $resourceGroupName = "ADFTutorialResourceGroup"
@@ -388,7 +389,7 @@ DeploymentDebugLogLevel :
 4. 在指定資料處理站和觸發程序的名稱之後，執行下列 PowerShell 命令，以取得**觸發程序的狀態**：
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
     ```
 
     以下是範例輸出：
@@ -405,7 +406,7 @@ DeploymentDebugLogLevel :
 5. **啟動觸發程序**。 觸發程序會在整點執行範本中定義的管線。 也就是，如果您在下午 2:25 執行此命令，則觸發程序會在下午 3 點第一次執行管線。 然後，它會每小時執行管線，直到您為觸發程序指定的結束時間為止。
 
     ```powershell
-    Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
+    Start-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
     
     以下是範例輸出：
@@ -416,10 +417,10 @@ DeploymentDebugLogLevel :
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
     True
     ```
-6. 再次執行 Get-AzureRmDataFactoryV2Trigger 命令，確認觸發程序已啟動。
+6. 再次執行 Get-AzDataFactoryV2Trigger 命令，確認觸發程序已啟動。
 
     ```powershell
-    Get-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
+    Get-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -TriggerName $triggerName
     ```
     
     以下是範例輸出：
@@ -466,7 +467,7 @@ DeploymentDebugLogLevel :
 8. 一旦您看到成功/失敗執行，請停止觸發程序。 觸發程序會一小時執行一次管線。 管線會將相同的檔案從每次執行的輸入資料夾複製到輸出資料夾。 若要停止觸發程序，請在 PowerShell 視窗中執行下列命令。
     
     ```powershell
-    Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
+    Stop-AzDataFactoryV2Trigger -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $triggerName
     ```
 
 [!INCLUDE [data-factory-quickstart-verify-output-cleanup.md](../../includes/data-factory-quickstart-verify-output-cleanup.md)]
@@ -604,7 +605,7 @@ Azure 儲存體連結服務會指定 Data Factory 服務在執行階段用來連
 
 #### <a name="trigger"></a>觸發程序
 
-定義一小時執行一次管線的觸發程序。 部署的觸發程序處於已停止狀態。 使用 **Start-AzureRmDataFactoryV2Trigger** Cmdlet 來啟動觸發程序。 如需觸發程序的詳細資訊，請參閱[管線執行和觸發程序](concepts-pipeline-execution-triggers.md#triggers)一文。
+定義一小時執行一次管線的觸發程序。 部署的觸發程序處於已停止狀態。 使用 **Start-AzDataFactoryV2Trigger** Cmdlet 啟動觸發程序。 如需觸發程序的詳細資訊，請參閱[管線執行和觸發程序](concepts-pipeline-execution-triggers.md#triggers)一文。
 
 ```json
 {
@@ -647,11 +648,11 @@ Azure 儲存體連結服務會指定 Data Factory 服務在執行階段用來連
 範例：
 
 ```PowerShell
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
 
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
 
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
+New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Production.json
 ```
 
 請注意，第一個命令會使用開發環境的參數檔案，第二個會使用測試環境的參數檔案，而第三個會使用生產環境的參數檔案。

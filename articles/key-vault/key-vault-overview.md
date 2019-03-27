@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 474148289bb03088bbf92eeadc4049ce19625e3e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 06f1a2b33b177cf667fc2d3c5932f7ff117d2bdc
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115941"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195467"
 ---
 # <a name="what-is-azure-key-vault"></a>什麼是 Azure 金鑰保存庫？
 
@@ -55,7 +55,7 @@ Azure Key Vault 可能受軟體或硬體 HSM 保護。 在您需要加強保證�
 
 - 封存至儲存體帳戶。
 - 串流至事件中樞。
-- 將記錄傳送至 Log Analytics。
+- 將記錄傳送至 Azure 監視器記錄。
 
 您可以控制您的記錄，藉由限制存取權來保護它們，也可以刪除您不再需要的記錄。
 

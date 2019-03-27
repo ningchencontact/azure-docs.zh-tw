@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c7c120b9bac33f71df72650d8a9d9a72e819d227
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 6f7fce7eab697f6517b351d00595cb02110d3641
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439179"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499568"
 ---
 # <a name="query-examples-using-full-lucene-search-syntax-advanced-queries-in-azure-search"></a>使用 「 完整 」 的 Lucene 搜尋語法 （Azure 搜尋服務中的進階查詢） 的查詢範例
 
@@ -139,6 +139,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 
 * business_title:(senior NOT junior)
 * state:("New York" AND "New Jersey")
+* business_title:(senior NOT junior) AND posting_type:external
 
 如果您想要將字串視為單一實體評估，請務必將多個字串放在引號中，例如搜尋 [位置] 欄位中兩個不同城市的情況。 此外，請確定運算子是大寫，如同您看到的 NOT 和 AND。
 

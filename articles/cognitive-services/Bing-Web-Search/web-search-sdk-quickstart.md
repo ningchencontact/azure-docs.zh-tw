@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 08/16/2018
+ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 848f319836e492e486bfdcb3c9080860144a7e68
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3424137b36e4e277a8914ab04cdf7097660930e3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869393"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860749"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>快速入門：使用適用於 C# 的 Bing Web 搜尋 SDK
 
@@ -32,14 +32,14 @@ Bing Web 搜尋 SDK 可讓您輕鬆地將 Bing Web 搜尋整合到 C# 應用程�
 * [Visual Studio Code 2017](https://code.visualstudio.com/download) (英文)
   * [C# for Visual Studio Code](https://visualstudio.microsoft.com/downloads/)
   * [NuGet 套件管理員](https://github.com/jmrog/vscode-nuget-package-manager) (英文)
-* [.Net Core SDK](https://www.microsoft.com/net/download) (英文)
+* [.NET Core SDK](https://www.microsoft.com/net/download)
 
 ## <a name="create-a-project-and-install-dependencies"></a>建立專案並安裝相依性
 
 > [!TIP]
 > 從 [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/) 取得最新程式碼作為 Visual Studio 解決方案。
 
-第一個步驟是建立新的主控台專案。 關於設定主控台專案，如需協助，請參閱 [Hello World - 您的第一個程式 (C# 程式設計手冊)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program)。 若要在您的應用程式中使用 Bing Web 搜尋 SDK，您必須使用 NuGet 套件管理員安裝 `Microsoft.Azure.CognitiveServices.Search.WebSearch`。
+第一個步驟是建立新的主控台專案。 如需設定主控台專案的說明，請參閱 [Hello World - 您的第一個程式 (C# 程式設計手冊)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program)。 若要在您的應用程式中使用 Bing Web 搜尋 SDK，您必須使用 NuGet 套件管理員安裝 `Microsoft.Azure.CognitiveServices.Search.WebSearch`。
 
 [Web 搜尋 SDK 套件](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0) (英文) 也會安裝：
 
@@ -61,7 +61,7 @@ using System.Linq;
 
 ## <a name="create-project-scaffolding"></a>建立專案 Scaffolding
 
-當您建立新的主控台專案時，應該就已建立應用程式的命名空間和類別。 您的程式看起來應該像這樣：
+當您建立新的主控台專案時，應該就已建立應用程式的命名空間和類別。 您的程式看起來應該像此範例：
 
 ```csharp
 namespace WebSearchSDK
@@ -101,7 +101,7 @@ public static void WebResults(WebSearchAPI client)
 
 ## <a name="handle-the-response"></a>處理回應
 
-接下來，讓我們新增一些程式碼來剖析回應並列印結果。 若第一個網頁、影像、新聞文章和影片存在於回應物件中，則會列印其 `name` 和 `url`。
+接下來，讓我們新增一些程式碼來剖析回應並列印結果。 若第一個網頁、影像、新聞文章和影片存在於回應物件中，則會列印其 `Name` 和 `Url`。
 
 ```csharp
 if (webData?.WebPages?.Value?.Count > 0)
@@ -234,9 +234,10 @@ dotnet run
 
 ### <a name="limit-the-number-of-results-returned-by-bing"></a>限制 Bing 所傳回的結果數目
 
-這個範例會使用 `count` 和 `offset` 參數，來限制「西雅圖最佳餐廳」傳回的結果數目。 第一個結果的 `name` 和 `URL` 會列印出來。
+這個範例會使用 `count` 和 `offset` 參數，來限制「西雅圖最佳餐廳」傳回的結果數目。 第一個結果的 `Name` 和 `Url` 會列印出來。
 
 1. 將此程式碼新增至主控台專案：
+
     ```csharp
     public static void WebResultsWithCountAndOffset(WebSearchAPI client)
     {
@@ -271,7 +272,9 @@ dotnet run
         }
     }
     ```
+
 2. 將 `WebResultsWithCountAndOffset` 新增至 `main`：
+
     ```csharp
     static void Main(string[] args)
     {
@@ -285,13 +288,15 @@ dotnet run
         Console.ReadKey();
     }
     ```
+
 3. 執行應用程式。
 
 ### <a name="filter-for-news"></a>篩選新聞
 
-這個範例會使用 `response_filter` 參數來篩選搜尋結果。 傳回的搜尋結果僅限於有關 "Microsoft" 的新聞文章。 第一個結果的 `name` 和 `URL` 會列印出來。
+這個範例會使用 `response_filter` 參數來篩選搜尋結果。 傳回的搜尋結果僅限於有關 "Microsoft" 的新聞文章。 第一個結果的 `Name` 和 `Url` 會列印出來。
 
 1. 將此程式碼新增至主控台專案：
+
     ```csharp
     public static void WebSearchWithResponseFilter(WebSearchAPI client)
     {
@@ -328,7 +333,9 @@ dotnet run
         }
     }
     ```
+
 2. 將 `WebResultsWithCountAndOffset` 新增至 `main`：
+
     ```csharp
     static void Main(string[] args)
     {
@@ -344,13 +351,15 @@ dotnet run
         Console.ReadKey();
     }
     ```
+
 3. 執行應用程式。
 
 ### <a name="use-safe-search-answer-count-and-the-promote-filter"></a>使用安全搜尋、回應計數和宣傳篩選條件
 
-這個範例使用 `answer_count`、`promote` 和 `safe_search` 參數，來篩選 "音樂影片" 的搜尋結果。 第一個結果的 `name` 和 `URL` 會出現。
+這個範例使用 `answer_count`、`promote` 和 `safe_search` 參數，來篩選 "音樂影片" 的搜尋結果。 第一個結果的 `Name` 和 `ContentUrl` 會出現。
 
 1. 將此程式碼新增至主控台專案：
+
     ```csharp
     public static void WebSearchWithAnswerCountPromoteAndSafeSearch(WebSearchAPI client)
     {
@@ -386,7 +395,9 @@ dotnet run
         }
     }
     ```
+
 2. 將 `WebResultsWithCountAndOffset` 新增至 `main`：
+
     ```csharp
     static void Main(string[] args)
     {
@@ -404,6 +415,7 @@ dotnet run
         Console.ReadKey();
     }
     ```
+
 3. 執行應用程式。
 
 ## <a name="clean-up-resources"></a>清除資源

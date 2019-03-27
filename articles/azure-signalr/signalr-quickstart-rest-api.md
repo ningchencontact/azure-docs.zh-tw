@@ -3,16 +3,15 @@ title: 快速入門 - Azure SignalR 服務 REST API
 description: 使用 Azure SignalR 服務 REST API 的快速入門。
 author: sffamily
 ms.service: signalr
-ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/13/2018
+ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 1443508985c7c7fef313a7eea3f622e7759a71ef
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 88a5a1bcff8542ac500bbb5e0da790f77c90a825
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540091"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530785"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>快速入門：從主控台應用程式廣播即時訊息
 
@@ -176,3 +175,10 @@ API | `1.0-preview` | `1.0`
 `1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
+
+## <a name="next-steps"></a>後續步驟
+
+在本快速入門中，您已了解如何使用 REST API 將即時訊息從 SignalR Service 廣播至用戶端。 接下來，請深入了解如何使用 SignalR Service 繫結 (以 REST API 為基礎所建置) 來開發和部署 Azure Functions。
+
+> [!div class="nextstepaction"]
+> [使用 Azure SignalR Service 繫結來開發 Azure Functions](signalr-quickstart-azure-functions-csharp.md)

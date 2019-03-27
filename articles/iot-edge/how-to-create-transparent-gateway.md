@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: c769ae8e684a94e60f6a2e31ba404a0593f7aa78
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9d67a87b182758e37c9e379a8f96a6540797ce3e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096702"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482941"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>設定 IoT Edge 裝置作為透明閘道
 
@@ -48,7 +48,7 @@ ms.locfileid: "58096702"
 您可以使用任何電腦產生憑證，然後再將其複製到您的 IoT Edge 裝置。
 
 >[!NOTE]
->「 閘道名稱 」 用來建立此指令，憑證必須是相同名稱所用作為您的 IoT Edge config.yaml 檔案中的主機名稱和 GatewayHostName 下游裝置的連接字串中。 「 閘道名稱 」 必須解析成 IP 位址，使用 DNS 或 host 檔案項目。 根據使用的通訊協定的通訊 (MQTTS:8883 / AMQPS:5671 / HTTPS:433) 必須能夠下游裝置與 IoT Edge 變成透明。 如果防火牆之間時，個別連接埠必須開啟。
+>在此说明中用于创建证书的“网关名称”必须与 IoT Edge 的 config.yaml 文件中用作主机名的名称以及在下游设备的连接字符串中用作 GatewayHostName 的名称相同。 “网关名称”必须能够解析成 IP 地址，不管是使用 DNS 还是主机文件条目。 必须能够在下游设备和透明 IoT Edge 之间进行基于所使用协议 (MQTTS:8883/AMQPS:5671/HTTPS:433) 的通信。 如果中间有防火墙，则需打开相应的端口。
 
 ## <a name="generate-certificates-with-windows"></a>使用 Windows 產生憑證
 
@@ -71,7 +71,7 @@ ms.locfileid: "58096702"
    
    2. vcpkg 安裝後，請從 Powershell 提示字元執行下列命令，以安裝 Windows x64 的 OpenSSL 套件。 安裝通常需要約 5 分鐘的時間。
 
-      ```PowerShell
+      ```powershell
       .\vcpkg install openssl:x64-windows
       ```
    3. 將 `<VCPKGDIR>\installed\x64-windows\tools\openssl` 新增至您的 PATH 環境變數，讓 openssl.exe 檔案可供叫用。
@@ -84,7 +84,7 @@ ms.locfileid: "58096702"
 
 2. 複製包含指令碼的 Git 存放庫來產生非生產環境憑證。 這些指令碼可協助您建立用來設定透明閘道的所需憑證。 使用 `git clone` 命令或[下載 ZIP](https://github.com/Azure/azure-iot-sdk-c/archive/master.zip)。 
 
-   ```PowerShell
+   ```powershell
    git clone https://github.com/Azure/azure-iot-sdk-c.git
    ```
 
@@ -92,7 +92,7 @@ ms.locfileid: "58096702"
 
 4. 將組態和指令碼檔案複製到您的工作目錄。 
 
-   ```PowerShell
+   ```powershell
    copy <path>\azure-iot-sdk-c\tools\CACertificates\*.cnf .
    copy <path>\azure-iot-sdk-c\tools\CACertificates\ca-certs.ps1 .
    ```
@@ -101,25 +101,25 @@ ms.locfileid: "58096702"
 
 5. 設定環境變數 OPENSSL_CONF 使用 openssl_root_ca.cnf 組態檔。
 
-    ```PowerShell
+    ```powershell
     $env:OPENSSL_CONF = "$PWD\openssl_root_ca.cnf"
     ```
 
 6. 啟用 PowerShell 執行指令碼。
 
-   ```PowerShell
+   ```powershell
    Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
    ```
 
 7. 將指令碼所使用的函式導入 PowerShell 的全域命名空間中。
    
-   ```PowerShell
+   ```powershell
    . .\ca-certs.ps1
    ```
 
 8. 確認 OpenSSL 已正確安裝，並確定名稱不會與現有的憑證名稱衝突。 如果有問題，指令碼應會說明如何在系統上加以修正。
 
-   ```PowerShell
+   ```powershell
    Test-CACertsPrerequisites
    ```
 
@@ -129,19 +129,19 @@ ms.locfileid: "58096702"
 
 1. 建立擁有者 CA 憑證，並讓其簽署一個中繼憑證。 這些憑證全部放置在 *\<WRKDIR>* 中。
 
-      ```PowerShell
+      ```powershell
       New-CACertsCertChain rsa
       ```
 
 2. 使用下列命令建立 Edge 裝置 CA 憑證和私密金鑰。 提供閘道裝置的名稱，這將在憑證產生期間，用於命名檔案。 
 
-   ```PowerShell
+   ```powershell
    New-CACertsEdgeDevice "<gateway name>"
    ```
 
 3. 使用下列命令，從擁有者 CA 憑證、中繼憑證和 Edge 裝置 CA 憑證建立憑證鏈結。 
 
-   ```PowerShell
+   ```powershell
    Write-CACertsCertificatesForEdgeDevice "<gateway name>"
    ```
 

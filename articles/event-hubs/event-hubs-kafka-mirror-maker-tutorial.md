@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: a0f22e7940a2be442bdf836c0e76e29bad2e9b36
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a7271eb6b8cbc8a117b5a8e75edfe02985ec3452
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769917"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487459"
 ---
 # <a name="use-kafka-mirrormaker-with-event-hubs-for-apache-kafka"></a>使用 Kafka MirrorMaker 搭配適用於 Apache Kafka 的事件中樞
 
@@ -119,6 +119,12 @@ bin/kafka-mirror-maker.sh --consumer.config source-kafka.config --num.streams 1 
 若要確認事件會到達啟用 Kafka 的事件中樞，請查看 [Azure 入口網站](https://azure.microsoft.com/features/azure-portal/)中的連入統計資料，或對事件中樞執行取用者。
 
 在 MirrorMaker 執行時，Kafka 叢集和啟用 Kafka 的鏡像事件中樞服務都會收到傳送到來源 Kafka 叢集的所有事件。 您可以使用 MirrorMaker 和事件中樞 Kafka 端點，將現有的 Kafka 管線移轉至受控 Azure 事件中樞服務，而不會變更現有的叢集或中斷任何進行中的資料流程。
+
+## <a name="samples"></a>範例
+在 GitHub 上，請參閱下列的範例：
+
+- [在本教學課程，在 GitHub 上的範例程式碼](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/mirror-maker)
+- [Azure 事件中樞 Kafka mirrormaker，透過在 Azure 容器執行個體上執行](https://github.com/djrosanova/EventHubsMirrorMaker)
 
 ## <a name="next-steps"></a>後續步驟
 

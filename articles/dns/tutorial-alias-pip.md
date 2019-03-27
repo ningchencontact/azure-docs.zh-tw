@@ -7,14 +7,14 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: victorh
-ms.openlocfilehash: 1b157d8292eacff87a28554939a6f144b9f5d0e9
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 7dcbfdaf00b0e628541cfd1a3b79df8cf8334ed3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092088"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536873"
 ---
-# <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>教學課程：設定別名記錄來參考 Azure 公用 IP 位址 
+# <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>教學課程：設定別名記錄以參照 Azure 公用 IP 位址 
 
 在本教學課程中，您了解如何：
 
@@ -30,13 +30,13 @@ ms.locfileid: "50092088"
 ## <a name="prerequisites"></a>必要條件
 必須提供可用的網域名稱，如此才能裝載於 Azure DNS 進行測試。 您必須擁有此網域的完整控制權。 完整控制權包括為網域設定名稱伺服器 (NS) 記錄的能力。
 
-關於在 Azure DNS 中裝載網域的指示，請參閱[教學課程：在 Azure DNS 中裝載您的網域](dns-delegate-domain-azure-dns.md)。
+如需在 Azure DNS 中裝載網域的相關指示，請參閱[教學課程：在 Azure DNS 上託管您的網域](dns-delegate-domain-azure-dns.md)。
 
 本教學課程使用的範例網域是 contoso.com，但請使用您自己的網域名稱。
 
 ## <a name="create-the-network-infrastructure"></a>建立網路基礎結構
 首先，請建立一個可供放置 Web 伺服器的虛擬網路和子網域。
-1. 在 http://portal.azure.com 登入 Azure 入口網站。
+1. 在 https://portal.azure.com 登入 Azure 入口網站。
 2. 在入口網站的左上方，選取 [建立資源]。 在搜尋方塊中輸入資源群組，然後建立名為 **RG-DNS-Alias-pip** 的資源群組。
 3. 選取 [建立資源] > [網路] > [虛擬網路]。
 4. 建立名為 **VNet-Server** 的虛擬網路。 將它放在 **RG-DNS-Alias-pip** 資源群組中，然後將子網路命名為 **SN-Web**。

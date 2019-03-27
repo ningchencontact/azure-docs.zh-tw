@@ -1,25 +1,32 @@
 ---
 title: 在 Microsoft Flow 中使用 Azure IoT Central 連接器建置工作流程 | Microsoft Docs
-description: 在 Microsoft Flow 中使用 IoT Central 連接器觸發工作流程，以及在工作流程中建立、更新和刪除裝置。
+description: 在 Microsoft Flow 中使用 IoT Central 連接器，觸發工作流程及建立、 取得、 更新、 刪除裝置和工作流程中執行命令。
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 02/20/2019
+ms.date: 03/26/2019
 ms.topic: conceptual
 ms.service: iot-central
-manager: peterpr
-ms.openlocfilehash: 555fe54174c9e13319af676cab3a5d3dcfaf2fe5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+manager: hegate
+ms.openlocfilehash: 2c4ee6a2feb737bcafc64b1c8503c03757a53364
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770244"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497732"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>在 Microsoft Flow 中使用 IoT Central 連接器建置工作流程
 
 *本主題適用於建置員和系統管理員。*
 
-使用 Microsoft Flow，將商務使用者所依賴的多個應用程式和服務的工作流程自動化。 在 Microsoft Flow 中使用 IoT Central 連接器時，您可以在規則於 IoT Central 中被觸發時觸發工作流程。 在 IoT Central 或任何其他應用程式所觸發的工作流程中，您可以使用 IoT Central 連接器中的動作建立裝置、更新裝置的屬性和設定，或刪除裝置。 請了解可將 IoT Central 連線至其他服務 (例如行動裝置和 Microsoft Teams 等) 的[這些 Microsoft Flow 範本](https://aka.ms/iotcentralflowtemplates)。
+使用 Microsoft Flow，將商務使用者所依賴的多個應用程式和服務的工作流程自動化。 在 Microsoft Flow 中使用 IoT Central 連接器時，您可以在規則於 IoT Central 中被觸發時觸發工作流程。 IoT 中心或任何其他應用程式所觸發的工作流程，在中，您可以使用動作中 IoT Central 連接器來：
+- 建立裝置
+- 取得裝置資訊
+- 更新裝置的屬性和設定
+- 在裝置上執行命令
+- 刪除裝置
+
+請了解可將 IoT Central 連線至其他服務 (例如行動裝置和 Microsoft Teams 等) 的[這些 Microsoft Flow 範本](https://aka.ms/iotcentralflowtemplates)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -28,19 +35,19 @@ ms.locfileid: "57770244"
 
 ## <a name="trigger-a-workflow"></a>觸發程序工作流程
 
-本節將說明如何在 Flow 行動應用程式時 IoT Central 中的規則觸發程序中的行動裝置通知觸發程序。
+本節將說明如何在 Flow 行動應用程式時 IoT Central 中的規則觸發程序中的行動裝置通知觸發程序。 您可以使用內嵌的 Microsoft Flow 設計工具的 IoT Central 應用程式內建置這整個工作流程。
 
-1. 首先，[在 IoT Central 中建立規則](howto-create-telemetry-rules.md)。 儲存規則條件之後，請選取**Microsoft Flow 動作**做為新的動作。 您的瀏覽器中應會開啟新的索引標籤或視窗，將您導向至 Microsoft Flow。
+1. 首先，[在 IoT Central 中建立規則](howto-create-telemetry-rules.md)。 儲存規則條件之後，請選取**Microsoft Flow 動作**做為新的動作。 對話方塊隨即開啟一個視窗讓您設定您的工作流程。 您已登入的 IoT Central 使用者帳戶將用來登入 Microsoft Flow 中。
 
     ![建立新的 Microsoft Flow 動作](media/howto-add-microsoft-flow/createflowaction.png)
 
-1. 登入 Microsoft Flow。 此帳戶不一定要與您在 IoT Central 中使用的帳戶相同。 您會進入 [概觀] 頁面，其中顯示連線至自訂動作的 IoT Central 連接器。
+1. 您會看到一份工作流程 tha 存取，而且會附加到此 IoT Central 的規則。 按一下 **探索範本**或是**新增 > 從範本建立**和您可以選擇任何可用的範本。 
 
-1. 登入 IoT Central 連接器並選取**繼續**。 您會前往 Microsoft Flow 設計工具，以建置工作流程。 工作流程具有已填入您的應用程式和規則的 IoT Central 觸發程序。
+    ![可用的 Microsoft Flow 範本](media/howto-add-microsoft-flow/flowtemplates.png)
 
-1. 選擇 [+ 新增步驟] 和 [新增動作]。 此時，您可以將任何您想要的動作新增至工作流程。 在範例中，我們將傳送行動通知。 請搜尋**通知**，然後選擇 [通知 - 傳送行動通知給我]。
+1. 系統會提示您登入您選擇的範本中的連接器。 連接器會登入之後，您將登陸在設計工具來建立您的工作流程。 工作流程具有已填入您的應用程式和規則的 IoT Central 觸發程序。
 
-1. 在動作中，將您的通知所要傳達的內容填入 [文字] 欄位中。 您可以納入 IoT Central 規則中的「動態內容」，將裝置名稱和時間戳記等重要資訊傳至您的通知。
+1. 您可以自訂工作流程自訂動作並加入新的動作所傳遞的資訊。 在此範例中，動作是 **通知-傳送行動通知**。 您可以納入 IoT Central 規則中的「動態內容」，將裝置名稱和時間戳記等重要資訊傳至您的通知。
 
     > [!NOTE]
     > 選取 **查看更多**動態內容視窗以取得觸發此規則的度量和屬性值中的文字。
@@ -52,9 +59,9 @@ ms.locfileid: "57770244"
     > [!NOTE]
     > 如果您想讓 IoT Central 應用程式中的其他使用者編輯此規則，您必須在 Microsoft Flow 中與他們共用規則。 請在工作流程中新增他們的 Microsoft Flow 帳戶，作為擁有者。
 
-1. 如果您回到 IoT Central 應用程式，您將會在 [動作] 區域下看到此規則具有 Microsoft Flow 動作。
+1. 如果您返回至您的 IoT Central 應用程式中，您會看到此規則會在 [動作] 區域中有 Microsoft Flow 的動作。
 
-您隨時都可在 Microsoft Flow 中使用 IoT Central 連接器開始建置工作流程。 然後，您可以選擇要連線至哪個 IoT Central 應用程式和規則。
+您也可以建置使用 IoT Central 連接器，直接從 Microsoft Flow 的工作流程。 然後，您可以選擇連接到哪個 IoT Central 應用程式。
 
 ## <a name="create-a-device-in-a-workflow"></a>在工作流程中建立裝置
 
@@ -107,6 +114,18 @@ ms.locfileid: "57770244"
 1. 最後，儲存您的工作流程。
 
 1. 在 Microsoft Flow 行動應用程式中試用您的工作流程。 移至應用程式中的 [按鈕] 索引標籤。 您應該會看到 [按鈕] -> [更新裝置工作流程]。 輸入您的輸入內容，並查看裝置在 IoT Central 中更新的情形！
+
+## <a name="get-device-information-in-a-workflow"></a>取得工作流程中的裝置資訊
+
+您可以取得其裝置識別碼使用的裝置資訊**Azure IoT Central-取得裝置**動作。 您可以取得資訊，例如裝置名稱、 裝置範本名稱、 屬性值，以及要傳遞至工作流程中的後續動作的設定值。 以下是範例工作流程，一起客戶名稱屬性值從裝置傳送至 Microsoft Teams。
+
+   ![流程取得裝置的工作流程](./media/howto-add-microsoft-flow/flowgetdevice.png)
+
+
+## <a name="run-a-command-on-a-device-in-a-workflow"></a>在工作流程中的裝置上執行命令
+您可以在其裝置識別碼使用指定的裝置上執行命令**Azure IoT Central-執行命令**動作。 您可以挑選要執行，並傳入命令的參數，透過此動作的命令。 以下是範例工作流程執行裝置重新開機命令，從 Microsoft Flow 行動裝置應用程式中的按鈕。
+
+   ![流程取得裝置的工作流程](./media/howto-add-microsoft-flow/flowrunacommand.png)
 
 ## <a name="delete-a-device-in-a-workflow"></a>刪除工作流程中的裝置
 

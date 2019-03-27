@@ -1,19 +1,19 @@
 ---
-title: 什麼是 Azure SignalR
+title: 什麼是 Azure SignalR 服務？
 description: Azure SignalR 服務的概觀。
 author: sffamily
 ms.service: signalr
 ms.topic: overview
-ms.date: 09/13/2018
+ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: e66326c6c4d93a92c579255cb00b6614ecc03b8c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 198eb0ff6c9f8de311cc2d39ba8fb7c8b6ed3a11
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255171"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552075"
 ---
-# <a name="what-is-azure-signalr-service"></a>什麼是 Azure SignalR 服務
+# <a name="what-is-azure-signalr-service"></a>什麼是 Azure SignalR 服務？
 
 Azure SignalR 服務簡化了透過 HTTP 將即時 Web 功能新增到應用程式的程序。 此即時功能可讓服務將內容更新推播至連線的用戶端，例如單一頁面的 Web 或行動應用程式。 因此，用戶端可以更新而不需要輪詢伺服器或送出新的 HTTP 更新要求。
 
@@ -36,6 +36,6 @@ SignalR 為建置即時 Web 應用程式所用的數種技術提供抽象表示�
 
 目前有三種方式可使用 Azure SignalR 服務：
 
-- **[調整 ASP.NET Core SignalR 應用程式](signalr-overview-scale-aspnet-core.md)** - 將 Azure SignalR 服務與 ASP.NET Core SignalR 應用程式整合，以相應放大為成千上萬個連線。
-- **[建置無伺服器的即時應用程式](signalr-overview-azure-functions.md)** - 使用 Azure Functions 與 SignalR 服務的整合來以 JavaScript、C# 和 Java 等語言建置無伺服器的即時應用程式。
+- **[調整 ASP.NET Core SignalR 應用程式](signalr-concept-scale-aspnet-core.md)** - 將 Azure SignalR 服務與 ASP.NET Core SignalR 應用程式整合，以相應放大為成千上萬個連線。
+- **[建置無伺服器的即時應用程式](signalr-concept-azure-functions.md)** - 使用 Azure Functions 與 SignalR 服務的整合來以 JavaScript、C# 和 Java 等語言建置無伺服器的即時應用程式。
 - **[透過 REST API 將訊息從伺服器傳送至用戶端](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md)** - Azure SignalR 服務提供 REST API，讓應用程式能以任何支援 REST 的程式設計語言，將訊息張貼到使用 SignalR 服務來連線的用戶端。

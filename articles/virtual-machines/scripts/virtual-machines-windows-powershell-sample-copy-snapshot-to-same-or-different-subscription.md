@@ -13,18 +13,22 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 06/06/2017
+ms.date: 02/28/2019
 ms.author: ramankum
-ms.openlocfilehash: 8447ffc27068fbbdf5793acdc51bb9724ee41cb8
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 6164a92e19d8657525029bca9a749baadcb49362
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976719"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242882"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell"></a>使用 PowerShell 複製相同訂用帳戶或不同訂用帳戶中的受控磁碟快照集
 
-此指令碼會在相同訂用帳戶或不同訂用帳戶中建立快照集的複本。 使用此指令碼將快照集移至不同的訂用帳戶以供進行資料保留。 將快照集儲存到不同的訂用帳戶中可保護您不因在主要訂用帳戶中意外刪除快照集而產生損失。 
+此指令碼會將受控磁碟的快照集複製到相同或不同的訂用帳戶。 請對下列案例使用此指令碼：
+
+1. 將進階儲存體 (Premium_LRS) 中的快照集遷移到標準儲存體 (Standard_LRS 或 Standard_ZRS)，以降低成本。
+1. 將快照集從本地備援儲存體 (Premium_LRS、Standard_LRS) 遷移到區域備援儲存體 (Standard_ZRS)，以受惠於 ZRS 儲存體的高可靠性。
+1. 將快照集移至相同區域中的不同訂用帳戶，以便保留更長時間。
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
@@ -36,7 +40,6 @@ ms.locfileid: "55976719"
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/copy-snapshot-to-same-or-different-subscription/copy-snapshot-to-same-or-different-subscription.ps1 "Copy snapshot")]
 
-
 ## <a name="script-explanation"></a>指令碼說明
 
 此指令碼會使用下列命令，使用來源快照集的識別碼在目標訂用帳戶中建立快照集。 下表中的每個命令都會連結至命令特定的文件。
@@ -46,10 +49,9 @@ ms.locfileid: "55976719"
 | [New-AzSnapshotConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzSnapshotConfig) | 建立用於建立快照集的快照集組態。 其中包含父代快照集的資源識別碼以及與父代快照集位置相同的位置。  |
 | [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | 使用當作參數傳遞的快照集組態、快照集名稱和資源群組名稱來建立快照集。 |
 
-
 ## <a name="next-steps"></a>後續步驟
 
-[從快照集建立虛擬機器](./virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+[從快照集建立虛擬機器](./virtual-machines-windows-powershell-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 如需有關 Azure PowerShell 模組的詳細資訊，請參閱 [Azure PowerShell 文件](/powershell/azure/overview)。
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dd89d9645d2054f301ed999121fefc417ea5c6fa
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 6a69d8d60b2e588ded9ccca20521195ae11ff136
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293901"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449429"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 擴充
 
@@ -45,9 +45,9 @@ ms.locfileid: "58293901"
 
 * 即使在查詢集區中都沒有複本時，才允許同步處理。 如果您從零到一或多個複本，以新的資料從主要伺服器上的處理作業相應放大，第一次執行與查詢集區中的任何複本的同步處理，然後向外延展。同步處理之前向外擴充，可避免備援序列化的新加入的複本。
 
-* 從主要伺服器中刪除的模型資料庫，它不會不會自動取得從刪除查詢集區中的複本。 您必須執行的複本共用的 blob 儲存體位置中移除該資料庫的檔案/秒，然後刪除查詢集區中複本的模型資料庫的同步處理作業。
+* 從主要伺服器中刪除的模型資料庫，它不會不會自動取得從刪除查詢集區中的複本。 您必須使用來執行同步處理作業[同步 AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) PowerShell 命令移除該資料庫的檔案/秒從複本共用的 blob 儲存體位置，然後刪除模型在查詢集區中的複本上的資料庫。
 
-* 重新命名時的主要伺服器上的資料庫，但沒有額外的步驟，必須確保資料庫正確同步處理至任何複本。 在重新命名之後, 執行 同步處理指定`-Database`使用舊的資料庫名稱的參數。 這項同步處理將移除任何複本的資料庫與舊名稱的檔案。 然後執行 另一個同步處理指定`-Database`與新的資料庫名稱的參數。 第二個同步處理會將新命名的資料庫複製到第二組的檔案，並會產生任何複本。 無法使用入口網站中的同步處理模型命令執行這些同步處理。
+* 重新命名時的主要伺服器上的資料庫，但沒有額外的步驟，必須確保資料庫正確同步處理至任何複本。 在重新命名之後，請使用執行同步處理[同步 AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance)命令，並指定`-Database`使用舊的資料庫名稱的參數。 這項同步處理將移除任何複本的資料庫與舊名稱的檔案。 然後執行 另一個同步處理指定`-Database`與新的資料庫名稱的參數。 第二個同步處理會將新命名的資料庫複製到第二組的檔案，並會產生任何複本。 無法使用入口網站中的同步處理模型命令執行這些同步處理。
 
 ### <a name="separate-processing-from-query-pool"></a>與查詢集區分開處理
 
@@ -103,6 +103,20 @@ ms.locfileid: "58293901"
 
 `GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
 
+會傳回狀態碼：
+
+
+|代碼  |描述  |
+|---------|---------|
+|-1     |  無效       |
+|0     | 正在複寫        |
+|1     |  解除凍結       |
+|2     |   Completed       |
+|3     |   Failed      |
+|4     |    正在完成     |
+|||
+
+
 ### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -112,6 +126,8 @@ ms.locfileid: "58293901"
 若要執行同步處理，請使用[同步 AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance)。
 
 若要設定查詢複本的數目，請使用[組 AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver)。 指定選擇性的 `-ReadonlyReplicaCount` 參數。
+
+若要個別處理伺服器與查詢集區，使用[組 AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver)。 指定選擇性`-DefaultConnectionMode`參數來使用`Readonly`。
 
 ## <a name="connections"></a>連線
 

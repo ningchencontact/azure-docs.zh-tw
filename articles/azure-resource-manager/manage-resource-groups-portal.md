@@ -9,14 +9,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: cbbc710c9408c84c601d7b9eb9560641b5313a05
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cb1eb5ac27c53f4c0d48fe3644febc62f848486d
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090928"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484690"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>使用 Azure 门户管理 Azure 资源管理器资源组
 
@@ -122,7 +122,7 @@ ms.locfileid: "58090928"
 
 此方法导出特定部署的模板。 如果已在门户中更改了资源，或者在多个部署中添加/删除了资源，请参阅[从资源组导出模板](#export-templates-from-resource-groups)。
 
-1. 打开要删除的资源组。  参阅[打开资源组](#open-resource-groups)。
+1. 開啟您想要匯出的資源群組。  参阅[打开资源组](#open-resource-groups)。
 2. 在左窗格中选择“部署”，或者选择“部署”下的链接。  以下屏幕截图显示**有 4 项操作成功**，因为其中显示了四个具有不同部署名称的独立部署。 你可能会看到**有 1 项操作成功**。
 
     ![Azure 资源组 - 导出模板](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
@@ -148,8 +148,8 @@ ms.locfileid: "58090928"
 
 如果在门户中更改了资源，或者在多个部署中添加/删除了资源，则从部署历史记录中检索模板不能反映资源组的当前状态。 本節說明您如何匯出反映資源群組目前狀態的範本。 其目的在作為資源群組的快照集，以供您用來重新部署至相同的資源群組。 若要對其他解決方案使用所匯出的範本，您必須大幅修改它。
 
-1. 打开要删除的资源组。  参阅[打开资源组](#open-resource-groups)。
-2. 在左窗格中选择“自动化脚本”。 Resource Manager 會為您擷取下列六個檔案：
+1. 開啟您想要匯出的資源群組。  参阅[打开资源组](#open-resource-groups)。
+2. 在左窗格中，選取**匯出範本**。 Resource Manager 會為您擷取下列六個檔案：
 
    - **範本** - 用於定義解決方案之基礎結構的範本。 當您透過入口網站建立儲存體帳戶時，Resource Manager 會使用範本來部署它，並且儲存該範本供日後參考。
    - **參數** - 您可以在部署期間用來傳入值的參數檔案。 它會包含您在第一次部署期間所提供的值。 當您重新部署範本時，即可變更所有這些值。

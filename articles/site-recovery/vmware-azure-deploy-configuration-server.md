@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2019
 ms.author: ramamill
-ms.openlocfilehash: ef0e29217e03b3c5d1b2880a6ce755c6cc02ceba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fb558644f29cd7b84156f976f525a88080f101dc
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004450"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449218"
 ---
 # <a name="deploy-a-configuration-server"></a>部署設定伺服器
 
@@ -184,7 +184,7 @@ ms.locfileid: "58004450"
     在 [復原服務保存庫] 的 [管理] > [Site Recovery Infrastructure] \(Site Recovery 基礎結構\) > [設定伺服器] 中。 在 [伺服器] 中，選取 [下載註冊金鑰] 以下載保存庫認證檔案。
 10. 是否可以複製現有的設定伺服器並將它用於複寫協調流程？
 
-    **否**，不支援使用複製的設定伺服器元件。
+    **否**，不支援使用複製的設定伺服器元件。 複製的向外延展處理序伺服器也是不支援的案例。 複製 Site Recovery 元件會影響進行中的複寫。
 
 11. 我可以變更設定伺服器的 IP 嗎？
 

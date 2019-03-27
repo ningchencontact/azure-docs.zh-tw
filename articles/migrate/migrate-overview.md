@@ -4,15 +4,15 @@ description: 提供 Azure Migrate 服務的概觀。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 01/11/2019
+ms.date: 03/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 317e843f1fcc2fc85ffbc590d48e9bdf4aa934c1
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 7f0b3a0f63b87928938e5c0e9d39cc49c0fc791d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415760"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999965"
 ---
 # <a name="about-azure-migrate"></a>關於 Azure Migrate
 
@@ -30,15 +30,17 @@ Azure Migrate 可協助您：
 ## <a name="current-limitations"></a>目前的限制
 
 - 您只能針對那些要移轉到 Azure VM 的內部部署 VMware 虛擬機器 (VM) 進行評估。 VMware VM 必須由 vCenter Server (5.5、6.0、6.5 或 6.7 版) 管理。
-- 如果您想要評估 Hyper-V VM 和實體伺服器，請將 [Azure Site Recovery 部署規劃工具](https://aka.ms/asr-dp-hyperv-doc)用於 Hyper-V，對於實體機器則使用我們的[合作夥伴工具](https://azure.microsoft.com/migration/partners/)。
+- HYPER-V 支援目前的生產環境支援為預覽狀態，如果您有興趣試用看看，請[在這裡](https://aka.ms/migratefuture)註冊。
+- 若要評估實體伺服器，可利用我們的[合作夥伴工具](https://azure.microsoft.com/migration/partners/)。
 - 您可以在單一探索中探索多達 1500 個 VM，並在單一專案中探索多達 1500 個 VM。 此外，您還可以在單一評估中評估多達 1500 個 VM。
 - 如果您想要探索較大的環境，您可以分割探索並建立多個專案。 [深入了解](how-to-scale-assessment.md)。 Azure Migrate 支援每個訂閱最多 20 個專案。
 - Azure Migrate 只支援將受控磁碟用於進行移轉評估。
 -  您只能在下列地理位置建立 Azure Migrate 專案。 不過，這不會限制您建立其他目標 Azure 位置評量的能力。
+
     **地理位置** | **儲存位置**
     --- | ---
     Azure Government | 美國政府維吉尼亞州
-    亞洲 | 東南亞
+    亞洲 | 東南亞或東亞
     歐洲 | 北歐或西歐
     美國 | 美國東部或美國中西部
 
@@ -72,27 +74,27 @@ Azure Migrate 可協助您：
 
 ## <a name="how-does-azure-migrate-work"></a>Azure Migrate 如何運作？
 
-1.  您可建立 Azure Migrate 專案。
-2.  Azure Migrate 會使用稱為收集器設備的內部部署 VM，探索您的內部部署機器相關資訊。 若要建立設備，您可下載開放虛擬化設備 (.ova) 格式的安裝檔案，然後將它匯入為內部部署 vCenter Sever 上的 VM。
+1. 您可建立 Azure Migrate 專案。
+2. Azure Migrate 會使用稱為收集器設備的內部部署 VM，探索您的內部部署機器相關資訊。 若要建立設備，您可下載開放虛擬化設備 (.ova) 格式的安裝檔案，然後將它匯入為內部部署 vCenter Sever 上的 VM。
 3. 您會從 vCenter Server 連線至 VM，並在連線時為其指定新密碼。
 4. 您會在 VM 上執行收集器以起始探索。
 5. 收集器會使用 VMware PowerCLI Cmdlet 來收集 VM 中繼資料。 探索是無代理程式的，而且不會在 VMware 主機或 VM 上安裝任何項目。 所收集的中繼資料包含 VM 資訊 (核心、記憶體、磁碟、磁碟大小和網路介面卡。 它也會收集 VM 的效能資料，包括 CPU 和記憶體使用量、磁碟 IOPS、磁碟輸送量 (MBps) 以及網路輸出 (MBps)。
-5.  中繼資料會推送至 Azure Migrate 專案。 您可以在 Azure 入口網站中檢視它。
-6.  基於評估目的，您會將探索到的 VM 集合成群組。 例如，您可將執行相同應用程式的 VM 群組在一起。 如需更精確的群組，您可以使用相依性視覺效果來檢視特定機器的相依性，或檢視群組中所有機器的相依性並調整群組。
-7.  群組定義之後，您會為其建立評估。
-8.  評估完成後，您可以在入口網站中進行檢視，或以 Excel 格式進行下載。
+5. 中繼資料會推送至 Azure Migrate 專案。 您可以在 Azure 入口網站中檢視它。
+6. 基於評估目的，您會將探索到的 VM 集合成群組。 例如，您可將執行相同應用程式的 VM 群組在一起。 如需更精確的群組，您可以使用相依性視覺效果來檢視特定機器的相依性，或檢視群組中所有機器的相依性並調整群組。
+7. 群組定義之後，您會為其建立評估。
+8. 評估完成後，您可以在入口網站中進行檢視，或以 Excel 格式進行下載。
 
-  ![Azure Migrate 架構](./media/migration-planner-overview/overview-1.png)
+   ![Azure Migrate 架構](./media/migration-planner-overview/overview-1.png)
 
 ## <a name="what-are-the-port-requirements"></a>連接埠需求為何？
 
 下表摘要說明 Azure Migrate 通訊所需的連接埠。
 
-元件 | 通訊對象 |  詳細資料
---- | --- |---
-收集器  | Azure Migrate 服務 | 收集器會透過 SSL 連接埠 443 連線至服務。
-收集器 | vCenter Server | 根據預設，收集器會連線到連接埠 443 上的 vCenter Server。 如果伺服器接聽不同的連接埠，請將其設定為收集器 VM 上的傳出連接埠。
-內部部署 VM | Log Analytics 工作區 | [TCP 443] | [Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md) 會使用 TCP 連接埠 443 連線至 Log Analytics。 如果您使用相依性視覺效果，因而需要 MMA 代理程式時，您只需要此連接埠。
+| 元件 | 通訊對象 |  詳細資料 |
+| --- | --- |--- |
+|收集器  | Azure Migrate 服務 | 收集器會透過 SSL 連接埠 443 連線至服務。|
+|收集器 | vCenter Server | 根據預設，收集器會連線到連接埠 443 上的 vCenter Server。 如果伺服器接聽不同的連接埠，請將其設定為收集器 VM 上的傳出連接埠。|
+|內部部署 VM | Log Analytics 工作區 | [Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md) 會使用 TCP 連接埠 443 連線至 Azure 監視器記錄。 如果您使用相依性視覺效果，因而需要 MMA 代理程式時，您只需要此連接埠。|
 
 
 ## <a name="what-happens-after-assessment"></a>評估後會發生什麼事？

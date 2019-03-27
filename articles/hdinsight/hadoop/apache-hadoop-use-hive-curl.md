@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 00fd697b42c7d93cb04392e91deea23133cf398a
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 3e7ee293c2c33f169b3a5e4a7bded3190a9dc209
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407234"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443240"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>搭配 HDInsight 中的 Apache Hadoop 使用 REST 來執行 Apache Hive 查詢
 
@@ -184,10 +184,6 @@ Hive 與 HDInsight 搭配使用的一般資訊：
 * [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Pig](hdinsight-use-pig.md)
 * [搭配 MapReduce 與 HDInsight 上的 Apache Hadoop](hdinsight-use-mapreduce.md)
 
-如果您搭配使用 Tez 和 Hive，請參閱下列文件所提供的偵錯資訊：
-
-* [在以 Linux 為基礎的 HDInsight 上使用 Apache Ambari Tez 檢視](../hdinsight-debug-ambari-tez-view.md)
-
 如需本文件中使用之 REST API 的詳細資訊，請參閱 [WebHCat 參照 (英文)](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference) 文件。
 
 [azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
@@ -201,7 +197,7 @@ Hive 與 HDInsight 搭配使用的一般資訊：
 [import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
-[hdinsight-use-oozie]: hdinsight-use-oozie.md
+[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
 
 
 

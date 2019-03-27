@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: b12fdcec32aca65b0c66f6a3fb14595453d36fdb
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.date: 03/26/2019
+ms.openlocfilehash: b1e952d9af474e2318ef91a6bdcc2605a3c30018
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301752"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497919"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>控制及授與 SQL Database 和 SQL 資料倉儲的資料庫存取權
 
@@ -37,7 +37,7 @@ ms.locfileid: "56301752"
 
 - **伺服器管理員**
 
-  當您建立 Azure SQL server 時，您必須指定**伺服器管理員登入**。 SQL Server 會將該帳戶建立為 master 資料庫中的登入。 此帳戶會使用 SQL Server 驗證 (使用者名稱和密碼) 連接。 只有其中一個帳戶可以存在。
+  當您建立 Azure SQL server 時，您必須指定**伺服器管理員登入**。 SQL Server 會將該帳戶建立為 master 資料庫中的登入。 此帐户通过 SQL Server 身份验证（用户名和密码）进行连接。 只有其中一個帳戶可以存在。
 
   > [!NOTE]
   > 若要重設伺服器管理員的密碼，請移至 [Azure 入口網站](https://portal.azure.com)、按一下 [SQL Server]、從清單中選取伺服器，然後按一下 [重設密碼]。
@@ -124,9 +124,9 @@ ms.locfileid: "56301752"
 
 另一個系統管理角色是登入管理員角色。 此角色的成員可以在 master 資料庫中建立新的登入。 如果您想要的話，可以完成相同的步驟 (建立登入和使用者，並將使用者新增至 **loginmanager** 角色)，讓使用者能夠在 master 資料庫中建立新的登入。 通常不需要登入，因為 Microsoft 建議使用自主資料庫使用者，這會在資料庫層級進行驗證，而不是根據登入來使用使用者。 如需詳細資訊，請參閱 [自主資料庫使用者 - 讓資料庫具有可攜性](https://msdn.microsoft.com/library/ff929188.aspx)。
 
-## <a name="non-administrator-users"></a>非系統管理員的使用者
+## <a name="non-administrator-users"></a>非管理员用户
 
-一般而言，非系統管理員帳戶不需要 master 資料庫的存取權。 請使用 [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) 陳述式，在資料庫層級建立自主資料庫使用者。 使用者可以是 Azure Active Directory 驗證自主資料庫使用者 (如果您已針對 Azure AD 驗證設定您的環境)，或 SQL Server 驗證自主資料庫使用者，或根據 SQL Server 驗證登入 (在上一個步驟中建立) 的 SQL Server 驗證使用者。如需詳細資訊，請參閱 [自主資料庫使用者 - 讓資料庫具有可攜性](https://msdn.microsoft.com/library/ff929188.aspx)。 
+一般而言，非系統管理員帳戶不需要 master 資料庫的存取權。 使用 [CREATE USER (Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) 语句在数据库级别创建包含数据库用户。 该用户可以是 Azure Active Directory 身份验证包含数据库用户（如果你已针对 Azure AD 身份验证配置了环境），可以是 SQL Server 身份验证包含数据库用户，也可以是基于 SQL Server 身份验证登录名（在前一步骤中创建）的 SQL Server 身份验证用户。如需詳細資訊，請參閱 [自主資料庫使用者 - 讓資料庫具有可攜性](https://msdn.microsoft.com/library/ff929188.aspx)。 
 
 若要建立使用者，請連線到資料庫，然後執行類似以下範例的陳述式︰
 
@@ -164,11 +164,11 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
 
 ### <a name="non-administrator-access-path"></a>非系統管理員存取路徑
 
-當資料庫層級防火牆設定正確時，資料庫使用者可以使用如 SQL Server Management Studio 或 SQL Server Data Tools 之類的用戶端工具來連接。 只有最新的工具會提供所有的功能。 下圖顯示一個典型的非系統管理員存取途徑。
+當資料庫層級防火牆設定正確時，資料庫使用者可以使用如 SQL Server Management Studio 或 SQL Server Data Tools 之類的用戶端工具來連接。 只有最新的工具會提供所有的功能。 下图显示了典型的非管理员访问路径。
 
 ![非系統管理員存取路徑](./media/sql-database-manage-logins/2sql-db-nonadmin-access.png)
 
-## <a name="groups-and-roles"></a>群組和角色
+## <a name="groups-and-roles"></a>组和角色
 
 有效率存取管理會使用指派給群組和角色的權限，而不是指派給個別使用者的權限。 
 
@@ -176,18 +176,18 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
 
 - 使用 SQL Server 驗證時，在資料庫中建立自主資料庫使用者。 將一或多個資料庫使用者放入[資料庫角色](https://msdn.microsoft.com/library/ms189121)中，然後將[權限](https://msdn.microsoft.com/library/ms191291.aspx)指派給資料庫角色。
 
-資料庫角色可以是內建的角色，例如 **db_owner**、**db_ddladmin**、**db_datawriter**、**db_datareader**、**db_denydatawriter** 和 **db_denydatareader**。 **db_owner** 通常是用來將完整權限授與少數幾個使用者。 其他固定的資料庫角色適用於快速開發簡單的資料庫，但不建議用於大多數實際執行資料庫。 例如，**db_datareader** 固定資料庫角色可授與資料庫中每個資料表的讀取存取權，這通常並非絕對必要。 最好是使用 [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) 陳述式來建立您自己的使用者定義資料庫角色，並謹慎地授與每個角色在業務需求上所需的最小權限。 當使用者是多個角色的成員時，會集所有這些角色的權限在一身。
+数据库角色可以是内置的角色，例如 **db_owner**、**db_ddladmin**、**db_datawriter**、**db_datareader**、**db_denydatawriter** 和 **db_denydatareader**。 **db_owner** 通常是用來將完整權限授與少數幾個使用者。 其他固定的資料庫角色適用於快速開發簡單的資料庫，但不建議用於大多數實際執行資料庫。 例如，**db_datareader** 固定資料庫角色可授與資料庫中每個資料表的讀取存取權，這通常並非絕對必要。 最好是使用 [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) 陳述式來建立您自己的使用者定義資料庫角色，並謹慎地授與每個角色在業務需求上所需的最小權限。 當使用者是多個角色的成員時，會集所有這些角色的權限在一身。
 
 ## <a name="permissions"></a>權限
 
-有超過 100 個權限可在 SQL Database 中分別授與或拒絕。 這些權限有許多為巢狀。 例如，結構描述上的 `UPDATE` 權限包括該結構描述中每個資料表的 `UPDATE` 權限。 如同大多數的權限系統，拒絕權限會覆寫授與權限。 因為權限的巢狀本質和數目，可能需要仔細研究，設計適當的權限系統以便適當地保護您的資料庫。 請從[權限 (Database Engine)](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) 的權限清單開始著手，然後檢閱[海報大小的權限圖](https://docs.microsoft.com/sql/relational-databases/security/media/database-engine-permissions.png)。
+有超過 100 個權限可在 SQL Database 中分別授與或拒絕。 这些权限中，许多都是嵌套式的。 例如，結構描述上的 `UPDATE` 權限包括該結構描述中每個資料表的 `UPDATE` 權限。 如同大多數的權限系統，拒絕權限會覆寫授與權限。 因為權限的巢狀本質和數目，可能需要仔細研究，設計適當的權限系統以便適當地保護您的資料庫。 請從[權限 (Database Engine)](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine) 的權限清單開始著手，然後檢閱[海報大小的權限圖](https://docs.microsoft.com/sql/relational-databases/security/media/database-engine-permissions.png)。
 
 
 ### <a name="considerations-and-restrictions"></a>考量和限制
 
 在 SQL Database 中管理登入和使用者時，請考慮下列各項︰
 
-- 執行 `CREATE/ALTER/DROP DATABASE` 陳述式時，您必須連接到 **master** 資料庫。   
+- 执行 `CREATE/ALTER/DROP DATABASE` 语句时，必须连接到 **master** 数据库。   
 - 無法更改或刪除與**伺服器管理員**登入對應的資料庫使用者。 
 - 英文 (美國) 是**伺服器管理員**登入的預設語言。
 - 只有系統管理員 (**伺服器管理員**登入或 Azure AD 系統管理員) 及 **master** 資料庫中 **dbmanager** 資料庫角色的成員，才具備執行 `CREATE DATABASE` 和 `DROP DATABASE` 陳述式的權限。
@@ -204,6 +204,12 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
   DROP DATABASE [database_name];
   GO
   ```
+  
+  相反地，使用下列 TRANSACT-SQL 陳述式：
+  
+  ```sql
+  DROP DATABASE IF EXISTS [database_name]
+  ```
 
 - 搭配執行 `CREATE USER` 陳述式和 `FOR/FROM LOGIN` 選項時，它必須是 Transact-SQL 批次中唯一的陳述式。
 - 搭配執行 `ALTER USER` 陳述式和 `WITH LOGIN` 選項時，它必須是 Transact-SQL 批次中唯一的陳述式。
@@ -213,8 +219,8 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入了解防火牆規則，請參閱 [Azure SQL Database 防火牆](sql-database-firewall-configure.md)。
-- 如需所有 SQL Database 安全性功能的概觀，請參閱 [SQL 安全性概觀](sql-database-security-overview.md)。
+- 有关防火墙规则的详细信息，请参阅 [Azure SQL 数据库防火墙](sql-database-firewall-configure.md)。
+- 有关所有 SQL 数据库安全功能的概述，请参阅 [SQL 安全概述](sql-database-security-overview.md)。
 - 如需教學課程，請參閱[保護 Azure SQL Database](sql-database-security-tutorial.md)。
 - 如需檢視和預存程序的相關資訊，請參閱[建立檢視和預存程序](https://msdn.microsoft.com/library/ms365311.aspx)
 - 如需授與資料庫物件存取權的相關資訊，請參閱[授與資料庫物件的存取權](https://msdn.microsoft.com/library/ms365327.aspx)

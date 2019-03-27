@@ -3,19 +3,19 @@ title: 在 Azure IoT Central 中自訂操作員的檢視 | Microsoft Docs
 description: 身為建置者，您可以在 Azure IoT Central 應用程式中自訂操作員的檢視。
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 10/12/2018
+ms.date: 01/29/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: f65463b534988e0a721a1a5f816183f8dd8ebcaf
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 86c9a7794146edc4106d8ec30106e1c27556248f
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657649"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769671"
 ---
-# <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>教學課程：自訂 Azure IoT Central 操作員的檢視
+# <a name="tutorial-customize-the-azure-iot-central-operators-view-new-ui-design"></a>教學課程：自訂 Azure IoT Central 操作員的檢視 (新的 UI 設計)
 
 本教學課程將為建置者說明如何自訂應用程式的操作員檢視。 當您以建置者的身分對應用程式進行變更時，您可以在 Microsoft Azure IoT Central 應用程式中預覽操作員的檢視。
 
@@ -28,10 +28,8 @@ ms.locfileid: "55657649"
 > * 設定裝置設定版面配置
 > * 設定裝置屬性版面配置
 > * 以操作員的身分預覽裝置
-> * 設定預設首頁
-> * 以操作員的身分預覽預設首頁
-
-[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
+> * 設定預設應用程式儀表板
+> * 以操作員身分預覽預設應用程式儀表板
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -42,86 +40,66 @@ ms.locfileid: "55657649"
 
 ## <a name="configure-your-device-dashboard"></a>設定裝置儀表板
 
-身為建置者，您可以定義要在裝置儀表板上顯示哪些資訊。 在[在應用程式中定義新的裝置類型](tutorial-define-device-type.md)教學課程中，您已將折線圖和其他資訊新增至**連線的空調-1** 儀表板。
+身為建置者，您可以定義要在裝置儀表板上顯示哪些資訊。 在[在應用程式中定義新裝置類型](tutorial-define-device-type.md)教學課程中，您已將折線圖和其他資訊新增至**連線的空調**儀表板。
 
-1. 若要編輯**連線的空調**裝置範本，請選擇左側導覽功能表上的 [總管]：
+1. 若要編輯**連線的空調**裝置範本，請選擇左側導覽功能表上的 [裝置範本]：
 
-    ![總管頁面](media/tutorial-customize-operator/explorer.png)
+    ![裝置範本頁面](media/tutorial-customize-operator/devicetemplates.png)
 
-2. 若要開始自訂連線的空調裝置儀表板，請選取**連線的空調 (1.0.0)** 裝置範本。 選擇您在[在應用程式中定義新的裝置類型](tutorial-define-device-type.md)教學課程中建立的**連線的空調-1** 裝置：
+2. 若要自訂您的裝置儀表板，請選取您從**在應用程式中定義新裝置類型**教學課程中建立的[連線的空調 (1.0.0)](tutorial-define-device-type.md) 裝置範本裝置。
 
-    ![選取連線的空調裝置](media/tutorial-customize-operator/selectdevice.png)
-
-    在裝置 (例如**連線的空調-1**) 中時，您可以選取 [編輯範本] 來對底層範本進行變更。 如需詳細資訊，請參閱[建立新的裝置範本版本](howto-version-devicetemplate.md)。
-
-3. 若要編輯儀表板，請選擇 [儀表板]，然後選取 [編輯範本]：
-
-    ![裝置範本儀表板頁面](media/tutorial-customize-operator/dashboard.png)
+3. 若要編輯儀表板，請選取 [儀表板] 索引標籤。
 
 4. 若要將關鍵效能指標 (KPI) 圖格新增至儀表板，請選擇 [KPI]：
-
-    ![新增 KPI](media/tutorial-customize-operator/addkpi.png)
 
     若要定義 KPI，請使用下表中的資訊：
 
     | 設定     | 值 |
     | ----------- | ----- |
     | Name        | 最高溫度 |
+    | 時間範圍  | 過去 1 星期 |
+    | 測量類型 | 遙測 |
     | 測量 | 溫度 |
     | 彙總 | 最大值 |
-    | 時間範圍  | 過去 1 星期 |
+    | 可見性  | 已啟用 |
 
-5. 選擇 [儲存]。 您現在可以在儀表板上檢視 KPI 圖格：
+    ![新增 KPI](media/tutorial-customize-operator/addkpi.png)
+
+5. 選取 [ **儲存**]。 您現在可以在儀表板上檢視 KPI 圖格：
 
     ![KPI 圖格](media/tutorial-customize-operator/temperaturekpi.png)
 
-6. 若要移動儀表板上的圖格或調整其大小，請將滑鼠指標移至圖格上方。 您可以將圖格拖曳至新位置，或調整其大小：
-
-    ![編輯儀表板版面配置](media/tutorial-customize-operator/dashboardlayout.png)
-
-7. 當您完成變更時，請按一下 [完成]。
+6. 若要移動儀表板上的圖格或調整其大小，請將滑鼠指標移至圖格上方。 您可以將圖格拖曳至新位置，或調整其大小。
 
 ## <a name="configure-your-settings-layout"></a>設定「設定」版面配置
 
-身為建置者，您也可以設定裝置設定的操作員檢視。 操作員可以使用裝置設定頁面來設定裝置。 例如，操作員可使用設定頁面來設定連線空調的目標溫度。
+身為建置者，您也可以設定裝置設定的操作員檢視。 操作員可以使用裝置設定索引標籤來設定裝置。 例如，操作員可使用設定索引標籤來設定連線空調的目標溫度。
 
-1. 若要為連線的空調編輯設定版面配置，請選擇 [設定]，然後選取 [編輯範本]：
-
-    ![設定頁面](media/tutorial-customize-operator/settings.png)
+1. 若要為連線的空調編輯設定版面配置，請選擇 [設定] 索引標籤。
 
 2. 您可以移動設定圖格以及調整其大小：
 
     ![編輯設定版面配置](media/tutorial-customize-operator/settingslayout.png)
 
-3. 當您完成變更時，請按一下 [完成]。
-
-> [!NOTE]
-> 在 [編輯範本] 中，您無法編輯設定的值。
-
 ## <a name="configure-your-properties-layout"></a>設定屬性版面配置
 
-除了儀表板和設定以外，您也可以設定裝置屬性的操作員檢視。 操作員可以使用裝置屬性頁面來管理裝置中繼資料。 例如，操作員可使用屬性頁面來檢視裝置序號，或更新製造商的連絡詳細資料。
+除了儀表板和設定以外，您也可以設定裝置屬性的操作員檢視。 操作員可以使用裝置屬性索引標籤來管理裝置中繼資料。 例如，操作員可使用屬性索引標籤來檢視裝置序號，或更新製造商的連絡詳細資料。
 
-1. 若要為連線的空調編輯屬性版面配置，請選擇 [屬性]，然後選取 [編輯範本]：
-
-    ![屬性頁面](media/tutorial-customize-operator/properties.png)
+1. 若要為連線的空調編輯屬性版面配置，請選擇 [屬性] 索引標籤。
 
 2. 您可以移動屬性欄位以及調整其大小：
 
     ![編輯屬性版面配置](media/tutorial-customize-operator/propertieslayout.png)
 
-3. 當您完成變更時，請按一下 [完成]。
+## <a name="preview-the-device"></a>預覽裝置
 
-> [!NOTE]
-> 在 [編輯範本] 模式中，您無法編輯屬性的值。
+您會使用 [裝置範本] 頁面為操作員自訂儀表板、設定與屬性索引標籤。 您會使用 [Device Explorer] 頁面來檢視並使用裝置範本。
 
-## <a name="preview-the-connected-air-conditioner-device-as-an-operator"></a>以操作員身分預覽連線的空調裝置
+1. 若要以操作員身分檢視及使用已連線的空調範本，請瀏覽至 [Device Explorer] 頁面，並從範本中選擇 IoT Central 產生的模擬裝置：
 
-在 [編輯範本] 模式中，您可以為操作員自訂儀表板、設定與屬性頁面。 如果您並非處於 [編輯範本] 模式，您能以操作員的身分檢視應用程式。
+    ![檢視並使用裝置範本](media/tutorial-customize-operator/usetemplate.png)
 
-1. 若要以操作員身分檢視連線的空調裝置，請按一下 [完成] 以停止編輯範本，然後返回裝置的操作員檢視。
-
-2. 若要更新此裝置的位置，請編輯 [位置] 圖格中的值，然後選擇 [儲存]：
+2. 若要更新此裝置的位置，請選擇 [屬性]，然後編輯 [位置] 圖格中的值。 然後選取 [儲存]：
 
     ![編輯屬性值](media/tutorial-customize-operator/editproperty.png)
 
@@ -135,34 +113,37 @@ ms.locfileid: "55657649"
 
     ![裝置儀表板的操作員檢視](media/tutorial-customize-operator/operatordashboard.png)
 
-## <a name="configure-the-default-home-page"></a>設定預設首頁
+## <a name="configure-the-default-dashboard"></a>設定預設儀表板
 
-當建置者或操作員登入 Azure IoT Central 應用程式時，他們會看到首頁。 身為建置者，您可以設定此首頁的內容，使其包含對操作員最有用和相關的內容。
+當建置者或操作員登入 Azure IoT Central 應用程式時，他們會看到應用程式儀表板。 身為建置者，您可以設定預設儀表板的內容，使其包含對操作員最有用和相關的內容。
 
-1. 若要自訂預設首頁，請瀏覽到 [首頁]，然後選取頁面右上角的 [編輯]。 選取 [編輯] 之後，將會從右側滑出一個面板，列出您可以新增到首頁的物件。
+> [!NOTE]
+> 使用者也可以建立自己的個人儀表板，並選擇其中之一作為其預設值。
 
-    ![應用程式建置者頁面](media/tutorial-customize-operator/builderhome.png)
+1. 若要自訂預設應用程式儀表板，請瀏覽到 [首頁]，然後選取頁面右上角的 [編輯]。 此時會出現一個面板，其中包含您可以新增至儀表板的物件程式庫。
 
-2. 若要自訂首頁，請從 [媒體櫃] 新增圖格。 選擇 [連結]，然後新增組織網站的詳細資料。 然後，選擇 [儲存]：
+    ![儀表板頁面](media/tutorial-customize-operator/builderhome.png)
 
-    ![將連結新增至首頁](media/tutorial-customize-operator/addlink.png)
+2. 若要自訂儀表板，請從 [程式庫] 新增圖格。 選擇 [連結]，然後新增組織網站的詳細資料。 然後，選擇 [儲存]：
+
+    ![將連結新增至儀表板](media/tutorial-customize-operator/addlink.png)
 
     > [!NOTE]
     > 您也可以將連結新增至 Azure IoT Central 應用程式內的頁面。 例如，您可以將連結新增至裝置儀表板或設定頁面。
 
-3. (選擇性) 選擇 [影像]，並上傳要在首頁上顯示的影像。 影像可以顯示在您加以點選時所將瀏覽到的 URL：
+3. (選擇性) 選擇 [影像]，並上傳要在儀表板上顯示的影像。 影像可以顯示在您加以選取時所將瀏覽到的 URL：
 
-    ![將影像新增至首頁](media/tutorial-customize-operator/addimage.png)
+    ![將影像新增至儀表板](media/tutorial-customize-operator/addimage.png)
 
     若想深入了解，請參閱[如何準備及上傳影像至您的 Azure IoT Central 應用程式](howto-prepare-images.md)。
 
-## <a name="preview-the-default-home-page-as-an-operator"></a>以操作員的身分預覽預設首頁
+## <a name="preview-the-dashboard"></a>預覽儀表板
 
-若要以操作員的身分預覽首頁，請選取頁面右上角的 [完成]
+若要以操作員的身分預覽應用程式儀表板，請選取頁面右上方的 [完成]。
 
 ![切換設計模式](media/tutorial-customize-operator/operatorviewhome.png)
 
-您可以按一下連結和影像圖格，以瀏覽至您以建置者的身分設定的 URL。
+您可以選取連結和影像圖格，以瀏覽至您以建置者的身分設定的 URL。
 
 ## <a name="next-steps"></a>後續步驟
 

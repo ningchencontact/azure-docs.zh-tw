@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: overview
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: b0b835dde4b98619238eaac9449432aaa9acffd3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 724352ae9f7c66dfeab293473ea79438e3b36254
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50670482"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56989314"
 ---
 # <a name="what-is-avere-vfxt-for-azure"></a>什麼是 Avere vFXT for Azure？ 
 
@@ -67,7 +67,7 @@ Avere vFXT 會使用下列 Azure 資源：
 
 |Azure 元件|   |
 |----------|-----------|
-|虛擬機器|3 個或更多 D16s_v3 或 E32s_v3|
+|虛擬機器|3 或更多 E32s_v3|
 |進階 SSD 儲存體|200 GB 的 OS 空間，外加每個節點 1 TB 到 4 TB 的快取空間 |
 |儲存體帳戶 (選擇性) |v2|
 |資料後端儲存體 (選擇性) | 一個空的 LRS Blob 容器 |

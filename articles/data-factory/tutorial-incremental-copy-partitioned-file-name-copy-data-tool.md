@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: df1542d6d20120a9b1e087fadf3743479ecebf07
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c89764d746f07e6100b1f250d4c107bb700fe014
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533828"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445858"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>以累加方式複製使用複製資料工具，根據時間分割的檔案名稱的新檔案
 
@@ -54,9 +54,10 @@ ms.locfileid: "57533828"
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
-1. 在左側功能表中，選取 [+ 新增] > [資料 + 分析] > [資料處理站]： 
+1. 在左側功能表中，選取**建立資源** > **資料 + 分析** > **Data Factory**: 
    
-   ![新資料處理站的建立](./media/tutorial-copy-data-tool/new-azure-data-factory-menu.png)
+   ![在 [新增] 窗格中選取資料處理站](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. 在 [新增資料處理站] 頁面的 [名稱] 下，輸入 **ADFTutorialDataFactory**。 
       
     ![新增 Data Factory](./media/tutorial-copy-data-tool/new-azure-data-factory.png)

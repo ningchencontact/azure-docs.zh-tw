@@ -6,12 +6,12 @@ ms.service: security
 ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/21/2019
-ms.openlocfilehash: 33958eae291b03b568491e24f09abefdacb667c8
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: e98e501806971f3cf1bec29960ad15ef9c0024fc
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58405898"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498140"
 ---
 # <a name="use-azure-disk-encryption-with-virtual-machine-scale-set-extension-sequencing"></a>使用 Azure 磁碟加密，使用虛擬機器擴展集擴充功能排序
 
@@ -152,7 +152,7 @@ ms.locfileid: "58405898"
 ```
 
 如需更多深入的範本，請參閱：
-* 套用 Azure 磁碟加密延伸模組格式 (Linux) 與人員的自訂殼層指令碼之後： [deploy-extseq-linux-ADE-after-customscript.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json)
+* 套用 Azure 磁碟加密延伸模組格式的磁碟 (Linux) 的自訂殼層指令碼之後： [deploy-extseq-linux-ADE-after-customscript.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-linux-ADE-after-customscript.json)
 * 自訂的 Powershell 指令碼，初始化並格式化磁碟 (Windows) 之後套用 Azure 磁碟加密延伸模組： [deploy-extseq-linux-ADE-after-customscript.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-windows-ADE-after-customscript.json)
 * 套用自訂的 Powershell 指令碼，初始化並格式化磁碟 (Windows) 之前的 Azure 磁碟加密延伸模組： [deploy-extseq-windows-CustomScript-after-ADE.json](https://github.com/Azure-Samples/compute-automation-configurations/blob/master/ade-vmss/deploy-extseq-windows-CustomScript-after-ADE.json)
 

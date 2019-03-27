@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/15/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 777b3a8d414f0b785d908c37da98e987445ed96d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c54d2aef2d8e748e31bffcecef323c4806d15f60
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317454"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482045"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務
 
@@ -96,6 +96,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > 所有執行個體中繼資料查詢都會區分大小寫。
 
 ### <a name="data-output"></a>資料輸出
+
 根據預設，執行個體中繼資料服務會以 JSON 格式傳回資料 (`Content-Type: application/json`)。 不過，不同的 API 會依照要求傳回不同格式的資料。
 下表是 API 可能支援之其他資料格式的參考。
 
@@ -111,6 +112,9 @@ API | 預設資料格式 | 其他格式
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
+> [!NOTE]
+> 分葉節點的`format=json`無法運作。 這些查詢`format=text`必須明確地指定是否預設的格式是 json。
+
 ### <a name="security"></a>安全性
 
 執行個體中繼資料服務端點只能從非可路由 IP 位址上的執行中虛擬機器執行個體內存取。 此外，服務會拒絕任何具有 `X-Forwarded-For` 標頭的要求。
@@ -123,8 +127,8 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 HTTP 狀態碼 | 原因
 ----------------|-------
 200 確定 |
-400 不正確的要求 | 遺漏 `Metadata: true` 標頭
-404 找不到 | 要求的元素不存在 
+400 不正確的要求 | 遺漏`Metadata: true`標頭或查詢的分葉節點時，遺失格式
+404 找不到 | 要求的元素不存在
 405 不允許的方法 | 僅支援 `GET` 和 `POST` 要求
 429 要求太多 | API 目前支援最多每秒 5 個查詢
 500 服務錯誤     | 稍後重試
@@ -503,12 +507,12 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Azure 有各種不同的主權雲端，例如 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)。 有時候您會需要 Azure 環境來進行一些執行階段決策。 下列範例會說明如何實現此行為。
 
 **要求**
-``` bash
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
 **回應**
-```
+```bash
 AZUREPUBLICCLOUD
 ```
 

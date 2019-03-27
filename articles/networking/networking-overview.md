@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: c37e2357038e4f711b015fda80a0de8c4dbd9498
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 02db9f2b8cb2ec71d23ad077b90eeacb905d2a16
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880920"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445646"
 ---
 # <a name="azure-networking"></a>Azure 網路
 
@@ -34,7 +34,7 @@ Azure 提供各種不同的網路功能，它們可以合併或分開使用。 �
 - [管理能力](#manageability)：監視和管理您的 Azure 網路資源。
 - [部署和設定工具](#tools)：使用網頁型入口網站或跨平台命令列工具來部署和設定網路資源。
 
-## <a name="Connectivity"></a>Azure 資源之間的連線
+## <a name="connectivity"></a>Azure 資源之間的連線
 
 Azure 資源 (例如虛擬機器、雲端服務、 虛擬機器擴展集和 Azure App Service Environment) 可透過 Azure 虛擬網路 (VNet) 和彼此進行私下通訊。 VNet 是專屬於您[訂用帳戶](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fnetworking%2ftoc.json)的 Azure 雲端邏輯隔離。 您可以在每個 Azure 訂用帳戶和 Azure [區域](https://azure.microsoft.com/regions)內實作多個 VNet。 每個 VNet 會與其他 VNet 隔離。 对于每个 VNet，可执行以下操作：
 
@@ -150,7 +150,7 @@ Azure 提供下列工具來監視和管理網路功能︰
 您可以使用下列任一項工具來部署和設定 Azure 網路資源︰
 
 - **Azure 入口網站：** 在瀏覽器中執行的圖形化使用者介面。 開啟 [Azure 入口網站](https://portal.azure.com)。
-- **Azure PowerShell：** 從 Windows 電腦管理 Azure 的命令列工具。 若要深入了解 Azure PowerShell，請閱讀 [Azure PowerShell 概觀](/powershell/azure/overview?view=azurermps-3.8.0?toc=%2fazure%2fnetworking%2ftoc.json)一文。
+- **Azure PowerShell：** 從 Windows 電腦管理 Azure 的命令列工具。 若要深入了解 Azure PowerShell，請閱讀 [Azure PowerShell 概觀](/powershell/azure/overview?toc=%2fazure%2fnetworking%2ftoc.json)一文。
 - **Azure 命令列介面 (CLI)：** 從 Linux、macOS 或 Windows 電腦管理 Azure 的命令列工具。 若要深入了解 Azure CLI，請閱讀 [Azure CLI 概觀](/cli/azure/get-started-with-azure-cli?toc=%2fazure%2fnetworking%2ftoc.json)一文。
 - **Azure Resource Manager 範本：** 定義 Azure 解決方案之基礎結構和組態的檔案 (JSON 格式)。 透過範本，您可以在整個生命週期中重複部署方案，並確信您的資源會以一致的狀態部署。 若要深入了解製作範本，請閱讀[建立範本的最佳做法](../azure-resource-manager/resource-manager-template-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json)一文。 您可以使用 Azure 入口網站、CLI 或 PowerShell 來部署範本。 若要立即開始使用範本，請部署 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?term=network)程式庫中的其中一個預先設定範本。 
 

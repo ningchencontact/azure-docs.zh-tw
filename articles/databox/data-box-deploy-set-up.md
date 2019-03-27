@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: alkohli
-ms.openlocfilehash: e7c58978c7d6542887854c5a1996b15252fdb025
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: b601ad5936820e2c237b7b9d37d9af73aa468bbc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982398"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895748"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>教學課程：連接 Azure 資料箱的纜線並且連線
 
@@ -40,7 +40,7 @@ ms.locfileid: "55982398"
     - 連線至高速網路。 強烈建議您具有至少一個 10 GbE 的連線。 如果無法使用 10 GbE 連線，也可以使用 1 GbE 資料連結，但是複製速度會受到影響。 
 6. 您必須能夠進入放置資料箱所在的平坦表面。 如果您想要將裝置放在標準機架上，您的資料中心機架中需要有 7U 插槽。 您可以將裝置平放或垂直放置在機架中。
 7. 您已購買下列纜線，以將您的資料箱連線至主機電腦。
-    - 一或多條 10 GbE SFP+ Twinax 銅線或 SFP+ 光纖纜線 (搭配 DATA 1、DATA 2 網路介面使用)。 資料箱具有採用 PCI Express 3.0 網路介面的 Mellanox ConnectX®-3 Pro EN 雙連接埠 10GBASE-T 配接器，所以與這個介面相容的纜線應該有作用。 例如，CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M 纜線已用於內部測試。
+    - 一或多條 10 GbE SFP+ Twinax 銅線或 SFP+ 光纖纜線 (搭配 DATA 1、DATA 2 網路介面使用)。 資料箱具有採用 PCI Express 3.0 網路介面的 Mellanox ConnectX®-3 Pro EN 雙連接埠 10GBASE-T 配接器，所以與這個介面相容的纜線應該有作用。 例如，CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M 纜線已用於內部測試。 如需詳細資訊，請參閱 [Mellanox 中支援的纜線和交換器清單](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf)。
     - 一條 RJ-45 CAT 6 網路線 (與 MGMT 網路介面搭配使用)
     - 一條 RJ-45 CAT 6A 或一條 RJ-45 CAT 6 網路線 (與 DATA 3 網路介面搭配使用，分別設定為 10 Gbps 或 1 Gbps)
 
@@ -83,10 +83,10 @@ ms.locfileid: "55982398"
     
 7. 提供您在上一個步驟中從 Azure 入口網站取得的裝置密碼，以登入裝置的本機 Web UI。 按一下 [ **登入**]。
 8. 在 [儀表板] 上，確定網路介面已設定。 
-    - 如果您的環境中啟用了 DHCP，則會自動設定網路介面。 
-    - 如果未啟用 DHCP，請移至 [設定網路介面]，並視需要指派靜態 IP。
+   - 如果您的環境中啟用了 DHCP，則會自動設定網路介面。 
+   - 如果未啟用 DHCP，請移至 [設定網路介面]，並視需要指派靜態 IP。
 
-    ![裝置儀表板](media/data-box-deploy-set-up/data-box-dashboard-1.png)
+     ![裝置儀表板](media/data-box-deploy-set-up/data-box-dashboard-1.png)
 
 設定資料網路介面後，您也可以使用任何 DATA 1 -DATA 3 介面的 IP 位址來存取位於 `https://<IP address of a data network interface>` 的本機 Web UI。 
 

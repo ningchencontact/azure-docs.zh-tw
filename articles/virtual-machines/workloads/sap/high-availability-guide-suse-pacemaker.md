@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: b0842bfc4c9d60420f6409afc4bc42692346050b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: a2e03a548b403262dca7e7a76b84cc99661242c6
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999652"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487359"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>在 Azure 中於 SUSE Linux Enterprise Server 上設定 Pacemaker
 
@@ -563,6 +563,36 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
    params pcmk_delay_max="15" \
    op monitor interval="15" timeout="15"
 </code></pre>
+
+## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>適用於 Azure 的 pacemaker 設定排定的事件
+
+Azure 優惠[已排定事件](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/scheduled-events)。 排定的事件會提供透過中繼資料服務，並允許提供時間讓應用程式虛擬機器關機、 重新部署 VM 等事件做準備。資源代理程式 **[azure 事件](https://github.com/ClusterLabs/resource-agents/pull/1161)** Azure 的已排定事件的監視。 如果偵測到事件，該代理程式會嘗試停止受影響的 VM 上的所有資源，並將其移至叢集中的另一個節點。 若要達到該額外的 Pacemaker 資源必須設定。 
+
+1. **[A]** 安裝**azure 事件**代理程式。 
+
+<pre><code>sudo zypper install resource-agents
+</code></pre>
+
+2. **[1]** 在 Pacemaker 中設定的資源。 
+
+<pre><code>
+#Place the cluster in maintenance mode
+sudo crm configure property maintenance-mode=true
+
+#Create Pacemaker resources for the Azure agent
+sudo crm configure primitive rsc_azure-events ocf:heartbeat:azure-events op monitor interval=10s
+sudo crm configure clone cln_azure-events rsc_azure-events
+
+#Take the cluster out of maintenance mode
+sudo crm configure property maintenance-mode=false
+</code></pre>
+
+   > [!NOTE]
+   > 當您將叢集放入或移出維護模式時，您會設定 azure 事件代理程式，Pacemaker 資源之後，您可能會收到警告訊息，例如：  
+     警告： cib bootstrap 選項： 未知的屬性 ' hostName_  <strong>hostname</strong>'  
+     警告： cib bootstrap 選項： 未知的屬性 ' azure events_globalPullState'  
+     警告： cib bootstrap 選項： 未知的屬性 ' hostName_ <strong>hostname</strong>'  
+   > 您可以忽略這些警告訊息。
 
 ## <a name="next-steps"></a>後續步驟
 

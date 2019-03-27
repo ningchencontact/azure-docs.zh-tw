@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 3023d5d4010108d46424bba284029b58f5fd279c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 7598bbc879351752580247e46bc986ee84fa0d56
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55658737"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497239"
 ---
 # <a name="add-a-shape-to-a-map"></a>在地圖中新增圖形
 
@@ -119,7 +119,7 @@ Shape 類別會包裝[幾何](https://docs.microsoft.com/javascript/api/azure-ma
 如需更多可新增至地圖的程式碼範例，請參閱下列文章：
 
 > [!div class="nextstepaction"]
-> [新增自訂 HTML](./map-add-custom-html.md)
+> [HTML 標記](./map-add-custom-html.md)
 
 > [!div class="nextstepaction"]
-> [顯示搜尋結果](./map-search-location.md)
+> [加入熱度圖地圖圖層](./map-add-heat-map-layer.md)

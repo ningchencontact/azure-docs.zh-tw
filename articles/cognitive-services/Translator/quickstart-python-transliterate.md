@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 2022971d24f7ac8a24986f45031f568a86fc31d9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: b30fa9bb0af8da7b3c72fef7aa2ecd18a8f759e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726358"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57862840"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>快速入門：搭配使用翻譯工具文字 API 與 Python 來直譯文字
 
@@ -32,7 +32,7 @@ ms.locfileid: "56726358"
 
 ## <a name="create-a-project-and-import-required-modules"></a>建立專案，並匯入所需的模組
 
-在您慣用的 IDE 或編輯器建立新的 Python 專案。 然後，將下列程式碼片段複製到您的專案中名為 `transliterate-text.py` 的檔案。
+使用您最愛的 IDE 或編輯器，或在您桌面上的新資料夾 (內含名為 `transliterate-text.py` 的檔案) 中，建立新的專案。 接著，將下列程式碼片段複製到您的專案/檔案中：
 
 ```python
 # -*- coding: utf-8 -*-
@@ -135,7 +135,7 @@ python transliterate-text.py
 [
     {
         "script": "latn",
-        "text": "konnnichiha"
+        "text": "konnichiwa"
     }
 ]
 ```

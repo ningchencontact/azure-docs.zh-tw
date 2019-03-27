@@ -5,14 +5,14 @@ services: batch
 ms.service: batch
 author: laurenhughes
 ms.author: lahugh
-ms.date: 12/11/2018
+ms.date: 03/26/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8ce430d83c52014b3d1d3d2a985f74aeb488caea
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 84b2ca30f1ccd49e18e2f9d42133f8672d3f8ad6
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791880"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496015"
 ---
 # <a name="pre-installed-applications-on-rendering-vm-images"></a>在轉譯的 VM 映像上預先安裝的應用程式
 
@@ -22,7 +22,7 @@ ms.locfileid: "57791880"
 
 有些應用程式僅支援 Windows，但大部分都是 Windows 和 Linux 均支援。
 
-## <a name="applications-on-centos-7-rendering-nodes"></a>CentOS 7 轉譯節點上的應用程式
+## <a name="applications-on-centos-7-rendering-images"></a>在 CentOS 7 轉譯映像上的應用程式
 
 * Autodesk Maya I/O 2017 Update 5 (201708032230 版)
 * Autodesk Maya I/O 2018 Update 2 (201711281015 版)
@@ -32,7 +32,29 @@ ms.locfileid: "57791880"
 * Chaos Group V-Ray for Maya 2018 (3.60.04 版)
 * Blender (2.68)
 
-## <a name="applications-on-windows-server-2016-rendering-nodes"></a>Windows Server 2016 轉譯節點上的應用程式
+## <a name="applications-on-latest-windows-server-2016-rendering-images"></a>在最新的 Windows Server 2016 轉譯映像上的應用程式
+
+下列清單適用於 Windows Server 2016 版本 1.3.4 呈現影像。
+
+* Autodesk Maya I/O 2017 Update 5 (17.4.5459 版)
+* Autodesk Maya I/O 2018 Update 4 (18.4.0.7622 版)
+* Autodesk 3ds Max I/O 2019 Update 1 (21.2.0.2219 版)
+* Autodesk 3ds Max I/O 2018 Update 4 (20.4.0.4254 版)
+* Autodesk Arnold for Maya 2017 (Arnold 5.2.0.1 版) MtoA-3.1.0.1-2017
+* Autodesk Arnold for Maya 2018 (Arnold 5.2.0.1 版) MtoA-3.1.0.1-2018
+* Autodesk Arnold for 3ds Max (Arnold 5.0.2.4 版) (1.2.926 版)
+* Chaos Group V-ray for Maya 2018 (3.52.03 版)
+* Chaos Group V-ray for 3ds Max 2018 (3.60.02 版)
+* Chaos Group V-ray for Maya 2019 (3.52.03 版)
+* Chaos Group V-ray for 3ds Max 2019 （版本 4.10.01）
+* Blender (2.79)
+
+> [!NOTE]
+> Chaos Group V-ray for 3ds Max 2019 （版本 4.10.01） 介紹 v-ray 的重大變更。 若要使用舊版 (3.60.02 版)，會使用 Windows Server 2016 版本 1.3.2 轉譯的節點。
+
+## <a name="applications-on-previous-windows-server-2016-rendering-images"></a>在舊版的 Windows Server 2016 轉譯映像上的應用程式
+
+下列清單適用於 Windows Server 2016 版本 1.3.2 呈現影像。
 
 * Autodesk Maya I/O 2017 Update 5 (17.4.5459 版)
 * Autodesk Maya I/O 2018 Update 4 (18.4.0.7622 版)  
@@ -41,8 +63,8 @@ ms.locfileid: "57791880"
 * Autodesk Arnold for Maya 2017 (Arnold 5.2.0.1 版) MtoA-3.1.0.1-2017
 * Autodesk Arnold for Maya 2018 (Arnold 5.2.0.1 版) MtoA-3.1.0.1-2018
 * Autodesk Arnold for 3ds Max (Arnold 5.0.2.4 版) (1.2.926 版)
-* Chaos Group V-Ray for Maya (3.52.03 版)
-* Chaos Group V-Ray for 3ds Max (3.60.02 版)
+* Chaos Group V-ray for Maya 2019 (3.52.03 版)
+* Chaos Group V-ray for 3ds Max 2018 (3.60.02 版)
 * Blender (2.79)
 
 ## <a name="next-steps"></a>後續步驟

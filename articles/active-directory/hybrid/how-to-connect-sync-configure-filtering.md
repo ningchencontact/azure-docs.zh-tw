@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/12/2017
+ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53c14ce92a422c2254a1e9b7fc4989b49790a88a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: eeb2af6283e5c9d8a41e74152a94b85efdae1866
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774433"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487309"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 同步：設定篩選
 使用篩選功能可讓您控制內部部署目錄中的哪些物件應該出現在 Azure Active Directory 中。 默认配置采用配置的林中所有域内的所有对象。 我们一般建议使用这种配置。 完整的全域通訊清單對於使用 Exchange Online 和商務用 Skype 等 Office 365 工作負載的使用者來說十分方便，因為如此一來，他們就可以傳送電子郵件和呼叫每個人。 使用預設設定時，所獲得的體驗與使用 Exchange 或 Lync 的內部部署實作相同。
@@ -99,6 +99,12 @@ Azure AD Connect 只會刪除其曾經認為是在範圍內的物件。 如果 A
 3. [套用並驗證變更](#apply-and-verify-changes)。
 
 ### <a name="select-the-domains-to-be-synchronized"></a>選取要同步處理的網域
+有兩種方式可選取要同步處理的網域：
+    - 使用同步處理服務
+    - 使用 Azure AD Connect 精靈。
+
+
+#### <a name="select-the-domains-to-be-synchronized-using-the-synchronization-service"></a>選取要使用同步處理服務，同步處理的網域
 若要設定網域篩選，請執行下列步驟：
 
 1. 使用隸屬於 **ADSyncAdmins** 安全性群組的帳戶，登入執行 Azure AD Connect 同步處理的伺服器。
@@ -112,6 +118,17 @@ Azure AD Connect 只會刪除其曾經認為是在範圍內的物件。 如果 A
    ![需要重新整理](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. 當您完成時，請按一下 [確定] 來關閉 [屬性] 對話方塊。 如果您已移除樹系中的網域，畫面上將會出現快顯訊息，指出已移除網域且將會清除組態。
 7. 繼續調整執行設定檔。
+
+#### <a name="select-the-domains-to-be-synchronized-using-the-azure-ad-connect-wizard"></a>選取要使用 Azure AD Connect 精靈來同步處理的網域
+若要設定網域篩選，請執行下列步驟：
+
+1.  啟動 Azure AD Connect 精靈
+2.  按一下 [設定] 。
+3.  選取 [**自訂同步處理選項**然後按一下**下一步]**。
+4.  輸入您的 Azure AD 認證
+5.  在 [**連線目錄**畫面上，按一下**下一步]**。
+6.  在 **網域和 OU 篩選頁面**按一下 **重新整理**。  現在會出現不良的新網域，並已刪除的網域將會消失。
+   ![分割數](./media/how-to-connect-sync-configure-filtering/update2.png)  
 
 ### <a name="update-the-run-profiles"></a>更新執行設定檔
 如果您已更新網域篩選，則也需更新執行設定檔。

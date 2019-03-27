@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 837e38fe-8f55-475c-87f4-6394dc1fee2b
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc0fbc55c73f6d745d39873236df389f121dc9c7
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 73f6126d6bf172a35a284e92b65b1c3ef449949e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880915"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904128"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asana"></a>教學課程：Azure Active Directory 與 Asana 整合
 
@@ -159,7 +159,7 @@ ms.locfileid: "56880915"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -204,7 +204,7 @@ ms.locfileid: "56880915"
 
     ![建立 Azure AD 測試使用者](./media/asana-tutorial/tutorial_asana_12.png)
 
-2. 在文字方塊中輸入使用者的電子郵件 (如 **britta.simon@contoso.com**)，然後選取 [邀請]。
+2. 在文字方塊中輸入使用者的電子郵件 (如 **britta.simon\@contoso.com**)，然後選取 [邀請]。
 
 3. 按一下 [傳送邀請] 。 新的使用者會在其電子郵件帳戶收到一封電子郵件。 使用者將需要建立並驗證帳戶。
 
@@ -222,4 +222,4 @@ ms.locfileid: "56880915"
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-* [設定使用者佈建](asana-provisioning-tutorial.md)
+- [設定使用者佈建](asana-provisioning-tutorial.md)

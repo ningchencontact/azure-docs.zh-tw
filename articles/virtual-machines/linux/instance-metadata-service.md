@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/15/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: c38b21d860e25c0f31122e75d822257e14ca01db
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 7c5e979f399a487d29138b57d1fc4ee2c77622ff
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351961"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445493"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務
 
@@ -103,13 +103,16 @@ API | 預設資料格式 | 其他格式
 --------|---------------------|--------------
 /instance | json | 文字
 /scheduledevents | json | None
-/attested | json | 無
+/attested | json | None
 
-若要存取非預設的回應格式，請指定要求的格式作為要求中的 querystring 參數。 例如：
+若要存取非預設的回應格式，請指定要求的格式作為要求中的查詢字串參數。 例如︰
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
+
+> [!NOTE]
+> 分葉節點的`format=json`無法運作。 這些查詢`format=text`必須明確地指定是否預設的格式是 json。
 
 ### <a name="security"></a>安全性
 
@@ -123,8 +126,8 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 HTTP 狀態碼 | 原因
 ----------------|-------
 200 確定 |
-400 不正確的要求 | 遺漏 `Metadata: true` 標頭
-404 找不到 | 要求的元素不存在 
+400 不正確的要求 | 遺漏`Metadata: true`標頭或查詢的分葉節點時，遺失格式
+404 找不到 | 要求的元素不存在
 405 不允許的方法 | 僅支援 `GET` 和 `POST` 要求
 429 要求太多 | API 目前支援最多每秒 5 個查詢
 500 服務錯誤     | 稍後重試

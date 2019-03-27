@@ -4,15 +4,15 @@ description: 提供 Azure Migrate 中收集器設備的相關資訊。
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 03/26/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 78ef88d0710e8a82d30fa26b60073aa75e363c15
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 224511b9748c540f2cd48a3d8393a9c74f76ce32
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315295"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498412"
 ---
 # <a name="about-the-collector-appliance"></a>關於收集器設備
 
@@ -150,6 +150,9 @@ vCenter Server | TCP 443 | 收集器必須能夠與 vCenter Server 進行通訊�
 RDP | TCP 3389 |
 
 ## <a name="collected-metadata"></a>所收集的中繼資料
+
+> [!NOTE]
+> Azure Migrate 收集器設備用來協助您適當的大小有您的應用程式將其移轉至 Azure，探索到的中繼資料執行 Azure 適用性分析、 應用程式相依性分析和規劃成本。 Microsoft 不使用任何授權合規性稽核與此資料。
 
 收集器設備會探索下列每個 VM 的設定中繼資料。 VM 的設定資料會在您開始探索後 1 小時可供使用。
 

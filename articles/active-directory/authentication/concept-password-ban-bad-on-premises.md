@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0a25dd3a2228f0b1b3ab33db0c9c689d7b2899d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6e6623e18fa319066f121dced551dcada133ebd5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310552"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58479524"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>強制執行 Windows Server Active Directory 的 Azure AD 密碼保護
 
@@ -32,8 +32,15 @@ Azure AD 密碼保護的設計考量這些原則：
 * 需要任何最低 Active Directory 網域或樹系功能等級 (DFL/FFL) 不。
 * 軟體不會建立，或需要在它所保護的 Active Directory 網域中的帳戶。
 * 使用者使用純文字密碼不保留網域控制站，在密碼驗證作業期間，或在任何其他的時間。
-* 支援累加式部署。 但是，密碼原則只會強制執行已安裝網域控制站代理程式 （DC 代理程式）。
-* 我們建議您以確保通用的密碼保護安全性強化的所有網域控制站上安裝 DC 代理程式。
+* 支援累加部署，但密碼原則只會強制執行已安裝網域控制站代理程式 （DC 代理程式）。 請參閱下一步 的主題，如需詳細資訊。
+
+## <a name="incremental-deployment"></a>累加部署
+
+Azure AD 密碼保護支援跨 Active Directory 網域中網域控制站的累加部署，但請務必了解真正的意義，以及它們的權衡取捨。
+
+Azure AD 密碼保護 DC 代理程式軟體安裝在網域控制站，而且僅適用於傳送到該網域控制站的密碼變更時，可以只驗證密碼。 您不能控制的網域控制站會處理使用者密碼變更的 Windows 用戶端電腦的選擇。 為了確保一致的行為和通用的密碼保護的安全性強制，請將 DC 代理程式軟體必須安裝在網域中的所有網域控制站上。
+
+許多組織會想要仔細測試子集上的網域控制站之前進行完整部署的 Azure AD 密碼保護。 Azure AD 密碼保護支援部分的部署、 ie DC 代理程式軟體，在指定的網域控制站會主動驗證密碼即使在網域中的其他網域控制站不需要安裝 DC 代理程式軟體。 部分的部署，這種不安全，不以外的其他建議基於測試目的。
 
 ## <a name="architectural-diagram"></a>架構圖
 

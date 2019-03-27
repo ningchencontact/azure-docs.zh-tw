@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: df7f3dfa525c59ff8862c3b1a46f70be53a93a32
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 6337477b55addefb7579d6f328473428ba72ba24
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198740"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446135"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure 中繼資料服務：Linux VM 的已排定事件
 
@@ -47,7 +47,9 @@ ms.locfileid: "54198740"
 排程的事件會提供下列使用案例中的事件：
 
 - 平台起始的維護 (例如，主機 OS 更新)
+- 降級的硬體
 - 使用者起始的維護 (例如，使用者重新啟動或重新部署 VM)
+- [低優先順序 VM 收回](https://azure.microsoft.com/en-us/blog/low-priority-scale-sets)在擴展集
 
 ## <a name="the-basics"></a>基本概念  
 
@@ -65,15 +67,16 @@ ms.locfileid: "54198740"
 ### <a name="endpoint-discovery"></a>端點探索
 針對已啟用 VNET 的 VM，可以從靜態非可路由 IP `169.254.169.254` 取得「中繼資料服務」。 最新版「已排定的事件」的完整端點為： 
 
- > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01`
 
 如果 VM 不是建立在「虛擬網路」內 (雲端服務和傳統 VM 的預設案例)，就需要額外的邏輯，才能探索要使用的 IP 位址。 請參閱此範例以了解如何[探索主機端點](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm) \(英文\)。
 
 ### <a name="version-and-region-availability"></a>版本和區域可用性
-已排定事件服務已進行版本設定。 版本是必要項目；目前版本為 `2017-08-01`。
+已排定事件服務已進行版本設定。 版本是必要項目；目前版本為 `2017-11-01`。
 
 | 版本 | 版本類型 | 區域 | 版本資訊 | 
 | - | - | - | - | 
+| 2017-11-01 | 正式運作 | 全部 | <li> 已新增的支援低優先順序 VM 收回 EventType 'Preempt'<br> | 
 | 2017-08-01 | 正式運作 | 全部 | <li> 已從 IaaS VM 的資源名稱中移除預留底線<br><li>強制所有要求的中繼資料標頭需求 | 
 | 2017-03-01 | 預覽 | 全部 | <li>初始版本
 
@@ -112,7 +115,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
     "Events": [
         {
             "EventId": {eventID},
-            "EventType": "Reboot" | "Redeploy" | "Freeze",
+            "EventType": "Reboot" | "Redeploy" | "Freeze" | "Preempt",
             "ResourceType": "VirtualMachine",
             "Resources": [{resourceName}],
             "EventStatus": "Scheduled" | "Started",
@@ -123,13 +126,13 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 ```
 
 ### <a name="event-properties"></a>事件屬性
-|屬性  |  說明 |
+|屬性  |  描述 |
 | - | - |
 | EventId | 此事件的全域唯一識別碼。 <br><br> 範例： <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | 此事件造成的影響。 <br><br> 值： <br><ul><li> `Freeze`：VM 會排定暫停幾秒鐘的時間。 CPU 會暫止，但不會影響記憶體、開啟的檔案或網路連線。 <li>`Reboot`：VM 會排定重新開機。 (非永久性記憶體會遺失)。 <li>`Redeploy`：VM 已排定移到其他節點。 (暫時磁碟會遺失。) |
+| EventType | 此事件造成的影響。 <br><br> 值： <br><ul><li> `Freeze`:虛擬機器已排定會暫停幾秒鐘。 CPU 會暫止，但不會影響記憶體、開啟的檔案或網路連線。 <li>`Reboot`:虛擬機器已排定要重新開機 (非持續性記憶體都會遺失)。 <li>`Redeploy`:虛擬機器已排定要移至另一個節點 (暫時磁碟都會遺失)。 <li>`Preempt`:正在刪除低優先順序虛擬機器 （暫時磁碟會遺失）。|
 | ResourceType | 受此事件影響的資源類型。 <br><br> 值： <ul><li>`VirtualMachine`|
 | 資源| 受此事件影響的資源清單。 其中最多只能包含來自一個[更新網域](manage-availability.md)的機器，但不能包含更新網域中的所有機器。 <br><br> 範例： <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
-| EventStatus | 此事件的狀態。 <br><br> 值： <ul><li>`Scheduled`：此事件已排定在 `NotBefore` 屬性所指定的時間之後啟動。<li>`Started`：已啟動事件。</ul> 未曾提供 `Completed` 或類似的狀態。 當事件完成時，不會再傳回事件。
+| EventStatus | 此事件的狀態。 <br><br> 值： <ul><li>`Scheduled`:此事件已排定在 `NotBefore` 屬性所指定的時間之後啟動。<li>`Started`:已啟動事件。</ul> 未曾提供 `Completed` 或類似的狀態。 當事件完成時，不會再傳回事件。
 | NotBefore| 自此之後可啟動此事件的時間。 <br><br> 範例： <br><ul><li> Mon, 19 Sep 2016 18:29:47 GMT  |
 
 ### <a name="event-scheduling"></a>事件排程
@@ -140,6 +143,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 | 凍結| 15 分鐘 |
 | 重新啟動 | 15 分鐘 |
 | 重新部署 | 10 分鐘 |
+| 優先於 | 30 秒 |
 
 ### <a name="start-an-event"></a>啟動事件 
 
@@ -158,7 +162,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 
 #### <a name="bash-sample"></a>Bash 範例
 ```
-curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
+curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01
 ```
 
 > [!NOTE] 
@@ -176,7 +180,7 @@ import urllib2
 import socket
 import sys
 
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01"
+metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01"
 headers = "{Metadata:true}"
 this_host = socket.gethostname()
 

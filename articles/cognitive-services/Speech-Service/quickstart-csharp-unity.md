@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 0978db31f4aa8caa273c63c2f55d5146b19dea26
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: cdde9f0ec69bec48ae0fb747db0cc49e81920817
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878008"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57872551"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>快速入門：使用適用於 Unity 的語音 SDK (搶鮮版 (Beta)) 來辨識語音
 
@@ -65,7 +65,7 @@ ms.locfileid: "56878008"
 * 在[階層視窗](https://docs.unity3d.com/Manual/Hierarchy.html) (依預設位於左側) 中，會顯示 Unity 建立的範例場景，內含新專案。
 * 按一下 [階層視窗] 頂端的 [建立] 按鈕，然後選取 [UI] > [按鈕]。
 * 這會建立三個可在 [階層視窗] 中檢視的遊戲物件：內嵌在**畫布**物件中的**按鈕**物件，和**事件系統**物件。
-* [瀏覽場景檢視](https://docs.unity3d.com/Manual/SceneViewNavigation.html)，以全面檢視畫布和[場景檢視](https://docs.unity3d.com/Manual/UsingTheSceneView.html)中的按鈕。
+* [瀏覽場景檢視](https://docs.unity3d.com/Manual/SceneViewNavigation.html)，以清楚檢視畫布和[場景檢視](https://docs.unity3d.com/Manual/UsingTheSceneView.html)中的按鈕。
 * 按一下 [階層視窗] 中的 [按鈕] 物件，以在[偵測器視窗](https://docs.unity3d.com/Manual/UsingTheInspector.html) (依預設位於右側) 中顯示其設定。
 * 將 [位置 X] 和 [位置 Y] 屬性設為 **0**，使按鈕置於畫布中央。
 * 再按一下 [階層視窗] 頂端的 [建立] 按鈕，然後選取 [UI] > [文字] 以建立文字欄位。
@@ -82,8 +82,8 @@ ms.locfileid: "56878008"
 
 1. 按兩下該指令碼加以編輯。
 
-  > [!NOTE]
-  > 您可以在 [編輯] > [喜好設定] 下方設定所將啟動的程式碼編輯器，詳情請參閱 [Unity 使用者手冊](https://docs.unity3d.com/Manual/Preferences.html)。
+   > [!NOTE]
+   > 您可以在 [編輯] > [喜好設定] 下方設定所將啟動的程式碼編輯器，詳情請參閱 [Unity 使用者手冊](https://docs.unity3d.com/Manual/Preferences.html)。
 
 1. 將所有程式碼取代為下列內容：
 
@@ -97,13 +97,13 @@ ms.locfileid: "56878008"
 
 1. 回到 Unity 編輯器，您必須將指令碼新增為其中一個遊戲物件的元件。
 
-  * 在階層視窗中按一下 [畫布] 物件。 這會在[偵測器視窗](https://docs.unity3d.com/Manual/UsingTheInspector.html) (依預設位於右側) 中開啟其設定。
-  * 在偵測器視窗中按一下 [新增元件] 按鈕，然後搜尋我們先前建立的 HelloWorld 指令碼，並加以新增。
-  * 請注意，Hello World 元件具有 [輸出文字] 和 [開始辨識按鈕] 這兩個未初始化的屬性，與 `HelloWorld` 類別的公用屬性相符。
-    若要加以連接，請按一下 [物件選擇器] (屬性右側的小圓圈圖示)，然後選擇您先前建立的文字和按鈕物件。
+   * 在階層視窗中按一下 [畫布] 物件。 這會在[偵測器視窗](https://docs.unity3d.com/Manual/UsingTheInspector.html) (依預設位於右側) 中開啟設定。
+   * 在偵測器視窗中按一下 [新增元件] 按鈕，然後搜尋我們先前建立的 HelloWorld 指令碼，並加以新增。
+   * 請注意，Hello World 元件具有 [輸出文字] 和 [開始辨識按鈕] 這兩個未初始化的屬性，與 `HelloWorld` 類別的公用屬性相符。
+     若要加以連接，請按一下 [物件選擇器] (屬性右側的小圓圈圖示)，然後選擇您先前建立的文字和按鈕物件。
 
-    > [!NOTE]
-    > 按鈕中還有內嵌的文字物件。 請確定您並未不慎選擇該物件作為文字輸出 (或者，請使用 [偵測器視窗] 中的 [名稱] 欄位將其中一個文字物件重新命名，以避免混淆)。
+     > [!NOTE]
+     > 按鈕中還有內嵌的文字物件。 請確定您並未不慎選擇該物件作為文字輸出 (或者，請使用 [偵測器視窗] 中的 [名稱] 欄位將其中一個文字物件重新命名，以避免混淆)。
 
 ## <a name="run-the-application-in-the-unity-editor"></a>在 Unity 編輯器中執行應用程式
 

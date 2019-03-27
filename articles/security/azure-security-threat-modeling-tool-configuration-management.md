@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bd1d3c71660ae584b0aa57c7cc765fdc519f4b1b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 284d0e888b89d340088f770af22c026a861a4685
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863588"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498378"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>安全框架︰組態管理 | 緩和措施 
 | 產品/服務 | 文章 |
@@ -85,7 +85,7 @@ Example: var str="alert(1)"; eval(str);
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
-| **參考**              | [ASP.NET 偵錯概觀](https://msdn2.microsoft.com/library/ms227556.aspx)， [ASP.NET 追蹤概觀](https://msdn2.microsoft.com/library/bb386420.aspx)， [How to:啟用 ASP.NET 應用程式的追蹤](https://msdn2.microsoft.com/library/0x5wc973.aspx)， [How to:啟用 ASP.NET 應用程式的偵錯](https://msdn2.microsoft.com/library/e8z01xdh(VS.80).aspx) |
+| **參考**              | [ASP.NET 偵錯概觀](https://msdn.microsoft.com/library/ms227556.aspx)， [ASP.NET 追蹤概觀](https://msdn.microsoft.com/library/bb386420.aspx)， [How to:啟用 ASP.NET 應用程式的追蹤](https://msdn.microsoft.com/library/0x5wc973.aspx)， [How to:啟用 ASP.NET 應用程式的偵錯](https://msdn.microsoft.com/library/e8z01xdh(VS.80).aspx) |
 | **步驟** | 啟用頁面的追蹤後，每個要求該頁面的瀏覽器也會取得包含內部伺服器狀態和工作流程相關資料的追蹤資訊。 這項資訊可能是安全性相關資訊。 啟用頁面偵錯後，在伺服器上發生的錯誤會導致對瀏覽器呈現完整堆疊追蹤資料。 該資料可能會公開有關伺服器工作流程的安全性相關資訊。 |
 
 ## <a id="js-trusted"></a>僅從信任的來源存取第三方 javascript

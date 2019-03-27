@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: e1dd3953925d4907617295fbc14a1a4e042213e1
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: b975b34c638db812d3809bf50d1eccbb651028b5
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309602"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448921"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>使用 Azure Data Factory 將資料從 Azure Data Lake Storage Gen1 複製到 Gen2
 
@@ -38,9 +38,10 @@ Azure Data Factory 提供可向外延展的受控資料移動解決方案。 由
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
-1. 在左側功能表中，選取 [新增] > [資料 + 分析] > [資料處理站]：
+1. 在左側功能表中，選取**建立資源** > **資料 + 分析** > **Data Factory**:
    
-   ![建立新的資料處理站](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory-menu.png)
+   ![在 [新增] 窗格中選取資料處理站](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. 在 [新增資料處理站] 頁面中，為下圖所示的欄位提供值： 
       
    ![新增資料處理站頁面](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png)

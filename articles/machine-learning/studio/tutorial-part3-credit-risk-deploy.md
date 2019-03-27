@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: f64000ed502ee817f907e6ac9c89c2f037725a39
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7132c2073223008cd82d0ffd54aaf266d0a630ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823785"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839012"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio"></a>教學課程 3：部署信用風險模型 - Azure Machine Learning Studio
 
@@ -72,12 +72,11 @@ ms.locfileid: "56823785"
 
 選取每個模組然後按 Delete 鍵，或用右鍵按一下模組並選取 [刪除]。 
 
-![已移除 SVM 模型](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
-
+![醒目提示要刪除的模組以移除支援向量機器模型](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
 
 我們的模型現在看起來應該像這樣：
 
-![已移除 SVM 模型](./media/tutorial-part3-credit-risk-deploy/publish3.png)
+![刪除支援向量機器模型後的實驗結果](./media/tutorial-part3-credit-risk-deploy/publish3.png)
 
 現在我們已經準備好使用[二元促進式決策樹][two-class-boosted-decision-tree]來部署此模型。
 

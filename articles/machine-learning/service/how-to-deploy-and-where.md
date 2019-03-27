@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: b9dbd644aff3a41bcf38b982ebd46396ad30edca
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 370fb17e9f00d64db847e49c48c6f03cb329612d
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361960"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472934"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務部署模型
 
@@ -330,7 +330,7 @@ print(aks_target.provisioning_errors)
 
 #### <a name="use-an-existing-cluster"></a>使用現有的叢集
 
-如果您已經有 Azure 訂用帳戶，AKS 叢集，而且它是 1.11 版。 # # 已至少 12 個虛擬 Cpu，您可以使用它來部署您的映像。 下列程式碼示範如何附加現有的 AKS 1.11。 # # 您的工作區的叢集：
+如果您已經有 Azure 訂用帳戶，AKS 叢集，而且它是 1.12 版。 # # 已至少 12 個虛擬 Cpu，您可以使用它來部署您的映像。 下列程式碼示範如何附加現有的 AKS 1.12。 # # 您的工作區的叢集：
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget

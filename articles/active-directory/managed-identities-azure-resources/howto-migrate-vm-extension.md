@@ -3,7 +3,7 @@ title: 停止使用受控身分識別的 VM 擴充功能，並開始使用 Azure
 description: 若要停止使用 VM 延伸模組，並開始使用 Azure 執行個體中繼資料服務 (IMDS) 進行驗證的逐步指示的步驟。
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
-ms.author: priyamo
-ms.openlocfilehash: c29eb22f2606fc44cfd7d948f2c363cb51c811dd
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.author: markvi
+ms.openlocfilehash: 5b3c6c99b05320ee53c3ff49f5c299650c32e939
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227568"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498327"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>如何停止使用虛擬機器管理身分識別擴充功能並開始使用 Azure 執行個體中繼資料服務
 
@@ -196,7 +196,7 @@ Azure 資源的虛擬機器擴充功能管理的身分識別目前不支援對�
 
 ## <a name="azure-instance-metadata-service"></a>Azure 執行個體中繼資料服務
 
-[Azure 執行個體中繼資料服務 (IMDS)](https://docs.microsoft.com/azure/virtual-machines/instance-metadata-service)是 REST 端點，提供執行可用來管理和設定您的虛擬機器的虛擬機器執行個體的相關資訊。 端點是可在已知的非可路由 IP 位址 (`169.254.169.254`) 可以存取的只能從虛擬機器內。
+[Azure 執行個體中繼資料服務 (IMDS)](/azure/virtual-machines/windows/instance-metadata-service)是 REST 端點，提供執行可用來管理和設定您的虛擬機器的虛擬機器執行個體的相關資訊。 端點是可在已知的非可路由 IP 位址 (`169.254.169.254`) 可以存取的只能從虛擬機器內。
 
 有一些使用 Azure IMDS 來要求權杖的數個優點。 
 

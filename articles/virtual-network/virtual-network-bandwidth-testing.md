@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/21/2017
 ms.author: steveesp
-ms.openlocfilehash: b02f5011b9482481ca3fbe439061c160b3c73a1e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 80e8a5e5de1da2098d895e09b36fb209050743a0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016608"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481394"
 ---
 # <a name="bandwidththroughput-testing-ntttcp"></a>頻寬/輸送量測試 (NTTTCP)
 
@@ -124,7 +124,7 @@ ntttcp -r -t 300
 ntttcp -s10.0.0.4 -t 300
 ```
  
-如果未提供時間參數，則測試時間長度預設為 60 秒
+如果未给定时间参数，默认的测试持续时间为 60 秒
 
 ## <a name="testing-between-vms-running-windows-and-linux"></a>在執行 Windows 和 LINUX 的 VM 之間進行測試：
 
@@ -132,13 +132,13 @@ ntttcp -s10.0.0.4 -t 300
 
 #### <a name="from-linux-to-windows"></a>從 Linux 到 Windows：
 
-接收者 <Windows>：
+接收者\<Windows >:
 
 ``` bash
 ntttcp -r -m <2 x nr cores>,*,<Windows server IP>
 ```
 
-傳送者 <Linux>：
+寄件者\<Linux >:
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
@@ -146,13 +146,13 @@ ntttcp -s -m <2 x nr cores>,*,<Windows server IP> -N -t 300
 
 #### <a name="from-windows-to-linux"></a>從 Windows 到 Linux：
 
-接收者 <Linux>：
+接收者\<Linux >:
 
 ``` bash
 ntttcp -r -m <2 x nr cores>,*,<Linux server IP>
 ```
 
-傳送者 <Windows>：
+寄件者\<Windows >:
 
 ``` bash
 ntttcp -s -m <2 x nr cores>,*,<Linux  server IP> -ns -t 300

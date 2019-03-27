@@ -10,12 +10,12 @@ ms.author: stevenry
 ms.date: 12/17/2018
 ms.topic: include
 manager: yuvalm
-ms.openlocfilehash: 7dddf7e48913aea9d84e0f8b66c2c9d29449ee6f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 5d66dcaccc6ca2e40fbd516f535ec56c1baf6b17
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825829"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195591"
 ---
 ### <a name="run-the-service"></a>執行服務
 
@@ -81,7 +81,7 @@ Azure Dev Spaces 的這項內建功能可讓您在共用空間中測試程式碼
 > * 在小組環境中有效率地開發及測試您的程式碼。
 > * 使用 Dev Spaces 來建立功能基準，以便輕鬆地在較大型微服務應用程式的內容中，測試隔離的變更
 
-現在您已充分了解 Azure Dev Spaces，請[與小組成員共用您的開發人員空間](../articles/dev-spaces/how-to/share-dev-spaces.md)，並協助他們了解共同作業有多麼容易。
+您現在已充分了解 Azure Dev Spaces，請[與小組成員共用您的開發人員空間](../articles/dev-spaces/how-to/share-dev-spaces.md)並開始共同作業。
 
 ## <a name="clean-up"></a>清除
 若要完全刪除叢集上的 Azure Dev Spaces 執行個體，包括所有開發人員空間及其中正在執行的服務，請使用 `az aks remove-dev-spaces` 命令。 請記住此動作無法復原。 您可以在叢集上再次新增 Azure Dev Spaces 的支援，但會如同您再次開始執行。 將不會還原您的舊服務和空間。

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: cf39639c6b9e20337412b7b071f6d6840904ba6c
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 32e92cb8cd6cd5d16ea8d38d178bb440420e6784
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738210"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546359"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>教學課程：在 Azure 中監視和更新 Windows 虛擬機器
 
@@ -142,7 +142,7 @@ Get-AzVMBootDiagnosticsData -ResourceGroupName "myResourceGroupMonitor" -Name "m
 驗證程序也會檢查 VM 是否以 Microsoft Monitoring Agent (MMA) 和自動化混合式 Runbook 背景工作角色佈建。
 此代理程式用來與 VM 通訊，並取得更新狀態的相關資訊。
 
-選擇 Log Analytics 工作區和自動化帳戶，然後按一下 [啟用] 以啟用解決方案。 啟用解決方案最多需要 15 分鐘。
+選擇 Log Analytics 工作區與自動化帳戶，然後按一下 [啟用] 以啟用解決方案。 啟用解決方案最多需要 15 分鐘。
 
 如果在上線期間遺漏下列任何必要條件，就會自動新增：
 
@@ -154,7 +154,7 @@ Get-AzVMBootDiagnosticsData -ResourceGroupName "myResourceGroupMonitor" -Name "m
 
 ![啟用更新管理解決方案](./media/tutorial-monitoring/manageupdates-update-enable.png)
 
-啟用解決方案可能需要 15 分鐘。 在此期間，請勿關閉瀏覽器視窗。 啟用解決方案之後，有關在 VM 上遺漏更新的相關資訊會流向 Log Analytics。 可能需要 30 分鐘到 6 小時，資料才可供分析。
+啟用解決方案可能需要 15 分鐘。 在此期間，請勿關閉瀏覽器視窗。 啟用解決方案之後，有關在 VM 上遺漏更新的相關資訊會流向 Azure 監視器記錄。 可能需要 30 分鐘到 6 小時，資料才可供分析。
 
 ### <a name="view-update-assessment"></a>檢視更新評量
 
@@ -282,7 +282,7 @@ Set-AzVMExtension -ResourceGroupName "myResourceGroupMonitor" `
 
 幾分鐘之後，您應該就會在 Log Analytics 工作區中看到新的 VM。
 
-![Log Analytics 刀鋒視窗](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+![Log Analytics 工作區刀鋒視窗](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,110 +1,91 @@
 ---
-title: 什麼是語音服務？
+title: 什麼是 Azure 語音服務？
 titleSuffix: Azure Cognitive Services
-description: 語音服務為 Azure 認知服務的一部分，可結合數個先前單獨提供的語音服務：Bing 語音 (包含語音辨識和文字轉換語音)、自訂語音及語音翻譯。
+description: Azure 語音服務會將語音轉文字、文字轉語音及語音翻譯整合至單一 Azure 訂用帳戶。 藉由語音 SDK、語音裝置 SDK 或 REST API，可輕易地將語音新增至您的應用程式、工具和裝置。 將語音功能新增至現有的聊天機器人、轉換翻譯應用程式中的文字轉語音，或轉譯話務中心的大量資料。
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 12/13/2018
+ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: d60e5f881e44f397090a3ba5e467c08f20137d72
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d4587b5268635691d55b51a7bf88bbe01df2a0c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858821"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871633"
 ---
-# <a name="what-is-speech-services"></a>什麼是語音服務？
+# <a name="what-are-the-speech-services"></a>什麼是語音服務？
 
-如同其他 Azure 語音服務，語音服務是由 Cortana 和 Microsoft Office 等產品中使用的語音技術所提供的。
+Azure 語音服務會將語音轉文字、文字轉語音及語音翻譯整合至單一 Azure 訂用帳戶。 藉由[語音 SDK](speech-sdk-reference.md)、[語音裝置 SDK](speech-devices-sdk-qsg.md) 或 [REST API](rest-apis.md)，可輕易地透過語音來啟用您的應用程式、工具和裝置。
 
-語音服務結合了先前透過 [Bing 語音 API](https://docs.microsoft.com/azure/cognitive-services/speech/home)、[翻譯工具語音](https://docs.microsoft.com/azure/cognitive-services/translator-speech/)、[自訂語音 (Custom Speech)](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home) 和[自訂語音 (Custom Voice)](http://customvoice.ai/) \(英文\) 服務提供的 Azure 語音功能。 現在，只要一個訂用帳戶即可存取前述所有功能。
+> [!IMPORTANT]
+> 語音服務已取代 Bing 語音 API、翻譯工具語音和自訂語音。 如需移轉說明，請參閱 [操作指南] > [移轉]。
 
-## <a name="main-speech-services-functions"></a>主要語音服務函式
+Azure 語音服務是由以下功能所組成。 請使用此資料表中的連結，深入了解每項功能的常見使用案例，或瀏覽 API 參考。
 
-語音服務的主要函式是語音轉換文字 (也稱為語音辨識或轉譯)、文字轉換語音 (語音合成)，以及語音翻譯。
+| 服務 | 功能 | 說明 | SDK | REST |
+|---------|---------|-------------|-----|------|
+| [語音轉文字](speech-to-text.md) | 語音轉文字 | 語音轉文字會即時地將音訊串流轉譯成文字，以便您的應用程式、工具或裝置使用或顯示。 若搭配 [Language Understanding (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) 使用語音轉文字，即可從轉譯的語音衍生使用者意圖，以及根據語音命令執行動作。 | [是](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [是](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| | [批次轉譯](batch-transcription.md) | 批次轉譯可讓您非同步地對大量資料進行語音轉文字的轉譯。 這是以 REST 為基礎的服務，其在自訂和模型管理上使用相同端點。 | 否 | [是](https://westus.cris.ai/swagger/ui/index) |
+| | [自訂](#customize-your-speech-experience) | 如果您在獨特的環境中使用語音轉文字進行辨識及轉譯，您可以建立並定型自訂原音、語言和發音模型，以處理環境噪音或業界專有詞彙。 | 否 | [是](https://westus.cris.ai/swagger/ui/index) |
+| [文字轉換語音](text-to-speech.md) | 文字轉換語音 | 文字轉語音會將輸入文字轉換為仿真人的合成語音。 可選擇標準語音和類神經語音 (請參閱[語言支援](language-support.md))。 | 否 | [是](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| | [自訂](#customize-your-speech-experience) | 建立您品牌或產品專有的自訂聲音音調。 | 否 | [是](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [語音翻譯](speech-translation.md) | 語音翻譯 | 語音翻譯可讓您在應用程式、工具和裝置上使用即時且多語言的語音翻譯。 此服務可用於語音轉語音及語音轉文字翻譯。 | [是](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | 否 |
 
-|函式|特性|
-|-|-|
-|[語音轉文字](speech-to-text.md)| <li>連續的即時語音謄寫成文字。<li>可以分批謄寫錄音中的語音。 <li>支援的中繼結果、語音結束偵測、自動文字格式，和不雅內容遮罩。 <li>可呼叫 [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS)，從謄寫的語音衍生使用者意圖。\*|
-|[文字轉換語音](text-to-speech.md)| <li>**新功能**：提供幾乎無法與人類語音 (英文) 區別之文字轉換語音的類神經語音。 <li>將文字轉換成自然發音語音。 <li>為多種支援的語言提供多個性別和/或方言。 <li>支援純文字輸入或語音合成標記語言 (SSML)。 |
-|[語音翻譯](speech-translation.md)| <li>近乎即時地翻譯串流音訊。<li> 也可以處理錄製的語音。<li>提供文字或合成語音形式的結果。 |
+## <a name="news-and-updates"></a>新功能和更新
 
+了解 Azure 語音服務的新功能。
 
-## <a name="customize-speech-features"></a>自訂語音功能
+* 2019 年 2 月 - 發行支援 [Unity (Beta)](quickstart-csharp-unity.md) 的語音 SDK 1.3.0。 新增 `AudioInput` 類別的支援，可讓您選擇音訊的串流來源。 如需增強功能和已知問題的完整清單，請參閱[版本資訊](releasenotes.md)。
+* 2018 年 12 月 - 發行支援 [Python](quickstart-python.md)、[Node.js](quickstart-js-node.md) 和 Ubuntu 18.04 LTS 的語音 SDK 1.2.0。 如需詳細資訊，請參閱[版本資訊](releasenotes.md)。
+* 2018 年 12 月 - 新增適用於 [.NET Core](quickstart-dotnet-text-to-speech.md)、[Python](quickstart-python-text-to-speech.md)、[Node.js](quickstart-nodejs-text-to-speech.md) 的文字轉語音快速入門。 [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http) 上有其他範例。
 
-您可以使用自己的資料來將模型定型，作為語音服務的語音轉換文字和文字轉換語音功能的基礎。
+## <a name="try-speech-services"></a>試試語音服務
 
-|功能|模型|目的|
-|-|-|-|
-|語音轉文字|[原音模型](how-to-customize-acoustic-models.md)|有助於謄寫特定的說話者和環境，例如汽車或工廠。|
-||[語言模型](how-to-customize-language-model.md)|有助於謄寫特定領域的詞彙和文法，例如醫療或 IT 專業術語。|
-||[發音模型](how-to-customize-pronunciation.md)|有助於謄寫縮寫和縮略字，例如 "IOU" 代表 "I owe you"。 |
-|文字轉換語音|[聲音音調](how-to-customize-voice-font.md)|以人類語音的範例將模型定型，給予應用程式它自己的聲音。|
+我們以最受歡迎的程式設計語言提供快速入門，目的是讓您能在 10 分鐘內執行程式碼。 此資料表包含每項功能最受歡迎的快速入門。 您可以使用左側導覽列來瀏覽其他語言及平台。
 
-在應用程式的語音轉換文字或文字轉換語音功能中使用標準模型的地方，都可以使用您的自訂模型。
+| 語音轉文字 (SDK) | 翻譯 (SDK) | 文字轉語音 (REST) |
+|-------------------|-------------------|-----------------------|
+| [C#、.NET Core (Windows)](quickstart-csharp-dotnet-windows.md) | [Java (Windows、Linux)](quickstart-translate-speech-java-jre.md) | [Python (Windows、Linux、macOS)](quickstart-python-text-to-speech.md) |
+| [Javascript (瀏覽器)](quickstart-js-browser.md) | [C#、.NET Core (Windows)](quickstart-translate-speech-dotnetcore-windows.md) | [C#、.NET Core (Windows、Linux、macOS)](quickstart-dotnet-text-to-speech.md) |
+| [Python (Windows、Linux、macOS)](quickstart-python.md) | [C#、.NET Framework (Windows)](quickstart-translate-speech-dotnetframework-windows.md) | [Node.js (Windows、Linux、macOS)](quickstart-nodejs-text-to-speech.md) |
+| [Java (Windows、Linux)](quickstart-java-jre.md) | [C++ (Windows)](quickstart-translate-speech-cpp-windows.md) | |
 
-## <a name="use-the-speech-service"></a>使用語音服務
+當您有機會使用語音服務後，請嘗試使用我們的教學課程，其中會教導您如何使用語音 SDK 和 LUIS 從語音辨識意圖。
 
-為了讓支援語音的應用程式更易於開發，Microsoft 提供了可與語音服務搭配使用的[語音 SDK](speech-sdk.md)。 語音 SDK 提供適用於 C#、C++ 和 Java 且具一致性的原生語音轉換文字和語音翻譯 API。 如果您要使用其中一種語言進行開發，語音 SDK 將可為您處理網路詳細資料，而讓開發更為容易。
+* [教學課程：使用語音 SDK 和 LUIS 從語音辨識意圖 (C#)](how-to-recognize-intents-from-speech-csharp.md)
 
-語音服務也具有適用於任何程式設計語言的 [REST API](rest-apis.md)，可用來發出 HTTP 要求。 REST 介面並未提供 SDK 的即時串流功能。
+## <a name="get-sample-code"></a>取得範例程式碼
 
-|<br>方法|語音<br>轉換文字|文字轉換<br>語音|語音<br>翻譯|<br>說明|
-|-|-|-|-|-|
-|[語音 SDK](speech-sdk.md)|yes|否|yes|適用於 C#、C++ 和 Java 的原生 API，可簡化開發工作。|
-|[REST APIs](rest-apis.md)|yes|是|否|以 HTTP 為基礎的簡單 API，可讓您輕鬆地將語音新增至您的應用程式。|
+每個 Azure 語音服務的範例程式碼皆可在 GitHub 上取得。 這些範例包含常見案例，例如：從檔案或資料流讀取音訊、連續辨識、一次性辨識及使用自訂模型。 使用下列連結來檢視 SDK 和 REST 範例：
 
-### <a name="websockets"></a>WebSocket
+* [語音轉文字及語音翻譯範例 (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [批次轉譯範例 (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
+* [文字轉語音範例 (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
-語音服務也支援用來串流處理語音轉換文字和語音翻譯的 Websocket 通訊協定。 語音 SDK 會使用這些通訊協定與語音服務進行通訊。 您應使用語音 SDK，而不是嘗試實作自己的 WebSocket 通訊來與語音服務通訊。
+## <a name="customize-your-speech-experience"></a>自訂語音體驗
 
-如果您已有透過 Websocket 使用 Bing 語音或翻譯工具語音的程式碼，您可以更新它以使用語音服務。 WebSocket 通訊協定是相容的，但端點不同。
+Azure 語音服務可順利地與內建模型搭配使用，不過，您可以進一步自訂及調整體驗，以搭配您的產品或環境。 從原音模型調整到專屬於自身品牌的獨特聲音音調，都是自訂選項的範圍。 建立自訂模型之後，您可以將其與任一 Azure 語音服務搭配使用。
 
-### <a name="speech-devices-sdk"></a>語音裝置 SDK
+| 語音服務 | 模型 | 說明 |
+|----------------|-------|-------------|
+| 語音轉文字 | [原音模型](how-to-customize-acoustic-models.md) | 針對用於特定環境 (例如汽車或工廠) 的應用程式、工具或裝置建立自訂原音模型，而這每一個的錄音條件都較特殊。 例如，帶有口音的語音、特定背景雜音或使用特定麥克風來錄音。 |
+| | [語言模型](how-to-customize-language-model.md) | 建立自訂語言模型來提升特定領域的詞彙和文法轉譯，例如醫療術語或 IT 專業術語。 |
+| | [發音模型](how-to-customize-pronunciation.md) | 使用自訂發音模型，您可以定義語音形式和顯示字組或字詞。 它可用於處理自訂的字詞，如產品名稱或縮略字。 您只需要有發音檔 - 簡單的 .txt 檔。 |
+| 文字轉語音 | [聲音音調](how-to-customize-voice-font.md) | 自訂聲音音調可讓您為自己的品牌建立可辨識的獨特聲音。 只需少量資料即可開始建立。 提供的資料愈多，您的聲音音調聽起來就愈自然且愈像真人。 |
 
-[語音裝置 SDK](speech-devices-sdk.md) 是支援語音的裝置開發人員所適用的整合式硬體和軟體平台。 我們的硬體合作夥伴會提供參考設計和開發單元。 Microsoft 提供可充分運用硬體功能的裝置最佳化 SDK。
+## <a name="reference-docs"></a>參考文件
 
-
-## <a name="speech-scenarios"></a>語音案例
-
-語音服務的使用案例包括：
-
-> [!div class="checklist"]
-> * 建立語音觸發式應用程式
-> * 謄寫話務中心錄音
-> * 實作語音聊天機器人
-
-### <a name="voice-user-interface"></a>語音使用者介面
-
-語音輸入可讓應用程式富有彈性、能夠免持，且快速使用。 在支援語音的應用程式中，使用者可直接要求所需的資訊。
-
-如果應用程式的適用對象是一般大眾，您可以使用預設的語音辨識模型。 它們可在一般環境下妥善辨識各種不同的說話者。
-
-若您的應用程式是在特定環境 (例如醫療或 IT 環境) 中使用，您可以建立[語言模型](how-to-customize-language-model.md)。 您可以使用此模型來教導語音服務有關您應用程式所使用的特殊術語。
-
-若您的應用程式在吵雜的環境 (例如工廠) 中使用，您可以建立自訂[原音模型](how-to-customize-acoustic-models.md)。 此模型可協助語音服務區分語音或噪音。
-
-### <a name="call-center-transcription"></a>話務中心轉譯
-
-我們通常只會在通話發生問題時，才會回頭聽取話務中心的錄音內容。 有了語音服務，將錄音謄寫為文字便很容易。 您可以輕鬆地為文字編製索引以進行[全文檢索搜尋](https://docs.microsoft.com/azure/search/search-what-is-azure-search)，或套用[文字分析](https://docs.microsoft.com/azure/cognitive-services/Text-Analytics/)來偵測情感、語言與關鍵片語。
-
-如果話務中心錄音涉及專用術語 (例如，產品名稱或 IT 專業術語)，您可以建立[語言模型](how-to-customize-language-model.md)來讓語音服務學習這些詞彙。 自訂[原音模型](how-to-customize-acoustic-models.md)可協助語音服務了解較差的電話連線。
-
-如需此案例的詳細資訊，請深入了解語音服務的[批次謄寫](batch-transcription.md)。
-
-### <a name="voice-bots"></a>語音聊天機器人
-
-[聊天機器人](https://dev.botframework.com/)日漸成為讓使用者獲得其所需資訊，以及讓客戶接觸到所喜愛業務的熱門方式。 當您將對話式使用者介面新增到網站或應用程式時，可提升其功能的尋找和存取速度。 使用語音服務時，此對話會以同樣的方式回應口語查詢，而呈現出煥然一新的流暢度。
-
-若要在具有語音功能的聊天機器人中新增獨特的風格，您可以為它添加自己的語音。 建立自訂語音的程序需要兩個步驟。 首先，[錄製](record-custom-voice-samples.md)您想要使用的語音。 接著，[提交那些錄音](how-to-customize-voice-font.md) (以及文字謄寫) 給語音服務的[語音自訂入口網站](https://cris.ai/Home/CustomVoice)，由它完成其餘作業。 建立您的自訂語音之後，在您的應用程式中使用它的步驟非常直覺。
+* [語音 SDK](speech-sdk-reference.md)
+* [語音裝置 SDK](speech-devices-sdk.md)
+* [REST API：語音轉文字](rest-speech-to-text.md)
+* [REST API：文字轉語音](rest-text-to-speech.md)
+* [REST API：批次轉譯與自訂](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>後續步驟
 
-取得語音服務的訂用帳戶金鑰。
-
 > [!div class="nextstepaction"]
-> [免費試用語音服務](get-started.md)
+> [免費取得語音服務的訂用帳戶金鑰](get-started.md)

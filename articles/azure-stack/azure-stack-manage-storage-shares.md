@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 03/19/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 5e6a44018cde84067a4c16c9d3d62227733f6658
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 617696c842ab90fc36c68e74831ffd1d79d14bc4
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075573"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225700"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>管理 Azure Stack 的儲存體容量 
 
@@ -89,7 +89,7 @@ VM 磁碟包含作業系統磁碟，並由租用戶新增至容器。 VM 也可�
 身為雲端操作員，您可以使用管理員入口網站來檢視所有共用的儲存體容量。
 
 1. 登入[管理入口網站](https://adminportal.local.azurestack.external)。
-2. 選取 [所有服務]  >  [儲存體] 以開啟檔案共用清單，您可以在其中檢視使用量資訊。 
+2. 選取 [所有服務] > [儲存體] > [檔案共用] 以開啟檔案共用清單，您可以在其中檢視使用量資訊。 
 
     ![範例：儲存體檔案共用](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 

@@ -1,6 +1,6 @@
 ---
-title: PowerShell 範例 - 建立 Azure SQL Database 受控執行個體 | Microsoft Docs
-description: 建立 Azure SQL Database 受控執行個體的 Azure PowerShell 範例指令碼
+title: PowerShell 範例 - 在 Azure SQL Database 中建立受控執行個體 | Microsoft Docs
+description: 在 Azure SQL Database 中建立受控執行個體的 Azure PowerShell 範例指令碼
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,26 +11,28 @@ author: jovanpop-msft
 ms.author: jovanpop-msft
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: bbb22f8d5eab3e60eba13bb642edb8f8d190cf67
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 03/12/2019
+ms.openlocfilehash: 33a0e90f1a0b63138168c44b87385c05aac39c69
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54387950"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57869756"
 ---
-# <a name="use-powershell-with-azure-resource-manager-template-to-create-an-azure-sql-database-managed-instance"></a>使用 PowerShell 與 Azure Resource Manager 範本建立 Azure SQL Database 受控執行個體
+# <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>使用 PowerShell 與 Azure Resource Manager 範本在 Azure SQL Database 中建立受控執行個體
 
-您可以使用 Azure PowerShell 程式庫和 Azure Resource Manager 範本建立 Azure SQL Database 受控執行個體。 
+您可以使用 Azure PowerShell 程式庫和 Azure Resource Manager 範本建立 Azure SQL Database 受控執行個體。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，必須使用 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
+如果選擇在本機安裝和使用 PowerShell，此教學課程需要 AZ PowerShell 1.4.0 或更新版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。
 
 Azure PowerShell 命令可以使用預先定義的 Azure Resource Manager 範本啟動部署。 範本中可指定下列屬性：
+
 - 執行個體名稱
-- SQL 系統管理員使用者名稱和密碼。 
+- SQL 系統管理員使用者名稱和密碼。
 - 執行個體的大小 (核心數目和儲存體大小上限)。
 - 將放置執行個體的 VNet 和子網路。
 - 執行個體的伺服器層級定序 (預覽)。
@@ -39,7 +41,7 @@ Azure PowerShell 命令可以使用預先定義的 Azure Resource Manager 範本
 
 ## <a name="prerequisites"></a>必要條件
 
-此範例假設您已經為受控執行個體[建立有效的網路環境](../sql-database-managed-instance-create-vnet-subnet.md)或[修改現有的 VNet](../sql-database-managed-instance-configure-vnet-subnet.md)。 此範例會使用 Commandlet [New-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) 和 [Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetwork)，因此請確定您已安裝下列 PowerShell 模組：
+此範例假設您已經為受控執行個體[建立有效的網路環境](../sql-database-managed-instance-create-vnet-subnet.md)或[修改現有的 VNet](../sql-database-managed-instance-configure-vnet-subnet.md)。 此範例會使用 Commandlet [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) 和 [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork)，因此請確定您已安裝下列 PowerShell 模組：
 
 ```
 Install-Module AzureRM.Network
@@ -49,9 +51,10 @@ Install-Module AzureRM.Resources
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 範本
 
 下列內容應放置在代表範本的檔案內，此範本將用來建立執行個體：
+
 ```
 {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.1",
     "parameters": {
         "instance": {
@@ -73,7 +76,7 @@ Install-Module AzureRM.Resources
             "location": "West Central US",
             "tags": {
                 "Description":"GP Instance with custom instance collation - Serbian_Cyrillic_100_CS_AS"
-            },          
+            },
             "sku": {
                 "name": "GP_Gen4",
                 "tier": "GeneralPurpose"
@@ -85,7 +88,7 @@ Install-Module AzureRM.Resources
                 "storageSizeInGB": 256,
                 "vCores": 8,
                 "licenseType": "LicenseIncluded",
-                "hardwareFamily": "Gen4", 
+                "hardwareFamily": "Gen4",
                 "collation": "Serbian_Cyrillic_100_CS_AS"
             },
             "type": "Microsoft.Sql/managedInstances",
@@ -97,13 +100,14 @@ Install-Module AzureRM.Resources
     ]
 }
 ```
-我們假設已正確設定子網路的 Azure VNet 已存在。 否則，請使用不同的 [Azure 資源管理範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment)來準備網路環境，此動作可以獨立執行或包含在此範本中。
 
-將此檔案的內容儲存成 .json 檔案，並將檔案路徑放入下列 PowerShell 指令碼中，然後變更指令碼中的物件名稱： 
+我們假設已正確設定子網路的 Azure VNet 已存在。 如果您沒有正確設定的子網路，請使用不同的 [Azure 資源管理範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment)來準備網路環境，此動作可以獨立執行或包含在此範本中。
+
+將此檔案的內容儲存成 .json 檔案，並將檔案路徑放入下列 PowerShell 指令碼中，然後變更指令碼中的物件名稱：
 
 ```powershell
 $subscriptionId = "ed827499-xxxx-xxxx-xxxx-xxxxxxxxxx"
-Select-AzureRmSubscription -SubscriptionId $subscriptionId
+Select-AzSubscription -SubscriptionId $subscriptionId
 
 # Managed Instance properties
 $resourceGroup = "rg_mi"
@@ -116,22 +120,20 @@ $secpasswd = ConvertTo-SecureString "<Put some strong password here>" -AsPlainTe
 $vNetName = "my_vnet"
 $vNetResourceGroup = "rg_mi_vnet"
 $subnetName = "ManagedInstances"
-$vNet = Get-AzureRmVirtualNetwork -Name $vNetName -ResourceGroupName $vNetResourceGroup
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name $SubnetName -VirtualNetwork $vNet
+$vNet = Get-AzVirtualNetwork -Name $vNetName -ResourceGroupName $vNetResourceGroup
+$subnet = Get-AzVirtualNetworkSubnetConfig -Name $SubnetName -VirtualNetwork $vNet
 $subnetId = $subnet.Id
 
 # Deploy Instance using Azure Resource Manager template:
-New-AzureRmResourceGroupDeployment  -Name MyDeployment -ResourceGroupName $resourceGroup  `
+New-AzResourceGroupDeployment  -Name MyDeployment -ResourceGroupName $resourceGroup  `
                                     -TemplateFile 'C:\...\create-managed-instance.json' `
                                     -instance $name -user $user -pwd $secpasswd -subnetId $subnetId
 ```
-成功執行指令碼後，即可從所有 Azure 服務和所設定的 IP 位址存取 SQL Database。 
+
+成功執行指令碼後，即可從所有 Azure 服務和所設定的 IP 位址存取 SQL Database。
 
 ## <a name="next-steps"></a>後續步驟
 
 如需有關 Azure PowerShell 的詳細資訊，請參閱 [Azure PowerShell 文件](/powershell/azure/overview)。
 
 其他的 SQL Database PowerShell 指令碼範例可於 [Azure SQL Database PowerShell 指令碼](../sql-database-powershell-samples.md)中找到。
-
-
-

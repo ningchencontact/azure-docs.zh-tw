@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51f214688aa1e33bd58e8460baab75228d7c5d1a
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 12cbd9bebf001eb902147175c89b5d7ce49e8449
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317233"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487221"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Azure AD 密碼保護的疑難排解
 
@@ -105,7 +105,7 @@ KDS 服務無法啟動的最常見根本原因是 Active Directory 網域控制�
 2. 從所有網域控制站解除安裝 DC 代理程式軟體。 此步驟**需要**重新開機。
 3. 手動移除每個網域命名內容中的所有 Proxy 服務連接點。 您可以使用下列 Active Directory PowerShell 命令來找出這些物件的位置：
 
-   ```PowerShell
+   ```powershell
    $scp = "serviceConnectionPoint"
    $keywords = "{ebefb703-6113-413d-9167-9f8dd4d24468}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
@@ -117,7 +117,7 @@ KDS 服務無法啟動的最常見根本原因是 Active Directory 網域控制�
 
 4. 手動移除在每個網域命名內容中所有的 DC 代理程式連接點。 可能有其中一個這些物件每個網域控制站的樹系，取決於軟體已廣。 您可以使用下列 Active Directory PowerShell 命令來找出該物件的位置：
 
-   ```PowerShell
+   ```powershell
    $scp = "serviceConnectionPoint"
    $keywords = "{2bac71e6-a293-4d5b-ba3b-50b995237946}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
@@ -129,7 +129,7 @@ KDS 服務無法啟動的最常見根本原因是 Active Directory 網域控制�
 
 5. 手動移除樹系層級的組態狀態。 樹系組態狀態會保存在 Active Directory 組態命名內容中的容器內。 您可以依照下列方式加以探索和刪除：
 
-   ```PowerShell
+   ```powershell
    $passwordProtectionConfigContainer = "CN=Azure AD Password Protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
    Remove-ADObject -Recursive $passwordProtectionConfigContainer
    ```

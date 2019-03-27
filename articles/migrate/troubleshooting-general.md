@@ -4,14 +4,14 @@ description: 概括介紹 Azure Migrate 服務的已知問題以及常見錯誤�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 2b542cc8202b75c0007686e3f0e0d9fbd1ac28c1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 67c07169b3ff66d99ee52a0e078e0e463a42702e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119168"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482907"
 ---
 # <a name="troubleshoot-azure-migrate"></a>為 Azure Migrate 疑難排解
 
@@ -61,11 +61,11 @@ ms.locfileid: "58119168"
 
    a.    在系統管理員的 Windows PowerShell 視窗中，執行下列命令：```armclient login```
 
-   這會開啟您需要登入 Azure 所在的 Azure 登入快顯視窗。
+        This opens the Azure login pop-up where you need to sign in to Azure.
 
    b.    在相同的 PowerShell 視窗中，執行下列命令以取得評估報告的下載 URL (將 URI 參數取代為適當的值，也就是下方的範例 API 要求)
 
-      ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
+       ```armclient POST https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
 
       範例要求和輸出：
 
@@ -102,6 +102,9 @@ Azure Migrate 會持續分析內部部署環境，以收集效能資料的內部
    - 按一下 [檔案] > 部署 OVF 範本 > 瀏覽至 OVA 並完成部署
 4. 如果部署仍然失敗，請連絡 Azure Migrate 的支援。
 
+### <a name="unable-to-select-the-azure-cloud-in-the-appliance"></a>無法選取 Azure 雲端設備中
+
+這是已知的問題，並提供問題的修正程式為止。 請下載[最新升級的位元](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions)設備和更新的應用裝置，以套用修正程式。
 
 ### <a name="collector-is-not-able-to-connect-to-the-internet"></a>收集器無法連線到網際網路
 

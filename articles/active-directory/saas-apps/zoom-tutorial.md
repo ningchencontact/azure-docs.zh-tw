@@ -7,20 +7,20 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 0ebdab6c-83a8-4737-a86a-974f37269c31
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/05/2019
+ms.date: 03/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4175b626040f5fcb7ec157120f19b89508e67239
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 641fe5439e320208d41969b9563293257648d488
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872602"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842085"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>教學課程：Azure Active Directory 與 Zoom 整合
 
@@ -112,20 +112,20 @@ Zoom 與 Azure AD 整合提供下列優點：
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Zoom 客戶支援小組](https://support.zoom.us/hc/en-us)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
-5. Zoom 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
+5. Zoom 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] **** 圖示，以開啟 [使用者屬性] **** 對話方塊。
 
     ![映像](common/edit-attribute.png)
 
-6. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
+6. 除了以上屬性外，Zoom 應用程式還需要在 SAML 回應中傳回更多屬性。 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，執行下列步驟以設定 SAML 權杖屬性，如下表所示：
     
     | Name | 命名空間  |  來源屬性|
     | ---------------| --------------- | --------- |
-    | 電子郵件地址  | user.mail  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail |
-    | 名字  | user.givenname  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname |
-    | 姓氏  | user.surname  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname |
-    | 電話號碼  | user.telephonenumber  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone |
-    | department  | user.department  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department |
-    | 角色 |    user.assignedrole |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role |
+    | 電子郵件地址  | user.mail  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail` |
+    | 名字  | user.givenname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |
+    | 姓氏  | user.surname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |
+    | 電話號碼  | user.telephonenumber  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone` |
+    | department  | user.department  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department` |
+    | 角色 |    user.assignedrole |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role` |
 
     > [!NOTE]
     > 請按一下[這裡](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)，以了解如何在 Azure AD 中設定角色
@@ -179,13 +179,23 @@ Zoom 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入頁面 URL] 文字方塊中，貼上您從 Azure 入口網站複製的**登入 URL** 值。
 
-    b. 在 [登出頁面 URL] 文字方塊中，貼上您從 Azure 入口網站複製的**登出 URL** 值。
+    b. 針對 [登出頁面 URL] 值，您必須移至 Azure 入口網站，並按一下左側的 **Azure Active Directory**，然後瀏覽至 [應用程式註冊]。
 
-    c. 在記事本中開啟您的 base-64 編碼的憑證，將其內容複製到您的剪貼簿，然後貼到 [識別提供者憑證]  文字方塊中。
+    ![Azure Active Directory 按鈕](./media/zoom-tutorial/appreg.png)
 
-    d. 在 [簽發者] 文字方塊中，貼上您從 Azure 入口網站複製的 **Azure AD 識別碼**值。 
+    c. 按一下 [端點]
 
-    e. 按一下 [檔案] 。
+    ![端點按鈕](./media/zoom-tutorial/endpoint.png)
+
+    d. 將 **SAML-P SIGN-OUT ENDPOINT** 複製並貼到 [登出頁面 URL] 文字方塊中。
+
+    ![複製端點按鈕](./media/zoom-tutorial/endpoint1.png)
+
+    e. 在記事本中開啟您的 base-64 編碼的憑證，將其內容複製到您的剪貼簿，然後貼到 [識別提供者憑證]  文字方塊中。
+
+    f. 在 [簽發者] 文字方塊中，貼上您從 Azure 入口網站複製的 [Azure AD 識別碼] 值。 
+
+    g. 按一下 [檔案] 。
 
     > [!NOTE]
     > 如需詳細資訊，請瀏覽 Zoom 文件[https://zoomus.zendesk.com/hc/articles/115005887566](https://zoomus.zendesk.com/hc/articles/115005887566)
@@ -208,7 +218,7 @@ Zoom 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。

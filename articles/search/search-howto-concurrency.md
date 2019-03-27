@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2c317bbdef2511728d23b33d8eef1c4a41a87d97
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 4599498918b7a01a1207f20135c26924c6758eb8
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201512"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499420"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>如何管理 Azure 搜尋服務中的並行
 
@@ -170,7 +170,7 @@ ms.locfileid: "58201512"
 
 實作開放式同步存取的設計模式應包含重複嘗試存取條件檢查、測試存取條件，並選擇性擷取更新資源，然後再嘗試重新套用變更的迴圈。
 
-此程式碼片段說明如何將 synonymMap 新增至已存在的索引。 此程式碼取自[同義字 （預覽） C# Azure 搜尋服務的範例](https://docs.microsoft.com/azure/search/search-synonyms-example-sdk)。
+此程式碼片段說明如何將 synonymMap 新增至已存在的索引。 此程式碼取自[同義字 （預覽） C# Azure 搜尋服務的範例](search-synonyms-tutorial-sdk.md)。
 
 該程式碼片段會取得 "hotels" 索引，檢查更新作業的物件版本，在條件失敗的情況下擲回例外狀況，然後重試該作業 (最多三次)，並從自伺服器擷取索引以取得最新版本開始。
 

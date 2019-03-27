@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 41b80e3914c93a4baeb39f35c7281f8fe81ff37c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fee22561bb0c341ed5c6e4dc49a8d7f8aa8efaf2
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835311"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445190"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>流量分析常見問題集
 
@@ -163,7 +163,7 @@ Log Analytics 工作區必須存在於下列區域：
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>我可以使用 PowerShell 或 Azure Resource Manager 範本或用戶端來設定流量分析嗎？
 
-您可以使用 Windows PowerShell 6.2.1 以上版本設定流量分析。 若要使用 Set cmdlet 針對特定 NSG 設定流量記錄和流量分析，請參閱 [Set-AzureRmNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.3.0)。 若要取得特定 NSG 的流量記錄和流量分析狀態，請參閱 [Get-AzureRmNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcherflowlogstatus?view=azurermps-6.3.0)。
+您可以使用 Windows PowerShell 6.2.1 以上版本設定流量分析。 若要使用 Set cmdlet 針對特定 NSG 設定流量記錄和流量分析，請參閱 [Set-AzureRmNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog)。 若要取得特定 NSG 的流量記錄和流量分析狀態，請參閱 [Get-AzureRmNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcherflowlogstatus)。
 
 目前您無法使用 Azure Resource Manager 範本來設定流量分析。
 

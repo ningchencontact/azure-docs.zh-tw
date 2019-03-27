@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d87fe608b92dd70cb2dee78c817e0055445b7c70
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ee4a78148c36c7838edcc36f8f76ad612ac87ab0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732509"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487952"
 ---
 # <a name="automation-with-service-principals"></a>使用服務主體進行自動化
 
@@ -51,7 +51,7 @@ ms.locfileid: "56732509"
 
 在下列範例中，appID 和密碼可用來執行模型資料庫重新整理作業：
 
-```PowerShell
+```powershell
 Param (
 
         [Parameter(Mandatory=$true)] [String] $AppId,

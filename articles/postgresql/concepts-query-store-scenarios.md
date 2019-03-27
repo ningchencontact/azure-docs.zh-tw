@@ -5,20 +5,17 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/26/2018
-ms.openlocfilehash: 24bd6fbcf47a340020b5ed171b84aeed9fa96fe8
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.date: 03/26/2018
+ms.openlocfilehash: 873462354b70d13e56ca108c3257031ef34873f8
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53534651"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480849"
 ---
 # <a name="usage-scenarios-for-query-store"></a>查詢存放區的使用案例
 
 **適用範圍：** 適用於 PostgreSQL 9.6 和 10 的 Azure 資料庫
-
-> [!IMPORTANT]
-> 查詢存放區功能處於公開預覽狀態。
 
 您可以在各種不同的案例中使用查詢存放區，在這些案例中追蹤和維護可預測的工作負載效能至關重要。 請思考一下以下範例： 
 - 識別並調整前幾個成本昂貴的查詢 

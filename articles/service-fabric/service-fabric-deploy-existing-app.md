@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: aljo
-ms.openlocfilehash: 5831a21225b80e613f713a516d2f000f8b33f096
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fa883f819c53f57a8e281069b2a3db1c55efc6c6
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57853149"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480530"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>將現有可執行檔封裝和部署至 Service Fabric
 在封裝現有可執行檔作為[來賓可執行檔](service-fabric-guest-executables-introduction.md)時，您可以選擇使用 Visual Studio 專案範本，或是[手動建立應用程式套件](#manually)。 使用 Visual Studio 時，就可讓 [新增專案範本] 為您建立應用程式套件的結構和資訊清單檔案。
@@ -254,7 +254,7 @@ WorkingFolder 適合用來設定正確的工作目錄，以便應用程式或初
 ## <a name="deployment"></a>部署
 最後一個步驟是[部署應用程式](service-fabric-deploy-remove-applications.md)。 下面的 PowerShell 脚本展示了如何将应用程序部署到本地开发群集，并启动新的 Service Fabric 服务。
 
-```PowerShell
+```powershell
 
 Connect-ServiceFabricCluster localhost:19000
 

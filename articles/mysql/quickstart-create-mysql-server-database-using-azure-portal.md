@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 01/09/2019
-ms.openlocfilehash: ce4feefa1b83f81fa1160ddc93a53da56c24fd7e
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 7095d3b94fb94d3f3ec246d16c7fb4fdaa4d89eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189876"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860783"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>使用 Azure 入口網站建立 Azure Database for MySQL 伺服器
 
@@ -42,14 +42,14 @@ ms.locfileid: "54189876"
     ---|---|---
     伺服器名稱 | 唯一的伺服器名稱 | 選擇可識別 Azure Database for MySQL 伺服器的唯一名稱。 例如，mydemoserver。 網域名稱 .mysql.database.azure.com 已附加至您提供的伺服器名稱。 伺服器名稱只能包含小寫字母、數字及連字號 (-) 字元。 此名稱必須包含 3 到 63 個字元。
     訂用帳戶 | 您的訂用帳戶 | 選取您要用於伺服器的 Azure 訂用帳戶。 如果您有多個訂用帳戶，請選擇資源計費的訂用帳戶。
-    資源群組 | *myresourcegroup* | 提供新的或現有的資源群組名稱。    資源群組|*myresourcegroup*| 新的資源群組名稱，或您訂用帳戶中現有的資源群組名稱。
+    資源群組 | *myresourcegroup* | 提供新的或現有的資源群組名稱。
     選取來源 | 空白 | 選取 [空白]，從頭開始建立新的伺服器。 (如果您要從現有「適用於 MySQL 的 Azure 資料庫」伺服器的異地備份建立伺服器，請選取 [備份])。
     伺服器管理員登入 | myadmin | 當您連線至伺服器時所要使用的登入帳戶。 系統管理員登入名稱不能是 **azure_superuser**、**admin**、**administrator**、**root**、**guest** 或 **public**。
     密碼 | 您的選擇 | 為伺服器管理帳戶提供新密碼。 此密碼必須包含 8 到 128 個字元。 您的密碼必須包含下列類別中三種類別的字元：英文大寫字母、英文小寫字母、數字 (0-9) 及非英數字元 (!、$、#、% 等等)。
     確認密碼 | 您的選擇| 確認管理帳戶密碼。
     位置 | *最接近使用者的區域*| 選擇最靠近您的使用者或其他 Azure 應用程式的位置。
     版本 | *最新主要版本*| 最新主要版本 (除非您有需要另一個版本的特定需求)。
-    定價層 | **一般用途**、**Gen 4**、**2 個虛擬核心**、**5GB**、**7 天**、**異地備援** | 新伺服器的計算、儲存體和備份組態。 選取 [定價層]。 接下來，選取 [一般用途] 索引標籤。Gen 4、2 個虛擬核心、5 GB 和 7 天是**計算世代**、**虛擬核心**、**儲存體**和**備份保留期限**。 您可以讓這些滑桿保留原狀。 若要啟用異地備援儲存體中的伺服器備份，請從 [備份備援選項] 中選取 [異地備援]。 若要儲存此定價層選取項目，請選取 [確定]。 下方螢幕擷取畫面會擷取這些選取項目。
+    定價層 | **一般用途**、**Gen 5**、**2 個虛擬核心**、**5 GB**、**7 天**、**異地備援** | 新伺服器的計算、儲存體和備份組態。 選取 [定價層]。 接下來，選取 [一般用途] 索引標籤。Gen 5、2 個虛擬核心、5 GB 和 7 天是**計算世代**、**虛擬核心**、**儲存體**和**備份保留期限**的預設值。 您可以讓這些滑桿保留原狀。 若要啟用異地備援儲存體中的伺服器備份，請從 [備份備援選項] 中選取 [異地備援]。 若要儲存此定價層選取項目，請選取 [確定]。 下方螢幕擷取畫面會擷取這些選取項目。
   
    > [!NOTE]
    > 如果您的工作負載只需要輕量計算和 I/O，請考慮使用基本定價層。 請注意，在基本定價層中建立的伺服器後續無法調整為「一般用途」或「記憶體最佳化」。 如需詳細資訊，請參閱[定價頁面](https://azure.microsoft.com/pricing/details/mysql/)。
@@ -57,21 +57,21 @@ ms.locfileid: "54189876"
 
    ![建立伺服器 - 定價層視窗](./media/quickstart-create-mysql-server-database-using-azure-portal/3-pricing-tier.png)
 
-4.  選取 [建立] 以佈建伺服器。 佈建作業可能需要多達 20 分鐘的時間。
+4. 選取 [建立] 以佈建伺服器。 佈建作業可能需要多達 20 分鐘的時間。
    
-5.  在工具列上選取 [通知] \(鈴鐺圖示) 以監視部署程序。
+5. 在工具列上選取 [通知] \(鈴鐺圖示) 以監視部署程序。
    
-  根據預設，您的伺服器底下會建立下列資料庫：**information_schema**、**mysql**、**performance_schema** 和 **sys**。
+   根據預設，您的伺服器底下會建立下列資料庫：**information_schema**、**mysql**、**performance_schema** 和 **sys**。
 
 ## <a name="configure-a-server-level-firewall-rule"></a>設定伺服器層級防火牆規則
 
 Azure Database for MySQL 服務會在伺服器層級建立防火牆。 它會防止外部應用程式和工具連線到伺服器及伺服器上的任何資料庫，除非已建立防火牆規則以針對特定的 IP 位址開啟防火牆。 
 
-1.   在部署完成之後，找出您的伺服器。 如有需要，您可以搜尋它。 例如，從左側功能表選取 [所有資源]。 然後輸入伺服器名稱 (例如 **mydemoserver**) 來搜尋新建立的伺服器。 從搜尋結果清單中選取伺服器名稱。 伺服器的 [概觀] 頁面隨即開啟，並提供可進行進一步設定的選項。
+1. 在部署完成之後，找出您的伺服器。 如有需要，您可以搜尋它。 例如，從左側功能表選取 [所有資源]。 然後輸入伺服器名稱 (例如 **mydemoserver**) 來搜尋新建立的伺服器。 從搜尋結果清單中選取伺服器名稱。 伺服器的 [概觀] 頁面隨即開啟，並提供可進行進一步設定的選項。
 
 2. 在伺服器頁面上，選取 [連線安全性]。
 
-3.  在 [防火牆規則] 標題之下，選取 [規則名稱] 欄中的空白文字方塊，開始建立防火牆規則。 輸入將存取此伺服器之用戶端的精確 IP 範圍。
+3. 在 [防火牆規則] 標題之下，選取 [規則名稱] 欄中的空白文字方塊，開始建立防火牆規則。 輸入將存取此伺服器之用戶端的精確 IP 範圍。
    
    ![連線安全性 - 防火牆規則](./media/quickstart-create-mysql-server-database-using-azure-portal/5-firewall-2.png)
 
@@ -92,7 +92,7 @@ Azure Database for MySQL 服務會在伺服器層級建立防火牆。 它會防
 
 2. 將您的游標停留在每個欄位上，複製圖示就會出現在文字右邊。 視需要選取複製圖示來複製值。
 
-在此範例中，伺服器名稱為 **mydemoserver.mysql.database.azure.com**，而伺服器管理員登入為 **myadmin@mydemoserver**。
+在此範例中，伺服器名稱為 **mydemoserver.mysql.database.azure.com**，而伺服器管理員登入為 **myadmin\@mydemoserver**。
 
 ## <a name="connect-to-mysql-by-using-the-mysql-command-line-tool"></a>使用 mysql 命令列工具連線到 MySQL
 使用 **mysql.exe** 命令列工具連線到伺服器。 您可以從[這裡](https://dev.mysql.com/downloads/)下載 MySQL，再將它安裝於電腦上。 
@@ -112,7 +112,7 @@ Azure Database for MySQL 服務會在伺服器層級建立防火牆。 它會防
     mysql 參數 |建議的值|說明
     ---|---|---
     --host | *伺服器名稱* | 您稍早建立 Azure Database for MySQL 伺服器時所用的伺服器名稱值。 範例伺服器是 **mydemoserver.mysql.database.azure.com**。 使用如範例所示的完整網域名稱 (**\*.mysql.database.azure.com**)。 如果您不記得您的伺服器名稱，請依照上一節中的步驟執行，以取得連線資訊。 
-    --user | 伺服器管理員登入名稱 |您稍早建立 Azure Database for MySQL 時所提供的伺服器管理員登入使用者名稱。 如果您不記得使用者名稱，請依照上一節中的步驟執行，以取得連線資訊。 格式為 *username@servername*。
+    --user | 伺服器管理員登入名稱 |您稍早建立 Azure Database for MySQL 時所提供的伺服器管理員登入使用者名稱。 如果您不記得使用者名稱，請依照上一節中的步驟執行，以取得連線資訊。 格式是 username\@servername。
     -p | 等到出現提示為止 |出現提示時，提供您在建立伺服器時所提供的相同密碼。 請注意，輸入的密碼字元不會顯示在 bash 提示字元上。 您已輸入密碼之後，請選取 **Enter**。
 
    連線之後，mysql 公用程式會顯示 `mysql>` 提示字元，供您鍵入命令。 
@@ -185,7 +185,7 @@ Azure Database for MySQL 服務會在伺服器層級建立防火牆。 它會防
     連線方式 | 標準 (TCP/IP) | 標準 (TCP/IP) 就足夠了。 |
     主機名稱 | *伺服器名稱* | 您稍早建立 Azure Database for MySQL 伺服器時所用的伺服器名稱值。 範例伺服器是 **mydemoserver.mysql.database.azure.com**。 使用如範例所示的完整網域名稱 (**\*.mysql.database.azure.com**)。 如果您不記得您的伺服器名稱，請依照上一節中的步驟執行，以取得連線資訊。|
      Port | 3306 | 連線至 Azure Database for MySQL 伺服器時所要使用的連接埠。 |
-    使用者名稱 |  伺服器管理員登入名稱 | 您稍早建立 Azure Database for MySQL 時所提供的伺服器管理員登入資訊。 我們的範例使用者名稱為 **myadmin@mydemoserver**。 如果您不記得使用者名稱，請依照上一節中的步驟執行，以取得連線資訊。 格式為 *username@servername*。
+    使用者名稱 |  伺服器管理員登入名稱 | 您稍早建立 Azure Database for MySQL 時所提供的伺服器管理員登入資訊。 我們的範例使用者名稱為 **myadmin\@mydemoserver**。 如果您不記得使用者名稱，請依照上一節中的步驟執行，以取得連線資訊。 格式是 username\@servername。
     密碼 | *您的密碼* | 選取 [儲存在保存庫...] 按鈕以儲存密碼。 |
 
 4. 選取 [測試連線] 以測試所有參數是否都已設定正確。 然後選取 [確定] 可儲存連線。 
@@ -208,13 +208,13 @@ Azure Database for MySQL 服務會在伺服器層級建立防火牆。 它會防
 
 若只要刪除新建立的伺服器，請採取下列步驟：
 
-1.  在 Azure 入口網站中找出您的伺服器 (如果您尚未將它開啟)。 從 Azure 入口網站左側的功能表中，選取 [所有資源]。 然後搜尋您所建立的伺服器。
+1. 在 Azure 入口網站中找出您的伺服器 (如果您尚未將它開啟)。 從 Azure 入口網站左側的功能表中，選取 [所有資源]。 然後搜尋您所建立的伺服器。
 
-2.  在 [概觀] 頁面上，按一下 [刪除]。 
+2. 在 [概觀] 頁面上，按一下 [刪除]。 
 
    ![Azure Database for MySQL--刪除伺服器](./media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png)
 
-3.  確認您要刪除的伺服器名稱，並且會顯示其下受影響的資料庫。 在方塊中輸入您的伺服器名稱 (例如 **mydemoserver**)。 選取 [刪除] 。
+3. 確認您要刪除的伺服器名稱，並且會顯示其下受影響的資料庫。 在方塊中輸入您的伺服器名稱 (例如 **mydemoserver**)。 選取 [刪除] 。
 
 ## <a name="next-steps"></a>後續步驟
 

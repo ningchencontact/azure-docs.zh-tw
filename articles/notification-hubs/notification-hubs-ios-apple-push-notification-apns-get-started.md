@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 63fb04e6b31fe4026b93cef09d88601d6182101a
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 520d01327b5809d453bb777165899770ea4c130b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448304"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57885028"
 ---
 # <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至 iOS 應用程式
 
@@ -50,8 +50,8 @@ ms.locfileid: "54448304"
 * 支援 iOS 10 (或更新版本) 的裝置
 * [Apple Developer Program](https://developer.apple.com/programs/) 成員資格。
   
- > [!NOTE]
- > 基於推播通知的組態需求，您必須在實體 iOS 裝置 (iPhone 或 iPad)，而不是在 iOS 模擬器上部署和測試推播通知。
+  > [!NOTE]
+  > 基於推播通知的組態需求，您必須在實體 iOS 裝置 (iPhone 或 iPad)，而不是在 iOS 模擬器上部署和測試推播通知。
   
 完成本教學課程是參加 iOS app 所有其他通知中樞教學課程的先決條件。
 
@@ -96,9 +96,46 @@ ms.locfileid: "54448304"
 
     ![Xcode - 推播功能][12]
 
-5. 下載 [Windows Azure 傳訊架構]，然後將該檔案解壓縮。 在 Xcode 中，以滑鼠右鍵按一下您的專案，然後按一下 [新增檔案至] 選項，將 **WindowsAzureMessaging.framework** 資料夾新增至 Xcode 專案。 選取 [選項]，並務必要選取 [必要時複製項目]，然後按一下 [新增]。
+5. 新增 Azure 通知中樞 SDK 模組。
 
-    ![解壓縮 Azure SDK][10]
+   您也可以使用 [Cocoapods](https://cocoapods.org)，或手動將二進位檔新增至您的專案，來將 Azure 通知中樞 SDK 整合至應用程式中。
+
+   - 透過 Cocoapods 整合
+
+     將下列相依性新增至 `podfile`，以在您的應用程式中包含 Azure 通知中樞 SDK。
+
+     ```ruby
+     pod 'AzureNotificationHubs-iOS'
+     ```
+
+     執行 `pod install` 來安裝新定義的 Pod，並開啟您的 `.xcworkspace`。
+
+     > [!NOTE]
+     > 如果您在執行 `pod install` 時看到類似 ```[!] Unable to find a specification for `AzureNotificationHubs-iOS` ``` 的錯誤，請執行 `pod repo update` 以從 Cocoapods 存放庫取得最新的 Pod，然後執行 `pod install`。
+
+   - 透過 Carthage 整合
+
+     將下列相依性新增至 `Cartfile`，以在您的應用程式中包含 Azure 通知中樞 SDK。
+
+     ```ruby
+     github "Azure/azure-notificationhubs-ios"
+     ```
+
+     接下來，更新及建置相依性：
+
+     ```shell
+     $ carthage update
+     ```
+
+     如需有關使用 Carthage 的詳細資訊，請參閱 [Carthage GitHub 存放庫](https://github.com/Carthage/Carthage)。
+
+   - 透過將二進位檔複製到您的專案來進行整合
+
+     1. 下載以 zip 檔案形式提供的 [Azure 通知中樞 SDK](https://github.com/Azure/azure-notificationhubs-ios/releases) 架構，然後將其解壓縮。
+
+     2. 在 Xcode 中，以滑鼠右鍵按一下您的專案，然後按一下 [新增檔案至] 選項，將 **WindowsAzureMessaging.framework** 資料夾新增至 Xcode 專案。 選取 [選項]，並務必要選取 [必要時複製項目]，然後按一下 [新增]。
+
+        ![解壓縮 Azure SDK][10]
 
 6. 將新的標頭檔新增至名為 `HubInfo.h`的專案。 此檔案會保存通知中樞的常數。 新增下列定義，然後以您的「中樞名稱」以及先前記下的「DefaultListenSharedAccessSignature」 取代字串常值預留位置。
 
@@ -212,17 +249,17 @@ ms.locfileid: "54448304"
 [35]: ./media/notification-hubs-ios-get-started/notification-hubs-test3.png
 
 <!-- URLs. -->
-[Windows Azure 傳訊架構]: http://go.microsoft.com/fwlink/?LinkID=799698&clcid=0x409
-[Mobile Services iOS SDK]: http://go.microsoft.com/fwLink/?LinkID=266533
-[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Windows Azure 傳訊架構]: https://go.microsoft.com/fwlink/?LinkID=799698&clcid=0x409
+[Mobile Services iOS SDK]: https://go.microsoft.com/fwLink/?LinkID=266533
+[Submit an app page]: https://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: https://go.microsoft.com/fwlink/p/?LinkId=262253
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-ios
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[iOS Provisioning Portal]: https://go.microsoft.com/fwlink/p/?LinkId=272456
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-ios-get-started-push.md
 [Azure Notification Hubs Notify Users for iOS with .NET backend]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
-[Local and Push Notification Programming Guide]: http://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
+[Local and Push Notification Programming Guide]: https://developer.apple.com/library/mac/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/Chapters/ApplePushService.html#//apple_ref/doc/uid/TP40008194-CH100-SW1
 [Azure 入口網站]: https://portal.azure.com

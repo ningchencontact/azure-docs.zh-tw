@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 40c08f87a1711ae57ceb8b288851686d1e2ad391
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f0632b0d6e651ba6e0b43586e60d582e29c5ce00
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57993951"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500537"
 ---
 # <a name="understand-cost-management-data"></a>了解成本管理資料
 
@@ -25,42 +25,42 @@ ms.locfileid: "57993951"
 
 下列資訊顯示 Azure 成本管理中目前支援的 [Microsoft Azure 供應項目](https://azure.microsoft.com/support/legal/offer-details/)。  Azure 供應項目是您 Azure 訂用帳戶的類型。
 
-| 類別  | **供應項目名稱** | **供應項目號碼** |
-| --- | --- | --- |
-| **Azure Germany** | [Azure 德國預付型方案](https://azure.microsoft.com/offers/ms-azr-de-0003p/) | MS-AZR-DE-0003P |
-| **Azure Government** | Azure Government Enterprise | MS-AZR-USGOV-0017P |
-| **Enterprise 合約 (EA)** | Enterprise 開發/測試 | MS-AZR-0148P |
-| **Enterprise 合約 (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade/) | MS-AZR-0017P |
-| **Microsoft Developer Network (MSDN)** | [MSDN 平台](https://azure.microsoft.com/offers/ms-azr-0062p/) | MS-AZR-0062P |
-| **隨用隨付** | [隨用隨付](https://azure.microsoft.com/offers/ms-azr-0003p/) | MS-AZR-0003P |
-| **隨用隨付** | [隨用隨付開發/測試](https://azure.microsoft.com/offers/ms-azr-0023p/) | MS-AZR-0023P |
-| **隨用隨付** | [Microsoft 合作夥伴網路](https://azure.microsoft.com/offers/ms-azr-0025p/) | MS-AZR-0025P |
-| **隨用隨付** | [免費試用版](https://azure.microsoft.com/offers/ms-azr-0044p/) | MS-AZR-0044P |
-| **隨用隨付** | [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/) | MS-AZR-0111P |
-| **隨用隨付** | [Azure 學生版](https://azure.microsoft.com/offers/ms-azr-0170p/) | MS-AZR-0170P |
-| **隨用隨付** | Azure Pass | MS-AZR-0120P、MS-AZR-0122P - MS-AZR-0125P、MS-AZR-0128P - MS-AZR-0130P |
-| **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p/) | MS-AZR-0029P |
-| **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/) | MS-AZR-0059P |
-| **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/) | MS-AZR-0060P |
-| **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) | MS-AZR-0063P |
-| **Visual Studio** | [Visual Studio Enterprise：BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR-0064P |
+| 類別  | **供應項目名稱** | **Quota ID** | **供應項目號碼** |
+| --- | --- | --- | --- |
+| **Azure Germany** | [Azure 德國預付型方案](https://azure.microsoft.com/offers/ms-azr-de-0003p)      | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
+| **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
+| **Enterprise 合約 (EA)** | Enterprise 開發/測試                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P |
+| **Enterprise 合約 (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P |
+| **Microsoft Developer Network (MSDN)** | [MSDN 平台](https://azure.microsoft.com/offers/ms-azr-0062p) | MSDN_2014-09-01 | MS-AZR-0062P |
+| **隨用隨付** | [隨用隨付](https://azure.microsoft.com/offers/ms-azr-0003p)                       | PayAsYouGo_2014-09-01 | MS-AZR-0003P |
+| **隨用隨付** | [隨用隨付開發/測試](https://azure.microsoft.com/offers/ms-azr-0023p)              | MSDNDevTest_2014-09-01 | MS-AZR-0023P |
+| **隨用隨付** | [Microsoft 合作夥伴網路](https://azure.microsoft.com/offers/ms-azr-0025p)           | MPN_2014-09-01 | MS-AZR-0025P |
+| **隨用隨付** | [免費試用版](https://azure.microsoft.com/offers/ms-azr-0044p)                          | FreeTrial_2014-09-01 | MS-AZR-0044P |
+| **隨用隨付** | [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p)                       | AzureInOpen_2014-09-01 | MS-AZR-0111P |
+| **隨用隨付** | [Azure 學生版](https://azure.microsoft.com/offers/ms-azr-0170p)                  | AzureForStudents_2018-01-01 | MS-AZR-0170P |
+| **隨用隨付** | Azure Pass                                                                             | AzurePass_2014-09-01 | MS-AZR-0120P、MS-AZR-0122P - MS-AZR-0125P、MS-AZR-0128P - MS-AZR-0130P |
+| **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p)      | MPN_2014-09-01 | MS-AZR-0029P |
+| **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p)          | MSDN_2014-09-01 | MS-AZR-0059P |
+| **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p)     | MSDNDevTest_2014-09-01 | MS-AZR-0060P |
+| **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p)            | MSDN_2014-09-01 | MS-AZR-0063P |
+| **Visual Studio** | [Visual Studio Enterprise：BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)  | MSDN_2014-09-01 | MS-AZR-0064P |
 
 下表顯示不支援的供應項目。
 
-| 類別  | **供應項目名稱** | **供應項目號碼** |
-| --- | --- | --- |
-| **雲端解決方案提供者 (CSP)** | Microsoft Azure | MS-AZR-0145P |
-| **雲端解決方案提供者 (CSP)** | Azure Government CSP | MS-AZR-USGOV-0145P |
-| **雲端解決方案提供者 (CSP)** | CSP 中適用於 Microsoft Cloud Germany 的 Azure Germany | MS-AZR-DE-0145P |
-| **隨用隨付** | Azure 學生入門版 | MS-AZR-0144P |
-| **隨用隨付** | [Microsoft Azure 贊助](https://azure.microsoft.com/offers/ms-azr-0036p/) | MS-AZR-0036P |
-| **支援方案** | 標準支援 | MS-AZR-0041P |
-| **支援方案** | 專業指導支援 | MS-AZR-0042P |
-| **支援方案** | 開發人員支援 | MS-AZR-0043P |
-| **支援方案** | 德國支援方案 | MS-AZR-DE-0043P |
-| **支援方案** | Azure Government 標準支援 | MS-AZR-USGOV-0041P |
-| **支援方案** | Azure Government 專業指導支援 | MS-AZR-USGOV-0042P |
-| **支援方案** | Azure Government 開發人員支援 | MS-AZR-USGOV-0043P |
+| 類別  | **供應項目名稱** | **Quota ID** | **供應項目號碼** |
+| --- | --- | --- | --- |
+| **雲端解決方案提供者 (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
+| **雲端解決方案提供者 (CSP)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
+| **雲端解決方案提供者 (CSP)** | CSP 中適用於 Microsoft Cloud Germany 的 Azure Germany   | CSP_2015-05-01 | MS-AZR-DE-0145P |
+| **隨用隨付**                 | Azure 學生入門版 | DreamSpark_2015-02-01 | MS-AZR-0144P |
+| **隨用隨付**                 | [Microsoft Azure 贊助](https://azure.microsoft.com/offers/ms-azr-0036p/) | Sponsored_2016-01-01 | MS-AZR-0036P |
+| **支援方案** | 標準支援                    | Default_2014-09-01 | MS-AZR-0041P |
+| **支援方案** | 專業指導支援         | Default_2014-09-01 | MS-AZR-0042P |
+| **支援方案** | 開發人員支援                   | Default_2014-09-01 | MS-AZR-0043P |
+| **支援方案** | 德國支援方案                | Default_2014-09-01 | MS-AZR-DE-0043P |
+| **支援方案** | Azure Government 標準支援   | Default_2014-09-01 | MS-AZR-USGOV-0041P |
+| **支援方案** | Azure Government 專業指導支援 | Default_2014-09-01 | MS-AZR-USGOV-0042P |
+| **支援方案** | Azure Government 開發人員支援  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
 使用預付型方案、MSDN 和 Visual Studio 供應項目類別的客戶，自 2018/10/02 起可在「成本管理」中取得資料。 若要存取您的訂用帳戶在 2018 年 10 月 02 日之前的資料，您可以使用[Azure 帳戶中心](https://account.azure.com/subscriptions)若要下載您的使用量詳細資料的 CSV 檔案中，或者您可以使用[使用情況詳細資料 API](/rest/api/consumption/usagedetails)。
 

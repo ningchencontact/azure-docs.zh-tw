@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 11b89cd33346c2d6da2269bbc2a4b9550f3120b3
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 1589c938e635ccff02f94a176b7fc886dbccb779
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587380"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455763"
 ---
 # <a name="quickstart-build-an-aspnet-web-app-using-azure-cosmos-db-sql-api-account"></a>快速入門：使用 Azure Cosmos DB SQL API 帳戶建置 ASP.NET Web 應用程式
 
@@ -140,12 +140,12 @@ Azure Cosmos DB 是 Microsoft 的全域分散式、具有高可用性的多模�
 
 1. 在 [方案總管] 中，以滑鼠右鍵按一下 Visual Studio 方案底下的新主控台應用程式專案，然後按一下 [管理 NuGet 套件...]
     
-    ![專案的滑鼠右鍵功能表的螢幕擷取畫面](./media/create-sql-api-dotnet/manage-nuget-package.png)
+    ![專案滑鼠右鍵功能表的螢幕擷取畫面](./media/create-sql-api-dotnet/manage-nuget-package.png)
 1. 在 [NuGet] 索引標籤中按一下 [瀏覽]，然後在搜尋方塊中輸入 **Microsoft.Azure.Cosmos**。
 1. 在結果中尋找 **Microsoft.Azure.Cosmos**，然後按一下 [安裝]。
    「Azure Cosmos DB SQL API 用戶端程式庫」的套件識別碼是 [Microsoft Azure Cosmos DB 用戶端程式庫](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) \(英文\)。
 
-   ![螢幕擷取畫面：用於尋找 Azure Cosmos DB 用戶端 SDK 的 NuGet 功能表](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
+   ![用於尋找 Azure Cosmos DB 用戶端 SDK 的 NuGet 功能表螢幕擷取畫面](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
 
     如果您收到關於檢閱方案變更的訊息，請按一下 [確定]。 如果您收到關於接受授權的訊息，請按一下 [我接受]。
 

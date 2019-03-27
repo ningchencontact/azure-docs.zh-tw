@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 02/01/2018
+ms.date: 02/28/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: a025c8e12f224bff4d90a924cf415143da9421b5
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: cce28b031b146d8a56d37647022261294f07f0be
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892594"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57213563"
 ---
 # <a name="compare-azure-cdn-product-features"></a>比較 Azure CDN 產品功能
 
@@ -33,13 +33,19 @@ Azure 內容傳遞網路 (CDN) 包含四項產品：**來自 Microsoft 的 Azure
 | [動態網站加速](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration)  |  | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[動態網站加速 - 調整映像壓縮](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-azure-cdn-from-akamai-only)  |  | **&#x2713;**  |  |  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[動態網站加速 - 物件預先擷取](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#object-prefetch-azure-cdn-from-akamai-only)  |  | **&#x2713;**  |  |  |
-| [影片串流最佳化](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization)  | \* | **&#x2713;**  | \* |  \* |
-| [大型檔案最佳化](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization)  | \* | **&#x2713;**  | \* |  \* |
+| [一般 Web 傳遞最佳化](https://docs.microsoft.com/azure/cdn/cdn-optimization-overview#general-web-delivery)  | **&#x2713;** | **&#x2713;** 如果您的平均檔案大小小於 10 MB，請選取此最佳化類型。  | **&#x2713;** |  **&#x2713;** |
+| [影片串流最佳化](https://docs.microsoft.com/azure/cdn/cdn-media-streaming-optimization)  | 透過一般 Web 傳遞 | **&#x2713;**  | 透過一般 Web 傳遞 |  透過一般 Web 傳遞 |
+| [大型檔案最佳化](https://docs.microsoft.com/azure/cdn/cdn-large-file-optimization)  | 透過一般 Web 傳遞 | **&#x2713;** 如果您的平均檔案大小大於 10 MB，請選取此最佳化類型。   | 透過一般 Web 傳遞 |  透過一般 Web 傳遞 |
+| 變更最佳化類型 | |**&#x2713;** | | |
+| 原始連接埠 |所有 TCP 連接埠 |[允許的來源連接埠](https://docs.microsoft.com/previous-versions/azure/mt757337(v%3Dazure.100)#allowed-origin-ports) |所有 TCP 連接埠 |所有 TCP 連接埠 |
 | [全域伺服器負載平衡 (GSLB)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [快速清除](cdn-purge-endpoint.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [快速清除](cdn-purge-endpoint.md)  | **&#x2713;** |**&#x2713;** 來自 Akamai 的 Azure CDN 目前不支援「全部清除」和「萬用字元清除」。 |**&#x2713;** |**&#x2713;** |
 | [資產預先載入](cdn-preload-endpoint.md)  |  | |**&#x2713;** |**&#x2713;** |
 | 快取/標頭設定 (使用[快取規則](cdn-caching-rules.md))  |  |**&#x2713;** |**&#x2713;** | |
+| 可自訂的規則式內容傳遞引擎 (使用[規則引擎](cdn-rules-engine.md))  |  | | |**&#x2713;** |
 | 快取/標頭設定 (使用 [規則引擎](cdn-rules-engine.md))  |  | | |**&#x2713;** |
+| URL 重新導向/重寫 (使用 [規則引擎](cdn-rules-engine.md))  |  | | |**&#x2713;** |
+| 行動裝置規則 (使用 [規則引擎](cdn-rules-engine.md))  |  | | |**&#x2713;** |
 | [查詢字串快取](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | IPv4/IPv6 雙重堆疊 | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [HTTP/2 支援](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
@@ -65,11 +71,11 @@ Azure 內容傳遞網路 (CDN) 包含四項產品：**來自 Microsoft 的 Azure
 | **容易使用** | **標準 Microsoft** | **標準 Akamai** | **標準 Verizon** | **進階 Verizon** | 
 | 輕鬆地與 Azure 服務 (例如[儲存體](cdn-create-a-storage-account-with-cdn.md)、[Web Apps](cdn-add-to-web-app.md) 和[媒體服務](../media-services/media-services-portal-manage-streaming-endpoints.md)) 整合  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | 透過 [REST API](https://msdn.microsoft.com/library/mt634456.aspx)、[.NET](cdn-app-dev-net.md)、[Node.js](cdn-app-dev-node.md) 或 [PowerShell](cdn-manage-powershell.md) 管理  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [可自訂的、規則式內容傳遞引擎](cdn-rules-engine.md)  |  | | |**&#x2713;** |
-| URL 重新導向/重寫 (使用 [規則引擎](cdn-rules-engine.md))  |  | | |**&#x2713;** |
-| 行動裝置規則 (使用 [規則引擎](cdn-rules-engine.md))  |  | | |**&#x2713;** |
+| [壓縮 MIME 類型](https://docs.microsoft.com/azure/cdn/cdn-improve-performance)  |僅限預設值 |可設定 |可設定  |可設定  |
+| 壓縮編碼  |gzip、brotli |gzip |gzip、deflate、bzip2、brotili  |gzip、deflate、bzip2、brotili  |
 
-\* Microsoft 和 Verizon 支援透過一般 Web 傳遞最佳化直接傳遞大型檔案和媒體。
+
+
 
 
 

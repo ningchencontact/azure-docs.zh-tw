@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae2d18541788e769e4f1b44319aa1be200921b88
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: a029135da79d1a0b24b2941873a0fe3187ac9f7c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437538"
+ms.locfileid: "58479719"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Azure AD 密碼保護的監視和記錄
 
@@ -81,7 +81,7 @@ DC 代理程式的系統管理記錄是有關軟體如何運作之資訊的主�
 
 `Get-AzureADPasswordProtectionSummaryReport` Cmdlet 可能會用來產生密碼驗證活動的摘要檢視。 此 Cmdlet 的範例輸出如下：
 
-```PowerShell
+```powershell
 Get-AzureADPasswordProtectionSummaryReport -DomainController bplrootdc2
 DomainController                : bplrootdc2
 PasswordChangesValidated        : 6677
@@ -254,7 +254,7 @@ DC 代理程式服務軟體會安裝名為 **Azure AD 密碼保護**的效能計
 
 此 Cmdlet 的範例輸出如下：
 
-```PowerShell
+```powershell
 Get-AzureADPasswordProtectionDCAgent
 ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
 Domain                : bplchild.bplRootDomain.com
@@ -326,7 +326,7 @@ HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionProxy\Parameters
 
 此 Cmdlet 的範例輸出如下：
 
-```PowerShell
+```powershell
 Get-AzureADPasswordProtectionProxy
 ServerFQDN            : bplProxy.bplchild2.bplRootDomain.com
 Domain                : bplchild2.bplRootDomain.com

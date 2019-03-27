@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 7284dfb6-df62-41f1-a4a4-1b8322b7ef44
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24f816a6629ef561067f5a40ba15064b98b34c99
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2f8be215f1a972539aff47347395f041d89d4e81
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871429"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892841"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-accredible"></a>教學課程：Azure Active Directory 與 Accredible 整合
 
@@ -154,7 +154,7 @@ ms.locfileid: "56871429"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -189,7 +189,7 @@ ms.locfileid: "56871429"
 
 ### <a name="create-accredible-test-user"></a>建立 Accredible 測試使用者
 
-在本節中，您會在 Accredible 中建立名為 Britta Simon 的使用者。 您必須將使用者的 emailid 傳送給  [Accredible 支援小組](mailto:support@accredible.com)，他們會接著驗證該電子郵件並傳送邀請郵件給您，以便讓您能夠在 Accredible 平台中新增使用者。
+在本節中，您會在 Accredible 中建立名為 Britta Simon 的使用者。 您必須將使用者的電子郵件識別碼傳送給  [Accredible 支援小組](mailto:support@accredible.com)，他們會接著驗證該電子郵件並傳送邀請郵件給您，以便讓您能夠在 Accredible 平台中新增使用者。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

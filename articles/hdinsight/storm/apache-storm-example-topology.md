@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: 73a7c2ef80291920a6d19f0c3ab01b45c1d6b22a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 42780eae0a85ec8a2ca7e9d6ca1149f6530c25e1
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53627719"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448984"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Apache Storm on HDInsight 的範例 Apache Storm 拓撲及元件
 
 下列是 Microsoft 所建立和維護的範例清單，可搭配 [Apache Storm](https://storm.apache.org/) on HDInsight 使用。 這些範例涵蓋各種主題，從建立基本 C# 和 Java 拓撲，到使用 Azure 服務 (例如事件中樞、Cosmos DB、SQL Database、[Apache HBase](https://hbase.apache.org/) on HDInsight 和 Azure 儲存體)。 一些範例也會示範如何使用非 Azure 或甚至非 Microsoft 的技術，例如 SignalR 和 Socket.IO。
 
-| 說明 | 示範 | 語言/架構 |
+| 描述 | 示範 | 語言/架構 |
 |:--- |:--- |:--- |
 | [從 Apache Storm 寫入 Azure Data Lake Storage](apache-storm-write-data-lake-store.md) |寫入 Azure Data Lake Storage |Java |
 | [事件中樞 Spout 和 Bolt 來源](https://github.com/apache/storm/tree/master/external/storm-eventhubs) |事件中樞 Spout 和 Bolt 的來源 |Java |
@@ -46,7 +46,7 @@ ms.locfileid: "53627719"
 * [了解如何使用 Apache Storm on HDInsight 部署和管理 Apache Storm 拓撲][6eb0d3b8]
 
 [2b8c3488]:apache-storm-tutorial-get-started-linux.md "了解如何建立 Apache Storm on HDInsight 叢集並使用 Storm 儀表板來部署範例拓撲。"
-[6eb0d3b8]:apache-storm-deploy-monitor-topology.md "了解如何使用 Web 型 Apache Storm 儀表板和 Storm UI 或適用於 Visual Studio 的 HDInsight 工具部署和管理拓撲。"
+[6eb0d3b8]:apache-storm-deploy-monitor-topology-linux.md "了解如何使用 Web 型 Apache Storm 儀表板和 Storm UI 或適用於 Visual Studio 的 HDInsight 工具部署和管理拓撲。"
 [16fce2d1]:apache-storm-develop-csharp-visual-studio-topology.md "了解如何使用 HDInsight Tools for Visual Studio 建立 C# Storm 拓撲。"
 [5797064f]:apache-storm-develop-java-topology.md "了解如何建立基本字數統計拓撲，以使用 Maven 在 Java 中建立 Storm 拓撲。"
 [844d1d81]:apache-storm-develop-csharp-event-hub-topology.md "了解如何利用 Storm on HDInsight 從 Azure 事件中樞讀取和寫入資料。"

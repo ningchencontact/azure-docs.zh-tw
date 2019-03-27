@@ -9,13 +9,8 @@ layout: LandingPage
 ms.service: power-bi-embedded
 ms.topic: landing-page
 ms.date: 07/31/2018
-ms.openlocfilehash: 051b7d725a121b3160e8a572c5fab91e8289f44b
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678231"
 ---
+
 # <a name="power-bi-embedded-documentation"></a>Power BI Embedded 文件
 
 了解如何利用 Power BI Embedded 將資料視覺效果和互動式報表新增至應用程式。 教學課程、API 參考和其他文件會示範如何順暢地將 Power BI 報表和儀表板內嵌至應用程式中。
@@ -105,7 +100,7 @@ ms.locfileid: "52678231"
                 <div class="card">
                     <div class="cardText">
                         <h3>PowerShell</h3>
-                        <p><a href="https://docs.microsoft.com/powershell/module/azurerm.powerbiembedded/?view=azurermps-6.5.0#power_bi_embedded_capacity">PowerShell</a></p>
+                        <p><a href="https://docs.microsoft.com/powershell/module/azurerm.powerbiembedded/#power_bi_embedded_capacity">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -116,7 +111,7 @@ ms.locfileid: "52678231"
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>語言</h3>
+                        <h3>Languages</h3>
                         <p><a href="https://docs.microsoft.com/dotnet/api/microsoft.azure.management.powerbiembedded?view=azure-dotnet">.NET</a></p>
                         <p><a href="https://www.nuget.org/packages/Microsoft.PowerBI.Api/">.NET SDK 下載</a></p>
                         <p><a href="https://microsoft.github.io/PowerBI-JavaScript/">JavaScript</a></p>

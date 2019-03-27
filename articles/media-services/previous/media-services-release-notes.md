@@ -13,19 +13,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 8e602cc28026b4b6660c90eaeb529e549dbba5f5
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: f09d18759478c6c07aa0aea82f8bd1707595aa63
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295423"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499075"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒體服務版本資訊
 
 Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已知問題。
 
 > [!NOTE]
-> 媒體服務 v2 不會再新增任何新的特性或功能。 
+> 媒體服務 v2 不會再新增任何新的特性或功能。 <br/>查看最新版本中，[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 此外，請參閱[從 v2 至 v3 的移轉指導方針](../latest/migrate-from-v2-to-v3.md)
 
 我們想要收到客戶的意見，以針對影響到您的問題進行修正。 若要回報問題或提問，請在 [Azure 媒體服務 MSDN 論壇]中提交貼文。 
 

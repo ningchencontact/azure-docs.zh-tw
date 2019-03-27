@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 2e34aef9a6f184c60fbb23023f798941a1fc11da
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 3ec3abffc7962051f4cfc02d5369581ca193d70e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894423"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775572"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>教學課程：存取 Azure 實驗室服務中的教室實驗室
 在本教學課程中，您會以學生的身分連線到教室實驗室中的虛擬機器 (VM)。 
@@ -44,8 +44,9 @@ ms.locfileid: "55894423"
 1. 在您要存取的實驗室虛擬機器圖格上，選取 [連線]。 
 
     ![連接到 VM](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
-2. 將 RDP 檔案儲存至硬碟並加以開啟 (假設這是 Windows VM)。
-3. 使用授課者/教師提供給您的**使用者名稱**和**密碼**來登入機器。 
+2. 執行下列其中一個步驟： 
+    1. 針對 **Windows** 虛擬機器，將 **RDP** 檔案儲存至硬碟。 開啟 RDP 檔案以連線至虛擬機器。 使用授課者/教授提供給您的**使用者名稱**和**密碼**來登入機器。 
+    3. 針對 **Linux** 虛擬機器，在 [連線至您的虛擬機器] 對話方塊上複製並儲存 SSH 連接字串。 使用此連接字串，從 SSH 終端機 (例如 [Putty](https://www.putty.org/)) 連線至虛擬機器。 
 
 ## <a name="next-steps"></a>後續步驟
 在本教學課程中，您已可以使用授課者/教師提供給您的註冊連結來存取教室實驗室。

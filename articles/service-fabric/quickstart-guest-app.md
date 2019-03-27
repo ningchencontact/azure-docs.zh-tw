@@ -3,7 +3,7 @@ title: 將現有應用程式快速部署至 Azure Service Fabric 叢集
 description: 使用 Azure Service Fabric 叢集來裝載現有的 Node.js 應用程式與 Visual Studio。
 services: service-fabric
 documentationcenter: nodejs
-author: rwike77
+author: msfussell
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
-ms.author: ryanwi
-ms.openlocfilehash: 2e7511f0efa36243a9e7e8e25f1697bdd3e60b63
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.author: mfussell
+ms.openlocfilehash: 90ecf8a3f6d660c665cf3cdee3e1158bebee9d12
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005289"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499721"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>在 Azure Service Fabric 上裝載 Node.js 應用程式
 
@@ -62,7 +62,7 @@ ms.locfileid: "39005289"
 
 按 [確定]。
 
-![Visual Studio 中的新增服務對話方塊][new-service]
+![Visual Studio 中的新建服务对话框][new-service]
 
 Visual Studio 會建立應用程式專案和動作項目服務專案，並在 [方案總管] 中加以顯示。
 
@@ -75,7 +75,7 @@ Visual Studio 會建立應用程式專案和動作項目服務專案，並在 [�
 包含用來部署/升級應用程式的 PowerShell 指令碼。
 
 * **應用程式定義**  
-包含 ApplicationPackageRoot 下的應用程式資訊清單。 相關聯的應用程式參數檔案位於 *ApplicationParameters*下方，它們可以定義應用程式，讓您得以特別為指定的環境設定應用程式。
+包含 ApplicationPackageRoot 下的應用程式資訊清單。 关联应用程序参数文件位于 *ApplicationParameters* 下，它们定义应用程序并使你可以专门为给定环境对其进行配置。
     
 如需服務專案的內容概觀，請參閱 [開始使用 Reliable Services](service-fabric-reliable-services-quick-start.md)。
 

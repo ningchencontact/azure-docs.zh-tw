@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: ca111623f6d3d7c61b1bfc4e1af328f9599c2440
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6753b3a76ff5d3e0266f238d8e354943dec694a8
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884501"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480453"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>與 DMZ 搭配使用的範例應用程式
 [返回 [安全性界限最佳作法] 頁面][HOME]
@@ -30,7 +30,7 @@ ms.locfileid: "57884501"
 ## <a name="firewall-rule-to-allow-icmp"></a>允許 ICMP 的防火牆規則
 這個簡單的 PowerShell 陳述式可以在任何 Windows VM 上執行，以允許 ICMP (Ping) 流量。 此防火牆更新藉由允許 ping 通訊協定通過 Windows 防火牆，讓您能夠更輕鬆進行測試和疑難排解 (ICMP 在大多數 Linux 散發版本上預設為開啟)。
 
-```PowerShell
+```powershell
 # Turn On ICMPv4
 New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
     -Protocol ICMPv4 -Enabled True -Profile Any -Action Allow
@@ -49,7 +49,7 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
 
 在透過遠端桌面 (RDP) 存取 IIS01 時，這個 PowerShell 指令碼應該會在本機執行。
 
-```PowerShell
+```powershell
 # IIS Server Post Build Config Script
 # Get Admin Account and Password
     Write-Host "Please enter the admin account information used to create this VM:" -ForegroundColor Cyan
@@ -161,7 +161,7 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
 
 在透過遠端桌面 (RDP) 存取 AppVM01 時，這個 PowerShell 指令碼應該會在本機執行。 PowerShell 必須以系統管理員身分執行，才能成功執行。
 
-```PowerShell
+```powershell
 # AppVM01 Server Post Build Config Script
 # PowerShell must be run as Administrator for Net Share commands to work
 

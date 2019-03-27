@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/13/2019
+ms.date: 03/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: d275455f502cf20eaa573c1716c38023f8e7236e
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 115b1fcd1b1e878a9b4a7efdf6f24d7391945619
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821895"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409834"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概觀
 
@@ -51,7 +51,16 @@ Resource Manager 會提供數個優點：
 * 您可以將標籤套用至資源，以便以邏輯方式組織訂用帳戶中的所有資源。
 * 您可以檢視共用相同標籤之資源群組的成本，以釐清您的組織的計費方式。
 
+## <a name="understand-management-scope"></a>了解管理範圍
+
+Azure 提供四個管理範圍層級：管理群組、訂用帳戶、資源群組和資源。 [管理群組](../governance/management-groups/index.md)是預覽版本。 下圖顯示這些層級的範例。
+
+![影響範圍](./media/resource-group-overview/scope-levels.png)
+
+您可以在任何範圍層級套用管理設定。 您選取的層級會決定套用設定的範圍。 較低層級會從較高層級繼承設定。 例如，當您將[原則](../governance/policy/overview.md)套用到訂用帳戶時，訂用帳戶中的所有資源群組和資源都會套用該原則。 當您在資源群組上套用原則時，資源群組及其所有資源都會套用該原則。 不過，另一個資源群組沒有該原則指派。
+
 ## <a name="guidance"></a>指引
+
 下列建議可協助您在使用您的方案時充分利用 Resource Manager。
 
 * 透過 Resource Manager 範本中的宣告式語法定義和部署基礎結構，而非透過命令式指令。

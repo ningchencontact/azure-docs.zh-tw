@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: da7dfdb1217e41b7dcb7c7fb6ade55c33488e54b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: c5be8af71fcbdf6f38f878c70180f38227070245
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372602"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499320"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄
 
@@ -88,9 +88,16 @@ ms.locfileid: "58372602"
 | :------------------- | ------------------- |
 | **彈性集區** | [所有計量](sql-database-metrics-diag-logging.md#all-metrics)包含 eDTU/CPU 百分比、eDTU/CPU 限制、實體資料讀取百分比、記錄寫入百分比、工作階段百分比、背景工作百分比、儲存體、儲存體百分比、儲存體限制，以及 XTP 儲存體百分比。 |
 
+若要設定的彈性集區和彈性集區中的資料庫的診斷遙測串流，您必須個別設定**兩者**下列動作：
+
+- 啟用串流功能的彈性集區，診斷遙測**和**
+- 啟用資料流的每個資料庫在彈性集區中的診斷遙測
+
+這是因為彈性集區會與它自己在分開的個別資料庫遙測的遙測資料庫容器。
+
 若要啟用彈性集區資源診斷遙測的串流處理，請遵循下列步驟：
 
-1. 在 Azure 入口網站中移至彈性集區資源。
+1. 移至**彈性集區**在 Azure 入口網站中的資源。
 1. 選取 [診斷設定]。
 1. 如果沒有先前的設定存在，請選取 [開啟診斷]，或者選取 [編輯設定] 來編輯先前的設定。
 
@@ -100,9 +107,9 @@ ms.locfileid: "58372602"
 1. 選取串流診斷資料的目的地資源：**封存至儲存體帳戶**、**串流至事件中樞**，或**傳送至 Log Analytics**。
 1. Log analytics，請選取**設定**並選取來建立新的工作區 **+ 建立新的工作區**，或選取現有的工作區。
 1. 選取彈性集區診斷遙測的核取方塊：**AllMetrics**。
+   ![設定彈性集區的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 1. 選取 [ **儲存**]。
-
-   ![設定彈性集區的診斷功能](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
+1. 此外，設定診斷遙測，為您想要在下一節中所述的下列步驟來監視彈性集區中每個資料庫的資料流。
 
 > [!IMPORTANT]
 > 除了設定彈性集區的診斷遙測，您也需要設定診斷遙測的每個資料庫在彈性集區中，如下所述。 
@@ -111,9 +118,9 @@ ms.locfileid: "58372602"
 
    ![SQL Database 圖示](./media/sql-database-metrics-diag-logging/icon-sql-database-text.png)
 
-若要啟用單一、集區式或執行個體資料庫的診斷遙測串流，請遵循下列步驟：
+若要为单一数据库或入池数据库启用诊断遥测数据的流式传输，请执行以下步骤：
 
-1. 移至您的 Azure SQL Database 資源。
+1. 移至 Azure **SQL database**資源。
 1. 選取 [診斷設定]。
 1. 如果沒有先前的設定存在，請選取 [開啟診斷]，或者選取 [編輯設定] 來編輯先前的設定。
    - 您最多可建立三個平行連線來串流處理診斷遙測。
@@ -124,9 +131,9 @@ ms.locfileid: "58372602"
 1. 選取串流診斷資料的目的地資源：**封存至儲存體帳戶**、**串流至事件中樞**，或**傳送至 Log Analytics**。
 1. 若為標準的事件型監視體驗，請勾選下列的資料庫診斷記錄遙測核取方塊：**SQLInsights**、**AutomaticTuning**、**QueryStoreRuntimeStatistics**、**QueryStoreWaitStatistics**、**錯誤**、**DatabaseWaitStatistics**、**逾時**、**區塊**和**死結**。
 1. 對於歷時一分鐘的進階監視體驗，請勾選 **AllMetrics** 的核取方塊。
+   ![設定診斷單一、 集區，或執行個體資料庫](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 1. 選取 [ **儲存**]。
-
-   ![設定單一、集區式或執行個體資料庫的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
+1. 針對您想要監視每個資料庫重複這些步驟。
 
 > [!NOTE]
 > 無法從資料庫的 [診斷] 設定啟用安全性稽核記錄。 若要啟用稽核記錄資料流，請參閱[設定資料庫的稽核](sql-database-auditing.md#subheading-2)，並[稽核記錄中 Azure 監視器記錄檔和 Azure 事件中樞](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/)。
@@ -143,9 +150,16 @@ ms.locfileid: "58372602"
 | :------------------- | ------------------- |
 | **受控執行個體** | ResourceUsageStats 含有虛擬核心計數、 平均 CPU 百分比、 IO 要求的位元組讀取/寫入 」、 「 保留的存放裝置空間，並使用儲存空間。 |
 
+若要設定的受管理的執行個體和資料庫執行個體的診斷遙測串流，您必須個別設定**兩者**下列動作：
+
+- 啟用受管理的執行個體的診斷遙測串流**和**
+- 啟用資料流的每個執行個體資料庫的診斷遙測
+
+這是因為受控執行個體是與它自己在分開的個別執行個體資料庫遙測的遙測資料庫容器。
+
 若要啟用受控執行個體資源診斷遙測的串流，請遵循下列步驟：
 
-1. 在 Azure 入口網站中移至受控執行個體資源。
+1. 移至**受管理的執行個體**在 Azure 入口網站中的資源。
 1. 選取 [診斷設定]。
 1. 如果沒有先前的設定存在，請選取 [開啟診斷]，或者選取 [編輯設定] 來編輯先前的設定。
 
@@ -155,9 +169,9 @@ ms.locfileid: "58372602"
 1. 選取串流診斷資料的目的地資源：**封存至儲存體帳戶**、**串流至事件中樞**，或**傳送至 Log Analytics**。
 1. Log analytics，請選取**設定**並選取來建立新的工作區 **+ 建立新的工作區**，或使用現有的工作區。
 1. 勾選執行個體診斷遙測的核取方塊：**ResourceUsageStats**。
+   ![設定受管理的執行個體的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 1. 選取 [ **儲存**]。
-
-   ![設定受控執行個體的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
+1. 此外，設定診斷遙測，您想要在下一節中所述的下列步驟來監視受管理的執行個體中每個執行個體資料庫的資料流。
 
 > [!IMPORTANT]
 > 除了設定受管理的執行個體的診斷遙測，您也需要設定診斷遙測，每個執行個體資料庫，如下所述。 
@@ -168,20 +182,20 @@ ms.locfileid: "58372602"
 
 若要啟用的串流診斷遙測執行個體的資料庫，請遵循下列步驟：
 
-1. 移至受控執行個體中的執行個體資料庫。
-2. 選取 [診斷設定]。
-3. 如果沒有先前的設定存在，請選取 [開啟診斷]，或者選取 [編輯設定] 來編輯先前的設定。
+1. 移至**執行個體資料庫**受管理的執行個體內的資源。
+1. 選取 [診斷設定]。
+1. 如果沒有先前的設定存在，請選取 [開啟診斷]，或者選取 [編輯設定] 來編輯先前的設定。
    - 您最多可建立三 (3) 個平行連線來串流處理診斷遙測。
    - 選取 [+新增診斷設定] 建立診斷資料到多個資源的多個平行串流處理。
 
    ![啟用執行個體資料庫的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
 
-4. 輸入供您自己參考的設定名稱。
-5. 選取串流診斷資料的目的地資源：**封存至儲存體帳戶**、**串流至事件中樞**，或**傳送至 Log Analytics**。
-6. 勾選資料庫診斷遙測的核取方塊：**SQLInsights**、**QueryStoreRuntimeStatistics**、**QueryStoreWaitStatistics**和**錯誤**。
-7. 選取 [ **儲存**]。
-
-   ![設定執行個體資料庫的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+1. 輸入供您自己參考的設定名稱。
+1. 選取串流診斷資料的目的地資源：**封存至儲存體帳戶**、**串流至事件中樞**，或**傳送至 Log Analytics**。
+1. 勾選資料庫診斷遙測的核取方塊：**SQLInsights**、**QueryStoreRuntimeStatistics**、**QueryStoreWaitStatistics**和**錯誤**。
+   ![設定診斷執行個體資料庫](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+1. 選取 [ **儲存**]。
+1. 針對您想要監視的每個執行個體資料庫中重複這些步驟。
 
 > [!TIP]
 > 針對您想要監視的每個執行個體資料庫中重複這些步驟。
@@ -388,7 +402,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ## <a name="metrics-and-logs-available"></a>可用的計量和記錄檔
 
-使用[SQL 分析語言](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)，可將所收集的監視遙測用於自己的_自訂分析_和_應用程式開發_。
+監視 Azure SQL Database 所提供的遙測，彈性集區和受管理的執行個體是如下所述。 在 SQL Analytics 收集的監視遙測可用於您自己自訂的分析和應用程式開發使用[Azure 監視器的記錄檔查詢](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)語言。
 
 ## <a name="all-metrics"></a>所有計量
 

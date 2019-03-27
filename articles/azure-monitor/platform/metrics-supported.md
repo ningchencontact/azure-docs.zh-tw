@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: e9b562cb04bb8916245d9df7b9b6d526bd443a24
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 89f5294d6ac01a6fa377e8d0763e77f8034ab44a
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352131"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449555"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>支援 Azure 監視器的計量
 
@@ -1287,8 +1287,8 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |MessageCount|訊息計數|計數|總計|訊息總量|無維度|
 |InboundTraffic|輸入流量|位元組|總計|服務的輸入流量|無維度|
 |OutboundTraffic|輸出流量|位元組|總計|服務的輸出流量|無維度|
-|UserErrors|使用者錯誤|百分比|最大值|使用者錯誤的百分比|無維度|
-|SystemErrors|系統錯誤|百分比|最大值|系統錯誤的百分比|無維度|
+|UserErrors|使用者錯誤|百分比|平均值|使用者錯誤的百分比|無維度|
+|SystemErrors|系統錯誤|百分比|平均值|系統錯誤的百分比|無維度|
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 

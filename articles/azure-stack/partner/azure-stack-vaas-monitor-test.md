@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 04756481b676ed198120b67ca4368093ca8acead
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9b64631b274423edda35189a942e2f142ae591f1
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250869"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761161"
 ---
 # <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>監視和管理 VaaS 入口網站中的測試
 
@@ -40,7 +40,7 @@ ms.locfileid: "55250869"
 
 ## <a name="change-workflow-parameters"></a>變更工作流程參數
 
-每個工作流程類型都可讓您編輯在工作流程建立期間指定的[測試參數](azure-stack-vaas-parameters.md#test-parameters)。
+對於任何類型的工作流程，您都可以編輯在工作流程建立期間指定的[測試參數](azure-stack-vaas-parameters.md#test-parameters)。
 
 1. 在測試摘要頁面上，選取 [編輯] 按鈕。
 
@@ -81,7 +81,7 @@ ms.locfileid: "55250869"
 
 ### <a name="actions"></a>動作
 
-當您在測試執行個體資料表中按一下執行個體的內容功能表 **[...]** 時，每個測試執行個體都會列出可供您執行的動作。
+當您在測試執行個體資料表中選取執行個體的內容功能表 **[...]** 時，每個測試執行個體都會列出可供您執行的動作。
 
 #### <a name="view-information-about-the-test-definition"></a>檢視測試定義的相關資訊
 

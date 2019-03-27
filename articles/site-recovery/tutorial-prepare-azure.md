@@ -2,18 +2,18 @@
 title: 準備 Azure 以使用 Azure Site Recovery 進行內部部署電腦的災害復原 | Microsoft Docs
 description: 了解如何準備 Azure，以使用 Azure Site Recovery 進行內部部署電腦的災害復原。
 services: site-recovery
-author: rayne-wiselman
+author: mayurigupta13
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/08/2019
-ms.author: raynew
+ms.date: 03/03/2019
+ms.author: mayg
 ms.custom: MVC
-ms.openlocfilehash: da71857e84b27b9e9a063d707f75fdf33e5d6a96
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 5168fc28952631f00c2415d6bc171a130dc85dfd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159004"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838556"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>準備 Azure 資源以進行內部部署電腦的災害復原
 
@@ -28,7 +28,6 @@ ms.locfileid: "54159004"
 
 > [!div class="checklist"]
 > * 確認您的 Azure 帳戶具有複寫權限。
-> * 建立 Azure 儲存體帳戶。 複寫機器的映像會儲存在其中。
 > * 建立復原服務保存庫。 保存庫會保存 VM 的中繼資料和組態資訊，以及其他複寫元件。
 > * 設定 Azure 網路。 當 Azure VM 在容錯移轉後建立時，會加入此 Azure 網路。
 
@@ -36,7 +35,7 @@ ms.locfileid: "54159004"
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-登入 [Azure 入口網站](http://portal.azure.com)。
+登入 [Azure 入口網站](https://portal.azure.com)。
 
 ## <a name="verify-account-permissions"></a>確認帳戶權限
 
@@ -44,27 +43,11 @@ ms.locfileid: "54159004"
 
 - 在所選的資源群組中建立 VM。
 - 在所選的虛擬網路中建立 VM。
-- 寫入所選取的儲存體帳戶。
+- 寫入儲存體帳戶。
+- 寫入受控磁碟。
 
 若要完成這些工作，應將虛擬機器參與者內建角色指派至您的帳戶。 此外，若要管理保存庫中的 Site Recovery 作業，應將 Site Recovery 參與者內建角色指派至您的帳戶。
 
-## <a name="create-a-storage-account"></a>建立儲存體帳戶
-
-複寫機器的映像會保留在 Azure 儲存體中。 當您從內部部署容錯移轉至 Azure 時，會從儲存體建立 Azure VM。 儲存體帳戶與復原服務保存庫必須位於相同的區域。 在本教學課程中，我們使用「西歐」。
-
-1. 在 [Azure 入口網站](https://portal.azure.com)功能表中，選取 [建立資源] > [儲存體] > [儲存體帳戶 - Blob、檔案、資料表、佇列]。
-2. 在 [建立儲存體帳戶] 上，輸入帳戶的名稱。 在這些教學課程中，我們會使用 **contosovmsacct1910171607**。 您所選取的名稱必須是 Azure 中的唯一名稱，並介於 3 到 24 個字元之間，而且只能包含數字和小寫字母。
-3. 在 [部署模型] 中選取 [Resource Manager]。
-4. 在 [帳戶種類] 中選取 [儲存體 (一般用途 v1)]。 請勿選取 Blob 儲存體。
-5. 在 [複寫] 中，針對儲存體備援選取預設的 [讀取權限異地備援儲存體]。 我們將 [需要安全傳輸] 保留為 [停用]。
-6. 在 [效能] 中，選取 [標準]，並在 [存取層] 中選擇 [經常性] 的預設選項。
-7. 在 [訂用帳戶] 中，選取您要在其中建立新儲存體帳戶的訂用帳戶。
-8. 在 [資源群組] 中，輸入新的資源群組。 Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。 在這些教學課程中，我們會使用 **ContosoRG**。
-9. 在 [位置] 中，選取儲存體帳戶的地理位置。 
-
-   ![建立儲存體帳戶](media/tutorial-prepare-azure/create-storageacct.png)
-
-9. 選取 [建立]  以建立儲存體帳戶。
 
 ## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫
 
@@ -81,7 +64,7 @@ ms.locfileid: "54159004"
 
 ## <a name="set-up-an-azure-network"></a>設定 Azure 網路
 
-當 Azure VM 在容錯移轉後從儲存體建立時，會加入此網路。
+Azure VM 在容錯移轉後從受控磁碟建立時，將會加入此網路。
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [建立資源] > [網路] > [虛擬網路]。
 2. 我們保留 [資源管理員] 作為部署模型。
@@ -100,8 +83,7 @@ ms.locfileid: "54159004"
 ## <a name="useful-links"></a>實用的連結
 
 - [了解](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) Azure 網路。
-- [了解](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts) Azure 儲存體的類型。
-- [進一步了解](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage)儲存體的儲存體備援和[安全傳輸](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)。
+- [了解](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)受控磁碟。
 
 
 

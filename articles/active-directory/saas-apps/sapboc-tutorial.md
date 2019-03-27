@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 6c5e44f0-4e52-463f-b879-834d80a55cdf
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c397cd3b535c7bf918eac2ac1e9ae1f967d7b95a
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c64fb2dc4c494252f0078b8d23e05b15f07ebe00
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877498"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894558"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>教學課程：Azure Active Directory 與 SAP Business Object Cloud 整合
 
@@ -106,12 +106,14 @@ SAP Business Object Cloud 與 Azure AD 整合有下列優點：
     ![SAP Business Object Cloud 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：
+
     | |
     |-|-|
     | `https://<sub-domain>.sapanalytics.cloud/` |
     | `https://<sub-domain>.sapbusinessobjects.cloud/` |
 
     b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：
+    
     | |
     |-|-|
     | `<sub-domain>.sapbusinessobjects.cloud` |
@@ -178,7 +180,7 @@ SAP Business Object Cloud 與 Azure AD 整合有下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -237,7 +239,7 @@ SAP Business Object Cloud 與 Azure AD 整合有下列優點：
 
     d. 在 [顯示名稱] 方塊中，輸入使用者的全名，例如 **Britta Simon**。
 
-    e. 在 [電子郵件] 方塊中，輸入使用者的電子郵件地址，例如 **brittasimon@contoso.com**。
+    e. 在 [電子郵件] 方塊中，輸入使用者的電子郵件地址，例如 **brittasimon\@contoso.com**。
 
     f. 在 [選取角色] 頁面上，選取適當的使用者角色，然後選取 [確定]。
 

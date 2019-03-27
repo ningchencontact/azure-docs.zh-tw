@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/07/2019
+ms.date: 03/14/2019
 ms.author: barclayn
-ms.openlocfilehash: 4dd81fd03c39dec3c34e614234a563ec8c2ced38
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 0902e3fb64a73a095b457306aa561c13519e4066
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117097"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000608"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站從 Azure Key Vault 設定及擷取祕密
 
@@ -28,7 +28,7 @@ Azure Key Vault 是一項雲端服務，可為祕密提供安全的存放區。 
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-在 http://portal.azure.com 登入 Azure 入口網站。
+在 https://portal.azure.com 登入 Azure 入口網站。
 
 ## <a name="create-a-vault"></a>建立保存庫
 
@@ -43,7 +43,6 @@ Azure Key Vault 是一項雲端服務，可為祕密提供安全的存放區。 
     - 訂用帳戶：選擇訂用帳戶。
     - 在 [資源群組] 下選擇 [新建]，然後輸入資源群組名稱。
     - 在 [位置] 下拉式功能表中選擇位置。
-    - 檢查 [釘選到儀表板] 核取方塊。
     - 將其他的選項保留預設值。
 6. 提供上述資訊之後，請選取 [建立]。
 
@@ -70,7 +69,11 @@ Azure Key Vault 是一項雲端服務，可為祕密提供安全的存放區。 
 
 一旦收到已成功建立祕密的訊息，即可按一下清單上的祕密。 您可以接著看見某些屬性。 如果您按一下目前的版本，您可以看到您在上一個步驟中指定的值。
 
-![祕密屬性](./media/quick-create-portal/version.png)
+![祕密屬性](./media/quick-create-portal/current-version-hidden.png)
+
+按一下右側窗格中的 [顯示祕密值] 按鈕，即可看到隱藏的值。 
+
+![顯示祕密值](./media/quick-create-portal/current-version-shown.png)
 
 ## <a name="clean-up-resources"></a>清除資源
 

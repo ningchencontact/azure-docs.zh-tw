@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8585557672c7db15e07be6a5e663ba1811e07694
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 4b47b0c5af98198d829c4658877acae2edff5455
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961307"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001194"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>什麼是 Microsoft Authenticator 應用程式？
 
@@ -28,18 +28,21 @@ ms.locfileid: "56961307"
 
 您可以透過多種方式使用 Microsoft Authenticator 應用程式，包括：
 
-- 在您以使用者名稱和密碼登入後，提供另一個驗證方法的提示。
+- 在您以使用者名稱和密碼登入後，回應驗證的提示。
 
-- 使用您的使用者名稱和採用指紋、臉部或 PIN 的行動裝置提供登入，而無須輸入密碼。
+- 搭配指紋、臉部或 PIN 使用您的使用者名稱、驗證器應用程式和行動裝置來登入，而無須輸入密碼。
 
->[!Important]
->Microsoft Authenticator 應用程式適用於任何使用雙因素驗證的應用程式，以及任何支援限時單次密碼 (TOTP) 標準的帳戶。
+- 為任何支援驗證器應用程式的其他帳戶產生程式碼。
 
->貴組織可能要求您使用驗證器應用程式來登入和存取貴組織資料與文件。 雖然您的使用者名稱可能會出現在應用程式中，但直到您完成註冊程序，才會實際地設定此帳戶作為驗證方法。 如需詳細資訊，請參閱[新增您的公司或學校帳戶](user-help-auth-app-overview.md)。
-
->如果您有登入帳戶方面的問題，請參閱[當您無法登入 Microsoft 帳戶時](https://support.microsoft.com/help/12429)以取得說明。 如果您在嘗試登入 Microsoft 帳戶時收到[「該 Microsoft 帳戶不存在」](https://support.microsoft.com/help/13811)訊息，請取得相關因應措施的詳細資訊。
+> [!Important]
+> Microsoft Authenticator 應用程式適用於任何使用雙因素驗證且支援限時單次密碼 (TOTP) 標準的帳戶。
+> 
+> 貴組織可能要求您使用驗證器應用程式來登入和存取貴組織資料與文件。 雖然您的使用者名稱可能會出現在應用程式中，但直到您完成註冊程序，才會實際地設定此帳戶作為驗證方法。 如需詳細資訊，請參閱[新增您的公司或學校帳戶](user-help-auth-app-add-work-school-account.md)。
+> 
+> 如果您有登入帳戶方面的問題，請參閱[當您無法登入 Microsoft 帳戶時](https://support.microsoft.com/help/12429)以取得說明。 如果您在嘗試登入 Microsoft 帳戶時收到[「該 Microsoft 帳戶不存在」](https://support.microsoft.com/help/13811)訊息，請取得相關因應措施的詳細資訊。
 
 ## <a name="terminology"></a>術語
+
 |詞彙|說明|
 |----|-----------|
 |雙因素驗證 |必須明確使用兩項驗證資訊 (例如密碼和 PIN) 的驗證程序。 Microsoft Authenticator 應用程式支援標準雙因素驗證和無密碼登入。|

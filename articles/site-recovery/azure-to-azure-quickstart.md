@@ -6,30 +6,30 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 12/27/2018
+ms.date: 03/12/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 8fea062e2c72410b13fa70cc5cad22b7e677086b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f7adcb7d4516e9013bf87306fff77b566885e018
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211843"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855277"
 ---
 # <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>設定 Azure VM 到次要 Azure 區域的災害復原        
 
 [Azure Site Recovery](site-recovery-overview.md) 服務藉由確保您的商務應用程式可在計劃性與非計劃性中斷期間持續啟動並執行，來提供商務持續性和災害復原 (BCDR) 策略。 Site Recovery 會管理並協調內部部署機器和 Azure 虛擬機器 (VM) 的災害復原，包括複寫、容錯移轉和復原。
 
-本快速入門說明如何將 Azure VM 複寫到不同的 Azure 區域。
+本快速入門將說明如何藉由將 Azure VM 複寫至不同 Azure 區域，來設定災害復原。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 > [!NOTE]
-> 本文旨在透過預設選項和最少的自訂來引導新使用者體驗 Azure Site Recovery。 如果您想要深入了解可自訂的各種設定，請參閱[啟用 Azure VM 複寫的教學課程](azure-to-azure-tutorial-enable-replication.md)
+> 本文也是新使用者的快速逐步解說。 其使用預設選項和最低的自訂來提供最簡單的路徑。  如需更完整的逐步解說，請檢閱[本教學課程](azure-to-azure-tutorial-enable-replication.md)。
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
-在 http://portal.azure.com 上登入 Azure 入口網站。
+在 https://portal.azure.com 上登入 Azure 入口網站。
 
 ## <a name="enable-replication-for-the-azure-vm"></a>啟用 Azure VM 的複寫
 
@@ -54,8 +54,8 @@ ms.locfileid: "55211843"
 
 主要區域中的 VM 會在您停用其複寫功能時停止複寫：
 
-- 來源複寫設定會自動清除。 請注意，在複寫期間安裝的 Site Recovery 擴充功能不會移除，而必須以手動方式移除。 
-- VM 的 Site Recovery 計費也會停止。
+- 來源複寫設定會自動清除。 於複寫期間安裝在 VM 上的 Site Recovery 擴充功能不會移除，而必須以手動方式移除。 
+- VM 的 Site Recovery 計費會停止。
 
 停止複寫，如下所示
 
@@ -66,7 +66,7 @@ ms.locfileid: "55211843"
 
 ## <a name="next-steps"></a>後續步驟
 
-本快速入門中，您以將單一 VM 複寫到次要區域。 您現在可以探索更多選項，並嘗試使用復原方案複寫一組 Azure VM。
+本快速入門中，您以將單一 VM 複寫到次要區域。 現在，請嘗試使用復原方案複寫多個 Azure VM。
 
 > [!div class="nextstepaction"]
 > [設定 Azure VM 的災害復原](azure-to-azure-tutorial-enable-replication.md)

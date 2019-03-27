@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
-ms.reviewer: douglasl
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/14/2019
-ms.openlocfilehash: 01edd378ee85a3e209892250788fd3a26c628648
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 82b85ffd685df52e702db15e5a5b57a53a3b4f64
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090826"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485997"
 ---
 # <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>教學課程：設定 Azure SQL Database 與內部部署 SQL Server 之間的 SQL 資料同步
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/26/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: eeb3b2098cf477004ba7ad85a903f1a8e2267392
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 374ffc3a9d181d0596b5a4af1cd8082023e227fe
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117824"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498514"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支援的資料來源
 
@@ -64,6 +64,7 @@ ms.locfileid: "58117824"
 |Active Directory<sup>[1](#tab1400b)</sup>     |  
 |Analysis Services     |  
 |分析平台系統     |  
+|CSV 檔案  |
 |Dynamics CRM<sup>[1](#tab1400b)</sup>     |  
 |Excel 活頁簿     |  
 |Exchange<sup>[1](#tab1400b)</sup>     |  
@@ -82,6 +83,7 @@ ms.locfileid: "58117824"
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
 |SharePoint<sup>[1](#tab1400b)</sup>     |   
 |Sybase 資料庫     |  
+|TXT 檔案  |
 |XML 表格<sup>[1](#tab1400b)</sup>    |  
 ||
  

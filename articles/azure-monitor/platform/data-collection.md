@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: bwren
-ms.openlocfilehash: b65613de8f11aa36c398d15176541ac43a3dba69
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: e6d953841e5c22c21640f874ecad942f8db76ad1
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770215"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448887"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>監視 Azure 監視器所收集的資料
 [Azure 監視器](../overview.md)是一項服務，可協助您監視應用程式及其所依賴的資源。 此功能的核心是儲存來自受監視資源的遙測和其他資料。 本文提供如何透過 Azure 監視器來儲存和使用此資料的完整說明。
@@ -102,7 +102,7 @@ Azure 監視器所收集的計量有三個基本來源。 這些計量全都適�
 - 將計量路由傳送到記錄，來分析計量資料與記錄資料，並儲存計量值超過 93 天。 
 - 將計量串流處理到[事件中樞](stream-monitoring-data-event-hubs.md)，以將它們路由傳送到 [Azure 串流分析](../../stream-analytics/stream-analytics-introduction.md)或外部系統。
 - [封存](../../azure-monitor/learn/tutorial-archive-data.md)資源的效能或健全狀況歷程記錄，以用於相容性、稽核或離線報告。
-- 使用 [PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) 或 [REST API](rest-api-walkthrough.md)，從命令列或自訂應用程式中存取計量值。
+- 使用 [PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.insights/) 或 [REST API](rest-api-walkthrough.md)，從命令列或自訂應用程式中存取計量值。
 
 
 
@@ -146,7 +146,7 @@ Azure 監視器可以在 Azure 中及內部部署資源的各種來源收集資�
 - 設定[記錄警示規則](alerts-log.md)，在查詢結果符合特定結果時，傳送通知或採取[自動化動作](action-groups.md)。
 - 使用 [Logic Apps](~/articles/logic-apps/index.yml) 根據記錄資料建置工作流程。
 - 將查詢的結果匯出到 [Power BI](powerbi.md) 以使用不同的視覺效果，並與 Azure 外部的使用者共用。
-- 使用 [PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) 或 [REST API](https://dev.loganalytics.io/)，從命令列或自訂應用程式中存取計量值。
+- 使用 [PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) 或 [REST API](https://dev.loganalytics.io/)，從命令列或自訂應用程式中存取計量值。
 
 ### <a name="viewing-log-data"></a>檢視記錄資料
 Azure 監視器中的所有記錄資料，都是使用以 [Kusto 查詢語言](../log-query/get-started-queries.md)撰寫的[記錄查詢](../log-query/log-query-overview.md)來擷取，可讓您快速擷取、彙總及分析收集的資料。 使用 [Log Analytics](../log-query/portals.md) 在 Azure 入口網站中撰寫及測試查詢。 您可以互動方式使用結果，或將結果釘選到儀表板，利用其他視覺效果進行檢視。 您也可以使用 [Azure 監視 REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md) 來擷取記錄。

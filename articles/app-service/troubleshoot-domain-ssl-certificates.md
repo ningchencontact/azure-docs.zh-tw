@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: b367251e6799031ed96058d21e606446e14636c7
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: c316176094f6d9b8b45b812acaad04ad37f4bce2
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407601"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449133"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>在 Azure App Service 中對網域和 SSL 憑證問題進行疑難排解
 
@@ -314,7 +314,7 @@ App Service 網域使用 GoDaddy 網域註冊，將 Azure DNS 來裝載網域。
 
 **可以將傳輸網域從一個訂用帳戶到另一個訂用帳戶嗎？**
 
-您可以將網域移到另一個訂用帳戶/資源群組使用[Move-azurermresource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource?view=azurermps-6.13.0) PowerShell cmdlet。
+您可以將網域移到另一個訂用帳戶/資源群組使用[Move-azurermresource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource) PowerShell cmdlet。
 
 **如果我目前還沒有 Azure App Service 應用程式，如何管理我的自訂網域？**
 

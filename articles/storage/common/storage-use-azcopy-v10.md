@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/24/2019
 ms.author: artemuwka
 ms.subservice: common
-ms.openlocfilehash: ca7081bdfedae3abb5ec426a9d3ec0a7867a2ef9
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: ffc4a0c57681e877250c7be82f5160174178892a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337012"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486014"
 ---
 # <a name="transfer-data-with-azcopy-v10-preview"></a>使用 AzCopy v10 傳輸資料 （預覽）
 
@@ -285,6 +285,6 @@ AzCopy v10 建立記錄檔和每個工作的方案檔。 您可以使用記錄�
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您有疑問、 問題或一般的意見反應，將它們提交[GitHub 上](https://github.com/Azure/azure-storage-azcopy.)。
+如果您有疑問、 問題或一般的意見反應，將它們提交[GitHub 上](https://github.com/Azure/azure-storage-azcopy)。
 
 

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 5fd51e2d847b540d2eb8c17c2bc31f4e162a21ee
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 68a5bdef17077d1815b6d85e121d9bb26c2280bf
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904621"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484249"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>開始使用彈性資料庫工作
 
@@ -52,7 +52,7 @@ Azure SQL Database 的彈性資料庫工作 (預覽) 可讓您跨越多個資料
 
 ## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>建立自訂集合，然後將伺服器中的所有資料庫 (master 除外) 新增至自訂集合目標
 
-   ```PowerShell
+   ```powershell
     $customCollectionName = "dbs_in_server"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $ResourceGroupName = "ddove_samples"
@@ -316,7 +316,7 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。 如�
 
 若要提交取消要求，請使用 **Stop-AzureSqlJobExecution** Cmdlet 並設定 **JobExecutionId** 參數。
 
-   ```PowerShell
+   ```powershell
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```

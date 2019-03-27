@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2e05e5e430760d16d5d494a6f27ef985aafc487
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 71e9a3f614048185d9444011da3c47b88931d0c5
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097986"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499937"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>教學課程：設定 Zendesk 來自動佈建使用者
 
@@ -39,7 +39,7 @@ ms.locfileid: "58097986"
 *   Zendesk 中具有系統管理員權限的使用者帳戶 
 
 > [!NOTE]
-> Azure AD 佈建整合仰賴 [Zendesk REST API](https://developer.zendesk.com/rest_api/docs/core/introduction)，其可供 Zendesk 小組在 Enterprise 方案或更好方案上使用。
+> Azure AD 佈建整合仰賴 [Zendesk REST API](https://developer.zendesk.com/rest_api/docs/zendesk-apis/resources)，其可供 Zendesk 小組在 Enterprise 方案或更好方案上使用。
 
 ## <a name="adding-zendesk-from-the-gallery"></a>從資源庫新增 Zendesk
 將 Zendesk 設定為可使用 Azure AD 自動佈建使用者之前，您必須將 Zendesk 從 Azure AD 應用程式庫新增至您的受控 SaaS 應用程式清單。

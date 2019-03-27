@@ -7,14 +7,14 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: victorh
-ms.openlocfilehash: fc56fe3a5bdfa0f5e1ef4bc309932cb7f57cf27d
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 6bb3506e60894db525efaf2985dd92f9eaaf9e0a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978088"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530955"
 ---
-# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>教學課程：使用流量管理員來設定別名記錄以支援頂點網域名稱 
+# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>教學課程：使用流量管理員設定別名記錄以支援頂點網域名稱 
 
 您可以為網域名稱頂點建立別名記錄，以參考 Azure 流量管理員設定檔。 例如 contoso.com。 您可以不使用重新導向服務，而是設定讓 Azure DNS 直接從您的區域參考流量管理員設定檔。 
 
@@ -33,13 +33,13 @@ ms.locfileid: "50978088"
 ## <a name="prerequisites"></a>必要條件
 必須提供可用的網域名稱，如此才能裝載於 Azure DNS 進行測試。 您必須擁有此網域的完整控制權。 完整控制權包括為網域設定名稱伺服器 (NS) 記錄的能力。
 
-如需如何在 Azure DNS 中裝載網域的相關指示，請參閱[教學課程：在 Azure DNS 中裝載您的網域](dns-delegate-domain-azure-dns.md)。
+如需如何在 Azure DNS 中裝載網域的相關指示，請參閱[教學課程：在 Azure DNS 上託管您的網域](dns-delegate-domain-azure-dns.md)。
 
 本教學課程使用的範例網域是 contoso.com，但請使用您自己的網域名稱。
 
 ## <a name="create-the-network-infrastructure"></a>建立網路基礎結構
 首先，請建立一個可供放置 Web 伺服器的虛擬網路和子網域。
-1. 在 http://portal.azure.com 登入 Azure 入口網站。
+1. 在 https://portal.azure.com 登入 Azure 入口網站。
 2. 在入口網站的左上方，選取 [建立資源]。 在搜尋方塊中輸入資源群組，然後建立名為 **RG-DNS-Alias-TM** 的資源群組。
 3. 選取 [建立資源] > [網路] > [虛擬網路]。
 4. 建立名為 **VNet-Servers** 的虛擬網路。 將它放在 **RG-DNS-Alias-TM** 資源群組中，然後將子網路命名為 **SN-Web**。

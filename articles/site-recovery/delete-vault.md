@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: 7dc1be1316d833d4a37a8b46bf0145089bb3ae22
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: f5ce1fa46206588a1c84388b8d543051f97919a3
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839113"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449177"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>刪除 Site Recovery 復原服務保存庫
 
@@ -23,7 +23,7 @@ ms.locfileid: "52839113"
 ## <a name="delete-a-site-recovery-vault"></a>刪除 Site Recovery 保存庫 
 請依照針對您案例的建議步驟刪除保存庫。
 
-### <a name="vmware-vms-to-azure"></a>VMware VM 至 Azure
+### <a name="vmware-vms-to-azure"></a>VMware VM 到 Azure
 
 1. 依照[停用 VMware 保護](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure)中的步驟刪除所有受保護的 VM。
 
@@ -73,4 +73,4 @@ ms.locfileid: "52839113"
 
     Remove-AzureRmRecoveryServicesVault -Vault $vault
 
-深入了解 [Get-AzureRMRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/get-azurermrecoveryservicesvault?view=azurermps-6.0.0) 和 [Remove-AzureRMRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/remove-azurermrecoveryservicesvault?view=azurermps-6.0.0)。
+深入了解 [Get-AzureRMRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/get-azurermrecoveryservicesvault) 和 [Remove-AzureRMRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/remove-azurermrecoveryservicesvault)。

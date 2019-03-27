@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 25fd1df0-411c-4f55-8be3-4273b543100f
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e79424ff3fe3bce006932c19dba8cf5fc4bce4f2
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d6b8edf2627ade23fc6d1125afbabc34a1d9d21b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878620"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860375"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>教學課程：Azure Active Directory 與 AppDynamics 整合
 
@@ -130,29 +130,29 @@ ms.locfileid: "56878620"
 
 ### <a name="configure-appdynamics-single-sign-on"></a>設定 AppDynamics 單一登入
 
-7. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 AppDynamics 公司網站。
+1. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入您的 AppDynamics 公司網站。
 
-8. 在頂端工具列中，按一下 [設定]，然後按一下 [管理]。
+1. 在頂端工具列中，按一下 [設定]，然後按一下 [管理]。
 
     ![管理](./media/appdynamics-tutorial/ic790216.png "管理")
 
-9. 按一下 [驗證提供者]  索引標籤。
+1. 按一下 [驗證提供者]  索引標籤。
 
     ![驗證提供者](./media/appdynamics-tutorial/ic790224.png "驗證提供者")
 
-10. 在 [驗證提供者] 區段中，執行下列步驟：
+1. 在 [驗證提供者] 區段中，執行下列步驟：
 
-    ![SAML 設定](./media/appdynamics-tutorial/ic790225.png "SAML 設定")
+   ![SAML 設定](./media/appdynamics-tutorial/ic790225.png "SAML 設定")
 
-    a. 針對 [驗證提供者]，選取 [SAML]。
+   a. 針對 [驗證提供者]，選取 [SAML]。
 
-    b. 在 [登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL] 值。
+   b. 在 [登入 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登入 URL] 值。
 
-    c. 在 [登出 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL] 值。
+   c. 在 [登出 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [登出 URL] 值。
 
-    d. 在記事本中開啟您的 Base-64 編碼的憑證，將其內容複製到您的剪貼簿，然後貼到 [憑證] 文字方塊中。
+   d. 在記事本中開啟您的 Base-64 編碼的憑證，將其內容複製到您的剪貼簿，然後貼到 [憑證] 文字方塊中。
 
-    e. 按一下 [檔案] 。
+   e. 按一下 [檔案] 。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
@@ -172,7 +172,7 @@ ms.locfileid: "56878620"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。

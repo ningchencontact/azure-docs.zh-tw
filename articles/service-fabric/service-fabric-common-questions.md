@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: a63a10225f4dc55092c62e39b22cdf15d7f7ca5e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: aa287111a9880911c7807734b566bf60f42db85e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217508"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447775"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric 的常見問題
 
@@ -48,7 +48,7 @@ ms.locfileid: "56217508"
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Service Fabric 節點是否會自動接收作業系統更新？
 
-您可以使用[虛擬機器擴展集自動 OS 映像更新](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) (現已公開推出的功能)。
+您可以使用[虛擬機器擴展集自動 OS 映像更新](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) (現已正式運作的功能)。
 
 針對「沒有」在 Azure 中執行的叢集，我們[提供了一個應用程式](service-fabric-patch-orchestration-application.md)，可修補您 Service Fabric 節點下的作業系統。
 
@@ -133,7 +133,7 @@ ms.locfileid: "56217508"
 您的應用程式可使用下列方法取得向 KeyVault 驗證所需的認證：
 
 A. 在您的應用程式建置/封裝作業期間，您可以將憑證提取到 SF 應用程式的資料套件中，並以此憑證向 KeyVault 驗證。
-B. 針對已啟用虛擬機器擴展集 MSI 的主機，您可以針對 SF 應用程式開發簡單的 PowerShell SetupEntryPoint，以取得[來自 MSI 端點的存取權杖](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)，然後[從 KeyVault 擷取您的祕密](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret?view=azurermps-6.5.0)
+B. 針對已啟用虛擬機器擴展集 MSI 的主機，您可以針對 SF 應用程式開發簡單的 PowerShell SetupEntryPoint，以取得[來自 MSI 端點的存取權杖](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)，然後[從 KeyVault 擷取您的祕密](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret)
 
 ## <a name="application-design"></a>應用程式設計
 
@@ -161,7 +161,7 @@ B. 針對已啟用虛擬機器擴展集 MSI 的主機，您可以針對 SF 應�
 
 請記住，每個物件必須儲存三次 (一次主要，兩次複本)，在以完整容量運作的情況下，您會有足夠的記憶體提供您集合中大約 3500 萬個物件使用。 不過，我們建議您要能夠從失敗網域以及升級網域同時遺失情況下還原，這代表約 1/3 的容量，而物件數目會減至約 2300 萬。
 
-請注意，此計算也假設：
+請注意，這項計算也假設：
 
 - 資料在所有分割上的分佈大致上是平均的，或您會對叢集資源管理員報告負載計量。 根據預設，Service Fabric 會根據複本數量進行負載平衡。 在上述範例中，叢集中的每個節點上會放置 10 個主要複本以及 20 個次要複本。 這適用於平均分佈於所有分割的負載。 如果負載不平均，您必須報告負載，以便資源管理員可以將較小的複本封裝在一起，讓較大的複本可以使用個別節點上較多的記憶體。
 
@@ -175,7 +175,7 @@ B. 針對已啟用虛擬機器擴展集 MSI 的主機，您可以針對 SF 應�
 
 ## <a name="other-questions"></a>其他問題
 
-### <a name="how-does-service-fabric-relate-to-containers"></a>Service Fabric 如何與容器相關聯？
+### <a name="how-does-service-fabric-relate-to-containers"></a>Service Fabric 如何与容器关联？
 
 容器會提供簡單的方式來封裝服務及其相依性，使它們可以在所有環境中一致地執行，並且可在單一機器上以隔離的方式運作。 Service Fabric 提供部署與管理服務的方式，包括[已經包裝於容器中的服務](service-fabric-containers-overview.md)。
 

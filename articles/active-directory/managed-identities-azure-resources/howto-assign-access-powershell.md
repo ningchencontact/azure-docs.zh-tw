@@ -3,7 +3,7 @@ title: 如何使用 PowerShell 為受控識別指派對 Azure 資源的存取權
 description: 以下逐步指示說明如何使用 PowerShell 為一項資源的受控識別指派對另一項資源的存取權。
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc910ad51984204c8fc072ce49ebdfe4695be4a0
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: ff36be7f87d0dd9e5cac5ee7f788eec0cda5a9fd
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268000"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443860"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-powershell"></a>使用 PowerShell 為受控識別指派對資源的存取權
 

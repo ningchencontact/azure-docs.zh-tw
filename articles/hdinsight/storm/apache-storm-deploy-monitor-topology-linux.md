@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: 5f6708a9c22939395f992c2ac58a7e510b35f763
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 32ad4434db8c2816fe7792b1b851e020021d543a
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317267"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447098"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>部署和管理 HDInsight 上的 Apache Storm 拓撲 
 
@@ -23,7 +23,6 @@ ms.locfileid: "58317267"
 > [!IMPORTANT]  
 > 本文中的步驟需要 HDInsight 叢集上以 Linux 為基礎的 Storm。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。 
 >
-> 如需部署和監視以 Windows 為基礎之 HDInsight 上的拓撲資訊，請參閱[部署和管理以 Windows 為基礎之 HDInsight 上的 Apache Storm 拓撲](apache-storm-deploy-monitor-topology.md)。
 
 
 ## <a name="prerequisites"></a>必要條件

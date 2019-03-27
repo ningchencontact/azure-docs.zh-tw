@@ -11,18 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 4857b1771ae66cbee25765bb5173a638cbcd223e
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 5a03805fc055583f1f965854d4da3ae6b0c90e20
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008588"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444898"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>將合作夥伴識別碼連結到您的 Azure 帳戶
 
 身為合作夥伴，您可以追蹤對客戶業務開發的影響力。 您可以將合作夥伴識別碼連結到用來管理客戶資源的帳戶。
-
-此功能目前提供於公開預覽版。
 
 ## <a name="get-access-from-your-customer"></a>取得客戶提供的存取權
 
@@ -56,7 +54,7 @@ ms.locfileid: "57008588"
 
 1. 安裝 [AzureRM.ManagementPartner](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner) PowerShell 模組。
 
-2. 以使用者帳戶或服務主體登入客戶的租用戶。 如需詳細資訊，請參閱[使用 PowerShell 登入](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-5.2.0) \(英文\)。
+2. 以使用者帳戶或服務主體登入客戶的租用戶。 如需詳細資訊，請參閱[使用 PowerShell 登入](https://docs.microsoft.com/powershell/azure/authenticate-azureps) \(英文\)。
  
    ```azurepowershell-interactive
     C:\> Connect-AzureRmAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 

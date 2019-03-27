@@ -5,15 +5,15 @@ services: storage
 author: xyh1
 ms.service: storage
 ms.topic: article
-ms.date: 03/02/2019
+ms.date: 03/26/2019
 ms.author: hux
 ms.subservice: blobs
-ms.openlocfilehash: 86e28c3561968b1411a3baa9ec0daecfab6ac73f
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 32328b89e8a220269f0d07c3700566db5b899d5b
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202872"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445694"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>在 Azure Blob 儲存體中儲存業務關鍵資料
 
@@ -46,6 +46,8 @@ ms.locfileid: "58202872"
 ## <a name="how-it-works"></a>運作方式
 
 Azure Blob 儲存體的固定儲存體支援兩種 WORM 或固定原則：以時間為基礎的保留和合法保存。 當時間為基礎的保留原則或法務保存措施套用在容器上時，所有現有的 blob 將移至不可變的蠕蟲狀態在 30 秒內。 所有新的 blob 上傳至該容器也會移動至不可變的狀態。 當所有 blob 已都移至不可變的狀態，確認不可變的原則之後，而且全部覆寫或刪除現有和新的物件不可變的容器中的作業不允許。
+
+容器和帳戶刪除也不允許有不可變的原則所保護的任何 blob。 如果有至少一個 Blob 具有鎖定的時間型保留原則或法務保存措施，則「刪除容器」作業會失敗。 如果有至少一個 WORM 容器具有合法保存或有一個 Blob 具有有效保留間隔，則儲存體帳戶刪除作業會失敗。 
 
 ### <a name="time-based-retention"></a>以時間為基礎的保留期
 
@@ -85,12 +87,10 @@ Azure Blob 儲存體的固定儲存體支援兩種 WORM 或固定原則：以時
 使用這項功能不需額外付費。 固定資料的定價方式與一般可變動的資料相同。 如需 Azure Blob 儲存體定價的詳細資料，請參閱 [Azure 儲存體定價頁面](https://azure.microsoft.com/pricing/details/storage/blobs/)。
 
 ## <a name="getting-started"></a>開始使用
+不可變的儲存體是只適用於一般用途 v2 和 Blob 儲存體帳戶。 這些帳戶必須透過管理[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)。 如需有關升級現有的一般用途 v1 儲存體帳戶，請參閱[儲存體帳戶升級](../common/storage-account-upgrade.md)。
 
 最新版本[Azure 入口網站](https://portal.azure.com)， [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)，並[Azure PowerShell](https://github.com/Azure/azure-powershell/releases)支援 Azure Blob 儲存體的不可變的儲存體。 [用戶端程式庫支援](#client-libraries)也會提供。
 
-> [!NOTE]
->
-> 不可變的儲存體是只適用於一般用途 v2 和 Blob 儲存體帳戶。 這些帳戶必須透過管理[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)。 如需有關升級現有的一般用途 v1 儲存體帳戶，請參閱[儲存體帳戶升級](../common/storage-account-upgrade.md)。
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
@@ -114,17 +114,19 @@ Azure Blob 儲存體的固定儲存體支援兩種 WORM 或固定原則：以時
 
     ![功能表上的 [鎖定原則]](media/storage-blob-immutable-storage/portal-image-4-lock-policy.png)
 
-    選取 **鎖定原則**。 原則現在已被鎖定，且無法刪除，系統會允許在保留間隔的延伸模組。
+6. 選取 **鎖定原則**並確認鎖定。 原則現在已被鎖定，且無法刪除，系統會允許在保留間隔的延伸模組。 不允許覆寫及刪除 blob。 
 
-6. 若要啟用合法保存，請選取 [+ 新增原則]。 從下拉式功能表中選取 [合法保存]。
+    ![確認 [鎖定原則] 功能表上](media/storage-blob-immutable-storage/portal-image-5-lock-policy.png)
+
+7. 若要啟用合法保存，請選取 [+ 新增原則]。 從下拉式功能表中選取 [合法保存]。
 
     ![在功能表上 [原則類型] 之下的 [合法保存]](media/storage-blob-immutable-storage/portal-image-legal-hold-selection-7.png)
 
-7. 建立具有一或多個標記的合法保存。
+8. 建立具有一或多個標記的合法保存。
 
     ![原則類型之下的 [標記名稱] 方塊](media/storage-blob-immutable-storage/portal-image-set-legal-hold-tags.png)
 
-8. 若要清除適用法務保存措施，只要移除套用的適用法務保存措施識別碼標記。
+9. 若要清除適用法務保存措施，只要移除套用的適用法務保存措施識別碼標記。
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -170,9 +172,9 @@ Az.Storage 預覽模組支援固定儲存體。  若要啟用此功能，請依�
 
 固定儲存體可以與任何 Blob 類型一起使用，但我們建議您大部分將其用於區塊 Blob。 不同於區塊 Blob，分頁 Blob 和附加 Blob 必須在 WORM 容器外部建立，然後再複製到其中。 之後您這些將 blob 複製到 「 蠕蟲 」 容器沒有進一步*附加*附加 blob 或分頁 blob 的變更允許。
 
-**一定要建立新的儲存體帳戶才能使用此功能嗎？**
+**我需要建立新的儲存體帳戶，才能使用此功能嗎？**
 
-您可以使用不可變的儲存體與任何現有或新建立的一般用途 v2 或 Blob 儲存體帳戶。 這項功能適用於使用 GPv2 和 Blob 儲存體帳戶中的區塊 blob 的使用方式。
+否，您可以使用不可變的儲存體與任何現有或新建立的一般用途 v2 或 Blob 儲存體帳戶。 這項功能適用於使用 GPv2 和 Blob 儲存體帳戶中的區塊 blob 的使用方式。 一般用途 v1 儲存體帳戶不支援，但可以輕鬆地升級至一般用途 v2。 如需有關升級現有的一般用途 v1 儲存體帳戶，請參閱[儲存體帳戶升級](../common/storage-account-upgrade.md)。
 
 **可以套用的適用法務保存措施和以時間為基礎的保留原則嗎？**
 
@@ -188,7 +190,7 @@ Az.Storage 預覽模組支援固定儲存體。  若要啟用此功能，請依�
 
 **如果我嘗試刪除的儲存體帳戶具有 WORM 帳戶，且該帳戶具有以時間為基礎的「鎖定」保留原則或合法保存，則會發生什麼事？**
 
-如果有至少一個 WORM 容器具有合法保存或有一個 Blob 具有有效保留間隔，則儲存體帳戶刪除作業會失敗。  您必須先刪除所有 WORM 容器，才能刪除儲存體帳戶。 如需有關容器刪除的資訊，請參閱前面的問題。
+如果有至少一個 WORM 容器具有合法保存或有一個 Blob 具有有效保留間隔，則儲存體帳戶刪除作業會失敗。 您必須先刪除所有 WORM 容器，才能刪除儲存體帳戶。 如需有關容器刪除的資訊，請參閱前面的問題。
 
 **當 Blob 處於固定狀態時，我可以跨越不同 Blob 層 (經常性存取層、非經常性存取層、冷門存取層) 移動資料嗎？**
 

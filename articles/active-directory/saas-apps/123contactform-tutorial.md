@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 5211910a-ab96-4709-959a-524c4d57c43e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2450548858d3b7eab3fda11b7f309519f6b871c8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 768afe007141eacbcea1560d3ec1676d9a7d2867
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869032"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852010"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-123contactform"></a>教學課程：Azure Active Directory 與 123ContactForm 整合
 
@@ -139,7 +139,7 @@ ms.locfileid: "56869032"
 
     ![設定單一登入](./media/123contactform-tutorial/submit.png) 
 
-    a. 在 [電子郵件] 文字方塊中，輸入使用者的電子郵件，例如 **BrittaSimon@Contoso.com**。
+    a. 在 [電子郵件] 文字方塊中，輸入使用者的電子郵件，例如 **BrittaSimon\@Contoso.com**。
 
     b. 按一下 [上傳]，然後瀏覽您已從 Azure 入口網站下載的「中繼資料 XML」檔案。
 
@@ -173,7 +173,7 @@ ms.locfileid: "56869032"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。

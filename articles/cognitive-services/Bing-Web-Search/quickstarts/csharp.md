@@ -8,30 +8,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 08e2ef1b219ed66a39d38c08be80df89814afbaf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 871cca9fe2b3ff50202feb4925a267b93d432700
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180482"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842068"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>快速入門：使用 Bing Web 搜尋 REST API 和 C# 來搜尋 Web
-
 
 使用本快速入門進行對 Bing Web 搜尋 API 第一次的呼叫，並接收 JSON 回應。 這個 C# 應用程式會將搜尋要求傳送給 API，並顯示回應。 雖然此應用程式是以 C# 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
 
 ## <a name="prerequisites"></a>必要條件
+
 以下是執行本快速入門之前的幾個必備項目：
 
 * Windows:[Visual Studio 2017](https://www.visualstudio.com/downloads/)
-* Linux/macOS：[Mono](http://www.mono-project.com/)  
+* Linux/macOS：[Mono](https://www.mono-project.com/)  
 * 訂用帳戶金鑰
 
 這個範例程式只使用 .NET Core 類別。
-
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
@@ -63,7 +62,7 @@ namespace BingSearchApisQuickstart
 
 ## <a name="define-variables"></a>定義變數
 
-必須先設定幾個變數才能繼續。 請確認 `uriBase` 有效，並將 `accessKey` 值換成您的 Azure 帳戶中有效的訂用帳戶金鑰。 請自行取代 `searchTerm` 的值來自訂搜尋查詢。
+必須先設定幾個變數才能繼續。 請確認 `uriBase` 有效，並將 `accessKey` 值換成您的 Azure 帳戶中有效的訂用帳戶金鑰。 請自行取代 `searchTerm` 的值來自訂搜尋查詢。 請記得將此程式碼新增至 `Program` 類別，如先前所述。
 
 ```csharp
 // Enter a valid subscription key.

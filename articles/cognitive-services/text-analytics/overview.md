@@ -1,38 +1,43 @@
 ---
-title: 什麼是文字分析？
+title: 什麼是文字分析 API？ - 功能 -
 titleSuffix: Azure Cognitive Services
-description: Azure 認知服務中的「文字分析」包含情感分析、關鍵片語擷取、語言偵測和實體連結。
+description: Azure 認知服務中的「文字分析 API」包含情感分析、關鍵片語擷取、語言偵測和實體連結。
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 02/13/2019
+ms.date: 03/01/2019
 ms.author: aahi
-ms.openlocfilehash: 7623f98b9fd6c4bad8a41050e39b6e0e8650dccc
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 1e6aea792666447141e504f45a3ff55cb70f6261
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889272"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533233"
 ---
-# <a name="what-is-text-analytics"></a>什麼是文字分析？
+# <a name="what-is-text-analytics-api"></a>什麼是文字分析 API？
 
 文字分析 API 是一種雲端式服務，可針對原始的文字提供進階的自然語言處理，同時包含四種主要功能：情感分析、關鍵片語擷取、語言偵測和實體連結。
 
 此 API 屬於 [Azure 認知服務](https://docs.microsoft.com/azure/cognitive-services/)的一部分，由雲端中的機器學習和 AI 演算法的集合所組成，可供您的開發專案使用。
 
-## <a name="capabilities-in-text-analytics"></a>文字分析中的功能
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player]
 
-文字分析可能代表不同的意義，但在認知服務中，文字分析 API 可提供四種類型的分析，如下表所說明。
+文字分析可能代表不同的意義，但在認知服務中，文字分析 API 可提供四種類型的分析，如下所述。
 
-| 作業| 說明 | API |
-|-----------|-------------|------|
-|[**情感分析**](how-tos/text-analytics-how-to-sentiment-analysis.md) | 藉由分析原始文字而獲得有關於正面或負面情感的線索，以了解客戶對您的品牌或主題有何看法。 此 API 會為每份文件傳回 0 到 1 之間的情感分數，1 代表最正面的情感。<br /> 分析模型會使用大量文字主體和 Microsoft 的自然語言技術預先定型。 針對[選取的語言](text-analytics-supported-languages.md)，API 可對您所提供的任何原始文字進行分析及評分，並直接將結果傳回至呼叫端應用程式。 | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) <br /> [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package)  |
-|[**關鍵片語擷取**](how-tos/text-analytics-how-to-keyword-extraction.md) | 自動擷取關鍵片語，以快速識別重點。 例如，若輸入文字為 "The food was delicious and there were wonderful staff"，API 即會傳回主要討論要點："food" 和 "wonderful staff"。  | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) <br /> [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) |
-|[**語言偵測**](how-tos/text-analytics-how-to-language-detection.md) | 偵測輸入文字是以何種語言撰寫的，並針對要求所提交的每份文件回報單一語言代碼，最多可達 120 種語言。 語言代碼各配有一個分數，表示分數的強度。 | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) <br />  [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) |
-|[**實體辨識 (預覽)**](how-tos/text-analytics-how-to-entity-linking.md) | 識別文字中的實體並分類為人員、位置、組織、日期/時間、數量、百分比、貨幣等等。 已知的實體也會辨識出來，並連結至網路上的其他資訊。 | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) |
+## <a name="sentiment-analysis"></a>情感分析
+使用[情感分析](how-tos/text-analytics-how-to-sentiment-analysis.md)可藉由分析原始文字而獲得有關於正面或負面情感的線索，來了解客戶對您的品牌或主題有何看法。 此 API 會為每份文件傳回 0 到 1 之間的情感分數，1 代表最正面的情感。<br /> 分析模型會使用大量文字主體和 Microsoft 的自然語言技術預先定型。 針對[選取的語言](text-analytics-supported-languages.md)，API 可對您所提供的任何原始文字進行分析及評分，並直接將結果傳回至呼叫端應用程式。 您可以使用 [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) API 或 [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK。
+
+## <a name="key-phrase-extraction"></a>關鍵片語擷取
+可自動[擷取關鍵片語](how-tos/text-analytics-how-to-keyword-extraction.md)，以快速識別重點。 例如，若輸入文字為 "The food was delicious and there were wonderful staff"，API 即會傳回主要討論要點："food" 和 "wonderful staff"。 您可以使用這裡的 [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) API 或 [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK。
+
+## <a name="language-detection"></a>語言偵測
+您可以[偵測輸入文字是以何種語言撰寫的](how-tos/text-analytics-how-to-language-detection.md)，並按要求針對所提交的每份文件回報單一語言代碼，最多可達 120 種語言。 語言代碼各配有一個分數，表示分數的強度。 您可以使用 [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) API 或 [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK。
+
+## <a name="entity-recognition-preview"></a>實體辨識 (預覽)
+[識別文字中的實體並分類](how-tos/text-analytics-how-to-entity-linking.md)為人員、位置、組織、日期/時間、數量、百分比、貨幣等等。 已知的實體也會辨識出來，並連結至網路上的其他資訊。 您可以使用 [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) API。
 
 ## <a name="use-containers"></a>使用容器
 
@@ -80,18 +85,10 @@ ms.locfileid: "56889272"
 
 ## <a name="next-steps"></a>後續步驟
 
-首先，試著使用[互動式示範](https://azure.microsoft.com/services/cognitive-services/text-analytics/)。 您可以貼上文字輸入 (最多 5,120 個字元) 以偵測語言 (最多 120 種)、計算情感分數，或擷取關鍵片語。 您不需要註冊。
-
-當您準備好要直接呼叫 API 時：
-
 + [註冊](how-tos/text-analytics-how-to-signup.md)存取金鑰，並檢閱[呼叫 API](how-tos/text-analytics-how-to-call-api.md) 的步驟。
 
-+ [快速入門](quickstarts/csharp.md)是以 C# 撰寫的 REST API 的呼叫適用的逐步解說。 請了解如何以最少的程式碼提交文字、選擇分析，以及檢視結果。
++ [快速入門](quickstarts/csharp.md)是以 C# 撰寫的 REST API 的呼叫適用的逐步解說。 請了解如何以最少的程式碼提交文字、選擇分析，以及檢視結果。 如有需要，您可以改為從 [Python 快速入門](quickstarts/python.md)來開始。
 
-+ [API 參考文件](//go.microsoft.com/fwlink/?LinkID=759346)提供 API 的技術文件。 這些文件支援內嵌呼叫，因此您可以從每個文件頁面中呼叫 API。
++ 稍微深入了解這個使用 Azure Databricks 的[情感分析教學課程](https://docs.microsoft.com/azure/azure-databricks/databricks-sentiment-analysis-cognitive-services)。
 
-+ [外部和社群內容](text-analytics-resource-external-community.md)提供部落格貼文清單，並提供影片示範如何搭配其他工具和技術來使用文字分析。
-
-## <a name="see-also"></a>另請參閱
-
- [認知服務文件頁面](https://docs.microsoft.com/azure/cognitive-services/)
++ 請至[外部和社群內容頁面](text-analytics-resource-external-community.md)來參閱我們的部落格文章清單，以及觀看更多相關影片來了解如何搭配其他工具和技術來使用文字分析 API。
