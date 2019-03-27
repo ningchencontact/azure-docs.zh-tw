@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: a8be44201a2181ab252dfba501469719dd675ffa
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 166ffea9cbeb3f343d70737de9049ee721fa9a98
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410157"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448663"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>針對更新管理問題進行疑難排解
 
@@ -65,7 +65,7 @@ The client has permission to perform action 'Microsoft.Compute/virtualMachines/w
 
 #### <a name="resolution"></a>解決方案
 
-請採取以下因應措施將之安排妥當。 您可以搭配參數 `-ForUpdate` 使用 [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule?view=azurermps-6.13.0) Cmdlet，藉此建立排程，然後使用 [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration?view=azurermps-6.13.0
+請採取以下因應措施將之安排妥當。 您可以搭配參數 `-ForUpdate` 使用 [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) Cmdlet，藉此建立排程，然後使用 [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
 ) Cmdlet，將其他租用戶中的機器傳遞到 `-NonAzureComputer` 參數。 下列範例示範了做法：
 
 ```azurepowershell-interactive

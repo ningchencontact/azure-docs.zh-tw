@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 756a836ff276804e9c85675c1acd5cb18aaa1258
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d173f1f9048a46f3fb2500d225ec121157d5d960
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008392"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483535"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>在執行 Windows 的 N 系列 VM 上安裝 NVIDIA GPU 驅動程式 
 
@@ -59,7 +59,7 @@ ms.locfileid: "58008392"
 可以在支援 RDMA 的 N 系列 VM (例如部署在同一個可用性設定組或虛擬機器擴展集的單一放置群組中的 NC24r) 上啟用 RDMA 網路連線能力。 在具備 RDMA 功能的 VM 上，HpcVmDrivers 擴充必須新增以安裝 Windows 網路裝置驅動程式，該驅動程式會啟用 RDMA 連線能力。 若要將 VM 擴充功能新增至 RDMA 啟用的 N 系列 VM，請針對 Azure Resource Manager 使用 [Azure PowerShell](/powershell/azure/overview) Cmdlet。
 
 若要在美國西部區域中名為 myVM 的現有具備 RDMA 功能的 VM 上安裝最新版本 1.1 HpcVMDrivers 延伸模組：
-  ```PowerShell
+  ```powershell
   Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
   如需詳細資訊，請參閱[適用於 Windows 的虛擬機器擴充功能和功能](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。

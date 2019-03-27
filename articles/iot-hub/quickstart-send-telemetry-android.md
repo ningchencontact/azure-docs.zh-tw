@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/05/2018
 ms.author: wesmc
-ms.openlocfilehash: d90595d3d557293bfbc6b06aca638eb1b7c08d30
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 8f30918a73e1e7012ad3be151e778eb073627b84
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164308"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57726680"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>快速入門：從 Android 裝置傳送 IoT 遙測
 
@@ -85,6 +85,12 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
     ```
 
 3. 在 Android Studio 中，按一下 [檔案] > [同步專案與 Gradle 檔案]。 確認建置是否完成。
+
+   > [!NOTE]
+   > 如果專案同步失敗，其可能的原因包括：
+   >
+   > * 對您的 Android Studio 版本而言，專案中參考的 Android Gradle 外掛程式和 Gradle 的版本已過時。 請依照[這些指示](https://developer.android.com/studio/releases/gradle-plugin)，針對您的安裝參考及安裝正確版本的外掛程式和 Gradle。
+   > * Android SDK 的授權合約尚未簽署。 請依照建置輸出中的指示，簽署授權合約並下載 SDK。
 
 4. 完成建置後，按一下 [執行] > [執行「應用程式」]。 設定應用程式，以在實體 Android 裝置或 Android 模擬器上執行。 如需有關如何在實體裝置或模擬器上執行 Android 應用程式的詳細資訊，請參閱[執行應用程式](https://developer.android.com/training/basics/firstapp/running-app)。
 

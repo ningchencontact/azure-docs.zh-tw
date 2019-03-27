@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 範例 - 建立執行 Log Analytics 監視的 Azure VM | Microsoft Docs
-description: Azure CLI 範例 - 建立執行 Windows Server 2016 VM 和 Log Analytics 監視的 Azure VM。
+title: Azure CLI 範例 - 建立執行 Azure 監視器的 Azure VM | Microsoft Docs
+description: Azure CLI 範例 - 建立執行 Windows Server 2016 VM 和 Azure 監視器的 Azure VM。
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc,seodec18
-ms.openlocfilehash: 06e853534dc811ba5b37b192a9da75e88eedd778
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 2565433b8f42a3b81b843a972dd27850cce124b8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668308"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543316"
 ---
-# <a name="monitor-a-vm-with-log-analytics"></a>透過 Log Analytics 監視 VM
+# <a name="monitor-a-vm-with-azure-monitor-logs"></a>透過 Azure 監視器記錄來監視 VM
 
-此指令碼會建立 Azure 虛擬機器、安裝 Log Analytics 代理程式，並向 Log analytics 工作區註冊系統。 執行此指令碼後，就能在 Azure 監視功能中看到虛擬機器。
+此指令碼會建立 Azure 虛擬機器、安裝 Log Analytics 代理程式，並向 Log Analytics 工作區註冊系統。 執行此指令碼後，就能在 Azure 監視功能中看到虛擬機器。
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 

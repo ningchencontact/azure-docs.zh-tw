@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d9d26ced30f718f06d6d0ba9eb7c2a78682305ad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 518e3fa842c5283dc20a6111773bd55451f026b6
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102361"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485844"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure 資料處理站-常見問題集
 > [!NOTE]
@@ -175,7 +175,7 @@ Pipeline 1: dataset4->activity4->dataset5
 * 在 Azure 入口網站中，於該配量的 [資料配量] 刀鋒視窗上，按一下命令列中的 [執行]。
 * 執行**組 AzDataFactorySliceStatus** cmdlet 搭配狀態設為**等候**配量。   
 
-    ```PowerShell
+    ```powershell
     Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
     ```
   請參閱[組 AzDataFactorySliceStatus] [ set-azure-datafactory-slice-status]如需有關此指令程式的詳細資訊。

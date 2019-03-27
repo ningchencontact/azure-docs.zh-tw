@@ -3,7 +3,7 @@ title: 如何使用 Azure 入口網站在 Azure VM 上設定 Azure 資源的受�
 description: 使用 Azure 入口網站在 Azure VM 上設定 Azure 資源的受控識別適用的逐步指示。
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/10/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be360225de7fd4484b3d6b41480b73d93f12c4a6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ab0a5b021048f0f684473d3f54bbeadf870cd007
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209637"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445296"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>使用 Azure 入口網站在虛擬機器上設定 Azure 資源的受控識別
 

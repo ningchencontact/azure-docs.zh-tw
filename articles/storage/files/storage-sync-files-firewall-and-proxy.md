@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 937346bf6927efe11e43b64b7c9a2111f00c0e0a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 35904c3854ddbcf3648c8a226d56f73be890b6ad
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890819"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481494"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure 檔案同步 Proxy 和防火牆設定
 Azure 檔案同步會將您的內部部署伺服器連線到 Azure 檔案服務，以啟用多網站同步處理和雲端層功能。 因此，內部部署伺服器必須連線到網際網路。 IT 系統管理員必須決定進入 Azure 雲端服務之伺服器的最佳路徑。
@@ -49,7 +49,7 @@ Azure 檔案同步支援應用程式特定和整部電腦的 Proxy 設定。
 **應用程式特定的 Proxy 設定**可特別針對 Azure 檔案同步流量允許 Proxy 的組態。 代理程式 4.0.1.0 版或更新版本支援應用程式特定的 Proxy 設定，而且可在代理程式安裝期間進行設定，或使用 Set-StorageSyncProxyConfiguration PowerShell Cmdlet 來設定。
 
 以下 PowerShell 命令可用來設定應用程式特定的 Proxy 設定：
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
 ```

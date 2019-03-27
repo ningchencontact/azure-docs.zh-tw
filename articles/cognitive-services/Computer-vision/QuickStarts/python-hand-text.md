@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: defe3bb47ad6e6d6f8a7095f7020ad11266cfa23
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 78dfb6a78bff8aaf4fe3cc316a6614c3c4af65d2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649096"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433530"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-python-in-computer-vision"></a>快速入門：在電腦視覺中使用 REST API 和 Python 擷取手寫文字
 
-在此快速入門中，您將使用電腦視覺 API 的 REST API 來擷取影像中的手寫文字。 您可以使用[辨識文字](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200)與[取得辨識文字作業結果](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201)方法來偵測影像中的手寫文字，然後將辨識出的字元擷取到電腦可使用的字元資料流中。
+在此快速入門中，您將使用電腦視覺 API 的 REST API 來擷取影像中的手寫文字。 您可以使用[批次讀取](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) API 與[讀取作業結果](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API，偵測影像中的手寫文字，然後將辨識出的字元擷取到電腦可使用的字元資料流中。
 
 > [!IMPORTANT]
-> 不同於 [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 方法，[辨識文字](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200)方法會以非同步方式執行。 這個方法不會在成功回應的主體中傳回任何資訊。 「辨識文字」方法會改為在 `Operation-Content` 回應標頭欄位的值中傳回 URI。 您接著可以呼叫這個 URI (它代表[取得辨識文字作業結果](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201)方法) 來檢查狀態，並傳回「辨識文字」方法呼叫的結果。
+> 不同於 [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) 方法，[批次讀取](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb)方法會以非同步方式執行。 這個方法不會在成功回應的主體中傳回任何資訊。 「批次讀取」方法會改為在 `Operation-Content` 回應標頭欄位的值中傳回 URI。 您接著可以呼叫這個 URI (它代表[讀取作業結果](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API)，檢查狀態並傳回「辨識文字」方法呼叫的結果。
 
 您可以使用 [MyBinder](https://mybinder.org) (英文) 上的 Jupyter Notebook，以逐步方式執行本快速入門。 若要啟動 Binder，請選取下列按鈕：
 
@@ -72,7 +72,7 @@ assert subscription_key
 # this region.
 vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"
 
-text_recognition_url = vision_base_url + "recognizeText"
+text_recognition_url = vision_base_url + "read/core/asyncBatchAnalyze"
 
 # Set image_url to the URL of an image that you want to analyze.
 image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/" + \

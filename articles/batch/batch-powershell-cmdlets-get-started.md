@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 01/15/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 10d8683724622f164299016a801e1960e0a868c7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 11028561cf6742cfd5e8c0c882de16ff35ebf0ef
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770034"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486355"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>使用 PowerShell Cmdlet 管理 Batch 資源
 
@@ -36,13 +36,13 @@ ms.locfileid: "57770034"
 
 * 執行 **Connect-AzAccount** Cmdlet 以連線到訂用帳戶 (Azure Batch Cmdlet 隨附在 Azure Resource Manager 模組中)：
 
-  ```PowerShell
+  ```powershell
   Connect-AzAccount
   ```
 
 * **註冊 Batch 提供者命名空間**。 每個訂用帳戶只需要執行這項作業**一次**。
   
-  ```PowerShell
+  ```powershell
   Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
   ```
 
@@ -52,13 +52,13 @@ ms.locfileid: "57770034"
 
 **New-AzBatchAccount** 會在指定的資源群組中建立 Batch 帳戶。 如果您還沒有資源群組，請執行 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) Cmdlet 建立一個資源群組。 在 **Location** 參數中指定其中一個 Azure 區域，例如 "Central US"。 例如︰
 
-```PowerShell
+```powershell
 New-AzResourceGroup –Name MyBatchResourceGroup –Location "Central US"
 ```
 
 然後，在資源群組中建立 Batch 帳戶。 為 <*account_name*> 中的帳戶指定名稱，以及指定資源群組的位置和名稱。 建立 Batch 帳戶可能需要一些時間來完成。 例如︰
 
-```PowerShell
+```powershell
 New-AzBatchAccount –AccountName <account_name> –Location "Central US" –ResourceGroupName <res_group_name>
 ```
 
@@ -69,7 +69,7 @@ New-AzBatchAccount –AccountName <account_name> –Location "Central US" –Res
 
 **Get-AzBatchAccountKeys** 會顯示與 Azure Batch 帳戶相關聯的存取金鑰。 例如，執行下列命令以取得您所建立帳戶的主要和次要金鑰。
 
- ```PowerShell
+ ```powershell
 $Account = Get-AzBatchAccountKeys –AccountName <account_name>
 
 $Account.PrimaryAccountKey
@@ -81,7 +81,7 @@ $Account.SecondaryAccountKey
 
 **New-AzBatchAccountKey** 會為 Azure Batch 帳戶產生新的主要或次要帳戶金鑰。 例如，若要為您的 Batch 帳戶產生新的主要金鑰，請輸入：
 
-```PowerShell
+```powershell
 New-AzBatchAccountKey -AccountName <account_name> -KeyType Primary
 ```
 
@@ -92,7 +92,7 @@ New-AzBatchAccountKey -AccountName <account_name> -KeyType Primary
 
 **Remove-AzBatchAccount** 會刪除 Batch 帳戶。 例如︰
 
-```PowerShell
+```powershell
 Remove-AzBatchAccount -AccountName <account_name>
 ```
 
@@ -104,7 +104,7 @@ Remove-AzBatchAccount -AccountName <account_name>
 
 ### <a name="shared-key-authentication"></a>共用金鑰驗證
 
-```PowerShell
+```powershell
 $context = Get-AzBatchAccountKeys -AccountName <account_name>
 ```
 
@@ -113,7 +113,7 @@ $context = Get-AzBatchAccountKeys -AccountName <account_name>
 
 ### <a name="azure-active-directory-authentication"></a>Azure Active Directory 驗證
 
-```PowerShell
+```powershell
 $context = Get-AzBatchAccount -AccountName <account_name>
 ```
 
@@ -129,7 +129,7 @@ $context = Get-AzBatchAccount -AccountName <account_name>
 
 當您執行 **New-AzBatchPool** 時，請將作業系統設定傳入 PSCloudServiceConfiguration 或 PSVirtualMachineConfiguration 物件中。 例如，下列程式碼片段會使用虛擬機器組態中的 Standard_A1 計算節點建立 Batch 集區，並以 Ubuntu Server 18.04-LTS 製作映像。 在此，**VirtualMachineConfiguration** 參數會將 $configuration 變數指定為 PSVirtualMachineConfiguration 物件。 **BatchContext** 參數會將先前定義的變數 $context 指定為 BatchAccountContext 物件。
 
-```PowerShell
+```powershell
 $imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","18.04.0-LTS")
 
 $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSVirtualMachineConfiguration" -ArgumentList @($imageRef, "batch.node.ubuntu 18.04")
@@ -147,7 +147,7 @@ New-AzBatchPool -Id "mypspool" -VirtualMachineSize "Standard_a1" -VirtualMachine
 
 例如，使用 **Get-AzBatchPools** 尋找您的集區。 依預設，這將查詢您帳戶下的所有集區，並假設您已經將 BatchAccountContext 物件儲存在 *$context*中：
 
-```PowerShell
+```powershell
 Get-AzBatchPool -BatchContext $context
 ```
 
@@ -155,7 +155,7 @@ Get-AzBatchPool -BatchContext $context
 
 您可以提供 **篩選** 參數給 OData 篩選，只尋找您感興趣的物件。 例如，您可以尋找識別碼以 “myPool” 開頭的所有集區：
 
-```PowerShell
+```powershell
 $filter = "startswith(id,'myPool')"
 
 Get-AzBatchPool -Filter $filter -BatchContext $context
@@ -167,7 +167,7 @@ Get-AzBatchPool -Filter $filter -BatchContext $context
 
 使用 **Id** 參數可做為 OData 篩選器的替代方式。 若要查詢識別碼為 "myPool" 的特定集區：
 
-```PowerShell
+```powershell
 Get-AzBatchPool -Id "myPool" -BatchContext $context
 ```
 
@@ -177,7 +177,7 @@ Get-AzBatchPool -Id "myPool" -BatchContext $context
 
 依預設，每個 Cmdlet 最多傳回 1000 個物件。 如果到達此限制，請調整您的篩選器以傳回較少的物件，或使用 **MaxCount** 參數明確地設定最大值。 例如︰
 
-```PowerShell
+```powershell
 Get-AzBatchTask -MaxCount 2500 -BatchContext $context
 ```
 
@@ -189,13 +189,13 @@ Batch Cmdlet 可使用 PowerShell 管線在 Cmdlet 之間傳送資料。 這和�
 
 例如，尋找和顯示您帳戶下的所有作業：
 
-```PowerShell
+```powershell
 Get-AzBatchJob -BatchContext $context | Get-AzBatchTask -BatchContext $context
 ```
 
 重新啟動集區中的每個計算節點︰
 
-```PowerShell
+```powershell
 Get-AzBatchComputeNode -PoolId "myPool" -BatchContext $context | Restart-AzBatchComputeNode -BatchContext $context
 ```
 
@@ -205,25 +205,25 @@ Get-AzBatchComputeNode -PoolId "myPool" -BatchContext $context | Restart-AzBatch
 
 **建立** 應用程式：
 
-```PowerShell
+```powershell
 New-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
 ```
 
 **添加** 应用程序包：
 
-```PowerShell
+```powershell
 New-AzBatchApplicationPackage -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0" -Format zip -FilePath package001.zip
 ```
 
 設定應用程式的**預設版本**︰
 
-```PowerShell
+```powershell
 Set-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -DefaultVersion "1.0"
 ```
 
 **列出**應用程式的套件
 
-```PowerShell
+```powershell
 $application = Get-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
 
 $application.ApplicationPackages
@@ -231,13 +231,13 @@ $application.ApplicationPackages
 
 **刪除**應用程式套件
 
-```PowerShell
+```powershell
 Remove-AzBatchApplicationPackage -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication" -ApplicationVersion "1.0"
 ```
 
 **刪除**應用程式
 
-```PowerShell
+```powershell
 Remove-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_group_name> -ApplicationId "MyBatchApplication"
 ```
 
@@ -250,7 +250,7 @@ Remove-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_gr
 
 在建立集區時指定 `-ApplicationPackageReference` 選項，以在節點加入集區時將應用程式套件部署到集區的節點。 首先，建立 **PSApplicationPackageReference** 物件，然後以您要部署至集區中各個計算節點的應用程式識別碼和套件版本進行設定︰
 
-```PowerShell
+```powershell
 $appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference
 
 $appPackageReference.ApplicationId = "MyBatchApplication"
@@ -260,7 +260,7 @@ $appPackageReference.Version = "1.0"
 
 現在建立集區，並指定套件參考物件做為 `ApplicationPackageReferences` 選項的引數︰
 
-```PowerShell
+```powershell
 New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
 ```
 
@@ -273,7 +273,7 @@ New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServi
 
 若要更新指派給現有集區的應用程式，請先使用所需的屬性 (應用程式識別碼和套件版本) 建立 PSApplicationPackageReference 物件︰
 
-```PowerShell
+```powershell
 $appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference
 
 $appPackageReference.ApplicationId = "MyBatchApplication"
@@ -284,7 +284,7 @@ $appPackageReference.Version = "2.0"
 
 接下來，從 Batch 取得集區、清除任何現有的套件、新增我們新的套件參考，以及使用新的集區設定更新 Batch 服務︰
 
-```PowerShell
+```powershell
 $pool = Get-AzBatchPool -BatchContext $context -Id "PoolWithAppPackage"
 
 $pool.ApplicationPackageReferences.Clear()
@@ -296,7 +296,7 @@ Set-AzBatchPool -BatchContext $context -Pool $pool
 
 您現在已更新 Batch 服務中集區的屬性。 若要將新的應用程式套件實際部署至集區中的計算節點，您必須重新啟動這些節點或重新安裝其映像。 您可以使用此命令重新啟動集區中的每個節點︰
 
-```PowerShell
+```powershell
 Get-AzBatchComputeNode -PoolId "PoolWithAppPackage" -BatchContext $context | Restart-AzBatchComputeNode -BatchContext $context
 ```
 

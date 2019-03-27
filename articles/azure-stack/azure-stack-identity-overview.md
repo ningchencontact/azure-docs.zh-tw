@@ -11,17 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 9fc53fd2539a39de4f01758704765392cc7e98a8
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 665f8ac9a8b0738ed23649673c548bc6b1774d2d
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55246961"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259953"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Azure Stack 的身分識別概觀
 
@@ -60,12 +60,12 @@ Azure Stack 要求以 Active Directory 所支援的 Azure Active Directory (Azur
 
 在 Azure Stack 中，使用者帳戶：
 
-- 是以 username@domain 格式建立。 雖然 AD FS 可將使用者帳戶對應到 Active Directory 執行個體，但 AD FS 不支援使用 \\\<domain>\\\<alias> 格式。
+- 以「使用者名稱\@網域」格式建立。 雖然 AD FS 可將使用者帳戶對應到 Active Directory 執行個體，但 AD FS 不支援使用 \\\<domain>\\\<alias> 格式。
 - 可以設定為使用多重要素驗證。
 - 受限於它們首先註冊的目錄，也就是其組織目錄。
 - 可以從內部部署目錄匯入。 如需詳細資訊，請參閱[整合您的內部部署目錄與 Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect)。
 
-當您登入貴組織的租用戶入口網站時，您會使用 https://portal.local.azurestack.external URL。 從不同於用來註冊 Azure Stack 的網域登入 Azure Stack 入口網站後，必須將用來註冊 Azure Stack 的網域名稱附加至入口網站 url。 例如，如果使用 fabrikam.onmicrosoft.com 註冊了 Azure Stack，且登入的使用者帳戶是 admin@contoso.com，則用來登入使用者入口網站的 url 會是： https://portal.local.azurestack.external/fabrikam.onmicrosoft.com。
+當您登入貴組織的租用戶入口網站時，您會使用 *https:\//portal.local.azurestack.external* URL。 從不同於用來註冊 Azure Stack 的網域登入 Azure Stack 入口網站後，必須將用來註冊 Azure Stack 的網域名稱附加至入口網站 url。 例如，如果使用 fabrikam.onmicrosoft.com 註冊了 Azure Stack，且登入的使用者帳戶是 admin@contoso.com，則用來登入使用者入口網站的 url 會是：https:\//portal.local.azurestack.external/fabrikam.onmicrosoft.com。
 
 ### <a name="guest-users"></a>來賓使用者
 
@@ -73,9 +73,9 @@ Azure Stack 要求以 Active Directory 所支援的 Azure Active Directory (Azur
 
 雲端操作員和使用者可以使用 [Azure AD B2B 共同作業](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)邀請來賓使用者。 受邀的使用者可取得您目錄中文件、資源及應用程式的存取權，而您會保有對自己的資源和資源的控制權。 
 
-身為來賓使用者，您可以登入其他組織的目錄租用戶。 若要這麼做，您必須將該組織的目錄名稱附加至入口網站 URL。 例如，如果您隸屬於 Contoso 組織，而且想要登入 Fabrikam 目錄，您可使用 https://portal.local.azurestack.external/fabrikam.onmicrosoft.com。
+身為來賓使用者，您可以登入其他組織的目錄租用戶。 若要這麼做，您必須將該組織的目錄名稱附加至入口網站 URL。 例如，如果您屬於 Contoso 組織，且想要登入 Fabrikam 目錄，可使用 https:\//portal.local.azurestack.external/fabrikam.onmicrosoft.com。
 
-### <a name="applications"></a>[應用程式]
+### <a name="applications"></a>應用程式
 
 您可以向 Azure AD 或 AD FS 註冊應用程式，然後將應用程式提供給您組織中的使用者。
 
@@ -156,10 +156,10 @@ Azure Stack 的身分識別包括使用者帳戶、群組和服務主體。
 
 若要向識別提供者進行驗證並收到 JSON Web 權杖，您必須具有下列資訊：
 
-1. **身分識別系統 (授權) 的 URL**：可以連線至您識別提供者的 URL。 例如：*https://login.windows.net*。
+1. **身分識別系統 (授權) 的 URL**：可以連線至您識別提供者的 URL。 例如，*https:\//login.windows.net*。
 2. **Azure Resource Manager 的應用程式識別碼 URI**：已向識別提供者註冊的 Azure Resource Manager 唯一識別碼。 此識別碼也是每個 Azure Stack 安裝中的唯一識別碼。
 3. **認證**：您用來向識別提供者驗證的認證。
-4. **Azure Resource Manager 的 URL**：URL 是 Azure Resource Manager 服務的位置。 例如， https://management.azure.com 或 https://management.local.azurestack.external。
+4. **Azure Resource Manager 的 URL**：URL 是 Azure Resource Manager 服務的位置。 例如，*https:\//management.azure.com* 或 *https:\//management.local.azurestack.external*。
 
 當主體 (用戶端、應用程式或使用者) 提出驗證要求以存取資源時，該要求必須包含：
 

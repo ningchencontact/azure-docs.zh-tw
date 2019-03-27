@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2fecf300bb14132a2e02c81a8a0862adff6b46cc
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: bca61c652953cd7fb9745c49773d22dc372b0f35
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202753"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448829"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>在 HDInsight 中使用 .NET SDK for Apache Hadoop 執行 Apache Sqoop 作業
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -117,6 +117,6 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 ## <a name="next-steps"></a>後續步驟
 現在，您已了解如何使用 Sqoop。 若要深入了解，請參閱：
 
-* [使用 Apache Oozie 搭配 HDInsight](../hdinsight-use-oozie.md)：在 Oozie 工作流程中使用 Sqoop 動作。
+* [使用 Apache Oozie 搭配 HDInsight](../hdinsight-use-oozie-linux-mac.md)：在 Oozie 工作流程中使用 Sqoop 動作。
 * [將資料上傳至 HDInsight](../hdinsight-upload-data.md)：尋找其他方法以將資料上傳至 HDInsight 或 Azure Blob 儲存體。
 

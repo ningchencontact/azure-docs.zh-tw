@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: e28d6191-c375-43c6-b2df-22daa88d9939
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35e7ef28a98cc660f11ec12c19cf45f8c3e224cf
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 126d5b501b9c4239fbdbe06318604bcfaf861150
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879691"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838345"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kronos"></a>教學課程：Azure Active Directory 與 Kronos 整合
 
@@ -68,7 +68,7 @@ ms.locfileid: "56879691"
 4. 在搜尋方塊中輸入 **Kronos**，並從結果面板中選取 [Kronos]，然後按一下 [新增] 按鈕以新增應用程式。
 
      ![結果清單中的 Kronos](common/search-new-app.png)
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
+   ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Kronos 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Kronos 中相關使用者之間的連結關聯性。
@@ -155,7 +155,7 @@ ms.locfileid: "56879691"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。

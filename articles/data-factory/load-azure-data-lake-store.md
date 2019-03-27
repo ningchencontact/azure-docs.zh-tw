@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: d9bce32e87984193938099b96a358cc4495fd0c9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 522b9743af28dedb2aec5682a1ae95b9d52ad2d9
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119718"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446445"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料載入 Azure Data Lake Storage Gen1
 
@@ -46,7 +46,8 @@ Azure Data Factory 可針對將資料載入到 Data Lake Storage Gen1 的作業�
 
 1. 在左側功能表中，選取 [建立資源] > [分析] > [資料處理站]：
    
-   ![建立新的資料處理站](./media/load-data-into-azure-data-lake-store/new-azure-data-factory-menu.png)
+   ![在 [新增] 窗格中選取資料處理站](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. 在 [新增資料處理站] 頁面中，為下圖所示的欄位提供值： 
       
    ![新增資料處理站頁面](./media/load-data-into-azure-data-lake-store//new-azure-data-factory.png)

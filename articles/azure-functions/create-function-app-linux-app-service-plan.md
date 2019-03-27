@@ -1,90 +1,122 @@
 ---
-title: 在 Azure App Service 方案中建立 Linux 上的函式應用程式
-description: 了解如何使用 Azure CLI，在 App Service 方案中建立執行於 Linux 上的函式應用程式。
+title: 在 Linux 從 Azure 入口網站建立函式應用程式 | Microsoft Docs
+description: 了解如何使用 Azure 入口網站來建立您的第一個 Azure 函式以進行無伺服器執行。
 services: functions
-keywords: ''
+documentationcenter: na
 author: ggailey777
-ms.author: glenga
-ms.date: 11/28/2018
-ms.topic: conceptual
-ms.service: azure-functions
-ms.custom: mvc
-ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: ec7b71c7da19ecefc14696c029e63a074b498ec8
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.service: azure-functions
+ms.devlang: multiple
+ms.topic: quickstart
+ms.date: 02/28/2019
+ms.author: glenga
+ms.custom: ''
+ms.openlocfilehash: cc99bc4345c388f22e72957590f3917a85e214e0
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696726"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339803"
 ---
-# <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan-preview"></a>在 Azure App Service 方案中建立 Linux 上的函式應用程式 (預覽)
+# <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>在 Azure App Service 方案中建立 Linux 上的函式應用程式
 
-Azure Functions 可讓您在 Linux 上預設的 Azure App Service 容器中裝載函式。 本文會逐步引導您了解如何使用 Azure CLI，在執行於 [App Service 方案](functions-scale.md#app-service-plan)的 Azure 中建立 Linux 裝載的函式應用程式。 您也可以[自備自訂容器](functions-create-function-linux-custom-image.md)。 Linux 裝載目前為預覽狀態。
+Azure Functions 可讓您在 Linux 上預設的 Azure App Service 容器中裝載函式。 本文會逐步引導您了解如何使用 [Azure 入口網站](https://portal.azure.com)，建立 Linux 裝載的函式應用程式，而該應用程式會在 [App Service 方案](functions-scale.md#app-service-plan)中執行。 您也可以[自備自訂容器](functions-create-function-linux-custom-image.md)。
 
-在 App Service 方案中，您必須負責調整您的函式應用程式。 若要利用 Azure Functions 的無伺服器功能，您也可以將函式裝載在[取用方案](functions-scale.md#consumption-plan)中的 Linux 上。
-
-您可以使用 Mac、Windows 或 Linux 電腦，依照下面步驟操作。
-
-## <a name="prerequisites"></a>必要條件
-
-若要完成本快速入門，您需要：
-
-+ 有效的 Azure 訂用帳戶。
+![在 Azure 入口網站中建立函式應用程式](./media/create-function-app-linux-app-service-plan/function-app-in-portal-editor.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="sign-in-to-azure"></a>登入 Azure
 
-如果您選擇在本機安裝和使用 CLI，本主題需要 Azure CLI 2.0.21 版或更新版本。 執行 `az --version` 以尋找您擁有的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。 
+使用您的 Azure 帳戶登入 Azure 入口網站 (<https://portal.azure.com>)。
 
-[!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
+## <a name="create-a-function-app"></a>建立函數應用程式
 
-[!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
+您必須擁有函式應用程式以便在 Linux 上主控函式的執行。 函式應用程式會提供環境來讓您的函式程式碼進行執行。 它可讓您將多個函式群組為邏輯單位，以方便您管理、部署和共用資源。 在本文中，您會在建立函式應用程式時建立 App Service 方案。
 
-## <a name="create-a-linux-app-service-plan"></a>建立 Linux App Service 方案
+1. 選取 Azure 入口網站左上角的 [建立資源] 按鈕，然後選取 [計算] > [函式應用程式]。
 
-[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
+    ![在 Azure 入口網站中建立函式應用程式](./media/create-function-app-linux-app-service-plan/function-app-create-flow.png)
 
-## <a name="create-a-function-app-on-linux"></a>在 Linux 上建立函式應用程式
+2. 請使用影像下面的資料表中指定的函式應用程式設定。
 
-您必須擁有函式應用程式以便在 Linux 上主控函式的執行。 函式應用程式會提供環境來讓您的函式程式碼進行執行。 它可讓您將多個函式群組為邏輯單位，以方便您管理、部署和共用資源。 使用 [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 命令與 Linux App Service 方案來建立函式應用程式。
+    ![定義新的函式應用程式設定](./media/create-function-app-linux-app-service-plan/function-app-create-flow2.png)
 
-在下列命令中，使用唯一函式應用程式名稱來替代您看見 `<app_name>` 預留位置的地方，並使用儲存體帳戶名稱來替代 `<storage_name>`。 `<app_name>` 會作為函式應用程式的預設 DNS 網域，所以此名稱在 Azure 的所有應用程式中都必須是唯一的名稱。 您也應該從 `dotnet` (C#)、`node` (JavaScript) 或 `python`，設定函式應用程式的 `<language>` 執行階段。
+    | 設定      | 建議的值  | 說明                                        |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **應用程式名稱** | 全域唯一的名稱 | 用以識別新函式應用程式的名稱。 有效字元是 `a-z`、`0-9` 和 `-`。  | 
+    | **訂用帳戶** | 您的訂用帳戶 | 將在其下建立這個新函式應用程式的訂用帳戶。 | 
+    | **[資源群組](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | 要在其中建立函式應用程式的新資源群組名稱。 |
+    | **作業系統** | Linux | 此函式應用程式會在 Linux 上執行。 |
+    | **Publish** | 代碼 | 系統會使用 [執行階段堆疊] 的預設 Linux 容器。 您只需要提供函式應用程式的專案代碼。 另一個選項是發佈自訂 [Docker 映像](functions-create-function-linux-custom-image.md)。 |
+    | **[主控方案](functions-scale.md)** | App Service 方案 | 會定義如何將資源配置給函式應用程式的主控方案。 在 App Service 方案中執行時，您可以控制[函式應用程式的調整](functions-scale.md)。  |
+    | **App Service 方案/位置** | 建立方案 | 選擇 [新建] 並提供 **App Service 方案**名稱。 在[區域](https://azure.microsoft.com/regions/)中選擇**位置**，此位置應靠近您或靠近函式會存取的其他服務。 選擇您想要的**[定價層](https://azure.microsoft.com/pricing/details/app-service/linux/)**。 <br/>您無法在相同的 App Service 方案中同時執行 Linux 與 Windows 函式應用程式。 |
+    | **執行階段堆疊** | 慣用語言 | 選擇支援您慣用函式程式設計語言的執行階段。 針對 C# 和 F # 函式選擇 **.NET**。 [Python 支援](functions-reference-python.md)目前處於預覽階段。 |
+    | **[儲存體](../storage/common/storage-quickstart-create-account.md)** |  全域唯一的名稱 |  建立您函式應用程式使用的儲存體帳戶。 儲存體帳戶名稱必須介於 3 到 24 個字元的長度，而且只能包含數字和小寫字母。 您也可以使用現有帳戶，條件是必須符合[儲存體帳戶需求](functions-scale.md#storage-account-requirements)。 |
+    | **[Application Insights](functions-monitoring.md)** | 已啟用 | 依預設會停用 Application Insights。 我們建議立即啟用 Application Insights 整合，並選擇您的 App Service 方案位置附近的裝載位置。 如果您想要稍後執行這項操作，請參閱[監視 Azure Functions](functions-monitoring.md)。  |
 
-```azurecli-interactive
-az functionapp create --resource-group myResourceGroup --plan myAppServicePlan \
---name <app_name> --storage-account  <storage_name> --runtime <language>
-```
+3. 選取 [建立] 以佈建並部署函式應用程式。
 
-建立及部署函式應用程式後，Azure CLI 會顯示類似下列範例的資訊：
+4. 選取入口網站右上角的 [通知] 圖示，查看是否有**部署成功**訊息。
 
-```json
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 1536,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "quickstart.azurewebsites.net",
-  "enabled": true,
-  "enabledHostNames": [
-    "quickstart.azurewebsites.net",
-    "quickstart.scm.azurewebsites.net"
-  ],
-   ....
-    // Remaining output has been truncated for readability.
-}
-```
+    ![定義新的函式應用程式設定](./media/create-function-app-linux-app-service-plan/function-app-create-notification.png)
 
-因為 `myAppServicePlan` 是 Linux 方案，內建 Docker 映像會用來建立容器 (在 Linux 上執行函式應用程式)。
+5. 選取 [前往資源]，以檢視您新的函式應用程式。
 
-[!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources-simple.md)]
+> [!TIP]
+> 在入口網站中尋找您的函式應用程式時若發生問題，請嘗試[在 Azure 入口網站中將函式應用程式新增至您的最愛](functions-how-to-use-azure-function-app-settings.md#favorite)。
+
+接下來，您要在新的函式應用程式中建立函式。 即使在您的函式應用程式可用之後，可能需要幾分鐘才能完全初始化。
+
+## <a name="create-function"></a>建立由 HTTP 觸發的函式
+
+這一節說明如何在入口網站的新函式應用程式中建立函式。
+
+> [!NOTE]
+> 試用 Azure Functions 時，入口網站開發體驗很實用。 在大部分的情況下，請考慮使用 [Visual Studio Code](functions-create-first-function-vs-code.md#create-an-azure-functions-project) 或 [Azure Functions Core Tools](functions-run-local.md#create-a-local-functions-project)，在本機開發函式並將專案發佈至函式應用程式。  
+
+1. 在新的函式應用程式中，選擇 [概觀] 索引標籤，然後在完全載入之後，選擇 [+ 新增函式]。
+
+    ![從概觀索引標籤建立新的函式](./media/create-function-app-linux-app-service-plan/overview-create-function.png)
+
+1. 在 [快速入門] 索引標籤上，選擇 [入口網站中]，然後選取 [繼續]。
+
+    ![選擇您的函式開發平台。](./media/create-function-app-linux-app-service-plan/function-app-quickstart-choose-portal.png)
+
+1. 選擇 [WebHook + API]，然後選取 [建立]。
+
+    ![Azure 入口網站中的 Functions 快速入門。](./media/create-function-app-linux-app-service-plan/function-app-quickstart-node-webhook.png)
+
+系統隨即會使用由 HTTP 觸發的函式特定語言範本來建立函式。
+
+現在，您可以藉由傳送 HTTP 要求來執行新的函式。
+
+## <a name="test-the-function"></a>測試函式
+
+1. 在新的函式中，按一下右上方的 [</> 取得函式 URL]，選取 [預設 (函式索引鍵)]，然後按一下 [複製]。 
+
+    ![從 Azure 入口網站複製函式 URL](./media/create-function-app-linux-app-service-plan/function-app-develop-tab-testing.png)
+
+2. 將函式 URL 貼入瀏覽器的網址列中。 將查詢字串值 `&name=<yourname>` 新增至此 URL 的結尾，並按鍵盤上的 `Enter` 鍵執行要求。 您應該會看到函式傳回的回應顯示在瀏覽器中。  
+
+    下列範例會顯示瀏覽器中的回應：
+
+    ![瀏覽器中的函式回應。](./media/create-function-app-linux-app-service-plan/function-app-browser-testing.png)
+
+    要求 URL 預設會包含所需金鑰，以便透過 HTTP 存取您的函式。
+
+3. 當函式執行時，系統會將追蹤資訊寫入到記錄中。 若要查看上次執行的追蹤輸出，請在入口網站中返回您的函式，然後按一下畫面底部的箭號來展開**記錄**。
+
+   ![Azure 入口網站中的函式記錄檢視器。](./media/create-function-app-linux-app-service-plan/function-view-logs.png)
+
+## <a name="clean-up-resources"></a>清除資源
+
+[!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>後續步驟
 
-本文說明如何在 Azure 中建立 Linux 裝載的函式應用程式。 您現在可以[部署函式專案](https://docs.microsoft.com/cli/azure/functionapp/deployment/source?view=azure-cli-latest)到此函式應用程式。 您可以使用 Azure Functions Core Tools 在本機電腦上[建立 Functions 專案](functions-run-local.md)，並將它部署到新的 Linux 函式應用程式。  
+您已使用簡單的 HTTP 觸發函式建立了函式應用程式。  
 
-> [!div class="nextstepaction"] 
-> [撰寫 Azure Functions 並在本機進行測試](functions-run-local.md)
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+
+如需詳細資訊，請參閱 [Azure Functions HTTP 繫結](functions-bindings-http-webhook.md)。

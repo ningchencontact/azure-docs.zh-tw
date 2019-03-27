@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: cephalin;sisirap
 ms.custom: seodec18
-ms.openlocfilehash: 011caaad2f9cb3b0b891df172002dcb6b6aa8206
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 1f94544a2e7a26ab00432a3564bb752c71254844
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607046"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484875"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>使用 ZIP 或 WAR 檔案將您的應用程式部署至 Azure App Service
 
@@ -100,7 +100,7 @@ curl -X POST -u <username> --data-binary @"<war_file_path>" https://<app_name>.s
 
 下列範例使用 [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) 來傳送包含 .war 檔案的要求。 取代預留位置 `<deployment_user>`、`<deployment_password>`、`<zip_file_path>` 和 `<app_name>`。
 
-```PowerShell
+```powershell
 $username = "<deployment_user>"
 $password = "<deployment_password>"
 $filePath = "<war_file_path>"

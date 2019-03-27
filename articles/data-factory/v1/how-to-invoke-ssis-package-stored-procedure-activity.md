@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: ed53f9bf2e22e1d69a4e00de1e8d71291a5be46d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d61874a57801a6c02af885cab6a97ed38da1deb1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108707"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487918"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>在 Azure Data Factory 使用預存程序活動叫用 SSIS 套件
 本文描述如何使用預存程序活動從 Azure Data Factory 管線叫用 SSIS 封裝。 
@@ -306,13 +306,13 @@ ms.locfileid: "58108707"
 
 1. 執行**Get AzDataFactorySlice**以取得詳細的輸出資料集 * *，也就是管線的輸出資料表的所有配量。
 
-    ```PowerShell
+    ```powershell
     Get-AzDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
     請注意，您在此處指定的 StartDateTime 與在管線 JSON 中指定的開始時間是相同的。 
 1. 執行**Get AzDataFactoryRun**以取得詳細資料的活動會執行特定配量。
 
-    ```PowerShell
+    ```powershell
     Get-AzDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
 

@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 3db13ed4-35c2-4b1e-bed8-9b5977061f93
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1874950e733df1cf14fba2f53fdb49d478cb6f8a
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7914bc3775631f3cc5d6ae68fed10c6d5fecb853
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866040"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838046"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alertops"></a>教學課程：Azure Active Directory 與 AlertOps 整合
 
@@ -176,7 +176,7 @@ AlertOps 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -227,7 +227,7 @@ AlertOps 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入使用者名稱] 文字方塊中，輸入使用者的使用者名稱，例如 **Brittasimon**。
 
-    b. 在 [官方電子郵件] 文字方塊中，輸入使用者的電子郵件地址，例如 **Brittasimon@contoso.com**。
+    b. 在 [官方電子郵件] 文字方塊中，輸入使用者的電子郵件地址，例如 **Brittasimon\@contoso.com**。
 
     c. 在 [名字] 文字方塊中，輸入使用者的名字，例如 **Britta**。
 

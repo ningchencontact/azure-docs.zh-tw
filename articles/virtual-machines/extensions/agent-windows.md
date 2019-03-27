@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 051c9cb0c6c1af121a1bdd1f553ef124f980b49d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: d17d7c9d7b57e6ca040e4f81c9665789c8bc26e2
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977146"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483245"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure 虛擬機器代理程式概觀
 Microsoft Azure 虛擬機器代理程式 (VM 代理程式) 是一個安全的輕量型處理程序，可管理虛擬機器 (VM) 與 Azure 網狀架構控制器的互動。 VM 代理程式已啟用主要角色並執行 Azure 虛擬機器擴充功能。 VM 擴充功能可啟用 VM 的部署後組態，例如安裝和設定軟體。 VM 擴充功能也會啟用復原功能，例如重設 VM 的系統管理密碼。 若沒有 Azure VM 代理程式，便無法執行 VM 擴充功能。
@@ -80,7 +80,7 @@ Get-AzVM
 
 下列緊縮的範例輸出顯示 *ProvisionVMAgent* 屬性會以巢狀方式置於 *OSProfile* 內。 請注意，這個屬性可用來判斷 VM 代理程式是否已部署至 VM：
 
-```PowerShell
+```powershell
 OSProfile                  :
   ComputerName             : myVM
   AdminUsername            : myUserName
@@ -91,7 +91,7 @@ OSProfile                  :
 
 下列指令碼可以用來傳回簡明的 VM 名稱清單和 VM 代理程式的狀態：
 
-```PowerShell
+```powershell
 $vms = Get-AzVM
 
 foreach ($vm in $vms) {

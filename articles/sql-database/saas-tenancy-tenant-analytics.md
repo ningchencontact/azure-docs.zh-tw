@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 9f88314bbf507dc3b4e282532acfa079c2a63cce
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0be39aaf5526ea288764fc72d6c498cca2d659b7
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890537"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481683"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>在單一租用戶應用程式中使用擷取的資料執行跨租用戶分析
  
@@ -91,7 +91,7 @@ ms.locfileid: "57890537"
 2. 在指令碼中設定 $DemoScenario 變數，以符合您對於分析存放區的選擇：
     - 若要使用沒有資料行存放區的 SQL 資料庫，請設定 **$DemoScenario** = **2**
     - 若要使用具有資料行存放區的 SQL 資料庫，請設定 **$DemoScenario** = **3**  
-3. 按 **F5** 以執行可建立租用戶分析存放區的示範指令碼 (它會呼叫 Deploy-TenantAnalytics<XX>.ps1 指令碼)。 
+3. 按下**F5**若要執行的示範指令碼 (它會呼叫*Deploy-tenantanalytics\<XX >.ps1*指令碼) 可建立租用戶分析存放區。 
 
 既然您已部署應用程式，並填入感興趣的租用戶資料，使用[SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)連接**tenants1-dpt-&lt;使用者&gt;** 和**目錄-dpt-&lt;使用者&gt;** 伺服器，使用登入 =*開發人員*，密碼 = *P\@ssword1*。 如需詳細指引，請參閱[簡介教學課程](saas-dbpertenant-wingtip-app-overview.md)。
 
@@ -120,7 +120,7 @@ ms.locfileid: "57890537"
 
 1. 在 SSMS 中，連線至 catalog-dpt-&lt;User&gt; 中的 **jobaccount** 資料庫。
 2. 在 SSMS 中，開啟 …\Learning Modules\Operational Analytics\Tenant Analytics\ TargetGroups.sql 
-3. 在指令碼上方修改 @User 變數，將 <User> 取代為您部署 Wingtip SaaS 應用程式時使用的使用者值。
+3. 在指令碼上方修改 @User 變數，將 `<User>` 取代為您部署 Wingtip SaaS 應用程式時使用的使用者值。
 4. 按下 **F5** 以執行指令碼，該指令碼會建立這兩個目標群組。
 
 ### <a name="extract-raw-data-from-all-tenants"></a>從所有租用戶擷取未經處理資料
@@ -134,7 +134,7 @@ ms.locfileid: "57890537"
 
 1. 在 SSMS 中，連線至 catalog-dpt-&lt;User&gt; 伺服器中的 **jobaccount** 資料庫。
 2. 在 SSMS 中，開啟 ...\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.sql。
-3. 在指令碼上方修改 @User，並且將 <User> 取代為您部署 Wingtip SaaS 應用程式時使用的使用者名稱 
+3. 在指令碼上方修改 @User，並且將 `<User>` 取代為您部署 Wingtip SaaS 應用程式時使用的使用者名稱 
 4. 按下 F5 以執行指令碼，該指令碼會建立和執行作業，從每個租用戶資料庫擷取票證和客戶資料。 作業會將資料儲存至分析存放區。
 5. 查詢 tenantanalytics 資料庫中的 TicketsRawData 資料表，以確定資料表已填入來自所有租用戶的票證資訊。
 

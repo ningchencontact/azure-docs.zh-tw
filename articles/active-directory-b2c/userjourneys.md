@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 8cda538cade4750e03ecb91dfb2c478df730e556
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 20ca4b9d347b9dc01e3b890fcf3758fb2fb135b9
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961290"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486133"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -63,8 +63,8 @@ ms.locfileid: "56961290"
 
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| 順序 | 是 | 協調流程步驟的順序。 | 
-| 類型 | 是 | 協調流程步驟的類型。 可能的值： <ul><li>**ClaimsProviderSelection**：指出協調流程步驟會向使用者呈現各種宣告提供者，使其可選取其中一個。</li><li>**CombinedSignInAndSignUp**：指出協調流程步驟會呈現社交提供者登入和本機帳戶註冊的組合頁面。</li><li>**ClaimsExchange**：指出協調流程步驟會與宣告提供者交換宣告。</li><li>**SendClaims**：指出協調流程步驟會使用宣告簽發者所發出的權杖，將宣告傳送到信賴憑證者。</li></ul> | 
+| `Order` | 是 | 協調流程步驟的順序。 | 
+| `Type` | 是 | 協調流程步驟的類型。 可能的值： <ul><li>**ClaimsProviderSelection**：指出協調流程步驟會向使用者呈現各種宣告提供者，使其可選取其中一個。</li><li>**CombinedSignInAndSignUp**：指出協調流程步驟會呈現社交提供者登入和本機帳戶註冊的組合頁面。</li><li>**ClaimsExchange**：指出協調流程步驟會與宣告提供者交換宣告。</li><li>**SendClaims**：指出協調流程步驟會使用宣告簽發者所發出的權杖，將宣告傳送到信賴憑證者。</li></ul> | 
 | ContentDefinitionReferenceId | 否 | 與此協調流程步驟相關聯的[內容定義](contentdefinitions.md)識別碼。 內容定義參考識別碼通常定義於自我判斷技術設定檔中。 但是，在某些案例中，Azure AD B2C 需要在沒有技術設定檔的情況下顯示某些內容。 有兩個範例，如果協調流程步驟的類型是下列其中一個：`ClaimsProviderSelection` 或 `CombinedSignInAndSignUp`。 Azure AD B2C 就必須在沒有技術設定檔的情況下顯示識別提供者選取項目。 | 
 | CpimIssuerTechnicalProfileReferenceId | 否 | 協調流程步驟的類型為 `SendClaims`。 這個屬性會定義宣告提供者的技術設定檔識別碼，此宣告提供者會發出適用於信賴憑證者的權杖。  如果不存在，就不會建立任何信賴憑證者權杖。 |
 
@@ -92,8 +92,8 @@ ms.locfileid: "56961290"
 
 | 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| 類型 | 是 | 要針對此先決條件執行的檢查或查詢類型。 值可以是 **ClaimsExist** (指定如果指定的宣告存在於使用者目前的宣告組中，就應執行動作) 或 **ClaimEquals** (指定如果指定宣告存在且其值等於指定的值，就應執行動作)。 |
-| ExecuteActionsIf | 是 | 使用 True 或 False 測試，來決定是否應執行先決條件中的動作。 | 
+| `Type` | 是 | 要針對此先決條件執行的檢查或查詢類型。 值可以是 **ClaimsExist** (指定如果指定的宣告存在於使用者目前的宣告組中，就應執行動作) 或 **ClaimEquals** (指定如果指定宣告存在且其值等於指定的值，就應執行動作)。 |
+| `ExecuteActionsIf` | 是 | 使用 True 或 False 測試，來決定是否應執行先決條件中的動作。 | 
 
 **Precondition** 元素包含下列元素：
 

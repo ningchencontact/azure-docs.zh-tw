@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 6b06ee7710dedbf2283fc4e365b767aa57547e7c
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 0e5e4e207542a74ef3fc5ff7fc78431b7956e54c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417814"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449244"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>關於適用於 VMware VM 和實體伺服器的行動服務
 
@@ -43,7 +43,8 @@ ms.locfileid: "58417814"
 2. 代理程式已成功複製至之後在伺服器上執行伺服器的必要條件檢查。 如果一或多個安裝會失敗[必要條件](vmware-physical-azure-support-matrix.md)不符合。 如果符合所有必要條件，安裝將會觸發。
 3. 隨著行動代理程式安裝在伺服器上安裝 azure Site Recovery VSS 提供者。 此提供者用來產生應用程式一致的點。 如果 VSS 提供者安裝失敗，會略過此步驟，而且代理程式安裝會繼續。
 4. 如果代理程式安裝成功但 VSS 提供者安裝失敗，則作業狀態會標示為 「 警告 」。 這不會影響損毀一致性點產生。
-    a. 若要產生應用程式一致點，請參閱[我們的指引](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine)手動完成安裝 Site Recovery VSS 提供者。
+
+    a. 若要產生應用程式一致點，請參閱[我們的指引](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine)手動完成安裝 Site Recovery VSS 提供者。 </br>
     b.  如果您不想要產生的應用程式一致點[修改複寫原則](vmware-azure-set-up-replication.md#create-a-policy)来關閉應用程式一致的點。
 
 ### <a name="before-922-versions"></a>9.22 版本之前

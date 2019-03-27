@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: 00cf441247b9adf8547f373891bba4db29029d3f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 392c34e1896106c39b31876308084ef4fd6a7e54
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335992"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449042"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>使用 Apache Beeline 用戶端搭配 Apache Hive
 
@@ -281,8 +281,6 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 * [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Pig](hdinsight-use-pig.md)
 * [搭配 MapReduce 與 HDInsight 上的 Apache Hadoop](hdinsight-use-mapreduce.md)
 
-如果您搭配使用 Tez 和 Hive，請參閱下列文件：[在以 Linux 為基礎的 HDInsight 上使用 Apache Ambari Tez 檢視](../hdinsight-debug-ambari-tez-view.md)。
-
 [azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
@@ -294,7 +292,7 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 [import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
-[hdinsight-use-oozie]: hdinsight-use-oozie.md
+[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
 
 [putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
 

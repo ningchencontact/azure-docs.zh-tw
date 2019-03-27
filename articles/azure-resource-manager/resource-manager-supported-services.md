@@ -4,22 +4,20 @@ description: 說明支援資源管理員、其結構描述及可用 API 版本�
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: 3c7a6fe4-371a-40da-9ebe-b574f583305b
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 03/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: aa61b88bb0a944a048bc4b2db9c542efe3e30ddf
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 520aeb8e47b5e94e6346e682f21f46cb0814f8f3
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564114"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445449"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure 資源提供者和類型
 
@@ -32,7 +30,7 @@ ms.locfileid: "55564114"
 * 檢視資源類型的有效位置
 * 檢視資源類型的有效 API 版本
 
-您可以透過 Azure 入口網站、Azure PowerShell 或 Azure CLI 執行下列步驟。
+您可以執行下列步驟，透過 Azure 入口網站、 Azure PowerShell 或 Azure CLI。
 
 ## <a name="azure-portal"></a>Azure 入口網站
 
@@ -48,9 +46,9 @@ ms.locfileid: "55564114"
 
     ![顯示資源提供者](./media/resource-manager-supported-services/show-resource-providers.png)
 
-6. 註冊資源提供者可將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 許多資源提供者都會預設為自動註冊。 不過，您可能需要手動註冊某些資源提供者。 若要註冊資源提供者，您必須有權執行資源提供者的 `/register/action` 作業。 這項作業包含在「參與者」和「擁有者」角色中。 若要註冊資源提供者，請選取 [註冊]。 在前一個螢幕擷取畫面中，已針對 **Microsoft.Blueprint** 醒目提示 [註冊] 連結。
+6. 註冊資源提供者可將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 許多資源提供者都會預設為自動註冊。 不過，您可能需要手動註冊某些資源提供者。 若要註冊資源提供者，您必須擁有執行權限`/register/action`資源提供者的作業。 這項作業包含在「參與者」和「擁有者」角色中。 若要註冊資源提供者，請選取 [註冊]。 在前一個螢幕擷取畫面中，已針對 **Microsoft.Blueprint** 醒目提示 [註冊] 連結。
 
-    當訂用帳戶中仍有資源提供者的資源類型時，您無法取消註冊該資源提供者。
+    當您的訂用帳戶仍有該資源提供者的資源類型時，您無法取消註冊資源提供者。
 
 若要查看特定資源提供者的資訊：
 
@@ -98,7 +96,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-註冊資源提供者可將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 許多資源提供者都會預設為自動註冊。 不過，您可能需要手動註冊某些資源提供者。 若要註冊資源提供者，您必須有權執行資源提供者的 `/register/action` 作業。 這項作業包含在「參與者」和「擁有者」角色中。
+註冊資源提供者可將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 許多資源提供者都會預設為自動註冊。 不過，您可能需要手動註冊某些資源提供者。 若要註冊資源提供者，您必須擁有執行權限`/register/action`資源提供者的作業。 這項作業包含在「參與者」和「擁有者」角色中。
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
@@ -113,7 +111,7 @@ ResourceTypes     : {batchAccounts, operations, locations, locations/quotas}
 Locations         : {West Europe, East US, East US 2, West US...}
 ```
 
-當訂用帳戶中仍有資源提供者的資源類型時，您無法取消註冊該資源提供者。
+當您的訂用帳戶仍有該資源提供者的資源類型時，您無法取消註冊資源提供者。
 
 若要查看特定資源提供者的資訊，請使用：
 
@@ -165,7 +163,7 @@ API 版本會對應至資源提供者所發行的 REST API 作業版本。 當�
 2015-07-01
 ```
 
-所有區域都支援資源管理員，但您部署的資源可能無法在所有區域中受到支援。 此外，您的訂用帳戶上可能會有一些限制，以防止您使用某些支援該資源的區域。
+所有區域都支援資源管理員，但您部署的資源可能無法在所有區域中受到支援。 此外，订阅可能存在一些限制，以防止用户使用某些支持该资源的区域。
 
 若要取得資源類型支援的位置，請使用：
 
@@ -185,7 +183,7 @@ West US
 
 ## <a name="azure-cli"></a>Azure CLI
 
-若要查看 Azure 中的所有資源提供者，以及您訂用帳戶的登錄狀態，請使用：
+若要查看 Azure 中的所有资源提供程序和订阅的注册状态，请使用：
 
 ```azurecli
 az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
@@ -203,7 +201,7 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
-註冊資源提供者可將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 許多資源提供者都會預設為自動註冊。 不過，您可能需要手動註冊某些資源提供者。 若要註冊資源提供者，您必須有權執行資源提供者的 `/register/action` 作業。 這項作業包含在「參與者」和「擁有者」角色中。
+註冊資源提供者可將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 許多資源提供者都會預設為自動註冊。 不過，您可能需要手動註冊某些資源提供者。 若要註冊資源提供者，您必須擁有執行權限`/register/action`資源提供者的作業。 這項作業包含在「參與者」和「擁有者」角色中。
 
 ```azurecli
 az provider register --namespace Microsoft.Batch
@@ -211,7 +209,7 @@ az provider register --namespace Microsoft.Batch
 
 它會傳回一則訊息說明註冊持續進行中。
 
-當訂用帳戶中仍有資源提供者的資源類型時，您無法取消註冊該資源提供者。
+當您的訂用帳戶仍有該資源提供者的資源類型時，您無法取消註冊資源提供者。
 
 若要查看特定資源提供者的資訊，請使用：
 
@@ -269,7 +267,7 @@ Result
 2015-07-01
 ```
 
-所有區域都支援資源管理員，但您部署的資源可能無法在所有區域中受到支援。 此外，您的訂用帳戶上可能會有一些限制，以防止您使用某些支援該資源的區域。
+所有區域都支援資源管理員，但您部署的資源可能無法在所有區域中受到支援。 此外，订阅可能存在一些限制，以防止用户使用某些支持该资源的区域。
 
 若要取得資源類型支援的位置，請使用：
 

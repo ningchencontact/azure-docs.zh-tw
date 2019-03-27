@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7f3b8101b633c977201b6c413ad12e4bbe55e9a7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 934d0a73bf6345edd79ae00526a1db0361b3524d
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011793"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482770"
 ---
 # <a name="application-insights-for-aspnet-core"></a>ASP.NET Core 的 Application Insights
 
@@ -197,7 +197,7 @@ Application Insights 支援擷取透過 ILogger 傳送的記錄檔。 若要設�
 
 3. 執行下列 PowerShell 迴圈，以使用您的測試應用程式建立 100 個綜合交易。 修改 `localhost:` 後的連接埠號碼，以符合您在前一個步驟中複製的 URI。 例如︰
 
-   ```PowerShell
+   ```powershell
    for ($i = 0 ; $i -lt 100; $i++)
    {
     Invoke-WebRequest -uri http://localhost:50984/

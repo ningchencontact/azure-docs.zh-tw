@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 61c4212233dd7ed9c34de779176c3402890e673f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 8188e36278bad9c93f709a5d7d9f831d1c19e6b4
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160899"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486842"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>將 Azure Active Directory B2C 的重新導向 URL 設定為 b2clogin.com
 
@@ -25,6 +25,13 @@ ms.locfileid: "55160899"
 
 - Microsoft 服務在 Cookie 標頭中所耗用的空間會縮小。
 - 您的 URL 不再包含對 Microsoft 的參考。 例如： `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp`。
+
+>[!NOTE]
+> 您可以使用租用戶名稱和租用戶的 GUID，如下所示：
+> * `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` (這仍然是指`onmicrosoft.com`)
+> * `https://your-tenant-name.b2clogin.com/your-tenant-guid` （在此情況下沒有任何參考到 Microsoft 完全）
+>
+> 不過，您無法使用_自訂網域_您的 Azure Active Directory B2C 租用戶，例如`https://your-tenant-name.b2clogin.com/your-custom-domain-name`會_不_運作。
 
 請考慮這些設定在使用 b2clogin.com 時可能需要變更：
 

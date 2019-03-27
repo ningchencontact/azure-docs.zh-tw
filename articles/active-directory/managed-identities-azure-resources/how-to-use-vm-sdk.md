@@ -3,7 +3,7 @@ title: 如何搭配 Azure SDK 使用 Azure VM 的 Azure 資源受控識別
 description: 搭配具有 Azure 資源受控識別的 Azure VM 使用 Azure SDK 的程式碼範例。
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35498d51f9f6cd75058100189c223c0dd0f83a0c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 00c86562e0fdb4e6d62d44088b7aba08e45e22a4
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188678"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443608"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-with-azure-sdks"></a>如何搭配 Azure SDK 使用 Azure VM 的 Azure 資源受控識別 
 

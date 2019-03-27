@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: cb68e93553be66d0d0be0edf61e491217bfe4d48
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 92c09e7defe159818b22bc8275d011d05512aa66
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091302"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446598"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>在 HDInsight 中搭配 Apache Hadoop 使用 Apache Ambari Hive 檢視
 
@@ -108,8 +108,6 @@ ms.locfileid: "58091302"
 
 > [!IMPORTANT]  
 > Tez 的用途並非解析所有查詢。 您不需要使用 Tez 便可解析許多查詢。 
-
-如果使用 Tez 來解析查詢，則會顯示有向非循環圖 (DAG)。 如果您想要檢視您已執行過之查詢的 DAG，或想要偵錯 Tez 程序，請改用 [Tez 檢視](../hdinsight-debug-ambari-tez-view.md) 。
 
 ## <a name="view-job-history"></a>檢視工作歷程記錄
 

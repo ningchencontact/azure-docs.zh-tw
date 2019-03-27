@@ -13,26 +13,26 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 005a9e3903ffa16882f8d07529bf5c4924837db5
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.lastreviewed: 03/19/2019
+ms.openlocfilehash: 080129ca1520dc2b1b085c69f6389508f11c7ba2
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790843"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285916"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>使用基礎結構備份服務進行 Azure Stack 的備份和資料復原
 
 *適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
-您可以使用基礎結構備份服務，來備份和還原設定和服務。 每個 Azure Stack 安裝都包含了服務的執行個體。 您可以使用為了重新部署 Azure Stack 雲端由服務所建立的備份，來還原身分識別、安全性和 Azure Resource Manager 資料。
+您可以使用基礎結構備份服務，來備份和還原設定和服務。 每個 Azure Stack 安裝都包含了服務的執行個體。 您可以使用為了重新部署 Azure Stack 雲端由服務所建立的備份，來還原身分識別、安全性和 Azure Resource Manager 資料。 
 
 當您準備好實際執行雲端時，就可以啟用備份。 若您計劃要長時間執行測試和驗證，請勿啟用備份。
 
 啟用備份服務前，請確定您[已符合需求](#verify-requirements-for-the-infrastructure-backup-service)。
 
 > [!Note]  
-> 基礎結構備份服務不包括使用者資料和應用程式。 <!-- See the following articles for instructions on backing up and restore [App Services](https://aka.ms/azure-stack-app-service), [SQL](https://aka.ms/azure-stack-ms-sql), and [MySQL](https://aka.ms/azure-stack-mysql) resource providers and associated user data. -->
+> 基礎結構備份服務不包括使用者資料和應用程式。 如需有關如何保護 IaaS VM 型應用程式的詳細資訊，請參閱[保護部署在 Azure Stack 上的 VM](user/azure-stack-manage-vm-protect.md)。 如需有關如何保護 Azure Stack 上之應用程式的全面了解，請參閱[商務持續性和災害復原的 Azure Stack 考量白皮書](http://aka.ms/azurestackbcdrconsiderationswp)。
 
 ## <a name="the-infrastructure-backup-service"></a>基礎結構備份服務
 

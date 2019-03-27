@@ -10,30 +10,31 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
-ms.topic: get-started-article
-ms.date: 01/18/2019
+ms.topic: conceptual
+ms.date: 03/19/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: aa88c2c63d348d0c82e0ad93115ea49437a63567
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.lastreviewed: 03/19/2019
+ms.openlocfilehash: 34e49060a28869015f067f058b81239ec13eff47
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895053"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226393"
 ---
-# <a name="manage-storage-accounts-in-azure-stack"></a>在 Azure Stack 中管理儲存體帳戶
+# <a name="manage-azure-stack-storage-accounts"></a>管理 Azure Stack 儲存體帳戶
 
-了解如何在 Azure Stack 中管理儲存體帳戶，以便根據業務需求來尋找、復原及回收儲存體容量。
+了解如何管理 Azure Stack 儲存體帳戶。 根據業務需求來尋找、復原及回收儲存體容量。
 
 ## <a name="find-a-storage-account"></a>尋找儲存體帳戶
+
 區域中的儲存體帳戶清單可在 Azure Stack 中，透過下列方式檢視：
 
 1. 登入[管理入口網站](https://adminportal.local.azurestack.external)。
 
-2. 選取 [所有服務] > [儲存體帳戶]。
+2. 選取 [所有服務] > [儲存體] > [儲存體帳戶]。
 
-   ![](media/azure-stack-manage-storage-accounts/image4.png)
+   ![Azure Stack 儲存體帳戶](media/azure-stack-manage-storage-accounts/image4.png)
 
 預設會顯示前 10 個帳戶。 您可以按一下清單底部的 [載入更多] 連結，選擇擷取更多項目。
 
@@ -45,17 +46,18 @@ ms.locfileid: "55895053"
 **篩選帳戶：**
 
 1. 選取窗格頂端的 [篩選]。
-2. 在 [篩選] 窗格上，您可以指定 [帳戶名稱]、\*\*[訂用帳戶識別碼] 或 [狀態]，以微調要顯示的儲存體帳戶清單。 請適當地指定。
-3. 選取 [更新]。 清單應該會隨著重新整理。
+2. 在 [篩選] 窗格上，您可以指定 [帳戶名稱]、[訂用帳戶識別碼] 或 [狀態]，以微調要顯示的儲存體帳戶清單。 請適當地指定。
+3. 當您輸入時，清單會自動套用篩選條件。  上也提供本文中使用的原始碼。
    
-    ![](media/azure-stack-manage-storage-accounts/image5.png)
+    ![篩選 Azure Stack 儲存體帳戶](media/azure-stack-manage-storage-accounts/image5.png)
+
 4. 若要重設篩選：選取 [篩選]、清除選取項目，然後更新。
 
 [搜尋] 文字方塊 (在儲存體帳戶清單窗格的頂端) 可讓您醒目提示帳戶清單中選取的文字。 如果無法輕易地取得完整名稱或識別碼，您可以使用此種方式。
 
 您可以在這裡使用任意文字，以協助找出您想看到的帳戶。
 
-![](media/azure-stack-manage-storage-accounts/image6.png)
+![尋找 Azure Stack 儲存體帳戶](media/azure-stack-manage-storage-accounts/image6.png)
 
 ## <a name="look-at-account-details"></a>查看帳戶詳細資料
 一旦找到您想檢視的帳戶之後，您可以選取特定的帳戶，以檢視特定的詳細資料。 新窗格隨即開啟，其中包含帳戶詳細資料，例如：帳戶類型、建立時間、位置等等。
@@ -97,9 +99,8 @@ ms.locfileid: "55895053"
 
 1. 登入[管理入口網站](https://adminportal.local.azurestack.external)。
 2. 在 [系統管理]底下選取 [所有服務]  >  [區域管理]。
-3. 從 [資源提供者] 清單中選取 [儲存體]。
-4. 選取頂端的 [設定]，以開啟 [設定] 窗格。
-5. 選取 [設定]，然後編輯保留期限值。
+3. 選取 [資源提供者] > [儲存體] > [設定]。 您的路徑是首頁 > [區域] - [資源提供者] > [儲存體]。
+4. 選取 [設定]，然後編輯保留期限值。
 
    設定天數，然後加以儲存。
    

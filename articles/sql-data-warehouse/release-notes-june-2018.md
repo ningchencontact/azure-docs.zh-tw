@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 672bfee600f19661c6bc68535a68fff4a0ccc43f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f39def90aa8a5b6532f5e7c58db1dc455acb24d5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835362"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486881"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Azure SQL 資料倉儲有哪些最新功能？ 2018 年 6 月
 Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 6 月導入的新功能和變更。 
@@ -27,7 +27,7 @@ SQL 資料倉儲每 8 小時自動拍攝資料倉儲的快照集，保證八小�
 
 SQL 資料倉儲現在支援[使用者定義的還原點](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/)透過[新增 AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint) cmdlet。
 
-```PowerShell
+```powershell
 New-AzSqlDatabaseRestorePoint
     -ResourceGroupName $ResourceGroupName
     -ServerName $ServerName

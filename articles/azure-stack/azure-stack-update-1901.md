@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 03/20/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 02/09/2019
-ms.openlocfilehash: 2acc26fc473d0e8dcb93b1439de316fbef67ae98
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.lastreviewed: 03/20/2019
+ms.openlocfilehash: e02a09bdc8bd80b93f7fa33632c32a75c1d705bd
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416508"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226856"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 更新
 
@@ -34,7 +34,14 @@ ms.locfileid: "56416508"
 
 ## <a name="build-reference"></a>建置參考
 
-Azure Stack 1901 更新組建編號為 **1.1901.0.95**。
+在 2019 年 2 月 26 日後，Azure Stack 1901 更新的組建編號為 **1.1901.0.95** 或 **1.1901.0.99**。 請參閱下列附註：
+
+> [!IMPORTANT]  
+> Microsoft 已發現到有問題會影響從 1811 (1.1811.0.101) 更新至 1901 的客戶，並因此發行了更新的 1901 套件來解決該問題：組建 1.1901.0.99 (從 1.1901.0.95 更新)。 已更新至 1.1901.0.95 的客戶不需要再採取動作。
+>
+> 1811 上的連線客戶會自動在系統管理員入口網站中看到可用的新 1901 (1.1901.0.99) 套件，請於準備好時進行安裝。 已中斷連線的客戶則可使用[此處所述](azure-stack-apply-updates.md)的相同程序下載並匯入新的 1901 套件。
+>
+> 使用任一 1901 版本的客戶不會在安裝下一個完整套件或 Hotfix 套件時受到影響。
 
 ## <a name="hotfixes"></a>Hotfix
 
@@ -51,18 +58,20 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
 
 - **1809**：[KB 4481548 – Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/)
 - **1811**：沒有目前的 Hotfix 可供使用。
-- **1901**:沒有目前的 Hotfix 可供使用。
+- **1901**:[KB 4481548 – Azure Stack Hotfix 1.1901.2.103](https://support.microsoft.com/help/4494720)
 
 ## <a name="prerequisites"></a>必要條件
 
 > [!IMPORTANT]
-- 在更新成 1901 之前，請先安裝 1811 的[最新 Azure Stack Hotfix](#azure-stack-hotfixes) (如果有的話)。
+> - 在更新成 1901 之前，請先安裝 1811 的[最新 Azure Stack Hotfix](#azure-stack-hotfixes) (如果有的話)。
 
 - 開始安裝此更新之前，請先執行 [Test-AzureStack](azure-stack-diagnostic-test.md) 與下列參數來驗證 Azure Stack 的狀態，並解決所發現的一切運作問題，包括所有警告和失敗。 也請檢閱作用中警示，並將所有需要採取動作的警示解決：
 
     ```PowerShell
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
+
+- 當 Azure Stack 由 System Center Operations Manager (SCOM) 進行管理時，請務必先將適用於 Microsoft Azure Stack 的管理組件更新為 1.0.3.11 版，再套用 1901。
 
 ## <a name="new-features"></a>新功能
 
@@ -80,7 +89,7 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
    * **AzureRm.Storage**  
          AzureRm 彙總模組現在包含已發佈的 5.0.4 版，支援 **api-version 2017-10-01**。  
    * **AzureRm.Compute**  
-         在 `New-AzureRMVM` 和 `NewAzureRMVMSS` 中新增簡易參數集，`-ImageName` 參數支援指定使用者映像。  
+         在 `New-AzureRmVM` 和 `New-AzureRmVmss` 中新增簡易參數集，`-Image` 參數支援指定使用者映像。  
    * **AzureRm.Insights**  
          AzureRm 彙總模組現在包含已發佈的 5.1.5 版，針對計量、計量定義資源類型支援 **api-version 2018-01-01**。
 
@@ -106,7 +115,8 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
 <!-- 16523695 – IS, ASDK -->
 - 已修正以下問題：在將虛擬網路的 DNS 設定從 [使用 Azure Stack DNS] 更新為 [自訂 DNS] 之後，執行個體未隨著新設定更新。
 
-- <!-- 3235634 – IS, ASDK --> 已修正以下問題：部署包含 **v2** 後置詞大小的 VM (例如 **Standard_A2_v2**) 需要將後置詞指定為 **Standard_A2_v2** (小寫 v)。 使用全域 Azure 時，您現在可以使用 **Standard_A2_V2** (大寫 V)。
+- <!-- 3235634 – IS, ASDK -->
+  已修正以下問題：部署包含 **v2** 後置詞大小的 VM (例如 **Standard_A2_v2**) 需要將後置詞指定為 **Standard_A2_v2** (小寫 v)。 使用全域 Azure 時，您現在可以使用 **Standard_A2_V2** (大寫 V)。
 
 <!-- 2869209 – IS, ASDK --> 
 - 已修正以下問題：當使用 [Add-AzsPlatformImage Cmdlet](/powershell/module/azs.compute.admin/add-azsplatformimage) 時您必須使用 **-OsUri** 參數作為儲存體帳戶 URI，磁碟上傳到該儲存體帳戶。 您現在也可以使用磁碟的本機路徑。
@@ -172,33 +182,6 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
      -DirectoryTenantName $homeDirectoryTenantName -Verbose
    ```
 
-- 目前有 Azure Stack 的延伸模組已成功部署，而未明確需要透過市集摘要整合來下載延伸模組。 已移除下列版本的延伸模組。 Azure Stack 操作員現在必須明確從 Azure Stack 市集同步發佈這些延伸模組：
-
-   | 類型                     | 版本        |
-   |--------------------------|----------------|
-   | DSC                      | 2.19.0.0       |
-   | IaaSAntimalware          | 1.4.0.0        |
-   | BGInfo                   | 2.1            |
-   | VMAccessAgent            | 2.0            |
-   | CustomScriptExtension    | 1.8            |
-   | MicrosoftMonitoringAgent | 1.0.10900.0    |
-   | IaaSDiagnostics          | 1.10.1.1       |
-   | VMAccessForLinux         | 1.4.0.0        |
-   | CustomScriptForLinux     | 1.5.2.0        |
-   | DockerExtension          | 1.1.1606092330 |
-   | JsonADDomainExtension    | 1.3            |
-   | OSPatchingForLinux       | 2.3.0.1        |
-   | WebRole                  | 4.3000.14.0    |
-
-   建議在部署延伸模組時，Azure Stack 使用者將 `autoUpgradeMinorVersion` 設定為 **true**。 例如︰
-
-   ```json
-   "type": "Extension",
-           "publisher": "ExtensionPublisher",
-           "typeHandlerVersion": "1.2",
-           "autoUpgradeMinorVersion": "true"
-   ```
-
 - 準確規劃 Azure Stack 容量方面有新的考量。 使用 1901 更新時，現在可建立的虛擬機器總數有限制。  此限制為暫時，以避免影響解決方案不穩定的情況。 我們已解決大量 VM 的穩定性問題來源，但尚未決定補救措施的特定時間表。 使用 1901 更新時，現在每部伺服器有 60 個 VM 的限制，且總解決方案限制為 700 個。  例如，8 伺服器 Azure Stack VM 的限制會是 480 (8 * 60)。  針對 12 到 16 伺服器 Azure Stack 解決方案，限制將會是 700。 決定此限制時已考慮所有計算容量，例如營運商想要維持的備援能力保留與 CPU 虛擬對實體比率。 如需詳細資訊，請參閱新版本的容量規劃工具。  
 萬一達到 VM 規模調整限制，將會傳回下列錯誤碼做為結果：VMsPerScaleUnitLimitExceeded，VMsPerScaleUnitNodeLimitExceeded。 
  
@@ -245,7 +228,7 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
 
 - 當您執行 [Test-AzureStack](azure-stack-diagnostic-test.md) 時，會顯示來自「基礎板管理控制器」(BMC) 的警告訊息。 您可以放心地忽略此警告。
 
-- <!-- 2468613 - IS --> 在安裝此更新的期間，您可能會看到具有下列標題的警示：`Error – Template for FaultType UserAccounts.New is missing.`  您可以放心地忽略這些警示。 在此更新安裝完成之後，這些警示會自動關閉。
+- <!-- 2468613 - IS --> 在安裝此更新的期間，您可能會看到具有下列標題的警示：`Error – Template for FaultType UserAccounts.New is missing.` 您可以放心地忽略這些警示。 在此更新安裝完成之後，這些警示會自動關閉。
 
 ## <a name="post-update-steps"></a>更新後步驟
 
@@ -309,9 +292,9 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
 <!-- 3632798 - IS, ASDK -->
 - 在入口網站中，如果您新增連入安全性規則並選取 [服務標籤] 作為來源，[服務標籤] 清單中會顯示數個 Azure Stack 無法使用的選項。 在 Azure Stack 中有效的選項僅限於下列幾個：
 
-    - **Internet**
-    - **VirtualNetwork**
-    - **AzureLoadBalancer**
+  - **Internet**
+  - **VirtualNetwork**
+  - **AzureLoadBalancer**
   
     其他選項在 Azure Stack 中不支援用來作為來源標籤。 同樣地，如果您新增連出安全性規則並選取 [服務標籤] 作為目的地，會顯示與 [來源標籤] 相同的選項清單。 僅有的有效選項與 [來源標籤] 的有效選項相同，如以上清單所述。
 

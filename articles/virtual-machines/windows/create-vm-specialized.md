@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 364dca8d7cab3698e501e74d0c2817aac1a36f88
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a5e891d334bc15e0b03facb1f1f5ed8a511cda55
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58137972"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443897"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>使用 PowerShell 從特製化磁碟建立 Windows VM
 
@@ -41,7 +41,7 @@ ms.locfileid: "58137972"
 
 ## <a name="option-1-use-an-existing-disk"></a>選項 1：使用現有的磁碟
 
-如果您已刪除虛擬機器，而想要重複使用 OS 磁碟建立新的虛擬機器，請使用 [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk?view=azurermps-6.8.1)。
+如果您已刪除虛擬機器，而想要重複使用 OS 磁碟建立新的虛擬機器，請使用 [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk)。
 
 ```powershell
 $resourceGroupName = 'myResourceGroup'

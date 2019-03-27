@@ -13,12 +13,12 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 1341a8fce95dff0499a698fcddf8d048f3628dba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0ddc235064d99e9d6385ab48e78f893952eefa15
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108226"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487476"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>在 Azure 資料處理站管線中使用自訂活動
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -113,12 +113,12 @@ public IDictionary<string, string> Execute(
 
 3. 在 [封裝管理員主控台] 中，執行下列命令以匯入 **Microsoft.Azure.Management.DataFactories**。
 
-    ```PowerShell
+    ```powershell
     Install-Package Microsoft.Azure.Management.DataFactories
     ```
 4. 將 **Azure 儲存體** NuGet 封裝匯入專案中。
 
-    ```PowerShell
+    ```powershell
     Install-Package WindowsAzure.Storage -Version 4.3.0
     ```
 
@@ -709,7 +709,7 @@ Data Factory 服務會在 Azure Batch 中建立作業，其名為：**adf-poolna
 
     如果您可以使用版本 4.3.0 的 Azure 儲存體封裝，請移除對版本 > 4.3.0 Azure.Storage 封裝的現有參考。 接著，從 NuGet Package Manager Console 執行下列命令。
 
-    ```PowerShell
+    ```powershell
     Install-Package WindowsAzure.Storage -Version 4.3.0
     ```
 

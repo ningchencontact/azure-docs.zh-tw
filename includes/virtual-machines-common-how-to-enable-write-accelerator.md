@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/22/2019
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 44533bc6ed0656be387fa76c0e975046ad7f79ab
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 72d9ec52732a78e39f6481e2cb2d40f17f86f028
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741082"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58494887"
 ---
 # <a name="enable-write-accelerator"></a>啟用寫入加速器
 
@@ -96,7 +96,7 @@ IOPS 限制是針對每部虛擬機器而「不是」每個磁碟。 所有寫�
 
 命令範例如下︰
 
-```PowerShell
+```powershell
 New-AzVMConfig | Set-AzVMOsDisk | Add-AzVMDataDisk -Name "datadisk1" | Add-AzVMDataDisk -Name "logdisk1" -WriteAccelerator | New-AzVM
 
 Get-AzVM | Update-AzVM -OsDiskWriteAccelerator $true
@@ -114,7 +114,7 @@ Get-AzVmss | Update-AzVmss -OsDiskWriteAccelerator:$false
 
 以適用您特定部署的值取代 `myVM`、`myWAVMs`、`log001`、磁碟大小和磁碟 LunID。
 
-```PowerShell
+```powershell
 # Specify your VM Name
 $vmName="myVM"
 #Specify your Resource Group
@@ -137,7 +137,7 @@ Update-AzVM -ResourceGroupName $rgname -VM $vm
 
 您可以使用以下指令在現有磁碟上啟用寫入加速器。 以適用於您特定部署的值取代 `myVM`、`myWAVMs` 和 `test-log001`。 指令碼會在 **$newstatus** 的值設定為 '$true' 時，將寫入加速器新增至現有磁碟。 若使用 '$false' 值，則會停用指定磁碟的寫入加速器。
 
-```PowerShell
+```powershell
 #Specify your VM Name
 $vmName="myVM"
 #Specify your Resource Group

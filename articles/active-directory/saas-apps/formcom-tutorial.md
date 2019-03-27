@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: f1bc0112-315c-4e6f-8c69-7c6873007bcf
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: d50cf28ebfc34d9b7deaff95c177f0eebd210be3
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 1ed8dac90527de396e0b7ae59e5d19939a4a36be
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879725"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904349"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>教學課程：Azure Active Directory 與 Form.com 整合
 
@@ -109,6 +109,7 @@ Form.com 與 Azure AD 整合提供下列優點：
     b. 在 [識別碼] 方塊中，使用下列模式輸入 URL：`https://<subdomain>.form.com`
 
     c. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：
+    
     | |
     |--|
     | `https://<subdomain>.wa-form.com/Member/UserAccount/SAML2.action` |
@@ -153,7 +154,7 @@ Form.com 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。

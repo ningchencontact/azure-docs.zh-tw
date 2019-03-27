@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 493f6f3380dee4ed70bb6e0bc9bba24f93071097
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 954cbe66bfc4a0cebf7692a90aeee637ffcb6ca3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165326"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485050"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>使用 Azure 檔案同步管理已註冊的伺服器
 Azure 檔案同步可讓您將組織的檔案共用集中在「Azure 檔案服務」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 它會將您的 Windows Server 轉換成 Azure 檔案共用的快速快取來達到這個目的。 您可以使用 Windows Server 上可用的任何通訊協定來存取本機資料 (包括 SMB、NFS 和 FTPS)，並且可以在世界各地擁有任何所需數量的快取。
@@ -101,7 +101,7 @@ Azure 檔案同步可讓您將組織的檔案共用集中在「Azure 檔案服�
 #### <a name="register-the-server-with-powershell"></a>使用 PowerShell 註冊伺服器
 您也可以透過 PowerShell 執行伺服器註冊。 這是雲端解決方案提供者 (CSP) 訂用帳戶唯一支援的伺服器註冊方法：
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 Login-AzureRmStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
 Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
@@ -116,7 +116,7 @@ Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - Res
 #### <a name="optional-recall-all-tiered-data"></a>(選擇性) 重新叫用階層式資料
 如果您希望在移除 Azure 檔案共用 (也就是說這不是測試環境，而是生產環境) 之後仍可使用檔案目前的分層，請在包含伺服器端點的每個磁碟區上回收所有檔案。 停用所有伺服器端點的雲端階層，然後執行下列 PowerShell Cmdlet：
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```
@@ -134,7 +134,7 @@ Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 
 這也可以透過簡單的 PowerShell 指令碼來完成：
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 
 $accountInfo = Connect-AzAccount
@@ -172,27 +172,27 @@ Get-AzureRmStorageSyncGroup -StorageSyncServiceName $StorageSyncService | ForEac
 
 例如，您可以建立新的節流限制，以確保 Azure 檔案同步在工作日早上 9 點至下午 5 點 (17:00h) 之間不會使用超過 10 Mbps： 
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 New-StorageSyncNetworkLimit -Day Monday, Tuesday, Wednesday, Thursday, Friday -StartHour 9 -EndHour 17 -LimitKbps 10000
 ```
 
 您可以使用下列 Cmdlet 來查看限制：
 
-```PowerShell
+```powershell
 Get-StorageSyncNetworkLimit # assumes StorageSync.Management.ServerCmdlets.dll is imported
 ```
 
 若要移除網路限制，請使用 `Remove-StorageSyncNetworkLimit`。 例如，下列命令會移除所有網路限制︰
 
-```PowerShell
+```powershell
 Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -Id $_.Id } # assumes StorageSync.Management.ServerCmdlets.dll is imported
 ```
 
 ### <a name="use-windows-server-storage-qos"></a>使用 Windows Server 儲存體服務品質 (QoS) 
 當 Azure 檔案同步裝載於 Windows Server 虛擬主機上執行的虛擬機器時，您可以使用儲存體 QoS (儲存體服務品質) 來規範儲存體 IO 耗用量。 儲存體 QoS 原則可以設定為最大值 (或限制，如上述強制執行 StorageSyncNetwork 限制的方式) 或最小值 (或保留)。 設定最小值而不是最大值時，可讓 Azure 檔案同步在其他工作負載不使用時，盡可能使用可用的儲存體頻寬。 如需詳細資訊，請參閱[儲存體服務品質](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 - [規劃 Azure 檔案同步部署](storage-sync-files-planning.md)
 - [部署 Azure 檔案同步](storage-sync-files-deployment-guide.md)
 - [監視 Azure 檔案同步](storage-sync-files-monitoring.md)

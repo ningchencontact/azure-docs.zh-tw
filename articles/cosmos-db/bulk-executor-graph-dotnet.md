@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: 2f949265e3961794e2fc4b0efbce107762a75ef7
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 5e88602aa3b983e1533248253d53967f39e6b5eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041555"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57837519"
 ---
 # <a name="using-the-graph-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>在 Azure Cosmos DB Gremlin API 中使用圖形 BulkExecutor .NET 程式庫執行大量作業
 
@@ -155,6 +155,6 @@ git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dot
 3. 藉由查詢圖形資料庫來評估結果。 如果 `ShouldCleanupOnFinish` 選項設定為 True，則會自動刪除資料庫。
 
 ## <a name="next-steps"></a>後續步驟
-* 若要深入了解 Nuget 套件及大量執行程式 .Net 程式庫的版本資訊，請參閱[大量執行程式 SDK 詳細資料](sql-api-sdk-bulk-executor-dot-net.md)。 
+* 若要深入了解 Nuget 套件及大量執行程式 .NET 程式庫的版本資訊，請參閱[大量執行程式 SDK 詳細資料](sql-api-sdk-bulk-executor-dot-net.md)。 
 * 參考[效能祕訣](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-dot-net#performance-tips)以進一步最佳化 BulkExecutor 的使用方式。
 * 檢閱 [BulkExecutor.Graph 參考文章](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet)，以取得與此命名空間中定義的類別和方法有關的詳細資訊。

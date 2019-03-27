@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/6/2019
 ms.author: victorh
-ms.openlocfilehash: 9929b09280cea56a5fadcd4d0d9aba5b851f326e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f7d1c5bc54d909d1a948123839d95e1ee1158a5c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544031"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444827"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>自動調整規模和區域備援應用程式閘道 (公開預覽)
 
@@ -29,6 +29,29 @@ ms.locfileid: "57544031"
 > 自動調整規模和區域備援應用程式閘道 SKU 目前為公開預覽版。 此預覽版是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽專用的補充使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
+
+## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>SKU v1 與 v2 SKU 之間的功能比較
+
+下表比較每個 SKU 提供的功能。
+
+|                                                   | v1 SKU   | v2 SKU   |
+| ------------------------------------------------- | -------- | -------- |
+| 自動調整                                       |          | &#x2713; |
+| 區域備援                                   |          | &#x2713; |
+| &nbsp;靜態的 VIP&nbsp;&nbsp;                      |          | &#x2713; |
+| URL 型路由                                 | &#x2713; | &#x2713; |
+| 多網站裝載                             | &#x2713; | &#x2713; |
+| 流量重新導向                               | &#x2713; | &#x2713; |
+| Web 應用程式防火牆 (WAF)                    | &#x2713; | &#x2713; |
+| 安全通訊端層 (SSL) 終止            | &#x2713; | &#x2713; |
+| 端對端 SSL 加密                         | &#x2713; | &#x2713; |
+| 工作階段親和性                                  | &#x2713; | &#x2713; |
+| 自訂錯誤頁面                                | &#x2713; | &#x2713; |
+| 請重寫 HTTP (S) 標頭                           |          | &#x2713; |
+| WebSocket 支援                                 | &#x2713; | &#x2713; |
+| HTTP/2 支援                                    | &#x2713; | &#x2713; |
+| 清空連線                               | &#x2713; | &#x2713; |
+| Azure Kubernetes Service (AKS) 輸入控制器 |          | &#x2713; |
 
 ## <a name="supported-regions"></a>支援區域
 
@@ -48,7 +71,7 @@ ms.locfileid: "57544031"
 |輸入連接埠範圍的 NSG| - Standard_v2 SKU 適用 65200 至 65535<br>- 標準 SKU 適用 65503 至 65534<br>如需詳細資訊，請參閱[常見問題集](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet)。|
 |Azure 診斷中的效能記錄|不支援。<br>應該使用 Azure 計量。|
 |計費|目前不收費。|
-|FIPS 模式、WebSocket|目前不支援。|
+|FIPS 模式|目前不支援。|
 |純 ILB 模式|目前不支援。 支援將公用與 ILB 模式搭配使用。|
 |Netwatcher 整合|公開預覽版不支援此功能。|
 

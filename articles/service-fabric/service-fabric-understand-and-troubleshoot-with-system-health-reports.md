@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: d62fd909d10515c9217a4dd0aa760afa376b8d7c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9b3ba8d216f3e82c9aff7f2b49b9c24115b32f2
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838896"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487901"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>使用系統健康狀態報告進行疑難排解
 Azure Service Fabric 元件會針對現成叢集中的所有實體，提供系統健康情況報告。 [健康狀態資料存放區](service-fabric-health-introduction.md#health-store) 會根據系統報告來建立和刪除實體。 它也會將這些實體組織為階層以擷取實體的互動。
@@ -84,7 +84,7 @@ System.FM(代表容錯移轉管理員服務) 是管理叢集節點相關資訊�
 
 以下範例說明帶有 OK (代表節點已啟動) 健全狀況狀態的 System.FM 事件：
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricNodeHealth  _Node_0
 
 NodeName              : _Node_0
@@ -137,7 +137,7 @@ System.CM(代表叢集管理員服務) 是管理應用程式相關資訊的授�
 
 以下範例說明 **fabric:/WordCount** 應用程式上的狀態事件：
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricApplicationHealth fabric:/WordCount -ServicesFilter None -DeployedApplicationsFilter None -ExcludeHealthStatistics
 
 ApplicationName                 : fabric:/WordCount
@@ -169,7 +169,7 @@ System.FM(代表容錯移轉管理員服務) 是管理服務相關資訊的授�
 
 以下範例說明 **fabric:/WordCount/WordCountWebService** 服務上的狀態事件：
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricServiceHealth fabric:/WordCount/WordCountWebService -ExcludeHealthStatistics
 
 
@@ -224,7 +224,7 @@ System.FM(代表容錯移轉管理員服務) 是管理服務分割區相關資�
 
 以下範例顯示狀況良好的分割區：
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountWebService | Get-ServiceFabricPartitionHealth -ExcludeHealthStatistics -ReplicasFilter None
 
 PartitionId           : 8bbcd03a-3a53-47ec-a5f1-9b77f73c53b2
@@ -246,7 +246,7 @@ HealthEvents          :
 
 以下範例顯示低於目標複本計數之分割區的健康情況。 下一個步驟是取得分割區說明，其中顯示設定的方式：**MinReplicaSetSize**為 3 及**TargetReplicaSetSize**為七。 接著取得叢集中的節點數目，在此案例中為 5。 因此，在此情況下，無法放置兩個複本，因為複本的目標數目大於可用節點的數目。
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricPartitionHealth -ReplicasFilter None -ExcludeHealthStatistics
 
 
@@ -324,7 +324,7 @@ PS C:\> @(Get-ServiceFabricNode).Count
 
 下列範例顯示分割區的健康情況，此分割區因為使用者不接受 **RunAsync** 方法中的取消權杖而停滯於重新設定過程中。 調查任何標示為「主要 (P)」之複本的健康情況報告，有助於進一步深入探索問題。
 
-```PowerShell
+```powershell
 PS C:\utilities\ServiceFabricExplorer\ClientPackage\lib> Get-ServiceFabricPartitionHealth 0e40fd81-284d-4be4-a665-13bc5a6607ec -ExcludeHealthStatistics 
 
 
@@ -388,7 +388,7 @@ System.RA 會在複本建立後回報 OK。
 
 以下範例顯示狀況良好的複本：
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricPartition fabric:/WordCount/WordCountService | Get-ServiceFabricReplica | where {$_.ReplicaRole -eq "Primary"} | Get-ServiceFabricReplicaHealth
 
 PartitionId           : af2e3e44-a8f8-45ac-9f31-4093eb897600
@@ -419,7 +419,7 @@ HealthEvents          :
 
 下列範例顯示從其 open 方法擲回 `TargetInvocationException` 之複本的健康情況。 描述包含失敗點 **IStatefulServiceReplica.Open**、例外狀況類型 **TargetInvocationException** 和堆疊追蹤。
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 337cf1df-6cab-4825-99a9-7595090c0b1b -ReplicaOrInstanceId 131483509874784794
 
 
@@ -470,7 +470,7 @@ Exception has been thrown by the target of an invocation.
 
 下列範例顯示在關閉期間持續損毀的複本：
 
-```PowerShell
+```powershell
 C:>Get-ServiceFabricReplicaHealth -PartitionId dcafb6b7-9446-425c-8b90-b3fdf3859e64 -ReplicaOrInstanceId 131483565548493142
 
 
@@ -515,7 +515,7 @@ HealthEvents          :
 
 下列範例會顯示本機複本上重新設定已停滯的健康情況報告。 在此範例中，這是因為服務未接受取消權杖的緣故。
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 9a0cedee-464c-4603-abbc-1cf57c4454f3 -ReplicaOrInstanceId 131483600074836703
 
 
@@ -601,7 +601,7 @@ HealthEvents          :
 
 下列範例針對不接受 **RunAsync** 中之取消權杖的可靠服務，顯示來自 System.RAP 的健康情況態事件：
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricReplicaHealth -PartitionId 5f6060fb-096f-45e4-8c3d-c26444d8dd10 -ReplicaOrInstanceId 131483966141404693
 
 
@@ -679,7 +679,7 @@ HealthEvents          :
 
 以下範例顯示一個建立服務作業。 作業所花費的時間超過設定的期間。 "AO" 重試，並將工作傳送到 "NO"。 "NO" 完成最後一個作業但逾時。 在此情況下，"AO" 和 "NO" 角色有相同的主要複本。
 
-```PowerShell
+```powershell
 PartitionId           : 00000000-0000-0000-0000-000000001000
 ReplicaId             : 131064359253133577
 AggregatedHealthState : Warning
@@ -736,7 +736,7 @@ HealthEvents          :
 
 以下範例顯示成功啟用的情況：
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricDeployedApplicationHealth -NodeName _Node_1 -ApplicationName fabric:/WordCount -ExcludeHealthStatistics
 
 ApplicationName                    : fabric:/WordCount
@@ -793,7 +793,7 @@ HealthEvents                       :
 
 以下顯示顯示狀況良好的已部署服務封裝：
 
-```PowerShell
+```powershell
 PS C:\> Get-ServiceFabricDeployedServicePackageHealth -NodeName _Node_1 -ApplicationName fabric:/WordCount -ServiceManifestName WordCountServicePkg
 
 

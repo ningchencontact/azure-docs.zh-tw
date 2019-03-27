@@ -9,12 +9,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: dfbf9a3a9b800fec5df4cf527ddd4ec8e3f55b37
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: daee7ddd0a09d43132bbcf0f4553601846d31433
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57853234"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448229"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>在 Linux 型 Azure HDInsight 上搭配 Apache Hadoop 使用 Apache Oozie 來定義並執行工作流程
 
@@ -717,7 +717,6 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 作業的狀態。 透過 W
 
 在本教學課程中，您已了解如何定義 Oozie 工作流程，以及如何執行 Oozie 工作。 若要深入了解如何使用 HDInsight，請參閱下列文章：
 
-* [搭配 HDInsight 使用以時間為基礎的 Apache Oozie 協調器][hdinsight-oozie-coordinator-time]
 * [在 HDInsight 中上傳 Apache Hadoop 作業的資料][hdinsight-upload-data]
 * [在 HDInsight 中將 Apache Sqoop 與 Apache Hadoop 搭配使用][hdinsight-use-sqoop]
 * [在 HDInsight 上將 Apache Hive 與 Apache Hadoop 搭配使用][hdinsight-use-hive]
@@ -726,7 +725,6 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 作業的狀態。 透過 W
 
 [hdinsight-cmdlets-download]: https://go.microsoft.com/fwlink/?LinkID=325563
 [azure-data-factory-pig-hive]: ../data-factory/transform-data.md
-[hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-use-blob-storage.md
 [hdinsight-get-started]: hdinsight-get-started.md
@@ -756,8 +754,8 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 作業的狀態。 透過 W
 
 [cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-[img-workflow-diagram]: ./media/hdinsight-use-oozie/HDI.UseOozie.Workflow.Diagram.png
-[img-preparation-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.Preparation.Output1.png
+[img-workflow-diagram]: ./media/hdinsight-use-oozie-linux-mac/HDI.UseOozie.Workflow.Diagram.png
+[img-preparation-output]: ./media/hdinsight-use-oozie-linux-mac/HDI.UseOozie.Preparation.Output1.png
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 
 [technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx

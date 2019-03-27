@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c34af90f946542608eaf20f4f21d4986f3c80e6b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: c475fc4d958044413ae7566c027c0e796f1d699a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369389"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486388"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>設定 Azure 儲存體防火牆和虛擬網路
 
@@ -71,19 +71,19 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
 
 1. 顯示儲存體帳戶的預設規則狀態。
 
-    ```PowerShell
+    ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").DefaultAction
     ```
 
 1. 根據預設，將預設規則設定為拒絕網路存取。
 
-    ```PowerShell
+    ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Deny
     ```
 
 1. 根據預設，將預設規則設定為允許網路存取。
 
-    ```PowerShell
+    ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -DefaultAction Allow
     ```
 
@@ -159,26 +159,26 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
 
 1. 列出虛擬網路規則。
 
-    ```PowerShell
+    ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").VirtualNetworkRules
     ```
 
 1. 啟用現有虛擬網路和子網路上的 Azure 儲存體服務端點。
 
-    ```PowerShell
+    ```powershell
     Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Set-AzVirtualNetworkSubnetConfig -Name "mysubnet" -AddressPrefix "10.0.0.0/24" -ServiceEndpoint "Microsoft.Storage" | Set-AzVirtualNetwork
     ```
 
 1. 為虛擬網路和子網路新增網路規則。
 
-    ```PowerShell
+    ```powershell
     $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
     Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
     ```
 
 1. 移除虛擬網路和子網路的網路規則。
 
-    ```PowerShell
+    ```powershell
     $subnet = Get-AzVirtualNetwork -ResourceGroupName "myresourcegroup" -Name "myvnet" | Get-AzVirtualNetworkSubnetConfig -Name "mysubnet"
     Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -VirtualNetworkResourceId $subnet.Id
     ```
@@ -267,31 +267,31 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
 
 1. 列出 IP 網路規則。
 
-    ```PowerShell
+    ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount").IPRules
     ```
 
 1. 新增個別 IP 位址的網路規則。
 
-    ```PowerShell
+    ```powershell
     Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
     ```
 
 1. 新增 IP 位址範圍的網路規則。
 
-    ```PowerShell
+    ```powershell
     Add-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
     ```
 
 1. 移除個別 IP 位址的網路規則。
 
-    ```PowerShell
+    ```powershell
     Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.19"
     ```
 
 1. 移除 IP 位址範圍的網路規則。
 
-    ```PowerShell
+    ```powershell
     Remove-AzStorageAccountNetworkRule -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount" -IPAddressOrRange "16.17.18.0/24"
     ```
 
@@ -385,19 +385,19 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
 
 1. 顯示儲存體帳戶網路規則的例外狀況。
 
-    ```PowerShell
+    ```powershell
     (Get-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount").Bypass
     ```
 
 1. 設定儲存體帳戶網路規則的例外狀況。
 
-    ```PowerShell
+    ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass AzureServices,Metrics,Logging
     ```
 
 1. 移除儲存體帳戶網路規則的例外狀況。
 
-    ```PowerShell
+    ```powershell
     Update-AzStorageAccountNetworkRuleSet -ResourceGroupName "myresourcegroup" -Name "mystorageaccount" -Bypass None
     ```
 

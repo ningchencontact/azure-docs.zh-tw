@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 3f4f99a37718fac3ae4baa14553290d63c7bce63
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 2b0f3a4394267a808b6e6e0a73abfaf1e698ff1c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653963"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445029"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>在 HDInsight 上搭配 Apache Hadoop 使用 Apache Pig
 
@@ -24,7 +24,7 @@ Apache Pig 是一個平台，可使用名為 *Pig Latin* 的程序性語言建�
 
 | **使用此方法**  | ...一個 **互動式** 殼層 | ...**批次** 處理 | ...搭配此 **叢集作業系統** | ...從此 **用戶端作業系統** |
 |:--- |:---:|:---:|:--- |:--- |
-| [SSH](apache-hadoop-use-pig-ssh.md) |✔ |✔ |Linux |Linux、Unix、Mac OS X 或 Windows |
+| [SSH](apache-hadoop-use-pig-ssh.md) |✔ |✔ | Linux |Linux、Unix、Mac OS X 或 Windows |
 | [REST API](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux 或 Windows |Linux、Unix、Mac OS X 或 Windows |
 | [.NET SDK for Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux 或 Windows |Windows (目前) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux 或 Windows | Windows |
@@ -48,7 +48,7 @@ Pig Latin 語言可讓您從原始輸入描述資料流 (經過一或多個轉�
 
 ### <a name="user-defined-functions"></a>使用者定義函式
 
-Pig Latin 也支援使用者定義函數 (UDF)，此函數讓您可用叫用外部元件，這些元件會實作很難以 Pig Latin 模型化的邏輯。
+Pig Latin 还支持使用用户定义函数 (UDF) 来调用外部组件，以便实现难以在 Pig Latin 中建模的逻辑。
 
 如需 Pig Latin 的詳細資訊，請參閱 [Pig Latin 參考手冊 1](https://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) (英文) 和 [Pig Latin 參考手冊 2](https://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html) (英文)。
 
@@ -62,7 +62,7 @@ Pig Latin 也支援使用者定義函數 (UDF)，此函數讓您可用叫用外�
 
 HDInsight 提供各種範例資料集，儲存在 `/example/data` 和 `/HdiSamples` 目錄中。 這些目錄位於您的叢集預設儲存體中。 本文件中的 Pig 範例使用 `/example/data/sample.log` 中的 *log4j* 檔案。
 
-檔案中的每一筆記錄均由一列欄位組成，包括以 `[LOG LEVEL]` 欄位來顯示類型和嚴重性，例如：
+该文件中的每个日志都包含一行字段，其中包含一个 `[LOG LEVEL]` 字段，用于显示类型和严重性，例如：
 
     2012-02-03 20:26:41 SampleClass3 [ERROR] verbose detail for id 1527353937
 
@@ -85,15 +85,15 @@ HDInsight 提供各種範例資料集，儲存在 `/example/data` 和 `/HdiSampl
 
 下圖顯示每個轉換如何處理資料的摘要。
 
-![轉換的圖形化表示][image-hdi-pig-data-transformation]
+![转换的图形表示形式][image-hdi-pig-data-transformation]
 
 ## <a id="run"></a>執行 Pig Latin 工作
 
 HDInsight 可以使用各種方法執行 Pig Latin 工作。 請使用下表決定適合您的方法，然後跟著連結逐項閱讀介紹。
 
-| **使用此方法**  | ...一個 **互動式** 殼層 | ...**批次** 處理 | ...搭配此 **叢集作業系統** | ...從這個**用戶端** |
+| **使用此方法**  | ...一個 **互動式** 殼層 | ...**批次** 處理 | ...使用此**群集操作系统** | ...從這個**用戶端** |
 |:--- |:---:|:---:|:--- |:--- |
-| [SSH](apache-hadoop-use-pig-ssh.md) |✔ |✔ |Linux |Linux、Unix、Mac OS X 或 Windows |
+| [SSH](apache-hadoop-use-pig-ssh.md) |✔ |✔ | Linux |Linux、Unix、Mac OS X 或 Windows |
 | [Curl](apache-hadoop-use-pig-curl.md) |&nbsp; |✔ |Linux 或 Windows |Linux、Unix、Mac OS X 或 Windows |
 | [.NET SDK for Hadoop](apache-hadoop-use-pig-dotnet-sdk.md) |&nbsp; |✔ |Linux 或 Windows |Windows (目前) |
 | [Windows PowerShell](apache-hadoop-use-pig-powershell.md) |&nbsp; |✔ |Linux 或 Windows | Windows |
@@ -103,7 +103,7 @@ HDInsight 可以使用各種方法執行 Pig Latin 工作。 請使用下表決�
 
 ## <a name="pig-and-sql-server-integration-services"></a>Pig 和 SQL Server Integration Services
 
-您可以使用 SQL Server Integration Services (SSIS) 執行 Pig 作業。 適用於 SSIS 的 Azure Feature Pack 中提供下列元件可搭配 HDInsight 上的 Pig 工作使用。
+您可以使用 SQL Server Integration Services (SSIS) 執行 Pig 作業。 Azure Feature Pack for SSIS 提供适用于 HDInsight 上的 Pig 作业的以下组件。
 
 * [Azure HDInsight Pig 工作][pigtask]
 
@@ -111,13 +111,13 @@ HDInsight 可以使用各種方法執行 Pig Latin 工作。 請使用下表決�
 
 在[這裡][ssispack]深入了解適用於 SSIS 的 Azure Feature Pack。
 
-## <a id="nextsteps"></a>接續步驟
+## <a id="nextsteps"></a>后续步骤
 現在您已學會如何搭配 HDInsight 使用 Pig，接著請使用下列連結來探索 Azure HDInsight 的其他使用方式。
 
 * [將資料上傳至 HDInsight](../hdinsight-upload-data.md)
 * [搭配 HDInsight 使用 Apache Hive][hdinsight-use-hive]
 * [搭配 HDInsight 使用 Apache Sqoop](hdinsight-use-sqoop.md)
-* [使用 Apache Oozie 搭配 HDInsight](../hdinsight-use-oozie.md)
+* [使用 Apache Oozie 搭配 HDInsight](../hdinsight-use-oozie-linux-mac.md)
 * [搭配 HDInsight 使用 MapReduce 作業][hdinsight-use-mapreduce]
 
 [apachepig-home]: https://pig.apache.org/

@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 0726859d-1dac-44a0-810b-da56d89039ee
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f846791bfcaadbfec85f150654e18e55517acdcc
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: ec694e9d0bf69ca1d9adbe1c12beedba24d9994b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984929"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852526"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-beeline"></a>教學課程：Azure Active Directory 與 BeeLine 整合
 
@@ -108,6 +108,7 @@ ms.locfileid: "56984929"
     a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://projects.beeline.net/<instancename>`
 
     b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：
+    
     | |
     |--|
     | `https://projects.beeline.net/<instancename>/SSO_External.ashx`|
@@ -120,7 +121,7 @@ ms.locfileid: "56984929"
 
     ![映像](common/edit-attribute.png)
 
-6. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
+6. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
@@ -156,7 +157,7 @@ ms.locfileid: "56984929"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。

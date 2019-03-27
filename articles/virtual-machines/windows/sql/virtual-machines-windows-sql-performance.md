@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bb9b90ca239ff03f44b76a7ee5754eb7872caa31
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 8d31f04c355b47720a1c9b0334042ba2f6654768
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415896"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448566"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Azure 虛擬機器中的 SQL Server 效能指導方針
 
@@ -72,7 +72,7 @@ Azure VM 上有三種主要的磁碟類型︰
 
 * **OS 磁碟**：建立 Azure 虛擬機器時，平台會至少將一個磁碟 (標示為 **C** 磁碟機) 連接至 VM 作為您的作業系統磁碟。 此磁碟是以分頁 Blob 的形式儲存於儲存體的 VHD。
 * **暫存磁碟**：Azure Stack 虛擬機器會包含另一個稱為暫存磁碟的磁碟 (標示為 **D**: 磁碟機)。 此磁碟位於可用於塗銷空間的節點上。
-* **資料磁碟**：您也可以將其他磁碟連接至虛擬機器作為資料磁碟，這些磁碟將會以分頁 Blob 形式儲存於儲存體。
+* **資料磁碟**：还可以将其他磁盘作为数据磁盘附加到虚拟机，这些磁盘在存储空间中存储为页 Blob。
 
 下列各節說明使用這些不同磁碟的建議。
 
@@ -135,7 +135,7 @@ D 系列、Dv2 系列和 G 系列 VM 的暫存磁碟機皆為 SSD 式。 如果�
 
   * 上述建議適用於進階 SSD。 如果您並非使用進階 SSD，請勿在任何資料磁碟上啟用任何快取功能。
 
-  * 如需有關設定磁碟快取功能的指示，請參閱下列文章。 針對傳統 (ASM) 部署模型，請參閱：[Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) \(英文\) 和 [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx) \(英文\)。 針對 Azure Resource Manager 部署模型，請參閱：[Set-AzOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk?view=azurermps-4.4.1) \(英文\) 和 [Set-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdatadisk?view=azurermps-4.4.1) \(英文\)。
+  * 如需有關設定磁碟快取功能的指示，請參閱下列文章。 針對傳統 (ASM) 部署模型，請參閱：[Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) \(英文\) 和 [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx) \(英文\)。 針對 Azure Resource Manager 部署模型，請參閱：[Set-AzOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk) \(英文\) 和 [Set-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdatadisk) \(英文\)。
 
      > [!WARNING]
      > 變更 Azure VM 磁碟的快取設定時，請停止 SQL Server 服務，以避免任何發生資料庫損毀的可能性。

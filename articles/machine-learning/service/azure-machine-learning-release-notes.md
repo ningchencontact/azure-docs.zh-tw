@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6b9ab48ea971a5e7f5e9c72f9e729d2fcb5ed37f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c1c6e0408145ea76ad93b6dc3803fd56a01dc6d4
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437861"
+ms.locfileid: "58444645"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 服務版本資訊
 
@@ -29,6 +29,23 @@ ms.locfileid: "58437861"
 
 + **新功能**
   + *Azureml.core.Run.create_children*方法可讓低度延遲建立多個子執行透過單一呼叫。
+
+### <a name="azure-machine-learning-data-prep-sdk-v110"></a>Azure Machine Learning 資料準備 SDK 1.1.0 版
+
++ **重大變更**
+  + 資料準備套件的概念已被取代，不再支援。 而不是保存在單一套件中的多個資料流程，您可以個別保存資料流程。
+    + 操作說明指南：[開啟並儲存資料流程的 notebook](https://aka.ms/aml-data-prep-open-save-dataflows-nb)
+
++ **新功能**
+  + 資料準備現可辨識的比對特定的語意型別，並據以分割資料行。 目前支援 STypes 包括： 傳送電子郵件位址 」、 「 地理的座標 （緯度與經度） 」、 「 IPv4 和 IPv6 位址 」、 「 美國電話號碼和 「 美國郵遞區號。
+    + 操作說明指南：[語意類型 notebook](https://aka.ms/aml-data-prep-semantic-types-nb)
+  + 資料準備現在支援從兩個數值資料行中產生結果的資料行的下列作業： 減、 乘、 分割，和模數。
+  + 您可以呼叫`verify_has_data()`上檢查執行時，資料流程是否會產生記錄的資料流程。
+
++ **Bug 修正和增強功能**
+  + 您現在可以指定要在長條圖中用於數值資料行設定檔的分類收納數目。
+  + `read_pandas_dataframe`轉換現在需要 DataFrame，以具備字串或位元組型別資料行名稱。
+  + 修正在`fill_nulls`轉換，其中值未正確填入如果資料行遺漏。
 
 ## <a name="2019-03-11"></a>2019-03-11
 

@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: 265881ede035e8b854be1bd54a70fa8c7ef127ab
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 0f96ee3a24a811d7e3ab7e65ba4ff14050541638
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200519"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443367"
 ---
 # <a name="use-apache-sqoop-to-import-and-export-data-between-apache-hadoop-on-hdinsight-and-sql-database"></a>使用 Apache Sqoop 在 Apache Hadoop on HDInsight 與 SQL Database 之間匯入及匯出資料
 
@@ -160,7 +160,7 @@ GO
 
 現在，您已了解如何使用 Sqoop。 若要深入了解，請參閱：
 
-* [使用 Apache Oozie 搭配 HDInsight](../hdinsight-use-oozie.md)：在 Oozie 工作流程中使用 Sqoop 動作。
+* [使用 Apache Oozie 搭配 HDInsight](../hdinsight-use-oozie-linux-mac.md)：在 Oozie 工作流程中使用 Sqoop 動作。
 * [使用 HDInsight 分析航班延誤資料](../hdinsight-analyze-flight-delay-data-linux.md)：使用 Apache Hive 來分析航班誤點資料，然後使用 Sqoop 將資料匯出至 Azure SQL 資料庫。
 * [將資料上傳至 HDInsight](../hdinsight-upload-data.md)：尋找其他方法將資料上傳至 HDInsight/Azure Blob 儲存體。
 

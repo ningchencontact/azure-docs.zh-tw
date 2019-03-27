@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 63b134ab9bfdac3617c845da7a14ee6b9234c84d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5647802ff383ce046d108f25384df81bcbd08cd3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57782015"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484892"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>使用 Windows 虛擬機器的 Resource Manager 範本將客體作業系統計量傳送至 Azure 監視器計量存放區
 
@@ -243,12 +243,12 @@ Azure 診斷擴充功能會使用稱為「資料接收器」的功能，將計�
 1. 使用 `Get-AzSubscription` 取得訂用帳戶清單。
 1. 設定您用來建立/更新虛擬機器的訂用帳戶：
 
-   ```PowerShell
+   ```powershell
    Select-AzSubscription -SubscriptionName "<Name of the subscription>"
    ```
 1. 若要為部署的 VM 建立新的資源群組，請執行下列命令：
 
-   ```PowerShell
+   ```powershell
     New-AzResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
    ```
    > [!NOTE]
@@ -258,7 +258,7 @@ Azure 診斷擴充功能會使用稱為「資料接收器」的功能，將計�
    > [!NOTE]
    > 如果您想要更新現有 VM，只要將 *-Mode Incremental* 新增至下列命令的結尾。
 
-   ```PowerShell
+   ```powershell
    New-AzResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
    ```
 

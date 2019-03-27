@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 68f21ef70b402fe45613fdcbda3074bac1d4eb5a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: aa5f8aaef21967a23505c785eb8ef811cf5767cc
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55464954"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486440"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>新增/移除 Azure 檔案同步伺服器端點
 Azure 檔案同步可讓您將組織的檔案共用集中在「Azure 檔案服務」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 它會將您的 Windows Server 轉換成 Azure 檔案共用的快速快取來達到這個目的。 您可以使用 Windows Server 上可用的任何通訊協定來存取本機資料 (包括 SMB、NFS 和 FTPS)，並且可以在世界各地擁有任何所需數量的快取。
@@ -51,7 +51,7 @@ Azure 檔案同步可讓您將組織的檔案共用集中在「Azure 檔案服�
 
 若要確保在移除伺服器端點之前會回收所有階層式檔案，請停用伺服器端點上的雲端階層，然後執行下列 PowerShell Cmdlet 來回收的伺服器端點命名空間內的所有階層式檔案：
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```

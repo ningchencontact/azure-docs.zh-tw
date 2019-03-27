@@ -3,7 +3,7 @@ title: 使用範本在虛擬機器擴展集上設定 Azure 資源受控識別
 description: 使用 Azure Resource Manager 範本在虛擬機器擴展集上設定 Azure 資源受控識別的逐步指示。
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bed701f8948b27d4a242c6bb0af8ecf939db409
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 15b37c4845526227799173b09f468701954fc7b5
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223473"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449296"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>在 Azure 虛擬機器擴展使用範本上設定適用於 Azure 資源管理的身分識別
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/5/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 17d80d07f9b272b0dcb7449404d5d6626e72ce65
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 017c8c2f060f969f2e7f8d387dcbafa2dac426d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692836"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842940"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>教學課程：使用 Azure 虛擬 WAN 來建立 ExpressRoute 關聯 (預覽)
 
@@ -37,11 +37,13 @@ ms.locfileid: "55692836"
 
 ## <a name="before-you-begin"></a>開始之前
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
 ## <a name="register"></a>註冊此功能
 
-設定虛擬 WAN 之前，您必須先在預覽版中註冊訂用帳戶。 否則，您將無法在入口網站中使用虛擬 WAN。 若要註冊，您可以傳送電子郵件與訂用帳戶識別碼至 **azurevirtualwan@microsoft.com**。 當訂用帳戶註冊完成之後，您會收到電子郵件。
+設定虛擬 WAN 之前，您必須先在預覽版中註冊訂用帳戶。 否則，您將無法在入口網站中使用虛擬 WAN。 若要註冊，請傳送電子郵件至 **azurevirtualwan\@microsoft.com**，並在其中包含您的訂用帳戶識別碼。 當訂用帳戶註冊完成之後，您會收到電子郵件。
 
 **預覽考量：**
 
@@ -69,15 +71,15 @@ ms.locfileid: "55692836"
 ## <a name="hub"></a>4.尋找線路並將其關聯至中樞
 
 1. 選取您的 vWAN，並且在 [虛擬 WAN 架構] 底下選取 [ExpressRoute 線路]
-2. 如果 ExpressRoute 線路位在與您 vWAN 相同的訂用帳戶中，請從訂用帳戶按一下 [選取 ExpressRoute 線路] 
-3. 使用下拉式清單，選取您要關聯至中樞的 ExpressRoute。
-4. 如果 ExpressRoute 線路不是在相同的訂用帳戶中，或是您已提供[授權金鑰和對等互連識別碼](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)，請選取 [尋找線路來兌換授權金鑰]
-5. 輸入下列詳細資料：
-* **授權金鑰** - 由線路擁有者產生，如上所述
-* **對等互連線路 URI** - 由線路擁有者所提供的線路 URI，是線路的唯一識別碼
-* **路由權重** - 當有來自不同對等互連位置的多個線路連線至相同中樞時，[路由權重](../expressroute/expressroute-optimize-routing.md)可讓您使用偏好的特定路徑
-6. 按一下 [尋找線路]，在找到時選取線路
-7. 從下拉式清單中選取 1 或多個中樞，然後按一下 [儲存]
+1. 如果 ExpressRoute 線路位在與您 vWAN 相同的訂用帳戶中，請從訂用帳戶按一下 [選取 ExpressRoute 線路] 
+1. 使用下拉式清單，選取您要關聯至中樞的 ExpressRoute。
+1. 如果 ExpressRoute 線路不是在相同的訂用帳戶中，或是您已提供[授權金鑰和對等互連識別碼](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)，請選取 [尋找線路來兌換授權金鑰]
+1. 輸入下列詳細資料：
+1. **授權金鑰** - 由線路擁有者產生，如上所述
+1. **對等互連線路 URI** - 由線路擁有者所提供的線路 URI，是線路的唯一識別碼
+1. **路由權重** - 當有來自不同對等互連位置的多個線路連線至相同中樞時，[路由權重](../expressroute/expressroute-optimize-routing.md)可讓您使用偏好的特定路徑
+1. 按一下 [尋找線路]，在找到時選取線路
+1. 從下拉式清單中選取 1 或多個中樞，然後按一下 [儲存]
 
 ## <a name="vnet"></a>5.將 VNet 連線至中樞
 
@@ -110,10 +112,10 @@ ms.locfileid: "55692836"
 
 ## <a name="cleanup"></a>9.清除資源
 
-您可以使用 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 來移除不再需要的資源群組，以及其所包含的所有資源。 將 "myResourceGroup" 取代為您的資源群組名稱，然後執行下列 PowerShell 命令：
+您可以使用 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) 來移除不再需要的資源群組，以及其所包含的所有資源。 將 "myResourceGroup" 取代為您的資源群組名稱，然後執行下列 PowerShell 命令：
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>後續步驟

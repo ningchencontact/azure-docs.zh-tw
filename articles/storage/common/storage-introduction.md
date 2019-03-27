@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d558f0fa5abc421785ff6f9fcc2a6318819e3ebc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ae2384d0ac6773ccd362778d2913cdcaa9cb4d6c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012741"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446717"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure 儲存體簡介
 
@@ -93,23 +93,15 @@ Azure 儲存體也包含虛擬機器所使用的受控和非受控磁碟功能�
 
 如需有關儲存體帳戶類型的詳細資訊，請參閱 [Azure 儲存體帳戶概觀](storage-account-overview.md)。 
 
-## <a name="accessing-your-blobs-files-and-queues"></a>存取您的 blob、檔案和佇列
+## <a name="securing-access-to-storage-accounts"></a>保護儲存體帳戶的存取權
 
-每個儲存體帳戶都有兩種驗證金鑰，任一種金鑰均可用於任何作業。 金鑰有兩個，所以您可以偶爾變換金鑰以增強安全性。 務必將金鑰放在安全的地方，因為其擁有權 (連同帳戶名稱) 允許無限制存取儲存體帳戶中的所有資料。
+Azure 儲存體的每個要求必須經過授權。 Azure 儲存體支援下列授權方法：
 
-本節說明保護儲存體帳戶及其資料的兩種方式。 如需保護儲存體帳戶和資料的詳細資訊，請參閱 [Azure 儲存體安全性指南](storage-security-guide.md)。
-
-### <a name="securing-access-to-storage-accounts-using-azure-ad"></a>使用 Azure AD 保護儲存體帳戶的存取權
-
-控制儲存體帳戶金鑰的存取權，是保護儲存體資料存取的其中一種方式。 使用 Resource Manager 角色型存取控制 (RBAC)，您可以將角色指派給使用者、群組或應用程式。 這些角色會繫結至特定一組允許或不允許的動作。 使用 RBAC 授與儲存體帳戶存取權時，只會處理該儲存體帳戶的管理作業，例如變更存取層。 您無法使用 RBAC 來授與資料物件 (如特定容器或檔案共用) 的存取權。 不過，您可以使用 RBAC 授與儲存體帳戶金鑰的存取權，而這些金鑰可用來讀取資料物件。
-
-### <a name="securing-access-using-shared-access-signatures"></a>使用共用存取簽章保護存取權
-
-您可以使用共用存取簽章和預存存取原則來保護您的資料物件。 共用存取簽章 (SAS) 是一個字串，包含可附加至資產 URI 的安全性權杖，可讓您委派特定儲存體物件的存取權，以及指定存取的權限和日期/時間範圍之類的限制。 這項功能有廣泛的功能。 如需詳細資訊，請參閱[使用共用存取簽章 (SAS)](storage-dotnet-shared-access-signature-part-1.md)。
-
-### <a name="public-access-to-blobs"></a>公開存取 Blob
-
-Blob 服務可讓您提供容器與其 Blob 或特定 Blob 的公開存取權。 當您將容器或 Blob 指定為公用時，任何人都可以進行匿名讀取；不需要驗證。 例如，當您有網站使用 Blob 儲存體中的影像、影片或文件時，您會想要執行此動作。 如需詳細資訊，請參閱[管理對容器與 Blob 的匿名讀取權限](../blobs/storage-manage-access-to-resources.md)
+- **Blob 和佇列資料的 azure Active Directory (Azure AD) 整合。** Azure 儲存體 Blob 和佇列服務，透過角色型存取控制 (RBAC) 支援驗證和授權使用 Azure AD 認證。 較高的安全性和方便使用，建議使用授權與 Azure AD 的要求。 如需詳細資訊，請參閱 <<c0> [ 驗證存取 Azure blob 和佇列使用 Azure Active Directory](storage-auth-aad.md)。
+- **Azure AD 授權透過 SMB 的 Azure 檔案 （預覽）。** Azure 檔案服務支援透過 SMB （伺服器訊息區），透過 Azure Active Directory 網域服務身分識別為基礎的授權。 您已加入網域的 Windows 虛擬機器 (Vm) 可以存取 Azure 檔案共用使用 Azure AD 認證。 如需詳細資訊，請參閱 <<c0> [ 適用於 Azure 檔案 （預覽） 透過 SMB 的概觀的 Azure Active Directory 授權](../files/storage-files-active-directory-overview.md)。
+- **使用共用金鑰的授權。** Azure 儲存體 Blob、 佇列和表格服務和 Azure 檔案共用 Key.A 使用共用金鑰的授權傳遞，使用儲存體帳戶存取金鑰簽署每個要求的標頭的用戶端支援授權。 如需詳細資訊，請參閱[使用共用金鑰進行授權](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)。
+- **授權使用共用存取簽章 (SAS)。** 共用的存取簽章 (SAS) 是包含可以附加至儲存體資源的 URI 的安全性權杖的字串。 安全性權杖會封裝權限和存取的間隔之類的條件約束。 如需詳細資訊，請參閱[使用共用存取簽章 (SAS)](storage-dotnet-shared-access-signature-part-1.md)。
+- **對容器與 blob 的匿名存取。** 容器和其 blob 可能可公開使用。 當您指定的容器或 blob 是公用時，任何人都可以進行匿名讀取;則不需要驗證。 如需詳細資訊，請參閱[管理對容器與 Blob 的匿名讀取權限](../blobs/storage-manage-access-to-resources.md)
 
 ## <a name="encryption"></a>加密
 

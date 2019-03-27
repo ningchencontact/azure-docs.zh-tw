@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 908422927feabd156c5dcdc7a04d44ff8fc42094
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a592dc150d535df775a62c157f76f327b54240fd
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442870"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496083"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook 動作記錄警示規則
 [在 Azure 中建立記錄警示](alerts-log.md)後，您可以選擇[使用動作群組設定](action-groups.md)以執行一或多個動作。  本文說明各種可用的 Webhook 動作以及設定自訂 JSON 型 Webhook 的詳細資訊。
@@ -54,7 +54,7 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
 | 訂用帳戶識別碼 |#subscriptionid |搭配 Application Insights 使用之 Azure 訂用帳戶的識別碼。 
 
 > [!NOTE]
-> LinkToSearchResults 會將參數 (例如 SearchQuery、URL 中的搜尋間隔開始時間和搜尋間隔結束時間) 傳遞至 Azure 入口網站，以便在 Analytics 區段中檢視。 Azure 入口網站有大小限制，大約 2000年個字元，並將 URI*不*提供在警示中，如果參數值超過該的限制的開啟連結。 使用者可以手動輸入詳細資料，以在 Analytics 入口網站中檢視結果，或使用 [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) 或 [Log Analytics REST API](https://dev.loganalytics.io/reference) 以程式設計方式擷取結果 
+> LinkToSearchResults 會將參數 (例如 SearchQuery、URL 中的搜尋間隔開始時間和搜尋間隔結束時間) 傳遞至 Azure 入口網站，以便在 Analytics 區段中檢視。 Azure 入口網站有大小限制，大約 2000年個字元，並將 URI*不*提供在警示中，如果參數值超過該的限制的開啟連結。 使用者可以手動輸入詳細資料，以在 Analytics 入口網站中檢視結果，或使用 [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) 或 [Log Analytics REST API](/rest/api/loganalytics/) 以程式設計方式擷取結果 
 
 例如，您可以指定下列自訂承載，其中包含稱為 text 的單一參數。  此 Webhook 所呼叫的服務需要有這個參數。
 

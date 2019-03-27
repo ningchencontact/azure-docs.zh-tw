@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: manayar
-ms.openlocfilehash: 656645326314fec42ba909957c9dc27fe88ae338
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a9141adfb1dd05efd73061379be89ddf27ab3832
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773294"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487493"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 虛擬機器擴展集的網路
 
@@ -170,12 +170,12 @@ az vmss create \
 若要列出使用 CLI 指派給擴展集虛擬機器的公用 IP 位址，請使用 **az vmss list-instance-public-ips** 命令。
 
 若要使用 PowerShell 列出擴展集公用 IP 位址，請使用 _Get-AzPublicIpAddress_ 命令。 例如︰
-```PowerShell
+```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
 您也可以直接參考公用 IP 位址組態的資源識別碼，以查詢公用 IP 位址。 例如︰
-```PowerShell
+```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
 

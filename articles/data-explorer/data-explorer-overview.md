@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: bb173981e3f06c923fa7357eb64777493bd17b8c
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 33169448b5b1e4496f42d157cb77134b90804fa6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958264"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433173"
 ---
 # <a name="what-is-azure-data-explorer"></a>什麼是 Azure 資料總管？
 

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: a72d6b180db35f3e0f0e0527e8ae0f544a585b25
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 96ac8522f94a3555fe63575baca8bbfbabc272d9
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56822956"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57570448"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>使用 Java 和 Maven 建立您的第一個函式
 
@@ -41,7 +41,7 @@ ms.locfileid: "56822956"
 
 在空的資料夾中，執行下列命令以從 [Maven 原型](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html) \(英文\) 產生 Functions 專案。
 
-### <a name="linuxmacos"></a>Linux/MacOS
+### <a name="linuxmacos"></a>Linux/macOS
 
 ```bash
 mvn archetype:generate \
@@ -49,7 +49,14 @@ mvn archetype:generate \
     -DarchetypeArtifactId=azure-functions-archetype 
 ```
 
-### <a name="windows-cmd"></a>Windows (CMD)
+### <a name="windows"></a>Windows
+
+```powershell
+mvn archetype:generate `
+    "-DarchetypeGroupId=com.microsoft.azure" `
+    "-DarchetypeArtifactId=azure-functions-archetype"
+```
+
 ```cmd
 mvn archetype:generate ^
     -DarchetypeGroupId=com.microsoft.azure ^
@@ -159,6 +166,9 @@ mvn azure-functions:deploy
 ```
 
 使用 `cURL` 測試在 Azure 上執行的函式應用程式。 您必須變更下面範例中的 URL，以符合上一個步驟中自有函式應用程式的已部署 URL。
+
+> [!NOTE]
+> 請確定您將 [存取權限] 設為 `Anonymous`。 當您選擇預設層級 `Function` 時，您必須在要求中提供[函式金鑰](../azure-functions/functions-bindings-http-webhook.md#authorization-keys)以存取您的函式端點。
 
 ```
 curl -w '\n' https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions

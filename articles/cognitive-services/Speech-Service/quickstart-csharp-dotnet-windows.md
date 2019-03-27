@@ -10,18 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: cff3f526586eb52466883247d41a57dae919dd21
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a3990bfac9199fadeff0573d7547d7e5bc551ece
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867213"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838607"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-framework-windows"></a>快速入門：使用適用於 .NET Framework (Windows) 的語音 SDK 來辨識語音
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 您可以使用本指南，透過 .NET Framework for Windows 和語音 SDK 建立語音轉換文字的主控台應用程式。 完成之後，您可以使用電腦的麥克風將語音即時轉譯為文字。
+
+如需快速示範 (不自行建置 Visual Studio 專案，如下所示)：
+
+從 Github 取得最新的[認知服務語音 SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk)。
 
 ## <a name="prerequisites"></a>必要條件
 

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 2df08968ad66bd330611b975c045c9e9c9b240aa
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 6f0d2d59ed50c743adb19027c404bfa83a1886f1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "58114205"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484860"
 ---
 根據您的環境和選擇，指令碼可建立所有的叢集基礎結構，包括 Azure 虛擬網路、儲存體帳戶、雲端服務、網域控制站、遠端或本機 SQL Database、前端節點、及其他叢集節點。 或者，该脚本可以使用预先存在的 Azure 基础结构仅创建 HPC 群集节点。
 
@@ -22,7 +22,7 @@ ms.locfileid: "58114205"
 * **指令碼組態檔**:建立 XML 檔案的指令碼用來設定 HPC 叢集。 如需相關資訊和範例，請參閱本文稍後的章節以及部署指令碼隨附的 Manual.rtf 檔。
 
 ## <a name="syntax"></a>語法
-```PowerShell
+```powershell
 New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminPassword] <String>] [[-HPCImageName] <String>] [[-LogFile] <String>] [-Force] [-NoCleanOnFailure] [-PSSessionSkipCACheck] [<CommonParameters>]
 ```
 > [!NOTE]
@@ -53,7 +53,7 @@ New-HPCIaaSCluster.ps1 [-ConfigFile] <String> [-AdminUserName]<String> [[-AdminP
 ### <a name="example"></a>範例
 下列範例會使用組態檔 *MyConfigFile.xml*建立新的 HPC Pack 叢集，並指定用來安裝叢集的管理員認證。
 
-```PowerShell
+```powershell
 .\New-HPCIaaSCluster.ps1 –ConfigFile MyConfigFile.xml -AdminUserName <username> –AdminPassword <password>
 ```
 

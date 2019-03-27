@@ -11,22 +11,23 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 7a83153d4439fe25d92f149b7efe5231151b4dc4
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 03/12/2019
+ms.openlocfilehash: 1dc2f4e80e5b1c4fa1fb6f09e769a116516dc71c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390732"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840608"
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>使用 PowerShell 更新現有同步群組中的同步結構描述
 
 此 PowerShell 範例會更新現有「SQL 資料同步」同步群組中的同步結構描述。 當您要同步處理多個資料表時，此指令碼可協助您有效率地更新同步結構描述。 此範例會示範 **UpdateSyncSchema** 指令碼的使用方式，這個指令碼在 GitHub 上會以 [UpdateSyncSchema.ps1](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/sql-data-sync/UpdateSyncSchema.ps1) 提供使用。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-如果您選擇在本機安裝和使用 PowerShell，則在執行本教學課程時，必須使用 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
+如果選擇在本機安裝和使用 PowerShell，此教學課程需要 AZ PowerShell 1.4.0 或更新版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。
 
 如需 SQL 資料同步的概觀，請參閱[使用 Azure SQL 資料同步，跨多個雲端和內部部署資料庫同步處理資料](../sql-database-sync-data.md)。
 
@@ -76,11 +77,11 @@ UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resou
 
 | 命令 | 注意 |
 |---|---|
-| [Get-AzureRmSqlSyncGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlsyncgroup) | 傳回同步群組的相關資訊。 |
-| [Update-AzureRmSqlSyncGroup](https://docs.microsoft.com/powershell/module/azurerm.sql/update-azurermsqlsyncgroup) | 更新同步群組。 |
-| [Get-AzureRmSqlSyncMember](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlsyncmember) | 傳回同步成員的相關資訊。 |
-| [Get-AzureRmSqlSyncSchema](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlsyncschema) | 傳回同步結構描述的相關資訊。 |
-| [Update-AzureRmSqlSyncSchema](https://docs.microsoft.com/powershell/module/azurerm.sql/update-azurermsqlsyncschema) | 更新同步結構描述。 |
+| [Get-AzSqlSyncGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncgroup) | 傳回同步群組的相關資訊。 |
+| [Update-AzSqlSyncGroup](https://docs.microsoft.com/powershell/module/az.sql/update-azsqlsyncgroup) | 更新同步群組。 |
+| [Get-AzSqlSyncMember](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncmember) | 傳回同步成員的相關資訊。 |
+| [Get-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncschema) | 傳回同步結構描述的相關資訊。 |
+| [Update-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/update-azsqlsyncschema) | 更新同步結構描述。 |
 |||
 
 ## <a name="next-steps"></a>後續步驟
@@ -97,9 +98,9 @@ UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resou
     - 透過 PowerShell
         -  [使用 PowerShell 在多個 Azure SQL Database 之間進行同步處理](sql-database-sync-data-between-sql-databases.md)
         -  [使用 PowerShell 設定「資料同步」在內部部署的 Azure SQL Database 和 SQL Server 之間進行同步處理](sql-database-sync-data-between-azure-onprem.md)
--   Data Sync Agent - [適用於 Azure SQL Data Sync Agent 的 Data Sync Agent](../sql-database-data-sync-agent.md)
+-   Data Sync Agent - [適用於 Azure SQL Data Sync 的 Data Sync Agent](../sql-database-data-sync-agent.md)
 -   最佳做法 - [Azure SQL 資料同步最佳做法](../sql-database-best-practices-data-sync.md)
--   監視 - [使用 Log Analytics 監視 SQL 資料同步](../sql-database-sync-monitor-oms.md)
+-   監視 - [使用 Azure 監視器記錄監視 SQL 資料同步](../sql-database-sync-monitor-oms.md)
 -   疑難排解 - [為 Azure SQL 資料同步的問題進行疑難排解](../sql-database-troubleshoot-data-sync.md)
 -   更新同步結構描述
     -   使用 Transact-SQL - [在 Azure SQL 資料同步中自動執行結構描述變更複寫](../sql-database-update-sync-schema.md)

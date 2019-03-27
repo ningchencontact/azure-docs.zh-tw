@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: cdc3e7ec6ec55c3376aeb545e1f64079ad1f6323
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 1706fc050fecd2e4be3a40725ec3e63a9036b3a9
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407397"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486625"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>切換記錄警示的 API 喜好設定
 
@@ -66,7 +66,7 @@ PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers
 
 存取此 API 時，也可以從 PowerShell 命令列使用 [ARMClient](https://github.com/projectkudu/ARMClient) (一個可簡化 Azure Resource Manager API 叫用流程的開放原始碼命令列工具) 來存取。 如下所示，在範例 PUT 呼叫中，是使用 ARMclient 工具來切換與特定 Log Analytics 工作區相關聯的所有警示規則。
 
-```PowerShell
+```powershell
 $switchJSON = '{"scheduledQueryRulesEnabled": "true"}'
 armclient PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview $switchJSON
 ```
@@ -88,7 +88,7 @@ GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers
 
 若要使用 PowerShell 命令列以 [ARMClient](https://github.com/projectkudu/ARMClient) 工具執行上述程式碼，請參閱下方範例。
 
-```PowerShell
+```powershell
 armclient GET /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
 ```
 

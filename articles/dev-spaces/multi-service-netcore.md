@@ -1,21 +1,20 @@
 ---
-title: 使用 .NET Core 和 VS Code 執行多個相依服務 | Microsoft Docs
+title: 使用 .NET Core 和 VS Code 執行多個相依服務
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: DrEsteban
 ms.author: stevenry
 ms.date: 11/21/2018
 ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
-ms.openlocfilehash: 39c9d2f938dd3e06a328626756ddcc80d0aad47b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s '
+ms.openlocfilehash: ff2031395eb14cc1b9d8fda2150523c37fdcab69
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821229"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57870942"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>使用 Azure Dev Spaces 進行多服務開發
 
@@ -33,8 +32,8 @@ ms.locfileid: "56821229"
 ### <a name="run-mywebapi"></a>執行 *mywebapi*
 1. 在個別的 VS Code 視窗中開啟資料夾 `mywebapi`。
 1. 開啟 [命令選擇區] (使用 [檢視 | 命令選擇區] 功能表)，然後使用自動完成功能以輸入及選取以下命令：`Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`。 此命令不應與 `azds prep` 命令混淆；後者會設定要部署的專案。
-1. 按 F5，並等候服務進行建置和部署。 當 VS Code 偵錯列出現時，表示已就緒。
-1. 端點 URL 看起來會像是 http://localhost:\<portnumber\>。 **提示：VS Code 狀態列會顯示可點按的 URL。** 容器可能看起來像在本機執行，但實際是在 Azure 的開發人員空間中執行。 localhost 位址的原因是因為 `mywebapi` 並未定義任何公用端點，而只能從 Kubernetes 執行個體中存取。 為了方便您操作以及與本機電腦上的私人服務互動，Azure 開發人員空間會建立暫存的 SSH 通道，連到在 Azure 中執行的容器。
+1. 按 F5，並等候服務進行建置和部署。 準備好時，*應用程式已啟動。按下 Ctrl+C 即可關閉。* 的訊息會出現在偵錯主控台中。
+1. 端點 URL 看起來會像是 `http://localhost:<portnumber>`。 **提示：VS Code 狀態列會顯示可點按的 URL。** 容器可能看起來像在本機執行，但實際是在 Azure 的開發人員空間中執行。 localhost 位址的原因是因為 `mywebapi` 並未定義任何公用端點，而只能從 Kubernetes 執行個體中存取。 為了方便您操作以及與本機電腦上的私人服務互動，Azure 開發人員空間會建立暫存的 SSH 通道，連到在 Azure 中執行的容器。
 1. 當 `mywebapi` 就緒時，請開啟瀏覽器並進入 localhost 位址。 請將 `/api/values` 附加至 URL，以叫用 `ValuesController` 的預設 GET API。
 1. 如果所有步驟都已成功，您應該會看到 `mywebapi` 服務的回應。
 

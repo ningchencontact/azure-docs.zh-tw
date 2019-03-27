@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 5665c3ac-5689-4201-80fe-fcc677d4430d
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b317ddf98e7b13fc8b5e335fb8d07fc6a9e1cacc
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2b0b3921640ebf6ed21860cfac75ffca195096db
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875373"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57869739"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>教學課程：Azure Active Directory 與 Deputy 整合
 
@@ -106,6 +106,7 @@ Deputy 與 Azure AD 整合提供下列優點：
     ![Deputy 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
     a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：
+
     |  |
     | ----|
     | `https://<subdomain>.<region>.au.deputy.com` |
@@ -125,6 +126,7 @@ Deputy 與 Azure AD 整合提供下列優點：
     | `https://<subdomain>.<region>.deputy.com` |
 
     b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：
+    
     | |
     |----|
     | `https://<subdomain>.<region>.au.deputy.com/exec/devapp/samlacs` |
@@ -209,7 +211,7 @@ Deputy 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: f6a9d688169f0f8fdd6f0be7b664dbe9ebd71941
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: adcfb308bbbc8e3de456c4e7a71c543f988db02a
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295227"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497987"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>在 HDInsight 上搭配 Apache Hive 和 Apache Pig 使用 Python 使用者定義函數 (UDF)
 
@@ -35,7 +35,7 @@ HDInsight 也包含 Jython (以 Java 撰寫的 Python 實作)。 Jython 直接�
 * 選用。  如果計劃使用 PowerShell，您必須[AZ 模組](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)安裝。
 
 > [!NOTE]  
-> 這篇文章中所使用的儲存體帳戶已有 Azure 儲存體[安全傳輸](/../storage/common/storage-require-secure-transfer.md)啟用，因此`wasbs`使用整篇文章。
+> 這篇文章中所使用的儲存體帳戶已有 Azure 儲存體[安全傳輸](../../storage/common/storage-require-secure-transfer.md)啟用，因此`wasbs`使用整篇文章。
 
 ## <a name="storage-configuration"></a>儲存體組態
 如果使用的儲存體帳戶的類型，不需要任何動作`Storage (general purpose v1)`或`StorageV2 (general purpose v2)`。  這篇文章中的程序會產生輸出到至少`/tezstaging`。  預設 hadoop 組態將會包含`/tezstaging`中`fs.azure.page.blob.dir`中的組態變數`core-site.xml`服務`HDFS`。  此設定會導致輸出目錄，以分頁 blob，不支援儲存體帳戶種類`BlobStorage`。  若要使用`BlobStorage`對於本文中，移除`/tezstaging`從`fs.azure.page.blob.dir`組態變數。  設定可從[Ambari UI](../hdinsight-hadoop-manage-ambari.md)。  否則，您會收到錯誤訊息： `Page blob is not supported for this account type.`

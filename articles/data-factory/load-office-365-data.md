@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 72b2c630c514190d2c63e3dd7faa29b0b3abab19
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
-ms.translationtype: HT
+ms.openlocfilehash: fe3a3b673f6512856f3640b3e103db8623570a88
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944556"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445780"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Office 365 載入資料
 
@@ -24,16 +24,17 @@ ms.locfileid: "49944556"
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
-1. 在左側功能表中，選取 [新增] > [資料 + 分析] > [資料處理站]： 
+1. 在左側功能表中，選取**建立資源** > **資料 + 分析** > **Data Factory**: 
    
-   ![建立新的資料處理站](./media/load-office-365-data/new-azure-data-factory-menu.png)
+   ![在 [新增] 窗格中選取資料處理站](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. 在 [新增資料處理站] 頁面中，為下圖所示的欄位提供值：
       
    ![新增資料處理站頁面](./media/load-office-365-data/new-azure-data-factory.png)
  
     * **名稱**：輸入 Azure 資料處理站的全域唯一名稱。 如果您收到「資料處理站名稱 \"LoadFromOffice365Demo\" 無法使用」錯誤，請為資料處理站輸入其他名稱。 例如，您可以使用_**yourname**_**LoadFromOffice365Demo**。 請嘗試再次建立資料處理站。 如需 Data Factory 成品的命名規則，請參閱 [Data Factory 命名規則](naming-rules.md)。
-    * **訂用帳戶**：選取用來在其中建立資料處理站的 Azure 訂用帳戶。 
-    * **資源群組**：從下拉式清單中選取現有資源群組，或選取 [新建] 選項，然後輸入資源群組的名稱。 若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
+    * 訂用帳戶：選取用來在其中建立資料處理站的 Azure 訂用帳戶。 
+    * **資源群組**：從下拉式清單中選取現有的資源群組，或選取 [新建] 選項，然後輸入資源群組的名稱。 若要了解資源群組，請參閱 [使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-overview.md)。  
     * **版本**：選取 [V2]。
     * **位置**：選取資料處理站的位置。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區可位於其他位置和區域。 這些資料存放區包含 Azure Data Lake Store、Azure 儲存體、Azure SQL Database 等等。
 

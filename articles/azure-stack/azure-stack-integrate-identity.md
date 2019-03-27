@@ -6,29 +6,19 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/23/19
+ms.date: 03/04/2019
 ms.author: patricka
 ms.reviewer: thoroet
-ms.lastreviewed: 01/23/19
-ms.openlocfilehash: a71362f4d6a69f2eaed36dd549437bb5857d555f
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.lastreviewed: 03/04/2019
+ms.openlocfilehash: 5f34991dca4dbb4275033c764981c44492b9920e
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456991"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58257794"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 資料中心整合 - 身分識別
-您可以使用 Azure Active Directory (Azure AD) 或 Active Directory Federation Services (AD FS) 作為識別提供者來部署 Azure Stack。 請先選擇識別提供者，才能部署 Azure Stack。 使用 AD FS 的部署也稱為在中斷連線模式中部署 Azure Stack。
-
-下表顯示這兩個身分識別選擇間的差異：
-
-||已中斷與網際網路連線|已連線至網際網路|
-|---------|---------|---------|
-|計費|必須是容量<br> 僅限 Enterprise 合約 (EA)|容量或預付型方案<br>EA 或雲端解決方案提供者 (CSP)|
-|身分識別|必須是 AD FS|Azure AD 或 AD FS|
-|Marketplace |支援<br>BYOL 授權|支援<br>BYOL 授權|
-|註冊|必要，需要卸除式媒體<br> 及個別的連接裝置。|自動化|
-|修補和更新|必要，需要卸除式媒體<br> 及個別的連接裝置。|可以直接從網際網路將更新套件<br> 下載到 Azure Stack。|
+您可以使用 Azure Active Directory (Azure AD) 或 Active Directory Federation Services (AD FS) 作為識別提供者來部署 Azure Stack。 請先選擇識別提供者，才能部署 Azure Stack。 在已連線的案例中，您可以選擇 Azure AD 或 AD FS。 針對已中斷連線的案例，只支援 AD FS。
 
 > [!IMPORTANT]
 > 若沒有重新部署整個 Azure Stack 解決方案，則無法切換身分識別提供者。
@@ -43,7 +33,7 @@ ms.locfileid: "56456991"
 
 現有的 AD FS 是帳戶安全性權杖服務 (STS)，會將宣告傳送至 Azure Stack AD FS (資源 STS)。 在 Azure Stack 中，自動化會對現有 AD FS 的中繼資料端點建立宣告提供者信任。
 
-在現有 AD FS 中，必須設定一個信賴憑證者信任。 這個步驟不是由自動化完成，而是必須由操作員設定。 Azure Stack 中繼資料端點已記錄在 AzureStackStampDeploymentInfo.JSON 檔案中，或透過執行命令 `Get-AzureStackInfo` 的特殊權限端點。
+在現有 AD FS 中，必須設定一個信賴憑證者信任。 這個步驟不是由自動化完成，而是必須由操作員設定。 可以透過使用模式 `https://adfs.<Region>.<ExternalFQDN>/` 建立 AD FS 的 Azure Stack VIP 端點。
 
 信賴憑證者信任設定也會要求您設定由 Microsoft 提供的宣告轉換規則。
 
@@ -132,7 +122,7 @@ Azure Stack 中的 Graph 服務會使用下列通訊協定和連接埠來與目�
 |參數|說明|範例|
 |---------|---------|---------|
 |CustomAdfsName|宣告提供者的名稱。<br>在 AD FS 登陸頁面上的顯示方式。|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|同盟中繼資料連結|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
+|CustomAD<br>FSFederationMetadataEndpointUri|同盟中繼資料連結| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>觸發自動化以在 Azure Stack 中設定宣告提供者信任

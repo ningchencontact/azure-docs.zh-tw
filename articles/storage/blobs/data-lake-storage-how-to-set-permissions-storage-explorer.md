@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: rogarana
-ms.openlocfilehash: b64b433920a5ce769122c7956c18997c28a3d11a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d1e941e41871de4a11641254f40c53285b096807
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867047"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546298"
 ---
 # <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>搭配 Azure Data Lake Storage Gen2 使用 Azure 儲存體總管設定檔案和目錄等級使用權限
 
@@ -33,7 +33,7 @@ Azure Data Lake Storage Gen2 中儲存的檔案支援微調權限和存取控制
 
 ## <a name="managing-access"></a>管理存取
 
-您可以在檔案系統根目錄設定權限。 若要這樣做，請以滑鼠右鍵按一下檔案系統，然後選取 [管理權限]，就會帶出 [管理權限] 對話方塊。
+您可以在檔案系統根目錄設定權限。 若要這樣做，您必須使用有權執行此動作的個別帳戶 (而非使用連接字串) 登入 Azure 儲存體總管。 以滑鼠右鍵按一下檔案系統，然後選取 [管理權限]，顯示 [管理權限] 對話方塊。
 
 ![Microsoft Azure 儲存體總管 - 管理目錄存取](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 

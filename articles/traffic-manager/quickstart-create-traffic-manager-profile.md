@@ -2,7 +2,7 @@
 title: 快速入門 - 使用 Azure 入口網站建立流量管理員設定檔以讓應用程式具有高可用性
 description: 本快速入門文章會說明如何建立流量管理員設定檔，以建置高可用性的 Web 應用程式。
 services: traffic-manager
-dauthor: kumudd
+author: KumudD
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: kumud
-ms.openlocfilehash: f24bcebb04c3cb17b5e0420695504541c54e88f3
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2cd8830f4b2b7c972ba8972e686be984bb96fd04
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198214"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760659"
 ---
-# <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application"></a>快速入門：建立流量管理員設定檔以獲得高可用性的 Web 應用程式
+# <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立流量管理員設定檔
 
 本快速入門會說明如何建立流量管理員設定檔，以便為 Web 應用程式提供高可用性。
 

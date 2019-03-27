@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 8f333b626fa51fa60f80350547ee53f346d6cc3a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ea0094624727ca1395a1276e7968ac1c74b750e7
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436762"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486966"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>使用 Azure Data Factory .NET SDK 來建立、監視及管理 Azure Data Factory
 > [!NOTE]
@@ -44,17 +44,17 @@ ms.locfileid: "57436762"
 1. 啟動 **PowerShell**。
 2. 執行下列命令並輸入您用來登入 Azure 入口網站的使用者名稱和密碼。
 
-    ```PowerShell
+    ```powershell
     Connect-AzAccount
     ```
 3. 執行下列命令以檢視此帳戶的所有訂用帳戶。
 
-    ```PowerShell
+    ```powershell
     Get-AzSubscription
     ```
 4. 執行下列命令以選取您要使用的訂用帳戶。 以您的 Azure 訂用帳戶名稱取代 **&lt;NameOfAzureSubscription**&gt;。
 
-    ```PowerShell
+    ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
     ```
 
@@ -63,7 +63,7 @@ ms.locfileid: "57436762"
 
 5. 在 PowerShell 中執行以下命令，建立名為 **ADFTutorialResourceGroup** 的 Azure 資源群組。
 
-    ```PowerShell
+    ```powershell
     New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
 
@@ -72,28 +72,28 @@ ms.locfileid: "57436762"
     如果使用不同的資源群組，您必須以資源群組的名稱取代本教學課程中的 ADFTutorialResourceGroup。
 6. 建立 Azure Active Directory 應用程式。
 
-    ```PowerShell
+    ```powershell
     $azureAdApplication = New-AzADApplication -DisplayName "ADFDotNetWalkthroughApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfdotnetwalkthroughapp.org/example" -Password "Pass@word1"
     ```
 
     如果您收到下列錯誤，請指定不同的 URL 並再次執行此命令。
     
-    ```PowerShell
+    ```powershell
     Another object with the same value for property identifierUris already exists.
     ```
 7. 建立 AD 服務主體。
 
-    ```PowerShell
+    ```powershell
     New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
     ```
 8. 對 **Data Factory 參與者** 角色新增服務主體。
 
-    ```PowerShell
+    ```powershell
     New-AzRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
     ```
 9. 取得應用程式識別碼。
 
-    ```PowerShell
+    ```powershell
     $azureAdApplication 
     ```
     記下輸出的應用程式識別碼 (applicationID)。

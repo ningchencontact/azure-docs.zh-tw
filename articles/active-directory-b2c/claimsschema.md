@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 635700529007cc90c7e9b79c224f55f34b326f0f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 5d7036f2c7301223b27c80402dace8e9ea05b7f1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167065"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487816"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -42,13 +42,13 @@ ms.locfileid: "55167065"
 
 **ClaimType** 元素包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | id | 是 | 要用於宣告類型的識別碼。 其他元素可以在原則中使用這個識別碼。 |
 
 **ClaimType** 元素包含下列元素：
 
-| 元素 | 發生次數 | 說明 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | DisplayName | 0:1 | 要在各種畫面上顯示給使用者的標題。 此值可進行[當地語系化](localization.md)。 |
 | DataType | 0:1 | 宣告的類型。 您可以使用下列資料類型：boolean、date、dateTime、int、long、string、stringCollection、alternativeSecurityIdCollection。 |
@@ -63,15 +63,15 @@ PredicateValidationReference| 0:1 | 對 **PredicateValidationsInput** 元素的�
 
 **DefaultPartnerClaimTypes** 可能包含下列元素：
 
-| 元素 | 發生次數 | 說明 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | 通訊協定 | 0:n | 含有其預設夥伴宣告類型名稱的通訊協定清單。 |
 
 **Protocol** 元素包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| Name | 是 | Azure AD B2C 所支援的有效通訊協定名稱。 可能的值包括：OAuth1、OAuth2、SAML2、OpenIdConnect、WsFed 或 WsTrust。 |
+| 名稱 | 是 | Azure AD B2C 所支援的有效通訊協定名稱。 可能的值包括：OAuth1、OAuth2、SAML2、OpenIdConnect、WsFed 或 WsTrust。 |
 | PartnerClaimType | 是 | 要使用的宣告類型名稱。 |
 
 在下列範例中，當識別體驗架構與 SAML2 識別提供者或信賴憑證者應用程式進行互動時，會將 **surname** 宣告對應至 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`，與 OpenIdConnect 和 OAuth2 互動時，則會將宣告對應至 `family_name`。
@@ -104,10 +104,10 @@ PredicateValidationReference| 0:1 | 對 **PredicateValidationsInput** 元素的�
 
 **Mask** 元素包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
-| 類型 | 是 | 宣告遮罩的類型。 可能的值：`Simple` 或 `Regex`。 `Simple` 值表示會將簡單的文字遮罩套用到字串宣告的前置部分。 `Regex` 值表示會將規則運算式套用到整個字串宣告。  如果指定 `Regex` 值，也必須透過要使用的規則運算式來定義選擇性屬性。 |
-| Regex | 否 | 如果將 **Type** 設定為 `Regex`，請指定要使用的規則運算式。
+| `Type` | 是 | 宣告遮罩的類型。 可能的值：`Simple` 或 `Regex`。 `Simple` 值表示會將簡單的文字遮罩套用到字串宣告的前置部分。 `Regex` 值表示會將規則運算式套用到整個字串宣告。  如果指定 `Regex` 值，也必須透過要使用的規則運算式來定義選擇性屬性。 |
+| `Regex` | 否 | 如果**`Type`** 設定為`Regex`，指定要使用的規則運算式。
 
 下列範例會使用 `Simple` 遮罩來設定 **PhoneNumber** 宣告：
 
@@ -144,13 +144,13 @@ PredicateValidationReference| 0:1 | 對 **PredicateValidationsInput** 元素的�
 
 **Restriction** 元素可以包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | MergeBehavior | 否 | 此方法可用來合併列舉值與具備相同識別碼之父代原則中的 ClaimType。 當您覆寫基本原則中指定的宣告時，請使用這個屬性。 可能的值：`Append`、`Prepend` 或 `ReplaceAll`。 `Append` 值是資料集合，應該附加至父代原則中指定的集合結尾。 `Prepend` 值是資料集合，應該新增到父代原則中指定的集合之前。 `ReplaceAll` 值是父代原則中應忽略的指定資料集合。 |
 
 **Restriction** 元素包含下列元素：
 
-| 元素 | 發生次數 | 說明 |
+| 元素 | 發生次數 | 描述 |
 | ------- | ----------- | ----------- |
 | 列舉 | 1:n | 使用者介面中使用者可用來針對宣告進行選取的可用選項，例如下拉式清單中的值。 |
 | 模式 | 1:1 | 要使用的規則運算式。 |
@@ -159,7 +159,7 @@ PredicateValidationReference| 0:1 | 對 **PredicateValidationsInput** 元素的�
 
 **Enumeration** 元素包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | 文字 | 是 | 針對此選項，要在使用者介面中顯示給使用者的顯示字串。 |
 |值 | 是 | 與選取此選項相關聯的宣告值。 |
@@ -188,7 +188,7 @@ PredicateValidationReference| 0:1 | 對 **PredicateValidationsInput** 元素的�
 
 **Pattern** 元素可以包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | RegularExpression | 是 | 此類型的宣告必須符合才能生效的規則運算式。 |
 | HelpText | 否 | 適用於此宣告的模式或規則運算式。 |

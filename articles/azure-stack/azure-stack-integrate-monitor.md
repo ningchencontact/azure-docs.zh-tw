@@ -15,12 +15,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: ff28fbb52b33308967051a37fdaa3c6c273fc282
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 64a31e0c8a36b7ea8b60f65caefba9ba15b91777
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816081"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258729"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>整合外部監視解決方案與 Azure Stack
 
@@ -81,8 +81,8 @@ Nagios 監視外掛程式隨著協力廠商 Cloudbase 解決方案開發，其�
 
 | 參數 | 說明 | 範例 |
 |---------|---------|---------|
-| *arm_endpoint* | Azure Resource Manager (系統管理員) 端點 |https://adminmanagement.local.azurestack.external |
-| *api_endpoint* | Azure Resource Manager (系統管理員) 端點  | https://adminmanagement.local.azurestack.external |
+| *arm_endpoint* | Azure Resource Manager (系統管理員) 端點 |https:\//adminmanagement.local.azurestack.external |
+| *api_endpoint* | Azure Resource Manager (系統管理員) 端點  | https:\//adminmanagement.local.azurestack.external |
 | *Tenant_id* | 管理訂用帳戶識別碼 | 透過系統管理員入口網站或 PowerShell 擷取 |
 | *User_name* | 操作員訂用帳戶使用者名稱 | operator@myazuredirectory.onmicrosoft.com |
 | *User_password* | 操作員訂用帳戶密碼 | mypassword |
@@ -96,12 +96,12 @@ Nagios 監視外掛程式隨著協力廠商 Cloudbase 解決方案開發，其�
 
 如果您不是使用 Operations Manager、Nagios 或以 Nagios 基礎的解決方案，可以使用 PowerShell 來啟用廣泛的監視解決方案，以與 Azure Stack 整合。
 
-1. 若要使用 PowerShell，請確定您已針對 Azure Stack 操作員環境[安裝和設定 PowerShell ](azure-stack-powershell-configure-quickstart.md)。 在可以連線資源管理員 (系統管理員) 端點的本機電腦上安裝 PowerShell (https://adminmanagement.[region].[External_FQDN])。
+1. 若要使用 PowerShell，請確定您已針對 Azure Stack 操作員環境[安裝和設定 PowerShell ](azure-stack-powershell-configure-quickstart.md)。 在可以連線到 Resource Manager (系統管理員) 端點的本機電腦上安裝 PowerShell (https:\//adminmanagement.[region].[External_FQDN])。
 
 2. 以 Azure Stack 操作員身分執行下列命令以連線到 Azure Stack 環境：
 
    ```PowerShell  
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
+    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https:\//adminmanagement.[Region].[External_FQDN]
 
    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```

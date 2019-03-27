@@ -6,19 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 3b158e0743a811f0d8f478c15b64c2b8b99a748a
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: a01da3218b07307faa8e94acab1473c82bd86c41
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155995"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546920"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站部署 Azure 資料箱磁碟
 
-本快速入門說明如何使用 Azure 入口網站來部署 Azure 資料箱磁碟。 這些步驟包含如何快速建立訂單、接收磁碟、打開包裝、連線及將資料複製到磁碟，以便上傳至 Azure。 
+本快速入門說明如何使用 Azure 入口網站來部署 Azure 資料箱磁碟。 這些步驟包含如何快速建立訂單、接收磁碟、打開包裝、連線及將資料複製到磁碟，以便上傳至 Azure。
 
 如需部署和追蹤的詳細逐步指示，請移至[教學課程：訂購 Azure 資料箱磁碟](data-box-disk-deploy-ordered.md)。 
 
@@ -32,7 +32,7 @@ ms.locfileid: "54155995"
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-在 [http://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs) 登入 Azure 入口網站。
+在 [https://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs) 登入 Azure 入口網站。
 
 ## <a name="order"></a>順序
 
@@ -41,9 +41,9 @@ ms.locfileid: "54155995"
 1. 在 Azure 入口網站中建立新的 Azure 資料箱資源。 
 2. 選取針對此服務啟用的訂用帳戶，然後選擇 [匯入] 作為轉移類型。 提供資料所在的 [來源國家/地區]，以及資料傳輸的 [Azure 目的地區域]。
 3. 選取 [資料箱磁碟]。 解決方案的容量上限為 35 TB，您可以針對較大的資料大小建立多個磁碟訂單。  
-4. 輸入訂單詳細資料和出貨資訊。 如果您的區域可使用服務，請提供通知電子郵件地址、檢閱摘要，然後建立訂單。 
+4. 輸入訂單詳細資料和出貨資訊。 如果您的區域可使用服務，請提供通知電子郵件地址、檢閱摘要，然後建立訂單。
 
-一旦建立訂單後，磁碟就準備出貨。 
+一旦建立訂單後，磁碟就準備出貨。
 
 ## <a name="unpack"></a>打開包裝
 
@@ -52,7 +52,7 @@ ms.locfileid: "54155995"
 資料箱磁碟會以 UPS 快遞包裹寄送。 開啟包裹，並檢查包裹中包含：
 
 - 1 到 5 個發泡包裝的 USB 磁碟。
-- 每個磁碟都有連接纜線。 
+- 每個磁碟都有連接纜線。
 - 退貨用的出貨標籤。
 
 ## <a name="connect-and-unlock"></a>連線並解除鎖定
@@ -69,18 +69,20 @@ ms.locfileid: "54155995"
 
 ## <a name="copy-data-and-validate"></a>複製資料並驗證
 
-完成這項作業的時間取決於您的資料大小。 
+完成這項作業的時間取決於您的資料大小。
 
-1. 磁碟機包含 PageBlob、BlockBlobDataBoxDiskImport 資料夾。 拖放需要以區塊 Blob 形式匯入的資料，並複製到 BlockBlob 資料夾。 同樣地，將 VHD/VHDX 等資料拖放到 PageBlob 資料夾。
+1. 磁碟機包含 PageBlob、BlockBlob、AzureFile、ManagedDisk 和 DataBoxDiskImport 資料夾。 拖放需要以區塊 Blob 形式匯入的資料，並複製到 BlockBlob 資料夾。 同樣地，將 VHD/VHDX 等資料拖放到 PageBlob 資料夾，並將適當的資料拖放到 AzureFile。 將您想要以受控磁碟的形式上傳的 VHD 複製到 ManagedDisk 下的資料夾。
 
-    系統會在 Azure 儲存體帳戶中，為 BlockBlob 和 PageBlob 資料夾下的每個子資料夾建立容器。 BlockBlob 和 PageBlob 資料夾下的所有檔案，都會複製到 Azure 儲存體帳戶下的預設容器 `$root`。
+    系統會在 Azure 儲存體帳戶中，為 BlockBlob 和 PageBlob 資料夾下的每個子資料夾建立容器。 針對 AzureFile 下的子資料夾，會建立一個檔案共用。
 
-    > [!NOTE] 
-    > - 所有容器和 Blob 都應符合 [Azure 命名慣例](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions)。 如果未遵循這些規則，則將資料上傳至 Azure 會失敗。
-    > - 請確定檔案的區塊 Blob 不超過約 4.75 TiB，而分頁 Blob 不超過約 8 TiB。
+    BlockBlob 和 PageBlob 資料夾下的所有檔案，都會複製到 Azure 儲存體帳戶下的預設容器 `$root`。 將檔案複製到 AzureFile 內的資料夾。 直接複製到 AzureFile 資料夾的任何檔案都會失敗，並以區塊 Blob 的形式上傳。
 
-2. (選擇性) 複製完成之後，建議您執行 DataBoxDiskImport 資料夾中提供的 `DataBoxDiskValidation.cmd`，以產生驗證的總和檢查碼。 視資料大小而定，此步驟可能需要一段時間。 
-3. 拔除磁碟機。 
+    > [!NOTE]
+    > - 所有容器、Blob 和檔案都應符合 [Azure 命名慣例](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions)。 如果未遵循這些規則，則將資料上傳至 Azure 會失敗。
+    > - 確定檔案不超過約 4.75 TiB (區塊 Blob)、8 TiB (分頁 Blob) 和 1 TiB (Azure 檔案儲存體)。
+
+2. **(選擇性但建議執行)** 複製完成之後，強烈建議您至少應執行 DataBoxDiskImport 資料夾中提供的 `DataBoxDiskValidation.cmd`，並選取選項 1 以驗證檔案。 我們也建議，如果時間允許，您也應使用選項 2 產生總和檢查碼以進行驗證 (可能會花一些時間，視資料大小而定)。 執行這些步驟可盡量降低資料上傳至 Azure 時發生失敗的機率。
+3. 安全地移除磁碟機。
 
 ## <a name="ship-to-azure"></a>寄送到 Azure
 
@@ -95,8 +97,8 @@ ms.locfileid: "54155995"
 
 完成這項作業的時間取決於您的資料大小。
 
-1. 當資料箱磁碟連線到 Azure 資料中心網路時，上傳至 Azure 的資料會自動啟動。 
-2. Azure 資料箱服務會通知您，已透過 Azure 入口網站完成資料複製。 
+1. 當資料箱磁碟連線到 Azure 資料中心網路時，上傳至 Azure 的資料會自動啟動。
+2. Azure 資料箱服務會通知您，已透過 Azure 入口網站完成資料複製。
     
     1. 檢查所有失敗的錯誤記錄，並採取適當的動作。
     2. 請先確認您的資料位於儲存體帳戶中，再從來源予以刪除。
@@ -107,17 +109,17 @@ ms.locfileid: "54155995"
 
 若要清除，您可以取消資料箱訂單，然後再加以刪除。
 
-- 訂單處理之前，您可以取消 Azure 入口網站中的資料箱訂單。 一旦處理訂單後，就無法取消訂單。 訂單會進行直到達到已完成的階段為止。 
+- 訂單處理之前，您可以取消 Azure 入口網站中的資料箱訂單。 一旦處理訂單後，就無法取消訂單。 訂單會進行直到達到已完成的階段為止。
 
     若要取消訂單，請前往 [概觀]，然後從命令列按一下 [取消]。  
 
-- 一旦 Azure 入口網站中的狀態顯示為 [已完成] 或是 [已取消] 後，您就可以刪除訂單。 
+- 一旦 Azure 入口網站中的狀態顯示為 [已完成] 或是 [已取消] 後，您就可以刪除訂單。
 
     若要刪除訂單，請前往 [概觀]，然後從命令列按一下 [刪除]。
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已部署 Azure 資料箱磁碟，以協助將您的資料匯入 Azure。 若要深入了解 Azure 資料箱磁碟管理，請進入下列教學課程： 
+在本快速入門中，您已部署 Azure 資料箱磁碟，以協助將您的資料匯入 Azure。 若要深入了解 Azure 資料箱磁碟管理，請進入下列教學課程：
 
 > [!div class="nextstepaction"]
 > [使用 Azure 入口網站來管理資料箱磁碟](data-box-portal-ui-admin.md)

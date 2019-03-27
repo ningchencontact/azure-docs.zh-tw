@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 5fa553d63a33f06432d8ae3e5247d7eca0fde90a
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 00c8d7cefd7539cd53de8081f44fe861bd063bee
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351893"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487782"
 ---
 # <a name="data-management-gateway"></a>資料管理閘道
 > [!NOTE]
@@ -283,12 +283,12 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，�
 2. 切換至 C:\Program Files\Microsoft Integration Runtime\3.0\PowerShellScript\ 資料夾。
 3. 執行下列命令，將自動更新功能關閉 (停用)。
 
-    ```PowerShell
+    ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -off
     ```
 4. 若要將它重新開啟：
 
-    ```PowerShell
+    ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on
     ```
    [適用於多節點高度可用且可調整的閘道](data-factory-data-management-gateway-high-availability-scalability.md)
@@ -297,12 +297,12 @@ Windows 防火牆層級通常會啟用這些輸出連接埠。 如果沒有，�
 3. 執行下列命令，將自動更新功能關閉 (停用)。
 
     對於具備高可用性功能的閘道，需要額外的 AuthKey 參數。
-    ```PowerShell
+    ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -off -AuthKey <your auth key>
     ```
 4. 若要將它重新開啟：
 
-    ```PowerShell
+    ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on -AuthKey <your auth key>
     ```
 
@@ -485,12 +485,12 @@ CPU 使用率 | 閘道節點的 CPU 使用率。 這個值是近乎即時的快�
 1. 在系統管理員模式下啟動 **Azure PowerShell** 。
 2. 請執行下列命令並輸入您的 Azure 認證，登入您的 Azure 帳戶。
 
-    ```PowerShell
+    ```powershell
     Connect-AzAccount
     ```
 3. 使用**新增 AzDataFactoryGateway** cmdlet 來建立邏輯閘道，如下所示：
 
-    ```PowerShell
+    ```powershell
     $MyDMG = New-AzDataFactoryGateway -Name <gatewayName> -DataFactoryName <dataFactoryName> -ResourceGroupName ADF –Description <desc>
     ```
     **範例命令和輸出**：
@@ -513,7 +513,7 @@ CPU 使用率 | 閘道節點的 CPU 使用率。 這個值是近乎即時的快�
 
 1. 在 Azure PowerShell 中，切換至資料夾：**C:\\程式 Files\Microsoft Data Management Gateway\2.0\PowerShellScript\\**。 執行與區域變數 $Key 相關聯的 RegisterGateway.ps1，如下列命令所示。 此指令碼會向您稍早建立的邏輯閘道註冊您機器上安裝的用戶端代理程式。
 
-    ```PowerShell
+    ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key
     ```
     ```
@@ -521,25 +521,25 @@ CPU 使用率 | 閘道節點的 CPU 使用率。 這個值是近乎即時的快�
     ```
     您可以使用 IsRegisterOnRemoteMachine 參數在遠端電腦上註冊閘道器。 範例：
 
-    ```PowerShell
+    ```powershell
     .\RegisterGateway.ps1 $MyDMG.Key -IsRegisterOnRemoteMachine true
     ```
 2. 您可以使用**Get AzDataFactoryGateway** cmdlet 來取得您的 data factory 中的閘道清單。 當 [狀態] 顯示為 [線上] 時，表示您的閘道器已就緒可供使用。
 
-    ```PowerShell        
+    ```powershell        
     Get-AzDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
     ```
    您可以移除閘道，使用**移除 AzDataFactoryGateway**閘道使用的 cmdlet，並更新描述**組 AzDataFactoryGateway** cmdlet。 如需這些 Cmdlet 的語法及其他詳細資訊，請參閱 Data Factory Cmdlet 參考文件。  
 
 ### <a name="list-gateways-using-powershell"></a>使用 PowerShell 列出閘道器
 
-```PowerShell
+```powershell
 Get-AzDataFactoryGateway -DataFactoryName jasoncopyusingstoredprocedure -ResourceGroupName ADF_ResourceGroup
 ```
 
 ### <a name="remove-gateway-using-powershell"></a>使用 PowerShell 移除閘道器
 
-```PowerShell
+```powershell
 Remove-AzDataFactoryGateway -Name JasonHDMG_byPSRemote -ResourceGroupName ADF_ResourceGroup -DataFactoryName jasoncopyusingstoredprocedure -Force
 ```
 

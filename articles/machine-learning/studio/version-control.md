@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 10/27/2016
-ms.openlocfilehash: 102d06f6d4a51f7edc1fc269180f8fb3e5b0626c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ff7aa1ab8972b6cbb891a67b1065044b48f1cfa3
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121463"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446210"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio 中的應用程式生命週期管理
 Azure Machine Learning Studio 是用於開發機器學習實驗的工具，可在 Azure 雲端平台中運作。 它就像是合併到單一平台的 Visual Studio IDE 和可調整的雲端服務。 您可以將標準應用程式生命週期管理 (ALM) 作法 (從控制各種資產的版本，以至自動執行和部署) 合併到 Azure Machine Learning Studio。 本文會討論其中的部分選項和方法。
@@ -73,7 +73,7 @@ Azure Machine Learning Studio 中的定型的模型會序列化為稱為.ilearne
 您也可以建立許多相同的 Web 服務端點，然後將不同版本的 .iLearner 檔案修補至端點，以達到類似的效果。 [本文](create-models-and-endpoints-with-powershell.md)更詳細地說明如何完成此項作業。
 
 ### <a name="new-web-service"></a>新的 Web 服務
-如果您建立以 Azure Resource Manager 為基礎的新 Web 服務，就無法再使用端點建構。 然而，您可以從預測性實驗使用 [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell Cmdlet，或從已經部署的 Resource Manager 型 Web 服務使用 [*Export-AzureRmMlWebservice*](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice?view=azurermps-6.6.0) PowerShell Cmdlet 來產生 Web 服務定義 (WSD) 檔案 (採用 JSON 格式)。
+如果您建立以 Azure Resource Manager 為基礎的新 Web 服務，就無法再使用端點建構。 然而，您可以從預測性實驗使用 [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell Cmdlet，或從已經部署的 Resource Manager 型 Web 服務使用 [*Export-AzureRmMlWebservice*](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice) PowerShell Cmdlet 來產生 Web 服務定義 (WSD) 檔案 (採用 JSON 格式)。
 
 在擁有匯出的 WSD 檔案並對其進行版本控制後，您也可以將 WSD 部署為不同 Azure 區域中不同 Web 服務方案的新 Web 服務。 只要確定您提供適當的儲存體帳戶組態，以及新的 Web 服務方案識別碼。 若要在不同的 .iLearner 檔案中修補，您可以修改 WSD 檔案和更新定型模型的位置參考，並且部署為新的 Web 服務。
 

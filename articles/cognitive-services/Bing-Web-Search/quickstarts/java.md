@@ -8,21 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 0d20d147bc77698e97630ad3bd5e58348db45f5b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 8282838f778516e31080960400e5b1435f0b5673
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187469"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57866321"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-java"></a>快速入門：使用 Bing Web 搜尋 REST API 和 Java 來搜尋 Web
 
 使用本快速入門進行對 Bing Web 搜尋 API 第一次的呼叫，並接收 JSON 回應。 這個 Java 應用程式會將搜尋要求傳送給 API，並顯示回應。 雖然此應用程式是以 Java 撰寫的，但 API 是一種與大多數程式設計語言都相容的 RESTful Web 服務。
 
 ## <a name="prerequisites"></a>必要條件
+
 以下是執行本快速入門之前的幾個必備項目：
 
 * [JDK 7 或 8](https://aka.ms/azure-jdks) (英文)
@@ -54,7 +55,7 @@ import com.google.gson.JsonParser;
 <dependency>
     <groupId>com.google.code.gson</groupId>
     <artifactId>gson</artifactId>
-    <version>2.8.1</version>
+    <version>2.8.5</version>
 </dependency>
 ```
 
@@ -72,7 +73,7 @@ public class BingWebSearch {
 
 ## <a name="define-variables"></a>定義變數
 
-此程式碼會設定 `subscriptionKey`、`host`、`path` 和 `searchTerm`。 請確認端點正確，並將 `subscriptionKey` 值換成您的 Azure 帳戶中有效的訂用帳戶金鑰。 請自行取代 `searchTerm` 的值來自訂搜尋查詢。
+此程式碼會設定 `subscriptionKey`、`host`、`path` 和 `searchTerm`。 請確認端點正確，並將 `subscriptionKey` 值換成您的 Azure 帳戶中有效的訂用帳戶金鑰。 請自行取代 `searchTerm` 的值來自訂搜尋查詢。 請記得將此程式碼新增至 `BingWebSearch` 類別，如先前所述。
 
 ```java
 // Enter a valid subscription key.
@@ -184,8 +185,8 @@ class SearchResults{
 最後一步就是編譯您的程式碼並執行！ 命令如下：
 
 ```powershell
-javac BingWebSearch.java -classpath ./gson-2.8.1.jar -encoding UTF-8
-java -cp ./gson-2.8.1.jar BingWebSearch
+javac BingWebSearch.java -classpath ./gson-2.8.5.jar -encoding UTF-8
+java -cp ./gson-2.8.5.jar BingWebSearch
 ```
 
 如果想要將您的程式碼與我們的程式碼做比較，[GitHub 上提供程式碼範例](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingWebSearchv7.java) (英文)。

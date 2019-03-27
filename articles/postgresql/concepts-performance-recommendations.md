@@ -1,24 +1,21 @@
 ---
 title: 適用於 PostgreSQL 的 Azure 資料庫中的效能建議
-description: 此文章描述可在適用於 PostgreSQL 的 Azure 資料庫中取得的效能建議。
+description: 本文說明適用於 PostgreSQL 的 Azure 資料庫中的 [效能建議] 功能。
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/26/2018
-ms.openlocfilehash: 1dedc08f27d1a483290dc61cce879290ca66592d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.date: 03/26/2018
+ms.openlocfilehash: d8edbc2847c06e95e658a1324f2e85f1758e60be
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548087"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487935"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫中的效能建議
 
 **適用範圍：** 適用於 PostgreSQL 9.6 和 10 的 Azure 資料庫
-
-> [!IMPORTANT]
-> 效能建議處於公開預覽狀態。
 
 效能建議功能可找出最上層的索引，以在適用於 PostgreSQL 的 Azure 資料庫伺服器中建立來改善效能。 若要產生索引建議，此功能會考量各種資料庫特性，包括查詢存放區所報告的結構描述和工作負載。 實作任何效能建議後，客戶應測試效能，以評估這些變更的影響。 
 

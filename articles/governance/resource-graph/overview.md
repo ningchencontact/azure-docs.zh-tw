@@ -8,12 +8,12 @@ ms.date: 02/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 31b9405b7d4141890d786ab3d1cb70d11ef0c1b3
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: b5062dd4edf43fbb348a6de57f534096a8c922de
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267949"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193563"
 ---
 # <a name="what-is-azure-resource-graph"></a>何謂 Azure Resource Graph
 
@@ -52,7 +52,7 @@ Azure Resource Manager 目前會將資料傳送到啟用數個資源欄位 (即�
 
 ## <a name="running-your-first-query"></a>執行您的第一個查詢
 
-Resource Graph 支援 Azure CLI 和 Azure PowerShell。 這兩種語言的查詢結構是相同的。 了解如何在 [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension) 和 [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module) 中啟用 Resource Graph。
+Resource Graph 支援 Azure CLI、Azure PowerShell 和 Azure SDK for .NET。 這兩種語言的查詢結構相同。 了解如何在 [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension) 和 [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module) 中啟用 Resource Graph。
 
 ## <a name="next-steps"></a>後續步驟
 

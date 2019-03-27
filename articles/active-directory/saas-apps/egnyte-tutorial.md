@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 8c2101d4-1779-4b36-8464-5c1ff780da18
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 2/4/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cbc04791791510c6248fab0ae276bb360ce9747
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5ff1718211fa298e4daee694795a0b2438033fe2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868030"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838124"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-egnyte"></a>教學課程：Azure Active Directory 與 Egnyte 整合
 
@@ -178,7 +178,7 @@ Egnyte 與 Azure AD 整合提供下列優點：
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -229,7 +229,7 @@ Egnyte 與 Azure AD 整合提供下列優點：
     
     ![新的標準使用者](./media/egnyte-tutorial/ic787825.png "新的標準使用者")   
 
-    a. 在 [電子郵件] 文字方塊中，輸入使用者的電子郵件，例如 **Brittasimon@contoso.com**。
+    a. 在 [電子郵件] 文字方塊中，輸入使用者的電子郵件地址，例如 **Brittasimon\@contoso.com**。
 
     b. 在 [使用者名稱] 文字方塊中，輸入使用者的使用者名稱，例如 **Brittasimon**。
 

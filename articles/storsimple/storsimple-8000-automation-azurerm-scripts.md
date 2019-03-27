@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: b7cc47c449b91693831dda74bf987f595fe65681
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 646b862733e8727c9c8729f1ac038fa88cfa0580
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997888"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443190"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>使用 Azure Resource Manager SDK 型指令碼管理 StorSimple 裝置
 
@@ -62,10 +62,10 @@ ms.locfileid: "57997888"
 開始之前，請確定您有︰
 
 *   已安裝 Azure PowerShell。 若要安裝 Azure PowerShell 模組：
-    * 在 Windows 環境中，依照[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0) \(英文\) 中的步驟進行。 如果有使用 Azure PowerShell，可以將其安裝在 StorSimple 的 Windows Server 主機上。
-    * 在 Linux 或 MacOS 環境中，依照[在 MacOS 或 Linux 上安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurermps-maclinux?view=azurermps-4.4.0) \(英文\) 中的步驟進行。
+    * 在 Windows 環境中，依照[安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) \(英文\) 中的步驟進行。 如果有使用 Azure PowerShell，可以將其安裝在 StorSimple 的 Windows Server 主機上。
+    * 在 Linux 或 MacOS 環境中，依照[在 MacOS 或 Linux 上安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurermps-maclinux) \(英文\) 中的步驟進行。
 
-如需有關使用 Azure PowerShell 的詳細資訊，請參閱[開始使用 Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.4.0)。
+如需有關使用 Azure PowerShell 的詳細資訊，請參閱[開始使用 Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)。
 
 ### <a name="run-azure-powershell-script"></a>執行 Azure PowerShell 指令碼
 

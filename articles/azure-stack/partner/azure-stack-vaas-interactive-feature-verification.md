@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 01/07/2019
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 20a48e67a24763af7bcce9e8831e2a1d1846d094
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: d3db8ea8639f73f3522ddaa358195e7c9ef2f9a9
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594299"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57765997"
 ---
 # <a name="interactive-feature-verification-testing"></a>互動式功能驗證測試  
 
@@ -35,13 +35,13 @@ ms.locfileid: "56594299"
 
 ## <a name="overview-of-interactive-testing"></a>互動式測試概觀
 
-磁碟更換的測試是常見案例。 在此範例中，測試會有七個步驟：
+磁碟更換的測試是常見案例。 在此範例中，測試會有五個步驟：
 
-1. 建立新的**測試進行**工作流程
-1. 選取 [磁碟識別測試]
-1. 在出現提示時完成手動步驟
-1. 檢查案例的結果
-1. 將測試結果傳送給 Microsoft
+1. 建立新的**測試進行**工作流程。
+2. 選取 [磁碟識別測試]。
+3. 在出現提示時完成手動步驟。
+4. 檢查案例的結果。
+5. 將測試結果傳送給 Microsoft。
 
 ## <a name="create-a-new-test-pass"></a>建立新的測試進行
 

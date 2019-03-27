@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 11/19/2018
+ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: fd6f6cd9b0078533541c9d846281c48a446f9c4a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f055ecdcc157a9ecf1a564913b0a4f889364b427
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883095"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57309820"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-nodejs"></a>使用 Node.js 從知識庫取得答案
 
-本快速入門會逐步引導您以程式設計方式從已發佈的 QnA Maker 知識庫取得答案。 QnA Maker 會從[資料來源](../Concepts/data-sources-supported.md)中的半結構化內容 (如常見問題集) 自動擷取問題和答案。 問題會以 JSON 格式在 API 要求的本文中傳送。 
+本快速入門會逐步引導您以程式設計方式從已發佈的 QnA Maker 知識庫取得答案。 知識庫包含來自[資料來源](../Concepts/data-sources-supported.md)的問題和答案，例如常見問題集。 [問題](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration)會傳送至 QnA Maker 服務。 [回應](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties)包含位居預測首位的答案。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -77,6 +77,8 @@ node get-answer.js
 ```
 
 [!INCLUDE [JSON request and response](../../../../includes/cognitive-services-qnamaker-quickstart-get-answer-json.md)]
+
+深入了解[要求](../how-to/metadata-generateanswer-usage.md#generateanswer-request)和[回應](../how-to/metadata-generateanswer-usage.md#generateanswer-response)。
 
 [!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
 

@@ -10,31 +10,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 99a1b218919380dcdb0c1dba4540d9f8219d2df3
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 7f9a4ce4f1e16f69a1d8998e24c1bfe955d17d92
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593636"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767102"
 ---
 # <a name="automate-azure-stack-validation-with-powershell"></a>使用 PowerShell 將 Azure Stack 驗證設為自動化
 
 驗證即服務 (VaaS) 可讓您使用 **LaunchVaaSTests.ps1** 指令碼自動啟動測試。
 
-> [!NOTE]
+> [!NOTE]  
 > 自動化僅適用於「測試成功」工作流程。 封裝驗證和驗證解決方案工作流程僅透過 VaaS 入口網站支援。
 
-在本教學課程中，您將了解如何建立下列用途的指令碼：
+此指令碼可用來：
 
 > [!div class="checklist"]
-> * 安裝必要項目
+> * 安裝必要條件
 > * 安裝並啟動本機代理程式
-> * 啟動某類別的測試，例如整合、功能性、可靠性
+> * 啟動某類別的測試，例如*整合*、*功能性*、*可靠性*
 > * 報告測試結果
 
 ## <a name="launch-the-test-pass-workflow"></a>啟動測試進行工作流程

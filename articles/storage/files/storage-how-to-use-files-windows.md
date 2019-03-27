@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 93ba17c58dfcb5955bafbcc63655778903f60c18
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2bf323b34c5a5301094bdecdc9fa705fe9077320
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076338"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482125"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>搭配 Windows 使用 Azure 檔案共用
 [Azure 檔案服務](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 Azure 檔案共用可在 Windows 和 Windows Server 中順暢地使用。 本文討論搭配 Windows 和 Windows Server 使用 Azure 檔案共用的考量。
@@ -49,7 +49,7 @@ ms.locfileid: "58076338"
 
     下列 PowerShell 程式碼假設您已安裝 AzureRM PowerShell 模組，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-az-ps)以獲得詳細資訊。 請記得以儲存體帳戶的相關名稱取代 `<your-storage-account-name>` 和 `<your-resource-group-name>`。
 
-    ```PowerShell
+    ```powershell
     $resourceGroupName = "<your-resource-group-name>"
     $storageAccountName = "<your-storage-account-name>"
 
@@ -87,7 +87,7 @@ ms.locfileid: "58076338"
 ### <a name="persisting-azure-file-share-credentials-in-windows"></a>在 Windows 中保存 Azure 檔案共用認證  
 [Cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) 公用程式可讓您在 Windows 內儲存您的儲存體帳戶認證。 這表示當您嘗試透過 UNC 路徑存取 Azure 檔案共用或掛接 Azure 檔案共用時，您不需要指定認證。 若要儲存儲存體帳戶的認證，請執行下列 PowerShell 命令，並視情況取代 `<your-storage-account-name>` 和 `<your-resource-group-name>`。
 
-```PowerShell
+```powershell
 $resourceGroupName = "<your-resource-group-name>"
 $storageAccountName = "<your-storage-account-name>"
 
@@ -107,7 +107,7 @@ Invoke-Expression -Command ("cmdkey /add:$([System.Uri]::new($storageAccount.Con
 
 您可以使用 list 參數，確認 cmdkey 公用程式已儲存儲存體帳戶的認證：
 
-```PowerShell
+```powershell
 cmdkey /list
 ```
 
@@ -128,7 +128,7 @@ User: AZURE\<your-storage-account-name>
 
 在電腦上儲存另一位使用者的認證非常簡單：登入您的帳戶後，只要執行下列 PowerShell 命令即可：
 
-```PowerShell
+```powershell
 $password = ConvertTo-SecureString -String "<service-account-password>" -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential -ArgumentList "<service-account-username>", $password
 Start-Process -FilePath PowerShell.exe -Credential $credential -LoadUserProfile
@@ -141,7 +141,7 @@ Start-Process -FilePath PowerShell.exe -Credential $credential -LoadUserProfile
 ### <a name="mount-the-azure-file-share-with-powershell"></a>使用 PowerShell 掛接 Azure 檔案共用
 從一般 (也就是未提升權限) 的 PowerShell 工作階段執行下列命令，以掛接 Azure 檔案共用。 請記得使用正確的資訊取代 `<your-resource-group-name>`、`<your-storage-account-name>`、`<your-file-share-name>` 和 `<desired-drive-letter>`。
 
-```PowerShell
+```powershell
 $resourceGroupName = "<your-resource-group-name>"
 $storageAccountName = "<your-storage-account-name>"
 $fileShareName = "<your-file-share-name>"
@@ -172,7 +172,7 @@ New-PSDrive -Name <desired-drive-letter> -PSProvider FileSystem -Root "\\$($file
 
 如有需要，您可使用下列 PowerShell cmdlet 來卸載 Azure 檔案共用。
 
-```PowerShell
+```powershell
 Remove-PSDrive -Name <desired-drive-letter>
 ```
 
@@ -252,7 +252,7 @@ Remove-PSDrive -Name <desired-drive-letter>
 
 若要啟用稽核，請從提高權限的 PowerShell 工作階段執行下列 Cmdlet︰
 
-```PowerShell
+```powershell
 Set-SmbServerConfiguration –AuditSmb1Access $true
 ```
 
@@ -261,7 +261,7 @@ Set-SmbServerConfiguration –AuditSmb1Access $true
 
 若要從 Windows Server 執行個體移除 SMB 1，請從提高權限的 PowerShell 工作階段執行下列 Cmdlet︰
 
-```PowerShell
+```powershell
 Remove-WindowsFeature -Name FS-SMB1
 ```
 
@@ -275,7 +275,7 @@ Remove-WindowsFeature -Name FS-SMB1
 
 若要從 Windows 用戶端移除 SMB 1，請從提高權限的 PowerShell 工作階段執行下列 Cmdlet︰
 
-```PowerShell
+```powershell
 Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
 ```
 
@@ -288,7 +288,7 @@ SMB 1 無法完全從舊版的 Windows/Windows Server 中移除，但是可以�
 
 您也可以使用下列 PowerShell Cmdlet 輕鬆達成：
 
-```PowerShell
+```powershell
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 0 –Force
 ```
 

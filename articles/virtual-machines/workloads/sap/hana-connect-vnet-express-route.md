@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a64a60603cd9898386a975313afc676e3b253326
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
-ms.translationtype: HT
+ms.openlocfilehash: 071db2d9aeda2373c85ae62c47bbef175dcb7678
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353592"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483398"
 ---
 # <a name="connect-a-virtual-network-to-hana-large-instances"></a>將虛擬網路連線至 HANA 大型執行個體
 
@@ -34,7 +34,7 @@ ms.locfileid: "49353592"
   - 如果您使用 Azure 入口網站，請新增新的 [虛擬網路閘道]，然後選取 [ExpressRoute] 作為閘道類型。
   - 如果您是使用 PowerShell，請先下載並使用最新版的 [Azure PowerShell SDK](https://azure.microsoft.com/downloads/)。 下列命令會建立 ExpressRoute 閘道。 前面有 _$_ 的文字是使用者定義的變數，應更新成您的特定資訊。
 
-```PowerShell
+```powershell
 # These Values should already exist, update to match your environment
 $myAzureRegion = "eastus"
 $myGroupName = "SAP-East-Coast"
@@ -71,7 +71,7 @@ Azure 虛擬網路現在具有 ExpressRoute 閘道。 使用 Microsoft 所提供
 
 針對每個連線使用不同的 AuthGUID，來為每個虛擬網路閘道執行下列命令。 下列指令碼顯示的前兩個項目來自 Microsoft 所提供的資訊。 此外，AuthGUID 對每個虛擬網路及其閘道來說都是特定的。 如果您想要新增另一個 Azure 虛擬網路，就必須為將 HANA 大型執行個體連線到 Azure 的 ExpressRoute 線路取得另外一個 AuthID。 
 
-```PowerShell
+```powershell
 # Populate with information provided by Microsoft Onboarding team
 $PeerID = "/subscriptions/9cb43037-9195-4420-a798-f87681a0e380/resourceGroups/Customer-USE-Circuits/providers/Microsoft.Network/expressRouteCircuits/Customer-USE01"
 $AuthGUID = "76d40466-c458-4d14-adcf-3d1b56d1cd61"

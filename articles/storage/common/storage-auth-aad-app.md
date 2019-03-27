@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: a313061f89d33ee2bf5379dbd37495db06b64440
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 8fdc4445e28a420b6b4f7935443d7d991d9e8a4d
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369508"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446067"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>向 Azure Active Directory 從應用程式存取 blob 和佇列
 
@@ -21,11 +21,11 @@ ms.locfileid: "58369508"
 
 本文將示範如何設定應用程式以使用 Azure AD 進行驗證。 程式碼範例以 .NET 為主，但其他語言也是使用類似的方法。
 
-您必須先設定安全性主體的角色型存取控制 (RBAC)，才能從 Azure 儲存體應用程式中驗證該安全性主體。 Azure 儲存體會定義包容器和佇列權限的 RBAC 角色。 當 RBAC 角色指派給安全性主體時，此安全性主體會獲得存取該資源的權限。 如需詳細資訊，請參閱 <<c0> [ 儲存體的資料，使用 RBAC 管理存取權限](storage-auth-aad-rbac.md)。
+從您的 Azure 儲存體應用程式驗證時的安全性主體之前，設定為該安全性主體的角色型存取控制 (RBAC) 設定。 Azure 儲存體會定義包容器和佇列權限的 RBAC 角色。 當 RBAC 角色指派給安全性主體時，此安全性主體會獲得存取該資源的權限。 如需詳細資訊，請參閱 <<c0> [ 儲存體的資料，使用 RBAC 管理存取權限](storage-auth-aad-rbac.md)。
 
 如需 OAuth 2.0 程式碼授與流程的概觀，請參閱[使用 OAuth 2.0 授權碼授與流程，授權存取 Azure Active Directory Web 應用程式](../../active-directory/develop/v1-protocols-oauth-code.md)。
 
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
+若要以 OAuth 權杖為 Blob 和佇列作業授權，您必須使用 HTTPS。
 
 ## <a name="assign-an-rbac-role-to-an-azure-ad-security-principal"></a>將 RBAC 角色指派給 Azure AD 安全性主體
 
@@ -157,7 +157,7 @@ static string GetUserOAuthToken()
 
 ### <a name="create-the-block-blob"></a>建立區塊 Blob
 
-最後，使用存取權杖來建立新的儲存體認證，並使用這些認證來建立 Blob：
+最後，使用存取權杖來建立新的儲存體認證，並使用這些認證來建立 blob。 請記住，若要授權 OAuth 權杖的 blob 和佇列作業，您必須使用 HTTPS。:
 
 ```dotnet
 // Get the access token.

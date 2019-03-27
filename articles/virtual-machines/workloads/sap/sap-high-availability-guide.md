@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a6b6728d7eaa263bb7e9da0f08a47ffe2f1e961a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 81e31a6e5fd1260ec844cc36f28a64e44334ebec
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009470"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482761"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>SAP NetWeaver 的 Azure 虛擬機器高可用性
 
@@ -455,14 +455,14 @@ _**圖 11︰** 設定 SAP 高可用性 Azure Resource Manager 參數_
 2. 在 [SUBNETID] 方塊中，新增已備妥的「Azure 網路 SubnetID」的完整字串，這是您打算用來部署 Azure 虛擬機器的位置。
 3. 若要取得所有 Azure 網路子網路的清單，請執行此 PowerShell 命令：
 
-   ```PowerShell
+   ```powershell
    (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets
    ```
 
    [ID] 欄位顯示 **SUBNETID**。
 4. 若要取得所有 **SUBNETID** 值的清單，請執行此 PowerShell 命令：
 
-   ```PowerShell
+   ```powershell
    (Get-AzureRmVirtualNetwork -Name <azureVnetName>  -ResourceGroupName <ResourceGroupOfVNET>).Subnets.Id
    ```
 
@@ -1196,7 +1196,7 @@ Microsoft .NET Framework 3.5 不會自動啟用或安裝在 Windows Server 2012 
 
 1. 執行 PowerShell 命令檢查目前 **ProbePort** 設定。 在叢集組態中的其中一個虛擬機器中執行該檢查。
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"     # SAP <SID>
 
    $SAPNetworkIPClusterName = "SAP $SAPSID IP"
@@ -1213,7 +1213,7 @@ Microsoft .NET Framework 3.5 不會自動啟用或安裝在 Windows Server 2012 
 
    若要針對 **SAP <*SID*> IP** 叢集資源設定新的 ProbePort 值，執行下列 PowerShell 指令碼。 請更新您環境的 PowerShell 變數。 指令碼執行之後，系統會提示您重新啟動 SAP 叢集群組，以啟動變更。
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"      # SAP <SID>
    $ProbePort = 62000   # ProbePort of the Azure Internal Load Balancer
 
@@ -1271,7 +1271,7 @@ Microsoft .NET Framework 3.5 不會自動啟用或安裝在 Windows Server 2012 
 
    讓 **SAP <*SID*>** 叢集角色上線之後，請確認已將 **ProbePort** 設定為新值。
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"     # SAP <SID>
 
    $SAPNetworkIPClusterName = "SAP $SAPSID IP"
@@ -1287,7 +1287,7 @@ Microsoft .NET Framework 3.5 不會自動啟用或安裝在 Windows Server 2012 
 
 您需要開啟這兩個叢集節點上的 Windows 防火牆探查連接埠。 使用下列指令碼開啟 Windows 防火牆探查連接埠。 請更新您環境的 PowerShell 變數。
 
-  ```PowerShell
+  ```powershell
   $ProbePort = 62000   # ProbePort of the Azure Internal Load Balancer
 
   New-NetFirewallRule -Name AzureProbePort -DisplayName "Rule for Azure Probe Port" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $ProbePort
@@ -1347,7 +1347,7 @@ _**圖 62：** 在 SIOS DataKeeper 中，將本機磁碟區從叢集節點 A 複
    - 使用容錯移轉叢集管理員  
    - 使用容錯移轉叢集 PowerShell
 
-   ```PowerShell
+   ```powershell
    $SAPSID = "PR1"     # SAP <SID>
 
    $SAPClusterGroup = "SAP $SAPSID"
