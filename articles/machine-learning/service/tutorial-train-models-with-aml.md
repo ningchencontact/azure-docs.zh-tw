@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 01/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: cc0631052fa915ae946e791c907e405d70713ad2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e7617aec2739daa4f84bcecab060ae0f8e28fabe
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860548"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361586"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>教學課程：使用 Azure Machine Learning 服務將映像分類模型定型
 
@@ -65,9 +65,11 @@ ms.locfileid: "57860548"
 
 ### <a name="server"></a>使用您自己的 Jupyter Notebook 伺服器
 
-使用下列步驟在您的電腦上建立本機 Jupyter Notebook 伺服器。  完成這些步驟之後，請執行 **tutorials/img-classification-part1-training.ipynb** Notebook。
+使用下列步驟在您的電腦上建立本機 Jupyter Notebook 伺服器。 
 
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
+
+ 完成這些步驟之後，請執行 **tutorials/img-classification-part1-training.ipynb** Notebook。
 
 ## <a name="start"></a>設定您的開發環境
 

@@ -3,7 +3,7 @@ title: 使用 Windows VM 系統指派的受控識別來存取 Azure AD Graph API
 description: 本教學課程會逐步引導您使用 Windows VM 系統指派的受控識別，以存取 Azure AD Graph API。
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10b74b85235cc47375f6289b52371bc588105ad9
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 49b0d9e4fad61195118c92c047340f2cd4d9e20f
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890091"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480680"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>教學課程：使用 Windows VM 系統指派的受控識別來存取 Azure AD Graph API
 
@@ -85,7 +85,7 @@ Azure AD Graph：
    ```
    若要連線到特定的 Azure Active Directory，請使用 _TenantId_ 參數，如下所示︰
 
-   ```PowerShell
+   ```powershell
    Connect-AzureAD -TenantId "Object Id of the tenant"
    ```
 

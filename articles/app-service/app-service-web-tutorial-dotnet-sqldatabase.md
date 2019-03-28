@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b472927f435cb86787c4580920250cb33438a07b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 59b390776a5e23c08d8793125747742cee4e473e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992251"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487018"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>教學課程：在 Azure 中搭配 SQL Database 來建置 ASP.NET 應用程式
 
-[Azure App Service](overview.md) 可提供可高度擴充、自我修復的 Web 主控服務。 本教學課程示範如何在 App Service 中部署資料導向的 ASP.NET 應用程式，並將它連線到[Azure SQL Database](../sql-database/sql-database-technical-overview.md)。 完成時，您的 ASP.NET 應用程式就會在 Azure 中執行，並已連線到 SQL Database。
+[Azure App Service](overview.md) 可提供可高度擴充、自我修復的 Web 主控服務。 本教學課程示範如何在 App Service 中開發資料驅動的 ASP.NET 應用程式，並將它連線到[Azure SQL Database](../sql-database/sql-database-technical-overview.md)。 完成時，您的 ASP.NET 應用程式就會在 Azure 中執行，並已連線到 SQL Database。
 
 ![已在 Azure App Service 中發佈的 ASP.NET 應用程式](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
@@ -227,19 +227,19 @@ public bool Done { get; set; }
 
 在 [套件管理員主控台] 視窗中，啟用 Code First 移轉：
 
-```PowerShell
+```powershell
 Enable-Migrations
 ```
 
 新增移轉：
 
-```PowerShell
+```powershell
 Add-Migration AddProperty
 ```
 
 更新本機資料庫：
 
-```PowerShell
+```powershell
 Update-Database
 ```
 

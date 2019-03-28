@@ -3,7 +3,7 @@ title: 在 Azure 中監視 Service Fabric 叢集 | Microsoft Docs
 description: 在本教學課程中，您將了解如何藉由檢視 Service Fabric 事件、查詢 EventStore API、監視效能計數器，以及檢視健康情況報告，來監視叢集。
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/13/2019
-ms.author: ryanwi
+ms.author: srrengar
 ms.custom: mvc
-ms.openlocfilehash: b8234f286f4304b83969a01704735e1f3a7da2c6
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 66f5651f394c5d91327f6f804f6f15034bba7883
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58229063"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500027"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>教學課程：在 Azure 中監視 Service Fabric 叢集
 

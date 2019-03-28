@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 976bab529dc77621ce92dff0d2ae665777023a01
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 92811110ef44676de487bca1ad2022cb63315c75
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337569"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418052"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>在 Linux 上使用自訂映像建立函式
 
@@ -69,7 +69,7 @@ func init MyFunctionProj --docker
 * `node`：建立 JavaScript 專案。
 * `python`：建立 Python 專案。
 
-[!INCLUDE functions-python-preview-note]
+[!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
 當命令執行時，您會看到如下輸出：
 

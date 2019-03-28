@@ -3,7 +3,7 @@ title: 使用 Windows VM 系統指派的受控識別來存取 Azure SQL
 description: 本教學課程逐步引導您使用 Windows VM 系統指派的受控識別，以存取 Azure SQL。
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: bryanla
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/07/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57905b3d3c062c299a0f414ae6110dd0b6249198
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b6d5452f23e830ca7a9ffe5ca5ed3d4aa12fb717
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848025"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444662"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>教學課程：使用 Windows VM 系統指派的受控識別來存取 Azure SQL
 

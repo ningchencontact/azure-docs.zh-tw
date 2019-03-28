@@ -3,7 +3,7 @@ title: 刪除 Azure 中的 Service Fabric 叢集 | Microsoft Docs
 description: 在本教學課程中，您會了解如何刪除 Azure 裝載的 Service Fabric 叢集及其所有資源。 您可以刪除包含叢集的資源群組，或選擇性地刪除資源。
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 62372b4ce4032e019219b5be8c5a49ea135782c1
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: cfb54a2d5cd71b2327f9422c63818bc51a9762a3
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223269"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499806"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>教學課程：移除在 Azure 中執行的 Service Fabric 叢集
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: f062dcfb22dda015d0dab9727672ca90df5ddb4d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cac68506803cda2c4e537feac84da2a82bc128bd
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000882"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444298"
 ---
 # <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>教學課程：使用 PowerShell 建立和管理 S2S VPN 連線
 
@@ -82,7 +82,7 @@ $Connection1 = "VNet1ToSite1"
 * 內部部署位址空間
 * (選擇性) BGP 屬性 (BGP 對等 IP 位址和 AS 號碼)
 
-使用 [New-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/new-azlocalnetworkgateway?view=azurermps-6.8.1) 命令建立區域網路閘道。
+使用 [New-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/new-azlocalnetworkgateway) 命令建立區域網路閘道。
 
 ```azurepowershell-interactive
 New-AzLocalNetworkGateway -Name $LNG1 -ResourceGroupName $RG1 `
@@ -91,7 +91,7 @@ New-AzLocalNetworkGateway -Name $LNG1 -ResourceGroupName $RG1 `
 
 ## <a name="create-a-s2s-vpn-connection"></a>建立 S2S VPN 連線
 
-接著，使用 [New-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?view=azurermps-6.8.1) 在虛擬網路閘道與 VPN 裝置之間建立站對站 VPN 連線。 請注意，站對站 VPN 的 '-ConnectionType' 為 *IPsec*。
+接著，使用 [New-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) 在虛擬網路閘道與 VPN 裝置之間建立站對站 VPN 連線。 請注意，站對站 VPN 的 '-ConnectionType' 為 *IPsec*。
 
 ```azurepowershell-interactive
 $vng1 = Get-AzVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
@@ -108,7 +108,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection1 -ResourceGroupName $RG1
 
 ### <a name="view-and-update-your-pre-shared-key"></a>檢視與更新您的預先共用金鑰
 
-Azure S2S VPN 連線會使用預先共用的金鑰 (密碼) 在您的內部部署 VPN 裝置與 Azure VPN 閘道之間進行驗證。 您可以使用 [Get-AzVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetworkgatewayconnectionsharedkey?view=azurermps-6.8.1) 和 [Set-AzVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgatewayconnectionsharedkey?view=azurermps-6.8.1) 檢視及更新連線的預先共用金鑰。
+Azure S2S VPN 連線會使用預先共用的金鑰 (密碼) 在您的內部部署 VPN 裝置與 Azure VPN 閘道之間進行驗證。 您可以使用 [Get-AzVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetworkgatewayconnectionsharedkey) 和 [Set-AzVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgatewayconnectionsharedkey) 檢視及更新連線的預先共用金鑰。
 
 > [!IMPORTANT]
 > 預先共用的金鑰是一串長度不超過 128 的**可列印 ASCII 字元**。
@@ -136,7 +136,7 @@ Azure VPN 閘道支援 BGP 動態路由通訊協定。 您可以在個別的連�
 * 內部部署區域網路閘道 ASN
 * 內部部署區域網路閘道 BGP 對等 IP 位址
 
-如果您未設定 BGP 屬性，下列命令會將這些屬性新增至您的 VPN 閘道與區域網路閘道：[Set-AzVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgateway?view=azurermps-6.8.1) 和 [Set-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azlocalnetworkgateway?view=azurermps-6.8.1)。
+如果您未設定 BGP 屬性，下列命令會將這些屬性新增至您的 VPN 閘道與區域網路閘道：[Set-AzVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgateway) 和 [Set-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azlocalnetworkgateway)。
 
 使用下列範例來設定 BGP 屬性：
 
@@ -149,7 +149,7 @@ Set-AzLocalNetworkGateway -LocalNetworkGateway $lng1 `
   -Asn $LNGASN1 -BgpPeeringAddress $BGPPeerIP1
 ```
 
-使用 [Set-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgatewayconnection?view=azurermps-6.8.1) 啟用 BGP。
+使用 [Set-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgatewayconnection) 啟用 BGP。
 
 ```azurepowershell-interactive
 $connection = Get-AzVirtualNetworkGatewayConnection `
@@ -212,7 +212,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection2 -ResourceGroupName $RG1
 
 ## <a name="delete-a-s2s-vpn-connection"></a>刪除 S2S VPN 連線
 
-使用 [Remove-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetworkgatewayconnection?view=azurermps-6.8.1) 刪除 S2S VPN 連線。
+使用 [Remove-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetworkgatewayconnection) 刪除 S2S VPN 連線。
 
 ```azurepowershell-interactive
 Remove-AzVirtualNetworkGatewayConnection -Name $Connection2 -ResourceGroupName $RG1

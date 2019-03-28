@@ -3,7 +3,7 @@ title: 使用 Windows VM 系統指派的受控識別來存取 Azure 儲存體
 description: 本教學課程會逐步引導您使用 Windows VM 系統指派的受控識別，以存取 Azure 儲存體。
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7308d5715b1ac8abc62bb26ad3636423bbd727ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dacf58760d353eea3c552a9113589259148f3558
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889755"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447892"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>教學課程：使用 Windows VM 系統指派的受控識別來存取 Azure 儲存體
 

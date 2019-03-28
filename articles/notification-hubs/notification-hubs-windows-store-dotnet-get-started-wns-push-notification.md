@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/14/2018
+ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: d91e4d33bdecc23bc79e2cf975789bcaeb7ca69a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 093528dff09c71b999d58f0285044340fa0ec360
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57837621"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403199"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知傳送至通用 Windows 平台應用程式
 
@@ -52,7 +52,7 @@ ms.locfileid: "57837621"
 
 若要傳送推播通知給 Windows UWP 應用程式，將您的應用程式與 Windows 市集產生關聯。 接著設定您的通知中樞，以便與 WNS 進行整合。
 
-1. 瀏覽至 [Windows 開發人員中心](https://dev.windows.com/overview)，並使用 Microsoft 帳戶登入，然後選取 [建立新的應用程式]。
+1. 瀏覽至 [Windows 開發人員中心](https://partner.microsoft.com/en-us/dashboard/windows/first-run-experience)，並使用 Microsoft 帳戶登入，然後選取 [建立新的應用程式]。
 
     ![新增應用程式按鈕](./media/notification-hubs-windows-store-dotnet-get-started/windows-store-new-app-button.png)
 2. 輸入您的應用程式名稱，然後選取 [保留產品名稱]。 這麼做會為您的應用程式建立新的 Windows 市集註冊。

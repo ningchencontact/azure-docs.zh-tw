@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 7c4a73c86245067a07dc253041c43ae6c17f7172
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8e20f612bc54433091036377d51a7e59e3abec51
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096974"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402145"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>如何存取 Azure 實驗室服務中的教室實驗室
 本文將說明如何存取教室實驗室、連線到實驗室中的 VM，以及停止 VM。 
@@ -48,8 +48,9 @@ ms.locfileid: "58096974"
 2. 在您要存取的實驗室虛擬機器圖格上，選取 [連線]。 
 3. 執行下列其中一個步驟： 
    1. 針對 **Windows** 虛擬機器，將 **RDP** 檔案儲存至硬碟。 開啟 RDP 檔案以連線至虛擬機器。 使用授課者/教授提供給您的**使用者名稱**和**密碼**來登入機器。 
-   3. 針對 **Linux** 虛擬機器，在 [連線至您的虛擬機器] 對話方塊上，複製並儲存 SSH 連接字串。 使用此連接字串，從 SSH 終端機 (例如 [Putty](https://www.putty.org/)) 連線至虛擬機器。
-      ## <a name="stop-the-virtual-machine-in-a-classroom-lab"></a>停止教室實驗室中的虛擬機器
+   3. 針對 **Linux** 虛擬機器，在 [連線至您的虛擬機器] 對話方塊上複製並儲存 SSH 連接字串。 使用此連接字串，從 SSH 終端機 (例如 [Putty](https://www.putty.org/)) 連線至虛擬機器。
+
+## <a name="stop-the-virtual-machine-in-a-classroom-lab"></a>停止教室實驗室中的虛擬機器
 
 若要停止您的 VM，請選取圖格上的 [停止]。 當 VM 停止時，在圖格上的 [啟動] 按鈕會啟用。 
 

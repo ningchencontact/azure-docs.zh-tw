@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/19/2018
+ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: a9e5b00ad84a57f49303f2e6f9389b4791fd0f60
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b7a46fab296fa8d585f1ae70dcf278e6686cca64
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58166941"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520593"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>快速入門：控制連線到 IoT 中樞的裝置 (Android)
 
@@ -117,10 +117,10 @@ az iot hub show-connection-string --name YourIoTHubName --output table
 3. 在 Android Studio 中，按一下 [檔案] > [同步專案與 Gradle 檔案]。 確認建置是否完成。
 
    > [!NOTE]
-   > 如果專案同步失敗，可能是下列其中一個原因所造成：
+   > 如果專案同步失敗，其可能的原因包括：
    >
-   > * 針對您的 Android Studio 版本，專案中參考的 Android Gradle 外掛程式和 Gradle 的版本已過期。 請遵循[這些指示](https://developer.android.com/studio/releases/gradle-plugin)，針對您的安裝參考及安裝正確版本的外掛程式和 Gradle。
-   > * Android SDK 的授權合約尚未簽署。 請遵循建置輸出中的只是，簽署授權合約並下載 SDK。
+   > * 對您的 Android Studio 版本而言，專案中參考的 Android Gradle 外掛程式和 Gradle 的版本已過時。 請依照[這些指示](https://developer.android.com/studio/releases/gradle-plugin)，針對您的安裝參考及安裝正確版本的外掛程式和 Gradle。
+   > * Android SDK 的授權合約尚未簽署。 請依照建置輸出中的指示，簽署授權合約並下載 SDK。
 
 
 4. 完成建置後，按一下 [執行] > [執行「應用程式」]。 設定應用程式，以在實體 Android 裝置或 Android 模擬器上執行。 如需有關如何在實體裝置或模擬器上執行 Android 應用程式的詳細資訊，請參閱[執行應用程式](https://developer.android.com/training/basics/firstapp/running-app)。
@@ -172,10 +172,10 @@ IoT 中樞後端服務應用程式通常會在雲端中執行，如此可較簡�
 3. 在 Android Studio 中，按一下 [檔案] > [同步專案與 Gradle 檔案]。 確認建置是否完成。
 
    > [!NOTE]
-   > 如果專案同步失敗，可能是下列其中一個原因所造成：
+   > 如果專案同步失敗，其可能的原因包括：
    >
-   > * 針對您的 Android Studio 版本，專案中參考的 Android Gradle 外掛程式和 Gradle 的版本已過期。 請遵循[這些指示](https://developer.android.com/studio/releases/gradle-plugin)，針對您的安裝參考及安裝正確版本的外掛程式和 Gradle。
-   > * Android SDK 的授權合約尚未簽署。 請遵循建置輸出中的只是，簽署授權合約並下載 SDK。
+   > * 對您的 Android Studio 版本而言，專案中參考的 Android Gradle 外掛程式和 Gradle 的版本已過時。 請依照[這些指示](https://developer.android.com/studio/releases/gradle-plugin)，針對您的安裝參考及安裝正確版本的外掛程式和 Gradle。
+   > * Android SDK 的授權合約尚未簽署。 請依照建置輸出中的指示，簽署授權合約並下載 SDK。
 
 
 4. 完成建置後，按一下 [執行] > [執行「應用程式」]。 設定應用程式，以在不同的實體 Android 裝置或 Android 模擬器上執行。 如需有關如何在實體裝置或模擬器上執行 Android 應用程式的詳細資訊，請參閱[執行應用程式](https://developer.android.com/training/basics/firstapp/running-app)。

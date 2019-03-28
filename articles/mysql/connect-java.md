@@ -1,19 +1,19 @@
 ---
 title: 使用 Java 連線到適用於 MySQL 的 Azure 資料庫
 description: 本快速入門提供 Java 程式碼範例，您可用於從適用於 MySQL 資料庫的 Azure 資料庫連線及查詢資料。
-author: jasonwhowell
-ms.author: jasonh
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.custom: mvc, devcenter
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 02/28/2018
-ms.openlocfilehash: 87c74581f456baae3d12e164dfdc0a15e3231728
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7ad24a691153161ff2283030a4a597544205de6d
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835328"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58349881"
 ---
 # <a name="azure-database-for-mysql-use-java-to-connect-and-query-data"></a>適用於 MySQL 的 Azure 資料庫：使用 Java 連線並查詢資料
 本快速入門示範如何使用 Java 應用程式和 JDBC 驅動程式 [MySQL 連接器/J](https://dev.mysql.com/downloads/connector/j/) 來連線到適用於 MySQL 的 Azure 資料庫。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本文假設您已熟悉使用 Java 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。

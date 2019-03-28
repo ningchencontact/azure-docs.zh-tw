@@ -3,18 +3,18 @@ title: 快速入門 - 將 Hello World 部署至 Azure Service Fabric Mesh | Micr
 description: 本快速入門說明如何將 Service Fabric Mesh 應用程式部署至 Azure Service Fabric Mesh。
 services: service-fabric-mesh
 keywords: 請勿在未諮詢 SEO 之前新增或編輯關鍵字。
-author: rwike77
-ms.author: ryanwi
+author: dkkapur
+ms.author: dekapur
 ms.date: 11/27/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 2f54f11ffc6db9af4c7d74ef6c0806a8b8b8fe74
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 5ca622602c71976917a07005bf349dd98086327c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754756"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336978"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>快速入門：將 Hello World 部署至 Service Fabric Mesh
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 03/21/2019
 ms.author: larryfr
-ms.openlocfilehash: 7f123187ea869931b0701fd9d68372deb0b272e1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: af1b96b4ab47053a6737893832b484372ed37e99
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879066"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351859"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>教學課程：搭配使用自訂視覺中的 ONNX 模型與 Windows ML (預覽)
 
@@ -51,7 +51,7 @@ ms.locfileid: "55879066"
 
 1. 使用 `F5` 鍵從 Visual Studio 中啟動應用程式。 系統可能會提示您啟用開發人員模式。 如需詳細資訊，請參閱[啟用您的裝置以用於開發](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development)文件。
 
-2. 當應用程式啟動時，使用此按鈕來選取映像進行評分。
+1. 當應用程式啟動時，使用此按鈕來選取映像進行評分。
 
 ## <a name="use-your-own-model"></a>使用自有模型
 
@@ -65,8 +65,8 @@ ms.locfileid: "55879066"
 
 1. 在 [方案總管] 中，以滑鼠右鍵按一下 Assets 資料夾，然後選取 [新增現有的項目]。 選取 ONNX 檔案。
 
-1. 在 [方案總管] 中，從 Assets 資料夾選取 ONNX 檔案。 變更檔案的下列屬性： 
-    
+1. 在 [方案總管] 中，從 Assets 資料夾選取 ONNX 檔案。 變更檔案的下列屬性：
+
     * __建置動作__ -> __內容__
     * __複製到輸出目錄__ -> __有更新時才複製__
 
