@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3b778caed10981923d424745d820bfe10c1ce553
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 903c1153db57f7cb632fc752bb696598902f5aaa
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903601"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519709"
 documentType: LandingData
 title: Azure 媒體服務文件
 metadata:
@@ -21,7 +21,7 @@ metadata:
   ms.date: 03/11/2019
   ms.author: juliako
 abstract:
-  description: Azure Media Services (AMS) 是雲端式平台，可讓您建置解決方案以實現高畫質視訊編碼和廣播品質視訊串流，讓使用者能在最受歡迎的裝置上觀看。 AMS v3 也可讓您使用影片索引器，透過 AMS v3 分析器預設從視訊及音訊檔案中擷取深入解析。 若您希望獲得更多詳細深入解析，請直接使用影片索引器。<br/> 若要了解使用影片索引器以及媒體服務分析器預設的時機，請參閱<a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">比較文件</a>。
+  description: Azure 媒體服務是雲端式平台，可讓您建置解決方案以實現高畫質視訊編碼和廣播品質影片串流，讓使用者能在最受歡迎的裝置上觀看。 媒體服務 v3 也可讓您使用影片索引器，透過媒體服務 v3 分析器預設從影片及音訊檔案中擷取深入解析。 若您希望獲得更多詳細深入解析，請直接使用影片索引器。
 sections:
 - items:
   - type: list
@@ -40,7 +40,7 @@ sections:
         src: media/index/AMSIcons-media_analytics.svg
       title: 影片索引子
     - href: /azure/media-services/previous/
-      html: <p>了解如何使用媒體服務 v2 來編碼、串流隨選項目並即時廣播影片。</p>
+      html: <p>媒體服務 v2 不會再新增任何新的特性或功能。 查看最新的媒體服務 v3 版本。</p>
       image:
         src: media/index/AMSIcons-media_servicesV2.svg
       title: Azure 媒體服務 v2 (舊版)
@@ -49,51 +49,3 @@ sections:
       image:
         src: /azure/cdn/media/index/cdn.svg
       title: CDN
-- title: 5 分鐘快速入門
-  items:
-  - type: paragraph
-    text: 了解如何使用媒體服務 v3 來編碼和串流：
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: media/index/AMSIcons-encoding.svg
-      text: 串流檔案
-      href: /azure/media-services/latest/stream-files-dotnet-quickstart
-  - type: paragraph
-    text: 了解如何使用影片索引器從影片中擷取深入解析：
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: media/index/AMSIcons-media_analytics.svg
-      text: 擷取深入解析
-      href: ../cognitive-services/video-indexer/video-indexer-get-started.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json
-- title: 逐步教學課程
-  items:
-  - type: paragraph
-    text: 了解如何使用媒體服務 v3 來串流隨選檔案、即時廣播及分析您的影片：
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: media/index/AMSIcons-encoding.svg
-      text: 上傳、編碼和串流影片
-      href: /azure/media-services/latest/stream-files-tutorial-with-api
-    - image:
-        src: media/index/AMSIcons-live.svg
-      text: 即時廣播
-      href: /azure/media-services/latest/stream-live-tutorial-with-api
-    - image:
-        src: media/index/AMSIcons-media_analytics.svg
-      text: 分析您的影片
-      href: /azure/media-services/latest/analyze-videos-tutorial-with-api
-  - type: paragraph
-    text: 了解如何使用影片索引器 API 從影片中擷取深入解析：
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: media/index/AMSIcons-media_analytics.svg
-      text: 擷取深入解析
-      href: ../cognitive-services/video-indexer/video-indexer-use-apis.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json

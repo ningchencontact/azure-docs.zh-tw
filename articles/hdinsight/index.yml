@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: cdb34766617a27848a68ee1b4227153bd6ab63f8
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 418410bfe1cb7c10d6095ee7175a2637501ce40f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359614"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520440"
 documentType: LandingData
 title: Azure HDInsight 文件
 metadata:
@@ -15,9 +15,9 @@ metadata:
   ms.author: hrasheed
   ms.service: hdinsight
   ms.topic: landing-page
-  ms.date: 10/18/2018
+  ms.date: 03/26/2019
 abstract:
-  description: 了解如何使用 Azure HDInsight 來分析串流或歷史資料。 教學課程和其他文件會示範如何建立叢集、處理和分析巨量資料，以及如何使用 Apache Hadoop、Apache Spark、Apache Hive、Apache LLAP、Apache Kafka、Apache Storm 和 Microsoft Machine Learning Server 等熱門的開放原始碼架構來開發解決方案。<p>Azure HDInsight 是供企業使用的完全受控、全方位的開放原始碼分析服務。 HDInsight 是一種雲端服務，可輕鬆快速地處理大量資料，同時節省成本。 HDInsight 也支援各種案例，例如擷取、轉換和載入 (ETL)；資料倉儲、機器學習和 IoT。</p>
+  description: 了解如何使用 Azure HDInsight 來分析串流或歷史資料。 教學課程和其他文件會示範如何建立叢集、處理和分析巨量資料，以及如何使用 Apache Hadoop、Apache Spark、Apache Hive、Apache LLAP、Apache Kafka、Apache Storm 和 Microsoft Machine Learning Server 等熱門的開放原始碼架構來開發解決方案。<p>Azure HDInsight 是供企業使用的受控、全方位的開放原始碼分析服務。 HDInsight 是一種雲端服務，可輕鬆快速地處理大量資料，同時節省成本。 HDInsight 也支援各種案例，例如擷取、轉換和載入 (ETL)；資料倉儲、機器學習和 IoT。</p>
   aside:
     image:
       alt: 

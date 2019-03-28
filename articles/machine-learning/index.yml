@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4581173f142170248a48d99683804bdb67f1703e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 2f8e833088ffdf819e387fd28ae88508d5fe6d00
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250670"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519915"
 abstract:
   description: 了解如何使用 Azure Machine Learning 產品，將智慧型演算法建置到應用程式與網站中。  教學課程、快速入門和 API 參考和範例示範。
 documentType: LandingData
@@ -38,8 +38,8 @@ sections:
   - text: <b>快速入門：</b>
     type: paragraph
   - items:
-    - html: <a href="service/quickstart-create-workspace-with-python">透過 Python 開始使用</a>
-    - html: <a href="service/quickstart-get-started">透過 Azure 入口網站開始使用</a>
+    - html: <a href="service/quickstart-run-cloud-notebook">在雲端中執行實驗</a> (無需安裝)
+    - html: <a href="service/quickstart-run-local-notebook">使用本機 Notebook 伺服器執行實驗</a> (本機 SDK 安裝)
     style: unordered
     type: list
   - text: <b>MNIST 資料的影像分類教學課程：</b>

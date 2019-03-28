@@ -90,15 +90,18 @@ items:
         href: how-to-vscode-tools.md
       - name: 定型與部署
         href: how-to-vscode-train-deploy.md
-  - name: 準備資料
+  - name: 使用資料
     displayName: data prep, etl, elt, data preparation
     items:
-    - name: 載入資料
-      href: how-to-load-data.md
-    - name: 轉換資料
-      href: how-to-transform-data.md
-    - name: 寫入資料
-      href: how-to-write-data.md
+    - name: 探索及準備資料
+      displayName: data prep, etl, elt, data preparation
+      items:
+      - name: 載入資料
+        href: how-to-load-data.md
+      - name: 轉換資料
+        href: how-to-transform-data.md
+      - name: 寫入資料
+        href: how-to-write-data.md
   - name: 取得資料存放區中的資料
     displayName: blob get fileshare access storage
     href: how-to-access-data.md
@@ -198,9 +201,9 @@ items:
   - name: 比較 ML 產品
     href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
     maintainContext: true
-ms.openlocfilehash: 0e40f17725cb56dbc346fffcce0f672f2394ca1d
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 52bc0220f3eb2fa28d344f68fe86310eabeee47c
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359971"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540375"

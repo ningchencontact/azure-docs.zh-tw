@@ -18,6 +18,8 @@ ms.author: carolz
 
 了解如何利用媒體服務 (可延伸的雲端平台) 串流處理廣播品質的影片。 教學課程、API 參考和其他文件會示範如何安全地提供可針對數百萬位使用者調整的隨選和即時視訊或音訊串流。
 
+**注意：** 媒體服務 v2 不會再新增任何新的特性或功能。 查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 另請參閱[從 v2 版本變更為 v3 版本的移轉指導方針](../latest/migrate-from-v2-to-v3.md)。
+
 <ul class="panelContent cardsFTitle">
      <li>
         <a href="/azure/media-services/media-services-overview">
