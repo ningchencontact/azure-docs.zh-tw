@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 中受控磁碟的差異與考量 | Microsoft Docs
-description: 使用 Azure Stack 中的受控磁碟時，瞭解有關差異和注意事項。
+title: Azure Stack 中受控磁碟和受控映像的差異與考量 | Microsoft Docs
+description: 使用 Azure Stack 中的受控磁碟和受控映像時，瞭解有關差異和注意事項。
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/23/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: c1a0e77f98d269185bc065c86a367c3ed6519fb5
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.lastreviewed: 03/23/2019
+ms.openlocfilehash: c1975c885efc0a2a22b2ab478f8bc9afbcc8bce3
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961970"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400369"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack 受控磁碟：差異與注意事項
 
@@ -30,7 +30,7 @@ ms.locfileid: "56961970"
 受控磁碟會管理與 VM 磁碟相關的[儲存體帳戶](../azure-stack-manage-storage-accounts.md)，從而簡化 IaaS VM 的磁碟管理。
 
 > [!Note]  
-> Azure Stack 上的受控磁碟可從 1808 更新取得使用。 使用來自 1811 更新的 Azure Stack 入口網站來建立虛擬機器時，依預設會啟用此受控磁碟。
+> Azure Stack 上的受控磁碟可從 1808 更新取得使用。 使用從 1811 更新版本中的 Azure Stack 入口網站來建立虛擬機器時，依預設會啟用此受控磁碟。
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>速查表：受控磁碟的差異
 
@@ -134,13 +134,32 @@ Azure Stack 支援*受控映像*，可讓您在一般化 VM (非受控和受控)
 - 您已一般化非受控 VM，而且從現在開始想要使用受控磁碟。
 - 您有一個一般化的受控 VM，並想要建立多個類似的受控 VM。
 
-### <a name="migrate-unmanaged-vms-to-managed-disks"></a>將非受控 VM 移轉到受控磁碟
+### <a name="step-1-generalize-the-vm"></a>步驟 1：一般化 VM
+
+若使用 Windows，請遵循[使用 Sysprep 將 Windows VM 一般化](/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep)一節進行。 若使用 Linux，請遵循[此處](/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm)的步驟 1。
+
+> [!NOTE]
+> 請務必將 VM 一般化。 使用未一般化的映像建立 VM 會導致 **VMProvisioningTimeout** 錯誤。
+
+### <a name="step-2-create-the-managed-image"></a>步驟 2：建立受控映像
+
+您可以使用入口網站、PowerShell 或 CLI 來建立受控映像。 遵循[此處](/azure/virtual-machines/windows/capture-image-resource)的 Azure 文章內容進行。
+
+### <a name="step-3-choose-the-use-case"></a>步驟 3：選擇使用案例
+
+#### <a name="case-1-migrate-unmanaged-vms-to-managed-disks"></a>案例 1：將非受控 VM 移轉到受控磁碟
+
+執行此步驟之前，請務必先正確地將 VM 一般化。 一般化之後，您就無法再使用此 VM。 使用未一般化的映像建立 VM 會導致 **VMProvisioningTimeout** 錯誤。
 
 請依照[這裡](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-vhd-in-a-storage-account)的指示，從儲存體帳戶中的一般化 VHD 建立受控映像。 此映像可用於建立接下來的受控 VM。
 
-### <a name="create-managed-image-from-vm"></a>從 VM 建立受控映像
+#### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>案例 2︰使用 PowerShell 從受控映像建立受控 VM
 
 使用[這裡](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-managed-disk-using-powershell)的指令碼從現有受控磁碟 VM 建立映像後，下列範例指令碼會從現有的映像物件建立類似的 Linux VM：
+
+Azure Stack PowerShell 模組 1.7.0 或更新版本：請遵循[此處](../../virtual-machines/windows/create-vm-generalized-managed.md)的指示進行。
+
+Azure Stack PowerShell 模組 1.6.0 或更新版本：
 
 ```powershell
 # Variables for common values
@@ -181,6 +200,7 @@ $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
 $image = get-azurermimage -ResourceGroupName $imagerg -ImageName $imagename
+
 # Create a virtual machine configuration
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 | `
 Set-AzureRmVMOperatingSystem -Linux -ComputerName $vmName -Credential $cred | `
@@ -191,11 +211,11 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
-如需詳細資訊，請參閱 Azure 受控映像文章：[在 Azure 中建立一般化 VM 的受控映像](../../virtual-machines/windows/capture-image-resource.md)與[從受控映像建立 VM](../../virtual-machines/windows/create-vm-generalized-managed.md)。
+您也可以使用入口網站，從受控映像建立 VM。 如需詳細資訊，請參閱 Azure 受控映像文章：[在 Azure 中建立一般化 VM 的受控映像](../../virtual-machines/windows/capture-image-resource.md)與[從受控映像建立 VM](../../virtual-machines/windows/create-vm-generalized-managed.md)。
 
 ## <a name="configuration"></a>組態
 
-套用 1808 或更新版本的更新後，您必須先執行下列設定，再使用受控磁碟：
+套用 1808 更新或更新版本後，您必須先執行下列設定，再使用受控磁碟：
 
 - 如果訂用帳戶是 1808 版更新之前建立的，請遵循下列步驟來更新訂用帳戶。 否則，在此訂用帳戶中部署 VM 可能會失敗，並出現錯誤訊息「磁碟管理員發生內部錯誤。」
    1. 在租用戶入口網站中，移至 [訂用帳戶] 並尋找訂用帳戶。 按一下 [資源提供者]，按一下 [Microsoft.Compute]，然後按一下 [重新註冊]。
