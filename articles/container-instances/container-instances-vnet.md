@@ -5,18 +5,18 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 03/26/2019
 ms.author: danlep
-ms.openlocfilehash: c6c82ee26fdbd824bdf42720ed7fc08135a872da
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a4da7a23d6dcb50164829507130fed145abeebbd
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372398"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517312"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>將容器執行個體部署至 Azure 虛擬網路
 
-[Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)提供安全的私人網路，包含 Azure 和內部部署資源的篩選、路由及對等。 透過將容器群組部署至 Azure 虛擬網路，您的容器可在虛擬網路中安全地與其他資源通訊。
+[Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)提供安全的私人網路，為您的 Azure 和內部部署資源。 透過將容器群組部署至 Azure 虛擬網路，您的容器可在虛擬網路中安全地與其他資源通訊。
 
 部署至 Azure 虛擬網路的容器群組可供您進行下列案例：
 
@@ -34,7 +34,6 @@ ms.locfileid: "58372398"
 當您將容器群組部署至虛擬網路時，會有特定限制。
 
 * 若要將容器群組部署至子網路，該子網路不能包含任何其他資源類型。 在將容器群組部署至子網路之前，請先將所有現有資源從現有的子網路移除，或是建立新的子網路。
-* 部署至虛擬網路的容器群組目前不支援公用 IP 位址或 DNS 名稱標籤。
 * 您無法在已部署至虛擬網路的容器群組中使用[受控識別](container-instances-managed-identity.md)。
 * 由於涉及其他網路資源，將容器群組部署至虛擬網路的速度通常會比部署標準容器執行個體要慢一些。
 
@@ -46,10 +45,14 @@ ms.locfileid: "58372398"
 
 容器資源限制會隨著這些區域中非網路的容器執行個體其限制不同而異。 目前僅支援 Linux 容器的這項功能。 已計劃支援 Windows。
 
-### <a name="unsupported-network-resources-and-features"></a>不支援的網路資源和功能
+### <a name="unsupported-networking-scenarios"></a>不支援的網路功能案例 
 
-* Azure Load Balancer
-* 虛擬網路對等互連
+* **Azure Load Balancer** -不支援將容器執行個體之前的 Azure 負載平衡器放置在網路上的容器群組
+* **虛擬網路對等互連**-您無法包含委派給 Azure 容器執行個體，以另一個虛擬網路子網路的虛擬網路對等互連
+* **路由表**-使用者定義的路由不能設定委派給 Azure 容器執行個體的子網路
+* **網路安全性群組**-目前未強制執行委派給 Azure 容器執行個體的子網路套用的 Nsg 中的 輸出安全性規則 
+* **公用 IP 或 DNS 標籤**-部署到虛擬網路的容器群組目前不支援直接向網際網路公開的 IP 位址或完整的網域名稱的公開容器
+* **內部名稱解析**-不支援透過內部 Azure DNS 的虛擬網路中的 Azure 資源的名稱解析
 
 當您將容器群組部署至虛擬網路後，便需要[其他步驟](#delete-network-resources)來**刪除網路資源**。
 

@@ -7,16 +7,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: b712f47fe9272e0ae6ccb9ab9847462729434698
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: ce48a240c67c6077027210ffb0ca85db93610782
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894406"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472951"
 ---
 # <a name="custom-vision-service-release-notes"></a>自訂視覺服務版本資訊
+
+## <a name="march-26-2019"></a>2019 年 3 月 26日日
+- 在 Azure 上，自訂視覺服務已進入正式運作 ！ 
+- 新增進階訓練新的機器學習來改善效能，特別是在上一項挑戰資料集和精確的分類的後端功能。 利用進階的訓練課程，您可以指定適用於定型和自訂的願景的計算時間預算會根據識別最佳的訓練和增強指定設定。 針對快速反覆項目，您可以繼續使用現有的快速定型。 
+- 導入 3.0 Api。 宣布即將取代前 3.0 Api 於 2019 年 10 月 1 日。 請參閱快速入門文件針對[.Net](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/csharp-tutorial)， [Python](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/python-tutorial)，[節點](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/node-tutorial)， [Java](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/java-tutorial)，或[移](https://docs.microsoft.com/en-us/azure/cognitive-services/custom-vision-service/go-tutorial)範例如何開始使用。 
+- 取代 [預設反覆項目] 與發佈/取消發佈 3.0 中的 Api。 
+- 已加入新的模型匯出目標。 Dockerfile 匯出已升級為支援 ARM 適用於 Raspberry Pi 3。 匯出支援已加入[視覺 AI 開發套件。](https://visionaidevkit.com/) 
+- 限制提高為標記的每個專案到 500 S0 層。 限制提高為映像的每個專案為 S0 層的 100,000。
+- 移除成人的網域。 一般的網域會建議。
+- 宣布[定價](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/custom-vision-service/)正式運作。  
+
+
+## <a name="february-25-2019"></a>2019 年 2 月 25日日
+- 宣佈的有限的試用版專案 （專案不相關聯的 Azure 資源），結尾為自訂視覺接近完成其移至 Azure 的公開預覽狀態。 從開始 2019 年 3 月 25 日，CustomVision.ai 站台只支援與 Azure 資源，例如可用的自訂視覺資源相關聯的檢視專案。 透過 2019 年 10 月 1 日，您仍然可以存取現有有限試用版專案透過自訂視覺 Api。 這可讓您的時間更新為您撰寫自訂的願景與任何應用程式的 API 金鑰。 在 2019 年 10 月 1 日之後, 將會刪除任何限制的試用版專案，您還沒有移轉至 Azure。
 
 ## <a name="january-22-2019"></a>2019 年 1 月 22 日
 - 對於新 Azure 區域新增的支援：美國西部 2、美國東部、美國東部 2、西歐、北歐、東南亞、澳洲東部、印度中部、英國南部、日本東部和美國中北部。 對於美國中南部繼續提供支援。 

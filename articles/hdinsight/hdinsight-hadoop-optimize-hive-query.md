@@ -8,17 +8,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 1c863bc3b0ded0558e052ee3d98586ad815a0cfd
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.date: 03/21/2019
+ms.openlocfilehash: 63def1464c3c219b5181a31bf19cc80a1e487025
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202736"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521732"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>將 Azure HDInsight 中的 Apache Hive 查詢最佳化
 
-在 Azure HDInsight 中，有數種叢集類型與技術可執行 Apache Hive查詢。 當您建立 HDInsight 叢集時，選擇適當的叢集類型，有助於針對工作負載需求將效能最佳化。 
+在 Azure HDInsight 中，有數種叢集類型與技術可執行 Apache Hive查詢。 當您建立 HDInsight 叢集時，選擇適當的叢集類型，有助於針對工作負載需求將效能最佳化。
 
 例如，選擇**互動式查詢**叢集來最佳化臨機操作、 互動式查詢的類型。 選擇 Apache **Hadoop** 叢集類型，將作為批次程序使用的 Hive 查詢最佳化。 **Spark** 與 **HBase** 叢集類型也可以執行 Hive 查詢。 如需針對不同 HDInsight 叢集類型執行 Hive 查詢的詳細資訊，請參閱[Azure HDInsight 上的 Apache Hive 和 HiveQL 是什麼？](hadoop/hdinsight-use-hive.md)。
 

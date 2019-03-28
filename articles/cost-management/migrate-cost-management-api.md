@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 283808c0bd3f5297011b25619d6f978c99d4dc32
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: d9c5d731120f939cf7fb28c718cc4159a3702e44
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439221"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518774"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Enterprise 合約從遷移到 Microsoft 的客戶合約 Api
 
@@ -60,7 +60,7 @@ EA Api 會使用 API 金鑰進行驗證和授權。 MCA Api 會使用 Azure AD �
 | 價位表 | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | Microsoft.Billing/billingAccounts/billingProfiles/pricesheet/default/download format=json|csv Microsoft.Billing/billingAccounts/…/billingProfiles/…/invoices/… /pricesheet/default/download 格式 = json|csv Microsoft.Billing/billingAccounts/../billingProfiles/../providers/Microsoft.Consumption/pricesheets/download  |
 | 保留購買 | [/reservationcharges](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges) | Microsoft.Billing/billingAccounts/billingProfiles/transactions |
 | 保留建議 | [/SharedReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations)[/](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations)[SingleReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations) | [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) |
-| 保留使用情況 | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for--reserved-instance-usage-details)[/reservationsummaries](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for--reserved-instance-usage-summary) | [Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails)[Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries) |
+| 保留使用情況 | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for--reserved-instance-usage-details)[/reservationsummaries](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails)[Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries) |
 
 <sup>1</sup>所提供的 azure 服務和第三方 Marketplace 使用量[使用量詳細資料 API](/rest/api/consumption/usagedetails)。
 
@@ -501,7 +501,7 @@ Microsoft 客戶合約，請在下一節中使用的資訊。 它提供用於 Mi
 這些包括：
 
 - [保留執行個體的使用方式詳細資料](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for--reserved-instance-usage-details)
-- [保留的執行個體使用量摘要](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for--reserved-instance-usage-summary)
+- [保留的執行個體使用量摘要](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage)
 
 所有的使用情況 Api 會使用 Azure AD 進行驗證和授權的原生 Azure Api 所取代。 如需有關呼叫 Azure REST Api 的詳細資訊，請參閱[開始使用 REST](/rest/api/azure/#create-the-request)。 Api 先前所列的保留項目建議會取代[Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails)並[Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries) Api。
 

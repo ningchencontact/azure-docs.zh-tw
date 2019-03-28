@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: raynew
-ms.openlocfilehash: 73def6b659676cc4fecf1d9ef499247c23888566
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 96873b5fdefc74893929f8150230118a162f195b
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310280"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540715"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 至 Azure 災害復原架構
 
@@ -144,7 +144,7 @@ Site Recovery 會依照下列方式建立快照集：
 
 **規則** |  **詳細資料** | **服務標記**
 --- | --- | --- 
-允許 HTTPS 輸出：連接埠 443 | 允許對應至來源區域儲存體帳戶的範圍 | Storage.<region-name>.
+允許 HTTPS 輸出：連接埠 443 | 允許對應至來源區域儲存體帳戶的範圍 | 儲存體。\<區域名稱 >。
 允許 HTTPS 輸出：連接埠 443 | 允許對應至 Azure Active Directory (Azure AD) 的範圍。<br/><br/> 如果日後新增 Azure AD 位址，您將必須建立新的網路安全性群組 (NSG) 規則。  | AzureActiveDirectory
 允許 HTTPS 輸出：連接埠 443 | 允許存取對應至目標位置的 [Site Recovery 端點](https://aka.ms/site-recovery-public-ips)。 
 
@@ -152,7 +152,7 @@ Site Recovery 會依照下列方式建立快照集：
 
 **規則** |  **詳細資料** | **服務標記**
 --- | --- | --- 
-允許 HTTPS 輸出：連接埠 443 | 允許對應至目標區域儲存體帳戶的範圍。 | Storage.<region-name>.
+允許 HTTPS 輸出：連接埠 443 | 允許對應至目標區域儲存體帳戶的範圍。 | 儲存體。\<區域名稱 >。
 允許 HTTPS 輸出：連接埠 443 | 允許對應至 Azure AD 的範圍。<br/><br/> 如果日後新增 Azure AD 位址，您將必須建立新的 NSG 規則。  | AzureActiveDirectory
 允許 HTTPS 輸出：連接埠 443 | 允許存取對應至來源位置的 [Site Recovery 端點](https://aka.ms/site-recovery-public-ips)。 
 

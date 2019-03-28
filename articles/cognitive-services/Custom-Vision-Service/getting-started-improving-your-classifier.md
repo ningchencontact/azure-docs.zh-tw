@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: f96b4bb75a22e51586820a2e7be08c09cf7b26dd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 13c0346324ae8e3cf3485985a9014f9999230630
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104415"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351434"
 ---
 # <a name="how-to-improve-your-classifier"></a>如何改善分類器
 
@@ -29,7 +29,7 @@ ms.locfileid: "58104415"
 1. 使用新影像來測試預測
 1. 根據預測結果修改現有的定型資料
 
-## <a name="overfitting"></a>過度學習
+## <a name="prevent-overfitting"></a>防止過度配適
 
 有時候，分類器會學習如何根據您影像共同的任意特性進行預測。 例如，如果您建立蘋果與柑橘的分類器，且已使用手拿蘋果與白盤裝柑橘的影像，分類器可能過度重視手與白盤來，而不是蘋果與柑橘。
 

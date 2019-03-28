@@ -1,5 +1,5 @@
 ---
-title: 在 Log Analytics 中收集並分析 Azure 活動記錄 | Microsoft Docs
+title: 收集並分析 Azure 活動記錄在 Log Analytics 工作區 |Microsoft Docs
 description: 您可以使用 Azure 活動記錄解決方案來分析和搜尋所有 Azure 訂用帳戶的 Azure 活動記錄。
 services: log-analytics
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 20246cfa5904c3c89ab9a14d11f2e61883b27344
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 2fd74262d9c1b4a751df5d836f98bf89d31dbdc2
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540229"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540426"
 ---
-# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>在 Log Analytics 中收集並分析 Azure 活動記錄
+# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>收集並分析 Azure 活動記錄中 Azure 監視器中的 Log Analytics 工作區
 
 ![Azure 活動記錄符號](./media/collect-activity-logs/activity-log-analytics.png)
 
@@ -28,7 +28,7 @@ ms.locfileid: "53540229"
 
 您可以使用活動記錄檔來判斷訂用帳戶中的資源上任何寫入作業 (PUT、POST、DELETE) 的「*內容*」、「對象」和「時間」。 您也可以了解作業的狀態和其他相關屬性。 活動記錄不包含讀取 (GET) 作業，或使用傳統部署模型的資源有關的作業。
 
-您將 Azure 活動記錄連接至 Log Analytics 時，可以︰
+當您將 Azure 活動記錄連線到 Log Analytics 工作區時，您可以：
 
 - 使用預先定義檢視分析活動記錄
 - 分析和搜尋多個 Azure 訂用帳戶的活動記錄
@@ -40,17 +40,17 @@ ms.locfileid: "53540229"
 - 找出影響資源的中斷或服務健全狀況問題
 - 使用記錄搜尋使使用者活動、 自動調整作業、授權變更和服務健全狀況與您環境的其他記錄或度量資訊產生關聯
 
-<sup>1</sup>Log Analytics 預設會保留 Azure 活動記錄 90 天，即使您在免費層也是如此。 或者，如果您有少於 90 天的工作區中保留期設定。 如果工作區的保留期超過 90 天，即會根據工作區的保留期間來保留活動記錄。
+<sup>1</sup>根據預設，Azure 監視器會保留您的 Azure 活動記錄檔 Log Analytics 工作區中 90 天，即使您在免費層。 或者，如果您有少於 90 天的工作區中保留期設定。 如果工作區的保留期超過 90 天，即會根據工作區的保留期間來保留活動記錄。
 
-Log Analytics 會免費收集活動記錄，並免費儲存記錄 90 天。 如果儲存記錄超過 90 天，對於儲存超過 90 天的資料將產生資料保留期費用。
+Log Analytics 工作區會收集活動記錄免費的並將記錄檔儲存 90 天免費。 如果儲存記錄超過 90 天，對於儲存超過 90 天的資料將產生資料保留期費用。
 
 您在免費定價層時，活動記錄不適用於每日資料耗用量。
 
 ## <a name="connected-sources"></a>連接的來源
 
-不同於大部分其他 Log Analytics 解決方案，代理程式不會收集活動記錄的資料。 解決方案使用的所有資料直接來自於 Azure。
+不同於大部分其他的 Azure 監視解決方案中，資料不會收集活動記錄檔的代理程式。 解決方案使用的所有資料直接來自於 Azure。
 
-| 連接的來源 | 支援 | 說明 |
+| 連接的來源 | 支援 | 描述 |
 | --- | --- | --- |
 | [Windows 代理程式](../../azure-monitor/platform/agent-windows.md) | 否 | 解決方案不會收集來自 Windows 代理程式的資訊。 |
 | [Linux 代理程式](../../azure-monitor/learn/quick-collect-linux-computer.md) | 否 | 解決方案不會收集來自 Linux 代理程式的資訊。 |
@@ -87,7 +87,7 @@ Log Analytics 會免費收集活動記錄，並免費儲存記錄 90 天。 如�
 
 您已設定您的活動記錄移至解決方案*之後*，活動記錄資料才會出現，因此您在此之前無法檢視資料。
 
-| 刀鋒視窗 | 說明 |
+| 刀鋒視窗 | 描述 |
 | --- | --- |
 | Azure 活動記錄項目 | 對於您選取的日期範圍，顯示最上方 Azure 活動記錄項目記錄總計的長條圖，並顯示前 10 個活動呼叫端的清單。 按一下長條圖即可執行 <code>AzureActivity</code> 的記錄搜尋。 按一下呼叫端項目執行記錄搜尋，傳回該項目的所有活動記錄項目。 |
 | 依狀態列出的活動記錄 | 對於您選取的日期範圍，顯示 Azure 活動記錄狀態的環圈圖。 另外也顯示前 10 筆狀態記錄的清單。 按一下圖表即可執行 <code>AzureActivity &#124; summarize AggregatedValue = count() by ActivityStatus</code> 的記錄搜尋。 按一下狀態項目執行記錄搜尋，傳回該狀態記錄的所有活動記錄項目。 |

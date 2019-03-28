@@ -4,7 +4,7 @@ description: 在本快速入門中，您會了解如何設定 Azure Active Direc
 services: active-directory
 keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/14/2018
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e950450a1ebe710a56ccfa0e8abefc7104602ec5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4de5fdfab0858536cdd0cd81a81ea7cbc012b855
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206169"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518213"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>快速入門：針對 Azure Active Directory 條件式存取偵測到工作階段風險時封鎖存取  
 
@@ -37,7 +37,7 @@ ms.locfileid: "56206169"
 
 
 
-## <a name="prerequisites"></a>先決條件 
+## <a name="prerequisites"></a>必要條件 
 
 若要完成本教學課程中的案例，您需要：
 
@@ -94,11 +94,11 @@ ms.locfileid: "56206169"
  
 4. 在 [條件式存取] 頁面頂端的工具列中，按一下 [新增]。
 
-    ![Name](./media/app-sign-in-risk/108.png)
+    ![名稱](./media/app-sign-in-risk/108.png)
 
 5. 在 [新增] 頁面上的 [名稱] 文字方塊中，鍵入**封鎖中等風險等級的存取**。
 
-    ![Name](./media/app-sign-in-risk/104.png)
+    ![名稱](./media/app-sign-in-risk/104.png)
 
 6. 在 [指派] 區段中，按一下 [使用者和群組]。
 

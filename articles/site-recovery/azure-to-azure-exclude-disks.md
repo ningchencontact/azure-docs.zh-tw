@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: asgang
-ms.openlocfilehash: 978566eb9e0073c60046eca024e09ba63c642180
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: b378f77874b1ebef243836c101fa71a53f4775d1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56458225"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517737"
 ---
 # <a name="exclude-disks-from-replication-of-azure-vms-to-azure-using-azure-powershell"></a>使用 Azure PowerShell 將 Azure VM 複寫的磁碟排除至 Azure
 
@@ -31,7 +31,7 @@ ms.locfileid: "56458225"
 ## <a name="why-exclude-disks-from-replication"></a>為什麼要排除磁碟不要複寫？
 排除磁碟不要複寫往往是因為︰
 
-- 您的虛擬機器已達到[複寫資料變更率的 Azure Site Recovery 限制](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#azure-site-recovery-limits-to-replicate-data-change-rates)
+- 您的虛擬機器已達到[複寫資料變更率的 Azure Site Recovery 限制](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix)
 
 - 在排除的磁碟上變換的資料不重要或不需要複寫。
 

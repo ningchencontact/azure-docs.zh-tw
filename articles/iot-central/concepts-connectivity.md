@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 28aef1c1b5091db75b4a1fb6786ee712b42a1ea2
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: e45960363290879af2e72211f5ef31b825461947
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418766"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522089"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IoT Central 中的裝置連線能力
 
@@ -69,7 +69,7 @@ ms.locfileid: "58418766"
 若要擷取匯入的裝置的連線資訊[從您的 IoT Central 應用程式匯出 CSV 檔案](howto-manage-devices.md#export-devices)。
 
 > [!NOTE]
-> 若要了解如何連接裝置，以及在不含第一個它們在註冊 IoT Central，請參閱而不需要第一個註冊的裝置的連線。
+> 若要深入了解如何連接裝置，以及在不含第一個它們在註冊 IoT Central，請參閱[第一個註冊的裝置不連線](#connect-without-registering-devices)。
 
 ### <a name="set-up-your-devices"></a>設定您的裝置
 

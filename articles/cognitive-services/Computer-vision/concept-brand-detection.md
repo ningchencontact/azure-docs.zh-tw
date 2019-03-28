@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: pafarley
-ms.openlocfilehash: 7bfda764c418258a7bc555697530214240a5f0d3
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: abeca204296bcb3933013f2b7434b8c558f62e50
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734314"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496582"
 ---
 # <a name="brand-detection"></a>品牌偵測
 
@@ -91,7 +91,8 @@ ms.locfileid: "56734314"
 ```
 
 ## <a name="use-the-api"></a>使用 API
-品牌偵測功能是[分析影像](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API 的一部分。 您可以透過原生 SDK 或 REST 呼叫來呼叫此 API。 您取得完整的 JSON 回應時，只需要對於 `"brands"` 一節的內容剖析字串。
+
+品牌偵測功能是[分析影像](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API 的一部分。 您可以透過原生 SDK 或 REST 呼叫來呼叫此 API。 包含`Brands`中**visualFeatures**查詢參數。 然後，當您取得完整的 JSON 回應時，只是將字串剖析內容的`"brands"`一節。
 
 * [快速入門：分析影像 (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
 * [快速入門：分析影像 (REST API)](./quickstarts/csharp-analyze.md)

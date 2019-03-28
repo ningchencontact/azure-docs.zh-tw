@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 4ff99cab168abeb0bbeeb8b29de0ea0285c255b0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 01020a23b102c896bbeb3d8cf455afabfc164917
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457920"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505753"
 ---
 ## <a name="prepare-for-akv-integration"></a>準備進行 AKV 整合
 若要使用 Azure 金鑰保存庫整合以設定 SQL Server VM，有幾項必要條件： 
@@ -29,8 +29,10 @@ ms.locfileid: "57457920"
 
 下列各節說明這些必要條件和您必須收集以在稍後執行 PowerShell Cmdlet 的資訊。
 
+[!INCLUDE [updated-for-az](./updated-for-az.md)]
+
 ### <a id="install"></a> 安裝 Azure PowerShell
-確定您已安裝最新版本的 Azure PowerShell SDK。 如需詳細資訊，請參閱 [如何安裝及設定 Azure PowerShell](/powershell/azureps-cmdlets-docs)。
+確定您已安裝最新版本的 Azure PowerShell SDK。 如需詳細資訊，請參閱 [如何安裝及設定 Azure PowerShell](/powershell/azure/install-az-ps)。
 
 ### <a id="register"></a> 在 Azure Active Directory 中註冊應用程式
 
@@ -49,7 +51,7 @@ ms.locfileid: "57457920"
 
 * 應用程式識別碼和秘密也將用來在 SQL Server 中建立認證。
 
-* 您必須授權讓這個新的用戶端識別碼擁有下列存取權限：**取得**、**包裝金鑰**、**解除包裝金鑰**。 做法是使用 [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) \(英文\) Cmdlet。 如需詳細資訊，請參閱 [Azure Key Vault 概觀](../articles/key-vault/key-vault-overview.md)。
+* 您必須授權讓這個新的用戶端識別碼擁有下列存取權限：**取得**、**包裝金鑰**、**解除包裝金鑰**。 做法是使用 [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) \(英文\) Cmdlet。 如需詳細資訊，請參閱 [Azure Key Vault 概觀](../articles/key-vault/key-vault-overview.md)。
 
 ### <a id="createkeyvault"></a> 建立金鑰保存庫
 若要使用 Azure 金鑰保存庫來儲存您在 VM 中用於加密的金鑰，您需要金鑰保存庫的存取權。 如果您尚未設定您的金鑰保存庫，請依照[開始使用 Azure 金鑰保存庫](../articles/key-vault/key-vault-overview.md)一文中的步驟建立一個金鑰保存庫。 完成這些步驟之前，有一些資訊您需要在此安裝期間收集，稍後當您在 SQL VM 上啟用 Azure 金鑰保存庫整合時需要該資訊。

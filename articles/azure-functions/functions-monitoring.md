@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: e9e47eff3df941b0c1437083dc7440fab4091418
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0224d9ba5a430635e4675c2fb2bf354e7c975f31
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317063"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518723"
 ---
 # <a name="monitor-azure-functions"></a>監視 Azure Functions
 
@@ -24,7 +24,7 @@ ms.locfileid: "58317063"
 
 ![Application Insights 計量瀏覽器](media/functions-monitoring/metrics-explorer.png)
 
-Azure Functions 也有[內建監視功能，不會使用 Application Insights](#monitoring-without-application-insights)。 我們建議使用 Application Insights，因為它提供更多資料和更好的方法來分析資料。
+Azure Functions 也有內建監視功能，不會使用 Application Insights。 我們建議使用 Application Insights，因為它提供更多資料和更好的方法來分析資料。
 
 ## <a name="application-insights-pricing-and-limits"></a>Application Insights 定價和限制
 
@@ -77,7 +77,7 @@ Azure Functions 也有[內建監視功能，不會使用 Application Insights](#
 
 ## <a name="disable-built-in-logging"></a>停用內建記錄
 
-當您啟用 Application Insights 時，停用[使用 Azure 儲存體的內建記錄](#logging-to-storage)。 內建記錄適合用來測試少量的工作負載，但不適用於負載繁重的生產使用。 監控生產環境，我們建議使用 Application Insights。 如果在生產環境中使用內建的記錄，記錄可能會不完整因為 Azure 儲存體上的節流。
+當您啟用 Application Insights 時，停用內建使用 Azure 儲存體的記錄。 內建記錄適合用來測試少量的工作負載，但不適用於負載繁重的生產使用。 監控生產環境，我們建議使用 Application Insights。 如果在生產環境中使用內建的記錄，記錄可能會不完整因為 Azure 儲存體上的節流。
 
 若要停用內建記錄，請刪除 `AzureWebJobsDashboard` 應用程式設定。 如需在 Azure 入口網站中刪除應用程式設定的相關資訊，請參閱[如何管理函式應用程式](functions-how-to-use-azure-function-app-settings.md#settings)的**應用程式設定**。 刪除應用程式設定之前，請確定沒有現有的函式，在相同的函式應用程式中使用的 Azure 儲存體觸發程序或繫結的設定。
 
@@ -125,7 +125,7 @@ Azure Functions 也有[內建監視功能，不會使用 Application Insights](#
 
 ![計量瀏覽器](media/functions-monitoring/metrics-explorer.png)
 
-在 [[失敗](../azure-monitor/app/asp-net-exceptions.md)] 索引標籤上，您可以根據函式失敗和伺服器例外狀況建立圖表和警示。 **作業名稱**是函式名稱。 在 相依性失敗不會顯示除非您實作[自訂遙測](#custom-telemetry-in-c-functions)相依性。
+在 [[失敗](../azure-monitor/app/asp-net-exceptions.md)] 索引標籤上，您可以根據函式失敗和伺服器例外狀況建立圖表和警示。 **作業名稱**是函式名稱。 除非您實作自訂相依性遙測，不會顯示在 相依性失敗。
 
 ![失敗](media/functions-monitoring/failures.png)
 
@@ -423,7 +423,7 @@ logger.LogInformation("partitionKey={partitionKey}, rowKey={rowKey}", partitionK
 logger.LogMetric("TestMetric", 1234);
 ```
 
-此程式碼會於呼叫替代`TrackMetric`利用[適用於.NET 的 Application Insights API](#custom-telemetry-in-c-functions)。
+此程式碼會於呼叫替代`TrackMetric`使用 Application Insights API for.NET。
 
 ## <a name="write-logs-in-javascript-functions"></a>在 JavaScript 函式中寫入記錄
 
@@ -441,7 +441,7 @@ context.log('JavaScript HTTP trigger function processed a request.' + context.in
 context.log.metric("TestMetric", 1234);
 ```
 
-此程式碼會於呼叫替代`trackMetric`利用[Application insights Node.js SDK](#custom-telemetry-in-javascript-functions)。
+此程式碼會於呼叫替代`trackMetric`使用 Application Insights Node.js SDK。
 
 ## <a name="log-custom-telemetry-in-c-functions"></a>登入的自訂遙測C#函式
 
@@ -632,7 +632,7 @@ module.exports = function (context, req) {
 
 ### <a name="dependencies"></a>相依性
 
-此函式對其他服務的相依性不會自動顯示。 您可以撰寫自訂程式碼來顯示相依性。 如需範例，請參閱中的範例程式碼[C#自訂遙測區段](#custom-telemetry-in-c-functions)。 範例程式碼會產生*應用程式對應*在 Application Insights 中看起來像下列映像：
+此函式對其他服務的相依性不會自動顯示。 您可以撰寫自訂程式碼來顯示相依性。 如需範例，請參閱中的範例程式碼[C#自訂遙測區段](#log-custom-telemetry-in-c-functions)。 範例程式碼會產生*應用程式對應*在 Application Insights 中看起來像下列映像：
 
 ![應用程式對應](media/functions-monitoring/app-map.png)
 

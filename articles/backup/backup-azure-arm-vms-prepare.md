@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: raynew
-ms.openlocfilehash: 3133f22a4d9ecd8a0ee4bff9f8b0be9c1f4eb705
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 7fc724f1aff40c6dedff59ce3919496a30b30337
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403658"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520168"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>備份復原服務保存庫中的 Azure VM
 
@@ -220,7 +220,8 @@ ms.locfileid: "58403658"
 - 初始備份會根據您的備份排程執行。
 - 無論 VM 是否在執行，備份服務都會安裝備份擴充功能。
     - 執行中的 VM 提供了取得應用程式一致復原點的絕佳機會。
-    -  不過，即使 VM 關閉，且無法安裝擴充功能，VM 仍會備份。 因此也稱為離線 VM。 在此情況下，您將會損毀一致復原點。 [了解更多]()請注意，Azure 備份不支援自動時鐘調整的 Azure VM 備份的日光節約變更。 請視需要手動修改備份原則。
+    -  不過，即使 VM 關閉，且無法安裝擴充功能，VM 仍會備份。 因此也稱為離線 VM。 在此情況下，您將會損毀一致復原點。
+    請注意，Azure 備份在進行 Azure VM 備份時不支援依據日光節約變更而自動調整時鐘。 請視需要手動修改備份原則。
 
 ## <a name="run-the-initial-backup"></a>執行初始備份
 

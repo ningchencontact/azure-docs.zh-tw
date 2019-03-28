@@ -8,12 +8,12 @@ ms.author: mattwoj
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 4714ea7aa4bf55f7cbd4500977b09505788233dd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9e77dcd96ffa0fbd57aa0ed1b4f857279ca768a7
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895799"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520797"
 ---
 # <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>使用 Azure 空間的錨點來建立有效的錨點 」 體驗
 
@@ -86,7 +86,7 @@ ms.locfileid: "57895799"
 
 在聊天室的案例中，使用者會輸入空格，光知道 沒有的錨點的某處。 使用者使用他們的裝置掃描的空間，並快速找出錨點。
 
-這項體驗通常會要求您建立完善策劃的錨點，如所述[各種不同的檢視觀點](#consider-various-viewing-perspectives)。 如果您在建立錨點時，您就會掃描從許多方面的空間，使用者可以在當使用者試著找出它幾乎任何地方掃描。
+這項體驗通常需要您建立完善策劃的錨點，在各種檢視檢視方塊中所述。 如果您在建立錨點時，您就會掃描從許多方面的空間，使用者可以在當使用者試著找出它幾乎任何地方掃描。
 
 ![圖中的使用者可以列印文件的掃描，請尋找錨點的空間](./media/scan-room.png)
 

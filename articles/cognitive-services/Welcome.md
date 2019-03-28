@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ''
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/19/2019
 ms.author: nitinme
-ms.openlocfilehash: 7f0bfa407705f4c9535e6dddc9a27a4f7130931d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 2464424b537f6187542fb612626cff115711d6e5
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58113825"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336281"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Azure 認知服務是什麼？
 
@@ -93,6 +93,14 @@ Azure 認知服務是用來協助開發人員建置智慧型應用程式，且�
 ## <a name="container-support"></a>容器支援
 
  認知服務在 Azure 雲端或內部部署中提供部署容器。 深入了解[認知服務容器](cognitive-services-container-support.md)。
+
+## <a name="certifications-and-compliance"></a>認證和合規性
+
+認知服務已經被授與 CSA STAR 認證、 FedRAMP 中等和 HIPAA BAA 等的認證。 
+
+您可以[下載](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)您自己的稽核與安全性檢閱的認證。 
+
+若要了解隱私權和資料管理，請前往[信任中心](https://servicetrust.microsoft.com/)。 
 
 ## <a name="support"></a>支援
 

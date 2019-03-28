@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 0c942056e95812dfbbe6e3b1e8963799088273fb
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: f54ff738199d433308a8eaba6a643861c57b4abb
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55981191"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540681"
 ---
 # <a name="resize-a-windows-vm"></a>調整 Windows VM 大小
 
 本文說明如何使用 Azure PowerShell 將 VM 變更為不同的 [VM 大小](sizes.md)。
 
-建立虛擬機器 (VM) 後，您可以透過變更 VM 的大小來放大或縮小 VM。 在某些情況下，您必須先解除配置 VM。 如果新的大小不適用於目前裝載 VM 的硬體叢集上，就會發生此情況。
+建立虛擬機器 (VM) 後，您可以透過變更 VM 的大小來放大或縮小 VM。 在某些情况下，必须先解除分配 VM。 如果新的大小不適用於目前裝載 VM 的硬體叢集上，就會發生此情況。
 
 如果您的 VM 使用進階儲存體，請確實選擇 **s** 版本的大小，以取得進階儲存體支援。 例如，請選擇 Standard_E4**s**_v3，而不是 Standard_E4_v3。
 
@@ -55,7 +55,7 @@ $vm.HardwareProfile.VmSize = "<newVMsize>"
 Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 ```
 
-如果您要的大小未列出，請執行以下命令以解除配置 VM、調整其大小，然後重新啟動 VM。 將 **<newVMsize>** 取代為您要的大小。
+如果您要的大小未列出，請執行以下命令以解除配置 VM、調整其大小，然後重新啟動 VM。 取代 **\<newVMsize >** 與您想要的大小。
    
 ```powershell
 Stop-AzVM -ResourceGroupName $resourceGroup -Name $vmName -Force

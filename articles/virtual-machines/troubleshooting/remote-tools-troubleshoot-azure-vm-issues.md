@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: 2126ed2624d735d88d52ddc1ee97bfb970cc8a74
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: dc27ea0552c6135d01256586b1746219caac17f1
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119763"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539865"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>使用遠端工具對 Azure VM 問題進行疑難排解
 
@@ -39,7 +39,7 @@ psexec \\<computer>-u user -s cmd
 
 >[!Note]
 >* 必須在相同 VNET 中的電腦上執行命令。
->* 可以使用 DIP 或主機名稱取代 <computer>。
+>* DIP 或主機名稱可以用來取代\<電腦 >。
 >* -s 參數可確保使用系統帳戶 (系統管理員權限) 來叫用命令。
 >* PsExec 會使用 TCP 連接埠 135 和 445。 因此，防火牆上必須開啟這兩個連接埠。
 

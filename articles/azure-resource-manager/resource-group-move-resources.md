@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 98236133a90cfddfe2ea476486556318b2c88b10
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: e74b9b5c8347c7348c4da27b80d00daa091b826f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418885"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521086"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -104,6 +104,7 @@ ms.locfileid: "58418885"
 * Power BI - Power BI Embedded 和 Power BI 工作區集合
 * 公用 IP - 可以移動基本 SKU 公用 IP。 不能移動標準 SKU 公用 IP。
 * 復原服務保存庫 - 註冊[預覽版](#recovery-services-limitations)。
+* SAP HANA on Azure
 * 排程器
 * 搜尋 - 您無法在一個作業中移動不同區域中的數個搜尋資源， 而是要在不同作業中移動它們。
 * 服務匯流排
@@ -146,7 +147,6 @@ ms.locfileid: "58418885"
 * 實驗室服務-教室實驗室無法移到新的資源群組或訂用帳戶。 DevTest Labs 可以移至新的資源群組相同的訂用帳戶，但不是會跨訂用帳戶中。
 * 受控應用程式
 * Microsoft Genomics
-* SAP HANA on Azure
 * 安全性
 * Site Recovery
 * StorSimple 裝置管理員

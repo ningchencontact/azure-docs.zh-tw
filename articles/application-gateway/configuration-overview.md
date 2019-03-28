@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 18013050546cc5e204d9cc07a2f499388596164c
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: ca4f9bf00d70f327ff756558e25315762a9a77a8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319443"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519743"
 ---
 # <a name="application-gateway-configuration-overview"></a>應用程式閘道設定概觀
 
@@ -72,7 +72,7 @@ V1 SKU，如果使用者定義路由 (Udr) 都支援應用程式閘道子網路�
 
 仅支持一个公共 IP 地址或一个专用 IP 地址。 您選擇同時建立應用程式閘道的前端 IP。 
 
-- 公用 IP 時，您可以選擇建立新的公用 IP，或使用現有的公用 IP 的應用程式閘道相同的位置。 如果您建立新的公用 IP 位址，就無法稍後變更 IP 位址選取的類型 （static 或 dynamic）。 如需詳細資訊，請參閱[靜態與動態公用 IP](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip) 
+- 公用 IP 時，您可以選擇建立新的公用 IP，或使用現有的公用 IP 的應用程式閘道相同的位置。 如果您建立新的公用 IP 位址，就無法稍後變更 IP 位址選取的類型 （static 或 dynamic）。 如需詳細資訊，請參閱[靜態與動態公用 IP](https://docs.microsoft.com/azure/application-gateway/application-gateway-components) 
 
 - 發生的私人 IP，您可以選擇指定從在其中建立應用程式閘道的子網路的私人 IP 位址。 如果未明確指定，任意的 IP 位址將會自動選取從子網路。 如需詳細資訊，請參閱[建立應用程式閘道與內部負載平衡器 (ILB) 端點。](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm)
 
@@ -110,7 +110,7 @@ V2 Sku，如果基本接聽程式之前處理多站台接聽程式。
 
 - 如果您選擇 HTTP 時，用戶端和應用程式閘道之間的流量都會加密。
 
-- 如果您有興趣，請選擇 HTTPS [Secure Sockets Layer (SSL) 終止](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssl-terminationl)或是[端對端 SSL 加密](https://docs.microsoft.com/azure/application-gateway/ssl-overview)。 如果您選擇 HTTPS 時，用戶端和應用程式閘道之間的流量將會加密，並將應用程式閘道終止 SSL 連線。  如果您想要端對端 SSL 加密，您另外必須設定時選擇 HTTPS 通訊協定*後端 HTTP 設定*。 這可確保從後端應用程式閘道時，重新加密流量。
+- 如果您有興趣，請選擇 HTTPS [Secure Sockets Layer (SSL) 終止](https://docs.microsoft.com/azure/application-gateway/overview)或是[端對端 SSL 加密](https://docs.microsoft.com/azure/application-gateway/ssl-overview)。 如果您選擇 HTTPS 時，用戶端和應用程式閘道之間的流量將會加密，並將應用程式閘道終止 SSL 連線。  如果您想要端對端 SSL 加密，您另外必須設定時選擇 HTTPS 通訊協定*後端 HTTP 設定*。 這可確保從後端應用程式閘道時，重新加密流量。
 
   若要設定 Secure Sockets Layer (SSL) 終止和端對端 SSL 加密，可以加入至接聽程式，以便在啟用 衍生依據 SSL 通訊協定規格的對稱金鑰的應用程式閘道需要憑證。 對稱金鑰則用來加密和解密流量傳送至閘道中。 閘道憑證必須採用「個人資訊交換」(PFX) 格式。 此檔案格式可允許將私密金鑰匯出，而應用程式閘道需要這個匯出的金鑰來執行流量的加密和解密。 
 

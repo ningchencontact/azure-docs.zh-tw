@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: f66101d9847c57c5e078c3484a243e7b38823f53
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d6a4c5b2b6d9818dffdb1c1fee8c4c0df7cad77c
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001797"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539797"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>將 Windows VM 從 Amazon Web Services (AWS) 移至 Azure 虛擬機器
 
@@ -48,7 +48,7 @@ ms.locfileid: "58001797"
 
 將 EC2 執行個體匯出至 Amazon S3 貯體中的 VHD。 請依照 Amazon 文件文章[使用虛擬機器匯入/匯出將執行個體匯出為虛擬機器](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html)中的步驟，並執行 [create-instance-export-task](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) 命令，將 EC2 執行個體匯出到 VHD 檔案。 
 
-已匯出的 VHD 檔案會儲存在您指定的 Amazon S3 貯體中。 匯出 VHD 的基本語法如下，只要以您的資訊取代 <brackets> 中的預留位置文字。
+已匯出的 VHD 檔案會儲存在您指定的 Amazon S3 貯體中。 基本語法如下，匯出的 VHD 是只取代預留位置文字中的\<方括號 > 您的資訊。
 
 ```
 aws ec2 create-instance-export-task --instance-id <instanceID> --target-environment Microsoft \

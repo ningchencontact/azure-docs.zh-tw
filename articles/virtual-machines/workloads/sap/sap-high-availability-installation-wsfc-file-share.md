@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0192b88525d326840283f79ecea7027516ce8c7
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 04490abb8b7f3f4c39e4134a314429e190db5174
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483433"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540783"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>在 Azure 之 SAP ASCS/SCS 執行個體的 Windows 容錯移轉叢集和檔案共用上安裝 SAP NetWeaver 高可用性
 
@@ -278,7 +278,7 @@ New-SmbShare -Name saploc -Path c:\usr\sap -FullAccess "BUILTIN\Administrators",
 
 在 SOFS 叢集上建立下列磁碟區和檔案共用：
 
-* SOFS 叢集共用磁碟區 (CSV) 上的 SAP GLOBALHOST 檔案 C:\ClusterStorage\Volume1\usr\sap\\<SID>\SYS\ 結構
+* SAP GLOBALHOST 檔案`C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS\`結構 SOFS 叢集共用磁碟區 (CSV)
 
 * SAPMNT 檔案共用
 
@@ -347,8 +347,8 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 ## <a name="move-the-sys-folder-to-the-sofs-cluster"></a>將 \SYS\... 資料夾移至 SOFS 叢集
 
 執行以下步驟：
-1. 將 SYS 資料夾 (例如，C:\usr\sap\\<SID>\SYS) 從其中一個 ASCS/SCS 叢集節點複製到 SOFS 叢集 (例如，複製到 C:\ClusterStorage\Volume1\usr\sap\\<SID>\SYS)。
-2. 從兩個 ASCS/SCS 叢集節點中刪除 C:\usr\sap\\<SID>\SYS 資料夾。
+1. 將 SYS 資料夾複製 (例如`C:\usr\sap\<SID>\SYS`) 從一個 ASCS/SCS 叢集節點移至 SOFS 叢集 (例如，若要`C:\ClusterStorage\Volume1\usr\sap\<SID>\SYS`)。
+2. 刪除`C:\usr\sap\<SID>\SYS`從兩個 ASCS/SCS 叢集節點的資料夾。
 
 ## <a name="update-the-cluster-security-setting-on-the-sap-ascsscs-cluster"></a>更新 SAP ASCS/SCS 叢集上的叢集安全性設定
 
@@ -374,7 +374,7 @@ Get-ClusterAccess
 
 ## <a name="update-the-default-and-sap-ascsscs-instance-profile"></a>更新預設和 SAP ASCS/SCS 執行個體設定檔
 
-若要使用新的 SAP ASCS/SCS 虛擬主機名稱和 SAP 全域主機名稱，您必須更新預設和 SAP ASCS/SCS 執行個體設定檔 \<SID>_ASCS/SCS\<Nr>_<Host>。
+若要使用新的 SAP ASCS/SCS 虛擬主機名稱和 SAP 全域主機名稱，您必須更新預設和 SAP ASCS/SCS 執行個體設定檔\<SID >_ASCS/SCS\<Nr >_\<主應用程式 >。
 
 
 | 舊值 |  |
@@ -459,7 +459,7 @@ _**圖 1**:SAPScripts.psm1 輸出_
 
 如需詳細資訊，請參閱 [SAP 附註 1596496 - 如何更新叢集資源監視器的 SAP 資源類型 DLL][1596496]。
 
-## <a name="create-a-sap-sid-cluster-group-network-name-and-ip"></a>建立 SAP <SID> 叢集群組、網路名稱和 IP
+## <a name="create-a-sap-sid-cluster-group-network-name-and-ip"></a>建立 SAP \<SID > 叢集群組、 網路名稱和 IP
 
 若要建立 SAP \<SID > 叢集群組、ASCS/SCS 網路名稱和對應的 IP 位址，請執行下列 PowerShell Cmdlet：
 

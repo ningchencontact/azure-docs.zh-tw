@@ -8,27 +8,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
-ms.openlocfilehash: eeb548d6bd955aedf322a63c861fd23bb37c1167
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.date: 03/20/2019
+ms.openlocfilehash: f2baaf598be8ede69fd6e1fa49a5f5a6b64c24ff
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634621"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521190"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>搭配 MapReduce 與 HDInsight 上的 Apache Hadoop
 
-了解如何在 HDInsight 叢集上執行 MapReduce 工作。 使用下表了解可搭配 HDInsight 使用 MapReduce 的各種方式︰
-
-| **使用此方法**... | **...執行此工作** | ...搭配此 **叢集作業系統** | ...從此 **用戶端作業系統** |
-|:--- |:--- |:--- |:--- |
-| [SSH](apache-hadoop-use-mapreduce-ssh.md) |透過 **SSH** |Linux |Linux、Unix、Mac OS X 或 Windows |
-| [REST](apache-hadoop-use-mapreduce-curl.md) |使用 **REST** (例如使用 cURL) 從遠端提交工作 |Linux 或 Windows |Linux、Unix、Mac OS X 或 Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |使用 **Windows PowerShell** |Linux 或 Windows | Windows |
-
-> [!IMPORTANT]
-> Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
-
+了解如何在 HDInsight 叢集上執行 MapReduce 工作。 
 
 ## <a id="whatis"></a>什麼是 MapReduce
 
@@ -63,7 +53,7 @@ Hadoop 串流會透過 STDIN 與 STDOUT 與對應工具和歸納工具進行通�
 
 * [開發 C# MapReduce 工作](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [開發 Python MapReduce 工作](apache-hadoop-streaming-python.md)
+* [开发 Python MapReduce 作业](apache-hadoop-streaming-python.md)
 
 ## <a id="data"></a>範例資料
 
@@ -159,12 +149,9 @@ HDInsight 可以使用各種方法執行 HiveQL 工作。 請使用下表決定�
 
 | **使用此方法**... | **...執行此工作** | ...搭配此 **叢集作業系統** | ...從此 **用戶端作業系統** |
 |:--- |:--- |:--- |:--- |
-| [SSH](apache-hadoop-use-mapreduce-ssh.md) |透過 **SSH** |Linux |Linux、Unix、Mac OS X 或 Windows |
+| [SSH](apache-hadoop-use-mapreduce-ssh.md) |透過 **SSH** | Linux |Linux、Unix、Mac OS X 或 Windows |
 | [Curl](apache-hadoop-use-mapreduce-curl.md) |使用 **REST** |Linux 或 Windows |Linux、Unix、Mac OS X 或 Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |使用 **Windows PowerShell** |Linux 或 Windows | Windows |
-
-> [!IMPORTANT]  
-> Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a id="nextsteps"></a>接續步驟
 

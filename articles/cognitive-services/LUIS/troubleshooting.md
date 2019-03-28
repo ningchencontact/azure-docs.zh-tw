@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: b9304e151bbce691b752f12aeec8a5376e517a8d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: aed7d4fedd4781eac8c127744e5fe93fb054b99d
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58120766"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369712"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding 常見問題集 (FAQ)
 
@@ -63,6 +63,14 @@ Cortana 預先建置的應用程式已在 2017 年被取代。 它們不再受�
 
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>如何移轉 LUIS 應用程式的擁有權？
 若要將 LUIS 應用程式傳送至不同的 Azure 訂用帳戶，請匯出 LUIS 應用程式，並使用新的帳戶匯入它。 在呼叫 LUIS 應用程式的用戶端應用程式中，更新 LUIS 應用程式識別碼。 新應用程式可能會傳回與原始應用程式略為不同的 LUIS 分數。
+
+### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>範例 [utterance] 而不是我的自訂實體中加上標記的預先建置的實體。 如何修正此警示? 
+
+請參閱[疑難排解預先建置的實體](luis-concept-entity-types.md#troubleshooting-prebuilt-entities)。
+
+### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>我嘗試匯入的應用程式或版本的檔案，但是我收到錯誤，發生了什麼事？ 
+
+深入了解[版本匯入錯誤](luis-how-to-manage-versions.md#import-errors)並[應用程式匯入錯誤](luis-how-to-start-new-app.md#import-errors)。
 
 <a name="luis-collaborating"></a>
 

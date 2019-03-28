@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: 4c395a062b1132710f888cc5a315529db082a805
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e662e61a9df45cf3d57d5698337a26b7b8fc55a3
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850021"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58349734"
 ---
 # <a name="export-or-delete-user-data-in-custom-vision"></a>匯出或刪除自訂視覺中的使用者資料
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 845bf72f52bb83fa597c597871599c826e5749f6
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a840deb2349d952b1ef4faeab4ee860e6b0b99df
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58479966"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540137"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -241,7 +241,7 @@ _**圖 1：** 在兩個叢集中部署 SAP ASCS/SCS 執行個體和 SOFS 部署_
 
 _**圖 2：** 兩個叢集中的 SAP 多重 SID 設定_
 
-安裝其他 **SAP \<SID2>** 系統等同於安裝一個 <SID> 系統。 ASCS/SCS 叢集以及檔案共用 SOFS 叢集上需要另兩個準備步驟。
+安裝其他**SAP \<SID2 >** 系統等同於安裝一個\<SID > 系統。 ASCS/SCS 叢集以及檔案共用 SOFS 叢集上需要另兩個準備步驟。
 
 ## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>準備 SAP 多重 SID 案例的基礎結構
 
@@ -261,7 +261,7 @@ _**圖 2：** 兩個叢集中的 SAP 多重 SID 設定_
 
 ### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>使用現有的 SAP 全域主機準備 SOFS 叢集上的基礎結構
 
-您可以重複使用現有的 \<SAPGlobalHost> 和第一個 SAP <SID1> 系統的 Volume1。
+您可以重複使用現有\<SAPGlobalHost > 並將第一個 sap Volume1 \<SID1 > 系統。
 
 ![圖 3：多重 SID SOFS 與 SAP 全域主機名稱相同][sap-ha-guide-figure-8014]
 
@@ -271,7 +271,7 @@ _**圖 3：** 多重 SID SOFS 與 SAP 全域主機名稱相同_
 >對於第二個 **SAP \<SID2>** 系統，使用的是相同的 Volume1 及相同的 **\<SAPGlobalHost>** 網路名稱。
 >因為您已將 **SAPMNT** 設定為各種不同 SAP 系統的共用名稱，因此若要重複使用 **\<SAPGlobalHost>** 網路名稱，您必須使用相同的 **Volume1**。
 >
-><SID2> 全域主機的檔案路徑為 C:\ClusterStorage\\**Volume1**\usr\sap\<SID2>\SYS\.
+>檔案路徑\<SID2 > 全域主機會是 C:\ClusterStorage\\**Volume1**\usr\sap\<SID2 > \SYS\.
 >
 
 針對 \<SID2> 系統，您必須準備 SAP 全域主機 ..\SYS\.. SOFS 叢集上的資料夾。

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 618414331ab22cff41c7ac02c78f4bef333d0c84
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c64db6b35aa2f1daa4484f137c8505b1415c5a0b
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433445"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521749"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>準備在生產環境中部署 IoT Edge 解決方案
 
@@ -134,7 +134,7 @@ timeToLiveSecs 參數的預設值是 7200 秒，也就是兩小時。
 
 ### <a name="use-tags-to-manage-versions"></a>使用標籤來管理版本
 
-標籤是一種 Docker 概念，可用來區別 Docker 容器版本。 標籤是類似 **1.0** 的尾碼，位於容器存放庫的末端。 例如 **mcr.microsoft.com/azureiotedge-agent:1.0**。 標籤可以變動，而且可以隨時更改並指向另一個容器，因此當您更新模組映像時，您的團隊應同意要遵循的慣例。 
+標籤是您可用來區別版本的 docker 容器的 docker 概念。 標籤是類似 **1.0** 的尾碼，位於容器存放庫的末端。 例如 **mcr.microsoft.com/azureiotedge-agent:1.0**。 標籤可以變動，而且可以隨時更改並指向另一個容器，因此當您更新模組映像時，您的團隊應同意要遵循的慣例。 
 
 標籤也可協助您強制更新 IoT Edge 裝置。 當您將更新版模組推送至容器登錄時，請以遞增方式處理標記。 接著，將新部署和遞增的標籤一併推送到您的裝置。 容器引擎會將遞增的標籤辨識為新版本，並將最新的模組版本向下提取至您的裝置。 
 
@@ -172,7 +172,7 @@ Azure IoT 中樞和 IoT Edge 之間的通訊通道一律會設定為輸出。 �
    | \*.azurecr.io | 443 | 個人和第三方容器登錄 |
    | \*.blob.core.windows.net | 443 | 映像差異的下載 | 
    | \*.azure-devices.net | 5671、8883、443 | IoT 中樞存取 |
-   | \*.docker.io  | 443 | Docker 存取 (選用) |
+   | \*.docker.io  | 443 | Docker 中樞的存取 （選擇性） |
 
 ### <a name="configure-communication-through-a-proxy"></a>設定 Proxy 通訊
 
@@ -186,16 +186,57 @@ Azure IoT 中樞和 IoT Edge 之間的通訊通道一律會設定為輸出。 �
 
 ### <a name="set-up-logs-and-diagnostics"></a>設定記錄檔與診斷
 
-在 Linux 上，IoT Edge 守护程序使用日志作为默认的日志记录驱动程序。 您可以使用命令列工具 `journalctl` 查詢精靈記錄檔。 在 Windows 中，IoT Edge 精靈會使用 PowerShell 診斷。 使用 `Get-WinEvent` 查詢精靈記錄檔。 IoT Edge 模組會使用 JSON 驅動程式進行記錄，此為 Docker 預設值。  
+在 Linux 上，IoT Edge 守护程序使用日志作为默认的日志记录驱动程序。 您可以使用命令列工具 `journalctl` 查詢精靈記錄檔。 在 Windows 中，IoT Edge 精靈會使用 PowerShell 診斷。 使用 `Get-WinEvent` 查詢精靈記錄檔。 IoT Edge 模組使用 JSON 驅動程式進行記錄，這是預設值。  
 
 正在測試 IoT Edge 部署時，通常可以存取您的裝置來擷取記錄檔並進行疑難排解。 在部署情節中，可能不提供該選項。 請考慮要如何收集生產環境中的裝置相關資訊。 其中一個選項是使用能夠收集其他模組資訊，並將資訊傳送至雲端的記錄模組。 其中一個記錄模組範例是 [logspout loganalytics](https://github.com/veyalla/logspout-loganalytics)，您也可以設計自己的專用模組。 
 
-如果您擔心資源有限裝置上的記錄檔變得太大，有幾個選項可以減少記憶體使用量。 
+### <a name="place-limits-on-log-size"></a>記錄檔大小會限制
 
-* 您可以特別限制 Docker 精靈本身中所有 Docker 記錄檔的 大小。 若是 Linux，可以在 `/etc/docker/daemon.json` 設定精靈。 若是 Windows，則是 `C:\ProgramData\docker\confige\daemon.json`。 
-* 如果您想要調整每個容器的記錄檔大小，可以在每個模組的 CreateOptions 中進行。 
-* 通过将日志设置为 Docker 的默认日志记录驱动程序，将 Docker 配置为自动管理日志。 
-* 安裝 Docker 適用的 logrotate 工具，即可定期移除舊的裝置記錄檔。 使用下列檔案規格： 
+根據預設，白鯨容器引擎不會設定容器記錄大小限制。 經過一段時間，這可能會導致裝置填滿記錄檔，而用盡磁碟空間。 請考慮下列選項，以避免這個問題：
+
+**選項：設定適用於容器的所有模組的全域限制**
+
+您可以限制容器引擎記錄檔選項中的所有容器記錄檔的大小。 下列範例會將記錄驅動程式設定為`json-file`（建議選項） 上的檔案數量和大小的限制：
+
+    {
+        "log-driver": "json-file",
+        "log-opts": {
+            "max-size": "10m",
+            "max-file": "3"
+        }
+    }
+
+新增 （或附加） 這項資訊至檔案，名為`daemon.json`，並將它用於您的裝置平台的正確位置。
+
+| 平台 | 位置 |
+| -------- | -------- |
+|  Linux | `/etc/docker/` |
+|  Windows | `C:\ProgramData\iotedge-moby-data\config\` |
+
+Container 引擎必須重新啟動，變更才會生效。
+
+**選項：調整每個容器模組的記錄檔設定**
+
+您可以在執行**createOptions**的每個模組。 例如︰
+
+    "createOptions": {
+        "HostConfig": {
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {
+                    "max-size": "10m",
+                    "max-file": "3"
+                }
+            }
+        }
+    }
+
+
+**在 Linux 系統上的其他選項**
+
+* 設定容器引擎，以將記錄傳送至`systemd`[日誌](https://docs.docker.com/config/containers/logging/journald/)藉由設定`journald`作為預設記錄驅動程式。 
+
+* 定期移除舊的記錄檔從您的裝置，藉由安裝 logrotate 工具。 使用下列檔案規格： 
 
    ```
    /var/lib/docker/containers/*/*-json.log{

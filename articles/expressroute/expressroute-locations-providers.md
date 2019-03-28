@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2019
+ms.date: 03/26/2019
 ms.author: pareshmu
-ms.openlocfilehash: 54fb871f653e74606d54f98c9ca695c33b7b5f37
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7e79cd14bfe74fb75a12fb0c777fe18d52a921ff
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57849137"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518570"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -84,7 +84,7 @@ ms.locfileid: "57849137"
 | **辰內2** | Airtel | Airtel |
 | **芝加哥** | Equinix | Aryaka Networks、 AT At&t NetBond、 Cologix、 Comcast、 Coresite、 Equinix、 InterCloud、 Internet2、 Level 3 Communications、 Megaport、 PacketFabric、 PCCW Global Limited、 衝刺 （sprint)、 Telia 電信業者、 Verizon、 Zayo |
 | **達拉斯** | Equinix | Aryaka Networks、AT&T NetBond、Cologix、Equinix、Internet2、Level 3 Communications、Megaport、Neutrona Networks、Telmex Uninet+、Telia Carrier、Verizon、Zayo|
-| **丹佛** | CoreSite | CoreSite、Megaport |
+| **丹佛** | CoreSite | CoreSite、 Megaport、 Zayo |
 | **都柏林** | Equinix | Colt、eir、Equinix、Interxion、Megaport |
 | **香港** | Equinix | Aryaka Networks、British Telecom、China Telecom Global、Equinix、Megaport、NTT Communications、Orange、PCCW Global Limited、Tata Communications、Verizon |
 | **約翰尼斯堡** | Teraco | Internet Solutions - Cloud Connect、Liquid Telecom、Teraco |
@@ -103,7 +103,7 @@ ms.locfileid: "57849137"
 | **Newport(Wales)** | 新一代資料 | British Telecom、Level 3 Communications、Next Generation Data |
 | **大阪** | Equinix | Equinix、Internet Initiative Japan Inc. - IIJ、NTT Communications、NTT SmartConnect、Softbank |
 | **巴黎** | Interxion | Colt、 Equinix、 Intercloud、 Interxion、 Orange、 Zayo |
-| **伯斯** | NEXTDC | NEXTDC |
+| **伯斯** | NEXTDC | Megaport、 NextDC |
 | **魁北克市** | 4Degrees | Bell Canada、Megaport |
 | **聖安東尼奧** | CyrusOne | CenturyLink Cloud Connect、Megaport |
 | **聖保羅** | Equinix | Aryaka Networks、Ascenty Data Centers、British Telecom、Equinix、Level 3 Communications、Neutrona Networks、Orange、Tata Communications、Telefonica、UOLDIVEOW |

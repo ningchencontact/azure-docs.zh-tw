@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0de6cf9be01fc93a26a782189a2062d19eaf73e8
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: fd937aba302004f23904e4f743c93e69460f9026
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499262"
+ms.locfileid: "58541140"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>設定自動化機器學習實驗
 
@@ -36,8 +36,6 @@ ms.locfileid: "58499262"
 
 ## <a name="select-your-experiment-type"></a>選取您的實驗類型
 在開始實驗之前，您應先決定所要解決的機器學習問題類型。 自動化機器學習支援分類、迴歸和預測等工作類型。
-
-雖然自動化機器學習功能一般可供使用，但**預測仍處於公開預覽狀態。**
 
 在自動化和調整程序期間，自動化機器學習支援下列演算法。 身為使用者，您不需要指定演算法。 在定型期間，DNN 演算法可供使用，而自動化的 ML 就不會建置 DNN 模型。
 

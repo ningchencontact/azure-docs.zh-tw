@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 400583f50e898bfc750a387bf0ee83a3147e5006
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6834ab15f3d46b8b7116a48b0e970f553eb65ba8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57905049"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521809"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights：常見問題集
 
@@ -153,7 +153,7 @@ ms.locfileid: "57905049"
 
 在查閱地理位置屬性之後，用戶端 Web 位址的**所有**八位元資料一律會設定為 0。
 
-## <a name="my-ikey-is-visible-in-my-web-page-source"></a>在我的網頁原始碼中可以看見我的 iKey。 
+## <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>在 我的網頁原始碼中會顯示 我的檢測金鑰。 
 
 * 這在監視解決方案中是常見的做法。
 * 無法使用它來竊取您的資料。
@@ -162,7 +162,7 @@ ms.locfileid: "57905049"
 
 您可以：
 
-* 針對用戶端和伺服器資料使用兩個個別的 iKey (個別的 Application Insights 資源)。 或
+* 使用兩個不同檢測金鑰 （不同的 Application Insights 資源），用戶端和伺服器的資料。 或
 * 撰寫一個在您伺服器中執行的 Proxy，並讓 Web 用戶端透過該 Proxy 傳送資料。
 
 ## <a name="post"></a>如何在診斷搜尋中查看 POST 資料？

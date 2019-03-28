@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 73f962cc8e0d4605c0c5f0bace79553033ebe082
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f615a07352faccc8096752e5ba60360144834907
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110897"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338236"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>使用版本進行編輯和測試而不影響預備或生產應用程式
 
@@ -56,6 +56,10 @@ ms.locfileid: "58110897"
     ![管理區段, 版本頁面, 匯入新版本](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
     匯入版本之後，新版本就會變成使用中的版本。
+
+### <a name="import-errors"></a>匯入錯誤
+
+* Tokenizer 的錯誤：如果您收到**tokenizer 錯誤**匯入時，您嘗試匯入使用不同的版本[tokenizer](luis-language-support.md#custom-tokenizer-versions)比目前使用的應用程式。 若要修正此問題，您會有兩個選擇。 請參閱[tokenizer 版本之間移轉](luis-language-support.md#migrating-between-tokenizer-versions)如需詳細資訊。
 
 <a name = "export-version"></a>
 

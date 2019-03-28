@@ -7,15 +7,15 @@ manager: cgrounlun
 ms.service: cognitive-services
 ms.technology: anomaly-finder
 ms.topic: include
-ms.date: 11/15/2018
+ms.date: 03/21/2019
 ms.author: nitinme
 ms.custom: include file
-ms.openlocfilehash: e93b889ee3ead06c28f9fec5659a61aad2752bac
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
-ms.translationtype: HT
+ms.openlocfilehash: 1dab9b0e23b5fe574f9b4506fdcad510d378bfef
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51716145"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58494843"
 ---
 > [!NOTE]
-> 異常搜尋工具已推出個人預覽版。 若要加入異常搜尋工具個人預覽版，請[與我們連絡](mailto:kenshoteam@microsoft.com)。 在您獲得存取權後，請參閱[異常搜尋工具個人預覽版文件](https://aka.ms/AnomalyFinderPrivatePreview) \(英文\) 以取得詳細資訊。
+> 異常偵測 API （現正處於公開預覽狀態） 取代異常搜尋工具實驗室。 現有的異常搜尋工具實驗室將於 2019 年 4 月 30 日移除。 我們鼓勵您將移轉至異常偵測器，此時間之前。 請參閱[異常偵測器 API 文件](../articles/cognitive-services/anomaly-detector/index.yml)如需詳細資訊。 

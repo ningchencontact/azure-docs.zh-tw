@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.openlocfilehash: 681ee66ca165ece170dd2a2ce2736cf55a44f1f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d599414978c44407acc1a449f853607d6a40c495
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104075"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541004"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>使用 Windows 安全性保護 Windows 上的獨立叢集
 為避免有人未經授權存取 Service Fabric 叢集，您必須保護叢集。 當叢集執行生產工作負載時，安全性尤其重要。 本文說明如何在 *ClusterConfig.JSON* 檔案中使用 Windows 安全性，設定節點對節點和用戶端對節點的安全性。  此程序會對應[建立在 Windows 上執行的獨立叢集](service-fabric-cluster-creation-for-windows-server.md)的設定安全性步驟。 如需有關 Service Fabric 如何使用 Windows 安全性的詳細資訊，請參閱[叢集安全性案例](service-fabric-cluster-security.md)。
@@ -29,8 +29,8 @@ ms.locfileid: "58104075"
 >
 >
 
-## <a name="configure-windows-security-using-gmsa"></a>使用 gMSA 配置 Windows 安全性  
-隨著 [Microsoft.Azure.ServiceFabric.WindowsServer<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) 獨立叢集封裝下載的範例 *ClusterConfig.gMSA.Windows.MultiMachine.JSON* 組態檔，包含可供使用[群組受控服務帳戶 (gMSA)](https://technet.microsoft.com/library/hh831782.aspx) 來設定 Windows 安全性的範本：  
+## <a name="configure-windows-security-using-gmsa"></a>使用 gMSA 設定 Windows 安全性  
+此範例*Microsoft.azure.servicefabric.windowsserver*組態檔，以下載[可供。\<版本 >.zip](https://go.microsoft.com/fwlink/?LinkId=730690)獨立叢集封裝包含供設定 Windows 安全性使用的範本[群組受控服務帳戶 (gMSA)](https://technet.microsoft.com/library/hh831782.aspx):  
 
 ```
 "security": {
@@ -86,7 +86,7 @@ ms.locfileid: "58104075"
 ```
   
 ## <a name="configure-windows-security-using-a-machine-group"></a>使用電腦群組設定 Windows 安全性  
-此模型已被淘汰。 建議使用 gMSA，如上所述。 隨著 [Microsoft.Azure.ServiceFabric.WindowsServer<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) 獨立叢集封裝下載的範例 *ClusterConfig.Windows.MultiMachine.JSON* 組態檔包含可供設定 Windows 安全性的範本。  在“属性”  部分中配置 Windows 安全性： 
+此模型已被淘汰。 建議使用 gMSA，如上所述。 此範例*ClusterConfig.Windows.MultiMachine.JSON*組態檔，以下載[可供。\<版本 >.zip](https://go.microsoft.com/fwlink/?LinkId=730690)獨立叢集封裝包含的範本設定 Windows 安全性。  Windows 安全性於 **Properties** 區段中設定︰ 
 
 ```
 "security": {

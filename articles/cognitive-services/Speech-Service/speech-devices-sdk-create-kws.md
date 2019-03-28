@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 22d270d9bc337b9d7ad776baf5dd35f877c05eae
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b5ace2e741f900dd4ab7ba6518d0956284af35f6
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856422"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498226"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>使用語音服務來建立自訂的喚醒字
 
@@ -47,25 +47,21 @@ ms.locfileid: "55856422"
 
 ## <a name="create-your-wake-word"></a>建立您的喚醒字
 
-您必須先使用「Microsoft 自訂喚醒字產生」服務來建立喚醒字，才能將自訂喚醒字和您的裝置搭配使用。 當您提供喚醒字之後，服務會產生可部署到開發套件上的檔案，以在裝置上啟用您的喚醒字。
+您必須先使用「Microsoft 自訂喚醒字產生」服務來建立喚醒字，才能將自訂喚醒字和您的裝置搭配使用。 之後您提供網路喚醒 word，服務會產生，您將部署到您的開發套件，以啟用網路喚醒 word，您的裝置上的檔案。
 
-1. 移至[自訂語音服務入口網站](https://cris.ai/) \(英文\)。
+1. 移至[客製化語音服務入口網站](https://cris.ai/)。
 
-1. 使用您收到 Azure Active Directory 邀請的電子郵件地址來建立新帳戶。
+    ![自訂語音服務入口網站](media/speech-devices-sdk/wake-word-4.png)
 
-    ![建立新帳戶](media/speech-devices-sdk/wake-word-1.png)
+1. 使用接收到 Azure Active Directory 的邀請電子郵件地址登入。
 
-1. [Custom Wake Word] \(自訂喚醒字\) 頁面並未提供給大眾使用，因此沒有可直接連至該頁面的連結。 自訂語音功能需要 Azure 訂用帳戶，但自訂喚醒字功能並不需要。 如果出現「找不到任何訂用帳戶」 錯誤頁面，請直接將 **"Subscriptions?errorMessage=No%20Subscriptions%20found"** 取代為 URL 中的 "**customkws**"，然後點按 ENTER。 URL 應該是以下其中一個： https://westus.cris.ai/customkws、 https://eastasia.cris.ai/customkws 或 https://northeurope.cris.ai/customkws，這取決於您的地區在哪。
-
-    ![自訂喚醒字頁面為隱藏狀態](media/speech-devices-sdk/wake-word-4.png)
+1. [Custom Wake Word] \(自訂喚醒字\) 頁面並未提供給大眾使用，因此沒有可直接連至該頁面的連結。 自訂語音功能需要 Azure 訂用帳戶，但自訂喚醒 Word 功能不會。 如果出現「找不到任何訂用帳戶」 錯誤頁面，請直接將 **"Subscriptions?errorMessage=No%20Subscriptions%20found"** 取代為 URL 中的 "**customkws**"，然後點按 ENTER。 URL 應該是以下其中一個： https://westus.cris.ai/customkws、 https://eastasia.cris.ai/customkws 或 https://northeurope.cris.ai/customkws，這取決於您的地區在哪。
 
 1. 輸入您選擇的喚醒字，然後選擇 [提交字組]。
 
     ![輸入您的喚醒字](media/speech-devices-sdk/wake-word-5.png)
 
 1. 產生檔案可能需要數分鐘。 您應該會在瀏覽器視窗中看到旋轉的圓圈。 隨後，會出現資訊列要求您下載 .zip 檔案。
-
-    ![接收 .zip 檔案](media/speech-devices-sdk/wake-word-6.png)
 
 1. 將 .zip 檔案儲存到您的電腦。 您需要此檔案來將自訂喚醒字部署到開發套件。 若要部署自訂喚醒字，請遵循[開始使用 Speech Devices SDK](speech-devices-sdk-qsg.md) 中的指示。
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 934d0a73bf6345edd79ae00526a1db0361b3524d
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ae0d3658d9ae8534b1596fa7363495926cd0dfe7
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482770"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520746"
 ---
 # <a name="application-insights-for-aspnet-core"></a>ASP.NET Core 的 Application Insights
 
@@ -409,6 +409,6 @@ CoreCLR 仍然會載入 _Microsoft.AspNetCore.ApplicationInsights.HostingStartup
 
 ## <a name="next-steps"></a>後續步驟
 * [瀏覽使用者流程](../../azure-monitor/app/usage-flows.md)來了解使用者如何瀏覽您的應用程式。
-* [設定快照集集合](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications)，以查看擲回例外狀況時原始程式碼和變數的狀態。
+* [設定快照集集合](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)，以查看擲回例外狀況時原始程式碼和變數的狀態。
 * [使用 API](../../azure-monitor/app/api-custom-events-metrics.md) 可傳送您自己的事件和計量，以取得您的應用程式效能和使用方式的更詳細檢視。
 * 使用[可用性測試](../../azure-monitor/app/monitor-web-app-availability.md)持續從世界各地檢查您的應用程式。

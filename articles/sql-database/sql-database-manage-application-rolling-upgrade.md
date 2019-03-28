@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: ad971ae3157dd17ecd4af662626c986584a27fe2
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 63f301b4618df9764460d0a9a133834fb72e33bb
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329161"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540579"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>使用 SQL Database 主動式異地複寫管理雲端應用程式的輪流升級
 
@@ -103,7 +103,21 @@ ms.locfileid: "56329161"
 準備步驟完成時，預備環境就準備好升級。 下圖說明這些升級步驟：
 
 1. 將生產環境中的主要資料庫設定為唯讀模式 (10)。 這個模式保證生產資料庫 (V1) 在升級期間不會變更，藉此防止 V1 與 V2 資料庫執行個體間的資料分歧。
-2. 使用規劃的終止模式中斷相同區域內次要資料庫的連線 (11)。 此動作會建立獨立但完全同步的生產資料庫複本。 此資料庫將會升級。
+
+```sql
+-- Set the production database to read-only mode
+ALTER DATABASE <Prod_DB>
+SET (ALLOW_CONNECTIONS = NO)
+```
+
+2. 中斷連接次要複本 (11) 來終止異地複寫。 此動作會建立獨立但完全同步的生產資料庫複本。 此資料庫將會升級。 下列範例使用 Transact SQL，但[PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0)也會提供。 
+
+```sql
+-- Disconnect the secondary, terminating geo-replication
+ALTER DATABSE V1
+REMOVE SECONDARY ON SERVER <Partner-Server>
+```
+
 3. 對 `contoso-1-staging.azurewebsites.net`、`contoso-dr-staging.azurewebsites.net` 和預備主要資料庫執行升級指令碼 (12)。 資料庫變更會自動複寫至預備次要資料庫。
 
 ![可供雲端災害復原的 SQL Database 異地複寫組態。](media/sql-database-manage-application-rolling-upgrade/option2-2.png)

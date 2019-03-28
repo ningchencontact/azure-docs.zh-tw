@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: dc84d5850656a0898fba328b652d86f3d8995bef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bb1d6c5bd51fcfe35127c2f6d8dd6a80b727c45f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118369"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517142"
 ---
 # <a name="use-azure-data-box-to-send-data-to-appropriate-azure-storage-blob-tier"></a>使用 Azure 資料箱將資料傳送到適當的 Azure 儲存體 Blob 層
 
@@ -27,7 +27,7 @@ Azure 儲存體可讓三個不同層以最符合成本效益的方式來儲存�
 
 非經常性存取儲存層適合必須儲存最少 30 天且不常存取的資料。 非經常性存取層的儲存成本比經常性存取儲存層的低，但其資料存取費用比經常性存取層的高。
 
-Azure 封存層已離線並提供最低的儲存成本，但存取成本最高。 此層適合要在封存儲存體中保留最少 180 天的資料。 如需每個這些層的計價模式詳細資訊，請移至[儲存層的比較](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#comparison-of-the-storage-tiers)。
+Azure 封存層已離線並提供最低的儲存成本，但存取成本最高。 此層適合要在封存儲存體中保留最少 180 天的資料。 如需每個這些層的計價模式詳細資訊，請移至[儲存層的比較](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers)。
 
 來自資料箱的資料會上傳到與儲存體帳戶相關聯的儲存層。 當您建立儲存體帳戶時，您可以指定存取層是經常性存取的或非經常性存取的。 視您工作負載的存取模式和成本而定，您可以將這此資料從預設層移至另一個儲存層。
 

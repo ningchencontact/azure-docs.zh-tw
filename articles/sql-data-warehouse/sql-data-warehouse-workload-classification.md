@@ -10,19 +10,19 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: bcc09095955a28bde3ed999f23180e08485543fc
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: c27856da0a5131f2c0e8dfd4d929b577a0a68421
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57994010"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520125"
 ---
 # <a name="sql-data-warehouse-workload-classification-preview"></a>SQL 資料倉儲工作負載分類 （預覽）
 
 這篇文章說明 SQL 資料倉儲工作負載分類程序，連入要求中指定的資源類別和重要性。
 
 > [!Note]
-> 使用 SQL 資料倉儲 Gen2 上工作負載分類。
+> 工作負載分類適用於 SQL 資料倉儲 Gen2。
 
 ## <a name="classification"></a>分類
 
@@ -33,6 +33,8 @@ ms.locfileid: "57994010"
 雖然有許多方法可分類資料倉儲工作負載，載入和查詢，也會是最簡單且最常見的分類。 您載入資料的 insert、 update 和 delete 陳述式。  您查詢使用選取的資料。 資料倉儲解決方案通常必須載入活動，例如指派較高的資源類別，使用更多資源的工作負載原則。 不同的工作負載原則可以套用至查詢，例如較低的重要性，相較於載入活動。
 
 您也可以 subclassify 您載入和查詢工作負載。 Subclassification 可讓您進一步控制您的工作負載。 例如，查詢工作負載可以包含 cube 的重新整理、 儀表板查詢或臨機操作查詢。 您可以將每個具有不同的資源類別或重要性設定這些查詢工作負載。 負載也可以從 subclassification 獲益。 大型的轉換可以指派給較大資源類別。 較高的重要性可用來確保索引鍵的銷售資料之前的天氣資料的載入器或社交資料摘要。
+
+並非所有的陳述式會分類為他們不需要資源或需要來影響執行的重要性。  DBCC 命令，並不會歸類 BEGIN、 COMMIT 和 ROLLBACK TRANSACTION 陳述式。
 
 ## <a name="classification-process"></a>分類程序
 
@@ -82,4 +84,4 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## <a name="next-steps"></a>後續步驟
 
-如需有關 SQL 資料倉儲工作負載分類和重要性的詳細資訊，請參閱 <<c0> [ 建立工作負載分類](quickstart-create-a-workload-classifier-tsql.md)並[SQL 資料倉儲重要性](sql-data-warehouse-workload-importance.md)。 請參閱[sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)若要檢視查詢和指派的重要性。
+如需有關 SQL 資料倉儲工作負載分類和重要性的詳細資訊，請參閱 <<c0> [ 建立工作負載分類](quickstart-create-a-workload-classifier-tsql.md)並[SQL 資料倉儲重要性](sql-data-warehouse-workload-importance.md)。 請參閱 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 以檢視查詢和所指派的重要性。

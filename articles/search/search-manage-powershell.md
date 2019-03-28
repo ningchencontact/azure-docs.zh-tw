@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: heidist
-ms.openlocfilehash: 541feee2005428226b3f46927bc0e4bfb53cc98d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7a91ad691089ac816b31ebe1fce202110e580f71
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781709"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520559"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>使用 PowerShell 管理 Azure 搜尋服務
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "57781709"
 > * [列出所有您的訂用帳戶中的搜尋服務](#list-search-services)
 > * [取得特定的搜尋服務的相關資訊](#get-search-service-information)
 > * [建立或刪除服務](#create-or-delete-a-service)
-> * [重新產生系統管理 API 金鑰](#regenerate-admin-api-keys)
+> * 重新產生系統管理 API 金鑰
 > * [建立或刪除查詢 api 金鑰](#create-or-delete-query-keys)
 > * [調整服務以增加或減少複本和分割區](#scale-replicas-and-partitions)
 

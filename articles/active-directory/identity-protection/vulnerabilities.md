@@ -4,7 +4,7 @@ description: Azure Active Directory Identity Protection 偵測到的弱點概觀
 services: active-directory
 keywords: azure active directory identity protection, cloud discovery, 管理應用程式, 安全性, 風險, 風險層級, 弱點, 安全性原則
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
 ms.service: active-directory
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
-ms.author: markvi
-ms.reviewer: nigu
+ms.author: joflore
+ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5968731981e9ba602a27b6b66a53e7b67e8fa7f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6fec9693641ff5918f622ecceee3fb94828b508e
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187316"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517890"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection 偵測到的弱點
 弱點是您的環境中攻擊者可以利用的弱點。 我們建議您處理這些弱點，以改善組織的安全性狀態，並防止攻擊者利用這些弱點。
@@ -61,7 +61,7 @@ Azure Multi-Factor Authentication 會為使用者驗證提供第二層安全性�
 
 如需詳細資訊，請參閱 [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md)。 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
 

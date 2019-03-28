@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1c2f302d7b87426115df716dfba638eee0756f79
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 14aec0bb8f821110579b0447b1fcb146e486cf4d
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480731"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539287"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>如何在 Azure 中變更 SQL Server 虛擬機器的授權模型
 本文說明如何在 Azure 中使用新的 SQL VM 資源提供者 **Microsoft.SqlVirtualMachine**，來變更 SQL Server 虛擬機器的授權模型。 有兩個授權裝載 SQL Server-隨用隨付，虛擬機器 (VM) 的模型和自備授權 (BYOL)。 現在，您可以使用 PowerShell 或 Azure CLI 來修改 SQL Server VM 所使用的授權模型。 
@@ -217,7 +217,7 @@ $SqlVm.Sku= [Microsoft.Azure.Management.ResourceManager.Models.Sku]::new()
 Get-Module -ListAvailable -Name Azure -Refresh
 ```
 
-### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found-the-property-sqlserverlicensetype-cannot-be-found-on-this-object-verify-that-the-property-exists-and-can-be-set"></a>找不到 '< 資源群組 >' 的資源群組下的' Microsoft.SqlVirtualMachine/SqlVirtualMachines/ < 資源群組 >' 的資源。 此物件上找不到屬性 'sqlServerLicenseType'。 請確認屬性存在，且可以設定。
+### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found-the-property-sqlserverlicensetype-cannot-be-found-on-this-object-verify-that-the-property-exists-and-can-be-set"></a>資源 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<資源群組 >' 位於資源群組'\<資源群組 >' 找不到。 此物件上找不到屬性 'sqlServerLicenseType'。 請確認屬性存在，且可以設定。
 與 SQL 資源提供者尚未註冊 SQL Server VM 時，就會發生此錯誤。 您必須註冊資源提供者，與您[訂用帳戶](#register-sql-resource-provider-with-your-subscription)，再將您的 SQL Server VM 向 SQL[資源提供者](#register-sql-server-vm-with-sql-resource-provider)。 
 
 ## <a name="next-steps"></a>後續步驟

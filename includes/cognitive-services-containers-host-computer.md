@@ -3,15 +3,15 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/24/2019
-ms.openlocfilehash: 01ea61878d69c9ffdf74b6e83d88aec67c8ce73f
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.date: 03/22/2019
+ms.openlocfilehash: c02541cc88226e1eb4aea5f7bf2c3f249e0b31fd
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741213"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439493"
 ---
-**主機**是執行 Docker 容器的電腦。 這可以您內部部署的電腦，或是在 Azure 中裝載服務的 Docker，這些服務包括：
+**主機**是執行 docker 容器的 x64 型電腦。 這可以您內部部署的電腦，或是在 Azure 中裝載服務的 Docker，這些服務包括：
 
 * [Azure Kubernetes Service](../articles/aks/index.yml)
 * [Azure 容器執行個體](../articles/container-instances/index.yml)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8005b187f300375b62c254516a61f4993675b0b9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 3b9a35cb5a37aa17a2f7803f3e996d51bede81e0
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403103"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518553"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>使用 Resource Manager 範本與 Azure PowerShell 來部署資源
 
@@ -47,7 +47,7 @@ New-AzDeployment -Location <location> -TemplateFile <path-to-template>
 
 您需要部署範本。 如果您還沒有其中一個，下載並儲存[範例範本](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json)從 Azure 快速入門範本存放庫。 本文所使用的本機檔案名稱是 **c:\MyTemplates\azuredeploy.json**。
 
-除非您使用 [Azure Cloud Shell](#deploy-templates-from-azure-cloud-shell) 來部署範本，否則您需要安裝 Azure PowerShell 並連線至 Azure：
+除非您使用 Azure Cloud shell 來部署範本時，您需要安裝 Azure PowerShell 並連線至 Azure:
 
 - **在本機電腦上安裝 Azure PowerShell Cmdlet。** 如需詳細資訊，請參閱[開始使用 Azure PowerShell](/powershell/azure/get-started-azureps)。
 - **使用 [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)** 來連線至 Azure。 如果您有多個 Azure 訂用帳戶，則可能還需要執行 [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext)。 如需詳細資訊，請參閱[使用多個 Azure 訂用帳戶](/powershell/azure/manage-subscriptions-azureps)。

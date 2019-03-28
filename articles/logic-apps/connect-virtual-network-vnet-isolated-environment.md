@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: 2f84c48092581a313ff7bead7a862221e0fe4eee
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 6be897cc1ae11b8d3032e3ffc669eac05dafe5b2
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400932"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522310"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>透過使用整合服務環境 (ISE) 從 Azure Logic Apps 連線至 Azure 虛擬網路
 
@@ -121,7 +121,7 @@ ms.locfileid: "58400932"
    | **整合服務環境名稱** | 是 | <*environment-name*> | 提供給環境的名稱 |
    | **位置** | 是 | <*Azure-datacenter-region*> | 要用來部署環境的 Azure 資料中心區域 |
    | **額外容量** | 是 | 0、1、2、3 | 若要使用此 ISE 資源的處理單位數目。 若要在建立後增加容量，請參閱[增加容量](#add-capacity)。 |
-   | **虛擬網路** | 是 | <*Azure-virtual-network-name*> | 要插入環境的 Azure 虛擬網路，讓該環境中的邏輯應用程式可以存取虛擬網路。 如果您沒有網路，可以在此建立一個。 <p>**重要**：您「只」可以在建立您的 ISE 時執行此插入作業。 但是，在您能夠建立此關聯性之前，請確定您已經[在虛擬網路中為 Azure Logic Apps 設定角色型存取控制](#vnet-access)。 |
+   | **虛擬網路** | 是 | <*Azure-virtual-network-name*> | 要插入環境的 Azure 虛擬網路，讓該環境中的邏輯應用程式可以存取虛擬網路。 如果您沒有網路，可以在此建立一個。 <p>**重要**：您「只」可以在建立您的 ISE 時執行此插入作業。 不過，您可以建立此關聯性之前，請確定您已經設定角色型存取控制虛擬網路中適用於 Azure Logic Apps。 |
    | **子網路** | 是 | <*subnet-resource-list*> | ISE 需要四個「空的」子網路，以在您的環境中建立資源。 若要建立每個子網路，[請遵循此表格底下的步驟](#create-subnet)。  |
    |||||
 

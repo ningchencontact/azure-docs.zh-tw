@@ -1,24 +1,38 @@
 ---
 title: 升級 QnA Maker 服務 - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: 您可以選擇在初始建立之後升級 QnA Maker 堆疊的個別元件。
+description: 共用或升級，QnA Maker 服務才能管理更好的資源。
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 03/25/2019
 ms.author: tulasim
-ms.openlocfilehash: e37a903112f30917ff5051305bb2144981de1c9d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: cb38fdcfa8cbbfa0b90141c2de2280ff1ef08c3b
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883265"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437982"
 ---
-# <a name="upgrade-your-qna-maker-service"></a>升級 QnA Maker 服務
+# <a name="share-or-upgrade-your-qna-maker-service"></a>共用或升級您的 QnA Maker 服務
+共用或升級，QnA Maker 服務才能管理更好的資源。 
+
 您可以選擇在初始建立之後升級 QnA Maker 堆疊的個別元件。 請在[這裡](https://aka.ms/qnamaker-docs-capacity)參閱相依元件和 SKU 選取項目的詳細資料。
+
+## <a name="share-existing-services-with-qna-maker"></a>QnA Maker 與共用現有的服務
+
+QnA Maker 會建立數個 Azure 資源。 為了減少管理，並受益於成本共用，請使用下表，了解哪些可以和無法共用：
+
+|服務|共用|
+|--|--|
+|認知服務|X|
+|App Service 方案|✔|
+|App Service|X|
+|Application Insights|✔|
+|搜尋服務|✔|
 
 ## <a name="upgrade-qna-maker-management-sku"></a>升級 QnA Maker 管理 SKU
 

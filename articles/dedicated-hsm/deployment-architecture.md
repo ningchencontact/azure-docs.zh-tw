@@ -10,16 +10,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/27/2019
 ms.author: barclayn
-ms.openlocfilehash: 36de8378a7dd22cfa6ba37da921213a18670cc67
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 1e00e1f06f2409c94174a752a799cd4c1b7b23ef
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113340"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539967"
 ---
-# <a name="azure-dedicated-hsm-deployment-architecture"></a>Azure 專用 HSM 部署架構
+# <a name="azure-dedicated-hsm-deployment-architecture"></a>Azure 的專用 HSM 部署架構
 
 Azure 專用硬體安全模組 (HSM) 可在 Azure 中提供密碼編譯金鑰儲存功能。 它符合嚴格的安全性需求。 當客戶符合下列條件時，即可從使用 Azure 專用硬體安全模組 (HSM) 中獲得助益：
 
@@ -37,6 +37,12 @@ Azure 專用硬體安全模組 (HSM) 可在 Azure 中提供密碼編譯金鑰儲
 * 東亞
 * 北歐
 * 西歐
+* 英國南部
+* 英國西部
+* 加拿大中部
+* 加拿大東部
+* 澳洲東部
+* 澳大利亞東南部
 
 其中每個區域都會將硬體安全模組 (HSM) 機架部署在兩個獨立資料中心或至少兩個獨立可用性區域中。 東南亞有三個可用性區域，而美國東部 2 有兩個。 歐洲、亞洲和美國共有八個地區提供專用硬體安全模組 (HSM) 服務。 如需 Azure 區域的詳細資訊，請參閱官方 [Azure 區域資訊](https://azure.microsoft.com/global-infrastructure/regions/)。
 專用硬體安全模組 (HSM) 解決方案的設計因素包括位置/延遲、高可用性，以及對其他分散式應用程式的支援。

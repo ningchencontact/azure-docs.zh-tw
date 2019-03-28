@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/015/2019
 ms.author: radeltch
-ms.openlocfilehash: 862e99b1ab44c097429dcf015b6f8c8ae023e6bc
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 0d2edee8f4df6a2328ec99cc4d570687c4342c8a
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225496"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540987"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>適用於 SUSE Linux Enterprise Server for SAP 應用程式的 Azure NetApp 檔案上的 Azure Vm 上的 SAP NetWeaver 的高可用性
 
@@ -274,7 +274,7 @@ SAP NetWeaver 需要傳輸和設定檔目錄的共用儲存體。  繼續進行 
    Name           : sap-suse-cluster-connector
    Version        : 3.1.0-8.1
    Arch           : noarch
-   Vendor         : SUSE LLC <https://www.suse.com/>
+   Vendor         : SUSE LLC &lt;https://www.suse.com/&gt;
    Support Level  : Level 3
    Installed Size : 45.6 KiB
    Installed      : Yes
@@ -926,7 +926,7 @@ SAP NetWeaver 需要傳輸和設定檔目錄的共用儲存體。  繼續進行 
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl2
    </code></pre>
 
-   執行下列命令為<sapsid>adm 移轉 ASCS 執行個體。
+   以 \<sapsid>adm 身份執行下列命令，來遷移 ASCS 執行個體。
 
    <pre><code>
    anftstsapcl1:qasadm 53> sapcontrol -nr 00 -host anftstsapvh -user <b>qas</b>adm &lt;password&gt; -function HAFailoverToNode ""

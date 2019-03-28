@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 0da4e1a0b20874c4452dd77bf77df0860dec455f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 81401d95b9c40f16a6e593d61b79f5c2d647c0c5
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848068"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518825"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>如何使用 Azure WebJobs SDK 進行事件驅動幕後處理
 
@@ -153,7 +153,7 @@ static void Main(string[] args)
 
 ## <a name="triggers"></a>觸發程序
 
-函数必须是公共方法，并且必须包含一个触发器特性或 [`NoAutomaticTrigger`](#manual-trigger) 特性。
+函数必须是公共方法，并且必须包含一个触发器特性或 [`NoAutomaticTrigger`](#manual-triggers) 特性。
 
 ### <a name="automatic-triggers"></a>自动触发器
 
@@ -995,7 +995,7 @@ private class CustomTelemetryClientFactory : DefaultTelemetryClientFactory
 }
 ```
 
-`SamplingPercentageEstimatorSettings`物件會設定[調適型取樣](https://docs.microsoft.com/azure/application-insights/app-insights-sampling#adaptive-sampling-at-your-web-server)。 這表示，在某些高容量的情況，Application Insights 會傳送遙測資料的子集選取伺服器。
+`SamplingPercentageEstimatorSettings`物件會設定[調適型取樣](https://docs.microsoft.com/azure/application-insights/app-insights-sampling)。 這表示，在某些高容量的情況，Application Insights 會傳送遙測資料的子集選取伺服器。
 
 建立遙測資料處理站之後，您會將它傳入至 Application Insights 記錄提供者：
 

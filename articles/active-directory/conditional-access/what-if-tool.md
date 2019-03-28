@@ -4,7 +4,7 @@ description: 了解環境中的條件式存取原則會產生什麼影響。
 services: active-directory
 keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2018
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ec279b9c3333c365e5e516fb61fc10016fefe80
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6271c7a99e82fb1fff2815167b0149c74212f260
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170117"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521868"
 ---
 # <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取假設工具？
 

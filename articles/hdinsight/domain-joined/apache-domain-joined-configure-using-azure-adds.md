@@ -7,14 +7,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 03/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 96766a12d7e78dacd93432e30d12f313d52ad4c0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2b7364a2bb32f2d38f5cf9ddeddd5e4e1f928e01
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176169"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519786"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>使用 Azure Active Directory Domain Services 設定具有企業安全性套件的 HDInsight 叢集
 
@@ -87,7 +87,7 @@ VNET 對等互連後，請將 HDInsight VNET 設定為使用自訂的 DNS 伺服
 
 ![為對等互連的 VNET 設定自訂 DNS 伺服器](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
-如果您在您的 HDInsight 子網路中使用網路安全性群組 (NSG) 規則，您應該允許輸入和輸出流量[所需的 IP](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip-1)。 
+如果您在您的 HDInsight 子網路中使用網路安全性群組 (NSG) 規則，您應該允許輸入和輸出流量[所需的 IP](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network)。 
 
 **若要測試**您的網路是否已正確設定，請將 Windows VM 加入至 HDInsight VNET/子網路，並 Ping 網域名稱 (它應更會解析為 IP)，接著執行 **ldp.exe** 以存取 Azure AD-DS 網域。 接著，**將此 Windows VM 加入至網域**，以確認用戶端與伺服器之間的所有必要 RPC 呼叫都會成功。 您也可以使用 **nslookup** 來確認對您儲存體帳戶或您可能使用之任何外部 DB (例如，外部 Hive 中繼存放區或 Ranger DB) 的網路存取。
 您應該確認所有[必要連接埠](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) \(英文\) 都已在 AAD-DS 子網路網路安全性群組規則中列為允許清單 (若 AAD-DS 已由 NSG 保護)。 如果此 Windows VM 網域成功加入網域，您就可以繼續進行下一個步驟並建立 ESP 叢集。

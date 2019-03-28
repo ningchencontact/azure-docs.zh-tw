@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: wolfma
-ms.openlocfilehash: 933ee0ce6885960d5b35f67a0a4ee50602fe55c8
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 4be7bbd1b8a5c896fe67b14170bd0cd1d20167a7
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55148048"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505913"
 ---
 ### <a name="neural-voices"></a>神經語音
 
@@ -36,7 +36,7 @@ ms.locfileid: "55148048"
 | 美國東部 2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1 |
 | 東亞 | https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1 |
 | 東南亞 | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1 |
-| 北歐 | https://northeurope.tts.speech.microsoft.com/cognitiveservices/v |
+| 北歐 | https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1 |
 | 西歐 | https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1 |
 
 ### <a name="custom-voices"></a>自訂語音

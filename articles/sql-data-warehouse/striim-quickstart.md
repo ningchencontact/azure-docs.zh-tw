@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 10/12/2018
 ms.author: elbutter
 ms.reviewer: craigg
-ms.openlocfilehash: 1f8c2590ea01e9a819ebdacd6b3774555dded800
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: a835fbd427408afae9ea6ae1b1bc2a84c18b0c34
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250835"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540445"
 ---
 # <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Striim Azure SQL DW Marketplace 供應項目安裝指南
 
@@ -29,7 +29,7 @@ ms.locfileid: "55250835"
 
 ![設定 Striim][configure]
 
-在部署之後，請在 Azure 入口網站中按一下 <VM Name>-masternode，按一下 [連線]，並使用 VM 本機帳戶複製登入資料 
+一旦部署之後，按一下\<VM 名稱 >-masternode 在 Azure 入口網站中，按一下 [連線]，並複製使用 VM 本機帳戶登入 
 
 ![將 Striim 連線至 SQL 資料倉儲][connect]
 
@@ -55,7 +55,7 @@ ms.locfileid: "55250835"
 
 ![Start the Striim cluster][start-striim]
 
-現在，開啟您慣用的瀏覽器並瀏覽至 <DNS Name>:9080
+現在，開啟您慣用的瀏覽器並瀏覽至\<DNS 名稱 >: 9080
 
 ![瀏覽至登入畫面][navigate]
 

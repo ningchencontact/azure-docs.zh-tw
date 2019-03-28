@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: f9cf5e723484196125548b9e6d3956e909e9c9b0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0acb844b8b10ff210985dfcd8c96f15da6669356
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874937"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337471"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>在 LUIS 入口網站中建立新的 LUIS 應用程式
 有好幾種方法可建立 LUIS 應用程式。 您可以在 [LUIS](https://www.luis.ai) 入口網站中建立 LUIS 應用程式，或透過 LUIS 撰寫 [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)。
@@ -56,6 +56,16 @@ ms.locfileid: "55874937"
     > [!NOTE]
     > 建立應用程式之後便無法變更文化特性 (Culture)。 
 
+## <a name="import-an-app-from-file"></a>從檔案匯入應用程式
+
+1. 在 [我的應用程式] 頁面上，選取 [匯入新的應用程式]。
+1. 在快顯對話方塊中，請選取有效的應用程式的 JSON 檔案，然後按**完成**。
+
+### <a name="import-errors"></a>匯入錯誤
+
+可能的錯誤是： 
+
+* 已經存在具有該名稱的應用程式。 重新匯入應用程式，並設定**選擇性名稱**至新的名稱。 
 
 ## <a name="next-steps"></a>後續步驟
 

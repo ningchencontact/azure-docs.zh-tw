@@ -8,14 +8,16 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 6f7772eb7f2c500bbb58c391b1bc4b7a73141699
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: dd5dc53311c8611a4ca4d174401bba797fe5c4b1
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675750"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505734"
 ---
 ### <a name="enable-logging-with-diagnostics-settings"></a>利用診斷設定啟用記錄
+
+[!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，然後瀏覽至 IoT 中樞。
 
@@ -56,9 +58,9 @@ ms.locfileid: "56675750"
 如果您想要使用 PowerShell 開啟診斷設定，請使用下列程式碼：
 
 ```azurepowershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionName <subscription that includes your IoT Hub>
-Set-AzureRmDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
+Connect-AzAccount
+Select-AzSubscription -SubscriptionName <subscription that includes your IoT Hub>
+Set-AzDiagnosticSetting -ResourceId <your resource Id> -ServiceBusRuleId <your service bus rule Id> -Enabled $true
 ```
 
 新的設定大約會在 10 分鐘內生效。 之後，記錄就會顯示在 [診斷設定] 刀鋒視窗上已設定的封存目標中。 如需有關設定診斷功能的詳細資訊，請參閱[收集並取用來自 Azure 資源的記錄資料](../articles/azure-monitor/platform/diagnostic-logs-overview.md)。

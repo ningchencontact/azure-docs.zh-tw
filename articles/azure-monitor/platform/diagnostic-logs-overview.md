@@ -1,19 +1,19 @@
 ---
 title: Azure 診斷記錄檔概觀
 description: 認識 Azure 診斷記錄，並了解如何利用它們來了解 Azure 資源內發生的事件。
-author: johnkemnetz
+author: nkiest
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/07/2018
-ms.author: johnkem
+ms.date: 03/26/2019
+ms.author: nikiest
 ms.subservice: logs
-ms.openlocfilehash: 07ea18a767044f0f74249859bb46d8285d52d7ab
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 890f2224a4053ec8cad65b44b85eab0e31be3b64
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310177"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519386"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>收集並取用來自 Azure 資源的記錄資料
 
@@ -49,11 +49,6 @@ ms.locfileid: "57310177"
 > [!NOTE]
 >  您目前無法將網路流程記錄封存到位在安全虛擬網路後面的儲存體帳戶。
 
-> [!WARNING]
-> 2018 年 11 月 1 日起，儲存體帳戶中的記錄資料格式將變更為 JSON 資料行。 [請參閱本文以了解影響的描述，以及如何更新您的工具，來處理新的格式。](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
->
-> 
-
 ## <a name="diagnostic-settings"></a>診斷設定
 
 資源診斷記錄是使用資源診斷設定進行設定的。 租用戶診斷記錄是使用租用戶診斷設定進行設定的。 服務的**診斷設定**會控制：
@@ -61,7 +56,7 @@ ms.locfileid: "57310177"
 * 診斷記錄和計量的傳送位置 (儲存體帳戶、事件中樞和/或 Azure 監視器)。
 * 傳送何種記錄類別，以及是否也會傳送計量資料。
 * 每個記錄類別應該在儲存體帳戶中保留多久
-    - 保留期為 0 天表示會永遠保留記錄。 否則，此值可以是 1 到 2147483647 之間的任意天數。
+    - 保留期為 0 天表示會永遠保留記錄。 否則，值可以是任意數目的 1 到 365 之間的天數。
     - 如果已設定保留原則，但將儲存體帳戶的記錄儲存停用 (例如，若只選取事件中樞或 Log Analytics 選項)，保留原則不會有任何作用。
     - 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄會被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄檔會被刪除。 刪除程序會從 UTC 午夜開始，但是請注意，可能需要長達 24 小時的時間，記錄才會從您的儲存體帳戶中刪除。
 

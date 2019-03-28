@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 121226ad9ca1ea0c29dd192ed69797b37245da46
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: a4f1b26a20da3b22561538f7814105b356c4148a
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213920"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519131"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL Database 安全性功能的概觀
 
@@ -100,12 +100,16 @@ SQL Database 稽核會將資料庫事件記錄到客戶自有 Azure 儲存體帳
 
 SQL Database 可藉由使用[傳輸層安全性](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server)將移動中的資料加密來保護客戶資料。
 
+Sql Server 會強制執行加密 (SSL/TLS) 在所有時間的所有連線。 這可確保所有資料都會都加密 」 在 「 傳輸 」，用戶端與伺服器的設定無論之間**Encrypt**或是**TrustServerCertificate**連接字串中。
+
+最佳做法，建議在您的應用程式連接字串會指定加密的連接並_**不**_ 信任伺服器憑證。 這會強制您的應用程式，來確認伺服器憑證，因此可避免應用程式遭受攔截式中間類型的攻擊。
+
+例如，使用 ADO.NET 驅動程式時這是透過**Encrypt = True**並**TrustServerCertificate = False**。如果您從 Azure 入口網站取得連接字串，它會有正確的設定。
+
 > [!IMPORTANT]
-> Azure SQL Database 一律會針對所有連線強制執行加密 (SSL/TLS)，以確保所有資料在資料庫與用戶端之間「傳輸中」都會加密。 不論連接字串中 **Encrypt** 或 **TrustServerCertificate** 的設定為何，都將發生此情況。
+> 請注意，有些非 Microsoft 驅動程式可能不預設使用 TLS 或依賴較舊版本的 TLS (< 2.0) 才能運作。 在此情況下 SQL Server 仍可讓您連接到您的資料庫。 不過，我們建議您評估安全性風險，特別是當您儲存的敏感性資料時，才允許這類驅動程式和應用程式連接到 SQL Database。 
 >
-> 在您的應用程式連接字串中，請確定您會指定加密的連線，而且「不會」信任伺服器憑證 (對於 ADO.NET 驅動程式，這是 **Encrypt=True** 和 **TrustServerCertificate=False**)。 這有助於藉由強制您的應用程式驗證伺服器並強制執行加密，來防止該應用程式受到「中間人」攻擊。 如果您從 Azure 入口網站取得連接字串，則它將具有正確的設定。
->
-> 如需 TLS 和連線能力的相關資訊，請參閱 [TLS 考量](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
+> 如需 TLS 和連線能力的進一步資訊，請參閱[TLS 考量](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
 ### <a name="transparent-data-encryption-encryption-at-rest"></a>透明資料加密 (待用資料加密)
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 3/19/2019
+ms.date: 3/22/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 665e6651db37cc04693d68bd2de2ede6e595eab4
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: b7e60b4fbdf076c50a7d9a29092de9ab1c32b210
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293385"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520644"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>安裝及執行辨識文字容器
 
@@ -43,7 +43,7 @@ ms.locfileid: "58293385"
 
 ### <a name="the-host-computer"></a>主機電腦
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
 
 ### <a name="container-requirements-and-recommendations"></a>容器的需求和建議
@@ -133,6 +133,11 @@ ApiKey={BILLING_KEY}
 
 您可以使用 `POST /vision/v2.0/recognizeTextDirect` 作業同步地辨識影像中的印刷文字。 因為此作業是同步的，所以此作業的要求本文和 `POST /vision/v2.0/recognizeText` 作業的相同，但此作業的回應主體本文和 `GET /vision/v2.0/textOperations/*{id}*` 作業傳回的相同。
 
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
+
 ## <a name="stop-the-container"></a>停止容器
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
@@ -141,9 +146,6 @@ ApiKey={BILLING_KEY}
 
 如果您在啟用輸出[掛接](./computer-vision-resource-container-config.md#mount-settings)和記錄的情況下執行容器，容器將會產生記錄檔，有助於排解在啟動或執行容器時所發生的問題。 
 
-## <a name="containers-api-documentation"></a>容器的 API 文件
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>計費
 

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5fcd7f05aeb294441b16bab0aeb18ef5d0bf5c28
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 1e1bc92c684bf6ddbb7dc4ff0f882ad61ddeb27e
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749024"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540477"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>還原 Azure SQL Database 或容錯移轉到次要資料庫
 
@@ -32,6 +32,13 @@ Azure SQL Database 提供下列功能，以從中斷復原：
 
 > [!NOTE]
 > 如果您使用區域備援進階或業務關鍵資料庫或集區，系統就會自動執行復原程序，但這份資料的其餘部分不適用。
+
+> [!NOTE]
+> 主要和次要資料庫必須有相同的服務層。 也強烈建議使用的相同計算大小 （Dtu 或 Vcore） 做為主要建立次要資料庫。 如需詳細資訊，請參閱 <<c0> [ 升級或降級為主要資料庫](sql-database-active-geo-replication.md#upgrading-or-downgrading-a-primary-database)。
+
+> [!NOTE]
+> 您可以使用一或多個容錯移轉群組來管理多個資料庫的容錯移轉。
+> 如果您在容錯移轉群組中新增現有的異地複寫關聯性，請確定異地次要資料庫所設定的服務層與計算大小和主要資料庫相同。 如需詳細資訊，請參閱 <<c0> [ 使用自動容錯移轉群組來啟用多個資料庫的透明且協調容錯移轉](sql-database-auto-failover-group.md)。
 
 ## <a name="prepare-for-the-event-of-an-outage"></a>準備中斷事件
 
@@ -73,6 +80,7 @@ Azure 團隊會努力儘快還原服務可用性，但需視根本原因而言�
 
 - [使用 Azure 入口網站容錯移轉至異地複寫的次要伺服器](sql-database-geo-replication-portal.md)
 - [使用 PowerShell 容錯移轉至次要資料庫](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+- [容錯移轉至次要伺服器，使用 TRANSACT-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
 
 ## <a name="recover-using-geo-restore"></a>使用異地還原進行復原
 
@@ -111,6 +119,6 @@ Azure 團隊會努力儘快還原服務可用性，但需視根本原因而言�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要了解 Azure SQL Database 自動備份，請參閱 [SQL Database 自動備份](sql-database-automated-backups.md)
+- 若要了解 Azure SQL 数据库自动备份的信息，请参阅 [SQL 数据库自动备份](sql-database-automated-backups.md)
 - 若要了解商務持續性設計及復原案例，請參閱 [持續性案例](sql-database-business-continuity.md)
 - 若要了解如何使用自動備份進行復原，請參閱 [從服務起始的備份還原資料庫](sql-database-recovery-using-backups.md)

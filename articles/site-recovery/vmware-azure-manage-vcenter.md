@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: ramamill
-ms.openlocfilehash: efbcc0143570b3d379cf392c170f599fcc0176d4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9694c682f171ab715812b05fed2064c9bbcd36b3
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855124"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518077"
 ---
 # <a name="manage-vmware-vcenter-server"></a>管理 VMware vCenter 伺服器
 
@@ -108,7 +108,7 @@ Site Recovery 需要存取 VMware，才能讓處理序伺服器自動探索虛�
 4. 現在，保護已移轉的虛擬機器，透過[啟用保護時，選取新的 vCenter](vmware-azure-tutorial.md#enable-replication)。
 
 > [!TIP]
-> 如果要移轉的虛擬機器數目**較高**更新使用所提供的指示新的 vCenter IP 位址的虛擬機器保留在舊的 vCenter，數目數目[這裡](#modify-vcenter-ip-address-port). 會保留在舊的 vCenter 上的幾個虛擬機器[停用複寫](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure);[將新的 vCenter 詳細資料新增至組態伺服器](#add-vmware-server-to-the-vault)，並啟動**[啟用保護](vmware-azure-tutorial.md#enable-replication)**。
+> 如果要移轉的虛擬機器數目**更高版本**在舊的 vCenter，保留的虛擬機器數目，更新新的 vCenter，使用此處提供的指示的 IP 位址。 會保留在舊的 vCenter 上的幾個虛擬機器[停用複寫](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure);[將新的 vCenter 詳細資料新增至組態伺服器](#add-vmware-server-to-the-vault)，並啟動**[啟用保護](vmware-azure-tutorial.md#enable-replication)**。
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 

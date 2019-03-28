@@ -5,17 +5,17 @@ services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: b208ab10568740e3e1bcadd5f072f2080a573cef
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: ae9f2cbdd659b7eaf3558717be19f324e803d906
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369474"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522327"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Azure SQL 資料倉儲版本資訊
 
@@ -28,7 +28,7 @@ ms.locfileid: "58369474"
 |**工作負載重要性現在可供預覽**|工作負載的重要性會讓資料工程師能夠使用重要性來分類要求。 以高重要性的要求保證快速地存取資源，進而符合 Sla。  工作負載重要性可讓高商業值工作，以符合 Sla，在共用環境中使用較少的資源。<br/><br/>如需有關工作負載重要性的詳細資訊，請參閱[分類](sql-data-warehouse-workload-classification.md)並[重要性](sql-data-warehouse-workload-importance.md)文件中的概觀文章。 請參閱[建立工作負載分類](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest)以及文件。<br/><br/>請參閱中的作用中的工作負載重要性以下影片：<br/>[工作負載管理概念](  https://www.youtube.com/embed/QcCRBAhoXpM)<br/>[工作負載管理案例](https://www.youtube.com/embed/_2rLMljOjw8)|
 |**GROUP BY 彙總套件**|彙總套件現在是支援的 GROUP BY 選項在 Azure 資料倉儲中。   GROUP BY ROLLUP 會建立每個資料行運算式組合的群組。 GROUP BY 也 「 積存 」 結果到小計和總計。 若要這樣做，它會移動由右至左，減少對其建立群組和從右向的資料行運算式數目。  資料行順序會影響 ROLLUP 的輸出，而且可能會影響結果集中的資料列數目。<br/><br/>如需有關群組的彙總的詳細資訊，請參閱本文中， [GROUP BY & Amp;#40;transact-SQL&AMP;#41;](/sql/t-sql/queries/select-group-by-transact-sql?view=azure-sqldw-latest)
 |**改善的精確度，已使用的 DWU 和 CPU 入口網站計量**|SQL 資料倉儲大幅增強 Azure 入口網站計量的精確度。  此版本包含的修正程式的 CPU 和 Dwu 計量定義，以正確反映所有計算節點的 您的工作負載。|
-|**其他的 T-SQL 支援**|SQL 資料倉儲的 T-SQL 語言介面區已經擴充成包含的支援：<br/>&bull; &nbsp; [FORMAT (Transact-SQL)](/sql/t-sql/functions/format-transact-sql)<br/>&bull; &nbsp;    [STRING_ESCAPE (Transact-SQL)](/sql/t-sql/functions/string-escape-transact-sql)<br/>&bull; &nbsp; [STRING_SPLIT (Transact-SQL)](/sql/t-sql/functions/string-split-transact-sql)<br/>&bull; &nbsp; [TRANSLATE (Transact-SQL)](/sql/t-sql/functions/translate-transact-sql)
+|**其他的 T-SQL 支援**|SQL 資料倉儲的 T-SQL 語言介面區已經擴充成包含的支援：<br/>&bull; &nbsp; [FORMAT (Transact-SQL)](/sql/t-sql/functions/format-transact-sql)<br/>&bull; &nbsp;    [STRING_ESCAPE (Transact-SQL)](/sql/t-sql/functions/string-escape-transact-sql)<br/>&bull; &nbsp; [STRING_SPLIT (Transact-SQL)](/sql/t-sql/functions/string-split-transact-sql)<br/>&bull; &nbsp; [TRANSLATE (Transact-SQL)](/sql/t-sql/functions/translate-transact-sql)<br/>&bull; &nbsp; [TRIM (Transact-SQL)](/sql/t-sql/functions/trim-transact-sql)
 | | |
 
 ### <a name="documentation-improvements"></a>文件改進

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: a3fd89ee67b495d3ca1173faa9381ceba117ef63
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 230c68b0b1de1ef452de51b7b0661a3c3786ea76
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259307"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521698"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>備份及還原與 PowerShell 的 Azure Vm
 
@@ -24,7 +24,7 @@ ms.locfileid: "58259307"
 > * 建立復原服務保存庫並設定保存庫內容。
 > * 定義備份原則
 > * 套用備份原則以保護多部虛擬機器
-> * 觸發程序之前受保護的虛擬機器的隨選備份作業可以備份 （或保護） 虛擬機器，您必須先完成[必要條件](backup-azure-arm-vms-prepare.md)備妥環境來保護您的 Vm。 
+> * 觸發受保護虛擬機器的隨選備份作業。在備份 (或保護) 虛擬機器之前，您必須先完成[先決條件](backup-azure-arm-vms-prepare.md)來備妥保護 VM 的環境。 
 
 
 
@@ -420,7 +420,7 @@ $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob
    $templateBlobURI = $properties["Template Blob Uri"]
 ```
 
-僅部署範本來建立新的虛擬機器，如[此處](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy#deploy-a-template-from-an-external-source)所述。
+僅部署範本來建立新的虛擬機器，如[此處](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)所述。
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobURI -storageAccountType Standard_GRS

@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: acf338afdf33408637bf7cca79d28f5e90888eba
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 6400e3d3fa7f0317ff927f2931e705365a450770
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224434"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520661"
 ---
 # <a name="what-is-speech-to-text"></a>什麼是語音轉換文字？
 
 語音轉換文字從 Azure 語音服務，也就是語音轉換文字，啟用即時轉譯的音訊資料流為可使用您的應用程式、 工具或裝置，文字會顯示，，並採取動作做為命令的輸入。 這項服務具備相同，Microsoft 會使用 Cortana 和 Office 產品的完美搭配的轉譯和文字轉換語音辨識技術。  如需可用的語音轉換文字語言的完整清單，請參閱 <<c0> [ 支援的語言](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#speech-to-text)。
 
-根據預設，語音轉換文字服務會使用通用的語言模型。 使用 Microsoft 所擁有的資料定型此模型，而且是已部署的雲端。 它是適合交談和語音輸入案例。 如果您使用語音轉換文字辨識及獨特的環境中的文字記錄，您可以建立並定型自訂的原音、 語言和發音模型位址環境的噪音或業界特定詞彙。 
+根據預設，語音轉換文字服務會使用通用的語言模型。 使用 Microsoft 所擁有的資料定型此模型，而且是已部署的雲端。 它是適合交談和語音輸入案例。 如果您在獨特的環境中使用語音轉文字進行辨識及轉譯，您可以建立並定型自訂原音、語言和發音模型，以處理環境噪音或業界專有詞彙。 
 
-您可以輕鬆地擷取從麥克風的音訊、 讀取從資料流中，或從儲存體與 Speech SDK 和 REST Api 存取音訊檔案。 語音 SDK 支援語音辨識 WAV/PCM 16 位元、 16 kHz、 單一通道音訊。 使用可支援額外的音訊格式[語音轉換文字 REST 端點](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-formats)或[batch 轉譯服務](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats)。
+您可以輕鬆地擷取從麥克風的音訊、 讀取從資料流中，或從儲存體與 Speech SDK 和 REST Api 存取音訊檔案。 語音 SDK 支援語音辨識 WAV/PCM 16 位元、 16 kHz、 單一通道音訊。 使用可支援額外的音訊格式[語音轉換文字 REST 端點](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)或[batch 轉譯服務](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats)。
 
 ## <a name="core-features"></a>核心功能
 
@@ -47,7 +47,7 @@ ms.locfileid: "58224434"
 
 ## <a name="get-started-with-speech-to-text"></a>開始使用語音轉換文字
 
-我們提供最受歡迎的程式設計語言，設計目的是要您在 10 分鐘內執行程式碼的每個快速入門。 此資料表包括依語言的語音 SDK 快速入門的完整清單。
+我們以最受歡迎的程式設計語言提供快速入門，目的是讓您能在 10 分鐘內執行程式碼。 此資料表包括依語言的語音 SDK 快速入門的完整清單。
 
 | 快速入門 | 平台 | API 參考資料 |
 |------------|----------|---------------|
@@ -67,14 +67,14 @@ ms.locfileid: "58224434"
 
 ## <a name="tutorials-and-sample-code"></a>教學課程和範例程式碼
 
-您已經有機會使用語音服務後，請嘗試我們的教學課程將教導您如何辨識意圖從語音使用語音 SDK 和 LUIS。
+當您有機會使用語音服務後，請嘗試使用我們的教學課程，其中會教導您如何使用語音 SDK 和 LUIS 從語音辨識意圖。
 
-* [教學課程：識別從語音 SDK 與 LUIS，語音意圖C#](how-to-recognize-intents-from-speech-csharp.md)
+* [教學課程：使用語音 SDK 和 LUIS 從語音辨識意圖 (C#)](how-to-recognize-intents-from-speech-csharp.md)
 
-使用 GitHub 上適用於語音 SDK 的範例程式碼。 這些範例涵蓋常見的案例，例如讀取音訊檔案或資料流，連續和一次性辨識及使用自訂的模型。
+使用 GitHub 上適用於語音 SDK 的範例程式碼。 這些範例包含常見案例，例如：從檔案或資料流讀取音訊、連續辨識、一次性辨識及使用自訂模型。
 
 * [語音轉換文字範例 (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
-* [Batch 轉譯範例 (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
+* [批次轉譯範例 (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 
 ## <a name="customization"></a>自訂
 
@@ -84,7 +84,7 @@ ms.locfileid: "58224434"
 |-------|-------------|
 | [原音模型](how-to-customize-acoustic-models.md) | 建立自訂的原音模型是有幫助，如果您的應用程式、 工具或裝置中使用特定的環境中，例如在車上或特定的記錄條件的處理站。 例如，帶有口音的語音、特定背景雜音或使用特定麥克風來錄音。 |
 | [語言模型](how-to-customize-language-model.md) | 建立自訂語言模型，以改善的業界特定詞彙及文法檢查，例如醫療術語中或 IT 專業術語轉譯項目。 |
-| [發音模型](how-to-customize-pronunciation.md) | 透過自訂發音模型，您可以定義的注音標示的表單和顯示的單字或詞彙。 它可用於處理自訂的字詞，如產品名稱或縮略字。 您只需要有發音檔 - 簡單的 .txt 檔。 |
+| [發音模型](how-to-customize-pronunciation.md) | 使用自訂發音模型，您可以定義語音形式和顯示字組或字詞。 它可用於處理自訂的字詞，如產品名稱或縮略字。 您只需要有發音檔 - 簡單的 .txt 檔。 |
 
 > [!NOTE]
 > 語言/地區而異的自訂選項 (請參閱[支援的語言](supported-languages.md))。
@@ -103,11 +103,11 @@ ms.locfileid: "58224434"
 
 * [語音 SDK](speech-sdk-reference.md)
 * [語音裝置 SDK](speech-devices-sdk.md)
-* [REST API：語音轉換文字](rest-speech-to-text.md)
-* [REST API：Text-to-speech](rest-text-to-speech.md)
-* [REST API：Batch 轉譯和自訂](https://westus.cris.ai/swagger/ui/index)
+* [REST API：語音轉文字](rest-speech-to-text.md)
+* [REST API：文字轉語音](rest-text-to-speech.md)
+* [REST API：批次轉譯與自訂](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>後續步驟
 
-* [免費取得語音服務訂用帳戶金鑰](get-started.md)
+* [免費取得語音服務的訂用帳戶金鑰](get-started.md)
 * [取得語音 SDK](speech-sdk.md)

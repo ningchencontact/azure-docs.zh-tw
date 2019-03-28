@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 4e36e96947e6a8595230023065eb9f44a5a1f3d2
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: efb82c57a5620ef3eace8b39f6f27f2286202f84
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371310"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521834"
 ---
 # <a name="mapping-data-flow-datasets"></a>對應資料流程資料集
 
@@ -49,9 +49,27 @@ ms.locfileid: "58371310"
 
 ![來源轉換結構描述](media/data-flow/dataset2.png "SQL 結構描述")
 
-## <a name="delimited-text-dataset"></a>分隔的文字資料集
+## <a name="choose-your-type-of-data-first"></a>請先選擇您的資料類型
 
-分隔的文字資料集，在中，您將設定的分隔符號來處理任一單一分隔符號 ('\t' TSV'，' 的 CSV，' |'...)，或使用多個字元的分隔符號。 將標頭資料列切換設定，然後進入 「 來源 」 轉換，來自動偵測資料類型。
+### <a name="delimited-text"></a>分隔符號文字
+
+分隔的文字資料集，在中，您將設定的分隔符號來處理任一單一分隔符號 ('\t' TSV'，' 的 CSV，' |'...)，或使用多個字元的分隔符號。 將標頭資料列切換設定，然後進入 「 來源 」 轉換，來自動偵測資料類型。 如果您使用分隔的文字資料集，以將資料置於接收器中，只要選取的目標資料夾。 在 [接收設定] 中，您可以定義的輸出檔的名稱。
+
+### <a name="parquet"></a>Parquet
+
+您可以使用 Parquet 作為 ADF 資料流中的慣用暫存資料集類型。 Parquet 會儲存豐富的中繼資料以及資料的結構描述。
+
+### <a name="database-types"></a>資料庫類型
+
+您可以選取 Azure SQL DB 或 Azure SQL DW。
+
+其他 ADF 資料集類型，使用暫存資料的 「 複製活動。 範本資源庫，可協助您建立這種模式中沒有的 ADF 範本。
+
+![複製預備](media/data-flow/templatedf.png "複製預備環境")
+
+## <a name="choose-your-connection-type"></a>選擇您的連線類型
+
+如果您使用 Parquet 或分隔的文字資料集，您就可以為您的資料，然後選取位置：ADLS 或 Blob。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -4,12 +4,12 @@ ms.author: robin.shahan
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: b7d043b15cad23c9c9eca60c9a24096fee12e14a
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c30f31903e59c505d778c95c58adbb48af0db96f
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319768"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505887"
 ---
 ## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>准备对 Azure Resource Manager 请求进行身份验证
 您必須使用 [Azure Resource Manager][lnk-authenticate-arm]搭配 Azure Active Directory (AD) 來驗證所有針對資源執行的作業。 最簡單的設定方式是使用 PowerShell 或 Azure CLI。
@@ -21,19 +21,19 @@ ms.locfileid: "58319768"
 1. 使用下列命令來登入您的 Azure 訂用帳戶：
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
 1. 如果您有多個 Azure 訂用帳戶，則登入 Azure 即會為您授與和您認證相關聯之所有 Azure 訂用帳戶的存取權。 使用下列命令來列出可供您使用的 Azure 訂用帳戶：
 
     ```powershell
-    Get-AzureRMSubscription
+    Get-AzSubscription
     ```
 
     使用下列命令，來選取您想要用來執行命令以管理 IoT 中樞的訂用帳戶。 您可以使用來自上一個命令之輸出內的訂用帳戶名稱或識別碼︰
 
     ```powershell
-    Select-AzureRMSubscription `
+    Select-AzSubscription `
         -SubscriptionName "{your subscription name}"
     ```
 
@@ -47,18 +47,18 @@ ms.locfileid: "58319768"
      
      ```powershell
      $SecurePassword=ConvertTo-SecureString {password} –asplaintext –force
-     New-AzureRmADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password $SecurePassword
+     New-AzADApplication -DisplayName {Display name} -HomePage {Home page URL} -IdentifierUris {Application identifier} -Password $SecurePassword
      ```
 4. 請記下建立之應用程式的 **ApplicationId** 。 您稍後需要此資訊。
 5. 使用下列命令，並將 **{MyApplicationId}** 取代為上一個步驟的 **ApplicationId**，藉此建立新的服務主體：
    
     ```powershell
-    New-AzureRmADServicePrincipal -ApplicationId {MyApplicationId}
+    New-AzADServicePrincipal -ApplicationId {MyApplicationId}
     ```
 6. 使用下列命令，並將 **{MyApplicationId}** 取代為 **ApplicationId**，藉此設定角色指派。
    
     ```powershell
-    New-AzureRmRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName {MyApplicationId}
+    New-AzRoleAssignment -RoleDefinitionName Owner -ServicePrincipalName {MyApplicationId}
     ```
 
 您已建立可從自訂 C# 應用程式驗證的 Azure AD 應用程式。 在本教學課程後續的內容當中，您將需要以下各值：
@@ -69,4 +69,4 @@ ms.locfileid: "58319768"
 * 密碼
 
 [lnk-authenticate-arm]: https://msdn.microsoft.com/library/azure/dn790557.aspx
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
+[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/azurerm/install-Az-ps

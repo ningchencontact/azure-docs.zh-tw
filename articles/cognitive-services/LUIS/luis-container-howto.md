@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: 1cf5fb00e9f1a202fe7ad46253f916e3e6bee7a7
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: edd035bc95cd2e694a7cfac39e447c63fce0f7d3
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295567"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520147"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>安裝和執行 LUIS Docker 容器
  
@@ -40,7 +40,7 @@ Language Understanding (LUIS) 容器會將您已定型或發佈的 Language Unde
 
 ### <a name="the-host-computer"></a>主機電腦
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
 ### <a name="container-requirements-and-recommendations"></a>容器的需求和建議
 
@@ -309,6 +309,11 @@ curl -X GET \
 
 在上傳記錄後，在 LUIS 入口網站中[檢閱端點](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances)語句。
 
+
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
 ## <a name="stop-the-container"></a>停止容器
 
 若要關閉容器，請在正在執行容器的命令列環境中按 **Ctrl+C**。
@@ -316,10 +321,6 @@ curl -X GET \
 ## <a name="troubleshooting"></a>疑難排解
 
 如果您在啟用輸出[掛接](luis-container-configuration.md#mount-settings)和記錄的情況下執行容器，容器將會產生記錄檔，有助於排解在啟動或執行容器時所發生的問題。 
-
-## <a name="containers-api-documentation"></a>容器的 API 文件
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>計費
 

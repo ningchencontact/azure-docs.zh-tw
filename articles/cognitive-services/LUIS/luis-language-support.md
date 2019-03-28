@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 98df1d9612d18e4ab5044bd92822b2df76286b12
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: HT
+ms.openlocfilehash: 735835d16eb14c3847f36ecb6f46c08c0a8928ef
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340848"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339511"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS 支援的語言與區域
 
@@ -94,3 +94,116 @@ LUIS 可理解下列語言的語句：
 |葡萄牙文 (巴西)|✔||||
 |西班牙文 (es-ES)|✔||||
 |西班牙文 (es-MX)|✔||||
+
+### <a name="custom-tokenizer-versions"></a>自訂權杖化工具版本
+
+下列的文化特性具有自訂權杖化工具版本：
+
+|文化特性|版本|目的|
+|--|--|--|
+|德文<br>`de-de`|1.0.0|會將它們使用機器學習式 tokenizer 嘗試分解成其單一元件的複合字分割，token 化文字。<br>如果使用者輸入`Ich fahre einen krankenwagen`作為 [utterance] 中，它會變成`Ich fahre einen kranken wagen`。 允許的標記`kranken`和`wagen`分開為不同的實體。|
+|德文<br>`de-de`|1.0.1|會將它們分割的空間，token 化文字。<br> 如果使用者輸入`Ich fahre einen krankenwagen`utterance 中，它維持單一語彙基元。 因此`krankenwagen`標示為單一實體。 |
+
+### <a name="migrating-between-tokenizer-versions"></a>Tokenizer 版本之間移轉
+
+您的第一個選擇是要變更的 tokenizer 版本，在應用程式檔案中，然後匯入的版本。 此動作會變更談話 token 化的方式，但可讓您保留相同的應用程式識別碼。 
+
+Tokenizer 1.0.0 的 JSON。 請注意的屬性值`tokenizerVersion`。 
+
+```JSON
+{
+    "luis_schema_version": "3.2.0",
+    "versionId": "0.1",
+    "name": "german_app_1.0.0",
+    "desc": "",
+    "culture": "de-de",
+    "tokenizerVersion": "1.0.0",
+    "intents": [
+        {
+            "name": "i1"
+        },
+        {
+            "name": "None"
+        }
+    ],
+    "entities": [
+        {
+            "name": "Fahrzeug",
+            "roles": []
+        }
+    ],
+    "composites": [],
+    "closedLists": [],
+    "patternAnyEntities": [],
+    "regex_entities": [],
+    "prebuiltEntities": [],
+    "model_features": [],
+    "regex_features": [],
+    "patterns": [],
+    "utterances": [
+        {
+            "text": "ich fahre einen krankenwagen",
+            "intent": "i1",
+            "entities": [
+                {
+                    "entity": "Fahrzeug",
+                    "startPos": 23,
+                    "endPos": 27
+                }
+            ]
+        }
+    ],
+    "settings": []
+}
+```
+
+如需版本 1.0.1 tokenizer JSON。 請注意的屬性值`tokenizerVersion`。 
+
+```JSON
+{
+    "luis_schema_version": "3.2.0",
+    "versionId": "0.1",
+    "name": "german_app_1.0.1",
+    "desc": "",
+    "culture": "de-de",
+    "tokenizerVersion": "1.0.1",
+    "intents": [
+        {
+            "name": "i1"
+        },
+        {
+            "name": "None"
+        }
+    ],
+    "entities": [
+        {
+            "name": "Fahrzeug",
+            "roles": []
+        }
+    ],
+    "composites": [],
+    "closedLists": [],
+    "patternAnyEntities": [],
+    "regex_entities": [],
+    "prebuiltEntities": [],
+    "model_features": [],
+    "regex_features": [],
+    "patterns": [],
+    "utterances": [
+        {
+            "text": "ich fahre einen krankenwagen",
+            "intent": "i1",
+            "entities": [
+                {
+                    "entity": "Fahrzeug",
+                    "startPos": 16,
+                    "endPos": 27
+                }
+            ]
+        }
+    ],
+    "settings": []
+}
+```
+
+第二個選擇是要[做為新的應用程式將檔案匯入](luis-how-to-start-new-app.md#import-an-app-from-file)，而不是版本。 此動作表示新的應用程式都有不同的應用程式識別碼，但會使用檔案中指定的權杖化工具版本。 

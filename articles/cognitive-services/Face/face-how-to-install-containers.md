@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: f3534f3001de1c3e58f0be3fb7bc9639b7dfcd03
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 3e6b220e7193c5e683fc8a6c06a6e9e3dd3e3f6e
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295415"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521613"
 ---
 # <a name="install-and-run-face-containers"></a>安裝並執行臉部的容器
 
@@ -41,7 +41,7 @@ ms.locfileid: "58295415"
 
 ### <a name="the-host-computer"></a>主機電腦
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
 
 ### <a name="container-requirements-and-recommendations"></a>容器的需求和建議
@@ -120,6 +120,11 @@ ApiKey={BILLING_KEY}
 
 針對容器 API 請使用主機 `https://localhost:5000`。
 
+
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
 ## <a name="stop-the-container"></a>停止容器
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
@@ -128,9 +133,6 @@ ApiKey={BILLING_KEY}
 
 如果您在啟用輸出[掛接](./face-resource-container-config.md#mount-settings)和記錄的情況下執行容器，容器將會產生記錄檔，有助於排解在啟動或執行容器時所發生的問題。 
 
-## <a name="containers-api-documentation"></a>容器的 API 文件
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>計費
 

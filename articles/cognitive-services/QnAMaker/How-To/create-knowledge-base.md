@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/25/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: b4553a392795bb8578f24848ccacc870b654bce9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ae278ac3e0fd9f93e080da8f52b9728e9c22a436
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116227"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439238"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>快速入門：建立使用 QnA Maker API 服務入口網站的知識庫
 
@@ -69,6 +69,8 @@ QnA Maker API 服務入口網站可以輕鬆將現有資料來源，當建立知
 當知識庫完成時，則會從 QnA Maker 入口網站中移除。
 
 ## <a name="next-steps"></a>後續步驟
+
+對於成本的省電措施，您可以[共用](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker)QnA Maker 所建立的部分而不是所有 Azure 的資源。
 
 > [!div class="nextstepaction"]
 > [新增閒聊特質](./chit-chat-knowledge-base.md)

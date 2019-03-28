@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 02/27/2019
-ms.openlocfilehash: 65b8253a307693d00f5eaefe7660d500dce49be4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0278332105f2102fc82122c5a74db6326f011e81
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078647"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541176"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>針對行動服務推送安裝問題進行疑難排解
 
@@ -183,7 +183,7 @@ GRUB 組態檔 ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.
 裝置名稱應該取代為對應的 UUID。<br>
 
 
-1. 執行命令 "blkid <device name>" 來尋找裝置的 UUID。 例如︰<br>
+1. 執行命令來尋找裝置的 UUID"blkid\<裝置名稱 >"。 例如︰<br>
    ```
    blkid /dev/sda1
    /dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
@@ -191,7 +191,7 @@ GRUB 組態檔 ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.
    /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
    ```
 
-2. 現在請以如 "root=UUID=<UUID>" 的格式，以裝置名稱的 UUID 取代裝置名稱。 比方說，如果我們裝置名稱取代為根的 UUID，並繼續上述檔案中的參數"/ boot/grub2/grub.cfg"，"/ boot/grub2/grub.cfg"或"/ 等/預設/grub： 然後將檔案中的行看起來像。 <br>
+2. 現在將裝置名稱取代為其 UUID 的格式，例如 「 根 = UUID =\<UUID > 」。 比方說，如果我們裝置名稱取代為根的 UUID，並繼續上述檔案中的參數"/ boot/grub2/grub.cfg"，"/ boot/grub2/grub.cfg"或"/ 等/預設/grub： 然後將檔案中的行看起來像。 <br>
    *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
 3. 重新啟動保護
 

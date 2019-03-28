@@ -1,7 +1,7 @@
 ---
 title: 實體類型
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: 在 Language Understanding Intelligent Service (LUIS) 應用程式中新增實體 (您應用程式定義域中的關鍵資料)。
+description: 實體會擷取 [utterance] 中的資料。 實體類型可讓您可預測資料擷取。 有兩種類型的實體： 機器學習和非機器學習。 請務必知道您正在使用中的發音的實體的類型。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: c8d2ccc197eb8818cfe3fc54449ee982bbe0c087
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: efe50533a03551a673583265e107263d79cff90a
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844583"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418681"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>實體類型和其在 LUIS 中的目的
 
-實體是語句中作為您應用程式定義域關鍵資料的單字或片語。
+實體會擷取 [utterance] 中的資料。 實體類型可讓您可預測資料擷取。 有兩種類型的實體： 機器學習和非機器學習。 請務必知道您正在使用中的發音的實體的類型。 
 
 ## <a name="entity-compared-to-intent"></a>實體與意圖的比較
 
@@ -190,7 +190,7 @@ Pattern.any 是僅用於模式範本語句的可變長度預留位置，用來�
 
 * 資料符合預建實體所支援的常見使用案例 (以您的語言文化為基礎)。 
 
-可以隨時新增或移除預建實體。 如果您發現範例語句中偵測到預建實體，而這使得您無法標記自訂實體，請移除應用程式中的預建實體，然後標記您的實體，最後再將預建實體新增回去。 
+可以隨時新增或移除預建實體。
 
 ![Number 預先建置的實體](./media/luis-concept-entities/number-entity.png)
 
@@ -198,6 +198,38 @@ Pattern.any 是僅用於模式範本語句的可變長度預留位置，用來�
 [實體的 JSON 回應範例](luis-concept-data-extraction.md#prebuilt-entity-data)
 
 在開放原始碼 [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) 專案中已定義部分這些預建實體。 如果目前不支援您的特定文化特性或實體，請向專案提出。 
+
+### <a name="troubleshooting-prebuilt-entities"></a>疑難排解預先建置的實體
+
+在 LUIS 入口網站中，如果預先建置的實體標記而不是您的自訂實體中，您可以如何修正此問題幾個的選擇。
+
+預先建置的實體新增至應用程式將會_一律_傳回，即使 [utterance] 應該擷取相同的文字的自訂實體。 
+
+#### <a name="change-tagged-entity-in-example-utterance"></a>變更標記的實體，在範例 [utterance]
+
+如果預先建置的實體是相同的文字或語彙基元，為自訂實體時，選取範例 [utterance] 中的文字，並變更已加上標籤的 [utterance]。 
+
+如果預先建置的實體會標記為更多的文字或語彙基元比您的自訂實體，您會有幾個選項如何修正此問題：
+
+* [移除範例 [utterance]](#remove-example-utterance-to-fix-tagging)方法
+* [移除預先建置的實體](#remove-prebuilt-entity-to-fix-tagging)方法
+
+#### <a name="remove-example-utterance-to-fix-tagging"></a>移除範例 [utterance] 若要修正標記 
+
+您的第一個選擇是要移除範例 [utterance]。 
+
+1. 刪除範例 [utterance]。
+1. 重新訓練應用程式。 
+1. 新增回剛才的單字或片語也就是標示為預先建置的實體，以完整的範例 [utterance] 實體。 單字或片語仍會有預先建置的實體標記。 
+1. 在 選取範例 utterance 中的實體**意圖**頁面上，而且變更至您的自訂實體，並重新定型。 這應該防止 LUIS 做為任何使用該文字的範例談話中預先建置的實體標示此的確切文字。 
+1. 將整個原始範例 utterance 新增回意圖。 自訂實體應該繼續執行，而不是預先建置的實體標記。 如果未標示的自訂實體，您需要新增更多範例，該文字的談話中。
+
+#### <a name="remove-prebuilt-entity-to-fix-tagging"></a>移除預先建置的實體，若要修正標記
+
+1. 移除應用程式中的預先建置的實體。 
+1. 在 **意圖**頁面上，將標記在範例 utterance 中的自訂實體。
+1. 將應用程式定型。
+1. 將預先建置的實體新增回應用程式，並且訓練應用程式。 此修正程式會假設預先建置的實體不是複合實體的一部分。
 
 ## <a name="regular-expression-entity"></a>規則運算式實體 
 

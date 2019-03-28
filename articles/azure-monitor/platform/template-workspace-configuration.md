@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: magoedte
-ms.openlocfilehash: c59e0e7cd846f77082b7131aaec15e4945a18191
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0578b50952c12d4587f7a4751bc831d3134c64e7
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110149"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540766"
 ---
-# <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本管理 Log Analytics
+# <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>管理 Log Analytics 工作區中使用 Azure Resource Manager 範本
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-您可以使用 [Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)來建立和設定 Log Analytics 工作區。 您可以使用範本執行的工作範例包括︰
+您可以使用[Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)來建立及設定 Azure 監視器中的 Log Analytics 工作區。 您可以使用範本執行的工作範例包括︰
 
 * 建立工作區，包括設定定價層 
 * 新增解決方案

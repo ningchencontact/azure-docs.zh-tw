@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a85fb65ad971bfc70bdab0689e99921e616b56ac
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 07fdaa22532f48cc39b6c524d85fdfe625f8b80c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308854"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337120"
 ---
 # <a name="categorize-images"></a>將影像分類
 
@@ -24,7 +24,7 @@ ms.locfileid: "56308854"
 
 ## <a name="the-86-category-concept"></a>86 類別概念
 
-電腦視覺可以使用下圖中的 86 個類別清單，來廣泛或明確地對影像進行分類。 如需文字格式的完整分類，請參閱[類別分類](category-taxonomy.md)。
+電腦視覺可以分類影像廣泛地或明確地說下, 圖中使用的 86 類別清單。 如需文字格式的完整分類，請參閱[類別分類](category-taxonomy.md)。
 
 ![類別分類法中所有類別的分組清單](./Images/analyze_categories-v2.png)
 

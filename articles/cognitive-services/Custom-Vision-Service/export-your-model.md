@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/03/2018
+ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 080a4691869c4deaf86f0e27961e80b60d439f05
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 405b6ebd06091536749751a94362d8c4a6495dbc
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857238"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351284"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>匯出您的模型以用於行動裝置
 
-自訂視覺服務可讓分類器匯出而離線執行。 您可以將匯出的分類器內嵌到應用程式中，並裝置的本機執行以進行即時分類。 
+自訂視覺服務可讓分類器匯出而離線執行。 您可以將匯出的分類器內嵌到應用程式中，並裝置的本機執行以進行即時分類。
 
 自訂視覺服務支援下列匯出：
 
@@ -37,7 +37,7 @@ ms.locfileid: "55857238"
 
 > [!NOTE]
 > 您有未設定為密集區域的現有分類器時，才適用本節提供的步驟。
- 
+
 若要轉換現有分類器的區域，請使用下列步驟：
 
 1. 在 [自訂視覺](https://customvision.ai) 頁面中選取 __首頁__ 圖示，以檢視您的專案清單。 您也可以使用 [https://customvision.ai/projects](https://customvision.ai/projects) 來檢視您的專案。

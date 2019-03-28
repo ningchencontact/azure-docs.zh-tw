@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 846f07051ee65a542b56624fa84a9bdc4ca0f4e6
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 67603e326583400e8fc250ea6120297e7a94d101
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418001"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520916"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>使用應用程式閘道來重寫 HTTP 標頭 (公開預覽)
 
@@ -96,7 +96,7 @@ HTTP 標頭允許用戶端和伺服器透過要求或回應傳遞其他資訊。
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | 會傳回用戶端所支援的加密方式          |
 | ciphers_used               | 會傳回用於所建立 SSL 連線的加密方式字串 |
-| client_ip                  | 用戶端; IP 位址在客戶想要重寫應用程式閘道所設定的 X 轉送的標頭，以便標頭包含只有不含連接埠資訊的 IP 位址的案例中特別有用。 |
+| client_ip                  | 從其應用程式閘道收到要求的用戶端的 IP 位址。 如果沒有應用程式閘道和原始的用戶端之前, 的反向 proxy 的再*client_ip*會傳回反向 proxy 的 IP 位址。 tjsi 變數是在客戶想要重寫應用程式閘道所設定的 X 轉送的標頭，以便標頭包含只有不含連接埠資訊的 IP 位址的案例中特別有用。 |
 | client_port                | 用戶端連接埠                                                  |
 | client_tcp_rtt             | 有關用戶端 TCP 連線的資訊；是支援 TCP_INFO 通訊端選項之系統上的可用變數 |
 | client_user                | 使用 HTTP 驗證時，為驗證提供的使用者名稱 |
@@ -121,7 +121,7 @@ HTTP 標頭允許用戶端和伺服器透過要求或回應傳遞其他資訊。
 
 - 只有在新 SKU [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) 上才支援 HTTP 標頭重寫支援。 在舊 SKU 上將不支援此功能。
 
-- 目前尚不支援重寫 Connect、Upgrade 及 Host 標頭。
+- 重寫的連線、 升級和主機標頭尚不支援。
 
 - 近期將會推出可依條件重寫 HTTP 標頭的功能。
 

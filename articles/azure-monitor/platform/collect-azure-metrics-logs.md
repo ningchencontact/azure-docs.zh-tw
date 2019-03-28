@@ -1,6 +1,6 @@
 ---
-title: 為 Log Analytics 收集 Azure 服務的記錄和計量 | Microsoft Docs
-description: 在 Azure 資源上設定診斷以便將記錄和度量寫入 Log Analytics。
+title: Azure 服務的記錄和計量收集到 Log Analytics 工作區 |Microsoft Docs
+description: 將記錄檔和度量寫入 Azure 監視器中的 Log Analytics 工作區的 Azure 資源上設定診斷。
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 034abe4e3c37c94afbe431a51efd9493b707fa89
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 5a619b768d61875a03e53a613dfb9a3fb01dd7aa
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498531"
+ms.locfileid: "58540171"
 ---
-# <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>收集 Azure 服務的記錄和計量以便使用於 Log Analytics
+# <a name="collect-azure-service-logs-and-metrics-into-log-analytics-workspace-in-azure-monitor"></a>收集到 Log Analytics 工作區，在 Azure 監視器中的 Azure 服務的記錄和計量
 
 有四種不同的方式可收集 Azure 服務的記錄和度量︰
 
-1. Azure 診斷直達 Log Analytics (下表中的「診斷」)
-2. Azure 診斷至 Azure 儲存體至 Log Analytics (下表中的「儲存體」)
+1. Azure 診斷直達 Log Analytics 工作區，在 Azure 監視器中 (*診斷*下表中)
+2. Azure 監視器中的 Log Analytics 工作區的 Azure 儲存體的 azure 診斷 (*儲存體*下表中)
 3. Azure 服務的連接器 (下表中的「連接器」)
-4. 使用指令碼來收集，再將資料公佈至 Log Analytics (下表中的空格，適用於未列出的服務)
+4. 使用指令碼來收集並再將資料公佈至 Log Analytics 工作區，在 Azure 監視器 （空格下表中和未列出的服務）
 
 
 | 服務                 | 資源類型                           | 記錄檔        | 度量     | 解決方法 |
@@ -64,12 +64,12 @@ ms.locfileid: "58498531"
 >
 
 ## <a name="azure-diagnostics-direct-to-log-analytics"></a>Azure 診斷直達 Log Analytics
-許多 Azure 資源能夠直接將診斷記錄和度量寫入 Log Analytics，這是收集資料來分析的較佳做法。 使用 Azure 診斷時，資料會立即寫入 Log Analytics，不需要先將資料寫入儲存體。
+許多 Azure 資源診斷記錄和計量直接寫入至 Azure 監視器中的 Log Analytics 工作區，而且這是收集資料以供分析的慣用的方法。 當使用 Azure 診斷，資料會寫入立即到工作區，並不需要先將資料寫入儲存體。
 
-支援 [Azure 監視器](../../azure-monitor/overview.md)的 Azure 資源可以直接將記錄和度量傳送至 Log Analytics。
+支援的 azure 資源[Azure 監視器](../../azure-monitor/overview.md)可以記錄和度量直接傳送至 Log Analytics 工作區。
 
 > [!NOTE]
-> 目前不支援透過診斷設定將多維度計量傳送至 Log Analytics。 跨維度值所彙總的維度計量會匯出為扁平化單一維度計量。
+> 目前不支援將多維度計量傳送至 Log Analytics 工作區透過診斷設定。 跨維度值所彙總的維度計量會匯出為扁平化單一維度計量。
 >
 > *例如*：可以依據每個佇列層級來瀏覽及繪製「事件中樞」上的「傳入訊息」計量。 不過，當您透過診斷設定匯出時，計量會呈現為事件中樞內所有佇列的所有內送郵件。
 >
@@ -125,9 +125,9 @@ Set-AzDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId -Enab
 
 ## <a name="azure-diagnostics-to-storage-then-to-log-analytics"></a>Azure 診斷至儲存體，再至 Log Analytics
 
-從某些資源內收集記錄時，可以先將記錄傳送至 Azure 儲存體，再設定 Log Analytics 從儲存體讀取記錄。
+收集從某些資源內的記錄檔，就可以將記錄傳送至 Azure 儲存體，然後設定 Log Analytics 工作區，從儲存體讀取記錄檔。
 
-對於下列資源和記錄，Log Analytics 可以使用這種方法，從 Azure 儲存體收集診斷︰
+Azure 監視器可以使用這種方法來收集從下列資源和記錄檔的 Azure 儲存體的診斷資訊：
 
 | 資源 | 記錄檔 |
 | --- | --- |
@@ -136,23 +136,23 @@ Set-AzDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId -Enab
 | Web 角色 <br> 背景工作角色 |Linux Syslog <br> Windows 事件 <br> IIS 記錄 <br> Windows ETWEvent |
 
 > [!NOTE]
-> 當您將診斷傳送到儲存體帳戶時，或是當 Log Analytics 從您的儲存體帳戶讀取資料時，您將需要支付儲存體和交易的一般 Azure 資料費用。
+> 當您將診斷傳送至儲存體帳戶和 Log Analytics 工作區時從儲存體帳戶讀取資料時，則要收費儲存體和交易的一般 Azure 資料的費用。
 >
 >
 
-若要深入了解 Log Analytics 如何收集這些記錄，請參閱[對 IIS 使用 Blob 儲存體，對事件使用表格儲存體](azure-storage-iis-table.md)。
+請參閱[事件的 IIS 和資料表儲存體使用 blob 儲存體](azure-storage-iis-table.md)若要深入了解 Azure 監視器可以收集這些記錄檔的方式。
 
 ## <a name="connectors-for-azure-services"></a>Azure 服務的連接器
 
-Application Insights 有一個連接器，可以將 Application Insights 收集的資料傳送至 Log Analytics。
+沒有 Application insights，允許傳送到 Log Analytics 工作區的 Application Insights 所收集的資料連接器。
 
 深入了解 [Application Insights 連接器](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)。
 
-## <a name="scripts-to-collect-and-post-data-to-log-analytics"></a>使用指令碼來收集，再將資料公佈至 Log Analytics
+## <a name="scripts-to-collect-and-post-data-to-log-analytics-workspace"></a>使用指令碼來收集，並將資料公佈至 Log Analytics 工作區
 
-對於無法直接將記錄和度量傳送至 Log Analytics 的 Azure 服務，您可以使用 Azure 自動化指令碼來收集記錄和度量。 然後，指令碼可以使用[資料收集器 API](../../azure-monitor/platform/data-collector-api.md)，將資料傳送至 Log Analytics
+如不提供直接的方式，來將記錄和計量傳送至 Log Analytics 工作區的 Azure 服務中，您可以使用 Azure 自動化指令碼來收集記錄和度量。 指令碼就可以傳送資料至工作區使用[資料收集器 API](../../azure-monitor/platform/data-collector-api.md)
 
-Azure 範本庫包含[使用 Azure 自動化的範例](https://azure.microsoft.com/resources/templates/?term=OMS)，可從服務收集資料，再傳送至 Log Analytics。
+具有 Azure 範本庫[使用 Azure 自動化的範例](https://azure.microsoft.com/resources/templates/?term=OMS)從服務收集資料，並將它傳送至 Azure 監視器。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/21/2019
+ms.date: 03/26/2019
 ms.author: monhaber
-ms.openlocfilehash: cbda94b8ceeaf7a225117e1ca73445135a32a243
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c4b2ed1269ef669def2b6f2036d34a40fb181c5d
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58088990"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517975"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Azure 資訊安全中心的自適性應用程式控制
 了解如何利用此逐步解說，在 Azure 資訊安全中心設定應用程式控制。
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>什麼是 Azure 資訊安全中心的自適性應用程式控制？
-自適性應用程式控制是 Azure 資訊安全中心的智慧型自動化端對端應用程式允許清單解決方案。 其可協助您控制哪些應用程式可以在 Azure 中的 VM 上執行，且有助於強化 VM 以抵禦惡意程式碼。 資訊安全中心會利用機器學習技術來分析在 VM 中執行的應用程式，並協助您運用此情報來套用特定允許清單規則。 這項功能可大幅簡化設定和維護應用程式允許清單原則的程序，讓您可：
+自適性應用程式控制是 Azure 資訊安全中心的智慧型自動化端對端應用程式允許清單解決方案。 它可協助您控制哪些應用程式可以執行您的 Azure 和非 Azure 虛擬機器 （Windows 和 Linux），其中，撇開其他優點，可協助強化您的 Vm 來抵禦惡意程式碼。 資訊安全中心會利用機器學習技術來分析在 VM 中執行的應用程式，並協助您運用此情報來套用特定允許清單規則。 這項功能可大幅簡化設定和維護應用程式允許清單原則的程序，讓您可：
 
 - 封鎖執行惡意應用程式的嘗試或提出警示，包括反惡意程式碼解決方案可能遺漏的嘗試。
 - 符合您組織規定只能使用授權軟體的安全性原則。
@@ -34,8 +34,11 @@ ms.locfileid: "58088990"
 - 阻止您的組織不允許的特定軟體工具。
 - 讓 IT 能夠透過應用程式使用量來控制敏感性資料的存取。
 
+> [!NOTE]
+> 如需非 Azure 和 Linux Vm，自適性應用程式控制支援僅稽核模式。
+
 ## <a name="how-to-enable-adaptive-application-controls"></a>如何啟用自適性應用程式控制？
-自適性應用程式控制可協助您定義一組可以對已設定的 VM 群組執行的應用程式。 這項功能只適用於 Windows 電腦 (所有版本，傳統或 Azure Resource Manager)。 可以使用下列步驟在資訊安全中心設定應用程式允許清單：
+自適性應用程式控制可協助您定義一組可以對已設定的 VM 群組執行的應用程式。 這項功能是適用於 Azure 和非-Azure Windows （所有版本，傳統或 Azure Resource Manager） 和 Linux Vm 和伺服器。 可以使用下列步驟在資訊安全中心設定應用程式允許清單：
 
 1. 開啟 [資訊安全中心] 儀表板。
 2. 在左側窗格中，選取位於 [進階雲端防禦] 之下的 [自適性應用程式控制]。
@@ -64,10 +67,10 @@ ms.locfileid: "58088990"
 
    此清單包括：
 
-   - **名稱**：訂用帳戶和群組的名稱
-   - **VM**：群組中的虛擬機器數目
-   - **狀態**：建議的狀態
-   - **嚴重性**：建議的嚴重性層級
+   - **群組名稱**:訂用帳戶和群組的名稱
+   - **Vm 和電腦**:在群組中的虛擬機器數目
+   - **狀態**： 建議的狀態
+   - **嚴重性**： 建議的嚴重性層級
 
 2. 按一下群組以開啟 [建立應用程式控制規則] 選項。
 
@@ -102,8 +105,8 @@ ms.locfileid: "58088990"
 
    此清單包括：
 
-   - **名稱**：訂用帳戶和群組的名稱
-   - **VM**：群組中的虛擬機器數目
+   - **群組名稱**： 訂用帳戶和群組的名稱
+   - **Vm 和電腦**： 群組中的虛擬機器數目
    - **模式**：「稽核」模式會記錄執行未列入允許清單應用程式的嘗試；「強制」模式則不允許未列入允許清單的應用程式執行
    - **警示**：目前所有的違規情形
 
@@ -146,14 +149,14 @@ ms.locfileid: "58088990"
 ![建議](./media/security-center-adaptive-application/security-center-adaptive-application-fig11.png)
 
 此清單包含：
-- **名稱**：訂用帳戶和群組的名稱
-- **VM**：群組中的虛擬機器數目
+- **群組名稱**： 訂用帳戶和群組的名稱
+- **Vm 和電腦**： 群組中的虛擬機器數目
 
 Azure 資訊安全中心也可讓您對非建議的 VM 群組定義應用程式允許清單原則。 遵循先前所述的相同準則，同樣對這些群組設定應用程式允許清單原則。
 
 
 ## <a name="next-steps"></a>後續步驟
-在本文件中，您已了解如何使用 Azure 資訊安全中心的自適性應用程式控制，將在 Azure VM 中執行的應用程式列入允許清單。 若要深入了解「Azure 資訊安全中心」，請參閱下列主題：
+在本文件中，您已了解如何使用 Azure 資訊安全中心的自適性應用程式控制，Azure 和非 Azure Vm 中執行的允許清單應用程式。 若要深入了解「Azure 資訊安全中心」，請參閱下列主題：
 
 * [管理及回應 Azure 資訊安全中心的安全性警示](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)。 了解如何在資訊安全中心管理警示，以及回應安全性事件。
 * [Azure 資訊安全中心的安全性健全狀況監視](security-center-monitoring.md)。 了解如何監視 Azure 資源的健全狀況。

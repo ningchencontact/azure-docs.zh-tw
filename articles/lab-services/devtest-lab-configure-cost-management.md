@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 1f6887a403e03ac11bb080a1d9855daff66ca088
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f761af3a5a3f08e4da89d8869aea5d666ecd69d0
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096770"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517261"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>追蹤與在 Azure DevTest Labs 中對實驗室相關聯的成本
 這篇文章會提供有關如何追蹤您的實驗室的成本資訊。 它會顯示您如何檢視預估費用 trent 目前日曆月份的實驗室。 本文也說明如何檢視實驗室中的每個資源的月-日成本。
@@ -71,7 +71,7 @@ DevTest Labs 可讓您更輕鬆地管理您實驗室中的成本，方法是設�
    - 指定**目標成本**。 比方說，多少您計劃所定義的時段內花在這個實驗室。
    - 選取要啟用還是停用您需要報告的任何閾值 – 以 25% 增量計算 – 最高為您指定之**目標成本**的 125%。
       - **通知**:當符合此臨界值時，您會收到通知您指定的 webhook url。
-      - **Vykreslit v grafu**:當符合此臨界值時，結果上繪製，您可以檢視，成本趨勢圖表中所述[檢視每月估計成本趨勢圖表](#viewing-the-monthly-estimated-cost-trend-chart)。
+      - **Vykreslit v grafu**:當符合此臨界值時，結果會繪製在成本趨勢圖表，您可以檢視，檢視每月估計成本趨勢圖表中所述。
    - 如果您選擇在符合閾值時 [通知]，就必須指定 webhook URL。 在成本整合區域中，選取 [按一下這裡可新增整合]。 請輸入**Webhook URL**設定通知 窗格，然後選取**確定**。
 
        ![[設定通知] 窗格](./media/devtest-lab-configure-cost-management/configure-notification.png)

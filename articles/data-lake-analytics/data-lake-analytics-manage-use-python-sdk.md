@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: f73ef118efbdfc94d8cb9b7d81717bd13511c785
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 82007c780a0c9ff3bb2e1a50a4826499f9df9c9f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048277"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518961"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>使用 Python 來管理 Azure Data Lake Analytics
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -78,7 +78,7 @@ from azure.datalake.store import core, lib, multithread
 
 ## Required for Azure Data Lake Analytics account management
 from azure.mgmt.datalake.analytics.account import DataLakeAnalyticsAccountManagementClient
-from azure.mgmt.datalake.analytics.account.models import DataLakeAnalyticsAccount, DataLakeStoreAccountInfo
+from azure.mgmt.datalake.analytics.account.models import DataLakeAnalyticsAccount, DataLakeStoreAccountInformation
 
 ## Required for Azure Data Lake Analytics job management
 from azure.mgmt.datalake.analytics.job import DataLakeAnalyticsJobManagementClient
@@ -93,7 +93,7 @@ import logging, getpass, pprint, uuid, time
 
 請執行此指令碼以確認可將模組匯入。
 
-## <a name="authentication"></a>驗證
+## <a name="authentication"></a>Authentication
 
 ### <a name="interactive-user-authentication-with-a-pop-up"></a>使用快顯視窗進行互動式使用者驗證
 
@@ -165,7 +165,7 @@ adlaAcctResult = adlaAcctClient.account.create(
     DataLakeAnalyticsAccount(
         location=location,
         default_data_lake_store_account=adls,
-        data_lake_store_accounts=[DataLakeStoreAccountInfo(name=adls)]
+        data_lake_store_accounts=[DataLakeStoreAccountInformation(name=adls)]
     )
 ).wait()
 ```

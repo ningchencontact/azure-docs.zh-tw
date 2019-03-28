@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 0d52b2f59bba2270b3d36ff2499ce1e0e492b228
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: fe5e4b6a4f6a3da851b6e27419bff265758a1ba1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500418"
+ms.locfileid: "58522208"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>管理 Azure Blob 儲存體生命週期
 
@@ -227,7 +227,7 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 
 ### <a name="archive-data-at-ingest"></a>封存內嵌資料 
 
-有些資料在雲端維持閒置狀態，而且儲存後就很少存取。 將資料內嵌後，即立刻封存資料。 下列生命週期原則已設定為封存內嵌資料。 此範例會將容器 `archivecontainer` 內儲存體帳戶中的區塊 Blob 立即轉換到封存層。 您可以在上次修改時間後不到一天對 Blob 採取動作來完成立即轉換：
+有些資料在雲端維持閒置狀態，而且儲存後就很少存取。 下列的生命週期原則已設定為封存資料，一旦它內嵌。 此範例中的轉換中的區塊 blob 儲存體帳戶容器內`archivecontainer`入封存層。 轉換是透過根據 blob 上次修改時間之後的 0 天來完成：
 
 ```json
 {

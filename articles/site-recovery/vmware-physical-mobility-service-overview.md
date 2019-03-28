@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 0e5e4e207542a74ef3fc5ff7fc78431b7956e54c
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 523567a0db79e54bea1ed6ff23557c7fa29c74f6
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449244"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541097"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>關於適用於 VMware VM 和實體伺服器的行動服務
 
@@ -125,7 +125,7 @@ ms.locfileid: "58449244"
 #### <a name="registration-settings"></a>註冊設定
 **設定** | **詳細資料**
 --- | ---
-使用量 | UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
+使用量 | UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>
 代理程式設定記錄 | 在 %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log 底下。
 /CSEndPoint | 必要參數。 指定設定伺服器的 IP 位址。 請使用任何有效的 IP 位址。
 /PassphraseFilePath |  必要。 複雜密碼的位置。 請使用任何有效的 UNC 或本機檔案路徑。
@@ -154,7 +154,7 @@ ms.locfileid: "58449244"
 #### <a name="installation-settings"></a>安裝設定
 **設定** | **詳細資料**
 --- | ---
-使用量 | ./install -d <Install Location> -r <MS|MT> -v VmWare -q
+使用量 | 。 安裝-d /\<安裝位置 >-r < MS|MT> -v VmWare -q
 -r | 必要安裝參數。 指定應該要安裝行動服務 (MS) 還是主要目標 (MT)。
 -d | 選擇性參數。 指定行動服務安裝位置：/usr/local/ASR。
 -v | 必要。 指定要安裝行動服務的平台。 如果是 VMware VM/實體伺服器，則為 **VMware**；如果是 Azure VM，則為 **Azure**。 
@@ -163,7 +163,7 @@ ms.locfileid: "58449244"
 #### <a name="registration-settings"></a>註冊設定
 **設定** | **詳細資料**
 --- | ---
-使用量 | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i <CSIP> -P <PassphraseFilePath>
+使用量 | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>
 -i | 必要參數。 指定設定伺服器的 IP 位址。 請使用任何有效的 IP 位址。
 -P |  必要。 儲存複雜密碼之檔案的完整檔案路徑。 請使用任何有效的資料夾。
 

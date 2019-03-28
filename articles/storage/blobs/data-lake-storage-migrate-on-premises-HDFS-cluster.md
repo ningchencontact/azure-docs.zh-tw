@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 1c0a04a074cfbd96423502ac92dd5821bade78e1
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 841193305556e3bc9e543abc47974c7b91b0cea1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258525"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518027"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>使用 Azure 資料箱來將資料從內部部署 HDFS 存放區移轉到 Azure 儲存體
 
@@ -111,7 +111,7 @@ ms.locfileid: "58258525"
 
 請遵循下列步驟來準備並寄送至 Microsoft 資料箱裝置。
 
-1. 將資料複製完成之後，執行[準備寄送](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#prepare-to-ship)資料方塊上。 裝置準備完成之後，下載 BOM 的檔案。 您將會使用這些 BOM 或資訊清單檔案，稍後若要確認資料上傳至 Azure。 關閉裝置，並移除纜線。 
+1. 將資料複製完成之後，執行[準備寄送](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest)資料方塊上。 裝置準備完成之後，下載 BOM 的檔案。 您將會使用這些 BOM 或資訊清單檔案，稍後若要確認資料上傳至 Azure。 關閉裝置，並移除纜線。 
 2.  排定取貨與 UPS[寄送回給 Azure 您資料箱](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up)。 
 3.  當 Microsoft 收到您的裝置連線到網路的資料中心的資料上傳至您指定 （使用停用的階層式命名空間） 的儲存體帳戶後，您所訂購資料箱。 驗證您的資料上傳至 Azure 的 BOM 的檔案。 您現在可以繼續這項資料的 Data Lake 儲存體 Gen2 儲存體帳戶。
 

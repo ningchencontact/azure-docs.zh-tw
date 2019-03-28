@@ -4,7 +4,7 @@ description: 在 Windows 10 中進行漫遊或備份的所有設定的完整清�
 services: active-directory
 keywords: 企業狀態漫遊, windows 雲端
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: curtand
 ms.subservice: devices
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
-ms.author: markvi
+ms.author: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92d08d12571236276ad6e3d6f3705139ea050a8d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e6c80ee5d2a4d72be131c6a781cf793d1981e780
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184494"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521069"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Windows 10 漫遊設定參考
 以下是在 Windows 10 中進行漫遊或備份的所有設定的完整清單。 
@@ -32,10 +32,10 @@ ms.locfileid: "56184494"
 
 | 帳戶類型和作業 | 桌上型 | 行動 |
 | --- | --- | --- |
-| Azure Active Directory：同步處理 |yes |否 |
+| Azure Active Directory：同步處理 |是 |否 |
 | Azure Active Directory：備份/還原 |否 |否 |
-| Microsoft 帳戶：同步處理 |yes |yes |
-| Microsoft 帳戶：備份/還原 |否 |yes |
+| Microsoft 帳戶：同步處理 |是 |是 |
+| Microsoft 帳戶：備份/還原 |否 |是 |
 
 ## <a name="what-is-backup"></a>什麼是備份？
 根據預設，Windows 設定一般會同步處理，但是某些設定只能備份，例如裝置上已安裝應用程式的清單。 備份僅適用於行動裝置，目前不適用企業狀態漫遊使用者。 備份會使用 Microsoft 帳戶，並將設定和應用程式資料儲存到 OneDrive。 如果使用者使用 [設定] 應用程式在裝置上停用同步處理，通常可以同步處理的應用程式資料會變成只能備份。 備份資料在新裝置第一次執行期間，只能透過還原作業存取。 備份可以透過裝置設定停用，並且能透過使用者的 OneDrive 帳戶管理及刪除。

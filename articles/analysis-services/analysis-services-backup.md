@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b88660548feaa1d3a8e83e633f798212c80ac6dc
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 31e8e65b382a3a6bcad2998a0babdf9605dc4968
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190301"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539100"
 ---
 # <a name="backup-and-restore"></a>備份與還原
 
@@ -24,8 +24,7 @@ ms.locfileid: "54190301"
 > 
 > 
 
-備份會以 .abf 副檔名儲存。 針對記憶體內表格式模型，會同時儲存模型資料和中繼資料。 針對 DirectQuery 表格式模型，則只會儲存模型中繼資料。 視您選擇的選項而定，可以將備份壓縮和加密。 
-
+備份會以.abf 副檔名儲存。 針對記憶體內表格式模型，會同時儲存模型資料和中繼資料。 針對 DirectQuery 表格式模型，則只會儲存模型中繼資料。 視您選擇的選項而定，可以將備份壓縮和加密。
 
 
 ## <a name="configure-storage-settings"></a>設定儲存體設定
@@ -49,7 +48,7 @@ ms.locfileid: "54190301"
 
 5. 儲存您的備份設定。
 
-    ![儲存備份設定](./media/analysis-services-backup/aas-backup-save.png)
+    ![保存备份设置](./media/analysis-services-backup/aas-backup-save.png)
 
 ## <a name="backup"></a>Backup 
 
@@ -61,7 +60,7 @@ ms.locfileid: "54190301"
 
 3. 在 [另存新檔] 對話方塊中，確認資料夾路徑，然後輸入備份檔案的名稱。 
 
-4. 在 [備份資料庫] 對話方塊中，選取選項。
+4. 在“备份数据库”对话框中，选择选项。
 
     **允許檔案覆寫** - 若要覆寫同名的備份檔案，請選取此選項。 如果未選取此選項，您要儲存的檔案就不能與相同位置中已經存在的檔案同名。
 
@@ -105,6 +104,6 @@ ms.locfileid: "54190301"
 
 ## <a name="related-information"></a>相關資訊
 
-[Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)  
+[Azure 存储帐户](../storage/common/storage-create-storage-account.md)  
 [高可用性](analysis-services-bcdr.md)     
 [管理 Azure Analysis Services](analysis-services-manage.md)

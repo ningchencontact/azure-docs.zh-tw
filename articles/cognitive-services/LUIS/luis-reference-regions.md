@@ -1,7 +1,7 @@
 ---
 title: 發行區域和端點
 titleSuffix: Azure Cognitive Services
-description: 您發行 LUIS 應用程式的區域，會對應至您在建立 Azure LUIS 端點金鑰時於 Azure 入口網站中指定的區域或位置。 當您發行應用程式時，LUIS 會針對與該金鑰相關的區域自動產生端點 URL。
+description: 3 個撰寫區域和其入口網站支援所有的許多發佈區域。 您發行 LUIS 應用程式的區域，會對應至您在建立 Azure LUIS 端點金鑰時於 Azure 入口網站中指定的區域或位置。 當您發行應用程式時，LUIS 會針對與該金鑰相關的區域自動產生端點 URL。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,27 +9,33 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 03/25/2019
 ms.author: diberry
-ms.openlocfilehash: bbe46db1972951b466b431c9efc0420e15ff6dee
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 01444cec798763bc4e44bcabe0d7ebb640e537a8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765165"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436331"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>撰寫和發佈區域及相關聯的金鑰
 
-您發行 LUIS 應用程式的區域，會對應至您在建立 Azure LUIS 端點金鑰時於 Azure 入口網站中指定的區域或位置。 當您[發行應用程式](./luis-how-to-publish-app.md)時，LUIS 會針對與該金鑰相關的區域自動產生端點 URL。 若要將 LUIS 應用程式發行至多個區域，針對每個區域，您至少需要有一個金鑰。 
+三個撰寫區域和其入口網站支援所有的許多發佈區域。 您發行 LUIS 應用程式的區域，會對應至您在建立 Azure LUIS 端點金鑰時於 Azure 入口網站中指定的區域或位置。 當您[發行應用程式](./luis-how-to-publish-app.md)時，LUIS 會針對與該金鑰相關的區域自動產生端點 URL。 若要將 LUIS 應用程式發行至多個區域，針對每個區域，您至少需要有一個金鑰。 
 
-## <a name="luis-website"></a>LUIS 網站
+<a name="luis-website"></a>
+
+## <a name="luis-authoring-regions"></a>LUIS 撰寫區域
 根據區域的不同，一共有三個 LUIS 網站。 您必須在相同的區域內進行撰寫和發行。 
 
-|LUIS|區域|
-|--|--|
-|[www.luis.ai][www.luis.ai]|美國<br>非歐洲<br>非澳大利亞|
-|[au.luis.ai][au.luis.ai]|澳大利亞|
-|[eu.luis.ai][eu.luis.ai]|歐洲|
+|LUIS|全球區域|撰寫 Azure 區域|
+|--|--|--|
+|[www.luis.ai][www.luis.ai]|美國<br>非歐洲<br>非澳大利亞| `westus`|
+|[au.luis.ai][au.luis.ai]|澳大利亞| `australiaeast`|
+|[eu.luis.ai][eu.luis.ai]|歐洲|`westeurope`|
+
+您可以使用撰寫區域與不同的 Azure 發行區域已部署的 LUIS 服務互動。  
+
+撰寫區域含有[配對的容錯移轉區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)。 
 
 ## <a name="regions-and-azure-resources"></a>區域和 Azure 資源
 應用程式會發佈至與 LUIS 入口網站中新增的 LUIS 資源相關聯的所有區域。 例如，對於在 [www.luis.ai][www.luis.ai] 上建立的應用程式，如果您在 **westus** 中建立 LUIS 資源並將它當作資源新增至應用程式，則會在該區域中發佈應用程式。 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: f350d0ae6602fb393da3ddc350f33ec89e86078e
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: c98136e2f45965834fa1c538a5929eee14b24466
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369032"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521579"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>在 Azure IoT Central 應用程式中建立事件規則並設定通知
 
@@ -113,4 +113,5 @@ ms.locfileid: "58369032"
 
 - [在規則中新增 Microsoft Flow 動作](howto-add-microsoft-flow.md)
 - [在規則中新增 Webhook 動作](howto-create-webhooks.md)
+- [若要從一或多個規則執行的多個動作群組](howto-use-action-groups.md)
 - [如何管理您的裝置](howto-manage-devices.md)

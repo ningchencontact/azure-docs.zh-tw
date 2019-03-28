@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 11372894e1dbcac6a49205ff56d8b30ffb6ee976
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: d3eb0fba2b7178b8b1702d4ca89ff85a441c20d6
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261259"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541072"
 ---
-# <a name="create-custom-fields-in-log-analytics"></a>在 Log Analytics 中建立自訂欄位
+# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>在 Azure 監視器中的 Log Analytics 工作區中建立自訂欄位
 
 > [!NOTE]
-> 本文描述如何於收集文字資料時，在 Log Analytics 中對它進行剖析。 [在 Log Analytics 中剖析文字資料](../log-query/parse-text.md)中有描述在查詢中剖析收集到之文字資料的好處。
+> 本文說明如何收集時，剖析 Log Analytics 工作區中的文字資料。 有一些優點剖析查詢中的文字資料中所述收集後[剖析 Azure 監視器中的文字資料](../log-query/parse-text.md)。
 
-Log Analytics 的**自訂欄位**功能，可讓您透過新增自己的可搜尋欄位來擴充 Log Analytics 中的現有記錄。  自訂欄位會自動填入擷取自同一筆記錄中其他屬性的資料。
+**自訂欄位**Azure 監視功能可讓您新增自己的可搜尋欄位來擴充您的 Log Analytics 工作區中的現有記錄。  自訂欄位會自動填入擷取自同一筆記錄中其他屬性的資料。
 
 ![自訂欄位概觀](media/custom-fields/overview.png)
 

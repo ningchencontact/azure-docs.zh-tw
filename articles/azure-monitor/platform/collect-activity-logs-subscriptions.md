@@ -1,6 +1,6 @@
 ---
-title: 跨訂用帳戶將 Azure 活動記錄收集到 Log Analytics | Microsoft Docs
-description: 使用事件中樞和 Logic Apps 收集來自 Azure 活動記錄的資料，並將它傳送至不同租用戶中的 Azure Log Analytics 工作區。
+title: 跨訂用帳戶將 Azure 活動記錄收集到 Log Analytics 工作區 |Microsoft Docs
+description: 使用事件中樞和 Logic Apps 收集來自 Azure 活動記錄檔，並將它傳送至 Azure 監視器中不同的租用戶中的 Log Analytics 工作區中。
 services: log-analytics, logic-apps, event-hubs
 documentationcenter: ''
 author: mgoedtel
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: magoedte
-ms.openlocfilehash: 4d336f657baef99d97568ba722e64a1f4440367f
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 76a789bd4f9167344fcc240e3f3fdbf3a00aa5a3
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984574"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540749"
 ---
-# <a name="collect-azure-activity-logs-into-log-analytics-across-subscriptions-in-different-azure-active-directory-tenants"></a>將 Azure 活動記錄收集到不同的 Azure Active Directory 租用戶中跨訂用帳戶 的 Log Analytics
+# <a name="collect-azure-activity-logs-into-a-log-analytics-workspace-across-subscriptions-in-different-azure-active-directory-tenants"></a>Azure 活動記錄收集到 Log Analytics 工作區，跨不同的 Azure Active Directory 租用戶中的訂用帳戶
 
-本文會逐步執行方法，以使用適用於 Logic Apps 的 Azure Log Analytics 資料收集器連接器，將 Azure 活動記錄收集到 Log Analytics 工作區。 當您需要將記錄傳送至不同 Azure Active Directory 租用戶中的工作區時，請使用本文中的程序。 例如，如果您是受控服務提供者，則可能會想要收集客戶訂用帳戶的活動記錄，並將其儲存在您專屬訂用帳戶的 Log Analytics 工作區中。
+本文逐步引導您的 Azure 活動記錄收集到 Log Analytics 工作區中使用 Azure Log Analytics 資料收集器連接器，適用於 Logic Apps 的 Azure 監視器中的方法。 當您需要將記錄傳送至不同 Azure Active Directory 租用戶中的工作區時，請使用本文中的程序。 例如，如果您是受控服務提供者，則可能會想要收集客戶訂用帳戶的活動記錄，並將其儲存在您專屬訂用帳戶的 Log Analytics 工作區中。
 
 如果 Log Analytics 工作區位在相同的 Azure 訂用帳戶中，或者在不同的訂用帳戶但在相同的 Azure Active Directory 中，請使用 [Azure 活動記錄解決方案](collect-activity-logs.md)中的步驟來收集 Azure 活動記錄。
 
@@ -29,23 +29,23 @@ ms.locfileid: "55984574"
 
 此案例中所使用的策略是讓 Azure 活動記錄將事件傳送至[事件中樞](../../event-hubs/event-hubs-about.md)其中，[邏輯應用程式](../../logic-apps/logic-apps-overview.md)會將它們傳送至 Log Analytics 工作區。 
 
-![從活動記錄到 Log Analytics 之資料流程的影像](media/collect-activity-logs-subscriptions/data-flow-overview.png)
+![從活動記錄到 Log Analytics 工作區的資料流的映像](media/collect-activity-logs-subscriptions/data-flow-overview.png)
 
 此方法的優點包含：
-- 將 Azure 活動記錄串流至事件中樞之後的低延遲。  接著會觸發邏輯應用程式，然後將資料公佈到 Log Analytics。 
+- 將 Azure 活動記錄串流至事件中樞之後的低延遲。  然後觸發邏輯應用程式，並將資料公佈至工作區。 
 - 需要最少的程式碼，而且沒有任何要部署的伺服器基礎結構。
 
 本文逐步引導您如何：
 1. 建立事件中樞。 
 2. 使用 Azure 活動記錄匯出設定檔，將活動記錄匯出至事件中樞。
-3. 建立邏輯應用程式，以從事件中樞讀取事件，並將事件傳送至 Log Analytics。
+3. 建立邏輯應用程式從事件中樞讀取，並將事件傳送至 Log Analytics 工作區。
 
 ## <a name="requirements"></a>需求
 以下是此案例中所使用 Azure 資源的需求。
 
 - 事件中樞命名空間不需要與訂用帳戶發出記錄位在相同的訂用帳戶中。 進行此設定的使用者必須具有這兩個訂用帳戶的適當存取權。 如果相同的 Azure Active Directory 中有多個訂用帳戶，則可以將所有訂用帳戶的活動記錄傳送至單一事件中樞。
 - 邏輯應用程式可以在事件中樞的不同訂用帳戶中，而且不需要在相同的 Azure Active Directory 中。 邏輯應用程式會使用事件中樞的共用存取金鑰，以從事件中樞進行讀取。
-- Log Analytics 工作區可以位在邏輯應用程式的不同訂用帳戶和 Azure Active Directory 中，但為求簡單，建議將它們放在相同的訂用帳戶中。 邏輯應用程式會使用 Log Analytics 工作區識別碼和金鑰來傳送至 Log Analytics。
+- Log Analytics 工作區可以位在邏輯應用程式的不同訂用帳戶和 Azure Active Directory 中，但為求簡單，建議將它們放在相同的訂用帳戶中。 邏輯應用程式會傳送至工作區使用 Log Analytics 工作區識別碼和金鑰。
 
 
 
@@ -96,13 +96,13 @@ ms.locfileid: "55984574"
 
 ## <a name="step-3---create-logic-app"></a>步驟 3 - 建立邏輯應用程式
 
-活動記錄寫入至事件中樞之後，請建立邏輯應用程式，以從事件中樞收集記錄檔，並將它們寫入至 Log Analytics。
+一旦活動記錄會寫入至事件中樞，您會建立邏輯應用程式從事件中樞收集記錄檔，並將它們寫入至 Log Analytics 工作區。
 
 邏輯應用程式包含下列各項：
 - 要從事件中樞讀取的[事件中樞連接器](https://docs.microsoft.com/connectors/eventhubs/)觸發程序。
 - 擷取 JSON 事件的[剖析 JSON 動作](../../logic-apps/logic-apps-content-type.md)。
 - 將 JSON 轉換為物件的[撰寫動作](../../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action)。
-- 將資料張貼至 Log Analytics 的 [Log Analytics 傳送資料連接器](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/)。
+- A [Log Analytics 傳送資料連接器](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/)資料張貼至 Log Analytics 工作區。
 
    ![在 Logic Apps 中新增事件中樞觸發程序的影像](media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
@@ -126,13 +126,13 @@ ms.locfileid: "55984574"
 
     ![建立邏輯應用程式](media/collect-activity-logs-subscriptions/create-logic-app.png)
 
-   |設定 | 說明  |
+   |設定 | 描述  |
    |:---|:---|
-   | Name           | 邏輯應用程式的唯一名稱。 |
+   | 名稱           | 邏輯應用程式的唯一名稱。 |
    | 訂用帳戶   | 選取將包含邏輯應用程式的 Azure 訂用帳戶。 |
    | 資源群組 | 選取現有 Azure 資源群組，或建立邏輯應用程式的新 Azure 資源群組。 |
    | 位置       | 選取資料中心區域，用於部署邏輯應用程式。 |
-   | Log Analytics  | 選取是否要記錄 Log Analytics 中每次執行邏輯應用程式的狀態。  |
+   | Log Analytics  | 如果您想要記錄 Log Analytics 工作區中的邏輯應用程式的每個執行的狀態，請選取。  |
 
     
 3. 選取 [建立] 。 顯示 [部署成功] 通知時，請按一下 [前往資源] 開啟邏輯應用程式。
@@ -163,7 +163,7 @@ ms.locfileid: "55984574"
 
 ### <a name="add-parse-json-action"></a>新增剖析 JSON 動作
 
-事件中樞的輸出包含具有記錄陣列的 JSON 承載。 [剖析 JSON](../../logic-apps/logic-apps-content-type.md) 動作用來只擷取要傳送至 Log Analytics 的記錄陣列。
+事件中樞的輸出包含具有記錄陣列的 JSON 承載。 [剖析 JSON](../../logic-apps/logic-apps-content-type.md)動作用來擷取記錄傳送至 Log Analytics 工作區的陣列。
 
 1. 按一下 [新增步驟] > [新增動作]
 2. 在搜尋方塊中，鍵入 parse json 作為篩選條件。 選取 [Data Operations - Parse JSON] \(資料作業 - 剖析 JSON) 動作。
@@ -286,7 +286,7 @@ ms.locfileid: "55984574"
 
 
 ### <a name="add-log-analytics-send-data-action"></a>新增 Log Analytics 傳送資料動作
-[Azure Log Analytics 資料收集器](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/)動作採用 [撰寫] 動作中的物件，並將它傳送至 Log Analytics。
+[Azure Log Analytics 資料收集器](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/)動作會從 [撰寫] 動作的物件，並將它傳送至 Log Analytics 工作區。
 
 1. 按一下 [新增步驟] > [新增動作]
 2. 鍵入 log analytics 作為篩選條件，然後選取 [Azure Log Analytics Data Collector - Send Data] \(Azure Log Analytics 資料收集器 - 傳送資料) 動作。
@@ -301,10 +301,10 @@ ms.locfileid: "55984574"
 
     ![設定傳送資料動作](media/collect-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-configuration.png)
 
-   |設定        | 值           | 說明  |
+   |設定        | 值           | 描述  |
    |---------------|---------------------------|--------------|
    |JSON 要求本文  | [撰寫] 動作的 [輸出] | 從 [撰寫] 動作的本文中擷取記錄。 |
-   | 自訂記錄名稱 | AzureActivity | 要在 Log Analytics 中建立以保留所匯入資料的自訂記錄表名稱。 |
+   | 自訂記錄名稱 | AzureActivity | 在以保存匯入的資料的 Log Analytics 工作區中建立自訂的記錄資料表的名稱。 |
    | time-generated-field | 分析 | 請不要針對**時間**選取 JSON 欄位 - 只要鍵入 word 時間即可。 如果您選取 JSON 欄位，則設計工具會將 [傳送資料] 動作放入 [For Each] 迴圈，但這不是您要的作業。 |
 
 
@@ -329,7 +329,7 @@ ms.locfileid: "55984574"
 3.  按一下 [記錄搜尋] 圖格，然後在 [記錄搜尋] 窗格的查詢欄位中輸入 `AzureActivity_CL`，再按 Enter 鍵，或按一下查詢欄位右邊的搜尋按鈕。 如果您未將自訂記錄命名為 *AzureActivity*，則請鍵入選擇的名稱，並附加 `_CL`。
 
 >[!NOTE]
-> 第一次將新的自訂記錄傳送至 Log Analytics 時，最多可能需要一個小時的時間來搜尋自訂記錄。
+> 第一次新的自訂記錄傳送至 Log Analytics 工作區就會在一小時來搜尋自訂的記錄檔。
 
 >[!NOTE]
 > 活動記錄會寫入自訂資料表，而且不會出現在[活動記錄解決方案](./collect-activity-logs.md)中。
@@ -339,7 +339,7 @@ ms.locfileid: "55984574"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已建立邏輯應用程式來讀取事件中樞的 Azure 活動記錄，並將它們傳送至 Log Analytics 以進行分析。 若要深入了解如何在 Log Analytics 中視覺化資料 (包含建立儀表板)，請檢閱視覺化資料的教學課程。
+在本文中，您已建立邏輯應用程式讀取自事件中樞的 Azure 活動記錄檔，並將它們傳送至 Log Analytics 工作區進行分析。 若要深入了解工作區，包括建立儀表板中的資料視覺化檢閱教學課程中的資料視覺化。
 
 > [!div class="nextstepaction"]
 > [視覺化記錄搜尋資料教學課程](./../../azure-monitor/learn/tutorial-logs-dashboards.md)

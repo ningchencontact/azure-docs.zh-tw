@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: d70ad65f5bbc4424b4224cf601d903ad7ec10691
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: f44161586f9f4e121001b9f5e285b0e1e1dcd9d1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405108"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518740"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>如何使用 Azure 搜尋服務 Blob 索引子編製 JSON blob
 本文說明如何設定 Azure 搜尋服務 blob [indexer](search-indexer-overview.md)擷取 Azure Blob 儲存體中的 JSON 文件中的結構化的內容，並使其可在 Azure 搜尋服務。 此工作流程建立 Azure 搜尋服務索引，並將其載入具有現有從 JSON blob 擷取的文字。 
@@ -211,7 +211,7 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 文件或 「 陣列 �
 
 排程和參數是選擇性的。 如果您省略它們，索引子會立即執行，使用`json`作為剖析模式。
 
-不包含這個特定的索引子[欄位對應](#field-mappings)。 在索引子定義中，您可以省略**欄位對應**如果目標搜尋索引的欄位值的來源 JSON 文件屬性相符。 
+這個特定的索引子不包含欄位對應。 在索引子定義中，您可以省略**欄位對應**如果目標搜尋索引的欄位值的來源 JSON 文件屬性相符。 
 
 
 ### <a name="rest-example"></a>REST 範例
@@ -253,7 +253,7 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 文件或 「 陣列 �
 
 ### <a name="indexer-request"></a>索引子要求
 
-此要求會顯示完整指定的索引子。 它包含[欄位對應](#field-mappings)，這已在前一個範例中省略。 還記得該 「 排程 」，「 參數 」，和 「 fieldMappings"是選擇性的只要沒有可用的預設值。 省略 「 排程 」，會導致立即執行索引子。 省略"parsingMode 」 會使用 「 json 」 預設的索引。
+此要求會顯示完整指定的索引子。 它包含先前範例中省略的欄位對應。 還記得該 「 排程 」，「 參數 」，和 「 fieldMappings"是選擇性的只要沒有可用的預設值。 省略 「 排程 」，會導致立即執行索引子。 省略"parsingMode 」 會使用 「 json 」 預設的索引。
 
 建立 Azure 搜尋服務索引子會觸發資料匯入。 它立即，之後會在執行排程提供了其中一個。
 

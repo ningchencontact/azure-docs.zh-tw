@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: magattus
-ms.openlocfilehash: 78969b2b0ff50e45990d131ad3ce5b63c92d20b2
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 3aefe2ff3891857ec3588e4b48f53876c5c90aa2
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58373086"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58516964"
 ---
 # <a name="azure-cdn-ddos-protection"></a>Azure CDN DDoS 保護
 
-內容傳遞網路可提供 DDoS 保護所設計。 除了吸收 volumentric 攻擊全域 capactiy，Azure CDN 的額外 DDoS 保護如下所述，不需額外費用。
+內容傳遞網路可提供 DDoS 保護所設計。 除了全域的容量，以吸收體積型攻擊，Azure CDN 的額外 DDoS 保護如下所述，不需額外費用。
 
 ## <a name="azure-cdn-from-microsoft"></a>來自 Microsoft 的 Azure CDN
 

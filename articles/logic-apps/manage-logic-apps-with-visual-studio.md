@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
-ms.openlocfilehash: 9f626e2a5c277cdce78c6e90046a1d40dac2d588
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f3a9a1cb7a5829c7c824f9aa61d5f4976a533f4a
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078664"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519726"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>使用 Visual Studio 管理邏輯應用程式
 
@@ -42,6 +42,13 @@ ms.locfileid: "58078664"
   
     您可以直接從 Visual Studio Marketplace 下載並安裝 Azure Logic Apps Tools，或了解<a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">如何從 Visual Studio 內部安裝此擴充功能</a>。 
     請務必在完成安裝之後重新啟動 Visual Studio。
+
+* 適用於 Visual Studio 2017 或 Visual Studio 2015 雲端總管
+
+  * Visual Studio 2017 中，執行 Visual Studio 安裝程式，並安裝**Azure 工作負載**。 如需詳細資訊，請參閱 <<c0> [ 管理 Visual Studio 雲端總管 中您 Azure accuonts 相關聯的資源](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2017)。
+
+  * Visual Studio 2015 中，如[從 Visual Studio Marketplace 下載 Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015)。 
+  如需詳細資訊，請參閱 <<c0> [ 管理您在 Visual Studio 雲端總管 (2015) 的 Azure 帳戶相關聯的資源](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015)。
 
 * 使用內嵌的 Logic Apps 設計工具時能夠存取 Web
 

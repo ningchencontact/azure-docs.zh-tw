@@ -9,18 +9,18 @@ ms.author: gwallace
 ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 58f666d7ebf8ac02d393a42f55e00f08d82b8cae
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 20aafc117ad8b6bd625894180fdfe79bd86192bd
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337082"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518995"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure 自動化的 Runbook 和模組資源庫
 
 您可以存取已由 Microsoft 和社群建置的案例，而不是在 Azure 自動化中建立您自己的 Runbook 和模組。
 
-您可以取得[PowerShell runbook](#runbooks-in-runbook-gallery)並[模組](#modules-in-powerShell-gallery)從 PowerShell 資源庫並[Python runbook](#python-runbooks)從 Script Center 組件庫。 您也可以藉由共用您開發的案例來參與社群，請參閱[將 Runbook 新增至資源庫](#adding-a-runbook-to-the-runbook-gallery)
+您可以取得 PowerShell runbook 並[模組](#modules-in-powershell-gallery)從 PowerShell 資源庫並[Python runbook](#python-runbooks)從 Script Center 組件庫。 您也可以提供給社群共用您開發的案例將 runbook 新增至資源庫，請參閱
 
 ## <a name="runbooks-in-powershell-gallery"></a>PowerShell 資源庫中的 Runbook
 

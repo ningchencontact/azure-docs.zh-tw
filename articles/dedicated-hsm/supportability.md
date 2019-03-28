@@ -10,14 +10,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seodec18
-ms.date: 03/18/2019
+ms.date: 03/27/2019
 ms.author: barclayn
-ms.openlocfilehash: 8e4bbe3a5e2de8ba919cf0b641ee4e6776c5e8d4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 3fd460409cab8dce0f5c4ce31f5323f19706d268
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225547"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541090"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Azure 專用 HSM 支援能力
 
@@ -97,4 +97,4 @@ HSM 裝置具有備援和可更換的電源供應器和風扇裝置。  不過�
 * [高可用性](high-availability.md)
 * [實體安全性](physical-security.md)
 * [網路功能](networking.md)
-* [監視](monitoring.md)
+

@@ -12,45 +12,41 @@ ms.author: MirekS
 ms.reviewer: GeneMi
 ms.date: 03/12/2019
 manager: craigg
-ms.openlocfilehash: 5f089148bafbab21721c83c0d4b6977a7db86320
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7f151c45920a51b3c9a25f36de34b2c1800e4e71
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834582"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520678"
 ---
-# <a name="connect-to-azure-sql-database-with-active-directory-mfa"></a>使用 Active Directory MFA 連線到 Azure SQL Database
+# <a name="connect-to-azure-sql-database-with-azure-multi-factor-authentication"></a>連接到 Azure SQL Database 與 Azure Multi-factor Authentication
 
-本文提供 C# 程式，可以連線到您的 Microsoft Azure SQL Database。 程式會使用互動模式驗證，其支援 [Azure Active Directory (Azure AD) 多重要素驗證 (MFA)](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)。
+這篇文章提供C#連接到 Azure SQL Database 的程式。 程式會使用互動模式驗證，支援[Azure Multi-factor Authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)。
 
-如需適用於 SQL 工具之 MFA 支援的詳細資訊，請參閱 [SQL Server Data Tools (SSDT) 中的 Azure Active Directory 支援](https://docs.microsoft.com/sql/ssdt/azure-active-directory)。
+如需 Multi-factor Authentication 支援 SQL 工具的詳細資訊，請參閱[Azure Active Directory 支援在 SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory)。
 
-## <a name="multi-factor-authentication-for-azure-sql-database"></a>Azure SQL Database 的多重要素驗證
+## <a name="multi-factor-authentication-for-azure-sql-database"></a>適用於 Azure SQL Database 多重要素驗證
 
-從 .NET Framework 4.7.2 版開始，列舉 [`SqlAuthenticationMethod`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) 有新的值 `ActiveDirectoryInteractive`。 在用戶端 C# 程式中，列舉值會將系統導向為使用 Azure AD 互動模式，該模式支援使用 MFA 連線至 Azure SQL Database。 執行程式的使用者會看到下列對話方塊：
+從.NET Framework 4.7.2，列舉[ `SqlAuthenticationMethod` ](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod)有新的值： `ActiveDirectoryInteractive`。 在用戶端C#程式中，列舉值會指示系統使用支援多重要素驗證來連接到 Azure SQL database 的 Azure Active Directory (Azure AD) 互動模式。 執行程式的使用者會看到下列對話方塊：
 
 * 對話方塊會顯示 Azure AD 使用者名稱，並要求使用者密碼。
 
-   若使用者的網域與 Azure AD 同盟，此對話方塊不會顯示，因為無需密碼。
+   與 Azure AD 同盟使用者的網域時，如果未出現此對話方塊中，因為不需要密碼。
 
-   若 Azure AD 原則對使用者強制執行 MFA，就會顯示接下來的兩個對話方塊。
+   Azure AD 原則會強加 Multi-factor Authentication 使用者，則會顯示下面兩個對話方塊。
 
-* 使用者首次進行 MFA 時，系統會顯示對話方塊，要求提供行動電話號碼以傳送簡訊。 每個訊息會提供*驗證碼*，使用者必須在下一個對話方塊中輸入該驗證碼。
+* 第一次使用者經歷了 Multi-factor Authentication，系統會顯示對話方塊，要求您提供來傳送簡訊到行動電話號碼。 每個訊息會提供*驗證碼*，使用者必須在下一個對話方塊中輸入該驗證碼。
 
-* 對話方塊會要求 MFA 驗證碼，即系統先前傳送到行動電話的驗證碼。
+* 要求多重要素驗證該驗證碼，系統已傳送到行動電話的對話方塊。
 
-如需如何設定 Azure AD 以要求 MFA 的詳細資訊，請參閱[開始在雲端中使用 Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-cloud)。
+如需如何設定 Azure AD，以要求多重要素驗證的資訊，請參閱[開始使用雲端中的 Azure Multi-factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-cloud)。
 
-如需這些對話方塊的螢幕擷取畫面，請參閱[設定適用於 SQL Server Management Studio 和 Azure AD 的多重要素驗證](sql-database-ssms-mfa-authentication-configure.md)。
+這些對話方塊的螢幕擷取畫面，請參閱 < [SQL Server Management Studio 和 Azure AD 設定多重要素驗證](sql-database-ssms-mfa-authentication-configure.md)。
 
 > [!TIP]
-> 您可以使用 **.NET API 瀏覽器**工具頁面搜尋 .NET Framework API：
+> 您可以搜尋與.NET Framework Api [.NET API 瀏覽器工具頁面](https://docs.microsoft.com/dotnet/api/)。
 >
-> [https://docs.microsoft.com/dotnet/api/](https://docs.microsoft.com/dotnet/api/)
->
-> 您也可以透過選擇性的 **?term=&lt;搜尋值&gt;** 參數進行直接搜尋：
->
-> [https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod](https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod)
+> 您也可以直接與搜尋[選擇性？ 詞彙 =&lt;搜尋值&gt;參數](https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod)。
 
 ## <a name="configure-your-c-application-in-the-azure-portal"></a>在 Azure 入口網站中設定您的 C# 應用程式
 
@@ -58,70 +54,67 @@ ms.locfileid: "57834582"
 
 ### <a name="register-your-app-and-set-permissions"></a>註冊應用程式並設定權限
 
+若要使用 Azure AD 驗證，您的 C# 程式必須註冊為 Azure AD 應用程式。 若要註冊應用程式，您必須是 Azure AD 管理員或受指派為 Azure AD「應用程式開發人員」角色的使用者。 如需有關如何將角色指派的詳細資訊，請參閱 <<c0> [ 將系統管理員和非系統管理員角色指派給使用者與 Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)。
 
-若要使用 Azure AD 驗證，您的 C# 程式必須註冊為 Azure AD 應用程式。 若要註冊應用程式，您必須是 Azure AD 管理員或受指派為 Azure AD「應用程式開發人員」角色的使用者。 如需有關指派角色的詳細資訊，請參閱[使用 Azure Active Directory 將系統管理員和非系統管理員角色指派給使用者。](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
-
- 應用程式註冊完成後，會產生與顯示**應用程式識別碼**。 您的程式必須包含此識別碼才能連線。
-
+完成應用程式註冊會產生並顯示**應用程式識別碼**。 您的程式必須包含此識別碼才能連線。
 
 若要為應用程式註冊與設定必要權限，請遵循下列步驟：
 
-1. Azure 入口網站 > [Azure Active Directory] > [應用程式註冊] > [新應用程式註冊]
+1. 在 Azure 入口網站中，選取 [Azure Active Directory] > [應用程式註冊] > [新應用程式註冊]。
 
     ![應用程式註冊](media/active-directory-interactive-connect-azure-sql-db/image1.png)
 
-    應用程式註冊一建立便會產生與顯示**應用程式識別碼**值。
+    建立應用程式註冊之後，**應用程式識別碼**值會產生並顯示。
 
     ![顯示的應用程式識別碼](media/active-directory-interactive-connect-azure-sql-db/image2.png)
 
-2. [註冊的應用程式] > [設定] > [必要權限] > [新增]
+2. 選取 **註冊的應用程式** > **設定** > **必要權限** > **新增**。
 
     ![已註冊應用程式的權限設定](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
 
-3. [必要權限] > [新增] > [選取 API] > [Azure SQL Database]
+3. 選取 **必要的權限** > **新增** > **選取 API** > **Azure SQL Database**.
 
     ![將存取權新增至 Azure SQL Database 的 API](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
 
-4. [API 存取權] > [選取權限] > [委派的權限]
+4. 選取  **API 存取權** > **選取 權限** > **委派的權限**。
 
     ![將權限委派給 Azure SQL Database 的 API](media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
 
 ### <a name="set-an-azure-ad-admin-for-your-sql-database-server"></a>為您的 SQL Database 伺服器設定 Azure AD 管理員
 
+如您C#來執行程式、 Azure SQL server 系統管理員必須指派您的 SQL Database 伺服器的 Azure AD 系統管理員。 
 
-為了讓您的 C# 程式能夠執行，Azure SQL 伺服器管理員需要為您的 Azure SQL 伺服器指派 Azure AD 管理員。 
+在  **SQL Server**頁面上，選取**Active Directory 系統管理員** > **設定系統管理員**。
 
- * [SQL Server] > [Active Directory 系統管理員] > [設定系統管理員]
-
-如需 Azure SQL Database 的 Azure AD 管理員和使用者的詳細資訊，請參閱[設定及管理對 SQL Database 的 Azure Active Directory 驗證](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)，在**為您的 Azure SQL Database 伺服器佈建 Azure Active Directory 系統管理員**一節中的螢幕擷取畫面。
+多個 Azure SQL Database Azure AD 系統管理員和使用者的詳細資訊，請參閱中的螢幕擷取畫面[設定和管理 SQL Database 與 Azure Active Directory 驗證](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)。
 
 ### <a name="add-a-non-admin-user-to-a-specific-database-optional"></a>將非管理員使用者新增至特定資料庫 (選用)
 
 SQL Database 伺服器的 Azure AD 管理員可以執行 C# 範例程式。 若 Azure AD 使用者在資料庫內，他們可以執行程式。 已經存在於資料庫並擁有 `ALTER ANY USER` 權限的 Azure AD SQL 管理員或 Azure AD 使用者可以新增使用者。
 
-您可以使用 SQL 的 [`Create User`](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) 命令將使用者新增至資料庫。 例如： `CREATE USER [<username>] FROM EXTERNAL PROVIDER`。
+您可以使用 SQL 的 [`Create User`](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) 命令將使用者新增至資料庫。 例如 `CREATE USER [<username>] FROM EXTERNAL PROVIDER`。
 
 如需詳細資訊，請參閱[使用 Azure Active Directory 驗證向 SQL Database、受控執行個體或 SQL 資料倉儲進行驗證](sql-database-aad-authentication.md)。
 
 ## <a name="new-authentication-enum-value"></a>新的驗證列舉值
 
-C# 範例仰賴 [`System.Data.SqlClient`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) 命名空間。 多重要素驗證特別值得注意的是列舉 `SqlAuthenticationMethod`，此列舉具有下列值：
+C# 範例仰賴 [`System.Data.SqlClient`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) 命名空間。 Multi-factor authentication 的特殊感興趣的是列舉`SqlAuthenticationMethod`，其中包含下列值：
 
 - `SqlAuthenticationMethod.ActiveDirectoryInteractive`
 
-   將此值與 Azure AD 使用者名稱搭配使用以實作 MFA。 這個值是目前文章的焦點。 它會透過顯示對話方塊來要求輸入使用者密碼，接著若強制對此使用者執行 MFA，則會要求進行 MFA 驗證，來產生互動式體驗。 此值從 .NET Framework 4.7.2 版開始可供使用。
+   使用此值與 Azure AD 使用者名稱，實作多重要素驗證。 這個值是目前文章的焦點。 它藉由顯示對話方塊，在使用者密碼，然後再針對 Multi-factor Authentication 驗證，如果 Multi-factor Authentication 會加諸於此使用者產生的互動式體驗。 此值從 .NET Framework 4.7.2 版開始可供使用。
 
 - `SqlAuthenticationMethod.ActiveDirectoryIntegrated`
 
-  針對「同盟」帳戶使用此值。 針對同盟帳戶，Windows 網域已知使用者名稱。 這個驗證方法不支援 MFA。
+  針對「同盟」帳戶使用此值。 針對同盟帳戶，Windows 網域已知使用者名稱。 這種驗證方法不支援多重要素驗證。
 
 - `SqlAuthenticationMethod.ActiveDirectoryPassword`
 
-  針對要求 Azure AD 使用者名稱和密碼的驗證使用此值。 Azure SQL Database 會進行驗證。 這個方法不支援 MFA。
+  針對要求 Azure AD 使用者名稱和密碼的驗證使用此值。 Azure SQL Database 會進行驗證。 這個方法不支援多重要素驗證。
 
 ## <a name="set-c-parameter-values-from-the-azure-portal"></a>從 Azure 入口網站設定 C# 參數值
 
-為了成功執行 C# 程式，您必須將適當的值指派給靜態欄位。 此處列出欄位和範例值， 以及取得所需值的 Azure 入口網站位置：
+為了成功執行 C# 程式，您必須將適當的值指派給靜態欄位。 此處列出欄位和範例值， 也會顯示是 Azure 的入口網站位置，您可以在哪裡取得所需的值。
 
 | 靜態欄位名稱 | 範例值 | 在 Azure 入口網站中的位置 |
 | :---------------- | :------------ | :-------------------- |
@@ -129,25 +122,25 @@ C# 範例仰賴 [`System.Data.SqlClient`](https://docs.microsoft.com/dotnet/api/
 | AzureAD_UserID | "auser\@abc.onmicrosoft.com" | [Azure Active Directory] > [使用者] > [新增來賓使用者] |
 | Initial_DatabaseName | "myDatabase" | [SQL Server] > [SQL 資料庫] |
 | ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | [Azure Active Directory] > [應用程式註冊] > [依名稱搜尋] > [應用程式識別碼] |
-| RedirectUri | new Uri("https://mywebserver.com/") | [Azure Active Directory] > [應用程式註冊] > [依名稱搜尋] > [Your-App-regis] > [設定] > [RedirectURIs]<br /><br />對於這篇文章，任何有效值都適用於 RedirectUri，因為該值不會在此處使用。 |
+| RedirectUri | new Uri("https://mywebserver.com/") | **Azure Active Directory** > **應用程式註冊** > **依名稱搜尋** > *[您的應用程式-註冊]*  > **設定** > **RedirectURIs**<br /><br />在本文中，因為它不會使用以下，是適合 RedirectUri，任何有效的值。 |
 | &nbsp; | &nbsp; | &nbsp; |
 
-## <a name="verify-with-sql-server-management-studio-ssms"></a>驗證 SQL Server Management Studio (SSMS)
+## <a name="verify-with-sql-server-management-studio"></a>使用 SQL Server Management Studio 來驗證
 
-在執行 C# 程式前，建議先檢查 SSMS 中的設定和組態都正確無誤。 如此一來，任何 C# 程式失敗就會是原始程式碼的問題。
+在執行之前C#程式，它是個不錯的主意，來檢查您的安裝和設定正確的 SQL Server Management Studio (SSMS)。 如此一來，任何 C# 程式失敗就會是原始程式碼的問題。
 
 ### <a name="verify-sql-database-firewall-ip-addresses"></a>驗證 SQL Database 防火牆 IP 位址
 
-在您計畫執行 C# 程式的相同組建中，從相同的電腦執行 SSMS。 針對此測試，任何**驗證**模式皆可使用。 如果有任何指示表示資料庫伺服器防火牆不接受您的 IP 位址，請參閱 [Azure SQL Database 伺服器層級和資料庫層級防火牆規則](sql-database-firewall-configure.md)以取得說明。
+在您計畫執行 C# 程式的相同組建中，從相同的電腦執行 SSMS。 此測試的任何**驗證**模式是 [確定]。 如果有任何指示表示資料庫伺服器防火牆不接受您的 IP 位址，請參閱 [Azure SQL Database 伺服器層級和資料庫層級防火牆規則](sql-database-firewall-configure.md)以取得說明。
 
-### <a name="verify-azure-active-directory-mfa"></a>驗證 Azure Active Directory MFA
+### <a name="verify-azure-active-directory-multi-factor-authentication"></a>驗證 Azure Active Directory 多重要素驗證
 
 再次執行 SSMS，但是這次將**驗證**設為 **Active Directory - 通用 (具有 MFA 支援)**。 此選項需要 SSMS 17.5 或更新版本。
 
-如需詳細資訊，請參閱[設定 SSMS 和 Azure AD 的多重要素驗證](sql-database-ssms-mfa-authentication-configure.md)。
+如需詳細資訊，請參閱 < [SSMS 和 Azure AD 設定 Multi-factor Authentication](sql-database-ssms-mfa-authentication-configure.md)。
 
 > [!NOTE]
-> 如果您在資料庫中是來賓使用者，您也必須為資料庫提供 Azure AD 網域名稱：[選項] > [AD 網域名稱或租用戶 ID]。 若要在 Azure 入口網站中尋找網域名稱，請選取 [Azure Active Directory] > [自訂網域名稱]。 在 C# 範例程式中，提供網域名稱並非必要。
+> 如果您是在資料庫中的來賓使用者，您也必須提供資料庫的 Azure AD 網域名稱：選取 **選項** > **AD 網域名稱或租用戶識別碼**。 若要在 Azure 入口網站中尋找網域名稱，請選取 [Azure Active Directory] > [自訂網域名稱]。 在 C# 範例程式中，提供網域名稱並非必要。
 
 ## <a name="c-code-example"></a>C# 程式碼範例
 
@@ -155,7 +148,7 @@ C# 程式範例依賴 [*Microsoft.IdentityModel.Clients.ActiveDirectory*](https:
 
 若要安裝此封裝，請在 Visual Studio 中選取 [專案] > [管理 NuGet 封裝]。 搜尋並安裝 **Microsoft.IdentityModel.Clients.ActiveDirectory**。
 
-### <a name="c-source-code"></a>C# 原始程式碼
+這是範例C#原始程式碼。
 
 ```csharp
 
@@ -247,11 +240,11 @@ namespace ADInteractive5
                 Console.ResetColor();
             }
         }
-    } // EOClass Program .
+    } // EOClass Program.
 
     /// <summary>
     /// SqlAuthenticationProvider - Is a public class that defines 3 different Azure AD
-    /// authentication methods.  The methods are supported in the new .NET 4.7.2 .
+    /// authentication methods.  The methods are supported in the new .NET 4.7.2.
     ///  . 
     /// 1. Interactive,  2. Integrated,  3. Password
     ///  . 
@@ -318,14 +311,14 @@ namespace ADInteractive5
                 || authenticationMethod == SC.SqlAuthenticationMethod.ActiveDirectoryInteractive
                 || authenticationMethod == SC.SqlAuthenticationMethod.ActiveDirectoryPassword;
         }
-    } // EOClass ActiveDirectoryAuthProvider .
+    } // EOClass ActiveDirectoryAuthProvider.
 } // EONamespace.  End of entire program source code.
 
 ```
 
 &nbsp;
 
-#### <a name="actual-test-output-from-c"></a>C# 的實際測試輸出
+這是範例C#測試輸出。
 
 ```
 [C:\Test\VSProj\ADInteractive5\ADInteractive5\bin\Debug\]

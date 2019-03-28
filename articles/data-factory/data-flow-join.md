@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 204ee1b812949311258be968de387dc5b66c4fc0
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 18f713198ef9aa45cb72a6718c0f7b086c019258
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726867"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540035"
 ---
 # <a name="mapping-data-flow-join-transformation"></a>對應資料流程聯結轉換
 
@@ -67,6 +67,10 @@ ms.locfileid: "57726867"
 ![自我聯結](media/data-flow/selfjoin.png "自我聯結")
 
 在上圖中，選取轉換位於最上層。 這是在設定原始資料流的別名為「OrigSourceBatting」。 在下方反白顯示的聯結轉換中，您可以看到，我們使用這個選取別名資料流做為右邊的聯結，以便我們參考內部聯結左右兩邊的同個索引鍵。
+
+## <a name="composite-and-custom-keys"></a>複合和自訂索引鍵
+
+您可以 「 聯結 」 轉換內快速建置自訂和複合索引鍵。 加入額外的聯結資料行旁邊的加號 （+） 每個關聯性的資料列的資料列。 或計算新的金鑰值，在 運算式產生器上即時聯結值。
 
 ## <a name="next-steps"></a>後續步驟
 

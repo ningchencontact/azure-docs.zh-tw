@@ -3,7 +3,7 @@ title: 設定 SharePoint Online 和 Exchange Online 以採用 Azure Active Direc
 description: 了解如何設定 SharePoint Online 和 Exchange Online，以便採用 Azure Active Directory 條件式存取。
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 ms.assetid: 62349fba-3cc0-4ab5-babe-372b3389eff6
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2019
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4015f99e9281285c530c6ae40dbda4e97846af8
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: a90cd381dbe3feaad110c7f10ae328915c051d0a
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311027"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517720"
 ---
 # <a name="how-to-set-up-sharepoint-online-and-exchange-online-for-azure-active-directory-conditional-access"></a>作法：設定 SharePoint Online 和 Exchange Online，以便採用 Azure Active Directory 條件式存取 
 

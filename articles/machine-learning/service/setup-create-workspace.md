@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
 ms.date: 03/21/2019
-ms.openlocfilehash: 2c3b63e671240a239dc2037ce56e56af4a8f95e7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: e55c898cdbb45dc7ff3466c61e968e3ae52be0cb
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369151"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521001"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>建立 Azure 機器學習服務工作區
 
@@ -24,7 +24,7 @@ ms.locfileid: "58369151"
 在本文中，您會學習如何建立工作區中使用任何一種方法： 
 * [Azure 入口網站](#portal)介面
 * [Azure Machine Learning 適用於 Python 的 SDK](#sdk)
-* [Azure Resource Manager 範本](#template)
+* Azure Resource Manager 範本
 * [Azure Machine Learning CLI](#cli)
 
 您使用這裡中的步驟建立的工作區可用來當做其他教學課程和 how-to 文章的必要條件。 
@@ -116,7 +116,7 @@ ms.locfileid: "58369151"
     ```
 
 > [!IMPORTANT]
-> 在一些命令列工具，您可能需要加上引號，如下所示：
+> 在某些命令列工具中，您可能需要加上引號，如下所示：
 > *  'azureml-sdk[notebooks]'
 > * 'azureml-sdk[automl]'
 >

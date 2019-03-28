@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: aae081232d3633d3f7d8094979764606bf99430d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 76892e22e940476ca26cde7a91bfe928b47f22ba
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311179"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522259"
 ---
 # <a name="how-to-filter-by-language-in-azure-search"></a>如何在 Azure 搜尋服務中依語言進行篩選 
 
@@ -39,11 +39,11 @@ ms.locfileid: "53311179"
   ![](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
-> 如需利用語言分析器顯示欄位定義的程式碼範例，請參閱[定義索引 (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet#define-your-azure-search-index) 和[定義索引 (REST)](https://docs.microsoft.com/azure/search/search-create-index-rest-api#define-your-azure-search-index-using-well-formed-json)。
+> 如需利用語言分析器顯示欄位定義的程式碼範例，請參閱[定義索引 (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) 和[定義索引 (REST)](https://docs.microsoft.com/azure/search/search-create-index-rest-api-using-well-formed-json)。
 
 ## <a name="build-and-load-an-index"></a>建置和載入索引
 
-有個中繼 (且可能明顯) 的步驟是，您必須先[建立並填入索引](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index)，之後才能編寫查詢。 我們基於完整性而在這裡提及此步驟。 判斷索引是否可用的方法之一是在[入口網站](https://portal.azure.com)中檢查索引清單。
+有個中繼 (且可能明顯) 的步驟是，您必須先[建立並填入索引](https://docs.microsoft.com/azure/search/search-create-index-dotnet)，之後才能編寫查詢。 我們基於完整性而在這裡提及此步驟。 判斷索引是否可用的方法之一是在[入口網站](https://portal.azure.com)中檢查索引清單。
 
 ## <a name="constrain-the-query-and-trim-results"></a>限制查詢與調整結果
 
@@ -62,7 +62,7 @@ parameters =
 > [!Note]
 > 雖然查詢中沒有 $filter 引數，但這個使用案例與篩選概念具有強烈的關聯性，因此，我們將它作為篩選案例。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 + [Azure 搜尋服務中的篩選條件](search-filters.md)
 + [語言分析器](https://docs.microsoft.com/rest/api/searchservice/language-support)

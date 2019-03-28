@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: resources
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: c43c81d42a39bda504b02eb6c053a16a2cf53aec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 3426681aad19bbe01c0f7e88ca16e79c0b490c36
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58138043"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317301"
 ---
 # <a name="project-acoustics-frequently-asked-questions"></a>專案樂器常見問題集
 
@@ -25,7 +25,7 @@ ms.locfileid: "58138043"
 
 ## <a name="where-can-i-download-the-plugin"></a>我可以從哪裡下載外掛程式？
 
-您可以下載從專案樂器[專案樂器 Download Center page](https://www.microsoft.com/en-us/download/details.aspx?id=57346)。
+您可以下載[專案樂器 Unity 外掛程式](https://www.microsoft.com/download/details.aspx?id=57346)或[Unreal 專案樂器外掛程式](https://www.microsoft.com/download/details.aspx?id=58090)。
 
 ## <a name="does-project-acoustics-support-x-platform"></a>支援專案樂器<x>平台？
 

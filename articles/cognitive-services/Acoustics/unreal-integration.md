@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: how-to
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 19565ef239ba3ea1f791f80e4599a63b944c491b
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
-ms.translationtype: HT
+ms.openlocfilehash: 0baaf31386e1155dee6ca2bbfda6827ca3fc36fe
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58137884"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313442"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>專案樂器 Unreal 和 Wwise 整合
 此操作說明提供詳細的整合步驟的專案樂器外掛程式封裝到您現有的 Unreal 和 Wwise 遊戲專案。 
@@ -29,7 +29,7 @@ ms.locfileid: "58137884"
 如果您想要使用的音訊引擎 Wwise 以外的專案樂器上, 與我們連絡[專案樂器論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics)。 您可以使用專案樂器 Unreal 外掛程式來查詢樂器資料，然後再進行 API 呼叫，以便您的引擎。
 
 ## <a name="download-project-acoustics"></a>下載專案樂器
-如果您還沒有這麼做，下載[專案樂器外掛程式封裝](https://www.microsoft.com/download/details.aspx?id=57346))。 
+如果您還沒有這麼做，下載[Unreal 專案樂器 & Wwise 外掛程式封裝](https://www.microsoft.com/download/details.aspx?id=58090))。 
 
 在封裝中，我們已加入的 Unreal Engine 外掛程式和 Wwise 混音器 」 外掛程式。 Unreal 外掛程式提供編輯器和執行階段的整合。 期間的遊戲，Unreal 專案樂器外掛程式會計算每個畫面參數，例如針對每個遊戲的物件會受阻擋。 這些參數會轉譯成 Wwise API 呼叫。
 
@@ -45,23 +45,23 @@ ms.locfileid: "58137884"
 7. Unreal 中的音訊設定
 
 ## <a name="1-install-the-project-acoustics-mixer-plugin"></a>1.安裝專案樂器混音器外掛程式
-* 在中，然後開啟 Wwise 啟動器**外掛程式**索引標籤之下**安裝新的外掛程式**，選取**新增從目錄**。 
+* 開啟 Wwise 啟動器，然後在 [Plugins] \(外掛程式\) 索引標籤的 [Install New Plugins] \(安裝新外掛程式\) 之下，選取 [Add From Directory] \(從目錄新增\)。 
 
-    ![安裝 Wwise 外掛程式](media/wwise-install-new-plugin.png)
+    ![安裝外掛程式 Wwise 啟動器中的螢幕擷取畫面](media/wwise-install-new-plugin.png)
 
-* 選擇`AcousticsWwisePlugin\ProjectAcoustics`下載的封裝中包含的目錄。 它包含 Wwise mixer 外掛程式套件組合。
+* 選擇包含在您所下載之套件中的 `AcousticsWwisePlugin\ProjectAcoustics` 目錄。 它包含 Wwise mixer 外掛程式套件組合。
 
 * Wwise 將安裝的外掛程式。 專案樂器應該現在會顯示在 已安裝的外掛程式清單中 Wwise 中。
-![U E 整合後續 Mixer 外掛程式安裝](media/unreal-integration-post-mixer-plugin-install.png)
+![螢幕擷取畫面的 Wwise 專案樂器安裝之後安裝外掛程式清單](media/unreal-integration-post-mixer-plugin-install.png)
 
 ## <a name="2-redeploy-wwise-into-your-game"></a>2.（重新） 將 Wwise 部署到您的遊戲
 即使您已整合 Wwise，重新部署至您的遊戲 Wwise。 這會挑選專案樂器 Wwise 外掛程式。
 
 * **引擎外掛程式：** 如果您有安裝 Unreal c + + 專案中的遊戲外掛程式為 Wwise，略過此步驟。 如果執行個體因為您的 Unreal 專案是使用我們的混音器 」 外掛程式藍圖，Wwise 部署是更複雜，它會改為引擎外掛程式安裝。 建立空的、 空的 Unreal c + + 專案、 關閉它，如果 Unreal 編輯器隨即開啟，並遵循其餘的程序，來將 Wwise 部署到此虛擬的專案。 然後複製已部署的 Wwise 外掛程式。
  
-* 從 Wwise 啟動程式中，按一下**Unreal Engine**索引標籤，然後按一下 [漢堡] 功能表下一步**最近使用的 Unreal Engine 專案**，然後選取**瀏覽專案**。 開啟您的遊戲 Unreal 專案`.uproject`檔案。
+* 從 Wwise 啟動器，按一下 [Unreal Engine] 索引標籤，然後按一下 [Recent Unreal Engine Projects] \(最近使用的 Unreal Engine 專案\) 旁邊的漢堡功能表，並選取 [Browse for project] \(瀏覽專案\)。 開啟您的遊戲 Unreal 專案`.uproject`檔案。
 
-    ![Wwise Unreal 索引標籤](media/wwise-unreal-tab.png)
+    ![螢幕擷取畫面的 Wwise 啟動器的 Unreal 索引標籤](media/wwise-unreal-tab.png)
 
 * 然後按一下**專案中的整合 Wwise**或是**專案中的修改 Wwise**。 （重新） 的這個步驟會整合到您的專案，現在還包含了專案樂器 mixer 外掛程式 Wwise 二進位檔。
 
@@ -76,13 +76,13 @@ ms.locfileid: "58137884"
 
 ## <a name="4-extend-wwises-unreal-plugin-functionality"></a>4.擴充 Wwise 的 Unreal 外掛程式功能
 * Unreal 專案樂器外掛程式需要額外的行為會公開從 Wwise Unreal 外掛程式 API，以每個[這些指導方針](https://www.audiokinetic.com/library/?source=UE4&id=using__initialsetup.html)。 我們已加入批次檔自動化修補程序。 
-* 內部`Plugins\ProjectAcoustics\Resources`，請執行`PatchWwise.bat`。 下面的範例圖像中，會使用我們的 AcousticsGame 範例專案。
+* 在 `Plugins\ProjectAcoustics\Resources` 內，執行 `PatchWwise.bat`。 下面的範例圖像中，會使用我們的 AcousticsGame 範例專案。
 
-    ![修補程式 Wwise 指令碼](media/patch-wwise-script.png)
+    ![螢幕擷取畫面的 Windows 檔案總管視窗反白顯示所提供的指令碼，以修補程式 Wwise](media/patch-wwise-script.png)
 
-* 如果您沒有安裝 DirectX SDK，您將需要標記為註解包含 DXSDK_DIR 中的行 `[UProject]\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
+* 如果您沒有安裝 DirectX SDK，便需要將 `[UProject]\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`中包含 DXSDK_DIR 的程式碼行註解化
 
-    ![DXSDK 標記為註解](media/directx-sdk-comment.png)
+    ![顯示 DXSDK 標記為註解的程式碼編輯器的螢幕擷取畫面](media/directx-sdk-comment.png)
 
 ## <a name="5-build-game-and-check-python-is-enabled"></a>5.建置遊戲，並確認已啟用 Python
 
@@ -91,11 +91,11 @@ ms.locfileid: "58137884"
 * **引擎外掛程式：** 如果使用 ProjectAcoustics 做為引擎外掛程式，也請確定已啟用，列在 「 內建 」 外掛程式。
 * 您應該會看到新的模式，這表示專案樂器已整合。
 
-    ![樂器建立完整的模型](media/acoustics-mode-full.png)
+    ![螢幕擷取畫面的 Unreal 顯示樂器完整模式](media/acoustics-mode-full.png)
 
 * 請確認您的 Unreal 啟用 Python 外掛程式。 這是必要的編輯器整合才能正常運作。
 
-    ![請確定 Python](media/ensure-python.png)
+    ![啟用 Unreal 編輯器中的 Python 延伸模組的螢幕擷取畫面](media/ensure-python.png)
 
 ## <a name="6-wwise-project-setup"></a>6.Wwise 專案安裝程式
 
@@ -104,36 +104,36 @@ ms.locfileid: "58137884"
 ### <a name="bus-setup"></a>匯流排設定
 * 與這個匯流排上的相關聯的混音器外掛程式會尋找專案樂器 Unreal 外掛程式***確切***名稱： `Project Acoustics Bus`。 使用此名稱建立新的音訊匯流排。 Mixer 外掛程式可以搭配各種組態，但現在我們假設它將會用來執行僅殘響器處理。 此匯流排會執行使用樂器的所有來源的混合殘響器訊號。 它可以混合使用上游至混用結構任何匯流排，範例如下所示，取自範例下載中包含我們 Wwise 範例專案。
 
-    ![樂器匯流排](media/acoustics-bus.png)
+    ![顯示專案樂器匯流排的螢幕擷取畫面的 Wwise 匯流排上](media/acoustics-bus.png)
 
 * 在匯流排上的通道設定必須設定為其中一個： `1.0, 2.0, 4.0, 5.1 or 7.1`。 其他設定 將會導致此匯流排上沒有輸出。
 
-    ![樂器匯流排](media/acoustics-bus-channel-config.png)
+    ![適用於專案樂器匯流排通道組態選項的螢幕擷取畫面](media/acoustics-bus-channel-config.png)
 
 * 現在，移至專案樂器匯流排的詳細資訊，並確保您可以看到 [Mixer 外掛程式] 索引標籤
 
-    ![樂器匯流排](media/mixer-tab-enable.png)
+    ![螢幕擷取畫面的 Wwise，示範如何啟用專案樂器匯流排 Mixer 外掛程式 索引標籤](media/mixer-tab-enable.png)
 
 * 請移至 [Mixer 外掛程式] 索引標籤，並將專案樂器 mixer 外掛程式新增至匯流排
 
-    ![新增 Mixer 外掛程式](media/add-mixer-plugin.png)
+    ![顯示如何加入專案樂器 Mixer 外掛程式的螢幕擷取畫面的 Wwise 匯流排](media/add-mixer-plugin.png)
 
 ### <a name="actor-mixer-hierarchy-setup"></a>動作項目 mixer 階層安裝程式
 * 基於效能考量，專案樂器適用於音訊 DSP 所有來源同時。 這需要做的混音器外掛程式的外掛程式。 雖然輸出匯流排通常是執行 dry 輸出訊號 Wwise 仍必須要在輸出匯流排上的混音器外掛程式。 專案樂器需要透過 aux 匯流排上進行路由 dry 訊號，而濕的訊號附在`Project Acoustics Bus`。 下列程序支援漸進式移轉到此訊號流程。
 
 * 假設您有現有的專案包含最上層的腳步、 武器和其他人的動作項目 mixer 階層。 每個都有其 dry mix 的對應輸出匯流排。 可讓您想要移轉使用樂器的腳步的假設。 首先，建立對應的 aux 匯流排，來執行子系的腳步輸出匯流排其 dry submix。 比方說，我們使用 「 Dry"的前置詞在下列影像中組織這些項目，雖然的確切名稱並不重要。 任何計量或您有腳步匯流排的效果仍舊會和以前一樣。
 
-    ![Wwise Dry 混用安裝程式](media/wwise-dry-mix-setup.png)
+    ![建議 Wwise Dry 混用安裝程式的螢幕擷取畫面](media/wwise-dry-mix-setup.png)
 
 * 然後，如下所示修改腳步動作項目 mixer 匯流排輸出結構，其設定為輸出匯流排和 Dry_Footsteps 專案樂器匯流排設定為使用者定義的 aux 匯流排。
 
-    ![安裝程式-Mixer 匯流排 Wwise 動作項目](media/actor-mixer-bus-settings.png)
+    ![建議 Wwise 動作項目 Mixer 匯流排安裝程式的螢幕擷取畫面](media/actor-mixer-bus-settings.png)
 
 * 現在所有的腳步取得樂器處理方式，並輸出其殘響器專案樂器匯流排上。 Dry 訊號是透過 Dry_Footsteps 路由傳送，並如往常般 spatialized。
 
 * 專案樂器僅適用於有 3D 位置的世界中的音效。 遵循[Wwise 文件](https://blog.audiokinetic.com/out-with-the-old-in-with-the-new-positioning-revamped-in-wwise-2018.1/)，則必須設定定位屬性，如所示。 視需要 「 位置 」 或 「 位置 + 方向 」 可以是 「 3D 空間 」 設定。
 
-    ![Wwise 動作項目位置的設定](media/wwise-positioning.png)
+    ![建議 Wwise 動作項目位置設定的螢幕擷取畫面](media/wwise-positioning.png)
 
 * 將輸出匯流排設定為上游混合成一些其他匯流排**專案樂器匯流排**將無法運作。 Wwise 加諸在 mixer 外掛程式上的這項需求。
 
@@ -146,7 +146,7 @@ ms.locfileid: "58137884"
  
 專案樂器包含選擇性的空間可支援物件為基礎高解析度 HRTF 轉譯和移動瀏覽。 檢查 mixer 外掛程式設定的 「 執行空間 」 核取方塊並選擇 HRTF 或移動或停用設定上述所有 dry 匯流排上以避免兩次，spatializing 專案樂器 mixer 外掛程式 Wwise 是以使用者定義的輔助裝置傳送。 無法即時變更往模式，因為它需要音效銀行重新產生。 您必須重新啟動 Unreal，然後重新 soundbanks 產生才按下 [播放]，挑選 mixer 外掛程式組態變更，例如執行往核取方塊。
 
-![Mixer 外掛程式空間設定](media/mixer-spatial-settings.png)
+![螢幕擷取畫面的 Wwise Mixer 外掛程式空間設定](media/mixer-spatial-settings.png)
 
 不幸的是，其他物件為基礎的空間外掛程式不支援這一次它們被實作為混音器 」 外掛程式，以及 Wwise 目前不允許多個指派給單一動作項目 mixer 的混音器 」 外掛程式。  
 
@@ -154,20 +154,20 @@ ms.locfileid: "58137884"
 * 首先您必須修正您遊戲的層級，以產生樂器資產，其會置於`Content\Acoustics`。 請參閱[Unreal 試吃的教學課程](unreal-baking.md)和這裡繼續。 範例封裝中包含一些預先烤的層。
 * 場景中建立樂器空間動作項目。 只能建立其中一個這些動作項目層級中，它代表整個層級樂器。 
 
-    ![建立樂器的空間](media/create-acoustics-space.png)
+    ![Unreal 螢幕擷取畫面的編輯器，其中顯示用來建立樂器空間動作項目](media/create-acoustics-space.png)
 
 * 現在將烤原音資料資產指派至樂器資料位置的樂器空間動作項目。 場景現在有樂器 ！
 
-    ![指派樂器資產](media/acoustics-asset-assign.png)
+    ![Unreal 螢幕擷取畫面的編輯器 s howing 樂器資產指派](media/acoustics-asset-assign.png)
 
 * 現在加入空白的動作項目，並執行下列作業：
 
-    ![樂器元件的使用方式](media/acoustics-component-usage.png)
+    ![Unreal 螢幕擷取畫面顯示空白動作項目樂器元件使用的編輯器](media/acoustics-component-usage.png)
 
 1. 樂器音效將元件新增至動作項目。 此元件擴充功能的專案樂器 Wwise 音訊元件。
 2. 在 [開始] 方塊上的播放會檢查根據預設，會觸發在層級的啟動相關聯的 Wwise 事件。
 3. 使用顯示樂器參數的核取方塊螢幕上列印偵錯來源的相關資訊。
-    ![偵錯值](media/debug-values.png)
+    ![Unreal 螢幕擷取畫面上啟用偵錯值音效來源的編輯器樂器面板](media/debug-values.png)
 4. 每個一般 Wwise 工作流程 Wwise 事件指派
 5. 請確定使用的空間音訊已關閉。 在此階段中，如果您使用專案樂器針對特定的音訊元件，您不能同時使用 Wwise 的空間音訊引擎樂器。
 

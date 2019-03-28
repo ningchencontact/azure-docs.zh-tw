@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 92c09e7defe159818b22bc8275d011d05512aa66
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 978b865f6dd7e3427a0139e7e71ed4b2d937fbe5
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446598"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517295"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>在 HDInsight 中搭配 Apache Hadoop 使用 Apache Ambari Hive 檢視
 
@@ -24,22 +24,14 @@ ms.locfileid: "58446598"
 
 ## <a name="prerequisites"></a>必要條件
 
-* HDInsight 叢集 3.4 版或更新版本上以 Linux 為基礎的 Apache Hadoop。
-
-  > [!IMPORTANT]  
-  > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
-
+* 在 HDInsight 上 Hadoop 叢集。 請參閱[開始使用 Linux 上的 HDInsight](./apache-hadoop-linux-tutorial-get-started.md)。
 * 網頁瀏覽器
 
 ## <a name="run-a-hive-query"></a>執行 HIVE 查詢
 
-1. 開啟 [Azure 入口網站](https://portal.azure.com)。
+1. 從[Azure 入口網站](https://portal.azure.com/)，選取您的叢集。  請參閱[列出和顯示叢集](../hdinsight-administer-use-portal-linux.md#showClusters)如需相關指示。 叢集會在新的入口網站刀鋒視窗中開啟。
 
-2. 選取您的 HDInsight 叢集，然後從 [快速連結] 區段選取 [Ambari 檢視]。
-
-    ![入口網站的 [快速連結] 區段](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
-
-    出現驗證的提示時，請使用您在建立叢集時提供的叢集登入 (預設為 `admin`) 帳戶名稱和密碼。
+2. 從**叢集儀表板**，選取**Ambari 檢視**。 出現驗證的提示時，請使用您在建立叢集時提供的叢集登入 (預設為 `admin`) 帳戶名稱和密碼。
 
 3. 從檢視清單中，選取 [Hive 檢視]。
 
@@ -81,30 +73,30 @@ ms.locfileid: "58446598"
 
    * `SELECT`:選取 t4 資料行包含 [ERROR] 值之所有資料列的計數。
 
-     > [!IMPORTANT]  
-     > 將 [資料庫] 選取項目保留為 [預設]。 本文件中的範例使用 HDInsight 隨附的預設資料庫。
+   > [!IMPORTANT]  
+   > 將 [資料庫] 選取項目保留為 [預設]。 本文件中的範例使用 HDInsight 隨附的預設資料庫。
 
-5. 若要啟動查詢，請使用工作表下方的 [執行] 按鈕。 按鈕會變成橘色，而且文字會變更為 [停止]。
+5. 若要啟動查詢，請選取**Execute**工作表下方。 按鈕會變成橘色，而且文字會變更為 [停止]。
 
 6. 查詢完成之後，[結果] 索引標籤會顯示作業的結果。 下列文字是查詢結果：
 
         loglevel       count
         [ERROR]        3
 
-    您可以使用 [記錄] 索引標籤來檢視作業所建立的記錄資訊。
+    您可以使用**記錄**索引標籤來檢視作業所建立的記錄資訊。
 
    > [!TIP]  
-   > 從 [查詢程序結果] 區段左上角的 [儲存結果] 下拉式對話方塊下載或儲存結果。
+   > 下載或儲存結果**動作**下方的下拉式清單對話方塊中**結果** 索引標籤。
 
 ### <a name="visual-explain"></a>視覺解說
 
 若要顯示查詢計劃的視覺效果，請選取工作表下方的 [視覺說明] 索引標籤。
 
-查詢的 [視覺解說] 檢視有助於了解複雜查詢的流程。 您可以使用 [查詢編輯器] 中的 [解說] 按鈕來查看此檢視的對等文字。
+查詢的 [視覺解說] 檢視有助於了解複雜查詢的流程。
 
 ### <a name="tez-ui"></a>Tez UI
 
-若要顯示查詢的 Tez UI，請選取工作表下方的 [Tez] 索引標籤。
+若要顯示查詢的 Tez UI，請選取**Tez UI**工作表下方的索引標籤。
 
 > [!IMPORTANT]  
 > Tez 的用途並非解析所有查詢。 您不需要使用 Tez 便可解析許多查詢。 

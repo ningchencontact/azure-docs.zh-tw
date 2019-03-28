@@ -1,6 +1,6 @@
 ---
-title: 對 IIS 使用 Blob 儲存體，對 Azure Log Analytics 中的事件使用表格儲存體 | Microsoft Docs
-description: Log Analytics 可以讀取 Azure 服務 (將診斷寫入表格儲存體) 的記錄，或讀取寫入 Blob 儲存體的 IIS 記錄。
+title: 使用 Azure 監視器中的事件的 IIS 和資料表儲存體的 blob 儲存體 |Microsoft Docs
+description: Azure 監視器可以讀取寫入表格儲存體的診斷的 Azure 服務的記錄或寫入 blob 儲存體的 IIS 記錄檔。
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,28 +13,28 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 9f5948887262ae190547c96aa09318a19f64812e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 35befe7122f493998d0d91c2721e6013e057fed3
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306624"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540596"
 ---
-# <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>針對 Log Analytics 的事件，使用 IIS 和 Azure 表格儲存體的 Azure blob 儲存體
+# <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-azure-monitor"></a>使用 Azure blob 儲存體的 IIS 和 Azure 資料表儲存體使用 Azure 監視器的事件
 
-Log Analytics 可以讀取下列服務 (將診斷寫入表格儲存體) 的記錄，或讀取寫入 Blob 儲存體的 IIS 記錄：
+Azure 監視器可以讀取下列服務寫入表格儲存體的診斷記錄或寫入 blob 儲存體的 IIS 記錄檔：
 
 * Service Fabric 叢集 (預覽)
 * 虛擬機器
 * Web/背景工作角色
 
-您必須先啟用 Azure 診斷，Log Analytics 才能收集這些資源的資料。
+Azure 監視器可將資料收集到 Log Analytics 工作區，這些資源之前，必須先啟用 Azure 診斷。
 
-啟用診斷之後，您可以使用 Azure 入口網站或 PowerShell，設定 Log Analytics 來收集記錄檔。
+啟用診斷之後, 您可以使用 Azure 入口網站或 PowerShell，設定要收集記錄檔的工作區。
 
-Azure 診斷是 Azure 的擴充功能，可讓您從背景工作角色、Web 角色或 Azure 中執行的虛擬機器收集診斷資料。 資料會儲存在 Azure 儲存體帳戶中，接著可由 Log Analytics 收集。
+Azure 診斷是 Azure 的擴充功能，可讓您從背景工作角色、Web 角色或 Azure 中執行的虛擬機器收集診斷資料。 將資料儲存在 Azure 儲存體帳戶，然後 Azure 監視器所收集。
 
-若要讓 Log Analytics 收集這些 Azure 診斷記錄，記錄檔必須位於下列位置：
+Azure 監視器 」 來收集這些 Azure 診斷記錄檔、 記錄檔必須在下列位置：
 
 | 記錄類型 | 資源類型 | 位置 |
 | --- | --- | --- |
@@ -116,10 +116,10 @@ Azure 診斷是 Azure 的擴充功能，可讓您從背景工作角色、Web 角
 
 **AccountName** 和 **AccountKey** 值可在 Azure 入口網站中儲存體帳戶儀表板的 [管理存取金鑰] 底下找到。 連接字串的通訊協定必須為 **https**。
 
-將更新的診斷組態套用至雲端服務，且該服務已開始將診斷寫入 Azure 儲存體時，您即可設定 Log Analytics。
+一旦更新的診斷組態套用至您的雲端服務，它會將診斷寫入 Azure 儲存體，您就準備好設定 Log Analytics 工作區。
 
 ## <a name="use-the-azure-portal-to-collect-logs-from-azure-storage"></a>使用 Azure 入口網站從 Azure 儲存體收集記錄
-您可以使用 Azure 入口網站，設定 Log Analytics 來收集下列 Azure 服務的記錄︰
+若要設定 Azure 監視器來收集下列 Azure 服務的記錄檔中的 Log Analytics 工作區，您可以使用 Azure 入口網站：
 
 * Service Fabric 叢集
 * 虛擬機器
@@ -136,9 +136,9 @@ Azure 診斷是 Azure 的擴充功能，可讓您從背景工作角色、Web 角
 5. 「來源」的值會根據資料類型自動填入且無法變更
 6. 按一下 [確定] 以儲存組態
 
-針對您想要 Log Analytics 收集的其他儲存體帳戶及資料類型，重複步驟 2-6。
+額外的儲存體帳戶和您想要收集到的工作區的資料類型重複步驟 2 至 6。
 
-大約 30 分鐘內，您就能夠在 Log Analytics 中看到來自儲存體帳戶的資料。 您只會看到套用組態之後寫入儲存體的資料。 Log Analytics 不會從儲存體帳戶讀取預先存在的資料。
+大約 30 分鐘內就可以從 Log Analytics 工作區的儲存體帳戶中看到資料。 您只會看到套用組態之後寫入儲存體的資料。 工作區不會從儲存體帳戶讀取預先存在的資料。
 
 > [!NOTE]
 > 入口網站不會驗證「來源」是否存在於儲存體帳戶，或是否已寫入新的資料。
@@ -149,7 +149,7 @@ Azure 診斷是 Azure 的擴充功能，可讓您從背景工作角色、Web 角
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-使用[設定 Log Analytics 來為 Azure 診斷編製索引](../../azure-monitor/platform/powershell-workspace-configuration.md#configuring-log-analytics-to-collect-azure-diagnostics-from-storage) 中的步驟，以使用 PowerShell 從寫入表格儲存體的 Azure 診斷讀取資料。
+使用中的步驟[設定 Azure 監視器，Azure 診斷編製索引](powershell-workspace-configuration.md#configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage)若要使用 PowerShell 從寫入表格儲存體的 Azure 診斷進行讀取。
 
 您可以使用 Azure PowerShell，更精確地指定寫入至 Azure 儲存體的事件。
 如需詳細資訊，請參閱[在 Azure 虛擬機器中啟用診斷](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)。

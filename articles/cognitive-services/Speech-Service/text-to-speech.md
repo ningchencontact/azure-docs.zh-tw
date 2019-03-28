@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 05028704c08ebd06f9b9e4e3f45c5137eb1e6b58
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1edc2587ef8680f60082bf6271b73d30184f331b
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226907"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521239"
 ---
 # <a name="what-is-text-to-speech"></a>文字轉換語音是什麼？
 
-文字轉換語音，Azure 語音服務是以 REST 為基礎的服務，可讓應用程式、 工具或裝置，若要將文字轉換成自然的人性合成語音。 從標準和類神經的語音，選擇或建立您自己[自訂語音](#custom-voice-fonts)特有您的產品或品牌。 75 個以上標準語音有 45 個以上的語言和地區設定，和 5 的類神經語音有 4 個語言和地區設定。 如需完整清單，請參閱 <<c0> [ 支援的語言](language-support.md#text-to-speech)。
+文字轉換語音，Azure 語音服務是以 REST 為基礎的服務，可讓應用程式、 工具或裝置，若要將文字轉換成自然的人性合成語音。 從標準和類神經的語音，選擇或建立您自己自訂的語音特有您的產品或品牌。 75 個以上標準語音有 45 個以上的語言和地區設定，和 5 的類神經語音有 4 個語言和地區設定。 如需完整清單，請參閱 <<c0> [ 支援的語言](language-support.md#text-to-speech)。
 
 文字轉換語音技術可讓內容作者與使用者互動，以不同的方式。 文字轉換語音可以讓使用者能用語音與內容互動的選項，以改善協助工具。 無論使用者有視覺障礙，學習傷殘保險，還是需要瀏覽資訊在駕駛時，文字轉換語音可以改善現有的體驗。 文字轉換語音也是重要的附加元件，如語音 bot 和虛擬的助理。
 
@@ -56,23 +56,23 @@ ms.locfileid: "58226907"
 
 | 快速入門 | 平台 | API 參考資料 |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows、 macOS、 Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
-| [Node.js](quickstart-nodejs-text-to-speech.md) | 視窗、 macOS、 Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
-| [Python](quickstart-python-text-to-speech.md) | 視窗、 macOS、 Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
+| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows、 macOS、 Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Node.js](quickstart-nodejs-text-to-speech.md) | 視窗、 macOS、 Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Python](quickstart-python-text-to-speech.md) | 視窗、 macOS、 Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 
 ## <a name="sample-code"></a>範例程式碼
 
 使用 GitHub 上的文字轉換語音程式碼範例。 這些範例涵蓋最受歡迎的程式設計語言中的文字轉換語音轉換。
 
-* [文字轉換語音的範例 (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+* [文字轉語音範例 (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
 ## <a name="reference-docs"></a>參考文件
 
 * [語音 SDK](speech-sdk-reference.md)
 * [語音裝置 SDK](speech-devices-sdk.md)
-* [REST API：語音轉換文字](rest-speech-to-text.md)
-* [REST API：Text-to-speech](rest-text-to-speech.md)
-* [REST API：Batch 轉譯和自訂](https://westus.cris.ai/swagger/ui/index)
+* [REST API：語音轉文字](rest-speech-to-text.md)
+* [REST API：文字轉語音](rest-text-to-speech.md)
+* [REST API：批次轉譯與自訂](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>後續步驟
 
