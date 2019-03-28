@@ -1,29 +1,29 @@
 ---
 title: 改善知識庫 - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: ''
+description: 主動式學習可用來根據使用者提交的內容提出建議的問答組替代問題，以提高知識庫的品質。 您可以檢閱這些建議，並將其新增至現有的問題或加以拒絕。 您的知識庫不會自動變更。 您必須接受任何變更才能生效的建議。 這些建議會新增問題，但不會變更或移除現有的問題。
 author: diberry
 manager: nitinme
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: 76005b153d7a7feabdc1b335a23c6aa1f1fa99f3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: dbdd0165e276e5c82f8d4c15ef70d3a541d76bc0
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537893"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522191"
 ---
-# <a name="use-active-learning-to-improve-knowledge-base"></a>使用主動學習來改善知識庫
+# <a name="use-active-learning-to-improve-your-knowledge-base"></a>若要改善您的知識庫中使用 作用中學習
 
 主動式學習可用來根據使用者提交的內容提出建議的問答組替代問題，以提高知識庫的品質。 您可以檢閱這些建議，並將其新增至現有的問題或加以拒絕。 
 
 您的知識庫不會自動變更。 您必須接受建議，變更才能生效。 這些建議會新增問題，但不會變更或移除現有的問題。
 
-## <a name="active-learning"></a>主動學習
+## <a name="what-is-active-learning"></a>什麼是主動式學習？
 
 QnA Maker 可透過隱含和明確的意見反應學習新演變出來的問題。
  
@@ -42,7 +42,7 @@ QnA Maker 可透過隱含和明確的意見反應學習新演變出來的問題�
 
 一旦 QnA Maker 入口網站中，所建議的問題，您需要檢閱並接受或拒絕這些建議。 
 
-## <a name="upgrade-version-to-use-active-learning"></a>升級版本以使用主動式學習
+## <a name="upgrade-your-version-to-use-active-learning"></a>升級您的版本使用主動學習
 
 執行階段 4.4.0 版和更新版本可支援主動式學習。 如果您的知識庫是在舊版中建立的，請[升級執行階段](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates)以使用這項功能。 
 
@@ -64,12 +64,12 @@ QnA Maker 可透過隱含和明確的意見反應學習新演變出來的問題�
 
 1. 若要開啟主動式學習，請在 QnA Maker 入口網站中，按一下您的 [名稱]，然後移至右上角的 [服務設定][](https://www.qnamaker.ai/UserSettings)。  
 
-    ![在 [服務設定] 頁面上，將主動式學習切換為開啟](../media/improve-knowledge-base/Endpoint-Keys.png)
+    ![開啟主動式學習建議的問題從服務的 [設定] 頁面的替代項目。 在右上方功能表中，選取您的使用者名稱，然後選取 服務設定。](../media/improve-knowledge-base/Endpoint-Keys.png)
 
 
 1. 尋找 QnA Maker 服務，然後切換**主動式學習**。 
 
-    [![在 [服務設定] 頁面上，將主動式學習切換為開啟](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
+    [![在 [服務設定] 頁面上切換主動學習功能。如果您不可以切換的功能，您可能需要升級您的服務。](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
 
     在**主動式學習**啟用後，知識庫將根據使用者提交的問題定期建議新的問題。 您可以再次切換設定以停用**主動式學習**。
 
@@ -77,15 +77,15 @@ QnA Maker 可透過隱含和明確的意見反應學習新演變出來的問題�
 
 1. 若要查看建議的問題，請在 [編輯知識庫] 頁面上選取 [顯示建議]。 
 
-    [![在 [服務設定] 頁面上，切換 [顯示建議] 按鈕](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
+    [![在入口網站的 [編輯] 區段中，選取 顯示的建議，若要查看作用中的學習新問題的替代方案。](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
 1. 篩選問題和答案組，以顯示所選取的只有建議知識庫**篩選-依建議**。
 
-    [![在 [服務設定] 頁面上依建議篩選，而僅查看這些問答組](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
+    [![若要檢視僅作用中的學習建議的問題的替代方案，建議切換使用篩選。](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
 1.  每個有建議的問題區段都會顯示新的問題，並且附有核取記號 `✔` (用以接受問題) 和 `x` (用以拒絕建議)。 選取核取記號可新增問題。 
 
-    [![在 [服務設定] 頁面上，將主動式學習切換為開啟](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
+    [![選取或拒絕選取綠色的核取記號或紅色刪除標記的作用中的學習建議的問題的替代方案。](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
     您可以藉由選取 [全部新增] 或 [全部拒絕] 來新增或刪除所有建議。
 
@@ -154,7 +154,13 @@ QnA Maker 可透過隱含和明確的意見反應學習新演變出來的問題�
 
 用戶端應用程式會顯示所有問題，並且讓使用者能夠選取最能代表其意圖的問題。 
 
-使用者選取其中一個現有的問題後， 使用者意見反應將會傳送至 QnA Maker 的[訓練](https://www.aka.ms/activelearningsamplebot) API，以繼續進行主動式學習的意見反應循環。 
+一旦使用者可以選取現有的問題之一，用戶端應用程式會以使用 QnA Maker 訓練 API 的意見反應傳送使用者的選擇。 此意見反應完成主動學習回饋迴圈。 
+
+使用[Azure BotC#範例](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot)若要查看在端對端案例中的主動式學習。
+
+## <a name="train-api"></a>訓練 API
+
+作用中的 learning 意見反應傳送給 QnA Maker 訓練 API 的 POST 要求。 API 簽章是：
 
 ```http
 POST https://<QnA-Maker-resource-name>.azurewebsites.net/qnamaker/knowledgebases/<knowledge-base-ID>/train
@@ -163,13 +169,46 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-透過 [Azure Bot C# 範例](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot)深入了解如何使用主動式學習
+|HTTP 要求的屬性|名稱|類型|目的|
+|--|--|--|--|
+|URL 路由參數|知識庫識別碼|字串|測試您知識庫的 GUID。|
+|主機的子網域|QnAMaker 資源名稱|字串|您在您的 Azure 訂用帳戶中的 QnA Maker 的主機名稱。 在發行知識庫之後，這是可在 [設定] 頁面上取得。 |
+|頁首|Content-Type|字串|傳送至 API 的本文媒體類型。 預設值為： `application/json`|
+|頁首|Authorization|字串|您的端點金鑰 (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)。|
+|張貼本文|JSON 物件|JSON|訓練意見反應|
 
-## <a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>主動學習會儲存在匯出應用程式的 tsv 檔案
+JSON 主體具有數個設定：
+
+|JSON 本文屬性|類型|目的|
+|--|--|--|--|
+|`feedbackRecords`|array|意見反應的清單。|
+|`userId`|字串|接受建議的問題之人員的使用者識別碼。 使用者識別碼的格式是由您決定。 例如，電子郵件地址可以是在架構中的有效使用者識別碼。 選用。|
+|`userQuestion`|字串|問題的確切文字。 必要。|
+|`qnaID`|number|識別碼中找到的問題[GenerateAnswer 回應](metadata-generateanswer-usage.md#generateanswer-response-properties)。 |
+
+範例 JSON 主體看起來像：
+
+```json
+{
+    "feedbackRecords": [
+        {
+            "userId": "1",
+            "userQuestion": "<question-text>",
+            "qnaId": 1
+        }
+    ]
+}
+```
+
+成功的回應會傳回 204 並沒有 JSON 回應主體的狀態。 
+
+<a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>
+
+## <a name="active-learning-is-saved-in-the-exported-knowledge-base"></a>主動學習會儲存在 匯出知識庫
 
 當您的應用程式已啟用，主動式學習，並匯出應用程式， `SuggestedQuestions` tsv 檔案中的資料行，保留使用中的學習資料。 
 
-`SuggestedQuestions`資料行是隱含的資訊的 JSON 物件 (`autosuggested`) 和明確 (`usersuggested`)[意見反應](#active-learning)。 此 JSON 物件的單一使用者提交問題範例`help`是：
+`SuggestedQuestions`資料行是隱含的資訊的 JSON 物件 (`autosuggested`) 和明確 (`usersuggested`) 的意見反應。 此 JSON 物件的單一使用者提交問題範例`help`是：
 
 ```JSON
 [
@@ -193,4 +232,4 @@ Content-Type: application/json
 ## <a name="next-steps"></a>後續步驟
  
 > [!div class="nextstepaction"]
-> [使用 QnA Maker API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) (英文)
+> [GenerateAnswer API 中使用的中繼資料](metadata-generateanswer-usage.md)

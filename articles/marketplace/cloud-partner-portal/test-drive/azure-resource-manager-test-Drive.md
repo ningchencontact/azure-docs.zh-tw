@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 615005e265f199cd6950123aa2af8b26f4fa4637
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2fe1a1fc1ff82415a5c2f88c72ae707b12cd5283
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457243"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541157"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager 試用產品
 
@@ -51,7 +51,7 @@ Azure Resource Manager (Arm) 範本是自動程式化您設計最佳代表您的
 
 有關如何建置 Azure Resource Manager 試用產品最重要的部分是定義您想讓您的客戶體驗的案例。 您提供防火牆產品並想要示範如何妥善處理指令碼插入式攻擊？ 您提供儲存體產品並想要示範您的解決方案快速並輕鬆地壓縮檔案？
 
-務必花足夠的時間評估展示您產品的最佳方式。 特別是有關所需的資源您需要，因為它可封裝更容易充分的 Resource Manager 範本。
+請務必花足夠的時間評估的最佳方式來到攝影棚展示您的產品有哪些。 特別是有關所需的資源您需要，因為它可封裝更容易充分的 Resource Manager 範本。
 
 繼續討論上面所講的防火牆範例，架構可能是您需要為您的服務使用公用 IP URL，並為您防火牆所保護的網站使用另一個公用 IP URL。 每個 IP 都是部署在虛擬機器上並使用網路安全性群組 + 網路介面彼此連線。
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/13/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 994612f390cb6c6dcb3b4c2acaaec839ef461d2c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 07a488556bc899efa80d67ceb984b60f461b9742
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999557"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541021"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 虛擬機器擴展集常見問題集
 
@@ -243,7 +243,7 @@ keyData | 是 | 字串 | 指定 base64 編碼的 SSH 公開金鑰
 
 ### <a name="when-i-run-update-azvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>當我在從相同金鑰保存庫新增一個以上的憑證之後執行 `Update-AzVmss` 時，我會看到下列錯誤︰
 
->Update-AzVmss：清單密碼包含重複的 /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev 執行個體，不允許這種情況。
+>Update-AzVmss：清單密碼包含重複的執行個體的 /subscriptions/\<我訂用帳戶識別碼 > / resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev，不允許。
 
 如果您嘗試重新新增相同的保存庫，而不是對現有的來源保存庫使用新的保存庫憑證，就會發生這種情形。 如果您要新增其他密碼，`Add-AzVmssSecret` 命令無法正常運作。
 
@@ -303,7 +303,7 @@ CRP 元件不會保存客戶密碼。 如果您對虛擬機器擴展集中的所
 
 您不會在相應放大時遇到此問題，因為 Azure Service Fabric 中有一個快取的密碼副本 (在單一網狀架構租用戶模型中)。
 
-### <a name="why-do-i-have-to-specify-the-exact-location-for-the-certificate-url-httpsname-of-the-vaultvaultazurenet443secretsexact-location-as-indicated-in-service-fabric-cluster-security-scenarioshttpsazuremicrosoftcomdocumentationarticlesservice-fabric-cluster-security"></a>為什麼我必須指定憑證 URL 的確切位置 (https://<name of the vault>.vault.azure.net:443/secrets/<exact location>)，如 [Service Fabric 叢集安全性案例](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)所示？
+### <a name="why-do-i-have-to-specify-the-exact-location-for-the-certificate-url-httpsname-of-the-vaultvaultazurenet443secretsexact-location-as-indicated-in-service-fabric-cluster-security-scenarioshttpsazuremicrosoftcomdocumentationarticlesservice-fabric-cluster-security"></a>為什麼我必須指定憑證 url 的確切位置 (https:\/\/\<的保存庫名稱 >.vault.azure.net:443/secrets/\<確切的位置 >)，如下所示[Service Fabric叢集安全性案例](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)嗎？
 
 Azure Key Vault 文件表示「取得密碼 REST API」應傳回最新版的密碼 (若未指定版本的話)。
 

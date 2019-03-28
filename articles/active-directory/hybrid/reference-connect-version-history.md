@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/18/2018
+ms.date: 03/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ab0e7ce1891dc3553f89f652c7dac70e66a4df0
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 7ae5b58fb87aaa94e081f9cb60d063c70e5d0359
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499908"
+ms.locfileid: "58540953"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect：版本發行歷程記錄
 Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 Azure AD Connect。 並非所有新增項目都適用於所有的對象。
@@ -41,7 +41,7 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 >[!NOTE]
 >並非所有版本的 Azure AD Connect 都可自動升級。 發行狀態會指出版本是否可自動升級或僅供下載。 如果您的 Azure AD Connect 伺服器上已啟用自動升級，則該伺服器將會自動升級為可自動升級的最新版 Azure AD Connect。 請注意，並非所有 Azure AD Connect 組態都符合自動升級的資格。 請遵循下列連結來深入了解[自動升級](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
-## <a name="13900"></a>1.3.90.0 
+## <a name="13100"></a>1.3.10.0 
 
 ### <a name="release-status"></a>發行狀態 
 

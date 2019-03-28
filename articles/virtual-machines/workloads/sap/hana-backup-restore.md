@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04da80cd5c30d0556dc681b7bff412391aa2bcda
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ab71b8d3af573f62e69c02564c237ad433962ff9
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107724"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541225"
 ---
 # <a name="backup-and-restore"></a>備份與還原
 
@@ -416,10 +416,10 @@ For snapshot of the volume storing the boot LUN
 參數詳細資料如下所示： 
 
 - 第一個參數描繪快照集備份的類型。 允許的值為 **hana**、**logs** 和 **boot**。 
-- 只有開機磁碟區備份需要參數 **<HANA Large Instance Type>**。 取決於 HANA 大型執行個體單位而定，會有 "TypeI" 或 "TypeII" 兩個有效值。 若想了解您的單位類型，請參閱 [Azure 上的 SAP HANA (大型執行個體) 概觀和架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)。  
-- 參數 **<snapshot_prefix>** 是快照集類型的快照集或備份標籤。 其有兩個目的：一個是為它命名，好讓您知道這些快照集的相關內容。 第二個的目的是要讓指令碼 azure\_hana\_backup.pl 判斷保留在該特定標籤之下的儲存體快照集數目。 如果您使用兩個不同的標籤來排定兩個相同類型的儲存體快照集備份 (例如**hana**)，並定義各自應該保留 30 個快照集，您最後會得到受影響磁碟區的 60 個儲存體快照集。 只允許使用英數 (“A-Z,a-z,0-9”)、底線 (“_”) 和破折線 (“-“) 字元。 
-- 參數 **<snapshot_frequency>** 保留供未來開發使用，沒有任何影響。 在執行**記錄**類型的備份時，將其設定為「3 分鐘」，執行其他備份類型時，將其設定為「15 分鐘」。
-- 參數 **<number of snapshots retained>** 會藉由定義具有相同快照集首碼 (標籤) 的快照集數目，來間接定義快照集的保留期。 對於透過 cron 來進行的已排程執行作業來說，這個參數很重要。 如果具有相同 snapshot_prefix 的快照集數目超過此參數給定的數目，則會先刪除最舊的快照集，然後再執行新的儲存體快照集。
+- 參數 **\<HANA 大型執行個體的型別 >** 必須只有開機磁碟區備份。 取決於 HANA 大型執行個體單位而定，會有 "TypeI" 或 "TypeII" 兩個有效值。 若想了解您的單位類型，請參閱 [Azure 上的 SAP HANA (大型執行個體) 概觀和架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)。  
+- 參數 **\<snapshot_prefix >** 是快照集或備份標籤的快照集的類型。 其有兩個目的：一個是為它命名，好讓您知道這些快照集的相關內容。 第二個的目的是要讓指令碼 azure\_hana\_backup.pl 判斷保留在該特定標籤之下的儲存體快照集數目。 如果您使用兩個不同的標籤來排定兩個相同類型的儲存體快照集備份 (例如**hana**)，並定義各自應該保留 30 個快照集，您最後會得到受影響磁碟區的 60 個儲存體快照集。 只允許使用英數 (“A-Z,a-z,0-9”)、底線 (“_”) 和破折線 (“-“) 字元。 
+- 參數 **\<snapshot_frequency >** 是保留供未來開發，而且沒有任何影響。 在執行**記錄**類型的備份時，將其設定為「3 分鐘」，執行其他備份類型時，將其設定為「15 分鐘」。
+- 參數**\<保留的快照集的數字 >** 間接定義快照集的保留期，藉由定義具有相同的快照集首碼 （標籤） 的快照集數目。 對於透過 cron 來進行的已排程執行作業來說，這個參數很重要。 如果具有相同 snapshot_prefix 的快照集數目超過此參數給定的數目，則會先刪除最舊的快照集，然後再執行新的儲存體快照集。
 
 在相應放大的情況下，指令碼會執行額外檢查，確保您可以存取所有的 HANA 伺服器。 指令碼也會先檢查所有 HANA 執行個體是否都傳回適當的執行個體狀態，然後再建立 SAP HANA 快照集。 SAP HANA 快照集的後面會接著儲存快照集。
 

@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/10/2017
+ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f1d557396f17357afd6f9e5d701e946668fcee65
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b5c7050ac006ea2500854f8f41b134895e5e0061
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861038"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541208"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>如何在 Azure 搜尋服務中實作多面向導覽
 多面向導覽是一個篩選機制，它在搜尋應用程式中提供自動導向的向下鑽研導覽。 「多面向導覽」一詞可能讓您感到陌生，但您可能早已使用過它。 如下列範例所示，多面向導覽其實就是用來篩選結果的類別。
@@ -34,7 +34,7 @@ ms.locfileid: "57861038"
 ## <a name="sample-code-and-demo"></a>程式碼範例和示範
 本文使用作業搜尋入口網站來作為範例。 此範例會實作為 ASP.NET MVC 應用程式。
 
--   請在 [Azure 搜尋服務作業入口網站示範](https://azjobsdemo.azurewebsites.net/)參閱運作示範並進行線上測試。
+-   請在 [Azure 搜尋服務作業入口網站示範](http://azjobsdemo.azurewebsites.net/)參閱運作示範並進行線上測試。
 
 -   從 [GitHub 上的 Azure 範例儲存機制](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)下載程式碼。
 
@@ -364,7 +364,7 @@ Azure Search 透過提供兩種方法進行範圍運算，來簡化範圍建構�
 * **geo.distance** 函式會傳回兩點之間的距離 (以公里為單位)。 一個點是欄位，另一個點則是傳遞作為篩選條件一部分的常數。 
 * 如果給定的點位於給定的多邊形內，**geo.distance** 函式會傳回 true。 該點為欄位，而多邊形則會指定作為座標的常數清單，並傳遞作為篩選條件的一部分。
 
-您可以在 [OData 運算式語法 (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)中找到篩選條件範例。
+您可以在 [OData 運算式語法 (Azure Search)](query-odata-filter-orderby-syntax.md)中找到篩選條件範例。
 
 <a name="tryitout"></a>
 

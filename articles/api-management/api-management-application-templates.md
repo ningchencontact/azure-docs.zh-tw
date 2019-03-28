@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 0eead6201f737448b4de76476802518a506375da
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: 732fdf3f9210a1484895e0b43e061b4bbc586b43
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446223"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541259"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Azure API 管理中的應用程式範本
-「Azure API 管理」可讓您使用一組可設定開發人員入口網站頁面內容的範本，來自訂那些頁面的內容。 使用這些範本時，您可以運用 [DotLiquid](http://dotliquidmarkup.org/) 語法和您選擇的編輯器 (例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers))，以及一組提供的當地語系化[字串資源](api-management-template-resources.md#strings)、[字符資源](api-management-template-resources.md#glyphs)和[頁面控制項](api-management-page-controls.md)，依照您的想法自由靈活地設定頁面內容。  
+通过 Azure API 管理，用户能够使用一组用于配置内容的模板自定义开发人员门户页的内容。 使用這些範本時，您可以運用 [DotLiquid](http://dotliquidmarkup.org/) 語法和您選擇的編輯器 (例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers))，以及一組提供的當地語系化[字串資源](api-management-template-resources.md#strings)、[字符資源](api-management-template-resources.md#glyphs)和[頁面控制項](api-management-page-controls.md)，依照您的想法自由靈活地設定頁面內容。  
   
  本節的範本可讓您自訂開發人員入口網站中「應用程式」頁面的內容。  
   
@@ -79,11 +79,11 @@ ms.locfileid: "52446223"
   
 ### <a name="data-model"></a>資料模型  
   
-|屬性|類型|說明|  
+|屬性|類型|描述|  
 |--------------|----------|-----------------|  
-|分頁|[分頁](api-management-template-data-model-reference.md#Paging)實體。|應用程式集合的分頁資訊。|  
-|[應用程式]|[應用程式](api-management-template-data-model-reference.md#Application)實體的集合。|目前使用者可看見的應用程式。|  
-|CategoryName|字串|應用程式的類別。|  
+|`Paging`|[分頁](api-management-template-data-model-reference.md#Paging)實體。|应用程序集合的分页信息。|  
+|`Applications`|[应用程序](api-management-template-data-model-reference.md#Application)实体的集合。|目前使用者可看見的應用程式。|  
+|`CategoryName`|字串|應用程式的類別。|  
   
 ### <a name="sample-template-data"></a>範例範本資料  
   

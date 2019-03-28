@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: be96aaa69fc1d59bdfa8079eff99c13c1e92c736
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3b3bb206286629a68c14b6444f3f88ffa0af50dd
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905115"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540868"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>在虛擬機器上搭配使用 Azure 進階儲存體和 SQL Server
 
@@ -682,7 +682,7 @@ $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>步驟 2：提高資源上允許發生的失敗數 <Optional>
+#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>步驟 2：增加資源上允許的失敗\<選擇性 >
 
 在隸屬於 Always On 可用性群組的特定資源上有下列限制：可以在一段期間內發生的失敗次數，而叢集服務會嘗試在其中重新啟動資源群組。 儘管您正在逐步執行此程序，但還是建議您提高此限制， 因為，如果您不會手動進行容錯移轉，以及藉由關閉機器來觸發容錯移轉，就會更接近這個限制。
 
@@ -692,7 +692,7 @@ New-AzureService $destcloudsvc -Location $location
 
 將 [最大失敗數目] 變更為 6。
 
-#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>步驟 3：新增叢集群組的 IP 位址資源 <Optional>
+#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>步驟 3：新增 IP 位址資源的叢集群組\<選擇性 >
 
 如果您只有一個適用於叢集群組的 IP 位址且已將此位址指派給雲端子網路，請注意，如果您不小心在該網路上使雲端中的所有叢集節點離線，則叢集 IP 資源和叢集網路名稱無法變成上線狀態。 在此情況下，它會阻止更新其他叢集資源。
 

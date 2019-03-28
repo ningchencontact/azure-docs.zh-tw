@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: dd27b660dfdd1f4bcec89291b10fd87750ad4c49
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 4a1a0b15da091a1c020eb132f6b14b9ee14d334c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58136151"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316058"
 ---
 # <a name="project-acoustics-design-process-concepts"></a>專案樂器設計程序概念
 
@@ -29,7 +29,7 @@ ms.locfileid: "58136151"
 
 3D 項目使用光線和 kinematic 物理系統物理打轉，但設計工具調整，以達到混合的深度和玩遊戲的目標。 視覺化設計工具不會設定個別像素值，但而調整的 3D 模型、 教材及亮傳輸系統的所有實體為基礎來權衡視覺美術設計和 CPU 成本。 什麼是音訊的對等程序？ 專案樂器是探勘這個問題的第一個步驟。 第一次我們等等會談到傳輸空間，以透過 acoustical 能源的意義。
 
-![殘響器區域](media/reverb-zones-altspace.png)
+![殘響器區域與螢幕擷取畫面的 AltSpace 場景](media/reverb-zones-altspace.png)
 
 ## <a name="impulse-responses-acoustically-connecting-two-points-in-space"></a>脈衝回應：Acoustically 連接空間中的兩個點
 
@@ -45,11 +45,11 @@ ms.locfileid: "58136151"
 
 但是，如果模擬直接連接到音訊 DSP 參數，其中是設計工具調整？ 我們未獲得什麼？ 嗯，我們可以回，捨棄脈衝回應保留幾個 DSP 參數以大量的記憶體。 並提供一些的能力設計工具，透過最後的結果，我們只需要找到方法來插入模擬與音訊 DSP 之間的設計工具。
 
-![脈衝回應參數](media/acoustic-parameters.png)
+![圖形與樣式化的脈衝響應使用重疊的參數](media/acoustic-parameters.png)
 
 ## <a name="sound-design-by-transforming-audio-dsp-parameters-from-simulation"></a>完善的設計，方法是轉換從模擬的音訊 DSP 參數
 
-請考慮您太陽眼鏡對世界的檢視效果。 亮的一天，眼鏡可以減少發亮更舒適的項目。 槲 ，您可能無法完全顯示任何項目。 眼鏡不需要一定程度的亮度設定中所有的情況下，只是使較暗的所有項目。
+請考慮您太陽眼鏡對世界的檢視效果。 亮的一天，眼鏡可以減少發亮更舒適的項目。 您可能無法完全顯示任何項目。 眼鏡不需要一定程度的亮度設定中所有的情況下，只是使較暗的所有項目。
 
 如果我們使用模擬來驅動我們的音訊 DSP 使用會受阻擋和回響參數時，我們可以加入篩選之後的模擬器，以調整 DSP '會看到' 的參數。 篩選不會強制執行特定層級的阻擋物或殘響器結尾長度更像太陽眼鏡不挪出每個相同的亮度。 篩選器可能只會使 occlude 小於每個 occluder。 或 occlude 更多。 藉由新增並調整一個 '冶煉' 阻擋參數的篩選條件，大型、 開啟室還是很阻擋效果，雖然放會增加從媒體的強式阻擋效果，同時保留有效的平滑轉換可提供模擬。
 

@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 51be74d0adbd5ce75234be2a5b7c99fcd36ca91c
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: e33d014bd2dddf0c7310727229f8137c9f181325
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295261"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540970"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服務配額和限制
 
@@ -77,14 +77,12 @@ ms.locfileid: "58295261"
 1. 在入口網站中選取 [Batch 帳戶]  ，然後選取您感興趣的 Batch 帳戶。
 1. 在 Batch 帳戶的功能表上選取 [配額]。
 1. 檢視目前套用至 Batch 帳戶的配額
-   
+
     ![Batch 帳戶配額][account_quotas]
-
-
 
 ## <a name="increase-a-quota"></a>增加配額
 
-使用 [Azure 入口網站][portal]，遵循下列步驟來要求增加您 Batch 帳戶或訂用帳戶的配額。 增加配額的類型取決於您 Batch 帳戶的集區配置模式。
+使用 [Azure 入口網站][portal]，遵循下列步驟來要求增加您 Batch 帳戶或訂用帳戶的配額。 增加配額的類型取決於您 Batch 帳戶的集區配置模式。 若要要求增加配額，您必須包含您想要增加配額的 VM 系列。 套用增加配額時，它會套用至所有系列的 Vm。
 
 ### <a name="increase-a-batch-cores-quota"></a>增加 Batch 的核心配額 
 

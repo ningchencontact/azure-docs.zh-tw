@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: v-doglov
-ms.openlocfilehash: a0707ad356e51a9e4d4f73c54085fe9736bb0752
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c598c5e238458c010500579c5371622b85e71de0
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884466"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540800"
 ---
 # <a name="troubleshoot-vcenter-discovery-failures"></a>對 vCenter 探索進行疑難排解失敗
 
@@ -46,8 +46,8 @@ vCenter 探索會接受系統使用者所設定的系統預設 proxy 設定。 D
 
 此問題發生時，就會發生下列情況：
 
-- VCenter server<vCenter>找不到因為發生錯誤：遠端伺服器傳回錯誤：伺服器無法使用 (503)
-- VCenter server<vCenter>找不到因為發生錯誤：遠端伺服器傳回錯誤：無法連線到遠端伺服器。
+- VCenter server \<vCenter > 找不到因為發生錯誤：遠端伺服器傳回錯誤：伺服器無法使用 (503)
+- VCenter server \<vCenter > 找不到因為發生錯誤：遠端伺服器傳回錯誤：無法連線到遠端伺服器。
 - 無法連線至 vCenter/ESXi 伺服器。
 
 若要解決此問題：

@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 8654899e0a6dfce8f25855eba6c5f4a88af78665
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b044a7c2b3122fcbce44ae2e45198f57f6a87260
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903125"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541276"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database 受控執行個體的 T-SQL 差異
 
@@ -217,7 +217,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 - 不支援多個記錄檔。
 - 「一般用途」服務層中不支援記憶體內部物件。  
-- 限制每個執行個體 280 個檔案，也就是每個資料庫最多 280 個檔案。 資料和記錄檔都會計入此限制。  
+- 沒有 280 個檔案，每個一般用途執行個體最多 280 個檔案，每個資料庫的限制。 資料和記錄檔案一般用途層都會計入這項限制。 [業務關鍵層支援每個資料庫的 32,767 檔案](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)。
 - 資料庫不能包含具有 Filestream 資料的檔案群組。  如果 .bak 包含 `FILESTREAM` 資料，還原將會失敗。  
 - 每個檔案都位於 Azure Blob 儲存體中。 每個檔案的 IO 和輸送量均取決於每個個別檔案的大小。  
 
@@ -485,9 +485,9 @@ WITH PRIVATE KEY (<private_key_options>)
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>小型資料庫檔案造成儲存空間超出限制
 
-每個「受控執行個體」最多會為「Azure 進階磁碟」空間保留 35 TB 的儲存體，且每個資料庫檔案都會放在個別的實體磁碟上。 磁碟大小可以是 128 GB、256 GB、512 GB、1 TB 或 4 TB。 針對磁碟上未使用的空間，並不收費，但「Azure 進階磁碟」大小的總和不可超過 35 TB。 在某些情況下，總計不需 8 TB 的「受控執行個體」可能會因內部分散的緣故而超過 35 TB 的 Azure 儲存體大小限制。
+每個一般目的受控執行個體 」 最多 35 TB 的儲存體保留給 Azure 進階磁碟空間，以及每個資料庫檔案會放在不同的實體磁碟上。 磁碟大小可以是 128 GB、256 GB、512 GB、1 TB 或 4 TB。 針對磁碟上未使用的空間，並不收費，但「Azure 進階磁碟」大小的總和不可超過 35 TB。 在某些情況下，總計不需 8 TB 的「受控執行個體」可能會因內部分散的緣故而超過 35 TB 的 Azure 儲存體大小限制。
 
-例如，「受控執行個體」可能有一個大小為 1.2 TB 而放置在 4 TB 磁碟上的檔案，以及 248 個放置在其他 128 GB 磁碟上的檔案 (各為 1 GB 大小)。 在此範例中：
+例如，一般目的受控執行個體可以有一個檔案置於 4 TB 磁碟的大小和放在不同的 128GB 磁碟的 248 檔案 (大小每 1 GB) 1.2 TB。 在此範例中：
 
 - 配置的磁碟儲存體大小總計為 1 x 4 TB + 248 x 128 GB = 35 TB。
 - 為執行個體上的資料庫保留的大小總計為 1 x 1.2 TB + 248 x 1 GB = 1.4 TB。
@@ -495,6 +495,8 @@ WITH PRIVATE KEY (<private_key_options>)
 這說明了在特性情況下，由於特定的檔案散發方式，「受控執行個體」可能在您未預期的情形下，達到為所連結「Azure 進階磁碟」保留的 35 TB。
 
 在此範例中，現有資料庫會繼續運作，只要不新增檔案，就可正常成長而不會有任何問題。 不過，因為沒有足夠空間可供新的磁碟機使用，所以無法建立或還原新的資料庫，即使所有資料庫的大小總計未達到執行個體大小限制也是如此。 在該情況下所傳回的錯誤將不清楚。
+
+您可以[找出其餘的檔案數目](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1)使用系統檢視表。 如果您已達到此限制會試著[空白，然後刪除一些較小的檔案，使用 DBCC SHRINKFILE 陳述式](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file)或以 shitch[業務關鍵層中，不會有此限制](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)。
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>還原資料庫期間 SAS 金鑰設定不正確
 
