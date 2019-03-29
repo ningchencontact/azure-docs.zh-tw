@@ -4,17 +4,17 @@ description: 將分析器指派給索引中的可搜尋文字欄位，可將預�
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 03/27/2019
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 7306258b6a7eee66df0961b2b993d0bcc9de94b9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 3e6f0a2b9b935df9b12cf9146ebf05f1b1c84855
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343267"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578753"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Azure 搜尋服務中用於文字處理的分析器
 
@@ -40,7 +40,7 @@ Azure 搜尋服務會使用 [Apache Lucene 標準分析器 (標準 Lucene)](http
 
 下列清單說明 Azure 搜尋服務中可用的分析器。
 
-| 類別 | 說明 |
+| 類別 | 描述 |
 |----------|-------------|
 | [標準 Lucene 分析器](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | 預設值。 不需要任何規格或設定。 這個一般用途的分析器對於大部分的語言和情節都能順利執行。|
 | 預先定義的分析器 | 作為預計要依現狀使用的成品提供。 <br/>共有兩種類型：特製化和語言。 使它們成為「預先定義」的條件是依名稱參考，無須設定或自訂。 <br/><br/>[特製化 (語言無從驗證) 分析器](index-add-custom-analyzers.md#AnalyzerTable)適用於文字輸入需要特殊處理或最少處理時。 非語言預先定義的分析器包含 **Asciifolding**、**金鑰**、**模式**、**簡單**、**停止**、**空白**。<br/><br/>[語言分析器](index-add-language-analyzers.md)適用於當您需要為個別語言提供豐富的語言支援時。 Azure 搜尋服務支援 35 個 Lucene 語言分析器和 50 個 Microsoft 自然語言處理分析器。 |
@@ -97,16 +97,18 @@ Azure 搜尋服務可讓您指定不同的分析器來編製索引，並透過�
 
 [搜尋分析器示範](https://alice.unearth.ai/)是一種協力廠商示範應用程式，其會顯示標準 Lucene 分析器、Lucene 的英文語言分析器，以及 Microsoft 的英文版自然語言處理器之間的並排比較。 索引已固定；內含熱門故事中的文字。 您提供的每項搜尋輸入，會在相鄰窗格中顯示來自每個分析器的結果，協助您瞭解每個分析器處理相同字串的方式。 
 
-## <a name="examples"></a>範例
+<a name="examples"></a>
+
+## <a name="rest-examples"></a>REST 範例
 
 下列範例會顯示幾個重要情節的分析器定義。
 
-+ [自訂分析器範例](#Example1)
-+ [將分析器指派給欄位範例](#Example2)
-+ [混合編製索引和搜尋的分析器](#Example3)
-+ [語言分析器範例](#Example4)
++ [自訂分析器範例](#Custom-analyzer-example)
++ [將分析器指派給欄位範例](#Per-field-analyzer-assignment-example)
++ [混合編製索引和搜尋的分析器](#Mixing-analyzers-for-indexing-and-search-operations)
++ [語言分析器範例](#Language-analyzer-example)
 
-<a name="Example1"></a>
+<a name="Custom-analyzer-example"></a>
 
 ### <a name="custom-analyzer-example"></a>自訂分析器範例
 
@@ -180,7 +182,7 @@ Azure 搜尋服務可讓您指定不同的分析器來編製索引，並透過�
   }
 ~~~~
 
-<a name="Example2"></a>
+<a name="Per-field-analyzer-assignment-example"></a>
 
 ### <a name="per-field-analyzer-assignment-example"></a>每個欄位的分析器指派範例
 
@@ -213,7 +215,7 @@ Azure 搜尋服務可讓您指定不同的分析器來編製索引，並透過�
   }
 ~~~~
 
-<a name="Example3"></a>
+<a name="Mixing-analyzers-for-indexing-and-search-operations"></a>
 
 ### <a name="mixing-analyzers-for-indexing-and-search-operations"></a>混合編製索引和搜尋作業的分析器
 
@@ -241,7 +243,7 @@ API 包含其他的索引屬性，可針對索引和搜尋指定不同的分析�
   }
 ~~~~
 
-<a name="Example4"></a>
+<a name="Language-analyzer-example"></a>
 
 ### <a name="language-analyzer-example"></a>語言分析器範例
 
@@ -274,6 +276,69 @@ API 包含其他的索引屬性，可針對索引和搜尋指定不同的分析�
   }
 ~~~~
 
+## <a name="c-examples"></a>C#範例
+
+如果您使用.NET SDK 程式碼範例，您可以附加這些範例以使用或設定分析器。
+
++ [指派內建的分析器](#Assign-a-language-analyzer)
++ [設定分析器](#Define-a-custom-analyzer)
+
+<a name="Assign-a-language-analyzer"></a>
+
+### <a name="assign-a-language-analyzer"></a>指派語言分析器
+
+做為任何分析器-，進行任何設定，在欄位定義上指定。 沒有建立分析器建構的需求。 
+
+此範例會將 Microsoft 英文和法文分析器指派給描述欄位。 它是取自較大的 hotels 索引，建立使用旅館類別的 hotels.cs 檔案中定義的程式碼片段[DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)範例。
+
+呼叫[分析器](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet)，並指定[AnalyzerName 類別](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet)，提供所有 Azure 搜尋服務中支援的文字分析器。
+
+```csharp
+    public partial class Hotel
+    {
+       . . . 
+
+        [IsSearchable]
+        [Analyzer(AnalyzerName.AsString.EnMicrosoft)]
+        [JsonProperty("description")]
+        public string Description { get; set; }
+
+        [IsSearchable]
+        [Analyzer(AnalyzerName.AsString.FrLucene)]
+        [JsonProperty("description_fr")]
+        public string DescriptionFr { get; set; }
+
+      . . .
+    }
+```
+<a name="Define-a-custom-analyzer"></a>
+
+### <a name="define-a-custom-analyzer"></a>定義自訂分析器
+
+當要求自訂或設定時，您必須將分析器建構新增至索引。 一旦您定義它，您可以將它的欄位定義上一個範例所示。
+
+使用[CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet)來建立物件。 如需其他範例，請參閱 < [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs)。
+
+```csharp
+{
+   var definition = new Index()
+   {
+         Name = "hotels",
+         Fields = FieldBuilder.BuildForType<Hotel>(),
+         Analyzers = new[]
+            {
+               new CustomAnalyzer()
+               {
+                     Name = "url-analyze",
+                     Tokenizer = TokenizerName.UaxUrlEmail,
+                     TokenFilters = new[] { TokenFilterName.Lowercase }
+               }
+            },
+   };
+
+   serviceClient.Indexes.Create(definition);
+```
+
 ## <a name="next-steps"></a>後續步驟
 
 + 請檢閱[全文檢索搜尋如何在 Azure 搜尋服務中運作](search-lucene-query-architecture.md)的完整說明。 本文使用範例來說明表面上看似違反直覺的行為。
@@ -286,7 +351,7 @@ API 包含其他的索引屬性，可針對索引和搜尋指定不同的分析�
 
 + 在這個示範網站上的相鄰窗格中[比較標準和英文分析器](https://alice.unearth.ai/)。 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
  [搜尋文件 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 

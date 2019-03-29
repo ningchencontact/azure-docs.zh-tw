@@ -1,6 +1,6 @@
 ---
-title: 完成群組或在 Azure AD 存取權檢閱的應用程式的存取權檢閱 |Microsoft Docs
-description: 了解如何完成存取權檢閱的群組成員或在 Azure AD 存取權檢閱的應用程式存取。
+title: 完成群組或應用程式-Azure Active Directory 的存取權檢閱 |Microsoft Docs
+description: 了解如何完成存取權檢閱的群組成員或在 Azure Active Directory 存取權檢閱的應用程式存取。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 05/02/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc5dbee47bd6a621b14b39858132ce229663481b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4265a7e08eab079e55ce91b27142ec3e55b3f3e9
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729605"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579592"
 ---
-# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>完成群組或在 Azure AD 存取權檢閱的應用程式的存取權檢閱
+# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>完成群組的存取權檢閱，或在 Azure AD 中的應用程式存取權檢閱
 
 系統管理員可以使用 Azure Active Directory (Azure AD) 為群組成員或指派給應用程式的或使用者[建立存取權檢閱](create-access-review.md)。 Azure AD 會自動傳送電子郵件給檢閱者，提示其檢閱存取權。 如果使用者未收到一封電子郵件，您可以傳送這些指示[檢閱存取權的群組或應用程式](perform-access-review.md)。 (請注意，受指派為檢閱者但尚未接受邀請的來賓，將不會收到一封存取權檢閱所發出的電子郵件，因為他們在檢閱之前必須先接受邀請)。存取權檢閱期間結束後，或如果系統管理員停止存取權檢閱，請依照本文的步驟來查看並套用結果。
 

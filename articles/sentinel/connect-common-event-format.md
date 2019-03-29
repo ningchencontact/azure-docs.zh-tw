@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 3/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: 31939b3b09fb36ac59efa1d7d7e302ac5f65a51c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d3ecfed766f8a1ba558e0b0cd4fe6a27c33e441
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117178"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579626"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>連接您外部解決方案中使用常見事件格式
 
 > [!IMPORTANT]
-> Azure 的 Sentinel 目前處於公開預覽狀態。
+> Azure Sentinel 目前為公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 您可以連接 Azure Sentinel 外部的解決方案，可讓您將 Syslog 中儲存的記錄檔。 如果您的應用裝置可讓您將記錄檔儲存為 Syslog 常見事件格式 (CEF)，與 Azure Sentinel 整合可讓您輕鬆地執行分析和查詢資料。
@@ -48,13 +48,13 @@ Azure Sentinel 與您的 CEF 設備之間的連線會發生在三個步驟：
 
 ## <a name="step-1-connect-to-your-cef-appliance-via-dedicated-azure-vm"></a>步驟 1：連接到您的 CEF 應用裝置，透過專用的 Azure VM
 
-您必須部署在專用的 Linux 機器上的代理程式 (VM 或內部部署上) 以支援應用裝置與 Azure Sentinel 之間的通訊。 您可以在自動或手動部署代理程式。 自動部署 Resource Manager 範本為基礎，而且您專用的 Linux 機器是您要在 Azure 中建立新的 VM 時，才可以使用。
+您必須部署在專用的 Linux 機器上的代理程式 (VM 或內部部署上) 以支援應用裝置與 Azure Sentinel 之間的通訊。 您可以透過自動或手動來部署代理程式。 自動部署 Resource Manager 範本為基礎，而且您專用的 Linux 機器是您要在 Azure 中建立新的 VM 時，才可以使用。
 
- ![在 Azure 中的 CEF](./media/connect-cef/cef-syslog-azure.png)
+ ![Azure 中的 CEF](./media/connect-cef/cef-syslog-azure.png)
 
-或者，您可以部署代理程式上現有的 Azure VM，另一個雲端，在 VM 上以手動方式或在內部部署機器上。 
+或者，您可以透過手動方式在現有的 Azure VM、在另一個雲端中的 VM 或在內部部署機器上部署代理程式。 
 
- ![在內部部署的 CEF](./media/connect-cef/cef-syslog-onprem.png)
+ ![內部部署的 CEF](./media/connect-cef/cef-syslog-onprem.png)
 
 ### <a name="deploy-the-agent-in-azure"></a>部署在 Azure 中的代理程式
 
@@ -123,7 +123,7 @@ Azure Sentinel 與您的 CEF 設備之間的連線會發生在三個步驟：
 3. 如果這兩個這些命令提供成功的結果，請檢查以查看您的記錄檔會同時抵達的 Log Analytics。 從這些設備串流處理的所有事件會都出現在 Log Analytics 中的未經處理格式`CommonSecurityLog `型別。
 1. 若要檢查如果發生錯誤，或記錄檔未抵達，請查看 `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
 4. 請確定您 Syslog 訊息的預設大小限制為 2048 個位元組 (2 KB)。 如果記錄檔太長，更新 security_events.conf 使用下列命令： `message_length_limit 4096`
-
+6. 若要在 Log Analytics 中的相關的結構描述使用 CEF 事件中，搜尋**CommonSecurityLog**。
 
 
 

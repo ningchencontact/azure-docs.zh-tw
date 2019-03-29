@@ -1,7 +1,7 @@
 ---
 title: 篩選子句和 order-by 子句的 OData 運算式語法 - Azure 搜尋服務
 description: Azure 搜尋服務查詢的篩選和 order-by 運算式的 OData 語法。
-ms.date: 01/31/2019
+ms.date: 03/27/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f0fd93af7cba3057ad4c2224aa1298a221505645
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 8445ab2c8797226b08519e2f186350a31416f049
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541031"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578402"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>Azure 搜尋服務中的篩選子句和 order-by 子句的 OData 運算式語法
 
@@ -207,7 +207,7 @@ $filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.
 $filter=description eq null
 ```
 
-尋找所有起名為 'Roach motel' 或 'Budget hotel' 的飯店：  
+尋找所有旅館名稱等於 'Roach motel' 或 '預算旅館'）。 片語可以包含空格，這是預設的分隔符號。 若要指定的分隔符號覆寫，引號括住的新分隔符號單一篩選條件運算式的一部分：  
 
 ```
 $filter=search.in(name, 'Roach motel,Budget hotel', ',')
@@ -223,6 +223,12 @@ $filter=search.in(name, 'Roach motel|Budget hotel', '|')
 
 ```
 $filter=tags/any(t: search.in(t, 'wifi, pool'))
+```
+
+找不到多個標記、 '加熱的毛巾機架' 或 'hairdryer 包含'。 請記得要指定替代的分隔符號，預設的空白分隔符號時無法運作。 
+
+```
+$filter=tags/any(t: search.in(t, 'heated towel racks,hairdryer included', ','))
 ```
 
 尋找所有不含「汽車旅館」和「膠囊」標記的飯店：  

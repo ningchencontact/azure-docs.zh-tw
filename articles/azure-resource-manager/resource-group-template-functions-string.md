@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: c35352c47edb4f34100501ac791c84108fa9ac17
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 07221e5d93c004a2542adfc3a5374fd75ca34b31
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762835"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621400"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的字串函式
 
@@ -731,7 +731,7 @@ JSON 物件。
 
 當您需要建立格式為全域唯一識別碼的值時，此函式很有幫助。 您提供限制結果唯一性範圍的參數值。 您可以指定名稱對於訂用帳戶、資源群組或部署是否唯一。
 
-傳回的值不是隨機字串，而不是參數的雜湊函式的結果。 傳回的值為 36 個字元長。 它不是全域唯一的。 若要建立新的 GUID 不是根據參數的該雜湊值，請使用[newGuid](#newguid)函式。
+返回的值不是随机字符串，而是参数中哈希函数的结果。 傳回的值為 36 個字元長。 它不是全域唯一的。 若要创建不是基于该参数哈希值的新 GUID，请使用 [newGuid](#newguid) 函数。
 
 下列範例顯示如何使用 guid 來建立常用層級的唯一值。
 
@@ -1022,19 +1022,19 @@ JSON 物件。
 
 `newGuid()`
 
-傳回值，格式為全域唯一識別碼。 **此函式只可用以預設值的參數。**
+以全局唯一标识符的格式返回一个值。 **此函数只能在参数的默认值中使用。**
 
 ### <a name="remarks"></a>備註
 
-您只可以使用此函式在運算式內做為參數的預設值。 使用此範本中的任何其他地方的函式會傳回錯誤。 在範本的其他部分不允許函式，因為它會每次呼叫時傳回不同的值。 部署相同的範本，使用相同的參數無法可靠地產生相同的結果。
+只能在表达式中对参数的默认值使用此函数。 在模板中的其他任何位置使用此函数都会返回错误。 不允许在模板的其他部分使用该函数，因为每次调用该函数，都会返回不同的值。 使用相同的参数部署同一模板不能可靠地生成相同的结果。
 
-NewGuid 函式不同於[guid](#guid)函式，因為它未採用任何參數。 當您呼叫具有相同參數的 guid 時，會傳回相同的識別項每一次。 當您需要可靠地產生特定環境的相同的 GUID，請使用 guid。 當您需要不同的識別碼，每個時間，例如將資源部署至測試環境，請使用 newGuid。
+newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。 每次结合相同的参数调用 guid 都会返回相同的标识符。 需要为特定的环境可靠地生成相同的 GUID 时，请使用 guid。 如果每次需要不同的标识符（例如，将资源部署到测试环境），请使用 newGuid。
 
-如果您使用[選項來重新部署先前成功部署](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)，和先前的部署包含使用 newGuid 參數、 參數不會重新評估。 相反地，從先前的部署參數值會自動回復部署中重複使用。
+如果[使用相应的选项来重新部署以前已成功的部署](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)，而以前的部署包含一个使用 newGuid 的参数，则不会重新评估该参数， 而是在回滚部署中自动重复使用以前部署中的参数值。
 
-在測試環境中，您可能需要重複部署資源與只存在於一小段時間。 而不是建構唯一的名稱，您可以使用與 newGuid [uniqueString](#uniquestring)建立唯一的名稱。
+在测试环境中，可能需要重复部署生存期较短的资源。 无需构造唯一的名称，可以结合 [uniqueString](#uniquestring) 使用 newGuid 来创建唯一的名称。
 
-請小心重新部署依賴預設值的 newGuid 函式的範本。 當您重新部署，並不提供此參數的值時，此函式會重新評估。 如果您想要更新現有的資源，而不是建立新的帳戶，請從先前的部署傳入參數值。
+重新部署依赖于 newGuid 函数提供默认值的模板时请保持谨慎。 如果重新部署且不提供参数的值，则会重新评估该函数。 若要更新现有的资源而不是新建资源，请传入以前部署中的参数值。
 
 ### <a name="return-value"></a>傳回值
 
@@ -1042,7 +1042,7 @@ NewGuid 函式不同於[guid](#guid)函式，因為它未採用任何參數。 �
 
 ### <a name="examples"></a>範例
 
-下列範本範例會顯示新的識別項的參數。
+以下示例模板演示一个带有新标识符的参数。
 
 ```json
 {
@@ -1065,13 +1065,13 @@ NewGuid 函式不同於[guid](#guid)函式，因為它未採用任何參數。 �
 }
 ```
 
-上述範例的輸出會針對每個部署而有所不同，但將會類似於：
+上述示例的输出根据每个部署的不同而异，但类似于：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
 | guidOutput | 字串 | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
-下列範例會使用 newGuid 函式來建立儲存體帳戶的唯一名稱。 此範本可能適用於測試環境，其中的儲存體帳戶存在一小段時間，而不重新部署。
+以下示例使用 newGuid 函数创建存储帐户的唯一名称。 此模板可能适用于其中的存储帐户生存期较短且未重新部署的测试环境。
 
 ```json
 {
@@ -1108,7 +1108,7 @@ NewGuid 函式不同於[guid](#guid)函式，因為它未採用任何參數。 �
 }
 ```
 
-上述範例的輸出會針對每個部署而有所不同，但將會類似於：
+上述示例的输出根据每个部署的不同而异，但类似于：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
@@ -1809,7 +1809,7 @@ NewGuid 函式不同於[guid](#guid)函式，因為它未採用任何參數。 �
     ...
 ```
 
-如果您需要建立新的唯一名稱，每次您部署範本，並不想来更新的資源，您可以使用[utcNow](#utcnow) uniqueString 函式。 您可以在測試環境中使用這種方法。 如需範例，請參閱[utcNow](#utcNow)。
+如果每次部署模板都需要创建新的唯一名称并且不希望更新资源，可以结合 uniqueString 使用 [utcNow](#utcnow) 函数。 可以在测试环境中使用此方法。 有关示例，请参阅 [utcNow](#utcnow)。
 
 ### <a name="return-value"></a>傳回值
 
@@ -2015,29 +2015,29 @@ URI 編碼值的解碼字串。
 
 `utcNow(format)`
 
-傳回目前的 (UTC) 日期時間值中指定的格式。 如果未不提供任何格式，則會使用 ISO 8601 (yyyyMMddTHHmmssZ) 格式。 **此函式只可用以預設值的參數。**
+以指定的格式返回当前的 (UTC) 日期时间值。 如果未提供格式，则使用 ISO 8601 (yyyyMMddTHHmmssZ) 格式。 **此函数只能在参数的默认值中使用。**
 
 ### <a name="parameters"></a>參數
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| format |否 |字串 |要轉換為字串的 URI 編碼值。 使用任何一種[標準格式字串](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)或是[自訂格式字串](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 |
+| format |否 |字串 |要轉換為字串的 URI 編碼值。 使用[标准格式字符串](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)或[自定义格式字符串](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 |
 
 ### <a name="remarks"></a>備註
 
-您只可以使用此函式在運算式內做為參數的預設值。 使用此範本中的任何其他地方的函式會傳回錯誤。 在範本的其他部分不允許函式，因為它會每次呼叫時傳回不同的值。 部署相同的範本，使用相同的參數無法可靠地產生相同的結果。
+只能在表达式中对参数的默认值使用此函数。 在模板中的其他任何位置使用此函数都会返回错误。 不允许在模板的其他部分使用该函数，因为每次调用该函数，都会返回不同的值。 使用相同的参数部署同一模板不能可靠地生成相同的结果。
 
-如果您使用[選項來重新部署先前成功部署](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)，和先前的部署包含使用 utcNow 參數、 參數不會重新評估。 相反地，從先前的部署參數值會自動回復部署中重複使用。
+如果[使用相应的选项来重新部署以前已成功的部署](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)，而以前的部署包含一个使用 utcNow 的参数，则不会重新评估该参数， 而是在回滚部署中自动重复使用以前部署中的参数值。
 
-請小心重新部署依賴預設值的 utcNow 函式的範本。 當您重新部署，並不提供此參數的值時，此函式會重新評估。 如果您想要更新現有的資源，而不是建立新的帳戶，請從先前的部署傳入參數值。
+重新部署依赖于 utcNow 函数提供默认值的模板时请保持谨慎。 如果重新部署且不提供参数的值，则会重新评估该函数。 若要更新现有的资源而不是新建资源，请传入以前部署中的参数值。
 
 ### <a name="return-value"></a>傳回值
 
-目前的 UTC 日期時間值。
+当前的 UTC 日期时间值。
 
 ### <a name="examples"></a>範例
 
-下列範本範例會顯示不同格式的日期時間值。
+以下示例模板演示日期时间值的不同格式。
 
 ```json
 {
@@ -2076,7 +2076,7 @@ URI 編碼值的解碼字串。
 }
 ```
 
-上述範例的輸出會針對每個部署而有所不同，但將會類似於：
+上述示例的输出根据每个部署的不同而异，但类似于：
 
 | 名稱 | 類型 | 值 |
 | ---- | ---- | ----- |
@@ -2084,7 +2084,7 @@ URI 編碼值的解碼字串。
 | utcShortOutput | 字串 | 03/05/2019 |
 | utcCustomOutput | 字串 | 3 5 |
 
-下一個範例示範如何設定標籤值時，請使用此函式的值。
+以下示例演示在设置标记值时如何使用函数中的值。
 
 ```json
 {

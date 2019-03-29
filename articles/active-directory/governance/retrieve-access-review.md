@@ -1,6 +1,6 @@
 ---
-title: 擷取群組，或在 Azure AD 存取權檢閱的應用程式的存取權檢閱結果 |Microsoft Docs
-description: 了解如何擷取群組成員或在 Azure AD 存取權檢閱的應用程式存取權的存取權檢閱結果。
+title: 擷取群組或應用程式存取權檢閱-Azure Active Directory 中的存取權檢閱結果 |Microsoft Docs
+description: 了解如何擷取群組成員或在 Azure Active Directory 存取權檢閱的應用程式存取權的存取權檢閱結果。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2516e61b6b86c3d2cee164cfcb80a1f938922908
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eae4bafb3eefcee2785c784030d7be8dde66988e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839639"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578694"
 ---
-# <a name="retrieve-access-review-results-for-groups-or-applications-in-azure-ad-access-reviews"></a>擷取群組，或在 Azure AD 存取權檢閱的應用程式的存取權檢閱結果
+# <a name="retrieve-access-review-results-for-groups-or-applications-in-azure-ad-access-reviews"></a>擷取存取權檢閱結果的群組或 Azure AD 中的應用程式存取權檢閱
 
 系統管理員可以使用 Azure Active Directory (Azure AD) 為群組成員或指派給應用程式的或使用者[建立存取權檢閱](create-access-review.md)。  中的使用者**全域管理員**，**使用者系統管理員**，**安全性系統管理員**或是**安全性讀取者**角色也可以讀取存取權檢閱的結果。  若要將使用者指派給其中一個角色，特殊權限的角色系統管理員可以使用 Azure AD PIM 讓使用者能夠啟用角色，或全域管理員可以永久[將使用者指派給角色](../fundamentals/active-directory-users-assign-role-azure-portal.md)。
 

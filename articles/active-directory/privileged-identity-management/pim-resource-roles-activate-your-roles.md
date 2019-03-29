@@ -1,5 +1,5 @@
 ---
-title: 在 PIM 中啟用我的 Azure 資源角色 | Microsoft Docs
+title: 啟用我 PIM-Azure Active Directory 中的 Azure 資源角色 |Microsoft Docs
 description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中啟用 Azure 資源角色。
 services: active-directory
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.date: 03/05/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b574e538c407040518f3905f8fbd9fa91d5dd067
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 23fcba94a8f29d0f1bc458dd4779e5a2f0c06f38
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002047"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575555"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>在 PIM 中啟用我的 Azure 資源角色
 
-Azure 資源的合格角色成員可使用 Azure AD Privileged Identity Management (PIM)，排程未來啟用的日期與時間。 他們也可以在最大範圍內選取特定的啟用期間 (由管理員設定)。
+使用 Azure Active Directory (Azure AD) Privileged Identity Management (PIM)，適用於 Azure 資源的合格角色成員可以排程未來的日期和時間啟動。 他們也可以在最大範圍內選取特定的啟用期間 (由管理員設定)。
 
 本文適用於需要在 PIM 中啟用其 Azure 資源角色的成員。
 
@@ -38,7 +38,7 @@ Azure 資源的合格角色成員可使用 Azure AD Privileged Identity Manageme
 
 1. 按一下 [我的角色]。
 
-    ![Azure AD 目錄角色與 Azure 資源角色 - 我的角色](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
+    ![Azure AD 角色和 Azure 資源角色-我的角色](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
 
 1. 按一下  **Azure 資源角色**以查看您的合格的 Azure 資源角色的清單。
 
@@ -84,7 +84,7 @@ Azure 資源的合格角色成員可使用 Azure AD Privileged Identity Manageme
 
 1. 開啟 Azure AD Privileged Identity Management。
 
-1. 按一下 [我的角色] 可查看符合資格的 Azure AD 目錄角色與 AD 資源角色清單。
+1. 按一下 **我的角色**若要查看您符合資格的 Azure AD 角色和 Azure 資源角色。
 
 1. 按一下  **Azure 資源角色**。
 
@@ -100,9 +100,9 @@ Azure 資源的合格角色成員可使用 Azure AD Privileged Identity Manageme
 
 1. 開啟 Azure AD Privileged Identity Management。
 
-1. 按一下 [我的要求] 可查看您的 Azure AD 目錄角色與 AD 資源角色要求清單。
+1. 按一下 **我的要求**若要查看您的 Azure AD 角色和 Azure 資源角色的要求。
 
-    ![Azure AD 目錄角色與 Azure 資源角色 - 我的要求](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
+    ![Azure AD 角色和 Azure 資源角色-我的要求](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
 
 1. 捲動至右側可檢視 [要求狀態] 欄。
 
@@ -138,4 +138,4 @@ Azure 資源的合格角色成員可使用 Azure AD Privileged Identity Manageme
 ## <a name="next-steps"></a>後續步驟
 
 - [在 PIM 中延長或更新 Azure 資源角色](pim-resource-roles-renew-extend.md)
-- [在 PIM 中啟用我的 Azure AD 目錄角色](pim-how-to-activate-role.md)
+- [啟用我在 PIM 中的 Azure AD 角色](pim-how-to-activate-role.md)

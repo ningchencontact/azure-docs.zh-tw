@@ -1,6 +1,6 @@
 ---
-title: 指派 Azure AD 系統管理員角色-Privileged Identity Management |Microsoft Docs
-description: 了解如何指派 Azure AD Privileged Identity Management (PIM) 中的 Azure Active Directory 系統管理員角色。
+title: 將 Azure AD PIM-Azure Active Directory 中的角色指派 |Microsoft Docs
+description: 了解如何將 Azure AD Privileged Identity Management (PIM) 中的 Azure AD 角色指派。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.subservice: pim
 ms.date: 10/30/2018
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3c8a7fb7a94dbca7b0e63ddaf756a536fbd0600
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: dfce4c918bbc7f7e30b5cb6372d4370e305ba63e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000639"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578249"
 ---
-# <a name="assign-azure-ad-administrator-roles-in-pim"></a>指派 Azure AD PIM 中的系統管理員角色
+# <a name="assign-azure-ad-roles-in-pim"></a>將 Azure AD PIM 中的角色指派
 
 藉由 Azure Active Directory (Azure AD)，可進行全域系統管理員**永久**Azure AD 系統管理員角色指派。 您可以使用 [Azure 入口網站](../users-groups-roles/directory-assign-admin-roles.md)或使用 [PowerShell 命令](/powershell/module/azuread#directory_roles)來建立這些角色指派。
 
@@ -38,11 +38,11 @@ Azure AD Privileged Identity Management (PIM) 服務也可讓特殊權限角色�
 
     如果您尚未在 Azure 入口網站中起始 PIM，請移至[開始使用 PIM](pim-getting-started.md)。
 
-1. 按一下 [Azure AD 目錄角色]。
+1. 按一下 [Azure AD 角色]。
 
 1. 按一下 [角色] 或 [成員]。
 
-    ![Azure AD 目錄角色](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+    ![Azure AD 角色](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
 1. 按一下 [新增成員] 以開啟 [新增受控成員]。
 
@@ -62,7 +62,7 @@ Azure AD Privileged Identity Management (PIM) 服務也可讓特殊權限角色�
 
     ![角色的合格使用者](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
 
-1. 既然使用者有資格扮演某個角色，請讓他們知道他們可以根據[在 PIM 中啟用我的 Azure AD 目錄角色](pim-how-to-activate-role.md)中的指示來啟用角色。
+1. 現在，使用者是符合該角色資格，讓他們知道他們可以根據中的指示啟用它[啟用我的 Azure AD 角色，在 PIM 中](pim-how-to-activate-role.md)。
 
     啟用期間，系統會要求合格的系統管理員註冊 Azure Multi-factor Authentication (MFA)。 如果使用者無法註冊MFA，或使用者使用的是 Microsoft 帳戶 (通常是 @outlook.com)，您就需要將他們的所有角色設為永久。
 
@@ -72,7 +72,7 @@ Azure AD Privileged Identity Management (PIM) 服務也可讓特殊權限角色�
 
 1. 開啟 **Azure AD Privileged Identity Management**。
 
-1. 按一下 [Azure AD 目錄角色]。
+1. 按一下 [Azure AD 角色]。
 
 1. 按一下 [成員]。
 
@@ -96,7 +96,7 @@ Azure AD Privileged Identity Management (PIM) 服務也可讓特殊權限角色�
 
 1. 開啟 **Azure AD Privileged Identity Management**。
 
-1. 按一下 [Azure AD 目錄角色]。
+1. 按一下 [Azure AD 角色]。
 
 1. 按一下 [成員]。
 

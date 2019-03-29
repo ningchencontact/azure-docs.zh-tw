@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d3e8a597362925ad2f7a87a7373cfe1aeb2591ff
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: f87b76c1d6629fff93ec6eba45a66f837d9737c9
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783623"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579660"
 documentType: LandingData
 title: Privileged Identity Management 文件
 metadata:
@@ -22,6 +22,15 @@ metadata:
   ms.author: rolyon
 abstract:
   description: Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 可讓您限制常設管理員存取特殊權限角色，並找出具有存取和檢閱特殊權限存取的人員。
+  aside:
+    image:
+      alt: 
+      height: 112
+      src: media/index/video-thumb-pim.png
+      width: 200
+    title: 保護您的金鑰 (42:45)
+    href: https://www.youtube.com/embed/w7wTpZYJJeQ
+    width: 200
 sections:
 - title: 適用於合格且使用中角色使用者的使用說明指南
   items:
@@ -30,7 +39,7 @@ sections:
     columns:
     - image:
         src: media/index/Azure Active Directory_COLOR.svg
-      title: Azure AD 目錄角色
+      title: Azure AD 角色
     - image:
         src: media/index/Cubes.svg
       title: Azure 資源
@@ -46,7 +55,7 @@ sections:
     columns:
     - image:
         src: media/index/Azure Active Directory_COLOR.svg
-      title: Azure AD 目錄角色
+      title: Azure AD 角色
     - image:
         src: media/index/Cubes.svg
       title: Azure 資源

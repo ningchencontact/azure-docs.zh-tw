@@ -1,6 +1,6 @@
 ---
-title: 什麼是 Azure AD 存取權檢閱？ | Microsoft Docs
-description: 您可以使用 Azure Active Directory 存取權檢閱，來控制群組成員資格和應用程式存取權，以符合貴組織的控管、風險管理和合規性計畫。
+title: 什麼是存取權檢閱？ - Azure Active Directory | Microsoft Docs
+description: 您可以使用 Azure Active Directory 存取權檢閱，來控制群組成員資格和應用程式存取，以符合控管、 風險管理和貴組織的循規計劃。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ab3570cb7e3e8b09425bf4c05f7f5725fd21d4f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1563a023f397999deb5c6abd40843d6a376b0492
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845149"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576117"
 ---
-# <a name="what-are-azure-ad-access-reviews"></a>什麼是 Azure AD 存取權檢閱？
+# <a name="what-are-azure-ad-access-reviews"></a>什麼是 Azure AD 存取權檢閱嗎？
 
-Azure Active Directory (Azure AD) 存取權檢閱可讓組織有效地管理群組成員資格、對企業應用程式的存取，以及角色指派。 您可以定期檢閱使用者的存取權，以確定只有適當的人員會具有持續存取權。
+Azure Active Directory (Azure AD) 存取權檢閱可讓組織有效地管理群組成員資格、 存取企業應用程式，以及角色指派。 您可以定期檢閱使用者的存取權，以確定只有適當的人員會具有持續存取權。
 
 以下影片會快速地概述存取權檢閱：
 
@@ -42,7 +42,7 @@ Azure AD 可讓您在組織內部以及與外部組織 (例如，合作夥伴) �
 
 ## <a name="when-to-use-access-reviews"></a>何時要使用存取權檢閱？
 
-- **太多使用者具有特殊權限角色：** 它是個不錯的主意，若要檢查有多少使用者擁有系統管理存取權，其中有多少全域管理員，以及是否有任何受邀來賓或不指派給執行系統管理工作之後已經移除的合作夥伴。 您可以針對 [Azure AD 目錄角色](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) (例如，全域管理員) 或 [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) 體驗中的 [Azure 資源角色](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) (例如，使用者存取管理員)，重新認證其中的角色指派使用者。
+- **太多使用者具有特殊權限角色：** 它是個不錯的主意，若要檢查有多少使用者擁有系統管理存取權，其中有多少全域管理員，以及是否有任何受邀來賓或不指派給執行系統管理工作之後已經移除的合作夥伴。 您可以重新認證中的角色指派使用者[Azure AD 角色](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)例如全域系統管理員，或[Azure 資源角色](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)等使用者存取系統管理員在[Azure AD 特殊權限Identity Management (PIM)](../privileged-identity-management/pim-configure.md)體驗。
 - **無法自動化時：** 您可以在安全性群組或 Office 365 群組上建立動態成員資格的規則，但如果 HR 資料未放在 Azure AD 中，或如果使用者在離開群組之後依然需要存取權以便訓練其接替者呢？ 這時，您就可以在該群組上建立檢閱，以確保仍需要存取權的人員應該會具有持續存取權。
 - **當群組用於新的用途時：** 如果您有要同步處理至 Azure AD 的群組，或如果您計劃讓銷售小組群組中的每個人都能使用 Salesforce 應用程式，則要求群組擁有者先檢閱群組成員資格，再將群組用於不同風險內容中的做法會很有用。
 - **資料存取權：** 對於某些資源來說，您可能必須要求 IT 以外的人定期登出，並請他們提出需要存取權的理由，以便進行稽核。
@@ -52,13 +52,13 @@ Azure AD 可讓您在組織內部以及與外部組織 (例如，合作夥伴) �
 
 ## <a name="where-do-you-create-reviews"></a>在哪裡建立檢閱？
 
-根據所要檢閱的內容，可將存取權檢閱建立在 Azure AD 存取權檢閱、Azure AD 企業應用程式 (預覽版) 或 Azure AD PIM 中。
+根據您想要檢閱，您將建立您的存取權檢閱在 Azure AD 存取權檢閱，Azure AD 企業應用程式 （處於預覽狀態） 或 Azure AD PIM。
 
 | 使用者的存取權限 | 檢閱者可以是 | 檢閱建立於 | 檢閱者體驗 |
 | --- | --- | --- | --- |
 | 安全性群組成員</br>Office 群組成員 | 指定的檢閱者</br>群組擁有者</br>自我檢閱 | Azure AD 存取權檢閱</br>Azure AD 群組 | 存取面板 |
 | 指派給已連線的應用程式 | 指定的檢閱者</br>自我檢閱 | Azure AD 存取權檢閱</br>Azure AD 企業應用程式 (預覽版) | 存取面板 |
-| Azure AD 目錄角色 | 指定的檢閱者</br>自我檢閱 | Azure AD PIM | Azure 入口網站 |
+| Azure AD 角色 | 指定的檢閱者</br>自我檢閱 | Azure AD PIM | Azure 入口網站 |
 | Azure 資源角色 | 指定的檢閱者</br>自我檢閱 | Azure AD PIM | Azure 入口網站 |
 
 ## <a name="prerequisites"></a>必要條件
@@ -88,13 +88,13 @@ Azure AD 可讓您在組織內部以及與外部組織 (例如，合作夥伴) �
 
 1. 按一下 [所有服務] 並尋找存取權檢閱服務。
 
-1. 按一下 [存取權檢閱]。
+1. 按一下 **存取權檢閱**。
 
-    ![所有服務 - 存取權檢閱](./media/access-reviews-overview/all-services-access-reviews.png)
+    ![所有服務的存取權檢閱](./media/access-reviews-overview/all-services-access-reviews.png)
 
 1. 在導覽清單中，按一下 [上架] 來開啟 [上架存取權檢閱] 頁面。
 
-    ![存取權檢閱上架](./media/access-reviews-overview/onboard-button.png)
+    ![上架存取權檢閱](./media/access-reviews-overview/onboard-button.png)
 
 1. 按一下 [建立] 以在目前的目錄中啟用存取權檢閱。
 
@@ -102,7 +102,7 @@ Azure AD 可讓您在組織內部以及與外部組織 (例如，合作夥伴) �
 
     下次您啟動存取權檢閱，將啟用的存取權檢閱的選項。
 
-    ![存取權檢閱已啟用](./media/access-reviews-overview/access-reviews-enabled.png)
+    ![已啟用的存取權檢閱](./media/access-reviews-overview/access-reviews-enabled.png)
 
 ## <a name="next-steps"></a>後續步驟
 

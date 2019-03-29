@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cc9b2b38ae0ba97e5a29d58d1605e5452224e4b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5d933eaf99258a3f3322a915b418b52fad6e459f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445750"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576925"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 和 OAuth 2.0 代理者流程
 
@@ -72,8 +72,8 @@ https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 | 參數 |  | 描述 |
 | --- | --- | --- |
 | `grant_type` | 必要項 | 權杖要求的類型。 對於使用 JWT 的要求，值必須是 `urn:ietf:params:oauth:grant-type:jwt-bearer`。 |
-| `client_id` | 必要項 | 應用程式 (用戶端) 識別碼，[應用程式註冊入口網站](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)或新的 [應用程式註冊 (預覽) 入口網站](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)已指派給您的應用程式。 |
-| `client_secret` | 必要項 | 您在入口網站中為應用程式產生的應用程式密碼 (用來註冊您的應用程式)。 |
+| `client_id` | 必要項 | （用戶端） 應用程式識別碼[Azure 入口網站-應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)頁面已指派給您的應用程式。 |
+| `client_secret` | 必要項 | 您在 Azure 入口網站-應用程式註冊頁面中的應用程式產生用戶端祕密。 |
 | `assertion` | 必要項 | 要求中使用的權杖值。 |
 | `scope` | 必要項 | 權杖要求範圍的清單，各項目之間以空格分隔。 如需詳細資訊，請參閱[範圍](v2-permissions-and-consent.md)。 |
 | `requested_token_use` | 必要項 | 指定應該如何處理要求。 在 OBO 流程中，此值必須設定為 `on_behalf_of`。 |
@@ -104,7 +104,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 | 參數 |  | 描述 |
 | --- | --- | --- |
 | `grant_type` | 必要項 | 權杖要求的類型。 對於使用 JWT 的要求，值必須是 `urn:ietf:params:oauth:grant-type:jwt-bearer`。 |
-| `client_id` | 必要項 | 應用程式 (用戶端) 識別碼，[應用程式註冊入口網站](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)或新的 [應用程式註冊 (預覽) 入口網站](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)已指派給您的應用程式。 |
+| `client_id` | 必要項 |  （用戶端） 應用程式識別碼[Azure 入口網站-應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)頁面已指派給您的應用程式。 |
 | `client_assertion_type` | 必要項 | 值必須是 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`。 |
 | `client_assertion` | 必要項 | 您必須建立判斷提示 (JSON Web 權杖)，並使用註冊的憑證來簽署，以作為應用程式的認證。 若要深入了解如何註冊您的憑證與判斷提示的格式，請參閱[憑證認證](active-directory-certificate-credentials.md)。 |
 | `assertion` | 必要項 | 要求中使用的權杖值。 |
@@ -205,7 +205,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 #### <a name="pre-authorized-applications"></a>已預先授權應用程式
 
-預覽應用程式入口網站的新功能是「已預先授權應用程式」。 如此一來，資源可以表示指定的應用程式一律有接收特定範圍的權限。 這主要是用來讓前端用戶端與後端資源之間的連線更順暢。 資源可以宣告多個已預先授權應用程式，任何此類應用程式可以在 OBO 流程中要求這些權限並接收它們，不需要使用者提供同意。
+應用程式入口網站的功能是 「 預先授權應用程式 」。 如此一來，資源可以表示指定的應用程式一律有接收特定範圍的權限。 這主要是用來讓前端用戶端與後端資源之間的連線更順暢。 資源可以宣告多個已預先授權應用程式，任何此類應用程式可以在 OBO 流程中要求這些權限並接收它們，不需要使用者提供同意。
 
 #### <a name="admin-consent"></a>系統管理員同意
 

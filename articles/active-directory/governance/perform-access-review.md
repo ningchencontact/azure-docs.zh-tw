@@ -1,5 +1,5 @@
 ---
-title: 檢閱存取權的群組或應用程式在 Azure AD 存取權檢閱 |Microsoft Docs
+title: 檢閱存取權的群組或存取權檢閱-Azure Active Directory 中的應用程式 |Microsoft Docs
 description: 了解如何檢閱群組成員的存取或在 Azure Active Directory 存取權檢閱的應用程式存取。
 services: active-directory
 author: rolyon
@@ -15,16 +15,16 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 097d230e919e6d4b56e6c677364610bda6630f75
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 02c12a8cc8163fa70008b21995ddb35aec57dfcf
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728381"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579677"
 ---
-# <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>檢閱存取權的群組或應用程式在 Azure AD 存取權檢閱
+# <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>檢閱群組的存取權或在 Azure AD 中的應用程式存取權檢閱
 
-Azure Active Directory (Azure AD) 可讓您簡化了企業在 Azure AD 中管理群組和應用程式存取和其他 Microsoft Online Services 的功能稱為 Azure AD 存取權檢閱。
+Azure Active Directory (Azure AD)，簡化企業在 Azure AD 中管理群組和應用程式的存取以及其他 Microsoft Online Services 的 「 使用稱為 Azure AD 存取權檢閱。
 
 這篇文章會說明如何指定檢閱者執行之成員的群組或使用者的存取權的應用程式的存取權檢閱。
 
@@ -44,7 +44,7 @@ Azure Active Directory (Azure AD) 可讓您簡化了企業在 Azure AD 中管理
 
     ![MyApps 入口網站](./media/perform-access-review/myapps-access-panel.png)
 
-1. 在頁面的右上角，按一下 使用者符號，其顯示您的名稱和預設組織。 如果列出多個組織，請選取已要求存取權檢閱的組織。
+1. 在頁面右上角按一下使用者符號，其中顯示您的名稱和預設組織。 如果列出多個組織，請選取已要求存取權檢閱的組織。
 
 1. 在頁面的右側，按一下**存取權檢閱**圖格以查看暫止的存取權檢閱的清單。
 

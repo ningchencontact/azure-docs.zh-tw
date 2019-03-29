@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7a303b9d27b3708bd4f59517452fa232cc38c923
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: d3917f65d8be08d6355013393f6c6675ea6c7fc5
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259681"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619436"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>使用 Azure 入口網站分析您的媒體 
 > [!NOTE]
@@ -73,11 +73,6 @@ Azure 媒體服務分析是語音和視覺元件的集合 (具企業規模、相
 
 ### <a name="output-file"></a>輸出檔案
 可讓您識別輸出內容的易記名稱。 
-
-## <a name="azure-media-hyperlapse"></a>Azure Media Hyperlapse
-Azure Media Hyperlapse 是能夠利用第一人稱視角或運動攝影的內容，來建立流暢縮時影片的 MP。  如需詳細資訊，請參閱[此主題](media-services-hyperlapse-content.md)。 本節會提供一些可為此 MP 指定之選項的詳細資料。
-
-![分析影片](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
 
 ### <a name="speed"></a>速度
 指定用來讓輸入影片加速的速度。 輸出是輸入影片經過穩定和縮時轉譯的成果。

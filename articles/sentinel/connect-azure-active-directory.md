@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2019
 ms.author: rkarlin
-ms.openlocfilehash: 315b18feb74862bbeca6ff8265ee003fbad48595
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: b42fb982abb916503d530d5040641ba1dcce3c92
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242305"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575125"
 ---
 # <a name="collect-data-from-azure-active-directory"></a>從 Azure Active Directory 中收集資料
 
 > [!IMPORTANT]
-> Azure 的 Sentinel 目前處於公開預覽狀態。
+> Azure Sentinel 目前為公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 Azure 的 Sentinel 可讓您要從中收集資料[Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)並將它串流到 Azure 的 Sentinel。 您可以選擇資料流[單一登入](../active-directory/reports-monitoring/concept-sign-ins.md)並[稽核記錄檔](../active-directory/reports-monitoring/concept-audit-logs.md)。
@@ -42,7 +42,7 @@ Azure 的 Sentinel 可讓您要從中收集資料[Azure Active Directory](../act
 
 2. 記錄檔，您想要串流處理至 Azure 的 Sentinel，旁邊按一下  **Connect**。
 
-
+6. 若要使用 Log Analytics 中的 Azure AD 警示相關的結構描述，搜尋**SigninLogs**並**AuditLogs**。
 
 
 

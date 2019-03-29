@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 196ad39b8b2430ed060ede032f72092b9cfd3fdb
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f776bdba88902c0b4eaa9f27ef8ed3a4700765cc
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727429"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620814"
 ---
 # <a name="support-for-the-marketplace"></a>Marketplace 的支援  
 以下是 Marketplace 的支援選項清單。  
@@ -28,7 +28,7 @@ ms.locfileid: "56727429"
 
 ## <a name="onboarding"></a>登入
 
-透過 Microsoft [Marketplace 發行者支援服務](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820)開立票證，以解決有關上線及入門的所有問題。
+與 Microsoft 建立票證[marketplace 發行者支援人員](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820)和 [快速入門] 的上架，或與 Microsoft 的問題[合作夥伴支援](https://partner.microsoft.com/support)如果您在 Microsoft 合作夥伴網路有問題。
 
 ## <a name="cloud-partner-portal"></a>雲端合作夥伴入口網站  
 

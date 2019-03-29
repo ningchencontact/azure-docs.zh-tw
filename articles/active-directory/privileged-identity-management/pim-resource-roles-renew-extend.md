@@ -1,5 +1,5 @@
 ---
-title: 在 PIM 中延長或更新 Azure 資源角色指派 | Microsoft Docs
+title: 延長或更新 PIM-Azure Active Directory 中的 Azure 資源角色指派 |Microsoft Docs
 description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中延長或更新 Azure 資源角色指派。
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79549c1b8ed578319e43fc1c4354c7cd76f71589
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8aef7d4ac37109233af4ffb364b6f3e4c9b291ac
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004238"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578385"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-pim"></a>在 PIM 中延長或更新 Azure 資源角色指派
 
-適用於 Azure 資源的 Privileged Identity Management (PIM) 會引進新控制項，來管理 Azure 資源的存取權和指派生命週期。 管理員可以使用開始和結束日期/時間屬性來指派成員資格。 當指派的結束日期接近時，PIM 會傳送電子郵件通知給受影響的使用者或群組。 也會傳送電子郵件通知給資源的系統管理員，以確保能維護正確的存取權。 如果存取權未延長，指派可能會進行更新，而且仍會以過期狀態顯示長達 30 天。
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 導入了新的控制項，來管理 Azure 資源的存取權和指派生命週期。 管理員可以使用開始和結束日期/時間屬性來指派成員資格。 當指派的結束日期接近時，PIM 會傳送電子郵件通知給受影響的使用者或群組。 也會傳送電子郵件通知給資源的系統管理員，以確保能維護正確的存取權。 如果存取權未延長，指派可能會進行更新，而且仍會以過期狀態顯示長達 30 天。
 
 ## <a name="who-can-extend-and-renew"></a>誰可以延長和更新？
 

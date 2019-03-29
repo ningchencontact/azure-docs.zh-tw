@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 213e6a95484b5f6953f8423474953125f8739015
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 0188dace0e666d4abfe31ac1c6c14d63c947c566
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541823"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574739"
 ---
 # <a name="asc-for-iot-prerequisites"></a>ASC IoT 的必要條件
 
@@ -59,7 +59,7 @@ Iot 的 ASC 目前支援下列的 Azure 區域中的 IoT 中樞：
 
 ## <a name="supported-platforms-for-agents"></a>支援的平台代理程式 
 
-ASC IoT 代理程式支援持續增加的裝置與平台清單。 請參閱[支援的平台清單](select-deploy-agent.md)來檢查您的現有或計劃裝置程式庫。  
+ASC IoT 代理程式支援持續增加的裝置與平台清單。 請參閱[支援的平台清單](how-to-deploy-agent.md)來檢查您的現有或計劃裝置程式庫。  
 
 ## <a name="next-steps"></a>後續步驟
 - [概觀](overview.md)

@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 03/21/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 1d1e0f100a90c28bd7469991dee559abcd88f9a2
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 5829606f3ad226507c49f18dcc8ac4831d573b17
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499458"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578827"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>在 Linux (x64) 上安裝 Azure IoT Edge 執行階段
 
@@ -33,9 +33,9 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
 准备设备，以便安装 IoT Edge 运行时。
 
 
-安装存储库配置。 選擇  **16.04**或是**18.04**視您的 Ubuntu 版本的程式碼片段。
+安装存储库配置。 選擇  **16.04**或是**18.04**視您的 Ubuntu 版本的程式碼片段：
 
-> [!IMPORTANT]
+> [!NOTE]
 > 請確定您的程式碼片段從方塊中選擇正確的程式碼針對您的 Ubuntu 版本。
 
 * 針對**Ubuntu 16.04**:
@@ -48,8 +48,6 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
    curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > ./microsoft-prod.list
    ```
    
-安装存储库配置。 選擇  **16.04**或是**18.04**視您的 Ubuntu 版本的程式碼片段。
-
 复制生成的列表。
 
    ```bash

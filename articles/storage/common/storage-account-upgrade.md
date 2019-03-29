@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: tamram
-ms.openlocfilehash: a1ee95ad847d20159c79af8f080cc7878e114759
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 2d6a5c96bf99439520e26fc905668835944cee29
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444512"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578913"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>升級至一般用途 v2 儲存體帳戶
 
@@ -21,7 +21,7 @@ ms.locfileid: "58444512"
 若要從您的一般用途 v1 的一般用途 v2 儲存體帳戶或 Blob 儲存體帳戶升級很簡單。 您可以使用 Azure 入口網站、PowerShell 或 Azure CLI 來執行升級。
 
 > [!IMPORTANT]
-> 升級到一般用途 v2 的一般用途 v1 或 Blob 儲存體的儲存體帳戶是永久性的而且無法復原。
+> 升級到一般用途 v2 的一般用途 v1 或 Blob 儲存體帳戶是永久性的而且無法復原。
 
 ## <a name="upgrade-using-the-azure-portal"></a>使用 Azure 入口網站升級
 
@@ -71,7 +71,7 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 ## <a name="pricing-and-billing"></a>價格和計費
 
-升級至一般用途 v2 帳戶的 v1 儲存體帳戶是免費的。 不過，變更儲存體存取層可能會導致變更到您的帳單。 
+升級至一般用途 v2 帳戶的 v1 儲存體帳戶是免費的。 但是，更改存储访问层可能会导致帐单更改。 
 
 所有儲存體帳戶會對以每個 Blob 層為基礎的 Blob 儲存體使用價格模型。 使用儲存體帳戶時，需考量下列計費資訊：
 

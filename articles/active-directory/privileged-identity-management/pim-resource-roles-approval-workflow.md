@@ -1,5 +1,5 @@
 ---
-title: 在 PIM 中核准或拒絕 Azure 資源角色的要求 | Microsoft Docs
+title: 核准或拒絕要求的 PIM-Azure Active Directory 中的 Azure 資源角色 |Microsoft Docs
 description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中核准或拒絕 Azure 資源角色的要求。
 services: active-directory
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a458f62ec38503e401b3fb810dc7edc8059a7715
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 5ecb55dd2798241ca0ae1754ecf95a79f8aeb134
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245570"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575108"
 ---
 # <a name="approve-or-deny-requests-for-azure-resource-roles-in-pim"></a>在 PIM 中核准或拒絕 Azure 資源角色的要求
 
-透過 Azure AD Privileged Identity Management (PIM)，您可以將角色設定為需要核准才能啟用，並選擇一或多個使用者或群組作為委派核准者。 委派核准者會有 24 小時的時間來核准要求。 如果未在 24 小時內核准要求，符合資格的使用者就必須重新提交新要求。 24 小時核准時間範圍是不可設定的。
+使用 Azure Active Directory (Azure AD) Privileged Identity Management (PIM)，您可以將角色設定為需要核准才能啟用，並選擇一或多個使用者或群組做為委派核准者。 委派核准者會有 24 小時的時間來核准要求。 如果未在 24 小時內核准要求，符合資格的使用者就必須重新提交新要求。 24 小時核准時間範圍是不可設定的。
 
 依照本文中的步驟核准或拒絕 Azure 資源角色的要求。
 
@@ -84,4 +84,4 @@ ms.locfileid: "56245570"
 
 - [在 PIM 中延長或更新 Azure 資源角色](pim-resource-roles-renew-extend.md)
 - [PIM 中的電子郵件通知](pim-email-notifications.md)
-- [在 PIM 中核准或拒絕 Azure AD 目錄角色的要求](azure-ad-pim-approval-workflow.md)
+- [核准或拒絕要求的 Azure AD PIM 中的角色](azure-ad-pim-approval-workflow.md)

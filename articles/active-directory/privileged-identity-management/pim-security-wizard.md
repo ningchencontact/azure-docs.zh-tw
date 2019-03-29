@@ -1,5 +1,5 @@
 ---
-title: PIM 中的 Azure AD 角色安全性精靈 | Microsoft Docs
+title: 在 PIM-Azure Active Directory 中的 azure AD 角色安全性精靈 |Microsoft Docs
 description: 說明您可以透過 Azure AD Privileged Identity Management (PIM) 用來將永久特殊權限 Azure AD 角色轉換為合格角色的安全性精靈。
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.date: 11/09/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b66dcc834ab089f28e6bb47c2905e6a2a3907091
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 226c00dfdf651580a58a9409bc7cd22658415a56
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208753"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576355"
 ---
 # <a name="azure-ad-roles-security-wizard-in-pim"></a>PIM 中的 Azure AD 角色安全性精靈
 
-如果您是組織中執行 Azure AD Privileged Identity Management (PIM) 的第一個人，您就會看到精靈。 精靈會協助您了解特殊權限身分識別的安全性風險，以及如何使用 PIM 來降低這些風險。 如果您想要稍後再進行變更，就不需要在精靈中對現有的角色指派進行任何變更。
+如果您是執行 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 為您的組織的第一個人，將會看到精靈。 精靈會協助您了解特殊權限身分識別的安全性風險，以及如何使用 PIM 來降低這些風險。 如果您想要稍後再進行變更，就不需要在精靈中對現有的角色指派進行任何變更。
 
 ## <a name="wizard-overview"></a>精靈概觀
 
@@ -65,9 +65,9 @@ ms.locfileid: "56208753"
 
     ![通知](./media/pim-security-wizard/notification-completion.png)
 
-如果您需要將其他特殊權限角色指派轉換為合格，您可以再次執行此精靈。 如果您想要使用 PIM 介面而非精靈，請參閱[在 PIM 中指派 Azure AD 目錄角色](pim-how-to-add-role-to-user.md)。
+如果您需要將其他特殊權限角色指派轉換為合格，您可以再次執行此精靈。 如果您想要改用精靈在 PIM 介面，請參閱[指派 Azure AD PIM 中的角色](pim-how-to-add-role-to-user.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [在 PIM 中指派 Azure AD 目錄角色](pim-how-to-add-role-to-user.md)
+- [將 Azure AD PIM 中的角色指派](pim-how-to-add-role-to-user.md)
 - [授與其他系統管理員存取權以管理 PIM](pim-how-to-give-access-to-pim.md)

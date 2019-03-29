@@ -8,12 +8,12 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d487ce81babc2d1d6a35e3bdb1c13e1a24f8d1ca
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: c062759938652518ac3cafff64973050554ca19d
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58014191"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579694"
 ---
 # <a name="control-mapping-of-the-azure-blueprints-iso-27001-blueprint-sample"></a>Azure 藍圖 ISO 27001 blueprint （藍圖） 範例的控制項對應
 
@@ -122,7 +122,7 @@ Azure 會實作[角色型存取控制](../../../../role-based-access-control/ove
 
 ## <a name="a1241-event-logging"></a>A.12.4.1 事件記錄
 
-此藍圖可協助您確保系統事件所記錄的指派七[Azure 原則](../../../policy/overview.md)定義稽核記錄的 Azure 資源的設定。 指派的原則也會稽核是否虛擬機器不將記錄傳送到指定的 log analytics 工作區。
+此藍圖可協助您確保系統事件所記錄的指派七[Azure 原則](../../../policy/overview.md)稽核記錄檔設定 Azure 資源上的定義。 指派的原則也會稽核是否虛擬機器不將記錄傳送到指定的 log analytics 工作區。
 
 - [預覽]：稽核相依性代理程式部署 VM 映像 (OS) 未列出
 - [預覽]：稽核在 VMSS-VM 映像 (OS) 未列出的相依性代理程式部署

@@ -19,29 +19,29 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 5a46575f6e8a0b05b65dbf49c70bddb570b514b2
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: a629a022e332eae5c8a58e9ffc0f760f96bc24dd
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497428"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577101"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>將建議工具新增至 Azure 搜尋服務中的自動提示的索引
 
-A**建議工具**是在建構[Azure 搜尋服務索引](search-what-is-an-index.md)支援 「 搜尋---輸入 」 體驗。 它包含您要啟用自動提示查詢輸入欄位的清單。 有兩個自動提示變化： *autocomplete*的詞彙或片語輸入，完成*建議*提供一份結果。 
+A**建議工具**是在建構[Azure 搜尋服務索引](search-what-is-an-index.md)支援 「 搜尋---輸入 」 體驗。 它包含您要啟用自動提示查詢輸入欄位的清單。 索引，在相同的建議工具會支援這些兩種自動提示變化之一或兩者： *autocomplete*完成的詞彙或片語輸入，*建議*提供結果的簡短清單。 
 
-在這個 Xbox 搜尋頁面中，自動完成的項目帶您前往新的搜尋結果頁面上，該查詢中，而這些建議會帶您前往該特定的遊戲頁面的實際結果。 您可以限制自動完成，在搜尋列中的一個項目，或提供如下所示類似的清單。 如需建議，您可能會出現文件最能描述結果的任何部分。
+下列螢幕擷取畫面說明這兩種自動提示功能。 在這個 Xbox 搜尋頁面中，自動完成的項目帶您前往新的搜尋結果頁面上，該查詢中，而這些建議會帶您前往該特定的遊戲頁面的實際結果。 您可以限制自動完成，在搜尋列中的一個項目，或提供如下所示類似的清單。 如需建議，您可能會出現文件最能描述結果的任何部分。
 
 ![自動完成和建議的查詢的視覺化比較](./media/index-add-suggesters/visual-comparison-suggest-complete.png "的自動完成和建議的查詢的視覺化比較")
 
 若要在 Azure 搜尋服務中實作這些行為，沒有索引和查詢的元件。 
 
-+ 在索引中，新增建議工具。 您可以使用入口網站、 REST API 或.NET SDK 來建立建議工具。 
++ 索引元件是建議工具。 您可以使用入口網站、 REST API 或.NET SDK 來建立建議工具。 
 
-+ 在查詢中，指定建議或 sutocomplete 的動作。 
++ 查詢元件是在查詢要求 （建議或自動完成動作） 中指定的動作。 
 
 > [!Important]
-> 自動完成目前為預覽狀態，可供預覽 REST Api 和.NET SDK，並不支援用於生產應用程式。 
+> 自動完成功能目前為預覽狀態，可供預覽 REST Api 和.NET SDK。 它並不適用於實際執行應用程式。 
 
 針對每個欄位已啟用搜尋---輸入時支援。 如果您想體驗類似於螢幕擷取畫面所示，您可以實作相同的搜尋解決方案中這兩種自動提示行為。 這兩個要求的目標*文件*之後使用者已提供至少三個字元的輸入的字串，會傳回集合特定索引和回應。
 
@@ -77,7 +77,7 @@ A**建議工具**是在建構[Azure 搜尋服務索引](search-what-is-an-index.
 
 ### <a name="use-the-net-sdk"></a>使用 .NET SDK
 
-在C#，定義[建議工具類別](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet)。 建議工具集合，但它只能接受一個項目。
+在C#，定義[建議工具類別](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet)。 建議工具是只能接受一個項目集合。 請務必新增`using System.Collections.Generic;`，讓您可以建立的物件清單。 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)
@@ -137,4 +137,4 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 我們建議下列的範例，以瞭解如何要求所建構而成。
 
 > [!div class="nextstepaction"]
-> [自動完成查詢範例 （預覽）](search-autocomplete-tutorial.md) 
+> [建議和自動完成範例](search-autocomplete-tutorial.md) 

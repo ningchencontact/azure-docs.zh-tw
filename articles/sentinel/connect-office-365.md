@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 3/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7cd90b987550dc60b30d3aa0cd1016b681eec85f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ad501958a5f88c821e48a3e21f69a960160b3c8e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547009"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574853"
 ---
 # <a name="collect-data-from-office-365-logs"></a>從 Office 365 記錄檔收集資料
 
 > [!IMPORTANT]
-> Azure 的 Sentinel 目前處於公開預覽狀態。
+> Azure Sentinel 目前為公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 您可以串流處理從稽核記錄[Office 365](https://docs.microsoft.com/office365/admin/admin-home?view=o365-worldwide)到 Azure Sentinel 只要按一下。 您可以串流來自多個租用戶中 Azure Sentinel 的單一工作區的稽核記錄檔。 Office 365 活動記錄連接器提供進行中的使用者活動的深入解析。 您會從 Office 365 各種使用者、 系統管理員、 系統和原則動作和事件的相關資訊。 藉由連接到 Azure Sentinel 的 Office 365 記錄檔中，您可以使用這項資料來檢視儀表板、 建立自訂警示，並改善您的調查程序。
@@ -33,7 +33,7 @@ ms.locfileid: "57547009"
 ## <a name="prerequisites"></a>必要條件
 
 - 您必須是全域管理員或安全性系統管理員在您的租用戶
-- 若要新增租用戶，開啟連接埠 4433 來讓您從中執行連線的電腦上的 web 流量。
+- 您在電腦上，您登入 Azure Sentinel 來建立連線，請 suretha 連接埠 4433 則是 web 流量開啟項目。
 
 ## <a name="connect-to-office-365"></a>連接至 Office 365
 

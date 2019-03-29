@@ -1,5 +1,5 @@
 ---
-title: 在 PIM 中檢視 Azure 資源角色的活動和稽核記錄 | Microsoft Docs
+title: PIM-Azure Active Directory 中的 Azure 資源角色的檢視活動和稽核記錄 |Microsoft Docs
 description: 在 Azure AD Privileged Identity Management (PIM) 中檢視 Azure 資源角色的活動和稽核記錄。
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.subservice: pim
 ms.date: 01/24/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9afbbad9b956d41252ff9121c99a91669c71aaab
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a6fb97c416d0e34635b8aa4c19fc6b94889f566c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211728"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578130"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>在 PIM 中檢視 Azure 資源角色的活動和稽核記錄
 
@@ -113,4 +113,4 @@ ms.locfileid: "56211728"
 
 - [在 PIM 中指派 Azure 資源角色](pim-resource-roles-assign-roles.md)
 - [在 PIM 中核准或拒絕 Azure 資源角色的要求](pim-resource-roles-approval-workflow.md)
-- [在 PIM 中檢視 Azure AD 目錄角色的稽核記錄](pim-how-to-use-audit-log.md)
+- [檢視稽核記錄的 Azure AD PIM 中的角色](pim-how-to-use-audit-log.md)

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 8973558e0841bfd0d6651a08d39da96b544156c9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 223eff79d809a78d531d86d315fff80282cd29bb
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842442"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620150"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>成為雲端市集發行者
 
@@ -44,6 +44,8 @@ ms.locfileid: "57842442"
 註冊完成之後，請記下組織的 Microsoft 合作夥伴網路識別碼。 當您在步驟 3 中提交市集註冊表單時，會需要此識別碼。
 *   了解 [Microsoft 合作夥伴網路](https://partner.microsoft.com/commercial)的權益
 *   如果您的組織已擁有成員資格，可以在註冊時加入您的組織。 如果您使用[合作夥伴中心](https://partnercenter.microsoft.com/partner/home)，可以在合作夥伴中心帳戶中看到識別碼。 如果您使用 [Partner Membership Center (PMC)](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx)，可以在 Partner Membership Center 帳戶中看到識別碼。 
+
+與 Microsoft 建立票證[合作夥伴支援](https://partner.microsoft.com/support)的 MPN 註冊時發生問題。
 
 ---
 

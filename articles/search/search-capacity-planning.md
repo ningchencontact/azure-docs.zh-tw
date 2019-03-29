@@ -6,20 +6,20 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 03/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 69fce34c55007daff48b2463da590ffb9cd59926
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6879dd975f97ba2746165e87a135e5d90e8b229f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775317"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620627"
 ---
 # <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>調整資料分割和複本適用於查詢和編製索引工作負載，在 Azure 搜尋服務
 在您[選擇定價層](search-sku-tier.md)和[佈建搜尋服務](search-create-service-portal.md)之後，下一個步驟是選擇性地增加服務所使用的複本或分割區數目。 每一層都提供固定的計費單位數目。 本文說明如何配置這些單位以達到最佳的組態，讓您在查詢執行、編制索引和儲存體等需求之間取得平衡。
 
-當您在[基本層](https://aka.ms/azuresearchbasic)或其中一個[標準層](search-limits-quotas-capacity.md)設定服務時，便可使用資源組態。 對於這些層的服務，購買容量就是增加「搜尋單位」(SU)，每個分割區和複本會計為一個 SU。 
+當您設定的服務時，便可以使用資源組態[基本層次](https://aka.ms/azuresearchbasic)或其中一個[標準] 或 [儲存體最佳化層](search-limits-quotas-capacity.md)。 對於這些層的服務，購買容量就是增加「搜尋單位」(SU)，每個分割區和複本會計為一個 SU。 
 
 使用較少 SU，帳單費用也會相應降低。 只要服務處於已設定的狀態，就會持續計費。 如果您暫時不使用某項服務，避免計費的唯一方法就是刪除該服務，然後當您需要該服務時再予以重建。
 
@@ -81,7 +81,7 @@ ms.locfileid: "57775317"
 
 「基本」服務可以有不多不少 1 個分割區及最多 3 個複本，上限為 3 個 SU。 唯一可調整的資源是複本。 您至少需要 2 個複本，才能在查詢上達到高可用性。
 
-所有標準的服務可以假設下列組合複本和分割區 36 個 SU 的限制。 
+所有標準和儲存體最佳化的搜尋服務可以假設下列組合複本和分割區 36 個 SU 的限制。 
 
 |   | **1 個資料分割** | **2 個資料分割** | **3 個資料分割** | **4 個資料分割** | **6 個資料分割** | **12 個資料分割** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -112,7 +112,7 @@ SU、定價和容量會在 Azure 網站上詳細說明。 如需詳細資訊，�
 
 「Azure 搜尋服務」的「服務等級協定」(SLA) 是針對查詢作業和由新增、更新或刪除文件所組成的索引更新。
 
-基本層最多一個分割區和三個複本。 如果想要具備立即回應檢索和查詢輸送量需求波動的彈性，請考慮標準層的其中一個。
+基本層最多一個分割區和三個複本。 如果想要具備立即回應檢索和查詢輸送量需求波動的彈性，請考慮標準層的其中一個。  如果您發現您的儲存體需求的成長速度會比查詢輸送量，請考慮儲存體最佳化層級的其中一個。
 
 ### <a name="index-availability-during-a-rebuild"></a>索引在重建期間的可用性
 

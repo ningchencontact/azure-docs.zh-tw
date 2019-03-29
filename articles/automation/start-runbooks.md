@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4c3c936a3d547389de3681b4f82f329c4978742d
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: cf1d36458bab867e35fa23ae702a6f6f45d8dc60
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886616"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620575"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>在 Azure 自動化中啟動 Runbook
 
@@ -39,7 +39,7 @@ ms.locfileid: "56886616"
 1. 在 Azure 入口網站中，選取 [自動化]，然後按一下自動化帳戶的名稱。
 2. 在 [中樞] 功能表中，選取 [Runbook]。
 3. 在 [Runbook] 頁面中，選取 Runbook，然後按一下 [啟動]。
-4. 如果 Runbook 有參數，系統會針對每個參數，以文字方塊提示您提供值。 如需參數的詳細資訊，請參閱以下的 [Runbook 參數](#Runbook-parameters)。
+4. 如果 Runbook 有參數，系統會針對每個參數，以文字方塊提示您提供值。 如需參數的詳細資訊，請參閱以下的 [Runbook 參數](#runbook-parameters)。
 5. 在 [作業] 頁面中，您可以檢視 Runbook 作業的狀態。
 
 ## <a name="start-a-runbook-with-powershell"></a>使用 PowerShell 啟動 Runbook
@@ -69,7 +69,7 @@ While ($doLoop) {
 Get-AzureRmAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup –Stream Output
 ```
 
-如果 Runbook 需要參數，則您必須以[雜湊表](https://technet.microsoft.com/library/hh847780.aspx)的形式提供它們。 雜湊表的索引鍵必須符合參數名稱，而值是參數值。 下列範例顯示如何啟動 Runbook 具有名為 FirstName 和 LastName 的兩個參數、名為 RepeatCount 的整數，和名為 Show 的布林值參數。 如需有關參數的詳細資訊，請參閱以下的 [Runbook 參數](#Runbook-parameters)。
+如果 Runbook 需要參數，則您必須以[雜湊表](https://technet.microsoft.com/library/hh847780.aspx)的形式提供它們。 雜湊表的索引鍵必須符合參數名稱，而值是參數值。 下列範例顯示如何啟動 Runbook 具有名為 FirstName 和 LastName 的兩個參數、名為 RepeatCount 的整數，和名為 Show 的布林值參數。 如需有關參數的詳細資訊，請參閱以下的 [Runbook 參數](#runbook-parameters)。
 
 ```azurepowershell-interactive
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}

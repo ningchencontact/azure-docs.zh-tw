@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 1eba32683883e60ae48f4d6fec9c434c27ce55da
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 8940d629d2f4827ee724c813a40394378dde5a4c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541928"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575142"
 ---
 # <a name="asc-for-iot-frequently-asked-questions"></a>Iot 的 ASC 常見問題集  
 
@@ -77,7 +77,7 @@ IoT 安全性代理程式 ASC 是開放原始碼和可在 GitHub 上的 32 位�
 
 ## <a name="what-are-the-dependencies-and-prerequisites-of-the-agent"></a>相依性和代理程式的必要條件為何？
 
-ASC iot 支援各種平台。 請參閱[支援的裝置平台](select-deploy-agent.md)來驗證您的特定裝置的支援。 
+ASC iot 支援各種平台。 請參閱[支援的裝置平台](how-to-deploy-agent.md)來驗證您的特定裝置的支援。 
 
 ## <a name="which-data-is-collected-by-the-agent"></a>代理程式會收集哪些資料？
 
@@ -97,9 +97,9 @@ ASC iot 會提供可設定代理程式掃描、 資料緩衝區，以及建立�
 
 ## <a name="what-next-ive-installed-an-agent-and-dont-see-any-activities-or-logs"></a>接下來呢？ 我已經安裝了代理程式，看不到任何活動或記錄檔
 
-1. 檢查[代理程式類型符合指定的作業系統平台，您的裝置](select-deploy-agent.md)
+1. 檢查[代理程式類型符合指定的作業系統平台，您的裝置](how-to-deploy-agent.md)
 
-1. 確認[代理程式會在裝置上執行](concept-agent-configuration.md)。
+1. 確認[代理程式會在裝置上執行](how-to-agent-configuration.md)。
 
 2. 請檢查[服務已成功啟用](quickstart-onboard-iot-hub.md)要**安全性**在 IoT 中樞。 
 

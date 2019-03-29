@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cd0612f865b82537e914ce6b6e062038a570c98
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: c5592ee7f3c4b5f55785100ceff09659aa437cb6
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449120"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578572"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>支援適用於 Azure 資源的受控識別服務
 
@@ -217,7 +217,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 | 雲端 | 資源識別碼 | 狀態 |
 |--------|------------|--------|
-| Azure 全域 | `https://storage.azure.com/` | 預覽 |
-| Azure Government |  | 無法使用 |
-| Azure Germany |   | 無法使用 |
-| Azure China 21Vianet |  | 無法使用 |
+| Azure 全域 | `https://storage.azure.com/` | 可用 |
+| Azure Government | `https://storage.azure.com/` | 可用 |
+| Azure Germany | `https://storage.azure.com/` | 可用 |
+| Azure China 21Vianet | `https://storage.azure.com/` | 可用 |

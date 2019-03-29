@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: d2b0209f57ff5f59d59ee057db7675b2dcd071b8
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 4f4032551efbf517ab47a64afc393cc57ace6bc1
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522055"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621493"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>使用 Transact-SQL (T-SQL) 建立及管理彈性資料庫作業
 
@@ -408,19 +408,19 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 
 |預存程序  |描述  |
 |---------|---------|
-|sp_add_job     |     新增作業。    |
-|sp_update_job    |      更新現有作業。   |
-|sp_delete_job     |      刪除現有作業。   |
-|sp_add_jobstep    |    將步驟新增至作業。     |
-|sp_update_jobstep     |     更新作業步驟。    |
-|sp_delete_jobstep     |     刪除作業步驟。    |
-|sp_start_job    |  開始執行作業。       |
-|sp_stop_job     |     停止作業執行。   |
-|sp_add_target_group    |     新增目標群組。    |
-|sp_delete_target_group     |    刪除目標群組。     |
-|sp_add_target_group_member     |    將資料庫或資料庫群組新增至目標群組。     |
-|sp_delete_target_group_member     |     從目標群組中移除目標群組成員。    |
-|sp_purge_jobhistory    |    移除作業的歷程記錄。     |
+|[sp_add_job](#sp_add_job)     |     新增作業。    |
+|[sp_update_job](#sp_update_job)    |      更新現有作業。   |
+|[sp_delete_job](#sp_delete_job)     |      刪除現有作業。   |
+|[sp_add_jobstep](#sp_add_jobstep)    |    將步驟新增至作業。     |
+|[sp_update_jobstep](#sp_update_jobstep)     |     更新作業步驟。    |
+|[sp_delete_jobstep](#sp_delete_jobstep)     |     刪除作業步驟。    |
+|[sp_start_job](#sp_start_job)    |  開始執行作業。       |
+|[sp_stop_job](#sp_stop_job)     |     停止作業執行。   |
+|[sp_add_target_group](#sp_add_target_group)    |     新增目標群組。    |
+|[sp_delete_target_group](#sp_delete_target_group)     |    刪除目標群組。     |
+|[sp_add_target_group_member](#sp_add_target_group_member)     |    將資料庫或資料庫群組新增至目標群組。     |
+|[sp_delete_target_group_member](#sp_delete_target_group_member)     |     從目標群組中移除目標群組成員。    |
+|[sp_purge_jobhistory](#sp_purge_jobhistory)    |    移除作業的歷程記錄。     |
 
 
 
@@ -1195,13 +1195,13 @@ GO
 
 |檢視  |描述  |
 |---------|---------|
-|jobs_executions     |  顯示作業執行歷程記錄。      |
+|[jobs_executions](#jobs_executions-view)     |  顯示作業執行歷程記錄。      |
 |[jobs](#jobs-view)     |   顯示所有作業。      |
-|job_versions     |   顯示所有作業版本。      |
+|[job_versions](#job_versions-view)     |   顯示所有作業版本。      |
 |[jobsteps](#jobsteps-view)     |     顯示每項作業的目前版本中包含的所有步驟。    |
-|jobstep_versions     |     顯示每項作業的所有版本中包含的所有步驟。    |
-|target_groups     |      顯示所有目標群組。   |
-|target_group_members     |   顯示所有目標群組的所有成員。      |
+|[jobstep_versions](#jobstep_versions-view)     |     顯示每項作業的所有版本中包含的所有步驟。    |
+|[target_groups](#target_groups-view)     |      顯示所有目標群組。   |
+|[target_group_members](#target_groups_members-view)     |   顯示所有目標群組的所有成員。      |
 
 
 ### <a name="jobsexecutions-view"></a>jobs_executions 檢視
@@ -1347,4 +1347,3 @@ GO
 
 - [使用 PowerShell 建立及管理彈性作業](elastic-jobs-powershell.md)
 - [SQL Server 中的授權和權限](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server)
-  

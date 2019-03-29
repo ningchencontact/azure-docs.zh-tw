@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/30/2019
+ms.date: 3/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: 154af3988084792331db082b99cae0ae06126f1b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 5254e60b9b7c38e5f4534e90f8aabe938aef99b2
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242168"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574938"
 ---
 # <a name="collect-data-from-azure-advanced-threat-protection-atp"></a>收集的資料從 Azure 進階威脅防護 (ATP)
 
 > [!IMPORTANT]
-> Azure 的 Sentinel 目前處於公開預覽狀態。
+> Azure Sentinel 目前為公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 
@@ -46,6 +46,7 @@ ms.locfileid: "57242168"
 
 2. 按一下 [ **連接**]。
 
+6. 若要使用 Log Analytics 中的 Azure ATP 警示相關的結構描述，搜尋**SecurityAlert**。
 
 ## <a name="next-steps"></a>後續步驟
 在本文件中，您已了解如何連接到 Azure Sentinel 的 Azure 進階威脅防護。 若要深入了解 Azure Sentinel，請參閱下列文章：

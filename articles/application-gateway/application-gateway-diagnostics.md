@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/11/2019
+ms.date: 3/28/2019
 ms.author: amitsriva
-ms.openlocfilehash: 14b99f648bb1d7e1926aa9d5dd9926e267ba9709
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 367da8a1948b9feb42bc82d85762ae314fe165a0
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309123"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620871"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>應用程式閘道的後端健康情況、診斷記錄和計量
 
@@ -131,7 +131,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 ### <a name="enable-logging-through-the-azure-portal"></a>透過 Azure 入口網站啟用記錄功能
 
-1. 在 Azure 入口網站中，找到您的資源並按一下 [診斷記錄]。
+1. 在 Azure 入口網站中，尋找您的資源並選取**診斷設定**。
 
    應用程式閘道有三個記錄：
 
@@ -139,21 +139,15 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
    * 效能記錄檔
    * 防火牆記錄檔
 
-2. 若要开始收集数据，请单击“启用诊断” 。
+2. 若要開始收集資料，請選取**開啟診斷**。
 
    ![開啟診斷][1]
 
-3. [診斷設定] 刀鋒視窗中提供診斷記錄的設定。 在此範例中，Log Analytics 會儲存記錄。 按一下 [Log Analytics] 底下的 [設定] 來設定您的工作區。 您也可以使用事件中樞和儲存體帳戶來儲存診斷記錄。
+3. [診斷設定] 頁面中提供診斷記錄的設定。 在此範例中，Log Analytics 會儲存記錄。 您也可以使用事件中樞和儲存體帳戶來儲存診斷記錄。
 
    ![啟動設定程序][2]
 
-4. 選擇現有的 Log Analytics 工作區，或建立新的工作區。 這個範例使用現有工作區。
-
-   ![Log Analytics 工作區的選項][3]
-
-5. 確認設定並按一下 [儲存]。
-
-   ![診斷設定刀鋒視窗與選項][4]
+5. 輸入設定的名稱，確認設定，然後選取**儲存**。
 
 ### <a name="activity-log"></a>活動記錄檔
 
@@ -334,7 +328,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
    您可以根據每個後端集區進行篩選，以顯示特定後端集區中狀況良好/狀況不良的主機。
 
-瀏覽至應用程式閘道，在 [監視] 之下按一下 [計量]。 若要檢視可用的值，請選取 [計量] 下拉式清單。
+下方瀏覽至應用程式閘道**監視**選取**計量**。 若要檢視可用的值，請選取 [計量] 下拉式清單。
 
 下圖中的範例顯示了最近 30 分鐘內的三項計量：
 
@@ -348,11 +342,11 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 下列範例會逐步引導您建立警示規則，以在輸送量達到臨界值之後傳送電子郵件給系統管理員：
 
-1. 按一下 [新增計量警示] 以開啟 [新增規則] 刀鋒視窗。 您也可以透過計量刀鋒視窗來到達此刀鋒視窗。
+1. 選取 **新增計量警示**來開啟**加入規則**頁面。 您也可以連線到此頁面上，從 [度量] 頁面。
 
    ![新增計量警示按鈕][6]
 
-2. 在 [新增規則] 刀鋒視窗中，填入名稱、條件、通知等區段，然後按一下 [確定]。
+2. 在 **新增規則**頁面上，填寫名稱、 條件，和通知等區段，然後選取**確定**。
 
    * 在 [條件] 選取器中，選取以下四個值之一：**大於****大於或等於**、**小於**，或**小於或等於**。
 
@@ -360,7 +354,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
    * 如果選取 [傳送電子郵件給擁有者、參與者和讀者]，便可根據可存取該資源的使用者動態傳送電子郵件。 否則，您可以在 [其他系統管理員電子郵件] 方塊中提供以逗號分隔的使用者清單。
 
-   ![新增規則刀鋒視窗][7]
+   ![新增規則 頁面][7]
 
 如果達到臨界值，送達的電子郵件會類似下圖︰
 

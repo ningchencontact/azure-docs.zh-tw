@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: saurse
-ms.openlocfilehash: a9a445208c151a537c35fa7afafa48b19486828f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4bad788156b2068f24484d3b248f2091409752ad
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008167"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621612"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>針對 Microsoft Azure 復原服務 (MARS) 代理程式進行疑難排解
 
@@ -60,7 +60,7 @@ ms.locfileid: "58008167"
 ## <a name="backups-dont-run-according-to-the-schedule"></a>備份未依據排程執行
 如果排程的備份未自動觸發、而手動備份運作未發生任何問題時，請嘗試下列動作：
 
-- 確定 Windows Server 備份排程不會與 Azure 檔案與資料夾備份排程衝突。
+- 請確定 Windows Server 備份排程不會衝突與 Azure 檔案和資料夾備份的排程。
 - 移至 [控制台] > [系統管理工具] > [工作排程器]。 依序展開 [Microsoft]，然後選取 [線上備份]。 按兩下 [Microsoft-OnlineBackup]，並移至 [觸發程序] 索引標籤。請確定狀態設為 [已啟用]。 如果不是，請選取 [編輯]，然後選取 [已啟用] 核取方塊，並按一下 [確定]。 在 [一般] 索引標籤上，移至 [安全性選項] 並確定為執行的工作選取的使用者帳戶是伺服器上的 **SYSTEM** 或**本機系統管理員群組**。
 
 - 查看是否已在伺服器上安裝 PowerShell 3.0 或更新版本。 若要檢查 PowerShell 版本，請執行下列命令，並確認「主要」版本號碼等於或大於 3。

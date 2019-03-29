@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 5b4da39d56b86f79727590076ac60b87541643e1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 27b55af74a713c51655891df8c852ff44cd3744a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082835"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621765"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>使用 System Center Operations Manager 健康情況檢查 (預覽) 解決方案進行環境最佳化
 
@@ -297,7 +297,7 @@ AdvisorAssessment.exe 程序在哪裡執行？ AdvisorAssessment.exe 會在啟�
 
 *為什麼只顯示前 10 項建議？* 與其列出鉅細靡遺的工作清單，我們建議您先專注於解決優先的建議。 解決後，智慧套件將會提供其他建議。 如果您想要查看詳細清單，可以使用記錄檔搜尋來檢視所有建議。
 
-*是否有忽略建議的方法？* 是，請參閱[忽略建議](#Ignore-recommendations)。
+*是否有忽略建議的方法？* 是，請參閱[忽略建議](#ignore-recommendations)。
 
 
 ## <a name="next-steps"></a>後續步驟

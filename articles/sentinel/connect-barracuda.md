@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 453af401f3b6120345cbe489fbfc323eca464ade
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b4d1830e705e1813c8448787e587d720eaf5ddbd
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092271"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574713"
 ---
 # <a name="connect-your-barracuda-appliance"></a>連接您的 Barracuda 應用裝置 
 
 > [!IMPORTANT]
-> Azure 的 Sentinel 目前處於公開預覽狀態。
+> Azure Sentinel 目前為公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 Barracuda Web 應用程式防火牆 (WAF) 連接器可讓您輕鬆地連接您的 Barracuda 記錄您 Azure Sentinel，來檢視儀表板、 建立自訂警示，以及改善調查。 這可讓您更多深入您的組織網路，並改善您的安全性作業功能。 Azure 的 Sentinel 利用之間的原生整合**Barracuda**和 Microsoft Azure OMS 提供無縫整合。 
@@ -42,6 +42,7 @@ Barracuda Web 應用程式防火牆整合和匯出 Azure OMS Server 透過直接
 2. 在 Azure Sentinel 入口網站中，移至您部署 Azure Sentinel 的工作區，然後選取省略符號 （...），結尾的資料列，然後選取**進階設定**。 
 1. 選取 **資料**，然後**Syslog**。
 1. 請確定您在 Barracuda 中設定的功能存在，並設定的嚴重性，然後按一下**儲存**。
+6. 若要使用 Log Analytics 中的 Barracuda 事件相關的結構描述，搜尋**CommonSecurityLog**。
 
 
 ## <a name="validate-connectivity"></a>驗證連線能力

@@ -1,5 +1,5 @@
 ---
-title: 使用資源的儀表板 PIM-Azure 中執行存取權檢閱 |Microsoft Docs
+title: 使用資源的儀表板執行 PIM-Azure Active Directory 中的存取權檢閱 |Microsoft Docs
 description: 說明如何使用資源儀表板在 Azure AD Privileged Identity Management (PIM) 中執行存取權檢閱。
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89abf15731bd125737e7c18ab45782820a856b38
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 37057e531ea8387fbed84c9b03bbfb9c14d160ea
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58012660"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574955"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review-in-pim"></a>使用資源的儀表板在 PIM 中執行存取權檢閱
 
-您可以使用資源儀表板，在適用於 Azure 資源的 Privileged Identity Management (PIM) 中執行存取權檢閱。 「系統管理員檢視」儀表板有三個主要元件：
+若要在 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 執行存取權檢閱，您可以使用資源的儀表板。 「系統管理員檢視」儀表板有三個主要元件：
 
 - 展示資源角色啟用的圖表。
 - 依指派類型顯示角色指派分佈的兩個圖表。

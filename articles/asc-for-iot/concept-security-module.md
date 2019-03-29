@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 63d21cc5027145ab87030bd2561bc5087298f16c
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d766b17c9d49792d2e8192a952e8e6e559a8acd3
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541838"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579371"
 ---
 # <a name="security-module"></a>安全性模組
 
@@ -35,16 +35,18 @@ ms.locfileid: "58541838"
 
 Iot 的 ASC 提供完整的整合，與您現有 IoT 裝置管理平台，可讓您管理您裝置的安全性狀態以及進行中，使用現有的裝置控制功能。 整合之後，即可利用 IoT 中樞的對應項的機制。  
 
-深入了解的概念[裝置](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)azure 的 Azure IoT 中樞對應項。 
+深入了解的概念[攣生裝置](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)Azure IoT 中樞。 
 
 ## <a name="security-module-twins"></a>安全性模組對應項
 
-Iot 的 ASC 會維護每個裝置在服務中的安全性模組對應項。 安全性模組對應項存放的資訊與相關裝置的安全性，針對每個特定的裝置在您的解決方案。 裝置的安全性內容會維護專屬的安全性模組對應項進行更安全的通訊，以及啟用更新及維護需要較少的資源中。  
+Iot 的 ASC 會維護每個裝置在服務中的安全性模組對應項。
+安全性模組對應項存放的資訊與相關裝置的安全性，針對每個特定的裝置在您的解決方案。
+裝置的安全性內容會維護專屬的安全性模組對應項進行更安全的通訊，以及啟用更新及維護需要較少的資源中。  
 
-請參閱[建立安全性模組對應項](quickstart-create-security-twin.md)並[設定安全性代理程式](concept-agent-configuration.md)以了解如何建立、 自訂和設定的對應項。 請參閱[了解模組對應項](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins)若要深入了解在 IoT 中樞模組對應項的概念。 
+請參閱[建立安全性模組對應項](quickstart-create-security-twin.md)並[設定安全性代理程式](how-to-agent-configuration.md)以了解如何建立、 自訂和設定的對應項。 請參閱[了解模組對應項](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins)若要深入了解在 IoT 中樞模組對應項的概念。 
  
 
 ## <a name="see-also"></a>請參閱
 - [ASC IoT preview](overview.md)
-- [部署安全性代理程式](select-deploy-agent.md)
+- [部署安全性代理程式](how-to-deploy-agent.md)
 - [安全性代理程式驗證方法](concept-security-agent-authentication-methods.md)

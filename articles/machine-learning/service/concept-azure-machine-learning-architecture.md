@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: ec35e383a182cf783c253b9242e6abb73e39385d
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 9e910fb3bc75c285986871627d875296f1a2a746
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361093"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577317"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 服務的運作方式：架構和概念
 
@@ -46,11 +46,13 @@ ms.locfileid: "58361093"
 
 您要在工作區註冊模型。 您要使用註冊的模型與評分指令碼建立映像。 接著，您可以將映像部署到 Azure 容器執行個體、Azure Kubernetes Service 或現場可程式化閘陣列 (FPGA) 中，作為 REST 型 HTTP 輸出。 您也可以將映像部署到 Azure IoT Edge 裝置作為模組。
 
-您可以建立多個工作區，而且每個工作區都可由多人共用。 共用工作區時，您可以透過指派下列角色給使用者來控制對工作區的存取：
+您可以建立多個工作區，而且每個工作區都可由多人共用。 當您共用工作區時，您可以將使用者指派給下列角色來控制其存取權：
 
 * 擁有者
 * 參與者
 * 讀取者
+
+如需有關這些角色的詳細資訊，請參閱 <<c0> [ 管理的存取權的 Azure Machine Learning 工作區](how-to-assign-roles.md)文章。
 
 建立新的工作區時，會自動建立工作區使用的幾個 Azure 資源：
 

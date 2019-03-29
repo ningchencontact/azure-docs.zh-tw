@@ -1,6 +1,6 @@
 ---
-title: 管理程式控制項的 Azure AD 存取權檢閱 |Microsoft Docs
-description: 了解如何建立您的組織收集及編排，Azure Active Directory 存取權檢閱控制項中的其他程式，讓每個治理、 風險管理和合規性方案。
+title: 管理程式的存取權檢閱-Azure Active Directory 的控制項 |Microsoft Docs
+description: 了解如何收集和組織為控制項的 Azure Active Directory 存取權檢閱您組織中建立其他程式，讓每個治理、 風險管理和合規性方案。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3056976ada6c0a0287eec608dbad230e8dbb2625
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 43c0f1c041bfed1b041a9926efd869d167c6f1e9
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895165"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577258"
 ---
-# <a name="manage-programs-and-controls-for-azure-ad-access-reviews"></a>Azure AD 存取權檢閱管理程式和控制項
+# <a name="manage-programs-and-controls-for-azure-ad-access-reviews"></a>管理程式和 Azure ad 的控制存取權檢閱
 
 Azure Active Directory (Azure AD) 包含群組成員和應用程式存取權的存取權檢閱。 這些控制項的範例可確實監督誰可以使用您組織的群組成員資格和應用程式。 組織可使用這些控制項有效地處理其治理、風險管理和合規性需求。
 

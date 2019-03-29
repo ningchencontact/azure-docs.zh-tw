@@ -1,6 +1,6 @@
 ---
-title: 在 PIM 中完成 Azure AD 目錄角色的存取權檢閱 | Microsoft Docs
-description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中完成 Azure AD 目錄角色的存取權檢閱，並檢視結果
+title: 完成 Azure AD PIM-Azure Active Directory 中的角色的存取權檢閱 |Microsoft Docs
+description: 了解如何完成在 Azure AD Privileged Identity Management (PIM) 中的 Azure AD 角色的存取權檢閱，並檢視結果
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,15 +14,15 @@ ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bea4f649b40298de15b8352fc8eb522da87dead5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ed53c8bb3cb735822fc40aab86ca40bef7b9607a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190342"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619177"
 ---
-# <a name="complete-an-access-review-for-azure-ad-directory-roles-in-pim"></a>在 PIM 中完成 Azure AD 目錄角色的存取權檢閱
-在[開始存取權檢閱](pim-how-to-start-security-review.md)之後，特殊權限角色管理員就可以檢閱特殊權限存取權。 Azure AD Privileged Identity Management (PIM) 會自動傳送電子郵件，提示使用者檢閱其存取權。 如果使用者未收到電子郵件，您可以將[如何執行存取權檢閱](pim-how-to-perform-security-review.md)中的指示傳送給他們。
+# <a name="complete-an-access-review-for-azure-ad-roles-in-pim"></a>完成 Azure AD PIM 中的角色的存取權檢閱
+在[開始存取權檢閱](pim-how-to-start-security-review.md)之後，特殊權限角色管理員就可以檢閱特殊權限存取權。 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 會自動傳送電子郵件，提示使用者檢閱其存取權。 如果使用者未收到電子郵件，您可以將[如何執行存取權檢閱](pim-how-to-perform-security-review.md)中的指示傳送給他們。
 
 存取權檢閱期間結束後，或所有使用者都已完成其自我檢閱後，請遵循本文的步驟來管理檢閱並查看結果。
 
@@ -55,5 +55,5 @@ ms.locfileid: "56190342"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [在 PIM 中起始 Azure AD 目錄角色的存取權檢閱](pim-how-to-start-security-review.md)
-- [在 PIM 中執行 Azure AD 目錄角色的存取權檢閱](pim-how-to-perform-security-review.md)
+- [在 PIM 中啟動 Azure AD 角色的存取權檢閱](pim-how-to-start-security-review.md)
+- [在 PIM 中執行我的 Azure AD 角色的存取權檢閱](pim-how-to-perform-security-review.md)

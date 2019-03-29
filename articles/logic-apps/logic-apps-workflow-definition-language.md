@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 04/30/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 3c17ec2133e278b17475e4988e1e9766b1349ba4
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: d2de2a25d67da230d539156c851cca34335a01c2
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734635"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620831"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps 中工作流程定義語言的結構描述參考
 
@@ -38,10 +38,10 @@ ms.locfileid: "55734635"
 }
 ```
 
-| 元素 | 必要 | 說明 |
+| 元素 | 必要項 | 描述 |
 |---------|----------|-------------|
-| 定義 | yes | 工作流程定義的起始元素 |
-| $schema | 只有在外部參考工作流程定義時 | JSON 結構描述檔案的位置，該檔案說明工作流程定義語言版本，您可以在此找到此版本： <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`</p> |
+| 定義 | 是 | 工作流程定義的起始元素 |
+| $schema | 只有在外部參考工作流程定義時 | JSON 結構描述檔案的位置，該檔案說明工作流程定義語言版本，您可以在此找到此版本： <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
 | contentVersion | 否 | 您的工作流程定義版本號碼，預設為 "1.0.0.0"。 若要在部署工作流程時協助識別及確認正確的定義，請指定要使用的值。 |
 | parameters | 否 | 一或多個參數的定義，此參數可將資料傳入您的工作流程中 <p><p>參數上限：50 |
 | 觸發程序 | 否 | 一或多個觸發程序的定義，此觸發程序可具現化您的工作流程。 您可以定義多個觸發程序，但只能利用工作流程定義語言，而不會透過 Logic Apps 設計工具呈現。 <p><p>觸發程序上限：10 |
@@ -70,10 +70,10 @@ ms.locfileid: "55734635"
 },
 ```
 
-| 元素 | 必要 | 類型 | 說明 |
+| 元素 | 必要項 | 類型 | 描述 |
 |---------|----------|------|-------------|
-| type | yes | int、float、string、securestring、bool、array、JSON 物件、secureobject <p><p>**注意**：對於所有密碼、金鑰和祕密，使用 `securestring` 和 `secureobject` 類型，因為 `GET` 作業不會傳回這些類型。 | 參數的類型 |
-| defaultValue | 否 | 與 `type` 相同 | 在工作流程具現化時，未指定任何值時的預設參數值 |
+| type | 是 | int、float、string、securestring、bool、array、JSON 物件、secureobject <p><p>**注意**：對於所有密碼、金鑰和祕密，使用 `securestring` 和 `secureobject` 類型，因為 `GET` 作業不會傳回這些類型。 如需保護參數的詳細資訊，請參閱[保護您的邏輯應用程式](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | 參數的類型 |
+| defaultValue | 是 | 與 `type` 相同 | 在工作流程具現化時，未指定任何值時的預設參數值 |
 | allowedValues | 否 | 與 `type` 相同 | 具有參數可接受值的陣列 |
 | 中繼資料 | 否 | JSON 物件 | 任何參數詳細資訊，例如：邏輯應用程式的名稱或可讀取描述，或是 Visual Studio 或其他工具所使用的設計階段資料 |
 ||||
@@ -100,11 +100,11 @@ ms.locfileid: "55734635"
 }
 ```
 
-| 元素 | 必要 | 類型 | 說明 |
+| 元素 | 必要項 | 類型 | 描述 |
 |---------|----------|------|-------------|
-| <*key-name*> | yes | 字串 | 輸出傳回值的索引鍵名稱 |
-| type | yes | int、float、string、securestring、bool、array、JSON 物件 | 輸出傳回值的類型 |
-| value | yes | 與 `type` 相同 | 輸出傳回值 |
+| <*key-name*> | 是 | 字串 | 輸出傳回值的索引鍵名稱 |
+| type | 是 | int、float、string、securestring、bool、array、JSON 物件 | 輸出傳回值的類型 |
+| value | 是 | 與 `type` 相同 | 輸出傳回值 |
 |||||
 
 若要取得工作流程執行的輸出，請在 Azure 入口網站中或使用 [Workflow REST API](https://docs.microsoft.com/rest/api/logic/workflows) 檢閱邏輯應用程式的執行歷程記錄和詳細資料。 您也可以將輸出傳遞至外部系統 (例如 PowerBI)，以便建立儀表板。

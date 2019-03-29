@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure AD 存取權檢閱來管理使用者排除條件式存取原則 |Microsoft Docs
+title: 使用來管理使用者排除的條件式存取原則-Azure Active Directory 的存取權檢閱 |Microsoft Docs
 description: 了解如何使用 Azure Active Directory (Azure AD) 存取權檢閱來管理已排除的條件式存取原則的使用者
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a197a6c27b337d7aa97667dc07b1059e82050549
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7675441316e42c7f0a220abe77bc8c62158ef918
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892708"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577115"
 ---
 # <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>使用 Azure AD 存取權檢閱管理使用者排除條件式存取原則
 
-在理想的世界中，所有使用者都會遵循存取原則來安全地存取您組織的資源。 不過，有時候會有需要您視為例外狀況的商務案例。 本文說明一些範例，可能需要排除項目和身為 IT 系統管理員的您，如何管理這項工作，避免監督原則例外狀況，及提供證明這些例外狀況會檢閱使用 Azure 來定期稽核員Active Directory (Azure AD) 存取權檢閱。
+在理想的世界中，所有使用者都會遵循存取原則來安全地存取您組織的資源。 不過，有時候會有需要您視為例外狀況的商務案例。 本文說明一些可能需要排除項目的範例，以及 IT 系統管理員如何管理這項工作，避免疏忽原則例外狀況，以及向稽核員提供使用 Active Directory (Azure AD) 存取權檢閱定期檢閱這些例外狀況的證明。
 
 > [!NOTE]
 > 需要已付費的有效 Azure AD Premium P2、Enterprise Mobility + Security E5 或試用版授權，才能使用 Azure AD 存取權檢閱。 如需詳細資訊，請參閱 [Azure Active Directory 版本](../fundamentals/active-directory-whatis.md)。
@@ -44,7 +44,7 @@ ms.locfileid: "57892708"
 
 ## <a name="why-are-exclusions-challenging"></a>為何排除項目具有挑戰性？
 
-在 Azure AD 中，您可以將條件式存取原則的範圍設為一組使用者。 您也可以藉由選取目錄角色、個別使用者或來賓使用者，排除其中一些使用者。 請務必記住，設定這些排除項目時，不能對這些使用者強制執行原則意圖。 如果將這些排除項目設定為一份個別使用者清單或一個傳統內部部署安全性群組，則會限制此排除清單的可見性 (使用者可能不知道它的存在)，以及 IT 系統管理員對於它的控制能力 (使用者可以加入安全性群組以略過原則）。 此外，一度有資格排除的使用者可能不再需要它，或者符合其資格。
+在 Azure AD 中，您可以將條件式存取原則的範圍設為一組使用者。 您也可以排除這些使用者的一些方法是選取 Azure AD 角色、 個別使用者或來賓的使用者。 請務必記住，設定這些排除項目時，不能對這些使用者強制執行原則意圖。 如果將這些排除項目設定為一份個別使用者清單或一個傳統內部部署安全性群組，則會限制此排除清單的可見性 (使用者可能不知道它的存在)，以及 IT 系統管理員對於它的控制能力 (使用者可以加入安全性群組以略過原則）。 此外，一度有資格排除的使用者可能不再需要它，或者符合其資格。
 
 在排除開頭，有一份略過原則的簡短使用者清單。 經過一段時間，越來越多使用者遭到排除，且清單隨之成長。 在某些時候，需要檢閱此清單，並確認仍然應該排除每個使用者。 從技術觀點來管理清單相當容易，但是由誰進行商務決策，以及如何確定全都可稽核？
 

@@ -1,6 +1,6 @@
 ---
-title: 在 Azure AD 存取權檢閱中建立群組或應用程式的存取權檢閱 |Microsoft Docs
-description: 了解如何在 Azure AD 存取權檢閱中建立群組成員或應用程式存取的存取權檢閱。
+title: 建立群組或應用程式-Azure Active Directory 的存取權檢閱 |Microsoft Docs
+description: 了解如何在 Azure Active Directory 存取權檢閱中建立群組成員或應用程式存取的存取權檢閱。
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -15,14 +15,14 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c17078ea14a254f64a41751f2efffc16e2a1e821
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5e25af938d09a254abd5d28ca3a5eecca2d3f8f1
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847377"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576188"
 ---
-# <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>在 Azure AD 存取權檢閱中建立群組或應用程式的存取權檢閱
+# <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>建立群組的存取權檢閱，或在 Azure AD 中的應用程式存取權檢閱
 
 員工和來賓對於群組和應用程式的存取權會隨著時間而變更。 為了降低過時存取權指派的相關風險，系統管理員可以使用 Azure Active Directory (Azure AD)，建立群組成員或應用程式存取的存取權檢閱。 如果您需要定期檢閱存取權，您也可以建立週期性存取權檢閱。 如需關於這些案例的詳細資訊，請參閱[管理使用者存取權](manage-user-access-with-access-reviews.md)和[管理來賓存取權](manage-guest-access-with-access-reviews.md)。
 
@@ -35,7 +35,7 @@ ms.locfileid: "57847377"
 
 ## <a name="create-one-or-more-access-reviews"></a>建立一或多個存取權檢閱
 
-1. 登入 Azure 入口網站，並開啟 [存取權檢閱](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) 頁面。
+1. 登入 Azure 入口網站，並開啟[存取權檢閱頁面](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)。
 
 1. 按一下 [控制項]。
 
@@ -120,7 +120,7 @@ ms.locfileid: "57847377"
 
 ## <a name="manage-the-access-review"></a>管理存取權檢閱
 
-當檢閱者完成其檢閱時，您可以在 [存取權檢閱] 區段的 Azure AD 儀表板中追蹤進度。 在[完成檢閱](complete-access-review.md)之前，不會變更目錄中的任何存取權限。
+當檢閱者完成其檢閱的 Azure AD 儀表板中，您可以追蹤進度**存取權檢閱**一節。 在[完成檢閱](complete-access-review.md)之前，不會變更目錄中的任何存取權限。
 
 如果這是一次性的檢閱，然後存取權檢閱期間結束後或系統管理員停止存取權檢閱之後, 請依照下列中的步驟[完成群組或應用程式的存取權檢閱](complete-access-review.md)來查看並套用結果。  
 
@@ -130,7 +130,7 @@ ms.locfileid: "57847377"
 
 ## <a name="create-reviews-via-apis"></a>透過 API 建立檢閱
 
-您也可以使用 API 來建立存取權檢閱。 您在 Azure 入口網站中為群組和應用程式使用者的存取權檢閱所做的管理工作，也可以使用 Microsoft Graph API 來執行。 如需詳細資訊，請參閱 [Azure AD 存取權檢閱 API 參考](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta)。 如需程式碼範例，請參閱[透過 Microsoft Graph 擷取 Azure AD 存取權檢閱的範例](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096)。
+您也可以使用 API 來建立存取權檢閱。 您在 Azure 入口網站中為群組和應用程式使用者的存取權檢閱所做的管理工作，也可以使用 Microsoft Graph API 來執行。 如需詳細資訊，請參閱 < [Azure AD 存取權檢閱 API 參考](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta)。 如需程式碼範例，請參閱[透過 Microsoft Graph 的範例中擷取 Azure AD 存取權的檢閱](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096)。
 
 ## <a name="next-steps"></a>後續步驟
 

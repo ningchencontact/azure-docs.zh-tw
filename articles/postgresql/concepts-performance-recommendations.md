@@ -5,19 +5,19 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/26/2018
-ms.openlocfilehash: d8edbc2847c06e95e658a1324f2e85f1758e60be
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.date: 03/28/2018
+ms.openlocfilehash: c5324618eeda90b4ef1a512385fb2f14bf391215
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487935"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620167"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫中的效能建議
 
 **適用範圍：** 適用於 PostgreSQL 9.6 和 10 的 Azure 資料庫
 
-效能建議功能可找出最上層的索引，以在適用於 PostgreSQL 的 Azure 資料庫伺服器中建立來改善效能。 若要產生索引建議，此功能會考量各種資料庫特性，包括查詢存放區所報告的結構描述和工作負載。 實作任何效能建議後，客戶應測試效能，以評估這些變更的影響。 
+[效能建議] 功能會分析您的資料庫，以建立自訂的建議，以改善效能。 若要產生的建議，分析會探討各種資料庫特性，包括結構描述。 啟用[查詢存放區](concepts-query-store.md)您充分利用 [效能建議] 功能的伺服器上。 實作任何效能建議後，您應該測試來評估這些變更的影響效能。 
 
 ## <a name="permissions"></a>權限
 需要**擁有者**或**參與者**權限，才能使用 [效能建議] 功能執行分析。
@@ -25,17 +25,28 @@ ms.locfileid: "58487935"
 ## <a name="performance-recommendations"></a>效能建議
 [效能建議](concepts-performance-recommendations.md)功能可分析整部伺服器的工作負載，來找出可能可以改善效能的索引。
 
-在 PostgreSQL 伺服器的 Azure 入口網站頁面上，從功能表列的 [支援與疑難排解] 區段開啟 [效能建議]。
+開啟**效能建議**從**智慧型效能**適用於 PostgreSQL 伺服器在 Azure 入口網站頁面上的功能表列的一節。
 
-![[效能建議] 登陸頁面](./media/concepts-performance-recommendations/performance-recommendations-landing-page.png)
+![[效能建議] 登陸頁面](./media/concepts-performance-recommendations/performance-recommendations-page.png)
 
-選取 [分析] 並選擇資料庫。 隨即會開始分析。 根據您的工作負載，這可能需要幾分鐘才能完成。 分析完成後，入口網站中會有通知。
+選取 **分析**選擇的資料庫，就會開始分析。 根據您的工作負載第 analysis 可能需要幾分鐘才能完成。 分析完成後，入口網站中會有通知。 分析執行深度檢查您的資料庫。 我們建議您在離峰時段執行分析。 
 
-[效能建議] 視窗會以清單顯示所找到的任何建議。 建議會顯示相關的 [資料庫]、[資料表]、[資料行] 及 [索引大小] 資訊。
+**建議**視窗會顯示建議的清單，如果找不到任何。
 
 ![效能建議新頁面](./media/concepts-performance-recommendations/performance-recommendations-result.png)
 
-若要實作建議，請複製查詢文字並從您選擇的用戶端中執行該文字。
+不會自動套用建議。 若要套用建議，複製查詢文字，並從您的用戶端選擇的執行。 請務必測試和評估建議用來監視。 
+
+## <a name="recommendation-types"></a>建議類型
+
+目前，支援兩種類型的建議：*建立索引*並*卸除索引*。
+
+### <a name="create-index-recommendations"></a>建立索引建議
+*建立索引*建議建議來加快最常執行或費時的查詢工作負載中的新索引。 此建議類型需要[查詢存放區](concepts-query-store.md)啟用。 查詢存放區會收集查詢的資訊，並提供詳細的查詢執行階段和頻率統計分析用來提出建議。
+
+### <a name="drop-index-recommendations"></a>卸除索引建議
+除了偵測遺漏的索引，適用於 PostgreSQL 的 Azure 資料庫會分析現有索引的效能。 如果索引很少使用或冗餘，分析器會建議卸除它。
+
 
 ## <a name="next-steps"></a>後續步驟
 - 深入了解在適用於 PostgreSQL 的 Azure 資料庫中進行[監視和微調](concepts-monitoring.md)。

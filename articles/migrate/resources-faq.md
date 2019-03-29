@@ -4,14 +4,14 @@ description: 解說 Azure Migrate 的相關常見問題
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 03/28/2019
 ms.author: snehaa
-ms.openlocfilehash: 20a3b790310153ac5bda23fb72baf2ae61e1da52
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 366240c273feed559edb6e569640020046cc9471
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003728"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578640"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - 常見問題集 (FAQ)
 
@@ -108,9 +108,7 @@ Azure Migrate 支援兩種探索，分別是設備為基礎及代理程式為基
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>是否會對分析的 ESXi 主機環境產生任何效能影響？
 
-對於[一次性探索方法](https://docs.microsoft.com/azure/migrate/concepts-collector)，為了收集效能資料，vCenter Server 上的統計資料層級必須設為 3。 將它設定為這個層級會收集大量疑難排解資料，這些資料將儲存在 vCenter Server 資料庫中。 它可能因此導致 vCenter Server 出現一些效能問題。 對 ESXi 主機的影響微乎其微。
-
-我們已經引入了效能資料的連續分析 (處於預覽狀態)。 透過連續分析，就不再需要變更 vCenter Server 統計資料層級來執行以效能為基礎的評估。 收集器設備現在將會分析內部部署機器，以測量虛擬機器的效能資料。 這對 ESXi 主機以及 vCenter Server 的效能影響幾乎為零。
+使用連續程式碼剖析的效能資料，沒有需要變更 vCenter Server 的統計資料等級執行以效能為基礎的評估。 收集器設備將會分析內部部署機器，來測量的虛擬機器的效能資料。 這對 ESXi 主機以及 vCenter Server 的效能影響幾乎為零。
 
 ### <a name="where-is-the-collected-data-stored-and-for-how-long"></a>資料收集後會儲存在哪裡、儲存多久？
 

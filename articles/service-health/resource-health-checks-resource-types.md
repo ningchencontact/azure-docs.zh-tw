@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 01/29/2019
-ms.openlocfilehash: a8bc82a2717bfa6838b2331ef54ed8098422c223
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0f79a1eed044814d6c2e27f4eadb5ba68a47303f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770334"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620745"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure 資源健康狀態中的資源類型和健康情況檢查
 以下是依資源類型透過資源健康狀態執行之所有檢查的完整清單。
@@ -51,10 +51,15 @@ ms.locfileid: "57770334"
 |---|
 |<ul><li>裝載此虛擬機器的伺服器是否已啟動且執行中？</li><li>主機 OS 是否已開機完成？</li><li>虛擬機器容器是否已佈建和啟動？</li><li>主機和儲存體帳戶之間是否有網路連線能力？</li><li>客體 OS 是否已完成開機？</li><li>是否有持續性的規劃維護？</li></ul>|
 
+## <a name="microsoftdatafactoryfactories"></a>Microsoft.datafactory/factories
+|執行的檢查|
+|---|
+|<ul><li>是否已經執行的管線失敗？</li><li>在叢集主控狀況良好的 Data Factory？</li></ul>|
+
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
 |執行的檢查|
 |---|
-|<ul><li>使用者在提交或列出其 Data Lake Analytics 作業時是否遇到問題？</li><li>Data Lake Analytics 作業是否因為系統錯誤而無法完成？</li></ul>|
+|<ul><li>使用者在提交或列出其 Data Lake Analytics 作業時是否遇到問題？</li><li>是 Data Lake Analytics 作業無法完成，因為系統錯誤？</li></ul>|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/accounts
@@ -62,8 +67,27 @@ ms.locfileid: "57770334"
 |---|
 |<ul><li>使用者將資料上傳至 Data Lake Store 時是否遇到問題？</li><li>使用者從 Data Lake Store 下載資料時是否遇到問題？</li></ul>|
 
-## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
+## <a name="microsoftdatamigrationservices"></a>Microsoft.datamigration/services
+|執行的檢查|
+|---|
+|<ul><li>資料庫移轉服務來佈建失敗？</li><li>資料庫移轉服務停止因非使用狀態或使用者的要求？</li></ul>|
 
+## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
+|執行的檢查|
+|---|
+|<ul><li>是伺服器因維修而無法使用？</li><li>是因為重新設定而無法使用的伺服器嗎？</li></ul>|
+
+## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
+|執行的檢查|
+|---|
+|<ul><li>是伺服器因維修而無法使用？</li><li>是因為重新設定而無法使用的伺服器嗎？</li></ul>|
+
+## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
+|執行的檢查|
+|---|
+|<ul><li>是伺服器因維修而無法使用？</li><li>是因為重新設定而無法使用的伺服器嗎？</li></ul>|
+
+## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 |執行的檢查|
 |---|
 |<ul><li>IoT 中樞是否已啟動且正在執行中？</li></ul>|
@@ -73,15 +97,40 @@ ms.locfileid: "57770334"
 |---|
 |<ul><li>是否有因 Azure Cosmos DB 服務無法使用而不提供的任何資料庫或集合要求？</li><li>是否有因 Azure Cosmos DB 服務無法使用而不提供的任何文件要求？</li></ul>|
 
+## <a name="microsofteventhubnamespaces"></a>Microsoft.eventhub/namespaces
+|執行的檢查|
+|---|
+|<ul><li>事件中樞命名空間發生使用者產生的錯誤？</li><li>事件中樞命名空間目前正在升級嗎？</li></ul>|
+
+## <a name="microsofthdinsightclusters"></a>Microsoft.hdinsight/clusters
+|執行的檢查|
+|---|
+|<ul><li>是核心服務在 HDInsight 叢集上使用嗎？</li><li>HDInsight 叢集可以存取 BYOK 待用的金鑰嗎？</li></ul>|
+
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 |執行的檢查|
 |---|
 |<ul><li>對金鑰保存庫執行的要求是否因為 Azure KeyVault 平台問題而失敗？</li><li>對金鑰保存庫執行的要求是否因為客戶發出太多要求而遭到節流？</li></ul>|
 
+## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.network/applicationgateways
+|執行的檢查|
+|---|
+|<ul><li>是效能降低的應用程式閘道？</li><li>應用程式閘道是否可用？</li></ul>|
+
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |執行的檢查|
 |---|
 |<ul><li>VPN 通道是否已連線？</li><li>連線中有設定衝突嗎？</li><li>是否正確設定預先共用的金鑰？</li><li>是否可連線到 VPN 內部部署裝置？</li><li>IPSec/IKE 安全性原則中是否有不相符之處？</li><li>S2S VPN 連線是否正確佈建，還是處於失敗狀態？</li><li>VNET 對 VNET 連線是否正確佈建，還是處於失敗狀態？</li></ul>|
+
+## <a name="microsoftnetworkexpressreoutecircuits"></a>Microsoft.network/expressreoutecircuits
+|執行的檢查|
+|---|
+|<ul><li>狀況良好的 ExpressRoute 線路嗎？</li></ul>|
+
+## <a name="microsoftnetworkfrontdoors"></a>Microsoft.network/frontdoors
+|執行的檢查|
+|---|
+|<ul><li>為前端的後端回應發生錯誤健康狀態探查？</li><li>延遲組態變更嗎？</li></ul>|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.network/virtualNetworkGateways
 |執行的檢查|
@@ -91,7 +140,12 @@ ms.locfileid: "57770334"
 ## <a name="microsoftnotificationhubsnamespace"></a>Microsoft.NotificationHubs/namespace
 |執行的檢查|
 |---|
-|<ul><li> 可以在命名空間上執行註冊、安裝或傳送等執行階段作業嗎？</li></ul>|
+|<ul><li>可以在命名空間上執行註冊、安裝或傳送等執行階段作業嗎？</li></ul>|
+
+## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.operationalinsights/workspaces
+|執行的檢查|
+|---|
+|<ul><li>是否有工作區的延遲編製索引？</li></ul>|
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/Capacities
 |執行的檢查|
@@ -101,7 +155,7 @@ ms.locfileid: "57770334"
 ## <a name="microsoftpowerbiworkspacecollections"></a>Microsoft.PowerBI/workspaceCollections
 |執行的檢查|
 |---|
-|<ul><li>主機作業系統是否已啟動且執行中？</li><li>是否可從資料中心外部觸達 workspaceCollection？</li><li>PowerBI 資源提供者是否可用？</li><li>適當區域中是否有可用的 PowerBI 服務？</li></ul>|
+|<ul><li>主機作業系統是否已啟動且執行中？</li><li>是否可從資料中心外部觸達 workspaceCollection？</li><li>是 Power BI 資源提供者可用？</li><li>在適當的區域是 Power BI 服務？</li></ul>|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.search/searchServices
 |執行的檢查|

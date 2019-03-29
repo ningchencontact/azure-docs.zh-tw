@@ -1,6 +1,6 @@
 ---
-title: 在 PIM 中啟用我的 Azure AD 目錄角色 | Microsoft Docs
-description: 如何在 Azure AD Privileged Identity Management (PIM) 中啟用 Azure AD 目錄角色。
+title: 啟用我的 Azure AD 角色，在 PIM-Azure Active Directory |Microsoft Docs
+description: 了解如何啟用 Azure AD Privileged Identity Management (PIM) 中的 Azure AD 角色。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,38 +14,38 @@ ms.date: 03/05/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fc0a22f4300a06b5c827973ffb2436d0b8cfb36
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ca069da1239a505b3e3686998cd29844ed80ba46
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542738"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576806"
 ---
-# <a name="activate-my-azure-ad-directory-roles-in-pim"></a>在 PIM 中啟用我的 Azure AD 目錄角色
+# <a name="activate-my-azure-ad-roles-in-pim"></a>啟用我在 PIM 中的 Azure AD 角色
 
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 簡化了企業管理以特殊權限身分存取 Azure AD 中的資源和其他 Microsoft 線上服務 (如 Office 365 或 Microsoft Intune) 的方式。  
 
 如果您已被設為符合系統管理角色資格，即表示您可以在需要執行特殊權限動作時，啟用該角色。 例如，如果您偶爾會管理 Office 365 功能，則貴組織的特殊權限角色管理員可能不會讓您成為永久全域管理員，因為該角色也會影響其他服務。 他們反而會讓您符合 Azure AD 角色 (例如「Exchange Online 管理員」) 的資格。 您可以在需要權限時，要求啟用該角色，然後您將會在預定的時段內擁有系統管理員控制權。
 
-本文適用於需要在 PIM 中啟用 Azure AD 目錄角色的系統管理員。
+本文適用於系統管理員必須啟用其在 PIM 中的 Azure AD 角色。
 
 ## <a name="activate-a-role"></a>啟用角色
 
-當您需要擔任某個 Azure AD 目錄角色時，您可以在 PIM 中使用 [我的角色] 導覽選項來要求啟用。
+當您需要對 Azure AD 角色時，您可以使用來要求啟用**我的角色**PIM 中的導覽選項。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
 1. 開啟 **Azure AD Privileged Identity Management**。 如需如何將 [PIM] 圖格新增至儀表板的資訊，請參閱[開始使用 PIM](pim-getting-started.md)。
 
-1. 按一下 [Azure AD 目錄角色]。
+1. 按一下 [Azure AD 角色]。
 
-1. 按一下 [我的角色] 可查看符合資格的 Azure AD 目錄角色清單。
+1. 按一下 **我的角色**若要查看您符合資格的 Azure AD 角色。
 
-    ![Azure AD 目錄角色 - 我的角色](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
+    ![Azure AD 角色-我的角色](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
 
 1. 尋找您想要啟用的角色。
 
-    ![Azure AD 目錄角色 - 我的角色清單](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
+    ![Azure AD 角色-我的角色清單](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
 
 1. 按一下 [啟用]以開啟角色啟用詳細資料窗格。
 
@@ -87,11 +87,11 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 簡化了
 
 1. 開啟 Azure AD Privileged Identity Management。
 
-1. 按一下 [Azure AD 目錄角色]。
+1. 按一下 [Azure AD 角色]。
 
 1. 按一下 [我的要求] 以查看要求清單。
 
-    ![Azure AD 目錄角色 - 我的要求](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
+    ![Azure AD 角色-我的要求](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
 
 ## <a name="deactivate-a-role"></a>停用角色
 
@@ -101,7 +101,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 簡化了
 
 1. 開啟 Azure AD Privileged Identity Management。
 
-1. 按一下 [Azure AD 目錄角色]。
+1. 按一下 [Azure AD 角色]。
 
 1. 按一下 [我的角色]。
 
@@ -115,7 +115,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 簡化了
 
 1. 開啟 Azure AD Privileged Identity Management。
 
-1. 按一下 [Azure AD 目錄角色]。
+1. 按一下 [Azure AD 角色]。
 
 1. 按一下 [我的要求]。
 

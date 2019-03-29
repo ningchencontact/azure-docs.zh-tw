@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 39284805d9b9b5c10f5e211dc7d4c461d15cc6bc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a0459eb67b5a79219e556cb03473a5ddf691b49d
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763532"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577011"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>新增快取以改善 Azure API 管理的效能
 
 可以設定 API 管理中的作業進行回應快取。 對於不常變更的資料，回應快取可大幅降低 API 延遲、頻寬耗用量和 Web 服務負載。
- 
+
 如需快取的詳細資訊，請參閱 [API 管理快取原則](api-management-caching-policies.md)和[在 Azure API 管理中自訂快取](api-management-sample-cache-by-key.md)。
 
 ![快取原則](media/api-management-howto-cache/cache-policies.png)
@@ -59,7 +59,7 @@ ms.locfileid: "57763532"
 6. 選取畫面頂端的 [設計] 索引標籤。
 7. 在 [輸入處理] 區段中，按一下 **</>** 圖示。
 
-    ![程式碼編輯器](media/api-management-howto-cache/code-editor.png) 
+    ![程式碼編輯器](media/api-management-howto-cache/code-editor.png)
 
 8. 在 **inbound** 元素中，新增下列原則：
 
@@ -76,7 +76,7 @@ ms.locfileid: "57763532"
     [持續期間] 指定快取回應的到期間隔。 在本範例中，間隔為 **20** 秒。
 
 > [!TIP]
-> 如果您使用外部快取 (如[在 Azure API 管理中使用外部 Azure Redis 快取](api-management-howto-cache-external.md)所述)，則可以指定快取原則的 `cache-preference` 屬性。 如需詳細資訊，請參閱 [API 管理快取原則](api-management-caching-policies.md)。
+> 如果您使用外部快取 (如[在 Azure API 管理中使用外部 Azure Redis 快取](api-management-howto-cache-external.md)所述)，則可以指定快取原則的 `caching-type` 屬性。 如需詳細資訊，請參閱 [API 管理快取原則](api-management-caching-policies.md)。
 
 ## <a name="test-operation"> </a>呼叫作業和測試快取
 若要瞭解快取的運作方式，請從開發人員入口網站呼叫此作業。

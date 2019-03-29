@@ -7,16 +7,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 230c68b0b1de1ef452de51b7b0661a3c3786ea76
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 3f64be35aca985d0374e224cc9c8940502005014
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521698"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578878"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>備份及還原與 PowerShell 的 Azure Vm
 
-這篇文章說明如何備份及還原中的 Azure VM [Azure 備份](backup-overview.md)復原服務保存庫使用 PowerShell cmdlet。 
+這篇文章說明如何備份及還原中的 Azure VM [Azure 備份](backup-overview.md)復原服務保存庫使用 PowerShell cmdlet。
 
 在本文中，您將了解如何：
 
@@ -24,10 +24,7 @@ ms.locfileid: "58521698"
 > * 建立復原服務保存庫並設定保存庫內容。
 > * 定義備份原則
 > * 套用備份原則以保護多部虛擬機器
-> * 觸發受保護虛擬機器的隨選備份作業。在備份 (或保護) 虛擬機器之前，您必須先完成[先決條件](backup-azure-arm-vms-prepare.md)來備妥保護 VM 的環境。 
-
-
-
+> * 觸發受保護虛擬機器的隨選備份作業。在備份 (或保護) 虛擬機器之前，您必須先完成[先決條件](backup-azure-arm-vms-prepare.md)來備妥保護 VM 的環境。
 
 ## <a name="before-you-start"></a>開始之前
 
@@ -44,8 +41,6 @@ ms.locfileid: "58521698"
 
 檢閱**Az.RecoveryServices** [指令程式參考](https://docs.microsoft.com/powershell/module/Az.RecoveryServices/?view=azps-1.4.0)Azure 文件庫中的參考。
 
-
-
 ## <a name="set-up-and-register"></a>設定並註冊
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -58,7 +53,7 @@ ms.locfileid: "58521698"
 
     ```powershell
     Get-Command *azrecoveryservices*
-    ```   
+    ```
  
     將顯示 Azure備份、Azure Site Recovery 與復原服務保存庫的別名與 Cmdlet。 下圖是您將看到的範例。 它不是 Cmdlet 的完整清單。
 
@@ -147,6 +142,18 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultContext
 ```
 
+### <a name="modifying-storage-replication-settings"></a>修改儲存體複寫設定
+
+使用[組 AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperties?view=azps-1.6.0)設為 LRS/GRS 的儲存體複寫設定保存庫的命令
+
+```powershell
+$vault= Get-AzRecoveryServicesVault -name "testvault"
+Set-AzRecoveryServicesBackupProperties -Vault $vault -BackupStorageRedundancy GeoRedundant/LocallyRedundant
+```
+
+> [!NOTE]
+> 沒有受保護的保存庫以備份項目時，才可以修改儲存體備援。
+
 ### <a name="create-a-protection-policy"></a>建立保護原則
 
 當您建立復原服務保存庫時，它會隨附預設的保護和保留原則。 預設保護原則會在每天的指定時間觸發備份作業。 預設保留原則會將每日復原點保留 30 天。 您可以使用預設原則來快速地保護 VM，並在之後編輯原則的各種詳細資料。
@@ -226,7 +233,6 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 > 如果您使用 Azure Government 雲端，然後使用值 ff281ffe-705c-4f53-9f37-a40e6f2c68f3 參數 ServicePrincipalName 中[組 AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet。
 >
 
-
 ### <a name="modify-a-protection-policy"></a>修改保護原則
 
 若要修改的保護原則，請使用[組 AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy)修改 SchedulePolicy 或 RetentionPolicy 物件。
@@ -239,6 +245,19 @@ $retPol.DailySchedule.DurationCountInDays = 365
 $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy $RetPol
 ```
+
+#### <a name="configuring-instant-restore-snapshot-retention"></a>設定 「 立即還原快照集保留期
+
+> [!NOTE]
+> 其中一個可以從 Az PS 1.6.0 版及更新版本，更新在原則中使用 Powershell 的 「 立即還原快照集保留期限
+
+````powershell
+PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+$bkpPol.SnapshotRetentionInDays=7
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+````
+
+預設值將會是 2，使用者可以設定為 1 的最小和最大值為 5 的值。 如每週備份原則，期間會設定為 5，並且無法變更。
 
 ## <a name="trigger-a-backup"></a>觸發備份
 
@@ -672,7 +691,7 @@ $rp[0]
 
 輸出類似於下列範例：
 
-```
+```powershell
 RecoveryPointAdditionalInfo :
 SourceVMStorageType         : NormalStorage
 Name                        : 15260861925810
@@ -719,4 +738,4 @@ Disable-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 
 ## <a name="next-steps"></a>後續步驟
 
-如果你更愿意使用 PowerShell 来处理 Azure 资源，请查看 PowerShell 文章：[为 Windows Server 部署和管理备份](backup-client-automation.md)。 如果您管理 DPM 備份，請參閱[部署及管理 DPM 的備份](backup-dpm-automation.md)一文。 
+如果你更愿意使用 PowerShell 来处理 Azure 资源，请查看 PowerShell 文章：[为 Windows Server 部署和管理备份](backup-client-automation.md)。 如果您管理 DPM 備份，請參閱[部署及管理 DPM 的備份](backup-dpm-automation.md)一文。

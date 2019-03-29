@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: juliako
-ms.openlocfilehash: 61ebebaf61d1cbbc72f3e12b5ff516924cc9b8c7
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b951da73006731b38b265dc3a2f542e670f9fbf6
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317743"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621731"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>從媒體服務 v2 移動至 v3 的移轉指導
 
@@ -79,12 +79,14 @@ ms.locfileid: "58317743"
 v3 API 與 v2 API 具有下列功能差距。 縮小差距是刻不容緩的工作。
 
 * [進階編碼器](../previous/media-services-premium-workflow-encoder-formats.md)和舊版[媒體分析處理器](../previous/media-services-analytics-overview.md) (Azure Media Services Indexer 2 Preview、Face Redactor 等) 無法透過 v3 存取。<br/>想要從 Media Indexer 1 或 2 Preview 移轉的客戶可以立即使用 v3 API 中的 AudioAnalyzer 預設值。  相較於舊版的 Media Indexer 1 或 2，這個新的預設值包含更多功能。 
-* v2 API 中媒體編碼器標準的許多進階功能目前在 v3 中不提供，例如：
+* 許多[媒體編碼器標準 v2 中的進階功能](../previous/media-services-advanced-encoding-with-mes.md)Api 目前不提供的 v3，例如：
     * 裁剪 (適用於隨選和即時的案例)
     * 資產拼接
     * 重疊
     * 裁剪
     * 縮圖原件
+    * 插入靜音曲目時輸入具有不具音訊
+    * 插入視訊播放軌，當輸入具有不含視訊
 * 具有轉碼的即時事件目前不支援候選影片插入中間串流，以及透過 API 呼叫插入廣告標記。 
 
 > [!NOTE]

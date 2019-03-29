@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: ba72f273724bb45418b104b1245648419ababbf0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c6c44525018e2115f1df8ed2d3f15432b95490c6
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903618"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619827"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>整合跨元件交易診斷
 
@@ -32,7 +32,7 @@ ms.locfileid: "57903618"
 * 元件可以是不同的 Application Insights 檢測金鑰 (即使訂用帳戶不同)，也可以是回報給單一 Application Insights 檢測金鑰的不同角色。 新體驗能顯示所有元件的詳細資料，不論設定方式為何。
 
 > [!NOTE]
-> * **遺失相關項目連結？** 所有相關遙測都位於左側的[頂端](#cross-component-transaction-chart)和[底部](#all-telemetry-with-this-Operation-Id)區段中。 
+> * **遺失相關項目連結？** 所有相關遙測都位於左側的[頂端](#cross-component-transaction-chart)和[底部](#all-telemetry-with-this-operation-id)區段中。 
 
 ## <a name="transaction-diagnostics-experience"></a>交易診斷體驗
 此檢視有四大重要組件：結果清單、跨元件交易圖表、此作業所有相關遙測的時間序列清單、左側任何選定的遙測項目的詳細資料窗格。

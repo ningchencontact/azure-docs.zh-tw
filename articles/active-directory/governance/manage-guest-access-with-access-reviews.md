@@ -1,6 +1,6 @@
 ---
-title: 管理使用 Azure AD 存取權檢閱的來賓存取權 |Microsoft Docs
-description: 管理來賓使用者的群組成員或指派給應用程式與 Azure Active Directory 存取權檢閱
+title: 管理來賓存取的存取權檢閱-Azure Active Directory |Microsoft Docs
+description: 使用 Azure Active Directory 存取權檢閱，以作為群組成員或指派給應用程式的方式管理來賓使用者
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bed8a5d20b50fd90922730c958cb1a36933776f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 967fbf460175dee303d26074426a1f90e4353407
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881039"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576491"
 ---
-# <a name="manage-guest-access-with-azure-ad-access-reviews"></a>管理使用 Azure AD 存取權檢閱的來賓存取
+# <a name="manage-guest-access-with-azure-ad-access-reviews"></a>使用 Azure AD 存取權檢閱來管理來賓存取權
 
 
 您可以搭配使用 Azure Active Directory (Azure AD) 與 [Azure AD B2B 功能](../b2b/what-is-b2b.md)，輕鬆地跨組織界限啟用共同作業。 [系統管理員](../b2b/add-users-administrator.md)或[其他使用者](../b2b/what-is-b2b.md)可邀請來自其他租用戶的來賓使用者。 這也適用於社交識別，例如 Microsoft 帳戶。

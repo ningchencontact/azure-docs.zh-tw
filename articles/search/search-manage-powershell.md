@@ -7,14 +7,14 @@ services: search
 ms.service: search
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 03/28/2019
 ms.author: heidist
-ms.openlocfilehash: 7a91ad691089ac816b31ebe1fce202110e580f71
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 8f07468ccff4431e1afdf66aedc72599ddc0c25b
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520559"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620592"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>使用 PowerShell 管理 Azure 搜尋服務
 > [!div class="op_single_selector"]
@@ -24,17 +24,17 @@ ms.locfileid: "58520559"
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python (英文)](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-您在 Windows，Linux，或是在可以執行 PowerShell cmdlet 及指令碼[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)來建立及設定[Azure 搜尋服務](https://docs.microsoft.com/azure/search/)。 [ **Az.Search** ](https://docs.microsoft.com/powershell/module/az.search/?view=azps-1.4.0#search)模組會擴充[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.4.0)完整同位檢查，以使用[Azure 搜尋管理 REST Api](https://docs.microsoft.com/rest/api/searchmanagement)。 使用 Azure PowerShell 並**Az.Search**，您可以執行下列工作：
+您在 Windows，Linux，或是在可以執行 PowerShell cmdlet 及指令碼[Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)來建立及設定 Azure 搜尋服務。 **Az.Search**模組會擴充 Azure PowerShell] 以完整的同位檢查，以[Azure 搜尋管理 REST Api](https://docs.microsoft.com/rest/api/searchmanagement)。 使用 Azure PowerShell 並**Az.Search**，您可以執行下列工作：
 
 > [!div class="checklist"]
 > * [列出所有您的訂用帳戶中的搜尋服務](#list-search-services)
 > * [取得特定的搜尋服務的相關資訊](#get-search-service-information)
 > * [建立或刪除服務](#create-or-delete-a-service)
-> * 重新產生系統管理 API 金鑰
+> * [重新產生系統管理 API 金鑰](#regenerate-admin-keys)
 > * [建立或刪除查詢 api 金鑰](#create-or-delete-query-keys)
 > * [調整服務以增加或減少複本和分割區](#scale-replicas-and-partitions)
 
-PowerShell 無法用來變更名稱、 區域或您的服務層中。 建立服務時，會配置專用的資源。 變更基本硬體 （位置或節點類型） 需要新的服務。 沒有任何工具或 Api 將內容傳送。 所有的內容管理都是透過[REST](https://docs.microsoft.com/rest/api/searchservice/)或是[.NET](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search) Api，如果您想要移動索引時，您必須重新建立，並重新載入這些新的服務上。 
+PowerShell 無法用來變更名稱、 區域或您的服務層中。 建立服務時，會配置專用的資源。 變更基本硬體 （位置或節點類型） 需要新的服務。 沒有任何工具或 Api 將內容從某個服務傳送到另一個。 所有的內容管理都是透過[REST](https://docs.microsoft.com/rest/api/searchservice/)或是[.NET](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search) Api，如果您想要移動索引時，您必須重新建立，並重新載入這些新的服務上。 
 
 沒有專用的 PowerShell 命令的內容管理時，您可以撰寫 PowerShell 指令碼，呼叫 REST 或.NET 來建立和載入索引。 **Az.Search**模組本身不會提供這些作業。
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 8fb60f36bbc7c8886c1f465177a11224a1c90659
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 3c2384b536235554fed7c1cf1a08b7c665f513a8
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541242"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621918"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API 管理範本資料模型參考
 本主題說明在 Azure API 管理的開發人員入口網站範本資料模型中，所使用之一般項目的實體和類型表示法。  
@@ -162,7 +162,7 @@ ms.locfileid: "58541242"
 ##  <a name="Header"></a>標頭  
  本區段描述 `parameter` 表示法。  
   
-|屬性|描述|類型|  
+|屬性|類型|描述|  
 |--------------|-----------------|----------|  
 |`name`|字串|參數名稱。|  
 |`description`|字串|參數描述。|  
@@ -239,7 +239,7 @@ ms.locfileid: "58541242"
 ##  <a name="Parameter"></a>參數  
  本區段描述 `parameter` 表示法。  
   
-|屬性|描述|類型|  
+|屬性|類型|描述|  
 |--------------|-----------------|----------|  
 |`name`|字串|參數名稱。|  
 |`description`|字串|參數描述。|  

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: c4b6b416d6a36938948573da7b9c3f5cac04bdcf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 591f7ed52a64d1005f1bb52e54eb3359da0e30a2
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904894"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579643"
 ---
 # <a name="connect-your-cisco-asa-appliance"></a>連接您的 Cisco ASA 應用裝置 
 
 > [!IMPORTANT]
-> Azure 的 Sentinel 目前處於公開預覽狀態。
+> Azure Sentinel 目前為公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 您可以連接 Azure Sentinel 至任何 Cisco ASA 設備。 Cisco ASA 原生與整合 Azure Sentinel 進行資料擷取，因此，即使您的 Cisco 設備不會儲存記錄檔，以 CEF，Azure Sentinel 內嵌這些相同的方式，它會處理 CEF 記錄。 與 Azure Sentinel 整合可讓您輕鬆分析和查詢執行的記錄檔資料之間的 Cisco ASA 從。 
@@ -34,9 +34,9 @@ ms.locfileid: "57904894"
 
 ## <a name="step-1-connect-your-cisco-asa-appliance-using-an-agent"></a>步驟 1：連接您的 Cisco ASA 設備使用代理程式
 
-若要連接您的 Cisco ASA 設備 Azure Sentinel，您需要部署專用的電腦上的代理程式 (VM 或內部部署上) 以支援應用裝置與 Azure Sentinel 之間的通訊。 您可以在自動或手動部署代理程式。 只有使用您專用的電腦是否為新的 VM，您會在 Azure 中建立自動部署。 
+若要連接您的 Cisco ASA 設備 Azure Sentinel，您需要部署專用的電腦上的代理程式 (VM 或內部部署上) 以支援應用裝置與 Azure Sentinel 之間的通訊。 您可以透過自動或手動來部署代理程式。 只有當您的專用機器是在 Azure 中建立的新 VM 時，才能使用自動部署。 
 
-或者，您可以部署代理程式上現有的 Azure VM，另一個雲端，在 VM 上以手動方式或在內部部署機器上。
+或者，您可以透過手動方式在現有的 Azure VM、在另一個雲端中的 VM 或在內部部署機器上部署代理程式。
 
 若要查看這兩個選項的網路圖表，請參閱[將資料來源連接](connect-data-sources.md)。
 
@@ -116,6 +116,7 @@ ms.locfileid: "57904894"
 3. 如果這兩個這些命令提供成功的結果，請檢查以查看您的記錄檔會同時抵達的 Log Analytics。 從這些設備串流處理的所有事件會都出現在 Log Analytics 中的未經處理格式`CommonSecurityLog `型別。
 1. 若要檢查如果發生錯誤，或記錄檔未抵達，請查看 `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
 4. 請確定您 Syslog 訊息的預設大小限制為 2048 個位元組 (2 KB)。 如果記錄檔太長，更新 security_events.conf 使用下列命令： `message_length_limit 4096`
+6. 若要使用 Log Analytics 中的 Cisco 事件相關的結構描述，搜尋**CommonSecurityLog**。
 
 
 

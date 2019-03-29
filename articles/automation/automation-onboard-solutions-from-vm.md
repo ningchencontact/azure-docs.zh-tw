@@ -4,17 +4,17 @@ description: 了解如何在 Azure 虛擬機器上讓屬於 Azure 自動化一�
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 70d9957ae5f0ec43269d371c96e3722e52edb26d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bf81b862f978d4baab0907dc9002564062ec5228
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837757"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619717"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>從 Azure 虛擬機器讓更新管理、變更追蹤和清查解決方案上線
 
@@ -26,7 +26,7 @@ Azure 自動化提供的解決方案可協助您管理作業系統安全性更�
 
 ## <a name="enable-the-solutions"></a>啟用解決方案
 
-移至現有的虛擬機器。 在 [作業] 底下，選取 [更新管理]、[清查] 或 [變更追蹤]。 虛擬機器可以位於任何區域，無論您的自動化帳戶的位置。
+移至現有的虛擬機器。 在 [作業] 底下，選取 [更新管理]、[清查] 或 [變更追蹤]。 虛擬機器可以位於任何區域，無論您的自動化帳戶的位置。 當上架的解決方案，從 VM 必須`Microsoft.OperationalInsights/workspaces/read`來判斷 VM 是否已上的架到工作區的權限。 若要深入了解一般情況下所需的其他權限，請參閱[讓機器上線所需的權限](automation-role-based-access-control.md#onboarding)。
 
 若只要啟用 VM 的解決方案，請確定您已選取 [對此 VM 啟用]。 若要在解決方案中將多部機器上線，請選取 [對此訂用帳戶中的 VM 啟用]，然後選取 [按一下以選取要啟用的機器]。 若要了解如何讓多部機器一次上線，請參閱[讓更新管理、變更追蹤和清查解決方案上線](automation-onboard-solutions-from-automation-account.md)。
 
@@ -85,13 +85,13 @@ Azure 自動化提供的解決方案可協助您管理作業系統安全性更�
 
 1. 從 Azure 入口網站開啟您的自動化帳戶，然後在 [自動化帳戶] 頁面上，在左側的 [相關資源] 區段下選取 [已取消連結的工作區]。
 
-1. 在 [取消連結工作區] 頁面上，按一下 [取消連結工作區]。
+2. 在 [取消連結工作區] 頁面上，按一下 [取消連結工作區]。
 
    ![取消連結工作區頁面](media/automation-onboard-solutions-from-vm/automation-unlink-workspace-blade.png)上也提供本文中使用的原始碼。
 
    您會收到提示，確認您想要繼續。
 
-1. 當 Azure 自動化嘗試將您的帳戶從 Log Analytics 工作區取消連結時，您可以從功能表在 [通知] 下追蹤進度。
+3. 當 Azure 自動化嘗試將您的帳戶從 Log Analytics 工作區取消連結時，您可以從功能表在 [通知] 下追蹤進度。
 
 若使用「更新管理」解決方案，您可以在移除解決方案之後選擇移除已不再需要的下列項目。
 

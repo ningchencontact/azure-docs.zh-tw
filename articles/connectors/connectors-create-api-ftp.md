@@ -1,21 +1,21 @@
 ---
-title: 連線到 FTP 伺服器 - Azure Logic Apps | Microsoft Docs
+title: 連接到 FTP 伺服器-Azure Logic Apps
 description: 使用 Azure Logic Apps 在 FTP 伺服器上建立、監視和管理檔案
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
-ms.openlocfilehash: 1e649f21758adedb069b38f64f083ccb85df874d
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: e5aeaa707c7a839483484c524e982204d6fe055c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913354"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576321"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>藉由使用 Azure Logic Apps 來建立、監視及管理 FTP 檔案
 
@@ -28,10 +28,11 @@ ms.locfileid: "54913354"
 
 您可以使用觸發程序，從 FTP 伺服器收到回應，並且讓輸出可供其他動作使用。 您可以在邏輯應用程式中使用執行動作來管理 FTP 伺服器上的檔案。 您也可以讓其他動作使用 FTP 動作的輸出。 例如，如果您定期從 FTP 伺服器取得檔案，可以藉由使用 Office 365 Outlook 連接器或 Outlook.com 連接器，傳送關於這些檔案及其內容的電子郵件。 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)
 
-> [!NOTE]
-> 除非您[在動作中使用訊息區塊化](../logic-apps/logic-apps-handle-large-messages.md)，否則 FTP 連接器僅支援 50 MB 以下的檔案。 目前，您無法將區塊化用於觸發程序。
->
-> 此外，FTP 連接器僅支援明確的 FTP over SSL (FTPS)，而且與隱含 FTPS 不相容。 
+## <a name="limits"></a>限制
+
+* FTP 動作支援的唯一檔案*50 MB 或更小*除非您使用[訊息區塊處理](../logic-apps/logic-apps-handle-large-messages.md)，這可讓您超過此限制。 目前，FTP 觸發程序不支援區塊處理。
+
+* FTP 連接器支援只明確 FTP over SSL (FTPS)，且不與隱含 FTPS 相容。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -51,7 +52,7 @@ ms.locfileid: "54913354"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)，如果邏輯應用程式尚未開啟，請在邏輯應用程式設計工具中開啟邏輯應用程式。
 
-1. 針對空白邏輯應用程式，請在搜尋方塊中輸入 "ftp" 作為篩選條件。 在觸發程序清單底下，選取您想要的觸發程序。 
+1. 針對空白邏輯應用程式，請在搜尋方塊中輸入 "ftp" 作為篩選條件。 在觸發程序清單底下，選取您想要的觸發程序。
 
    -或-
 
@@ -82,7 +83,7 @@ ms.locfileid: "54913354"
 
 **企業範例**：您可以使用此觸發程序，來監視說明客戶訂單的新檔案 FTP 資料夾。 然後，您可以使用 FTP 動作 (例如**取得檔案內容**)，取得訂單的內容以進一步處理，並儲存在訂單資料庫中。
 
-在要求檔案內容時，觸發程序不會取得大於 50 MB 的檔案。 若要取得大於 50 MB 的檔案，請依照下列模式： 
+當要求檔案的內容時，觸發程序無法取得檔案超過 50 MB。 若要取得大於 50 MB 的檔案，請依照下列模式： 
 
 * 使用會傳回檔案屬性的觸發程序，例如 [新增或修改檔案時 (僅限屬性)]。
 
@@ -121,7 +122,7 @@ ms.locfileid: "54913354"
 
 此動作會在 FTP 伺服器上有檔案新增或更新時，從該檔案取得內容。 舉例來說，您可以新增來自上一個範例中的觸發程序，以及會在有檔案新增或編輯後取得該檔案內容的動作。 
 
-在要求檔案內容時，觸發程序不會取得大於 50 MB 的檔案。 若要取得大於 50 MB 的檔案，請依照下列模式： 
+當要求檔案的內容時，觸發程序無法取得檔案超過 50 MB。 若要取得大於 50 MB 的檔案，請依照下列模式： 
 
 * 使用會傳回檔案屬性的觸發程序，例如 [新增或修改檔案時 (僅限屬性)]。
 
@@ -151,7 +152,7 @@ ms.locfileid: "54913354"
 
 ## <a name="connector-reference"></a>連接器參考
 
-如需觸發程序、動作和限制的技術詳細資訊，它們是由連接器的 OpenAPI (以前稱為 Swagger) 來描述，請檢閱連接器的[參考頁面](/connectors/ftpconnector/)。
+如需觸發程序、 動作和限制的技術詳細資訊，其中會描述連接器的 OpenAPI (以前稱為 Swagger) 描述，檢閱[連接器的參考頁面](/connectors/ftpconnector/)。
 
 ## <a name="get-support"></a>取得支援
 

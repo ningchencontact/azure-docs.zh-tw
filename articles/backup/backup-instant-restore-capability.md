@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: sogup
-ms.openlocfilehash: 20f934ae418b0a5e37d3e619fabadc5cb6e23642
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 21aa01ec8382341de34cca743b9e088598872659
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285542"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578895"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>透過 Azure 備份的立即還原功能取得改良的備份和還原效能
 
@@ -67,6 +67,8 @@ ms.locfileid: "58285542"
 在 Azure 入口網站中，您可以看到中加入的欄位**VM 的備份原則**下方的刀鋒視窗**立即還原**一節。 您可以針對與特定備份原則相關聯的所有 VM，從 **VM 備份原則**刀鋒視窗變更快照集保留持續時間。
 
 ![立即還原功能](./media/backup-azure-vms/instant-restore-capability.png)
+
+若要設定的快照集保留使用 Powershell，請參閱[這份文件](backup-azure-vms-automation.md#configuring-instant-restore-snapshot-retention)。
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 

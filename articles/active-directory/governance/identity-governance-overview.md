@@ -1,6 +1,6 @@
 ---
-title: Azure AD 身分識別控管 |Microsoft Docs
-description: Azure AD 身分識別控管可讓您透過適當的程序與可見性，平衡貴組織的安全性需求與員工生產力。
+title: 身分識別控管-Azure Active Directory |Microsoft Docs
+description: Azure Active Directory 身分識別管理可讓您正確的程序與可見性的安全性和員工生產力的貴組織的需求之間取得平衡。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 304399905e9dfd37557a342248c829c1f940452b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7872a43d5000ddb1ba581f76358c8001902ab56b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167566"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579711"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>什麼是 Azure AD 身分識別控管？
 
@@ -77,7 +77,7 @@ Azure AD Privileged Identity Management (PIM) 提供量身訂做的其他控制�
 - [什麼是存取權檢閱？](access-reviews-overview.md)
 - [使用存取權檢閱來管理使用者存取權](manage-user-access-with-access-reviews.md)
 - [使用存取權檢閱來管理來賓存取權](manage-guest-access-with-access-reviews.md)
-- [開始目錄角色的存取權檢閱](../privileged-identity-management/pim-how-to-start-security-review.md)
+- [啟動 Azure AD 角色的存取權檢閱](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 ### <a name="terms-of-use"></a>使用規定
 

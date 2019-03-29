@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: service-health
 ms.date: 01/29/2019
 ms.workload: Supportability
-ms.openlocfilehash: c0de42935c1e46fd51e82a58083f85f6cee83ce3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b4062b3f0bc389de4403ac81b56688508f5ea50e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884531"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579558"
 ---
 # <a name="azure-resource-health-faq"></a>Azure 資源健康狀態常見問題集
 了解 Azure 資源健康狀態相關常見問題的答案。
@@ -50,7 +50,7 @@ ms.locfileid: "55884531"
 在入口網站中，會使用藍色通知圖示來顯示使用者啟動的動作，而規劃與未規劃的事件則會使用紅色警告圖示來顯示。 [資源健康狀態概觀](Resource-health-overview.md)中會提供更多詳細資料。  
 
 ## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>可以將資源健康狀態與我的監視工具進行整合嗎？
-資源健康狀態是專為協助您診斷和解決會影響您資源的 Azure 服務問題所設計的服務。 雖然您可以使用資源健康狀態 API 以程式設計方式取得健康狀態，但我們建議您使用計量來監視您的資源。 一旦偵測到問題後，資源健康狀態可協助您判斷根本原因，並引導您完成動作來解決這些問題。 若要深入了解如何使用計量來檢查您的資源，請瀏覽 [Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)。
+資源健康狀態已[預覽支援](resource-health-alert-arm-template-guide.md)針對活動記錄檔為基礎的警示。 使用的活動記錄警示[動作群組](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups)通知使用者已觸發警示。 動作群組可支援各種不同的通知通道，例如電子郵件、 SMS、 webhook 及 ITSM 動作。
 
 ## <a name="where-do-i-find-resource-health"></a>哪裡可以找到資源健康狀態？
 登入 Azure 入口網站之後，您可以使用多種方式來存取資源健康狀態：
@@ -67,13 +67,7 @@ ms.locfileid: "55884531"
 檢查資源的健康情況時，您可以在健全狀態下面按一下 [報告不正確的健全狀態]。 提交報表之前，您可以選擇提供為何您認為目前健全狀態不正確的其他相關詳細資料。
 
 ## <a name="is-resource-health-available-for-all-azure-regions"></a>資源健康狀態是否適用於所有的 Azure 區域？ 
-資源健康狀態可在所有 Azure 地區使用，除了下列區域︰
-- 美國政府維吉尼亞州
-- US Gov 愛荷華州
-- 美國 DoD 東部
-- 美國國防部中央
-- 德國中部
-- 德國東北部
+資源健康狀態是適用於所有 Azure 地區。
 
 ## <a name="how-is-resource-health-different-from-azure-status-or-the-service-health-dashboard"></a>資源健康狀態和 Azure 狀態或服務健康狀態儀表板有何不同？
 資源健康狀態可提供比 Azure 狀態或服務健康狀態儀表板更明確的資訊。

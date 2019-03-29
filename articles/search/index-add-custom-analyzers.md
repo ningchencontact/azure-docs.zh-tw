@@ -19,18 +19,18 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 8eb762e8a18ea5de25413681894f692628493a2f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9a15078c953c1fab40ad521eff079a623c93b9d9
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842850"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577538"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>將自訂分析器新增至 Azure 搜尋服務索引
 
 「自訂分析器」是特定類型的[文字分析器](search-analyzers.md)，其包含使用者定義的現有權杖化工具和選擇性篩選組合。 透過以新方式結合權杖化工具和篩選，您便可以自訂搜尋引擎中的文字處理來達成特定結果。 例如，您可以使用「字元篩選器 (char filter)」 建立自訂分析器，讓文字輸入在變成語彙基元 (token) 之前能移除 HTML 標記。
 
- 您可以定義多個自訂分析器來變更篩選器的組合，但是每個欄位只能針對索引分析使用一個分析器、針對搜尋分析使用一個分析器。 如需自訂分析器的相關說明，請參閱[自訂分析器範例](search-analyzers.md#Example1)。
+ 您可以定義多個自訂分析器來變更篩選器的組合，但是每個欄位只能針對索引分析使用一個分析器、針對搜尋分析使用一個分析器。 如需自訂分析器的相關說明，請參閱[自訂分析器範例](search-analyzers.md#Custom-analyzer-example)。
 
 ## <a name="overview"></a>概觀
 

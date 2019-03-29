@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: 0c090499ee6ae2aaaa14af18c3c38db28ecb2f3e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: aac9719f8d74c4b7bc283745ee2b8e01365a81f0
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884722"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619997"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>媒體服務平台上的媒體分析 
 
@@ -40,8 +40,6 @@ ms.locfileid: "57884722"
 
 ### <a name="indexer"></a>索引器
 Azure 媒體索引器可讓您的內容可供搜尋，並且產生隱藏式輔助字幕。 相較於舊版，Azure 媒體索引器 2 (預覽版) 速度更快，支援更多的語言。 支援的語言包括英文、西班牙文、法文、德文、義大利文、中文、葡萄牙文和阿拉伯文。 如需詳細資訊和範例，請參閱[利用 Azure 媒體索引器 2 處理影片](media-services-process-content-with-indexer2.md)。
-### <a name="hyperlapse"></a>Hyperlapse
-Microsoft Hyperlapse 將影像防震與縮時攝影功能結合在一起，能從完整的內容中建立快速、消費性的影片。 除了縮時攝影外，您也可以使用 Hyperlapse，從透過行動電話及攝影機拍攝的晃動影片中產生不晃動的影片。 如需詳細資訊和範例，請參閱 [Hyperlapse 媒體檔案與 Azure 媒體超縮時攝影](media-services-hyperlapse-content.md)。
 ### <a name="motion-detector"></a>動作偵測
 您可以使用動作偵測在影片中偵測背景靜止的動作。 如此一來，便能夠檢查監視攝影機所偵測到的動作事件中是否有誤判。 如需詳細資訊和範例，請參閱 [Azure 媒體分析的動作偵測](media-services-motion-detection.md)。
 ### <a name="face-detector"></a>臉部偵測

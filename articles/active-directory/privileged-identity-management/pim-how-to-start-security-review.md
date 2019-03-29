@@ -1,6 +1,6 @@
 ---
-title: 在 PIM 中起始 Azure AD 目錄角色的存取權檢閱 | Microsoft Docs
-description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中起始 Azure AD 目錄角色的存取權檢閱。
+title: 在 PIM-Azure Active Directory 中啟動 Azure AD 角色的存取權檢閱 |Microsoft Docs
+description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中啟動 Azure AD 角色的存取權檢閱。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,15 +14,15 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33f2e3249d1b7ad0efc16dd0b9ced26379c3cae7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e5cbf96c165d79c26985663ef5a9d64bbf8f9892
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174464"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574989"
 ---
-# <a name="start-an-access-review-for-azure-ad-directory-roles-in-pim"></a>在 PIM 中起始 Azure AD 目錄角色的存取權檢閱
-當使用者擁有不再需要的特殊存取權時，角色指派就會變成「過時」。 為了降低與這些過時角色指派相關聯的風險，特殊權限角色管理員或全域管理員應該定期建立存取檢閱，要求管理員檢閱使用者獲派的角色。 本文件涵蓋在 Azure AD Privileged Identity Management (PIM) 中開始存取權檢閱的步驟。
+# <a name="start-an-access-review-for-azure-ad-roles-in-pim"></a>在 PIM 中啟動 Azure AD 角色的存取權檢閱
+當使用者擁有不再需要的特殊存取權時，角色指派就會變成「過時」。 為了降低與這些過時角色指派相關聯的風險，特殊權限角色管理員或全域管理員應該定期建立存取檢閱，要求管理員檢閱使用者獲派的角色。 本文件涵蓋在 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 開始存取權檢閱的步驟。
 
 ## <a name="start-an-access-review"></a>開始存取權檢閱
 > [!NOTE]
@@ -80,6 +80,6 @@ ms.locfileid: "56174464"
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>後續步驟
 
-- [在 PIM 中完成 Azure AD 目錄角色的存取權檢閱](pim-how-to-complete-review.md)
-- [在 PIM 中執行 Azure AD 目錄角色的存取權檢閱](pim-how-to-perform-security-review.md)
+- [完成 Azure AD PIM 中的角色的存取權檢閱](pim-how-to-complete-review.md)
+- [在 PIM 中執行我的 Azure AD 角色的存取權檢閱](pim-how-to-perform-security-review.md)
 - [在 PIM 中起始 Azure 資源角色的存取權檢閱](pim-resource-roles-start-access-review.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: 1e4582d93d1e3380ecdabdb241f27839d4da4565
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: dc37404e45e4efd0697b0f3b19c4927813ab56fa
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541853"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576187"
 ---
 # <a name="security-recommendations"></a>安全性建議
 
@@ -27,12 +27,13 @@ ms.locfileid: "58541853"
 > Iot 的 ASC 目前處於公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-ASC iot 進行中的方案分析為基礎，提供下列建議時協助改善及保護您的裝置、 操作狀態和整體的 IoT 中樞環境所需。 
+Iot 的 ASC 會掃描您的 Azure 資源和 IoT 裝置，並提供安全性建議，以減少受攻擊面。 安全性建議採取動作，並盡力協助客戶遵循安全性最佳作法。
 
+在本文中，您將找到的建議即可觸發您的 IoT 中樞和/或 IoT 裝置上的清單。
 
-## <a name="device-recommendations"></a>裝置的建議
+## <a name="recommendations-for-iot-devices"></a>IoT 裝置的建議
 
-裝置建議提供深入解析及建議來改善裝置的安全性和行為。 
+裝置建議提供深入解析和建議，可以改善裝置安全性狀態。 
 
 | 嚴重性 | 名稱                                                      | 資料來源 | 描述                                                                                                                                                                                           |
 |----------|-----------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -42,9 +43,9 @@ ASC iot 進行中的方案分析為基礎，提供下列建議時協助改善及
 | 中   | 找不到輸出鏈結中的寬鬆的防火牆規則    | 代理程式       | 其中包含各種不同的 IP 位址或連接埠的寬鬆模式找到在防火牆中的規則。                                                                                   |
 | 中   | 操作系統基準驗證失敗           | 代理程式       | 裝置不符合[CIS Linux 基準測試](https://www.cisecurity.org/cis-benchmarks/)                                                                                                         |
 
-### <a name="operational-recommendation"></a>操作的建議
+### <a name="operational-recommendations-for-iot-devices"></a>IoT 裝置的作業建議
 
-操作的建議提供深入解析及建議來改善代理程式設定。
+操作的建議提供深入解析及建議來改善安全性代理程式設定。
 
 | 嚴重性 | 名稱                                    | 資料來源 | 描述                                                                       |
 |----------|-----------------------------------------|-------------|-----------------------------------------------------------------------------------|
@@ -53,7 +54,7 @@ ASC iot 進行中的方案分析為基礎，提供下列建議時協助改善及
 | 低      | 安全性對應項的組態衝突    | 代理程式       | 安全性對應項組態中發現衝突。                           |
 
 
-## <a name="iot-hub-recommendations"></a>IoT 中樞的建議
+## <a name="recommendations-for-iot-hub"></a>IoT 中樞的建議
 
 建議的警示提供深入解析與建議，以改善您的環境的安全性狀態的動作。  
 

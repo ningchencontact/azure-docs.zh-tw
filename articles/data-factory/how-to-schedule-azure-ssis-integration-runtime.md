@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 0b84f02d11e278950e4e44874e7b1af9da58f83f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 54d7979f9fbe23e9372aa2702b46e42ca64496d2
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092441"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621629"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>如何按照排程來啟動和停止 Azure-SSIS Integration Runtime
 本文說明如何使用 Azure Data Factory (ADF) 來排程 Azure-SSIS Integration Runtime (IR) 的啟動和停止。 Azure-SSIS IR 是專門用來執行 SQL Server Integration Services (SSIS) 套件的 ADF 計算資源。 執行 Azure-SSIS IR 會有相關聯的成本。 因此，您通常只應在需要於 Azure 中執行 SSIS 套件時才執行 IR，不再需要時即應停止 IR。 您可以使用 ADF 使用者介面 (UI)/應用程式或 Azure PowerShell，[以手動方式啟動或停止 IR](manage-azure-ssis-integration-runtime.md)。
@@ -94,7 +94,7 @@ ms.locfileid: "58092441"
   
     2. 針對 [方法]，選取 [POST]。 
     3. 針對 [本文]，輸入 `{"message":"Start my IR"}`。 
-    4. 針對**驗證**，選取**MSI**若要使用您的 ADF 的受管理的身分識別，請參閱[Data factory 受控 identiy](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)文件，如需詳細資訊。
+    4. 針對**驗證**，選取**MSI**若要使用您的 ADF 的受管理的身分識別，請參閱[Data factory 受控身分識別](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)文件，如需詳細資訊。
     5. 針對 [資源]，輸入 `https://management.azure.com/`。
     
        ![ADF Web 活動排程 SSIS IR](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)
@@ -348,7 +348,7 @@ ms.locfileid: "58092441"
 
 ## <a name="create-schedules-for-your-runbook-to-startstop-azure-ssis-ir"></a>為 Runbook 建立用來啟動/停止 Azure-SSIS IR 的排程
 
-在上一節中，您已建立可啟動或停止 Azure-SSIS IR 的 Azure 自動化 Runbook。 在本節中，您會為 Runbook 建立兩個排程。 設定第一個排程時，您會為 **OPERATION** 指定 **START**。 同理，在設定第二個排程時，您會為 **OPERATION** 指定 **STOP**。 如需建立排程的詳細步驟，請參閱[建立排程](../automation/automation-schedules.md#creating-a-schedule)一文。
+在上一節中，您已建立可啟動或停止 Azure-SSIS IR 的 Azure 自動化 Runbook。 在本節中，您會為 Runbook 建立兩個排程。 設定第一個排程時，您會為 **OPERATION** 指定 **START**。 同理，在設定第二個排程時，您會為 **OPERATION** 指定 **STOP**。 如需建立排程的詳細步驟，請參閱[建立排程](../automation/shared-resources/schedules.md#creating-a-schedule)一文。
 
 1. 在 [Runbook] 視窗中選取 [排程]，然後選取工具列上的 [+ 新增排程]。 
 

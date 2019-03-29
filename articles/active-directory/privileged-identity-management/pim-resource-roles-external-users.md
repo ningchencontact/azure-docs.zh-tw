@@ -1,6 +1,6 @@
 ---
-title: 邀請外部的來賓，並將 Azure AD 管理員角色-指派 Privileged Identity Management |Microsoft Docs
-description: 了解如何邀請來賓使用者，並將在 Azure AD Privileged Identity Management 中的 Azure Active Directory 系統管理員角色指派。
+title: 邀請來賓，並將 PIM-Azure Active Directory 中的 Azure 資源角色指派 |Microsoft Docs
+description: 了解如何邀請外部來賓使用者，並將在 Azure AD Privileged Identity Management (PIM) 中的 Azure 資源角色指派。
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 03/13/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68e76a4513d94cceb8e856c94ad6eae2bdab9c46
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 68c5e5e2ed0d3ec767a239439476a98bac73bcb4
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57853251"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576874"
 ---
-# <a name="invite-guest-users-and-assign-azure-resource-access-in-pim"></a>邀請來賓使用者，並在 PIM 中的 Azure 資源存取權指派
+# <a name="invite-guest-users-and-assign-azure-resource-roles-in-pim"></a>邀請來賓使用者，並將在 PIM 中的 Azure 資源角色指派
 
 Azure Active Directory (Azure AD) 企業對企業 (B2B) 是一組功能，可讓組織共同作業與外部來賓使用者 （來賓） 和廠商使用的任何帳戶的 Azure AD 內。 當您結合 B2B 與 Azure AD Privileged Identity Management (PIM) 時，您可以繼續為遊客套用您的合規性和控管需求。 例如，您可以使用 Azure 身分識別工作的這些 PIM 功能，來賓：
 

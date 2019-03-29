@@ -14,28 +14,32 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: f09e5dc2b4e15d0364b3091af82c9db2eb6833c7
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 9bf4f604386b47e4ca36df69fb140124b097f548
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500146"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576891"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Azure 資訊安全中心內的自訂警示規則 (預覽)
 本文件可協助您在 Azure 資訊安全中心內建立自訂警示規則。
 
+> [!NOTE]
+> 自訂警示即將淘汰，請閱讀更多在替代服務下方。
+
 ## <a name="retirement-of-custom-alert-rules-in-azure-security-center"></a>在 Azure 資訊安全中心中的停用的自訂警示規則
 
+自訂警示體驗將淘汰 2019 年 6 月 30 日，因為停用的 Azure 監視器傳統警示服務。 在取代之前時間範圍內，使用者將能夠編輯現有的自訂警示規則，但是不能加入新的。
+若要啟用建議使用者[Azure Sentinel](https://azure.microsoft.com/en-us/services/azure-sentinel/)與自動移轉其現有的警示和建立新的或或者重新建立其警示與 Azure 監視器的單鍵登入的記錄警示。
+                                     
+若要保留您現有的警示，並將它們移轉到 Azure 的 Sentinel，請[啟動 Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview)。 第一個步驟中，選取 [儲存您自訂的警示] 工作區，然後選取 「 分析 」 功能表項目，將會自動移轉您的警示。
+
 > [!NOTE]
-> 自訂警示體驗將淘汰 2019 年 6 月 30 日，因為停用的 Azure 監視器傳統警示服務。 在取代之前時間範圍內，使用者將能夠編輯現有的自訂警示規則，但是不能加入新的。
-> 若要啟用建議使用者[Azure Sentinel](https://azure.microsoft.com/en-us/services/azure-sentinel/)與自動移轉其現有的警示和建立新的或或者重新建立其警示與 Azure 監視器的單鍵登入的記錄警示。
->                                      
-> 若要保留您現有的警示，並將它們移轉到 Azure 的 Sentinel，請[啟動 Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview)。 第一個步驟中，選取 [儲存您自訂的警示] 工作區，然後選取 「 分析 」 功能表項目，將會自動移轉您的警示。
+> 自訂警示移轉至 Azure 的 Sentinel 是進行一次性移轉，在選取的工作區中所有您自訂警示。 在移轉完成之後，將無法透過 Azure 資訊安全中心可以存取該選取的工作區的自訂警示。
 >
-> * * 請注意，自訂警示移轉至 Azure 的 Sentinel 進行一次性移轉，在選取的工作區中所有您自訂警示。 在移轉完成之後，將無法透過 Azure 資訊安全中心可以存取該選取的工作區的自訂警示。
 > 使用自訂的警示[搜尋](https://docs.microsoft.com/en-us/azure/azure-monitor/log-query/search-queries)或是[聯集](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html)陳述式查詢不支援 Azure Sentinel，以及將不會移轉。 請執行移轉之前，編輯這些警示。
->
-> 若要重新建立您使用 Azure 監視器記錄警示的警示，請參閱：[建立、 檢視及管理使用 Azure 監視器的記錄警示](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log)如需有關如何建立記錄警示。 針對 Azure 監視器中的記錄警示的一般概觀，請按一下[此處](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-unified-log)。
+
+若要重新建立您使用 Azure 監視器記錄警示的警示，請參閱：[建立、 檢視及管理使用 Azure 監視器的記錄警示](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log)如需有關如何建立記錄警示。 針對 Azure 監視器中的記錄警示的一般概觀，請按一下[此處](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-unified-log)。
 
 ## <a name="what-are-custom-alert-rules-in-security-center"></a>何謂資訊安全中心內的自訂警示規則？
 

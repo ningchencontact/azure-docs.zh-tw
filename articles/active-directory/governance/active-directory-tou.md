@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 使用規定 | Microsoft Docs
-description: 描述如何開始使用 Azure AD 使用規定來在員工或來賓取得存取權之前向其呈現資訊。
+title: 使用-Azure Active Directory 中的條款 |Microsoft Docs
+description: 描述如何開始使用 Azure Active Directory 使用規定將資訊呈現給員工或來賓，才能存取。
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -15,12 +15,12 @@ ms.subservice: compliance
 ms.date: 03/24/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f6ac8a693e09d0efbac080d7effc6ce21c6a094
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 25a3eb6fdfc6928e2e414dcbe799861c3b2eb999
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418961"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576168"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 使用規定特性
 Azure AD 使用規定提供一種簡單的方法，組織可用來將資訊呈現給終端使用者。 此呈現可確保使用者看到合法或合規性需求的相關免責聲明。 本文將說明如何開始使用使用規定。

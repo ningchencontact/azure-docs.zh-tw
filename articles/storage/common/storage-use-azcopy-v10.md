@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/24/2019
 ms.author: artemuwka
 ms.subservice: common
-ms.openlocfilehash: ffc4a0c57681e877250c7be82f5160174178892a
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ad3e96af95d952956af02acfd87d6d317bc29ed0
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486014"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574972"
 ---
 # <a name="transfer-data-with-azcopy-v10-preview"></a>使用 AzCopy v10 傳輸資料 （預覽）
 
@@ -65,7 +65,7 @@ AzCopy v10 不需要安裝。 開啟您慣用的命令列應用程式，並瀏�
 > [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)，桌面的用戶端，可簡化管理的 Azure 儲存體資料，現在使用 AzCopy 來加速資料傳輸及移出 Azure 儲存體。
 >
 > 啟用下的儲存體總管中的 AzCopy**預覽**功能表。
-> ![為 Azure 儲存體總管中的傳輸引擎讓 AzCopy](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
+> ![在 Azure 存储资源管理器中启用 AzCopy 作为传输引擎](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
 
 AzCopy v10 語法自行記錄。 當您已登入 Azure Active Directory 時，一般的語法看起來如下所示：
 
@@ -175,8 +175,8 @@ AzCopy v10 依預設會將資料上傳至區塊 Blob。 不過，如果原始程
 
 > [!NOTE] 
 > 使用`--delete-destination`謹慎的旗標。 啟用[虛刪除](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)功能才能啟用以防止意外刪除您帳戶中的同步處理的刪除行為。 
-
-> 當`--delete-destination`設為 true，則 AzCopy 會刪除不存在於目的地，而不需要任何提示的來源給使用者的檔案。 如果您想要收到確認提示，使用`--delete-destination=prompt`。
+>
+> 将 `--delete-destination` 设置为 true 时，AzCopy 会在不提示用户的情况下，从目标中删除源中不存在的文件。 如果您想要收到確認提示，使用`--delete-destination=prompt`。
 
 若要將本機檔案系統同步處理到儲存體帳戶，請使用下列命令：
 

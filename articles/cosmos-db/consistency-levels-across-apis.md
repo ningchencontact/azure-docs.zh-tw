@@ -7,75 +7,51 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: sngun
-ms.openlocfilehash: b620ca76cfea296e504afffd91852308a01575db
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 902303a8f55f4494e0cc6c21b0438e41437c0567
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001958"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620660"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>一致性層級與 Azure Cosmos DB API
 
-Azure Cosmos DB 所提供的五個一致性模型都受到 SQL API 原生支援。 當您使用 Azure Cosmos DB 時，SQL API 是預設值。 
+Azure Cosmos DB 會提供原生支援的網路通訊協定相容的 Api，針對熱門的資料庫。 這些包括 MongoDB、 Apache Cassandra、 Gremlin 和 Azure 資料表儲存體。 這些資料庫不提供精確地定義的一致性模型或 SLA 為後盾的一致性層級的保證。 它們通常只提供由 Azure Cosmos DB 所提供的五個一致性模型子集。 
 
-Azure Cosmos DB 也會針對熱門資料庫來為與網路通訊協定相容的 API 提供原生支援。 這些資料庫包括 MongoDB、Apache Cassandra、Gremlin 和 Azure 資料表儲存體。 這些資料庫不提供精確定義的一致性模型，也不提供對於一致性層級的 SLA 支援保證。 它們通常只提供由 Azure Cosmos DB 所提供的五個一致性模型子集。 針對 SQL API、Gremlin API 及資料表 API，會使用 Azure Cosmos 帳戶上設定的預設一致性層級。 
+使用 SQL API、 Gremlin API 和資料表 API 時，會使用 Azure Cosmos 帳戶上設定的預設一致性層級。 
 
-下列各節顯示 Apache Cassandra 和 MongoDB 之 OSS 用戶端驅動程式所要求的資料一致性與 Azure Cosmos DB 中相對應一致性層級之間的對應。
+當使用適用於 MongoDB 的 Cassandra API 或 Azure Cosmos DB 的 API，應用程式會取得一組完整的一致性層級分別提供 Apache Cassandra 和 MongoDB，甚至更強的一致性和持久性保證。 這份文件會顯示對應的 Azure Cosmos DB 一致性層級的 Apache Cassandra 與 MongoDB 的一致性層級。
+
 
 ## <a id="cassandra-mapping"></a>Apache Cassandra 與 Azure Cosmos DB 一致性層級之間的對應
 
-下表說明使用者針對 Cassandra API 與對等的 Cosmos DB 原生一致性層級對應，可使用的各種一致性組合。 Apache Cassandra 寫入和讀取模式的所有組合都受到 Cosmos DB 原生支援。 在每個 Apache Cassandra 寫入和讀取一致性模型組合中，Cosmos DB 都會提供與 Apache Cassandra 相等或更高的一致性保證。 此外，Cosmos DB 也會提供比 Apache Cassandra 更高的持久性保證，即使是在最弱的寫入模式下也一樣。
+不同於 AzureCosmos DB Apache Cassandra 並不會以原生方式提供精確地定義的一致性保證。  相反地，Apache Cassandra 提供寫入的一致性層級和讀取的一致性層級，若要啟用的高可用性、 一致性和延遲的取捨。 當使用 Azure Cosmos DB 的 Cassandra API: 
 
-下表顯示 Azure Cosmos DB 和 Cassandra 之間的**寫入一致性對應**：
+* Apache Cassandra 的寫一致性層級會對應至您的 Azure Cosmos 帳戶上設定的預設一致性層級。 
 
-| Cassandra | Azure Cosmos DB | 保證 |
-| - | - | - |
-|ALL|強式  | 線性化能力 |
-| EACH_QUORUM   | 強式    | 線性化能力 | 
-| QUORUM、SERIAL |  強式 |    線性化能力 |
-| LOCAL_QUORUM、THREE、TWO、ONE、LOCAL_ONE、ANY | 一致前置詞 |全域一致前置詞 |
-| EACH_QUORUM   | 強式    | 線性化能力 |
-| QUORUM、SERIAL |  強式 |    線性化能力 |
-| LOCAL_QUORUM、THREE、TWO、ONE、LOCAL_ONE、ANY | 一致前置詞 | 全域一致前置詞 |
-| QUORUM、SERIAL | 強式   | 線性化能力 |
-| LOCAL_QUORUM、THREE、TWO、ONE、LOCAL_ONE、ANY | 一致前置詞 | 全域一致前置詞 |
-| LOCAL_QUORUM、LOCAL_SERIAL、TWO、THREE    | 限定過期 | <ul><li>限定過期。</li><li>在大部分的 K 版本或 t 時間之後。</li><li>讀取區域中最新的認可值。</li></ul> |
-| ONE、LOCAL_ONE、ANY   | 一致前置詞 | 每個區域一致前置詞 |
+* Azure Cosmos DB 會以動態方式將 Cassandra 用戶端驅動程式，以動態方式設定的讀取要求上的 Azure Cosmos DB 一致性層級的其中一個所指定的讀取的一致性層級的對應。 
 
-下表顯示 Azure Cosmos DB 和 Cassandra 之間的**讀取一致性對應**：
+下表將說明如何在原生的 Cassandra 一致性層級對應至 Azure Cosmos DB 的一致性層級使用 Cassandra API 時：  
 
-| Cassandra | Azure Cosmos DB | 保證 |
-| - | - | - |
-| ALL、QUORUM、SERIAL、LOCAL_QUORUM、LOCAL_SERIAL、THREE、TWO、ONE、LOCAL_ONE | 強式  | 線性化能力|
-| ALL、QUORUM、SERIAL、LOCAL_QUORUM、LOCAL_SERIAL、THREE、TWO   |強式 |   線性化能力 |
-|LOCAL_ONE、ONE | 一致前置詞 | 全域一致前置詞 |
-| ALL、QUORUM、SERIAL   | 強式    | 線性化能力 |
-| LOCAL_ONE、ONE、LOCAL_QUORUM、LOCAL_SERIAL、TWO、THREE |  一致前置詞   | 全域一致前置詞 |
-| LOCAL_ONE、ONE、TWO、THREE、LOCAL_QUORUM、QUORUM |    一致前置詞   | 全域一致前置詞 |
-| ALL、QUORUM、SERIAL、LOCAL_QUORUM、LOCAL_SERIAL、THREE、TWO   |強式 |   線性化能力 |
-| LOCAL_ONE、ONE    | 一致前置詞 | 全域一致前置詞|
-| ALL、QUORUM、SERIAL   Strong  Linearizability
-LOCAL_ONE、ONE、LOCAL_QUORUM、LOCAL_SERIAL、TWO、THREE  |一致前置詞  | 全域一致前置詞 |
-|ALL    |強式 |線性化能力 |
-| LOCAL_ONE、ONE、TWO、THREE、LOCAL_QUORUM、QUORUM  |一致前置詞  |全域一致前置詞|
-|ALL、QUORUM、SERIAL    Strong  Linearizability
-LOCAL_ONE、ONE、LOCAL_QUORUM、LOCAL_SERIAL、TWO、THREE  |一致前置詞  |全域一致前置詞 |
-|ALL    |強式 | 線性化能力 |
-| LOCAL_ONE、ONE、TWO、THREE、LOCAL_QUORUM、QUORUM  | 一致前置詞 | 全域一致前置詞 |
-| QUORUM、LOCAL_QUORUM、LOCAL_SERIAL、TWO、THREE |  限定過期   | <ul><li>限定過期。</li><li>在大部分的 K 版本或 t 時間之後。 </li><li>讀取區域中最新的認可值。</li></ul>
-| LOCAL_ONE、ONE |一致前置詞 | 每個區域一致前置詞 |
-| LOCAL_ONE、ONE、TWO、THREE、LOCAL_QUORUM、QUORUM  | 一致前置詞 | 每個區域一致前置詞 |
+[ ![Cassandra 的一致性模型對應](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png) ](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
 
+## <a id="mongo-mapping"></a>MongoDB 和 Azure Cosmos DB 的一致性層級之間的對應
 
-## <a id="mongo-mapping"></a>MongoDB 3.4 和 Azure Cosmos DB 一致性層級之間的對應
+原生 MongoDB 不像 Azure Cosmos DB 中，無法提供精確地定義的一致性保證。 相反地，原生 MongoDB 可讓使用者設定下列的一致性保證： 寫入考量、 讀取的問題和 Ismaster="0 指示詞-導向到主要或次要複本，以達到所需的一致性層級的讀取的作業。 
 
-下表顯示 MongoDB 3.4 與 Azure Cosmos DB 中預設一致性層級之間的「讀取考量」對應。 下表顯示多個區域和單一區域的部署。
+使用適用於 MongoDB 的 Azure Cosmos DB 的 API，MongoDB 驅動程式會將您的寫入區域視為主要複本和所有其他區域所讀取的複本。 您可以選擇與您的 Azure Cosmos 帳戶作為主要的複本相關聯的區域。 
 
-| **MongoDB 3.4** | **Azure Cosmos DB (多個區域)** | **Azure Cosmos DB (單一區域)** |
-| - | - | - |
-| 線性 | 強式 | 強式 |
-| 多數 | 界限-陳舊 | 強式 |
-| 本機 | 一致的前置詞 | 一致的前置詞 |
+同時使用適用於 MongoDB 的 Azure Cosmos DB 的 API:
+
+* 寫入考量會對應至您的 Azure Cosmos 帳戶上設定的預設一致性層級。
+ 
+* Azure Cosmos DB 會以動態方式將對應 MongoDB 用戶端驅動程式，以動態方式設定的讀取要求的 Azure Cosmos DB 一致性層級的其中一個所指定的讀取的考量。 
+
+* 您可以標註藉由第一個可寫入區域的區域，與您的 Azure Cosmos 帳戶，作為 「 主要 」 相關聯的特定區域。 
+
+下表說明原生 MongoDB 寫入/讀取考量的如何使用適用於 MongoDB 的 Azure Cosmos DB 的 API 時，會對應至 Azure Cosmos 一致性層級：
+
+[ ![MongoDB 的一致性模型對應](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png) ](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: c5be8af71fcbdf6f38f878c70180f38227070245
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: bb45062697b113b676f85381f0653c14ac8c0c67
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499320"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621224"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄
 
@@ -46,7 +46,7 @@ ms.locfileid: "58499320"
 - Azure 監視器 REST API
 - Azure Resource Manager 範本
 
-當您啟用計量和診斷記錄功能時，您必須指定收集診斷遙測的 Azure 資源目的地。 可用的選項包括：
+启用指标和诊断日志记录时，需要指定收集诊断遥测数据的 Azure 资源目标。 可用的選項包括：
 
 - Azure SQL 分析
 - Azure 事件中心
@@ -72,11 +72,11 @@ ms.locfileid: "58499320"
 | [SQLInsights](#intelligent-insights-dataset)：將 Intelligent Insights 納入效能。 若要深入了解，請參閱 [Intelligent Insights](sql-database-intelligent-insights.md)。 | 是 | 是 |
 
 > [!IMPORTANT]
-> 彈性集區和受管理的執行個體都有自己個別的診斷遙測，從其所包含的資料庫。 這是因為診斷遙測已個別針對每個資源，請注意，如下所述。
+> 彈性集區和受管理的執行個體都有自己個別的診斷遙測，從其所包含的資料庫。 这是必须注意的，因为诊断遥测数据是为每个这样的资源单独配置的，如下所述。
 
 ## <a name="azure-portal"></a>Azure 入口網站
 
-您可以使用**診斷設定**功能表每寫單一、 集區，或執行個體在 Azure 入口網站來設定診斷遙測串流中的資料庫。 此外，診斷遙測也可以設定個別資料庫的容器： 彈性集區和受管理的執行個體。 您可以設定串流診斷遙測的下列目的地：Azure 儲存體、 Azure 事件中樞和 Azure 監視器的記錄。
+您可以使用**診斷設定**功能表每寫單一、 集區，或執行個體在 Azure 入口網站來設定診斷遙測串流中的資料庫。 此外，診斷遙測也可以設定個別資料庫的容器： 彈性集區和受管理的執行個體。 可设置以下目标来流式传输诊断遥测数据：Azure 儲存體、 Azure 事件中樞和 Azure 監視器的記錄。
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-elastic-pools"></a>設定彈性集區診斷遙測的串流處理
 
@@ -112,7 +112,7 @@ ms.locfileid: "58499320"
 1. 此外，設定診斷遙測，為您想要在下一節中所述的下列步驟來監視彈性集區中每個資料庫的資料流。
 
 > [!IMPORTANT]
-> 除了設定彈性集區的診斷遙測，您也需要設定診斷遙測的每個資料庫在彈性集區中，如下所述。 
+> 除了为弹性池配置诊断遥测数据，还需为弹性池中的每个数据库配置诊断遥测数据，如下所述。 
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>設定診斷遙測的單一資料庫或彈性集區中的資料庫的資料流
 
@@ -148,7 +148,7 @@ ms.locfileid: "58499320"
 
 | 資源 | 監視遙測 |
 | :------------------- | ------------------- |
-| **受控執行個體** | ResourceUsageStats 含有虛擬核心計數、 平均 CPU 百分比、 IO 要求的位元組讀取/寫入 」、 「 保留的存放裝置空間，並使用儲存空間。 |
+| **受控執行個體** | [ResourceUsageStats](#resource-usage-stats-for-managed-instance) 包含 V 核心計數、平均 CPU 百分比、IO 要求、讀取/寫入的位元組、保留的儲存空間，以及使用的儲存空間。 |
 
 若要設定的受管理的執行個體和資料庫執行個體的診斷遙測串流，您必須個別設定**兩者**下列動作：
 
@@ -261,7 +261,7 @@ ms.locfileid: "58499320"
 您可以使用 Azure CLI 啟用計量和診斷記錄功能。
 
 > [!NOTE]
-> Azure CLI v1.0 支援指令碼，以啟用診斷記錄。 請注意，CLI v2.0 不支援這一次。
+> Azure CLI v1.0 支持通过脚本来启用诊断日志记录。 请注意，目前不支持 CLI v2.0。
 
 - 若要啟用儲存體帳戶中診斷記錄的儲存體，請使用下列命令：
 
@@ -420,9 +420,9 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |---|---|
 |Azure SQL Database|DTU 百分比、使用的 DTU、DTU 限制、CPU 百分比、實體資料讀取百分比、記錄寫入百分比、成功/失敗/防火牆封鎖的連線、工作階段百分比、背景工作百分比、儲存體、儲存體百分比、XTP 儲存體百分比和死結 |
 
-## <a name="all-logs"></a>所有記錄檔
+## <a name="all-logs"></a>所有日志
 
-適用於所有記錄檔的遙測的詳細資料會顯示在下表中。 請參閱[支援診斷記錄](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases)來了解特定的資料庫類別-單一 Azure SQL 支援的記錄集區，或執行個體的資料庫。
+适用于所有日志的遥测数据详见下面的表。 請參閱[支援診斷記錄](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases)來了解特定的資料庫類別-單一 Azure SQL 支援的記錄集區，或執行個體的資料庫。
 
 ### <a name="resource-usage-stats-for-managed-instance"></a>受控執行個體的資源使用量統計資料
 

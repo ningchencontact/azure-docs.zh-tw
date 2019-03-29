@@ -1,5 +1,5 @@
 ---
-title: 開始使用 PIM - Azure | Microsoft Docs
+title: 開始使用 PIM-Azure Active Directory |Microsoft Docs
 description: 了解如何在 Azure 入口網站中啟用及開始使用 Azure AD Privileged Identity Management (PIM)。
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.date: 11/09/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26e94c9b56ba65e3a7c51c1a85e97f7521377bae
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 00a93b23b5967e8b6b881f5d1fe6adcd89b0f77b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546852"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576736"
 ---
 # <a name="start-using-pim"></a>開始使用 PIM
 
@@ -38,7 +38,7 @@ ms.locfileid: "57546852"
 
 ## <a name="first-person-to-use-pim"></a>使用 PIM 的第一個人
 
-如果您是目錄中使用 PIM 的第一人，則會自動獲指派目錄中的[安全性系統管理員](../users-groups-roles/directory-assign-admin-roles.md#security-administrator)和[特殊權限角色管理員](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)角色。 只有特殊權限角色管理員才能管理使用者的 Azure AD Directory 角色指派。 此外，您也可以選擇執行[安全性精靈](pim-security-wizard.md)，讓其引導您完成初始的探索和指派體驗。
+如果您是目錄中使用 PIM 的第一人，則會自動獲指派目錄中的[安全性系統管理員](../users-groups-roles/directory-assign-admin-roles.md#security-administrator)和[特殊權限角色管理員](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)角色。 只有特殊權限的角色系統管理員可以管理 Azure AD 角色指派的使用者。 此外，您也可以選擇執行[安全性精靈](pim-security-wizard.md)，讓其引導您完成初始的探索和指派體驗。
 
 ## <a name="enable-pim"></a>啟用 PIM
 
@@ -108,7 +108,7 @@ PIM 設定完成後，您可以執行身分識別管理工作。
 | **我的要求** | 顯示您啟動合格角色指派的任何擱置要求。 |
 | **核准要求** | 顯示一個清單，列出您目錄中的使用者為了啟動合格角色所提出的要求，而此目錄是指定給您以進行核准的目錄。 |
 | **檢閱存取** | 列出指派給您完成的使用中存取權檢閱 (無論您是在檢閱自己還是他人的存取權)。 |
-| **Azure AD 角色** | 顯示儀表板和設定，讓特殊權限角色管理員可管理 Azure AD Directory 角色指派。 對於任何不是特殊權限角色管理員的人員，系統會停用此儀表板。 這些使用者可以存取標題為 [我的檢視] 的特殊儀表板。 [我的檢視] 儀表板只會顯示存取儀表板的使用者，而非整個租用戶的相關資訊。 |
+| **Azure AD 角色** | 會顯示在儀表板和特殊權限的角色管理員用來管理 Azure AD 角色指派的設定。 對於任何不是特殊權限角色管理員的人員，系統會停用此儀表板。 這些使用者可以存取標題為 [我的檢視] 的特殊儀表板。 [我的檢視] 儀表板只會顯示存取儀表板的使用者，而非整個租用戶的相關資訊。 |
 | **Azure 資源** | 顯示儀表板和設定，讓特殊權限角色管理員可管理 Azure 資源角色指派。 對於任何不是特殊權限角色管理員的人員，系統會停用此儀表板。 這些使用者可以存取標題為 [我的檢視] 的特殊儀表板。 [我的檢視] 儀表板只會顯示存取儀表板的使用者，而非整個租用戶的相關資訊。 |
 
 ## <a name="add-a-pim-tile-to-the-dashboard"></a>將 PIM 圖格新增至儀表板
@@ -133,5 +133,5 @@ PIM 設定完成後，您可以執行身分識別管理工作。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [在 PIM 中指派 Azure AD 目錄角色](pim-how-to-add-role-to-user.md)
+- [將 Azure AD PIM 中的角色指派](pim-how-to-add-role-to-user.md)
 - [在 PIM 中探索要管理的 Azure 資源](pim-resource-roles-discover-resources.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 23bc4d0df1c8124ec225ac31239c7acb3f1ab546
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 2ace8ffd82efe70251b48e20593906986173cbb0
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541808"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577795"
 ---
 # <a name="security-agent-authentication-methods"></a>安全性代理程式驗證方法 
 
@@ -41,10 +41,12 @@ AzureIoTSecurity 代理程式來執行驗證之兩種方法：
 
  - **模組**驗證模式<br>
    模組是獨立的裝置對應項進行驗證。
-   這種類型的驗證中定義的 Authentication.config 檔案所需的資訊C#和用於 C LocalConfiguration.json
+   如果您想要使用專用的驗證方法，透過安全性模組 （只有對稱金鑰） 的安全性代理程式，請使用這個驗證類型。
         
  - **裝置**驗證模式<br>
-    在此方法中，安全性代理程式第一次對進行驗證的裝置。 初始驗證之後，執行 IoT 代理程式 ASC **Rest**到 IoT 中樞與裝置的驗證資料使用 Rest API 呼叫。 IoT 代理程式 ASC 接著要求的安全性模組驗證方法和資料，從 IoT 中樞。 在最後一個步驟中，ASC IoT 代理程式會執行 IoT 模組驗證 ASC。    
+    在此方法中，安全性代理程式第一次驗證的裝置身分識別。 初始驗證之後，執行 IoT 代理程式 ASC **REST**到 IoT 中樞與裝置的驗證資料使用 REST API 呼叫。 IoT 代理程式 ASC 接著要求的安全性模組驗證方法和資料，從 IoT 中樞。 在最後一個步驟中，ASC IoT 代理程式會執行 IoT 模組驗證 ASC。
+    
+    如果您想要重複使用現有的裝置驗證方法 （已自我簽署憑證或對稱金鑰） 的安全性代理程式，請使用這個驗證類型。 
 
 請參閱[安全性代理程式的安裝參數](#security-agent-installation-parameters)以了解如何設定。
                                 
@@ -55,7 +57,7 @@ AzureIoTSecurity 代理程式來執行驗證之兩種方法：
 
 ## <a name="security-agent-installation-parameters"></a>安全性代理程式的安裝參數
 
-當[部署安全性代理程式](select-deploy-agent.md)，必須提供驗證詳細資料，做為引數。
+當[部署安全性代理程式](how-to-deploy-agent.md)，必須提供驗證詳細資料，做為引數。
 下表會記錄這些引數。
 
 
@@ -111,5 +113,5 @@ AzureIoTSecurity 代理程式來執行驗證之兩種方法：
 
 ## <a name="see-also"></a>請參閱
 - [安全性代理程式概觀](security-agent-architecture.md)
-- [部署安全性代理程式](select-deploy-agent.md)
+- [部署安全性代理程式](how-to-deploy-agent.md)
 - [存取未經處理的安全性資料](how-to-security-data-access.md)
