@@ -24,7 +24,7 @@ ms.locfileid: "57884234"
 
 您可以使用執行 Windows、macOS 或 Linux 的電腦或虛擬機器作為開發電腦。 IoT Edge 裝置可以是另一部實體裝置。
 
-針對以 C#、Node.js 或 Java 撰寫的模組，有兩種方式可讓您在 Visual Studio Code 中對模組進行偵錯：您可以在模組容器中附加程序，或在偵錯模式中啟動模組程式碼。 針對以 Python 或 C 撰寫的模組，只能透過在 Linux amd64 容器中將其附加至程序來進行偵錯。
+針對以 C#、Node.js 或 Java 撰寫的模組，有兩種方式可讓您在 Visual Studio Code 中對模組進行偵錯：您可以在模組容器中附加程序，或在偵錯模式中啟動模組程式碼。 用 Python 或 C 撰寫的模組需先透過 Linux amd64 容器附加至程序才能加以偵錯。
 
 > [!TIP]
 > 如果您不熟悉 Visual Studio Code 的偵錯功能，請參閱[偵錯](https://code.visualstudio.com/Docs/editor/debugging)。
@@ -49,7 +49,7 @@ ms.locfileid: "57884234"
     pip install --upgrade --user cookiecutter
     ```
 
-- Node.js：[Node.js](https://nodejs.org). 您也想要安裝 [Yeoman](https://www.npmjs.com/package/yo) 和 [Azure IoT Edge Node.js Module Generator](https://www.npmjs.com/package/generator-azure-iot-edge-module)。
+- Node.js：[Node.js](https://nodejs.org). 您也要安裝 [Yeoman](https://www.npmjs.com/package/yo) 和 [Azure IoT Edge Node.js Module Generator](https://www.npmjs.com/package/generator-azure-iot-edge-module)。
 
 - Java：[Java SE 開發套件 10](https://aka.ms/azure-jdks) 和 [Maven](https://maven.apache.org/)。 您必須[設定 `JAVA_HOME` 環境變數](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/)指向 JDK 安裝。
 
@@ -81,7 +81,7 @@ ms.locfileid: "57884234"
 
    ![執行新的 IoT Edge 解決方案](./media/how-to-develop-csharp-module/new-solution.png)
 
-1. 瀏覽至您要建立新解決方案所在的資料夾，然後選取 [選取資料夾]。
+1. 瀏覽至要用來建立新解決方案的資料夾，然後選取 [選取資料夾]。
 
 1. 輸入解決方案的名稱。
 
