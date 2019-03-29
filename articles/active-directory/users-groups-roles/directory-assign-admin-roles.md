@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 03/27/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b62b710a7217792276392e8815013848ef607733
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 48142961e4b6714090441b24e4bd6ca07afaf598
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522361"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622241"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
@@ -884,7 +884,7 @@ ms.locfileid: "58522361"
 | microsoft.office365.supportTickets/allEntities/allTasks | 建立和管理 Office 365 支援票證。 |
 
 ### <a name="privileged-authentication-administrator"></a>特殊權限驗證管理員
-可檢視、設定及重設所有使用者 (管理員或非管理員) 的驗證方法資訊。
+可以檢視、 設定及重設為任何使用者 （系統管理員或非系統管理員） 的驗證方法資訊。
 
 | **動作** | **說明** |
 | --- | --- |
@@ -1127,6 +1127,7 @@ ms.locfileid: "58522361"
 ----------------- | ------------------------- | -------------------------
 應用程式系統管理員 | 應用程式管理員 | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 應用程式開發人員 | 應用程式開發人員 | CF1C38E5-3621-4004-A7CB-879624DCED7C
+驗證系統管理員 | 驗證系統管理員 | c4e39bd9-1100-46d3-8c65-fb160da0071f
 計費管理員 | 計費管理員 | b0f54661-2d74-4c50-afa3-1ec803f12efe
 電腦分析系統管理員 | 電腦分析系統管理員 | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
 雲端應用程式系統管理員 | 雲端應用程式系統管理員 | 158c047a-c907-4556-b7ef-446551a6b5f7
@@ -1154,6 +1155,7 @@ Lync 服務管理員 | 商務用 Skype 的管理員 | 75941009-915a-4869-abe7-69
 合作夥伴第 1 層支援 | 合作夥伴第 1 層支援 | 4ba39ca4-527c-499a-b93d-d9b492c50246
 合作夥伴第 2 層支援 | 合作夥伴第 2 層支援 | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 Power BI 服務管理員 | Power BI 管理員 | a9ea8996-122f-4c74-9520-8edcd192826c
+特殊權限驗證管理員 | 特殊權限的驗證系統管理員 | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
 特殊權限角色管理員 | 特殊權限角色管理員 | e8611ab8-c189-46e8-94e1-60213ab1f814
 報告讀者 | 報表讀者 | 4a5d8f65-41da-4de4-8968-e035b65339cf
 安全性系統管理員 | 安全性系統管理員 | 194ae4cb-b126-40b2-bd5b-6091b380977d

@@ -11,18 +11,32 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/30/2018
+ms.date: 03/27/2018
 ms.author: magoedte
-ms.openlocfilehash: abf833cc054bfac0581506f75259e357f0ab1b38
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: db4b468c03d93b073067083f4fae1ec86c70dde8
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985745"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577031"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>對適用於容器的 Azure 監視器進行疑難排解
 
 當您設定使用適用於容器的 Azure 監視器來監視 Azure Kubernetes Service (AKS) 叢集時，您可能會遇到阻止資料收集或報告狀態的問題。 本文將詳細說明一些常見問題與疑難排解步驟。
+
+## <a name="authorization-error-during-onboarding-or-update-operation"></a>上架或更新作業期間的授權錯誤
+在啟用適用於容器的 Azure 監視器，或更新的叢集，以支援收集計量，您可能會收到錯誤類似於下列-*用戶端 < 使用者的身分識別 >' 與物件識別碼 '< 使用者的 objectId >' 沒有執行動作 'Microsoft.Authorization/roleAssignments/write' 範圍*
+
+在上架或更新的過程中，授與**監視計量發行者**角色指派會嘗試在叢集資源。 使用者起始的處理序啟用容器或更新的 Azure 監視器，以支援的度量集合必須有存取權**Microsoft.Authorization/roleAssignments/write** AKS 叢集上的權限資源範圍。 只有成員**擁有者**並**使用者存取系統管理員**內建角色會授與此權限存取權。 如果您的安全性原則需要指派更細微的層級權限，我們建議您檢視[自訂角色](../../role-based-access-control/custom-roles.md)並將它指派給需要它的使用者。 
+
+您可以也手動授與此角色在 Azure 入口網站執行下列步驟：
+
+1. 登入 [Azure 入口網站](https://portal.azure.com)。 
+2. 在 Azure 入口網站中，按一下左上角的 [所有服務]。 在資源清單中，輸入**Kubernetes**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取  **Azure Kubernetes**。
+3. 在 Kubernetes 叢集清單中，選取 從清單。
+2. 從左側功能表中，按一下**存取控制 (IAM)**。
+3. 選取 **+ 新增**新增角色指派，然後選取**監視計量發行者**角色，並在**選取**方塊中輸入**AKS**至篩選條件的結果，只在叢集上服務的訂用帳戶中定義的主體。 選取從該叢集的特定清單。
+4. 選取 [儲存] 以完成角色指派。 
 
 ## <a name="azure-monitor-for-containers-is-enabled-but-not-reporting-any-information"></a>適用於容器的 Azure 監視器已啟用但未報告任何資訊
 如果已成功啟用並設定，適用於容器的 Azure 監視器，但您無法檢視狀態資訊，或從記錄檔查詢會傳回任何結果，您會診斷此問題，依照下列步驟： 

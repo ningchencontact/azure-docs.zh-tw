@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
 ms.date: 01/15/2019
-ms.openlocfilehash: e196a7a0b1ad29462aa7e2fb60fcb5d07c57eea7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 660d785baf12052bddf5206d8641116c9ac606aa
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886656"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575091"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>藉由使用 SSH 和 Azure Logic Apps 來監視、建立及管理 SFTP 檔案
 
@@ -27,10 +27,16 @@ ms.locfileid: "57886656"
 * 取得檔案內容與中繼資料。
 * 將封存檔案解壓縮到資料夾。
 
-相較於 [SFTP 連接器](../connectors/connectors-create-api-sftp.md)，SFTP-SSH 連接器可藉由將資料分成 50 MB 大小的片段來管理，讀取或寫入最大達 *1 GB* 的檔案。 針對大於 1 GB 的檔案，動作可以使用[訊息區塊化](../logic-apps/logic-apps-handle-large-messages.md)。 如需其他差異的資訊，請檢閱本文章稍後的[比較 SFTP-SSH 和 SFTP](#comparison) 一節。
-
 您可以使用觸發程序來監視 SFTP 伺服器上的事件，並讓輸出可供其他動作使用。 您可以使用動作，在 SFTP 伺服器上執行各種工作。 您也可以讓邏輯應用程式中的其他動作使用 SFTP 動作的輸出。 例如，如果您定期從 SFTP 伺服器擷取檔案，可以藉由使用 Office 365 Outlook 連接器或 Outlook.com 連接器，傳送關於那些檔案及其內容的電子郵件警示。
 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)
+
+## <a name="limits"></a>限制
+
+* SFTP-SSH 動作才能讀取或寫入的檔案*1GB 或更小*藉由管理資料做為*50 MB 項*，不是 1 GB 片段。
+
+* 檔案*大於 1 GB*，可以使用動作[訊息區塊處理](../logic-apps/logic-apps-handle-large-messages.md)。 目前，SFTP-SSH 觸發程序不支援區塊處理。
+
+如需更多的差異，請檢閱[比較 SFTP-SSH 和 SFTP](#comparison)稍後的下一節。
 
 <a name="comparison"></a>
 
@@ -38,23 +44,23 @@ ms.locfileid: "57886656"
 
 以下是 SFTP-SSH 連接器與 SFTP 連接器之間的其他主要差異，其中 SFTP-SSH 連接器具備這些功能：
 
-* 使用 <a href="https://github.com/sshnet/SSH.NET" target="_blank">**SSH.NET**</a> 程式庫，這是一個支援 .NET 的開放原始碼安全殼層 (SSH) 程式庫。 
+* 使用 <a href="https://github.com/sshnet/SSH.NET" target="_blank">**SSH.NET**</a> 程式庫，這是一個支援 .NET 的開放原始碼安全殼層 (SSH) 程式庫。
 
   > [!NOTE]
   >
   > SFTP-SSH 連接器*只*支援這些私密金鑰、格式、演算法和指紋：
-  > 
+  >
   > * **私密金鑰格式**：OpenSSH 和 ssh.com 格式的 RSA (Rivest Shamir Adleman) 與 DSA (Digital Signature Algorithm) 金鑰
   > * **加密演算法**：DES-EDE3-CBC、DES-EDE3-CFB、 DES-CBC、AES-128-CBC、AES-192-CBC 和 AES-256-CBC
   > * **指紋**：MD5
 
-* 相較於 SFTP 連接器，可讀取或寫入最大 *1GB* 的檔案，但可處理 50 MB 的資料，而非 1 GB 的資料。 針對大於 1 GB 的檔案，動作也可以使用[訊息區塊化](../logic-apps/logic-apps-handle-large-messages.md)。 目前，觸發程序不支援區塊化。
+* 動作可以讀取或寫入檔案*最多 1 GB*相較於 SFTP 連接器，但 50 MB 項，不是 1 GB 中的控制代碼資料片段。 針對大於 1 GB 的檔案，動作也可以使用[訊息區塊化](../logic-apps/logic-apps-handle-large-messages.md)。 目前，SFTP-SSH 觸發程序不支援區塊處理。
 
 * 提供**建立資料夾**動作，可在 SFTP 伺服器上指定的路徑中建立資料夾。
 
 * 提供**重新命名檔案**動作，可重新命名 SFTP 伺服器上的檔案。
 
-* 可將連線快取至 SFTP 伺服器*最多 1 小時*，這可以改善效能並減少嘗試連線伺服器的次數。 若要設定此快取行為的持續期間，請編輯 SFTP 伺服器 SSH 組態中的 <a href="https://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank">**ClientAliveInterval**</a> 屬性。 
+* 可將連線快取至 SFTP 伺服器*最多 1 小時*，這可以改善效能並減少嘗試連線伺服器的次數。 若要設定此快取行為的持續期間，請編輯 SFTP 伺服器 SSH 組態中的 <a href="https://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank">**ClientAliveInterval**</a> 屬性。
 
 ## <a name="prerequisites"></a>必要條件
 

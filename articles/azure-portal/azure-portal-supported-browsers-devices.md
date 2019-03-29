@@ -12,23 +12,22 @@ ms.workload: multiple
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/02/2018
+ms.date: 03/27/2019
 ms.author: kfollis
 ms.custom: accessibility
-ms.openlocfilehash: c9425875685236db99d78506e23f879d39d94ce5
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: 1595d744fbfda47a9db9ff27de09cd53c6f73ece
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888748"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576389"
 ---
-# <a name="supported-browsers-and-devices-for-the-azure-portal"></a>Azure 入口網站支援的瀏覽器和裝置
-您可以在所有新式的桌上型電腦、平板電腦裝置和瀏覽器上執行 [Azure 入口網站](https://portal.azure.com)。
+# <a name="supported-devices"></a>支援的裝置
 
-### <a name="supported-devices"></a>支援的裝置
-Azure 入口網站可在新式的 PC、Mac 和平板電腦上順利執行。 如果您需要從行動裝置管理 Azure 資源，請嘗試適用於 iPhone 和 Android 的 Azure 行動應用程式。 如需詳細資訊，請參閱 [Azure 行動應用程式](https://azure.microsoft.com/features/azure-portal/mobile-app/)。
+[Azure 入口網站](https://portal.azure.com)是網頁型主控台，並在所有新式的桌上型電腦和平板電腦裝置的瀏覽器中執行。 如果您需要從行動裝置管理 Azure 資源，請嘗試[Azure 行動應用程式](https://azure.microsoft.com/features/azure-portal/mobile-app/)。 使用適用於 iOS 和 Android。
 
-### <a name="supported-browsers"></a>支援的瀏覽器
+## <a name="recommended-browsers"></a>建議的瀏覽器
+
 建議使用與您的作業系統相容的最新瀏覽器。 支援下列瀏覽器：
 
 * Microsoft Edge (最新版本)
@@ -36,4 +35,3 @@ Azure 入口網站可在新式的 PC、Mac 和平板電腦上順利執行。 如
 * Safari (最新版本，僅限 Mac)
 * Chrome (最新版本)
 * Firefox (最新版本)
-

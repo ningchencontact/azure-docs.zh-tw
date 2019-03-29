@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: ad005ff879ef5e4c0fb2fb72ce3062a5dd25d99a
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: c7587b6cb2b4b30e265657b9d3792c9d4acd4428
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486779"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621544"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL Database 中的 managed 執行個體的連線架構 
 
@@ -107,7 +107,7 @@ Microsoft 會管理受管理的執行個體所使用的管理端點。 這個端
 
 | 名稱       |Port          |通訊協定|來源           |目的地| 動作|
 |------------|--------------|--------|-----------------|-----------|------|
-|管理  |80、443、12000|TCP     |任意              |Internet   |允許 |
+|管理  |80、443、12000|TCP     |任意              |AzureCloud  |允許 |
 |mi_subnet   |任意           |任意     |任意              |MI SUBNET*  |允許 |
 
 > 請確定沒有針對連接埠 9000，只有一個輸入的規則 9003，1438年、 1440年、 1452年和一個輸出的規則，用於連接埠 80、 443、 12000。 受控執行個體佈建透過 ARM 部署可能會失敗，如果輸入和輸出規則針對每個連接埠分別設定。 

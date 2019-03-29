@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 7c8f256cf91a479c45f21b933efdb6a5e0212796
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 7de4307f7eef95a637dc828ac1738bd0ed39c7c7
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541868"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578453"
 ---
 # <a name="security-agent-reference-architecture"></a>安全性代理程式參考架構
 
@@ -32,15 +32,15 @@ ASC iot 會提供參考架構的安全性記錄、 處理、 彙總，以及傳�
 
 安全性代理程式設計來在受條件約束的 IoT 環境中，運作，並可高度自訂方面提供相較於它們所取用的資源的值。
 
-安全性代理程式支援下列的 IoT 解決方案功能：
+安全性代理程式支援下列功能：
 
-- 從基礎 OS （Linux、 Windows），收集未經處理的安全性事件。 若要深入了解可用的安全性資料收集器，請參閱[IoT 代理程式設定的 ASC](concept-agent-configuration.md)。
+- 從基礎作業系統 （Linux、 Windows） 收集未經處理的安全性事件。 若要深入了解可用的安全性資料收集器，請參閱[IoT 代理程式設定的 ASC](how-to-agent-configuration.md)。
 
 - 將透過 IoT 中樞傳送的訊息的彙總的原始安全性事件。
 
 - 使用現有的裝置身分識別或專用的模組身分識別進行驗證。 請參閱[安全性代理程式驗證方法](concept-security-agent-authentication-methods.md)若要深入了。
 
-- 設定從遠端透過善用**ascforiot**模組對應項。 若要進一步了解，請參閱[設定 IoT 代理程式 ASC](concept-agent-configuration.md)。
+- 設定從遠端透過善用**azureiotsecurity**模組對應項。 若要進一步了解，請參閱[設定 IoT 代理程式 ASC](how-to-agent-configuration.md)。
 
 ASC 建立 IoT 安全性代理程式會開發做為開放原始碼專案，而且可從 GitHub: 
 
@@ -62,10 +62,8 @@ Iot 的 ASC 提供 32 位元和 64 位元 Windows，不同的安裝程式代理�
 
 若要繼續開始使用 ASC 針對 IoT 部署，請使用下列文章：
 
-
+- 了解[安全性代理程式驗證方法](concept-security-agent-authentication-methods.md)
+- 選取和部署[安全性代理程式](how-to-deploy-agent.md)
 - 檢閱 ASC iot[服務必要條件](service-prerequisites.md)
 - 了解如何[啟用 ASC 中您的 IoT 中樞的 IoT 服務](quickstart-onboard-iot-hub.md)
-- 使用快速入門以[設定您的解決方案](quickstart-configure-your-solution.md)
-- 了解[安全性代理程式驗證方法](concept-security-agent-authentication-methods.md)
-- 選取和部署[安全性代理程式](select-deploy-agent.md)
 - 深入了解從服務[ASC IoT 常見問題集](resources-frequently-asked-questions.md)

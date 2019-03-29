@@ -11,12 +11,12 @@ ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
 ms.date: 10/26/2018
-ms.openlocfilehash: 5d328164ac8ad99db15a12d850327615a9ffd809
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: 42e1ef3e311633f9631163bc9d3df212b608ef3a
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910279"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578368"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>藉由使用 Azure Logic Apps 來監視、建立及管理 SFTP 檔案
 
@@ -27,10 +27,18 @@ ms.locfileid: "54910279"
 * 取得檔案內容與中繼資料。
 * 將封存檔案解壓縮到資料夾。
 
-相較於 [SFTP-SSH 連接器](../connectors/connectors-sftp-ssh.md)，除非您[在動作中使用訊息區塊化](../logic-apps/logic-apps-handle-large-messages.md)，否則 SFTP 連接器可讀取或寫入的檔案大小上限為 50 MB。 目前，您無法將區塊化用於觸發程序。 針對大小上限為 1 GB 的檔案，請使用 [SFTP-SSH 連接器](../connectors/connectors-sftp-ssh.md)。 針對大於 1 GB 的檔案，您可以使用 SFTP-SSH 連接器再加上[訊息區塊化](../logic-apps/logic-apps-handle-large-messages.md)。 
-
 您可以使用觸發程序來監視 SFTP 伺服器上的事件，並讓輸出可供其他動作使用。 您可以使用動作，在 SFTP 伺服器上執行各種工作。 您也可以讓邏輯應用程式中的其他動作使用 SFTP 動作的輸出。 例如，如果您定期從 SFTP 伺服器擷取檔案，可以藉由使用 Office 365 Outlook 連接器或 Outlook.com 連接器，傳送關於那些檔案及其內容的電子郵件警示。
 如果您不熟悉邏輯應用程式，請檢閱[什麼是 Azure Logic Apps？](../logic-apps/logic-apps-overview.md)
+
+## <a name="limits"></a>限制
+
+* SFTP 動作才能讀取或寫入的檔案*50 MB 或更小*除非您使用[訊息區塊處理在動作](../logic-apps/logic-apps-handle-large-messages.md)，這可讓您超過此限制。 目前，SFTP 觸發程序不支援區塊處理。
+
+* 檔案*最多 1 GB*，使用[SFTP-SSH 連接器](../connectors/connectors-sftp-ssh.md)。
+
+* 檔案*大於 1 GB*，使用 SFTP-SSH 連接器加上[訊息區塊處理](../logic-apps/logic-apps-handle-large-messages.md)。
+
+至於其他的 SFTP 連接器與 SFTP-SSH 連接器之間的差異，請檢閱[比較 SFTP-SSH 和 SFTP](../connectors/connectors-sftp-ssh.md#comparison) SFTP-SSH 文件中。
 
 ## <a name="prerequisites"></a>必要條件
 

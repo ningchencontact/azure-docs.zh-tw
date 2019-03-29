@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 4d3de1d0b242017f7026873ccaeba547f85981fc
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a152d9242c4d272800e2e159603c2554f1d89092
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482085"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622037"
 ---
 # <a name="configure-service-map-in-azure"></a>在 Azure 中設定服務對應
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 您可以使用服務對應，將伺服器視為提供重要服務的互連系統，藉以檢視伺服器。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序和連接埠之間的連線。
@@ -57,13 +57,11 @@ ms.locfileid: "58482085"
 - Windows 7
 
 ## <a name="supported-linux-operating-systems"></a>支援的 Linux 作業系統
-下節會列出 Red Hat Enterprise Linux、CentOS Linux 和 Oracle Linux (搭載 RHEL 核心) 上的 Dependency Agent 所支援的作業系統。  
+下一節會列出支援的作業系統，在 Linux 上的相依性代理程式。  
 
 - 只支援預設版本和 SMP Linux 核心版本。
 - 所有 Linux 散發套件皆不支援非標準的核心版本 (例如 PAE 和 Xen)。 舉例來說，版本字串為「2.6.16.21-0.8-xen」的系統就不受支援。
 - 不支援自訂核心，包括重新編譯的標準核心。
-- 支援 CentOSPlus 核心。
-- Oracle Unbreakable Enterprise Kernel (UEK) 在本文稍後的章節有相關討論。
 
 ### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 

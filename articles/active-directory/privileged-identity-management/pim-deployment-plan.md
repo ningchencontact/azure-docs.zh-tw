@@ -1,5 +1,5 @@
 ---
-title: 部署 Azure AD Privileged Identity Management (PIM) | Microsoft Docs
+title: 部署 Privileged 的 Identity Management (PIM)-Azure Active Directory |Microsoft Docs
 description: 說明如何規劃 Azure AD Privileged Identity Management (PIM) 的部署。
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05bf125d629ffef01a645dc407c341a984805520
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227026"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578186"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>部署 Azure AD Privileged Identity Management (PIM)
 
-本逐步指南說明如何規劃組織的 Azure AD Privileged Identity Management (PIM) 部署。
+本指南將逐步說明如何規劃部署的 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 在您的組織。
 
 > [!TIP]
 > 在本文件各處，您會看到有下列標示的項目：
@@ -79,7 +79,7 @@ Azure AD Privileged Identity Management (PIM) 可協助您管理 Azure AD、Azur
 
 ### <a name="roles-that-can-be-managed-by-pim"></a>PIM 所能管理的角色
 
-**Azure AD 角色** - Azure Active Directory 內的所有目錄角色都屬於這些角色 (例如，全域系統管理員、Exchange 系統管理員和安全性系統管理員)。 您可以在 [Azure Active Directory 中的系統管理員角色權限](../users-groups-roles/directory-assign-admin-roles.md)中深入了解這些角色及其功能。 如需協助以便判斷要對系統管理員指派哪些角色，請參閱[依工作區分的最低特殊權限角色](../users-groups-roles/roles-delegate-by-task.md)。
+**Azure AD 角色**– 全都放在 Azure Active Directory （例如全域系統管理員、 Exchange 系統管理員和安全性系統管理員） 是這些角色。 您可以在 [Azure Active Directory 中的系統管理員角色權限](../users-groups-roles/directory-assign-admin-roles.md)中深入了解這些角色及其功能。 如需協助以便判斷要對系統管理員指派哪些角色，請參閱[依工作區分的最低特殊權限角色](../users-groups-roles/roles-delegate-by-task.md)。
 
 **Azure 資源角色** - 這些角色會連結至 Azure 資源、資源群組、訂用帳戶或管理群組。 PIM 同時針對內建角色 (例如，擁有者、使用者存取系統管理員和參與者) 以及[自訂角色](../../role-based-access-control/custom-roles.md)提供 Just-In-Time 存取。 如需 Azure 資源角色的詳細資訊，請參閱[角色型存取控制 (RBAC)](../../role-based-access-control/overview.md)。
 
@@ -294,7 +294,7 @@ Azure 資源的 PIM 可支援有時間限制的服務帳戶。 在對待服務�
 
 #### <a name="configure-pim-for-azure-ad-roles"></a>為 Azure AD 角色設定 PIM
 
-1. 根據您的規劃[設定 Azure AD 目錄角色設定](pim-how-to-change-default-settings.md)。
+1. [設定 Azure AD 角色設定](pim-how-to-change-default-settings.md)根據您計劃。
 
 1. 瀏覽至 **Azure AD 角色**，按一下 [角色]，然後選取您剛才設定的角色。
 

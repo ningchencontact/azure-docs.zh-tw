@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 63c649f0850c4ffc60ce2087e91f3f69917e4837
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 93e74eb6aefbaeeddf7c4f15d62f4a9ee3d617d4
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868539"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622207"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 活動記錄事件結構描述
 透過「Azure 活動記錄」，您可深入了解 Azure 中發生的任何訂用帳戶層級事件。 本文說明每個資料類別的事件結構描述。 資料的結構描述取決於您是在入口網站、PowerShell、CLI，或直接透過 REST API 讀取資料，還是[使用記錄設定檔，將資料串流處理至儲存體或事件中樞](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile)。 下列範例顯示透過入口網站、PowerShell、CLI 和 REST API 提供的結構描述。 本文結尾會提供這些屬性與 [Azure 診斷記錄結構描述](./diagnostic-logs-schema.md)的對應。
@@ -358,6 +358,7 @@ ms.locfileid: "56868539"
 | correlationId | 字串格式的 GUID。 |
 | 說明 |警示事件的靜態文字描述。 |
 | eventDataId |警示事件的唯一識別碼。 |
+| category | Alwayson [警示] |
 | 層級 |事件的層級。 下列其中一個值：「重大」、「錯誤」、「警告」和「告知性」 |
 | resourceGroupName |如果為計量警示，這是受影響資源的資源群組名稱。 針對其他警示類型，這是包含警示本身的資源群組名稱。 |
 | resourceProviderName |如果為計量警示，這是受影響資源的資源提供者名稱。 針對其他警示類型，這是警示本身的資源提供者名稱。 |
@@ -556,6 +557,7 @@ ms.locfileid: "56868539"
 | 說明 |安全性事件的靜態文字描述。 |
 | eventDataId |安全性事件的唯一識別碼。 |
 | eventName |安全性事件的易記名稱。 |
+| category | 一律是 「 安全性 」 |
 | id |安全性事件的唯一資源識別碼。 |
 | 層級 |事件的層級。 下列其中一個值：「重大」、「錯誤」、「警告」或「告知性」 |
 | resourceGroupName |資源的資源群組名稱。 |

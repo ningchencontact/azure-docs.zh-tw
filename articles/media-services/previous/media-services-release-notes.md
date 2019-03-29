@@ -13,19 +13,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f09d18759478c6c07aa0aea82f8bd1707595aa63
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: ea5a6a70372571daf82e7639fc31c125d69fa44f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499075"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621425"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒體服務版本資訊
 
 Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已知問題。
 
 > [!NOTE]
-> 媒體服務 v2 不會再新增任何新的特性或功能。 <br/>查看最新版本中，[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 此外，請參閱[從 v2 至 v3 的移轉指導方針](../latest/migrate-from-v2-to-v3.md)
+> 媒體服務 v2 不會再新增任何新的特性或功能。 <br/>查看最新版本的[媒體服務 v3](https://docs.microsoft.com/azure/media-services/latest/)。 此外，請參閱[從 v2 至 v3 的移轉指導方針](../latest/migrate-from-v2-to-v3.md)
 
 我們想要收到客戶的意見，以針對影響到您的問題進行修正。 若要回報問題或提問，請在 [Azure 媒體服務 MSDN 論壇]中提交貼文。 
 
@@ -42,13 +42,12 @@ Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已�
 | 某些用戶端在 Smooth Streaming 資訊清單中可能會遇到重複標記問題。 |如需詳細資訊，請參閱[本節](media-services-deliver-content-overview.md#known-issues)。 |
 | 媒體服務 .NET SDK 物件無法序列化，因此無法與 Redis 的 Azure 快取搭配運作。 |如果您嘗試將 SDK AssetCollection 物件序列化以將其新增至 Redis 的 Azure 快取，則會擲回例外狀況。 |
 
-
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API 版本歷程記錄
 如需媒體服務 REST API 版本歷程記錄的相關資訊，請參閱 [Azure 媒體服務 REST API 參考]。
 
 ## <a name="december-2018"></a>2018 年 12 月
 
-Azure 媒體服務的[媒體超縮時攝影預覽](media-services-hyperlapse-content.md)功能即將淘汰。 自 2018 年 12 月 19 日起，媒體服務將不再變更或改進媒體超縮時攝影功能。 它將會於 2019 年 3 月 29 日淘汰，並且不再提供使用。
+Azure 媒體服務的媒體 Hyperlapse 預覽功能即將淘汰。 自 2018 年 12 月 19 日起，媒體服務將不再變更或改進媒體超縮時攝影功能。 它將會於 2019 年 3 月 29 日淘汰，並且不再提供使用。
 
 ## <a name="october-2018"></a>2018 年 10 月
 
@@ -260,7 +259,6 @@ Azure SDK 小組已發佈新版的 [Azure SDK for PHP](https://github.com/Azure/
 
 * [使用媒體服務進行即時編碼的預覽功能](media-services-manage-live-encoder-enabled-channels.md)
 * [動態資訊清單](media-services-dynamic-manifest-overview.md)
-* [Azure 媒體超縮時攝影媒體處理器的預覽功能](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)
 
 ## <a id="april_changes_15"></a>2015 年 4 月版本
 ### <a name="general-media-services-updates"></a>一般媒體服務更新

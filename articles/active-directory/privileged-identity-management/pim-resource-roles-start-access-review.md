@@ -1,5 +1,5 @@
 ---
-title: 在 PIM 中起始 Azure 資源角色的存取權檢閱 | Microsoft Docs
+title: 開始在 PIM-Azure Active Directory 中的 Azure 資源角色的存取權檢閱 |Microsoft Docs
 description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中起始 Azure 資源角色的存取權檢閱。
 services: active-directory
 documentationcenter: ''
@@ -15,15 +15,15 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f4ebf9ec08915a557f897a743cac1160d7e6823
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 46903967b375d882dc3c7a62cd0b7f8b6059f8b3
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173431"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579490"
 ---
 # <a name="start-an-access-review-for-azure-resource-roles-in-pim"></a>在 PIM 中起始 Azure 資源角色的存取權檢閱
-當使用者擁有不再需要的特殊存取權時，角色指派就會變成「過時」。 若要降低與這些過時角色指派相關聯的風險，特殊權限角色管理員應該定期檢閱角色。 本文件涵蓋在適用於 Azure 資源的 Privileged Identity Management (PIM) 中開始進行存取權檢閱的步驟。
+當使用者擁有不再需要的特殊存取權時，角色指派就會變成「過時」。 若要降低與這些過時角色指派相關聯的風險，特殊權限角色管理員應該定期檢閱角色。 本文件涵蓋在 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) 開始存取權檢閱的步驟。
 
 從 PIM 應用程式主頁面移至：
 
@@ -76,4 +76,4 @@ ms.locfileid: "56173431"
 
 - [在 PIM 中完成 Azure 資源角色的存取權檢閱](pim-resource-roles-complete-access-review.md)
 - [在 PIM 中執行 Azure 資源角色的存取權檢閱](pim-resource-roles-perform-access-review.md)
-- [在 PIM 中起始 Azure AD 目錄角色的存取權檢閱](pim-how-to-start-security-review.md)
+- [在 PIM 中啟動 Azure AD 角色的存取權檢閱](pim-how-to-start-security-review.md)

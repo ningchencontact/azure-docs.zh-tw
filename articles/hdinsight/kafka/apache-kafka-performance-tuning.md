@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: 903cd8921801ffb47dd73f48e507f30aa0b6dccc
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 3f15f45e0543c582d70463fb9ddc7ac569ff57bc
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58373146"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576753"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Apache Kafka 的 HDInsight 叢集的效能最佳化
 
@@ -66,7 +66,7 @@ Kafka 產生者可以設定要壓縮訊息然後傳送給訊息代理程式。 `
 
 ### <a name="number-of-topics-and-partitions"></a>主題和資料分割數目
 
-Kafka 產生者寫入主題。 從主題讀取 Kafka 取用者。 主題是一個記錄檔，也就是在磁碟上的資料結構與相關聯。 Kafka 會將附加 producer(s) 主題記錄檔結尾的記錄。 主題記錄是由許多分散在多個檔案的資料分割所組成。 這些檔案，接著，分散到多個 Kafka 叢集的節點。 從其頻率的 Kafka 主題讀取的取用者，並可以挑選它們主題記錄檔中的位置 （位移）。
+Kafka 產生者寫入主題。 從主題讀取 Kafka 取用者。 主題是一個記錄檔，也就是在磁碟上的資料結構與相關聯。 Kafka 會將附加 producer(s) 主題記錄檔結尾的記錄。 主題記錄是由許多分散在多個檔案的資料分割所組成。 這些檔案，接著，分散到多個 Kafka 叢集的節點。 取用者從其頻率的 Kafka 主題讀取，並可以挑選它們主題記錄檔中的位置 （位移）。
 
 每個 Kafka 分割區是在系統上，記錄檔，並產生者執行緒可以同時寫入至多個記錄檔。 同樣地，因為每個取用者執行緒會讀取一個資料分割中的訊息，從多個分割區取用以平行方式也會處理。
 

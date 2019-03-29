@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 12ba136bb227ef5ea469d91c6da9477b718b9e92
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: fad8ecd0658b2a00f249e8b218bab1dbdaf83187
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58542228"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578215"
 documentType: LandingData
-title: 適用於 IoT 的 Azure 資訊安全中心 (ASC) 預覽文件
+title: 適用於 IoT 的 ASC 預覽文件
 metadata:
-  title: 適用於 IoT 的 Azure 資訊安全中心 (ASC) 預覽文件 - 教學課程、快速入門 |Microsoft Docs
-  meta.description: Azure Security Center for IoT unifies your security management and enables advanced threat protection across your IoT solution.
+  title: 適用於 IoT 的 ASC 預覽文件 - 教學課程、快速入門 |Microsoft Docs
+  meta.description: ASC for IoT unifies your security management and enables advanced threat protection across your IoT solution.
   services: ascforiot
   author: mlottner
   manager: barbkess
@@ -20,7 +20,7 @@ metadata:
   ms.date: 03/26/19
   ms.author: barbkess
 abstract:
-  description: 使用適用於 IoT 的 Azure 資訊安全中心預覽，將現有的網路安全檢視擴展到整個 IoT 解決方案。 取得所有 Azure 相關資源的安全性全面檢視。 快速部署選項及透過 IoT 中樞模組對應項進行完整整合，提供您更廣泛的自訂選項，並可輕鬆與目前的裝置管理工具整合。 
+  description: 使用適用於 IoT 的 ASC 預覽，將現有的網路安全檢視擴展到整個 IoT 解決方案。 取得所有 Azure 相關資源的安全性全面檢視。 快速部署選項及透過 IoT 中樞模組對應項進行完整整合，提供您更廣泛的自訂選項，並可輕鬆與目前的裝置管理工具整合。 
 sections:
 - title: 5 分鐘快速入門
   items:
@@ -32,19 +32,19 @@ sections:
     - image:
         src: media/index/deploy.svg
       text: 啟用適用於 IoT 的 ASC
-      href: /azure/ascforiot/quickstart-onboard-iot-hub
+      href: /azure/asc-for-iot/quickstart-onboard-iot-hub
     - image:
         src: media/index/get-started.svg
       text: 開始使用適用於 IoT 的 ASC
-      href: /azure/ascforiot/quickstart-getting-started
-- title: 逐步教學課程
+      href: /azure/asc-for-iot/getting-started
+- title: 使用說明指南
   items:
   - type: paragraph
     text: 了解如何定義安全性原則，保護您的裝置免受惡意活動攻擊，並回應安全性警示和事件。
   - type: list
-    style: ordered
+    style: unordered
     items:
-    - html: <a href="/azure/ascforiot/tutorial-investigate-device">使用適用於 IoT 的 ASC 偵測威脅</a>
+    - html: <a href="/azure/asc-for-iot/how-to-investigate-device">使用適用於 IoT 的 ASC 偵測威脅</a>
 - title: 透過 Microsoft Learn 增進您的技巧
   items:
   - type: list
