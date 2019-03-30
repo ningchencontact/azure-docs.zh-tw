@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 6b82c0d2d4a5e22094bf0a408d6a42f17bb3bea4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 82755f01cc881703eeefb6415b2e8e87e50fba60
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839809"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652377"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>檢視及下載您 Microsoft Azure 發票
 
@@ -28,7 +28,7 @@ ms.locfileid: "57839809"
 
 只有某些角色有檢視發票，例如帳戶管理員或企業系統管理員權限。 若要深入了解取得計費資訊的存取權，請參閱[使用角色管理 Azure 計費的存取權](billing-manage-access.md)。
 
-如果您有[Microsoft 客戶合約](#Check-your-access-to-a-Microsoft-Customer-Agreement)，您必須是帳單設定檔擁有者、 參與者、 讀取器或發票經理以取得您的發票。 若要深入了解計費角色適用於 Microsoft 客戶合約，請參閱[帳單設定檔角色和工作](billing-understand-mca-roles.md#billing-profile-roles-and-tasks)。
+如果您有[Microsoft 客戶合約](#check-your-access-to-a-microsoft-customer-agreement)，您必須是帳單設定檔擁有者、 參與者、 讀取器或發票經理以取得您的發票。 若要深入了解計費角色適用於 Microsoft 客戶合約，請參閱[帳單設定檔角色和工作](billing-understand-mca-roles.md#billing-profile-roles-and-tasks)。
 
 ## <a name="download-your-azure-invoices-pdf"></a>下載您的 Azure 發票 (.pdf)
 

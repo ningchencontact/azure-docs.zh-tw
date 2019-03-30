@@ -4,7 +4,7 @@ description: Service Fabric Reliable Actors 程式設計模型簡介。
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 7fdad07f-f2d6-4c74-804d-e0d56131f060
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: 363cba145ed4d5bcf138cf3f7130763891c51e8b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5a237e23dffed76e6122e17b59c85d20ca7e1baf
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258056"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668665"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Service Fabric Reliable Actor 簡介
 Reliable Actors 是以 [Virtual Actor](https://research.microsoft.com/en-us/projects/orleans/) 模式為基礎的 Service Fabric 應用程式架構。 Reliable Actors API 提供單一執行緒的程式設計模型，此模型立基於 Service Fabric 所提供的延展性和可靠性保證上。
@@ -28,7 +28,7 @@ Reliable Actors 是以 [Virtual Actor](https://research.microsoft.com/en-us/proj
 動作項目是隔離且獨立的計算與狀態單位，且具備單一執行緒執行。 [動作項目模式](https://en.wikipedia.org/wiki/Actor_model) 是適用於並行或分散式系統的運算模型，其中有大量的這類動作項目可以同時且各自獨立的方式來執行。 動作項目可以彼此通訊，而且可以建立多個動作項目。
 
 ### <a name="when-to-use-reliable-actors"></a>使用 Reliable Actors 的時機
-Service Fabric Reliable Actors 是動作項目設計模式的實作。 如同任何軟體設計模式，是否要使用特定模式的決策是根據軟體設計問題是否符合模式來決定。
+Service Fabric Reliable Actors 是执行组件设计模式的实现。 与任何软件设计模式一样，是否使用特定模式取决于该模式能否解决相关软件设计问题。
 
 雖然動作項目設計模式適用於許多分散式系統問題和案例，但還是必須謹慎考量實作它的模式與架構的限制。 做為一般指導方針，請在符合下列情況時，考慮使用動作項目模式來建立您的問題或案例模型︰
 
@@ -37,9 +37,9 @@ Service Fabric Reliable Actors 是動作項目設計模式的實作。 如同任
 * 您的動作項目執行個體將不會藉由發出 I/O 作業，使用無法預期的延遲來封鎖呼叫端。
 
 ## <a name="actors-in-service-fabric"></a>Service Fabric 中的動作項目
-在 Service Fabric 中，動作項目是在 Reliable Actors 架構中實作的︰以動作項目模式為基礎的應用程式架構是建置於 [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md)的頂端。 您撰寫的每個 Reliable Actor 服務實際上都是已資料分割的具狀態可靠服務。
+在 Service Fabric 中，执行组件在 Reliable Actors 框架中实现：此应用程序框架以执行组件模式为依据，在 [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md) 的基础之上构建而成。 您撰寫的每個 Reliable Actor 服務實際上都是已資料分割的具狀態可靠服務。
 
-每個動作項目都會定義為動作項目類型的執行個體，與 .NET 物件是 .NET 類型的執行個體的方式完全相同。 例如，有的動作項目類型會實作計算機的功能，而該類型會有許多動作項目分散到叢集的各種節點上。 每一個這類的動作項目都有唯一的動作項目識別碼識別。
+每個動作項目都會定義為動作項目類型的執行個體，與 .NET 物件是 .NET 類型的執行個體的方式完全相同。 例如，有的動作項目類型會實作計算機的功能，而該類型會有許多動作項目分散到叢集的各種節點上。 每个此类执行组件都由执行组件 ID 唯一标识。
 
 ## <a name="actor-lifetime"></a>動作項目生命週期
 Service Fabric 動作項目是虛擬的，也就是說，其生命週期不會繫結至其記憶體內部表示法。 因此，不需要明確地進行建立或終結。 Reliable Actors 執行階段會在第一次接收到動作項目識別碼的要求時自動啟動該動作項目。 如果動作項目有一段時間未使用，則 Reliable Actors 執行階段會對記憶體內部物件進行記憶體回收。 它也會維護稍後重新啟動動作項目所需的存在知識。 如需詳細資訊，請參閱 [動作項目生命週期與記憶體回收](service-fabric-reliable-actors-lifecycle.md)。
@@ -106,7 +106,7 @@ myActor.DoWorkAsync().get();
 * 最好進行訊息傳遞。
 * 動作項目可能收到來自相同用戶端的重複訊息。
 
-## <a name="concurrency"></a>並行
+## <a name="concurrency"></a>并发
 Reliable Actors 執行階段會提供簡單的回合式存取模型來存取動作項目方法。 這表示動作項目物件代碼內永遠只能有一個執行緒為使用中。 回合式存取會大幅簡化並行系統，因為不需要使用同步機制來進行資料存取。 這也表示系統必須針對每個動作項目執行個體的單一執行緒存取本質的特殊考量來設計。
 
 * 單一動作項目執行個體無法一次處理一個以上的要求。 如果預期動作項目執行個體要處理並行要求，可能就會遇到輸送量瓶頸。
@@ -119,7 +119,7 @@ Reliable Actors 執行階段會提供簡單的回合式存取模型來存取動�
 
 動作項目執行階段會藉由在某回合的開頭取得一個各動作項目鎖定，然後在回合結束時釋放該鎖定，來強制回合式並行。 因此，回合式並行會依各個動作項目強制執行，不會在動作項目之間強制執行。 動作項目方法和計時器/提醒回撥可代表不同的動作項目同時執行。
 
-以下範例說明上述概念。 如果有一個動作項目類型實作兩個非同步方法 (假設為 Method1 與 Method2)，也就是計時器與提醒。 下圖顯示代表這兩個屬於此動作項目類型的動作項目 (ActorId1 與 ActorId2) 執行這些方法與回呼的時間軸範例。
+以下示例对上述概念进行了说明。 如果有一個動作項目類型實作兩個非同步方法 (假設為 Method1 與 Method2)，也就是計時器與提醒。 下圖顯示代表這兩個屬於此動作項目類型的動作項目 (ActorId1 與 ActorId2) 執行這些方法與回呼的時間軸範例。
 
 ![Reliable Actors 執行階段回合式並行和存取][1]
 
@@ -130,7 +130,7 @@ Reliable Actors 執行階段會提供簡單的回合式存取模型來存取動�
 * 時間軸使用不同的顏色來對應不同的動作項目。
 * 反白顯示用於指出代表方法或回撥保留各動作項目鎖定的持續期間。
 
-有一些需要考慮的重要事項︰
+要重点考虑的几点：
 
 * 當 Method1 代表 ActorId2 執行以回應用戶端要求 xyz789 時，另一個抵達的用戶端要求 (abc123) 也需要 Method1 由 ActorId2 執行。 不過， *Method1* 的第二次執行會在前一次執行完成後才開始。 同樣的，由 ActorId2 註冊的提醒會在 Method1 正在執行時引發，以回應用戶端要求 xyz789。 提醒回撥只會在 *Method1* 的這兩個執行都完成後才執行。 所有的一切都是因為對 *ActorId2*強制執行回合式並行。
 * 同樣地，也會對 ActorId1 強制執行回合式並行，如代表依序發生的 ActorId1 執行 Method1、Method2 和計時器回呼所示。

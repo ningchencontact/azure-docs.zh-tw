@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: monhaber
-ms.openlocfilehash: 276b2815b36f05aa49183681b6c9e622155938e9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 79faab0dcf2dd4c5592fe0543fa63f2538facf36
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401141"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664007"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure 資訊安全中心常見問題集 (FAQ)
 這個常見問題集回答「Azure 資訊安全中心」的相關問題，此資訊安全中心是一項針對 Microsoft Azure 資源的安全性提供更深入的洞悉和更佳控制的服務，可協助您預防、偵測及回應威脅。
@@ -43,6 +43,9 @@ Azure 資訊安全中心利用加強對 Azure 資源的能見度及安全性控�
 「免費層」提供 Azure 資源安全性狀態的可見度、基本安全性原則、安全性建議以及與合作夥伴的安全性產品和服務的整合。
 
 「標準層」加上了進階威脅偵測功能，包括威脅情報、行為分析、異常偵測、安全性事件，以及威脅歸因報告。 您可以啟動標準層的免費試用版。 若要升級，請選取安全性原則中的[定價層](https://docs.microsoft.com/azure/security-center/security-center-pricing)。 若要深入了解，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。
+
+### <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>我要如何追蹤在我的組織執行 Azure 資訊安全中心的定價層變更
+因為 Azure 訂用帳戶可能會有多個系統管理員權限才能變更定價層，則使用者可能想要知道執行定價層變更的人員。 若要使用的可以使用 Azure 活動記錄檔。 請進一步參閱指示[這裡](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832)
 
 ## <a name="permissions"></a>權限
 Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-access-control/role-assignments-portal.md)，以提供可在 Azure 中指派給使用者、群組與服務的[內建角色](../role-based-access-control/built-in-roles.md)。
@@ -116,22 +119,22 @@ Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-ac
    - 選取 [取消] 以取消作業。
 
 ### 如果延伸模組在 VM 上已安裝 Microsoft Monitoring Agent？<a name="mmaextensioninstalled"></a>
-安裝監視代理程式時做為擴充，可讓擴充功能組態報告至一個工作區。 資訊安全中心不會覆寫既存的使用者工作區連線。 資訊安全中心會在已連線的工作區中儲存從 VM 的安全性資料，前提是已在其上安裝的 「 安全性 」 或 「 securityFree 」 方案。 資訊安全中心可以升級擴充功能版本，在此程序為最新版本。
+安裝監視代理程式時做為擴充，可讓擴充功能組態報告至一個工作區。 資訊安全中心不會覆寫既存的使用者工作區連線。 資訊安全中心會在已連線的工作區中儲存從 VM 的安全性資料，前提是已在其上安裝 「 安全性 」 或 「 SecurityCenterFree 」 方案。 資訊安全中心可以升級擴充功能版本，在此程序為最新版本。
 
 如需詳細資訊，請參閱 <<c0> [ 中的預先存在的代理程式安裝的情況下自動佈建](security-center-enable-data-collection.md#preexisting)。
 
 
-### 如果我必須安裝 Microsoft Monitoring Agent 直接在電腦上，但不是能作為擴充功能 （直接代理程式） 嗎？<a name="directagentinstalled"></a>
+### 如果我有什麼 Microsoft Monitoring Agent 會直接安裝在電腦上，但不是能作為擴充功能 （直接代理程式） 嗎？<a name="directagentinstalled"></a>
 如果直接在 （而非作為 Azure 擴充功能） 的 VM 上安裝 Microsoft Monitoring Agent，資訊安全中心將會安裝 Microsoft Monitoring Agent 擴充功能，並可以升級為最新版本的 Microsoft Monitoring agent。
 安裝的代理程式會繼續回報其已設定的工作區，而除了會在資訊安全中心中設定的工作區回報 （支援多路連接）。
-如果設定的工作區的使用者工作區 （不資訊安全中心的預設工作區），您必須安裝 「 安全性 /"securityFree 」 解決方案，它從虛擬機器和電腦啟動處理事件的資訊安全中心會回報給該工作區。
+如果設定的工作區的使用者工作區 （不資訊安全中心的預設工作區），您必須安裝 「 安全性 /"SecurityCenterFree 」 解決方案，它從虛擬機器和電腦啟動處理事件的資訊安全中心的報告，工作區。
 
 現有的機器上的訂用帳戶上架到資訊安全中心之前 2019年-03-17，當將偵測到現有的代理程式，將不會安裝 Microsoft Monitoring Agent 擴充功能，以及機器不會受到影響。 這些機器，請參閱監視機器上的代理程式健全狀況問題的 「 解決 」 的建議來解決在這些電腦上的代理程式安裝問題
 
  如需詳細資訊，請參閱下一節：[如果虛擬機器上已安裝 SCOM 或 OMS 直接代理程式，會發生什麼狀況？](#scomomsinstalled)
 
-### 如果我的虛擬機器上已安裝 SCOM 代理程式發生什麼事？<a name="scomomsinstalled"></a>
-資訊安全中心將會安裝至現有的 SCOM 的 Microsoft Monitoring Agent 擴充功能-並存。 現有的 SCOM 代理程式會繼續正常報表與 SCOM 伺服器。 請注意，SCOM 代理程式和 Microsoft Monitoring Agent 共用通用執行階段程式庫，此處理序將會更新為最新版本。
+### 如果我的虛擬機器上已安裝 System Center Operations Manager (SCOM) 代理程式發生什麼事？<a name="scomomsinstalled"></a>
+資訊安全中心將會安裝至現有的 System Center Operations Manager 代理程式的 Microsoft Monitoring Agent 擴充功能-並存。 現有的 SCOM 代理程式會繼續正常報表與 System Center Operations Manager 伺服器。 請注意，Microsoft Monitoring Agent 與 System Center Operations Manager 代理程式共用通用執行階段程式庫，此處理序將會更新為最新版本。 請注意，如果 System Center Operations Manager 2012 的代理程式版本已安裝，請勿開啟自動佈建 （可管理性功能可能會遺失時，System Center Operations Manager 伺服器也是 2012年版）。
 
 ### <a name="what-is-the-impact-of-removing-these-extensions"></a>移除這些擴充功能會有什麼影響？
 如果您移除了 Microsoft Monitoring 擴充功能，資訊安全中心會無法收集虛擬機器送出的安全性資料，且特定安全性建議及警示將無法使用。 24 小時內，資訊安全中心會判定虛擬機器缺少了擴充功能，並重新安裝。
@@ -156,7 +159,7 @@ Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-ac
 如果您符合下列條件，您可以選擇退出自動佈建：
 
 - 資訊安全中心的自動代理程式安裝適用於整個訂用帳戶。  您無法將自動安裝套用到虛擬機器的子集。 如果有重要虛擬機器無法使用 Microsoft Monitoring Agent 安裝，您應該退出自動佈建。
-- Microsoft Monitoring Agent 擴充功能的安裝程序會更新代理程式的版本。 這適用於直接代理程式和 SCOM 代理程式。 如果已安裝的 SCOM 代理程式是 2012 版並且已升級，那麼當 SCOM 伺服器也是 2012 版時，管理性功能可能會遺失。 如果已安裝的 SCOM 代理程式是 2012 版，您應考慮退出自動佈建。
+- 安裝 Microsoft Monitoring Agent (MMA) 擴充功能，更新代理程式的版本。 這適用於直接代理程式和 SCOM 代理程式 （在後者中，SCOM 和 MMA 共用常見的執行階段程式庫-這會更新程序中）。 如果已安裝的 SCOM 代理程式是 2012 版並且已升級，那麼當 SCOM 伺服器也是 2012 版時，管理性功能可能會遺失。 如果已安裝的 SCOM 代理程式是 2012 版，您應考慮退出自動佈建。
 - 如果您在訂用帳戶 (集中式工作區) 之外還有自訂工作區，則您應該退出自動佈建。 您可以手動安裝 Microsoft Monitoring Agent 擴充功能，然後將其連線至您的工作區，而不是由資訊安全中心覆寫連線。
 - 如果您不想在每個訂用帳戶上建立多個工作區，而且訂用帳戶中有您自己的自訂工作區，則您有兩個選項：
 
@@ -224,9 +227,9 @@ Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-ac
 ## 現有的 Azure 監視器記錄的客戶<a name="existingloganalyticscust"></a>
 
 ### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>資訊安全中心是否會覆寫任何虛擬機器及工作區之間現有的連線？
-如果虛擬機器已經以擴充功能的形式安裝 Microsoft Monitoring Agent，資訊安全中心不會覆寫既存的工作區連線。 相反地，資訊安全中心會使用現有的工作區。
+如果虛擬機器已經以擴充功能的形式安裝 Microsoft Monitoring Agent，資訊安全中心不會覆寫既存的工作區連線。 相反地，資訊安全中心會使用現有的工作區。 VM 會受到保護，前提是它正在回報給工作區上已安裝 「 安全性 」 或 「 SecurityCenterFree 」 方案。 
 
-資訊安全中心解決方案若尚未安裝，此時會安裝至工作區，且此解決方案只會套用至相關的虛擬機器。 當您新增解決方案時，依預設會該解決方案會自動部署到與您 Log Analytics 工作區連線的所有 Windows 與 Linux 代理程式。 [解決方案目標設定](../operations-management-suite/operations-management-suite-solution-targeting.md)讓您能將範圍套用至解決方案。
+資訊安全中心解決方案安裝在 [資料收集] 畫面中選取工作區上不存在時，和此解決方案只會套用到相關的虛擬機器。 當您新增解決方案時，依預設會該解決方案會自動部署到與您 Log Analytics 工作區連線的所有 Windows 與 Linux 代理程式。 [解決方案目標設定](../operations-management-suite/operations-management-suite-solution-targeting.md)讓您能將範圍套用至解決方案。
 
 如果 Microsoft Monitoring Agent 已經直接安裝在虛擬機器上 (而非作為 Azure 擴充功能)，資訊安全中心不會再安裝 Microsoft Monitoring Agent，且資訊安全監控的功能會受到限制。
 

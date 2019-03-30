@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: b67a65bad06560a09d2ead88bd20f0568f749bb3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1be3c411a208a2a9da1a4f6a319fdf37cc8aa2dd
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082172"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669039"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux 上 Azure VM 的 SAP HANA 高可用性
 
@@ -108,7 +108,7 @@ Azure Marketplace 包含 Red Hat Enterprise Linux for SAP HANA 7.4 的映像，�
     * **DB 類型**：選取 **HANA**。
     * **SAP 系統大小**：輸入新系統要提供的 SAP 數量。 如果您不確定系統需要多少 SAP，請詢問您的 SAP 技術合作夥伴或系統整合者。
     * **系統可用性**：選取 **HA**。
-    * **管理員使用者名稱、管理員密碼或 SSH 金鑰**：建立可用來登入電腦的新使用者。
+    * **管理員使用者名稱、管理員密碼或 SSH 金鑰**：會建立新的使用者，可以用來登入電腦。
     * **子網路識別碼**：如果您想將 VM 部署至現有的 VNet (其中具有定義 VM 應指派的目的子網路)，請說明該特定子網路的 ID。 識別碼通常如下所示：**/subscriptions/\<訂用帳戶識別碼>/resourceGroups/\<資源群組名稱>/providers/Microsoft.Network/virtualNetworks/\<虛擬網路名稱>/subnets/\<子網路名稱>**。 如果您想要建立新的虛擬網路，請保留空白
 
 ### <a name="manual-deployment"></a>手動部署
@@ -185,7 +185,7 @@ Azure Marketplace 包含 Red Hat Enterprise Linux for SAP HANA 7.4 的映像，�
 
 > [!IMPORTANT]
 > 不會啟用 TCP 放置 Azure 負載平衡器後方的 Azure Vm 上的時間戳記。 啟用 TCP 加上時間戳記將會造成失敗的健康狀態探查。 設定參數**net.ipv4.tcp_timestamps**要**0**。 如需詳細資訊，請參閱[負載平衡器健康情況探查](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-custom-probe-overview)。
-> SAP 附註[2382421](https://launchpad.support.sap.com/#/notes/2382421)目前包含彼此矛盾時的陳述式，建議您將 net.ipv4.tcp_timestamps 設定為 1。 針對 Azure Vm，Azure 負載平衡器後方放置，將參數設定**net.ipv4.tcp_timestamps**要**0**。
+> 另請參閱 SAP 附註[2382421](https://launchpad.support.sap.com/#/notes/2382421)。 
 
 ## <a name="install-sap-hana"></a>安裝 SAP HANA
 
@@ -382,14 +382,14 @@ Azure Marketplace 包含 Red Hat Enterprise Linux for SAP HANA 7.4 的映像，�
 
    如果您使用 SAP HANA 2.0 或 MDC，請為您的 SAP NetWeaver 系統建立租用戶資料庫。 請將 **NW1** 取代為您 SAP 系統的 SID。
 
-   以 \<hanasid>adm 身分登入，然後執行下列命令：
+   執行 < hanasid\>adm 下列命令：
 
    <pre><code>hdbsql -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> -d SYSTEMDB 'CREATE DATABASE <b>NW1</b> SYSTEM USER PASSWORD "<b>passwd</b>"'
    </code></pre>
 
 1. **[1]** 在第一個節點上設定系統複寫：
 
-   以 \<hanasid>adm 身分登入，然後備份資料庫：
+   備份資料庫做為 < hanasid\>adm:
 
    <pre><code>hdbsql -d SYSTEMDB -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupSYS</b>')"
    hdbsql -d <b>HN1</b> -u SYSTEM -p "<b>passwd</b>" -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackupHN1</b>')"
@@ -409,7 +409,7 @@ Azure Marketplace 包含 Red Hat Enterprise Linux for SAP HANA 7.4 的映像，�
 
 1. **[2]** 在第二個節點上設定系統複寫：
     
-   註冊第二個節點，以啟動系統複寫。 以 \<hanasid>adm 身分登入，然後執行下列命令：
+   註冊第二個節點，以啟動系統複寫。 執行下列命令，為 < hanasid\>adm:
 
    <pre><code>sapcontrol -nr <b>03</b> -function StopWait 600 10
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b>
@@ -457,7 +457,7 @@ Azure Marketplace 包含 Red Hat Enterprise Linux for SAP HANA 7.4 的映像，�
 
 1. **[1]** 建立必要的使用者。
 
-   以 root 身分登入，然後執行下列命令。 請務必以 SAP HANA 安裝的值取代粗體字串 (HANA 系統識別碼 **HN1** 和執行個體號碼 **03**)：
+   以 root 身分執行下列命令。 請務必以 SAP HANA 安裝的值取代粗體字串 (HANA 系統識別碼 **HN1** 和執行個體號碼 **03**)：
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -u system -i <b>03</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"'
@@ -467,7 +467,7 @@ Azure Marketplace 包含 Red Hat Enterprise Linux for SAP HANA 7.4 的映像，�
 
 1. **[A]** 建立金鑰儲存區項目。
 
-   以 root 身分登入並執行下列命令，以建立新的金鑰儲存區項目：
+   以建立新的金鑰儲存區項目 root 的身分執行下列命令：
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>03</b>15 <b>hdb</b>hasync <b>passwd</b>
@@ -475,7 +475,7 @@ Azure Marketplace 包含 Red Hat Enterprise Linux for SAP HANA 7.4 的映像，�
 
 1. **[1]** 備份資料庫。
 
-   以 root 身分登入，然後備份資料庫：
+   備份資料庫，以 root 身分執行：
 
    <pre><code>PATH="$PATH:/usr/sap/<b>HN1</b>/HDB<b>03</b>/exe"
    hdbsql -d SYSTEMDB -u system -i <b>03</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')"
@@ -488,7 +488,7 @@ Azure Marketplace 包含 Red Hat Enterprise Linux for SAP HANA 7.4 的映像，�
 
 1. **[1]** 在第一個節點上設定系統複寫。
 
-   以 \<hanasid>adm 身分登入，然後建立主要網站：
+   建立做為主要站台 < hanasid\>adm:
 
    <pre><code>su - <b>hdb</b>adm
    hdbnsutil -sr_enable –-name=<b>SITE1</b>
@@ -496,7 +496,7 @@ Azure Marketplace 包含 Red Hat Enterprise Linux for SAP HANA 7.4 的映像，�
 
 1. **[2]** 在次要節點上設定系統複寫。
 
-   以 \<hanasid>adm 身分登入，然後註冊次要網站：
+   註冊為次要站台 < hanasid\>adm:
 
    <pre><code>HDB stop
    hdbnsutil -sr_register --remoteHost=<b>hn1-db-0</b> --remoteInstance=<b>03</b> --replicationMode=sync --name=<b>SITE2</b>

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: fb3ed970b7f92e1cc06a9d1023e01f5888915e94
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 94465e95dbf5f2eb381c124349bf8fda6622a6c2
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088667"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650286"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>使用 Azure 活動記錄監視訂用帳戶活動
 
@@ -35,7 +35,6 @@ ms.locfileid: "58088667"
 > [!NOTE]
 > [新版警示](../../azure-monitor/platform/alerts-overview.md)在建立和管理活動記錄警示規則時，可提供增強的體驗。  [深入了解](../../azure-monitor/platform/alerts-activity-log.md)。
 
-
 ## <a name="categories-in-the-activity-log"></a>活動記錄中的類別
 活動記錄包含數個資料類別。 如需這些類別結構描述的完整詳細資料，[請參閱這篇文章](../../azure-monitor/platform/activity-log-schema.md)。 其中包含：
 * **系統管理** - 透過 Resource Manager 執行的所有建立、更新、刪除和動作作業皆記錄在此類別中。 您可能會在此類別中看到的事件類型範例包括「建立虛擬機器」和「刪除網路安全性群組」。使用者或應用程式使用 Resource Manager 所執行的每個動作，都會成為特定資源類型上的作業模型。 如果作業類型為「寫入」、「刪除」或「動作」，則該作業的啟動及成功或失敗記錄皆會記錄在「系統管理」類別。 「系統管理」類別也包含訂用帳戶中角色型存取控制的所有變更。
@@ -48,9 +47,11 @@ ms.locfileid: "58088667"
 * **原則** - 此類別包含「Azure 原則」所執行所有效果動作作業的記錄。 您在此類別中會看到的事件類型範例包括 [稽核] 和 [拒絕]。 原則所採取的每個動作會模型化為資源上的作業。
 
 ## <a name="event-schema-per-category"></a>每個類別的事件結構描述
+
 [請參閱這篇文章以了解每一類活動記錄事件的結構描述。](../../azure-monitor/platform/activity-log-schema.md)
 
 ## <a name="what-you-can-do-with-the-activity-log"></a>Azure 活動記錄檔的用途
+
 以下是您可以利用活動記錄檔進行的事：
 
 ![Azure 活動記錄](./media/activity-logs-overview/Activity_Log_Overview_v3.png)
@@ -58,12 +59,13 @@ ms.locfileid: "58088667"
 
 * 在 **Azure 入口網站**中查詢和檢視活動記錄檔。
 * [根據活動記錄事件建立警示。](../../azure-monitor/platform/activity-log-alerts.md)
-* [將活動記錄檔串流至**事件中樞**](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)，以利第三方服務或自訂的分析解決方案 (如 PowerBI) 擷取。
-* 在 PowerBI 中使用 [PowerBI 内容包](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/)分析活动日志。
+* [Stream 以便**事件中樞**](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)供第三方服務或自訂的分析解決方案，例如 Power BI 擷取。
+* 分析中使用 Power BI [ **Power BI 內容套件**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/)。
 * [將活動記錄檔儲存到**儲存體帳戶**以供封存或手動檢查](../../azure-monitor/platform/archive-activity-log.md)。 您可以使用**記錄設定檔**指定保留時間 (以天為單位)。
 * 透過 PowerShell Cmdlet、CLI 或 REST API 查詢活動記錄。
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>在 Azure 入口網站中查詢活動記錄
+
 在 Azure 入口網站中，您可以從幾個地方檢視活動記錄：
 * [活動記錄]，您可以在左側瀏覽窗格的 [所有服務] 底下，搜尋活動記錄以進行存取。
 * [監視器]，依預設會顯示於左側瀏覽窗格中。 [活動記錄] 會是此 [Azure 監視器] 的一個區段。
@@ -86,6 +88,7 @@ ms.locfileid: "58088667"
 若要取得更強大的功能，您可以按一下 [記錄] 圖示，以顯示[收集和分析 Log Analytics 解決方案](../../azure-monitor/platform/collect-activity-logs.md)中的「活動記錄」資料。 [活動記錄] 刀鋒視窗提供記錄的基本篩選/瀏覽體驗，而 Azure 監視器記錄功能則可讓您以更強大的方式對資料進行樞紐分析、查詢和視覺化。
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>使用記錄設定檔匯出活動記錄
+
 **記錄檔設定檔** 控制活動記錄檔的匯出方式。 使用記錄檔設定檔，您可以設定︰
 
 * 活動記錄檔應該要傳送至何處 (儲存體帳戶或事件中樞)
@@ -102,13 +105,14 @@ ms.locfileid: "58088667"
 >  您目前無法將資料封存到位在安全虛擬網路後面的儲存體帳戶。
 
 > [!WARNING]
-> 2018 年 11 月 1 日起，儲存體帳戶中的記錄資料格式已變更為 JSON 資料行。 [請參閱本文以了解影響的描述，以及如何更新您的工具，來處理新的格式。](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
+> 2018 年 11 月 1 日起，儲存體帳戶中的記錄資料格式已變更為 JSON 資料行。 [請參閱本文以了解影響的描述，以及如何更新您的工具，來處理新的格式。](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md)
 >
-> 
+>
 
 這些設定可透過入口網站中 [活動記錄檔] 刀鋒視窗中的 [匯出] 選項來設定。 也可以[使用 Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx)、PowerShell Cmdlet 或 CLI 以程式設計方式設定。 一個訂用帳戶只能有一個記錄檔的設定檔。
 
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>使用 Azure 入口網站設定記錄檔設定檔
+
 您可以將「活動記錄」串流至「事件中樞」，或在 Azure 入口網站中使用 [匯出至事件中樞] 選項將它們儲存在「儲存體帳戶」中。
 
 1. 使用入口網站左側的功能表，瀏覽至 [活動記錄]。
@@ -117,7 +121,7 @@ ms.locfileid: "58088667"
 2. 按一下刀鋒視窗頂端的 [匯出至事件中樞] 按鈕。
 
     ![入口網站中的匯出按鈕](./media/activity-logs-overview/activity-logs-portal-export-v2.png)
-3. 在出現的刀鋒視窗中，您可以選取︰  
+3. 在出現的刀鋒視窗中，您可以選取︰
    * 您要匯出事件的區域
    * 您要儲存事件的儲存體帳戶
    * 您想要在儲存體中保留這些事件的天數。 如果設定為 0 天會永遠保留記錄檔。
@@ -132,13 +136,13 @@ ms.locfileid: "58088667"
 
 #### <a name="get-existing-log-profile"></a>取得現有的記錄檔設定檔
 
-```
+```powershell
 Get-AzLogProfile
 ```
 
 #### <a name="add-a-log-profile"></a>新增記錄檔設定檔
 
-```
+```powershell
 Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
 ```
 
@@ -152,7 +156,8 @@ Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resour
 | 類別 |否 |以逗號分隔的類別清單，其中列出應該收集的事件類別。 可能的值有 Write、Delete、Action。 |
 
 #### <a name="remove-a-log-profile"></a>移除記錄檔設定檔
-```
+
+```powershell
 Remove-AzLogProfile -name my_log_profile
 ```
 
@@ -185,6 +190,6 @@ az monitor log-profiles delete --name <profile name>
 ```
 
 ## <a name="next-steps"></a>後續步驟
+
 * [详细了解活动日志（以前称为审核日志）](../../azure-resource-manager/resource-group-audit.md)
 * [將 Azure 活動記錄檔串流至事件中樞](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 19/02/2019
 ms.author: monhaber
-ms.openlocfilehash: d9c9a079198a8ff263c729b8e90c1fc8d0e64cd0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ef6b476e2c85715e86ef4c1cfe1194bb25cade28
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100065"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665486"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>上架到 Azure 資訊安全中心標準版以增強安全性
 升級至資訊安全中心標準版，讓您的混合式雲端工作負載能充分享有強化的安全性管理和威脅防護。  您可以免費試用「標準版」。 如需詳細資訊，請參閱資訊安全中心[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。
@@ -33,7 +33,7 @@ ms.locfileid: "58100065"
 ## <a name="detecting-unprotected-resources"></a>偵測未受保護的資源     
 資訊安全中心會自動偵測未向資訊安全中心標準版啟用的任何 Azure 訂用帳戶或工作區。 這包括使用未啟用安全性解決方案之資訊安全中心免費版和工作區的 Azure 訂用帳戶。
 
-您可以將整個 Azure 訂用帳戶升級至標準層，該層會繼承訂用帳戶中的所有資源，或者您也可以定義專屬策略，僅升級特定的資源群組。 如果資源群組原則設定是唯一專屬的，當您將訂用帳戶升級至標準層時，資訊安全中心不會覆寫定價原則。 套用標準訂用帳戶的層會套用至訂用帳戶中所有支援的資源。 套用標準工作區的層會套用至工作區回報的所有資源。
+您可以升級整個 Azure 訂用帳戶至標準層，該層會繼承的訂用帳戶內所有支援的資源。 套用標準工作區的層會套用至工作區回報的所有資源。
 
 > [!NOTE]
 > 您可能會想要管理您的成本，並透過將解決方案限制在一組特定的代理程式，來限制針對該解決方案所收集的資料量。 [解決方案目標](../operations-management-suite/operations-management-suite-solution-targeting.md)可讓您將某個範圍套用至解決方案，並將工作區中的電腦子集設定為目標。  如果您使用解決方案目標鎖定，資訊安全中心會將工作區列為沒有解決方案。

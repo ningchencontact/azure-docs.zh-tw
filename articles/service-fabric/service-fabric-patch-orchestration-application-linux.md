@@ -4,7 +4,7 @@ description: 在 Linux Service Fabric 叢集上將作業系統修補自動化的
 services: service-fabric
 documentationcenter: .net
 author: novino
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 27650605601a24e11d63e56343535c35c8b72f5d
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
-ms.translationtype: HT
+ms.openlocfilehash: 5efcc92bc2054dfb66b5fe03ae083c49f924d2ce
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285147"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668189"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>修補 Service Fabric 叢集中的 Linux 作業系統
 
@@ -47,7 +47,7 @@ ms.locfileid: "52285147"
 - **節點代理程式服務**︰是無狀態服務，在所有 Service Fabric 叢集節點上執行。 此服務負責：
     - 啟動 Linux 上的節點代理程式精靈。
     - 監視精靈服務。
-- **節點代理程式精靈**：此 Linux 精靈服務以較高層級的權限 (根) 執行。 相比之下，節點代理程式服務和協調器服務則以較低層級的權限執行。 此服務會負責執行下列所有叢集節點上的更新作業：
+- **节点代理守护程序**：此 Linux 守护程序服务以更高级别的特权 (root) 运行。 相比之下，節點代理程式服務和協調器服務則以較低層級的權限執行。 此服務會負責執行下列所有叢集節點上的更新作業：
     - 將節點上的自動 OS 更新停用。
     - 根據使用者提供的原則下載並安裝 OS 更新。
     - 在 OS 更新安裝後視需要重新啟動機器。
@@ -131,9 +131,9 @@ Sfpkg 格式的應用程式可以從 [sfpkg 連結](https://aka.ms/POA/POA_v2.0.
 |:-|-|-|
 |MaxResultsToCache    |long                              | 更新結果的最大數目，應加以快取。 <br>預設值為 3000，是基於以下假設： <br> - 節點數目 20。 <br> - 每個月在節點上發生的更新數目為 5。 <br> - 每個作業的結果數目可為 10。 <br> - 過去 3 個月的結果皆加以儲存。 |
 |TaskApprovalPolicy   |例舉 <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy 會指出協調員服務在 Service Fabric 叢集節點中用來安裝更新的原則。<br>                         允許的值包括： <br>                                                           <b>NodeWise</b>。 更新會在各個節點上逐一安裝。 <br>                                                           <b>UpgradeDomainWise</b>。 更新會在各個升級網域上逐一安裝。 (最多，屬於升級網域的所有節點都可以進行更新。)
-| UpdateOperationTimeOutInMinutes | int <br>(預設值：180)                   | 指定任何更新作業的逾時 (下載或安裝)。 如果作業未在指定的逾時內完成，它就會中止。       |
-| RescheduleCount      | int <br> (預設值︰5)                  | 服務在作業持續失敗時將 OS 更新重新排程的次數上限。          |
-| RescheduleTimeInMinutes  | int <br>(預設值︰30) | 服務在作業持續失敗時將 OS 更新重新排程的間隔。 |
+| UpdateOperationTimeOutInMinutes | Int <br>(預設值：180）                   | 指定任何更新作業的逾時 (下載或安裝)。 如果作業未在指定的逾時內完成，它就會中止。       |
+| RescheduleCount      | Int <br> (預設值：5)                  | 服務在作業持續失敗時將 OS 更新重新排程的次數上限。          |
+| RescheduleTimeInMinutes  | Int <br>(預設值：30) | 服務在作業持續失敗時將 OS 更新重新排程的間隔。 |
 | UpdateFrequency           | 以逗號分隔的字串 (預設值︰"Weekly, Wednesday, 7:00:00")     | 在叢集上安裝 OS 更新的頻率。 格式與可能的值如下： <br>-   Monthly, DD, HH:MM:SS，例如 Monthly, 5, 12:22:32。 <br> -   Weekly, DAY, HH:MM:SS，例如 Weekly, Tuesday, 12:22:32。  <br> -   Daily, HH:MM:SS，例如 Daily, 12:22:32。  <br> -  None 表示不應進行更新。  <br><br> 所有時間都採用 UTC 格式。|
 | UpdateClassification | 以逗號分隔的字串 (預設值︰“securityupdates”) | 應安裝在叢集節點上的更新類型。 可接受的值為 securityupdates 和 all。 <br> -  securityupdates - 只會安裝安全性更新 <br> -  all - 會從 apt 安裝所有可用的更新。|
 | ApprovedPatches | 以逗號分隔的字串 (預設值︰"") | 這是應安裝在叢集節點上的已核准更新清單。 以逗號分隔的清單包含已核准的套件，和可自行選擇的目標版本。<br> 例如："apt-utils = 1.2.10ubuntu1, python3-jwt, apt-transport-https < 1.2.194, libsystemd0 >= 229-4ubuntu16" <br> 以上清單會安裝 <br> - 具有 1.2.10ubuntu1 版的 apt-utils (如果存在於 apt-cache 中)。 如果該版本無法使用，則不會執行任何作業。 <br> - python3-jwt 升級為最新的可用版本。 如果套件不存在，則不會執行任何作業。 <br> - apt-transport-https 升級為低於 1.2.194 的最高版本。 如果此版本不存在，則不會執行任何作業。 <br> - libsystemd0 升級為高於或等於 229-4ubuntu16 的最高版本。 如果這類版本不存在，則不會執行任何作業。|
@@ -305,7 +305,7 @@ A. 修補程式協調流程應用程式所花費的時間大部分是取決於�
 
 問： **修補程式協調流程應用程式如何決定哪些更新是安全性更新。**
 
-A. 修補程式協調流程應用程式會使用散發套件專用邏輯來判斷可用的更新之中有哪些是安全性更新。 例如：在 ubuntu 中，此應用程式會從 archives $RELEASE-security, $RELEASE-updates ($RELEASE = xenial 或 Linux 標準基礎發行版本) 搜尋更新。 
+A. 修補程式協調流程應用程式會使用散發套件專用邏輯來判斷可用的更新之中有哪些是安全性更新。 例如︰在 ubuntu 中，应用会搜索存档 $RELEASE-security、$RELEASE-updates 中的更新（$RELEASE 为 Xenial 或 Linux 标准基础发行版）。 
 
  
 問： **如何鎖定特定版本的套件？**

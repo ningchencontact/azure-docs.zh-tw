@@ -4,7 +4,7 @@ description: 描述 Service Fabric CLI sfctl 命令。
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: cb48cff488c4f0bcd3c4a742f5d9922ec59a36b6
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: c195d0c4250022102e735cf584370278e354bc41
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269850"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666659"
 ---
 # <a name="sfctl"></a>sfctl
 用於管理 Service Fabric 叢集和實體的命令。 這個版本與 Service Fabric 6.4 執行階段相容。
@@ -27,7 +27,7 @@ ms.locfileid: "53269850"
 命令會依循「名詞-動詞」模式。 如需詳細資訊，請參閱＜子群組＞。
 
 ## <a name="subgroups"></a>子群組
-|子群組|說明|
+|子群組|描述|
 | --- | --- |
 | [application](service-fabric-sfctl-application.md) | 建立、刪除與管理應用程式和應用程式類型。 |
 | [chaos](service-fabric-sfctl-chaos.md) | 啟動、停止及報告 chaos 測試服務。 |

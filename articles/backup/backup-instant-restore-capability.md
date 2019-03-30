@@ -8,17 +8,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: sogup
-ms.openlocfilehash: 21aa01ec8382341de34cca743b9e088598872659
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 1f96c47e993e9b3d123972aba8eefc54b1d5cdfa
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578895"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652666"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>透過 Azure 備份的立即還原功能取得改良的備份和還原效能
 
 > [!NOTE]
-> 我們根據使用者的意見反應，正在將 **VM 備份堆疊 V2** 重新命名為**立即還原**，以減少與 Azure Stack 功能的混淆。
+> 我們根據使用者的意見反應，正在將 **VM 備份堆疊 V2** 重新命名為**立即還原**，以減少與 Azure Stack 功能的混淆。<br/><br/> 所有 Azure 備份使用者現在已升級至**立即還原**。
 
 「立即還原」的新模型提供下列增強功能：
 
@@ -60,15 +60,25 @@ ms.locfileid: "58578895"
 >[!NOTE]
 > 快照集保留期會固定為 5 天的每週的原則。
 
-## <a name="configure-snapshot-retention-using-the-azure-portal"></a>設定使用 Azure 入口網站中的快照集保留期
+## <a name="configure-snapshot-retention"></a>設定快照集保留期
 
-**所有 Azure 備份使用者現在已升級至 「 立即還原**。
+### <a name="using-azure-portal"></a>使用 Azure 入口網站
 
 在 Azure 入口網站中，您可以看到中加入的欄位**VM 的備份原則**下方的刀鋒視窗**立即還原**一節。 您可以針對與特定備份原則相關聯的所有 VM，從 **VM 備份原則**刀鋒視窗變更快照集保留持續時間。
 
 ![立即還原功能](./media/backup-azure-vms/instant-restore-capability.png)
 
-若要設定的快照集保留使用 Powershell，請參閱[這份文件](backup-azure-vms-automation.md#configuring-instant-restore-snapshot-retention)。
+### <a name="using-powershell"></a>使用 PowerShell
+
+>[!NOTE]
+> 您可以從 Az PowerShell 1.6.0 版及更新版本，更新在原則中使用 PowerShell 的 「 立即還原快照集保留期限
+
+```powershell
+PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+$bkpPol.SnapshotRetentionInDays=5
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+```
+預設的快照集保留期限，每個原則設定為 2 天。 使用者可以變更值，以最少 1，最多 5 天。 針對每週的原則，快照集保留期會固定為 5 天。
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 

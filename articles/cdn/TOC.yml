@@ -41,6 +41,8 @@ items:
     href: cdn-http2.md
   - name: 取出 Verizon POP 清單
     href: cdn-pop-list-api.md
+  - name: 從標準 Verizon 標準移轉至進階 Verizon
+    href: cdn-migrate.md
   - name: DDoS保護
     href: cdn-ddos.md
 - name: 使用說明指南
@@ -183,9 +185,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-cdn
   - name: 影片
     href: https://azure.microsoft.com/documentation/videos/index/?services=cdn
-ms.openlocfilehash: fa51844618c4036465813b55edd9b8ec03f41abd
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: ae458ff96b209af011d01738211fd9baf2da21b4
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371718"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664602"

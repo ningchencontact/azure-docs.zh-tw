@@ -1,5 +1,5 @@
 ---
-title: 了解預付型方案訂用帳戶的 Azure Reservations 使用方式 | Microsoft Docs
+title: 了解 Azure 保留的項目使用方式，隨用隨付訂用帳戶 |Microsoft Docs
 description: 學習如何看懂使用量，以了解隨用隨付型方案訂用帳戶的 Azure 保留套用情形。
 services: billing
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2018
+ms.date: 03/13/2019
 ms.author: banders
-ms.openlocfilehash: a3bacdb19dfe16a63cf1f89ef6fb162d08cb4d32
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 14bd7b61038bf938f7d370eaf6e16d71b5da43ca
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883775"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652530"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>了解隨用隨付型方案訂用帳戶的 Azure 保留使用量
 
@@ -64,7 +64,7 @@ CSV 檔案的這個區段會顯示保留的整體使用量。 請對包含 **"Re
 
 ## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>SQL Database 與 Cosmos DB 保留容量保留項目的使用情況
 
-下列各節使用 Azure SQL Database 作為範例來說明使用情況報表。 您也可以使用相同步驟來取得 Azure Cosmos DB 的使用情況。 
+下列各節使用 Azure SQL Database 作為範例來說明使用情況報表。 您也可以使用相同步驟來取得 Azure Cosmos DB 的使用情況。
 
 假設您目前在美國東部區域執行 SQL Database Gen 4，且保留資訊看起來類似下表：
 
@@ -93,6 +93,10 @@ CSV 檔案的這個區段會顯示保留的整體使用量。 請對包含 **"Re
 2. **ConsumptionMeter** 是 SQL Database 資源的計量識別碼。
 3. [計量識別碼] 是保留計量。 此計量的成本為 $0。 任何有資格獲得保留折扣的 SQL Database 資源都會在 CSV 檔案中顯示此計量識別碼。
 
+## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
+
+如果您有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+
 ## <a name="next-steps"></a>後續步驟
 
 若要深入了解 Azure 保留項目，請參閱下列文章：
@@ -104,9 +108,3 @@ CSV 檔案的這個區段會顯示保留的整體使用量。 請對包含 **"Re
 - [了解保留項目折扣的套用方式](billing-understand-vm-reservation-charges.md)
 - [了解 Enterprise 註冊的保留項目使用量](billing-understand-reserved-instance-usage-ea.md)
 - [Windows 軟體成本不包含在 Reservations 內](billing-reserved-instance-windows-software-costs.md)
-
-## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
-
-如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
-
-

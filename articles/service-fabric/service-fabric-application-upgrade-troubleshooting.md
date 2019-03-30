@@ -4,7 +4,7 @@ description: 本文涵蓋升級 Service Fabric 應用程式的一些常見問題
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 19ad152e-ec50-4327-9f19-065c875c003c
 ms.service: service-fabric
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: c6ba61354bf7466819e34a0d619a5a1820dd7b90
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 9e4989f61741d317e78a613c8c8fac312d1568c2
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666948"
 ---
 # <a name="troubleshoot-application-upgrades"></a>疑難排解應用程式升級
 本文涵蓋升級 Azure Service Fabric 應用程式的一些常見問題，以及解決方式。
@@ -143,7 +144,7 @@ MaxPercentUnhealthyDeployedApplications :
 ServiceTypeHealthPolicyMap              :
 ```
 
-調查健康狀態檢查失敗時，首先需要了解 Service Fabric 健康狀態模型。 但是即使沒有這類深入了解，我們可以看到兩個服務的健康狀態不良：fabric:/DemoApp/Svc3 和 fabric:/DemoApp/Svc2，以及錯誤健康狀態報告 (在本例中為"InjectedFault")。 在此範例中，4 個服務中有 2 個服務健康狀態不良，低於預設目標 0% 健康狀態不良 (*MaxPercentUnhealthyServices*)。
+调查运行状况检查失败原因首先需要了解 Service Fabric 运行状况模型。 但是即使沒有這類深入了解，我們可以看到兩個服務的健康狀態不良：fabric:/DemoApp/Svc3 和 fabric:/DemoApp/Svc2，以及錯誤健康狀態報告 (在本例中為"InjectedFault")。 在此範例中，4 個服務中有 2 個服務健康狀態不良，低於預設目標 0% 健康狀態不良 (*MaxPercentUnhealthyServices*)。
 
 升級是因啟動升級時手動指定 **FailureAction** 失敗而暫止。 此模式可讓我們在採取任何進一步動作之前，在失敗的狀態下調查即時系統。
 
@@ -151,12 +152,12 @@ ServiceTypeHealthPolicyMap              :
 使用回復的 **FailureAction**，因為升級會自動在失敗時回復，所以不需要復原。 使用手動 **FailureAction**，有數個復原選項：
 
 1.  觸發回復
-2. 以手動方式繼續進行升級的其餘部分
+2. 手动继续进行升级的其余部分
 3. 繼續監視的升級
 
 **Start-ServiceFabricApplicationRollback** 命令可以在任何時候用來啟動回復應用程式。 一旦命令成功傳回，回復要求就已在系統中註冊並隨即啟動。
 
-**Resume-ServiceFabricApplicationUpgrade** 命令可以用來以手動方式繼續升級的其餘部分，一次一個升級網域。 在此模式中，系統只會執行安全檢查。 不會執行其他健康狀態檢查。 此命令只能在 UpgradeState 顯示 RollingForwardPending 時使用，表示目前升級網域已完成升級，但是下一個升級網域尚未啟動 (擱置中)。
+**Resume-ServiceFabricApplicationUpgrade** 命令可以用來以手動方式繼續升級的其餘部分，一次一個升級網域。 在此模式中，系統只會執行安全檢查。 而不会再执行其他运行状况检查。 此命令只能在 UpgradeState 顯示 RollingForwardPending 時使用，表示目前升級網域已完成升級，但是下一個升級網域尚未啟動 (擱置中)。
 
 **Update-ServiceFabricApplicationUpgrade** 命令可以用來繼續監視的升級，並且執行安全和健康狀態檢查。
 
@@ -202,7 +203,7 @@ Service Fabric 將所有百分比轉譯為健康狀態評估的實體 (例如複
 ### <a name="incorrect-time-outs-are-specified"></a>指定了不正確的逾時
 您可能想要知道當逾時設定不一致時會發生什麼情況。 例如，您的 UpgradeTimeout 小於 UpgradeDomainTimeout。 答案是會傳回錯誤。 如果 UpgradeDomainTimeout 小於 HealthCheckWaitDuration 和 HealthCheckRetryTimeout 的總和，或如果 UpgradeDomainTimeout 小於 HealthCheckWaitDuration 和 HealthCheckStableDuration 的總和，則會傳回錯誤。
 
-### <a name="my-upgrades-are-taking-too-long"></a>我的升級耗費太多時間
+### <a name="my-upgrades-are-taking-too-long"></a>我升级花费的时间过长
 升級完成的時間取決於健康狀態檢查和指定的逾時。 健康狀態檢查和逾時則取決於花多少時間來複製、部署及穩定應用程式。 使用逾時太過激烈，可能表示會有更多失敗的升級，因此建議保守地從較長的逾時開始。
 
 以下是逾時與升級時間之間的互動方式快速複習：

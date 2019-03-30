@@ -4,7 +4,7 @@ description: 描述 Service Fabric CLI sfctl mesh 命令。
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: c7f4a0774c9277606e7c7c550eaa114e2ebbccbd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: 4901630509eb60cb1bbe88a46b51277af244c8f8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53283454"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670722"
 ---
 # <a name="sfctl-mesh"></a>sfctl mesh
 刪除及管理 Service Fabric Mesh 應用程式。
 
 ## <a name="subgroups"></a>子群組
-|子群組|說明|
+|子群組|描述|
 | --- | --- |
 | [app](service-fabric-sfctl-mesh-app.md) | 取得和刪除應用程式資源。 |
 | [code-package-log](service-fabric-sfctl-mesh-code-package-log.md) | 針對指定服務複本，取得指定程式碼套件的容器記錄。 |

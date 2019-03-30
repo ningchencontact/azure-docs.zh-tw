@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 711e51a075ce25ef3aa3c9c7e8784c914c8d0581
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.date: 03/29/2019
+ms.openlocfilehash: e71039c84c79c27a372a378144b21f6f724d08d8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982262"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670830"
 ---
 # <a name="what-is-azure-sql-database-service"></a>什麼是 Azure SQL Database 服務？
 
@@ -95,13 +95,21 @@ SQL Database 提供兩種購買模型：
 
 - **Azure 儲存體**：用於封存大量遙測，價格實惠
 - **Azure 事件中樞**：用於整合 SQL Database 遙測與自訂監視解決方案或經常性管線
-- **Azure Log Analytics**：適用於具有報告、警示及緩和功能的內建監視解決方案。
+- **Azure 監視器記錄**：適用於具有報告、警示及緩和功能的內建監視解決方案。
 
     ![架構](./media/sql-database-metrics-diag-logging/architecture.png)
 
 ## <a name="availability-capabilities"></a>可用性功能
 
-Azure 領先業界的 99.99% 可用性服務等級協定 [(SLA)](https://azure.microsoft.com/support/legal/sla/)(Microsoft 受控資料中心的全球網路提供支援)，可協助讓您的應用程式 24 小時全年無休地運作。 Azure 平台可完全管理每個資料庫，並保證任何資料都不會遺失及高度的資料可用性。 Azure 會自動處理修補、備份、複寫、失敗偵測，基礎潛在硬體、軟體或網路失敗、部署錯誤修正、容錯移轉、資料庫升級和其他維護工作。 隔離計算和儲存圖層可達成標準可用性。 整合單一節點上的計算和儲存以獲取效能，然後另外實作類似 Always On 可用性群組的技術，則可達成進階可用性。 如需 Azure SQL Database 高可用性功能的完整討論，請參閱 [SQL Database 可用性](sql-database-high-availability.md)。 此外，SQL Database 還提供內建[業務持續性和全域延展性](sql-database-business-continuity.md)功能，包括：
+在傳統的 SQL Server 環境中，您通常會需要 （至少） 2 的機器本機設定使用的資料 （使用功能，例如 AlwaysOn 可用性群組或容錯移轉叢集執行個體） 的完整 （同步維護） 複本以防範單一機器/元件失敗。  這會提供高可用性，但無法防止破壞您的資料中心的天然災害。
+ 
+嚴重損壞修復假設的災難性事件，將地理位置會當地語系化足以由另一個電腦/機器資料的複本很遠的地方。  在 SQL Server 中，您可以使用 Always On 可用性群組在非同步模式下執行以取得這項功能。  淺問題的速度通常表示使用者不想等候認可交易，因此沒有資料遺失的可能性當您執行非計劃性容錯移轉之前，很遠的地方發生複寫。
+
+資料庫中的進階和業務關鍵服務層已經[類似](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)可用性群組的同步處理。 較低服務層中的資料庫提供備援，透過使用儲存體[不同，但相當機制](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability)。 沒有邏輯，可防止單一電腦失敗。  作用中異地複寫功能讓您能夠防範災害終結的整個區域的位置。
+
+Azure 可用性區域是婧矔菛高可用性問題。  它會嘗試防止建置在單一區域內的單一資料中心中斷。  因此，它想要防止斷電或網路來建置。 在 SQL Azure，這適用於將不同的複本放在不同的可用性區域 (不同的大樓，有效地)，否則使用和以前一樣。 
+
+事實上，Azure 的業界領先的 99.99%可用性服務等級協定[(SLA)](https://azure.microsoft.com/support/legal/sla/)，由 Microsoft 管理的資料中心全球網路，可協助確保您的應用程式執行 24/7。 Azure 平台可完全管理每個資料庫，並保證任何資料都不會遺失及高度的資料可用性。 Azure 會自動處理修補、備份、複寫、失敗偵測，基礎潛在硬體、軟體或網路失敗、部署錯誤修正、容錯移轉、資料庫升級和其他維護工作。 隔離計算和儲存圖層可達成標準可用性。 整合單一節點上的計算和儲存以獲取效能，然後另外實作類似 Always On 可用性群組的技術，則可達成進階可用性。 如需 Azure SQL Database 高可用性功能的完整討論，請參閱 [SQL Database 可用性](sql-database-high-availability.md)。 此外，SQL Database 還提供內建[業務持續性和全域延展性](sql-database-business-continuity.md)功能，包括：
 
 - **[自動備份](sql-database-automated-backups.md)**：
 
@@ -141,11 +149,14 @@ SQL Database 會提供您需要監視之查詢的詳細解析。 SQL Database �
 
 ### <a name="adaptive-query-processing"></a>自適性查詢處理
 
-我們也將[自適性查詢處理](/sql/relational-databases/performance/adaptive-query-processing)功能系列新增至 SQL Database，包括交錯執行多陳述式的資料表值函式、批次模式記憶體授與意見反應，以及批次模式自適性聯結。 每個自適性查詢處理功能都會應用類似的「了解並適應」技術，協助進一步解決與過去很棘手的查詢最佳化問題相關的效能問題。
+我們也將[自適性查詢處理](/sql/relational-databases/performance/intelligent-query-processing)功能系列新增至 SQL Database，包括交錯執行多陳述式的資料表值函式、批次模式記憶體授與意見反應，以及批次模式自適性聯結。 每個自適性查詢處理功能都會應用類似的「了解並適應」技術，協助進一步解決與過去很棘手的查詢最佳化問題相關的效能問題。
 
 ## <a name="advanced-security-and-compliance"></a>進階安全性與合規性
 
 SQL Database 提供了各式各樣的[內建安全性與合規性功能](sql-database-security-overview.md)，協助您的應用程式符合各種安全性與合規性需求。
+
+> [!IMPORTANT]
+> Azure SQL Database （所有部署選項）、 經過認證符合許多法規標準。 如需詳細資訊，請參閱 [Microsoft Azure 信任中心](https://azure.microsoft.com/support/trust-center/)，您可以在當中找到 [SQL Database 法規認證](https://www.microsoft.com/trustcenter/compliance/complianceofferings)的最新清單。
 
 ### <a name="advance-threat-protection"></a>進階威脅保護
 
@@ -234,7 +245,7 @@ SQL Database 客戶將會有下列與適用於 SQL Server 的 Azure Hybrid Benef
 ## <a name="engage-with-the-sql-server-engineering-team"></a>洽詢 SQL Server 工程團隊
 
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server) \(英文\)：詢問資料庫管理的問題
-- [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server) \(英文\)：詢問開發的問題
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/sql-server) \(英文\)：詢問開發的問題
 - [MSDN 論壇](https://social.msdn.microsoft.com/Forums/home?category=sqlserver)：詢問技術的問題
 - [意見反應](https://aka.ms/sqlfeedback)：報告錯誤及要求功能
 - [Reddit](https://www.reddit.com/r/SQLServer/)：討論 SQL Server

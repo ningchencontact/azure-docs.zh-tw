@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: a350576742a9bcb899405aae19c032cc9b966975
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 09a5a6d823240b724e6ec88de38df068a58982d9
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351316"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652054"
 ---
 # <a name="azure-storage-analytics-logging"></a>Azure 儲存體分析記錄
 
@@ -27,7 +27,6 @@ ms.locfileid: "58351316"
 >  儲存體分析記錄，目前僅適用於 Blob、 佇列和表格服務。 不過，不支援進階儲存體帳戶。
 
 ## <a name="requests-logged-in-logging"></a>登入記錄的要求
-
 ### <a name="logging-authenticated-requests"></a>記錄驗證要求
 
  系統將記錄下列類型的驗證要求：
@@ -63,13 +62,13 @@ ms.locfileid: "58351316"
 
 大部分的儲存體瀏覽工具可讓您檢視 blob; 的中繼資料您也可以閱讀這項資訊使用 PowerShell 或以程式設計的方式。 下列 PowerShell 程式碼片段是篩選記錄 blob 的清單，依名稱指定的時間，以及識別只包含的記錄檔的中繼資料的範例**寫入**作業。  
 
- ```  
+ ```powershell
  Get-AzureStorageBlob -Container '$logs' |  
- where {  
+ Where-Object {  
      $_.Name -match 'table/2014/05/21/05' -and   
      $_.ICloudBlob.Metadata.LogType -match 'write'  
  } |  
- foreach {  
+ ForEach-Object {  
      "{0}  {1}  {2}  {3}" –f $_.Name,   
      $_.ICloudBlob.Metadata.StartTime,   
      $_.ICloudBlob.Metadata.EndTime,   
@@ -143,24 +142,25 @@ ms.locfileid: "58351316"
 
  下列命令會記錄的讀取、 寫入和刪除預設儲存體帳戶中的佇列服務中的要求使用設為五天的保留期：  
 
-```  
+```powershell
 Set-AzureStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
 ```  
 
  下列命令會關閉您的預設儲存體帳戶中的表格服務的記錄：  
 
-```  
+```powershell
 Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
 ```  
 
  如需如何設定 Azure PowerShell Cmdlet 以使用您的 Azure 訂用帳戶，以及如何選取要使用的預設儲存體帳戶的相關資訊，請參閱：[如何安裝和設定 Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/)。  
 
 ### <a name="enable-storage-logging-programmatically"></a>啟用以程式設計方式記錄的儲存體  
+
  除了使用 Azure 入口網站或 Azure PowerShell cmdlet，來控制 「 儲存體記錄，您也可以使用其中一個 Azure 儲存體 Api。 例如，如果您使用.NET 語言，您可以使用儲存體用戶端程式庫。  
 
  類別**CloudBlobClient**， **CloudQueueClient**，並**CloudTableClient**全都有方法，例如**Serviceproperties**並**Setserviceproperties**採用**ServiceProperties**物件做為參數。 您可以使用**ServiceProperties**用來設定儲存體記錄物件。 例如，下列C#程式碼片段示範如何變更記錄的內容和佇列記錄的保留期限：  
 
-```  
+```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
 var queueClient = storageAccount.CreateCloudQueueClient();  
 var serviceProperties = queueClient.GetServiceProperties();  
@@ -190,7 +190,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
  下列範例會示範如何您也可以下載從上午 09、 AM、 10 和 20，2014 年 11 點開始，在小時內的佇列服務的記錄資料。 **/S**參數會使來建立本機資料夾結構的日期和時間，在記錄檔名稱; 為基礎的 AzCopy **/V**參數會導致 AzCopy 產生詳細輸出; **/Y**參數會導致 AzCopy 覆寫任何本機檔案。 取代 **< yourstorageaccount\>** 的儲存體帳戶和取代名稱 **< yourstoragekey\>** 使用您的儲存體帳戶金鑰。  
 
-```  
+```
 AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs\Storage' '2014/05/20/09' '2014/05/20/10' '2014/05/20/11' /sourceKey:<yourstoragekey> /S /V /Y  
 ```  
 
@@ -201,6 +201,7 @@ AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs
  當您下載記錄資料時，您可以檢視檔案中的記錄項目。 這些記錄檔使用的分隔的文字格式，許多記錄檔讀取工具能夠剖析，包括 Microsoft Message Analyzer (如需詳細資訊，請參閱本指南[監控、 診斷及排解 Microsoft Azure 儲存體](storage-monitoring-diagnosing-troubleshooting.md)). 不同的工具有不同的功能可格式化、 篩選、 排序及搜尋記錄檔的內容。 如需有關儲存體記錄記錄檔格式和內容的詳細資訊，請參閱 <<c0> [ 儲存體分析記錄格式](/rest/api/storageservices/storage-analytics-log-format)並[儲存體分析記錄作業和狀態訊息](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)。
 
 ## <a name="next-steps"></a>後續步驟
+
 * [儲存體分析記錄檔格式](/rest/api/storageservices/storage-analytics-log-format)
 * [儲存體分析記錄作業和狀態訊息](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
 * [儲存體分析計量 （傳統）](storage-analytics-metrics.md)

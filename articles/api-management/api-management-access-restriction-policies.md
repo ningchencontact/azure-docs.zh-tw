@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 41f9ce38124cdee2166b5a573c4ab91a26c5fb8a
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: acc9f83923c8fdaae98cc55bc6baf62f56f2116b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402417"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663140"
 ---
 # <a name="api-management-access-restriction-policies"></a>API 管理存取限制原則
 
@@ -213,10 +213,12 @@ ms.locfileid: "58402417"
 
 ### <a name="example"></a>範例
 
+在下列範例中，原則只允許來自從單一 IP 位址或 IP 位址範圍指定的要求
+
 ```xml
-<ip-filter action="allow | forbid">
-    <address>address</address>
-    <address-range from="address" to="address" />
+<ip-filter action="allow">
+    <address>13.66.201.169</address>
+    <address-range from="13.66.140.128" to="13.66.140.143" />
 </ip-filter>
 ```
 
@@ -415,7 +417,7 @@ ms.locfileid: "58402417"
 
 ### <a name="examples"></a>範例
 
-#### <a name="simple-token-validation"></a>簡單權杖驗證
+#### <a name="simple-token-validation"></a>简单的令牌验证
 
 ```xml
 <validate-jwt header-name="Authorization" require-scheme="Bearer">
@@ -530,9 +532,9 @@ ms.locfileid: "58402417"
 | clock-skew                      | 時間範圍。 用來指定權杖簽發者和 API 管理執行個體的系統時鐘之間最大預期時間差異。                                                                                                                                                                                                                                                                                                               | 否                                                                               | 0 秒                                                                         |
 | failed-validation-error-message | 如果 JWT 未通過驗證，在 HTTP 回應主體中傳回的錯誤訊息。 此訊息必須正確逸出任何特殊字元。                                                                                                                                                                                                                                                                                                 | 否                                                                               | 預設錯誤訊息視驗證問題而定，例如「JWT 不存在」。 |
 | failed-validation-httpcode      | JWT 未通過驗證時所要傳回的 HTTP 狀態碼。                                                                                                                                                                                                                                                                                                                                                                                         | 否                                                                               | 401                                                                               |
-| header-name                     | 保留權杖的 HTTP 標頭名稱。                                                                                                                                                                                                                                                                                                                                                                                                         | 其中一個`header-name`，`query-parameter-name`或`token-value`必須指定。 | N/A                                                                               |
-| query-parameter-name            | 保留權杖的查詢參數名稱。                                                                                                                                                                                                                                                                                                                                                                                                     | 其中一個`header-name`，`query-parameter-name`或`token-value`必須指定。 | N/A                                                                               |
-| token-value                     | 運算式會傳回字串，包含 JWT 權杖                                                                                                                                                                                                                                                                                                                                                                                                     | 其中一個`header-name`，`query-parameter-name`或`token-value`必須指定。 | N/A                                                                               |
+| header-name                     | 保留權杖的 HTTP 標頭名稱。                                                                                                                                                                                                                                                                                                                                                                                                         | 必须指定 `header-name`、`query-parameter-name`、`token-value` 中的一个。 | N/A                                                                               |
+| query-parameter-name            | 保留權杖的查詢參數名稱。                                                                                                                                                                                                                                                                                                                                                                                                     | 必须指定 `header-name`、`query-parameter-name`、`token-value` 中的一个。 | N/A                                                                               |
+| token-value                     | 一个表达式，返回的字符串包含 JWT 令牌                                                                                                                                                                                                                                                                                                                                                                                                     | 必须指定 `header-name`、`query-parameter-name`、`token-value` 中的一个。 | N/A                                                                               |
 | id                              | `key` 元素的 `id` 屬性可讓您指定要與權杖中的 `kid` 宣告 (如果存在) 進行比對的字串，以找出適合用於簽章驗證的金鑰。                                                                                                                                                                                                                                           | 否                                                                               | N/A                                                                               |
 | match                           | `claim` 元素的 `match` 屬性可指定原則中的每個宣告值是否都必須存在於權杖，才能驗證成功。 可能的值包括：<br /><br /> - `all` - 原則中的每個宣告值都必須存在於權杖，才能驗證成功。<br /><br /> - `any` - 至少一個宣告必須存在於權杖，才能驗證成功。                                                       | 否                                                                               | 所有                                                                               |
 | require-expiration-time         | 布尔值。 指定權杖中是否需有逾期宣告。                                                                                                                                                                                                                                                                                                                                                                               | 否                                                                               | true                                                                              |

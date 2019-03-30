@@ -1,10 +1,10 @@
 ---
 title: 應用程式升級：升級參數 | Microsoft Docs
-description: 描述升級 Service Fabric 應用程式的相關參數，包括執行健全狀況檢查和自動復原升級的原則。
+description: 介绍与升级 Service Fabric 应用程序相关的参数，包括要执行的运行状况检查，以及用于自动撤消升级的策略。
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: a4170ac6-192e-44a8-b93d-7e39c92a347e
 ms.service: service-fabric
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2018
 ms.author: subramar
-ms.openlocfilehash: 73b48525566f9bf0107ba3b029c516ca294ca141
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 9a93c0993ee45e72b11b023982dfbbe8c6528272
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099187"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670612"
 ---
-# <a name="application-upgrade-parameters"></a>應用程式升級參數
+# <a name="application-upgrade-parameters"></a>应用程序升级参数
 本文說明在 Azure Service Fabric 應用程式升級期間套用的各種參數。 應用程式升級參數會控制升級時套用的逾時與健康情況檢查，並且指定升級失敗時必須套用的原則。 應用程式參數會使用下列各項套用到升級：
 - PowerShell
 - Visual Studio
@@ -44,7 +44,7 @@ Visual Studio Service Fabric 應用程式升級參數會透過 [Visual Studio �
 ### <a name="required-parameters"></a>必要參數
 (PS=PowerShell, VS=Visual Studio)
 
-| 參數 | 套用至 | 說明 |
+| 參數 | 套用至 | 描述 |
 | --- | --- | --- |
 ApplicationName |PS| 正在升級的應用程式名稱。 範例：fabric:/VisualObjects、fabric:/ClusterMonitor。 |
 ApplicationTypeVersion|PS|升級目標的應用程式類型的版本。 |
@@ -62,7 +62,7 @@ UnmonitoredManual | PS | 表示升級模式為未受監視的手動升級。 當
 
 (PS=PowerShell, VS=Visual Studio)
 
-| 參數 | 套用至 | 說明 |
+| 參數 | 套用至 | 描述 |
 | --- | --- | --- |
 | ApplicationParameter |PS, VS| 指定覆寫應用程式參數。<br>PowerShell 應用程式參數會指定為雜湊表的名稱/值組。 例如，@{ "VotingData_MinReplicaSetSize" = "3"; "VotingData_PartitionCount" = "1" }.<br>您可以在 [應用程式參數檔案] 欄位中的 [發行 Service Fabric 應用程式] 對話方塊中，指定 Visual Studio 應用程式參數。
 | 確認 |PS| 允許的值為 **True** 和 **False**。 在執行 Cmdlet 前提示您確認。 |
@@ -92,14 +92,15 @@ UnmonitoredManual | PS | 表示升級模式為未受監視的手動升級。 當
 
 ### <a name="required-parameters"></a>必要參數
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 | --- | --- |
-| application-id  |正在升級的應用程式識別碼。 <br> 這通常是不含 'fabric:'URI 配置的完整應用程式名稱。 從 6.0 版開始，階層的名稱會以 '~' 字元分隔。 例如，如果應用程式名稱是 'fabric:/myapp/app1'，則應用程式識別在 6.0+ 中會是 'myapp~app1'，而在舊版中會是 'myapp/app1'。|
+| application-id  |正在升級的應用程式識別碼。 <br> 這通常是不含 'fabric:'URI 配置的完整應用程式名稱。 從 6.0 版開始，階層的名稱會以 '\~' 字元分隔。 比方說，如果應用程式名稱是 'fabric: / myapp/app1 '，應用程式身分識別會是' myapp\~app1' 在 6.0 + 和 'myapp/app1' 在舊版本中。|
 application-version |升級目標的應用程式類型的版本。|
 parameters  |要在升級應用程式時套用的應用程式參數覆寫 JSON 編碼清單。|
 
 ### <a name="optional-parameters"></a>選擇性參數
-| 參數 | 說明 |
+
+| 參數 | 描述 |
 | --- | --- |
 default-service-health-policy | 預設用來評估服務類型健康情況的健康原則 [JSON](https://docs.microsoft.com/rest/api/servicefabric/sfclient-model-servicetypehealthpolicy) 編碼規格。 對應預設是空的。 |
 failure-action | 允許的值為 **Rollback**、**Manual** 和 **Invalid**。 「受監視」的升級遇到監視原則或健康原則違規時，所要執行的補償動作。 <br>**Rollback** 會指定升級自動復原為升級前的版本。 <br>**Manual** 表示升級將切換為 UnmonitoredManual 升級模式。 <br>**Invalid** 表示失敗動作無效。|
@@ -129,4 +130,4 @@ warning-as-error | 允許的值為 **True** 和 **False**。 預設值為 [False
 
 參考 [進階主題](service-fabric-application-upgrade-advanced.md)，以了解如何在升級您的應用程式時使用進階功能。
 
-參考 [疑難排解應用程式升級](service-fabric-application-upgrade-troubleshooting.md)中的步驟，以修正應用程式升級中常見的問題。
+参考 [Troubleshooting Application Upgrades](service-fabric-application-upgrade-troubleshooting.md)（对应用程序升级进行故障排除）中的步骤来解决应用程序升级时的常见问题。

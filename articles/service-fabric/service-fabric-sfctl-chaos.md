@@ -4,7 +4,7 @@ description: 描述 Service Fabric CLI sfctl choas 命令。
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: c60f835939b790a05bb536388b961a277e3101e3
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: b584ec301f0f4841c8df8fbbafb410abf645c373
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215332"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666744"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 啟動、停止及報告 chaos 測試服務。
 
 ## <a name="subgroups"></a>子群組
-|子群組|說明|
+|子群組|描述|
 | --- | --- |
 | [schedule](service-fabric-sfctl-chaos-schedule.md) | 取得並設定 chaos 排程。 |
 ## <a name="commands"></a>命令
 
-|命令|說明|
+|命令|描述|
 | --- | --- |
 | 活動 | 根據接續權杖或時間範圍取得 Chaos 事件的下一個區段。 |
 | get | 取得 Chaos 的狀態。 |
@@ -44,7 +44,7 @@ ms.locfileid: "54215332"
 
 ### <a name="arguments"></a>引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --continuation-token | 接續權杖參數可用來取得下一組結果。 當來自系統的結果無法放入單一回應中時，API 的回應中會包含具有非空白值的接續權杖。 當此值傳遞至下一個 API 呼叫時，API 會傳回下一組結果。 如果沒有任何進一步的結果，接續權杖就不會包含值。 此參數的值不能經過 URL 編碼。 |
 | --end-time-utc | 表示要產生 Chaos 報告之時間範圍結束時間的 Windows 檔案時間。 如需詳細資料，請參閱 [DateTime.ToFileTimeUtc 方法](https://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) \(機器翻譯\)。 |
@@ -54,7 +54,7 @@ ms.locfileid: "54215332"
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
@@ -69,13 +69,13 @@ ms.locfileid: "54215332"
 
 ### <a name="arguments"></a>引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
@@ -90,7 +90,7 @@ ms.locfileid: "54215332"
 
 ### <a name="arguments"></a>引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --app-type-health-policy-map | 針對特定應用程式類型，含有狀況不良應用程式百分比上限的 JSON 編碼清單。 每個項目都會指定應用程式類型名稱作為索引鍵，並指定一個整數作為值，此整數代表用來評估所指定應用程式類型之應用程式的 MaxPercentUnhealthyApplications 百分比。 <br><br> 對於特定應用程式類型，定義具有最大健康情況不良應用程式百分比的對應。 每個項目都會指定應用程式類型名稱做為一個索引鍵，並指定一個整數的值，表示用來評估指定應用程式類型之應用程式的 MaxPercentUnhealthyApplications 百分比。 應用程式類型的健康狀態原則對應可以在叢集健康狀態評估期間，用來描述特殊的應用程式類型。 對應中包含的應用程式類型是針對在對應中指定的百分比進行評估，不包含在叢集健康原則中定義的全域 MaxPercentUnhealthyApplications。 對應中指定之應用程式類型的應用程式不會針對應用程式的全域集區進行計算。 例如，如果某個類型的某些應用程式非常重要，叢集系統管理員可以針對該應用程式類型將項目新增至對應，並且為它指派 0% 的值 (也就是不容忍任何失敗)。 其他所有應用程式則可以使用設為 20% 的 MaxPercentUnhealthyApplications 來進行評估，以容忍數千個應用程式執行個體發生一些失敗。 只有在叢集資訊清單使用 HealthManager/EnableApplicationTypeHealthEvaluation 的設定項目啟用應用程式類型健康情況評估時，才會使用應用程式類型健康原則對應。 |
 | --chaos-target-filter | 具有兩個字串類型索引鍵的 JSON 編碼字典。 這兩個索引鍵分別是 NodeTypeInclusionList 和 ApplicationInclusionList。 這兩個索引鍵的值都是字串清單。 chaos_target_filter 會針對鎖定的 Chaos 錯誤定義所有篩選，例如，只有特定節點類型或特定應用程式會引發錯誤。 <br><br> 如果未使用 chaos_target_filter，Chaos 會針對所有叢集實體引發錯誤。 如果使用 chaos_target_filter，則 Chaos 只會針對符合 chaos_target_filter 規格的實體引發錯誤。 NodeTypeInclusionList 和 ApplicationInclusionList 只允許集合聯集語意。 您不能指定 NodeTypeInclusionList 和 ApplicationInclusionList 的交集。 例如，您不能指定「只有在此應用程式位於該節點類型上時才對它引發錯誤」。 若 NodeTypeInclusionList 或 ApplicationInclusionList 中包含某個實體，則該實體就不能使用 ChaosTargetFilter 排除。 即使 applicationX 並未出現在 ApplicationInclusionList 中，但在某些混亂反覆項目中也能對 applicationX 引發錯誤，因為它正好位於包括在 NodeTypeInclusionList 中的 nodeTypeY 的節點上。 如果 NodeTypeInclusionList 和 ApplicationInclusionList 都是空白，則會擲回 ArgumentException。 針對這些節點類型的節點，會啟用所有錯誤類型 (重新啟動節點、重新啟動程式碼封裝、移除複本、重新啟動複本、移動主要複本，以及移動次要複本)。 如果某個節點類型 (假設為 NodeTypeX) 未出現在 NodeTypeInclusionList 中，則系統將永遠不會針對 NodeTypeX 的節點啟用節點層級錯誤 (例如 NodeRestart)，但如果 ApplicationInclusionList 中的某個應用程式正好位於 NodeTypeX 的節點上，則仍會針對 NodeTypeX 啟用程式碼套件和複本錯誤。 您最多可在此清單中包含 100 個節點類型名稱，若要增加此數目，則必須針對 MaxNumberOfNodeTypesInChaosEntityFilter 設定進行設定升級。 屬於這些應用程式之服務的所有複本，都適用於由混亂所引發的複本錯誤 (重新啟動複本、移除複本、移動主要複本和移動次要複本)。 只有在程式碼封裝只裝載這些應用程式的複本時，混亂才可以將程式碼封裝重新啟動。 如果某個應用程式未出現在此清單中，系統仍然可能在某些混亂反覆項目中針對它引發錯誤，前提是該應用程式位於某個包含在 NodeTypeInclusionList 中之節點類型的節點上。 不過，如果 applicationX 因位置限制而繫結至 nodeTypeY，且 applicationX 未出現在 ApplicationInclusionList，而且 nodeTypeY 未出現在 NodeTypeInclusionList 中，則系統將永遠不會對 applicationX 引發錯誤。 您最多可在此清單中包含 1000 個應用程式名稱，若要增加此數目，則必須針對 MaxNumberOfApplicationsInChaosEntityFilter 設定進行設定升級。 |
@@ -108,7 +108,7 @@ ms.locfileid: "54215332"
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
@@ -123,13 +123,13 @@ ms.locfileid: "54215332"
 
 ### <a name="arguments"></a>引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |

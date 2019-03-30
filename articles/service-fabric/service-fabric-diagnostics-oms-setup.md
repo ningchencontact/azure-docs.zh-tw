@@ -4,7 +4,7 @@ description: 了解如何設定 Azure 監視器來視覺化和分析事件的記
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/20/2019
 ms.author: srrengar
-ms.openlocfilehash: ca5dd4a7c12a68a549f081ad62db1736c9c68837
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 3523a2df413740f644151c548e403c39c9be1f03
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483160"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670501"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>設定叢集的 Azure 監視器記錄
 
-Azure 監視器記錄檔是我們的建議，來監視叢集層級的事件。 您可以透過 Azure Resource Manager、PowerShell 或 Azure Marketplace 來設定 Log Analytics 工作區。 如果要維護您的部署，供日後使用的更新的 Resource Manager 範本，請設定您的 Azure 監視器記錄環境使用相同的範本。 如果已經在啟用診斷的情況下部署叢集，則透過 Marketplace 部署會更輕鬆。 如果您要用來部署的帳戶中沒有訂用帳戶層級的存取權，請使用 PowerShell 或 Resource Manager 範本進行部署。
+建議您使用 Azure 監視器記錄來監視叢集層級事件。 您可以透過 Azure Resource Manager、PowerShell 或 Azure Marketplace 來設定 Log Analytics 工作區。 如果要維護您的部署，供日後使用的更新的 Resource Manager 範本，請設定您的 Azure 監視器記錄環境使用相同的範本。 如果已經在啟用診斷的情況下部署叢集，則透過 Marketplace 部署會更輕鬆。 如果您要用來部署的帳戶中沒有訂用帳戶層級的存取權，請使用 PowerShell 或 Resource Manager 範本進行部署。
 
 > [!NOTE]
-> 若要設定 Azure 監視器記錄檔，來監視您的叢集，您需要已啟用診斷，才能檢視叢集層級或平台層級的事件。 請參閱[如何在 Windows 叢集中設定診斷功能](service-fabric-diagnostics-event-aggregation-wad.md)和[如何在 Linux 叢集中設定診斷功能](service-fabric-diagnostics-event-aggregation-lad.md)，以取得詳細資訊
+> 若要設定 Azure 監視器記錄檔，來監視您的叢集，您需要已啟用診斷，才能檢視叢集層級或平台層級的事件。 請參閱[如何在 Windows 叢集中設定診斷功能](service-fabric-diagnostics-event-aggregation-wad.md)和[如何在 Linux 叢集中設定診斷功能](service-fabric-diagnostics-oms-syslog.md)，以取得詳細資訊
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -49,7 +49,7 @@ Azure 監視器記錄檔是我們的建議，來監視叢集層級的事件。 �
 如果您使用的 Windows，則會繼續進行下列步驟來連接 Azure 監視器記錄檔的儲存體帳戶來儲存叢集事件。 
 
 >[!NOTE]
->目前尚未對 Linux 叢集實施此體驗。 
+>Windows 叢集才支援 Service Fabric 分析解決方案。 對於 Linux 叢集，請參閱我們的文章中關於[如何設定 Linux 叢集的 Azure 監視器記錄](service-fabric-diagnostics-oms-syslog.md)。  
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>將 Log Analytics 工作區連線至叢集 
 
