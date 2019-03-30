@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 80c35d8417fefa2873cbef9886f56ccfa3920624
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 0e0d1cd98f27ef40681e37a55f7021bf102fda21
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409460"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664263"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中獲得最低的保留容量費用
 
@@ -20,7 +20,7 @@ Azure Cosmos DB 保留容量有助於您透過預付一年或三年的 Azure Cos
 
 Azure Cosmos DB 保留容量可以大幅降低 Cosmos DB 成本&mdash;預付一或三年期承諾用量費用，即可節省高達一般價格的 65%。 保留容量提供帳單折扣，而且不會影響 Azure Cosmos DB 資源的執行階段狀態。
 
-Azure Cosmos DB 保留容量可涵蓋針對資源所佈建的輸送量。 它未涵蓋儲存體和網路費用。 購買保留容量後，符合保留屬性的輸送量費用就不會再按照預付型方案的費率來收費。 如需有關保留的詳細資訊，請參閱 [Azure 保留](../billing/billing-save-compute-costs-reservations.md)一文。 
+Azure Cosmos DB 保留容量可涵蓋針對資源所佈建的輸送量。 它未涵蓋儲存體和網路費用。 購買保留容量後，符合保留屬性的輸送量費用就不會再按照預付型方案的費率來收費。 如需有關保留的詳細資訊，請參閱 [Azure 保留](../billing/billing-save-compute-costs-reservations.md)一文。
 
 您可以從 [Azure 入口網站](https://portal.azure.com)購買 Azure Cosmos DB 保留容量。 若要購買保留容量：
 
@@ -48,7 +48,7 @@ Azure Cosmos DB 保留容量可涵蓋針對資源所佈建的輸送量。 它未
 
 4. 請填寫必填欄位，如下表中所述：
 
-   ![填寫保留容量表單](./media/cosmos-db-reserved-capacity/fill_reserved_capacity_form.png) 
+   ![填寫保留容量表單](./media/cosmos-db-reserved-capacity/fill_reserved_capacity_form.png)
 
    |欄位  |描述  |
    |---------|---------|
@@ -61,17 +61,17 @@ Azure Cosmos DB 保留容量可涵蓋針對資源所佈建的輸送量。 它未
 
 5. 在 [成本] 區段中，檢閱保留容量的折扣和價格。 此保留容量價格適用於其輸送量針對所有區域而佈建的 Azure Cosmos DB 資源。  
 
-6. 選取 [購買]。 購買成功時，您會看到下列頁面： 
+6. 選取 [購買]。 購買成功時，您會看到下列頁面：
 
-   ![填寫保留容量表單](./media/cosmos-db-reserved-capacity/reserved_capacity_successful.png) 
+   ![填寫保留容量表單](./media/cosmos-db-reserved-capacity/reserved_capacity_successful.png)
 
-購買保留容量之後，會立即套用至符合保留容量條件的任何現有 Azure Cosmos DB 資源。 如果您沒有任何現有的 Azure Cosmos DB 資源，保留容量將會在您部署符合保留容量條件的新 Cosmos DB 執行個體時套用。 在這兩種情況下，保留容量的期間都會在成功購買後立即生效。 
+購買保留容量之後，會立即套用至符合保留容量條件的任何現有 Azure Cosmos DB 資源。 如果您沒有任何現有的 Azure Cosmos DB 資源，保留容量將會在您部署符合保留容量條件的新 Cosmos DB 執行個體時套用。 在這兩種情況下，保留容量的期間都會在成功購買後立即生效。
 
 當您的保留容量到期時，Azure Cosmos DB 執行個體將會繼續執行，而且會以一般預付型方案費率計費。
 
 ## <a name="cancellation-and-exchanges"></a>取消和交換
 
-在識別的權限的保留容量的協助，請參閱[了解如何將保留折扣套用至 Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md)。 事件中，您需要取消或交換 Azure Cosmos DB 的保留項目，請連絡 Azure Cosmos DB 小組`AskCosmosDB@microsoft.com`。
+在識別的權限的保留容量的協助，請參閱[了解如何將保留折扣套用至 Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md)。 如果您要取消或交換 Azure Cosmos DB 的保留項目，請參閱[保留交換記錄和退費記錄](../billing/billing-azure-reservations-self-service-exchange-and-refund.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -90,4 +90,3 @@ Azure Cosmos DB 保留容量可涵蓋針對資源所佈建的輸送量。 它未
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
 如果您有問題或需要協助，請[建立支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。
-

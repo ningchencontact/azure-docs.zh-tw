@@ -8,13 +8,13 @@ ms.author: zarhoads
 ms.date: 09/11/2018
 ms.topic: conceptual
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
-keywords: 'Docker，Kubernetes，Azure，AKS，Azure Kubernetes Service，容器，Helm，服務網格，服務網格路由、 kubectl，k8s '
-ms.openlocfilehash: eff7f88ec6cbf8064df42fa3b22d61bb44baa451
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s '
+ms.openlocfilehash: 5dd77d85e06a821d8dd359174bb5de6bca8b4d61
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339579"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669771"
 ---
 # <a name="troubleshooting-guide"></a>疑難排解指南
 
@@ -316,3 +316,12 @@ configurations:
     build:
       dockerfile: Dockerfile.develop
 ```
+
+## <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>錯誤 「 失敗的內部監看式： 觀看 ENOSPC"附加偵錯 Node.js 應用程式時
+
+### <a name="reason"></a>原因
+
+執行 Node.js 應用程式，您嘗試偵錯工具附加至的 pod 的節點已超過*fs.inotify.max_user_watches*值。 在某些情況下，[的預設值*fs.inotify.max_user_watches*可能會太小，無法處理偵錯工具直接附加至的 pod](https://github.com/Azure/AKS/issues/772)。
+
+### <a name="try"></a>嘗試
+暫時的解決方法，此問題是要增加的值*fs.inotify.max_user_watches*叢集中的每個節點上，然後重新啟動該節點，變更才會生效。

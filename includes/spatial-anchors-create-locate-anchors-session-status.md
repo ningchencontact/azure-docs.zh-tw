@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: 47a950566ab69a6e820364130b3a371c3b0a5e3c
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: a78649033b84a726b6e7daee95efc4192ce85c3a
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56751690"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632146"
 ---
-它是個不錯的主意，確定有足夠的環境資料，然後再嘗試建立新的雲端錨點擷取。
+您需要足夠的環境資料擷取，然後再嘗試建立新的雲端錨點。

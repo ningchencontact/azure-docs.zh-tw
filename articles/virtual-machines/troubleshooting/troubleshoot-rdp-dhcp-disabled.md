@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 5842c5edd0402d61f564ab15e34e8f69c0e718d7
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: daddb859c6bfc6309ef833c6c6c3ea43c70f1889
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213445"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652275"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>因為停用 DHCP 用戶端服務，而無法 RDP 連線至 Azure 虛擬機器
 
@@ -27,7 +27,6 @@ ms.locfileid: "54213445"
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="symptoms"></a>徵兆
-
 由於 VM 的 DHCP 用戶端服務已停用，因此您無法 RDP 連線至 Azure 中的 VM。 當您檢查 Azure 入口網站中[開機診斷](../troubleshooting/boot-diagnostics.md)的螢幕擷取畫面時，您會在登入畫面中看到 VM 正常開機並等候認證。 您使用事件檢視器從遠端檢視 VM 中的事件記錄檔。 您會看到 DHCP 用戶端服務未啟動，或無法啟動。 下列為記錄範例：
 
 **記錄檔名稱**：系統 </br>
@@ -90,7 +89,7 @@ VM 上的 DHCP 用戶端服務並未執行。
     | 1070 - ERROR_SERVICE_START_HANG  | 請參閱 [DHCP 用戶端服務當機或停止回應](#dhcp-client-service-crashes-or-hangs)。  |
     | 1077 - ERROR_SERVICE_NEVER_STARTED  | 請參閱 [DHCP 用戶端已停用](#dhcp-client-service-is-disabled)。  |
     |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   | 請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。  |
-    |1053 | 請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。  |
+    |1053 | 请[联系支持人员](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解决问题。  |
 
 
 #### <a name="dhcp-client-service-is-stopped-because-of-an-access-denied-error"></a>DHCP 用戶端服務因為拒絕存取錯誤而停止
@@ -98,7 +97,7 @@ VM 上的 DHCP 用戶端服務並未執行。
 1. 連線至[序列主控台](serial-console-windows.md)並開啟 PowerShell 執行個體。
 2. 執行下列指令碼來下載處理程序監視工具：
 
-   ```
+   ```powershell
    remove-module psreadline
    $source = "https://download.sysinternals.com/files/ProcessMonitor.zip"
    $destination = "c:\temp\ProcessMonitor.zip"
@@ -167,6 +166,7 @@ VM 上的 DHCP 用戶端服務並未執行。
 3. 嘗試使用遠端桌面來連線至 VM。
 
 #### <a name="dhcp-client-service-crashes-or-hangs"></a>DHCP 用戶端服務當機或停止回應
+
 1. 如果服務狀態停滯在 [起始] 或 [停止] 狀態，請嘗試停止服務：
 
         sc stop DHCP
@@ -205,5 +205,3 @@ VM 上的 DHCP 用戶端服務並未執行。
 ## <a name="next-steps"></a>後續步驟
 
 如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以解決您的問題。
-
-

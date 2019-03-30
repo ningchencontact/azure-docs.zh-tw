@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: 4b4901b0323caa8eeda6b49228e65d1f28495164
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: f4034a3462d7221c16464e6a2cee9aad2105a6cd
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518485"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649806"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 備份的支援矩陣
 您可以使用[Azure 備份服務](backup-overview.md)備份內部部署機器和工作負載和 Azure 虛擬機器 (Vm)。 本文摘要說明支援設定和限制，當您使用 Azure 備份的 Azure Vm 備份。
@@ -129,7 +129,7 @@ DPM/MABS 磁碟上的復原點 | 檔案伺服器和應用程式伺服器的 448 
 還原至現有的 VM | 使用更換磁碟選項。
 在儲存體帳戶已啟用 Azure 儲存體服務加密 (SSE) 的情況下還原磁碟 | 不支援。<br/><br/> 請還原至未啟用 SSE 的帳戶。
 還原至混合儲存體帳戶 | 不支援。<br/><br/> 根據儲存體帳戶類型，所有已還原的磁碟都將是進階或標準磁碟，而非混合磁碟。
-使用區域備援儲存體 (ZRS) 還原到儲存體帳戶 | 不支援。
+使用區域備援儲存體 (ZRS) 還原到儲存體帳戶 | 支援 (會備份在 2019 年 1 月之後的 vm 和位置[可用性區域](https://azure.microsoft.com/global-infrastructure/availability-zones/)可用)
 將 VM 直接還原至可用性設定組 | 受控磁碟，您可以還原磁碟，並使用範本中的 [可用性集] 選項。<br/><br/> 不支援非受控磁碟。 對於非受控磁碟，請還原磁碟，然後在可用性設定組中建立 VM。
 升級至受管理的 VM 之後，還原備份的非受控 Vm| 支援。<br/><br/> 您可以還原磁碟，然後建立受控 VM。
 在 VM 移轉至受控磁碟之前將 VM 還原至還原點 | 支援。<br/><br/> 您可以還原至非受控磁碟 (預設值)、將還原的磁碟轉換為受控磁碟，然後使用受控磁碟建立 VM。
@@ -149,6 +149,7 @@ VM 大小 |   至少有 2 個 CPU 核心和 1 GB RAM 的任何 Azure VM 大小�
 從部署的 Vm 備份[Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> （由 Microsoft、 協力廠商發行） |  支援。<br/><br/> VM 必須執行支援的作業系統。<br/><br/> 復原 VM 上的檔案時，只能還原至相容的作業系統 (而非較舊或較新版的作業系統)。
 將自訂映像 （第三方） 從備份部署的 Vm |   支援。<br/><br/> VM 必須執行支援的作業系統。<br/><br/> 復原 VM 上的檔案時，只能還原至相容的作業系統 (而非較舊或較新版的作業系統)。
 將 Vm 移轉至 Azure 備份  | 支援。<br/><br/> 若要備份 VM，必須在已移轉的機器上安裝 VM 代理程式。
+備份的 Vm 一致性 | 不支援。 <br/><br/>Azure 備份無法保持 VM 間的一致性。
 
 
 
@@ -165,6 +166,7 @@ Azure VM 資料磁碟 | 備份具有 16 個或較少資料磁碟的 VM。
 備份已刪除重複資料的磁碟 | 不支援。
 將磁碟新增至受保護的 VM | 支援。
 在受保護的 VM 上調整磁碟大小 | 支援。
+共用存放裝置| 建議您不要使用 CSV 或向外延展檔案伺服器的 vm。 CSV 寫入器可能會失敗。
 
 ## <a name="vm-network-support"></a>VM 網路支援
 

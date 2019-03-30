@@ -1,6 +1,6 @@
 ---
-title: 將 Azure 診斷記錄檔串流至 Log Analytics
-description: 了解如何將 Azure 診斷記錄串流至 Log Analytics 命名空間。
+title: Azure 監視器中的 Log Analytics 工作區 Stream Azure 診斷記錄
+description: 了解如何在 Azure 監視器中的 Log Analytics 工作區的 Azure 診斷記錄串流。
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,27 +8,26 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: bd760fca20a602127e7d33913547dcb2c6bc95f6
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 33d8f2e7c65a786d1ecb389574fe186efb6fb705
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351540"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630795"
 ---
-# <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>將 Azure 診斷記錄檔串流至 Log Analytics
+# <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Azure 監視器中的 Log Analytics 工作區 Stream Azure 診斷記錄
 
-您可以使用入口網站、PowerShell Cmdlet 或 Azure CLI，以近乎即時的方式將 **[Azure 診斷記錄](diagnostic-logs-overview.md)** 串流至 Azure Log Analytics。
+**[Azure 診斷記錄](diagnostic-logs-overview.md)** 的 Log Analytics 工作區，使用入口網站、 PowerShell cmdlet 或 Azure CLI 的 Azure 監視器中近乎即時資料流的處理。
 
-## <a name="what-you-can-do-with-diagnostics-logs-in-log-analytics"></a>您可以在 Log Analytics 中使用診斷記錄來做什麼
+## <a name="what-you-can-do-with-diagnostics-logs-in-a-log-analytics-workspace"></a>您可以使用診斷記錄在 Log Analytics 工作區中
 
-Azure Log Analytics 是一個彈性的記錄搜尋和分析工具，可讓您深入了解從 Azure 資源產生的原始記錄資料。 一些功能包括：
+Azure 監視器提供彈性的記錄查詢及分析工具，可讓您深入了解從 Azure 資源產生的原始記錄資料。 一些功能包括：
 
-* **記錄搜尋** - 撰寫您記錄資料的進階查詢、將來自各種來源的記錄相互關聯，甚至是產生可釘選至 Azure 儀表板的圖表。
-* **警示** - 偵測一或多個事件符合特定查詢的情況，然後以電子郵件或 Webhook 呼叫進行通知。
-* **解決方案** - 使用可讓您立即深入了解記錄資料的預先建立檢視和儀表板。
+* **記錄檔查詢**-移轉您的記錄資料，從各種記錄相互關聯來源，並產生圖表，進階的查詢可以釘選到 Azure 儀表板的寫入。
+* **警示**-偵測一或多個事件符合特定查詢，並與使用 Azure 監視器警示的電子郵件或 webhook 呼叫收到通知。
 * **進階分析** - 套用機器學習和模式比對演算法，以識別出記錄所揭露的可能原因。
 
-## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics"></a>啟用將診斷記錄串流至 Log Analytics 的功能
+## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics-workspace"></a>啟用診斷記錄串流至 Log Analytics 工作區
 
 您可以透過入口網站或使用 [Azure 監視器 REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)，啟用以程式控制方式對診斷記錄進行串流的功能。 無論使用哪一種方式，您都需建立一個診斷設定，在其中指定 Log Analytics 工作區，以及要傳送至該工作區的記錄類別和計量。 診斷**記錄類別**是一種資源可以提供的記錄類型。
 
@@ -42,9 +41,8 @@ Log Analytics 工作區並不一定要與發出記錄檔的資源位於相同的
 >
 
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>使用入口網站串流診斷記錄
-1. 在入口網站中，瀏覽至 Azure 監視器，然後按一下 [診斷設定]
+1. 在入口網站中，瀏覽至 Azure 監視器，然後按一下**diagnostic-settings**中**設定**功能表。
 
-    ![Azure 監視器的監視區段](media/diagnostic-logs-stream-log-store/diagnostic-settings-blade.png)
 
 2. 選擇性地依資源群組或資源類型篩選清單，然後按一下您要設定診斷設定的資源。
 
@@ -97,9 +95,9 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 僅在 `--workspace` 不是物件識別碼時才需要 `--resource-group` 引數。
 
-## <a name="how-do-i-query-the-data-in-log-analytics"></a>如何查詢 Log Analytics 中的資料？
+## <a name="how-do-i-query-the-data-from-a-log-analytics-workspace"></a>如何查詢 Log Analytics 工作區中的資料？
 
-在入口網站的 [記錄搜尋] 刀鋒視窗或 Log Analytics 隨附的 [進階分析] 體驗中，您可以在 [AzureDiagnostics] 資料表底下查詢「記錄管理」解決方案隨附的診斷記錄。 此外，也有[數個適用於 Azure 資源的解決方案](../../azure-monitor/insights/solutions.md)，您可以安裝這些解決方案來立即深入了解要傳送到 Log Analytics 的記錄資料。
+Azure 監視器入口網站的 [記錄] 刀鋒視窗，在中，您可以查詢診斷記錄檔記錄管理解決方案，在 [AzureDiagnostics] 資料表的一部分。 另外還有[數個適用於 Azure 資源的監視解決方案](../../azure-monitor/insights/solutions.md)取得即時深入解析記錄資料傳送至 「 Azure 監視器，您可以安裝。
 
 ### <a name="known-limitation-column-limit-in-azurediagnostics"></a>已知限制： AzureDiagnostics 中的資料行限制
 因為許多資源可讓您傳送的資料型別會傳送至相同的資料表 (_AzureDiagnostics_)，此資料表的結構描述是超級組所收集的所有不同的資料類型的結構描述。 例如，如果您已建立下列資料類型之集合的診斷設定，所有傳送至相同的工作區：

@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0711743d46aaac08f8572917d91e452ee919134c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7b28129a3afe9f78d0ef749fa0c7759082c5f758
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816892"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652445"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>使用 Resource Manager 範本與 Azure 入口網站來部署資源
 
-本文示範如何使用 [Azure 入口網站](https://portal.azure.com)搭配 [Azure Resource Manager](resource-group-overview.md) 來部署您的 Azure 資源。 若要了解如何管理您的資源，請參閱[使用 Azure 入口網站管理 Azure 資源](manage-resources-portal.md)。
+本文示範如何使用 [Azure 入口網站](https://portal.azure.com)搭配 [Azure Resource Manager](resource-group-overview.md) 來部署您的 Azure 資源。 若要了解有关管理资源的信息，请参阅[通过 Azure 门户管理 Azure 资源](manage-resources-portal.md)。
 
 ## <a name="create-resource-group"></a>建立資源群組
 
@@ -134,7 +134,8 @@ ms.locfileid: "56816892"
    ![部署已儲存的範本](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
 ## <a name="next-steps"></a>後續步驟
-* 若要檢視稽核記錄檔，請參閱 [使用 Resource Manager 來稽核作業](./resource-group-audit.md)。
-* 若要針對部署錯誤進行疑難排解，請參閱[檢視部署作業](./resource-manager-deployment-operations.md)。
-* 若要從部署或資源群組匯出範本，請參閱[匯出 Azure Resource Manager 範本](./manage-resource-groups-portal.md#export-resource-groups-to-templates)。
-* 若要安全地在多個區域推出您的服務，請參閱 [Azure 部署管理員](./deployment-manager-overview.md)。
+
+- 若要檢視稽核記錄檔，請參閱 [使用 Resource Manager 來稽核作業](./resource-group-audit.md)。
+- 若要針對部署錯誤進行疑難排解，請參閱[檢視部署作業](./resource-manager-deployment-operations.md)。
+- 若要从部署或资源组中导出模板，请参阅[导出 Azure 资源管理器模板](./manage-resource-groups-portal.md#export-resource-groups-to-templates)。
+- 若要安全地在多個區域推出您的服務，請參閱 [Azure 部署管理員](./deployment-manager-overview.md)。

@@ -4,15 +4,15 @@ description: 本文摘要說明使用 Azure Site Recovery 來設定從 Azure VM 
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.date: 03/18/2019
+ms.date: 03/29/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 2c1890570f153de68d187c37dc0a7bca156c2d47
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 66d57677b216130316c6a3ddd9a6cff993540808
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312048"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649878"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>常見問題：Azure 對 Azure 複寫
 
@@ -34,6 +34,9 @@ ms.locfileid: "58312048"
 3. [設定適用於 Azure VM 的災害復原](azure-to-azure-how-to-enable-replication.md)
 4. [執行測試容錯移轉](azure-to-azure-tutorial-dr-drill.md)
 5. [容錯移轉及容錯回復至主要區域](azure-to-azure-tutorial-failover-failback.md)
+
+### <a name="how-is-capacity-guaranteed-in-target-region-for-azure-vms"></a>如何是容量保證目標區域中的 Azure Vm？
+Azure Site Recovery (ASR) 團隊的運作方式與 Azure 的容量管理小組合作，規劃足夠的基礎結構容量，以確保災害 asr 受保護的 Vm 嘗試復原已成功部署在災害復原 (DR) 區域中，每當起始 ASR 容錯移轉作業。
 
 ## <a name="replication"></a>複寫
 
@@ -79,7 +82,7 @@ ms.locfileid: "58312048"
 [深入了解](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings)。
 
 ### <a name="what-is-a-crash-consistent-recovery-point"></a>什麼是當機時保持一致復原點？
-當機時保持一致復原點會呈現就像建立快照集時 VM 發生當機或從伺服器拔掉電源線時一樣的磁碟上資料。 這不包含擷取快照時記憶體內的任何資料。 
+當機時保持一致復原點會呈現就像建立快照集時 VM 發生當機或從伺服器拔掉電源線時一樣的磁碟上資料。 這不包含擷取快照時記憶體內的任何資料。
 
 現今，大多數應用程式都可以妥善地從當機時保持一致快照集復原。 對無資料庫作業系統及檔案伺服器、DHCP 伺服器和列印伺服器之類的應用程式而言，通常使用當機時保持一致復原點就已足夠。
 
@@ -87,9 +90,7 @@ ms.locfileid: "58312048"
 Site Recovery 會每 5 分鐘建立一次當機時保持一致復原點。
 
 ### <a name="what-is-an-application-consistent-recovery-point"></a>什麼是應用程式一致復原點？ 
-應用程式一致復原點是從應用程式一致快照集建立的。 應用程式一致快照集所擷取的資料與當機時保持一致復原點相同，但多了記憶體內的所有資料，以及所有進行中的交易。 
-
-由於有這些額外的內容，因此應用程式一致快照集包含最多內容，且需要最長的執行時間。 建議您針對資料庫作業系統和 SQL Server 之類的應用程式，使用應用程式一致復原點。
+應用程式一致復原點是從應用程式一致快照集建立的。 應用程式一致快照集所擷取的資料與當機時保持一致復原點相同，但多了記憶體內的所有資料，以及所有進行中的交易。 由於有這些額外的內容，因此應用程式一致快照集包含最多內容，且需要最長的執行時間。 建議您針對資料庫作業系統和 SQL Server 之類的應用程式，使用應用程式一致復原點。
 
 ### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>應用程式一致復原點對應用程式效能有何影響？
 請考慮到應用程式一致復原點為了靜止應用程式，它會擷取記憶體中和處理序中架構所需的所有資料。 如果工作負載已經非常忙碌，若非常頻繁地這麼做，可能會有效能影響。 針對應用程式一致復原點，對於非資料庫工作負載通常建議不要使用低頻率，甚至對於資料庫工作負載 1 小時就足夠了。 
@@ -116,8 +117,8 @@ Site Recovery 會每 5 分鐘建立一次當機時保持一致復原點。 使�
 ### <a name="what-will-happen-if-i-have-a-replication-policy-of-24-hours-and-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-lost"></a>如果我的複寫原則為 24 小時，但某個問題導致 Site Recovery 超過 24 小時無法產生復原點，會發生什麼情況？ 我先前的復原點是否會遺失？
 不會，Site Recovery 會保留您先前所有的復原點。 根據復原點保留期間 (在此案例中為 24 小時)，只有在新的復原點產生時，Site Recovery 才會替換掉最舊的復原點。 在此情況下，由於不會因某些問題而產生任何新的復原點，因此在到達保留期間後，舊的復原點仍將維持不變。
 
-### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>在 VM 上啟用複寫之後，我要如何變更複寫原則？ 
-移至 [Site Recovery 保存庫] > [Site Recovery 基礎結構] > [複寫原則]。 選取您想要編輯的原則，然後儲存變更。 此外，任何變更都會套用到現有的所有複寫。 
+### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>在 VM 上啟用複寫之後，我要如何變更複寫原則？
+移至 [Site Recovery 保存庫] > [Site Recovery 基礎結構] > [複寫原則]。 選取您想要編輯的原則，然後儲存變更。 此外，任何變更都會套用到現有的所有複寫。
 
 ### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>所有復原點都是 VM 的完整複本？還是會有差異？
 所產生的第一個復原點會具有完整複本。 所有後續復原點則具有差異變更。
@@ -125,7 +126,7 @@ Site Recovery 會每 5 分鐘建立一次當機時保持一致復原點。 使�
 ### <a name="does-increasing-the-retention-period-of-recovery-points-increase-the-storage-cost"></a>增長復原點的保留週期是否會增加儲存體成本？
 是。 如果您將保留週期從 24 小時增加到 72 小時，Site Recovery 將把復原點再多儲存 48 小時。 增加的時間將產生儲存體費用。 例如，如果單一復原點有 10 GB 的差異變更，而每 GB 的成本為每個月 $0.16 美元，則每個月就會有 $1.6 * 48 美元的額外費用。
 
-## <a name="multi-vm-consistency"></a>多 VM 一致性 
+## <a name="multi-vm-consistency"></a>多 VM 一致性
 
 ### <a name="what-is-multi-vm-consistency"></a>什麼是多 VM 一致性？
 這意謂著確保復原點在所有複寫的虛擬機器之間都保持一致。
@@ -134,7 +135,7 @@ Site Recovery 提供 [多 VM 一致性] 選項，當您選取此選項時，會�
 請瀏覽教學課程來[啟用多 VM 一致性](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication)。
 
 ### <a name="can-i-failover-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>我是否可以容錯移轉位於多 VM 一致性複寫群組內的單一虛擬機器？
-選取 [多 VM 一致性] 選項後，即表示應用程式與群組內的所有虛擬機器相依。 因此，不允許進行單一虛擬機器容錯移轉。 
+選取 [多 VM 一致性] 選項後，即表示應用程式與群組內的所有虛擬機器相依。 因此，不允許進行單一虛擬機器容錯移轉。
 
 ### <a name="how-many-virtual-machines-can-i-replicate-as-a-part-of-a-multi-vm-consistency-replication-group"></a>我可以透過一個多 VM 一致性複寫群組複寫多少部虛擬機器？
 您可以透過一個複寫群組一起複寫 16 部虛擬機器。
@@ -145,9 +146,12 @@ Site Recovery 提供 [多 VM 一致性] 選項，當您選取此選項時，會�
 
 ## <a name="failover"></a>容錯移轉
 
+### <a name="how-is-capacity-guaranteed-in-target-region-for-azure-vms"></a>如何是容量保證目標區域中的 Azure Vm？
+Azure Site Recovery (ASR) 團隊的運作方式與 Azure 的容量管理小組合作，規劃足夠的基礎結構容量，以確保災害 asr 受保護的 Vm 嘗試復原已成功部署在災害復原 (DR) 區域中，每當起始 ASR 容錯移轉作業。
+
 ### <a name="is-failover-automatic"></a>容錯移轉是自動發生的嗎？
 
-容錯移轉並非自動發生。 您可以在入口網站中按一下適當按鈕來開始容錯移轉，或是使用 [PowerShell](azure-to-azure-powershell.md) 來觸發容錯移轉。 
+容錯移轉並非自動發生。 您可以在入口網站中按一下適當按鈕來開始容錯移轉，或是使用 [PowerShell](azure-to-azure-powershell.md) 來觸發容錯移轉。
 
 ### <a name="can-i-retain-a-public-ip-address-after-failover"></a>我可以在容錯移轉之後保留公用 IP 位址嗎？
 
@@ -158,7 +162,8 @@ Site Recovery 提供 [多 VM 一致性] 選項，當您選取此選項時，會�
 
 ### <a name="after-failover-the-server-doesnt-have-the-same-ip-address-as-the-source-vm-why-is-it-assigned-a-new-ip-address"></a>容錯移轉之後，伺服器的 IP 位址會與來源 VM 不同。 為什麼要為其指派新的 IP 位址？
 
-Site Recovery 會在容錯移轉時嘗試提供 IP 位址。 如果另一部虛擬機器正在使用該位址，Site Recovery 就會將下一個可用的 IP 位址設定為目標。 如需有關 Site Recovery 如何處理定址的完整說明，請參閱[為虛擬網路設定網路對應和 IP 位址](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-network-mapping#set-up-ip-addressing-for-target-vms)。
+Site Recovery 會在容錯移轉時嘗試提供 IP 位址。 如果另一部虛擬機器正在使用該位址，Site Recovery 就會將下一個可用的 IP 位址設定為目標。
+如需有關 Site Recovery 如何處理定址的完整說明，請參閱[為虛擬網路設定網路對應和 IP 位址](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-network-mapping#set-up-ip-addressing-for-target-vms)。
 
 ### <a name="what-are-latest-lowest-rpo-recovery-points"></a>什麼是**最新 (最低 RPO)** 復原點？
 [最新 (最低 RPO)] 選項會先處理已傳送到 Site Recovery 服務的所有資料來為每部 VM 建立復原點，然後才進行容錯移轉。 此選項會提供最低的復原點目標 (RPO)，因為在容錯移轉後建立的 VM 具有在觸發容錯移轉時複寫到 Site Recovery 的所有資料。
@@ -173,7 +178,7 @@ Site Recovery 會在容錯移轉時嘗試提供 IP 位址。 如果另一部虛�
 您可以在中斷之後觸發容錯移轉。 Site Recovery 不需要來自主要區域的連線即可執行容錯移轉。
 
 ### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>什麼是虛擬機器容錯移轉的 RTO？
-Site Recovery 有 [2 小時的 RTO SLA](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/)。 不過在大部分情況下，Site Recovery 會在幾分鐘內容錯移轉虛擬機器。 若要計算 RTO，您可以移置容錯移轉作業查看它啟動 VM 所花的時間。 針對復原計畫 RTO，請參閱下節。 
+Site Recovery 有 [2 小時的 RTO SLA](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/)。 不過在大部分情況下，Site Recovery 會在幾分鐘內容錯移轉虛擬機器。 若要計算 RTO，您可以移置容錯移轉作業查看它啟動 VM 所花的時間。 針對復原計畫 RTO，請參閱下節。
 
 ## <a name="recovery-plans"></a>復原方案
 
@@ -188,7 +193,7 @@ Site Recovery 中的復原方案會協調 VM 的容錯移轉復原。 這有助�
 
 ### <a name="how-is-sequencing-achieved-in-a-recovery-plan"></a>復原方案中是如何進行排序的？
 
-在復原方案中，您可以建立多個群組來進行排序。 每個群組會各在一個時間容錯移轉。 屬於相同群組的 VM 會一起容錯移轉，後面再接著另一個群組。 若要了解如何使用復原方案來建立應用程式模型，請參閱[關於復原方案](recovery-plan-overview.md#model-apps)。 
+在復原方案中，您可以建立多個群組來進行排序。 每個群組會各在一個時間容錯移轉。 屬於相同群組的 VM 會一起容錯移轉，後面再接著另一個群組。 若要了解如何使用復原方案來建立應用程式模型，請參閱[關於復原方案](recovery-plan-overview.md#model-apps)。
 
 ### <a name="how-can-i-find-the-rto-of-a-recovery-plan"></a>如何找到復原方案的 RTO？
 若要檢查復原方案的 RTO，請為復原方案進行測試容錯移轉，然後移至 [Site Recovery 作業]。
@@ -199,7 +204,7 @@ Site Recovery 中的復原方案會協調 VM 的容錯移轉復原。 這有助�
 ### <a name="can-i-add-automation-runbooks-to-the-recovery-plan"></a>我是否可以將自動化 Runbook 新增至復原方案？
 是的，您可以將「Azure 自動化」Runbook 整合至您的復原方案。 [深入了解](site-recovery-runbook-automation.md)。
 
-## <a name="reprotection-and-failback"></a>重新保護和容錯回復 
+## <a name="reprotection-and-failback"></a>重新保護和容錯回復
 
 ### <a name="after-a-failover-from-the-primary-region-to-a-disaster-recovery-region-are-vms-in-a-dr-region-protected-automatically"></a>從主要區域容錯移轉至災害復原區域後，DR 區域中的 VM 是否會自動受到保護？
 沒有。 當您將 Azure VM 從一個區域[容錯移轉](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback)至另一個區域時，VM 會在 DR 區域中以未受保護的狀態啟動。 若要將 VM 容錯回復到到主要區域，您必須[重新保護](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect)次要區域中的 VM。
@@ -208,7 +213,7 @@ Site Recovery 中的復原方案會協調 VM 的容錯移轉復原。 這有助�
 這需視情況而定。 例如，如果來源區域 VM 存在，便只會同步來源磁碟與目標磁碟之間的變更。 Site Recovery 會藉由比較磁碟來計算出差異，然後才傳輸資料。 此程序通常需要幾小時的時間。 如需有關在重新保護期間會發生之情況的詳細資訊，請參閱[重新保護已容錯移轉到主要區域的 Azure VM]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection)。
 
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>容錯回復需要花費多久時間？
-進行重新保護之後，容錯回復所需的時間通常與從主要區域容錯移轉至次要區域類似。 
+進行重新保護之後，容錯回復所需的時間通常與從主要區域容錯移轉至次要區域類似。
 
 ## <a name="capacity"></a>Capacity
 ### <a name="does-site-recovery-work-with-reserved-instance"></a>Site Recovery 運作與保留的執行個體嗎？

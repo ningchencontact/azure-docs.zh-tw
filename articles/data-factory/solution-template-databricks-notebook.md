@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 54b440ee76fe36a83284b8ce769bb31012781a35
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 562ce675acc43002ce468d60f8a8c412410be86c
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295754"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630798"
 ---
 # <a name="transform-data-by-using-databricks-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Databricks 轉換資料
 
@@ -39,7 +39,7 @@ ms.locfileid: "58295754"
 
 2.  確定您具有 **Azure Databricks 工作區**，或建立新的工作區。
 
-1.  **匯入用於 ETL 的 Notebook**。 請將下列轉換 Notebook 匯入至 Databricks 工作區。 (其位置不必與以下所列的相同，但請記住您選擇的路徑，以供後續使用。)在 URL 欄位中輸入下列 URL，以由此 URL 匯入 Notebook：`https://DataFactorylabstaging1.blob.core.windows.net/share/Transformations.html`。 選取 [匯入]。
+1.  **匯入用於 ETL 的 Notebook**。 請將下列轉換 Notebook 匯入至 Databricks 工作區。 (其位置不必與以下所列的相同，但請記住您選擇的路徑，以供後續使用。)在 URL 欄位中輸入下列 URL，以由此 URL 匯入 Notebook：`https://adflabstaging1.blob.core.windows.net/share/Transformations.html`。 選取 [匯入]。
 
     ![2](media/solution-template-Databricks-notebook/Databricks-tutorial-image02.png)
 

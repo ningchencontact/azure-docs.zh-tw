@@ -4,7 +4,7 @@ description: 使用 Visual Studio 來建立、開發、封裝、部署和偵錯 
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: c317cb7e-7eae-466e-ba41-6aa2518be5cf
 ms.service: service-fabric
@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
-ms.openlocfilehash: b90c39416a522b42932dd82214316e586ba4293a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 4744858869e10094389be58ddd3960cb8cc2773a
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192548"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664840"
 ---
 # <a name="use-visual-studio-to-simplify-writing-and-managing-your-service-fabric-applications"></a>使用 Visual Studio 簡化撰寫及管理 Service Fabric 應用程式
 您可以透過 Visual Studio 管理 Azure Service Fabric 應用程式與服務。 [設定開發環境](service-fabric-get-started.md)後，您可以使用 Visual Studio 在本機開發叢集中建立 Service Fabric 應用程式、新增服務，或是封裝、註冊及部署應用程式。
@@ -67,7 +67,7 @@ Visual Studio 提供的 **Application Debug Mode** 屬性可讓您控制 Visual 
 
 ![新服務會新增到應用程式資訊清單][newserviceapplicationmanifest]
 
-## <a name="package-your-service-fabric-application"></a>封裝 Service Fabric 應用程式
+## <a name="package-your-service-fabric-application"></a>打包 Service Fabric 应用程序
 若要將應用程式及其服務部署到叢集，您需要建立應用程式封裝。  套件會以特定的配置來組織應用程式資訊清單、服務資訊清單和其他必要的檔案。  Visual Studio 會在 'pkg' 目錄的應用程式專案資料夾中設定與管理封裝。  從 [應用程式] 操作功能表中按一下 [封裝] 會建立或更新應用程式封裝。
 
 ## <a name="remove-applications-and-application-types-using-cloud-explorer"></a>使用 Cloud Explorer 移除應用程式和應用程式類型

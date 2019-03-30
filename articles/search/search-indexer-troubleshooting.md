@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 5ce27f16268c7a640b15fb0e95aed019b186e389
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b527b759eb9c76ab6289e909001c5f7820f34ef4
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307899"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652411"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>針對 Azure 搜尋服務中的常見索引子問題進行疑難排解
 
 索引子可能會在將資料建立索引到 Azure 搜尋服務時發生一些問題。 失敗的主要類別包括：
 
-* [連線到資料來源](#Data-Source-Connection-Errors)
-* [文件處理](#Document-Processing-Errors)
-* [擷取文件到索引](#Index-Errors)
+* [連線到資料來源](#data-source-connection-errors)
+* [文件處理](#document-processing-errors)
+* [擷取文件到索引](#index-errors)
 
 ## <a name="data-source-connection-errors"></a>資料來源連線錯誤
 

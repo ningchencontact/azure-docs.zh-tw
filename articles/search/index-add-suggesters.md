@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: a629a022e332eae5c8a58e9ffc0f760f96bc24dd
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: a8bc86c2d3511fa04e595b8b2988d9a98bf084b2
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577101"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650456"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>將建議工具新增至 Azure 搜尋服務中的自動提示的索引
 
@@ -77,7 +77,7 @@ A**建議工具**是在建構[Azure 搜尋服務索引](search-what-is-an-index.
 
 ### <a name="use-the-net-sdk"></a>使用 .NET SDK
 
-在C#，定義[建議工具類別](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet)。 建議工具是只能接受一個項目集合。 請務必新增`using System.Collections.Generic;`，讓您可以建立的物件清單。 
+在C#，定義[建議工具物件](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet)。 `Suggesters` 是集合，但它只能接受一個項目。 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)

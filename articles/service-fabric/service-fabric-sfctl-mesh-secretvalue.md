@@ -4,7 +4,7 @@ description: 介紹 Service Fabric CLI 的 sfctl mesh secretvalue 命令。
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 064aeaea47dd59a1dd75cf19ea4060d8f9c2c4bf
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 3f8e46f063d3e725e2174fd907169f3e0167586a
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53559054"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666540"
 ---
 # <a name="sfctl-mesh-secretvalue"></a>sfctl mesh secretvalue
 取得和刪除網狀結構 mesh secretvalue 資源。
 
 ## <a name="commands"></a>命令
 
-|命令|說明|
+|命令|描述|
 | --- | --- |
 | delete | 刪除選定祕密資源的指定值。 |
 | list | 列出指定祕密資源所有值的名稱。 |
@@ -39,14 +39,14 @@ ms.locfileid: "53559054"
 
 ### <a name="arguments"></a>引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --secret-name -n [必要] | 祕密資源的名稱。 |
 | --version -v     [必要] | 祕密版本的名稱。 |
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
@@ -61,13 +61,13 @@ ms.locfileid: "53559054"
 
 ### <a name="arguments"></a>引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --secret-name -n [必要] | 祕密資源的名稱。 |
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
@@ -80,7 +80,7 @@ ms.locfileid: "53559054"
 
 ### <a name="arguments"></a>引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --secret-name -n [必要] | 祕密資源的名稱。 |
 | --version -v     [必要] | 祕密版本的名稱。 |
@@ -88,7 +88,7 @@ ms.locfileid: "53559054"
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |

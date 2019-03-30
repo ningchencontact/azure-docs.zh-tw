@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 051aa6b6ca8571fe948fa30e1e4a4320bb564a52
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 7ca7e653cc42323f4313ef955de40416154b4ecf
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593313"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651663"
 ---
 # <a name="split-merge-security-configuration"></a>分割合併安全性設定
 
@@ -83,17 +83,17 @@ ms.locfileid: "56593313"
 3. [在服務組態檔中更新 CA 憑證](#update-ca-certificate-in-service-configuration-file)
 4. [發行用戶端憑證](#issue-client-certificates)
 5. [建立用戶端憑證的 PFX 檔案](#create-pfx-files-for-client-certificates)
-6. [匯入用戶端憑證](#Import-Client-Certificate)
+6. [匯入用戶端憑證](#import-client-certificate)
 7. [複製用戶端憑證指紋](#copy-client-certificate-thumbprints)
 8. [在服務組態檔中設定允許的用戶端](#configure-allowed-clients-in-the-service-configuration-file)
 
 ### <a name="use-existing-client-certificates"></a>使用現有的用戶端憑證
 1. [Find CA Public Key](#find-ca-public-key)
-2. [將 CA 憑證上傳至雲端服務](#Upload-CA-certificate-to-cloud-service)
-3. [在服务配置文件中更新 CA 证书](#Update-CA-Certificate-in-Service-Configuration-File)
-4. [複製用戶端憑證指紋](#Copy-Client-Certificate-Thumbprints)
+2. [將 CA 憑證上傳至雲端服務](#upload-ca-certificate-to-cloud-service)
+3. [在服务配置文件中更新 CA 证书](#update-ca-certificate-in-service-configuration-file)
+4. [复制客户端证书指纹](#copy-client-certificate-thumbprints)
 5. [在服务配置文件中配置允许的客户端](#configure-allowed-clients-in-the-service-configuration-file)
-6. [設定用戶端憑證撤銷檢查](#Configure-Client-Certificate-Revocation-Check)
+6. [設定用戶端憑證撤銷檢查](#configure-client-certificate-revocation-check)
 
 ## <a name="allowed-ip-addresses"></a>允許的 IP 位址
 您可將服務端點的存取限制為特定的 IP 位址範圍。

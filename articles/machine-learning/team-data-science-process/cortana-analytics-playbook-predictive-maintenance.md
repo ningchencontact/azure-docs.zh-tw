@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 0785d0805027dd0bd621203ade7287e5a1840a9a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fdc7aec703fdb5b6bb9744fad226b51769e73385
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57870141"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650473"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>適用於預測性維護解決方案的 AI 指南
 
@@ -31,10 +31,10 @@ ms.locfileid: "57870141"
 
 | 開始使用 ... | 如果您是 ... |
 |:---------------|:---------------|
-| [預測性維護的商務案例](#Business-case-for-predictive-maintenance) |想要降低停機時間和營運成本，並改善設備使用率的企業決策者 (BDM) |
-| [預測性維護的資料科學](#Data-Science-for-predictive-maintenance) |正在評估 PdM 技術，以了解預測性維護的唯一資料處理和 AI 需求的技術決策者 (TDM) |
-| [預測性維護的解決方案範本](#Solution-templates-for-predictive-maintenance)|想要快速建立示範或概念證明的軟體架構設計人員或 AI 開發人員 |
-| [預測性維護的訓練資源](#Training-resources-for-predictive-maintenance) | 上述任何或所有想要了解資料科學、工具和技巧背後基本概念的人員。
+| [預測性維護的商務案例](#business-case-for-predictive-maintenance) |想要降低停機時間和營運成本，並改善設備使用率的企業決策者 (BDM) |
+| [預測性維護的資料科學](#data-science-for-predictive-maintenance) |正在評估 PdM 技術，以了解預測性維護的唯一資料處理和 AI 需求的技術決策者 (TDM) |
+| [預測性維護的解決方案範本](#solution-templates-for-predictive-maintenance)|想要快速建立示範或概念證明的軟體架構設計人員或 AI 開發人員 |
+| [預測性維護的訓練資源](#training-resources-for-predictive-maintenance) | 上述任何或所有想要了解資料科學、工具和技巧背後基本概念的人員。
 
 ### <a name="prerequisite-knowledge"></a>必備知識
 BDM 內容並未預期讀者事先具備任何的資料科學知識。 在 TDM 內容中，統計和資料科學的基本知識很有幫助。 建議具備 Azure 資料和 AI 服務、Python、R、XML 和 JSON 的知識。 在 Python 和 R 套件中會實作 AI 技巧。 使用 Azure 服務、開發工具和 SDK 可實作解決方案範本。
@@ -78,7 +78,7 @@ PdM 的典型目標陳述如下：
 
 - 此問題在本質上必須具預測性；也就是說，應該有可預測的目標或結果。 此問題也應該有清楚的動作路徑，以便在偵測到故障時加以預防。
 - 此問題應該有設備的運作歷程記錄，包含「良好和不良結果」。 在這些記錄中，應該也可取得緩和不良結果的動作集合。 錯誤報告、效能降低的維護記錄，以及維修、更換記錄也很重要。 此外，為了改善情況所採取的維修，以及更換記錄也很實用。
-- 所記錄的歷程記錄應反映在品質「足以」支援使用案例的「相關」資料中。 如需資料相關性和充足性的詳細資訊，請參閱[預測性維護的資料需求](#Data-requirements-for-predictive-maintenance)。
+- 所記錄的歷程記錄應反映在品質「足以」支援使用案例的「相關」資料中。 如需資料相關性和充足性的詳細資訊，請參閱[預測性維護的資料需求](#data-requirements-for-predictive-maintenance)。
 - 最後，企業必須有清楚了解問題的領域專家。 他們應留意內部程序和做法，才能夠協助分析師了解及解譯資料。 此外，也應該能夠對現有的業務流程進行必要的變更，以視需要協助針對問題收集正確的資料。
 
 ## <a name="sample-pdm-use-cases"></a>範例 PdM 使用案例
@@ -103,10 +103,10 @@ PdM 的典型目標陳述如下：
 
 ## <a name="data-science-for-predictive-maintenance"></a>預測性維護的資料科學
 
-這一節提供 PdM 資料科學原則和做法的一般指導方針。 旨在協助 TDM、解決方案架構設計人員或開發人員了解建置適用於 PdM 的端對端 AI 應用程式的先決條件和程序。 您可以閱讀本節，以及檢閱[預測性維護的解決方案範本](#Solution-templates-for-predictive-maintenance)中所列的示範和概念證明範本。 您可以接著使用這些原則和最佳做法，以在 Azure 中實作 PdM 解決方案。
+這一節提供 PdM 資料科學原則和做法的一般指導方針。 旨在協助 TDM、解決方案架構設計人員或開發人員了解建置適用於 PdM 的端對端 AI 應用程式的先決條件和程序。 您可以閱讀本節，以及檢閱[預測性維護的解決方案範本](#solution-templates-for-predictive-maintenance)中所列的示範和概念證明範本。 您可以接著使用這些原則和最佳做法，以在 Azure 中實作 PdM 解決方案。
 
 > [!NOTE]
-> 本指南的目的不是要教導讀者了解資料科學。 [預測性維護的訓練資源](#Training-resources-for-predictive-maintenance)一節中提供了幾個有用的來源，可供進一步閱讀。 本指南中所列的[解決方案範本](#Solution-templates-for-predictive-maintenance)會針對特定 PdM 問題示範一些 AI 技巧。
+> 本指南的目的不是要教導讀者了解資料科學。 [預測性維護的訓練資源](#training-resources-for-predictive-maintenance)一節中提供了幾個有用的來源，可供進一步閱讀。 本指南中所列的[解決方案範本](#solution-templates-for-predictive-maintenance)會針對特定 PdM 問題示範一些 AI 技巧。
 
 ## <a name="data-requirements-for-predictive-maintenance"></a>預測性維護的資料需求
 
@@ -114,10 +114,10 @@ PdM 的典型目標陳述如下：
 
 ### <a name="relevant-data"></a>相關資料
 
-首先，資料必須「與問題相關」。 請考慮以上所討論的「車輪故障」使用案例 - 訓練資料應包含與車輪運作相關的特徵。 如果問題是要預測「牽引系統」的故障，則訓練資料必須包含牽引系統的各種零件。 第一個案例的目標是特定零件，而第二項案例的目標是大型子系統的故障。 一般建議是設計有關特定零件 (而非大型子系統) 的預測系統，因為後者會有更分散的資料。 領域專家 (請參閱[限定預測性維護的問題](#Qualifying-problems-for-predictive-maintenance)) 應協助選取最相關的資料子集以供分析。 [預測性維護的資料準備](#Data-preparation-for-predictive-maintenance)中會更詳細地討論相關的資料來源。
+首先，資料必須「與問題相關」。 請考慮以上所討論的「車輪故障」使用案例 - 訓練資料應包含與車輪運作相關的特徵。 如果問題是要預測「牽引系統」的故障，則訓練資料必須包含牽引系統的各種零件。 第一個案例的目標是特定零件，而第二項案例的目標是大型子系統的故障。 一般建議是設計有關特定零件 (而非大型子系統) 的預測系統，因為後者會有更分散的資料。 領域專家 (請參閱[限定預測性維護的問題](#qualifying-problems-for-predictive-maintenance)) 應協助選取最相關的資料子集以供分析。 [預測性維護的資料準備](#data-preparation-for-predictive-maintenance)中會更詳細地討論相關的資料來源。
 
 ### <a name="sufficient-data"></a>足夠的資料
-兩個問題會常詢問有關故障歷程記錄資料：(1) 「訓練模型需要多少失敗事件？」 (2)「多少筆記錄才可視為『足夠』？」沒有明確的解答，而只有經驗法則。 針對問題 (1)，故障事件數目愈多，模型愈佳。 針對問題 (2)，確切的故障事件數目取決於資料和所要解決之問題的內容。 但另一方面，如果機器太常故障，企業就會換掉它，以減少故障情況。 再次重申，領域專家的指導方針很重要。 不過，有一些方法可以處理「罕見事件」的問題。 [處理不平衡的資料](#Handling-imbalanced-data)一節會討論這些方法。
+兩個問題會常詢問有關故障歷程記錄資料：(1) 「訓練模型需要多少失敗事件？」 (2)「多少筆記錄才可視為『足夠』？」沒有明確的解答，而只有經驗法則。 針對問題 (1)，故障事件數目愈多，模型愈佳。 針對問題 (2)，確切的故障事件數目取決於資料和所要解決之問題的內容。 但另一方面，如果機器太常故障，企業就會換掉它，以減少故障情況。 再次重申，領域專家的指導方針很重要。 不過，有一些方法可以處理「罕見事件」的問題。 [處理不平衡的資料](#handling-imbalanced-data)一節會討論這些方法。
 
 ### <a name="quality-data"></a>品質資料
 資料品質很重要 - 每個預測屬性值必須「精確」配合目標變數的值。 資料品質是在統計和資料管理中研究完善的領域，因此不在本指南的討論範圍內。
@@ -151,7 +151,7 @@ PdM 的典型目標陳述如下：
 #### <a name="static-feature-data"></a>靜態特徵資料
 靜態特徵是設備的相關中繼資料。 範例包括製造商、型號、製造日期、服務開始日期、系統位置，以及其他技術規格。
 
-[範例 PdM 使用案例](#Sample-PdM-use-cases)的相關資料範例如下表所示：
+[範例 PdM 使用案例](#sample-pdm-use-cases)的相關資料範例如下表所示：
 
 | 使用案例 | 相關資料的範例 |
 |:---------|---------------------------|
@@ -186,7 +186,7 @@ PdM 的典型目標陳述如下：
 
 其他資料前置處理步驟包括「處理遺漏值」和屬性值的「正規化」。 詳細的討論超出本指南的範圍，請參閱下一節中的一些實用參考。
 
-採用上述前置處理過的資料來源，在特徵設計前的最終轉換就是根據資產識別碼和時間戳記聯結上述資料表。 當機器正常運作時，所產生資料表的故障資料行會有 null 值。 您可依正常運作的指標推算這些 null 值。 使用此故障資料行來建立預測性模型的標籤。 如需詳細資訊，請參閱[預測性維護的模型化技巧](#Modeling-techniques-for-predictive-maintenance)。
+採用上述前置處理過的資料來源，在特徵設計前的最終轉換就是根據資產識別碼和時間戳記聯結上述資料表。 當機器正常運作時，所產生資料表的故障資料行會有 null 值。 您可依正常運作的指標推算這些 null 值。 使用此故障資料行來建立預測性模型的標籤。 如需詳細資訊，請參閱[預測性維護的模型化技巧](#modeling-techniques-for-predictive-maintenance)。
 
 ## <a name="feature-engineering"></a>特徵設計
 將資料模型化前的第一個步驟就是特徵設計。 其在資料科學程序中的角色[說明在此](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/create-features)。 「特徵」是模型的預測性屬性 - 例如溫度、壓力、震動等。 對於 PdM，特徵設計涉及從可調整大小的持續期間內收集的過去資料中摘錄電腦的健康情況。 在該意義而言，它與其對等項目不同，例如遠端監視、異常偵測和故障偵測。 
@@ -205,7 +205,7 @@ PdM 的典型目標陳述如下：
 
 ![圖 1. 滾動彙總特徵](./media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png) 圖 1。 滾動彙總特徵
 
-一個時段內的滾動彙總範例包括計數、平均數、CUMESUM (累計總和) 量值、最小/最大值。 此外，通常會使用變異數、標準差，以及超過 N 個標準差的極端值計數。 本指南中[使用案例](#Sample-PdM-use-cases)適用的彙總範例如下所列。 
+一個時段內的滾動彙總範例包括計數、平均數、CUMESUM (累計總和) 量值、最小/最大值。 此外，通常會使用變異數、標準差，以及超過 N 個標準差的極端值計數。 本指南中[使用案例](#sample-pdm-use-cases)適用的彙總範例如下所列。 
 - 航班延誤：最後一天/週內的錯誤碼計數。
 - 飛機引擎零件故障：滾動平均值、標準差，以及過去一天、週等的總和。此計量應與業務領域專家一起決定。
 - ATM 故障：滾動平均值、中間值、標準差、超過三個標準差的離群值計數、CUMESUM 上限和下限。
@@ -325,7 +325,7 @@ PdM 有另一個實用的技巧，就是使用可偵測資料異常的演算法�
 ### <a name="time-dependent-split"></a>時間相依分割
 這一節說明實作時間相依分割的最佳做法。 下面會說明訓練與測試集之間的時間相依雙向分割。
 
-假設有一連串的時間戳記事件，例如來自各種感應器的測量資料。 針對包含多個事件的時間範圍，定義訓練和測試範例的特徵及標籤。 例如，對於二元分類，根據過去的事件建立特徵，並根據未來 "X" 個時間單位內的未來事件建立標籤 (請參閱[特徵設計](#Feature-engineering)和模型化技巧章節)。 因此，範例的標記時間範圍會晚於其特徵的時間範圍。
+假設有一連串的時間戳記事件，例如來自各種感應器的測量資料。 針對包含多個事件的時間範圍，定義訓練和測試範例的特徵及標籤。 例如，對於二元分類，根據過去的事件建立特徵，並根據未來 "X" 個時間單位內的未來事件建立標籤 (請參閱[特徵設計](#feature-engineering)和模型化技巧章節)。 因此，範例的標記時間範圍會晚於其特徵的時間範圍。
 
 對於時間相依分割，挑選「訓練截止時間 T<sub>c</sub>」，以便使用截至 T<sub>c</sub> 為止的過去資料微調的超參數來訓練模型。 為了避免超出 T<sub>c</sub> 的未來標籤外洩至訓練資料中，請選擇最新的時間，以將訓練範例標記為 T<sub>c</sub> 前的 X 個時間單位。 在 圖 7 所示的範例中，每個方塊都代表資料集中的一筆記錄，其特徵和標籤的計算方式如上所述。 此圖顯示當 X=2 和 W=3 時，應該進入訓練和測試集的記錄：
 
@@ -352,7 +352,7 @@ PdM 有另一個實用的技巧，就是使用可偵測資料異常的演算法�
 - F1 分數
 - 已調整成本的 ROC (接收端操作特性)
 
-如需有關這些計量的詳細資訊，請參閱[模型評估](#Model-evaluation)。
+如需有關這些計量的詳細資訊，請參閱[模型評估](#model-evaluation)。
 
 不過，有一些方法可協助矯正類別不平衡問題。 「取樣技巧」和「成本導向學習」是兩大主要方法。
 

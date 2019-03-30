@@ -8,14 +8,15 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 4552249e7d7dd79edbe885b3d615f5071aa694ee
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: c7a185e1c7f271cdca0c688ce7838f6390594da5
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116094"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650405"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>教學課程：在 Microsoft Azure 儲存體中使用 Azure 金鑰保存庫加密和解密 Blob
+
 ## <a name="introduction"></a>簡介
 本教學課程涵蓋如何搭配使用用戶端儲存體加密和 Azure 金鑰保存庫。 其中告訴您如何在主控台應用程式中使用這些技術加密和解密 blob。
 
@@ -25,24 +26,27 @@ ms.locfileid: "56116094"
 
 如需 Azure 儲存體用戶端加密的概觀資訊，請參閱 [Microsoft Azure 儲存體用戶端加密和 Azure 金鑰保存庫](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
 
-## <a name="prerequisites"></a>先決條件
-若要完成本教學課程，您必須具備下列項目：
+## <a name="prerequisites"></a>必要條件
+
+若要完成本教程，必须具备以下项目：
 
 * Azure 儲存體帳戶
 * Visual Studio 2013 或更新版本
 * Azure PowerShell
 
 ## <a name="overview-of-client-side-encryption"></a>用戶端加密概觀
+
 如需 Azure 儲存體用戶端加密的概觀，請參閱 [Microsoft Azure 儲存體用戶端加密和 Azure 金鑰保存庫](../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 以下是用戶端加密運作方式的簡短描述：
 
 1. Azure 儲存體用戶端 SDK 會產生內容加密金鑰 (CEK)，這是使用一次的對稱金鑰。
 2. 客戶資料是使用此 CEK 加密。
-3. 然後使用金鑰加密金鑰 (KEK) 包裝 (加密) CEK。 KEK 由金鑰識別碼所識別，可以是非對稱金鑰組或對稱金鑰，且可以在本機管理或儲存在 Azure 金鑰保存庫中。 儲存體用戶端本身永遠沒有 KEK 的存取權。 它只是叫用金鑰保存庫所提供的金鑰包裝演算法。 如有需要，客戶可以選擇使用自訂提供者來包裝/取消包裝金鑰。
+3. 然後使用金鑰加密金鑰 (KEK) 包裝 (加密) CEK。 KEK 由金鑰識別碼所識別，可以是非對稱金鑰組或對稱金鑰，且可以在本機管理或儲存在 Azure 金鑰保存庫中。 儲存體用戶端本身永遠沒有 KEK 的存取權。 它只能调用密钥保管库提供的密钥包装算法。 如有需要，客戶可以選擇使用自訂提供者來包裝/取消包裝金鑰。
 4. 然後，將加密的資料上傳至 Azure 儲存體服務。
 
 ## <a name="set-up-your-azure-key-vault"></a>設定 Azure 金鑰保存庫
+
 若要繼續進行本教學課程，您必須執行以下在教學課程[什麼是 Azure Key Vault？](../../key-vault/key-vault-overview.md)中所概述的步驟：
 
 * 建立金鑰保存庫。
@@ -55,11 +59,12 @@ ms.locfileid: "56116094"
 在金鑰保存庫中建立這兩個金鑰。 我們假設您在其餘的教學課程中會使用下列名稱：ContosoKeyVault and TestRSAKey1。
 
 ## <a name="create-a-console-application-with-packages-and-appsettings"></a>使用封裝與 AppSettings 建立主控台應用程式
+
 在 Visual Studio 中，建立新的主控台應用程式。
 
 在封裝管理員主控台中加入必要的 nuget 封裝。
 
-```
+```powershell
 Install-Package WindowsAzure.Storage
 Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
 
@@ -93,6 +98,7 @@ using System.IO;
 ```
 
 ## <a name="add-a-method-to-get-a-token-to-your-console-application"></a>新增方法以取得給主控台應用程式的權杖
+
 需要驗證以存取您的金鑰保存庫的金鑰保存庫類別會使用下列方法。
 
 ```csharp
@@ -112,6 +118,7 @@ private async static Task<string> GetToken(string authority, string resource, st
 ```
 
 ## <a name="access-storage-and-key-vault-in-your-program"></a>在您的程式中存取儲存體和金鑰保存庫
+
 在 Main 函式中，加入下列程式碼：
 
 ```csharp
@@ -141,6 +148,7 @@ KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 > 
 
 ## <a name="encrypt-blob-and-upload"></a>加密 blob 和上傳
+
 加入下列程式碼來加密 Blob 並上傳至 Azure 儲存體帳戶。 使用的 **ResolveKeyAsync** 方法會傳回 IKey。
 
 ```csharp
@@ -167,6 +175,7 @@ using (var stream = System.IO.File.OpenRead(@"C:\data\MyFile.txt"))
 > 
 
 ## <a name="decrypt-blob-and-download"></a>解密 blob 和下傳
+
 解密其實就是解析程式類別存在的價值。 加密金鑰的識別碼與它的中繼資料裡的 Blob 相關聯，因此，沒有理由讓您擷取金鑰，並記住金鑰與 blob 之間的關聯。 您只需要確定金鑰仍在金鑰保存庫中。   
 
 RSA 金鑰的私密金鑰保留在保存庫金鑰中，為了進行解密，從包含 CEK 的 blob 中繼資料，加密的金鑰會傳送至金鑰保存庫進行解密。
@@ -189,14 +198,15 @@ using (var np = File.Open(@"C:\data\MyFileDecrypted.txt", FileMode.Create))
 > 
 
 ## <a name="use-key-vault-secrets"></a>使用金鑰保存庫密碼
+
 搭配用戶端加密來使用密碼的方式是透過 SymmetricKey 類別，因為密碼基本上是一種對稱金鑰。 但是，如上所述，金鑰保存庫中的密碼未完全對應到 SymmetricKey。 有幾件事必須了解：
 
 * SymmetricKey 中的金鑰必須是固定的長度：128、192、256、384 或 512 位元。
 * SymmetricKey 中的金鑰應該為 Base64 編碼。
 * 用來做為 SymmetricKey 的金鑰保存庫密碼，在金鑰保存庫中必須具有 "application/octet-stream" 內容類型。
 
-以下是在 PowerShell 中，在保存庫中建立密碼做為 SymmetricKey 的範例：
-請注意，硬式編碼的值 ($key) 僅用於示範目的。 在自己的程式碼中，您會想要產生此金鑰。
+以下是使用 PowerShell 在密钥保管库中创建可用作 SymmetricKey 的密钥的示例。
+請注意，硬式編碼的值 ($key) 僅用於示範目的。 请在自己的代码中生成此密钥。
 
 ```csharp
 // Here we are making a 128-bit key so we have 16 characters.
@@ -221,6 +231,7 @@ SymmetricKey sec = (SymmetricKey) cloudResolver.ResolveKeyAsync(
 就這麼簡單。 盡情享受！
 
 ## <a name="next-steps"></a>後續步驟
+
 如需有關搭配使用 C# 和 Microsoft Azure 儲存體的詳細資訊，請參閱[適用於 .NET 的 Microsoft Azure 儲存體用戶端程式庫](https://msdn.microsoft.com/library/azure/dn261237.aspx)。
 
 如需 Blob REST API 的詳細資訊，請參閱 [Blob 服務 REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx)。

@@ -9,17 +9,14 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c0eedc32ee96c94b8b3621afc0ee211ed2ff19f5
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 05de1640fbee7799da0a14bba262ef9724686878
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314870"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650067"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>檢查 v2 API 產生的影片索引子輸出
-
-> [!Note]
-> 影片索引子 V1 API 已在 2018 年 8 月 1 日淘汰。 您現在應該使用影片索引子 v2 API。 <br/>若要使用影片索引子 v2 API 進行開發，請參閱[此處](https://api-portal.videoindexer.ai/)的指示。 
 
 當您呼叫**取得影片索引** API 時，若回應狀態為「確定」，您取得的回應內容會是詳細的 JSON 輸出。 JSON 內容包含指定影片深入解析的詳細資料。 深入解析包含如下的維度：文字記錄、OCR、臉部、主題、區塊等等。這些維度具有會在影片中出現各個維度時顯示的時間範圍執行個體。  
 
@@ -163,7 +160,7 @@ ms.locfileid: "58314870"
 |標籤|[標籤](#labels)維度。|
 |擷取畫面|[擷取畫面](#shots)維度。|
 |brands|[品牌](#brands)維度。|
-|audioEffects|[audioEffects](#audioEffects) 維度。|
+|audioEffects|[audioEffects](#audioeffects) 維度。|
 |人氣|[情緒](#sentiments)維度。|
 |visualContentModeration|[visualContentModeration](#visualcontentmoderation) 維度。|
 |textualContentModeration|[textualContentModeration](#textualcontentmoderation) 維度。|
@@ -550,7 +547,7 @@ id|區塊的識別碼。|
 |SpeakerLongestMonolog|說話者最長的獨白。 若說話在獨白中有無聲的部分，也會包含在其中。 獨白開頭和結尾的無聲部分則會被移除。| 
 |SpeakerTalkToListenRatio|將說話者獨白的時間 (不含無聲的部分) 除以影片的總時間長度。 時間會四捨五入至小數點第三位。|
 
-#### <a name="audioeffects"></a>audioEffects
+#### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
 |名稱|描述|
 |---|---|

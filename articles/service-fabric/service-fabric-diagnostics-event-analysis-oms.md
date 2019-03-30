@@ -4,7 +4,7 @@ description: 深入了解視覺化及分析監視和診斷 Azure Service Fabric 
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/21/2019
 ms.author: srrengar
-ms.openlocfilehash: 2f3106b33ab0cbea95efe2ac42c05a8543719190
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ba4923edbc59f0e6650fda1a71e1c4f79b884cf2
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246911"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662154"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>事件分析和視覺效果，與 Azure 監視器記錄檔
- Azure 監視器記錄檔會收集和分析從應用程式和服務裝載於雲端的遙測，並提供分析工具，協助您充分發揮其可用性和效能。 本文概述如何在 Azure 監視器來深入了解及疑難排解在叢集中的事情的記錄檔中執行查詢。 我們將討論下列常見的問題：
+ Azure 監視器記錄會從裝載於雲端的應用程式和服務收集和分析遙測，並提供分析工具來協助您將其可用性和效能最大化。 本文概述如何在 Azure 監視器來深入了解及疑難排解在叢集中的事情的記錄檔中執行查詢。 我們將討論下列常見的問題：
 
 * 如何針對健康情況事件進行疑難排解？
 * 如何知道節點發生故障？
@@ -49,7 +49,7 @@ Azure 監視器記錄檔會收到資料之後，Azure 有數個*監視解決方�
 
 ![Service Fabric 解決方案](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 
-下图显示了 Service Fabric 分析解决方案的主页。 此主页提供了群集中发生的情况的快照视图。
+下圖顯示 Service Fabric 分析解決方案的首頁。 這個首頁提供叢集中目前情況的快照集檢視。
 
 ![Service Fabric 解決方案](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
 
@@ -114,5 +114,5 @@ Kusto 查詢語言功能很強大。 您可以執行的另一個重要查詢是�
 * 若要啟用基礎結構監視 (也就是監視效能計數器)，請前往[新增 Log Analytics 代理程式](service-fabric-diagnostics-oms-agent.md)。 這個代理程式會收集效能計數器，並將它們新增至現有的工作區。
 * 針對內部部署叢集 Azure 監視器記錄檔會提供可用來將資料傳送至 Azure 監視器記錄檔的閘道 (HTTP 正向 Proxy)。 深入的了解，在[無法存取網際網路的電腦連線到 Azure 監視器記錄檔使用 Log Analytics 閘道](../azure-monitor/platform/gateway.md)。
 * 設定[自動化警示](../log-analytics/log-analytics-alerts.md)，以協助偵測與診斷。
-* 熟悉[記錄搜尋和查詢](../log-analytics/log-analytics-log-searches.md)作為 Azure 監視器記錄的一部分提供的功能。
+* 熟悉 Azure 監視器記錄中提供的[記錄搜尋和查詢](../log-analytics/log-analytics-log-searches.md)功能。
 * 取得 Azure 監視器記錄檔和它所提供的更詳細的概觀，請閱讀[什麼是 Azure 監視器記錄檔？](../operations-management-suite/operations-management-suite-overview.md)。

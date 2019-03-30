@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4df8f329a135683ea68896605a0a1c6f3ee45984
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 319791c2436395c00dafc744fb6fcb1ff18b0750
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084076"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652326"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>使用應用程式 Proxy 與 PingAccess 的單一登入之標頭式驗證
 
@@ -43,7 +43,7 @@ Azure Active Directory 的 PingAccess 是 PingAccess 供應項目，讓您可提
 
 ## <a name="publish-your-application-in-azure"></a>在 Azure 中發佈應用程式
 
-本文是針對第一次要以此案例發佈應用程式的人所設計。 除了發佈的步驟之外，並逐步解說如何開始使用應用程式和 PingAccess。 如果您已經設定這兩項服務，但需要在發佈的步驟上重新整理，可以略過連接器安裝，並移至[使用應用程式 Proxy 將您的應用程式新增至 Azure AD](#add-your-app-to-Azure-AD-with-Application-Proxy)。
+本文是針對第一次要以此案例發佈應用程式的人所設計。 除了發佈的步驟之外，並逐步解說如何開始使用應用程式和 PingAccess。 如果您已經設定這兩項服務，但需要在發佈的步驟上重新整理，可以略過連接器安裝，並移至[使用應用程式 Proxy 將您的應用程式新增至 Azure AD](#add-your-app-to-azure-ad-with-application-proxy)。
 
 >[!NOTE]
 >因為此案例是 Azure AD 和 PingAccess 之間的合作關係，有些指示存在於 Ping 身分識別站台。

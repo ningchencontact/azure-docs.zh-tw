@@ -6,21 +6,30 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 03/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: 833198f3b5dd07988bcb5fc85f815ae2c12f1197
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 373851c406d95a2e458c017cb311bd5cc4e5b30f
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481921"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664285"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>將其他儲存體帳戶新增至 HDInsight
 
-了解如何使用指令碼動作，將其他 Azure 儲存體帳戶新增至 HDInsight。 這份文件中的步驟會在現有的 Linux 架構 HDInsight 叢集中新增儲存體帳戶。 本文適用於[Azure 儲存體](hdinsight-hadoop-use-blob-storage.md)和只有額外的儲存體帳戶 （非預設叢集儲存體帳戶）。 這篇文章並不適用於[Azure Data Lake 儲存體 Gen1](hdinsight-hadoop-use-data-lake-store.md)並[Azure Data Lake 儲存體 Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md)。
+了解如何使用指令碼動作來新增其他 Azure 儲存體*帳戶*至 HDInsight。 這份文件中的步驟新增儲存體*帳戶*至現有的以 Linux 為基礎的 HDInsight 叢集。 這篇文章適用於儲存體*帳號*（不是預設叢集儲存體帳戶），或沒有額外的儲存體，例如[Azure Data Lake 儲存體 Gen1](hdinsight-hadoop-use-data-lake-store.md)和[Azure Data Lake 儲存體 Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 > [!IMPORTANT]  
 > 本文件中的資訊是有關如何在建立叢集之後，將其他儲存體新增至叢集。 如需在叢集建立期間新增儲存體帳戶的資訊，請參閱[使用 Apache Hadoop、Apache Spark、Apache Kafka 等在 HDInsight 中設定叢集](hdinsight-hadoop-provision-linux-clusters.md)。
+
+## <a name="prerequisites"></a>必要條件
+
+* 在 HDInsight 上 Hadoop 叢集。 请参阅 [Linux 上的 HDInsight 入门](./hadoop/apache-hadoop-linux-tutorial-get-started.md)。
+* 儲存體帳戶名稱和金鑰。 請參閱[管理 Azure 入口網站中的儲存體帳戶設定](../storage/common/storage-account-manage.md)。
+* [正確的大小寫的叢集名稱](hdinsight-hadoop-manage-ambari-rest-api.md#identify-correctly-cased-cluster-name)。
+* 如果使用 PowerShell，您將需要 AZ 模組。  請參閱[Azure PowerShell 概觀](https://docs.microsoft.com/powershell/azure/overview)。
+* 如果您尚未安裝 Azure CLI，請參閱[Azure 命令列介面 (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)。
+* 如果使用 bash 或 windows 命令提示字元中，您也需要**jq**，命令列的 JSON 處理器。  請參閱 [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)。 在 Windows 10 上 Ubuntu 之 bash，請參閱[Linux 安裝指南適用於 Windows 10 的 Windows 子系統](https://docs.microsoft.com/windows/wsl/install-win10)。
 
 ## <a name="how-it-works"></a>運作方式
 
@@ -51,52 +60,127 @@ ms.locfileid: "58481921"
 
 __指令碼位置__：[https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)
 
-__需求__：
-
-* 指令碼必須套用於__前端節點__。
+__需求__：指令碼必須套用於__前端節點__。 您不需要將此指令碼標示為 [已保存]，因為它會直接更新叢集的 Ambari 組態。
 
 ## <a name="to-use-the-script"></a>若要使用指令碼
 
-您可以從 Azure 入口網站、Azure PowerShell 或 Azure 傳統 CLI 使用此指令碼。 如需詳細資訊，請參閱[使用指令碼動作自訂 Linux 型 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)文件。
+此指令碼可以從 Azure PowerShell、 Azure CLI 或 Azure 入口網站中使用。
 
-> [!IMPORTANT]  
-> 在使用自訂文件中提供的步驟時，請使用下列資訊來套用此指令碼：
->
-> * 將所有的範例指令碼動作 URI 取代為此指令碼的 URI (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)。
-> * 以即將新增至叢集的儲存體帳戶的 Azure 儲存體帳戶名稱和金鑰取代範例參數。 如果使用 Azure 入口網站，則必須以空格分隔這些參數。
-> * 您不需要將此指令碼標示為 [已保存]，因為它會直接更新叢集的 Ambari 組態。
+### <a name="powershell"></a>PowerShell
+
+使用[提交 AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/submit-azhdinsightscriptaction)。 取代`CLUSTERNAME`， `ACCOUNTNAME`，和`ACCOUNTKEY`以適當的值。
+
+```powershell
+# Update these parameters
+$clusterName = "CLUSTERNAME"
+$parameters = "ACCOUNTNAME ACCOUNTKEY"
+
+$scriptActionName = "addStorage"
+$scriptActionUri = "https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh"
+
+# Execute script
+Submit-AzHDInsightScriptAction `
+    -ClusterName $clusterName `
+    -Name $scriptActionName `
+    -Uri $scriptActionUri `
+    -NodeTypes "headnode" `
+    -Parameters $parameters
+```
+
+### <a name="azure-cli"></a>Azure CLI
+
+使用[az hdinsight 指令碼動作執行](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute)。  取代`CLUSTERNAME`， `RESOURCEGROUP`， `ACCOUNTNAME`，和`ACCOUNTKEY`以適當的值。
+
+```cli
+az hdinsight script-action execute ^
+    --name CLUSTERNAME ^
+    --resource-group RESOURCEGROUP ^
+    --roles headnode ^
+    --script-action-name addStorage ^
+    --script-uri "https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh" ^
+    --script-parameters "ACCOUNTNAME ACCOUNTKEY"
+```
+
+### <a name="azure-portal"></a>Azure 入口網站
+
+請參閱[指令碼動作套用至執行中的叢集](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)。
 
 ## <a name="known-issues"></a>已知問題
 
 ### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>儲存體帳戶未顯示在 Azure 入口網站或工具中
 
-在 Azure 入口網站中檢視 HDInsight 叢集時，選取 [屬性] 之下的 [儲存體帳戶] 項目，並不會顯示透過此指令碼動作新增的儲存體帳戶。 Azure PowerShell 與 Azure 傳統 CLI 也不會顯示其他儲存體帳戶。
+在 Azure 入口網站中檢視 HDInsight 叢集時，選取 [屬性] 之下的 [儲存體帳戶] 項目，並不會顯示透過此指令碼動作新增的儲存體帳戶。 Azure PowerShell 和 Azure CLI 也不會顯示其他儲存體帳戶。
 
 沒有顯示儲存體資訊是因為指令碼只修改叢集的 core-site.xml 組態。 使用 Azure 管理 API 擷取叢集資訊時，不會使用這項資訊。
 
 若要檢視使用此指令碼新增至叢集的儲存體帳戶資訊，請使用 Ambari REST API。 請使用下列命令，為您的叢集擷取此資訊：
 
+### <a name="powershell"></a>PowerShell
+
+取代`CLUSTERNAME`具有正確大小寫的叢集名稱。 輸入下列命令，先找出使用的服務組態版本：
+
 ```powershell
+# getting service_config_version
+$clusterName = "CLUSTERNAME"
+
+$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName`?fields=Clusters/desired_service_config_versions/HDFS" `
+    -Credential $creds -UseBasicParsing
+$respObj = ConvertFrom-Json $resp.Content
+$respObj.Clusters.desired_service_config_versions.HDFS.service_config_version
+```
+
+取代`ACCOUNTNAME`實際名稱。 然後取代`4`與實際服務版本設定，然後輸入命令。 出現提示時，輸入叢集登入密碼。
+
+```powershell
+# Update values
+$accountName = "ACCOUNTNAME"
+$version = 4
+
 $creds = Get-Credential -UserName "admin" -Message "Enter the cluster login credentials"
-$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=1" `
+$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations/service_config_versions?service_name=HDFS&service_config_version=$version" `
     -Credential $creds
 $respObj = ConvertFrom-Json $resp.Content
-$respObj.items.configurations.properties."fs.azure.account.key.$storageAccountName.blob.core.windows.net"
+$respObj.items.configurations.properties."fs.azure.account.key.$accountName.blob.core.windows.net"
 ```
 
-> [!NOTE]  
-> 將 `$clusterName` 設定為 HDInsight 叢集的名稱。 將 `$storageAccountName` 設定為儲存體帳戶的名稱。 出現提示時，輸入叢集登入 (admin) 和密碼。
+### <a name="bash"></a>Bash
+取代`myCluster`具有正確大小寫的叢集名稱。
 
-```Bash
-curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.azure.account.key.$STORAGEACCOUNTNAME.blob.core.windows.net"] | select(. != null)'
+```bash
+export CLUSTERNAME='myCluster'
+
+curl --silent -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_service_config_versions/HDFS" \
+| jq ".Clusters.desired_service_config_versions.HDFS[].service_config_version" 
 ```
 
-> [!NOTE]  
-> 將 `$PASSWORD` 設定為叢集登入 (admin) 帳戶密碼。 將 `$CLUSTERNAME` 設定為 HDInsight 叢集的名稱。 將 `$STORAGEACCOUNTNAME` 設定為儲存體帳戶的名稱。
->
-> 此範例會使用 [curl (https://curl.haxx.se/)](https://curl.haxx.se/) 和 [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) 來擷取及剖析 JSON 資料。
+取代`myAccount`使用實際的儲存體帳戶名稱。 然後取代`4`與實際服務版本設定，然後輸入命令：
 
-使用此命令時，將 __CLUSTERNAME__ 替換為 HDInsight 叢集的名稱。 將 __PASSWORD__ 替換為叢集的 HTTP 登入密碼。 將 __STORAGEACCOUNT__ 替換為使用指令碼動作新增的儲存體帳戶名稱。 此命令傳回的資訊看起來類似下列文字：
+```bash
+export ACCOUNTNAME='"fs.azure.account.key.myAccount.blob.core.windows.net"'
+export VERSION='4'
+
+curl --silent -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=$VERSION" \
+| jq ".items[].configurations[].properties[$ACCOUNTNAME] | select(. != null)"
+```
+
+### <a name="cmd"></a>cmd
+
+取代`CLUSTERNAME`與兩個指令碼的正確大小寫的叢集名稱。 輸入下列命令，先找出使用的服務組態版本：
+
+```cmd
+curl --silent -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME?fields=Clusters/desired_service_config_versions/HDFS" | ^
+jq-win64 ".Clusters.desired_service_config_versions.HDFS[].service_config_version" 
+```
+
+取代`ACCOUNTNAME`使用實際的儲存體帳戶名稱。 然後取代`4`與實際服務版本設定，然後輸入命令：
+
+```cmd
+curl --silent -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=4" | ^
+jq-win64 ".items[].configurations[].properties["""fs.azure.account.key.ACCOUNTNAME.blob.core.windows.net"""] | select(. != null)"
+```
+---
+
+ 此命令傳回的資訊看起來類似下列文字：
 
     "MIIB+gYJKoZIhvcNAQcDoIIB6zCCAecCAQAxggFaMIIBVgIBADA+MCoxKDAmBgNVBAMTH2RiZW5jcnlwdGlvbi5henVyZWhkaW5zaWdodC5uZXQCEA6GDZMW1oiESKFHFOOEgjcwDQYJKoZIhvcNAQEBBQAEggEATIuO8MJ45KEQAYBQld7WaRkJOWqaCLwFub9zNpscrquA2f3o0emy9Vr6vu5cD3GTt7PmaAF0pvssbKVMf/Z8yRpHmeezSco2y7e9Qd7xJKRLYtRHm80fsjiBHSW9CYkQwxHaOqdR7DBhZyhnj+DHhODsIO2FGM8MxWk4fgBRVO6CZ5eTmZ6KVR8wYbFLi8YZXb7GkUEeSn2PsjrKGiQjtpXw1RAyanCagr5vlg8CicZg1HuhCHWf/RYFWM3EBbVz+uFZPR3BqTgbvBhWYXRJaISwssvxotppe0ikevnEgaBYrflB2P+PVrwPTZ7f36HQcn4ifY1WRJQ4qRaUxdYEfzCBgwYJKoZIhvcNAQcBMBQGCCqGSIb3DQMHBAhRdscgRV3wmYBg3j/T1aEnO3wLWCRpgZa16MWqmfQPuansKHjLwbZjTpeirqUAQpZVyXdK/w4gKlK+t1heNsNo1Wwqu+Y47bSAX1k9Ud7+Ed2oETDI7724IJ213YeGxvu4Ngcf2eHW+FRK"
 
@@ -110,7 +194,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 
 若要解决此问题，必须删除存储帐户的现有条目。 執行下列步驟以移除現有項目：
 
-1. 在 Web 瀏覽器中，對您的 HDInsight 叢集開啟 Ambari Web UI。 URI 為 https://CLUSTERNAME.azurehdinsight.net。 將 __CLUSTERNAME__ 取代為您叢集的名稱。
+1. 在 Web 瀏覽器中，對您的 HDInsight 叢集開啟 Ambari Web UI。 URI 為 `https://CLUSTERNAME.azurehdinsight.net`。 將 `CLUSTERNAME` 取代為您的叢集名稱。
 
     出現提示時，輸入您叢集的 HTTP 登入使用者和密碼。
 
@@ -131,15 +215,9 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 
 如果儲存體帳戶位於與 HDInsight 叢集不同的區域中，您可能會遇到效能不佳。 存取不同區域中的資料會傳送 Azure 資料中心外部和跨越公用網際網路的網路流量，這可能會造成延遲。
 
-> [!WARNING]  
-> 不支持在 HDInsight 群集之外的其他区域中使用存储帐户。
-
-### <a name="additional-charges"></a>額外費用
+### <a name="additional-charges"></a>额外费用
 
 如果儲存體帳戶位於與 HDInsight 叢集不同的區域中，您可能會發現 Azure 帳單上出現額外輸出費用。 當資料離開區域資料中心時，就會產生輸出費用。 即使流量的目的地是不同區域中的其他 Azure 資料中心，仍會產生此費用。
-
-> [!WARNING]  
-> 不支援在 HDInsight 叢集以外的區域中使用儲存體帳戶。
 
 ## <a name="next-steps"></a>後續步驟
 

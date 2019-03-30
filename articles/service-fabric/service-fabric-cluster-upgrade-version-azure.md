@@ -4,7 +4,7 @@ description: 升級執行 Service Fabric 叢集的 Service Fabric 程式碼和/�
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 15190ace-31ed-491f-a54b-b5ff61e718db
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 3e71199c19fffae0bb7dfa6a59245f1d43cd5065
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
-ms.translationtype: HT
+ms.openlocfilehash: 234bff5049babf0c4b1d036b40201720b2736228
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51857793"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661627"
 ---
 # <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>升級叢集的 Service Fabric 版本
 
@@ -48,7 +48,7 @@ ms.locfileid: "51857793"
 
 如果不符合叢集健康狀態原則，則會回復升級。 請往下捲動本文，以深入了解如何設定這些自訂的健康狀態原則。 
 
-在解決導致復原的問題後，您需要依照之前的相同步驟再次起始升級。
+修复造成回滚的问题后，需要按照与之前完全相同的步骤重新启动升级。
 
 ![Manage_Automaticmode][Manage_Automaticmode]
 
@@ -75,7 +75,7 @@ ms.locfileid: "51857793"
 ## <a name="list-all-available-versions-for-all-environments-for-a-given-subscription"></a>針對指定的訂用帳戶列出所有環境的所有可用版本
 執行下列命令，應該會得到類似如下的輸出。
 
-“supportExpiryUtc” 會告訴您給定的版本即將到期或已過期。 最新版本並無有效日期 - 它的值為 "9999-12-31T23:59:59.9999999"，這只是表示到期日還沒有設定。
+“supportExpiryUtc”告知给定的版本何时即将到期或已过期。 最新版本並無有效日期 - 它的值為 "9999-12-31T23:59:59.9999999"，這只是表示到期日還沒有設定。
 
 ```REST
 GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2016-09-01

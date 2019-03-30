@@ -1,10 +1,10 @@
 ---
-title: Testability：服務通訊 | Microsoft Docs
+title: Testability:服務通訊 |Microsoft Docs
 description: 服務之間的通訊是整合 Service Fabric 應用程式的重要環節。 本文討論設計考量及測試技巧。
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 017557df-fb59-4e4a-a65d-2732f29255b8
 ms.service: service-fabric
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: e3ea537d310d49c934cf6789184f090791cf16a4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 529c8d74b6e0a63a7969f31d5b5e8073ecb79411
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211220"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665741"
 ---
-# <a name="service-fabric-testability-scenarios-service-communication"></a>Service Fabric Testability 案例：服務通訊
+# <a name="service-fabric-testability-scenarios-service-communication"></a>Service Fabric testability 案例：服務通訊
 微服務及服務導向的架構樣式會在 Azure Service Fabric 中自然出現。 在這些類型的分散式架構中，元件化的微服務應用程式通常是由需要彼此通訊的多個服務所組成。 即使在最簡單的情況下，您通常至少會有一個無狀態網路服務及一個可設定狀態的資料儲存服務需要相互通訊。
 
 服務之間的通訊是整合應用程式的重要環節，因為各服務會向其他服務公開遠端 API。 與 I/O 相關的一組 API 界限通常需要謹慎處理，且需經過大量測試和驗證。
@@ -48,7 +48,7 @@ ms.locfileid: "34211220"
 * 當服務執行個體再次開啟接聽程式時，服務延遲時間可能會短暫增加。 這需取決於服務在服務執行個體移動後開啟接聽程式的速度。
 * 必須先關閉任何現有的連線，然後等服務於新的節點上開啟之後再重新開啟。 妥善關閉節點或重新開啟，可讓現有連線擁有足夠時間正常關閉。
 
-### <a name="test-it-move-service-instances"></a>測試：移動服務執行個體
+### <a name="test-it-move-service-instances"></a>測試它：移動服務執行個體
 藉由使用 Service Fabric 的 Testability 工具，您可以撰寫測試案例，以不同方式測試這些情況：
 
 1. 移動具狀態服務的主要複本。
@@ -77,7 +77,7 @@ ms.locfileid: "34211220"
 
 具狀態服務會使用仲裁式系統來複寫狀態，藉以達到高可用性。 換句話說，必須要能使用複本仲裁，才能執行寫入作業。 在極罕見情況下，例如大規模的硬體故障，有可能無法使用複本仲裁。 在這些情況下，您將無法執行寫入作業，但仍能執行讀取作業。
 
-### <a name="test-it-write-operation-unavailability"></a>測試：撰寫作業無法使用
+### <a name="test-it-write-operation-unavailability"></a>測試它：撰寫作業無法使用
 藉由使用 Service Fabric 中的 testability 工具，您可以插入引發仲裁遺失的錯誤做為測試。 雖然這樣的案例極為罕見，但仰賴具狀態狀態服務的用戶端和服務務必做好準備，以處理無法要求執行寫入作業的各種情況。 具狀態服務本身也應了解發生這種情況的可能性，並能依正常程序與呼叫者通訊。
 
 您可以藉由使用 **Invoke-ServiceFabricPartitionQuorumLoss PowerShell** Cmdlet 引發仲裁遺失：
@@ -88,7 +88,7 @@ PS > Invoke-ServiceFabricPartitionQuorumLoss -ServiceName fabric:/Myapplication/
 
 ```
 
-在此範例中，我們將 `QuorumLossMode` 設為 `QuorumReplicas`，以便在引發仲裁遺失時，不會關閉所有複本。 如此才能正常執行讀取作業。 若要測試整個分割區都無法使用的案例，您可將此參數設定為 `AllReplicas`。
+在此範例中，我們將 `QuorumLossMode` 設為 `QuorumReplicas`，以便在引發仲裁遺失時，不會關閉所有複本。 这样仍然能够进行读取操作。 若要測試整個分割區都無法使用的案例，您可將此參數設定為 `AllReplicas`。
 
 ## <a name="next-steps"></a>後續步驟
 [深入了解 Testability 動作](service-fabric-testability-actions.md)

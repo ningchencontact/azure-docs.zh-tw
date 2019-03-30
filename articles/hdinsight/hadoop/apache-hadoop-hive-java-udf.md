@@ -7,53 +7,65 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 94e9a70707472eb94109ebcc404fd7a1a3074135
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: b8417fe4c15259a7fd485254cf9edd2c8c082e92
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57575741"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629704"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>在 HDInsight 中搭配使用 Java UDF 和 Apache Hive
 
 了解如何建立能配合 Apache Hive 使用的以 Java 為基礎的使用者定義函式 (UDF)。 此範例中的 Java UDF 會將文字字串的資料表轉換成全部小寫。
 
-## <a name="requirements"></a>需求
+## <a name="prerequisites"></a>必要條件
 
-* HDInsight 叢集 
-
-    > [!IMPORTANT]
-    > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
-
-    本文件中的大部分步驟適用於以 Windows 和 Linux 為基礎的叢集。 不過，用來將編譯之 UDF 上傳到叢集並予以執行的步驟僅供以 Linux 為基礎的叢集專用。 對於適用於 Windows 型叢集的資訊，本文件備有相關連結。
-
-* [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/) 8 或更新版本 (或同等功能版本，例如 OpenJDK)
-
-* [Apache Maven](https://maven.apache.org/)
+* 在 HDInsight 上 Hadoop 叢集。 请参阅 [Linux 上的 HDInsight 入门](./apache-hadoop-linux-tutorial-get-started.md)。
+* [Java Developer Kit (JDK) 第 8 版](https://aka.ms/azure-jdks)
+* [Apache Maven](https://maven.apache.org/download.cgi)正確[安裝](https://maven.apache.org/install.html)根據 Apache。  Maven 是適用於 Java 專案的專案建置系統。
+* [URI 配置](../hdinsight-hadoop-linux-information.md#URI-and-scheme)您叢集的主要儲存體。 這會是 wasb: / / Azure 儲存體，abfs: / / Azure Data Lake 儲存體 Gen2 或 adl: / / Azure Data Lake 儲存體 Gen1。 如果 Azure 儲存體或 Data Lake 儲存體 Gen2 啟用安全傳輸，則 URI 會是 wasbs: / / 或 abfss: / / 分別另請參閱[安全傳輸](../../storage/common/storage-require-secure-transfer.md)。
 
 * 文字編輯器或 Java IDE
 
-    > [!IMPORTANT]
-    > 如果您是在 Windows 用戶端上建立 Python 檔案，就必須使用以 LF 做為行尾結束符號的編輯器。 如果您不確定編輯器是使用 LF 或 CRLF，請參閱疑難排解一節，以了解有關移除 CR 字元的步驟。
+    > [!IMPORTANT]  
+    > 如果您是在 Windows 用戶端上建立 Python 檔案，就必須使用以 LF 做為行尾結束符號的編輯器。 如果您不確定編輯器是使用 LF 或 CRLF，請參閱[疑難排解](#troubleshooting)一節，以了解有關移除 CR 字元的步驟。
 
-## <a name="create-an-example-java-udf"></a>建立範例 Java UDF 
+## <a name="test-environment"></a>測試環境
+本文所使用的環境是執行 Windows 10 的電腦。  在命令提示字元中執行命令，各種檔案已使用 「 記事本 」 編輯。 據此修改為您的環境。
 
-1. 在命令列中，使用下列命令來建立新的 Maven 專案：
+在命令提示字元中，輸入下列命令，以建立工作的環境：
 
-    ```bash
+```cmd
+IF NOT EXIST C:\HDI MKDIR C:\HDI
+cd C:\HDI
+```
+
+## <a name="create-an-example-java-udf"></a>建立範例 Java UDF
+
+1. 輸入下列命令來建立新的 Maven 專案：
+
+    ```cmd
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=ExampleUDF -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-   > [!NOTE]
-   > 如果您使用 PowerShell，必須將參數放置在引號內。 例如： `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=ExampleUDF" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`。
+    此命令會建立名為`exampleudf`，其中包含 Maven 專案。
 
-    此命令會建立名為 **exampleudf** 的目錄，其包含 Maven 專案。
+2. 一旦建立專案之後，刪除`exampleudf/src/test`輸入下列命令來建立為專案一部分的目錄：
 
-2. 创建该项目后，删除作为项目的一部分创建的 **exampleudf/src/test** 目录。
+    ```cmd
+    cd ExampleUDF
+    rmdir /S /Q "src/test"
+    ```
 
-3. 開啟 **exampleudf/pom.xml**，以下列 XML 取代現有的 `<dependencies>` 項目︰
+3. 開啟`pom.xml`藉由輸入下列命令：
+
+    ```cmd
+    notepad pom.xml
+    ```
+
+    然後取代現有`<dependencies>`具有下列 XML 項目：
 
     ```xml
     <dependencies>
@@ -93,7 +105,7 @@ ms.locfileid: "57575741"
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>2.3</version>
+                <version>3.2.1</version>
                 <configuration>
                     <!-- Keep us from getting a can't overwrite file error -->
                     <transformers>
@@ -130,11 +142,15 @@ ms.locfileid: "57575741"
 
     這些項目會定義如何建置專案。 具體來說，定義專案使用的 Java 版本以及如何建置 uberjar 以部署至叢集。
 
-    一旦进行了更改，请保存该文件。
+    完成變更後，儲存檔案。
 
-4. 將 **exampleudf/src/main/java/com/microsoft/examples/App.java** 重新命名為 **ExampleUDF.java**，然後在編輯器中開啟檔案。
+4. 輸入下面的命令來建立並開啟新的檔案`ExampleUDF.java`:
 
-5. 将 **ExampleUDF.java** 文件的内容替换为以下内容，并保存该文件。
+    ```cmd
+    notepad src/main/java/com/microsoft/examples/ExampleUDF.java
+    ```
+
+    然後複製並貼到新檔案的資訊，請參閱下列 java 程式碼。 然後關閉檔案。
 
     ```java
     package com.microsoft.examples;
@@ -165,31 +181,29 @@ ms.locfileid: "57575741"
 
 ## <a name="build-and-install-the-udf"></a>建置及安裝 UDF
 
-1. 使用以下命令编译和打包 UDF：
+在下列命令取代`sshuser`與實際的使用者名稱，如果不同。 取代`mycluster`與實際叢集名稱。
 
-    ```bash
+1. 編譯及封裝 UDF 中輸入下列命令：
+
+    ```cmd
     mvn compile package
     ```
 
     此命令會建置 UDF 並將它封裝到 `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar` 檔案。
 
-2. 使用 `scp` 命令將檔案複製到 HDInsight 叢集。
+2. 使用`scp`命令，以將檔案複製到 HDInsight 叢集，藉由輸入下列命令：
 
-    ```bash
-    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar myuser@mycluster-ssh.azurehdinsight.net
+    ```cmd
+    scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight.net:
     ```
 
-    將 `myuser` 取代為叢集的 SSH 使用者帳戶。 將 `mycluster` 取代為叢集名稱。 如果您使用密碼來保護 SSH 帳戶，系統會提示您輸入密碼。 如果您使用憑證，可能需要使用 `-i` 參數來指定私密金鑰檔案。
+3. 連接到輸入下列命令來使用 SSH 的叢集：
 
-3. 使用 SSH 連線到叢集。
-
-    ```bash
-    ssh myuser@mycluster-ssh.azurehdinsight.net
+    ```cmd
+    ssh sshuser@mycluster-ssh.azurehdinsight.net
     ```
 
-    如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
-
-4. 在 SSH 工作階段中，將 jar 檔案複製到 HDInsight 儲存體。
+4. 從開啟的 SSH 工作階段，將 jar 檔案複製到 HDInsight 儲存體。
 
     ```bash
     hdfs dfs -put ExampleUDF-1.0-SNAPSHOT.jar /example/jars
@@ -197,7 +211,7 @@ ms.locfileid: "57575741"
 
 ## <a name="use-the-udf-from-hive"></a>從 Hive 使用 UDF
 
-1. 在 SSH 工作階段中，使用以下命令來啟動 Beeline 用戶端。
+1. 輸入下列命令，從 SSH 工作階段啟動 Beeline 用戶端：
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
@@ -208,35 +222,48 @@ ms.locfileid: "57575741"
 2. 一旦到達 `jdbc:hive2://localhost:10001/>` 提示後，請輸入下列命令以將 UDF 新增至 Hive，並將它公開為函式。
 
     ```hiveql
-    ADD JAR wasb:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
+    ADD JAR wasbs:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
     CREATE TEMPORARY FUNCTION tolower as 'com.microsoft.examples.ExampleUDF';
     ```
-
-    > [!NOTE]
-    > 此範例假設 Azure 儲存體是叢集的預設儲存體。 如果您的叢集改為使用 Data Lake Storage Gen2，請將 `wasb:///` 值變更為 `abfs:///`。 如果您的叢集改為使用 Data Lake Storage Gen1，請將 `wasb:///` 值變更為 `adl:///`。
 
 3. 使用 UDF 將從資料表擷取的值轉換成小寫字串。
 
     ```hiveql
-    SELECT tolower(deviceplatform) FROM hivesampletable LIMIT 10;
+    SELECT tolower(state) AS ExampleUDF, state FROM hivesampletable LIMIT 10;
     ```
 
-    此查詢會從資料表選取裝置平台 (Android、Windows、iOS 等)、將字串轉換為小寫，然後再加以顯示。 此輸出看起來類似下列文字：
+    此查詢會選取資料表中的狀態，將字串轉換為較低情況下，，然後將它們顯示及未修改的名稱。 此輸出看起來類似下列文字：
 
-        +----------+--+
-        |   _c0    |
-        +----------+--+
-        | android  |
-        | android  |
-        | android  |
-        | android  |
-        | android  |
-        | android  |
-        | android  |
-        | android  |
-        | android  |
-        | android  |
-        +----------+--+
+        +---------------+---------------+--+
+        |  exampleudf   |     state     |
+        +---------------+---------------+--+
+        | california    | California    |
+        | pennsylvania  | Pennsylvania  |
+        | pennsylvania  | Pennsylvania  |
+        | pennsylvania  | Pennsylvania  |
+        | colorado      | Colorado      |
+        | colorado      | Colorado      |
+        | colorado      | Colorado      |
+        | utah          | Utah          |
+        | utah          | Utah          |
+        | colorado      | Colorado      |
+        +---------------+---------------+--+
+
+## <a name="troubleshooting"></a>疑難排解
+
+執行 Hive 作業時，您可能會遇到類似以下文字的錯誤：
+
+    Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
+
+這個問題可能是由 Python 檔案中的行尾結束符號所引起。 許多 Windows 編輯器預設都是使用 CRLF 做為行尾結束符號，但是 Linux 應用程式通常預期使用 LF。
+
+若要在檔案上傳至 HDInsight 之前移除 CR 字元，您可以使用下列 PowerShell 陳述式︰
+
+```PowerShell
+# Set $original_file to the python file path
+$text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
+[IO.File]::WriteAllText($original_file, $text)
+```
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 801e3b20908c3e92693e5e800428773bf5c90539
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: c5fadf5c445310534ab3001371e1b73b1f502f15
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521460"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661781"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 連線架構
 
@@ -39,7 +39,7 @@ ms.locfileid: "58521460"
 >
 > 如果無法建立連到 Azure SQL 伺服器的服務端點連線，且您懷疑受到此變更的影響，請確認連線類型是否已明確設為 `Redirect`。 如果發生這種狀況，請對該地區中所有屬於連接埠 11000-12000 其 Sql [服務標籤](../virtual-network/security-overview.md#service-tags)的 Azure IP 位址開啟 VM 防火牆規則與「網路安全性群組」(NSG)。 如果您不願如此做，請將伺服器明確地切換至 `Proxy`。
 > [!NOTE]
-> 本主題適用於裝載單一資料庫、彈性集區和 SQL 資料倉儲資料庫的 Azure SQL 伺服器。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。
+> 本主題適用於裝載單一資料庫和彈性集區中，SQL 資料倉儲資料庫、 適用於 MySQL 的 Azure 資料庫、 適用於 MariaDB 的 Azure 資料庫和適用於 PostgreSQL 的 Azure 資料庫的 Azure SQL Database 伺服器。 為了簡單起見，參考到 SQL Database、 SQL 資料倉儲、 Azure Database for MySQL、 MariaDB 的 Azure 資料庫和適用於 PostgreSQL 的 Azure 資料庫時，會使用 SQL Database。
 
 ## <a name="connectivity-architecture"></a>連線架構
 

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: reference
 ms.date: 02/13/2019
 ms.author: juliako
-ms.openlocfilehash: 8ad0efffc89a3c11f412d94b922401c23e84a3e5
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: f9fe689e6911c5e9497ee82132e8b70bd9aada7e
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268782"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630604"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Azure 媒體服務事件的 Azure 事件格線結構描述
 
@@ -32,7 +32,7 @@ ms.locfileid: "56268782"
 
 ### <a name="monitoring-job-state-changes"></a>監視作業狀態變更
 
-| 事件類型 | 說明 |
+| 事件類型 | 描述 |
 | ---------- | ----------- |
 | Microsoft.Media.JobStateChange| 取得所有作業狀態變更的事件。 |
 | Microsoft.Media.JobScheduled| 取得當作業轉換成已排程狀態時的事件。 |
@@ -46,7 +46,7 @@ ms.locfileid: "56268782"
 
 ### <a name="monitoring-job-output-state-changes"></a>監視作業輸出狀態變更
 
-| 事件類型 | 說明 |
+| 事件類型 | 描述 |
 | ---------- | ----------- |
 | Microsoft.Media.JobOutputStateChange| 取得所有作業輸出狀態變更的事件。 |
 | Microsoft.Media.JobOutputScheduled| 取得當作業輸出轉換成已排程狀態時的事件。 |
@@ -60,7 +60,7 @@ ms.locfileid: "56268782"
 
 ### <a name="monitoring-job-output-progress"></a>監視作業輸出進度
 
-| 事件類型 | 說明 |
+| 事件類型 | 描述 |
 | ---------- | ----------- |
 | Microsoft.Media.JobOutputProgress| 此事件反映作業處理進度 (從 0% 到 100%)。 若進度值增加超過 5%，或自上一個事件起已超過 30 秒 (活動訊號)，則服務會嘗試傳送事件。 進度值不一定會從 0% 開始、不一定會達到 100%，也不會隨著時間的經過而以固定速率增加。 您不應該使用此事件來判斷處理是否已完成，您應該改為使用狀態變更事件。|
 
@@ -74,7 +74,7 @@ ms.locfileid: "56268782"
 
 資料流層級事件會以每個資料流或連線為基礎來引發。 每個事件都有 `StreamId` 參數可識別連線或資料流。 每個資料流或連線都有一或多個不同類型的資料軌。 例如，來自編碼器的一個連線可能會有一個音訊資料軌和四個視訊資料軌。 資料流事件類型有：
 
-| 事件類型 | 說明 |
+| 事件類型 | 描述 |
 | ---------- | ----------- |
 | Microsoft.Media.LiveEventConnectionRejected | 編碼器的連線嘗試遭到拒絕。 |
 | Microsoft.Media.LiveEventEncoderConnected | 編碼器對即時事件建立連線。 |
@@ -84,15 +84,20 @@ ms.locfileid: "56268782"
 
 ### <a name="track-level-events"></a>追蹤層級事件
 
-資料軌層級事件會以每個資料軌為基礎來引發。資料軌事件類型有：
+資料軌層級事件會以每個資料軌為基礎來引發。 
 
-| 事件類型 | 說明 |
+> [!NOTE]
+> 即時編碼器連線之後，會引發所有的追蹤層級事件。
+
+追蹤層級的事件類型包括：
+
+| 事件類型 | 描述 |
 | ---------- | ----------- |
 | Microsoft.Media.LiveEventIncomingDataChunkDropped | 媒體伺服器卸除資料區塊，原因是其來得太晚或有重疊的時間戳記 (新資料區塊的時間戳記小於先前資料區塊的結束時間)。 |
 | Microsoft.Media.LiveEventIncomingStreamReceived | 媒體伺服器收到資料流或連線中每個資料軌的第一個資料區塊。 |
 | Microsoft.Media.LiveEventIncomingStreamsOutOfSync | 媒體伺服器偵測到音訊和視訊資料流未同步。可作為警告，原因是使用者體驗可能不受影響。 |
 | Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | 媒體伺服器偵測到來自外部編碼器的兩個視訊資料流中，有任一個未同步。可作為警告，原因是使用者體驗可能不受影響。 |
-| Microsoft.Media.LiveEventIngestHeartbeat | 當即時事件執行時，會針對每個資料軌每 20 秒發佈一次。 提供內嵌健康情況摘要。 |
+| Microsoft.Media.LiveEventIngestHeartbeat | 當即時事件執行時，會針對每個資料軌每 20 秒發佈一次。 提供內嵌健康情況摘要。<br/><br/>一開始連線編碼器之後，活動訊號事件會繼續發出每隔 20 秒，編碼器仍處於連線狀態是否。 |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | 媒體伺服器偵測到內送的資料軌發生中斷。 |
 
 請參閱接下來將說明的[結構描述範例](#event-schema-examples)。
@@ -123,7 +128,7 @@ ms.locfileid: "56268782"
 
 資料物件具有下列屬性：
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | previousState | 字串 | 工作在該事件之前的狀態。 |
 | state | 字串 | 在此事件中，被通知的工作新狀態。 例如，「已排程：作業已可啟動」或「已完成：作業已完成」。|
@@ -193,7 +198,7 @@ ms.locfileid: "56268782"
 
 資料物件具有下列屬性：
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | 輸出 | 陣列 | 取得作業輸出。|
 
@@ -309,7 +314,7 @@ ms.locfileid: "56268782"
 
 資料物件具有下列屬性：
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | streamId | 字串 | 資料流或連線的識別碼。 編碼器或客戶要負責在內嵌 URL 中新增此識別碼。 |  
 | ingestUrl | 字串 | 即時事件所提供的內嵌 URL。 |  
@@ -319,7 +324,7 @@ ms.locfileid: "56268782"
 
 結果碼如下：
 
-| 結果碼 | 說明 |
+| 結果碼 | 描述 |
 | ----------- | ----------- |
 | MPE_RTMP_APPID_AUTH_FAILURE | 不正確的內嵌 URL |
 | MPE_INGEST_ENCODER_CONNECTION_DENIED | 編碼器 IP 不存在於所設定的 IP 允許清單中 |
@@ -356,7 +361,7 @@ ms.locfileid: "56268782"
 
 資料物件具有下列屬性：
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | streamId | 字串 | 資料流或連線的識別碼。 編碼器或客戶要負責在內嵌 URL 中提供此識別碼。 |
 | ingestUrl | 字串 | 即時事件所提供的內嵌 URL。 |
@@ -390,7 +395,7 @@ ms.locfileid: "56268782"
 
 資料物件具有下列屬性：
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | streamId | 字串 | 資料流或連線的識別碼。 編碼器或客戶要負責在內嵌 URL 中新增此識別碼。 |  
 | ingestUrl | 字串 | 即時事件所提供的內嵌 URL。 |  
@@ -400,7 +405,7 @@ ms.locfileid: "56268782"
 
 錯誤結果碼如下：
 
-| 結果碼 | 說明 |
+| 結果碼 | 描述 |
 | ----------- | ----------- |
 | MPE_RTMP_SESSION_IDLE_TIMEOUT | RTMP 工作階段在閒置達允許時間限制後逾時。 |
 | MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | 來自 RTMP 編碼器的視訊或音訊 FLVTag 時間戳記無效。 |
@@ -409,7 +414,7 @@ ms.locfileid: "56268782"
 
 正常中斷連線的結果碼如下：
 
-| 結果碼 | 說明 |
+| 結果碼 | 描述 |
 | ----------- | ----------- |
 | S_OK | 編碼器已成功中斷連線。 |
 | MPE_CLIENT_TERMINATED_SESSION | 編碼器已中斷連線 (RTMP)。 |
@@ -447,7 +452,7 @@ ms.locfileid: "56268782"
 
 資料物件具有下列屬性：
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | trackType | 字串 | 資料軌的類型 (音訊/視訊)。 |
 | trackName | 字串 | 資料軌的名稱。 |
@@ -487,7 +492,7 @@ ms.locfileid: "56268782"
 
 資料物件具有下列屬性：
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | trackType | 字串 | 資料軌的類型 (音訊/視訊)。 |
 | trackName | 字串 | 資料軌的名稱 (由編碼器提供，在 RTMP 的案例中，伺服器會以 TrackType_Bitrate 格式產生)。 |
@@ -526,7 +531,7 @@ ms.locfileid: "56268782"
 
 資料物件具有下列屬性：
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | minLastTimestamp | 字串 | 所有資料軌 (音訊或視訊) 最後一個時間戳記之間的最小值。 |
 | typeOfTrackWithMinLastTimestamp | 字串 | 最後一個時間戳記為最小值的資料軌 (音訊或視訊) 類型。 |
@@ -562,7 +567,7 @@ ms.locfileid: "56268782"
 
 資料物件具有下列屬性：
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | firstTimestamp | 字串 | 其中一個視訊類型資料軌/品質層級所收到的時間戳記。 |
 | firstDuration | 字串 | 具有第一個時間戳記的資料區塊持續時間。 |
@@ -604,7 +609,7 @@ ms.locfileid: "56268782"
 
 資料物件具有下列屬性：
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | trackType | 字串 | 資料軌的類型 (音訊/視訊)。 |
 | trackName | 字串 | 資料軌的名稱 (由編碼器提供，在 RTMP 的案例中，伺服器會以 TrackType_Bitrate 格式產生)。 |
@@ -648,7 +653,7 @@ ms.locfileid: "56268782"
 
 資料物件具有下列屬性：
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | trackType | 字串 | 資料軌的類型 (音訊/視訊)。 |
 | trackName | 字串 | 資料軌的名稱 (由編碼器提供，在 RTMP 的案例中，伺服器會以 TrackType_Bitrate 格式產生)。 |
@@ -662,7 +667,7 @@ ms.locfileid: "56268782"
 
 事件具有下列的最高層級資料：
 
-| 屬性 | 類型 | 說明 |
+| 屬性 | 類型 | 描述 |
 | -------- | ---- | ----------- |
 | 主題 | 字串 | EventGrid 主題。 此屬性有媒體服務帳戶的資源識別碼。 |
 | 主旨 | 字串 | 媒體服務帳戶底下媒體服務通道的資源路徑。 串連主題和主旨即可獲得作業的資源識別碼。 |
@@ -677,7 +682,7 @@ ms.locfileid: "56268782"
 
 [登記工作狀態變更事件](job-state-events-cli-how-to.md)
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 - [包含媒體服務事件的 EventGrid .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [媒體服務事件的定義](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)

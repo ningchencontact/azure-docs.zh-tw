@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/26/2019
+ms.date: 03/28/2019
 ms.author: pareshmu
-ms.openlocfilehash: 7e79cd14bfe74fb75a12fb0c777fe18d52a921ff
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 8a137919bfd3cf330586c3a4d5c9df18916e41e6
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518570"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629777"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -74,7 +74,7 @@ ms.locfileid: "58518570"
 | **位置** | **對等互連位置擁有者** | **服務提供者** |
 | --- | --- | --- |
 | **阿姆斯特丹** | Equinix | Aryaka Networks、AT&T NetBond、British Telecom、Colt、Equinix、euNetworks、GÉANT、InterCloud、Interxion、KPN、 IX Reach、Level 3 Communications、Megaport、NTT Communications、Orange、Tata Communications、TeleCity Group、Telefonica、Telenor、Telia Carrier、Verizon、Zayo |
-| **阿姆斯特丹2** | Interxion | Interxion |
+| **阿姆斯特丹2** | Interxion | DE-CIX、 Interxion |
 | **亞特蘭大** | Equinix | Equinix、Megaport |
 | **斧山** |LG CNS | LG CNS |
 | **坎培拉** | CDC | CDC |
@@ -83,7 +83,7 @@ ms.locfileid: "58518570"
 | **辰內** | Tata Communications | Global CloudXchange (GCX)、SIFY、Tata Communications |
 | **辰內2** | Airtel | Airtel |
 | **芝加哥** | Equinix | Aryaka Networks、 AT At&t NetBond、 Cologix、 Comcast、 Coresite、 Equinix、 InterCloud、 Internet2、 Level 3 Communications、 Megaport、 PacketFabric、 PCCW Global Limited、 衝刺 （sprint)、 Telia 電信業者、 Verizon、 Zayo |
-| **達拉斯** | Equinix | Aryaka Networks、AT&T NetBond、Cologix、Equinix、Internet2、Level 3 Communications、Megaport、Neutrona Networks、Telmex Uninet+、Telia Carrier、Verizon、Zayo|
+| **達拉斯** | Equinix | Aryaka Networks、 AT At&t NetBond、 Cologix、 Equinix、 Internet2、 Level 3 Communications、 Megaport、 Neutrona Networks、 Telmex Uninet Telia 電信業者、 Verizon、 Zayo|
 | **丹佛** | CoreSite | CoreSite、 Megaport、 Zayo |
 | **都柏林** | Equinix | Colt、eir、Equinix、Interxion、Megaport |
 | **香港** | Equinix | Aryaka Networks、British Telecom、China Telecom Global、Equinix、Megaport、NTT Communications、Orange、PCCW Global Limited、Tata Communications、Verizon |
@@ -130,7 +130,7 @@ ms.locfileid: "58518570"
 | **芝加哥** |AT&T NetBond、Equinix、Level 3 Communications、Verizon |
 | **达拉斯** |Equinix、Megaport、Verizon |
 | **紐約** |Equinix、CenturyLink Cloud Connect、Verizon |
-| **Phoenix** | CenturyLink Cloud Connect |
+| **Phoenix** | AT At&t NetBond、 CenturyLink Cloud Connect |
 | **聖安東尼奧** | Megaport |
 | **矽谷** | Equinix、LLevel 3 Communications、Verizon |
 | **Seattle** | Equinix、Megaport |

@@ -6,15 +6,15 @@ author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 03/13/2019
 ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: f6549710f90c8d59ed443ab9ae1a302a2d8278d5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8386d1c43761cfb27746b003d136419f72d7d4ae
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899514"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648532"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>了解保留折扣如何套用至 Azure Cosmos DB
 
@@ -24,7 +24,7 @@ ms.locfileid: "57899514"
 
 保留折扣會以每小時為基礎，以每秒要求單位 (RU/秒) 套用至[已佈建的輸送量](../cosmos-db/request-units.md)。 針對執行時間不滿一小時的 Azure Cosmos DB 資源，保留折扣會自動套用至其他符合保留屬性的 Cosmos DB 資源。 此折扣可套用至同時執行的 Azure Cosmos DB 資源。 如果沒有既執行滿一個小時又符合保留屬性的 Cosmos DB 資源，您就無法獲得該小時保留折扣的完整權益。
 
-不同層有不同折扣。 要求單位越高的保留所提供的折扣越高。 
+不同層有不同折扣。 要求單位越高的保留所提供的折扣越高。
 
 折扣購買會依照與區域隨選價格相等的比例，將折扣套用至所有區域。 如需了解每個區域中的保留折扣比例，請參閱本文的[每一區域的保留折扣](#reservation-discount-per-region)一節。
 
@@ -71,15 +71,15 @@ ms.locfileid: "57899514"
 請思考一下下列保留需求：
 
 * 所需的輸送量：50,000 RU/秒  
-* 使用的區域：2 
+* 使用的區域：2
 
-在此案例中，您的需求費用總計會針對這兩個區域中的 500 個 100 RU/秒計量。 每小時總計會耗用 100,000 RU/秒。 
+在此案例中，您的需求費用總計會針對這兩個區域中的 500 個 100 RU/秒計量。 每小時總計會耗用 100,000 RU/秒。
 
 **案例 1**
 
 例如，假設您需要 Azure Cosmos DB 部署在美國中北部和美國西部區域。 每個區域有 50,000 RU/秒的輸送量耗用量。 購買 100,000 RU/秒的保留將可完全平衡您的需求費用。
 
-保留所涵蓋折扣的計算方式為：輸送量耗用量 * 該區域的保留折扣比例。 就「美國中北部」和「美國西部」區域而言，保留折扣比例為 1。 因此，總共折扣的 RU/秒為 100,000 RU/秒。 此值的計算方式為：50,000 * 1 + 50,000 * 1 = 100,000 RU/秒。 您無須支付任何其他預付型方案費率的費用。 
+保留所涵蓋折扣的計算方式為：輸送量耗用量 * 該區域的保留折扣比例。 就「美國中北部」和「美國西部」區域而言，保留折扣比例為 1。 因此，總共折扣的 RU/秒為 100,000 RU/秒。 此值的計算方式為：50,000 * 1 + 50,000 * 1 = 100,000 RU/秒。 您無須支付任何其他預付型方案費率的費用。
 
 |計量描述 | 區域 |輸送量耗用量 (RU/秒) |套用至 RU/秒的保留折扣 |
 |---------|---------|---------|---------|
@@ -97,25 +97,24 @@ ms.locfileid: "57899514"
 
 「澳大利亞中部 2」中的 50,000 單位使用量相當於 75,000 RU/秒的可計費使用量 (或標準化使用量)。 此值的計算方式為：輸送量耗用量 * 該區域的保留折扣比例。 計算等於 75,000 RU/秒的可計費或標準化使用量。 此值的計算方式為：50,000 * 1.5 = 75,000 RU/秒。
 
-購買 100,000 RU/秒的保留可抵銷「澳大利亞中部 2」中的 75,000 RU/秒。 留下 25,000 RU/秒給「法國南部」區域。 從剩餘的 25,000 RU/秒中，會在「法國南部」區域套用 15,384 RU/秒的保留折扣。 折扣值的計算方式為：25,000 / 1.625 = 15,384 RU/秒。 「法國南部」區域中剩餘的 34,616 RU/秒會依一般隨用隨付方案費率收費。 
+購買 100,000 RU/秒的保留可抵銷「澳大利亞中部 2」中的 75,000 RU/秒。 留下 25,000 RU/秒給「法國南部」區域。 從剩餘的 25,000 RU/秒中，會在「法國南部」區域套用 15,384 RU/秒的保留折扣。 折扣值的計算方式為：25,000 / 1.625 = 15,384 RU/秒。 「法國南部」區域中剩餘的 34,616 RU/秒會依一般隨用隨付方案費率收費。
 
 Azure 計費系統會將保留計費權益指派給第一個處理且符合保留設定的執行個體。 例如本案例中的「澳大利亞中部 2」。
 
 若要在計費使用量報告中了解及檢視 Azure 保留的應用，請參閱[了解 Azure 保留使用量](../billing/billing-understand-reserved-instance-usage-ea.md)。
 
+## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
+
+如果您有問題或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
+
 ## <a name="next-steps"></a>後續步驟
 
 若要深入了解 Azure 保留項目，請參閱下列文章：
 
-* [什麼是 Azure 保留項目？](../billing/billing-save-compute-costs-reservations.md)  
+* [什麼是 Azure 的保留](../billing/billing-save-compute-costs-reservations.md)  
 * [以 Azure Cosmos DB 保留容量預先支付 Azure Cosmos DB 資源的費用](../cosmos-db/cosmos-db-reserved-capacity.md)  
 * [以 Azure SQL Database 保留容量預先支付 SQL 資料庫計算資源的費用](../sql-database/sql-database-reserved-capacity.md)  
-* [管理 Azure 保留](../billing/billing-manage-reserved-vm-instance.md)  
-* [了解預付型方案訂用帳戶的保留使用量](../billing/billing-understand-reserved-instance-usage.md)  
-* [了解 Enterprise 註冊的保留項目使用量](../billing/billing-understand-reserved-instance-usage-ea.md)  
+* [管理 Azure 保留項目](../billing/billing-manage-reserved-vm-instance.md)  
+* [了解隨用隨付方案訂用帳戶的保留項目使用量](../billing/billing-understand-reserved-instance-usage.md)  
+* [了解 Enterprise 註冊的保留項目使用量](../billing/billing-understand-reserved-instance-usage-ea.md)
 * [了解 CSP 訂用帳戶的保留使用量](https://docs.microsoft.com/partner-center/azure-reservations)
-
-## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
-
-如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
-

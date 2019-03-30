@@ -4,7 +4,7 @@ description: 描述 Service Fabric CLI sfctl mesh service-replica 命令。
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: bcf4b8d013783a9fbdb62bcdb8737680bfce7640
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: 1e0955ef2a52a6313f0449b956229e03f0a5b5e8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53283324"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662426"
 ---
 # <a name="sfctl-mesh-service-replica"></a>sfctl mesh service-replica
 取得複本服務詳細資料和應用程式資源中指定服務的清單複本。
 
 ## <a name="commands"></a>命令
 
-|命令|說明|
+|命令|描述|
 | --- | --- |
 | list | 列出服務的所有複本。 |
 | 顯示 | 取得應用程式服務的指定複本。 |
@@ -38,14 +38,14 @@ ms.locfileid: "53283324"
 
 ### <a name="arguments"></a>引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --app-name --application-name [必要] | 應用程式的名稱。 |
 | --service-name                [必要] | 服務的名稱。 |
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
@@ -60,7 +60,7 @@ ms.locfileid: "53283324"
 
 ### <a name="arguments"></a>引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --app-name --application-name [必要] | 應用程式的名稱。 |
 | --name -n                     [必要] | 服務複本的名稱。 |
@@ -68,7 +68,7 @@ ms.locfileid: "53283324"
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |

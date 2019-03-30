@@ -4,7 +4,7 @@ description: 概述使用無狀態與具狀態服務來建立 Microsoft Azure Se
 services: service-fabric
 documentationcenter: java
 author: suhuruli
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 7831886f-7ec4-4aef-95c5-b2469a5b7b5d
 ms.service: service-fabric
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 0b044b15b41e2d74f08c4bc989e22b6a19949445
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6bf8c632a7513d018745bc74aa0a1db95a39af8b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170919"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663180"
 ---
 # <a name="get-started-with-reliable-services"></a>開始使用 Reliable Service
 > [!div class="op_single_selector"]
 > * [Windows 上的 C# ](service-fabric-reliable-services-quick-start.md)
-> * [在 Linux 上使用 Java](service-fabric-reliable-services-quick-start-java.md)
+> * [Linux 上的 Java](service-fabric-reliable-services-quick-start-java.md)
 >
 >
 
@@ -124,12 +124,12 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 * 應用程式或系統已升級。
 * 基礎硬體發生中斷。
 
-此協調流程是由 Service Fabric 管理，可讓您的服務維持高度可用且正確平衡。
+Service Fabric 会管理此业务流程，以便保持服务的高度可用和适当均衡。
 
 `runAsync()` 不應該同步封鎖。 您的 runAsync 實作應該傳回 CompletableFuture，以允許執行階段繼續執行。 如果您的工作負載需要實作長時間執行的工作，則該工作應該在 CompletableFuture 內完成。
 
 #### <a name="cancellation"></a>取消
-取消您的工作負載是由所提供的取消語彙基元協調的協同努力。 系統會先等待您的工作結束 (依據成功完成、取消或錯誤)，然後才繼續執行。 系統要求取消時，務必接受取消權杖、完成任何工作，並儘快結束 `runAsync()`。 下列範例示範如何處理取消事件：
+取消工作负荷是一项由所提供的取消标记协调的协同操作。 系統會先等待您的工作結束 (依據成功完成、取消或錯誤)，然後才繼續執行。 系統要求取消時，務必接受取消權杖、完成任何工作，並儘快結束 `runAsync()`。 下列範例示範如何處理取消事件：
 
 ```java
 @Override

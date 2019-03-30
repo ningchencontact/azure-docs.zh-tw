@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e0c8d4883bb9183f866450477df972fc66c960c5
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 329782a436924355dbdfbb5db260e88795394697
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369738"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650116"
 ---
 # <a name="azure-storage-security-guide"></a>Azure 儲存體安全性指南
 
@@ -46,7 +46,7 @@ ms.locfileid: "58369738"
 * 使用 [儲存體分析](#storage-analytics) 稽核 Azure 儲存體的存取
 
   此部分介绍如何在存储分析日志中查找某个请求的相关信息。 我們將查看實際的分析記錄資料，並了解如何分辨出要求是否是利用儲存體帳戶金鑰、共用存取簽章或匿名方式所提出，以及該要求是否成功或失敗。
-* [使用 CORS 啟用以瀏覽器為基礎的用戶端](#Cross-Origin-Resource-Sharing-CORS)
+* [使用 CORS 啟用以瀏覽器為基礎的用戶端](#cross-origin-resource-sharing-cors)
 
   本節討論如何允許跨原始來源資源共用 (CORS)。 我們將討論跨網域存取，以及如何使用 Azure 儲存體內建的 CORS 功能來處理它。
 

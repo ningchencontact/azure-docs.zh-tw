@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/015/2019
 ms.author: radeltch
-ms.openlocfilehash: 0d2edee8f4df6a2328ec99cc4d570687c4342c8a
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 02a97852a8dc659071c3484126b921d6f7106562
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540987"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662365"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>適用於 SUSE Linux Enterprise Server for SAP 應用程式的 Azure NetApp 檔案上的 Azure Vm 上的 SAP NetWeaver 的高可用性
 
@@ -58,7 +58,7 @@ ms.locfileid: "58540987"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-這篇文章說明如何部署虛擬機器設定虛擬機器、 安裝叢集架構，並安裝高可用性的 SAP NetWeaver 7.50 系統，使用[Azure NetApp 檔案](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction/)。
+這篇文章說明如何部署虛擬機器設定虛擬機器、 安裝叢集架構，並安裝高可用性的 SAP NetWeaver 7.50 系統，使用[（公開預覽） 中的 Azure NetApp 檔案](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction/)。
 在範例組態、 安裝命令等、 ASCS 執行個體號碼 00、 ERS 執行個體號碼 01、 主要的應用程式執行個體 (PAS) 是 02 且應用程式執行個體 (AAS) 是 03。 SAP 系統識別碼 QAS 會使用。 
 
 這篇文章說明如何使用 Azure NetApp 檔案達到高可用性的 SAP NetWeaver 應用程式。 資料庫層級未涵蓋在本文中詳述。

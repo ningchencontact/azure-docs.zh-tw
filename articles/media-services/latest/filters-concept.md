@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 78d6ac0a4ecde8d60a0ef3aa22515c7ce1ea4e07
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 61b877c322fcd58472990c328beea2e309502bce
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309532"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652343"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>定義帳戶篩選器和資產篩選器  
 
@@ -58,7 +58,7 @@ ms.locfileid: "58309532"
 |名稱|描述|
 |---|---|
 |firstQuality|篩選器的首次品質位元速率。|
-|presentationTimeRange|簡報時間範圍。 此屬性用於篩選資訊清單起始/結束點、簡報視窗長度，以及即時起始位置。 <br/>如需詳細資訊，請參閱 [PresentationTimeRange](#PresentationTimeRange)。|
+|presentationTimeRange|簡報時間範圍。 此屬性用於篩選資訊清單起始/結束點、簡報視窗長度，以及即時起始位置。 <br/>如需詳細資訊，請參閱 [PresentationTimeRange](#presentationtimerange)。|
 |tracks|資料軌選取條件。 如需詳細資訊，請參閱[資料軌](#tracks)|
 
 ### <a name="presentationtimerange"></a>presentationTimeRange

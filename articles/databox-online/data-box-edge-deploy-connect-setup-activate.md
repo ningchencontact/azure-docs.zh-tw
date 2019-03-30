@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/08/2019
+ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 0aaee4b0582f8acb9302c75463c0bc52698acaeb
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: ad288067fdd40dbfa84352916e84fa1e3ab9af8e
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403462"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629146"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>教學課程：連接、 設定和啟動 Azure 資料方塊邊緣 
 
@@ -75,7 +75,7 @@ ms.locfileid: "58403462"
     ![本機 web UI 的 [裝置名稱] 頁面](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
 
 2. (選擇性) 在左側窗格中，選取 [網路設定]，然後進行設定。  
-    您的實體裝置上有六個網路介面。 連接埠 1 和連接埠 2 是 1 Gbps 的網路介面。 連接埠 3 連接埠 4、 5 連接埠和連接埠 6 是也可以做為 10 Gbps 網路介面的所有 25 Gbps 網路介面。 連接埠 1 會自動設定為管理專用連接埠，連接埠 2 到連接埠 6 則都是資料連接埠。 **網路設定**頁面是如下所示。
+    在您的實體裝置，有六個網路介面。 連接埠 1 和連接埠 2 是 1 Gbps 的網路介面。 連接埠 3 連接埠 4、 5 連接埠和連接埠 6 是也可以做為 10 Gbps 網路介面的所有 25 Gbps 網路介面。 連接埠 1 會自動設定為管理專用連接埠，連接埠 2 到連接埠 6 則都是資料連接埠。 **網路設定**頁面是如下所示。
     
     ![本機 web UI 的 [網路設定] 頁面](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
    
@@ -119,7 +119,14 @@ ms.locfileid: "58403462"
 
         ![本機 web UI 的 [時間設定] 頁面](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
 
-5. 在左側窗格中，選取 [雲端設定]，然後向 Azure 入口網站中的 Data Box Edge 服務啟用您的裝置。
+5. （選擇性）在左窗格中，選取**儲存設定**您裝置上設定儲存體恢復功能。 此功能目前為預覽狀態。 根據預設，不適合在裝置上的儲存體，並在裝置上的資料磁碟時，不會遺失資料。 當您啟用恢復功能選項時，將重新設定存放裝置，裝置可以承受的失敗，未遺失資料的一個資料磁碟。 設定為具有恢復功能的存放裝置，將會減少可用的容量，您的裝置。
+
+    > [!IMPORTANT] 
+    > 啟用裝置之前，就只能設定恢復功能。 
+
+    ![本機 web UI 的 [儲存體設定] 頁面](./media/data-box-edge-deploy-connect-setup-activate/storage-settings.png)
+
+6. 在左側窗格中，選取 [雲端設定]，然後向 Azure 入口網站中的 Data Box Edge 服務啟用您的裝置。
     
     1. 在 [啟用金鑰] 方塊中，輸入您在[取得啟用金鑰](data-box-edge-deploy-prep.md#get-the-activation-key)中為 Data Box Edge 取得的啟用金鑰。
     2. 選取 [套用] 。
@@ -132,7 +139,7 @@ ms.locfileid: "58403462"
 
         ![本機 web UI 的 [雲端設定] 頁面更新](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)
 
-    4. 您可能需要等候幾分鐘後已成功完成更新。 此頁面會更新以指出裝置已成功啟動。
+    4. 您可能需要稍等幾分鐘之後更新已成功完成。 此頁面會更新以指出裝置已成功啟動。
 
         ![本機 web UI 的 [雲端設定] 頁面更新](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-8.png)
 

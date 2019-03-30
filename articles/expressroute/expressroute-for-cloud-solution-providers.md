@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: richcar
 ms.custom: seodec18
-ms.openlocfilehash: 842654f860a94481b53ebf9732fc4ed8be24cf4a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: a03ab7bbdadad2728f54127583583c22bd2ec07a
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077506"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650371"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>適用於雲端解決方案提供者 (CSP) 的 ExpressRoute
 Microsoft 為傳統的轉銷商和經銷商 (CSP) 提供超大規模的服務，以便為您的客戶快速佈建新的服務和解決方案，而不需要投資開發這些新服務。 若要讓雲端解決方案提供者 (CSP) 能夠直接管理這些新服務，Microsoft 提供了一些程式和 API，讓 CSP 可以代表您的客戶管理 Microsoft Azure 資源。 其中一個資源是 ExpressRoute。 ExpressRoute 可讓 CSP 將現有的客戶資源連接到 Azure 服務。 ExpressRoute 是 Azure 中服務的高速私用通訊連結。 
@@ -42,7 +42,7 @@ Microsoft 允許以程式設計方式整合您自己的服務管理系統，進�
 
 對於管理 Azure 服務的 CSP，假設此 CSP 有先前建立的客戶身分識別存放區，該存放區之後會複寫到 Azure Active Directory 中，以便透過 Administrate-On-Behalf-Of (AOBO) 管理其 CSP 訂用帳戶。 此案例的關鍵驅動因素包括特定的夥伴或服務提供者已建立起與客戶的關聯性、客戶目前使用提供者服務，或夥伴想要提供由提供者裝載和由 Azure 裝載的解決方案組合，以提供彈性及解決 CSP 無法單獨滿足的客戶挑戰。 此模型如下 **圖**所說明。
 
-![替代文字](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
+![替换文字](./media/expressroute-for-cloud-solution-providers/connect-through-model.png)
 
 ### <a name="connect-to-model"></a>Connect-To 模型
 ![替代文字](./media/expressroute-for-cloud-solution-providers/connect-to.png)
@@ -75,7 +75,7 @@ ExpressRoute 支援 50 Mb/s 至 10 Gb/s 的網路速度。 這可讓客戶購買
 ExpressRoute 支援多個 vNet 至單一 ExpressRoute 電路的連線，以便更加妥善利用高速連線。 同一個客戶所擁有的多個 Azure 訂用帳戶可以共用單一 ExpressRoute 電路。
 
 ## <a name="configuring-expressroute"></a>設定 ExpressRoute
-ExpressRoute 可設定為透過單一 ExpressRoute 電路支援三種類型的流量 ([路由網域](#ExpressRoute-routing-domains))。 此流量可以分成 Microsoft 對等、Azure 公用對等和私用對等。 視 ExpressRoute 電路的大小和您的客戶所需的隔離而定，您可以選擇透過單一 ExpressRoute 電路傳送一個或所有類型的流量，或使用多個 ExpressRoute 電路。 您的客戶的安全狀態可能不允許公用流量和私用流量透過相同的電路周遊。
+ExpressRoute 可設定為透過單一 ExpressRoute 電路支援三種類型的流量 ([路由網域](#expressroute-routing-domains))。 此流量可以分成 Microsoft 對等、Azure 公用對等和私用對等。 視 ExpressRoute 電路的大小和您的客戶所需的隔離而定，您可以選擇透過單一 ExpressRoute 電路傳送一個或所有類型的流量，或使用多個 ExpressRoute 電路。 您的客戶的安全狀態可能不允許公用流量和私用流量透過相同的電路周遊。
 
 ### <a name="connect-through-model"></a>Connect-Through 模型
 在 Connect-Through 組態中，您會負責所有網路基礎，以將客戶資料中心資源連接到 Azure 中裝載的訂用帳戶。 每個想要使用 Azure 功能的客戶都需有自己的 ExpressRoute 連線 (將由您管理)。 您將使用客戶用來購買 ExpressRoute 電路的相同方法。 您將依照 [ExpressRoute 電路佈建和電路狀態工作流程](expressroute-workflows.md) 一文中所述的相同步驟執行。 接著，您將設定邊界閘道協定 (BGP) 路由來控制在內部部署網路與 Azure vNet 之間流動的流量。

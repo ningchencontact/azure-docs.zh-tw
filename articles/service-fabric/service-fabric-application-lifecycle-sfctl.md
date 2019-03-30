@@ -3,17 +3,17 @@ title: 使用 Azure Service Fabric CLI 來管理 Azure Service Fabric 應用程�
 description: 了解如何使用 Azure Service Fabric CLI 在 Azure Service Fabric 叢集中部署和移除應用程式
 services: service-fabric
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 2e71996e22fee34b29139fdf19764c47616beb1d
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
-ms.translationtype: HT
+ms.openlocfilehash: 9b0f785a6a43f984708645084a8a8036326d3d24
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492744"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662987"
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli-sfctl"></a>使用 Azure Service Fabric CLI 來管理 Azure Service Fabric 應用程式 (sfctl)
 
@@ -90,7 +90,7 @@ sfctl application create --app-name fabric:/TestApp --app-type TestAppType --app
 
 應用程式名稱必須以 `fabric:/` 前置詞作為開頭。
 
-### <a name="create-services-for-the-new-application"></a>為新的應用程式建立服務
+### <a name="create-services-for-the-new-application"></a>为新应用程序创建服务
 
 建立應用程式之後，從該應用程式建立服務。 在下列範例中，我們會從應用程式建立新的無狀態服務。 先前佈建的應用程式封裝之中的服務資訊清單中會定義您可以從應用程式建立的服務。
 

@@ -4,7 +4,7 @@ description: Linux 上的 Azure Service Fabric 與 Windows 上的 Azure Service 
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: cb4f738fd63b8b013f674557a0c5f5639c26391e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: 829a3ea6e8fafa24831f1731e402a3991c0258c7
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126879"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662630"
 ---
 # <a name="differences-between-service-fabric-on-linux-and-windows"></a>Linux 與 Windows 上的 Service Fabric 差異
 
@@ -91,7 +91,7 @@ Windows 上支援的一些功能，在 Linux 上尚未提供支援。 最終，�
 
 ## <a name="next-steps"></a>後續步驟
 * [在 Linux 上準備您的開發環境](service-fabric-get-started-linux.md)
-* [在 OSX 上準備您的開發環境](service-fabric-get-started-mac.md)
+* [在 OSX 上准备开发环境](service-fabric-get-started-mac.md)
 * [使用 Yeoman 在 Linux 上建立和部署第一個 Service Fabric Java 應用程式](service-fabric-create-your-first-linux-application-with-java.md)
 * [在 Linux 上使用適用於 Eclipse 的 Service Fabric 外掛程式建立和部署第一個 Service Fabric Java 應用程式](service-fabric-get-started-eclipse.md)
 * [在 Linux 上建立第一個 CSharp 應用程式](service-fabric-create-your-first-linux-application-with-csharp.md)

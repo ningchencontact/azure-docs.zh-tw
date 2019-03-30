@@ -3,8 +3,8 @@ title: Azure Service Fabric 應用程式模型 | Microsoft Docs
 description: 如何在 Service Fabric 中建立模型和描述應用程式與服務。
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: mani-ramaswamy
 ms.assetid: 17a99380-5ed8-4ed9-b884-e9b827431b02
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: ryanwi
-ms.openlocfilehash: dd453f393620923041eb8fa07b551f4945f48235
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.author: atsenthi
+ms.openlocfilehash: 750970233cbcb14d901dbb5fa94f649f6ff8ae6c
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204629"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666268"
 ---
 # <a name="model-an-application-in-service-fabric"></a>在 Service Fabric 中模型化應用程式
 本文提供 Azure Service Fabric 應用程式模型的概觀，以及如何透過資訊清單檔案定義應用程式和服務。
@@ -37,14 +37,14 @@ ms.locfileid: "34204629"
 
 ![Service Fabric 應用程式類型和服務類型][cluster-imagestore-apptypes]
 
-叢集中可以有一或多個使用中的服務類型執行個體。 例如，可設定狀態的服務執行個體或複本，藉由複寫叢集中不同節點上複本之間的狀態達到高可靠性。 即使叢集中有一個節點失敗，複寫基本上會提供備援讓服務可供使用。 [分割服務](service-fabric-concepts-partitioning.md) 進一步在叢集中的節點之間分割其狀態 (並且存取該狀態的模式)。
+叢集中可以有一或多個使用中的服務類型執行個體。 例如，有状态服务实例（或称副本）通过在群集中不同节点上的副本之间复制状态实现高可靠性。 即使叢集中有一個節點失敗，複寫基本上會提供備援讓服務可供使用。 [分割服務](service-fabric-concepts-partitioning.md) 進一步在叢集中的節點之間分割其狀態 (並且存取該狀態的模式)。
 
 下圖顯示應用程式和服務執行個體、分割和複本之間的關聯性。
 
 ![服務內的分割和複本][cluster-application-instances]
 
 > [!TIP]
-> 您可以使用 Service Fabric Explorer 工具，在叢集中檢視應用程式的配置，該工具可以在 http://&lt;yourclusteraddress&gt;:19080/Explorer 上取得。 如需詳細資訊，請參閱[使用 Service Fabric Explorer 視覺化叢集](service-fabric-visualizing-your-cluster.md)。
+> 可以使用 http://&lt;yourclusteraddress&gt;:19080/Explorer 上提供的 Service Fabric Explorer 工具查看群集中应用程序的布局。 如需詳細資訊，請參閱[使用 Service Fabric Explorer 視覺化叢集](service-fabric-visualizing-your-cluster.md)。
 > 
 > 
 

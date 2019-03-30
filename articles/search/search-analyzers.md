@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 3e6f0a2b9b935df9b12cf9146ebf05f1b1c84855
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: e3738980206277587ca367339d75da4f3faa643a
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578753"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651816"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Azure 搜尋服務中用於文字處理的分析器
 
@@ -291,7 +291,7 @@ API 包含其他的索引屬性，可針對索引和搜尋指定不同的分析�
 
 此範例會將 Microsoft 英文和法文分析器指派給描述欄位。 它是取自較大的 hotels 索引，建立使用旅館類別的 hotels.cs 檔案中定義的程式碼片段[DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)範例。
 
-呼叫[分析器](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet)，並指定[AnalyzerName 類別](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet)，提供所有 Azure 搜尋服務中支援的文字分析器。
+呼叫[分析器](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet)，並指定[AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet)提供的文字分析器，Azure 搜尋服務中支援的類型。
 
 ```csharp
     public partial class Hotel
@@ -317,7 +317,7 @@ API 包含其他的索引屬性，可針對索引和搜尋指定不同的分析�
 
 當要求自訂或設定時，您必須將分析器建構新增至索引。 一旦您定義它，您可以將它的欄位定義上一個範例所示。
 
-使用[CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet)來建立物件。 如需其他範例，請參閱 < [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs)。
+建立[CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet)物件。 如需其他範例，請參閱 < [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs)。
 
 ```csharp
 {

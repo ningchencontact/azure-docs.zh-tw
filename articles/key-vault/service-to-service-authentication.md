@@ -10,12 +10,12 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: b7532dc910fae84733c04d4e16ac93a5cd0f11c8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 642c30c4df233476a8f649f7b5f30d0538b0e83f
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097901"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629860"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>使用 .NET 進行 Azure Key Vault 的服務對服務驗證
 
@@ -79,13 +79,13 @@ ms.locfileid: "58097901"
 
 ### <a name="authenticating-with-visual-studio"></a>使用 Visual Studio 進行驗證
 
-向 Visual Studio 有下列先決條件：
+使用 Visual Studio 进行身份验证包含以下先决条件：
 
-1. [Visual Studio 2017 v15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/)或更新版本。
+1. [Visual Studio 2017 v15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/) 或更高版本。
 
-2. [適用於 Visual Studio 的應用程式驗證延伸模組](https://go.microsoft.com/fwlink/?linkid=862354)、 可另外的延伸模組，Visual Studio 2017 Update 5 和配套產品在更新 6 和更新版本。 更新 6 或更新版本中，您可以藉由選取 在 Visual Studio 安裝程式中的 Azure 開發工具來確認安裝應用程式驗證擴充功能。
+2. [Visual Studio 的应用身份验证扩展](https://go.microsoft.com/fwlink/?linkid=862354)以 Visual Studio 2017 Update 5 的独立扩展形式发布，与 Update 6 及更高版本中的产品绑定在一起。 使用 Update 6 或更高版本时，可以验证是否安装了应用身份验证扩展，方法是在 Visual Studio 安装程序中选择 Azure 开发工具。
  
-登入 Visual Studio，並使用**工具**&nbsp;>&nbsp;**選項**&nbsp;>&nbsp;**Azure 服務驗證**選取適用於本機開發帳戶。 
+登录到 Visual Studio，通过“工具”&nbsp;>&nbsp;“选项”&nbsp;>&nbsp;“Azure 服务身份验证”选择一个用于本地开发的帐户。 
 
 如果您使用 Visual Studio 時遇到問題，例如發生有關權杖提供者檔案的錯誤，請仔細檢閱這些步驟。 
 
@@ -101,7 +101,7 @@ ms.locfileid: "58097901"
 
 使用 `az account get-access-token` 驗證存取權。  如果您收到錯誤訊息，請確認您已成功完成步驟 1。 
 
-如果 Azure CLI 未安裝至預設目錄中，您可能會收到一則錯誤訊息，指出 `AzureServiceTokenProvider` 找不到 Azure CLI 的路徑。  使用 **AzureCLIPath** 環境變數，可定義 Azure CLI 的安裝資料夾。 必要時，`AzureServiceTokenProvider` 會將 **AzureCLIPath** 環境變數中指定的目錄新增至**路徑**環境變數。
+如果 Azure CLI 未安裝至預設目錄中，您可能會收到一則錯誤訊息，指出 `AzureServiceTokenProvider` 找不到 Azure CLI 的路徑。  使用**AzureCLIPath**環境變數來定義 Azure CLI 安裝資料夾。 必要時，`AzureServiceTokenProvider` 會將 **AzureCLIPath** 環境變數中指定的目錄新增至**路徑**環境變數。
 
 如果您使用多個帳戶登入 Azure CLI，或您的帳戶具有多個訂用帳戶的存取權，則需要指定要使用的特定訂用帳戶。  若要這樣做，請使用：
 
@@ -149,7 +149,7 @@ az account list
 
 這只適用於本機開發。 當您將解決方案部署至 Azure 時，程式庫會切換為以受控識別進行驗證。
 
-## <a name="running-the-application-using-managed-identity-or-user-assigned-identity"></a>執行應用程式使用受控身分識別或指派給使用者的身分識別 
+## <a name="running-the-application-using-managed-identity-or-user-assigned-identity"></a>使用托管标识或用户分配标识运行应用程序 
 
 當您在 Azure App Service 或啟用受控識別的 Azure VM 上執行程式碼時，程式庫會自動使用受控識別。 不需要變更程式碼。 
 

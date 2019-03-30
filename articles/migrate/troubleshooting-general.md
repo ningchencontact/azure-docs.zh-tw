@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 67c07169b3ff66d99ee52a0e078e0e463a42702e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: dff3c96cf3ac8eea7c1160ee1834cc70390c0333
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482907"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652632"
 ---
 # <a name="troubleshoot-azure-migrate"></a>為 Azure Migrate 疑難排解
 
@@ -102,7 +102,7 @@ Azure Migrate 會持續分析內部部署環境，以收集效能資料的內部
    - 按一下 [檔案] > 部署 OVF 範本 > 瀏覽至 OVA 並完成部署
 4. 如果部署仍然失敗，請連絡 Azure Migrate 的支援。
 
-### <a name="unable-to-select-the-azure-cloud-in-the-appliance"></a>無法選取 Azure 雲端設備中
+### <a name="unable-to-select-the-azure-cloud-in-the-appliance-fails-with-error-azure-cloud-selection-failed"></a>無法選取 Azure 雲端應用裝置，而失敗，發生錯誤 「 Azure 雲端選取失敗 」
 
 這是已知的問題，並提供問題的修正程式為止。 請下載[最新升級的位元](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions)設備和更新的應用裝置，以套用修正程式。
 

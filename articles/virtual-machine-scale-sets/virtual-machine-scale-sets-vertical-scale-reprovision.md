@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: manayar
-ms.openlocfilehash: c27d92a330d82cb8638a970602f2a8d0ce2e79c2
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d3821f6a2bad56b46bccbcca8830be09ad1e44c7
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579745"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648260"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>使用虛擬機器擴展集垂直自動調整
 
@@ -98,6 +98,7 @@ ms.locfileid: "58579745"
 * [使用 Azure 執行身分帳戶驗證 Runbook](../automation/automation-sec-configure-azure-runas-account.md)
 
 ## <a name="import-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>將 Azure 自動化垂直調整大小 Runbook 匯入訂用帳戶
+
 Azure 自動化 Runbook 資源庫已發佈垂直調整虛擬機器擴展集所需的 Runbook。 若要將其匯入到您的訂用帳戶，請依照這篇文章的步驟︰
 
 * [Azure 自動化的 Runbook 和模組資源庫](../automation/automation-runbook-gallery.md)
@@ -111,6 +112,7 @@ Azure 自動化 Runbook 資源庫已發佈垂直調整虛擬機器擴展集所�
 ![Runbook 資源庫][gallery]
 
 ## <a name="add-a-webhook-to-your-runbook"></a>將 Webhook 加入您的 Runbook 中
+
 匯入 Runbook 之後，請將 Webhook 新增至 Runbook 中，使其可由虛擬機器擴展集所發出的警示加以觸發。 本文說明如何為 Runbook 建立 Webhook 的詳細資訊：
 
 * [Azure 自動化 Webhook](../automation/automation-webhooks.md)
@@ -121,9 +123,10 @@ Azure 自動化 Runbook 資源庫已發佈垂直調整虛擬機器擴展集所�
 > 
 
 ## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>對虛擬機器擴展集新增警示
+
 下面的 PowerShell 指令碼會顯示如何對虛擬機器擴展集新增警示。 請參閱下列文章，取得度量名稱以引發警示︰[Azure 監視器自動調整的常用度量](../azure-monitor/platform/autoscale-common-metrics.md)。
 
-```
+```powershell
 $actionEmail = New-AzAlertRuleEmail -CustomEmail user@contoso.com
 $actionWebhook = New-AzAlertRuleWebhook -ServiceUri <uri-of-the-webhook>
 $threshold = <value-of-the-threshold>
@@ -160,6 +163,7 @@ Add-AzMetricAlertRule  -Name  $alertName `
 * [Azure 監視器跨平台 CLI 快速入門範例](../azure-monitor/platform/cli-samples.md)
 
 ## <a name="summary"></a>總結
+
 這篇文章示範簡單的垂直調整範例。 借助这些构建基块 - 自动化帐户、Runbook、Webhook、警报，可以使用一组自定义操作连接各种事件。
 
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png

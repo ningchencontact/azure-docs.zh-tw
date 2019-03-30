@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2018
+ms.date: 03/28/2018
 ms.author: genli
-ms.openlocfilehash: 9f600dbf27fec036b9a80a5a6fb11c5bc50cc915
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 7990a98e0e2d688456db054e3cdfa447e1ed1043
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994187"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630459"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>疑難排解：點對站連線問題
 
@@ -29,9 +29,9 @@ ms.locfileid: "52994187"
 
 ### <a name="symptom"></a>徵狀
 
-當您嘗試使用 VPN 用戶端來連線到 Azure 虛擬網路時，會收到下列錯誤訊息：
+尝试使用 VPN 客户端连接到 Azure 虚拟网络时，看到以下错误消息：
 
-**找不到可以使用這個可延伸的驗證通訊協定的憑證。(錯誤 798)**
+**找不到可用于此可扩展身份验证协议的证书。(錯誤 798)**
 
 ### <a name="cause"></a>原因
 
@@ -45,7 +45,7 @@ ms.locfileid: "52994187"
 
 2. 請確定下列憑證位於正確的位置：
 
-    | 憑證 | 位置 |
+    | 证书 | 位置 |
     | ------------- | ------------- |
     | AzureClient.pfx  | 目前的使用者\個人\憑證 |
     | Azuregateway-*GUID*.cloudapp.net  | 目前的使用者\受信任的根憑證授權單位|
@@ -93,7 +93,7 @@ ms.locfileid: "52994187"
 
 1. 請確定下列憑證位於正確的位置：
 
-    | 憑證 | 位置 |
+    | 证书 | 位置 |
     | ------------- | ------------- |
     | AzureClient.pfx  | 目前的使用者\個人\憑證 |
     | Azuregateway-*GUID*.cloudapp.net  | 目前的使用者\受信任的根憑證授權單位|
@@ -144,10 +144,10 @@ VPN 閘道類型必須是 **VPN**，且 VPN 類型必須是 **RouteBased**。
 擷取 VPN 用戶端組態套件，並尋找 .cer 檔案。 若要安裝憑證，請遵循下列步驟：
 
 1. 開啟 mmc.exe。
-2. 新增 [憑證] 嵌入式管理單元。
+2. 添加“证书”管理单元。
 3. 選取本機電腦的 [電腦] 帳戶。
 4. 以滑鼠右鍵按一下 [受信任的根憑證授權單位] 節點。 按一下 [所有工作] > [匯入]，然後瀏覽至您從 VPN 用戶端組態套件擷取的 .cer 檔案。
-5. 重新啟動電腦。 
+5. 重启计算机。 
 6. 嘗試安裝 VPN 用戶端。
 
 ## <a name="azure-portal-error-failed-to-save-the-vpn-gateway-and-the-data-is-invalid"></a>Azure 入口網站錯誤：無法儲存 VPN 閘道且資料無效
@@ -217,7 +217,7 @@ VPN 閘道類型必須是 **VPN**，且 VPN 類型必須是 **RouteBased**。
 
 ### <a name="solution"></a>解決方法
 
-若要解決此問題，請在所有用戶端上重新部署點對站套件。
+若要解決此問題，請重新下載並重新部署點對站封裝上的所有用戶端。
 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>一次有太多 VPN 用戶端連線
 
@@ -235,11 +235,11 @@ VPN 用戶端範圍屬於 10.0.0.0/8 的較小子網路，例如 10.0.12.0/24。
 
 ### <a name="cause"></a>原因
 
-這是針對 Windows 用戶端設計的行為。 當用戶端使用 PPP IPCP 通訊協定時，其會從伺服器 (在此例中為 VPN 閘道) 取得通道介面的 IP 位址。 不過，由於通訊協定中的限制緣故，因此用戶端並沒有子網路遮罩。 因為沒有任何其他方式可取得此遮罩，所以用戶端會嘗試根據通道介面 IP 位址的類別來猜測子網路遮罩。 
+此行为专为 Windows 客户端设计。 當用戶端使用 PPP IPCP 通訊協定時，其會從伺服器 (在此例中為 VPN 閘道) 取得通道介面的 IP 位址。 不過，由於通訊協定中的限制緣故，因此用戶端並沒有子網路遮罩。 因為沒有任何其他方式可取得此遮罩，所以用戶端會嘗試根據通道介面 IP 位址的類別來猜測子網路遮罩。 
 
 因此，會根據下列靜態對應新增路由： 
 
-如果位址屬於類別 A --> 套用 /8
+如果地址属于 A 类 --> 应用 /8
 
 如果位址屬於類別 B --> 套用 /16
 
@@ -272,7 +272,7 @@ VPN 用戶端已連線到 Azure 虛擬網路。 不過，用戶端無法存取�
 
 ### <a name="symptom"></a>徵狀
 
-您移除點對站 VPN 連線，然後重新安裝 VPN 用戶端。 在此情況下，並未成功設定 VPN 連線。 您在 Windows 的 [網路連線] 設定中看不到 VPN 連線。
+您移除點對站 VPN 連線，然後重新安裝 VPN 用戶端。 在这种情况下，VPN 连接未成功配置。 您在 Windows 的 [網路連線] 設定中看不到 VPN 連線。
 
 ### <a name="solution"></a>解決方法
 

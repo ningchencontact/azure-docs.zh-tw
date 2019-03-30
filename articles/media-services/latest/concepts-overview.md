@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d8790eac93b288d5d5254f188fe5c901b5d5df14
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 8f21374ae5da76c9954acc5227f593ab4be19ce9
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351485"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630542"
 ---
 # <a name="media-services-concepts"></a>媒體服務概念
 
@@ -102,6 +102,11 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
 - [Event Grid 事件處理](reacting-to-media-services-events.md)
 - [結構描述](media-services-event-schemas.md)
+
+### <a name="azure-monitor"></a>Azure 監視器
+
+監視計量和診斷記錄可協助您了解如何使用 Azure 監視器執行您的應用程式。
+
 - [計量和診斷記錄](media-services-metrics-diagnostic-logs.md)
 - [診斷記錄結構描述](media-services-diagnostic-logs-schema.md)
 
@@ -113,4 +118,9 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
 ## <a name="next-steps"></a>後續步驟
 
-[使用媒體服務上傳、編碼和串流](stream-files-tutorial-with-api.md)
+* [編碼遠端檔案和資料流影片-REST](stream-files-tutorial-with-rest.md)
+* [編碼上傳的檔案和資料流視訊-.NET](stream-files-tutorial-with-api.md)
+* [Stream live-.NET](stream-live-tutorial-with-api.md)
+* [分析您的影片-.NET](analyze-videos-tutorial-with-api.md)
+* [AES-128 動態加密-.NET](protect-with-aes128.md)
+* [動態加密與多重 DRM-.NET](protect-with-drm.md) 

@@ -10,12 +10,12 @@ ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 15770246f52e87b8fba4a9ec01e1583d194d002b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 67f51b078b8e92592e9593d7d254e6985265eee8
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887046"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651264"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Azure 排程器中的概念、術語及實體
 
@@ -143,7 +143,7 @@ Azure 排程器支援多個作業類型：
 
 ## <a name="action"></a>動作
 
-排程器作業會根據指定的排程來執行主要**動作**。 排程器支援 HTTP、儲存體佇列、服務匯流排佇列和服務匯流排主題動作。 如果主要**動作**失敗，排程器可以執行次要的 [**errorAction**](#errorAction) 來處理錯誤。 **action** 物件會描述以下元素：
+排程器作業會根據指定的排程來執行主要**動作**。 排程器支援 HTTP、儲存體佇列、服務匯流排佇列和服務匯流排主題動作。 如果主要**動作**失敗，排程器可以執行次要的 [**errorAction**](#erroraction) 來處理錯誤。 **action** 物件會描述以下元素：
 
 * 動作的服務類型
 * 動作的詳細資料

@@ -4,17 +4,17 @@ description: 了解在指派藍圖時保護資源的鎖定選項。
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 03/28/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 799e496fd9dd8a405e5fc356e13cf6c05883e1ae
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 16ec3428138361726d69eb9b45943b20129e32ed
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855397"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630727"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>了解 Azure 藍圖中的資源鎖定
 
@@ -56,11 +56,56 @@ ms.locfileid: "57855397"
 > [!IMPORTANT]
 > Azure Resource Manager 最多可快取 30 分鐘的角色指派詳細資料。 因此，藍圖資源上拒絕指派的拒絕動作可能不會立即完全生效。 在這段時間內，有可能會刪除藍圖鎖定所要保護的資源。
 
+## <a name="exclude-a-principal-from-a-deny-assignment"></a>排除拒絕作業的主體
+
+在某些設計或安全性的情況下，它可能需要排除從主體[拒絕指派](../../../role-based-access-control/deny-assignments.md)藍圖指派建立。 這會藉由新增最多五個值，以在 REST API **excludedPrincipals**陣列**鎖定**屬性時[建立指派](/rest/api/blueprints/assignments/createorupdate)。
+這是包含要求主體範例**excludedPrincipals**:
+
+```json
+{
+  "identity": {
+    "type": "SystemAssigned"
+  },
+  "location": "eastus",
+  "properties": {
+    "description": "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+    "blueprintId": "/providers/Microsoft.Management/managementGroups/{mgId}/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+    "locks": {
+        "mode": "AllResourcesDoNotDelete",
+        "excludedPrincipals": [
+            "7be2f100-3af5-4c15-bcb7-27ee43784a1f",
+            "38833b56-194d-420b-90ce-cff578296714"
+        ]
+    },
+    "parameters": {
+      "storageAccountType": {
+        "value": "Standard_LRS"
+      },
+      "costCenter": {
+        "value": "Contoso/Online/Shopping/Production"
+      },
+      "owners": {
+        "value": [
+          "johnDoe@contoso.com",
+          "johnsteam@contoso.com"
+        ]
+      }
+    },
+    "resourceGroups": {
+      "storageRG": {
+        "name": "defaultRG",
+        "location": "eastus"
+      }
+    }
+  }
+}
+```
+
 ## <a name="next-steps"></a>後續步驟
 
 - 請遵循[保護新的資源](../tutorials/protect-new-resources.md)教學課程。
-- 深入了解[藍圖生命週期](lifecycle.md)。
-- 了解如何使用[靜態和動態參數](parameters.md)。
+- 了解[藍圖生命週期](lifecycle.md)。
+- 了解如何使用[靜態與動態參數](parameters.md)。
 - 了解如何自訂[藍圖排序順序](sequencing-order.md)。
 - 了解如何[更新現有的指派](../how-to/update-existing-assignments.md)。
-- 解決問題的藍圖，以使用在指派期間[一般疑難排解](../troubleshoot/general.md)。
+- 使用[一般疑難排解](../troubleshoot/general.md)來解決藍圖指派期間發生的問題。

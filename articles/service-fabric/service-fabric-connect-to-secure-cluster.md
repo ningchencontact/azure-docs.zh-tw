@@ -3,8 +3,8 @@ title: 以安全的方式連線到 Azure Service Fabric 叢集 | Microsoft Docs
 description: 說明如何驗證用戶端對 Service Fabric 叢集的存取，以及如何保護用戶端與叢集之間的通訊。
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 ms.assetid: 759a539e-e5e6-4055-bff5-d38804656e10
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/29/2019
-ms.author: ryanwi
-ms.openlocfilehash: d4760995d6bcc75bcfb974e4be6d202581828a7e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.author: aljo
+ms.openlocfilehash: 42c8fa15c6b1e7c98ae47180bec5cc61236a7c44
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694086"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666523"
 ---
 # <a name="connect-to-a-secure-cluster"></a>連線到安全的叢集
 
@@ -158,7 +158,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 ## <a name="connect-to-a-cluster-using-the-fabricclient-apis"></a>使用 FabricClient API 來連線到叢集
 Service Fabric SDK 會提供叢集管理的 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) 類別。 若要使用 FabricClient API，請取得 Microsoft.ServiceFabric NuGet 封裝。
 
-### <a name="connect-to-an-unsecure-cluster"></a>連線到不安全的叢集
+### <a name="connect-to-an-unsecure-cluster"></a>连接到不安全的群集
 
 若要連接至遠端不安全的叢集，建立 FabricClient 執行個體，並提供叢集位址︰
 
@@ -174,7 +174,7 @@ FabricClient fabricClient = new FabricClient();
 
 ### <a name="connect-to-a-secure-cluster-using-a-client-certificate"></a>使用用戶端憑證連線到安全的叢集
 
-叢集中的節點必須具備有效的憑證，這些憑證在 SAN 中的通用名稱或 DNS 名稱會出現在於 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) 上設定的 [RemoteCommonNames](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials) 屬性中。 遵循此程序，就可讓用戶端與叢集節點之間進行相互驗證。
+叢集中的節點必須具備有效的憑證，這些憑證在 SAN 中的通用名稱或 DNS 名稱會出現在於 [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) 上設定的 [RemoteCommonNames](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials) 屬性中。 按照此流程操作可在客户端与群集节点之间进行相互身份验证。
 
 ```csharp
 using System.Fabric;
@@ -367,7 +367,7 @@ Azure 入口網站的叢集基本資訊窗格中也會提供完整 URL。
 
 <a id="connectsecureclustersetupclientcert"></a>
 
-## <a name="set-up-a-client-certificate-on-the-remote-computer"></a>設定遠端電腦上的用戶端憑證
+## <a name="set-up-a-client-certificate-on-the-remote-computer"></a>在远程计算机上设置客户端证书
 
 至少應使用兩個憑證保護叢集，一個是叢集和伺服器憑證，另一個用於用戶端存取。  建議您也使用額外的次要憑證和用戶端存取憑證。  若要使用憑證安全性來保護用戶端與叢集節點之間的通訊，您必須先取得並安裝用戶端憑證。 此憑證可以安裝到本機電腦或目前使用者的個人 (My) 存放區。  您也需要伺服器憑證的指紋，讓用戶端可以驗證叢集。
 

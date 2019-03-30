@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: jimdial
-ms.openlocfilehash: 5606fb2f01a79a517279809d6da21ec865ee8b0d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b693500e785d41b2ad3339e26dd9fd3505891bc0
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110132"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648328"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>使用 Azure CLI 對虛擬機器指派多個 IP 位址
 
@@ -165,7 +165,7 @@ az vm create \
 
 ## <a name="add"></a>將 IP 位址新增至 VM
 
-您可以完成後續步驟，將其他私人和公用 IP 位址新增至現有的 Azure 網路介面。 範例以本文章所述的[案例](#Scenario)為基礎。
+您可以完成後續步驟，將其他私人和公用 IP 位址新增至現有的 Azure 網路介面。 範例以本文章所述的[案例](#scenario)為基礎。
 
 1. 開啟命令殼層，並在單一工作階段內完成本章節的其餘步驟。 如果您尚未安裝並設定 Azure CLI，請完成 [Azure CLI 安裝](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json)一文中的步驟，並使用 `az-login` 命令登入您的 Azure 帳戶。
 

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: d667dadeb2e7c9d0005ab8d1a565017973038aaa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 891b2988d04a3cf2f7c6676a837bc1ee199f4d16
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905149"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651485"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>適用於 Azure Machine Learning Studio 的 Net# 類神經規格語言指南
 
@@ -63,9 +63,9 @@ Net# 支援多種不同的連線套組，可讓您自訂輸入對應至隱藏層
 + 定義特殊連線結構，例如迴旋和加權共用套組。
 + 指定不同的啟用函數。
 
-如需規格語言語法的詳細資訊，請參閱[結構規格](#Structure-specifications)。
+如需規格語言語法的詳細資訊，請參閱[結構規格](#structure-specifications)。
 
-如需為某些一般機器學習工作定義類神經網路的範例 (包括簡單與複雜)，請參閱[範例](#Examples-of-Net#-usage)。
+如需為某些一般機器學習工作定義類神經網路的範例 (包括簡單與複雜)，請參閱[範例](#examples-of-net-usage)。
 
 ## <a name="general-requirements"></a>一般需求
 

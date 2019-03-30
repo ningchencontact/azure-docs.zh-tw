@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/05/2019
-ms.openlocfilehash: e4037e79812f0cf548ddfcc277c1b66332e0f1f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 08430f3eee858cdb6c9a7fbdfe11bd4c00ef148d
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902870"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630395"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure 串流分析預覽功能
 
@@ -54,10 +54,6 @@ Azure 串流分析的 Visual Studio 工具加強了本機測試功能，讓您�
 ### <a name="c-custom-deserializer-for-azure-stream-analytics-on-iot-edge"></a>Azure IoT Edge 串流分析的 C# 自訂 Deserializer
 
 開發人員現在可以在 C# 實作自訂 Deserializer，以將 Azure 串流分析所收到的事件還原序列化。 可以還原序列化的格式範例包括 Parquet、Protobuf、XML 或任何二進位格式。
-
-### <a name="managed-identities-for-azure-resource-authentication-to-azure-data-lake-storage"></a>Azure Data Lake Storage 的 Azure 資源驗證受控識別
-
-您現在可以在寫入至 Azure Data Lake Storage Gen1 時，使用 Azure 資源型驗證的受控識別將即時管線運作化，從而讓您以程式設計方式建立作業。 如需詳細資訊，請造訪[使用 Azure 資源的受控識別來向 Azure Data Lake Storage Gen1 輸出驗證 Azure 串流分析作業](stream-analytics-managed-identities-adls.md)。
 
 ### <a name="visual-studio-code-for-azure-stream-analytics"></a>適用於 Azure 串流分析的 Visual Studio Code
 

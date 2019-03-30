@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2018
 ms.author: banders
-ms.openlocfilehash: a66547ed4bf089bb618dc8b98da7f260b6b5536a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bf18d845b7128c8d6f740555f1a0f791767240ae
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904298"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650218"
 ---
-# <a name="view-reservations-for-azure-in-the-azure-portal"></a>在 Azure 入口網站中檢視 Azure 的保留
+# <a name="view-azure-reservations-in-the-azure-portal"></a>在 Azure 入口網站中檢視 Azure 保留的項目
 
-視您的訂用帳戶類型和權限而定，有一些方式可檢視 Azure 資源的保留。
+根據您的訂用帳戶類型和權限，有幾種方式來檢視適用於 Azure 的保留項目。
 
 ## <a name="view-reservations-as-owner-or-reader"></a>以擁有者或讀取者身分檢視保留
 
@@ -62,15 +62,26 @@ ms.locfileid: "57904298"
 
 若要深入了解 Azure 保留項目，請參閱下列文章：
 
-- [什麼是 Azure 保留項目？](billing-save-compute-costs-reservations.md)
+- [Azure 保留項目有哪些？](billing-save-compute-costs-reservations.md)
+- [管理 Azure 保留項目](billing-manage-reserved-vm-instance.md)
+
+購買服務方案：
+
 - [預付 Cosmos DB 保留容量的費用](../cosmos-db/cosmos-db-reserved-capacity.md)
 - [以 Azure SQL Database 保留容量預先支付 SQL 資料庫計算資源的費用](../sql-database/sql-database-reserved-capacity.md)
 - [預付具有 Azure 保留 VM 執行個體的虛擬機器](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [管理 Azure 保留](billing-manage-reserved-vm-instance.md)
-- [了解預付型方案訂用帳戶的保留使用量](billing-understand-reserved-instance-usage.md)
+
+購買軟體方案：
+
+- [預付的 Azure 保留項目從 Red Hat 軟體方案](../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [從 Azure 保留預付 SUSE 軟體方案](../virtual-machines/linux/prepay-suse-software-charges.md)
+
+了解使用方式：
+
+- [了解隨用隨付方案訂用帳戶的保留項目使用量](billing-understand-reserved-instance-usage.md)
 - [了解 Enterprise 註冊的保留項目使用量](billing-understand-reserved-instance-usage-ea.md)
 - [了解 CSP 訂用帳戶的保留使用量](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
+## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡
 
 如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。
