@@ -1,5 +1,5 @@
 ---
-title: 了解 SUSE 方案折扣和使用方式 - Azure Reservations | Microsoft Docs
+title: 了解 SUSE 保留計劃折扣和使用量-Azure |Microsoft Docs
 description: 了解 SUSE 方案折扣如何套用至虛擬機器上的 SUSE 軟體。
 services: billing
 documentationcenter: ''
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2018
 ms.author: banders
-ms.openlocfilehash: a9f784d7e7ed21a5a10a2f5e16125d60e7b9667f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 04b456cbaeeb4ba285fd874f7b21abffcc714653
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863469"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649251"
 ---
-# <a name="understand-how-the-suse-linux-enterprise-software-plan-discount-is-applied"></a>了解如何套用 SUSE Linux Enterprise 軟體方案折扣
+# <a name="understand-how-the-suse-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>了解如何將 SUSE Linux Enterprise 軟體保留計劃折扣套用適用於 Azure
 
 在您購買 SUSE Linux 方案之後，折扣就會自動套用到符合保留的已部署 SUSE 虛擬機器 (VM)。 SUSE Linux 方案涵蓋在 Azure VM 上執行 SUSE 軟體的成本。
 
 若要購買適當的 SUSE Linux 方案，您需要了解您執行哪些 SUSE VM，以及這些 VM 上的 vCPU 數目。 使用下列各節，可協助您從使用量 CSV 檔案中找出所要購買的方案。
 
-## <a name="discount-applies-to-different-vm-sizes-with-instance-size-flexibility"></a>折扣適用於具有執行個體大小彈性的各種 VM 大小
+## <a name="discount-applies-to-different-vm-sizes"></a>折扣適用於不同 VM 大小
 
 如同保留的 VM 執行個體，購買 SUSE 方案時具有執行個體大小彈性。 這表示您的折扣甚至適用於當您部署具有不同 vCPU 計數的 VM 時。 折扣適用於軟體方案內的各種 VM 大小。
 
@@ -40,7 +40,7 @@ ms.locfileid: "57863469"
 
 5 個以上 vCPU 的比例為 2.6。 因此，對於具有 5 個以上 vCPU 的 VM，其 SUSE 保留只涵蓋軟體成本的一部分 (大約是 77%)。
 
-## <a name="understand-your-suse-vm-usage-before-buying-a-suse-linux-plan"></a>購買 SUSE Linux 方案前先了解您的 SUSE VM 使用量
+## <a name="understand-suse-vm-usage-before-you-buy"></a>了解 SUSE VM 使用方式，在購買前
 
 下表會顯示您可以購買保留的軟體方案、其相關聯的使用量計量，以及每個計量的比例。
 
@@ -133,6 +133,6 @@ Azure 入口網站市集名稱：
 - [了解隨用隨付方案訂用帳戶的保留項目使用量](billing-understand-reserved-instance-usage.md)
 - [了解 Enterprise 註冊的保留項目使用量](billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
+## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡
 
 如果您有任何疑問或需要協助，請[建立支援要求](https://go.microsoft.com/fwlink/?linkid=2083458)。

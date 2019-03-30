@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3525436c61038d9cdda3a1b1da8e226ab153134f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d7ad6eeba09c81de33b92722992c6762a4b4327c
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098248"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649334"
 ---
 # <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>使用深層連結登入應用程式的問題
 
@@ -113,7 +113,7 @@ ms.locfileid: "58098248"
 
 若要設定 Azure AD 資源庫中的應用程式，您必須：
 
--   [從 Azure AD 資源庫新增應用程式](#add-an-application-from-the-Azure-AD-gallery)
+-   [從 Azure AD 資源庫新增應用程式](#add-an-application-from-the-azure-ad-gallery)
 
 -   [設定應用程式使用密碼單一登入](#configure-the-application-for-password-single-sign-on)
 

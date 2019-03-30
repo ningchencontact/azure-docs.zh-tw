@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 20404cea2aca984ef35472fa94d37c04eb8080e4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 520d3f6a45b44ba2023dee34642f796689f48221
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872632"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648841"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>檢視及下載您的 Azure 使用量和費用
 
@@ -28,7 +28,7 @@ ms.locfileid: "57872632"
 
 只有某些角色有權限，以取得 Azure 使用量的資訊，例如帳戶管理員或企業系統管理員。 若要深入了解取得計費資訊的存取權，請參閱[使用角色管理 Azure 計費的存取權](billing-manage-access.md)。
 
-如果您有[Microsoft 客戶合約](#Check-your-access-to-a-Microsoft-Customer-Agreement)，您必須是帳單設定檔擁有者、 參與者、 讀取器或管理員來檢視您的 Azure 使用量和費用的發票。 若要深入了解計費角色適用於 Microsoft 客戶合約，請參閱[帳單設定檔角色和工作](billing-understand-mca-roles.md#billing-profile-roles-and-tasks)。
+如果您有[Microsoft 客戶合約](#check-your-access-to-a-microsoft-customer-agreement)，您必須是帳單設定檔擁有者、 參與者、 讀取器或管理員來檢視您的 Azure 使用量和費用的發票。 若要深入了解計費角色適用於 Microsoft 客戶合約，請參閱[帳單設定檔角色和工作](billing-understand-mca-roles.md#billing-profile-roles-and-tasks)。
 
 ## <a name="download-usage-from-the-account-center-csv"></a>從帳戶中心下載使用量 (.csv)
 

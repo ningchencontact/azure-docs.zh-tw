@@ -4,7 +4,7 @@ description: Service Fabric Reliable Services 通知的概念文件
 services: service-fabric
 documentationcenter: .net
 author: mcoskun
-manager: timlt
+manager: chackdan
 editor: masnider,vturecek
 ms.assetid: cdc918dd-5e81-49c8-a03d-7ddcd12a9a76
 ms.service: service-fabric
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.openlocfilehash: a13e5d74390b82888f51cfd225c54e29550354e9
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
-ms.translationtype: HT
+ms.openlocfilehash: a3df5f28475b03f1799dc1e245c3a7e904b49cb3
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433509"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662664"
 ---
 # <a name="reliable-services-notifications"></a>Reliable Services 通知
-通知可讓用戶端追蹤對於他們感興趣物件所進行的變更。 兩種類型的物件支援通知：「可靠的狀態管理員」和「可靠的字典」。
+通知可讓用戶端追蹤對於他們感興趣物件所進行的變更。 兩種類型的物件支援通知：*Reliable State Manager*並*可靠的字典*。
 
 使用通知的常見原因如下：
 
@@ -46,11 +46,11 @@ ms.locfileid: "47433509"
 可靠的狀態管理員會維護可靠狀態的集合，例如可靠的字典和可靠的佇列。 可靠的狀態管理員會在此集合變更時引發通知︰加入或移除可靠的狀態，或者重建整個集合時。
 可靠的狀態管理員集合會在下列三種情況下重建：
 
-* 復原︰當複本啟動時，它會從磁碟復原為先前的狀態。 復原結束時，它會利用 **NotifyStateManagerChangedEventArgs** 引發事件，其中包含一組復原的可靠狀態。
-* 完整備份︰在複本可加入組態集之前，必須先建置它。 有時，這需要主要複本的可靠狀態管理員的狀態完整複本，以套用到閒置的次要複本。 次要複本上的可靠狀態管理員會使用 **NotifyStateManagerChangedEventArgs** 引發事件，其中包含一組它從主要複本取得的可靠狀態。
-* 還原︰在災害復原案例中，複本的狀態可經由 **RestoreAsync**從備份還原。 在這類案例中，主要複本上的可靠狀態管理員會使用 **NotifyStateManagerChangedEventArgs** 引發事件，其中包含一組它從備份還原來的可靠狀態。
+* 復原：當複本啟動時，它會從磁碟復原成先前的狀態。 復原結束時，它會利用 **NotifyStateManagerChangedEventArgs** 引發事件，其中包含一組復原的可靠狀態。
+* 完整的複本：在複本可加入組態集之前，它必須先建置。 有時，這需要主要複本的可靠狀態管理員的狀態完整複本，以套用到閒置的次要複本。 次要複本上的可靠狀態管理員會使用 **NotifyStateManagerChangedEventArgs** 引發事件，其中包含一組它從主要複本取得的可靠狀態。
+* 還原：在災害復原案例中，複本的狀態可以從備份還原透過**RestoreAsync**。 在這類案例中，主要複本上的可靠狀態管理員會使用 **NotifyStateManagerChangedEventArgs** 引發事件，其中包含一組它從備份還原來的可靠狀態。
 
-若要註冊交易通知及/或狀態管理員通知，您必須向可靠的狀態管理員分別註冊 **TransactionChanged** 或 **StateManagerChanged** 事件。 註冊這些事件處理常式的常見位置是您的具狀態服務的建構函式。 當您註冊建構函式時，您也不會錯過 **IReliableStateManager**存留期間的變更所造成的任何通知。
+若要註冊交易通知及/或狀態管理員通知，您必須向可靠的狀態管理員分別註冊 **TransactionChanged** 或 **StateManagerChanged** 事件。 注册这些事件处理程序的常见位置是有状态服务的构造函数。 當您註冊建構函式時，您也不會錯過 **IReliableStateManager**存留期間的變更所造成的任何通知。
 
 ```csharp
 public MyService(StatefulServiceContext context)
@@ -84,11 +84,11 @@ private void OnTransactionChangedHandler(object sender, NotifyTransactionChanged
 ```
 
 **StateManagerChanged** 事件處理常式使用 **NotifyStateManagerChangedEventArgs** 來提供事件的相關詳細資料。
-**NotifyStateManagerChangedEventArgs** 有兩個子類別︰**NotifyStateManagerRebuildEventArgs** 和 **NotifyStateManagerSingleEntityChangedEventArgs**。
+**NotifyStateManagerChangedEventArgs**有兩個子類別：**NotifyStateManagerRebuildEventArgs**並**NotifyStateManagerSingleEntityChangedEventArgs**。
 您使用 **NotifyStateManagerChangedEventArgs** 中的 Action 屬性將 **NotifyStateManagerChangedEventArgs** 轉換為正確的子類別︰
 
-* **NotifyStateManagerChangedAction.Rebuild**：**NotifyStateManagerRebuildEventArgs**
-* **NotifyStateManagerChangedAction.Add** 和 **NotifyStateManagerChangedAction.Remove**：**NotifyStateManagerSingleEntityChangedEventArgs**
+* **NotifyStateManagerChangedAction.Rebuild**:**NotifyStateManagerRebuildEventArgs**
+* **NotifyStateManagerChangedAction.Add**並**NotifyStateManagerChangedAction.Remove**:**NotifyStateManagerSingleEntityChangedEventArgs**
 
 以下是範例 **StateManagerChanged** 通知處理常式。
 
@@ -109,11 +109,11 @@ public void OnStateManagerChangedHandler(object sender, NotifyStateManagerChange
 ## <a name="reliable-dictionary-notifications"></a>可靠的字典通知
 可靠的字典提供下列事件的通知︰
 
-* 重建︰在 **ReliableDictionary** 從過去復原或複製的本機狀態或備份，復原其狀態時呼叫。
-* 清除︰在透過 **ClearAsync** 方法清除 **ReliableDictionary** 的狀態時呼叫。
-* 加入︰在已將項目加入至 **ReliableDictionary**時呼叫。
-* 更新︰在已更新 **IReliableDictionary** 中的項目時呼叫。
-* 移除︰在已刪除 **IReliableDictionary** 中的項目時呼叫。
+* 重建：時呼叫**ReliableDictionary**從復原或複製的本機狀態或備份復原其狀態。
+* 清除：呼叫時的狀態**ReliableDictionary**已清除透過**Reliabledictionary**方法。
+* 新增：已加入項目時呼叫**ReliableDictionary**。
+* 更新:中的項目時呼叫**IReliableDictionary**已更新。
+* 移除：中的項目時呼叫**IReliableDictionary**已被刪除。
 
 若要註冊可靠的字典通知，使用者必須在 **IReliableDictionary** 上註冊事件處理常式 **DictionaryChanged**。 註冊這些事件處理常式的常見位置是在 **ReliableStateManager.StateManagerChanged** 加入通知中。
 在將 **IReliableDictionary** 加入 **IReliableStateManager** 時註冊，可確保您不會錯過任何通知。
@@ -158,18 +158,18 @@ public async Task OnDictionaryRebuildNotificationHandlerAsync(
 ```
 
 > [!NOTE]
-> 在上述程式碼中，於處理重建通知的過程中，會先清除所維護的彙總狀態。 因為正在利用新狀態重建可靠的集合，因此與先前的所有通知無關。
+> 在上述代码中，在处理重新生成通知的过程中，会先清除所维护的聚合状态。 因為正在利用新狀態重建可靠的集合，因此與先前的所有通知無關。
 > 
 > 
 
 **DictionaryChanged** 事件處理常式會使用 **NotifyDictionaryChangedEventArgs** 來提供關於事件的詳細資料。
 **NotifyDictionaryChangedEventArgs** 有五個子類別。 使用 **NotifyDictionaryChangedEventArgs** 中的 Action 屬性將 **NotifyDictionaryChangedEventArgs** 轉換為正確的子類別：
 
-* **NotifyDictionaryChangedAction.Rebuild**：**NotifyDictionaryRebuildEventArgs**
-* **NotifyDictionaryChangedAction.Clear**：**NotifyDictionaryClearEventArgs**
-* **NotifyDictionaryChangedAction.Add** 和 **NotifyDictionaryChangedAction.Remove**：**NotifyDictionaryItemAddedEventArgs**
-* **NotifyDictionaryChangedAction.Update**：**NotifyDictionaryItemUpdatedEventArgs**
-* **NotifyDictionaryChangedAction.Remove**：**NotifyDictionaryItemRemovedEventArgs**
+* **NotifyDictionaryChangedAction.Rebuild**:**NotifyDictionaryRebuildEventArgs**
+* **NotifyDictionaryChangedAction.Clear**:**NotifyDictionaryClearEventArgs**
+* **NotifyDictionaryChangedAction.Add**並**NotifyDictionaryChangedAction.Remove**:**NotifyDictionaryItemAddedEventArgs**
+* **NotifyDictionaryChangedAction.Update**:**NotifyDictionaryItemUpdatedEventArgs**
+* **NotifyDictionaryChangedAction.Remove**:**NotifyDictionaryItemRemovedEventArgs**
 
 ```csharp
 public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEventArgs<TKey, TValue> e)
@@ -217,7 +217,7 @@ public void OnDictionaryChangedHandler(object sender, NotifyDictionaryChangedEve
 
 ## <a name="next-steps"></a>後續步驟
 * [可靠的集合](service-fabric-work-with-reliable-collections.md)
-* [Reliable Services 快速入門](service-fabric-reliable-services-quick-start.md)
+* [Reliable Services 快速启动](service-fabric-reliable-services-quick-start.md)
 * [備份與還原 Reliable Services (災害復原)](service-fabric-reliable-services-backup-restore.md)
 * [可靠的集合的開發人員參考資料](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
 

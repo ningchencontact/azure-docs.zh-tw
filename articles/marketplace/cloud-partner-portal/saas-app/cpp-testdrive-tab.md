@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e97e79ef3077431d8fc627cd634a67b0a01b6f8e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b12ba53f847b46479b3100c088c29372b58c1b8e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993102"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649028"
 ---
 # <a name="saas-application-test-drive-tab"></a>SaaS 應用程式試用產品索引標籤
 
@@ -53,7 +53,7 @@ ms.locfileid: "57993102"
 |     Azure Resource Manager               |    Azure Resource Manager 試用產品是一個部署範本，其中包含組成發行者所建置之解決方案的所有 Azure 資源。 適用於此類型試用產品的產品為僅使用 Azure 資源的產品。               |       [Azure Resource Manager 試用產品](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)            |
 |       裝載             |       「裝載的試用產品」透過由 Microsoft 提供服務裝載環境免除了設定的複雜性，而且它會維護執行試用產品使用者佈建及取消佈建的服務。             |         [已裝載的試用產品](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive)          |
 |      邏輯應用程式              |       邏輯應用程式試用產品是一個部署範本，其目的是包含所有複雜解決方案架構。 所有 Dynamics 應用程式或自訂產品，都應該使用此類型的試用產品。            |      [邏輯應用程式試用產品](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)             |
-|       Power BI             |         Power BI 試用產品會由自訂建置儀表板的內嵌連結所組成。 任何要示範互動式 Power BI 視覺效果的產品，都應該使用此類型的試用產品。 您只需要上傳內嵌的 Power BI URL。          |        [Power BI 試用產品](#Power-BI-test-drive)           |
+|       Power BI             |         Power BI 試用產品會由自訂建置儀表板的內嵌連結所組成。 任何要示範互動式 Power BI 視覺效果的產品，都應該使用此類型的試用產品。 您只需要上傳內嵌的 Power BI URL。          |        [Power BI 試用產品](#power-bi-test-drive)           |
 
 ### <a name="power-bi-test-drive"></a>Power BI 試用產品
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 4360196a33381d1a9c8316430339b9a80cb0dba3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4700573d3f5319599a6437d092e20d8013d2f7fb
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58016467"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632920"
 ---
 | 資源 | 預設限制 | 上限 |
 | --- | --- | --- |
@@ -33,4 +33,4 @@ ms.locfileid: "58016467"
 | Runbook | 在 動作群組中的 10 個 runbook 動作。 | 請連絡支援人員。 |
 | sms | 在 動作群組中的 10 個簡訊動作。 另請參閱[速率限制資訊](../articles/azure-monitor/platform/alerts-rate-limiting.md)。 | 請連絡支援人員。 |
 | 語音 | 在 動作群組中的 10 個語音動作。 另請參閱[速率限制資訊](../articles/azure-monitor/platform/alerts-rate-limiting.md)。 | 請連絡支援人員。 |
-| Webhook | 在 動作群組中的 10 個 webhook 動作。 其他限制位於[動作特有的資訊](../articles/azure-monitor/platform/action-groups.md#action-specific-information)。  | 請連絡支援人員。 |
+| Webhook | 在 動作群組中的 10 個 webhook 動作。  Webhook 呼叫的數目上限是 1500 每分鐘每個訂用帳戶。 其他限制位於[動作特有的資訊](../articles/azure-monitor/platform/action-groups.md#action-specific-information)。  | 請連絡支援人員。 |

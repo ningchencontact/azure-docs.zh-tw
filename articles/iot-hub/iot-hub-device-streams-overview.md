@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 024bb29f9d7276021888e949073f6d45aed0a249
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 672b06dda41edb18cbf31352188b0fdd2a155782
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076270"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649626"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT 中樞裝置串流 (預覽)
 
@@ -101,7 +101,7 @@ az iot hub devicestream show --name <YourIoTHubName>
 
 ## <a name="whitelist-device-streaming-endpoints"></a>將裝置串流端點列入允許清單
 
-如[稍早之前](#Overview)所述，您的裝置會在裝置串流初始化程序期間，建立針對 IoT 中樞串流端點的傳出連線。 您裝置或其網路上的防火牆必須允許透過連接埠 443 對串流閘道進行傳出連線 (請注意，通訊會透過以 TLS 加密的 WebSocket 連線進行)。
+如[稍早之前](#overview)所述，您的裝置會在裝置串流初始化程序期間，建立針對 IoT 中樞串流端點的傳出連線。 您裝置或其網路上的防火牆必須允許透過連接埠 443 對串流閘道進行傳出連線 (請注意，通訊會透過以 TLS 加密的 WebSocket 連線進行)。
 
 裝置串流端點的主機名稱可以在 Azure IoT 中樞入口網站上的 [概觀] 索引標籤下找到。![替代文字](./media/iot-hub-device-streams-overview/device-stream-portal.PNG "裝置串流端點")
 

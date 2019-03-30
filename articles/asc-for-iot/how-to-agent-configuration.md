@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 3ce6744a3a7d71f358dccb3dc29c470f3a376240
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 8bb9f0bc57e03ae0897e77acaa30ec85a3541646
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580699"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649368"
 ---
 # <a name="tutorial-configure-security-agents"></a>教學課程：設定安全性代理程式
 
@@ -42,7 +42,7 @@ ASC IoT 的安全性代理程式的對應項的組態物件為.json 格式物件
 
 這些設定可協助您自訂每個案例所需的代理程式。 例如，自動排除部分事件，或是讓保持在最低層級的功率耗用量可能會藉由設定這些屬性。  
 
-IoT 安全性代理程式設定為使用 ASC[結構描述](https://github.com/azure/asc-for-iot-schemas/security/module/twin)進行變更。  
+IoT 安全性代理程式設定為使用 ASC[結構描述](https://aka.ms/iot-security-github-module-schema)進行變更。  
 
 ## <a name="configuration-objects"></a>組態物件 
 
@@ -64,7 +64,7 @@ IoT 安全性代理程式的每個 ASC 與相關屬性位於內所需的屬性 �
 
 ## <a name="configuration-schema-and-validation"></a>組態結構描述和驗證 
 
-請務必驗證您的代理程式設定，針對此[結構描述](https://github.com/Azure/asc-for-iot/schema/security_module_twin)。 如果組態物件不符合結構描述，將不會啟動代理程式。
+請務必驗證您的代理程式設定，針對此[結構描述](https://aka.ms/iot-security-github-module-schema)。 如果組態物件不符合結構描述，將不會啟動代理程式。
 
  
 如果代理程式執行時，會將組態物件變更為非有效的組態 （組態不符合結構描述），代理程式將會忽略無效的組態，並且將繼續使用目前的組態。 

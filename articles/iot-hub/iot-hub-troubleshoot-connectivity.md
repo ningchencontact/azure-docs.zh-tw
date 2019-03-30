@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: 9057245c108e4a1b9af2549bc87f98258da50535
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 6cc5e45ab28a1c83125a37cefb289b1662096eb0
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240162"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648814"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>使用 Azure IoT 中樞偵測連線中斷並進行疑難排解
 
@@ -32,7 +32,7 @@ IoT 裝置的連線問題可能因為有許多可能的失敗點而難以排解�
 1. 選取 [診斷設定]。
 1. 選取 [開啟診斷]。
 1. 讓 [連線] 記錄可供收集。
-1. 若要讓分析變得更容易，您應該開啟 [傳送至 Log Analytics] ([請參閱定價](https://azure.microsoft.com/pricing/details/log-analytics/))。 請參閱[解決連線錯誤](#Resolve-connectivity-errors)下方的範例。
+1. 若要讓分析變得更容易，您應該開啟 [傳送至 Log Analytics] ([請參閱定價](https://azure.microsoft.com/pricing/details/log-analytics/))。 請參閱[解決連線錯誤](#resolve-connectivity-errors)下方的範例。
 
    ![建議的設定][2]
 
@@ -40,21 +40,20 @@ IoT 裝置的連線問題可能因為有許多可能的失敗點而難以排解�
 
 ### <a name="set-up-alerts-for-the-connected-devices-count-metric"></a>為_已連線的裝置_計數計量設定警示
 
-若要在裝置中斷連線時取得警示，請為 [已連線的裝置] 計量設定警示。
+若要取得警示，當裝置中斷連線時，設定的警示**連接的裝置 （預覽）** 計量。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 1. 瀏覽至您的 IoT 中樞。
-1. 選取 [警示 (傳統)]。
-1. 選取 [新增計量警示 (傳統)]。
-1. 填妥表單並選取 [確定]。
-
-   ![建議的計量警示][3]
+1. 選取 [警示] 。
+1. 選取 **新的警示規則**。
+1. 選取 **新增條件**，然後選取 「 已連線的裝置 （預覽） 」。
+1. 完成設定您想要的臨界值，並由下列提示的警示選項。
 
 若要深入了解，請參閱[什麼是 Microsoft Azure 中的傳統警示？](../azure-monitor/platform/alerts-overview.md)。
 
 ## <a name="resolve-connectivity-errors"></a>解決連線錯誤
 
-開啟已連線裝置的診斷記錄和警示後，您會在發生錯誤時收到警示。 這一節說明如何在收到警示時解決常見問題。 下列步驟假設您已設定 Azure 監視器記錄檔來儲存診斷記錄。
+開啟已連線裝置的診斷記錄和警示後，您會在發生錯誤時收到警示。 這一節說明如何在收到警示時解決常見問題。 以下步骤假设已经在 Azure Monitor 日志中设置了诊断日志。
 
 1. 在 Azure 入口網站中，前往 **Log Analytics** 的工作區。
 1. 選取 [記錄搜尋]。

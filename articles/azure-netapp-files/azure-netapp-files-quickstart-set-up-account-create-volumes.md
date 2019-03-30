@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstarts
 ms.date: 2/20/2019
 ms.author: b-juche
-ms.openlocfilehash: 363589116cc7b936358ce0b16cbaba9a42c66234
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e2b9b3cdcb712fcf6c415f574dc687e80ae9ee3b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078069"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58660505"
 ---
 # <a name="set-up-azure-netapp-files-and-create-a-volume"></a>設定 Azure NetApp Files 並建立磁碟區 
 
@@ -105,9 +105,9 @@ ms.locfileid: "58078069"
    4. 使用預設值的配額。 
    5. 在 虛擬網路，按一下**新建**來建立新的 Azure 虛擬網路 (Vnet)。  然後填入下列資訊：
        * 請輸入**myvnet1**做為 Vnet 名稱。
-       * 指定的位址空間，例如 10.7.0.0/16。
+       * 指定您的設定，例如 10.7.0.0/16 位址空間
        * 請輸入**myANFsubnet**做為子網路名稱。
-       * 指定子網路位址範圍，例如 10.7.0.0/24。
+       * 指定子網路位址範圍，例如 10.7.0.0/24。 請注意，您就無法與其他資源共用的專用子網路。
        * 選取  **Microsoft.NetApp/volumes**子網路的委派。
        * 按一下 **確定**來建立 Vnet。
    6. 在 子網路，選取新建立的 Vnet (**myvnet1**) 委派的子網路。

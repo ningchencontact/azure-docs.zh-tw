@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: 557f331136726110db2a19e20b9d2f5f971ad384
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 362129b4ccd0e46b6ffc682e7232c62c196ef334
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772903"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652124"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1 的虛擬網路整合
 
@@ -75,7 +75,7 @@ Data Lake Storage Gen1 的虛擬網路整合會在虛擬網路與 Azure Active D
 
 - 在 Data Lake Storage Gen1 虛擬網路整合支援推出前建立的 HDInsight 叢集，必須重新建立才能支援這項新功能。
  
-- 在已啟用虛擬網路整合的狀況下，當您建立新的 HDInsight 叢集並選取 Data Lake Storage Gen1 帳戶，程序將會失敗。 請先停用虛擬網路規則。 或在 Data Lake Storage 帳戶的 [防火牆與虛擬網路] 刀鋒視窗中，選取 [允許來自所有網路和服務的存取]。 然後，在最後重新啟用虛擬網路規則或取消選取 [允許來自所有網路和服務的存取] 之前，請建立 HDInsight 叢集。 如需詳細資訊，請參閱[例外狀況](##Exceptions)一節。
+- 在已啟用虛擬網路整合的狀況下，當您建立新的 HDInsight 叢集並選取 Data Lake Storage Gen1 帳戶，程序將會失敗。 請先停用虛擬網路規則。 或在 Data Lake Storage 帳戶的 [防火牆與虛擬網路] 刀鋒視窗中，選取 [允許來自所有網路和服務的存取]。 然後，在最後重新啟用虛擬網路規則或取消選取 [允許來自所有網路和服務的存取] 之前，請建立 HDInsight 叢集。 如需詳細資訊，請參閱[例外狀況](#exceptions)一節。
 
 - Data Lake Storage Gen1 虛擬網路整合無法與 [Azure 資源的受控識別](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)搭配運作。
   

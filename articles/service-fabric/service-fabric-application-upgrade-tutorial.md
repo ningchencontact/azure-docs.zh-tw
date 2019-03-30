@@ -4,7 +4,7 @@ description: 本文章會逐步解說使用 Visual Studio 部署 Service Fabric 
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: a3181a7a-9ab1-4216-b07a-05b79bd826a4
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 0a94dc91308f21d9e2b440f9638829ee03a8b903
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 8fe0bf9c8827b7248195f89377176fd834845e32
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205190"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663667"
 ---
 # <a name="service-fabric-application-upgrade-tutorial-using-visual-studio"></a>使用 Visual Studio 進行 Service Fabric 應用程式升級的教學課程
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Azure Service Fabric 藉由確保只升級已變更的服務，並且在整個�
 
 現在，您可以按一下對話方塊中的 [發佈]  。 您可以使用 [Service Fabric 總管來檢視叢集與應用程式](service-fabric-visualizing-your-cluster.md)。 Visual Objects 應用程式有一個 Web 服務，您可在瀏覽器的網址列中輸入 [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/)，以移至該服務。  您應該會看到 10 個浮動的視覺物件在畫面中四處移動。
 
-**注意︰** 如果部署至 `Cloud.xml` 設定檔 (Azure Service Fabric)，則應該可在 **http://{ServiceFabricName}.{Region}.cloudapp.azure.com:8081/visualobjects/** 上取得應用程式。 請確定您確實已在負載平衡器 (在與 Service Fabric 執行個體相同的資源群組中尋找負載平衡器) 中設定 `8081/TCP`。
+**注意：** 如果部署到`Cloud.xml`設定檔 (Azure Service Fabric)，應用程式應該可以在**http://{ServiceFabricName}。 {Region}.cloudapp.azure.com:8081/visualobjects/**。 請確定您確實已在負載平衡器 (在與 Service Fabric 執行個體相同的資源群組中尋找負載平衡器) 中設定 `8081/TCP`。
 
 ## <a name="step-2-update-the-visual-objects-sample"></a>步驟 2：更新視覺物件範例
 您可能會注意到使用步驟 1 中部署的版本，視覺物件不會旋轉。 讓我們將這個應用程式升級到其中的視覺物件也會旋轉的版本。
@@ -62,8 +62,8 @@ Azure Service Fabric 藉由確保只升級已變更的服務，並且在整個�
 
 儲存變更，然後立即核取 [升級應用程式]  方塊。
 
-## <a name="step-3--upgrade-your-application"></a>步驟 3：升級應用程式
-請您熟悉[應用程式升級參數](service-fabric-application-upgrade-parameters.md)和[升級程序](service-fabric-application-upgrade.md)，以了解可以套用的各種升級參數、逾時和健康狀態準則。 針對此逐步解說，服務健康狀態評估準則會設定為預設值 (未受監視的模式)。 您可以選取 [設定升級設定]  ，然後視需要修改參數，來設定這些設定。
+## <a name="step-3--upgrade-your-application"></a>步驟 3：將您的應用程式升級
+請您熟悉[應用程式升級參數](service-fabric-application-upgrade-parameters.md)和[升級程序](service-fabric-application-upgrade.md)，以了解可以套用的各種升級參數、逾時和健康狀態準則。 在本演练中，服务运行状况评估条件设置为默认值（不受监视模式）。 您可以選取 [設定升級設定]  ，然後視需要修改參數，來設定這些設定。
 
 現在，我們已經準備好選取 [發佈] 來啟動應用程式升級。 此選項會將您的應用程式升級到其中物件會旋轉的版本 2.0.0。 Service Fabric 會一次升級一個更新網域 (某些物件會先更新，其他物件再接著更新)，在升級期間仍可存取服務。 透過您的用戶端 (瀏覽器) 可檢查服務的存取權。  
 

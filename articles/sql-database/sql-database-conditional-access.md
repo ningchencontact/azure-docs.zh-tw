@@ -11,17 +11,17 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
-ms.date: 09/24/2018
-ms.openlocfilehash: fa681198088cd4ae13668193939474d0d501b6f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/29/2019
+ms.openlocfilehash: 79d15a46affb2a6b7159ba080d4235073c59919c
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098503"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648978"
 ---
 # <a name="conditional-access-mfa-with-azure-sql-database-and-data-warehouse"></a>使用 Azure SQL Database 和資料倉儲的條件式存取 (MFA)  
 
-Azure [SQL Database](sql-database-technical-overview.md) 與 [SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)都支援 Microsoft 條件式取。 
+Azure [SQL Database](sql-database-technical-overview.md)，[受控執行個體](sql-database-managed-instance.md)，並[SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)支援 Microsoft 條件式存取。 
 
 > [!NOTE]
 > 本主題適用於 Azure SQL 伺服器，以及在 Azure SQL Server 上建立的 SQL Database 和 SQL 資料倉儲資料庫。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。

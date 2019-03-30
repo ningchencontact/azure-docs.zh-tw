@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 02/05/2019
-ms.openlocfilehash: 6baeb27855381ca03862f2632d31c628a088af39
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 31b18e2dfbad1f572b5c9b0ae59f5e076db7cde2
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620609"
+ms.locfileid: "58649283"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>在 Azure Logic Apps 中安全存取
 
@@ -156,8 +156,9 @@ POST
 
 若要只讓特定使用者或群組在邏輯應用程式上執行作業，您可以限制工作 (例如管理、編輯和檢視) 的存取權。 Logic Apps 支援 [Azure 角色型存取控制 (RBAC)](../role-based-access-control/role-assignments-portal.md)，其可讓您自訂或指派內建角色給訂用帳戶中的成員，例如：
 
-* **邏輯應用程式參與者**：使用者可以檢視、編輯和更新邏輯應用程式。 此角色無法刪除邏輯應用程式或執行系統管理員作業。
-* **邏輯應用程式操作員**：使用者可以檢視邏輯應用程式和執行歷程記錄，並啟用或停用邏輯應用程式。 此角色無法編輯或更新邏輯應用程式。
+* [邏輯應用程式參與者](../role-based-access-control/built-in-roles.md#logic-app-contributor)：使用者可以檢視、編輯和更新邏輯應用程式。 
+
+* [邏輯應用程式操作員](../role-based-access-control/built-in-roles.md#logic-app-operator)：使用者可以檢視邏輯應用程式和執行歷程記錄，並啟用或停用邏輯應用程式。 此角色無法編輯或更新邏輯應用程式。
 
 若要防止變更或刪除邏輯應用程式，您可以使用 [Azure 資源鎖定](../azure-resource-manager/resource-group-lock-resources.md)。 這項功能可協助您防止其他人變更或刪除生產資源。
 

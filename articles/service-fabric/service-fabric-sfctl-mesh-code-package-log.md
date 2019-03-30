@@ -4,7 +4,7 @@ description: 描述 Service Fabric CLI sfctl mesh code-package-log 命令。
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 81ddcc8c5685a839afabc1e82ecf4246cb813c21
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: e7bc8491071946eaa2e322517e5d36d681a49130
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53283334"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661066"
 ---
 # <a name="sfctl-mesh-code-package-log"></a>sfctl mesh code-package-log
 針對指定服務複本，取得指定程式碼套件的容器記錄。
 
 ## <a name="commands"></a>命令
 
-|命令|說明|
+|命令|描述|
 | --- | --- |
 | get | 取得容器的記錄。 |
 
@@ -37,7 +37,7 @@ ms.locfileid: "53283334"
 
 ### <a name="arguments"></a>引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --app-name --application-name [必要] | 應用程式的名稱。 |
 | --code-package-name           [必要] | 服務程式碼套件的名稱。 |
@@ -47,7 +47,7 @@ ms.locfileid: "53283334"
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |

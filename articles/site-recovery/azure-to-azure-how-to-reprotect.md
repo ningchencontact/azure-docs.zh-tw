@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: b1676f53125694eeff3a39adf51dc854c197d756
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bd65b1479ace1a51087836eb8032f16fd10dc119
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110489"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648897"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>重新保護已容錯移轉到主要區域的 Azure VM
 
@@ -22,10 +22,6 @@ ms.locfileid: "58110489"
 
 - 重新保護次要區域中的 VM，好讓它們開始複寫到主要區域。
 - 當重新保護完成且 VM 正在複寫之後，您就能將它們從次要區域容錯移轉到主要區域。
-
-> [!WARNING]
-> 如果您已經將機器從主要區域[移轉](migrate-overview.md#what-do-we-mean-by-migration)到次要區域、已將 VM 移至另一個資源群組或已刪除 Azure VM，則無法重新保護該 VM 或對其進行容錯回復。
-
 
 ## <a name="prerequisites"></a>必要條件
 1. 必須認可從主要到次要區域的 VM 容錯移轉。

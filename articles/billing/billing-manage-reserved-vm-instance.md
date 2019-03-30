@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2019
 ms.author: banders
-ms.openlocfilehash: b37f198052ee927ea986d2a6046bfd93b6ee5d5e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 0f6e0f3795e0e6d25f7443473c5911995597ca14
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399983"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648634"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>管理 Azure 資源的保留
 
-購買 Azure 保留之後，您可能需要將保留套用至不同的訂用帳戶、變更管理保留的人員或變更保留範圍。 您也可以將保留分割成兩個保留，以將您購買的部分執行個體套用至另一個訂用帳戶。
+適用於 Azure 中購買保留項目之後，您可能需要保留套用至不同的訂用帳戶、 變更使用者可以管理保留項目，或變更保留範圍。 您也可以將保留分割成兩個保留，以將您購買的部分執行個體套用至另一個訂用帳戶。
 
 如果您已購買 Azure 保留的 VM 執行個體，您可以變更保留的最佳化設定。 保留折扣可以套用至相同系列的 VM，或是您可以為特定 VM 大小保留資料中心容量。
 
@@ -123,12 +123,20 @@ ms.locfileid: "58399983"
 
 若要深入了解 Azure 保留項目，請參閱下列文章：
 
-- [什麼是 Azure 保留項目？](billing-save-compute-costs-reservations.md)
+- [Azure 保留項目有哪些？](billing-save-compute-costs-reservations.md)
+
+購買服務方案：
 - [預付具有 Azure 保留 VM 執行個體的虛擬機器](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [以 Azure SQL Database 保留容量預先支付 SQL 資料庫計算資源的費用](../sql-database/sql-database-reserved-capacity.md)
 - [以 Azure Cosmos DB 保留容量預先支付 Azure Cosmos DB 資源的費用](../cosmos-db/cosmos-db-reserved-capacity.md)
+
+購買軟體方案：
+- [預付的 Azure 保留項目從 Red Hat 軟體方案](../virtual-machines/linux/prepay-rhel-software-charges.md)
 - [從 Azure 保留預付 SUSE 軟體方案](../virtual-machines/linux/prepay-suse-software-charges.md)
+
+了解折扣和使用方式：
 - [了解 VM 保留折扣的套用方式](billing-understand-vm-reservation-charges.md)
+- [了解 Red Hat Enterprise Linux 軟體計劃折扣如何套用](../billing/billing-understand-rhel-reservation-charges.md)
 - [了解如何套用 SUSE Linux Enterprise 軟體方案折扣](../billing/billing-understand-suse-reservation-charges.md)
 - [了解其他保留折扣的套用方式](billing-understand-reservation-charges.md)
 - [了解隨用隨付方案訂用帳戶的保留項目使用量](billing-understand-reserved-instance-usage.md)

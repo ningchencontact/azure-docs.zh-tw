@@ -11,14 +11,15 @@ ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 849f944235cf1ab4408aeab336310028d6e754f4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1c02a30800e86c7b32524fb9cdba7dacf3bba9c7
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855864"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652088"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>在 Azure 資料處理站管線中使用自訂活動
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版](v1/data-factory-use-custom-activities.md)
 > * [目前的版本](transform-data-using-dotnet-custom-activity.md)
@@ -39,6 +40,7 @@ ms.locfileid: "57855864"
 * [新 AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet 來建立 Azure Batch 集區。
 
 ## <a name="azure-batch-linked-service"></a>Azure Batch 已連結的服務
+
 下列 JSON 會定義範例 Azure Batch 已連結的服務。 如需詳細資訊，請參閱 [Azure Data Factory 支援的計算環境](compute-linked-services.md)
 
 ```json
@@ -114,7 +116,7 @@ ms.locfileid: "57855864"
 &#42; 必須同時指定或同時省略 `resourceLinkedService` 和 `folderPath` 屬性。
 
 > [!NOTE]
-> 如果您傳遞已連結的服務為 referenceObjects 在自訂活動中，很好的安全性做法將 Azure Key Vault 啟用連結的服務 （因為它不包含任何安全字串） 和 fetch 使用祕密的名稱，直接從金鑰的認證保存庫的程式碼。 您可以找到範例[此處](https://github.com/nabhishek/customactivity_sample/tree/linkedservice)參考 AKV 啟用連結的服務，會從 Key Vault 擷取認證，然後再存取 程式碼中的儲存體。  
+> 如果您傳遞已連結的服務為 referenceObjects 在自訂活動中，很好的安全性做法將 Azure Key Vault 啟用連結的服務 （因為它不包含任何安全字串） 和 fetch 使用祕密的名稱，直接從金鑰的認證保存庫的程式碼。 您可以找到範例[此處](https://github.com/nabhishek/customactivity_sample/tree/linkedservice)參考 AKV 啟用連結的服務，會從 Key Vault 擷取認證，然後再存取 程式碼中的儲存體。
 
 ## <a name="custom-activity-permissions"></a>自訂活動權限
 
@@ -147,7 +149,6 @@ ms.locfileid: "57855864"
 ## <a name="passing-objects-and-properties"></a>傳遞物件和屬性
 
 這個範例會示範如何使用 referenceObjects 和 extendedProperties 將 Data Factory 物件和使用者定義屬性傳遞至自訂應用程式。
-
 
 ```json
 {
@@ -191,15 +192,15 @@ ms.locfileid: "57855864"
 
 當活動執行時，referenceObjects 和 extendedProperties 會儲存在部署至與 SampleApp.exe 相同執行資料夾的下列檔案：
 
-- activity.json
+- `activity.json`
 
   儲存 extendedProperties 和自訂活動的屬性。
 
-- linkedServices.json
+- `linkedServices.json`
 
   儲存 referenceObjects 屬性中定義之已連結的服務的陣列。
 
-- datasets.json
+- `datasets.json`
 
   儲存 referenceObjects 屬性中定義之資料集的陣列。
 
@@ -232,12 +233,13 @@ namespace SampleApp
 
 您可以使用下列 PowerShell 命令啟動管線的執行：
 
-```.powershell
+```powershell
 $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
 ```
+
 管線正在執行時，您可以使用下列命令檢查執行的輸出：
 
-```.powershell
+```powershell
 while ($True) {
     $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 
@@ -265,7 +267,7 @@ $result.Error -join "`r`n"
 
 您的自訂應用程式的 **stdout** 和 **stderr** 會儲存至您在使用工作的 GUID 建立 Azure Batch 已連結的服務時，定義的 Azure 儲存體已連結的服務中的 **adfjobs** 容器。 您可以從活動執行輸出取得詳細路徑，如下列程式碼片段所示：
 
-```shell
+```
 Pipeline ' MyCustomActivity' run finished. Result:
 
 ResourceGroupName : resourcegroupname
@@ -295,11 +297,12 @@ Activity Error section:
 "failureType": ""
 "target": "MyCustomActivity"
 ```
+
 如果您想要在下游活動中取用 stdout.txt 的內容，可以在 "\@activity('MyCustomActivity').output.outputs[0]" 運算式中取得 stdout.txt 檔案的路徑。
 
-  > [!IMPORTANT]
-  > - activity.json、linkedServices.json 和 datasets.json 會儲存在 Batch 工作的執行階段資料夾。 針對此範例，activity.json、linkedServices.json 及 datasets.json 會儲存在 "https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/" 路徑中。 您必須視需要個別加以清除。
-  > - 如果已連結的服務使用自我裝載整合執行階段，機密資訊 (例如金鑰或密碼) 就會由自我裝載整合執行階段進行加密，以確保認證會保留在客戶定義的私人網路環境中。 某些機密欄位由您的自訂應用程式以這樣的方式參考時，可能會遺失。 視需要在 extendedProperties 中使用 SecureString，而不是使用已連結的服務參考。
+> [!IMPORTANT]
+> - activity.json、linkedServices.json 和 datasets.json 會儲存在 Batch 工作的執行階段資料夾。 針對此範例，activity.json、linkedServices.json 及 datasets.json 會儲存在 "https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/" 路徑中。 您必須視需要個別加以清除。
+> - 如果已連結的服務使用自我裝載整合執行階段，機密資訊 (例如金鑰或密碼) 就會由自我裝載整合執行階段進行加密，以確保認證會保留在客戶定義的私人網路環境中。 某些機密欄位由您的自訂應用程式以這樣的方式參考時，可能會遺失。 視需要在 extendedProperties 中使用 SecureString，而不是使用已連結的服務參考。
 
 ## <a name="pass-outputs-to-another-activity"></a>將輸出傳遞到其他活動
 
@@ -311,10 +314,10 @@ Activity Error section:
 
 ```json
 "extendedProperties": {
-    "connectionString": {
-        "type": "SecureString",
-        "value": "aSampleSecureString"
-    }
+  "connectionString": {
+    "type": "SecureString",
+    "value": "aSampleSecureString"
+  }
 }
 ```
 
@@ -334,7 +337,6 @@ Activity Error section:
 
 下表說明 Data Factory V2 自訂活動和 Data Factory 第 1 版 (自訂) DotNet 活動之間的差異：
 
-
 |差異      | 自訂活動      | 第 1 版 (自訂) DotNet 活動      |
 | ---- | ---- | ---- |
 |定義自訂邏輯的方式      |提供可執行檔      |藉由實作.NET DLL      |
@@ -344,7 +346,6 @@ Activity Error section:
 |將來自活動的資訊傳遞至自訂邏輯      |透過 ReferenceObjects (LinkedServices 和資料集) 和 ExtendedProperties (自訂屬性)      |透過 ExtendedProperties (自訂屬性)、輸入和輸出資料集      |
 |擷取自訂邏輯中的資訊      |剖析與可執行檔儲存於相同資料夾的 activity.json、linkedServices.json 和 datasets.json      |透過.NET SDK (.NET Frame 4.5.2)      |
 |記錄      |直接寫入 STDOUT      |實作.NET DLL 中的記錄器      |
-
 
 如果您有針對版本 1 （自訂） DotNet 活動所撰寫的現有.NET 程式碼時，您需要修改您的程式碼，才能使用自訂活動的目前版本。 遵循下列高階指導方針來更新程式碼：
 
@@ -358,6 +359,7 @@ Activity Error section:
 如需如何將 Data Factory 第 1 版文章[在 Azure Data Factory 管線中使用自訂活動](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities)中所述的端對端 DLL 和管線範例重新撰寫為 Data Factory 自訂活動的完整範例，請參閱 [Data Factory 自訂活動範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample) \(英文\)。
 
 ## <a name="auto-scaling-of-azure-batch"></a>Azure Batch 的自動調整
+
 您也可以建立具有 **自動調整** 功能的 Azure Batch 集區。 例如，您可以用 0 專用 VM 和依據暫止工作數目自動調整的公式，建立 Azure Batch 集區。
 
 這裡的範例公式會產生下列行為：一開始建立集區時，會從 1 個 VM 開始。 $PendingTasks 計量會定義執行中 + 作用中 (已排入佇列) 狀態的工作數目。 公式會尋找過去 180 秒內的平均擱置中工作數目，並據以設定 TargetDedicated。 它會確保 TargetDedicated 一律不會超過 25 部 VM。 因此，當提交新工作時，集區會自動成長而且工作會完成，VM 會依序成為可用，而且自動調整規模功能會壓縮那些 VM。 您可以視需要調整 startingNumberOfVMs 及 maxNumberofVMs。

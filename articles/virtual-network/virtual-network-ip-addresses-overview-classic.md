@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: 3a295a5c8a202b2f3186e696bb281002090fcad4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9e7a5772dd1e10abf43eddf0548833d625ecfb24
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112597"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652162"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Azure 中的 IP 位址類型及配置方法 (傳統)
 您可以將 IP 位址指派給 Azure 資源，來與其他 Azure 資源、內部部署網路和網際網路進行通訊。 您可以在 Azure 中使用兩種類型的 IP 位址：公用和私人。
@@ -41,7 +41,7 @@ Azure 資源可透過公用 IP 位址來與網際網路和 Azure 公眾對應服
 * 應用程式閘道
 
 ### <a name="allocation-method"></a>分配方法
-當公用 IP 位址需要指派給 Azure 資源時，會從資源建立位置內的可用公用 IP 位址集區進行動態  配置。 此 IP 位址會在停止資源後釋出。 就雲端服務而言，這會發生在所有角色執行個體都被停止的時候，而使用「靜態」 (保留) IP 位址即可避免這種情形 (請參閱[雲端服務](#Cloud-services))。
+當公用 IP 位址需要指派給 Azure 資源時，會從資源建立位置內的可用公用 IP 位址集區進行動態  配置。 此 IP 位址會在停止資源後釋出。 就雲端服務而言，這會發生在所有角色執行個體都被停止的時候，而使用「靜態」 (保留) IP 位址即可避免這種情形 (請參閱[雲端服務](#cloud-services))。
 
 > [!NOTE]
 > 將公用 IP 位址配置給 Azure 資源的 IP 範圍清單已發佈於 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。

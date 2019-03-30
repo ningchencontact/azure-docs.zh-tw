@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 03/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 9b0e94deda205497cda4ebf383f302c6c3bb896a
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: a3096729b2430adf0fd884fc03e3b051b17f5b51
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403590"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58660455"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>管理透過 Windows PowerShell 的 Azure 資料方塊的邊緣裝置
 
@@ -43,6 +43,20 @@ Azure 資料方塊邊緣解決方案可讓您處理資料，並透過網路傳�
 ## <a name="upload-certificate"></a>Upload certificate
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
+
+您也可以上傳 IoT Edge 的憑證，以啟用您的 IoT Edge 裝置，可能會連線到它的下游裝置之間的安全連線。 有三個 IoT Edge 憑證 (*.pem*格式)，您需要安裝：
+
+- 根 CA 憑證或擁有者 CA
+- 裝置 CA 憑證
+- 裝置金鑰的憑證
+
+下列範例會示範這個指令程式可安裝 IoT Edge 憑證的使用方式：
+
+```
+Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username/password"
+```
+
+如需有關憑證的詳細資訊，請移至[Azure IoT Edge 憑證](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs)或是[閘道上安裝憑證](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway)。
 
 ## <a name="view-device-information"></a>檢視裝置資訊
  

@@ -4,17 +4,21 @@ description: 提供有關 Azure Migrate 收集器設備升級的資訊。
 author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 03/29/2019
 ms.author: hamusa
 services: azure-migrate
-ms.openlocfilehash: f9f2ef25a2054d92cdcc3ab33ea9234883e352d6
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 7cd44318716200d665ece9ffecc45225bdfb85eb
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484503"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648668"
 ---
 # <a name="collector-appliance-updates"></a>收集器設備更新
+
+此文章摘要說明 [Azure Migrate](migrate-overview.md) 中收集器設備的升級資訊。
+
+「Azure Migrate 收集器」是一個輕量型設備，可用來探索內部部署 vCenter 環境，目的是要在移轉至 Azure 之前先進行評量。 [深入了解](concepts-collector.md)。
 
 ## <a name="how-to-upgrade-the-appliance"></a>如何升級設備
 
@@ -33,11 +37,19 @@ ms.locfileid: "58484503"
 
 ## <a name="collector-update-release-history"></a>收集器更新版本歷程記錄
 
-此文章摘要說明 [Azure Migrate](migrate-overview.md) 中收集器設備的升級資訊。
-
-「Azure Migrate 收集器」是一個輕量型設備，可用來探索內部部署 vCenter 環境，目的是要在移轉至 Azure 之前先進行評量。 [深入了解](concepts-collector.md)。
-
 ### <a name="continuous-discovery-upgrade-versions"></a>連續探索：升級版本
+
+#### <a name="version-101014-released-on-03292019"></a>版本 （發行於 03/29/2019） 1.0.10.14
+
+包含幾個 UI 增強功能。
+
+雜湊值升級[封裝 1.0.10.14](https://aka.ms/migrate/col/upgrade_10_14)
+
+**演算法** | **雜湊值**
+--- | ---
+MD5 | 846b1eb29ef2806bcf388d10519d78e6
+SHA1 | 6243239fa49c6b3f5305f77e9fd4426a392d33a0
+SHA256 | fb058205c945a83cc4a31842b9377428ff79b08247f3fb8bb4ff30c125aa47ad
 
 #### <a name="version-101012-released-on-03132019"></a>版本 1.0.10.12 （發行於 03/13/2019）
 
