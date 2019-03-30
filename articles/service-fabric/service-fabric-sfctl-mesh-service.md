@@ -4,7 +4,7 @@ description: 描述 Service Fabric CLI sfctl mesh service 命令。
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 6c40cf2340568e704a5c76ad367c07c85826943b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: e8b735780f4ed3402845d9d401f8e37701b9a1a6
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53282914"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667577"
 ---
 # <a name="sfctl-mesh-service"></a>sfctl mesh service
 取得服務詳細資料和應用程式資源的清單服務。
 
 ## <a name="commands"></a>命令
 
-|命令|說明|
+|命令|描述|
 | --- | --- |
 | list | 可列出所有服務資源。 |
 | 顯示 | 可取得指定名稱的服務資源。 |
@@ -38,13 +38,13 @@ ms.locfileid: "53282914"
 
 ### <a name="arguments"></a>引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --app-name --application-name [必要] | 應用程式的名稱。 |
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
@@ -59,14 +59,14 @@ ms.locfileid: "53282914"
 
 ### <a name="arguments"></a>引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --app-name --application-name [必要] | 應用程式的名稱。 |
 | --name -n                     [必要] | 服務的名稱。 |
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |

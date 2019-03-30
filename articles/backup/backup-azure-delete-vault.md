@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: raynew
-ms.openlocfilehash: 94d66e28f8edbda6c41dcceaf427d7d7d869c90f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 23e98fd7ea3decc478fc359cec457c70b8fc99dc
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620112"
+ms.locfileid: "58652208"
 ---
 # <a name="delete-a-recovery-services-vault"></a>刪除復原服務保存庫
 
@@ -108,7 +108,7 @@ ms.locfileid: "58620112"
 
 
 3. 在 **停止備份** > **選擇選項**，選取**刪除備份資料**。
-4. 輸入項目的名稱，然後按一下**停止備份**。 
+4. 輸入項目的名稱，然後按一下**停止備份**。
    - 這會確認您想要刪除的項目。
    - **停止備份**確認之後，就會啟動 按鈕。
    - 如果您保留並不會刪除資料時，您無法刪除保存庫。
@@ -126,7 +126,7 @@ ms.locfileid: "58620112"
 ### <a name="remove-backup-infrastructure-servers"></a>移除備份基礎結構伺服器
 
 1. 在 [保存庫儀表板] 功能表中，按一下**備份基礎結構**。
-2. 按一下 **備份管理伺服器**來檢視伺服器。 
+2. 按一下 **備份管理伺服器**來檢視伺服器。
 
     ![選取您的保存庫以開啟其儀表板](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
@@ -135,7 +135,7 @@ ms.locfileid: "58620112"
     ![選取備份類型](./media/backup-azure-delete-vault/azure-storage-selected-list.png)
 
 3. 上也提供本文中使用的原始碼。 在 **停止備份** > **選擇選項**，選取**刪除備份資料**。
-4. 輸入項目的名稱，然後按一下**停止備份**。 
+4. 輸入項目的名稱，然後按一下**停止備份**。
    - 這會確認您想要刪除的項目。
    - **停止備份**確認之後，就會啟動 按鈕。
    - 如果您保留並不會刪除資料時，您無法刪除保存庫。

@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2424dbf595743eacef16b7d11f208edc9cd09a41
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 592f2ef95935ce1d1f83db6c3327cab9c20015d3
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185446"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652556"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>作法：為 Azure AD 應用程式提供選擇性宣告 (公開預覽)
 
@@ -32,7 +32,7 @@ ms.locfileid: "56185446"
 - 新增和存取應用程式的自訂宣告。 
 
 > [!NOTE]
-> 此功能目前為公開預覽版。 您應做好將任何變更還原或移除的準備。 在公開預覽版期間，所有 Azure AD 訂用帳戶中都有提供此功能。 不過，當此功能變成公開推出版時，可能需要 Azure AD Premium 訂用帳戶，才能使用此功能的某些層面。
+> 這項功能目前為公開預覽版。 您應做好將任何變更還原或移除的準備。 在公開預覽版期間，所有 Azure AD 訂用帳戶中都有提供此功能。 不過，當此功能變成正式運作版時，可能需要 Azure AD Premium 訂用帳戶，才能使用此功能的某些層面。
 
 如需標準宣告的清單及其在權杖中的使用方式，請參閱 [Azure AD 所簽發權杖的基本概念](v1-id-and-access-tokens.md)。 
 
@@ -46,18 +46,18 @@ ms.locfileid: "56185446"
 | Azure AD 帳戶          | 支援                          | 支援注意事項 |
 
 > [!IMPORTANT]
-> 同時支援個人帳戶和 Azure AD (透過[應用程式註冊入口網站](https://apps.dev.microsoft.com)註冊) 的應用程式無法使用選擇性宣告。 不過，使用 v2.0 端點只註冊 Azure AD 的應用程式，可在資訊清單中取得所要求的選擇性宣告。 您可以在 Azure 入口網站中，使用現有**應用程式註冊**體驗中的應用程式資訊清單編輯器編輯您的選擇性宣告。 不過，此功能尚無法在新的**應用程式註冊 (預覽)** 體驗中使用應用程式資訊清單編輯器。
+> 同時支援個人帳戶和 Azure AD (透過[應用程式註冊入口網站](https://apps.dev.microsoft.com)註冊) 的應用程式無法使用選擇性宣告。 不過，使用 v2.0 端點只註冊 Azure AD 的應用程式，可在資訊清單中取得所要求的選擇性宣告。 您可以在 Azure 入口網站中，使用現有**應用程式註冊**體驗中的應用程式資訊清單編輯器編輯您的選擇性宣告。 不過，這項功能尚無法在新的**應用程式註冊 (預覽)** 體驗中使用應用程式資訊清單編輯器。
 
 ## <a name="standard-optional-claims-set"></a>標準選擇性宣告集
 
-以下列出預設可供應用程式使用的一組選擇性宣告。 若要為您的應用程式新增自訂選擇性宣告，請參閱下方的[目錄延伸模組](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions)。 請注意，向 **存取權杖** 新增宣告時，此作法適用*於* 應用程式 (Web API) 要求的存取權杖，而不適用*於* 應用程式要求的存取權杖， 如此可確保無論用戶端存取您的 API，用於驗證 API 的存取權杖都具有正確的資料。
+以下列出預設可供應用程式使用的一組選擇性宣告。 若要為您的應用程式新增自訂選擇性宣告，請參閱下方的[目錄延伸模組](active-directory-optional-claims.md#configuring-custom-claims-via-directory-extensions)。 請注意，向 **存取權杖** 新增宣告時，此作法適用*於* 應用程式 (Web API) 要求的存取權杖，而不適用*於* 應用程式要求的存取權杖， 如此可確保無論用戶端存取您的 API，用於驗證 API 的存取權杖都具有正確的資料。
 
 > [!NOTE]
 > 這些宣告中大多數都可包含在 v1.0 和 v2.0 權杖的 JWT 中，但不可包含在 SAML 權杖中 (「權杖類型」欄中已註明者除外)。 此外，雖然目前僅針對 AAD 使用者支援選擇性宣告，但已正在新增 MSA 支援。 當 MSA 在 v2.0 端點上具有選擇性宣告支援時，「使用者類型」欄會指出宣告可供 AAD 還是 MSA 使用者使用。 
 
 **表 2：標準選擇性宣告集**
 
-| Name                        | 說明   | 權杖類型 | 使用者類型 | 注意  |
+| 名稱                        | 描述   | 權杖類型 | 使用者類型 | 注意  |
 |-----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | 上次驗證使用者的時間。 請參閱 OpenID Connect 規格。| JWT        |           |  |
 | `tenant_region_scope`      | 資源租用戶的區域 | JWT        |           | |
@@ -85,7 +85,7 @@ ms.locfileid: "56185446"
 
 **表 3：僅適用於 V2.0 的選擇性宣告**
 
-| JWT 宣告     | Name                            | 說明                                | 注意 |
+| JWT 宣告     | 名稱                            | 描述                                | 注意 |
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP 位址                      | 用戶端的登入來源 IP 位址。   |       |
 | `onprem_sid`  | 內部部署安全性識別碼 |                                             |       |
@@ -103,10 +103,10 @@ ms.locfileid: "56185446"
 
 **表 4：用來設定選擇性宣告的值**
 
-| 屬性名稱  | 額外屬性名稱 | 說明 |
+| 屬性名稱  | 額外屬性名稱 | 描述 |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | 可同時用於 SAML 和 JWT 回應，以及用於 v1.0 和 v2.0 權杖。 |
-|                | `include_externally_authenticated_upn`  | 包含儲存在資源租用戶中的來賓 UPN。 例如 `foo_hometenant.com#EXT#@resourcetenant.com` |             
+|                | `include_externally_authenticated_upn`  | 包含儲存在資源租用戶中的來賓 UPN。 例如， `foo_hometenant.com#EXT#@resourcetenant.com` |             
 |                | `include_externally_authenticated_upn_without_hash` | 同上，只是將井號 (`#`) 取代成底線 (`_`)，例如 `foo_hometenant.com_EXT_@resourcetenant.com` |
 
 #### <a name="additional-properties-example"></a>額外屬性範例
@@ -167,7 +167,7 @@ ms.locfileid: "56185446"
 
 **表 5：OptionalClaims 類型屬性**
 
-| Name        | 類型                       | 說明                                           |
+| 名稱        | 類型                       | 描述                                           |
 |-------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | 集合 (OptionalClaim) | 在 JWT 識別碼權杖中傳回的選擇性宣告。 |
 | `accessToken` | 集合 (OptionalClaim) | 在 JWT 存取權杖中傳回的選擇性宣告。 |
@@ -180,7 +180,7 @@ ms.locfileid: "56185446"
 
 **表 6：OptionalClaim 類型屬性**
 
-| Name                 | 類型                    | 說明                                                                                                                                                                                                                                                                                                   |
+| 名稱                 | 類型                    | 描述                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | 選擇性宣告的名稱。                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | 宣告的來源 (目錄物件)。 有來自延伸模組屬性的預先定義宣告和使用者定義宣告。 如果來源值為 null，宣告便是預先定義的選擇性宣告。 如果來源值為 user，名稱屬性中的值即為來自使用者物件的延伸模組屬性。 |

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 905ce1eca9996140da5f9d33aa7f9749a4ef7034
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cfcd154b2f44c9e8acf12a9666abc9ce95fb3c26
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894116"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648345"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>使用 HTTPS 端點設定潛在客戶管理
 
@@ -48,8 +48,8 @@ ms.locfileid: "57894116"
 
 7. 使用下列其中一個步驟來設定**要求本文 JSON 結構描述**：
 
-   - 將此文章結尾的 [JSON 結構描述](#JSON-schema)複製到**要求本文 JSON 結構描述**文字方塊。
-   - 選取 [使用範例承載來產生結構描述]。 在 [輸入或貼上範例 JSON 承載] 文字方塊中，貼上 [JSON 範例](#JSON-example)。 選取 [完成] 以建立結構描述。
+   - 將此文章結尾的 [JSON 結構描述](#json-schema)複製到**要求本文 JSON 結構描述**文字方塊。
+   - 選取 [使用範例承載來產生結構描述]。 在 [輸入或貼上範例 JSON 承載] 文字方塊中，貼上 [JSON 範例](#json-example)。 選取 [完成] 以建立結構描述。
 
    >[!Note]
    >此時在流程中您可以連線到 CRM 系統或設定電子郵件通知。

@@ -10,23 +10,24 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 5a1cae376ab9db2b0c4b5e0e5514bf7745593433
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8ad70c5d22ca73258fa9e6501d03d5409a4e45d8
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894575"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652479"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本建立和部署邏輯應用程式
 
-Azure Logic Apps 提供 Azure Resource Manager 範本，不僅可用來建立自動化工作流程的邏輯應用程式，也可以定義用於部署的資源和參數。 您可以在自己的商務案例中使用此範本，或自訂此範本以符合您的需求。 深入了解[邏輯應用程式的 Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json)和 [Azure Resource Manager 範本結構和語法](../azure-resource-manager/resource-group-authoring-templates.md)。 如需了解 JSON 語法和屬性，請參閱 [Microsoft.Logic 資源類型](/azure/templates/microsoft.logic/allversions)。
+Azure Logic Apps 提供 Azure Resource Manager 範本，不僅可用來建立自動化工作流程的邏輯應用程式，也可以定義用於部署的資源和參數。
+您可以在自己的商務案例中使用此範本，或自訂此範本以符合您的需求。 深入了解[邏輯應用程式的 Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json)和 [Azure Resource Manager 範本結構和語法](../azure-resource-manager/resource-group-authoring-templates.md)。 如需了解 JSON 語法和屬性，請參閱 [Microsoft.Logic 資源類型](/azure/templates/microsoft.logic/allversions)。
 
 ## <a name="define-the-logic-app"></a>定義邏輯應用程式
-
 這個範例邏輯應用程式定義每小時執行一次，並 Ping `testUri` 參數中所指定的位置。
-這個範本會使用邏輯應用程式名稱 (```logicAppName```) 以及要 Ping 以進行測試之位置 (```testUri```) 的參數值。 深入了解[在範本中定義這些參數](#define-parameters)。 這個範本也會將邏輯應用程式的位置設為與 Azure 資源群組相同的位置。 
+這個範本會使用邏輯應用程式名稱 (```logicAppName```) 以及要 Ping 以進行測試之位置 (```testUri```) 的參數值。 深入了解[在範本中定義這些參數](#define-parameters)。
+這個範本也會將邏輯應用程式的位置設為與 Azure 資源群組相同的位置。
 
-``` json
+```json
 {
    "type": "Microsoft.Logic/workflows",
    "apiVersion": "2016-06-01",
@@ -69,7 +70,7 @@ Azure Logic Apps 提供 Azure Resource Manager 範本，不僅可用來建立自
       "parameters": {}
    }
 }
-``` 
+```
 
 <a name="define-parameters"></a>
 
@@ -79,10 +80,10 @@ Azure Logic Apps 提供 Azure Resource Manager 範本，不僅可用來建立自
 
 以下是範本中參數的描述：
 
-| 參數 | 描述 | JSON 定義範例 | 
-| --------- | ----------- | ----------------------- | 
+| 參數 | 描述 | JSON 定義範例 |
+| --------- | ----------- | ----------------------- |
 | `logicAppName` | 定義該範本所建立之邏輯應用程式的名稱。 | "logicAppName": { "type": "string", "metadata": { "description": "myExampleLogicAppName" } } |
-| `testUri` | 定義要 Ping 以進行測試的位置。 | "testUri": { "type": "string", "defaultValue": "https://azure.microsoft.com/status/feed/"} | 
+| `testUri` | 定義要 Ping 以進行測試的位置。 | "testUri": { "type": "string", "defaultValue": "https://azure.microsoft.com/status/feed/"} |
 ||||
 
 深入了解[邏輯應用程式工作流程定義和屬性的 REST API](https://docs.microsoft.com/rest/api/logic/workflows) 和[使用 JSON 根據邏輯應用程式定義建置](logic-apps-author-definitions.md)。
@@ -93,7 +94,8 @@ Azure Logic Apps 提供 Azure Resource Manager 範本，不僅可用來建立自
 
 [![部署至 Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
-此動作會將您登入 Azure 入口網站，您可以在其中提供您邏輯應用程式的詳細資料，並對範本或參數進行任何變更。 例如，Azure 入口網站會提示您輸入這些詳細資料：
+此動作會將您登入 Azure 入口網站，您可以在其中提供您邏輯應用程式的詳細資料，並對範本或參數進行任何變更。
+例如，Azure 入口網站會提示您輸入這些詳細資料：
 
 * Azure 訂用帳戶名稱
 * 您想要使用的資源群組
@@ -110,13 +112,13 @@ Azure Logic Apps 提供 Azure Resource Manager 範本，不僅可用來建立自
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-```
+```powershell
 New-AzResourceGroupDeployment -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -ResourceGroupName ExampleDeployGroup
-``` 
+```
 
 ### <a name="azure-cli"></a>Azure CLI
 
-```
+```azurecli
 azure group deployment create --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json -g ExampleDeployGroup
 ```
 

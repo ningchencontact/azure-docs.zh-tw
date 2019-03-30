@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 35befe7122f493998d0d91c2721e6013e057fed3
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: a4e0432260cfb9ee11ed318305fb967d160de835
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540596"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652547"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-azure-monitor"></a>使用 Azure blob 儲存體的 IIS 和 Azure 資料表儲存體使用 Azure 監視器的事件
 
@@ -54,9 +54,11 @@ Azure 監視器 」 來收集這些 Azure 診斷記錄檔、 記錄檔必須在�
 若為虛擬機器，您可以選擇將 [Log Analytics agent](../../azure-monitor/learn/quick-collect-azurevm.md) 安裝到虛擬機器中以啟用其他見解。 除了分析 IIS 記錄檔和事件記錄檔之外，您也可以執行其他分析，包括組態變更追蹤、SQL 評估及更新評估。
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection"></a>為事件記錄檔和 IIS 記錄檔集合啟用虛擬機器中的 Azure 診斷
+
 您可以搭配使用下列程序與 Microsoft Azure 入口網站，為事件記錄檔和 IIS 記錄檔集合啟用虛擬機器中的 Azure 診斷。
 
 ### <a name="to-enable-azure-diagnostics-in-a-virtual-machine-with-the-azure-portal"></a>使用 Azure 入口網站啟用虛擬機器中的 Azure 診斷
+
 1. 建立虛擬機器時安裝 VM 代理程式。 如果虛擬機器已經存在，請確認已安裝 VM 代理程式。
 
    * 在 Azure 入口網站中，瀏覽至虛擬機器，依序選取 [選擇性組態] 及 [診斷]，並將 [狀態] 設為 [開啟]。
@@ -72,6 +74,7 @@ Azure 監視器 」 來收集這些 Azure 診斷記錄檔、 記錄檔必須在�
    6. 按一下 [確定]。
 
 ## <a name="enable-azure-diagnostics-in-a-web-role-for-iis-log-and-event-collection"></a>在 Web 角色中針對 IIS 記錄檔和事件集合啟用 Azure 診斷
+
 請參閱[如何在雲端服務中啟用診斷](../../cloud-services/cloud-services-dotnet-diagnostics.md)瞭解啟用 Azure 診斷的一般步驟。 下面的指示會使用此資訊並自訂它來與 Log Analytics 搭配使用。
 
 啟用 Azure 診斷時：
@@ -80,11 +83,12 @@ Azure 監視器 」 來收集這些 Azure 診斷記錄檔、 記錄檔必須在�
 * 預設不會傳輸 Windows 事件記錄檔。
 
 ### <a name="to-enable-diagnostics"></a>啟用診斷
+
 若要啟用 Windows 事件記錄檔或要變更 scheduledTransferPeriod，請使用 XML 組態檔 (diagnostics.wadcfg) 設定 Azure 診斷，如[步驟 4：建立您的診斷組態檔並安裝擴充功能](../../cloud-services/cloud-services-dotnet-diagnostics.md)中所示
 
 下列範例組態檔會從應用程式和系統記錄檔中收集 IIS 記錄檔和所有事件：
 
-```
+```xml
     <?xml version="1.0" encoding="utf-8" ?>
     <DiagnosticMonitorConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"
           configurationChangePollInterval="PT1M"
@@ -108,7 +112,7 @@ Azure 監視器 」 來收集這些 Azure 診斷記錄檔、 記錄檔必須在�
 
 請確定 ConfigurationSettings 指定儲存體帳戶，如下列範例所示︰
 
-```
+```xml
     <ConfigurationSettings>
        <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"/>
     </ConfigurationSettings>
@@ -119,6 +123,7 @@ Azure 監視器 」 來收集這些 Azure 診斷記錄檔、 記錄檔必須在�
 一旦更新的診斷組態套用至您的雲端服務，它會將診斷寫入 Azure 儲存體，您就準備好設定 Log Analytics 工作區。
 
 ## <a name="use-the-azure-portal-to-collect-logs-from-azure-storage"></a>使用 Azure 入口網站從 Azure 儲存體收集記錄
+
 若要設定 Azure 監視器來收集下列 Azure 服務的記錄檔中的 Log Analytics 工作區，您可以使用 Azure 入口網站：
 
 * Service Fabric 叢集
@@ -161,7 +166,7 @@ Azure 監視器 」 來收集這些 Azure 診斷記錄檔、 記錄檔必須在�
 
 檢閱下列指令碼範例、複製它、視需要修改它、將範例儲存為 PowerShell 指令碼檔案，然後再執行指令碼。
 
-```
+```powershell
     #Connect to Azure
     Add-AzureAccount
 
@@ -194,6 +199,7 @@ Azure 監視器 」 來收集這些 Azure 診斷記錄檔、 記錄檔必須在�
 
 
 ## <a name="next-steps"></a>後續步驟
+
 * 針對支援的 Azure 服務[收集 Azure 服務的記錄檔與計量](collect-azure-metrics-logs.md)。
 * [啟用解決方案](../../azure-monitor/insights/solutions.md) 以提供資料的深入見解。
 * [使用搜尋查詢](../../azure-monitor/log-query/log-query-overview.md) 以分析資料。

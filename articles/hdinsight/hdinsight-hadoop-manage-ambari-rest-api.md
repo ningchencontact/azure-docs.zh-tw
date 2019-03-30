@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: hrasheed
-ms.openlocfilehash: 38d845e133b5ae1a091fd9fee698b2bf801135e1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a56cc0c575a6e50a38aea91c8fc2e1855617457f
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880586"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648379"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>使用 Apache Ambari REST API 來管理 HDInsight 叢集
 
@@ -26,7 +26,7 @@ ms.locfileid: "57880586"
 [Apache Ambari](https://ambari.apache.org)簡化的管理和監視 Hadoop 叢集，藉由提供簡單易用的 web 所支援的 UI 其[REST Api](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)。  以 Linux 為基礎的 HDInsight 叢集預設會提供 Ambari。
 
 ## <a name="prerequisites"></a>必要條件
-* **在 HDInsight 上的 Hadoop 叢集**。 請參閱[開始使用 Linux 上的 HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)。
+* **HDInsight 上的 Hadoop 群集**。 请参阅 [Linux 上的 HDInsight 入门](hadoop/apache-hadoop-linux-tutorial-get-started.md)。
 
 * **Bash on Ubuntu on Windows 10**。  這篇文章中的範例會使用 Windows 10 上的 Bash 殼層。 請參閱[Linux 安裝指南適用於 Windows 10 的 Windows 子系統](https://docs.microsoft.com/windows/wsl/install-win10)如需安裝步驟。  其他[Unix shell](https://www.gnu.org/software/bash/)正常運作。  此範例中，但有一些些微的修改，可以使用 Windows 命令提示字元。  或者，您可以使用 Windows PowerShell。
 
@@ -306,7 +306,7 @@ $resp.Content
    修改，然後輸入下列命令：
 
    * 取代`livy2-conf`與所需的元件。
-   * 取代`INITIAL`取代為擷取實際值`tag`從[取得所有設定](#Get-all-configurations)。
+   * 取代`INITIAL`取代為擷取實際值`tag`從[取得所有設定](#get-all-configurations)。
 
      **A.Bash**  
      ```bash

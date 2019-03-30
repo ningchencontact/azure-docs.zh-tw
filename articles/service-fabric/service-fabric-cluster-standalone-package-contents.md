@@ -4,7 +4,7 @@ description: 適用於 Windows Server 的 Azure Service Fabric 獨立封裝描�
 services: service-fabric
 documentationcenter: .net
 author: maburlik
-manager: timlt
+manager: chackdan
 editor: ''
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: maburlik
-ms.openlocfilehash: 1a34ad340463faf0cdccdb7fa8b87283de60b4cc
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: HT
+ms.openlocfilehash: facdcd162826e6f77ace098391459cba00061c4f
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141606"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661610"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>適用於 Windows Server 的 Service Fabric 獨立封裝內容
-在[下載](https://go.microsoft.com/fwlink/?LinkId=730690)的 Service Fabric 獨立封裝中，您會找到下列檔案︰
+在 [已下载](https://go.microsoft.com/fwlink/?LinkId=730690) 的 Service Fabric 独立包中，找到以下文件：
 
-| **檔案名稱** | **簡短說明** |
+| **文件名** | **簡短說明** |
 | --- | --- |
 | CreateServiceFabricCluster.ps1 |使用 ClusterConfig.json 中的設定建立叢集的 PowerShell 指令碼。 |
-| RemoveServiceFabricCluster.ps1 |使用 ClusterConfig.json 中的設定移除叢集的 PowerShell 指令碼。 |
+| RemoveServiceFabricCluster.ps1 |一个 PowerShell 脚本，它可以使用 ClusterConfig.json 中的设置删除群集。 |
 | AddNode.ps1 |用於將節點加入至目前電腦上現有部署叢集的 PowerShell 指令碼。 |
 | RemoveNode.ps1 |用於將節點從目前電腦中的現有部署叢集移除的 PowerShell 指令碼。 |
 | CleanFabric.ps1 |從目前電腦中清除獨立 Service Fabric 安裝的 PowerShell 指令碼。 先前的 MSI 安裝應該以本身相關聯的解除安裝程式來移除。 |
@@ -41,14 +41,14 @@ ms.locfileid: "53141606"
 
 **範本** 
 
-| **檔案名稱** | **簡短說明** |
+| **文件名** | **簡短說明** |
 | --- | --- |
 | ClusterConfig.Unsecure.DevCluster.json |叢集組態範例檔案，其中包含適用於不安全、三個節點、單一電腦 (或虛擬機器) 部署叢集的設定，包括叢集中每個節點的相關資訊。 |
 | ClusterConfig.Unsecure.MultiMachine.json |叢集組態範例檔案，其中包含適用於不安全、多個電腦 (或虛擬機器) 叢集的設定，包括叢集中每個電腦的相關資訊。 |
 | ClusterConfig.Windows.DevCluster.json |叢集組態範例檔案，其中包含適用於安全、三個節點、單一電腦 (或虛擬機器) 部署叢集的所有設定，包括叢集中每個節點的相關資訊。 使用 [Windows 身分識別](https://msdn.microsoft.com/library/ff649396.aspx)保護叢集的安全。 |
 | ClusterConfig.Windows.MultiMachine.json |叢集組態範例檔案，其中包含適用於使用 Windows 安全性的安全、多個電腦 (或虛擬機器) 叢集的所有設定，包括安全叢集中每個電腦的相關資訊。 使用 [Windows 身分識別](https://msdn.microsoft.com/library/ff649396.aspx)保護叢集的安全。 |
 | ClusterConfig.x509.DevCluster.json |叢集組態範例檔案，其中包含適用於安全、三個節點、單一電腦 (或虛擬機器) 部署叢集的所有設定，包括叢集中每個節點的相關資訊。 使用 x509 憑證保護叢集的安全。 |
-| ClusterConfig.x509.MultiMachine.json |叢集組態範例檔案，其中包含適用於安全、多個電腦 (或虛擬機器) 叢集的所有設定，包括安全叢集中每個節點的相關資訊。 使用 x509 憑證保護叢集的安全。 |
+| ClusterConfig.x509.MultiMachine.json |群集配置示例文件，其中包含安全型多计算机（或虚拟机）群集的所有设置，这些设置包括安全群集中每个节点的信息。 此群集使用 x509 证书进行保护。 |
 | ClusterConfig.gMSA.Windows.MultiMachine.json |叢集組態範例檔案，其中包含適用於安全、多個電腦 (或虛擬機器) 叢集的所有設定，包括安全叢集中每個節點的相關資訊。 使用[群組受控服務帳戶](https://technet.microsoft.com/library/jj128431(v=ws.11).aspx)保護叢集的安全。 |
 
 ## <a name="cluster-configuration-samples"></a>叢集組態範例

@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 8445ab2c8797226b08519e2f186350a31416f049
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: ab98c3be75fb59603be66ee84e0d288de56cdc91
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578402"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648498"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>Azure 搜尋服務中的篩選子句和 order-by 子句的 OData 運算式語法
 
@@ -84,9 +84,11 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
 - `search.in` 函式會測試給定的字串欄位是否等同於給定的其中一個值清單。 此函式也可以「任何」或「全部」的模式使用，以比較字串集合欄位的單一值與指定的值清單。 欄位與清單中每個值之間的等同性，會以區分大小寫的方式來判定，其方式與 `eq` 運算子相同。 因此，像 `search.in(myfield, 'a, b, c')` 這樣的運算式會等同於 `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`，差別在於 `search.in` 所產生的效果會好得多。 
 
-  `search.in` 函式的第一個參數是字串欄位參考 (在 `any` 或 `all`運算式內使用了 `search.in` 時，則為字串集合欄位的範圍變數)。 第二個參數是包含值清單的字串 (各個值會以空格和/或逗號分隔)。 如果您因為值中包含空格和逗點這類的字元，而需要使用其他分隔符號，您可以為 `search.in` 指定選擇性的第三個參數。 
-
-  第三個參數是一個字串，且其中的每個字元或子集在剖析第二個參數中的值清單時都會被視為分隔符號。
+   `search.in` 函式的第一個參數是字串欄位參考 (在 `any` 或 `all`運算式內使用了 `search.in` 時，則為字串集合欄位的範圍變數)。 
+  
+   第二個參數是包含值清單的字串 (各個值會以空格和/或逗號分隔)。 
+  
+   第三個參數是字串的的字串，其中每個字元或這個字串的子集會被視為分隔符號剖析第二個參數中的值清單時。 如果您因為值中包含空格和逗點這類的字元，而需要使用其他分隔符號，您可以為 `search.in` 指定選擇性的第三個參數。 
 
   > [!NOTE]   
   > 在某些情況下，欄位必須與大量的常數值進行比較。 例如，在使用篩選實作安全性調整時，文件識別碼欄位可能必須與要求端使用者已獲讀取權限的識別碼清單進行比較。 在這類情況下，強烈建議您使用 `search.in` 函式，而不是分離而較複雜的等號比較運算式。 例如，請使用 `search.in(Id, '123, 456, ...')`，而不要使用 `Id eq 123 or Id eq 456 or ....`。 
@@ -207,7 +209,7 @@ $filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.
 $filter=description eq null
 ```
 
-尋找所有旅館名稱等於 'Roach motel' 或 '預算旅館'）。 片語可以包含空格，這是預設的分隔符號。 若要指定的分隔符號覆寫，引號括住的新分隔符號單一篩選條件運算式的一部分：  
+尋找所有旅館名稱等於 'Roach motel' 或 '預算旅館'）。 片語可以包含空格，這是預設的分隔符號。 您可以 specicfy 單引號括住的替代分隔符號，做為第三個字串參數：  
 
 ```
 $filter=search.in(name, 'Roach motel,Budget hotel', ',')
@@ -225,7 +227,7 @@ $filter=search.in(name, 'Roach motel|Budget hotel', '|')
 $filter=tags/any(t: search.in(t, 'wifi, pool'))
 ```
 
-找不到多個標記、 '加熱的毛巾機架' 或 'hairdryer 包含'。 請記得要指定替代的分隔符號，預設的空白分隔符號時無法運作。 
+在標記中找到相符項目在集合中，例如 '加熱的毛巾機架' 或 'hairdryer 包含' 片語。 
 
 ```
 $filter=tags/any(t: search.in(t, 'heated towel racks,hairdryer included', ','))

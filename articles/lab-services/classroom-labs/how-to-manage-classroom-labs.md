@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 4f6d94c7090c2bbb0335d46b60be320b2fc19375
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: c6ae28e076d14faa7c2173f3a23d92daad4bd59e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962820"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651118"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>管理 Azure 實驗室服務中的教室實驗室 
 本文說明如何建立和刪除教室實驗室。 它也示範如何檢視實驗室帳戶中的所有教室實驗室。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要在實驗室帳戶中設定教室實驗室，您必須是實驗室帳戶中 [實驗室建立者] 角色的成員。 您用來建立實驗室帳戶的帳戶會自動新增至此角色。 實驗室擁有者可以使用下列文章中的步驟，將其他使用者新增至「實驗室建立者」角色：[將使用者新增至實驗室建立者角色](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role)。
 
 ## <a name="create-a-classroom-lab"></a>建立教室實驗室
@@ -37,9 +37,9 @@ ms.locfileid: "55962820"
 
         ![建立教室實驗室](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. 在 [選取虛擬機器規格] 頁面上，執行下列步驟：
-    1. 選取在實驗室中建立的虛擬機器 (VM) [大小]。 
+    1. 選取在實驗室中建立的虛擬機器 (VM) [大小]。 目前，**小型**， **medium**，**大型**，以及**GPU**允許大小。
     2. 選取您要在其中建立 VM 的 [區域]。 
-    3. 選取要用來在實驗室中建立 VM 的 [VM 映像]。 
+    3. 選取要用來在實驗室中建立 VM 的 [VM 映像]。 如果您選取的 Linux 映像，您會看到一個選項來啟用遠端桌面連接它。 如需詳細資訊，請參閱 <<c0> [ 啟用適用於 Linux 的遠端桌面連線](how-to-enable-remote-desktop-linux.md)。
     4. 選取 [下一步] 。
 
         ![指定 VM 規格](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
@@ -60,7 +60,7 @@ ms.locfileid: "55962820"
     ![在範本頁面完成後加以設定](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. 以下是本教學課程中的選擇性步驟： 
     1. 選取 [啟動] 以啟動範本 VM。
-    2. 選取 [連線] 以連線至範本 VM。 
+    2. 選取 [連線] 以連線至範本 VM。 如果是 Linux 範本 VM，您可以選擇是否要使用 SSH 或 RDP （如果已啟用 RDP） 連線。
     3. 在您的範本 VM 上安裝並設定軟體。 
     4. **停止** VM。  
     5. 輸入範本的 [描述]

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 619b9b68a5c4e897642e1f84c25c2822d8291400
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2d65d51ae8148e2e55d57d39e306ded0f75da687
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104483"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652581"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>虛擬網路服務端點原則 (預覽)
 
@@ -145,7 +145,7 @@ __Azure 儲存體__：WestCentralUS、WestUS2。
 - **對等互連、已連線或多個虛擬網路**：若要篩選對等互連虛擬網路中的流量，您應該將端點原則個別套用至這些虛擬網路。
 - **使用網路設備或 Azure 防火牆篩選網際網路流量**：使用原則來篩選通過端點的 Azure 服務流量，並透過設備或 Azure 防火牆來篩選其餘網際網路或 Azure 流量。 
 - **篩選已部署在虛擬網路中的 Azure 服務流量**：在預覽期間，服務端點原則不支援部署於虛擬網路中的任何受控 Azure 服務。 
- 如需特定服務，請參閱[限制](#Limitations)。
+ 如需特定服務，請參閱[限制](#limitations)。
 - **篩選從內部部署到 Azure 服務的流量**：服務端點原則只適用於來自原則相關聯子網路的流量。 若要允許從內部部署存取特定的 Azure 服務資源，則應該使用網路虛擬設備或防火牆篩選流量。
 
 ## <a name="logging-and-troubleshooting"></a>記錄和疑難排解

@@ -4,7 +4,7 @@ description: 說明定義可用於定義 Service Fabric Reliable Actors 狀態�
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 6e50e4dc-969a-4a1c-b36c-b292d964c7e3
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 4539351738d423704961eed6e616bd8ac5d682d1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: c8eeeb0ade6ca002adf3211cbf49127be9b76edb
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209047"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667502"
 ---
 # <a name="notes-on-service-fabric-reliable-actors-type-serialization"></a>Service Fabric Reliable Actors 類型序列化的注意事項
 所有方法的引數、動作項目介面中每個方法所傳回之工作的結果類型，以及動作項目的狀態管理員中儲存的物件都必須[可資料合約序列化](/dotnet/framework/wcf/feature-details/types-supported-by-the-data-contract-serializer)。 這也適用於在 [動作項目事件介面](service-fabric-reliable-actors-events.md)中定義的方法引數。 (動作項目事件介面方法一律會傳回無效)。
@@ -146,7 +146,7 @@ public class VoicemailBox implements Serializable
 
 
 ## <a name="next-steps"></a>後續步驟
-* [動作項目生命週期與記憶體回收](service-fabric-reliable-actors-lifecycle.md)
+* [执行组件生命周期和垃圾回收](service-fabric-reliable-actors-lifecycle.md)
 * [動作項目計時器和提醒](service-fabric-reliable-actors-timers-reminders.md)
 * [動作項目事件](service-fabric-reliable-actors-events.md)
 * [動作項目重新進入](service-fabric-reliable-actors-reentrancy.md)
