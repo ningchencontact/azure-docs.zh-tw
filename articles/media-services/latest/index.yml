@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d4e80fd18de40c7df806f0a72612cec7bb71e2d2
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 9408134fa020a143a1b32d5b3600f6e19de7008e
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339176"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663635"
 documentType: LandingData
 title: Azure 媒體服務文件 v3 文件
 metadata:
@@ -21,24 +21,18 @@ metadata:
   ms.date: 03/20/2019
   ms.author: juliako
 abstract:
-  description: 了解如何使用媒體服務 v3 來串流隨選影片、即時廣播及分析您的影片。 教學課程、API 參考和其他文件會示範如何安全地提供可針對數百萬位使用者調整的隨選和即時視訊或音訊串流。 <br/> SDK 是以<a href="https://aka.ms/ams-v3-rest-sdk">媒體服務 v3 OpenAPI 規格 (Swagger)</a>為根據。
+  description: 了解如何使用媒體服務 v3 來編碼和封裝內容、串流隨選影片、即時廣播及分析您的影片。 教學課程、API 參考和其他文件會示範如何安全地提供可針對數百萬位使用者調整的隨選和即時視訊或音訊串流。 <br/> SDK 是以<a href="https://aka.ms/ams-v3-rest-sdk">媒體服務 v3 OpenAPI 規格 (Swagger)</a>為根據。
 sections:
-- items:
+- title: 
+  items:
   - type: list
     style: cards
-    className: cardsM
-    columns: 2
+    className: cardsD
     items:
-    - image:
-        src: 
-      html: <p>了解媒體服務基本概念。</p>
-      href: /azure/media-services/latest/concepts-overview/
-      title: 了解概念
-    - image:
-        src: 
-      html: <p>您目前無法使用 Azure 入口網站管理 v3 資源。 請使用 REST API、CLI 或其中一個支援的 SDK。</p>
-      href: /azure/media-services/latest/developers-guide/
-      title: 使用 v3 API 進行開發
+    - title: 了解概念
+      html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">雲端上傳和儲存體</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">編碼</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">媒體分析</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">封裝</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">保護</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">即時資料流</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">播放機用戶端</a></p>
+    - title: 使用 v3 API 進行開發
+      html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">開始使用 SDK 開發</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">以 REST 開發</a></p>
 - title: 5 分鐘快速入門
   items:
   - type: paragraph
@@ -47,32 +41,60 @@ sections:
     style: icon48
     items:
     - image:
-        src: media/index/AMSIcons-encoding.svg
-      text: 串流影片檔案
+        src: media/index/dotnet.svg
+      text: 使用 .NET 編碼和串流
       href: /azure/media-services/latest/stream-files-dotnet-quickstart
+    - image:
+        src: media/index/cli.svg
+      text: 使用 CLI 編碼和串流
+      href: /azure/media-services/latest/stream-files-cli-quickstart
+    - image:
+        src: media/index/logo_nodejs.svg
+      text: 使用 Node.js 編碼和串流
+      href: /azure/media-services/latest/stream-files-nodejs-quickstart
 - title: 逐步教學課程
   items:
   - type: paragraph
     text: 了解如何使用媒體服務 v3 來串流隨選檔案、即時廣播及分析您的影片：
   - type: list
-    style: icon48
+    style: cards
+    className: cardsM
+    columns: 1
     items:
     - image:
-        src: media/index/AMSIcons-encoding.svg
-      text: 上傳、編碼和串流影片
+        src: media/index/dotnet.svg
+      html: <p>教學課程會上傳本機影片檔案、將檔案編碼並串流已編碼的內容。<p/>
       href: /azure/media-services/latest/stream-files-tutorial-with-api
+      title: 將已上傳檔案編碼和串流影片
     - image:
-        src: media/index/AMSIcons-live.svg
-      text: 即時廣播
+        src: media/index/dotnet.svg
+      html: <p>教學課程會說明如何設定即時事件。 接著會說明如何使用 .NET 建立即時事件的傳遞類型。</p>
       href: /azure/media-services/latest/stream-live-tutorial-with-api
+      title: 即時廣播
     - image:
-        src: media/index/AMSIcons-media_analytics.svg
-      text: 分析您的影片
+        src: media/index/dotnet.svg
+      html: <p>本教學課程會示範如何使用 Azure 媒體服務 API 分析影片。</p>
       href: /azure/media-services/latest/analyze-videos-tutorial-with-api
+      title: 分析您的影片
+    - image:
+        src: media/index/dotnet.svg
+      html: <p>了解如何設定並使用媒體服務 API，透過 AES-128 將內容動態加密。</p>
+      href: /azure/media-services/latest/protect-with-aes128
+      title: 透過 AES-128 進行動態加密
+    - image:
+        src: media/index/dotnet.svg
+      html: <p>了解如何設定並使用媒體服務 API，透過多重 DRM (PlayReady、Widevine 和 FairPlay) 將內容動態加密。</p>
+      href: /azure/media-services/latest/protect-with-drm
+      title: 透過多重 DRM 進行動態加密
+    - image:
+        src: media/index/rest.svg
+      html: <p>教學課程會顯示如何將 URL 為基礎的遠端檔案編碼及串流影片。</p>
+      href: /azure/media-services/latest/stream-files-tutorial-with-rest
+      title: 編碼遠端檔案和串流影片
 - title: 範例
   items:
   - type: paragraph
-    text: 範例說明如何透過媒體服務 v3，使用 API 來串流影片、即時廣播及分析您的影片：
+    text: 下列 GitHub 範例說明如何透過媒體服務 v3，使用 API 來串流影片、即時廣播及分析您的影片：
   - type: list
     style: icon48
     items:

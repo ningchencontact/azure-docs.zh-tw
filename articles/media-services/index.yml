@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 903c1153db57f7cb632fc752bb696598902f5aaa
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: abfcece2d71e456a39284ddb4cfa106bce31fb53
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519709"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670212"
 documentType: LandingData
 title: Azure 媒體服務文件
 metadata:
@@ -30,22 +30,27 @@ sections:
     columns: 2
     items:
     - href: /azure/media-services/latest/
-      html: <p>了解如何使用媒體服務 v3 來編碼、串流隨選項目、即時廣播及分析您的影片。</p>
+      html: <p>使用媒體服務 v3 來編碼、封裝和保護內容、串流隨選影片、即時廣播及分析您的影片。</p>
       image:
         src: media/index/AMSIcons-media_servicesV3.svg
       title: Azure 媒體服務 v3
     - href: /azure/media-services/video-indexer/
-      html: <p>了解如何使用影片索引器從視訊和音訊檔案中擷取深入解析。</p>
+      html: <p>使用影片索引器從影片和音訊檔案中擷取深入解析。</p>
       image:
         src: media/index/AMSIcons-media_analytics.svg
       title: 影片索引子
     - href: /azure/media-services/previous/
-      html: <p>媒體服務 v2 不會再新增任何新的特性或功能。 查看最新的媒體服務 v3 版本。</p>
+      html: <p>媒體服務 v2 不會再新增任何新的特性或功能。 </p>
       image:
-        src: media/index/AMSIcons-media_servicesV2.svg
+        src: 
       title: Azure 媒體服務 v2 (舊版)
     - href: /azure/cdn/
-      html: <p>了解如何使用 CDN 來快取靜態物件，並加速無法快取的動態內容。</p>
+      html: <p>使用 CDN 來快取靜態物件，並加速無法快取的動態內容。</p>
       image:
         src: /azure/cdn/media/index/cdn.svg
       title: CDN
+    - href: http://amp.azure.net/libs/amp/latest/docs/index.html
+      html: <p>在各種瀏覽器和裝置上播放 Microsoft Azure 媒體服務的媒體內容。</p>
+      image:
+        src: 
+      title: Azure 媒體播放器

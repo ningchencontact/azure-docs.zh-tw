@@ -128,29 +128,64 @@ items:
       href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-java
     - name: 遠端監視常見問題集
       href: iot-accelerators-faq-rm-v2.md
-- name: 連線的處理站
+- name: 企業 IoT
   items:
   - name: 概觀
-    href: iot-accelerators-connected-factory-features.md
     items:
-    - name: 架構
-      href: iot-accelerators-connected-factory-sample-walkthrough.md
+    - name: 什麼是企業 IoT
+      href: overview-iot-industrial.md
+    - name: OPC 對應項
+      items:
+      - name: 什麼是 OPC 對應項
+        href: overview-opc-twin.md
+      - name: OPC 對應項架構
+        href: overview-opc-twin-architecture.md
+    - name: OPC 保存庫
+      items:
+      - name: 什麼是 OPC 保存庫
+        href: overview-opc-vault.md
+    - name: 連線的處理站
+      items:
+      - name: 連線的處理站概觀
+        href: iot-accelerators-connected-factory-features.md
+      - name: 連線的處理站架構
+        href: iot-accelerators-connected-factory-sample-walkthrough.md
   - name: 快速入門
     items:
     - name: 試用連線的處理站解決方案
       href: quickstart-connected-factory-deploy.md
   - name: 使用說明指南
     items:
-    - name: 使用儀表板
-      href: iot-accelerators-connected-factory-dashboard.md
-    - name: 部署閘道
-      href: iot-accelerators-connected-factory-gateway-deployment.md
-    - name: 使用 OPC 發行者
-      href: https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md
-    - name: 設定解決方案加速器
-      href: iot-accelerators-connected-factory-configure.md
-    - name: 自訂解決方案加速器
-      href: iot-accelerators-connected-factory-customize.md
+    - name: 連線的處理站
+      items:
+      - name: 使用儀表板
+        href: iot-accelerators-connected-factory-dashboard.md
+      - name: 部署閘道
+        href: iot-accelerators-connected-factory-gateway-deployment.md
+      - name: 使用 OPC 發行者
+        href: https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md
+      - name: 設定解決方案加速器
+        href: iot-accelerators-connected-factory-configure.md
+      - name: 自訂解決方案加速器
+        href: iot-accelerators-connected-factory-customize.md
+    - name: OPC 對應項
+      items:
+      - name: 部署 OPC 對應項服務
+        href: howto-opc-twin-deploy-existing.md
+      - name: 將 OPC 對應項模組部署到 IoT Edge
+        href: howto-opc-twin-deploy-modules.md
+      - name: 僅部署 OPC 對應項相依性
+        href: howto-opc-twin-deploy-dependencies.md
+    - name: OPC 保存庫
+      items:
+      - name: 將 OPC 保存庫部署到現有專案
+        items:
+        - name: OPC 用戶端和 OPC PLC 間的安全通訊
+          href: howto-opc-vault-deploy-existing-client-plc-communication.md
+        - name: 保護 OPC UA 用戶端和 OPC UA 伺服器應用程式
+          href: howto-opc-vault-deploy-existing-client-server-communication.md
+      - name: 從頭開始部署 OPC 保存庫
+        href: howto-opc-vault-deploy-scratch.md
   - name: 資源
     items:
     - name: GitHub 存放庫
@@ -257,9 +292,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
   - name: 遠端監視 V1
     href: https://docs.microsoft.com/previous-versions/azure/iot-suite/
-ms.openlocfilehash: 5b2067facd27e94735aba63bb1c54c15e1511c64
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 02c728f7acef1bcc1436d87dd0c0d9509db8ec97
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342032"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757191"

@@ -54,7 +54,19 @@ items:
 - name: 教學課程
   items:
   - name: 路由訊息
-    href: tutorial-routing.md
+    items:
+    - name: 第 1 部份 - 設定訊息路由
+      items:
+      - name: 入口網站
+        href: tutorial-routing.md
+      - name: Azure RM 範本
+        href: tutorial-routing-config-message-routing-RM-template.md
+      - name: Azure CLI
+        href: tutorial-routing-config-message-routing-CLI.md
+      - name: PowerShell
+        href: tutorial-routing-config-message-routing-PowerShell.md
+    - name: 第 2 部份 - 檢視訊息路由結果
+      href: tutorial-routing-view-message-routing-results.md
   - name: 使用計量和診斷記錄
     href: tutorial-use-metrics-and-diags.md
   - name: 執行手動容錯移轉
@@ -445,9 +457,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: 影片
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 3bde9a6b9abcb5b99224ae9397756fe410cc0708
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 1360a16f6b8fe786eb933de991e45f9f6d0ce825
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791863"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630741"
