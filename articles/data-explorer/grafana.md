@@ -3,17 +3,17 @@ title: 在 Grafana 中從 Azure 資料總管將資料視覺化
 description: 在此操作說明中，您將了解如何將 Azure 資料總管設定為 Grafana 的資料來源，然後從叢集範例中將資料視覺化。
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2018
-ms.openlocfilehash: 141859d155383b01cfea998c6b7158848517eac2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c77475c052ab3ce74563aba6e4c75a50c7e41bcc
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531947"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758273"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>在 Grafana 中從 Azure 資料總管將資料視覺化
 

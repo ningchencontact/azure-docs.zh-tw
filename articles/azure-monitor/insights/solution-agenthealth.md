@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: cca234340526b732067adac3c6725f8aa5acc47c
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 294695cceaed39a66a57dcd3a165ca276b6801c6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983369"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757971"
 ---
-#  <a name="agent-health-solution-in-azure"></a>Azure 中的代理程式健全狀況解決方案
-Azure 中的代理程式健全狀況解決方案可協助您了解，所有回報的代理程式直接至 Log Analytics 工作區或 System Center Operations Manager 管理群組連線到 Azure 監視器，也就是沒有回應，以及提交作業資料。  您可以也追蹤已部署的代理程式數目，其散佈地區，並執行其他查詢，以留意 Azure、其他雲端環境或內部部署中部署之代理程式的散佈情形。    
+#  <a name="agent-health-solution-in-azure-monitor"></a>Azure 監視器中的代理程式健全狀況解決方案
+Azure 中的代理程式健全狀況解決方案可協助您了解，針對所有直接向 Log Analytics 工作區，在 Azure 監視器中報告的代理程式或 System Center Operations Manager 管理群組的連線是 Azure 監視器，而這是沒有回應，正在提交作業資料。  您可以也追蹤已部署的代理程式數目，其散佈地區，並執行其他查詢，以留意 Azure、其他雲端環境或內部部署中部署之代理程式的散佈情形。    
 
 ## <a name="prerequisites"></a>必要條件
 部署這個解決方案之前，請確認您目前支援向 Log Analytics 工作區或向與工作區整合之 [Operations Manager 管理群組](../../azure-monitor/platform/om-agents.md)回報的 [Windows 代理程式](../../log-analytics/log-analytics-windows-agent.md)。
@@ -62,7 +62,7 @@ Azure 中的代理程式健全狀況解決方案可協助您了解，所有回�
 | 依 OS 類型分配 | 劃分您的環境中有多少個 Windows 和 Linux 代理程式。|
 | 依代理程式版本分配 | 劃分您的環境中安裝的不同代理程式版本，以及每個版本的計數。|
 | 依代理程式類別分配 | 劃分傳送活動訊號事件的不同代理程式類別：直接代理程式、OpsMgr 代理程式或 OpsMgr 管理伺服器。|
-| 依管理群組分配 | 劃分您的環境中不同的 SCOM 管理群組。|
+| 依管理群組分配 | 在您的環境中不同的 Operations Manager 管理群組的資料分割。|
 | 代理程式的地理位置 | 劃分您擁有代理程式的不同國家/地區，以及在每個國家/地區安裝的代理程式總計數。|
 | 已安裝的閘道計數 | 已安裝 Log Analytics 閘道的伺服器數目，以及這些伺服器的清單。|
 
@@ -117,4 +117,4 @@ Azure 中的代理程式健全狀況解決方案可協助您了解，所有回�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 深入了解[在 Azure 監視器中的警示](../platform/alerts-overview.md)如需有關從 Log Analytics 中產生警示。 
+* 深入了解[在 Azure 監視器中的警示](../platform/alerts-overview.md)如需有關記錄檔查詢中產生警示。 

@@ -7,21 +7,18 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: fd680b00feb8a75dfec952d7211554100fca00d8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7cb02a0793a4c96c98b4932b6046839f004461bc
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075061"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758123"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>將影片索引子小工具內嵌到應用程式中
 
 本文說明如何將影片索引子小工具內嵌到應用程式中。 影片索引子支援將兩種類型的小工具內嵌到應用程式中：**認知深入解析**和**播放器**。 
-
-> [!NOTE]
-> 從 2018 年 2 月 1 日開始，第 1 版**認知見解**小工具將會被取代。 內嵌的 URL 版本將預設為 `version=2`。
 
 從第 2 版開始，小工具基底 URL 包括帳戶的區域。 例如，美國西部區域中的帳戶會產生：`https://wus2.videoindexer.ai/embed/insights/...`。
 
@@ -34,7 +31,6 @@ ms.locfileid: "58075061"
 |名稱|定義|描述|
 |---|---|---|
 |widgets|以逗號分隔的字串|可讓您控制您想要呈現的深入解析。 <br/>範例：`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` 只會呈現人員和品牌 UI 深入解析<br/>可用的選項：人員、關鍵字、註解、品牌、情緒、文字記錄、搜尋。<br/>使用 version=2 時無法透過 URL 支援<br/><br/>**附註：** 如果使用 **version=2**，則不支援 **widgets** URL 參數。 |
-|version|**認知深入解析**小工具的版本|若要取得最新的深入解析小工具更新，請在內嵌 URL 中新增 `?version=2` 查詢參數。 例如， `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> 若要取得較舊的版本，只要從 URL 中移除 `version=2` 即可。
 
 ### <a name="player-widget"></a>播放器小工具
 

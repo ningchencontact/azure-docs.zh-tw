@@ -1,6 +1,6 @@
 ---
-title: 了解 IoT 成本預覽 ASC |Microsoft Docs
-description: 深入了解 IoT 和控制它們 ASC 與相關聯的成本。
+title: 了解 IoT 的 Azure 資訊安全中心的成本預覽 |Microsoft Docs
+description: 深入了解 IoT 和控制它們與 Azure 資訊安全中心相關聯的成本。
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: e694bb1a121b172fe67fbde0bd956700a75dfe12
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: e2822b0f2f665220f215b85800081fa2fa7943f9
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580654"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758047"
 ---
-# <a name="pricing-and-associated-costs"></a>定價及相關聯的成本
+# <a name="pricing-and-associated-costs"></a>定價和相關成本
 
 > [!IMPORTANT]
-> Iot 的 ASC 目前處於公開預覽狀態。
+> IoT 的 azure 資訊安全中心目前處於公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-這篇文章說明 ASC 計價模式的 iot、 摘要說明所有相關聯的成本，並說明如何管理它們。
+這篇文章說明 Azure 資訊安全中心 (ASC) IoT 定價模型、 摘要說明所有相關聯的成本，並說明如何管理它們。
 
 ## <a name="pricing"></a>價格
 

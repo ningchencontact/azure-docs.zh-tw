@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/29/2019
 ms.author: babanisa
-ms.openlocfilehash: 23654dd41714314ab5c9f217d4f805d7b9d62413
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 2d56a7cda88f96a6728dc1c3e4af8e9ad0bf946f
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472801"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755521"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 安全性與驗證 
 
@@ -41,7 +41,9 @@ Webhook 是從 Azure 事件方格接收事件的眾多方法之一。 當新事�
 
    從 2018-05-01-preview 版開始，「事件方格」支援手動驗證交握。 如果您是以採用 API 2018-05-01-preview 版或更新版本的 SDK 或工具來建立事件訂閱，「事件方格」就會在訂閱驗證事件的資料部分中一併傳送 `validationUrl` 屬性。 若要完成交握，請在事件資料中找出該 URL，然後手動將 GET 要求傳送給它。 您可以使用 REST 用戶端或您的網頁瀏覽器。
 
-   您的有效期為 5 分鐘內使用提供的 URL。 在那段時間，事件訂閱的佈建狀態為 `AwaitingManualAction`。 如果您未在 10 分鐘內完成手動驗證，則會將佈建狀態設為 `Failed`。 您必須再次建立事件訂閱，才能開始進行手動驗證。
+   您的有效期為 5 分鐘內使用提供的 URL。 在那段時間，事件訂閱的佈建狀態為 `AwaitingManualAction`。 如果您沒有完成手動驗證，在 5 分鐘內，設定佈建狀態為`Failed`。 您必須再次建立事件訂閱，才能開始進行手動驗證。
+
+    此驗證機制也需要 webhook 端點，讓它知道置於手動驗證模式之前，已接受驗證事件的 POST，傳回 HTTP 狀態碼 200。 換句話說，如果端點會傳回 200，但不傳回回驗證回應以程式設計的方式，模式轉換為手動驗證模式。 如果沒有在 5 分鐘內取得的驗證 URL，驗證信號交換視為成功。
 
 ### <a name="validation-details"></a>驗證詳細資料
 

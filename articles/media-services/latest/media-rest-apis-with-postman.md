@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 24ee0083ec79265f0ac4dfc0a2e235bc72522831
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: cecfd0fafd17e9c463e0c0a74f1e30290a53d82f
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813886"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758193"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>設定 Postman 以進行媒體服務 REST API 呼叫
 
@@ -89,6 +89,13 @@ ms.locfileid: "55813886"
 
     ![取得 AAD 權杖](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
+## <a name="see-also"></a>請參閱
+
+- [將檔案上傳至媒體服務帳戶 - REST](upload-files-rest-how-to.md)
+- [使用媒體服務建立篩選 - REST](filters-dynamic-manifest-rest-howto.md)
+- [以 Azure Resource Manager 為基礎的 REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates)
+
 ## <a name="next-steps"></a>後續步驟
 
-[使用 REST 串流檔案](stream-files-tutorial-with-rest.md)。  
+- [使用 REST 串流檔案](stream-files-tutorial-with-rest.md)。  
+- [教學課程：編碼以 URL 為基礎的遠端檔案及串流處理影片 - REST](stream-files-tutorial-with-rest.md)

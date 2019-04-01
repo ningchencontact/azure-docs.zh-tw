@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: c52565403c7fbc80eacbf65428863db07d634030
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 673dcbeb630899eebc328cd4fae16f7fe8f47a55
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897277"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757608"
 ---
 # <a name="azure-api-management-template-resources"></a>Azure API 管理中的範本資源
 Azure API 管理提供下列類型的資源，用於開發人員入口網站的範本。  
@@ -45,6 +45,29 @@ Azure API 管理提供下列類型的資源，用於開發人員入口網站的�
   
 ```  
   
+支援下列的當地語系化選項：
+
+| 地區設定    | 語言               |
+|-----------|------------------------|
+| 「zh-tw」      | 「 英文 」              |
+| "cs"      | 「 Čeština"              |
+| "de"      | 「 Deutsch"              |
+| "es"      | 「 西班牙"              |
+| "fr"      | "Français"             |
+| 「 hu"      | 「 Magyar"               |
+| "it"      | 「 Italiano"             |
+| "JA-JP"   | "日本語"                |
+| 「 僅限 ko"      | "한국어"                |
+| "nl"表示      | 「 Nederlands"           |
+| 「 pl"      | 「 Polski"               |
+| "pt-br"   | "Português (Brasil)"   |
+| "pt-pt"   | "Português (Portugal)" |
+| "ru"      | "Русский"              |
+| "sv"      | 「 Svenska"              |
+| 「 tr"      | "Türkçe"               |
+| "zh-hans" | "中文(简体)"           |
+| 「 zh-hans" | "中文(繁體)"           |
+
  關於開發人員入口網站範本中可使用的字串資源，請參閱下列表格。 請使用表格名稱做為該表格中字串資源的前置詞。  
   
 -   [ApisStrings](#ApisStrings)  

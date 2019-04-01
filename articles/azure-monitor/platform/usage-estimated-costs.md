@@ -9,18 +9,18 @@ ms.date: 08/11/2018
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 7911bd398b6760fb4f83382868f040382b86cd1f
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 2e59699b667215d4b09e4d87c1776431631348e8
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480532"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754255"
 ---
-# <a name="monitoring-usage-and-estimated-costs"></a>監視使用量和估計成本
+# <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>在 Azure 監視器中監視使用量和估計成本
 
 > [!NOTE]
 > 本文說明如何針對不同的定價模型，檢視多項 Azure 監視功能的使用量和估計成本。  請參閱下列文章以了解相關資訊。
-> - [藉由控制 Log Analytics 中的資料量與保留期來管理成本](../../azure-monitor/platform/manage-cost-storage.md)說明如何藉由變更資料保留期限來控制成本。
+> - [藉由控制 Log Analytics 中的資料量與保留期來管理成本](manage-cost-storage.md)說明如何藉由變更資料保留期限來控制成本。
 > - [分析 Log Analytics 中的資料使用量](../../azure-monitor/platform/data-usage.md)說明如何分析資料使用量及提出警示。
 > - [管理 Application Insights 的價格和資料量](../../azure-monitor/app/pricing.md)說明如何分析 Application Insights 中的資料使用量。
 
@@ -184,7 +184,7 @@ Invoke-AzResourceAction `
 如果您想要移轉裝載在相同租用戶的多個訂用帳戶，可使用下列指令碼的片段建立您自己的變體：
 
 ```powershell
-#Query tenant and create an array comprised of all of your tenants subscription ids
+#Query tenant and create an array comprised of all of your tenants subscription IDs
 $TenantId = <Your-tenant-id>
 $Tenant =Get-AzSubscription -TenantId $TenantId
 $Subscriptions = $Tenant.Id
@@ -204,7 +204,7 @@ Invoke-AzResourceAction `
 }
 ```
 
-建立產生三個陣列的指令碼可以進一步重新調整指令碼。 一個陣列將包含 ```isGrandFatherableSubscription``` 是設為 True 的所有訂用帳戶識別碼，且 optedInDate 目前沒有值。 目前在新定價模型上的任何訂用帳戶第二陣列。 僅填入租用戶訂用帳戶識別碼 (不適合新的定價模型) 的第三陣列：
+建立產生三個陣列的指令碼可以進一步重新調整指令碼。 一個陣列將會包含所有訂用帳戶識別碼具有```isGrandFatherableSubscription```設為 True 且 optedInDate 目前沒有值。 目前在新定價模型上的任何訂用帳戶第二陣列。 只填入訂用帳戶識別碼在您的租用戶中的第三個陣列不適用新定價模式：
 
 ```powershell
 [System.Collections.ArrayList]$Eligible= @{}

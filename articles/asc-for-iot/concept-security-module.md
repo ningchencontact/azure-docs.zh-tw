@@ -1,6 +1,6 @@
 ---
-title: 了解 IoT 安全性模組對應項預覽 ASC |Microsoft Docs
-description: 深入了解安全性模組對應項和如何用於 ASC iot 的概念。
+title: 了解 Azure 資訊安全中心的 IoT 安全性模組對應項的結果預覽 |Microsoft Docs
+description: 深入了解安全性模組對應項以及如何使用 Azure 資訊安全中心的 IoT 的概念。
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: d766b17c9d49792d2e8192a952e8e6e559a8acd3
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 56bc93973bd2c080b13b97f1344cc165f742e757
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579371"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758413"
 ---
 # <a name="security-module"></a>安全性模組
 
 > [!IMPORTANT]
-> Iot 的 ASC 目前處於公開預覽狀態。
+> IoT 的 azure 資訊安全中心目前處於公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-這篇文章說明 iot ASC 如何使用裝置對應項和模組。 
+這篇文章說明 Azure 資訊安全中心 (ASC) 設定為 IoT 如何使用裝置對應項和模組。 
 
 ## <a name="device-twins"></a>裝置對應項
 

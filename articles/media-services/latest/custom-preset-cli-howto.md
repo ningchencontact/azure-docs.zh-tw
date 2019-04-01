@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: ''
 ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 7160b7c9cdb82d378870edb1750c9d9016aa2d18
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: b0329c8c0bfa56e5ae36c5f4223edca91e6510a0
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58006847"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755590"
 ---
-# <a name="how-to-encode-with-a-custom-transform-by-using-cli"></a>如何使用 CLI，使用自訂的轉換進行編碼
+# <a name="how-to-encode-with-a-custom-transform---cli"></a>如何使用自訂的轉換-CLI 進行編碼
 
 當使用 Azure 媒體服務編碼，您可以快速開始使用其中一個建議的內建預設值，根據業界最佳作法，如所示[串流檔案](stream-files-cli-quickstart.md#create-a-transform-for-adaptive-bitrate-encoding)快速入門。 您也可以建置自訂預設值為目標的特定案例或裝置需求。
 

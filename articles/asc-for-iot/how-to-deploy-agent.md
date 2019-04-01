@@ -1,6 +1,6 @@
 ---
-title: 選取和部署 IoT 代理程式預覽 ASC |Microsoft Docs
-description: 了解關於如何選取和部署 IoT 裝置上的 IoT 安全性代理程式 ASC。
+title: 選取和部署 IoT 代理程式預覽的 Azure 資訊安全中心 |Microsoft Docs
+description: 了解關於如何選取和部署 Azure 資訊安全中心的 IoT 裝置上的 IoT 安全性代理程式。
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 208f7cdbc9d610713d73c5af1e02de5faf11474c
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d3a7c3b1b08ab4f0fecd854b969ac18bf9a73ccf
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580789"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755302"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>選取並部署您的 IoT 裝置上的安全性代理程式
 
 > [!IMPORTANT]
-> Iot 的 ASC 目前處於公開預覽狀態。
+> IoT 的 azure 資訊安全中心目前處於公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-ASC iot 會提供參考架構的安全性監視和收集資料，從 IoT 裝置的代理程式。
+IoT 的 azure 資訊安全中心 (ASC) 提供參考架構的安全性監視和收集資料，從 IoT 裝置的代理程式。
 請參閱[安全性代理程式參考架構](security-agent-architecture.md)若要深入了。
 
 代理程式會開發做為開放原始碼專案，並且提供兩種類別： <br> [C](https://aka.ms/iot-security-github-c)，並[ C# ](https://aka.ms/iot-security-github-cs)。

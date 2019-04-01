@@ -1,6 +1,6 @@
 ---
-title: IoT 代理程式預覽的 Windows 安裝的 ASC |Microsoft Docs
-description: 深入了解如何為 32 位元或 64 位元的 Windows 裝置上的 IoT 代理程式安裝 ASC。
+title: Azure 資訊安全中心的 IoT 代理程式預覽的 Windows 安裝 |Microsoft Docs
+description: 深入了解如何安裝 Azure 資訊安全中心在 32 位元或 64 位元的 Windows 裝置上的 IoT 代理程式。
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: 5c3293746fcc52570e708fd4bfab446981d49c24
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 7e3cb1f44711a8eedb248320db8bce5dfd0eaf0c
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621823"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754596"
 ---
-# <a name="deploy-an-asc-for-iot-c-based-security-agent-for-windows"></a>針對 IoT 部署 ASC C#-Windows 的安全性代理程式
+# <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>針對 IoT 部署 Azure 資訊安全中心C#為基礎的 Windows 安全性代理程式
 
 > [!IMPORTANT]
-> Iot 的 ASC 目前處於公開預覽狀態。
+> IoT 的 azure 資訊安全中心目前處於公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-本指南說明如何安裝適用於 IoT ASC C#-在 Windows 上的安全性代理程式。
+本指南說明如何安裝 Azure 資訊安全中心 (ASC) 適用於 IoT C#-在 Windows 上的安全性代理程式。
 
 在本指南中，您將了解如何： 
 > [!div class="checklist"]

@@ -1,6 +1,6 @@
 ---
-title: 什麼是 IoT 預覽的 ASC |Microsoft Docs
-description: 了解 ASC IoT 功能和服務。
+title: 什麼是 IoT 預覽的 Azure 資訊安全中心 |Microsoft Docs
+description: 了解 Azure 資訊安全中心的 IoT 功能和服務。
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 46107797acad52e3df82d341750c52f99c81d63e
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 21737017c5087d25e36aec9701d3b4c5ddcb54e8
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578810"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757582"
 ---
-# <a name="introducing-asc-for-iot"></a>針對 IoT 導入 ASC
+# <a name="introducing-azure-security-center-for-iot"></a>簡介 Azure 資訊安全中心的 IoT
 
 > [!IMPORTANT]
-> Iot 的 ASC 目前處於公開預覽狀態。
+> IoT 的 azure 資訊安全中心目前處於公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 ## <a name="secure-your-azure-iot-solution"></a>保護您的 Azure IoT 解決方案 
@@ -35,7 +35,7 @@ ms.locfileid: "58578810"
 
 物聯網正快速改變我們的世界。 從連接的裝置和後端系統的能力來發掘的深入解析，您現在可以轉換這些強大的應用程式和服務，以協助組織達到前所未有的操作和商務的深入效能。 不過，如數十億個新的裝置會連線到網際網路，並整合到我們日常生活與我們的企業;您的安全性作業小組必須確保其安全性策略夠快速發展來涵蓋這些新的受攻擊面。 像任何其他的系統，保護您的 IoT 解決方案需要您實作的每個階段的保護。 
 
-ASC IoT 的簡化混合式工作負載保護執行的工作負載在邊緣，內部部署，在 Azure 中，與其他雲端提供統一的可見性和控制，調適性威脅防護和智慧型威脅偵測和回應。 
+IoT 的 azure 資訊安全中心 (ASC) 執行的工作負載在邊緣，內部部署，和在 Azure 中，提供統一的可見性和控制，調適性威脅防護和智慧型威脅偵測和回應的簡化混合式工作負載保護其他雲端中。 
 
 ![IoT 架構的 ASC](./media/architecture/asc-for-iot-architecture.png)
 

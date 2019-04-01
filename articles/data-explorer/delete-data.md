@@ -2,18 +2,18 @@
 title: 從 Azure 資料總管刪除資料
 description: 此文章說明 Azure 資料總管中的大量刪除案例，包括清除和以保留期為基礎的刪除。
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 485ee48bf197ad996bba8a516b80882f44ba623a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 48336b424ef1783d8eb123ac45bfc03b98d5481b
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212908"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756971"
 ---
 # <a name="delete-data-from-azure-data-explorer"></a>從 Azure 資料總管刪除資料
 

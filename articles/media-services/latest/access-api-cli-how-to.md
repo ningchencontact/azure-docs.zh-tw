@@ -12,19 +12,19 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 43f9443e4b5cd700500bd9803f2737ed9e0aa633
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 257fe51cae245708816cd9a7bb0c33b6edf5aa05
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223154"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756012"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>使用 Azure CLI 存取 Azure 媒體服務 API
  
 您應該使用 Azure AD 服務主體驗證來連線至 Azure 媒體服務 API。 您的應用程式必須要求擁有下列參數的 Azure AD 權杖：
 
 * Azure AD 租用戶端點
-* 媒體服務資源 URI
+* 媒体服务资源 URI
 * REST 媒體服務的資源 URI
 * Azure AD 應用程式值：用戶端識別碼和用戶端祕密
 
@@ -40,10 +40,19 @@ ms.locfileid: "55223154"
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
+## <a name="see-also"></a>請參閱
+
+- [調整媒體保留單元 - CLI](media-reserved-units-cli-how-to.md)
+- [建立媒體服務帳戶 - CLI](./scripts/cli-create-account.md) 
+- [重設帳戶認證 - CLI](./scripts/cli-reset-account-credentials.md)
+- [建立資產 - CLI](./scripts/cli-create-asset.md)
+- [上傳檔案 - CLI](./scripts/cli-upload-file-asset.md)
+- [建立轉換 - CLI](./scripts/cli-create-transform.md)
+- [建立作業 - CLI](./scripts/cli-create-jobs.md)
+- [建立 EventGrid - CLI](./scripts/cli-create-event-grid.md)
+- [發佈資產 - CLI](./scripts/cli-publish-asset.md)
+- [篩選 - CLI](filters-dynamic-manifest-cli-howto.md)
+
 ## <a name="next-steps"></a>後續步驟
-
-[串流處理檔案](stream-files-dotnet-quickstart.md)
-
-## <a name="see-also"></a>另請參閱
 
 [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)

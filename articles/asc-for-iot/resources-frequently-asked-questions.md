@@ -1,6 +1,6 @@
 ---
-title: 常見問題集 ASC IoT preview |Microsoft Docs
-description: 尋找解答常見問題 ASC IoT 功能和服務。
+title: Azure 資訊安全中心的常見問題 IoT 預覽 |Microsoft Docs
+description: 尋找最常見問題集解答有關 Azure 資訊安全中心的 IoT 功能和服務。
 services: ASCforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 8940d629d2f4827ee724c813a40394378dde5a4c
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: dab30a03ff73664fde4e5377794d3ae00625af93
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575142"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755333"
 ---
-# <a name="asc-for-iot-frequently-asked-questions"></a>Iot 的 ASC 常見問題集  
+# <a name="azure-security-center-for-iot-frequently-asked-questions"></a>IoT 的 azure 資訊安全中心常見問題集  
 
 > [!IMPORTANT]
-> Iot 的 ASC 目前處於公開預覽狀態。
+> IoT 的 azure 資訊安全中心目前處於公開預覽狀態。
 > 此預覽版的服務等級協定，不提供，且不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-這篇文章提供 IoT 一份常見問題集與 ASC 的解答。 
+這篇文章提供 IoT 一份常見問題與解答有關 Azure 資訊安全中心 (ASC)。 
 
 ## <a name="does-azure-provide-support-for-iot-security"></a>Azure 提供支援 IoT 安全性？
 

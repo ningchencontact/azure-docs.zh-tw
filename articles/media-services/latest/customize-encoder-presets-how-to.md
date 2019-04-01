@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 03/11/2019
 ms.author: juliako
-ms.openlocfilehash: 848da2996b71b137c6112225c9bef7e93b457c7d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ed2ae50aa9d7a26ed6e0569264ee981f7be35525
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57837230"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754551"
 ---
-# <a name="how-to-encode-with-a-custom-transform-by-using-net"></a>如何使用.NET 編碼進行自訂轉換
+# <a name="how-to-encode-with-a-custom-transform---net"></a>如何使用自訂的轉換為.NET 進行編碼
 
 當使用 Azure 媒體服務編碼，您可以快速開始使用其中一個建議的內建預設值，以根據業界最佳作法，如所示[串流檔案](stream-files-tutorial-with-api.md)教學課程。 您也可以建置自訂預設值為目標的特定案例或裝置需求。
 

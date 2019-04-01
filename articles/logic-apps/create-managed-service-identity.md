@@ -8,19 +8,21 @@ services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
-ms.date: 01/22/2019
-ms.openlocfilehash: 046aed64d3551d5c0b6ddae44b925452c01c297a
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.date: 03/29/2019
+ms.openlocfilehash: c5fabf37ecc97f8edea437f1628949e45aefde77
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337574"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755696"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>使用 Azure Logic Apps 中的受控識別驗證及存取資源
 
 若要存取其他 Azure Active Directory (Azure AD) 租用戶中的資源並驗證您的身分識別而不登入，您的邏輯應用程式可以使用[受控識別](../active-directory/managed-identities-azure-resources/overview.md) (先前稱為「受控服務識別」或 MSI)，而不使用認證或祕密。 Azure 會為您管理此身分識別，並協助保護您的認證，因為您不需要提供或輪替使用祕密。 本文示範如何為您的邏輯應用程式設定並使用系統指派的受控識別。 如需受控識別的詳細資訊，請參閱[什麼是適用於 Azure 資源的受控識別？](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!NOTE]
+> 邏輯應用程式可以使用受管理的身分識別只支援受管理的身分識別的連接器。 目前，只有 HTTP 連接器支援受管理的身分識別。
+>
 > 您目前最多可擁有 10 個邏輯應用程式工作流程，而且每個 Azure 訂用帳戶中具有系統指派的受控識別。
 
 ## <a name="prerequisites"></a>必要條件
@@ -148,7 +150,7 @@ ms.locfileid: "58337574"
 
 當您使用系統指派的受控識別和指派給您想要用於該身分識別之資源的存取權來設定邏輯應用程式之後，您現在可以使用該身分識別進行驗證。 例如，您可以使用 HTTP 動作，讓您的邏輯應用程式可以傳送 HTTP 要求或呼叫該資源。 
 
-1. 在您的邏輯應用程式中，新增 **HTTP** 動作。 
+1. 在您的邏輯應用程式中，新增 **HTTP** 動作。
 
 1. 提供該動作的必要詳細資料，例如要求**方法**與您要呼叫之資源的 **URI** 位置。
 
@@ -158,7 +160,7 @@ ms.locfileid: "58337574"
 
    `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version-2016-06-01`
 
-1. 在 HTTP 動作中，選擇 [顯示進階選項]。 
+1. 在 HTTP 動作中，選擇 [顯示進階選項]。
 
 1. 從 [驗證] 清單中，選取 [受控識別]。 在您選取此驗證之後，[Audience] 屬性會顯示，並搭配預設資源識別碼值：
 
@@ -176,7 +178,7 @@ ms.locfileid: "58337574"
 
 ## <a name="remove-managed-identity"></a>移除受控識別
 
-若要在您的邏輯應用程式上停用系統指派的受控識別，您可以依照透過 Azure 入口網站、Azure Resource Manager 部署範本或 Azure PowerShell 設定身分識別的類似步驟來停用它。 
+若要在您的邏輯應用程式上停用系統指派的受控識別，您可以依照透過 Azure 入口網站、Azure Resource Manager 部署範本或 Azure PowerShell 設定身分識別的類似步驟來停用它。
 
 當您刪除邏輯應用程式時，Azure 會自動將您邏輯應用程式的系統指派身分識別從 Azure AD 移除。
 
@@ -194,7 +196,7 @@ ms.locfileid: "58337574"
 
 ### <a name="deployment-template"></a>部署範本
 
-如果您已使用 Azure Resource Manager 部署範本來建立邏輯應用程式的系統指派受控識別，請將 `"identity"` 元素的 `"type"` 屬性設定為 `"None"`。 這個動作也會將主體識別碼從 Azure AD 刪除。 
+如果您已使用 Azure Resource Manager 部署範本來建立邏輯應用程式的系統指派受控識別，請將 `"identity"` 元素的 `"type"` 屬性設定為 `"None"`。 這個動作也會將主體識別碼從 Azure AD 刪除。
 
 ```json
 "identity": {

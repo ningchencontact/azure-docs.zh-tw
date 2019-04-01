@@ -4,17 +4,17 @@ description: 了解部署資訊清單如何宣告要部署哪些模組、如何�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/28/2018
+ms.date: 03/28/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 0b221274923a6270e980d027aadc58154c7054b9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f4a562cab445398986c1b8f379f6cb90ca843342
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099965"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758076"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>了解如何在 IoT Edge 中部署模組及建立路由
 
@@ -58,14 +58,14 @@ ms.locfileid: "53099965"
                 // includes the routing information between modules, and to IoT Hub
             }
         },
-        "{module1}": {  // optional
+        "module1": {  // optional
             "properties.desired": {
-                // desired properties of {module1}
+                // desired properties of module1
             }
         },
-        "{module2}": {  // optional
+        "module2": {  // optional
             "properties.desired": {
-                // desired properties of {module2}
+                // desired properties of module2
             }
         },
         ...
@@ -75,9 +75,9 @@ ms.locfileid: "53099965"
 
 ## <a name="configure-modules"></a>設定模組
 
-定義 IoT Edge 執行階段在您部署中安裝模組的方式。 IoT Edge 代理程式是一項執行階段元件，負責管理 IoT Edge 裝置的安裝、更新及狀態回報。 因此，$edgeAgent 模組對應項需要所有模組的設定及管理資訊。 這項資訊包含 Edge 代理程式本身的組態參數。 
+定義 IoT Edge 執行階段在您部署中安裝模組的方式。 IoT Edge 代理程式是一項執行階段元件，負責管理 IoT Edge 裝置的安裝、更新及狀態回報。 因此，$edgeAgent 模組對應項需要所有模組的設定及管理資訊。 這項資訊包含 IoT Edge 代理程式本身的組態參數。 
 
-如需可包含或必須包含的屬性完整清單，請參閱 [Edge 代理程式和 Edge 中樞的屬性](module-edgeagent-edgehub.md)。
+如需可以或必須包含的屬性的完整清單，請參閱[IoT Edge 代理程式和 IoT Edge 中樞屬性](module-edgeagent-edgehub.md)。
 
 $EdgeAgent 屬性遵循此結構：
 
@@ -101,10 +101,10 @@ $EdgeAgent 屬性遵循此結構：
             }
         },
         "modules": {
-            "{module1}": { // optional
+            "module1": { // optional
                 // configuration and management details
             },
-            "{module2}": { // optional
+            "module2": { // optional
                 // configuration and management details
             }
         }
@@ -122,8 +122,8 @@ IoT Edge 中樞會管理模組、IoT 中樞和任何分葉裝置間的通訊。 
 "$edgeHub": {
     "properties.desired": {
         "routes": {
-            "{route1}": "FROM <source> WHERE <condition> INTO <sink>",
-            "{route2}": "FROM <source> WHERE <condition> INTO <sink>"
+            "route1": "FROM <source> WHERE <condition> INTO <sink>",
+            "route2": "FROM <source> WHERE <condition> INTO <sink>"
         },
     }
 }
@@ -138,15 +138,15 @@ IoT Edge 中樞會管理模組、IoT 中樞和任何分葉裝置間的通訊。 
 
 來源屬性可以是下列其中任何一個值：
 
-| 來源 | 說明 |
+| 來源 | 描述 |
 | ------ | ----------- |
 | `/*` | 所有來自任何模組或分葉裝置的裝置到雲端訊息或對應項變更通知 |
 | `/twinChangeNotifications` | 任何來自任何模組或分葉裝置的對應項變更 (報告屬性) |
 | `/messages/*` | 任何由模組或分葉裝置透過部分或無輸出傳送的裝置到雲端訊息 |
 | `/messages/modules/*` | 由模組透過部分或無輸出傳送的任何裝置到雲端訊息 |
-| `/messages/modules/{moduleId}/*` | 任何由特定模組透過部分或無輸出傳送的裝置到雲端訊息 |
-| `/messages/modules/{moduleId}/outputs/*` | 任何由特定模組透過部分輸出傳送的裝置到雲端訊息 |
-| `/messages/modules/{moduleId}/outputs/{output}` | 任何由特定模組透過特定輸出傳送的裝置到雲端訊息 |
+| `/messages/modules/<moduleId>/*` | 任何由特定模組透過部分或無輸出傳送的裝置到雲端訊息 |
+| `/messages/modules/<moduleId>/outputs/*` | 任何由特定模組透過部分輸出傳送的裝置到雲端訊息 |
+| `/messages/modules/<moduleId>/outputs/<output>` | 任何由特定模組透過特定輸出傳送的裝置到雲端訊息 |
 
 ### <a name="condition"></a>條件
 條件在路由宣告中是選擇性項目。 如果您想要將所有訊息從接收傳遞至來源，請直接省略整個 **WHERE** 子句。 您可以使用 [IoT 中樞查詢語言](../iot-hub/iot-hub-devguide-routing-query-syntax.md)來篩選特定訊息或符合條件的訊息類型。 IoT Edge 路由不支援根據對應項標籤或屬性來篩選訊息。 
@@ -172,14 +172,14 @@ FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 
 接收屬性可以是下列其中任何一個值：
 
-| 接收 | 說明 |
+| 接收 | 描述 |
 | ---- | ----------- |
 | `$upstream` | 將訊息傳送到 IoT 中樞 |
-| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | 將訊息傳送到特定模組的特定輸入 |
+| `BrokeredEndpoint("/modules/<moduleId>/inputs/<input>")` | 將訊息傳送到特定模組的特定輸入 |
 
-IoT Edge 提供至少一次的保證。 Edge 中樞會將訊息儲存在本機，以備路由無法將訊息傳遞至其接收端時使用。 例如，如果 Edge 中樞無法連線至 IoT 中樞，或目標模組未連線。
+IoT Edge 提供至少一次的保證。 IoT Edge 中樞將訊息儲存在本機以免路由無法將訊息傳遞到其接收。 例如，如果 IoT Edge 中樞無法連線到 IoT 中樞或目標模組未連線。
 
-[Edge 中樞所需屬性](module-edgeagent-edgehub.md)的 `storeAndForwardConfiguration.timeToLiveSecs` 屬性會指定訊息能在 Edge 中樞內儲存多久。
+IoT Edge 中樞會將儲存的訊息中指定的時間`storeAndForwardConfiguration.timeToLiveSecs`的屬性[IoT Edge 中樞所需屬性](module-edgeagent-edgehub.md)。
 
 ## <a name="define-or-update-desired-properties"></a>定義或更新所需屬性 
 
@@ -207,7 +207,7 @@ IoT Edge 提供至少一次的保證。 Edge 中樞會將訊息儲存在本機�
             "registryCredentials": {
               "ContosoRegistry": {
                 "username": "myacr",
-                "password": "{password}",
+                "password": "<password>",
                 "address": "myacr.azurecr.io"
               }
             }
@@ -273,6 +273,6 @@ IoT Edge 提供至少一次的保證。 Edge 中樞會將訊息儲存在本機�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需 $edgeAgent 和 $edgeHub 中可包含或必須包含的屬性完整清單，請參閱 [Edge 代理程式和 Edge 中樞的屬性](module-edgeagent-edgehub.md)。
+* 可以或必須包含在 $edgeAgent 和 $edgeHub 屬性完整清單，請參閱 < [IoT Edge 代理程式和 IoT Edge 中樞屬性](module-edgeagent-edgehub.md)。
 
 * 您現在知道如何使用 IoT Edge 模組，[了解開發 IoT Edge 模組的需求和工具](module-development.md)。

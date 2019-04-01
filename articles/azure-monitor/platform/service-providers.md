@@ -1,6 +1,6 @@
 ---
-title: 服務提供者的 Log Analytics | Microsoft Docs
-description: Log Analytics 可協助受控服務提供者 (MSP)、大型企業、獨立軟體廠商 (ISV) 和主機服務提供者管理和監視客戶的內部部署或雲端基礎結構中的伺服器。
+title: Azure 監視器服務提供者 |Microsoft Docs
+description: Azure 監視器可協助管理服務提供者 (Msp)、 大型企業、 獨立軟體廠商 (Isv) 和主機服務提供者管理和監視客戶的內部部署或雲端基礎結構中的伺服器。
 services: log-analytics
 documentationcenter: ''
 author: MeirMen
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
-ms.openlocfilehash: 294dd56a7eb62510c30f4fbb0dbeeafc81b790f2
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: 97d8d6fac93ebabac8fb319ce2f1ab8719f5f86b
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264763"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756573"
 ---
-# <a name="log-analytics-for-service-providers"></a>服務提供者的 Log Analytics
-Log Analytics 可協助管理服務提供者 (MSP)、大型企業、獨立軟體廠商 (ISV) 和主機服務提供者管理和監視客戶的內部部署或雲端基礎結構中的伺服器。 
+# <a name="azure-monitor-for-service-providers"></a>Azure 監視器服務提供者
+受管理的服務提供者 (Msp)、 大型企業、 獨立軟體廠商 (Isv) 和主機服務提供者管理和監視客戶的內部部署或雲端基礎結構中的伺服器，可協助 Azure 監視器中的 log Analytics 工作區。 
 
 大型企業與服務提供者有許多相似之處，特別是當有集中式的 IT 團隊負責管理許多不同業務單位的 IT 時。 為了簡單起見，本文件會使用「服務提供者」這個詞彙，但是相同的功能也適用於企業或其他客戶。
 
-對於身為[雲端解決方案提供者 (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) 方案成員的合作夥伴和服務提供者來說，Log Analytics 是 [Azure CSP 訂用帳戶](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)中提供的其中一個 Azure 服務。 
+合作夥伴與服務提供者是一部分的[雲端解決方案提供者 (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview)程式，Azure 監視器中的 Log Analytics 是 Azure 中所提供的服務的其中一個[Azure CSP 訂用帳戶](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)。 
 
 ## <a name="architectures-for-service-providers"></a>服務提供者的架構
 
@@ -70,11 +70,11 @@ Log Analytics 工作區可讓系統管理員控制記錄檔的流程與隔離，
 
 第三個架構是兩個選項的混合。 這個架構是以第一個分散式架構為基礎，其中記錄檔儲存在每個客戶的本機，但使用特定機制來建立記錄檔的集中存放區。 一部分的記錄檔會提取到用於報告和分析的集中位置。 這個部分可能是少量的資料類型或活動摘要 (例如每日統計資料)。
 
-在 Log Analytics 中實作集中位置有兩個選項：
+有兩個選項，來實作記錄在集中位置：
 
 1. 集中式工作區：服務提供者可以在其租用戶中建立工作區，並使用搭配[資料收集 API](../../azure-monitor/platform/data-collector-api.md) 和[查詢 API](https://dev.loganalytics.io/) 的指令碼，將不同工作區的資料帶到這個集中位置。 指令碼以外的另一個選項是使用 [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)。
 
-2. Power BI 當作集中位置：當各種工作區使用 Log Analytics 和 [Power BI](../../azure-monitor/platform/powerbi.md) 之間的整合，將資料匯出至 Power BI 時，Power BI 便可以當作集中位置。 
+2. Power BI 當作集中位置：Power BI 可以作為中央位置時的各種不同的工作區將資料匯出至使用 Log Analytics 工作區之間的整合及[Power BI](../../azure-monitor/platform/powerbi.md)。 
 
 
 ## <a name="next-steps"></a>後續步驟

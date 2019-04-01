@@ -11,24 +11,24 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 03/29/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 5a8bd836322ae005b426707e0994bfdc19701fd8
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 599b1d3f522a0f287736808cce88163f1ef7f28f
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295669"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755805"
 ---
-# <a name="manage-usage-and-costs-for-log-analytics"></a>管理 Log Analytics 的使用量和成本
+# <a name="manage-usage-and-costs-for-log-analytics-in-azure-monitor"></a>Azure 監視器中的 Log analytics 管理使用量和成本
 
 > [!NOTE]
 > 本文說明如何藉由設定資料保留期間來控制 Log Analytics 的成本。  請參閱下列文章以了解相關資訊。
 > - [分析 Log Analytics 中的資料使用量](manage-cost-storage.md)說明如何分析資料使用量及提出警示。
 > - [監視使用量和估計成本](usage-estimated-costs.md)說明如何針對不同的定價模型，檢視多項 Azure 監視功能的使用量和估計成本。 其中也會說明如何變更定價模型。
 
-Log Analytics 是為縮放及支援每日大量資料的收集、索引編製和儲存而設計，這些資料來源可能位於您企業內部或部署於 Azure 中。  雖然這可能是您組織的主要推動力，但成本效率終究是最基本的推動力。 為此，務必了解 Log Analytics 工作區的成本不只是以收集的資料量為基礎，也取決於選取的方案，以及您為連線來源所產生的資料選擇了多長的儲存時間。  
+Azure 監視器中的 log Analytics 是設計來調整和支援收集、 編製索引，及儲存您企業中的每日的資料從任何來源的大量，或在 Azure 中部署。  雖然這可能是您組織的主要推動力，但成本效率終究是最基本的推動力。 為此，務必了解 Log Analytics 工作區的成本不只是以收集的資料量為基礎，也取決於選取的方案，以及您為連線來源所產生的資料選擇了多長的儲存時間。  
 
 在本文中，我們會探討您可以如何積極地監視資料量和儲存體成長狀況，並定義限制來控制這些相關成本。 
 
@@ -114,8 +114,6 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
 
 如果您想要將工作區移至目前的定價層，則需要[在 Azure 監視器中變更訂用帳戶的監視定價模型](usage-estimated-costs.md#moving-to-the-new-pricing-model)，這將變更該訂用帳戶中所有工作區的定價層。
 
-> [!NOTE]
-> 如果您的工作區連結到自動化帳戶，必須先刪除任何**自動化和控制**解決方案以及取消連結自動化帳戶，才可以選取 [獨立 (每 GB)] 定價層。 在 [工作區] 刀鋒視窗的 [一般] 之下，按一下 [解決方案] 以查看和刪除解決方案。 若要取消連結自動化帳戶，請按一下 [定價層] 刀鋒視窗上的自動化帳戶名稱。
 
 > [!NOTE]
 > 您可以深入了解[設定定價層透過 ARM](template-workspace-configuration.md#create-a-log-analytics-workspace)以及如何確保您的 ARM 部署將會成功不論是否在訂用帳戶在傳統或新的定價模型。 

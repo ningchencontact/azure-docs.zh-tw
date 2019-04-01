@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3c6b5094613ee482b0fd3f63e3d9d69dfe4d40f4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 85d5bb822bc9b89c68c70633a22a1bed74118f49
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094849"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758176"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>佈建及管理 Azure 時間序列深入解析預覽版
 
@@ -33,7 +33,7 @@ Azure 時間序列深入解析預覽版環境是預付型 (PAYG) 環境。
 了解[如何規劃您的環境](./time-series-insights-update-plan.md)。
 
 >[!IMPORTANT]
-> 如果您使用 v2 帳戶，請勿在您要使用的儲存體帳戶上啟用非經常性/封存屬性。
+> 預覽版本中，確定您使用 Azure 儲存體的一般用途 v1 (GPv1) 帳戶。  將在不久的將來加入 GPv2 和更新版本的支援。  
 
 (選擇性) 您可以將每個 Azure 時間序列深入解析預覽版環境與一個事件來源關聯。 如需詳細資訊，請閱讀[新增事件中樞來源](./time-series-insights-how-to-add-an-event-source-eventhub.md)與[新增 IoT 中樞來源](./time-series-insights-how-to-add-an-event-source-iothub.md)。 您會在此步驟提供時間戳記識別碼屬性與唯一的取用者群組。 這樣做可以確定環境有適當事件的存取權。
 

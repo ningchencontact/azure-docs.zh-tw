@@ -1,6 +1,6 @@
 ---
-title: 了解 IoT 安全性建議預覽 ASC |Microsoft Docs
-description: 深入了解的安全性建議以及如何使用在 ASC iot 概念。
+title: 了解 IoT 安全性建議預覽的 Azure 資訊安全中心 |Microsoft Docs
+description: 深入了解的安全性建議以及如何使用 Azure 資訊安全中心的 IoT 概念。
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: dc37404e45e4efd0697b0f3b19c4927813ab56fa
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 9204bf864ca915baaf6d107ef3586bcd02ed9fef
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576187"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754827"
 ---
 # <a name="security-recommendations"></a>安全性建議
 
 > [!IMPORTANT]
-> Iot 的 ASC 目前處於公開預覽狀態。
+> IoT 的 azure 資訊安全中心目前處於公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-Iot 的 ASC 會掃描您的 Azure 資源和 IoT 裝置，並提供安全性建議，以減少受攻擊面。 安全性建議採取動作，並盡力協助客戶遵循安全性最佳作法。
+IoT 的 azure 資訊安全中心 (ASC) 會掃描您的 Azure 資源和 IoT 裝置，並提供安全性建議，以減少受攻擊面。 安全性建議採取動作，並盡力協助客戶遵循安全性最佳作法。
 
 在本文中，您將找到的建議即可觸發您的 IoT 中樞和/或 IoT 裝置上的清單。
 

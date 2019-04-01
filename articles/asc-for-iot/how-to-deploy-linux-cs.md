@@ -1,6 +1,6 @@
 ---
-title: 安裝和部署 Linux 指南C#代理程式的 IoT 預覽的 ASC |Microsoft Docs
-description: 了解如何在 32 位元和 64 位元的 Linux 上安裝 IoT 代理程式 ASC。
+title: 安裝和部署 Linux 指南C#代理程式的 IoT 預覽的 Azure 資訊安全中心 |Microsoft Docs
+description: 了解如何在 32 位元和 64 位元的 Linux 上安裝 Azure 資訊安全中心，IoT 代理程式。
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: d6b4e6065b0ef198ad583b3760124730e658fe0b
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: be4c663d3a1e99ef67cbbbc2f39b315f1080125c
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619903"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758340"
 ---
-# <a name="deploy-asc-for-iot-c-based-security-agent-for-linux"></a>針對 IoT 部署 ASC C#-適用於 Linux 的安全性代理程式
+# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>針對 IoT 部署 Azure 資訊安全中心C#-適用於 Linux 的安全性代理程式
 
 > [!IMPORTANT]
-> Iot 的 ASC 目前處於公開預覽狀態。
+> IoT 的 azure 資訊安全中心目前處於公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-本指南說明如何安裝和部署 IoT ASC C#-以 Linux 為主的安全性代理程式。
+本指南說明如何安裝和部署 iot 的 Azure 資訊安全中心 (ASC) C#-以 Linux 為主的安全性代理程式。
 
 在本指南中，您將了解如何： 
 > [!div class="checklist"]

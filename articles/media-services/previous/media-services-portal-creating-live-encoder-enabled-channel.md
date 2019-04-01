@@ -1,5 +1,5 @@
 ---
-title: 如何使用 Azure 媒體服務執行即時串流，以使用 Azure 入口網站建立多位元速率串流 | Microsoft Docs
+title: 若要使用 Azure 入口網站建立多位元速率資料流中使用 Azure 媒體服務執行即時串流 |Microsoft Docs
 description: 本教學課程將逐步引導您使用 Azure 入口網站建立通道，以接收單一位元速率即時串流，並將其編碼為多位元速率串流。
 services: media-services
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: 1482569e415971fba98de8a586cc2868cc574198
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: c230787b739b964998202180efaba20ad8233611
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258083"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757801"
 ---
-# <a name="how-to-perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>如何使用媒體服務來使用 Azure 入口網站建立多位元速率串流執行即時串流  
+# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>若要使用 Azure 入口網站建立多位元速率資料流使用媒體服務執行即時串流  
 > [!div class="op_single_selector"]
 > * [入口網站](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -42,34 +42,26 @@ ms.locfileid: "58258083"
 > [!NOTE]
 > 目前，即時事件的最大建議持續時間是 8 小時。 如果您需要較長的時間來執行通道，請連絡 amslived@microsoft.com。
 
-1. 將攝影機連接到電腦。 啟動和設定可使用下列其中一種通訊協定輸出單一位元速率串流的內部部署即時編碼器：RTMP 或 Smooth Streaming。 如需詳細資訊，請參閱 [Azure 媒體服務 RTMP 支援和即時編碼器](https://go.microsoft.com/fwlink/?LinkId=532824)。
+1. 將攝影機連接到電腦。 <br/>如需了解裝備，請參閱[簡單的可攜式活動視訊器材裝備]( https://link.medium.com/KNTtiN6IeT) \(英文\)。
+1. 啟動和設定可使用下列其中一種通訊協定輸出單一位元速率串流的內部部署即時編碼器：RTMP 或 Smooth Streaming。 如需詳細資訊，請參閱 [Azure 媒體服務 RTMP 支援和即時編碼器](https://go.microsoft.com/fwlink/?LinkId=532824)。 <br/>此外，也請參閱這個部落格：[使用 OBS 來產生即時串流](https://link.medium.com/ttuwHpaJeT) \(英文\)。
 
     此步驟也可以在您建立通道之後執行。
-2. 建立並啟動通道。 
-3. 检索通道引入 URL。 
+1. 建立並啟動通道。 
+1. 检索通道引入 URL。 
 
     內嵌 URL 可供即時編碼器用來傳送串流到通道。
-4. 擷取通道預覽 URL。 
+1. 擷取通道預覽 URL。 
 
     使用此 URL 來確認您的通道會正確接收即時串流。
-5. 建立事件/程式，此程式也會建立資產。 
-6. 发布事件（这将为关联的资产创建点播定位符）。    
-7. 在准备好开始流式传输和存档时，启动事件。
-8. 即時編碼器會收到啟動公告的信號 (選擇性)。 公告會插入輸出串流中。
-9. 每當您想要停止串流處理和封存事件時，請停止事件。
-10. 刪除事件 (並選擇性地刪除資產)。   
-
-## <a name="in-this-tutorial"></a>本教學課程內容
-本教程使用 Azure 门户完成以下任务： 
-
-1. 建立啟用即可執行即時編碼的通道。
-2. 取得內嵌 URL，以將其提供給即時編碼器。 即時編碼器將使用此 URL 將串流內嵌到通道。
-3. 建立事件/程式 (和資產)。
-4. 發佈資產並取得串流 URL。  
-5. 播放您的內容。
-6. 清除。
+1. 建立事件/程式，此程式也會建立資產。 
+1. 发布事件（这将为关联的资产创建点播定位符）。    
+1. 在准备好开始流式传输和存档时，启动事件。
+1. 即時編碼器會收到啟動公告的信號 (選擇性)。 公告會插入輸出串流中。
+1. 每當您想要停止串流處理和封存事件時，請停止事件。
+1. 刪除事件 (並選擇性地刪除資產)。   
 
 ## <a name="prerequisites"></a>必要條件
+
 需要有下列項目，才能完成教學課程。
 
 * 若要完成此教學課程，您需要 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 
@@ -78,6 +70,7 @@ ms.locfileid: "58258083"
 * 可以发送单比特率实时流的摄像头和编码器。
 
 ## <a name="create-a-channel"></a>创建通道
+
 1. 在 [Azure 门户](https://portal.azure.com/)中，选择“媒体服务”，并单击媒体服务帐户名。
 2. 選取 [即時串流] 。
 3. 選取 [自訂建立] 。 此選項可讓您建立通道，而啟用通道即可進行即時編碼。
@@ -120,9 +113,10 @@ ms.locfileid: "58258083"
 ## <a name="get-ingest-urls"></a>获取引入 URL
 建立通道之後，即可取得您提供給即時編碼器的內嵌 URL。 編碼器會使用這些 URL 來輸入即時串流。
 
-![ingesturls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
+![內嵌 url](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 ## <a name="create-and-manage-events"></a>建立和管理事件
+
 ### <a name="overview"></a>概觀
 通道与事件/节目相关联，使用事件/节目，可控制实时流中的段的发布和存储。 通道會管理事件/程式。 通道和节目的关系非常类似于传统媒体，通道具有恒定的内容流，而节目的范围限定为该通道上的一些定时事件。
 
@@ -154,7 +148,7 @@ ms.locfileid: "58258083"
 
     指定：事件名稱、資產名稱、封存時間範圍和加密選項。
 
-    ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
+    ![建立程式](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
 
     如果您保留 [立即發佈此即時事件]  的核取狀態，則事件會建立發佈 URL。
 

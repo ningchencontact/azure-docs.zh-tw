@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: ''
 ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 5fe66634d4f95ba84d13a3d355f28afbedf0f7f0
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: a9de15530981e14e664df605cb3274c9e754ef0d
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58012646"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755474"
 ---
-# <a name="how-to-encode-with-a-custom-transform-by-using-rest"></a>如何使用自訂的轉換進行編碼，使用 REST
+# <a name="how-to-encode-with-a-custom-transform---rest"></a>如何使用自訂的轉換為 REST 進行編碼
 
 當使用 Azure 媒體服務編碼，您可以快速開始使用其中一個建議的內建預設值，根據業界最佳作法，如所示[串流檔案](stream-files-tutorial-with-rest.md#create-a-transform)教學課程。 您也可以建置自訂預設值為目標的特定案例或裝置需求。
 

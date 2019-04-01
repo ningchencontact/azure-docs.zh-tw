@@ -2,18 +2,18 @@
 title: 無法在 Azure 資料總管中建立或刪除資料庫或資料表
 description: 此文章說明在 Azure 資料總管中建立及刪除資料庫與資料表的疑難排解步驟。
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0bd9f5ed00193aa9f872287b6afaf9e2b28c24dc
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 62eccebab81745f85450390f64b6b22f3c17b32e
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188334"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758328"
 ---
 # <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>疑難排解：無法在 Azure 資料總管中建立或刪除資料庫或資料表
 

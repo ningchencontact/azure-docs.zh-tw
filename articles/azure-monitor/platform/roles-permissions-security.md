@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 591b30d0147e427e8a0dbc2d25276bdcd3b54be6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: bac57b18ec5474cfe3c27ad1079c5af7e1d2c451
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445478"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756815"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>開始使用 Azure 監視器的角色、權限和安全性
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-許多團隊需要嚴格規範對監視資料及設定的存取。 例如，如果您擁有專門從事監視 (技術支援工程師、devops 工程師) 的團隊成員，或如果您使用受控服務提供者，則您可能只要授與他們監視資料的存取權，同時限制他們建立、修改或刪除資源的能力。 本文說明如何在 Azure 中快速將內建的監視 RBAC 角色套用到使用者，或針對需要有限監視權限的使用者建置您自己的自訂角色。 接著會討論 Azure 監視器相關資源的安全性考量，以及如何限制對這些資源所包含的資料進行存取。
+許多團隊需要嚴格規範對監視資料及設定的存取。 例如，如果您的小組成員，專門從事監視 （技術支援工程師、 DevOps 工程師），或如果您使用受控的服務提供者，您可能想要授與他們存取只監視資料，同時限制他們能夠建立、 修改，或刪除資源。 本文說明如何在 Azure 中快速將內建的監視 RBAC 角色套用到使用者，或針對需要有限監視權限的使用者建置您自己的自訂角色。 接著會討論 Azure 監視器相關資源的安全性考量，以及如何限制對這些資源所包含的資料進行存取。
 
 ## <a name="built-in-monitoring-roles"></a>內建的監視角色
 Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資源所設計，同時仍可讓負責監視基礎結構的人員取得及設定他們所需的資料。 Azure 監視器提供兩個的立即可用的角色：監視讀取器和監視參與者。
@@ -38,10 +38,10 @@ Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資�
 * 存取 Application Insights 資料，並檢視 AI 分析中的資料。
 * 搜尋 Log Analytics 工作區資料，包括工作區的使用狀況資料。
 * 檢視 Log Analytics 管理群組。
-* 擷取 Log Analytics 搜尋結構描述。
-* 列出 Log Analytics 智慧套件。
-* 擷取並執行 Log Analytics 已儲存的搜尋。
-* 擷取 Log Analytics 儲存體組態。
+* 擷取 Log Analytics 工作區中的搜尋結構描述。
+* 列出 Log Analytics 工作區中的監視組件。
+* 擷取並執行已儲存的搜尋在 Log Analytics 工作區中。
+* 擷取 Log Analytics 工作區的儲存體組態。
 
 > [!NOTE]
 > 此角色不會對已串流至事件中樞或儲存在儲存體帳戶中的記錄檔資料授予讀取權限。 [請參閱下方](#security-considerations-for-monitoring-data) 以取得設定存取這些資源的相關資訊。
@@ -57,9 +57,9 @@ Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資�
 * 透過 [Azure 警示](../../azure-monitor/platform/alerts-overview.md)設定警示規則活動和設定。
 * 建立 Application Insights web 測試和元件。
 * 列出 Log Analytics 工作區共用金鑰。
-* 啟用或停用 Log Analytics 智慧套件。
-* 建立和刪除及執行 Log Analytics 已儲存的搜尋。
-* 建立和刪除 Log Analytics 儲存體組態。
+* 啟用或停用 Log Analytics 工作區中的監視組件。
+* 建立和刪除，以及執行已儲存的搜尋在 Log Analytics 工作區中。
+* 建立和刪除 Log Analytics 工作區的儲存體設定。
 
 \*使用者必須也分別授與 ListKeys 權限在目標資源 （儲存體帳戶或事件中樞命名空間） 上的設定記錄設定檔或診斷設定。
 

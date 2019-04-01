@@ -1,6 +1,6 @@
 ---
-title: 傳送至 ASC 的安全性訊息，IoT preview |Microsoft Docs
-description: 了解如何將傳送您 iot 使用 ASC 的安全性訊息。
+title: 傳送至 Azure 資訊安全中心的安全性訊息，IoT preview |Microsoft Docs
+description: 了解如何將傳送您 iot 使用 Azure 資訊安全中心的安全性訊息。
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: d8eefff5a5ea03237eea60a63b63d70f605f10b3
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 2e8fc3e2cf85fb06d37347870e3b2b9c82f1aa96
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650150"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754781"
 ---
 # <a name="send-security-messages-sdk"></a>傳送安全訊息 SDK
 
 > [!IMPORTANT]
-> Iot 的 ASC 目前處於公開預覽狀態。
+> IoT 的 azure 資訊安全中心目前處於公開預覽狀態。
 > 此預覽版的服務等級協定，不提供，且不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-本作法指南說明 ASC IoT 服務功能，當您選擇要收集並傳送您的裝置安全性訊息，而不需使用 ASC IoT 代理程式，並說明如何執行這項操作。  
+本作法指南說明的 IoT 服務功能的 Azure 資訊安全中心 (ASC)，當您選擇要收集並傳送您的裝置安全性訊息，而不需使用 ASC IoT 代理程式，並說明如何執行這項操作。  
 
 在本指南中，您將了解如何： 
 > [!div class="checklist"]

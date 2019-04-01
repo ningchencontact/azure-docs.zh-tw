@@ -1,6 +1,6 @@
 ---
-title: 存取資料的 IoT 預覽使用 ASC |Microsoft Docs
-description: 深入了解如何使用 IoT ASC 時存取您的安全性警示和建議資料。
+title: 使用 Azure 資訊安全中心的 IoT 預覽存取資料 |Microsoft Docs
+description: 深入了解如何使用 iot 的 Azure 資訊安全中心時存取您的安全性警示和建議資料。
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: d81a8973772879f4f4b143701a1f4be3ecad95d9
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 510ee9bdefe87c1fab40e58bb715f2a8cce936b7
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576634"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758530"
 ---
 # <a name="access-your-security-data"></a>存取您的安全性資料 
 
 > [!IMPORTANT]
-> Iot 的 ASC 目前處於公開預覽狀態。
+> IoT 的 azure 資訊安全中心目前處於公開預覽狀態。
 > 此預覽版的服務等級協定，不提供，且不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-Iot 的 ASC 儲存安全性警示、 建議和未經處理的安全性資料 （如果您選擇將它儲存） 在您的 Log Analytics 工作區中。
+IoT 的 azure 資訊安全中心 (ASC) 會儲存安全性警示、 建議和未經處理的安全性資料 （如果您選擇將它儲存） 在您的 Log Analytics 工作區中。
 
 ## <a name="log-analytics"></a>Log Analytics
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 9d3bc50e1578704de029d53c0b1eaa21e74182cf
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 43cbeea554f43e4db7d5440af83a9b414741d2f6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401914"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756597"
 ---
 # <a name="api-management-advanced-policies"></a>API 管理進階原則
 
@@ -253,7 +253,7 @@ ms.locfileid: "58401914"
 
 | 屬性                               | 描述                                                                                                      | 必要項 | 預設值     |
 | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| timeout="integer"                       | 以秒為單位的逾時間隔，後端服務的呼叫在經過此間隔後便會失敗。 最小值為 0 秒。 最大值為 240 秒。| 否       | 240 秒 |
+| timeout="integer"                       | 在 後端服務在逾時錯誤之前所要傳回的 HTTP 回應標頭的等候秒數的時間量，就會引發。 最小值為 0 秒。 值大於 240 秒可能無法接受為基礎的網路基礎結構可以在此時間之後卸除閒置的連接。 | 否       | None |
 | follow-redirects="true &#124; false"    | 指定來自後端服務的重新導向會由閘道遵循或傳回給呼叫者。      | 否       | false       |
 | buffer-request-body="true &#124; false" | 當設為"true"的要求緩衝處理，將會重複使用[重試](api-management-advanced-policies.md#Retry)。 | 否       | false       |
 

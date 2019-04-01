@@ -3,17 +3,17 @@ title: 調整 Azure 資料總管叢集的大小，適應變更的需求
 description: 本文說明相應增加和相應減少根據變更的隨選 Azure 資料總管叢集的步驟。
 author: radennis
 ms.author: radennis
-ms.reviewer: v-orspod
+ms.reviewer: orspodek
 ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: a74c529fc3543d5cbdcf009a5b7736309e15569e
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 71f1d197b4a3fb437607f876ea524e582e62c0fd
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961698"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756335"
 ---
 # <a name="manage-cluster-scale-up-to-accommodate-changing-demand"></a>管理叢集相應增加以因應不斷變化的需求
 

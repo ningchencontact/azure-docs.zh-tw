@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: a2e03a548b403262dca7e7a76b84cc99661242c6
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 51db372b288ce388f58ca0e7fdcb2e1b97e511de
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487359"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755728"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>在 Azure 中於 SUSE Linux Enterprise Server 上設定 Pacemaker
 
@@ -84,7 +84,7 @@ SBD 裝置至少需要一部額外的虛擬機器，作為 iSCSI 目標伺服器
 
 在所有 **iSCSI 目標虛擬機器**上執行下列命令，為 SAP 系統所用的叢集建立 iSCSI 磁碟。 在下列範例中，會建立多個叢集的 SBD 裝置。 它會顯示如何對多個叢集使用一部 iSCSI 目標伺服器。 SBD 裝置會置於 OS 磁碟上。 確定您有足夠的空間。
 
-**nfs** 用來識別 NFS 叢集、**ascsnw1** 用來識別 **NW1** 的 ASCS 叢集、**dbnw1** 用來識別 **NW1**的資料庫叢集、**nfs-0** 和 **nfs-1** 是 NFS 叢集節點的主機名稱、**nw1-xscs-0** 和 **nw1-xscs-1** 是 **NW1** ASCS 叢集節點的主機名稱，而 **nw1-db-0** 和 **nw1-db-1** 是資料庫叢集節點的主機名稱。 使用您的叢集節點主機名稱和 SAP 系統 SID 取代它們。
+**` nfs`** 用來識別 NFS 叢集**ascsnw1**用來識別的 ASCS 叢集**NW1**， **dbnw1**用來識別資料庫叢集中的**NW1**， **nfs 0**並**nfs 1**是 NFS 叢集節點的主機名稱**nw1-xscs 0**和**nw1 xscs 1**是的主機名稱**NW1** ASCS 叢集節點，並**nw1-db-0**並**nw1-db-1**是叢集節點主機名稱的資料庫。 使用您的叢集節點主機名稱和 SAP 系統 SID 取代它們。
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -302,7 +302,7 @@ o- / ...........................................................................
    <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
-   建立 softdog 組態檔
+   建立` softdog`組態檔
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
@@ -346,6 +346,18 @@ o- / ...........................................................................
    # Change/set the following settings
    vm.dirty_bytes = 629145600
    vm.dirty_background_bytes = 314572800
+   </code></pre>
+
+1. **[A]** Configure cloud-netconfig-azure for HA Cluster
+
+   變更網路介面的組態檔，以防止雲端網路外掛程式移除 （Pacemaker 必須控制 VIP 指派） 的虛擬 IP 位址，如下所示。 如需詳細資訊，請參閱[SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633)。 
+
+   <pre><code># Edit the configuration file
+   sudo vi /etc/sysconfig/network/ifcfg-eth0 
+   
+   # Change CLOUD_NETCONFIG_MANAGE
+   # CLOUD_NETCONFIG_MANAGE="yes"
+   CLOUD_NETCONFIG_MANAGE="no"
    </code></pre>
 
 1. **[1]** 啟用 SSH 存取

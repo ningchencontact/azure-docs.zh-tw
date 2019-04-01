@@ -7,14 +7,14 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 03/29/2019
 ms.author: gregman
-ms.openlocfilehash: 5b3dcb3abad071cb5d079d6c740cc09e2577a363
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5cb15f45508b60a1b7f8c9049b8779c1b7d31150
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116413"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757934"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>在 Ubuntu 虛擬機器上執行 Azure IoT Edge
 
@@ -85,7 +85,7 @@ Azure IoT Edge 執行階段可將裝置變成 IoT Edge 裝置。 此執行階段
 1. 設定裝置連接字串 (如果您還未熟悉這個程序，可以遵循[使用 Azure CLI 註冊新的 Azure IoT Edge 裝置](how-to-register-device-cli.md)操作指南)：
 
    ```azurecli-interactive
-   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script '/etc/iotedge/configedge.sh "{device_connection_string}"'
+   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"
    ```
 
 如果您想要在設定之後使用 SSH 連線到這個 VM，請使用 publicIpAddress 與命令：`ssh azureuser@{publicIpAddress}`

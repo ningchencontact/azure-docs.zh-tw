@@ -1,6 +1,6 @@
 ---
-title: IoT 裝置調查指南預覽的 ASC |Microsoft Docs
-description: 此作法指南說明如何使用 iot ASC 調查可疑的 IoT 裝置，使用 Log Analytics。
+title: IoT 裝置調查指南預覽的 azure 資訊安全中心 |Microsoft Docs
+description: 此作法指南說明如何使用 IoT 的 Azure 資訊安全中心調查可疑的 IoT 裝置，使用 Log Analytics。
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 032315d1b618b9716e23c8433c6ec1bf64b7e77d
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 6097954e09d5fd62c45f59b009d974d277bafc57
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580534"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755251"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>調查可疑的 IoT 裝置
 
 > [!IMPORTANT]
-> Iot 的 ASC 目前處於公開預覽狀態。
+> IoT 的 azure 資訊安全中心目前處於公開預覽狀態。
 > 此預覽版的服務等級協定，不提供，且不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
-可疑的可疑活動，或指示存在裝置遭到入侵的參與的 IoT 裝置時，ASC IoT 服務警示和辨識項會提供清楚的指示。 
+可疑的可疑活動，或指示存在裝置遭到入侵的參與的 IoT 裝置時，azure 資訊安全中心 (ASC) IoT 服務警示和辨識項會提供清楚的指示。 
 
 在本指南中，使用調查所提供的建議來協助判斷您組織的潛在風險，決定如何修復，並了解預防類似攻擊的最佳方法。  
 

@@ -7,23 +7,25 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: c1e4803698525f0d084fadac14e3952b951ecae6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fd538ce6821b35dc6e3932256090afdf70b4b232
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58164437"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755264"
 ---
-# <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>在 Azure 入口網站中建立和設定 Azure Kubernetes Service (AKS) 叢集以使用虛擬節點
+# <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>預覽-建立和設定的 Azure Kubernetes Service (AKS) 叢集，以使用 Azure 入口網站中的虛擬節點
 
 若要在 Azure Kubernetes Service (AKS) 叢集中快速地部署工作負載，您可以使用虛擬節點。 透過虛擬節點，您可以快速佈建 Pod，而且只需在節點執行時付費 (以秒計算)。 在調整案例中，您不需要等候 Kubernetes 叢集自動調整程式來部署 VM 計算節點以執行其他 Pod。 本文會示範如何建立和設定啟用虛擬節點的虛擬網路資源與 AKS 叢集。
 
 > [!IMPORTANT]
-> 適用於 AKS 的虛擬節點目前是**預覽狀態**。 若您同意[補充的使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
+> AKS 預覽功能是自助服務和選用功能。 預覽可供收集從我們的社群的意見及 bug。 不過，它們不是支援 Azure 技術支援。 如果您建立叢集，或將這些功能加入到現有的叢集，該叢集不支援此功能不再處於預覽狀態，並發展至公開上市 (GA) 之前。
+>
+> 如果您遇到問題，使用預覽功能[開立 AKS GitHub 儲存機制][ aks-github] bug 標題中的預覽功能的名稱。
 
-## <a name="preview-limitations"></a>預覽限制
+## <a name="regional-availability"></a>區域可用性
 
-虽然此功能处于预览状态，但以下区域支持部署：
+針對虛擬節點部署支援下列區域：
 
 * 澳大利亞東部 (australiaeast)
 * 美國東部 (eastus)
@@ -182,6 +184,8 @@ $ curl -L 10.241.0.4
 
 - [使用 Kubernetes 水平 Pod 自動調整程式][aks-hpa]
 - [使用 Kubernetes 叢集自動調整程式][aks-cluster-autoscaler]
+- [針對虛擬節點檢查自動調整範例][virtual-node-autoscale]
+- [深入的了解 Virtual Kubelet 開放原始碼程式庫][virtual-kubelet-repo]
 
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
@@ -190,6 +194,9 @@ $ curl -L 10.241.0.4
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
+[aks-github]: https://github.com/azure/aks/issues]
+[virtual-node-autoscale]: https://github.com/Azure-Samples/virtual-node-autoscale
+[virtual-kubelet-repo]: https://github.com/virtual-kubelet/virtual-kubelet
 
 <!-- LINKS - internal -->
 [aks-network]: ./networking-overview.md
@@ -198,4 +205,3 @@ $ curl -L 10.241.0.4
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
 [acr-aks-secrets]: ../container-registry/container-registry-auth-aks.md#access-with-kubernetes-secret
-

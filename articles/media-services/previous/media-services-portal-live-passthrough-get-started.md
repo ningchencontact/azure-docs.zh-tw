@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 入口網站透過內部部署編碼器執行即時串流 | Microsoft Docs
+title: 透過使用 Azure 入口網站的內部部署編碼器即時串流 |Microsoft Docs
 description: 本教學課程將逐步引導您建立針對即時通行傳遞設定的通道。
 services: media-services
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: d86151b436ec3cc5ea3d4b687f5c8692b2ca4efa
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 48906a12cd113ef613151bb802e757f218bce425
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258695"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758510"
 ---
-# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>如何使用 Azure 入口網站透過內部部署編碼器執行即時串流
+# <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>透過使用 Azure 入口網站的內部部署編碼器執行即時串流
 > [!div class="op_single_selector"]
 > * [入口網站](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -45,29 +45,31 @@ ms.locfileid: "58258695"
 * [使用會建立多位元速率串流的內部部署編碼器執行即時串流](media-services-live-streaming-with-onprem-encoders.md)
 
 ## <a id="scenario"></a>常见实时流式处理方案
+
 下列步驟描述當我們建立一般即時串流應用程式 (其使用針對即時通行傳遞設定的通道) 時，會涉及到的各種工作。 本教學課程示範如何建立及管理即時通行通道和即時事件。
 
->[!NOTE]
->確定您想要串流內容的串流端點已處於 [執行中] 狀態。 
+> [!NOTE]
+> 確定您想要串流內容的串流端點已處於 [執行中] 狀態。 
     
-1. 將攝影機連接到電腦。 啟動並設定內部部署即時編碼器，讓它輸出多位元速率 RTMP 或 Fragmented MP4 串流。 如需詳細資訊，請參閱 [Azure 媒體服務 RTMP 支援和即時編碼器](https://go.microsoft.com/fwlink/?LinkId=532824)。
+1. 將攝影機連接到電腦。 <br/>如需了解裝備，請參閱[簡單的可攜式活動視訊器材裝備]( https://link.medium.com/KNTtiN6IeT) \(英文\)。
+1. 啟動並設定內部部署即時編碼器，讓它輸出多位元速率 RTMP 或 Fragmented MP4 串流。 如需詳細資訊，請參閱 [Azure 媒體服務 RTMP 支援和即時編碼器](https://go.microsoft.com/fwlink/?LinkId=532824)。<br/>此外，也請參閱這個部落格：[使用 OBS 來產生即時串流](https://link.medium.com/ttuwHpaJeT) \(英文\)。
    
-    此步骤也可以在创建频道后执行。
-2. 建立並啟動即時通行通道。
-3. 擷取通道內嵌 URL。 
+    此步驟也可以在您建立通道之後執行。
+1. 建立並啟動即時通行通道。
+1. 擷取通道內嵌 URL。 
    
     內嵌 URL 可供即時編碼器用來傳送串流到通道。
-4. 擷取通道預覽 URL。 
+1. 擷取通道預覽 URL。 
    
     使用此 URL 來確認您的通道會正確接收即時串流。
-5. 建立即時事件/程式。 
+1. 建立即時事件/程式。 
    
     使用 Azure 入口網站時，建立即時事件也會建立資產。 
 
-6. 在准备好开始流式传输和存档时，启动事件/节目。
-7. 即時編碼器會收到啟動公告的信號 (選擇性)。 公告會插入輸出串流中。
-8. 每當您想要停止串流處理和封存事件時，請停止事件/程式。
-9. 删除事件/节目（并选择性地删除资产）。     
+1. 在准备好开始流式传输和存档时，启动事件/节目。
+1. 即時編碼器會收到啟動公告的信號 (選擇性)。 公告會插入輸出串流中。
+1. 每當您想要停止串流處理和封存事件時，請停止事件/程式。
+1. 删除事件/节目（并选择性地删除资产）。     
 
 > [!IMPORTANT]
 > 請檢閱[使用會建立多位元速率串流的內部部署編碼器執行即時串流](media-services-live-streaming-with-onprem-encoders.md)，以了解具有內部部署編碼器和傳遞通道之即時串流的相關概念和考量。
