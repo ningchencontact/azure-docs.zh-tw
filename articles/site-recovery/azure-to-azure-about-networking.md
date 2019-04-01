@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 3/29/2019
 ms.author: sujayt
-ms.openlocfilehash: 0e28792e49d588bfec8d1f09dec68ead7e9dfa49
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 42db22d39a7c87363cf97f874c85955a09cbe653
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001091"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651538"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>關於 Azure 中進行 Azure 複寫的網路功能
 
@@ -48,10 +48,10 @@ ms.locfileid: "58001091"
 
 **URL** | **詳細資料**  
 --- | ---
-*.blob.core.windows.net | 需要此項目方可從 VM 將資料寫入來源地區的快取儲存體帳戶中。
+*.blob.core.windows.net | 需要此項目方可從 VM 將資料寫入來源地區的快取儲存體帳戶中。 如果您知道所有快取儲存體帳戶為您的 Vm，您可以加入白名單的特定儲存體帳戶 Url (例如： cache1.blob.core.windows.net 和 cache2.blob.core.windows.net) 而不是 *.blob.core.windows.net
 login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL 的授權和驗證。
-*.hypervrecoverymanager.windowsazure.com | 需要此項目方可從 VM 進行 Site Recovery 服務通訊。
-*.servicebus.windows.net | 需要此項目方可從 VM 寫入 Site Recovery 監視和診斷資料。
+*.hypervrecoverymanager.windowsazure.com | 需要此項目方可從 VM 進行 Site Recovery 服務通訊。 如果您的防火牆 proxy 支援 Ip，您可以使用對應 ' 站台復原 IP'。
+*.servicebus.windows.net | 需要此項目方可從 VM 寫入 Site Recovery 監視和診斷資料。 如果您的防火牆 proxy 支援 Ip，您可以使用對應 ' Site Recovery 監視 IP'。
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 位址範圍的輸出連線能力
 

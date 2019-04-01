@@ -4,7 +4,7 @@ description: 了解 Azure SQL Database 受控執行個體通訊，以及連線�
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: ''
+ms.custom: fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: c7587b6cb2b4b30e265657b9d3792c9d4acd4428
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: f08b22f24dfde41646f56dc1ecd9777f267620ee
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621544"
+ms.locfileid: "58651307"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL Database 中的 managed 執行個體的連線架構 
 
@@ -110,7 +110,8 @@ Microsoft 會管理受管理的執行個體所使用的管理端點。 這個端
 |管理  |80、443、12000|TCP     |任意              |AzureCloud  |允許 |
 |mi_subnet   |任意           |任意     |任意              |MI SUBNET*  |允許 |
 
-> 請確定沒有針對連接埠 9000，只有一個輸入的規則 9003，1438年、 1440年、 1452年和一個輸出的規則，用於連接埠 80、 443、 12000。 受控執行個體佈建透過 ARM 部署可能會失敗，如果輸入和輸出規則針對每個連接埠分別設定。 
+> [!IMPORTANT]
+> 請確定只有一個輸入的規則連接埠 9000，9003，1438年、 1440年、 1452年和一個輸出的規則，用於連接埠 80、 443、 12000。 輸入和輸出規則針對每個連接埠分別設定受控執行個體佈建透過 ARM 部署將會失敗。 如果這些連接埠位在不同的規則，部署將會失敗，錯誤碼 `VnetSubnetConflictWithIntendedPolicy`
 
 \* MI 的子網路是指表單 10.x.x.x/y 中的子網路的 IP 位址範圍。 您可以在 Azure 入口網站中，子網路屬性中找到這項資訊。
 

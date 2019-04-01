@@ -4,7 +4,7 @@ description: 描述 Service Fabric CLI sfctl 獨立叢集命令。
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: ce10e2c24e89140357df3fa6b724a1f89f389a50
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: a652439729e538b3ce2545ab3b09284e6645ce9d
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275477"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668512"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
 管理獨立 Service Fabric 叢集。
 
 ## <a name="commands"></a>命令
 
-|命令|說明|
+|命令|描述|
 | --- | --- |
 | config | 取得 Service Fabric 獨立叢集設定。 |
 | config-upgrade | 開始升級 Service Fabric 獨立叢集的設定。 |
@@ -39,14 +39,14 @@ ms.locfileid: "53275477"
 
 ### <a name="arguments"></a>引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --configuration-api-version [必要] | 獨立叢集 JSON 設定的 API 版本。 |
 | --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
@@ -61,7 +61,7 @@ ms.locfileid: "53275477"
 
 ### <a name="arguments"></a>引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --cluster-config            [必要] | 叢集設定。 |
 | --application-health-policies | 引發錯誤之前，應用程式類型名稱和健康情況不良最大百分比組合的 JSON 編碼目錄。 |
@@ -78,7 +78,7 @@ ms.locfileid: "53275477"
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |
@@ -102,13 +102,13 @@ policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"
 
 ### <a name="arguments"></a>引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 
-|引數|說明|
+|引數|描述|
 | --- | --- |
 | --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
 | --help -h | 顯示此說明訊息並結束。 |

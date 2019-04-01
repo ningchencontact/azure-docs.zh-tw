@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: c8b32e1d52768ea8450a2256d92d8cdb09f9fe8b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6339b49d0bc9c635457f305dad7b1a075327a1dd
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445631"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650269"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>使用 PowerShell 建立具有原生模式報表伺服器的 Azure VM
 > [!IMPORTANT] 
@@ -130,7 +130,7 @@ ms.locfileid: "57445631"
    4. 選取要管理的 [本機電腦]，然後按一下 [完成]。
    5. 按一下 [確認]，展開 [憑證 - 個人] 節點，然後按一下 [憑證]。 憑證是以 VM 的 DNS 名稱來命名，並以**cloudapp.net** 結尾。 以滑鼠右鍵按一下憑證名稱，並按一下 [複製]。
    6. 展開 [信任的根憑證授權] 節點，接著以滑鼠右鍵按一下 [憑證]，然後按一下 [貼上]。
-   7. 若要驗證，請按兩下 [信任的根憑證授權]  下的憑證名稱，確認沒有任何錯誤，且您能看到您的憑證。 若您要使用本主題中的 HTTPS 指令碼設定報表伺服器，需將 [指紋] 憑證的值作為指令碼的參數。 **若要取得憑證指紋值**，請完成下列步驟。 在[使用指令碼設定報表伺服器和 HTTPS](#use-script-to-configure-the-report-server-and-HTTPS)一節中，還有可擷取憑證指紋的 PowerShell 範例。
+   7. 若要驗證，請按兩下 [信任的根憑證授權]  下的憑證名稱，確認沒有任何錯誤，且您能看到您的憑證。 若您要使用本主題中的 HTTPS 指令碼設定報表伺服器，需將 [指紋] 憑證的值作為指令碼的參數。 **若要取得憑證指紋值**，請完成下列步驟。 在[使用指令碼設定報表伺服器和 HTTPS](#use-script-to-configure-the-report-server-and-https)一節中，還有可擷取憑證指紋的 PowerShell 範例。
       
       1. 按兩下憑證名稱，例如 ssrsnativecloud.cloudapp.net。
       2. 按一下 [詳細資料]  索引標籤。

@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1a40399ab0e27be5ba9dd01f2647bd5b8ccf10e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b33e993dbddc9c1567a1a6f7d3dca28af240a000
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202500"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650660"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect 同步：函式參考
 在 Azure AD Connect 中，函數是用來在同步處理期間操作屬性值。  
@@ -51,19 +51,20 @@ ms.locfileid: "56202500"
 類型為 **mvbin**、**mvstr** 和 **mvref** 的函式僅可用於多重值的屬性。 類型為 **bin**、**str** 和 **ref** 的函式可用於單一值和多重值的屬性。
 
 ## <a name="functions-reference"></a>函式參考
+
 | 函數的清單 |  |  |  |  |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | **憑證** | | | | |
 | [CertExtensionOids](#certextensionoids) |[CertFormat](#certformat) |[CertFriendlyName](#certfriendlyname) |[CertHashString](#certhashstring) | |
 | [CertIssuer](#certissuer) |[CertIssuerDN](#certissuerdn) |[CertIssuerOid](#certissueroid) |[CertKeyAlgorithm](#certkeyalgorithm) | |
 | [CertKeyAlgorithmParams](#certkeyalgorithmparams) |[CertNameInfo](#certnameinfo) |[CertNotAfter](#certnotafter) |[CertNotBefore](#certnotbefore) | |
 | [CertPublicKeyOid](#certpublickeyoid) |[CertPublicKeyParametersOid](#certpublickeyparametersoid) |[CertSerialNumber](#certserialnumber) |[CertSignatureAlgorithmOid](#certsignaturealgorithmoid) | |
 | [CertSubject](#certsubject) |[CertSubjectNameDN](#certsubjectnamedn) |[CertSubjectNameOid](#certsubjectnameoid) |[CertThumbprint](#certthumbprint) | |
-[ CertVersion](#certversion) |[IsCert](#iscert) | | | |
+[CertVersion](#certversion) |[IsCert](#iscert) | | | |
 | **轉換** | | | | |
 | [CBool](#cbool) |[CDate](#cdate) |[CGuid](#cguid) |[ConvertFromBase64](#convertfrombase64) | |
 | [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
-| [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#StringFromGuid) |[StringFromSid](#stringfromsid) | |
+| [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#stringfromguid) |[StringFromSid](#stringfromsid) | |
 | **日期 / 時間** | | | | |
 | [DateAdd](#dateadd) |[DateFromNum](#datefromnum) |[FormatDateTime](#formatdatetime) |[Now](#now) | |
 | [NumFromDate](#numfromdate) | | | | |
@@ -80,7 +81,7 @@ ms.locfileid: "56202500"
 | [Join](#join) |[RemoveDuplicates](#removeduplicates) |[Split](#split) | | |
 | **程式流程** | | | | |
 | [Error](#error) |[IIF](#iif) |[選取](#select) |[Switch](#switch) | |
-| [其中](#where) |[With](#with) | | | |
+| [Where](#where) |[With](#with) | | | |
 | **文字** | | | | |
 | [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
 | [Left](#left) |[Len](#len) |[LTrim](#ltrim) |[Mid](#mid) | |
@@ -115,7 +116,7 @@ BitAnd 函式會在值中設定指定的位元。
 **說明：**  
 BitOr 函式會在值中設定指定的位元。
 
-**語法：**  
+**语法：**  
 `num BitOr(num value1, num value2)`
 
 * value1，value2：應該使用 OR 連結在一起的數值
@@ -415,7 +416,7 @@ ConvertFromUTF8Hex 函式會將指定的 UTF8 十六進位編碼值轉換為字�
 
 **備註：**  
 此函式與 ConvertFromBase64([],UTF8) 之間的差異在於結果支援 DN 屬性。  
-Azure Active Directory 會使用此格式做為 DN。
+此格式被 Azure Active Directory 用作 DN。
 
 **範例：**  
 `ConvertFromUTF8Hex("48656C6C6F20776F726C6421")`  
@@ -450,7 +451,7 @@ Azure Active Directory 會使用此函式的輸出格式做為 DN 屬性格式�
  傳回 48656C6C6F20776F726C6421
 
 - - -
-### <a name="count"></a>Count
+### <a name="count"></a>計數
 **說明：**  
 Count 函式會傳回多重值屬性中的元素個數
 
@@ -470,7 +471,7 @@ CNum 函式會取得字串，並傳回數值資料類型。
 **說明：**  
 將字串轉換為參考屬性
 
-**語法：**  
+**语法：**  
 `ref CRef(str value)`
 
 **範例：**  
@@ -573,7 +574,7 @@ Error 函式是用來傳回自訂錯誤。
 **語法：**  
 `void Error(str ErrorMessage)`
 
-**範例：**  
+**示例：**  
 `IIF(IsPresent([accountName]),[accountName],Error("AccountName is required"))`  
 如果 accountName 屬性不存在，即會擲回有關物件的錯誤。
 
@@ -732,7 +733,7 @@ IsBitSet 函式會測試是否已設定位元
 **語法：**  
 `bool IsGuid(str GUID)`
 
-**備註：**  
+**备注：**  
 GUID 定義為下列其中一種模式的字串： xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 或 {xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx}
 
 用來判斷 CGuid() 是否可能成功。
@@ -889,8 +890,8 @@ Left 函式會從字串左邊傳回指定的字元數。
 **備註：**  
 包含 string 中前 numChars 個字元的字串：
 
-* 如果 numChars = 0，會傳回空字串。
-* 如果 numChars < 0，會傳回輸入字串。
+* 如果 numChar = 0，则返回空字符串。
+* 如果 numChar < 0，则返回输入字符串。
 * 如果 string 為 Null，會傳回空字串。
 
 如果 string 包含的字元數比 numChars 中指定的數目少，即會傳回與 string 完全相同的字串 (也就是，包含參數 1 中的所有字元)。
@@ -1066,7 +1067,7 @@ RemoveDuplicates 函式會接受多重值的字串，並確定每個值都是唯
 **語法：**  
 `mvstr RemoveDuplicates(mvstr attribute)`
 
-**範例：**  
+**示例：**  
 `RemoveDuplicates([proxyAddresses])`  
  傳回處理過的 proxyAddress 屬性，其中已移除所有重複的值。
 
@@ -1143,7 +1144,7 @@ Right 函式會從字串右邊 (結尾處) 傳回指定的字元數。
 包含 string 中最後 numChars 個字元的字串：
 
 * 如果 numChars = 0，會傳回空字串。
-* 如果 numChars < 0，會傳回輸入字串。
+* 如果 numChar < 0，则返回输入字符串。
 * 如果 string 為 Null，會傳回空字串。
 
 如果 string 包含的字元數比 numChars 中指定的數目少，即會傳回與 string 完全相同的字串。

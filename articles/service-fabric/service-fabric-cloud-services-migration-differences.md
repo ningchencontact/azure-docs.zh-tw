@@ -4,7 +4,7 @@ description: 這是將應用程式從雲端服務移轉到 Service Fabric 的概
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 0b87b1d3-88ad-4658-a465-9f05a3376dee
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 35ab4a9bdd66bf3571e7f189191550f88e17cee2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 4682e47e664384a6869e1a74e3de6d9083db082b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206477"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669445"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>移轉應用程式之前，先了解「雲端服務」與 Service Fabric 之間的差異。
 Microsoft Azure Service Fabric 為次世代雲端應用程式平台，適用於高度可調整且高度可靠的分散式應用程式。 其中導入了許多封裝、部署、更新及管理分散式雲端應用程式的新功能。 
@@ -29,11 +29,11 @@ Microsoft Azure Service Fabric 為次世代雲端應用程式平台，適用於�
 ## <a name="applications-and-infrastructure"></a>應用程式與基礎結構
 雲端服務與 Service Fabric 最基本的差異在於 VM、工作負載及應用程式之間的關係。 這裡的工作負載定義為您所撰寫來執行特定工作或提供服務的程式碼。
 
-* **雲端服務的重點是將應用程式部署為 VM。** 您的程式碼緊密地與 VM 執行個體 (如 Web 或背景工作角色) 結合。 在雲端服務中部署工作負載，即為部署一或多個執行該工作負載的 VM 執行個體。 應用程式與 VM 沒有區別，因此對於應用程式也沒有正式的定義。 應用程式可以視為雲端服務部署中的一組 Web 或背景工作角色，或是整個雲端服務部署。 在此範例中，應用程式會顯示為一組角色執行個體。
+* **雲端服務的重點是將應用程式部署為 VM。**  您的程式碼緊密地與 VM 執行個體 (如 Web 或背景工作角色) 結合。 在雲端服務中部署工作負載，即為部署一或多個執行該工作負載的 VM 執行個體。 應用程式與 VM 沒有區別，因此對於應用程式也沒有正式的定義。 應用程式可以視為雲端服務部署中的一組 Web 或背景工作角色，或是整個雲端服務部署。 在此範例中，應用程式會顯示為一組角色執行個體。
 
 ![雲端服務應用程式和拓撲][1]
 
-* **Service Fabric 的重點是將應用程式部署到現有的 VM 或執行 Service Fabric 的 Windows 或 Linux 電腦。** 您撰寫的服務完全與背後的基礎服務分離 (由 Service Fabric 應用程式平台抽象化)，因此可以將應用程式部署在多個環境。 Service Fabric 中的工作負載稱為「服務」，而一或多個服務會在 Service Fabric 應用程式平台上執行且正式定義的應用程式中形成群組。 可將多個應用程式部署到單一的 Service Fabric 叢集。
+* **Service Fabric 的重點是將應用程式部署到現有的 VM 或執行 Service Fabric 的 Windows 或 Linux 電腦。**  您撰寫的服務完全與背後的基礎服務分離 (由 Service Fabric 應用程式平台抽象化)，因此可以將應用程式部署在多個環境。 Service Fabric 中的工作負載稱為「服務」，而一或多個服務會在 Service Fabric 應用程式平台上執行且正式定義的應用程式中形成群組。 可將多個應用程式部署到單一的 Service Fabric 叢集。
 
 ![Service Fabric 應用程式和拓撲][2]
 
@@ -73,7 +73,7 @@ Service Fabric 應用程式也可以選擇在完整應用程式中使用同樣�
 
  直接通訊是 Service Fabric 中常見的通訊模型。 Service Fabric 和雲端服務的關鍵差異在於，在雲端服務中您是連接到 VM，而在 Service Fabric 中是連接到服務。 這是重要差異，原因如下：
 
-* Service Fabric 中的服務不受限於裝載它們的 VM。服務可以在叢集中移動，且已預期會因為幾個原因而移動：資源平衡、容錯移轉、應用程式和基礎結構更新，以及位置或負載的限制。 這表示服務執行個體的位址可隨時變更。 
+* Service Fabric 中的服務不受限於裝載它們; 的 Vm服務在叢集中，可能會移動，而事實上，應基於各種原因四處移動：資源平衡、 容錯移轉、 應用程式和基礎結構的升級，並放置或負載的限制。 這表示服務執行個體的位址可隨時變更。 
 * Service Fabric 中的 VM 可以託管多個服務，且每個有獨特的端點。
 
 Service Fabric 提供服務探索機制 (稱為「名稱服務」)，可用來解析服務的端點位置。 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/18/2019
+ms.date: 3/28/2019
 ms.author: monhaber
-ms.openlocfilehash: c7cc5784caf8a83a50536a8edc69ea76ea8589d8
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 66a7171aff7b9bab5f320df1d71e9cab4ce0477d
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199829"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758308"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>使用 Just-In-Time 管理虛擬機器存取
 
@@ -162,9 +162,13 @@ Just-In-Time 虛擬機器 (VM) 存取可用於鎖定 Azure VM 的輸入流量、
 
   ![JIT 提示](./media/security-center-just-in-time/jit-prompt.png)
 
-- 如果您確實已在虛擬機器上設定了 JIT 原則，可以按一下 [要求存取]，好根據為此所設定的 JIT 原則來存取虛擬機器。
+- 如果您確實已在虛擬機器上設定了 JIT 原則，可以按一下 [要求存取]，好根據為此所設定的 JIT 原則來存取虛擬機器。 使用下列的預設參數要求的存取：
+    - **來源 IP**:'Any' （*） （無法變更）
+    - **時間範圍**:過去 3 小時內 （無法變更）
+    - **連接埠號碼**RDP 連接埠 3389 的 Windows / Linux 的連接埠 22 (您可以變更連接埠號碼**連線至虛擬機器** 對話方塊。)
 
-  ![JIT 要求存取](./media/security-center-just-in-time/jit-request-access.png)
+
+  >![JIT 要求存取](./media/security-center-just-in-time/jit-request-access.png)
 
 ## <a name="auditing-jit-access-activity"></a>稽核 JIT 存取活動
 

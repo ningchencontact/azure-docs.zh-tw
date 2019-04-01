@@ -4,7 +4,7 @@ description: 文件說明關於在部署用來處理生產工作負載的叢集�
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.service: service-fabric
 ms.devlang: dotnet
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 0b6fae59fbe0fa86cb16b176eb1df47e031d04f1
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: e5fa46930a3be3c85cd76e655fac3164cc45d957
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317180"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664806"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>規劃和準備您的 Service Fabric 獨立叢集部署
 
@@ -76,10 +76,10 @@ ms.locfileid: "53317180"
 [下載連結 - Service Fabric 獨立封裝 - Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690)，並將封裝解壓縮至不屬於叢集一部分的部署電腦，或解壓縮至將屬於叢集的其中一部電腦。
 
 ## <a name="modify-cluster-configuration"></a>修改叢集組態
-若要建立獨立叢集，您必須建立獨立叢集組態 ClusterConfig.json 檔案，其中描述叢集的規格。 您可以根據可在下面連結找到的範本來建立組態檔。 <br>
-[獨立叢集組態](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
+若要建立獨立叢集，您必須建立獨立叢集組態 ClusterConfig.json 檔案，其中描述叢集的規格。 可以基于在以下链接中找到的模板创建配置文件。 <br>
+[独立群集配置](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
 
-如需此檔案中各個區段的詳細資訊，請參閱[獨立 Windows 叢集的組態設定](service-fabric-cluster-manifest.md)。
+有关此文件中各个节的详细信息，请参阅 [Windows 独立群集的配置设置](service-fabric-cluster-manifest.md)。
 
 從您下載的封裝中開啟其中一個 ClusterConfig.json 檔案，然後修改下列設定︰
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 14f1a92f701eaedd98b825316ebf213f7c144920
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: d7084a42f64234cff4e5e2742ed3d27a3fd00e1e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959454"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652292"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>監視 Azure 搜尋服務中的資源耗用量和查詢活動
 
@@ -98,7 +98,7 @@ Azure 監視器記錄檔和 Blob 儲存體是免費的共用服務的形式提�
 
 需要一小時的時間，容器才會出現在 Blob 儲存體中。 每個容器每小時會有一個 Blob。 
 
-您可以使用 [Visual Studio Code](#Download-and-open-in-Visual-Studio-Code) 或另一個 JSON 編輯器還檢視檔案。 
+您可以使用 [Visual Studio Code](#download-and-open-in-visual-studio-code) 或另一個 JSON 編輯器還檢視檔案。 
 
 ### <a name="example-path"></a>範例路徑
 

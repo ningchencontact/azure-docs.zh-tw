@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: eb7f368100269c4e47076bb6b78bafc23e7a6089
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8cd6a68f6593a5b746a19e42e4835deb05e112b6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57845598"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757171"
 ---
 # <a name="streaming-endpoints"></a>串流端點
 
@@ -33,14 +33,34 @@ ms.locfileid: "57845598"
 
 ## <a name="types"></a>類型  
 
-有兩個**串流端點**類型：「標準」和「進階」。 類型會根據您為串流端點配置的縮放單位數 (`scaleUnits`) 來定義。 
+**串流端點**有兩種類型：「標準」和「進階」。 類型會根據您為串流端點配置的縮放單位數 (`scaleUnits`) 來定義。 
 
 類型描述如下表所示：  
 
 |類型|縮放單位|描述|
 |--------|--------|--------|  
-|**標準串流端點** (建議)|0|**標準**類型是幾乎所有串流案例和觀眾規模的建議選項。 **標準**類型會自動調整輸出頻寬。 <br/>媒體服務提供極高需求的客戶**Premium**串流端點，可用來向外延展的最大的網際網路對象的容量。 如果您預期大量對象和並行檢視者，與我們連絡 amsstreaming\@如需指引您是否需要移至 microsoft.com **Premium**型別。 |
+|**標準串流端點** (建議)|0|預設為串流端點**標準**類型，但可以變更為進階類型。<br/> 標準的類型是幾乎所有的資料流案例和對象規模的建議的選項。 **標準**類型會自動調整輸出頻寬。 從這種類型的串流端點輸送量為最多 600 Mbps。 視訊片段快取在 CDN 中，請勿使用的串流端點的頻寬。<br/>針對需求極高的客戶，媒體服務提供**進階**串流端點，可用來相應增加容量，以因應極大量的網際網路觀眾。 如果您預期大量對象和並行檢視者，與我們連絡 amsstreaming\@如需指引您是否需要移至 microsoft.com **Premium**型別。 |
 |**進階串流端點**|>0|**進階**串流端點適合進階工作負載，提供專用並能靈活調整的頻寬容量。 您可以藉由調整 `scaleUnits` 來移至**進階**類型。 `scaleUnits` 提供您專用的輸出容量，您可以透過每次增量 200 Mbps 的方式來購買。 使用**進階**類型時，每個啟用的單位會提供額外頻寬容量給應用程式。 |
+ 
+## <a name="comparing-streaming-types"></a>比較串流類型
+
+### <a name="features"></a>特性
+
+功能|標準|進階
+---|---|---
+前 15 天免費| 是 |否
+Throughput |未使用 Azure CDN 時最多 600 Mbps。 隨著 CDN 調整。|每個串流單位 (SU) 200 Mbps。 隨著 CDN 調整。
+SLA | 99.9|99.9 (每個 SU 200 Mbps)。
+CDN|Azure CDN、第三方 CDN 或没有 CDN。|Azure CDN、協力廠商 CDN 或沒有 CDN。
+按比例計費| 每日|每日
+動態加密|是|是
+動態封裝|是|是
+調整|自動相應增加至目標輸送量。|其他串流單位
+IP 篩選/G20/自訂主機<sup>1</sup>|是|是
+漸進式下載|是|是
+建議用法 |建議用於絕大多數的串流案例。|專業用法。<br/>如果認為您的需求已超過「標準」。 如果您預期有 50,000 位以上的觀眾同時觀看，請連絡我們 (amsstreaming@microsoft.com)。
+
+<sup>1</sup>在端點上未啟用 CDN 時，才使用直接在串流端點上。
 
 ## <a name="working-with-cdn"></a>使用 CDN
 
@@ -70,7 +90,7 @@ ms.locfileid: "57845598"
     如果您收到此錯誤，表示資料中心不支援此功能。 您應該嘗試使用另一個資料中心。
 - `cdnProfile` -當`cdnEnabled`設為 true，您也可以傳遞`cdnProfile`值。 `cdnProfile` 是 CDN 設定檔的名稱，而該設定檔就是要建立 CDN 端點的位置。 您可以提供現有的 cdnProfile，或使用新的。 如果值為 NULL，而且 `cdnEnabled` 是 True，則會使用預設值 "AzureMediaStreamingPlatformCdnProfile"。 如果提供的 `cdnProfile` 已經存在，則會在其下方建立端點。 如果沒有設定檔，新的設定檔會自動建立。
 - `cdnProvider` -當啟用 CDN 時，您也可以傳遞`cdnProvider`值。 `cdnProvider` 會控制將使用哪一個提供者。 目前支援三個值："StandardVerizon"、"PremiumVerizon" 和 "StandardAkamai"。 如果未不提供任何值和`cdnEnabled`為 true，使用"StandardVerizon"（也就是預設值）。
-- `crossSiteAccessPolicies` -用來指定各種用戶端的跨網站存取原則。 如需詳細資訊，請參閱[跨網域原則檔案規格](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)和[使服務可跨網域界限使用](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx)。
+- `crossSiteAccessPolicies` -用來指定各種用戶端的跨網站存取原則。 如需詳細資訊，請參閱[跨網域原則檔案規格](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)和[使服務可跨網域界限使用](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx)。<br/>設定只適用於 Smooth Streaming。
 - `customHostNames` -用來設定串流端點，以接受流量導向至自訂主機名稱。  這個屬性僅適用於標準及進階串流端點，而且可以設定當`cdnEnabled`: false。
     
     媒體服務，必須確認網域名稱的擁有權。 媒體服務透過要求驗證網域名稱擁有權`CName`筆記錄，內含的媒體服務帳戶識別碼做為要加入至使用中網域的元件。 例如，若要將 "sports.contoso.com" 作為串流端點的自訂主機名稱，`<accountId>.contoso.com` 的記錄就必須設定為指向其中一個媒體服務驗證名稱。 驗證主機名稱會由 verifydns.\<mediaservices-dns-zone> 組成。 

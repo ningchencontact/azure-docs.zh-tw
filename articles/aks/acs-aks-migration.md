@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
-ms.openlocfilehash: e42b0e7bd1bce40b7c58d75cb07f5a3f8afa5836
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: 910c96988ec0a8b8aa7b6ac8ce287c4fdc59e177
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385036"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649963"
 ---
 # <a name="migrating-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>從 Azure Container Service (ACS) 遷移至 Azure Kubernetes Service (AKS)
 
@@ -35,7 +35,7 @@ ACS 和 AKS 在某些重要區域上會有差異，而這會對移轉造成影�
 
 ### <a name="differences-between-kubernetes-versions"></a>Kubernetes 版本之間的差異
 
-如果您要遷移至較新版的 Kubernetes (例如：從 1.7.x 到 1.9.x)，您需要注意幾個 k8s API 的變更。
+如果要迁移到更高版本的 Kubernetes（例如：1.7.x 到 1.9.x），需要注意对 k8s API 的一些更改。
 
 * [將 ThirdPartyResource 遷移至 CustomResourceDefinition](https://kubernetes.io/docs/tasks/access-kubernetes-api/migrate-third-party-resource/)
 * [1.8 版和 1.9 版中的工作負載 API 變更](https://kubernetes.io/docs/reference/workloads-18-19/)。
@@ -48,10 +48,10 @@ ACS 和 AKS 在某些重要區域上會有差異，而這會對移轉造成影�
 
 範例：
 
-| 名稱 | Count | VM 大小 | 作業系統 |
+| 名稱 | 計數 | VM 大小 | 作業系統 |
 | --- | --- | --- | --- |
-| agentpool0 | 3 | Standard_D8_v2 | Linux |
-| agentpool1 | 1 | Standard_D2_v2 | Windows |
+| agentpool0 | 3 | Standard_D8_v2 |  Linux |
+| agentpool1 | 1 | Standard_D2_v2 |  Windows |
 
 由於在移轉期間會有額外的虛擬機器部署到訂用帳戶，因此您應確認您的配額與限制足以讓這些資源使用。 您可以檢閱 [Azure 訂用帳戶和服務限制](https://docs.microsoft.com/azure/azure-subscription-service-limits)來深入了解。 若要檢查您目前的配額，請前往 Azure 入口網站中的 [[訂用帳戶] 刀鋒視窗](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)並選取您的訂用帳戶，然後選取 [`Usage + quotas`]。
 
@@ -91,7 +91,7 @@ ACS 和 AKS 在某些重要區域上會有差異，而這會對移轉造成影�
 7. 驗證
 8. 將流量指向 AKS 叢集
 
-> **重要**：如果您選擇不要停止寫入，您必須將資料複寫到新的部署中，因為寫入的資料會因為磁碟快照而遺失
+> **重要**：如果选择不暂停写入，则需要将数据复制到新部署，因为你将丢失自创建磁盘快照以来写入的数据
 
 存在的開放原始碼工具可協助您建立受控磁碟，以及在 Kubernetes 叢集之間遷移磁碟區。
 
@@ -144,7 +144,7 @@ kubectl get deployment -o=yaml --export > deployments.yaml
 
 ### <a name="3-optional-migrate-volumes"></a>3.(選擇性) 遷移磁碟區
 
-將磁碟區從 ACS 叢集遷移到 AKS 叢集。 您可以在[遷移永續性磁碟區](#Migrating-Persistent-Volumes)一節中找到更多詳細資料。
+將磁碟區從 ACS 叢集遷移到 AKS 叢集。 您可以在[遷移永續性磁碟區](#migrating-persistent-volumes)一節中找到更多詳細資料。
 
 ### <a name="4-deploy-applications"></a>4.部署應用程式
 

@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/30/2018
+ms.date: 03/28/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 233834bd040362e27ffadc3d0003a87827012352
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 61f65340c3b683674be195f1d30788494b6855a7
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407783"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58671901"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>關於 Azure IaaS VM 磁碟及受控和非受控進階磁碟的常見問題集
 
@@ -219,7 +219,7 @@ GPT 分割只能在資料磁碟上使用，無法在 OS 磁碟上使用。 OS �
 
 **在透過 Azure 受 Azure Site Recovery 保護的 Azure 虛擬機器上移轉至 Azure 複寫是否有任何影響？**
 
-是。 目前，適用於虛擬機器使用受控磁碟的 Azure Site Recovery Azure 至 Azure 保護，只以公開預覽服務的型態提供。
+是。 目前，Azure 網站復原 Azure 至 Azure 保護的 Vm 與受控磁碟可成為 GA 服務。
 
 **我是否可以將具有非受控磁碟 (位於之前已加密的儲存體帳戶上) 的 VM 移轉至受控磁碟？**
 
@@ -339,7 +339,7 @@ Azure 支援的分頁 Blob 大小上限是 8 TiB (8,191 GiB)。 連結至 VM 作
 
 **Azure 備份和 Azure Site Recovery 服務所支援的最大磁碟大小為何？**
 
-Azure 備份和 Azure Site Recovery 服務支援的最大磁碟大小為 4 TiB。
+Azure 備份和 Azure Site Recovery 服務支援的最大磁碟大小為 4 TiB。 即將新增最多 32 TiB 較大的磁碟支援。
 
 **什麼是建議的 VM 大小的較大的磁碟大小 (> 4 TiB) 標準的 SSD 和標準 HDD 磁碟，以達到最佳化的磁碟 IOPS 和頻寬嗎？**
 
