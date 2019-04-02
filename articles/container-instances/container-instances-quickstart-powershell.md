@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 10/02/2018
+ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 00f5f8e045a2ec78751d115db3d9d75ec76189e8
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 8c50a3069ea8b1303e45c571425a6f4c9b4c0d5b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57732298"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368183"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-azure-powershell"></a>快速入門：使用 Azure PowerShell 部署容器執行個體
 
@@ -43,14 +43,14 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>建立容器
 
-有了資源群組之後，現在您可以在 Azure 中執行容器。 若要使用 Azure PowerShell 建立容器執行個體，請在 [New-AzContainerGroup][New-AzContainerGroup] Cmdlet 中提供資源群組名稱、容器執行個體名稱和 Docker 容器映像。 在此快速入門中，您可以使用公用 Docker Hub 登錄中的 `microsoft/iis:nanoserver` Windows 映像。 此映像會封裝 Internet Information Services (IIS) 以在 Nano Server 中執行。
+有了資源群組之後，現在您可以在 Azure 中執行容器。 若要使用 Azure PowerShell 建立容器執行個體，請在 [New-AzContainerGroup][New-AzContainerGroup] Cmdlet 中提供資源群組名稱、容器執行個體名稱和 Docker 容器映像。 在此快速入門中，您可以使用公用 `mcr.microsoft.com/windows/servercore/iis:nanoserver` 映像。 此映像會封裝 Microsoft Internet Information Services (IIS) 以在 Nano Server 中執行。
 
 您可以指定一或多個要開啟的連接埠和 (或) DNS 名稱標籤，以將您的容器公開至網際網路。 在本快速入門中，您會部署附有 DNS 名稱標籤的一個容器，以便公開觸達 IIS。
 
 執行和下列類似的命令，以啟動容器執行個體。 設定 `-DnsNameLabel` 值，其在您建立執行個體所在的 Azure 區域中必須是唯一的。 如果出現「DNS 名稱標籤無法使用」錯誤訊息，請嘗試使用不同的 DNS 名稱標籤。
 
  ```azurepowershell-interactive
-New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
+New-AzContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image mcr.microsoft.com/windows/servercore/iis:nanoserver -OsType Windows -DnsNameLabel aci-demo-win
 ```
 
 在幾秒內，您應該會從 Azure 收到回應。 一開始，容器會 `ProvisioningState` 會處於 [建立中] 狀態，但應該會在一兩分鐘內變成 [成功]。 請使用 [Get-AzContainerGroup][Get-AzContainerGroup] Cmdlet 來查看部署狀態：

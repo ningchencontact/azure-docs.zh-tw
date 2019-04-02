@@ -10,57 +10,43 @@ ms.author: stevenry
 ms.date: 12/17/2018
 ms.topic: include
 manager: yuvalm
-ms.openlocfilehash: 5d66dcaccc6ca2e40fbd516f535ec56c1baf6b17
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: e0f768b876b49ec006ce98decf121d73d334b6d8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195591"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439512"
 ---
 ### <a name="run-the-service"></a>執行服務
 
-1. 按 F5 (或在終端機視窗中輸入 `azds up`) 來執行服務。 服務會自動在您新選取的空間 dev/scott 中執行。 
-1. 您可以藉由再次執行 `azds list-up`，確認您的服務是在其本身的空間中執行。 您會注意到 mywebapi 的執行個體現在是在 dev/scott 空間中執行 (在 dev 中執行的版本仍在執行中，但是不會列出)。
+若要執行服務，請按 F5 (或在終端機視窗中輸入 `azds up`) 來執行服務。 服務會自動在您新選取的空間 dev/scott 中執行。 藉由執行 `azds list-up` 確認您的服務正在其本身的空間中執行：
 
-    ```
-    Name                      DevSpace  Type     Updated  Status
-    mywebapi                  scott     Service  3m ago   Running
-    mywebapi-bb4f4ddd8-sbfcs  scott     Pod      3m ago   Running
-    webfrontend               dev       Service  26m ago  Running
-    ```
+```cmd
+$ azds list-up
 
-1. 執行 `azds list-uris`，並注意 webfrontend 的存取點 URL。
-
-    ```
-    Uri                                                                        Status
-    -------------------------------------------------------------------------  ---------
-    http://localhost:53831 => mywebapi.scott:80                                Tunneled
-    http://scott.s.dev.webfrontend.6364744826e042319629.ce.azds.io/  Available
-    ```
-
-1. 使用具有 *scott.s* 前置詞的 URL 瀏覽至您的應用程式。 請注意，此更新後的 URL 仍會進行解析。 此 URL 是 dev/scott 空間專屬的。 此特殊 URL 表示傳送到 "Scott URL" 的要求會嘗試先路由到 dev/scott 空間中的服務，但若失敗，則會切換回 dev 空間中的服務。
-
-<!--
-TODO: replace 2 & 3 with below once bug#753164 and PR#158827 get pushed to production.
-
-You can confirm that your service is running in its own space by running `azds list-up` again. First, you'll notice an instance of *mywebapi* is now running in the _dev/scott_ space (the version running in _dev_ is still running but it is not listed). If you run `azds list-uris`, you will notice that the access point URL for *webfrontend* is prefixed with the text "scott.s.". This URL is unique to the _dev/scott_ space. The special URL signifies that requests sent to the "Scott URL" will try to first route to services in the _dev/scott_ space, but if that fails, they will fall back to services in the _dev_ space.
-
-```
 Name                      DevSpace  Type     Updated  Status
 mywebapi                  scott     Service  3m ago   Running
-mywebapi-bb4f4ddd8-sbfcs  scott     Pod      3m ago   Running
 webfrontend               dev       Service  26m ago  Running
 ```
 
-```
+請注意，mywebapi 的執行個體現在正在 dev/scott 空間中執行。 在 dev 中執行的版本仍在執行，但不會列出。
+
+執行 `azds list-uris` 來列出目前空間的 URL。
+
+```cmd
+$ azds list-uris
+
 Uri                                                                        Status
 -------------------------------------------------------------------------  ---------
 http://localhost:53831 => mywebapi.scott:80                                Tunneled
 http://scott.s.dev.webfrontend.6364744826e042319629.ce.azds.io/  Available
 ```
--->
 
-![](../articles/dev-spaces/media/common/space-routing.png)
+請注意，webfrontend 的公用存取點 URL 前面會加上 scott.s。 此 URL 是 dev/scott 空間專屬的。 此 URL 前置詞會指示輸入控制器將要求路由傳送至服務的 dev/scott 版本。 當 Dev Spaces 處理具有此 URL 的要求時，輸入控制器會先嘗試將要求路由傳送至 dev/scott 空間中的 webfrontend 服務。 如果該嘗試失敗，則會將要求路由傳送至 dev 空間中的 webfrontend 服務以作為後援。 另請注意，會有 localhost URL 可供使用 Kubernetes 的「連接埠轉送」功能來透過 localhost 存取服務。 如需 Azure Dev Spaces 中 URL 和路由的詳細資訊，請參閱 [Azure Dev Spaces 的運作和設定方式](../articles/dev-spaces/how-dev-spaces-works.md)。
+
+
+
+![空間路由](../articles/dev-spaces/media/common/Space-Routing.png)
 
 Azure Dev Spaces 的這項內建功能可讓您在共用空間中測試程式碼，而不需要每位開發人員在其空間中重新建立服務的完整堆疊。 這個路由需要您的應用程式程式碼才能轉送傳播標頭，如本指南的上一個步驟所述。
 

@@ -10,12 +10,12 @@ ms.workload: mobile
 ms.topic: quickstart
 ms.date: 02/14/2019
 ms.author: jowargo
-ms.openlocfilehash: 8d2b54e65c1409c01a4c38ca8fcdfeca5f031277
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 04108c4b5a8ce04b971a0529393ea442cb1cf226
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58113328"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480118"
 ---
 # <a name="set-up-push-notifications-in-a-notification-hub-in-the-azure-portal"></a>在 Azure 入口網站中設定通知中樞中的推播通知
 
@@ -29,7 +29,7 @@ Azure 通知中樞提供易於使用並可相應放大的推播引擎。使用�
 
 設定 Apple Push Notification Service (APNS)：
 
-1. 在 Azure 入口網站中的 [通知中樞] 中，選取 [Apple (APNS)]。
+1. 在 Azure 入口網站中的 [通知中樞] 頁面上，從左側功能表中選取 [Apple (APNS)]。
 
 1. 針對 [驗證模式]，選取 [憑證] 或 [權杖]。
 
@@ -53,7 +53,7 @@ Azure 通知中樞提供易於使用並可相應放大的推播引擎。使用�
 
 若要設定 Google Firebase 雲端通訊 (FCM) 的推播通知：
 
-1. 在 Azure 入口網站中的 [通知中樞]，選取 [Google (GCM/FCM)]。 
+1. 在 Azure 入口網站中的 [通知中樞] 頁面上，從左側功能表中選取 [Google (GCM/FCM)]。 
 2. 針對您稍早儲存的 FCM 專案，貼上 **API 金鑰**。 
 3. 選取 [ **儲存**]。 
 
@@ -67,7 +67,7 @@ Azure 通知中樞提供易於使用並可相應放大的推播引擎。使用�
 
 設定 Windows 推播通知服務 (WNS)：
 
-1. 在 Azure 入口網站中的 [通知中樞] 中，選取 [Windows (WNS)]。
+1. 在 Azure 入口網站中的 [通知中樞] 頁面上，從左側功能表中選取 [Windows (WNS)]。
 2. 輸入 [套件 SID] 和 [安全性金鑰] 的值。
 3. 選取 [ **儲存**]。
 
@@ -79,7 +79,7 @@ Azure 通知中樞提供易於使用並可相應放大的推播引擎。使用�
 
 設定適用於 Windows Phone 的 Microsoft 推播通知服務 (MPNS)： 
 
-1. 在 Azure 入口網站中的 [通知中樞] 中，選取 [Windows Phone (MPNS)]。
+1. 在 Azure 入口網站中的 [通知中樞] 頁面上，從左側功能表中選取 [Windows Phone (MPNS)]。
 1. 啟用未經驗證或已驗證的推播通知：
 
    a. 若要啟用未經驗證的推播通知，請選取 [啟用未經驗證的推播通知]  >  [儲存]。
@@ -99,7 +99,7 @@ Azure 通知中樞提供易於使用並可相應放大的推播引擎。使用�
 
 設定 Amazon 裝置傳訊 (ADM) 的推播通知：
 
-1. 在 Azure 入口網站中的 [通知中樞] 中，選取 [Amazon (ADM)]。
+1. 在 Azure 入口網站中的 [通知中樞] 頁面上，從左側功能表中選取 [Amazon (ADM)]。
 2. 輸入 [用戶端識別碼] 和 [用戶端祕密] 的值。
 3. 選取 [ **儲存**]。
     
@@ -111,7 +111,7 @@ Azure 通知中樞提供易於使用並可相應放大的推播引擎。使用�
 
 設定百度的推播通知：
 
-1. 在 Azure 入口網站中的 [通知中樞] 中，選取 [百度 (Android China)]。 
+1. 在 Azure 入口網站中的 [通知中樞] 頁面上，從左側功能表中選取 [百度 (Android China)]。 
 2. 在百度雲推送專案中，輸入從百度主控台取得的 **API 金鑰**。 
 3. 在百度雲推送專案中，輸入從百度主控台取得的**祕密金鑰**。 
 4. 選取 [ **儲存**]。 

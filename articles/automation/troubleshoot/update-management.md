@@ -8,12 +8,12 @@ ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 166ffea9cbeb3f343d70737de9049ee721fa9a98
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: b92ce1d5fb0e0b2b043b1bbfcb78dbaf3dde2e23
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448663"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804457"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>針對更新管理問題進行疑難排解
 
@@ -29,7 +29,7 @@ ms.locfileid: "58448663"
 
 上架後 15 分鐘，您會繼續在虛擬機器上看見下列訊息：
 
-```
+```error
 The components for the 'Update Management' solution have been enabled, and now this virtual machine is being configured. Please be patient, as this can sometimes take up to 15 minutes.
 ```
 
@@ -47,7 +47,7 @@ The components for the 'Update Management' solution have been enabled, and now t
    1. 在您的 Log Analytics 工作區，請從已儲存的搜尋範圍設定中移除 VM`MicrosoftDefaultScopeConfig-Updates`顯示時。 您可以在工作區中的 [一般] 底下找到儲存的搜尋。
    2. 執行 `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`
    3. 執行 `Restart-Service HealthService` 以重新啟動 `HealthService`。 這將會重建金鑰並產生新的 UUID。
-   4. 如果這樣沒有用，請先對映像執行 sysprep，然後再安裝 MMA 代理程式。
+   4. 如果這無法運作，sysprep 映像第一次，並在事實之後安裝 MMA 代理程式。
 
 ### <a name="multi-tenant"></a>案例：您在另一個 Azure 租用戶中建立機器的更新部署時，發生連結訂用帳戶錯誤。
 
@@ -55,7 +55,7 @@ The components for the 'Update Management' solution have been enabled, and now t
 
 您在另一個 Azure 租用戶中嘗試為機器建立更新部署時，發生下列錯誤：
 
-```
+```error
 The client has permission to perform action 'Microsoft.Compute/virtualMachines/write' on scope '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Automation/automationAccounts/automationAccountName/softwareUpdateConfigurations/updateDeploymentName', however the current tenant '00000000-0000-0000-0000-000000000000' is not authorized to access linked subscription '00000000-0000-0000-0000-000000000000'.
 ```
 
@@ -104,7 +104,7 @@ New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -Automa
 
 您收到下列錯誤訊息：
 
-```
+```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
 ```
 
@@ -122,15 +122,15 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 您會收到下列其中一個錯誤訊息：
 
-```
+```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception System.Net.Http.HttpRequestException: An error occurred while sending the request. ---> System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a receive. ---> System.ComponentModel.Win32Exception: The client and server can't communicate, because they do not possess a common algorithm
 ```
 
-```
+```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception Newtonsoft.Json.JsonReaderException: Error parsing positive infinity value.
 ```
 
-```
+```error
 The certificate presented by the service <wsid>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.
 ```
 
@@ -148,7 +148,7 @@ The certificate presented by the service <wsid>.oms.opinsights.azure.com was not
 
 您會收到下列其中一個錯誤訊息：
 
-```
+```error
 Unable to Register Machine for Patch Management, Registration Failed with Exception AgentService.HybridRegistration. PowerShell.Certificates.CertificateCreationException: Failed to create a self-signed certificate. ---> System.UnauthorizedAccessException: Access is denied.
 ```
 
@@ -203,7 +203,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 複製以下記錄檔並將其保留供疑難排解使用：
 
-```
+```bash
 /var/opt/microsoft/omsagent/run/automationworker/worker.log
 ```
 
@@ -229,7 +229,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 如果您無法解決修補問題，請在下一個更新部署開始**之前**，先複製以下記錄檔並將其保留供疑難排解使用：
 
-```
+```bash
 /var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
 ```
 

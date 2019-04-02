@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e30e65ba2efaf60a0e2d0a6df409c96db4d6285e
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 8fa77409f1f5c32bc1e8f8644111c38f6115a92d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295805"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58362045"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>教學課程：使用自動機器學習建置迴歸模型
 
@@ -67,22 +67,11 @@ ms.locfileid: "58295805"
 
 ### <a name="server"></a>使用您自己的 Jupyter Notebook 伺服器
 
-使用下列步驟在您的電腦上建立本機 Jupyter Notebook 伺服器。  完成所有步驟後，請執行 **tutorials/regression-part2-automated-ml.ipynb** 筆記本。
+使用下列步驟在您的電腦上建立本機 Jupyter Notebook 伺服器。  務必在您的環境中安裝 `matplotlib``automl` 和 `notebooks` 額外項目。
 
-1. 完成 [Azure Machine Learning Python 快速入門](quickstart-create-workspace-with-python.md)以建立 Miniconda 環境，並建立工作區。
-1. 使用 `pip install azureml-sdk[automl,notebooks]` 在環境中安裝 `automl` 和 `notebooks` 額外項目。
-1. 使用 `pip install maplotlib` 安裝 `maplotlib`。
-1. 複製 [GitHub 存放庫](https://aka.ms/aml-notebooks)。
+[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
-    ```
-    git clone https://github.com/Azure/MachineLearningNotebooks.git
-    ```
-
-1. 從複製的目錄中啟動 Notebook 伺服器。
-
-    ```shell
-    jupyter notebook
-    ```
+完成所有步驟後，請執行 **tutorials/regression-part2-automated-ml.ipynb** 筆記本。
 
 ## <a name="start"></a>設定您的開發環境
 

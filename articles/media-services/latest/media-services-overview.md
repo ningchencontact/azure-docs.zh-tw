@@ -13,19 +13,22 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 018392db2ffb510d41385d8e0af19635c35678e6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 88113fee64251344bd84085caedc9dfccfa10933
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003411"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351451"
 ---
 # <a name="what-is-azure-media-services-v3"></a>什麼是 Azure 媒體服務 v3？
 
 Azure 媒體服務是雲端式平台，可讓您建置的解決方案擁有廣播品質的視訊串流、增強協助工具和散佈、分析內容等等。 不論您是應用程式開發人員、話務中心、政府機構、娛樂公司，媒體服務都能協助您建立應用程式，為時下最熱門的行動裝置和瀏覽器上的廣大觀眾，傳遞優異品質的媒體體驗。 
+
+> [!NOTE]
+> 目前您無法使用 Azure 入口網站管理 v3 資源。 請使用 [REST API](https://aka.ms/ams-v3-rest-ref)、[CLI](https://aka.ms/ams-v3-cli-ref) 或其中一個支援的 [SDK](developers-guide.md)。
 
 ## <a name="what-can-i-do-with-media-services"></a>我可以如何運用媒體服務？
 
@@ -74,24 +77,11 @@ v3 API 的金鑰設計原則之一，是讓 API 更為安全。 v3 API 不會從
 
 請參閱[取得內容金鑰原則 - .NET](get-content-key-policy-dotnet-howto.md) 範例。
 
-## <a name="how-can-i-get-started-with-v3"></a>如何開始使用 v3？
-
-如需如何使用各種工具和 SDK，利用媒體服務 v3 API 開始進行開發的相關資訊，請參閱[開始開發](developers-guide.md)。
-
-## <a name="v3-content-map"></a>v3 內容對應
-
-媒體服務 v3 內容會根據下列結構 (也會反映在目錄中) 來組織：
-
-|章節| 說明|
-|---|---|
-| 概觀 | 說明媒體服務的功能以及您可以使用該服務進行哪些工作。|
-| 快速入門 | 顯示第 1 天的基本指示，讓新客戶快速試用媒體服務。|
-| 教學課程 | 顯示某些常用媒體服務工作的案例式程序。|
-| 範例 | 程式碼範例的連結。 |
-| 概念 | 包含[媒體服務 v3 概念和功能](concepts-overview.md)的深入說明。 請先檢閱這些主題所述的基本概念再開始進行開發。<br/><br/>* 雲端上傳和儲存體<br/>* 編碼<br/>* 媒體分析<br/>* 封裝、傳遞、保護<br/>* 即時資料流<br/>* 監視<br/>* 播放機用戶端<br/><br/>不勝枚舉。 |
-| 使用說明指南 | 示範如何完成工作。|
-
 ## <a name="next-steps"></a>後續步驟
 
-若要了解開始撰寫程式碼並串流視訊檔案是多麼容易，請查看[串流檔案](stream-files-dotnet-quickstart.md)。 
+如何開始使用 v3？ 
+
+> [!div class="nextstepaction"]
+> [了解基本概念](concepts-overview.md)<br/>
+> [使用 SDK 透過媒體服務 v3 API 進行開發](developers-guide.md) 
 

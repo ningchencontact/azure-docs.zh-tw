@@ -14,18 +14,20 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: baa8be0a7da2b8f56c334f14fcdb15da0a406e15
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 9be421e85d41586c18bee15cd748539e3910021b
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341822"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540647"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>教學課程：了解如何使用 Azure PowerShell 來管理 Windows 虛擬機器
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 ## <a name="launch-azure-cloud-shell"></a>啟動 Azure Cloud Shell
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 
 
@@ -69,7 +71,7 @@ New-AzRoleAssignment -ObjectId $adgroup.id `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
 
-如果出現錯誤，指出**原則 <guid> 不存在於目錄中**，表示新群組未傳播至整個 Azure Active Directory。 請嘗試再次執行命令。
+如果出現錯誤，指出**原則 \<guid> 不存在於目錄中**，表示新群組未傳播至整個 Azure Active Directory。 請嘗試再次執行命令。
 
 通常您需要針對網路參與者和儲存體帳戶參與者重複進行此程序，以確保已指派使用者來管理已部署的資源。 在本文中，您可以略過這些步驟。
 

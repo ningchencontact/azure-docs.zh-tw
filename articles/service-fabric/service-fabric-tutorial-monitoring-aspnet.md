@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/17/2019
+ms.date: 3/21/2019
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 8657e9cabdf7dcd4900f65b6bef56f62a1caf472
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b5485d1dbde48a9fe52196bbeb449b6e4186a88e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901712"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402604"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>教學課程：使用 Application Insights 監視和診斷 Service Fabric 上的 ASP.NET Core 應用程式
 
@@ -59,7 +59,9 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="set-up-an-application-insights-resource"></a>設定 Application Insights 資源
 
-Application Insights 是 Azure 的應用程式效能管理平台，也是 Service Fabric 建議的應用程式監視和診斷平台。 若要建立 Application Insights 資源，請瀏覽至 [Azure 入口網站](https://portal.azure.com)。 在左導覽功能表上按一下 [建立資源]，以開啟 Azure Marketplace。 按一下 [Application Insights]。
+Application Insights 是 Azure 的應用程式效能管理平台，也是 Service Fabric 建議的應用程式監視和診斷平台。
+
+若要建立 Application Insights 資源，請瀏覽至 [Azure 入口網站](https://portal.azure.com)。 在左導覽功能表上按一下 [建立資源]，以開啟 Azure Marketplace。 按一下 [監視 + 管理]，然後按一下 [Application Insights]。
 
 ![建立新的 AI 資源](./media/service-fabric-tutorial-monitoring-aspnet/new-ai-resource.png)
 
@@ -72,83 +74,92 @@ Application Insights 是 Azure 的應用程式效能管理平台，也是 Servic
 
 ## <a name="add-application-insights-to-the-applications-services"></a>將 Application Insights 新增至應用程式的服務
 
-使用較高的權限啟動 Visual Studio 2017。 作法是以滑鼠右鍵按一下 [開始] 功能表中的 Visual Studio 圖示，然後選擇 [以系統管理員身分執行]。 按一下 [檔案] > **[開啟]** > **[專案/方案]**，並瀏覽至投票應用程式 (在教學課程的第一部分中建立，或透過 git 複製)。 開啟 *Voting.sln*，如果系統提示您還原應用程式的 NuGet 套件，請按一下 [是]。
+以滑鼠右鍵按一下 [開始] 功能表中的 Visual Studio 圖示，然後選擇 [以系統管理員身分執行]，使用較高的權限啟動 Visual Studio 2017。 按一下 [檔案] > **[開啟]** > **[專案/方案]**，並瀏覽至投票應用程式 (在教學課程的第一部分中建立，或透過 git 複製)。 開啟 Voting.sln。 如果系統提示您還原應用程式的 NuGet 套件，請按一下 [是]。
 
 請遵循下列步驟來設定 VotingWeb 和 VotingData 服務的 Application Insights：
 
-1. 以滑鼠右鍵按一下服務名稱，然後選取 [新增 設定 -> Application Insights 遙測...]。    
+1. 以滑鼠右鍵按一下服務名稱，然後按一下 [新增] > [連線服務] > [使用 Application Insights 監視]。
+
+    ![設定 AI](./media/service-fabric-tutorial-monitoring-aspnet/configure-ai.png)
+>[!NOTE]
+>視專案類型而定，當您以滑鼠右鍵按一下服務名稱時，您可能需要按一下 [新增]-> [Application Insights 遙測...]
+
 2. 按一下 [開始使用]。
-3. 登入您的帳戶 (這也用來設定您的 Azure 訂用帳戶)，並選取您在其中建立 Application Insights 資源的訂用帳戶。 從 [資源] 下拉式清單中，在 [現有的 Application Insights 資源] 下尋找資源。 按一下 [註冊] 將 Application Insights 新增至您的服務。
+3. 登入您用來設定 Azure 訂用帳戶的帳戶，並選取您在其中建立 Application Insights 資源的訂用帳戶。 從 [資源] 下拉式清單中，在 [現有的 Application Insights 資源] 下尋找資源。 按一下 [註冊] 將 Application Insights 新增至您的服務。
 
     ![註冊 AI](./media/service-fabric-tutorial-monitoring-aspnet/register-ai.png)
 
 4. 當快顯對話方塊完成動作後，按一下 [完成]。
 
-務必對應用程式中的**兩個**服務都執行上述步驟，以完成設定應用程式的 Application Insights。 兩個服務都使用相同的 Application Insights 資源，以便查看服務之間的傳入和傳出要求和通訊。
+> [!NOTE]
+> 務必對應用程式中的**兩個**服務都執行上述步驟，以完成設定應用程式的 Application Insights。
+> 兩個服務都使用相同的 Application Insights 資源，以便查看服務之間的傳入和傳出要求和通訊。
 
 ## <a name="add-the-microsoftapplicationinsightsservicefabricnative-nuget-to-the-services"></a>將 Microsoft.ApplicationInsights.ServiceFabric.Native NuGet 新增至服務
 
 Application Insights 有兩個 Service Fabric 特定的 NuGet，可依情節來使用。 其中一個用於 Service Fabric 的原生服務，另一個用於容器和客體可執行檔。 在此案例中，我們將使用 Microsoft.ApplicationInsights.ServiceFabric.Native NuGet 以深入了解它所提供的服務內容。 若要深入了解 Application Insights SDK 及 Service Fabric 特定的 NuGet，請參閱 [Microsoft Application Insights for Service Fabric](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md)。
 
-設定 NuGet 的步驟如下：
+設定 NuGet 套件的步驟如下：
 
-1. 以滑鼠右鍵按一下 [方案總管] 頂端的 [方案 'Voting']，然後按一下 [管理方案的 NuGet 套件...]。
+1. 以滑鼠右鍵按一下 [方案總管] 最頂端的 [方案 'Voting']，然後按一下 [管理方案的 NuGet 套件...]。
 2. 在 [NuGet - 方案] 視窗的頂端導覽功能表上，按一下 [瀏覽]，並勾選搜尋列旁邊的 [包含發行前版本] 方塊。
+>[!NOTE]
+>如果在安裝 Application Insights 套件之前未預先安裝 Microsoft.ServiceFabric.Diagnostics.Internal 套件，您可能需要以類似方式安裝該套件
+
 3. 搜尋 `Microsoft.ApplicationInsights.ServiceFabric.Native`，然後按一下適當的 NuGet 套件。
-
-    >[!NOTE]
-    >如果在安裝 Application Insights 套件之前未預先安裝 Microsoft.ServiceFabric.Diagnostics.Internal 套件，您可能需要以類似方式安裝該套件
-
 4. 在右側，按一下應用程式中兩個服務 (**VotingWeb** 和 **VotingData**) 旁邊的兩個核取方塊，然後按一下 [安裝]。
     ![AI sdk Nuget](./media/service-fabric-tutorial-monitoring-aspnet/ai-sdk-nuget-new.png)
-5. 按一下 [檢閱變更] 快顯對話方塊上的 [確定]，並選擇 [接受授權]。 這會完成將 NuGet 新增至服務。
-6. 您現在需要在兩個服務中設定遙測初始設定式。 請開啟 *VotingWeb.cs* 和 *VotingData.cs*。 對這兩者執行下列兩個步驟：
-   1. 在每個 *\<ServiceName>.cs* 的頂端，新增下列兩個 *using* 陳述式：
+5. 按一下所顯示 [檢閱變更] 對話方塊上的 [確定]，然後選擇 [接受授權]。 這會完成將 NuGet 新增至服務。
+6. 您現在需要在兩個服務中設定遙測初始設定式。 若要這麼做，請開啟 VotingWeb.cs 和 VotingData.cs。 對這兩者執行下列兩個步驟：
+    1. 在每個 *\<ServiceName>.cs* 的頂端，於現有 *using* 陳述式之後新增下列兩個 *using* 陳述式：
 
-      ```csharp
-      using Microsoft.ApplicationInsights.Extensibility;
-      using Microsoft.ApplicationInsights.ServiceFabric;
-      ```
+    ```csharp
+    using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.ApplicationInsights.ServiceFabric;
+    ```
 
-   2. 在 *CreateServiceInstanceListeners()* 或 *CreateServiceReplicaListeners()* 的巢狀 *return* 陳述式中，在 *ConfigureServices* > *services* 之下宣告的兩個 Singleton 服務之間，新增：`.AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))`
-      這會將「服務內容」新增至您的遙測資料，讓您更充分了解 Application Insights 中的遙測資料來源。 *VotingWeb.cs*中的巢狀 *return* 陳述式看起來應該像這樣：
+    2. 在兩個檔案中，於 *CreateServiceInstanceListeners()* 或 *CreateServiceReplicaListeners()* 的巢狀 *return* 陳述式中，在宣告另一個單例服務的 *ConfigureServices* > *services* 之下，新增：
+    ```csharp
+    .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext))
+    ```
+    這會將「服務內容」新增至您的遙測資料，讓您更充分了解 Application Insights 中的遙測資料來源。 *VotingWeb.cs*中的巢狀 *return* 陳述式看起來應該像這樣：
 
-      ```csharp
-      return new WebHostBuilder()
-       .UseKestrel()
-       .ConfigureServices(
-           services => services
-               .AddSingleton<HttpClient>(new HttpClient())
-               .AddSingleton<FabricClient>(new FabricClient())
-               .AddSingleton<StatelessServiceContext>(serviceContext)
-               .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
-       .UseContentRoot(Directory.GetCurrentDirectory())
-       .UseStartup<Startup>()
-       .UseApplicationInsights()
-       .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
-       .UseUrls(url)
-       .Build();
-      ```
+    ```csharp
+    return new WebHostBuilder()
+        .UseKestrel()
+        .ConfigureServices(
+            services => services
+                .AddSingleton<HttpClient>(new HttpClient())
+                .AddSingleton<FabricClient>(new FabricClient())
+                .AddSingleton<StatelessServiceContext>(serviceContext)
+                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
+        .UseContentRoot(Directory.GetCurrentDirectory())
+        .UseStartup<Startup>()
+        .UseApplicationInsights()
+        .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
+        .UseUrls(url)
+        .Build();
+    ```
 
-      同樣地，在 *VotingData.cs* 中，您應該會有：
+    同樣地，在 *VotingData.cs* 中，您應該會有：
 
-      ```csharp
-      return new WebHostBuilder()
-       .UseKestrel()
-       .ConfigureServices(
-           services => services
-               .AddSingleton<StatefulServiceContext>(serviceContext)
-               .AddSingleton<IReliableStateManager>(this.StateManager)
-               .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
-       .UseContentRoot(Directory.GetCurrentDirectory())
-       .UseStartup<Startup>()
-       .UseApplicationInsights()
-       .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)
-       .UseUrls(url)
-       .Build();
-      ```
+    ```csharp
+    return new WebHostBuilder()
+        .UseKestrel()
+        .ConfigureServices(
+            services => services
+                .AddSingleton<StatefulServiceContext>(serviceContext)
+                .AddSingleton<IReliableStateManager>(this.StateManager)
+                .AddSingleton<ITelemetryInitializer>((serviceProvider) => FabricTelemetryInitializerExtension.CreateFabricTelemetryInitializer(serviceContext)))
+        .UseContentRoot(Directory.GetCurrentDirectory())
+        .UseStartup<Startup>()
+        .UseApplicationInsights()
+        .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.UseUniqueServiceUrl)
+        .UseUrls(url)
+        .Build();
+    ```
 
-再次確認已在這兩個檔案中呼叫 `UseApplicationInsights()` 方法，如前所述。
+再次確認已在 VotingWeb.cs 和 VotingData.cs 中呼叫 `UseApplicationInsights()` 方法，如上所述。
 
 >[!NOTE]
 >此範例應用程式會使用 HTTP 進行服務的通訊。 如果您使用服務遠端處理第 2 版開發應用程式，則您也必須依照前述作法，在相同的位置加入以下幾行程式碼
@@ -163,6 +174,9 @@ ConfigureServices(services => services
 
 此時，您已經準備好要部署應用程式。 按一下頂端的 [開始] \(或 **F5**)，Visual Studio 會建置並封裝應用程式、設定本機叢集，然後將應用程式部署到此叢集。
 
+>[!NOTE]
+>如果您未安裝最新版的 .NET Core SDK，則可能收到建置錯誤。
+
 完成應用程式部署後，請移至 [localhost:8080](localhost:8080)，您應該可以看到「投票範例」單一頁面應用程式。 票選您喜歡的幾個不同項目，以建立一些樣本資料和遙測資料 - 我去吃甜點了！
 
 ![AI 範例投票](./media/service-fabric-tutorial-monitoring-aspnet/vote-sample.png)
@@ -176,7 +190,9 @@ ConfigureServices(services => services
 按一下 [概觀]，以回到資源的登陸頁面。 然後按一下頂端的 [搜尋]，可看到追蹤開始湧入。 經過幾分鐘，追蹤就會出現在 Application Insights 中。 如果沒有看到任何追蹤，請稍候片刻，然後按一下頂端的 [重新整理] 按鈕。
 ![AI 查看追蹤](./media/service-fabric-tutorial-monitoring-aspnet/ai-search.png)
 
-在 [搜尋] 視窗中向下捲動，就會看到 Application Insights 傳入的所有立即可用的遙測資料。 針對您在投票應用程式中執行的每個動作，應該會有一個從 *VotingWeb* 傳出的 PUT 要求 (PUT Votes/Put [name])、一個從 *VotingData* 傳入的 PUT 要求 (PUT VoteData/Put [name])，後面接著一對 GET 要求來重新整理所顯示的資料。 因為這些是 HTTP 要求，所以 localhost 上也會有 HTTP 的相依性追蹤。 以下是如何新增一張選票的範例畫面：![AI 範例要求追蹤](./media/service-fabric-tutorial-monitoring-aspnet/sample-request.png)
+在 [搜尋] 視窗中向下捲動，就會看到 Application Insights 傳入的所有立即可用的遙測資料。 針對您在投票應用程式中執行的每個動作，應該會有一個從 *VotingWeb* 傳出的 PUT 要求 (PUT Votes/Put [name])、一個從 *VotingData* 傳入的 PUT 要求 (PUT VoteData/Put [name])，後面接著一對 GET 要求來重新整理所顯示的資料。 因為這些是 HTTP 要求，所以 localhost 上也會有 HTTP 的相依性追蹤。 以下是如何新增一張選票的範例畫面：
+
+![AI 範例要求追蹤](./media/service-fabric-tutorial-monitoring-aspnet/sample-request.png)
 
 您可以按一下其中一個追蹤，以檢視更多詳細資料。 關於 Application Insights 提供的要求，有一些很有用的資訊，包括「回應時間」和「要求 URL」。 此外，因為您已新增 Service Fabric 特定的 NuGet，在下方的「自訂資料」區段中，您也會看到應用程式在 Service Fabric 叢集環境中的相關資料。 這包括服務內容，可讓您查看要求來源的 *PartitionID* 和 *ReplicaId*，在診斷應用程式的錯誤時更準確查明問題所在。
 

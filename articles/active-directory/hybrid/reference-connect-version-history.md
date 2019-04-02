@@ -16,12 +16,12 @@ ms.date: 03/27/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ae5b58fb87aaa94e081f9cb60d063c70e5d0359
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 26f3fe9c2483dda3b9350c110b2e8adf60dcd21e
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540953"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803148"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect：版本發行歷程記錄
 Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 Azure AD Connect。 並非所有新增項目都適用於所有的對象。
@@ -39,17 +39,17 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 下載 | [下載 Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)。
 
 >[!NOTE]
->並非所有版本的 Azure AD Connect 都可自動升級。 發行狀態會指出版本是否可自動升級或僅供下載。 如果您的 Azure AD Connect 伺服器上已啟用自動升級，則該伺服器將會自動升級為可自動升級的最新版 Azure AD Connect。 請注意，並非所有 Azure AD Connect 組態都符合自動升級的資格。 請遵循下列連結來深入了解[自動升級](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
+>發行新版本的 Azure AD Connect 是需要數個品質控制的步驟，以確保服務的作業功能的程序，而我們將完成此程序將會更新新的版本，以及發行狀態的版本號碼以反映最新狀態。
+我們完成此程序，而發行的版本號碼會顯示有"x"的次要版本號碼位置，如同"1.3.X.0 」-這表示此文件中的版本資訊適用於所有版本的開頭為"1.3"。 一旦我們完成發行程序的發行版本號碼將會更新為最新發行的版本和發行狀態將會更新為 「 發行進行下載並自動升級 」。
+並非所有版本的 Azure AD Connect 都可自動升級。 發行狀態會指出版本是否可自動升級或僅供下載。 如果您的 Azure AD Connect 伺服器上已啟用自動升級，則該伺服器將會自動升級為可自動升級的最新版 Azure AD Connect。 請注意，並非所有 Azure AD Connect 組態都符合自動升級的資格。 請遵循下列連結來深入了解[自動升級](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
-## <a name="13100"></a>1.3.10.0 
+## <a name="13x0"></a>1.3.X.0 
 
 ### <a name="release-status"></a>發行狀態 
 
-3/25/2019:尚未發行 
+3/25/2019:Pending
  
 ### <a name="new-features-and-improvements"></a>新功能和改進 
-
-
 
 - 加入網域的重新整理的支援 
 - Exchange 郵件公用資料夾功能正式。 

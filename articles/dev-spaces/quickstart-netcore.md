@@ -1,145 +1,207 @@
 ---
-title: 在雲端建立 Kubernetes 開發人員空間
+title: 使用 Azure Dev Spaces (Visual Studio Code) 在 Kubernetes 上使用 .NET Core 進行開發
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
+ms.subservice: azds-kubernetes
 ms.author: zarhoads
-ms.date: 09/26/2018
+ms.date: 03/22/2019
 ms.topic: quickstart
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s '
-ms.openlocfilehash: f3aafc0db746914bf5cbb60dea9c73948d043b44
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由, kubectl, k8s
+manager: jeconnoc
+ms.openlocfilehash: 1c9c62dc4d674b8ce6f7c07e7426dbb0e1872685
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897464"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417984"
 ---
-# <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>快速入門：使用 Azure Dev Spaces 建立 Kubernetes 開發人員空間 (.NET Core 和 VS Code)
+# <a name="quickstart-develop-with-net-core-on-kubernetes-using-azure-dev-spaces-visual-studio-code"></a>快速入門：使用 Azure Dev Spaces (Visual Studio Code) 在 Kubernetes 上使用 .NET Core 進行開發
 
 在本指南中，您將了解如何：
 
 - 使用 Azure 中受管理的 Kubernetes 叢集，設定 Azure Dev Spaces。
-- 使用 VS Code 和命令列在容器中反覆開發程式碼。
-- 從 VS Code 對開發人員空間中的程式碼進行偵錯
-
-> [!Note]
-> **如果作業出現停滯的情況**，請參閱[疑難排解](troubleshooting.md)一節，或在此頁面上張貼留言。 您也可以嘗試進行更詳細的[教學課程](get-started-netcore.md)。
+- 使用 Visual Studio Code 和命令列在容器中反覆開發程式碼。
+- 從 Visual Studio Code 對開發人員空間中的程式碼進行偵錯。
 
 ## <a name="prerequisites"></a>必要條件
 
 - Azure 訂用帳戶。 如果您沒有帳戶，您可以建立[免費帳戶](https://azure.microsoft.com/free)。
-- [Visual Studio Code](https://code.visualstudio.com/download)。
-- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 2.0.43 版或更新版本。
-- 在 EastUS、EastUS2、CentralUS、WestUS2、WestEurope、SoutheastAsia、CanadaCentral 或 CanadaEast 區域中執行 Kubernetes 1.9.6 或更新版本的 Kubernetes 叢集。
+- [已安裝 Visual Studio Code](https://code.visualstudio.com/download)。
+- 已安裝適用於 Visual Studio Code 的 [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) 和 [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) 擴充功能。
+- [已安裝 Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)。
 
-    ```cmd
-    az group create --name MyResourceGroup --location <region>
-    az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
-    ```
+## <a name="create-an-azure-kubernetes-service-cluster"></a>建立 Azure Kubernetes Service 叢集
 
-## <a name="set-up-azure-dev-spaces"></a>設定 Azure Dev Spaces
+您必須在[支援的區域](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams)中建立 AKS 叢集。 下列命令會建立名為 MyResourceGroup 的資源群組與名為 MyAKS 的 AKS 叢集。
 
-Azure CLI 和 Azure Dev Spaces 擴充功能可以安裝在 Windows、Mac 或 Linux 機器上並加以執行。 若是 Linux，支援下列分佈：Ubuntu (18.04、16.04 和 14.04)、Debian 8 和 9、RHEL 7、Fedora 26+、CentOS 7、openSUSE 42.2，以及 SLES 12。
+```cmd
+az group create --name MyResourceGroup --location eastus
+az aks create -g MyResourceGroup -n MyAKS --location eastus --node-count 1 --generate-ssh-keys
+```
 
-請遵循下列步驟來設定 Azure Dev Spaces：
+## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>在 AKS 叢集上啟用 Azure Dev Spaces
 
-1. 在您的 AKS 叢集上設定 Dev Spaces：`az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
-1. 下載 VS Code 的 [Azure Dev Spaces 擴充功能](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds)。 在擴充功能的 Marketplace 頁面上按一下 [安裝]，然後在 VS Code 再按一次。
+使用 `use-dev-spaces` 命令在 AKS 叢集上啟用 Dev Spaces，並遵循提示來進行。 下列命令會在 MyResourceGroup 群組中的 MyAKS 叢集上啟用 Dev Spaces，並建立「預設」開發空間。
+
+```cmd
+$ az aks use-dev-spaces -g MyResourceGroup -n MyAKS
+
+'An Azure Dev Spaces Controller' will be created that targets resource 'MyAKS' in resource group 'MyResourceGroup'. Continue? (y/N): y
+
+Creating and selecting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAKS' in resource group 'MyResourceGroup'...2m 24s
+
+Select a dev space or Kubernetes namespace to use as a dev space.
+ [1] default
+Type a number or a new name: 1
+
+Kubernetes namespace 'default' will be configured as a dev space. This will enable Azure Dev Spaces instrumentation for new workloads in the namespace. Continue? (Y/n): Y
+
+Configuring and selecting dev space 'default'...3s
+
+Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready for development in dev space 'default'. Type `azds prep` to prepare a source directory for use with Azure Dev Spaces and `azds up` to run.
+```
+
+## <a name="get-sample-application-code"></a>取得應用程式範例的程式碼
+
+在本文中，您會使用 [Azure Dev Spaces 應用程式範例](https://github.com/Azure/dev-spaces)來示範如何使用 Azure Dev Spaces。
+
+請複製 GitHub 中的應用程式，然後瀏覽至 dev-spaces/samples/dotnetcore/getting-started/webfrontend 目錄：
+
+```cmd
+git clone https://github.com/Azure/dev-spaces
+cd dev-spaces/samples/dotnetcore/getting-started/webfrontend
+```
+
+## <a name="prepare-the-application"></a>準備應用程式
+
+使用 `azds prep` 命令，產生用於在 Kubernetes 中執行應用程式的 Docker 和 Helm 圖表資產：
+
+```cmd
+azds prep --public
+```
+
+您必須從 dev-spaces/samples/dotnetcore/getting-started/webfrontend 目錄執行 `prep` 命令，以正確產生 Docker 和 Helm 圖表資產。
 
 ## <a name="build-and-run-code-in-kubernetes"></a>在 Kubernetes 中建置及執行程式碼
 
-1. 從 GitHub 下載範例程式碼：[https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) 
-1. 將目錄切換至 webfrontend 資料夾：`cd dev-spaces/samples/dotnetcore/getting-started/webfrontend`
-1. 產生 Docker 和 Helm 圖表資產：`azds prep --public`
-1. 在 AKS 中建置和執行程式碼。 在終端機視窗中，從 **webfrontend 資料夾**執行此命令：`azds up`
-1. 掃描主控台輸出，以取得 `up` 命令所建立之 URL 的相關資訊。 它會在表單中： 
+使用 `azds up` 命令在 AKS 中建置和執行程式碼：
 
-   `(pending registration) Service 'webfrontend' port 'http' will be available at <url>\r\nService 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'` 
+```cmd
+$ azds up
+Synchronizing files...4s
+Using dev space 'default' with target 'MyAKS'
+Installing Helm chart...2s
+Waiting for container image build...1m 43s
+Building container image...
+Step 1/12 : FROM microsoft/dotnet:2.2-sdk
+Step 2/12 : ARG BUILD_CONFIGURATION=Debug
+Step 3/12 : ENV ASPNETCORE_ENVIRONMENT=Development
+Step 4/12 : ENV DOTNET_USE_POLLING_FILE_WATCHER=true
+Step 5/12 : EXPOSE 80
+Step 6/12 : WORKDIR /src
+Step 7/12 : COPY ["webfrontend.csproj", "./"]
+Step 8/12 : RUN dotnet restore "webfrontend.csproj"
+Step 9/12 : COPY . .
+Step 10/12 : RUN dotnet build --no-restore -c $BUILD_CONFIGURATION
+Step 11/12 : RUN echo "exec dotnet run --no-build --no-launch-profile -c $BUILD_CONFIGURATION -- \"\$@\"" > /entrypoint.sh
+Step 12/12 : ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
+Built container image in 3m 44s
+Waiting for container...13s
+Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
+Service 'webfrontend' port 80 (http) is available at http://localhost:54256
+...
+```
 
-   在瀏覽器視窗中開啟此 URL，您應該會看到 Web 應用程式載入。 
-   
-   > [!Note]
-   > 第一次執行時，可能需要數分鐘的時間才能備妥公用 DNS。 如果無法解析公用 URL，您可以使用主控台輸出中顯示的替代 `http://localhost:<portnumber>` URL。 如果您使用 localhost URL，容器可能看起來像在本機執行，但實際是在 AKS 中執行。 為了方便您操作以及與本機電腦上的服務互動，Azure 開發人員空間會建立暫存的 SSH 通道，連到在 Azure 中執行的容器。 當 DNS 記錄備妥時，您可以返回且稍後嘗試公用 URL。
+您可以藉由開啟公用 URL (顯示於 `azds up` 命令所產生的輸出中)，來查看服務的執行。 在此範例中，公用 URL 為 http://webfrontend.1234567890abcdef1234.eus.azds.io/。
 
-### <a name="update-a-content-file"></a>更新內容檔案
+如果您使用 Ctrl+c 停止 `azds up` 命令，則服務會繼續在 AKS 中執行，且公用 URL 會維持可供使用的狀態。
 
-1. 找出檔案 (例如 `./Views/Home/Index.cshtml`) 並進行 HTML 編輯。 例如，將第 70 行 `<h2>Application uses</h2>` 變更如下：`<h2>Hello k8s in Azure!</h2>`
-1. 儲存檔案。 稍後，您會在終端機視窗中看到一則訊息，指出執行中容器中的檔案已更新。
-1. 移至您的瀏覽器並重新整理頁面。 您應該會看到網頁顯示更新後的 HTML。
+## <a name="update-code"></a>更新程式碼
 
-發生什麼情形？ 編輯內容檔案 (例如 HTML 和 CSS) 時，不需要在 .NET Core Web 應用程式中重新編譯，所以作用中 `azds up` 命令會自動將任何修改過的內容檔案，直接同步處理到 Azure 中的執行中容器，您即可立即查看內容編輯。
+若要部署更新過的服務版本，您可以在專案中更新任何檔案，然後重新執行 `azds up` 命令。 例如︰
 
-### <a name="update-a-code-file"></a>更新程式碼檔案
-更新程式碼檔案需要更多的工作，因為.NET Core 應用程式需要重建及產生更新後的應用程式二進位檔。
+1. 如果 `azds up` 仍在執行，請按 Ctrl+c。
+1. 將 [`Controllers/HomeController.cs`](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs#L20) 中的第 20 行更新為：
+    
+    ```csharp
+    ViewData["Message"] = "Your application description page in Azure.";
+    ```
 
-1. 在終端機視窗中，按 `Ctrl+C` (以停止 `azds up`)。
-1. 開啟名為 `Controllers/HomeController.cs` 的程式碼檔案，然後編輯 [關於] 頁面將顯示的訊息：`ViewData["Message"] = "Your application description page.";`
-1. 儲存檔案。
-1. 在終端機視窗中執行 `azds up`。 
+1. 儲存您的變更。
+1. 重新執行 `azds up` 命令：
 
-此命令會重建容器映像，並重新部署 Helm 圖表。 若要查看程式碼變更是否在執行中應用程式中生效，請移至 Web 應用程式中的 [關於] 功能表。
+    ```cmd
+    $ azds up
+    Using dev space 'default' with target 'MyAKS'
+    Synchronizing files...1s
+    Installing Helm chart...3s
+    Waiting for container image build...
+    ...    
+    ```
 
-但是還有「更加快速的方法」可開發程式碼，您將在下一節中加以探索。 
+1. 瀏覽至執行中的服務，然後按一下 [關於]。
+1. 觀察您的變更。
+1. 按 Ctrl+c 來停止 `azds up` 命令。
 
-## <a name="debug-a-container-in-kubernetes"></a>在 Kubernetes 中進行容器偵錯
+## <a name="enable-visual-studio-code-to-debug-in-kubernetes"></a>啟用 Visual Studio Code 以在 Kubernetes 中進行偵錯
 
-在本節中，您將使用 VS Code 直接對您在 Azure 中執行的容器進行偵錯。 您也將了解如何取得更快速的編輯-執行-測試迴圈。
+開啟 Visual Studio Code，依序按一下 [檔案] 和 [開啟...]，瀏覽至 dev-spaces/samples/dotnetcore/getting-started/webfrontend 目錄，然後按一下[開啟]。
 
-![](./media/common/edit-refresh-see.png)
+您現在已在 Visual Studio Code 中開啟 webfrontend 專案，亦即您使用 `azds up` 命令所執行的同一個服務。 若要使用 Visual Studio Code 在 AKS 中對這個服務進行偵錯，而非直接使用 `azds up`，您必須讓此專案做好準備，以使用 Visual Studio Code 與您的開發人員空間進行通訊。
 
-### <a name="initialize-debug-assets-with-the-vs-code-extension"></a>使用 VS Code 擴充功能初始化偵錯資產
-首先您必須設定程式碼專案，讓 VS Code 與 Azure 中的開發人員空間通訊。 適用於 Azure Dev Spaces 的 VS Code 擴充功能提供協助程式命令，可以設定偵錯組態。 
-
-開啟 [命令選擇區] (使用 [檢視 | 命令選擇區] 功能表)，然後使用自動完成功能以輸入及選取以下命令：`Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`。 
-
-這樣會為 `.vscode` 資料夾底下的 Azure Dev Spaces 新增偵錯組態。 此命令不應與 `azds prep` 命令混淆；後者會設定要部署的專案。
+若要在 Visual Studio Code 中開啟命令選擇區，請依序按一下 [檢視] 和 [命令選擇區]。 開始輸入 `Azure Dev Spaces`，然後按一下 `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`。
 
 ![](./media/common/command-palette.png)
 
-### <a name="select-the-azds-debug-configuration"></a>選取 AZDS 偵錯組態
-1. 若要開啟 [偵錯] 檢視，請按一下 VS Code 側邊的 [活動列] 中的 [偵錯] 圖示。
-1. 選取 [.NET Core Launch (AZDS)] 作為作用中偵錯組態。
+此命令會讓您的專案做好準備，使其可以直接從 Visual Studio Code 執行於 Azure Dev Spaces 中。 其也會產生 .vscode 目錄，且專案的根目錄中會有偵錯設定。
+
+## <a name="build-and-run-code-in-kubernetes-from-visual-studio"></a>從 Visual Studio 在 Kubernetes 中建置和執行程式碼
+
+按一下左側的 [偵錯] 圖示，然後按一下頂端的 [.NET Core 啟動 (AZDS)]。
 
 ![](media/get-started-netcore/debug-configuration.png)
 
+此命令會在 Azure Dev Spaces 中以偵錯模式建置和執行您的服務。 底部的 [終端機] 視窗會顯示您在 Azure Dev Spaces 中所執行服務的建置輸出和 URL。 [偵錯主控台] 會顯示記錄輸出。
+
 > [!Note]
-> 如果您未在 [命令選擇區] 中看到任何 Azure 開發人員空間命令，請確定您已安裝適用於 Azure 開發人員空間的 VS Code 擴充功能。 請確定您在 VS Code 中開啟的工作區是包含 azds.yaml 的資料夾。
+> 如果您未在 [命令選擇區] 中看到任何 Azure Dev Spaces 命令，請確定您已安裝[適用於 Azure Dev Spaces 的 Visual Studio Code 擴充功能](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds)。 也請確認您已在 Visual Studio Code 中開啟 dev-spaces/samples/dotnetcore/getting-started/webfrontend 目錄。
 
+## <a name="setting-and-using-breakpoints-for-debugging"></a>設定和使用偵錯的中斷點
 
-### <a name="debug-the-container-in-kubernetes"></a>在 Kubernetes 中進行容器偵錯
-按 **F5** 可在 Kubernetes 中進行程式碼偵錯。
+使用 [.NET Core 啟動 (AZDS)] 以偵錯模式啟動您的服務。
 
-與 `up` 命令相同，程式碼也會同步到開發人員空間，且容器會建置並部署到 Kubernetes。 此時，偵錯工具當然會連結至遠端容器。
+依序按一下 [檢視] 和 [總管]，來瀏覽回到 [總管] 檢視。 開啟 `Controllers/HomeController.cs`，然後在第 20 行的某處按一下來將游標放在該處。 若要設定中斷點，請按 F9，或依序按一下 [偵錯] 和 [切換中斷點]。
 
-> [!Tip]
-> VS Code 狀態列會顯示可點按的 URL。
+在瀏覽器中開啟您的服務，並注意其中並未顯示任何訊息。 返回 Visual Studio Code，您會看到第 20 行已醒目提示。 您所設定的中斷點已讓服務在第 20 行暫停。 若要讓服務繼續，請按 F5，或依序按一下 [偵錯] 和 [繼續]。 返回您的瀏覽器，並注意現在會顯示訊息。
 
-在伺服器端程式碼檔案中設定中斷點，例如在 `Controllers/HomeController.cs` 來源檔案的 `Index()` 函式內。 重新整理瀏覽器頁面會導致叫用中斷點。
+在連結了偵錯工具的 Kubernetes 中執行您的服務時，您可以完整地存取偵錯資訊，例如呼叫堆疊、區域變數和例外狀況資訊。
 
-就如同已在本機執行程式碼一樣，您擁有偵錯資訊的完整存取權，例如呼叫堆疊、區域變數、例外狀況資訊等等。
+藉由將游標放在 `Controllers/HomeController.cs` 中的第 20 行上並按下 F9，即可移除中斷點。
 
-### <a name="edit-code-and-refresh"></a>編輯程式碼並重新整理
-使用有效的偵錯工具，進行程式碼編輯。 例如，在 `Controllers/HomeController.cs` 中修改 [關於] 頁面的訊息。 
+## <a name="update-code-from-visual-studio-code"></a>從 Visual Studio Code 更新程式碼
+
+在服務以偵錯模式執行時，更新 `Controllers/HomeController.cs` 中的第 20 行。 例如︰
 
 ```csharp
-public IActionResult About()
-{
-    ViewData["Message"] = "My custom message in the About page.";
-    return View();
-}
+ViewData["Message"] = "Your application description page in Azure while debugging!";
 ```
 
-儲存檔案，然後在 [偵錯動作] 窗格中，按一下 [重新整理] 按鈕。 
+儲存檔案。 依序按一下 [偵錯] 和 [重新啟動偵錯]，或在 [偵錯工具列] 中按一下 [重新啟動偵錯] 按鈕。
 
 ![](media/get-started-netcore/debug-action-refresh.png)
 
-Azure 開發人員空間會以累加方式重新編譯現有容器中的程式碼，以提供更快的編輯/偵錯迴圈，而不是在每次進行程式碼編輯時重新建置及重新部署新的容器映像 (這通常要花費相當長的時間)。
+在瀏覽器中開啟您的服務，並注意您已更新的訊息會顯示出來。
 
-請在瀏覽器中重新整理 Web 應用程式，並移至 [關於] 頁面。 您應會看到自訂訊息出現在 UI 中。
+Azure Dev Spaces 會以累加方式重新編譯現有容器中的程式碼，以提供更快的編輯/偵錯迴圈，而不是在每次進行程式碼編輯時重新建置及重新部署新的容器映像。
 
-**您現在有辦法在 Kubernetes 中快速逐一查看程式碼及直接進行偵錯！**
+## <a name="clean-up-your-azure-resources"></a>清除 Azure 資源
+
+```cmd
+az group delete --name MyResourceGroup --yes --no-wait
+```
 
 ## <a name="next-steps"></a>後續步驟
 

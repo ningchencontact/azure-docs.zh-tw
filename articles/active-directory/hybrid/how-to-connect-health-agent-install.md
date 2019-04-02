@@ -15,17 +15,19 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d6e453819ad749972de89658fa695d803d8e222
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 95fc65dd849c564ac88993161ffa4b27017488b4
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898817"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793589"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health 代理程式安裝
+
 本文件會逐步引導您安裝和設定 Azure AD Connect Health 代理程式。 您可以從 [這裡](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent)下載代理程式。
 
 ## <a name="requirements"></a>需求
+
 下表是使用 Azure AD Connect Health 的需求清單。
 
 | 需求 | 描述 |
@@ -42,6 +44,7 @@ ms.locfileid: "57898817"
 |停用 FIPS|Azure AD Connect Health 代理程式不支援 FIPS。|
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Azure 服務端點的輸出連線
+
  在安裝期間和執行階段，代理程式需要連線至 Azure AD Connect Health 服務端點。 如果使用防火牆封鎖輸出連線，請確定依預設不會封鎖下列 URL。 請勿停用安全性監視或檢查這些 URL，但允許它們，如同其他網際網路流量。 它們允許與 Azure AD Connect Health 服務端點進行通訊。 深入了解[檢查輸出連線](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)
 
 | 網域環境 | 必要 Azure 服務端點 |
@@ -52,6 +55,7 @@ ms.locfileid: "57898817"
 
 
 ## <a name="download-and-install-the-azure-ad-connect-health-agent"></a>下載和安裝 Azure AD Connect Health 代理程式
+
 * 確定您符合 Azure AD Connect Health 的[需求](how-to-connect-health-agent-install.md#requirements)。
 * 開始使用適用於 AD FS 的 Azure AD Connect Health
     * [下載適用於 AD FS 的 Azure AD Connect Health 代理程式](https://go.microsoft.com/fwlink/?LinkID=518973)
@@ -63,6 +67,7 @@ ms.locfileid: "57898817"
     * [請參閱安裝指示](#installing-the-azure-ad-connect-health-agent-for-ad-ds)。
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-ad-fs"></a>安裝適用於 AD FS 的 Azure AD Connect Health 代理程式
+
 > [!NOTE]
 > AD FS 伺服器應不同於您的同步伺服器。 請勿將 AD FS 代理程式安裝到同步伺服器上。
 >
@@ -97,6 +102,7 @@ ms.locfileid: "57898817"
 ![驗證 Azure AD Connect Health](./media/how-to-connect-health-agent-install/install5.png)
 
 ### <a name="agent-installation-on-windows-server-2008-r2-servers"></a>Windows Server 2008 R2 伺服器上的代理程式安裝
+
 適用於 Windows Server 2008 R2 伺服器的步驟：
 
 1. 請確定伺服器在 Service Pack 1 或更高版本上執行。
@@ -109,6 +115,7 @@ ms.locfileid: "57898817"
 4. 如需有關在 Windows Server 2008 R2 上安裝 Windows PowerShell 4.0 的詳細資訊，請參閱[這裡](https://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx)的 Wiki 文章。
 
 ### <a name="enable-auditing-for-ad-fs"></a>啟用 AD FS 的稽核
+
 > [!NOTE]
 > 這一節只適用於 AD FS 伺服器。 您不必在 Web 應用程式 Proxy 伺服器上執行下列步驟。
 >
@@ -116,6 +123,7 @@ ms.locfileid: "57898817"
 若要讓使用情況分析功能收集並分析資料，Azure AD Connect Health 代理程式需要 AD FS 稽核記錄檔中的資訊。 預設不會啟用這些記錄檔。 使用下列程序啟用 AD FS 稽核，並在 AD FS 伺服器上找出 AD FS 稽核記錄檔。
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2008-r2"></a>在 Windows Server 2008 R2 上啟用 AD FS 的稽核
+
 1. 按一下 [開始]，依序指向 [程式集] 和 [系統管理工具]，然後按一下 [本機安全性原則]。
 2. 瀏覽至 **Security Settings\Local Policies\User Rights Assignment** 資料夾，然後按兩下 [產生安全性稽核]。
 3. 在 [本機安全性設定]  索引標籤上，確認已列出 AD FS 2.0 服務帳戶。 如果不存在，按一下 [新增使用者或群組]，並將其新增至清單中，然後按一下 [確定]。
@@ -129,6 +137,7 @@ ms.locfileid: "57898817"
 10. 按一下 [確定]。
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2012-r2"></a>在 Windows Server 2012 R2 上啟用 AD FS 的稽核
+
 1. 在 [開始] 畫面上開啟 [伺服器管理員]，或在桌面上的工作列中開啟 [伺服器管理員]，以開啟 [本機安全性原則]，然後按一下 [工具/本機安全性原則]。
 2. 瀏覽至 **Security Settings\Local Policies\User Rights Assignment** 資料夾，然後按兩下 [產生安全性稽核]。
 3. 在 [本機安全性設定]  索引標籤上，確認已列出 AD FS 服務帳戶。 如果不存在，按一下 [新增使用者或群組]，並將其新增至清單中，然後按一下 [確定]。
@@ -141,6 +150,7 @@ ms.locfileid: "57898817"
 9. 選取 [成功稽核] 和 [失敗稽核] 核取方塊，然後按一下 [確定]。
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2016"></a>在 Windows Server 2016 上啟用 AD FS 的稽核
+
 1. 在 [開始] 畫面上開啟 [伺服器管理員]，或在桌面上的工作列中開啟 [伺服器管理員]，以開啟 [本機安全性原則]，然後按一下 [工具/本機安全性原則]。
 2. 瀏覽至 **Security Settings\Local Policies\User Rights Assignment** 資料夾，然後按兩下 [產生安全性稽核]。
 3. 在 [本機安全性設定]  索引標籤上，確認已列出 AD FS 服務帳戶。 如果不存在，按一下 [新增使用者或群組]，並將 AD FS 服務帳戶新增至清單，然後按一下 [確定]。
@@ -157,6 +167,7 @@ ms.locfileid: "57898817"
 
 
 #### <a name="to-locate-the-ad-fs-audit-logs"></a>找出 AD FS 稽核記錄檔
+
 1. 開啟 [事件檢視器] 。
 2. 移至 [Windows 記錄]，然後選取 [安全性] 。
 3. 按一下右側的 [篩選目前的記錄檔] 。
@@ -172,6 +183,7 @@ ms.locfileid: "57898817"
 
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-sync"></a>安裝適用於同步處理的 Azure AD Connect Health 代理程式
+
 適用於同步處理的 Azure AD Connect Health 代理程式會自動安裝在 Azure AD Connect 的最新組建中。 如果要使用適用於同步處理的 Azure AD Connect，您必須下載最新版的 Azure AD Connect 並加以安裝。 您可以在 [此處](https://www.microsoft.com/download/details.aspx?id=47594)下載最新版本。
 
 若要確認已安裝代理程式，請在伺服器上尋找下列服務。 如果您已完成設定，這些服務應已在執行中。 否則會停止，直到設定完成為止。
@@ -187,6 +199,7 @@ ms.locfileid: "57898817"
 >
 
 ## <a name="manual-azure-ad-connect-health-for-sync-registration"></a>手動 Azure AD Connect Health for Sync 註冊
+
 如果 Azure AD Connect Health for Sync 代理程式在成功安裝 Azure AD Connect 後註冊失敗，您可以使用下列 PowerShell 命令來手動註冊代理程式。
 
 > [!IMPORTANT]
@@ -208,6 +221,7 @@ ms.locfileid: "57898817"
 當系統提示您進行驗證時，應該使用與用來設定 Azure AD Connect 相同的全域系統管理帳戶 (例如 admin@domain.onmicrosoft.com)。
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-ad-ds"></a>安裝適用於 AD DS 的 Azure AD Connect Health 代理程式
+
 若要啟動代理程式安裝，請按兩下您所下載的 .exe 檔案。 在第一個畫面上，按一下 [安裝]。
 
 ![驗證 Azure AD Connect Health](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install1.png)
@@ -236,14 +250,15 @@ ms.locfileid: "57898817"
 ![驗證 Azure AD Connect Health](./media/how-to-connect-health-agent-install/aadconnect-health-adds-agent-install5.png)
 
 ### <a name="quick-agent-installation-in-multiple-servers"></a>快速的代理程式安裝在多部伺服器
+
 1. 在 Azure AD 中使用密碼建立使用者帳戶。
 2. 指派**擁有者**此本機的 AAD 帳戶，Azure AD Connect Health 中透過入口網站的角色。 請依照[此處](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)。 將角色指派給 所有服務執行個體。 
 3. 下載安裝本機網域控制站中的.exe 」 的 MSI 檔案。
 4. 執行下列指令碼來註冊。 建立新的使用者帳戶和其密碼以取代參數。 
 
-```
+```powershell
 AdHealthAddsAgentSetup.exe /quiet
-sleep 30
+Start-Sleep 30
 $userName = "NEWUSER@DOMAIN"
 $secpasswd = ConvertTo-SecureString "PASSWORD" -AsPlainText -Force
 $myCreds = New-Object System.Management.Automation.PSCredential ($userName, $secpasswd)
@@ -252,6 +267,7 @@ import-module "C:\Program Files\Azure Ad Connect Health Adds Agent\PowerShell\Ad
 Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential $password
 
 ```
+
 1. 完成之後，您可以藉由一或多個項目中移除本機帳戶的存取權： 
     * 移除 AAD Connect Health 的角色指派的本機帳戶
     * 旋轉的本機帳戶的密碼。 
@@ -259,9 +275,10 @@ Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential 
     * 刪除 AAD 本機帳戶  
 
 ## <a name="agent-registration-using-powershell"></a>使用 PowerShell 進行代理程式註冊
+
 安裝適當的代理程式 setup.exe 之後﹐您可以根據角色使用下列 PowerShell 命令來執行代理程式註冊步驟。 開啟 PowerShell 視窗並執行適當的命令︰
 
-```
+```powershell
     Register-AzureADConnectHealthADFSAgent
     Register-AzureADConnectHealthADDSAgent
     Register-AzureADConnectHealthSyncAgent
@@ -273,13 +290,14 @@ Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential 
 * 您可以提供任何有權註冊代理程式但未啟用 MFA 的 Azure AD 身分識別。
 * 預設全域系統管理員有權執行代理程式註冊。 您也可以允許其他權限較小的身分識別執行此步驟。 深入了解[角色型存取控制](how-to-connect-health-operations.md#manage-access-with-role-based-access-control)。
 
-```
+```powershell
     $cred = Get-Credential
     Register-AzureADConnectHealthADFSAgent -Credential $cred
 
 ```
 
 ## <a name="configure-azure-ad-connect-health-agents-to-use-http-proxy"></a>設定 Azure AD Connect Health 代理程式使用 HTTP Proxy
+
 您可以設定 Azure AD Connect Health 代理程式使用 HTTP Proxy。
 
 > [!NOTE]
@@ -290,6 +308,7 @@ Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential 
 >
 
 ### <a name="change-health-agent-proxy-configuration"></a>變更健康情況代理程式 Proxy 組態
+
 您有下列選項來設定 Azure AD Connect Health 代理程式使用 HTTP Proxy。
 
 > [!NOTE]
@@ -299,17 +318,21 @@ Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential 
 >
 
 #### <a name="import-existing-proxy-settings"></a>匯入現有的 Proxy 設定
+
 ##### <a name="import-from-internet-explorer"></a>從 Internet Explorer 匯入
+
 可以匯入 Internet Explorer HTTP Proxy 設定，以供 Azure AD Connect Health 代理程式使用。 在每部執行 Health 代理程式的伺服器上，執行下列 PowerShell 命令︰
 
     Set-AzureAdConnectHealthProxySettings -ImportFromInternetSettings
 
 ##### <a name="import-from-winhttp"></a>從 WinHTTP 匯入
+
 可以匯入 WinHTTP Proxy 設定，以供 Azure AD Connect Health 代理程式使用。 在每部執行 Health 代理程式的伺服器上，執行下列 PowerShell 命令︰
 
     Set-AzureAdConnectHealthProxySettings -ImportFromWinHttp
 
 #### <a name="specify-proxy-addresses-manually"></a>以手動方式指定 Proxy 位址
+
 您可以執行下列 PowerShell 命令，以在每部執行 Health 代理程式的伺服器上手動指定 Proxy 伺服器：
 
     Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
@@ -320,18 +343,21 @@ Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential 
 * 「連接埠」可以省略。 如果省略，則會選擇 443 做為預設連接埠。
 
 #### <a name="clear-existing-proxy-configuration"></a>清除現有的 Proxy 設定
+
 您可以執行下列命令來清除現有的 Proxy 設定：
 
     Set-AzureAdConnectHealthProxySettings -NoProxy
 
 
 ### <a name="read-current-proxy-settings"></a>讀取目前的 Proxy 設定
+
 您可以執行下列命令來讀取目前設定的 Proxy 設定：
 
     Get-AzureAdConnectHealthProxySettings
 
 
 ## <a name="test-connectivity-to-azure-ad-connect-health-service"></a>測試對 Azure AD Connect Health 服務的連線
+
 有可能會發生導致 Azure AD Connect Health 代理程式與 Azure AD Connect Health 服務連線中斷的問題。 這些包括網路問題、權限問題或各種其他原因。
 
 如果代理程式無法將資料傳送給 Azure AD Connect Health 服務達 2 小時以上，入口網站中的下列警示就會指出：「健全狀況服務的資料並非最新」。 您可以執行下列 PowerShell 命令，以確認受影響的 Azure AD Connect Health 代理程式是否能夠將資料上傳到 Azure AD Connect Health 服務：
@@ -350,6 +376,7 @@ Register-AzureADConnectHealthADDSAgent -UserPrincipalName $USERNAME -Credential 
 >
 
 ## <a name="related-links"></a>相關連結
+
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Azure AD Connect Health 操作](how-to-connect-health-operations.md)
 * [使用 Azure AD Connect Health 來搭配 AD FS](how-to-connect-health-adfs.md)

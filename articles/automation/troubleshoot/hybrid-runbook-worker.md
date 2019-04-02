@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 703f27dab6ca6252647ecb37d17d0f4faf045097
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: c33b9c1b6cc810c3ef2f8d2637d7ac3523e0d8f9
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268681"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803709"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>混合式 Runbook 背景工作的疑難排解
 
@@ -194,7 +194,7 @@ Start-Service -Name HealthService
 
 您在嘗試使用 `Add-HybridRunbookWorker` Cmdlet 來新增「混合式 Runbook 背景工作角色」時收到下列訊息。
 
-```
+```error
 Machine is already registered to a different account
 ```
 

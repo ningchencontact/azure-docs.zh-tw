@@ -2,17 +2,18 @@
 title: 使用 Azure Site Recovery 將內部部署機器移轉至 Azure | Microsoft Docs
 description: 本文說明如何使用 Azure Site Recovery 將內部部署機器移轉至 Azure。
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: d5b229d96c0f63e27e36fb95122b36d3d8c128ac
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 31d08c0dac63662568bf55a021e85ec414c61e52
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110302"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360362"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>將內部部署機器移轉至 Azure
 
@@ -37,7 +38,7 @@ ms.locfileid: "58110302"
 開始之前，最好先針對災害復原檢閱 [VMware](vmware-azure-architecture.md) 或 [Hyper-V](hyper-v-azure-architecture.md) 架構。
 
 > [!TIP]
-> 正在尋找可將 VMware VM 移轉至 Azure 的無代理程式方式嗎？ [按一下這裡](https://aka.ms/migrateVMs-signup)
+> 想要參與我們新的無代理程式體驗，將 VMware VM 遷移至 Azure 嗎？ [深入了解](https://aka.ms/migrateVMs-signup)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -113,7 +114,7 @@ ms.locfileid: "58110302"
 5. 確認 Azure VM 如預期般出現在 Azure 中。
 6. 在 [複寫的項目] 中，以滑鼠右鍵按一下 VM > [完成移轉]。 這會執行以下動作：
 
-   - 完成移轉程序、停止 AWS VM 的複寫，並停止 VM 的 Site Recovery 計費。
+   - 完成移轉程序、停止內部部署 VM 的複寫，並停止 VM 的 Site Recovery 計費。
    - 此步驟會清除複寫資料。 但並不會刪除已遷移的 VM。
 
      ![完成移轉](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
@@ -128,7 +129,7 @@ ms.locfileid: "58110302"
 
 將機器移轉至 Azure 之後，有一些您應該完成的步驟。
 
-藉由使用[復原方案]( https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation)中的內建自動化指令碼功能，可將一些步驟自動化而成為移轉程序的一部分   
+藉由使用[復原方案](site-recovery-runbook-automation.md)中的內建自動化指令碼功能，可將一些步驟自動化而成為移轉程序的一部分   
 
 
 ### <a name="post-migration-steps-in-azure"></a>Azure 中的移轉後步驟
@@ -139,7 +140,7 @@ ms.locfileid: "58110302"
     - 如果您要移轉 VMware 機器和實體伺服器，「行動服務」安裝程式就會在 Windows 機器上安裝可用的 Azure VM 代理程式。 在 Linux VM 上，建議您在容錯移轉後安裝代理程式。
     - 如果您要將 Azure VM 移轉至次要區域，就必須在移轉前將 Azure VM 代理程式佈建在 VM 上。
     - 如果您要將 Hyper-V VM 移轉至 Azure，請在移轉後將 Azure VM 代理程式安裝在 Azure VM 上。
-- 請從 VM 中手動移除任何 Site Recovery 提供者/代理程式。 如果您移轉 VMware VM 或實體伺服器，請從 Azure VM 中 [解除安裝行動服務][vmware-azure-install-mobility-service.md#uninstall-mobility-service-on-a-windows-server-computer]。
+- 請從 VM 中手動移除任何 Site Recovery 提供者/代理程式。 如果您遷移 VMware VM 或實體伺服器，請將行動服務從 VM 解除安裝。
 - 針對提升復原能力：
     - 使用「Azure 備份」服務來備份 Azure VM 以維護資料安全。 [深入了解]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal)。
     - 使用 Site Recovery 將 Azure VM 複寫至次要區域，讓工作負載保持執行且持續可供使用。 [深入了解](azure-to-azure-quickstart.md)。

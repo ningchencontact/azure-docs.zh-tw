@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/17/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 5308fc024a53fdbbef12b409622cc35adaea1e2e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7ba28014dfb2be4550407c20b4885feda3921f98
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857703"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316886"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>教學課程：使用 Kestrel 將 HTTPS 端點新增至 ASP.NET Core Web API 前端服務
 
@@ -341,9 +341,9 @@ if ($cert -eq $null)
 
 ## <a name="run-the-application-locally"></a>在本機執行應用程式
 
-在 [方案總管] 中，選取 [投票] 應用程式，並將 [應用程式 URL] 屬性設定為 " <https://localhost:443> " 。
+在 [方案總管] 中，選取 [投票] 應用程式，並將 [應用程式 URL] 屬性設定為 "https:\//localhost:443"。
 
-儲存所有檔案，然後按 F5 在本機執行應用程式。  在應用程式部署之後，Web 瀏覽器會開啟至 [https://localhost:443](https://localhost:443)。 如果您使用自我簽署的憑證，您會看到您的電腦不信任此網站安全性的警告。  繼續在網頁上執行。
+儲存所有檔案，然後按 F5 在本機執行應用程式。  在應用程式部署之後，Web 瀏覽器會開啟至 https:\//localhost:443。 如果您使用自我簽署的憑證，您會看到您的電腦不信任此網站安全性的警告。  繼續在網頁上執行。
 
 ![投票應用程式][image2]
 

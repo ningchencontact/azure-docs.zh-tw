@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 03/13/2019
+ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: afe4421bea27ff029bd4a1a7808241a54027a6ac
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 544de5a3ac48c12d75f05a1c9adb56f48bb540f4
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136572"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311544"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>聲場專案 Unreal 聲場模擬教學課程
 本文件說明使用 Unreal 編輯器擴充來提交聲場模擬的流程。
@@ -32,7 +32,7 @@ ms.locfileid: "58136572"
 
 將聲場專案外掛程式套件匯入到您的專案中。 如需此作業的說明，請參閱 [Unreal 整合](unreal-integration.md)主題。 整合外掛程式後，請按一下新的 [Acoustics Mode] \(聲場模式\) 圖示以開啟 [Acoustics] \(聲場\) UI。
 
-![開啟 [Acoustics Mode] \(聲場模式\)](media/acoustics-mode.png)
+![Unreal 編輯器的 [聲場模式選項] 螢幕擷取畫面](media/acoustics-mode.png)
 
 ## <a name="tag-actors-for-acoustics"></a>標記聲場的動作項目
 
@@ -42,7 +42,7 @@ ms.locfileid: "58136572"
 
 ### <a name="for-reference-the-objects-tab-parts"></a>參考：[Objects] \(物件\) 索引標籤組件
 
-![Unreal [Objects] \( 物件\) 索引標籤詳細資料](media/unreal-objects-tab-details.png)
+![Unreal 中 [聲場物件] 索引標籤的螢幕擷取畫面](media/unreal-objects-tab-details.png)
 
 1. 索引標籤選取按鈕 (已選取 [Objects] \(物件\) 索引標籤)。 請使用這些按鈕來逐步完成進行聲場模擬的各種步驟 (由上至下)。
 2. 使用此頁面時所需執行之操作的簡短描述。
@@ -75,11 +75,11 @@ ms.locfileid: "58136572"
 
 室內所指定材質的殘響時間與其吸收係數成反比，其中大多數材質的吸收值在 0.01 到 0.20 的範圍。 吸收係數高於此範圍的材質會具備極佳的吸收能力。 例如，如果室內音的殘響太大，請將牆面、地板或天花板的聲場材質變更成吸收性更高的材質。 聲場材質指派會套用至使用該場景材質的所有動作項目。
 
-![殘響時間圖](media/reverb-time-graph.png)
+![顯示殘響時間與吸收係數負相關的圖形](media/reverb-time-graph.png)
 
 ### <a name="for-reference-parts-of-the-materials-tab"></a>參考：[Materials] (材質) 索引標籤的組件
 
-![Unreal [Objects] \( 物件\) 索引標籤詳細資料](media/unreal-materials-tab-details.png)
+![Unreal 中 [聲場物件] 索引標籤的螢幕擷取畫面](media/unreal-materials-tab-details.png)
 
 1. 用來顯示此頁面的 [Materials] \(材質\) 索引標籤按鈕，。
 2. 使用此頁面時所需執行之操作的簡短描述。
@@ -94,7 +94,7 @@ ms.locfileid: "58136572"
 
 ### <a name="for-reference-parts-of-the-probes-tab"></a>參考：[Probes] \(探查\) 索引標籤的組件
 
-![[Probes] \(探查\) 索引標籤詳細資料](media/unreal-probes-tab-details.png)
+![Unreal 中 [聲場探查] 索引標籤的螢幕擷取畫面](media/unreal-probes-tab-details.png)
 
 1. 用來顯示此頁面的 [Probes] \(探查\) 索引標籤按鈕
 2. 使用此頁面時所需執行之操作的簡短描述
@@ -124,11 +124,11 @@ ms.locfileid: "58136572"
 
 探查計算完成之後，稱為 **AcousticsDebugRenderer** 的新動作項目會出現在 [World Outliner] \(世界大綱工具\) 中。 選取 [Render Probes] \(轉譯探查\) 和 [Render Voxels] \(轉譯體素\) 核取方塊，將會在編輯器檢視區內啟用偵錯顯示。
 
-![聲場偵錯轉譯器](media/acoustics-debug-renderer.png)
+![Unreal 編輯器中顯示 [聲場偵錯轉譯器] 動作項目的螢幕擷取畫面](media/acoustics-debug-renderer.png)
 
 如果您沒有看到任何體素或探查重疊在關卡上，請確定已在檢視區中啟用即時轉譯。
 
-![啟用即時轉譯](media/unreal-real-time-rendering.png)
+![Unreal 中即時轉譯選項的螢幕擷取畫面](media/unreal-real-time-rendering.png)
 
 ### <a name="voxels"></a>體素
 
@@ -137,7 +137,7 @@ ms.locfileid: "58136572"
 
 如果您比較以 [Corse] \(粗略\) 解析度和 [Fine] \(精細\) 解析度建立的體素，將會發現粗略體素的體積是兩倍大。
 
-![體素預覽](media/unreal-voxel-preview.png)
+![Unreal 編輯器中聲場體素預覽的螢幕擷取畫面](media/unreal-voxel-preview.png)
 
 ### <a name="probe-points"></a>探查點
 
@@ -145,7 +145,7 @@ ms.locfileid: "58136572"
 
 請務必檢查您預期玩家會於場景中行經的所有地方是否都有探查點。 聲場專案引擎會將探查點放置在導航網格上，且其將無法被移動或編輯，因此請檢查探查點來確定導航網格已涵蓋所有可能的玩家位置。
 
-![探查預覽](media/unreal-probes-preview.png)
+![Unreal 中聲場探查預覽的螢幕擷取畫面](media/unreal-probes-preview.png)
 
 ### <a name="Coarse-vs-Fine-Resolution"></a>粗略與精細解析度的比較
 
@@ -159,9 +159,9 @@ ms.locfileid: "58136572"
 * 聲音來源不能位於「已填滿的」體素 (也就是包含幾何的體素) 內，這會導致沒有聲音。 和使用 [Fine] \(精細\) 設定相比，使用 [Coarse] \(粗略\) 設定會更難避免將聲音來源置於較大的體素內。
 * 較大的體素侵入門戶的部分也較大，如下所示。 第一張圖是使用 [Coarse] \(粗略\) 解析度來建立的，第二張圖是相同的門口，但使用 [Fine] \(精細\) 解析度。 如紅色標記所示，使用 [Fine] \(精細\) 設定時，侵入門口的程度較小。 藍線是幾何所定義的門口，紅線則是體素大小所定義的有效聲場門戶。 此入侵狀況在指定的情況下會如何表現，完全取決於體素與門戶幾何的對齊方式，而這又取決於場景中物件的大小和位置。
 
-![粗略門口](media/unreal-coarse-bake.png)
+![Unreal 中填滿門口的粗略體素螢幕擷取畫面](media/unreal-coarse-bake.png)
 
-![精細門口](media/unreal-fine-bake.png)
+![Unreal 中門口精細體素的螢幕擷取畫面](media/unreal-fine-bake.png)
 
 ## <a name="bake-your-level-using-azure-batch"></a>使用 Azure Batch 來對關卡進行聲場模擬
 
@@ -169,7 +169,7 @@ ms.locfileid: "58136572"
 
 ### <a name="for-reference-parts-of-the-bake-tab"></a>參考：製作索引標籤的組件
 
-![[Bake] \(製作\) 索引標籤詳細資料](media/unreal-bake-tab-details.png)
+![Unreal 中 [聲場製作] 索引標籤的螢幕擷取畫面](media/unreal-bake-tab-details.png)
 
 1. 用來顯示此頁面的 [Bake] \(製作\) 索引標籤按鈕。
 2. 要在此頁面上執行之操作的簡短描述。

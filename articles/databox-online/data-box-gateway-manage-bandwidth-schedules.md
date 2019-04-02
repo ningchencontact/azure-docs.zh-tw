@@ -1,28 +1,25 @@
 ---
-title: Azure 資料箱閘道管理使用者 | Microsoft Docs
+title: 在 Azure 資料箱閘道上管理頻寬排程 | Microsoft Docs
 description: 描述如何使用 Azure 入口網站來管理 Azure 資料箱閘道上的頻寬排程。
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: aefbe4265cb97a003b908c5631e1f9ed4e0192cc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 15d560698ca47c0be39e0533f264bfef211a33d0
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102099"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500401"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>使用 Azure 入口網站來管理 Azure 資料箱閘道上的頻寬排程  
 
 本文說明如何管理 Azure 資料箱閘道上的使用者。 頻寬排程可讓您設定多個日期時間排程的網路頻寬使用量。 這些排程可以套用至從您的裝置上傳和下載作業到雲端。 
 
 您可以透過 Azure 入口網站，新增、修改或刪除資料箱閘道的頻寬排程。
-
-> [!IMPORTANT]
-> - 資料箱閘道處於預覽狀態。 部署訂購並部署此解決方案之前，請檢閱 [Azure 預覽版使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 在本文中，您將了解：
 

@@ -3,7 +3,7 @@ title: 在 Azure 中建立執行 Windows 的 Service Fabric 叢集 | Microsoft D
 description: 在本教學課程中，您會了解如何使用 PowerShell，將 Windows Service Fabric 叢集部署到 Azure 虛擬網路和網路安全性群組。
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/13/2019
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: ade7f86bc5a00c079a7ccbe719ae46043d692047
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 28f115e356c8852174b923f4891f93ad435ce7d7
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225139"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498157"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>教學課程：將執行 Windows 的 Service Fabric 叢集部署到 Azure 虛擬網路
 
@@ -58,6 +58,7 @@ ms.locfileid: "58225139"
 * 安裝 [Service Fabric SDK 和 PowerShell 模組](service-fabric-get-started.md)。
 * 安裝 [Azure PowerShell 模組 4.1 版或更新版本](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)。
 * 檢閱 [Azure 叢集](service-fabric-azure-clusters-overview.md)的重要概念。
+* [規劃及準備](service-fabric-cluster-azure-deployment-preparation.md)生產環境的叢集部署。
 
 下列程序會建立含七個節點的 Service Fabric 叢集。 使用 [Azure 價格計算機](https://azure.microsoft.com/pricing/calculator/)來計算在 Azure 中執行 Service Fabric 叢集所產生的成本。
 
@@ -157,7 +158,7 @@ ms.locfileid: "58225139"
 |clusterName|mysfcluster123| 叢集的名稱。 只能包含字母和數字。 長度可介於 3 到 23 個字元之間。|
 |location|southcentralus| 叢集的位置。 |
 |certificateThumbprint|| <p>如果建立自我簽署憑證或提供憑證檔案，則值應該空白。</p><p>若要使用先前上傳至金鑰保存庫的現有憑證，請填入憑證 SHA1 指紋值。 例如 "6190390162C988701DB5676EB81083EA608DCCF3"。</p> |
-|certificateUrlValue|| <p>如果建立自我簽署憑證或提供憑證檔案，則值應該空白。 </p><p>若要使用先前上傳至金鑰保存庫的現有憑證，請填入憑證 URL。 例如，"https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346"。</p>|
+|certificateUrlValue|| <p>如果建立自我簽署憑證或提供憑證檔案，則值應該空白。 </p><p>若要使用先前上傳至金鑰保存庫的現有憑證，請填入憑證 URL。 例如，"https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346"。</p>|
 |sourceVaultValue||<p>如果建立自我簽署憑證或提供憑證檔案，則值應該空白。</p><p>若要使用先前上傳至金鑰保存庫的現有憑證，請填入來源保存庫值。 例如 "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT"。</p>|
 
 ## <a name="set-up-azure-active-directory-client-authentication"></a>設定 Azure Active Directory 用戶端驗證
@@ -181,7 +182,7 @@ Service Fabric 叢集提供其管理功能的各種進入點 (包括 Web 型 [Se
 
 執行 `SetupApplications.ps1`，並提供租用戶識別碼、叢集名稱和 Web 應用程式回覆 URL 作為參數。 指定使用者的使用者名稱和密碼。 例如︰
 
-```PowerShell
+```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysfcluster123' -WebApplicationReplyUrl 'https://mysfcluster123.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestUser' -Password 'P@ssword!123'
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestAdmin' -Password 'P@ssword!123' -IsAdmin

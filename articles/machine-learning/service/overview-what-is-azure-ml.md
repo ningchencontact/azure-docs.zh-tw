@@ -11,12 +11,12 @@ author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2f55ca6d0dae8ca1eaba1f409bd6a9faa75baf9a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c9f8e13ad089fd40cde22bb76587b171a1c52c7b
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849205"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361883"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>什麼是 Azure Machine Learning 服務？
 
@@ -87,7 +87,7 @@ Azure Machine Learning 服務也可自動定型模型及自動調整模型。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [使用 Azure 入口網站](quickstart-get-started.md) (無安裝方法) 或[在 Python 中](quickstart-create-workspace-with-python.md) (SDK 安裝方法) 建立 Machine Learning 服務工作區以開始作業。
+- [建立 Machine Learning 服務工作區](setup-create-workspace.md)以開始作業。
 
 - 請遵循完整的教學課程： 
   + [使用 Azure Machine Learning 服務將映像分類模型定型](tutorial-train-models-with-aml.md) 

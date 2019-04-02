@@ -3,7 +3,7 @@ title: Azure PowerShell 指令碼範例 - 新增網路安全性群組規則 | Mi
 description: Azure PowerShell 指令碼範例 - 新增網路安全性群組，以便允許特定連接埠上的輸入流量。
 services: service-fabric
 documentationcenter: ''
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 tags: azure-service-management
@@ -13,18 +13,20 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 11/28/2017
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: fd3c648ee63c45bef305658832a4d31dfdb213be
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: fead6aa19775eab6cc3a1014e9f52b30cfa2cefa
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
-ms.locfileid: "25987189"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498310"
 ---
 # <a name="add-an-inbound-network-security-group-rule"></a>新增輸入網路安全性群組規則
 
 本範例指令碼會建立網路安全性群組規則，以允許連接埠 8081 上的輸入流量。  指令碼會取得叢集所在的 `Microsoft.Network/networkSecurityGroups` 資源、建立新的網路安全性設定規則，並更新網路安全性群組。 視需要自訂參數。
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 您可以視需要使用 [Azure PowerShell 指南](/powershell/azure/overview)中的指示來安裝 Azure PowerShell。 
 
@@ -38,10 +40,10 @@ ms.locfileid: "25987189"
 
 | 命令 | 注意 |
 |---|---|
-| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | 取得 `Microsoft.Network/networkSecurityGroups` 資源。 |
-|[Get-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermnetworksecuritygroup)| 依名稱取得網路安全性群組。|
-|[Add-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/add-azurermnetworksecurityruleconfig)| 將網路安全性規則設定新增到網路安全性群組中。 |
-|[Set-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/set-azurermnetworksecuritygroup)| 設定網路安全性群組的目標狀態。|
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | 取得 `Microsoft.Network/networkSecurityGroups` 資源。 |
+|[Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup)| 依名稱取得網路安全性群組。|
+|[Add-AzNetworkSecurityRuleConfig](/powershell/module/az.network/add-aznetworksecurityruleconfig)| 將網路安全性規則設定新增到網路安全性群組中。 |
+|[Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup)| 設定網路安全性群組的目標狀態。|
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: quickstart
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: b4eedabbc47738eb2f5797ffd67a3e3ebc9529ca
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 468c5584d21c226d6ffce55ff3981e629d872c56
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136216"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317182"
 ---
 # <a name="project-acoustics-unity-quickstart"></a>聲場專案 Unity 快速入門
 使用適用於 Unity 的聲場專案範例內容對模擬所支援的設計控制項進行實驗。
 
 軟體需求：
 * 適用於 Windows 的 [Unity 2018.2+](http://unity3d.com) \(英文\)
-* [聲場專案範例內容套件](https://www.microsoft.com/en-us/download/details.aspx?id=57346) \(英文\)
+* [聲場專案範例內容套件](https://www.microsoft.com/download/details.aspx?id=57346) \(英文\)
 
 範例套件中包含哪些內容？
 * 具有幾何、聲音來源，以及遊戲控制項的 Unity 場景
@@ -33,7 +33,7 @@ ms.locfileid: "58136216"
 將範例套件匯入至新的 Unity 專案。 
 * 在 Unity 中，移至 [Assets] \(資產\) > [Import Package] \(匯入套件\) > [Custom Package] \(自訂套件\)
 
-    ![匯入套件](media/import-package.png)  
+    ![Unity 匯入套件選項的螢幕擷取畫面](media/import-package.png)  
 
 * 選擇 **ProjectAcoustics.unitypackage**
 
@@ -44,23 +44,23 @@ ms.locfileid: "58136216"
 
 您可以透過開啟 [Player Settings] \(玩家設定\)，確認此設定是否已生效：
 
-![播放器設定](media/player-settings.png)
+![Unity 播放器設定面板的螢幕擷取畫面](media/player-settings.png)
 
-![.NET 4.5](media/net45.png)
+![Unity 播放器設定面板 (已選取 .NET 4.5) 的螢幕擷取畫面](media/net45.png)
 
 ## <a name="experiment-with-design-controls"></a>對設計控制項進行實驗
 開啟 **ProjectAcousticsSample** 資料夾中的範例場景，然後按一下 Unity 編輯器中的 [Play] \(進行遊戲\) 按鈕。 使用 W、A、S、D 與滑鼠即可四處移動。 若要比較場景音效使用原音與不使用原音時的不同，請按下 **R** 按鈕直到重疊文字變成紅色並說出「原音：已停用」。 若要查看鍵盤快速鍵以取得更多控制項，請按下 **F1**。 若要使用控制項，您也可以按一下滑鼠右鍵來選取要執行的動作，然後按一下滑鼠左鍵來執行該動作。
 
 指令碼 **AcousticsAdjust** 會附加到範例場景中的聲音來源，其可啟用每個來源的設計參數。 
 
-![AcousticsAdjust](media/acoustics-adjust.png)
+![Unity AcousticsAdjust 指令碼的螢幕擷取畫面](media/acoustics-adjust.png)
 
 以下會探索可透過所提供的控制項來產生的一些效果。 如需每個控制項的詳細資訊，請參閱[聲場專案 Unity 設計教學課程](unreal-workflow.md)。
 
 ### <a name="modify-distance-based-attenuation"></a>修改以距離為基礎的衰減
 **聲場專案** Unity 空間定位外掛程式所提供的音訊 DSP，會遵循 Unity 編輯器所內建，以每個來源距離為基礎的衰減。 距離型衰減控制項位於聲音來源之 [Inspector] \(偵測器\) 面板中 [Audio Source] \(音訊來源\) 元件的 [3D Sound Settings] \(3D 聲音設定\) 底下：
 
-![距離衰減](media/distance-attenuation.png)
+![Unity 距離衰減選項面板的螢幕擷取畫面](media/distance-attenuation.png)
 
 聲場專案會在以玩家位置為中心的「模擬區域」方塊中執行計算。 由於範例套件中的聲場資產是以玩家周圍 45 公尺大小的模擬區域進行聲場模擬，因此聲音衰減應設計為在達到約 45 公尺的距離時便降至 0。
 

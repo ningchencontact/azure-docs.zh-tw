@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用 CLI 建立 Azure 資料總管叢集與資料庫
+title: 快速入門：使用 Azure CLI 建立 Azure 資料總管叢集與資料庫
 description: 了解如何使用 Azure CLI 建立 Azure 資料總管叢集與資料庫
 services: data-explorer
 author: radennis
@@ -7,15 +7,15 @@ ms.author: radennis
 ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 2/4/2019
-ms.openlocfilehash: ca4ffce1ae966d2bb8fb187c9b04938330969641
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 3/25/2019
+ms.openlocfilehash: 2a77671ca405a69ec87e335004a84acb2e649c2c
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286324"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418647"
 ---
-# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-the-cli"></a>使用 CLI 建立 Azure 資料總管叢集與資料庫
+# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>使用 Azure CLI 建立 Azure 資料總管叢集與資料庫
 
 > [!div class="op_single_selector"]
 > * [入口網站](create-cluster-database-portal.md)
@@ -23,9 +23,9 @@ ms.locfileid: "58286324"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
->  
+>
 
-本快速入門說明如何使用 Azure CLI 建立 Azure 資料總管叢集和資料庫。
+Azure 資料總管是快速、完全受控的資料分析服務，可即時分析來自應用程式、網站、IoT 裝置等的大量資料流。 若要使用 Azure 資料總管，請先建立叢集，然後在該叢集中建立一或多個資料庫。 然後將資料內嵌 (載入) 至資料庫，讓您可以對資料執行查詢。 在本快速入門中，您會使用 Azure CLI 建立叢集與資料庫。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -45,7 +45,7 @@ ms.locfileid: "58286324"
     az login
     ```
 
-2. 設定要建立叢集的訂用帳戶。 將 `MyAzureSub` 取代為您要使用的 Azure 訂用帳戶名稱：
+1. 設定要建立叢集的訂用帳戶。 將 `MyAzureSub` 取代為您要使用的 Azure 訂用帳戶名稱：
 
     ```azurecli-interactive
     az account set --subscription MyAzureSub
@@ -67,7 +67,7 @@ ms.locfileid: "58286324"
 
     有其他選擇性參數可供您使用，例如叢集的容量。
 
-2. 執行下列命令來檢查是否已成功建立叢集：
+1. 執行下列命令來檢查是否已成功建立叢集：
 
     ```azurecli-interactive
     az kusto cluster show --name azureclitest --resource-group testrg
@@ -91,7 +91,7 @@ ms.locfileid: "58286324"
    | soft-delete-period | *3650:00:00:00* | 將保留資料以供查詢的時間長度。 |
    | hot-cache-period | *3650:00:00:00* | 資料將保留在快取中的時間長度。 |
 
-2. 執行下列命令以查看您所建立的資料庫：
+1. 執行下列命令以查看您所建立的資料庫：
 
     ```azurecli-interactive
     az kusto database show --name clidatabase --resource-group testrg --cluster-name azureclitest

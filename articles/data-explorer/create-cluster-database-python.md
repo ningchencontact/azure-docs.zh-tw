@@ -7,13 +7,13 @@ ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/17/2019
-ms.openlocfilehash: 4f87c5996ea323c26c32c1680ba6f627bf8f95c2
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/25/2019
+ms.openlocfilehash: 24e482d223fec2c1f95d7cc964f62eac81c5de05
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287364"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472574"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>使用 Python 建立 Azure 資料總管叢集與資料庫
 
@@ -25,15 +25,15 @@ ms.locfileid: "58287364"
 > * [Python](create-cluster-database-python.md)
 >  
 
-本快速入門說明如何使用 Python 建立 Azure 資料總管叢集和資料庫。
+Azure 資料總管是快速、完全受控的資料分析服務，可即時分析來自應用程式、網站、IoT 裝置等的大量資料流。 若要使用 Azure 資料總管，請先建立叢集，然後在該叢集中建立一或多個資料庫。 然後將資料內嵌 (載入) 至資料庫，讓您可以對資料執行查詢。 在本快速入門中，您會使用 Python 建立叢集與資料庫。
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本快速入門，您需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="install-python-package"></a>安裝 Python 套件
 
-若要為 Azure 資料總管 (Kusto) 安裝 Python 套件，請開啟在其路徑中有 Python 的命令提示字元，並執行下列命令︰
+若要為 Azure 資料總管 (Kusto) 安裝 Python 套件，請開啟在其路徑中有 Python 的命令提示字元。 請執行這個命令：
 
 ```
 pip install azure-mgmt-kusto
@@ -43,7 +43,26 @@ pip install azure-mgmt-kusto
 
 1. 使用下列命令建立您的叢集：
 
+    ```Python
+    from azure.mgmt.kusto.kusto_management_client import KustoManagementClient
+    from azure.mgmt.kusto.models import Cluster, AzureSku
+
+    credentials = xxxxxxxxxxxxxxx
     
+    subscription_id = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx'
+    location = 'Central US'
+    sku = 'D13_v2'
+    capacity = 5
+    resource_group_name = 'testrg'
+    cluster_name = 'mykustocluster'
+    cluster = Cluster(location=location, sku=AzureSku(name=sku, capacity=capacity))
+    
+    kustoManagementClient = KustoManagementClient(credentials, subscription_id)
+    
+    cluster_operations = kustoManagementClient.clusters
+    
+    cluster_operations.create_or_update(resource_group_name, cluster_name, cluster)
+    ```
 
    |**設定** | **建議的值** | **欄位描述**|
    |---|---|---|
@@ -53,9 +72,9 @@ pip install azure-mgmt-kusto
 
     有其他選擇性參數可供您使用，例如叢集的容量。
     
-    將 'credentials' 設定為您的認證 (如需詳細資訊，請參閱 https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python )
+1. 設定[*您的認證*](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)
 
-2. 執行下列命令來檢查是否已成功建立叢集：
+1. 執行下列命令來檢查是否已成功建立叢集：
 
     ```Python
     cluster_operations.get(resource_group_name = resource_group_name, cluster_name= clusterName, custom_headers=None, raw=False)
@@ -91,7 +110,7 @@ pip install azure-mgmt-kusto
    | soft_delete_period | *3650 天，0:00:00* | 將保留資料以供查詢的時間長度。 |
    | hot_cache_period | *3650 天，0:00:00* | 資料將保留在快取中的時間長度。 |
 
-2. 執行下列命令以查看您所建立的資料庫：
+1. 執行下列命令以查看您所建立的資料庫：
 
     ```Python
     database_operations.get(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName)

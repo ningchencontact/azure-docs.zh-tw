@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: b9e9c0b141987f8af563944c8eee216b8218846c
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 1bc4bd9b95dc7e45b9b90fbe096ed71c5aa9bedf
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352881"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447243"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從 Azure SQL Database 中的資料表載入到 Azure Blob 儲存體。 
@@ -150,9 +150,10 @@ END
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
 1. 啟動 **Microsoft Edge** 或 **Google Chrome** 網頁瀏覽器。 目前，只有 Microsoft Edge 和 Google Chrome 網頁瀏覽器支援 Data Factory UI。
-1. 按一下左邊功能表上的 [新增]、[資料 + 分析]，再按一下 [Data Factory]。 
+1. 在左側功能表上，選取 [建立資源] > [資料 + 分析] > [資料處理站]： 
    
-   ![新增->DataFactory](./media/tutorial-incremental-copy-portal/new-azure-data-factory-menu.png)
+   ![在 [新增] 窗格中選取資料處理站](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. 在 [新增 Data Factory] 頁面中，輸入 [ADFTutorialOnPremDF] 作為 [名稱]。 
       
      ![新增資料處理站頁面](./media/tutorial-incremental-copy-portal/new-azure-data-factory.png)
@@ -307,7 +308,7 @@ END
 
         | Name | 類型 | 值 | 
         | ---- | ---- | ----- | 
-        | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
+        | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | 字串 | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![預存程序活動 - 預存程序設定](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)

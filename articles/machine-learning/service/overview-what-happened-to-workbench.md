@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5ff065816e287e0d4e37cdea9a7770c9ff806520
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 22615d07e69d707c90e3ff9bda83bfa6f0852996
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890741"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360279"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench 發生什麼事？
 
@@ -40,7 +40,7 @@ Azure Machine Learning Workbench 應用程式和一些其他早期的功能已�
 + 全新且更全面的 Python <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>。
 + 全新且經過擴充的適用於機器學習的 [Azure CLI 擴充功能](reference-azure-machine-learning-cli.md)。
 
-[架構](concept-azure-machine-learning-architecture.md)已經過重新設計，以方便您使用。 您只需要一個 [Azure Machine Learning 服務工作區](concept-azure-machine-learning-architecture.md#workspace)，而不是多個 Azure 資源和帳戶。 您可以在 [Azure 入口網站](quickstart-get-started.md)中快速建立工作區。 藉由使用工作區，多個使用者可以儲存定型和部署計算目標、模型實驗、Docker 映像、已部署的模型等等。
+[架構](concept-azure-machine-learning-architecture.md)已經過重新設計，以方便您使用。 您只需要一個 [Azure Machine Learning 服務工作區](concept-azure-machine-learning-architecture.md#workspace)，而不是多個 Azure 資源和帳戶。 您可以在 [Azure 入口網站] 中快速建立工作區 ((setup-create-workspace.md#portal)。 藉由使用工作區，多個使用者可以儲存定型和部署計算目標、模型實驗、Docker 映像、已部署的模型等等。
 
 雖然目前的版本中有改善的新 CLI 和 SDK 用戶端，但桌面工作區應用程式本身已被淘汰。 您可以在 [Azure 入口網站中的工作區儀表板](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal)中管理實驗。 使用儀表板來取得實驗記錄、管理附加到工作區的計算目標、管理模型和 Docker 映像，甚至可以部署 Web 服務。
 
@@ -50,7 +50,7 @@ Azure Machine Learning Workbench 應用程式和一些其他早期的功能已�
 
 在 2019 年 1 月 9 日後，Machine Learning Workbench、Azure Machine Learning 測試和模型管理帳戶及其相關 SDK 和 CLI 的支援均已終止。 
 
-使用新的 <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>、[CLI](reference-azure-machine-learning-cli.md) 和[入口網站](quickstart-get-started.md)即可使用所有最新功能。
+使用新的 <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>、[CLI](reference-azure-machine-learning-cli.md) 和[入口網站](setup-create-workspace.md#portal)即可使用所有最新功能。
 
 ## <a name="what-about-run-histories"></a>那麼執行歷程記錄呢？
 
@@ -81,7 +81,7 @@ Azure Machine Learning Workbench 應用程式和一些其他早期的功能已�
 run = exp.submit(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
 ```
 
-了解如何[透過主要 SDK](quickstart-create-workspace-with-python.md) 或使用 [Azure 入口網站](quickstart-get-started.md)來開始使用 Python。
+[建立工作區](setup-create-workspace.md#portal)即可開始使用。
 
 ## <a name="what-about-my-registered-models-and-images"></a>那麼我的註冊模型和映像呢？
 
@@ -121,6 +121,6 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 
 如需此服務的概觀，請參閱[什麼是 Azure Machine Learning 服務？](overview-what-is-azure-ml.md)
 
-如需快速入門以顯示如何使用最新版 Azure Machine Learning 服務來建立工作區、建立專案、執行指令碼，以及探索指令碼的執行歷程記錄，請嘗試[開始使用 Azure Machine Learning 服務](quickstart-get-started.md)。
+如需說明如何使用最新版 Azure Machine Learning 服務來執行指令碼及探索指令碼執行歷程記錄的快速入門，請嘗試[開始使用 Azure Machine Learning 服務](quickstart-run-cloud-notebook.md)。
 
 如需此工作流程的更深入體驗，請遵循[完整教學課程](tutorial-train-models-with-aml.md)，其中包含使用 Azure Machine Learning 服務訓練和部署模型的詳細步驟。 

@@ -1,33 +1,33 @@
 ---
-title: 使用 Azure Site Recovery 服務將複寫的 Azure IaaS VM 容錯移轉及容錯回復到次要 Azure 區域，以進行災害復原。
-description: 了解如何使用 Azure Site Recovery 服務將複寫的 Azure VM 容錯移轉及容錯回復到次要 Azure 區域，以進行災害復原。
+title: 使用 Azure Site Recovery 服務將複寫的 Azure VM 容錯移轉到次要 Azure 區域並重新保護，以進行災害復原。
+description: 了解如何使用 Azure Site Recovery 服務將複寫的 Azure VM 容錯移轉到次要 Azure 區域並重新保護，以進行災害復原。
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 03/18/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ba1e65ca915c576d2424b166488b89baa92c24a9
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: c19e554571927efa907350df1f1fbbd8ff491c42
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729046"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314751"
 ---
-# <a name="fail-over-and-reprotect-azure-vms-between-azure-regions"></a>在 Azure 區域之間容錯移轉及重新保護 Azure VM
+# <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>在區域之間容錯移轉及重新保護 Azure VM
 
 [Azure Site Recovery](site-recovery-overview.md) 服務可藉由管理及協調內部部署電腦與 Azure 虛擬機器 (VM) 的複寫、容錯移轉及容錯回復，為您的災害復原策略做出貢獻。
 
-本教學課程說明如何將單一 Azure VM 容錯移轉到次要 Azure 區域。 在容錯移轉之後，您可以容錯回復到可用的主要區域。 在本教學課程中，您了解如何：
+本教學課程說明如何將 Azure VM 容錯移轉到次要 Azure 區域。 在容錯移轉之後，您會重新保護 VM。 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 容錯移轉 Azure VM
 > * 重新保護次要 Azure VM，使其能複寫到主要區域。
 
 > [!NOTE]
-> 本教學課程旨在透過最少的自訂來逐步引導使用者對目標區域進行容錯移轉及容錯回復；如果您想要深入了解容錯移轉的各個相關層面，包括網路功能考量、自動化或疑難排解，請參閱 Azure VM 的「操作說明」文件。
+> 本教學課程包含採用預設設定和最低自訂的最簡單路徑。 如需更複雜的案例，請使用「操作說明」之下關於 Azure VM 的文章。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -42,18 +42,18 @@ ms.locfileid: "57729046"
 
 2. 在 [容錯移轉] 中，選取要容錯移轉的目標**復原點**。 您可以使用下列其中一個選項：
 
-   * **最新** (預設值)：此選項可在 Site Recovery 服務中處理所有資料，並提供最低的「復原點目標」(RPO)。
-   * **最近處理**：此選項會將虛擬機器還原到 Site Recovery 服務已處理的最新復原點。
-   * **自訂**：若要容錯移轉至特定復原點，請使用此選項。 此選項適合用於執行測試容錯移轉。
+   * **最新** (預設值)：在 Site Recovery 服務中處理所有資料，並提供最低的復原點目標 (RPO)。
+   * **最近處理**：將虛擬機器還原到 Site Recovery 服務已處理的最新復原點。
+   * **自訂**：容錯移轉至特定復原點。 此選項適合用於執行測試容錯移轉。
 
-3. 如果想在觸發容錯移轉之前，讓 Site Recovery 嘗試將來源虛擬機器關機，請選取 [先將機器關機再開始容錯移轉]。 即使關機失敗，仍會繼續容錯移轉。 請注意，Site Recovery 並不會在容錯移轉後清除來源。
+3. 如果想在觸發容錯移轉之前，讓 Site Recovery 嘗試將來源 VM 關機，請選取 [先將機器關機再開始容錯移轉]。 即使關機失敗，仍會繼續容錯移轉。 Site Recovery 並不會在容錯移轉後清除來源。
 
 4. 在 [作業] 頁面上追蹤容錯移轉進度。
 
 5. 容錯移轉之後，登入虛擬機器進行驗證。 如果您想要前往虛擬機器的另一個復原點，您可以使用 [變更復原點] 選項。
 
 6. 一旦您滿意容錯移轉的虛擬機器，您可以 [認可] 容錯移轉。
-   認可會刪除服務可用的所有復原點。 **變更復原點**選項已無法再使用。
+   認可會刪除服務可用的所有復原點。 您現在無法變更復原點。
 
 ## <a name="reprotect-the-secondary-vm"></a>重新保護次要 VM
 
@@ -64,13 +64,10 @@ ms.locfileid: "57729046"
 
    ![按一下滑鼠右鍵可重新保護](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
 
-2. 請注意，已經選取保護方向 (次要到主要區域)。
-3. 檢閱**資源群組、網路、儲存體和可用性設定組**資訊。 在重新保護作業期間，將會建立任何標記為 (新的) 的資源。
+2. 確認已經選取保護方向 (次要到主要區域)。
+3. 檢閱**資源群組、網路、儲存體和可用性設定組**資訊。 在重新保護作業期間會建立任何標記為新的資源。
 4. 按一下 [確定] 以觸發重新保護作業。 這項作業會在目標網站植入最新資料。 然後，它會將差異複寫到主要區域。 VM 目前處於受保護的狀態。
 
-> [!NOTE]
-> 如需重新保護工作流程和重新保護期間會發生什麼情況的詳細資訊，請參閱[「操作說明」一節](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection)。
-
-
 ## <a name="next-steps"></a>後續步驟
-- 請參閱[如何容錯回復](azure-to-azure-tutorial-failback.md)。
+- 在重新保護之後，[了解如何](azure-to-azure-tutorial-failback.md)容錯回復到可用的主要區域。
+- [深入了解](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection)重新保護流程。

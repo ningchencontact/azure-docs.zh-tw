@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 02/28/2019
+ms.date: 03/25/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: cce28b031b146d8a56d37647022261294f07f0be
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 0d0b3b38fe39e32c6a3c7c39de5cbed4f7400d92
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213563"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435887"
 ---
 # <a name="compare-azure-cdn-product-features"></a>比較 Azure CDN 產品功能
 
@@ -30,7 +30,7 @@ Azure 內容傳遞網路 (CDN) 包含四項產品：**來自 Microsoft 的 Azure
 
 | **效能功能和最佳化** | **標準 Microsoft** | **標準 Akamai** | **標準 Verizon** | **進階 Verizon** |
 | --- | --- | --- | --- | --- |
-| [動態網站加速](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration)  |  | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
+| [動態網站加速](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration)  | 透過 [Azure Front Door Service](https://docs.microsoft.com/azure/frontdoor/front-door-overview) 提供 | **&#x2713;**  | **&#x2713;** | **&#x2713;** |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[動態網站加速 - 調整映像壓縮](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#adaptive-image-compression-azure-cdn-from-akamai-only)  |  | **&#x2713;**  |  |  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[動態網站加速 - 物件預先擷取](https://docs.microsoft.com/azure/cdn/cdn-dynamic-site-acceleration#object-prefetch-azure-cdn-from-akamai-only)  |  | **&#x2713;**  |  |  |
 | [一般 Web 傳遞最佳化](https://docs.microsoft.com/azure/cdn/cdn-optimization-overview#general-web-delivery)  | **&#x2713;** | **&#x2713;** 如果您的平均檔案大小小於 10 MB，請選取此最佳化類型。  | **&#x2713;** |  **&#x2713;** |

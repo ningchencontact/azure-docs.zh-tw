@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 05/17/2018
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 55704ed6236872c4f225775559e54370757a26a3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1e4c08c1e1f9c32c7c397cf187ad2ef91a25c59d
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007148"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58350448"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>教學課程：以 Python 執行 TensorFlow 模型
 
@@ -24,16 +24,14 @@ ms.locfileid: "58007148"
 > [!NOTE]
 > 本教學課程僅適用於從影像分類專案匯出的模型。
 
-## <a name="install-required-components"></a>安裝必要的元件
-
-### <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>必要條件
 
 若要使用教學課程，您需要執行下列動作：
 
 - 安裝 Python 2.7+ 或 Python 3.5+。
 - 安裝 pip。
 
-您也需要安裝下列套件：
+接下來，您需要安裝下列套件：
 
 ```
 pip install tensorflow
@@ -113,7 +111,6 @@ max_square_image = crop_center(image, min_dim, min_dim)
 # Resize that square down to 256x256
 augmented_image = resize_to_256_square(max_square_image)
 ```
-
 
 ### <a name="crop-the-center-for-the-specific-input-size-for-the-model"></a>裁剪模型特定輸入大小的中心
 
@@ -209,10 +206,10 @@ with tf.Session() as sess:
         print (labels[label_index], truncated_probablity)
         label_index += 1
 ```
+
 ## <a name="next-steps"></a>後續步驟
 
-您也可以將模型包裝到行動應用程式：
+接下來，了解如何將模型包裝到行動應用程式：
 * [在 Android 應用程式中使用匯出的 Tensorflow 模型](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
 * [在 Swift iOS 應用程式中使用匯出的 CoreML 模型](https://go.microsoft.com/fwlink/?linkid=857726)
 * [搭配使用 iOS 應用程式中匯出的 CoreML 模型與 Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
-

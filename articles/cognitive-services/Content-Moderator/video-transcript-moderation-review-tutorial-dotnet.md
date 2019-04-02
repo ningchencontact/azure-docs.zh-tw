@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: 504f79186eb69fb6e6c23c1a0cd9dfd7584bb128
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fc49081c765834a0ed0e5199923606ced7daa081
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904332"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522072"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>教學課程：影片及文字記錄仲裁
 
@@ -234,7 +234,7 @@ ms.locfileid: "57904332"
 `CreateVideoReviewInContentModerator()` 會呼叫數種其他方法來執行下列工作：
 
 > [!NOTE]
-> 主控台應用程式會使用 [FFmpeg](https://ffmpeg.org/) 程式庫來產生縮圖。 這些縮圖 (影像) 會對應至[影片審核輸出](#sample-video-moderation-response)中的畫面時間戳記。
+> 主控台應用程式會使用 [FFmpeg](https://ffmpeg.org/) 程式庫來產生縮圖。 這些縮圖 (影像) 會對應至影片審核輸出中的畫面時間戳記。
 
 |Task|方法|檔案|
 |-|-|-|

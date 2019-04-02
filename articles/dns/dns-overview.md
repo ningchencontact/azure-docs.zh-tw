@@ -2,17 +2,16 @@
 title: 什麼是 Azure DNS？
 description: 在 Microsoft Azure 上裝載 Azure DNS 服務的概觀。 在 Microsoft Azure 上裝載您的網域。
 author: vhorne
-manager: jeconnoc
 ms.service: dns
 ms.topic: overview
-ms.date: 9/24/2018
+ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: 62043128b6415a064e35adca6be4d60ccfcae308
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: cea19ad2ba03d3e71df32912a1d7ee9e6171689a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294309"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339446"
 ---
 # <a name="what-is-azure-dns"></a>什麼是 Azure DNS？
 
@@ -39,6 +38,7 @@ Azure DNS 中的 DNS 網域裝載於 Azure 的 DNS 名稱伺服器全球網路�
 如需詳細資訊，請參閱[如何保護 DNS 區域和記錄](dns-protect-zones-recordsets.md)。 
 
 ## <a name="dnssec"></a>DNSSEC
+
 Azure DNS 目前不支援 DNSSEC。 在大部分情況下，您可以藉著在您的應用程式中一致使用 HTTPS/TLS 來減少 DNSSEC 的需求。 如果 DNSSEC 是您 DNS 區域的關鍵需求，可以使用協力廠商 DNS 主機服務提供者來裝載這些區域。
 
 ## <a name="ease-of-use"></a>容易使用
@@ -57,12 +57,11 @@ Azure DNS 也支援私人 DNS 區域 (目前處於公開預覽狀態)。 此功�
 
 ## <a name="alias-records"></a>別名記錄
 
-Azure DNS 支援別名記錄集。 您可以使用別名記錄集以參考 Azure 資源，例如 Azure 共用 IP 位址或 Azure 流量管理員設定檔。 如果基礎資源的 IP 位址變更，別名記錄集會在 DNS 解析期間自行順暢地更新。 別名記錄集指向服務執行個體，而且服務執行個體與 IP 位址相關聯。 
+Azure DNS 支援別名記錄集。 您可以使用別名記錄集以參考 Azure 資源，例如 Azure 共用 IP 位址、Azure 流量管理員設定檔，或 Azure 內容傳遞網路 (CDN) 端點。 如果基礎資源的 IP 位址變更，別名記錄集會在 DNS 解析期間自行順暢地更新。 別名記錄集指向服務執行個體，而且服務執行個體與 IP 位址相關聯。
 
-此外，您現在可以使用別名記錄，將您的 apex 或裸網域指向流量管理員設定檔。 例如 contoso.com。
+此外，您現在可以使用別名記錄，將您的 apex 或裸網域指向流量管理員設定檔或 CDN 端點。 例如 contoso.com。
 
 如需詳細資訊，請參閱 [Azure DNS 別名記錄的概觀](dns-alias.md)。
-
 
 ## <a name="next-steps"></a>後續步驟
 

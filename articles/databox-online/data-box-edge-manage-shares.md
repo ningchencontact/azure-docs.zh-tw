@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/11/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 79648e30e832a056016b8842fdc39e27e206c9ee
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: e85e006a54fcb4bb677932b3e1ff9fa79352dba9
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57897791"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519828"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-edge"></a>使用 Azure 入口網站來管理 Azure Data Box Edge 上的共用
 
 本文說明如何管理 Azure Data Box Edge 上的共用。 您可以透過 Azure 入口網站或本機 Web UI 來管理 Azure Data Box Edge。 使用 Azure 入口網站來新增、刪除、重新整理共用，或針對與共用相關聯的儲存體帳戶同步儲存體金鑰。
-
-> [!IMPORTANT]
-> Data Box Edge 目前處於預覽狀態。 部署訂購並部署此解決方案之前，請檢閱 [Azure 預覽版使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
-
 
 ## <a name="about-shares"></a>關於共用
 
@@ -67,8 +63,10 @@ ms.locfileid: "57897791"
 
         ![新增 NFS 共用](media/data-box-edge-manage-shares/add-nfs-share.png)
 
-7. 按一下 [建立] 來建立共用。 正在建立共用時會通知您。 使用指定的設定來建立共用之後，[共用] 刀鋒視窗將會更新，以反映新的共用。
- 
+7. 若要從 Edge 計算模組輕鬆存取共用，請使用本機掛接點。 選取 [搭配 Edge 計算來使用共用]，以在建立共用之後自動掛接共用。 若選取此選項，Edge 模組也可以搭配本機掛接點來使用計算。
+
+8. 按一下 [建立] 來建立共用。 正在建立共用時會通知您。 使用指定的設定來建立共用之後，[共用] 刀鋒視窗將會更新，以反映新的共用。
+
 ## <a name="add-a-local-share"></a>新增本機共用
 
 1. 在 Azure 入口網站中，移至您的 Data Box Edge 資源，然後移至 [閘道 > 共用]。 選取命令列上的 [+ 新增共用]。
@@ -93,11 +91,56 @@ ms.locfileid: "57897791"
 
     共用正在建立時，您會看見通知。 使用指定的設定來建立共用之後，[共用] 刀鋒視窗將會更新，以反映新的共用。
 
-    ![檢視更新共用刀鋒視窗](media/data-box-edge-manage-shares/add-local-share-4.png)
+    ![檢視更新共用刀鋒視窗](media/data-box-edge-manage-shares/add-local-share-3.png)
     
     選取共用以檢視此共用的 Edge 計算模組的本機掛接點。
 
     ![檢視本機共用詳細資料](media/data-box-edge-manage-shares/add-local-share-4.png)
+
+## <a name="mount-a-share"></a>掛接共用
+
+如果您先建立共用才在 Data Box Edge 裝置上設定計算，則必須掛接共用。 請採取下列步驟來掛接共用。
+
+
+1. 在 Azure 入口網站中，移至您的 Data Box Edge 資源，然後移至 [閘道 > 共用]。 從共用清單中，選取您想要掛接的共用。 [用於計算] 資料行會將所選共用的狀態顯示為 [已停用]。
+
+    ![選取共用](media/data-box-edge-manage-shares/select-share-mount.png)
+
+2. 選取 [掛接]。
+
+    ![選取掛接](media/data-box-edge-manage-shares/select-mount.png)
+
+3. 系統提示您確認時，請選取 [是]。 這會掛接共用。
+
+    ![確認掛接](media/data-box-edge-manage-shares/confirm-mount.png)
+
+4. 掛接共用之後，請移至共用清單。 您會看到 [用於計算] 資料行顯示共用的狀態為 [已啟用]。
+
+    ![已掛接共用](media/data-box-edge-manage-shares/share-mounted.png)
+
+5. 再次選取共用以檢視此共用的本機掛接點。 Edge 計算模組會對此共用使用這個本機掛接點。
+
+    ![共用的本機掛接點](media/data-box-edge-manage-shares/share-mountpoint.png)
+
+## <a name="unmount-a-share"></a>取消掛接共用
+
+請在 Azure 入口網站中執行下列步驟以取消掛接共用。
+
+1. 在 Azure 入口網站中，移至您的 Data Box Edge 資源，然後移至 [閘道 > 共用]。
+
+    ![選取共用](media/data-box-edge-manage-shares/select-share-unmount.png)
+
+2. 從共用清單中，選取您想要取消掛接的共用。 請確定沒有任何模組使用您取消掛接的共用。 如果有模組使用該共用，則您會看到對應模組發生問題。 選取 [取消掛接]。
+
+    ![選取取消掛接](media/data-box-edge-manage-shares/select-unmount.png)
+
+3. 系統提示您確認時，請選取 [是]。 這會取消掛接共用。
+
+    ![確認取消掛接](media/data-box-edge-manage-shares/confirm-unmount.png)
+
+4. 取消掛接共用之後，請移至共用清單。 您會看到 [用於計算] 資料行顯示共用的狀態為 [已停用]。
+
+    ![已取消掛接共用](media/data-box-edge-manage-shares/share-unmounted.png)
 
 ## <a name="delete-a-share"></a>刪除共用
 
@@ -123,7 +166,8 @@ ms.locfileid: "57897791"
 重新整理功能可讓您重新整理共用的內容。 重新整理共用時，系統會起始搜尋以尋找所有 Azure 物件，包括自從上次重新整理後新增至雲端的 Blob 和檔案。 然後，會下載這些額外檔案以重新整理裝置上的共用內容。
 
 > [!IMPORTANT]
-> 您無法重新整理本機共用。
+> - 您無法重新整理本機共用。
+> - 權限和存取控制清單 (ACL) 不會保留在重新整理作業中。 
 
 在 Azure 入口網站中執行下列步驟，以重新整理共用。
 

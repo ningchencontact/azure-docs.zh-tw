@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: fd58bf9582663e64e1aefd8193d48d92f51dcd0e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 105996cf72e2a96a06a4478518e68765d3d158f5
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165655"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58516887"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>使用 Azure 入口網站來管理 Azure 資料箱閘道上的共用 
 
 本文說明如何管理 Azure 資料箱閘道上的共用。 您可以透過 Azure 入口網站或本機 Web UI 來管理 Azure 資料箱閘道。 使用 Azure 入口網站來新增、刪除、重新整理共用，或針對與共用相關聯的儲存體帳戶同步儲存體金鑰。
-
-> [!IMPORTANT]
-> - 資料箱閘道處於預覽狀態。 部署訂購並部署此解決方案之前，請檢閱 [Azure 預覽版使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
-
 
 ## <a name="about-shares"></a>關於共用
 
@@ -88,6 +84,9 @@ ms.locfileid: "49165655"
 
 重新整理功能可讓您重新整理內部部署共用的內容。 重新整理共用時，系統會起始搜尋以尋找所有 Azure 物件，包括自從上次重新整理後新增至雲端的 Blob 和檔案。 然後，這些額外檔案用來重新整理裝置上內部部署共用的內容。 
 
+> [!NOTE]
+> 權限和存取控制清單 (ACL) 不會保留在重新整理作業中。 
+
 在 Azure 入口網站中執行下列步驟，以重新整理共用。
 
 1.  在 Azure 入口網站中，移至 [共用]。 選取並按一下您想要重新整理的共用。
@@ -111,7 +110,7 @@ ms.locfileid: "49165655"
 如有錯誤，則會引發警示。 警示會詳述原因和修正問題的建議。 警示也會連結到具有完整失敗摘要的檔案，包括無法更新或刪除的檔案。
 
 >[!IMPORTANT]
-> 在此預覽版本，請勿一次重新整理一個以上的共用。
+> 在此版本中，請勿一次重新整理一個以上的共用。
 
 ## <a name="sync-storage-keys"></a>同步儲存體金鑰
 

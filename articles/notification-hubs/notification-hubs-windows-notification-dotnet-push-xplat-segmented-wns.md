@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: 8e583ac1c8ac4b6f32c2fa9f8b7ed07c2e7033e8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9cfe5f490ef4063e02d9407f23130c1a216961ed
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889993"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402451"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-devices-running-universal-windows-platform-applications"></a>教學課程：將通知推送至執行通用 Windows 平台應用程式的特定 Windows 裝置
 
@@ -222,30 +222,28 @@ ms.locfileid: "57889993"
 
 應用程式現已完成。 可以在裝置本機儲存體中儲存一組類別，以用來在使用者變更類別選擇項目時向通知中樞註冊。 在下一節中，您會定義可將類別通知傳送至此應用程式的後端。
 
-## <a name="send-tagged-notifications"></a>傳送加註標記的通知
-
-[!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
-
-## <a name="run-the-app-and-generate-notifications"></a>執行應用程式並產生通知
-
+## <a name="run-the-uwp-app"></a>執行 UWP 應用程式 
 1. 在 Visual Studio 中，按 **F5** 以編譯並啟動應用程式。 應用程式 UI 提供一組切換，可讓您選擇要訂閱的類別。
 
-    ![即時新聞應用程式][1]
+    ![即時新聞應用程式](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png)
 
 2. 啟用一或多個類別切換，然後按一下 [訂閱]。
 
     應用程式會將選取的類別轉換成標籤，並在通知中心內為選取的標籤要求新裝置註冊。 系統會傳回已註冊類別並顯示在對話方塊中。
 
-    ![類別切換和訂閱按鈕][19]
+    ![類別切換和訂閱按鈕](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png)
 
-3. 若要從後端傳送新通知，您可以使用下列其中一種方式：
+## <a name="create-a-console-app-to-send-tagged-notifications"></a>建立主控台應用程式來傳送加註標記的通知
 
-   * **主控台應用程式**：啟動主控台應用程式。
-   * **Java/PHP**：執行您的應用程式或指令碼。
+[!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-     選取的類別通知會以快顯通知方式出現。
+## <a name="run-the-console-app-to-send-tagged-notifications"></a>執行主控台應用程式來傳送加註標記的通知
 
-     ![快顯通知][14]
+1. 執行在上一節中建立的應用程式。
+2. 選取的類別通知會以快顯通知方式出現。 如果您選取通知，您會看到第一個 UWP 應用程式視窗。 
+
+     ![快顯通知](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png)
+
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -260,11 +258,6 @@ ms.locfileid: "57889993"
 [Send notifications from your back-end]: #send
 [Run the app and generate notifications]: #test-app
 [Next Steps]: #next-steps
-
-<!-- Images. -->
-[1]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews-win1.png
-[14]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast-2.png
-[19]: ./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg-2.png
 
 <!-- URLs.-->
 [get-started]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md

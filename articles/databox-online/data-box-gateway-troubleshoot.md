@@ -6,23 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 02/26/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: c07293971c4cadd8b7bccc608f69faa3baa19ba7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 86cd4190647586ec47519ca481f78267f8999cef
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100848"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402196"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>針對 Azure 資料箱閘道問題進行疑難排解 
 
-本文說明如何針對 Azure 資料箱閘道問題進行疑難排解。 
-
-> [!IMPORTANT]
-> - 資料箱閘道處於預覽狀態。 部署訂購並部署此解決方案之前，請檢閱 [Azure 預覽版使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
-
-在本文中，您將了解：
+本文說明如何針對 Azure 資料箱閘道問題進行疑難排解。 在本文中，您將了解：
 
 > [!div class="checklist"]
 > * 執行診斷
@@ -53,7 +48,7 @@ ms.locfileid: "58100848"
 
     ![按一下 [新增使用者]](media/data-box-gateway-troubleshoot/collect-logs-1.png)
  
-2. 建立支援套件之後，按一下 [下載支援套件]。 壓縮的套件會下載至您所選的路徑。 您可以將此套件解壓縮並檢視系統記錄檔。
+2. 建立支援套件之後，按一下 [下載支援套件]。 壓縮的套件會下載至您所選的路徑。 您可以將套件解壓縮。
 
     ![按一下 [新增使用者]](media/data-box-gateway-troubleshoot/collect-logs-2.png)
 

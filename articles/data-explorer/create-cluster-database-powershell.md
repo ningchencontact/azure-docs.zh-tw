@@ -7,13 +7,13 @@ ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/17/2019
-ms.openlocfilehash: 650bdc5cdf99645bc2be6c8e85737dacd10a6b27
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/25/2019
+ms.openlocfilehash: 86fbf5801e9ff1c8bd9dead8be14aeeea1b58a29
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287361"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472475"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>使用 PowerShell 建立 Azure 資料總管叢集與資料庫
 
@@ -25,20 +25,21 @@ ms.locfileid: "58287361"
 > * [Python](create-cluster-database-python.md)
 >  
 
-
-本快速入門說明如何使用 PowerShell 建立 Azure 資料總管叢集和資料庫。
-
-您可以在 Windows、Linux 或 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 中執行 PowerShell Cmdlet 和指令碼，以建立及設定 [Azure 資料總管](https://docs.microsoft.com/azure/kusto/ )。
-
-[**Az.Kusto**](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto )。 使用 Azure PowerShell 和 **Az.Kusto**，您可以執行下列工作：
+Azure 資料總管是快速、完全受控的資料分析服務，可即時分析來自應用程式、網站、IoT 裝置等的大量資料流。 若要使用 Azure 資料總管，請先建立叢集，然後在該叢集中建立一或多個資料庫。 然後將資料內嵌 (載入) 至資料庫，讓您可以對資料執行查詢。 在本快速入門中，您會使用 PowerShell 建立叢集與資料庫。 您可以使用 [Az.Kusto](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto) 在 Windows 和 Linux 上或在 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 中執行 PowerShell Cmdlet 和指令碼，以建立及設定 Azure 資料總管叢集與資料庫。
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本快速入門，您需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶](https://azure.microsoft.com/free/)。
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+如果您選擇在本機安裝並使用 Azure CLI，則在進行本快速入門時，必須使用 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 來檢查您的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="configure-parameters"></a>設定參數
 
-如果您在 Azure Cloud Shell 中執行命令，則不需要執行下列步驟。 如果您在本機執行 CLI，請依照下列步驟登入 Azure 並設定您目前的訂用帳戶：
+如果您在 Azure Cloud Shell 中執行命令，則不需要執行下列步驟。 如果您在本機執行 CLI，請依照步驟 1 和 2 登入 Azure 並設定您目前的訂用帳戶：
 
 1. 執行下列命令以登入 Azure：
 
@@ -46,12 +47,12 @@ ms.locfileid: "58287361"
     Connect-AzAccount
     ```
 
-2. 設定要建立叢集的訂用帳戶。
+1. 設定要建立叢集的訂用帳戶：
 
     ```azurepowershell-interactive
      Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     ```
-3. 在您的裝置上安裝 Az.Kusto 模組：
+1. 在本機或 Azure Cloud Shell 中執行 Azure CLI 時，您需要在裝置上安裝 Az.Kusto 模組：
     
     ```azurepowershell-interactive
      Install-Module -Name Az.Kusto  
@@ -73,7 +74,7 @@ ms.locfileid: "58287361"
 
     有其他選擇性參數可供您使用，例如叢集的容量。
 
-2. 執行下列命令來檢查是否已成功建立叢集：
+1. 執行下列命令來檢查是否已成功建立叢集：
 
     ```azurepowershell-interactive
     Get-AzKustoCluster -Name mykustocluster --ResourceGroupName testrg
@@ -97,7 +98,7 @@ ms.locfileid: "58287361"
    | SoftDeletePeriod | *3650:00:00:00* | 將保留資料以供查詢的時間長度。 |
    | HotCachePeriod | *3650:00:00:00* | 資料將保留在快取中的時間長度。 |
 
-2. 執行下列命令以查看您所建立的資料庫：
+1. 執行下列命令以查看您所建立的資料庫：
 
     ```azurepowershell-interactive
     Get-AzKustoDatabase -ClusterName mykustocluster --ResourceGroupName testrg -Name mykustodatabase
@@ -116,7 +117,5 @@ ms.locfileid: "58287361"
 
 ## <a name="next-steps"></a>後續步驟
 
-您可以在[**這裡**](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto )找到更多 Az.Kusto 命令
-
-> [!div class="nextstepaction"]
-> [快速入門：使用 Azure 資料總管 .NET Standard SDK 內嵌資料 (預覽)](net-standard-ingest-data.md)
+* [其他 Az.Kusto 命令](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto)
+* [快速入門：使用 Azure 資料總管 .NET Standard SDK 內嵌資料 (預覽)](net-standard-ingest-data.md)

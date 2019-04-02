@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: b6717bc76caffb9c4b6f7743cc5356a80a8f742b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dca789a850e5df58024d13b8f592765e55c39485
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111849"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316944"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>教學課程：在 HDInsight 上搭配使用 Apache Storm 與 Apache Kafka
 
@@ -129,7 +129,7 @@ Apache Storm 提供數個用來處理 Apache Kafka 的元件。 在本教學課�
     >
     > 如果您未使用此文件中的範本建立 Storm 叢集，則必須手動將指令碼動作套用至您的叢集。
     >
-    > 此指令碼動作位於 `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`，且會套用至 Storm 叢集的監督員和 nimbus 節點。 如需使用指令碼動作的詳細資訊，請參閱 [使用指令碼動作自訂 HDInsight](hdinsight-hadoop-customize-cluster-linux.md) 文件。
+    > 此指令碼動作位於 [https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh](https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh)，且會套用至 Storm 叢集的監督員和 nimbus 節點。 如需使用指令碼動作的詳細資訊，請參閱 [使用指令碼動作自訂 HDInsight](hdinsight-hadoop-customize-cluster-linux.md) 文件。
 
 拓撲是使用 [Flux](https://storm.apache.org/releases/1.1.2/flux.html) 來定義的。 Storm 0.10.x 引進了 Flux，可讓您區隔拓撲組態與程式碼。 若為使用 Flux 架構的拓撲，拓撲定義於 YAML 檔案中。 YAML 檔案可以納入為拓撲的一部分。 它也可以是您提交拓撲時使用的獨立檔案。 Flux 也支援執行階段的變數替代 (在此範例中使用)。
 

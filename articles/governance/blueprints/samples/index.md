@@ -1,6 +1,6 @@
 ---
 title: 藍圖範例的索引
-description: Azure 藍圖的範例索引
+description: 使用 Azure 藍圖部署的合規性和標準環境範例索引。
 services: blueprints
 author: DCtheGeek
 manager: carmonm

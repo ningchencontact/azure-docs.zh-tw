@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 03/20/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 6f2f002c5ff08e21741927d07a0facfd09ec0914
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 6dae42dcc8b74b682c7226916482228058db6154
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295686"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336247"
 ---
 # <a name="what-is-azure-virtual-wan"></a>什麼是 Azure 虛擬 WAN？
 
@@ -21,7 +21,7 @@ Azure 虛擬 WAN 是一種網路服務，可將最佳且自動化的分支連線
 
 Azure 虛擬 WAN 將許多 Azure 雲端連線服務 (例如站對站 VPN (正式推出)、ExpressRoute (預覽)、點對站使用者 VPN (預覽)) 結合到單一操作介面。 使用虛擬網路連線可建立與 Azure Vnet 的連線。
 
-![虛擬 WAN 的圖表](./media/virtual-wan-about/vwangraphic.png)
+![虛擬 WAN 的圖表](./media/virtual-wan-about/virtualwan1.png)
 
 本文可讓您快速檢視 Azure 虛擬 WAN 中的網路連線。 虛擬 WAN 提供下列優點：
 

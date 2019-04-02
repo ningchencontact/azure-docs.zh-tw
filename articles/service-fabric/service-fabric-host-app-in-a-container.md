@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: aljo
-ms.openlocfilehash: bd92ac2a36fdb15741799571d3ceff7fbbb36eef
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 270fa85f7f51c2f29e8dd67dd68c6dc605929c6e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807519"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313340"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>教學課程：將 Windows 容器中的 .NET 應用程式部署到 Azure Service Fabric
 
@@ -232,7 +232,7 @@ $vnetRuleObject1 = New-AzureRmSqlServerVirtualNetworkRule `
 
 ![發佈應用程式][publish-app]
 
-輸出視窗會顯示部署進度。  部署應用程式後，開啟瀏覽器並鍵入叢集位址和應用程式連接埠。 例如： http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/。
+輸出視窗會顯示部署進度。  部署應用程式後，開啟瀏覽器並鍵入叢集位址和應用程式連接埠。 例如，http:\//fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/。
 
 ![Fabrikam Web 範例][fabrikam-web-page-deployed]
 

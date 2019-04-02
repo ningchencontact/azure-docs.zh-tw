@@ -1,116 +1,131 @@
 ---
-title: 在雲端建立 Kubernetes 開發人員空間
+title: 使用 Azure Dev Spaces 和 Visual Studio 2017 在 AKS 上使用 .NET Core 進行開發
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.custom: vs-azure
-ms.workload: azure-vs
+ms.subservice: azds-kubernetes
 ms.author: zarhoads
-ms.date: 07/09/2018
+ms.date: 03/22/2019
 ms.topic: quickstart
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由, kubectl, k8s '
-ms.openlocfilehash: 972a3f86e08d60db5a16ea505cb3fe446516c87e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由, kubectl, k8s
+manager: jeconnoc
+ms.custom: vs-azure
+ms.workload: azure-vs
+ms.openlocfilehash: 0ae2b264e689270743bc8e4aa5024a4b99eb6626
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770113"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418834"
 ---
-# <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>快速入門：使用 Azure Dev Spaces 建立 Kubernetes 開發人員空間 (.NET Core 和 Visual Studio)
+# <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio-2017"></a>快速入門：使用 Azure Dev Spaces (Visual Studio 2017) 在 Kubernetes 上使用 .NET Core 進行開發
 
 在本指南中，您將了解如何：
 
 - 使用 Azure 中受管理的 Kubernetes 叢集，設定 Azure Dev Spaces。
-- 使用 Visual Studio 在容器中反覆開發程式碼。
-- 對您的叢集中執行的程式碼進行偵錯。
-
-> [!Note]
-> **如果作業出現停滯的情況**，請參閱[疑難排解](troubleshooting.md)一節，或在此頁面上張貼留言。 您也可以嘗試進行更詳細的[教學課程](get-started-netcore-visualstudio.md)。
+- 使用 Visual Studio 2017 在容器中反覆開發程式碼。
+- 使用 Visual Studio 2017 對叢集中執行的程式碼進行偵錯。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 在 EastUS、EastUS2、CentralUS、WestUS2、WestEurope、SoutheastAsia、CanadaCentral 或 CanadaEast 區域中執行 Kubernetes 1.9.6 或更新版本的 Kubernetes 叢集。
+- Azure 訂用帳戶。 如果您沒有帳戶，您可以建立[免費帳戶](https://azure.microsoft.com/free)。
+- 已安裝網頁程式開發工作負載的 Visual Studio 2017 (Windows 版)。 如果您尚未安裝，請在[這裡](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)下載。
+- 已安裝[適用於 Kubernetes 的 Visual Studio Tools](https://aka.ms/get-vsk8stools)。
 
-- 已安裝網頁程式開發工作負載的 Visual Studio 2017。 如果您尚未安裝，請在[這裡](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)下載。
+## <a name="create-an-azure-kubernetes-service-cluster"></a>建立 Azure Kubernetes Service 叢集
 
-## <a name="set-up-azure-dev-spaces"></a>設定 Azure Dev Spaces
+您必須在[支援的區域](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams)中建立 AKS 叢集。 若要建立叢集：
 
-安裝[適用於 Kubernetes 的 Visual Studio Tools](https://aka.ms/get-vsk8stools)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)
+1. 選取 [+ 建立資源] > [Kubernetes Service]。 
+1. 輸入 [訂用帳戶]、[資源群組]、[Kubernetes 叢集名稱]、[區域]、[Kubernetes 版本] 和 [DNS 名稱前置詞]。
 
-## <a name="connect-to-a-cluster"></a>連接到叢集
+    ![在 Azure 入口網站中建立 AKS](media/get-started-netcore-visualstudio/create-aks-portal.png)
 
-接下來，您將建立和設定 Azure Dev Spaces 的專案。
+1. 按一下 [檢閱 + 建立]。
+1. 按一下頁面底部的 [新增] 。
 
-### <a name="create-an-aspnet-web-app"></a>建立 ASP.NET Web 應用程式
+## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>在 AKS 叢集上啟用 Azure Dev Spaces
 
-在 Visual Studio 2017 中，建立新的專案。 目前，此專案必須是 **ASP.NET Core Web 應用程式**。 將專案命名為 **webfrontend**。
+在 Azure 入口網站中瀏覽至您的 AKS 叢集，然後按一下 [Dev Spaces]。 將 [啟用 Dev Spaces] 變更為 [是]，然後按一下 [儲存]。
 
-選取 [Web 應用程式 (Model-View-Controller)] 範本，並確定您的目標是 **.NET Core** 和 **ASP.NET Core 2.0**。
+![在 Azure 入口網站中啟用 Dev Spaces](media/get-started-netcore-visualstudio/enable-dev-spaces-portal.png)
 
-### <a name="enable-dev-spaces-for-an-aks-cluster"></a>針對 AKS 叢集啟用 Dev Spaces
+## <a name="create-a-new-aspnet-web-app"></a>建立新的 ASP.NET Web 應用程式
 
-使用您剛建立的專案，然後從啟動設定下拉式清單中選取 [Azure Dev Spaces]，如下所示。
+1. 開啟 Visual Studio 2017。
+1. 建立新專案。
+1. 選擇 [ASP.NET Core Web 應用程式]，然後將您的專案命名為 webfrontend。
+1. 按一下 [確定]。
+1. 出現提示時，選擇 [Web 應用程式 (Model-View-Controller)] 作為範本。
+1. 選取頂端的 [.NET Core] 和 [ASP.NET Core 2.0]。
+1. 按一下 [確定]。
+
+## <a name="connect-your-project-to-your-dev-space"></a>將專案連線至您的開發人員空間
+
+在您的專案中，從啟動設定下拉式清單中選取 [Azure Dev Spaces]，如下所示。
 
 ![](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
-在接下來顯示的對話方塊中，請確定您以適當的帳戶登入，然後選取現有的叢集。
+在 [Azure Dev Spaces] 對話方塊中，選取您的 [訂用帳戶] 和 [Azure Kubernetes 叢集]。 讓 [空間] 保持設定為 [預設]，然後啟用 [可公開存取] 核取方塊。 按一下 [確定]。
 
 ![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.png)
 
-暫時讓 [空間] 下拉式清單設定為 `default`。 請核取 [可公開存取] 核取方塊，以便透過公用端點存取 Web 應用程式。
-
-![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog2.png)
-
-按一下 [確定] 以選取或建立叢集。
-
-如果您選擇尚未設定要搭配 Azure Dev Spaces 使用的叢集，您會看到訊息詢問您是否要設定它。
+此程序會將您的服務部署至具有可公開存取 URL 的「預設」開發空間。 如果您選擇尚未設定要搭配 Azure Dev Spaces 使用的叢集，您會看到訊息詢問您是否要設定它。 按一下 [確定]。
 
 ![](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
 
-選擇 [確定]。 
+在「預設」開發人員空間中執行的服務所具有的公用 URL 會顯示在 [輸出] 視窗中：
 
-### <a name="look-at-the-files-added-to-project"></a>查看已新增至專案的檔案
-等待建立開發人員空間時，查看當您在選擇使用 Azure Dev Spaces 時新增至專案的檔案。
+```cmd
+Starting warmup for project 'webfrontend'.
+Waiting for namespace to be provisioned.
+Using dev space 'default' with target 'MyAKS'
+...
+Successfully built 1234567890ab
+Successfully tagged webfrontend:devspaces-11122233344455566
+Built container image in 39s
+Waiting for container...
+36s
 
-- 已新增名為 `charts` 的資料夾，而此資料夾內已建構適用於您的應用程式的 [Helm 圖表](https://docs.helm.sh)。 這些檔案可用來將您的應用程式部署到開發人員空間中。
-- `Dockerfile` 包含以標準 Docker 格式封裝應用程式所需的資訊。
-- `azds.yaml` 包含開發人員空間所需的開發階段組態。
+Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
+Service 'webfrontend' port 80 (http) is available at http://localhost:62266
+Completed warmup for project 'webfrontend' in 125 seconds.
+```
 
-![](media/get-started-netcore-visualstudio/ProjectFiles.png)
+在上述範例中，公用 URL 是 http://webfrontend.1234567890abcdef1234.eus.azds.io/。 瀏覽至您服務的公用 URL，並與您開發人員空間中執行的服務互動。
 
-## <a name="debug-a-container-in-kubernetes"></a>在 Kubernetes 中進行容器偵錯
-在成功建立開發人員空間後，您即可進行應用程式偵錯。 在程式碼中設定中斷點，例如在 `Message` 變數設定所在 `HomeController.cs` 檔案中的第 20 行上。 按一下 **F5** 開始偵錯。 
+## <a name="update-code"></a>更新程式碼
 
-Visual Studio 會與開發人員空間通訊，以建置和部署應用程式，然後以執行中的 Web 應用程式開啟瀏覽器。 容器可能看起來像在本機執行，但實際是在 Azure 的開發人員空間中執行。 localhost 位址的原因是因為 Azure 開發人員空間會對在 AKS 中執行的容器建立暫存 SSH 通道。
+如果 Visual Studio 2017 仍與您的開發人員空間保持連線，請按一下 [停止] 按鈕。 將 `Controllers/HomeController.cs` 中的第 20 行變更為：
+    
+```csharp
+ViewData["Message"] = "Your application description page in Azure.";
+```
 
-按一下頁面頂端的 [關於] 連結，以觸發中斷點。 就如同已在本機執行程式碼一樣，您擁有偵錯資訊的完整存取權，例如呼叫堆疊、區域變數、例外狀況資訊等等。
+儲存變更，並從啟動設定下拉式清單中，啟動會使用 **Azure Dev Spaces** 的服務。 在瀏覽器中開啟您服務的公用 URL，然後按一下 [關於]。 您會發現更新過的訊息跑出來。
 
+Azure Dev Spaces 會以累加方式重新編譯現有容器中的程式碼，以提供更快的編輯/偵錯迴圈，而不是在每次進行程式碼編輯時重新建置及重新部署新的容器映像。
 
-## <a name="iteratively-develop-code"></a>反覆開發程式碼
+## <a name="setting-and-using-breakpoints-for-debugging"></a>設定和使用偵錯的中斷點
 
-Azure 開發人員空間不只讓程式碼中在 Kubernetes 中執行 - 還可讓您快速地反覆查看您的程式碼變更是否在雲端 Kubernetes 環境中生效。
+如果 Visual Studio 2017 仍與您的開發人員空間保持連線，請按一下 [停止] 按鈕。 開啟 `Controllers/HomeController.cs`，然後在第 20 行的某處按一下來將游標放在該處。 若要設定中斷點，請按 F9，或依序按一下 [偵錯] 和 [切換中斷點]。 若要在您的開發人員空間中以偵錯模式啟動您的服務，請按 F5 或依序按一下 [偵錯] 和 [開始偵錯]。
 
-### <a name="update-a-content-file"></a>更新內容檔案
-1. 找出檔案 `./Views/Home/Index.cshtml` 並進行 HTML 編輯。 例如，將第 70 行 `<h2>Application uses</h2>` 變更如下：`<h2>Hello k8s in Azure!</h2>`
-1. 儲存檔案。
-1. 移至您的瀏覽器並重新整理頁面。 您應該會看到網頁顯示更新後的 HTML。
+在瀏覽器中開啟您的服務，並注意其中並未顯示任何訊息。 返回 Visual Studio 2017，您會看到第 20 行已醒目提示。 您所設定的中斷點已讓服務在第 20 行暫停。 若要讓服務繼續，請按 F5，或依序按一下 [偵錯] 和 [繼續]。 返回您的瀏覽器，並注意現在會顯示訊息。
 
-發生什麼情形？ 編輯內容檔案 (例如 HTML 和 CSS) 時，不需要在 .NET Core Web 應用程式中重新編譯，所以作用中 F5 工作階段會自動將任何修改過的內容檔案，直接同步處理到 AKS 中的執行中容器，您即可立即查看內容編輯。
+在連結了偵錯工具的 Kubernetes 中執行您的服務時，您可以完整地存取偵錯資訊，例如呼叫堆疊、區域變數和例外狀況資訊。
 
-### <a name="update-a-code-file"></a>更新程式碼檔案
-更新程式碼檔案需要更多的工作，因為.NET Core 應用程式需要重建及產生更新後的應用程式二進位檔。
+藉由將游標放在 `Controllers/HomeController.cs` 中的第 20 行上並按下 F9，即可移除中斷點。
 
-1. 在 Visual Studio 中停止偵錯工具。
-1. 開啟名為 `Controllers/HomeController.cs` 的程式碼檔案，然後編輯 [關於] 頁面將顯示的訊息：`ViewData["Message"] = "Your application description page.";`
-1. 儲存檔案。
-1. 按 **F5** 再次開始偵錯。 
+## <a name="clean-up-your-azure-resources"></a>清除 Azure 資源
 
-Azure 開發人員空間會以累加方式重新編譯現有容器中的程式碼，以提供更快的編輯/偵錯迴圈，而不是在每次進行程式碼編輯時重新建置及重新部署新的容器映像 (這通常要花費相當長的時間)。
+在 Azure 入口網站中瀏覽至您的資源群組，然後按一下 [刪除資源群組]。 或者，您也可以使用 [az aks delete](/cli/azure/aks#az-aks-delete) 命令：
 
-請在瀏覽器中重新整理 Web 應用程式，並移至 [關於] 頁面。 您應會看到自訂訊息出現在 UI 中。
-
+```cmd
+az group delete --name MyResourceGroup --yes --no-wait
+```
 
 ## <a name="next-steps"></a>後續步驟
 

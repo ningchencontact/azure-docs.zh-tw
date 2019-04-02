@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/22/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: b9c89b6cb6dbc6cb217be671eb0e52c0416811ed
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cda6c9cd1f9c8b9305349f0904aeb744ba373711
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889840"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58350244"
 ---
 # <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>使用 SDK/工具透過媒體服務 v3 API 開始進行開發
 
@@ -34,6 +34,7 @@ ms.locfileid: "57889840"
 若要開始針對媒體服務進行開發，您需要：
 
 - 有效的 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。
+- [了解基本概念](concepts-overview.md)
 - [建立媒體服務帳戶](create-account-cli-how-to.md)
 
 ## <a name="start-developing"></a>開始開發

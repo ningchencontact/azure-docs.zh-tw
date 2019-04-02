@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/4/2019
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1d54ac521fb8b81ed5fa135f68af420bda261661
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: a80c4db1b81dd2bc0b223a2781e28ccb1f5ba68e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246945"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402876"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel-preview"></a>快速入門：開始使用 Azure Sentinel 預覽版
 
@@ -118,7 +118,22 @@ ms.locfileid: "57246945"
 
 您可以根據查看資料的人員角色及其查看的內容，建立不同的儀表板。 比方說，您可為網路管理員建立包含防火牆資料的儀表板。 您也可以根據您想要查看的頻率來建立儀表板：是否有您想要每天檢閱的項目，以及您想要每小時檢查一次的其他項目，例如，您可能想要每小時查看您的 Azure AD 登入以搜尋異常情況。 
 
+## <a name="create-new-detections"></a>建立新的偵測
 
+在[資料來源連接到 Azure 的 Sentinel](connect-data-sources.md)上產生偵測，以調查貴組織中的威脅。
+
+當您建立新的偵測時，利用 Microsoft 安全性研究人員鎖建立的內建偵測，其已針對您連線的資料來源量身訂製。
+
+1. [在 GitHub 社群](https://github.com/Azure/Azure-Sentinel/tree/master/Detections)中移至 [偵測] 資料夾，然後選取相關的資料夾。
+   ![相關資料夾](./media/qs-get-visibility/detection-folders.png)
+ 
+3.  移至 [分析] 索引標籤，然後選取 [新增]。
+   ![在 Log Analytics 中建立規則](./media/qs-get-visibility/query-params.png)
+
+3.  將所有參數都複製到此規則，然後按一下 [建立]。
+   ![建立警示規則](./media/qs-get-visibility/create-alert-rule.png)
+
+ 
 ## <a name="next-steps"></a>後續步驟
 在此快速入門中，您已了解如何開始使用 Azure Sentinel。 繼續進行教學課程以了解[如何偵測威脅](tutorial-detect-threats.md)。
 > [!div class="nextstepaction"]

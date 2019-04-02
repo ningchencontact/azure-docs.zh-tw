@@ -8,12 +8,12 @@ ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 9d18b1382bdb421afcc8aee92fd99b7ef0d09e32
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: a9baf36221c99ece0703e2caa3f3e6c3b9364480
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540141"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312201"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>教學課程：建立 Azure 時間序列深入解析單一頁面 Web 應用程式
 
@@ -54,7 +54,7 @@ ms.locfileid: "53540141"
    ---|---
    **名稱** | 提供有意義的註冊名稱。  
    **應用程式類型** | 由於您要建置 SPA Web 應用程式，因此請保留為「Web 應用程式/API」。
-   **登入 URL** | 輸入應用程式首頁/登入頁面的 URL。 由於應用程式將會裝載在 Azure App Service 中 (後續)，您必須在 "https://azurewebsites.net" 網域中使用 URL。 在此範例中，名稱會以註冊名稱為基礎。
+   **登入 URL** | 輸入應用程式首頁/登入頁面的 URL。 由於應用程式將會裝載在 Azure App Service 中 (後續)，您必須在 "https:\//azurewebsites.net" 網域中使用 URL。 在此範例中，名稱會以註冊名稱為基礎。
 
    完成後，請按一下 [建立] 以建立新的應用程式註冊。
 

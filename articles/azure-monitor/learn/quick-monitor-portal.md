@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 9a4c6b8046934159533755f048e1aa158e7e591e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 37fad0769753f462859809ff8600f5b15c7eaa1f
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011763"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437504"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>開始監視 ASP.NET Web 應用程式
 
@@ -101,6 +101,10 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 ```
 
 若要深入了解，請瀏覽[開放原始碼 JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS) 的 GitHub 存放庫。
+
+## <a name="video"></a>影片
+
+* 關於如何[使用 .NET 應用程式從零開始設定 Application Insights](https://www.youtube.com/watch?v=blnGAVgMAfA) 的外部逐步說明影片。
 
 ## <a name="next-steps"></a>後續步驟
 在這個快速入門中，您已啟用您的應用程式，供 Azure Application Insights 進行監視。  繼續進行教學課程，以了解如何使用它來監視統計資料和偵測應用程式中的問題。

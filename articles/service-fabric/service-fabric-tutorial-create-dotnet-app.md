@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7432cbf8fae098c0753641f2002b72eaab3ddbb4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ff6475637b07f50aaea93caac85e65356bc9b96b
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57851358"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317199"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>教學課程：建立和部署含有 ASP.NET Core Web API 前端服務和具狀態後端服務的應用程式
 
@@ -466,7 +466,7 @@ namespace VotingData.Controllers
         ],
 ```
 若要尋找您的本機開發叢集中使用的反向 Proxy 連接埠，請檢視本機 Service Fabric 叢集資訊清單中的 **HttpApplicationGatewayEndpoint** 元素：
-1. 開啟瀏覽器視窗，並瀏覽至 http://localhost:19080 以開啟 Service Fabric Explorer 工具。
+1. 開啟瀏覽器視窗，並瀏覽至 http:\//localhost:19080 以開啟 Service Fabric Explorer 工具。
 2. 選取 [叢集 -> 資訊清單]。
 3. 記下 HttpApplicationGatewayEndpoint 元素連接埠。 根據預設，這應該是 19081。 如果不是 19081，您必須變更下列 VotesController.cs 程式碼的 GetProxyAddress 方法中的連接埠。
 

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 02/06/2019
 ms.author: pafarley
-ms.openlocfilehash: eaaeda1460ecffc2b1a53bb46901aedc2e9563c4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: e9f613b6cd02bd1e85b75db7a3b2c2b4adccce3f
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313308"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372126"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>快速入門：使用 Face .NET SDK 偵測影像中的臉部
 
@@ -34,6 +34,9 @@ ms.locfileid: "56313308"
 1. 如果您的解決方案中有其他專案，請選取此專案作為單一啟始專案。
 1. 取得必要的 NuGet 套件。 以滑鼠右鍵按一下 [方案總管] 中的專案，然後選取 [管理 NuGet 套件]。 按一下 [瀏覽] 索引標籤，並選取 [包含發行前版本]；然後尋找並安裝下列套件：
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
+    - Microsoft.Rest.ClientRuntime
+    - Microsoft.Rest.ClientRuntime.Azure
+    - Newtonsoft.Json
 
 ## <a name="add-face-detection-code"></a>新增臉部偵測程式碼
 

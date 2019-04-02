@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 3501284be2430941863bbae90f044df8ba5e7a2a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 7f2fe6fc3ba3ae515d372fb5a794e46897bad115
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454799"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517941"
 ---
 # <a name="monitor-published-apis"></a>監視發佈的 API
 
@@ -184,7 +184,7 @@ API 管理目前提供關於個別 API 要求的診斷記錄 (每小時提供一
 | correlationId | 字串 | API 管理所指派的唯一 http 要求識別碼 |
 | location | 字串 | 處理要求的閘道所在的 Azure 區域名稱 |
 | httpStatusCodeCategory | 字串 | HTTP 回應狀態碼的類別：成功 (301 或更小或 304 或 307)、未經授權 (401、403、429)、錯誤 (400，介於 500 與 600 之間)、其他 |
-| ResourceId | 字串 | "API 管理資源的識別碼 /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
+| ResourceId | 字串 | API 管理資源的識別碼 /SUBSCRIPTIONS/\<訂用帳戶>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<名稱> |
 | properties | 物件 | 目前要求的屬性 |
 | method | 字串 | 連入要求的 HTTP 方法 |
 | url | 字串 | 連入要求的 URL |

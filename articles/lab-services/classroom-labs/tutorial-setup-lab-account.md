@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 4c63cb69cd5ce824648d2bf0a6735e316791c44e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ec1b75e7bd2defe96948e9830c25488ecd8289da
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58079922"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336349"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>教學課程：使用 Azure Lab Services 設定實驗室帳戶
 在 Azure Lab Services 中，實驗室帳戶會作為中心帳戶，用來管理組織的實驗室。 在您的實驗室帳戶中，您可以為他人授與建立實驗室的權限，以及設定對實驗室帳戶下的所有實驗室皆適用的原則。 在本教學課程中，請了解如何以實驗室管理員的身分建立實驗室帳戶。 
@@ -37,10 +37,10 @@ ms.locfileid: "58079922"
 下列步驟將說明如何透過 Azure 入口網站使用 Azure 實驗室服務，來建立實驗室。 
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 選取左側功能表上的 [所有服務]。 選取 **DEVOPS** 區段中的 [實驗室帳戶]。 如果您選取 [實驗室帳戶] 旁邊的星號 (`*`)，它會新增到左功能表上的 [我的最愛] 區段。 從下一次開始，您可選取 [我的最愛] 下方的 [實驗室帳戶]。
+2. 選取左側功能表上的 [所有服務]。 選取 **DEVOPS** 區段中的 [實驗室服務]。 如果您選取 [實驗室服務] 旁邊的星號 (`*`)，它會新增到左功能表上的 [我的最愛] 區段。 從下一次開始，您可選取 [我的最愛] 下方的 [實驗室服務]。
 
-    ![[所有服務] -> [實驗室帳戶]](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
-3. 在 [實驗室帳戶] 頁面上，選取工具列上的 [新增]。 
+    ![[所有服務] -> [實驗室服務]](../media/tutorial-setup-lab-account/select-lab-accounts-service.png)
+3. 在 [實驗室服務] 頁面上，選取工具列上的 [新增]。 
 
     ![在 [實驗室帳戶] 頁面上選取 [新增]](../media/tutorial-setup-lab-account/add-lab-account-button.png)
 4. 在 [實驗室帳戶] 頁面上，執行下列動作： 

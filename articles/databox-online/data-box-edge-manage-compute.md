@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/13/2019
+ms.date: 03/26/2019
 ms.author: alkohli
-ms.openlocfilehash: 8128afa7078c396156d2cbffb47effeb7de68a0b
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: f2416bd3393ae05a74665fe7e11bd1c8c04c91d7
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58002074"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499025"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>管理 Azure Data Box Edge 上的計算
 
@@ -32,7 +32,7 @@ ms.locfileid: "58002074"
 
 ## <a name="manage-triggers"></a>管理觸發程序
 
-事件就是在雲端環境內所發生，或您想在裝置上對其採取動作之事。 例如，在共用中建立檔案時，即為事件。 觸發程序則是對這些事件的回應。 每當事件引發時，觸發程序都可協助執行函式。 對於 Data Box Edge，觸發程序可以回應檔案事件或排程。
+事件就是在雲端環境內所發生，或您想在裝置上對其採取動作之事。 例如，在共用中建立檔案時，即為事件。 觸發程序會引發事件。 對於 Data Box Edge，觸發程序可以回應檔案事件或排程。
 
 - **檔案**：這些觸發程序可回應檔案事件，例如建立檔案、修改檔案。
 - **已排程**：這些觸發程序可回應排程，您能定義其開始日期、開始時間及重複間隔。
@@ -132,6 +132,23 @@ ms.locfileid: "58002074"
      ![系統提示時，選取 [是]](media/data-box-edge-manage-compute/refresh-configuration-2.png)
 
 3. 在同步完成後結束對話方塊。
+
+## <a name="enable-a-network-interface-for-compute"></a>啟用用於計算的網路介面
+
+您可能需要存取在 Data Box Edge 裝置上執行的模組。 若要從外部存取模組，您必須將 IP 位址指派給裝置上的網路介面。 您可以從本機 Web UI 管理這些計算設定。
+
+請在本機 Web UI 上採取下列步驟來設定計算的設定值。
+
+1. 在本機 Web UI 中，移至 [組態] > [計算設定]。  
+
+2. **啟用**您想要用來連線至裝置上計算模組的網路介面。 
+
+    - 如果使用靜態 IP 位址，請輸入網路介面的 IP 位址。
+    - 如果使用 DHCP，則系統會自動指派 IP 位址。
+
+3. 選取 [套用] 來套用設定。
+
+    ![啟用計算設定](media/data-box-edge-manage-compute/compute-settings-1.png)
 
 
 ## <a name="next-steps"></a>後續步驟

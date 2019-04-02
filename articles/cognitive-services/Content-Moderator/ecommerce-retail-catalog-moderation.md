@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 5c4d2320ffd54054eb8a5bb26ef14c8e99dabb33
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 900ad8b7f676eb67f9ac0fc808600779f832a102
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855949"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539491"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>教學課程：使用 Azure Content Moderator 仲裁電子商務產品影像
 
@@ -61,7 +61,7 @@ GitHub 上的[範例電子商務目錄仲裁](https://github.com/MicrosoftConten
 
 ## <a name="define-api-keys-and-endpoints"></a>定義 API 金鑰與端點
 
-如上所述，本教學課程使用三個認知服務，因此，它需要三個對應的金鑰和 API 端點。 查看 **Program** 類別中的下列欄位： 
+如上所述，本教學課程使用三個認知服務，因此，它需要三個對應的金鑰和 API 端點。 查看 **Program** 類別中的下列欄位：
 
 [!code-csharp[define API keys and endpoint URIs](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=21-29)]
 
@@ -79,19 +79,19 @@ GitHub 上的[範例電子商務目錄仲裁](https://github.com/MicrosoftConten
 
 [!code-csharp[define EvaluateAdultRacy method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=73-113)]
 
-## <a name="evaluatecustomvisiontags-method"></a>EvaluateCustomVisionTags 方法
+## <a name="evaluatecomputervisiontags-method"></a>EvaluateComputerVisionTags 方法
 
-下一個方法會採用影像 URL 和您的電腦視覺訂用帳戶資訊，並分析影像中是否存在名人。 如果找到一個或多個名人，它會將 **ReviewTags** 陣列中對應的值設為 **True**。 
+下一個方法會採用影像 URL 和您的電腦視覺訂用帳戶資訊，並分析影像中是否存在名人。 如果找到一個或多個名人，它會將 **ReviewTags** 陣列中對應的值設為 **True**。
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=115-146)]
 
 ## <a name="evaluatecustomvisiontags-method"></a>EvaluateCustomVisionTags 方法
 
-接下來，請參閱 **EvaluateCustomVisionTags** 方法，將實際的產品分類，&mdash;在此案例中為國旗、玩具和筆。 請依照[如何建置分類器](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier)指南中的指示，建置您自己的自訂影像分類器，以偵測影像中是否存在國旗、玩具和筆 (或您選擇作為自訂標記的任何標記)。
+接下來，請參閱 **EvaluateCustomVisionTags** 方法，將實際的產品分類，&mdash;在此案例中為國旗、玩具和筆。 請依照[如何建置分類器](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier)指南中的指示，建置您自己的自訂影像分類器，以偵測影像中是否存在國旗、玩具和筆 (或您選擇作為自訂標記的任何標記)。 您可以使用 [GitHub 存放庫](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) **sample-images** 資料夾中的映像，以便快速訓練此範例中的一些類別。
 
 ![自訂視覺網頁，其中包含筆、玩具和國旗的定型影像](images/tutorial-ecommerce-custom-vision.PNG)
 
-一旦您將分類器定型之後，請取得預測金鑰和預測端點 URL (如果您需要協助擷取它們，請參閱[取得 URL 和預測金鑰](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key))，然後將這些值分別指派給您的 `CustomVisionKey` 和 `CustomVisionUri` 欄位。 此方法會使用這些值查詢分類器。 如果分類器在影像中找到一個或多個自訂標記，則此方法會將 **ReviewTags** 陣列中對應的值設為 **True**。 
+一旦您將分類器定型之後，請取得預測金鑰和預測端點 URL (如果您需要協助擷取它們，請參閱[取得 URL 和預測金鑰](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key))，然後將這些值分別指派給您的 `CustomVisionKey` 和 `CustomVisionUri` 欄位。 此方法會使用這些值查詢分類器。 如果分類器在影像中找到一個或多個自訂標記，則此方法會將 **ReviewTags** 陣列中對應的值設為 **True**。
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=148-171)]
 

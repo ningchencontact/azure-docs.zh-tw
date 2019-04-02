@@ -3,27 +3,27 @@ title: 在 Azure Front Door Service 的網域上進行地區篩選 | Microsoft D
 description: 在本文中，您會了解 Azure Front Door Service 的地區篩選原則
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: KumudD
 editor: ''
 ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/09/2018
-ms.author: sharadag
-ms.openlocfilehash: a2ba0fb34dd34129a134aa2639d06816f3523408
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 03/21/2019
+ms.author: kumud;tyao
+ms.openlocfilehash: a7b4975a81c0966e5cbff0c8b940c9231e66f32b
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865500"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407635"
 ---
-# <a name="geo-filtering-geographic-based-access-control-to-azure-front-door-service-frontends"></a>地區篩選：根據地理位置來進行的 Azure Front Door Service 前端存取控制
+# <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>什麼是 Azure Front Door 的網域地區篩選？
 
-根據預設，不論使用者是在什麼位置提出要求，Azure Front Door Service 都會回應使用者的要求。 不過，在某些情況下，您可以依國家/地區來限制 Web 應用程式的存取。 Azure Front Door 的應用程式層安全性可讓您定義原則，針對端點上的特定路徑使用自訂保護規則來允許或封鎖來自指定國家/地區的存取。 
+根據預設，不論使用者是在什麼位置提出要求，Azure Front Door Service 都會回應使用者的要求。 不過，在某些情況下，您可以依國家/地區來限制 Web 應用程式的存取。 Front Door 上的 Web 應用程式防火牆 (WAF) 服務可讓您定義原則，針對端點上的特定路徑使用自訂存取規則來允許或封鎖來自指定國家/地區的存取。 
 
-應用程式安全性原則通常包含一組自訂規則。 規則會由比對條件、動作及優先順序組成。 在比對條件中，您可以定義比對變數、運算子和比對值。  對地區篩選規則來說，比對變數是 REMOTE_ADDR、運算子是 GeoMatch，值則是相關的兩個字母國家/地區代碼。 您可以結合 GeoMatch 條件和 REQUEST_URI 字串比對條件，來建立以路徑為基礎的地區篩選規則。
+WAF 原則通常包含一組自訂規則。 規則會由比對條件、動作及優先順序組成。 在比對條件中，您可以定義比對變數、運算子和比對值。  對地區篩選規則來說，比對變數是 REMOTE_ADDR、運算子是 GeoMatch，值則是相關的兩個字母國家/地區代碼。 您可以結合 GeoMatch 條件和 REQUEST_URI 字串比對條件，來建立以路徑為基礎的地區篩選規則。
 
 您可以藉由使用 [Azure PowerShell](front-door-tutorial-geo-filtering.md) 或[快速入門範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering)，來針對 Front Door 設定地區篩選原則。
 

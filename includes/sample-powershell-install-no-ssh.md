@@ -4,13 +4,13 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.service: azure-powershell
 ms.author: sttramer
-ms.openlocfilehash: 8e82e0ebd988ab82e9090a83a061f36dfdb40341
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: f04a4ca8c0b160dc2bcc762cc1c570737dc945d5
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57318218"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505904"
 ---
-此範例需要 Azure PowerShell 模組 5.1.1 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 
+此範例需要 Azure PowerShell。 執行 `Get-Module -ListAvailable Az` 以查看其是否已安裝。 如果您需要安裝，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 
 
-執行 `Connect-AzureRmAccount` 來建立與 Azure 的連線。 
+執行 `Connect-AzAccount` 來建立與 Azure 的連線。 

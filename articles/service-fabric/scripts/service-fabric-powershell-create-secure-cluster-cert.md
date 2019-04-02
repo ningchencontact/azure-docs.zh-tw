@@ -3,7 +3,7 @@ title: Azure PowerShell 指令碼範例 - 建立 Service Fabric 叢集 | Microso
 description: Azure PowerShell 指令碼範例 - 建立 Service Fabric 叢集。
 services: service-fabric
 documentationcenter: ''
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 tags: azure-service-management
@@ -13,20 +13,22 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 01/19/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: ad3c51f0f43d63fd784156eca680218850897e8f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: de807a52e0e97c7cc0886cee5d5586afdf5077a5
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31596546"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496066"
 ---
 # <a name="create-a-service-fabric-cluster"></a>建立 Service Fabric 叢集
 
 此範例指令碼會建立一個使用 X.509 憑證保護的五節點 Service Fabric 叢集。  此命令會建立自我簽署的憑證，並將它上傳到新的金鑰保存庫。 憑證也會複製到本機目錄。  設定 *-OS* 參數選擇在叢集節點執行的 Windows 或 Linux 版本。  視需要自訂參數。
 
-您可以視需要使用 [Azure PowerShell 指南 (英文)](/powershell/azure/overview) 中的指示來安裝 Azure PowerShell，然後執行 `Connect-AzureRmAccount` 來建立與 Azure 的連線。 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+您可以視需要使用 [Azure PowerShell 指南 (英文)](/powershell/azure/overview) 中的指示來安裝 Azure PowerShell，然後執行 `Connect-AzAccount` 來建立與 Azure 的連線。 
 
 ## <a name="sample-script"></a>範例指令碼
 
@@ -38,7 +40,7 @@ ms.locfileid: "31596546"
 
 ```powershell
 $groupname="mysfclustergroup"
-Remove-AzureRmResourceGroup -Name $groupname -Force
+Remove-AzResourceGroup -Name $groupname -Force
 ```
 
 ## <a name="script-explanation"></a>指令碼說明
@@ -47,7 +49,7 @@ Remove-AzureRmResourceGroup -Name $groupname -Force
 
 | 命令 | 注意 |
 |---|---|
-| [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) | 建立新的 Service Fabric 叢集。 |
+| [New-AzServiceFabricCluster](/powershell/module/az.servicefabric/New-azServiceFabricCluster) | 建立新的 Service Fabric 叢集。 |
 
 ## <a name="next-steps"></a>後續步驟
 

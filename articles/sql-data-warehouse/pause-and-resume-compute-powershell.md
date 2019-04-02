@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: manage
-ms.date: 04/18/2018
+ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1aebe3086704c3823bcde470640f547de2beaaee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ce1fd1af404f5fc44bc202be08cd2c2f1b4ef909
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884186"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443836"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>快速入門：使用 PowerShell 暫停與繼續 Azure SQL 資料倉儲中的計算
 
@@ -61,8 +61,7 @@ Set-AzContext -SubscriptionName "MySubscription"
 
     ![伺服器名稱和資源群組](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. 記下資料倉儲名稱，這便是資料庫名稱。 也請記下伺服器名稱與資源群組。 您
-5.  將會在暫停與繼續命令中使用它們。
+4. 記下資料倉儲名稱，這便是資料庫名稱。 也請記下伺服器名稱與資源群組。
 6. 如果您的伺服器是 foo.database.windows.net，請只在 PowerShell Cmdlet 中使用其第一個部分作為伺服器名稱。 在上述映像中，完整伺服器名稱是 newserver 20171113.database.windows.net。 捨棄尾碼，並在 PowerShell Cmdlet 中使用 **newserver-20171113** 作為伺服器名稱。
 
 ## <a name="pause-compute"></a>暫停計算
@@ -103,6 +102,14 @@ $database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" `
 –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Resume-AzSqlDatabase
 $resultDatabase
+```
+
+## <a name="check-status-of-your-data-warehouse-operation"></a>檢查資料倉儲作業的狀態
+
+若要檢查資料倉儲的狀態，請使用 [Get-AzureRmSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlDatabaseActivity#description) Cmdlet。
+
+```
+Get-AzureRmSqlDatabaseActivity -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database02"
 ```
 
 ## <a name="clean-up-resources"></a>清除資源

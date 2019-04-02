@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 01/31/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: bab7cdd478ba33eb797df0e68206b0aaa54be6a5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b6353b2c720a188571a0f6a4e27a89a49c857173
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892603"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311549"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>教學課程：使用 Yeoman 封裝和部署容器作為 Service Fabric 應用程式
 
@@ -282,11 +282,11 @@ sfctl cluster select --endpoint https://containertestcluster.eastus.cloudapp.azu
 ./install.sh
 ```
 
-開啟瀏覽器，並瀏覽至 http://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer 上的 Service Fabric Explorer。 展開 [應用程式] 節點，請注意，有一個適用於您應用程式類型的項目，另一個則適用於執行個體。
+開啟瀏覽器，並瀏覽至 Service Fabric Explorer (http:\//containertestcluster.eastus.cloudapp.azure.com:19080/Explorer)。 展開 [應用程式] 節點，請注意，有一個適用於您應用程式類型的項目，另一個則適用於執行個體。
 
 ![Service Fabric Explorer][sfx]
 
-為了連接到執行中應用程式，請開啟網頁瀏覽器並移至叢集 URL，例如 http://containertestcluster.eastus.cloudapp.azure.com:80 。 您應會在 Web UI 中看到投票應用程式。
+為了連接到執行中應用程式，請開啟網頁瀏覽器並移至叢集 URL，例如 http:\//containertestcluster.eastus.cloudapp.azure.com:80。 您應會在 Web UI 中看到投票應用程式。
 
 ![votingapp][votingapp]
 

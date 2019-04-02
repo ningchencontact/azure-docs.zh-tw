@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/28/2019
-ms.openlocfilehash: 8dab132cd03b24f4f9e55cb777cc0f984526ba12
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 51398c893f212bc51f3edd20ee4c666d91779352
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243358"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519998"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-python"></a>快速入門：將遙測從裝置傳送至 IoT 中樞，並使用後端應用程式讀取遙測 (Python)
 
@@ -31,7 +31,7 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
 
 ## <a name="prerequisites"></a>必要條件
 
-您在此快速入門中執行的兩個範例應用程式是使用 Python 所撰寫的。 目前，適用於 Python 的 Microsoft Azure IoT SDK 只對每個平台支援特定版本的 Python。 若要深入了解，請參閱 [Python SDK 讀我檔案](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues)。
+您在此快速入門中執行的應用程式範例是使用 Python 所撰寫的。 目前，適用於 Python 的 Microsoft Azure IoT SDK 只對每個平台支援特定版本的 Python。 若要深入了解，請參閱 [Python SDK 讀我檔案](https://github.com/Azure/azure-iot-sdk-python#important-installation-notes---dealing-with-importerror-issues)。
 
 本快速入門假設您使用 Windows 開發電腦。 對於 Windows 系統，僅支援 [Python 3.6.x](https://www.python.org/downloads/release/python-368/)。 您選擇的 Python 安裝程式應該要以您正在使用的系統架構為基礎。 如果您的系統 CPU 架構是 32 位元，則下載 x86 安裝程式；若是 64 位元架構，則下載 x86-64 安裝程式。 此外，請確定[適用於 Visual Studio 2017 的 Microsoft Visual C++ 可轉散發套件](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)已針對您的架構 (x86 或 x64) 安裝。
 

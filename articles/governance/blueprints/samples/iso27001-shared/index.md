@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ---
-# <a name="overview-of-the-azure-blueprints-iso-27001-shared-services-blueprint-sample"></a>概述 Azure 藍圖的 ISO 27001 共用服務藍圖範例
+# <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 共用服務藍圖範例概觀
 
 ISO 27001 共用服務藍圖範例提供一組符合規範的基礎結構模式和原則防護措施，可協助您取得 ISO 27001 證明。 此藍圖可協助客戶部署雲端式架構，進而將解決方案提供給有認證或合規性需求的案例。
 

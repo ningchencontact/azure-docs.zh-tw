@@ -17,12 +17,12 @@ ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: e483df4e3392d64619cc074d21ee560ef3c5df5d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: da70b77edeb483cae0e74400e739f018f78d0993
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459191"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370800"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>教學課程 - 使用 Azure CLI 管理 Azure 磁碟
 
@@ -65,21 +65,15 @@ Azure 提供兩種類型的磁碟，分別是標準和進階。
 進階磁碟是以 SSD 為基礎的高效能、低延遲磁碟為後盾。 最適合用於執行生產工作負載的 VM。 進階儲存體支援 DS 系列、DSv2 系列、GS 系列和 FS 系列 VM。 當您選取磁碟大小時，其值會上調為下一個類型。 例如，如果磁碟大小少於 128 GB，則磁碟類型為 P10。 如果磁碟大小介於 129 GB 與 512 GB 之間，則大小為 P20。 如果超過 512 GB，則大小為 P30。
 
 ### <a name="premium-disk-performance"></a>進階磁碟效能
-
-|進階儲存體磁碟類型 | P4 | P6 | P10 | P20 | P30 | P40 | P50 | p60 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 磁碟大小 (上調) | 32 GiB | 64 GiB | 128 GB | 512 GB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB)
-| 每一磁碟的 IOPS 上限 | 120 | 240 | 500 | 2,300 | 5,000 | 7,500 | 7,500 | 12,500 |
-每一磁碟的輸送量 | 25 MB/秒 | 50 MB/秒 | 100 MB/秒 | 150 MB/秒 | 200 MB/秒 | 250 MB/秒 | 250 MB/秒 | 480 MB/秒 |
+[!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
 
 雖然上表指出每個磁碟的最大 IOPS，但可藉由分割多個資料磁碟來達到較高等級的效能。 例如，Standard_GS5 VM 最高可達到 80,000 IOPS。 如需每部 VM 的最大 IOPS 詳細資訊，請參閱 [Linux VM 大小](sizes.md)。
 
-
 ## <a name="launch-azure-cloud-shell"></a>啟動 Azure Cloud Shell
 
-Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 
+Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。
 
-若要開啟 Cloud Shell，只要選取程式碼區塊右上角的 [試試看] 即可。 您也可以移至 [https://shell.azure.com/powershell](https://shell.azure.com/bash)，從另一個瀏覽器索引標籤啟動 Cloud Shell。 選取 [複製] 即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
+若要開啟 Cloud Shell，請選取程式碼區塊右上角的 [試試看]。 您也可以移至 [https://shell.azure.com/powershell](https://shell.azure.com/bash)，從另一個瀏覽器索引標籤啟動 Cloud Shell。 選取 [複製] 即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
 
 ## <a name="create-and-attach-disks"></a>建立和連結磁碟
 
@@ -187,8 +181,7 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail 
 exit
 ```
 
-
-## <a name="snapshot-a-disk"></a>製作磁碟的快照集
+## <a name="take-a-disk-snapshot"></a>擷取磁碟快照集
 
 當您建立磁碟快照集時，Azure 會建立磁碟的唯讀、時間點複本。 進行組態變更之前，Azure VM 快照集可用於快速儲存 VM 的狀態。 發生問題或錯誤時，便可使用快照集來還原 VM。 當 VM 有多個磁碟時，每個磁碟會各自產生快照集。 若要進行應用程式一致備份，請考慮在建立磁碟快照集之前停止 VM。 或者，使用 [Azure 備份服務](/azure/backup/)，其可讓您在 VM 執行時執行自動化備份。
 

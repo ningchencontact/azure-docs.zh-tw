@@ -6,17 +6,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 11/01/2018
+ms.date: 03/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: ddcaca46a2b8f9501337b3591d6ed666876e1de9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a1357e92b868f85556fc4d665eb475abd095fece
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093764"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400016"
 ---
-# <a name="tutorial-install-azure-data-box-edge-preview"></a>教學課程：安裝 Azure Data Box Edge (預覽)
+# <a name="tutorial-install-azure-data-box-edge"></a>教學課程：安裝 Azure Data Box Edge
 
 本教學課程說明如何安裝 Data Box Edge 實體裝置。 安裝程序包括打開包裝、以機架掛接裝置，並為裝置接上纜線。 
 
@@ -29,9 +29,6 @@ ms.locfileid: "58093764"
 > * 以機架掛接裝置
 > * 接上裝置纜線
 
-> [!IMPORTANT]
-> Data Box Edge 解決方案目前處於預覽狀態。 訂購及部署此解決方案之前，請先檢閱 [Azure 預覽版使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
-
 ## <a name="prerequisites"></a>必要條件
 
 安裝實體裝置的必要條件如下：
@@ -40,7 +37,7 @@ ms.locfileid: "58093764"
 
 在您開始前，請確定：
 
-* 您已完成[準備部署 Azure Data Box Edge (預覽)](data-box-edge-deploy-prep.md) 中的所有步驟。
+* 您已完成[準備部署 Azure Data Box Edge](data-box-edge-deploy-prep.md) 中的所有步驟。
     * 您已建立 Data Box Edge 資源以部署裝置。
     * 您已產生啟用金鑰，以啟用具有 Data Box Edge 資源的裝置。
 
@@ -75,38 +72,90 @@ ms.locfileid: "58093764"
 3. 打開箱子。 打開箱子包裝之後，請確定您有：
     - 一個單一機箱 Edge 裝置
     - 兩條電源線
-    - 一個無工具滑軌掛接套件 (內含兩個側滑軌和掛接硬體)
+    - 一個滑軌套件組件
+    - 安全、環境和法規資訊手冊
 
 如果您未收到上述所有項目，請連絡 Data Box Edge 支援人員。 下一步是利用機架掛接裝置。
 
 
 ## <a name="rack-the-device"></a>安裝裝置機架
 
-裝置必須安裝在標準的 19 吋機架上。 請使用下列程序，使用具有前後端柱子的標準 19 吋機架來掛接您的裝置。
+裝置必須安裝在標準的 19 吋機架上。 使用下列程序，在標準 19 吋機架上裝載您的裝置。
 
 > [!IMPORTANT]
 > Data Box Edge 裝置需要機架掛接才能正常運作。
 
 
-1. 拉開前閂鎖，將滑軌組件的內部滑軌解鎖。 鬆開緊固鎖，並將中置滑軌向內推，以收回滑軌。  
-    內部和外部滑軌此時應會分開。
+### <a name="prerequisites"></a>必要條件
 
-    ![安裝機架掛接滑軌](./media/data-box-edge-deploy-install/rack-mount-rail-1.png)
+- 開始之前，請閱讀「安全、環境和法規資訊手冊」中的安全指示。 此手冊隨附於裝置。
+- 開始在最靠近機架機箱底部的配置空間中安裝滑軌。
+- 安裝工具式滑軌時，您需要提供八個螺絲：#10-32、#12-24、#M5 或 #M6。 螺絲頭直徑必須小於 10 公釐 (0.4 吋)。
 
-2. 安裝機櫃垂直面上的外部滑軌。 為了協助辨識方向，應將滑軌標示為**前**的那一端接至機箱後端正面。    
-   1. 找出滑軌組件前後方的滑軌插梢。 延伸滑軌，使其置於機架柱之間。 先將滑軌外部連接至機架背面。 調整後端掛接托架，將其置於後端機架掛接孔內。   
+### <a name="identify-the-rail-kit-contents"></a>找出滑軌套件內容
 
-   2. 按住背面托架上的制動機，露出金屬鉤。 將背面托架對準並插入掛接孔，然後鬆開制動機。
+找出用於安裝滑軌套件組件的元件：
+1. 兩個 A7 Dell ReadyRails II 滑軌組件
+2. 兩個黏扣帶
 
-   3. 將正面托架對準掛接孔。
+![找出滑軌套件內容](./media/data-box-edge-deploy-install/identify-rail-kit-contents.png)
 
-   4. 正面托架現在應固定在機架上。 如有需要，您可以選擇性地使用 M5 X 10L 螺絲來固定滑軌與柱子。 
+### <a name="install-and-remove-tool-less-rails-square-hole-or-round-hole-racks"></a>安裝及移除免工具滑軌 (方形孔或圓形孔機架)
 
-      ![安裝機架掛接滑軌](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
+1. 將標示 **FRONT** 的左邊和右邊滑軌端件朝內放置，並將每個端件放入垂直機架凸緣前側的洞孔中。
+2. 將每個端件對齊所需 U 形空間的底端和頂端洞孔。
+3. 嚙合滑軌後端，直到它完全裝在垂直機架凸緣且閂鎖卡入定位為止。 重複上述步驟，將前端件安置在垂直機架凸緣上。
+4. 若要移除滑軌，請拉起端件中央的閂鎖解除按鈕並取下每個滑軌。
 
-3. 若要連接底座的內部滑軌，請確實將內部滑軌上的鑰匙孔缺口對準底座側邊的定位銷。 請確實將底座定位銷的接頭穿過內部滑軌中的鑰匙孔開口。 將滑軌將底座前端拉動，直到滑軌喀答一聲鎖至定位。 對其他內部滑軌重複相同步驟。 使用內部滑軌將底座推入，以完成機架安裝。
+![安裝及移除免工具滑軌](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
 
-    ![安裝機架掛接滑軌](./media/data-box-edge-deploy-install/rack-mount-rail-3.png)
+### <a name="install-and-remove-tooled-rails-threaded-hole-racks"></a>安裝及移除工具式滑軌 (已穿孔的機架)
+
+1. 使用一字型螺絲起子，從前端和後端安裝托架移除定位銷。
+2. 拉開並旋轉滑軌閂鎖子組件，從安裝托架將其移除。
+3. 使用兩組螺絲，將左右兩側的安裝滑軌固定到前端垂直機架凸緣。
+4. 靠著尾端垂直機架凸緣，將左右兩邊的背面托架向前滑動，並使用兩組螺絲加以固定。
+
+![安裝及移除工具式滑軌](./media/data-box-edge-deploy-install/installing-removing-tooled-rails.png)
+
+### <a name="install-the-system-in-a-rack"></a>在機架中安裝系統
+
+1. 從機架中拉出內部滑軌，直到它們卡入定位為止。
+2. 找到系統每一側的尾端滑軌螺柱，將其降低放入滑動組件上的尾端 J 形槽。 向下轉動系統，直到所有滑軌螺柱裝入 J 形槽為止。
+3. 將系統向內推，直到鎖桿卡入定位為止。
+4. 按住兩個滑軌上的滑動解鎖按鈕，並將系統滑入機架。
+
+![在機架中安裝系統](./media/data-box-edge-deploy-install/installing-system-rack.png)
+
+### <a name="remove-the-system-from-the-rack"></a>從機架中移除系統
+
+1. 找到內部滑軌側邊的鎖桿。
+2. 將每個鎖桿旋轉至其解除位置，將其解除鎖定。
+3. 牢牢抓住系統的側邊，將它向前推，直到滑軌螺柱位於 J 形槽前端為止。 提起系統並從機架取出，將它放在平面上。
+
+![從機架中移除系統](./media/data-box-edge-deploy-install/removing-system-rack.png)
+
+### <a name="engage-and-release-the-slam-latch"></a>嚙合及解除閉合閂鎖
+
+注意：對於未配備閉合閂鎖的系統，使用螺絲固定系統 (如此程序的步驟 3 所述)。
+
+1. 面向前方，找到系統任一側的閉合閂鎖。
+2. 閂鎖會在系統推入機架時自動嚙合，而向上拉起閂鎖就會解除。
+3. 若要固定系統，以便在機架或其他不穩定的環境中運送，請找出每個閂鎖底下牢固裝配的螺絲，並使用 2 號十字型螺絲起子鎖緊每個螺絲。
+
+![嚙合及解除閉合閂鎖](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
+
+### <a name="route-the-cables"></a>配置纜線
+
+> [!NOTE]
+>  如果您並未訂購選用的纜線整理支架 (CMA)，請使用滑軌套件中提供的兩個黏扣帶，將纜線配置在系統的背面。
+
+1. 在兩個機架凸緣的內側找到外部 CMA 托架。
+2. 輕輕收整纜線，將纜線從系統連接器拉左右兩側。
+3. 將黏扣帶穿過系統每側外部 CMA 托架的工具式插槽來固定纜線束。
+
+
+![配置纜線](./media/data-box-edge-deploy-install/routing-cables.png)
 
 ## <a name="cable-the-device"></a>接上裝置纜線
 
@@ -121,13 +170,26 @@ ms.locfileid: "58093764"
 - 可以存取兩個配電裝置 (建議)。
 
 > [!NOTE]
-> - 如果您只連接一個資料網路介面，建議您使用 25-GbE 網路介面 (例如連接埠 3、連接埠 4、連接埠 5 或連接埠 6) 將資料傳送至 Azure。 
+> - 如果您只連接一個資料網路介面，建議您使用 25/10-GbE 網路介面 (例如連接埠 3、連接埠 4、連接埠 5 或連接埠 6) 將資料傳送至 Azure。 
 > - 為了達到最佳效能以及處理大量資料，請考慮連接所有資料連接埠。
-> - Edge 裝置應連接到資料中心網路，以便擷取來自資料來源伺服器的資料。 
+> - Edge 裝置應連接到資料中心網路，以便擷取來自資料來源伺服器的資料。
 
-您的 Edge 裝置有 8 個 NVMe SSD。 前面板也具有狀態 LED 燈與電源按鈕。 裝置背面配置了備援的電源供應器 (PSU)。 您的裝置有六個網路介面：兩個 1-Gbps 介面和四個 25-Gbps 介面。 您的裝置有基礎板管理控制器 (BMC)。 識別裝置後擋板上的各個連接埠。
+您的 Edge 裝置有 8 個 NVMe SSD。 前面板也具有狀態 LED 燈與電源按鈕。 裝置背面配置了備援的電源供應器 (PSU)。 您的裝置有六個網路介面：
+
+- 兩個 1-Gbps 介面
+- 四個 25-Gbps介面 (也可以當作 10-Gbps 介面)。
+- 基礎板管理控制器 (BMC)。 
+
+識別裝置後擋板上的各個連接埠。
  
   ![已連接纜線的裝置後擋板](./media/data-box-edge-deploy-install/backplane-cabled.png)
+
+此裝置有兩張對應至 6 個連接埠的網路卡： 
+
+ - QLogic FastLinQ 41264
+ - QLogic FastLinQ 41262
+
+如需這些網路卡支援的完整纜線、交換器及收發器清單，請移至 [Cavium FastlinQ 41000 系列互通性對照表](https://www.marvell.com/documents/xalflardzafh32cfvi0z/) (英文)。
  
 執行下列步驟來為裝置接上電源線和網路線。
 
@@ -137,8 +199,7 @@ ms.locfileid: "58093764"
 
 3. 將 1-GbE 網路介面連接埠 1 連接到用來設定實體裝置的電腦。 連接埠 1 是專用的管理介面。
 
-4. 將連接埠 2、連接埠 3、連接埠 4、連接埠 5 或連接埠 6 的其中一或多個連接埠連接到資料中心網路/網際網路。 如果連接到連接埠 2，請使用 RJ-45 網路線。 針對 25-GbE 網路介面，請使用 SFP + 銅纜線。  
-
+4. 將連接埠 2、連接埠 3、連接埠 4、連接埠 5 或連接埠 6 的其中一或多個連接埠連接到資料中心網路/網際網路。 如果連接到連接埠 2，請使用 RJ-45 網路線。 針對 10/25-GbE 網路介面，請使用 SFP + 銅纜線。  
 
 ## <a name="next-steps"></a>後續步驟
 

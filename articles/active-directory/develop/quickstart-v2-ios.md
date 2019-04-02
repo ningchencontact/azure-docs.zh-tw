@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9134f939e771f92453b184aad643d41089623e19
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 57aabb25b960c1135704c62c30b5724026078b08
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201461"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439257"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>快速入門：從 iOS 原生應用程式登入使用者及呼叫 Microsoft Graph API
 
@@ -44,9 +44,9 @@ ms.locfileid: "58201461"
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>步驟 1：設定您的應用程式
-> 若要讓本快速入門中的程式碼範例能正確運作，您需要新增 `msal<AppId>://auth` 作為回覆 URL (其中 msal<AppId> 為此應用程式識別碼)。
+> 若要讓本快速入門中的程式碼範例能正確運作，您需要新增 `msal<AppId>://auth` 作為回覆 URL (其中 msal\<AppId> 為此應用程式識別碼)。
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [為我進行此變更]()
+> > [為我進行這項變更]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![已設定](media/quickstart-v2-ios/green-check.png) 您的應用程式已設定了這個屬性
@@ -168,7 +168,7 @@ applicationContext.acquireToken(forScopes: self.kScopes) { (result, error) in /*
 
 > |其中：||
 > |---------|---------|
-> | `forScopes` | 包含所要求的範圍 (也就是 [ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (i.e. `api://<Application ID>/access_as_user`)) |
+> | `forScopes` | 包含所要求的範圍 (即適用於 Microsoft Graph 的 `[ "user.read" ]` 或適用於自訂 Web API 的 `[ "<Application ID URL>/scope" ]` (也就是 `api://<Application ID>/access_as_user`)) |
 
 #### <a name="getting-an-access-token-silently"></a>以無訊息方式取得存取權杖
 

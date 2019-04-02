@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 94686d62e8019bfc5dba1ccd4a00142512930c0e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0d8fd6a0422ee26610f58f872cba4487d4e01e6b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57862211"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403624"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>教學課程：Azure Active Directory 與 Periscope Data 整合
 
@@ -138,7 +138,7 @@ Periscope Data 與 Azure AD 整合提供下列優點：
 
     e. 複製執行個體的**識別碼**值，並將其貼入 Azure 入口網站上 [基本 SAML 設定] 區段中的 [識別碼 (實體識別碼)] **** 文字方塊內。
 
-    f. XML 檔案的第一個標記，複製 **entityID** 的值，並將其貼入 [簽發者] 文字方塊。
+    f. 尋找 XML 檔案的第一個標記，複製 **entityID** 的值，並將其貼入 [簽發者] 文字方塊。
 
     g. 尋找使用 SAML 通訊協定的 **IDPSSODescriptor**。 在該區段中，尋找使用 **use=signing** 的 **KeyDescriptor** 標記。 複製 **X509Certificate** 的值，並將其貼入 [憑證] 文字方塊中。
 

@@ -3,7 +3,7 @@ title: 教學課程：在 AWS 上建立 Service Fabric 叢集的基礎結構 - A
 description: 在本教學課程中，您將了解如何設定用來執行 Service Fabric 叢集的 AWS 基礎結構。
 services: service-fabric
 documentationcenter: .net
-author: david-stanford
+author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/11/2018
-ms.author: dastanfo
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 6b7d2223d33abb429ab5f59b14c80d43c70598dc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9a0c56ecb20857b8fe2f5e55851e5d0d98ed3038
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209645"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369102"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>教學課程：建立用來裝載 Service Fabric 叢集的 AWS 基礎結構
 
@@ -36,7 +36,7 @@ Service Fabric 獨立叢集讓您能夠選擇自己的環境，並且在 Service
 > * 登入其中一個執行個體
 > * 準備 Service Fabric 的執行個體
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成此教學課程，您需要 AWS 帳戶。  如果您還沒有帳戶，請移至 [AWS 主控台](https://aws.amazon.com/)建立一個。
 
@@ -50,7 +50,7 @@ Service Fabric 獨立叢集讓您能夠選擇自己的環境，並且在 Service
 
 ![EC2 執行個體選取][aws-ec2instance]
 
-依序選取 [t2.medium]、[下一步：設定執行個體詳細資料]，然後在下一個畫面上將執行個體數目變更為 `3`，再選取 [進階詳細資料] 以展開該區段。
+選取 [t2.medium]，然後選取 [下一步:設定執行個體詳細資料]，然後在下一個畫面上將執行個體數目變更為 `3`，再選取 [進階詳細資料] 以展開該區段。
 
 若要一併連接 Service Fabric 中的虛擬機器，裝載基礎結構的 VM 必須具有相同的認證。  有兩個常見的方法可用來取得一致的認證：將虛擬機器全部加入相同的網域，或在每個 VM 上設定相同的系統管理員密碼。  在本教學課程中，您會透過使用者資料指令碼來設定 EC2 執行個體，使其全部具有相同的密碼。  在生產環境中，將主機加入 Windows 網域，會更加安全。
 

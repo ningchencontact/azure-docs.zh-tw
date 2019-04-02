@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 10/02/2018
+ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 41313a8b140886247b830db7ca9b34a22257de96
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: f4d232d4d6043ede3979db67e5cd35130d931bef
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729154"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369440"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站部署容器執行個體
 
@@ -38,12 +38,12 @@ ms.locfileid: "57729154"
 在 [容器名稱]、[容器映像] 和 [資源群組] 文字方塊中輸入下列值。 將其他的值保留預設值，然後選取 [確定]。
 
 * 容器名稱：`mycontainer`
-* 容器映像：`microsoft/aci-helloworld`
+* 容器映像：`mcr.microsoft.com/azuredocs/aci-helloworld`
 * 資源群組：**新建** > `myResourceGroup`
 
 ![在 Azure 入口網站中設定新容器執行個體的基本設定][aci-portal-03]
 
-在本快速入門中，保留 [公用] 預設設定，以部署公用 `microsoft/aci-helloworld` 映像。 此映像會封裝以 Node.js 撰寫並提供靜態 HTML 網頁的小型 Web 應用程式。
+在本快速入門中，保留 [公用] 預設設定，以部署公用 Microsoft `aci-helloworld` 映像。 此映像會封裝以 Node.js 撰寫並提供靜態 HTML 網頁的小型 Web 應用程式。
 
 在 [組態] 下，為您的容器指定 [DNS 名稱標籤]。 這在您建立容器執行個體所在的 Azure 區域中，必須是唯一的名稱。 您的容器將可在 `<dns-name-label>.<region>.azurecontainer.io` 讓他人公開存取。 如果出現「DNS 名稱標籤無法使用」錯誤訊息，請嘗試使用不同的 DNS 名稱標籤。
 
@@ -89,7 +89,7 @@ ms.locfileid: "57729154"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已透過來自公用 Docker Hub 登錄中的映像建立 Azure 容器執行個體。 如果您想要建置容器映像，並從私人的 Azure 容器登錄進行部署，請繼續進行 Azure Container Instances 教學課程。
+在本快速入門中，您已從公用 Microsoft 映像建立 Azure 容器執行個體。 如果您想要建置容器映像，並從私人的 Azure 容器登錄進行部署，請繼續進行 Azure Container Instances 教學課程。
 
 > [!div class="nextstepaction"]
 > [Azure 容器執行個體教學課程](./container-instances-tutorial-prepare-app.md)

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 938d8efeaa88cc5bebbf33e525132a030f1b3c7c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 689207339db0250d42fc64c33f43c42c18317d41
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112498"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313000"
 ---
 # <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>教學課程：使用 ELK 監視 Service Fabric 應用程式
 
@@ -40,7 +40,7 @@ ms.locfileid: "37112498"
 > * 設定應用程式的監視和診斷
 > * [設定 CI/CD](service-fabric-tutorial-java-jenkins.md)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始進行本教學課程之前：
 
@@ -149,7 +149,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
     curl 'localhost:9200/_cat/indices?v'
     ```
 
-8. 存取 Kibana 儀表板 (**http://SERVER-IP**) 並輸入 Kibana 的使用者名稱和密碼。 如果您在 Azure 中使用 ELK 映像，則預設使用者名稱為 'user'，而密碼則取自 [開機診斷]。
+8. 存取 Kibana 儀表板 (位於 **http:\//SERVER-IP**) 並輸入 Kibana 的使用者名稱和密碼。 如果您在 Azure 中使用 ELK 映像，則預設使用者名稱為 'user'，而密碼則取自 [開機診斷]。
 
     ![Kibana](./media/service-fabric-tutorial-java-elk/kibana.png)
 

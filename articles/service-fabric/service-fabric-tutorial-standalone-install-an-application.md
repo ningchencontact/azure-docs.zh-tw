@@ -3,7 +3,7 @@ title: 教學課程：在獨立 Service Fabric 叢集上安裝應用程式 - Azu
 description: 在本教學課程中，您將了解如何將應用程式安裝到獨立 Service Fabric 叢集中。
 services: service-fabric
 documentationcenter: .net
-author: david-stanford
+author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/11/2018
-ms.author: dastanfo
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 65c0ca98393fbb4f54eee2f4864218f231765904
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 392fcdd9b9df3eb37c8e105c846a6bddfddeb4d1
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208568"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370426"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>教學課程：將應用程式部署在 Service Fabric 獨立叢集上
 
@@ -34,7 +34,7 @@ Service Fabric 獨立叢集讓您能夠選擇自己的環境，並且在 Service
 > * 下載範例應用程式
 > * 部署至叢集
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始進行本教學課程之前：
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: f9d21cb1b047fcc1043ca2d92f718bb5821879a3
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: a721cc2252619923496ee5a3a8ae590a5cda3b04
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226057"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487544"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>快速入門：使用 Azure 應用程式設定建立 ASP.NET Core 應用程式
 
@@ -75,7 +75,7 @@ ASP.NET Core 會使用應用程式所指定一或多個資料來源中的設定�
 
 1. 透過執行下列命令，將參考新增至 `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet 套件：
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-007830001
 
 2. 執行下列命令以還原您專案的套件：
 
@@ -96,12 +96,19 @@ ASP.NET Core 會使用應用程式所指定一或多個資料來源中的設定�
 4. 開啟 Program.cs，並藉由呼叫 `config.AddAzureAppConfiguration()` 方法將 `CreateWebHostBuilder` 方法更新為使用應用程式設定。
 
     ```csharp
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+
+    ...
+
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
+                config.AddAzureAppConfiguration(options => {
+                    options.Connect(settings["ConnectionStrings:AppConfig"])
+                           .SetOfflineCache(new OfflineFileCache());
+                });
             })
             .UseStartup<Startup>();
     ```
@@ -161,11 +168,11 @@ ASP.NET Core 會使用應用程式所指定一或多個資料來源中的設定�
 
 ## <a name="build-and-run-the-app-locally"></a>於本機建置並執行應用程式
 
-1. 若要使用 .NET Core CLI 建置應用程式，請在命令殼層中執行下列命令：
+1. 若要使用 .NET Core CLI 來建置應用程式，請在命令殼層中執行下列命令：
 
         dotnet build
 
-2. 建置成功完成後，請執行下列命令以於本機執行 Web 應用程式：
+2. 建置成功完成後，請執行下列命令以在本機執行 Web 應用程式：
 
         dotnet run
 
@@ -179,7 +186,7 @@ ASP.NET Core 會使用應用程式所指定一或多個資料來源中的設定�
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已建立新的應用程式設定存放區，並將其與 ASP.NET Core Web 應用程式搭配使用。 若要深入了解如何使用應用程式設定，請繼續進行下一個示範驗證的教學課程。
+在本快速入門中，您已建立新的應用程式設定存放區，並透過[應用程式設定提供者](https://go.microsoft.com/fwlink/?linkid=2074664)將其與 ASP.NET Core Web 應用程式搭配使用。 若要深入了解如何使用應用程式設定，請繼續進行下一個示範驗證的教學課程。
 
 > [!div class="nextstepaction"]
 > [適用於 Azure 資源整合的受控識別](./integrate-azure-managed-service-identity.md)

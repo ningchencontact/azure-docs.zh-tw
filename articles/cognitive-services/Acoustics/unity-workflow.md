@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 7f079c511a32cfcf0fa018d40abb737ad08f3821
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 01783aa12f586f61583b1503c796f9b523770104
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58138020"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310620"
 ---
 # <a name="project-acoustics-unity-design-tutorial"></a>聲場專案 Unity 設計教學課程
 本教學課程描述 Unity 中聲場專案的設計工具與工作流程。
@@ -37,16 +37,16 @@ ms.locfileid: "58138020"
 ### <a name="adjust-distance-based-attenuation"></a>調整以距離為基礎的衰減
 **聲場專案** Unity 空間定位外掛程式所提供的音訊 DSP，會遵循 Unity 編輯器所內建，以每個來源距離為基礎的衰減。 距離型衰減控制項位於聲音來源之 [Inspector] \(偵測器\) 面板中 [Audio Source] \(音訊來源\) 元件的 [3D Sound Settings] \(3D 聲音設定\) 底下：
 
-![距離衰減](media/distance-attenuation.png)
+![Unity 距離衰減選項面板的螢幕擷取畫面](media/distance-attenuation.png)
 
 「模擬區域」方塊中的聲場效能計算著重於播放器的位置。 如果音效來源距離播放器較遠，位於模擬區域之外，則只有方塊中的幾何形狀會影響音效傳播 (例如造成阻隔)，特別是當阻隔器位於播放器鄰近區域內時效果最好。 不過，如果播放器位於開放空間，但阻隔器的位置靠近遠端音效來源，則播放器可能無法清楚辨識音效。 我們建議的因應措施是確保這種情況下的音效衰減在約 45 公尺時降低至 0，也就是播放器到方塊邊緣的預設水平距離。
 
-![SpeakerMode](media/speaker-mode.png)
+![Unity SpeakerMode 選項面板的螢幕擷取畫面](media/speaker-mode.png)
 
 ### <a name="adjust-occlusion-and-transmission"></a>調整遮蔽和傳輸
 將 **AcousticsAdjust** 指令碼附加至來源可為該來源啟用調整參數。 若要附加指令碼，請按一下 [Inspector] \(偵測器\) 面板底部的 [Add Component] \(新增元件\)，然後瀏覽至 [Scripts] \(指令碼\) > [Acoustics Adjust] \(聲場調整\)。 指令碼具有六個控制項：
 
-![AcousticsAdjust](media/acoustics-adjust.png)
+![Unity AcousticsAdjust 指令碼的螢幕擷取畫面](media/acoustics-adjust.png)
 
 * **Enable Acoustics** \(啟用聲場\) - 控制是否要將聲場套用至此來源。 若未核取，來源會與 HRTF 或移動瀏覽進行空間定位，但不會有任何聲場。 這表示其中沒有障礙物、遮蔽或動態殘響參數，例如等級和衰變時間。 系統仍會套用具有固定等級和衰變時間的殘響。
 * **阻隔** - 將乘數套用至由聲場系統計算的阻隔 db 等級。 如果此乘數大於 1，阻隔會增強；如果值小於 1，阻擋的效果則會降低；值為 0 時則沒有阻隔。
@@ -59,14 +59,14 @@ ms.locfileid: "58138020"
 
 將 **AcousticsAdjustExperimental** 指令碼附加至來源可為該來源啟用額外實驗調整參數。 若要附加指令碼，請按一下 [Inspector] \(偵測器\) 面板底部的 [Add Component] \(新增元件\)，然後瀏覽至 [Scripts] \(指令碼\) > [Acoustics Adjust Experimental] \(實驗性聲場調整\)。 目前具有一個實驗性控制項：
 
-![AcousticsAdjustExperimental](media/acoustics-adjust-experimental.png)
+![Unity AcousticsAdjustExperimental 指令碼的螢幕擷取畫面](media/acoustics-adjust-experimental.png)
 
 * **感知距離變形** - 將指數變形功能套用至距離，以計算乾燥濕潤比。 聲場系統會計算空間濕潤度，此數值會因距離和提供的感知距離變形而變化。變形值大於 1 會放大該效果，提高與距離相關殘響等級，讓音效聽起來較「遙遠」。 變形值小於 1 則會減少殘響變化，讓音效更有「臨場感」。
 
 ## <a name="design-acoustics-for-all-sources"></a>針對所有來源設計聲場
 若要調整所有來源的參數，請按一下 Unity [Audio Mixer] \(音訊混音器\) 中的聲道控制排，然後調整 [Project Acoustics Mixer] \(專案聲場混音器\) 效果上的參數。
 
-![混音器自訂](media/mixer-parameters.png)
+![聲場專案 Unity 混音器自訂面板的螢幕擷取畫面](media/mixer-parameters.png)
 
 * [Wetness Adjust] \(溼潤度調整\) - 根據來源與聆聽者相隔的距離，來對場景中的所有來源調整殘響功率 (單位為 dB)。 正數值會讓聲音有較多殘響，負數值則會讓聲音較乾淨清楚。
 * [RT60 Scale] \(RT60 縮放\) - 殘響時間的乘法純量。
@@ -75,7 +75,7 @@ ms.locfileid: "58138020"
 ## <a name="check-proper-sound-source-placement"></a>檢查適當的聲音來源位置
 系統不會對置於被佔用體素內的聲音來源進行聲場處理。 因為體素可延伸並超過可見的場景幾何，所以就算來源看起來似乎沒有被可見幾何所遮蔽，其仍有可能已被置於體素內。 您可以透過切換 [Scene] \(場景\) 檢視右上角 [Gizmos] \(小工具\) 功能表中的體素格線核取方塊，來檢視聲場專案體素。
 
-![Gizmos 功能表](media/gizmos-menu.png)  
+![Unity Gizmos 功能表的螢幕擷取畫面](media/gizmos-menu.png)  
 
 體素顯示也能協助您判斷遊戲中的視覺元件是否已套用轉換。 如果已套用轉換，請將相同的轉換套用至裝載 **Acoustics Manager** \(聲場管理員\) 的 GameObject。
 
@@ -84,11 +84,11 @@ ms.locfileid: "58138020"
 
 設計階段體素：
 
-![VoxelsDesignTime](media/voxels-design-time.png)
+![在設計階段的聲場專案體素螢幕擷取畫面](media/voxels-design-time.png)
 
 執行階段體素：
 
-![VoxelsRuntime](media/voxels-runtime.png)
+![在執行階段的聲場專案體素螢幕擷取畫面](media/voxels-runtime.png)
 
 ## <a name="next-steps"></a>後續步驟
 * 探索能示範[設計程序](design-process.md)背後之概念的個案研究

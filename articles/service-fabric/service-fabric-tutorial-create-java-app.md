@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 5ad3d7c27b003fb3963333471bceb3226655a5eb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 559c02e74e97093a15b1d768eb5a3b32502db64e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57874876"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314581"
 ---
 # <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>教學課程：在 Service Fabric 上使用 Java Web API 前端服務和具狀態後端服務建立應用程式
 
@@ -912,7 +912,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
 
 4. 在 Eclipse 的 [套件總管] 中，以滑鼠右鍵按一下 **Voting** 專案，然後按一下 [Service Fabric] -> [發佈應用程式...]。 
 5. 在 [發佈應用程式] 視窗中，從下拉式清單中選取 **Local.json**，然後按一下 [發佈]。
-6. 請移至您的網頁瀏覽器並存取 `http://localhost:8080`，以檢視本機 Service Fabric 叢集上執行中的應用程式。 
+6. 請移至您的網頁瀏覽器並存取 http:\//localhost:8080，以檢視本機 Service Fabric 叢集上執行中的應用程式。 
 
 ## <a name="next-steps"></a>後續步驟
 

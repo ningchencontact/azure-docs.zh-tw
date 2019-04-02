@@ -7,13 +7,13 @@ ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/17/2019
-ms.openlocfilehash: d861eba6ce905ccaf0d08a08cdd9998a199889da
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/25/2019
+ms.openlocfilehash: c2a11422398b3cdb99c9f71accddfcd78237c64c
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287349"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417899"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>使用 C# 建立 Azure 資料總管叢集與資料庫
 
@@ -25,20 +25,19 @@ ms.locfileid: "58287349"
 > * [Python](create-cluster-database-python.md)
 >  
 
-
-本快速入門說明如何使用 C# 建立 Azure 資料總管叢集和資料庫。
+Azure 資料總管是快速、完全受控的資料分析服務，可即時分析來自應用程式、網站、IoT 裝置等的大量資料流。 若要使用 Azure 資料總管，請先建立叢集，然後在該叢集中建立一或多個資料庫。 然後將資料內嵌 (載入) 至資料庫，讓您可以對資料執行查詢。 在本快速入門中，您會使用 C# 建立叢集與資料庫。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 如果尚未安裝 Visual Studio 2017，您可以下載並使用「免費的」[Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)。 務必在 Visual Studio 設定期間啟用 **Azure 開發**。
+* 如果尚未安裝 Visual Studio 2017，您可以下載並使用**免費的** [Visual Studio 2017 Community 版本](https://www.visualstudio.com/downloads/)。 務必在 Visual Studio 設定期間啟用 **Azure 開發**。
 
-- 若要完成本快速入門，您需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶](https://azure.microsoft.com/free/)。
+* 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="install-c-nuget"></a>安裝 C# Nuget
 
-- 您將需要適用於 Azure 資料總管 (Kusto) 的 Nuget 套件，您可在此處找到 Nuget： https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/
-- 您也需要 Nuget Microsoft.IdentityModel.Clients.ActiveDirectory 以進行驗證 https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/
+1. 安裝 [Azure 資料總管 (Kusto) NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/)。
 
+1. 安裝用來驗證的 [Microsoft.IdentityModel.Clients.ActiveDirectory NuGet 套件](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)。
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>建立 Azure 資料總管叢集
 
@@ -72,10 +71,10 @@ ms.locfileid: "58287349"
    | resourceGroupName | *testrg* | 將在其中建立叢集的資源群組名稱。 |
 
     有其他選擇性參數可供您使用，例如叢集的容量。
-    
-    將 'credentials' 設定為您的認證 (如需詳細資訊，請參閱 https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet )
 
-2. 執行下列命令來檢查是否已成功建立叢集：
+1. 設定[您的認證](https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
+
+1. 執行下列命令來檢查是否已成功建立叢集：
 
     ```C#-interactive
     KustoManagementClient.Clusters.Get(resourceGroupName, clusterName);

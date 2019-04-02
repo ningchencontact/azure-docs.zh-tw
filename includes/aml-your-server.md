@@ -9,14 +9,15 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 01/25/2019
-ms.openlocfilehash: 18ba86ce7876ba8275eb4853e4fc9ea0f35fa186
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 8d8b314965253dc00b39d0b068b1d6fb3e4aa471
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302186"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58395666"
 ---
-1. 完成 [Azure Machine Learning Python 快速入門](../articles/machine-learning/service/quickstart-create-workspace-with-python.md)以安裝 SDK 並建立工作區。  您可以視需要放心略過**使用 Notebook** 的部分。
+1. 使用[建立 Azure Machine Learning 服務工作區](../articles/machine-learning/service/setup-create-workspace.md#portal)的指示來建立 Miniconda 環境、建立工作區，以及撰寫工作區組態檔 (**aml_config/config.json**).
+
 1. 複製 [GitHub 存放庫](https://aka.ms/aml-notebooks)。
 
     ```
@@ -24,7 +25,7 @@ ms.locfileid: "55302186"
     ```
 
 1. 使用以下其中一種方法新增工作區組態檔：
-    * 將您使用必要快速入門建立的 **aml_config\config.json** 檔案複製到已複製的目錄。
+    * 將您使用必要快速入門建立的 **aml_config/config.json** 檔案複製到已複製的目錄。
     * 使用 [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb) 中的程式碼建立新的工作區。
 1. 從複製的目錄中啟動 Notebook 伺服器。
     

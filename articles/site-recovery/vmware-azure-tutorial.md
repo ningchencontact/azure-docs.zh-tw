@@ -6,22 +6,28 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 3/3/2019
+ms.date: 3/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ccd62c0b0832622bbc74542674c1d09f59ea301b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 06d18ccd6f14f0a2b31f579b0ed7250b2c4f0c92
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848825"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310586"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>為內部部署 VMware VM 設定災害復原至 Azure
 
 [Azure Site Recovery](site-recovery-overview.md) 藉由確保您的商務應用程式可在計劃性與非計劃性中斷期間持續啟動並執行，來提供商務持續性和災害復原 (BCDR) 策略。 Site Recovery 會管理並協調內部部署機器和 Azure 虛擬機器 (VM) 的災害復原，包括複寫、容錯移轉和復原。
 
 
-在本教學課程中，我們會說明如何設定及使用 Azure Site Recovery 將 VMware VM 複寫至 Azure 的作業。 教學課程旨在說明如何使用基本設定來部署 Site Recovery。 這些教學課程會使用最簡單的路徑，而且不會顯示所有選項。 在本教學課程中，您了解如何：
+本教學課程說明如何使用基本設定來部署 Site Recovery (不需自訂)。 如需更複雜的選項，請檢閱「操作說明」之下的文章。
+
+    - 設定[複寫來源](vmware-azure-set-up-source.md)和[組態伺服器](vmware-azure-deploy-configuration-server.md)。
+    - 設定[複寫目標](vmware-azure-set-up-target.md)。
+    - 設定[複寫原則](vmware-azure-set-up-replication.md)及[啟用複寫](vmware-azure-enable-replication.md)。
+
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 輸入複寫來源和目標。
@@ -37,10 +43,6 @@ ms.locfileid: "57848825"
 - 如果您想要更深入了解如何設定 VMware VM 災害復原，請檢閱並使用下列資源：
     - 閱讀有關 VMware VM 災害復原的[常見問題](vmware-azure-common-questions.md)。
     - [了解](vmware-physical-azure-support-matrix.md) VMware 支援和所需的項目。
--  閱讀**使用說明指南**，以取得涵蓋所有 VMware 部署選項的詳細指示：
-    - 設定[複寫來源](vmware-azure-set-up-source.md)和[組態伺服器](vmware-azure-deploy-configuration-server.md)。
-    - 設定[複寫目標](vmware-azure-set-up-target.md)。
-    - 設定[複寫原則](vmware-azure-set-up-replication.md)及[啟用複寫](vmware-azure-enable-replication.md)。
 - 本教學課程將示範如何複寫單一 VM。 如果您要部署多個 VM，則應該使用[部署規劃工具](https://aka.ms/asr-deployment-planner)來協助規劃您的部署。 [深入了解](site-recovery-deployment-planner.md) 此工具。
 
 此外，請檢閱下列提示：

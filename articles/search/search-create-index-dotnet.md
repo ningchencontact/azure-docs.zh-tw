@@ -1,6 +1,6 @@
 ---
-title: 使用 .NET API 以程式碼建立索引 - Azure 搜尋服務
-description: 了解如何使用 Azure 搜尋服務 .NET SDK 與 C# 範例程式碼建立全文檢索的可搜尋索引。
+title: 以 C# 建立索引 - Azure 搜尋服務
+description: 了解如何使用 Azure 搜尋服務 .NET SDK 以 C# 建立全文檢索的可搜尋索引。
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -9,13 +9,13 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/20/2019
-ms.openlocfilehash: dbaac1478fdbf1b42fc6b597c3a5c541e007e413
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/22/2019
+ms.openlocfilehash: a5861faaf26962d34d1c356e29dce1be40f8716b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287140"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370579"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>快速入門：1 - 在 C# 中建立 Azure 搜尋服務索引
 
@@ -23,16 +23,16 @@ ms.locfileid: "58287140"
 
 > [!div class="checklist"]
 > * 建立 [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) 物件以連接到搜尋服務。
-> * 建立 [`Index`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 物件以傳遞作為 `Indexes.Create` 上的參數。
+> * 建立 [`Index`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 物件以作為參數傳遞至 `Indexes.Create`。
 > * 呼叫 `SearchServiceClient` 上的 `Indexes.Create` 方法，將 `Index` 傳送至服務。
 
 ## <a name="prerequisites"></a>必要條件
 
 [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。
 
-[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)任何版本。 範例程式碼和指示已在免費的社群版上測試過。
+[Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)任何版本。 範例程式碼和指示已在免費的 Community 版本上經過測試。
 
-您搜尋服務的 URL 端點和管理 API 金鑰。 搜尋服務是同時建立，因此如果您將 Azure 搜尋服務新增至您的訂用帳戶，請遵循下列步驟來取得必要的資訊：
+取得您搜尋服務的 URL 端點和管理 API 金鑰。 搜尋服務是同時建立，因此如果您將 Azure 搜尋服務新增至您的訂用帳戶，請遵循下列步驟來取得必要的資訊：
 
   1. 在 Azure 入口網站中，您的搜尋服務 [概觀] 頁面上，取得 URL。 範例端點看起來會像是 `https://mydemo.search.windows.net`。
 
@@ -200,7 +200,9 @@ serviceClient.Indexes.Delete("hotels");
 > 
 
 ## <a name="next-steps"></a>後續步驟
-在本快速入門中，您會根據定義欄位資料類型和行為的結構描述來建立空的 Azure 搜尋服務索引。 本系列的下一個快速入門會說明如何載入具有可搜尋的內容的索引。
+在本快速入門中，您會根據定義欄位資料類型和行為的結構描述來建立空的 Azure 搜尋服務索引。 此索引是由名稱和屬性化欄位集合所組成的「準系統」索引。 更實際的索引會包含其他元素，例如[評分設定檔](index-add-scoring-profiles.md)、[建議工具](index-add-suggesters.md) (適用於預先鍵入支援)、[同義字](search-synonyms.md)，還可能包含[自訂分析器](index-add-custom-analyzers.md)。 我們建議在您了解基本工作流程之後，重新瀏覽這些功能。
+
+本系列的下一個快速入門會說明如何載入具有可搜尋的內容的索引。
 
 > [!div class="nextstepaction"]
 > [使用 C# 將資料載入 Azure 搜尋服務索引](search-import-data-dotnet.md)

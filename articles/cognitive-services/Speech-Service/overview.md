@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: d4587b5268635691d55b51a7bf88bbe01df2a0c4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 06b2a5211c720d50a2f14e5fa56fa296cb80d41f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871633"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519624"
 ---
 # <a name="what-are-the-speech-services"></a>什麼是語音服務？
 
@@ -39,9 +39,9 @@ Azure 語音服務是由以下功能所組成。 請使用此資料表中的連�
 
 了解 Azure 語音服務的新功能。
 
+* 2019 年 3 月 - 現已推出新的文字轉語音端點，其可傳回特定區域中可用的完整語音清單。 如需詳細資訊，請參閱[文字轉語音 API 參考 (REST)](rest-text-to-speech.md)。
 * 2019 年 2 月 - 發行支援 [Unity (Beta)](quickstart-csharp-unity.md) 的語音 SDK 1.3.0。 新增 `AudioInput` 類別的支援，可讓您選擇音訊的串流來源。 如需增強功能和已知問題的完整清單，請參閱[版本資訊](releasenotes.md)。
 * 2018 年 12 月 - 發行支援 [Python](quickstart-python.md)、[Node.js](quickstart-js-node.md) 和 Ubuntu 18.04 LTS 的語音 SDK 1.2.0。 如需詳細資訊，請參閱[版本資訊](releasenotes.md)。
-* 2018 年 12 月 - 新增適用於 [.NET Core](quickstart-dotnet-text-to-speech.md)、[Python](quickstart-python-text-to-speech.md)、[Node.js](quickstart-nodejs-text-to-speech.md) 的文字轉語音快速入門。 [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http) 上有其他範例。
 
 ## <a name="try-speech-services"></a>試試語音服務
 

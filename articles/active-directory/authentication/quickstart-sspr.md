@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eabc30b28ec6c32295c5eeff0f19b31fba622056
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 58e3254d499e013dc686bf6b7d53f919a457c901
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095614"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371277"
 ---
 # <a name="quickstart-self-service-password-reset"></a>快速入門：自助式密碼重設
 
@@ -46,7 +46,7 @@ ms.locfileid: "58095614"
       * **行動應用程式代碼 (預覽)**
    * 按一下 [檔案] 。
 
-     ![驗證][Authentication]
+     ![選擇 SSPR 的驗證方法][Authentication]
 
 4. 在 [註冊] 頁面中，選擇下列項目：
    * 要求使用者在登入時註冊：**是**

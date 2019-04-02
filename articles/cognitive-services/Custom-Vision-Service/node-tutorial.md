@@ -8,18 +8,18 @@ manager: daauld
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: quickstart
-ms.date: 2/21/2019
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 3ae3a70ff1cfdda356c99e734b7078a54ab48171
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 9d9021cd3acaebe689c583281e0316b30d5892c0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752367"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482448"
 ---
 # <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-nodejs-sdk"></a>快速入門：使用自訂視覺 Node.js SDK 建立影像分類專案
 
-本文提供資訊和範例程式碼，可協助您開始使用自訂視覺 SDK 與 Node.js 來建置影像分類模型。 建立它之後，您就可以新增標記、上傳影像、為專案定型、取得專案的預設預測端點 URL，並使用端點以程式設計方式測試影像。 請使用此範例作為範本來建置您自己的 Node.js 應用程式。 如果您想要進行「不用」程式碼來建置及使用分類模型的程序，請改為參閱[以瀏覽器為基礎的指引](getting-started-build-a-classifier.md)。
+本文提供資訊和範例程式碼，可協助您開始使用自訂視覺 SDK 與 Node.js 來建置影像分類模型。 建立它之後，您就可以新增標記、上傳影像、為專案定型、取得專案的已發佈預測端點 URL，並使用端點以程式設計方式測試影像。 請使用此範例作為範本來建置您自己的 Node.js 應用程式。 如果您想要進行「不用」程式碼來建置及使用分類模型的程序，請改為參閱[以瀏覽器為基礎的指引](getting-started-build-a-classifier.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -30,7 +30,7 @@ ms.locfileid: "56752367"
 
 若要安裝適用於 Node.js 的自訂視覺服務 SDK，請在 PowerShell 中執行下列命令：
 
-```PowerShell
+```powershell
 npm install azure-cognitiveservices-customvision-training
 npm install azure-cognitiveservices-customvision-prediction
 ```
@@ -56,9 +56,12 @@ const setTimeoutPromise = util.promisify(setTimeout);
 
 const trainingKey = "<your training key>";
 const predictionKey = "<your prediction key>";
+const predictionResourceId = "<your prediction resource id>";
 const sampleDataRoot = "<path to image files>";
 
 const endPoint = "https://southcentralus.api.cognitive.microsoft.com"
+
+const publishIterationName = "classifyModel";
 
 const trainer = new TrainingApiClient(trainingKey, endPoint);
 
@@ -102,9 +105,9 @@ const trainer = new TrainingApiClient(trainingKey, endPoint);
     await Promise.all(fileUploadPromises);
 ```
 
-### <a name="train-the-classifier"></a>為分類器定型
+### <a name="train-the-classifier-and-publish"></a>訓練分類器並發佈
 
-此程式碼會在專案中建立第一個反覆項目，並將其設定為預設反覆項目。 預設反覆項目會反映將會回應預測要求的模型版本。 每次重新訓練模型時，均應更新此反覆項目。
+此程式碼會在專案中建立第一個反覆項目，然後將該反覆項目發佈至預測端點。 提供給已發佈反覆項目的名稱可用來傳送預測要求。 反覆項目要等到發佈後才可在預測端點中使用。
 
 ```javascript
     console.log("Training...");
@@ -119,12 +122,11 @@ const trainer = new TrainingApiClient(trainingKey, endPoint);
     }
     console.log("Training status: " + trainingIteration.status);
     
-    // Update iteration to be default
-    trainingIteration.isDefault = true;
-    await trainer.updateIteration(sampleProject.id, trainingIteration.id, trainingIteration);
+    // Publish the iteration to the end point
+    await trainer.publishIteration(sampleProject.id, trainingIteration.id, publishIterationName, predictionResourceId);
 ```
 
-### <a name="get-and-use-the-default-prediction-endpoint"></a>取得並使用預設預測端點
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>取得並使用預測端點上已發佈的反覆項目
 
 若要將影像傳送到預測端點並擷取預測，在檔案結尾處新增以下程式碼：
 
@@ -132,7 +134,7 @@ const trainer = new TrainingApiClient(trainingKey, endPoint);
     const predictor = new PredictionApiClient(predictionKey, endPoint);
     const testFile = fs.readFileSync(`${sampleDataRoot}/Test/test_image.jpg`);
 
-    const results = await predictor.predictImage(sampleProject.id, testFile, { iterationId: trainingIteration.id });
+    const results = await predictor.classifyImage(sampleProject.id, publishIterationName, testFile);
 
     // Step 6. Show results
     console.log("Results:");
@@ -146,7 +148,7 @@ const trainer = new TrainingApiClient(trainingKey, endPoint);
 
 執行 sample.js。
 
-```PowerShell
+```powershell
 node sample.js
 ```
 

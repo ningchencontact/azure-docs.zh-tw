@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: 9fde3befb147aeeab9419e08602552a970368cfe
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32714b3e5a5ed859716faef2ca660f8b2c90b089
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844979"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402503"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知傳送給特定使用者
 
@@ -53,13 +53,13 @@ ms.locfileid: "57844979"
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
-## <a name="update-the-code-for-the-client-project"></a>更新用戶端專案的程式碼
+## <a name="update-the-code-for-the-uwp-client"></a>更新 UWP 用戶端的程式碼
 
 在本節中，您會更新已針對以下教學課程完成之專案中的程式碼：[教學課程：使用 Azure 通知中樞將通知傳送至通用 Windows 平台應用程式](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)。 此專案應已與 Windows 市集產生關聯。 此外它也應設定成使用您的通知中樞。 在本節中，您會新增程式碼以呼叫新的 WebAPI 後端，並使用它來註冊和傳送通知。
 
 1. 在 Visual Studio 中，開啟您為以下教學課程所建立的方案：[教學課程：使用 Azure 通知中樞將通知傳送至通用 Windows 平台應用程式](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)。
-2. 在方案總管中，以滑鼠右鍵按一下 **WindowsApp** 專案，然後按一下 [管理 NuGet 套件]。
-3. 在左側，按一下 [線上] 。
+2. 在 [方案總管] 中，以滑鼠右鍵按一下 [通用 Windows 平台 (UWP)] 專案，然後按一下 [管理 NuGet 套件]。
+3. 選取左邊的 [瀏覽]。
 4. 在 [搜尋] 方塊中，輸入 **Http Client**。
 5. 在 [結果] 清單中按一下 **System.Net.Http**，然後按一下 [安裝]。 完成安裝。
 6. 回到 NuGet [搜尋] 方塊，輸入 **Json.net**。 安裝 **Newtonsoft.json** 套件，然後關閉 [NuGet 套件管理員] 視窗。

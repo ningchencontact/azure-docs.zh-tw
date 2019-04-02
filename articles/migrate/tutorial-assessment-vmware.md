@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: dc2fb3faddc8af30edd66b926259c05580d9872a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cdd852e56cf966371cda62f89cee62956551f5c0
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104517"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313102"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>探索及評估要移轉到 Azure 的內部部署 VMware VM
 
@@ -185,7 +185,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
    - 如果 VM 能夠透過 Proxy 存取網際網路，請按一下 [Proxy 設定]，然後指定 Proxy 位址和接聽連接埠。 如果 Proxy 需要驗證，請指定認證。 [深入了解](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites)網際網路連線需求和收集器存取的 [URL 清單](https://docs.microsoft.com/azure/migrate/concepts-collector)。
 
      > [!NOTE]
-     > 必須在表單 <http://ProxyIPAddress> 或 <http://ProxyFQDN> 中輸入 Proxy 位址。 僅支援 HTTP Proxy。 如果您有攔截 Proxy，且您未匯入 Proxy 憑證，則初始的網際網路連線可能會失敗；請[深入了解](https://docs.microsoft.com/azure/migrate/concepts-collector)如何藉由將 Proxy 憑證匯入作為收集器 VM 上的信任憑證，以解決此問題。
+     > 必須在表單 http:\//ProxyIPAddress 或 http:\//ProxyFQDN 中輸入 Proxy 位址。 僅支援 HTTP Proxy。 如果您有攔截 Proxy，且您未匯入 Proxy 憑證，則初始的網際網路連線可能會失敗；請[深入了解](https://docs.microsoft.com/azure/migrate/concepts-collector)如何藉由將 Proxy 憑證匯入作為收集器 VM 上的信任憑證，以解決此問題。
 
    - 收集器會檢查收集器服務是否正在執行。 根據預設，收集器 VM 上會安裝此服務。
    - 下載並安裝 VMware PowerCLI。

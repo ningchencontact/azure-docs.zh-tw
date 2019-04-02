@@ -3,7 +3,7 @@ title: 教學課程：安裝 Service Fabric 獨立用戶端 - Azure Service Fabr
 description: 在本教學課程中，您將了解如何在您於上一篇教學課程文章中建立的叢集上安裝 Service Fabric 獨立用戶端。
 services: service-fabric
 documentationcenter: .net
-author: david-stanford
+author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/11/2018
-ms.author: dastanfo
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: b740aa205982bc0c1104b59e3ea89e2d5980d461
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9563faf5e72bdef2e43afe26d5e8ae0f3d1c67ad
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240336"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370409"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>教學課程：安裝和建立 Service Fabric 叢集
 
@@ -129,7 +129,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 
 ### <a name="bring-up-service-fabric-explorer"></a>啟動 Service Fabric Explorer
 
-現在，您可以使用 Service Fabric Explorer 直接從其中一個機器透過 http://localhost:19080/Explorer/index.html 連線至叢集，或透過 http://<*IPAddressofaMachine*>:19080/Explorer/index.html 從遠端連線。
+現在，您可以使用 http:\//localhost:19080/Explorer/index.html 直接從其中一部電腦或使用 http:\//<*IPAddressofaMachine*>:19080/Explorer/index.html 從遠端利用 Service Fabric Explorer 連接到叢集。
 
 ## <a name="add-and-remove-nodes"></a>新增和移除節點
 

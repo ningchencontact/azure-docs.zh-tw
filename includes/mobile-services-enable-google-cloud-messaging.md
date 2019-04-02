@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 04/06/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: ae84b5fd5647ef6c54006c0411e334b14173392e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a7d0a899b4a2ef86153e82a4e3f04e7ec430a1bc
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33836463"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58488037"
 ---
 1. 瀏覽至 [Google 雲端主控台](https://console.developers.google.com/cloud-resource-manager)，並使用您的 Google 帳戶認證登入。 
 2. 選取工具列上的 [建立專案]。 
    
     ![建立新專案](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-new-project.png)   
 3. 在 [專案名稱] 中，輸入您專案的名稱，然後按一下 [建立]。
-4. 選取工具列上的 [警示] 按鈕，然後在清單中選取您的專案。 您會看到您專案的儀表板。 您也可以使用下列 URL 來直接巡覽至儀表板：https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>
+4. 選取工具列上的 [警示] 按鈕，然後在清單中選取您的專案。 您會看到您專案的儀表板。 您也可以使用下列 URL 來直接巡覽至儀表板：`https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>`
 
     ![在警示中選取您的專案](./media/mobile-services-enable-google-cloud-messaging/alert-new-project.png)
 5. 請記下儀表板之 [專案資訊] 磚中的 [專案編號]。 
@@ -51,5 +51,5 @@ ms.locfileid: "33836463"
 
     ![複製 API 金鑰](./media/mobile-services-enable-google-cloud-messaging/copy-api-key.png)
    
-    您將使用此 API 金鑰值，讓 Azure 能夠使用 GCM 進行驗證，並代表您的應用程式傳送推播通知。 若要瀏覽回專案儀表板，請使用 URL：https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>
+    您將使用此 API 金鑰值，讓 Azure 能夠使用 GCM 進行驗證，並代表您的應用程式傳送推播通知。 若要瀏覽回專案儀表板，請使用 URL：`https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>`
 

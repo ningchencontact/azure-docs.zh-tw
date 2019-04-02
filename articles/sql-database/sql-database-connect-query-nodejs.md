@@ -10,13 +10,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
-ms.date: 02/12/2019
-ms.openlocfilehash: 49fe9f51026c4cb096fd8248b53d2e5b5b574923
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.date: 03/25/2019
+ms.openlocfilehash: cd0435ffc27402299da85434693dcdf32a4083ca
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236017"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444707"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>快速入門：使用 Node.js 查詢 Azure SQL 資料庫
 
@@ -32,11 +32,11 @@ ms.locfileid: "56236017"
   |:--- |:--- |:---|
   | 建立| [入口網站](sql-database-single-database-get-started.md) | [入口網站](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | 設定 | [伺服器層級 IP 防火牆規則](sql-database-server-level-firewall-rule.md)| [VM 的連線能力](sql-database-managed-instance-configure-vm.md)|
   |||[現場的連線能力](sql-database-managed-instance-configure-p2s.md)
   |載入資料|每個快速入門載入的 Adventure Works|[還原 Wide World Importers](sql-database-managed-instance-get-started-restore.md)
-  |||從 [github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) 中的 [BACPAC](sql-database-import.md) 檔案還原或匯入 Adventure Works|
+  |||從 [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) 中的 [BACPAC](sql-database-import.md) 檔案還原或匯入 Adventure Works|
   |||
 
   > [!IMPORTANT]
@@ -67,8 +67,8 @@ ms.locfileid: "56236017"
 
   ```bash
   npm init -y
-  npm install tedious
-  npm install async
+  npm install tedious@5.0.3
+  npm install async@2.6.2
   ```
 
 ## <a name="add-code-to-query-database"></a>新增程式碼以查詢資料庫
@@ -84,8 +84,13 @@ ms.locfileid: "56236017"
     // Create connection to database
     var config =
     {
-        userName: 'your_username', // update me
-        password: 'your_password', // update me
+        authentication: {
+            options: {
+                userName: 'userName', // update me
+                password: 'password' // update me
+            },
+            type: 'default'
+        },
         server: 'your_server.database.windows.net', // update me
         options:
         {

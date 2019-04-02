@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: cb5ad8e4ff3d5a28fa38c7e8972e7e3e69d2762d
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: f44b6f9ed42770fe830346de08058e33ed68a249
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136934"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309635"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>聲場專案 Unity 聲場模擬教學課程
 本教學課程描述在 Unity 中運用聲場專案進行聲場模擬。
@@ -28,7 +28,7 @@ ms.locfileid: "58136934"
 ## <a name="open-the-project-acoustics-bake-window"></a>開啟聲場專案聲場模擬視窗
 從 Unity 功能表選擇 [Window] \(視窗\) > [Acoustics] \(聲場\) ：
 
-![開啟 [Acoustics] \(聲場\) 視窗](media/window-acoustics.png)
+![醒目提示 [聲場] 視窗功能表選項的 Unity 編輯器螢幕擷取畫面](media/window-acoustics.png)
 
 ## <a name="create-a-navigation-mesh"></a>建立導航網格
 聲場專案會使用導航網格放置聆聽者探查點以進行模擬。 您可以使用 Unity 的[導航網格工作流程](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html)，或使用其他 3D 模型製作套件以設計自己的網格。 
@@ -68,15 +68,15 @@ ms.locfileid: "58136934"
 
 如果您的場景中沒有任何已選取的物件，[Objects] \(物件\) 索引標籤看起來就會類似下圖：
 
-![未選取任何物件時的 [Objects] \(物件\) 索引標籤](media/objects-tab-no-selection-detail.png)
+![無選取項目的 [聲場物件] 索引標籤螢幕擷取畫面](media/objects-tab-no-selection-detail.png)
 
 如果您的場景中有已選取的物件，則看起來會類似下圖：
 
-![未選取任何物件時的 [Objects] \(物件\) 索引標籤](media/objects-tab-selection-detail.png)
+![顯示選取項目的 [聲場物件] 索引標籤螢幕擷取畫面](media/objects-tab-selection-detail.png)
 
 如果有些物件已標示而有些未標示，則適當的核取方塊會顯示「混合」值：
 
-![混合值核取方塊](media/mixed-object-selection-detail.png)
+![醒目提示混合選取圖示的 [聲場物件] 索引標籤螢幕擷取畫面](media/mixed-object-selection-detail.png)
 
 按一下此核取方塊會強制標示所有物件，再按一下則會將所有物件都取消標示。
 
@@ -89,10 +89,10 @@ ms.locfileid: "58136934"
 
 室內所指定材質的殘響時間與其吸收係數成反比，其中大多數材質的吸收值在 0.01 到 0.20 的範圍。 材質的吸收係數若是在此範圍外，則極具吸收性。
 
-![殘響時間圖](media/reverb-time-graph.png)
+![顯示殘響時間與吸收係數負相關的圖形](media/reverb-time-graph.png)
 
 ### <a name="for-reference-parts-of-the-materials-tab"></a>參考：[Materials] (材質) 索引標籤的組件
-![[材質] 索引標籤詳細資料](media/materials-tab-detail.png)
+![Unity 中 [聲場材質] 索引標籤的螢幕擷取畫面](media/materials-tab-detail.png)
 
 1. 用來顯示此頁面的 [Materials] \(材質\) 索引標籤按鈕，。
 2. 使用此頁面時所需執行之操作的簡短描述。
@@ -117,23 +117,23 @@ ms.locfileid: "58136934"
 ### <a name="review-voxel-and-probe-placement"></a>檢閱體素和探查位置
 檢閱體素資料和探查點位置，以確保您能夠準備好為場景進行聲場模擬。 不完整的導航網格或遺漏/有多餘聲場幾何等情況，通常都能在預覽中迅速發現。 您可以使用 Gizmos 功能表啟用或停用體素與探查位置：
 
-![Gizmos 功能表](media/gizmos-menu.png)
+![Unity 中 Gizmos 功能表的螢幕擷取畫面](media/gizmos-menu.png)
 
 包含聲場幾何的體素會顯示為綠色立方體。 請探索您的場景並確認應該是幾何的每個項目都有體素。 場景相機必須位於物件的大約 5 公尺以內，才能顯示體素。
 
-如果您比較以 [Corse] (粗略) 解析度和 [Fine] (精細) 解析度建立的體素，將會發現粗略體素的體積是兩倍大。
+如果您比較以 [Corse] \(粗略\) 解析度和 [Fine] \(精細\) 解析度建立的體素，將會發現粗略體素的體積是兩倍大。
 
-![體素預覽](media/voxel-cubes-preview.png)
+![Unity 編輯器中粗略體素預覽的螢幕擷取畫面](media/voxel-cubes-preview.png)
 
 模擬結果會在執行階段插入至聆聽者探查點位置之間。 請檢查您預期玩家會於場景中行經的所有地方附近是否都有探查點。
 
-![探查預覽](media/probes-preview.png)
+![Unity 編輯器中探查預覽的螢幕擷取畫面](media/probes-preview.png)
 
 ### <a name="take-care-with-scene-renames"></a>重新命名場景時請謹慎
 場景名稱可用來將場景連接至儲存探查點位置和體素化設定的檔案。 如果在計算出探查點之後將場景重新命名，就會遺失材質指派和位置資料，而應該重新執行。
 
 ### <a name="for-reference-parts-of-the-probes-tab"></a>參考：[Probes] \(探查\) 索引標籤的組件
-![[Probes] \(探查\) 索引標籤詳細資料](media/probes-tab-detail.png)
+![Unity 中 [聲場探查] 索引標籤的螢幕擷取畫面](media/probes-tab-detail.png)
 
 1. 用來顯示此頁面的 [Probes] \(探查\) 索引標籤按鈕
 2. 使用此頁面時所需執行之操作的簡短描述
@@ -147,25 +147,25 @@ ms.locfileid: "58136934"
 
 ### <a name="Coarse-vs-Fine-Resolution"></a>選擇粗略或精細解析度
 
-[Coarse] \(粗略\) 與 [Fine] \(精細\) 解析度設定之間的唯一差異在於模擬執行頻率。 [Fine] (精細) 所使用的頻率為 [Coarse] (粗略) 的兩倍。
+[Coarse] \(粗略\) 與 [Fine] \(精細\) 解析度設定之間的唯一差異在於模擬執行頻率。 [Fine] \(精細\) 所使用的頻率為 [Coarse] \(粗略\) 的兩倍。
 雖然這看似簡單，但在聲場模擬上具有一些含意：
 
-* [Coarse] (粗略) 的波長為 [Fine] (精細) 的兩倍，因此體素是兩倍大。
-* 由於聲場模擬時間與體素大小直接相關，因此 [Coarse] (粗略) 模擬比 [Fine] (精細) 模擬快 16 倍。
-* 針對小於體素大小的門戶 (例如門或窗) 將無法進行模擬。 [Coarse] (粗略) 設定可能導致沒有模擬部分較小的門戶，因此它們將不會在執行階傳遞聲音。 您可以檢視體素來查看是否會發生這種情況。
+* [Coarse] \(粗略\) 的波長為 [Fine] \(精細\) 的兩倍，因此體素是兩倍大。
+* 由於聲場模擬時間與體素大小直接相關，因此 [Coarse] \(粗略\) 模擬比 [Fine] \(精細\) 模擬快 16 倍。
+* 針對小於體素大小的門戶 (例如門或窗) 將無法進行模擬。 [Coarse] \(粗略\) 設定可能導致沒有模擬部分較小的門戶，因此它們將不會在執行階傳遞聲音。 您可以檢視體素來查看是否會發生這種情況。
 * 模擬頻率越低，在角落和邊緣周圍產生的繞射就越少。
 * 聲音來源不能位於「已填滿的」體素 (也就是包含幾何的體素) 內，這會導致沒有聲音。 這會更難找出聲音來源，因此它們不會在與使用「精細」設定相比更大的「粗略」設定體素內。
-* 較大的體素侵入門戶的部分也較大，如下所示。 第一張圖是使用 [Coarse] (粗略) 解析度來建立的，第二張圖是相同的門口，但使用 [Fine] (精細) 解析度。 如紅色標記所示，使用 [Fine] (精細) 設定時，侵入門口的程度較小。 藍線是幾何所定義的門口，紅線則是體素大小所定義的有效聲場門戶。 此入侵狀況在指定的情況下會如何表現，完全取決於體素與門戶幾何的對齊方式，而這又取決於場景中物件的大小和位置。
+* 較大的體素侵入門戶的部分也較大，如下所示。 第一張圖是使用 [Coarse] \(粗略\) 解析度來建立的，第二張圖是相同的門口，但使用 [Fine] \(精細\) 解析度。 如紅色標記所示，使用 [Fine] \(精細\) 設定時，侵入門口的程度較小。 藍線是幾何所定義的門口，紅線則是體素大小所定義的有效聲場門戶。 此入侵狀況在指定的情況下會如何表現，完全取決於體素與門戶幾何的對齊方式，而這又取決於場景中物件的大小和位置。
 
-![粗略門口](media/coarse-voxel-doorway.png)
+![門口粗略體素的螢幕擷取畫面](media/coarse-voxel-doorway.png)
 
-![精細門口](media/fine-voxel-doorway.png)
+![門口精細體素的螢幕擷取畫面](media/fine-voxel-doorway.png)
 
 ## <a name="bake-your-scene-using-azure-batch"></a>使用 Azure Batch 來對場景進行聲場模擬
 您可以使用 Azure Batch 服務搭配雲端中的計算叢集來對場景進行聲場模擬。 聲場專案 Unity 外掛程式會直接連線至 Azure Batch，以針對每個聲場模擬具現化、管理及卸除 Azure Batch 叢集。 在 [Bake] (聲場模擬) 索引標籤中，選取叢集機器類型和大小，然後按一下 [Bake] (模擬聲場)。
 
 ### <a name="for-reference-parts-of-the-bake-tab"></a>參考：[Bake] (聲場模擬) 索引標籤的組件
-![[Bake] \(製作\) 索引標籤詳細資料](media/bake-tab-details.png)
+![Unity 中 [聲場製作] 索引標籤的螢幕擷取畫面](media/bake-tab-details.png)
 
 1. 用來顯示此頁面的 [Bake] \(製作\) 索引標籤按鈕。
 2. 要在此頁面上執行之操作的簡短描述。
@@ -209,8 +209,8 @@ Azure 認證會安全地儲存在您的本機電腦上，並與您的 Unity 編�
 ### <a name="setup-docker"></a>設定 Docker
 在將會處理模擬的電腦上安裝和設定 Docker -
 1. 安裝 [Docker 工具組](https://www.docker.com/products/docker-desktop)。
-2. 啟動 Docker 設定、瀏覽至 [進階] 選項，並設定至少具備 8 GB RAM的資源。 您可以配置給 Docker 的 CPU 越多，製作完成的速度就越快。 ![Docker 設定範例](media/docker-settings.png)
-3. 瀏覽至 [共用磁碟機]，然後開啟用於處理之磁碟機的共用。![DockerDriveSharing](media/docker-shared-drives.png)
+2. 啟動 Docker 設定、瀏覽至 [進階] 選項，並設定至少具備 8 GB RAM的資源。 您可以配置給 Docker 的 CPU 越多，製作完成的速度就越快。 ![Docker 設定範例的螢幕擷取畫面](media/docker-settings.png)
+3. 瀏覽至 [共用磁碟機]，然後開啟用於處理之磁碟機的共用。![Docker 共用磁碟機選項的螢幕擷取畫面](media/docker-shared-drives.png)
 
 ### <a name="run-local-bake"></a>執行本機製作
 1. 按一下 [Bake] \(聲場模擬\) 索引標籤上的 [Prepare Local Bake] \(準備在本機進行聲場模擬\) 按鈕，然後選取要儲存輸入檔案和執行指令碼的資料夾。 然後，您可以在任何電腦上執行製作，只要它符合最低硬體需求，並藉由將資料夾複製到該電腦來安裝 Docker。
@@ -234,11 +234,11 @@ Azure 認證會安全地儲存在您的本機電腦上，並與您的 Unity 編�
 ## <a name="set-up-the-acoustics-lookup-table"></a>設定聲場查閱資料表
 將 [Project Acoustics] 預製項目從專案面板拖放到您的場景中：
 
-![聲場預製項目](media/acoustics-prefab.png)
+![Unity 中 [聲場] 預製項目的螢幕擷取畫面](media/acoustics-prefab.png)
 
 按一下 [ProjectAcoustics] 遊戲物件以前往其偵測器面板。 透過將製作結果 (**Assets/AcousticsData** 中的 .ACE 檔案) 拖放到 [Acoustics Manager] \(聲場管理員\) 指令碼中，或按一下文字方塊旁邊的圓形按鈕，來指定製作結果的位置。
 
-![聲場管理員](media/acoustics-manager.png)  
+![Unity 中 [聲場管理員] 預製項目的螢幕擷取畫面](media/acoustics-manager.png)  
 
 ## <a name="next-steps"></a>後續步驟
 * 瀏覽 [Unreal 的設計控制項](unity-workflow.md)
