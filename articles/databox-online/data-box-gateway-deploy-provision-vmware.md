@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 604f135cc3dffdb9ac6533826eff6926ad5467df
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 85992224edd10c0a0f233de9f6274cc77e109b22
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117743"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517772"
 ---
-# <a name="tutorial-provision-azure-data-box-gateway-in-vmware-preview"></a>教學課程：在 VMware 中佈建 Azure 資料箱閘道 (預覽)
+# <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>教學課程：在 VMware 中佈建 Azure 資料箱閘道
 
 ## <a name="overview"></a>概觀
 
@@ -32,8 +32,6 @@ ms.locfileid: "56117743"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-> [!IMPORTANT]
-> - 資料箱閘道處於預覽狀態。 部署訂購並部署此解決方案之前，請檢閱 [Azure 預覽版使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -75,7 +73,7 @@ ms.locfileid: "56117743"
 
 * 能夠存取執行 VMware ESXi 伺服器 6.0、6.5 或 6.7 的主機系統。 主機系統能夠把下列資源專門用於虛擬裝置：
  
-  * 至少 4 顆核心。
+  * 至少 4 個虛擬處理器。
   * 至少 8 GB 的 RAM。 
   * 網路介面，且已連線到能夠將流量路由至網際網路的網路。
   * 250 GB 的 OS 磁碟。
@@ -91,7 +89,7 @@ ms.locfileid: "56117743"
 
 2. 透過瀏覽器，在此 URL 登入 ESXi 伺服器：`https://<IP address of the ESXi server>`。 您需要有系統管理員權限，才能建立虛擬機器。
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image1.png)
+   ![登入頁面](./media/data-box-gateway-deploy-provision-vmware/image1.png)
   
 3. 將 VMDK 上傳至 ESXi 伺服器。 在 [導覽] 窗格中，選取 [儲存體]。
 
@@ -104,67 +102,67 @@ ms.locfileid: "56117743"
    
 5. 按一下滑鼠右鍵並選取 [瀏覽資料存放區]。
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image3.png)
+   ![瀏覽資料存放區](./media/data-box-gateway-deploy-provision-vmware/image3.png)
 
 6. 畫面會出現 [資料存放區瀏覽器]  視窗。
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image4.png)
+   ![資料存放區瀏覽器](./media/data-box-gateway-deploy-provision-vmware/image4.png)
 
 7. 在工具列上，按一下 [建立目錄] 圖示來建立新資料夾。 然後指定資料夾的名稱，並把該名稱記下來。 您稍後在建立虛擬機器時，將會使用該資料夾名稱 (建議的最佳做法)。 按一下 [建立目錄]。
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image5.png)
+   ![建立目錄](./media/data-box-gateway-deploy-provision-vmware/image5.png)
 
 8. [資料存放區瀏覽器] 的左窗格中會出現新的資料夾。 按一下 [上傳] 圖示，然後選取 [上傳檔案]。
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image6.png)
+    ![上傳檔案](./media/data-box-gateway-deploy-provision-vmware/image6.png)
 
 9. 瀏覽並指向您已下載的 VMDK 檔案。 有兩個檔案。 選取要上傳的檔案。
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image7.png)
+    ![選取要上傳的檔案](./media/data-box-gateway-deploy-provision-vmware/image7.png)
 
 10. 按一下 [開啟] 。 就會開始將 VMDK 檔案上傳至指定的資料存放區。 檔案可能需要幾分鐘的時間才能上傳完畢。
 11. 上傳完成之後，檔案就會出現在資料存放區裡您所建立的資料夾中。 現在將第二個 VMDK 檔案上傳至相同的資料存放區。 一旦兩個檔案都上傳，這兩個檔案就會合併成單一檔案。 然後，您會在目錄中看到單一檔案。
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image8.png)
+    ![兩個 VMDK 檔案會合併成單一檔案](./media/data-box-gateway-deploy-provision-vmware/image8.png)
 
 12. 返回 vSphere 用戶端視窗。 在 [導覽] 窗格中，選取 [虛擬機器]。 在右窗格中，按一下 [建立/註冊 VM]。
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image9.png)
+    ![建立或註冊 VM](./media/data-box-gateway-deploy-provision-vmware/image9.png)
 
 13. [新增虛擬機器] 隨即顯示。 在 [選取] 建立類型底下，選擇 [建立新的虛擬機器]，然後按 [下一步]。
-    ![](./media/data-box-gateway-deploy-provision-vmware/image10.png)
+    ![選取建立類型頁面](./media/data-box-gateway-deploy-provision-vmware/image10.png)
 
 14. 在 [選取名稱和 OS 名稱及位置] 頁面上，指定虛擬機器的**名稱**。 這個名稱應該與之前在步驟 7 中指定的資料夾名稱 (建議的最佳做法) 相同。 選擇 Windows 作為 [客體 OS 系列]，選擇 Microsoft Windows Server 2016 (64 位元) 作為 [客體 OS 版本]。 按 [下一步] 。
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image11.png)
+    ![選取名稱和作業系統名稱與位置頁面](./media/data-box-gateway-deploy-provision-vmware/image11.png)
 
 15. 在 [選取儲存體]  頁面上，選取您要用來佈建虛擬機器的資料存放區。 按 [下一步] 。
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image12.png)
-16. 在 [自訂設定] 頁面上，將 [CPU] 設為 4、將 [記憶體] 設為 8192 MB (或以上)、將 [硬碟 1] 設為 2 TB (或以上)。 選擇要新增的 **SCSI 硬碟**。 在此案例中，是 LSI Logic SAS。 **不支援靜態 IDE 磁碟。** [硬碟 1] 是虛擬資料磁碟。 請注意，佈建之後您無法縮小磁碟。
+    ![選取儲存體頁面](./media/data-box-gateway-deploy-provision-vmware/image12.png)
+16. 在 [自訂設定] 頁面上，將 [CPU] 設為 4、將 [記憶體] 設為 8192 MB (或以上)、將 [硬碟 1] 設為 2 TB (或以上)。 選擇要新增的 **SCSI 硬碟**。 在此案例中，是 LSI Logic SAS。 **不支援靜態 IDE 磁碟。** [硬碟 1] 是虛擬資料磁碟。 請注意，佈建之後您無法縮小磁碟。 嘗試壓縮磁碟會導致裝置上的所有本機資料遺失。 
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image13.png)
+    ![自訂設定頁面](./media/data-box-gateway-deploy-provision-vmware/image13.png)
 
     在相同頁面上，按一下 [新增硬碟]，然後選取 [現有硬碟]。 選取資料存放區中的 VMDK 檔案。 這樣會新增 OS 磁碟。 
 
-     ![](./media/data-box-gateway-deploy-provision-vmware/image14.png)
+     !自訂設定頁面[](./media/data-box-gateway-deploy-provision-vmware/image14.png)
 
     向下捲動直到您看到 [新增硬碟]，展開它以檢視設定。 將 [虛擬裝置節點] 設為 [IDE 控制器 0]。
 
-     ![](./media/data-box-gateway-deploy-provision-vmware/image15.png)
+     ![自訂設定頁面](./media/data-box-gateway-deploy-provision-vmware/image15.png)
 
 17. (選擇性) 只有在執行 VMware ESXi Server 6.7 時，才可執行此步驟。 在 [自訂設定] 頁面上，按一下 [VM 選項]。 移至 [開機選項] > [韌體]，並將其變更為 [BIOS]。 根據預設，此值會設定為 EFI。 按 [下一步] 。
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image15a.png)
+    ![執行 VMware ESXi Server 6.7 時的自訂設定頁面](./media/data-box-gateway-deploy-provision-vmware/image15a.png)
 
 18. 在 [準備完成]  頁面上，檢閱與新的虛擬機器相關的所有設定。 確認 CPU 是 4、記憶體是 8192 MB、網路介面是 1，以及硬碟 2 具有 IDE 控制器 0。 按一下 [完成] 。
    
-    ![](./media/data-box-gateway-deploy-provision-vmware/image16.png)
-    ![](./media/data-box-gateway-deploy-provision-vmware/image17.png)
+    ![準備好完成頁面](./media/data-box-gateway-deploy-provision-vmware/image16.png)
+    ![準備好完成頁面](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
 您的虛擬機器已成功佈建。 您會看到效果通知，表示新的虛擬機器已新增至 VM 清單。
 
-![](./media/data-box-gateway-deploy-provision-vmware/image17.png)
+![新的虛擬機器已新增至 VM 的清單](./media/data-box-gateway-deploy-provision-vmware/image17.png)
 
 下一個步驟是開啟此 VM，然後取得 IP 位址。
 
@@ -178,23 +176,23 @@ ms.locfileid: "56117743"
 #### <a name="to-start-the-virtual-device"></a>啟動虛擬裝置
 1. 啟動虛擬裝置。 在右側窗格中，從 VM 清單選取您的裝置，並按一下滑鼠右鍵來顯示內容功能表。 選取 [電源]，然後選取 [開啟電源]。 此時您的虛擬機器應該會開機。 您可以在 Web 用戶端的窗格底部檢視狀態。
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image19.png)
+    ![開啟虛擬裝置電源](./media/data-box-gateway-deploy-provision-vmware/image19.png)
 
 2. 再次選取您的 VM。 以滑鼠右鍵按一下並選取 [主控台]，然後選取 [在新視窗開啟]。
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image20.png)
+    ![開啟虛擬裝置主控台](./media/data-box-gateway-deploy-provision-vmware/image20.png)
 
 3. 虛擬機器主控台會在新視窗中開啟。 
 
-    ![](./media/data-box-gateway-deploy-provision-vmware/image21.png)
+    ![虛擬裝置主控台](./media/data-box-gateway-deploy-provision-vmware/image21.png)
 
 4. 一旦裝置執行，將游標指向主控台視窗中間上方的索引標籤，並且按一下。 選取 [客體 OS > 傳送金鑰 > Ctrl+Alt+Delete]。 這樣會解除鎖定 VM。
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image22.png)
+   ![解除鎖定虛擬裝置](./media/data-box-gateway-deploy-provision-vmware/image22.png)
 
-5. 提供密碼以登入電腦。 預設密碼為 Password1。
+5. 提供密碼以登入電腦。 預設密碼為 *Password1*。
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image23.png)
+   ![輸入虛擬裝置密碼](./media/data-box-gateway-deploy-provision-vmware/image23.png)
 
 6. 步驟 5 至 7 僅適用於在非 DHCP 環境中開機的情況。 如果您是在 DHCP 環境中，請略過這些步驟並前往步驟 8。 如果您是在非 DHCP 環境中讓裝置開機，您會看到此效果的訊息：**使用 Set-HcsIPAddress Cmdlet 設定網路**。 
    
@@ -206,14 +204,14 @@ ms.locfileid: "56117743"
 
 9. 初始安裝程序完成，且裝置已開機之後，您將會看到裝置橫幅文字。 請記下 IP 位址及橫幅文字中的 URL，以便管理裝置。 您將使用此 IP 位址連線到虛擬裝置的 Web UI，以及完成本機安裝和啟用。
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image24.png)
+   ![虛擬裝置的橫幅文字和連線 URL](./media/data-box-gateway-deploy-provision-vmware/image24.png)
 
 如果裝置不符合最低設定需求，橫幅文字中會出現錯誤訊息 (如下所示)。 您必須修改裝置設定，讓裝置有足夠的資源來符合最低需求。 然後您就可以將裝置重新啟動，並連線到該裝置。 請參閱[確認主機系統符合最低虛擬裝置需求](#check-the-host-system)中的最低組態需求。
 
-<!---If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
+如果您在使用本機 Web UI 進行初始設定時碰到其他任何錯誤，請參閱下列工作流程：
 
-* Run diagnostic tests to [troubleshoot web UI setup](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
-* [Generate log package and view log files](storsimple-ova-web-ui-admin.md#generate-a-log-package).-->
+- [執行診斷測試來疑難排解 Web UI 安裝程式錯誤](data-box-gateway-troubleshoot.md#run-diagnostics)。
+- [產生記錄檔封裝及檢視記錄檔](data-box-gateway-troubleshoot.md#collect-support-package)。
 
 ## <a name="next-steps"></a>後續步驟
 

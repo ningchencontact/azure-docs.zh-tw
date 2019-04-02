@@ -8,25 +8,29 @@ ms.topic: include
 ms.date: 03/30/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 19352df7abff23ed44521a11e7907c84c8c0327f
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ce8496596f25b85719b8a6dff849ebf0fc3e5dc3
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "33835819"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58405596"
 ---
 在本節中，您會從 .NET 主控台應用程式將即時新聞以加註標記的範本通知形式傳送。 
 
-1. 在 Visual Studio 中，建立新的 Visual C# 主控台應用程式：
+1. 在 Visual Studio 中，建立新的 Visual C# 主控台應用程式：a. 在主功能表上，選取 [檔案] > [新增] > [專案]。
+    b. 展開 [Visual C#]，然後選取 [Windows 桌面]。 
+    c. 選取範本清單中的 [主控台應用程式 (.NET Framework)]。 
+    d. 輸入應用程式的**名稱**。 
+    e. 選取應用程式的**資料夾**。
+    f. 選取 [確定] 以建立專案。 
+2. 在 Visual Studio 主功能表上，選取 [工具] > [NuGet 套件管理員] >  [套件管理員主控台]，然後在主控台視窗中輸入下列字串：
    
-      ![主控台應用程式連結][13]
-
-2. 在 Visual Studio 主功能表上，選取 [工具] > [Library Package Manager] >  [Package Manager Console]，然後在主控台視窗中輸入下列字串：
-   
-        Install-Package Microsoft.Azure.NotificationHubs
+    ```
+    Install-Package Microsoft.Azure.NotificationHubs
+    ```
    
 3. 選取 [輸入]。  
-    此動作會使用 [Microsoft.Azure.Notification 中樞 NuGet 封裝]來新增對 Azure 通知中樞 SDK 的參考。
+    此動作會使用 [Microsoft.Azure.Notification Hubs NuGet 套件]來新增對 Azure 通知中樞 SDK 的參考。
 
 4. 開啟 Program.cs 檔案，並新增下列 `using` 陳述式：
    
@@ -80,4 +84,4 @@ ms.locfileid: "33835819"
 [Notification Hubs REST interface]: http://msdn.microsoft.com/library/windowsazure/dn223264.aspx
 [Add push notifications for Mobile Apps]: ../articles/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md
 [How to use Notification Hubs from Java or PHP]: ../articles/notification-hubs/notification-hubs-java-push-notification-tutorial.md
-[Microsoft.Azure.Notification 中樞 NuGet 封裝]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/
+[Microsoft.Azure.Notification Hubs NuGet 套件]: http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/
