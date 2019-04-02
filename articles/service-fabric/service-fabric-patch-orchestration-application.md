@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 477b31e9a821cfa43700eac5f1f61a3d45510cab
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: bce4946b62e3678f7fa8d5f7f6431441cc00b252
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665809"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762832"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>修補 Service Fabric 叢集中的 Windows 作業系統
 
@@ -28,6 +28,12 @@ ms.locfileid: "58665809"
 > * [Linux](service-fabric-patch-orchestration-application-linux.md)
 >
 >
+
+
+> 
+> [!IMPORTANT]
+> 應用程式 1.2 版。 * 即將於 30 年 4 月 2019年的支援。 請升級至最新版本。
+
 
 [Azure 虛擬機器擴展集的 OS 映像自動升級](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)是讓您的作業系統在 Azure 中修補的最佳做法，而修補程式協調流程應用程式 (POA) 則是 Service Fabrics Repair Manager Systems 服務相關的包裝函式，可針對非 Azure 託管的叢集，設定作業系統的修補排程。 非 Azure 託管的叢集不需要 POA，但需要排程升級網域安裝修補程式，才可以在不需要停機的情況下，修補 Service Fabric 叢集主機。
 

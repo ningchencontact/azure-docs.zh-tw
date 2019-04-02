@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 6f064bb875786fc50073ab4216bc1c52ace294bf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0688235d928584df223a3a6a6ca2821282e4cb92
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113260"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762679"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>在 Azure 中 Windows 虛擬機器上執行的 SQL Server 常見問題集
 
@@ -139,12 +139,7 @@ ms.locfileid: "58113260"
 
 1. **可以使用具名執行個體的 SQL Server IaaS 擴充功能與**嗎？
    
-   是，具名執行個體是否在 SQL Server 中，唯一的執行個體，並已正確地解除安裝原始的預設執行個體。 若要使用的具名執行個體，執行下列作業：
-    1. 部署市集中的 SQL Server VM。 
-    1. IaaS 延伸模組解除安裝。
-    1. 完全解除安裝 SQL Server。
-    1. 安裝 SQL Server 的具名執行個體。 
-    1. 安裝 IaaS 擴充功能。 
+   是，具名執行個體是否在 SQL Server 中，唯一的執行個體，以及原始的預設執行個體是否[正確解除安裝](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md#installation)。 如果沒有預設執行個體，且單一的 SQL Server VM 上有多個具名執行個體，IaaS 擴充功能將無法安裝。 
 
 1. **可以從 SQL VM 完全移除 SQL Server 嗎？**
 
@@ -176,6 +171,10 @@ ms.locfileid: "58113260"
 1. **如何在 Azure VM 上安裝 SQL 資料工具？**
 
     請從 [Microsoft SQL Server Data Tools - Business Intelligence for Visual Studio 2013](https://www.microsoft.com/en-us/download/details.aspx?id=42313) 下載並安裝 SQL 資料工具。
+
+1. **分散式的交易來支援在 SQL Server Vm 上的 MSDTC 嗎？**
+   
+    是。 本機 DTC 是受支援的 SQL Server 2016 SP2 和更新版本。 不過，當做交易執行中容錯移轉期間使用 Always On 可用性群組中，將會失敗，且必須重試時，應用程式就必須經過測試。 提供從 Windows Server 2019 叢集的 DTC。 
 
 ## <a name="resources"></a>資源
 

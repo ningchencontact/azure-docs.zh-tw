@@ -1,6 +1,6 @@
 ---
-title: Blueprint （藍圖） 部署的階段
-description: 了解藍圖服務部署期間經歷的步驟。
+title: 藍圖部署的階段
+description: 了解 Azure blueprint （藍圖） 服務在部署期間經歷的步驟。
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,14 +8,14 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: a3ab5589cd327b73f2e66540da5c49343c4449cd
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: ced8c8ab2e65fb1d3f8a976f122a387fe9161750
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57997622"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801959"
 ---
-# <a name="stages-of-a-blueprint-deployment"></a>Blueprint （藍圖） 部署的階段
+# <a name="stages-of-a-blueprint-deployment"></a>藍圖部署的階段
 
 取得部署藍圖，一系列的動作是服務所花費 Azure 藍圖部署的藍圖中定義的資源。 這篇文章提供有關每個步驟所涉及的詳細資料。
 
@@ -61,8 +61,8 @@ Blueprint （藍圖） 部署就會觸發將藍圖指派給訂用帳戶或[更�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 了解如何使用[靜態和動態參數](parameters.md)。
+- 了解如何使用[靜態與動態參數](parameters.md)。
 - 了解如何自訂[藍圖排序順序](sequencing-order.md)。
 - 了解如何使用[藍圖資源鎖定](resource-locking.md)。
 - 了解如何[更新現有的指派](../how-to/update-existing-assignments.md)。
-- 解決問題的藍圖，以使用在指派期間[一般疑難排解](../troubleshoot/general.md)。
+- 使用[一般疑難排解](../troubleshoot/general.md)來解決藍圖指派期間發生的問題。

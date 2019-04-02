@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 4ca42e34dcf215fe45d1f25adb9509034c6144d2
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 71632b3846a5dac39d7827c874367bd9802574f8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335839"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803510"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux 上 App Service 的 Java 開發人員指南
 
@@ -154,6 +154,14 @@ Spring Boot 開發人員可以使用 [Azure Active Directory Spring Boot 簡易�
 ### <a name="configure-tlsssl"></a>設定 TLS/SSL
 
 請遵循[繫結現有自訂 SSL 憑證](/azure/app-service/app-service-web-tutorial-custom-ssl)中的指示，上傳現有的 SSL 憑證，並將其繫結至您應用程式的網域名稱。 根據預設，您的應用程式仍然允許 HTTP 連線；請遵循教學課程中的特定步驟，以強制執行 SSL 和 TLS。
+
+### <a name="use-keyvault-references"></a>使用金鑰保存庫參考
+
+[Azure 金鑰保存庫](../../key-vault/key-vault-overview.md)提供集中式的祕密管理存取原則和稽核歷程記錄。 您可以將機密資料 （例如密碼或連接字串） 儲存在金鑰保存庫，並在您的應用程式，透過環境變數存取這些機密資料。
+
+首先，遵循[您的應用程式存取權授與 Key Vault](../app-service-key-vault-references.md#granting-your-app-access-to-key-vault)並[讓您的祕密的金鑰保存庫參考中為應用程式設定](../app-service-key-vault-references.md#reference-syntax)。 您可以驗證參考解析設為祕密的列印環境變數時從遠端存取應用程式服務的終端機。
+
+若要插入這些 Spring 或 Tomcat 組態檔中的祕密，使用環境變數的資料隱碼語法 (`${MY_ENV_VAR}`)。 Spring 組態檔，請參閱此文件[外部化組態](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html)。
 
 ## <a name="data-sources"></a>資料來源
 

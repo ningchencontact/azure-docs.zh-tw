@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b34a1716d077aeead572c60d0c6b9bcad60a5b1e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 84db71f8dabfb7557b5efbc06e024c43e654b56d
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005430"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805069"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>針對 Runbook 的錯誤進行疑難排解
 
@@ -26,7 +26,7 @@ ms.locfileid: "58005430"
 使用 `Add-AzureAccount` 或 `Connect-AzureRmAccount` Cmdlet 時，收到下列錯誤
 ：
 
-```
+```error
 Unknown_user_type: Unknown User Type
 ```
 
@@ -81,7 +81,7 @@ Unknown_user_type: Unknown User Type
 
 您在使用 `Select-AzureSubscription` 或 `Select-AzureRmSubscription` Cmdlet 時，收到下列錯誤：
 
-```
+```error
 The subscription named <subscription name> cannot be found.
 ```
 
@@ -119,7 +119,7 @@ The subscription named <subscription name> cannot be found.
 
 使用 Azure 使用者名稱與密碼向 Azure 進行驗證時，收到下列錯誤：
 
-```
+```error
 Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is required
 ```
 
@@ -139,7 +139,7 @@ Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is re
 
 您會在搭配 `-Wait` 參數叫用子 Runbook，且輸出資料流包含物件時收到下列錯誤：
 
-```
+```error
 Object reference not set to an instance of an object
 ```
 
@@ -179,7 +179,7 @@ $jobResults | Get-AzureRmAutomationJobOutput | Get-AzureRmAutomationJobOutputRec
 
 您在 Runbook 的作業串流中發現錯誤，出現的訊息如下：
 
-```
+```error
 Connect-AzureRMAccount : Method 'get_SerializationSettings' in type 
 'Microsoft.Azure.Management.Internal.Resources.ResourceManagementClient' from assembly 
 'Microsoft.Azure.Commands.ResourceManager.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' 
@@ -205,7 +205,7 @@ At line:16 char:1
 
 您的 Runbook 失敗，並具有類似下列範例的錯誤：
 
-```
+```error
 Exception: A task was canceled.
 ```
 
@@ -264,7 +264,7 @@ Start-AzureRmAutomationRunbook `
 
 您的 Runbook 失敗，並具有類似下列範例的錯誤：
 
-```
+```error
 The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, function, script file, or operable program.  Check the spelling of the name, or if the path was included verify that the path is correct and try again.
 ```
 
@@ -289,7 +289,7 @@ The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, fun
 
 您的 Runbook 失敗，錯誤為：
 
-```
+```error
 The job was tried three times but it failed
 ```
 
@@ -323,7 +323,7 @@ The job was tried three times but it failed
 
 您的 Runbook 失敗，錯誤為：
 
-```
+```error
 Cannot bind parameter <ParameterName>.
 
 Cannot convert the <ParameterType> value of type Deserialized <ParameterType> to type <ParameterType>.
@@ -375,7 +375,7 @@ Cannot convert the <ParameterType> value of type Deserialized <ParameterType> to
 
 您的 Runbook 作業失敗，錯誤為：
 
-```
+```error
 The quota for the monthly total job run time has been reached for this subscription
 ```
 
@@ -398,7 +398,7 @@ The quota for the monthly total job run time has been reached for this subscript
 
 您的 Runbook 作業失敗，錯誤為：
 
-```
+```error
 <cmdlet name>: The term <cmdlet name> is not recognized as the name of a cmdlet, function, script file, or operable program.
 ```
 
@@ -421,7 +421,7 @@ The quota for the monthly total job run time has been reached for this subscript
 
 您的 Runbook 在執行 3 小時之後顯示為 [已停止] 狀態。 您可能還收到此錯誤：
 
-```
+```error
 The job was evicted and subsequently reached a Stopped state. The job cannot continue running
 ```
 
@@ -469,7 +469,7 @@ Runbook 的執行時間已超過「Azure 沙箱」中公平共用所允許的 3 
 
 您在執行 `Get-AzureRmAutomationJobOutput` Cmdlet 時出現下列錯誤訊息：
 
-```
+```error
 429: The request rate is currently too large. Please try again
 ```
 

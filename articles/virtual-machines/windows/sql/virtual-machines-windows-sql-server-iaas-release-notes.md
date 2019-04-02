@@ -13,16 +13,30 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 2/13/2019
-ms.openlocfilehash: d5c003b2588813f8e8a1dfc2923b9d4c8d8c6cc8
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: c46e2d4e2aa79d1d62d0361763911660349cfbb0
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820428"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762307"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>Azure 虛擬機器的 SQL Server 版本資訊
 
 Azure 可讓您使用內建的 SQL Server 映像部署虛擬機器。 本文將摘要說明 [Azure 虛擬機器上的 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/) 最新版本中的新功能與改進功能。 本文也會列出值得注意的內容更新，這些更新並未與該版本直接相關，但會在同一個時間範圍內發佈。 如需其他 Azure 服務的改進功能，請參閱[服務更新](https://azure.microsoft.com/updates)
+
+## <a name="march-2019"></a>2019 年 3 月
+
+### <a name="service-improvements"></a>服務改進功能
+
+| 服務改進功能 | 詳細資料 |
+| --- | --- |
+| **自訂映像可支援性** | 您現在可以安裝[SQL IaaS 延伸模組](virtual-machines-windows-sql-server-agent-extension.md#installation)自訂的作業系統和 SQL 映像，以提供的功能受限[彈性授權](virtual-machines-windows-sql-ahb.md)。 當使用 SQL 資源提供者，註冊您的自訂映像指定為 'AHUB' 的授權類型為否則登錄將會失敗。 自訂映像不支援透過 Azure 入口網站中的 [SQL 設定] 刀鋒視窗的管理方式。   | 
+| **具名執行個體可支援性** | 您現在可以利用[SQL IaaS 延伸模組](virtual-machines-windows-sql-server-agent-extension.md#installation)的具名執行個體，如果已正確地解除安裝的預設執行個體。 | 
+| &nbsp; | &nbsp; |
+
+### <a name="documentation-improvements"></a>文件改進
+
+None
 
 
 ## <a name="february-2019"></a>2019 年 2 月
@@ -32,15 +46,9 @@ Azure 可讓您使用內建的 SQL Server 映像部署虛擬機器。 本文將�
 | 服務改進功能 | 詳細資料 |
 | --- | --- |
 | **入口網站的改進** | 現在便能夠授權模式變更為隨用隨付從 SQL Server VM，以將為您擁有的授權使用[Azure 入口網站](virtual-machines-windows-sql-ahb.md#with-the-azure-portal-1)。|
-|**使用 Azure SQL VM CLI 的 AG 部署簡化** | 這現在遠比以往若要部署的可用性群組在 Azure 中的 SQL Server VM。 Azure SQL VM CLI 可讓您建立 WSFC，ILB 和 AG 接聽程式，從命令列和記錄的時間 ！ 如需詳細資訊，請參閱 <<c0> [ 使用 Azure SQL VM CLI 設定 Azure VM 上的 SQL Server Always On 可用性群組](virtual-machines-windows-sql-availability-group-cli.md)。 | 
+|**使用 Azure SQL VM CLI 的 AG 部署簡化** | 這現在遠比以往若要部署的可用性群組在 Azure 中的 SQL Server VM。 [Azure SQL VM CLI](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid)可讓您建立 WSFC，ILB 和 AG 接聽程式，從命令列中，並記錄的時間 ！ 如需詳細資訊，請參閱 <<c0> [ 使用 Azure SQL VM CLI 設定 Azure VM 上的 SQL Server Always On 可用性群組](virtual-machines-windows-sql-availability-group-cli.md)。 | 
 | &nbsp; | &nbsp; |
 
-### <a name="documentation-improvements"></a>文件改進
-
-| 文件改進 | 詳細資料 |
-| --- | --- |
-|None | |
-| | |
 
 ## <a name="december-2018"></a>2018 年 12 月
 

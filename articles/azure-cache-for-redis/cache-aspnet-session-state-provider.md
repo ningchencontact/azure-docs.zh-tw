@@ -14,24 +14,27 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/01/2017
 ms.author: yegu
-ms.openlocfilehash: 3b10a471aafc4799fde8cb2e42b7c21c8d1eb9c4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 4a51040ecdbf22af03ce1e6edaaa0ff577bbc076
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232061"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793232"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>適用於 Azure Cache for Redis 的 ASP.NET 工作階段狀態提供者
+
 Azure Cache for Redis 提供工作階段狀態提供者，可讓您用來將記憶體內部工作階段狀態儲存在 Azure Cache for Redis 中，而不是 SQL Server 資料庫中。 若要使用快取工作階段狀態提供者，請先設定快取，再使用「Azure Cache for Redis 工作階段狀態 NuGet 套件」設定 ASP.NET 應用程式的快取。
 
 在實際的雲端應用程式中，避免儲存使用者工作階段某種形式的狀態通常並非理想做法，但某些方法會比其他方法更加影響效能和延展性。 如果您需要儲存狀態，最好的方法是將狀態的數量控制得較低，並將其儲存在 Cookie 中。 如果此方法不可行，次佳的方法是使用 ASP.NET 工作階段狀態搭配提供者，進行分散式的記憶體中快取。 從效能和延展性的觀點來看，最差的解決方法是使用資料庫備份的工作階段狀態提供者。 本主題提供使用 Azure Cache for Redis 的 ASP.NET 工作階段狀態提供者的指引。 如需其他工作階段狀態選項的相關資訊，請參閱 [ASP.NET 工作階段狀態選項](#aspnet-session-state-options)。
 
 ## <a name="store-aspnet-session-state-in-the-cache"></a>將 ASP.NET 工作階段狀態儲存在快取中
+
 若要在 Visual Studio 中使用「Azure Cache for Redis 工作階段狀態」NuGet 套件來設定用戶端應用程式，請從 [工具] 功能表中，依序按一下 [NuGet 套件管理員] 和 [套件管理員主控台]。
 
 從 `Package Manager Console` 視窗執行下列命令。
     
-```
+
+```powershell
 Install-Package Microsoft.Web.RedisSessionStateProvider
 ```
 
@@ -40,10 +43,10 @@ Install-Package Microsoft.Web.RedisSessionStateProvider
 > 
 > 
 
-「Redis 工作階段狀態提供者 NuGet 封裝」對「StackExchange.Redis.StrongName 封裝」有相依性。 如果 StackExchange.Redis.StrongName 封裝不在專案中，代表已經安裝。
+Redis 会话状态提供程序 NuGet 包依赖于 StackExchange.Redis.StrongName 包。 如果 StackExchange.Redis.StrongName 封裝不在專案中，代表已經安裝。
 
 >[!NOTE]
->除了強式名稱的 StackExchange.Redis.StrongName 封裝外，另外還有非強式名稱版本的 StackExchange.Redis。 如果您的專案使用非強式名稱的 StackExchange.Redis 版本，您必須將它解除安裝，否則專案中會發生命名衝突。 如需這些封裝的相關詳細資訊，請參閱 [設定 .NET 快取用戶端](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients)。
+>除了強式名稱的 StackExchange.Redis.StrongName 封裝外，另外還有非強式名稱版本的 StackExchange.Redis。 如果您的專案使用非強式名稱的 StackExchange.Redis 版本，您必須將它解除安裝，否則專案中會發生命名衝突。 有关这些包的详细信息，请参阅[配置 .NET 缓存客户端](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients)。
 >
 >
 
@@ -123,6 +126,7 @@ NuGet 封裝會下載和加入必要的組件參考，並將下列區段加入�
 > 
 
 ## <a name="aspnet-session-state-options"></a>ASP.NET 工作階段狀態選項
+
 * 記憶體中工作階段狀態提供者 – 此提供者會將工作階段狀態儲存在記憶體中。 使用此提供者的好處是它既簡單又快速。 不過，您在使用記憶體中提供者時將無法調整 Web Apps，因為它不是分散式的。
 * SQL Server 工作階段狀態提供者 – 此提供者會將工作階段狀態儲存在 SQL Server 中。 如果您想要在永續性儲存體中儲存工作階段狀態，請使用此供應器。 您可以調整您的 Web 應用程式，但將 SQL Server 用於工作階段，會對 Web 應用程式的效能造成影響。 您也可以使用此提供者搭配[記憶體內部 OLTP 組態](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/11/28/asp-net-session-state-with-sql-server-in-memory-oltp/)，協助改善效能。
 * 分散式記憶體中工作階段狀態提供者，例如 Azure Cache for Redis 工作階段狀態提供者 – 此提供者可讓您同時兼顧兩方面。 您的 Web 應用程式可擁有簡單、快速而可調整的工作階段狀態供應器。 因為此供應器會將工作階段狀態儲存在快取中，您的應用程式必須考量與分散式記憶體中快取 (例如暫時性網路失敗) 通訊時的所有相關特性。 如需使用快取的最佳作法，請參閱 Microsoft 模式和作法 [Azure 雲端應用程式設計和實作指引](https://github.com/mspnp/azure-guidance)中的[快取指引](../best-practices-caching.md)。
@@ -130,5 +134,5 @@ NuGet 封裝會下載和加入必要的組件參考，並將下列區段加入�
 如需工作階段狀態和其他最佳作法的相關詳細資訊，請參閱 [Web 開發最佳作法 (使用 Azure 建置實際的雲端應用程式)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices)(英文)。
 
 ## <a name="next-steps"></a>後續步驟
-查看 [Azure Cache for Redis 的 ASP.NET 輸出快取提供者](cache-aspnet-output-cache-provider.md)。
 
+查看 [Azure Cache for Redis 的 ASP.NET 輸出快取提供者](cache-aspnet-output-cache-provider.md)。

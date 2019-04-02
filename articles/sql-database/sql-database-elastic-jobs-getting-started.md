@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 68a5bdef17077d1815b6d85e121d9bb26c2280bf
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 6d794fb14b7f581c9e9b92dc581de97e0a236630
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484249"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793742"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>開始使用彈性資料庫工作
 
@@ -116,8 +116,10 @@ Azure SQL Database 的彈性資料庫工作 (預覽) 可讓您跨越多個資料
     $ErrorActionPreference = "Continue"
    }
    ```
+
 ## <a name="create-a-t-sql-script-for-execution-across-databases"></a>針對跨資料庫執行建立 T-SQL 指令碼
-   ```
+
+   ```powershell
     $scriptName = "NewTable"
     $scriptCommandText = "
     IF NOT EXISTS (SELECT name FROM sys.tables WHERE name = 'Test')
@@ -137,7 +139,7 @@ Azure SQL Database 的彈性資料庫工作 (預覽) 可讓您跨越多個資料
 
 ## <a name="create-the-job-to-execute-a-script-across-the-custom-group-of-databases"></a>建立工作以跨自訂資料庫群組執行指令碼
 
-   ```
+   ```powershell
     $jobName = "create on server dbs"
     $scriptName = "NewTable"
     $customCollectionName = "dbs_in_server"
@@ -148,50 +150,53 @@ Azure SQL Database 的彈性資料庫工作 (預覽) 可讓您跨越多個資料
    ```
 
 ## <a name="execute-the-job"></a>執行工作
+
 下列 PowerShell 指令碼可以用來執行現有的工作：
 
 更新下列變數以反映要執行的所需工作名稱：
 
-   ```
+   ```powershell
     $jobName = "create on server dbs"
     $jobExecution = Start-AzureSqlJobExecution -JobName $jobName
     Write-Output $jobExecution
    ```
 
 ## <a name="retrieve-the-state-of-a-single-job-execution"></a>擷取單一工作執行狀態
+
 使用相同 **Get-AzureSqlJobExecution** Cmdlet 搭配 **IncludeChildren** 參數，以檢視子工作執行的狀態，也就是工作在每個目標資料庫上的每個工作執行的特定狀態。
 
-   ```
+   ```powershell
     $jobExecutionId = "{Job Execution Id}"
     $jobExecutions = Get-AzureSqlJobExecution -JobExecutionId $jobExecutionId -IncludeChildren
     Write-Output $jobExecutions
    ```
 
 ## <a name="view-the-state-across-multiple-job-executions"></a>檢視跨多個工作執行的狀態
+
 **Get-AzureSqlJobExecution** Cmdlet 具有多個選用參數，可用來顯示多個工作執行、透過提供的參數篩選。 以下示範一些使用 Get-AzureSqlJobExecution 的可能方式：
 
 擷取所有作用中最上層作業執行：
 
-   ```
+   ```powershell
     Get-AzureSqlJobExecution
    ```
 
 擷取所有最上層作業執行，包括非使用中工作執行：
 
-   ```
+   ```powershell
     Get-AzureSqlJobExecution -IncludeInactive
    ```
 
 擷取已提供工作執行 ID 的所有子工作執行，包括非使用中工作執行：
 
-   ```
+   ```powershell
     $parentJobExecutionId = "{Job Execution Id}"
     Get-AzureSqlJobExecution -AzureSqlJobExecution -JobExecutionId $parentJobExecutionId -IncludeInactive -IncludeChildren
    ```
 
 擷取使用排程/工作組合建立的所有工作執行，包括非使用中工作：
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
     Get-AzureSqlJobExecution -JobName $jobName -ScheduleName $scheduleName -IncludeInactive
@@ -199,7 +204,7 @@ Azure SQL Database 的彈性資料庫工作 (預覽) 可讓您跨越多個資料
 
 擷取以指定的分區對應為目標的所有工作，包括非使用中工作：
 
-   ```
+   ```powershell
     $shardMapServerName = "{Shard Map Server Name}"
     $shardMapDatabaseName = "{Shard Map Database Name}"
     $shardMapName = "{Shard Map Name}"
@@ -209,7 +214,7 @@ Azure SQL Database 的彈性資料庫工作 (預覽) 可讓您跨越多個資料
 
 擷取以指定的自訂集合為目標的所有工作，包括非使用中工作：
 
-   ```
+   ```powershell
     $customCollectionName = "{Custom Collection Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     Get-AzureSqlJobExecution -TargetId $target.TargetId -IncludeInactive
@@ -217,7 +222,7 @@ Azure SQL Database 的彈性資料庫工作 (預覽) 可讓您跨越多個資料
 
 擷取特定工作執行內的工作作業執行的清單：
 
-   ```
+   ```powershell
     $jobExecutionId = "{Job Execution Id}"
     $jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
     Write-Output $jobTaskExecutions
@@ -226,16 +231,18 @@ Azure SQL Database 的彈性資料庫工作 (預覽) 可讓您跨越多個資料
 擷取工作作業執行詳細資料：
 
 下列 PowerShell 指令碼可用來檢視工作作業執行的詳細資料，在偵錯執行失敗時特別有用。
-   ```
+
+   ```powershell
     $jobTaskExecutionId = "{Job Task Execution Id}"
     $jobTaskExecution = Get-AzureSqlJobTaskExecution -JobTaskExecutionId $jobTaskExecutionId
     Write-Output $jobTaskExecution
    ```
 
 ## <a name="retrieve-failures-within-job-task-executions"></a>擷取工作作業執行內的失敗
+
 JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。 如果作業工作執行失敗，生命週期屬性會設為「失敗」，且訊息屬性會設為產生的例外狀況訊息和其堆疊。 如果工作不成功，務必檢視指定作業不成功的工作作業的詳細資料。
 
-   ```
+   ```powershell
     $jobExecutionId = "{Job Execution Id}"
     $jobTaskExecutions = Get-AzureSqlJobTaskExecution -JobExecutionId $jobExecutionId
     Foreach($jobTaskExecution in $jobTaskExecutions)
@@ -248,14 +255,16 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。 如�
    ```
 
 ## <a name="waiting-for-a-job-execution-to-complete"></a>等候工作執行完成
+
 下列 PowerShell 指令碼可以用來等候工作作業完成：
 
-   ```
+   ```powershell
     $jobExecutionId = "{Job Execution Id}"
     Wait-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```
 
 ## <a name="create-a-custom-execution-policy"></a>建立自訂執行原則
+
 彈性資料庫工作支援建立自訂執行原則，可以在啟動作業時套用。
 
 執行原則目前允許定義：
@@ -278,7 +287,7 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。 如�
 
 建立想要的執行原則：
 
-   ```
+   ```powershell
     $executionPolicyName = "{Execution Policy Name}"
     $initialRetryInterval = New-TimeSpan -Seconds 10
     $jobTimeout = New-TimeSpan -Minutes 30
@@ -290,9 +299,10 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。 如�
    ```
 
 ### <a name="update-a-custom-execution-policy"></a>更新自訂執行原則
+
 更新要更新之想要的執行原則：
 
-   ```
+   ```powershell
     $executionPolicyName = "{Execution Policy Name}"
     $initialRetryInterval = New-TimeSpan -Seconds 15
     $jobTimeout = New-TimeSpan -Minutes 30
@@ -329,38 +339,41 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。 如�
 
 若要觸發工作刪除，請使用 **Remove-AzureSqlJob** Cmdlet 並設定 **JobName** 參數。
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     Remove-AzureSqlJob -JobName $jobName
    ```
 
 ## <a name="create-a-custom-database-target"></a>建立自訂資料庫目標
+
 自訂資料庫目標可以在彈性資料庫工作中定義，可用來直接執行或包含在自訂資料庫群組內。 由於透過 PowerShell API 還無法直接支援「彈性集區」，因此您只需建立自訂資料庫目標和自訂資料庫集合目標，以包含集區中的所有資料庫。
 
 設定下列變數以反映所需的資料庫資訊：
 
-   ```
+   ```powershell
     $databaseName = "{Database Name}"
     $databaseServerName = "{Server Name}"
     New-AzureSqlJobDatabaseTarget -DatabaseName $databaseName -ServerName $databaseServerName
    ```
 
 ## <a name="create-a-custom-database-collection-target"></a>建立自訂資料庫集合目標
+
 可以定義自訂資料庫集合目標，以跨多個已定義資料庫目標執行。 建立資料庫群組之後，資料庫可以與自訂集合目標相關聯。
 
 设置以下变量以反映所需的自定义集合目标配置：
 
-   ```
+   ```powershell
     $customCollectionName = "{Custom Database Collection Name}"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
    ```
 
 ### <a name="add-databases-to-a-custom-database-collection-target"></a>將資料庫新增至自訂資料庫集合目標
+
 資料庫目標可以與自訂資料庫集合目標相關聯，以建立資料庫群組。 每當建立以自訂資料庫集合目標為目標的作業時，都會擴展為以關聯至執行中的群組的資料庫為目標。
 
 將所需的資料庫新增至特定自訂集合：
 
-   ```
+   ```powershell
     $serverName = "{Database Server Name}"
     $databaseName = "{Database Name}"
     $customCollectionName = "{Custom Database Collection Name}"
@@ -368,9 +381,10 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。 如�
    ```
 
 #### <a name="review-the-databases-within-a-custom-database-collection-target"></a>檢閱自訂資料庫集合目標內的資料庫
+
 使用 **Get-AzureSqlJobTarget** Cmdlet 以擷取自訂資料庫集合目標內的子資料庫。
 
-   ```
+   ```powershell
     $customCollectionName = "{Custom Database Collection Name}"
     $target = Get-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $childTargets = Get-AzureSqlJobTarget -ParentTargetId $target.TargetId
@@ -378,9 +392,10 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。 如�
    ```
 
 ### <a name="create-a-job-to-execute-a-script-across-a-custom-database-collection-target"></a>建立工作以跨自訂資料庫集合目標執行指令碼
+
 使用 **New-AzureSqlJob** Cmdlet 以根據自訂資料庫集合目標定義的資料庫群組建立工作。 彈性資料庫作業會將作業展開成多個子作業，每個子作業對應至與自訂資料庫集合目標相關聯的資料庫，並且確保指令碼會針對每個資料庫執行。 再次重申，很重要的是指令碼具有等冪處理重試的彈性。
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     $scriptName = "{Script Name}"
     $customCollectionName = "{Custom Collection Name}"
@@ -391,6 +406,7 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。 如�
    ```
 
 ## <a name="data-collection-across-databases"></a>跨資料庫的資料集合
+
 **彈性資料庫工作** 支援跨資料庫群組執行查詢，並將結果傳送至指定的資料庫資料表。 可以在事实之后查询该表，以查看每个数据库的查询结果。 這提供跨多個資料庫執行查詢的非同步機制。 例如其中一個資料庫暫時無法使用的失敗案例是透過重試自動處理。
 
 如果指定的目的地資料表尚未存在以對應於傳回的結果集的結構描述，則會自動建立。 如果指令碼執行傳回多個結果集，彈性資料庫作業只會將第一個傳送至提供的目的地資料表。
@@ -399,7 +415,7 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。 如�
 
 設定下列項目以反映所需的指令碼、認證和執行目標：
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     $scriptName = "{Script Name}"
     $executionCredentialName = "{Execution Credential Name}"
@@ -413,7 +429,8 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。 如�
    ```
 
 ### <a name="create-and-start-a-job-for-data-collection-scenarios"></a>建立和啟動資料庫集合案例的工作
-   ```
+
+   ```powershell
     $job = New-AzureSqlJob -JobName $jobName -CredentialName $executionCredentialName -ContentName $scriptName -ResultSetDestinationServerName $destinationServerName -ResultSetDestinationDatabaseName $destinationDatabaseName -ResultSetDestinationSchemaName $destinationSchemaName -ResultSetDestinationTableName $destinationTableName -ResultSetDestinationCredentialName $destinationCredentialName -TargetId $target.TargetId
     Write-Output $job
     $jobExecution = Start-AzureSqlJobExecution -JobName $jobName
@@ -421,10 +438,12 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。 如�
    ```
 
 ## <a name="create-a-schedule-for-job-execution-using-a-job-trigger"></a>使用工作觸發程序建立工作執行的排程
+
 下列 PowerShell 指令碼可以用來建立重複排程。 這個指令碼使用分鐘間隔，但是 New-AzureSqlJobSchedule 也支援 -DayInterval、-HourInterval、-MonthInterval 和 -WeekInterval 參數。 您可以藉由傳遞 -OneTime，建立僅執行一次的排程。
 
 建立新的排程：
-   ```
+
+   ```powershell
     $scheduleName = "Every one minute"
     $minuteInterval = 1
     $startTime = (Get-Date).ToUniversalTime()
@@ -433,11 +452,12 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。 如�
    ```
 
 ### <a name="create-a-job-trigger-to-have-a-job-executed-on-a-time-schedule"></a>建立工作觸發程序，讓工作在時間排程時執行
+
 可以定義工作觸發程序，讓工作根據時間排程執行。 以下 PowerShell 脚本可用于创建作业触发器。
 
 設定下列變數以對應所需的工作和排程：
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
     $jobTrigger = New-AzureSqlJobTrigger -ScheduleName $scheduleName -JobName $jobName
@@ -445,16 +465,18 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。 如�
    ```
 
 ### <a name="remove-a-scheduled-association-to-stop-job-from-executing-on-schedule"></a>移除排程的關聯，以停止工作的排程執行
+
 若要透過工作觸發程序中止工作重複執行，可以移除工作觸發程序。
 使用 **Remove-AzureSqlJobTrigger** Cmdlet，移除工作觸發程序以停止工作根據排程執行。
 
-   ```
+   ```powershell
     $jobName = "{Job Name}"
     $scheduleName = "{Schedule Name}"
     Remove-AzureSqlJobTrigger -ScheduleName $scheduleName -JobName $jobName
    ```
 
 ## <a name="import-elastic-database-query-results-to-excel"></a>匯入彈性資料庫查詢結果到 Excel
+
  您可以從查詢的結果匯入到 Excel 檔案。
 
 1. 啟動 Excel 2013。
@@ -471,9 +493,11 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。 如�
 儲存在不同分區中、來自 [客戶]  資料表的所有資料列會填入 Excel 工作表。
 
 ## <a name="next-steps"></a>後續步驟
+
 您現在可以使用 Excel 的資料功能。 使用具備伺服器名稱、資料庫名稱和認證的連接字串，將您的 BI 和資料整合工具連接至彈性查詢資料庫。 請確定 SQL Server 可支援做為您的工具的資料來源。 參考彈性查詢資料庫和外部資料表，就如同您會使用您的工具連接的任何其他 SQL Server 資料庫和 SQL Server 資料表。
 
 ### <a name="cost"></a>成本
+
 使用彈性資料庫的查詢功能不另行收費。 不過，目前這項功能僅適用於進階和業務關鍵資料庫和彈性集區作為端點，但分區可以是任何服務層。
 
 如需價格資訊，請參閱 [SQL Database 價格詳細資料](https://azure.microsoft.com/pricing/details/sql-database/)。

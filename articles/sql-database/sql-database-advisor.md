@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 6dd404ec0ab9e88c9e5bc4af4b939b3aa1f2e675
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 348183e1a164dd0a0f5f9672346423b95c27eba4
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55560867"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793669"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>SQL Database 的效能建議
 
@@ -85,6 +85,10 @@ SQL Database 會持續監視正在執行的查詢，並找出可改善效能的�
 | 213 |資料行名稱或提供的數值數量與資料表定義不相符。 |
 | 2812 |找不到預存程序 ' *'。 |
 | 8144 |程序或函數 * 指定了太多的引數。 |
+
+## <a name="custom-applications"></a>自訂應用程式
+
+開發人員可能會考慮開發自訂應用程式使用 Azure SQL database 的效能建議。 入口網站中的資料庫可以透過存取列出的所有建議[Get AzureRmSqlDatabaseRecommendedAction](https://docs.microsoft.com/en-us/powershell/module/AzureRM.Sql/Get-AzureRmSqlDatabaseRecommendedAction) API。
 
 ## <a name="next-steps"></a>後續步驟
 監視建議，並繼續套用建議以改善效能。 資料庫工作負載會動態地持續變更。 SQL Database 建議程式會繼續監視並提供可能改善資料庫效能的建議。 

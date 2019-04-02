@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/24/2015
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: 254128d212dec3e6f51a98dc4435894e08377eb0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 3b8b21de9664a969e8b1ce5699034aa9ab41d0f1
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955219"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762883"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>如何透過 Twilio 來使用 Azure 的語音和簡訊功能
 本指南示範如何在 Azure 上透過 Twilio API 服務執行常見的程式設計工作。 涵蓋的案例包括打電話和傳送簡訊 (SMS)。 如需有關如何在應用程式中使用 Twilio 語音和 SMS 的詳細資訊，請參閱[後續步驟](#NextSteps)一節。
@@ -30,7 +30,7 @@ Twilio 正在形塑商業環境的未來，可讓開發人員將語音、VoIP �
 **Twilio 語音** 可讓應用程式撥打和接聽電話。 **Twilio 簡訊**可讓應用程式收發簡訊。 **Twilio 用戶端**可讓您從任何電話、平板電腦或瀏覽器撥打 VoIP 電話，且支援 WebRTC。
 
 ## <a id="Pricing"></a>Twilio 定價和特別供應項目
-升級 Twilio 帳戶的 Azure 客戶，可 [特別獲贈](https://www.twilio.com/azure)價值 $10 的 Twilio 點數。 此 Twilio 點數可用來折抵任何 Twilio 使用量 ($10 點數相當於最多傳送 1,000 則簡訊，或最多接收 1000 分鐘的撥入語音，視電話號碼所在地點或通話目的地而定)。 請至 [ahoy.twilio.com/azure](https://ahoy.twilio.com/azure) 兌換 Twilio 點數來開始使用。
+升級 Twilio 帳戶的 Azure 客戶，可 [特別獲贈](https://www.twilio.com/azure)價值 $10 的 Twilio 點數。 此 Twilio 點數可用來折抵任何 Twilio 使用量 ($10 點數相當於最多傳送 1,000 則簡訊，或最多接收 1000 分鐘的撥入語音，視電話號碼所在地點或通話目的地而定)。 兌換 Twilio 點數來開始[twilio.com/azure](https://twilio.com/azure)。
 
 Twilio 是隨收隨付的服務。 不需要設定費，隨時都可結清帳戶。 如需詳細資訊，請參閱 [Twilio 價格](https://www.twilio.com/voice/pricing)。
 
@@ -44,16 +44,16 @@ API 採用 Twilio 動詞。例如，**&lt;Say&gt;** 動詞指示 Twilio 在通�
 
 以下是 Twilio 動詞清單。  如需了解其他動詞和功能，請參閱 [Twilio 標記語言文件](https://www.twilio.com/docs/api/twiml)。
 
-* `<Dial>`：使撥號者接通另一支電話。
-* `<Gather>`：收集電話按鍵上輸入的號碼。
-* `<Hangup>`：結束通話。
-* `<Play>`：播放音訊檔案。
-* `<Pause>`：靜候一段指定的秒數。
-* `<Record>`：錄製來電者的語音並傳回含有錄音的檔案 URL。
-* `<Redirect>`：將通話或簡訊的控制權移轉至不同 URL 的 TwiML。
-* `<Reject>`：拒絕 Twilio 號碼的來電而不計費
-* `<Say>`：將來電的文字轉換成語音。
-* `<Sms>`：傳送簡訊。
+* `<Dial>`:使撥號者接通另一支電話。
+* `<Gather>`:收集電話按鍵上輸入的號碼。
+* `<Hangup>`:結束通話。
+* `<Play>`:播放音訊檔案。
+* `<Pause>`:靜候一段指定的秒數。
+* `<Record>`:錄製來電者的語音並傳回含有錄音的檔案 URL。
+* `<Redirect>`:將通話或簡訊的控制權移轉至不同 URL 的 TwiML。
+* `<Reject>`:拒絕 Twilio 號碼的來電而不計費
+* `<Say>`:將來電的文字轉換成語音。
+* `<Sms>`:傳送簡訊。
 
 ### <a name="twiml"></a>TwiML
 TwiML 是以 Twilio 動詞為基礎的一組 XML 指令，可指示 Twilio 如何處理來電或簡訊。
@@ -85,7 +85,7 @@ Twilio 提供一套 .NET 協助程式庫，內已封裝 Twilio 的各種組件�
 
 Twilio 為 .NET 開發人員提供五套程式庫：
 
-| 程式庫 | 說明 |
+| 程式庫 | 描述 |
 | --- | --- |
 | Twilio.API | 核心 Twilio 程式庫將 Twilio REST API 包裝在一個好用的 .NET 程式庫中。 此程式庫適用於 .NET、Silverlight 和 Windows Phone 7。 |
 | Twilio.TwiML | 輕鬆利用 .NET 來產生 TwiML 標記。 |

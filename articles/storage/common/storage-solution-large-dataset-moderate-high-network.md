@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: d3326713b0fbae070d04fa0fe7ead712fbcacf84
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 8dd55032c933cdc31b848addfdac991550376dcf
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496888"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805567"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>在有中速至高速的網路頻寬之情況下進行大型資料集的資料轉送
  
@@ -62,7 +62,7 @@ ms.locfileid: "58496888"
 
 如果使用離線資料轉送，請使用下表來了解主要功能差異。
 
-|                                     |    資料箱磁碟 (預覽)    |    資料箱                                      |    Data Box Heavy (預覽)              |    匯入/匯出                       |
+|                                     |    資料箱磁碟      |    資料箱                                      |    Data Box Heavy            |    匯入/匯出                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    資料大小                        |    最多 35 TB                 |    每個裝置最多 80 TB                       |    每個裝置最多 800 TB               |    變數                            |
 |    資料類型                        |    Azure Blob                  |    Azure Blob<br>Azure 檔案                    |    Azure Blob<br>Azure 檔案            |    Azure Blob<br>Azure 檔案          |
@@ -83,7 +83,7 @@ ms.locfileid: "58496888"
 
 ### <a name="high-network-bandwidth"></a>高速網路頻寬
 
-|                                     |    工具 AzCopy、 <br>Azure PowerShell、 <br>Azure CLI             |    Azure 儲存體 REST API、SDK                   |    資料箱閘道或 Azure Data Box Edge (預覽)           |    Azure Data Factory                                            |
+|                                     |    工具 AzCopy、 <br>Azure PowerShell、 <br>Azure CLI             |    Azure 儲存體 REST API、SDK                   |    方塊的 data Gateway 或資料方塊邊緣          |    Azure Data Factory                                            |
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
 |    資料類型                  |    Azure Blob、Azure 檔案、Azure 資料表    |    Azure Blob、Azure 檔案、Azure 資料表    |    Azure Blob、Azure 檔案                           |   支援 70 種以上的資料存放區和格式化資料連接器    |
 |    板型規格                |    命令列工具                        |    程式設計介面                    |    Microsoft 提供的虛擬 <br>或實體裝置     |    Azure 入口網站中的服務                                            |

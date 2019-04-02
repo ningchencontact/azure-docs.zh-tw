@@ -8,26 +8,26 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 09/04/2018
+ms.date: 04/01/2019
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8770648a3683c4f612536c9a04921682a01bcd0c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9cda9f976a7680a1338584e4308426683de82a79
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089806"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802112"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>使用 Azure Active Directory 新增或刪除使用者
-從您的 Azure Active Directory (Azure AD) 租用戶新增使用者或刪除現有的使用者。
+新增使用者或組織的 Azure Active Directory (Azure AD) 中刪除現有的使用者。
 
 ## <a name="add-a-new-user"></a>新增使用者
 您可以使用 Azure Active Directory 入口網站建立新使用者。
 
 ### <a name="to-add-a-new-user"></a>新增使用者
-1. 以目錄的全域系統管理員或使用者系統管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
+1. 登入[Azure 入口網站](https://portal.azure.com/)組織的使用者系統管理員身分。
 
 2. 選取 [Azure Active Directory] 並選取 [使用者]，然後選取 [新增使用者]。
 
@@ -39,7 +39,7 @@ ms.locfileid: "58089806"
 
    - **名稱 (必要)。** 新使用者的姓氏與名字。 例如，Mary Parker。
 
-   - **使用者名稱 (必要)。** 新使用者的使用者名稱。 例如： mary@contoso.com。 
+   - **使用者名稱 (必要)。** 新使用者的使用者名稱。 例如： mary@contoso.com。
     
        使用者名稱的網域部分必須使用初始預設網域名稱 (<_yourdomainname_>.onmicrosoft.com)，或自訂網域名稱，例如 contoso.com。 如需如何建立自訂網域名稱的詳細資訊，請參閱[如何將自訂網域名稱新增到 Azure Active Directory](add-custom-domain.md)。
 
@@ -47,7 +47,7 @@ ms.locfileid: "58089806"
 
    - **群組。** (選擇性) 您可以將使用者新增到一或多個現有的群組。 您也可以稍後再將使用者新增到群組。 如需有關將使用者新增到群組的詳細資訊，請參閱[如何建立基本的群組及新增成員](active-directory-groups-create-azure-portal.md)。
 
-   - **目錄角色。** (選擇性) 您可以將使用者新增到目錄角色。 您可以將使用者指派為 Azure AD 中的全域系統管理員，或指派給一或多個其他系統管理員角色。 如需有關指派角色的詳細資訊，請參閱[如何將角色指派給使用者](active-directory-users-assign-role-azure-portal.md)。
+   - **目錄角色。** （選擇性） 您可以在其中新增使用者的 Azure AD 系統管理員角色。 您可以指派使用者必須在 Azure AD 中的全域管理員或一或多個受限的管理員角色。 如需有關指派角色的詳細資訊，請參閱[如何將角色指派給使用者](active-directory-users-assign-role-azure-portal.md)。
 
 4. 複製在 [密碼] 方塊中提供的自動產生密碼。 您必須將此密碼提供給使用者，讓其進行初始登入程序。
 
@@ -62,7 +62,7 @@ ms.locfileid: "58089806"
 您可以使用 Azure Active Directory 入口網站刪除現有的使用者。
 
 ### <a name="to-delete-a-user"></a>刪除使用者
-1. 使用目錄的全域系統管理員帳戶登入 [Azure 入口網站](https://portal.azure.com/)。
+1. 登入[Azure 入口網站](https://portal.azure.com/)使用使用者的系統管理員帳戶的組織使用。
 
 2. 選取 [Azure Active Directory] 並選取 [使用者]，然後搜尋並選取您要從您的 Azure AD 租用戶刪除的使用者。 例如，_Mary Parker_。
 
@@ -70,12 +70,13 @@ ms.locfileid: "58089806"
 
     ![使用者 - 已反白顯示 [刪除使用者] 的 [所有使用者] 頁面](media/add-users-azure-active-directory/delete-user-all-users-blade.png)
 
-    使用者會被刪除，而且再也不會出現在 [使用者 - 所有使用者] 頁面上。 在接下來的 30 天，您可以在 [刪除的使用者] 頁面上看到該使用者，而且在此期間內可將該使用者還原。 如需有關還原使用者的詳細資訊，請參閱[如何還原或永久移除最近刪除的使用者](active-directory-users-restore.md)。
+    使用者會被刪除，而且再也不會出現在 [使用者 - 所有使用者] 頁面上。 在接下來的 30 天，您可以在 [刪除的使用者] 頁面上看到該使用者，而且在此期間內可將該使用者還原。 如需有關還原使用者的詳細資訊，請參閱[如何還原或永久移除最近刪除的使用者](active-directory-users-restore.md)。 刪除使用者時，任何使用者使用的授權可供其他使用者。
 
     >[!Note]
-    >您必須使用 Windows Server Active Directory 來更新授權來源是 Windows Server Active Directory 之使用者的身分識別、連絡資訊或作業資訊。 完成更新之後，您必須等候下一次同步處理循環完成，才能看到您所做的變更。
+    >您必須使用 Windows Server Active Directory 來更新使用者(其授權來源是 Windows Server Active Directory) 的身分識別、連絡資訊或工作資訊。 完成更新之後，您必須等候下一次同步處理循環完成，才能看到您所做的變更。
 
 ## <a name="next-steps"></a>後續步驟
+
 新增使用者之後，您可以執行下列基本程序：
 
 - [新增或變更設定檔資訊](active-directory-users-profile-azure-portal.md)

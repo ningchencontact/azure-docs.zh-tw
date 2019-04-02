@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/015/2019
+ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91228074e13453ce53c0b4a7606479d45e8a90ac
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 40ed06bef45948068e3845e728d9c1d63ed62e71
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182773"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762798"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>使用 Azure 來裝載和執行 SAP 工作負載案例
 
@@ -36,14 +36,16 @@ Azure for SAP HANA 是獨一無二的供應項目，可讓 Azure 在競爭中顯
 
 ## <a name="latest-changes"></a>最新變更
 
+新版[Azure HANA 大型執行個體控制透過 Azure 入口網站](hana-li-portal.md)
+
+新版[適用於 SUSE Linux Enterprise Server for SAP 應用程式的 Azure NetApp 檔案上的 Azure Vm 上的 SAP NetWeaver 的高可用性](high-availability-guide-suse-netapp-files.md)
+
+釐清**Linux OS 參數 net.ipv4.tcp_timestamps**搭配 Azure 中的設定負載平衡器
+
 [使用 Azure 可用性區域的 SAP 工作負載設定](sap-ha-availability-zones.md)的版本
 
 [SAP 工作負載規劃和部署檢查清單](sap-deployment-checklist.md)的版本
 
-在 SAP 系統的延遲關鍵通訊路徑中，釐清 [Azure 網路虛擬設備](https://azure.microsoft.com/solutions/network-appliances/)的使用量和組態：
-
-- [適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
-- [SAP HANA 在 Azure 上的基礎結構組態和作業](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
 
 
 

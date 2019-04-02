@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 02/24/2019
+ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: ce9ef687643de7ec9b289f74feea613fb9a1db7a
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 86bf408f521e11e1bed4e26ca99299abdc710227
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960597"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805630"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>適用於 Azure 資源的內建角色
 
@@ -38,6 +38,7 @@ ms.locfileid: "56960597"
 | [擁有者](#owner) | 可讓您管理一切，包括對資源的存取。 |
 | [參與者](#contributor) | 可讓您管理一切，但無法管理對資源的存取。 |
 | [讀取者](#reader) | 可讓您檢視所有項目，但是無法進行變更。 |
+| [AcrDelete](#acrdelete) | acr delete |
 | [AcrImageSigner](#acrimagesigner) | ACR 影像簽署者 |
 | [AcrPull](#acrpull) | acr 提取 |
 | [AcrPush](#acrpush) | acr 推送 |
@@ -51,6 +52,8 @@ ms.locfileid: "56960597"
 | [自動化作業運算子](#automation-job-operator) | 使用「自動化 Runbook」來建立及管理作業。 |
 | [自動化運算子](#automation-operator) | 「自動化運算子」能夠啟動、停止、暫止及繼續作業 |
 | [自動化 Runbook 運算子](#automation-runbook-operator) | 讀取 Runbook 屬性 - 以便能夠建立 Runbook 的作業。 |
+| [Avere 參與者](#avere-contributor) | 可以建立和管理 Avere vFXT 叢集。 |
+| [Avere Operator](#avere-operator) | Avere vFXT 叢集用來管理叢集 |
 | [Azure Kubernetes Service 叢集管理員角色](#azure-kubernetes-service-cluster-admin-role) | 列出叢集管理員認證動作。 |
 | [Azure Kubernetes Service 叢集使用者角色](#azure-kubernetes-service-cluster-user-role) | 列出叢集使用者認證動作。 |
 | [Azure Stack 註冊擁有者](#azure-stack-registration-owner) | 可讓您管理 Azure Stack 註冊。 |
@@ -82,8 +85,8 @@ ms.locfileid: "56960597"
 | [DevTest Labs 使用者](#devtest-labs-user) | 可讓您連線、啟動、重新啟及關閉您 Azure DevTest Labs 中的虛擬機器。 |
 | [DNS 區域參與者](#dns-zone-contributor) | 可讓您管理 Azure DNS 中的 DNS 區域與記錄集，但無法讓您控制誰可存取它們。 |
 | [DocumentDB 帳戶參與者](#documentdb-account-contributor) | 可以管理 Azure Cosmos DB 帳戶。 Azure Cosmos DB 先前稱為 DocumentDB。 |
-| [EventGrid EventSubscription 參與者 (預覽)](#eventgrid-eventsubscription-contributor-preview) | 可讓您管理 EventGrid 事件訂用帳戶作業。 |
-| [EventGrid EventSubscription 讀者 (預覽)](#eventgrid-eventsubscription-reader-preview) | 可讓您讀取 EventGrid 事件訂用帳戶。 |
+| [EventGrid EventSubscription 參與者](#eventgrid-eventsubscription-contributor) | 可讓您管理 EventGrid 事件訂用帳戶作業。 |
+| [EventGrid EventSubscription 讀者](#eventgrid-eventsubscription-reader) | 可讓您讀取 EventGrid 事件訂用帳戶。 |
 | [HDInsight 網域服務參與者](#hdinsight-domain-services-contributor) | 可讀取、建立、修改和刪除 HDInsight 企業安全性套件所需的網域服務相關作業 |
 | [Intelligent Systems 帳戶參與者](#intelligent-systems-account-contributor) | 可讓您管理「智慧型系統」帳戶，但無法存取它們。 |
 | [Key Vault 參與者](#key-vault-contributor) | 可讓您管理金鑰保存庫，但無法存取它們。 |
@@ -118,17 +121,18 @@ ms.locfileid: "56960597"
 | [空間的錨點帳戶擁有者](#spatial-anchors-account-owner) | 讓您可管理帳戶中的空間錨點，包含將其刪除 |
 | [空間的錨點帳戶讀取器](#spatial-anchors-account-reader) | 讓您可找出及讀取帳戶中空間錨點的屬性 |
 | [SQL DB 參與者](#sql-db-contributor) | 可讓您管理 SQL 資料庫，但無法存取它們。 此外，您也無法管理其安全性相關原則或其父 SQL 伺服器。 |
+| [SQL 受管理的執行個體參與者](#sql-managed-instance-contributor) | 可讓您管理 SQL 受控執行個體，但無法提供給其他人的存取。 |
 | [SQL 安全性管理員](#sql-security-manager) | 可讓您管理 SQL 伺服器及資料庫的安全性相關原則，但無法存取它們。 |
 | [SQL Server 參與者](#sql-server-contributor) | 可讓您管理 SQL 伺服器及資料庫，但無法存取它們，也無法存取其安全性相關原則。 |
 | [儲存體帳戶參與者](#storage-account-contributor) | 可讓您管理儲存體帳戶，但無法存取它們。 |
 | [儲存體帳戶金鑰操作員服務角色](#storage-account-key-operator-service-role) | 「儲存體帳戶金鑰操作員」可以列出及重新產生「儲存體帳戶」的金鑰 |
-| [儲存體 Blob 資料參與者 (預覽)](#storage-blob-data-contributor-preview) | 可讀取、寫入及刪除 Azure 儲存體 Blob 容器與資料 |
-| [儲存體 Blob 資料擁有者 (預覽)](#storage-blob-data-owner-preview) | 允許完整存取 Azure 儲存體 Blob 容器和資料，包括指派 POSIX 存取控制。 |
-| [儲存體 Blob 資料讀者 (預覽)](#storage-blob-data-reader-preview) | 可讀取 Azure 儲存體 Blob 容器與資料 |
-| [儲存體佇列資料參與者 (預覽)](#storage-queue-data-contributor-preview) | 可讀取、寫入及刪除 Azure 儲存體佇列與佇列訊息 |
-| [存储队列数据消息处理者（预览）](#storage-queue-data-message-processor-preview) | 授予对 Azure 存储队列消息的扫视、接收和删除权限 |
-| [存储队列数据消息发送者（预览）](#storage-queue-data-message-sender-preview) | 允许发送 Azure 存储队列消息 |
-| [儲存體佇列資料讀者 (預覽)](#storage-queue-data-reader-preview) | 可讀取 Azure 儲存體佇列與佇列訊息 |
+| [儲存體 Blob 資料參與者](#storage-blob-data-contributor) | 可讀取、寫入及刪除 Azure 儲存體 Blob 容器與資料 |
+| [儲存體 Blob 資料擁有者](#storage-blob-data-owner) | 允許完整存取 Azure 儲存體 Blob 容器和資料，包括指派 POSIX 存取控制。 |
+| [儲存體 Blob 資料讀者](#storage-blob-data-reader) | 可讀取 Azure 儲存體 Blob 容器與資料 |
+| [儲存體佇列資料參與者](#storage-queue-data-contributor) | 可讀取、寫入及刪除 Azure 儲存體佇列與佇列訊息 |
+| [儲存體佇列資料訊息處理](#storage-queue-data-message-processor) | 允許預覽、接收及刪除 Azure 儲存體佇列訊息的存取權 |
+| [儲存體佇列資料訊息寄件者](#storage-queue-data-message-sender) | 允許傳送 Azure 儲存體佇列訊息 |
+| [儲存體佇列資料讀者](#storage-queue-data-reader) | 可讀取 Azure 儲存體佇列與佇列訊息 |
 | [支援要求參與者](#support-request-contributor) | 可讓您建立及管理支援要求 |
 | [流量管理員參與者](#traffic-manager-contributor) | 可讓您管理「流量管理員」設定檔，但無法控制誰可以存取它們。 |
 | [使用者存取系統管理員](#user-access-administrator) | 可讓您管理 Azure 資源的使用者存取。 |
@@ -181,6 +185,21 @@ ms.locfileid: "56960597"
 > | **Id** | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 > | **動作** |  |
 > | */read | 讀取密碼以外的所有類型的資源。 |
+> | **NotActions** |  |
+> | 無 |  |
+> | **DataActions** |  |
+> | 無 |  |
+> | **NotDataActions** |  |
+> | 無 |  |
+
+## <a name="acrdelete"></a>AcrDelete
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | acr delete |
+> | **Id** | c2f4ef07-c644-48eb-af81-4b1b4947fb11 |
+> | **動作** |  |
+> | Microsoft.ContainerRegistry/registries/artifacts/delete | 刪除容器登錄中的成品。 |
 > | **NotActions** |  |
 > | 無 |  |
 > | **DataActions** |  |
@@ -458,6 +477,68 @@ ms.locfileid: "56960597"
 > | 無 |  |
 > | **DataActions** |  |
 > | 無 |  |
+> | **NotDataActions** |  |
+> | 無 |  |
+
+## <a name="avere-contributor"></a>Avere 參與者
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 可以建立和管理 Avere vFXT 叢集。 |
+> | **Id** | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
+> | **動作** |  |
+> | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
+> | Microsoft.Compute/*/read |  |
+> | Microsoft.Compute/availabilitySets/* |  |
+> | Microsoft.Compute/virtualMachines/* |  |
+> | Microsoft.Compute/disks/* |  |
+> | Microsoft.Network/*/read |  |
+> | Microsoft.Network/networkInterfaces/* |  |
+> | Microsoft.Network/virtualNetworks/read | 取得虛擬網路定義 |
+> | Microsoft.Network/virtualNetworks/subnets/read | 取得虛擬網路子網路定義 |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | 加入虚拟网络。 不可发出警报。 |
+> | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | 將資源 (例如，儲存體帳戶或 SQL Database) 加入至子網路。 不可发出警报。 |
+> | Microsoft.Network/networkSecurityGroups/join/action | 加入网络安全组。 不可发出警报。 |
+> | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
+> | Microsoft.Insights/alertRules/* | 建立和管理 Insights 警示規則 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
+> | Microsoft.Storage/*/read |  |
+> | Microsoft.Storage/storageAccounts/* |  |
+> | Microsoft.Support/* | 建立和管理支援票證 |
+> | Microsoft.Resources/subscriptions/resourceGroups/resources/read | 取得資源群組的資源。 |
+> | **NotActions** |  |
+> | 無 |  |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | 傳回刪除 Blob 的結果 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | 傳回 Blob 或 Blob 清單 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | 傳回寫入 Blob 的結果 |
+> | **NotDataActions** |  |
+> | 無 |  |
+
+## <a name="avere-operator"></a>Avere Operator
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | Avere vFXT 叢集用來管理叢集 |
+> | **Id** | c025889f-8102-4ebf-b32c-fc0c6f0c6bd9 |
+> | **動作** |  |
+> | Microsoft.Compute/virtualMachines/read | 取得虛擬機器的屬性 |
+> | Microsoft.Network/networkInterfaces/read | 取得網路介面定義。  |
+> | Microsoft.Network/networkInterfaces/write | 建立網路介面，或更新現有的網路介面。  |
+> | Microsoft.Network/virtualNetworks/read | 取得虛擬網路定義 |
+> | Microsoft.Network/virtualNetworks/subnets/read | 取得虛擬網路子網路定義 |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | 加入虚拟网络。 不可发出警报。 |
+> | Microsoft.Network/networkSecurityGroups/join/action | 加入网络安全组。 不可发出警报。 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | 傳回刪除容器的結果 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | 傳回容器的清單 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | 傳回放置 Blob 容器的結果 |
+> | **NotActions** |  |
+> | 無 |  |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | 傳回刪除 Blob 的結果 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | 傳回 Blob 或 Blob 清單 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | 傳回寫入 Blob 的結果 |
 > | **NotDataActions** |  |
 > | 無 |  |
 
@@ -1262,7 +1343,7 @@ ms.locfileid: "56960597"
 > | **NotDataActions** |  |
 > | 無 |  |
 
-## <a name="eventgrid-eventsubscription-contributor-preview"></a>EventGrid EventSubscription 參與者 (預覽)
+## <a name="eventgrid-eventsubscription-contributor"></a>EventGrid EventSubscription 參與者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1285,7 +1366,7 @@ ms.locfileid: "56960597"
 > | **NotDataActions** |  |
 > | 無 |  |
 
-## <a name="eventgrid-eventsubscription-reader-preview"></a>EventGrid EventSubscription 讀者 (預覽)
+## <a name="eventgrid-eventsubscription-reader"></a>EventGrid EventSubscription 讀者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1628,11 +1709,11 @@ ms.locfileid: "56960597"
 > | Microsoft.Insights/Register/Action | 註冊 Microsoft Insights 提供者 |
 > | Microsoft.Insights/scheduledqueryrules/* |  |
 > | Microsoft.Insights/webtests/* | 讀取/寫入/刪除 Application Insights Web 測試。 |
-> | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | 讀取/寫入/刪除 log analytics 解決方案套件。 |
-> | Microsoft.OperationalInsights/workspaces/savedSearches/* | 讀取/寫入/刪除 log analytics 儲存的搜尋。 |
+> | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | 读取/写入/删除日志分析解决方案包。 |
+> | Microsoft.OperationalInsights/workspaces/savedSearches/* | 读取/写入/删除日志分析保存的搜索。 |
 > | Microsoft.OperationalInsights/workspaces/search/action | 執行搜尋查詢 |
 > | Microsoft.OperationalInsights/workspaces/sharedKeys/action | 擷取工作區的共用金鑰。 這些金鑰可用來將 Microsoft Operational Insights 代理程式連線到工作區。 |
-> | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | 讀取/寫入/刪除 log analytics 儲存體深入解析設定。 |
+> | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | 读取/写入/删除日志分析存储见解配置。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
@@ -1831,20 +1912,10 @@ ms.locfileid: "56960597"
 > | Microsoft.Authorization/policySetDefinitions/* | 建立及管理原則集合 |
 > | Microsoft.Insights/alertRules/* | 建立及管理警示規則 |
 > | Microsoft.Management/managementGroups/read | 列出已驗證之使用者的管理群組。 |
-> | Microsoft.operationalInsights/workspaces/*/read | 檢視 log analytics 資料 |
+> | Microsoft.operationalInsights/workspaces/*/read | 查看日志分析数据 |
 > | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
-> | Microsoft.Security/*/read | 讀取安全性元件和原則 |
-> | Microsoft.Security/locations/alerts/activate/action | 啟動安全性警訊 |
-> | Microsoft.Security/locations/alerts/dismiss/action | 關閉安全性警示 |
-> | Microsoft.Security/locations/tasks/activate/action | 啟用安全性建議 |
-> | Microsoft.Security/locations/tasks/dismiss/action | 關閉安全性建議 |
-> | Microsoft.Security/policies/write | 更新安全性原則 |
-> | Microsoft.Security/pricings/write | 更新該範圍的定價設定 |
-> | Microsoft.Security/pricings/delete | 刪除該範圍的定價設定 |
-> | Microsoft.Security/securityContacts/delete | 刪除安全性連絡人 |
-> | Microsoft.Security/securityContacts/write | 更新安全性連絡人 |
-> | Microsoft.Security/InformationProtectionPolicies/write | 更新資源的資訊保護原則 |
+> | Microsoft.Security/* |  |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | **NotActions** |  |
 > | 無 |  |
@@ -1886,7 +1957,7 @@ ms.locfileid: "56960597"
 > | **動作** |  |
 > | Microsoft.Authorization/*/read | 读取角色和角色分配 |
 > | Microsoft.Insights/alertRules/* | 建立及管理警示規則 |
-> | Microsoft.operationalInsights/workspaces/*/read | 檢視 log analytics 資料 |
+> | Microsoft.operationalInsights/workspaces/*/read | 查看日志分析数据 |
 > | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Security/*/read | 讀取安全性元件和原則 |
@@ -2134,14 +2205,22 @@ ms.locfileid: "56960597"
 > | Microsoft.Insights/metrics/read | 讀取計量 |
 > | Microsoft.Insights/metricDefinitions/read | 讀取計量定義 |
 > | **NotActions** |  |
+> | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/* |  |
+> | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/* |  |
+> | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/* |  |
+> | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/* |  |
+> | Microsoft.Sql/managedInstances/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | Microsoft.Sql/managedInstances/securityAlertPolicies/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | 編輯稽核原則 |
 > | Microsoft.Sql/servers/databases/auditingSettings/* | 編輯稽核設定 |
 > | Microsoft.Sql/servers/databases/auditRecords/read | 擷取資料庫 Blob 稽核記錄 |
 > | Microsoft.Sql/servers/databases/connectionPolicies/* | 編輯連接原則 |
+> | Microsoft.Sql/servers/databases/currentSensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | 編輯資料遮罩原則 |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
+> | Microsoft.Sql/servers/databases/recommendedSensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/securityAlertPolicies/* | 編輯安全性警示原則 |
 > | Microsoft.Sql/servers/databases/securityMetrics/* | 編輯安全性計量 |
@@ -2150,6 +2229,31 @@ ms.locfileid: "56960597"
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
+> | **DataActions** |  |
+> | 無 |  |
+> | **NotDataActions** |  |
+> | 無 |  |
+
+## <a name="sql-managed-instance-contributor"></a>SQL 受管理的執行個體參與者
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 可讓您管理 SQL 受控執行個體，但無法提供給其他人的存取。 |
+> | **Id** | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
+> | **動作** |  |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | 取得指定範圍中所有資源的可用性狀態 |
+> | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
+> | Microsoft.Network/networkSecurityGroups/write | 建立網路安全性群組，或更新現有的網路安全性群組 |
+> | Microsoft.Network/routeTables/write | 建立路由表或更新現有的路由表 |
+> | Microsoft.Sql/locations/*/read |  |
+> | Microsoft.Sql/managedInstances/* |  |
+> | Microsoft.Support/* | 建立和管理支援票證 |
+> | Microsoft.Network/virtualNetworks/subnets/write | 建立虛擬網路子網路，或更新現有的虛擬網路子網路 |
+> | Microsoft.Network/virtualNetworks/subnets/join/action | 加入虚拟网络。 不可发出警报。 |
+> | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
+> | **NotActions** |  |
+> | 無 |  |
 > | **DataActions** |  |
 > | 無 |  |
 > | **NotDataActions** |  |
@@ -2168,7 +2272,13 @@ ms.locfileid: "56960597"
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 取得指定範圍中所有資源的可用性狀態 |
 > | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
+> | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/* |  |
+> | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/* |  |
+> | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/* |  |
+> | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/* |  |
+> | Microsoft.Sql/managedInstances/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | Microsoft.Sql/managedInstances/securityAlertPolicies/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | 建立和管理 SQL Server 稽核原則 |
 > | Microsoft.Sql/servers/auditingSettings/* | 建立和管理 SQL Server 稽核設定 |
@@ -2177,13 +2287,15 @@ ms.locfileid: "56960597"
 > | Microsoft.Sql/servers/databases/auditingSettings/* | 建立和管理 SQL Server 資料庫稽核設定 |
 > | Microsoft.Sql/servers/databases/auditRecords/read | 讀取稽核記錄 |
 > | Microsoft.Sql/servers/databases/connectionPolicies/* | 建立和管理 SQL Server 資料庫連接原則 |
+> | Microsoft.Sql/servers/databases/currentSensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | 建立和管理 SQL Server 資料庫資料遮罩原則 |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/read | 擷取指定資料庫上所設定之擴充 Blob 稽核原則的詳細資料 |
 > | Microsoft.Sql/servers/databases/read | 傳回資料庫清單，或取得指定資料庫的屬性。 |
-> | Microsoft.Sql/servers/databases/schemas/read | 擷取資料庫的結構描述清單 |
-> | Microsoft.Sql/servers/databases/schemas/tables/columns/read | 擷取資料表的資料行清單 |
+> | Microsoft.Sql/servers/databases/recommendedSensitivityLabels/* |  |
+> | Microsoft.Sql/servers/databases/schemas/read | 取得資料庫結構描述。 |
+> | Microsoft.Sql/servers/databases/schemas/tables/columns/read | 取得資料庫資料行。 |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/schemas/tables/read | 擷取資料庫的資料表清單 |
+> | Microsoft.Sql/servers/databases/schemas/tables/read | 取得資料庫資料表。 |
 > | Microsoft.Sql/servers/databases/securityAlertPolicies/* | 建立和管理 SQL Server 資料庫安全性警示原則 |
 > | Microsoft.Sql/servers/databases/securityMetrics/* | 建立和管理 SQL Server 資料庫安全性度量 |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
@@ -2220,7 +2332,13 @@ ms.locfileid: "56960597"
 > | Microsoft.Insights/metrics/read | 讀取計量 |
 > | Microsoft.Insights/metricDefinitions/read | 讀取計量定義 |
 > | **NotActions** |  |
+> | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/* |  |
+> | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/* |  |
+> | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/* |  |
+> | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/* |  |
+> | Microsoft.Sql/managedInstances/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | Microsoft.Sql/managedInstances/securityAlertPolicies/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | 編輯 SQL Server 稽核原則 |
 > | Microsoft.Sql/servers/auditingSettings/* | 編輯 SQL Server 稽核設定 |
@@ -2228,8 +2346,10 @@ ms.locfileid: "56960597"
 > | Microsoft.Sql/servers/databases/auditingSettings/* | 編輯 SQL Server 資料庫稽核設定 |
 > | Microsoft.Sql/servers/databases/auditRecords/read | 讀取稽核記錄 |
 > | Microsoft.Sql/servers/databases/connectionPolicies/* | 編輯 SQL Server 資料庫連接原則 |
+> | Microsoft.Sql/servers/databases/currentSensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | 編輯 SQL Server 資料庫資料遮罩原則 |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
+> | Microsoft.Sql/servers/databases/recommendedSensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/securityAlertPolicies/* | 編輯 SQL Server 資料庫安全性警示原則 |
 > | Microsoft.Sql/servers/databases/securityMetrics/* | 編輯 SQL Server 資料庫安全性度量 |
@@ -2249,7 +2369,7 @@ ms.locfileid: "56960597"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 可讓您管理儲存體帳戶，但無法存取它們。 |
+> | **說明** | 允許的儲存體帳戶的管理。 不提供儲存體帳戶中的資料的存取權。 |
 > | **Id** | 17d1049b-9a84-46fb-8f53-869881c3d3ab |
 > | **動作** |  |
 > | Microsoft.Authorization/*/read | 讀取所有授權 |
@@ -2272,11 +2392,11 @@ ms.locfileid: "56960597"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 「儲存體帳戶金鑰操作員」可以列出及重新產生「儲存體帳戶」的金鑰 |
+> | **說明** | 允許列出及重新產生儲存體帳戶存取金鑰。 |
 > | **Id** | 81a9662b-bebf-436f-a333-f67b29880f12 |
 > | **動作** |  |
 > | Microsoft.Storage/storageAccounts/listkeys/action | 傳回指定儲存體帳戶的存取金鑰。 |
-> | Microsoft.Storage/storageAccounts/regeneratekey/action | 重新產生指定儲存體帳戶的存取金鑰。 |
+> | Microsoft.Storage/storageAccounts/regeneratekey/action | 重新產生指定的儲存體帳戶的存取金鑰。 |
 > | **NotActions** |  |
 > | 無 |  |
 > | **DataActions** |  |
@@ -2284,117 +2404,117 @@ ms.locfileid: "56960597"
 > | **NotDataActions** |  |
 > | 無 |  |
 
-## <a name="storage-blob-data-contributor-preview"></a>儲存體 Blob 資料參與者 (預覽)
+## <a name="storage-blob-data-contributor"></a>儲存體 Blob 資料參與者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 可讀取、寫入及刪除 Azure 儲存體 Blob 容器與資料 |
+> | **說明** | 讀取、 寫入和刪除 Azure 儲存體容器和 blob。 若要深入了解哪些動作所需的特定的資料作業，請參閱[呼叫 blob 和佇列資料作業的權限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)。 |
 > | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
 > | **動作** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | 傳回刪除容器的結果 |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | 傳回容器的清單 |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/write | 傳回放置 Blob 容器的結果 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | 刪除容器。 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | 傳回容器的清單。 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | 修改容器的中繼資料或屬性。 |
 > | **NotActions** |  |
 > | 無 |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | 傳回刪除 Blob 的結果 |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | 傳回 Blob 或 Blob 清單 |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | 傳回寫入 Blob 的結果 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | 刪除 Blob。 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | 傳回 blob 清單。 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | 寫入至 blob。 |
 > | **NotDataActions** |  |
 > | 無 |  |
 
-## <a name="storage-blob-data-owner-preview"></a>儲存體 Blob 資料擁有者 (預覽)
+## <a name="storage-blob-data-owner"></a>儲存體 Blob 資料擁有者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 允許完整存取 Azure 儲存體 Blob 容器和資料，包括指派 POSIX 存取控制。 |
+> | **說明** | 提供 Azure 儲存體 blob 容器與資料，包括指派 POSIX 存取控制的完整存取。 若要深入了解哪些動作所需的特定的資料作業，請參閱[呼叫 blob 和佇列資料作業的權限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)。 |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **動作** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/* |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/* | 在容器上的完整權限。  |
 > | **NotActions** |  |
 > | 無 |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/* |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/* | 在 blob 上的完整權限。 |
 > | **NotDataActions** |  |
 > | 無 |  |
 
-## <a name="storage-blob-data-reader-preview"></a>儲存體 Blob 資料讀者 (預覽)
+## <a name="storage-blob-data-reader"></a>儲存體 Blob 資料讀者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 可讀取 Azure 儲存體 Blob 容器與資料 |
+> | **說明** | 讀取，並列出 Azure 儲存體容器和 blob。 若要深入了解哪些動作所需的特定的資料作業，請參閱[呼叫 blob 和佇列資料作業的權限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)。 |
 > | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | **動作** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | 傳回容器的清單 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | 傳回容器的清單。 |
 > | **NotActions** |  |
 > | 無 |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | 傳回 Blob 或 Blob 清單 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | 傳回 blob 清單。 |
 > | **NotDataActions** |  |
 > | 無 |  |
 
-## <a name="storage-queue-data-contributor-preview"></a>儲存體佇列資料參與者 (預覽)
+## <a name="storage-queue-data-contributor"></a>儲存體佇列資料參與者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 可讀取、寫入及刪除 Azure 儲存體佇列與佇列訊息 |
+> | **說明** | 讀取、 寫入和刪除 Azure 儲存體佇列和佇列訊息。 若要深入了解哪些動作所需的特定的資料作業，請參閱[呼叫 blob 和佇列資料作業的權限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)。 |
 > | **Id** | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
 > | **動作** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/delete | 傳回刪除佇列的結果 |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/read | 傳回佇列或佇列清單。 |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/write | 傳回寫入佇列的結果 |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/delete | 刪除佇列。 |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/read | 傳回佇列清單。 |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/write | 修改佇列中繼資料或屬性。 |
 > | **NotActions** |  |
 > | 無 |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | 傳回刪除訊息的結果 |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | 傳回訊息 |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | 傳回寫入訊息的結果 |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | 從佇列刪除一或多個訊息。 |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | 查看，或從佇列擷取一或多個訊息。 |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | 將訊息加入佇列。 |
 > | **NotDataActions** |  |
 > | 無 |  |
 
-## <a name="storage-queue-data-message-processor-preview"></a>存储队列数据消息处理者（预览）
+## <a name="storage-queue-data-message-processor"></a>儲存體佇列資料訊息處理者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 授予对 Azure 存储队列消息的扫视、接收和删除权限 |
+> | **說明** | 查看、 擷取和從 Azure 儲存體佇列刪除訊息。 若要深入了解哪些動作所需的特定的資料作業，請參閱[呼叫 blob 和佇列資料作業的權限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)。 |
 > | **Id** | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
 > | **動作** |  |
 > | 無 |  |
 > | **NotActions** |  |
 > | 無 |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | 傳回訊息 |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | 傳回處理訊息的結果 |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | 查看訊息。 |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | 擷取並刪除訊息。 |
 > | **NotDataActions** |  |
 > | 無 |  |
 
-## <a name="storage-queue-data-message-sender-preview"></a>存储队列数据消息发送者（预览）
+## <a name="storage-queue-data-message-sender"></a>儲存體佇列資料訊息傳送者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 允许发送 Azure 存储队列消息 |
+> | **說明** | 將訊息新增至 Azure 儲存體佇列中。 若要深入了解哪些動作所需的特定的資料作業，請參閱[呼叫 blob 和佇列資料作業的權限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)。 |
 > | **Id** | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
 > | **動作** |  |
 > | 無 |  |
 > | **NotActions** |  |
 > | 無 |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | 傳回新增訊息的結果 |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | 將訊息加入佇列。 |
 > | **NotDataActions** |  |
 > | 無 |  |
 
-## <a name="storage-queue-data-reader-preview"></a>儲存體佇列資料讀者 (預覽)
+## <a name="storage-queue-data-reader"></a>儲存體佇列資料讀者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 可讀取 Azure 儲存體佇列與佇列訊息 |
+> | **說明** | 讀取，並列出 Azure 儲存體佇列和佇列訊息。 若要深入了解哪些動作所需的特定的資料作業，請參閱[呼叫 blob 和佇列資料作業的權限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)。 |
 > | **Id** | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **動作** |  |
 > | Microsoft.Storage/storageAccounts/queueServices/queues/read | 傳回佇列或佇列清單。 |
 > | **NotActions** |  |
 > | 無 |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | 傳回訊息 |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | 查看，或從佇列擷取一或多個訊息。 |
 > | **NotDataActions** |  |
 > | 無 |  |
 
@@ -2558,6 +2678,7 @@ ms.locfileid: "56960597"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | Microsoft.Web/serverFarms/* | 建立和管理伺服器陣列 |
+> | Microsoft.Web/hostingEnvironments/Join/Action | 加入 App Service Environment |
 > | **NotActions** |  |
 > | 無 |  |
 > | **DataActions** |  |

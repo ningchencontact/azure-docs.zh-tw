@@ -1,5 +1,5 @@
 ---
-title: 在 Azure API 管理中自訂快取
+title: Azure API 管理中的自定义缓存
 description: 了解如何在 Azure API 管理中依索引鍵快取項目
 services: api-management
 documentationcenter: ''
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: 838850d38c9df51fabcf620831371bed401e9492
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: HT
+ms.openlocfilehash: 922ab731ccd76e6a1336d61abe4b0251e358beb7
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29376026"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793538"
 ---
 # <a name="custom-caching-in-azure-api-management"></a>在 Azure API 管理中自訂快取
-Azure API 管理服務以資源 URL 做為索引鍵，內建對 [HTTP 回應的快取](api-management-howto-cache.md) 的支援。 可以在要求標頭中使用 `vary-by` 屬性修改索引鍵。 這很適合用於快取整個 HTTP 回應 (也稱為｢表示法｣)，但是有時候也很適合用於只快取部分表示法。 新的 [cache-lookup-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#GetFromCacheByKey) 和 [cache-store-value](https://msdn.microsoft.com/library/azure/dn894086.aspx#StoreToCacheByKey) 原則提供了可儲存及擷取原則定義中任意資料的能力。 這個能力也讓先前推出的 [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) 原則更有價值，因為您現在可以快取外部服務的回應。
+Azure API 管理服務以資源 URL 做為索引鍵，內建對 [HTTP 回應的快取](api-management-howto-cache.md) 的支援。 可以在要求標頭中使用 `vary-by` 屬性修改索引鍵。 这种做法适合用于缓存整个 HTTP 响应（也称为“表示形式”），但有时也适合用于只缓存一部分表示形式。 新的 [cache-lookup-value](/azure/api-management/api-management-caching-policies#GetFromCacheByKey) 和 [cache-store-value](/azure/api-management/api-management-caching-policies#StoreToCacheByKey) 原則提供了可儲存及擷取原則定義中任意資料的能力。 這個能力也讓先前推出的 [send-request](/azure/api-management/api-management-advanced-policies#SendRequest) 原則更有價值，因為您現在可以快取外部服務的回應。
 
 ## <a name="architecture"></a>架構
 API 管理服務使用共用的個別租用戶資料快取，所以，當您相應增加為多個單位時，您仍可以存取相同的快取資料。 不過，使用多區域部署時，在每個區域內有獨立的快取。 切勿將快取視為資料存放區，資料存放區是部分資訊片段的唯一來源。 如果您這麼做，之後又決定要採用多區域部署，擁有旅遊使用者的客戶可能會失去該快取資料的存取權。
 
-## <a name="fragment-caching"></a>片段快取
+## <a name="fragment-caching"></a>分段缓存
 在某些案例中，傳回的回應包含的某些資料不但判斷代價昂貴，而且還會保留一段合理的長時間。 以航空公司建立的服務為例，服務提供航班訂位、航班狀態等相關資訊。如果使用者是航空公司集點方案的會員，他們也會擁有與其目前狀態和累積里程數有關的資訊。 這些使用者相關資訊可能儲存在不同的系統中，但有可能需要包含在航班狀態和訂位相關的傳回回應中。 這可以用稱為｢片段快取｣的程序做到。 可從原始伺服器傳回主要的表示法，並使用某種權杖來指示要將使用者相關資訊插入何處。 
 
 考慮下列來自後端 API 的 JSON 回應。

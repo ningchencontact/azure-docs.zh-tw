@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: d39c2414aa8299282b3896a9ceb57897fdb25ff1
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: b8451a1195ab64d3cd7afda074d786a3209ce785
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446004"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793963"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Microsoft Azure 儲存體效能與延展性檢查清單
 ## <a name="overview"></a>概觀
@@ -269,7 +269,7 @@ Blob 服務支援包含 Blob 中繼資料的標頭要求。 例如，如果您�
 * C++：使用 blob_request_options::set_parallelism_factor 方法。
 
 #### <a name="subheading22"></a>快速上傳多個 Blob
-若要快速上傳多個 Blob，請平行上傳 Blob。 因為這個方法會將上傳散佈到儲存體服務的多個資料分割，因此會比搭配平行區塊上傳一次上傳單一 Blob 的方法要快。 單一 Blob 僅支援 60 MB/秒 (大約是 480 Mbps) 的輸送量。 本文撰寫期間，位於美國的 LRS 帳戶支援高達 20 Gbps 輸入，這比個別 Blob 所支援的輸送量要大的多。  [AzCopy](#subheading18) 依預設會執行平行上傳，在此案例中我們建議使用此方法。  
+若要快速上傳多個 Blob，請平行上傳 Blob。 因為這個方法會將上傳散佈到儲存體服務的多個資料分割，因此會比搭配平行區塊上傳一次上傳單一 Blob 的方法要快。 單一 Blob 僅支援 60 MB/秒 (大約是 480 Mbps) 的輸送量。 在本文撰寫期間，美國的 LRS 帳戶支援高達 20 Gbps 輸入，也就是遠比個別 blob 所支援的輸送量。  [AzCopy](#subheading18) 依預設會執行平行上傳，在此案例中我們建議使用此方法。  
 
 ### <a name="subheading23"></a>選擇 Blob 的正確類型
 Azure 儲存體支援兩種 Blob：分頁 Blob 和區塊 Blob。 在指定使用的案例中，您的 Blob 類型選擇將會影響解決方案的效能和延展性。 區塊 Blob 適用於您想要有效地上傳大量資料時：例如，用戶端應用程式可能需要將相片或視訊上傳至 Blob 儲存體。 分頁 Blob 則適用於應用程式需要執行隨機寫入資料時：例如，將 Azure VHD 儲存為分頁 Blob。  
@@ -297,9 +297,7 @@ Azure 儲存體支援兩種 Blob：分頁 Blob 和區塊 Blob。 在指定使用
 如需詳細資訊，請參閱 [Microsoft Azure 資料表：JSON 簡介](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx)和[資料表服務作業的裝載格式](https://msdn.microsoft.com/library/azure/dn535600.aspx)。
 
 #### <a name="subheading26"></a>關閉 Nagle
-在不同的 TCP/IP 網路中已廣泛採用 Nagle 的演算法，來作為提高網路效能的方法。 不過，它並非是所有情況下的最佳作法 (例如高互動式環境)。 在 Azure 儲存體中，Nagle 的演算法對於資料表和佇列服務要求的效能有負面的影響，可以的話您應將它停用。  
-
-如需詳細資訊，請參閱我們的部落格文章 [Nagle 的演算法並不適用於小型要求](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx)(英文)，其中說明 Nagle 的演算法與資料表和佇列要求互動不佳的原因，以及說明如何將它在您的用戶端應用程式中停用。  
+在不同的 TCP/IP 網路中已廣泛採用 Nagle 的演算法，來作為提高網路效能的方法。 不過，它並非是所有情況下的最佳作法 (例如高互動式環境)。 在 Azure 儲存體中，Nagle 的演算法對於資料表和佇列服務要求的效能有負面的影響，可以的話您應將它停用。
 
 ### <a name="schema"></a>結構描述
 如何呈現與查詢您的資料是影響資料表服務效能的單一最大因素。 雖然每個應用程式都有所不同，本節將概述與下列項目相關的部分一般已經實證做法：  
@@ -373,7 +371,7 @@ Azure 儲存體支援兩種 Blob：分頁 Blob 和區塊 Blob。 在指定使用
 ##### <a name="subheading37"></a>在單一實體中儲存資料序列
 有時候，應用程式會儲存它經常需要一次擷取的一系列資料：例如，應用程式可能會隨著時間追蹤 CPU 使用量，以便繪製資料在過去 24 小時的機動圖表。 一個方法是每個小時有一個資料表實體，且每個實體會代表特定的小時數，並儲存該小時的 CPU 使用量。 若要繪製此資料，應用程式必須擷取保存過去 24 小時資料的實體。  
 
-或者，您的應用程式可以儲存每小時 CPU 使用量做為單一實體的個別屬性：若要每小時更新，您的應用程式可以使用單一 **InsertOrMerge Upsert** 呼叫來更新最近一小時的值。 若要繪製此資料，應用程式只需擷取單一實體 (而不是 24 個實體)，提供很有效率的查詢 (請參閱上面關於[查詢範圍](#subheading30)的討論)。
+或者，您的應用程式可以儲存每小時 CPU 使用量做為單一實體的個別屬性：若要每小時更新，您的應用程式可以使用單一 **InsertOrMerge Upsert** 呼叫來更新最近一小時的值。 若要繪製此資料，應用程式只需擷取單一實體，而不是 24，讓高效率的查詢 (請參閱上面討論的上[查詢範圍](#subheading30))。
 
 ##### <a name="subheading38"></a>在 Blob 中儲存結構化資料
 有時候，結構化資料好像應該要以資料表方式呈現，但實體範圍總是會被一起擷取，並可批次插入。  記錄檔是這個狀況的良好範例。  在此案例中，您可以批次處理數分鐘的記錄，然後也總是一次擷取數分鐘的記錄。  在此案例中，為了達到最佳化效能，最好是使用 Blob (而不是資料表)，因為您可以大幅降低寫入/傳回的物件數，以及通常需要提出的要求數。  
@@ -390,7 +388,7 @@ Azure 儲存體支援兩種 Blob：分頁 Blob 和區塊 Blob。 在指定使用
 請參閱討論 Nagle 演算法的資料表組態一節 — Nagle 演算法通常對佇列要求的效能有負面影響，您應將它停用。  
 
 ### <a name="subheading41"></a>訊息大小
-佇列效能和延展性會隨著訊息大小增加而減少。 您應該只將接收端所需的資訊放在訊息中。  
+佇列效能和延展性會隨著訊息大小增加而降低。 您應該只將接收端所需的資訊放在訊息中。  
 
 ### <a name="subheading42"></a>批次擷取
 您可以在單一作業中，從佇列擷取高達 32 則的訊息。 這可降低與用戶端應用程式之間反覆存取的次數，這在具有高延遲的環境 (例如行動裝置) 中特別有用。  
@@ -401,7 +399,7 @@ Azure 儲存體支援兩種 Blob：分頁 Blob 和區塊 Blob。 在指定使用
 如需最新成本資訊，請參閱 [Azure 儲存體價格](https://azure.microsoft.com/pricing/details/storage/)。  
 
 ### <a name="subheading44"></a>UpdateMessage
-您可以使用 **UpdateMessage** 來增加隱藏逾時，或更新訊息的狀態資訊。 雖然這是個強大的功能，請記住，每個 **UpdateMessage** 作業都會算在延展性目標內。 不過，相較於在工作的每個階段完成時，將工作從一個佇列傳遞到下一個佇列的工作流程，這會更有效率。 使用 **UpdateMessage** 作業可讓應用程式將工作狀態儲存到訊息，然後繼續工作，而不是每次步驟完成時，便重新佇列訊息以進行下個工作步驟。  
+您可以使用 **UpdateMessage** 來增加隱藏逾時，或更新訊息的狀態資訊。 雖然這是個強大的功能，請記住，每個 **UpdateMessage** 作業都會算在延展性目標內。 不過，相較於在工作的每個階段完成時，將工作從一個佇列傳遞到下一個佇列的工作流程，這會更有效率。 使用**UpdateMessage**作業可讓您的應用程式將工作狀態儲存到訊息，然後繼續工作，而不是每次步驟完成 requeuing 作業的下一個步驟的訊息。  
 
 如需詳細資訊，請參閱[如何：變更佇列訊息的內容](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message)。  
 

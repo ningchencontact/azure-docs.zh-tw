@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: b06bc6b41081f05a7067f82f46affc37d21f50b1
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 8ea17e5615c0256c084b0745a392fb49f8873f99
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213291"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805358"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>使用加速網路建立 Linux 虛擬機器
 
@@ -42,13 +42,16 @@ ms.locfileid: "57213291"
 
 ## <a name="supported-operating-systems"></a>受支援的作業系統
 您可以從 Azure 資源庫直接使用下列發行版本： 
-* **Ubuntu 16.04+** 
-* **SLES 12 SP3** 
-* **RHEL 7.4**
-* **CentOS 7.4**
+* **使用 linux azure 核心的 Ubuntu 14.04**
+* **Ubuntu 16.04 或更新版本** 
+* **SLES12 SP3 或更新版本** 
+* **RHEL 7.4 或更新版本**
+* **CentOS 7.4 或更新版本**
 * **CoreOS Linux**
 * **具有反向移植核心的 Debian "Stretch"**
-* **Oracle Linux 7.4**
+* **Oracle Linux 7.4 和更新版本與 Red Hat 相容核心 (RHCK)**
+* **使用 UEK 第 5 版 7.5 和更新版本的 oracle Linux**
+* **FreeBSD 10.4、 11.1 和 12.0**
 
 ## <a name="limitations-and-constraints"></a>限制和條件約束
 

@@ -5,24 +5,24 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/31/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 6664c3d5fde487b7add7c38dc602915d19adb767
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: f04fa5f43844080638c70c44410d233fbe6ad325
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361977"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805460"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Azure Cosmos DB 的 SQL 語言參考 
 
-Azure Cosmos DB 支援在階層式 JSON 文件上使用諸如文法等熟悉的 SQL (結構式查詢語言) 查詢文件，無需明確的結構描述，也不用建立次要索引。 本文提供 SQL 查詢語言語法文件，其與 SQL API 帳戶相容。 如需 SQL 查詢範例逐步解說，請參閱 [Cosmos DB 中的 SQL 查詢](how-to-sql-query.md)。  
+Azure Cosmos DB 支援在階層式 JSON 文件上使用諸如文法等熟悉的 SQL (結構式查詢語言) 查詢文件，無需明確的結構描述，也不用建立次要索引。 這篇文章提供使用 SQL API 帳戶中的 SQL 查詢語言語法的文件。 如範例 SQL 查詢的逐步解說，請參閱 < [Cosmos DB 中的 SQL 查詢範例](how-to-sql-query.md)。  
   
-請造訪 [Query Playground](https://www.documentdb.com/sql/demo)，您可以在此試用 Cosmos DB 並針對我們的資料集執行 SQL 查詢。  
+請瀏覽[Query Playground](https://www.documentdb.com/sql/demo)，其中您可以試用 Cosmos DB 和針對範例資料集執行 SQL 查詢。  
   
 ## <a name="select-query"></a>SELECT 查詢  
-根據 ANSI-SQL 標準，每個查詢都會包含 SELECT 子句以及選擇性的 FROM 和 WHERE 子句。 針對每個查詢，通常都會列舉 FROM 子句中的來源。 接著，會對來源套用 WHERE 子句中的篩選，以擷取 JSON 文件的子集。 最後，使用 SELECT 子句來投射選取清單中所要求的 JSON 值。 用來描述 SELECT 陳述式的慣例會在「語法」慣例一節中製成資料表。 如需範例，請參閱 [SELECT 查詢範例](how-to-sql-query.md#SelectClause)
+根據 ANSI-SQL 標準，每個查詢都會包含 SELECT 子句以及選擇性的 FROM 和 WHERE 子句。 一般而言，針對每個查詢中，會列舉 FROM 子句中的來源，則 WHERE 子句中的篩選條件會套用至來源以擷取 JSON 文件的子集。 最後，使用 SELECT 子句來投射選取清單中所要求的 JSON 值。 如需範例，請參閱 [SELECT 查詢範例](how-to-sql-query.md#SelectClause)
   
 **語法**  
   
@@ -2342,7 +2342,7 @@ StringToArray(<expr>)
   
 - `expr`  
   
-   是任何有效的 JSON 数组表达式。 请注意，字符串值必须使用双引号编写，否则无效。 有关 JSON 格式的详细信息，请参阅 [json.org](https://json.org/)
+   是任何有效的純量運算式評估為 JSON 陣列運算式。 請注意，必須為有效的雙引號括住寫入巢狀的字串值。 有关 JSON 格式的详细信息，请参阅 [json.org](https://json.org/)
   
   **傳回類型**  
   
@@ -2352,26 +2352,57 @@ StringToArray(<expr>)
   
   以下示例演示 StringToArray 在不同类型中的行为方式。 
   
-```  
+ 以下是範例，以有效的輸入。
+
+```
 SELECT 
-StringToArray('[]'), 
-StringToArray("[1,2,3]"),
-StringToArray("[\"str\",2,3]"),
-IS_ARRAY(StringToArray("[['5','6','7'],['8'],['9']]")), 
-IS_ARRAY(StringToArray('[["5","6","7"],["8"],["9"]]')),
-StringToArray('[1,2,3, "[4,5,6]",[7,8]]'),
-StringToArray("[1,2,3, '[4,5,6]',[7,8]]"),
-StringToArray(false), 
-StringToArray(undefined),
-StringToArray(NaN), 
-StringToArray("[")
-```  
-  
- 以下為結果集。  
-  
-```  
-[{"$1": [], "$2": [1,2,3], "$3": ["str",2,3], "$4": false, "$5": true, "$6": [1,2,3,"[4,5,6]",[7,8]]}]
-```  
+    StringToArray('[]') AS a1, 
+    StringToArray("[1,2,3]") AS a2,
+    StringToArray("[\"str\",2,3]") AS a3,
+    StringToArray('[["5","6","7"],["8"],["9"]]') AS a4,
+    StringToArray('[1,2,3, "[4,5,6]",[7,8]]') AS a5
+```
+
+ 以下為結果集。
+
+```
+[{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
+```
+
+ 以下是輸入的無效的範例。 
+   
+ 陣列中的單引號不是有效的 JSON。
+即使是在查詢中有效，它們不會剖析有效的陣列。 字串陣列字串內必須是逸出"[\"\"]"或周圍的引號必須是單一 ' [""]'。
+
+```
+SELECT
+    StringToArray("['5','6','7']")
+```
+
+ 以下為結果集。
+
+```
+[{}]
+```
+
+ 以下是輸入的範例無效。
+   
+ 傳遞的運算式會剖析為 JSON 陣列;下列不會評估輸入陣列，並因此會傳回未定義。
+   
+```
+SELECT
+    StringToArray("["),
+    StringToArray("1"),
+    StringToArray(NaN),
+    StringToArray(false),
+    StringToArray(undefined)
+```
+
+ 以下為結果集。
+
+```
+[{}]
+```
 
 ####  <a name="bk_stringtoboolean"></a> StringToBoolean  
  返回已转换为布尔值的表达式。 如果表达式无法转换，则返回未定义的表达式。  
@@ -2386,7 +2417,7 @@ StringToBoolean(<expr>)
   
 - `expr`  
   
-   為任何有效運算式。  
+   是任何有效的純量運算式，才能評估為布林的運算式。  
   
   **傳回類型**  
   
@@ -2395,25 +2426,55 @@ StringToBoolean(<expr>)
   **範例**  
   
   以下示例演示 StringToBoolean 在不同类型中的行为方式。 
-  
+ 
+ 以下是範例，以有效的輸入。
+
+ 只有之前或之後"true"/"false"，將允許空白字元。
+
 ```  
 SELECT 
-StringToBoolean("true"), 
-StringToBoolean("    false"),
-IS_BOOL(StringToBoolean("false")), 
-StringToBoolean("null"),
-StringToBoolean(undefined),
-StringToBoolean(NaN), 
-StringToBoolean(false), 
-StringToBoolean(true), 
-StringToBoolean("TRUE"),
-StringToBoolean("False")
+    StringToBoolean("true") AS b1, 
+    StringToBoolean("    false") AS b2,
+    StringToBoolean("false    ") AS b3
 ```  
   
  以下為結果集。  
   
 ```  
-[{"$1": true, "$2": false, "$3": true}]
+[{"b1": true, "b2": false, "b3": false}]
+```  
+
+ 以下是範例具有無效的輸入。
+ 
+ 布林值會區分大小寫，而且必須寫入所有小寫字元，也就是"true"和"false"。
+
+```  
+SELECT 
+    StringToBoolean("TRUE"),
+    StringToBoolean("False")
+```  
+
+ 以下為結果集。  
+  
+```  
+[{}]
+``` 
+
+ 傳遞的運算式會剖析為布林的運算式;這些輸入不會評估輸入布林值，並因此會傳回未定義。
+
+ ```  
+SELECT 
+    StringToBoolean("null"),
+    StringToBoolean(undefined),
+    StringToBoolean(NaN), 
+    StringToBoolean(false), 
+    StringToBoolean(true)
+```  
+
+ 以下為結果集。  
+  
+```  
+[{}]
 ```  
 
 ####  <a name="bk_stringtonull"></a> StringToNull  
@@ -2429,7 +2490,7 @@ StringToNull(<expr>)
   
 - `expr`  
   
-   為任何有效運算式。  
+   是任何有效的純量運算式，才能評估為 null 的運算式。
   
   **傳回類型**  
   
@@ -2438,24 +2499,54 @@ StringToNull(<expr>)
   **範例**  
   
   以下示例演示 StringToNull 在不同类型中的行为方式。 
-  
+
+ 以下是範例，以有效的輸入。
+ 
+ 只有之前或之後"null"，將允許空白字元。
+
 ```  
 SELECT 
-StringToNull("null"), 
-StringToNull("  null "),
-IS_NULL(StringToNull("null")), 
-StringToNull("true"), 
-StringToNull(false), 
-StringToNull(undefined),
-StringToNull(NaN), 
-StringToNull("NULL"),
-StringToNull("Null")
+    StringToNull("null") AS n1, 
+    StringToNull("  null ") AS n2,
+    IS_NULL(StringToNull("null   ")) AS n3
 ```  
   
  以下為結果集。  
   
 ```  
-[{"$1": null, "$2": null, "$3": true}]
+[{"n1": null, "n2": null, "n3": true}]
+```  
+
+ 以下是範例具有無效的輸入。
+
+ Null 會區分大小寫，而且必須寫入所有小寫字元也就是 「 null 的 」。
+
+```  
+SELECT    
+    StringToNull("NULL"),
+    StringToNull("Null")
+```  
+  
+ 以下為結果集。  
+  
+```  
+[{}]
+```  
+
+ 傳遞的運算式會剖析為 null 的運算式;這些輸入不會評估輸入 null，因此會傳回未定義。
+
+```  
+SELECT    
+    StringToNull("true"), 
+    StringToNull(false), 
+    StringToNull(undefined),
+    StringToNull(NaN) 
+```  
+  
+ 以下為結果集。  
+  
+```  
+[{}]
 ```  
 
 ####  <a name="bk_stringtonumber"></a> StringToNumber  
@@ -2471,7 +2562,7 @@ StringToNumber(<expr>)
   
 - `expr`  
   
-   是任何有效的 JSON 数字表达式。 JSON 中的数字必须是整数或浮点数。 有关 JSON 格式的详细信息，请参阅 [json.org](https://json.org/)  
+   是任何有效的純量運算式評估為 JSON 數字運算式。 JSON 中的数字必须是整数或浮点数。 有关 JSON 格式的详细信息，请参阅 [json.org](https://json.org/)  
   
   **傳回類型**  
   
@@ -2480,27 +2571,52 @@ StringToNumber(<expr>)
   **範例**  
   
   以下示例演示 StringToNumber 在不同类型中的行为方式。 
-  
+
+ 只有之前或之後的數字，將允許空白字元。
+ 
 ```  
 SELECT 
-StringToNumber("1.000000"), 
-StringToNumber("3.14"),
-IS_NUMBER(StringToNumber("   60   ")), 
-StringToNumber("0xF"),
-StringToNumber("-1.79769e+308"),
-IS_STRING(StringToNumber("2")),
-StringToNumber(undefined),
-StringToNumber("99     54"), 
-StringToNumber("false"), 
-StringToNumber(false),
-StringToNumber(" "),
-StringToNumber(NaN)
+    StringToNumber("1.000000") AS num1, 
+    StringToNumber("3.14") AS num2,
+    StringToNumber("   60   ") AS num3, 
+    StringToNumber("-1.79769e+308") AS num4
 ```  
   
  以下為結果集。  
   
 ```  
-{{"$1": 1, "$2": 3.14, "$3": true, "$5": -1.79769e+308, "$6": false}}
+{{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
+```  
+
+ 在 JSON 中必須是有效的數字是整數或浮點數。
+ 
+```  
+SELECT   
+    StringToNumber("0xF")
+```  
+  
+ 以下為結果集。  
+  
+```  
+{{}}
+```  
+
+ 傳遞的運算式會剖析為編號的運算式;這些輸入不會評估輸入數字，因此會傳回未定義。 
+
+```  
+SELECT 
+    StringToNumber("99     54"),   
+    StringToNumber(undefined),
+    StringToNumber("false"),
+    StringToNumber(false),
+    StringToNumber(" "),
+    StringToNumber(NaN)
+```  
+  
+ 以下為結果集。  
+  
+```  
+{{}}
 ```  
 
 ####  <a name="bk_stringtoobject"></a> StringToObject  
@@ -2516,7 +2632,7 @@ StringToObject(<expr>)
   
 - `expr`  
   
-   是任何有效的 JSON 对象表达式。 请注意，字符串值必须使用双引号编写，否则无效。 有关 JSON 格式的详细信息，请参阅 [json.org](https://json.org/)  
+   是任何有效的純量運算式評估為 JSON 物件運算式。 請注意，必須為有效的雙引號括住寫入巢狀的字串值。 有关 JSON 格式的详细信息，请参阅 [json.org](https://json.org/)  
   
   **傳回類型**  
   
@@ -2526,26 +2642,73 @@ StringToObject(<expr>)
   
   以下示例演示 StringToObject 在不同类型中的行为方式。 
   
-```  
+ 以下是範例，以有效的輸入。
+ 
+``` 
 SELECT 
-StringToObject("{}"), 
-StringToObject('{"a":[1,2,3]}'),
-StringToObject("{'a':[1,2,3]}"),
-StringToObject("{a:[1,2,3]}"),
-IS_OBJECT(StringToObject('{"obj":[{"b":[5,6,7]},{"c":8},{"d":9}]}')), 
-IS_OBJECT(StringToObject("{\"obj\":[{\"b\":[5,6,7]},{\"c\":8},{\"d\":9}]}")), 
-IS_OBJECT(StringToObject("{'obj':[{'b':[5,6,7]},{'c':8},{'d':9}]}")), 
-StringToObject(false), 
-StringToObject(undefined),
-StringToObject(NaN), 
-StringToObject("{")
+    StringToObject("{}") AS obj1, 
+    StringToObject('{"A":[1,2,3]}') AS obj2,
+    StringToObject('{"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]}') AS obj3, 
+    StringToObject("{\"C\":[{\"c1\":[5,6,7]},{\"c2\":8},{\"c3\":9}]}") AS obj4
+``` 
+
+ 以下為結果集。
+
+```
+[{"obj1": {}, 
+  "obj2": {"A": [1,2,3]}, 
+  "obj3": {"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]},
+  "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
+```
+ 
+ 以下是範例具有無效的輸入。
+即使是在查詢中有效，它們不會剖析有效的物件。 在物件的字串中的字串必須是逸出"{\"\":\"str\"}"或周圍的引號必須是單一 ' {"a":"str"}'。
+
+ 單引號周圍的屬性名稱不是有效的 JSON。
+
+``` 
+SELECT 
+    StringToObject("{'a':[1,2,3]}")
+```
+
+ 以下為結果集。
+
 ```  
-  
- 以下為結果集。  
-  
+[{}]
 ```  
-[{"$1": {}, "$2": {"a": [1,2,3]}, "$5": true, "$6": true, "$7": false}]
+
+ 不含周圍的引號的屬性名稱不是有效的 JSON。
+
+``` 
+SELECT 
+    StringToObject("{a:[1,2,3]}")
+```
+
+ 以下為結果集。
+
 ```  
+[{}]
+``` 
+
+ 以下是範例具有無效的輸入。
+ 
+ 傳遞的運算式會剖析為 JSON 物件;這些輸入不會評估輸入物件，並因此會傳回未定義。
+ 
+``` 
+SELECT 
+    StringToObject("}"),
+    StringToObject("{"),
+    StringToObject("1"),
+    StringToObject(NaN), 
+    StringToObject(false), 
+    StringToObject(undefined)
+``` 
+ 
+ 以下為結果集。
+
+```
+[{}]
+```
 
 ####  <a name="bk_substring"></a> SUBSTRING  
  傳回字串運算式的部分，從指定字元以零為起始的位置開始，直到指定的長度，或直到字串的結尾。  

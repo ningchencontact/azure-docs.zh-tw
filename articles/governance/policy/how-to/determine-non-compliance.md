@@ -8,12 +8,12 @@ ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: dba8d9413229a0fa236b082e2e11dbd1a9fe5a5f
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 1121bdb379265ef592a26a8a31a90d402e529cc8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314121"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802740"
 ---
 # <a name="determine-causes-of-non-compliance"></a>判斷不符合的原因
 
@@ -46,7 +46,7 @@ ms.locfileid: "57314121"
 
 1. **合規性詳細資料**窗格會顯示目前的原則指派至資源的最新評估資訊。 在此範例中，欄位**Microsoft.Sql/servers/version**發現_12.0_時預期的原則定義_14.0_。 如果資源是不符合規範的原因很多，每個會列出針對此窗格。
 
-   ![合規性詳細資料窗格](../media/determine-non-compliance/compliance-details-pane.png)
+   ![合規性詳細資料窗格中的非合規性的原因](../media/determine-non-compliance/compliance-details-pane.png)
 
    針對**auditIfNotExists**或是**deployIfNotExists**原則定義，詳細資料包括**details.type**屬性和任何選用的屬性。 如需清單，請參閱[auditIfNotExists 屬性](../concepts/effects.md#auditifnotexists-properties)並[deployIfNotExists 屬性](../concepts/effects.md#deployifnotexists-properties)。 **上次評估資源**是相關的資源，從**詳細資料**定義區段。
 
@@ -118,11 +118,11 @@ ms.locfileid: "57314121"
 
 1. 選取 [資源合規性] 頁面上的 [變更歷程記錄 (預覽)] 索引標籤。 偵測到的變更清單 (如果有的話) 會隨即顯示。
 
-   ![原則變更歷程記錄 - 索引標籤](../media/determine-non-compliance/change-history-tab.png)
+   ![在資源合規性 頁面上的原則變更歷程記錄 索引標籤](../media/determine-non-compliance/change-history-tab.png)
 
 1. 選取其中一個偵測到的變更。 _視覺化 diff_的資源會顯示**修訂歷程記錄**頁面。
 
-   ![原則變更歷程記錄 - 視覺化差異](../media/determine-non-compliance/change-history-visual-diff.png)
+   ![在 [變更歷程記錄] 頁面上的原則變更歷程記錄視覺差異](../media/determine-non-compliance/change-history-visual-diff.png)
 
 _視覺化差異_有助於識別資源的變更。 偵測到的變更可能不相關的資源目前的合規性狀態。
 

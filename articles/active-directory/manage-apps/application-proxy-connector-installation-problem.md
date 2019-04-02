@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 645ba6e8306b063892babe25fde41d8dd3144fee
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 87d828e596c42b786d1c54a7158e1151f374c560
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444276"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793034"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>安裝應用程式 Proxy 代理程式連接器時遇到問題
 
@@ -64,13 +64,13 @@ Microsoft AAD 應用程式 Proxy 連接器是內部網域元件，它會使用�
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>確認是以系統管理員身分安裝連接器
 
-**目標：** 確認嘗試安裝連接器的使用者是具有正確認證的系統管理員。 目前，使用者必須是應用程式系統管理員或全域管理員安裝成功。
+**目標：** 確認嘗試安裝連接器的使用者是具有正確認證的系統管理員。 目前，使用者必須安裝至少一個應用程式系統管理員才會成功。
 
 **確認認證是否正確：**
 
 連線至 <https://login.microsoftonline.com> 並使用相同的認證。 確定登入成功。 您可以檢查使用者角色，方法是移至 [Azure Active Directory] -&gt; [使用者和群組] -&gt; [所有使用者]。 
 
-選取您的使用者帳戶，然後在產生的功能表中選取 [目錄角色]。 確認所選取的角色為 [應用程式系統管理員] 或 [全域管理員]。 如果您無法存取這些步驟上的任何頁面，表示您沒有必要的角色。
+選取您的使用者帳戶，然後在產生的功能表中選取 [目錄角色]。 請確認選取的角色是 「 應用程式系統管理員 」。 如果您無法存取這些步驟上的任何頁面，表示您沒有必要的角色。
 
 ## <a name="next-steps"></a>後續步驟
 [了解 Azure AD 應用程式 Proxy 連接器](application-proxy-connectors.md)

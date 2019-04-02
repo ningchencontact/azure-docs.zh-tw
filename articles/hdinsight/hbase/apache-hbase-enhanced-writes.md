@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 3/27/2019
-ms.openlocfilehash: 37e6f316a5202429396ddd2a31cb14fe61341e89
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: b0c71d0f101ea262b6ce56c845ef9f375a7de85e
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759373"
+ms.locfileid: "58804202"
 ---
 # <a name="azure-hdinsight-enhanced-writes-for-apache-hbase-preview"></a>Azure HDInsight 增強式寫入 Apache hbase （預覽）
 
@@ -56,4 +56,5 @@ disable 'mytable'
 
 ## <a name="next-steps"></a>後續步驟
 
-* 正式的 Apache HBase 文件上[預先寫入記錄檔功能](https://hbase.apache.org/book.html#wal)。
+* 正式的 Apache HBase 文件上[預先寫入記錄檔功能](https://hbase.apache.org/book.html#wal)
+* 若要升級您的 HDInsight 的 Apache HBase 叢集，以使用增強式寫入，請參閱[移轉至新版本的 Apache HBase 叢集](apache-hbase-migrate-new-version.md)。

@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 8e887409c35619261544b92395301ce06a033e8b
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: a89df98224634c08c84cb059eb58e64e3c7febf7
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992731"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801257"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>建立用於資源組織及管理的管理群組
 
@@ -37,20 +37,20 @@ ms.locfileid: "56992731"
 
 1. 在主頁面上，選取 [新增管理群組]。
 
-   ![主要群組](./media/main.png)
+   ![使用管理群組的頁面](./media/main.png)
 
 1. 填寫管理群組識別碼欄位。
 
    - [管理群組識別碼] 是用來在此管理群組上提交命令的目錄唯一識別碼。 在建立之後無法編輯這個識別碼，因為整個 Azure 系統會使用它來識別此群組。
    - [顯示名稱] 欄位是顯示在 Azure 入口網站內的名稱。 在建立管理群組時，不同的顯示名稱是選擇性欄位，並且可以隨時進行變更。  
 
-   ![建立](./media/create_context_menu.png)  
+   ![建立新的管理群組的 [選項] 窗格](./media/create_context_menu.png)  
 
 1. 選取 [ **儲存**]。
 
 ### <a name="create-in-powershell"></a>在 PowerShell 中建立
 
-在 PowerShell 中，您可以使用新增 AzManagementGroup cmdlet:
+在 PowerShell 中，使用 New-AzManagementGroup cmdlet：
 
 ```azurepowershell-interactive
 New-AzManagementGroup -GroupName 'Contoso'

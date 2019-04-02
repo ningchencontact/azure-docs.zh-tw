@@ -13,27 +13,31 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0594d99874ea9bb83673013a9a03272edcd8ce0b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0eededcc180d7652fd52c79b85ca3c34f65a22a4
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897668"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791539"
 ---
 # <a name="troubleshoot-and-resolve-groups-issues"></a>疑難排解並解決群組問題
 
 ## <a name="troubleshooting-group-creation-issues"></a>群組建立問題進行疑難排解
+
 **我已停用安全性的群組建立在 Azure 入口網站中，但仍然可以透過 Powershell 建立群組****使用者可以在 Azure 入口網站中建立安全性群組**設定在 Azure 入口網站的控制項，zda bude 非系統管理員使用者可以在 「 存取面板或 Azure 入口網站中建立安全性群組。 它不會控制透過 Powershell 建立安全性的群組。
 
 若要停用的非系統管理員身分在 Powershell 中的使用者群組建立：
 1. 請確認允許非管理使用者建立群組：
    
+
+   ```powershell
+   Get-MsolCompanyInformation | Format-List UsersPermissionToCreateGroupsEnabled
    ```
-   PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-   ```
+
   
 2. 如果它傳回 `UsersPermissionToCreateGroupsEnabled : True`，非管理使用者就可以建立群組。 若要停用這項功能：
   
+
    ``` 
    Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
    ```

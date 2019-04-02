@@ -14,15 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: cdaaf5323543377d9c2b603ad7377d088710cde8
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: c52a1942bda9881f8f782a227c81feaa4813722d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447736"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793623"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>利用 Azure API 管理、事件中樞與 Moesif 監視您的 API
-[API 管理服務](api-management-key-concepts.md)提供許多功能，可增強傳送至 HTTP API 之 HTTP 要求的處理。 不過，要求和回應的存在都是暫時的。 提出要求並透過 API 管理服務送到您的後端 API。 您的 API 會處理此要求，而回應會傳回給 API 取用者。 API 管理服務會保留一些有關 API 的重要統計資料，以顯示在 Azure 入口網站儀表板上，但除此之外，詳細資料會消失。
+[API 管理服務](api-management-key-concepts.md) 提供許多功能，以增強傳送至 HTTP API 之 HTTP 要求的處理。 不過，要求和回應的存在都是暫時的。 提出要求並透過 API 管理服務送到您的後端 API。 您的 API 會處理此要求，而回應會傳回給 API 取用者。 API 管理服務會保留一些有關 API 的重要統計資料，以顯示在 Azure 入口網站儀表板上，但除此之外，詳細資料會消失。
 
 藉由在「API 管理」服務中使用 log-to-eventhub 原則，您便可以將任何來自要求和回應的詳細資料傳送到 [Azure 事件中樞](../event-hubs/event-hubs-what-is-event-hubs.md)。 您想要從傳送到您的 API 的 HTTP 訊息產生事件的原因包羅萬象。 範例包括更新稽核線索、使用量分析、例外狀況警示和第三方整合。
 
@@ -47,7 +47,7 @@ Azure 事件中樞已設計用來輸入大量資料，其能夠處理的事件�
 
 替代選項是使用如 HTTP 規格 [RFC 7230](https://tools.ietf.org/html/rfc7230) 中所述的 `application/http` 媒體類型。 此媒體類型會使用與透過網路用來實際傳送 HTTP 訊息完全相同的格式，但整個訊息可以放在另一個 HTTP 要求的本文中。 在我們的案例中，我們只是會以此本文作為我們的訊息來傳送到事件中樞。 [Microsoft ASP.NET Web API 2.2 用戶端](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/)程式庫中有一個剖析器，可以剖析此格式並將它轉換成原生 `HttpRequestMessage` 和 `HttpResponseMessage` 物件，相當方便。
 
-為了能夠建立此訊息，我們需要在 Azure API 管理中利用以 C# 為基礎的[原則運算式](https://msdn.microsoft.com/library/azure/dn910913.aspx)。 以下是可將 HTTP 要求訊息傳送到 Azure 事件中樞的原則。
+為了能夠建立此訊息，我們需要在 Azure API 管理中利用以 C# 為基礎的[原則運算式](/azure/api-management/api-management-policy-expressions)。 以下是可將 HTTP 要求訊息傳送到 Azure 事件中樞的原則。
 
 ```xml
 <log-to-eventhub logger-id="conferencelogger" partition-id="0">
@@ -159,7 +159,7 @@ HTTP 標頭可以轉換成採用簡單索引鍵/值組格式的訊息格式。 �
 `set-variable` 原則會建立一個可供 `<inbound>` 區段和 `<outbound>` 區段中的 `log-to-eventhub` 原則存取的值。
 
 ## <a name="receiving-events-from-event-hubs"></a>從事件中樞接收事件
-使用 [AMQP 通訊協定](https://www.amqp.org/)可從 Azure 事件中樞接收事件。 Microsoft 服務匯流排團隊已提供用戶端程式庫，以便取用事件。 支援兩種不同的方法：一個方法是成為「直接取用者」，另一個方法是使用 `EventProcessorHost` 類別。 在 [事件中樞程式設計指南](../event-hubs/event-hubs-programming-guide.md)中可找到這兩種方法的範例。 簡而言之，差別在於：`Direct Consumer` 給您完整控制權，而 `EventProcessorHost` 會替您做一些繁雜工作，但會假設您將如何處理這些事件。
+使用 [AMQP 通訊協定](https://www.amqp.org/)可從 Azure 事件中樞接收事件。 Microsoft 服务总线团队提供了客户端库来方便使用事件。 支援兩種不同的方法：一個方法是成為「直接取用者」，另一個方法是使用 `EventProcessorHost` 類別。 在 [事件中樞程式設計指南](../event-hubs/event-hubs-programming-guide.md)中可找到這兩種方法的範例。 簡而言之，差別在於：`Direct Consumer` 給您完整控制權，而 `EventProcessorHost` 會替您做一些繁雜工作，但會假設您將如何處理這些事件。
 
 ### <a name="eventprocessorhost"></a>EventProcessorHost
 在此範例中，我們將使用 `EventProcessorHost` 以求簡化，但是它可能不是此特定案例的最佳選擇。 `EventProcessorHost` 會努力確定您不必擔心特定事件處理器類別內的執行緒問題。 不過，在我們的案例中，我們只是將訊息轉換成另一種格式，並使用非同步方法將它傳遞到另一個服務。 不需要更新共用狀態，因此沒有執行緒問題的風險。 在大部分的情況下， `EventProcessorHost` 可能是最佳選擇，當然也是比較容易的選項。
@@ -315,4 +315,4 @@ Azure API 管理服務提供了一個理想位置，可供擷取您的 API 的�
 * 深入了解 API 管理和事件中樞的整合
   * [如何將事件記錄到 Azure API 管理中的 Azure 事件中樞](api-management-howto-log-event-hubs.md)
   * [記錄器實體參考](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
-  * [log-to-eventhub 原則參考](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+  * [log-to-eventhub 策略引用](/azure/api-management/api-management-advanced-policies#log-to-eventhub)

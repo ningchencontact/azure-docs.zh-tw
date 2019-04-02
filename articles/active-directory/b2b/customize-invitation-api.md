@@ -11,18 +11,19 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 610d81912ac0244f25bc39c41690ab7e7ea8897c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 17b472b647dd27306ca95345e49dfeb3aee60665
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111305"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793371"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B 共同作業 API 和自訂
 
 有許多客戶告訴我們他們想要以最適合其組織的方式自訂邀請程序。 使用我們的 API，您可以進行自訂。 [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
 
 ## <a name="capabilities-of-the-invitation-api"></a>邀請 API 的功能
+
 API 提供下列功能：
 
 1. 使用*任何*電子郵件地址來邀請外部使用者。
@@ -68,21 +69,25 @@ API 提供下列功能：
 
 
 ## <a name="authorization-model"></a>授權模型
+
 API 可以在下列授權模型中執行：
 
 ### <a name="app--user-mode"></a>應用程式 + 使用者模式
+
 在此模式中，使用 API 的任何使用者必須有建立 B2B 邀請的權限。
 
 ### <a name="app-only-mode"></a>僅應用程式模式
+
 在僅應用程式模式中，應用程式需要 User.Invite.All 範圍，邀請才能成功。
 
 如需詳細資訊，請參閱： https://developer.microsoft.com/graph/docs/authorization/permission_scopes
 
 
 ## <a name="powershell"></a>PowerShell
+
 您可以使用 PowerShell，輕鬆地新增並邀請外部使用者加入組織。 使用 Cmdlet 建立邀請：
 
-```
+```powershell
 New-AzureADMSInvitation
 ```
 
@@ -102,7 +107,8 @@ New-AzureADMSInvitation
 
 您可以使用 [篩選] 選項，依 **UserState** 篩選結果。 以下範例示範如何篩選結果，只顯示具有待決邀請的使用者。 此範例也顯示 **Format-list** 選項，其可讓您指定要顯示的屬性。 
  
-```
+
+```powershell
 Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Property DisplayName,UserPrincipalName,UserState,UserStateChangedOn
 ```
 
@@ -119,4 +125,3 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 - [B2B 共同作業邀請電子郵件的元素](invitation-email-elements.md)
 - [B2B 共同作業邀請兌換](redemption-experience.md)
 - [在沒有邀請的情況下新增 B2B 共同作業使用者](add-user-without-invite.md)
-

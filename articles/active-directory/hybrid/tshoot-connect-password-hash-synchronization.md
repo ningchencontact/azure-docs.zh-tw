@@ -16,14 +16,15 @@ ms.date: 03/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56fda1110218910f8fbd8aa9597195f37444e01c
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 6feed11fcfc597658f3ec148b5dd18bb7e3f8f83
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193312"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793317"
 ---
 # <a name="troubleshoot-password-hash-synchronization-with-azure-ad-connect-sync"></a>針對使用 Azure AD Connect 同步執行的密碼雜湊同步處理進行疑難排解
+
 本主題提供如何針對密碼雜湊同步處理問題進行疑難排解的步驟。 如果密碼未如預期般同步，可能會影響一部分使用者或所有使用者。
 
 對於 1.1.614.0 版或更新版本的 Azure Active directory (Azure AD) Connect 部署，請使用精靈中的疑難排解工作，針對密碼雜湊同步處理問題進行疑難排解：
@@ -47,12 +48,14 @@ ms.locfileid: "57193312"
 
 
 ## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-troubleshooting-task"></a>未同步任何密碼：使用疑難排解工作進行疑難排解
+
 您可以使用疑難排解工作來查明未同步任何密碼的原因。
 
 > [!NOTE]
 > 疑難排解工作僅適用於 Azure AD Connect 1.1.614.0 版或更新版本。
 
 ### <a name="run-the-troubleshooting-task"></a>執行疑難排解工作
+
 針對未同步任何密碼的問題進行疑難排解：
 
 1. 在您的 Azure AD Connect 伺服器上，使用 [以系統管理員身分執行] 選項開啟新的 Windows PowerShell 工作階段。
@@ -70,6 +73,7 @@ ms.locfileid: "57193312"
 7. 在子功能表中，選取 [密碼雜湊同步處理完全無法運作]。
 
 ### <a name="understand-the-results-of-the-troubleshooting-task"></a>了解疑難排解工作的結果
+
 疑難排解工作會執行下列檢查：
 
 * 確認已針對您的 Azure AD 租用戶啟用密碼雜湊同步處理功能。
@@ -95,26 +99,31 @@ ms.locfileid: "57193312"
 本節的其餘部分說明工作所傳回的特定結果和對應的問題。
 
 #### <a name="password-hash-synchronization-feature-isnt-enabled"></a>密碼雜湊同步處理功能未啟用
+
 如果您尚未使用 Azure AD Connect 精靈來啟用密碼雜湊同步處理，就會傳回下列錯誤：
 
 ![密碼雜湊同步處理未啟用](./media/tshoot-connect-password-hash-synchronization/phsglobaldisabled.png)
 
 #### <a name="azure-ad-connect-server-is-in-staging-mode"></a>Azure AD Connect 伺服器處於預備模式
+
 如果 Azure AD Connect 伺服器處於預備模式，就會暫時停用密碼雜湊同步處理，而會傳回下列錯誤：
 
 ![Azure AD Connect 伺服器處於預備模式](./media/tshoot-connect-password-hash-synchronization/phsglobalstaging.png)
 
 #### <a name="no-password-hash-synchronization-heartbeat-events"></a>沒有密碼雜湊同步處理活動訊號事件
+
 每個內部部署 Active Directory 連接器都有自己的密碼雜湊同步處理通道。 當密碼雜湊同步處理通道已建立，而且沒有任何密碼變更需要同步時，在「Windows 應用程式事件記錄檔」下每隔 30 分鐘會產生一次活動訊號事件 (EventId 654)。 對於每個內部部署 Active Directory 連接器，此 Cmdlet 會搜尋過去三小時內對應的活動訊號事件。 如果找不到活動訊號事件，則會傳回下列錯誤：
 
 ![沒有密碼雜湊同步處理活動訊號事件](./media/tshoot-connect-password-hash-synchronization/phsglobalnoheartbeat.png)
 
 #### <a name="ad-ds-account-does-not-have-correct-permissions"></a>AD DS 帳戶沒有正確的權限
+
 如果內部部署 Active Directory 連接器用來同步密碼雜湊的 AD DS 帳戶沒有適當的權限，則會傳回下列錯誤：
 
 ![不正確的認證](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectpermission.png)
 
 #### <a name="incorrect-ad-ds-account-username-or-password"></a>不正確的 AD DS 帳戶使用者名稱或密碼
+
 如果內部部署 Active Directory 連接器用來同步密碼雜湊的 AD DS 帳戶有不正確的使用者名稱或密碼，則會傳回下列錯誤：
 
 ![不正確的認證](./media/tshoot-connect-password-hash-synchronization/phsglobalaccountincorrectcredential.png)
@@ -129,6 +138,7 @@ ms.locfileid: "57193312"
 > 疑難排解工作僅適用於 Azure AD Connect 1.1.614.0 版或更新版本。
 
 ### <a name="run-the-diagnostics-cmdlet"></a>執行診斷 Cmdlet
+
 若要針對特定使用者物件的問題進行疑難排解：
 
 1. 在您的 Azure AD Connect 伺服器上，使用 [以系統管理員身分執行] 選項開啟新的 Windows PowerShell 工作階段。
@@ -146,6 +156,7 @@ ms.locfileid: "57193312"
 7. 在子功能表中，選取 [未同步特定使用者帳戶的密碼]。
 
 ### <a name="understand-the-results-of-the-troubleshooting-task"></a>了解疑難排解工作的結果
+
 疑難排解工作會執行下列檢查：
 
 * 在 Active Directory 連接器空間、Metaverse 和 Azure AD 連接器空間中，檢查 Active Directory 物件的狀態。
@@ -161,16 +172,19 @@ ms.locfileid: "57193312"
 本節的其餘部分說明 Cmdlet 所傳回的特定結果和對應的問題。
 
 #### <a name="the-active-directory-object-isnt-exported-to-azure-ad"></a>Active Directory 物件未匯出至 Azure AD
+
 因為 Azure AD 租用戶中沒有對應的物件，所以這個內部部署 Active Directory 帳戶的密碼雜湊同步處理失敗。 傳回下列錯誤：
 
 ![遺漏 Azure AD 物件](./media/tshoot-connect-password-hash-synchronization/phssingleobjectnotexported.png)
 
 #### <a name="user-has-a-temporary-password"></a>使用者有暫時密碼
+
 目前，Azure AD Connect 不支援與 Azure AD 同步暫時密碼。 如果對內部部署 Active Directory 使用者設定 [在下次登入時變更密碼] 選項，密碼就視為暫時。 傳回下列錯誤：
 
 ![未匯出暫時密碼](./media/tshoot-connect-password-hash-synchronization/phssingleobjecttemporarypassword.png)
 
 #### <a name="results-of-last-attempt-to-synchronize-password-arent-available"></a>上次嘗試同步密碼沒有結果
+
 根據預設，Azure AD Connect 會將密碼雜湊同步處理嘗試的結果儲存達七天。 如果選取的 Active Directory 物件沒有可用的結果，則會傳回下列警告：
 
 ![單一物件的診斷輸出 - 沒有密碼同步記錄](./media/tshoot-connect-password-hash-synchronization/phssingleobjectnohistory.png)
@@ -178,12 +192,14 @@ ms.locfileid: "57193312"
 
 
 ## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet"></a>未同步任何密碼：使用診斷 Cmdlet 進行疑難排解
+
 您可以使用 `Invoke-ADSyncDiagnostics` Cmdlet 來查明未同步任何密碼的原因。
 
 > [!NOTE]
 > `Invoke-ADSyncDiagnostics` cmdlet 仅可用于 Azure AD Connect 1.1.524.0 或更高版本。
 
 ### <a name="run-the-diagnostics-cmdlet"></a>執行診斷 Cmdlet
+
 針對未同步任何密碼的問題進行疑難排解：
 
 1. 在您的 Azure AD Connect 伺服器上，使用 [以系統管理員身分執行] 選項開啟新的 Windows PowerShell 工作階段。
@@ -197,12 +213,14 @@ ms.locfileid: "57193312"
 
 
 ## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-diagnostic-cmdlet"></a>一個物件未同步密碼：使用診斷 Cmdlet 進行疑難排解
+
 您可以使用 `Invoke-ADSyncDiagnostics` Cmdlet 來判斷一個物件未同步密碼的原因。
 
 > [!NOTE]
 > `Invoke-ADSyncDiagnostics` Cmdlet 僅適用於 Azure AD Connect 1.1.524.0 版或更新版本。
 
 ### <a name="run-the-diagnostics-cmdlet"></a>執行診斷 Cmdlet
+
 針對未同步任何使用者密碼的問題進行疑難排解：
 
 1. 在您的 Azure AD Connect 伺服器上，使用 [以系統管理員身分執行] 選項開啟新的 Windows PowerShell 工作階段。
@@ -212,17 +230,21 @@ ms.locfileid: "57193312"
 3. 运行 `Import-Module ADSyncDiagnostics`。
 
 4. 运行以下 cmdlet：
+
    ```
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
    ```
+
    例如︰
-   ```
+
+   ```powershell
    Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
    ```
 
 
 
 ## <a name="no-passwords-are-synchronized-manual-troubleshooting-steps"></a>未同步任何密碼：手動疑難排解步驟
+
 請依照下列步驟來判斷未同步任何密碼的原因：
 
 1. Connect 伺服器是否是處於[預備模式](how-to-connect-sync-staging-server.md)？ 處於預備模式的伺服器不會同步處理任何密碼。
@@ -276,6 +298,7 @@ ms.locfileid: "57193312"
 10. 如果此指令碼顯示沒有活動訊號，請執行[觸發所有密碼的完整同步](#trigger-a-full-sync-of-all-passwords)中的指令碼。
 
 ## <a name="one-object-is-not-synchronizing-passwords-manual-troubleshooting-steps"></a>一個物件未同步密碼：手動疑難排解步驟
+
 您可以藉由檢閱物件的狀態，輕鬆地針對密碼雜湊同步處理問題進行疑難排解。
 
 1. 在 **Active Directory 使用者和電腦**中，搜尋使用者，然後確認已清除 [使用者必須在下次登入時變更密碼] 核取方塊。  
@@ -325,6 +348,7 @@ ms.locfileid: "57193312"
     ![連接器空間物件屬性對話方塊](./media/tshoot-connect-password-hash-synchronization/cspasswordsync2.png)  
 
 ### <a name="password-sync-log"></a>密碼同步記錄
+
 [狀態] 欄可以有下列值︰
 
 | 狀態 | 描述 |
@@ -343,7 +367,8 @@ ms.locfileid: "57193312"
 ## <a name="scripts-to-help-troubleshooting"></a>協助疑難排解的指令碼
 
 ### <a name="get-the-status-of-password-sync-settings"></a>获取密码同步设置的状态
-```
+
+```powershell
 Import-Module ADSync
 $connectors = Get-ADSyncConnector
 $aadConnectors = $connectors | Where-Object {$_.SubType -eq "Windows Azure Active Directory (Microsoft)"}
@@ -397,12 +422,13 @@ Write-Host
 ```
 
 #### <a name="trigger-a-full-sync-of-all-passwords"></a>触发所有密码的完全同步
+
 > [!NOTE]
 > 只執行一次這個指令碼。 如果需要執行多次，則表示問題出在其他地方。 若要針對問題進行疑難排解，請連絡 Microsoft 支援服務。
 
 您可以使用下列指令碼來觸發所有密碼的完整同步︰
 
-```
+```powershell
 $adConnector = "<CASE SENSITIVE AD CONNECTOR NAME>"
 $aadConnector = "<CASE SENSITIVE AAD CONNECTOR NAME>"
 Import-Module adsync
@@ -417,6 +443,7 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 ```
 
 ## <a name="next-steps"></a>後續步驟
+
 * [使用 Azure AD Connect 同步來實作密碼雜湊同步處理](how-to-connect-password-hash-synchronization.md) \(英文\)
 * [Azure AD Connect Sync：自訂同步處理選項](how-to-connect-sync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)

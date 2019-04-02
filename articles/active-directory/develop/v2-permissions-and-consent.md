@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 04/01/2019
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 225065e35e40c06d324bee89fa65a765a2727233
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f6ccc2a355b22c2235253b78a1efa3912234027a
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123754"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793453"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Azure Active Directory v2.0 端點中的權限和同意
 
@@ -260,7 +260,7 @@ Content-Type: application/json
 
 您可以使用 `/.default` 範圍，協助將您的應用程式從 v1.0 端點遷移至 v2.0 端點。 這是每個應用程式的內建範圍，其參考在應用程式註冊時設定的靜態權限清單。 `scope` 值為 `https://graph.microsoft.com/.default` 在功能上與 v1.0 端點 `resource=https://graph.microsoft.com` 相同 - 也就是說，它會對應用程式已在 Azure 入口網站中註冊的 Microsoft Graph 範圍要求權杖。
 
-/.Default 範圍可使用於任何 OAuth 2.0 流程，但是在 [代理者流程](v2-oauth2-on-behalf-of-flow.md) 和[用戶端認證流程](v2-oauth2-client-creds-grant-flow.md)中特別需要。  
+/.Default 範圍可用在任何 OAuth 2.0 流程中，但特別是在中是必要[上的代理者流程](v2-oauth2-on-behalf-of-flow.md)並[用戶端認證流程](v2-oauth2-client-creds-grant-flow.md)。  
 
 > [!NOTE]
 > 用戶端無法在單一要求中結合靜態 (`/.default`) 和動態同意。 因此，`scope=https://graph.microsoft.com/.default+mail.read` 會因為範圍類型的組合而導致錯誤。

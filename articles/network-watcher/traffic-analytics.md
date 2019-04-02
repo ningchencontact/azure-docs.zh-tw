@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: d4c3ab7e33d3d4bd8d5d5ee15c8264d1d41c858e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ac4351bd2e125c922cb3044c1d06298b3ad6de97
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081061"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805052"
 ---
 # <a name="traffic-analytics"></a>流量分析
 
@@ -64,6 +64,7 @@ Azure 虛擬網路具有 NSG 流量記錄，可為您了解透過與個別網路
 * 美國中部
 * 美國西部
 * 美國西部 2
+* 法國中部
 * 西歐
 * 北歐
 * 巴西南部
@@ -71,20 +72,26 @@ Azure 虛擬網路具有 NSG 流量記錄，可為您了解透過與個別網路
 * 英國南部
 * 澳洲東部
 * 澳大利亞東南部
+* 東亞
 * 東南亞
+* 南韓中部
 * 印度中部
 * 印度南部
 * 日本東部 
+* 日本西部
 * 美國政府維吉尼亞州
 
 Log Analytics 工作區必須存在於下列區域：
 * 加拿大中部
 * 美國中西部
+* 美國西部 2
 * 美國東部
+* 法國中部
 * 西歐
 * 英國南部
 * 澳大利亞東南部
 * 東南亞
+* 南韓中部
 * 印度中部
 * 日本東部
 * 美國政府維吉尼亞州

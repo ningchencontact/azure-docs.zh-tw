@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a2ec36a99b2940fa662b0d9bd16b06777684db2f
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: c8afa671a323e37a99be8b5a43d0a4823fe1877a
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448062"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58800871"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>針對 Desired State Configuration (DSC) 問題進行疑難排解
 
@@ -28,18 +28,18 @@ ms.locfileid: "58448062"
 
 尝试通过门户删除 DSC 配置时，将看到以下错误：
 
-```
+```error
 An error occured while deleteing the DSC configuration '<name>'.  Error-details: The arguement configurationName with the value <name> is not valid.  Valid configuration names can contain only letters,  numbers, and underscores.  The name must start with a letter.  The length of the name must be between 1 and 64 characters.
 ```
 
 #### <a name="cause"></a>原因
 
-这是一个计划要解决的临时问题。
+此錯誤是打算解決的暫時性問題。
 
 #### <a name="resolution"></a>解決方案
 
 * 使用 Az Cmdlet "Remove-AzAutomationDscConfiguration" 删除配置。
-* 此 cmdlet 的文档尚未更新。  在此之前，请参阅 AzureRM 模块的文档。
+* 此 cmdlet 的文件尚未更新。  在那之前，請參閱文件以取得 AzureRM 模組。
   * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
 
 ### <a name="failed-not-found"></a>案例：節點處於失敗狀態，並發生「找不到」錯誤
@@ -48,7 +48,7 @@ An error occured while deleteing the DSC configuration '<name>'.  Error-details:
 
 節點的報告具有「失敗」狀態且包含錯誤：
 
-```
+```error
 The attempt to get the action from server https://<url>//accounts/<account-id>/Nodes(AgentId=<agent-id>)/GetDscAction failed because a valid configuration <guid> cannot be found.
 ```
 
@@ -58,11 +58,11 @@ The attempt to get the action from server https://<url>//accounts/<account-id>/N
 
 #### <a name="resolution"></a>解決方案
 
-* 請確定您會使用「節點組態名稱」而不是「組態名稱」來指派節點。
+* 請確定您要指派具有 「 節點組態名稱 」 而不是 「 組態名稱"的節點。
 * 您可以使用 Azure 入口網站或使用 PowerShell Cmdlet，將節點組態指派至節點。
 
-  * 如要使用 Azure 入口網站來將節點組態指派給節點，請開啟 [DSC 節點] 分頁、選取某個節點，然後按一下 [指派節點組態] 按鈕。  
-  * 如要使用 PowerShell Cmdlet 來將節點組態指派給節點，請使用 **Set-AzureRmAutomationDscNode** Cmdlet
+  * 若要將節點組態指派給節點，使用 Azure 入口網站中，開啟**DSC 節點**頁面上，然後選取節點，然後按一下**指派節點組態** 按鈕。  
+  * 若要將節點組態指派至節點，使用 PowerShell cmdlet，請使用**Set-azurermautomationdscnode** cmdlet
 
 ### <a name="no-mof-files"></a>案例：編譯設定時，沒有產生任何節點設定 (MOF 檔案)
 
@@ -70,7 +70,7 @@ The attempt to get the action from server https://<url>//accounts/<account-id>/N
 
 您的 DSC 編譯工作因發生下列錯誤而暫停：
 
-```
+```error
 Compilation completed successfully, but no node configuration.mofs were generated.
 ```
 
@@ -82,7 +82,7 @@ Compilation completed successfully, but no node configuration.mofs were generate
 
 下列任何一個解決方案都可以修正此問題：
 
-* 請確定組態定義中「Node」  關鍵字後方的運算式，不會被評估為 $null。
+* 請確定運算式旁的**節點**$null 不評估組態定義中的關鍵字。
 * 如果您在編譯組態時傳遞 ConfigurationData，請確定您傳遞的是組態向 [ConfigurationData](../automation-dsc-compile.md#configurationdata)要求的預期值。
 
 ### <a name="dsc-in-progress"></a>案例：DSC 節點報告變成停留在「進行中」狀態
@@ -91,7 +91,7 @@ Compilation completed successfully, but no node configuration.mofs were generate
 
 DSC 代理程式輸出：
 
-```
+```error
 No instance found with given property values
 ```
 
@@ -101,7 +101,7 @@ No instance found with given property values
 
 #### <a name="resolution"></a>解決方案
 
-若要修正問題，請依照 [DSC 已知問題和限制](https://msdn.microsoft.com/powershell/wmf/5.0/limitation_dsc)一文中的指示進行操作。
+若要修正此問題，請依照中的指示[DSC 已知問題和限制](https://msdn.microsoft.com/powershell/wmf/5.0/limitation_dsc)文章。
 
 ### <a name="issue-using-credential"></a>案例：無法在 DSC 設定中使用認證
 
@@ -109,21 +109,21 @@ No instance found with given property values
 
 您的 DSC 編譯工作因發生下列錯誤而暫停：
 
-```
+```error
 System.InvalidOperationException error processing property 'Credential' of type <some resource name>: Converting and storing an encrypted password as plaintext is allowed only if PSDscAllowPlainTextPassword is set to true.
 ```
 
 #### <a name="cause"></a>原因
 
-您已在設定中使用認證，但沒有提供適當的 **ConfigurationData**，以將每個節點設定的 **PSDscAllowPlainTextPassword** 設定為 True。
+您已在組態中使用的認證，但沒有提供適當**ConfigurationData**來設定**PSDscAllowPlainTextPassword**設為 true，每個節點組態。
 
 #### <a name="resolution"></a>解決方案
 
-* 請確認傳入適當的 **ConfigurationData**，以便把組態中提到的每個節點組態的 **PSDscAllowPlainTextPassword** 設定為 True。 如需詳細資訊，請參閱 [Azure 自動化 DSC 中的資產](../automation-dsc-compile.md#assets)。
+* 請確認傳入適當**ConfigurationData**來設定**PSDscAllowPlainTextPassword**設為 true，每個節點組態設定中所述。 如需詳細資訊，請參閱 [Azure 自動化 DSC 中的資產](../automation-dsc-compile.md#assets)。
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您看不到問題或無法解決問題，請瀏覽下列其中一個通道以取得更多支援：
+如果您沒有看到您的問題，或無法解決您的問題，請瀏覽下列其中一個管道以取得更多支援：
 
 * 透過 [Azure 論壇](https://azure.microsoft.com/support/forums/)獲得由 Azure 專家所提供的解答
 * 與 [@AzureSupport](https://twitter.com/azuresupport) 連繫－專為改善客戶體驗而設的官方 Microsoft Azure 帳戶，協助 Azure 社群連接至適當的資源，像是解答、支援及專家等。

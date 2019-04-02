@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: tomfitz
-ms.openlocfilehash: e7bcfce4e9d23839c623be3b54e97d931e6454cb
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 8348099d778a9ec65e907bb3d21ae995041b9fb6
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268289"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802282"
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>檢視活動記錄以稽核對資源的動作
 
@@ -167,7 +167,7 @@ ms.locfileid: "56268289"
 
 ## <a name="rest-api"></a>REST API
 
-可用來處理活動記錄檔的 REST 作業屬於 [Insights REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx)的一部分。 若要擷取活動記錄檔事件，請參閱 [列出訂用帳戶中的管理事件](https://msdn.microsoft.com/library/azure/dn931934.aspx)。
+可用來處理活動記錄檔的 REST 作業屬於 [Insights REST API](/rest/api/monitor/)的一部分。 若要擷取活動記錄檔事件，請參閱 [列出訂用帳戶中的管理事件](/rest/api/monitor/activitylogs)。
 
 ## <a name="next-steps"></a>後續步驟
 

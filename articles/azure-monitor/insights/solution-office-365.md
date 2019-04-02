@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 6a13988af7a46ff6fafe352e850ee238cda79c08
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: da9e322f74433df7066ec574db7a49123f96d76b
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996706"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58794014"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure 中的 Office 365 管理解決方案 (預覽)
 
@@ -34,6 +34,7 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>必要條件
+
 安裝和設定此解決方案之前必須先具備下列項目。
 
 - 組織的 Office 365 訂閱。
@@ -42,12 +43,16 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
  
 
 ## <a name="management-packs"></a>管理組件
+
 此解決方案不會在[已連線的管理群組](../platform/om-agents.md)中安裝任何管理組件。
   
+
 ## <a name="install-and-configure"></a>安裝及設定
+
 一開始先新增 [Office 365 解決方案到您的訂用帳戶](solutions.md#install-a-monitoring-solution)。 新增之後，您必須執行本節中的設定步驟，讓解決方案存取您的 Office 365 訂用帳戶。
 
 ### <a name="required-information"></a>必要資訊
+
 開始此程序前，請先收集下列資訊。
 
 從您的 Log Analytics 工作區：
@@ -64,6 +69,7 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
 - 用戶端密碼：驗證所需的加密字串。
 
 ### <a name="create-an-office-365-application-in-azure-active-directory"></a>在 Azure Active Directory 中建立 Office 365 應用程式
+
 第一個步驟在 Azure Active Directory 中建立應用程式，讓管理解決方案用來存取 Office 365 解決方案。
 
 1. 在 [https://portal.azure.com](https://portal.azure.com/) 上登入 Azure 入口網站。
@@ -111,11 +117,12 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
     ![金鑰](media/solution-office-365/keys.png)
 
 ### <a name="add-admin-consent"></a>新增管理員同意
+
 初次啟用系統管理帳戶時，您必須提供應用程式的管理員同意。 您可以利用 PowerShell 指令碼來完成此作業。 
 
 1. 將下列指令碼儲存為 office365_consent.ps1。
 
-    ```
+    ```powershell
     param (
         [Parameter(Mandatory=$True)][string]$WorkspaceName,     
         [Parameter(Mandatory=$True)][string]$ResourceGroupName,
@@ -161,9 +168,11 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
     ```
 
 2. 使用下列命令來執行指令碼。 系統會提示您提供認證兩次。 請先提供 Log Analytics 工作區的認證，然後提供 Office 365 租用戶的全域管理員認證。
+
     ```
     .\office365_consent.ps1 -WorkspaceName <Workspace name> -ResourceGroupName <Resource group name> -SubscriptionId <Subscription ID>
     ```
+
     範例：
 
     ```
@@ -175,11 +184,12 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
     ![系統管理員同意](media/solution-office-365/admin-consent.png)
 
 ### <a name="subscribe-to-log-analytics-workspace"></a>訂閱 Log Analytics 工作區
+
 最後一個步驟將應用程式訂閱到您的 Log Analytics 工作區。 您也可以利用 PowerShell 指令碼來完成此作業。
 
 1. 將下列指令碼儲存為 office365_subscription.ps1。
 
-    ```
+    ```powershell
     param (
         [Parameter(Mandatory=$True)][string]$WorkspaceName,
         [Parameter(Mandatory=$True)][string]$ResourceGroupName,
@@ -342,12 +352,14 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
     ```
 
 2. 使用下列命令來執行指令碼：
+
     ```
     .\office365_subscription.ps1 -WorkspaceName <Log Analytics workspace name> -ResourceGroupName <Resource Group name> -SubscriptionId <Subscription ID> -OfficeUsername <OfficeUsername> -OfficeTennantID <Tenant ID> -OfficeClientId <Client ID> -OfficeClientSecret <Client secret>
     ```
+
     範例：
 
-    ```
+    ```powershell
     .\office365_subscription.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeUsername 'admin@contoso.com' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx' -OfficeClientId 'f8f14c50-5438-4c51-8956-zzzzzzzzzzzz' -OfficeClientSecret 'y5Lrwthu6n5QgLOWlqhvKqtVUZXX0exrA2KRHmtHgQb='
     ```
 
@@ -355,7 +367,7 @@ Office 365 管理解決方案可讓您監視 Azure 監視器中的 Office 365 �
 
 如果您的應用程式已訂閱此工作區，或此租用戶訂閱了另一個工作區，您可能會看到下列錯誤。
 
-```
+```Output
 Invoke-WebRequest : {"Message":"An error has occurred."}
 At C:\Users\v-tanmah\Desktop\ps scripts\office365_subscription.ps1:161 char:19
 + $officeresponse = Invoke-WebRequest @Officeparams
@@ -366,7 +378,7 @@ At C:\Users\v-tanmah\Desktop\ps scripts\office365_subscription.ps1:161 char:19
 
 如果提供了無效參數值，您可能會看到下列錯誤。
 
-```
+```Output
 Select-AzSubscription : Please provide a valid tenant or a valid subscription.
 At line:12 char:18
 + ... cription = (Select-AzSubscription -SubscriptionId $($Subscriptio ...
@@ -377,11 +389,12 @@ At line:12 char:18
 ```
 
 ## <a name="uninstall"></a>解除安裝
+
 您可以使用[移除管理解決方案](solutions.md#remove-a-monitoring-solution)中的程序移除 Office 365 管理解決方案。 但這不會停止從 Office 365 收集資料到 Azure 監視器。 請遵循底下程序，從 Office 365 取消訂閱並停止收集資料。
 
 1. 將下列指令碼儲存為 office365_unsubscribe.ps1。
 
-    ```
+    ```powershell
     param (
         [Parameter(Mandatory=$True)][string]$WorkspaceName,
         [Parameter(Mandatory=$True)][string]$ResourceGroupName,
@@ -472,15 +485,18 @@ At line:12 char:18
 
     範例：
 
-    ```
+    ```powershell
     .\office365_unsubscribe.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx'
     ```
 
 ## <a name="data-collection"></a>資料收集
+
 ### <a name="supported-agents"></a>支援的代理程式
+
 Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/agent-data-sources.md)擷取資料。  它會直接從 Office 365 擷取資料。
 
 ### <a name="collection-frequency"></a>收集頻率
+
 一開始收集資料可能會需要幾個小時。 一旦開始收集資料，每次建立一筆記錄時，Office 365 都會將 [Webhook 通知](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) \(英文\) 連同詳細資料傳送至 Azure 監視器。 收到此記錄的幾分鐘內，即可將其用於 Azure 監視器。
 
 ## <a name="using-the-solution"></a>使用解決方案
@@ -511,6 +527,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 由 Office 365 解決方案在 Azure 監視器工作區中建立的所有記錄，都具有 **OfficeActivity** 的「類型」。  **OfficeWorkload** 屬性可決定該記錄所指的 Office 365 服務：Exchange、AzureActiveDirectory、SharePoint 或 OneDrive。  **RecordType** 屬性指定作業的類型。  每種作業類型會有不同的屬性，如下表所示。
 
 ### <a name="common-properties"></a>通用屬性
+
 以下是所有 Office 365 記錄通用的屬性。
 
 | 屬性 | 描述 |
@@ -528,6 +545,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory 基底
+
 以下是所有 Azure Active Directory 記錄通用的屬性。
 
 | 屬性 | 描述 |
@@ -539,6 +557,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 
 ### <a name="azure-active-directory-account-logon"></a>Azure Active Directory 帳戶登入
+
 這些記錄會在 Active Directory 使用者嘗試登入時建立。
 
 | 屬性 | 描述 |
@@ -552,6 +571,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
+
 這些記錄會在針對 Azure Active Directory 物件進行變更或新增時建立。
 
 | 屬性 | 描述 |
@@ -569,6 +589,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 
 ### <a name="data-center-security"></a>資料中心安全性
+
 這些記錄是從資料中心安全性稽核資料所建立。  
 
 | 屬性 | 描述 |
@@ -584,6 +605,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 
 ### <a name="exchange-admin"></a>Exchange 管理員
+
 這些記錄會在對 Exchange 設定做出變更時建立。
 
 | 屬性 | 描述 |
@@ -598,6 +620,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 
 ### <a name="exchange-mailbox"></a>Exchange 信箱
+
 這些記錄會在針對 Exchange 信箱做出變更或新增時建立。
 
 | 屬性 | 描述 |
@@ -620,6 +643,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 
 ### <a name="exchange-mailbox-audit"></a>Exchange 信箱稽核
+
 這些記錄會在建立信箱稽核項目時建立。
 
 | 屬性 | 描述 |
@@ -634,6 +658,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 
 ### <a name="exchange-mailbox-audit-group"></a>Exchange 信箱稽核群組
+
 這些記錄會在針對 Exchange 群組做出變更或新增時建立。
 
 | 屬性 | 描述 |
@@ -652,6 +677,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 
 ### <a name="sharepoint-base"></a>SharePoint 基底
+
 這些是所有 SharePoint 記錄通用的屬性。
 
 | 屬性 | 描述 |
@@ -668,6 +694,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 
 ### <a name="sharepoint-schema"></a>SharePoint 結構描述
+
 這些記錄會在針對 SharePoint 做出設定變更時建立。
 
 | 屬性 | 描述 |
@@ -680,6 +707,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 
 ### <a name="sharepoint-file-operations"></a>SharePoint 檔案作業
+
 這些記錄是為了回應 SharePoint 中的檔案作業而建立。
 
 | 屬性 | 描述 |
@@ -700,6 +728,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 
 ## <a name="sample-log-searches"></a>記錄搜尋範例
+
 下表提供此方案所收集之更新記錄的記錄搜尋範例。
 
 | 查詢 | 描述 |
@@ -713,6 +742,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 
 ## <a name="next-steps"></a>後續步驟
+
 * 使用 [Azure 監視器中的記錄查詢](../log-query/log-query-overview.md)來檢視詳細的更新資料。
 * [建立自己的儀表板](../learn/tutorial-logs-dashboards.md)來顯示您最愛的 Office 365 搜尋查詢。
 * [建立警示](../platform/alerts-overview.md)來讓系統主動通知您重要的 Office 365 活動。  

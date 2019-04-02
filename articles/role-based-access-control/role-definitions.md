@@ -15,12 +15,12 @@ ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: b7f4ce9508928ccc6ab766e7164c674511bcaa37
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 7855c2bd45ba35ecb0ede5c60268e6446f37ed5a
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342774"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804525"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>了解適用於 Azure 資源的角色定義
 
@@ -48,7 +48,7 @@ AssignableScopes []
 
 作業字串的 `{action}` 部分指定您可以對資源類型執行的作業類型。 例如，您將會在 `{action}` 中看到下列子字串：
 
-| 動作子字串    | 說明         |
+| 動作子字串    | 描述         |
 | ------------------- | ------------------- |
 | `*` | 此萬用字元會授與所有符合字串之作業的存取權。 |
 | `read` | 啟用讀取作業 (GET)。 |
@@ -97,11 +97,11 @@ AssignableScopes []
 - 將儲存體 Blob 寫入容器中
 - 刪除佇列中的訊息
 
-以下是[儲存體 Blob 資料讀取器 (預覽)](built-in-roles.md#storage-blob-data-reader-preview) 的角色定義，其中包含 `Actions` 和 `DataActions` 屬性中的作業。 此角色可讓您讀取 Blob 容器和基礎 Blob 資料。
+以下是[儲存體 Blob 資料讀者](built-in-roles.md#storage-blob-data-reader)角色定義，其中包含作業中同時`Actions`和`DataActions`屬性。 此角色可讓您讀取 Blob 容器和基礎 Blob 資料。
 
 ```json
 {
-  "Name": "Storage Blob Data Reader (Preview)",
+  "Name": "Storage Blob Data Reader",
   "Id": "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
   "IsCustom": false,
   "Description": "Allows for read access to Azure Storage blob containers and data",
@@ -125,18 +125,18 @@ AssignableScopes []
 
 ### <a name="data-operations-example"></a>資料作業範例
 
-若要進一步了解管理和資料作業如何運作，我們來看特定範例。 Alice 已在訂用帳戶範圍上獲得[擁有者](built-in-roles.md#owner)角色的指派。 Bob 已在儲存體帳戶範圍上獲得[儲存體 Blob 資料參與者 (預覽)](built-in-roles.md#storage-blob-data-contributor-preview) 角色的指派。 此範例如下圖所示。
+若要進一步了解管理和資料作業如何運作，我們來看特定範例。 Alice 已在訂用帳戶範圍上獲得[擁有者](built-in-roles.md#owner)角色的指派。 Bob 已被指派[儲存體 Blob 資料參與者](built-in-roles.md#storage-blob-data-contributor)在儲存體 」 帳戶範圍的角色。 此範例如下圖所示。
 
 ![角色型存取控制已延伸為可支援管理和資料作業](./media/role-definitions/rbac-management-data.png)
 
-Alice 的[擁有者](built-in-roles.md#owner)角色和 Bob 的[儲存體 Blob 資料參與者 (預覽)](built-in-roles.md#storage-blob-data-contributor-preview) 角色有下列動作：
+[擁有者](built-in-roles.md#owner)Alice 的角色並[儲存體 Blob 資料參與者](built-in-roles.md#storage-blob-data-contributor)Bob 的角色具有下列動作：
 
 擁有者
 
 &nbsp;&nbsp;&nbsp;&nbsp;Actions<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`*`
 
-儲存體 Blob 資料參與者 (預覽)
+儲存體 Blob 資料參與者
 
 &nbsp;&nbsp;&nbsp;&nbsp;Actions<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
@@ -149,7 +149,7 @@ Alice 的[擁有者](built-in-roles.md#owner)角色和 Bob 的[儲存體 Blob �
 
 由於 Alice 在訂用帳戶範圍上有萬用字元 (`*`) 動作，她的權限可向下繼承，因此她可執行所有管理動作。 Alice 可以讀取、寫入和刪除容器。 不過，Alice 無法在未採取額外步驟的情況下執行資料作業。 例如，根據預設，Alice 無法讀取容器內的 Blob。 若要讀取 Blob，Alice 必須擷取儲存體存取金鑰，並使用它們來存取 Blob。
 
-Bob 的權限僅限於[儲存體 Blob 資料參與者 (預覽)](built-in-roles.md#storage-blob-data-contributor-preview) 角色中指定的 `Actions` 和 `DataActions`。 以此角色為基礎，Bob 可以執行管理和資料作業。 例如，Bob 可以讀取、寫入和刪除指定儲存體帳戶中的容器，而且他也可以讀取、寫入和刪除 Blob。
+Bob 的權限會限制為只`Actions`並`DataActions`中指定[儲存體 Blob 資料參與者](built-in-roles.md#storage-blob-data-contributor)角色。 以此角色為基礎，Bob 可以執行管理和資料作業。 例如，Bob 可以讀取、寫入和刪除指定儲存體帳戶中的容器，而且他也可以讀取、寫入和刪除 Blob。
 
 如需適用於儲存體之管理及資料平面安全性的詳細資訊，請參閱 [Azure 儲存體安全性指南](../storage/common/storage-security-guide.md)。
 
@@ -179,7 +179,7 @@ Azure 入口網站也可讓使用者透過 Azure AD 預覽體驗來瀏覽及管�
 
 `Actions` 權限會指定角色所允許執行的管理作業。 它是識別 Azure 資源提供者的安全性實體作業的作業字串集合。 以下是可用於 `Actions` 中的一些管理作業範例。
 
-| 作業字串    | 說明         |
+| 作業字串    | 描述         |
 | ------------------- | ------------------- |
 | `*/read` | 授與所有 Azure 資源提供者的所有資源類型之讀取作業的存取權。|
 | `Microsoft.Compute/*` | 授與對 Microsoft.Compute 資源提供者中所有資源類型之所有作業的存取權。|
@@ -199,7 +199,7 @@ Azure 入口網站也可讓使用者透過 Azure AD 預覽體驗來瀏覽及管�
 
 `DataActions` 權限會指定角色允許對物件內資料執行的管理作業。 例如，如果使用者有儲存體帳戶的讀取 Blob 資料存取權，則他們可讀取該儲存體帳戶中的 Blob。 以下是可用於 `DataActions` 中的一些資料作業範例。
 
-| 作業字串    | 說明         |
+| 作業字串    | 描述         |
 | ------------------- | ------------------- |
 | `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/read` | 傳回 Blob 或 Blob 清單。 |
 | `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/write` | 傳回寫入 Blob 的結果。 |

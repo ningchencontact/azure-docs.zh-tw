@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: d2ecebf47c77baa81193939b64c27348541f7686
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 2768a23c217052a342538b67ec59868e25fd4914
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403403"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793810"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Operations Manager 連線到 Azure 監視器
 
@@ -41,6 +41,7 @@ ms.locfileid: "58403403"
 如果 IT 安全性原則不允許您網路上的電腦連線到網際網路，則可以將管理伺服器設定為連線到 Log Analytics 閘道，以根據已啟用的解決方案來接收組態資訊和傳送收集到的資料。 如需詳細資訊以及有關如何設定 Operations Manager 管理群組以透過 Azure 監視器的 Log Analytics 閘道進行通訊的步驟，請參閱[將電腦連線到 Azure 監視器使用 Log Analytics 閘道](../../azure-monitor/platform/gateway.md)。  
 
 ## <a name="prerequisites"></a>必要條件 
+
 開始之前，請檢閱下列需求。
 
 * Azure 監視器只支援 System Center Operations Manager 2016 或更新版本，Operations Manager 2012 SP1 UR6 或更新版本，以及 Operations Manager 2012 R2 UR2 或更新版本。 Operations Manager 2012 SP1 UR7 和 Operations Manager 2012 R2 UR3 中已加入 Proxy 支援。
@@ -60,6 +61,7 @@ ms.locfileid: "58403403"
 >此管理組件更新並不適用於 System Center Operations Manager 1807，因為它是源自 1801 版的更新發行，而非產品的完整組建。   
 
 ### <a name="network"></a>網路
+
 下列資訊列出 Operations Manager 代理程式、 管理伺服器以及 Operations 主控台，來與 Azure 監視器通訊所需的 proxy 和防火牆組態資訊。 從每個元件的流量會從您的網路輸出至 Azure 監視器。   
 
 |資源 | 連接埠號碼| 略過 HTTPS 檢查|  
@@ -87,9 +89,11 @@ ms.locfileid: "58403403"
 |docs.loganalytics.io| 80 和 443||  
 
 ### <a name="tls-12-protocol"></a>TLS 1.2 通訊協定
+
 為了確保資料傳輸至 Azure 監視器中的安全性，強烈建議您設定代理程式及管理群組至少使用傳輸層安全性 (TLS) 1.2。 我們已發現較舊版本的 TLS/安全通訊端層 (SSL) 較易受到攻擊，而且在其目前的運作中仍允許回溯相容性，因此並**不建議使用**這些版本。 如需其它資訊，請檢閱[使用 TLS 1.2 安全地傳送](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12)。 
 
 ## <a name="connecting-operations-manager-to-azure-monitor"></a>Operations Manager 連接到 Azure 監視器
+
 執行下列一系列的步驟，設定 Operations Manager 管理群組來連接到其中一個 Log Analytics 工作區。
 
 在 Operations Manager 管理群組第一次向 Log Analytics 工作區進行登錄期間，在 Operations 主控台中為管理群組指定 Proxy 設定的選項無法使用。  必須先向服務成功登錄該管理群組，之後此選項才可供使用。  若要因應此問題，您需要在執行 Operations 主控台的系統上使用 Netsh 更新系統 Proxy 設定，以在管理群組中設定整合，以及所有管理伺服器。  
@@ -121,6 +125,7 @@ ms.locfileid: "58403403"
 1. 在 [Operations Management Suite 登入精靈:完成] 頁面上，按一下 [關閉]。
 
 ### <a name="add-agent-managed-computers"></a>加入代理程式的受控電腦
+
 設定與 Log Analytics 工作區的整合之後，只會建立與 Log Analytics 的連線，並不會從向管理群組回報的代理程式收集任何資料。 在您設定哪些特定代理程式管理電腦的 Azure 監視器收集記錄檔資料之後，這不會發生之前。 您可以個別選取電腦物件，也可以選取包含 Windows 電腦物件的群組。 您無法選取包含另一個類別之執行個體 (例如邏輯磁碟或 SQL 資料庫) 的群組。
 
 1. 開啟 Operations Manager 主控台，然後選取 [ **管理** ] 工作區。
@@ -131,6 +136,7 @@ ms.locfileid: "58403403"
 在 Operations 主控台的 [管理]  工作區中，您可以檢視電腦和群組，這些電腦和群組設定成收集來自 Operations Management Suite 下方之 [受控電腦] 節點的資料。 您可以視需要在這裡新增或移除電腦和群組。
 
 ### <a name="configure-proxy-settings-in-the-operations-console"></a>在 Operations 主控台中設定 Proxy 設定
+
 如果內部 proxy 伺服器之間的管理群組和 Azure 監視器，請執行下列步驟。 這些設定是集中從管理群組管理，並發佈至 Azure 監視器來收集記錄資料的範圍中包含的代理程式管理系統。  特定解決方案略過管理伺服器並將資料直接傳送給服務時，這十分有幫助。
 
 1. 開啟 Operations Manager 主控台，然後選取 [ **管理** ] 工作區。
@@ -156,6 +162,7 @@ ms.locfileid: "58403403"
 * 您在管理群組中已選擇來收集資料的代理程式和群組，將會新增至 [Microsoft System Center Advisor 監控伺服器群組]。
 
 ## <a name="management-pack-updates"></a>管理組件更新
+
 完成設定之後，Operations Manager 管理群組就會建立與 Azure 監視器的連線。 針對您已啟用且與 Operations Manager 整合的解決方案，管理伺服器會與 Web 服務同步處理，並以管理組件的形式接收更新的組態資訊。 Operations Manager 會檢查這些管理組件的更新，如果有更新，就會自動下載並匯入。 有兩個規則特別可控制這個行為︰
 
 * **Microsoft.SystemCenter.Advisor.MPUpdate** -更新基底的 Azure 監視管理組件。 預設會每 12 小時執行一次。
@@ -166,6 +173,7 @@ ms.locfileid: "58403403"
 若要繼續遵循現有的變更控制程序來控制生產管理群組中的管理組件發行版本，則可以停用規則，並在允許更新時於特定期間啟用它們。 如果您的環境中有開發或 QA 管理群組，而且該管理群組連接到網際網路，則可以設定該管理群組與 Log Analytics 工作區，以支援此案例。 這可讓您先檢閱和評估 Azure 監視管理組件的反覆版本，再發行到生產管理群組。
 
 ## <a name="switch-an-operations-manager-group-to-a-new-log-analytics-workspace"></a>將 Operations Manager 群組切換到新的 Log Analytics 工作區
+
 1. 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 1. 在 Azure 入口網站中，按一下左下角的 [更多服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]，然後建立工作區。  
 1. 使用身為 Operations Manager 系統管理員角色成員的帳戶開啟 Operations Manager 主控台，然後選取 [管理]  工作區。
@@ -179,9 +187,11 @@ ms.locfileid: "58403403"
    > 
 
 ## <a name="validate-operations-manager-integration-with-azure-monitor"></a>驗證 Operations Manager 與 Azure 監視器整合
+
 有幾個不同的方式，您可以確認 Azure 監視器，Operations Manager 整合成功。
 
 ### <a name="to-confirm-integration-from-the-azure-portal"></a>從 Azure 入口網站確認整合
+
 1. 在 Azure 入口網站中，按一下左下角的 [更多服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。
 1. 在 Log Analytics 工作區清單中，選取適用的工作區。  
 1. 選取 [進階設定]，選取 [連接的來源]然後選取 [系統中心]。 
@@ -190,6 +200,7 @@ ms.locfileid: "58403403"
    ![oms-settings-connectedsources](./media/om-agents/oms-settings-connectedsources.png)
 
 ### <a name="to-confirm-integration-from-the-operations-console"></a>從 Operations 主控台確認整合
+
 1. 開啟 Operations Manager 主控台，然後選取 [ **管理** ] 工作區。
 1. 選取 [管理組件]，並在 [尋找:] 文字方塊中輸入 **Advisor** 或 **Intelligence**。
 1. 根據您已啟用的解決方案，您會看到搜尋結果中列出對應的管理組件。  例如，如果您已啟用警示管理解決方案，則 [Microsoft System Center Advisor 警示管理] 管理組件會在清單中。
@@ -198,6 +209,7 @@ ms.locfileid: "58403403"
    ![oms-opsmgr-mg-authsvcuri-property-ms](./media/om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
 
 ## <a name="remove-integration-with-azure-monitor"></a>移除與 Azure 監視器整合
+
 當您不再需要整合 Operations Manager 管理群組和 Log Analytics 工作區時，需要執行幾個步驟，才能適當移除管理群組中的連接和組態。 下列程序具有您刪除管理群組的參考來更新您的 Log Analytics 工作區，刪除 Azure 監視器連接器，然後刪除支援與服務整合的管理組件。  
 
 解決方案的管理組件已啟用且與 Operations Manager 整合，並支援使用 Azure 監視器整合所需的管理組件無法輕鬆地從管理群組刪除。 這是因為某些 Azure 監視管理組件的其他相關的管理組件有相依性。 若要刪除與其他管理組件相依的管理組件，請從 TechNet 指令碼中心下載[移除具有相依性的管理組件](https://gallery.technet.microsoft.com/scriptcenter/Script-to-remove-a-84f6873e) (英文) 指令碼。  
@@ -244,7 +256,7 @@ ms.locfileid: "58403403"
 > 
 > 
 
-```
+```powershell
     param(
     [String] $connectorName,
     [String] $msName="localhost"
@@ -336,6 +348,5 @@ ms.locfileid: "58403403"
 * 從套用到您管理群組的最新更新彙總。 若為 Operations Manager 2012，來源資料夾為 ` %ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups`，若為 2012 R2，則位於 `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups` 中。
 
 ## <a name="next-steps"></a>後續步驟
+
 若要新增功能和收集資料，請參閱[從方案庫新增 Azure 監視解決方案](../../azure-monitor/insights/solutions.md)。
-
-

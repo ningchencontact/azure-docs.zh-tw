@@ -5,18 +5,20 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 1/14/2019
+ms.date: 4/1/2019
 ms.author: victorh
-ms.openlocfilehash: 079790952263ae2ef68abc8e426b0330fef1c53f
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: 7ee92a7508918635849caafab4632bbba81ee628
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321767"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805239"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>整合 Azure 防火牆與 Azure Standard Load Balancer
 
-您可以將 Azure 防火牆整合到具有 Azure Standard Load Balancer (公用或內部) 的虛擬網路。 不過您必須了解在公用負載平衡器案例中可能會中斷功能的非對稱式路由問題。
+您可以將 Azure 防火牆整合到具有 Azure Standard Load Balancer (公用或內部) 的虛擬網路。 
+
+慣用的設計是將內部負載平衡器整合您 Azure 的防火牆，因為這是更簡單的設計。 如果您已經有一個部署，而且您想要保留在位置中，您可以使用公用負載平衡器。 不過您必須了解在公用負載平衡器案例中可能會中斷功能的非對稱式路由問題。
 
 如需 Azure Load Balancer 的詳細資訊，請參閱[什麼是 Azure Load Balancer？](../load-balancer/load-balancer-overview.md)
 
@@ -34,6 +36,8 @@ ms.locfileid: "54321767"
 
 當您將防火牆導入負載平衡器案例時，您通常會讓傳入的網際網路流量通過防火牆的公用 IP 位址。 從那裡，防火牆便會套用其防火牆規則，並將封包網路位址轉譯到您負載平衡器的公用 IP 位址。 而問題就是在此處發生。 封包會抵達防火牆的公用 IP 位址，但會透過私人 IP 位址 (使用預設路由) 返回防火牆。
 若要避免此問題，請為防火牆的公用 IP 位址建立額外的主機路由。 前往防火牆公用 IP 位址的封包會透過網際網路進行路由。 這可避免採用預設路由來前往防火牆的私人 IP 位址。
+
+![非對稱式路由](media/integrate-lb/Firewall-LB-asymmetric.png)
 
 例如，下列路由適用於位於公用 IP 位址 13.86.122.41，以及私人 IP 位址 10.3.1.4 的防火牆。
 

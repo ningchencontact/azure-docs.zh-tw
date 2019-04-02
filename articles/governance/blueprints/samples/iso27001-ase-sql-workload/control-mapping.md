@@ -1,6 +1,6 @@
 ---
-title: 範例-ISO 27001 藍圖-控制項對應
-description: ISO 27001 blueprint （藍圖） 範例控制項對應。
+title: 範例-ISO 27001 ASE/SQL 工作負載藍圖-控制項對應
+description: Azure 原則和 RBAC 的 ISO 27001 應用程式服務環境/SQL Database 工作負載 blueprint （藍圖） 範例控制項對應。
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,14 +8,14 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: c062759938652518ac3cafff64973050554ca19d
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: fb251d71ca9aa20ed06d0a917394097b36322b3c
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579694"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802706"
 ---
-# <a name="control-mapping-of-the-azure-blueprints-iso-27001-blueprint-sample"></a>Azure 藍圖 ISO 27001 blueprint （藍圖） 範例的控制項對應
+# <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>ISO 27001 ASE/SQL 工作負載 blueprint （藍圖） 範例控制項對應
 
 下列文件詳細說明如何將 Azure 藍圖 ISO 27001 ASE/SQL 工作負載 blueprint （藍圖） 範例對應至 ISO 27001 控制項。 如需控制項的詳細資訊，請參閱[ISO 27001](https://www.iso.org/isoiec-27001-information-security.html)。
 

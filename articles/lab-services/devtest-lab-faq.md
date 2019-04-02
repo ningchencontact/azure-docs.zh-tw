@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 3752e9c227e4db0f583b2f6b21d6c0aa3106d248
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: d8fc929b21bedcb3e7e2bd3f5ed1d6c867bca3c8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337692"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803369"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs 常見問題集
 獲得一些關於 Azure DevTest Labs 最常見問題的解答。
@@ -44,7 +44,7 @@ ms.locfileid: "58337692"
 我們將會張貼中斷使用我們的 Twitter 控制代碼，接下來的更新。 若要取得最新的更新，在中斷與已知的 bug 的 Twitter 上追隨我們的結果。
 
 ### <a name="twitter"></a>Twitter 
-我們的 Twitter 控制代碼： azlabservices
+我們的 Twitter 控制代碼： [@azlabservices](https://twitter.com/azlabservices)
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>如果這裡沒有解答我的問題該怎麼辦？
 如果此處未列出您的問題，請告訴我們，和我們可以協助您找到答案。
@@ -139,7 +139,9 @@ DevTest Labs 是免費的服務。 在 DevTest Labs 建立實驗室和設定原�
 ## <a name="how-do-i-move-my-existing-azure-vms-into-my-devtest-labs-lab"></a>如何將現有 Azure VM 移到 DevTest Labs 實驗室？
 若要將現有 VM 複製到 DevTest Labs：
 
-1. 使用 [Windows PowerShell 指令碼](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyVHDFromVMToLab.ps1)來複製現有 VM 的 VHD 檔案。
+1. 使用 PowerShell 指令碼，以複製現有 VM 的 VHD 檔案：
+   * Resource Manager：[CopyRmVHDFromVMToLab.ps1](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyRmVHDFromVMToLab.ps1)
+   * 经典：[CopyClassicVHDFromVMToLab.ps1](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyClassicVHDFromVMToLab.ps1)
 2. 在 DevTest Labs 實驗室內[建立自訂映像](devtest-lab-create-template.md)。
 3. 在實驗室中從自訂映像建立 VM。
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 42a70f7ea21a58f40f7786d6c6f1a51093923f83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 538015f3cd26d451285f1fd66853366f814f3b0a
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838012"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805562"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>透過參數建立動態藍圖
 
@@ -67,11 +67,11 @@ ms.locfileid: "57838012"
 
 1. 新增到具有參數選項之藍圖的成品會在 [參數] 欄中顯示 [已填入 X 個參數 (共 Y 個)]。 按一下成品列來編輯成品參數。
 
-   ![藍圖參數](../media/parameters/parameter-column.png)
+   ![藍圖定義上的藍圖參數](../media/parameters/parameter-column.png)
 
 1. [編輯成品] 頁面會顯示適用於所按下之成品的值選項。 成品中的每個參數都有標題、值方塊與核取方塊。 將此方塊設定為未選取狀態，以使其成為**靜態參數**。 在下列範例中，只有「位置」是**靜態參數**，因為它已取消選取且 [資源群組名稱] 已選取。
 
-   ![藍圖靜態參數](../media/parameters/static-parameter.png)
+   ![Blueprint （藍圖） 的靜態參數藍圖成品](../media/parameters/static-parameter.png)
 
 #### <a name="setting-static-parameters-from-rest-api"></a>從 REST API 設定靜態參數
 
@@ -182,7 +182,7 @@ ms.locfileid: "57838012"
 
 1. 在 **指派藍圖**頁面上，尋找**構件參數**一節。 至少具有一個**動態參數**的每個成品都會顯示成品與設定選項。 指派藍圖之前，請先為參數提供所需的值。 在下列範例中，「名稱」是必須先定義才能完成藍圖指派的**動態參數**。
 
-   ![藍圖動態參數](../media/parameters/dynamic-parameter.png)
+   ![Blueprint （藍圖） 期間藍圖指派的動態參數](../media/parameters/dynamic-parameter.png)
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>從 REST API 設定動態參數
 
@@ -241,8 +241,8 @@ ms.locfileid: "57838012"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解[藍圖生命週期](lifecycle.md)。
+- 了解[藍圖生命週期](lifecycle.md)。
 - 了解如何自訂[藍圖排序順序](sequencing-order.md)。
 - 了解如何使用[藍圖資源鎖定](resource-locking.md)。
 - 了解如何[更新現有的指派](../how-to/update-existing-assignments.md)。
-- 解決問題的藍圖，以使用在指派期間[一般疑難排解](../troubleshoot/general.md)。
+- 使用[一般疑難排解](../troubleshoot/general.md)來解決藍圖指派期間發生的問題。

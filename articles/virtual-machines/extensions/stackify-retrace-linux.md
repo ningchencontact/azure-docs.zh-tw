@@ -14,16 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: roiyz
-ms.openlocfilehash: e80134729c33741aa3007deb2d93a2de3e3fe697
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: b9c035c1c9088957f59550bf6564cc02bc7972f4
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979712"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792412"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Stackify Retrace Linux 代理程式擴充功能
 
 ## <a name="overview"></a>概觀
+
 Stackify 提供可追蹤您應用程式詳細資料的產品，幫助您快速找到問題並修正。 對於開發人員小組而言，Retrace 是適用於多重環境、完全整合且效能強大的應用程式， 結合了每個開發小組都需要的多種工具。
 
 Retrace 是唯一能以單一平台中在所有環境中提供下列功能的工具。
@@ -40,6 +41,7 @@ Retrace 是唯一能以單一平台中在所有環境中提供下列功能的工
 ## <a name="prerequisites"></a>必要條件
 
 ### <a name="operating-system"></a>作業系統 
+
 可以針對這些 Linux 散發套件執行 Retrace 代理程式
 
 | 配送映像 | 版本 |
@@ -50,12 +52,14 @@ Retrace 是唯一能以單一平台中在所有環境中提供下列功能的工
 | CentOS | 6.3+、7.0+ |
 
 ### <a name="internet-connectivity"></a>網際網路連線
+
 適用於 Linux 的 Stackify 代理程式擴充功能會要求目標虛擬機器連接到網際網路。 
 
 您可能需要將網路設定調整為允許連線至 Stackify，請參閱 https://support.stackify.com/hc/en-us/articles/207891903-Adding-Exceptions-to-a-Firewall (英文)。 
 
 
 ## <a name="extension-schema"></a>擴充功能結構描述
+
 ---
 
 下列 JSON 顯示 Stackify Retrace 代理程式擴充功能的結構描述。 擴充功能需要 `environment` 和 `activationKey`。
@@ -151,7 +155,7 @@ Retrace 是唯一能以單一平台中在所有環境中提供下列功能的工
 
 擴充功能需要 `environment` 和 `activationKey`。
 
-```
+```powershell
 $PublicSettings = @{"environment" = "myEnvironment"}
 $ProtectedSettings = @{"activationKey" = "myActivationKey"}
 

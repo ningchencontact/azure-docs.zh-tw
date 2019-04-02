@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: eb807082443da495cd89e1dd624058c89d3ee65b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 6a0d84a2aaf4b52c7fb0163231574eaea63c18c3
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825364"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58807448"
 ---
 ### <a name="what-is-expressroute-direct"></a>什麼是 ExpressRoute Direct？
 
@@ -52,6 +52,6 @@ ExpressRoute Direct 提供客戶直接與 Microsoft 全球骨幹配對的 100 Gb
 
 ExpressRoute Direct 會針對連接埠配對收取固定的金額。 標準線路將包含在內，不會計算額外時數，而進階線路將會有些許附加元件費用。 輸出將會根據對等位置的區域，按每個線路計費。
 
-### <a name="when-does-billing-state-for-the-expressroute-direct-port-pairs"></a>適用於 ExpressRoute Direct 連接埠的計費狀態何時配對？
+### <a name="when-does-billing-start-for-the-expressroute-direct-port-pairs"></a>何時會計費開始的 ExpressRoute 直接連接埠配對？
 
 ExpressRoute Direct 的連接埠配對在建立 ExpressRoute Direct 資源 45 天後或在啟用其中一個或同時兩個連結 (視何者先) 時收費。 在 45 天寬限期內會允許客戶與共置提供者完成跨連線程序。

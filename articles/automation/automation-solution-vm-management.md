@@ -6,19 +6,22 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/26/2019
+ms.date: 03/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6b5ef0f165433e2dd0685aa0e4f64bd04bf5c823
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6d7b99da3e8e81973c51bbd68a15517828c9736d
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902241"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762934"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Azure 自動化中的「停機期間啟動/停止 VM」解決方案
 
 方案開始和停止 Azure 虛擬機器，根據使用者定義的排程，透過 Azure 監視器記錄檔，提供深入解析並傳送選擇性的電子郵件使用停機期間啟動/停止 Vm[動作群組](../azure-monitor/platform/action-groups.md)。 針對大多數的案例，它皆能同時支援 Azure Resource Manager 和傳統 VM。
+
+> [!NOTE]
+> 當您部署方案時匯入至您的自動化帳戶的 Azure 模組，已經過測試解決方案的停機期間啟動/停止 Vm。 此解決方案目前不適用於較新版本的 Azure 模組。 這只會影響您用來執行啟動/停止 Vm，在離峰時間解決方案期間的自動化帳戶。 您仍然可以使用較新版本的 Azure 模組中其他自動化帳戶，如中所述[如何更新 Azure 自動化中的 Azure PowerShell 模組](automation-update-azure-modules.md)
 
 此解決方案可針對想要將 VM 成本最佳化的使用者，提供非集中式的低成本自動化選項。 使用此解決方案，您可以：
 
@@ -237,7 +240,7 @@ ms.locfileid: "57902241"
 |Sequenced-StopVM | 上午 1:00 (UTC)，每星期五 | 每星期五會在指定時間搭配參數 _Stop_ 執行 Sequenced_Parent Runbook。 會以循序方式 (遞增) 停止具有由適當變數定義之 **SequenceStop** 標記的所有虛擬機器。 如需標記值和資產變數的詳細資訊，請參閱 Runbook 一節。 啟用相關排程 **Sequenced-StartVM**。|
 |Sequenced-StartVM | 下午 1:00 (UTC)，每星期一 | 每星期一會在指定時間搭配參數 _Start_ 執行 Sequenced_Parent Runbook。 會以循序方式 (遞減) 啟動具有由適當變數定義之 **SequenceStart** 標記的所有虛擬機器。 如需標記值和資產變數的詳細資訊，請參閱 Runbook 一節。 啟用相關排程 **Sequenced-StopVM**。|
 
-## <a name="azure-monitor-logs-records"></a>Azure 監視器記錄檔記錄
+## <a name="azure-monitor-logs-records"></a>Azure Monitor 日志记录
 
 自動化會在 Log Analytics 工作區中建立兩種類型的記錄：作業記錄和作業串流。
 

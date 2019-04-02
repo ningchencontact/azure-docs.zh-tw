@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 0cf83180647c142c9db2a1229674de96fec6a6bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c2ed053479b11bada4cfc0ec808ad148f024dee6
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087528"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803217"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>整合 Azure Active Directory 與 Azure Kubernetes Service
 
@@ -149,7 +149,15 @@ az aks create \
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
-接下來，使用下列資訊清單來建立 Azure AD 帳戶的 ClusterRoleBinding。 此範例讓帳戶可以完整存取叢集的所有命名空間。 建立 *rbac-aad-user.yaml* 等的檔案，並貼上下列內容。 以 Azure AD 租用戶中的使用者名稱來更新使用者名稱：
+接下來，使用下列資訊清單來建立 Azure AD 帳戶的 ClusterRoleBinding。 此範例讓帳戶可以完整存取叢集的所有命名空間。 
+
+取得*objectId*的必要的使用者帳戶使用[az ad 使用者 show] [ az-ad-user-show]命令。 提供必要的帳戶使用者主體名稱 (UPN):
+
+```azurecli-interactive
+az ad user show --upn-or-object-id user@contoso.com --query objectId -o tsv
+```
+
+建立 *rbac-aad-user.yaml* 等的檔案，並貼上下列內容。 更新您的使用者帳戶，從上一個步驟中取得的 Azure AD 的物件識別碼的使用者名稱：
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -163,7 +171,7 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
-  name: "user@contoso.com"
+  name: "947026ec-9463-4193-c08d-4c516e1f9f52"
 ```
 
 使用 [kubectl apply][kubectl-apply] 命令套用繫結，如下列範例所示：
@@ -242,3 +250,4 @@ error: You must be logged in to the server (Unauthorized)
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
 [open-id-connect]:../active-directory/develop/v1-protocols-openid-connect-code.md
+[az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: f7c52b7ab8aaad917eb03455800df6d8ba4cbc88
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082699"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791621"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>如何在 Azure API 管理原則中使用具名值
 API 管理原則是系統的強大功能，可讓 Azure 入口網站透過設定來變更 API 的行為。 原則是陳述式的集合，會因 API 的要求或回應循序執行。 原則陳述式可以使用常值文字值、原則運算式和具名值來建構。 
@@ -34,7 +34,7 @@ API 管理原則是系統的強大功能，可讓 Azure 入口網站透過設定
 
 ![具名值](./media/api-management-howto-properties/named-values.png)
 
-屬性值可以包含常值字串及 [原則運算式](https://msdn.microsoft.com/library/azure/dn910913.aspx)。 例如，`ExpressionProperty` 的值是原則運算式，會傳回包含目前日期與時間的字串。 `ContosoHeaderValue` 屬性已標記為密碼，所以未顯示其值。
+屬性值可以包含常值字串及 [原則運算式](/azure/api-management/api-management-policy-expressions)。 例如，`ExpressionProperty` 的值是原則運算式，會傳回包含目前日期與時間的字串。 `ContosoHeaderValue` 屬性已標記為密碼，所以未顯示其值。
 
 | 名稱 | 值 | Secret | 標記 |
 | --- | --- | --- | --- |
@@ -55,7 +55,7 @@ API 管理原則是系統的強大功能，可讓 Azure 入口網站透過設定
 
 屬性建立之後，您可以按一下屬性來加以編輯。 如果您變更屬性名稱，任何參照該屬性的原則會自動更新以使用新的名稱。
 
-如需使用 REST API 編輯屬性的詳細資訊，請參閱 [使用 REST API 編輯屬性](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch)。
+如需使用 REST API 編輯屬性的詳細資訊，請參閱 [使用 REST API 編輯屬性](/rest/api/apimanagement/property?Patch)。
 
 ## <a name="to-delete-a-property"></a>刪除屬性
 
@@ -66,7 +66,7 @@ API 管理原則是系統的強大功能，可讓 Azure 入口網站透過設定
 > 
 > 
 
-如需使用 REST API 刪除屬性的詳細資訊，請參閱 [使用 REST API 刪除屬性](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete)。
+如需使用 REST API 刪除屬性的詳細資訊，請參閱 [使用 REST API 刪除屬性](/rest/api/apimanagement/property?Delete)。
 
 ## <a name="to-search-and-filter-named-values"></a>搜尋與篩選具名值
 
@@ -111,8 +111,8 @@ API 管理原則是系統的強大功能，可讓 Azure 入口網站透過設定
 ## <a name="next-steps"></a>後續步驟
 * 深入了解原則的使用方式
   * [API 管理中的原則](api-management-howto-policies.md)
-  * [原則參考文件](https://msdn.microsoft.com/library/azure/dn894081.aspx)
-  * [原則運算式](https://msdn.microsoft.com/library/azure/dn910913.aspx)
+  * [原則參考文件](/azure/api-management/api-management-policies)
+  * [原則運算式](/azure/api-management/api-management-policy-expressions)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png

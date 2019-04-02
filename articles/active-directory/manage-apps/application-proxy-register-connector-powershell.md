@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: celested
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ee35fbfff676e8618a4e5ae02086193c503f482
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bb193119186c2cf9e758f8c74f99f18c5fb389b8
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170817"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792513"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>建立 Azure AD 應用程式 Proxy 連接器的自動安裝指令碼
 
@@ -34,7 +34,7 @@ ms.locfileid: "56170817"
 * 將連接器安裝與註冊整合成另一個程序的一部分。
 * 建立一個包含連接器位元但未註冊的標準伺服器映像。
 
-[應用程式 Proxy 連接器](application-proxy-connectors.md)必須使用全域系統管理員和密碼向 Azure AD 目錄註冊後才能運作。 通常，此資訊是在連接器安裝期間於一個快顯對話方塊中輸入的，但是您可以改用 PowerShell 使此程序自動進行。
+針對[應用程式 Proxy 連接器](application-proxy-connectors.md)運作，必須向 Azure AD 目錄使用的應用程式系統管理員和密碼。 通常，此資訊是在連接器安裝期間於一個快顯對話方塊中輸入的，但是您可以改用 PowerShell 使此程序自動進行。
 
 自動安裝有兩個步驟。 首先，安裝連接器。 其次，向 Azure AD 註冊連接器。 
 

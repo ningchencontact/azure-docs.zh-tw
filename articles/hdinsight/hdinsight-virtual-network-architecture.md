@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 13ea4acb5a3b5b3e7ac6d53013193fddbfcbf9b7
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6d92273298c0448d7377acab6f3b8ea1cc1ed908
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759371"
+ms.locfileid: "58762917"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight 虛擬網路架構
 
@@ -31,8 +31,6 @@ Azure HDInsight 叢集有不同類型的虛擬機器或節點。 每個節點類
 | 區域節點 | 對於 HBase 叢集類型中，（也稱為資料節點） 的區域節點會執行區域伺服器。 區域伺服器提供，並管理由 HBase 資料的一部分。 區域節點可以加入或移除叢集，以調整的運算能力和管理成本。|
 | Nimbus 節點 | 對於 Storm 叢集類型中，Nimbus 節點會提供類似於前端節點的功能。 Nimbus 節點會將工作指派給透過協調執行的 Storm 拓撲的 Zookeeper 叢集中的其他節點。 |
 | 監督員節點 | 對於 Storm 叢集類型中，監督員節點執行 Nimbus 節點，以執行所需的處理所提供的指示。 |
-
-* = Apache Hadoop、 Apache Hive、 Apache Kafka、 Apache Spark、 Apache HBase 和 R 伺服器叢集類型
 
 ## <a name="basic-virtual-network-resources"></a>基本的虛擬網路資源
 

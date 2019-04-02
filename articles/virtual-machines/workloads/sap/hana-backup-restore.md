@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/28/2018
+ms.date: 04/01/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab71b8d3af573f62e69c02564c237ad433962ff9
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 69417551c1c8d410f75e74a8164c8b8a223ab835
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541225"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805324"
 ---
 # <a name="backup-and-restore"></a>備份與還原
 
@@ -58,7 +58,7 @@ SAP HANA on Azure (大型執行個體) 底下的儲存體基礎結構支援磁�
 - 針對 /hana/data 和 /hana/shared (包括 /usr/sap) 磁碟區來觸發快照集時，快照集技術會先起始 SAP HANA 快照集，再執行儲存體快照集。 在儲存體快照集復原之後，此 SAP HANA 快照集是最後記錄還原的設定點。 您需要作用中的 HANA 執行個體，HANA 快照集才會成功。  在 HSR 案例中，無法執行 HANA 快照集的目前次要節點上不支援儲存體快照集。
 - 在順利執行儲存體快照集後，系統會刪除 SAP HANA 快照集。
 - 系統會經常建立交易記錄備份並儲存在 /hana/logbackups 磁碟區或 Azure 中。 您可以觸發含有交易記錄備份的 /hana/logbackups 磁碟區，對它個別擷取快照集。 在此情況下，您不需要執行 HANA 快照集。
-- 如果您必須將資料庫還原到特定時間點，請要求「Microsoft Azure 支援服務」(適用於生產環境中斷) 或「SAP HANA on Azure 服務管理」將資料庫還原到特定的儲存體快照集。 例如，將沙箱系統還原到其原始狀態的計劃性還原。
+- 如果您必須還原資料庫至特定點時間，請要求該 （適用於生產環境中斷） 的 Microsoft Azure 支援服務 」 或 「 SAP HANA 上 Azure 還原到特定的儲存體快照集。 例如，將沙箱系統還原到其原始狀態的計劃性還原。
 - 儲存體快照集所包含的 SAP HANA 快照集是一個位移點，用來套用在儲存體快照集建立後已執行和儲存的交易記錄備份。
 - 建立這些交易記錄備份的目的是要將資料庫還原回特定的時間點。
 
@@ -167,15 +167,16 @@ MACs hmac-sha1
 
 若要能夠存取 HANA 大型執行個體租用戶的儲存體快照集介面，您必須透過公開金鑰建立登入程序。 在租用戶的第一部 SAP HANA on Azure (大型執行個體) 伺服器上，建立用來存取儲存體基礎結構的公開金鑰。 此公開金鑰可確保不需密碼即可登入儲存體快照集介面。 建立公開金鑰，也表示您不需要維護密碼認證。 在 SAP HANA (大型執行個體) 伺服器上的 Linux 中，請執行下列命令來產生公開金鑰：
 ```
-  ssh-keygen –t dsa –b 1024
+  ssh-keygen -t rsa –b 5120 -C ""
 ```
-新的位置是 **_/root/.ssh/id\_dsa.pub**。 請勿輸入實際密碼，否則您每次登入時都需要輸入密碼。 改為按 **Enter** 兩次，在登入時就不需要輸入密碼。
+
+新的位置是 **_/root/.ssh/id\_rsa.pub**。 請勿輸入實際密碼，否則您每次登入時都需要輸入密碼。 改為按 **Enter** 兩次，在登入時就不需要輸入密碼。
 
 將資料夾切換至 **/root/.ssh/**，然後執行 `ls` 命令，以確定已如預期地更正公開金鑰。 如果金鑰存在，您可以執行下列命令來複製它︰
 
 ![執行此命令即可複製公開金鑰](./media/hana-overview-high-availability-disaster-recovery/image2-public-key.png)
 
-此時，請連絡「SAP HANA on Azure 服務管理」並提供公開金鑰給他們。 服務代表會使用公開金鑰，將它註冊在針對 HANA 大型執行個體租用戶所開闢的底層儲存體基礎結構中。
+此時，請連絡 SAP HANA on Azure，並提供公開金鑰。 服務代表會使用公開金鑰，將它註冊在針對 HANA 大型執行個體租用戶所開闢的底層儲存體基礎結構中。
 
 ### <a name="step-4-create-an-sap-hana-user-account"></a>步驟 4：建立 SAP HANA 使用者帳戶
 
@@ -262,7 +263,7 @@ HANABackupCustomerDetails.txt
 - **removeTestStorageSnapshot.pl**：此指令碼可刪除以 **testStorageSnapshotConnection.pl** 指令碼所建立的測試快照集。
 - **azure\_hana\_dr\_failover.pl**：此指令碼可起始 DR 容錯移轉至另一個區域。 需要在 DR 區域中的 HANA 大型執行個體單位上，或在要對其執行容錯移轉的單位上，執行該指令碼。 此指令碼會停止從主要端到次要端的儲存體複寫，還原 DR 磁碟區上的最新快照集，並提供 DR 磁碟區的掛接點。
 - **azure\_hana\_test\_dr\_failover.pl**：此指令碼可執行測試容錯移轉至 DR 網站。 不同於 azure_hana_dr_failover.pl script，此執行不會中斷從主要到次要的儲存體複寫。 而是複製在 DR 網站建立的複寫存放磁碟區，並提供複製磁碟區的掛接點。 
-- **HANABackupCustomerDetails.txt**：這個檔案是可修改的組態檔，請加以修改以適應您的 SAP HANA 組態。 HANABackupCustomerDetails.txt 檔案是執行儲存體快照集之指令碼的控制及組態檔。 調整該檔案以因應您的用途和設定。 當您的執行個體部署完成時，您會從「SAP HANA on Azure 服務管理」收到「儲存體備份名稱」和「儲存體 IP 位址」。 您不能修改此檔案中任何變數的順序、排序或間距。 如果這麼做，指令碼將無法正常執行。 此外，您會從「SAP HANA on Azure 服務管理」收到相應放大節點或主要節點 (如果相應放大) 的 IP 位址。 您也知道在 SAP HANA 安裝期間取得的 HANA 執行個體編號。 您現在必須將備份名稱新增至組態檔。
+- **HANABackupCustomerDetails.txt**：這個檔案是可修改的組態檔，請加以修改以適應您的 SAP HANA 組態。 HANABackupCustomerDetails.txt 檔案是執行儲存體快照集之指令碼的控制及組態檔。 調整該檔案以因應您的用途和設定。 您會收到**儲存體備份名稱**並**儲存體 IP 位址**從 SAP HANA on Azure 部署您的執行個體時。 您不能修改此檔案中任何變數的順序、排序或間距。 如果這麼做，指令碼將無法正常執行。 此外，您收到相應增加節點或主要節點的 IP 位址 （如果相應放大） 從在 Azure 上的 SAP HANA。 您也知道在 SAP HANA 安裝期間取得的 HANA 執行個體編號。 您現在必須將備份名稱新增至組態檔。
 
 若為相應增加或相應放大部署，在您填入 HANA 大型執行個體單位的伺服器名稱和伺服器 IP 位址之後，組態檔會如下列範例所示。 為每個您想要備份或復原的 SAP HANA SID 填入所有必填欄位。
 
@@ -628,9 +629,9 @@ HANA Backup ID:
 
 若遇到生產環境停止運作的情況，可以向「Microsoft Azure 支援服務」以客戶事件的形式起始從儲存體快照集復原的程序。 如果生產系統中的資料遭到刪除，而挽救資料的唯一方法是還原生產資料庫，則為高緊急性的情況。
 
-若是其他情況，則時間點復原可能為低緊急性，可提前幾天規劃。 您可以使用「SAP HANA on Azure 服務管理」來規劃此復原，而不是發出高優先性的警示。 例如，您可能打算藉由套用新的增強套件來升級 SAP 軟體。 然後，您必須還原為代表增強套件升級前狀態的快照集。
+若是其他情況，則時間點復原可能為低緊急性，可提前幾天規劃。 您可以在 Azure 上規劃 SAP HANA 使用此復原，而非引發高優先旗標。 例如，您可能打算藉由套用新的增強套件來升級 SAP 軟體。 然後，您必須還原為代表增強套件升級前狀態的快照集。
 
-傳送要求之前，您必須做準備。 接著，「SAP HANA on Azure 服務管理」小組就可以處理該要求，並提供已還原的磁碟區。 之後，您會根據快照集來還原 HANA 資料庫。 
+傳送要求之前，您必須做準備。 SAP HANA on Azure 團隊可以再處理要求，並提供已還原的磁碟區。 之後，您會根據快照集來還原 HANA 資料庫。 
 
 以下將說明您如何為要求做準備：
 
@@ -648,9 +649,9 @@ HANA Backup ID:
 
 1. 提出 Azure 支援要求，以及包含還原特定快照集的指示。
 
-   - 還原期間︰「SAP HANA on Azure 服務管理」可能會要求您參加電話會議，確保您會協調、驗證和確認所還原的儲存體快照集是正確的。 
+   - 還原期間︰SAP HANA on Azure 可能會要求您參加電話會議，以確保協調、 驗證和確認正確的儲存體快照集還原。 
 
-   - 還原之後：還原儲存體快照集之後，「SAP HANA on Azure 服務管理」會通知您。
+   - 還原之後：已還原的儲存體快照集時，Azure 服務上的 SAP HANA 會通知您。
 
 1. 在還原程序完成後，重新掛接所有資料磁碟區。
 
@@ -752,5 +753,5 @@ HANA snapshot deletion successfully.
 您可以從此範例看到指令碼如何記錄 HANA 快照的建立。 在相應放大案例中，是在主要節點上起始此程序。 主要節點會在每個背景工作角色節點上開始同步建立 SAP HANA 快照集。 然後建立儲存體快照集。 順利執行儲存體快照之後，就會刪除 HANA 快照。 系統會從主要節點開始刪除 HANA 快照集。
 
 
-**後續步驟**
+## <a name="next-steps"></a>後續步驟
 - 請參閱[災害復原原則和準備](hana-concept-preparation.md)。

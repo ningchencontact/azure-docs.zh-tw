@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 2e8fc3e2cf85fb06d37347870e3b2b9c82f1aa96
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: be17c5bb4d09e0868af0c6fd9b31f7653b614735
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754781"
+ms.locfileid: "58762764"
 ---
 # <a name="send-security-messages-sdk"></a>傳送安全訊息 SDK
 
@@ -88,7 +88,7 @@ Iot 的 ASC 定義安全性訊息，使用下列準則：
 
 ## <a name="send-security-messages"></a>傳送安全訊息 
 
-傳送安全訊息而不使用 ASC IoT 代理程式，使用[Azure IoTC#裝置 SDK](https://github.com/Azure/azure-iot-sdk-csharp)或是[Azure IoT C 裝置 SDK](https://github.com/Azure/azure-iot-sdk-c)。
+傳送安全訊息而不使用 ASC IoT 代理程式，使用[Azure IoTC#裝置 SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview)或是[Azure IoT C 裝置 SDK](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview)。
 
 若要從 ASC 處理 iot 裝置傳送裝置資料，使用其中一個下列的 Api 來標記正確路由至 ASC IoT 處理管線的訊息。 將處理訊息傳送這種方式，並將其顯示在 ASC 的安全性深入解析為 IoT 在這兩個 IoT 中樞或 Azure 資訊安全中心內。 
 

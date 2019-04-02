@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 319791c2436395c00dafc744fb6fcb1ff18b0750
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: f236c6a78edeb04a69685bf27c99997ed470f498
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652326"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791518"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>使用應用程式 Proxy 與 PingAccess 的單一登入之標頭式驗證
 
@@ -54,7 +54,7 @@ Azure Active Directory 的 PingAccess 是 PingAccess 供應項目，讓您可提
 
 應用程式 Proxy 連接器是 Windows Server 服務，可將流量從您的遠端員工引導至發行的應用程式。 如需細安裝指示，請參閱[在 Azure 入口網站中啟用應用程式 Proxy](application-proxy-add-on-premises-application.md)。
 
-1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
+1. 登入[Azure 入口網站](https://portal.azure.com)身為應用程式系統管理員。
 2. 選取 **Azure Active Directory** > **應用程式 Proxy**。
 3. 選取**下載連接器**以啟動應用程式 Proxy 連接器下載。 請遵循安裝指示。
 
@@ -69,7 +69,7 @@ Azure Active Directory 的 PingAccess 是 PingAccess 供應項目，讓您可提
 
 請遵循下列步驟來發佈您的應用程式。 如需步驟 1-8 的更詳細逐步解說，請參閱[使用 Azure AD Application Proxy 發佈應用程式](application-proxy-add-on-premises-application.md)。
 
-1. 如果您在上一節中未登入，請以全域系統管理員的身分登入 [Azure 入口網站](https://portal.azure.com)。
+1. 如果您未在最後一節中，登入[Azure 入口網站](https://portal.azure.com)身為應用程式系統管理員。
 2. 選取 [Azure Active Directory]  >  [企業應用程式]。
 3. 在刀鋒視窗頂端選取 [新增]。
 4. 選取**內部部署應用程式**。
@@ -153,7 +153,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 }
 ```
 此範例使用 [Azure 入口網站](https://portal.azure.com)來更新 *acceptedMappedClaims* 欄位：
-1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
+1. 登入[Azure 入口網站](https://portal.azure.com)身為應用程式系統管理員。
 2. 選取 [Azure Active Directory] > [應用程式註冊]。
 3. 選取您的應用程式 > [資訊清單]。
 4. 選取 [編輯]，搜尋 *acceptedMappedClaims* 欄位，然後將其值變更為 **true**。

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: a102216a6a2a7dec471678e14f7050cb4ef41d77
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 4ba8977180e33256bfdc6652811495a02a9ef19c
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370103"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802945"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 中的存取控制
 
@@ -27,9 +27,9 @@ Azure 角色型存取控制 (RBAC) 會使用角色指派將權限集有效地套
 
 Azure 儲存體針對 Blob 儲存體提供三個內建的 RBAC 角色： 
 
-- [儲存體 Blob 資料擁有者](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner-preview)
-- [儲存體 Blob 資料參與者](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview)
-- [儲存體 Blob 資料讀者](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader-preview)
+- [儲存體 Blob 資料擁有者](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
+- [儲存體 Blob 資料參與者](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+- [儲存體 Blob 資料讀者](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader)
 
 如果使用者或服務主體透過其中一個內建的角色或自訂角色獲得 RBAC 資料權限，則在對要求進行授權時會先評估這些權限。 如果要求的作業已獲呼叫端的 RBAC 指派授權，則會立即解析授權，而不會執行其他 ACL 檢查。 或者，如果呼叫端沒有 RBAC 指派，或要求的作業不符合指派的權限，則會執行 ACL 來判斷呼叫端是否有權執行要求的作業。
 
@@ -285,7 +285,7 @@ def set_default_acls_for_new_child(parent, child):
 
 當您定義 Acl 的服務主體時，務必要使用物件識別碼 (OID) 的*服務主體*您所建立的應用程式註冊。 請務必請注意，已註冊的應用程式就會有不同的服務主體中的特定 Azure AD 租用戶。 已註冊的應用程式都有 OID，會顯示在 Azure 入口網站中，但*服務主體*有另一個 （差異） 的 OID。
 
-若要取得服務主體，對應至應用程式註冊的 OID，您可以使用`az ad sp show`命令。 指定應用程式識別碼做為參數。 以下是範例取得對應至應用程式識別碼的應用程式註冊為服務主體的 OID = 18218b12-1895年-43e9-ad80-6e8fc1ea88ce。 在 Azure CLI 中執行下列命令：
+若要取得對應至應用程式註冊的服務主體的 OID，您可以使用`az ad sp show`命令。 指定應用程式識別碼做為參數。 以下是範例取得對應至應用程式識別碼的應用程式註冊為服務主體的 OID = 18218b12-1895年-43e9-ad80-6e8fc1ea88ce。 在 Azure CLI 中執行下列命令：
 
 `az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 <<OID will be displayed>>`

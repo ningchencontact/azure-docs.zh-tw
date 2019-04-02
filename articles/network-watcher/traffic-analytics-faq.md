@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: fee22561bb0c341ed5c6e4dc49a8d7f8aa8efaf2
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 64a1693907dbf144aa34f5c35ae925af74d2cb34
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445190"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803201"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>流量分析常見問題集
 
@@ -72,6 +72,7 @@ ms.locfileid: "58445190"
 - 美國中部
 - 美國西部
 - 美國西部 2
+- 法國中部
 - 西歐
 - 北歐
 - 巴西南部
@@ -79,20 +80,26 @@ ms.locfileid: "58445190"
 - 英國南部
 - 澳洲東部
 - 澳大利亞東南部 
+- 東亞
 - 東南亞
+- 南韓中部
 - 印度中部
 - 印度南部
 - 日本東部
+- 日本西部
 - 美國政府維吉尼亞州
 
 Log Analytics 工作區必須存在於下列區域：
 - 加拿大中部
 - 美國中西部
+- 美國西部 2
 - 美國東部
+- 法國中部
 - 西歐
 - 英國南部
 - 澳大利亞東南部
 - 東南亞 
+- 南韓中部
 - 印度中部
 - 日本東部
 - 美國政府維吉尼亞州

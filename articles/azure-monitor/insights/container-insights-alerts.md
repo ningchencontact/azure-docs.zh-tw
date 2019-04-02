@@ -11,26 +11,28 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/26/2019
+ms.date: 04/01/2019
 ms.author: magoedte
-ms.openlocfilehash: e6fdb0d57a44578647c1f16dc76c557296f20ddb
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 5bb0a727adcfb35b5d840a063b6fdb478d150953
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886756"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804815"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>如何設定 Azure 監視器中適用於容器的效能問題的警示
 適用於容器的 Azure 監視器會監視部署至 Azure Container Instances 或 Azure Kubernetes Service (AKS) 上所裝載受控 Kubernetes 叢集的容器工作負載效能。 
 
 本文說明如何啟用警示用於下列情況：
 
-* 當叢集節點上的 CPU 和記憶體使用量或超過您定義的臨界值。
+* 當叢集節點上的 CPU 或記憶體使用量超過定義的臨界值。
 * 當任何控制器內的容器上的 CPU 或記憶體使用率超過您定義的閾值，相較於對應的資源上設定的限制。
+* **NotReady**狀態 節點計數
+* Pod 階段計數**失敗**，**暫止**，**未知**，**執行**，或**成功**
 
-若要 CPU 或記憶體使用率過高的叢集或控制站時，便會發出警示，您可以建立以所提供的記錄檔查詢為基礎的計量測量警示規則。 查詢會比較使用現在運算子存在的日期時間，並會回到一小時。 Azure 監視器針對容器儲存的所有日期都為 UTC 格式。
+若要警示時 CPU 或記憶體使用率過高的叢集節點上，您可以建立計量警示或使用提供的記錄檔查詢的計量測量警示規則。 計量警示會有較低的延遲，比記錄警示，而記錄警示會提供進階的查詢和複雜度比計量警示。 記錄警示的查詢會比較使用現在運算子存在的日期時間，並會回到一小時。 Azure 監視器針對容器儲存的所有日期都為 UTC 格式。
 
-在開始之前，如果您不熟悉 Azure 監視器中的警示，請參閱 [Microsoft Azure 中的警示概觀](../platform/alerts-overview.md)。 若要深入了解使用記錄查詢的警示，請參閱 [Azure 監視器中的記錄警示](../platform/alerts-unified-log.md)
+開始之前，如果您不熟悉 Azure 監視器中的警示，請參閱[在 Microsoft Azure 中的警示概觀](../platform/alerts-overview.md)。 若要深入了解使用記錄檔查詢的警示，請參閱[Azure 監視器中的記錄警示](../platform/alerts-unified-log.md)。 若要深入了解計量警示，請參閱[在 Azure 監視器計量警示](../platform/alerts-metric-overview.md)。
 
 ## <a name="resource-utilization-log-search-queries"></a>資源使用率記錄檔搜尋查詢
 在本節中的查詢被提供來支援每個警示的狀況。 查詢所需的步驟 7 之下[建立警示](#create-alert-rule)下一節。  
@@ -187,6 +189,72 @@ KubePodInventory
 | project Computer, ContainerName, TimeGenerated, UsagePercent = UsageValue * 100.0 / LimitValue
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
+
+下列查詢會傳回所有的節點和狀態的計數**就緒**並**NotReady**。
+
+```kusto
+let endDateTime = now();
+let startDateTime = ago(1h);
+let trendBinSize = 1m;
+let clusterName = '<your-cluster-name>';
+KubeNodeInventory
+| where TimeGenerated < endDateTime
+| where TimeGenerated >= startDateTime
+| distinct ClusterName, Computer, TimeGenerated
+| summarize ClusterSnapshotCount = count() by bin(TimeGenerated, trendBinSize), ClusterName, Computer
+| join hint.strategy=broadcast kind=inner (
+    KubeNodeInventory
+    | where TimeGenerated < endDateTime
+    | where TimeGenerated >= startDateTime
+    | summarize TotalCount = count(), ReadyCount = sumif(1, Status contains ('Ready'))
+                by ClusterName, Computer,  bin(TimeGenerated, trendBinSize)
+    | extend NotReadyCount = TotalCount - ReadyCount
+) on ClusterName, Computer, TimeGenerated
+| project   TimeGenerated,
+            ClusterName,
+            Computer,
+            ReadyCount = todouble(ReadyCount) / ClusterSnapshotCount,
+            NotReadyCount = todouble(NotReadyCount) / ClusterSnapshotCount
+| order by ClusterName asc, Computer asc, TimeGenerated desc
+```
+下列範例查詢會傳回 pod 階段計算根據所有階段-**失敗**，**暫止**，**未知**，**執行**，或**成功**。  
+
+```kusto
+let endDateTime = now();
+    let startDateTime = ago(1h);
+    let trendBinSize = 1m;
+    let clusterName = '<your-cluster-name>';
+    KubePodInventory
+    | where TimeGenerated < endDateTime
+    | where TimeGenerated >= startDateTime
+    | where ClusterName == clusterName
+    | distinct ClusterName, TimeGenerated
+    | summarize ClusterSnapshotCount = count() by bin(TimeGenerated, trendBinSize), ClusterName
+    | join hint.strategy=broadcast (
+        KubePodInventory
+        | where TimeGenerated < endDateTime
+        | where TimeGenerated >= startDateTime
+        | distinct ClusterName, Computer, PodUid, TimeGenerated, PodStatus
+        | summarize TotalCount = count(),
+                    PendingCount = sumif(1, PodStatus =~ 'Pending'),
+                    RunningCount = sumif(1, PodStatus =~ 'Running'),
+                    SucceededCount = sumif(1, PodStatus =~ 'Succeeded'),
+                    FailedCount = sumif(1, PodStatus =~ 'Failed')
+                 by ClusterName, bin(TimeGenerated, trendBinSize)
+    ) on ClusterName, TimeGenerated
+    | extend UnknownCount = TotalCount - PendingCount - RunningCount - SucceededCount - FailedCount
+    | project TimeGenerated,
+              TotalCount = todouble(TotalCount) / ClusterSnapshotCount,
+              PendingCount = todouble(PendingCount) / ClusterSnapshotCount,
+              RunningCount = todouble(RunningCount) / ClusterSnapshotCount,
+              SucceededCount = todouble(SucceededCount) / ClusterSnapshotCount,
+              FailedCount = todouble(FailedCount) / ClusterSnapshotCount,
+              UnknownCount = todouble(UnknownCount) / ClusterSnapshotCount
+| summarize AggregatedValue = avg(PendingCount) by bin(TimeGenerated, trendBinSize)
+```
+
+>[!NOTE]
+>這類警示上特定的 pod 階段**暫止**， **Failed**，或**未知**，您需要修改查詢的最後一行。 例如若警示要*由於* `| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`。  
 
 ## <a name="create-alert-rule"></a>建立警示規則
 執行下列步驟來使用其中一種稍早提供的記錄檔搜尋規則的 Azure 監視器中建立記錄警示。  

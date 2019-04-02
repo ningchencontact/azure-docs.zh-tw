@@ -11,26 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: c446a71a363a9a81eeb7d0dddcdbd90ccee08b7d
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 1d28701dd35b9d80fd52a1f102c53f2d59d63b09
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189354"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762349"
 ---
 # <a name="live-events-and-live-outputs"></a>即時事件與即時輸出
 
-Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 若要在「媒體服務 v3」中設定即時串流事件，您必須了解本文中所討論的概念：
-
-* [實況活動](#live-events)
-* 實況活動類型
-* 實況活動類型比較
-* [實況活動建立選項](#live-event-creation-options)
-* [實況活動內嵌 URL](#live-event-ingest-urls)
-* [實況活動預覽 URL](#live-event-preview-url)
-* [實況輸出](#live-outputs)。
+Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 若要設定媒體服務 v3 中的即時串流事件，您需要了解本文所討論的概念。 <br/>區段的清單會列在頁面的右邊。
 
 ## <a name="live-events"></a>即時活動
 
@@ -62,10 +54,10 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
 您可以使用 H.264/AVC 視訊轉碼器以及 AAC (AAC-LC、HE-AACv1 或 HE-AACv2) 音訊轉碼器，以高達 1080p 的解析度和每秒 30 個畫面的畫面播放速率傳送發佈摘要。 如需更多詳細資料，請參閱[實況活動類型比較](live-event-types-comparison.md)一文。
 
-使用即時編碼時 (即時事件設定為**標準**)，編碼預設值可讓您定義如何將內送資料流編碼成多個位元速率或圖層。 如需資訊，請參閱[系統預設](live-event-types-comparison.md#system-presets)。
+使用即時編碼時 ([即時事件] 設定為 [標準])，編碼預設值會定義傳入的資料流如何編碼為多重位元速率或圖層。 如需相關資訊，請參閱[系統預設值](live-event-types-comparison.md#system-presets)。
 
 > [!NOTE]
-> 目前，唯一允許的預設的值為標準類型的即時事件*Default720p*。 如果您需要使用自訂的即時編碼預設值，請連絡amshelp@microsoft.com。 您應該指定解析度和位元速率的所需的資料表。 ，請確認只有一個圖層中的 720p，和最多 6 個圖層。
+> 目前，標準類型的即時事件唯一允許的預設值為 *Default720p*。 如果您需要使用自訂的即時編碼預設值，請連絡 amshelp@microsoft.com。 您應指定解析度和位元速率的所需資料表。 請確認只有一個圖層為 720p，且最多只有 6 個圖層。
 
 ## <a name="live-event-creation-options"></a>實況活動建立選項
 
@@ -132,6 +124,10 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
 > [!IMPORTANT]
 > 請先確定視訊流向預覽 URL，再繼續操作！
+
+## <a name="live-event-long-running-operations"></a>即時事件長時間執行的作業
+
+如需詳細資訊，請參閱[長時間執行的作業](entities-overview.md#long-running-operations)
 
 ## <a name="live-outputs"></a>即時輸出
 

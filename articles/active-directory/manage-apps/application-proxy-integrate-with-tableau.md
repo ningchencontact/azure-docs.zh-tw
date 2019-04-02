@@ -13,12 +13,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e154a53dc32aea0b3fbe093526546b080b02ceff
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c5d80381815524658d91067ee880eba47c394058
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188455"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793572"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory 應用程式 Proxy 與 Tableau 
 
@@ -50,7 +50,7 @@ Azure Active Directory 應用程式 Proxy 和 Tableau 已互相合作，可確�
 **發佈應用程式**： 
 
 
-1. 以系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。 
+1. 登入[Azure 入口網站](https://portal.azure.com)身為應用程式系統管理員。 
 
 2. 選取 [Azure Active Directory] > [企業應用程式]。 
 

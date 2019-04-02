@@ -1,6 +1,6 @@
 ---
-title: 範例-ISO 27001 藍圖-控制項對應
-description: ISO 27001 blueprint （藍圖） 範例控制項對應。
+title: 範例-ISO 27001 共用服務藍圖-控制項對應
+description: Azure 原則和 RBAC 的 ISO 27001 共用服務 blueprint （藍圖） 範例控制項對應。
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,14 +8,14 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 34cda2f09392513b0d3f76cc5f77ea0064109410
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 3ce755b62ce2ba0328852b551225ffa828a6c1bf
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576100"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804678"
 ---
-# <a name="control-mapping-of-the-azure-blueprints-iso-27001-blueprint-sample"></a>Azure 藍圖 ISO 27001 blueprint （藍圖） 範例的控制項對應
+# <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>ISO 27001 共用服務 blueprint （藍圖） 範例控制項對應
 
 下列文件詳細說明 Azure 藍圖 ISO 27001 共用服務藍圖範例對應至 ISO 27001 控制項的方式。 如需控制項的詳細資訊，請參閱[ISO 27001](https://www.iso.org/isoiec-27001-information-security.html)。
 

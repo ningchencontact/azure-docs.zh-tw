@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 572a962e98332fc70c276346f497ed2e67e3c329
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 78b2f98b61306c22eaba59b9be7259b3a24d7bbe
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999842"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805749"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>如何更新現有的藍圖指派
 
@@ -32,17 +32,17 @@ ms.locfileid: "57999842"
 
 1. 在藍圖清單中，以滑鼠左鍵按一下藍圖指派。 然後按一下**更新指派**按鈕，或是以滑鼠右鍵按一下 藍圖指派並選取**更新指派**。
 
-   ![更新指派](../media/update-existing-assignments/update-assignment.png)
+   ![更新現有的藍圖指派](../media/update-existing-assignments/update-assignment.png)
 
 1. **指派藍圖**網頁將會載入預先填入從原始指派的所有值。 您可以變更**藍圖定義版本**、**鎖定指派**狀態，以及任何存在於藍圖定義的動態參數。 完成變更後，按一下 [指派]。
 
 1. 在更新後的指派詳細資料頁面上，查看新的狀態。 在此範例中，我們對指派新增了**鎖定**。
 
-   ![更新的指派 - 鎖定](../media/update-existing-assignments/updated-assignment.png)
+   ![更新現有的藍圖指派-鎖定模式已變更](../media/update-existing-assignments/updated-assignment.png)
 
 1. 探索有關其他詳細資料**指派作業**使用下拉式清單。 資料表**Managed 資源**所選取的工作分派作業的更新。
 
-   ![指派作業](../media/update-existing-assignments/assignment-operations.png)
+   ![指派運算的藍圖指派](../media/update-existing-assignments/assignment-operations.png)
 
 ## <a name="rules-for-updating-assignments"></a>用於更新指派的規則
 
@@ -69,8 +69,8 @@ ms.locfileid: "57999842"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解[藍圖生命週期](../concepts/lifecycle.md)。
-- 了解如何使用[靜態和動態參數](../concepts/parameters.md)。
+- 了解[藍圖生命週期](../concepts/lifecycle.md)。
+- 了解如何使用[靜態與動態參數](../concepts/parameters.md)。
 - 了解如何自訂[藍圖排序順序](../concepts/sequencing-order.md)。
 - 了解如何使用[藍圖資源鎖定](../concepts/resource-locking.md)。
-- 解決問題的藍圖，以使用在指派期間[一般疑難排解](../troubleshoot/general.md)。
+- 使用[一般疑難排解](../troubleshoot/general.md)來解決藍圖指派期間發生的問題。

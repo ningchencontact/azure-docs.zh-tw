@@ -4,17 +4,17 @@ description: 「Azure 原則」定義有各種效果，可決定合規性的管�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 6c6fbde8ff803a053f8c34765ce95d3981a57c52
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ae9c9c5ed8b951760ddac3034c617a13ebe35006
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551196"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802633"
 ---
 # <a name="understand-azure-policy-effects"></a>了解 Azure 原則效果
 
@@ -180,9 +180,10 @@ AuditIfNotExists 效果的 **details** 屬性含有定義所要比對相關資�
 
 - **Type** [必要]
   - 指定要比對之相關資源的類型。
-  - 從嘗試在 **if** 條件資源下擷取資源開始著手，然後在與 **if** 條件資源相同的資源群組內進行查詢。
+  - 如果**details.type**是資源類型底下**如果**條件的資源，原則會查詢以取得這個資源**型別**範圍內的已評估的資源。 否則為原則評估的資源相同資源群組內的查詢。
 - **Name** (選擇性)
   - 指定要比對的資源確切名稱，然後使原則擷取一個特定資源，而不是所指定類型的所有資源。
+  - 當條件值**if.field.type**並**then.details.type**相符，然後**名稱**變成_必要_，而且必須是`[field('name')]`. 不過，[稽核](#audit)效果應該改為考慮。
 - **ResourceGroupName** (選擇性)
   - 允許比對來自不同資源群組的相關資源。
   - 如果 **type** 是一個會在 **if** 條件資源下的資源，則不適用。
@@ -253,6 +254,7 @@ DeployIfNotExists 效果的 **details** 屬性含有定義所要比對相關資�
   - 從嘗試在 **if** 條件資源下擷取資源開始著手，然後在與 **if** 條件資源相同的資源群組內進行查詢。
 - **Name** (選擇性)
   - 指定要比對的資源確切名稱，然後使原則擷取一個特定資源，而不是所指定類型的所有資源。
+  - 當條件值**if.field.type**並**then.details.type**相符，然後**名稱**變成_必要_，而且必須是`[field('name')]`.
 - **ResourceGroupName** (選擇性)
   - 允許比對來自不同資源群組的相關資源。
   - 如果 **type** 是一個會在 **if** 條件資源下的資源，則不適用。

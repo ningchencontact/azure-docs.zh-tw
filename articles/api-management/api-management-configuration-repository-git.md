@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 36b60b3784739a884b887a29f3dd53c61c44cd6f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: adf4d8d5cfcef2dde8193ce1b7f2805a44e2d93d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57851341"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793266"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>如何使用 Git 保存和配置 API 管理服务
 
@@ -57,7 +57,7 @@ ms.locfileid: "57851341"
 >
 >
 
-如需使用 REST API 啟用或停用 Git 存取的詳細資訊，請參閱 [使用 REST API 啟用或停用 Git 存取](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit)。
+如需使用 REST API 啟用或停用 Git 存取的詳細資訊，請參閱 [使用 REST API 啟用或停用 Git 存取](/rest/api/apimanagement/tenantaccess?EnableGit)。
 
 ## <a name="to-save-the-service-configuration-to-the-git-repository"></a>將服務組態儲存至 Git 儲存機制
 
@@ -69,7 +69,7 @@ ms.locfileid: "57851341"
 
 一旦組態儲存至儲存機制，就可以複製。
 
-如需使用 REST API 執行此作業的詳細資訊，請參閱 [使用 REST API 認可組態快照集](https://msdn.microsoft.com/library/dn781420.aspx#CommitSnapshot)。
+如需使用 REST API 執行此作業的詳細資訊，請參閱 [使用 REST API 認可組態快照集](/rest/api/apimanagement/tenantaccess?CommitSnapshot)。
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>將儲存機制複製到本機電腦
 
@@ -266,7 +266,7 @@ git push
   * [服务部署 PowerShell cmdlet 参考](https://docs.microsoft.com/powershell/module/wds)
   * [服務管理 PowerShell Cmdlet 參考](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
 * 使用 REST API 管理您的服務執行個體
-  * [API 管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn776326.aspx)
+  * [API 管理 REST API 参考](/rest/api/apimanagement/)
 
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png

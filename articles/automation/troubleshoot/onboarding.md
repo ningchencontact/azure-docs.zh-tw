@@ -4,16 +4,16 @@ description: 了解如何針對將更新管理、變更追蹤和清查解決方�
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/25/2019
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: ac11b1a2b625d1fc7b62130580d1f188ead21051
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: eaafee304f606ae4d511a6cea1824c26db838635
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342723"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802026"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>針對將解決方案上線時的錯誤進行疑難排解
 
@@ -25,19 +25,23 @@ ms.locfileid: "56342723"
 
 #### <a name="issue"></a>問題
 
-當您嘗試讓虛擬機器在解決方案上線時，您會收到下列訊息：
+您會收到下列訊息之一當您嘗試上架至方案的虛擬機器：
 
-```
+```error
 The solution cannot be enabled due to missing permissions for the virtual machine or deployments
+```
+
+```error
+The solution cannot be enabled on this VM because the permission to read the workspace is missing
 ```
 
 #### <a name="cause"></a>原因
 
-此錯誤是由於虛擬機器或使用者的權限不正確或遺失所造成。
+此錯誤被因不正確或遺漏權限在虛擬機器，工作區，或使用者。
 
 #### <a name="resolution"></a>解決方案
 
-確定您有正確的權限可讓虛擬機器上線。 檢閱[讓機器上線所需的權限](../automation-role-based-access-control.md#onboarding)，嘗試讓解決方案再次上線。
+確定您有正確的權限可讓虛擬機器上線。 檢閱[讓機器上線所需的權限](../automation-role-based-access-control.md#onboarding)，嘗試讓解決方案再次上線。 如果您收到錯誤`The solution cannot be enabled on this VM because the permission to read the workspace is missing`，請確定您有`Microsoft.OperationalInsights/workspaces/read`能夠找出 VM 是否為上的架到工作區的權限。
 
 ### <a name="computer-group-query-format-error"></a>案例：ComputerGroupQueryFormatError
 
@@ -73,17 +77,17 @@ The solution cannot be enabled due to missing permissions for the virtual machin
   * 將原則的目標重新設定為特定資源 (例如設定為特定的自動化帳戶)。
   * 對於原則已設定為拒絕的資源集合進行修改。
 
-檢查 Azure 入口網站右上角的通知，或瀏覽至包含您自動化帳戶的資源群組，然後選取 [設定] 下方的 [部署] 來檢視失敗的部署。 若要深入了解 Azure 原則，請造訪：[Azure 原則的概觀](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json)。
+檢查 Azure 入口網站中右上角的通知，或瀏覽至包含您的自動化帳戶並選取資源群組**部署**下方**設定**檢視失敗部署。 若要深入了解 Azure 原則，請造訪：[Azure 原則的概觀](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json)。
 
 ## <a name="mma-extension-failures"></a>MMA 延伸模組失敗
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-部署解決方案時，會部署各種相關的資源。 其中一個資源是「Microsoft Monitoring Agent 延伸模組」或「適用於 Linux 的 Log Analytics 代理程式」。 這些是虛擬機器的「客體代理程式」所安裝的「虛擬機器延伸模組」，此代理程式負責與所設定的 Log Analytics 工作區進行通訊，以在稍後協調下載二進位檔，以及您要上線的解決方案在開始執行之後所倚賴的其他檔案。
+部署解決方案時，會部署各種相關的資源。 其中一個資源是「Microsoft Monitoring Agent 延伸模組」或「適用於 Linux 的 Log Analytics 代理程式」。 這些是由負責設定的 Log Analytics 工作區，以更新版本的協調的二進位檔的下載與通訊的虛擬機器的客體代理程式安裝的虛擬機器擴充功能和其他檔案，您是解決方案上架取決於，一旦開始執行。
 您通常最先從出現在「通知中樞」中的通知察覺 MMA 或「適用於 Linux 的 Log Analytics 代理程式」安裝失敗。 按一下通知可提供特定失敗的進一步資訊。 巡覽至資源群組資源，再到其中的部署項目，也會提供所發生部署失敗的詳細資料。
 MMA 或「適用於 Linux 的 Log Analytics 代理程式」可能因各種原因而安裝失敗，解決這些失敗所需採取的步驟會因問題而有所不同。 以下是特定疑難排解步驟。
 
-下一節描述上線時可能發生並導致 MMA 延伸模組部署失敗的各種問題。
+下節說明您可能會遇到登入，會造成失敗的 MMA 延伸模組部署時的各種問題。
 
 ### <a name="webclient-exception"></a>案例：在 WebClient 要求期間發生例外狀況
 
@@ -105,7 +109,7 @@ Please verify the VM has a running VM agent, and can establish outbound connecti
 
 此錯誤的一些可能原因包括：
 
-* VM 中已設定只允許特定連接埠的 Proxy。
+* 沒有設定在 VM 中，只允許特定連接埠的 proxy。
 
 * 防火牆設定已封鎖對必要連接埠和位址的存取。
 
@@ -113,9 +117,9 @@ Please verify the VM has a running VM agent, and can establish outbound connecti
 
 確定您已開啟適當的連接埠和位址進行通訊。 如需連接埠和位址清單，請參閱[規劃您的網路](../automation-hybrid-runbook-worker.md#network-planning)。
 
-### <a name="transient-environment-issue"></a>案例：安裝因暫時性環境問題而失敗
+### <a name="transient-environment-issue"></a>案例：安裝失敗，因為暫時性的環境問題
 
-由於其他安裝或動作封鎖安裝，在部署期間安裝 Microsoft Monitoring Agent 延伸模組會失敗
+安裝 Microsoft Monitoring Agent 擴充功能無法在部署期間，因為另一個安裝或封鎖安裝的動作
 
 #### <a name="issue"></a>問題
 
@@ -138,7 +142,7 @@ The Microsoft Monitoring Agent failed to install on this machine. Please try to 
 此錯誤的一些可能原因包括：
 
 * 其他安裝正在進行
-* 在範本部署期間已觸發系統重新啟動
+* 系統會觸發在範本部署期間重新啟動
 
 #### <a name="resolution"></a>解決方案
 
@@ -146,11 +150,11 @@ The Microsoft Monitoring Agent failed to install on this machine. Please try to 
 
 ### <a name="installation-timeout"></a>案例：安裝逾時
 
-MMA 延伸模組的安裝因逾時而未完成。
+安裝 MMA 擴充功能未完成因為逾時。
 
 #### <a name="issue"></a>問題
 
-以下是可能傳回的錯誤訊息範例：
+下列範例是可能傳回的錯誤訊息：
 
 ```error
 Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.4) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.4\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 15614
@@ -158,7 +162,7 @@ Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftM
 
 #### <a name="cause"></a>原因
 
-此錯誤是由於虛擬機器在安裝期間的負載過重所致。
+發生這個錯誤是因為在安裝期間在負載過重的虛擬機器。
 
 ### <a name="resolution"></a>解決方案
 
@@ -166,7 +170,7 @@ Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftM
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您看不到問題或無法解決問題，請瀏覽下列其中一個通道以取得更多支援：
+如果您沒有看到您的問題，或無法解決您的問題，請瀏覽下列其中一個管道以取得更多支援：
 
 * 透過 [Azure 論壇](https://azure.microsoft.com/support/forums/)獲得由 Azure 專家所提供的解答
 * 與 [@AzureSupport](https://twitter.com/azuresupport) 連繫－專為改善客戶體驗而設的官方 Microsoft Azure 帳戶，協助 Azure 社群連接至適當的資源，像是解答、支援及專家等。

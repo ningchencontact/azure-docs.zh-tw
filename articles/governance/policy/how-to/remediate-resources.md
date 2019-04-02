@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: f0c05ddbc53d08334aded48ccb3a3ece547b4143
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e86553e789fc9879ea4a6326b08d893fe24c8ac8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816553"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802553"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>補救不符合 Azure 原則規範的資源
 
@@ -139,11 +139,11 @@ if ($roleDefinitionIds.Count -gt 0)
 
 1. 藉由按一下 [所有服務] 然後搜尋並選取 [原則]，在 Azure 入口網站中啟動 Azure 原則服務。
 
-   ![搜尋原則](../media/remediate-resources/search-policy.png)
+   ![搜尋所有服務中的原則](../media/remediate-resources/search-policy.png)
 
 1. 選取「Azure 原則」頁面左側的 [補救]。
 
-   ![選取 [補救]](../media/remediate-resources/select-remediation.png)
+   ![在 原則 頁面上選取 補救](../media/remediate-resources/select-remediation.png)
 
 1. [用以補救的原則] 索引標籤和資料表格上會包含所有具有不符合規範之資源的 **deployIfNotExists** 原則指派。 按一下具有不符合規範之資源的原則。 [新的補救工作] 頁面隨即開啟。
 
@@ -152,11 +152,11 @@ if ($roleDefinitionIds.Count -gt 0)
 
 1. 在 [新的補救工作] 頁面上，使用 [範圍] 的省略符號，從已被指派該原則的資源中挑選子資源 (包括一直到個別資源物件)，以篩選要補救的資源。 此外，請使用 [位置] 下拉式清單來進一步篩選資源。 將只會補救表格中所列出的資源。
 
-   ![補救 - 選取資源](../media/remediate-resources/select-resources.png)
+   ![補救-選取要修復哪些資源](../media/remediate-resources/select-resources.png)
 
 1. 篩選資源之後，按一下 [補救] 來開始補救工作。 原則合規性頁面將會開啟至 [補救工作] 索引標籤，以顯示工作進度的狀態。
 
-   ![補救 - 工作進度](../media/remediate-resources/task-progress.png)
+   ![補救-補救工作進度](../media/remediate-resources/task-progress.png)
 
 1. 從原則合規性頁面按一下 [補救工作] 以取得進度的相關詳細資料。 這會顯示針對該工作所使用的篩選，以及所要補救的資源清單。
 

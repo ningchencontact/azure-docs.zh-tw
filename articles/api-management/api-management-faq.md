@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 99b54a5fe5c28eb66a61fad61d23b94f0955f126
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9c0c8adca9d99c00e32127e02a3d68ff668a235e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728563"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793300"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API 管理常見問題集
 得到 Azure API 管理常見問題、模式和最佳作法的答案。
@@ -72,13 +72,13 @@ ms.locfileid: "56728563"
 如果您要將 API 管理執行個體複製到新的執行個體，您有幾個選項可用。 您可以：
 
 * 使用 API 管理的備份與還原功能。 如需詳細資訊，請參閱[如何在 Azure API 管理中使用服務備份和還原實作災害復原](api-management-howto-disaster-recovery-backup-restore.md)。
-* 使用 [API 管理 REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx) 建立自己的備份和還原功能。 使用 REST API，從您想要的服務執行個體儲存和還原實體。
+* 使用 [API 管理 REST API](/rest/api/apimanagement/) 建立自己的備份和還原功能。 使用 REST API，從您想要的服務執行個體儲存和還原實體。
 * 使用 Git 下載服務組態，然後將它上傳至新的執行個體。 如需詳細資訊，請參閱[如何使用 Git 儲存和設定您的 API 管理服務組態](api-management-configuration-repository-git.md)。
 
 ### <a name="can-i-manage-my-api-management-instance-programmatically"></a>是否可以编程方式管理 API 管理实例？
 可以，您可以使用下列各項，以程式設計方式管理 API 管理：
 
-* [API 管理 REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx)。
+* [API 管理 REST API](/rest/api/apimanagement/)。
 * [Microsoft Azure ApiManagement 服務管理資源庫 SDK](https://aka.ms/apimsdk)。
 * [服務部署](https://docs.microsoft.com/powershell/module/wds)和[服務管理](https://docs.microsoft.com/powershell/azure/servicemanagement/overview) PowerShell Cmdlet。
 
@@ -97,7 +97,7 @@ ms.locfileid: "56728563"
 4. 使用此 URL 來存取系統管理入口網站。
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>為什麼「我想要新增」的原則無法用於原則編輯器？
-如果您想要新增的原則在原則編輯器中呈暗灰色，請確定您是在該原則的正確範圍內。 每個原則陳述式都是為您在特定範圍和原則區段中使用所設計。 若要檢閱原則的原則區段和範圍，請參閱 [API 管理原則](https://msdn.microsoft.com/library/azure/dn894080.aspx)中原則的「使用方式」一節。
+如果您想要新增的原則在原則編輯器中呈暗灰色，請確定您是在該原則的正確範圍內。 每個原則陳述式都是為您在特定範圍和原則區段中使用所設計。 若要檢閱原則的原則區段和範圍，請參閱 [API 管理原則](/azure/api-management/api-management-policies)中原則的「使用方式」一節。
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>如何在單一 API 中設定多個環境？
 若要在單一 API 中設定多個環境 (例如一個測試環境和一個生產環境)，您有兩個選項。 您可以：
@@ -142,7 +142,7 @@ New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -
 ```
 
 #### <a name="direct-api-update-method"></a>直接 API 更新方法 ####
-1. 使用 API 管理建立[後端](https://msdn.microsoft.com/library/azure/dn935030.aspx)實體。       
+1. 使用 API 管理建立[後端](/rest/api/apimanagement/)實體。     
 2. 將 **skipCertificateChainValidation** 屬性設定為 **true**。     
 3. 如果您不想再允許自我簽署的憑證，請刪除後端實體或將 **skipCertificateChainValidation** 屬性設定為 **false**。
 

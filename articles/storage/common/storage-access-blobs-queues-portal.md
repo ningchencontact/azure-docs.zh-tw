@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5a4426b665c58dd2c0bf7f5b5b41ebfca158e782
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 3a0d10f373b045058c6df242c4d98f78d04c4490
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444713"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801114"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>使用 Azure 入口網站來存取 blob 或佇列資料
 
@@ -47,11 +47,11 @@ ms.locfileid: "58444713"
 
 支援的 blob 或佇列資料存取的內建角色包括：
 
-- [儲存體 Blob 資料擁有者](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner-preview):至於 POSIX 存取控制的 Azure Data Lake 儲存體 Gen2 （預覽）。
-- [儲存體 Blob 資料參與者](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview):Blob 的讀取/寫入/刪除權限。
-- [儲存體 Blob 資料讀者](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader-preview):Blob 的唯讀權限。
-- [儲存體佇列資料參與者](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor-preview):佇列的讀取/寫入/刪除權限。
-- [儲存體佇列資料讀者](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader-preview):佇列的唯讀權限。
+- [儲存體 Blob 資料擁有者](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner):至於 POSIX 存取控制的 Azure Data Lake 儲存體 Gen2 （預覽）。
+- [儲存體 Blob 資料參與者](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor):Blob 的讀取/寫入/刪除權限。
+- [儲存體 Blob 資料讀者](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader):Blob 的唯讀權限。
+- [儲存體佇列資料參與者](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor):佇列的讀取/寫入/刪除權限。
+- [儲存體佇列資料讀者](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader):佇列的唯讀權限。
     
 自訂角色可支援不同的內建角色所提供的相同權限的組合。 如需建立自訂的 RBAC 角色的詳細資訊，請參閱[適用於 Azure 資源的自訂角色](../../role-based-access-control/custom-roles.md)並[了解適用於 Azure 資源的角色定義](../../role-based-access-control/role-definitions.md)。
 

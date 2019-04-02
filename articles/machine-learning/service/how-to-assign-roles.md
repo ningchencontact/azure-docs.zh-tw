@@ -11,12 +11,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 2/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: b40edf705ba61713f4b695dd55a6a20028936c82
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 56813d9a075e1c327fb5612c50ea72f067ec505d
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993808"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805594"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>管理 Azure Machine Learning 工作區的存取權
 
@@ -33,7 +33,7 @@ Azure Machine Learning 工作區是 Azure 資源。 如同其他 Azure 資源，
 | **擁有者** | 完整存取權工作區，包括能夠檢視、 建立、 編輯或刪除 （如果適用） 工作區中的資產。 此外，您可以變更角色指派。 |
 
 > [!IMPORTANT]
-> 在 Azure 中的多個層級範圍可以設定角色存取權。 例如，加入工作群組的擁有者存取的人可能沒有擁有者存取權的資源群組，其中包含工作群組。 如需詳細資訊，請參閱 <<c0> [ 如何 RBAC 一起運作](/azure/role-based-access-control/overview#how-rbac-works)。
+> 在 Azure 中的多個層級範圍可以設定角色存取權。 比方說，到工作區的擁有者存取的人可能沒有擁有者存取權包含的工作區的資源群組。 如需詳細資訊，請參閱 <<c0> [ 如何 RBAC 一起運作](/azure/role-based-access-control/overview#how-rbac-works)。
 
 如需有關特定內建角色的詳細資訊，請參閱[適用於 Azure 的內建角色](/azure/role-based-access-control/built-in-roles)。
 
