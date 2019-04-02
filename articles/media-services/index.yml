@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: abfcece2d71e456a39284ddb4cfa106bce31fb53
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 52a18203e5c6973822f52a65364ae2786913d4f0
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670212"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803845"
 documentType: LandingData
 title: Azure 媒體服務文件
 metadata:
@@ -32,13 +32,8 @@ sections:
     - href: /azure/media-services/latest/
       html: <p>使用媒體服務 v3 來編碼、封裝和保護內容、串流隨選影片、即時廣播及分析您的影片。</p>
       image:
-        src: media/index/AMSIcons-media_servicesV3.svg
+        src: /azure/media-services/latest/media/index/AMSIcons-encoding.svg
       title: Azure 媒體服務 v3
-    - href: /azure/media-services/video-indexer/
-      html: <p>使用影片索引器從影片和音訊檔案中擷取深入解析。</p>
-      image:
-        src: media/index/AMSIcons-media_analytics.svg
-      title: 影片索引子
     - href: /azure/media-services/previous/
       html: <p>媒體服務 v2 不會再新增任何新的特性或功能。 </p>
       image:
@@ -52,5 +47,10 @@ sections:
     - href: http://amp.azure.net/libs/amp/latest/docs/index.html
       html: <p>在各種瀏覽器和裝置上播放 Microsoft Azure 媒體服務的媒體內容。</p>
       image:
-        src: 
+        src: /azure/media-services/latest/media/index/AMSIcons-Player.svg
       title: Azure 媒體播放器
+    - href: /azure/media-services/video-indexer/
+      html: <p>使用影片索引器從影片和音訊檔案中擷取深入解析。</p>
+      image:
+        src: media/index/AMSIcons-media_analytics.svg
+      title: 影片索引子
