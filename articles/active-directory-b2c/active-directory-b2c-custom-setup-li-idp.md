@@ -1,21 +1,21 @@
 ---
-title: 在 Azure Active Directory B2C 中使用自訂原則來設定以 LinkedIn 帳戶進行登入 | Microsoft Docs
-description: 在 Azure Active Directory B2C 中使用自訂原則來設定以 Google 帳戶進行登入。
+title: 設定與使用自訂原則-Azure Active Directory B2C 的 LinkedIn 帳戶的 登入 |Microsoft Docs
+description: 設定 Azure Active Directory B2C 中的 LinkedIn 帳戶使用自訂原則使用登入。
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 04/01/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7700ef24deb82afcb2093c8fd27bcbe7f6f6420c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 5dad12596dde13cfa7e0c2031d58f605061b0e20
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190338"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862789"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定以 LinkedIn 帳戶進行登入
 
@@ -42,7 +42,7 @@ ms.locfileid: "55190338"
 7. 輸入您的 [Business Email] \(公司電子郵件\) 地址和 [Business Phone] \(公司電話\) 號碼。
 8. 在頁面底部，閱讀並接受使用條款，然後選取 [提交]。
 9. 選取 [Authentication] \(驗證\)，然後記錄 [Client ID] \(用戶端識別碼\) 和 [Client Secret] \(用戶端密碼\) 值以供稍後使用。
-10. 在 [Authorized Redirect URLs] \(授權的重新導向 URL\) 中，輸入 `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp`。 以您的租用戶名稱取代 `your-tenant-name`。 即使租用戶在 Azure AD B2C 中是使用大寫字母來定義的，您還是需要在輸入租用戶名稱時，全部使用小寫字母。 
+10. 在 [Authorized Redirect URLs] \(授權的重新導向 URL\) 中，輸入 `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp`。 以您的租用戶名稱取代 `your-tenant`。 即使租用戶在 Azure AD B2C 中是使用大寫字母來定義的，您還是需要在輸入租用戶名稱時，全部使用小寫字母。 
 11. 選取 [更新]。
 12. 選取 [設定]、將 [應用程式狀態] 變更為 [即時]，然後選取 [更新]。
 
@@ -53,7 +53,7 @@ ms.locfileid: "55190338"
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
 3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
-4. 在 [概觀] 頁面上，選取 [識別體驗架構 - 預覽]。
+4. 在 [概觀] 頁面上，選取 [識別體驗架構]。
 5. 選取 [原則金鑰]，然後選取 [新增]。
 6. 針對 [選項] 選擇 `Manual`。
 7. 輸入原則金鑰的 [名稱]。 例如： `LinkedInSecret`。 金鑰名稱前面會自動新增前置詞 `B2C_1A_`。
@@ -83,12 +83,10 @@ ms.locfileid: "55190338"
             <Item Key="ProviderName">linkedin</Item>
             <Item Key="authorization_endpoint">https://www.linkedin.com/oauth/v2/authorization</Item>
             <Item Key="AccessTokenEndpoint">https://www.linkedin.com/oauth/v2/accessToken</Item>
-            <Item Key="ClaimsEndpoint">https://api.linkedin.com/v1/people/~:(id,first-name,last-name,email-address,headline)</Item>
-            <Item Key="ClaimsEndpointAccessTokenName">oauth2_access_token</Item>
-            <Item Key="ClaimsEndpointFormatName">format</Item>
-            <Item Key="ClaimsEndpointFormat">json</Item>
-            <Item Key="scope">r_emailaddress r_basicprofile</Item>
-            <Item Key="HttpBinding">POST</Item>
+            <Item Key="ClaimsEndpoint">https://api.linkedin.com/v2/me</Item>
+            <Item Key="external_user_identity_claim_id">id</Item>
+            <Item Key="BearerTokenTransmissionMethod">AuthorizationHeader</Item>
+            <Item Key="ResolveJsonPathsInJsonTokens">true</Item>
             <Item Key="UsePolicyInRedirectUri">0</Item>
             <Item Key="client_id">Your LinkedIn application client ID</Item>
           </Metadata>
@@ -99,12 +97,12 @@ ms.locfileid: "55190338"
             <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="id" />
             <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
             <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
-            <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="emailAddress" />
-            <!--<OutputClaim ClaimTypeReferenceId="jobTitle" PartnerClaimType="headline" />-->
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="linkedin.com" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
           </OutputClaims>
           <OutputClaimsTransformations>
+            <OutputClaimsTransformation ReferenceId="ExtractGivenNameFromLinkedInResponse" />
+            <OutputClaimsTransformation ReferenceId="ExtractSurNameFromLinkedInResponse" />
             <OutputClaimsTransformation ReferenceId="CreateRandomUPNUserName" />
             <OutputClaimsTransformation ReferenceId="CreateUserPrincipalName" />
             <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId" />
@@ -119,6 +117,47 @@ ms.locfileid: "55190338"
 4. 以您先前記錄的用戶端識別碼取代 **client_id** 的值。
 5. 儲存檔案。
 
+### <a name="add-the-claims-transformations"></a>新增宣告轉換
+
+LinkedIn 的技術設定檔需要**ExtractGivenNameFromLinkedInResponse**並**ExtractSurNameFromLinkedInResponse**宣告新增至清單的轉換ClaimsTransformations。 如果您尚未**ClaimsTransformations**檔案中定義的項目新增至父 XML 項目，如下所示。 宣告轉換，也需要新的宣告型別定義名為**nullStringClaim**。 
+
+**BuildingBlocks**項目應加入之檔案的頂端附近。 請參閱*TrustframeworkBase.xml*做為範例。
+
+```XML
+<BuildingBlocks>
+  <ClaimsSchema>
+    <!-- Claim type needed for LinkedIn claims transformations -->
+    <ClaimType Id="nullStringClaim">
+      <DisplayName>nullClaim</DisplayName>
+      <DataType>string</DataType>
+      <AdminHelpText>A policy claim to store output values from ClaimsTransformations that aren't useful. This claim should not be used in TechnicalProfiles.</AdminHelpText>
+      <UserHelpText>A policy claim to store output values from ClaimsTransformations that aren't useful. This claim should not be used in TechnicalProfiles.</UserHelpText>
+    </ClaimType>
+  </ClaimsSchema>
+
+  <ClaimsTransformations>
+    <!-- Claim transformations needed for LinkedIn technical profile -->
+    <ClaimsTransformation Id="ExtractGivenNameFromLinkedInResponse" TransformationMethod="GetSingleItemFromJson">
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="inputJson" />
+      </InputClaims>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="nullStringClaim" TransformationClaimType="key" />
+        <OutputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="value" />
+      </OutputClaims>
+    </ClaimsTransformation>
+    <ClaimsTransformation Id="ExtractSurNameFromLinkedInResponse" TransformationMethod="GetSingleItemFromJson">
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="surname" TransformationClaimType="inputJson" />
+      </InputClaims>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="nullStringClaim" TransformationClaimType="key" />
+        <OutputClaim ClaimTypeReferenceId="surname" TransformationClaimType="value" />
+      </OutputClaims>
+    </ClaimsTransformation>
+  </ClaimsTransformations>
+</BuildingBlocks>
+```
 ### <a name="upload-the-extension-file-for-verification"></a>上傳擴充檔案準備驗證
 
 到目前為止，您已設定原則，讓 Azure AD B2C 知道如何與您的 LinkedIn 帳戶進行通訊。 嘗試上傳原則的擴充檔案，這只是為了確認它到目前為止沒有任何問題。
@@ -181,7 +220,179 @@ ms.locfileid: "55190338"
 
 1. 在您的工作目錄中建立一份 SignUpOrSignIn.xml 複本，並將它重新命名。 例如，將它重新命名為 *SignUpSignInLinkedIn.xml*。
 2. 開啟新檔案，並將 **TrustFrameworkPolicy** 的 **PolicyId** 屬性更新成唯一值。 例如： `SignUpSignInLinkedIn`。
-3. 將 **PublicPolicyUri** 的值更新成原則的 URI。 例如 `http://contoso.com/B2C_1A_signup_signin_linkedin`
+3. 將 **PublicPolicyUri** 的值更新成原則的 URI。 例如，`http://contoso.com/B2C_1A_signup_signin_linkedin`
 4. 更新 **DefaultUserJourney** 中 **ReferenceId** 屬性的值，以符合您所建立新使用者旅程圖 (SignUpSignLinkedIn) 的識別碼。
 5. 儲存您的變更、上傳檔案，然後選取清單中的新原則。
 6. 確定 [選取應用程式] 欄位中已選取您所建立的 Azure AD B2C 應用程式，然後按一下 [立即執行] 來進行測試。
+
+
+## <a name="register-the-claims-provider"></a>註冊宣告提供者
+
+此時，識別提供者已設定妥當，但還未出現在任何註冊或登入畫面中。 若要讓它可供使用，您必須建立現有範本使用者旅程圖的複本，然後修改它，讓它也包含 LinkedIn 識別提供者。
+
+1. 從 Starter Pack 開啟 *TrustFrameworkBase.xml* 檔案。
+2. 尋找並複製包含 `Id="SignUpOrSignIn"` 之 **UserJourney** 元素的整個內容。
+3. 開啟 *TrustFrameworkExtensions.xml*，並尋找 **UserJourneys** 元素。 如果此元素不存在，請新增。
+4. 貼上您複製的整個 **UserJourney** 元素內容作為 **UserJourneys** 元素的子系。
+5. 重新命名使用者旅程圖的識別碼。 例如： `SignUpSignInLinkedIn`。
+
+### <a name="display-the-button"></a>顯示按鈕
+
+**ClaimsProviderSelection** 元素類似於註冊或登入畫面上的識別提供者按鈕。 如果您為 LinkedIn 帳戶新增 **ClaimsProviderSelection** 元素，當使用者登陸頁面時，就會出現新按鈕。
+
+1. 在您建立的使用者旅程圖中，尋找包含 `Order="1"` 的 **OrchestrationStep** 元素。
+2. 在 **ClaimsProviderSelects** 底下新增下列元素。 將 **TargetClaimsExchangeId** 的值設定成適當的值，例如 `LinkedInExchange`：
+
+    ```XML
+    <ClaimsProviderSelection TargetClaimsExchangeId="LinkedInExchange" />
+    ```
+
+### <a name="link-the-button-to-an-action"></a>將按鈕連結至動作
+
+現在已備妥按鈕，您需要將它連結至動作。 在此案例中，動作是用來讓 Azure AD B2C 與 LinkedIn 帳戶進行通訊以接收權杖。
+
+1. 在使用者旅程圖中，尋找包含 `Order="2"` 的 **OrchestrationStep**。
+2. 新增下列 **ClaimsExchange** 元素，請確定用於 **Id** 的值與用於 **TargetClaimsExchangeId** 的值相同：
+
+    ```XML
+    <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
+    ```
+    
+    將 **TechnicalProfileReferenceId** 的值更新成您稍早所建立技術設定檔的 **Id**。 例如： `LinkedIn-OAUTH`。
+
+3. 儲存 TrustFrameworkExtensions.xml 檔案，並再次上傳它以供驗證。
+
+## <a name="create-an-azure-ad-b2c-application"></a>建立 Azure AD B2C 應用程式
+
+與 Azure AD B2C 的通訊會透過您在租用戶中建立的應用程式進行。 此節會列出您可以視需要完成以建立測試應用程式的步驟 (如果您尚未這麼做)。
+
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
+2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
+3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
+4. 選取 [應用程式]，然後選取 [新增]。
+5. 輸入應用程式的名稱，例如 testapp1。
+6. 針對 [Web 應用程式 / Web API] ，選取 `Yes`，然後y在 [回覆 URL] 欄位輸入 `https://jwt.ms`。
+7. 按一下頁面底部的 [新增] 。
+
+## <a name="update-and-test-the-relying-party-file"></a>更新並測試信賴憑證者檔案
+
+更新信賴憑證者 (RP) 檔案，此檔案將起始您剛才建立的使用者旅程圖。
+
+1. 在您的工作目錄中建立一份 SignUpOrSignIn.xml 複本，並將它重新命名。 例如，將它重新命名為 *SignUpSignInLinkedIn.xml*。
+2. 開啟新檔案，並將 **TrustFrameworkPolicy** 的 **PolicyId** 屬性更新成唯一值。 例如： `SignUpSignInLinkedIn`。
+3. 將 **PublicPolicyUri** 的值更新成原則的 URI。 例如，`http://contoso.com/B2C_1A_signup_signin_linkedin`
+4. 更新 **DefaultUserJourney** 中 **ReferenceId** 屬性的值，以符合您所建立新使用者旅程圖 (SignUpSignLinkedIn) 的識別碼。
+5. 儲存您的變更、上傳檔案，然後選取清單中的新原則。
+6. 確定 [選取應用程式] 欄位中已選取您所建立的 Azure AD B2C 應用程式，然後按一下 [立即執行] 來進行測試。
+
+
+## <a name="migration-from-v10-to-v20"></a>從 v1.0 移轉至 v2.0
+
+最近的 LinkedIn[更新其 API 的 v1.0 從 v2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates)。 若要將您現有的設定移轉到新的組態中，使用下列各節中的資訊，更新的技術設定檔中的項目。
+
+### <a name="replace-items-in-the-metadata"></a>取代中繼資料中的項目
+
+在現有**中繼資料**項目**TechnicalProfile**，更新下列**項目**中的項目：
+
+```XML
+<Item Key="ClaimsEndpoint">https://api.linkedin.com/v1/people/~:(id,first-name,last-name,email-address,headline)</Item>
+<Item Key="scope">r_emailaddress r_basicprofile</Item>
+```
+
+變更為：
+
+```XML
+<Item Key="ClaimsEndpoint">https://api.linkedin.com/v2/me</Item>
+<Item Key="scope">r_emailaddress r_liteprofile</Item>
+```
+
+### <a name="add-items-to-the-metadata"></a>將項目加入至中繼資料
+
+在 **中繼資料**的**TechnicalProfile**，新增下列**項目**項目：
+
+```XML
+<Item Key="external_user_identity_claim_id">id</Item>
+<Item Key="BearerTokenTransmissionMethod">AuthorizationHeader</Item>
+<Item Key="ResolveJsonPathsInJsonTokens">true</Item>
+```
+
+### <a name="update-the-outputclaims"></a>更新 OutputClaims
+
+在現有**OutputClaims**的**TechnicalProfile**，更新下列**OutputClaim**中的項目：
+
+```XML
+<OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName" />
+<OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
+```
+
+變更為：
+
+```XML
+<OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName.localized" />
+<OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName.localized" />
+```
+
+### <a name="add-new-outputclaimstransformation-elements"></a>加入新的 OutputClaimsTransformation 項目
+
+在  **OutputClaimsTransformations**的**TechnicalProfile**，新增下列**OutputClaimsTransformation**項目：
+
+```XML
+<OutputClaimsTransformation ReferenceId="ExtractGivenNameFromLinkedInResponse" />
+<OutputClaimsTransformation ReferenceId="ExtractSurNameFromLinkedInResponse" />
+```
+
+### <a name="define-the-new-claims-transformations-and-claim-type"></a>定義新的宣告轉換和宣告類型
+
+在最後一個步驟中，您可以加入新的宣告轉換，必須定義。 若要定義宣告轉換，將它們新增到清單**ClaimsTransformations**。 如果您尚未**ClaimsTransformations**檔案中定義的項目新增至父 XML 項目，如下所示。 宣告轉換，也需要新的宣告型別定義名為**nullStringClaim**。 
+
+**BuildingBlocks**項目應加入之檔案的頂端附近。 請參閱*TrustframeworkBase.xml*做為範例。
+
+```XML
+<BuildingBlocks>
+  <ClaimsSchema>
+    <!-- Claim type needed for LinkedIn claims transformations -->
+    <ClaimType Id="nullStringClaim">
+      <DisplayName>nullClaim</DisplayName>
+      <DataType>string</DataType>
+      <AdminHelpText>A policy claim to store unuseful output values from ClaimsTransformations. This claim should not be used in a TechnicalProfiles.</AdminHelpText>
+      <UserHelpText>A policy claim to store unuseful output values from ClaimsTransformations. This claim should not be used in a TechnicalProfiles.</UserHelpText>
+    </ClaimType>
+  </ClaimsSchema>
+
+  <ClaimsTransformations>
+    <!-- Claim transformations needed for LinkedIn technical profile -->
+    <ClaimsTransformation Id="ExtractGivenNameFromLinkedInResponse" TransformationMethod="GetSingleItemFromJson">
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="inputJson" />
+      </InputClaims>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="nullStringClaim" TransformationClaimType="key" />
+        <OutputClaim ClaimTypeReferenceId="givenName" TransformationClaimType="value" />
+      </OutputClaims>
+    </ClaimsTransformation>
+    <ClaimsTransformation Id="ExtractSurNameFromLinkedInResponse" TransformationMethod="GetSingleItemFromJson">
+      <InputClaims>
+        <InputClaim ClaimTypeReferenceId="surname" TransformationClaimType="inputJson" />
+      </InputClaims>
+      <OutputClaims>
+        <OutputClaim ClaimTypeReferenceId="nullStringClaim" TransformationClaimType="key" />
+        <OutputClaim ClaimTypeReferenceId="surname" TransformationClaimType="value" />
+      </OutputClaims>
+    </ClaimsTransformation>
+  </ClaimsTransformations>
+</BuildingBlocks>
+```
+
+### <a name="obtain-an-email-address"></a>取得電子郵件地址
+
+從 v1.0 LinkedIn 移轉至 v2.0 的一部分，另一個 API 的額外呼叫才能取得電子郵件地址。 如果您需要在註冊期間取得電子郵件地址，請執行下列動作：
+
+1. 具有 Azure AD B2C 與 LinkedIn，讓使用者登入同盟。 當發生這種情況時，就會從 LinkedIn 的存取權杖傳送至 Azure AD B2C。
+2. 將 linkedin Elevate 存取權杖儲存到宣告中。 [請參閱此處的指示](idp-pass-through-custom.md)。
+3. 呼叫 Azure 函式，並傳遞函式的存取權杖在上一個步驟中收集。 [請參閱此處的指示](active-directory-b2c-rest-api-step-custom.md)
+    1. Azure 函式應採取的存取權杖，並建立 LinkedIn API 的呼叫 (`https://api.linkedin.com/v2/emailAddress?q=members&projection=(elements*(handle~))`)。
+    2. Azure 函式會回應，並剖析出的電子郵件地址。
+    3. 電子郵件地址傳回到的原則。
+4. 電子郵件地址會儲存在電子郵件宣告和使用者旅程圖會繼續。
+
+取得從 LinkedIn 的電子郵件地址，在註冊期間是選擇性的。 如果您選擇不要取得電子郵件，使用者就會是需要以手動方式輸入電子郵件地址，並加以驗證。

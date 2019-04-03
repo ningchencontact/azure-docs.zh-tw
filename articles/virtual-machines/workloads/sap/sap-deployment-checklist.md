@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ba866ddf79a9970ef3f5c4ff3b7085242a1cdcd
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: fef2d42282291bb0ea6afeea03e60234d3d47a4d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802791"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878718"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Azure 上 SAP 工作負載的規劃和部署檢查清單 
 
@@ -39,7 +39,7 @@ ms.locfileid: "58802791"
     2. 建立並使用責任指派矩陣 (RACI)，以定義各個相關合作夥伴的責任和指派。 從規劃和第一個部署的最高層級開始，然後往愈來愈細微的層級進行
     2. 概要的解決方案架構
     3. 關於 Azure 部署區域的決策。 如需 Azure 區域的清單，請參閱 [Azure 區域](https://azure.microsoft.com/global-infrastructure/regions/)。 如需了解每個 Azure 區域中可用的服務，請參閱[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/)一文
-    4. 用來從內部部署環境連線至 Azure 的網路架構。 請開始熟悉 [Azure 的虛擬資料中心藍圖](https://docs.microsoft.com/azure/architecture/vdc/)
+    4. 網路從內部部署連線至 Azure 的架構。 請開始熟悉 [Azure 的虛擬資料中心藍圖](https://docs.microsoft.com/azure/architecture/vdc/)
     5. 在 Azure 中執行高業務影響性資料的安全性原則。 如需閱讀相關資料，請從 [Azure 安全性文件](https://docs.microsoft.com/azure/security/)開始
 2.  技術設計文件 – 其中包含：
     1.  解決方案區塊圖 
@@ -50,7 +50,7 @@ ms.locfileid: "58802791"
         2.  SAP 支援附註 [#2039619](https://launchpad.support.sap.com/#/notes/2039619) \(英文\)。 此附註定義了 Azure 上的 Oracle 支援對照表。 請注意，在適用於 SAP 的 Azure 工作負載中，Oracle 僅支援以 Windows 和 Oracle Linux 作為客體 OS。 這個支援聲明也適用於執行 SAP 執行個體的 SAP 應用程式層。 不過，在 Oracle Linux 中，Oracle 並不是透過 Pacemaker 支援 SAP Central Services 的高可用性。 如果您需要 Oracle Linux 上的 ASCS 高可用性，將需要利用適用於 Linux 的 SIOS 保護套件。 如需詳細的 SAP 認證資料，請參閱 SAP 支援附註[#1662610 - 適用於 Linux 的 SIOS 保護套件的支援詳細資料](https://launchpad.support.sap.com/#/notes/1662610)。 針對 Windows，Windows 容錯移轉叢集的容錯移轉解決方案可由 SAP 支援且適用於 SAP Central Services，並可與作為 DBMS 層的 Oracle 搭配使用。 
         3.  SAP 支援附註 [#2235581](https://launchpad.support.sap.com/#/notes/2235581) \(英文\) 提供各種不同 OS 版本上 SAP HANA 的支援對照表
         4.  支援 SAP HANA 的 Azure VM 和 [HANA 大型執行個體](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) 皆列在[這裡](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
-        5.  [SAP 產品可用性對照表](https://support.sap.com/en/) \(英文\)
+        5.  [SAP 產品可用性對照表](https://support.sap.com/en/)
         6.  適用於其他 SAP 特定產品的 SAP 附註  
     5.  建議您針對 SAP 生產環境系統採用嚴格的 3 層式設計。 不建議在同一個 VM 上結合使用 ASCS + APP 伺服器。  在 Azure 上搭配 Windows 作為客體 OS 時，支援使用 SAP Central Services 的多重 SID 叢集設定。 不過，在 Azure 上搭配 Linux 作業系統時，則不支援 SAP Central Services 多重 SID 叢集設定。 如需 Windows 客體 OS 案例的相關文件，請參閱：
         1.  [在 Azure 上搭配 Windows Server 容錯移轉叢集和共用磁碟的 SAP ASCS/SCS 執行個體多重 SID 高可用性](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk)
@@ -78,8 +78,8 @@ ms.locfileid: "58802791"
 6.  定義 Azure 訂用帳戶數目和不同訂用帳戶的核心配額。 請視需要[開啟支援要求以增加 Azure 訂用帳戶的配額](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) 
 7.  將 SAP 資料移轉至 Azure 的資料減量和資料移轉計劃。 針對 SAP NetWeaver 系統，SAP 具有關於如何限制大量資料之數量的指導方針。 SAP 發佈了[這份深入指南](https://help.sap.com/http.svc/rc/2eb2fba8f8b1421c9a37a8d7233da545/7.0/en-US/Data_Management_Guide_Version_70E.PDF) \(英文\)，說明 SAP ERP 系統中的資料管理。 不過，有些內容確實適用於大部分 NetWeaver 和 S/4HANA 系統。
 8.  定義並決定自動化部署方法。 Azure 上基礎結構部署背後的自動化目標是要以決定性的方式進行部署，並獲得決定性的結果。 許多客戶都使用 Power Shell 或 CLI 型指令碼。 但有各式各樣的開放原始碼技術可用來部署適用於 SAP 的 Azure 基礎結構，甚至是安裝 SAP 軟體。 可以在 GitHub 中找到範例：
-    1.  [Azure Cloud 雲端中的自動化 SAP 部署](https://github.com/Azure/sap-hana) \(英文\)
-    2.  [SAP HANA 安裝](https://github.com/AzureCAT-GSI/SAP-HANA-ARM) \(英文\)
+    1.  [Azure 雲端中的自動化的 SAP 部署](https://github.com/Azure/sap-hana)
+    2.  [SAP HANA 安裝](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
 9.  定義您 (客戶)、系統整合者、Microsoft 及其他相關對象之間定期的設計和部署檢閱步調
 
  
@@ -87,7 +87,7 @@ ms.locfileid: "58802791"
  
 試驗可以在專案規劃和準備之前或以平行方式執行。 此階段也可用來測試在規劃和準備階段中所制定的方法和設計。 試驗階段可延展至真實的概念證明。 建議您在試驗部署期間，除了安全性設計之外，也設定及驗證完整的 HA/DR 解決方案。 在某些客戶案例中，也可以在這個階段進行延展性測試。 其他客戶則會使用 SAP 沙箱系統的部署作為試驗階段。 因此，我們會假設您已識別出要移轉至 Azure 以執行試驗的系統。
 
-1. 將對 Azure 進行的資料傳輸最佳化。 在高度倚賴客戶的案例中，如果「快速迴路」有足夠的頻寬，則從內部部署環境透過 [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) 傳輸較快。 就其他客戶而言，則透過網際網路更為快速
+1. 將對 Azure 進行的資料傳輸最佳化。 高度依賴透過客戶的情況下傳輸[Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/)內部部署的最快，如果 「 Express 」 電路有足夠的頻寬。 就其他客戶而言，則透過網際網路更為快速
 2. 如果是涉及匯出和匯入資料庫資料的 SAP 異質平台移轉，請對匯出和匯入階段進行測試和最佳化。 針對涉及以 SQL Server 作為目的地平台的大型移轉，可在[這裡](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAP-OS-DB-Migration-to-SQL-Server-8211-FAQ-v6-2-April-2017/ba-p/368070) \(英文\) 找到相關建議。 當您將移轉與 SAP 版本升級合併，並依據記載 (例如 [SUM 2.0 SP03 的資料庫移轉選項 (DMO)](https://launchpad.support.sap.com/#/notes/2631152)(英文\)) 滿足特定來源和目標 DBMS 平台組合時，如果不需要合併的版本升級或 [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) 程序，您可以採用 Migration Monitor/SWPM 方法。 
    1.  匯出至來源、將匯出檔案上傳至 Azure 及匯入效能。  將匯出與匯入之間的重疊最大化
    2.  評估目標與目的地平台之間資料庫的磁碟區，以便反映在基礎結構的大小調整    
@@ -159,7 +159,7 @@ ms.locfileid: "58802791"
 6. 效能測試
    1.  在 SAP 中，根據 SAP 追蹤和度量，將前 10 名線上報告與目前的實作做比較 (如果適用) 
    2.  在 SAP 中，根據 SAP 追蹤和度量，將前 10 名批次作業與目前的實作做比較 (如果適用) 
-   3.  在 SAP 中，根據 SAP 追蹤和度量，比較透過介面對 SAP 系統進行的資料傳輸。 請將焦點放在您知道傳輸現在是在不同位置之間 (例如從內部部署環境到 Azure) 進行的介面 
+   3.  在 SAP 中，根據 SAP 追蹤和度量，比較透過介面對 SAP 系統進行的資料傳輸。 焦點放在您知道，現在即將傳輸不同的位置，例如從內部部署移至 Azure 之間的介面 
 
 
 ## <a name="non-production-phase"></a>非生產環境階段 

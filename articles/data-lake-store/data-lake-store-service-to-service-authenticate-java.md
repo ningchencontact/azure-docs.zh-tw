@@ -3,20 +3,20 @@ title: 服務對服務驗證：使用 Azure Active Directory 與 Azure Data Lake
 description: 了解如何使用 Java 透過 Azure Active Directory 向 Azure Data Lake Storage Gen1 完成服務對服務驗證
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 257db3ab0a155dd79ef74365f956293886e2f658
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: c32eada2acca73e089c2296ce8e59c529d7af665
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57529716"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879160"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-java"></a>使用 Java 向 Azure Data Lake Storage Gen1 進行服務對服務驗證
 > [!div class="op_single_selector"]
@@ -82,6 +82,6 @@ Data Lake Storage Gen1 SDK 提供簡便的方法，讓您管理與 Data Lake Sto
 ## <a name="next-steps"></a>後續步驟
 在本文中，您已了解如何使用 Java SDK，使用使用者驗證向 Data Lake Storage Gen1 進行驗證。 您現在可以看看下列文章，了解如何配合使用 Java SDK 與 Data Lake Storage Gen1。
 
-* [使用 Java SDK 對 Data Lake Storage Gen1 進行資料作業](data-lake-store-get-started-java-sdk.md)
+* [使用 Java SDK 在 Data Lake 儲存體 Gen1 上的資料作業](data-lake-store-get-started-java-sdk.md)
 
 

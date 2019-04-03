@@ -12,17 +12,14 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: eb8499ef6c0f872a0761f7be606e058387947b2b
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.openlocfilehash: da93c60b52edf509900adf89fb688a0596d9763b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319875"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877800"
 ---
-# <a name="create-your-first-azure-function-with-java-and-intellij-preview"></a>使用 Java 和 IntelliJ 建立您的第一個 Azure 函式 (預覽)
-
-> [!NOTE]
-> 適用於 Azure Functions 的 Java 目前為預覽版。
+# <a name="create-your-first-azure-function-with-java-and-intellij"></a>使用 Java 和 IntelliJ 中建立第一個 Azure 函式
 
 本文說明：
 - 如何使用 IntelliJ IDEA 和 Apache Maven 建立[無伺服器](https://azure.microsoft.com/overview/serverless-computing/)函式專案
@@ -55,8 +52,8 @@ ms.locfileid: "49319875"
 1. 在 [新增 Archetype] 視窗中，完成如下欄位：
     - GroupId：com.microsoft.azure
     - ArtifactId：azure-functions-archetype
-    - 版本：使用來自[中央存放庫](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)的最新版本
-    ![在 IntelliJ IDEA 中從 Archetype 建立 Maven 專案](media/functions-create-first-java-intellij/functions-create-intellij.png)  
+    - _版本_：使用的最新版本來[中央儲存機制](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    ![建立 Maven 專案從 IntelliJ IDEA 中的原型](media/functions-create-first-java-intellij/functions-create-intellij.png)  
 1. 選取 [確定]，然後選取 [下一步]。
 1. 輸入目前專案的詳細資料，然後選取 [完成]。
 
@@ -71,7 +68,7 @@ Maven 會在和 [ArtifactId] 值具有相同名稱的新資料夾中建立專案
 1. 開啟 [Maven 專案] 工具列。
 1. 展開 [生命週期]，然後開啟 [套件]。 解決方案會建置並封裝在新建立的目標目錄中。
 1. 展開 [外掛程式] > [azure-functions]，然後開啟 [azure-functions:run] 以啟動 Azure Functions 本機執行階段。  
-  ![適用於 Azure Functions 的 Maven 工具列](media/functions-create-first-java-intellij/functions-intellij-java-maven-toolbar.png)  
+  ![適用於 Azure Functions 的 maven 工具列](media/functions-create-first-java-intellij/functions-intellij-java-maven-toolbar.png)  
 
 1. 當您完成測試函式時，關閉執行對話方塊。 一次只能有一個函式主機是作用中且在本機執行。
 

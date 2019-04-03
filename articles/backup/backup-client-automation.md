@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/24/2018
 ms.author: pvrk
-ms.openlocfilehash: 1025f358df5e19d7be22b3a26d671ded9f2393b9
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: c2f6d8262d47a537667ef7b25333a3beff425bbe
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802621"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878684"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>使用 PowerShell 部署和管理 Windows Server/Windows 用戶端的 Azure 備份
 
@@ -88,7 +88,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 或者，使用 PowerShell 來取得下載程式：
  
  ```powershell
- $MarsAURL = 'Http://Aka.Ms/Azurebackup_Agent'
+ $MarsAURL = 'https://aka.ms/Azurebackup_Agent'
  $WC = New-Object System.Net.WebClient
  $WC.DownloadFile($MarsAURL,'C:\downloads\MARSAgentInstaller.EXE')
  C:\Downloads\MARSAgentInstaller.EXE /q
@@ -732,5 +732,5 @@ Invoke-Command -Session $Session -Script { param($D, $A) Start-Process -FilePath
 
 如需 Windows Server/用戶端的 Azure 備份詳細資訊，請參閱
 
-* [Azure 備份的簡介](backup-introduction-to-azure-backup.md)
+* [Azure 備份簡介](backup-introduction-to-azure-backup.md)
 * [備份 Windows 伺服器](backup-configure-vault.md)

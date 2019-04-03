@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f622be53297a9d091a62a1239f022bbd4fb71347
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 3f1dbd4b6635d615cc7bed4cf5cc38234ec0c3f1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311759"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885990"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>設定 Azure Multi-Factor Authentication 設定
 
@@ -34,7 +34,7 @@ ms.locfileid: "58311759"
 | ------- | ----------- |
 | 帳戶鎖定 | 如果連續太多次驗證嘗試都遭到拒絕，就會在 Multi-Factor Authentication 服務中暫時鎖定帳戶。 這項功能僅適用於輸入 PIN 以進行驗證的使用者。 (MFA 伺服器) |
 | [封鎖/解除封鎖使用者](#block-and-unblock-users) | 用於封鎖 MSA 伺服器 (內部部署) 上的特定使用者，使其無法接收 Multi-Factor Authentication 要求。 系統會自動拒絕已封鎖使用者的任何驗證嘗試。 使用者自封鎖的時刻起，將持續封鎖 90 天。 |
-| [詐騙警示](#fraud-alert) | 設定使用者回報 MFA 伺服器中詐騙驗證要求之能力的相關設定。 |
+| [詐騙警示](#fraud-alert) | 設定使用者的能力，來報告詐騙的驗證要求相關的設定 |
 | 通知 | 啟用 MFA 伺服器中事件的通知。 |
 | [OATH 權杖](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | 用於雲端式 Azure MFA 環境，以管理使用者的 OATH 權杖。 |
 | [通話設定](#phone-call-settings) | 設定雲端和內部部署環境之通話和問候語相關的設定。 |
@@ -57,7 +57,7 @@ ms.locfileid: "58311759"
 
 ## <a name="block-and-unblock-users"></a>封鎖及解除封鎖使用者
 
-使用_封鎖及解除封鎖使用者_功能來防止使用者接收驗證要求。 系統會自動拒絕已封鎖使用者的任何驗證嘗試。 使用者自封鎖的時刻起，將持續封鎖 90 天。 此功能特定於 MFA Server (內部部署)。
+使用_封鎖及解除封鎖使用者_功能來防止使用者接收驗證要求。 系統會自動拒絕已封鎖使用者的任何驗證嘗試。 使用者自封鎖的時刻起，將持續封鎖 90 天。
 
 ### <a name="block-a-user"></a>封鎖使用者
 
@@ -77,7 +77,7 @@ ms.locfileid: "58311759"
 
 ## <a name="fraud-alert"></a>詐騙警示
 
-設定_詐騙警示_功能，讓使用者得以針對存取其資源的詐騙嘗試提出報告。 使用者可以使用行動應用程式或透過電話來報告詐騙嘗試。 此功能特定於 MFA Server (內部部署)。
+設定_詐騙警示_功能，讓使用者得以針對存取其資源的詐騙嘗試提出報告。 使用者可以使用行動應用程式或透過電話來報告詐騙嘗試。
 
 ### <a name="turn-on-fraud-alerts"></a>開啟詐騙警示
 

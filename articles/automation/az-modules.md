@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c3f46e40dfaf0d1ba2ab393b593cdd479c48c45d
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: a076c924d57aadfae477a5df0d128aad8e67af60
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585057"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862721"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Azure 自動化中的 Az 模組支援
 
@@ -69,7 +69,7 @@ Azure 自動化支援在您的 Runbook 中使用 [Azure Powershell Az 模組](/p
 
 ## <a name="after-migration-details"></a>移轉後詳細資料
 
-完成移轉之後，不要再使用帳戶上的 `AzureRM` 模組來啟動 Runbook。 也建議您不要匯入或更新此帳戶上的 `AzureRM` 模組。 從此刻開始，請將此帳戶視為已遷移至 `Az`，並且僅使用 `Az` 模組操作。 建立新的自動化帳戶時，現有 `AzureRM` 模組仍然會安裝，且撰寫的教學課程 Runbook 仍然會包含 `AzureRM` Cmdlet。 不應該執行這些 Runbook。
+完成移轉之後，不要再使用帳戶上的 `AzureRM` 模組來啟動 Runbook。 也建議您不要匯入或更新此帳戶上的 `AzureRM` 模組。 從此刻開始，請將此帳戶視為已遷移至 `Az`，並且僅使用 `Az` 模組操作。 建立新的自動化帳戶時，現有 `AzureRM` 模組仍然會安裝，且撰寫的教學課程 Runbook 仍然會包含 `AzureRM` Cmdlet。 不應該執行這些 runbook。
 
 ## <a name="next-steps"></a>後續步驟
 

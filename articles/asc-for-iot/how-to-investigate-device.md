@@ -1,31 +1,31 @@
 ---
 title: IoT 裝置調查指南預覽的 azure 資訊安全中心 |Microsoft Docs
 description: 此作法指南說明如何使用 IoT 的 Azure 資訊安全中心調查可疑的 IoT 裝置，使用 Log Analytics。
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: b18b48ae-b445-48f8-9ac0-365d6e065b64
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 6097954e09d5fd62c45f59b009d974d277bafc57
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 56378e94bf448da4c3047c30be3ae25887f113b5
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755251"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862619"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>調查可疑的 IoT 裝置
 
 > [!IMPORTANT]
 > IoT 的 azure 資訊安全中心目前處於公開預覽狀態。
-> 此預覽版的服務等級協定，不提供，且不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 可疑的可疑活動，或指示存在裝置遭到入侵的參與的 IoT 裝置時，azure 資訊安全中心 (ASC) IoT 服務警示和辨識項會提供清楚的指示。 
 
@@ -33,27 +33,27 @@ ms.locfileid: "58755251"
 
 > [!div class="checklist"]
 > * 尋找您的裝置資料
-> * 調查使用 kql 查詢
+> * 使用 kql 查詢進行調查
 
 
 ## <a name="how-can-i-access-my-data"></a>如何存取我的資料？
 
-根據預設，iot ASC 會在您的 Log Analytics 工作區中儲存您的安全性警示和建議。 您也可以選擇儲存您的原始安全性資料。
+根據預設，適用於 IoT 的 ASC 會在 Log Analytics 工作區中儲存您的安全性警示和建議。 您也可以選擇儲存未經處理的安全性資料。
 
-若要找出您的 Log Analytics 工作區來儲存資料：
+若要找出用來儲存資料的 Log Analytics 工作區：
 
-1. 開啟您的 IoT 中樞 
-1. 按一下 **安全性**，然後選取**設定**。
-1. 變更您的 Log Analytics 工作區的組態詳細資料。 
+1. 開啟 IoT 中樞， 
+1. 按一下 [安全性]，然後選取 [設定]。
+1. 變更 Log Analytics 工作區的組態詳細資料。 
 1. 按一下 [檔案] 。 
 
-下列組態，執行下列命令來存取儲存在您的 Log Analytics 工作區中的資料：
+下列組態，執行下列步驟來存取儲存在 Log Analytics 工作區中的資料：
 
-1. 選取並按一下 ASC 中您的 IoT 中樞的 IoT 警示。 
-1. 按一下 **進一步調查**。 
-1. 選取 **來查看哪些裝置有此警示，請按一下這裡並檢視 DeviceId 欄**。
+1. 在 IoT 中樞內選取並按一下適用於 IoT 的 ASC 警示。 
+1. 按一下 [進一步調查]。 
+1. 選取 [若要查看哪些裝置有此警示，請按一下這裡並檢視 DeviceId 資料行]。
 
-## <a name="investigation-steps-for-suspicious-iot-devices"></a>可疑的 IoT 裝置的調查步驟
+## <a name="investigation-steps-for-suspicious-iot-devices"></a>可疑 IoT 裝置的調查步驟
 
 若要存取深入解析和關於您 IoT 裝置的未經處理資料，請移至您的 Log Analytics 工作區[存取您的資料](#how-can-i-access-my-data)。
 
@@ -61,7 +61,7 @@ ms.locfileid: "58755251"
 
 ### <a name="related-alerts"></a>相關的警示
 
-若要了解其他警示，是否已觸發相同的時間使用周圍下列 kql 查詢：
+若要了解同一時間前後是否觸發了其他警示，請使用下列 kql 查詢：
 
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -88,8 +88,8 @@ ms.locfileid: "58755251"
      UserName=extractjson("$.UserName", EventDetails, typeof(string))
   | summarize FirstObserved=min(TimestampLocal) by GroupNames, UserName
   ~~~
-您可以使用這項資料，了解︰ 
-  1. 哪些使用者有裝置的存取權？
+請使用這項資料來了解︰ 
+  1. 哪些使用者可以存取此裝置？
   2. 具有存取權的使用者有權限等級，如預期般運作嗎？ 
 
 ### <a name="open-ports"></a>開啟連接埠
@@ -115,7 +115,7 @@ ms.locfileid: "58755251"
   ~~~
 
     Use this data to discover:
-  1. 目前作用中裝置上的接聽通訊端？
+  1. 裝置上目前作用中的接聽通訊端有哪些？
   2. 若允許目前作用中接聽通訊端的資訊嗎？
   3. 是否有任何可疑的遠端位址，連線到裝置？
 
@@ -146,9 +146,9 @@ ms.locfileid: "58755251"
   ~~~
 
     Use the query results to discover:
-  1. 哪些使用者已登入裝置？
+  1. 有哪些使用者登入過此裝置？
   2. 登入的使用者應該能夠登入？
-  3. 登入的使用者未從預期或非預期的 IP 位址連接嗎？
+  3. 登入過的使用者是從預期還是非預期的 IP 位址進行連線的？
   
 ### <a name="process-list"></a>處理程序清單
 
@@ -183,9 +183,9 @@ ms.locfileid: "58755251"
 
     Use the query results to discover:
 
-  1. 已有任何可疑的處理序，在裝置上執行？
-  2. 處理程序是由適當的使用者執行？
-  3. 沒有任何命令列執行包含的正確和預期引數？
+  1. 裝置上是否執行了任何可疑的處理序？
+  2. 這些處理序是不是由適當的使用者來執行？
+  3. 是否有任何命令列執行包含正確且預期中的引數？
 
 ## <a name="next-steps"></a>後續步驟
-調查裝置，並獲得進一步了解您的風險之後, 您可能要考慮[設定自訂警示](quickstart-create-custom-alerts.md)來改善您的 IoT 解決方案安全性狀態。 如果您還沒有裝置代理程式，請考慮[部署安全性代理程式](how-to-deploy-agent.md)或是[變更現有裝置代理程式的組態](how-to-agent-configuration.md)來改善您的結果。 
+在調查裝置並更加了解您的風險之後，請考慮[設定自訂警示](quickstart-create-custom-alerts.md)來改善您的 IoT 解決方案安全性態勢。 如果您還沒有裝置代理程式，請考慮[部署安全性代理程式](how-to-deploy-agent.md)或[變更現有裝置代理程式的組態](how-to-agent-configuration.md)，以改善您的結果。 

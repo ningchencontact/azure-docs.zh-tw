@@ -1,7 +1,7 @@
 ---
-title: 使用 Application Insights 來監視模型
+title: 設定 Azure Application Insights 來監視 ML 模型
 titleSuffix: Azure Machine Learning service
-description: 使用 Application Insights 來監視透過 Azure Machine Learning 服務部署的 Web 服務
+description: 監視部署與使用 Azure Application Insights 的 Azure Machine Learning 服務的 web 服務
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 1/07/2019
-ms.custom: seodec18
-ms.openlocfilehash: 32dc55927f614a91c390a417595b7a00c16e9386
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/02/2019
+ms.custom: seoapril2019
+ms.openlocfilehash: 2e481a388d8cbd6baf66b95c74449396b2e70f7d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847944"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885486"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>使用 Application Insights 監視您的 Azure Machine Learning 模型
 
@@ -36,7 +36,7 @@ ms.locfileid: "57847944"
 * 要部署至 Azure Kubernetes Service (AKS) 或 Azure Container 執行個體 (ACI) 的已訓練機器學習模型。 如果您沒有模型，請參閱[將影像分類模型定型](tutorial-train-models-with-aml.md)教學課程。
 
 
-## <a name="enable-and-disable-from-the-sdk"></a>從 SDK 啟用及停用
+## <a name="use-sdk-to-configure"></a>使用 SDK 設定 
 
 ### <a name="update-a-deployed-service"></a>更新已部署的服務
 1. 識別您工作區中的服務。 `ws` 的值是工作區的名稱。
@@ -77,7 +77,7 @@ ms.locfileid: "57847944"
 <service_name>.update(enable_app_insights=False)
 ```
     
-## <a name="enable-and-disable-in-the-portal"></a>在入口網站中啟用及停用
+## <a name="use-portal-to-configure"></a>使用入口網站設定
 
 您可以在 Azure 入口網站中啟用及停用 Application Insights。
 
@@ -85,15 +85,15 @@ ms.locfileid: "57847944"
 
 1. 在 [部署] 索引標籤上，選取您要在其中啟用 Application Insights 的服務。
 
-   [![[部署] 索引標籤上的服務清單](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
+   [![L[部署] 索引標籤上的服務 ist](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
 
 3. 選取 [編輯]。
 
-   [![[編輯] 按鈕](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Edit 按鈕](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 4. 在 [進階設定] 中，選取 [啟用 AppInsights 診斷] 核取選項。
 
-   [![已選取啟用診斷的核取方塊](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
+   [![S選擇核取方塊，啟用 [診斷](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
 
 1. 選取螢幕底部的 [更新] 以套用變更。 
 
@@ -101,11 +101,11 @@ ms.locfileid: "57847944"
 1. 在 [Azure 入口網站](https://portal.azure.com)中，開啟您的工作區。
 1. 選取 [部署]，選取服務，然後選取 [編輯]。
 
-   [![使用 [編輯] 按鈕](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Use [編輯] 按鈕](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 1. 在 [進階設定] 中，清除 [啟用 AppInsights 診斷] 核取選項。 
 
-   [![已清除啟用診斷的核取方塊](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
+   [![Cleared 核取方塊啟用診斷](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
 
 1. 選取螢幕底部的 [更新] 以套用變更。 
  
@@ -119,12 +119,12 @@ ms.locfileid: "57847944"
 
 1. 選取 [概觀] 索引標籤以查看一組您服務的基本計量。
 
-   [![概觀](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
+   [![Overview](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
 3. 若要查看您的自訂追蹤，請選取 [Analytics]。
 4. 在 [結構描述] 區段中，選取 [追蹤]。 然後選取 [執行] 來執行查詢。 資料應該會以資料表格式出現，且應該會對應至您評分檔案中的自訂呼叫。 
 
-   [![自訂追蹤](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
+   [![Cu 追蹤](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
 若要深入了解如何使用 Application Insights，請參閱[什麼是 Application Insights？](../../azure-monitor/app/app-insights-overview.md)。
     
@@ -138,6 +138,4 @@ ms.locfileid: "57847944"
 ## <a name="next-steps"></a>後續步驟
 您也可以在生產環境中收集您模型上的資料。 閱讀[在生產環境中收集模型資料](how-to-enable-data-collection.md)一文。 
 
-
-## <a name="other-references"></a>其他參考資料
-* [適用於容器的 Azure 監視器](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json)
+另請閱讀[適用於容器的 Azure 監視器](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json)。

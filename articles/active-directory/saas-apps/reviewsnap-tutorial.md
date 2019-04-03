@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09fd6c94fe32d683e61aacba5300b130fa6f416a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 24f4983f2ba1567241a6dfc6231a4925805947cd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187401"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878429"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reviewsnap"></a>教學課程：Azure Active Directory 與 Reviewsnap 整合
 
@@ -59,7 +59,7 @@ ms.locfileid: "56187401"
 ## <a name="adding-reviewsnap-from-the-gallery"></a>從資源庫新增 Reviewsnap
 若要設定以將 Reviewsnap 整合到 Azure AD 中，您需要從資源庫將 Reviewsnap 新增到受控 SaaS 應用程式清單。
 
-**若要從資源庫新增 Reviewsnap，請執行以下步驟：**
+**若要從資源庫新增 Reviewsnap，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
@@ -95,7 +95,7 @@ ms.locfileid: "56187401"
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入，並在 Reviewsnap 應用程式中設定單一登入。
 
-**若要搭配 Reviewsnap 設定 Azure AD 單一登入，請執行下列步驟：**
+**若要使用 Reviewsnap，以設定 Azure AD 單一登入，請執行下列步驟：**
 
 1. 在 Azure 入口網站的 [Reviewsnap] 應用程式整合頁面上，按一下 [單一登入]。
 
@@ -109,16 +109,15 @@ ms.locfileid: "56187401"
 
     ![[Reviewsnap 網域及 URL] 單一登入資訊](./media/reviewsnap-tutorial/tutorial_reviewsnap_url.png)
 
-    a. 在 [識別碼] 文字方塊中，輸入 URL：`https://app.reviewsnap.com`
+    a. 在 [識別碼] 文字方塊中輸入 URL： `https://app.reviewsnap.com`
 
-    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://app.reviewsnap.com/auth/saml/callback?namespace=<CUSTOMER_NAMESPACE>
-`
+    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL： `https://app.reviewsnap.com/auth/saml/callback?namespace=<CUSTOMER_NAMESPACE>`
 
 1. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]，然後執行下列步驟：
 
     ![[Reviewsnap 網域及 URL] 單一登入資訊](./media/reviewsnap-tutorial/tutorial_reviewsnap_url1.png)
 
-    在 [登入 URL] 文字方塊中，輸入 URL：`https://app.reviewsnap.com/login`
+    在 [登入 URL] 文字方塊中，輸入 URL： `https://app.reviewsnap.com/login`
      
     > [!NOTE] 
     > [回覆 URL] 不是真實的值。 請使用實際的「回覆 URL」來更新此值。 請連絡 [Reviewsnap 用戶端支援小組](mailto:support@reviewsnap.com)以取得此值。 
@@ -143,7 +142,7 @@ ms.locfileid: "56187401"
 
    ![建立 Azure AD 測試使用者][100]
 
-**若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
+**若要在 Azure AD 中建立的測試使用者，請執行下列步驟：**
 
 1. 在 Azure 入口網站的左窗格中，按一下 [Azure Active Directory] 按鈕。
 
@@ -179,7 +178,7 @@ ms.locfileid: "56187401"
 
 ![指派使用者角色][200] 
 
-**若要將 Britta Simon 指派到 Reviewsnap，請執行以下步驟：**
+**若要將 Britta Simon 指派到 Reviewsnap，執行下列步驟：**
 
 1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]，然後按一下 [所有應用程式]。
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/09/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eee7adb7c4c0efc8a455d8dc74bc723644d006f3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bd5e3087c21908600be9cd369a15f3036e5acb2f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169015"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884698"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>教學課程：Azure Active Directory 與 Tableau Online 整合
 
@@ -58,7 +58,7 @@ Tableau Online 與 Azure AD 整合提供下列優點：
 ## <a name="adding-tableau-online-from-the-gallery"></a>從資源庫新增 Tableau Online
 若要設定 Tableau Online 與 Azure AD 整合，您需要從資源庫將 Tableau Online 加入到受控 SaaS 應用程式清單中。
 
-**如要從資源庫新增 Tableau Online，請執行下列步驟：**
+**若要新增 Tableau Online 從資源庫，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
@@ -99,7 +99,7 @@ Tableau Online 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入，並在您的 Tableau Online 應用程式中設定單一登入。
 
-**若要設定透過 Tableau Online 使用 Azure AD 單一登入功能，請執行下列步驟：**
+**若要設定 Azure AD 單一登入與 Tableau Online 搭配，執行下列步驟：**
 
 1. 在 Azure 入口網站的 [Tableau Online] 應用程式整合頁面上，按一下 [單一登入]。
 
@@ -113,9 +113,9 @@ Tableau Online 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/tableauonline-tutorial/tutorial_tableauonline_url.png)
     
-    a. 在 [登入 URL] 文字方塊中，輸入 URL：`https://sso.online.tableau.com`
+    a. 在 [登入 URL] 文字方塊中，輸入 URL： `https://sso.online.tableau.com`
 
-    b. 在 [識別碼] 文字方塊中，輸入 URL：`https://sso.online.tableau.com/public/sp/metadata?alias=<entityid> `
+    b. 在 [識別碼] 文字方塊中，輸入 URL： `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`
 
 1. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -169,7 +169,7 @@ Tableau Online 與 Azure AD 整合提供下列優點：
 
 ![建立 Azure AD 使用者][100]
 
-**若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
+**若要在 Azure AD 中建立的測試使用者，請執行下列步驟：**
 
 1. 在 **Azure 入口網站**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
@@ -213,7 +213,7 @@ Tableau Online 與 Azure AD 整合提供下列優點：
 
 ![指派使用者][200] 
 
-**如要將 Britta Simon 指派給 Tableau Online，請執行下列步驟：**
+**若要將 Britta Simon 指派給 Tableau Online 中，執行下列步驟：**
 
 1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]，然後按一下 [所有應用程式]。
 

@@ -3,21 +3,21 @@ title: 使用 Power BI 分析 Azure Data Lake Storage Gen1 中的資料 | Micros
 description: 使用 Power BI 分析儲存在 Azure Data Lake Storage Gen1 的資料
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: 57d19d27-e135-49d9-a7ea-46c48ef4e3bd
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 5db9d18a31af4d6b407fcd9172ac80fc6f93f085
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.author: twooley
+ms.openlocfilehash: b873d90dbc33aff27cd2fc3b5099b08eacf929b6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297174"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880061"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>使用 Power BI 分析 Azure Data Lake Storage Gen1 中的資料
 在本文中，您將了解如何使用 Power BI Desktop 分析儲存在 Azure Data Lake Storage Gen1 的資料並加以視覺化。
@@ -96,6 +96,6 @@ ms.locfileid: "46297174"
 ## <a name="publish-report-to-power-bi-service"></a>將報表發佈到 Power BI 服務
 在 Power BI Desktop 中建立視覺效果之後，即可將它發佈到 Power BI 服務，與其他人共用。 如需如何執行的指示，請參閱[從 Power BI Desktop 發佈](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/)。
 
-## <a name="see-also"></a>另請參閱
-* [使用 Data Lake Analytics 分析 Data Lake Storage Gen1 中的資料](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+## <a name="see-also"></a>請參閱
+* [分析 Data Lake 儲存體 Gen1 中的資料使用 Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 

@@ -3,20 +3,20 @@ title: Python：Azure Data Lake Storage Gen1 上的檔案系統作業 | Microsof
 description: 了解如何利用 Python SDK 來使用 Data Lake Storage Gen1 檔案系統。
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: ed28c502bb407c65b388704c177fca13cecc38d6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: 57efc718a51398b577a0078ba829d2f6209cab54
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548621"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880741"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-python"></a>使用 Python 在 Azure Data Lake Storage Gen1 上進行檔案系統作業
 > [!div class="op_single_selector"]
@@ -131,5 +131,5 @@ pip install azure-datalake-store
 
 ## <a name="see-also"></a>請參閱
 
-* [Azure Data Lake Storage Gen1 Python (檔案系統) 參考](https://azure-datalake-store.readthedocs.io/en/latest)
-* [與 Azure Data Lake Storage Gen1 相容的開放原始碼巨量資料應用程式](data-lake-store-compatible-oss-other-applications.md)
+* [Azure Data Lake 儲存體 Gen1 Python （檔案系統） 參考](https://azure-datalake-store.readthedocs.io/en/latest)
+* [開放原始碼巨量資料應用程式與 Azure Data Lake 儲存體 Gen1 相容](data-lake-store-compatible-oss-other-applications.md)

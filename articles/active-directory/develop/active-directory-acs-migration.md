@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed2164fc122621a4ba2aeb4bb0797db02b10a4bf
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5f9fd062d445fb738842667cab0c24332c0e4cc8
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449133"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879238"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>作法：從 Azure 存取控制服務移轉
 
@@ -103,7 +103,7 @@ https://<mynamespace>.accesscontrol.windows.net
 
 1. 使用上一個步驟中的命名空間並移至 `https://<namespace>.accesscontrol.windows.net`
 
-    例如，如果其中一個命名空間是 contoso-test，請移至 `https://contoso-test.accesscontrol.windows.net`
+    例如，如果其中一個命名空間是 contoso 測試，請移至 `https://contoso-test.accesscontrol.windows.net`
 
 1. 在 [信任關係] 之下，選取 [信賴憑證者應用程式] 以查看會受 ACS 淘汰影響的應用程式清單。
 1. 針對您擁有的任何其他 ACS 命名空間重複步驟 1-2。
@@ -131,11 +131,11 @@ https://<mynamespace>.accesscontrol.windows.net
 
 | 服務 | 指引 |
 | ------- | -------- |
-| Azure 服務匯流排 | [移轉至共用存取簽章](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
-| Azure 服務匯流排轉送 | [移轉至共用存取簽章](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
-| Azure 受控快取 | [移轉至 Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
-| Azure DataMarket | [移轉至認知服務 API](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
-| BizTalk 服務 | [移轉至 Azure App Service 的邏輯應用程式功能](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
+| Azure 服務匯流排 | [移轉至共用的存取簽章](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
+| Azure 服務匯流排轉送 | [移轉至共用的存取簽章](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
+| Azure 受控快取 | [移轉至 Azure 快取的 Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
+| Azure DataMarket | [移轉至認知服務 Api](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
+| BizTalk 服務 | [移轉至 Azure App service 的 Logic Apps 功能](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | Azure 媒體服務 | [移轉至 Azure AD 驗證](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
 | Azure 備份 | [升級 Azure 備份代理程式](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
 
@@ -152,9 +152,9 @@ SharePoint 2013、 2016年和 SharePoint Online 客戶已長期使用 ACS 在雲
 
 | 功能 | 指引 |
 | ------- | -------- |
-| 從 Azure AD 驗證使用者 | 先前，Azure AD 並不支援 SharePoint 進行驗證所需的 SAML 1.1 權杖，因此 ACS 被用來作為讓 SharePoint 與 Azure AD 權杖格式相容的媒介。 現在，您可以[在內部部署應用程式上使用 Azure AD 應用程式庫 SharePoint 將 SharePoint 直接連線到 Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial)。 |
+| 從 Azure AD 驗證使用者 | 先前，Azure AD 並不支援 SharePoint 進行驗證所需的 SAML 1.1 權杖，因此 ACS 被用來作為讓 SharePoint 與 Azure AD 權杖格式相容的媒介。 現在，您可以[SharePoint 直接連線到 Azure AD 中使用 Azure AD 應用程式庫的 SharePoint 內部部署應用程式上](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial)。 |
 | [應用程式驗證和內部部署的 SharePoint 中的伺服器對伺服器驗證](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | 不受 ACS 淘汰影響；無須進行任何變更。 | 
-| [SharePoint 增益集 (提供者裝載和 SharePoint 裝載) 的低信任度授權](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | 不受 ACS 淘汰影響；無須進行任何變更。 |
+| [SharePoint 增益集 （裝載提供者及裝載的 SharePoint） 的低信任度授權](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | 不受 ACS 淘汰影響；無須進行任何變更。 |
 | [SharePoint 雲端混合式搜尋](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | 不受 ACS 淘汰影響；無須進行任何變更。 |
 
 ### <a name="web-applications-that-use-passive-authentication"></a>使用被動驗證的 Web 應用程式
@@ -191,7 +191,7 @@ Azure AD 租用戶也可以透過 AD FS，與內部部署 Active Directory 的�
 
 | 功能 | 存取控制支援 | Azure AD 支援 |
 | ---------- | ----------- | ---------------- |
-| **帳戶類型** | | |
+| **類型的帳戶** | | |
 | Microsoft 工作或學校帳戶 | 支援 | 支援 |
 | Windows Server Active Directory 和 AD FS 的帳戶 |- 與 Azure AD 租用戶建立同盟則可支援 <br />- 與 AD FS 建立直接同盟則可支援 | 僅透過與 Azure AD 租用戶的同盟支援 | 
 | 其他企業身分識別管理系統的帳戶 |- 與 Azure AD 租用戶建立同盟也許可支援 <br />- 建立直接同盟則可支援 | 可能透過與 Azure AD 租用戶的同盟 |
@@ -207,7 +207,7 @@ Azure AD 租用戶也可以透過 AD FS，與內部部署 Active Directory 的�
 | SAML 1.1 | 支援 | 預覽 |
 | SAML 2.0 | 支援 | 支援 |
 | SWT | 支援 | 不支援 |
-| **自訂** | | |
+| **自訂項目** | | |
 | 可自訂的首頁領域探索/帳戶挑選 UI | 可下載的程式碼，可以納入應用程式 | 不支援 |
 | 上傳自訂權杖簽署憑證 | 支援 | 支援 |
 | 在權杖中自訂宣告 |- 從識別提供者傳遞輸入宣告<br />- 從識別提供者取得宣告形式的存取權杖<br />- 根據輸入宣告值簽發輸出宣告<br />- 簽發具有常數值的輸出宣告 |- 無法從同盟識別提供者傳遞宣告<br />- 無法從識別提供者取得宣告形式的存取權杖<br />- 無法根據輸入宣告值簽發輸出宣告<br />- 可以簽發具有常數值的輸出宣告<br />- 可以根據同步至 Azure AD 的使用者屬性簽發輸出宣告 |
@@ -242,7 +242,7 @@ Azure AD 租用戶也可以透過 AD FS，與內部部署 Active Directory 的�
 
 | 功能 | 存取控制支援 | Azure AD B2C 支援 |
 | ---------- | ----------- | ---------------- |
-| **帳戶類型** | | |
+| **類型的帳戶** | | |
 | Microsoft 工作或學校帳戶 | 支援 | 透過自訂原則支援  |
 | Windows Server Active Directory 和 AD FS 的帳戶 | 與 AD FS 建立直接同盟則可支援 | 以自訂原則建立 SAML 同盟則可支援 |
 | 其他企業身分識別管理系統的帳戶 | 透過 WS-同盟建立直接同盟則可支援 | 以自訂原則建立 SAML 同盟則可支援 |
@@ -258,7 +258,7 @@ Azure AD 租用戶也可以透過 AD FS，與內部部署 Active Directory 的�
 | SAML 1.1 | 支援 | 不支援 |
 | SAML 2.0 | 支援 | 不支援 |
 | SWT | 支援 | 不支援 |
-| **自訂** | | |
+| **自訂項目** | | |
 | 可自訂的首頁領域探索/帳戶挑選 UI | 可下載的程式碼，可以納入應用程式 | 透過自訂 CSS 可完全自訂 UI |
 | 上傳自訂權杖簽署憑證 | 支援 | 支援透過自訂原則自訂簽署金鑰 (非憑證) |
 | 在權杖中自訂宣告 |- 從識別提供者傳遞輸入宣告<br />- 從識別提供者取得宣告形式的存取權杖<br />- 根據輸入宣告值簽發輸出宣告<br />- 簽發具有常數值的輸出宣告 |- 可以從識別提供者傳遞宣告；某些宣告需有自訂原則<br />- 無法從識別提供者取得宣告形式的存取權杖<br />- 可以透過自訂原則根據輸入宣告值簽發輸出宣告<br />- 可以透過自訂原則簽發具有常數值的輸出宣告 |

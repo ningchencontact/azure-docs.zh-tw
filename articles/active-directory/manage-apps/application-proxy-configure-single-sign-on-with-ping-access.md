@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f236c6a78edeb04a69685bf27c99997ed470f498
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 8eef15098eed8959655ae2904bf41a8c3dffc9f4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58791518"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882780"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>使用應用程式 Proxy 與 PingAccess 的單一登入之標頭式驗證
 
@@ -163,7 +163,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 >[!NOTE]
 >若要使用自訂宣告，您必須已定義自訂原則且已指派給應用程式。  此原則應包含所有必要的自訂屬性。
 >
->您可以透過 PowerShell、Azure AD Graph Explorer 或 MS Graph 來完成原則定義和指派。  如果您是在 PowerShell 中執行這些項目，您可能需要先使用 `New-AzureADPolicy `，然後使用 `Set-AzureADServicePrincipalPolicy` 將它指派給應用程式。  如需詳細資訊，請參閱 [Azure AD 原則文件](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment)。
+>您可以透過 PowerShell、Azure AD Graph Explorer 或 MS Graph 來完成原則定義和指派。  如果您在 PowerShell 中來這麼做，您可能需要先使用`New-AzureADPolicy`，然後將它指派給應用程式與`Set-AzureADServicePrincipalPolicy`。  如需詳細資訊，請參閱 [Azure AD 原則文件](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment)。
 
 ### <a name="optional---use-a-custom-claim"></a>(選用) 使用自訂宣告
 若要讓應用程式使用自訂宣告，並且包含其他欄位，請確定您已[建立自訂宣告對應原則，並將它指派給應用程式](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment)。
@@ -182,6 +182,6 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 
 ## <a name="next-steps"></a>後續步驟
 
-- [設定 Azure AD 的 PingAccess](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
+- [設定 Azure ad 的 PingAccess](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
 - [Azure AD 應用程式 Proxy 如何提供單一登入？](application-proxy-single-sign-on.md)
 - [疑難排解應用程式 Proxy](application-proxy-troubleshoot.md)

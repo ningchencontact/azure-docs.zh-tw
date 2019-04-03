@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e18c58aafd4aa56a27f5e4a97c9dcc9dcd0fdbd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9167a5ed72e6fec2ca03cc97d1d41dd6cd4aaba6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199777"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885837"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-secret-server-on-premises"></a>教學課程：Azure Active Directory 與 Secret Server (On-Premises) 整合
 
@@ -59,7 +59,7 @@ Secret Server (On-Premises) 與 Azure AD 整合提供下列優點：
 ## <a name="adding-secret-server-on-premises-from-the-gallery"></a>從資源庫新增 Secret Server (On-Premises)
 若要設定 Secret Server (On-Premises) 與 Azure AD 整合，您需要從資源庫將 Secret Server (On-Premises) 新增到受控 SaaS 應用程式清單中。
 
-**若要從資源庫新增 Secret Server (On-Premises)，請執行下列步驟：**
+**若要從資源庫新增 Secret Server (On-premises)，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
@@ -95,7 +95,7 @@ Secret Server (On-Premises) 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入，並在您的 Secret Server (On-Premises) 應用程式中設定單一登入。
 
-**若要設定透過 Secret Server (On-Premises) 使用 Azure AD 單一登入功能，請執行下列步驟：**
+**若要使用 Secret Server (On-premises)，以設定 Azure AD 單一登入，請執行下列步驟：**
 
 1. 在 Azure 入口網站的 [Secret Server (On-Premises)] 應用程式整合頁面上，按一下 [單一登入]。
 
@@ -109,9 +109,9 @@ Secret Server (On-Premises) 與 Azure AD 整合提供下列優點：
 
     ![Secret Server (On-Premises) 網域及 URL 單一登入資訊](./media/secretserver-on-premises-tutorial/tutorial_secretserver_url.png)
 
-    a. 在 [識別碼] 文字方塊中，輸入使用者選擇的值作為範例：`https://secretserveronpremises.azure`
+    a. 在 **識別碼**文字方塊中，輸入使用者選擇的值做為範例： `https://secretserveronpremises.azure`
 
-    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<SecretServerURL>/SAML/AssertionConsumerService.aspx `
+    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL： `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx`
 
     > [!NOTE]
     > 上面顯示的實體識別碼只是範例，您可以自由選擇任何唯一值以在 Azure AD 中識別您的 Secret Server 執行個體。 您需要將此實體識別碼傳送到 [Secret Server (On-Premises) 用戶端支援小組](https://thycotic.force.com/support/s/)，以在他們那端設定此識別碼。 如需詳細資料，請參閱[這篇文章](https://thycotic.force.com/support/s/article/Configuring-SAML-in-Secret-Server)。
@@ -149,7 +149,7 @@ Secret Server (On-Premises) 與 Azure AD 整合提供下列優點：
 
    ![建立 Azure AD 測試使用者][100]
 
-**若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
+**若要在 Azure AD 中建立的測試使用者，請執行下列步驟：**
 
 1. 在 Azure 入口網站的左窗格中，按一下 [Azure Active Directory] 按鈕。
 
@@ -185,7 +185,7 @@ Secret Server (On-Premises) 與 Azure AD 整合提供下列優點：
 
 ![指派使用者角色][200]
 
-**若要將 Britta Simon 指派給 Secret Server (On-Premises)，請執行下列步驟：**
+**若要將 Britta Simon 指派給 Secret Server (On-premises) 中，執行下列步驟：**
 
 1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]，然後按一下 [所有應用程式]。
 

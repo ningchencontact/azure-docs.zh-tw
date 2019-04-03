@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/10/2019
+ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 65ea01047743c5894ac2ae8b38a197b57cb6971c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 16fe2d23fdd07f8f150cc010b0a1d232c761c77f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531314"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884919"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>管理多部機器的更新
 
@@ -29,7 +29,6 @@ ms.locfileid: "57531314"
 
 若要使用「更新管理」，您需要：
 
-- Azure 自動化執行身分帳戶。 若要了解帳戶的建立方式，請參閱[開始使用 Azure 自動化](automation-offering-get-started.md)。
 - 已安裝其中一個支援作業系統的虛擬機器或電腦。
 
 ## <a name="supported-operating-systems"></a>受支援的作業系統

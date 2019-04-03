@@ -1,5 +1,5 @@
 ---
-title: 部署模型作為 Web 服務
+title: 如何及在何處部署模型
 titleSuffix: Azure Machine Learning service
 description: 了解部署 Azure Machine Learning 服務模型的方式和位置，這類模型包括：Azure 容器執行個體、Azure Kubernetes Service、Azure IoT Edge 或可現場程式化閘道陣列。
 services: machine-learning
@@ -9,20 +9,22 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 12/07/2018
-ms.custom: seodec18
-ms.openlocfilehash: ea2986ea2b2f561288773a7d187101f90f3e9fa9
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.date: 04/02/2019
+ms.custom: seoapril2019
+ms.openlocfilehash: 1528b5e92e1952bf85799afd71bd5dac16aedcf4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622122"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878293"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務部署模型
 
-Azure 機器學習服務 SDK 會提供數種方式，您可以部署您的定型的模型。 在本文中，了解如何將模型部署為 Azure 雲端的 Web 服務，或部署到 IoT Edge 裝置。
+在本文中，了解如何將模型部署為 Azure 雲端的 Web 服務，或部署到 IoT Edge 裝置。 
 
-您可以將模型部署到下列計算目標：
+## <a name="compute-targets-for-deployment"></a>計算目標部署
+
+您可以使用 Azure 機器學習服務 SDK 來將定型的模型部署到下列位置：
 
 | 計算目標 | 部署類型 | 描述 |
 | ----- | ----- | ----- |
@@ -30,7 +32,9 @@ Azure 機器學習服務 SDK 會提供數種方式，您可以部署您的定型
 | [Azure Machine Learning 計算 (amlcompute)](#azuremlcompute) | 批次推斷 | 執行無伺服器計算的批次預測。 支援一般 vm 和低優先順序 Vm。 |
 | [Azure 容器執行個體 (ACI)](#aci) | 測試 | 適合用於開發或測試。 **不適合用於生產工作負載。** |
 | [Azure IoT Edge](#iotedge) | （預覽）IoT 模組 | 在 IoT 裝置上部署模型。 裝置上會發生推斷。 |
-| [可現場程式化閘道陣列 (FPGA)](#fpga) | （預覽）Web 服務 | 即時推斷的超低延遲。 |
+| [現場可程式化閘陣列 (FPGA)](#fpga) | （預覽）Web 服務 | 即時推斷的超低延遲。 |
+
+## <a name="deployment-workflow"></a>部署工作流程
 
 部署模型的程序與所有計算目標類似：
 
@@ -46,7 +50,7 @@ Azure 機器學習服務 SDK 會提供數種方式，您可以部署您的定型
 
 如需部署工作流程中相關概念的詳細資訊，請參閱[使用 Azure Machine Learning 服務來管理、部署及監視模型](concept-model-management-and-deployment.md)。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites-for-deployment"></a>部署必要條件
 
 [!INCLUDE [aml-prereq](../../../includes/aml-prereq.md)]
 
@@ -115,9 +119,9 @@ image_config = ContainerImage.image_configuration(execution_script = "score.py",
 
 指令碼包含兩個函式，載入及執行模型：
 
-* `init()`:此函式通常會將模型載入到全域物件。 此函式只會在 Docker 容器啟動時執行一次。
+* `init()`：此函式通常會將模型載入到全域物件。 此函式只會在 Docker 容器啟動時執行一次。
 
-* `run(input_data)`:此函式會使用模型，依據輸入資料來預測值。 執行的輸入和輸出通常使用 JSON 進行序列化和還原序列化。 您也可以使用原始的二進位資料。 您可以先轉換資料，再將資料傳送給模型或傳回用戶端。
+* `run(input_data)`：此函式會使用模型，依據輸入資料來預測值。 執行的輸入和輸出通常使用 JSON 進行序列化和還原序列化。 您也可以使用原始的二進位資料。 您可以先轉換資料，再將資料傳送給模型或傳回用戶端。
 
 #### <a name="working-with-json-data"></a>使用 JSON 資料
 
@@ -216,7 +220,7 @@ image = ContainerImage.create(name = "myimage",
 | [Azure ML 計算](#azuremlcompute) | Web 服務 （批次推斷）| 執行無伺服器計算的批次預測。 支援一般 vm 和低優先順序 Vm。 |
 | [Azure 容器執行個體 (ACI)](#aci) | Web 服務 （開發/測試）| 適合用於開發或測試。 **不適合用於生產工作負載。** |
 | [Azure IoT Edge](#iotedge) | （預覽）IoT 模組 | 在 IoT 裝置上部署模型。 裝置上會發生推斷。 |
-| [可現場程式化閘道陣列 (FPGA)](#fpga) | （預覽）Web 服務 | 即時推斷的超低延遲。 |
+| [現場可程式化閘陣列 (FPGA)](#fpga) | （預覽）Web 服務 | 即時推斷的超低延遲。 |
 
 > [!IMPORTANT]
 > 將模型部署為 Web 服務時，目前不支援跨原始來源資源共用 (CORS)。
@@ -609,11 +613,11 @@ Azure IoT Edge 模組會從容器登錄部署到您的裝置。 當您從模型�
 
 * [部署疑難排解](how-to-troubleshoot-deployment.md)
 * [使用 SSL 保護 Azure Machine Learning Web 服務](how-to-secure-web-service.md)
-* [取用部署為 Web 服務的 ML 模型](how-to-consume-web-service.md)
+* [使用 ML 模型部署為 web 服務](how-to-consume-web-service.md)
 * [如何執行批次預測](how-to-run-batch-predictions.md)
 * [使用 Application Insights 監視您的 Azure Machine Learning 模型](how-to-enable-app-insights.md)
 * [在生產環境中收集模型資料](how-to-enable-data-collection.md)
 * [Azure Machine Learning 服務 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-* [透過 Azure 虛擬網路使用 Azure Machine Learning 服務](how-to-enable-virtual-network.md)
+* [使用 Azure Machine Learning 服務與 Azure 虛擬網路](how-to-enable-virtual-network.md)
 * [建置建議系統的最佳作法](https://github.com/Microsoft/Recommenders)
 * [在 Azure 上建置即時建議 API](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

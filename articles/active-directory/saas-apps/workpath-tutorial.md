@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad9a0d832bed2f4e67f4a87d72b773eaa587e700
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2e8b334998983684d50c4faddceb03a0f30fd257
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208364"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878157"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workpath"></a>教學課程：Azure Active Directory 與 Workpath 整合
 
@@ -113,15 +113,15 @@ ms.locfileid: "56208364"
 
     ![設定單一登入](./media/workpath-tutorial/tutorial_workpath_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://api.workpath.com/v1/saml/metadata/<instancename>`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://api.workpath.com/v1/saml/metadata/<instancename>`
 
-    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://api.workpath.com/v1/saml/assert/<instancename>`
+    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL： `https://api.workpath.com/v1/saml/assert/<instancename>`
 
 1. 按一下 [顯示進階 URL 設定]。 如果您想要在 **SP** 起始模式中設定應用程式，請執行下列步驟：
 
     ![設定單一登入](./media/workpath-tutorial/tutorial_workpath_url1.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<subdomain>.workpath.com/ `
+    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<subdomain>.workpath.com/`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「單一登入 URL」、「識別碼」及「回覆 URL」來更新這些值。 請連絡 [Workpath 支援小組](https://help.workpath.com)以取得這些值。
@@ -175,7 +175,7 @@ ms.locfileid: "56208364"
 
 ![建立 Azure AD 使用者][100]
 
-**若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
+**若要在 Azure AD 中建立的測試使用者，請執行下列步驟：**
 
 1. 在 **Azure 入口網站**的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
@@ -212,7 +212,7 @@ Workpath 支援 Just-In-Time 使用者佈建。 驗證之後，會在應用程�
 
 ![指派使用者][200] 
 
-**若要將 Britta Simon 指派給 Workpath，請執行下列步驟：**
+**若要將 Britta Simon 指派給 Workpath 中，執行下列步驟：**
 
 1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]，然後按一下 [所有應用程式]。
 

@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: b6d4a44a53ba553ab4fd514c81867156192b69f5
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f247142f26490e1899256917b64fbec7308fb281
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662528"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886262"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>保護 C# 服務中的服務遠端通訊
 > [!div class="op_single_selector"]
-> * [Windows 上的 C# ](service-fabric-reliable-services-secure-communication.md)
-> * [在 Linux 上使用 Java](service-fabric-reliable-services-secure-communication-java.md)
+> * [C#在 Windows 上](service-fabric-reliable-services-secure-communication.md)
+> * [在 Linux 上的 Java](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-安全是通信最为重视的要素之一。 Reliable Services 應用程式架構會提供可用來改善安全性的一些預先建置通訊堆疊和工具。 本文探討如何改善在 C# 服務中使用服務遠端時的安全性。 它建置於現有[範例](service-fabric-reliable-services-communication-remoting.md)上，其會說明如何針對以 C# 撰寫的可靠服務設定遠端。 
+安全性是通訊最為重視的其中一個部分。 Reliable Services 應用程式架構會提供可用來改善安全性的一些預先建置通訊堆疊和工具。 本文探討如何改善在 C# 服務中使用服務遠端時的安全性。 它建置於現有[範例](service-fabric-reliable-services-communication-remoting.md)上，其會說明如何針對以 C# 撰寫的可靠服務設定遠端。 
 
 若要在搭配 C# 服務使用服務遠端時協助保護服務安全，請遵循下列步驟：
 
@@ -129,7 +129,7 @@ ms.locfileid: "58662528"
        }
        ```
 
-        如果您在 settings.xml 檔案中新增 `TransportSettings` 區段，則 `FabricTransportRemotingListenerSettings ` 預設會載入此區段中的所有設定。
+        如果您在 settings.xml 檔案中新增 `TransportSettings` 區段，則 `FabricTransportRemotingListenerSettings` 預設會載入此區段中的所有設定。
 
         ```xml
         <!--"TransportSettings" section .-->

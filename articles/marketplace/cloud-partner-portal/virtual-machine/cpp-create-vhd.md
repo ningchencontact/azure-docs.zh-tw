@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 5643b7c80307cea36f60bcc116c82ea7b31171f9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 04a1741bbe4e60567a22445c5674ec03b232640c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096566"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883667"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>建立與 Azure 相容的 VHD
 
 本文會詳細說明建立 Microsoft Azure Marketplace 中虛擬機器 (VM) 供應項目虛擬硬碟 (VHD) 的所需步驟。  本文也會涵蓋其他不同層面，例如如何使用遠端桌面通訊協定 (RDP)、選擇 VM 的大小、安裝最新的 Windows 更新以及將 VHD 映像一般化的最佳作法。  下列各節主要著重於以 Windows 為基礎的 VHD；如需更多建立以 Linux 為基礎的 VHD 的詳細資訊，請參閱[經 Azure 背書的 Linux 發佈](../../../virtual-machines/linux/endorsed-distros.md)。 
 
 > [!WARNING]
-> 強烈建議您遵循本文中的指示，使用 Azure 建立內有經過預先設定和背書之作業系統的 VM。  若此文內容與您的解決方案不相容，您也可以使用已核准的作業系統建立並設定內部部署 VM。  接著您可以依照[準備 Windows VHD 或 VHDX 以上傳至 Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image) 中所述，設定並準備上傳。
+> 強烈建議您遵循本文中的指示，使用 Azure 建立內有經過預先設定和背書之作業系統的 VM。  如果這不是與您的解決方案相容，則可以建立並設定內部部署 VM，使用已核准的作業系統。  接著您可以依照[準備 Windows VHD 或 VHDX 以上傳至 Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image) 中所述，設定並準備上傳。
 
 
 ## <a name="select-an-approved-base"></a>選擇已核准的基礎映像

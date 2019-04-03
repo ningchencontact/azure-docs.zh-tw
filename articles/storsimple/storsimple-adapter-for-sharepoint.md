@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: v-sharos
-ms.openlocfilehash: 2e1b231a5cf13d2655ff66c7e48752729c580f48
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: a2f8e75578e396085e7d80f43c1180e158967061
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232862"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885582"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>安裝和設定 StorSimple Adapter for SharePoint
 ## <a name="overview"></a>概觀
@@ -59,7 +59,7 @@ RBS 的 Microsoft Azure StorSimple 實作提供下列優點：
 
 * 請確定內容的大小總計 (內容資料庫大小，加上任何相關聯的外部化 BLOB 大小) 不超過 SharePoint 所支援的 RBS 大小限制。 這項限制為 200 GB。 
   
-    **測量內容資料庫和 BLOB 大小**
+    **若要測量內容資料庫和 BLOB 大小**
   
   1. 在中央管理 WFE 上執行此查詢。 啟動 SharePoint 管理命令介面，然後輸入下列 Windows PowerShell 命令來取得內容資料庫的大小：
      
@@ -226,9 +226,9 @@ StorSimple 裝置是一種區塊裝置，因此需要可裝載資料的檔案伺
 4. 在 [設定 StorSimple Adapter] 頁面上，針對您想要從外部 Blob 儲存體移除的每個內容資料庫下方，按一下 [停用] 按鈕。 
 5. 從 SharePoint 中刪除物件，然後重新上傳。
 
-或者，您可以使用 SharePoint 隨附的 Microsoft` RBS Migrate()` PowerShell cmdlet。 如需詳細資訊，請參閱 [將內容移入或移出 RBS](https://technet.microsoft.com/library/ff628255.aspx)。
+或者，您可以使用 Microsoft `RBS Migrate()` SharePoint 隨附的 PowerShell cmdlet。 如需詳細資訊，請參閱 [將內容移入或移出 RBS](https://technet.microsoft.com/library/ff628255.aspx)。
 
-將 Blob 移回內容資料庫之後，請移至下一個步驟： [解除安裝配接器](#uninstall-the-adapter)。
+您將 Blob 移回內容資料庫之後，請移至下一個步驟：[解除安裝配接器](#uninstall-the-adapter)。
 
 ### <a name="uninstall-the-adapter"></a>解除安裝配接器
 將 Blob 移回 SQL Server 內容資料庫之後，請使用下列其中一個選項，解除安裝 StorSimple Adapter for SharePoint。
@@ -238,7 +238,7 @@ StorSimple 裝置是一種區塊裝置，因此需要可裝載資料的檔案伺
 2. 按兩下 StorSimple Adapter for SharePoint。 安裝精靈隨即啟動。
    
     ![安裝精靈](./media/storsimple-adapter-for-sharepoint/sasp2.png)
-3. 按 [下一步] 。 下列頁面隨即出現。
+3. 单击“下一步”。 下列頁面隨即出現。
    
     ![安裝精靈移除頁面](./media/storsimple-adapter-for-sharepoint/sasp3.png)
 4. 按一下 [移除]  以選取移除程序。 下列頁面隨即出現。

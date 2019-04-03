@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 84f74392b93212558851f89dab924ae3db5620ed
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a13d3b24cd7845de144183d9f2ea825e0e24219f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995119"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883712"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>開始使用 Azure 串流分析：即時詐欺偵測
 
@@ -147,7 +147,7 @@ ms.locfileid: "57995119"
 
 您在此即時詐騙偵測應用程式中會用到的一些重要欄位如下：
 
-|**記錄**|**定义**|
+|**Record**|**定義**|
 |----------|--------------|
 |`CallrecTime`|通話開始時間的時間戳記。 |
 |`SwitchNum`|用來接通電話的電話交換機。 在此範例中，交換機是代表發話國的字串 (美國、中國、英國、德國或澳大利亞)。 |
@@ -184,7 +184,7 @@ ms.locfileid: "57995119"
  
 3. 按一下 [新增資料流輸入] 並選取 [事件中樞]。 接著，在 [新的輸入] 頁面中填寫以下資訊：
 
-   |**設定**  |**建議的值**  |**說明**  |
+   |**設定**  |**建議的值**  |**描述**  |
    |---------|---------|---------|
    |輸入別名  |  CallStream   |  輸入名稱以識別作業的輸入。   |
    |訂用帳戶   |  \<您的訂用帳戶\> |  根據您建立的事件中樞，選取事件中樞所在的 Azure 訂用帳戶。   |
@@ -292,7 +292,7 @@ TelcoGenerator 應用程式正在將通話記錄傳送到事件中樞，而串�
 
     投影包含 `System.Timestamp`，它會傳回每個視窗結尾的時間戳記。 
 
-    若要指定使用輪轉視窗，請在 `GROUP BY ` 子句中使用 [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) 函式。 在此函式中，您可以指定時間單位 (從一微秒到一天即可) 和視窗大小 (單位數量)。 在此範例中，輪轉視窗由 5 秒的間隔組成，所以會依國家/地區產生每 5 秒的來電計數。
+    若要指定您想要使用輪轉視窗，您使用[TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx)函式中`GROUP BY`子句。 在此函式中，您可以指定時間單位 (從一微秒到一天即可) 和視窗大小 (單位數量)。 在此範例中，輪轉視窗由 5 秒的間隔組成，所以會依國家/地區產生每 5 秒的來電計數。
 
 2. 再按一次 [測試]。 在結果中，可看見 **WindowEnd** 底下的時間戳記是以 5 秒為增量單位。
 
@@ -354,7 +354,7 @@ TelcoGenerator 應用程式正在將通話記錄傳送到事件中樞，而串�
 
 4. 在 [輸出] 窗格中，按一下 [新增]，然後選取 [Blob 儲存體]。 接著，在 [新的輸出] 頁面中填寫以下資訊：
 
-   |**設定**  |**建議的值**  |**說明**  |
+   |**設定**  |**建議的值**  |**描述**  |
    |---------|---------|---------|
    |輸出別名  |  CallStream-FraudulentCalls   |  輸入名稱以識別作業的輸出。   |
    |訂用帳戶   |  \<您的訂用帳戶\> |  選取您在其中建立儲存體帳戶的 Azure 訂用帳戶。 儲存體帳戶可以位在相同或不同的訂用帳戶中。 此範例假設您已在相同的訂用帳戶中建立儲存體帳戶。 |
@@ -415,7 +415,7 @@ TelcoGenerator 應用程式正在將通話記錄傳送到事件中樞，而串�
 
 如需串流分析在整體上的詳細資訊，請參閱下列文章：
 
-* [Azure Stream Analytics 介紹](stream-analytics-introduction.md)
+* [Azure Stream Analytics 簡介](stream-analytics-introduction.md)
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
-* [Azure 流分析查询语言参考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics Management REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)

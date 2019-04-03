@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 04/02/2019
 ms.author: bwren
-ms.openlocfilehash: 7942b4eb5788357a807911d3eb89d1054a92c3eb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f3ee9b7aa595ae07bb97a8513bc0b751e94d7cc9
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449354"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883933"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>使用 HTTP 資料收集器 API 將記錄資料傳送給 Azure 監視器 (公開預覽)
 本文示範如何使用 HTTP 資料收集器 API 將記錄資料從 REST API 用戶端傳送給 Azure 監視器。  內容說明如何將您指令碼或應用程式所收集的資料格式化、將其包含在要求中，以及讓 Azure 監視器授權該要求。  提供的範例適用於 PowerShell、C# 及 Python。
@@ -166,6 +166,11 @@ Azure 監視器用於每個屬性的資料類型取決於新記錄的記錄類�
 如果您再提交以下項目，則在記錄類型建立前，Azure 監視器會建立具有 **number_s**、**boolean_s** 和 **string_s** 三個屬性的記錄。 在此項目中，每個初始值都格式化為字串︰
 
 ![範例記錄 4](media/data-collector-api/record-04.png)
+
+## <a name="reserved-properties"></a>保留的屬性
+下列屬性是保留的不應用於自訂記錄類型。 如果您的承載包含任何這些屬性名稱，您會收到錯誤。
+
+- tenant
 
 ## <a name="data-limits"></a>資料限制
 在張貼至 Azure 監視器資料收集 API 的資料上有一些限制。

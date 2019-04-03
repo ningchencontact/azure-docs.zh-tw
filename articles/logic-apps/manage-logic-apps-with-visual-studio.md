@@ -1,26 +1,25 @@
 ---
-title: 使用 Visual Studio 管理邏輯應用程式 - Azure Logic Apps | Microsoft Docs
+title: 使用 Visual Studio 管理逻辑应用 - Azure 逻辑应用
 description: 使用 Visual Studio Cloud Explorer 管理邏輯應用程式和其他 Azure 資產
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
-ms.date: 03/15/2018
-ms.openlocfilehash: f3a9a1cb7a5829c7c824f9aa61d5f4976a533f4a
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.date: 04/02/2019
+ms.openlocfilehash: 9654caca5fd4b1f79544ea7303a5d3fff72d22f8
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519726"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862738"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>使用 Visual Studio 管理邏輯應用程式
 
-雖然您可以在 <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>中建立、編輯、管理和部署邏輯應用程式，但是當您想要將邏輯應用程式新增至原始檔控制、發佈不同的版本，以及針對不同的部署環境建立 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 範本時，您也可以使用 Visual Studio。 使用 Visual Studio Cloud Explorer，您可以尋找並管理您的邏輯應用程式以及其他 Azure 資源。 例如，您可以開啟、下載、編輯、執行、檢視執行歷程記錄、停用和啟用已在 Azure 入口網站部署的邏輯應用程式。 如果您不曾在 Visual Studio 中使用 Azure Logic Apps，請了解[如何使用 Visual Studio 建立邏輯應用程式](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)。
+雖然您可以建立、 編輯、 管理及部署中的 logic apps <a href="https://portal.azure.com" target="_blank">Azure 入口網站</a>，您也可以使用 Visual Studio，當您想要新增您的 logic apps，原始檔控制、 發佈不同的版本，以及建立[AzureResource Manager](../azure-resource-manager/resource-group-overview.md)各種部署環境的範本。 使用 Visual Studio Cloud Explorer，您可以尋找並管理您的邏輯應用程式以及其他 Azure 資源。 例如，您可以開啟、下載、編輯、執行、檢視執行歷程記錄、停用和啟用已在 Azure 入口網站部署的邏輯應用程式。 如果您不曾在 Visual Studio 中使用 Azure Logic Apps，請了解[如何使用 Visual Studio 建立邏輯應用程式](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)。
 
 > [!IMPORTANT]
 > 從 Visual Studio 部署或發佈邏輯應用程式會覆寫該應用程式在 Azure 入口網站中的版本。 因此，如果您想要保留在 Azure 入口網站所做的變更，在下一次從 Visual Studio 部署或發佈之前，請確定您已從 Azure 入口網站[重新整理 Visual Studio 中的邏輯應用程式](#refresh)。
@@ -33,22 +32,32 @@ ms.locfileid: "58519726"
 
 * 如果您還沒有以下這些工具，請加以下載並安裝： 
 
-  * <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2017 或 Visual Studio 2015 - Community 版本或更高版本</a>。 
+  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019、 2017年或 2015-Community 版或更新版本</a>。 
   本快速入門使用免費的 Visual Studio Community 2017。
 
-  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Azure SDK (2.9.1 或更新版本)</a> 和 <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
+    > [!IMPORTANT]
+    > 當您安裝 Visual Studio 2019 或 2017年時，請確定您選取**Azure 開發**工作負載。
+    > 如需詳細資訊，請參閱 <<c0> [ 管理您在 Visual Studio Cloud Explorer 中的 Azure 帳戶相關聯的資源](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view)。
+    >
+    > 在 Visual Studio 2019，Cloud Explorer 可以在 Azure 入口網站中開啟邏輯應用程式設計工具中，但尚無法開啟內嵌的邏輯應用程式設計工具也一樣。
 
-  * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">Azure Logic Apps Tools for Visual Studio 2017</a> 或 <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">Visual Studio 2015 版本</a> 
-  
+    若要安裝適用於 Visual Studio 2015 雲端總管[從 Visual Studio Marketplace 下載 Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015)。 
+    如需詳細資訊，請參閱 <<c0> [ 管理您在 Visual Studio 雲端總管 (2015) 的 Azure 帳戶相關聯的資源](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015)。
+
+  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Azure SDK (2.9.1 或更新版本)</a> 
+
+  * <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
+
+  * 您需要 azure Logic Apps Tools for Visual Studio 版本：
+
+    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
+    
+    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017" target="_blank">Visual Studio 2017</a>
+    
+    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015" target="_blank">Visual Studio 2015</a>
+
     您可以直接從 Visual Studio Marketplace 下載並安裝 Azure Logic Apps Tools，或了解<a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">如何從 Visual Studio 內部安裝此擴充功能</a>。 
     請務必在完成安裝之後重新啟動 Visual Studio。
-
-* 適用於 Visual Studio 2017 或 Visual Studio 2015 雲端總管
-
-  * Visual Studio 2017 中，執行 Visual Studio 安裝程式，並安裝**Azure 工作負載**。 如需詳細資訊，請參閱 <<c0> [ 管理 Visual Studio 雲端總管 中您 Azure accuonts 相關聯的資源](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2017)。
-
-  * Visual Studio 2015 中，如[從 Visual Studio Marketplace 下載 Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015)。 
-  如需詳細資訊，請參閱 <<c0> [ 管理您在 Visual Studio 雲端總管 (2015) 的 Azure 帳戶相關聯的資源](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015)。
 
 * 使用內嵌的 Logic Apps 設計工具時能夠存取 Web
 
@@ -184,8 +193,9 @@ ms.locfileid: "58519726"
 
 當您在 Logic Apps 設計工具中開啟您的邏輯應用程式專案時，您可能不會取得選取 Azure 訂用帳戶的選項。 相反地，您的邏輯應用程式以不是您想要使用的 Azure 訂用帳戶開啟。 此行為是因為當您開啟邏輯應用程式的 .json 檔案之後，Visual Studio 會快取第一個選取的訂用帳戶供未來使用。 若要解決此問題，請嘗試下列任一步驟：
 
-* 重新命名邏輯應用程式的 .json 檔案。 訂用帳戶快取是根據檔案名稱。 
-* 若要為您解決方案中的「所有」邏輯應用程式移除先前選取的訂用帳戶，請刪除解決方案目錄中「隱藏」的 .vs 資料夾。 此位置儲存您的訂用帳戶資訊。 
+* 重新命名邏輯應用程式的 .json 檔案。 訂用帳戶快取是根據檔案名稱。
+
+* 若要移除先前選取的訂用帳戶，如*所有*logic apps 中您的方案中，刪除隱藏 Visual Studio 設定的資料夾 (.vs) 在您的方案目錄中。 此位置儲存您的訂用帳戶資訊。
 
 ## <a name="next-steps"></a>後續步驟
 

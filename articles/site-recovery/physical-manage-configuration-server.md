@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: b4a35cb853326aa3e54c7b261eaa72f15929a84c
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 325cd0d2f52405ae1cbf463f6335c8738317ea1f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483959"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878701"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>管理實體伺服器災害復原的組態伺服器
 
@@ -174,7 +174,7 @@ ProxyPassword="Password"
 3. 按一下 [保存庫註冊] 索引標籤。
 4. 從入口網站下載新的註冊檔案，並提供給工具作為輸入。
       ![註冊組態伺服器](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
-5. 提供 Proxy 伺服器詳細資料，然後按一下 [註冊] 按鈕。  
+5. 提供代理服务器的详细信息，并单击“注册”按钮  。  
 6. 開啟系統管理 PowerShell 命令視窗。
 7. 執行下列命令
 
@@ -283,7 +283,7 @@ ProxyPassword="Password"
     `$Fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
 6. 刪除組態伺服器
 
-    `Remove-AzureRmSiteRecoveryFabric -Fabric $Fabric [-Force] `
+    `Remove-AzureRmSiteRecoveryFabric -Fabric $Fabric [-Force]`
 
 > [!NOTE]
 > Remove-AzureRmSiteRecoveryFabric 中的 **-Force** 選項可用來強制移除/刪除組態伺服器。

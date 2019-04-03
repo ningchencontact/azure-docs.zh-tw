@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: 966518f17392e6158089cb5b6df96f41674fed41
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0641a097761530285c2dd9aa176ddd8c2c159001
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996142"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878735"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>使用 Microsoft Azure 儲存體資料移動程式庫傳輸資料
 
@@ -32,10 +32,10 @@ Microsoft Azure 儲存體資料移動程式庫是跨平台的開放原始碼程�
 - 將檔案從 URL 複製到 Blob 儲存體。
 - 從 Blob 儲存體複製到 Blob 儲存體。
 
-**您需要的項目：**
+**您需要：**
 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* 一个 [Azure 存储帐户](storage-quickstart-create-account.md)
+* [Azure 儲存體帳戶](storage-quickstart-create-account.md)
 
 > [!NOTE]
 > 本指南假設您已熟悉 [Azure 儲存體](https://azure.microsoft.com/services/storage/)。 如果不熟悉，閱讀 [Azure 儲存體簡介](storage-introduction.md)說明文件會很有幫助。 最重要的是，您需要[建立儲存體帳戶](storage-quickstart-create-account.md)才能開始使用資料移動程式庫。
@@ -49,13 +49,13 @@ Microsoft Azure 儲存體資料移動程式庫是跨平台的開放原始碼程�
 3. 在 Visual Studio Code 中開啟此目錄。 您可以透過在 Windows 中於命令列輸入 `code .` 來快速完成此步驟。
 4. 從 Visual Studio Code Marketplace 安裝 [C# 擴充 (英文)](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)。 重新啟動 Visual Studio Code。
 5. 這時，您應該會看到兩個提示。 其中一個是新增「建置和偵錯的必要資產。」 按一下 [是]。 另一個提示是還原無法解析的相依性。 按一下 [還原]。
-6. 修改 `.vscode` 下的 `launch.json` 以將外部終端機作為主控台。 這項設定應讀取為 ` "console": "externalTerminal"`
+6. 修改 `.vscode` 下的 `launch.json` 以將外部終端機作為主控台。 此設定應讀取為 `"console": "externalTerminal"`
 7. Visual Studio Code 可讓您偵錯 .NET Core 應用程式。 按 `F5` 以執行應用程式，並確定您的設定運作正常。 您應該會看到「Hello World!」 印出到主控台。
 
 ## <a name="add-data-movement-library-to-your-project"></a>將資料移動程式庫加入至專案
 
-1. 將最新版本的資料移動程式庫加入到 `<project-name>.csproj` 檔案的 `dependencies` 區段。 撰寫本文時，此版本為 `"Microsoft.Azure.Storage.DataMovement": "0.6.2"`
-2. 此时应会显示一条提示，指出要还原项目。 按一下 [還原] 按鈕。 您也可以在專案目錄的根目錄中輸入命令 `dotnet restore`，來從命令列還原專案。
+1. 將最新版本的資料移動程式庫加入到 `<project-name>.csproj` 檔案的 `dependencies` 區段。 在撰寫本文時，此版本為 `"Microsoft.Azure.Storage.DataMovement": "0.6.2"`
+2. 您應該會看到提示顯示以還原專案。 按一下 [還原] 按鈕。 您也可以在專案目錄的根目錄中輸入命令 `dotnet restore`，來從命令列還原專案。
 
 修改 `<project-name>.csproj`：
 

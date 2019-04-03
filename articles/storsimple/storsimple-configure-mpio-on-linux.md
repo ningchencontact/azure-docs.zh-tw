@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: d1188b40021fbb221bc19af6d4a5397f7ba8f800
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: bc1e8a5abc85af95448570497177030f17649d87
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439867"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877579"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>在執行 CentOS 的 StorSimple 主機上設定 MPIO
 本文說明在 Centos 6.6 主機伺服器上設定多重路徑 IO (MPIO) 所需的步驟。 主機伺服器會連線到您的 Microsoft Azure StorSimple 裝置，以透過 iSCSI 啟動器取得高可用性。 文中詳細描述多重路徑裝置的自動探索，以及 StorSimple 磁碟區特有的設定。
@@ -35,15 +35,15 @@ ms.locfileid: "39439867"
 
 多重路徑有雙重目的：
 
-* **高可用性**︰如果 I/O 路徑的任何元素 (例如纜線、開關、網路介面或控制站) 失敗，它會提供替代路徑。
-* **負載平衡**︰視您的儲存體裝置的組態而定，它可透過偵測 I/O 路徑上的負載及動態重新平衡這些負載來改善效能。
+* **高可用性**：如果 I/O 路徑 （例如，纜線、 開關、 網路介面或控制站） 的任何項目失敗，它會提供替代路徑。
+* **負載平衡**:根據您的儲存裝置的設定，它可以偵測 I/O 路徑上的負載及動態重新平衡這些負載來改善效能。
 
 ### <a name="about-multipathing-components"></a>關於多重路徑元件
 Linux 中的多重路徑是由核心元件和下列的使用者空間元件所組成。
 
-* **核心**︰主要元件是 *device-mapper* ，可重新路由傳送 I/O 及支援路徑和路徑群組的容錯移轉。
+* **核心**:主要元件是*裝置對應程式*，device-mapper I/O，並支援的路徑和路徑群組的容錯移轉。
 
-* **使用者空間**：這些是 *multipath-tools* ，可藉由指示 device-mapper 多重路徑模組該怎麼做來管理多重路徑的裝置。 這些工具包括：
+* **使用者空間**:這些是*多重路徑工具*，管理多重路徑裝置的指示裝置對應程式的多重路徑模組該怎麼辦。 這些工具包括：
    
    * **Multipath**︰列出及設定多重路徑的裝置。
    * **Multipathd**︰可執行多重路徑及監視路徑的精靈。
@@ -56,11 +56,11 @@ Linux 中的多重路徑是由核心元件和下列的使用者空間元件所�
 
 multipath.conf 有五個區段：
 
-- **系統層級的預設值** *(defaults)*：您可以覆寫系統層級預設值。
-- **列入封鎖清單的裝置** *(blacklist)*：您可以指定不受 device-mapper 控制的裝置清單。
-- **封鎖清單例外狀況** (blacklist_exceptions)：您可以識別要被視為多重路徑裝置的特定裝置，即使這些裝置已列入封鎖清單。
-- **儲存體控制站特定設定** *(devices)*：您可以指定將套用到裝置的組態設定 (具有廠商和產品資訊)。
-- **裝置特定設定** *(multipaths)*：您可以使用本節來微調個別 LUN 的組態設定。
+- **系統層級的預設值** *（預設）*:您可以覆寫系統層級的預設值。
+- **列封鎖清單中的裝置** *(blacklist)*:您可以指定不受裝置對應程式的裝置清單。
+- **列入封鎖清單例外狀況** *(blacklist_exceptions)*:您可以識別即使列入黑名單，被視為多重路徑裝置的特定裝置。
+- **設定特定的儲存體控制器** *（裝置）*:您可以指定將套用至具有廠商和產品資訊的裝置的組態設定。
+- **裝置特定的設定** *(multipaths)*:您可以使用本節來微調個別 Lun 的組態設定。
 
 ## <a name="configure-multipathing-on-storsimple-connected-to-linux-host"></a>在連線到 Linux 主機的 StorSimple 上設定多重路徑
 可以設定連線到 Linux 主機的 StorSimple 裝置，以取得高可用性和負載平衡。 例如，如果 Linux 主機有兩個連接到 SAN 的介面，而裝置有兩個連接到 SAN 的介面，以致這些介面位於相同的子網路上，則會有 4 個路徑可用。 不過，如果裝置瀚主機介面上的每個 DATA 介面位於不同的 IP 子網路上 (且不可路由傳送)，則只有 2 路徑可用。 您可以設定多重路徑，以便自動探索所有可用的路徑、選擇這些路徑的負載平衡演算法、套用僅限 StorSimple 磁碟區的特定組態設定，然後啟用和驗證多重路徑。
@@ -298,7 +298,7 @@ multipath.conf 有五個區段：
 
     如果您在此只看到一個主機介面和兩個路徑，您必須在主機上針對 iSCSI 啟用這兩個介面。 您可以遵循 [Linux 文件中的詳細指示](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html)。
 
-1. 磁碟區會從 StorSimple 裝置公開至 CentOS 伺服器。 如需詳細資訊，請參閱[步驟 6：建立磁碟區](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) (透過 StorSimple 裝置上的 Azure 入口網站)。
+1. 磁碟區會從 StorSimple 裝置公開至 CentOS 伺服器。 如需詳細資訊，請參閱[步驟 6:建立磁碟區](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume)透過 Azure 入口網站在 StorSimple 裝置上。
 
 1. 驗證可用的路徑。 輸入：
 
@@ -351,7 +351,7 @@ A. 通常，看不到任何多重路徑的路徑，即暗示多重路徑精靈�
 
 * 使用下列命令來重新掃描 SCSI 匯流排：
   
-    `$ rescan-scsi-bus.sh ` (屬於 sg3_utils 封包)
+    `$ rescan-scsi-bus.sh` （屬於 sg3_utils）
 * 輸入下列命令：
   
     `$ dmesg | grep sd*`
@@ -420,7 +420,7 @@ A. 若要驗證您的裝置是否已列入允許清單，請使用下列疑難�
 如需詳細資訊，移至 [對多重路徑使用疑難排解互動式命令](http://www.centos.org/docs/5/html/5.1/DM_Multipath/multipath_config_confirm.html)。
 
 ## <a name="list-of-useful-commands"></a>有用的命令清單
-| 在系統提示您進行確認時，輸入  | 命令 | 說明 |
+| 在系統提示您進行確認時，輸入  | 命令 | 描述 |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |啟動 iSCSI 服務 |
 | &nbsp; |`service iscsid stop` |停止 iSCSI 服務 |
@@ -438,12 +438,12 @@ A. 若要驗證您的裝置是否已列入允許清單，請使用下列疑難�
 | &nbsp; |`chkconfig multipathd on` </br> 或 </br> `mpathconf –with_chkconfig y` |啟用多重路徑 daemon 以在開機時啟動 |
 | &nbsp; |`multipathd –k` |啟動互動式主控台以進行疑難排解 |
 | &nbsp; |`multipath –l` |列出多重路徑連接和裝置 |
-| &nbsp; |`mpathconf --enable` |在 `/etc/mulitpath.conf` |
+| &nbsp; |`mpathconf --enable` |建立範例 mulitpath.conf 檔案中 `/etc/mulitpath.conf` |
 |  | | |
 
 ## <a name="next-steps"></a>後續步驟
 當您在 Linux 主機上設定 MPIO 時，您可能也需要參考下列 CentoS 6.6 文件︰
 
-* [在 CentOS 上設定 MPIO](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
+* [CentOS 上設定 MPIO](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
 * [Linux 訓練指南](http://linux-training.be/linuxsys.pdf)
 

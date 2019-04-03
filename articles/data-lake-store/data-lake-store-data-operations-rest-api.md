@@ -3,20 +3,20 @@ title: REST API：Azure Data Lake Storage Gen1 上的檔案系統作業 | Micros
 description: 使用 WebHDFS REST API 執行 Azure Data Lake Storage Gen1 上的檔案系統作業
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 4c61d68a948cbc5638dab30713871d1aaf822f03
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: 351c92f1e1a698893f61004d523ba79ebca253e8
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57529238"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877617"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>使用 REST API 在 Azure Data Lake Storage Gen1 上進行檔案系統作業
 > [!div class="op_single_selector"]
@@ -114,7 +114,7 @@ ms.locfileid: "57529238"
 * 您要先針對端點 `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN`提交 GET 要求。 這個呼叫會傳回要提交下一個 GET 要求的目標位置。
 * 接下來您要針對端點 `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN&read=true`提交 GET 要求。 這個呼叫會顯示檔案的內容。
 
-不過，由於第一和第二個步驟之間的輸入參數沒有任何差異，您可以使用 `-L` 參數來提交第一個要求。 `-L` 選項基本上會將兩個要求結合為一個，並且讓 cURL 在新的位置重做要求。 最後會顯示所有要求呼叫的輸出，如下列程式碼片段所示。 以您的 Data Lake Storage Gen1 帳戶名稱取代 **\<yourstorename>**。
+不過，由於第一和第二個步驟之間的輸入參數沒有任何差異，您可以使用 `-L` 參數來提交第一個要求。 `-L` 選項基本上會將兩個要求結合為一個，並讓 cURL 重做要求的新位置。 最後會顯示所有要求呼叫的輸出，如下列程式碼片段所示。 以您的 Data Lake Storage Gen1 帳戶名稱取代 **\<yourstorename>**。
 
     curl -i -L GET -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN'
 
@@ -162,6 +162,6 @@ ms.locfileid: "57529238"
 * [使用 REST API 對 Data Lake Storage Gen1 進行帳戶管理作業](data-lake-store-get-started-rest-api.md)。
 
 ## <a name="see-also"></a>請參閱
-* [Azure Data Lake Storage Gen1 REST API 參考](https://docs.microsoft.com/rest/api/datalakestore/)
-* [與 Azure Data Lake Storage Gen1 相容的開放原始碼巨量資料應用程式](data-lake-store-compatible-oss-other-applications.md)
+* [Azure Data Lake 儲存體 Gen1 REST API 參考](https://docs.microsoft.com/rest/api/datalakestore/)
+* [開放原始碼巨量資料應用程式與 Azure Data Lake 儲存體 Gen1 相容](data-lake-store-compatible-oss-other-applications.md)
 

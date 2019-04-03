@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 09ccc938f6b09b9f0d5c5849770fe8b49b4b0e55
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 34f207b3c82ada0cb20152bb71ae900f5de132cb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541177"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878310"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 至 Azure VM 複寫問題的疑難排解
 
@@ -22,7 +22,7 @@ ms.locfileid: "58541177"
 ## <a name="list-of-errors"></a>錯誤清單
 - **[Azure 資源配額問題 (錯誤碼 150097)](#azure-resource-quota-issues-error-code-150097)** 
 - **[受信任的根憑證 (錯誤碼 151066)](#trusted-root-certificates-error-code-151066)** 
-- **[Site Recovery 的輸出連線能力 (錯誤碼 151195)](#issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br)** 
+- **[Site Recovery （錯誤碼 151195） 的輸出連線能力](#issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br)** 
 
 ## <a name="azure-resource-quota-issues-error-code-150097"></a>Azure 資源配額問題 (錯誤碼 150097)
 您的訂用帳戶應該啟用，才能在要做為災害復原區域的目標區域中建立 Azure VM。 此外，您的訂用帳戶應該已啟用足夠的配額，才能建立特定大小的 VM。 根據預設，Site Recovery 會取用相同大小的目標 VM 做為來源 VM。 如果沒有相符大小，系統會自動挑選最接近的大小。 如果沒有支援來源 VM 組態的相符大小，則會出現下列錯誤訊息：
@@ -40,12 +40,12 @@ ms.locfileid: "58541177"
 
 如果 VM 沒有所有最新的受信任根憑證，「啟用複寫」工作可能會失敗。 如果沒有憑證，對於從 VM 的 Site Recovery 服務呼叫進行的驗證和授權會失敗。 失敗的「啟用複寫」Site Recovery 工作的錯誤訊息會出現：
 
-**錯誤碼** | 可能的原因 | **建議**
+**錯誤碼** | **可能的原因** | **建議**
 --- | --- | ---
 151066<br></br>**訊息**：Site Recovery 設定失敗。 | 機器上不存在用於授權和驗證的受信任根憑證。 | - 對於執行 Windows 作業系統的 VM，請確定機器上存在受信任根憑證。 如需資訊，請參閱[設定受信任根目錄和不允許的憑證](https://technet.microsoft.com/library/dn265983.aspx)。<br></br>- 對於執行 Linux 作業系統的 VM，請依照 Linux 作業系統版本散發者發行的受信任根憑證適用的指引。
 
 ### <a name="fix-the-problem"></a>修正問題
-**Windows**
+** Windows**
 
 在 VM 上安裝所有最新的 Windows 更新，使機器上存在所有的受信任根憑證。 如果您是在中斷連線的環境，請遵循您組織的標準 Windows 更新程序來取得憑證。 如果 VM 上不存在所需的憑證，對於 Site Recovery 進行的呼叫將而於安全性因素而失敗。
 
@@ -53,7 +53,7 @@ ms.locfileid: "58541177"
 
 若要確認問題已解決，請在 VM 中從瀏覽器移至 login.microsoftonline.com。
 
-**Linux**
+** Linux**
 
 請遵循 Linux 散發者提供的指引，取得最新的受信任根憑證以及 VM 上最新的憑證撤銷清單。
 
@@ -185,7 +185,7 @@ ms.locfileid: "58541177"
   - 根據區域的不同，Azure Site Recovery 需要存取不同的 [Site Recovery IP 範圍](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)。 請確保虛擬機器可存取所需的 IP 範圍。
 
 
-### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>問題 4：當網路流量通過內部部署 Proxy 伺服器時，A2A 複寫失敗 (151072)
+### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>問題 4：A2A 複寫失敗時的網路流量會透過內部部署 proxy 伺服器 (151072)
 - **可能的原因** </br>
   - 自訂 Proxy 設定無效，且 ASR 行動服務代理程式未自動偵測到 IE 的 Proxy 設定
 
@@ -193,12 +193,12 @@ ms.locfileid: "58541177"
 - **解決方案**
   1. 行動服務代理程式偵測到 IE 的 Proxy 設定 (在 Windows 上) 和 /etc/environment (在 Linux 上)。
   2. 如果您只想要為 ASR 行動服務設定 Proxy，則可在 ProxyInfo.conf 中提供 Proxy 詳細資料，該檔案位於：</br>
-     - ``/usr/local/InMage/config/`` (在 ***Linux*** 上)
-     - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` (在 ***Windows*** 上)
+     - ``/usr/local/InMage/config/`` 在  ***Linux***
+     - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` 在  ***Windows***
   3. ProxyInfo.conf 應該要有下列 INI 格式的 Proxy 設定。</br>
-                [proxy]</br>
-                Address=http://1.2.3.4</br>
-                Port=567</br>
+                *[proxy]*</br>
+                *Address=http://1.2.3.4*</br>
+                *Port=567*</br>
   4. ASR 行動服務代理程式僅支援***未驗證的 Proxy***。
 
 
@@ -209,7 +209,7 @@ ms.locfileid: "58541177"
 
 必須先將連接到 VM 的新磁碟初始化。
 
-**錯誤碼** | **可能的原因** | 建议
+**錯誤碼** | **可能的原因** | **建議**
 --- | --- | ---
 150039<br></br>**訊息**：邏輯單元編號 (LUN) 為 (LUNValue) 的 Azure 資料磁碟 (DiskName) (DiskURI) 未對應到從 LUN 值相同的 VM 內回報的對應磁碟。 | - 新的資料磁碟連接到 VM，但是未初始化。</br></br>- VM 內的資料磁碟不當回報 LUN 值，該磁碟已連接到 VM。| 請確定資料磁碟都已初始化，然後再次嘗試操作。</br></br>若為 Windows：[連接並初始化新的磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal)。</br></br>若為 Linux：[在 Linux 中初始化新的資料磁碟](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk)。
 
@@ -227,7 +227,7 @@ ms.locfileid: "58541177"
  **原因 1：資源群組和來源虛擬機器位於不同的位置** <br>
 Azure Site Recovery 目前要求來源區域資源群組和虛擬機器應該位在相同的位置。 如果情況不是這樣，那麼在保護期間您就無法尋找虛擬機器。
 
-**原因 2：資源群組不在選取的訂用帳戶中** <br>
+**原因 2：資源群組不屬於所選的訂用帳戶** <br>
 如果資源群組不是指定的訂用帳戶的一部分，則可能無法在保護時尋找該資源組。 請確定資源群組屬於正在使用的訂用帳戶。
 
  **原因 3：過時的設定** <br>
@@ -245,7 +245,7 @@ Azure Site Recovery 目前要求來源區域資源群組和虛擬機器應該位
 您可以使用[移除過時 ASR 組態指令碼](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412)，並移除 Azure VM 上的過時 Site Recovery 組態。 在移除過時的設定之後，您應該就能看到該 VM。
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>無法選取虛擬機器進行保護 
- **原因 1：虛擬機器在失敗或沒有回應的狀態下安裝了某些延伸模組** <br>
+ **原因 1：虛擬機器有某些延伸模組，安裝失敗或沒有回應的狀態** <br>
  移至 [虛擬機器] > [設定] > [延伸模組]，並檢查是否有任何延伸模組處於失敗狀態。 解除安裝失敗的延伸模組，並重試保護虛擬機器。<br>
  **原因 2：[VM 的佈建狀態無效](#vms-provisioning-state-is-not-valid-error-code-150019)**
 
@@ -266,12 +266,12 @@ Azure Site Recovery 目前要求來源區域資源群組和虛擬機器應該位
 
 ## <a name="unable-to-select-target-virtual-network---network-selection-tab-is-grayed-out"></a>無法選取目標虛擬網路 - 網路選取索引標籤呈現灰色。
 
-**原因 1：如果 VM 所連結的網路已對應至「目標網路」。**
+**原因 1：如果您的 VM 會附加至已對應至 [目標網路] 網路。**
 - 如果來源 VM 屬於虛擬網路，且來自相同虛擬網路的另一個 VM 已對應至目標資源群組中的網路，則根據預設，系統會停用網路選取下拉式清單。
 
 ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png)
 
-**原因 2：如果您先前使用 Azure Site Recovery 保護 VM 並停用複寫。**
+**原因 2：如果您先前受保護的 VM 使用 Azure Site Recovery，並停用複寫。**
  - 停用 VM 的複寫不會刪除網路對應。 您必須從受保護 VM 所在的復原服務保存庫中將其刪除。 </br>
  瀏覽至 [復原服務保存庫] > [Site Recovery 基礎結構] > [網路對應]。 </br>
  ![Delete_NW_Mapping](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
@@ -313,7 +313,7 @@ GRUB 組態檔 ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.
 
 如果您發現上述的粗體字串，則 GRUB 具有 "root" 和 "resume" 參數的實際裝置名稱，而不是 UUID。
 
-**修正方式：**<br>
+**如何修正問題：**<br>
 裝置名稱應該取代為對應的 UUID。<br>
 
 

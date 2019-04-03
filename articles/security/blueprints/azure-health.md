@@ -9,18 +9,18 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: 5f23435a43d139ecb9f20e5036124f175b1830c9
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 70721b8bfbecaf554a9502b9ec3417fc8e561b3f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225360"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885939"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI
 
 ## <a name="overview"></a>概觀
 
-**Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI 提供 Azure PaaS 解決方案的統包部署，以示範如何安全地內嵌、儲存、分析、互動、識別與部署解決方案與健康情況資料，同時能夠滿足業界合規性需求。該藍圖有助於加速資料受管制之客戶採用及使用雲端。**
+**Azure 安全性與合規性藍圖-HIPAA/HITRUST 醫療資料和 AI 提供周全部署 Azure PaaS 和 IaaS 解決方案示範如何內嵌、 儲存、 分析及互動，身分識別，並安全地部署解決方案時的健全狀況資料能夠滿足業界合規性需求。 該藍圖有助於加速雲端採用和使用量客戶受管制的資料。**
 
 Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI 藍圖提供工具與指導方針，協助部署安全的健康保險流通與責任法案 (HIPAA)，以及醫療資訊信任聯盟 (HITRUST) 準備就緒的平台即服務 (PaaS) 環境，以便在部署為端對端解決方案的安全、多層式雲端環境中內嵌、儲存、分析個人與非個人醫療記錄並與之互動。 
 
@@ -148,36 +148,36 @@ CMIO 是橫跨醫療保健組織內的資訊/技術和醫護專業的人。 其�
 ### <a name="users-and-roles"></a>使用者和角色
 
 
-**網站系統管理員 -- Alex**
+**站台系統管理員--Alex**
 
 *電子郵件：Alex\_SiteAdmin*
 
 Alex 的工作是評估可減少內部部署網路的管理負擔並降低管理成本的技術。 Alex 已經評估 Azure 一段時間了，但是一直努力設定符合 HiTrust 合規性需求所需的服務，以便將病患資料儲存在雲端。 Alex 選擇 Azure Health AI 部署合規性準備就緒的健康情況解決方案，此解決方案已滿足符合 HiTrust 客戶需求的要求。
 
-**資料科學家 -- Debra**
+**資料科學家--Debra**
 
 *電子郵件：Debra\_DataScientist*
 
 Debra 負責使用及建立分析醫療記錄的模型，以便提供病患照護的深入解析。 Debra 使用 SQL 和 R 統計式程式設計語言來建立她的模型。
 
-**資料庫分析師 -- Danny**
+**資料庫分析師--Danny**
 
 *電子郵件：Danny\_DBAnalyst*
 
 Danny 是與儲存 Contosoclinic 所有病患資料之 Microsoft SQL Server 有關事項的主要連絡人。 Danny 是經驗豐富的 SQL Server 系統管理員，最近已經很熟悉 Azure SQL Database。
 
-**醫療資訊長 -- Caroline**
+**暨醫療資訊長--Caroline**
 
 Caroline 與醫療服務管理人員 Chris 及資料科學家 Debra 合作，判斷哪些因素會影響病患的停留時間。
 Caroline 使用停留時間 (LOS) 解決方案的預測，來判斷醫院網路中的資源分配是否適當。 例如，使用此解決方案中提供的儀表板。
 
-**醫療服務管理人員 -- Chris**
+**醫療服務-Chris**
 
 *電子郵件：Chris\_CareLineManager*
 
 作為在 Contosoclinic 中直接負責管理病患住院與出院的人員，Chris 使用 LOS 解決方案所產生的預測，確保有足夠的適當人員可在病患在設施停留期間提供照護。
 
-**稽核員 -- Han**
+**稽核員--Han**
 
 *電子郵件：Han\_稽核員*
 
@@ -202,7 +202,7 @@ Han 是獲得認證的稽核員，擁有 ISO、SOC 和 HiTrust 的稽核經驗�
 ### <a name="azure-active-directory-and-role-based-access-control-rbac"></a>Azure Active Directory 和角色型存取控制 (RBAC)
 
 
-**驗證：**
+**驗證:**
 
 -   [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) 是 Microsoft\' 多租用戶雲端式目錄和身分識別管理服務。 解決方案的所有使用者都是在 Azure Active Directory 中建立，包括存取 SQL Database 的使用者。
 
@@ -218,7 +218,7 @@ Han 是獲得認證的稽核員，擁有 ISO、SOC 和 HiTrust 的稽核經驗�
 
 -   在部署期間啟用 -enableADDomainPasswordPolicy 參數時，密碼會在 60 天後到期。
 
-**角色：**
+**角色:**
 
 -   解決方案使用[內建角色](/azure/role-based-access-control/built-in-roles)來管理資源的存取權。
 
@@ -249,7 +249,7 @@ Han 是獲得認證的稽核員，擁有 ISO、SOC 和 HiTrust 的稽核經驗�
 ### <a name="azure-functions"></a>Azure Functions
 解決方案的設計旨在使用 [Azure Functions](/azure/azure-functions/) 處理分析示範中使用的停留時間資料範例。 函式中有三個功能已建立。
 
-**1.客戶資料 phi 資料的大量匯入**
+**1.客戶資料 phi 資料大量匯入**
 
 當使用示範指令碼時。 .\\HealthcareDemo.ps1 與 **BulkPatientAdmission** 參數，如**部署及執行示範**中所概述，它執行下列處理管線：
 1. **Azure Blob 儲存體** - 上傳至儲存體的病患資料 .csv 檔案範例
@@ -268,7 +268,7 @@ Han 是獲得認證的稽核員，擁有 ISO、SOC 和 HiTrust 的稽核經驗�
 **2.新病患住院**
 
 當使用示範指令碼時。 .\\HealthcareDemo.ps1 與 **BulkPatientadmission** 參數，如**部署及執行示範**中所概述，會執行下列處理管線：![](images/securetransact.png)
-**1.Azure Function** 會被觸發，而且該函式會從 Azure Active Directory 要求[持有人權杖](/rest/api/)。
+**1.Azure Function[ 會被觸發，而且該函式會從 Azure Active Directory 要求](/rest/api/)持有人權杖。
 
 **2.金鑰保存庫**會要求與所要求權杖相關聯的密碼。
 

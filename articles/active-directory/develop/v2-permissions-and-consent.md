@@ -16,14 +16,14 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, jmprieur
-ms.custom: aaddev
+ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6ccc2a355b22c2235253b78a1efa3912234027a
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: c0614a6bc588a26a23dc9d3795e532a303a472e3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793453"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881642"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Azure Active Directory v2.0 端點中的權限和同意
 
@@ -38,9 +38,9 @@ ms.locfileid: "58793453"
 
 Microsoft 身分識別平台會實作 [OAuth 2.0](active-directory-v2-protocols.md) 授權通訊協定。 OAuth 2.0 是一種可讓協力廠商應用程式代表使用者存取 Web 主控資源的方法。 任何與 Microsoft 身分識別平台整合的 Web 主控資源都具有資源識別碼 (或稱為「應用程式識別碼 URI」)。 例如，Microsoft 的 Web 主控資源包括：
 
-* Microsoft Graph：`https://graph.microsoft.com`
-* Office 365 郵件 API：`https://outlook.office.com`
-* Azure AD Graph：`https://graph.windows.net`
+* Microsoft Graph: `https://graph.microsoft.com`
+* Office 365 郵件 API: `https://outlook.office.com`
+* Azure AD Graph： `https://graph.windows.net`
 
 > [!NOTE]
 > 強烈建議您使用 Microsoft Graph，而不要使用 Azure AD Graph、Office 365 郵件 API 等工具。
@@ -55,9 +55,9 @@ Microsoft 身分識別平台會實作 [OAuth 2.0](active-directory-v2-protocols.
 
 在 OAuth 2.0 中，這些類型的權限也稱為「範圍」。 一般也常直接稱之為「權限」。 權限在 Microsoft 身分識別平台中會以字串值表示。 繼續討論 Microsoft Graph 範例，每個權限的字串值如下：
 
-* 使用 `Calendars.Read` 來讀取使用者的行事曆
-* 使用 `Calendars.ReadWrite` 來寫入使用者的行事曆
-* 使用 `Mail.Send` 來以使用者身分傳送郵件
+* 使用讀取使用者的行事曆 `Calendars.Read`
+* 使用寫入使用者的行事曆 `Calendars.ReadWrite`
+* 所使用的使用者身分傳送郵件 `Mail.Send`
 
 應用程式最常用來要求這些權限的方式，是在對 v2.0 授權端點的要求中指定範圍。 不過，較高的特定權限只能透過系統管理員的同意而授與，且通常會使用[系統管理員同意端點](v2-permissions-and-consent.md#admin-restricted-permissions)來要求/授與。 繼續閱讀以深入了解。
 
@@ -82,7 +82,7 @@ v2.0 的 OpenID Connect 實作有一些定義妥善但不會套用至特定資�
 
 ### <a name="openid"></a>openid
 
-如果應用程式使用 [OpenID Connect](active-directory-v2-protocols.md) 來執行登入，它就必須要求 `openid` 範圍。 `openid` 範圍會在工作帳戶同意頁面上顯示為「將您登入」權限，而在個人 Microsoft 帳戶同意頁面上會顯示為「檢視您的設定檔並使用您的 Microsoft 帳戶連接到應用程式和服務」權限。 有了此權限之後，應用程式便能夠以 `sub` 宣告的形式接收使用者的唯一識別碼。 它也會為應用程式提供 UserInfo 端點的存取權。 `openid` 範圍也可在 v2.0 權杖端點用來取得識別碼權杖，而該權杖可用來保護應用程式不同元件之間的 HTTP 呼叫。
+如果應用程式使用 [OpenID Connect](active-directory-v2-protocols.md) 來執行登入，它就必須要求 `openid` 範圍。 `openid` 範圍會在工作帳戶同意頁面上顯示為「將您登入」權限，而在個人 Microsoft 帳戶同意頁面上會顯示為「檢視您的設定檔並使用您的 Microsoft 帳戶連接到應用程式和服務」權限。 有了此權限之後，應用程式便能夠以 `sub` 宣告的形式接收使用者的唯一識別碼。 它也會為應用程式提供 UserInfo 端點的存取權。 `openid`範圍可在 v2.0 權杖端點取得 ID 權杖，應用程式可以使用來進行驗證。
 
 ### <a name="email"></a>電子郵件
 
@@ -139,9 +139,9 @@ https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 
 Microsoft 生態系統中的某些高特權權限可以設定為「受系統管理員限制」。 這類權限的範例包括：
 
-* 使用 `User.Read.All` 讀取所有使用者的完整設定檔
-* 使用 `Directory.ReadWrite.All` 將資料寫入組織的目錄
-* 使用 `Groups.Read.All` 讀取組織目錄中的所有群組
+* 使用讀取所有使用者的完整設定檔 `User.Read.All`
+* 使用將資料寫入組織的目錄 `Directory.ReadWrite.All`
+* 使用讀取組織目錄中的所有群組 `Groups.Read.All`
 
 雖然取用者使用者可以為應用程式授與這類資料的存取權，但組織使用者會受到限制，而無法授與同一組機密公司資料的存取權。 如果您的應用程式向組織使用者要求這其中一個權限的存取權，使用者將會收到錯誤訊息，指出他們未獲授權而無法對您應用程式的權限表示同意。
 
@@ -235,7 +235,7 @@ GET http://localhost/myapp/permissions?error=permission_denied&error_description
 
 ## <a name="using-permissions"></a>使用權限
 
-用户许可应用的权限之后，应用即可获取访问令牌，这些令牌表示应用以某种身份访问资源的权限。 一個存取權杖只能用於一個單一資源，但存取權杖內部所編碼的是您應用程式針對該資源已獲得的每項權限。 若要取得存取權杖，您的應用程式可以對 v2.0 權杖端點提出要求，像這樣：
+在使用者同意您的應用程式的權限之後，您的應用程式即可取得存取權杖，而這些權杖代表您的應用程式存取資源的權限。 一個存取權杖只能用於一個單一資源，但存取權杖內部所編碼的是您應用程式針對該資源已獲得的每項權限。 若要取得存取權杖，您的應用程式可以對 v2.0 權杖端點提出要求，像這樣：
 
 ```
 POST common/oauth2/v2.0/token HTTP/1.1
@@ -283,7 +283,7 @@ Content-Type: application/json
 
 #### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>範例 3：使用者已同意，但用戶端要求額外的範圍
 
-使用者已經對用戶端同意 `mail.read`。 用戶端已在其註冊中註冊 `contacts.read` 範圍。 當用戶端使用 `scope=https://graph.microsoft.com/.default` 提出權杖要求，並透過 `prompt=consent` 要求同意時，使用者只會對應用程式註冊的所有權限看到同意畫面。 `contacts.read` 將會呈現在同意畫面中，但 `mail.read` 不會。 傳回的權杖會適用於 Microsoft Graph，而且包含 `mail.read` 和 `contacts.read`。
+使用者已經對用戶端同意 `mail.read`。 用戶端已在其註冊中註冊 `contacts.read` 範圍。 當用戶端使用 `scope=https://graph.microsoft.com/.default` 提出權杖要求，並透過 `prompt=consent` 要求同意時，使用者只會對應用程式註冊的所有權限看到同意畫面。 `contacts.read` 將會出現在同意畫面上，但`mail.read`不會。 傳回的權杖會適用於 Microsoft Graph，而且包含 `mail.read` 和 `contacts.read`。
 
 ### <a name="using-the-default-scope-with-the-client"></a>使用 /.default 範圍搭配用戶端
 

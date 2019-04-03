@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric 災害復原 | Microsoft Docs
-description: Azure Service Fabric 提供所需的功能用于应对各种灾难。 本文說明可能會發生的災害類型以及如何加以處理。
+description: Azure Service Fabric 提供處理各類型災害所需的功能。 本文說明可能會發生的災害類型以及如何加以處理。
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 0804095a9e12e91d6b0fa88b626b006b78bdf3a5
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 7153a6ed4a91e59eea936f1e17d827a40bb99371
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670807"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883236"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Azure Service Fabric 中的災害復原
 提供高可用性的關鍵在於確保服務能夠承受所有不同類型的故障。 這對於預料之外且無法控制的故障而言特別重要。 本文說明一些常見的故障模式，如果沒有未正確建立模型和管理，可能會造成嚴重損壞。 此外，本文也會探討發生災害時應採取的緩解措施和行動。 目標是發生故障 (無論計劃與否) 時，限制或排除停機或資料遺失的風險。
@@ -67,17 +67,17 @@ Service Fabric 的目標幾乎都是自動管理故障。 不過，為了處理�
 
 例如電源故障造成機器的機架同時故障。 指定服務單一失敗的另一個例子是，容錯網域中有多個服務複本執行的許多機器出現損失。 這就是容錯網域的管理為何對確保服務的高可用性如此重要。 在 Azure 中執行 Service Fabric 時，會自動管理容錯網域。 在其他環境中則不會。 如果您要在內部部署中建立自己的叢集，請務必正確地對應及規劃您的容錯網域配置。
 
-升級網域對於要在同時升級的軟體中模型化區域相當有用。 有鑑於此，升級網域也經常定義計劃升級期間刪除軟體的邊界。 Service Fabric 和您的服務升級皆遵循相同的模型。 若要详细了解滚动升级、升级域和有助于防止意外更改影响群集和服务的 Service Fabric 运行状况模型，请参阅以下文档：
+升級網域對於要在同時升級的軟體中模型化區域相當有用。 有鑑於此，升級網域也經常定義計劃升級期間刪除軟體的邊界。 Service Fabric 和您的服務升級皆遵循相同的模型。 如需輪流升級、升級網域的相關資訊，或是進一步了解 Service Fabric 健康情況模型如何幫助避免非預期的變更影響在叢集和服務，請參閱下列文件：
 
- - [应用程序升级](service-fabric-application-upgrade.md)
- - [应用程序升级教程](service-fabric-application-upgrade-tutorial.md)
- - [Service Fabric 健康情況模型](service-fabric-health-introduction.md)
+ - [應用程式升級](service-fabric-application-upgrade.md)
+ - [應用程式升級教學課程](service-fabric-application-upgrade-tutorial.md)
+ - [Service Fabric 健全狀況模型](service-fabric-health-introduction.md)
 
 您可以使用 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 中提供的叢集對應，視覺化您的叢集配置：
 
 <center>
 
-![節點散佈於 Service Fabric Explorer 中的容錯網域][sfx-cluster-map]
+![節點散佈於 Service Fabric 總管中的容錯網域][sfx-cluster-map]
 </center>
 
 > [!NOTE]
@@ -98,7 +98,7 @@ Service Fabric 的目標幾乎都是自動管理故障。 不過，為了處理�
 2. 判斷仲裁遺失是否為永久性的
    - 大多數時候，失敗是暫時性的。 處理程序會重新啟動，節點會重新啟動，VM 會重新啟動，網路磁碟分割會修復。 不過有時候失敗是永久性的。 
      - 對於非持續狀態的服務，單一仲裁或多個複本的失敗會_立即_導致永久性的仲裁遺失。 當 Service Fabric 偵測到具狀態非持續服務中的仲裁遺失時，會藉由宣告 (可能) 資料遺失，立即進行步驟 3。 繼續進行資料遺失是合理的，因為 Service Fabric 知道等待複本復原沒有任何意義，因為即使都復原，也會空空如也。
-     - 對於具狀態的持續性服務，仲裁失敗或更多複本會造成 Service Fabric 開始等待複本復原並還原仲裁。 這會導致任何_寫入_服務的受影響分割區 (複本集) 發生服務中斷。 不過，仍可能在降低一致性保證的情況下進行讀取。 Service Fabric 等待仲裁還原的預設時間是無限的，因為進行的是一個 (潛在的) 資料遺失事件，並帶有其他風險。 可以覆寫預設 `QuorumLossWaitDuration` 值，但不建議。 相反地，在這個時候，應該盡一切努力還原關閉的複本。 這需要備份關閉的節點，並確保這些節點可重新掛接它們用來儲存本機持續性狀態的磁碟機。 如果處理失敗造成仲裁遺失，Service Fabric 會自動嘗試重新建立處理程序，並重新啟動其中的複本。 如果此作業失敗，Service Fabric 會報告健康情況錯誤。 如果可解決這些問題，則複本通常會復原。 不過，有時候複本無法復原。 例如，所有磁碟機可能皆已失敗，或機器不知何故已損毀。 在這些情況下，我們現在有一個永久性的仲裁遺失事件。 若要通知 Service Fabric 停止等待關閉的複本復原，叢集系統管理員必須判斷哪一個服務的分割區受到影響，並呼叫 `Repair-ServiceFabricPartition -PartitionId` 或 ` System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` API。  此 API 可讓您指定分割區的識別碼，以移出 QuorumLoss 並進入潛在的資料遺失。
+     - 對於具狀態的持續性服務，仲裁失敗或更多複本會造成 Service Fabric 開始等待複本復原並還原仲裁。 這會導致任何_寫入_服務的受影響分割區 (複本集) 發生服務中斷。 不過，仍可能在降低一致性保證的情況下進行讀取。 Service Fabric 等待仲裁還原的預設時間是無限的，因為進行的是一個 (潛在的) 資料遺失事件，並帶有其他風險。 可以覆寫預設 `QuorumLossWaitDuration` 值，但不建議。 相反地，在這個時候，應該盡一切努力還原關閉的複本。 這需要備份關閉的節點，並確保這些節點可重新掛接它們用來儲存本機持續性狀態的磁碟機。 如果處理失敗造成仲裁遺失，Service Fabric 會自動嘗試重新建立處理程序，並重新啟動其中的複本。 如果此作業失敗，Service Fabric 會報告健康情況錯誤。 如果可解決這些問題，則複本通常會復原。 不過，有時候複本無法復原。 例如，所有磁碟機可能皆已失敗，或機器不知何故已損毀。 在這些情況下，我們現在有一個永久性的仲裁遺失事件。 若要通知 Service Fabric 停止等待關閉的複本復原，叢集系統管理員必須判斷哪一個服務的分割區受到影響，並呼叫 `Repair-ServiceFabricPartition -PartitionId` 或 `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)` API。  此 API 可讓您指定分割區的識別碼，以移出 QuorumLoss 並進入潛在的資料遺失。
 
    > [!NOTE]
    > 除了針對特定分割區使用規定的方式，使用此 API 是_絕對_不安全的。 
@@ -140,7 +140,7 @@ Service Fabric 有種子節點的概念。 種子節點是維護基礎叢集可�
 - 了解如何使用 [Testability 架構](service-fabric-testability-overview.md)
 - 閱讀其他災害復原和高可用性的資源。 Microsoft 已發佈大量有關這些主題的指引。 雖然其中有些文件提到其他產品中使用的特定技術，但還是包含許多您可在 Service Fabric 內容中應用的一般最佳作法︰
   - [可用性檢查清單](../best-practices-availability-checklist.md)
-  - [执行灾难恢复演练](../sql-database/sql-database-disaster-recovery-drills.md)
+  - [執行災害復原演練](../sql-database/sql-database-disaster-recovery-drills.md)
   - [Azure 應用程式的災害復原和高可用性][dr-ha-guide]
 - 了解 [Service Fabric 支援選項](service-fabric-support.md)
 

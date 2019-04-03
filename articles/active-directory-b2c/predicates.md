@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 360fd8e7ab0f7a85dbeed2bdbc7da379cbcfe91a
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 0dfe6553778092c33f9e1bd55ac7a7ae65137a6e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737020"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880996"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates 與 PredicateValidations
 
@@ -194,7 +194,7 @@ ms.locfileid: "56737020"
 - 使用 `IncludesCharacters` 方法的 **Lowercase**，驗證密碼包含小寫字母。
 - 使用 `IncludesCharacters` 方法的 **Uppercase**，驗證密碼包含大寫字母。
 - 使用 `IncludesCharacters` 方法的 **Number**，驗證密碼包含數字。
-- 使用 `IncludesCharacters` 方法的 **Symbol**，驗證密碼包含下列其中一個符號：`@#$%^&*\-_+=[]{}|\:',?/~"();!`
+- **符號**使用`IncludesCharacters`方法，可讓您驗證密碼包含下列符號 `@#$%^&*\-_+=[]{}|\:',?/~"();!`
 - 使用 `MatchesRegex` 方法的 **PIN**，驗證密碼只包含數字。
 - 使用 `MatchesRegex` 方法的 **AllowedAADCharacters**，驗證提供了只對密碼無效的字元。
 - 使用 `MatchesRegex` 方法的 **DisallowedWhitespace**，驗證密碼不是以空白字元開始或結尾。
@@ -356,7 +356,8 @@ ms.locfileid: "56737020"
 
 ```XML
 <Predicates>
-  <Predicate Id="DateRange" Method="IsDateRange" HelpText="The date must be between 01-01-1980 and today.">
+  <Predicate Id="DateRange" Method="IsDateRange">
+    <UserHelpText>The date must be between 01-01-1980 and today.</UserHelpText>
     <Parameters>
       <Parameter Id="Minimum">1980-01-01</Parameter>
       <Parameter Id="Maximum">Today</Parameter>

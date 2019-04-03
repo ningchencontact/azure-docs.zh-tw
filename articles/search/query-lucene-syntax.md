@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f1eba2da1404f5b47d137b3c4f7b4cb9ceab43ea
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 64a688df3b6ed8602bb440d72e7f061c5f5893d1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438048"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885599"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Azure 搜尋服務中的 Lucene 查詢語法
 您可以基礎根據適用於特殊查詢形式的豐富 [Lucene 查詢剖析器](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)語法，為 Azure 搜尋服務撰寫查詢：萬用字元、模糊搜尋、鄰近搜尋、規則運算式只是其中一些範例。 大部分的 Lucene 查詢剖析器語法都可[完整移植到 Azure 搜尋服務中實作](search-lucene-query-architecture.md)，唯一的例外是*範圍搜尋*，這必須在 Azure 搜尋服務中透過 `$filter` 運算式來建構。 
@@ -85,7 +85,7 @@ POST /indexes/hotels/docs/search?api-version=2015-02-28
 
  請確定所有 Unsafe 字元和保留字元在 URL 中都已編碼。 例如，'#' 是 Unsafe 字元，因為它是 URL 中的片段/錨點識別碼。 此字元在 URL 中使用時必須編碼為 `%23`。 '&' 和 '=' 是保留字元的範例，因為它們用來分隔參數，以及指定 Azure 搜尋服務中的值。 請參閱 [RFC1738：統一資源定位器 (URL)](https://www.ietf.org/rfc/rfc1738.txt)，以取得詳細資訊。
 
- Unsafe 字元包括 ``" ` < > # % { } | \ ^ ~ [ ] ``。 保留字元包括 `; / ? : @ = + &`。
+ Unsafe 字元包括 ``" ` < > # % { } | \ ^ ~ [ ]``。 保留字元包括 `; / ? : @ = + &`。
 
 ### <a name="precedence-operators-grouping-and-field-grouping"></a>優先順序運算子：分組和欄位分組  
  您可以使用括號，在加上括號的陳述式內加入運算子，以建立子查詢。 例如，`motel+(wifi||luxury)` 會搜尋包含 "motel" 一詞和 "wifi" 或 "luxury" (或兩者) 的文件。
@@ -168,5 +168,5 @@ NOT 運算子是驚歎號或負號。 例如：`wifi !luxury` 會搜尋含有 "w
 ## <a name="see-also"></a>請參閱  
 
 + [搜尋文件](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
-+ [篩選和排序的 OData 運算式語法](query-odata-filter-orderby-syntax.md)   
++ [OData 運算式語法用於篩選和排序](query-odata-filter-orderby-syntax.md)   
 + [Azure 搜尋服務中的簡單查詢語法](query-simple-syntax.md)   

@@ -4,18 +4,18 @@ description: 了解將 Azure Data Lake Storage Gen1 (先前稱為 Azure Data Lak
 services: data-lake-store
 documentationcenter: ''
 author: sachinsbigdata
-manager: jhubbard
+manager: mtillman
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 53af7ff840f9d04f0e09010b72e9eefc32a8eadd
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 7e120980ed1379fb4ea18bca9f1e84938964cac5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961885"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882813"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>使用 Azure Data Lake Storage Gen1 的最佳做法
 
@@ -182,10 +182,10 @@ Data Lake Storage Gen1 提供詳細的診斷記錄和稽核。 Data Lake Storage
 ## <a name="next-steps"></a>後續步驟
 
 * [Azure Data Lake Storage Gen1 概觀](data-lake-store-overview.md)
-* [Azure Data Lake Storage Gen1 中的存取控制](data-lake-store-access-control.md)
+* [Azure Data Lake 儲存體 Gen1 中的存取控制](data-lake-store-access-control.md)
 * [Azure Data Lake Storage Gen1 安全性](data-lake-store-security-overview.md)
 * [調整 Azure Data Lake Storage Gen1 的效能](data-lake-store-performance-tuning-guidance.md)
-* [HDInsight 和 Azure Data Lake Storage Gen1 上的 Spark 效能微調方針](data-lake-store-performance-tuning-spark.md)
-* [HDInsight 和 Azure Data Lake Storage Gen1 上的 Hive 效能微調指導方針](data-lake-store-performance-tuning-hive.md)
-* [使用 Azure Data Factory 進行 Azure Data Lake Storage Gen1 的資料協調](https://mix.office.com/watch/1oa7le7t2u4ka)
-* [建立搭配 Data Lake Storage Gen1 的 HDInsight 叢集](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Azure Data Lake 儲存體 Gen1 搭配使用 HDInsight Spark 效能微調方針](data-lake-store-performance-tuning-spark.md)
+* [使用 HDInsight Hive 和 Azure Data Lake 儲存體 Gen1 的效能微調方針](data-lake-store-performance-tuning-hive.md)
+* [使用 Azure Data Factory 進行 Azure Data Lake 儲存體 Gen1 的資料協調流程](https://mix.office.com/watch/1oa7le7t2u4ka)
+* [建立 HDInsight 叢集與 Data Lake 儲存體 Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

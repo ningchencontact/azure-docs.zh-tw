@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2019
+ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 42a7ae0e6ca5239aa83d20655817973e8f185d02
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 1af2117b1d12c98182434705181462fd7c9bebf4
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805392"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862942"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -52,9 +52,9 @@ ms.locfileid: "58805392"
 > [!NOTE]
 > 為了能正確地向服務回報，「更新管理」需要啟用特定 URL 和連接埠。 若要深入了解這些需求，請參閱[混合式背景工作角色的網路規劃](automation-hybrid-runbook-worker.md#network-planning)。
 
-您可以藉由建立排定的部署，在需要更新的電腦上部署和安裝軟體更新。 歸類為「選擇性」的更新不會包含在 Windows 電腦的部署範圍內。 部署範圍中僅包含必要更新。 
+您可以藉由建立排定的部署，在需要更新的電腦上部署和安裝軟體更新。 歸類為「選擇性」的更新不會包含在 Windows 電腦的部署範圍內。 部署範圍中僅包含必要更新。
 
-已排定的部署會透過明確指定電腦，或透過選取以一組特定電腦之記錄搜尋為基礎的[電腦群組](../azure-monitor/platform/computer-groups.md)，來定義哪些目標電腦會收到適用的更新。 您也可以指定核准排程，並設定一段可安裝更新的期間。
+已排定的部署會透過明確指定電腦，或透過選取以一組特定電腦之記錄搜尋為基礎的[電腦群組](../azure-monitor/platform/computer-groups.md)，來定義哪些目標電腦會收到適用的更新。 您也可以指定核准排程，並設定一段可安裝更新的期間。 這段時間稱為維護視窗。 如果需要重新開機，而且您選取適當的重新開機選項，在維護期間的十分鐘會保留重新開機。 如果修補所花費的時間超出預期，而且在維護期間沒有不超過十分鐘的時間，不會發生重新開機。
 
 在 Azure 自動化中，會由 Runbook 安裝更新。 您無法檢視這些 Runbook，而且這些 Runbook 也不需要任何設定。 建立更新部署之後，更新部署會建立排程，以便在指定的時間內，針對包含的電腦啟動主要更新 Runbook。 主要 Runbook 會在每個代理程式上啟動子 Runbook，以安裝必要的更新。
 
@@ -136,8 +136,8 @@ Windows 代理程式必須設定為可與 WSUS 伺服器通訊，或必須能夠
 
 * [從虛擬機器](automation-onboard-solutions-from-vm.md)
 * [從瀏覽多部電腦](automation-onboard-solutions-from-browse.md)
-* [從自動化帳戶](automation-onboard-solutions-from-automation-account.md)
-* [使用 Azure 自動化 Runbook](automation-onboard-solutions.md)
+* [從您的自動化帳戶](automation-onboard-solutions-from-automation-account.md)
+* [使用 Azure 自動化 runbook](automation-onboard-solutions.md)
   
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>確認非 Azure 機器已上線
 

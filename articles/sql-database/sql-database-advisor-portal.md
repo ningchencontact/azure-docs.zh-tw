@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 023395126a587992c1b5648bd9b8a993d9fa9ced
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: d80581aae56fc9d65d6f24d21f2c582cb74b3f2d
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564233"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863197"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>尋找和套用效能建議
 
@@ -25,7 +25,7 @@ ms.locfileid: "55564233"
 
 ## <a name="viewing-recommendations"></a>檢視建議
 
-若要檢視和套用效能建議，您在 Azure 中必須有正確的[角色型存取控制](../role-based-access-control/overview.md)權限。 需要**讀取者**、**SQL DB 參與者**權限，才能檢視建議，以及需要**擁有者**、**SQL DB 參與者**權限，才能執行任何動作；建立或卸除索引並取消建立索引。
+若要檢視和套用效能建議，您在 Azure 中必須有正確的[角色型存取控制](../role-based-access-control/overview.md)權限。 查看建议需要“读取者”、“SQL DB 参与者”权限，执行任何操作（如创建或删除索引、取消创建索引）需要“所有者”、“SQL DB 参与者”权限。
 
 使用下列步驟在 Azure 入口網站上尋找效能建議：
 
@@ -39,7 +39,7 @@ ms.locfileid: "55564233"
 
 依照可能帶來的效能影響排序，建議分成下列類別：
 
-| 影響 | 說明 |
+| 影響 | 描述 |
 |:--- |:--- |
 | 高 |高影響建議提供最明顯的效能影響。 |
 | 中 |中度影響建議會改善效能，但不顯著。 |
@@ -54,7 +54,7 @@ ms.locfileid: "55564233"
 
 以下是 Azure 入口網站中「建立索引」建議的範例。
 
-![建立索引](./media/sql-database-advisor-portal/sql-database-performance-recommendation.png)
+![创建索引](./media/sql-database-advisor-portal/sql-database-performance-recommendation.png)
 
 ## <a name="applying-recommendations"></a>套用建議
 Azure SQL Database 可讓您使用下列 3 個選項的其中任一選項來控制建議的啟用方式： 
@@ -67,7 +67,7 @@ Azure SQL Database 可讓您使用下列 3 個選項的其中任一選項來控�
 
 套用建議時，資料庫仍保持連線 -- 使用效能建議或自動調整功能不會使資料庫離線。
 
-### <a name="apply-an-individual-recommendation"></a>套用個別的建議
+### <a name="apply-an-individual-recommendation"></a>应用单个建议
 您可以一次檢閱並接受一個建議。
 
 1. 選取 [建議] 頁面上的某個建議。
@@ -78,6 +78,7 @@ Azure SQL Database 可讓您使用下列 3 個選項的其中任一選項來控�
 針對資料庫套用選取的建議。
 
 ### <a name="removing-recommendations-from-the-list"></a>從清單中移除建議
+
 如果建議的清單中包含您想從清單中移除的項目，您可以捨棄該建議：
 
 1. 在 [建議] 清單中選取建議，以開啟詳細資料。
@@ -110,23 +111,26 @@ Azure SQL Database 可讓您使用下列 3 個選項的其中任一選項來控�
 
 選取所需的組態後，按一下 [套用]。
 
-### <a name="manually-run-the-recommended-t-sql-script"></a>手動執行建議的 T-SQL 指令碼
+### <a name="manually-apply-recommendations-through-t-sql"></a>手動套用建議透過 T-SQL
+
 選取任何建議，然後按一下 [檢視指令碼] 。 對資料庫執行這個指令碼，以手動套用建議。
 
- ，因此建議您在建立這些索引之後監視索引，以確認它們能夠提高效能，且於必要時調整或刪除它們。 如需有關建立索引的詳細資訊，請參閱 [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx)。
+ ，因此建議您在建立這些索引之後監視索引，以確認它們能夠提高效能，且於必要時調整或刪除它們。 如需有關建立索引的詳細資訊，請參閱 [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx)。 此外，手動套用建議事項會保持作用中和的建議清單中顯示 24-48 小時。 之前，系統會自動提領它們。 如果您想要移除的建議更快，您可以手動方式捨棄它。
 
 ### <a name="canceling-recommendations"></a>取消建議
+
 可以取消處於**擱置中**、**驗證中**或**成功**狀態的建議。 狀態為 **執行中** 的建議無法取消。
 
 1. 在 [調整歷程記錄] 區域中選取建議，以開啟 [建議詳細資料] 頁面。
 2. 按一下 [取消]  以中止套用建議的程序。
 
 ## <a name="monitoring-operations"></a>監視作業
+
 套用建議時可能不會立即執行。 入口網站會提供有關建議狀態的詳細資料。 索引有下列可能的狀態：
 
-| 狀態 | 說明 |
+| 狀態 | 描述 |
 |:--- |:--- |
-| Pending |已收到套用建議命令，且已排程執行。 |
+| 挂起 |已收到套用建議命令，且已排程執行。 |
 | 執行中 |正在套用建議。 |
 | Validating |成功套用建議，而服務正在衡量益處。 |
 | 成功 |已成功套用建議，並證實有益處。 |

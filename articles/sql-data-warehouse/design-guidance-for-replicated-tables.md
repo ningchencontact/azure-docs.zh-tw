@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 03/19/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 031abcb9133663f39375560a06b0770c89eafb27
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: acea42f7f4ab986e9828000ab7cfc9e302ed92a3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259562"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885446"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>在 Azure SQL 資料倉儲中使用複寫資料表的設計指引
 本文針對在「SQL 資料倉儲」結構描述中設計複寫資料表提供建議。 您可以使用這些建議來降低資料移動和查詢的複雜性，以提升查詢效能。
@@ -59,7 +59,7 @@ ms.locfileid: "58259562"
 
 需要大量 CPU 的查詢在工作分散於所有計算節點時效能最佳。 例如，以在資料表的每個資料列上執行計算的查詢來說，在複寫資料表上執行會比在分散式資料表上執行效能更佳。 由於複寫資料表是完整儲存在每個計算節點上，因此對複寫資料表執行需要大量 CPU 的查詢時，執行對象會是每個計算節點上的整個資料表。 額外的計算會降低查詢效能。
 
-例如，此查詢含有複雜的述詞。  它執行速度較快的分散式資料表而不是複寫的資料表資料時。 在此範例中，資料可以是分散式循環配置資源。
+例如，此查詢含有複雜的述詞。  当数据位于分布式表而非复制的表中时，它运行更快。 在此示例中，数据可以是循环分布式的。
 
 ```sql
 
@@ -70,7 +70,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 ```
 
 ## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>將現有的循環配置資源資料表轉換成分散式資料表
-如果您已經有循環配置資源資料表，我們建議將它們轉換成複寫資料表中，如果它們符合本文中所述的準則。 複寫資料表可提升循環配置資源資料表的效能，因為它們不需進行資料移動。  循環配置資源資料表針對聯結一律需要進行資料移動。 
+如果已经具有循环表，如果它们满足本文中列出的条件，建议将其转换为复制的表。 複寫資料表可提升循環配置資源資料表的效能，因為它們不需進行資料移動。  循環配置資源資料表針對聯結一律需要進行資料移動。 
 
 此範例使用 [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 將 DimSalesTerritory 資料表變更為複寫資料表。 不論 DimSalesTerritory 是雜湊分散式還是循環配置資源資料表，此範例都有效。
 
@@ -95,8 +95,8 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 
 複寫資料表針對聯結不需要進行任何資料移動，因為整個資料表已經存在於每個計算節點上。 如果維度資料表是循環配置資源分散式資料表，聯結就會將整個維度資料表複製到每個計算節點。 為了移動資料，查詢計劃會包含一個名為 BroadcastMoveOperation 的作業。 這類資料移動作業會降低查詢效能，而使用複寫資料表則可免除這類作業。 若要檢視查詢計劃步驟，請使用 [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) 系統目錄檢視。 
 
-例如，在以下針對 AdventureWorks 結構描述執行的查詢中，` FactInternetSales` 資料表是雜湊分散式資料表。 `DimDate` 和 `DimSalesTerritory` 資料表是較小型的維度資料表。 此查詢會傳回 2004 會計年度北美的總銷售額：
- 
+例如，在以下針對 AdventureWorks 結構描述執行的查詢中，`FactInternetSales` 資料表是雜湊分散式資料表。 `DimDate` 和 `DimSalesTerritory` 資料表是較小型的維度資料表。 此查詢會傳回 2004 會計年度北美的總銷售額：
+
 ```sql
 SELECT [TotalSalesAmount] = SUM(SalesAmount)
 FROM dbo.FactInternetSales s
@@ -181,8 +181,8 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 ## <a name="next-steps"></a>後續步驟 
 若要建立複寫資料表，請使用下列其中一個陳述式：
 
-- [CREATE TABLE (Azure SQL 資料倉儲)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [CREATE TABLE AS SELECT (Azure SQL 資料倉儲)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [CREATE TABLE （Azure SQL 資料倉儲）](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [CREATE TABLE AS SELECT （Azure SQL 資料倉儲）](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 如需分散式資料表的概觀，請參閱[分散式資料表](sql-data-warehouse-tables-distribute.md)。
 

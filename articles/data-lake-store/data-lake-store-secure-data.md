@@ -3,21 +3,21 @@ title: 保護儲存在 Azure Data Lake Storage Gen1 中的資料 | Microsoft Doc
 description: 了解如何使用群組和存取控制清單來保護 Azure Data Lake Storage Gen1 中的資料
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: ca35e65f-3986-4f1b-bf93-9af6066bb716
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: nitinme
-ms.openlocfilehash: 15ef1e1b96a0da24714b4ddbda6b24f1f6f33ae0
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.author: twooley
+ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296731"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885667"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>保護儲存在 Azure Data Lake Storage Gen1 中的資料
 保護儲存在 Azure Data Lake Storage Gen1 中的資料，其方法有三步驟。  必須設定角色型存取控制 (RBAC) 和存取控制清單 (ACL) 都，才能完整啟用使用者和安全性群組之資料的存取權。
@@ -33,7 +33,7 @@ ms.locfileid: "46296731"
 開始進行本教學課程之前，您必須具備下列條件：
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
-* **Data Lake Storage Gen1 帳戶**。 如需如何建立帳戶的指示，請參閱[開始使用 Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* **Data Lake Storage Gen1 帳戶**。 如需建立帳戶的指示，請參閱[開始使用 Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 
 ## <a name="create-security-groups-in-azure-active-directory"></a>在 Azure Active Directory 中建立安全性群組
 如需有關如何建立 AAD 安全性群組及如何新增使用者至群組的詳細指示，請參閱 [管理 Azure Active Directory 中的安全性群組](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)。
@@ -83,7 +83,7 @@ ms.locfileid: "46296731"
 ## <a name="filepermissions"></a>將使用者或安全性群組以 ACL 型式指派給 Data Lake Storage Gen1 檔案系統
 藉由指派使用者/安全性群組給 Data Lake Storage Gen1 檔案系統，您可以對儲存在 Data Lake Storage Gen1 中的資料設定存取控制。
 
-1. 在 [Data Lake Storage Gen1 帳戶] 刀鋒視窗中，按一下 [資料總管]。
+1. 在您的 [Data Lake Storage Gen1 帳戶] 刀鋒視窗中，按一下 [資料總管]。
    
     ![透過資料總管檢視資料](./media/data-lake-store-secure-data/adl.start.data.explorer.png "透過資料總管檢視資料")
 2. 在 [資料總管] 刀鋒視窗中，按一下您想要設定 ACL 的資料夾，然後按一下 [存取]。 若要將 ACL 指派至檔案，您必須先按一下檔案進行預覽，然後從 [檔案預覽] 刀鋒視窗按一下 [存取]。
@@ -147,12 +147,12 @@ Data Lake Storage Gen1 可讓您進一步在網路層級鎖定資料存放區的
    
     ![將權限指派至群組](./media/data-lake-store-secure-data/adl.remove.acl.png "將權限指派至群組")
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [Azure Data Lake Storage Gen1 概觀](data-lake-store-overview.md)
-* [將資料從 Azure 儲存體 Blob 複製到 Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
-* [搭配 Data Lake Storage Gen1 使用 Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [搭配 Data Lake Storage Gen1 使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
-* [利用 PowerShell 開始使用 Data Lake Storage Gen1](data-lake-store-get-started-powershell.md)
-* [利用 .NET SDK 開始使用 Data Lake Storage Gen1](data-lake-store-get-started-net-sdk.md)
-* [存取 Data Lake Storage Gen1 的診斷記錄](data-lake-store-diagnostic-logs.md)
+* [將資料從 Azure 儲存體 Blob 複製到 Data Lake 儲存體 Gen1](data-lake-store-copy-data-azure-storage-blob.md)
+* [使用 Azure Data Lake Analytics 與 Data Lake 儲存體 Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [使用 Azure HDInsight 與 Data Lake 儲存體 Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [使用 PowerShell 開始使用 Data Lake Storage Gen1](data-lake-store-get-started-powershell.md)
+* [開始使用 Data Lake 儲存體 Gen1 使用.NET SDK](data-lake-store-get-started-net-sdk.md)
+* [存取 Data Lake 儲存體 Gen1 的診斷記錄檔](data-lake-store-diagnostic-logs.md)
 

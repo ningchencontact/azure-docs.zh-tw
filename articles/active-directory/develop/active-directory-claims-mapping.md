@@ -9,16 +9,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 03/28/2019
 ms.author: celested
-ms.reviewer: paulgarn, hirsin, jeedes
+ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af00c311b406a0bae285a00f0d537ce9bae3aa7e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e492586f0c70d4cd3013ef8f466afd6bb2bb65ac
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102096"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884072"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>作法：為租用戶中特定應用程式的權杖，自訂發出的宣告 (預覽)
 
@@ -52,142 +52,142 @@ ms.locfileid: "58102096"
 
 ### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>表 1：JSON Web 權杖 (JWT) 的受限制宣告集
 
-|宣告類型 (名稱)|
+| 宣告類型 (名稱) |
 | ----- |
-|_claim_names|
-|_claim_sources|
-|access_token|
-|account_type|
-|acr|
-|actor|
-|actortoken|
-|aio|
-|altsecid|
-|amr|
-|app_chain|
-|app_displayname|
-|app_res|
-|appctx|
-|appctxsender|
-|appid|
-|appidacr|
-|assertion|
-|at_hash|
-|aud|
-|auth_data|
-|auth_time|
-|authorization_code|
-|azp|
-|azpacr|
-|c_hash|
-|ca_enf|
-|cc|
-|cert_token_use|
-|client_id|
-|cloud_graph_host_name|
-|cloud_instance_name|
-|cnf|
-|code|
-|controls|
-|credential_keys|
-|csr|
-|csr_type|
-|deviceid|
-|dns_names|
-|domain_dns_name|
-|domain_netbios_name|
-|e_exp|
-|电子邮件|
-|endpoint|
-|enfpolids|
-|exp|
-|expires_on|
-|grant_type|
-|graph|
-|group_sids|
-|groups|
-|hasgroups|
-|hash_alg|
-|home_oid|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`|
-|iat|
-|identityprovider|
-|idp|
-|in_corp|
-|instance|
-|ipaddr|
-|isbrowserhostedapp|
-|iss|
-|jwk|
-|key_id|
-|key_type|
-|mam_compliance_url|
-|mam_enrollment_url|
-|mam_terms_of_use_url|
-|mdm_compliance_url|
-|mdm_enrollment_url|
-|mdm_terms_of_use_url|
-|nameid|
-|nbf|
-|netbios_name|
-|nonce|
-|oid|
-|on_prem_id|
-|onprem_sam_account_name|
-|onprem_sid|
-|openid2_id|
-|password|
-|platf|
-|polids|
-|pop_jwk|
-|preferred_username|
-|previous_refresh_token|
-|primary_sid|
-|puid|
-|pwd_exp|
-|pwd_url|
-|redirect_uri|
-|refresh_token|
-|refreshtoken|
-|request_nonce|
-|resource|
-|role|
-|角色|
-|scope|
-|scp|
-|sid|
-|signature|
-|signin_state|
-|src1|
-|src2|
-|sub|
-|tbid|
-|tenant_display_name|
-|tenant_region_scope|
-|thumbnail_photo|
-|tid|
-|tokenAutologonEnabled|
-|trustedfordelegation|
-|unique_name|
-|upn|
-|user_setting_sync_url|
-|username|
-|uti|
-|ver|
-|verified_primary_email|
-|verified_secondary_email|
-|wids|
-|win_ver|
+| _claim_names |
+| _claim_sources |
+| access_token |
+| account_type |
+| acr |
+| actor |
+| actortoken |
+| aio |
+| altsecid |
+| amr |
+| app_chain |
+| app_displayname |
+| app_res |
+| appctx |
+| appctxsender |
+| appid |
+| appidacr |
+| assertion |
+| at_hash |
+| aud |
+| auth_data |
+| auth_time |
+| authorization_code |
+| azp |
+| azpacr |
+| c_hash |
+| ca_enf |
+| cc |
+| cert_token_use |
+| client_id |
+| cloud_graph_host_name |
+| cloud_instance_name |
+| cnf |
+| code |
+| controls |
+| credential_keys |
+| csr |
+| csr_type |
+| deviceid |
+| dns_names |
+| domain_dns_name |
+| domain_netbios_name |
+| e_exp |
+| 电子邮件 |
+| endpoint |
+| enfpolids |
+| exp |
+| expires_on |
+| grant_type |
+| graph |
+| group_sids |
+| groups |
+| hasgroups |
+| hash_alg |
+| home_oid |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant` |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod` |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration` |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/expired` |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` |
+| iat |
+| identityprovider |
+| idp |
+| in_corp |
+| instance |
+| ipaddr |
+| isbrowserhostedapp |
+| iss |
+| jwk |
+| key_id |
+| key_type |
+| mam_compliance_url |
+| mam_enrollment_url |
+| mam_terms_of_use_url |
+| mdm_compliance_url |
+| mdm_enrollment_url |
+| mdm_terms_of_use_url |
+| nameid |
+| nbf |
+| netbios_name |
+| nonce |
+| oid |
+| on_prem_id |
+| onprem_sam_account_name |
+| onprem_sid |
+| openid2_id |
+| password |
+| platf |
+| polids |
+| pop_jwk |
+| preferred_username |
+| previous_refresh_token |
+| primary_sid |
+| puid |
+| pwd_exp |
+| pwd_url |
+| redirect_uri |
+| refresh_token |
+| refreshtoken |
+| request_nonce |
+| resource |
+| role |
+| 角色 |
+| scope |
+| scp |
+| sid |
+| signature |
+| signin_state |
+| src1 |
+| src2 |
+| sub |
+| tbid |
+| tenant_display_name |
+| tenant_region_scope |
+| thumbnail_photo |
+| tid |
+| tokenAutologonEnabled |
+| trustedfordelegation |
+| unique_name |
+| upn |
+| user_setting_sync_url |
+| username |
+| uti |
+| ver |
+| verified_primary_email |
+| verified_secondary_email |
+| wids |
+| win_ver |
 
 ### <a name="table-2-saml-restricted-claim-set"></a>表 2：SAML 受限制的宣告集
 
-|宣告類型 (URI)|
+| 宣告類型 (URI) |
 | ----- |
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
@@ -196,7 +196,7 @@ ms.locfileid: "58102096"
 |`http://schemas.microsoft.com/identity/claims/identityprovider`|
 |`http://schemas.microsoft.com/identity/claims/objectidentifier`|
 |`http://schemas.microsoft.com/identity/claims/puid`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1] `|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1]`|
 |`http://schemas.microsoft.com/identity/claims/tenantid`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
@@ -246,7 +246,7 @@ ms.locfileid: "58102096"
 
 **資料類型：** 布林值 (True 或 False)
 
-**摘要：** 此屬性會決定是否在此原則所影響到的權杖中包含基本宣告集。 
+**摘要：** 此屬性會決定是否在此原則所影響到的權杖中包含基本宣告集。
 
 - 如果設為 True，此原則所影響到的權杖中就會發出基本宣告集。 
 - 如果設為 False，權杖中將不會包含基本宣告集的宣告，除非相同原則的宣告結構描述屬性中個別新增了這些宣告。
@@ -284,51 +284,51 @@ ms.locfileid: "58102096"
 
 #### <a name="table-3-valid-id-values-per-source"></a>表 3：每個來源的有效識別碼值
 
-|來源|ID|描述|
+| 來源 | ID | 描述 |
 |-----|-----|-----|
-|使用者|surname|姓氏|
-|使用者|givenname|名字|
-|使用者|displayname|显示名称|
-|使用者|objectid|ObjectID|
-|使用者|mail|電子郵件地址|
-|使用者|userprincipalname|使用者主體名稱|
-|使用者|department|department|
-|使用者|onpremisessamaccountname|內部部署的 Sam 帳戶名稱|
-|使用者|netbiosname|NetBios 名稱|
-|使用者|dnsdomainname|Dns 網域名稱|
-|使用者|onpremisesecurityidentifier|內部部署的安全性識別碼|
-|使用者|companyname|組織名稱|
-|使用者|streetaddress|街道地址|
-|使用者|postalcode|郵遞區號|
-|使用者|preferredlanguange|慣用語言|
-|使用者|onpremisesuserprincipalname|內部部署的 UPN|
-|使用者|mailNickname|郵件暱稱|
-|使用者|extensionattribute1|擴充屬性 1|
-|使用者|extensionattribute2|擴充屬性 2|
-|使用者|extensionattribute3|擴充屬性 3|
-|使用者|extensionattribute4|擴充屬性 4|
-|使用者|extensionattribute5|擴充屬性 5|
-|使用者|extensionattribute6|擴充屬性 6|
-|User|extensionattribute7|擴充屬性 7|
-|使用者|extensionattribute8|擴充屬性 8|
-|使用者|extensionattribute9|擴充屬性 9|
-|使用者|extensionattribute10|擴充屬性 10|
-|使用者|extensionattribute11|擴充屬性 11|
-|使用者|extensionattribute12|擴充屬性 12|
-|使用者|extensionattribute13|擴充屬性 13|
-|使用者|extensionattribute14|擴充屬性 14|
-|使用者|extensionattribute15|擴充屬性 15|
-|使用者|othermail|其他郵件|
-|使用者|country|国家/地区|
-|使用者|city|City|
-|使用者|state|State|
-|使用者|jobtitle|職稱|
-|使用者|employeeid|員工識別碼|
-|使用者|facsimiletelephonenumber|傳真電話號碼|
-|application, resource, audience|displayname|顯示名稱|
-|application, resource, audience|objected|ObjectID|
-|application、resource、audience|标记|服務主體標籤|
-|公司|tenantcountry|租用戶的國家/地區|
+| 使用者 | surname | 姓氏 |
+| 使用者 | givenname | 名字 |
+| 使用者 | displayname | 显示名称 |
+| 使用者 | objectid | ObjectID |
+| 使用者 | mail | 電子郵件地址 |
+| 使用者 | userprincipalname | 使用者主體名稱 |
+| 使用者 | department|department|
+| 使用者 | onpremisessamaccountname | 在內部部署 SAM 帳戶名稱 |
+| 使用者 | netbiosname| NetBios 名稱 |
+| 使用者 | dnsdomainname | DNS 網域名稱 |
+| 使用者 | onpremisesecurityidentifier | 在內部部署安全性識別碼 |
+| 使用者 | companyname| 組織名稱 |
+| 使用者 | streetaddress | 街道地址 |
+| 使用者 | postalcode | 郵遞區號 |
+| 使用者 | preferredlanguange | 慣用語言 |
+| 使用者 | onpremisesuserprincipalname | 在內部部署 UPN |
+| 使用者 | mailNickname | 郵件暱稱 |
+| 使用者 | extensionattribute1 | 擴充屬性 1 |
+| 使用者 | extensionattribute2 | 擴充屬性 2 |
+| 使用者 | extensionattribute3 | 擴充屬性 3 |
+| 使用者 | extensionattribute4 | 擴充屬性 4 |
+| 使用者 | extensionattribute5 | 擴充屬性 5 |
+| 使用者 | extensionattribute6 | 擴充屬性 6 |
+| User | extensionattribute7 | 擴充屬性 7 |
+| 使用者 | extensionattribute8 | 擴充屬性 8 |
+| 使用者 | extensionattribute9 | 擴充屬性 9 |
+| 使用者 | extensionattribute10 | 擴充屬性 10 |
+| 使用者 | extensionattribute11 | 擴充屬性 11 |
+| 使用者 | extensionattribute12 | 擴充屬性 12 |
+| 使用者 | extensionattribute13 | 擴充屬性 13 |
+| 使用者 | extensionattribute14 | 擴充屬性 14 |
+| 使用者 | extensionattribute15 | 擴充屬性 15 |
+| 使用者 | othermail | 其他郵件 |
+| 使用者 | country | 国家/地区 |
+| 使用者 | city | City |
+| 使用者 | state | State |
+| 使用者 | jobtitle | 職稱 |
+| 使用者 | employeeid | 員工識別碼 |
+| 使用者 | facsimiletelephonenumber | 傳真電話號碼 |
+| application, resource, audience | displayname | 顯示名稱 |
+| application, resource, audience | objected | ObjectID |
+| application、resource、audience | 标记 | 服務主體標籤 |
+| 公司 | tenantcountry | 租用戶的國家/地區 |
 
 **TransformationID：** 只有在來源元素設定為「轉換」時，才必須提供 TransformationID 元素。
 
@@ -386,32 +386,32 @@ ms.locfileid: "58102096"
 
 |來源|ID|描述|
 |-----|-----|-----|
-|使用者|mail|電子郵件地址|
-|使用者|userprincipalname|使用者主體名稱|
-|使用者|onpremisessamaccountname|內部部署的 Sam 帳戶名稱|
-|使用者|employeeid|員工識別碼|
-|使用者|extensionattribute1|擴充屬性 1|
-|使用者|extensionattribute2|擴充屬性 2|
-|使用者|extensionattribute3|擴充屬性 3|
-|使用者|extensionattribute4|擴充屬性 4|
-|使用者|extensionattribute5|擴充屬性 5|
-|使用者|extensionattribute6|擴充屬性 6|
-|User|extensionattribute7|擴充屬性 7|
-|使用者|extensionattribute8|擴充屬性 8|
-|使用者|extensionattribute9|擴充屬性 9|
-|使用者|extensionattribute10|擴充屬性 10|
-|使用者|extensionattribute11|擴充屬性 11|
-|使用者|extensionattribute12|擴充屬性 12|
-|使用者|extensionattribute13|擴充屬性 13|
-|使用者|extensionattribute14|擴充屬性 14|
-|使用者|extensionattribute15|擴充屬性 15|
+| 使用者 | mail|電子郵件地址|
+| 使用者 | userprincipalname|使用者主體名稱|
+| 使用者 | onpremisessamaccountname|內部部署的 Sam 帳戶名稱|
+| 使用者 | employeeid|員工識別碼|
+| 使用者 | extensionattribute1 | 擴充屬性 1 |
+| 使用者 | extensionattribute2 | 擴充屬性 2 |
+| 使用者 | extensionattribute3 | 擴充屬性 3 |
+| 使用者 | extensionattribute4 | 擴充屬性 4 |
+| 使用者 | extensionattribute5 | 擴充屬性 5 |
+| 使用者 | extensionattribute6 | 擴充屬性 6 |
+| User | extensionattribute7 | 擴充屬性 7 |
+| 使用者 | extensionattribute8 | 擴充屬性 8 |
+| 使用者 | extensionattribute9 | 擴充屬性 9 |
+| 使用者 | extensionattribute10 | 擴充屬性 10 |
+| 使用者 | extensionattribute11 | 擴充屬性 11 |
+| 使用者 | extensionattribute12 | 擴充屬性 12 |
+| 使用者 | extensionattribute13 | 擴充屬性 13 |
+| 使用者 | extensionattribute14 | 擴充屬性 14 |
+| 使用者 | extensionattribute15 | 擴充屬性 15 |
 
 #### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>表 6：允許 SAML NameID 使用的轉換方法
 
-|TransformationMethod|限制|
+| TransformationMethod | 限制 |
 | ----- | ----- |
-|ExtractMailPrefix|None|
-|Join|所聯結的尾碼必須是資源租用戶的已驗證網域。|
+| ExtractMailPrefix | None |
+| Join | 所聯結的尾碼必須是資源租用戶的已驗證網域。 |
 
 ### <a name="custom-signing-key"></a>自訂簽署金鑰
 
@@ -437,19 +437,19 @@ ms.locfileid: "58102096"
 
 1. 下載最新的 [Azure AD PowerShell 模組公開預覽版本](https://www.powershellgallery.com/packages/AzureADPreview)。
 1. 執行 Connect 命令以登入您的 Azure AD 管理帳戶。 每次启动新会话都需要运行此命令。
-    
-     ``` powershell
-    Connect-AzureAD -Confirm
-    
-    ```
+
+   ``` powershell
+   Connect-AzureAD -Confirm
+   ```
 1. 若要查看在組織中建立的所有原則，請執行下列命令。 建議您在進行完下列案例中的大部分作業之後執行此命令，以確認原則是否如預期般地建立。
-   
-    ``` powershell
-        Get-AzureADPolicy
-    
-    ```
-   #### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>範例：建立並指派原則，以在核發給服務主體的權杖中省略基本宣告。
-   在此範例中，您將會建立原則，以從核發給連結之服務主體的權杖中移除基本宣告集。
+
+   ``` powershell
+   Get-AzureADPolicy
+   ```
+
+#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>範例：建立及指派原則，以省略基本宣告從權杖發行給服務主體
+
+在此範例中，您將會建立原則，以從核發給連結之服務主體的權杖中移除基本宣告集。
 
 1. 建立宣告對應原則。 這個連結至特定服務主體的原則會從權杖中移除基本宣告。
    1. 若要建立原則，請執行此命令： 
@@ -462,7 +462,7 @@ ms.locfileid: "58102096"
       ``` powershell
       Get-AzureADPolicy
       ```
-1. 将策略分配到服务主体。 您也需要取得服務主體的 ObjectId。 
+1. 將原則指派給服務主體。 您也需要取得服務主體的 ObjectId。
    1. 若要查看您組織的所有服務主體，您可以查詢 Microsoft Graph。 或者，在 Azure AD Graph 總管，登入您的 Azure AD 帳戶。
    2. 當您有服務主體的 ObjectId 時，執行下列命令︰  
      
@@ -475,7 +475,7 @@ ms.locfileid: "58102096"
 在此範例中，您將會建立原則，以在核發給連結之服務主體的權杖中新增 EmployeeID 和 TenantCountry。 在 SAML 權杖和 JWT 中，系統會以名稱宣告類型來發出 EmployeeID。 在 SAML 權杖和 JWT 中，系統會以國家/地區宣告類型來發出 TenantCountry。 在此範例中，我們會繼續在權杖中納入基本宣告集。
 
 1. 建立宣告對應原則。 這個連結至特定服務主體的原則會在權杖中新增 EmployeeID 和 TenantCountry 宣告。
-   1. 若要建立原則，請執行此命令：  
+   1. 若要建立原則，請執行下列命令：  
      
       ``` powershell
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
@@ -486,7 +486,7 @@ ms.locfileid: "58102096"
       ``` powershell  
       Get-AzureADPolicy
       ```
-1. 将策略分配到服务主体。 您也需要取得服務主體的 ObjectId。 
+1. 將原則指派給服務主體。 您也需要取得服務主體的 ObjectId。 
    1. 若要查看您組織的所有服務主體，您可以查詢 Microsoft Graph。 或者，在 Azure AD Graph 總管，登入您的 Azure AD 帳戶。
    2. 當您有服務主體的 ObjectId 時，執行下列命令︰  
      
@@ -499,10 +499,10 @@ ms.locfileid: "58102096"
 在此範例中，您將會建立原則，以對核發給連結之服務主體的 JWT 發出自訂宣告「JoinedData」。 這個宣告會包含藉由聯結資料 (儲存於使用者物件上的 extensionattribute1 屬性中) 與「.sandbox」所建立的值。 在此範例中，我們會在權杖中排除基本宣告集。
 
 1. 建立宣告對應原則。 這個連結至特定服務主體的原則會在權杖中新增 EmployeeID 和 TenantCountry 宣告。
-   1. 若要建立原則，請執行此命令： 
+   1. 若要建立原則，請執行下列命令：
      
       ``` powershell
-      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy" 
+      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy"
       ```
     
    2. 若要查看您的新原則並取得原則的 ObjectId，請執行下列命令： 
@@ -510,10 +510,14 @@ ms.locfileid: "58102096"
       ``` powershell
       Get-AzureADPolicy
       ```
-1. 将策略分配到服务主体。 您也需要取得服務主體的 ObjectId。 
+1. 將原則指派給服務主體。 您也需要取得服務主體的 ObjectId。 
    1. 若要查看您組織的所有服務主體，您可以查詢 Microsoft Graph。 或者，在 Azure AD Graph 總管，登入您的 Azure AD 帳戶。
    2. 當您有服務主體的 ObjectId 時，執行下列命令︰ 
      
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
+
+## <a name="see-also"></a>請參閱
+
+若要了解如何自訂在 SAML 權杖中，透過 Azure 入口網站發出的宣告，請參閱[How to:自訂的企業應用程式在 SAML 權杖中發出的宣告](active-directory-saml-claims-customization.md)

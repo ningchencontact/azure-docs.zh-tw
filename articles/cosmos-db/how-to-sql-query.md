@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 822c4631c08da27ef7b92af2df5e5e0d04f063b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f2ad46e7738582f82edcef6b54ac8234901c887d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013889"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885327"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB 的 SQL 查詢範例
 
@@ -27,7 +27,7 @@ Azure Cosmos DB 支援在 SQL API 帳戶上使用 SQL (結構化查詢語言) �
 
 讓我們建立兩個簡單的 JSON 項目，並對該資料進行查詢。 我們考慮使用兩個關於家庭的 JSON 項目，並將這些 JSON 項目插入容器中，然後查詢此資料。 這裡有 Andersen 一家和 Wakefield 一家的簡單 JSON 項目，其中包括父母、孩子 (以及寵物)、地址及登記資訊。 這個項目包含字串、數字、布林值、陣列和巢狀屬性。
 
-**項目 1**
+**Item1**
 
 ```JSON
 {
@@ -156,9 +156,9 @@ Azure Cosmos DB 支援在 SQL API 帳戶上使用 SQL (結構化查詢語言) �
 
 以下是從目前所見範例中得到的幾個 Cosmos DB 查詢語言觀點：  
 
-* 因為 SQL API 的處理對象是 JSON 值，所以它處理的是樹狀形式的實體，而不是資料列和資料行。 因此，此語言可讓您參考樹狀目錄中任意深度的節點 (例如 `Node1.Node2.Node3…..Nodem`)，該節點與參考 `<table>.<column>` 之兩個部分參考的關聯式 SQL 類似。
+* 因為 SQL API 的處理對象是 JSON 值，所以它處理的是樹狀形式的實體，而不是資料列和資料行。 因此，此語言可讓您參考樹狀目錄中任意深度的節點 (例如 `Node1.Node2.Node3….Nodem`)，該節點與參考 `<table>.<column>` 之兩個部分參考的關聯式 SQL 類似。
 
-* 結構化查詢語言可處理無結構描述的資料。因此，需要動態繫結類型系統。相同的運算式在不同的項目上可能會產生不同的類型。查詢的結果是有效的 JSON 值，但不保證會是固定的結構描述。
+* 結構化查詢語言可處理無結構描述資料。 因此，需要動態繫結類型系統。 相同的運算式可能會對不同的項目產生不同的類型。 查詢的結果會是有效的 JSON 值，但不保證會是固定的結構描述。  
 
 * Azure Cosmos DB 只支援嚴謹的 JSON 項目。 這表示類型系統和運算式只能處理 JSON 類型。 如需詳細資料，請參閱 [JSON 規格](https://www.json.org/) \(英文\)。  
 
@@ -263,7 +263,7 @@ Azure Cosmos DB 支援在 SQL API 帳戶上使用 SQL (結構化查詢語言) �
 除非稍後會在查詢中篩選或投射來源，否則 FROM <from_specification> 子句為選用子句。 若要深入了解語法，請參閱 [FROM 語法](sql-api-query-reference.md#bk_from_clause)。 類似 `SELECT * FROM Families` 的查詢指出整個 Families 容器是要列舉的來源。 可使用特殊識別碼 ROOT 來代表此容器，而不使用容器名稱。
 下列清單包含會針對每個查詢強制執行的規則：
 
-* 您可以為容器設定別名，例如 `SELECT f.id FROM Families AS f` 或只是 `SELECT f.id FROM Families f`。 此處的 `f` 即等於 `Families`。 `AS` 是對識別碼進行別名處理的選用關鍵字。  
+* 您可以為容器設定別名，例如 `SELECT f.id FROM Families AS f` 或只是 `SELECT f.id FROM Families f`。 此處的 `f` 即等於 `Families`。 `AS` 是一個選擇性的關鍵字，別名的識別碼。  
 
 * 進行別名處理之後，就無法繫結原始來源。 例如， `SELECT Families.id FROM Families f` 在語句構造上無效，因為無法再解析識別碼 "Families"。  
 
@@ -403,15 +403,15 @@ WHERE 子句 (**`WHERE <filter_condition>`**) 是選用的。 它會指定條件
 
 下表顯示 SQL API 中任何兩個 JSON 類型之間的相等比較結果。
 
-| **Op** | **未定義** | **Null** | **布林值** | **Number** | **String** | **Object** | **Array** |
+| **Op** | **Undefined** | **Null** | **BOOLEAN** | **數字** | **字串** | **Object** | **陣列** |
 |---|---|---|---|---|---|---|---|
-| **未定義** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Null** | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **布林值** | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined |
-| **Number** | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined |
-| **String** | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined |
-| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined |
-| **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** |
+| **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Null** | Undefined | **確定** | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **BOOLEAN** | Undefined | Undefined | **確定** | Undefined | Undefined | Undefined | Undefined |
+| **數字** | Undefined | Undefined | Undefined | **確定** | Undefined | Undefined | Undefined |
+| **字串** | Undefined | Undefined | Undefined | Undefined | **確定** | Undefined | Undefined |
+| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **確定** | Undefined |
+| **陣列** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **確定** |
 
 其他比較運算子 (例如 >、>=、!=、< 及 <=) 則適用下列規則：
 
@@ -538,7 +538,7 @@ IN 關鍵字可用來檢查指定的值是否符合清單中的任何值。 例�
     WHERE f.id = "AndersenFamily"
 ```
 
-**结果**
+**結果**
 
 ```json
     [{
@@ -735,7 +735,7 @@ SQL API 的另一個重要功能是建立陣列/物件。 在前一個範例中�
 
 ## <a id="TopKeyword"></a>TOP 運算子
 
-TOP 關鍵字可用於限制來自查詢的值的數目。當 TOP 與 ORDER BY 子句一起使用時，結果集會限制為前 N 個已排序的值。否則，它會以未定義的順序傳回前 N 個結果。最佳做法是在 SELECT 陳述式中，一律搭配 TOP 子句使用 ORDER BY 子句。結合這兩個子句是唯一能不意外地指出哪些資料列會受到 TOP 影響的方式。 
+TOP 關鍵字可以用來限制來自查詢的值數目。 當 TOP 與 ORDER BY 子句一起使用時，結果集會限制於前 N 個已排序的值。否則，它會以未定義的順序傳回前 N 個結果。 最佳做法是在 SELECT 陳述式中，一律搭配 TOP 子句來使用 ORDER BY 子句。 結合這兩個子句是唯一能如預期般指出哪些資料列會受到 TOP 影響的方式。 
 
 **查詢**
 
@@ -766,7 +766,7 @@ TOP 關鍵字可用於限制來自查詢的值的數目。當 TOP 與 ORDER BY �
     }]
 ```
 
-TOP 可以搭配常數值 (如上所示) 或使用參數化查詢的變數值使用。如需詳細資訊，請參考下面的參數化查詢。
+TOP 可以與常數值 (如上所示) 或使用參數化查詢的變數值搭配使用 。 有关更多详细信息，请参阅下面的参数化查询。
 
 ## <a id="Aggregates"></a>彙總函式
 
@@ -818,7 +818,7 @@ TOP 可以搭配常數值 (如上所示) 或使用參數化查詢的變數值使
     [ 1 ]
 ```
 
-下表顯示 SQL API 中支援的彙總函式清單。 `SUM` 和 `AVG` 是對數值執行，而 `COUNT`、`MIN`和 `MAX` 則可對數字、字串、布林值和 null 執行。
+下表顯示 SQL API 中支援的彙總函式清單。 `SUM` 並`AVG`會執行對數值，而`COUNT`， `MIN`，和`MAX`可以透過數字、 字串、 布林值，以及 null 執行。
 
 | 使用量 | 描述 |
 |-------|-------------|
@@ -838,7 +838,7 @@ TOP 可以搭配常數值 (如上所示) 或使用參數化查詢的變數值使
 
 ## <a id="OrderByClause"></a>ORDER BY 子句
 
-如同在 ANSI-SQL 中一樣，在查詢時可以包含選擇性的 Order By 子句。子句可以包含選擇性 ASC/DESC 引數，以指定擷取結果時必須遵循的順序。
+像是在 ANSI SQL 中，您可以在查詢時包含選擇性的 Order By 子句。 子句可以包含選擇性 ASC/DESC 引數，利用它來指定擷取結果時必須依循的順序。
 
 例如，以下是依據居住城市名稱的順序擷取家族的查詢。
 
@@ -867,7 +867,7 @@ TOP 可以搭配常數值 (如上所示) 或使用參數化查詢的變數值使
 
 以下是依據建立日期擷取家族的查詢，儲存為代表 epoch 時間的數字，也就是，自 1970 年 1 月 1 日之後經過的時間 (以秒為單位)。
 
-**查询**
+**查詢**
 
 ```sql
     SELECT f.id, f.creationDate
@@ -1409,15 +1409,15 @@ Cosmos DB 也支援一些適用於一般作業的內建函式，這些函式可�
 
 類型檢查函數可讓您檢查 SQL 查詢中的運算式類型。 類型檢查函數可在屬性類型為變數或未知時，用來快速判斷項目中的屬性類型。 以下是支援的內建類型檢查函數資料表。
 
-| **使用量** | **說明** |
+| **使用量** | **描述** |
 |-----------|------------|
 | [IS_ARRAY (expr)](sql-api-query-reference.md#bk_is_array) | 傳回布林值，表示值的類型是否為陣列。 |
-| [IS_BOOL (expr)](sql-api-query-reference.md#bk_is_bool) | 返回一个布尔值，它指示值的类型是否为布尔。 |
-| [IS_NULL (expr)](sql-api-query-reference.md#bk_is_null) | 返回一个布尔值，它指示值的类型是否为 null。 |
-| [IS_NUMBER (expr)](sql-api-query-reference.md#bk_is_number) | 返回一个布尔值，它指示值的类型是否为数字。 |
-| [IS_OBJECT (expr)](sql-api-query-reference.md#bk_is_object) | 返回一个布尔值，它指示值的类型是否为 JSON 对象。 |
-| [IS_STRING (expr)](sql-api-query-reference.md#bk_is_string) | 返回一个布尔值，它指示值的类型是否为字符串。 |
-| [IS_DEFINED (expr)](sql-api-query-reference.md#bk_is_defined) | 返回一个布尔，它指示属性是否已经分配了值。 |
+| [IS_BOOL (expr)](sql-api-query-reference.md#bk_is_bool) | 傳回布林值，表示值的類型是否為布林值。 |
+| [IS_NULL (expr)](sql-api-query-reference.md#bk_is_null) | 傳回布林值，表示值的類型是否為 null。 |
+| [IS_NUMBER (expr)](sql-api-query-reference.md#bk_is_number) | 傳回布林值，表示值的類型是否為數字。 |
+| [IS_OBJECT (expr)](sql-api-query-reference.md#bk_is_object) | 傳回布林值，表示值的類型是否為 JSON 物件。 |
+| [IS_STRING (expr)](sql-api-query-reference.md#bk_is_string) | 傳回布林值，表示值的類型是否為字串。 |
+| [IS_DEFINED (expr)](sql-api-query-reference.md#bk_is_defined) | 傳回布林值，表示屬性是否已經指派值。 |
 | [IS_PRIMITIVE (expr)](sql-api-query-reference.md#bk_is_primitive) | 傳回布林值，表示值的類型是字串、數字、布林值或 Null。 |
 
 藉由使用這些函數，您現在可以執行如下列範例所示的查詢：
@@ -1440,20 +1440,20 @@ Cosmos DB 也支援一些適用於一般作業的內建函式，這些函式可�
 
 | 使用量 | 描述 |
 | --- | --- |
-| [LENGTH (str_expr)](sql-api-query-reference.md#bk_length) | 返回指定字符串的字符数 |
+| [LENGTH (str_expr)](sql-api-query-reference.md#bk_length) | 傳回指定字串運算式的字元數目 |
 | [CONCAT (str_expr, str_expr [, str_expr])](sql-api-query-reference.md#bk_concat) | 傳回字串，該字串是串連兩個或多個字串值的結果。 |
-| [SUBSTRING (str_expr, num_expr, num_expr)](sql-api-query-reference.md#bk_substring) | 返回部分字符串表达式。 |
+| [SUBSTRING (str_expr, num_expr, num_expr)](sql-api-query-reference.md#bk_substring) | 傳回字串運算式的一部分。 |
 | [STARTSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_startswith) | 傳回布林值，表示第一個字串運算式是否以第二個字串運算式開頭 |
 | [ENDSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_endswith) | 傳回布林值，表示第一個字串運算式是否以第二個結束字串運算式做為結束 |
 | [CONTAINS (str_expr, str_expr)](sql-api-query-reference.md#bk_contains) | 傳回布林值，表示第一個字串運算式是否包含第二個字串運算式。 |
 | [INDEX_OF (str_expr, str_expr)](sql-api-query-reference.md#bk_index_of) | 傳回第一個指定的字串運算式中，第二個字串運算式第一次出現的開始位置，或者如果找不到字串，則為 -1。 |
-| [LEFT (str_expr, num_expr)](sql-api-query-reference.md#bk_left) | 返回具有指定字符数的字符串的左侧部分。 |
-| [RIGHT (str_expr, num_expr)](sql-api-query-reference.md#bk_right) | 返回具有指定字符数的字符串的右侧部分。 |
+| [LEFT (str_expr, num_expr)](sql-api-query-reference.md#bk_left) | 傳回具有指定字元數目的字串左側部分。 |
+| [右 （str_expr、 num_expr）](sql-api-query-reference.md#bk_right) | 傳回具有指定字元數目的字串右側部分。 |
 | [LTRIM (str_expr)](sql-api-query-reference.md#bk_ltrim) | 傳回移除開頭空白之後的字串運算式。 |
 | [RTRIM (str_expr)](sql-api-query-reference.md#bk_rtrim) | 傳回截斷所有結尾空白之後的字串運算式。 |
 | [LOWER (str_expr)](sql-api-query-reference.md#bk_lower) | 傳回將大寫字元資料轉換成小寫之後的字串運算式。 |
 | [UPPER (str_expr)](sql-api-query-reference.md#bk_upper) | 傳回將小寫字元資料轉換成大寫之後的字串運算式。 |
-| [REPLACE (str_expr, str_expr, str_expr)](sql-api-query-reference.md#bk_replace) | 将出现的所有指定字符串值替换为另一个字符串值。 |
+| [REPLACE (str_expr, str_expr, str_expr)](sql-api-query-reference.md#bk_replace) | 使用其他字串值取代指定的字串值的所有項目。 |
 | [REPLICATE (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/sql-api-sql-query-reference#bk_replicate) | 將字串值重複指定的次數。 |
 | [REVERSE (str_expr)](sql-api-query-reference.md#bk_reverse) | 傳回反向順序的字串值。 |
 
@@ -1720,7 +1720,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
 * 屬性/陣列索引運算式：這些運算式參照物件或陣列項目的屬性。
   
      family.Id;    family.children[0].familyName;    family.children[0].grade;    family.children[n].grade; //n is an int variable
-* 算术表达式 - 这些表达式包含数值和布尔值上的常用算术表达式。 有关完整列表，请参阅 SQL 规范。
+* 算術運算式：這些包括數值和布林值的一般算術運算式。 有关完整列表，请参阅 SQL 规范。
   
      2 * family.children[0].grade;    x + y;
 * 字串比較運算式：這些包括比較字串值與某個常數字串值。  
@@ -1757,7 +1757,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
 
 語法為 `input.Select(x => f(x))`，其中 `f` 是純量運算式。
 
-**LINQ Lambda 運算式**
+**LINQ lambda 運算式**
 
 ```csharp
     input.Select(family => family.parents[0].familyName);
@@ -1770,7 +1770,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
     FROM Families f
 ```
 
-**LINQ Lambda 運算式**
+**LINQ lambda 運算式**
 
 ```csharp
     input.Select(family => family.children[0].grade + c); // c is an int variable
@@ -1783,7 +1783,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
     FROM Families f
 ```
 
-**LINQ Lambda 運算式**
+**LINQ lambda 運算式**
 
 ```csharp
     input.Select(family => new
@@ -1806,7 +1806,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
 
 語法為 `input.SelectMany(x => f(x))`，其中 `f` 是傳回容器類型的純量運算式。
 
-**LINQ Lambda 運算式**
+**LINQ lambda 運算式**
 
 ```csharp
     input.SelectMany(family => family.children);
@@ -1823,7 +1823,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
 
 語法為 `input.Where(x => f(x))`，其中 `f` 是傳回布林值的純量運算式。
 
-**LINQ Lambda 運算式**
+**LINQ lambda 運算式**
 
 ```csharp
     input.Where(family=> family.parents[0].familyName == "Smith");
@@ -1837,7 +1837,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
     WHERE f.parents[0].familyName = "Smith"
 ```
 
-**LINQ Lambda 運算式**
+**LINQ lambda 運算式**
 
 ```csharp
     input.Where(
@@ -1862,7 +1862,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
 
 語法為 `input(.|.SelectMany())(.Select()|.Where())*`。 串連查詢的開頭可以是選用的 `SelectMany` 查詢，其後接著多個 `Select` 或 `Where` 運算子。
 
-**LINQ Lambda 運算式**
+**LINQ lambda 運算式**
 
 ```csharp
     input.Select(family=>family.parents[0])
@@ -1877,7 +1877,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
     WHERE f.parents[0].familyName = "Smith"
 ```
 
-**LINQ Lambda 運算式**
+**LINQ lambda 運算式**
 
 ```csharp
     input.Where(family => family.children[0].grade > 3)
@@ -1892,7 +1892,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
     WHERE f.children[0].grade > 3
 ```
 
-**LINQ Lambda 運算式**
+**LINQ lambda 運算式**
 
 ```csharp
     input.Select(family => new { grade=family.children[0].grade}).
@@ -1907,7 +1907,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
     WHERE ({grade: f.children[0].grade}.grade > 3)
 ```
 
-**LINQ Lambda 運算式**
+**LINQ lambda 運算式**
 
 ```csharp
     input.SelectMany(family => family.parents)
@@ -1922,13 +1922,13 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
     WHERE p.familyName = "Smith"
 ```
 
-#### <a name="nesting"></a>嵌套
+#### <a name="nesting"></a>巢狀
 
 語法為 `input.SelectMany(x=>x.Q())`，其中 Q 是 `Select`、`SelectMany` 或 `Where` 運算子。
 
 在巢狀查詢中，會將內部查詢套用至外部容器的每個項目。 其中一個重要功能是內部查詢可以參照外部容器中項目的欄位 (例如自我聯結)。
 
-**LINQ Lambda 運算式**
+**LINQ lambda 運算式**
 
 ```csharp
     input.SelectMany(family=>
@@ -1943,7 +1943,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
     JOIN p IN f.parents
 ```
 
-**LINQ Lambda 運算式**
+**LINQ lambda 運算式**
 
 ```csharp
     input.SelectMany(family =>
@@ -1959,7 +1959,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
     WHERE c.familyName = "Jeff"
 ```
 
-**LINQ Lambda 運算式**
+**LINQ lambda 運算式**
 
 ```csharp
     input.SelectMany(family => family.children.Where(
@@ -2208,7 +2208,7 @@ Cosmos DB 提供透過 HTTP 的開放 RESTful 程式設計模型。 可以使用
 
 .NET 用戶端會在 foreach 區塊中自動逐一查看查詢結果的所有頁面 (如上所示)。 .NET SDK 中也提供 REST API 小節所介紹的查詢選項，方法是在 CreateDocumentQuery 方法中使用 `FeedOptions` and `FeedResponse` 類別。 頁數可以透過 `MaxItemCount` 設定來控制。
 
-您也可以明確地控制分頁，方法是使用 `IQueryable` 物件來建立 `IDocumentQueryable`，然後讀取 ` ResponseContinuationToken` 值，並將它們以 `RequestContinuationToken` 的形式在 `FeedOptions` 中傳回。 `EnableScanInQuery` 可以設定為在設定的索引編製原則不支援查詢時啟用掃描。 對於已分割的容器，您可以使用 `PartitionKey` 針對單一分割區執行查詢 (雖然 Azure Cosmos DB 可以從查詢文字自動擷取此項)，以及使用 `EnableCrossPartitionQuery` 來執行可能需要針對多個分割區執行的查詢。
+您可以建立，以明確地控制分頁`IDocumentQueryable`使用`IQueryable`物件，然後藉由讀取`ResponseContinuationToken`做為傳回的值，並將它們`RequestContinuationToken`在`FeedOptions`。 `EnableScanInQuery` 可以設定為查詢無法支援所設定的索引編製原則時啟用掃描。 對於已分割的容器，您可以使用 `PartitionKey` 針對單一分割區執行查詢 (雖然 Azure Cosmos DB 可以從查詢文字自動擷取此項)，以及使用 `EnableCrossPartitionQuery` 來執行可能需要針對多個分割區執行的查詢。
 
 如需更多包含查詢的範例，請參閱 [Azure Cosmos DB .NET 範例](https://github.com/Azure/azure-cosmosdb-dotnet)。
 
@@ -2254,7 +2254,7 @@ Cosmos DB 提供一個程式設計模型，可使用預存程序和觸發程序�
 
 1. [Azure Cosmos DB 簡介][introduction]
 2. [Azure Cosmos DB SQL 規格](https://go.microsoft.com/fwlink/p/?LinkID=510612)
-3. [Azure Cosmos DB .NET 範例](https://github.com/Azure/azure-cosmosdb-dotnet)
+3. [Azure Cosmos DB.NET 範例](https://github.com/Azure/azure-cosmosdb-dotnet)
 4. [Azure Cosmos DB 一致性層級][consistency-levels]
 5. ANSI SQL 2011 [https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6. JSON [https://json.org/](https://json.org/)

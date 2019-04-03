@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: e8afdfece258986f5dc4cc6f1c7e66aed24e0500
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5eec77084e104f7bd541405e2ef18e5a178e869c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092543"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877783"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Azure 監視器中的容器監視解決方案
 
@@ -128,7 +128,7 @@ ms.locfileid: "58092543"
 
 - 如需如何安裝適用於 Linux 的 Log Analytics 代理程式詳細資訊和步驟，請參閱 [Log Analytics 代理程式概觀](../../azure-monitor/platform/log-analytics-agent.md)。
 
-**適用於包含 CoreOS 的所有 Linux 容器主機：**
+**適用於包含 CoreOS 所有 Linux 容器主機：**
 
 啟動您要監視的容器。 修改並使用下列範例：
 
@@ -136,7 +136,7 @@ ms.locfileid: "58092543"
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
 ```
 
-**適用於包含 CoreOS 的所有 Azure Government Linux 容器主機：**
+**適用於包含 CoreOS 所有 Azure Government Linux 容器主機：**
 
 啟動您要監視的容器。 修改並使用下列範例：
 
@@ -365,7 +365,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
         KEY:    88 bytes
         ```
 
-    5. 執行 ``` sudo kubectl create -f omsagent-ds-secrets.yaml ``` 以建立您的 omsagent daemon-set
+    5. 建立您的 omsagent daemon-set 執行 ```sudo kubectl create -f omsagent-ds-secrets.yaml```
 
 2. 確認 Log Analytics 代理程式 DaemonSet 正在執行，如下所示：
 
@@ -409,7 +409,7 @@ KEY:    88 bytes
         ```
         #> sudo bash ./secret-gen.sh
         ```
-    3. 執行 ``` kubectl create -f omsagentsecret.yaml ``` 以建立您的 omsagent daemon-set
+    3. 建立您的 omsagent daemon-set 執行 ```kubectl create -f omsagentsecret.yaml```
     4. 若要檢查，請執行下列命令：
 
         ```
@@ -436,7 +436,7 @@ KEY:    88 bytes
         KEY:    88 bytes
         ```
 
-    5. 執行 ```kubectl create -f ws-omsagent-de-secrets.yaml``` 以建立您的 omsagent daemon-set
+    5. 建立您的 omsagent daemon-set 執行 ```kubectl create -f ws-omsagent-de-secrets.yaml```
 
 2. 確認 Log Analytics 代理程式 DaemonSet 正在執行，如下所示：
 
@@ -451,7 +451,7 @@ KEY:    88 bytes
 #### <a name="use-helm-to-deploy-log-analytics-agent-on-linux-kubernetes"></a>使用 Helm 在 Linux Kubernetes 上部署 Log Analytics 代理程式
 若要使用 Helm 在 Linux Kubernetes 環境下部署 Log Analytics 代理程式，請執行下列步驟。
 
-1. 執行 ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms``` 以建立您的 omsagent daemon-set
+1. 建立您的 omsagent daemon-set 執行 ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```
 2. 結果將看起來如下所示：
 
     ```
@@ -530,7 +530,7 @@ Start-Service docker
 
 每隔三分鐘會依下列代理程式類型收集資料。
 
-- [適用於 Linux 的 Log Analytics 代理程式](../../azure-monitor/learn/quick-collect-linux-computer.md)
+- [Log Analytics Linux 代理程式](../../azure-monitor/learn/quick-collect-linux-computer.md)
 - [Windows 代理程式](../../azure-monitor/platform/agent-windows.md)
 - [Log Analytics VM 延伸模組](../../azure-monitor/learn/quick-collect-azurevm.md)
 
@@ -567,12 +567,12 @@ Start-Service docker
 
 - **容器事件** - 會顯示容器狀態和包含失敗容器的電腦。
 - **容器記錄** - 會顯示一段時間所產生的容器記錄檔圖表，和包含最大量記錄檔的電腦清單。
-- **Kubernetes 事件** - 會顯示一段時間所產生的 Kubernetes 事件圖表，和 Pod 產生事件的原因清單。 只有在 Linux 環境中才會使用此資料集。
-- **Kubernetes 命名空間清查** - 會顯示命名空間和 Pod 的數目，並顯示其階層。 只有在 Linux 環境中才會使用此資料集。
-- **容器節點清查** - 會顯示容器節點/主機上使用的協調流程類型數目。 還會依容器數目列出電腦節點/主機。 只有在 Linux 環境中才會使用此資料集。
+- **Kubernetes 事件** - 會顯示一段時間所產生的 Kubernetes 事件圖表，和 Pod 產生事件的原因清單。 *此資料集是只能用在 Linux 環境。*
+- **Kubernetes 命名空間清查** - 會顯示命名空間和 Pod 的數目，並顯示其階層。 *此資料集是只能用在 Linux 環境。*
+- **容器節點清查** - 會顯示容器節點/主機上使用的協調流程類型數目。 還會依容器數目列出電腦節點/主機。 *此資料集是只能用在 Linux 環境。*
 - **容器映像庫存** - 會顯示已使用的容器映像總數和映像類型的數目。 還會依影像標籤列出映像數目。
 - **容器狀態** - 會顯示具有執行中容器的容器節點/主機電腦總數。 還會依執行中主機的數目列出電腦。
-- **容器流程** - 會顯示一段時間執行的容器流程折線圖。 還會依容器內的執行命令/流程列出容器。 只有在 Linux 環境中才會使用此資料集。
+- **容器流程** - 會顯示一段時間執行的容器流程折線圖。 還會依容器內的執行命令/流程列出容器。 *此資料集是只能用在 Linux 環境。*
 - **容器 CPU 效能** - 會顯示一段時間電腦節點/主機的平均 CPU 使用率折線圖。 還會以平均 CPU 使用率作為基礎列出電腦節點/主機。
 - **容器記憶體效能** - 會顯示一段時間的記憶體使用量折線圖。 還會以執行個體名稱作為基礎列出電腦記憶體使用率。
 - **電腦效能** - 會顯示一段時間的 CPU 效能百分比、一段時間的記憶體使用量百分比，以及一段時間的可用磁碟空間 MB 等折線圖。 您可以將滑鼠停留在圖表中的任一行，以檢視更多詳細資料。
@@ -607,7 +607,7 @@ Log Analytics 隨即開啟，顯示您的容器狀態的相關資訊。
    ![失敗的容器](./media/containers/containers-state-failed-select.png)  
 1. 執行查詢，然後展開 若要檢視映像識別碼。 結果中的資料行  
    ![失敗的容器](./media/containers/containers-state-failed.png)  
-1. 記錄檔查詢中，輸入下列命令。 `ContainerImageInventory | where ImageID == <ImageID>`可查看關於映像的詳細資料，例如停止和失敗映像的映像大小與數目。  
+1. 記錄檔查詢中，輸入下列命令。 `ContainerImageInventory | where ImageID == <ImageID>` 若要查看詳細的映像，例如停止和失敗映像的映像大小和數目。  
    ![失敗的容器](./media/containers/containers-failed04.png)
 
 ## <a name="query-logs-for-container-data"></a>容器資料的查詢記錄

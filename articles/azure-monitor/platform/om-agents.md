@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 2768a23c217052a342538b67ec59868e25fd4914
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 19ae3322d26447cf7c7dd94d06f073ccf013738e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793810"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878345"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Operations Manager 連線到 Azure 監視器
 
@@ -221,7 +221,7 @@ ms.locfileid: "58793810"
     > 
 
 1. 從命令殼層提示字元中，輸入 `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
-1. 接著輸入 `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
+1. 下一步 的型別， `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
 1. 若要移除與其他 System Center Advisor 管理組件具有相依性的任何其餘管理組件，請使用您稍早從 TechNet 指令碼中心下載的 *RecursiveRemove.ps1* 指令碼。  
  
     > [!NOTE]
@@ -345,7 +345,7 @@ ms.locfileid: "58793810"
 未來，如果您打算將管理群組重新連接至 Log Analytics 工作區，您必須重新匯入 `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb` 管理組件檔案。 視部署在您環境中的 System Center Operations Manager 版本而定，您可以在下列位置中找到此檔案：
 
 * 在 System Center 2016 - Operations Manager 或更新版本的 `\ManagementPacks` 資料夾下方的來源媒體上。
-* 從套用到您管理群組的最新更新彙總。 若為 Operations Manager 2012，來源資料夾為 ` %ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups`，若為 2012 R2，則位於 `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups` 中。
+* 從套用到您管理群組的最新更新彙總。 來源資料夾的 Operations Manager 2012`%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups`和 2012 R2 中，針對位於`System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`。
 
 ## <a name="next-steps"></a>後續步驟
 

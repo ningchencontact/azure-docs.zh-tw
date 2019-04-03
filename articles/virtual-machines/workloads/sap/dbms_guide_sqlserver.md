@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aac7ca7aa67143f89d9247da879a6fad2cfbb7b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0c12c75bd5c357613d55e04aed67c0cc901135e6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992484"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881081"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>適用於 SAP NetWeaver 的 SQL Server Azure 虛擬機器 DBMS 部署
 
@@ -235,7 +235,6 @@ ms.locfileid: "57992484"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -316,7 +315,7 @@ ms.locfileid: "57992484"
 
 
 > [!IMPORTANT]
-> 本文件討論對象是 SQL Server 上的 Windows 版本。 SAP 不支援 Linux 版本的 SQL Server 安裝任何的 SAP 軟體。 木文件不討論 Microsoft Azure SQL Database，此為 Microsoft Azure 平台的「平台即服務」供應項目。 本白皮書中討論的是如何執行 SQL Server 產品 (已知適用於 Azure 虛擬機器中的內部部署)，以及如何運用 Azure 的「基礎架構即為服務」功能。 這兩個產品之間所提供的資料庫性能與功能並不相同，不應混用彼此。 另請參閱：<https://azure.microsoft.com/services/sql-database/>
+> 本文件討論對象是 SQL Server 上的 Windows 版本。 SAP 不支援 Linux 版本的 SQL Server 安裝任何的 SAP 軟體。 木文件不討論 Microsoft Azure SQL Database，此為 Microsoft Azure 平台的「平台即服務」供應項目。 本白皮書中討論的是如何執行 SQL Server 產品 (已知適用於 Azure 虛擬機器中的內部部署)，以及如何運用 Azure 的「基礎架構即為服務」功能。 這兩個產品之間所提供的資料庫性能與功能並不相同，不應混用彼此。 另請參閱： <https://azure.microsoft.com/services/sql-database/>
 > 
 >
 
@@ -363,7 +362,7 @@ ms.locfileid: "57992484"
 ### <a name="formatting-the-disks"></a>將磁碟格式化
 針對 SQL Server，適用於含有 SQL Server 資料和記錄檔之磁碟的 NTFS 區塊大小應該是 64 KB。 不需要將 D:\ 磁碟機格式化。 此磁碟機已預先格式化。
 
-若要確定還原或建立資料庫不會藉由清空檔案的內容來初始化資料檔，您應該確定 SQL Server 服務執行所在的使用者內容具有特定的權限。 通常，Windows 系統管理員群組中的使用者會擁有這些權限。 在非 Windows 系統管理員使用者的使用者內容中執行 SQL Server 服務時，您需要為該使用者指派**執行磁碟區維護工作**的使用者權限。  詳細資料請參閱這篇 Microsoft 知識庫文章︰<https://support.microsoft.com/kb/2574695>
+若要確定還原或建立資料庫不會藉由清空檔案的內容來初始化資料檔，您應該確定 SQL Server 服務執行所在的使用者內容具有特定的權限。 通常，Windows 系統管理員群組中的使用者會擁有這些權限。 在非 Windows 系統管理員使用者的使用者內容中執行 SQL Server 服務時，您需要為該使用者指派**執行磁碟區維護工作**的使用者權限。  請參閱 Microsoft 知識庫文件中的詳細資料： <https://support.microsoft.com/kb/2574695>
 
 ### <a name="impact-of-database-compression"></a>資料庫壓縮的影響
 在 I/O 頻寬可能變成限制因素的組態中，減少 IOPS 的每個量值可能都有助於延展您可以在類似 Azure 的 IaaS 案例中執行的工作負載。 因此，如果尚未這麼做，SAP 和 Microsoft 建議您套用 SQL Server 頁面壓縮，然後再將現有的 SAP 資料庫上傳至 Azure。
@@ -409,7 +408,7 @@ SQL Server 緩衝集區擴充搭配 SAP 工作負載時所得到的體驗有好�
 2.  SQL Server 2012 CU4 和更新版本可以將資料庫備份至 Azure 儲存體 URL。
 3.  Azure Blob 儲存體中資料庫檔案的檔案快照集備份。 只有您的 SQL Server 資料檔和記錄檔都位於 Azure blob 儲存體，這個方法才管用。
 
-第一種方法廣為人知，而且在內部部署環境的很案例中都曾用過。 不過，您要自己解決長期的備份位置。 因為您希望備份保留在本機外接 Azure 儲存體上的時間不要超過 30 天，因此您必須使用 Azure 備份服務或其他協力廠商備份/復原工具 (能管理備份的存取和保留)。 或者您可以使用 Windows 儲存體空間，在 Azure 中建立一個大型的檔案伺服器。
+第一種方法是已知且已套用在許多情況下，在內部部署世界裡。 不過，您要自己解決長期的備份位置。 因為您希望備份保留在本機外接 Azure 儲存體上的時間不要超過 30 天，因此您必須使用 Azure 備份服務或其他協力廠商備份/復原工具 (能管理備份的存取和保留)。 或者您可以使用 Windows 儲存體空間，在 Azure 中建立一個大型的檔案伺服器。
 
 [SQL Server 備份至 URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017) \(機器翻譯\) 文章會詳細描述第二種方法。 這個功能在不同的 SQL Server 版本中會出現變異。 因此，您應該參閱這個文件，檢查您的 SQL Server 究竟是哪一個版本。 請注意，這篇文章會列出很多限制。 您可能會針對以下各項來執行備份：
 
@@ -477,8 +476,8 @@ Microsoft 在 Azure Marketplace 中提供已經包含 SQL Server 版本的 VM。
 SQL Server 記錄傳送功能根本很難用於 Azure 中來實現單一 Azure 區域中的高可用性。 不過在下列情況中，SAP 客戶已成功將記錄傳送與 Azure 搭配使用：
 
 - 從一個 Azure 區域到另一個 Azure 區域的嚴重損壞修復案例
-- 從內部部署到 Azure 區域的嚴重損壞修復設定
-- 從內部部署至 Azure 的切換案例。 在這些情況下，記錄傳送是用來與進行中的生產系統內部部署，同步處理 Azure 中的新 DBMS 部署。 在切換時，會停止產生記錄並確定最後而且是最新的交易記錄備份已傳輸至 Azure DBMS 部署。 然後 Azure DBMS 部署會開啟來進行產生記錄。  
+- 從內部部署到 Azure 區域的災害復原組態
+- 剪下移轉案例從內部部署至 Azure。 在這些情況下，記錄傳送是用來與進行中的生產系統內部部署，同步處理 Azure 中的新 DBMS 部署。 在切換時，會停止產生記錄並確定最後而且是最新的交易記錄備份已傳輸至 Azure DBMS 部署。 然後 Azure DBMS 部署會開啟來進行產生記錄。  
 
 
 
@@ -487,16 +486,16 @@ SAP 支援的「資料庫鏡像」(請參閱 SAP 附註 [965908]) 有賴於在 S
 
 至於僅限雲端的部署，最簡單的方式是在 Azure 中設定另一個網域，以便讓這些 DBMS VM (最好專屬於 SAP VM) 位於一個網域。
 
-如果網域不可行，您也可以針對資料庫鏡像端點使用憑證，相關說明請見︰<https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql>
+如果網域不可行，也可以使用憑證資料庫鏡像端點，如下所述： <https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql>
 
-在 Azure 中設定資料庫鏡像的教學課程可在下列網址中找到︰<https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server> 
+若要設定 Azure 中的資料庫鏡像的教學課程可以在這裡找到： <https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server> 
 
 ### <a name="sql-server-always-on"></a>SQL Server Always On
 因為 SAP 內部部署支援 Always On (請參閱 SAP 附註 [1772688])，因此與 Azure 中的 SAP 搭配使用時，同樣得到支援。 有一些關於 SQL Server 可用性群組接聽程式 (請勿與 Azure 可用性設定組混淆) 的特殊考量，因為 Azure 可能在內部部署中，所以目前不允許建立 AD/DNS 物件。 因此，需要有一些不同的安裝步驟來克服 Azure 的特定行為。
 
 以下是使用可用性群組接聽程式的一些考量︰
 
-* 使用可用性群組接聽程式，只能使用 Windows Server 2012 或更高版本作為 VM 的客體作業系統。 針對 Windows Server 2012，務必要套用此修補程式︰<https://support.microsoft.com/kb/2854082> 
+* 使用可用性群組接聽程式，只能使用 Windows Server 2012 或更高版本作為 VM 的客體作業系統。 適用於 Windows Server 2012，您必須先確定會套用此修補程式： <https://support.microsoft.com/kb/2854082> 
 * Windows Server 2008 R2 則沒有此修補程式，必須以和使用「資料庫鏡像」相同的方式使用 AlwaysOn，方法是在連接字串中指定容錯移轉夥伴 (透過 SAP default.pfl 參數 dbs/mss/server 來完成 - 請參閱 SAP 附註 [965908])。
 * 使用可用性群組接聽程式時，資料庫 VM 需要連接到專用的負載平衡器。 為了避免 Azure 在這兩個 VM 意外關閉的情況下指派新的 IP 位址，您應該在 Always On 組態中為這些 VM 的網路介面指派靜態 IP 位址 (如需了解如何定義靜態 IP 位址，請參閱[這篇][virtual-networks-reserved-private-ip]文章)
 * 建置叢集需要指派特定 IP 位址的 WSFC 叢集組態時需要特殊的步驟，因為具有其目前功能的 Azure 會為叢集名稱指派與叢集建立所在的節點相同的 IP 位址。 這表示必須執行手動步驟，為叢集指派不同的 IP 位址。
@@ -525,13 +524,13 @@ SQL Server Always On 是 Azure for SAP 工作負載部署中，最常使用的�
 ### <a name="applying-sql-server-tde"></a>套用 SQL Server TDE
 將另一個在內部部署上執行的 DBMS，往 Azure 中執行的 Windows/SQL Server，進行異質移轉時，您應該事先在 SQL Server 建立空白的目標資料庫。 下一個步驟中，您可以套用 SQL Server TDE 功能。 雖然您仍然是在執行內部部署的生產系統。 您之所以會按照這種順序來執行，原因是空資料庫的加密程序會消耗相當長的時間。 然後在停機階段，SAP 匯入程序會將資料匯入加密的資料庫。 一個是產生額外負荷來匯入至加密的資料庫，另一個是在停機階段的匯出階段之後進行資料庫的加密，前者的影響時間沒有後者來得長。 在嘗試將資料庫上執行的 SAP 工作負載套用至 TDE 時，產生負面的體驗。 因此，建議完成 TDE 的部署時，不需要特殊資料庫上的 SAP 工作負載。
 
-將 SAP SQL Server 資料庫從內部部署移至 Azure 時，我們建議在您可以最快速套用加密的基礎結構進行測試。 請記住以下事實：
+在其中您將 SAP SQL Server 資料庫從內部部署至 Azure 的情況下，建議您測試的基礎結構，您可以取得最快速套用加密。 請記住以下事實：
 
 - 您無法定義當您將資料加密套用至資料庫時，會用到多少個執行緒。 執行緒數目主要是取決於 SQL Server 資料和記錄檔分佈的磁碟區數目。 也就是說不同的磁碟區越多 (磁碟機代號)，平行介入加密的緒行緒就越多。 這種組態與先前的磁碟組態建議衝突，也就是指為 Azure VM 中的 SQL Server 資料庫檔案，建立一或少數幾個儲存體空間。 具有少量磁碟區的組態，會導致執行加密的執行緒很少。 單一執行緒加密會讀取 64 KB 範圍，在加密之後並在交易記錄檔中寫入一筆記錄，告知已加密的範圍。 如此一來，交易記錄檔上的負載就比較適中。
-- 在舊版的 SQL Server 版本中，當您加密自己的 SQL Server 資料庫時，備份壓縮的效率會變差。 當您的計劃是加密現場部署的 SQL Server 資料庫，然後將備份複製到 Azure，以便在 Azure 中還原資料庫時，這種行為會演變成一種問題。 SQL Server 備份壓縮通常可達到因子 4 的壓縮比。
+- 在舊版的 SQL Server 版本中，當您加密自己的 SQL Server 資料庫時，備份壓縮的效率會變差。 加密 SQL Server 資料庫內部，然後將備份複製到 Azure，以在 Azure 中的將資料庫還原到您的計劃時，此行為可以開發時發生問題。 SQL Server 備份壓縮通常可達到因子 4 的壓縮比。
 - 從 SQL Server 2016 開始，SQL Server 引進了新的功能，可讓您以有效率的方式壓縮加密的資料庫。 如需詳細資訊，請參閱[這篇部落格文章](https://blogs.msdn.microsoft.com/sqlcat/2016/06/20/sqlsweet16-episode-1-backup-compression-for-tde-enabled-databases/) \(英文\)。
  
-讓 TDE 加密套用無到少量 SAP 工作負載，您應該在自己的具體組態中進行測試，以便判斷最好是將 TDE 套用至您的內部部署 SAP 資料庫，還是在 Azure 中這麼做。 在 Azure 中，套用 TDE 之後，您當然有更多彈性決定是要過度佈建或縮減基礎結構。
+將一些 SAP 工作負載只含 TDE 加密的應用程式，您應該測試您是否要套用至 SAP 資料庫內部的 TDE，或在 Azure 中這麼做更好的特定設定中。 在 Azure 中，套用 TDE 之後，您當然有更多彈性決定是要過度佈建或縮減基礎結構。
 
 ### <a name="using-azure-key-vault"></a>編輯 Azure Key Vault
 Azure 提供的 [Key Vault](https://azure.microsoft.com/services/key-vault/) 服務，可以儲存加密金鑰。 另一方面，SQL Server 提供連接器，可將 Azure Key Vault 當作是 TDE 憑證的存放區。

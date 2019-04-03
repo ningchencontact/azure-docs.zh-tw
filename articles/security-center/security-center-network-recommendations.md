@@ -3,7 +3,7 @@ title: 保護 Azure 資訊安全中心內的網路資源 | Microsoft Docs
 description: 此文件說明可協助您保護 Azure 網路資源及遵守安全性原則的 Azure 資訊安全中心建議。
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 96c55a02-afd6-478b-9c1f-039528f3dea0
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: 55318f40918833688e0c516924642c781141438c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 04/02/2019
+ms.author: monhaber
+ms.openlocfilehash: cca1962e5146300cc376fab4bcb1bf0876acec6c
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117998"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863146"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>保護 Azure 資訊安全中心內的網路資源
 Azure 資訊安全中心會持續分析 Azure 資源的安全性狀態，以獲得網路安全性最佳做法。 當資訊安全中心發現潛在的安全性弱點時，它會建立可引導您完成所需控制之設定程序的建議，以加強並保護您的資源。
@@ -30,10 +30,9 @@ Azure 資訊安全中心會持續分析 Azure 資源的安全性狀態，以獲�
 > [網路] 頁面可讓您從網路觀點深入了解您的 Azure 資源健康情況。 網路地圖和調適性網路控制僅適用於 Azure 資訊安全中心標準層。 [如果您使用免費層，可以按一下按鈕，**檢視舊版網路功能**並接收網路資源建議](#legacy-networking)。
 >
 
-[網路] 頁面提供您可以深入了解之區段的概觀，以取得網路資源健康情況的詳細資訊：
+**網路**刀鋒視窗中概述的區段，您可以深入了解，以取得您的網路資源的健全狀況的詳細資訊：
 
 - 網路地圖 (僅限 Azure 資訊安全中心標準層)
-- NSG 強化 (即將登場。 註冊預覽版)
 - 網路安全性建議。
 - 舊版 [網路] 刀鋒視窗 (先前的網路刀鋒視窗) 
  
@@ -49,7 +48,8 @@ Azure 資訊安全中心會持續分析 Azure 資源的安全性狀態，以獲�
  
 拓撲圖的預設檢視會顯示：
 - 您在 Azure 中選取的訂用帳戶。 此地圖支援多個訂用帳戶。
-- Resource Manager 資源類型的 VM、子網路和 Vnet (不支援傳統 Azure 資源)
+- Vm、 子網路和 Vnet 的 Resource Manager 資源類型 (Azure 傳統資源不支援)
+- 對等互連的 Vnet
 - 僅限包含嚴重性為高或中的[網路建議](security-center-recommendations.md)的資源  
 - 網際網路面向資源
 - 此地圖已針對您在 Azure 中選取的訂用帳戶最佳化。 如果您修改選取項目，將會根據新的設定重新計算地圖並重新最佳化。  
@@ -98,9 +98,9 @@ Azure 資訊安全中心會持續分析 Azure 資源的安全性狀態，以獲�
 
 若要向下切入到某個資源：
 1. 當您在地圖上選取特定的資源時，右窗格會開啟，並提供您資源的一般資訊、連線的安全性解決方案 (如果有的話)，以及與資源相關的建議。 對於您選取的每種類型資源而言，這是相同類型的行為。 
-2. 按一下 [流量] 可針對資源查看可能的輸出和輸入流量清單，這是誰可以與資源進行通訊、誰可以進行通訊，以及透過哪些通訊協定與連接埠的完整清單。
+2. 按一下 [流量] 可針對資源查看可能的輸出和輸入流量清單，這是誰可以與資源進行通訊、誰可以進行通訊，以及透過哪些通訊協定與連接埠的完整清單。 例如，當您選取 VM，它可以與通訊的所有 Vm 會顯示，而當您選取的子網路時，會顯示所有與通訊的子網路。
 
-**此資料是以網路安全性群組以及進階機器學習演算法為基礎，後者可以分析多個規則，以了解其交叉與互動。** 
+**這項資料為基礎的網路安全性群組，以及進階的機器學習演算法來分析多個規則，以了解其 crossovers 與互動分析。** 
 
 ![網路流量地圖](./media/security-center-network-recommendations/network-map-traffic.png)
 
@@ -128,7 +128,7 @@ Azure 資訊安全中心會持續分析 Azure 資源的安全性狀態，以獲�
 
 ## <a name="network-recommendations"></a>網路建議
 
-|資源類型|安全分數|建議|說明|
+|資源類型|安全分數|建議|描述|
 |----|----|----|----|
 |機器|40|在虛擬機器上啟用網路安全性群組|啟用網路安全性群組以控制虛擬機器的網路存取。|
 |子網路|35|在子網路上啟用網路安全性群組 |啟用網路安全性群組以控制子網路中所部署資源的網路存取。|
@@ -140,12 +140,12 @@ Azure 資訊安全中心會持續分析 Azure 資源的安全性狀態，以獲�
 |機器|10|新增新一代防火牆|新增「新一代防火牆」(NGFW) 解決方案，以加強保護網際網路對應 VM。|
 |機器|5|只透過網路閘道防火牆來路由傳送流量|為了完成新一代防火牆解決方案的部署，傳送至受保護網際網路對應 VM 的流量應該只透過新一代防火牆解決方案進行路由傳送。|
 Vnet|5|啟用 DDoS 保護標準|針對在這些虛擬網路中具有公用 IP 位址的應用程式，並未以 DDOS 保護服務標準提供保護。 建議啟用該功能，以降低網路遭受大流量攻擊與通訊協定攻擊的風險。|
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 若要深入了解適用於其他 Azure 資源類型的建議，請參閱下列文章︰
 
 * [保護 Azure 資訊安全中心內的虛擬機器](security-center-virtual-machine-recommendations.md)
 * [保護 Azure 資訊安全中心內的應用程式](security-center-application-recommendations.md)
-* [保護 Azure 資訊安全中心內的 Azure SQL 服務](security-center-sql-service-recommendations.md)
+* [保護您的 Azure SQL 服務，Azure 資訊安全中心](security-center-sql-service-recommendations.md)
 
 如要深入了解資訊安全中心，請參閱下列主題：
 

@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 1ebbce89c7a977dd9620bd8be67da647c107eadc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b2dec95e0258933b50d4437f1cb317639b62883d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55888746"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886993"
 ---
 ### <a name="upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-storsomple-adapter-for-sharepoint"></a>將 SharePoint 2010 升級至 SharePoint 2013 然後再安裝 StorSomple Adapter for SharePoint
 > [!IMPORTANT]
@@ -29,7 +29,7 @@ ms.locfileid: "55888746"
 > 基於下列原因，您應該將此升級排程於規劃的維護視窗期間：
 > 
 > * 在重新安裝配接器之前，先前已外部化的內容將無法使用。
-> * 在您解除安裝舊版 StorSimple Adapter for SharePoint 之後，安裝新版之前，任何上傳至網站的內容都將儲存在內容資料庫中。 安裝新的配接器之後，您必須將該內容移至 StorSimple 裝置。 您可以使用 SharePoint 隨附的 Microsoft` RBS Migrate()` PowerShell Cmdlet 來移轉內容。 如需詳細資訊，請參閱 [將內容移入或移出 RBS](https://technet.microsoft.com/library/ff628255.aspx)。 
+> * 在您解除安裝舊版 StorSimple Adapter for SharePoint 之後，安裝新版之前，任何上傳至網站的內容都將儲存在內容資料庫中。 安裝新的配接器之後，您必須將該內容移至 StorSimple 裝置。 您可以使用 Microsoft`RBS Migrate()`移轉內容的 SharePoint 隨附的 PowerShell cmdlet。 如需詳細資訊，請參閱 [將內容移入或移出 RBS](https://technet.microsoft.com/library/ff628255.aspx)。 
 > 
 > 
 
