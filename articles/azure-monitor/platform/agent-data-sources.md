@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: e4550dde533044260c120b17c4f72758f90e8bff
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d7d4aa89c4dcf2ac9cc0c393e0481cae1f3aeaf2
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102091"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847009"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Azure 監視器中的代理程式資料來源
-Azure 監視器從代理程式收集的資料由您設定的資料來源設定。  系統會將來自代理程式的資料連同一組記錄儲存成[記錄資料](data-collection.md)。  每個資料來源都會建立特定類型的記錄，每種類型各有自己的一組屬性。
+Azure 監視器從代理程式收集的資料由您設定的資料來源設定。  系統會將來自代理程式的資料連同一組記錄儲存成[記錄資料](data-platform-logs.md)。  每個資料來源都會建立特定類型的記錄，每種類型各有自己的一組屬性。
 
 ![記錄資料收集](media/agent-data-sources/overview.png)
 

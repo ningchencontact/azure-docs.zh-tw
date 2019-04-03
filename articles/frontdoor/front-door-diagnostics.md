@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door Service - 計量和記錄 | Microsoft Docs
-description: 此文章可協助您了解 Azure Front Door Service 支援的不同計量和存取記錄
+title: 監視計量與 Azure 前端服務中的記錄檔 |Microsoft Docs
+description: 這篇文章描述 Azure 前端服務支援的存取記錄與不同的計量
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,30 +11,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 3097f4a1716718df5d67769e234562a234623cfe
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 98aabf5330589bf80f1653bb2882c015a4bc133c
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407023"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862098"
 ---
-# <a name="monitoring-metrics-and-logs-for-front-door"></a>監視的計量和記錄檔的大門
+# <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>監視計量與 Azure 前端服務中的記錄
 
 使用 Azure 前端服務，您可以透過下列方式監視資源：
 
-* [計量](#metrics)：應用程式閘道目前有七個計量，可用來檢視效能計數器。
-* [記錄](#diagnostic-logging)：記錄能夠儲存效能、存取和其他資料，或從資源取用記錄以便進行監視。
+- **計量**。 應用程式閘道目前有七個計量，可用來檢視效能計數器。
+- **記錄檔**。 活動和診斷記錄可讓效能、 存取和儲存，或從監視等用途的資源取用的其他資料。
 
-## <a name="metrics"></a>度量
+### <a name="metrics"></a>度量
 
-計量是某些 Azure 資源的功能，可供您在入口網站中檢視效能計數器。 針對 Front Door，有下列計量可用：
+計量是可讓您在入口網站中檢視效能計數器的特定 Azure 資源的功能。 以下是可用的 「 大門 」 計量：
 
 | 計量 | 計量顯示名稱 | 單位 | 維度 | 描述 |
 | --- | --- | --- | --- | --- |
 | RequestCount | 要求計數 | 計數 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | 由 Front Door 提供服務的用戶端要求數。  |
 | RequestSize | 要求大小 | 位元組 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | 從用戶端傳送到 Front Door 之要求的位元組數。 |
 | ResponseSize | 回應大小 | 位元組 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | 從 Front Door 傳送到用戶端之回應的位元組數。 |
-| TotalLatency | 延遲總計 | 毫秒 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | 從 Front Door 接收用戶端要求一直到用戶端認可來自 Front Door 的最後回應位元組所經歷的時間。 |
+| TotalLatency | 延遲總計 | 毫秒 | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | 從用戶端要求接收的大門，直到用戶端認可最後一個回應位元組從大門，計算時間。 |
 | BackendRequestCount | 後端要求計數 | 計數 | HttpStatus</br>HttpStatusGroup</br>後端 | 從 Front Door 傳送至後端的要求數。 |
 | BackendRequestLatency | 後端要求延遲 | 毫秒 | 後端 | 從 Front Door 傳送要求到後端一直到 Front Door 從後端接收最後回應位元組所經歷的時間。 |
 | BackendHealthPercentage | 後端健康情況百分比 | 百分比 | 後端</br>BackendPool | 從 Front Door 到後端的健康情況探查成功百分比。 |
@@ -42,35 +42,36 @@ ms.locfileid: "58407023"
 
 ## <a name="activity-log"></a>活動記錄
 
-活動記錄可深入了解您的前端執行的作業。 使用活動記錄檔，您可以判斷 「 內容、 對象和時間 」 任何寫入作業 (PUT、 POST、 DELETE) 在您的前端。
+活動記錄可在前端服務上進行作業的相關資訊。 它們也可以決定內容、 對象，以及何時任何寫入作業 （put、 post 或 delete） 前端服務上。
 
-> [!NOTE]
-> 活動記錄不會納入讀取 (GET) 作業，也不會納入透過 Azure 入口網站或原始管理 API 所執行的作業。
+>[!NOTE]
+>活動記錄不包含讀取 (get) 作業。 它們也不包含您使用 Azure 入口網站或原始管理 API 執行的作業。
 
-您可以在您的大門，存取活動記錄檔，或存取 Azure 監視器中的所有 Azure 資源的記錄。 
-
-檢視活動記錄：
+在您的前端服務或 Azure 資源在 Azure 監視器中的所有記錄檔的存取活動記錄。 檢視活動記錄：
 
 1. 選取您的前端執行個體。
-2. 按一下 [活動記錄]。
+2. 選取 **活動記錄**。
 
-    ![活動記錄](./media/front-door-diagnostics/activity-log.png)
+    ![活動記錄檔](./media/front-door-diagnostics/activity-log.png)
 
-3. 選取所需的篩選範圍，然後按一下 [套用]。
+3. 選擇要篩選的範圍，然後按**套用**。
 
 ## <a name="diagnostic-logging"></a>診斷記錄
-診斷記錄可提供豐富的作業與錯誤資訊，這些資訊對於稽核和疑難排解用途來說很重要。 診斷記錄與活動記錄不同。 活動記錄可讓您深入了解 Azure 資源上所執行的作業。 診斷記錄能讓您了解資源執行的作業。 深入了解[Azure 監視器診斷記錄](../azure-monitor/platform/diagnostic-logs-overview.md)。 
+診斷記錄會提供作業和對稽核和疑難排解很重要的錯誤相關的豐富資訊。 診斷記錄與活動記錄不同。
 
-若要設定您的大門診斷記錄︰
+活動記錄可深入了解對 Azure 資源的作業。 診斷記錄檔提供深入了解您的資源執行的作業。 如需詳細資訊，請參閱 < [Azure 監視器診斷記錄](../azure-monitor/platform/diagnostic-logs-overview.md)。
 
-1. 選取您的 APIM 服務執行個體。
-2. 按一下 [診斷設定]。
+![診斷記錄檔](./media/front-door-diagnostics/diagnostic-log.png)
 
-    ![診斷記錄](./media/front-door-diagnostics/diagnostic-log.png)
+若要為您的前端服務設定診斷記錄檔：
 
-3. 按一下 [開啟診斷]。 您可以將診斷記錄連同計量封存至儲存體帳戶、將其串流至事件中樞，或將其傳送至 Azure 監視器記錄。 
+1. 選取您的 Azure API 管理服務。
 
-Azure 的前端服務目前提供的診斷記錄檔 （每小時批次處理） 關於個別 API 要求使用每個項目都有下列結構描述：
+2. 選擇**診斷設定**。
+
+3. 選取 [開啟診斷]。 封存診斷記錄連同計量的儲存體帳戶、 串流至事件中樞，或將它們傳送至 Azure 監視器記錄檔。
+
+前端服務目前會提供診斷記錄檔 （每小時批次處理）。 診斷記錄會提供每個項目都有下列結構描述中的個別 API 要求：
 
 | 屬性  | 描述 |
 | ------------- | ------------- |
@@ -91,5 +92,5 @@ Azure 的前端服務目前提供的診斷記錄檔 （每小時批次處理） 
 
 ## <a name="next-steps"></a>後續步驟
 
-- 了解如何[建立 Front Door](quickstart-create-front-door.md)。
-- 了解 [Front Door 的運作方式](front-door-routing-architecture.md)。
+- [建立 Front Door 設定檔](quickstart-create-front-door.md)
+- [前端的運作方式](front-door-routing-architecture.md)

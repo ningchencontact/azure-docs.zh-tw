@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
-ms.openlocfilehash: ad5869a2a79d41245b731409e9e4fe4c5a460b19
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: d295a5a7eae2bdc7983e7271aa11bce1840b92dd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793215"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882067"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Azure 監視器中的 wire Data 2.0 （預覽） 解決方案
 
@@ -33,7 +33,7 @@ ms.locfileid: "58793215"
 >[!NOTE]
 >如果您已部署服務對應，或考慮服務對應或[Vm 的 Azure 監視器](../../azure-monitor/insights/vminsights-overview.md)，沒有新連線計量的資料集它們收集並儲存在 Azure 監視器提供連線資料的類似資訊。
 
-根據預設，Azure 監視器會針對 CPU、 記憶體、 磁碟和網路效能資料，從 Windows 和 Linux 內建的計數器，以及其他效能計數器，您可以指定記錄資料。 針對每個代理程式，都是即時收集網路和其他資料，包括電腦使用的子網路和應用程式層級通訊協定。  Wire Data 會查看應用程式層級的網路資料，而不會往下查看 TCP 傳輸層。  解決方案不會查看個別的 ACK 和 SYN。  交握完成後，即會將它視為即時連接，並且標示為已連接。 只要兩端同意通訊端為開啟，該連接會維持為即時，且可以來回傳遞資料。  一旦任一端關閉連接，即會將它標示為已中斷連線。  因此，它只會計算已成功完成封包的頻寬，而不會回報重新傳送或失敗的封包。
+根據預設，Azure 監視器會針對 CPU、 記憶體、 磁碟和網路效能資料，從 Windows 和 Linux 內建的計數器，以及其他效能計數器，您可以指定記錄資料。 針對每個代理程式，都是即時收集網路和其他資料，包括電腦使用的子網路和應用程式層級通訊協定。  Wire Data 會查看應用程式層級的網路資料，而不會往下查看 TCP 傳輸層。  解決方案不會查看個別的 ACK 和 SYN。  交握完成後，即會將它視為即時連接，並且標示為已連接。 只要兩端同意通訊端為開啟，該連接會維持為即時，且可以來回傳遞資料。  一旦任一端關閉連接時，就會標示為已中斷連線。  因此，它只會計算已成功完成封包的頻寬，而不會回報重新傳送或失敗的封包。
 
 如果您曾經使用 [sFlow](http://www.sflow.org/) 或其他軟體來搭配 [Cisco NetFlow 通訊協定](https://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html)，則會很熟悉從連線資料傳回的統計資料和資料。
 
@@ -52,13 +52,13 @@ ms.locfileid: "58793215"
 
 當您使用連線資料來搜尋時，您可以篩選和分組資料，以檢視最常用的前幾個代理程式和通訊協定的相關資訊。 或者，您可以檢視某些電腦 (IP 位址/MAC 位址) 何時彼此通訊、持續時間，以及已傳送的資料量；基本上，就是在檢視以搜尋為基礎之網路流量的相關中繼資料。
 
-不過，因為是檢視中繼資料，在深入的疑難排解中不見得實用。 Azure 監視器中的連線資料不是完整擷取的網路資料。  不適用於封包層級的深入疑難排解。 相較於其他收集方法，使用代理程式的優點是您不必安裝應用裝置、重新設定網路交換器，或執行複雜的設定。 連線資料是以代理程式為基礎—在電腦上安裝代理程式，它就會監視自己的網路流量。 另一個優點是您想要監視雲端提供者、主機服務提供者或 Microsoft Azure 中執行的工作負載，而其中使用者未擁有網狀架構層級。
+不過，因為是檢視中繼資料，在深入的疑難排解中不見得實用。 Azure 監視器中的連線資料不是完整擷取的網路資料。  不適用於封包層級的深入疑難排解。 使用代理程式，相較於其他收集方法的優點是，您不必安裝應用裝置、 重新設定網路交換器，或執行複雜的設定。 連線資料是以代理程式為基礎—在電腦上安裝代理程式，它就會監視自己的網路流量。 另一個優點是您想要監視雲端提供者、主機服務提供者或 Microsoft Azure 中執行的工作負載，而其中使用者未擁有網狀架構層級。
 
 ## <a name="connected-sources"></a>連接的來源
 
 Wire Data 會從 Microsoft 相依性代理程式取得其資料。 相依性代理程式，取決於 Log Analytics 代理程式，以連線至 Azure 監視器。 這表示，伺服器必須先安裝 Log Analytics 代理程式，並設定 Dependency Agent。 下表描述 Wire Data 解決方案支援的連線來源。
 
-| **連線的來源** | **支援** | **說明** |
+| **連線的來源** | **支援** | **描述** |
 | --- | --- | --- |
 | Windows 代理程式 | 是 | Wire Data 會分析並收集來自 Windows 代理程式電腦的資料。 <br><br> 除了[適用於 Windows 的 Log Analytics 代理程式](../../azure-monitor/platform/agent-windows.md)以外，Windows 代理程式還需要 Microsoft 相依性代理程式。 如需作業系統版本的完整清單，請參閱[支援的作業系統](../../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems)。 |
 | Linux 代理程式 | 是 | Wire Data 會分析並收集來自 Linux 代理程式電腦的資料。<br><br> 除了[適用於 Linux 的 Log Analytics 代理程式](../../azure-monitor/learn/quick-collect-linux-computer.md)以外，Linux 代理程式還需要 Microsoft Dependency Agent。 如需作業系統版本的完整清單，請參閱[支援的作業系統](../../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems)。 |
@@ -93,6 +93,8 @@ Wire Data 會從 Microsoft 相依性代理程式取得其資料。 相依性代�
 
 #### <a name="windows-server"></a>Windows Server
 
+- Windows Server 2019
+- Windows Server 2016 1803
 - Windows Server 2016
 - Windows Server 2012 R2
 - Windows Server 2012
@@ -100,96 +102,68 @@ Wire Data 會從 Microsoft 相依性代理程式取得其資料。 相依性代�
 
 #### <a name="windows-desktop"></a>Windows 桌面
 
+- Windows 10 1803
 - Windows 10
 - Windows 8.1
 - Windows 8
 - Windows 7
 
-#### <a name="red-hat-enterprise-linux-centos-linux-and-oracle-linux-with-rhel-kernel"></a>Red Hat Enterprise Linux、CentOS Linux 和 Oracle Linux (搭載 RHEL 核心)
+#### <a name="supported-linux-operating-systems"></a>支援的 Linux 作業系統
+下列各節會列出支援的作業系統，在 Linux 上的相依性代理程式。  
 
 - 只支援預設版本和 SMP Linux 核心版本。
-- 所有 Linux 散發套件皆不支援非標準的核心版本 (例如 PAE 和 Xen)。 例如，不支援版本字串為 _2.6.16.21-0.8-xen_ 的系統。
+- 所有 Linux 散發套件皆不支援非標準的核心版本 (例如 PAE 和 Xen)。 舉例來說，版本字串為「2.6.16.21-0.8-xen」的系統就不受支援。
 - 不支援自訂核心，包括重新編譯的標準核心。
-- 不支援 CentOSPlus 核心。
-- Oracle Unbreakable Enterprise Kernel (UEK) 在本文稍後的章節有相關討論。
 
-#### <a name="red-hat-linux-7"></a>Red Hat Linux 7
+##### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 
-| **作業系統版本** | **核心版本** |
-| --- | --- |
-| 7.0 | 3.10.0-123 |
-| 7.1 | 3.10.0-229 |
-| 7.2 | 3.10.0-327 |
-| 7.3 | 3.10.0-514 |
+| 作業系統版本 | 核心版本 |
+|:--|:--|
+| 7.4 | 3.10.0-693 |
+| 7.5 | 3.10.0-862 |
+| 7.6 | 3.10.0-957 |
 
-#### <a name="red-hat-linux-6"></a>Red Hat Linux 6
+##### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 
-| **作業系統版本** | **核心版本** |
-| --- | --- |
-| 6.0 | 2.6.32-71 |
-| 6.1 | 2.6.32-131 |
-| 6.2 | 2.6.32-220 |
-| 6.3 | 2.6.32-279 |
-| 6.4 | 2.6.32-358 |
-| 6.5 | 2.6.32-431 |
-| 6.6 | 2.6.32-504 |
-| 6.7 | 2.6.32-573 |
-| 6.8 | 2.6.32-642 |
+| 作業系統版本 | 核心版本 |
+|:--|:--|
+| 6.9 | 2.6.32-696 |
+| 6.10 | 2.6.32-754 |
 
-#### <a name="red-hat-linux-5"></a>Red Hat Linux 5
+##### <a name="centosplus"></a>CentOSPlus
+| 作業系統版本 | 核心版本 |
+|:--|:--|
+| 6.9 | 2.6.32-696.18.7<br>2.6.32-696.30.1 |
+| 6.10 | 2.6.32-696.30.1<br>2.6.32-754.3.5 |
 
-| **作業系統版本** | **核心版本** |
-| --- | --- |
-| 5.8 | 2.6.18-308 |
-| 5.9 | 2.6.18-348 |
-| 5.10 | 2.6.18-371 |
-| 5.11 | 2.6.18-398 <br> 2.6.18-400 <br>2.6.18-402 <br>2.6.18-404 <br>2.6.18-406 <br> 2.6.18-407 <br> 2.6.18-408 <br> 2.6.18-409 <br> 2.6.18-410 <br> 2.6.18-411 <br> 2.6.18-412 <br> 2.6.18-416 <br> 2.6.18-417 <br> 2.6.18-419 |
+##### <a name="ubuntu-server"></a>Ubuntu Server
 
-#### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux 搭載 Unbreakable Enterprise Kernel
+| 作業系統版本 | 核心版本 |
+|:--|:--|
+| Ubuntu 18.04 | kernel 4.15.\*<br>4.18* |
+| Ubuntu 16.04.3 | 核心 4.15.* |
+| 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
+| 14.04 | 3.13.\*<br>4.4.\* |
 
-#### <a name="oracle-linux-6"></a>Oracle Linux 6
+##### <a name="suse-linux-11-enterprise-server"></a>SUSE Linux 11 Enterprise Server
 
-| **作業系統版本** | **核心版本** |
-| --- | --- |
-| 6.2 | Oracle 2.6.32-300 (UEK R1) |
-| 6.3 | Oracle 2.6.39-200 (UEK R2) |
-| 6.4 | Oracle 2.6.39-400 (UEK R2) |
-| 6.5 | Oracle 2.6.39-400 (UEK R2 i386) |
-| 6.6 | Oracle 2.6.39-400 (UEK R2 i386) |
+| 作業系統版本 | 核心版本
+|:--|:--|
+| 11 SP4 | 3.0.* |
 
-#### <a name="oracle-linux-5"></a>Oracle Linux 5
+##### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
-| **作業系統版本** | **核心版本** |
-| --- | --- |
-| 5.8 | Oracle 2.6.32-300 (UEK R1) |
-| 5.9 | Oracle 2.6.39-300 (UEK R2) |
-| 5.10 | Oracle 2.6.39-400 (UEK R2) |
-| 5.11 | Oracle 2.6.39-400 (UEK R2) |
+| 作業系統版本 | 核心版本
+|:--|:--|
+| 12 SP2 | 4.4.* |
+| 12 SP3 | 4.4.* |
 
-#### <a name="suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server
+### <a name="dependency-agent-downloads"></a>Dependency Agent 下載
 
-#### <a name="suse-linux-11"></a>SUSE Linux 11
-
-| **作業系統版本** | **核心版本** |
-| --- | --- |
-| 11 | 2.6.27 |
-| 11 SP1 | 2.6.32 |
-| 11 SP2 | 3.0.13 |
-| 11 SP3 | 3.0.76 |
-| 11 SP4 | 3.0.101 |
-
-#### <a name="suse-linux-10"></a>SUSE Linux 10
-
-| **作業系統版本** | **核心版本** |
-| --- | --- |
-| 10 SP4 | 2.6.16.60 |
-
-#### <a name="dependency-agent-downloads"></a>相依性代理程式下載
-
-| **檔案** | **作業系統** | **版本** | **SHA-256** |
-| --- | --- | --- | --- |
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) |  Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) |  Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
+| 檔案 | 作業系統 | 版本 | SHA-256 |
+|:--|:--|:--|:--|
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) |  Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) |  Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
 
 
 
@@ -197,13 +171,14 @@ Wire Data 會從 Microsoft 相依性代理程式取得其資料。 相依性代�
 
 執行下列步驟來設定您工作區的 Wire Data 解決方案。
 
-1. 啟用活動 Log Analytics 解決方案，從[Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview)或使用中的程序[從方案庫新增 mnitoring 解決方案](../../azure-monitor/insights/solutions.md)。
+1. 啟用活動 Log Analytics 解決方案，從[Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview)或使用中的程序[監視解決方案，從方案庫新增](../../azure-monitor/insights/solutions.md)。
 2. 在您想要取得資料的每部電腦上安裝相依性代理程式。 相依性代理程式可以監視緊接鄰近點的連線，因此您可能不需要在每部電腦上都有代理程式。
 
 > [!NOTE]
 > 您無法將舊版 Wire Data 解決方案新增至新的工作區。 如果您已啟用原始 Wire Data 解決方案，您可以繼續使用。 不過，若要使用 Wire Data 2.0，您必須先移除原始版本。
 > 
-> ### <a name="install-the-dependency-agent-on-windows"></a>在 Windows 上安裝相依性代理程式
+ 
+### <a name="install-the-dependency-agent-on-windows"></a>在 Windows 上安裝相依性代理程式
 
 必須有系統管理員權限，以便安裝或解除安裝代理程式。
 
@@ -212,7 +187,7 @@ Wire Data 會從 Microsoft 相依性代理程式取得其資料。 相依性代�
 請使用下列步驟在每部執行 Windows 的電腦上安裝相依性代理程式：
 
 1. 依照[為混合式環境中的 Windows 電腦設定 Log Analytics 代理程式](../../azure-monitor/platform/agent-windows.md)一文中的步驟，安裝 Log Analytics 代理程式。
-2. 使用上一節中的連結來下載 Windows 相依性代理程式，然後使用下列命令來執行：`InstallDependencyAgent-Windows.exe`
+2. 下載 Windows 相依性代理程式使用上一節中的連結，然後執行它使用下列命令： `InstallDependencyAgent-Windows.exe`
 3. 遵循精靈來安裝代理程式。
 4. 如果相依性代理程式無法啟動，請檢查記錄檔以取得詳細的錯誤資訊。 針對 Windows 代理程式，記錄檔的目錄是 %Programfiles%\Microsoft Dependency Agent\logs。
 
@@ -222,7 +197,7 @@ Wire Data 會從 Microsoft 相依性代理程式取得其資料。 相依性代�
 
 InstallDependencyAgent-Windows.exe /?
 
-| **旗標** | **說明** |
+| **旗標** | **描述** |
 | --- | --- |
 | <code>/?</code> | 取得命令列選項的清單。 |
 | <code>/S</code> | 執行無訊息安裝，不會出現任何使用者提示。 |
@@ -247,7 +222,7 @@ Windows 相依性代理程式的檔案預設位於 C:\Program Files\Microsoft De
 InstallDependencyAgent-Linux64.bin -help
 ```
 
-| **旗標** | **說明** |
+| **旗標** | **描述** |
 | --- | --- |
 | <code>-help</code> | 取得命令列選項的清單。 |
 | <code>-s</code> | 執行無訊息安裝，不會出現任何使用者提示。 |
@@ -368,8 +343,6 @@ rpm -e dependency-agent dependency-agent-connector
 
 ## <a name="using-the-solution"></a>使用解決方案
 
-**安裝和設定解決方案**
-
 請使用下列資訊來安裝和設定方案。
 
 - 連線資料方案會從執行 Windows Server 2012 R2、Windows 8.1 和更新版本作業系統的電腦取得資料。
@@ -385,7 +358,7 @@ rpm -e dependency-agent dependency-agent-connector
 
 在 Azure 入口網站 Log Analytics 工作區的 [概觀] 頁面中，按一下 [Wire Data 2.0] 磚以開啟 [Wire Data] 儀表板。 此儀表板包含下表中的刀鋒視窗。 每個刀鋒視窗最多會列出 10 個與該刀鋒視窗中指定範圍和時間範圍的準則相符的項目。 您可以按一下刀鋒視窗底部的 [查看全部]，或按一下刀鋒視窗標頭，以執行記錄搜尋來傳回所有記錄。
 
-| **刀鋒視窗** | **說明** |
+| **刀鋒視窗** | **描述** |
 | --- | --- |
 | 擷取網路流量的代理程式數 | 顯示擷取網路流量的代理程式數，並列出擷取最多流量的前 10 部電腦。 按一下此數字可執行記錄搜尋，以搜尋 <code>WireData \| summarize sum(TotalBytes) by Computer \| take 500000</code>。 按一下清單中的電腦可執行記錄搜尋，以傳回擷取的位元組總數。 |
 | 區域子網路數 | 顯示代理程式探索到的區域子網路數。  按一下此數字可執行記錄搜尋，以搜尋 <code>WireData \| summarize sum(TotalBytes) by LocalSubnet</code>，其中列出所有子網路及透過每個子網路傳送的位元組數目。 按一下清單中的子網路可執行記錄搜尋，以傳回透過子網路傳送的位元組總數。 |

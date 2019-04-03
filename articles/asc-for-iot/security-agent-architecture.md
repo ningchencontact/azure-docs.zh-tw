@@ -1,31 +1,31 @@
 ---
 title: 了解 Azure 資訊安全中心的 IoT 安全性代理程式架構預覽 |Microsoft Docs
 description: 了解使用 Azure 資訊安全中心的 IoT 服務的代理程式安全性代理程式架構。
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: e78523ae-d70a-456a-818d-f8b1b025d7cb
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 83ac2fd1d322dc3fb3c04cdf44d560c392320f91
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: e10cd3f60c3b12c6d5115ff34f4cbde2ef19d9fd
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754167"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862806"
 ---
 # <a name="security-agent-reference-architecture"></a>安全性代理程式參考架構
 
 > [!IMPORTANT]
 > IoT 的 azure 資訊安全中心目前處於公開預覽狀態。
-> 此預覽版的服務等級協定，不提供，且不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 
 IoT 的 azure 資訊安全中心 (ASC) 提供參考架構的安全性記錄、 處理、 彙總，以及傳送到 IoT 中樞的安全性資料的代理程式。

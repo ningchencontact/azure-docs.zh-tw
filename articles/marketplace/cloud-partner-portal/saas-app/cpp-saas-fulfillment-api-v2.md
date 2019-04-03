@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 81213d1f7cfeb7ea10cdadfb124047ecb76aa7d4
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 6d18adfaec965d858bdcb1f74ebcea89f57eea39
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352080"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878021"
 ---
 # <a name="saas-fulfillment-api"></a>SaaS 履行 API
 
@@ -648,7 +648,7 @@ ISV 會起始變更計劃] 或 [變更數量。 <br>
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      |  ` application/json`   |
+|  Content-Type      |  `application/json`   |
 |  x-ms-requestid    |   用於追蹤用戶端要求的特殊字串值，最好是全域唯一識別碼 (GUID)。 如果未提供此值，則回應標頭中會產生並提供一個。  |
 |  x-ms-correlationid |  用於用戶端作業的特殊字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。  |
 |  授權     | JSON Web 權杖 (JWT) 持有人權杖。  |

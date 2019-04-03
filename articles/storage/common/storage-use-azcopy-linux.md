@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: 1059dec80dcca80380b58aa8057162679496adc6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 0f87645537576f49ee04b823341acf8853798f88
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467368"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882220"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>使用 AzCopy on Linux 傳送資料
 
@@ -102,7 +102,7 @@ azcopy \
     --source-key <key> 
 ```
 
-如果資料夾 `/mnt/myfiles` 不存在，AzCopy 會加以建立並將 `abc.txt ` 下載到新資料夾。 
+如果資料夾 `/mnt/myfiles` 不存在，AzCopy 會加以建立並將 `abc.txt` 下載到新資料夾。 
 
 ### <a name="download-single-blob-from-secondary-region"></a>從次要地區下載單一 Blob
 
@@ -125,7 +125,7 @@ azcopy \
     --recursive
 ```
 
-假設下列 Blob 位於指定容器中：  
+假定指定的容器中存在以下 blob：  
 
 ```
 abc.txt
@@ -291,7 +291,7 @@ azcopy \
     --recursive
 ```
 
-假設下列檔案位於 `/mnt/myfiles`資料夾內：
+假定以下文件位于文件夹 `/mnt/myfiles` 中：
 
 ```
 /mnt/myfiles/abc.txt
@@ -302,7 +302,7 @@ azcopy \
 /mnt/myfiles/subfolder/abcd.txt
 ```
 
-上傳作業之後，容器會包含下列檔案：
+上传操作完成后，容器中将包括以下文件：
 
 ```
 abc.txt
@@ -320,7 +320,7 @@ abc1.txt
 abc2.txt
 ```
 
-### <a name="specify-the-mime-content-type-of-a-destination-blob"></a>指定目的地 blob 的 MIME 內容類型
+### <a name="specify-the-mime-content-type-of-a-destination-blob"></a>指定目标 blob 的 MIME 内容类型
 根據預設，AzCopy 會將目的地 blob 的內容類型設定為 `application/octet-stream`。 但是，您可以透過 `--set-content-type [content-type]` 選項明確指定內容類型。 此語法會在上傳作業中設定所有 Blob 的內容類型。
 
 ```azcopy
@@ -344,7 +344,7 @@ azcopy \
 ```
 
 ### <a name="customizing-the-mime-content-type-mapping"></a>自訂 MIME 內容類型對應
-AzCopy 所使用的設定檔中會包含副檔名與內容類型的對應。 您可以視需要自訂這個對應並新增配對。 此對應位於 ```/usr/lib/azcopy/AzCopyConfig.json```
+AzCopy 所使用的設定檔中會包含副檔名與內容類型的對應。 您可以視需要自訂這個對應並新增配對。 對應是位於  ```/usr/lib/azcopy/AzCopyConfig.json```
 
 ## <a name="blob-copy"></a>Blob：複製
 ### <a name="copy-single-blob-within-storage-account"></a>複製儲存體帳戶內的單一 Blob
@@ -418,7 +418,7 @@ azcopy \
     --sync-copy
 ```
 
-相較於非同步複製，`--sync-copy` 可能會產生額外的輸出成本。 建議的方法是在與您來源儲存體帳戶位於同一區域的 Azure VM 中使用這個選項，以避免產生輸出成本。
+`--sync-copy` 可能會產生額外的輸出成本，相較於非同步複製。 建議的方法是在與您來源儲存體帳戶位於同一區域的 Azure VM 中使用這個選項，以避免產生輸出成本。
 
 ## <a name="file-download"></a>檔案：下載
 ### <a name="download-single-file"></a>下載單一檔案
@@ -529,11 +529,11 @@ azcopy \
 
 從檔案儲存體複製到 Blob 儲存體時，預設的 Blob 類型是區塊 Blob，使用者可以指定 `--blob-type page` 選項來變更目的地 Blob 類型。 可用的類型為 `page | block | append`。
 
-請注意，相較於非同步複製，`--sync-copy` 可能會產生額外的輸出成本。 建議的方法是在與您來源儲存體帳戶位於同一區域的 Azure VM 中使用這個選項，以避免產生輸出成本。
+請注意，相較於非同步複製，`--sync-copy` 可能會產生額外的輸出成本。 在与源存储帐户所在的同一区域的 Azure VM 中，建议使用此选项，避免产生数据传出费用。
 
 ## <a name="other-azcopy-features"></a>其他 AzCopy 功能
 ### <a name="only-copy-data-that-doesnt-exist-in-the-destination"></a>只複製目的地中沒有的資料
-`--exclude-older` 和 `--exclude-newer` 參數分別可讓您在複製作業中排除較舊或較新的來源資源。 如果您只想複製目的地中沒有的來源資源，則可以在 AzCopy 命令中同時指定這兩個參數：
+`--exclude-older` 和 `--exclude-newer` 參數分別可讓您在複製作業中排除較舊或較新的來源資源。 如果只想复制目标中不存在的源资源，可以在 AzCopy 命令中指定这两个参数：
 
     --source http://myaccount.blob.core.windows.net/mycontainer --destination /mnt/myfiles --source-key <sourcekey> --recursive --exclude-older --exclude-newer
 
@@ -547,13 +547,13 @@ azcopy \
 azcopy --config-file "azcopy-config.ini"
 ```
 
-您可以在組態檔中包含任何 AzCopy 命令列參數。 AzCopy 處理檔案中的參數，就好像在命令列上指定這些參數一様，執行使用檔案內容的直接取代。
+您可以在組態檔中包含任何 AzCopy 命令列參數。 AzCopy 会像处理在命令行上指定的参数一样处理该文件中的参数，使用该文件的内容执行直接替换。
 
 假設名為 `copyoperation` 且包含下列資料行的組態檔。 每個 AzCopy 參數可以指定在同一行。
 
     --source http://myaccount.blob.core.windows.net/mycontainer --destination /mnt/myfiles --source-key <sourcekey> --recursive --quiet
 
-或不同行：
+每个 AzCopy 参数：
 
     --source http://myaccount.blob.core.windows.net/mycontainer
     --destination /mnt/myfiles
@@ -705,7 +705,7 @@ azcopy \
 ### <a name="azure-storage-documentation"></a>Azure 儲存體文件：
 * [Azure 儲存體簡介](../storage-introduction.md)
 * [建立儲存體帳戶](../storage-create-storage-account.md)
-* [使用儲存體總管來管理 Blob](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs) \(英文\)
+* [使用儲存體總管來管理 Blob](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
 * [使用 Azure CLI 搭配 Azure 儲存體](../storage-azure-cli.md)
 * [如何使用 C++ 的 Blob 儲存體](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [如何使用 Java 的 Blob 儲存體](../blobs/storage-java-how-to-use-blob-storage.md)
@@ -713,12 +713,12 @@ azcopy \
 * [如何使用 Python 的 Blob 儲存體](../blobs/storage-python-how-to-use-blob-storage.md)
 
 ### <a name="azure-storage-blog-posts"></a>Azure 儲存體部落格文章：
-* [宣告 AzCopy on Linux 預覽](https://azure.microsoft.com/blog/announcing-azcopy-on-linux-preview/) \(英文\)
-* [Azure 儲存體資料移動文件庫預覽簡介](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
-* [AzCopy：簡介同步複製和自訂內容類型](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
-* [AzCopy：宣布正式發行 AzCopy 3.0 和具有資料表和檔案支援的 AzCopy 4.0 預覽版本](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
-* [AzCopy：針對大規模複製案例最佳化](https://go.microsoft.com/fwlink/?LinkId=507682)
-* [AzCopy：支援讀取存取異地備援儲存體](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
-* [AzCopy：使用可重新啟動模式和 SAS 權杖傳輸資料](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
-* [AzCopy：使用跨帳戶複製 Blob](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
-* [AzCopy：上傳/下載 Azure Blob 的檔案](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
+* [宣告 AzCopy on Linux 預覽](https://azure.microsoft.com/blog/announcing-azcopy-on-linux-preview/)
+* [簡介 Azure 儲存體資料移動程式庫預覽](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
+* [AzCopy:簡介同步複製和自訂內容類型](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
+* [AzCopy:宣布的 AzCopy 3.0 一般可用性，以及預覽版本的 AzCopy 4.0 與資料表和檔案支援](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
+* [AzCopy:針對大規模複製案例最佳化](https://go.microsoft.com/fwlink/?LinkId=507682)
+* [AzCopy:讀取權限異地備援儲存體的支援](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
+* [AzCopy:使用可重新啟動模式和 SAS 權杖傳輸資料](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
+* [AzCopy:使用跨帳戶複製 Blob](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
+* [AzCopy:將檔案上傳/下載 Azure blob](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)

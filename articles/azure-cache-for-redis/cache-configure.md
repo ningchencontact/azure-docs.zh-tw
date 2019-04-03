@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 5e4fc40a9b6cfc945670bcd497d4b13af61f2f2f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 6bf42406c97ccb67251a14a7a963d3da2e01dbb4
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817757"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849975"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>如何設定 Azure Redis 快取
 本主題說明您「Azure Redis 快取」執行個體可用的設定。 本主題也涵蓋適用於「Azure Redis 快取」執行個體的預設 Redis 伺服器設定。
@@ -356,10 +356,10 @@ Redis Keyspace 通知是在 [進階設定]  刀鋒視窗上進行設定。 Keysp
 
 ### <a name="diagnostics"></a>診斷
 
-根據預設，Azure 監視器中的快取計量會[儲存 30 天](../azure-monitor/platform/data-collection.md#metrics)，而後刪除。 若要保存您的快取計量超過 30 天，按一下 [診斷] 以[設定用來儲存快取診斷的儲存體帳戶](cache-how-to-monitor.md#export-cache-metrics)。
+根據預設，Azure 監視器中的快取計量會[儲存 30 天](../azure-monitor/platform/data-platform-metrics.md)，而後刪除。 若要保存您的快取計量超過 30 天，按一下 [診斷] 以[設定用來儲存快取診斷的儲存體帳戶](cache-how-to-monitor.md#export-cache-metrics)。
 
 >[!NOTE]
->除了封存至儲存體快取計量，您也可以[串流至事件中樞，或將它們傳送至 Azure 監視器記錄](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)。
+>除了将缓存指标存档到存储中外，还可以[将其流式传输到事件中心或将其发送到 Azure Monitor 日志](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)。
 >
 >
 

@@ -13,56 +13,63 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/26/2017
   ms.author: carolz
-  ms.openlocfilehash: be041068388fffc0a5333370c76c4d6f59f318ba
-  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-  ms.translationtype: HT
-  ms.contentlocale: zh-TW
-  ms.lasthandoff: 05/07/2018
-  ms.locfileid: "33767949"
 abstract:
   description: Azure Container Registry 可讓您建置、儲存和管理所有容器部署類型的映像。 了解如何透過我們的快速入門、教學課程和範例來使用 Azure Container Registry。
 sections:
-- title: 5 分鐘快速入門
-  items:
-  - type: paragraph
-    text: 了解如何部署 Azure Container Registry。
-  - type: list
-    style: icon48
+  - title: 5 分鐘快速入門
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
-      text: Azure CLI
-      href: /azure/container-registry/container-registry-get-started-azure-cli
-    - image:
-        src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Azure 入口網站
-      href: /azure/container-registry/container-registry-get-started-portal
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_powershell.svg
-      text: Azure PowerShell
-      href: /azure/container-registry/container-registry-get-started-powershell
-- title: 逐步教學課程
-  items:
-  - type: paragraph
-    text: 了解如何透過這些教學課程來使用 Azure Container Registry。
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 了解如何部署 Azure Container Registry。
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
+            text: Azure CLI
+            href: /azure/container-registry/container-registry-get-started-azure-cli
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Azure 入口網站
+            href: /azure/container-registry/container-registry-get-started-portal
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
+            text: Azure PowerShell
+            href: /azure/container-registry/container-registry-get-started-powershell
+  - title: 逐步教學課程
     items:
-    - html: <a href="/azure/container-registry/container-registry-tutorial-quick-build">使用 ACR 組建建置容器映像 (預覽)</a>
-    - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">容器登錄異地複寫</a>
-    - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Container Registry 搭配 Azure Container Instances</a>
-    - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Container Registry 搭配 Azure Kubernetes Service (AKS)</a>
-    - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">容器登錄搭配 Service Fabric</a>
-- title: 參考
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 了解如何透過這些教學課程來使用 Azure Container Registry。
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/container-registry/container-registry-tutorial-quick-build">使用 ACR 工作建置容器映像</a>
+          - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">容器登錄異地複寫</a>
+          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Container Registry 搭配 Azure Container Instances</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Container Registry 搭配 Azure Kubernetes Service (AKS)</a>
+          - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">容器登錄搭配 Service Fabric</a>
+  - title: 透過 Microsoft Learn 增進您的技巧
     items:
-    - title: 命令列
-      html: <p><a href="/cli/azure/acr">Azure CLI</a></p><p><a href="/powershell/module/azurerm.containerregistry">PowerShell</a></p>
-    - title: 語言
-      html: <p><a href="/dotnet/api/overview/azure/containerregistry">.NET</a></p><p><a href="/python/api/overview/azure/container-registry">Python</a></p><p><a href="/java/api/overview/azure/containerregistry">Java</a></p><p><a href="/javascript/api/overview/azure/container-registry">Node.js</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/containerregistry">REST API 參考</a></p><p><a href="/azure/templates/microsoft.containerregistry/registries">Resource Manager 範本</a></p><p><a href="/azure/container-registry/container-registry-webhook-reference">Webhook 結構描述</a></p>
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: 使用 Azure Container Registry 建置及存放容器映像
+            href: /learn/modules/build-and-store-container-images/
+            image:
+              src: /learn/achievements/build-and-store-container-images.svg
+              href: /learn/modules/build-and-store-container-images/
+      - type: paragraph
+        text: <a href="/learn/browse/?products=azure-container-registry">更多互動式學習...</a>
+  - title: 參考
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 命令列
+            html: <p><a href="/cli/azure/acr">Azure CLI</a></p><p><a href="/powershell/module/az.containerregistry">PowerShell</a></p>
+          - title: Languages
+            html: <p><a href="/dotnet/api/overview/azure/containerregistry">.NET</a></p><p><a href="/python/api/overview/azure/container-registry">Python</a></p><p><a href="/java/api/overview/azure/containerregistry">Java</a></p><p><a href="/javascript/api/overview/azure/container-registry">Node.js</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/containerregistry">REST API 參考</a></p><p><a href="/azure/templates/microsoft.containerregistry/registries">Resource Manager 範本</a></p><p><a href="/azure/container-registry/container-registry-webhook-reference">Webhook 結構描述</a></p>

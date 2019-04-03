@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: a5ebd50b3a5fe3b611bae28db98979eee40f9490
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4be52fbc6d9fb01ac3cd3c0954042c35b45bbf23
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899021"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884358"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure 監視器中的 Azure 儲存體計量
 
@@ -284,9 +284,9 @@ Azure 監視器提供[.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.M
 
 資源識別碼是 Azure 資源的唯一識別碼。 當您使用 Azure 監視器 REST API 來讀取計量定義或值時，就必須對所要操作的資源使用資源識別碼。 資源識別碼範本會遵循下列格式：
 
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-`
+```
 
 儲存體會對 Azure 監視器提供儲存體帳戶層級和服務層級的計量。 例如，您只能擷取 Blob 儲存體的計量。 每個層級都有自己的資源識別碼，以便用來只擷取該層級的計量。
 
@@ -294,34 +294,38 @@ Azure 監視器提供[.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.M
 
 以下顯示用來指定儲存體帳戶資源識別碼的格式。
 
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}
-`
+```
 
 ### <a name="resource-id-for-the-storage-services"></a>儲存體服務的資源識別碼
 
 以下顯示用來指定每個儲存體服務之資源識別碼的格式。
 
-* Blob 服務資源識別碼`
+* Blob 服務資源識別碼
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default
-`
-* 表格服務資源識別碼`
+```
+* 表格服務資源識別碼
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/tableServices/default
-`
-* 佇列服務資源識別碼`
+```
+* 佇列服務資源識別碼
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
-`
-* 檔案服務資源識別碼`
+```
+* 檔案服務資源識別碼
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
-`
+```
 
 ### <a name="resource-id-in-azure-monitor-rest-api"></a>Azure 監視器 REST API 中的資源識別碼
 
 以下顯示在呼叫 Azure 監視器 REST API 時所使用的模式。
 
-`
+```
 GET {resourceId}/providers/microsoft.insights/metrics?{parameters}
-`
+```
 
 ## <a name="capacity-metrics"></a>容量度量
 容量計量值會每隔一小時就傳送給 Azure 監視器。 這些值會每天重新整理。 時間粒紋會定義用來呈現計量值的時間間隔。 所有容量計量支援的時間粒紋為一小時 (PT1H)。
@@ -406,11 +410,11 @@ Azure 儲存體支援下列 Azure 監視器計量維度。
 
 否，Azure 監視器中的新計量只支援 Azure Resource Manager 儲存體帳戶。 如果您想要在儲存體帳戶上使用計量，則必須遷移至 Azure Resource Manager 儲存體帳戶。 請參閱[遷移至 Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview)。
 
-**Azure 儲存體是否支援受控磁碟或非受控磁碟的計量？**
+**Azure 儲存體支援度量的受控磁碟或非受控磁碟？**
 
 否。Azure 計算支援磁碟的計量。 如需詳細資訊，請參閱[這篇文章](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/)。
 
-**如何將傳統計量對應和遷移至新計量？**
+**如何將對應和移轉傳統的計量，新計量？**
 
 您可以在 [Azure 儲存體計量移轉](./storage-metrics-migration.md)中找到傳統計量與新計量之間的詳細對應。
 

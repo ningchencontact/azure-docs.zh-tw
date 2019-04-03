@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: 7386f6bd92143cf3fb7b37725900425f99371cd0
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 9d121146924eb153227e35d608a3c6c33aae31a1
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804987"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862602"
 ---
 # <a name="monitor-azure-app-service-performance"></a>監視 Azure App Service 效能
 
@@ -99,9 +99,9 @@ ms.locfileid: "58804987"
 * 選取 **設定**> * * * * 應用程式設定 * * *
    * 在應用程式設定 下加入新**應用程式設定名稱**並**值**:
 
-     名稱：`APPINSIGHTS_JAVASCRIPT_ENABLED`
+     名稱： `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     值: `true`
+     值： `true`
 
    * **儲存**設定並**重新啟動**您的應用程式。
 
@@ -120,7 +120,7 @@ ms.locfileid: "58804987"
 
      名稱： `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
-     值: `false`
+     值： `false`
 
    * **儲存**設定並**重新啟動**您的應用程式。
 
@@ -137,7 +137,7 @@ ms.locfileid: "58804987"
 |應用程式設定名稱 |  定義 | 值 |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | 主要擴充功能，控制執行階段監視。 | `~2` |
-|XDT_MicrosoftApplicationInsights_Mode |  在預設模式的唯一、 不可或缺的功能會啟用以確保最佳效能。 | `default` 或 `recommended`。 |
+|XDT_MicrosoftApplicationInsights_Mode |  在預設模式的唯一、 不可或缺的功能會啟用以確保最佳效能。 | `default` 或`recommended`。 |
 |InstrumentationEngine_EXTENSION_VERSION | 如果可控制二進位重寫引擎`InstrumentationEngine`將會開啟。 此設定會影響效能，並會影響冷起始/啟動時間。 | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | 如果 SQL 和 Azure 資料表的文字控制項將會擷取以及相依性呼叫。 效能警告： 此設定需要`InstrumentationEngine`。 | `~1` |
 
@@ -322,7 +322,7 @@ $app = Set-AzureRmWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Re
 > Java 和 Node.js 應用程式才支援 Azure App Service 上透過手動基礎的 SDK 檢測，因此下列步驟並不適用於這些案例。
 
 1. 應用程式透過監視的核取`ApplicationInsightsAgent`。
-    * 請檢查 ' ApplicationInsightsAgent_EXTENSION_AGENT 應用程式設定設為"~ 2"的值。
+    * 檢查`ApplicationInsightsAgent_EXTENSION_VERSION`應用程式設定設為"~ 2"的值。
 2. 請確定應用程式符合要監視的需求。
     * 瀏覽至 `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
@@ -353,10 +353,10 @@ $app = Set-AzureRmWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Re
 如需有關 Application Insights 代理程式/擴充功能的最新資訊，請參閱[版本資訊](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md)。
 
 ## <a name="next-steps"></a>後續步驟
-
-* [在即時應用程式上執行分析工具](../../azure-monitor/app/profiler.md)。
+* [在即時應用程式上執行分析工具](../app/profiler.md)。
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - 使用 Application Insights 監視 Azure Functions
-* [能夠讓 Azure 診斷](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md) 傳送至 Application Insights。
-* [監視服務健康狀態計量](../../azure-monitor/platform/data-collection.md)，確保您的服務可用且回應正常。
-* 每當發生作業事件或計量超過臨界值時，[接收警示通知](../../azure-monitor/platform/alerts-overview.md)。
-* [設定可用性 Web 測試](../../azure-monitor/app/monitor-web-app-availability.md) ，以在您的網站關閉時發出警示。
+* [能夠讓 Azure 診斷](../platform/diagnostics-extension-to-application-insights.md) 傳送至 Application Insights。
+* [監視服務健康狀態計量](../platform/data-platform.md)，確保您的服務可用且回應正常。
+* 每當發生作業事件或計量超過臨界值時，[接收警示通知](../platform/alerts-overview.md)。
+* 使用 [JavaScript 應用程式和網頁適用的 Application Insights](javascript.md) ，以從造訪網頁的瀏覽器取得用戶端遙測。
+* [設定可用性 Web 測試](monitor-web-app-availability.md) ，以在您的網站關閉時發出警示。
