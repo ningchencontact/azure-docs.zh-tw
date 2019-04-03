@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 02b4b2efb447e3ba8c45caa378268ec402b5c3e7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c703f735f59a8425c2a14641781f482a6e2d1c78
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001956"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848548"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>取用來自 Azure 的監視資料
 
@@ -33,7 +33,7 @@ ms.locfileid: "56001956"
 | 活動記錄檔 | 活動 | 所有 Azure 服務 | <ul><li>**REST API：**[Azure 監視器事件 API](https://docs.microsoft.com/rest/api/monitor/eventcategories)</li><li>**儲存體 Blob 或事件中樞︰**[記錄檔設定檔](activity-logs-overview.md#export-the-activity-log-with-a-log-profile)</li></ul> |
 | Azure 監視器診斷記錄檔 | 活動 | [請參閱此處的清單](diagnostic-logs-schema.md) | <ul><li>**儲存體 Blob 或事件中樞︰**[診斷設定](diagnostic-logs-overview.md#diagnostic-settings)</li></ul> |
 | 計算客體 OS 記錄檔 (例如 IIS、ETW、syslog) | 活動 | [Windows](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) 和 Linux 虛擬機器 (v2)、[雲端服務](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)、[Service Fabric](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**儲存體資料表或 Blob：**[Windows 或 Linux Azure 診斷](diagnostics-extension-to-storage.md)</li><li>**事件中樞：**[Microsoft Azure 診斷](diagnostics-extension-stream-event-hubs.md)</li></ul> |
-| App Service 記錄檔 | 活動 | 應用程式服務 | <ul><li>**檔案、資料表或 Blob 儲存體：**[Web 應用程式診斷](../../app-service/troubleshoot-diagnostic-logs.md)</li></ul> |
+| App Service 記錄檔 | 事件 | 應用程式服務 | <ul><li>**檔案、資料表或 Blob 儲存體：**[Web 應用程式診斷](../../app-service/troubleshoot-diagnostic-logs.md)</li></ul> |
 | 儲存體記錄 | 活動 | Azure 儲存體 | <ul><li>**儲存體資料表：**[Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | 資訊安全中心警示 | 活動 | Azure 資訊安全中心 | <ul><li>**REST API：**[安全性警示](https://msdn.microsoft.com/library/mt704050.aspx)</li></ul> |
 | Active Directory 報告 | 活動 | Azure Active Directory | <ul><li>**REST API：**[Azure Active Directory 圖形 API](../../active-directory/reports-monitoring/concept-reporting-api.md)</li></ul> |
@@ -48,7 +48,7 @@ ms.locfileid: "56001956"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解 [Azure 監視器計量](data-collection.md)
+- 深入了解 [Azure 監視器計量](data-platform.md)
 - 深入了解 [Azure 活動記錄](activity-logs-overview.md)
 - 深入了解 [Azure 診斷記錄檔](diagnostic-logs-overview.md)
 

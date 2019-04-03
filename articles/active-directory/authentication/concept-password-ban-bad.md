@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 795abcadb1cee7599665f7bc3b8e0d3e08a3da05
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: cc2c125df2e3455b0e90919dbca92fe497a4b1b7
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369066"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884341"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>避免在組織中使用不當密碼
 
@@ -100,14 +100,17 @@ Microsoft 一直努力在網路罪犯發生前加以防範。 因此，Azure AD 
 [contoso] + [blank] + [f] + [9] + [!] = 5 分，因為此密碼至少 5 分，所以獲得接受。
 
    > [!IMPORTANT]
-   > 請注意，根據進行中的安全性分析和研究，禁用密碼演算法及全域清單可能在 Azure 中隨時變更。 在內部部署 DC 代理程式服務中，只有在重新安裝 DC 代理程式軟體後，更新後的演算法才會生效。
+   > 請注意，根據進行中的安全性分析和研究，禁用密碼演算法及全域清單可能在 Azure 中隨時變更。 為內部部署 DC 代理程式服務 中，更新的演算法才會生效的 DC 代理程式軟體後重新安裝。
 
 ## <a name="license-requirements"></a>授權需求
 
 |   | 使用全域禁用密碼清單的 Azure AD 密碼保護 | 使用自訂禁用密碼清單的 Azure AD 密碼保護|
 | --- | --- | --- |
-| 僅限雲端使用者 | Azure AD Free | Azure AD Basic |
+| 僅限雲端使用者 | Azure AD Free | Azure AD Premium P1 或 P2 |
 | 從內部部署 Windows Server Active Directory 同步處理的使用者 | Azure AD Premium P1 或 P2 | Azure AD Premium P1 或 P2 |
+
+> [!NOTE]
+> 未同步處理至 Azure Active Directory 的內部部署 Windows Server Active Directory 使用者也會使用根據現有的授權，如同步處理的使用者的 Azure AD 密碼保護的優點。
 
 在 [Azure Active Directory 價格網站](https://azure.microsoft.com/pricing/details/active-directory/)上可以找到其他授權資訊 (包括成本)。
 
@@ -120,4 +123,4 @@ Microsoft 一直努力在網路罪犯發生前加以防範。 因此，Azure AD 
 ## <a name="next-steps"></a>後續步驟
 
 * [設定自訂禁用密碼清單](howto-password-ban-bad.md)
-* [啟用內部部署的 Azure AD 密碼保護代理程式](howto-password-ban-bad-on-premises-deploy.md)
+* [啟用 Azure AD 密碼保護代理程式內部](howto-password-ban-bad-on-premises-deploy.md)

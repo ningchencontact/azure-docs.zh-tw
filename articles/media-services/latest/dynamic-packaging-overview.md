@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 77cbc73c6c6aef40c482b0cfe456dcbd4b7e85d0
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c9254c8dd629230a549dd95aba9afbd932746007
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58435307"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886449"
 ---
 # <a name="dynamic-packaging"></a>動態封裝
 
@@ -26,7 +26,7 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS 
 
 [串流端點](streaming-endpoint-concept.md)是用來傳遞媒體內容給用戶端播放程式媒體服務中的動態封裝服務。 動態封裝是一項功能在所有的標準**串流端點**（Standard 或 Premium）。 
 
-善用**動態封裝**，您必須能夠**資產**與一組調適性位元速率 MP4 檔案和串流處理媒體服務動態封裝所需的組態檔。 取得檔案的一個方法是將您的夾層 （來源） 檔案使用媒體服務編碼。 若要讓影片中編碼的資產可供用戶端播放，您必須建立**串流定位器**並建置串流 Url。 然後，根據串流用戶端資訊清單 （HLS、 DASH 或 Smooth） 中指定的格式，您收到資料流中您所選擇的通訊協定。
+善用**動態封裝**，您必須能夠**資產**與一組調適性位元速率 MP4 檔案和串流處理媒體服務動態封裝所需的組態檔。 取得這些檔案的方法之一，是使用媒體服務編碼您的夾層 (來源) 檔案。 若要讓影片中編碼的資產可供用戶端播放，您必須建立**串流定位器**並建置串流 Url。 然後，根據串流用戶端資訊清單 （HLS、 DASH 或 Smooth） 中指定的格式，您收到資料流中您所選擇的通訊協定。
 
 因此，您只需要儲存及支付一種儲存格式之檔案的費用，媒體服務會根據用戶端的要求建置及提供適當的回應。 
 
@@ -60,7 +60,7 @@ Microsoft Azure Media Services 可用來針對數種用戶端技術 (例如 iOS 
 即時串流工作流程的步驟如下：
 
 1. 建立 [即時事件](live-events-outputs-concept.md)。
-1. 取得內嵌 URL 並設定您的內部部署編碼器，以使用該 URL 來傳送貢獻摘要。
+1. 取得內嵌 URL，並設定您的內部部署編碼器，以使用 URL 來傳送發佈摘要。
 1. 取得預覽 URL 並使用它來確認實際上已收到來自編碼器的輸入。
 1. 建立新**資產**。
 1. 建立 [即時輸出] 並使用您建立的資產名稱。<br/>**實況輸出**會將資料流封存到**資產**中。
@@ -196,9 +196,9 @@ Smooth Streaming 資訊清單的範例如下：
 動態篩選用來控制播放軌、 格式、 位元速率，以及展示給玩家送出的時間範圍的數目。 如需詳細資訊，請參閱 <<c0> [ 篩選器與動態資訊清單](filters-dynamic-manifest-overview.md)。
 
 > [!NOTE]
-> 目前您無法使用 Azure 入口網站管理 v3 資源。 使用[REST API](https://aka.ms/ams-v3-rest-ref)， [CLI](https://aka.ms/ams-v3-cli-ref)，或其中一個支援[Sdk](developers-guide.md)。
+> 目前您無法使用 Azure 入口網站管理 v3 資源。 請使用 [REST API](https://aka.ms/ams-v3-rest-ref)、[CLI](https://aka.ms/ams-v3-cli-ref) 或其中一個支援的 [SDK](developers-guide.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
-[上傳、編碼、串流影片](stream-files-tutorial-with-api.md)
+[上傳、 編碼、 串流影片](stream-files-tutorial-with-api.md)
 

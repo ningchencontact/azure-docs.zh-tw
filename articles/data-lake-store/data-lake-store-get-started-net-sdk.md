@@ -1,23 +1,23 @@
 ---
-title: .NET SDK：Azure Data Lake Storage Gen1 的帳戶管理作業 | Microsoft Docs
+title: .NET SDK：帳戶管理作業，在 Azure Data Lake 儲存體 Gen1 |Microsoft Docs
 description: 使用 Azure Data Lake Storage Gen1 的 .NET SDK 在 Data Lake Storage Gen1 中執行帳戶管理作業
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: ea57d5a9-2929-4473-9d30-08227912aba7
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 2ed9f534c0eb27601243428f8e4b9d95db5d16b0
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.author: twooley
+ms.openlocfilehash: 8ab051d49e7ed67e642ef656dfb382ed07763ed2
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123907"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879704"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>使用 .NET SDK 對 Azure Data Lake Storage Gen1 進行帳戶管理作業。
 > [!div class="op_single_selector"]
@@ -53,8 +53,8 @@ ms.locfileid: "46123907"
    2. 在 [NuGet 套件管理員] 索引標籤中，確定 [套件來源] 設為 [nuget.org]，且已選取 [包含發行前版本] 核取方塊。
    3. 搜尋並安裝下列 NuGet 封裝：
 
-      * `Microsoft.Azure.Management.DataLake.Store` - 本教學課程使用 v2.1.3-preview。
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - 本教學課程使用 v2.2.12。
+      * `Microsoft.Azure.Management.DataLake.Store` -本教學課程使用 v2.1.3-preview。
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` -本教學課程使用 v2.2.12。
 
         ![新增 NuGet 來源](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "建立新的 Azure Data Lake 帳戶")
    4. 關閉 [NuGet 套件管理員]。
@@ -99,7 +99,7 @@ ms.locfileid: "46123907"
 
 在本文的其餘章節中，您可以了解如何使用可用的 .NET 方法來執行一些作業，例如驗證、檔案上載等。
 
-## <a name="authentication"></a>驗證
+## <a name="authentication"></a>Authentication
 
 * 如需讓應用程式進行使用者驗證，請參閱[使用 .NET SDK 向 Data Lake Storage Gen1 進行使用者驗證](data-lake-store-end-user-authenticate-net-sdk.md)。
 * 如需讓應用程式進行服務對服務驗證，請參閱[使用 .NET SDK 向 Data Lake Storage Gen1 進行服務對服務驗證](data-lake-store-service-to-service-authenticate-net-sdk.md)。
@@ -141,9 +141,9 @@ ms.locfileid: "46123907"
     // Delete Data Lake Storage Gen1 account
     _adlsClient.Account.Delete(_resourceGroupName, _adlsAccountName);
 
-## <a name="see-also"></a>另請參閱
-* [使用 .NET SDK 對 Data Lake Storage Gen1 進行檔案系統作業](data-lake-store-data-operations-net-sdk.md)
-* [Data Lake Storage Gen1 .NET SDK 參考](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+## <a name="see-also"></a>請參閱
+* [使用.NET SDK 在 Data Lake 儲存體 Gen1 上的檔案系統作業](data-lake-store-data-operations-net-sdk.md)
+* [Data Lake 儲存體 Gen1.NET SDK 參考](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>後續步驟
-* [保護 Data Lake Storage Gen1 中的資料](data-lake-store-secure-data.md)
+* [保護 Data Lake 儲存體 Gen1 中的資料](data-lake-store-secure-data.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 549ec74514ff03e06ff25893d3fa865f179470e9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ab439eb77113c53ab046256dd8d448a18b63f887
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870681"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850062"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>將 Azure 監視資料串流至事件中樞以供外部工具取用
 
@@ -70,10 +70,10 @@ Azure 訂用帳戶監視資料可用於 [Azure 活動記錄](./../../azure-monit
 ## <a name="azure-resource-metrics-and-diagnostics-logs"></a>Azure 資源計量和診斷記錄
 
 Azure 資源會發出兩種監視資料：
-1. [資源診斷記錄](./../../azure-monitor/platform/diagnostic-logs-overview.md)
-2. [計量](../../azure-monitor/platform/data-collection.md)
+1. [資源診斷記錄](diagnostic-logs-overview.md)
+2. [計量](data-platform.md)
 
-這兩種資料都會使用資源診斷設定來傳送至事件中樞。 [遵循此指南](./../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)以在特定資源上設定資源診斷設定。 為每個要收集記錄的資源進行資源診斷設定。
+這兩種資料都會使用資源診斷設定來傳送至事件中樞。 [遵循此指南](diagnostic-logs-stream-event-hubs.md)以在特定資源上設定資源診斷設定。 為每個要收集記錄的資源進行資源診斷設定。
 
 > [!TIP]
 > 您可以使用 Azure 原則以透過[在原則規則中使用 DeployIfNotExists 效果](../../governance/policy/concepts/definition-structure.md#policy-rule)，來確保特定範圍內的每個資源一律會搭配診斷設定進行設定。

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 8f0470b10589ecbbc9e2c98e8d3445435e7f8ed4
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 2f00636da2b29e7815569a683fdf51c6a4e3b0e0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668818"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880284"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>使用 Eclipse 針對 Java Service Fabric 應用程式進行偵錯
 > [!div class="op_single_selector"]
@@ -27,14 +27,14 @@ ms.locfileid: "58668818"
 > * [Eclipse/Java](service-fabric-debugging-your-application-java.md)
 > 
 
-1. 按 [设置 Service Fabric 开发环境](service-fabric-get-started-linux.md)中的步骤创建本地开发群集。
+1. 遵循 [設定 Service Fabric 開發環境](service-fabric-get-started-linux.md)中的步驟來啟動本機開發叢集。
 
-2. 更新您想要偵錯之服務的 entryPoint.sh，使其以遠端偵錯參數開始 Java 處理程序。 您可以在以下位置找到此檔案：``ApplicationName\ServiceNamePkg\Code\entrypoint.sh``。 此範例已設定連接埠 8001 來進行偵錯。
+2. 更新您想要偵錯之服務的 entryPoint.sh，使其以遠端偵錯參數開始 Java 處理程序。 您可以在以下位置找到此檔案：`ApplicationName\ServiceNamePkg\Code\entrypoint.sh`。 此範例已設定連接埠 8001 來進行偵錯。
 
     ```sh
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar
     ```
-3. 針對所要偵錯的服務，將執行個體計數或複本計數設定為 1，來更新「應用程式資訊清單」。 此設定可避免用於偵錯的連接埠發生衝突。 例如，針對無狀態服務，請設定 ``InstanceCount="1"``，而針對具狀態服務，則請將目標和最小複本集大小設定為 1，如下所示：`` TargetReplicaSetSize="1" MinReplicaSetSize="1"``。
+3. 針對所要偵錯的服務，將執行個體計數或複本計數設定為 1，來更新「應用程式資訊清單」。 此設定可避免用於偵錯的連接埠發生衝突。 例如，針對無狀態服務，請設定 `InstanceCount="1"`，而針對具狀態服務，則請將目標和最小複本集大小設定為 1，如下所示：`TargetReplicaSetSize="1" MinReplicaSetSize="1"`。
 
 4. 部署應用程式。
 
@@ -46,7 +46,7 @@ ms.locfileid: "58668818"
    ```
 6.  在想要的點設定中斷點並對應用程式進行偵錯。
 
-如果應用程式當掉，您可能也會想要啟用核心傾印。 請在殼層中執行 ``ulimit -c``，如果它傳回 0，則表示未啟用核心傾印。 若要啟用無限制的核心傾印，請執行下列命令：``ulimit -c unlimited``。 您也可以使用 ``ulimit -a`` 命令來確認狀態。  如果您想要更新核心傾印產生路徑，請執行 ``echo '/tmp/core_%e.%p' | sudo tee /proc/sys/kernel/core_pattern``。 
+如果應用程式當掉，您可能也會想要啟用核心傾印。 請在殼層中執行 `ulimit -c`，如果它傳回 0，則表示未啟用核心傾印。 若要啟用無限制的核心傾印，請執行下列命令：`ulimit -c unlimited`。 您也可以使用 `ulimit -a` 命令來確認狀態。  如果您想要更新核心傾印產生路徑，請執行 `echo '/tmp/core_%e.%p' | sudo tee /proc/sys/kernel/core_pattern`。 
 
 ### <a name="next-steps"></a>後續步驟
 

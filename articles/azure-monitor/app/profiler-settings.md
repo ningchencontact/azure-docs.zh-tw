@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 8c9fba14bd3f7d3b55a245f8e647f0eae1f8ef83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9603c45443c6339a127f977600eeff2ba57a283f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58118420"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884154"
 ---
 # <a name="configure-application-insights-profiler"></a>設定 Application Insights Profiler
 
@@ -39,6 +39,9 @@ ms.locfileid: "58118420"
 根據 Azure App Service 環境的設定方式，用來檢查代理程式狀態的呼叫可能會遭到封鎖。 即使代理程式正在執行，窗格中仍可能會顯示它並未執行的訊息。 若要確定它是否執行，您可以查看應用程式上的 Webjob。 如果所有應用程式設定值皆正確，且 Application Insights 網站延伸模組已安裝在您的應用程式上，表示 Profiler 正在執行。 如果您的應用程式接收到足夠的流量，則清單中應該會顯示最近的分析工作階段。
 
 ## <a id="profileondemand"></a>手動觸發 Profiler
+
+### <a name="minimum-requirements"></a>最低需求 
+手動觸發分析工具工作階段使用者他們需要最小值 「 寫入 」 存取其 Application Insights 元件的角色。 在大部分情況下此存取權會自動取得和需要任何額外的工作。 如果您有問題，要加入的訂用帳戶範圍角色會是 「 Application Insights 元件參與者 」 角色。 [深入了解角色存取控制與 Azure 監視](https://docs.microsoft.com/en-us/azure/azure-monitor/app/resources-roles-access-control)。
 
 您可以按一下滑鼠以手動觸發 Profiler。 假設您正在執行 Web 效能測試。 您將需要利用追蹤來了解 Web 應用程式在負載下的執行情形。 在擷取追蹤時擁有控制權是很重要的，因為這樣您才知道何時會執行負載測試。 但隨機取樣間隔可能會錯過這項資訊。
 
@@ -122,7 +125,7 @@ ms.locfileid: "58118420"
     ![檢查延伸模組更新][check-for-extension-update]
 
 ## <a name="next-steps"></a>後續步驟
-[啟用 Profiler 和檢視追蹤](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
+[啟用 Profiler，並檢視追蹤](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
 
 [profiler-on-demand]: ./media/profiler-settings/Profiler-on-demand.png
 [configure-profiler-entry]: ./media/profiler-settings/configure-profiler-entry.png

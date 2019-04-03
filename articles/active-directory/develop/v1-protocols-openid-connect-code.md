@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 281e1109964ac64853b8b82525579b7ff4de0d2f
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 1e39f271eaf0eccd0b3f3439492205e0d3398358
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406400"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851200"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>使用 OpenID Connect 和 Azure Active Directory 授權存取 Web 應用程式
 
@@ -93,9 +93,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | tenant |必要 |请求路径中的 `{tenant}` 值可用于控制哪些用户可以登录应用程序。 租用戶獨立權杖允許的值為租用戶識別碼，例如 `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` 或 `contoso.onmicrosoft.com` 或 `common` |
 | client_id |必要 |向 Azure AD 註冊應用程式時，指派給您的應用程式的識別碼。 您可以在 Azure 入口網站中找到這個值。 依序按一下 [Azure Active Directory]、[應用程式註冊]，選擇應用程式，然後在應用程式頁面上找到 [應用程式識別碼]。 |
 | response_type |必要 |必須包含 OpenID Connect 登入的 `id_token` 。 它也可能包含其他 response_types，例如 `code` 或 `token`。 |
-| scope | 建議使用 | OpenID Connect 規格需要範圍`openid`，這會轉譯為 「 將您登入 」 權限，在同意 UI。 這和其他 OIDC 範圍的 v1.0 端點，會略過，但仍符合標準的用戶端的最佳作法。 |
+| scope | 建議使用 | OpenID Connect 规范要求范围 `openid`，该范围在许可 UI 中会转换为“将你登录”权限。 在 v1.0 终结点上，此范围和其他 OIDC 范围会被忽略，但对符合标准的客户端而言仍是最佳做法。 |
 | nonce |必要 |包含在要求中的值 (由應用程式所產生)，將會包含在所得的 `id_token` 中來做為宣告。 應用程式接著便可確認此值，以減少權杖重新執行攻擊。 此值通常是随机的唯一字符串或 GUID，可用以识别请求的来源。 |
-| redirect_uri | 建議使用 |应用的 redirect_uri，应用可向其发送及从其接收身份验证响应。 其必須完全符合您在入口網站中註冊的其中一個 redirect_uris，不然就必須得是編碼的 url。 如果遺失，使用者代理程式會傳送回其中一個重新導向 Uri 註冊應用程式中，隨機。 |
+| redirect_uri | 建議使用 |应用的 redirect_uri，应用可向其发送及从其接收身份验证响应。 其必須完全符合您在入口網站中註冊的其中一個 redirect_uris，不然就必須得是編碼的 url。 如果缺失，则会将用户代理随机发送回某个为应用注册的重定向 URI。 最大長度是 255 個位元組 |
 | response_mode |選用 |指定將產生的 authorization_code 傳回到應用程式所應該使用的方法。 支援的值為 `form_post` (*HTTP 表單張貼*) 和 `fragment` (*URL 片段*)。 針對 Web 應用程式，建議使用 `response_mode=form_post`，確保會以最安全的方式將權杖傳輸至您的應用程式。 包括 id_token 在內的任何流程預設值皆為 `fragment`。|
 | state |建議使用 |随令牌响应返回的请求中所包含的值。 可以是想要的任何内容的字符串。 隨機產生的唯一值通常用於 [防止跨站台要求偽造攻擊](https://tools.ietf.org/html/rfc6749#section-10.12)。 该 state 也用于在身份验证请求出现之前，于应用中编码用户的状态信息，例如之前所在的网页或视图。 |
 | prompt |選用 |表示需要的用户交互类型。 目前只有 'login'、'none'、'consent' 是有效值。 `prompt=login` 會強制使用者在該要求上輸入認證，否定單一登入。 `prompt=none` 則相反 - 它會確保不會對使用者顯示任何互動式提示。 如果無法透過單一登入以無訊息方式完成要求，端點就會傳回錯誤。 `prompt=consent` 會在使用者登入之後觸發 OAuth 同意對話方塊，詢問使用者是否要授與權限給應用程式。 |
@@ -160,7 +160,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 您可能也希望根據自己的案例驗證其他宣告。 一些常见的验证包括：
 
 * 確保使用者/組織已註冊應用程式。
-* 確保使用者擁有適當的授權/權限使用`wids`或`roles`宣告。 
+* 使用 `wids` 或 `roles` 声明，确保用户拥有正确的授权/权限。 
 * 確保驗證具有特定強度，例如多重要素驗證。
 
 驗證 `id_token` 之後，即可利用該使用者開始工作階段，並使用 `id_token` 中的宣告來取得應用程式中的使用者相關資訊。 這項資訊可以用於顯示、記錄、個人化等等。如需 `id_tokens` 和宣告的詳細資訊，請閱讀 [AAD id_tokens](id-tokens.md)。

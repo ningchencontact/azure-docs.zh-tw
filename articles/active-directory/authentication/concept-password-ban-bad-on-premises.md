@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e6623e18fa319066f121dced551dcada133ebd5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 9cd9f6112cbca78b323e0a14818b06f891a3f673
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58479524"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862882"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>強制執行 Windows Server Active Directory 的 Azure AD 密碼保護
 
@@ -83,16 +83,6 @@ Azure AD 密碼保護並非即時原則應用程式引擎。 可以在 Azure AD 
 Active Directory 樹系中的 Azure AD 密碼保護的部署需要該樹系與 Azure AD 註冊。 部署每個 proxy 服務也必須向 Azure AD。 這些樹系和 proxy 註冊相關聯的特定 Azure AD 租用戶，以在註冊期間所使用的認證會隱含地識別。
 
 Active Directory 樹系和樹系內的所有已部署的 proxy 服務都必須向相同的租用戶。 它不支援將 Active Directory 樹系或任何 proxy 服務，因為樹系註冊至不同的 Azure AD 租用戶。 這類未正確設定的部署的徵兆包括無法下載的密碼原則。
-
-## <a name="license-requirements"></a>授權需求
-
-全域遭到禁用的密碼清單的優點適用於 Azure ad 的所有使用者。
-
-自訂的禁用密碼清單，就需要 Azure AD Basic 授權。
-
-Windows Server Active Directory 的 Azure AD 密碼保護需要 Azure AD Premium 授權。
-
-如需額外的授權資訊，請參閱[Azure Active Directory 價格](https://azure.microsoft.com/pricing/details/active-directory/)。
 
 ## <a name="download"></a>下載
 

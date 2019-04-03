@@ -1,31 +1,31 @@
 ---
 title: 設定 IoT 代理程式預覽的 Azure 資訊安全中心 |Microsoft Docs
 description: 了解如何設定 IoT 與 Azure 資訊安全中心使用的代理程式。
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: f95c445a-4f0d-4198-9c6c-d01446473bd0
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 27b548459bd1fee3c6596cce624b00d052e608fe
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 1e212e752309fd8347836d462a3394da2fca4a15
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757392"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862772"
 ---
 # <a name="tutorial-configure-security-agents"></a>教學課程：設定安全性代理程式
 
 > [!IMPORTANT]
 > IoT 的 azure 資訊安全中心目前處於公開預覽狀態。
-> 此預覽版的服務等級協定，不提供，且不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 這篇文章說明 Azure 資訊安全中心 (ASC) IoT 安全性代理程式，若要變更這些設定 ASC IoT 安全性代理程式的方式。
 

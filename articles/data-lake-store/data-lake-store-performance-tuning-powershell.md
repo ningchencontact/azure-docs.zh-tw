@@ -4,19 +4,19 @@ description: 如何在使用 Azure PowerShell 搭配 Azure Data Lake Storage Gen
 services: data-lake-store
 documentationcenter: ''
 author: stewu
-manager: jhubbard
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: stewu
-ms.openlocfilehash: 318f2b550e19f4b7f56a7b8cc592d34644dca644
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 1c554b0eee844a632e6412b6f8a285c7a2573326
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235597"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885310"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>使用 PowerShell 搭配 Azure Data Lake Storage Gen1 的效能微調指導方針
 
@@ -26,7 +26,7 @@ ms.locfileid: "56235597"
 
 ## <a name="performance-related-properties"></a>效能相關的屬性
 
-| 屬性            | 預設值 | 說明 |
+| 屬性            | 預設值 | 描述 |
 |---------------------|---------|-------------|
 | PerFileThreadCount  | 10      | 這個參數可讓您選擇可用於上傳或下載每個檔案的平行執行緒數目。 此數字代表每個檔案可以配置的執行緒數目上限，但視您的案例而定，您可能會收到比較少的執行緒 (例如︰如果您要上傳 1-KB 檔案，即使您要求 20 個執行緒，但您將取得一個執行緒)。  |
 | ConcurrentFileCount | 10      | 這個參數特別用於上傳或下載資料夾。 這個參數會決定可以上傳或下載的並行檔案數目。 此數字代表可以一次上傳或下載的並行檔案數目上限，但視您的案例而定，可能會收到比較少的並行檔案 (例如︰如果您要上傳兩個檔案，即使您要求 15 個檔案，但您將取得兩個並行檔案)。 |
@@ -95,8 +95,8 @@ ms.locfileid: "56235597"
 * **節流錯誤**：如果並行處理量太高，您可能會看到節流錯誤。 如果您看到節流錯誤，則應該減少並行處理量或與我們連絡。
 
 ## <a name="next-steps"></a>後續步驟
-* [使用 Azure Data Lake Storage Gen1 處理巨量資料需求](data-lake-store-data-scenarios.md) 
-* [保護 Data Lake Storage Gen1 中的資料](data-lake-store-secure-data.md)
-* [搭配 Data Lake Storage Gen1 使用 Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [搭配 Data Lake Storage Gen1 使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [使用 Azure Data Lake 儲存體 Gen1 處理巨量資料需求](data-lake-store-data-scenarios.md) 
+* [保護 Data Lake 儲存體 Gen1 中的資料](data-lake-store-secure-data.md)
+* [使用 Azure Data Lake Analytics 與 Data Lake 儲存體 Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [使用 Azure HDInsight 與 Data Lake 儲存體 Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 

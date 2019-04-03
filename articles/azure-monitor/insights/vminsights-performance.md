@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 7032fabd022b55bc8946a48568bbd799d4a0a5e9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4fa2553622d5ef2d08ec148b6a70aab6de257407
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731373"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848356"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>如何使用適用於 VM 的 Azure 監視器 (預覽) 來繪製效能圖表
-適用於 VM 的 Azure 監視器包含一組以關鍵效能指標 (KPI) 為目標的效能圖表，可協助您判斷虛擬機器的執行狀況。 那些圖表會顯示一段時間的資源使用率，讓您能夠找出瓶頸、異常狀況，或切換至列出每部機器的檢視方塊，以根據所選計量來檢視資源使用率。 雖然有許多項目時處理的效能考量，Azure Vm 監視作業系統的主要效能指標相關監視處理器、 記憶體、 網路介面卡和磁碟使用率。 效能可彌補健康狀態監視功能，並有助於揭示可能導致系統元件故障的問題、支援調整和最佳化以實現效率，或支援容量規劃。  
+適用於 VM 的 Azure 監視器包含一組以關鍵效能指標 (KPI) 為目標的效能圖表，可協助您判斷虛擬機器的執行狀況。 那些圖表會顯示一段時間的資源使用率，讓您能夠找出瓶頸、異常狀況，或切換至列出每部機器的檢視方塊，以根據所選計量來檢視資源使用率。 雖然在處理效能時要考量許多元素，不過適用於 VM 的 Azure 監視器著重於監視與處理器、記憶體、網路介面卡和磁碟使用率相關的主要作業系統指標。 效能可彌補健康狀態監視功能，並有助於揭示可能導致系統元件故障的問題、支援調整和最佳化以實現效率，或支援容量規劃。  
 
 ## <a name="multi-vm-perspective-from-azure-monitor"></a>Azure 監視器的多 VM 檢視方塊
 從 Azure 監視器 」、 「 效能 」 功能會提供所有受監視的 Vm 已部署至您的訂用帳戶中，或在您的環境中的工作群組的檢視。 若要從 Azure 監視器存取，請執行下列步驟。 
@@ -111,7 +111,7 @@ ms.locfileid: "56731373"
 
 然而，我們只會在 Log Analytics 工作區收集並儲存您需要的效能計量子集。 如果監視策略需有包含其他效能計量的分析或警示，以有效評估虛擬機器的容量或健康情況，或者您需要能夠彈性指定自己的警示標準或邏輯，您可以在 Log Analytics 設定[效能計數器集合](../platform/data-sources-performance-counters.md)，並設定[記錄警示](../platform/alerts-log.md)。 雖然 Log Analytics 可讓您執行其他資料類型的複雜分析，並提供較長保留期以進行趨勢分析，但另一方面，計量所佔空間不大，且能夠支援近乎即時的情節。 [Azure 診斷代理程式](../../virtual-machines/windows/monitor.md)會收集計量，並儲存於 Azure 監視器計量存放區，讓您能以較少延遲和較低成本建立警示。
 
-請參閱[使用 Azure 監視器收集計量和記錄](../platform/data-collection.md)概觀，深入了解本質上的不同，以及設定收集其他計量和設定警示規則前的注意事項。  
+請參閱[使用 Azure 監視器收集計量和記錄](../platform/data-platform.md)概觀，深入了解本質上的不同，以及設定收集其他計量和設定警示規則前的注意事項。  
 
 ## <a name="next-steps"></a>後續步驟
 若要了解如何使用健康情況功能，請參閱[檢視適用於 VM 的 Azure 監視器健康情況](vminsights-health.md)，或者，若要檢視探索到的應用程式相依性，請參閱[檢視適用於 VM 的 Azure 監視器對應](vminsights-maps.md)。 

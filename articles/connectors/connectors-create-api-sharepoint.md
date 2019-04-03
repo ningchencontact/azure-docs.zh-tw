@@ -11,12 +11,12 @@ ms.assetid: e0ec3149-507a-409d-8e7b-d5fbded006ce
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: f076b2e859d334b407fe5c93fcec1bb67cb75e48
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: e636b2bb08477e6c56c6ae41f08983fc5bfa2a9b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233254"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885481"
 ---
 # <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>使用 Azure Logic Apps 來監視及管理 SharePoint 資源
 
@@ -72,7 +72,7 @@ ms.locfileid: "50233254"
    若要在步驟之間新增動作，將指標移至步驟之間的箭號。 
    選擇顯示的加號 (**+**)，然後選取 [新增動作]。
 
-1. 當系統提示您登入時，請提供必要的連線資訊。 如果您使用 SharePoint Server，請確定選取 [透過內部部署資料閘道來連線]。 完成之後，請選擇 [建立]。
+1. 當系統提示您登入時，請提供必要的連線資訊。 如果您使用 SharePoint Server，請確定您選取**透過內部部署資料閘道連線**。 完成之後，請選擇 [建立]。
 
 1. 為您選取的觸發程序或動作提供必要的詳細資料，並且繼續建置邏輯應用程式的工作流程。
 

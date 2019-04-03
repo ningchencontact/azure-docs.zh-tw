@@ -1,25 +1,25 @@
 ---
 title: 了解 Azure 資訊安全中心的 IoT 解決方案架構預覽 |Microsoft Docs
 description: 深入了解 Azure 資訊安全中心，IoT 服務的資訊流程。
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: d70be919fa829401b4a415db626a3cee0713753b
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a0eb459391da65f8d0e2ae251809805924d07ad1
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754992"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862360"
 ---
 # <a name="azure-security-center-for-iot-architecture"></a>IoT 架構的 azure 資訊安全中心
 
@@ -27,7 +27,7 @@ ms.locfileid: "58754992"
 
 > [!IMPORTANT]
 > IoT 的 azure 資訊安全中心目前處於公開預覽狀態。
-> 此預覽版的服務等級協定，不提供，且不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 ## <a name="asc-for-iot-components"></a>ASC IoT 元件
 
@@ -55,7 +55,7 @@ ASC 代表 IoT 建議和警示 （分析管線輸出） 會寫入至 Log Analyti
 
 在本文中，您已了解基本架構和 ASC 的 IoT 解決方案的工作流程。 若要深入了解必要條件，如何開始和啟用您的安全性解決方案，在 IoT 中樞，請參閱下列文章：
 
-- [服務的必要條件](service-prerequisites.md)
+- [服務必要條件](service-prerequisites.md)
 - [開始使用](getting-started.md)
 - [設定您的解決方案](quickstart-configure-your-solution.md)
 - [啟用 IoT 中樞安全性](quickstart-onboard-iot-hub.md)

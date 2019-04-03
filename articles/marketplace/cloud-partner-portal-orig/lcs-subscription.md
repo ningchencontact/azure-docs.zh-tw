@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: ee6c18d1d0dda691f8b108cbe70e05eedae606e5
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 9ea04a4df55bfe26f292305a75696d423db52328
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54446322"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883085"
 ---
 # <a name="lcs-subscription"></a>LCS 訂用帳戶
 
@@ -37,7 +37,7 @@ ms.locfileid: "54446322"
 
 **訂用帳戶**：訂用帳戶能為您提供線上環境。 此環境能讓您取得雲端上的 Dynamics 365 for Operations 體驗，也能讓您了解如何將自己所開發的自訂項目部署到雲端上。
 
-**Microsoft Azure Active Directory**：雲端環境會包含 Azure Active Directory (AD)，它能協助您管理使用者、群組、安全性角色，以及線上應用程式的授權；其方式與您針對內部部署環境管理上述項目的方式類似。
+**Microsoft Azure Active Directory** -的雲端環境，包括 Azure Active Directory (AD)，可協助您管理使用者、 群組、 安全性角色和授權的線上應用程式，類似於其管理的內部部署的方式環境。
 
 **使用者**：您組織所訂閱之服務的使用者是在 Azure AD 中管理的。 您可以新增租用戶中的任何使用者，並為其指派安全性角色。
 

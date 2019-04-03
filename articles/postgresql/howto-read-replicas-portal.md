@@ -5,46 +5,46 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/19/2019
-ms.openlocfilehash: 24a37775298d6c6b40ec49f34158fcb77f26a379
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/01/2019
+ms.openlocfilehash: bf1fb1c1343173949ecb6348284cb537282b277b
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113209"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846951"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-portal"></a>從 Azure 入口網站建立及管理讀取複本
 
 在本文中，您將了解如何透過 Azure 入口網站，在「適用於 PostgreSQL 的 Azure 資料庫」中建立與管理讀取複本。 若要深入了解讀取複本，請參閱[概觀](concepts-read-replicas.md)。
 
-> [!IMPORTANT]
-> 讀取複本功能目前為「公開預覽」版。
 
 ## <a name="prerequisites"></a>必要條件
 使用[適用於 PostgreSQL 的 Azure 資料庫伺服器](quickstart-create-server-database-portal.md)作為主要伺服器。
 
 ## <a name="prepare-the-master-server"></a>準備主要伺服器
-若要在一般用途和記憶體最佳化層中準備主要伺服器，這些是必要步驟。
-
-`azure.replication_support` 參數必須在主要伺服器上設定為 **REPLICA**。 變更此參數後，必須重新啟動伺服器，才能讓變更生效。
+若要在一般用途和記憶體最佳化層中準備主要伺服器，這些是必要步驟。 主要伺服器已準備好進行複寫，藉由設定 azure.replication_support 參數。 變更複寫參數時，重新啟動伺服器時需要，變更才會生效。 在 Azure 入口網站中，這兩個步驟由單一按鈕，封裝**啟用複寫支援**。
 
 1. 在 Azure 入口網站中，選取要作為主要伺服器的現有「適用於 PostgreSQL 的 Azure 資料庫」伺服器。
 
-2. 在左側功能表上選取 [伺服器參數]。
+2. 伺服器資訊看板上底下**設定**，選取**複寫**。
 
-3. 搜尋 `azure.replication_support` 參數。
+3. 選取 **啟用複寫支援**。 
 
-   ![搜尋 azure.replication_support 參數](./media/howto-read-replicas-portal/azure-replication-parameter.png)
+   ![啟用複寫支援](./media/howto-read-replicas-portal/enable-replication-support.png)
 
-4. 將 `azure.replication_support` 參數值設為 **REPLICA**。 選取 [儲存] 來保留變更。
+4. 確認您想要啟用複寫支援。 這項作業會重新啟動主要伺服器。 
 
-   ![將參數設定為 REPLICA 並儲存變更](./media/howto-read-replicas-portal/save-parameter-replica.png)
+   ![確認 啟用複寫支援](./media/howto-read-replicas-portal/confirm-enable-replication.png)
+   
+5. 作業完成後，您會收到兩個的 Azure 入口網站通知。 沒有一個通知來更新伺服器參數。 還有另一個通知之後立即重新啟動伺服器。
 
-5. 儲存變更之後，您會收到通知：
+   ![成功的通知-可讓](./media/howto-read-replicas-portal/success-notifications-enable.png)
 
-   ![儲存通知](./media/howto-read-replicas-portal/parameter-save-notification.png)
+6. 重新整理 Azure 入口網站頁面，並更新 [複寫] 工具列。 您現在可以建立此伺服器的唯讀的複本。
 
-6. 重新啟動伺服器以套用變更。 若要了解如何重新啟動伺服器，請參閱[重新啟動適用於 PostgreSQL 的 Azure 資料庫伺服器](howto-restart-server-portal.md)。
+   ![已更新的工具列](./media/howto-read-replicas-portal/updated-toolbar.png)
+   
+啟用複寫支援為每一部主要伺服器一次作業。 A**停用複寫支援**按鈕可讓您方便參考。 除非您確定您將永遠不會建立這個主要伺服器上的複本，我們不建議停用複寫支援。 您的主要伺服器有現有的複本時，您無法停用複寫支援。
 
 
 ## <a name="create-a-read-replica"></a>建立讀取複本
@@ -52,9 +52,7 @@ ms.locfileid: "58113209"
 
 1. 選取要作為主要伺服器的現有「適用於 PostgreSQL 的 Azure 資料庫」。 
 
-2. 在伺服器功能表的 [設定] 下方，選取 [複寫]。
-
-   如果在一般用途或記憶體最佳化的主要伺服器上，您尚未將 `azure.replication_support` 參數設定為 並重新啟動伺服器，則您會收到通知。 建立複本之前，請完成這些步驟。
+2. 伺服器資訊看板上底下**設定**，選取**複寫**。
 
 3. 選取 [新增複本]。
 

@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
-ms.openlocfilehash: e16b523a366cabd04a5f12441874aa60460d508f
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 175d5d5d4495986c29b75427a325088c14279e17
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213957"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849654"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure 監視器中的 Azure 服務匯流排計量 (預覽)
 
@@ -28,7 +28,7 @@ ms.locfileid: "57213957"
 
 ## <a name="access-metrics"></a>存取計量
 
-Azure 監視器提供了多種方法供您存取計量。 您可以透過存取計量[Azure 入口網站](https://portal.azure.com)，或使用 Azure 監視器 Api （REST 和.NET） 和分析解決方案，例如 Azure 監視器記錄檔和事件中樞。 如需詳細資訊，請參閱[監視 Azure 監視器所收集的資料](../azure-monitor/platform/data-collection.md)。
+Azure 監視器提供了多種方法供您存取計量。 您可以透過存取計量[Azure 入口網站](https://portal.azure.com)，或使用 Azure 監視器 Api （REST 和.NET） 和分析解決方案，例如 Azure 監視器記錄檔和事件中樞。 如需詳細資訊，請參閱 < [Azure 監視器計量](../azure-monitor/platform/data-platform-metrics.md)。
 
 計量是預設啟用的功能，您可以存取最近 30 天的資料。 如果您需要延長這些資料的保留時間，您可以將計量資料封存到 Azure 儲存體帳戶。 在「Azure 監視器」的[診斷設定](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)中即可設定此值。
 

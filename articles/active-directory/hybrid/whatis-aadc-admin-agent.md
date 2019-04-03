@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 04/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17b99b7b03898ad72b4d9c7cc2ba9154855475ef
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 49234472481e30cf74efa3e72ac0e4f31466fada
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488219"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884885"
 ---
 # <a name="what-is-the-azure-ad-connect-admin-agent"></a>什麼是 Azure AD Connect 管理代理程式？ 
 Azure AD Connect 管理代理程式是 Azure Active Directory Connect 的 Azure Active Directory Connect 的伺服器上所安裝的新元件。 它用來從 Active Directory 環境，可協助 Microsoft 支援工程師以疑難排解問題，當您開啟支援案例時收集特定資料。
@@ -39,7 +39,7 @@ Microsoft 支援工程師無法看到任何密碼，而且無法變更系統中�
 
 ## <a name="what-if-i-dont-want-the-microsoft-support-engineer-to-access-my-data"></a>如果我不想 Microsoft 支援工程師，若要存取我的資料嗎？ 
  
-如果您不想 Microsoft 服務工程師，以存取您的資料，支援呼叫，當您開啟支援表示這會呼叫在入口網站： 
+如果不想讓 Microsoft 服務工程師，以存取您的資料，支援呼叫，您可以停用此修改服務組態檔，如下所述： 
 
   1.    開啟**C:\Program Files\Microsoft Azure AD Connect 管理 Agent\AzureADConnectAdministrationAgentService.exe.config**在記事本中。
   2.    停用**UserDataEnabled**設定，如下所示。 如果**UserDataEnabled**設定存在，而且設定為 true，則將它設定為 false。 如果設定不存在，然後將設定，如下所示。    

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: sogup
-ms.openlocfilehash: ef46c37fec3e5438aeb4f9309201d45365a96fdc
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 9f233af316bd6022b93a7208bf3fae37e913e6af
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402060"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885259"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>常見問題集的問題-備份 Azure Vm
 
@@ -68,7 +68,7 @@ ms.locfileid: "58402060"
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>我是否可以取消進行中的備份作業？
 是。 您可以取消處於**正在建立快照**狀態的備份作業。 如果正在從快照集傳輸資料，則無法取消作業。
 
-### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie--azurebackuprggeonumber-will-my-backups-continue-to-work"></a>我啟用了 Azure 備份服務 （也就是所建立的資源群組鎖定 ` AzureBackupRG_<geo>_<number>`)，將我的備份繼續運作？
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprggeonumber-will-my-backups-continue-to-work"></a>我啟用了 Azure 備份服務 （也就是所建立的資源群組鎖定 `AzureBackupRG_<geo>_<number>`)，將我的備份繼續運作？
 如果您鎖定 Azure 備份服務所建立的資源群組，備份將會開始失敗，因為沒有上限為 18 個還原點。
 
 使用者必須移除鎖定並清除 使未來的備份成功，還原點集合，從該資源群組[遵循下列步驟](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal)移除還原點集合。
@@ -88,7 +88,7 @@ Azure 備份支援[標準 SSD 受控磁碟](https://azure.microsoft.com/blog/ann
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>我的 VM 具有寫入加速器 (WA) 磁碟並已安裝 SAP HANA。 該如何備份？
 Azure 備份無法備份已啟用 WA 的磁碟，但可從備份中排除該磁碟。 不過，備份將不會提供資料庫一致性，因為系統不會備份已啟用 WA 之磁碟的相關資訊。 如果您想要作業系統磁碟備份以及未啟用 WA 的磁碟備份，您可以使用此設定來備份磁碟。
 
-我們正在執行 SAP HANA 備份的私人的預覽使用 15 分鐘的 RPO。 它會以類似 SQL DB 備份的方式建置，並針對 SAP HANA 所認證的協力廠商解決方案使用 backInt 介面。 如果您想要傳送電子郵件來信` AskAzureBackupTeam@microsoft.com `主旨**登入，以在 Azure Vm 中的 SAP hana 備份的私人預覽**。
+我們正在執行 SAP HANA 備份的私人的預覽使用 15 分鐘的 RPO。 它會以類似 SQL DB 備份的方式建置，並針對 SAP HANA 所認證的協力廠商解決方案使用 backInt 介面。 如果您想要傳送電子郵件來信`AskAzureBackupTeam@microsoft.com`主旨**登入，以在 Azure Vm 中的 SAP hana 備份的私人預覽**。
 
 
 ## <a name="restore"></a>Restore

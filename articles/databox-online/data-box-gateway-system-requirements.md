@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 0d898c8d2273c431967603c36c8ff9d0dd8b4b7b
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: cac451634bfa357784f9fd3d3a24e06ef3a4ee19
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417841"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881761"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Azure 中部署資料閘道的系統需求
 
@@ -48,7 +48,7 @@ ms.locfileid: "58417841"
 
 ## <a name="supported-virtualization-platforms-for-device"></a>裝置的受支援虛擬化平台
 
-| **作業系統/平台**  |**版本**   |**注意事項**  |
+| **作業系統/平台**  |**版本**   |**注意**  |
 |---------|---------|---------|
 |Hyper-V  |  2012 R2 <br> 2016  |         |
 |VMware ESXi     | 6.0 <br> 6.5 <br> 6.7       |不支援 VMware 工具。         |
@@ -85,11 +85,15 @@ ms.locfileid: "58417841"
 
 [!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
 
+### <a name="url-patterns-for-azure-government"></a>Azure Government 的 URL 模式
+
+[!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
+
 ## <a name="internet-bandwidth"></a>網際網路頻寬
 
 [!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
 
 ## <a name="next-step"></a>後續步驟
 
-* [部署 Azure 資料箱閘道](data-box-gateway-deploy-prep.md)
+* [部署您的 Azure 資料方塊閘道](data-box-gateway-deploy-prep.md)
 

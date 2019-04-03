@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: bb45062697b113b676f85381f0653c14ac8c0c67
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 785948c78b2b8205c4bebe2d68b62f6de7254d94
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621224"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863129"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄
 
@@ -31,8 +31,8 @@ ms.locfileid: "58621224"
 
 如需進一步了解不同 Azure 服務所支援的計量和記錄類別，請參閱：
 
-- [Microsoft Azure 中的計量概觀](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Azure 診斷記錄的概觀](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Microsoft Azure 中的度量概觀](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
+- [Azure 診斷記錄檔概觀](../azure-monitor/platform/diagnostic-logs-overview.md)
 
 本文會指引您啟用 Azure SQL 資料庫、彈性集區和受控執行個體的診斷遙測。 也有助於您了解如何將 Azure SQL 分析設為檢視資料庫診斷遙測的監視工具。
 
@@ -69,10 +69,15 @@ ms.locfileid: "58621224"
 | [DatabaseWaitStatistics](#database-wait-statistics-dataset)：包含和資料庫花費在不同等候類型的等候時間長度有關的資訊。 | 是 | 否 |
 | [逾時](#time-outs-dataset)：包含資料庫的逾時有關的資訊。 | 是 | 否 |
 | [封鎖](#blockings-dataset)：包含與資料庫上發生的封鎖事件有關的資訊。 | 是 | 否 |
+| [死結](#deadlocks-dataset):包含在資料庫上死結事件的相關資訊。 | 是 | 否 |
+| [AutomaticTuning](#automatic-tuning-dataset):包含在資料庫上自動調整建議的相關資訊。 | 是 | 否 |
 | [SQLInsights](#intelligent-insights-dataset)：將 Intelligent Insights 納入效能。 若要深入了解，請參閱 [Intelligent Insights](sql-database-intelligent-insights.md)。 | 是 | 是 |
 
 > [!IMPORTANT]
 > 彈性集區和受管理的執行個體都有自己個別的診斷遙測，從其所包含的資料庫。 这是必须注意的，因为诊断遥测数据是为每个这样的资源单独配置的，如下所述。
+
+> [!NOTE]
+> 無法從資料庫的診斷設定中啟用安全性稽核和 SQLSecurityAuditEvents 的記錄檔。 若要啟用稽核記錄資料流，請參閱[設定資料庫的稽核](sql-database-auditing.md#subheading-2)，並[稽核記錄中 Azure 監視器記錄檔和 Azure 事件中樞](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/)。
 
 ## <a name="azure-portal"></a>Azure 入口網站
 
@@ -107,7 +112,7 @@ ms.locfileid: "58621224"
 1. 選取串流診斷資料的目的地資源：**封存至儲存體帳戶**、**串流至事件中樞**，或**傳送至 Log Analytics**。
 1. Log analytics，請選取**設定**並選取來建立新的工作區 **+ 建立新的工作區**，或選取現有的工作區。
 1. 選取彈性集區診斷遙測的核取方塊：**AllMetrics**。
-   ![設定彈性集區的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
+   ![設定彈性集區的診斷功能](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 1. 選取 [ **儲存**]。
 1. 此外，設定診斷遙測，為您想要在下一節中所述的下列步驟來監視彈性集區中每個資料庫的資料流。
 
@@ -131,12 +136,12 @@ ms.locfileid: "58621224"
 1. 選取串流診斷資料的目的地資源：**封存至儲存體帳戶**、**串流至事件中樞**，或**傳送至 Log Analytics**。
 1. 若為標準的事件型監視體驗，請勾選下列的資料庫診斷記錄遙測核取方塊：**SQLInsights**、**AutomaticTuning**、**QueryStoreRuntimeStatistics**、**QueryStoreWaitStatistics**、**錯誤**、**DatabaseWaitStatistics**、**逾時**、**區塊**和**死結**。
 1. 對於歷時一分鐘的進階監視體驗，請勾選 **AllMetrics** 的核取方塊。
-   ![設定診斷單一、 集區，或執行個體資料庫](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
+   ![設定單一、集區式或執行個體資料庫的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 1. 選取 [ **儲存**]。
 1. 針對您想要監視每個資料庫重複這些步驟。
 
 > [!NOTE]
-> 無法從資料庫的 [診斷] 設定啟用安全性稽核記錄。 若要啟用稽核記錄資料流，請參閱[設定資料庫的稽核](sql-database-auditing.md#subheading-2)，並[稽核記錄中 Azure 監視器記錄檔和 Azure 事件中樞](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/)。
+> 無法從資料庫的診斷設定中啟用安全性稽核和 SQLSecurityAuditEvents 的記錄檔。 若要啟用稽核記錄資料流，請參閱[設定資料庫的稽核](sql-database-auditing.md#subheading-2)，並[稽核記錄中 Azure 監視器記錄檔和 Azure 事件中樞](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/)。
 > [!TIP]
 > 針對您想要監視的每個 Azure SQL Database 重複執行這些步驟。
 
@@ -169,7 +174,7 @@ ms.locfileid: "58621224"
 1. 選取串流診斷資料的目的地資源：**封存至儲存體帳戶**、**串流至事件中樞**，或**傳送至 Log Analytics**。
 1. Log analytics，請選取**設定**並選取來建立新的工作區 **+ 建立新的工作區**，或使用現有的工作區。
 1. 勾選執行個體診斷遙測的核取方塊：**ResourceUsageStats**。
-   ![設定受管理的執行個體的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
+   ![設定受控執行個體的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 1. 選取 [ **儲存**]。
 1. 此外，設定診斷遙測，您想要在下一節中所述的下列步驟來監視受管理的執行個體中每個執行個體資料庫的資料流。
 
@@ -193,7 +198,7 @@ ms.locfileid: "58621224"
 1. 輸入供您自己參考的設定名稱。
 1. 選取串流診斷資料的目的地資源：**封存至儲存體帳戶**、**串流至事件中樞**，或**傳送至 Log Analytics**。
 1. 勾選資料庫診斷遙測的核取方塊：**SQLInsights**、**QueryStoreRuntimeStatistics**、**QueryStoreWaitStatistics**和**錯誤**。
-   ![設定診斷執行個體資料庫](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+   ![設定執行個體資料庫的診斷](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
 1. 選取 [ **儲存**]。
 1. 針對您想要監視的每個執行個體資料庫中重複這些步驟。
 
@@ -410,13 +415,13 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ### <a name="all-metrics-for-elastic-pools"></a>彈性集區的所有計量
 
-|**Resource**|**計量**|
+|**資源**|**度量**|
 |---|---|
 |彈性集區|eDTU 百分比、使用的 eDTU、eDTU 限制、CPU 百分比、實體資料讀取百分比、記錄寫入百分比、工作階段百分比、背景工作百分比、儲存體、儲存體百分比、儲存體限制、XTP 儲存體百分比 |
 
 ### <a name="all-metrics-for-azure-sql-databases"></a>Azure SQL Database 的所有計量
 
-|**Resource**|**計量**|
+|**資源**|**度量**|
 |---|---|
 |Azure SQL Database|DTU 百分比、使用的 DTU、DTU 限制、CPU 百分比、實體資料讀取百分比、記錄寫入百分比、成功/失敗/防火牆封鎖的連線、工作階段百分比、背景工作百分比、儲存體、儲存體百分比、XTP 儲存體百分比和死結 |
 
@@ -702,8 +707,8 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 若要了解如何啟用記錄，並了解各種 Azure 服務支援的計量和記錄類別，請參閱：
 
-- [Microsoft Azure 中的計量概觀](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Azure 診斷記錄的概觀](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Microsoft Azure 中的度量概觀](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
+- [Azure 診斷記錄檔概觀](../azure-monitor/platform/diagnostic-logs-overview.md)
 
 若要了解事件中樞，請閱讀：
 

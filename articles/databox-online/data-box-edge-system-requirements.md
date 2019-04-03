@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 04/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 125ad28f049662ae6d91c61bb5ee79c1c1428af5
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 720f4433c1e7b0d271e5729236f439c92a84687e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401764"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884647"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Azure 資料方塊邊緣的系統需求
 
@@ -86,10 +86,14 @@ Azure IoT Edge 允許使用支援的 IoT Hub 通訊協定，進行從內部部�
 | https://\*.azurecr.io                     | 個人和協力廠商容器登錄 (選擇性) |   |
 | https://\*.azure-devices.net              | IoT 中樞存取權 (必要)                             |   |
 
+### <a name="url-patterns-for-azure-government"></a>Azure Government 的 URL 模式
+
+[!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
+
 ## <a name="internet-bandwidth"></a>網際網路頻寬
 
 [!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
 
 ## <a name="next-step"></a>後續步驟
 
-- [部署 Azure Data Box Edge](data-box-Edge-deploy-prep.md)
+- [部署您的 Azure 資料方塊邊緣](data-box-edge-deploy-prep.md)

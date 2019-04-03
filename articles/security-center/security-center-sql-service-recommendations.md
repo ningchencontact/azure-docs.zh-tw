@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 86d50092ccffd5ab958df5d54ea49cd56d815e2e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 479e6d222c9fc7d007252bab12e807ec337ea9e6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082155"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880775"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>保護 Azure 資訊安全中心內的 Azure SQL 服務和資料
 「Azure 資訊安全中心」會分析 Azure 資源的安全性狀態。 當資訊安全中心發現潛在的安全性弱點時，它會建立可引導您完成所需控制之設定程序的建議。  這些建議適用於下列 Azure 資源類型︰虛擬機器 (VM)、網路、SQL 和資料，以及應用程式。
@@ -64,10 +64,8 @@ ms.locfileid: "58082155"
 |Data Lake Store|5|啟用 Azure Data Lake Store 的診斷記錄|啟用記錄並保留最多一年。 這可讓您在發生安全性事件或網路遭到損害時，重新建立活動線索供調查之用。 |
 |SQL|30|修復 SQL 資料庫的弱點|SQL 弱點評定會掃描資料庫有無安全性弱點，並公開任何與最佳做法不同的差異，例如設定不正確、過多權限，以及未保護敏感性資料等等。 解決找到的弱點可以大幅改進資料庫的安全性等級。|
 |SQL|20|為 SQL Server 佈建 Azure AD 系統管理員|為 SQL Server 佈建 Azure AD 系統管理員，以啟用 Azure AD 驗證。 Azure AD 驗證可針對資料庫使用者及其他 Microsoft 服務，簡化權限管理及集中管理身分識別。|
-|儲存體帳戶|15|停用儲存體帳戶不受限制的存取|稽核儲存體帳戶防火牆設定中不受限制的網路存取。 請改為設定網路規則，只允許來自認可之網路的應用程式存取儲存體帳戶。 若要允許來自特定網際網路或內部部署用戶端的連線，可將存取權授與來自特定 Azure 虛擬網路的流量，或授與公用網際網路 IP 位址範圍。|
-|儲存體帳戶|1|將儲存體帳戶移轉到新的 AzureRM 資源|使用新的 Azure Resource Manager v2，您的儲存體帳戶提供安全性增強功能，例如： 更強的存取控制 (RBAC)、 較佳的稽核、 Resource Manager 為基礎的部署和管理存取權管理的身分識別，金鑰保存庫的存取祕密、 Azure AD 為基礎的驗證及支援的標籤和資源群組，以簡化安全性管理。|
-
-
+|儲存體帳戶|15|停用儲存體帳戶不受限制的存取|稽核儲存體帳戶防火牆設定中不受限制的網路存取。 請改為設定網路規則，只允許來自認可之網路的應用程式存取儲存體帳戶。 若要允許來自特定網際網路或內部部署用戶端的連線，您可以授與存取流量來自特定的 Azure 虛擬網路或公用網際網路 IP 位址範圍。|
+|儲存體帳戶|1|將儲存體帳戶移轉至 Azure Resource Manager 模型的資源|使用新的 Azure Resource Manager v2 儲存體帳戶提供安全性增強功能，例如： 更強的存取控制 (RBAC)、 較佳的稽核、 Resource Manager 為基礎的部署和管理存取權管理的身分識別，金鑰保存庫的存取祕密，Azure AD 為基礎的驗證及支援的標籤和資源群組，以簡化安全性管理。|
 
 ## <a name="see-also"></a>請參閱
 若要深入了解適用於其他 Azure 資源類型的建議，請參閱下列文章︰

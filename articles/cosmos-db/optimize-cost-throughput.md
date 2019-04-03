@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: e4d4d15ebb8200f16be8953e955b2e793be03c3a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 63adb354d51caa8f01df8bf05c85257c75b5fe41
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452177"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877821"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中最佳化已佈建的輸送量成本
 
@@ -33,19 +33,19 @@ Azure Cosmos DB 可藉由提供所佈建的輸送量模型，於任何規模提�
 
 1. 您有幾十個 Azure Cosmos 容器，並想要在全部或其中一部分共用輸送量。 
 
-2. 您要從設計目的是要在 IaaS 所裝載的 VM 上或在內部部署環境上執行的單一租用戶資料庫 (例如，NoSQL 或關聯式資料庫) 遷移至 Azure Cosmos DB。 而且如果您有許多集合/資料表/圖表，但不想對資料模型進行任何變更。 請注意，如果您不想在從內部部署資料庫遷移時更新資料模型，則可能必須犧牲 Azure Cosmos DB 所提供的部分好處。 建議您一律重新存取資料模型，以獲得最佳效能，並獲得最佳成本。 
+2. 您要從設計目的是要在 IaaS 所裝載的 VM 上或在內部部署環境上執行的單一租用戶資料庫 (例如，NoSQL 或關聯式資料庫) 遷移至 Azure Cosmos DB。 而且如果您有許多集合/資料表/圖表，但不想對資料模型進行任何變更。 請注意，您可能會危害的一些優點，如果您不更新您的資料模型，從內部部署資料庫移轉時，Azure Cosmos DB 所提供。 建議您一律重新存取資料模型，以獲得最佳效能，並獲得最佳成本。 
 
 3. 您想要在會有非預期突增工作負載的資料庫層級，透過集區輸送量來應付不在規劃中的突增工作負載。 
 
 4. 您不想對個別容器設定特定輸送量，而是想要跨資料庫內的一組容器取得彙總輸送量。
 
-**如果您有下列情況，請考慮對個別容器佈建輸送量：**
+**如果佈建個別的容器上的輸送量，請考慮：**
 
 1. 您有一些 Azure Cosmos 容器。 由於 Azure Cosmos DB 不限結構描述，所以容器所含的項目可具有異質結構描述，而且客戶不必建立多個容器類型 (每個實體一種)。 如果應該將個別容器 (假設有 10 到 20 個) 群組為單一容器，您永遠應該考慮此選項。 容器至少有 400 RU 時，將 10 到 20 個容器形成一個容器集區會更符合成本效益。 
 
 2. 您想要控制特定容器的輸送量，並根據 SLA 在指定容器上獲得保證的輸送量。
 
-**考慮混合使用上述兩種策略：**
+**請考慮上述兩種策略的混合式：**
 
 1. 如先前所述，Azure Cosmos DB 可讓您混合使用上述兩種策略，因此您現在可以在 Azure Cosmos 資料庫內有某些可能會共用資料庫上所佈建輸送量的容器，以及在相同資料庫內有某些可能會有專用佈建輸送量的容器。 
 

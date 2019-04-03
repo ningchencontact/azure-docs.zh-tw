@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 41eed6bc878bff4c9d847f9a449ca693274bf234
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 1cadf61d7ce6ed48ea2d42b299dede860a505f0d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195501"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877426"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>針對 Windows 中的 Azure 檔案服務問題進行疑難排解
 
@@ -100,10 +100,10 @@ Azure 檔案同步可以將您的內部部署 Windows Server 轉換成 Azure 檔
 )從 Windows 存取 Azure 檔案。
 
 #### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>解決方案 3-解除封鎖連接埠 445，協助您的 ISP / IT 系統管理員
-使用您的 IT 部門或開啟連接埠 445 輸出到 ISP [Azure IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。
+与 IT 部门或 ISP 配合，向 [Azure IP 范围](https://www.microsoft.com/download/details.aspx?id=41653)开放端口 445 出站通信。
 
 #### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>解決方案 4-使用 REST API 以儲存體總管/Powershell 等工具
-Azure 檔案服務也支援除了 SMB 之外的其他部分。 透過連接埠 443 (標準 tcp)，適用於 REST 存取。 有各種工具，使用 REST API 撰寫可讓豐富的 UI 體驗。 [儲存體總管](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)是其中一個。 [下載並安裝儲存體總管](https://azure.microsoft.com/en-us/features/storage-explorer/)並連接到您備份 Azure 檔案的檔案共用。 您也可以使用[PowerShell](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-powershell)這也使用者 REST API。
+除了 SMB，Azure 文件存储还支持 REST。 REST 访问可以通过端口 443 进行（标准 tcp）。 有许多工具是用 REST API 编写的，可以给用户带来丰富的 UI 体验。 [存储资源管理器](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)是其中之一。 [下载并安装存储资源管理器](https://azure.microsoft.com/en-us/features/storage-explorer/)，然后将其连接到 Azure 文件存储支持的文件共享。 也可使用 [PowerShell](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-powershell)，此工具也使用 REST API。
 
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>原因 2：已啟用 NTLMv1
@@ -205,7 +205,7 @@ Net use 命令會將斜線 (/) 解譯為命令列選項。 如果您的使用者
 
 - 執行下列 PowerShell 命令：
 
-  `New-SmbMapping -LocalPath y: -RemotePath \\server\share -UserName accountName -Password "password can contain / and \ etc" `
+  `New-SmbMapping -LocalPath y: -RemotePath \\server\share -UserName accountName -Password "password can contain / and \ etc"`
 
   從批次檔中，您可以使用此方式執行命令：
 

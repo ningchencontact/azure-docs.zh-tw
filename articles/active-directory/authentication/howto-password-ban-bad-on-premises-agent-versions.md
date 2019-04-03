@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9a1bb630c14ef504cb60a6847643a60f1cc90a1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 60ce66b079942944176540826c7f3e7a91b070d2
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368642"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861857"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Azure AD 密碼保護代理程式版本記錄
 
@@ -26,6 +26,9 @@ ms.locfileid: "58368642"
 
 * 修正事件記錄檔訊息中的錯字次要錯誤
 * 為最終的正式運作版本更新的使用者授權合約
+
+> [!NOTE]
+> 建置 1.2.125.0 為正式運作的組建。 感謝您一次給所有人提供意見反應的產品 ！
 
 ## <a name="121160"></a>1.2.116.0
 

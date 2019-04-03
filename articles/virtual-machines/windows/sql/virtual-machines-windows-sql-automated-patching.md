@@ -16,19 +16,19 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a7c6bea1c45cfe704bcff9ad2d4e47a30a9780cb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 210043eaaf09fb601fe01c33cc1a53c9146bf859
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439616"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848243"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Azure 虛擬機器的 SQL Server 自動修補 (Resource Manager)
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-automated-patching.md)
 > * [傳統](../sqlclassic/virtual-machines-windows-classic-sql-automated-patching.md)
 
-自動修補會針對執行 SQL Server 的 Azure 虛擬機器建立維護時間範圍。 自動更新只能在此維護時間範圍內安裝。 針對 SQL Server，這項限制可確保系統更新及任何相關聯的重新啟動發生當時最可能的資料庫。 
+自動修補會針對執行 SQL Server 的 Azure 虛擬機器建立維護時間範圍。 自動更新只能在此維護時間範圍內安裝。 對 SQL Server 來說，這項限制可確保系統更新及任何關聯的重新啟動都會在對資料庫而言最佳的時機發生。 
 
 > [!IMPORTANT]
 > 只會安裝標示為 [重要] 的 Windows 更新。 其他 SQL Server 更新 (例如累計更新) 必須以手動方式安裝。 
@@ -105,11 +105,11 @@ ms.locfileid: "57439616"
 ## <a name="configuration-with-powershell"></a>使用 PowerShell 進行設定
 佈建 SQL VM 之後，請使用 PowerShell 設定自動修補。
 
-在下列範例中，會使用 PowerShell 在現有的 SQL Server VM 上設定自動修補。 **AzureRM.Compute\New-AzVMSqlServerAutoPatchingConfig** 命令會為自動更新設定一個新的維護時間範圍。
+在下列範例中，會使用 PowerShell 在現有的 SQL Server VM 上設定自動修補。 **新增 AzVMSqlServerAutoPatchingConfig**命令會設定新的維護期間，自動更新。
 
     $vmname = "vmname"
     $resourcegroupname = "resourcegroupname"
-    $aps = AzureRM.Compute\New-AzVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
+    $aps = New-AzVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
 
     Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
 
@@ -127,7 +127,7 @@ ms.locfileid: "57439616"
 
 可能需要幾分鐘的時間來安裝及設定 SQL Server IaaS 代理程式。
 
-若要停用「自動修補」，請執行相同的指令碼，但不要對 **AzureRM.Compute\New-AzVMSqlServerAutoPatchingConfig** 使用 **-Enable** 參數。 沒有 **-Enable** 參數時，即表示通知命令停用此功能。
+若要停用自動修補，請執行相同的指令碼，而無須 **-啟用**參數來**新增 AzVMSqlServerAutoPatchingConfig**。 沒有 **-Enable** 參數時，即表示通知命令停用此功能。
 
 ## <a name="next-steps"></a>後續步驟
 如需有關其他可用之自動化工作的資訊，請參閱 [SQL Server IaaS 代理程式擴充功能](virtual-machines-windows-sql-server-agent-extension.md)。

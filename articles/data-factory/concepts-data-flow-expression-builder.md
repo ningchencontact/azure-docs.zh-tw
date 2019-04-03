@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 9267360394568f0f9259a3c818b21f4e585fd958
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7e80455a2b83c034bea2fbdf774e5a175aed51a4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543724"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885735"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>對應資料流程運算式產生器
 
@@ -51,7 +51,7 @@ ms.locfileid: "57543724"
 
 ## <a name="regular-expressions"></a>規則運算式
 
-Azure Data Factory 資料流程運算式語言 ([完整參考文件在此](https://aka.ms/dataflowexpressions) \(英文\)) 可提供包含規則運算式語法的函數。 使用規則運算式函數時，運算式產生器將會嘗試把反斜線 (\) 解譯為逸出字元序列。 在規則運算式中使用反斜線時，請以刻度 ` ` 或雙反斜線括住整個 RegEx。
+Azure Data Factory 資料流程運算式語言 ([完整參考文件在此](https://aka.ms/dataflowexpressions) \(英文\)) 可提供包含規則運算式語法的函數。 使用規則運算式函數時，運算式產生器會嘗試解譯反斜線 (\\) 為逸出字元序列。 當您的規則運算式中使用反斜線，其中一個括住整個 regex 刻度 (\`) 或使用雙反斜線。
 
 使用刻度的範例
 

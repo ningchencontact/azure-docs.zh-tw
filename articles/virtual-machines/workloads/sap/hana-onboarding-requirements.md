@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 01/31/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8cfcf9c2f008abb571347e32f2be190dc51901e3
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 252c84bce2b70f6931593fe9410abe6cc146b5bb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563825"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880690"
 ---
 # <a name="onboarding-requirements"></a>上線需求
 
@@ -33,7 +33,7 @@ ms.locfileid: "55563825"
 
 **網路連線**
 
-- 內部部署與 Azure 之間的 ExpressRoute：若要將您的內部部署資料中心連線到 Azure，請務必向您的 ISP 訂購一個至少 1 Gbps 的連線。 HANA 大型執行個體單位與 Azure 之間的連線也會使用 ExpressRoute 技術。 HANA 大型執行個體單位的價格中，包含了 HANA 大型執行個體單位與 Azure 之間的這個 ExpressRoute 連線，並包括此特定 ExpressRoute 路線的所有資料輸入和輸出費用。 因此，身為客戶的您不會遇到除了內部部署與 Azure 之間的 ExpressRoute 連結以外的額外成本。
+- 內部部署與 Azure 之間的 ExpressRoute：若要將您的內部部署資料中心連線到 Azure，請務必向您的 ISP 訂購一個至少 1 Gbps 的連線。 HANA 大型執行個體單位與 Azure 之間的連線也會使用 ExpressRoute 技術。 HANA 大型執行個體單位的價格中，包含了 HANA 大型執行個體單位與 Azure 之間的這個 ExpressRoute 連線，並包括此特定 ExpressRoute 路線的所有資料輸入和輸出費用。 因此，您身為客戶，不會遇到的額外成本超出您在內部部署環境與 Azure 之間的 ExpressRoute 連結。
 
 **作業系統**
 
@@ -66,12 +66,12 @@ ms.locfileid: "55563825"
 
 - SAP HANA (平台或企業版) 的授權和軟體安裝元件。
 
-**應用程式**
+**[應用程式]**
 
 - 任何連線至 SAP HANA 及相關 SAP 支援合約之 SAP 應用程式的授權和軟體安裝元件。
 - 與 SAP HANA on Azure (大型執行個體) 環境及相關支援合約搭配使用的任何非 SAP 應用程式所具有的授權和軟體安裝元件。
 
-**技能**
+**技術**
 
 - Azure IaaS 及其元件的相關經驗與知識。
 - 在 Azure 中部署 SAP 工作負載的相關經驗與知識。

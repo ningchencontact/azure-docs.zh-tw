@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/29/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 599b1d3f522a0f287736808cce88163f1ef7f28f
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a2f90c52823664df5fdc71c55220cc660c2f68e3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755805"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878140"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics-in-azure-monitor"></a>Azure 監視器中的 Log analytics 管理使用量和成本
 
@@ -92,7 +92,7 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
  
 1. 在工作區中，從左側窗格中選取 [使用量和估計成本]。
 2. 在 [使用量和估計成本] 頁面上，按一下頁面頂端的 [資料量管理]。
-5. 在窗格上，移動滑桿來增加或減少天數，然後按一下 [確定]。  如果您位於「免費」層，將無法修改資料保留期，必須升級至付費層，才能控制此設定。<br><br> ![變更工作區資料保留期設定](media/manage-cost-storage/manage-cost-change-retention-01.png)
+5. 在窗格上，移動滑桿來增加或減少天數，然後按一下 [確定]。  如果您位於「免費」層，將無法修改資料保留期，必須升級至付費層，才能控制此設定。<br><br> ![變更工作區資料保留設定](media/manage-cost-storage/manage-cost-change-retention-01.png)
 
 ## <a name="legacy-pricing-tiers"></a>舊版定價層
 
@@ -110,7 +110,7 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
 2. 在 [工作區] 窗格的 [一般] 下方，選取 [定價層]。  
 
 3. 在 [定價層] 下方選取定價層，然後按一下 [選取]。  
-    ![選取的定價方案](media/manage-cost-storage/workspace-pricing-tier-info.png)
+    ![選取定價方案](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
 如果您想要將工作區移至目前的定價層，則需要[在 Azure 監視器中變更訂用帳戶的監視定價模型](usage-estimated-costs.md#moving-to-the-new-pricing-model)，這將變更該訂用帳戶中所有工作區的定價層。
 
@@ -122,7 +122,7 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>針對 Log Analytics 為什麼不再收集資料的問題進行疑難排解
 如果您處於舊版「免費」定價層並在某日傳送了超過 500 MB 的資料，就會停止收集當日的其餘資料。 達到每日限制是 Log Analytics 停止收集資料或資料似乎遺失的常見原因。  當資料收集開始及停止時，Log Analytics 會建立 Operation 類型的事件。 在搜尋中執行下列查詢，即可檢查您是否達到每日限制並遺失資料： 
 
-`Operation | where OperationCategory == 'Data Collection Status' `
+`Operation | where OperationCategory == 'Data Collection Status'`
 
 當資料收集停止時，OperationStatus 為 Warning。 當資料收集開始時，OperationStatus 為 Succeeded。 下表描述資料收集停止的原因，並建議為繼續資料收集所要採取的動作：  
 
@@ -186,9 +186,11 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
 
 若要查看**大小**的可計費的事件，擷取每一部電腦，使用`_BilledSize`屬性 ([記錄檔-標準-屬性 #_billedsize.md](learn more)) 提供以位元組為單位的大小：
 
-`union withsource = tt * 
+```
+union withsource = tt * 
 | where _IsBillable == true 
-| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last
+```
 
 `_IsBillable`屬性會指定是否將內嵌的資料將會產生費用 ([記錄檔-標準-properties.md #_isbillable](Learn more)。)
 
@@ -205,26 +207,32 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
 
 如果您想要查看有哪些可計費資料類型的計數正在傳送資料到特定的電腦，請使用：
 
-`union withsource = tt *
+```
+union withsource = tt *
 | where Computer == "computer name"
 | where _IsBillable == true 
-| summarize count() by tt | sort by count_ nulls last `
+| summarize count() by tt | sort by count_ nulls last
+```
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Azure 資源、 資源群組或訂用帳戶的資料量
 
 對於裝載在 Azure 中的節點中的資料，您可以取得**大小**內嵌的可計費事件的__每部電腦__，使用`_ResourceId`屬性可提供資源的完整路徑 ([記錄檔-標準-properties.md #_resourceid](learn more)):
 
-`union withsource = tt * 
+```
+union withsource = tt * 
 | where _IsBillable == true 
-| summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last `
+| summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
+```
 
 對於裝載在 Azure 中的節點中的資料，您可以取得**大小**的可計費的事件內嵌__每個 Azure 訂用帳戶__，剖析`_ResourceId`屬性設為：
 
-`union withsource = tt * 
+```
+union withsource = tt * 
 | where _IsBillable == true 
 | parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
     resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
-| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last `
+| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
+```
 
 變更`subscriptionId`至`resourceGroup`會顯示依 Azure resouurce 群組的可計費的內嵌的資料磁碟區。 
 
@@ -295,7 +303,8 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
 
 若要查看不同自動化節點的數目，請使用此查詢：
 
-` ConfigurationData 
+```
+ ConfigurationData 
  | where (ConfigDataType == "WindowsServices" or ConfigDataType == "Software" or ConfigDataType =="Daemons") 
  | extend lowComputer = tolower(Computer) | summarize by lowComputer 
  | join (
@@ -303,7 +312,8 @@ Log Analytics 費用會新增到您的 Azure 帳單中。 您可以在 Azure 入
        | where SCAgentChannel == "Direct"
        | extend lowComputer = tolower(Computer) | summarize by lowComputer, ComputerEnvironment
  ) on lowComputer
- | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc`
+ | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc
+```
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>當資料收集高於預期時建立警示
 
@@ -330,7 +340,7 @@ Azure 警示支援使用搜尋查詢的[記錄警示](alerts-unified-log.md)。
 - **定義警示條件**：將您的 Log Analytics 工作區指定為資源目標。
 - **警示準則**：指定下列項目：
    - **訊號名稱**：選取 [自訂記錄搜尋]
-   - 將 [搜尋查詢] 設定為 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
+   - **搜尋查詢**至 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
    - [警示邏輯] 為 [根據結果數目]，而 [條件] 為 [大於臨界值 0]
    - [時間週期] 為 1440 分鐘，而 [警示頻率] 設定為 60 分鐘，因為使用量資料每小時只會更新一次。
 - **定義警示詳細資料**：指定下列項目：
@@ -344,7 +354,7 @@ Azure 警示支援使用搜尋查詢的[記錄警示](alerts-unified-log.md)。
 - **定義警示條件**：將您的 Log Analytics 工作區指定為資源目標。
 - **警示準則**：指定下列項目：
    - **訊號名稱**：選取 [自訂記錄搜尋]
-   - 將 [搜尋查詢] 設定為 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
+   - **搜尋查詢**至 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
    - [警示邏輯] 為 [根據結果數目]，而 [條件] 為 [大於臨界值 0]
    - [時間週期] 為 180 分鐘，而 [警示頻率] 設定為 60 分鐘，因為使用量資料每小時只會更新一次。
 - **定義警示詳細資料**：指定下列項目：

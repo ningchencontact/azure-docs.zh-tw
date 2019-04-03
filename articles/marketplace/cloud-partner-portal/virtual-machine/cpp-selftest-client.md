@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6cfe9b61d9bbb088e827386b2195bba21333937e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: ae01b0fb088035240e670c16d4d457d8abda1bfa
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649081"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848925"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>建立用來預先驗證 Azure 虛擬機器映像的自我測試用戶端
 
@@ -51,7 +51,7 @@ ms.locfileid: "58649081"
 自我測試 API 包含僅支援 POST 方法的單一端點。  其結構如下。
 
 ```
-Uri:             https:\//isvapp.azurewebsites.net/selftest-vm
+Uri:             https://isvapp.azurewebsites.net/selftest-vm
 Method:          Post
 Request Header:  Content-Type: “application/json”
 Authorization:   “Bearer xxxx-xxxx-xxxx-xxxxx”
@@ -357,7 +357,7 @@ Response:
 
 ### <a name="to-create-and-get-a-token-using-c35"></a>使用 C&#35; 建立和取得權杖
 
-若要向 Auth0 要求您已獲授權的應用程式適用的任何權杖中，請以下列格式的承載對 [https://soamtenant.auth0.com/oauth/token](https://soamtenant.auth0.com/oauth/token) 端點執行 POST 作業：
+Auth0 尋求任何您已獲授權的應用程式的權杖中，執行 https POST 作業：\//soamtenant.auth0.com/oauth/token 端點的承載格式如下：
 
 ```csharp
 string clientId = "Your Application Id";
@@ -380,7 +380,7 @@ var token = JObject.Parse(content)["access_token"];
 
 ### <a name="to-create-and-get-a-token-using-powershell"></a>使用 PowerShell 建立和取得權杖
 
-若要向 Auth0 要求您已獲授權的應用程式適用的任何權杖中，請以下列格式的承載對 [https://soamtenant.auth0.com/oauth/token](https://soamtenant.auth0.com/oauth/token) 端點執行 POST 作業：
+Auth0 尋求任何您已獲授權的應用程式的權杖中，執行 https POST 作業：\//soamtenant.auth0.com/oauth/token 端點的承載格式如下：
 
 ```powershell
 $clientId = "Application Id of AD Client APP";

@@ -3,27 +3,27 @@ title: Azure 地圖服務中的支援語言 | Microsoft Docs
 description: 了解 Azure 地圖服務中服務的支援語言
 author: juliekohler
 ms.author: julieko
-ms.date: 03/30/2018
+ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 380bf5cb89a165534d0084758d532613eeff480a
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.openlocfilehash: d22ecfbea524ffb2ab48ac9a95e03d7595c4cbfb
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320487"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849647"
 ---
 # <a name="azure-maps-supported-languages"></a>Azure 地圖服務支援的語言
-Azure 地圖服務已經跨服務當地語系化為各種語言。  下表提供每個服務的支援語言代碼。  
+Azure 地圖服務已經跨服務當地語系化為各種語言。  下表提供每個服務的支援語言代碼。  
   
 
 | ID         | 名稱                   |  地圖 | Search | 路由 | 流量事件 | JS 地圖控制項 | 時區 |
 |------------|------------------------|:-----:|:------:|:-------:|:-----------------:|:--------------:|:---------:|
 | af-ZA      | 南非荷蘭文              |       |    ✓   |    ✓    |                   |                |     ✓     |
 | ar-SA      | 阿拉伯文                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| eu-ES      | 巴斯克文                 |       |        |         |                   |                |     ✓     |
+| eu-ES      | 巴斯克文                 |       |    ✓   |         |                   |                |     ✓     |
 | bg-BG      | 保加利亞文              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | ca-ES      | 卡達隆尼亞文                |       |    ✓   |         |                   |                |     ✓     |
 | zh-HanS    | 中文 (簡體)   |       |  zh-CN |         |                   |                |     ✓     |
@@ -38,16 +38,16 @@ Azure 地圖服務已經跨服務當地語系化為各種語言。  下表提供
 | fi-FI      | 芬蘭文                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-FR      | 法文                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-CA      | 法文 (加拿大)      |       |    ✓   |         |                   |                |     ✓     |
-| gl-ES      | 加利西亞文               |       |        |         |                   |                |     ✓     |
+| gl-ES      | 加利西亞文               |       |    ✓   |         |                   |                |     ✓     |
 | de-DE      | 德文                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | el-GR      | 希臘文                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| he-IL      | 希伯來文                 |       |        |         |         ✓         |                |     ✓     |
+| he-IL      | 希伯來文                 |       |    ✓   |         |         ✓         |                |     ✓     |
 | hi-IN      | 北印度文                  |       |        |         |                   |                |     ✓     |
 | hu-HU      | 匈牙利文              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| id-ID      | 印尼文             |   ✓   |        |    ✓    |         ✓         |        ✓       |     ✓     |
+| id-ID      | 印尼文             |   ✓   |    ✓    |    ✓    |         ✓         |        ✓       |     ✓     |
 | it-IT      | 義大利文                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | ja-JP      | 日文               |       |        |         |                   |                |     ✓     |
-| kk-KZ      | 哈薩克文                 |       |        |         |                   |                |     ✓     |
+| kk-KZ      | 哈薩克文                 |       |    ✓   |         |                   |                |     ✓     |
 | ko-KR      | 韓文                 |   ✓   |        |    ✓    |                   |        ✓       |     ✓     |
 | es-419     | 拉丁美洲西班牙文 |       |    ✓   |         |                   |                |     ✓     |
 | lv-LV      | 拉脫維亞文                |       |    ✓   |         |         ✓         |                |     ✓     |
@@ -59,16 +59,16 @@ Azure 地圖服務已經跨服務當地語系化為各種語言。  下表提供
 | pl-PL      | 波蘭文                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | pt-BR      | 葡萄牙文 (巴西)    |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | pt-PT      | 葡萄牙文 (葡萄牙)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| ro-RO      | 羅馬尼亞文               |       |        |         |         ✓         |                |     ✓     |
+| ro-RO      | 羅馬尼亞文               |       |    ✓    |         |         ✓         |                |     ✓     |
 | ru-RU      | 俄文                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| sr-Cyrl-RS | 塞爾維亞文 (斯拉夫)     |       |        |         |                   |                |     ✓     |
+| sr-Cyrl-RS | 塞爾維亞文 (斯拉夫)     |       |    塞爾維亞文 （斯拉夫） (sr RS)   |         |                   |                |     ✓     |
 | sr-Latn-RS | 塞爾維亞文 (拉丁)        |       |        |         |                   |                |     ✓     |
 | sk-SK      | 斯洛伐克文              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | sl-SL      | 斯洛維尼亞文              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | es-ES      | 西班牙文                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | es-MX      | 西班牙文 (墨西哥)       |   ✓   |        |    ✓    |                   |        ✓       |     ✓     |
 | sv-SE     | 瑞典文                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| th-TH      | 泰文                   |   ✓   |        |    ✓    |         ✓         |        ✓       |     ✓     |
+| th-TH      | 泰文                   |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | tr-TR      | 土耳其文                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| uk-UA      | 烏克蘭文               |       |        |         |                   |                |     ✓     |
-| vi-VN      | 越南文             |       |        |         |                   |                |     ✓     |
+| uk-UA      | 烏克蘭文               |       |    ✓   |         |                   |                |     ✓     |
+| vi-VN      | 越南文             |       |    ✓   |         |                   |                |     ✓     |

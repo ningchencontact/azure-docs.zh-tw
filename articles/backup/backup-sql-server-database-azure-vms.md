@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 899068141a936aa5257501e733c6600185f22b8e
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 1a596462eb42231a356ddc4fa67b6468b63cd97c
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522157"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849302"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>備份 Azure VM 中的 SQL Server 資料庫
 
@@ -69,6 +69,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
   * 後置/前置空格
   * 後置 ‘!’
   * 右方括號 ‘]’
+  * 開頭為 'F:\' 的資料庫名稱
 
 對於 Azure 表格不支援的字元，可以使用別名，但建議避免採用此做法。 [深入了解](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN)。
 

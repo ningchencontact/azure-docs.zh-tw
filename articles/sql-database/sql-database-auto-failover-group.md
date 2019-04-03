@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 203d81f3d4872b249103429dde3fcac365fa5753
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: cf163b2b01b4205a4a3d2123263988998130c42a
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483381"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848389"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>使用自動容錯移轉群組可以啟用多個資料庫透明且協調的容錯移轉
 
@@ -343,11 +343,11 @@ ms.locfileid: "58483381"
 
 | API | 描述 |
 | --- | --- |
-| New-AzSqlDatabaseInstanceFailoverGroup |此命令會建立容錯移轉群組，並同時在主要和次要伺服器上註冊|
-| Set-AzSqlDatabaseInstanceFailoverGroup |修改容錯移轉群組的設定|
-| Get-AzSqlDatabaseInstanceFailoverGroup |擷取容錯移轉群組設定|
-| Switch-AzSqlDatabaseInstanceFailoverGroup |觸發容錯移轉群組的容錯移轉到次要伺服器|
-| Remove-AzSqlDatabaseInstanceFailoverGroup | 移除容錯移轉群組|
+| New-AzureRmSqlDatabaseInstanceFailoverGroup |此命令會建立容錯移轉群組，並同時在主要和次要伺服器上註冊|
+| Set-AzureRmSqlDatabaseInstanceFailoverGroup |修改容錯移轉群組的設定|
+| Get-AzureRmSqlDatabaseInstanceFailoverGroup |擷取容錯移轉群組設定|
+| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |觸發容錯移轉群組的容錯移轉到次要伺服器|
+| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | 移除容錯移轉群組|
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST API：使用單一和集區資料庫管理 SQL Database 容錯移轉群組
 

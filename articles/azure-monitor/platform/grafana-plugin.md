@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: 64a7a52d39fcac87bdc49b9d36e80d453557bc5b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6ea8f4e591399e23b103871da115dbb937227ca9
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002269"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850683"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>在 Grafana 中監視 Azure 服務
 您現在可以從使用 [Azure 監視器資料來源外掛程式](https://grafana.com/plugins/grafana-azure-monitor-datasource)的 [Grafana](https://grafana.com/)，監視 Azure 服務和應用程式。 外掛程式會蒐集 Azure 監視器所收集的應用程式效能資料，包括各種記錄檔和計量。 然後，您就可以在 Grafana 儀表板上顯示此資料。
@@ -47,13 +47,13 @@ ms.locfileid: "58002269"
 
 7. 取得 Grafana 伺服器的公用 IP 位址 - 返回資源清單，然後選取 [公用 IP 位址]。
 
-## <a name="log-in-to-grafana"></a>登入 Grafana
+## <a name="sign-in-to-grafana"></a>登入 Grafana
 
 1. 使用伺服器的 IP 位址，在您的瀏覽器中開啟登入頁面 (*http://\<IP 位址\>:3000* 或 *\<DNSName>\:3000*)。 雖然 3000 是預設連接埠，但請注意您在安裝過程中可能選取了不同的連接埠。 您應該會看到您建立的 Grafana 伺服器登入頁面。
 
     ![Grafana 登入畫面](./media/grafana-plugin/grafana-login-screen.png)
 
-2. 以 *admin* 身分的使用者名稱和您稍早建立的 Grafana 伺服器管理員密碼來登入。 如果您使用的是本機設定，則預設密碼為 *admin*，並且系統會要求您在首次登入時變更密碼。
+2. 登入的使用者名稱*admin*和您稍早建立的 Grafana 伺服器系統管理員密碼。 如果您使用的是本機設定，則預設密碼為 *admin*，並且系統會要求您在首次登入時變更密碼。
 
 ## <a name="configure-data-source-plugin"></a>設定資料來源外掛程式
 
@@ -167,5 +167,5 @@ Grafana 有許多實用功能，儀表板播放清單就是其中之一。 您�
 2. 在資源群組頁面上，按一下 [刪除]，在文字方塊中鍵入 **Grafana**，然後按一下 [刪除]。
 
 ## <a name="next-steps"></a>後續步驟
-* [Azure 監視器計量概觀](../../azure-monitor/platform/data-collection.md)
+* [Azure 監視器計量概觀](data-platform.md)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: e5dc8ac0716e194dd0949e2e270346ee338a792a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ee6317f61f95b19effd64308b88f53c027582b63
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839724"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883004"
 ---
 # <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>了解您的 Microsoft 客戶合約發票上的字詞
 
@@ -49,7 +49,7 @@ You are invoiced on a monthly basis. You can find out which day of the month you
 | P.O. number |您選擇性指派以進行追蹤的訂購單號碼 |
 | 發票編號 |用於追蹤 Microsoft 所產生的唯一發票編號 |
 | 發票日期 |會產生發票，通常在計費週期結束後的 5 到 12 天的日期。 您可以檢查您發票的日期在計費的設定檔屬性。|
-| 付款條件 |您如何需支付您 Microsoft 帳單。 *Net 30 天*表示您需要支付您使用核取或發票日期的 30 天內的連線傳輸。 |
+| 付款條件 |您如何需支付您 Microsoft 帳單。 *Net 30 天*表示日期的 30 天內用多少付多少。 |
 
 ### <a name="billing-summary"></a>帳單摘要
 

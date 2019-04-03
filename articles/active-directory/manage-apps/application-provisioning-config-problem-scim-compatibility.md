@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fc326c1ba529bc394a5ce5a059e3fe91baa7a9a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c2a2c1c415d0862b2631fa749241a9ae07df3b98
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124061"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880146"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Azure AD 使用者佈建服務 SCIM 2.0 通訊協定相容性的已知問題和解決方法
 
@@ -35,7 +35,7 @@ Azure Active Directory (Azure AD) 會利用 [System for Cross-Domain Identity Ma
 
 ## <a name="scim-20-compliance-issues-and-status"></a>SCIM 2.0 相容性問題和狀態
 
-| **SCIM 2.0 相容性問題** |  **已修正？** | **修正日期**  |  
+| **SCIM 2.0 相容性問題** |  **修正嗎？** | **修正日期**  |  
 |---|---|---|
 | Azure AD 要求應用程式的 SCIM 端點 URL 根目錄中必須有 "/scim"  | 是  |  2018 年 12 月 18 日 | 
 | 延伸模組屬性在屬性名稱前面使用點 "." 標記法，而不是冒號 ":" 標記法 |  是  | 2018 年 12 月 18 日  | 
@@ -82,13 +82,13 @@ Azure Active Directory (Azure AD) 會利用 [System for Cross-Domain Identity Ma
 
 10. 執行下列命令以建立具有最新服務修正的新佈建作業。
 
-    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs `
-    `{   templateId: "scim"   } `
+ `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
+ `{   templateId: "scim"   }`
    
 11. 在上一個步驟的結果中，複製開頭為 "scim" 的完整「識別碼」字串。 (選擇性) 執行下列命令以重新套用舊的屬性對應，將 [new-job-id] 取代為您剛才複製的新作業識別碼，然後輸入步驟 #7 中的 JSON 輸出作為要求本文。
 
-    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema `
-    `{   <your-schema-json-here>   }`
+ `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema`
+ `{   <your-schema-json-here>   }`
 
 12. 返回第一個網頁瀏覽器視窗，然後針對您的應用程式選取 [佈建] 索引標籤。
 13. 驗證您的設定，然後啟動佈建作業。 
@@ -112,5 +112,5 @@ Azure Active Directory (Azure AD) 會利用 [System for Cross-Domain Identity Ma
 
 
 ## <a name="next-steps"></a>後續步驟
-[深入了解對於 SaaS 應用程式的佈建和取消佈建](user-provisioning.md)
+[深入了解佈建和取消佈建到 SaaS 應用程式](user-provisioning.md)
 

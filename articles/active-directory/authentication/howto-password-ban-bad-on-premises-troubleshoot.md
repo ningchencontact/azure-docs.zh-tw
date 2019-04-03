@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12cbd9bebf001eb902147175c89b5d7ce49e8449
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 108ead982529d2ac6549cceffd9d2177ab6456bf
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487221"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863166"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Azure AD 密碼保護的疑難排解
 
@@ -44,7 +44,13 @@ ms.locfileid: "58487221"
 
 ## <a name="the-proxy-service-can-receive-calls-from-dc-agents-in-the-domain-but-is-unable-to-communicate-with-azure"></a>Proxy 服務可以接收來自網域中的 DC 代理程式的呼叫，但無法與 Azure 通訊
 
-請確定 proxy 機器能夠連線到中列出的端點[部署需求](howto-password-ban-bad-on-premises-deploy.md)。
+1. 請確定 proxy 機器能夠連線到中列出的端點[部署需求](howto-password-ban-bad-on-premises-deploy.md)。
+
+1. 確定樹系和所有針對相同的 Azure 租用戶中註冊伺服器的 proxy。
+
+   您可以執行來檢查這`Get-AzureADPasswordProtectionProxy`並`Get-AzureADPasswordProtectionDCAgent`PowerShell cmdlet，然後比較`AzureTenant`屬性的每個傳回的項目。 正確操作它們必須是相同的樹系內跨所有 DC 的代理程式和 proxy 伺服器。
+
+   如果不存在的 Azure 租用戶註冊不符合條件，這可以修復執行`Register-AzureADPasswordProtectionProxy`及/或`Register-AzureADPasswordProtectionForest`PowerShell cmdlet，如有需要請務必使用相同的 Azure 租用戶中的認證來進行所有註冊。
 
 ## <a name="the-dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files-and-other-state"></a>DC 代理程式 」 無法加密或解密的密碼原則檔和其他狀態
 

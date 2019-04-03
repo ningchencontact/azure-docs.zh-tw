@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: 64829cad24d7f436b8539659dc1f0c6ef6ed4da4
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 00658b650cdc0b1752bb9f2f205420018c1d6edd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404761"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881778"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Azure Data Factory 中的 Delete 活動
 
-您可以使用 Azure Data Factory 中的 Delete 活動，刪除內部部署儲存體存放區或雲端儲存體存放區的檔案或資料夾。 不再需要檔案時，使用此活動來清除或封存檔案。
+您也可以在 Azure Data Factory 中使用刪除活動，刪除檔案或資料夾從內部部署儲存體儲存或雲端儲存體存放區。 不再需要檔案時，使用此活動來清除或封存檔案。
 
 > [!WARNING]
 > 刪除的檔案或資料夾無法還原。 使用 Delete 活動來刪除檔案或資料夾時請小心謹慎。

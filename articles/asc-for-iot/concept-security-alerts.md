@@ -1,31 +1,31 @@
 ---
 title: IoT 預覽的 Azure 資訊安全中心的安全性警示指南 |Microsoft Docs
 description: 了解安全性警示和 IoT 功能和服務使用 Azure 資訊安全中心建議的補救措施。
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: a5c25cba-59a4-488b-abbe-c37ff9b151f9
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: 987bfa0da190bd2bd29634b46b5f06ff4dc1cc19
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f3ae69cb6c8e2a60488b4f1ff3df1bb8ab0c04ea
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755110"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861973"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>IoT 安全性警示的 azure 資訊安全中心
 
 > [!IMPORTANT]
 > IoT 的 azure 資訊安全中心目前處於公開預覽狀態。
-> 此預覽版的服務等級協定，不提供，且不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 IoT 的 azure 資訊安全中心 (ASC) 會持續分析您的 IoT 解決方案使用進階的分析和威脅智慧，以提醒您惡意活動。
 此外，您可以建立自訂您的預期的裝置行為的知識為基礎的警示。

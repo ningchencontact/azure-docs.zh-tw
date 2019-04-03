@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: 1b6419feef96b57bafd0831531bd8cfa56142cc4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b8f96de7214a46c9e38182c141343a46c0e28139
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089143"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882084"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Azure Cloud Shell 中 Bash 的快速入門
 
@@ -49,9 +49,9 @@ ms.locfileid: "58089143"
    ```
 
 2. 設定您慣用的訂用帳戶： <br>
-   ```azurecli-interactive
-   az account set --subscription my-subscription-name`
-   ```
+```azurecli-interactive
+az account set --subscription 'my-subscription-name'
+```
 
 > [!TIP]
 > 系統將使用 `/home/<user>/.azure/azureProfile.json` 來記住您的訂用帳戶，以供未來工作階段使用。
@@ -99,6 +99,6 @@ az vm create -n myVM -g MyRG --image UbuntuLTS --generate-ssh-keys
    ```
 
 ## <a name="next-steps"></a>後續步驟
-[了解保存 Cloud Shell 中 Bash 的檔案](persisting-shell-storage.md) <br>
+[在 Cloud Shell 中 Bash 的深入了解保存檔案](persisting-shell-storage.md) <br>
 [了解 Azure CLI](https://docs.microsoft.com/cli/azure/) <br>
 [了解 Azure 檔案儲存體](../storage/files/storage-files-introduction.md) <br>

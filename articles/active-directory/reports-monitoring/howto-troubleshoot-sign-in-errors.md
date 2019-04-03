@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26a3594b00f19c2790e9dfd5f09fbdc7d73d478f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: db68ad2a29dcaa53d219b679b9e0f24a50a6f576
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434886"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877052"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>作法：使用 Azure Active Directory 報告對登入錯誤進行疑難排解
 
@@ -55,7 +55,7 @@ Azure Active Directory (Azure AD) 中的[登入報告](concept-sign-ins.md)可�
 
     ![疑難排解和支援](./media/howto-troubleshoot-sign-in-errors/troubleshooting-and-support.png)
 
-6. 失敗原因會說明錯誤。 例如，在上述案例中，失敗原因是**無效的使用者名稱或密碼，或無效的內部部署使用者名稱或密碼**。 若要修正，只需使用正確的使用者名稱和密碼再登入一次。
+6. 失敗原因會說明錯誤。 例如，在上述案例中，失敗原因是**無效的使用者名稱或密碼無效在內部部署使用者名稱或密碼**。 若要修正，只需使用正確的使用者名稱和密碼再登入一次。
 
 7. 您可以在[登入錯誤碼參考](reference-sign-ins-error-codes.md)中搜尋錯誤碼 (在此範例中為 **50126**)，以取得其他詳細資訊和修復意見。 
 

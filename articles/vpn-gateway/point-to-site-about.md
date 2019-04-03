@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8fc952af011231a9cc12f96e3db9ebb088c237a2
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: 8f444cebac6ee60fbe65399e3f9c8e05eb033843
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413323"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878208"
 ---
 # <a name="about-point-to-site-vpn"></a>關於點對站 VPN
 
@@ -22,7 +22,7 @@ ms.locfileid: "54413323"
 
 店對站 VPN 可以使用下列其中一個通訊協定：
 
-* OpenVPN，此為以 SSL/TLS 為基礎的 VPN 通訊協定。 SSL VPN 解決方案可以穿透防火牆，因為大部分防火牆都會開啟 SSL 使用的 TCP 連接埠 443。 OpenVPN 可用於從 Android、iOS (11.0 版以上版本)、Linux 和 Mac 裝置 (OSX 10.13 版以上版本) 連線。
+* OpenVPN，此為以 SSL/TLS 為基礎的 VPN 通訊協定。 SSL VPN 解決方案可以穿透防火牆，因為大部分防火牆都會開啟 SSL 使用的 TCP 連接埠 443。 OpenVPN 可以用來連接從 Android、 iOS (版本為 11.0 和更新版本)、 Windows、 Linux 和 Mac 裝置 (OSX 版本 10.13 和更新版本)。
 
 * 安全通訊端通道通訊協定 (SSTP)，這是以 SSL 為基礎的專屬 VPN 通訊協定。 SSL VPN 解決方案可以穿透防火牆，因為大部分防火牆都會開啟 SSL 使用的 TCP 連接埠 443。 SSTP 僅在 Microsoft 裝置上提供支援。 Azure 支援所有具有 SSTP (Windows 7 及更新版本) 的 Windows 版本。
 
@@ -47,7 +47,7 @@ ms.locfileid: "54413323"
 
 AD 網域驗證可讓使用者使用其組織網域認證來連線至 Azure。 它需要可與 AD 伺服器整合的 RADIUS 伺服器。 組織也可利用其現有的 RADIUS 部署。   
   
-RADIUS 伺服器可以部署在內部部署環境或 Azure VNET 中。 在驗證期間，Azure VPN 閘道可作為 RADIUS 伺服器與連線裝置之間的通道，雙向轉送驗證訊息。 所以閘道觸達 RADIUS 伺服器的能力很重要。 如果 RADIUS 伺服器位於內部部署環境，則需要從 Azure 到內部部署網站的 VPN S2S 連線才能觸達。  
+RADIUS 伺服器可以部署在內部部署環境或 Azure VNET 中。 在驗證期間，Azure VPN 閘道可作為 RADIUS 伺服器與連線裝置之間的通道，雙向轉送驗證訊息。 所以閘道觸達 RADIUS 伺服器的能力很重要。 如果出現在內部部署 RADIUS 伺服器，從 Azure 到內部部署站台 VPN S2S 連線是才能觸達。  
   
 RADIUS 伺服器也可以與 AD 憑證服務整合。 這可讓您對 P2S 憑證驗證使用 RADIUS 伺服器和企業憑證部署，來替代 Azure 憑證驗證。 優點是，您不需要將根憑證及撤銷的憑證上傳至 Azure。
 
@@ -90,9 +90,9 @@ Zip 檔案也會提供 Azure 端的某些重要設定值，以便用於為這些
 
 P2S 設定需要相當多的特定步驟。 下列文章包含的步驟可引導您進行 P2S 設定，然後連結以設定 VPN 用戶端裝置：
 
-* [設定 P2S 連線 - RADIUS 驗證](point-to-site-how-to-radius-ps.md)
+* [設定 P2S 連線-RADIUS 驗證](point-to-site-how-to-radius-ps.md)
 
-* [設定 P2S 連線 - Azure 原生憑證驗證](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [設定 P2S 連線-Azure 原生憑證驗證](vpn-gateway-howto-point-to-site-rm-ps.md)
 
 * [設定 OpenVPN](vpn-gateway-howto-openvpn.md)
 
@@ -106,6 +106,6 @@ P2S 設定需要相當多的特定步驟。 下列文章包含的步驟可引導
 
 ## <a name="next-steps"></a>後續步驟
 
-* [設定 P2S 連線 - RADIUS 驗證](point-to-site-how-to-radius-ps.md)
+* [設定 P2S 連線-RADIUS 驗證](point-to-site-how-to-radius-ps.md)
 
-* [設定 P2S 連線 - Azure 原生憑證驗證](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [設定 P2S 連線-Azure 原生憑證驗證](vpn-gateway-howto-point-to-site-rm-ps.md)

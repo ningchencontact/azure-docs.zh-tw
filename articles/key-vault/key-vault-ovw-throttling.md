@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 823eebeddb64c15ef20d103f2f9290c800753f1a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 0f8aafce4c4feeed742504db84664e4dfd472ca6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404751"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884137"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Azure Key Vault 節流指導方針
 
@@ -34,7 +34,7 @@ Key Vault 中的服務限制是為了防止濫用資源，並確保所有 Key Va
 
 ## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>如何為您的應用程式進行節流處理，以回應服務限制
 
-以下是為您應用程式進行節流處理的**最佳做法**：
+以下是**最佳做法**調節您的服務時，您應該實作：
 - 減少每個要求的作業數目。
 - 減少要求的頻率。
 - 避免立即重試。 
@@ -115,7 +115,7 @@ Key Vault 中的服務限制是為了防止濫用資源，並確保所有 Key Va
 ```
 
 
-在用戶端 C\# 應用程式 (另一個 Web API 用戶端微服務、ASP.NET MVC 應用程式，甚至是 C\# Xamarin 應用程式) 中，使用此程式碼非常簡單。 以下範例會示範如何使用 HttpClient 類別。
+使用下列程式碼中的用戶端 C\#應用程式很簡單。 以下範例會示範如何使用 HttpClient 類別。
 
 ```csharp
 public async Task<Cart> GetCartItems(int page)

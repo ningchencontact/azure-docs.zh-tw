@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 55aed5d1133756789c3ed8979f0a9599f465e5d9
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 4e9bb9bd86e22efa5dd514e742481911b09c5e17
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315090"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848770"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>將來自 Azure 監視器的資料視覺化
 本文會概要介紹用以將儲存在 Azure 監視器中的記錄和計量資料視覺化的可用方法。
@@ -137,7 +137,7 @@ ms.locfileid: "57315090"
 
 
 ## <a name="next-steps"></a>後續步驟
-- 了解 [ Azure 監視器收集的資料](platform/data-collection.md)。
+- 了解 [ Azure 監視器收集的資料](platform/data-platform.md)。
 - 了解 [Azure 儀表板](../azure-portal/azure-portal-dashboards.md)。
 - 了解 [Azure 監視器中的檢視](platform/view-designer.md)。
 - 深入了解[活頁簿](../azure-monitor/app/usage-workbooks.md)。

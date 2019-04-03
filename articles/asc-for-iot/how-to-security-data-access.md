@@ -1,31 +1,31 @@
 ---
 title: 使用 Azure 資訊安全中心的 IoT 預覽存取資料 |Microsoft Docs
 description: 深入了解如何使用 iot 的 Azure 資訊安全中心時存取您的安全性警示和建議資料。
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: fbd96ddd-cd9f-48ae-836a-42aa86ca222d
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 510ee9bdefe87c1fab40e58bb715f2a8cce936b7
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 0788a62de701cb85a65c7053006e28cf4fffe5cb
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758530"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862585"
 ---
 # <a name="access-your-security-data"></a>存取您的安全性資料 
 
 > [!IMPORTANT]
 > IoT 的 azure 資訊安全中心目前處於公開預覽狀態。
-> 此預覽版的服務等級協定，不提供，且不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+> 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 IoT 的 azure 資訊安全中心 (ASC) 會儲存安全性警示、 建議和未經處理的安全性資料 （如果您選擇將它儲存） 在您的 Log Analytics 工作區中。
 

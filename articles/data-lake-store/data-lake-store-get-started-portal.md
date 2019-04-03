@@ -3,19 +3,19 @@ title: 使用 Azure 入口網站來開始使用 Azure Data Lake Storage Gen1 | M
 description: 使用 Azure 入口網站來建立 Azure Data Lake Storage Gen1 帳戶，並在 Data Lake Storage Gen1 帳戶中執行基本作業。
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: a99d8a265cdc72b6bd1dd45ab670f514d828f808
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: twooley
+ms.openlocfilehash: e021d8c056028c03ac71d2a27c9128272f374da6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58005693"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883576"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>使用 Azure 入口網站開始使用 Azure Data Lake Storage Gen1
 
@@ -123,8 +123,8 @@ ms.locfileid: "58005693"
 ![刪除 Data Lake Storage Gen1 帳戶](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "刪除 Data Lake 帳戶")
 
 ## <a name="next-steps"></a>後續步驟
-* [使用 Azure Data Lake Storage Gen1 處理巨量資料需求](data-lake-store-data-scenarios.md) 
-* [保護 Data Lake Storage Gen1 中的資料](data-lake-store-secure-data.md)
-* [搭配 Data Lake Storage Gen1 使用 Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [搭配 Data Lake Storage Gen1 使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [使用 Azure Data Lake 儲存體 Gen1 處理巨量資料需求](data-lake-store-data-scenarios.md) 
+* [保護 Data Lake 儲存體 Gen1 中的資料](data-lake-store-secure-data.md)
+* [使用 Azure Data Lake Analytics 與 Data Lake 儲存體 Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [使用 Azure HDInsight 與 Data Lake 儲存體 Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 

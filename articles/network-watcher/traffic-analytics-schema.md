@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: 922e01c26a2cfe24c8b8a32bb8037d9b3b3384c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 246c5256f56fd0b891d4e7d642c421b1e340fc6d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109115"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879330"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>在 流量分析的結構描述和資料彙總
 
@@ -120,7 +120,7 @@ ms.locfileid: "58109115"
 1. ExternalPublic-其中一個 IP 位址屬於 Azure 虛擬網路不是在 Azure 中的公用 IP 的 IP 位址時，不會回報為惡意流量分析的處理間隔會耗用 ASC 摘要中 」FlowIntervalStartTime_t"和"FlowIntervalEndTime_t 」。 
 1. MaliciousFlow-其中一個 IP 位址屬於 azure 虛擬網路的 IP 位址時，在 Azure 中並不會回報為惡意流量分析的處理間隔會耗用 ASC 摘要中的公用 IP 」FlowIntervalStartTime_t"和"FlowIntervalEndTime_t 」。 
 1. UnknownPrivate-其中一個 IP 位址屬於 Azure 虛擬網路時的其他 IP 位址屬於私人 IP 範圍，如 RFC 1918 中所定義，而且無法對應，流量分析至客戶自有網站或 Azure 虛擬網路。
-1. 未知-無法對應其中一個 IP 位址在流程中使用在 Azure 中客戶拓撲，以及在內部部署 （網站）。
+1. 未知-無法對應任一個 IP 位址在流程在 Azure 中的客戶拓樸，以及在內部部署 （網站）。
 
 ### <a name="next-steps"></a>後續步驟
 若要取得常見問題的解答，請參閱[流量分析常見問題集](traffic-analytics-faq.md)若要查看有關功能的詳細資訊，請參閱[流量分析文件](traffic-analytics.md)

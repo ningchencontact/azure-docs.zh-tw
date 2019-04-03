@@ -8,12 +8,12 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 6ffe051c019184d5ce1a32af50dbf3e7faa06675
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 42627649145b568b2b25411d182e5a36cdb025b0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490306"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881183"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>利用 Azure Advisor 改善應用程式的可用性
 
@@ -64,7 +64,7 @@ Azure Advisor 可協助您確保和改善業務關鍵應用程式的持續性。
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>將您的 VPN 閘道設定為主動-主動以得到連線復原能力
 
-在主動-主動設定中，VPN 閘道的兩個執行個體將對您的內部部署 VPN 裝置建立 S2S VPN 通道。 當一個閘道器執行個體發生計劃性維護事件或非計劃性事件時，系統會自動將流量切換到另一個主動 IPsec 通道。 Azure Advisor 將識別未設定為主動-主動的 VPN 閘道，並建議您設定它們以獲得高可用性。
+在主動-主動組態中，VPN 閘道的兩個執行個體將會建立到您的內部部署 VPN 裝置的 S2S VPN 通道。 當一個閘道器執行個體發生計劃性維護事件或非計劃性事件時，系統會自動將流量切換到另一個主動 IPsec 通道。 Azure Advisor 將識別未設定為主動-主動的 VPN 閘道，並建議您設定它們以獲得高可用性。
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>如何存取建議程式中的高可用性建議
 
@@ -77,7 +77,7 @@ Azure Advisor 可協助您確保和改善業務關鍵應用程式的持續性。
 如需 Advisor 建議的詳細資訊，請參閱：
 * [Azure 建議程式簡介](advisor-overview.md)
 * [開始使用 Advisor](advisor-get-started.md)
-* [Advisor 成本建議](advisor-cost-recommendations.md)
-* [Advisor 效能建議](advisor-performance-recommendations.md)
-* [Advisor 安全性建議](advisor-security-recommendations.md)
+* [Azure Advisor 成本建議](advisor-cost-recommendations.md)
+* [建議程式效能建議](advisor-performance-recommendations.md)
+* [建議程式安全性建議](advisor-security-recommendations.md)
 

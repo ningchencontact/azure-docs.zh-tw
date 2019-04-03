@@ -6,22 +6,22 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: cforbe
-author: cforbe
+ms.author: sihhu
+author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 12a914b2cdef0a40493dac1a539cf0c2a7703093
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d2bd271557ae0deefeb12a2dc7343c46fbd35363
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999819"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847601"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>使用 Azure Machine Learning 資料準備 SDK 來轉換資料
 
-在本文中，您將了解使用 Azure Machine Learning 資料準備 SDK 的資料載入不同的方法。 SDK 還提供讓您輕鬆加入資料行，篩選掉不必要的資料列或資料行，並插補遺漏值的函式。 若要查看 SDK 的參考文件，請參閱[概觀](https://aka.ms/data-prep-sdk)。
+在本文中，您將了解不同的方法，將使用 Azure Machine Learning 資料準備 SDK 資料的轉換。 SDK 還提供讓您輕鬆加入資料行，篩選掉不必要的資料列或資料行，並插補遺漏值的函式。 若要查看 SDK 的參考文件，請參閱[概觀](https://aka.ms/data-prep-sdk)。
 
 此操作說明會顯示下列工作的範例：
 

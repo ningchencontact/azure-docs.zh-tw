@@ -9,16 +9,16 @@ ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 04/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74a7316ea00f5c38d6a2b1a98d81affeeffcd5e9
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 0506cc086cbc0c9ea30e199fd0bf18da3b8af545
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517992"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863078"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步來實作密碼雜湊同步處理
 本文提供您所需資訊，以讓您將使用者密碼從內部部署 Active Directory 執行個體同步處理至雲端式 Azure Active Directory (Azure AD) 執行個體。
@@ -46,7 +46,7 @@ Active Directory 網域服務是以使用者實際密碼的雜湊值表示法格
 ### <a name="detailed-description-of-how-password-hash-synchronization-works"></a>密碼雜湊同步處理運作方式的詳細描述
 下列小節深入說明 Active Directory 與 Azure AD 之間的密碼雜湊同步處理運作方式。
 
-![詳細的密碼流程](./media/how-to-connect-password-hash-synchronization/arch3a.png)
+![詳細的密碼流程](./media/how-to-connect-password-hash-synchronization/arch3b.png)
 
 
 1. AD Connect 伺服器上的密碼雜湊同步處理代理程式每隔兩分鐘就會向 DC 要求儲存的密碼雜湊 (unicodePwd 屬性)。  此要求是使用標準 [MS-DRSR](https://msdn.microsoft.com/library/cc228086.aspx) \(英文\)複寫通訊協定，用來在 DC 之間同步資料。 服務帳戶必須具有複寫目錄變更和複寫目錄變更所有 AD 權限 (預設在安裝時授與)，以取得密碼雜湊。
@@ -117,12 +117,12 @@ Active Directory 網域服務是以使用者實際密碼的雜湊值表示法格
 ### <a name="password-hash-synchronization-and-fips"></a>密碼雜湊同步處理和 FIPS
 如果我們已經根據美國聯邦資訊處理標準 (FIPS) 鎖定您的伺服器，則 MD5 會停用。
 
-**若要針對密碼雜湊同步處理啟用 MD5，請執行下列步驟︰**
+**若要針對密碼雜湊同步處理啟用 MD5，請執行下列步驟：**
 
 1. 移至 %programfiles%\Azure AD Sync\Bin。
 2. 開啟 miiserver.exe.config。
 3. 移至檔案結尾處的 configuration/runtime 節點。
-4. 添加以下节点： `<enforceFIPSPolicy enabled="false"/>`
+4. 新增下列節點： `<enforceFIPSPolicy enabled="false"/>`
 5. 儲存您的變更。
 
 如需參考，此程式碼片段就是其大致樣貌︰
@@ -143,4 +143,4 @@ Active Directory 網域服務是以使用者實際密碼的雜湊值表示法格
 ## <a name="next-steps"></a>後續步驟
 * [Azure AD Connect 同步：自訂同步處理選項](how-to-connect-sync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)
-* [取得從 ADFS 遷移至密碼雜湊同步處理的逐步部署方案](https://aka.ms/authenticationDeploymentPlan)
+* [取得逐步部署計劃從 ADFS 移轉至密碼雜湊同步處理](https://aka.ms/authenticationDeploymentPlan)

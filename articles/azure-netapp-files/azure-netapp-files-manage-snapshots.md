@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: b-juche
-ms.openlocfilehash: 9154add96084142ca1f93ad61c6418e3b487fb83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 01387d0c219c86f33762b9c3fbf9f81cf04b4455
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090911"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880809"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>使用 Azure NetApp Files 管理快照集
 
@@ -65,14 +65,14 @@ ms.locfileid: "58090911"
         
         檔案路徑名稱只能包含字母、數字和連字號 ("-")。 長度必須介於 16 到 40 個字元之間。 
 
-    * **配額**  
+    * **Quota**  
         指定配置給磁碟區的邏輯儲存體大小。  
 
         [可用配額] 欄位會顯示所選容量集區中可用來建立新磁碟區的未使用空間量。 新磁碟區的大小不可超過可用配額。
 
     *   **虛擬網路**  
         指定您要從中存取磁碟區的 Azure 虛擬網路 (Vnet)。  
-        您指定的 Vnet 必須有委派給 Azure NetApp Files 的子網路。 Azure NetApp Files 服務只能從相同的 Vnet 存取，或透過 Vnet 對等互連從與磁碟區位於相同區域的 Vnet 存取。 您可以透過 Express Route 從內部部署網路存取磁碟區。 
+        您指定的 Vnet 必須有委派給 Azure NetApp Files 的子網路。 Azure NetApp Files 服務只能從相同的 Vnet 存取，或透過 Vnet 對等互連從與磁碟區位於相同區域的 Vnet 存取。 您可以從您的內部部署網路透過 Expressroute 存取磁碟區。 
 
     * **子網路**  
         指定要用於磁碟區的子網路。  

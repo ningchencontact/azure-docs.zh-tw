@@ -1,5 +1,5 @@
 ---
-title: 使用範本建立工作區
+title: 使用 Azure Resource Manager 範本來建立工作區
 titleSuffix: Azure Machine Learning service
 description: 了解如何使用 Azure Resource Manager 範本建立新的 Azure Machine Learning 服務工作區。
 services: machine-learning
@@ -8,17 +8,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 02/11/2019
-ms.openlocfilehash: 2b5ee1b5079f22985b03aaafac30c11a10a3c8f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/02/2019
+ms.custom: seoapril2019
+ms.openlocfilehash: 7349998325e56d5ebb78de5ca30c0127f09102aa
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850072"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883185"
 ---
-# <a name="create-an-azure-machine-learning-service-workspace-by-using-a-template"></a>使用範本建立 Azure Machine Learning 服務工作區
+# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>使用 Azure Resource Manager 範本來建立 Azure 機器學習服務工作區
 
-在本文中，您將了解使用 Azure Resource Manager 範本建立 Azure Machine Learning 服務工作區的數種方式。 
+在本文中，您將了解使用 Azure Resource Manager 範本建立 Azure Machine Learning 服務工作區的數種方式。 Resource Manager 範本可讓您輕鬆地以單一、協調的作業建立資源。 範本是 JSON 文件，其定義部署所需的資源。 它也可以指定部署參數。 參數用來在使用範本時提供輸入值。
 
 如需詳細資訊，請參閱 [使用 Azure Resource Manager 範本部署應用程式](../../azure-resource-manager/resource-group-template-deploy.md)。
 
@@ -30,9 +31,7 @@ ms.locfileid: "57850072"
 
 ## <a name="resource-manager-template"></a>Resource Manager 範本
 
-Resource Manager 範本可讓您輕鬆地以單一、協調的作業建立資源。 範本是 JSON 文件，其定義部署所需的資源。 它也可以指定部署參數。 參數用來在使用範本時提供輸入值。
-
-下列範本可用來建立 Azure Machine Learning 服務工作區和相關的 Azure 資源：
+下列 Resource Manager 範本可以用來建立 Azure 機器學習服務工作區和相關聯的 Azure 資源中：
 
 ```json
 {
@@ -183,9 +182,9 @@ Resource Manager 範本可讓您輕鬆地以單一、協調的作業建立資源
 
 如需範本的詳細資訊，請參閱下列文章：
 
-* [編寫 Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)
-* [使用 Azure Resource Manager 範本部署應用程式](../../azure-resource-manager/resource-group-template-deploy.md)
-* [Microsoft.MachineLearningServices resource 類型](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
+* [製作 Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md)
+* [部署 Azure Resource Manager 範本的應用程式](../../azure-resource-manager/resource-group-template-deploy.md)
+* [Microsoft.MachineLearningServices 資源類型](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
 
 ## <a name="use-the-azure-portal"></a>使用 Azure 入口網站
 

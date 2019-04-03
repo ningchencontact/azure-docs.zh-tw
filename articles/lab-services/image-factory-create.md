@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: c7923282396481dcfd6aa19b75d110fa03e50931
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: e51c56f54a4e30b5e9094388ed92aa0a62ba0840
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439785"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879143"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中建立自訂映像處理站
 這篇文章會示範如何使用範例指令碼中可用設定的自訂映像處理站[Git 存放庫](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory)。
@@ -27,7 +27,7 @@ ms.locfileid: "58439785"
 
 重要的加速器，以取得就緒的狀態，在 DevTest Labs 中的開發人員桌面使用自訂映像。 自訂映像的缺點是會有額外維護在實驗室中的項目。 例如，產品的試用版過期一段時間 （或者） 不套用新發行的安全性更新，這會強制我們的自訂映像會定期重新整理。 使用映像處理站中，您必須簽入原始程式碼控制，並讓自動化程序來產生定義為基礎的自訂映像的映像的定義。
 
-解決方案可讓您從自訂映像建立虛擬機器，同時避免其他進行中的維護成本的速度。 使用此解決方案，您可以自動建立自訂映像、 將它們散發給其他 DevTest Labs 中，並淘汰舊的映像。 在下列影片中，您會了解映像處理站，以及它使用 DevTest Labs 的實作方式。  所有的 Azure Powershell 指令碼可在免費取得，且位於此： [ http://aka.ms/dtlimagefactory ](http://aka.ms/dtlimagefactory)。
+解決方案可讓您從自訂映像建立虛擬機器，同時避免其他進行中的維護成本的速度。 使用此解決方案，您可以自動建立自訂映像、 將它們散發給其他 DevTest Labs 中，並淘汰舊的映像。 在下列影片中，您會了解映像處理站，以及它使用 DevTest Labs 的實作方式。  所有的 Azure Powershell 指令碼可在免費取得，且位於此： [ https://aka.ms/dtlimagefactory ](https://aka.ms/dtlimagefactory)。
 
 <br/>
 

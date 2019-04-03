@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 4ae8ae43d8c245270b64611bed0ac4930aa0ecc3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6d03c219025c8cd39214bd8ab6807125709f9742
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763414"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849682"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Azure 監視器中資料的來源
-本文描述 Azure 監視器所收集的資料來源，這些資料可用來監視資源 (以及在資源上執行的應用程式) 健康情況和效能。 這些資源可能在 Azure、另一個雲端或內部部署中。  請參閱 [Azure 監視器所收集的資料](data-collection.md)，以取得這項資料儲存方式以及如何檢視它的詳細資訊。
+本文描述 Azure 監視器所收集的資料來源，這些資料可用來監視資源 (以及在資源上執行的應用程式) 健康情況和效能。 這些資源可能在 Azure、另一個雲端或內部部署中。  請參閱 [Azure 監視器所收集的資料](data-platform.md)，以取得這項資料儲存方式以及如何檢視它的詳細資訊。
 
 Azure 中的監視資料來自各種來源，可分為多層，最高層是您的應用程式和任何作業系統，而下面幾層是 Azure 平台的元件。 在下圖中會加以說明，另外在下列章節會詳細說明各層。
 
@@ -59,7 +59,7 @@ Azure 中的監視資料來自各種來源，可分為多層，最高層是您�
 
 
 ### <a name="metrics"></a>度量
-大部分 Azure 服務都會產生[平台計量](data-collection.md#metrics)，可反映其效能和作業。 特定[計量會因為各種類型的資源而異](metrics-supported.md)。  這些計量可以從 [計量分析] 存取，並且可以使用 Log Analytics 複製到記錄，以進行趨勢和其他分析。
+大部分 Azure 服務都會產生[平台計量](data-platform-metrics.md)，可反映其效能和作業。 特定[計量會因為各種類型的資源而異](metrics-supported.md)。  這些計量可以從 [計量分析] 存取，並且可以使用 Log Analytics 複製到記錄，以進行趨勢和其他分析。
 
 
 ### <a name="resource-diagnostic-logs"></a>資源診斷記錄
@@ -116,4 +116,4 @@ Azure 監視器可以使用[資料收集器 API](../../azure-monitor/platform/da
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解 [Azure 監視器所收集的監視資料類型](data-collection.md)，以及如何檢視及分析這項資料。
+- 深入了解 [Azure 監視器所收集的監視資料類型](data-platform.md)，以及如何檢視及分析這項資料。

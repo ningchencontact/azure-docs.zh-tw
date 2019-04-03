@@ -3,21 +3,21 @@ title: 在 Azure 資料目錄中從 Azure Data Lake Storage Gen1 註冊資料 | 
 description: 在 Azure 資料目錄中從 Azure Data Lake Storage Gen1 註冊資料
 services: data-lake-store,data-catalog
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: 3294d91e-a723-41b5-9eca-ace0ee408a4b
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: bc9d6f8f078860000d7a2a38bf4aa1ce00ff450e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: fd887560c0011fb1ec2141e33f02f7e3d8a39c81
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533437"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877879"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>在 Azure 資料目錄中從 Azure Data Lake Storage Gen1 註冊資料
 在此文章中，您將了解如何使用 Azure 資料目錄來整合 Azure Data Lake Storage Gen1，使您的資料與資料目錄整合，讓使用者可在組織中進行搜尋。 如需編目資料的詳細資訊，請參閱 [Azure 資料目錄](../data-catalog/data-catalog-what-is-data-catalog.md)。 若要了解您可以使用資料目錄的案例，請參閱 [Azure 資料目錄常見案例](../data-catalog/data-catalog-common-scenarios.md)。
@@ -74,10 +74,10 @@ ms.locfileid: "57533437"
      ![搜尋目錄中的資料](./media/data-lake-store-with-data-catalog/search-data-in-catalog.png "搜尋目錄中的資料")
 1. 您現在可以執行將註釋和文件新增至資料等作業。 如需詳細資訊，請參閱下列連結。
 
-    * [註釋資料目錄中的資料來源](../data-catalog/data-catalog-how-to-annotate.md)
-    * [記錄資料目錄中的資料來源](../data-catalog/data-catalog-how-to-documentation.md)
+    * [註解資料目錄中的資料來源](../data-catalog/data-catalog-how-to-annotate.md)
+    * [資料目錄中的文件資料來源](../data-catalog/data-catalog-how-to-documentation.md)
 
 ## <a name="see-also"></a>請參閱
-* [註釋資料目錄中的資料來源](../data-catalog/data-catalog-how-to-annotate.md)
-* [記錄資料目錄中的資料來源](../data-catalog/data-catalog-how-to-documentation.md)
-* [將 Data Lake Storage Gen1 與其他 Azure 服務整合](data-lake-store-integrate-with-other-services.md)
+* [註解資料目錄中的資料來源](../data-catalog/data-catalog-how-to-annotate.md)
+* [資料目錄中的文件資料來源](../data-catalog/data-catalog-how-to-documentation.md)
+* [與其他 Azure 服務整合 Data Lake 儲存體 Gen1](data-lake-store-integrate-with-other-services.md)

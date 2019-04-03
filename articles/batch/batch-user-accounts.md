@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: ba64ecc334d93c8ff973345cfd10ed12436d3fb6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 000495ab84990f15885c254b472be7863c75da58
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813903"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877511"
 ---
 # <a name="run-tasks-under-user-accounts-in-batch"></a>在 Batch 中的使用者帳戶執行工作
 
@@ -163,7 +163,7 @@ task.UserIdentity = new UserIdentity(new AutoUserSpecification(scope: AutoUserSc
 
 ### <a name="create-named-user-accounts"></a>建立具名的使用者帳戶
 
-若要在 Batch 中建立具名使用者帳戶，請將使用者帳戶的集合新增至集區。 下列程式碼片段示範如何在 .NET、Java 和 Python 建立具名的使用者帳戶。 這些程式碼片段示範如何在集區上建立系統管理員和非系統管理員的具名帳戶。 範例會使用雲端服務設定來建立集區，但當您使用虛擬機器設定來建立 Windows 或 Linux 集區時，才使用相同的方法。
+若要在 Batch 中建立具名使用者帳戶，請將使用者帳戶的集合新增至集區。 下列程式碼片段示範如何在 .NET、Java 和 Python 建立具名的使用者帳戶。 這些程式碼片段示範如何在集區上建立系統管理員和非系統管理員的具名帳戶。 这些示例使用云服务配置创建池，但你在使用虚拟机配置创建 Windows 或 Linux 池时，可以使用相同的方法。
 
 #### <a name="batch-net-example-windows"></a>Batch .NET 範例 (Windows)
 
@@ -254,7 +254,7 @@ await pool.CommitAsync();
 ```
 
 
-#### <a name="batch-java-example"></a>Batch Java 範例
+#### <a name="batch-java-example"></a>Batch Java 示例
 
 ```java
 List<UserAccount> userList = new ArrayList<>();
@@ -328,8 +328,8 @@ Batch 服務版本 2017-01-01.4.0 導入重大變更，將舊版中的 **runElev
 
 | 如果您的程式碼使用...                      | 將它更新為...                                                                                                                       |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
-| `run_elevated=True`                       | `user_identity=user`，其中 <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin)) `                |
-| `run_elevated=False`                      | `user_identity=user`，其中 <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.nonadmin)) `             |
+| `run_elevated=True`                       | `user_identity=user`其中 <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin))`                |
+| `run_elevated=False`                      | `user_identity=user`其中 <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.nonadmin))`             |
 | `run_elevated` 未指定 | 不需要更新                                                                                                                                  |
 
 

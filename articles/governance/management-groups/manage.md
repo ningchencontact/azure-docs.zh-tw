@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: f9e9bf51d50863f2e37a2f579c2db0edcfeca634
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: f75686d19a468983a6b0ce68eb4a456e00c90eeb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58801758"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881036"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>利用管理群組來管理您的資源
 
@@ -330,7 +330,7 @@ az account management-group update --name 'Contoso' --parent-id '/providers/Micr
 
 例如，在将新角色分配到 PowerShell 中的管理组时，使用此路径
 
-```powershell-interactive
+```azurepowershell-interactive
 New-AzRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
 ```
 
@@ -345,7 +345,7 @@ GET https://management.azure.com/providers/Microsoft.Management/managementgroups
 若要深入了解管理群組，請參閱：
 
 - [建立管理群組以組織 Azure 資源](create.md)
-- [如何變更、刪除或管理您的管理群組](manage.md)
-- [檢閱 Azure PowerShell 資源模組中的管理群組](/powershell/module/az.resources#resources)
+- [如何變更、 刪除或管理您的管理群組](manage.md)
+- [檢閱在 Azure PowerShell 模組中資源的管理群組](/powershell/module/az.resources#resources)
 - [檢閱 REST API 中的管理群組](/rest/api/resources/managementgroups)
-- [檢閱 Azure CLI 中的管理群組](/cli/azure/account/management-group)
+- [檢閱在 Azure CLI 中的管理群組](/cli/azure/account/management-group)

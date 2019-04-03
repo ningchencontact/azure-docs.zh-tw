@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: b8725dfcb2a337750c6e2a78ba7571114b8e3cd3
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: ab8d4fb9b46573d58fd93fc5121a4fc1918cc69d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407178"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879381"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>使用 Azure 媒體服務 v3 進行即時串流
 
@@ -31,7 +31,7 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 這篇文章提供概觀和即時資料流，與媒體服務和其他相關文章連結的指引。
 
 > [!NOTE]
-> 目前您無法使用 Azure 入口網站管理 v3 資源。 使用[REST API](https://aka.ms/ams-v3-rest-ref)， [CLI](https://aka.ms/ams-v3-cli-ref)，或其中一個支援[Sdk](developers-guide.md)。
+> 目前您無法使用 Azure 入口網站管理 v3 資源。 請使用 [REST API](https://aka.ms/ams-v3-rest-ref)、[CLI](https://aka.ms/ams-v3-cli-ref) 或其中一個支援的 [SDK](developers-guide.md)。
 
 ## <a name="dynamic-packaging"></a>動態封裝
 
@@ -66,14 +66,14 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 若要了解媒體服務 v3 中的即時串流工作流程，您必須先檢閱，並了解下列概念： 
 
 - [串流端點](streaming-endpoint-concept.md)
-- [實況活動與實況輸出](live-events-outputs-concept.md)
+- [即時事件與即時輸出](live-events-outputs-concept.md)
 - [串流定位器](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>一般步驟
 
 1. 在您的媒體服務帳戶中，確認**串流端點**正在執行。 
 2. 建立 [即時事件](live-events-outputs-concept.md)。 <br/>在建立事件時，您可以指定要自動啟動它。 或者，您可以在準備好開始進行串流處理時啟動事件。<br/> 當自動啟動設定為 true 時，即時事件將會在建立後隨即啟動。 只要即時事件一執行，就會立即開始計費。 您必須對「實況活動」資源明確呼叫「停止」，才能終止進一步計費。 如需詳細資訊，請參閱[實況活動狀態和計費](live-event-states-billing.md)。
-3. 取得內嵌 URL 並設定您的內部部署編碼器，以使用該 URL 來傳送貢獻摘要。<br/>請參閱[建議的即時編碼器](recommended-on-premises-live-encoders.md)。
+3. 取得內嵌 URL，並設定您的內部部署編碼器，以使用 URL 來傳送發佈摘要。<br/>請參閱[建議的即時編碼器](recommended-on-premises-live-encoders.md)。
 4. 取得預覽 URL 並使用它來確認實際上已收到來自編碼器的輸入。
 5. 建立新的 [資產] 物件。
 6. 建立 [即時輸出] 並使用您建立的資產名稱。<br/>**實況輸出**會將資料流封存到**資產**中。
@@ -87,11 +87,11 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
 - [建議的即時編碼器](recommended-on-premises-live-encoders.md)
 - [使用雲端 DVR](live-event-cloud-dvr.md)
-- [即時事件類型功能比較](live-event-types-comparison.md)
-- [狀態和計費](live-event-states-billing.md)
-- [延遲](live-event-latency.md)
+- [即時事件類型的功能比較](live-event-types-comparison.md)
+- [狀態與計費](live-event-states-billing.md)
+- [Latency](live-event-latency.md)
 
 ## <a name="next-steps"></a>後續步驟
 
-* [即時串流教學課程](stream-live-tutorial-with-api.md)
+* [即時串流的教學課程](stream-live-tutorial-with-api.md)
 * [從媒體服務 v2 移動至 v3 的移轉指導](migrate-from-v2-to-v3.md)

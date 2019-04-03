@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: 8638b788762a56813c622c0abffe2a8eae3c70c2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fe3803b7dc75ab13831a5e42d4b1a96f5aa894e5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437100"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882424"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>搭配 Linux 虛擬機器使用 Azure 自訂指令碼擴充功能第 1 版
 
@@ -133,11 +133,11 @@ Linux 自訂指令碼擴充功能有兩個：
 
 ### <a name="property-value-details"></a>屬性值詳細資料
 
-* `fileUris`：(選用，字串陣列) 指令碼的 URI 清單
-* `enableInternalDNSCheck`：(選用，布林值) 預設為 True，設定為 False 時可停用 DNS 檢查。
-* `commandToExecute`：(選用，字串) 要執行的進入點指令碼
-* `storageAccountName`：(選用，字串) 儲存體帳戶的名稱
-* `storageAccountKey`：(選用，字串) 儲存體帳戶的存取金鑰
+* `fileUris`: （選擇性，字串陣列) 的指令碼的 uri 清單
+* `enableInternalDNSCheck`: （選擇性，布林值) 預設值為 True，若要停用 DNS 檢查設定為 False。
+* `commandToExecute`: （選擇性，字串) 要執行的進入點指令碼
+* `storageAccountName`: （選擇性，字串) 儲存體帳戶名稱
+* `storageAccountKey`: （選擇性，字串) 儲存體帳戶的存取金鑰
 
 下列值可以在公開或受保護設定兩者之一中設定，但不得同時在公開和受保護設定中設定下列這些值。
 
@@ -149,7 +149,7 @@ Linux 自訂指令碼擴充功能有兩個：
 
 ## <a name="template-deployment"></a>範本部署
 
-可使用 Azure Resource Manager 模板部署 Azure VM 扩展。 上一節詳述的 JSON 結構描述可以用於 Azure Resource Manager 範本，以在 Azure Resource Manager 範本部署期間執行自訂指令碼擴充功能。
+也可以使用 Azure Resource Manager 範本部署 Azure VM 擴充功能。 上一節詳述的 JSON 結構描述可以用於 Azure Resource Manager 範本，以在 Azure Resource Manager 範本部署期間執行自訂指令碼擴充功能。
 
 ```json
 {
@@ -296,8 +296,7 @@ az vm extension set
 
 1. 命令開始執行時啟用。
 1. 下載與從 Azure 下載 CustomScript 擴充功能套件有關，與在 fileUris 中指定的指令碼檔案無關。
-1. 您也可以查看它寫出哪個記錄檔 `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log
-`
+1. 您也可以看到它寫出哪個記錄檔 `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
 
 下一步是要檢查記錄檔，以下是格式：
 

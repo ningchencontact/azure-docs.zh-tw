@@ -9,20 +9,20 @@ ms.reviewer: jasonwhowell
 ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
-ms.openlocfilehash: 5d10d4d603312b3c75760a5d7c17a9028ddecea8
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
-ms.translationtype: HT
+ms.openlocfilehash: 59a52b2aeb83732a608f1fcf5bc4de907d25dfd1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401210"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885021"
 ---
 # <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>在 Azure Data Lake Analytics 中使用 R 程式碼擴充 U-SQL 指令碼
 
 以下範例說明部署 R 程式碼的基本步驟：
 * 使用 `REFERENCE ASSEMBLY` 陳述式啟用 U-SQL 指令碼的 R 延伸模組。
-* 使用 ` REDUCE` 作業分割索引鍵上的輸入資料。
+* 使用`REDUCE`作業分割索引鍵上的輸入的資料。
 * U-SQL 的 R 延伸模組有內建的歸納器 (`Extension.R.Reducer`)，會在指派給歸納器的每一個頂點上執行 R 程式碼。 
-* 專用具名資料框架的使用情況會相對應地呼叫 `inputFromUSQL` 和 `outputToUSQL ` 以在 USQL 和 R 之間傳遞資料。輸入和輸出資料框架識別碼名稱是固定的 (也就是使用者無法變更輸入和輸出資料框架識別碼的這些預先定義名稱)。
+* 使用專用具名資料框架稱為`inputFromUSQL`和`outputToUSQL`分別為 U-SQL 和。 輸入之間傳遞資料，和輸出資料框架識別碼名稱固定 （也就是說，使用者無法變更這些預先定義的名稱的輸入和輸出資料框架識別項）。
 
 ## <a name="embedding-r-code-in-the-u-sql-script"></a>將 R 程式碼內嵌在 U-SQL 指令碼中
 
@@ -93,7 +93,7 @@ ms.locfileid: "54401210"
 ### <a name="datatypes"></a>資料類型
 * 來自 U-SQL 的字串和數值資料行會在 R 資料框架和 U-SQL 之間以現狀進行轉換 [支援的類型：`double``string`、`bool`、`integer`、`byte`]。
 * U-SQL 不支援 `Factor` 資料類型。
-* `byte[]` 必須序列化為 base64 編碼的 `string`。
+* `byte[]` 必須序列化為 base64 編碼`string`。
 * 當 U-SQL 建立 R 輸入資料框架，或是設定歸納器參數 `stringsAsFactors: true` 之後，U-SQL 字串便可以轉換為 R 程式碼的因素。
 
 ### <a name="schemas"></a>結構描述
@@ -208,5 +208,5 @@ ms.locfileid: "54401210"
 
 ## <a name="next-steps"></a>後續步驟
 * [Microsoft Azure Data Lake Analytics 概觀](data-lake-analytics-overview.md)
-* [使用 Data Lake Tools for Visual Studio 開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)
-* [針對 Azure 資料湖分析工作使用 U-SQL 視窗函式](data-lake-analytics-use-window-functions.md)
+* [開發 U-SQL 指令碼，使用 Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+* [針對 Azure Data Lake Analytics 工作使用 U-SQL 視窗函式](data-lake-analytics-use-window-functions.md)

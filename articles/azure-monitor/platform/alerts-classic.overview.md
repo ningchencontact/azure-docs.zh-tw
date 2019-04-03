@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: robb
-ms.openlocfilehash: 3b6ddd99d7b198cdc5274b2944a723e68864bd4f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d91e12de075ee6efebe39fd5ab582d4998046f9
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993030"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847858"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>什麼是 Microsoft Azure 中的傳統警示？
 
@@ -88,14 +88,14 @@ Webhook 可啟用自動化和修復，例如使用：
 ## <a name="next-steps"></a>後續步驟
 使用下列項目取得有關警示規則和設定這些規則的資訊：
 
-* 深入了解[計量](../../azure-monitor/platform/data-collection.md)
+* 深入了解[計量](data-platform.md)
 * [透過 Azure 入口網站設定傳統的計量警示](alerts-classic-portal.md)
 * 設定[傳統的計量警示 PowerShell](alerts-classic-portal.md)
 * 設定[傳統的計量警示命令列介面 (CLI)](alerts-classic-portal.md)
 * 設定[傳統的計量警示 Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
-* 深入了解[活動記錄](../../azure-monitor/platform/activity-logs-overview.md)
-* [透過 Azure 入口網站設定活動記錄警示](../../azure-monitor/platform/activity-log-alerts.md)
+* 深入了解[活動記錄](activity-logs-overview.md)
+* [透過 Azure 入口網站設定活動記錄警示](activity-log-alerts.md)
 * [透過 Resource Manager 設定活動記錄警示](alerts-activity-log.md)
-* 檢閱[活動記錄警示 webhook 結構描述](../../azure-monitor/platform/activity-log-alerts-webhook.md)
-* 深入了解[動作群組](../../azure-monitor/platform/action-groups.md)
-* 設定[較新的警示](../../azure-monitor/platform/alerts-metric.md)
+* 檢閱[活動記錄警示 webhook 結構描述](activity-log-alerts-webhook.md)
+* 深入了解[動作群組](action-groups.md)
+* 設定[較新的警示](alerts-metric.md)

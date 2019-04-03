@@ -17,24 +17,25 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 592f2ef95935ce1d1f83db6c3327cab9c20015d3
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 929d6b55b9261ae29ba43f05b378866adfdcd2ed
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652556"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882785"
 ---
-# <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>作法：為 Azure AD 應用程式提供選擇性宣告 (公開預覽)
+# <a name="how-to-provide-optional-claims-to-your-azure-ad-app-preview"></a>作法：提供選擇性宣告給您的 Azure AD 應用程式 （預覽）
 
 應用程式開發人員可以使用此功能來指定要包含在傳送給其應用程式之權杖中的宣告。 您可以使用選擇性宣告來：
+
 - 選取要包含在應用程式之權杖中的額外宣告。
 - 變更 Azure AD 在權杖中傳回之特定宣告的行為。
-- 新增和存取應用程式的自訂宣告。 
+- 新增和存取應用程式的自訂宣告。
 
 > [!NOTE]
 > 這項功能目前為公開預覽版。 您應做好將任何變更還原或移除的準備。 在公開預覽版期間，所有 Azure AD 訂用帳戶中都有提供此功能。 不過，當此功能變成正式運作版時，可能需要 Azure AD Premium 訂用帳戶，才能使用此功能的某些層面。
 
-如需標準宣告的清單及其在權杖中的使用方式，請參閱 [Azure AD 所簽發權杖的基本概念](v1-id-and-access-tokens.md)。 
+如需標準宣告，以及它們在權杖中的使用方式的清單，請參閱[Azure AD 所簽發的權杖的基本概念](v1-id-and-access-tokens.md)。
 
 [v2.0 Azure AD 端點](active-directory-appmodel-v2-overview.md)的其中一個目標是縮小權杖大小，以確保用戶端獲得最佳效能。 因此，數個先前包含在存取和識別碼權杖中的宣告在 v2.0 權杖中已不再提供，而必須依據個別應用程式明確提出要求才會提供。
 
@@ -46,11 +47,11 @@ ms.locfileid: "58652556"
 | Azure AD 帳戶          | 支援                          | 支援注意事項 |
 
 > [!IMPORTANT]
-> 同時支援個人帳戶和 Azure AD (透過[應用程式註冊入口網站](https://apps.dev.microsoft.com)註冊) 的應用程式無法使用選擇性宣告。 不過，使用 v2.0 端點只註冊 Azure AD 的應用程式，可在資訊清單中取得所要求的選擇性宣告。 您可以在 Azure 入口網站中，使用現有**應用程式註冊**體驗中的應用程式資訊清單編輯器編輯您的選擇性宣告。 不過，這項功能尚無法在新的**應用程式註冊 (預覽)** 體驗中使用應用程式資訊清單編輯器。
+> 支援個人帳戶與 Azure AD 應用程式 (透過[應用程式註冊入口網站](https://apps.dev.microsoft.com)) 不能使用選擇性宣告。 不過，使用 v2.0 端點只註冊 Azure AD 的應用程式，可在資訊清單中取得所要求的選擇性宣告。 您可以在 Azure 入口網站中，使用現有**應用程式註冊**體驗中的應用程式資訊清單編輯器編輯您的選擇性宣告。 不過，這項功能尚無法在新的**應用程式註冊 (預覽)** 體驗中使用應用程式資訊清單編輯器。
 
 ## <a name="standard-optional-claims-set"></a>標準選擇性宣告集
 
-以下列出預設可供應用程式使用的一組選擇性宣告。 若要為您的應用程式新增自訂選擇性宣告，請參閱下方的[目錄延伸模組](active-directory-optional-claims.md#configuring-custom-claims-via-directory-extensions)。 請注意，向 **存取權杖** 新增宣告時，此作法適用*於* 應用程式 (Web API) 要求的存取權杖，而不適用*於* 應用程式要求的存取權杖， 如此可確保無論用戶端存取您的 API，用於驗證 API 的存取權杖都具有正確的資料。
+以下列出預設可供應用程式使用的一組選擇性宣告。 若要為您的應用程式新增自訂選擇性宣告，請參閱下方的[目錄延伸模組](#configuring-custom-claims-via-directory-extensions)。 當將宣告新增至**存取權杖**，這會套用到要求的存取權杖*如*應用程式 (web API)，不*所*應用程式。 如此可確保無論用戶端存取您的 API，用於驗證 API 的存取權杖都具有正確的資料。
 
 > [!NOTE]
 > 這些宣告中大多數都可包含在 v1.0 和 v2.0 權杖的 JWT 中，但不可包含在 SAML 權杖中 (「權杖類型」欄中已註明者除外)。 此外，雖然目前僅針對 AAD 使用者支援選擇性宣告，但已正在新增 MSA 支援。 當 MSA 在 v2.0 端點上具有選擇性宣告支援時，「使用者類型」欄會指出宣告可供 AAD 還是 MSA 使用者使用。 
@@ -62,7 +63,7 @@ ms.locfileid: "58652556"
 | `auth_time`                | 上次驗證使用者的時間。 請參閱 OpenID Connect 規格。| JWT        |           |  |
 | `tenant_region_scope`      | 資源租用戶的區域 | JWT        |           | |
 | `home_oid`                 | 就來賓使用者而言，是使用者主租用戶中的使用者物件識別碼。| JWT        |           | |
-| `sid`                      | 工作階段識別碼，用於個別工作階段使用者登出。 | JWT        |           |         |
+| `sid`                      | 用於每個工作階段使用者登出的工作階段識別碼。 | JWT        |           |         |
 | `platf`                    | 裝置平台    | JWT        |           | 限制為可驗證裝置類型的受控裝置。|
 | `verified_primary_email`   | 以使用者的 PrimaryAuthoritativeEmail 為來源      | JWT        |           |         |
 | `verified_secondary_email` | 以使用者的 SecondaryAuthoritativeEmail 為來源   | JWT        |           |        |
@@ -71,7 +72,7 @@ ms.locfileid: "58652556"
 | `fwd`                      | IP 位址。| JWT    |   | 新增發出要求之用戶端的原始 IPv4 位址 (位於 VNET 內部時) |
 | `ctry`                     | 使用者的國家/地區 | JWT |           | 如果出現且宣告值是兩個字母的國家/地區碼 (例如 FR、JP、SZ 等等)，則 Azure AD 會傳回 `ctry` 選擇性宣告。 |
 | `tenant_ctry`              | 資源租用戶的國家/地區 | JWT | | |
-| `xms_pdl`          | 慣用資料位置   | JWT | | 針對多地理位置租用戶，這是 3 個字母的代碼，用以顯示使用者位於哪一個地理區域。 如需詳細資訊，請參閱[關於慣用資料位置的 Azure AD Connect 文件](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation)。 <br> 例如：`APC` 是指亞太地區。 |
+| `xms_pdl`          | 慣用資料位置   | JWT | | 對於多地理位置的租用戶，這是顯示為使用者所在的地理區域的 3 個字母代碼。 如需詳細資訊，請參閱 <<c0> [ 慣用的資料位置相關的 Azure AD Connect 文件](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation)。<br/>例如：`APC` 是指亞太地區。 |
 | `xms_pl`                   | 使用者慣用語言  | JWT ||如果設定，則為使用者的慣用語言。 在來賓存取案例中，來源是其主租用戶。 格式化 LL-CC (“en-us”)。 |
 | `xms_tpl`                  | 租用戶慣用語言| JWT | | 如果設定，則為資源租用戶的慣用語言。 格式化 LL (“en”)。 |
 | `ztdid`                    | 全自動部署識別碼 | JWT | | 裝置身分識別，用於 [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
@@ -83,7 +84,7 @@ ms.locfileid: "58652556"
 
 在 v1.0 權杖中一律會包含這些宣告，但在 v2.0 權杖中除非提出要求，否則不會包含。 這些宣告僅適用於 JWT (識別碼權杖和存取權杖)。 
 
-**表 3：僅適用於 V2.0 的選擇性宣告**
+**表 3：僅限 V2.0 選擇性宣告**
 
 | JWT 宣告     | 名稱                            | 描述                                | 注意 |
 |---------------|---------------------------------|-------------|-------|
@@ -91,23 +92,23 @@ ms.locfileid: "58652556"
 | `onprem_sid`  | 內部部署安全性識別碼 |                                             |       |
 | `pwd_exp`     | 密碼到期時間        | 密碼到時的日期時間。 |       |
 | `pwd_url`     | 變更密碼 URL             | 使用者可以瀏覽來變更其密碼的 URL。   |   |
-| `in_corp`     | 公司網路內部        | 指出用戶端是否是從公司網路登入的。 如果不是，就不會包含此宣告。   |  根據 MFA 中的[可信任 IP](../authentication/howto-mfa-mfasettings.md#trusted-ips) 設定。    |
+| `in_corp`     | 公司網路內部        | 指出用戶端是否是從公司網路登入的。 如果他們不這樣做，宣告不包含在內。   |  根據 MFA 中的[可信任 IP](../authentication/howto-mfa-mfasettings.md#trusted-ips) 設定。    |
 | `nickname`    | 暱稱                        | 使用者的額外名稱 (有別於名字或姓氏)。 | 
 | `family_name` | 姓氏                       | 提供使用者的姓氏 (如 Azure AD 使用者物件中所定義)。 <br>"family_name":"Miller" |       |
 | `given_name`  | 名字                      | 提供使用者的名字 (如 Azure AD 使用者物件上所設定)。<br>"given_name"："Frank"                   |       |
-| `upn`       | 使用者主體名稱 | 可與 username_hint 參數搭配使用的使用者識別碼。  不是使用者的持久識別碼，且不應該用於金鑰資料。 | 如需了解宣告的設定，請參閱下方的[額外屬性](#additional-properties-of-optional-claims)。 |
+| `upn`       | 使用者主體名稱 | 可與 username_hint 參數搭配使用的使用者識別碼。  不持久的使用者識別碼和不應使用索引鍵的資料。 | 如需了解宣告的設定，請參閱下方的[額外屬性](#additional-properties-of-optional-claims)。 |
 
 ### <a name="additional-properties-of-optional-claims"></a>選擇性宣告的額外屬性
 
 有些選擇性宣告可經由設定來變更傳回宣告的方式。 這些額外的屬性大多數用來協助移轉對資料有不同要求的內部部署應用程式 (例如 `include_externally_authenticated_upn_without_hash` 可協助無法處理 UPN 中井號 (`#`) 的用戶端)
 
-**表 4：用來設定選擇性宣告的值**
+**表 4：設定選擇性宣告的值**
 
 | 屬性名稱  | 額外屬性名稱 | 描述 |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | 可同時用於 SAML 和 JWT 回應，以及用於 v1.0 和 v2.0 權杖。 |
 |                | `include_externally_authenticated_upn`  | 包含儲存在資源租用戶中的來賓 UPN。 例如， `foo_hometenant.com#EXT#@resourcetenant.com` |             
-|                | `include_externally_authenticated_upn_without_hash` | 同上，只是將井號 (`#`) 取代成底線 (`_`)，例如 `foo_hometenant.com_EXT_@resourcetenant.com` |
+|                | `include_externally_authenticated_upn_without_hash` | 同上，只不過雜湊標記 (`#`) 都會以底線取代 (`_`)，例如 `foo_hometenant.com_EXT_@resourcetenant.com` |
 
 #### <a name="additional-properties-example"></a>額外屬性範例
 
@@ -128,7 +129,7 @@ ms.locfileid: "58652556"
 
 ## <a name="configuring-optional-claims"></a>設定選擇性宣告
 
-您可以藉由修改應用程式資訊清單，來為應用程式設定選擇性宣告 (請參閱以下範例)。 如需詳細資訊，請參閱[了解 Azure AD 應用程式資訊清單](reference-app-manifest.md)一文。
+您可以藉由修改應用程式資訊清單，來為應用程式設定選擇性宣告 (請參閱以下範例)。 如需詳細資訊，請參閱 <<c0> [ 了解 Azure AD 應用程式資訊清單的文件](reference-app-manifest.md)。
 
 **範例結構描述：**
 
@@ -188,7 +189,7 @@ ms.locfileid: "58652556"
 | `additionalProperties` | 集合 (Edm.String) | 宣告的額外屬性。 如果屬性存在於此集合中，它就會修改名稱屬性中所指定之選擇性宣告的行為。                                                                                                                                               |
 ## <a name="configuring-custom-claims-via-directory-extensions"></a>透過目錄延伸模組設定自訂宣告
 
-除了標準選擇性宣告集之外，您也可以設定讓權杖包含目錄結構描述延伸模組 (如需詳細資訊，請參閱[目錄結構描述延伸模組](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) \(機器翻譯\) 一文)。 此功能可用來附加應用程式可使用的額外使用者資訊 – 例如，使用者已設定的額外識別碼或重要設定選項。 
+除了標準選擇性宣告集，您也可以設定權杖包含目錄結構描述延伸模組。 如需詳細資訊，請參閱 < [Directory 架構延伸](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)。 此功能可用來附加應用程式可使用的額外使用者資訊 – 例如，使用者已設定的額外識別碼或重要設定選項。 
 
 > [!Note]
 > 目錄結構描述延伸模組是僅適用於 AAD 的功能，因此如果您的應用程式資訊清單要求某個自訂延伸模組，而登入您應用程式的是 MSA 使用者，系統就不會傳回這些延伸模組。 
@@ -199,13 +200,13 @@ ms.locfileid: "58652556"
 
 在 JWT 內，這些宣告將會以下列名稱格式發出：`extn.<attributename>`。
 
-在 SAML 權杖內，這些宣告則會以下列 URI 格式發出：`http://schemas.microsoft.com/identity/claims/extn.<attributename>`
+在 SAML 權杖中，這些宣告將會以下列 URI 格式發出： `http://schemas.microsoft.com/identity/claims/extn.<attributename>`
 
 ## <a name="optional-claims-example"></a>選擇性宣告範例
 
 在本節中，您可以逐步進行案例，以了解如何針對應用程式使用選擇性宣告功能。
 有多個選項可用來更新應用程式身分識別設定上的屬性，以啟用和設定選擇性宣告：
--   您可以修改應用程式資訊清單。 以下範例將使用此方法來執行設定。 請先閱讀介紹資訊清單的[了解 Azure AD 應用程式資訊清單](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)文件。
+-   您可以修改應用程式資訊清單。 下列範例會使用這個方法來執行設定。 請先閱讀介紹資訊清單的[了解 Azure AD 應用程式資訊清單](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)文件。
 -   您也可以撰寫使用[圖形 API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api)來更新您應用程式的應用程式。 「圖形 API」參考指南中的[實體和複雜類型參考](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) \(英文\) 可協助您設定選擇性宣告。
 
 **範例：** 在以下範例中，您將修改應用程式的資訊清單，以將宣告新增至要用於應用程式的存取權杖、識別碼權杖及 SAML 權杖中。
@@ -250,5 +251,5 @@ ms.locfileid: "58652556"
 
 深入了解 Azure AD 所提供的標準宣告。
 
-- [識別碼權杖](id-tokens.md)
+- [ID 權杖](id-tokens.md)
 - [存取權杖](access-tokens.md)

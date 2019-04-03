@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: orspod
-ms.openlocfilehash: 4e2448b3043c194bda884963975d85536c329baf
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6138fadd060051c1b4264cd844ca2a4b8c28116a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531635"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880027"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure 資料總管或從該處複製資料
 
@@ -66,13 +66,13 @@ Azure 資料總管連結服務支援以下屬性：
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | **type** 屬性必須設定為 **AzureDataExplorer** | 是 |
-| endpoint | Azure 資料總管叢集的端點 URL，格式為 `https://<clusterName>.<regionName>.kusto.windows.net `。 | 是 |
+| endpoint | Azure 資料總管叢集的端點 URL，格式為 `https://<clusterName>.<regionName>.kusto.windows.net`。 | 是 |
 | 資料庫 | 資料庫名稱。 | 是 |
 | tenant | 指定您的應用程式所在租用戶的資訊 (網域名稱或租用戶識別碼)。 這是什麼您通常稱為 「**授權識別碼**」 中[Kusto 連接字串](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties)。 將滑鼠游標暫留在 Azure 入口網站右上角，即可擷取它。 | 是 |
 | servicePrincipalId | 指定應用程式的用戶端識別碼。 這是什麼您通常稱為 「**AAD 應用程式用戶端識別碼**」 中[Kusto 連接字串](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties)。 | 是 |
 | servicePrincipalKey | 指定應用程式的金鑰。 這是什麼您通常稱為 「**AAD 應用程式金鑰**」 中[Kusto 連接字串](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties)。 將此欄位標記為 **SecureString**，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 
-**連結服務屬性範例：**
+**連結的服務屬性範例：**
 
 ```json
 {

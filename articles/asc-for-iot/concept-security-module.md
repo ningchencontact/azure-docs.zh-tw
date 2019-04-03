@@ -1,25 +1,25 @@
 ---
 title: 了解 Azure 資訊安全中心的 IoT 安全性模組對應項的結果預覽 |Microsoft Docs
 description: 深入了解安全性模組對應項以及如何使用 Azure 資訊安全中心的 IoT 的概念。
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: a5c25cba-59a4-488b-abbe-c37ff9b151f9
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 56bc93973bd2c080b13b97f1344cc165f742e757
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: c5814b188c73ea03094d7dae565e40ca09e705c2
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758413"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862432"
 ---
 # <a name="security-module"></a>安全性模組
 
@@ -31,9 +31,9 @@ ms.locfileid: "58758413"
 
 ## <a name="device-twins"></a>裝置對應項
 
-在 Azure 中建置 IoT 解決方案，裝置對應項會扮演重要的角色，在 裝置管理與程序自動化。  
+對 Azure 內所建置的 IoT 解決方案來說，裝置對應項在裝置管理和程序自動化中同時扮演重要的角色。  
 
-Iot 的 ASC 提供完整的整合，與您現有 IoT 裝置管理平台，可讓您管理您裝置的安全性狀態以及進行中，使用現有的裝置控制功能。 整合之後，即可利用 IoT 中樞的對應項的機制。  
+適用於 IoT 的 ASC 可與您現有的 IoT 裝置管理平台完全整合，讓您能夠管理裝置的安全性狀態，以及利用現有的裝置控制功能。 整合之後，即可利用 IoT 中樞的對應項的機制。  
 
 深入了解的概念[攣生裝置](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)Azure IoT 中樞。 
 

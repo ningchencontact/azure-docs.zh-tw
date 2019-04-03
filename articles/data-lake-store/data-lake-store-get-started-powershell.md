@@ -3,19 +3,19 @@ title: 透過 PowerShell 開始使用 Azure Data Lake Storage Gen1 | Microsoft D
 description: 使用 Azure PowerShell 建立資料 Azure Data Lake Storage Gen1 帳戶，並執行基本作業
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: 54d6dec6b61e4042b12cba833f4adf5d1321d1f1
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.author: twooley
+ms.openlocfilehash: 6635b572d11339307083b8aa2aaaba69dc731101
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237778"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885854"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-powershell"></a>使用 Azure PowerShell 開始使用 Azure Data Lake Storage Gen1
 > [!div class="op_single_selector"]
@@ -121,8 +121,8 @@ ms.locfileid: "56237778"
 出現提示時，請輸入 **Y** 刪除帳戶。
 
 ## <a name="next-steps"></a>後續步驟
-* [使用 PowerShell 和 Azure Data Lake Storage Gen1 進行效能微調之方針](data-lake-store-performance-tuning-powershell.md)
-* [使用 Azure Data Lake Storage Gen1 處理巨量資料需求](data-lake-store-data-scenarios.md) 
-* [保護 Data Lake Storage Gen1 中的資料](data-lake-store-secure-data.md)
-* [搭配 Data Lake Storage Gen1 使用 Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [搭配 Data Lake Storage Gen1 使用 Azure HDInsight](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [使用 PowerShell 搭配 Azure Data Lake Storage Gen1 的效能微調指導方針](data-lake-store-performance-tuning-powershell.md)
+* [使用 Azure Data Lake 儲存體 Gen1 處理巨量資料需求](data-lake-store-data-scenarios.md) 
+* [保護 Data Lake 儲存體 Gen1 中的資料](data-lake-store-secure-data.md)
+* [使用 Azure Data Lake Analytics 與 Data Lake 儲存體 Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [使用 Azure HDInsight 與 Data Lake 儲存體 Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

@@ -3,20 +3,20 @@ title: 使用者驗證︰使用 .NET SDK 透過 Azure Active Directory 向 Azure
 description: 了解如何使用 .NET SDK 透過 Azure Active Directory 向 Azure Data Lake Storage Gen1 完成使用者驗證
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
+author: twooley
 manager: cgronlun
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 62b7e293468a8b92f22ee1a5fd5b38cd15cfafbf
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.author: twooley
+ms.openlocfilehash: 78a290d8136f8804e853d36a9bc95571625ed89c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261529"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876763"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>使用 .NET SDK 向 Azure Data Lake Storage Gen1 進行使用者驗證
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ ms.locfileid: "53261529"
    | --- | --- |
    | 類別 |範本/Visual C#/Windows |
    | 範本 |主控台應用程式 |
-   | Name |CreateADLApplication |
+   | 名稱 |CreateADLApplication |
 
 4. 按一下 [確定]  以建立專案。
 
@@ -55,8 +55,8 @@ ms.locfileid: "53261529"
    2. 在 [NuGet 套件管理員] 索引標籤中，確定 [套件來源] 設為 [nuget.org]，且已選取 [包含發行前版本] 核取方塊。
    3. 搜尋並安裝下列 NuGet 封裝：
 
-      * `Microsoft.Azure.Management.DataLake.Store` - 本教學課程使用 v2.1.3-preview。
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - 本教學課程使用 v2.2.12。
+      * `Microsoft.Azure.Management.DataLake.Store` -本教學課程使用 v2.1.3-preview。
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` -本教學課程使用 v2.2.12。
 
         ![新增 NuGet 來源](./media/data-lake-store-get-started-net-sdk/data-lake-store-install-nuget-package.png "建立新的 Azure Data Lake 帳戶")
    4. 關閉 [NuGet 套件管理員]。
@@ -112,6 +112,6 @@ ms.locfileid: "53261529"
 ## <a name="next-steps"></a>後續步驟
 在本文中，您已了解如何使用 .NET SDK，使用使用者驗證向 Azure Data Lake Storage Gen1 進行驗證。 您現在可以看看下列文章，了解如何配合使用 .NET SDK 與 Azure Data Lake Storage Gen1。
 
-* [使用 .NET SDK 對 Data Lake Storage Gen1 進行帳戶管理作業](data-lake-store-get-started-net-sdk.md)
-* [使用 .NET SDK 對 Data Lake Storage Gen1 進行資料作業](data-lake-store-data-operations-net-sdk.md)
+* [帳戶管理作業在 Data Lake 儲存體 Gen1 上使用.NET SDK](data-lake-store-get-started-net-sdk.md)
+* [使用.NET SDK 在 Data Lake 儲存體 Gen1 上的資料作業](data-lake-store-data-operations-net-sdk.md)
 

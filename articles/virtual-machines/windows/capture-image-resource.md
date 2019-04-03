@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: b0dc587035509606059e3620201b2061bbe4d6a0
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 4e79e0a7d05ef70ae9f7ab2cbb2238c42b2a654b
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341760"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847578"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>在 Azure 中建立一般化 VM 的受控映像
 
@@ -84,10 +84,11 @@ Sysprep 會移除您的所有個人帳戶與安全性資訊，然後準備使用
 
 ## <a name="create-an-image-of-a-vm-using-powershell"></a>使用 Powershell 建立 VM 的映像
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 直接從 VM 建立映像，可確保映像包含 VM 的所有相關磁碟，包括 OS 磁碟與任何資料磁碟。 此範例示範如何從使用受控磁碟的 VM 建立受控映像。
 
-
-開始之前，請確定您擁有最新版的 AzureRM.Compute PowerShell 模組 (必須是 5.7.0 版或更新版本)。 若要尋找版本，請在 PowerShell 中執行 `Get-Module -ListAvailable AzureRM.Compute`。 若要升級，請參閱[使用 PowerShellGet 在 Windows 上 安裝 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)。 如果您在本機執行 PowerShell，請執行 `Connect-AzAccount` 以建立與 Azure 的連線。
+在開始之前，請確定您有最新版的 Azure PowerShell 模組。 若要尋找版本，請在 PowerShell 中執行 `Get-Module -ListAvailable Az`。 若要升級，請參閱[使用 PowerShellGet 在 Windows 上 安裝 Azure PowerShell](/powershell/azure/azurerm/install-az-ps)。 如果您在本機執行 PowerShell，請執行 `Connect-AzAccount` 以建立與 Azure 的連線。
 
 
 > [!NOTE]

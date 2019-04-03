@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: bce4946b62e3678f7fa8d5f7f6431441cc00b252
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 6c0aa42cc22d22431d7d0270aca52e089046cb01
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762832"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847737"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>修補 Service Fabric 叢集中的 Windows 作業系統
 
@@ -325,7 +325,7 @@ A. 'UpgradeDomainWise' 可以藉由平行修補屬於升級網域的所有節點
 
 問： **修補節點需要耗費多久時間？**
 
-A. 修補一個節點可能需要幾分鐘 (例如：[Windows Defender 定義更新](https://www.microsoft.com/wdsi/definitions)) 到數小時 (例如：[Windows 累積更新](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)) 的時間。 修補節點所需的時間大多取決於下列因素： 
+A. 修補一個節點可能需要幾分鐘 (例如：[Windows Defender 定義更新](https://www.microsoft.com/en-us/wdsi/definitions)) 到數小時 (例如：[Windows 累積更新](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)) 的時間。 修補節點所需的時間大多取決於下列因素： 
  - 更新的大小
  - 修補期間所需要套用的更新數目
  - 安裝更新、重新啟動節點 (如有必要) 然後完成重新啟動後安裝步驟所耗費的時間。

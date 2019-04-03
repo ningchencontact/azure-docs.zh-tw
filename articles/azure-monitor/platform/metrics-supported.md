@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 89f5294d6ac01a6fa377e8d0763e77f8034ab44a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 55258dc0c99a918a6314be8317f19c03576a95f5
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449555"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851174"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>支援 Azure 監視器的計量
 
@@ -1608,7 +1608,6 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |MemoryPercentage|記憶體百分比|百分比|平均值|記憶體百分比|執行個體|
 
 ## <a name="next-steps"></a>後續步驟
-
-* [了解 Azure 監視器中的計量](../../azure-monitor/platform/data-collection.md)
-* [建立計量警示](../../azure-monitor/platform/alerts-overview.md)
-* [將計量匯出至儲存體、事件中樞或 Log Analytics](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [了解 Azure 監視器中的計量](data-platform.md)
+* [建立計量警示](alerts-overview.md)
+* [將計量匯出至儲存體、事件中樞或 Log Analytics](diagnostic-logs-overview.md)

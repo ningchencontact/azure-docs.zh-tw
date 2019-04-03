@@ -8,15 +8,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: 500986478e554a3a114d11ee4b25ea40b5decd97
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ea5495867d5f453db014e000e01d533d049dc628
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004127"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849590"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>管理和監視備份的 SQL Server 資料庫
-
 
 這篇文章會說明一般工作的管理及監視 SQL Server 資料庫執行的 Azure 虛擬機器 (VM) 上，而且都是，會備份到 Azure 備份復原服務保存庫[Azure 備份](backup-overview.md)服務。 您將了解如何監視作業和警示、 停止和繼續資料庫的保護、 執行備份作業，並取消註冊從備份的 VM。
 
@@ -113,6 +112,7 @@ Azure 備份會顯示在所有手動觸發的作業**備份作業**入口網站�
 * 差異備份
 * 記錄備份
 
+當您需要指定只複製完整備份的保留期限時，其他備份類型的保留範圍會自動設定為 30 天，從目前的時間。 <br/>
 如需詳細資訊，請參閱 < [SQL Server 備份類型](backup-architecture.md#sql-server-backup-types)。
 
 ## <a name="unregister-a-sql-server-instance"></a>將 SQL Server 執行個體取消註冊

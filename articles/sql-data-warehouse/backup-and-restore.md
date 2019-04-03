@@ -10,18 +10,18 @@ ms.subservice: manage
 ms.date: 03/01/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 55874d261ac453d559975f25b2272319cdc6a7db
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 14e7d8cfdaa9ac59a5a43881283fac6e2c9ee08f
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447996"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847000"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的備份與還原
 
-了解如何使用備份與還原 Azure SQL 資料倉儲中。 使用資料倉儲還原點將您的資料倉儲還原或複製到主要區域中的先前狀態。 使用資料倉儲異地備援備份來還原至不同的地理區域。
+了解如何在 Azure SQL 数据仓库中使用备份和还原。 使用資料倉儲還原點將您的資料倉儲還原或複製到主要區域中的先前狀態。 使用資料倉儲異地備援備份來還原至不同的地理區域。
 
-## <a name="what-is-a-data-warehouse-snapshot"></a>什麼是資料倉儲的快照集
+## <a name="what-is-a-data-warehouse-snapshot"></a>什么是数据仓库快照
 
 「資料倉儲快照集」會建立還原點，您可以利用此還原點將資料倉儲還原或複製到先前的狀態。  由於 SQL 資料倉儲是一個分散式系統，所以一個資料倉儲快照集會由位於 Azure 儲存體中的許多檔案組成。 快照集會從資料倉儲中儲存的資料內擷取增量變更。
 
@@ -29,7 +29,7 @@ ms.locfileid: "58447996"
 
 ## <a name="automatic-restore-points"></a>自動還原點
 
-快照集也會建立服務的內建功能的還原點。 您不需啟用此功能。 使用者目前無法刪除自動還原點，因為服務會使用這些還原點來維護用於還原的 SLA。
+快照是创建还原点的服务的内置功能。 您不需啟用此功能。 使用者目前無法刪除自動還原點，因為服務會使用這些還原點來維護用於還原的 SLA。
 
 SQL 資料倉儲可快照還原點建立那天一整天的資料倉儲，而此快照集可保留七天。 此保留期無法變更。 SQL 資料倉儲支援八小時的復原點目標 (RPO)。 您可以透過過去七天內所建立的任一個快照集，在主要區域中還原資料倉儲。
 
@@ -44,14 +44,14 @@ order by run_id desc
 
 ## <a name="user-defined-restore-points"></a>使用者定義的還原點
 
-這項功能可讓您以手動方式建立您的資料倉儲的還原點之前和之後的大規模修改的觸發程序快照集。 這項功能可確保還原點以邏輯方式一致，以提供快速的復原時間發生的任何工作負載中斷或使用者錯誤的額外的資料保護。 使用者定義的還原點可保留七天，而且會自動刪除。 您無法變更使用者定義還原點的保留期。 **只保證在任何時間點設定 42 個使用者定義的還原點**，因此必須先[刪除還原點](https://go.microsoft.com/fwlink/?linkid=875299)，才能再建立另一個還原點。 您可以透過 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint#examples) 或 Azure 入口網站觸發快照集，以建立使用者定義的還原點。
+使用此功能，可以在大型修改之前和之后手动触发快照，以便创建数据仓库的还原点。 此功能可确保在出现工作负荷中断或用户错误的情况下，还原点在逻辑上是一致的，这样可以提供额外的数据保护，缩短恢复时间。 使用者定義的還原點可保留七天，而且會自動刪除。 您無法變更使用者定義還原點的保留期。 **只保證在任何時間點設定 42 個使用者定義的還原點**，因此必須先[刪除還原點](https://go.microsoft.com/fwlink/?linkid=875299)，才能再建立另一個還原點。 您可以透過 [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint#examples) 或 Azure 入口網站觸發快照集，以建立使用者定義的還原點。
 
 > [!NOTE]
 > 如果您需要保留還原點超過 7 天，請[在此](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points)投票給這項功能。 您也可以建立使用者定義的還原點，並從新建立的還原點還原到新資料倉儲。 還原之後，資料倉儲會上線，而您可以無限期地暫停它來節省計算成本。 暫停的資料庫會產生儲存體費用，以「Azure 進階儲存體」費率計費。 如果您需要作用中的已還原資料倉儲副本，您可以讓其恢復上線 (只需幾分鐘的時間)。
 
 ### <a name="restore-point-retention"></a>還原點保留
 
-下列清單詳細資料的還原點的保留期限：
+下面列出了还原点保留期的详细信息：
 
 1. 在達到 7 天還原期間，**以及**總共至少有 42 個還原點 (包含使用者定義和自動定義) 時，SQL 資料倉儲會刪除還原點
 2. 資料倉儲暫停時不會擷取快照集

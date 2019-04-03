@@ -1,21 +1,21 @@
 ---
-title: Azure 儲存體的進階的威脅防護
+title: Azure 儲存體的進階威脅防護
 description: 設定 Azure 儲存體進階威脅防護來偵測帳戶活動中的異常狀況，並在對您帳戶所進行的嘗試存取可能有害時通知您。
 services: storage
 author: rmatchoro
 ms.service: storage
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 04/02/2019
 ms.author: monhaber
 ms.manager: shaik
-ms.openlocfilehash: b2e51b11e2d79d7f35d6b24df4ba5492ecf9a5c4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 48fdf277f47b1e4abc8e3d7f7222d5b99a248b55
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58133224"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850712"
 ---
-# <a name="advanced-threat-protection-for-azure-storage"></a>Azure 儲存體的進階的威脅防護
+# <a name="advanced-threat-protection-for-azure-storage"></a>Azure 儲存體的進階威脅防護
 
 Azure 儲存體的進階的威脅防護提供一層額外的安全智慧，偵測到不尋常且有危害意圖存取或惡意探索儲存體帳戶。 這個防護層讓您不需是安全性專家或管理安全性監視系統，就能解決威脅。 
 
@@ -51,6 +51,24 @@ Azure 儲存體的進階的威脅防護內嵌讀取、 寫入和刪除要求，�
 
 使用 Azure Resource Manager 範本來部署進階威脅防護的 Azure 儲存體帳戶已啟用。
 如需詳細資訊，請參閱 <<c0> [ 儲存體帳戶與進階威脅防護](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/)。
+
+### <a name="using-azure-policy"></a>使用 Azure 原則
+
+您可以使用 Azure 原則，在特定的訂用帳戶或資源群組下的儲存體帳戶啟用進階威脅防護。
+
+1. 啟動 Azure**原則-定義**頁面。
+
+1. 搜尋**部署進階威脅防護儲存體帳戶上**原則。
+
+     ![搜尋原則](./media/storage-advanced-threat-protection/storage-atp-policy-definitions.png)
+  
+1. 選取 Azure 訂用帳戶或資源群組。
+
+    ![選取訂用帳戶或群組](./media/storage-advanced-threat-protection/storage-atp-policy2.png)
+
+1. 將原則指派。
+
+    ![原則定義 頁面](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
 ### <a name="using-rest-api"></a>使用 REST API
 使用 Rest API 命令來建立、 更新或取得特定的儲存體帳戶的進階威脅防護設定。
