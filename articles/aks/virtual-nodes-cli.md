@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: 841e00825b243d883303121022918efd51397f04
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 54c8e44685bb69e845c819b0c2846b188a771d71
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757427"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878225"
 ---
 # <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>預覽-建立並設定 Azure Kubernetes Service (AKS) 叢集將使用 Azure CLI 的虛擬節點
 
@@ -47,7 +47,7 @@ Microsoft.ContainerInstance  Registered
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## <a name="regional-availability-limitations"></a>區域可用性限制
+## <a name="regional-availability"></a>區域可用性
 
 針對虛擬節點部署支援下列區域：
 
@@ -162,13 +162,7 @@ az aks create \
 
 幾分鐘之後，此命令就會完成，並以 JSON 格式傳回叢集的相關資訊。
 
-## <a name="enable-virtual-nodes"></a>啟用虛擬節點
-
-若要提供其他功能，虛擬節點連接器可以使用 Azure CLI 擴充功能。 您必須先使用 [az extension add][az-extension-add] 命令安裝擴充功能，才能啟用虛擬節點連接器：
-
-```azurecli-interactive
-az extension add --source https://aksvnodeextension.blob.core.windows.net/aks-virtual-node/aks_virtual_node-0.2.0-py2.py3-none-any.whl
-```
+## <a name="enable-virtual-nodes-addon"></a>啟用虛擬節點附加元件
 
 若要啟用虛擬節點，請立即使用 [az aks enable-addons][az-aks-enable-addons] 命令。 下列範例會使用上一個步驟所建立的子網路，其名稱為 myVirtualNodeSubnet：
 
@@ -179,6 +173,11 @@ az aks enable-addons \
     --addons virtual-node \
     --subnet-name myVirtualNodeSubnet
 ```
+> [!NOTE]
+> 如果您收到關於虛擬節點找不到錯誤時，您可能需要安裝其 CLI 擴充功能 
+> ```azurecli-interactive
+> az extension add --source https://aksvnodeextension.blob.core.windows.net/aks-virtual-node/aks_virtual_node-0.2.0-py2.py3-none-any.whl
+> ```
 
 ## <a name="connect-to-the-cluster"></a>連接到叢集
 
