@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: b03e02a783245459fa28126b73eac2459f6aad67
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 62846fe744e7295f58902481400ce91770c916da
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182841"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893090"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中管理使用者資料
 
- 本文探討如何使用 [Azure Active Directory Graph API](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog) 提供的作業，以便在 Azure Active Directory (Azure AD) B2C 中管理使用者資料。 管理使用者資料，包括從稽核記錄中刪除或匯出資料。
+ 本文探討如何使用 [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/api/api-catalog) 提供的作業，以便在 Azure Active Directory (Azure AD) B2C 中管理使用者資料。 管理使用者資料，包括從稽核記錄中刪除或匯出資料。
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="delete-user-data"></a>刪除使用者資料
 
-使用者資料會儲存在 Azure AD B2C 目錄和稽核記錄中。 在 Azure AD B2C 中，所有使用者稽核資料會保留 30 天。 若要在這 30 天期間內刪除使用者資料，可以使用[刪除使用者](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#DeleteUser) \(英文\) 作業。 針對資料所在的每個 Azure AD B2C 租用戶，必須個別進行刪除作業。 
+使用者資料會儲存在 Azure AD B2C 目錄和稽核記錄中。 在 Azure AD B2C 中，所有使用者稽核資料會保留 30 天。 若要在這 30 天期間內刪除使用者資料，可以使用[刪除使用者](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser) \(英文\) 作業。 針對資料所在的每個 Azure AD B2C 租用戶，必須個別進行刪除作業。 
 
 在 Azure AD B2C 中，會為每個使用者指派一個物件識別碼。 物件識別碼可作為明確的識別碼，供您在 Azure AD B2C 中用來刪除使用者資料。 依架構而定，物件識別碼可能是跨越財務、行銷與客戶關係管理資料庫等其他服務的實用相互關聯識別碼。 
 

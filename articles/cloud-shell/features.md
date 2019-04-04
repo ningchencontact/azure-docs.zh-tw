@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: damaerte
-ms.openlocfilehash: 7e2ead6d5fc13b0d7517258d75148d50a3f1bc62
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: fe04c5450ecd2c21affa5cbb89c627bc30cf7b6f
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246350"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903449"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Azure Cloud Shell 的功能和工具
 
@@ -64,9 +64,9 @@ Cloud Shell 包含預先設定的驗證，可用於開放原始碼工具，例�
 |文字編輯器           |code (Cloud Shell 編輯器)<br> vim<br> nano<br> emacs    |
 |原始檔控制         |git                    |
 |建置工具            |make<br> maven<br> npm<br> pip         |
-|容器             |[Docker 機器](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/) \(英文\)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli) \(英文\)         |
-|資料庫              |MySQL 用戶端<br> PostgreSql 用戶端<br> [sqlcmd 公用程式](https://docs.microsoft.com/sql/tools/sqlcmd-utility) \(英文\)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|其他                  |iPython 用戶端<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli) \(英文\)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)|
+|容器             |[Docker 機器](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
+|資料庫              |MySQL 用戶端<br> PostgreSql 用戶端<br> [sqlcmd 公用程式](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
+|其他                  |iPython 用戶端<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)|
 
 ## <a name="language-support"></a>語言支援
 
@@ -80,7 +80,7 @@ Cloud Shell 包含預先設定的驗證，可用於開放原始碼工具，例�
 |Python     |2.7 和 3.5 (預設)|
 
 ## <a name="next-steps"></a>後續步驟
-[Cloud Shell 中 Bash 的快速入門](quickstart.md) <br>
-[Cloud Shell 中 PowerShell 的快速入門](quickstart-powershell.md) <br>
-[了解 Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
+[Cloud Shell 快速入門中的 bash](quickstart.md) <br>
+[在 Cloud Shell 快速入門中的 PowerShell](quickstart-powershell.md) <br>
+[了解 Azure CLI](https://docs.microsoft.com/cli/azure/) <br>
 [了解 Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>
