@@ -10,193 +10,185 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: 3d32b180f7d841c36f8ae03aa94956c6da00c6fe
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 624539557b0bf57e9d919a3a46337f1cf93a4f07
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57883435"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894229"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>建立用來部署邏輯應用程式的 Azure Resource Manager 範本
 
-建立邏輯應用程式之後，您可能想要將其建立為 Azure Resource Manager 範本。
-如此一來，您就可以輕鬆地將邏輯應用程式部署到您可能需要在其中用到它的任何環境或資源群組。
-如需 Resource Manager 範本的詳細資訊，請參閱[編寫 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)和[使用 Azure Resource Manager 範本部署資源](../azure-resource-manager/resource-group-template-deploy.md)。
+當您建立邏輯應用程式時，您可以展開您的邏輯應用程式定義[Azure Resource Manager 範本](../azure-resource-manager/resource-group-overview.md)。 您可以使用此範本藉由定義資源自動化部署和您想要用於部署，並提供參數值，透過參數[參數檔案](../azure-resource-manager/resource-group-template-deploy.md#parameter-files)。
+如此一來，您可以部署邏輯應用程式更容易，並在您想要的任何環境或 Azure 資源群組。 
 
-## <a name="logic-app-deployment-template"></a>邏輯應用程式部署範本
+Azure Logic Apps 提供[預先建置的邏輯應用程式的 Azure Resource Manager 範本](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json)，您可以重複使用，不只是用來建立邏輯應用程式，但若要定義的資源和部署使用的參數。 您可以在自己的商務案例中使用此範本，或自訂此範本以符合您的需求。 深入了解[Resource Manager 範本結構和語法](../azure-resource-manager/resource-group-authoring-templates.md)。 如需了解 JSON 語法和屬性，請參閱 [Microsoft.Logic 資源類型](/azure/templates/microsoft.logic/allversions)。
 
-邏輯應用程式有三個基本元件：
+如需有關 Azure Resource Manager 範本的詳細資訊，請參閱下列文章：
 
-* **邏輯應用程式資源**：包含定價方案、位置和工作流程定義等項目的相關資訊。
-* **工作流程定義**：說明邏輯應用程式的工作流程步驟，以及 Logic Apps 引擎應如何執行工作流程。
-您可以在邏輯應用程式的 [程式碼檢視] 視窗中檢視此定義。
-在邏輯應用程式資源中，您可以在 `definition` 屬性中找到此定義。
-* **連線**：泛指可安全地儲存任何連接器連線的相關中繼資料的個別資源，例如連接字串和存取權杖。
-在邏輯應用程式資源中，您的邏輯應用程式會參考 `parameters` 區段中的這些資源。
+* [製作 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)
+* [開發針對雲端一致性的 Azure Resource Manager 範本](../azure-resource-manager/templates-cloud-consistency.md)
 
-您可以使用 [Azure 資源總管](http://resources.azure.com)等工具，檢視現有邏輯應用程式的這些所有部分。 如需了解 JSON 語法和屬性，請參閱 [Microsoft.Logic 資源類型](/azure/templates/microsoft.logic/allversions)。
+## <a name="logic-app-structure"></a>邏輯應用程式結構
 
-若要讓邏輯應用程式的範本可與資源群組部署搭配使用，您必須定義資源並視需要參數化。
-例如，如果要部署到開發、測試和生產環境，您可能想要在每個環境中使用不同連接字串連至 SQL Database。
-或者，您可能想要在不同訂用帳戶或資源群組內部署。  
+邏輯應用程式定義具有下列基本章節，您可以藉由從 [設計工具檢視] 切換檢視，[程式碼檢視] 或藉由使用一種工具，例如[Azure 資源總管](http://resources.azure.com)。 邏輯應用程式定義使用 Javascript Object Notation (JSON)，因此如需有關 JSON 語法和屬性的詳細資訊，請參閱[Microsoft.Logic 資源類型](/azure/templates/microsoft.logic/allversions)。
 
-## <a name="create-a-logic-app-deployment-template"></a>建立邏輯應用程式部署範本
+* **邏輯應用程式資源**：描述定價方案，以及工作流程定義邏輯應用程式的位置或區域等資訊。
 
-具備有效的邏輯應用程式部署範本的最簡單方法是使用[適用於 Logic Apps 的 Visual Studio 工具](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites)。
-Visual Studio 工具產生的有效部署範本，可以在任何訂用帳戶或位置。
+* **工作流程定義**：描述邏輯應用程式的觸發程序和動作，以及 Azure Logic Apps 服務的工作流程的執行方式。 在程式碼 檢視中，您可以找到工作流程定義`definition`一節。
 
-有一些其他工具可在您建立邏輯應用程式部署範本時提供協助。
-您可以手動撰寫，也就是視需要使用此處已討論過的資源來建立參數。
-另一個選項是使用 [邏輯應用程式範本建立者](https://github.com/jeffhollan/LogicAppTemplateCreator) PowerShell 模組。 這個開放原始碼模組會先評估邏輯應用程式和它所使用的任何連接，然後以部署所需的參數產生範本資源。
-例如，如果您的邏輯應用程式會收到來自 Azure 服務匯流排佇列的訊息並將資料加入至 Azure SQL Database，則此工具會保留所有的協調流程邏輯並將 SQL 和服務匯流排連接字串參數化，如此便可在部署時進行設定。
+* **連線**：如果您使用邏輯應用程式中的受管理的連接器`$connections`區段參考安全地儲存您的邏輯應用程式與其他系統或服務，例如連接字串和存取權杖之間的這些連線的相關中繼資料的其他資源。 在您的邏輯應用程式定義，這些連線的參考出現在邏輯應用程式定義的`parameters`一節。
 
-> [!NOTE]
-> 連接必須位於與邏輯應用程式相同的資源群組內。
->
->
+若要建立邏輯應用程式範本，您可以搭配 Azure 資源群組部署，您必須定義的資源，並視需要參數化。 例如，如果要部署到開發、測試和生產環境，您可能想要在每個環境中使用不同連接字串連至 SQL Database。
+或者，您可能想要在不同訂用帳戶或資源群組內部署。
 
-### <a name="install-the-logic-app-template-powershell-module"></a>安裝邏輯應用程式範本 PowerShell 模組
-最簡單的安裝方式是透過 [PowerShell 資源庫](https://www.powershellgallery.com/packages/LogicAppTemplate/0.1)使用 `Install-Module -Name LogicAppTemplate` 命令。  
+## <a name="create-logic-app-deployment-templates"></a>建立邏輯應用程式部署範本
+
+若要建立有效的邏輯應用程式部署範本的最簡單方式，使用 Visual Studio 和 Azure Logic Apps Tools for Visual Studio 擴充功能。 從 Azure 入口網站的邏輯應用程式下載到 Visual Studio 中，您會取得有效的部署範本，您可以使用任何 Azure 訂用帳戶和位置。 此外，下載您的邏輯應用程式會自動將內嵌在範本中的邏輯應用程式定義參數化。
+如需有關建立和管理 Visual Studio 中的邏輯應用程式的詳細資訊，請參閱 <<c0> [ 使用 Visual Studio 中建立邏輯應用程式](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)並[管理邏輯應用程式，使用 Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)。
+
+非 Visual Studio 或以手動方式遵循本主題中的指引，以建立您的範本和必要的參數，您也可以使用[適用於建立邏輯應用程式範本 PowerShell 模組](https://github.com/jeffhollan/LogicAppTemplateCreator)。 這個開放原始碼模組會先評估邏輯應用程式與邏輯應用程式使用的任何連線。 此模組接著會產生所需的參數進行部署的範本資源。 例如，假設您有收到來自 Azure 服務匯流排佇列的訊息，並將資料加入至 Azure SQL database 的邏輯應用程式。 [模組] 工具會保留所有的協調流程邏輯，並會將參數化的 SQL 和服務匯流排連接字串，以便您可以在部署中設定這些值。
+
+> [!IMPORTANT]
+> 連線必須存在於相同 Azure 資源群組為邏輯應用程式。
+> 若要使用任何 Azure 租用戶和訂用帳戶的存取權杖，使用的模組的 PowerShell 模組[Azure Resource Manager 用戶端工具](https://github.com/projectkudu/ARMClient)。 如需詳細資訊，請參閱此[Azure Resource Manager 用戶端工具的相關文件](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html)更詳細地討論 ARMClient。
+
+### <a name="install-powershell-module-for-logic-app-templates"></a>安裝適用於邏輯應用程式範本的 PowerShell 模組
+
+針對要安裝的模組，從最簡單的方式[PowerShell 資源庫](https://www.powershellgallery.com/packages/LogicAppTemplate/0.1)，使用下列命令：
+
+`Install-Module -Name LogicAppTemplate`
 
 您也可以手動安裝 PowerShell 模組：
 
-1. 下載最新版的 [邏輯應用程式範本建立者](https://github.com/jeffhollan/LogicAppTemplateCreator/releases)。  
-2. 將此資料夾解壓縮至您的 PowerShell 模組資料夾 (通常是 `%UserProfile%\Documents\WindowsPowerShell\Modules`)。
+1. 下載最新[邏輯應用程式範本建立者](https://github.com/jeffhollan/LogicAppTemplateCreator/releases)。
 
-為了讓模組能使用任何租用戶和訂用帳戶存取權杖，我們建議您搭配 [ARMClient](https://github.com/projectkudu/ARMClient) 命令列工具使用。  這篇[部落格文章 (英文)](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) 會更詳細地討論 ARMClient。
+1. 將解壓縮的資料夾，在 PowerShell 模組資料夾中，通常是`%UserProfile%\Documents\WindowsPowerShell\Modules`。
 
-### <a name="generate-a-logic-app-template-by-using-powershell"></a>使用 PowerShell 產生邏輯應用程式範本
+### <a name="generate-logic-app-template---powershell"></a>產生邏輯應用程式範本-PowerShell
+
 安裝 PowerShell 之後，您可以使用下列命令來產生範本：
 
 `armclient token $SubscriptionId | Get-LogicAppTemplate -LogicApp MyApp -ResourceGroup MyRG -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json`
 
-`$SubscriptionId` 是 Azure 訂用帳戶識別碼。 這行程式碼會先透過 ARMClient 取得存取權杖，然後透過管線將它傳送到 PowerShell 指令碼，接著在 JSON 檔案中建立範本。
+`$SubscriptionId` 這是 Azure 訂用帳戶識別碼。 這行程式碼會先透過 ARMClient 取得存取權杖，然後透過管線將它傳送到 PowerShell 指令碼，接著在 JSON 檔案中建立範本。
 
-## <a name="add-parameters-to-a-logic-app-template"></a>將參數加入至邏輯應用程式範本
-建立邏輯應用程式範本之後，您可以繼續加入或修改您可能需要的參數。 例如，如果您的定義包含您打算在單一部署中部署的 Azure 函數或巢狀工作流程的資源識別碼，您可以將更多資源新增至範本，並視需要將識別碼參數化。 相同情況亦適用於您預計要與各資源群組一起部署的自訂 API 或 Swagger 端點的任何參考。
+## <a name="parameters-in-logic-app-templates"></a>在 邏輯應用程式範本的參數
 
-### <a name="add-references-for-dependent-resources-to-visual-studio-deployment-templates"></a>將相依資源的參考新增至 Visual Studio 部署範本
+建立您的邏輯應用程式範本之後，您可以新增和編輯任何必要的參數。 您的範本有一個以上`parameters`區段，例如： 
 
-當您想要邏輯應用程式參考相依的資源時，您可以在邏輯應用程式部署範本中使用 [Azure Resource Manager 範本函式](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions)。 例如，您可能想要邏輯應用程式參考您要與邏輯應用程式一起部署的 Azure 函式或整合帳戶。 遵循這些有關如何在部署範本中使用參數的指導方針，以便邏輯應用程式設計工具可正確轉譯。 
+* 邏輯應用程式的工作流程定義都有它自己[`parameters`一節](../logic-apps/logic-apps-workflow-definition-language.md#parameters)您可在其中定義邏輯應用程式會接受輸入，在部署時使用的所有參數。
 
-您可以在這些類型的觸發程序和動作中使用邏輯應用程式參數︰
+* Resource Manager 範本都有它自己[ `parameters` ] 區段](../azure-resource-manager/resource-group-authoring-templates.md#parameters)從邏輯應用程式的個別`parameters`一節。 例如︰
 
-*   子工作流程
-*   函式應用程式
-*   APIM 呼叫
-*   API 連線執行階段 URL
-*   API 連線路徑
+  [!INCLUDE [logic-deploy-parameters](../../includes/app-service-logic-deploy-parameters.md)]
 
-您可以使用範本函式，例如 parameters、variables、resourceId、concat 等等。例如，以下是取代 Azure 函式資源識別碼的方式︰
+例如，假設您的邏輯應用程式定義參考，代表 Azure 函式或巢狀的邏輯應用程式工作流程中，資源識別碼和您想要部署的資源識別碼，以及為單一部署邏輯應用程式。 您可以將該識別碼，為您的範本中的資源並參數化該識別碼。 您可以使用這個相同的方法的自訂 Api 或 OpenAPI 端點參考 (先前稱為"Swagger")，您想要部署與每個 Azure 資源群組。
 
-```
-"parameters":{
-    "functionName": {
+當您在部署範本中使用參數時，請遵循本指導方針，讓 Logic Apps 設計工具可以正確顯示這些參數：
+
+* 只有在這些觸發程序和動作中使用參數：
+
+  * Azure Functions 應用程式
+  * 巢狀或子邏輯應用程式工作流程
+  * API 管理呼叫
+  * API 連線執行階段 URL
+  * API 連線路徑
+
+* 當您定義參數時，請確定您提供預設值，使用`defaultValue`屬性值，例如：
+
+  ```json
+  "parameters": {
+     "IntegrationAccount": {
         "type":"string",
-        "minLength":1,
-        "defaultValue":"<FunctionName>"
-    }
+        "minLength": 1,
+        "defaultValue": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource=group-name>/providers/Microsoft.Logic/integrationAccounts/<integration-account-name>"
+     }
+  },
+  ```
+
+* 若要隱藏在範本中的機密資訊或保護，保護您的參數。 深入了解[如何使用安全的參數](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-workflow)。
+
+以下是範例示範如何參數化的 Azure 服務匯流排 「 傳送訊息 」 動作：
+
+```json
+"Send_message": {
+   "type": "ApiConnection",
+   "inputs": {
+      "host": {
+         "connection": {
+            "name": "@parameters('$connections')['servicebus']['connectionId']"
+         },
+         // If the `host.runtimeUrl` property appears in your template, 
+         // you can remove this property, which is optional, for example:
+         "runtimeUrl": {}
+      },
+      "method": "POST",
+      "path": "[concat('/@{encodeURIComponent(''', parameters('<Azure-Service-Bus-queue-name>'), ''')}/messages')]",
+      "body": {
+         "ContentData": "@{base64(triggerBody())}"
+      },
+      "queries": {
+         "systemProperties": "None"
+      }
+   },
+   "runAfter": {}
 },
 ```
 
-以及您想使用參數的位置︰
+### <a name="reference-dependent-resources"></a>參考相依的資源
 
+如果您的邏輯應用程式需要相依資源的參考，您可以使用[Azure Resource Manager 範本函式](../azure-resource-manager/resource-group-template-functions.md)邏輯應用程式的部署範本中。 例如，假設您想要邏輯應用程式來參考 Azure 函式或整合帳戶與合作夥伴、 協議，和您想要與邏輯應用程式一起部署的其他成品的定義。
+您可以使用 Resource Manager 範本函式，例如`parameters`， `variables`， `resourceId`， `concat`，依此類推。
+
+以下是範例顯示如何藉由定義這些參數來取代 Azure 函式的資源識別碼：
+
+``` json
+"parameters": {
+   "<Azure-function-name>": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "<Azure-function-name>"
+   }
+},
 ```
+
+以下是使用這些參數，參考 Azure 函式時：
+
+```json
 "MyFunction": {
-    "type": "Function",
-    "inputs": {
-        "body":{},
-        "function":{
-            "id":"[resourceid('Microsoft.Web/sites/functions','functionApp',parameters('functionName'))]"
-        }
-    },
-    "runAfter":{}
-}
+   "type": "Function",
+   "inputs": {
+      "body": {},
+      "function": {
+         "id":"[resourceid('Microsoft.Web/sites/functions','<Azure-Functions-app-name>', parameters('<Azure-function-name>'))]"
+      }
+   },
+   "runAfter": {}
+},
 ```
-另一個範例是您可以參數化服務匯流排傳送訊息作業：
 
-```
-"Send_message": {
-    "type": "ApiConnection",
-        "inputs": {
-            "host": {
-                "connection": {
-                    "name": "@parameters('$connections')['servicebus']['connectionId']"
-                }
-            },
-            "method": "post",
-            "path": "[concat('/@{encodeURIComponent(''', parameters('queueuname'), ''')}/messages')]",
-            "body": {
-                "ContentData": "@{base64(triggerBody())}"
-            },
-            "queries": {
-                "systemProperties": "None"
-            }
-        },
-        "runAfter": {}
-    }
-```
-> [!NOTE] 
-> host.runtimeUrl 是選擇性的，如果存在的話，可以從您的範本中移除。
-> 
+## <a name="add-logic-app-to-resource-group-project"></a>將邏輯應用程式新增至資源群組專案
 
+如果您有現有的 Azure 資源群組專案時，可以透過 [JSON 大綱] 視窗將邏輯應用程式新增至該專案。 您也可以您先前建立的應用程式共同新增另一個邏輯應用程式。
 
-> [!NOTE] 
-> 針對您在使用參數時要運作的邏輯應用程式設計工具，您必須提供預設值，例如︰
-> 
-> ```
-> "parameters": {
->     "IntegrationAccount": {
->     "type":"string",
->     "minLength":1,
->     "defaultValue":"/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Logic/integrationAccounts/<integrationAccountName>"
->     }
-> },
-> ```
+1. 在方案總管中開啟 `<template>.json` 檔案。
 
-## <a name="add-your-logic-app-to-an-existing-resource-group-project"></a>將邏輯應用程式新增到現有的資源群組專案
+2. 從**檢視**功能表上，選取**其他 Windows** > **JSON 大綱**。
 
-如果您有現有的資源群組專案，可以在 [JSON 大綱] 視窗中將邏輯應用程式新增至該專案。 您也可以您先前建立的應用程式共同新增另一個邏輯應用程式。
+3. 將資源新增至範本檔案中，選擇**加入資源**頂端的 [JSON 大綱] 視窗。 或在 [JSON 大綱] 視窗中，以滑鼠右鍵按一下 [資源]，然後選取 [新增資源]。
 
-1. 開啟 `<template>.json` 檔案。
+   ![[JSON 大綱] 視窗](./media/logic-apps-create-deploy-template/jsonoutline.png)
 
-2. 若要開啟 [JSON 大綱] 視窗，請前往 [檢視] > [其他視窗] > [JSON 大綱]。
-
-3. 若要將資源新增至範本檔案，按一下 [JSON 大綱] 視窗頂端的 [新增資源]。 或在 [JSON 大綱] 視窗中，以滑鼠右鍵按一下 [資源]，然後選取 [新增資源]。
-
-    ![[JSON 大綱] 視窗](./media/logic-apps-create-deploy-template/jsonoutline.png)
-    
 4. 在 [新增資源] 對話方塊中，尋找並選取 [邏輯應用程式]。 為您的邏輯應用程式命名，然後選擇 [新增]。
 
-    ![新增資源](./media/logic-apps-create-deploy-template/addresource.png)
+   ![新增資源](./media/logic-apps-create-deploy-template/addresource.png)
 
+## <a name="get-support"></a>取得支援
 
-## <a name="deploy-a-logic-app-template"></a>部署邏輯應用程式範本
+如有問題，請瀏覽 [Azure Logic Apps 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
 
-您可以使用任何工具部署範本，例如 PowerShell、REST API、[Azure DevOps Azure Pipelines](#team-services)，以及透過 Azure 入口網站進行範本部署。
-此外，為了儲存參數的值，我們也建議您建立[參數檔](../azure-resource-manager/resource-group-template-deploy.md#parameter-files)。
-了解如何[使用 Azure Resource Manager 範本和 PowerShell 部署資源](../azure-resource-manager/resource-group-template-deploy.md)或[使用 Azure Resource Manager 範本和 Azure 入口網站部署資源](../azure-resource-manager/resource-group-template-deploy-portal.md)。
+## <a name="next-steps"></a>後續步驟
 
-### <a name="authorize-oauth-connections"></a>授權 OAuth 連接
-
-部署之後，邏輯應用程式就能搭配有效參數端對端運作。
-不過，您仍然必須授權 OAuth 連接，才能產生有效的存取權杖。
-若要授權 OAuth 連接，請在 Logic Apps 設計工具中開啟邏輯應用程式，然後授權這些連接。 或者，如果是自動化部署，您可以使用指令碼來同意每個 OAuth 連接。
-在 GitHub 上的 [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) 專案下方有一個範例指令碼。
-
-<a name="team-services"></a>
-## <a name="azure-devops-azure-pipelines"></a>Azure DevOps Azure Pipelines
-
-部署和管理環境的常見案例，是搭配使用 Azure DevOps 中的 Azure Pipelines 之類的工具與邏輯應用程式部署範本。 Azure DevOps 包含可新增至任何組建或發行管線的[部署 Azure 資源群組](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2)工作。 您必須擁有[服務主體](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/)才能授權部署，進而能夠產生發行管線。
-
-1. 在 Azure Pipelines 中選取 [空白]，以便建立空的管線。
-
-    ![建立空管線][1]
-
-2. 選擇此定義所需的任何資源，很可能會包含手動產生或在建置流程中產生的邏輯應用程式範本。
-3. 新增 [Azure 資源群組部署]  工作。
-4. 設定 [服務主體](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/)並參考 [範本] 和 [範本參數] 檔案。
-5. 視需要針對任何其他環境、自動化測試或核准者，繼續在發行程序中建置步驟。
-
-<!-- Image References -->
-[1]: ./media/logic-apps-create-deploy-template/emptyreleasedefinition.png
+> [!div class="nextstepaction"]
+> [部署邏輯應用程式範本](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md)

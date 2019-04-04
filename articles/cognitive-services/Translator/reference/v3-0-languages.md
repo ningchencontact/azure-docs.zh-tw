@@ -3,19 +3,19 @@ title: 翻譯工具文字 API 語言方法
 titlesuffix: Azure Cognitive Services
 description: 使用翻譯工具文字 API 語言方法。
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 45baf915ffbc2723d3ed5b4c4dcd96b583a12802
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1713a05590f389a6de70d72e8d62237c7521d808
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122398"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915759"
 ---
 # <a name="translator-text-api-30-languages"></a>翻譯工具文字 API 3.0：Languages
 
@@ -67,11 +67,11 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 用戶端使用 `scope` 查詢參數來定義其感興趣的語言群組。
 
-* `scope=translation` 提供支援的語言，可將文字從某種語言翻譯成另一種語言；
+* `scope=translation` 提供語言支援翻譯成其他語言，從一種語言的文字
 
-* `scope=transliteration` 提供將某種語言的文字從某個字集轉換成另一個字集的功能；
+* `scope=transliteration` 提供功能將從一個指令碼的一種語言的文字轉換為另一個指令碼;
 
-* `scope=dictionary` 為要傳回資料的 `Dictionary` 作業提供語言組合。
+* `scope=dictionary` 為其提供的語言組`Dictionary`作業會傳回資料。
 
 用戶端可以指定以逗號分隔的名稱清單，藉此同時擷取多個群組。 例如，`scope=translation,transliteration,dictionary` 會傳回所有群組的支援語言。
 
@@ -97,11 +97,11 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
   `translation` 屬性的值是 (金鑰、值) 組的字典。 每個金鑰均為 BCP 47 語言標記。 金鑰可識別文字翻譯的目標語言或來源語言。 與金鑰相關聯的值是 JSON 物件，其屬性描述了該語言：
 
-  * `name`:顯示 `Accept-Language` 標頭所要求的地區設定語言名稱。
+  * `name`：顯示 `Accept-Language` 標頭所要求的地區設定語言名稱。
 
-  * `nativeName`:以該語言的原文顯示語言名稱。
+  * `nativeName`：以該語言的原文顯示語言名稱。
 
-  * `dir`:文字閱讀方向，`rtl` 代表從右至左的語言，`ltr` 代表從左至右的語言。
+  * `dir`：文字閱讀方向，`ltr` 代表從右至左的語言， 代表從左至右的語言。
 
   範例如下：
           
@@ -123,21 +123,21 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
   `transliteration` 屬性的值是 (金鑰、值) 組的字典。 每個金鑰均為 BCP 47 語言標記。 金鑰可識別出能在字集間轉換的文字的語言。 與金鑰相關聯的值是 JSON 物件，其屬性描述了該語言及其支援的字集：
 
-  * `name`:顯示 `Accept-Language` 標頭所要求的地區設定語言名稱。
+  * `name`：顯示 `Accept-Language` 標頭所要求的地區設定語言名稱。
 
-  * `nativeName`:以該語言的原文顯示語言名稱。
+  * `nativeName`：以該語言的原文顯示語言名稱。
 
-  * `scripts`:要轉換的字集清單。 `scripts` 清單的每個元素均有屬性：
+  * `scripts`：要轉換的字集清單。 `scripts` 清單的每個元素均有屬性：
 
-    * `code`:識別字集的代碼。
+    * `code`：識別字集的代碼。
 
-    * `name`:顯示 `Accept-Language` 標頭所要求的地區設定字集名稱。
+    * `name`：顯示 `Accept-Language` 標頭所要求的地區設定字集名稱。
 
-    * `nativeName`:以該語言的原文顯示語言名稱。
+    * `nativeName`：以該語言的原文顯示語言名稱。
 
-    * `dir`:文字閱讀方向，`rtl` 代表從右至左的語言，`ltr` 代表從左至右的語言。
+    * `dir`：文字閱讀方向，`ltr` 代表從右至左的語言， 代表從左至右的語言。
 
-    * `toScripts`:可用於轉換文字的目標字集清單。 `toScripts` 清單的每個元素均有 `code`、`name`、`nativeName` 和 `dir` 屬性，如先前所述。
+    * `toScripts`：可用於轉換文字的目標字集清單。 `toScripts` 清單的每個元素均有 `code`、`name`、`nativeName` 和 `dir` 屬性，如先前所述。
 
   範例如下：
 
@@ -188,21 +188,21 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
   `dictionary` 屬性的值是 (金鑰、值) 組的字典。 每個金鑰均為 BCP 47 語言標記。 此金鑰可識別出可提供替代翻譯和反向翻譯的語言。 此值為 JSON 物件，描述了可用翻譯的來源語言和目標語言：
 
-  * `name`:顯示 `Accept-Language` 標頭所要求的地區設定來源語言名稱。
+  * `name`：顯示 `Accept-Language` 標頭所要求的地區設定來源語言名稱。
 
-  * `nativeName`:以該語言的原文顯示語言名稱。
+  * `nativeName`：以該語言的原文顯示語言名稱。
 
-  * `dir`:文字閱讀方向，`rtl` 代表從右至左的語言，`ltr` 代表從左至右的語言。
+  * `dir`：文字閱讀方向，`ltr` 代表從右至左的語言， 代表從左至右的語言。
 
-  * `translations`:具有替代翻譯的語言清單，以及以來源語言表示的查詢範例。 `translations` 清單的每個元素均有屬性：
+  * `translations`：具有替代翻譯的語言清單，以及以來源語言表示的查詢範例。 `translations` 清單的每個元素均有屬性：
 
-    * `name`:顯示 `Accept-Language` 標頭所要求的地區設定目標語言名稱。
+    * `name`：顯示 `Accept-Language` 標頭所要求的地區設定目標語言名稱。
 
-    * `nativeName`:以目標語言的原文顯示目標語言名稱。
+    * `nativeName`：以目標語言的原文顯示目標語言名稱。
 
-    * `dir`:文字閱讀方向，`rtl` 代表從右至左的語言，`ltr` 代表從左至右的語言。
+    * `dir`：文字閱讀方向，`ltr` 代表從右至左的語言， 代表從左至右的語言。
     
-    * `code`:識別目標語言的語言代碼。
+    * `code`：識別目標語言的語言代碼。
 
   範例如下：
 
@@ -281,7 +281,7 @@ https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 
 以下範例顯示如何擷取支援文字轉換的語言。
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>curl](#tab/curl)
 
 ```
 curl "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation"

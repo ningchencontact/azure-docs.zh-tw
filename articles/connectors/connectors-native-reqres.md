@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 2479db2abcb578eb380655346582392770606b39
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0f6ee8729cbed9cb8baf3668f7b1a332bc5eddc1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57552175"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892818"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>開始使用要求和回應元件
 透過邏輯應用程式中的要求和回應元件，您可以即時回應事件。
@@ -34,9 +34,10 @@ ms.locfileid: "57552175"
 若要使用邏輯應用程式中的要求和回應動作來開始作業，請參閱 [建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="use-the-http-request-trigger"></a>使用 HTTP 要求觸發程序
-觸發程序是一個事件，可用來啟動邏輯應用程式中定義的工作流程。 [深入了解觸發程序](connectors-overview.md)。
+觸發程序是一個事件，可用來啟動邏輯應用程式中定義的工作流程。 
+[深入了解觸發程序](../connectors/apis-list.md)。
 
-以下是如何在邏輯應用程式設計工具中設定 HTTP 要求的範例順序。
+以下是如何設定邏輯應用程式設計工具中的 HTTP 要求的範例順序。
 
 1. 將 [要求 - 收到 HTTP 要求時]  觸發程序新增到您的邏輯應用程式。 您可以選擇性地提供 JSON 結構描述 (透過使用 [JSONSchema.net](https://jsonschema.net)之類的工具) 來做為要求本文。 這可讓設計工具在 HTTP 要求中產生屬性的權杖。
 2. 新增另一個動作以儲存邏輯應用程式。

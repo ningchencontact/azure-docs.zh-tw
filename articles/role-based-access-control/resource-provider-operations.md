@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 57a97d76a864a644426296cf24401b2210709d39
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 5ddae616f81052e005210310e2d28b1bc10512ab
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805800"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906203"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 資源提供者作業
 
-本文會列出每個 Azure Resource Manager 資源提供者可用的作業。 這些作業可用在[自訂角色](custom-roles.md)中，以對 Azure 中的資源提供細微的[角色型存取控制 (RBAC)](overview.md)。 作業字串的格式如下：`{Company}.{ProviderName}/{resourceType}/{action}`
+本文會列出每個 Azure Resource Manager 資源提供者可用的作業。 這些作業可用在[自訂角色](custom-roles.md)中，以對 Azure 中的資源提供細微的[角色型存取控制 (RBAC)](overview.md)。 作業字串的格式如下： `{Company}.{ProviderName}/{resourceType}/{action}`
 
 資源提供者作業會不斷發展。 若要取得最新的作業，請使用 [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) 或 [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list)。
 
@@ -1435,8 +1435,8 @@ ms.locfileid: "58805800"
 > |  動作 | Microsoft.ContainerService/openShiftClusters/delete | 刪除 Open Shift 叢集 |
 > |  動作 | Microsoft.ContainerService/openShiftClusters/read | 取得 Open Shift 叢集 |
 > |  動作 | Microsoft.ContainerService/openShiftClusters/write | 建立新的或更新現有的 Open Shift 叢集 |
-> |  動作 | Microsoft.ContainerService/openShiftManagedClusters/delete | 刪除 Open Shift 受控叢集 |
-> |  動作 | Microsoft.ContainerService/openShiftManagedClusters/read | 取得 Open Shift 受控叢集 |
+> |  動作 | Microsoft.ContainerService/openShiftManagedClusters/delete | 刪除 Open Shift 受管理的叢集 |
+> |  動作 | Microsoft.ContainerService/openShiftManagedClusters/read | 取得 Open Shift 受管理的叢集 |
 > |  動作 | Microsoft.ContainerService/openShiftManagedClusters/write | 建立新的或更新現有的 Open Shift 受控叢集 |
 > |  動作 | Microsoft.ContainerService/operations/read | 列出 Microsoft.ContainerService 資源提供者的可用作業 |
 > |  動作 | Microsoft.ContainerService/register/action | 向 Microsoft.ContainerService 資源提供者註冊訂用帳戶 |

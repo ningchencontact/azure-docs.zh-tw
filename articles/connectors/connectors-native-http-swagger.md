@@ -11,12 +11,12 @@ ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
-ms.openlocfilehash: de61443da41f1015b2890e9052f38e25d3bed86a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551963"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893379"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>透過 Azure Logic Apps 中的 HTTP + Swagger 連接器呼叫 REST 端點
 
@@ -28,7 +28,7 @@ ms.locfileid: "57551963"
 
 HTTP + Swagger 觸發程序和動作的功能與 [HTTP 動作](connectors-native-http.md)相同，但能從 [Swagger 中繼資料](https://swagger.io)公開 API 的結構和輸出，因此可以提供較佳的邏輯應用程式設計工具體驗。 您也可以使用 HTTP + Swagger 連接器作為觸發程序。 如果您想要實作輪詢觸發程序，請依照[建立自訂 API 來呼叫邏輯應用程式的其他 API、服務和系統](../logic-apps/logic-apps-create-api-app.md#polling-triggers)中所述的輪詢模式進行。
 
-深入了解 [邏輯應用程式觸發程序和動作](connectors-overview.md)。
+深入了解 [邏輯應用程式觸發程序和動作](../connectors/apis-list.md)。
 
 以下是如何使用 HTTP + Swagger 作業做為邏輯應用程式中工作流程動作的範例。
 
@@ -72,14 +72,14 @@ HTTP + Swagger 觸發程序和動作的功能與 [HTTP 動作](connectors-native
 以下是此 HTTP + Swagger 連接器所支援觸發程序和動作的詳細資料。
 
 ## <a name="http--swagger-triggers"></a>HTTP + Swagger 觸發程序
-觸發程序是一個事件，可用來啟動邏輯應用程式中定義的工作流程。 [深入了解觸發程序。](connectors-overview.md)  HTTP + Swagger 連接器有一個觸發程序。
+觸發程序是一個事件，可用來啟動邏輯應用程式中定義的工作流程。  HTTP + Swagger 連接器有一個觸發程序。 [深入了解觸發程序](../connectors/apis-list.md)。
 
 | 觸發程序 | 描述 |
 | --- | --- |
 | HTTP + Swagger |進行 HTTP 呼叫並傳回回應內容 |
 
 ## <a name="http--swagger-actions"></a>HTTP + Swagger 動作
-動作是由邏輯應用程式中定義的工作流程所執行的作業。 [深入了解動作。](connectors-overview.md)  HTTP + Swagger 連接器有一個可能的動作。
+動作是由邏輯應用程式中定義的工作流程所執行的作業。  HTTP + Swagger 連接器有一個可能的動作。 [深入了解動作](../connectors/apis-list.md)。
 
 |  動作 | 描述 |
 | --- | --- |
@@ -123,7 +123,6 @@ HTTP 回應
 | 404 |未找到 |
 | 500 |內部伺服器錯誤。 發生未知錯誤。 |
 
-- - -
 ## <a name="next-steps"></a>後續步驟
 
 * [建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)

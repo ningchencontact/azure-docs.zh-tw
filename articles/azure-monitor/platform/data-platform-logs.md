@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: 990aad4df05a9cc765baa965da2293d51a19e705
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: a7271aa3faf438b42319f8c2c297c6e39baab92e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851769"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904146"
 ---
 # <a name="logs-in-azure-monitor"></a>Azure 監視器中的記錄
 
@@ -46,7 +46,7 @@ Azure 監視器中的記錄檔包含不同類型的資料組織成不同的每�
 | 分析 | 使用[Log Analytics](../log-query/get-started-portal.md)在 Azure 入口網站中撰寫[記錄查詢](../log-query/log-query-overview.md)並以互動方式分析記錄資料使用功能強大的資料總管分析引擎。<br>使用[Application Insights analytics 主控台](../app/analytics.md)寫入記錄檔查詢，並以互動方式分析記錄資料從 Application Insights 在 Azure 入口網站。 |
 | 視覺化 | 將查詢結果轉譯為資料表或圖表釘選[Azure 儀表板](../../azure-portal/azure-portal-dashboards.md)。<br>建立[活頁簿](../app/usage-workbooks.md)結合多個互動式的報表中的資料集。 <br>將查詢的結果匯出到 [Power BI](powerbi.md) 以使用不同的視覺效果，並與 Azure 外部的使用者共用。<br>若要查詢的結果匯出[Grafana](grafana-plugin.md)運用其儀表板，並結合其他資料來源。|
 | 警示 | 設定[記錄警示規則](alerts-log.md)，在查詢結果符合特定結果時，傳送通知或採取[自動化動作](action-groups.md)。<br>設定[計量警示規則](alerts-metric-logs.md)擷取來作為計量的特定記錄檔資料記錄檔。 |
-| 擷取 | 從命令列使用存取記錄檔查詢結果[Azure CLI](/azure/ext/log-analytics/monitor/log-analytics)。<br>從命令列使用存取記錄檔查詢結果[PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1)。<br>從自訂應用程式使用存取記錄檔查詢結果[REST API](https://dev.loganalytics.io/)。 |
+| 擷取 | 從命令列使用存取記錄檔查詢結果[Azure CLI](/azure/ext/log-analytics/monitor/log-analytics)。<br>從命令列使用存取記錄檔查詢結果[PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.operationalinsights)。<br>從自訂應用程式使用存取記錄檔查詢結果[REST API](https://dev.loganalytics.io/)。 |
 | 匯出 | 建立擷取記錄檔資料，並將它複製到外部位置使用的工作流程[Logic Apps](~/articles/logic-apps/index.yml)。 |
 
 

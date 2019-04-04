@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 3df5bd177dfd88e74a8dbc72dd1966a18a61d0f8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2c2b0d022c81dffe5e98932c22b9707eb10b7e63
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860579"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481717"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>教學課程：使用 Azure 和 Azure Stack 來建立異地分散應用程式解決方案
 
@@ -135,7 +135,7 @@ ms.locfileid: "57860579"
 
 1. **登入 Azure Pipelines** 以確認能夠建立組建定義。
 
-2. 新增 **-r win10-x64** 程式碼。 這是觸發 .NNE Core 的獨立部署時所需的程式碼。
+2. 新增 **-r win10-x64** 程式碼。 這是觸發 .NNE Core 獨立部署所需的程式碼。
 
     ![替代文字](media/azure-stack-solution-geo-distributed/image4.png)
 
@@ -472,7 +472,7 @@ Azure DevOps 和 Azure DevOps Server 提供具有高度設定和管理能力的�
 
 系統會透過 OpenSSL 建立私密金鑰檔案。 若要將憑證匯出為 PFX，請執行下列命令，並將預留位置 *<private-key-file>* 和 *<merged-certificate-file>* 取代為私密金鑰路徑與合併的憑證檔案。
 
-```PowerShell
+```powershell
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>
 ```
 

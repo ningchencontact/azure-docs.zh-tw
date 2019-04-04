@@ -3,19 +3,19 @@ title: 翻譯工具文字 API 字典範例方法
 titlesuffix: Azure Cognitive Services
 description: 使用翻譯工具文字 API 字典範例方法。
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: a72aca47b33c911d4812274cfa624eaacbdec0d0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 26f147fde58a7f9c836bdacd6d66321f0fc5529a
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884778"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916408"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>翻譯工具文字 API 3.0：字典範例
 
@@ -35,7 +35,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
 <table width="100%">
   <th width="20%">查詢參數</th>
-  <th>說明</th>
+  <th>描述</th>
   <tr>
     <td>api-version</td>
     <td>必要參數。<br/>用戶端要求的 API 版本。 值必須為 `3.0`。</td>
@@ -54,9 +54,9 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
 <table width="100%">
   <th width="20%">headers</th>
-  <th>說明</th>
+  <th>描述</th>
   <tr>
-    <td>_一個授權_<br/>_標頭_</td>
+    <td>_一個授權_<br/>_頁首_</td>
     <td>必要的要求標頭。<br/>請參閱[可用的驗證選項](./v3-0-reference.md#authentication)。</td>
   </tr>
   <tr>
@@ -79,7 +79,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
   * `Text`：一個字串，指定要查閱的字詞。 此屬性應為先前[字典查閱](./v3-0-dictionary-lookup.md)要求的反向翻譯中的 `normalizedText` 欄位值。 它也可以是 `normalizedSource` 欄位的值。
 
-  * `Translation`：一個字串，指定[字典查閱](./v3-0-dictionary-lookup.md)作業先前傳回的翻譯文字。 此屬性應為[字典查閱](./v3-0-dictionary-lookup.md)回應的 `translations` 清單中包含的 `normalizedTarget` 欄位值。 服務會傳回特定的來源-目標字組配對的範例。
+  * `Translation`：一個字串，指定](./v3-0-dictionary-lookup.md)字典查閱作業先前傳回的翻譯文字。 此屬性應為[字典查閱](./v3-0-dictionary-lookup.md)回應的 `translations` 清單中包含的 `normalizedTarget` 欄位值。 服務會傳回特定的來源-目標字組配對的範例。
 
 範例如下：
 
@@ -104,11 +104,11 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
   
   * `examples`：(來源字詞、目標字詞) 配對的範例清單。 清單的每個項目是具有下列屬性的物件：
 
-    * `sourcePrefix`：要在 `sourceTerm` 的值之前串連以形成完整範例的字串。 請勿加入空格字元，因為此字元會在必要時自動加入。 此值可以是空字串。
+    * `sourcePrefix`：要在  的值之前_`sourceTerm`串連以形成完整範例的字串。 請勿加入空格字元，因為此字元會在必要時自動加入。 此值可以是空字串。
 
     * `sourceTerm`：與查閱的實際字詞等同的字串。 此字串可透過 `sourcePrefix` 和 `sourceSuffix` 來新增，以形成完整範例。 其值會分隔以便標示於使用者介面中，例如藉由粗體來標示。
 
-    * `sourceSuffix`：要在 `sourceTerm` 的值之後串連以形成完整範例的字串。 請勿加入空格字元，因為此字元會在必要時自動加入。 此值可以是空字串。
+    * `sourceSuffix`：要在  的值之後_`sourceTerm`串連以形成完整範例的字串。 請勿加入空格字元，因為此字元會在必要時自動加入。 此值可以是空字串。
 
     * `targetPrefix`：一個類似於 `sourcePrefix` 但用於目標的字串。
 
@@ -123,7 +123,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
 此範例說明如何查閱為英文字詞 `fly` 及其西班牙文翻譯 `volar` 所做配對的範例。
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly', 'Translation':'volar'}]"

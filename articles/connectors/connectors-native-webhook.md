@@ -11,12 +11,12 @@ ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
 ms.topic: article
 tags: connectors
 ms.date: 07/21/2016
-ms.openlocfilehash: c0985df445ae34795d5287144d4664755cc006da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c3047000843e054e71ec1a80313118a25e7c4905
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182110"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895574"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>使用 Webhook 和 Azure Logic Apps 建立以事件為基礎的工作流程或動作
 
@@ -29,7 +29,7 @@ ms.locfileid: "58182110"
 
 ## <a name="use-the-webhook-trigger"></a>使用 webhook 觸發程序
 
-[觸發程序](connectors-overview.md)是啟動邏輯應用程式工作流程的事件。 Webhook 觸發程序是以事件為基礎，這不需要依賴輪詢新的項目。 當您儲存邏輯應用程式 webhook 觸發程序，或當您從停用，以變更您的邏輯應用程式時啟用 webhook 觸發程序*訂閱*至指定的服務或端點註冊*回呼 URL*與該服務或端點。 觸發程序接著會使用該 URL 來執行必要的邏輯應用程式。 像是[要求觸發程序](connectors-native-reqres.md)，立即預期的事件發生時，就會引發邏輯應用程式。 觸發程序*取消訂閱*如果您移除觸發程序，並儲存邏輯應用程式，或當您變更您的邏輯應用程式，從啟用變成停用。
+[觸發程序](../connectors/apis-list.md)是啟動邏輯應用程式工作流程的事件。 Webhook 觸發程序是以事件為基礎，這不需要依賴輪詢新的項目。 當您儲存邏輯應用程式 webhook 觸發程序，或當您從停用，以變更您的邏輯應用程式時啟用 webhook 觸發程序*訂閱*至指定的服務或端點註冊*回呼 URL*與該服務或端點。 觸發程序接著會使用該 URL 來執行必要的邏輯應用程式。 像是[要求觸發程序](connectors-native-reqres.md)，立即預期的事件發生時，就會引發邏輯應用程式。 觸發程序*取消訂閱*如果您移除觸發程序，並儲存邏輯應用程式，或當您變更您的邏輯應用程式，從啟用變成停用。
 
 以下是如何在邏輯應用程式設計工具中設定 HTTP 觸發程序的範例。 這個步驟假設您已部署或正在存取的 API 會遵循[邏輯應用程式中的 webhook 訂閱和取消訂閱模式](../logic-apps/logic-apps-create-api-app.md#webhook-triggers)。 
 
@@ -48,7 +48,7 @@ ms.locfileid: "58182110"
 
 ## <a name="use-the-webhook-action"></a>使用 webhook 動作
 
-[*動作*](connectors-overview.md)是定義作業和執行邏輯應用程式的工作流程。 當邏輯應用程式執行 webhook 動作，該動作*訂閱*至指定的服務或端點註冊*回呼 URL*與該服務或端點。 Webhook 動作接著會等到該服務的 URL，邏輯應用程式繼續執行之前呼叫。 從服務或端點，在這些情況下，取消訂閱的邏輯應用程式： 
+[*動作*](../connectors/apis-list.md)是定義作業和執行邏輯應用程式的工作流程。 當邏輯應用程式執行 webhook 動作，該動作*訂閱*至指定的服務或端點註冊*回呼 URL*與該服務或端點。 Webhook 動作接著會等到該服務的 URL，邏輯應用程式繼續執行之前呼叫。 從服務或端點，在這些情況下，取消訂閱的邏輯應用程式： 
 
 * 已成功完成 webhook 動作
 * 如果等候回應時取消執行邏輯應用程式

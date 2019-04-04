@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-ms.openlocfilehash: 05dd4ae3c4ee439d66401a3f5595f9104051f8ee
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
-ms.translationtype: HT
+ms.openlocfilehash: 2a82afe396039857e5b9ad6b8a6d0e710573037f
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27962640"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893562"
 ---
 # <a name="get-started-with-the-query-action"></a>開始使用查詢動作
 您可以使用查詢動作來處理完成以下工作流程的批次和陣列︰
@@ -31,7 +31,8 @@ ms.locfileid: "27962640"
 若要開始在邏輯應用程式中使用查詢動作，請參閱 [建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="use-the-query-action"></a>使用查詢動作
-動作是由邏輯應用程式中定義的工作流程所執行的作業。 [深入了解動作](connectors-overview.md)。  
+動作是由邏輯應用程式中定義的工作流程所執行的作業。 
+[深入了解動作](../connectors/apis-list.md)。  
 
 查詢動作目前在設計工具中公開一項作業 (名為篩選陣列)。 這可讓您查詢陣列並傳回一組篩選結果。
 
@@ -55,7 +56,7 @@ ms.locfileid: "27962640"
 ## <a name="query-action"></a>查詢動作
 以下是此連接器所支援動作的詳細資料。 連接器有一個可能的動作。
 
-| 動作 | 說明 |
+|  動作 | 描述 |
 | --- | --- |
 | 篩選陣列 |評估陣列中的每個項目是否符合條件並傳回結果 |
 
@@ -66,7 +67,7 @@ ms.locfileid: "27962640"
 以下是動作的輸入欄位，可進行 HTTP 輸出要求。
 標示 * 代表必要欄位。
 
-| 顯示名稱 | 屬性名稱 | 說明 |
+| 顯示名稱 | 屬性名稱 | 描述 |
 | --- | --- | --- |
 | 從* |from |要篩選的陣列 |
 | 條件* |其中 |要針對每個項目評估的條件 |
@@ -76,7 +77,7 @@ ms.locfileid: "27962640"
 ### <a name="output-details"></a>輸出詳細資料
 以下是 HTTP 回應的輸出詳細資料。
 
-| 屬性名稱 | 資料類型 | 說明 |
+| 屬性名稱 | 資料類型 | 描述 |
 | --- | --- | --- |
 | 篩選的陣列 |array |陣列，其中包含每筆篩選結果的物件 |
 

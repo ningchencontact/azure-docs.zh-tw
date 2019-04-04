@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ergreenl
-ms.openlocfilehash: 5cfcbba58b4e4416a2f1a56adcbe21eeacb15a85
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: fbd876ad46342dec7e2e73b92d3aafbd37cc205b
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152149"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892291"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>如何判斷 Azure AD 網域服務是否適合您的使用案例
 Azure AD Domain Services 可讓您在 Azure 基礎結構服務中部署工作負載，而不必擔心要在 Azure 中維護您的身分識別基礎結構。 此受控服務不同於您自行部署及管理的典型 Windows Server Active Directory 部署。 服務容易部署，並且提供自動化的健康情況監視和修復。 我們持續不斷地提升該服務，以新增常見部署案例的支援。
@@ -36,20 +36,20 @@ Azure AD Domain Services 可讓您在 Azure 基礎結構服務中部署工作負
 
 | **功能** | **Azure AD 網域服務** | **Azure VM 中的「自己動手做」AD** |
 | --- |:---:|:---:|
-| [**受管理的服務**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**&#x2715;** |
+| [**受控服務**](active-directory-ds-comparison.md#managed-service) |**&#x2713;** |**&#x2715;** |
 | [**安全的部署**](active-directory-ds-comparison.md#secure-deployments) |**&#x2713;** |系統管理員必須確保部署安全。 |
 | [**DNS 伺服器**](active-directory-ds-comparison.md#dns-server) |            **&#x2713;** (受控服務) |**&#x2713;** |
-| [**Domain or Enterprise administrator privileges**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
+| [**網域或企業系統管理員權限**](active-directory-ds-comparison.md#domain-or-enterprise-administrator-privileges) |**&#x2715;** |**&#x2713;** |
 | [**加入網域**](active-directory-ds-comparison.md#domain-join) |**&#x2713;** |**&#x2713;** |
 | [**使用 NTLM 和 Kerberos 的網域驗證**](active-directory-ds-comparison.md#domain-authentication-using-ntlm-and-kerberos) |**&#x2713;** |**&#x2713;** |
 | [**Kerberos 限制委派**](active-directory-ds-comparison.md#kerberos-constrained-delegation)|資源型|資源型與帳戶型|
 | [**自訂 OU 結構**](active-directory-ds-comparison.md#custom-ou-structure) |**&#x2713;** |**&#x2713;** |
 | [**結構描述延伸模組**](active-directory-ds-comparison.md#schema-extensions) |**&#x2715;** |**&#x2713;** |
 | [**AD 網域/樹系信任**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**&#x2715;** |**&#x2713;** |
-| [**LDAP read**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
-| [**安全的 LDAP (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
-| [**LDAP write**](active-directory-ds-comparison.md#ldap-write) |**&#x2715;** |**&#x2713;** |
-| [**Group Policy**](active-directory-ds-comparison.md#group-policy) |**&#x2713;** |**&#x2713;** |
+| [**LDAP 讀取**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
+| [**安全 LDAP (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
+| [**LDAP 寫入**](active-directory-ds-comparison.md#ldap-write) |**&#x2715;** |**&#x2713;** |
+| [**群組原則**](active-directory-ds-comparison.md#group-policy) |**&#x2713;** |**&#x2713;** |
 | [**地理位置分散部署**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&#x2715;** |**&#x2713;** |
 
 #### <a name="managed-service"></a>受控服務
@@ -115,9 +115,9 @@ Azure AD 網域服務受控網域可以在Azure 的單一虛擬網路中使用�
 >
 >
 
-我們已發行 [在 Azure 虛擬機器上部署 Windows Server Active Directory 的指導方針](https://msdn.microsoft.com/library/azure/jj156090.aspx) ，讓 DIY 安裝變得更容易。
+我們已發行 [在 Azure 虛擬機器上部署 Windows Server Active Directory 的指導方針](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) ，讓 DIY 安裝變得更容易。
 
 ## <a name="related-content"></a>相關內容
-* [功能 - Azure AD 網域服務](active-directory-ds-features.md)
-* [部署案例 - Azure AD 網域服務](active-directory-ds-scenarios.md)
-* [在 Azure 虛擬機器上部署 Windows Server Active Directory 的指導方針](https://msdn.microsoft.com/library/azure/jj156090.aspx)
+* [功能-Azure AD 網域服務](active-directory-ds-features.md)
+* [部署案例-Azure AD Domain Services](active-directory-ds-scenarios.md)
+* [部署 Azure 虛擬機器上的 Windows Server Active Directory 的指導方針](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100)

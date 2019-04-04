@@ -3,19 +3,19 @@ title: 粗話篩選功能 - 翻譯工具文字 API
 titlesuffix: Azure Cognitive Services
 description: 使用翻譯工具文字 API 中的粗話篩選功能。
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: ab54f34dbdbda5af94c6ebc2bc8c1818ebf3d601
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: bd7a05f2f597d1882293387e5aac8e4d7367d051
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729877"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916626"
 ---
 # <a name="add-profanity-filtering-with-the-translator-text-api"></a>使用翻譯工具文字 API 新增粗話篩選功能
 
@@ -34,4 +34,4 @@ Translate() 方法會接受 “options” 參數，其中包含了新的元素 �
 
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"]
-> [使用 Translator API 呼叫來套用粗話篩選功能](reference/v3-0-translate.md)
+> [適用於不雅內容篩選 Translator API 呼叫](reference/v3-0-translate.md)
