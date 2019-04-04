@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 039ef05f7c0cbb9809a51efc3deef978e2970cf4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1913cf8d5fa367cc97dfac0a1ecfdf1edf06e298
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224561"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758663"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>快速入門：將您的第一個 IoT Edge 模組部署至 Linux 裝置
 
@@ -128,7 +128,7 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件
 如果您是使用必要條件中所述的「Azure IoT Edge on Ubuntu」，則您的裝置已經安裝 IoT Edge 執行階段。 您只需要使用在上一節中擷取的裝置連接字串來設定裝置。 您可以從遠端設定，而不需要連線到虛擬機器。 執行下列命令，將 **{device_connection_string}** 取代為您自己的字串。
 
    ```azurecli-interactive
-   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script '/etc/iotedge/configedge.sh "{device_connection_string}"'
+   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"
    ```
 
 如果您是在本機電腦或 ARM32 裝置上執行 IoT Edge，則您需要在您的裝置上安裝 IoT Edge 執行階段及其必要項目。 遵循[在 Linux (x64) 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-linux.md)或[在 Linux (ARM32v7/armhf) 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-linux-arm.md)中的指示操作，然後返回此快速入門。

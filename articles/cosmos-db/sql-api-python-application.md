@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
-ms.openlocfilehash: 2830772dd69ac94c2b8373936665b9445f9f5f10
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 24426a4249934af1d85f43552617cda7c1d7e172
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431193"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883882"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>使用 Azure Cosmos DB 建置 Python Flask Web 應用程式
 
@@ -417,7 +417,7 @@ def vote():
     ![將 Bottle、Flask、Django 應用程式發佈至 App Service 的結果](./media/sql-api-python-application/python-published-app-services.png)
 
     > [!Tip] 
-    > 如果網頁沒有出現，或是仍然出現「無法顯示網頁，因為發生內部伺服器錯誤」 訊息，在 Kudo 中開啟 web.config 檔案，將 ` <httpErrors errorMode="Detailed"></httpErrors>` 加入 system.webServer 區段，然後重新整理頁面。 這會在瀏覽器上提供詳細的錯誤輸出。 
+    > 如果網頁沒有出現，或是仍然出現「無法顯示網頁，因為發生內部伺服器錯誤」 訊息，在 Kudo 中開啟 web.config 檔案，將 `<httpErrors errorMode="Detailed"></httpErrors>` 加入 system.webServer 區段，然後重新整理頁面。 這會在瀏覽器上提供詳細的錯誤輸出。 
 
 ## <a name="troubleshooting"></a>疑難排解
 如果這是您在電腦上執行的第一個 Python 應用程式，請確定 PATH 變數中包括下列資料夾 (或同等的安裝位置：

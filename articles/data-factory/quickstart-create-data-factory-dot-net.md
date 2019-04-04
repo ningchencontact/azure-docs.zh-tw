@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 6c182b4f8de96429f52e8c396503f7a89c5347ec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 835e0153039ecc3bb93fb7aa9b5007c205ec503e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871776"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793878"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>快速入門：使用 .NET SDK 建立資料處理站和管線
 
@@ -36,12 +36,15 @@ ms.locfileid: "57871776"
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
 ### <a name="visual-studio"></a>Visual Studio
+
 本文中的逐步解說使用 Visual Studio 2017。 您也可以使用 Visual Studio 2013 或 2015。
 
 ### <a name="azure-net-sdk"></a>Azure .NET SDK
+
 在您的電腦上下載並安裝 [Azure .NET SDK](https://azure.microsoft.com/downloads/)。
 
 ## <a name="create-an-application-in-azure-active-directory"></a>在 Azure Active Directory 中建立應用程式
+
 依照[本文](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)各節中的指示執行下列工作： 
 
 1. **建立 Azure Active Directory 應用程式**。 在 Azure Active Directory 建立應用程式，代表您要在本教學課程中建立的 .NET 應用程式。 針對登入 URL，您可以提供虛擬 URL，如文章中所示 (`https://contoso.org/exampleapp`)。
@@ -64,7 +67,7 @@ ms.locfileid: "57871776"
 1. 按一下 [工具] -> [NuGet 套件管理員] -> [套件管理員主控台]。
 2. 在 [套件管理員主控台] 中執行下列命令，以安裝套件。 請參閱 [Microsoft.Azure.Management.DataFactory nuget 套件](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/)中的詳細資料。
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.Management.DataFactory
     Install-Package Microsoft.Azure.Management.ResourceManager
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -408,6 +411,7 @@ Press any key to exit...
 ```
 
 ## <a name="verify-the-output"></a>驗證輸出
+
 管道會自動在 adftutorial Blob 容器中建立輸出資料夾。 然後，它會將 emp.txt 檔案從輸入資料夾複製到輸出資料夾。 
 
 1. 在 Azure 入口網站的 [adftutorial] 容器頁面上，按一下 [重新整理] 可查看輸出資料夾。 
@@ -419,6 +423,7 @@ Press any key to exit...
     ![重新整理](media/quickstart-create-data-factory-dot-net/output-file.png)
 
 ## <a name="clean-up-resources"></a>清除資源
+
 若要以程式設計方式刪除資料處理站，請將下列程式碼新增至程式： 
 
 ```csharp
@@ -427,4 +432,5 @@ Press any key to exit...
 ```
 
 ## <a name="next-steps"></a>後續步驟
+
 在此範例中的管線會將資料從 Azure Blob 儲存體中的一個位置複製到其他位置。 瀏覽[教學課程](tutorial-copy-data-dot-net.md)以了解使用 Data Factory 的更多案例。 

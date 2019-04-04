@@ -3,8 +3,8 @@ title: 使用 Kestrel 將 HTTPS 端點新增至 Azure 中的 Service Fabric 應�
 description: 在本教學課程中，您將了解如何使用 Kestrel 將 HTTPS 端點新增至 ASP.NET Core 前端 Web 服務，以及將應用程式部署到叢集。
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/17/2019
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 7ba28014dfb2be4550407c20b4885feda3921f98
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 96c69078d32e46c795b8c5240582b874a515dee8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316886"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670773"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>教學課程：使用 Kestrel 將 HTTPS 端點新增至 ASP.NET Core Web API 前端服務
 

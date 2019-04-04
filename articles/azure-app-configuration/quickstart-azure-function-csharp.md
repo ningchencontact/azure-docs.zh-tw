@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 22ec05660682f000d8bc3b9780732d5adf9b5c24
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 9b0c48b3a3fb3a1b4e4fbe94a368297823a86778
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226703"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579575"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>快速入門：使用應用程式設定建立 Azure 函式
 
@@ -45,13 +45,19 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆
 
 ## <a name="connect-to-an-app-configuration-store"></a>連線至應用程式設定存放區
 
-1. 開啟 *Function1.cs*，並新增應用程式設定 .NET Core 設定提供者的參考。
+1. 以滑鼠右鍵按一下專案，然後選取 [管理 NuGet 套件]。 在 [瀏覽] 索引標籤上，搜尋下列 NuGet 套件並新增至您的專案。 如果您找不到它們，請選取 [包括發行前版本] 核取方塊。
+
+    ```
+    Microsoft.Extensions.Configuration.AzureAppConfiguration 1.0.0 preview or later
+    ```
+
+2. 開啟 *Function1.cs*，並新增應用程式設定 .NET Core 設定提供者的參考。
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-2. 藉由呼叫 `builder.AddAzureAppConfiguration()` 將 `Run` 方法更新為使用應用程式設定。
+3. 藉由呼叫 `builder.AddAzureAppConfiguration()` 將 `Run` 方法更新為使用應用程式設定。
 
     ```csharp
     public static async Task<IActionResult> Run(

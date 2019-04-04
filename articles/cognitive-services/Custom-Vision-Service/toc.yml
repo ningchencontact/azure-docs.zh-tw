@@ -51,16 +51,12 @@ items:
     href: getting-started-improving-your-classifier.md
   - name: 使用預測 API
     href: use-prediction-api.md
-  - name: 匯出模型
-    items:
-    - name: 將您的模型匯出至行動裝置
-      href: export-your-model.md
-    - name: 使用 ONNX 模型搭配 Windows ML
-      href: custom-vision-onnx-windows-ml.md
-    - name: 以 Python 執行 TensorFlow 模型
-      href: export-model-python.md
-  - name: 使用 REST API 建置模型
-    href: rest-api-tutorial.md
+  - name: 將您的模型匯出至行動裝置
+    href: export-your-model.md
+  - name: 使用 ONNX 模型搭配 Windows ML
+    href: custom-vision-onnx-windows-ml.md
+  - name: 以 Python 執行 TensorFlow 模型
+    href: export-model-python.md
   - name: 匯出或刪除帳戶資料
     href: ./export-delete-data.md
   - name: 將有限的試用版專案移動至 Azure
@@ -101,9 +97,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: 版本資訊
     href: release-notes.md
-ms.openlocfilehash: 98708f7c3ad2f9547e7dde9f4cf9fc7696ed7ca0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: b8c74c7f14e8f2b5f96004121d276f207a041dbd
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886704"
+ms.locfileid: "58893545"

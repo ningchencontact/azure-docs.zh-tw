@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 4c2f2ebca40ee3e4b5a9a32767783694af52944b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ee1150dd146be1f022134ffe6df3ca2fbf84f867
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106639"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652145"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>教學課程：針對 Azure 資料箱磁碟打開包裝、連線然後解除鎖定
 
@@ -90,7 +90,7 @@ ms.locfileid: "58106639"
     PS C:\DataBoxDiskUnlockTool\DiskUnlock>
     ``` 
 
-6. 執行 `DataBoxDiskUnlock.exe` 並提供您在[連接到磁碟並取得通行金鑰](#Connect-to-disks-and-get-the-passkey)中取得的通行金鑰。 指派給磁碟的磁碟機代號隨即顯示。 下方顯示一項範例輸出。
+6. 執行 `DataBoxDiskUnlock.exe` 並提供您在[連接到磁碟並取得通行金鑰](#connect-to-disks-and-get-the-passkey)中取得的通行金鑰。 指派給磁碟的磁碟機代號隨即顯示。 下方顯示一項範例輸出。
 
     ```powershell
     PS C:\WINDOWS\system32> cd C:\DataBoxDiskUnlockTool\DiskUnlock
@@ -204,7 +204,7 @@ ms.locfileid: "58106639"
      OpenSSL is already installed.
      ```
 
-6. 執行資料箱磁碟解除鎖定工具。 在 Azure 入口網站中提供您在[連接到磁碟並取得通行金鑰](#Connect-to-disks-and-get-the-passkey)中取得的通行金鑰。 選擇性地指定要解除鎖定的 BitLocker 加密磁碟區清單。 通行金鑰和磁碟區清單應該指定於單引號內。 
+6. 執行資料箱磁碟解除鎖定工具。 在 Azure 入口網站中提供您在[連接到磁碟並取得通行金鑰](#connect-to-disks-and-get-the-passkey)中取得的通行金鑰。 選擇性地指定要解除鎖定的 BitLocker 加密磁碟區清單。 通行金鑰和磁碟區清單應該指定於單引號內。 
 
     輸入下列命令。
  

@@ -3,17 +3,17 @@ title: 教學課程：在 Azure 資料總管中內嵌診斷和活動記錄資料
 description: 在本教學課程中，您將了解如何將資料內嵌至 Azure 資料總管 (不需任何一行程式碼)，然後查詢該資料。
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 3/14/2019
-ms.openlocfilehash: 422813c1ddb77aa11195d3021484744839c4e3bf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5d6b595b442b645f57454e317e6535645f643598
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994343"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756833"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>教學課程：在 Azure 資料總管中內嵌資料，而不需任何一行程式碼
 

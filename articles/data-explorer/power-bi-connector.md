@@ -3,17 +3,17 @@ title: 快速入門：使用適用於 Power BI 的 Azure 資料總管連接器�
 description: 在本快速入門中，您會了解如何使用三個選項之一在 Power BI 中將資料視覺化：適用於 Azure 資料總管的 Power BI 連接器。
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: de920a9addf9d2053a3c101c6b1f9a2c1a2feb27
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ca3e68f3ef039f86957e47e22df48922498c292f
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106741"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754736"
 ---
 # <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>快速入門：使用適用於 Power BI 的 Azure 資料總管連接器將資料視覺化
 
