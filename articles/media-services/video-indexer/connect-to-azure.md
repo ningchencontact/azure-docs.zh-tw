@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: juliako
-ms.openlocfilehash: 55828ea2235e42920a5179846d81711b1ada5dc2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: affa6f9a808543401b7d57812c7d2bef4324a83c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763668"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894201"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>建立連線到 Azure 的影片索引器帳戶
 
@@ -60,7 +60,7 @@ Azure AD 網域的使用者和成員。 當您將影片索引器帳戶連線到 
 
 1. 瀏覽至[影片索引子](https://www.videoindexer.ai/)網站並登入。
 
-2. 按一下 [連線到 Azure] 按鈕：
+2. 按一下 **建立新帳戶**按鈕：
 
     ![連線到 Azure](./media/create-account/connect-to-azure.png)
 
@@ -90,9 +90,7 @@ Azure AD 網域的使用者和成員。 當您將影片索引器帳戶連線到 
 
     ![新帳戶](./media/create-account/new-account.png)
 
-7. 瀏覽至您的新帳戶：
-
-    ![影片索引器帳戶](./media/create-account/vi-account.png)
+7. 瀏覽至您的新帳戶
 
 ## <a name="connect-to-azure-manually-advanced-option"></a>手動連線到 Azure (進階選項)
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 735835d16eb14c3847f36ecb6f46c08c0a8928ef
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 10fe5d90e7a7a59a1b543209a37b998376fdda1e
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339511"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757665"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS 支援的語言與區域
 
@@ -105,10 +105,10 @@ LUIS 可理解下列語言的語句：
 |德文<br>`de-de`|1.0.1|會將它們分割的空間，token 化文字。<br> 如果使用者輸入`Ich fahre einen krankenwagen`utterance 中，它維持單一語彙基元。 因此`krankenwagen`標示為單一實體。 |
 
 ### <a name="migrating-between-tokenizer-versions"></a>Tokenizer 版本之間移轉
+<!--
+Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID. 
 
-您的第一個選擇是要變更的 tokenizer 版本，在應用程式檔案中，然後匯入的版本。 此動作會變更談話 token 化的方式，但可讓您保留相同的應用程式識別碼。 
-
-Tokenizer 1.0.0 的 JSON。 請注意的屬性值`tokenizerVersion`。 
+Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`. 
 
 ```JSON
 {
@@ -157,7 +157,7 @@ Tokenizer 1.0.0 的 JSON。 請注意的屬性值`tokenizerVersion`。
 }
 ```
 
-如需版本 1.0.1 tokenizer JSON。 請注意的屬性值`tokenizerVersion`。 
+Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersion`. 
 
 ```JSON
 {
@@ -205,5 +205,8 @@ Tokenizer 1.0.0 的 JSON。 請注意的屬性值`tokenizerVersion`。
     "settings": []
 }
 ```
+-->
 
-第二個選擇是要[做為新的應用程式將檔案匯入](luis-how-to-start-new-app.md#import-an-app-from-file)，而不是版本。 此動作表示新的應用程式都有不同的應用程式識別碼，但會使用檔案中指定的權杖化工具版本。 
+Token 化會發生在應用程式層級。 沒有任何支援的版本層級 token 化。 
+
+[為新的應用程式將檔案匯入](luis-how-to-start-new-app.md#import-an-app-from-file)，而不是版本。 此動作表示新的應用程式都有不同的應用程式識別碼，但會使用檔案中指定的權杖化工具版本。 

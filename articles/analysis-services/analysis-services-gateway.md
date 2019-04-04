@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3f87a4c520327f1a13a48c70502b6737c0aa9b3a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: f13dd1282a6384a0acca4c6936fe7900a051795f
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630966"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58896018"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>透過內部部署資料閘道連線至內部部署資料來源
 內部部署資料閘道在內部部署資料來源和雲端中的 Azure Analysis Services 伺服器之間提供安全的資料傳輸。 除了搭配相同區域中的多部 Azure Analysis Services 伺服器運作，最新版的閘道也可以搭配 Azure Logic Apps、Power BI、Power Apps 和 Microsoft Flow運作。 您可以讓相同訂用帳戶及相同區域中的多個服務與單一閘道建立關聯。 
 
 第一次設定閘道的程序有四部分：
 
-- **下載並執行安裝程式** - 這個步驟會在您組織中的電腦上安裝閘道服務。 您也會使用[租用戶](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) Azure AD 中的帳戶來登入 Azure。 不支援 Azure B2B (來賓) 帳戶。
+- **下載並執行安裝程式** - 這個步驟會在您組織中的電腦上安裝閘道服務。 您也會使用[租用戶](/previous-versions/azure/azure-services/jj573650(v=azure.100)#BKMK_WhatIsAnAzureADTenant) Azure AD 中的帳戶來登入 Azure。 不支援 Azure B2B (來賓) 帳戶。
 
 - **註冊您的閘道** - 在此步驟中，您會為您的閘道指定名稱和復原金鑰，然後選取區域，並且向閘道雲端服務註冊您的閘道。 閘道資源可以註冊於任何區域中，但建議位於與 Analysis Services 伺服器相同的區域中。 
 
@@ -39,7 +39,7 @@ ms.locfileid: "53630966"
 
 1. 雲端服務使用內部部署資料來源的加密認證建立查詢。 查詢接著傳送至佇列供閘道處理。
 2. 閘道雲端服務會分析該查詢，並將要求推送至 [Azure 服務匯流排](https://azure.microsoft.com/documentation/services/service-bus/)。
-3. 內部部署資料閘道會輪詢 Azure 服務匯流排是否有待處理的要求。
+3. 本地数据网关会针对挂起的请求轮询 Azure 服务总线。
 4. 閘道收到查詢、解密認證，並使用這些認證連接至資料來源。
 5. 閘道將查詢傳送至資料來源執行。
 6. 結果會從資料來源傳送回閘道，然後再到雲端服務和您的伺服器。
@@ -61,7 +61,7 @@ ms.locfileid: "53630966"
 
 以下是閘道使用的完整網域名稱。
 
-| 網域名稱 | 輸出連接埠 | 說明 |
+| 域名 | 輸出連接埠 | 描述 |
 | --- | --- | --- |
 | *.powerbi.com |80 |用於下載安裝程式的 HTTP。 |
 | *.powerbi.com |443 |HTTPS |
@@ -72,11 +72,11 @@ ms.locfileid: "53630966"
 | *.frontend.clouddatahub.net |443 |HTTPS |
 | *.core.windows.net |443 |HTTPS |
 | login.microsoftonline.com |443 |HTTPS |
-| *.msftncsi.com |443 |如果 Power BI 服務無法連接至閘道，則用來測試網際網路連線能力。 |
+| *.msftncsi.com |443 |在 Power BI 服务无法访问网关时用于测试 Internet 连接。 |
 | *.microsoftonline-p.com |443 |用於驗證 (視設定而定)。 |
 
 ### <a name="force-https"></a>強制使用 Azure 服務匯流排進行 HTTPS 通訊
-您可以強制閘道使用 HTTPS 取代直接 TCP 來與 Azure 服務匯流排通訊；但這樣會大幅降低效能。 您可以修改 *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* 檔案，方法是將值從 `AutoDetect` 變更為 `Https`。 這個檔案通常位於 *C:\Program Files\On-premises data gateway*。
+您可以強制閘道使用 HTTPS 取代直接 TCP 來與 Azure 服務匯流排通訊；但這樣會大幅降低效能。 若要修改 *Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config* 文件，可将值从 `AutoDetect` 更改为 `Https`。 這個檔案通常位於 *C:\Program Files\On-premises data gateway*。
 
 ```
 <setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">
@@ -185,7 +185,7 @@ ms.locfileid: "53630966"
 ## <a name="telemetry"></a>遙測
 遙測可應用在監視和疑難排解上。 依照預設
 
-**開啟遙測**
+**若要開啟遙測**
 
 1.  檢查電腦上的內部部署資料閘道用戶端目錄。 此目錄通常是 **%systemdrive%\Program Files\內部部署資料閘道**。 或者，您可以開啟 [服務] 主控台並查看可執行檔的路徑：內部部署資料閘道服務的一個屬性。
 2.  在來自用戶端目錄的 Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config 檔案中， 將 SendTelemetry 設定變更為 true。
@@ -203,5 +203,5 @@ ms.locfileid: "53630966"
 
 ## <a name="next-steps"></a>後續步驟
 * [安裝及設定內部部署資料閘道](analysis-services-gateway-install.md)。   
-* [ Analysis Services](analysis-services-manage.md)
+* [Azure Analysis Services](analysis-services-manage.md)
 * [從 Azure Analysis Services 取得資料](analysis-services-connect.md)

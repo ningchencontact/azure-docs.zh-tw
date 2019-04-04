@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 4adc6ef6e7dd445eea3fd567072a995e3ac07dda
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8b521ebe869210b66ac3b3efeebda873f7c0e50b
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539627"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918156"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>啟用 Azure 中角色執行個體的通訊
 雲端服務角色透過內部和外部連線通訊。 外部連接稱為**輸入端點**，而內部連接稱為**內部端點**。 本主題描述如何修改 [服務定義](cloud-services-model-and-package.md#csdef) 以建立端點。
 
 ## <a name="input-endpoint"></a>輸入端點
-輸入端點是在您要對外公開連接埠時使用。 您可以指定通訊協定類型端點連接埠，稍後這些連接埠將套用至端點的外部和內部連接埠。 您也可以使用 [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) 屬性為端點指定不同的內部連接埠。
+輸入端點是在您要對外公開連接埠時使用。 您可以指定通訊協定類型端點連接埠，稍後這些連接埠將套用至端點的外部和內部連接埠。 您也可以使用 [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#InputEndpoint) 屬性為端點指定不同的內部連接埠。
 
 輸入端點可以使用下列通訊協定： **http、https、tcp、udp**。
 
@@ -96,7 +96,7 @@ Azure 受控程式庫提供讓角色執行個體在執行階段通訊的方法�
 > 
 > 
 
-您可以使用 [Instances](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) 屬性抓取角色的執行個體。 先使用 [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) 以傳回對目前角色執行個體的參考，然後使用 [Role](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) 屬性來傳回對角色本身的參考。
+您可以使用 [Instances](/previous-versions/azure/reference/ee741904(v=azure.100)) 屬性抓取角色的執行個體。 先使用 [CurrentRoleInstance](/previous-versions/azure/reference/ee741907(v=azure.100)) 以傳回對目前角色執行個體的參考，然後使用 [Role](/previous-versions/azure/reference/ee741918(v=azure.100)) 屬性來傳回對角色本身的參考。
 
 當您以程式設計方式透過 .NET SDK 連接到角色執行個體時，存取端點資訊就相對較簡單。 例如，當您連接到特定的角色環境後，即可使用此程式碼取得特定端點的連接埠：
 
@@ -111,7 +111,7 @@ int port = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["StandardWeb"].
 > 
 > 
 
-若要判斷角色執行個體上內部端點的連接埠號碼，您可以使用 [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) 屬性，以傳回包含端點名稱及其對應 IP 位址與連接埠的 Dictionary 物件。 [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) 屬性會傳回指定端點的 IP 位址和連接埠。 **PublicIPEndpoint** 屬性會傳回負載平衡端點的連接埠。 未使用 **PublicIPEndpoint** 屬性的 IP 位址部分。
+若要判斷角色執行個體上內部端點的連接埠號碼，您可以使用 [InstanceEndpoints](/previous-versions/azure/reference/ee741917(v=azure.100)) 屬性，以傳回包含端點名稱及其對應 IP 位址與連接埠的 Dictionary 物件。 [IPEndpoint](/previous-versions/azure/reference/ee741919(v=azure.100)) 屬性會傳回指定端點的 IP 位址和連接埠。 **PublicIPEndpoint** 屬性會傳回負載平衡端點的連接埠。 未使用 **PublicIPEndpoint** 屬性的 IP 位址部分。
 
 以下是逐一查看角色執行個體的範例。
 
@@ -368,7 +368,7 @@ namespace WorkerRole1
 </ServiceDefinition>
 ```
 
-[這裡](https://msdn.microsoft.com/library/azure/gg557551.aspx)有上數範例中使用之元素的 XML 結構描述參考。
+[這裡](/previous-versions/azure/reference/gg557551(v=azure.100))有上數範例中使用之元素的 XML 結構描述參考。
 
 ## <a name="next-steps"></a>後續步驟
 深入了解雲端服務 [模型](cloud-services-model-and-package.md)。

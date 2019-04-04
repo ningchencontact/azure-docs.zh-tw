@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 81401d95b9c40f16a6e593d61b79f5c2d647c0c5
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 38d8bdfcba48d2080b434ebec192b41f3663ae6a
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518825"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895202"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>如何使用 Azure WebJobs SDK 進行事件驅動幕後處理
 
@@ -80,7 +80,7 @@ static void Main(string[] args)
 
 | 屬性 | 開發設定 |
 | ------------- | ------------- |
-| `Tracing.ConsoleLevel` | `TraceLevel.Verbose` 將記錄輸出最大化。 |
+| `Tracing.ConsoleLevel` | `TraceLevel.Verbose` 若要最大化記錄輸出。 |
 | `Queues.MaxPollingInterval`  | 最低值可確保立即觸發佇列方法。  |
 | `Singleton.ListenerLockPeriod` | 15 秒在快速反覆式開發法中有幫助。 |
 
@@ -130,7 +130,7 @@ static void Main()
 
 在版本 3.*x* 中，连接限制默认为无限次连接。 如果基於某些原因，您需要變更這項限制，您可以使用[ `MaxConnectionsPerServer` ](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver)屬性[ `WinHttpHandler` ](/dotnet/api/system.net.http.winhttphandler)類別。
 
-在版本 2.*x* 中，使用 [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) API 控制主机的并发连接数。 在 2.*x* 中，应在启动 WebJobs 主机之前，在默认值 2 的基础上增大此值。
+在版本 2.*x* 中，使用 [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API 控制主机的并发连接数。 在 2.*x* 中，应在启动 WebJobs 主机之前，在默认值 2 的基础上增大此值。
 
 使用 `HttpClient` 从某个函数发出的所有传出 HTTP 请求都会流经 `ServicePointManager`。 达到 `DefaultConnectionLimit` 中设置的值后，`ServicePointManager` 会开始将请求排队，然后再发送请求。 假設您的 `DefaultConnectionLimit` 設為 2，且您的程式碼會發出 1,000 個 HTTP 要求。 一開始，只允許兩個要求傳至作業系統。 其他的 998 個要求會排入佇列，直到有足夠的空間給它們。 这意味着 `HttpClient` 可能会超时，因为它似乎已发出请求，但是，OS 从未将此请求发送到目标服务器。 因此，您可能會看到一個似乎不合理的行為：您的本機 `HttpClient` 花費 10 秒完成要求，但您的服務正以 200 毫秒的時間傳回每個要求。 
 
@@ -368,11 +368,11 @@ class Program
 
 可配置以下绑定：
 
-* [Azure CosmosDB 触发器](#azure-cosmosdb-trigger-configuration-version-3x)
-* [事件中心触发器](#event-hubs-trigger-configuration-version-3x)
+* [Azure CosmosDB 觸發程序](#azure-cosmosdb-trigger-configuration-version-3x)
+* [事件中樞觸發程序](#event-hubs-trigger-configuration-version-3x)
 * 佇列儲存體觸發程序
-* [SendGrid 绑定](#sendgrid-binding-configuration-version-3x)
-* [服务总线触发器](#service-bus-trigger-configuration-version-3x)
+* [SendGrid 繫結](#sendgrid-binding-configuration-version-3x)
+* [服務匯流排觸發程序](#service-bus-trigger-configuration-version-3x)
 
 ### <a name="azure-cosmosdb-trigger-configuration-version-3x"></a>Azure CosmosDB 触发器配置（版本 3.*x*）
 
@@ -1013,6 +1013,6 @@ config.LoggerFactory = new LoggerFactory()
 [`ExecutionContext`]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Core/ExecutionContext.cs
 [`TelemetryClient`]: /dotnet/api/microsoft.applicationinsights.telemetryclient
 [`ConfigureServices`]: /dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices
-[`ITelemetryInitializer`]: /dotnet/api/microsoft.applicationinsights.extensibility.itelemetryinitializer
+[' ITelemetryInitializer']: /dotnet/api/microsoft.applicationinsights.extensibility.itelemetryinitializer
 [`TelemetryConfiguration`]: /dotnet/api/microsoft.applicationinsights.extensibility.telemetryconfiguration
 [`JobHostConfiguration`]: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs

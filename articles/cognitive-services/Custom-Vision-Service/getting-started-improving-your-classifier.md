@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: 13c0346324ae8e3cf3485985a9014f9999230630
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 35f83832b0ceb7507b39095e9cc974d82a480c69
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351434"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883068"
 ---
 # <a name="how-to-improve-your-classifier"></a>如何改善分類器
 
@@ -72,6 +72,15 @@ ms.locfileid: "58351434"
 * __樣式：__ 提供類別相同但樣式不同的影像 (例如，各種同類水果)。 不過，如果您有樣式迥異的物件 (例如米老鼠與現實中的老鼠)，建議您分別標示為不同類別，更清楚地表示不同的特徵。
 
     ![樣式範例影像](./media/getting-started-improving-your-classifier/style.png)
+
+## <a name="negative-images"></a>負數的映像
+
+在專案中的某個時間點，您可能需要新增_負向範例_，協助分類器更精確。 負向範例是不符合其他任何標記的範例。 您上傳這些影像時，將特別的 [負向] 標籤套用於影像。
+
+> [!NOTE]
+> 自訂視覺服務支援某些自動處理負片的功能。 例如，如果您正在建置葡萄與香蕉的分類器，並送出了一隻鞋子的影像進行預測，則分類器應該會針對葡萄與香蕉，將該影像評分為接近 0%。
+> 
+> 反過來說，如果負類影像只是用來定型之影像的變化，由於相似度極高，模型很可能會將負類影像分類為標記的類別。 例如，如果有一個柳橙與葡萄柚分類器，但您饋送小柑橘的影像，它可能會將小柑橘評分為柳橙，因為小柑橘有許多和柳橙類似的特徵。 如果是這類負類影像，建議您另外建立一或多個額外標記 (例如「其他」)，並在定型期間以此標記來標示負類影像，使模型能更適當區分這些類別。
 
 ## <a name="use-prediction-images-for-further-training"></a>使用預測影像以供進一步定型
 

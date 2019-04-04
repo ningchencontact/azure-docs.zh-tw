@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: d0c5ba41bc636479407e7580fa686fe1bba91612
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 9d54cff81f39f41b60800e9b33f3b4da1a735d85
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873184"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893419"
 ---
 # <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>以主體領域、意圖和實體規劃您的 LUIS 應用程式
 
@@ -49,7 +49,7 @@ LUIS 應用程式是以領域特定的主題為核心。  例如，您可能準�
 
 ## <a name="next-steps"></a>後續步驟
 
-在您的應用程式定型、發佈並取得端點語句之後，請規劃使用[主動學習](luis-how-to-review-endoint-utt.md)、[片語清單](luis-concept-feature.md)及[模式](luis-concept-patterns.md)來實作預測上的改善。 
+在您的應用程式定型、發佈並取得端點語句之後，請規劃使用[主動學習](luis-how-to-review-endpoint-utterances.md)、[片語清單](luis-concept-feature.md)及[模式](luis-concept-patterns.md)來實作預測上的改善。 
 
 
 * 請參閱[建立您的第一個 Language Understanding Intelligent Service (LUIS) 應用程式](luis-get-started-create-app.md)，以取得如何建立 LUIS 應用程式的快速逐步解說。

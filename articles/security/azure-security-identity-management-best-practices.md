@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
-ms.openlocfilehash: bf5143c3c0c75bc37f6981c6d995339e41baa4c4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: f872c61ad0597d2307cd244668fdfc258f7a45cb
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112093"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895679"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure 身分識別管理和存取控制安全性最佳作法
 
@@ -90,7 +90,7 @@ ms.locfileid: "56112093"
 
 使用者可以使用各種裝置和應用程式，從任何位置存取您組織的資源。 身為 IT 管理員，您會想要確保這些裝置符合您的安全性與合規性標準。 只將焦點放在誰可以存取資源，已不再足夠。
 
-為了平衡安全性與生產力，您必須先考量資源的存取方式，才能進行存取控制決策。 有了 Azure AD 條件式存取，您就能夠因應此需求。 使用條件式存取，您可以做出自動化存取控制決策，以便根據條件存取雲端應用程式。
+為了平衡安全性與生產力，您必須先考量資源的存取方式，才能進行存取控制決策。 有了 Azure AD 條件式存取，您就能夠因應這項需求。 使用條件式存取，您可以做出自動化存取控制決策，以便根據條件存取雲端應用程式。
 
 **最佳做法**：管理和控制公司資源的存取權。  
 **詳細資料**：針對 SaaS 應用程式和連線到 Azure AD 的應用程式，設定以群組、位置和應用程式敏感性為基礎的 Azure AD [條件式存取](../active-directory/active-directory-conditional-access-azure-portal.md)。
@@ -116,7 +116,7 @@ ms.locfileid: "56112093"
 **選項 1**：[藉由變更使用者狀態來啟用 Multi-Factor Authentication](../active-directory/authentication/howto-mfa-userstates.md)。   
 **優點**：這是要求使用雙步驟驗證的傳統方法。 同時適用於[雲端與 Azure Multi-Factor Authentication Server 中的 Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-whichversion.md)。 如果使用這種方法，則會要求使用者在每次登入時執行雙步驟驗證，並且會覆寫條件式存取原則。
 
-**選項 2**：[透過條件式存取原則來啟用 Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md#enable-multi-factor-authentication-with-conditional-access)。   
+**選項 2**：[透過條件式存取原則來啟用 Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)。
 **優點**：此選項可讓您使用[條件式存取](../active-directory/active-directory-conditional-access-azure-portal.md)，在特定條件下提示使用雙步驟驗證。 特定條件可以是使用者從不同的位置、不受信任的裝置，或您認為有危險的應用程式登入。 定義您要求使用雙步驟驗證的特定條件，可讓您避免要持續提示使用者，這可能會帶來不愉快的使用者體驗。
 
 這是最具彈性的方法，可為您的使用者啟用雙步驟驗證。 啟用條件式存取原則，只適用於雲端的 Azure Multi-Factor Authentication，而且是 Azure AD 的進階功能。 您可以在[部署雲端式 Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md)中找到這個方法的詳細資訊。
@@ -183,11 +183,11 @@ ms.locfileid: "56112093"
 
 [確認全域系統管理員帳戶的個別使用者帳戶和郵件轉寄](../active-directory/users-groups-roles/directory-admin-roles-secure.md)  
 
-[確訂系統管理帳戶的密碼近期做過變更](../active-directory/users-groups-roles/directory-admin-roles-secure.md#ensure-the-passwords-of-administrative-accounts-have-recently-changed)  
+[請確定您的系統管理帳戶的密碼最近有變更](../active-directory/users-groups-roles/directory-admin-roles-secure.md#ensure-the-passwords-of-administrative-accounts-have-recently-changed)  
 
 [開啟密碼雜湊同步處理](../active-directory/users-groups-roles/directory-admin-roles-secure.md#turn-on-password-hash-synchronization)  
 
-[所有具有特殊權限角色的使用者和公開的使用者，都必須進行多重要素驗證](../active-directory/users-groups-roles/directory-admin-roles-secure.md#require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users)  
+[需要多重要素驗證的所有特殊權限角色的使用者，以及公開的使用者](../active-directory/users-groups-roles/directory-admin-roles-secure.md#require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users)  
 
 [取得您的 Office 365 安全分數 (如果使用 Office 365)](../active-directory/users-groups-roles/directory-admin-roles-secure.md#obtain-your-office-365-secure-score-if-using-office-365)  
 
@@ -197,7 +197,7 @@ ms.locfileid: "56112093"
 
 [建立事件/緊急回應計劃擁有者](../active-directory/users-groups-roles/directory-admin-roles-secure.md#establish-incidentemergency-response-plan-owners)  
 
-[保護內部部署的特殊權限系統管理帳戶](../active-directory/users-groups-roles/directory-admin-roles-secure.md#turn-on-password-hash-synchronization)
+[安全的內部特殊權限的系統管理帳戶](../active-directory/users-groups-roles/directory-admin-roles-secure.md#turn-on-password-hash-synchronization)
 
 如果您不保護特殊權限的存取，則可能發現您有太多具備較高特殊權限角色的使用者，而且比較容易遭受攻擊。 包括網路攻擊者在內的惡意人士通常會以管理帳戶和特殊權限存取的其他元素為目標，以利用認證竊取來取得敏感性資料和系統的存取權。
 

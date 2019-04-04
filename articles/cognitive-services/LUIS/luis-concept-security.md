@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 4465488dc02568932e839d3234bdb672d59e6804
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5abc2026362e19b406b34a4321e766c3229cc0b4
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089840"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894178"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>撰寫和端點的使用者存取權
 撰寫存取權適用於擁有者和共同作業者。 就私人應用程式而言，端點存取權適用於擁有者和共同作業者。 就公用應用程式而言，端點存取權適用於擁有自己 LUIS 帳戶且擁有公用應用程式識別碼的所有使用者。 
@@ -35,7 +35,7 @@ ms.locfileid: "58089840"
 |將應用程式設定為公用|當應用程式為公用時，任何具有撰寫或端點金鑰的使用者都可查詢該應用程式。|
 |修改模型|
 |發佈|
-|檢閱用於[主動式學習](luis-how-to-review-endoint-utt.md)的端點語句|
+|檢閱用於[主動式學習](luis-how-to-review-endpoint-utterances.md)的端點語句|
 |定型|
 
 ## <a name="access-to-endpoint"></a>存取端點
@@ -44,7 +44,7 @@ ms.locfileid: "58089840"
 
 ![將應用程式設定為公用](./media/luis-concept-security/set-application-as-public.png)
 
-|[私人端點](#private-app-endpoint-security)|[公用端點](#public-app-endpoint-access)|
+|[私用端點](#private-app-endpoint-security)|[公用端點](#public-app-endpoint-access)|
 |:--|:--|
 |可供擁有者和共同作業者使用|可供擁有者、共同作業者，以及任何知道應用程式識別碼的人員使用|
 

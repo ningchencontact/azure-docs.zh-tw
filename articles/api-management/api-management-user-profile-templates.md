@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 77b704e9359e582664bad8e08e9389cfac8eaca7
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 9d74cd3bd466578c61f8f12bf9b6e862c046e9bc
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121391"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903755"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Azure API 管理中的使用者設定檔範本
 「Azure API 管理」可讓您使用一組可設定開發人員入口網站頁面內容的範本，來自訂那些頁面的內容。 使用這些範本時，您可以運用 [DotLiquid](http://dotliquidmarkup.org/) 語法和您選擇的編輯器 (例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers))，以及一組提供的當地語系化[字串資源](api-management-template-resources.md#strings)、[字符資源](api-management-template-resources.md#glyphs)和[頁面控制項](api-management-page-controls.md)，依照您的想法自由靈活地設定頁面內容。  
@@ -30,7 +30,7 @@ ms.locfileid: "54121391"
   
 -   [訂用帳戶](#Subscriptions)  
   
--   [應用程式](#Applications)  
+-   [[應用程式]](#Applications)  
   
 -   [更新帳戶資訊](#UpdateAccountInfo)  
   
@@ -104,19 +104,19 @@ ms.locfileid: "54121391"
 > [!NOTE]
 >  [設定檔](#Profile)、[應用程式](#Applications)、[訂用帳戶](#Subscriptions)範本共用相同的資料模型，並接收相同的範本資料。  
   
-|屬性|類型|說明|  
+|屬性|類型|描述|  
 |--------------|----------|-----------------|  
-|firstName|字串|目前使用者的名字。|  
-|lastName|字串|目前使用者的姓氏。|  
-|companyName|字串|目前使用者的公司名稱。|  
-|addresserEmail|字串|目前使用者的電子郵件地址。|  
-|developersUsageStatisticsLinkk|字串|相對 URL，可前往檢視目前使用者的分析。|  
-|subscriptions|[訂用帳戶](api-management-template-data-model-reference.md#Subscription)實體的集合。|目前使用者的訂用帳戶。|  
-|應用程式所需|[應用程式](api-management-template-data-model-reference.md#Application)實體的集合。|目前使用者的應用程式。|  
-|changePasswordUrl|字串|相對 URL，可前往變更目前使用者的密碼。|  
-|changeNameOrEmailUrl|字串|相對 URL，可前往變更目前使用者的名稱和電子郵件。|  
-|canChangePassword|布林值|目前使用者是否可以變更其密碼。|  
-|isSystemUser|布林值|目前使用者是否是其中一個內建[群組](api-management-key-concepts.md#groups)的成員。|  
+|`firstName`|字串|目前使用者的名字。|  
+|`lastName`|字串|目前使用者的姓氏。|  
+|`companyName`|字串|目前使用者的公司名稱。|  
+|`addresserEmail`|字串|目前使用者的電子郵件地址。|  
+|`developersUsageStatisticsLink`|字串|相對 URL，可前往檢視目前使用者的分析。|  
+|`subscriptions`|[訂用帳戶](api-management-template-data-model-reference.md#Subscription)實體的集合。|目前使用者的訂用帳戶。|  
+|`applications`|[應用程式](api-management-template-data-model-reference.md#Application)實體的集合。|目前使用者的應用程式。|  
+|`changePasswordUrl`|字串|相對 URL，可前往變更目前使用者的密碼。|  
+|`changeNameOrEmailUrl`|字串|相對 URL，可前往變更目前使用者的名稱和電子郵件。|  
+|`canChangePassword`|布林值|目前使用者是否可以變更其密碼。|  
+|`isSystemUser`|布林值|目前使用者是否是其中一個內建[群組](api-management-key-concepts.md#groups)的成員。|  
   
 ### <a name="sample-template-data"></a>範例範本資料  
   
@@ -325,19 +325,19 @@ ms.locfileid: "54121391"
 > [!NOTE]
 >  [設定檔](#Profile)、[應用程式](#Applications)、[訂用帳戶](#Subscriptions)範本共用相同的資料模型，並接收相同的範本資料。  
   
-|屬性|類型|說明|  
+|屬性|類型|描述|  
 |--------------|----------|-----------------|  
-|firstName|字串|目前使用者的名字。|  
-|lastName|字串|目前使用者的姓氏。|  
-|companyName|字串|目前使用者的公司名稱。|  
-|addresserEmail|字串|目前使用者的電子郵件地址。|  
-|developersUsageStatisticsLinkk|字串|相對 URL，可前往檢視目前使用者的分析。|  
-|subscriptions|[訂用帳戶](api-management-template-data-model-reference.md#Subscription)實體的集合。|目前使用者的訂用帳戶。|  
-|應用程式所需|[應用程式](api-management-template-data-model-reference.md#Application)實體的集合。|目前使用者的應用程式。|  
-|changePasswordUrl|字串|相對 URL，可前往變更目前使用者的密碼。|  
-|changeNameOrEmailUrl|字串|相對 URL，可前往變更目前使用者的名稱和電子郵件。|  
-|canChangePassword|布林值|目前使用者是否可以變更其密碼。|  
-|isSystemUser|布林值|目前使用者是否是其中一個內建[群組](api-management-key-concepts.md#groups)的成員。|  
+|`firstName`|字串|目前使用者的名字。|  
+|`lastName`|字串|目前使用者的姓氏。|  
+|`companyName`|字串|目前使用者的公司名稱。|  
+|`addresserEmail`|字串|目前使用者的電子郵件地址。|  
+|`developersUsageStatisticsLink`|字串|相對 URL，可前往檢視目前使用者的分析。|  
+|`subscriptions`|[訂用帳戶](api-management-template-data-model-reference.md#Subscription)實體的集合。|目前使用者的訂用帳戶。|  
+|`applications`|[應用程式](api-management-template-data-model-reference.md#Application)實體的集合。|目前使用者的應用程式。|  
+|`changePasswordUrl`|字串|相對 URL，可前往變更目前使用者的密碼。|  
+|`changeNameOrEmailUrl`|字串|相對 URL，可前往變更目前使用者的名稱和電子郵件。|  
+|`canChangePassword`|布林值|目前使用者是否可以變更其密碼。|  
+|`isSystemUser`|布林值|目前使用者是否是其中一個內建[群組](api-management-key-concepts.md#groups)的成員。|  
   
 ### <a name="sample-template-data"></a>範例範本資料  
   
@@ -488,19 +488,19 @@ ms.locfileid: "54121391"
 > [!NOTE]
 >  [設定檔](#Profile)、[應用程式](#Applications)、[訂用帳戶](#Subscriptions)範本共用相同的資料模型，並接收相同的範本資料。  
   
-|屬性|類型|說明|  
+|屬性|類型|描述|  
 |--------------|----------|-----------------|  
-|firstName|字串|目前使用者的名字。|  
-|lastName|字串|目前使用者的姓氏。|  
-|companyName|字串|目前使用者的公司名稱。|  
-|addresserEmail|字串|目前使用者的電子郵件地址。|  
-|developersUsageStatisticsLinkk|字串|相對 URL，可前往檢視目前使用者的分析。|  
-|subscriptions|[訂用帳戶](api-management-template-data-model-reference.md#Subscription)實體的集合。|目前使用者的訂用帳戶。|  
-|應用程式所需|[應用程式](api-management-template-data-model-reference.md#Application)實體的集合。|目前使用者的應用程式。|  
-|changePasswordUrl|字串|相對 URL，可前往變更目前使用者的密碼。|  
-|changeNameOrEmailUrl|字串|相對 URL，可前往變更目前使用者的名稱和電子郵件。|  
-|canChangePassword|布林值|目前使用者是否可以變更其密碼。|  
-|isSystemUser|布林值|目前使用者是否是其中一個內建[群組](api-management-key-concepts.md#groups)的成員。|  
+|`firstName`|字串|目前使用者的名字。|  
+|`lastName`|字串|目前使用者的姓氏。|  
+|`companyName`|字串|目前使用者的公司名稱。|  
+|`addresserEmail`|字串|目前使用者的電子郵件地址。|  
+|`developersUsageStatisticsLink`|字串|相對 URL，可前往檢視目前使用者的分析。|  
+|`subscriptions`|[訂用帳戶](api-management-template-data-model-reference.md#Subscription)實體的集合。|目前使用者的訂用帳戶。|  
+|`applications`|[應用程式](api-management-template-data-model-reference.md#Application)實體的集合。|目前使用者的應用程式。|  
+|`changePasswordUrl`|字串|相對 URL，可前往變更目前使用者的密碼。|  
+|`changeNameOrEmailUrl`|字串|相對 URL，可前往變更目前使用者的名稱和電子郵件。|  
+|`canChangePassword`|布林值|目前使用者是否可以變更其密碼。|  
+|`isSystemUser`|布林值|目前使用者是否是其中一個內建[群組](api-management-key-concepts.md#groups)的成員。|  
   
 ### <a name="sample-template-data"></a>範例範本資料  
   
@@ -608,7 +608,7 @@ ms.locfileid: "54121391"
 ### <a name="controls"></a>控制  
  此範本可能不使用任何[頁面控制項](api-management-page-controls.md)。  
   
-### <a name="data-model"></a>資料模型  
+### <a name="data-model"></a>数据模型  
  [使用者帳戶資訊](api-management-template-data-model-reference.md#UserAccountInfo)實體。  
   
 ### <a name="sample-template-data"></a>範例範本資料  

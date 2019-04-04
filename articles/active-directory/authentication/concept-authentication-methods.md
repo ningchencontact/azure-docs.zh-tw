@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e21f7a67b11caf0180959de68d698f0ff4a1af1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a7a2866952d5e66e24770b81e69039d733fdd2a1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371854"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894588"
 ---
 # <a name="what-are-authentication-methods"></a>驗證方法有哪些？
 
-Azure AD 自助式密碼重設 (SSPR) 與 Multi-factor Authentication (MFA) 可能會要求其他資訊 (稱為驗證方法或安全性資訊)，以確認您在使用相關聯的功能時，您是所表明的人員。
+當系統管理員選擇驗證方法，Azure Multi-factor Authentication 與自助式密碼重設 (SSPR) 建議您要求使用者註冊多個驗證方法。 無法使用使用者驗證方法時，他們可以選擇使用另一個方法進行驗證。
 
-系統管理員可以定義在原則中可用於 SSPR 和 MFA 使用者的驗證方法。 某些驗證方法可能不適用於所有功能。
+系統管理員可以定義在原則中可用於 SSPR 和 MFA 使用者的驗證方法。 某些驗證方法可能不適用於所有功能。 如需有關設定您的原則請參閱文章[如何成功推出自助式密碼重設](howto-sspr-deployment.md)和[規劃雲端架構的 Azure Multi-factor Authentication](howto-mfa-getstarted.md)
 
 Microsoft 強烈建議系統管理員讓使用者可選取多於必要驗證方法數目下限，以免使用者無法存取其中一個。
 
@@ -233,9 +233,9 @@ Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKe
 
 ## <a name="next-steps"></a>後續步驟
 
-[啟用貴組織的自助密碼重設](quickstart-sspr.md)
+[啟用自助式密碼重設為您的組織](quickstart-sspr.md)
 
-[啟用貴組織的 Azure 多重要素驗證](howto-mfa-getstarted.md)
+[為您的組織中啟用 Azure Multi-factor Authentication](howto-mfa-getstarted.md)
 
 [在您的租用戶中的啟用結合註冊](howto-registration-mfa-sspr-combined.md)
 

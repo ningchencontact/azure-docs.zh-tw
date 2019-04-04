@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 2a6d356bcf65cdb59e84b34cf2a7478de796e61a
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 06cb4d32359014f3cbc67ed1f75988c794e6599e
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58473429"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619506"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>快速入門：偵測異常的時間序列資料使用異常偵測器 REST API 和 Java
 
@@ -91,7 +91,7 @@ ms.locfileid: "58473429"
 
 2. 建立`CloseableHttpClient`可以傳送要求給 API 的物件。 傳送要求至`HttpPost`藉由結合您的端點和異常偵測器 URL 的要求物件。
 
-3. 使用要求`setHeader()`函式來設定`Content-Type`標頭來`application/json`，並新增您的訂用帳戶金鑰，以`Ocp-Apim-Subscription-Key`標頭。
+3. 使用要求`setHeader()`函式來設定`Content-Type`標頭`application/json`，並新增您的訂用帳戶金鑰，以`Ocp-Apim-Subscription-Key`標頭。
 
 4. 使用要求的`setEntity()`要傳送之資料的函式。   
 

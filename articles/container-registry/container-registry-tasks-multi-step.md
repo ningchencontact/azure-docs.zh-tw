@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: b2b6da1739aa97f69f5744905564f638309a587f
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
-ms.translationtype: HT
+ms.openlocfilehash: ac0e4e9019a35d3fdb35c0b7af9cb1289f4bceeb
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854317"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895441"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>執行 ACR 工作中的多步驟建置、測試及修補工作
 
@@ -32,8 +32,6 @@ ms.locfileid: "51854317"
 
 所有步驟都會在 Azure 內執行，這會將工作卸交給 Azure 的計算資源，讓您無須管理基礎結構。 除了您的 Azure 容器登錄之外，您只需支付您所用資源的費用。 如需有關定價的資訊，請參閱 [Azure Container Registry 價格][pricing]中的＜容器組建＞一節。
 
-> [!IMPORTANT]
-> 此功能目前為預覽狀態。 若您同意[補充的使用規定][terms-of-use]，即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
 
 ## <a name="common-task-scenarios"></a>常見的工作案例
 
@@ -49,14 +47,14 @@ ms.locfileid: "51854317"
 
 「ACR 工作」中的多步驟工作會在 YAML 檔案內定義為一系列的步驟。 每個步驟皆可指定是否要依據一或多個先前步驟成功完成才執行。 以下是可用的工作步驟類型：
 
-* [`build`](container-registry-tasks-reference-yaml.md#build)：使用熟悉的 `docker build` 語法，以循序或平行方式建置一或多個容器映像。
-* [`push`](container-registry-tasks-reference-yaml.md#push)將所建置的映像推送至容器登錄。 支援 Azure Container Registry 之類的私人登錄，也支援公用 Docker Hub。
-* [`cmd`](container-registry-tasks-reference-yaml.md#cmd)：執行容器，使其能夠在執行中工作的內容內以函式方式執行。 您可以將參數傳遞給容器的 `[ENTRYPOINT]`，並指定 env、detach 等屬性及其他熟悉的 `docker run` 參數。 `cmd` 步驟類型可讓您搭配並行容器執行來進行單元和功能測試。
+* [`build`](container-registry-tasks-reference-yaml.md#build)：建置使用熟悉的一或多個容器映像`docker build`循序或平行的語法。
+* [`push`](container-registry-tasks-reference-yaml.md#push)：將建置的映像推送至容器登錄。 支援 Azure Container Registry 之類的私人登錄，也支援公用 Docker Hub。
+* [`cmd`](container-registry-tasks-reference-yaml.md#cmd)：它可以做為執行中的工作內容中運作，請執行容器。 您可以將參數傳遞給容器的 `[ENTRYPOINT]`，並指定 env、detach 等屬性及其他熟悉的 `docker run` 參數。 `cmd` 步驟類型可讓您搭配並行容器執行來進行單元和功能測試。
 
 下列程式碼片段說明如何結合這些工作步驟類型。 多步驟的工作有可能很簡單，像是使用如下的 YAML 檔案，從 Dockerfile 建置單一映像並推送至登錄：
 
-```yaml
-version: 1.0-preview-1
+```yml
+version: v1.0.0
 steps:
   - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
   - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
@@ -64,8 +62,8 @@ steps:
 
 但也可能較為複雜，例如這個虛構的多步驟定義，其中包含建置、測試、Helm 封裝和 Helm 部署的步驟 (容器登錄和 Helm 存放庫組態未顯示)：
 
-```yaml
-version: 1.0-preview-1
+```yml
+version: v1.0.0
 steps:
   - id: build-web
     build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
@@ -150,14 +148,6 @@ Run ID: yd14 was successful after 19s
 ```
 
 如需有關在進行 Git 認可或基底映像更新時自動執行建置的詳細資訊，請參閱[映像建置](container-registry-tutorial-build-task.md)和[基底映像更新建置](container-registry-tutorial-base-image-update.md)教學課程文章。
-
-## <a name="preview-feedback"></a>預覽意見反應
-
-雖然「ACR 工作」的多步驟工作功能目前為預覽版，但我們邀請您提供意見反應。 有數個可用的意見反應管道：
-
-* [問題](https://aka.ms/acr/issues) - 檢視現有的錯誤 (bug) 和問題，並記錄新問題
-* [UserVoice](https://aka.ms/acr/uservoice) - 針對現有的功能要求進行投票，或建立新要求
-* [討論](https://aka.ms/acr/feedback) - 參與 Stack Overflow 社群的 Azure Container Registry 討論
 
 ## <a name="next-steps"></a>後續步驟
 

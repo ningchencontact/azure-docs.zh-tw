@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 03/28/2019
 ms.author: diberry
-ms.openlocfilehash: 0acb844b8b10ff210985dfcd8c96f15da6669356
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 72c4f23f47e0a2c6d9a96dbbe36716bc3ab665f1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337471"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891424"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>在 LUIS 入口網站中建立新的 LUIS 應用程式
 有好幾種方法可建立 LUIS 應用程式。 您可以在 [LUIS](https://www.luis.ai) 入口網站中建立 LUIS 應用程式，或透過 LUIS 撰寫 [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)。
@@ -66,6 +66,17 @@ ms.locfileid: "58337471"
 可能的錯誤是： 
 
 * 已經存在具有該名稱的應用程式。 重新匯入應用程式，並設定**選擇性名稱**至新的名稱。 
+
+## <a name="export-app"></a>匯出應用程式
+
+1. 在 [我的應用程式] 頁面上，選取 [匯入新的應用程式]。
+1. 在 [匯入新的應用程式] 對話方塊中，選取可供定義 LUIS 應用程式的 JSON 檔案。
+
+## <a name="delete-app"></a>刪除應用程式
+
+1. 在 [我的應用程式] 頁面上，選取應用程式資料列結尾的三個點 (...)。
+1. 從功能表中選取 [刪除]。
+1. 在確認視窗中選取 [確定]。
 
 ## <a name="next-steps"></a>後續步驟
 

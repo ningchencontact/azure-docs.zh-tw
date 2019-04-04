@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: f3bb6fa93a96adcd2c1995b6874aa0b36b2ce320
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4351017cc1848e29cca038f82fd96548ae3492e0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884518"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892461"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Azure SQL Database 的多模型功能
 
@@ -29,7 +29,7 @@ Azure SQL Database 的設計訴求是要使用關聯式模型，在各種一般�
 您應該考慮使用 Azure SQL Database 的多模型的功能在下列情況：
 - 您有一些資訊或結構，會更適合用於 NoSQL 模型，而且您不想要使用不同的 NoSQL 資料庫。
 - 多數資料適用於關聯式模型中，並且您要建立您的資料，NoSQL 樣式中的某些部分的模型。
-- 您想要利用豐富的 TRANSACT-SQL 語言來查詢及分析關聯式和 NoSQL 資料，並將它與各種不同的工具，可以使用 SQL 語言的應用程式整合。
+- 您想要利用豐富的 TRANSACT-SQL 語言來查詢及分析關聯式和 NoSQL 資料，並將它與各種不同的工具和應用程式可以使用 SQL 語言整合。
 - 您想要套用的資料庫功能，例如[記憶體內部技術](sql-database-in-memory.md)提升您分析效能或處理您的 NoSQL 資料 strucutres，使用[異動複寫](sql-database-managed-instance-transactional-replication.md)或[可讀取複本](sql-database-read-scale-out.md)上其他位置中建立資料複本，並卸載某些分析的工作負載，從主要資料庫。
 
 ## <a name="overview"></a>概觀
@@ -140,7 +140,7 @@ CREATE TABLE Collection (
 ## <a name="next-steps"></a>後續步驟
 Azure SQL Database 中的多模型功能也是 Azure SQL Database 與 SQL Server 之間共用的核心 SQL Server 資料庫引擎功能。 若要了解這些功能的詳細資訊，請瀏覽 SQL 關聯式資料庫文件頁面：
 
-* [圖表處理](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview)
+* [圖形處理](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview)
 * [JSON 資料](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server)
 * [空間支援](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server)
 * [XML 資料](https://docs.microsoft.com/sql/relational-databases/xml/xml-data-sql-server)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1306b97ce7fcf2cd429be31bc99d022de53805d6
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 602c7385b252daa7db22bd47f43afec3ad072263
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259851"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904197"
 ---
 # <a name="set-up-a-device-template-new-ui-design"></a>設定裝置範本 (新 UI 設計)
 
@@ -197,8 +197,8 @@ ms.locfileid: "58259851"
    ![含位置詳細資料的 [設定位置] 表單](./media/howto-set-up-template/locationcloudproperty2.png)
 
    新增位置有兩種支援的格式：
-   - **以地址新增位置**
-   - **以座標新增位置**
+   - **為位址的位置**
+   - **座標的位置**
 
 4. 選取 [ **儲存**]。 操作員可以在 [Device Explorer] 中更新位置值。
 
@@ -281,3 +281,5 @@ ms.locfileid: "58259851"
 
 > [!div class="nextstepaction"]
 > [建立新的裝置範本版本](howto-version-devicetemplate.md)
+> [MXChip IoT DevKit 裝置連接至 Azure IoT Central 應用程式](howto-connect-devkit.md)
+> [一般用戶端應用程式連接到您的 AzureIoT Central 應用程式 (Node.js)](howto-connect-nodejs.md)

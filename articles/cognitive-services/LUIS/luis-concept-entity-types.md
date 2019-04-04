@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: efe50533a03551a673583265e107263d79cff90a
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 6e37466145af58a52a86a08a2a873e406c99b9e5
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418681"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895540"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>實體類型和其在 LUIS 中的目的
 
@@ -90,13 +90,13 @@ LUIS 會提供許多類型的實體。 您可以根據擷取資料的方式和�
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**複合**](#composite-entity)|實體群組，無論何種實體類型。|
 |✔|✔|[✔](luis-quickstart-intent-and-hier-entity.md)|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**階層式**](#hierarchical-entity)|簡單實體的群組。|
-|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**清單**](#list-entity)|透過比對確切文字來擷取的項目和其同義字清單。|
+|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**列出**](#list-entity)|透過比對確切文字來擷取的項目和其同義字清單。|
 |混合||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|難以判斷實體結尾的實體。|
-|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**預建**](#prebuilt-entity)|已訓練為擷取各種資料類型。|
+|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**預先建置**](#prebuilt-entity)|已訓練為擷取各種資料類型。|
 |||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**規則運算式**](#regular-expression-entity)|要比對文字的使用者規則運算式。|
 |✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**簡單**](#simple-entity)|在字組或片語中包含單一概念。|
 
-只有機器學習的實體需要針對範例語句中的每個意圖進行標記。 機器學習實體在透過[端點查詢](luis-concept-test.md#endpoint-testing)及[檢閱端點語句](luis-how-to-review-endoint-utt.md)來進行測試時，效果最佳。 
+只有機器學習的實體需要針對範例語句中的每個意圖進行標記。 機器學習實體在透過[端點查詢](luis-concept-test.md#endpoint-testing)及[檢閱端點語句](luis-how-to-review-endpoint-utterances.md)來進行測試時，效果最佳。 
 
 Pattern.any 實體需要在[模式](luis-how-to-model-intent-pattern.md)範本裡的範例 (而不是意圖裡使用者所提供的範例) 中進行標記。 
 
@@ -117,7 +117,7 @@ Pattern.any 實體需要在[模式](luis-how-to-model-intent-pattern.md)範本�
 ![複合實體](./media/luis-concept-entities/composite-entity.png)
 
 [教學課程](luis-tutorial-composite-entity.md)<br>
-[實體的 JSON 回應範例](luis-concept-data-extraction.md#composite-entity-data)<br>
+[實體的範例 JSON 回應](luis-concept-data-extraction.md#composite-entity-data)<br>
 
 ## <a name="hierarchical-entity"></a>階層式實體
 
@@ -139,7 +139,7 @@ Pattern.any 實體需要在[模式](luis-how-to-model-intent-pattern.md)範本�
 ![階層式實體](./media/luis-concept-entities/hierarchical-entity.png)
 
 [教學課程](luis-quickstart-intent-and-hier-entity.md)<br>
-[實體的 JSON 回應範例](luis-concept-data-extraction.md#hierarchical-entity-data)<br>
+[實體的範例 JSON 回應](luis-concept-data-extraction.md#hierarchical-entity-data)<br>
 
 ### <a name="roles-versus-hierarchical-entities"></a>角色與階層式實體
 
@@ -158,7 +158,7 @@ Pattern.any 實體需要在[模式](luis-how-to-model-intent-pattern.md)範本�
 ![清單實體](./media/luis-concept-entities/list-entity.png)
 
 [教學課程](luis-quickstart-intent-and-list-entity.md)<br>
-[實體的 JSON 回應範例](luis-concept-data-extraction.md#list-entity-data)
+[實體的範例 JSON 回應](luis-concept-data-extraction.md#list-entity-data)
 
 ## <a name="patternany-entity"></a>Pattern.any 實體
 
@@ -168,7 +168,7 @@ Pattern.any 是僅用於模式範本語句的可變長度預留位置，用來�
 
 * 實體的結尾可能會與語句的其餘文字混淆。 
 [教學課程](luis-tutorial-pattern.md)<br>
-[實體的 JSON 回應範例](luis-concept-data-extraction.md#patternany-entity-data)
+[實體的範例 JSON 回應](luis-concept-data-extraction.md#patternany-entity-data)
 
 **範例**  
 如果用戶端應用程式要根據書名來搜尋書籍，pattern.any 會擷取完整的書名。 為搜尋此書而使用 pattern.any 的範本語句是 `Was {BookTitle} written by an American this year[?]`。 
@@ -195,7 +195,7 @@ Pattern.any 是僅用於模式範本語句的可變長度預留位置，用來�
 ![Number 預先建置的實體](./media/luis-concept-entities/number-entity.png)
 
 [教學課程](luis-tutorial-prebuilt-intents-entities.md)<br>
-[實體的 JSON 回應範例](luis-concept-data-extraction.md#prebuilt-entity-data)
+[實體的範例 JSON 回應](luis-concept-data-extraction.md#prebuilt-entity-data)
 
 在開放原始碼 [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) 專案中已定義部分這些預建實體。 如果目前不支援您的特定文化特性或實體，請向專案提出。 
 
@@ -243,7 +243,7 @@ Pattern.any 是僅用於模式範本語句的可變長度預留位置，用來�
 ![規則運算式實體](./media/luis-concept-entities/regex-entity.png)
 
 [教學課程](luis-quickstart-intents-regex-entity.md)<br>
-[實體的 JSON 回應範例](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
+[實體的範例 JSON 回應](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
 
 ## <a name="simple-entity"></a>簡單實體 
 

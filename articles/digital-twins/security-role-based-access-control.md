@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: lyrana
-ms.openlocfilehash: 2d437f3fd96c38bebac52d6bb9dacf2c01b20a3c
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: bfc73a71a0ccda5c135e6a740d6f63bd37522a9b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443681"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904265"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Azure Digital Twins 中的角色型存取控制
 
@@ -67,7 +67,7 @@ RBAC 的特色在於其權限會向下繼承到空間圖形。
 下列參考文件文章說明：
 
 - 如何[查詢使用者的物件識別碼](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0) \(英文\)。
-- 如何[取得服務主體的物件識別碼](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermadserviceprincipal) \(英文\)。
+- 如何[取得服務主體的物件識別碼](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal) \(英文\)。
 - 如何[擷取 Azure AD 租用戶的物件識別碼](../active-directory/develop/quickstart-create-new-tenant.md)。
 
 ## <a name="role-assignments"></a>角色指派

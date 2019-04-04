@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: d7859572b090913db13fe9bb7f3ed67619fe5521
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: cc9e2e09da572dc4260dcc0e20a8a1846ae17320
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456341"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894144"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>使用 Azure 資源群組部署專案在 Azure DevOps Services 中進行持續整合
 若要部署 Azure 範本，您可以執行工作中各個階段：組建、 測試、 複製到 Azure （也稱為 「 暫存 」） 及部署範本。 有兩種不同的方式，可將範本部署到 Azure DevOps Services。 兩種方法所產生的結果都相同，因此請選擇最符合您工作流程的方法。
@@ -37,7 +37,7 @@ ms.locfileid: "57456341"
 * 應用程式二進位檔
 
 ### <a name="nested-templates-and-configuration-scripts"></a>巢狀範本和組態指令碼
-當您使用 Visual Studio (或以 Visual Studio 程式碼片段建置的) 提供的範本時，PowerShell 指令碼不但會暫存構件，也會參數化資源 URI 以進行不同的部署。 接著，指令碼會將構件複製到 Azure 中的安全容器，並為該容器建立 SaS 權杖，再將該資訊傳遞至範本部署。 請參閱 [建立範本部署](https://msdn.microsoft.com/library/azure/dn790564.aspx) 以深入了解巢狀範本。  在 Azure DevOps Services 中使用工作時，您必須針對範本部署選取適當的工作，且如果必要，必須從預備步驟將參數值傳遞至範本部署。
+當您使用 Visual Studio (或以 Visual Studio 程式碼片段建置的) 提供的範本時，PowerShell 指令碼不但會暫存構件，也會參數化資源 URI 以進行不同的部署。 接著，指令碼會將構件複製到 Azure 中的安全容器，並為該容器建立 SaS 權杖，再將該資訊傳遞至範本部署。 請參閱 [建立範本部署](/previous-versions/azure/reference/dn790564(v=azure.100)) 以深入了解巢狀範本。  在 Azure DevOps Services 中使用工作時，您必須針對範本部署選取適當的工作，且如果必要，必須從預備步驟將參數值傳遞至範本部署。
 
 ## <a name="set-up-continuous-deployment-in-azure-pipelines"></a>在 Azure Pipelines 中設定持續部署
 若要在 Azure Pipelines 中呼叫 PowerShell 指令碼，請更新您的組建管線。 簡單來說，請執行下列步驟： 
