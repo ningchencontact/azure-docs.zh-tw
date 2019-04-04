@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 55b4cf6e621bc1e5bd3d8ba4718e5714ea652c27
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: 71ba1266c3a6a1f063f1af4ab37a5f29752c62f0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58111475"
+ms.locfileid: "58896154"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 開發人員參考
 
@@ -131,7 +131,7 @@ public static class BindingExpressionsExample
 
 建置流程在組建資料夾的函式資料夾中建立 *function.json* 檔案。 如稍早所述，此檔案不適合直接編輯。 您無法編輯此檔案來變更繫結設定或停用函式。 
 
-此檔案的目的是提供資訊給縮放控制器，以用於[使用情況方案的縮放決策](functions-scale.md#how-the-consumption-plan-works)。 因此，檔案只會有觸發程序資訊，而不會有輸入或輸出繫結。
+此檔案的目的是提供資訊給縮放控制器，以用於[使用情況方案的縮放決策](functions-scale.md#how-the-consumption-and-premium-plans-work)。 因此，檔案只會有觸發程序資訊，而不會有輸入或輸出繫結。
 
 產生的 *function.json* 檔案包含 `configurationSource` 屬性 (property)，指示執行階段使用 .NET 屬性 (attribute) 屬性進行繫結，而不是使用 *function.json* 設定。 以下是範例：
 
@@ -274,7 +274,7 @@ public static class AsyncExample
 
 ## <a name="cancellation-tokens"></a>取消權杖
 
-可以接受 [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) 參數的函式，讓作業系統能夠在函式即將終止時通知您的程式碼。 您可以使用此通知來確保函數不會在讓資料維持不一致狀態的情況下意外終止。
+可以接受 [CancellationToken](/dotnet/api/system.threading.cancellationtoken) 參數的函式，讓作業系統能夠在函式即將終止時通知您的程式碼。 您可以使用此通知來確保函數不會在讓資料維持不一致狀態的情況下意外終止。
 
 下列範例示範如何檢查即將終止的函式。
 
@@ -369,7 +369,7 @@ public static class IBinderExample
 }
 ```
 
-[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) 會定義[儲存體 blob](functions-bindings-storage-blob.md) 輸入或輸出繫結，而 [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) 是支援的輸出繫結類型。
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) 會定義[儲存體 blob](functions-bindings-storage-blob.md) 輸入或輸出繫結，而 [TextWriter](/dotnet/api/system.io.textwriter) 是支援的輸出繫結類型。
 
 ### <a name="multiple-attribute-example"></a>多個屬性範例
 

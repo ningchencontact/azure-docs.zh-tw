@@ -9,32 +9,32 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/03/2019
 ms.author: diberry
-ms.openlocfilehash: fdb105fa5aa9baefc9e64b65c275f07db802daad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c418e15dbe133d94c081db2b925fa390307c240f
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091693"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905047"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>在您 LUIS 模型中，每個文化特性的實體
 
 Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程式中包含預先建置的實體時，LUIS 就會在端點回應中包含對應的實體預測。 所有範例語句也都會標示該實體。 預先建置實體的行為**無法**修改。 除非另有註明，否則預先建置的實體在所有 LUIS 應用程式地區設定 (文化特性) 中均適用。 下表列出支援各種文化特性的預先建置實體。
 
-|文化特性|次文化特性|
-|--|--|
-|中文|[zh-CN](#chinese-entity-support)|
-|荷蘭文|[nl-NL](#dutch-entity-support)|
-|English|[en-US (美式)](#english-american-entity-support)|
-|法文|[fr-CA (加拿大)](#french-canadian-entity-support), [fr-FR (法國)](#french-france-entity-support), |
-|德文|[de-DE](#german-entity-support)|
-|義大利文|[it-IT](#italian-entity-support)|
-|日文|[ja-JP](#japanese-entity-support)|
-|韓文|[ko-KR](#korean-entity-support)|
-|葡萄牙文|[pt-BR (巴西)](#portuguese-brazil-entity-support)|
-|西班牙文|[es-ES (西班牙)](#spanish-spain-entity-support), [es-MX (墨西哥)](#spanish-mexico-entity-support)|
-|土耳其文|[turkish](#turkish-entity-support)|
+|文化特性|次文化特性|注意|
+|--|--|--|
+|中文|[zh-CN](#chinese-entity-support)||
+|荷蘭文|[nl-NL](#dutch-entity-support)||
+|English|[EN-US （美式）](#english-american-entity-support)||
+|法文|[fr-CA (加拿大)](#french-canadian-entity-support), [fr-FR (法國)](#french-france-entity-support), ||
+|德文|[de-DE](#german-entity-support)||
+|義大利文|[it-IT](#italian-entity-support)||
+|日文|[ja-JP](#japanese-entity-support)||
+|韓文|[ko-KR](#korean-entity-support)||
+|葡萄牙文|[（巴西） PT-BR](#portuguese-brazil-entity-support)||
+|西班牙文|[es-ES (西班牙)](#spanish-spain-entity-support), [es-MX (墨西哥)](#spanish-mexico-entity-support)||
+|土耳其文|[土耳其文](#turkish-entity-support)|沒有預先建置的實體支援土耳其文|
 
 ## <a name="chinese-entity-support"></a>中文實體支援
 
@@ -49,11 +49,11 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 [電子郵件](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   | 
-[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
+[數字](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[電話號碼](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [溫度](luis-reference-prebuilt-temperature.md)：<br>華氏<br>克式<br>蘭氏<br>德氏<br>攝氏   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -70,11 +70,11 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 [電子郵件](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
+[數字](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[電話號碼](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [溫度](luis-reference-prebuilt-temperature.md)：<br>華氏<br>克式<br>蘭氏<br>德氏<br>攝氏   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -91,11 +91,11 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 [電子郵件](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    ✔   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
+[數字](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[電話號碼](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [溫度](luis-reference-prebuilt-temperature.md)：<br>華氏<br>克式<br>蘭氏<br>德氏<br>攝氏   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -112,11 +112,11 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 [電子郵件](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    ✔   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
+[數字](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[電話號碼](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [溫度](luis-reference-prebuilt-temperature.md)：<br>華氏<br>克式<br>蘭氏<br>德氏<br>攝氏   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -133,11 +133,11 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 [電子郵件](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
+[數字](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[電話號碼](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [溫度](luis-reference-prebuilt-temperature.md)：<br>華氏<br>克式<br>蘭氏<br>德氏<br>攝氏   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -154,11 +154,11 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 [電子郵件](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
+[數字](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[電話號碼](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [溫度](luis-reference-prebuilt-temperature.md)：<br>華氏<br>克式<br>蘭氏<br>德氏<br>攝氏   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -175,11 +175,11 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 [電子郵件](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
+[數字](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[電話號碼](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [溫度](luis-reference-prebuilt-temperature.md)：<br>華氏<br>克式<br>蘭氏<br>德氏<br>攝氏   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -196,11 +196,11 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 [電子郵件](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
+[數字](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[電話號碼](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [溫度](luis-reference-prebuilt-temperature.md)：<br>華氏<br>克式<br>蘭氏<br>德氏<br>攝氏   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -217,11 +217,11 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 [電子郵件](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Number](luis-reference-prebuilt-number.md)   |    -   |  
+[數字](luis-reference-prebuilt-number.md)   |    -   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    -   |  
 [百分比](luis-reference-prebuilt-percentage.md)   |    -   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[電話號碼](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [溫度](luis-reference-prebuilt-temperature.md)：<br>華氏<br>克式<br>蘭氏<br>德氏<br>攝氏   |    -   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -238,11 +238,11 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 [電子郵件](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
+[數字](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[電話號碼](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [溫度](luis-reference-prebuilt-temperature.md)：<br>華氏<br>克式<br>蘭氏<br>德氏<br>攝氏   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -259,11 +259,11 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 [電子郵件](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
+[數字](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[電話號碼](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [溫度](luis-reference-prebuilt-temperature.md)：<br>華氏<br>克式<br>蘭氏<br>德氏<br>攝氏   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -280,11 +280,11 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 [電子郵件](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
+[數字](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    -   |  
 [百分比](luis-reference-prebuilt-percentage.md)   |    -   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[電話號碼](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [溫度](luis-reference-prebuilt-temperature.md)：<br>華氏<br>克式<br>蘭氏<br>德氏<br>攝氏   |    -   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
@@ -294,29 +294,32 @@ KeyPhrase 不適用於葡萄牙文 (巴西) 的所有子文化特性 - ```pt-BR`
 
 ## <a name="turkish-entity-support"></a>土耳其文實體支援
 
-支援下列實體：
+**沒有預先建置的實體支援土耳其文。** 
 
-|預建實體|```tr-tr``` |
+<!--
+
+|Prebuilt entity|```tr-tr``` |
 ------|:------:|
-[年齡](luis-reference-prebuilt-age.md)：<br>年<br>月<br>week<br>day   |    -   |
-[貨幣 (錢幣)](luis-reference-prebuilt-currency.md)：<br>貨幣單位<br>小數單位 (例如：貨幣單位)  |    -   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>日期<br>daterange<br>分析<br>時間範圍   |    -   | 
-[維度](luis-reference-prebuilt-dimension.md)：<br>磁碟區<br>區域<br>重量<br>資訊 (例如：位元/位元組)<br>長度 (例如：公尺)<br>速度 (例如：英哩/小時)  |    -   | 
-[電子郵件](luis-reference-prebuilt-email.md)   |    -   | 
+[Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
+[Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    -   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   | 
+[Dimension](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>weight<br>information (ex: bit/byte)<br>length (ex: meter)<br>speed (ex: mile per hour)  |    -   | 
+[Email](luis-reference-prebuilt-email.md)   |    -   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   | 
 [Number](luis-reference-prebuilt-number.md)   |    -   |  
-[序數](luis-reference-prebuilt-ordinal.md)   |    -   |  
-[百分比](luis-reference-prebuilt-percentage.md)   |    -   | 
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |  
+[Percentage](luis-reference-prebuilt-percentage.md)   |    -   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
 [Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    -   | 
-[溫度](luis-reference-prebuilt-temperature.md)：<br>華氏<br>克式<br>蘭氏<br>德氏<br>攝氏   |    -   | 
+[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   | 
 [URL](luis-reference-prebuilt-url.md)   |    -   |
 
-請參閱[已被取代的預先建置實體](luis-reference-prebuilt-deprecated.md)的注意事項
+See notes on [Deprecated prebuilt entities](luis-reference-prebuilt-deprecated.md)
 
-KeyPhrase 無法使用。
 
+KeyPhrase is not available.
+-->
 
 ## <a name="contribute-to-prebuilt-entity-cultures"></a>參與預先建置的實體文化特性
 預先建置的實體是在 Recognizers-Text 開放原始碼專案中開發的。 [參與](https://github.com/Microsoft/Recognizers-Text)此專案。 此專案包含每個文化特性的貨幣適用的範例。 

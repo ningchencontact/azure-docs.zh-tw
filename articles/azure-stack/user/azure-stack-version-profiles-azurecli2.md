@@ -14,12 +14,12 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 519046081a7f9778fb430daa0cd418cf9863a2b0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 21167366ff3af2bb360c33eaae9d591020bf11a5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57975622"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487578"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>在 Azure Stack 中搭配 Azure CLI 使用 API 版本設定檔
 
@@ -95,13 +95,13 @@ az --version
 
 2. 升級 PIP。 PIP 是適用於 Python 的套件管理員。 開啟 CMD 命令提示字元或已提升權限的 PowerShell 命令提示字元，並輸入下列命令：
 
-    ```PowerShell  
+    ```powershell  
     python -m pip install --upgrade pip
     ```
 
 3. 安裝 **certifi** 模組。 [Certifi](https://pypi.org/project/certifi/) 是一種模組，會收集各種根憑證以便在確認 TLS 主機的身分識別時驗證 SSL 憑證的可信度。 開啟 CMD 命令提示字元或已提升權限的 PowerShell 命令提示字元，並輸入下列命令：
 
-    ```PowerShell
+    ```powershell
     pip install certifi
     ```
 
@@ -157,7 +157,7 @@ az --version
 
 1. 尋找您機器上的憑證位置。 此位置可能會根據您安裝 Python 的位置不同而有所差異。 開啟 CMD 命令提示字元或已提升權限的 PowerShell 命令提示字元，並輸入下列命令：
 
-    ```PowerShell  
+    ```powershell  
       python -c "import certifi; print(certifi.where())"
     ```
 
@@ -277,7 +277,7 @@ az group create -n MyResourceGroup -l local
 
 1. 尋找您機器上的憑證位置。 此位置可能會根據您安裝 Python 的位置不同而有所差異。 開啟 CMD 命令提示字元或已提升權限的 PowerShell 命令提示字元，並輸入下列命令：
 
-    ```PowerShell  
+    ```powershell  
       python -c "import certifi; print(certifi.where())"
     ```
 

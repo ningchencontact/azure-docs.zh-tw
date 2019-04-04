@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/14/2018
 ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: 1ca2faca6c3d34ec4c987df85fff65e0a8fdc7f1
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: e9376b0d137534f301332feaf4e99bfa937fbfa9
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486035"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905472"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure 監視器 PowerShell 快速入門範例
 本文說明可協助您存取 Azure 監視器 功能的範例 PowerShell 命令。
@@ -27,7 +27,7 @@ ms.locfileid: "58486035"
 設定要在電腦上執行的 PowerShell (如果您還未設定)。 如需詳細資訊，請參閱[如何安裝及設定 PowerShell](/powershell/azure/overview)。
 
 ## <a name="examples-in-this-article"></a>本文中的範例
-本文中的範例將說明如何使用Azure 監視器 Cmdlet。 您也可以在 [Azure 監視器 Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.insights) 檢閱整個 Azure 監視器 PowerShell Cmdlet 清單。
+本文中的範例將說明如何使用Azure 監視器 Cmdlet。 您也可以在 [Azure 監視器 Cmdlet](https://docs.microsoft.com/powershell/module/az.applicationinsights) 檢閱整個 Azure 監視器 PowerShell Cmdlet 清單。
 
 ## <a name="sign-in-and-use-subscriptions"></a>登入和使用訂用帳戶
 首先，登入您的 Azure 訂用帳戶。
@@ -88,7 +88,7 @@ Get-AzLog -Caller 'myname@company.com'
 Get-AzLog -MaxEvents 1000
 ```
 
-`Get-AzLog` 支援其他許多參數。 如需詳細資訊，請參閱 `Get-AzLog` 參考。
+`Get-AzLog` 支援許多其他參數。 如需詳細資訊，請參閱 `Get-AzLog` 參考。
 
 > [!NOTE]
 > `Get-AzLog` 只提供 15 天的歷程記錄。 使用 **-MaxEvents** 參數可讓您查詢超過 15 天的前 N 個事件。 若要访问超过 15 天的事件，请使用 REST API 或 SDK（使用 SDK 的 C# 示例）。 如果您未包含 **StartTime**，則預設值是 **EndTime** 減去一小時。 如果您未包含 **EndTime**，則預設值是目前的時間。 所有時間都是採用 UTC 格式。

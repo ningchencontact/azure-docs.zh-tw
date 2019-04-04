@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: bc8fae8f1278babd8c4c7402d86700ad78e3cb9d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bfd488828d9c96461cb371b35bb0a0cb24fff373
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897413"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891934"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>可供連接到 Azure Analysis Services 的用戶端程式庫
 
@@ -66,7 +66,7 @@ Microsoft 用戶端應用程式 (像是 Power BI Desktop 和 Excel) 會安裝這
 
  ADOMD.NET 是用於查詢 Analysis Services 資料的受控資料用戶端程式庫。 工具和用戶端應用程式會加以安裝並使用。 
   
- 連線到資料庫時，所有三個程式庫的連接字串屬性都會類似。 幾乎任何使用 [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](https://msdn.microsoft.com/library/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring.aspx) 針對 ADOMD.NET 定義的連接字串也都適用於 AMO 和 Analysis Services OLE DB Provider (MSOLAP)。 若要進一步了解，請參閱[連接字串屬性與 &#40;Analysis Services&#41;](https://docs.microsoft.com/sql/analysis-services/instances/connection-string-properties-analysis-services)。  
+ 連線到資料庫時，所有三個程式庫的連接字串屬性都會類似。 幾乎任何使用 [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](/dotnet/api/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring#Microsoft_AnalysisServices_AdomdClient_AdomdConnection_ConnectionString) 針對 ADOMD.NET 定義的連接字串也都適用於 AMO 和 Analysis Services OLE DB Provider (MSOLAP)。 若要進一步了解，請參閱[連接字串屬性與 &#40;Analysis Services&#41;](https://docs.microsoft.com/sql/analysis-services/instances/connection-string-properties-analysis-services)。  
 
   
 ##  <a name="bkmk_LibUpdate"></a> 如何判斷用戶端程式庫版本   
@@ -93,4 +93,4 @@ Microsoft 用戶端應用程式 (像是 Power BI Desktop 和 Excel) 會安裝這
 
 ## <a name="next-steps"></a>後續步驟
 [使用 Excel 進行連接](analysis-services-connect-excel.md)    
-[與 Power BI 連線](analysis-services-connect-pbi.md)
+[使用 Power BI 進行連接](analysis-services-connect-pbi.md)

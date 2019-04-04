@@ -1,5 +1,5 @@
 ---
-title: 適用於 Azure Logic Apps 的連接器 | Microsoft Docs
+title: 適用於 Azure Logic Apps 的連接器
 description: 使用 Azure Logic Apps 的連接器 (包括內建、受控、內部部署、整合帳戶和企業連接器) 將工作流程自動化
 services: logic-apps
 ms.service: logic-apps
@@ -9,25 +9,27 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: b320696a56855baaa4af10177d25dfe9973ee73a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
-ms.translationtype: HT
+ms.openlocfilehash: 59c8effb4c5feae99755b7937f4796e8f11fde46
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635436"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895878"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>適用於 Azure Logic Apps 的連接器
 
-當您使用 Azure Logic Apps 建立自動化工作流程時，連接器扮演不可或缺的部分。 在邏輯應用程式中使用連接器，即可擴充內部部署和雲端應用程式的功能，以便對您建立和已有的資料執行工作。 
+連接器從 Azure Logic Apps，事件、 資料和動作跨其他應用程式、 服務、 系統、 通訊協定，與平台，提供快速存取。 在您的 logic apps 中使用連接器，您可以展開雲端和內部部署應用程式執行工作所建立，且已有的資料功能。
 
-儘管 Logic Apps 提供 [200 個以上的連接器](https://docs.microsoft.com/connectors)，但本文說明由數千個應用程式及數百萬次執行成功用於處理資料和資訊的熱門常用連接器。 連接器可以內建項目或受控連接器的形式提供。 
+儘管 Logic Apps 提供 [200 個以上的連接器](https://docs.microsoft.com/connectors)，但本文說明由數千個應用程式及數百萬次執行成功用於處理資料和資訊的熱門常用連接器。 若要尋找的連接器和每個連接器的參考資訊的完整清單，例如觸發程序、 動作和限制，請檢閱連接器參考的資料頁[連接器概觀](https://docs.microsoft.com/connectors)。 此外，深入了解[觸發程序和動作](#triggers-actions)。
 
 > [!NOTE]
-> 如需連接器的完整清單和每個連接器的參考資訊，例如動作、任何觸發程序和限制，您可以在[連接器概觀](https://docs.microsoft.com/connectors)下找到完整清單。
+> 若要整合的服務或沒有連接器的 API，您可以直接透過 HTTP 等通訊協定呼叫服務，或建立[自訂連接器](#custom)。
 
-* [**內建項目**](#built-ins)：這些內建動作和觸發程序可協助您建立可執行下列作業的邏輯應用程式：依照自訂排程執行、與其他端點通訊、接收和回應要求，以及呼叫 Azure 函式、Azure API Apps (Web 應用程式)，透過 Azure API 管理控管和發佈的自有 API，以及可接收要求的巢狀邏輯應用程式。 您也可以使用內建動作，協助您組織及控制邏輯應用程式的工作流程，以及處理資料。
+內建的觸發程序和動作，或是做為受管理的連接器，連接器可供使用：
 
-* **受控連接器**：這些連接器會提供觸發程序和動作，以便存取其他服務和系統。 某些連接器會要求您先建立 Azure Logic Apps 所管理的連線。 受控連接器可歸納為以下群組：
+* [**内置操作**](#built-ins)：這些內建動作和觸發程序是 「 原生 」 至 Azure Logic Apps 和可幫助您建立邏輯應用程式，在自訂排程上執行，與其他端點進行通訊、 接收和回應要求，並呼叫 Azure functions、 Azure API 應用程式 （Web 應用程式）、 您自己的 Api受管理及使用已發行的 Azure API 管理，以及可以接收要求的巢狀的邏輯應用程式。 您也可以使用內建動作，協助您組織及控制邏輯應用程式的工作流程，以及處理資料。
+
+* **受控連接器**：部署和管理由 Microsoft，這些連接器提供觸發程序和動作來存取其他服務和系統，例如 Office 365、 Azure Blob 儲存體、 SQL Server、 Salesforce 等等。 某些連接器需要您先建立 Azure Logic Apps 所管理的連線。 受控連接器可歸納為以下群組：
 
   |   |   |
   |---|---|
@@ -40,7 +42,7 @@ ms.locfileid: "52635436"
   例如，如果您使用 Microsoft BizTalk Server，則邏輯應用程式可以使用 [BizTalk Server 連接器](#on-premises-connectors)連線到 BizTalk Server 並且進行通訊。 
   您可以使用[整合帳戶連接器](#integration-account-connectors)，接著在邏輯應用程式中擴充或執行類似 BizTalk 的作業。 
 
-> [!NOTE] 
+> [!NOTE]
 > 如需連接器的完整清單和每個連接器的參考資訊，例如動作和任何觸發程序 (由 Swagger 描述定義) 以及任何限制，您可以在[連接器概觀](/connectors/)下找到完整清單。 如需定價資訊，請參閱 [Logic Apps 定價詳細資料](https://azure.microsoft.com/pricing/details/logic-apps/)和 [Logic Apps 定價模型](../logic-apps/logic-apps-pricing.md)。 
 
 <a name="built-ins"></a>
@@ -74,9 +76,9 @@ Logic Apps 會提供內建觸發程序和動作，所以您可以建立以排程
 
 |   |   | 
 |---|---| 
-| [![內建圖示][data-operations-icon]<br/>**資料作業**][data-operations-doc] | 執行資料相關作業： <p>- **撰寫**：從多個輸入與各種類型建立單一輸出。 <br>- **建立 CSV 資料表**：從 JSON 物件陣列建立以逗號分隔 (CSV) 的資料表。 <br>- **建立 HTML 資料表**：從 JSON 物件陣列建立 HTML 資料表。 <br>- **篩選陣列**：從符合您準則的另一個陣列建立陣列。 <br>- **加入**：從陣列中的所有項目建立字串，並使用指定的分隔符號來分隔這些項目。 <br>- **剖析 JSON**：從 JSON 內容中的屬性及其值，建立使用者易記的語彙基元，以便在您的工作流程中使用這些屬性。 <br>- **選取**：轉換另一個陣列中的項目或值，並將這些項目對應至指定的屬性，以建立 JSON 物件陣列。 | 
-| ![內建圖示][date-time-icon]<br/>**日期時間** | 執行時間戳記相關作業： <p>- **新增至時間**：將指定的單位數新增至時間戳記。 <br>- **轉換時區**：將時間戳記從來源時區轉換為目標時區。 <br>- **目前時間**：傳回目前的時間戳記作為字串。 <br>- **取得未來時間**：傳回目前時間戳記加上指定時間單位的結果。 <br>- **取得過去時間**：傳回目前時間戳記減去指定時間單位的結果。 <br>- **從時間減去**：從時間戳記減去時間單位數字。 |
-| [![內建圖示][variables-icon]<br/>**變數**][variables-doc] | 執行變數相關作業： <p>- **附加到陣列變數**：插入一個值，作為變數所儲存陣列中的最後一個項目。 <br>- **附加到字串變數**：插入一個值，作為變數所儲存字串中的最後一個字元。 <br>- **遞減變數**：依常數值遞減變數。 <br>- **遞增變數**：依常數值遞增變數。 <br>- **初始化變數**：建立變數，並宣告其資料類型和初始值。 <br>- **設定變數**：將不同的值指派給現有的變數。 |
+| [![內建圖示][data-operations-icon]<br/>**資料作業**][data-operations-doc] | 執行資料相關作業： <p>- **撰写**：基于具有不同类型的多个输入创建单个输出。 <br>- **创建 CSV 表**：基于包含 JSON 对象的数组创建逗号分隔值 (CSV) 表。 <br>- **创建 HTML 表**：基于包含 JSON 对象的数组创建一个 HTML 表。 <br>- **筛选数组**：基于符合条件的另一个数组中的项创建一个数组。 <br>- **联接**：基于数组中的所有项创建一个字符串，并使用指定的分隔符分隔这些项。 <br>- **分析 JSON**：基于 JSON 内容中的属性及其值创建用户友好的令牌，以便可以在工作流中使用这些属性。 <br>- **选择**：通过转换另一数组中的项或值并将这些项映射到指定的属性，创建包含 JSON 对象的数组。 | 
+| ![內建的圖示][date-time-icon]<br/>**日期時間** | 執行時間戳記相關作業： <p>- **添加到时间**：将指定的单位数添加到时间戳。 <br>- **转换时区**：將時間戳記從來源時區轉換為目標時區。 <br>- **当前时间**：傳回目前的時間戳記作為字串。 <br>- **获取将来的时间**：傳回目前時間戳記加上指定時間單位的結果。 <br>- **获取过去的时间**：傳回目前時間戳記減去指定時間單位的結果。 <br>- **从时间中减去**：從時間戳記減去時間單位數字。 |
+| [![內建圖示][variables-icon]<br/>**變數**][variables-doc] | 執行變數相關作業： <p>- **追加到数组变量**：插入一个值，作为变量存储的数组中的最后一个项。 <br>- **追加到字符串变量**：插入一个值，作为变量存储的字符串中的最后一个字符。 <br>- **递减变量**：按常量值减小变量。 <br>- **递增变量**：按常量值增大变量。 <br>- **初始化变量**：创建一个变量并声明其数据类型和初始值。 <br>- **设置变量**：将不同的值分配给现有变量。 |
 |  |  | 
 
 <a name="managed-api-connectors"></a>
@@ -131,25 +133,36 @@ Logic Apps 會提供內建觸發程序和動作，所以您可以建立以排程
 | [![API 圖示][ibm-mq-icon]<br/>**IBM MQ**][ibm-mq-doc] | [![API 圖示][sap-icon]<br/>**SAP**][sap-connector-doc] |
 ||| 
 
-## <a name="more-about-triggers-and-actions"></a>觸發程序動作的詳細資訊
+<a name="triggers-actions"></a>
 
-有些連接器會提供「觸發程序」，以在發生特定事件時通知您的邏輯應用程式。 所以發生這些事件時，觸發程序會建立並執行邏輯應用程式的執行個體。 例如，FTP 連接器提供「新增或修改檔案時」觸發程序，該觸發程序會在檔案更新時啟動您的邏輯應用程式。 
+## <a name="triggers-and-actions---more-info"></a>觸發程序和動作的詳細資訊
 
-Logic Apps 會提供下列幾種觸發程序：  
+連接器可提供*觸發程序*，*動作*，或兩者。 A*觸發程序*是通常指定引發觸發程序，並開始執行您的邏輯應用程式之事件的任何邏輯應用程式中的第一個步驟。 例如，FTP 連接器具有觸發程序啟動邏輯應用程式 」 時新增或修改檔案 」。 某些觸發程序會定期檢查有指定的事件或資料，並接著引發時它們偵測到指定的事件或資料。 其他觸發程序等候，但立即發生特定事件時，或當新資料可用時引發。 觸發程序也傳遞任何必要的資料在邏輯應用程式。 邏輯應用程式可以讀取和使用該資料在整個工作流程。
+例如，Twitter 連接器具有觸發程序，「 當有新推文張貼時 」，傳遞推文的內容至邏輯應用程式的工作流程。 
 
-* 輪詢觸發程序：這些觸發程序會以指定的頻率輪詢您的服務，並檢查是否有新資料。 
+Azure Logic Apps 的觸發程序引發之後，建立邏輯應用程式的執行個體，並開始執行*動作*邏輯應用程式的工作流程中。 動作是，請依照下列觸發程序，並在邏輯應用程式的工作流程中執行工作的步驟。 比方說，您可以建立邏輯應用程式可取得從 SQL database 的客戶資料及後續動作中處理資料。 
 
-  有新資料可用時，就會建立邏輯應用程式的新執行個體，並以當作輸入傳入的資料執行。 
+以下是一般的 Azure Logic Apps 提供的觸發程序類型：
 
-* 推送觸發程序：這些觸發程序會接聽端點上的新資料或要發生的事件，以建立和執行邏輯應用程式的新執行個體。
+* 重复周期触发器：此觸發程序會在指定的排程上執行，而且不緊密相關聯的特定服務或系統。
 
-* 週期性觸發程序︰此觸發程序會依照指定的排程建立和執行邏輯應用程式的執行個體。
+* *輪詢觸發程序*:此觸發程序，定期輪詢特定服務或指定的排程，檢查新的資料，或發生特定事件的是否為基礎的系統。 如果新的資料可供使用，或發生特定事件，觸發程序會建立並執行您的邏輯應用程式，現在可以使用傳遞做為輸入的資料的新執行個體。
 
-連接器也會提供一些「動作」，以在邏輯應用程式的工作流程中執行工作。 比方說，邏輯應用程式可以讀取資料，並且在邏輯應用程式的後續步驟中使用此資料。 更具體來說，邏輯應用程式可以從 SQL 資料庫中尋找客戶資料，稍後在邏輯應用程式的工作流程中處理此資料。 
+* *推送觸發程序*:此觸發程序會等候並接聽的新資料或發生的事件。 新的資料可用時，或在發生事件時，觸發程序會建立，並執行您的邏輯應用程式，現在可以使用傳遞做為輸入的資料的新執行個體。
 
-如需觸發程序和動作的詳細資訊，請參閱[連接器概觀](connectors-overview.md)。 
+<a name="custom"></a>
 
-## <a name="custom-apis-and-connectors"></a>自訂 API 和連接器 
+## <a name="connector-configuration"></a>連接器設定
+
+每個連接器的觸發程序和動作提供自己的屬性，讓您設定。 許多連接器也需要，您必須先建立*連線*目標服務或系統，並提供驗證認證或其他組態詳細資料，才能在邏輯應用程式中使用的觸發程序或動作。 例如，您必須授權 Twitter 帳戶來存取資料，或張貼您的名義上的連接。 
+
+對於使用 OAuth 的連接器，建立連線表示登入服務，例如 Office 365、 Salesforce 或 GitHub，其中您的存取權杖是加密，而安全地儲存在 Azure 的祕密存放區。 其他連接器，例如 FTP 和 SQL，需要具有設定的詳細資料，例如伺服器位址、 使用者名稱和密碼的連接。 此連線組態詳細資料會也會加密並安全地儲存。 
+
+只要該服務或系統允許目標服務或系統可以存取連線。 使用 Azure Active Directory (AD) OAuth 連接，例如 Office 365 和 Dynamics 之服務的 Azure Logic Apps 會重新整理存取權杖無限期。 其他服務可能會放在 Azure Logic Apps 多久使用權杖而不重新整理的限制。 一般而言，某些動作會使所有的存取權杖，例如變更您的密碼。
+
+<a name="custom"></a>
+
+## <a name="custom-apis-and-connectors"></a>自訂 API 和連接器
 
 若要呼叫可執行自訂程式碼或不可作為連接器的 API，您可[建立自訂 API Apps](../logic-apps/logic-apps-create-api-app.md)，以擴充 Logic Apps 平台。 您也可以針對「任何」以 REST 或 SOAP 為基礎的 API [建立自訂連接器](../logic-apps/custom-connector-overview.md)，以便將這些 API 提供給 Azure 訂用帳戶中的任何邏輯應用程式使用。
 若要對任何人公開自訂 API Apps 或連接器以使用於 Azure，您可以[提交連接器進行 Microsoft 認證](../logic-apps/custom-connector-submit-certification.md)。
@@ -160,14 +173,12 @@ Logic Apps 會提供下列幾種觸發程序：
 
 * 若要提出或票選 Azure Logic Apps 和連接器的想法，請造訪 [Logic Apps 使用者意見反應網站](https://aka.ms/logicapps-wish)。
 
-* 這些文件是否遺漏您認為重要的文章或詳細資訊？ 如果是，您可以將遺漏的資訊新增至現有文章或撰寫您自己的文章。 文件是開放原始碼並存放於 GitHub。 從 Azure 文件的 [GitHub 存放庫](https://github.com/Microsoft/azure-docs)著手。 
-
 ## <a name="next-steps"></a>後續步驟
 
 * 尋找[連接器的完整清單](https://docs.microsoft.com/connectors)
 * [建立第一個邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [建立邏輯應用程式的自訂連接器](https://docs.microsoft.com/connectors/custom-connectors/)
-* [建立邏輯應用程式的自訂 API](../logic-apps/logic-apps-create-api-app.md)
+* [建立適用於 logic apps 自訂連接器](https://docs.microsoft.com/connectors/custom-connectors/)
+* [建立適用於邏輯應用程式的自訂 API](../logic-apps/logic-apps-create-api-app.md)
 
 <!--Misc doc links-->
 [gateway-doc]: ../logic-apps/logic-apps-gateway-connection.md "使用內部部署資料閘道從邏輯應用程式連線至內部部署資料來源"

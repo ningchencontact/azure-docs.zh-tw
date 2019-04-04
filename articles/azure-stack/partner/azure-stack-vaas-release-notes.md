@@ -14,12 +14,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 96325d7c21ccf7d93deaafbad974009004030157
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: eefd39c751bdbd9ed9c8f3b9112fee1ddbffb9a0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091982"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486932"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>驗證即服務的版本資訊
 
@@ -61,7 +61,7 @@ ms.locfileid: "58091982"
 
     `Install-VaaSPrerequisites` 已不再需要雲端管理員認證。 如果您執行此 Cmdlet 的最新版本，請參閱[下載並安裝代理程式](azure-stack-vaas-local-agent.md#download-and-install-the-agent)，以取得修訂過的命令來安裝先決條件。 命令如下：
 
-    ```PowerShell
+    ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
     Import-Module .\VaaSPreReqs.psm1 -Force
     Install-VaaSPrerequisites -AadTenantId $AadTenantId `
@@ -78,7 +78,7 @@ ms.locfileid: "58091982"
 
     `Install-VaaSPrerequisites` 現在需要雲端管理員認證，以處理套件驗證期間的問題。 位於[下載並安裝代理程式](azure-stack-vaas-local-agent.md#download-and-install-the-agent)的文件已進行下列更新：
 
-    ```PowerShell
+    ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
     $CloudAdminCreds = New-Object System.Management.Automation.PSCredential "<cloudAdminDomain\username>", (ConvertTo-SecureString "<cloudAdminPassword>" -AsPlainText -Force)
     Import-Module .\VaaSPreReqs.psm1 -Force

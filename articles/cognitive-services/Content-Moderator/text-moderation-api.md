@@ -9,12 +9,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 8ca6c73d6ccdab3acb4ebb18af9b4aa82683e026
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 5a1007f2408b48c96f5eeaf585b94c8caa7ceb45
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864293"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757766"
 ---
 # <a name="learn-text-moderation-concepts"></a>了解文字仲裁概念
 
@@ -26,7 +26,7 @@ ms.locfileid: "55864293"
 
 - 粗話：搭配內建的多語言粗話字詞清單進行字詞型比對
 - 分類：由電腦輔助分類來分成三種類別
-- 個人識別資訊 (PII)
+- 個人資料
 - 自動校正的文字
 - 原始文字
 - 語言
@@ -75,7 +75,7 @@ Content Moderator 的電腦輔助**文字分類功能**支援的語言**僅限�
 - `Score` 介於 0 到 1 之間。 分數越高，模型預測為適用該類別的可能性就越高。 此功能須倚賴統計模型，而不是手動編碼的結果。 建議您使用自己的內容進行測試，以判斷每個類別如何符合您的需求。
 - `ReviewRecommended` 會是 true 或 false，視內部分數閾值而定。 客戶應該評估是要使用此值，還是根據其內容原則決定自訂閾值。
 
-## <a name="personally-identifiable-information-pii"></a>個人識別資訊 (PII)
+## <a name="personal-data"></a>個人資料
 
 PII 功能會偵測是否可能有此資訊存在：
 

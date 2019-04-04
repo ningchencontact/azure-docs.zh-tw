@@ -1,90 +1,86 @@
 ---
-title: 定義和使用內容審核工作流程 - Content Moderator
+title: 定義和使用內容的工作流程透過檢閱工具-Content Moderator
 titlesuffix: Azure Cognitive Services
-description: 您可以使用 Azure Content Moderator 工作流程設計工具和 API，來定義以內容原則為基礎的自訂工作流程和閾值。
+description: 您可以使用 Azure 內容仲裁者工作流程設計工具來定義自訂工作流程與根據內容原則的臨界值。
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: 8fe380e3015e5b6929aebcb898eef44d6f6bceda
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 76990fb3b6ed1815ada724f28f8276bac1cf28d4
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213271"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757404"
 ---
-# <a name="define-test-and-use-workflows"></a>定義、測試和使用工作流程
+# <a name="define-and-use-moderation-workflows"></a>定義及使用仲裁工作流程
 
-您可以使用 Azure Content Moderator 工作流程設計工具和 API，來定義以內容原則為基礎的自訂工作流程和閾值。
+在本指南中，您將了解如何設定和使用[工作流程](../review-api.md#workflows)上[審核工具](https://contentmoderator.cognitive.microsoft.com)網站。 工作流程是雲端架構的自訂的篩選，您可以使用來更有效率地處理內容。 工作流程可以連接到各種不同的方式篩選內容，並採取適當的動作的服務。 本指南將說明如何篩選內容，並將設定一般仲裁案例中的人工審核使用 Content Moderator 連接器 （這包含預設值）。
 
-工作流程會使用連接器「連接」到 Content Moderator API。 您可以使用其他有可用連接器的 API。 此處的範例使用預設隨附的 Content Moderator 連接器。
+## <a name="create-a-new-workflow"></a>建立新的工作流程
 
-## <a name="browse-to-the-workflows-section"></a>瀏覽至 [工作流程] 區段
+移至[內容仲裁審查工具](https://contentmoderator.cognitive.microsoft.com/)並登入。 在 [設定] 索引標籤中，選取 [工作流程]。
 
-在 [設定] 索引標籤中，選取 [工作流程]。
+![[工作流程] 設定](images/2-workflows-0.png)
 
-  ![[工作流程] 設定](images/2-workflows-0.png)
+在下一個畫面上，選取**新增工作流程**。
 
-## <a name="start-a-new-workflow"></a>開始新的工作流程
+![新增工作流程](images/2-workflows-1.png)
 
-選取 [新增工作流程]。
+### <a name="assign-a-name-and-description"></a>指派名稱和描述
 
-  ![新增工作流程](images/2-workflows-1.png)
+命名您的工作流程，輸入描述，並選擇影像或文字，是否將處理工作流程。
 
-## <a name="assign-a-name-and-description"></a>指派名稱和描述
+![工作流程名稱和描述](images/image-workflow-create.PNG)
 
-為工作流程命名、輸入描述，然後選擇該工作流程是要處理影像還是文字。
+### <a name="define-evaluation-criteria"></a>定義評估準則
 
-  ![工作流程名稱和描述](images/ocr-workflow-step-1.PNG)
+在下一個畫面上，請移至**如果**一節。 在上方的下拉式功能表中，選擇**條件**。 這可讓您設定的工作流程將會採取動作的條件。 如果您想要使用多個條件，請選擇**組合**改。 
 
-## <a name="define-the-evaluation-criteria-condition"></a>定義評估準則 (「條件」)
+接下來，選取 連接器。 這個範例會使用 **Content Moderator**。 根據您選擇的連接器，您會收到不同的資料輸出選項。 請參閱[連接器](./configure.md#connectors)檢閱工具設定指南，以了解如何設定其他連接器的一節。
 
-在下列螢幕擷取畫面中，您會看到必須為工作流程定義的欄位和 If-Then-Else 選取項目。 選擇連接器。 這個範例會使用 **Content Moderator**。 根據您選擇的連接器，可用於輸出的選項會變更。
+![選取工作流程連接器](images/image-workflow-connect-to.PNG)
 
-  ![定義工作流程的條件](images/ocr-workflow-step-2-condition.PNG)
+選擇所需的輸出來使用，並設定它對檢查的條件。
 
-選好所要的連接器和其輸出之後，請選取一個運算子和值以構成條件。
+![定義工作流程的條件](images/image-workflow-condition.PNG)
 
-## <a name="define-the-action-to-take"></a>定義要採取的動作
+### <a name="define-the-action"></a>定義動作
 
-選取要採取的動作和要符合的條件。 下列範例會建立影像檢閱、指派標記 `a`，然後針對所顯示的條件來加以醒目提示。 您也可以結合多個條件，以獲得您想要的結果。 或者，請新增替代 (Else) 路徑。
+移至**然後**區段中，您在其中選取動作。 下列範例會建立映像檢閱，並將指派的標記。 （選擇性） 您可以新增替代 (Else) 路徑，然後設定動作，以及。
 
-  ![定義工作流程的動作](images/ocr-workflow-step-3-action.PNG)
+![定義工作流程的動作](images/image-workflow-action.PNG)
 
-## <a name="save-your-workflow"></a>儲存工作流程
+### <a name="save-the-workflow"></a>儲存工作流程
 
-最後，請儲存工作流程，並記下工作流程名稱。 您需要該名稱才能使用檢閱 API 來開始審核。
+請注意工作流程的名稱;您需要開始工作流程 API （如下所示） 中的仲裁作業名稱。 最後，將儲存工作流程使用**儲存**在頁面頂端的按鈕。
 
 ## <a name="test-the-workflow"></a>測試工作流程
 
-您已定義自訂工作流程，接著請以內容範例來加以測試。
+既然您已定義自訂工作流程，請使用範例內容測試它。 移至**工作流程**，然後選取 [對應**執行的工作流程**] 按鈕。
 
-選取對應的 [執行工作流程] 按鈕。
+![工作流程測試](images/image-workflow-execute.PNG)
 
-  ![工作流程測試](images/ocr-workflow-step-6-list.PNG)
+儲存此[範例映像](https://moderatorsampleimages.blob.core.windows.net/samples/sample3.png)到本機磁碟機。 然後選取**選擇檔案**並將映像上傳至工作流程。
 
-### <a name="upload-a-file"></a>上傳檔案
+![bathing 花色女性](images/sample-racy.PNG)
 
-將[範例影像](https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png)儲存到本機磁碟機。 若要測試工作流程，請選取 [選擇檔案] 並上傳影像。
+### <a name="track-progress"></a>追蹤進度
 
-  ![上傳影像檔案](images/ocr-workflow-step-7-upload.PNG)
+您可以在下一步 快顯視窗中檢視工作流程的進度。
 
-### <a name="track-the-workflow"></a>追蹤工作流程
+![追蹤工作流程的執行](images/image-workflow-job.PNG)
 
-在工作流程執行時加以追蹤。
+### <a name="verify-workflow-action"></a>驗證工作流程動作
 
-  ![追蹤工作流程的執行](images/ocr-workflow-step-4-test.PNG)
+移至**映像**索引標籤下**檢閱**，並確認新建立的映像的檢閱。
 
-### <a name="review-any-images-flagged-for-human-moderation"></a>檢閱標示為要進行人工審核的影像
+![檢閱映像](images/image-workflow-review.PNG)
 
-若要查看影像檢閱，請移至 [檢閱] 底下的 [影像] 索引標籤。
+## <a name="next-steps"></a>後續步驟
 
-  ![檢閱映像](images/ocr-sample-image-workflow1.PNG)
-
-## <a name="next-steps"></a>後續步驟 
-
-若要從程式碼叫用工作流程，請使用自訂工作流程與 [`Job` API 主控台快速入門](../try-review-api-job.md)和 [.NET SDK 快速入門](../moderation-jobs-quickstart-dotnet.md)。
+在本指南中，您已了解如何設定及使用從 Content Moderator 審核工作流程[審核工具](https://contentmoderator.cognitive.microsoft.com)。 接下來，請參閱 < [REST API 指南](../try-review-api-workflow.md)以了解如何以程式設計方式建立工作流程。

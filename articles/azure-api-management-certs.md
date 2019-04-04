@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 3b6f1a004e4fb69bc08d5163734021bcb2aed9a2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 014a26c2500959502eeb1c50d3f311584c1ad84e
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765793"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895678"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>上傳 Azure 服務管理憑證
 管理憑證可讓您使用 Azure 所提供的傳統部署模型進行驗證。 許多程式和工具 (例如 Visual Studio 或 Azure SDK) 會使用這些憑證，將各種 Azure 服務的設定與部署自動化。 
@@ -56,4 +56,4 @@ ms.locfileid: "57765793"
     ![設定](./media/azure-api-management-certs/certificate_details.png)
 
 ## <a name="next-steps"></a>後續步驟
-既然您已經擁有與訂用帳戶建立關聯的管理憑證，您就能 (在本機安裝相符的憑證之後) 以程式設計方式連線到[傳統部署模型 REST API](https://msdn.microsoft.com/library/azure/mt420159.aspx)，並將同樣與該訂用帳戶建立關聯的各種 Azure 資源自動化。
+既然您已經擁有與訂用帳戶建立關聯的管理憑證，您就能 (在本機安裝相符的憑證之後) 以程式設計方式連線到[傳統部署模型 REST API](/azure/#pivot=sdkstools)，並將同樣與該訂用帳戶建立關聯的各種 Azure 資源自動化。

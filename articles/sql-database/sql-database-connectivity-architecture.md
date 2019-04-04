@@ -11,20 +11,20 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: c5fadf5c445310534ab3001371e1b73b1f502f15
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.date: 04/03/2019
+ms.openlocfilehash: 619893ad42664f8d37fff5e61b8560f6c6d83e23
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661781"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918598"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 連線架構
 
 本文說明 Azure SQL Database 與 SQL 倉儲連線架構，以及不同的元件函數如何將流量導向至 Azure SQL 的執行個體。 這些連線元件函數可使用從 Azure 內部連線的用戶端和從 Azure 外部連線的用戶端，將網路流量導向至 Azure SQL Database 或 SQL 資料倉儲。 本文也提供可變更連線方式的指令碼範例，以及和變更預設連線設定相關的考量。
 
 > [!IMPORTANT]
-> **[即將推出的變更] 對於 Azure SQL 伺服器的服務端點連線，`Default` 連線行為會變更為 `Redirect`。**
+> **[即將推出的變更]服務端點連線至 Azure SQL 伺服器，如`Default`連線行為變更`Redirect`。**
 > 建議客戶建立新的伺服器，並根據連線架構，將具有連線類型的現有伺服器明確地設定為 [重新導向] (建議使用) 或 [Proxy]。
 >
 > 為了避免現有環境中通過服務端點的連線因變更而中斷，我們會使用遙測進行下列作業：
@@ -35,9 +35,9 @@ ms.locfileid: "58661781"
 > 在下列情況下，服務端點使用者仍會受到影響：
 >
 > - 應用程式不常連線到現有伺服器，因此我們的遙測並未擷取這些應用程式的資訊
-> - 自動化部署邏輯會建立 SQL Database 伺服器，此伺服器假設服務端點連線的預設行為是 `Proxy`
+> - 自動化的部署的邏輯會建立假設服務端點連線的預設行為 SQL Database 伺服器 `Proxy`
 >
-> 如果無法建立連到 Azure SQL 伺服器的服務端點連線，且您懷疑受到此變更的影響，請確認連線類型是否已明確設為 `Redirect`。 如果發生這種狀況，請對該地區中所有屬於連接埠 11000-12000 其 Sql [服務標籤](../virtual-network/security-overview.md#service-tags)的 Azure IP 位址開啟 VM 防火牆規則與「網路安全性群組」(NSG)。 如果您不願如此做，請將伺服器明確地切換至 `Proxy`。
+> 如果無法建立連到 Azure SQL 伺服器的服務端點連線，且您懷疑受到此變更的影響，請確認連線類型是否已明確設為 `Redirect`。 如果發生這種情況，您必須開啟所有 Azure IP 位址的區域中屬於 Sql VM 防火牆規則和網路安全性群組 (NSG)[服務標籤](../virtual-network/security-overview.md#service-tags)連接埠 11000-11999。 如果您不願如此做，請將伺服器明確地切換至 `Proxy`。
 > [!NOTE]
 > 本主題適用於裝載單一資料庫和彈性集區中，SQL 資料倉儲資料庫、 適用於 MySQL 的 Azure 資料庫、 適用於 MariaDB 的 Azure 資料庫和適用於 PostgreSQL 的 Azure 資料庫的 Azure SQL Database 伺服器。 為了簡單起見，參考到 SQL Database、 SQL 資料倉儲、 Azure Database for MySQL、 MariaDB 的 Azure 資料庫和適用於 PostgreSQL 的 Azure 資料庫時，會使用 SQL Database。
 
@@ -57,7 +57,7 @@ ms.locfileid: "58661781"
 
 Azure SQL Database 支援下列三個 SQL Database 伺服器連線原則設定選項：
 
-- **重新導向 (建議使用)：** 用戶端直接與裝載資料庫的節點建立連線。 若要啟用連線，用戶端必須將防火牆規則輸出到該區域中的所有 Azure IP 位址，做法是使用「網路安全性群組」(NSG) 搭配連接埠 11000-12000 的[服務標籤](../virtual-network/security-overview.md#service-tags)，而非只是搭配連接埠 1433 上的 Azure SQL Database 閘道 IP 位址。 由於封包會直接傳送到資料庫，因此會改善延遲和輸送量方面的效能。
+- **重新導向 (建議使用)：** 用戶端直接與裝載資料庫的節點建立連線。 若要啟用連線，用戶端必須允許使用網路安全性群組 (NSG) 使用的區域中的所有 Azure IP 位址的輸出防火牆規則[服務標籤](../virtual-network/security-overview.md#service-tags)) 連接埠 11000-11999，不只是 Azure SQL Database 閘道 IP連接埠 1433年上的位址。 由於封包會直接傳送到資料庫，因此會改善延遲和輸送量方面的效能。
 - **Proxy：** 在此模式中，所有連線都會透過 Azure SQL Database 閘道 Proxy。 若要啟用連線，用戶端必須具有只允許 Azure SQL Database 閘道 IP 位址 (通常每一區域有兩個 IP 位址) 的輸出防火牆規則。 視工作負載的本質而定，選擇此模式可能會導致延遲提高和輸送量降低。 為了將延遲降到最低及將輸送量提升到最高，強烈建議您採用 `Redirect` 連線原則，而不要採用 `Proxy` 連線原則。
 - **預設值：** 除非您明確地將連線原則更改成 `Proxy` 或 `Redirect`，否則這會是所有伺服器在建立後生效的連線原則。 有效原則取決於連線源自 Azure 內部 (`Redirect`) 還是 Azure 外部 (`Proxy`)。
 

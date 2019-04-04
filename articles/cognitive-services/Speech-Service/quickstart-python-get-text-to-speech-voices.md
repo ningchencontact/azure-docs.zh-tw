@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: erhopf
-ms.openlocfilehash: 16c8444bdf91caf9da6f9625485090d09058ba52
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 66bda68b1313a7c172e273671bc3a03503d08e0d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522841"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876575"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>快速入門：取得文字轉換語音的語音使用 Python 的清單
 
@@ -82,7 +82,7 @@ def get_token(self):
 
 在此您要建置要求，並儲存傳回語音的清單中。 首先，您必須設定 `base_url` 和 `path`。 此範例假設您會使用美國西部端點。 如果您的資源註冊至不同區域，請務必更新 `base_url`。 如需詳細資訊，請參閱 <<c0> [ 語音服務區域](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech)。
 
-接下來，新增必要的標頭的要求。 最後，您會對服務提出要求。 如果要求成功，且傳回狀態碼 200，則語音回應會寫入到有時間戳記的檔案。
+接下來，新增必要的標頭的要求。 最後，您會對服務提出要求。 如果要求成功，而且會傳回狀態碼 200，回應會寫入至檔案。
 
 請將此程式碼複製到 `GetVoices` 類別：
 
@@ -131,10 +131,10 @@ python get-voices.py
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [探索 GitHub 上的 Python 範例](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python) \(英文\)
+> [瀏覽 GitHub 上的 Python 範例](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
 
 ## <a name="see-also"></a>請參閱
 
 * [文字轉換語音 API 參考](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
-* [建立自訂語音調](how-to-customize-voice-font.md)
+* [建立客製化聲音音調](how-to-customize-voice-font.md)
 * [錄製語音樣本來建立自訂語音](record-custom-voice-samples.md)

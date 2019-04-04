@@ -13,15 +13,15 @@ caps.latest.revision: 42
 author: jpconnock
 ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: 5f1084090561d3233d0587cf426581ab6ef0ab94
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 4e018af7df64c9ed8050a3c618cf2645d5509cdd
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532995"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918496"
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>Azure 雲端服務定義結構描述 (.csdef 檔)
-服務定義檔會定義應用程式的服務模型。 檔案會包含可供雲端服務使用的角色定義、指定服務端點，並建立服務的組態設定。 組態設定值是在服務組態檔中設定，如[雲端服務 (傳統) 組態結構描述](https://msdn.microsoft.com/library/b1ae68cd-cc95-48cb-a4a4-da91dc708a35)所述。
+服務定義檔會定義應用程式的服務模型。 檔案會包含可供雲端服務使用的角色定義、指定服務端點，並建立服務的組態設定。 組態設定值是在服務組態檔中設定，如[雲端服務 (傳統) 組態結構描述](/previous-versions/azure/reference/ee758710(v=azure.100))所述。
 
 根據預設，Azure 診斷組態結構描述檔案是安裝於 `C:\Program Files\Microsoft SDKs\Windows Azure\.NET SDK\<version>\schemas` 目錄中。 請使用安裝的 [Azure SDK](https://www.windowsazure.com/develop/downloads/) 版本來取代 `<version>`。
 

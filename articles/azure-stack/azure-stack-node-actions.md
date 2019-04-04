@@ -15,12 +15,12 @@ ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 24c500251c8e91b7542c5c9d3e77676205c88c1f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cd7e66961a0b9a80150a3d3e132efd29485cdb66
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090962"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483143"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack 中的縮放單位節點動作
 
@@ -85,7 +85,7 @@ ms.locfileid: "58090962"
 
 若要執行停止動作，請開啟已提升權限的 PowerShell 提示字元，然後執行下列 Cmdlet：
 
-```PowerShell  
+```powershell  
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -99,7 +99,7 @@ ms.locfileid: "58090962"
  
 若要執行啟動動作，請開啟已提升權限的 PowerShell 提示字元，然後執行下列 Cmdlet：
 
-```PowerShell  
+```powershell  
   Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -118,7 +118,7 @@ ms.locfileid: "58090962"
 
 若要執行清空動作，請開啟已提升權限的 PowerShell 提示字元，然後執行下列 Cmdlet：
 
-```PowerShell  
+```powershell  
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -130,7 +130,7 @@ ms.locfileid: "58090962"
 
 若要執行繼續動作，請開啟已提升權限的 PowerShell 提示字元，然後執行下列 Cmdlet：
 
-```PowerShell  
+```powershell  
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -149,7 +149,7 @@ ms.locfileid: "58090962"
 
 若要執行修復動作，請開啟已提升權限的 PowerShell 提示字元，然後執行下列 Cmdlet：
 
-  ```PowerShell
+  ```powershell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
   ```
 
@@ -163,7 +163,7 @@ ms.locfileid: "58090962"
 
 若要執行關機動作，請開啟已提升權限的 PowerShell 提示字元，然後執行下列 Cmdlet：
 
-  ```PowerShell
+  ```powershell
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
   ```
 

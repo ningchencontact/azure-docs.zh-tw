@@ -3,19 +3,19 @@ title: 翻譯工具文字 API 字典查閱方法
 titlesuffix: Azure Cognitive Services
 description: 使用翻譯工具文字 API 字典查閱方法。
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: e97d308bca585cdb26ccc2f20e125436707c481e
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 89b4058c384440b83f60fb6147cd373ecf893011
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876329"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917000"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>翻譯工具文字 API 3.0：字典查閱
 
@@ -35,7 +35,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
 <table width="100%">
   <th width="20%">查詢參數</th>
-  <th>說明</th>
+  <th>描述</th>
   <tr>
     <td>api-version</td>
     <td>必要參數。<br/>用戶端要求的 API 版本。 值必須為 `3.0`。</td>
@@ -54,9 +54,9 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
 <table width="100%">
   <th width="20%">headers</th>
-  <th>說明</th>
+  <th>描述</th>
   <tr>
-    <td>_一個授權_<br/>_標頭_</td>
+    <td>_一個授權_<br/>_頁首_</td>
     <td>必要的要求標頭。<br/>請參閱[可用的驗證選項](./v3-0-reference.md#authentication)。</td>
   </tr>
   <tr>
@@ -104,7 +104,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
     * `posTag`：字串，將這個字詞與詞性標籤建立關聯。
 
-        | 標籤名稱 | 說明  |
+        | 標籤名稱 | 描述  |
         |----------|--------------|
         | ADJ      | 形容詞   |
         | ADV      | 副詞      |
@@ -140,7 +140,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
 此範例示範如何查閱英文字詞 `fly` 的西班牙文替代翻譯。
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly'}]"
@@ -191,7 +191,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?ap
 
 此範例顯示有效字典配對不存在要進行查閱的字詞時，會發生什麼事。
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly123456'}]"

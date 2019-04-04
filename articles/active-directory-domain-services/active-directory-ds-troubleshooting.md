@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: ergreenl
-ms.openlocfilehash: 963ee7e952e566952a80903a739b093dbd9f0c21
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 48831767f72dd1b978fad5b0a9a8f2c7a11ec89d
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55184184"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893107"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD 網域服務 - 疑難排解指南
 這篇文章提供設定或管理 Azure Active Directory (AD) 網域服務時，可能會遇到的問題之疑難排解提示。
@@ -32,15 +32,15 @@ ms.locfileid: "55184184"
 
 | **錯誤訊息** | **解決方案** |
 | --- |:--- |
-| *名稱 contoso100.com 使用於此網路上。指定未使用的名稱。* |[虛擬網路中的網域名稱衝突](active-directory-ds-troubleshooting.md#domain-name-conflict) |
-| *無法在此 Azure AD 租用戶中啟用網域服務。對於名為「Azure AD 網域服務同步處理」的應用程式，此服務沒有足夠的權限。刪除名為「Azure AD 網域服務同步處理」的應用程式，然後嘗試為 Azure AD 租用戶啟用網域服務。* |[網域服務沒有「Azure AD 網域服務同步處理」應用程式的足夠權限。](active-directory-ds-troubleshooting.md#inadequate-permissions) |
-| *無法在此 Azure AD 租用戶中啟用網域服務。Azure AD 租用戶中的網域服務應用程式沒有啟用網域服務所需的權限。刪除應用程式識別碼為 d87dcbc6-a371-462e-88e3-28ad15ec4e64 的應用程式，然後嘗試為 Azure AD 租用戶啟用網域服務。* |[未在您的租用戶中正確設定網域服務應用程式](active-directory-ds-troubleshooting.md#invalid-configuration) |
-| *無法在此 Azure AD 租用戶中啟用網域服務。您的 Azure AD 租用戶已停用 Microsoft Azure AD 應用程式。啟用應用程式識別碼為 00000002-0000-0000-c000-000000000000 的應用程式，然後嘗試為 Azure AD 租用戶啟用網域服務。* |[您的 Azure AD 租用戶已停用 Microsoft Graph 應用程式](active-directory-ds-troubleshooting.md#microsoft-graph-disabled) |
+| *名稱 contoso100.com 使已在此網路上的使用中。 指定未使用的名稱。* |[虛擬網路中的網域名稱衝突](active-directory-ds-troubleshooting.md#domain-name-conflict) |
+| *無法在此 Azure AD 租用戶中啟用網域服務。 對於名為「Azure AD 網域服務同步處理」的應用程式，此服務沒有足夠的權限。 刪除名為 'Azure AD 網域服務同步處理 」 應用程式，然後再啟用 Azure AD 租用戶的網域服務。* |[網域服務並沒有足夠的權限給 Azure AD 網域服務同步處理應用程式](active-directory-ds-troubleshooting.md#inadequate-permissions) |
+| *無法在此 Azure AD 租用戶中啟用網域服務。 Azure AD 租用戶中的網域服務應用程式沒有啟用網域服務所需的權限。 刪除應用程式識別碼 d87dcbc6-a371-462e-88e3-28ad15ec4e64 應用程式，然後再啟用 Azure AD 租用戶的網域服務。* |[網域服務應用程式未正確設定您的租用戶中](active-directory-ds-troubleshooting.md#invalid-configuration) |
+| *無法在此 Azure AD 租用戶中啟用網域服務。 您的 Azure AD 租用戶已停用 Microsoft Azure AD 應用程式。 啟用應用程式識別碼為 00000002-0000-0000-c000-000000000000 的應用程式，然後嘗試為 Azure AD 租用戶啟用網域服務。* |[Azure AD 租用戶中的 Microsoft Graph 應用程式已停用](active-directory-ds-troubleshooting.md#microsoft-graph-disabled) |
 
 ### <a name="domain-name-conflict"></a>網域名稱衝突
 **錯誤訊息：**
 
-*名稱 contoso100.com 使用於此網路上。指定未使用的名稱。*
+*名稱 contoso100.com 使已在此網路上的使用中。 指定未使用的名稱。*
 
 **補救：**
 
@@ -51,7 +51,7 @@ ms.locfileid: "55184184"
 ### <a name="inadequate-permissions"></a>權限不足
 **錯誤訊息：**
 
-*無法在此 Azure AD 租用戶中啟用網域服務。對於名為「Azure AD 網域服務同步處理」的應用程式，此服務沒有足夠的權限。刪除名為「Azure AD 網域服務同步處理」的應用程式，然後嘗試為 Azure AD 租用戶啟用網域服務。*
+*無法在此 Azure AD 租用戶中啟用網域服務。 對於名為「Azure AD 網域服務同步處理」的應用程式，此服務沒有足夠的權限。 刪除名為 'Azure AD 網域服務同步處理 」 應用程式，然後再啟用 Azure AD 租用戶的網域服務。*
 
 **補救：**
 
@@ -67,7 +67,7 @@ ms.locfileid: "55184184"
 ### <a name="invalid-configuration"></a>無效的組態
 **錯誤訊息：**
 
-*無法在此 Azure AD 租用戶中啟用網域服務。Azure AD 租用戶中的網域服務應用程式沒有啟用網域服務所需的權限。刪除應用程式識別碼為 d87dcbc6-a371-462e-88e3-28ad15ec4e64 的應用程式，然後嘗試為 Azure AD 租用戶啟用網域服務。*
+*無法在此 Azure AD 租用戶中啟用網域服務。 Azure AD 租用戶中的網域服務應用程式沒有啟用網域服務所需的權限。 刪除應用程式識別碼 d87dcbc6-a371-462e-88e3-28ad15ec4e64 應用程式，然後再啟用 Azure AD 租用戶的網域服務。*
 
 **補救：**
 
@@ -157,7 +157,7 @@ Azure AD 會防止您意外刪除使用者物件。 當您從您的 Azure AD 租
 
 即使您在 Azure AD 目錄中使用相同的 UPN 重新建立使用者帳戶，使用者帳戶在您的受控網域中仍會維持停用狀態。 若要從受控網域移除使用者帳戶，請從您的 Azure AD 租用戶將它強制刪除。
 
-若要完全從受控網域移除使用者帳戶，請從您的 Azure AD 租用戶中永久刪除使用者。 請使用 `Remove-MsolUser` PowerShell Cmdlet 搭配 `-RemoveFromRecycleBin` 選項，如這篇 [MSDN 文章](https://msdn.microsoft.com/library/azure/dn194132.aspx)所述。
+若要完全從受控網域移除使用者帳戶，請從您的 Azure AD 租用戶中永久刪除使用者。 請使用 `Remove-MsolUser` PowerShell Cmdlet 搭配 `-RemoveFromRecycleBin` 選項，如這篇 [MSDN 文章](/previous-versions/azure/dn194132(v=azure.100))所述。
 
 
 ## <a name="contact-us"></a>與我們連絡

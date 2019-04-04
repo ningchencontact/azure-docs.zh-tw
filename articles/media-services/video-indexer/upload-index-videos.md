@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: f9bf23094f47f5c200f7a02f81a8e185f469c580
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: e6dead0f08f50b32dd963832824d9166ff2467c0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58516955"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893447"
 ---
 # <a name="upload-and-index-your-videos"></a>上傳影片及編製影片索引  
 
@@ -22,7 +22,7 @@ ms.locfileid: "58516955"
 
 * 從 URL 上傳您的影片 (首選)、
 * 將影片檔案當作要求本文中的位元組陣列傳送、
-* 藉由提供[資產識別碼](https://docs.microsoft.com/azure/media-services/latest/assets-concept)來使用現有的 Azure 媒體服務資產 (僅支援付費帳戶)。
+* 提供使用現有的 Azure 媒體服務資產[資產識別碼](https://docs.microsoft.com/azure/media-services/latest/assets-concept)（僅限付費帳戶支援）。
 
 本文將示範如何根據 URL 使用[上傳影片](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API 來上傳影片及編製影片索引。 文章中的程式碼範例包含加上註解的程式碼，用來說明如何上傳位元組陣列。 <br/>本文也會探討一些可以在 API 上設定的參數，以變更 API 的程序和輸出。
 
@@ -61,7 +61,7 @@ ms.locfileid: "58516955"
     
         |名稱|描述|
         |---|---|
-        |id|視訊的識別碼|
+        |id|影片識別碼|
         |state|影片狀態|  
     - 範例： https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - 在影片中識別到的人員：
@@ -69,7 +69,7 @@ ms.locfileid: "58516955"
     
       |名稱|描述|
       |---|---|
-      |id| 視訊的識別碼|
+      |id| 影片識別碼|
       |faceId|影片索引中出現的臉部識別碼|
       |knownPersonId|臉部模型中唯一的個人識別碼|
       |personName|人員名稱|
@@ -85,9 +85,9 @@ ms.locfileid: "58516955"
 
 如果原始或外部錄影包含背景雜訊，請使用此參數。 此參數會用來設定索引編製程序。 您可以指定下列值：
 
-- `Default` – 使用音訊和視訊來編製索引及擷取深入解析
-- `AudioOnly` – 只使用音訊 (忽略視訊) 來編製索引及擷取深入解析
-- `DefaultWithNoiseReduction` – 從音訊及視訊編製索引及擷取深入解析的同時，在音訊串流上套用減少雜訊演算法
+- `Default` – 索引並擷取使用音訊和視訊的深入解析
+- `AudioOnly` – 索引並擷取深入解析使用音訊唯一 （忽略影片）
+- `DefaultWithNoiseReduction` – 索引，並從音訊及視訊擷取深入解析，同時在音訊資料流上套用雜訊減少演算法
 
 價格取決於選取的索引編製選項。  
 
@@ -175,7 +175,7 @@ public async Task Sample()
     var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", content);
     var uploadResult = await uploadRequestResult.Content.ReadAsStringAsync();
 
-    // get the video id from the upload result
+    // get the video ID from the upload result
     string videoId = JsonConvert.DeserializeObject<dynamic>(uploadResult)["id"];
     Debug.WriteLine("Uploaded");
     Debug.WriteLine("Video ID:");
@@ -290,4 +290,4 @@ public class AccountContractSlim
 
 ## <a name="next-steps"></a>後續步驟
 
-[檢查 v2 API 產生的 Azure 影片索引器輸出](video-indexer-output-json-v2.md)
+[檢查 Azure 影片索引器輸出所產生的 API](video-indexer-output-json-v2.md)

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: 7496142b1c762ce0a7afa96a1a94dd3026351cc9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9eb73db6f641d3a5f5bb82901bd12ea291eada58
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087919"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894076"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>LUIS 應用程式 API v1 至 v2 的移轉指南
 第 1 版的[端點](https://aka.ms/v1-endpoint-api-docs)和[編寫](https://aka.ms/v1-authoring-api-docs) API 會被取代。 使用本指南可了解如何移轉到第 2 版的[端點](https://aka.ms/luis-endpoint-apis)和[編寫](https://aka.ms/luis-authoring-apis) API。 
@@ -134,7 +134,7 @@ v2 模型現在包含在[版本](luis-how-to-manage-versions.md)中。 版本名
 
 
 ## <a name="sample-renamed-to-suggest"></a>"Sample" 已重新命名為 "suggest"
-LUIS 建議使用現有[端點語句](luis-how-to-review-endoint-utt.md)中的語句來加強模型。 在舊版中，這名為 **sample**。 在新版中，名稱已從 sample 變更為 **suggest**。 這在 LUIS 網站中稱為**[檢閱端點語句](luis-how-to-review-endoint-utt.md)** \(英文\)。
+LUIS 建議使用現有[端點語句](luis-how-to-review-endpoint-utterances.md)中的語句來加強模型。 在舊版中，這名為 **sample**。 在新版中，名稱已從 sample 變更為 **suggest**。 這在 LUIS 網站中稱為**[檢閱端點語句](luis-how-to-review-endpoint-utterances.md)** \(英文\)。
 
 | version | 路由 |
 |--|--|

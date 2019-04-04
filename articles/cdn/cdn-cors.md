@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 3c8fab85d71f5f81bbf81bc3dd7a22d6c0b7f11b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 635b4e71c09a2e8b3901af5580f221bc4716831d
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551835"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917765"
 ---
 # <a name="using-azure-cdn-with-cors"></a>搭配 CORS 使用 Azure CDN
 ## <a name="what-is-cors"></a>CORS 是什麼？
@@ -85,7 +85,7 @@ CORS 要求有兩種類型，*簡單要求*和*複雜要求*。
 ![包含規則運算式的規則範例](./media/cdn-cors/cdn-cors-regex.png)
 
 #### <a name="request-header-rule-for-each-origin"></a>針對每個來源要求標頭規則
-除了規則運算式之外，您也可以使用**要求標頭萬用字元**[比對條件](https://msdn.microsoft.com/library/mt757336.aspx#Anchor_1)，針對每個要允許的來源建立個別規則。 如同規則運算式方法一樣，也是僅由規則引擎設定 CORS 標頭。 
+除了規則運算式之外，您也可以使用**要求標頭萬用字元**[比對條件](/previous-versions/azure/mt757336(v=azure.100)#Anchor_1)，針對每個要允許的來源建立個別規則。 如同規則運算式方法一樣，也是僅由規則引擎設定 CORS 標頭。 
 
 ![不含規則運算式的規則範例](./media/cdn-cors/cdn-cors-no-regex.png)
 

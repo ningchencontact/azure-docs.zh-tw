@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 42b67ae9b715670f1a0c6e0fed004487a52817d3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 31025582516198bdfe9da9312bae33852986a423
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206459"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884851"
 ---
 # <a name="connect-to-the-asdk"></a>連線到 ASDK
 
@@ -59,7 +59,7 @@ Azure AD 和「Active Directory 同盟服務」(AD FS) 部署都支援 VPN 連�
 > [!NOTE]
 > VPN 連線*無法*讓您連線至 Azure Stack VM。 透過 VPN 連線時，您無法使用 RDP 連線至 Azure Stack VM。
 
-### <a name="prerequisites"></a>先決條件
+### <a name="prerequisites"></a>必要條件
 在設定與 ASDK 的 VPN 連線之前，請確定您符合下列先決條件。
 
 - 在您的本機電腦上安裝 [Azure Stack 相容的 Azure PowerShell](asdk-post-deploy.md#install-azure-stack-powershell)。  
@@ -69,7 +69,7 @@ Azure AD 和「Active Directory 同盟服務」(AD FS) 部署都支援 VPN 連�
 
 若要建立與 ASDK 的 VPN 連線，請在 Windows 型本機電腦上，以系統管理員身分開啟 PowerShell。 然後，執行下列指令碼 (針對您的環境更新 IP 位址和密碼值)：
 
-```PowerShell
+```powershell
 # Change directories to the default Azure Stack tools directory
 cd C:\AzureStack-Tools-master
 
@@ -109,9 +109,9 @@ Add-AzsVpnConnection `
 
   請使用下列其中一個方法來連線到 Azure Stack 執行個體：  
 
-  * 使用 `Connect-AzsVpn ` 命令：
+  * 使用 `Connect-AzsVpn` 命令：
       
-    ```PowerShell
+    ```powershell
     Connect-AzsVpn `
       -Password $Password
     ```

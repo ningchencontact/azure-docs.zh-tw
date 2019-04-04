@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 04/02/2019
 ms.author: tulasim
-ms.openlocfilehash: b948835b1a15eee391c6902d18229ec4926b66ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 218103f2c75ec1016a997c259767ccd011191fab
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095206"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879603"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>教學課程：使用 Azure Bot 服務 v3 建立 QnA Bot
 
@@ -25,7 +25,7 @@ ms.locfileid: "58095206"
 > [!Note] 
 > 本主題適用於 Bot SDK 第 3 版。 您可以在[這裡](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs)找到第 4 版。 
 
-**在本教學課程中，您將了解如何：**
+**在本教學課程中，您了解如何：**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -105,6 +105,12 @@ Bot 會以「請在應用程式設定中設定 QnAKnowledgebaseId 和 QnASubscri
 
 QnA Bot 會從知識庫找出解答。
 
+## <a name="related-to-qna-maker-bots"></a>QnA Maker bot 相關
+
+* QnA Maker 的說明 bot，QnA Maker 入口網站中使用可從[bot 範例](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot)。
+    ![QnA Maker 的說明 bot 圖示為紅色的機器人](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
+* [醫療保健的機器人](https://docs.microsoft.com/HealthBot/qna_model_howto)做為其中一個使用 QnA Maker 他們[語言模型](https://docs.microsoft.com/HealthBot/qna_model_howto)。
+
 ## <a name="clean-up-resources"></a>清除資源
 
 當您完成本教學課程的 Bot 時，請在 Azure 入口網站中移除該 Bot。 Bot 服務包括：
@@ -118,9 +124,9 @@ QnA Bot 會從知識庫找出解答。
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [概念：知識庫](../concepts/knowledge-base.md)
+> [概念： 知識庫](../concepts/knowledge-base.md)
 
 ## <a name="see-also"></a>請參閱
 
 - [管理您的知識庫](https://qnamaker.ai)
-- [在不同的頻道啟用您的 Bot](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels)
+- [啟用您的 bot 在不同的管道](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels)

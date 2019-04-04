@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 03/30/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: d775fff16380ebe08159123aa9e6084055a5be8d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 73ceb0a92b97e90b1fdb0c5562d623505e86b870
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877562"
+ms.locfileid: "58891578"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>將影片索引子小工具內嵌到應用程式中
 
@@ -30,7 +30,7 @@ ms.locfileid: "58877562"
 
 |名稱|定義|描述|
 |---|---|---|
-|widgets|以逗號分隔的字串|可讓您控制您想要呈現的深入解析。 <br/>範例：`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` 只會呈現人員和品牌 UI 深入解析<br/>可用的選項：人員、關鍵字、註解、品牌、情緒、文字記錄、搜尋。<br/>使用 version=2 時無法透過 URL 支援<br/><br/>**附註：** 如果使用 **version=2**，則不支援 **widgets** URL 參數。 |
+|widgets|以逗號分隔的字串|可讓您控制您想要呈現的深入解析。 <br/>範例：`https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` 只會呈現人員和品牌 UI 深入解析<br/>可用的選項：人員、關鍵字、註解、品牌、情緒、文字記錄、搜尋。<br/>使用 version=2 時無法透過 URL 支援<br/><br/>**附註：** 第 2 版中不支援小工具的 URL 參數。 |
 
 ### <a name="player-widget"></a>播放器小工具
 
@@ -254,4 +254,4 @@ iframe 視窗的標題也可透過將 `&title=<YourTitle>` 提供給 iframe URL 
 
 如需關於如何檢視和編輯影片索引子深入解析的詳細資訊，請參閱[這篇](video-indexer-view-edit.md)文章。
 
-此外，請參閱[影片索引子 codepen](https://codepen.io/videoindexer/pen/eGxebZ)。
+此外，請參閱[影片索引器 CodePen](https://codepen.io/videoindexer/pen/eGxebZ)。

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: 5eb9740bdd0543556265f54a1a37b632f79ac861
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7093be36e34785d4153c257d411128efe463dee1
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550117"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918955"
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>教學課程：使用 Azure BizTalk 服務處理 EDIFACT 發票
 
@@ -55,9 +55,9 @@ ms.locfileid: "57550117"
 為了完成案例，我們使用服務匯流排佇列將發票從 Contoso 傳送至 Northwind，或從 Northwind 接收通知。 這些佇列可以透過用戶端應用程式 (可經由下載取得) 來予以建立，並且會包含在本教學課程所提供的範例封裝中。  
 
 ## <a name="prerequisites"></a>必要條件
-* 您必須具有服務匯流排命名空間。 如需建立命名空間的指示，請參閱[How To:建立或修改服務匯流排服務命名空間](https://msdn.microsoft.com/library/azure/hh674478.aspx)。 讓我們假設您已佈建服務匯流排命名空間，且其名稱為 **edifactbts**。
+* 您必須具有服務匯流排命名空間。 如需建立命名空間的指示，請參閱[How To:建立或修改服務匯流排服務命名空間](/previous-versions/azure/azure-services/hh674478(v=azure.100))。 讓我們假設您已佈建服務匯流排命名空間，且其名稱為 **edifactbts**。
 * 您必須擁有 BizTalk 服務訂用帳戶。 在本教學課程中，讓我們假設您擁有 BizTalk 服務訂用帳戶，且其名稱為 **contosowabs**。
-* 在 BizTalk 服務入口網站註冊 BizTalk 服務訂用帳戶。 如需相關指示，請參閱 [在 BizTalk 服務入口網站註冊 BizTalk 服務部署](https://msdn.microsoft.com/library/hh689837.aspx)
+* 在 BizTalk 服務入口網站註冊 BizTalk 服務訂用帳戶。 如需相關指示，請參閱 [在 BizTalk 服務入口網站註冊 BizTalk 服務部署](/previous-versions/azure/hh689837(v=azure.100))
 * 您必須安裝 Visual Studio。
 * 您必須安裝 BizTalk 服務 SDK。 您可以從以下位置下載 SDK：[https://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
 

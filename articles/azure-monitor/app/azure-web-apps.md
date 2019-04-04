@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: 9d121146924eb153227e35d608a3c6c33aae31a1
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 0c6be20bfb2a6f15335564a1aa98dc0ac88e3507
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862602"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905829"
 ---
 # <a name="monitor-azure-app-service-performance"></a>監視 Azure App Service 效能
 
@@ -22,6 +22,9 @@ ms.locfileid: "58862602"
 
 > [!NOTE]
 > 手動新增 Application Insights 網站延伸模組，透過**開發工具** > **延伸模組**已被取代。 最新穩定版本的延伸模組現[預先安裝](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions)納入應用程式服務映像。 檔案位於`d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent`和每一個穩定版本時，會自動更新。 如果您遵循架構的代理程式來啟用監視，它會自動移除已被取代的延伸模組供您。
+
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="enable-application-insights"></a>啟用 Application Insights
 
@@ -283,12 +286,12 @@ App service 的應用程式設定 JSON 的基本結構如下：
 若要讓透過 PowerShell 監視的應用程式，需要變更基礎應用程式設定。 以下是範例，可讓應用程式監視 「 AppMonitoredRG"的資源群組中稱為 「 AppMonitoredSite 」 網站，並設定要傳送至 「 012345678-abcd-ef01-2345年-6789abcd 「 檢測金鑰的資料。
 
 ```powershell
-$app = Get-AzureRmWebApp -ResourceGroupName "AppMonitoredRG" -Name "AppMonitoredSite" -ErrorAction Stop
+$app = Get-AzWebApp -ResourceGroupName "AppMonitoredRG" -Name "AppMonitoredSite" -ErrorAction Stop
 $newAppSettings = @{} # case-insensitive hash map
 $app.SiteConfig.AppSettings | %{$newAppSettings[$_.Name] = $_.Value} #preserve non Application Insights Application settings.
 $newAppSettings["APPINSIGHTS_INSTRUMENTATIONKEY"] = "012345678-abcd-ef01-2345-6789abcd"; # enable the ApplicationInsightsAgent
 $newAppSettings["ApplicationInsightsAgent_EXTENSION_VERSION"] = "~2"; # enable the ApplicationInsightsAgent
-$app = Set-AzureRmWebApp -AppSettings $newAppSettings -ResourceGroupName $app.ResourceGroup -Name $app.Name -ErrorAction Stop
+$app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.ResourceGroup -Name $app.Name -ErrorAction Stop
 ```
 
 ## <a name="upgrade-monitoring-extensionagent"></a>監視擴充功能/代理程式升級

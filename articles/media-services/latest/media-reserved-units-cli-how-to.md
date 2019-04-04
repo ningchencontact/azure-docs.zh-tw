@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3f0d3c5748afaac2544232fc1ff84316d9eb7347
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 0dcfa4e7cd792f61d1620a57330f87c5c86e6c9f
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351060"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915680"
 ---
 # <a name="scaling-media-processing"></a>調整媒體處理
 
@@ -47,7 +47,7 @@ Azure 媒體服務可讓您藉由管理媒體保留單元 (MRU)，在帳戶中�
 > [!NOTE]
 > 針對由媒體服務 v3 或影片索引子觸發的音訊分析和影片分析作業，強烈建議您使用 10 個 S3 MRU 佈建帳戶。 如果您需要 10 個以上的 S3 MRU，請使用 [Azure 入口網站](https://portal.azure.com/)開立支援票證。
 >
-> 目前，您無法使用 Azure 入口網站來管理其他 v3 資源。 使用[REST API](https://aka.ms/ams-v3-rest-ref)， [CLI](https://aka.ms/ams-v3-cli-ref)，或其中一個支援[Sdk](developers-guide.md)。
+> 目前，您無法使用 Azure 入口網站來管理其他 v3 資源。 請使用 [REST API](https://aka.ms/ams-v3-rest-ref)、[CLI](https://aka.ms/ams-v3-cli-ref) 或其中一個支援的 [SDK](developers-guide.md)。
 
 ## <a name="prerequisites"></a>必要條件 
 
@@ -67,7 +67,7 @@ az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
 
 ## <a name="billing"></a>計費
 
-您須根據在帳戶中佈建 MRU 的數目、類型和時間量支付費用。 無論您是否執行作業，都需付費。 如需詳細說明，請參閱[媒體服務定價](https://azure.microsoft.com/pricing/details/media-services/)頁面的＜常見問題集＞一節。   
+您的費用取決於佈建媒體保留單元的分鐘數在您的帳戶。 發生這種情況無關是否有任何在您的帳戶執行的作業。 如需詳細說明，請參閱[媒體服務定價](https://azure.microsoft.com/pricing/details/media-services/)頁面的＜常見問題集＞一節。   
 
 ## <a name="next-step"></a>後續步驟
 

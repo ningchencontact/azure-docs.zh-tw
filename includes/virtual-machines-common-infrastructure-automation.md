@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: d8ada53082b0ccc95d472b43a0ae2ff63cd76a3e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5f1774e02a34b60a8a6e936b62905a0a27ccfb85
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58125003"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890888"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>在 Azure 中使用基礎結構自動化工具搭配虛擬機器
 若要以一致的方式大規模建立並管理 Azure 虛擬機器 (VM)，通常需要某種形式的自動化。 有許多工具和解決方案可讓您將完整的 Azure 基礎結構部署及管理生命週期自動化。 本文介紹的一些基礎結構自動化工具可供您在 Azure 中使用。 這些工具通常符合下列其中一種方法：
@@ -69,7 +69,7 @@ Cloud-init 也適用於散發套件。 例如，您不使用 **apt-get install**
 
 在 Azure 上深入了解 Cloud-init 的詳細資料：
 
-- [Azure 中 Linux 虛擬機器的 Cloud-init 支援](../articles/virtual-machines/linux/using-cloud-init.md)
+- [在 Azure 中 Linux 虛擬機器的 cloud-init 支援](../articles/virtual-machines/linux/using-cloud-init.md)
 - [請使用 Cloud-init 嘗試自動化 VM 組態上的教學課程](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md)。
 
 
@@ -80,7 +80,7 @@ DSC 設定會定義要在電腦上安裝的項目，以及設定主機的方式�
 
 了解如何：
 
-- [建立基本的 DSC 設定](https://msdn.microsoft.com/powershell/dsc/quickstart)。
+- [建立基本的 DSC 設定](https://msdn.microsoft.com/powershell/dsc/quickstarts/website-quickstart)。
 - [設定 DSC 提取伺服器](https://msdn.microsoft.com/powershell/dsc/pullserver)。
 - [使用 DSC for Linux](https://msdn.microsoft.com/powershell/dsc/lnxgettingstarted)。
 

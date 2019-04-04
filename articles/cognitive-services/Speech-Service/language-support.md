@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 3188b5acc00f7f0463ae1154346447bee463e09c
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 0a82c2ba8bdf3d01041aa06f55eaaecab29817b2
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225428"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803097"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>語言和地區支援語音服務
 
@@ -55,7 +55,7 @@ Microsoft 語音辨識 API 支援下列語言。 每個語言有不同的自訂�
  ru-RU | 俄文 (俄羅斯) | 是 | 是 | 否
  sv-SE | 瑞典文 (瑞典) | 否 | 否 | 否
  zh-CN | 中文 (普通話，簡體) | 是 | 是 | 否
- zh-HK | 中文 (普通話，繁體) | 否 | 是 | 否
+ zh-HK | 中文 （廣東話，傳統） | 否 | 是 | 否
  zh-TW | 中文 (繁體，國語) | 否 | 是 | 否
  th-TH | 泰文 (泰國) | 否 | 否 | 否
 

@@ -1,5 +1,5 @@
 ---
-title: 匯出或刪除您的資料 - Content Moderator
+title: 匯出或刪除使用者資料-Content Moderator
 titlesuffix: Azure Cognitive Services
 description: 了解如何匯出或刪除 Content Moderator 中的資料。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: pafarley
-ms.openlocfilehash: 15a59bbdc4c93202f8906689100c24ba713ee487
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 1cd70bee22e56e2580b322b93e0f121261d97a94
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311251"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758098"
 ---
 # <a name="export-or-delete-user-data-in-content-moderator"></a>匯出或刪除 Content Moderator 中的使用者資料
 

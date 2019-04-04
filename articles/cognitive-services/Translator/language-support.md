@@ -3,19 +3,19 @@ title: 語言支援 - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 翻譯工具文字 API 支援的自然語言清單。
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: aed3d08f96265736889deccf51d427a6631e1ea9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 62a4493204fdc09dbd48b1463e5558fabf9c7c40
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57241562"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918037"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>翻譯工具文字 API 支援的語言和區域
 
@@ -268,7 +268,7 @@ ms.locfileid: "57241562"
 
 ## <a name="customization"></a>自訂
 
-下列語言版本可供自訂英文使用來回[自訂轉譯器](http://aka.ms/CustomTranslator)。
+下列語言版本可供自訂英文使用來回[自訂轉譯器](https://aka.ms/CustomTranslator)。
 
 | 語言    | 語言代碼 |
 |:----------- |:-------------:|
@@ -290,6 +290,7 @@ ms.locfileid: "57241562"
 | 希伯來文      | `he`          |
 | 北印度文      | `hi`          |
 | 匈牙利文      | `hu`          |
+| 冰島文 | `is` |
 | 義大利文      | `it`          |
 | 日文      | `ja`          |
 | 韓文      | `ko`          |
@@ -309,9 +310,10 @@ ms.locfileid: "57241562"
 | 土耳其文      | `tr`          |
 | 烏克蘭文      | `uk`          |
 | 越南文      | `vi`          |
+| 威爾斯文 | `cy` |
 
 ## <a name="access-the-list-on-the-microsoft-translator-website"></a>存取 Microsoft Translator 網站上的清單
 
 為了方便快速一覽所有語言，Microsoft Translator 網站會顯示 Translator 文字與語音 API 支援的所有語言。 這份清單不含開發人員特定資訊，例如語言代碼。
 
-[參閱語言清單](https://www.microsoft.com/translator/languages.aspx)
+[請參閱語言的清單](https://www.microsoft.com/translator/languages.aspx)

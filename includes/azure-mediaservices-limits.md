@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: e7243c1f0c0bc26b2e77a060b5def6e204835235
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b275a86f8fd35c43865fd920d1bfc9994a796a9c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553476"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58919174"
 ---
 >[!NOTE]
 >如需不固定的資源，開啟支援票證以要求增加配額。 請勿建立其他的 Azure 媒體服務帳戶在嘗試取得較高的限制。
@@ -39,7 +39,7 @@ ms.locfileid: "57553476"
 
 截至 2017 年 4 月 1 日起，任何超過 90 天您帳戶中的作業記錄會自動刪除，以及其相關聯的工作記錄。 即使記錄總數低於配額上限，就會發生自動刪除。 若要封存的作業和工作的資訊，請使用 程式碼中所述[使用媒體服務.NET SDK 管理資產](../articles/media-services/previous/media-services-dotnet-manage-entities.md)。
 
-<sup>3</sup>要求清單作業實體時，最多 1000 個作業會傳回每個要求。 要追蹤的所有提交的作業，使用 top 或略過查詢中所述[OData 系統查詢選項](https://msdn.microsoft.com/library/gg309461.aspx)。
+<sup>3</sup>要求清單作業實體時，最多 1000 個作業會傳回每個要求。 要追蹤的所有提交的作業，使用 top 或略過查詢中所述[OData 系統查詢選項](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7))。
 
 <sup>4</sup>定位器不設計來管理每位使用者存取控制。 若要給予個別使用者不同的存取權限，請使用數位版權管理 (DRM) 解決方案。 如需詳細資訊，請參閱 <<c0> [ 使用 Azure Media Services 保護內容](../articles/media-services/previous/media-services-content-protection-overview.md)。
 

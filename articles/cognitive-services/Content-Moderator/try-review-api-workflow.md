@@ -1,207 +1,142 @@
 ---
-title: 從 API 主控台中使用內容審核工作流程 - Content Moderator
+title: 定義使用 REST API 主控台-Content Moderator 審核工作流程
 titlesuffix: Azure Cognitive Services
-description: 在 Azure Content Moderator 中使用「工作流程作業」，以使用檢閱 API 來建立或更新工作流程，或取得工作流程詳細資料。
+description: 您可以使用 Azure 內容仲裁者檢閱 Api 來定義自訂工作流程與根據內容原則的臨界值。
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: conceptual
-ms.date: 01/10/2019
+ms.topic: article
+ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: 1c18544a0fd135eb546660c442b865bf1249dfe5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: e150b1321f2fbd348e737222c752203281503643
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883078"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756589"
 ---
-# <a name="workflows-from-the-api-console"></a>API 主控台中的工作流程
+# <a name="define-and-use-moderation-workflows-rest"></a>定義及使用仲裁工作流程 (REST)
 
-在 Azure Content Moderator 中使用[工作流程作業](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)，以使用檢閱 API 來建立或更新工作流程，或取得工作流程詳細資料。 您可以使用此 API 為工作流程定義簡單、複雜甚至是巢狀的運算式。 工作流程會出現在審核工具中，以供您的小組使用。 工作流程也會由檢閱 API 的作業使用。
+工作流程是雲端架構的自訂的篩選，您可以使用來更有效率地處理內容。 工作流程可以連接到各種不同的方式篩選內容，並採取適當的動作的服務。 本指南將說明如何使用工作流程 REST Api，以透過 API 主控台中，建立及使用工作流程。 一旦您了解 Api 的結構，您可以輕鬆地移植這些呼叫任何 REST 相容平台。
 
 ## <a name="prerequisites"></a>必要條件
 
-1. 移至[審核工具](https://contentmoderator.cognitive.microsoft.com/)。 如果您尚未註冊，請先註冊。 
-2. 在審核工具的 [設定] 下，選取 [工作流程] 索引標籤，如審核工具的[工作流程教學課程](Review-Tool-User-Guide/Workflows.md)中所述。
-
-### <a name="browse-to-the-workflows-screen"></a>瀏覽至 [工作流程] 畫面
-
-在 [Content Moderator] 儀表板上選取 [檢閱] > [設定] > [工作流程]。 您會看到預設工作流程。
-
-  ![預設工作流程](images/default-workflow-listed.PNG)
-
-### <a name="get-the-json-definition-of-the-default-workflow"></a>取得預設工作流程的 JSON 定義
-
-針對您的工作流程選取 [編輯] 選項，然後選取 [JSON] 索引標籤。您會看到下列 JSON 運算式：
-
-    {
-        "Type": "Logic",
-        "If": {
-            "ConnectorName": "moderator",
-            "OutputName": "isAdult",
-            "Operator": "eq",
-            "Value": "true",
-            "Type": "Condition"
-            },
-        "Then": {
-        "Perform": [
-        {
-            "Name": "createreview",
-            "CallbackEndpoint": null,
-            "Tags": []
-        }
-        ],
-        "Type": "Actions"
-        }
-    }
-
-## <a name="get-workflow-details"></a>取得工作流程詳細資料
-
-使用 [工作流程 - 取得] 作業，以取得現有預設工作流程的詳細資料。
-
-在審核工具中，移至[認證](Review-Tool-User-Guide/credentials.md#the-review-tool)區段。
-
-### <a name="browse-to-the-api-reference"></a>瀏覽至 API 參考
-
-1. 在 [認證] 檢視中，選取[API 參考](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)。 
-2. 當 [工作流程 - 建立或更新] 頁面開啟時，移至[工作流程 - 取得](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b44b3f9b0711b43c4c58)參考。
-
-### <a name="select-your-region"></a>選取您的區域
-
-針對 [Open API testing console] \(開啟 API 測試主控台\) 中，選取最能描述您位置的區域。
-
-  ![[工作流程 - 取得] 的區域選取項目](images/test-drive-region.png)
-
-  [工作流程 - 取得] API 主控台隨即開啟。
-
-### <a name="enter-parameters"></a>輸入參數
-
-針對 **team**、**workflowname** 和 **Ocp-Apim-Subscription-Key** (您的訂用帳戶識別碼) 輸入值：
-
-- **team**：您設定[審核工具帳戶](https://contentmoderator.cognitive.microsoft.com/)時所建立的小組識別碼。 
-- **workflowname**：工作流程的名稱。 使用 `default`。
-- **Ocp-Apim-Subscription-Key**：位於 [設定] 索引標籤。如需詳細資訊，請參閱[概觀](overview.md)。
-
-  ![取得查詢參數和標頭](images/workflow-get-default.PNG)
-
-### <a name="submit-your-request"></a>提交您的要求
-  
-選取 [傳送]。 如果作業成功，[Response status] \(回應狀態\) 就會是 `200 OK`，而 [Response content] \(回應內容\) 方塊則會顯示下列 JSON 工作流程：
-
-    {
-        "Name": "default",
-        "Description": "Default",
-        "Type": "Image",
-        "Expression": {
-        "If": {
-            "ConnectorName": "moderator",
-            "OutputName": "isadult",
-            "Operator": "eq",
-            "Value": "true",
-            "AlternateInput": null,
-            "Type": "Condition"
-            },
-        "Then": {
-            "Perform": [{
-                "Name": "createreview",
-                "Subteam": null,
-                "CallbackEndpoint": null,
-                "Tags": []
-            }],
-            "Type": "Actions"
-            },
-            "Else": null,
-            "Type": "Logic"
-            }
-    }
-
+- 登入或建立帳戶，在內容仲裁[審核工具](https://contentmoderator.cognitive.microsoft.com/)站台。
 
 ## <a name="create-a-workflow"></a>建立工作流程
 
-在審核工具中，移至[認證](Review-Tool-User-Guide/credentials.md#the-review-tool)區段。
+若要建立或更新工作流程，請前往**[工作流程-建立或更新](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** API 參考頁面，然後選取您的主要區域 按鈕 (您可以在端點 URL 上找到**認證**頁面的[審核工具](https://contentmoderator.cognitive.microsoft.com/))。 這會啟動 API 主控台中，您可以輕鬆地建構並執行 REST API 呼叫。
 
-### <a name="browse-to-the-api-reference"></a>瀏覽至 API 參考
+![[工作流程 - 建立或更新] 頁面的區域選取項目](images/test-drive-region.png)
 
-在 [認證] 檢視中，選取[API 參考](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)。 [工作流程 - 建立或更新] 頁面隨即開啟。
+### <a name="enter-rest-call-parameters"></a>輸入 REST 呼叫的參數
 
-### <a name="select-your-region"></a>選取您的區域
+輸入的值**team**， **workflowname**，並**Ocp Apim-訂用帳戶金鑰**:
 
-針對 [Open API testing console] \(開啟 API 測試主控台\) 中，選取最能描述您位置的區域。
+- **team**：當您設定時，您建立 「 小組識別碼您[審核工具](https://contentmoderator.cognitive.microsoft.com/)帳戶 (位於**識別碼**檢閱工具的 [認證] 畫面上的欄位)。
+- **workflowname**：若要新增新的工作流程 （或現有的名稱，如果您想要更新現有的工作流程） 的名稱。
+- **Ocp-Apim-Subscription-Key**：您的內容仲裁者金鑰。 您可以找到這**設定**索引標籤[審核工具](https://contentmoderator.cognitive.microsoft.com)。
 
-  ![[工作流程 - 建立或更新] 頁面的區域選取項目](images/test-drive-region.png)
+![[工作流程 - 建立或更新] 主控台查詢參數和標頭](images/workflow-console-parameters.PNG)
 
-  [工作流程 - 建立或更新] API 主控台隨即開啟。
+### <a name="enter-a-workflow-definition"></a>輸入工作流程定義
 
-### <a name="enter-parameters"></a>輸入參數
+1. 編輯**要求本文** 方塊中輸入詳細資料的 JSON 要求**描述**並**型別**(可能是`Image`或`Text`)。
+2. 針對**運算式**，複製 預設的工作流程 JSON 運算式。 最終的 JSON 字串應該如下所示：
 
-針對 **team**、**workflowname** 和 **Ocp-Apim-Subscription-Key** (您的訂用帳戶識別碼) 輸入值：
-
-- **team**：您設定[審核工具帳戶](https://contentmoderator.cognitive.microsoft.com/)時所建立的小組識別碼。 
-- **workflowname**：新工作流程的名稱。
-- **Ocp-Apim-Subscription-Key**：位於 [設定] 索引標籤。如需詳細資訊，請參閱[概觀](overview.md)。
-
-  ![[工作流程 - 建立或更新] 主控台查詢參數和標頭](images/workflow-console-parameters.PNG)
-
-### <a name="enter-the-workflow-definition"></a>輸入工作流程定義
-
-1. 編輯 [要求本文] 方塊，輸入 JSON 要求的 [描述] 和 [類型] (影像或文字) 詳細資料。 
-2. 針對 [運算式]，複製上一節中的預設工作流程運算式，如下所示：
-
+```json
+{
+  "Description":"<A description for the Workflow>",
+  "Type":"Text",
+  "Expression":{
+    "Type":"Logic",
+    "If":{
+      "ConnectorName":"moderator",
+      "OutputName":"isAdult",
+      "Operator":"eq",
+      "Value":"true",
+      "Type":"Condition"
+    },
+    "Then":{
+      "Perform":[
         {
-            "Description": "Default workflow from API console",
-            "Type": "Image",
-            "Expression": 
-                // Copy the default workflow expression from the preceding section
-        }
+          "Name":"createreview",
+          "CallbackEndpoint":null,
+          "Tags":[
 
-    要求本文看起來會像下列 JSON 要求：
-
-        {
-            "Description": "Default workflow from API console",
-            "Type": "Image",
-            "Expression": {
-                "Type": "Logic",
-                "If": {
-                    "ConnectorName": "moderator",
-                    "OutputName": "isAdult",
-                    "Operator": "eq",
-                    "Value": "true",
-                    "Type": "Condition"
-                    },
-                "Then": {
-                "Perform": [
-                {
-                    "Name": "createreview",
-                    "CallbackEndpoint": null,
-                    "Tags": [ ]
-                }
-                ],
-                "Type": "Actions"
-                }
-            }
+          ]
         }
- 
+      ],
+      "Type":"Actions"
+    }
+  }
+}
+```
+
+> [!NOTE]
+> 您可以為您的工作流程使用此 API 來定義簡單、 複雜且甚至是巢狀運算式。 [工作流程-建立或更新](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)文件有更複雜的邏輯的範例。
+
 ### <a name="submit-your-request"></a>提交您的要求
   
 選取 [傳送]。 如果作業成功，[Response status] \(回應狀態\) 就會是 `200 OK`，而 [Response content] \(回應內容\) 方塊則會顯示 `true`。
 
-### <a name="check-out-the-new-workflow"></a>檢查新工作流程
+### <a name="examine-the-new-workflow"></a>檢查新的工作流程
 
-在審核工具中，選取 [檢閱] > [設定] > [工作流程]。 新的工作流程會出現，並已可供使用。
+在 [審核工具](https://contentmoderator.cognitive.microsoft.com/)，選取**設定** > **工作流程**。 新的工作流程應該會出現在清單中。
 
-  ![工作流程的審核工具清單](images/workflow-console-new-workflow.PNG)
-  
-### <a name="review-your-new-workflow-details"></a>檢視新工作流程的詳細資料
+![工作流程的審核工具清單](images/workflow-console-new-workflow.PNG)
 
-1. 針對您的工作流程選取 [編輯] 選項，然後選取 [設計工具] 和 [JSON] 索引標籤。
+選取 [**編輯**工作流程選項，然後前往**設計師**] 索引標籤。在這裡，您可以看到 JSON 邏輯的直覺化表示法。
 
-   ![所選工作流程的 [設計工具] 索引標籤](images/workflow-console-new-workflow-designer.PNG)
+![所選工作流程的 [設計工具] 索引標籤](images/workflow-console-new-workflow-designer.PNG)
 
-2. 若要查看工作流程的 JSON 定義，請選取 [JSON] 索引標籤。
+## <a name="get-workflow-details"></a>取得工作流程詳細資料
+
+若要擷取現有的工作流程有關的詳細資訊，請前往**[工作流程-Get](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b44b3f9b0711b43c4c58)**  API 參考頁面，然後選取您的區域 按鈕 （取決於您的金鑰所在的區域）。
+
+![[工作流程 - 取得] 的區域選取項目](images/test-drive-region.png)
+
+輸入上述節所述的 REST 呼叫參數。 請確定這次**workflowname**是現有的工作流程的名稱。
+
+![取得查詢參數和標頭](images/workflow-get-default.PNG)
+
+選取 [傳送]。 如果作業成功，**回應狀態**是`200 OK`，而**回應內容**方塊會顯示工作流程，以 JSON 格式，如下所示：
+
+```json
+{
+  "Name":"default",
+  "Description":"Default",
+  "Type":"Image",
+  "Expression":{
+    "If":{
+      "ConnectorName":"moderator",
+      "OutputName":"isadult",
+      "Operator":"eq",
+      "Value":"true",
+      "AlternateInput":null,
+      "Type":"Condition"
+    },
+    "Then":{
+      "Perform":[
+        {
+          "Name":"createreview",
+          "Subteam":null,
+          "CallbackEndpoint":null,
+          "Tags":[
+
+          ]
+        }
+      ],
+      "Type":"Actions"
+    },
+    "Else":null,
+    "Type":"Logic"
+  }
+}
+```
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需更複雜的工作流程範例，請參閱[工作流程概觀](workflow-api.md)。
-* 了解如何搭配[內容審核作業](try-review-api-job.md)使用工作流程。
+- 了解如何搭配[內容審核作業](try-review-api-job.md)使用工作流程。

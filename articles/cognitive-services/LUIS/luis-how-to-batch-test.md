@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 973a82e97bc9770c30e791512b13e4c57a4c5bca
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 4d29602581531e9e42edbf4e00eca810757a8a99
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116893"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895727"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>使用一組範例語句的批次測試
 
@@ -100,7 +100,7 @@ ms.locfileid: "56116893"
 
 若測試顯示出您的 LUIS 應用程式無法識別正確的意圖和實體，則您可以透過標示更多語句或新增功能，以提升 LUIS 應用程式的效能。 
 
-* [使用 LUIS 標示建議的語調](luis-how-to-review-endoint-utt.md) 
-* [使用功能來改善 LUIS 應用程式效能](luis-how-to-add-features.md) 
-* [透過此教學課程來了解批次測試](luis-tutorial-batch-testing.md)
+* [標籤建議的表達方式有了 LUIS](luis-how-to-review-endpoint-utterances.md) 
+* [使用功能來改善 LUIS 應用程式的效能](luis-how-to-add-features.md) 
+* [了解測試本教學課程中的批次](luis-tutorial-batch-testing.md)
 * [了解批次測試概念](luis-concept-batch-test.md).

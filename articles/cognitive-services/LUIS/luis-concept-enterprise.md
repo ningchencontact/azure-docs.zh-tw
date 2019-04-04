@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 27217b1bdf49f5d2b22ac23a092270be42df9abf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: e5d7e2bfe1ee4e3ca248f40701aa65e757fc4d74
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861030"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895083"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>LUIS 應用程式的企業策略
 檢閱您企業應用程式的這些設計策略。
@@ -31,7 +31,7 @@ ms.locfileid: "55861030"
 
 請指定單一應用程式作為主要應用程式。 系統建議檢閱的所有語句都應該新增至主要應用程式，然後再移回至所有其他應用程式。 這會完整匯出應用程式，或將所標記的語句從主要應用程式載入至子應用程式。 您可以針對[單一語句](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08) \(英文\) 或[批次](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) \(英文\)，從 [LUIS](luis-reference-regions.md) 網站或撰寫 API 完成載入。 
 
-請排定定期 (例如每隔兩週) 的[端點語句檢閱](luis-how-to-review-endoint-utt.md)來進行主動式學習，然後再重新定型並重新發佈。 
+請排定定期 (例如每隔兩週) 的[端點語句檢閱](luis-how-to-review-endpoint-utterances.md)來進行主動式學習，然後再重新定型並重新發佈。 
 
 ### <a name="assign-multiple-luis-keys-to-same-app"></a>將多個 LUIS 金鑰指派給相同的應用程式
 如果您 LUIS 應用程式所收到的端點叫用次數超出單一金鑰配額允許的次數，請建立更多金鑰並指派給 LUIS 應用程式。 請建立流量管理員或負載平衡器，來管理所有端點金鑰上的端點查詢。 
@@ -39,7 +39,7 @@ ms.locfileid: "55861030"
 ## <a name="when-your-monolithic-app-returns-wrong-intent"></a>當您的整合型應用程式傳回錯誤意圖時
 如果您的應用程式是用來預測各種使用者語句，請考慮實作[分派模型](#dispatch-tool-and-model)。 分解整合型應用程式可讓 LUIS 成功地專注於意圖間的偵測，而不會在跨父應用程式與子應用程式的意圖間產生混淆。 
 
-請排定定期 (例如每隔兩週) 的[端點語句檢閱](luis-how-to-review-endoint-utt.md)來進行主動式學習，然後再重新定型並重新發佈。 
+請排定定期 (例如每隔兩週) 的[端點語句檢閱](luis-how-to-review-endpoint-utterances.md)來進行主動式學習，然後再重新定型並重新發佈。 
 
 ## <a name="when-you-need-to-have-more-than-500-intents"></a>當您所需的意圖超過 500 個時
 例如，假設您要開發一個有超過 500 個意圖的辦公室助理。 如果有 200 個意圖與安排會議有關、200 個與提醒有關、200 個與取得同事相關資訊有關，以及 200 個用於傳送電子郵件，則請將這些意圖分組，讓每個群組都在單一應用程式中，然後建立一個包含每個意圖的最上層應用程式。 請使用[分派工具和架構](#dispatch-tool-and-model)來建置最上層應用程式。 然後將您的 Bot 變更成使用階層式呼叫，如[分派教學課程][dispatcher-application-tutorial]中所示。 

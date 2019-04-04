@@ -3,19 +3,19 @@ title: Collaborative Translation Framework (CTF) 報告 - 翻譯工具文字 API
 titlesuffix: Azure Cognitive Services
 description: 如何使用 Collaborative Translation Framework (CTF) 報告。
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: a2f8a9c5ceaac6209391df17f4ec08027991382b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: da321aa2a4db441fa5bb51e4986d00889cb7482d
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123414"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917391"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>如何使用 Collaborative Translation Framework (CTF) 報告
 
@@ -116,7 +116,7 @@ ms.locfileid: "58123414"
 > [!NOTE]
 > 配額將會調整以確保服務之所有使用者之間的公平性。
 
-**檢視 GitHub 上的程式碼範例**
+**在 GitHib 上檢視程式碼範例**
 * [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-csharp.md)
 * [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-php.md)
 
@@ -153,7 +153,7 @@ ms.locfileid: "58123414"
 | to| **選擇性** 一個代表文字之目標翻譯語言代碼的字串。|
 | minRating| **選擇性** 一個代表翻譯後文字之品質評分下限的整數值。 有效值介於 -10 到 10 之間。 預設值為 1。|
 | maxRating| **選擇性** 一個代表翻譯後文字之品質評分上限的整數值。 有效值介於 -10 到 10 之間。 預設值為 1。|
-| user| **選擇性。一個可根據提交項目建立者來篩選結果的字串**|
+| user| **選用。 字串，用來篩選根據建立者提交的結果**|
 | category| **選擇性** 一個包含翻譯之分類或領域的字串。 此參數僅支援預設選項 general。|
 | minDateUtc| **選擇性** 您想要開始擷取翻譯的日期。 此日期必須是 UTC 格式。|
 | maxDateUtc| **選擇性** 您想要停止擷取翻譯的日期。 此日期必須是 UTC 格式。|
@@ -189,6 +189,6 @@ ms.locfileid: "58123414"
 > [!NOTE]
 > 配額將會調整以確保服務之所有使用者之間的公平性。
 
-**檢視 GitHub 上的程式碼範例**
+**在 GitHib 上檢視程式碼範例**
 * [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-csharp.md)
 * [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-php.md)

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 77cfade382d2c2533b803412157a1d5268e89983
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9b7a5aef76ec72b0de76fb4517ffda02808eab9d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764314"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882477"
 ---
 # <a name="connect-to-azure-stack"></a>連線至 Azure Stack
 
@@ -55,7 +55,7 @@ ms.locfileid: "57764314"
 
 若要建立連至開發套件的 VPN 連線，請從您的本機 Windows 型電腦開啟已提高權限的 PowerShell 工作階段，然後執行下列指令碼 (請務必針對您的環境更新 IP 位址和密碼值)：
 
-```PowerShell 
+```powershell 
 # Configure winrm if it's not already configured
 winrm quickconfig  
 
@@ -92,9 +92,9 @@ Add-AzsVpnConnection `
 
 請使用下列兩種方法之一來連線到 Azure Stack 執行個體：  
 
-* 透過使用 `Connect-AzsVpn ` 命令： 
+* 透過使用 `Connect-AzsVpn` 命令： 
     
-  ```PowerShell
+  ```powershell
   Connect-AzsVpn `
     -Password $Password
   ```

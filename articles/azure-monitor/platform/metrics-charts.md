@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: b52e7c0de2d834c793bb30fa35bd53b45aaebe5d
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 08ae74bcd9ee0a7cf5e0fb6d38758b1429c39145
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848855"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916337"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure 監視器計量瀏覽器
 
@@ -76,11 +76,33 @@ Azure 監視器計量瀏覽器是 Microsoft Azure 入口網站的一個元件，
 
 5. 您可以重複步驟 1-4 以將多個篩選器套用到相同的圖表。
 
+## <a name="multiple-metrics-and-charts"></a>多個度量和圖表
+
+您也可以建立圖表的繪製多個計量，或一次顯示多個度量的圖表。 這項功能可讓您：
+
+- 在相同的圖形，請參閱如何一個值上相互關聯相關的度量資訊與另一個
+- 顯示具有不同非常接近的測量單位的度量
+- 以視覺化方式彙總並比較多個資源的計量
+
+例如，如果您有 5 個儲存體帳戶，而且您想要知道多少總空間用完其間，您可以建立 （堆疊） 區域圖會顯示所有值的總和與個人在特定時間點的時間。
+
+### <a name="multiple-metrics-on-a-chart"></a>在圖表上的多個計量
+
+首先，[建立新的圖表](#create-a-new-chart)。 按一下 **新增計量**重複步驟，在相同圖表上新增其他計量。
+
+### <a name="multiple-charts"></a>多個圖表
+
+按一下 **新增圖表**，並使用不同的計量建立另一個圖表。
+
+### <a name="order-or-delete-multiple-charts"></a>排列或刪除多個圖表
+
+若要排序或刪除多個圖表，請按一下省略符號 ( **...** ) 符號以開啟 [圖表] 功能表，然後選擇適當的功能表項目**向上移動**，**下移**，或**刪除**。
+
 ## <a name="apply-splitting-to-a-chart"></a>套用至圖表分割
 
-您可以依維度來分割計量，以視覺化方式顯示維度的各區段與彼此之間的差異，並識別維度中與其他區段差異較大的區段。 
+您可以依維度來分割計量，以視覺化方式顯示維度的各區段與彼此之間的差異，並識別維度中與其他區段差異較大的區段。
 
-### <a name="to-apply-splitting"></a>若要套用分割
+### <a name="apply-splitting"></a>適用於分割
 
 1. 按一下圖表上方的 [套用分割]。
  
@@ -141,7 +163,7 @@ Azure 監視器計量瀏覽器是 Microsoft Azure 入口網站的一個元件，
 
 ## <a name="troubleshooting"></a>疑難排解
 
-*我看不到我的圖表上的任何資料。*
+*我看不到任何資料，我的圖表上。*
 
 * 篩選會套用至窗格上的所有圖表。 請確定，當您將焦點放在某個圖表時，您未在其他圖表上設定會排除所有資料的篩選。
 

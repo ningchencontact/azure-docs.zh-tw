@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 023d12764e3dcfcf2f5471cb431528a14fbc1fed
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 37455c278d665d05636ec120ca91b76153e53d16
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339630"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894913"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>在 Azure App Service 中針對應用程式啟用診斷記錄
 ## <a name="overview"></a>概觀
@@ -36,10 +36,10 @@ App Service 會針對來自 Web 伺服器和 Web 應用程式的記錄資訊提�
 
 * **详细错误日志记录** - 任何会生成 HTTP 状态代码 400（或更大数字）的请求的详细信息。 它包含的資訊可協助您判斷為何伺服器傳回錯誤碼。 会为应用的文件系统中的每个错误生成一个 HTML 文件，并可保留最多 50 个错误（文件）。 当 HTML 文件的数目超出 50 时，最旧的 26 个文件会自动删除。
 * **失敗的要求追蹤** - 關於失敗要求的詳細資訊，包括用於處理要求的 IIS 元件追蹤，以及每個元件所花費的時間。 如果您想要改善網站效能或隔離特定的 HTTP 錯誤，這會相當有用。 会在应用的文件系统中为每个错误生成一个文件夹。 文件保留策略与上述详细错误日志记录的相同。
-* **Web 伺服器記錄** - 使用 [W3C 擴充記錄檔格式](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)的 HTTP 交易相關資訊。 在判斷整體網站計量 (例如，處理的要求數目，或者有多少要求來自特定的 IP 位址) 時，這會相當有用。
+* **Web 伺服器記錄** - 使用 [W3C 擴充記錄檔格式](/windows/desktop/Http/w3c-logging)的 HTTP 交易相關資訊。 在判斷整體網站計量 (例如，處理的要求數目，或者有多少要求來自特定的 IP 位址) 時，這會相當有用。
 
 ### <a name="application-diagnostics"></a>應用程式診斷
-應用程式診斷功能可讓您擷取 Web 應用程式所產生的資訊。 ASP.NET 應用程式會使用 [System.Diagnostics.Trace](https://msdn.microsoft.com/library/36hhw2t6.aspx) 類別將資訊記錄到應用程式診斷記錄。 例如︰
+應用程式診斷功能可讓您擷取 Web 應用程式所產生的資訊。 ASP.NET 應用程式會使用 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) 類別將資訊記錄到應用程式診斷記錄。 例如︰
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -57,8 +57,8 @@ App Service 會針對來自 Web 伺服器和 Web 應用程式的記錄資訊提�
 
 | Level| 包含的記錄類別 |
 |-|-|
-|**Disabled** | None |
-|**錯誤** | 錯誤、嚴重 |
+|**已停用** | None |
+|**Error** | 錯誤、嚴重 |
 |**警告** | 警告、錯誤、嚴重|
 |**資訊** | 資訊、警告、錯誤、嚴重|
 |**詳細資訊** | 追蹤、偵錯、資訊、警告、錯誤、嚴重 (所有類別) |
@@ -101,7 +101,7 @@ App Service 會針對來自 Web 伺服器和 Web 應用程式的記錄資訊提�
 * **應用程式記錄** - /LogFiles/Application/。 此資料夾內含有一或多個文字檔案，這些檔案涵蓋應用程式記錄所產生的資訊。
 * **失敗要求追蹤** - /LogFiles/W3SVC#########/。 此資料夾內含有一個 XSL 檔案和一或多個 XML 檔案。 請確保將 XSL 檔案下載至 XML 檔案所在的相同目錄，因為 XSL 檔案可提供格式化功能，讓您在 Internet Explorer 中檢視時能夠篩選 XML 檔案內容。
 * **詳細錯誤記錄** - /LogFiles/DetailedErrors/。 此資料夾包含一或多個 .htm 檔案，內含已經發生的任何 HTTP 錯誤之詳細資訊。
-* **Web 伺服器記錄** - /LogFiles/http/RawLogs。 此資料夾包含一或多個運用 [W3C 擴充記錄檔格式](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)來格式化的文字檔案。
+* **Web 伺服器記錄** - /LogFiles/http/RawLogs。 此資料夾包含一或多個運用 [W3C 擴充記錄檔格式](/windows/desktop/Http/w3c-logging)來格式化的文字檔案。
 * **部署記錄** - /LogFiles/Git。 此資料夾包含由內部部署程序所產生且可供 Azure App Service 運用的記錄，以及適用於 Git 部署的記錄。 您也可以在 D:\home\site\deployments 下找到部署記錄。
 
 ### <a name="ftp"></a>FTP
@@ -132,7 +132,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 3. 上傳您的專案並執行，以產生記錄資料。
 4. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您新的 Application Insights 資源，然後開啟 [搜尋]。 您應該會看到您的記錄資料，以及要求、使用情況及其他遙測。 有些遙測可能需要數分鐘才能抵達：按一下 [重新整理]。 [深入了解](../azure-monitor/app/diagnostic-search.md)
 
-[深入了解使用 Application Insights 的效能追蹤](../azure-monitor/app/azure-web-apps.md)
+[深入了解使用 Application Insights 追蹤的效能](../azure-monitor/app/azure-web-apps.md)
 
 ## <a name="streamlogs"></a> 操作說明：串流記錄
 開發應用程式時，如果能夠幾近即時地檢視記錄資訊，通常會很實用。 您可以使用 Azure CLI，將記錄資訊串流至開發環境。
@@ -222,7 +222,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 詳細的錯誤記錄指的是可針對發生的 HTTP 錯誤提供更詳盡資訊的 HTML 文件。 由於它們都是單純的 HTML 文件，因此可以使用網頁瀏覽器來檢視。
 
 ### <a name="web-server-logs"></a>Web 伺服器記錄
-Web 伺服器記錄使用 [W3C 擴充記錄檔案格式](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx)來格式化。 此項資訊可透過文字編輯器來讀取，或是運用 [記錄檔剖析器](https://go.microsoft.com/fwlink/?LinkId=246619)(英文) 之類的公用程式來剖析。
+Web 伺服器記錄使用 [W3C 擴充記錄檔案格式](/windows/desktop/Http/w3c-logging)來格式化。 此項資訊可透過文字編輯器來讀取，或是運用 [記錄檔剖析器](https://go.microsoft.com/fwlink/?LinkId=246619)(英文) 之類的公用程式來剖析。
 
 > [!NOTE]
 > Azure App Service 所產生的記錄不支援 **s-computername**、**s-ip** 或 **cs-version** 欄位。
@@ -231,5 +231,5 @@ Web 伺服器記錄使用 [W3C 擴充記錄檔案格式](https://msdn.microsoft.
 
 ## <a name="nextsteps"></a> 後續步驟
 * [如何監視 Azure App Service](web-sites-monitor.md)
-* [在 Visual Studio 中進行 Azure App Service 的疑難排解](troubleshoot-dotnet-visual-studio.md)
-* [在 HDInsight 中分析應用程式記錄](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413) \(英文\)
+* [在 Visual Studio 中疑難排解 Azure App Service](troubleshoot-dotnet-visual-studio.md)
+* [分析 HDInsight 中的應用程式記錄檔](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

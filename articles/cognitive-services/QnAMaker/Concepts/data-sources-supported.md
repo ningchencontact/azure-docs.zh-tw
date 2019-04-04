@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/26/2019
 ms.author: tulasim
-ms.openlocfilehash: 0e9e8456bb493ad4591c0f2a22d28bdf342f09e1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8fcc3ea8340a8645a1983eebb4a619904f884a19
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433105"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578623"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>QnA Maker 內容的資料來源
 
@@ -32,7 +32,11 @@ QnA Maker 會自動從半結構化的內容 (例如，儲存為網頁、PDF 檔�
 
 ## <a name="data-source-locations"></a>資料來源位置
 
-對所有資料來源來說，只有公用 URL 是有效的。 請勿提交需要驗證的資料來源。 您可以從已驗證的網站下載檔案，然後使用檔案上傳選項來擷取問題和解答。
+大部分的資料來源位置必須提供公用 Url 或檔案，不需要驗證。 
+
+[Sharepoint 資料來源位置](../How-to/add-sharepoint-datasources.md)可提供已驗證的檔案。 Sharepoint 資源必須不是網頁的檔案。 
+
+如果您有已驗證的檔案或 URL，替代選項是從已驗證的站台的檔案下載到本機電腦，然後將檔案加入從本機電腦至知識庫。 
 
 ## <a name="faq-urls"></a>常見問題集 URL
 

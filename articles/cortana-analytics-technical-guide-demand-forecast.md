@@ -10,15 +10,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: d055b6775c9c788ecbb3a868055fa2402a537a83
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: 6b80e73dec7d0e03823a8aa2867ee91bfb68f560
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231167"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893630"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>能源需求預測之 Cortana Intelligence 解決方案範本的技術指南
-## <a name="overview"></a>**概觀**
+## **<a name="overview"></a>概觀**
 解決方案範本的設計是要加速在 Cortana Intelligence 套件之上建置 E2E 示範的程序。 已部署的範本會以所需的 Cortana Intelligence 元件佈建您的訂用帳戶，並建立兩者間的關聯性。 它也會在資料管線上植入從資料模擬應用程式所產生的範例資料。 從提供的連結下載資料模擬器並將它安裝在本機電腦上；如需使用模擬器的指示，請參閱 readme.txt 檔案。 由模擬器產生的資料將會產生資料管線，並開始產生機器學習服務預測，然後您可以在 Power BI 儀表板上將其視覺化。
 
 您可以在 [這裡](https://gallery.cortanaintelligence.com/SolutionTemplate/Demand-Forecasting-for-Energy-1)
@@ -27,13 +27,13 @@ ms.locfileid: "54231167"
 
 這份文件的目標在於說明參考架構與隨著此方案範本佈建在您的訂用帳戶的不同元件。 文件也會示範如何使用您自己的實際資料來取代範例資料，以便看到您自己的資料的見解/預測。 此外，文件將說明如果想要以您自己的資料自訂解決方案，您需要修改的解決方案範本部份。 最後會提供如何建置此方案範本的 Power BI 儀表板的指示。
 
-## <a name="details"></a>**詳細資料**
+## **<a name="details"></a>詳細資料**
 ![](media/cortana-analytics-technical-guide-demand-forecast/ca-topologies-energy-forecasting.png)
 
 ### <a name="architecture-explained"></a>所說明的架構
 部署解決方案時，會啟動 Cortana Analytics Suite 內的各種 Azure 服務 (也就是事件中樞、串流分析、HDInsight、Data Factory、Machine Learning 等)。 此架構圖說明概括而言如何從端對端建構能源需求預測解決方案範本。 您將可以調查這些服務，方法是在隨著解決方案部署而建立的解決方案範本圖表上按一下。 下列章節說明每個片段。
 
-## <a name="data-source-and-ingestion"></a>**資料來源及擷取**
+## **<a name="data-source-and-ingestion"></a>資料來源及擷取**
 ### <a name="synthetic-data-source"></a>綜合資料來源
 針對此範本，使用的資料來源是從桌面應用程式產生，您將會下載應用程式並於部署成功後在本機執行。 當您在解決方案範本圖表上選取稱為「能源預測資料模擬器」的第一個節點時，可以在屬性列中找到下載及安裝此應用程式的指示。 此應用程式會將在解決方案流程的其餘部分使用的資料點或事件送入 [Azure 事件中樞](#azure-event-hub)服務。
 
@@ -42,7 +42,7 @@ ms.locfileid: "54231167"
 ### <a name="azure-event-hub"></a>Azure 事件中樞
 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/) 服務是綜合資料來源所提供的輸入收件者。
 
-## <a name="data-preparation-and-analysis"></a>**資料準備和分析**
+## **<a name="data-preparation-and-analysis"></a>資料準備和分析**
 ### <a name="azure-stream-analytics"></a>Azure 串流分析
 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)服務用來為來自 [Azure 事件中樞](#azure-event-hub)服務的輸入串流提供近乎即時的分析，並將結果發佈到 [Power BI](https://powerbi.microsoft.com) 儀表板，以及將所有未經處理的內送事件保存至 [Azure 儲存體](https://azure.microsoft.com/services/storage/)服務，供 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) 服務後續處理。
 
@@ -52,15 +52,15 @@ Azure HDInsight 服務用來執行 [Hive](https://blogs.msdn.com/b/bigdatasuppor
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 使用 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 服務 (由 Azure Data Factory 協調) 預測特定區域 (提供所收到輸入資料) 的未來用電量。
 
-## <a name="data-publishing"></a>**資料發佈**
+## **<a name="data-publishing"></a>資料發佈**
 ### <a name="azure-sql-database-service"></a>Azure SQL Database 服務
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 服務用來儲存 (由 Azure Data Factory 管理) Azure Machine Learning 服務收到的預測，供 [Power BI](https://powerbi.microsoft.com) 儀表板中取用。
 
-## <a name="data-consumption"></a>**資料耗用量**
+## **<a name="data-consumption"></a>資料耗用量**
 ### <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com) 服務用來顯示儀表板，其中包含 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)服務提供的彙總，以及利用 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 服務產生並儲存在 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 中的需求預測結果。 如需如何建置此方案範本的 Power BI 儀表板的指示，請參閱下一節。
 
-## <a name="how-to-bring-in-your-own-data"></a>**如何帶入您自己的資料**
+## **<a name="how-to-bring-in-your-own-data"></a>如何帶入您自己的資料**
 本節說明如何將您自己的資料帶入 Azure，以及對於您放入這個架構的資料，需要變更哪些區域。
 
 您放入的任何資料集不太可能會符合用於這個解決方案範本的資料集。 了解您的資料與需求對於如何修改此範本以搭配您自己的資料而言非常重要。 如果您是第一次使用 Azure Machine Learning 服務，可以使用 [如何建立您的第一個實驗](machine-learning/studio/create-experiment.md)中的範例來取得簡介。
@@ -106,41 +106,41 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
 
 類似於 [Azure 串流分析](#azure-stream-analytics-1)查詢，[Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼對於內送資料格式具有隱含知識，必須根據您的資料格式和[特徵工程設計](machine-learning/team-data-science-process/create-features.md)需求來變更這些查詢。
 
-#### <a name="aggregatedemanddatato1hrpipeline"></a>*AggregateDemandDataTo1HrPipeline*
-這個[管線](data-factory/concepts-pipelines-activities.md)管線包含單一活動 - 使用 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) 的 [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) 活動，它會執行 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼，透過 Azure 串流分析作業將分站層級中每 10 秒流入的需求資料，彙總到每小時區域層級，並放入 [Azure 儲存體](https://azure.microsoft.com/services/storage/)中。
+#### *<a name="aggregatedemanddatato1hrpipeline"></a>AggregateDemandDataTo1HrPipeline*
+這個[管線](data-factory/concepts-pipelines-activities.md)管線包含單一活動 - 使用 [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100)) 的 [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) 活動，它會執行 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼，透過 Azure 串流分析作業將分站層級中每 10 秒流入的需求資料，彙總到每小時區域層級，並放入 [Azure 儲存體](https://azure.microsoft.com/services/storage/)中。
 
 此資料分割工作的 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼為 AggregateDemandRegion1Hr.hql
 
-#### <a name="loadhistorydemanddatapipeline"></a>*LoadHistoryDemandDataPipeline*
+#### *<a name="loadhistorydemanddatapipeline"></a>LoadHistoryDemandDataPipeline*
 這個[管線](data-factory/concepts-pipelines-activities.md)包含兩個活動︰
 
-* 使用 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) 的 [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) 活動，它會執行 Hive 指令碼，在 Azure 串流分析作業期間將分站層級中的每小時歷程需求資料，彙總到每小時區域層級，並放入 Azure 儲存體中
-* [複製](https://msdn.microsoft.com/library/azure/dn835035.aspx) 活動，會將彙總資料從 Azure 儲存體 Blob 移至解決方案範本安裝期間所佈建的 Azure SQL Database。
+* 使用 [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100)) 的 [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) 活動，它會執行 Hive 指令碼，在 Azure 串流分析作業期間將分站層級中的每小時歷程需求資料，彙總到每小時區域層級，並放入 Azure 儲存體中
+* [複製](/previous-versions/azure/dn835035(v=azure.100)) 活動，會將彙總資料從 Azure 儲存體 Blob 移至解決方案範本安裝期間所佈建的 Azure SQL Database。
 
 此工作的 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼為 AggregateDemandHistoryRegion.hql。
 
-#### <a name="mlscoringregionxpipeline"></a>*MLScoringRegionXPipeline*
+#### *<a name="mlscoringregionxpipeline"></a>MLScoringRegionXPipeline*
 這些[管線](data-factory/concepts-pipelines-activities.md)包含數個活動，而且其最終結果為來自與這個方案範本相關聯的 Azure Machine Learning 實驗評分的預測。 這些管線幾乎完全相同，差別在於它們各自只會處理不同區域 (由傳入 ADF 管線的不同 RegionID 所完成) 以及每個區域的 hive 指令碼。  
 包含在此管線的活動為：
 
-* 使用 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) 的 [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) 活動，它會執行 Hive 指令碼來執行 Azure Machine Learning 實驗所需的彙總及特徵設計。 此工作的 Hive 指令碼是個別的 PrepareMLInputRegionX.hql。
-* [複製](https://msdn.microsoft.com/library/azure/dn835035.aspx)活動，它會將來自 [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) 活動的結果移動至可供 [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) 活動存取的單一 Azure 儲存體 Blob。
-* 呼叫 Azure Machine Learning 實驗的 [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) 活動，會導致將結果放入單一 Azure 儲存體 Blob。
+* 使用 [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100)) 的 [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) 活動，它會執行 Hive 指令碼來執行 Azure Machine Learning 實驗所需的彙總及特徵設計。 此工作的 Hive 指令碼是個別的 PrepareMLInputRegionX.hql。
+* [複製](/previous-versions/azure/dn835035(v=azure.100))活動，它會將來自 [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) 活動的結果移動至可供 [AzureMLBatchScoring](/previous-versions/azure/dn894009(v=azure.100)) 活動存取的單一 Azure 儲存體 Blob。
+* 呼叫 Azure Machine Learning 實驗的 [AzureMLBatchScoring](/previous-versions/azure/dn894009(v=azure.100)) 活動，會導致將結果放入單一 Azure 儲存體 Blob。
 
-#### <a name="copyscoredresultregionxpipeline"></a>*CopyScoredResultRegionXPipeline*
-這個[管線](data-factory/concepts-pipelines-activities.md)包含單一活動 - [複製](https://msdn.microsoft.com/library/azure/dn835035.aspx)活動，它會將 Azure Machine Learning 實驗的結果從個別 ***MLScoringRegionXPipeline*** 移動至隨著解決方案範本安裝佈建的 Azure SQL Database。
+#### *<a name="copyscoredresultregionxpipeline"></a>CopyScoredResultRegionXPipeline*
+這個[管線](data-factory/concepts-pipelines-activities.md)包含單一活動 - [複製](/previous-versions/azure/dn835035(v=azure.100))活動，它會將 Azure Machine Learning 實驗的結果從個別 ***MLScoringRegionXPipeline*** 移動至隨著解決方案範本安裝佈建的 Azure SQL Database。
 
-#### <a name="copyaggdemandpipeline"></a>*CopyAggDemandPipeline*
-這個[管線](data-factory/concepts-pipelines-activities.md)包含單一活動 - [複製](https://msdn.microsoft.com/library/azure/dn835035.aspx)活動，它會將彙總的持續需求資料從 ***LoadHistoryDemandDataPipeline*** 移動至隨著解決方案範本安裝佈建的 Azure SQL Database。
+#### *<a name="copyaggdemandpipeline"></a>CopyAggDemandPipeline*
+這個[管線](data-factory/concepts-pipelines-activities.md)包含單一活動 - [複製](/previous-versions/azure/dn835035(v=azure.100))活動，它會將彙總的持續需求資料從 ***LoadHistoryDemandDataPipeline*** 移動至隨著解決方案範本安裝佈建的 Azure SQL Database。
 
-#### <a name="copyregiondatapipeline-copysubstationdatapipeline-copytopologydatapipeline"></a>*CopyRegionDataPipeline、CopySubstationDataPipeline、CopyTopologyDataPipeline*
-這個[管線](data-factory/concepts-pipelines-activities.md)包含單一活動 - [複製](https://msdn.microsoft.com/library/azure/dn835035.aspx)活動，它會將安裝解決方案範本時上傳至 Azure 儲存體 Blob 的區域/分站/Topologygeo 參考資料，移動到安裝解決方案範本時所佈建的 Azure SQL Database。
+#### *<a name="copyregiondatapipeline-copysubstationdatapipeline-copytopologydatapipeline"></a>CopyRegionDataPipeline、 CopySubstationDataPipeline、 CopyTopologyDataPipeline*
+這個[管線](data-factory/concepts-pipelines-activities.md)包含單一活動 - [複製](/previous-versions/azure/dn835035(v=azure.100))活動，它會將安裝解決方案範本時上傳至 Azure 儲存體 Blob 的區域/分站/Topologygeo 參考資料，移動到安裝解決方案範本時所佈建的 Azure SQL Database。
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 用於此解決方案範本的 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 實驗會提供區域需求預測。 實驗因取用的資料集而不同，因而需要特別針對帶入的資料進行修改或取代。
 
-## <a name="monitor-progress"></a>**監視進度**
-一旦資料產生器啟動，管線會開始合成，解決方案的不同元件會遵循 Data Factory 發出的命令開始動作。 您有兩種方式可以監視管線。
+## **<a name="monitor-progress"></a>監視進度**
+一旦資料產生器啟動，管線會開始合成，解決方案的不同元件會遵循 Data Factory 發出的命令開始動作。 可通过两种方式监视管道。
 
 1. 檢查 Azure Blob 儲存體中的資料。
 
@@ -154,7 +154,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
 
     您可以設定 Power BI 最忙碌路徑儀表板以監視未經處理的內送資料。 請遵循＜Power BI 儀表板＞一節中的指示。
 
-## <a name="power-bi-dashboard"></a>**Power BI 儀表板**
+## **<a name="power-bi-dashboard"></a>Power BI 儀表板**
 ### <a name="overview"></a>概觀
 本節說明如何設定 Power BI 儀表板，以視覺化方式檢視來自 Azure 串流分析 (熱路徑) 的即時資料，以及來自 Azure 機器學習 (冷路徑) 的預測結果。
 
@@ -179,7 +179,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
    * 按一下上方的 [儲存]  並將報告命名為 “EnergyStreamDataReport”。 名為 “EnergyStreamDataReport” 的報告會顯示在左側 [導覽] 窗格的 [報告] 區段中。
    * 按一下此折線圖右上角的 [釘選視覺]![](media/cortana-analytics-technical-guide-demand-forecast/PowerBIpic6.png) 圖示，[釘選至儀表板] 視窗就會出現以供您選擇儀表板。 選取 [EnergyStreamDataReport]，然後按一下 [釘選]。
    * 在儀表板上將滑鼠停留在此磚中，按一下右上角的 [編輯] 圖示可將其標題變更為「依時間戳記的需求」
-4. 根據適當的資料集建立其他儀表板圖格。 最終的儀表板檢視：![](media/cortana-analytics-technical-guide-demand-forecast/PBIFullScreen.png)
+4. 根據適當的資料集建立其他儀表板圖格。 最終的儀表板 檢視中： ![](media/cortana-analytics-technical-guide-demand-forecast/PBIFullScreen.png)
 
 ### <a name="setup-cold-path-dashboard"></a>設定冷路徑儀表板
 在冷路徑資料管線中，基本目標是取得每個區域的需求預測。 Power BI 會連接到 Azure SQL Database 做為其資料來源，即預測結果的儲存位置。
@@ -224,14 +224,14 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
    * 展開 **排程重新整理** 一節。 開啟「將您的資料保持最新」。
    * 根據您的需求排程重新整理。 若要尋找詳細資訊，請參閱 [Power BI 中的資料重新整理](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)。
 
-## <a name="how-to-delete-your-solution"></a>**如何刪除解決方案**
+## **<a name="how-to-delete-your-solution"></a>如何刪除您的解決方案**
 請確定您在未積極使用解決方案時已將資料產生器停止，因為執行資料產生器將會產生較高的成本。 如果不使用解決方案，請將其刪除。 刪除解決方案時，會將您在部署解決方案時，於訂用帳戶中佈建的所有元件刪除。 如果要刪除解決方案，請在解決方案範本左側面板中按一下該解決方案的名稱，然後按一下 [刪除]。
 
-## <a name="cost-estimation-tools"></a>**成本估計工具**
+## **<a name="cost-estimation-tools"></a>成本估計工具**
 下列兩項工具可協助您進一步了解在您的訂用帳戶中執行能源需求預測解決方案範本所牽涉的總成本：
 
-* [Microsoft Azure Cost Estimator Tool (線上版)](https://azure.microsoft.com/pricing/calculator/)
-* [Microsoft Azure Cost Estimator Tool (桌面版)](https://www.microsoft.com/download/details.aspx?id=43376)
+* [Microsoft Azure Cost Estimator Tool （線上）](https://azure.microsoft.com/pricing/calculator/)
+* [Microsoft Azure Cost Estimator Tool （桌面版）](https://www.microsoft.com/download/details.aspx?id=43376)
 
-## <a name="acknowledgements"></a>**通知**
+## **<a name="acknowledgements"></a>通知**
 本文是 Microsoft 的資料科學家 Yijing Chen 與軟體工程師 Qiu Min 所撰寫。

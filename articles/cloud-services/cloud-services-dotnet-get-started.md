@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: aa62db0948ffa036b37736477b872d694d14836b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a2eff2ca2e72ad263e3e23d0827e7603bca3fdcb
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762586"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917471"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>開始使用 Azure 雲端服務和 ASP.NET
 
 ## <a name="overview"></a>概觀
-本教學課程示範如何建立具有 ASP.NET MVC 前端的多層式 .NET 應用程式，並將它部署到 [Azure 雲端服務](cloud-services-choose-me.md)。 應用程式會使用 [Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336279)、[Azure Blob 服務](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)和 [Azure 佇列服務](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)。 您可以從 MSDN Code Gallery [下載 Visual Studio 專案](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) 。
+本教學課程示範如何建立具有 ASP.NET MVC 前端的多層式 .NET 應用程式，並將它部署到 [Azure 雲端服務](cloud-services-choose-me.md)。 應用程式會使用 [Azure SQL Database](/previous-versions/azure/ee336279(v=azure.100))、[Azure Blob 服務](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage)和 [Azure 佇列服務](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern)。 您可以從 MSDN Code Gallery [下載 Visual Studio 專案](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) 。
 
 本教學課程將示範如何在本機建置並執行應用程式、如何將應用程式部署至 Azure 並且在雲端執行，以及如何從頭建置應用程式。 之後，如果需要，也可以自從頭建置應用程式開始，然後執行測試和部署步驟。
 
@@ -81,7 +81,7 @@ ms.locfileid: "57762586"
 6. 如果您使用 Visual Studio 2015 或更新版本，變更 ContosoAdsWeb 專案中的 Web.config 檔案和 ContosoAdsCloudService 專案中的 ServiceConfiguration.Local.cscfg 檔案的應用程式中的 SQL Server 連接字串。 在每個案例中，將 "(localdb)\v11.0" 變更為 "(localdb)\MSSQLLocalDB"。
 7. 按 CTRL+F5 執行應用程式。
 
-    在本機執行雲端服務專案時，Visual Studio 會自動叫用 Azure「計算模擬器」和 Azure「儲存體模擬器」。 計算模擬器會使用您電腦的資源來模擬 Web 角色和背景工作角色環境。 儲存體模擬器則使用 [SQL Server Express LocalDB](https://msdn.microsoft.com/library/hh510202.aspx) 資料庫來模擬 Azure 雲端儲存體。
+    在本機執行雲端服務專案時，Visual Studio 會自動叫用 Azure「計算模擬器」和 Azure「儲存體模擬器」。 計算模擬器會使用您電腦的資源來模擬 Web 角色和背景工作角色環境。 儲存體模擬器則使用 [SQL Server Express LocalDB](/sql/database-engine/configure-windows/sql-server-2016-express-localdb) 資料庫來模擬 Azure 雲端儲存體。
 
     第一次執行雲端服務專案時，需要約一分鐘的時間，才能啟動模擬器。 模擬器啟動完成時，預設的瀏覽器會開啟到應用程式首頁。
 
@@ -178,7 +178,7 @@ Azure 儲存體帳戶可提供在雲端中儲存佇列和 Blob 資料的資源�
 
     當雲端服務與儲存體帳戶位於不同的資料中心 (不同的區域) 時，延遲時間會增加，而且您將由於使用資料中心外的頻寬而付費。 資料中心內的頻寬則是免費的。
 
-    Azure 同質群組提供一種機制，可將資料中心內的資源之間的距離縮至最短，因而可以減少延遲時間。 本教學課程不會使用同質群組。 如需詳細資訊，請參閱 [如何在 Azure 中建立同質群組](https://msdn.microsoft.com/library/azure/gg715317.aspx)(英文)。
+    Azure 同質群組提供一種機制，可將資料中心內的資源之間的距離縮至最短，因而可以減少延遲時間。 本教學課程不會使用同質群組。 如需詳細資訊，請參閱 [如何在 Azure 中建立同質群組](/previous-versions/azure/reference/gg715317(v=azure.100))(英文)。
 7. 按一下頁面底部的 [新增] 。
 
     ![新的存储帐户](./media/cloud-services-dotnet-get-started/newstorage.png)
@@ -549,7 +549,7 @@ queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSec
 imagesQueue = queueClient.GetQueueReference("images");
 ```
 
-多數的控制器程式碼通常用於使用 DbContext 類別來處理 Entity Framework 資料模型。 例外狀況為 HttpPost `Create` 方法，它會上傳檔案，並將檔案儲存在 Blob 儲存體。 模型繫結器可為方法提供 [HttpPostedFileBase](https://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) 物件。
+多數的控制器程式碼通常用於使用 DbContext 類別來處理 Entity Framework 資料模型。 例外狀況為 HttpPost `Create` 方法，它會上傳檔案，並將檔案儲存在 Blob 儲存體。 模型繫結器可為方法提供 [HttpPostedFileBase](/dotnet/api/system.web.httppostedfilebase) 物件。
 
 ```csharp
 [HttpPost]
@@ -703,7 +703,7 @@ public override void Run()
 
 有時佇列訊息的內容會造成處理錯誤。 這稱為 *有害訊息*，而如果您只是記錄錯誤並重新啟動迴圈，可能會不斷的嘗試處理該訊息。  因此，Catch 區塊包含 If 陳述式，檢查以查看應用程式已嘗試處理目前訊息的次數，而如果已超過 5 次，即會從佇列中刪除訊息。
 
-`ProcessQueueMessage` 。
+`ProcessQueueMessage` 找到佇列訊息時呼叫。
 
 ```csharp
 private void ProcessQueueMessage(CloudQueueMessage msg)
@@ -777,5 +777,5 @@ Contoso Ads 應用程式特意保持簡潔，以做為入門的教學課程。 �
 
 * [Azure 雲端服務第 1 部分：簡介](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [如何管理雲端服務](cloud-services-how-to-manage-portal.md)
-* [Azure 存储](https://docs.microsoft.com/azure/storage/)
+* [Azure 儲存體](https://docs.microsoft.com/azure/storage/)
 * [如何選擇雲端服務提供者](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

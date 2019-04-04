@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 574227e010a37340ce7248d2e4657f6a3f231d0a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 4ef0c09d2d2ea2ed06708342ab45abcaf149c23e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984523"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903098"
 ---
 # <a name="download-the-template-for-a-vm"></a>下載 VM 的範本
 當您使用入口網站或 PowerShell 在 Azure 中建立 VM 時，系統會自動為您建立 Resource Manager 範本。 您可以使用此範本快速地重複部署。 範本包含資源群組中所有資源的相關資訊。 針對虛擬機器，這表示範本包含針對支援該資源群組中 VM 而建立的所有項目，包括網路功能資源。
@@ -29,7 +29,7 @@ ms.locfileid: "55984523"
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 在左側功能表上，選取 [虛擬機器]。
 3. 然後從清單中選取虛擬機器。
-4. 選取 [自動化指令碼]。
+4. 選取 **匯出範本**。
 5. 從上方的功能表選取 [下載]，然後將 .zip 檔案儲存到本機電腦。
 6. 開啟 .zip 檔，並將檔案解壓縮至資料夾。 此.zip 檔案包含：
    

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: b00082ec567d51c320f55210cb38dcab9547e0d9
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: d2324f9538ce8079be5e660a1613c1c093ecc85a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258746"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484591"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>使用 PowerShell 管理 Azure Stack 中的金鑰保存庫
 
@@ -45,7 +45,7 @@ ms.locfileid: "58258746"
 
 在您可以發出對金鑰保存庫的任何作業之前，需要先確保已針對保存庫作業啟用您的租用戶訂用帳戶。 若要確認保存庫作業已啟用，執行以下命令：
 
-```PowerShell  
+```powershell  
 Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
 ```
 
@@ -57,7 +57,7 @@ Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
 
 如果尚未啟用作業，叫用下列命令來註冊訂用帳戶中的金鑰保存庫服務：
 
-```PowerShell
+```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
 ```
 
@@ -71,7 +71,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
 
 建立金鑰保存庫之前，先建立資源群組，使所有與金鑰保存庫相關的資源都存在於資源群組中。 請使用下列命令以建立新的資源群組：
 
-```PowerShell
+```powershell
 New-AzureRmResourceGroup -Name "VaultRG" -Location local -verbose -Force
 
 ```
@@ -84,7 +84,7 @@ New-AzureRmResourceGroup -Name "VaultRG" -Location local -verbose -Force
 
 請執行下列命令以建立金鑰保存庫：
 
-```PowerShell
+```powershell
 New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location local -verbose
 ```
 
@@ -98,7 +98,7 @@ New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location 
 
 在 AD FS 部署中，您可能會收到這個警告：「未設定存取原則。 使用者或應用程式沒有使用此保存庫的存取權」。 若要解決此問題，請使用 [Set-AzureRmKeyVaultAccessPolicy](#authorize-an-application-to-use-a-key-or-secret) 命令，設定保存庫的存取原則：
 
-```PowerShell
+```powershell
 # Obtain the security identifier(SID) of the active directory user
 $adUser = Get-ADUser -Filter "Name -eq '{Active directory user name}'"
 $objectSID = $adUser.SID.Value
@@ -115,7 +115,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName "{key vault name}" -ResourceGroupName
 
 使用 **Add-AzureKeyVaultKey** 命令，在金鑰保存庫中建立或匯入受到軟體保護的金鑰。
 
-```PowerShell
+```powershell
 Add-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01" -verbose -Destination Software
 ```
 
@@ -134,7 +134,7 @@ Add-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01" -verbose -Destination So
 
 使用 **Get AzureKeyVaultKey** 命令可讀金鑰取及其詳細資料。
 
-```PowerShell
+```powershell
 Get-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01"
 ```
 
@@ -142,7 +142,7 @@ Get-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01"
 
 使用 **Set-AzureKeyVaultSecret** 命令可建立或更新保存庫中的祕密。 如果還密碼不存在，會建立密碼。 如果已經存在，則會建立新版本的密碼。
 
-```PowerShell
+```powershell
 $secretvalue = ConvertTo-SecureString "User@123" -AsPlainText -Force
 Set-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01" -SecretValue $secretvalue
 ```
@@ -155,7 +155,7 @@ Set-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01" -SecretValue $secr
 
 使用 **Get-AzureKeyVaultSecret** 命令可讀取金鑰保存庫中的祕密。 此命令可傳回所有或特定版本的祕密。
 
-```PowerShell
+```powershell
 Get-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01"
 ```
 
@@ -166,13 +166,13 @@ Get-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01"
 使用 **Set-AzureRmKeyVaultAccessPolicy** 命令，授權讓應用程式存取金鑰保存庫中的金鑰或密碼。
 在以下範例中，保存庫名稱是 *ContosoKeyVault*，且您想要授權的應用程式用戶端識別碼是 *8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed*。 若要，執行下列命令。 或者，您也可以指定 **PermissionsToKeys** 參數來設定使用者、應用程式或安全性群組的權限。
 
-```PowerShell
+```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
 ```
 
 如果您想要授權該相同的應用程式讀取您保存庫中的祕密，請執行以下 Cmdlet：
 
-```PowerShell
+```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get
 ```
 

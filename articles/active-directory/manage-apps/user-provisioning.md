@@ -11,65 +11,65 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/30/2018
+ms.date: 04/02/2019
 ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 198f32b5f3d7572807b6af3e41ccf8085d9cbc0b
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 40e8aaa60359fcfb85c79c4210f7c5cc14633c7b
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576934"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894401"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和取消佈建
 
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>SaaS 應用程式的自動化使用者佈建是什麼？
-Azure Active Directory (Azure AD) 可讓您自動化在雲端 ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) 應用程式中建立、維護和移除使用者身分識別，例如 Dropbox、Salesforce、ServiceNow 等等。
+Azure Active Directory (Azure AD) 可讓您自動化建立、 維護和移除在雲端中的使用者身分識別 ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) 應用程式，例如 Dropbox、 Salesforce、 ServiceNow 等等。
 
 > [!VIDEO https://www.youtube.com/embed/_ZjARPpI6NI]
 
-**以下是這項功能可讓您執行的一些範例：**
+**這項功能可讓您：**
 
-* 當人員加入您的小組或組織時，在正確的系統中為新的人員自動建立新帳戶。
-* 當人員離開小組或組織時，在正確的系統中自動停用帳戶。
-* 確保您的應用程式和系統中的身分識別，可根據目錄或您人力資源系統中的變更保持在最新狀態。
-* 將非使用者物件 (例如群組) 佈建至支援的應用程式。
+- 當人員加入您的小組或組織時，在正確的系統中為新的人員自動建立新帳戶。
+- 當人員離開小組或組織時，在正確的系統中自動停用帳戶。
+- 確保您的應用程式和系統中的身分識別，可根據目錄或您人力資源系統中的變更保持在最新狀態。
+- 將非使用者物件 (例如群組) 佈建至支援的應用程式。
 
-**自動化使用者佈建也包含下列功能：**
+**自動化的使用者佈建時，也會包含這項功能：**
 
-* 比對來源和目標系統之間現有身分識別的功能。
-* 可自訂的屬性對應，其中定義了哪些使用者資料應該從來源系統流向目標系統。
-* 佈建錯誤的選用電子郵件警示。
-* 報告和活動記錄檔，協助監視與疑難排解。
+- 比對來源和目標系統之間現有身分識別的功能。
+- 可自訂的屬性對應，其中定義了哪些使用者資料應該從來源系統流向目標系統。
+- 佈建錯誤的選用電子郵件警示。
+- 報告和活動記錄檔，協助監視與疑難排解。
 
 ## <a name="why-use-automated-provisioning"></a>為何要使用自動化佈建？
 
 一些使用這項功能的常見動機包括：
 
-* 避免成本、效率不彰，以及與手動佈建程序相關的人為錯誤。
-* 避免與裝載及維護自訂開發的佈建解決方案和指令碼相關的成本。
-* 為了在使用者離開組織時，立即從主要 SaaS 應用程式移除使用者的身分識別以保護您的組織。
-* 為了輕鬆將大量使用者匯入至特定的 SaaS 應用程式或系統中。
-* 為了享有使用一組原則來判斷已佈建之使用者及能登入應用程式之使用者的便利。
+- 避免成本、效率不彰，以及與手動佈建程序相關的人為錯誤。
+- 避免與裝載及維護自訂開發的佈建解決方案和指令碼相關的成本。
+- 立即於當使用者離開組織時，從主要 SaaS 應用程式移除使用者的身分識別，以保護您的組織。
+- 輕鬆地匯入大量使用者的特定 SaaS 應用程式或系統。
+- 有一組原則，以判斷誰佈建，而且誰能夠登入應用程式。
 
 ## <a name="how-does-automatic-provisioning-work"></a>自動化佈建如何運作？
     
-**Azure AD 佈建服務**會藉由連接到每個應用程式廠商所提供的使用者管理 API 端點，將使用者佈建至 SaaS 應用程式和其他系統。 這些使用者管理 API 端點可以讓 Azure AD 以程式設計方式建立、更新和移除使用者。 針對所選應用程式，佈建服務也可以建立、更新和移除其他與身分識別相關的物件，例如群組和角色。 
+**Azure AD 佈建服務**使用者佈建至 SaaS 應用程式和其他系統藉由連接到每個應用程式廠商所提供的使用者管理 API 端點。 這些使用者管理 API 端點可以讓 Azure AD 以程式設計方式建立、更新和移除使用者。 針對選取的應用程式，佈建服務可以也建立、 更新和移除其他身分識別相關的物件，例如群組和角色。 
 
 ![佈建](./media/user-provisioning/provisioning0.PNG)
-*圖 1：Azure AD 佈建服務*
+ *[圖 1:Azure AD 佈建服務*
 
 ![輸出佈建](./media/user-provisioning/provisioning1.PNG)
-*圖 2：從 Azure AD 至熱門 SaaS 應用程式的「輸出」使用者佈建工作流程*
+ *[圖 2:從 Azure AD 至熱門 SaaS 應用程式的「輸出」使用者佈建工作流程*
 
 ![輸入佈建](./media/user-provisioning/provisioning2.PNG)
-*圖 3：從熱門人力資本管理 (HCM) 應用程式至 Azure Active Directory 和 Windows Server Active Directory 的「輸入」使用者佈建工作流程*
+ *[圖 3:從熱門人力資本管理 (HCM) 應用程式至 Azure Active Directory 和 Windows Server Active Directory 的「輸入」使用者佈建工作流程*
 
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>哪些應用程式和系統可以搭配使用 Azure AD 自動使用者佈建？
 
-Azure AD 的特色是為各種熱門 SaaS 應用程式和人力資源系統提供預先整合的支援，以及為實作 SCIM 2.0 標準之特定部分的應用程式提供一般支援。
+支援許多熱門 SaaS 應用程式和人力資源系統，以及用於實作 SCIM 2.0 標準的特定部分的應用程式的一般支援預先整合的 azure AD 功能。
 
 ### <a name="pre-integrated-applications"></a>預先整合的應用程式
 
@@ -78,7 +78,7 @@ Azure AD 的特色是為各種熱門 SaaS 應用程式和人力資源系統提�
 若要連絡 Azure AD 工程小組以要求對於其他應用程式的佈建支援，請透過 [Azure Active Directory 意見反應論壇](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035)提交訊息。
 
 > [!NOTE]
-> 若要讓應用程式支援自動化使用者佈建，它必須先提供必要的使用者管理 API，以允許外部程式自動建立、維護及移除使用者。 因此，並非所有 SaaS 應用程式都與此功能相容。 針對支援使用者管理 API 的應用程式，Azure AD 工程小組則是能夠建置與這些應用程式的佈建連接器，這項工作是以目前和潛在客戶的需求來排定優先順序。 
+> 若要讓應用程式支援自動化使用者佈建，它必須先提供必要的使用者管理 API，以允許外部程式自動建立、維護及移除使用者。 因此，並非所有 SaaS 應用程式都與此功能相容。 對於支援使用者管理 Api 的應用程式，Azure AD 工程小組可以建立這些應用程式，佈建連接器，以及這項工作以目前和潛在客戶的需求來排定優先順序。 
 
 ### <a name="connecting-applications-that-support-scim-20"></a>連線支援 SCIM 2.0 的應用程式
 
@@ -89,34 +89,37 @@ Azure AD 的特色是為各種熱門 SaaS 應用程式和人力資源系統提�
 
 > [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 
-對於所選應用程式的 Azure AD 佈建服務設定會從 **[Azure 入口網站](https://portal.azure.com)** 開始。 在 [Azure Active Directory] > [企業應用程式] 區段中，選取 [新增]，然後選取 [所有]，並根據您的情況新增下列其中一項：
+您可以使用 Azure Active Directory 入口網站來設定 Azure AD 佈建服務所選的應用程式。
 
-* [精選應用程式] 區段中的所有應用程式皆支援自動佈建。 如需額外的應用程式，請參閱[適用於使用者佈建的應用程式教學課程清單](../saas-apps/tutorial-list.md)。
+1. 開啟 **[Azure Active Directory 入口網站](https://aad.portal.azure.com)**。
 
-* 對於自訂開發的 SCIM 整合使用「非資源庫應用程式」選項
+1. 選取 **企業應用程式**從左窗格中。 會顯示所有設定的應用程式清單。
 
-![資源庫](./media/user-provisioning/gallery.png)
+1. 選擇**新的應用程式 +** 以新增應用程式。 將根據您的案例下列其中一項：
 
-在應用程式管理畫面中，佈建可在 [佈建] 索引標籤中進行設定。
+   - **新增您自己的應用程式**選項支援自訂開發的 SCIM 整合。
 
-![設定](./media/user-provisioning/provisioning_settings0.PNG)
+   - 中的所有應用程式**從資源庫新增** > **精選應用程式**區段支援自動佈建。 如需額外的應用程式，請參閱[適用於使用者佈建的應用程式教學課程清單](../saas-apps/tutorial-list.md)。
 
+1. 提供的任何詳細資料，然後選取**新增**。 新的應用程式新增至 [企業應用程式清單，並以其應用程式管理] 畫面隨即開啟。
 
-* **管理員認證**必須提供給 Azure AD 佈建服務，讓它可連線至應用程式所提供的使用者管理 API。 此區段也可讓您在認證失敗或佈建作業進入[隔離](#quarantine)狀態時，啟用電子郵件通知。
+1. 選取 **佈建**來管理使用者帳戶佈建應用程式的設定。
 
-* 可以設定**屬性對應**，以指定要將來源系統 (例如：Azure AD) 中哪些欄位的內容同步至目標系統 (例如：ServiceNow) 中的哪些欄位。 如果目標應用程式可支援，則此區段可讓您選擇性地設定群組佈建 (除了使用者帳戶以外)。 「相符的屬性」可讓您選取使用哪些欄位來比對系統之間的帳戶。 「[運算式](functions-for-customizing-application-data.md)」可讓您在將值寫入目標系統之前修改及轉換從來源系統取出的值。 如需詳細資訊，請參閱[自訂屬性對應](customize-application-attributes.md)。
+   ![設定](./media/user-provisioning/provisioning_settings0.PNG)
 
-![設定](./media/user-provisioning/provisioning_settings1.PNG)
+1. 選取為 [自動] 選項**佈建模式**指定系統管理員認證、 對應、 啟動和停止，以及同步處理設定。
 
-* **範圍設定篩選**可告知佈建服務，來源系統中有哪些使用者和群組應該佈建和/或取消佈建到目標系統。 範圍設定篩選中有兩個層面會一起評估，以決定誰會在佈建範圍中：
+   - 依序展開**系統管理員認證**輸入 Azure AD 以連線至應用程式的使用者管理 API 所需的認證。 這個區段也可讓您啟用電子郵件通知，如果在認證失敗或佈建作業進入[隔離](#quarantine)。
 
-    * **屬性值篩選** - 屬性對應中的「來源物件範圍」功能表可針對特定屬性值進行篩選。 例如，您可以指定只有「部門」屬性為「銷售」的使用者應在佈建範圍中。 如需詳細資訊，請參閱 [使用範圍設定篩選](define-conditional-rules-for-provisioning-user-accounts.md)。
-
-    * **指派篩選** - 入口網站的 [佈建] > [設定] 區段中的「範圍」功能表可讓您指定是否只有「已指派」的使用者和群組應在佈建範圍中，或者所有 Azure AD 目錄中的使用者都應進行佈建。 有關「指派」使用者和群組的資訊，請參閱[在 Azure Active Directory 中將使用者或群組指派給企業應用程式](assign-user-or-group-access-portal.md)。
+   - 依序展開**對應**來檢視和編輯 Azure AD 之間流動的使用者屬性和目標應用程式在使用者帳戶佈建或更新。 如果目標應用程式支援的話，這個區段可讓您選擇性地設定 佈建群組和使用者帳戶。 選取對應資料表中，開啟到右方時，您可以在其中檢視和自訂使用者屬性對應編輯器。
+   
+     **範圍篩選器**告訴佈建服務的使用者和來源系統中的群組應該佈建或取消佈建到目標系統。 在 **屬性對應**窗格中，選取**來源物件範圍**來篩選特定的屬性值。 例如，您可以指定只有「部門」屬性為「銷售」的使用者應在佈建範圍中。 如需詳細資訊，請參閱 [使用範圍設定篩選](define-conditional-rules-for-provisioning-user-accounts.md)。
     
-* **設定**可控制應用程式的佈建服務作業，包括其目前是否正在執行。
+     如需詳細資訊，請參閱[自訂屬性對應](customize-application-attributes.md)。
 
-* **稽核記錄**可提供 Azure AD 佈建服務所執行的每項作業記錄。 如需詳細資訊，請參閱[佈建報告指南](check-status-user-account-provisioning.md)。
+   - **設定**控制佈建服務的應用程式，包括是否目前正在執行的作業。 **範圍**功能表可讓您指定是否只有已指派的使用者和群組應該佈建，範圍中，或應該佈建 Azure AD 目錄中的所有使用者。 有關「指派」使用者和群組的資訊，請參閱[在 Azure Active Directory 中將使用者或群組指派給企業應用程式](assign-user-or-group-access-portal.md)。
+
+在 [應用程式管理] 畫面中，選取**稽核記錄檔**若要檢視記錄的每個作業執行的 Azure AD 所佈建服務。 如需詳細資訊，請參閱[佈建報告指南](check-status-user-account-provisioning.md)。
 
 ![設定](./media/user-provisioning/audit_logs.PNG)
 
@@ -130,66 +133,66 @@ Azure AD 的特色是為各種熱門 SaaS 應用程式和人力資源系統提�
 
 ### <a name="initial-sync"></a>初始同步處理
 
-當佈建服務啟動時，所執行的第一個同步處理將會：
+佈建服務啟動時，將會執行第一個同步處理：
 
 1. 從來源系統查詢所有使用者和群組，其中會擷取[屬性對應](customize-application-attributes.md)中定義的所有屬性。
 2. 使用任何已設定的[指派](assign-user-or-group-access-portal.md)或[屬性型範圍設定篩選](define-conditional-rules-for-provisioning-user-accounts.md)來篩選所傳回的使用者和群組。
-3. 當發現已指派使用者來進行佈建或使用者在佈建範圍中時，服務會使用已指定的[比對屬性](customize-application-attributes.md#understanding-attribute-mapping-properties)來查詢目標系統中是否有相符的使用者。 範例：如果來源系統中的 userPrincipal 名稱是比對屬性並與目標系統中的 userName 對應，則佈建服務會查詢目標系統中是否有與來源系統中 userPrincipal 名稱值相符的 userName。
-4. 如果在目標系統中找不到相符的使用者，就會使用從來源系統傳回的屬性來建立該使用者。 使用者帳戶建立後，佈建服務會偵測並快取新使用者的目標系統識別碼，用來執行該使用者所有未來的作業。
-5. 如果找到相符的使用者，則會使用來源系統所提供的屬性來更新該使用者。 比對使用者帳戶後，佈建服務會偵測並快取新使用者的目標系統識別碼，用來執行該使用者所有未來的作業。
-6. 如果屬性對應包含「參考」屬性，服務就會在目標系統上執行額外的更新來建立和連結所參考的物件。 例如，使用者可能在目標系統中有 "Manager" 屬性，而此屬性連結至在目標系統中建立的另一個使用者。
-7. 在初始同步處理結束時保存浮水印，以為後續的增量同步處理提供起點。
+3. 當將使用者指派，或在佈建範圍內，服務會查詢對應的使用者，使用指定的目標系統[比對屬性](customize-application-attributes.md#understanding-attribute-mapping-properties)。 範例：如果來源系統中的 userPrincipal 名稱是比對屬性並與目標系統中的 userName 對應，則佈建服務會查詢目標系統中是否有與來源系統中 userPrincipal 名稱值相符的 userName。
+4. 如果在目標系統中找不到相符的使用者，它會建立使用從來源系統傳回的屬性。 建立使用者帳戶之後，佈建服務會偵測，並會快取新的使用者用來執行所有未來的作業，該使用者的目標系統的識別碼。
+5. 如果找到相符的使用者，就會更新使用與來源系統所提供的屬性。 比對的使用者帳戶之後，佈建服務會偵測，並會快取新的使用者用來執行所有未來的作業，該使用者的目標系統的識別碼。
+6. 如果屬性對應包含 「 參考 」 屬性，服務會在目標系統，才能建立並連結參考的物件上的其他更新。 例如，使用者可能在目標系統中有 "Manager" 屬性，而此屬性連結至在目標系統中建立的另一個使用者。
+7. 保存浮水印結尾的初始同步處理，如稍後增量同步處理提供起點。
 
-有些應用程式 (例如 ServiceNow、Google Apps 及 Box) 不僅支援佈建使用者，也支援佈建群組及其成員。 在這些情況下，如果已在[對應](customize-application-attributes.md)中啟用群組佈建，佈建服務就會同步處理使用者和群組，然後接著同步處理群組成員資格。 
+有些應用程式 (例如 ServiceNow、Google Apps 及 Box) 不僅支援佈建使用者，也支援佈建群組及其成員。 在這些情況下，如果已啟用群組佈建[對應](customize-application-attributes.md)、 佈建服務進行同步處理使用者和群組，並稍後同步的群組成員資格。 
 
 ### <a name="incremental-syncs"></a>增量同步處理
 
-進行初始同步處理之後，所有後續的同步處理將會：
+初始同步處理之後，所有其他同步處理將會：
 
 1. 查詢來源系統中是否有任何自上次儲存浮水印之後更新的使用者和群組。
 2. 使用任何已設定的[指派](assign-user-or-group-access-portal.md)或[屬性型範圍設定篩選](define-conditional-rules-for-provisioning-user-accounts.md)來篩選所傳回的使用者和群組。
-3. 當發現已指派使用者來進行佈建或使用者在佈建範圍中時，服務會使用已指定的[比對屬性](customize-application-attributes.md#understanding-attribute-mapping-properties)來查詢目標系統中是否有相符的使用者。
-4. 如果在目標系統中找不到相符的使用者，就會使用從來源系統傳回的屬性來建立該使用者。 使用者帳戶建立後，佈建服務會偵測並快取新使用者的目標系統識別碼，用來執行該使用者所有未來的作業。
-5. 如果找到相符的使用者，則會使用來源系統所提供的屬性來更新該使用者。 如果比對的是新指派的帳戶，佈建服務會偵測並快取新使用者的目標系統識別碼，用來執行該使用者所有未來的作業。
-6. 如果屬性對應包含「參考」屬性，服務就會在目標系統上執行額外的更新來建立和連結所參考的物件。 例如，使用者可能在目標系統中有 "Manager" 屬性，而此屬性連結至在目標系統中建立的另一個使用者。
+3. 當將使用者指派，或在佈建範圍內，服務會查詢對應的使用者，使用指定的目標系統[比對屬性](customize-application-attributes.md#understanding-attribute-mapping-properties)。
+4. 如果在目標系統中找不到相符的使用者，它會建立使用從來源系統傳回的屬性。 建立使用者帳戶之後，佈建服務會偵測，並會快取新的使用者用來執行所有未來的作業，該使用者的目標系統的識別碼。
+5. 如果找到相符的使用者，就會更新使用與來源系統所提供的屬性。 如果它是新指派的帳戶，會比對，佈建服務會偵測，並會快取新的使用者用來執行所有未來的作業，該使用者的目標系統的識別碼。
+6. 如果屬性對應包含 「 參考 」 屬性，服務會在目標系統，才能建立並連結參考的物件上的其他更新。 例如，使用者可能在目標系統中有 "Manager" 屬性，而此屬性連結至在目標系統中建立的另一個使用者。
 7. 如果將先前在佈建範圍中的使用者從範圍中移除 (包括解除指派)，則服務會透過更新，在目標系統中停用該使用者。
 8. 如果將先前在佈建範圍中的使用者停用或在來源系統中虛刪除，則服務會透過更新，在目標系統中停用該使用者。
-9. 如果將先前在佈建範圍中的使用者在來源系統中實刪除，則服務會在目標系統中刪除該使用者。 在 Azure AD 中，會在將使用者虛刪除 30 天之後將他們實刪除。
-10. 在增量同步處理結束時保存新的浮水印，以為後續的增量同步處理提供起點。
+9. 如果將先前在佈建範圍中的使用者在來源系統中實刪除，則服務會在目標系統中刪除該使用者。 在 Azure AD 中，使用者都是永久刪除 30 天之後已虛刪除。
+10. 保存新的浮水印，結尾的增量同步處理，如稍後增量同步處理提供起點。
 
 >[!NOTE]
-> 您可以使用 [屬性對應](customize-application-attributes.md) 區段中的 [目標物件動作] 核取方塊，視需要停用建立、更新或刪除作業。 在更新期間停用使用者的邏輯也是透過來自 "accountEnabled" 這類欄位的屬性對應來控制。
+> 您可以選擇性地停用**Create**，**更新**，或**刪除**透過作業**目標物件動作**中核取方塊[對應](customize-application-attributes.md)一節。 在更新期間停用使用者的邏輯也是透過來自 "accountEnabled" 這類欄位的屬性對應來控制。
 
-佈建服務將會依據[每個應用程式特定的教學課程](../saas-apps/tutorial-list.md)中所定義的間隔，繼續無限期執行背對背增量同步處理，直到發生下列其中一個事件為止：
+佈建服務會繼續無限期執行背對背增量同步處理，在中所定義的時間間隔[特定的每個應用程式教學課程](../saas-apps/tutorial-list.md)，直到發生以下事件之一為止：
 
-* 使用 Azure 入口網站或使用適當的「圖形 API」來手動停止服務 
-* 使用 Azure 入口網站中的 [清除狀態並重新啟動] 選項，或使用適當的「圖形 API」命令來觸發新的初始同步處理。 這會清除所有已儲存的浮水印，並導致重新評估所有來源物件。
-* 因為屬性對應或範圍設定篩選發生變更，而觸發新的初始同步處理。 這也會清除所有已儲存的浮水印，並導致重新評估所有來源物件。
-* 佈建程序因為高錯誤率而進入隔離狀態 (參見下方)，並處於隔離狀態超過四週。 在此事件中，將會自動停用服務。
+- 使用 Azure 入口網站或使用適當的「圖形 API」來手動停止服務 
+- 使用 Azure 入口網站中的 [清除狀態並重新啟動] 選項，或使用適當的「圖形 API」命令來觸發新的初始同步處理。 此動作會清除任何儲存的浮水印，並導致重新評估所有來源物件。
+- 因為屬性對應或範圍篩選器的變更，就會觸發新的初始同步處理。 此動作也會清除任何儲存的浮水印，並導致重新評估所有來源物件。
+- 佈建程序因為高錯誤率而進入隔離 （如下所示），並處於隔離狀態超過四週。 在此事件中，將會自動停用服務。
 
 ### <a name="errors-and-retries"></a>錯誤和重試
 
-如果因為目標系統發生錯誤而無法在目標系統中新增、更新或刪除個別使用者，則會在下一個同步處理週期中重試作業。 如果使用者持續發生失敗，則會開始降低重試頻率，逐漸調整回每天僅嘗試一次。 若要解決失敗情況，系統管理員將必須檢查[稽核記錄檔](check-status-user-account-provisioning.md)中是否有「程序委付」事件，以判斷根本原因和採取適當的動作。 常見的錯誤可能包括：
+如果無法加入、 更新或刪除目標系統中因錯誤而在目標系統中個別使用者，在下一個同步週期中重試作業。 如果使用者持續發生失敗，則會開始降低重試頻率，逐漸調整回每天僅嘗試一次。 若要解決此失敗，系統管理員必須檢查[稽核記錄檔](check-status-user-account-provisioning.md)的 「 處理序委付 」 事件，以判斷根本原因和採取適當的動作。 常見的錯誤可能包括：
 
-* 來源系統中未填入目標系統中所需的使用者屬性
-* 使用者在來源系統中有一個在目標系統中有唯一條件約束的屬性值，而相同值存在於另一個使用者記錄中
+- 來源系統中未填入目標系統中所需的使用者屬性
+- 使用者擁有它沒有 unique 條件約束在目標系統中，來源系統中的屬性值和相同的值會出現在另一個使用者記錄
 
 藉由調整來源系統中受影響使用者的屬性值，或將屬性對應調整成不會造成衝突，即可解決這些失敗。   
 
 ### <a name="quarantine"></a>隔離
 
-如果對目標系統進行的大多數或所有呼叫因為某個錯誤而一直發生失敗 (例如因為管理員認證無效)，佈建作業就會進入「隔離」狀態。 在[佈建摘要報告](check-status-user-account-provisioning.md)中會指出此狀態，或如果已在 Azure 入口網站中設定電子郵件通知，則會透過電子郵件指出。 
+如果大部分或所有以一致的方式對目標系統進行的呼叫失敗，因為發生錯誤 （例如無效的系統管理員認證），佈建作業就會進入 「 隔離 」 狀態。 此狀態會表示在[佈建摘要報告](check-status-user-account-provisioning.md)和透過 Azure 入口網站中已設定電子郵件通知的電子郵件。 
 
 處於隔離狀態時，增量同步處理的頻率會逐漸降低成一天一次。 
 
-在修正所有違規錯誤之後，便會移除佈建作業的隔離狀態，並開始下一個資料同步週期。 如果佈建作業處於隔離狀態超過四週，系統就會將它停用。
+之後所有的違規的錯誤修正和下一個同步週期開始，就會從隔離區移除佈建作業。 如果佈建作業處於隔離狀態超過四週，系統就會將它停用。
 
 
 ## <a name="how-long-will-it-take-to-provision-users"></a>佈建使用者需要多久時間？
 
-視佈建作業執行的是初始同步處理還是增量同步處理而定，效能將會有所不同，如上一節所述。
+效能取決於您的佈建作業是否正在執行初始同步處理 」 或 「 增量同步處理。
 
-**初始同步處理**的作業時間取決於各種因素，包括佈建範圍中的使用者和群組數目，以及來源系統中的使用者和群組總數。 本節稍後將完整列出會影響初始同步處理效能的因素摘要。
+針對**初始同步處理**，作業時間取決於許多因素，包括佈建，範圍中的使用者和群組的數目和執行的使用者和來源系統中的群組總數。 本節稍後將完整列出會影響初始同步處理效能的因素摘要。
 
 **增量同步處理**的作業時間取決於在該同步處理週期偵測到的變更數量。 如果少於 5,000 個使用者或群組成員發生變更，則作業可以在單一增量同步處理週期內完成。 
 
@@ -215,24 +218,24 @@ Azure AD 的特色是為各種熱門 SaaS 應用程式和人力資源系統提�
     
 影響**初始同步處理**完成時間的因素摘要：
 
-* 佈建範圍中的使用者和群組總數。
+- 佈建範圍中的使用者和群組總數。
 
-* 來源系統 (Azure AD) 中存在的使用者、群組和群組成員總數。
+- 來源系統 (Azure AD) 中存在的使用者、群組和群組成員總數。
 
-* 佈建範圍內的使用者是否對應到目標應用程式中的現有使用者，或是必須在初次同步時加已建立。 比起所有使用者皆對應到現有使用者的同步作業，需建立所有使用者的初次同步作業約需要「雙倍」時間。
+- 無論使用者佈建範圍中的就會對應到目標應用程式中的現有使用者，或必須建立第一次。 為其第一次建立所有使用者的同步處理作業需要約*兩次只要*做為同步處理的作業的所有使用者都會都對應到現有的使用者。
 
-* [稽核記錄](check-status-user-account-provisioning.md)中的錯誤數目。 如果有許多錯誤且佈建服務已進入隔離狀態，效能就會變差。    
+- [稽核記錄](check-status-user-account-provisioning.md)中的錯誤數目。 如果有許多錯誤且佈建服務已進入隔離狀態，效能就會變差。    
 
-* 目標系統實作的要求速率限制和節流設定。 某些目標系統會實作要求速率限制和節流設定，這可能會影響大型同步作業的效能。 在這樣的情況下，太快收到太多要求的應用程式，可能會因此降低其回應速率或關閉連線。 若要改善效能，連接器必須進行調整，傳送應用程式要求的速度不可比應用程式處理這些要求的速度快。 由 Microsoft 所建置的佈建連接器會進行這項調整。 
+- 目標系統實作的要求速率限制和節流設定。 有些目標系統會實作要求率限制和節流，這可能會影響在大型的同步處理作業期間的效能。 在這樣的情況下，太快收到太多要求的應用程式，可能會因此降低其回應速率或關閉連線。 若要改善效能，連接器必須進行調整，傳送應用程式要求的速度不可比應用程式處理這些要求的速度快。 由 Microsoft 所建置的佈建連接器會進行這項調整。 
 
-* 指派群組的數目和大小。 同步指派群組所花的時間可能比同步使用者的時間長。 指派群組的數目和大小會影響效能。 如果應用程式[啟用群組物件同步處理的對應](customize-application-attributes.md#editing-group-attribute-mappings)，則除了使用者外，群組屬性 (例如群組名稱和成員資格) 也會一起同步。 比起只同步使用者物件，這些額外的同步處理將會花費更長時間。
+- 指派群組的數目和大小。 同步指派群組所花的時間可能比同步使用者的時間長。 指派群組的數目和大小會影響效能。 如果應用程式[啟用群組物件同步處理的對應](customize-application-attributes.md#editing-group-attribute-mappings)，則除了使用者外，群組屬性 (例如群組名稱和成員資格) 也會一起同步。 比起只同步使用者物件，這些額外的同步處理將會花費更長時間。
 
 
 ## <a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>如何判斷是否已正確佈建使用者？
 
-使用者佈建服務所執行的所有作業都會記錄於 Azure AD 稽核記錄中。 這會包含對來源和目標系統所做的所有讀取和寫入作業，以及每次作業期間所讀取或寫入的使用者資料。
+使用者佈建服務所執行的所有作業都會都記錄在 Azure AD 稽核記錄檔。 這包括所有讀取和寫入作業對來源和目標系統，以及上次讀取或寫入每個作業期間的使用者資料。
 
-如需如何在 Azure 入口網站上讀取稽核記錄的相關資訊，請參閱[佈建報告指南](check-status-user-account-provisioning.md)。
+如需如何讀取 Azure 入口網站中的稽核記錄的詳細資訊，請參閱[佈建報告指南](check-status-user-account-provisioning.md)。
 
 
 ## <a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>如何針對使用者佈建的問題進行疑難排解？
@@ -250,33 +253,33 @@ Azure AD 的特色是為各種熱門 SaaS 應用程式和人力資源系統提�
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-b2b-users-in-azure-ad"></a>對 SaaS 應用程式的自動使用者佈建是否適用於 Azure AD 中的 B2B 使用者？
 
-是，您可以使用 Azure AD 使用者佈建服務，將 Azure AD 中的 B2B (或來賓) 使用者佈建到 SaaS 應用程式。
+是的就可以使用 Azure AD 使用者佈建服務，以佈建 B2B （或來賓） 使用者在 SaaS 應用程式的 Azure AD 中。
 
-不過，若要讓 B2B 使用者能夠使用 Azure AD 登入 SaaS 應用程式，SaaS 應用程式必須以特定方式設定其 SAML 型單一登入功能。 若想進一步了解如何設定 SaaS 應用程式以支援 B2B 使用者的登入，請參閱[設定適用於 B2B 共同作業的 SaaS 應用程式]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps)。
+不過，針對 B2B 使用者來登入使用 Azure AD 的 SaaS 應用程式，SaaS 應用程式必須具有其 SAML 型單一登入功能，以特定方式設定。 如需如何設定支援的 SaaS 應用程式的詳細資訊，請從 B2B 使用者登入，請參閱 < [B2B 共同作業設定 SaaS 應用程式]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps)。
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>對 SaaS 應用程式的自動使用者佈建是否適用於 Azure AD 中的動態群組？
 
-是。 設定為 [只同步已指派的使用者與群組] 時，Azure AD 使用者佈建服務可根據使用者是否為[動態群組](../users-groups-roles/groups-create-rule.md)的成員來佈建或取消佈建 SaaS 應用程式中的使用者。 動態群組也適用於 [同步所有使用者與群組] 選項。
+是。 Azure AD 使用者佈建服務設定為 [僅指派的同步處理使用者和群組] 時，可以佈建或取消佈建 SaaS 應用程式中的使用者根據它們的成員是否[動態群組](../users-groups-roles/groups-create-rule.md)。 動態群組也適用於 [同步所有使用者與群組] 選項。
 
-不過，使用動態群組可能會影響到從 Azure AD 到 SaaS 應用程式進行端對端使用者佈建的整體效能。 使用動態群組時，請記住下列注意事項和建議：
+不過，使用動態群組可能會影響到從 Azure AD 到 SaaS 應用程式進行端對端使用者佈建的整體效能。 當使用動態群組，請記住下列注意事項和建議：
 
-* 在 SaaS 應用程式中佈建或取消佈建動態群組使用者的速度，取決於動態群組評估成員資格變更的速度。 如需如何檢查動態群組處理狀態的相關資訊，請參閱[檢查成員資格規則的處理狀態](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule)。
+- 在 SaaS 應用程式中佈建或取消佈建動態群組使用者的速度，取決於動態群組評估成員資格變更的速度。 如需如何檢查動態群組處理狀態的相關資訊，請參閱[檢查成員資格規則的處理狀態](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule)。
 
-* 使用動態群組時，必須仔細考量使用者佈建和取消佈建的規則，因為失去成員資格將會導致取消佈建事件。
+- 當使用動態群組時，規則必須仔細考量與使用者佈建和取消佈建納入考量，在取消佈建的事件中的成員資格結果遺失。
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>對 SaaS 應用程式的自動使用者佈建是否適用於 Azure AD 中的巢狀群組？
 
-沒有。 設定為 [只同步已指派的使用者與群組] 時，Azure AD 使用者佈建服務無法讀取或佈建位於巢狀群組中的使用者。 此服務只能讀取和佈建在明確指派的群組中屬於直接成員的使用者。
+沒有。 當設定為 [僅指派的同步處理使用者和群組]，就有一個 Azure AD 使用者佈建服務無法讀取或巢狀群組中的使用者佈建。 您才可以讀取和立即明確指派的群組成員的使用者佈建。
 
 這是「應用程式的群組型指派」所受到的限制，對單一登入也會產生影響，相關說明請見[使用群組管理 SaaS 應用程式的存取權](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps )。
 
-其因應措施是，明確地指派所含的使用者需要佈建的群組 (或[設定範圍](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts))。
+因應措施，您應該明確地指派 (或其他[範圍中](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) 包含要佈建需要的使用者群組。
 
 ## <a name="related-articles"></a>相關文章
 
-* [如何整合 SaaS 應用程式的教學課程清單](../saas-apps/tutorial-list.md)
-* [自訂使用者佈建的屬性對應](customize-application-attributes.md)
-* [撰寫屬性對應的運算式](functions-for-customizing-application-data.md)
-* [適用於使用者佈建的範圍篩選器](define-conditional-rules-for-provisioning-user-accounts.md)
-* [使用 SCIM 以啟用從 Azure Active Directory 到應用程式的使用者和群組自動佈建](use-scim-to-provision-users-and-groups.md)
-* [Azure AD 同步處理 API 概觀](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+- [如何整合 SaaS 應用程式的教學課程清單](../saas-apps/tutorial-list.md)
+- [自訂使用者佈建屬性的對應](customize-application-attributes.md)
+- [撰寫屬性對應的運算式](functions-for-customizing-application-data.md)
+- [範圍篩選器來佈建使用者](define-conditional-rules-for-provisioning-user-accounts.md)
+- [使用 SCIM 以啟用從 Azure Active Directory 到應用程式的使用者和群組自動佈建](use-scim-to-provision-users-and-groups.md)
+- [Azure AD 同步處理 API 概觀](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)

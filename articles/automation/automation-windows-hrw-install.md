@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d0a32f45326eb307bc31d10f4efb842d811a38c3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7c6d8fbe54d89fc587c8841b8983d7fdcba29b7d
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842492"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916456"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>部署 Windows 混合式 Runbook 背景工作角色
 
@@ -134,9 +134,9 @@ Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
 
 Runbook 可以使用「Azure 自動化」環境內所安裝模組中定義的任何活動和 Cmdlet。 這些模組不會自動部署到內部部署電腦，因此您必須手動安裝它們。 但 Azure 模組例外，此模組是預設安裝的模組，可讓您存取「Azure 自動化」之所有 Azure 服務和活動的 Cmdlet。
 
-由於「混合式 Runbook 背景工作角色」功能的主要目的是要管理本機資源，因此您很可能必須安裝支援這些資源的模組。 如需有關安裝 Windows PowerShell 模組的詳細資訊，請參閱[安裝模組](https://msdn.microsoft.com/library/dd878350.aspx)。 
+由於「混合式 Runbook 背景工作角色」功能的主要目的是要管理本機資源，因此您很可能必須安裝支援這些資源的模組。 如需有關安裝 Windows PowerShell 模組的詳細資訊，請參閱[安裝模組](/powershell/developer/windows-powershell)。 
 
-安裝的模組必須位於 **PSModulePath** 環境變數所參考的位置中，如此混合式背景工作角色才能自動匯入它們。 如需詳細資訊，請參閱[修改 PSModulePath 安裝路徑](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx)。
+安裝的模組必須位於 **PSModulePath** 環境變數所參考的位置中，如此混合式背景工作角色才能自動匯入它們。 如需詳細資訊，請參閱[修改 PSModulePath 安裝路徑](/powershell/developer/windows-powershell)。
 
 ## <a name="next-steps"></a>後續步驟
 

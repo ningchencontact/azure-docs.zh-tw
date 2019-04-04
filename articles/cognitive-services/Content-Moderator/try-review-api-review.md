@@ -1,68 +1,195 @@
 ---
-title: 透過 API 主控台使用人力審查來審核內容 - Content Moderator
+title: 使用 REST API 主控台-Content Moderator 建立仲裁評論
 titlesuffix: Azure Cognitive Services
-description: 使用審查 API 的審查作業，建立影像或文字審查以便進行人工審核。
+description: 您可以使用 Azure 內容仲裁者檢閱 Api 來建立映像或文字的評論，讓您以人工審核。
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: conceptual
-ms.date: 01/10/2019
+ms.topic: article
+ms.date: 03/18/2019
 ms.author: sajagtap
-ms.openlocfilehash: 2e40165bde7f3ce2eabd91b55c5bbc8139282b60
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 254269ccedc92b9dfc164cc4665a8a8513682773
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101460"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882002"
 ---
-# <a name="create-reviews-from-the-api-console"></a>從 API 主控台建立審查
+# <a name="create-human-reviews-rest"></a>建立人工審核 (REST)
 
-使用審查 API 的[審查作業](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)，建立影像或文字審核以便進行人力審核。 人力審核者會使用審查工具來審查內容。 根據您的審核後商務邏輯，使用這項作業。 請在您使用任何 Content Moderator 影像或文字 API，或其他認知服務 API 掃描您的內容之後，使用這項作業。 
+[檢閱](./review-api.md#reviews)儲存及顯示人力仲裁者，以評估的內容。 當使用者完成檢閱時，結果會傳送至指定的回呼端點。 本指南中，您將了解如何設定使用檢閱 REST Api 透過 API 主控台評論。 一旦您了解 Api 的結構，您可以輕鬆地移植這些呼叫任何 REST 相容平台。
 
-在人力審核者審查自動指派的標記和預測資料並提交最終審核決策之後，審查 API 會將所有資訊提交至您的 API 端點。
+## <a name="prerequisites"></a>必要條件
 
-## <a name="use-the-api-console"></a>使用 API 主控台
-若要使用線上主控台來試用此 API，您需要在主控台中輸入幾個值：
+- 登入或建立帳戶，在內容仲裁[審核工具](https://contentmoderator.cognitive.microsoft.com/)站台。
 
-- **teamName**：您在設定審查工具帳戶時所建立的小組名稱。 
-- **ContentId**：這個字串會傳遞至 API 並透過回呼傳回。 ContentId 適合用於建立內部識別項或中繼資料與審核作業結果的關聯。
-- **中繼資料**：在回呼期間傳回至 API 端點的自訂金鑰-值組。 如果金鑰是審查工具中定義的簡短代碼，則會顯示為標記。
-- **Ocp-Apim-Subscription-Key**：位於 [設定] 索引標籤。如需詳細資訊，請參閱[概觀](overview.md)。
+## <a name="create-a-review"></a>建立檢閱
 
-存取測試主控台的最簡單方式就是經由 [認證] 視窗。
+若要建立的檢閱，請前往**[檢閱-建立](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)** API 參考頁面，然後選取您的主要區域 按鈕 (您可以在端點 URL 上找到**認證**頁面[審核工具](https://contentmoderator.cognitive.microsoft.com/))。 這會啟動 API 主控台中，您可以輕鬆地建構並執行 REST API 呼叫。
 
-1. 在 [認證] 視窗中，選取[審查 API 參考](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4)。
+![檢閱-Get 地區選取項目](images/test-drive-region.png)
 
-   [審查 - 建立] 頁面隨即開啟。
+### <a name="enter-rest-call-parameters"></a>輸入 REST 呼叫的參數
 
-2. 針對 [開啟 API 測試主控台] 中，選取最能描述您位置的區域。
+輸入的值**teamName**，並**Ocp Apim-訂用帳戶金鑰**:
 
-   ![[審查 - 建立] 頁面區域選取項目](images/test-drive-region.png)
+- **teamName**：當您設定時，您建立 「 小組識別碼您[審核工具](https://contentmoderator.cognitive.microsoft.com/)帳戶 (位於**識別碼**檢閱工具的 [認證] 畫面上的欄位)。
+- **Ocp-Apim-Subscription-Key**：您的內容仲裁者金鑰。 您可以找到這**設定**索引標籤[審核工具](https://contentmoderator.cognitive.microsoft.com)。
 
-   [審查 - 建立] API 主控台隨即開啟。
+### <a name="enter-a-review-definition"></a>輸入檢閱定義
+
+編輯**要求本文** 方塊中輸入 JSON 要求具有下列欄位：
+
+- **中繼資料**：要傳回給您的回呼端點的自訂索引鍵 / 值組。 如果索引鍵是簡短的程式碼中定義[審核工具](https://contentmoderator.cognitive.microsoft.com)，它會顯示為標記。
+- **內容**:在映像和視訊內容的情況下，這是指向內容的 URL 字串。 如需文字內容，這是實際的文字字串。
+- **ContentId**：自訂識別項字串。 這個字串會傳遞至 API 並透過回呼傳回。 它可用於與仲裁作業的結果產生關聯的內部識別項或中繼資料。
+- **CallbackEndpoint**:（選擇性）若要檢閱完成時接收回呼資訊 URL。
+
+預設要求主體會顯示的檢閱您可以建立不同類型的範例：
+
+```json
+[Image]
+[
+  {
+    "Metadata": [
+      {
+        "Key": "string",
+        "Value": "string"
+      }
+    ],
+    "Type": "Image",
+    "Content": "<Content Url>",
+    "ContentId": "<Your identifier for this content>",
+    "CallbackEndpoint": "<Url where you would receive callbacks>"
+  }
+]
+[Text]
+[
+  {
+    "Metadata": [
+      {
+        "Key": "string",
+        "Value": "string"
+      }
+    ],
+    "Type": "Text",
+    "Content": "<Your Text Content>",
+    "ContentId": "<Your identifier for this content>",
+    "CallbackEndpoint": "<Url where you would receive callbacks>"
+  }
+]
+[Video]
+[
+  {
+    "VideoFrames":[
+      {
+          "Id": "<Frame Id>",
+          "Timestamp": "<Frame Timestamp",
+          "FrameImage":"<Frame Image URL",
+          "Metadata": [
+            {
+              "Key": "<Key>",
+              "Value": "<Value"
+            }
+          ],
+          "ReviewerResultTags": [
+          ]
+    ], 
+    "Metadata": [
+      {
+        "Key": "string",
+        "Value": "string"
+      },
+      //For encrypted Videos
+        {
+          "Key": "protectedType",
+          "Value": "AES or FairPlay or Widevine or Playready"
+        },
+        {
+          "Key": "authenticationToken",
+          "Value": "your viewtoken(In case of Video Indexer AES encryption type, this value is viewtoken from breakdown json)"
+        },
+      //For FairPlay encrypted type video include certificateUrl as well
+        {
+          "Key": "certificateUrl",
+          "Value": "your certificate url"
+        }
+    ],
+    "Type": "Video",
+    "Content": "<Stream Url>",
+    "ContentId": "<Your identifier for this content>",
+    "CallbackEndpoint": "<Url where you would receive callbacks>",
+    [Optional]
+    "Timescale": "<Timescale of the video>
+  }
+]
+```
+
+### <a name="submit-your-request"></a>提交您的要求
   
-3. 針對必要的查詢參數、內容類型和您的訂用帳戶金鑰，輸入一些值。 在 [要求本文] 方塊中，指定內容 (例如，影像位置)、中繼資料及其他與內容相關聯的資訊。
+選取 [傳送]。 如果作業成功，**回應狀態**是`200 OK`，而**回應內容**方塊會顯示此檢閱的識別碼。 複製此識別碼以在下列步驟中使用。
 
-   ![[檢閱 - 建立] 主控台查詢參數、標頭和要求本文方塊](images/test-drive-review-1.PNG)
+![[審查 - 建立] 主控台的 [回應內容] 方塊會顯示審查識別碼](images/test-drive-review-2.PNG)
+
+### <a name="examine-the-new-review"></a>檢查新的檢閱
+
+在 [審核工具](https://contentmoderator.cognitive.microsoft.com)，選取**檢閱** > **映像**/**文字**/ **影片**（視內容而定您使用）。 您上傳的內容應該會出現，供人工審核。
+
+![足球的審查工具影像](images/test-drive-review-5.PNG)
+
+## <a name="get-review-details"></a>取得檢閱詳細資料
+
+若要擷取現有的檢閱相關的詳細資訊，請前往[檢閱-取得](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c2)API 參考頁面，然後選取您的區域 按鈕 （取決於您的金鑰所在的區域）。
+
+![[工作流程 - 取得] 的區域選取項目](images/test-drive-region.png)
+
+輸入上述節所述的 REST 呼叫參數。 此步驟中，如**reviewId**是建立檢閱時所收到的唯一 ID 字串。
+
+![審查 - 建立主控台的取得結果](images/test-drive-review-3.PNG)
   
-4. 選取 [傳送]。 隨即建立審查識別碼。 複製此識別碼以在下列步驟中使用。
+選取 [傳送]。 如果作業成功，**回應狀態**是`200 OK`，而**回應內容** 方塊中檢閱詳細資料以 JSON 格式顯示，如下所示：
 
-   ![[審查 - 建立] 主控台的 [回應內容] 方塊會顯示審查識別碼](images/test-drive-review-2.PNG)
-  
-5. 選取 [取得]，然後藉由選取符合您區域的按鈕來開啟 API。 在結果頁面上，輸入 [teamName]、[ReviewID] 和 [訂閱金鑰] 的值。 選取頁面上的 [傳送] 按鈕。 
+```json
+{  
+  "reviewId":"201712i46950138c61a4740b118a43cac33f434",
+  "subTeam":"public",
+  "status":"Complete",
+  "reviewerResultTags":[  
+    {  
+      "key":"a",
+      "value":"False"
+    },
+    {  
+      "key":"r",
+      "value":"True"
+    },
+    {  
+      "key":"sc",
+      "value":"True"
+    }
+  ],
+  "createdBy":"<teamname>",
+  "metadata":[  
+    {  
+      "key":"sc",
+      "value":"true"
+    }
+  ],
+  "type":"Image",
+  "content":"https://reviewcontentprod.blob.core.windows.net/<teamname>/IMG_201712i46950138c61a4740b118a43cac33f434",
+  "contentId":"0",
+  "callbackEndpoint":"<callbackUrl>"
+}
+```
 
-   ![審查 - 建立主控台的取得結果](images/test-drive-review-3.PNG)
-  
-6. 您將會看到掃描的結果。
+記下回應中的下列欄位：
 
-   ![[審查 - 建立] 主控台的 [回應內容] 方塊](images/test-drive-review-4.PNG)
-  
-7. 在 Content Moderator 儀表板上，選取 [審查] > [影像]。 您已掃描的影像隨即出現，準備進行人力審查。
-
-   ![足球的審查工具影像](images/test-drive-review-5.PNG)
+- **status**
+- **reviewerResultTags**:任何標記已手動新增人工審核小組同時出現 (顯示**createdBy**欄位)。
+- **中繼資料**：這會顯示一開始中檢閱，人工審核小組所做變更之前新增的標記。
 
 ## <a name="next-steps"></a>後續步驟
 
-在您的程式碼中使用 REST API，或從[審查 .NET 快速入門](moderation-reviews-quickstart-dotnet.md)開始著手，以便與您的應用程式進行整合。
+在本指南中，您已了解如何建立使用 REST API 的內容仲裁評論。 接下來，整合評論的端對端審核案例，例如[電子商務仲裁](./ecommerce-retail-catalog-moderation.md)教學課程。

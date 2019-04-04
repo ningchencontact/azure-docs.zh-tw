@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 3d9c2a694562977c2a012d9faa9c282c6b8fff9d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 76f8fed8d185598d62eef5a412fda2c3fd1317bd
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099826"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893974"
 ---
 # <a name="data-extraction-from-intents-and-entities"></a>從意圖和實體擷取資料
 LUIS 可讓您從使用者的自然語言語句取得資訊。 此資訊的擷取方式使得它可供程式、應用程式或 Chatbot 用來執行動作。 在下列各節中，您將透過 JSON 範例，了解從意圖和實體會傳回哪些資料。
@@ -432,13 +432,13 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 [PersonName](luis-reference-prebuilt-person.md) 和 [GeographyV2](luis-reference-prebuilt-geographyV2.md) 實體可在某些[語言文化特性](luis-reference-prebuilt-entities.md)中使用。 
 
 ### <a name="names-of-people"></a>人名
-人名可依據語言和文化特性而有些微的格式。 請使用以名字和姓氏作為子系的階層式實體，或使用含有名字和姓氏角色的簡單實體。 請務必提供在語句的不同部分、在不同長度的語句中及在所有意圖 (包括 None 意圖) 的語句中使用名字和姓氏的範例。 請定期[檢閱](luis-how-to-review-endoint-utt.md)端點語句，以標記任何未正確預測的名稱。
+人名可依據語言和文化特性而有些微的格式。 請使用以名字和姓氏作為子系的階層式實體，或使用含有名字和姓氏角色的簡單實體。 請務必提供在語句的不同部分、在不同長度的語句中及在所有意圖 (包括 None 意圖) 的語句中使用名字和姓氏的範例。 請定期[檢閱](luis-how-to-review-endpoint-utterances.md)端點語句，以標記任何未正確預測的名稱。
 
 ### <a name="names-of-places"></a>地名
-地名是已設定且已知的名稱，例如城市、郡縣、州、省及國家/地區。 如果您的應用程式使用一組已知的地點，請考慮使用清單實體。 如果您需要尋找所有地名，請建立一個簡單實體，然後提供各種範例。 請新增一個地名片語清單來強調地名在您應用程式中看起來的樣子。 請定期[檢閱](luis-how-to-review-endoint-utt.md)端點語句，以標記任何未正確預測的名稱。
+地名是已設定且已知的名稱，例如城市、郡縣、州、省及國家/地區。 如果您的應用程式使用一組已知的地點，請考慮使用清單實體。 如果您需要尋找所有地名，請建立一個簡單實體，然後提供各種範例。 請新增一個地名片語清單來強調地名在您應用程式中看起來的樣子。 請定期[檢閱](luis-how-to-review-endpoint-utterances.md)端點語句，以標記任何未正確預測的名稱。
 
 ### <a name="new-and-emerging-names"></a>全新和新興的名稱
-有些應用程式需要能夠尋找全新和新興的名稱，例如產品或公司。 這些名稱類型是難度最高的資料擷取類型。 請從簡單實體開始著手，並新增一個片語清單。 請定期[檢閱](luis-how-to-review-endoint-utt.md)端點語句，以標記任何未正確預測的名稱。
+有些應用程式需要能夠尋找全新和新興的名稱，例如產品或公司。 這些名稱類型是難度最高的資料擷取類型。 請從簡單實體開始著手，並新增一個片語清單。 請定期[檢閱](luis-how-to-review-endpoint-utterances.md)端點語句，以標記任何未正確預測的名稱。
 
 ## <a name="pattern-roles-data"></a>模式角色資料
 角色是實體的內容相關差異。

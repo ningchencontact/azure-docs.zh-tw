@@ -7,15 +7,15 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: conceptual
-ms.date: 01/10/2019
+ms.topic: article
+ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 2e33f94486fe295fffa1f0b4bbd298b15d9271f4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 56cd608d337d817b849a0902569e9aeddeca80ab
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58113728"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758582"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>使用 .NET 來建立影片文字記錄審核項目
 
@@ -27,23 +27,14 @@ ms.locfileid: "58113728"
 
 ## <a name="prerequisites"></a>必要條件
 
-本文假設您已[仲裁影片](video-moderation-api.md)，並已在審核工具中[建立影片審核項目](video-reviews-quickstart-dotnet.md)以供進行人工決策。 您現在想要在審核工具中新增仲裁過的影片文字記錄。
-
-本文同時也假設您已經熟悉 Visual Studio 和 C#。
-
-## <a name="sign-up-for-content-moderator"></a>註冊 Content Moderator
-
-您必須有訂用帳戶金鑰，才能透過 REST API 或 SDK 使用 Content Moderator 服務。 請依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱 Content Moderator 並取得金鑰。
-
-## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>如果未在上一個步驟中完成審核工具帳戶的註冊，請於此時註冊
-
-如果您是從 Azure 入口網站取得 Content Moderator，也請[註冊審核工具帳戶](https://contentmoderator.cognitive.microsoft.com/)，並建立審核小組。 您需要小組識別碼和審核工具才能呼叫審核 API，以在審核工具中啟動作業及檢視審核項目。
+- 登入或建立帳戶，在內容仲裁[審核工具](https://contentmoderator.cognitive.microsoft.com/)站台，如果您已經還沒有這麼做。
+- 本文假設您已[仲裁影片](video-moderation-api.md)，並已在審核工具中[建立影片審核項目](video-reviews-quickstart-dotnet.md)以供進行人工決策。 您現在想要在審核工具中新增仲裁過的影片文字記錄。
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-job-creation"></a>請確定您的 API 金鑰可呼叫審核 API (作業建立)
 
-完成前述步驟後，如果您是從 Azure 入口網站開始作業的，您可能會獲得兩個 Content Moderator 金鑰。 
+完成前述步驟後，如果您是從 Azure 入口網站開始作業的，您可能會獲得兩個 Content Moderator 金鑰。
 
-如果您打算在 SDK 範例中使用 Azure 提供的 API 金鑰，請依照[搭配使用 Azure 金鑰與審核 API](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) 一節中說明的步驟操作，以允許應用程式呼叫審核 API 並建立審核項目。
+如果您打算在 SDK 範例中使用 Azure 提供的 API 金鑰，請依照[搭配使用 Azure 金鑰與審核 API](./review-tool-user-guide/configure.md#use-your-azure-account-with-the-review-apis) 一節中說明的步驟操作，以允許應用程式呼叫審核 API 並建立審核項目。
 
 如果您使用審核工具所產生的免費試用版金鑰，則您的審核工具帳戶已知悉金鑰，因此不需執行額外的步驟。
 
@@ -76,15 +67,17 @@ ms.locfileid: "58113728"
 
 修改程式的 using 陳述式，如下所示。
 
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Threading;
-    using Microsoft.Azure.CognitiveServices.ContentModerator;
-    using Microsoft.CognitiveServices.ContentModerator;
-    using Microsoft.CognitiveServices.ContentModerator.Models;
-    using Newtonsoft.Json;
 
+```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading;
+using Microsoft.Azure.CognitiveServices.ContentModerator;
+using Microsoft.CognitiveServices.ContentModerator;
+using Microsoft.CognitiveServices.ContentModerator.Models;
+using Newtonsoft.Json;
+```
 
 ### <a name="add-private-properties"></a>新增私有屬性
 
@@ -92,65 +85,67 @@ ms.locfileid: "58113728"
 
 依指示取代這些屬性的範例值。
 
-
-    namespace VideoReviews
+```csharp
+namespace VideoReviews
+{
+    class Program
     {
-        class Program
-        {
-            // NOTE: Replace this example location with the location for your Content Moderator account.
-            /// <summary>
-            /// The region/location for your Content Moderator account, 
-            /// for example, westus.
-            /// </summary>
-            private static readonly string AzureRegion = "YOUR CONTENT MODERATOR REGION";
+        // NOTE: Replace this example location with the location for your Content Moderator account.
+        /// <summary>
+        /// The region/location for your Content Moderator account, 
+        /// for example, westus.
+        /// </summary>
+        private static readonly string AzureRegion = "YOUR CONTENT MODERATOR REGION";
 
-            // NOTE: Replace this example key with a valid subscription key.
-            /// <summary>
-            /// Your Content Moderator subscription key.
-            /// </summary>
-            private static readonly string CMSubscriptionKey = "YOUR CONTENT MODERATOR KEY";
+        // NOTE: Replace this example key with a valid subscription key.
+        /// <summary>
+        /// Your Content Moderator subscription key.
+        /// </summary>
+        private static readonly string CMSubscriptionKey = "YOUR CONTENT MODERATOR KEY";
 
-            // NOTE: Replace this example team name with your Content Moderator team name.
-            /// <summary>
-            /// The name of the team to assign the job to.
-            /// </summary>
-            /// <remarks>This must be the team name you used to create your 
-            /// Content Moderator account. You can retrieve your team name from
-            /// the Content Moderator web site. Your team name is the Id associated 
-            /// with your subscription.</remarks>
-            private const string TeamName = "YOUR CONTENT MODERATOR TEAM ID";
+        // NOTE: Replace this example team name with your Content Moderator team name.
+        /// <summary>
+        /// The name of the team to assign the job to.
+        /// </summary>
+        /// <remarks>This must be the team name you used to create your 
+        /// Content Moderator account. You can retrieve your team name from
+        /// the Content Moderator web site. Your team name is the Id associated 
+        /// with your subscription.</remarks>
+        private const string TeamName = "YOUR CONTENT MODERATOR TEAM ID";
 
-            /// <summary>
-            /// The base URL fragment for Content Moderator calls.
-            /// </summary>
-            private static readonly string AzureBaseURL =
-                $"{AzureRegion}.api.cognitive.microsoft.com";
+        /// <summary>
+        /// The base URL fragment for Content Moderator calls.
+        /// </summary>
+        private static readonly string AzureBaseURL =
+            $"{AzureRegion}.api.cognitive.microsoft.com";
 
-            /// <summary>
-            /// The minimum amount of time, in milliseconds, to wait between calls
-            /// to the Content Moderator APIs.
-            /// </summary>
-            private const int throttleRate = 2000;
-
+        /// <summary>
+        /// The minimum amount of time, in milliseconds, to wait between calls
+        /// to the Content Moderator APIs.
+        /// </summary>
+        private const int throttleRate = 2000;
+```
 
 ### <a name="create-content-moderator-client-object"></a>建立 Content Moderator 用戶端物件
 
 將下列方法定義新增至 VideoTranscriptReviews 命名空間、Program 類別。
 
-    /// <summary>
-    /// Returns a new Content Moderator client for your subscription.
-    /// </summary>
-    /// <returns>The new client.</returns>
-    /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
-    /// When you have finished using the client,
-    /// you should dispose of it either directly or indirectly. </remarks>
-    public static ContentModeratorClient NewClient()
+```csharp
+/// <summary>
+/// Returns a new Content Moderator client for your subscription.
+/// </summary>
+/// <returns>The new client.</returns>
+/// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
+/// When you have finished using the client,
+/// you should dispose of it either directly or indirectly. </remarks>
+public static ContentModeratorClient NewClient()
+{
+    return new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey))
     {
-        return new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey))
-        {
-            Endpoint = AzureBaseURL
-        };
-    }
+        Endpoint = AzureBaseURL
+    };
+}
+```
 
 ## <a name="create-a-video-review"></a>建立影片審核項目
 
@@ -167,43 +162,45 @@ ms.locfileid: "58113728"
 - **Status**。 請將值設定為 "Unpublished"。 如果您未設定此屬性，則會預設為 "Pending"，意謂著已發佈影片審核項目而正等待人工審核。 發佈影片審核項目之後，您就無法再將影片畫面、文字記錄或文字記錄仲裁結果新增至該審核項目。
 
 > [!NOTE]
-> **CreateVideoReviews** 會傳回 IList<string>。 這些字串中每個都包含影片審核項目的識別碼。 這些識別碼是 GUID 且與 **ContentId** 屬性的值不同。 
+> **CreateVideoReviews** 會傳回 IList<string>。 這些字串中每個都包含影片審核項目的識別碼。 這些識別碼是 GUID 且與 **ContentId** 屬性的值不同。
 
 將下列方法定義新增至 VideoReviews 命名空間、Program 類別。
 
-    /// <summary>
-    /// Create a video review. For more information, see the API reference:
-    /// https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4 
-    /// </summary>
-    /// <param name="client">The Content Moderator client.</param>
-    /// <param name="id">The ID to assign to the video review.</param>
-    /// <param name="content">The URL of the video to review.</param>
-    /// <returns>The ID of the video review.</returns>
-    private static string CreateReview(ContentModeratorClient client, string id, string content)
-    {
-        Console.WriteLine("Creating a video review.");
+```csharp
+/// <summary>
+/// Create a video review. For more information, see the API reference:
+/// https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4 
+/// </summary>
+/// <param name="client">The Content Moderator client.</param>
+/// <param name="id">The ID to assign to the video review.</param>
+/// <param name="content">The URL of the video to review.</param>
+/// <returns>The ID of the video review.</returns>
+private static string CreateReview(ContentModeratorClient client, string id, string content)
+{
+    Console.WriteLine("Creating a video review.");
 
-        List<CreateVideoReviewsBodyItem> body = new List<CreateVideoReviewsBodyItem>() {
-            new CreateVideoReviewsBodyItem
-            {
-                Content = content,
-                ContentId = id,
-                /* Note: to create a published review, set the Status to "Pending".
-                However, you cannot add video frames or a transcript to a published review. */
-                Status = "Unpublished",
-            }
-        };
+    List<CreateVideoReviewsBodyItem> body = new List<CreateVideoReviewsBodyItem>() {
+        new CreateVideoReviewsBodyItem
+        {
+            Content = content,
+            ContentId = id,
+            /* Note: to create a published review, set the Status to "Pending".
+            However, you cannot add video frames or a transcript to a published review. */
+            Status = "Unpublished",
+        }
+    };
 
-        var result = client.Reviews.CreateVideoReviews("application/json", TeamName, body);
+    var result = client.Reviews.CreateVideoReviews("application/json", TeamName, body);
 
-        Thread.Sleep(throttleRate);
+    Thread.Sleep(throttleRate);
 
-        // We created only one review.
-        return result[0];
-    }
+    // We created only one review.
+    return result[0];
+}
+```
 
 > [!NOTE]
-> 您的 Content Moderator 服務金鑰會有每秒要求數目 (RPS) 的速率限制。 如果您超出此限制，SDK 就會擲回錯誤碼為 429 的例外狀況。 
+> 您的 Content Moderator 服務金鑰會有每秒要求數目 (RPS) 的速率限制。 如果您超出此限制，SDK 就會擲回錯誤碼為 429 的例外狀況。
 >
 > 免費層金鑰有一個 RPS 速率限制。
 
@@ -221,21 +218,23 @@ ms.locfileid: "58113728"
 
 將下列方法定義新增至 VideotranscriptReviews 命名空間、Program 類別。
 
-    /// <summary>
-    /// Add a transcript to the indicated video review.
-    /// The transcript must be in the WebVTT format.
-    /// For more information, see the API reference:
-    /// https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b8b2e7151f0b10d451fe
-    /// </summary>
-    /// <param name="client">The Content Moderator client.</param>
-    /// <param name="review_id">The video review ID.</param>
-    /// <param name="transcript">The video transcript.</param>
-    static void AddTranscript(ContentModeratorClient client, string review_id, string transcript)
-    {
-        Console.WriteLine("Adding a transcript to the review with ID {0}.", review_id);
-        client.Reviews.AddVideoTranscript(TeamName, review_id, new MemoryStream(System.Text.Encoding.UTF8.GetBytes(transcript)));
-        Thread.Sleep(throttleRate);
-    }
+```csharp
+/// <summary>
+/// Add a transcript to the indicated video review.
+/// The transcript must be in the WebVTT format.
+/// For more information, see the API reference:
+/// https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b8b2e7151f0b10d451fe
+/// </summary>
+/// <param name="client">The Content Moderator client.</param>
+/// <param name="review_id">The video review ID.</param>
+/// <param name="transcript">The video transcript.</param>
+static void AddTranscript(ContentModeratorClient client, string review_id, string transcript)
+{
+    Console.WriteLine("Adding a transcript to the review with ID {0}.", review_id);
+    client.Reviews.AddVideoTranscript(TeamName, review_id, new MemoryStream(System.Text.Encoding.UTF8.GetBytes(transcript)));
+    Thread.Sleep(throttleRate);
+}
+```
 
 ## <a name="add-a-transcript-moderation-result-to-video-review"></a>將文字記錄仲裁結果新增至影片審核項目
 
@@ -255,49 +254,50 @@ ms.locfileid: "58113728"
 
 將下列方法定義新增至 VideoTranscriptReviews 命名空間、Program 類別。 此方法會將文字記錄提交給 **ContentModeratorClient.TextModeration.ScreenText** 方法。 此外，也會將會將結果轉譯成 IList<TranscriptModerationBodyItem>，然後提交給 **AddVideoTranscriptModerationResult**。
 
-    /// <summary>
-    /// Add the results of moderating a video transcript to the indicated video review.
-    /// For more information, see the API reference:
-    /// https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b93ce7151f0b10d451ff
-    /// </summary>
-    /// <param name="client">The Content Moderator client.</param>
-    /// <param name="review_id">The video review ID.</param>
-    /// <param name="transcript">The video transcript.</param>
-    static void AddTranscriptModerationResult(ContentModeratorClient client, string review_id, string transcript)
+```csharp
+/// <summary>
+/// Add the results of moderating a video transcript to the indicated video review.
+/// For more information, see the API reference:
+/// https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b93ce7151f0b10d451ff
+/// </summary>
+/// <param name="client">The Content Moderator client.</param>
+/// <param name="review_id">The video review ID.</param>
+/// <param name="transcript">The video transcript.</param>
+static void AddTranscriptModerationResult(ContentModeratorClient client, string review_id, string transcript)
+{
+    Console.WriteLine("Adding a transcript moderation result to the review with ID {0}.", review_id);
+
+    // Screen the transcript using the Text Moderation API. For more information, see:
+    // https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f
+    Screen screen = client.TextModeration.ScreenText("eng", "text/plain", transcript);
+
+    // Map the term list returned by ScreenText into a term list we can pass to AddVideoTranscriptModerationResult.
+    List<TranscriptModerationBodyItemTermsItem> terms = new List<TranscriptModerationBodyItemTermsItem>();
+    if (null != screen.Terms)
     {
-        Console.WriteLine("Adding a transcript moderation result to the review with ID {0}.", review_id);
-
-        // Screen the transcript using the Text Moderation API. For more information, see:
-        // https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f
-        Screen screen = client.TextModeration.ScreenText("eng", "text/plain", transcript);
-
-        // Map the term list returned by ScreenText into a term list we can pass to AddVideoTranscriptModerationResult.
-        List<TranscriptModerationBodyItemTermsItem> terms = new List<TranscriptModerationBodyItemTermsItem>();
-        if (null != screen.Terms)
+        foreach (var term in screen.Terms)
         {
-            foreach (var term in screen.Terms)
+            if (term.Index.HasValue)
             {
-                if (term.Index.HasValue)
-                {
-                    terms.Add(new TranscriptModerationBodyItemTermsItem(term.Index.Value, term.Term));
-                }
+                terms.Add(new TranscriptModerationBodyItemTermsItem(term.Index.Value, term.Term));
             }
         }
-
-        List<TranscriptModerationBodyItem> body = new List<TranscriptModerationBodyItem>()
-        {
-            new TranscriptModerationBodyItem()
-            {
-                Timestamp = "0",
-                Terms = terms
-            }
-        };
-
-        client.Reviews.AddVideoTranscriptModerationResult("application/json", TeamName, review_id, body);
-
-        Thread.Sleep(throttleRate);
     }
 
+    List<TranscriptModerationBodyItem> body = new List<TranscriptModerationBodyItem>()
+    {
+        new TranscriptModerationBodyItem()
+        {
+            Timestamp = "0",
+            Terms = terms
+        }
+    };
+
+    client.Reviews.AddVideoTranscriptModerationResult("application/json", TeamName, review_id, body);
+
+    Thread.Sleep(throttleRate);
+}
+```
 
 ## <a name="publish-video-review"></a>發佈影片審核項目
 
@@ -307,66 +307,72 @@ ms.locfileid: "58113728"
 
 將下列方法定義新增至 VideoReviews 命名空間、Program 類別。
 
-    /// <summary>
-    /// Publish the indicated video review. For more information, see the reference API:
-    /// https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7bb29e7151f0b10d45201
-    /// </summary>
-    /// <param name="client">The Content Moderator client.</param>
-    /// <param name="review_id">The video review ID.</param>
-    private static void PublishReview(ContentModeratorClient client, string review_id)
-    {
-        Console.WriteLine("Publishing the review with ID {0}.", review_id);
-        client.Reviews.PublishVideoReview(TeamName, review_id);
-        Thread.Sleep(throttleRate);
-    }
+```csharp
+/// <summary>
+/// Publish the indicated video review. For more information, see the reference API:
+/// https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7bb29e7151f0b10d45201
+/// </summary>
+/// <param name="client">The Content Moderator client.</param>
+/// <param name="review_id">The video review ID.</param>
+private static void PublishReview(ContentModeratorClient client, string review_id)
+{
+    Console.WriteLine("Publishing the review with ID {0}.", review_id);
+    client.Reviews.PublishVideoReview(TeamName, review_id);
+    Thread.Sleep(throttleRate);
+}
+```
 
 ## <a name="putting-it-all-together"></a>總整理
 
 將 **Main** 定義新增至 VideoTranscriptReviews 命名空間、Program 類別。 最後，結束 Program 類別和 VideoTranscriptReviews 命名空間。
 
 > [!NOTE]
-> 此程式使用 VTT 格式的範例文字記錄。 在真實世界解決方案中，您會使用「Azure 媒體索引器」服務從影片[產生文字記錄](https://docs.microsoft.com/azure/media-services/media-services-index-content)。 
+> 此程式使用 VTT 格式的範例文字記錄。 在真實世界解決方案中，您會使用「Azure 媒體索引器」服務從影片[產生文字記錄](https://docs.microsoft.com/azure/media-services/media-services-index-content)。
 
-    static void Main(string[] args)
+```csharp
+static void Main(string[] args)
+{
+    using (ContentModeratorClient client = NewClient())
     {
-        using (ContentModeratorClient client = NewClient())
-        {
-            // Create a review with the content pointing to a streaming endpoint (manifest)
-            var streamingcontent = "https://amssamples.streaming.mediaservices.windows.net/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest";
-            string review_id = CreateReview(client, "review1", streamingcontent);
+        // Create a review with the content pointing to a streaming endpoint (manifest)
+        var streamingcontent = "https://amssamples.streaming.mediaservices.windows.net/91492735-c523-432b-ba01-faba6c2206a2/AzureMediaServicesPromo.ism/manifest";
+        string review_id = CreateReview(client, "review1", streamingcontent);
 
-            var transcript = @"WEBVTT
+        var transcript = @"WEBVTT
 
-            01:01.000 --> 02:02.000
-            First line with a crap word in a transcript.
+        01:01.000 --> 02:02.000
+        First line with a crap word in a transcript.
 
-            02:03.000 --> 02:25.000
-            This is another line in the transcript.
-            ";
+        02:03.000 --> 02:25.000
+        This is another line in the transcript.
+        ";
 
-            AddTranscript(client, review_id, transcript);
+        AddTranscript(client, review_id, transcript);
 
-            AddTranscriptModerationResult(client, review_id, transcript);
+        AddTranscriptModerationResult(client, review_id, transcript);
 
-            // Publish the review
-            PublishReview(client, review_id);
+        // Publish the review
+        PublishReview(client, review_id);
 
-            Console.WriteLine("Open your Content Moderator Dashboard and select Review > Video to see the review.");
-            Console.WriteLine("Press any key to close the application.");
-            Console.ReadKey();
-        }
+        Console.WriteLine("Open your Content Moderator Dashboard and select Review > Video to see the review.");
+        Console.WriteLine("Press any key to close the application.");
+        Console.ReadKey();
     }
+}
+```
 
 ## <a name="run-the-program-and-review-the-output"></a>執行程式並檢閱輸出
 
 當您執行應用程式時，會看到以下幾行的輸出：
 
-    Creating a video review.
-    Adding a transcript to the review with ID 201801v5b08eefa0d2d4d64a1942aec7f5cacc3.
-    Adding a transcript moderation result to the review with ID 201801v5b08eefa0d2d4d64a1942aec7f5cacc3.
-    Publishing the review with ID 201801v5b08eefa0d2d4d64a1942aec7f5cacc3.
-    Open your Content Moderator Dashboard and select Review > Video to see the review.
-    Press any key to close the application.
+```console
+Creating a video review.
+Adding a transcript to the review with ID 201801v5b08eefa0d2d4d64a1942aec7f5cacc3.
+Adding a transcript moderation result to the review with ID 201801v5b08eefa0d2d4d64a1942aec7f5cacc3.
+Publishing the review with ID 201801v5b08eefa0d2d4d64a1942aec7f5cacc3.
+Open your Content Moderator Dashboard and select Review > Video to see the review.
+Press any key to close the application.
+```
 
 ## <a name="navigate-to-your-video-transcript-review"></a>瀏覽至您的影片文字記錄審核項目
 

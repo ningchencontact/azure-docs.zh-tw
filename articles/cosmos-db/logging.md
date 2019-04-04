@@ -7,18 +7,21 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: d75eb87bff812589e4d3a3a14079ddaaf368a588
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 8839d7ea93bcb205b1900e63d3ab98394e72cd75
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259766"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904860"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB 中的診斷記錄 
 
 在您開始使用一或多個 Azure Cosmos DB 資料庫後，建議您監視資料庫的存取情形和時間。 本文提供可在 Azure 平台中使用之記錄的概觀。 其中介绍了如何启用监视用的诊断日志记录，以便将日志发送到 [Azure 存储](https://azure.microsoft.com/services/storage/)，将日志流式传输到 [Azure 事件中心](https://azure.microsoft.com/services/event-hubs/)，以及如何将日志导出到 [Azure Monitor 日志](https://azure.microsoft.com/services/log-analytics/)。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="logs-available-in-azure"></a>Azure 中可用的記錄
 
@@ -132,7 +135,7 @@ Azure 診斷記錄是由資源所發出，提供關於該資源之作業的豐�
 開始 Azure PowerShell 工作階段，並使用下列命令登入您的 Azure 帳戶：  
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 在快顯瀏覽器視窗中，輸入您的 Azure 帳戶使用者名稱與密碼。 Azure PowerShell 會取得與此帳戶相關聯的所有訂用帳戶，並依預設使用第一個訂用帳戶。
@@ -140,13 +143,13 @@ Connect-AzureRmAccount
 如果您有多個訂用帳戶，您可能必須指定用來建立 Azure 金鑰保存庫的特定訂用帳戶。 若要查看您的帳戶的訂用帳戶，請輸入下列命令：
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 然後，若要指定與所要記錄之 Azure Cosmos DB 帳戶相關聯的訂用帳戶，請輸入下列命令：
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscription ID>
+Set-AzContext -SubscriptionId <subscription ID>
 ```
 
 > [!NOTE]
@@ -162,7 +165,7 @@ Set-AzureRmContext -SubscriptionId <subscription ID>
 為了進一步簡化管理，在本教學課程中，我們會使用包含 Azure Cosmos DB 資料庫的相同資源群組。 視情況將 **ContosoResourceGroup**、**contosocosmosdblogs** 和 **North Central US** 等參數的值替換成您的值：
 
 ```powershell
-$sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup `
+$sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup `
 -Name contosocosmosdblogs -Type Standard_LRS -Location 'North Central US'
 ```
 
@@ -175,15 +178,15 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup `
 將 Azure Cosmos DB 帳戶名稱設為名為 **account** 的變數，其中的 **ResourceName** 是 Azure Cosmos DB 帳戶的名稱。
 
 ```powershell
-$account = Get-AzureRmResource -ResourceGroupName ContosoResourceGroup `
+$account = Get-AzResource -ResourceGroupName ContosoResourceGroup `
 -ResourceName contosocosmosdb -ResourceType "Microsoft.DocumentDb/databaseAccounts"
 ```
 
 ### <a id="enable"></a>啟用記錄
-若要啟用 Azure Cosmos DB 的記錄，請使用 `Set-AzureRmDiagnosticSetting` Cmdlet 搭配分別代表下列項目的變數：新的儲存體帳戶、Azure Cosmos DB 帳戶，以及要啟用記錄的類別。 執行下列命令，並將 **-Enabled** 旗標設為 **$true**：
+若要啟用 Azure Cosmos DB 的記錄，請使用 `Set-AzDiagnosticSetting` Cmdlet 搭配分別代表下列項目的變數：新的儲存體帳戶、Azure Cosmos DB 帳戶，以及要啟用記錄的類別。 執行下列命令，並將 **-Enabled** 旗標設為 **$true**：
 
 ```powershell
-Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests
+Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests
 ```
 
 命令的輸出應該會類似於下列範例：
@@ -221,7 +224,7 @@ Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId 
 您也可以選擇性地設定記錄的保留原則，以便自動刪除較舊的記錄。 例如，您可以將 **-RetentionEnabled** 旗標設為 **$true**，以設定保留原則。 將 **-RetentionInDays** 參數設為 **90**，系統將自動刪除超過 90 天的舊記錄。
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
+Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
  -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests`
   -RetentionEnabled $true -RetentionInDays 90
 ```
@@ -238,7 +241,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
 若要列出此容器中的所有 Blob，請輸入：
 
 ```powershell
-Get-AzureStorageBlob -Container $container -Context $sa.Context
+Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
 命令的輸出應該會類似於下列範例：
@@ -257,7 +260,7 @@ Name              : resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/C
 /MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/CONTOSOCOSMOSDB/y=2017/m=09/d=28/h=19/m=00/PT1H.json
 ```
 
-在此輸出中我們可以看到，blob 遵循以下命名慣例：`resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<Database Account Name>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
+您可以看到此輸出中，blob 遵循以下命名慣例： `resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<Database Account Name>/y=<year>/m=<month>/d=<day of month>/h=<hour>/m=<minute>/filename.json`
 
 日期和時間值使用 UTC。
 
@@ -273,13 +276,13 @@ New-Item -Path 'C:\Users\username\ContosoCosmosDBLogs'`
 然後，取得所有 Blob 的清單：  
 
 ```powershell
-$blobs = Get-AzureStorageBlob -Container $container -Context $sa.Context
+$blobs = Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
-透過 `Get-AzureStorageBlobContent` 命令以管道傳送這份清單，將 Blob 下載到目的地資料夾中：
+透過 `Get-AzStorageBlobContent` 命令以管道傳送這份清單，將 Blob 下載到目的地資料夾中：
 
 ```powershell
-$blobs | Get-AzureStorageBlobContent `
+$blobs | Get-AzStorageBlobContent `
  -Destination 'C:\Users\username\ContosoCosmosDBLogs'
 ```
 
@@ -290,27 +293,27 @@ $blobs | Get-AzureStorageBlobContent `
 * 如果您有多個資料庫，並且只想下載其中名為 **CONTOSOCOSMOSDB3** 之資料庫的記錄，請使用下列命令：
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
      -Context $sa.Context -Blob '*/DATABASEACCOUNTS/CONTOSOCOSMOSDB3
     ```
 
 * 如果您有多個資源群組，並且只想下載其中某個資源群組的記錄，請使用 `-Blob '*/RESOURCEGROUPS/<resource group name>/*'` 命令：
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
     -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
     ```
 * 如果您想下載 2017 年 7 月份的所有記錄，請使用 `-Blob '*/year=2017/m=07/*'` 命令：
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
      -Context $sa.Context -Blob '*/year=2017/m=07/*'
     ```
 
 您也可以執行下列命令：
 
-* 若要查詢資料庫資源的診斷設定狀態，請使用 `Get-AzureRmDiagnosticSetting -ResourceId $account.ResourceId` 命令。
-* 若要停用資料庫帳戶資源的 **DataPlaneRequests** 類別記錄，請使用 `Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests` 命令。
+* 若要查詢資料庫資源的診斷設定狀態，請使用 `Get-AzDiagnosticSetting -ResourceId $account.ResourceId` 命令。
+* 若要停用資料庫帳戶資源的 **DataPlaneRequests** 類別記錄，請使用 `Set-AzDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests` 命令。
 
 
 在這些查詢中傳回的 Blob 會儲存為文字，並格式化為 JSON Blob，如下列程式碼所示：
@@ -437,22 +440,22 @@ Azure Cosmos DB 作業執行後兩個小時，就可以在您的帳戶中使用�
 
 | Azure 儲存體欄位或屬性 | Azure Monitor 日志属性 | 描述 |
 | --- | --- | --- |
-| **time** | **TimeGenerated** | 作業發生的日期和時間 (UTC)。 |
-| **resourceId** | **Resource** | 啟用記錄的 Azure Cosmos DB 帳戶。|
-| **類別** | **類別** | 對於 Azure Cosmos DB 記錄，**DataPlaneRequests** 是唯一的可用值。 |
+| **分析** | **TimeGenerated** | 作業發生的日期和時間 (UTC)。 |
+| **ResourceId** | **資源** | 啟用記錄的 Azure Cosmos DB 帳戶。|
+| **category** | **類別** | 對於 Azure Cosmos DB 記錄，**DataPlaneRequests** 是唯一的可用值。 |
 | **operationName** | **OperationName** | 作業名稱。 這個值可以是下列任一作業：Create、Update、Read、ReadFeed、Delete、Replace、Execute、SqlQuery、Query、JSQuery、Head、HeadFeed 或 Upsert。   |
 | **properties** | n/a | 此欄位的內容說明於下列資料列中。 |
 | **activityId** | **activityId_g** | 所記錄作業的唯一 GUID。 |
 | **userAgent** | **userAgent_s** | 此字串指定執行要求的用戶端使用者代理程式。 格式為 {使用者代理程式名稱}/{版本}。|
 | **requestResourceType** | **requestResourceType_s** | 存取的資源類型。 這個值可以是下列任一資源類型：Database、Container、Document、Attachment、User、Permission、StoredProcedure、Trigger、UserDefinedFunction 或 Offer。 |
-| **statusCode** | **statusCode_s** | 作業的回應狀態。 |
+| **StatusCode** | **statusCode_s** | 作業的回應狀態。 |
 | **requestResourceId** | **ResourceId** | 關於要求的 resourceId。 根據執行的作業，此值可能表示 databaseRid、collectionRid 或 documentRid。|
 | **clientIpAddress** | **clientIpAddress_s** | 用戶端的 IP 位址。 |
 | **requestCharge** | **requestCharge_s** | 作業使用的 RU 數 |
 | **collectionRid** | **collectionId_s** | 集合的唯一識別碼。|
 | **duration** | **duration_s** | 以刻度為單位的作業持續時間。 |
 | **requestLength** | **requestLength_s** | 以位元組為單位的要求長度。 |
-| **responseLength** | **responseLength_s** | 以位元組為單位的回應長度。|
+| **responseLength** | **requestLength_s** | 以位元組為單位的回應長度。|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | 使用[資源權杖](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens)進行驗證時，此值為非空白值。 此值表示使用者的資源識別碼。 |
 
 ## <a name="next-steps"></a>後續步驟

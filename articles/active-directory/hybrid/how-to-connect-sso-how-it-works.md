@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 04/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5217f21449efeb2086770f040fb781765ea819eb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 813ab2a349ba843e9f41675234e395470bef9740
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083932"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58896120"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory 無縫單一登入：深入技術性討論
 
@@ -39,15 +39,12 @@ ms.locfileid: "58083932"
 
 無縫 SSO 是使用 Azure AD Connect 所啟用，如[這裏](how-to-connect-sso-quick-start.md)所示。 啟用此功能時，會執行下列步驟：
 
-- 系統會在每個 AD 樹系中，於您的內部部署 Active Directory (AD) 內建立名為 `AZUREADSSOACC` 的電腦帳戶 (代表 Azure AD)。
-- 電腦帳戶的 Kerberos 解密金鑰可安全地與 Azure AD 共用。 如果有多個 AD 樹系，每個樹系都會有它自己的 Kerberos 解密金鑰。
-- 此外，系統會建立兩個 Kerberos 服務主體名稱 (SPN)，以代表 Azure AD 登入期間所使用的兩個 URL。
-
->[!NOTE]
-> 在您同步處理至 Azure AD (使用 Azure AD Connect) 的每個 AD 樹系中，以及您想要為其使用者啟用無縫 SSO 者，建立電腦帳戶和 Kerberos SPN。 將 `AZUREADSSOACC` 電腦帳戶移至儲存其他電腦帳戶的組織單位 (OU)，確保它是透過相同方式進行管理，而且不會予以刪除。
+- 電腦帳戶 (`AZUREADSSOACC`) 會在您內部部署 Active Directory (AD)，在您同步處理至 Azure AD （使用 Azure AD Connect） 每個 AD 樹系中建立。
+- 此外，要使用 Azure AD 登入程序期間建立的 Kerberos 服務主體名稱 (Spn) 許多。
+- 電腦帳戶的 Kerberos 解密金鑰可安全地與 Azure AD 共用。 如果有多個 AD 樹系，每個電腦帳戶將會有自己唯一的 Kerberos 解密金鑰。
 
 >[!IMPORTANT]
->強烈建議您至少每隔 30 天變換一次 `AZUREADSSOACC` 電腦帳戶的 [Kerberos 解密金鑰](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account)。
+> `AZUREADSSOACC`電腦帳戶需要強保護，基於安全性考量。 只有網域系統管理員應該能夠管理的電腦帳戶。 請確定已停用電腦帳戶的 Kerberos 委派。 儲存的電腦帳戶在組織單位 (OU) 所在安全遭到意外刪除。 電腦帳戶的 Kerberos 解密金鑰也應視為是為機密的。 強烈建議您至少每隔 30 天變換一次 `AZUREADSSOACC` 電腦帳戶的 [Kerberos 解密金鑰](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account)。
 
 設定完成之後，無縫 SSO 登入的運作方式與其他任何使用整合式 Windows 驗證 (IWA) 的登入相同。
 

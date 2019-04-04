@@ -3,19 +3,19 @@ title: 翻譯工具文字 API V3.0 參考
 titlesuffix: Azure Cognitive Services
 description: 翻譯工具文字 API V3.0 參考文件。
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 0260ecbf23e0240b836f6d6004959a9604085fc1
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 4a5bed67252c3b87233c8d2e677e3c620adb8a17
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194957"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918802"
 ---
 # <a name="translator-text-api-v30"></a>Microsoft Translator Text API v3.0
 
@@ -58,7 +58,7 @@ Microsoft Translator 透過多個資料中心位置來提供服務。 它們目�
 |headers|描述|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|如果您要傳遞祕密金鑰，請使用認知服務訂用帳戶。<br/>此值是您 Translator Text API 訂用帳戶的 Azure 祕密金鑰。|
-|Authorization|如果您要傳遞驗證權杖，請使用認知服務訂用帳戶。<br/>此值是持有人權杖：`Bearer <token>`。|
+|Authorization|*如果您在傳遞驗證權杖，請使用與認知服務訂用帳戶。*<br/>此值是持有人權杖：`Bearer <token>`。|
 |Ocp-Apim-Subscription-Region|*如果您要傳遞多服務的祕密金鑰，請使用與認知服務多服務訂用帳戶。*<br/>值為多服務的訂用帳戶的區域。 不使用多服務的訂用帳戶時，這個值是選擇性的。|
 
 ###  <a name="secret-key"></a>祕密金鑰
@@ -110,9 +110,9 @@ Authorization: Bearer <Base64-access_token>
 
 標準錯誤回應是名稱/值組為 `error` 的 JSON 物件。 此值也可以是具有下列屬性的 JSON 物件：
 
-  * `code`:伺服器定義的錯誤碼。
+  * `code`：伺服器定義的錯誤碼。
 
-  * `message`:以人類可閱讀形式表示錯誤的字串。
+  * `message`：以人類可閱讀形式表示錯誤的字串。
 
 例如，持有免費試用訂用帳戶的客戶會在免費配額用完時，收到下列錯誤：
 

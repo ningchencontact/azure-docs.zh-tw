@@ -1,21 +1,18 @@
 ---
-title: Micro 焦點企業開發人員 4.0 在 Azure 中設定 Micro 焦點 CICS BankDemo |Microsoft Docs
-description: 若要了解如何使用 Micro Focus Enterprise Server 和企業開發人員在 Azure 上執行微焦點 BankDemo 應用程式。
-services: virtual-machines-linux
-documentationcenter: ''
-author: njray
-manager: edprice
-editor: edprice
-tags: ''
-keywords: ''
-ms.openlocfilehash: 733649c2b7f27ec5e80cb77adba708a158fb2c22
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+title: Micro 焦點企業開發人員 4.0 Azure 虛擬機器上設定 Micro 焦點 CICS BankDemo
+description: 在 Azure 虛擬機器 (Vm)，以了解如何使用 Micro Focus Enterprise Server 和企業開發人員執行 Micro 焦點 BankDemo 應用程式。
+author: sread
+ms.date: 04/02/2019
+ms.topic: article
+ms.service: multiple
+ms.openlocfilehash: be94cf0367f93f14249239fce5e09c8635a01136
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099462"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892478"
 ---
-# <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-in-azure"></a>設定 Micro 焦點 CICS BankDemo Micro 焦點企業在 Azure 中的開發人員 4.0
+# <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>在 Azure 上微焦點企業開發人員 4.0 設定 Micro 焦點 CICS BankDemo
 
 當您設定 Micro 焦點 Enterprise Server 4.0 和在 Azure 上的企業開發人員 4.0 時，您可以測試 IBM z/OS 工作負載的部署。 本文說明如何設定 CICS BankDemo，企業開發人員所隨附的範例應用程式。
 
@@ -23,7 +20,7 @@ CICs 代表客戶資訊控制系統，許多線上的大型電腦應用程式所
 
 ## <a name="prerequisites"></a>必要條件
 
-- 使用的 VM[企業開發人員](set-up-micro-focus-on-azure.md)。 請記住，企業開發人員會有完整執行個體的企業伺服器上進行開發和測試目的。 這是用來示範企業伺服器的執行個體。
+- 使用的 VM[企業開發人員](set-up-micro-focus-azure.md)。 請記住，企業開發人員會有完整執行個體的企業伺服器上進行開發和測試目的。 這是用來示範企業伺服器的執行個體。
 
 - [SQL Server 2017 Express edition](https://www.microsoft.com/sql-server/sql-server-editions-express)。 下載並安裝在 Enterprise Developer VM 上。 企業伺服器需要資料庫的 CICS 區域管理，且 BankDemo 應用程式也會使用名為 BANKDEMO 的 SQL Server 資料庫。 這段示範影片，假設您正在使用這兩個資料庫的 「 SQL Server Express。 安裝時，請選取 基本安裝。
 
@@ -81,7 +78,7 @@ CICs 代表客戶資訊控制系統，許多線上的大型電腦應用程式所
 
     - **NetTcpPortSharing**
     - **Net.Pipe Listener Adapter**
-    - **Net.tcp 接聽程式配接器**
+    - **Net.tcp Listener Adapter**
 
 10. 若要設定 IIS 和 WAS 的支援，請從功能表中找到**Micro 焦點企業開發人員命令提示字元 （64 位元）** 並執行為**管理員**。
 
@@ -264,14 +261,15 @@ CICs 代表客戶資訊控制系統，許多線上的大型電腦應用程式所
 
 6. 使用者識別碼的輸入**B0001**和密碼，輸入任何內容。 第一個畫面 BANK20 隨即開啟。
 
-![大型主機顯示歡迎使用 畫面](media/14-demo.png)
+![大型主機顯示 歡迎使用畫面](media/14-demo.png)
 ![大型主機顯示-Rumba-子系統示範畫面](media/15-demo.png)
 
 恭喜！ 您現在已執行的 CICS 應用程式在 Azure 中使用 Micro Focus Enterprise Server。
 
-## <a name="learn-more"></a>深入了解
+## <a name="next-steps"></a>後續步驟
 
+- [在 Azure 上執行 Docker 容器中的企業伺服器](run-enterprise-server-container.md)
 - [大型主機移轉-入口網站](https://blogs.msdn.microsoft.com/azurecat/2018/11/16/mainframe-migration-to-azure-portal/)
 - [虛擬機器](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
 - [疑難排解](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
-- [揭開大型主機移轉至 Azure 的神秘面紗](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)
+- [Azure 移轉的大型主機釋疑](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)

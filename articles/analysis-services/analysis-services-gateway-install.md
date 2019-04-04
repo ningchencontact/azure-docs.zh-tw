@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: bd4c024e14e70b5937d85e9917340d25f552096d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 629a97048ceba4ac02e3aa1dd59310980e5a0c95
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110863"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894161"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安裝及設定內部部署資料閘道
 
@@ -26,13 +26,13 @@ ms.locfileid: "58110863"
 * .NET 4.5 Framework
 * 64 位元版本的 Windows 7 / Windows Server 2008 R2 (或更新版本)
 
-**建議配備：**
+**建議使用：**
 
-* 8 核 CPU
+* 8 核心 CPU
 * 8 GB 記憶體
 * 64 位元版本的 Windows 2012 R2 (或更新版本)
 
-**重要考量︰**
+**重要考量：**
 
 * 在設定期間，向 Azure 註冊您的閘道時，系統會選取您訂用帳戶的預設區域。 您可以選擇不同的區域。 如果您有伺服器位於多個區域中，您必須針對每個區域安裝一個閘道。 
 * 閘道無法安裝在網域控制站上。
@@ -40,7 +40,7 @@ ms.locfileid: "58110863"
 * 請在電源維持開啟且不會進入睡眠狀態的電腦上安裝閘道。
 * 請勿將閘道安裝於採用無線網路的電腦上。 效能會因此降低。
 * 安裝閘道時，您用來登入電腦的使用者帳戶必須具有「登入為服務」權限。 安裝完成時，內部部署資料閘道服務會使用 NT SERVICE\PBIEgwService 帳戶登入為服務。 在安裝期間可以指定不同的帳戶，或是可在安裝完成後於服務中指定。 在安裝時請確定群組原則設定允許您用於登入的帳戶，且您選擇的服務帳戶具有「登入為服務」權限。
-* 如果[租用戶](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant)與您要註冊閘道的訂用帳戶相同，請以 Azure AD 中的帳戶登入 Azure。 安裝和註冊閘道時不支援 Azure B2B (來賓) 帳戶。
+* 如果[租用戶](/previous-versions/azure/azure-services/jj573650(v=azure.100)#BKMK_WhatIsAnAzureADTenant)與您要註冊閘道的訂用帳戶相同，請以 Azure AD 中的帳戶登入 Azure。 安裝和註冊閘道時不支援 Azure B2B (來賓) 帳戶。
 * 如果資料來源位於 Azure 虛擬網路 (VNet) 上，您必須設定 [AlwaysUseGateway](analysis-services-vnet-gateway.md) 伺服器屬性。
 * Azure 德國區域不支援此處所述的 (統一) 閘道。 相反地，使用在入口網站中伺服器的 [快速入門] 中安裝的 **Azure Analysis Service 專用內部部署閘道**。 
 
@@ -121,6 +121,6 @@ ms.locfileid: "58110863"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [ Analysis Services](analysis-services-manage.md)   
+* [Azure Analysis Services](analysis-services-manage.md)   
 * [從 Azure Analysis Services 取得資料](analysis-services-connect.md)   
 * [使用 Azure 虛擬網路上的資料來源閘道](analysis-services-vnet-gateway.md)

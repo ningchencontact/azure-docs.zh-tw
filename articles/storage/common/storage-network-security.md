@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c475fc4d958044413ae7566c027c0e796f1d699a
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 27ba1a1b5fbc0c7533da3634ec8a435468704c33
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486388"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906084"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>設定 Azure 儲存體防火牆和虛擬網路
 
@@ -241,7 +241,7 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
 
 為將內部部署網路存取權授與使用 IP 網路規則的儲存體帳戶，您必須識別網路所使用的網際網路對應 IP 位址。 請連絡網路系統管理員尋求協助。
 
-您可以使用 [ExpressRoute](/azure/expressroute/expressroute-introduction) 將您的網路連線到 Azure 網路。 在這裡，每個線路上會設定兩個公用 IP 位址。 這些位址可以在 Microsoft Edge 中找到，並可使用 [Azure 公用對等互連](/azure/expressroute/expressroute-circuit-peerings)來連線到 Azure 儲存體等 Microsoft 服務。 若要使用 Azure 儲存體通訊，請為電路的公用 IP 位址建立 IP 網路規則。 若要尋找您 ExpressRoute 線路的公用 IP 位址，請透過 Azure 入口網站[開啟具有 ExpressRoute 的支援票證](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)。
+如果您使用來自內部部署的 [ExpressRoute](/azure/expressroute/expressroute-introduction) 進行公用對等互連或 Microsoft 對等互連，您將必須識別所使用的 NAT IP 位址。 在公用對等互連中，每個 Expressroute 線路預設都會使用兩個 NAT IP 位址，而這兩個位址會在流量進入 Microsoft Azure 網路骨幹時套用至 Azure 服務流量。 在 Microsoft 對等互連中，所用的 NAT IP 位址是由客戶提供或由服務提供者提供。 若要允許存取您的服務資源，就必須在資源 IP 防火牆設定中允許這些公用 IP 位址。 若要尋找您的公用對等互連 ExpressRoute 線路 IP 位址，請透過 Azure 入口網站[開啟有 ExpressRoute 的支援票證](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)。 深入了解 [ExpressRoute 公用與 Microsoft 對等互連的 NAT。](/azure/expressroute/expressroute-nat#nat-requirements-for-azure-public-peering)
 
 ### <a name="managing-ip-network-rules"></a>管理 IP 網路規則
 
@@ -361,7 +361,7 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
 
 ### <a name="storage-analytics-data-access"></a>儲存體分析資料存取
 
-在某些情況下，需要來自網路界限外的存取權才能讀取診斷記錄檔和計量。 您可以授與網路規則的例外狀況，允許讀取存取儲存體帳戶記錄檔、計量資料表，或兩者都存取。 [深入了解儲存體分析的使用方式。](/azure/storage/storage-analytics)
+在某些情況下，需要來自網路界限外的存取權才能讀取診斷記錄檔和計量。 您可以授與網路規則的例外狀況，允許讀取存取儲存體帳戶記錄檔、計量資料表，或兩者都存取。 [深入了解如何使用儲存體分析。](/azure/storage/storage-analytics)
 
 ### <a name="managing-exceptions"></a>管理例外狀況
 

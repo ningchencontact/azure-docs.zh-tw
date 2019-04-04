@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 4e609bf6d96fa9cc3f2dc179157ecd27178608f9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 672c62c440708f8e949d67d545bee2179c6066b2
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860347"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894930"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>從虛擬網路 (VNet) 存取 Azure Cosmos DB
 
@@ -55,9 +55,12 @@ NSG 規則可用來限制子網路和虛擬網路的往返連線。 當您將 Az
 ### <a name="are-service-endpoints-available-for-all-vnets"></a>服務端點是否可供所有 VNet 使用？
 否，只有 Azure Resource Manager 虛擬網路可以啟用服務端點。 傳統虛擬網路不支援服務端點。
 
+### <a name="can-i-accept-connections-from-within-public-azure-datacenters-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>啟用 Azure Cosmos DB 的服務端點存取時，我可以「接受來自公用 Azure 資料中心內的連線」嗎？  
+只有當您需要讓其他 Azure 第一方服務 (例如 Azure Data factory、Azure 搜尋服務)，或任何部署在指定 Azure 區域的服務存取 Azure Cosmos DB 帳戶時，此項目才是必要的。
+
 
 ## <a name="next-steps"></a>後續步驟
 
-* [如何限制 Azure Cosmos 帳戶對虛擬網路內子網路的存取](how-to-configure-vnet-service-endpoint.md)
-* [如何設定 Azure Cosmos 帳戶的 IP 防火牆](how-to-configure-firewall.md)
+* [如何限制 Azure Cosmos 帳戶的存取權的虛擬網路內的子網路](how-to-configure-vnet-service-endpoint.md)
+* [如何設定您的 Azure Cosmos 帳戶的 IP 防火牆](how-to-configure-firewall.md)
 

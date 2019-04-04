@@ -1,5 +1,5 @@
 ---
-title: 使用 API 主控台執行內容仲裁作業 - Content Moderator
+title: 使用 REST API 主控台-Content Moderator 審核工作
 titlesuffix: Azure Cognitive Services
 description: 使用檢閱 API 的作業操作來對 Azure Content Moderator 中的影像或文字內容起始端對端內容審核。
 services: cognitive-services
@@ -7,101 +7,116 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: conceptual
-ms.date: 01/10/2019
+ms.topic: article
+ms.date: 03/18/2019
 ms.author: sajagtap
-ms.openlocfilehash: 9fac80ff152b0f7b9c36c182759d41245364fff9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 7827cee2af2dfc0c1fddc407c1d146dc9a66c514
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862423"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756086"
 ---
-# <a name="start-a-moderation-job-from-the-api-console"></a>從 API 主控台啟動審核作業
+# <a name="define-and-use-moderation-jobs-rest"></a>定義和使用仲裁作業 (REST)
 
-使用檢閱 API 的[作業操作](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5)來對 Azure Content Moderator 中的影像或文字內容起始端對端內容審核。 
-
-審核作業會使用 Content Moderator 影像審核 API 或文字審核 API 來掃描內容。 然後，審核作業會使用工作流程 (定義於檢閱工具中) 在檢閱工具中產生檢閱。 
-
-在人力審核者審查自動指派的標記和預測資料並提交最終審核決策之後，審查 API 會將所有資訊提交至您的 API 端點。
+仲裁作業可做為一種包裝函式的內容仲裁、 工作流程及檢閱功能。 本指南將說明如何使用 REST Api 作業來起始，並檢查內容仲裁作業。 一旦您了解 Api 的結構，您可以輕鬆地移植這些呼叫任何 REST 相容平台。
 
 ## <a name="prerequisites"></a>必要條件
 
-瀏覽至[檢閱工具](https://contentmoderator.cognitive.microsoft.com/)。 如果您尚未註冊，請註冊。 在檢閱工具內，[定義自訂工作流程](Review-Tool-User-Guide/Workflows.md)以在 `Job` 操作中使用。
+- 登入或建立帳戶，在內容仲裁[審核工具](https://contentmoderator.cognitive.microsoft.com/)站台。
+- （選擇性）[定義的自訂工作流程](./Review-Tool-User-Guide/Workflows.md)以搭配您的工作; 您也可以使用預設的工作流程。
 
-## <a name="use-the-api-console"></a>使用 API 主控台
-若要使用線上主控台來試用此 API，您需要在主控台中輸入幾個值：
-    
-- `teamName`：使用檢閱工具認證畫面中的 `Id` 欄位。 
-- `ContentId`：這個字串會傳遞至 API 並透過回呼傳回。 **ContentId** 適合用於建立內部識別項或中繼資料與審核作業結果的關聯。- `Workflowname`：在上一節中[您所建立工作流程](Review-Tool-User-Guide/Workflows.md)的名稱。
-- `Ocp-Apim-Subscription-Key`：位於 [設定] 索引標籤。如需詳細資訊，請參閱[概觀](overview.md)。
+## <a name="create-a-job"></a>建立工作
 
-[存取 API 主控台] 來自 [認證] 視窗。
+若要建立仲裁作業時，請前往[作業-建立](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5)API 參考頁面，然後選取您的主要區域 按鈕 (您可以在端點 URL 上找到**認證**頁面[檢閱工具](https://contentmoderator.cognitive.microsoft.com/))。 這會啟動 API 主控台中，您可以輕鬆地建構並執行 REST API 呼叫。
 
-### <a name="navigate-to-the-api-reference"></a>瀏覽至 API 參考
-在 [認證] 視窗中，選取 [API 參考](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5)。
+![作業-建立頁面地區選取項目](images/test-drive-job-1.png)
 
-  `Job.Create` 頁面隨即開啟。
+### <a name="enter-rest-call-parameters"></a>輸入 REST 呼叫的參數
 
-### <a name="select-your-region"></a>選取您的區域
-針對 [Open API testing console] \(開啟 API 測試主控台\) 中，選取最能描述您位置的區域。
-  ![[作業 - 建立] 頁面區域選取項目](images/test-drive-job-1.png)
+輸入下列值來建構 REST 呼叫：
 
-  `Job.Create` API 主控台隨即開啟。 
+- **teamName**：當您設定時，您建立 「 小組識別碼您[審核工具](https://contentmoderator.cognitive.microsoft.com/)帳戶 (位於**識別碼**檢閱工具的 [認證] 畫面上的欄位)。
+- **ContentType**:這可以是 「 映像 」、 「 文字 」 或 「 視訊 」。
+- **ContentId**：自訂識別項字串。 這個字串會傳遞至 API 並透過回呼傳回。 它可用於與仲裁作業的結果產生關聯的內部識別項或中繼資料。
+- **workflowname**:您先前建立的工作流程 （或預設工作流程的 「 預設 」） 的名稱。
+- **CallbackEndpoint**:（選擇性）若要檢閱完成時接收回呼資訊 URL。
+- **Ocp-Apim-Subscription-Key**：您的內容仲裁者金鑰。 您可以找到這**設定**索引標籤[審核工具](https://contentmoderator.cognitive.microsoft.com)。
 
-### <a name="enter-parameters"></a>輸入參數
+### <a name="fill-in-the-request-body"></a>要求主體中填滿
 
-針對必要查詢參數和訂用帳戶金鑰輸入值。 在 [要求本文] 方塊中，指定所要掃描資訊的位置。 在此範例中，我們使用這個[影像範例](https://moderatorsampleimages.blob.core.windows.net/samples/sample6.png)。
+您的 REST 呼叫的主體會包含一個欄位**ContentValue**。 如果您仲裁文字、 未經處理的文字內容中貼上或輸入影像或影片 URL，如果您要調節影像/影片。 您可以使用下列的範例影像 URL: [https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg)
 
-  ![[作業 - 建立] 主控台查詢參數、標頭和要求本文方塊](images/job-api-console-inputs.PNG)
+![[作業 - 建立] 主控台查詢參數、標頭和要求本文方塊](images/job-api-console-inputs.PNG)
 
 ### <a name="submit-your-request"></a>提交您的要求
-選取 [傳送]。 隨即建立作業識別碼。 複製此值以便用於後續步驟。
 
-  `"JobId": "2018014caceddebfe9446fab29056fd8d31ffe"`
+選取 [傳送]。 如果作業成功，**回應狀態**是`200 OK`，而**回應內容**方塊會顯示作業的識別碼。 複製此識別碼以在下列步驟中使用。
 
-### <a name="open-the-get-job-details-page"></a>開啟 [取得作業詳細資料] 頁面
-選取 [取得]，然後藉由選取符合您區域的按鈕來開啟 API。
+![[審查 - 建立] 主控台的 [回應內容] 方塊會顯示審查識別碼](images/test-drive-job-3.PNG)
 
-  ![[作業 - 建立] 主控台的取得結果](images/test-drive-job-4.png)
+## <a name="get-job-status"></a>取得作業狀態
 
-### <a name="review-the-response"></a>檢閱回應
+若要取得 [狀態] 和 [執行中或已完成作業的詳細資訊，請前往[作業-取得](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c3)API 參考頁面，然後選取您的區域] 按鈕 （取決於您的金鑰所在的區域）。
 
-輸入 **teamName** 和 **JobID** 的值。 輸入您的訂用帳戶金鑰，然後選取 [Send] \(傳送\)。 下列回應會顯示作業狀態範例和詳細資料。
+![作業-Get 地區選取項目](images/test-drive-region.png)
 
-```
-    {
-        "Id": "2018014caceddebfe9446fab29056fd8d31ffe",
-        "TeamName": "some team name",
-        "Status": "InProgress",
-        "WorkflowId": "OCR",
-        "Type": "Image",
-        "CallBackEndpoint": "",
-        "ReviewId": "",
-        "ResultMetaData": [],
-        "JobExecutionReport": 
-        [
-            {
-            "Ts": "2018-01-07T00:38:26.7714671",
-                "Msg": "Successfully got hasText response from Moderator"
-            },
-            {
-                "Ts": "2018-01-07T00:38:26.4181346",
-                "Msg": "Getting hasText from Moderator"
-            },
-            {
-                "Ts": "2018-01-07T00:38:25.5122828",
-                "Msg": "Starting Execution - Try 1"
-            }
-        ]
+輸入上述節所述的 REST 呼叫參數。 此步驟中，如**JobId**是建立工作時所收到的唯一 ID 字串。 選取 [傳送]。 如果作業成功，**回應狀態**是`200 OK`，而**回應內容**方塊會顯示作業，以 JSON 格式，如下所示：
+
+```json
+{  
+  "Id":"2018014caceddebfe9446fab29056fd8d31ffe",
+  "TeamName":"some team name",
+  "Status":"Complete",
+  "WorkflowId":"OCR",
+  "Type":"Image",
+  "CallBackEndpoint":"",
+  "ReviewId":"201801i28fc0f7cbf424447846e509af853ea54",
+  "ResultMetaData":[  
+    {  
+      "Key":"hasText",
+      "Value":"True"
+    },
+    {  
+      "Key":"ocrText",
+      "Value":"IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n"
     }
+  ],
+  "JobExecutionReport":[  
+    {  
+      "Ts":"2018-01-07T00:38:29.3238715",
+      "Msg":"Posted results to the Callbackendpoint: https://requestb.in/vxke1mvx"
+    },
+    {  
+      "Ts":"2018-01-07T00:38:29.2928416",
+      "Msg":"Job marked completed and job content has been removed"
+    },
+    {  
+      "Ts":"2018-01-07T00:38:29.0856472",
+      "Msg":"Execution Complete"
+    },
+    {  
+      "Ts":"2018-01-07T00:38:26.7714671",
+      "Msg":"Successfully got hasText response from Moderator"
+    },
+    {  
+      "Ts":"2018-01-07T00:38:26.4181346",
+      "Msg":"Getting hasText from Moderator"
+    },
+    {  
+      "Ts":"2018-01-07T00:38:25.5122828",
+      "Msg":"Starting Execution - Try 1"
+    }
+  ]
+}
 ```
 
-## <a name="navigate-to-the-review-tool"></a>瀏覽至檢閱工具
-在 Content Moderator 儀表板上，選取 [檢閱] > [影像]。 您已掃描的影像隨即出現，準備進行人工檢閱。
+![作業-取得 REST 呼叫回應](images/test-drive-job-5.png)
 
-  ![三名自行車選手的檢閱工具影像](images/ocr-sample-image.PNG)
+### <a name="examine-the-new-reviews"></a>檢查新 review(s)
+
+如果您內容的工作並檢閱的建立，您可以檢視它在[審核工具](https://contentmoderator.cognitive.microsoft.com)。 選取 **檢閱** > **映像**/**文字**/**影片**（取決於您內容項目使用）。 內容應該會出現，可供人工審核。 人力仲裁者檢閱自動指派的標記和預測資料，並且提交的最終仲裁決策後，作業 API 提交所有的這項資訊來指定的回呼端點的端點。
 
 ## <a name="next-steps"></a>後續步驟
 
-在您的程式碼中使用 REST API，或從[作業 .NET 快速入門](moderation-jobs-quickstart-dotnet.md)開始著手，以便與您的應用程式進行整合。
+在本指南中，您已了解如何建立及查詢使用 REST API 的內容仲裁作業。 接下來，將工作整合的端對端審核案例，例如[電子商務仲裁](./ecommerce-retail-catalog-moderation.md)教學課程。

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 2db63be6c6997840f7409a3ca79f1845f30e4ceb
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: 53a262af421dd986e6b70af173a6e8b3f7c06f64
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008054"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918428"
 ---
 # <a name="expose-role-configuration-settings-as-an-environment-variable-with-xpath"></a>利用 XPath 公開角色組態設定以做為環境變數
 在雲端服務背景工作角色或 Web 角色服務定義檔中，您可以公開執行階段組態值以做為環境變數。 支援下列 XPath 值 (其會對應至 API 值)。
 
-這些 XPath 值也可以透過 [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) 程式庫來取得。 
+這些 XPath 值也可以透過 [Microsoft.WindowsAzure.ServiceRuntime](/previous-versions/azure/reference/ee773173(v=azure.100)) 程式庫來取得。 
 
 ## <a name="app-running-in-emulator"></a>在模擬器中執行的應用程式
 表示應用程式正在模擬器中執行。
@@ -53,7 +53,7 @@ ms.locfileid: "39008054"
 ## <a name="update-domain"></a>更新網站
 擷取執行個體的更新網域。
 
-| 類型 | 範例 |
+| 类型 | 範例 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@updateDomain" |
 | 代碼 |var ud = RoleEnvironment.CurrentRoleInstance.UpdateDomain; |
@@ -66,13 +66,13 @@ ms.locfileid: "39008054"
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@faultDomain" |
 | 代碼 |var fd = RoleEnvironment.CurrentRoleInstance.FaultDomain; |
 
-## <a name="role-name"></a>角色名稱
+## <a name="role-name"></a>角色名称
 擷取執行個體的角色名稱。
 
 | 類型 | 範例 |
 | --- | --- |
 | XPath |xpath="/RoleEnvironment/CurrentInstance/@roleName" |
-| 代碼 |var rname = RoleEnvironment.CurrentRoleInstance.Role.Name; |
+| 代码 |var rname = RoleEnvironment.CurrentRoleInstance.Role.Name; |
 
 ## <a name="config-setting"></a>組態設定
 擷取指定之組態設定的值。

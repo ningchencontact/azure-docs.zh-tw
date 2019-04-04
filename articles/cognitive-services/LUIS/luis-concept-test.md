@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 55284318a627186b7a20d6d36dff1953e80d5020
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: c9f1cf80cd3a781e878daca2048f7c5dc9095a7c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958553"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893215"
 ---
 # <a name="testing-example-utterances-in-luis"></a>在 LUIS 中測試範例語句
 
@@ -48,7 +48,7 @@ ms.locfileid: "56958553"
 ## <a name="where-to-find-utterances"></a>語句尋找位置
 LUIS 會將所有已記錄的語句儲存在查詢記錄中，從 [LUIS](luis-reference-regions.md) 網站的 [應用程式] 清單頁面以及 LUIS [撰寫 API](https://aka.ms/luis-authoring-apis) 都可下載此記錄。 
 
-任何 LUIS 不確定的語句都會列在 [LUIS](luis-reference-regions.md) 網站的[檢閱端點語句](luis-how-to-review-endoint-utt.md) 頁面中。 
+任何 LUIS 不確定的語句都會列在 [LUIS](luis-reference-regions.md) 網站的[檢閱端點語句](luis-how-to-review-endpoint-utterances.md) 頁面中。 
 
 ![檢閱端點語句](./media/luis-concept-test/review-endpoint-utterances.png)
  

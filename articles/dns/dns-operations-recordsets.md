@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: ad9e22668d0f6d994ad0fce7b207b5849dfa27e9
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 199843be72df473ae501eaf6bd47dce41b079c94
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651235"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906101"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>使用 Azure PowerShell 管理 Azure DNS 中的 DNS 記錄和記錄集
 
@@ -33,9 +33,9 @@ ms.locfileid: "58651235"
 
 此文章中的範例假設您已[安裝 Azure PowerShell、登入，並建立 DNS 區域](dns-operations-dnszones.md)。
 
-## <a name="introduction"></a>簡介
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## <a name="introduction"></a>簡介
 
 在 Azure DNS 中建立 DNS 記錄前，您需要先了解 Azure DNS 如何將 DNS 記錄組織成 DNS 記錄集。
 
@@ -398,4 +398,4 @@ Get-AzDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -ResourceGrou
 <br>
 了解使用 Azure DNS 時，如何[保護區域和記錄](dns-protect-zones-recordsets.md)。
 <br>
-檢閱 [Azure DNS PowerShell 參考文件](/powershell/module/azurerm.dns)。
+檢閱 [Azure DNS PowerShell 參考文件](/powershell/module/az.dns)。

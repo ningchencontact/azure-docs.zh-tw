@@ -8,18 +8,16 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: richrund
-ms.openlocfilehash: f37c8290defa5e7c9baa3b705393aba376936fd8
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 5c348adea0847929b37d1b61f024859b1d634fe7
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58539372"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903398"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>管理使用 PowerShell 的 Azure 監視器中的 Log Analytics 工作區
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-您可以使用[Log Analytics PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/)在 Log Analytics 工作區在 Azure 監視器中從命令列或指令碼上執行各種功能。  您可以使用 PowerShell 執行的工作範例包括︰
+您可以使用[Log Analytics PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.operationalinsights/)在 Log Analytics 工作區在 Azure 監視器中從命令列或指令碼上執行各種功能。  您可以使用 PowerShell 執行的工作範例包括︰
 
 * 建立工作區
 * 新增或移除方案
@@ -33,10 +31,12 @@ ms.locfileid: "58539372"
 * 將 Log Analytics 代理程式加入至 Azure 虛擬機器
 * 設定 Log Analytics 將 Azure 診斷所收集的資料編製索引
 
-本文提供兩個程式碼範例，示範您可以從 PowerShell 執行的一些功能。  關於其他功能，您可以參考 [Log Analytics PowerShell Cmdlet 參考文件](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) 。
+本文提供兩個程式碼範例，示範您可以從 PowerShell 執行的一些功能。  關於其他功能，您可以參考 [Log Analytics PowerShell Cmdlet 參考文件](https://docs.microsoft.com/powershell/module/az.operationalinsights/) 。
 
 > [!NOTE]
 > Log Analytics 在以前稱為 Operational Insights，這也是 Cmdlet 中使用此名稱的原因。
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>必要條件
 這些範例可使用版本 1.0.0 或更新版本的 Az.OperationalInsights 模組。
@@ -272,5 +272,5 @@ Remove-AzOperationalInsightsStorageInsight -ResourceGroupName $workspace.Resourc
 
 
 ## <a name="next-steps"></a>後續步驟
-* [檢閱 Log Analytics PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) 。
+* [檢閱 Log Analytics PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/az.operationalinsights/) 。
 

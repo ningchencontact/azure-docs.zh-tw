@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 04/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 43de22f7e56178559df4fc45980d064962580d2b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: de737f20147e8208dd18388eedcac11583c8cb97
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403386"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891798"
 ---
 # <a name="data-box-edge-security-and-data-protection"></a>方塊邊緣的資料安全性和資料保護
 
@@ -35,6 +35,7 @@ Azure 資料方塊邊緣解決方案是由四個彼此互動的主要元件所�
 
 - 資料方塊邊緣/資料方塊閘道服務的存取需要您的組織有 Enterprise 合約 (EA) 或雲端解決方案提供者 (CSP) 訂用帳戶。 如需詳細資訊，請移至[註冊 Azure 訂用帳戶](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/)！
 - 在 Azure 中裝載您的管理服務，因為它會受到 Azure 安全性功能。 如需有關 Microsoft Azure 所提供的安全性功能的詳細資訊，請移至 [Microsoft Azure 信任中心](https://azure.microsoft.com/support/trust-center/security/)。
+- SDK 的管理作業的加密金鑰是供您的資料 方塊邊緣 / 方塊部署資料閘道資源，在底下**裝置屬性**。 只有當您擁有資源的 Graph api 的權限，您可以檢視加密金鑰。
 
 ## <a name="data-box-edge-device-protection"></a>資料方塊邊緣裝置保護
 
@@ -44,7 +45,8 @@ Azure 資料方塊邊緣解決方案是由四個彼此互動的主要元件所�
 - 在所有時間裝置密碼保護。
 - 是鎖定的裝置。 裝置 BMC 和 BIOS 是用於將 BIO 的限制使用者存取受密碼保護。
 - 已啟用安全開機。
-- 執行 Windows Defender Device Guard。 Device Guard 可讓您執行只受信任的應用程式，您在程式碼完整性原則中定義。 
+- 執行 Windows Defender Device Guard。 Device Guard 可讓您執行只受信任的應用程式，您在程式碼完整性原則中定義。
+- 有可以用來鎖定裝置前蓋內索引鍵。 我們建議您設定裝置之後, 開啟封面。 找出機碼，並再鎖定以防止未經授權的存取位於裝置前面的資料磁碟封面。
 
 ### <a name="protect-the-device-via-activation-key"></a>保護裝置，透過啟用金鑰
 

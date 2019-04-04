@@ -10,14 +10,16 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 50d24fd41a0a933d9cfec37477773463a918ca0a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5a693fef2f77471f799bec46f149ff19d6edca80
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549063"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905914"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>以太坊權威證明聯盟
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>概觀
 [此解決方案](https://portal.azure.com/?pub_source=email&pub_status=success#create/microsoft-azure-blockchain.azure-blockchain-ethereumethereum-poa-consortium)的設計訴求是，讓您以最低限度的 Azure 和以太坊知識，更輕鬆地部署、設定和控管多成員的聯盟權威證明以太坊網路。
@@ -218,7 +220,7 @@ SSH 金鑰 (驗證類型 = 公開金鑰)|用於遠端登入的安全殼層金鑰
 資源群組|要對其部署聯盟網路的資源群組。||NA
 位置|資源群組的 Azure 區域。||NA
 
-範例部署如下所示：![基本刀鋒視窗](./media/ethereum-poa-deployment/basic-blade.png)
+如下所示的範例部署：![基本] 刀鋒視窗](./media/ethereum-poa-deployment/basic-blade.png)
 
 #### <a name="deployment-regions"></a>部署區域
 
@@ -235,7 +237,7 @@ SSH 金鑰 (驗證類型 = 公開金鑰)|用於遠端登入的安全殼層金鑰
   第四個區域|要部署聯盟網路的第四個區域 (只有在選取 4 作為區域數目時才會顯示)|所有允許的 Azure 區域|NA
   第五個區域|要部署聯盟網路的第五個區域 (只有在選取 5 作為區域數目時才會顯示)|所有允許的 Azure 區域|NA
 
-範例部署如下所示：![部署區域](./media/ethereum-poa-deployment/deployment-regions.png)
+如下所示的範例部署：![部署區域](./media/ethereum-poa-deployment/deployment-regions.png)
 
 #### <a name="network-size-and-performance"></a>網路大小和效能
 
@@ -262,7 +264,7 @@ SSH 金鑰 (驗證類型 = 公開金鑰)|用於遠端登入的安全殼層金鑰
   D2_v3|標準 SSD|中|中|中
   F16s|進階 SSD|高|高|低
 
-範例部署如下所示：![網路大小和效能](./media/ethereum-poa-deployment/network-size-and-performance.png)
+如下所示的範例部署：![網路大小和效能](./media/ethereum-poa-deployment/network-size-and-performance.png)
 
 #### <a name="ethereum-settings"></a>以太坊設定
 
@@ -281,7 +283,7 @@ SSH 金鑰 (驗證類型 = 公開金鑰)|用於遠端登入的安全殼層金鑰
 區塊重新封印期 (秒)|當網路上沒有任何交易時，將建立空白區塊的頻率。 頻率越高，越快有定局，但會增加儲存成本。|任何數值|15
 交易權限合約 (進階選項 = 啟用)|交易授權合約的位元組程式碼。 會限制智慧合約部署和執行以太坊帳戶到允許清單。|合約位元組程式碼|NA
 
-範例部署如下所示：![以太坊設定](./media/ethereum-poa-deployment/ethereum-settings.png)
+如下所示的範例部署：![以太坊設定](./media/ethereum-poa-deployment/ethereum-settings.png)
 
 #### <a name="monitoring"></a>監視
 
@@ -298,7 +300,7 @@ SSH 金鑰 (驗證類型 = 公開金鑰)|用於遠端登入的安全殼層金鑰
 現有 log analytics 主索引鍵 (連接到現有的 Azure 監視器記錄檔 = 加入現有)|用來連接到現有的 Azure 監視器記錄檔執行個體的主要金鑰||NA
 
 
-範例部署如下所示：![Azure 監視器](./media/ethereum-poa-deployment/azure-monitor.png)
+如下所示的範例部署： ![azure 監視器](./media/ethereum-poa-deployment/azure-monitor.png)
 
 #### <a name="summary"></a>總結
 
@@ -395,7 +397,7 @@ $MyGatewayName = $splitValue[8]
 
 ## $otherGatewayResourceid tells me what the subscription and VNet GatewayName are
 $OtherGatewayName = $OtherGatewayResourceId.Split('/')[8]
-$Subscription=Select-AzureRmSubscription -SubscriptionId $MySubscriptionid
+$Subscription=Select-AzSubscription -SubscriptionId $MySubscriptionid
 
 ## create a PSVirtualNetworkGateway instance for the gateway I want to connect to
 $OtherGateway=New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
@@ -405,10 +407,10 @@ $OtherGateway.GatewayType = "Vpn"
 $OtherGateway.VpnType = "RouteBased"
 
 ## get a PSVirtualNetworkGateway instance for my gateway
-$MyGateway = Get-AzureRmVirtualNetworkGateway -Name $MyGatewayName -ResourceGroupName $MyResourceGroup
+$MyGateway = Get-AzVirtualNetworkGateway -Name $MyGatewayName -ResourceGroupName $MyResourceGroup
 
 ## create the connection
-New-AzureRmVirtualNetworkGatewayConnection -Name $ConnectionName -ResourceGroupName $MyResourceGroup -VirtualNetworkGateway1 $MyGateway -VirtualNetworkGateway2 $OtherGateway -Location $MyGateway.Location -ConnectionType Vnet2Vnet -SharedKey $SharedKey -EnableBgp $True
+New-AzVirtualNetworkGatewayConnection -Name $ConnectionName -ResourceGroupName $MyResourceGroup -VirtualNetworkGateway1 $MyGateway -VirtualNetworkGateway2 $OtherGateway -Location $MyGateway.Location -ConnectionType Vnet2Vnet -SharedKey $SharedKey -EnableBgp $True
 ```
 
 ### <a name="service-monitoring"></a>服務監視

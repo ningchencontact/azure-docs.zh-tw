@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: eda6f7b8ec61f2c3472b00c76467c1379bc2ff1b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 232a235cdbf9dc3934bdac14f9612d6865718823
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082104"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892410"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 指令碼 (.csx) 開發人員參考
 
@@ -216,9 +216,9 @@ public class Order
 
 您可以使用包含 `#load` 指示詞的相對路徑：
 
-* `#load "mylogger.csx"` 會載入位於函式資料夾中的檔案。
-* `#load "loadedfiles\mylogger.csx"` 會載入位於函式資料夾的資料夾中的檔案。
-* `#load "..\shared\mylogger.csx"` 會載入位於與函式資料夾相同層級的資料夾中的檔案 (也就是在 [wwwroot] 的正下方)。
+* `#load "mylogger.csx"` 載入位於函式資料夾中的檔案。
+* `#load "loadedfiles\mylogger.csx"` 載入位於函式資料夾中的資料夾中的檔案。
+* `#load "..\shared\mylogger.csx"` 載入位於函式資料夾，也就是相同的層級的資料夾中的檔案直接在底下*wwwroot*。
 
 `#load` 指示詞只適用於 .csx 檔案，而不適用於 .cs 檔案。
 
@@ -274,7 +274,7 @@ public async static Task ProcessQueueMessageAsync(
 
 ## <a name="cancellation-tokens"></a>取消權杖
 
-可以接受 [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) 參數的函式，讓作業系統能夠在函式即將終止時通知您的程式碼。 您可以使用此通知來確保函數不會在讓資料維持不一致狀態的情況下意外終止。
+可以接受 [CancellationToken](/dotnet/api/system.threading.cancellationtoken) 參數的函式，讓作業系統能夠在函式即將終止時通知您的程式碼。 您可以使用此通知來確保函數不會在讓資料維持不一致狀態的情況下意外終止。
 
 下列範例示範如何檢查即將終止的函式。
 
@@ -376,7 +376,7 @@ simple-name 可能會參考下列組件 (例如，`#r "AssemblyName"`)：
 系統會自動監看包含函式指令碼檔案之目錄中的組件變更。 若要監看其他目錄中的組件變更，請將它們新增至 [host.json](functions-host-json.md) 中的 `watchDirectories` 清單。
 
 ## <a name="using-nuget-packages"></a>使用 NuGet 套件
-若要在 2.x 中使用 NuGet 套件C#函式中上, 傳*function.proj*函式應用程式的檔案系統中的函式的資料夾的檔案。 以下是範例 *function.proj* 檔案，該檔案會加入對 *Microsoft.ProjectOxford.Face* *1.1.0* 版的參考：
+若要在 2.x C# 函数中使用 NuGet 包，请将 *function.proj* 文件上传到函数应用的文件系统中的函数文件夹。 以下是範例 *function.proj* 檔案，該檔案會加入對 *Microsoft.ProjectOxford.Face* *1.1.0* 版的參考：
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -393,9 +393,9 @@ simple-name 可能會參考下列組件 (例如，`#r "AssemblyName"`)：
 若要使用自訂 NuGet 摘要，請在函式應用程式根目錄的 *Nuget.Config* 檔案中指定摘要。 如需詳細資訊，請參閱[設定 NuGet 行為](/nuget/consume-packages/configuring-nuget-behavior)。 
 
 > [!NOTE]
-> 在 1.xC#函式，使用參考 NuGet 套件*project.json*而不是檔案*function.proj*檔案。
+> 在 1.x C# 函数中，NuGet 包是通过 *project.json* 文件而非 *function.proj* 文件引用的。
 
-對於 1.x 函式，使用*project.json*改為檔案。 以下是範例*project.json*檔案： 
+对于 1.x 函数，请改用 *project.json* 文件。 下面是 *project.json* 文件示例： 
 
 ```json
 {
@@ -409,11 +409,11 @@ simple-name 可能會參考下列組件 (例如，`#r "AssemblyName"`)：
 }
 ```
 
-### <a name="using-a-functionproj-file"></a>使用 function.proj 檔案
+### <a name="using-a-functionproj-file"></a>使用 function.proj 文件
 
 1. 在 Azure 入口網站中開啟函式。 [記錄] 索引標籤會顯示套件安裝輸出。
-2. 若要上傳*function.proj*檔案，請使用其中一個方法中所述[如何更新函式應用程式檔案](functions-reference.md#fileupdate)在 Azure Functions 開發人員參考主題。
-3. 在後*function.proj*檔案上傳，您會看到如下列範例在您的函式的輸出的串流記錄檔：
+2. 若要上传 *function.proj* 文件，请使用 Azure Functions 开发人员参考主题中[如何更新函数应用文件](functions-reference.md#fileupdate)部分描述的方法之一。
+3. 上传完 *function.proj* 文件后，将在函数的流日志中看到类似以下示例的输出：
 
 ```
 2018-12-14T22:00:48.658 [Information] Restoring packages.
@@ -465,7 +465,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute` 是可定義繫結的.NET 屬性，而 `T` 是該繫結類型所支援的輸入或輸出類型。 `T` 不能是 `out` 參數類型 (例如 `out JObject`)。 例如，Mobile Apps 資料表輸出繫結支援[六個輸出類型](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)，但您只可以對 `T` 使用 [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 或 [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)。
+`BindingTypeAttribute` 是定義繫結的.NET 屬性和`T`是該繫結類型所支援的輸入或輸出類型。 `T` 不能`out`參數類型 (例如`out JObject`)。 例如，Mobile Apps 資料表輸出繫結支援[六個輸出類型](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)，但您只可以對 `T` 使用 [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 或 [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs)。
 
 ### <a name="single-attribute-example"></a>單一屬性範例
 
@@ -484,7 +484,7 @@ public static async Task Run(string input, Binder binder)
 }
 ```
 
-[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) 會定義[儲存體 blob](functions-bindings-storage-blob.md) 輸入或輸出繫結，而 [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) 是支援的輸出繫結類型。
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) 會定義[儲存體 blob](functions-bindings-storage-blob.md) 輸入或輸出繫結，而 [TextWriter](/dotnet/api/system.io.textwriter) 是支援的輸出繫結類型。
 
 ### <a name="multiple-attribute-example"></a>多個屬性範例
 
@@ -530,4 +530,4 @@ public static async Task Run(string input, Binder binder)
 > [深入了解觸發程序和繫結](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [深入了解 Azure Functions 的最佳做法](functions-best-practices.md)
+> [深入了解最佳做法適用於 Azure Functions](functions-best-practices.md)

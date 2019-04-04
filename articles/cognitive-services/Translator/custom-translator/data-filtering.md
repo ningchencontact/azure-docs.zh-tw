@@ -2,19 +2,19 @@
 title: 資料篩選 - 自訂翻譯
 titleSuffix: Azure Cognitive Services
 description: 當您提交要用於訓練自訂系統的文件時，文件會經歷一系列的處理和篩選步驟，準備進行訓練。
-author: jann-skotdal
+author: v-pawal
 manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-jansko
 ms.topic: conceptual
-ms.openlocfilehash: 195c39562e36000597d04bb760741ec7f40203c8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0871cb7e4dcbe8cf71f35f174137396bde607c54
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844668"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916100"
 ---
 # <a name="data-filtering"></a>資料篩選
 
@@ -49,9 +49,9 @@ ms.locfileid: "57844668"
 
 ## <a name="unescaped-xml-tags"></a>未逸出的 XML 標記
 篩選作業會將未逸出的標記轉換成逸出的標記：
-* `&lt;` 變成 `&amp;lt;`
-* `&gt;` 變成 `&amp;gt;`
-* `&amp;` 變成 `&amp;amp;`
+* `&lt;` 會變成 `&amp;lt;`
+* `&gt;` 會變成 `&amp;gt;`
+* `&amp;` 會變成 `&amp;amp;`
 
 ## <a name="invalid-characters"></a>無效的字元
 「自訂翻譯」會移除包含 Unicode 字元 U+FFFD 的句子。 字元 U+FFFD 表示編碼轉換失敗。

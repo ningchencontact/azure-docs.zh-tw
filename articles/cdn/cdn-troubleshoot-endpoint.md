@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 8c1e463378cc2c1ba3fdc0bcf91f800f634cc5f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 66ee211856bb451caad7af02103aa306d76e8f97
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077117"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916269"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>針對傳回 404 狀態碼的 Azure CDN 端點進行疑難排解
 本文可讓您針對傳回 404 HTTP 回應狀態碼的 Azure 內容傳遞網路 (CDN) 端點問題進行疑難排解。
@@ -76,7 +76,7 @@ ms.locfileid: "58077117"
 不過，假如您在稍早測試的來源檔案 URL 為 http:\//www.contoso.com:8080/file.txt。 請注意，主機名稱區段結尾的 :8080。 數字會指示瀏覽器來連線到 www 的 web 伺服器使用連接埠 8080\.contoso.com，因此您必須輸入*8080*中**HTTP 連接埠**欄位。 請務必注意，這些連接埠設定只會影響端點用來從來源擷取資訊的連接埠。
 
 > [!NOTE]
-> **來自 Akamai 的標準 Azure CDN** 端點不允許來源的完整 TCP 連接埠範圍。  如需不允許的原始連接埠清單，請參閱 [來自 Akamai 的 Azure CDN 允許的原始連接埠](https://msdn.microsoft.com/library/mt757337.aspx)。  
+> **來自 Akamai 的標準 Azure CDN** 端點不允許來源的完整 TCP 連接埠範圍。  如需不允許的原始連接埠清單，請參閱 [來自 Akamai 的 Azure CDN 允許的原始連接埠](/previous-versions/azure/mt757337(v=azure.100))。  
 > 
 > 
 

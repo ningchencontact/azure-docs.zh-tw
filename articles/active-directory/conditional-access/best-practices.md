@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d0e20e9c8e248b446b7b938ae4180ffb546d823
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: d30fe326ef677ca4543534d57dd306ed2a660300
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517588"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895557"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory 中條件式存取的最佳做法
 
@@ -46,11 +46,11 @@ ms.locfileid: "58517588"
 若要讓您的原則運作，您必須設定：
 
 
-|何事           | 方式                                  | 理由|
-|:--            | :--                                  | :-- |
-|**雲端應用程式** |選取一或多個應用程式。  | 條件式存取原則的目標是要讓您控制授權的使用者如何存取您的應用程式。|
+| 何事           | 方式                                  | 理由 |
+| :--            | :--                                  | :-- |
+| **雲端應用程式** |選取一或多個應用程式。  | 條件式存取原則的目標是要讓您控制授權的使用者如何存取您的應用程式。|
 | **使用者和群組** | 選取至少一個已獲授權存取您所選雲端應用程式的使用者或群組。 | 永遠不會觸發未指派使用者和群組的條件式存取原則。 |
-| **存取控制** | 選取至少一個存取控制。 | 如果滿足您的條件，您的原則處理器需要知道該怎麼辦。|
+| **存取控制** | 選取至少一個存取控制。 | 如果滿足您的條件，您的原則處理器需要知道該怎麼辦。 |
 
 
 
@@ -111,6 +111,13 @@ Azure Active Directory 會強制執行這兩個原則，而且只有在符合所
 
 是，您可以在條件式存取原則中使用 Exchange ActiveSync。
 
+### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>您應該使用 Office 365 應用程式如何設定條件式存取？
+
+由於 Office 365 應用程式都互相連線，我們建議通常指派應用程式一起使用時建立原則。
+
+常見的互連應用程式包括 Microsoft Flow、 Microsoft Planner、 Microsoft Teams、 Office 365 Exchange Online、 Office 365 SharePoint Online 和 Office 365 Yammer。
+
+請務必針對存取控制的工作階段或工作開始時，需要使用者互動，例如多重要素驗證的原則。 如果沒有，使用者將無法完成應用程式內的某些工作。 比方說，如果您需要多因素驗證未受管理的裝置存取 SharePoint 而非電子郵件時，使用其電子郵件中的使用者無法再將 SharePoint 檔案附加至訊息。 可以在本文中，找到更多資訊[什麼是 Azure Active Directory 條件式存取中的服務相依性？](service-dependencies.md)。
 
 
 
@@ -123,7 +130,7 @@ Azure Active Directory 會強制執行這兩個原則，而且只有在符合所
 在您的環境中，應該避免使用下列組態：
 
 
-**針對所有使用者、所有雲端應用程式：**
+**針對所有使用者、 所有雲端應用程式：**
 
 - **封鎖存取** - 此組態會封鎖您整個組織，這絕對不是一個好方法。
 
@@ -132,7 +139,7 @@ Azure Active Directory 會強制執行這兩個原則，而且只有在符合所
 - **需要加入網域** - 如果您還沒有已加入網域的裝置，此原則也可能封鎖您組織中所有使用者的存取。
 
 
-**針對所有使用者、所有雲端應用程式、所有裝置平台：**
+**適用於所有使用者、 所有雲端應用程式、 所有裝置平台：**
 
 - **封鎖存取** - 此組態會封鎖您整個組織，這絕對不是一個好方法。
 

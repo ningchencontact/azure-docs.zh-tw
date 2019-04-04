@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 51dce1680be5f5f4387c2ba02827195bcdbe9b48
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e20161147aa16456e31aff2bd3cc6337c3690e89
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22998323"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917850"
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Microsoft Azure CDN 中的即時警示
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -65,7 +65,7 @@ ms.locfileid: "22998323"
    > 
 8. 選取 [度量]、[運算子] 和 [觸發值]，來建立要監視的 [運算式]。
    
-   * 針對 [度量] ，請選取您要監視的狀況類型。   是頻寬使用量，單位是每秒 Mb 數。   是連往 Edge Server 的並行 HTTP 連線數目。  如需各種快取狀態和狀態碼的定義，請參閱 [Azure CDN 快取狀態碼](https://msdn.microsoft.com/library/mt759237.aspx)和 [Azure CDN HTTP 狀態碼](https://msdn.microsoft.com/library/mt759238.aspx)
+   * 針對 [度量] ，請選取您要監視的狀況類型。   是頻寬使用量，單位是每秒 Mb 數。   是連往 Edge Server 的並行 HTTP 連線數目。  如需各種快取狀態和狀態碼的定義，請參閱 [Azure CDN 快取狀態碼](/previous-versions/azure/mt759237(v=azure.100))和 [Azure CDN HTTP 狀態碼](/previous-versions/azure/mt759238(v=azure.100))
    *  是可在度量和觸發值之間建立關聯性的數學運算子。
    * **觸發值**是在傳送通知之前必須先符合的臨界值。
      

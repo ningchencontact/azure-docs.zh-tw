@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: edd035bc95cd2e694a7cfac39e447c63fce0f7d3
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: ca9b08cdccd43a093ca8b5001d3e30be0e5258b5
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520147"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894673"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>安裝和執行 LUIS Docker 容器
  
@@ -24,7 +24,7 @@ Language Understanding (LUIS) 容器會將您已定型或發佈的 Language Unde
 
 以下影片將示範如何使用此容器。
 
-[![認知服務的容器示範](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
+[![C認知服務的 ontainer 示範](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -81,7 +81,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 1. 使用所需的_輸入掛接_和計費設定[執行容器](##run-the-container-with-docker-run)。 `docker run` 命令有相關[範例](luis-container-configuration.md#example-docker-run-commands)可供參考。 
 1. [查詢容器的預測端點](#query-the-containers-prediction-endpoint)。 
 1. 容器使用完畢後，請從 LUIS 入口網站中的輸出掛接[匯入端點記錄](#import-the-endpoint-logs-for-active-learning)，並[停止](#stop-the-container)容器。
-1. 從 LUIS 入口網站使用 [檢閱端點語句] 頁面上的[主動式學習](luis-how-to-review-endoint-utt.md)，來改善應用程式。
+1. 從 LUIS 入口網站使用 [檢閱端點語句] 頁面上的[主動式學習](luis-how-to-review-endpoint-utterances.md)，來改善應用程式。
 
 在容器中執行的應用程式無法變更。 若要變更容器中的應用程式，您必須使用 [LUIS](https://www.luis.ai) 入口網站或 LUIS [撰寫 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) 變更 LUIS 服務中的應用程式。 接著，請進行定型和 (或) 發佈，然後下載新套件並重新執行容器。
 
@@ -166,7 +166,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |{APPLICATION_ID} | 已發佈 LUIS 應用程式的應用程式識別碼。 |
 |{APPLICATION_ENVIRONMENT} | 已發佈 LUIS 應用程式的環境。 請使用下列其中一個值：<br/>```PRODUCTION```<br/>```STAGING``` |
 |{AUTHORING_KEY} | 已發佈 LUIS 應用程式的 LUIS 帳戶所適用的撰寫金鑰。<br/>您可以從 LUIS 入口網站中的 [使用者設定] 頁面取得撰寫金鑰。 |
-|{AZURE_REGION} | 適當的 Azure 區域：<br/><br/>```westus``` - 美國西部<br/>```westeurope``` - 西歐<br/>```australiaeast``` - 澳洲東部 |
+|{AZURE_REGION} | 適當的 Azure 區域：<br/><br/>```westus``` -美國西部<br/>```westeurope``` -歐洲西部<br/>```australiaeast``` -澳大利亞東部 |
 
 使用下列 CURL 命令並取代為您自己的值，以下載已發佈的套件：
 
@@ -194,7 +194,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |{APPLICATION_ID} | 已定型 LUIS 應用程式的應用程式識別碼。 |
 |{APPLICATION_VERSION} | 已定型 LUIS 應用程式的應用程式版本。 |
 |{AUTHORING_KEY} | 已發佈 LUIS 應用程式的 LUIS 帳戶所適用的撰寫金鑰。<br/>您可以從 LUIS 入口網站中的 [使用者設定] 頁面取得撰寫金鑰。  |
-|{AZURE_REGION} | 適當的 Azure 區域：<br/><br/>```westus``` - 美國西部<br/>```westeurope``` - 西歐<br/>```australiaeast``` - 澳洲東部 |
+|{AZURE_REGION} | 適當的 Azure 區域：<br/><br/>```westus``` -美國西部<br/>```westeurope``` -歐洲西部<br/>```australiaeast``` -澳大利亞東部 |
 
 請使用下列 CURL 命令下載已定型的套件：
 
@@ -268,7 +268,7 @@ ApiKey={ENDPOINT_KEY}
 |`timezoneOffset`|number|TimezoneOffset 可讓您[變更時區](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) (預先建置的實體 datetimeV2 所使用的時區)。|
 |`verbose`|布林值|設為 true 時，會傳回所有意圖及其分數。 預設值為 false，只會傳回最高分意圖。|
 |`staging`|布林值|設為 true 時，會從預備環境的結果中傳回查詢。 |
-|`log`|布林值|記錄查詢，可供後續的[主動式學習](luis-how-to-review-endoint-utt.md)使用。 預設值為 true。|
+|`log`|布林值|記錄查詢，可供後續的[主動式學習](luis-how-to-review-endpoint-utterances.md)使用。 預設值為 true。|
 
 ### <a name="query-published-app"></a>查詢已發佈的應用程式
 
@@ -299,9 +299,9 @@ curl -X GET \
 如果已指定 LUIS 容器的輸出掛接，則應用程式查詢記錄檔會儲存在 {INSTANCE_ID} 為容器識別碼的輸出目錄中。 應用程式查詢記錄中包含已提交至 LUIS 容器的每個預測查詢的查詢、回應和時間戳記。 
 
 下列位置會顯示容器記錄檔的巢狀目錄結構。
-`
+```
 /output/luis/{INSTANCE_ID}/
-`
+```
  
 在 LUIS 入口網站中選取您的應用程式，然後選取 [匯入端點記錄] 以上傳這些記錄。 
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 52ec7c83b4070a4c38963b3ab12f58f923fa889d
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 53608654392d7efb73b6dadac14f01a94bb035a7
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562619"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893515"
 ---
 # <a name="social-accounts-claims-transformations"></a>社交帳戶宣告轉換
 
@@ -38,7 +38,7 @@ ms.locfileid: "55562619"
 
 ## <a name="createalternativesecurityid"></a>CreateAlternativeSecurityId
 
-建立使用者 alternativeSecurityId 屬性的 JSON 表示法，該屬性可用於對 Azure Active Directory 進行呼叫。 如需詳細資訊，請參閱 [AlternativeSecurityId's schema](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#AlternativeSecurityIdType)。
+建立使用者 alternativeSecurityId 屬性的 JSON 表示法，該屬性可用於對 Azure Active Directory 進行呼叫。 如需詳細資訊，請參閱 [AlternativeSecurityId's schema](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#AlternativeSecurityIdType)。
 
 | Item | TransformationClaimType | 資料類型 | 注意 |
 | ---- | ----------------------- | --------- | ----- |
@@ -81,7 +81,7 @@ ms.locfileid: "55562619"
 下列範例會連結新的社交身分識別與現有帳戶。 若要連結新的社交身分識別：
 1. 在 **AAD-UserReadUsingAlternativeSecurityId** 和 **AAD-UserReadUsingObjectId** 技術設定檔中，輸出使用者的 **alternativeSecurityIds** 宣告。
 1. 要求使用者使用與該使用者無關之其中一個識別提供者進行登入。
-1. 使用 **CreateAlternativeSecurityId** 宣告轉換，建立名稱為 `AlternativeSecurityId2` 的新 **alternativeSecurityId** 宣告類型
+1. 使用**CreateAlternativeSecurityId**宣告轉換，建立新**alternativeSecurityId**宣告名稱為的類型 `AlternativeSecurityId2`
 1. 呼叫 **AddItemToAlternativeSecurityIdCollection** 宣告轉換，以將 **AlternativeSecurityId2** 宣告加入現有的 **AlternativeSecurityIds** 宣告。
 1. 將 **alternativeSecurityIds** 宣告保存至使用者帳戶
 

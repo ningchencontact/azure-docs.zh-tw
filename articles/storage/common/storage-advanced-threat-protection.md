@@ -5,15 +5,15 @@ services: storage
 author: rmatchoro
 ms.service: storage
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 04/03/2019
 ms.author: monhaber
 ms.manager: shaik
-ms.openlocfilehash: 48fdf277f47b1e4abc8e3d7f7222d5b99a248b55
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 78338ece1bc70d8410bd71183a34aaf1a52f2d1b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850712"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904112"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Azure 儲存體的進階威脅防護
 
@@ -22,8 +22,8 @@ Azure 儲存體的進階的威脅防護提供一層額外的安全智慧，偵�
 在活動中的異常狀況發生時，便會觸發安全性警示。  這些安全性警示整合在一起[Azure 資訊安全中心](https://azure.microsoft.com/services/security-center/)，並也會透過電子郵件傳送給訂用帳戶系統管理員，具有可疑活動和有關如何調查和修復威脅的建議事項的詳細資料。
 
 > [!NOTE]
-> * Azure 儲存體的進階的威脅防護，目前僅適用於 Blob 儲存體。 
-> * 有關新的定價詳細資料位於[Azure 資訊安全中心](https://docs.microsoft.com/azure/security-center/security-center-pricing)定價頁面上，包括第一次的 30 天免費試用期內的選項。 
+> * Azure 儲存體的進階的威脅防護，目前僅適用於 Blob 儲存體。
+> * 如需定價詳細資料，包括免費的 30 天的試用版，請參閱[Azure 資訊安全中心定價頁面]( https://azure.microsoft.com/en-us/pricing/details/security-center/)。
 > * Azure 儲存體功能的 ATP 目前不是適用於 Azure government 和主權雲端區域。
 
 Azure 儲存體的進階的威脅防護內嵌讀取、 寫入和刪除要求，威脅偵測的 Blob 儲存體的診斷記錄的檔。 若要調查的警示，從進階威脅防護，您可以檢視相關的儲存體活動使用儲存體分析記錄。 如需詳細資訊，請參閱如何[設定儲存體分析記錄](storage-monitor-storage-account.md#configure-logging)。
@@ -80,7 +80,7 @@ Azure 儲存體的進階的威脅防護內嵌讀取、 寫入和刪除要求，�
 
 使用下列 PowerShell cmdlet:
 
-  * [啟用進階的威脅防護](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+  * [啟用進階威脅防護](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
   * [取得進階威脅防護](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
   * [停用進階的威脅防護](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 

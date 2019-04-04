@@ -1,6 +1,6 @@
 ---
 title: 設計有效率的清單查詢 - Azure Batch | Microsoft Docs
-description: 藉由在要求集區、作業、工作和計算節點等 Batch 資源的資訊時篩選查詢，以提高效能。
+description: 在请求批处理资源（例如池、作业、任务和计算节点）的相关信息时对查询进行筛选可提高性能。
 services: batch
 documentationcenter: .net
 author: laurenhughes
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/07/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: fc873f68be3e7aad67980ec2e8ee0b2e473777ec
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: ff3e95a603b8f9a188c7839578cd12287935de90
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537896"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918530"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>建立查詢以便有效率地列出 Batch 資源
 
@@ -43,7 +43,7 @@ IPagedEnumerable<CloudTask> allTasks =
     batchClient.JobOperations.ListTasks("job-001");
 ```
 
-不過，您可以藉由對查詢套用「詳細資料層級」，以進行更有效率的清單查詢。 在 [JobOperations.ListTasks][net_list_tasks] 方法中提供 [ODATADetailLevel][odata] 物件即可執行此動作。 此程式碼片段只是傳回已完成之工作的識別碼、命令列和計算節點資訊屬性：
+不過，您可以藉由對查詢套用「詳細資料層級」，以進行更有效率的清單查詢。 在 [JobOperations.ListTasks][net_list_tasks] 方法中提供 [ODATADetailLevel][odata] 物件即可執行此動作。 此代码段仅返回已完成任务的 ID、命令行和计算节点信息属性：
 
 ```csharp
 // Configure an ODATADetailLevel specifying a subset of tasks and
@@ -60,7 +60,7 @@ IPagedEnumerable<CloudTask> completedTasks =
 在此範例案例中，如果作業中有數千個工作，則第二次查詢傳回結果的速度，通常會比第一次快很多。 使用 Batch .NET API 列出項目時，使用 ODATADetailLevel 的詳細資訊如 [下](#efficient-querying-in-batch-net)所示。
 
 > [!IMPORTANT]
-> 我們強烈建議「一律」在 .NET API 清單呼叫中提供 ODATADetailLevel 物件，以確保應用程式發揮最高效率和效能。 透過指定詳細層級，您可以幫助縮短 Batch 服務回應時間、提高網路使用率，以及讓用戶端應用程式的記憶體使用量降到最低。
+> 我們強烈建議「一律」在 .NET API 清單呼叫中提供 ODATADetailLevel 物件，以確保應用程式發揮最高效率和效能。 指定详细程度有助于缩短 Batch 服务响应时间，提高网络利用率，以及最大程度减少客户端应用程序的内存使用量。
 > 
 > 
 
@@ -89,17 +89,17 @@ IPagedEnumerable<CloudTask> completedTasks =
 * 此範例展開字串指定應該在清單中傳回每個項目的統計資料資訊： `stats`。
 
 > [!NOTE]
-> 建構任何這三種查詢字串類型時 (篩選、選取和展開)，您必須確定屬性名稱和大小寫符合其對應的 Batch REST API 元素。 例如，使用 .NET [CloudTask](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask) 類別時，即使 .NET 屬性是 [CloudTask.State](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.state)，也必須指定 **state** 而不是 **State**。 關於 .NET 和 REST API 之間的屬性對應，請參閱下表。
+> 建構任何這三種查詢字串類型時 (篩選、選取和展開)，您必須確定屬性名稱和大小寫符合其對應的 Batch REST API 元素。 例如，使用 .NET [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask#microsoft_azure_batch_cloudtask) 類別時，即使 .NET 屬性是 [CloudTask.State](/dotnet/api/microsoft.azure.batch.cloudtask#microsoft_azure_batch_cloudtask.state)，也必須指定 **state** 而不是 **State**。 请参阅下表中 .NET 和 REST API 之间的属性映射。
 > 
 > 
 
-### <a name="rules-for-filter-select-and-expand-strings"></a>篩選、選取和展開字串的規則
+### <a name="rules-for-filter-select-and-expand-strings"></a>filter、select 和 expand 字符串的规则
 * 篩選、選取和展開字串中的屬性名稱，應該和 [Batch REST][api_rest] API 中的屬性名稱一致，就算是使用 [Batch .NET][api_net] 或其他 Batch SDK 的其中一個也是如此。
 * 所有屬性名稱都會區分大小寫，但屬性值不會區分大小寫。
 * 日期/時間字串有兩種格式，開頭必須加上 `DateTime`。
   
-  * W3C-DTF 格式範例：`creationTime gt DateTime'2011-05-08T08:49:37Z'`
-  * RFC 1123 格式範例：`creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
+  * W3C-DTF 格式範例： `creationTime gt DateTime'2011-05-08T08:49:37Z'`
+  * RFC 1123 格式範例： `creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
 * 布林值字串為 `true` 或 `false`。
 * 如果指定無效的屬性或運算子，將會導致 `400 (Bad Request)` 錯誤。
 
@@ -110,7 +110,7 @@ IPagedEnumerable<CloudTask> completedTasks =
 * [ODATADetailLevel][odata].[SelectClause][odata_select]：指定隨著每個項目一起傳回的屬性值。
 * [ODATADetailLevel][odata].[ExpandClause][odata_expand]：在單一 API 呼叫中擷取所有項目的資料，而不是針對每個項目個別呼叫。
 
-下列程式碼片段使用 Batch .NET API，有效率地向 Batch 服務查詢一組特定集區的統計資料。 在此案例中，Batch 使用者具有測試與生產的集區。 這些測試集區識別碼前面會加上 "test"，而生產集區識別碼則會加上 "prod"。 在程式碼片段中，「myBatchClient」  是適當初始化的 [BatchClient](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient) 類別的執行個體。
+下列程式碼片段使用 Batch .NET API，有效率地向 Batch 服務查詢一組特定集區的統計資料。 在此案例中，Batch 使用者具有測試與生產的集區。 這些測試集區識別碼前面會加上 "test"，而生產集區識別碼則會加上 "prod"。 在代码片段中，*myBatchClient* 是正确初始化的 [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient#microsoft_azure_batch_batchclient) 类实例。
 
 ```csharp
 // First we need an ODATADetailLevel instance on which to set the filter, select,
@@ -139,7 +139,7 @@ List<CloudPool> testPools =
 ```
 
 > [!TIP]
-> 使用「選取」和「展開」子句設定的 [ODATADetailLevel][odata] 執行個體，也可以傳給適當的 Get 方法，例如 [PoolOperations.GetPool](https://msdn.microsoft.com/library/azure/microsoft.azure.batch.pooloperations.getpool.aspx)，以限制傳回的資料量。
+> 使用「選取」和「展開」子句設定的 [ODATADetailLevel][odata] 執行個體，也可以傳給適當的 Get 方法，例如 [PoolOperations.GetPool](/dotnet/api/microsoft.azure.batch.pooloperations#Microsoft_Azure_Batch_PoolOperations_GetPool_System_String_Microsoft_Azure_Batch_DetailLevel_System_Collections_Generic_IEnumerable_Microsoft_Azure_Batch_BatchClientBehavior__)，以限制傳回的資料量。
 > 
 > 
 
@@ -150,7 +150,7 @@ List<CloudPool> testPools =
 * **.NET 清單方法**：此欄的每個 .NET API 方法都接受 [ODATADetailLevel][odata] 物件作為參數。
 * **REST 清單要求**：此資料行的每個 REST API 頁面都連結至一個資料表，其中指定「篩選」字串中允許的屬性和作業。 建構 [ODATADetailLevel.FilterClause][odata_filter] 字串時會使用這些屬性名稱和作業。
 
-| .NET 清單方法 | REST 清單要求 |
+| .NET 列表方法 | REST 列表请求 |
 | --- | --- |
 | [CertificateOperations.ListCertificates][net_list_certs] |[列出帳戶中的憑證][rest_list_certs] |
 | [CloudTask.ListNodeFiles][net_list_task_files] |[列出與作業相關聯的檔案][rest_list_task_files] |
@@ -167,7 +167,7 @@ List<CloudPool> testPools =
 * **Batch .NET 類型**：Batch .NET API 類型。
 * **REST API 實體**：此資料行中的每個頁面包含一個或多個資料表，其中列出類型的 REST API 屬性名稱。 建構「選取」  字串時會使用這些屬性名稱。 建構 [ODATADetailLevel.SelectClause][odata_select] 字串時會使用這些相同的屬性名稱。
 
-| Batch .NET types | REST API entities |
+| Batch .NET types | REST API 实体 |
 | --- | --- |
 | [憑證][net_cert] |[取得憑證的相關資訊][rest_get_cert] |
 | [CloudJob][net_job] |[取得作業的相關資訊][rest_get_job] |
@@ -176,7 +176,7 @@ List<CloudPool> testPools =
 | [CloudPool][net_pool] |[取得集區的相關資訊][rest_get_pool] |
 | [CloudTask][net_task] |[取得作業的相關資訊][rest_get_task] |
 
-## <a name="example-construct-a-filter-string"></a>範例：建構篩選字串
+## <a name="example-construct-a-filter-string"></a>示例：构造 filter 字符串
 建構 [ODATADetailLevel.FilterClause][odata_filter] 的篩選字串時，請參閱「篩選字串的對應」下方的資料表，找出與您想要執行的清單作業相對應的 REST API 文件頁面。 在該頁面的第一個含有多資料列的資料表中，您可以找到可篩選的屬性及其支援的運算子。 假設您想要擷取結束碼不為零的所有作業，[與作業相關聯的清單作業][rest_list_tasks]中的這一列指定適用的屬性字串和允許的運算子：
 
 | 屬性 | 允許的作業 | 類型 |
@@ -200,7 +200,7 @@ List<CloudPool> testPools =
 `id, commandLine`
 
 ## <a name="code-samples"></a>程式碼範例
-### <a name="efficient-list-queries-code-sample"></a>有效率的清單查詢程式碼範例
+### <a name="efficient-list-queries-code-sample"></a>高效列表查询代码示例
 請查閱 GitHub 上的 [EfficientListQueries][efficient_query_sample] 範例專案，以了解有效率的清單查詢可如何提升應用程式的效能。 這個 C# 主控台應用程式會建立並將大量工作加入至作業。 然後，它會對 [JobOperations.ListTasks][net_list_tasks] 方法進行多個呼叫，並且傳遞設定了不同屬性值的 [ODATADetailLevel][odata] 物件，來變更要傳回的資料量。 它會產生類似下列的輸出：
 
 ```
@@ -229,7 +229,7 @@ Sample complete, hit ENTER to continue...
 1. 選取特定屬性以便只下載您需要的屬性
 2. 篩選狀態轉換時間以便只下載上次查詢之後的變更
 
-例如，下列方法會出現在 BatchMetrics 程式庫。 它會傳回 ODATADetailLevel，指出只應該取得所查詢實體的 `id` 和 `state` 屬性。 它也會指出只應傳回自指定的 `DateTime` 參數之後其狀態已變更的實體。
+例如，以下方法会显示在 BatchMetrics 库中。 它會傳回 ODATADetailLevel，指出只應該取得所查詢實體的 `id` 和 `state` 屬性。 它也會指出只應傳回自指定的 `DateTime` 參數之後其狀態已變更的實體。
 
 ```csharp
 internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
@@ -246,7 +246,7 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 [使用並行節點工作最大化 Azure Batch 計算資源使用量](batch-parallel-node-tasks.md) 是另一篇與 Batch 應用程式效能有關的文章。 某些類型的工作負載可以受益於在規模較大但數量較少的計算節點上執行平行工作。 如需這類案例的詳細資訊，請查看 [範例案例](batch-parallel-node-tasks.md#example-scenario) 。
 
 
-[api_net]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch?view=azure-dotnet
+[api_net]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch
 [api_net_listjobs]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.joboperations.listjobs.aspx
 [api_rest]: https://docs.microsoft.com/rest/api/batchservice/
 [batch_metrics]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchMetrics

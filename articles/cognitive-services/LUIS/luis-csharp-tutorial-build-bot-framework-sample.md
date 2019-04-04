@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: ca4cd1aa074353914f5187e353c233f8b45140eb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f23cf78bfca48b3a78e234520d645abdb354038f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091676"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878463"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>C# 中使用 Bot Framework 3.x 和 Azure Web 應用程式 Bot 建置的 LUIS Bot
 
@@ -111,19 +111,19 @@ Bot 會說出 "You have reached Greeting. You said: hello" 來作為回應。  �
 
    [!code-csharp[Dependencies](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=4-5&dedent=8 "dependencies")]
 
-3. 在 `BasicLuisDialog ` 類別頂端，新增常數來管理字串：
+3. 在 `BasicLuisDialog` 類別頂端，新增常數來管理字串：
 
    [!code-csharp[Add Intent and Entity Constants](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=23-32&dedent=8 "Add Intent and Entity Constants")]
 
-4. 在 `BasicLuisDialog ` 類別內，新增新意圖 `HomeAutomation.TurnOn` 和 `HomeAutomation.TurnOff` 的程式碼：
+4. 在 `BasicLuisDialog` 類別內，新增新意圖 `HomeAutomation.TurnOn` 和 `HomeAutomation.TurnOff` 的程式碼：
 
    [!code-csharp[Add Intents](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=61-71&dedent=8 "Add Intents")]
 
-5. 在 `BasicLuisDialog ` 類別內，新增程式碼來取得 LUIS 所找到的任何實體：
+5. 在 `BasicLuisDialog` 類別內，新增程式碼來取得 LUIS 所找到的任何實體：
 
    [!code-csharp[Collect entities](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=34-53&dedent=8 "Collect entities")]
 
-6. 變更 `BasicLuisDialog ` 類別中的 **ShowLuisResult** 方法來捨入分數、收集實體，以及在 Chatbot 中顯示回應訊息：
+6. 變更 `BasicLuisDialog` 類別中的 **ShowLuisResult** 方法來捨入分數、收集實體，以及在 Chatbot 中顯示回應訊息：
 
    [!code-csharp[Display message in chatbot](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs?range=73-83&dedent=8 "Display message in chatbot")]
 

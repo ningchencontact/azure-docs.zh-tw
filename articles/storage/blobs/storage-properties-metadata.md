@@ -5,30 +5,29 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 04/03/2019
 ms.author: tamram
-ms.openlocfilehash: 2641e1653e14a7c101d95b02b8a5af71ceb9fdc6
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
-ms.translationtype: HT
+ms.openlocfilehash: 86bb7e736754cbc6a93bba5fff5d8d1877b1e3b4
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398169"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916575"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>設定並擷取屬性和中繼資料
 
 除了所包含之資料外，在 Azure 儲存體支援系統屬性和使用者定義中繼資料中的物件。 本文討論如何使用[適用於 .NET 的 Azure 儲存體用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage/)來管理系統屬性和使用者定義的中繼資料。
 
-* **系統屬性**：系統屬性存在於每個儲存體資源上。 其中有些系統屬性可以讀取或設定，有些則是唯讀的。 實際上，有些系統屬性會對應至特定的標準 HTTP 標頭。 Azure 儲存體用戶端程式庫會為您維護這些屬性。
+* **系統屬性**: 系統屬性存在於每個儲存體資源上。 其中有些系統屬性可以讀取或設定，有些則是唯讀的。 實際上，有些系統屬性會對應至特定的標準 HTTP 標頭。 Azure 儲存體用戶端程式庫會為您維護這些屬性。
 
-* **使用者定義的中繼資料**：使用者定義的中繼資料由您為 Azure 儲存體資源指定的一個或多個名稱/值對所組成。 您可以使用中繼資料來儲存資源的額外值。 中繼資料值僅供您自己使用，並不會影響資源的運作方式。
+* **使用者定義的中繼資料**:使用者定義的中繼資料是由您指定 Azure 儲存體資源的一或多個名稱 / 值組所組成。 您可以使用中繼資料來儲存資源的額外值。 中繼資料值僅供您自己使用，並不會影響資源的運作方式。
 
 擷取儲存體資源的屬性和中繼資料值是一個兩步驟程序。 您必須先呼叫 **FetchAttributes** 或 **FetchAttributesAsync** 方法明確地擷取這些值，才能開始讀取這些值。 例外情況是您在資源上呼叫 **Exists** 或 **ExistsAsync** 方法。 當您呼叫其中一個方法時，Azure 儲存體會呼叫適當的 **FetchAttributes** 方法作為呼叫 **Exists** 方法的一部分。
 
 > [!IMPORTANT]
 > 如果您發現尚未擴展儲存體資源的屬性或中繼資料值，請檢查您的程式碼是否呼叫 **FetchAttributes** 或 **FetchAttributesAsync** 方法。
 >
-> 中繼資料名稱/值對只能包含 ASCII 字元。 中繼資料名稱/值組是有效的 HTTP 標頭，所以必須遵守控管 HTTP 標頭的所有限制。 如果名稱和值包含非 ASCII 字元，建議您使用 URL 編碼或 Base64 編碼。
->
+> 中繼資料名稱/值組是有效的 HTTP 標頭，因此應該遵守控管 HTTP 標頭的所有限制。 中繼資料名稱必須是有效的 HTTP 標頭名稱，可能會包含唯一的 ASCII 字元，並應該視為區分大小寫。 包含非 ASCII 字元的中繼資料值應為 Base64 編碼或 URL 編碼。
 
 ## <a name="setting-and-retrieving-properties"></a>設定與擷取屬性
 若要擷取屬性值，請呼叫 Blob 或容器上的 **FetchAttributesAsync** 方法，以填入屬性，然後讀取這些值。
@@ -100,5 +99,5 @@ public static async Task ListContainerMetadataAsync(CloudBlobContainer container
 ```
 
 ## <a name="next-steps"></a>後續步驟
-* [適用於 .NET 的 Azure 儲存體用戶端程式庫參考資料](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
-* [適用於 .NET NuGet 套件的 Azure 儲存體用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [Azure Storage Client Library for.NET 參考資料](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
+* [適用於.NET NuGet 套件的 azure 儲存體用戶端程式庫](https://www.nuget.org/packages/WindowsAzure.Storage/)

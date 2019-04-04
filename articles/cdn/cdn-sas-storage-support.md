@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
-ms.openlocfilehash: ee64b4cbfd024c91b226736bc8cac0b9b33f964e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7edf0a9f8d4eb4c01b6d80fd82a1061b6cbb1e35
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170389"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918547"
 ---
 # <a name="using-azure-cdn-with-sas"></a>搭配 SAS 使用 Azure CDN
 
@@ -86,10 +86,11 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&
    ```
    $1?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-   ![CDN URL 重寫規則 - 左](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![CDN URL 重寫規則 - 右](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
+   ![CDN URL 重寫規則-左](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   ![CDN URL 重寫規則-正確](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
-2. 新規則生效後，任何人都可以存取 CDN 端點上指定容器中的檔案，不論他們是否在 URL 中使用 SAS 權杖都行。 格式如下：`https://<endpoint hostname>.azureedge.net/<container>/<file>`
+2. 新規則生效後，任何人都可以存取 CDN 端點上指定容器中的檔案，不論他們是否在 URL 中使用 SAS 權杖都行。 格式如下：
+   `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    例如︰   
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
@@ -124,8 +125,8 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&
    ```
    $1&sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-   ![CDN URL 重寫規則 - 左](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![CDN URL 重寫規則 - 右](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
+   ![CDN URL 重寫規則-左](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   ![CDN URL 重寫規則-正確](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
 3. 如果您更新 SAS，請務必將 Url 重寫規則更新成使用新的 SAS 權杖。 
 
@@ -137,7 +138,7 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&
 | --- | --- |
 | Start | Azure CDN 可以開始存取 Blob 檔案的時間。 由於時鐘誤差 (當時鐘訊號針對不同元件在不同時間抵達時) 的緣故，因此如果您想要讓資產立即可供使用，請選擇提早 15 分鐘的時間。 |
 | End | 之後 Azure CDN 即無法再存取 Blob 檔案的時間。 Azure CDN 上先前快取的檔案仍然可供存取。 若要控制檔案到期時間，請在 Azure CDN 安全性權杖上設定適當的到期時間或清除資產。 |
-| 允許的 IP 位址 | 選用。 如果您使用**來自 Verizon 的 Azure CDN**，您可以將此參數設定為[來自 Verizon 的 Azure CDN Edge Server IP 範圍](https://msdn.microsoft.com/library/mt757330.aspx) \(英文\) 中定義的範圍。 如果您使用**來自 Akamai 的 Azure CDN**，則無法設定 IP 範圍參數，因為 IP 位址並非靜態。|
+| 允許的 IP 位址 | 選用。 如果您使用**來自 Verizon 的 Azure CDN**，您可以將此參數設定為[來自 Verizon 的 Azure CDN Edge Server IP 範圍](/azure/cdn/cdn-pop-list-api) \(英文\) 中定義的範圍。 如果您使用**來自 Akamai 的 Azure CDN**，則無法設定 IP 範圍參數，因為 IP 位址並非靜態。|
 | 允許的通訊協定 | 針對使用帳戶 SAS 來提出之要求允許的通訊協定。 建議使用 HTTPS 設定。|
 
 ## <a name="next-steps"></a>後續步驟

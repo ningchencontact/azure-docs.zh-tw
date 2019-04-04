@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: magattus
-ms.openlocfilehash: a3777533fc967e1974b99375496dd3777fa9fb3a
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: 76e7817be81a97c8d1a0b9ca2fea8378c3c733e1
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093845"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916474"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>清除 Azure CDN 端點
 ## <a name="overview"></a>概觀
@@ -52,12 +52,12 @@ Azure CDN 邊緣節點會快取資產，直到資產的存留時間 (TTL) 到期
    > 
    > 
 4. 選取您希望從邊緣節點清除的資產。  如果您希望清除所有資產，請按一下 [清除]  核取方塊。  或者，在 [路徑] 文字方塊中輸入每個您想要清除之資產的路徑。 路徑支援下列格式。
-    1. **單一 URL 清除**︰藉由指定完整 URL (含或不含副檔名) 來清除個別資產，例如 `/pictures/strasbourg.png`、`/pictures/strasbourg`
-    2. **萬用字元清除**︰星號 (\*) 可作為萬用字元。 清除路徑中有 `/*` 之端點下的所有資料夾、子資料夾和檔案，或指定後接 `/*` 的資料夾來清除特定資料夾下的所有子資料夾和檔案，例如 `/pictures/*`。  請注意，來自 Akamai 的 Azure CDN 目前不支援萬用字元清除。 
-    3. **根網域清除**︰清除路徑中有 "/" 之端點的根目錄。
+    1. **單一 URL 清除**：藉由指定完整的 URL，或不含副檔名，例如清除個別資產`/pictures/strasbourg.png`; `/pictures/strasbourg`
+    2. **萬用字元清除**：星號 (\*) 可作為萬用字元。 清除路徑中有 `/*` 之端點下的所有資料夾、子資料夾和檔案，或指定後接 `/*` 的資料夾來清除特定資料夾下的所有子資料夾和檔案，例如 `/pictures/*`。  請注意，來自 Akamai 的 Azure CDN 目前不支援萬用字元清除。 
+    3. **根網域清除**：清除路徑中有 "/" 之端點的根目錄。
    
    > [!TIP]
-   > 路徑必須加以指定才能清除，且必須是符合下列[規則運算式](https://msdn.microsoft.com/library/az24scfc.aspx)的相對 URL。 **來自 Akamai 的 Azure CDN** 目前不支援**全部清除**和**萬用字元清除**。
+   > 路徑必須加以指定才能清除，且必須是符合下列[規則運算式](/dotnet/standard/base-types/regular-expression-language-quick-reference)的相對 URL。 **來自 Akamai 的 Azure CDN** 目前不支援**全部清除**和**萬用字元清除**。
    > > 單一 URL 清除 `@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
    > > 查詢字串 `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
    > > 萬用字元清除 `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";`。 
@@ -73,7 +73,7 @@ Azure CDN 邊緣節點會快取資產，直到資產的存留時間 (TTL) 到期
 > 
 > 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [在 Azure CDN 端點上預先載入資產](cdn-preload-endpoint.md)
-* [Azure CDN REST API 參考資料 - 清除或預先載入端點](https://msdn.microsoft.com/library/mt634451.aspx)
+* [Azure CDN REST API 參考-清除或預先載入端點](/rest/api/cdn/endpoints)
 

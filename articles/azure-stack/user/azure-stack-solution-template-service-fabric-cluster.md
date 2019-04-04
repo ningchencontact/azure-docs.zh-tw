@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: d0d725a57c27fe30215d77a596f6fb3b8c8720d6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8041e7e02b117b8938f0f7c18da2d57c31dddb34
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098003"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482259"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>在 Azure Stack 中部署 Service Fabric 叢集
 
@@ -61,7 +61,7 @@ Azure Stack 中的 Service Fabric 叢集並不使用資源提供者 Microsoft.Se
 > [!TIP]  
 > 必須先具備公用供應項目 (包括用於計算、網路、儲存體和 KeyVault 的服務)，指令碼才可能成功。 
 
-  ```PowerShell
+  ```powershell
     function Get-ThumbprintFromPfx($PfxFilePath, $Password) 
         {
             return New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($PfxFilePath, $Password)
@@ -211,7 +211,7 @@ Azure Stack 中的 Service Fabric 叢集並不使用資源提供者 Microsoft.Se
 
 1. 變更環境變數的順序之後，重新啟動 PowerShell，然後執行下列 PowerShell 指令碼來存取 Service Fabric 叢集：
 
-   ```PowerShell  
+   ```powershell  
     Connect-ServiceFabricCluster -ConnectionEndpoint "\[Service Fabric
     CLUSTER FQDN\]:19000" \`
 

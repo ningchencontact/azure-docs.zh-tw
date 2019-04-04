@@ -15,12 +15,12 @@ ms.date: 03/15/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: ab23013d8de61e13013aa4cd735be04e1e3213c3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b8f2e3ebfa7187b6695fbd291c7baf0a9ba3b712
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119933"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485776"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-a-user"></a>以使用者的身分使用 PowerShell 連線到 Azure Stack
 
@@ -50,7 +50,7 @@ ms.locfileid: "58119933"
 
 ## <a name="connect-with-azure-ad"></a>與 Azure AD 連線
 
-```PowerShell  
+```powershell  
     Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
     # Set your tenant name
     $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackUser").ActiveDirectoryAuthority.TrimEnd('/')
@@ -64,7 +64,7 @@ ms.locfileid: "58119933"
 
 ## <a name="connect-with-ad-fs"></a>與 AD FS 連線
 
-  ```PowerShell  
+  ```powershell  
   # Register an Azure Resource Manager environment that targets your Azure Stack instance
   Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint "https://management.local.azurestack.external"
 
@@ -76,7 +76,7 @@ ms.locfileid: "58119933"
 
 沒有透過入口網站部署任何資源的新使用者訂用帳戶，並不會自動註冊資源提供者。 執行下列指令碼，即可明確註冊資源提供者：
 
-```PowerShell  
+```powershell  
 foreach($s in (Get-AzureRmSubscription)) {
         Select-AzureRmSubscription -SubscriptionId $s.SubscriptionId | Out-Null
         Write-Progress $($s.SubscriptionId + " : " + $s.SubscriptionName)
@@ -88,7 +88,7 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider -F
 
 當您將一切設定妥當時，使用 PowerShell 在 Azure Stack 中建立資源，以測試連線能力。 在測試時，建立應用程式的資源群組並新增虛擬機器。 若要建立名為 "MyResourceGroup" 的資源群組，請執行下列命令：
 
-```PowerShell  
+```powershell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 

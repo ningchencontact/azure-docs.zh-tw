@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: be0b930c99bb14c34e395efce494e8d7372719b0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 7b81b53c03104023823bef75beb4ac6077feede7
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998133"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918683"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>使用影片索引器網站自訂語言模型
 
@@ -117,6 +117,34 @@ ms.locfileid: "55998133"
 
 此動作會從帳戶中完全移除語言模型。 使用已刪除之語言模型的任何視訊都會保留相同的索引，直到您重新編製視訊索引為止。 如果您重新編製視訊索引，可以將新的語言模型指派給該視訊。 否則，影片索引器將會使用其預設模型重新編製視訊索引。 
 
+## <a name="customize-language-models-by-correcting-transcripts"></a>自訂語言模型，藉由修正文字記錄
+
+影片索引器支援自動自訂語言模型，根據實際的修正使用者對一部影片轉譯。
+
+1. 若要讓文字記錄的更正，開啟您想要編輯從您的帳戶影片的影片。 選取 [**時間軸**] 索引標籤。
+
+    ![自訂語言模型](./media/customize-language-model/timeline.png)
+1. 按一下鉛筆圖示以編輯您轉譯的文字記錄。 
+
+    ![自訂語言模型](./media/customize-language-model/edits.png)
+
+    影片索引器會擷取更正您在您的影片轉譯，並將其自動加入一個稱為 從文字記錄編輯 」 文字檔案的所有行。 這些編輯用來重新訓練已用來編製索引這段影片中的特定語言模型。 
+    
+    如果這段影片中編製索引時，您未指定的語言模型，對這段影片中的所有編輯將會都儲存在呼叫在偵測到的語言中的視訊的帳戶採用的預設語言模型。 
+    
+    如果多個編輯已對同一行，已更正的一行的最後一個版本將用於更新語言模型。  
+    
+    > [!NOTE]
+    > 只有文字更正適用於自訂。 這表示修正不包含實際的文字 （例如標點符號或空格） 不會包含。 
+    
+1. 您會看到顯示在內容模型的 [自訂] 頁面的 [語言] 索引標籤的文字記錄更正。
+
+    ![自訂語言模型](./media/customize-language-model/customize.png)
+
+   若要查看針對每個語言模型的 從文字記錄編輯 「 檔案，按一下以開啟它。 
+
+    ![從文字記錄編輯](./media/customize-language-model/from-transcript-edits.png)
+
 ## <a name="next-steps"></a>後續步驟
 
-[使用 API 自訂語言模型](customize-language-model-with-api.md)
+[自訂語言模型 Api](customize-language-model-with-api.md)

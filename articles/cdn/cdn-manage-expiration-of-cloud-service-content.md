@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: magattus
-ms.openlocfilehash: b070b302917d69e0145c1a10c90685b55aa4dcc2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6e17b110cbfc293e19714399d5b2cdb753aa1ac4
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540211"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917952"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>在 Azure CDN 中管理 Web 內容的到期
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ ms.locfileid: "57540211"
    ![CDN 快取頁面](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-page.png)
 
 
-**若要使用全域快取規則設定 Web 伺服器的 Cache-Control 標頭：**
+**若要使用全域快取規則設定 web 伺服器的 Cache-control 標頭：**
 
 1. 在 [全域快取規則] 下方，將 [查詢字串快取行為] 設定為 [忽略查詢字串]，並將 [快取行為] 設定為 [覆寫]。
       
@@ -68,7 +68,7 @@ ms.locfileid: "57540211"
 
 1. 選取 [ **儲存**]。
 
-**使用自訂快取規則設定 Web 伺服器檔案的 Cache-Control 標頭：**
+**若要使用自訂快取規則設定 web 伺服器檔案的 Cache-control 標頭：**
 
 1. 在 [自訂快取規則] 下，建立兩個比對條件：
 
@@ -109,7 +109,7 @@ ms.locfileid: "57540211"
 若要使用 **cacheControlMaxAge** 屬性，您必須將 **cacheControlMode** 屬性的值設為 `UseMaxAge`。 此設定會產生要新增至回應的 HTTP 標頭及指示詞，`Cache-Control: max-age=<nnn>`。 **cacheControlMaxAge** 屬性的時間範圍值格式為 `<days>.<hours>:<min>:<sec>`。 此值會轉換為秒，且會當做 `Cache-Control` `max-age` 指示詞使用。 如需 `<clientCache>` 元素的詳細資訊，請參閱[用戶端快取<clientCache>](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)。  
 
 ## <a name="setting-cache-control-headers-programmatically"></a>以程式設計方式設定 Cache-Control 標頭
-針對 ASP.NET 應用程式，設定 .NET API 的 **HttpResponse.Cache** 屬性即可透過程式設計方式控制 CDN 快取行為。 如需 **HttpResponse.Cache** 屬性的資訊，請參閱 [HttpResponse.Cache 屬性](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx)和 [HttpCachePolicy 類別](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)。  
+針對 ASP.NET 應用程式，設定 .NET API 的 **HttpResponse.Cache** 屬性即可透過程式設計方式控制 CDN 快取行為。 如需 **HttpResponse.Cache** 屬性的資訊，請參閱 [HttpResponse.Cache 屬性](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache)和 [HttpCachePolicy 類別](/dotnet/api/system.web.httpcachepolicy)。  
 
 若要以程式設計方式快取 ASP.NET 中的應用程式內容，遵循下列步驟：
    1. 確認內容已標示為可快取(將 `HttpCacheability` 設定為 `Public`)。 
@@ -131,7 +131,7 @@ Response.Cache.SetLastModified(DateTime.Now);
 您可以輕鬆地驗證網頁內容的 TTL 設定。 使用瀏覽器的[開發人員工具](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)，測試網頁內容是否包含 `Cache-Control` 回應標頭。 您也可以使用 **wget**、[Postman](https://www.getpostman.com/) 或 [Fiddler](https://www.telerik.com/fiddler) 之類的工具來檢查回應標頭。
 
 ## <a name="next-steps"></a>後續步驟
-* [深入了解 **clientCache** 項目](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
-* [閱讀 **HttpResponse.Cache** 屬性的文件](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
-* [閱讀 **HttpCachePolicy 類別**的文件](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
+* [閱讀詳細資料**clientCache**項目](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
+* [閱讀文件**HttpResponse.Cache**屬性](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) 
+* [閱讀文件**HttpCachePolicy 類別**](/dotnet/api/system.web.httpcachepolicy)  
 * [深入了解快取概念](cdn-how-caching-works.md)

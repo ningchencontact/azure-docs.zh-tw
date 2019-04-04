@@ -11,12 +11,12 @@ ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 47cc7d9f09b7fb22cf99ad010f1dc75e6388c314
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 23cc0f03c41801de944eb9938d4cd15896d1745e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731915"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482176"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Azure Stack 的延伸主機準備
 
@@ -47,13 +47,13 @@ Azure Stack 整備檢查工具可讓您為兩個必要的新 SSL 憑證建立憑
 1. 使用硬體生命週期主機或 Azure Stack 管理工作站上提升的權限開啟 PowerShell。
 2. 執行下列 Cmdlet 來安裝 Azure Stack 整備檢查工具。
 
-    ```PowerShell  
+    ```powershell  
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
     ```
 
 3. 執行下列指令碼來建立必要的資料夾結構。
 
-    ```PowerShell  
+    ```powershell  
     New-Item C:\Certificates -ItemType Directory
 
     $directories = 'ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal', 'Admin extension host', 'Public extension host'
@@ -69,7 +69,7 @@ Azure Stack 整備檢查工具可讓您為兩個必要的新 SSL 憑證建立憑
 4. 將現有憑證 (亦即您目前在 Azure Stack 中使用的憑證) 放在適當的目錄。 例如，將**管理員 ARM** 憑證放入 `Arm Admin` 資料夾。 然後，將新建立的裝載憑證放入 `Admin extension host` 和 `Public extension host` 目錄。
 5. 執行下列 Cmdlet 來啟動憑證檢查：
 
-    ```PowerShell  
+    ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
     Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
@@ -86,7 +86,7 @@ Azure Stack 整備檢查工具可讓您為兩個必要的新 SSL 憑證建立憑
 2. 開啟 PowerShell ISE 來執行後續的指令碼區塊
 3. 匯入管理員主機端點的憑證。
 
-    ```PowerShell  
+    ```powershell  
 
     $CertPassword = read-host -AsSecureString -prompt "Certificate Password"
 
@@ -104,7 +104,7 @@ Azure Stack 整備檢查工具可讓您為兩個必要的新 SSL 憑證建立憑
     }
     ```
 4. 匯入主機端點的憑證。
-    ```PowerShell  
+    ```powershell  
     $CertPassword = read-host -AsSecureString -prompt "Certificate Password"
 
     $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -142,7 +142,7 @@ Azure Stack 整備檢查工具可讓您為兩個必要的新 SSL 憑證建立憑
 
 有兩個新端點需透過您的防火牆來發佈。 您可使用下列程式碼來擷取來自公用 VIP 集區的已配置 IP；您必須從您 Azure Stack [環境的具特殊權限端點](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint)來執行該程式碼。
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -173,7 +173,7 @@ Remove-PSSession -Session $PEPSession
 
 #### <a name="sample-output"></a>範例輸出
 
-```PowerShell
+```powershell
 Can access AZS DNS
 The IP for the Admin Extension Host is: *.adminhosting.\<region>.\<fqdn> - is: xxx.xxx.xxx.xxx
 The Record to be added in the DNS zone: Type A, Name: *.adminhosting.\<region>.\<fqdn>, Value: xxx.xxx.xxx.xxx

@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: f2fc187518070bf199a3959889afd1ede4ef5b77
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 89b48175d7707458cd92916f6b26e298163a7416
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660709"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915913"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>使用 ACR 工作來自動執行 OS 和架構修補
 
@@ -27,7 +27,7 @@ ms.locfileid: "55660709"
 * [快速工作](#quick-task)：在 Azure 中依需求建置及推送容器映像，而無須安裝本機 Docker 引擎。 請思考一下雲端中的 `docker build`、`docker push`。 從本機原始程式碼或 Git 存放庫進行建置。
 * [在原始程式碼認可時建置](#automatic-build-on-source-code-commit)：將程式碼認可至 Git 存放庫時，自動觸發容器映像建置。
 * [在基底映像更新時建置](#automate-os-and-framework-patching)：當映像的基底映像已更新時，觸發容器映像建置。
-* [多步驟工作](#multi-step-tasks-preview) (預覽)：定義建置映像、以命令形式執行容器並將映像推送至登錄的多步驟工作。 這個「ACR 工作」預覽版功能支援依需求執行工作，以及平行的映像建置、測試及推送作業。
+* [多步驟工作](#multi-step-tasks):定義建置映像、以命令形式執行容器並將映像推送至登錄的多步驟工作。 ACR 工作支援隨工作執行和平行的映像建置、 測試和推送作業的這項功能。
 
 ## <a name="quick-task"></a>快速工作
 
@@ -37,9 +37,11 @@ ms.locfileid: "55660709"
 
 Azure CLI 中的 [az acr build][az-acr-build]命令會使用熟悉的 `docker build` 格式來取得「內容」(要建置的一組檔案)、將它傳送給「ACR 工作」，然後依預設在完成時將所建置的映像推送至其登錄。
 
+如需簡介，請參閱快速入門[建置和執行容器映像](container-registry-quickstart-task-cli.md)Azure Container Registry 中。  
+
 下表顯示「ACR 工作」的幾個所支援內容位置範例：
 
-| 內容位置 | 說明 | 範例 |
+| 內容位置 | 描述 | 範例 |
 | ---------------- | ----------- | ------- |
 | 本機檔案系統 | 本機檔案系統上目錄內的檔案。 | `/home/user/projects/myapp` |
 | GitHub 主要分支 | GitHub 存放庫之主要 (或其他預設) 分支內的檔案。  | `https://github.com/gituser/myapp-repo.git` |
@@ -76,9 +78,9 @@ Azure CLI 中的 [az acr build][az-acr-build]命令會使用熟悉的 `docker bu
 > [!NOTE]
 > 只有當基底和應用程式映像都位於相同的 Azure 容器登錄，或當基底位於公用 Docker Hub 存放庫時，基底映像更新才會觸發建置。
 
-## <a name="multi-step-tasks-preview"></a>多步驟工作 (預覽)
+## <a name="multi-step-tasks"></a>多重步驟的工作
 
-多步驟工作 (「ACR 工作」的預覽版功能) 提供適用於在雲端建置、測試及修補容器映像的步驟型工作定義與執行。 工作步驟會定義個別的容器映像建置和推送作業。 它們也可以定義一或多個容器的執行，其中每個步驟都使用容器作為其執行環境。
+多重步驟的工作提供的步驟為基礎的工作定義和建置、 測試和修復的容器映像，在雲端中執行。 工作步驟會定義個別的容器映像建置和推送作業。 它們也可以定義一或多個容器的執行，其中每個步驟都使用容器作為其執行環境。
 
 例如，您可以建立一個自動執行下列操作的多步驟工作：
 
@@ -93,15 +95,12 @@ Azure CLI 中的 [az acr build][az-acr-build]命令會使用熟悉的 `docker bu
 
 如需了解多步驟工作，請參閱[執行 ACR 工作中的多步驟建置、測試及修補工作](container-registry-tasks-multi-step.md)。
 
-> [!IMPORTANT]
-> 「ACR 工作」的多步驟工作功能目前為預覽版。 若您同意[補充的使用規定][terms-of-use]，即可取得預覽。 在正式運作 (GA) 之前，此功能的某些方面可能會有所變更
-
 ## <a name="next-steps"></a>後續步驟
 
 當您已藉由在雲端建置容器映像，而做好自動執行 OS 和架構修補的準備時，請查看由三部分組成的「ACR 工作」教學課程系列。
 
 > [!div class="nextstepaction"]
-> [使用 Azure Container Registry 工作在雲端中建置容器映像](container-registry-tutorial-quick-task.md)
+> [建置使用 Azure 容器登錄工作在雲端中的容器映像](container-registry-tutorial-quick-task.md)
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

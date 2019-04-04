@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 3dfb87e5f6c231831cd9c007b19ad001e1fce326
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: b6a859f1104be8650b95ac789f3da606fb1b70f6
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403182"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486677"
 ---
 # <a name="validate-azure-identity"></a>驗證 Azure 身分識別
 
@@ -85,7 +85,7 @@ ms.locfileid: "58403182"
 
 4. 在此工具執行之後，請檢閱輸出。 確認安裝需求的狀態是**正常**。 驗證成功時會出現類似下圖的輸出：
 
-   ```shell
+   ```powershell
    Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
    Starting Azure Identity Validation
 
@@ -119,7 +119,7 @@ ms.locfileid: "58403182"
 
 ### <a name="expired-or-temporary-password"></a>過期或暫時的密碼
 
-```shell
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -145,9 +145,9 @@ Login-AzureRMAccount
 
 或者，以該帳戶的擁有者身分登入 [Azure 入口網站](https://portal.azure.com)，然後系統將會強制使用者變更密碼。
 
-### <a name="unknown-user-type"></a>不明的使用者類型
-
-```shell
+### <a name="unknown-user-type"></a>不明的使用者類型 
+ 
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -173,7 +173,7 @@ Login-AzureRmAccount –EnvironmentName AzureChinaCloud
 
 ### <a name="account-is-not-an-administrator"></a>帳戶不是系統管理員
 
-```shell
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 

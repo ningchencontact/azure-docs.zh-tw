@@ -13,12 +13,12 @@ ms.workload: na
 ms.date: 12/18/2018
 ms.author: sethm
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 3c36bca12a16a796a964c4447b47265eecd756be
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 0f5a4dc76830740d69547a01ce40b5e10cf4a74b
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809243"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499403"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>為 Azure Stack 提供應用程式存取
 
@@ -89,11 +89,11 @@ ms.locfileid: "55809243"
 | 類型 | 動作 |
 | --- | --- |
 | AD FS 憑證 | [建立](azure-stack-create-service-principals.md#create-a-service-principal-using-a-certificate) |
-| AD FS 憑證 | [更新](azure-stack-create-service-principals.md#update-certificate-for-service-principal-for-AD-FS) |
-| AD FS 憑證 | [Remove](azure-stack-create-service-principals.md#remove-a-service-principal-for-AD-FS) |
+| AD FS 憑證 | [更新](azure-stack-create-service-principals.md#update-certificate-for-service-principal-for-ad-fs) |
+| AD FS 憑證 | [Remove](azure-stack-create-service-principals.md#remove-a-service-principal-for-ad-fs) |
 | AD FS 用戶端祕密 | [建立](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
 | AD FS 用戶端祕密 | [更新](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
-| AD FS 用戶端祕密 | [Remove](azure-stack-create-service-principals.md##remove-a-service-principal-for-AD-FS) |
+| AD FS 用戶端祕密 | [Remove](azure-stack-create-service-principals.md#remove-a-service-principal-for-ad-fs) |
 
 ### <a name="create-a-service-principal-using-a-certificate"></a>使用憑證來建立服務主體
 
@@ -124,7 +124,7 @@ ms.locfileid: "55809243"
 
 1. 開啟已提升權限的 Windows PowerShell 工作階段，然後執行下列 Cmdlet：
 
-   ```PowerShell  
+   ```powershell  
     # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
     $Creds = Get-Credential
 
@@ -173,7 +173,7 @@ ms.locfileid: "55809243"
    > [!Note]  
    > 為了進行驗證，可以使用以下範例來建立一個自我簽署憑證：
 
-   ```PowerShell  
+   ```powershell  
    $Cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
    ```
 
@@ -254,7 +254,7 @@ ms.locfileid: "55809243"
 
 1. 開啟已提升權限的 Windows PowerShell 工作階段，然後執行下列 Cmdlet：
 
-     ```PowerShell  
+     ```powershell  
       # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
      $Creds = Get-Credential
 
@@ -272,7 +272,7 @@ ms.locfileid: "55809243"
 
 2. 在 Cmdlet 執行之後，殼層會顯示使用 SPN 所需的詳細資料。 請務必儲存用戶端祕密。
 
-     ```PowerShell  
+     ```powershell  
      ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2623
      ClientId              : 8e0ffd12-26c8-4178-a74b-f26bd28db601
      Thumbprint            : 
@@ -304,7 +304,7 @@ PowerShell Cmdlet 會自動產生新的用戶端祕密。
 
 1. 開啟已提升權限的 Windows PowerShell 工作階段，然後執行下列 Cmdlet：
 
-     ```PowerShell  
+     ```powershell  
           # Creating a PSSession to the ERCS PrivilegedEndpoint
           $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
@@ -318,7 +318,7 @@ PowerShell Cmdlet 會自動產生新的用戶端祕密。
 
 2. 自動化完成之後，它會顯示 SPN 驗證所需的新產生祕密。 請務必儲存新的用戶端祕密。
 
-     ```PowerShell  
+     ```powershell  
           ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2120
           ClientId              :  
           Thumbprint            : 

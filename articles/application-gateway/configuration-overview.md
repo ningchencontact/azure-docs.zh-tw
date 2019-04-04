@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 371d15f59c091f7ac38d36bfe3de5f4b31e4482c
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 40c5444a54f4e483a9dcacb958c18f66da45019a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629625"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906118"
 ---
 # <a name="application-gateway-configuration-overview"></a>應用程式閘道設定概觀
 
@@ -21,6 +21,9 @@ Azure 應用程式閘道是由您可以針對不同案例的各種方式設定�
 ![應用程式閘道元件流程圖](./media/configuration-overview/configuration-overview1.png)
 
 此圖顯示具有三個接聽程式的應用程式。 前兩個是多站台接聽程式`http://acme.com/*`和`http://fabrikam.com/*`分別。 同時接聽連接埠 80。 第三個是基本接聽程式具有端對端安全通訊端層 (SSL) 終止。
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -136,11 +139,11 @@ V2 sku，多站台接聽程式會處理之前基本接聽程式。
 連線到應用程式閘道接聽程式的用戶端可存取 HTTP/2 通訊協定支援。 後端伺服器集區的通訊是透過 HTTP/1.1。 預設已停用 HTTP/2 支援。 下列 Azure PowerShell 程式碼片段示範如何啟用此功能：
 
 ```azurepowershell
-$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+$gw = Get-AzApplicationGateway -Name test -ResourceGroupName hm
 
 $gw.EnableHttp2 = $true
 
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
+Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
 #### <a name="websocket-support"></a>WebSocket 支援

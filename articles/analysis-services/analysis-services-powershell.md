@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 177d74a54e4ab4de698cbb63091656cc8b584e2b
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 1f9c30f1c914f6c8d42967e014d967ba0d5b85cc
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010679"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893838"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>使用 PowerShell 管理 Azure Analysis Services
 
@@ -27,11 +27,11 @@ ms.locfileid: "57010679"
 
 大部分的 PowerShell 工作需要您在您管理的 Analysis Services 伺服器上具備系統管理員權限。 排定的 PowerShell 工作都是自動的作業。 執行排程器的帳戶和服務主體必須具有 Analysis Services 伺服器上的管理員權限。 
 
-使用 Azure PowerShell cmdlet 的伺服器作業，您的帳戶或執行排程器的帳戶也必須屬於擁有者角色中的資源[azure 角色型存取控制 (RBAC)](../role-based-access-control/overview.md)。 
+对于使用 Azure PowerShell cmdlet 的服务器操作，你的帐户或运行计划程序的帐户还必须属于 [Azure 基于角色的访问控制 (RBAC)](../role-based-access-control/overview.md) 中资源的所有者角色。 
 
 ## <a name="resource-management-operations"></a>資源管理作業 
 
-Module - [Az.AnalysisServices](/powershell/module/az.analysisservices)
+模块 - [Az.AnalysisServices](/powershell/module/az.analysisservices)
 
 |Cmdlet|描述| 
 |------------|-----------------| 
@@ -52,9 +52,9 @@ Module - [Az.AnalysisServices](/powershell/module/az.analysisservices)
 |Cmdlet|描述| 
 |------------|-----------------| 
 |[Add-AzAnalysisServicesAccount](/powershell/module/az.analysisservices/add-AzAnalysisServicesaccount)|新增已驗證的帳戶以用於 Azure Analysis Services 伺服器 Cmdlet 要求。| 
-|[Export-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/export-AzAnalysisServicesinstancelog)|從目前登入環境新增 AzAnalysisServicesAccount 命令中所指定的 Analysis Services 伺服器執行個體匯出記錄檔|  
-|[Restart-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|目前已登入的環境中，以重新啟動 Analysis Services 伺服器執行個體新增 AzAnalysisServicesAccount 命令中指定。|  
-|[Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|同步處理到所有的查詢向外延展執行個體目前已登入環境新增 AzAnalysisServicesAccount 命令中所指定的 Analysis Services 伺服器指定的執行個體上指定的資料庫|  
+|[Export-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/export-AzAnalysisServicesinstancelog)|在 Add-AzAnalysisServicesAccount 命令指定的当前登录环境中，从 Analysis Services 服务器实例中导出日志|  
+|[Restart-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|在当前登录的环境中重新启动 Analysis Services 服务器的实例；在 Add-AzAnalysisServicesAccount 命令中指定。|  
+|[Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|在 Add-AzAnalysisServicesAccount 命令指定的当前登录环境中，将指定的 Analysis Services 服务器实例上的指定数据库同步到所有查询横向扩展实例|  
 
 ## <a name="database-operations"></a>資料庫作業
 
@@ -68,11 +68,11 @@ SqlServer 模組提供特定工作的資料庫管理 Cmdlet，以及接受「表
 |[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|將成員新增到資料庫角色。| 
 |[Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|備份 Analysis Services 資料庫。|  
 |[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|從資料庫角色移除成員。|   
-|[Invoke-ASCmd](https://docs.microsoft.com/powershell/module/sqlserver/invoke-ascmd)|执行 TMSL 脚本。|
+|[Invoke-ASCmd](https://docs.microsoft.com/powershell/module/sqlserver/invoke-ascmd)|執行 TMSL 指令碼。|
 |[Invoke-ProcessASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processasdatabase)|處理資料庫。|  
 |[Invoke-ProcessPartition](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processpartition)|處理資料分割。| 
 |[Invoke-ProcessTable](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processtable)|處理資料表。|  
-|[Merge-Partition](https://docs.microsoft.com/powershell/module/sqlserver/merge-partition)|合併資料分割。|  
+|[合併資料分割](https://docs.microsoft.com/powershell/module/sqlserver/merge-partition)|合併資料分割。|  
 |[Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase)|還原 Analysis Services 資料庫。| 
   
 
@@ -81,4 +81,4 @@ SqlServer 模組提供特定工作的資料庫管理 Cmdlet，以及接受「表
 * [下載 SQL Server PowerShell 模組](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
 * [下載 SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
 * [PowerShell 資源庫中的 SqlServer 模組](https://www.powershellgallery.com/packages/SqlServer)    
-* [相容性層級 1200 和更高層級的表格式模型程式設計](https://msdn.microsoft.com/library/mt712541.aspx)
+* [表格式模型程式設計相容性層級 1200 及更高版本](/sql/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200)

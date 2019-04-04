@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: d500e26f5701e59dacfd5f09f6eaf88c5ced74e6
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 340cba65a1faac247678cd187f106157ba566f3e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648515"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918717"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>軟體的成本不包括在 Azure 保留的虛擬機器執行個體內
 
-如果保留的虛擬機器執行個體上沒有 Azure Hybrid Use Benefit，則必須為下列區段所列的軟體計量支付費用。
+如果您還沒有 Azure Hybrid Benefit 保留的虛擬機器執行個體上，則您須支付下一節所列的軟體計量。
 
 ## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Windows 軟體計量不包括在保留成本中
 
@@ -66,7 +66,7 @@ ms.locfileid: "58648515"
 
 ## <a name="rates-for-azure-meters"></a>Azure 計量的費率
 
-您可以透過 Azure RateCard API 來取得這些計量中每一個的成本。 如需如何取得 Azure 計量表費率的資訊，請參閱[取得 Azure 訂用帳戶中所使用資源的價格和中繼資料資訊](https://msdn.microsoft.com/library/azure/mt219004)。
+您可以透過 Azure RateCard API 來取得這些計量中每一個的成本。 如需如何取得 Azure 計量表費率的資訊，請參閱[取得 Azure 訂用帳戶中所使用資源的價格和中繼資料資訊](/previous-versions/azure/reference/mt219004(v=azure.100))。
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解 Azure 保留項目，請參閱下列文章：
@@ -74,9 +74,9 @@ ms.locfileid: "58648515"
 - [Azure 保留項目有哪些？](billing-save-compute-costs-reservations.md)
 - [預付具有 Azure 保留 VM 執行個體的虛擬機器](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [管理 Azure 保留項目](billing-manage-reserved-vm-instance.md)
-- [了解保留項目折扣的套用方式](billing-understand-vm-reservation-charges.md)
-- [了解預付型方案訂用帳戶的保留項目使用量](billing-understand-reserved-instance-usage.md)
-- [了解 Enterprise 註冊的保留項目使用量](billing-understand-reserved-instance-usage-ea.md)
+- [了解如何套用保留折扣](billing-understand-vm-reservation-charges.md)
+- [了解您的隨用隨付訂用帳戶的保留使用情況](billing-understand-reserved-instance-usage.md)
+- [了解 Enterprise 註冊之保留項目使用方式](billing-understand-reserved-instance-usage-ea.md)
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡
 

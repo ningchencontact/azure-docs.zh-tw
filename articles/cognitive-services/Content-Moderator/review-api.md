@@ -1,186 +1,76 @@
 ---
-title: 審核作業和人機互動審核 - Content Moderator
+title: 檢閱工作流程和工作概念-Content Moderator
 titlesuffix: Azure Cognitive Services
-description: 使用 Azure Content Moderator 的檢閱 API 將機器輔助審核和人機互動功能相結合，以讓貴公司獲得最佳成果。
+description: 深入了解評論、 工作流程和工作
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: 21d71110853c5f18b0b5f0b51d30110eb45ff54a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c1d4ef640e2ae072dacba7a665b6689e3224c55c
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862695"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756300"
 ---
-# <a name="content-moderation-jobs-and-reviews"></a>內容仲裁作業和檢閱
+# <a name="content-moderation-reviews-workflows-and-jobs"></a>內容仲裁審查、 工作流程和工作
 
-使用 Azure Content Moderator 的[檢閱 API](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) 將機器輔助審核和人機互動功能相結合，以讓貴公司獲得最佳成果。
+Content Moderator 結合機器輔助仲裁，在迴圈人類的功能，來建立最佳的仲裁的處理序的真實世界案例。 它會透過以雲端為基礎[審核工具](https://contentmoderator.cognitive.microsoft.com)。 本指南中，您將了解審核工具的核心概念： 檢閱、 工作流程和工作。
 
-「檢閱 API」提供下列方式來將人工監督制度包含在內容審核程序中：
+## <a name="reviews"></a>評論
 
-* `Job` 作業可透過單一步驟開始建立機器輔助審核和人工檢閱。
-* `Review` 作業可用來在審核步驟之外建立人工檢閱程序。
-* `Workflow` 作業可用來管理會搭配閾值自動執行掃描來建立檢閱程序的工作流程。
+檢閱中，在內容上傳至審核工具和之下**檢閱** 索引標籤。從這裡開始，使用者可以更改套用的標籤，並套用自己自訂的標籤，適當地。 當使用者提交檢閱時，結果會傳送至指定的回呼端點，以及內容會從站台移除。
 
-`Job` 和 `Review` 作業會接受回呼端點以接收狀態和結果。
+![在瀏覽器中，在 [檢閱] 索引標籤上，開啟檢閱工具網站](./Review-Tool-user-Guide/images/image-workflow-review.png)
 
-本文涵蓋 `Job` 和 `Review` 作業。 請閱讀[工作流程概觀](workflow-api.md)，以了解如何建立、編輯和取得工作流程定義。
+請參閱[檢閱工具指南](./review-tool-user-guide/review-moderated-images.md)來開始建立評論，或查看[REST API 指南](./try-review-api-review.md)若要了解如何以程式設計方式操作。
 
-## <a name="job-operations"></a>工作的作業
+## <a name="workflows"></a>工作流程
 
-### <a name="start-a-job"></a>啟動作業
-使用 `Job.Create` 作業來啟動審核和人工檢閱的建立作業。 Content Moderator 會掃描內容，並評估指定的工作流程。 根據工作流程的結果，它會建立檢閱或略過此步驟。 它也會提交審核後和檢閱後標記給回呼端點。
+工作流程是雲端架構自訂篩選器內容。 工作流程可以連接到各種不同的方式篩選內容，並採取適當的動作的服務。 使用 Content Moderator 連接器，工作流程可以自動套用仲裁標記，並建立已提交的內容檢閱。
 
-輸入中包含下列資訊：
+### <a name="view-workflows"></a>檢視工作流程
 
-- 檢閱小組識別碼。
-- 要審核的內容。
-- 工作流程名稱。 (預設值是「default」工作流程)。
-- 用於通知的 API 回呼點。
- 
-下列回應顯示已啟動作業的識別碼。 您可以使用作業識別碼來取得作業狀態和接收詳細資訊。
+若要檢視您現有的工作流程，請前往[審核工具](https://contentmoderator.cognitive.microsoft.com/)，然後選取**設定** > **工作流程**。
 
-    {
-        "JobId": "2018014caceddebfe9446fab29056fd8d31ffe"
-    }
+![預設工作流程](images/default-workflow-listed.PNG)
 
-### <a name="get-job-status"></a>取得作業狀態
+工作流程可以完全稱為 JSON 字串，使其可存取以程式設計的方式。 如果您選取**編輯**工作流程選項，然後選取**JSON**索引標籤上，您會看到 JSON 運算式如下所示：
 
-使用 `Job.Get` 作業和作業識別碼來取得執行中或已完成作業的詳細資料。 此作業會立即傳回，審核作業則以非同步方式執行。 結果會透過回呼端點傳回。
-
-輸入中包含下列資訊：
-
-- 檢閱小組識別碼：先前作業所傳回的作業識別碼
-
-回應包含下列資訊：
-
-- 所建立檢閱的識別碼。 (使用此識別碼來取得最終的檢閱結果)。
-- 作業狀態 (已完成或進行中)：指派的仲裁標記 (機碼值組)。
-- 作業執行報告。
- 
- 
-        {
-            "Id": "2018014caceddebfe9446fab29056fd8d31ffe",
-            "TeamName": "some team name",
-            "Status": "Complete",
-            "WorkflowId": "OCR",
-            "Type": "Image",
-            "CallBackEndpoint": "",
-            "ReviewId": "201801i28fc0f7cbf424447846e509af853ea54",
-            "ResultMetaData":[
-            {
-            "Key": "hasText",
-            "Value": "True"
-            },
-            {
-            "Key": "ocrText",
-            "Value": "IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n"
-            }
-            ],
-            "JobExecutionReport": [
-            {
-                "Ts": "2018-01-07T00:38:29.3238715",
-                "Msg": "Posted results to the Callbackendpoint: https://requestb.in/vxke1mvx"
-                },
-                {
-                "Ts": "2018-01-07T00:38:29.2928416",
-                "Msg": "Job marked completed and job content has been removed"
-                },
-                {
-                "Ts": "2018-01-07T00:38:29.0856472",
-                "Msg": "Execution Complete"
-                },
-            {
-                "Ts": "2018-01-07T00:38:26.7714671",
-                "Msg": "Successfully got hasText response from Moderator"
-                },
-                {
-                "Ts": "2018-01-07T00:38:26.4181346",
-                "Msg": "Getting hasText from Moderator"
-                },
-                {
-                "Ts": "2018-01-07T00:38:25.5122828",
-                "Msg": "Starting Execution - Try 1"
-                }
-            ]
-        }
- 
-![給人工審核者的影像檢閱](images/ocr-sample-image.PNG)
-
-## <a name="review-operations"></a>檢閱作業
-
-### <a name="create-reviews"></a>建立檢閱
-
-使用 `Review.Create` 作業來建立人工檢閱。 您可以在別處審核這些檢閱，也可以使用自訂邏輯來指派審核標記。
-
-此作業的輸入中包含：
-
-- 要檢閱的內容。
-- 供人工審核者檢閱的所指派標記 (機碼值組)。
-
-下列回應顯示檢閱識別碼：
-
-    [
-        "201712i46950138c61a4740b118a43cac33f434",
-    ]
-
-
-### <a name="get-review-status"></a>取得檢閱狀態
-使用 `Review.Get` 作業來取得所審核影像的人工檢閱程序完成後的結果。 系統會透過您提供的回呼端點通知您。 
-
-此作業會傳回兩組標記： 
-
-* 審核服務所指派的標記
-* 人工檢閱完成後的標記
-
-輸入中至少會包含：
-
-- 檢閱小組名稱
-- 先前作業所傳回的檢閱識別碼
-
-回應中包含下列資訊：
-
-- 檢閱狀態
-- 人工檢閱者所確認的標記 (機碼值組)
-- 審核服務所指派的標記 (機碼值組)
-
-您會在下列回應範例中同時看到檢閱者指派的標記 (**reviewerResultTags**) 和初始標記 (**metadata**)：
-
-    {
-        "reviewId": "201712i46950138c61a4740b118a43cac33f434",
-        "subTeam": "public",
-        "status": "Complete",
-        "reviewerResultTags": [
-        {
-            "key": "a",
-            "value": "False"
+```json
+{
+    "Type": "Logic",
+    "If": {
+        "ConnectorName": "moderator",
+        "OutputName": "isAdult",
+        "Operator": "eq",
+        "Value": "true",
+        "Type": "Condition"
         },
-        {
-            "key": "r",
-            "value": "True"
-        },
-        {
-            "key": "sc",
-            "value": "True"
-        }
-        ],
-        "createdBy": "{teamname}",
-        "metadata": [
-        {
-            "key": "sc",
-            "value": "true"
-        }
-        ],
-        "type": "Image",
-        "content": "https://reviewcontentprod.blob.core.windows.net/{teamname}/IMG_201712i46950138c61a4740b118a43cac33f434",
-        "contentId": "0",
-        "callbackEndpoint": "{callbackUrl}"
+    "Then": {
+    "Perform": [
+    {
+        "Name": "createreview",
+        "CallbackEndpoint": null,
+        "Tags": []
     }
+    ],
+    "Type": "Actions"
+    }
+}
+```
+
+請參閱[檢閱工具指南](./review-tool-user-guide/workflows.md)若要開始建立及使用工作流程，請參閱[REST API 指南](./try-review-api-workflow.md)若要了解如何以程式設計方式操作。
+
+## <a name="jobs"></a>工作
+
+仲裁作業可做為一種包裝函式的內容仲裁、 工作流程及檢閱功能。 工作會掃描您的內容使用 Content Moderator 影像審核 API 或文字審核 API，然後檢查它與指定的工作流程。 根據工作流程的結果，可能或可能不會建立內容的評論[審核工具](./review-tool-user-guide/human-in-the-loop.md)。 雖然可以建立並設定其各自的 Api 檢閱和工作流程，作業 API 可讓您取得在整個程序 （可以傳送至指定的回呼端點） 的詳細的報告。
+
+請參閱[REST API 指南](./try-review-api-job.md)若要開始使用作業。
 
 ## <a name="next-steps"></a>後續步驟
 

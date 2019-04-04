@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 17e4d576d4c524321fd19c589868a323f97c48a1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9f1df23d1f0f24787bb9267064ffd647eda2cb74
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58079705"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756038"
 ---
 # <a name="learn-image-moderation-concepts"></a>了解影像仲裁概念
 
@@ -66,7 +66,7 @@ ms.locfileid: "58079705"
 
 ## <a name="detecting-faces"></a>偵測臉部
 
-偵測臉部有助於偵測影像中的個人識別資訊 (PII)，例如臉部。 您可以偵測每個影像中的潛在臉部和潛在臉部數量。
+有助於偵測影像中的個人資料，例如臉部偵測的臉部。 您可以偵測每個影像中的潛在臉部和潛在臉部數量。
 
 回應包含下列資訊：
 

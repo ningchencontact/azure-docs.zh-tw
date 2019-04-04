@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 348321592fc32f7dd77447c7217c7142f7ad9bd4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: cc2a0177525013736445db5fd1befa478dc9b9b8
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51226935"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916847"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>對雲端服務部署問題進行疑難排解
 當您將雲端服務應用程式封裝部署至 Azure 時，您可以從 Azure 入口網站中的 [屬性]  窗格取得部署的相關資訊。 您可以利用此窗格中的詳細資料來排解雲端服務的問題，也可以在開啟新的支援要求時將這項資訊提供給 Azure 支援。
@@ -36,17 +36,17 @@ ms.locfileid: "51226935"
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="problem-i-cannot-access-my-website-but-my-deployment-is-started-and-all-role-instances-are-ready"></a>問題：我無法存取我的網站，但是我已啟動部署且所有角色執行個體皆已就緒
+## <a name="problem-i-cannot-access-my-website-but-my-deployment-is-started-and-all-role-instances-are-ready"></a>問題：我無法存取我的網站，但我已啟動部署準備好所有角色執行個體
 入口網站中顯示的網站 URL 連結未包含連接埠。 網站的預設連接埠為 80。 如果您的應用程式設定為在不同的連接埠執行，您必須在存取網站時將正確的連接埠號碼新增至 URL。
 
 1. 在 Azure 入口網站中，按一下您的雲端服務部署。
 2. 在 Azure 入口網站的 [屬性] 窗格中，查看角色執行個體的連接埠 (在 [輸入端點] 下方)。
 3. 如果連接埠不是 80，請在存取應用程式時將正確的連接埠值新增至 URL。 若要指定非預設連接埠，請輸入 URL，後面依序加上冒號 (:) 和不含空格的連接埠號碼。
 
-## <a name="problem-my-role-instances-recycled-without-me-doing-anything"></a>問題：我的角色執行個體無故自行回收
+## <a name="problem-my-role-instances-recycled-without-me-doing-anything"></a>問題：我的角色執行個體回收，而不做任何動作
 當 Azure 偵測到有問題的節點，並將角色執行個體移至新節點時，會自動進行服務修復。 發生此情況時，您可能會看見角色執行個體自動回收。 若要確認是否在執行服務修復：
 
-1. 在 Azure 入口網站中，按一下您的雲端服務部署。
+1. 在 Azure 门户中，单击云服务的部署。
 2. 在 Azure 入口網站的 [屬性]  窗格中檢閱相關資訊，並判斷在您觀察角色回收的期間是否執行了服務修復。
 
 在主機 OS 和客體 OS 升級期間，角色大約每個月會回收一次。  
@@ -65,7 +65,7 @@ ms.locfileid: "51226935"
 3. 為生產部署重複步驟 1 和 2。
 4. 如果自動更新正在進行中，請等候它完成再嘗試進行 VIP 交換。
 
-## <a name="problem-a-role-instance-is-looping-between-started-initializing-busy-and-stopped"></a>問題：角色執行個體在 [已啟動]、[初始化中]、[忙碌] 和 [已停止] 之間循環
+## <a name="problem-a-role-instance-is-looping-between-started-initializing-busy-and-stopped"></a>問題：角色執行個體已啟動、 初始化、 忙碌和已停止 之間循環
 這種情況可能表示應用程式的程式碼、封裝或組態檔發生問題。 在此情況下，您應該能夠看見狀態每隔幾分鐘就會變更，且 Azure 入口網站可能顯示 [回收中]、[忙碌] 或 [正在初始化] 之類的訊息。 這表示應用程式發生了某些錯誤，導致角色執行個體無法執行。
 
 如需如何對此問題進行疑難排解的詳細資訊，請參閱部落格文章 [Azure PaaS 計算診斷資料](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)和[導致角色回收的常見問題](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md)。
@@ -74,7 +74,7 @@ ms.locfileid: "51226935"
 1. 在 Azure 入口網站中，按一下 [角色執行個體]。
 2. 在 Azure 入口網站的 [屬性]  窗格中，考量下列狀況以解決您的問題：
    * 如果角色執行個體在最近停止 (您可以檢查 [中止計數] 的值)，部署可能正在更新。 請等候並觀察角色執行個體是否會自行恢復運作。
-   * 如果角色執行個體處於 [忙碌] 狀態，請檢查應用程式的程式碼，查看 [StatusCheck](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.statuscheck) 事件是否已處理。 您可能需要新增或修正處理此事件的程式碼。
+   * 如果角色執行個體處於 [忙碌] 狀態，請檢查應用程式的程式碼，查看 [StatusCheck](/previous-versions/azure/reference/ee758135(v=azure.100)) 事件是否已處理。 您可能需要新增或修正處理此事件的程式碼。
    * 請瀏覽部落格文章 [Azure PaaS 計算診斷資料](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx)中的診斷資料及疑難排解案例。
 
 > [!WARNING]

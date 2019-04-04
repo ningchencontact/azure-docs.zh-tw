@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: b4c74a67c66b12e3a7333f3e679e7c61a750cf7e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 041e76ccecb4dd0fe9c060681609dfb92c03ec5a
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56002386"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893141"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>比較 Azure 媒體服務 v3 預設值與影片索引子 
 
 本文將比較**影片索引子 API** 與**媒體服務 v3 API** 的功能。 
 
-目前，[影片索引子 v2 API](https://api-portal.videoindexer.ai/) 與[媒體服務 v3 API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json) 所提供的功能有所重疊。 下表提供了解其差異和相似性的現行指導方針。 
+目前沒有所提供的功能之間重疊[影片索引子 Api](https://api-portal.videoindexer.ai/)並[媒體服務 v3 Api](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json)。 下表提供了解其差異和相似性的現行指導方針。 
 
 ## <a name="compare"></a>比較
 

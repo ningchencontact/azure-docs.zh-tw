@@ -15,12 +15,12 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: ca58059716ebebfaf663412b37014ae4f534d0e3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cf831c6f8faad1892291794bc43dc13e6a17eba1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58081503"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484843"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>將 Kubernetes 新增至 Azure Stack Marketplace
 
@@ -78,7 +78,7 @@ ms.locfileid: "58081503"
 
     - 使用已提升權限的提示字元開啟 PowerShell。 執行下列程式碼，並將參數更新為您的值：
 
-        ```PowerShell  
+        ```powershell  
         # Creates a new self signed certificate 
         $passwordString = "<password>"
         $certlocation = "<local certificate path>.pfx"
@@ -106,7 +106,7 @@ ms.locfileid: "58081503"
 
 2.  記下您 PowerShell 工作階段中所顯示的新憑證識別碼 `1C2ED76081405F14747DC3B5F76BB1D83227D824`。 此識別碼將會在建立服務主體時使用。
 
-    ```PowerShell  
+    ```powershell  
     VERBOSE: Generated new certificate 'CN=<certificate name>' (1C2ED76081405F14747DC3B5F76BB1D83227D824).
     ```
 
@@ -126,7 +126,7 @@ ms.locfileid: "58081503"
 
     - 執行下列程式碼，並將參數更新為您的值：
 
-        ```PowerShell  
+        ```powershell  
         #Create service principal using the certificate
         $privilegedendpoint="<ERCS IP>"
         $applicationName="<application name>"
@@ -259,7 +259,7 @@ ms.locfileid: "58081503"
 
 2. 在資源庫中尋找目前的 Kubernetes 叢集項目。
 
-    ```PowerShell  
+    ```powershell  
     Get-AzsGalleryItem | Select Name
     ```
     
@@ -267,7 +267,7 @@ ms.locfileid: "58081503"
 
 4. 使用以下 PowerShell Cmdlet 來移除項目：
 
-    ```PowerShell  
+    ```powershell  
     $Itemname="Microsoft.AzureStackKubernetesCluster.0.3.0"
 
     Remove-AzsGalleryItem -Name $Itemname

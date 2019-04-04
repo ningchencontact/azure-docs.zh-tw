@@ -11,12 +11,12 @@ ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/28/2019
 keywords: ''
-ms.openlocfilehash: a47b38acc372e6c1d215c7440657486b5babf3bb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3694425ac72d3b75d66d870e3746bc1738ba0138
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009488"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481904"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Azure Stack 資料中心整合 - Syslog 轉送
 
@@ -185,13 +185,13 @@ Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <
 
 **從伺服器端中移除 Syslog 伺服器設定**
 
-```PowerShell  
+```powershell  
 Set-SyslogServer -Remove
 ```
 
 **從用戶端中移除用戶端憑證**
 
-```PowerShell  
+```powershell  
 Set-SyslogClient -RemoveCertificate
 ```
 
@@ -201,13 +201,13 @@ Set-SyslogClient -RemoveCertificate
 
 **驗證 Syslog 用戶端中的伺服器設定**
 
-```PowerShell  
+```powershell  
 Get-SyslogServer
 ```
 
 **驗證 Syslog 用戶端中的憑證設定**
 
-```PowerShell  
+```powershell  
 Get-SyslogClient
 ```
 

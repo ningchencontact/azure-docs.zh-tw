@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 3c9227a34c1b7208210b84b5b7d64ecdc8654a83
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: e6ae4cc527ae0828f530ab7f3904d2b3c64c910b
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286375"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895744"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的效能和級別
 
@@ -56,7 +56,7 @@ ms.locfileid: "58286375"
 最大輪詢延遲是可透過設定`maxQueuePollingInterval`中的屬性[host.json 檔案](../functions-host-json.md#durabletask)。 設定為較高的值，可能會導致較高的訊息處理延遲。 只有在沒有活動的期間之後必須在更高的延遲。 設定為較低的值，可能會導致較高的儲存體成本，因為增加的儲存體交易而產生。
 
 > [!NOTE]
-> Azure Functions 取用和進階方案，在執行時[Azure Functions 縮放控制器](../functions-scale.md#how-the-consumption-plan-works)輪詢每個控制項和工作項目佇列一次每隔 10 秒。 這個額外的輪詢，才能判斷何時啟用函式應用程式執行個體，並決定規模。 在撰寫本文時，此 10 的第二個間隔時間內保持不變，且無法設定。
+> Azure Functions 取用和進階方案，在執行時[Azure Functions 縮放控制器](../functions-scale.md#how-the-consumption-and-premium-plans-work)輪詢每個控制項和工作項目佇列一次每隔 10 秒。 這個額外的輪詢，才能判斷何時啟用函式應用程式執行個體，並決定規模。 在撰寫本文時，此 10 的第二個間隔時間內保持不變，且無法設定。
 
 ## <a name="storage-account-selection"></a>儲存體帳戶選取
 
@@ -244,4 +244,4 @@ Azure Functions 支援在單一應用程式執行個體中同時執行多個函�
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [使用 C# 建立第一個長期函式](durable-functions-create-first-csharp.md)
+> [建立在您第一個永久性函式C#](durable-functions-create-first-csharp.md)

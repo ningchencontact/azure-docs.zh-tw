@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 04/02/2019
 ms.author: juliako
-ms.openlocfilehash: c1b26b8a59ac0306fc06bf90f01642d4585a45be
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 8c1e50064491032d78e467496f0c53300dd6acd1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991562"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892784"
 ---
 # <a name="view-and-edit-video-indexer-insights"></a>檢視及編輯影片索引器深入解析
 
@@ -34,17 +34,11 @@ ms.locfileid: "55991562"
 
     播放程式和深入解析會同步處理。 例如，如果您按一下關鍵字或文字記錄時段，播放程式就會將您帶往影片中的該時間點。 您可以在應用程式中實現播放程式/深入解析檢視和同步處理。 如需詳細資訊，請參閱[將 Azure 索引器介面控件內嵌到應用程式](video-indexer-embed-widgets.md)。 
 
-3. 編輯影片索引器深入解析。
-
-    按下影片下方的 [編輯]。 顯示影片完整明細的頁面會隨即出現。 明細會分成多個區塊。 這裡的區塊是為了讓您能更輕鬆地瀏覽資料。 例如，區塊的分割點可能會在說話者變更或長時間暫停時。 您可以建立您自己的播放清單，其中只包含您想要的時段。 若只要顯示來源影片的特定部分，您可以篩選主題/關鍵字、情緒、人員、說話者。 您可以選擇僅檢視影片文字記錄或 OCR。  
-
-    ![深入解析](./media/video-indexer-view-edit/video-indexer-create-new-playlist.png)
-
 ## <a name="next-steps"></a>後續步驟
 
 [了解如何根據一些其他影片來建立您自己的影片索引器深入解析](video-indexer-create-new.md)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 [影片索引子概觀](video-indexer-overview.md)
 

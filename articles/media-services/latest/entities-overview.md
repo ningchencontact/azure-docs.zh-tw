@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/30/2019
+ms.date: 04/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6bf0efd6994315d56e7b1b2447ffed9154cf5ee5
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: a5ab0b25a2a2db764854982b1a6801ce4f857dda
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804865"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891951"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>使用媒體服務 v3 Api 進行開發
 
@@ -47,7 +47,7 @@ v3 API 的金鑰設計原則之一，是讓 API 更為安全。 v3 API 不會從
 
 將作業標示`x-ms-long-running-operation`Azure 媒體服務中[swagger 檔案](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json)是長時間執行的作業。 
 
-如需如何追蹤非同步 Azure 作業的詳細資訊，請參閱[非同步作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation)
+如需如何追蹤非同步 Azure 作業的詳細資訊，請參閱 <<c0> [ 非同步作業](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation)。
 
 媒體服務有下列的長時間執行作業：
 
@@ -65,7 +65,6 @@ v3 API 的金鑰設計原則之一，是讓 API 更為安全。 v3 API 不會從
 * 啟動 StreamingEndpoint
 * 停止 StreamingEndpoint
 * 調整 StreamingEndpoint
-
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>媒體服務實體的篩選、排序、分頁
 
@@ -356,4 +355,4 @@ while (currentPage.NextPageLink != null)
 
 ## <a name="next-steps"></a>後續步驟
 
-[串流處理檔案](stream-files-dotnet-quickstart.md)
+[Stream 檔案](stream-files-dotnet-quickstart.md)
