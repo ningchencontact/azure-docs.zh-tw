@@ -9,18 +9,18 @@ ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: alerts
-ms.openlocfilehash: dcce5e424a5f14cb8f36582635383b0a8ba86caa
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: f8b9db47684a6dd78302f094d8e670da4a61ab2c
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472257"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849822"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>當計量值符合條件時收到通知
 
 Azure 監視器提供適用於許多 Azure 資源的計量。 這些計量可表達這些資源的健康情況和效能。 在許多情況下，計量值可以指出資源發生問題。 您可以建立計量警示來監視異常行為，並於發生時收到通知。 此快速入門逐步引導您建立邏輯應用程式、建立工作，以及視覺化邏輯應用程式的計量。 接著會建立警示，並接收邏輯應用程式資源的計量通知。
 
-如需計量和計量警示的詳細資訊，請參閱 [Azure 監視器計量概觀](../../azure-monitor/platform/data-collection.md)和 [Azure 監視器警示概觀](./alerts-overview.md)。 
+如需計量和計量警示的詳細資訊，請參閱 [Azure 監視器計量概觀](data-platform.md)和 [Azure 監視器警示概觀](alerts-overview.md)。 
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 

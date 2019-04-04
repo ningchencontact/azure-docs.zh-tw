@@ -12,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: shlo
-ms.openlocfilehash: d2f892941f9d37dd3d74afe17d7952b404dc709f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9a03094683a973db16aa949f0610bc7f9914be45
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551631"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649215"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>在 Data Factory 管道中將活動分支和鏈結
+
 在本教學課程中，您會建立 Data Factory 管道來展示部分的控制流程功能。 這個管道只是簡單地從 Azure Blob 儲存體中的一個容器複製到相同儲存體帳戶中的另一個容器。 如果複製活動成功，您希望透過成功電子郵件傳送成功複製作業的詳細資料 (例如寫入的資料量)。 如果複製活動失敗，您希望透過失敗電子郵件傳送複製失敗的詳細資料 (例如錯誤訊息)。 在整個教學課程中，您會看到如何傳遞參數。
 
 案例的高階概觀：![概觀](media/tutorial-control-flow/overview.png)
@@ -56,6 +57,7 @@ ms.locfileid: "57551631"
     John|Doe
     Jane|Doe
     ```
+
 2. 使用 [Azure 儲存體總管](https://storageexplorer.com/)之類的工具建立 **adfv2branch** 容器，然後將 **input.txt** 檔案上傳至該容器。
 
 ## <a name="create-visual-studio-project"></a>建立 Visual Studio 專案
@@ -73,7 +75,7 @@ ms.locfileid: "57551631"
 1. 按一下 [工具] -> [NuGet 套件管理員] -> [套件管理員主控台]。
 2. 在 [套件管理員主控台] 中執行下列命令，以安裝套件。 請參閱 [Microsoft.Azure.Management.DataFactory nuget 套件](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/)中的詳細資料。
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.Management.DataFactory
     Install-Package Microsoft.Azure.Management.ResourceManager
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -139,6 +141,7 @@ ms.locfileid: "57551631"
     ```
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
+
 在 Program.cs 檔案中，建立 "CreateOrUpdateDataFactory" 函式：
 
 ```csharp
@@ -173,6 +176,7 @@ Factory df = CreateOrUpdateDataFactory(client);
 ```
 
 ## <a name="create-an-azure-storage-linked-service"></a>建立 Azure 儲存體連結服務
+
 在 Program.cs 檔案中，建立 "StorageLinkedServiceDefinition" 函式：
 
 ```csharp
@@ -188,6 +192,7 @@ static LinkedServiceResource StorageLinkedServiceDefinition(DataFactoryManagemen
     return linkedService;
 }
 ```
+
 將下列程式碼新增至 **Main** 方法，以建立 **Azure 儲存體連結服務**。 若要深入了解支援的屬性和詳細資料，請參閱 [Azure Blob 連結服務屬性](connector-azure-blob-storage.md#linked-service-properties)。
 
 ```csharp
@@ -199,6 +204,7 @@ client.LinkedServices.CreateOrUpdate(resourceGroup, dataFactoryName, storageLink
 在本節中，您會建立兩個資料集：一個作為來源，另一個作為接收。 
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>建立來源 Azure Blob 的資料集
+
 將下列程式碼新增至 **Main** 方法，以建立 **Azure Blob 資料集**。 若要深入了解支援的屬性和詳細資料，請參閱 [Azure Blob 資料集屬性](connector-azure-blob-storage.md#dataset-properties)。
 
 您可以定義資料集來代表 Azure Blob 中的來源資料。 此 Blob 資料集會參考您在前一個步驟中建立的 Azure 儲存體連結服務，並描述：
@@ -258,6 +264,7 @@ client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSinkDatasetNa
 ```
 
 ## <a name="create-a-c-class-emailrequest"></a>建立 C# 類別：EmailRequest
+
 在 C# 專案中，建立名為 **EmailRequest** 的類別。 這會定義傳送電子郵件時，管道在本文要求中會傳送哪些屬性。 在本教學課程中，管道會將四個屬性從管道傳送至電子郵件：
 
 - **訊息**：電子郵件的本文。 如果複製成功，此屬性會包含執行的詳細資料 (寫入的資料數量)。 如果複製失敗，此屬性會包含錯誤的詳細資料。
@@ -289,10 +296,13 @@ client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSinkDatasetNa
         }
     }
 ```
+
 ## <a name="create-email-workflow-endpoints"></a>建立電子郵件工作流程端點
+
 若要觸發傳送電子郵件，您需要使用 [Logic Apps](../logic-apps/logic-apps-overview.md) 來定義工作流程。 如需有關建立邏輯應用程式工作流程的詳細資訊，請參閱[如何建立邏輯應用程式](../logic-apps/quickstart-create-first-logic-app-workflow.md)。 
 
 ### <a name="success-email-workflow"></a>成功電子郵件工作流程 
+
 建立名為 `CopySuccessEmail` 的邏輯應用程式工作流程。 將工作流程觸發程序定義為 `When an HTTP request is received`，並新增動作 `Office 365 Outlook – Send an email`。
 
 ![成功電子郵件工作流程](media/tutorial-control-flow/success-email-workflow.png)
@@ -318,6 +328,7 @@ client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSinkDatasetNa
     "type": "object"
 }
 ```
+
 這與您在上一節建立的 **EmailRequest** 類別一致。 
 
 在邏輯應用程式設計工具中，您的要求看起來應該如下所示：
@@ -336,6 +347,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ```
 
 ## <a name="fail-email-workflow"></a>失敗電子郵件工作流程 
+
 複製 **CopySuccessEmail**，並建立另一個 Logic Apps 工作流程 **CopyFailEmail**。 在要求觸發程序中，`Request Body JSON schema` 相同。 簡單地變更電子郵件的格式 (例如 `Subject`)，以調整為適合失敗電子郵件。 下列是一個範例：
 
 ![邏輯應用程式設計工具 - 失敗電子郵件工作流程](media/tutorial-control-flow/fail-email-workflow.png)
@@ -356,7 +368,9 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 //Fail Request Url
 https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=000000
 ```
+
 ## <a name="create-a-pipeline"></a>建立管線
+
 將下列程式碼新增至 Main 方法，以建立具有複製活動和 dependsOn 屬性的管道。 在本教學課程中，此管道包含一個活動：複製活動，可接受 Blob 資料集作為來源，並接受另一個 Blob 資料集作為接收。 根據複製活動成功或失敗，它會呼叫不同的電子郵件工作。
 
 在此管道中，您會使用下列功能：
@@ -440,12 +454,15 @@ static PipelineResource PipelineDefinition(DataFactoryManagementClient client)
             return resource;
         }
 ```
+
 將下列程式碼新增至 **Main** 方法，以建立管道：
 
 ```
 client.Pipelines.CreateOrUpdate(resourceGroup, dataFactoryName, pipelineName, PipelineDefinition(client));
 ```
+
 ### <a name="parameters"></a>參數
+
 管道的第一個區段定義參數。 
 
 - sourceBlobContainer - 管道中由來源 Blob 資料集所取用的參數。
@@ -461,7 +478,9 @@ Parameters = new Dictionary<string, ParameterSpecification>
         { "receiver", new ParameterSpecification { Type = ParameterType.String } }
     },
 ```
+
 ### <a name="web-activity"></a>網路活動
+
 「網路活動」允許呼叫任何 REST 端點。 如需活動的詳細資訊，請參閱[網路活動](control-flow-web-activity.md)。 這個管道會使用「網路活動」來呼叫 Logic Apps 電子郵件工作流程。 您會建立兩個網路活動：其中一個會呼叫 **CopySuccessEmail** 工作流程，另一個會呼叫 **CopyFailWorkFlow**。
 
 ```csharp
@@ -481,6 +500,7 @@ Parameters = new Dictionary<string, ParameterSpecification>
             }
         }
 ```
+
 在 “Url” 屬性中，從您的 Logic Apps 工作流程貼上相應的要求 URL 端點。 在「本文」屬性中，傳遞 “EmailRequest” 類別的執行個體。 電子郵件要求包含下列屬性：
 
 - 訊息 – 傳遞 `@{activity('CopyBlobtoBlob').output.dataWritten` 的值。 存取先前複製活動的屬性，並傳遞 dataWritten 的值。 對於失敗案例，請傳遞錯誤輸出，而不是 `@{activity('CopyBlobtoBlob').error.message`。
@@ -491,6 +511,7 @@ Parameters = new Dictionary<string, ParameterSpecification>
 此程式碼會建立新的活動相依性，取決於它接替的前一個複製活動而定。
 
 ## <a name="create-a-pipeline-run"></a>建立管線執行
+
 將下列程式碼新增至 **Main** 方法，以**觸發管道執行**。
 
 ```csharp
@@ -508,6 +529,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
 
 ## <a name="main-class"></a>Main 類別 
+
 最終的 Main 方法看起來應該如下所示。 建置並執行您的程式來觸發管道執行！
 
 ```csharp
@@ -539,6 +561,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
 
 ## <a name="monitor-a-pipeline-run"></a>監視管道執行
+
 1. 將下列程式碼新增至 **Main** 方法，以持續檢查管線執行的狀態，直到完成複製資料為止。
 
     ```csharp
@@ -578,6 +601,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
     ```
 
 ## <a name="run-the-code"></a>執行程式碼
+
 建置並啟動應用程式，然後確認管線執行。
 主控台會印出建立資料處理站、連結服務、資料集、管線和管線執行的進度。 然後會檢查管線執行狀態。 請等待出現複製活動執行詳細資料及讀取/寫入的資料大小。 然後，使用 Azure 儲存體總管之類的工具，檢查 Blob 已從 "inputBlobPath" 複製到 "outputBlobPath" (您在變數中指定)。
 
@@ -734,6 +758,7 @@ Press any key to exit...
 ```
 
 ## <a name="next-steps"></a>後續步驟
+
 在本教學課程中，您已執行下列步驟： 
 
 > [!div class="checklist"]

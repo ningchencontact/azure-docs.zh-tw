@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 2c29d9860f1c8fc4f0f6d9f4d84c06e8ade8dee5
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 56b164d9612fd1bef8caf9ae0de679f65595bc39
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286970"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629473"
 ---
 # <a name="quickstart-create-a-hololens-unity-app-that-uses-azure-spatial-anchors"></a>快速入門：建立使用 Azure Spatial Anchors 的 HoloLens Unity 應用程式
 
@@ -35,7 +35,7 @@ ms.locfileid: "58286970"
 
 
 - 您需要一部上面安裝了 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a> 或更新版本和 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> 或更新版本的 Windows 電腦。 您的 Visual Studio 安裝必須包含**通用 Windows 平台開發**工作負載。 您也必須安裝 <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>。
-- 您需要一個已啟用[開發人員模式](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio)的 HoloLens 裝置。 [Windows 10 年 10 月 2018 Update](https://docs.microsoft.com/en-us/windows/mixed-reality/release-notes-october-2018) (也稱為 RS5) 安裝在裝置上。 若要在 HoloLens 上更新至最新版本，請開啟**設定**應用程式，移至 [更新與安全性]，然後選取 [檢查更新]。
+- 您需要一個已啟用[開發人員模式](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio)的 HoloLens 裝置。 [Windows 10 年 10 月 2018 Update](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018) (也稱為 RS5) 安裝在裝置上。 若要在 HoloLens 上更新至最新版本，請開啟**設定**應用程式，移至 [更新與安全性]，然後選取 [檢查更新]。
 - 在您的應用程式中，您必須啟用 **SpatialPerception** 功能。 此設定位於 [組建設定]  >  [播放器設定]  >  [發行設定]  >  [功能] 中。
 - 在您的應用程式中，您必須以 [Windows Mixed Reality SDK] 啟用 [虛擬實境支援]。 此設定位於 [組建設定]  >  [播放器設定]  >  [XR設定] 中。
 

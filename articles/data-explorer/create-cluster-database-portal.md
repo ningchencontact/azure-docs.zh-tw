@@ -3,17 +3,17 @@ title: 快速入門：建立 Azure 資料總管叢集與資料庫
 description: 在本快速入門中，您將了解如何建立 Azure 資料總管叢集與資料庫，並內嵌 (載入) 資料。
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 3/25/2019
-ms.openlocfilehash: 12b3a3f02c08efa96914cf55c7b4e228e376c129
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: aa98fb8f9569282e9636d5cb593523b9642395e1
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418074"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758618"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>快速入門：建立 Azure 資料總管叢集與資料庫
 

@@ -12,12 +12,12 @@ ms.author: jovanpop-msft
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 33a0e90f1a0b63138168c44b87385c05aac39c69
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9d157d3f4dbc7a88a356cdd754326cbff1080ac1
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57869756"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846474"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>使用 PowerShell 與 Azure Resource Manager 範本在 Azure SQL Database 中建立受控執行個體
 
@@ -44,8 +44,8 @@ Azure PowerShell 命令可以使用預先定義的 Azure Resource Manager 範本
 此範例假設您已經為受控執行個體[建立有效的網路環境](../sql-database-managed-instance-create-vnet-subnet.md)或[修改現有的 VNet](../sql-database-managed-instance-configure-vnet-subnet.md)。 此範例會使用 Commandlet [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) 和 [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork)，因此請確定您已安裝下列 PowerShell 模組：
 
 ```
-Install-Module AzureRM.Network
-Install-Module AzureRM.Resources
+Install-Module Az.Network
+Install-Module Az.Resources
 ```
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 範本

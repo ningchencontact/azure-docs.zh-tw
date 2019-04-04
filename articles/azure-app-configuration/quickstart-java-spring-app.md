@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: 050a7a3718cb7c9eb864b7ed6ea0787c079e31b9
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: fec72a4fac6baa3869928c0203aeb29e53ce5ea4
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226312"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648464"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>快速入門：使用應用程式設定建立 Java Spring 應用程式
 
@@ -41,7 +41,7 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆
 
 2. 從搜尋結果中選取 [應用程式設定]，然後選取 [建立]。
 
-3. 在 [應用程式設定] > [建立] 頁面上，輸入下列設定。
+3. 在 [應用程式設定]  >  [建立] 頁面上，輸入下列設定。
 
     | 設定 | 建議的值 | 說明 |
     |---|---|---|
@@ -54,7 +54,7 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆
 
 4. 選取 [建立] 。 部署可能需要幾分鐘的時間才能完成。
 
-5. 完成部署之後，請選取 [設定] > [存取金鑰]。 記下主要唯讀或主要讀寫索引鍵連接字串。 稍後，您會使用此連接字串來設定您的應用程式，使其與您建立的應用程式設定存放區進行通訊。 連接字串使用的格式如下：
+5. 完成部署之後，請選取 [設定]  >  [存取金鑰]。 記下主要唯讀或主要讀寫索引鍵連接字串。 稍後，您會使用此連接字串來設定您的應用程式，使其與您建立的應用程式設定存放區進行通訊。 連接字串使用的格式如下：
 
         Endpoint=<your_endpoint>;Id=<your_id>;Secret=<your_secret>
 
@@ -93,7 +93,7 @@ Azure 應用程式設定是 Azure 中的受控設定服務。 您能用以輕鬆
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.1.0.M1</version>
+        <version>1.1.0.M3</version>
     </dependency>
     ```
 

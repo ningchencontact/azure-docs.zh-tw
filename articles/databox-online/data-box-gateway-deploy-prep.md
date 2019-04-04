@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 03/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 78008357e3ea8fbfe707a7dbead19e3fce83b578
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 34bc4d7cbdbb89cd9ff3f334ca32087c474735b7
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403692"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620082"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>教學課程：準備部署 Azure Data Box Gateway
 
@@ -101,8 +101,11 @@ ms.locfileid: "58403692"
     |資源群組  |選取現有的群組或建立新的群組。<br>深入了解 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)。     |
 
 5. 輸入或選取下列 [執行個體詳細資料]。
-   |名稱   | 可識別資源的易記名稱。<br>此名稱介於 2 到 50 個字元之間，並且可包含字母、數字和連字號。<br> 名稱必須以字母或數字為開頭或結尾。        |   
-    |區域     | 此版本適用於在美國東部、東南亞和西歐等區域部署您的資源。 針對 Azure Government，列在 [Azure 區域](https://azure.microsoft.com/global-infrastructure/regions/)中的所有政府區域都適用。 <br> 請選擇與您要部署裝置的地理區域最接近的位置。|
+
+    |設定  |值  |
+    |---------|---------|
+    |Name   | 可識別資源的易記名稱。<br>此名稱介於 2 到 50 個字元之間，並且可包含字母、數字和連字號。<br> 名稱必須以字母或數字為開頭或結尾。        |   
+    |區域     |此版本適用於在美國東部、東南亞和西歐等區域部署您的資源。 針對 Azure Government，列在 [Azure 區域](https://azure.microsoft.com/global-infrastructure/regions/)中的所有政府區域都適用。 <br> 請選擇與您要部署裝置的地理區域最接近的位置。|
     
     ![建立資料箱閘道資源](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
     

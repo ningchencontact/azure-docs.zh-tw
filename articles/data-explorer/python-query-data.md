@@ -3,17 +3,17 @@ title: 快速入門：使用 Azure 資料總管 Python 程式庫查詢資料
 description: 在本快速入門中，您將了解如何使用 Python，從 Azure 資料總管查詢資料。
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: f3a8dd001f4d1d930c700847f0725e00b7c29ecf
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 60e51ba42bddd97c8663a035a29b2ff4880acd8c
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715104"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758616"
 ---
 # <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>快速入門：使用 Azure 資料總管 Python 程式庫查詢資料
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: d5a38d19541e59e0e2815362c0181a8e317a5d0f
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: b7883de410a1fd281a154a792dd45132c08f0c03
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203469"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890893"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>使用 Microsoft Authentication Library (MSAL) 取得 Microsoft 圖形 API 的權杖
 
@@ -215,7 +215,7 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
 
 最後，`acquireTokenSilent` 將會失敗，例如，使用者已經登出，或已經在其他裝置上變更其密碼。 當 MSAL 偵測到可透過要求執行互動式動作來解決問題時，就會發出一個 `MSALErrorCode.interactionRequired` 例外狀況。 您的應用程式可以透過兩種方式處理此例外狀況：
 
-1. 立即針對 `acquireToken` 進行呼叫，這會促使系統提示使用者登入。 此模式通常用於應用程式中沒有離線內容可供使用者使用的線上應用程式。 此指引設定所產生的範例應用程式會使用此模式：您可以在第一次執行應用程式時看到它運作。 因為沒有任何使用者曾經用過該應用程式，`applicationContext.allAccounts().first` 會包含 null 值，且會擲回 ` MSALErrorCode.interactionRequired ` 例外狀況。 然後範例中的程式碼會透過呼叫 `acquireToken` 來處理例外狀況，進而提示使用者登入。
+1. 立即針對 `acquireToken` 進行呼叫，這會促使系統提示使用者登入。 此模式通常用於應用程式中沒有離線內容可供使用者使用的線上應用程式。 此指引設定所產生的範例應用程式會使用此模式：您可以在第一次執行應用程式時看到它運作。 因為沒有任何使用者曾經用過該應用程式，`applicationContext.allAccounts().first` 會包含 null 值，且會擲回 `MSALErrorCode.interactionRequired` 例外狀況。 然後範例中的程式碼會透過呼叫 `acquireToken` 來處理例外狀況，進而提示使用者登入。
 
 2. 應用程式也可以提供視覺指示，讓使用者知道需要透過互動方式登入，使用者就能選取正確的登入時機，或應用程式可以在之後重試 `acquireTokenSilent`。 此方式通常用於使用者可以使用應用程式的其他功能，不需要因此中斷作業的情況，例如，應用程式中有離線內容可供使用者使用。 在此案例中，使用者可以決定他們要登入以存取受保護資源，或重新整理過時資訊的時機，或者您的應用程式可以決定在網路暫時中斷之後恢復連線時重試 `acquireTokenSilent`。
 

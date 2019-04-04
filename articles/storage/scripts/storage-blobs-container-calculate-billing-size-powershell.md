@@ -15,12 +15,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: 805abec84b26a6b2b9af3dfe318f877f4edb9547
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 02b4cfcc6d88430701f653665269532a4eb7092f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080891"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880758"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>計算 Blob 容器的帳單大小總計
 
@@ -43,11 +43,11 @@ Blob 容器的大小總計包含容器本身的大小和容器下所有 Blob 的
 
 以下計算說明如何估計每個 Blob 容器使用的儲存體數量：
 
-`
+```
 48 bytes + Len(ContainerName) * 2 bytes +
 For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
 For-Each Signed Identifier[512 bytes]
-`
+```
 
 以下是分解：
 * 每個容器 48 個位元組的額外負荷包含上次修改時間、權限、公用設定，以及一些系統中繼資料。
@@ -64,22 +64,22 @@ For-Each Signed Identifier[512 bytes]
 
 * 區塊 Blob (基底 Blob 或快照集)：
 
-   `
+   ```
    124 bytes + Len(BlobName) * 2 bytes +
    For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
    8 bytes + number of committed and uncommitted blocks * Block ID Size in bytes +
    SizeInBytes(data in unique committed data blocks stored) +
    SizeInBytes(data in uncommitted data blocks)
-   `
+   ```
 
 * 分頁 Blob (基底 Blob 或快照集)：
 
-   `
+   ```
    124 bytes + Len(BlobName) * 2 bytes +
    For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
    number of nonconsecutive page ranges with data * 12 bytes +
    SizeInBytes(data in unique pages stored)
-   `
+   ```
 
 以下是分解：
 

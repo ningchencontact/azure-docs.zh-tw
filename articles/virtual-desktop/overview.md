@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 4443d71d5c0b84ac7dbc18129338229c40323d2c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: f922f940f6c579c8710dadec29b365e7cf4c7938
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401044"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577181"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>什麼是 Windows 虛擬桌面預覽版？ 
 
@@ -72,7 +72,7 @@ Windows 虛擬桌面預覽版是可在雲端執行的桌面和應用程式虛擬
   
 您為 Windows 虛擬桌面建立的 Azure 虛擬機器必須：
 
-* [已加入標準網域](https://docs.microsoft.com/microsoft-desktop-optimization-pack/appv-v4/domain-joined-and-non-domain-joined-clients)或[已加入混合式 AD](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)。 虛擬機器無法加入 Azure AD。
+* [已加入標準網域](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison)或[已加入混合式 AD](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)。 虛擬機器無法加入 Azure AD。
 * 執行下列其中一個支援的 OS 映像：
   * Windows 10 企業版的多重工作階段
   * Windows Server 2016
