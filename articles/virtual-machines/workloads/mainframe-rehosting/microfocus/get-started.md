@@ -1,19 +1,17 @@
 ---
 title: 在 Azure 上的微焦點開發/測試環境 |Microsoft Docs
 description: 重新裝載在 Azure 虛擬機器 (Vm) 上使用 Micro Focus 解決方案將 IBM z/OS 大型主機工作負載。
-services: virtual-machines-linux
-documentationcenter: ''
 author: njray
-manager: edprice
-editor: edprice
-tags: ''
-keywords: ''
-ms.openlocfilehash: 23a650698f8484e3ed8f033331693484c2e02fac
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.author: sread
+ms.date: 04/02/2019
+ms.topic: article
+ms.service: multiple
+ms.openlocfilehash: d83b4c89d0f37e2217974d6d1ed32ac73d8fa4df
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740146"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893770"
 ---
 # <a name="micro-focus-devtest-environments-on-azure"></a>在 Azure 上的微焦點開發/測試環境
 
@@ -25,5 +23,6 @@ Micro Focus 提供重新裝載的開發和測試重新裝載解決方案擴充�
 
 **後續步驟**
 
-- [在 Azure 上安裝 Micro Focus Enterprise Server 4.0 和企業開發人員 4.0](./set-up-micro-focus-on-azure.md)
+- [在 Azure 上安裝 Micro Focus Enterprise Server 4.0 和企業開發人員 4.0](./set-up-micro-focus-azure.md)
 - [設定 Micro 焦點 CICS BankDemo Micro 焦點企業在 Azure 中的開發人員 4.0](./demo.md)
+- [在 Azure 上執行 Docker 容器中的企業伺服器](./run-enterprise-server-container.md)

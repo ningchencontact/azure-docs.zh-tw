@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7542909df336555e17aea9b0e680879b25dc17f
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: db0eccb542cb4253e6e891fa9fa51e60fb7951a1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58791740"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892733"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>已知問題與針對 Azure Machine Learning 服務進行疑難排解
 
@@ -50,7 +50,7 @@ pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 
 ## <a name="automated-machine-learning"></a>自動化機器學習
 
-Tensor Flow 自動化機器學習服務目前不支援 tensor flow 版本 1.13。 安裝這將導致停止運作的套件相依性。 我們正努力修正此問題在未來的版本。 
+Tensor Flow 自動化機器學習服務目前不支援 tensor flow 版本 1.13。 安裝此版本將會停止運作的套件相依性。 我們正努力在未來版本中修正此問題。 
 
 
 ## <a name="databricks"></a>Databricks
@@ -96,7 +96,7 @@ displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.g
 
 1. 中斷連結並再重新附加至您的 notebook 叢集。 
 
-如果這樣做無法解決此問題，請嘗試重新啟動叢集。
+如果上述步驟未能解決此問題，請嘗試重新啟動叢集。
 
 ## <a name="azure-portal"></a>Azure 入口網站
 
@@ -123,7 +123,3 @@ displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.g
 ```
 
 例如，如果您嘗試從 ML 管線建立或連結為遠端執行所提交的計算目標，您會收到錯誤。
-
-## <a name="get-more-support"></a>取得更多支援
-
-您可以提交支援要求，並從支援小組、論壇等來源獲得協助。 [深入了解...](support-for-aml-services.md)

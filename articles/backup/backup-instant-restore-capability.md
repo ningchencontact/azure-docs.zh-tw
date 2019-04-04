@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: sogup
-ms.openlocfilehash: 1f96c47e993e9b3d123972aba8eefc54b1d5cdfa
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 56c75840ca3114af40a2c843e2107f850bbff51a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652666"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905965"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>透過 Azure 備份的立即還原功能取得改良的備份和還原效能
 
@@ -28,6 +28,7 @@ ms.locfileid: "58652666"
 * 支援標準的 SSD 磁碟，以及標準的 HDD 磁碟和進階 SSD 磁碟。
 *   還原時，能夠使用非受控 VM 的原始儲存體帳戶 (依據磁碟)。 即使 VM 的磁碟分散於多個儲存體帳戶，仍然具有此功能。 它能夠針對各種不同的 VM 設定，加快還原作業的速度。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="whats-new-in-this-feature"></a>這項功能有什麼新增功能？
 
@@ -74,9 +75,9 @@ ms.locfileid: "58652666"
 > 您可以從 Az PowerShell 1.6.0 版及更新版本，更新在原則中使用 PowerShell 的 「 立即還原快照集保留期限
 
 ```powershell
-PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+PS C:\> $bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
 $bkpPol.SnapshotRetentionInDays=5
-PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+PS C:\> Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 預設的快照集保留期限，每個原則設定為 2 天。 使用者可以變更值，以最少 1，最多 5 天。 針對每週的原則，快照集保留期會固定為 5 天。
 

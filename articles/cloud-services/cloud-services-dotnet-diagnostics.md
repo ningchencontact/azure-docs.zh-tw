@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 017461d5b73bb48ce61678fbbd795026cef60bc1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ba69a5aaffb39c26731ffd209587a8c8223b032a
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536842"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915352"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>在 Azure 雲端服務中啟用 Azure 診斷
 如需有關 Azure 診斷的背景資訊，請參閱 [Azure 診斷概觀](../azure-diagnostics.md) 。
@@ -191,7 +191,7 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -Diagnostic
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
 ## <a name="configuration-file-schema"></a>組態檔結構描述
-診斷組態檔定義當診斷代理程式啟動時，用來初始化診斷組態設定的值。 如需相關的有效值和範例，請參閱 [最新的結構描述參考](https://msdn.microsoft.com/library/azure/mt634524.aspx) 。
+診斷組態檔定義當診斷代理程式啟動時，用來初始化診斷組態設定的值。 如需相關的有效值和範例，請參閱 [最新的結構描述參考](/azure/azure-monitor/platform/diagnostics-extension-schema) 。
 
 ## <a name="troubleshooting"></a>疑難排解
 如果您遇到困難，請參閱 [Azure 診斷的疑難排解](../azure-diagnostics-troubleshooting.md) ，以解決常見的問題。

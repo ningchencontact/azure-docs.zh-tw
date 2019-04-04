@@ -3,19 +3,19 @@ title: 翻譯自訂 - 翻譯工具文字 API
 titlesuffix: Azure Cognitive Services
 description: 以慣用的術語和樣式，使用 Microsoft Translator Hub 建置您自己的電腦翻譯系統。
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: e66387a904f0026eb862178b19fd1b005212d674
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b9a182da0ce03bf3964b6da30f1ed68de38c8141
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58124009"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918224"
 ---
 # <a name="customize-your-text-translations"></a>自訂文字翻譯
 
@@ -47,7 +47,7 @@ Microsoft 自訂翻譯工具是 Microsoft 翻譯工具服務的功能，可讓�
 
 ## <a name="custom-translator-versus-hub"></a>自訂翻譯工具與中樞
 
-|   | **中心** | **自訂翻譯工具**|
+|   | **中樞** | **自訂翻譯工具**|
 |:-----|:----:|:----:|
 |自訂功能狀態   | 正式運作  | 正式運作 |
 | 文字 API 版本  | 僅限第 2 版   | 僅限第 3 版 |
@@ -66,4 +66,4 @@ Microsoft 自訂翻譯工具是 Microsoft 翻譯工具服務的功能，可讓�
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [使用自訂翻譯工具設定自訂的語言系統](https://aka.ms/CustomTranslatorDocs)
+> [設定自訂的語言系統，使用自訂轉譯器](https://aka.ms/CustomTranslatorDocs)

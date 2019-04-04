@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2018
 ms.author: banders
-ms.openlocfilehash: 04b456cbaeeb4ba285fd874f7b21abffcc714653
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 4305db991a8129b0ae4205300051391df893c52c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649251"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917782"
 ---
 # <a name="understand-how-the-suse-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>了解如何將 SUSE Linux Enterprise 軟體保留計劃折扣套用適用於 Azure
 
@@ -38,7 +38,7 @@ ms.locfileid: "58649251"
 - 1 部已部署的 VM (具有 3 或 4 個 vCPU)、
 - 或 0.77 或大約 77% 的 VM (具有 5 個以上 vCPU)。
 
-5 個以上 vCPU 的比例為 2.6。 因此，對於具有 5 個以上 vCPU 的 VM，其 SUSE 保留只涵蓋軟體成本的一部分 (大約是 77%)。
+5 個以上 vCPU 的比例為 2.6。 因此，SUSE 具有 5 個以上 Vcpu 的 vm 保留可涵蓋軟體成本，也就是大約 77%的唯一部分。
 
 ## <a name="understand-suse-vm-usage-before-you-buy"></a>了解 SUSE VM 使用方式，在購買前
 
@@ -127,11 +127,11 @@ Azure 入口網站市集名稱：
 若要深入了解保留，請參閱下列文章：
 
 - [什麼是 Azure 保留項目？](billing-save-compute-costs-reservations.md)
-- [使用 Azure Reservations 預付 SUSE 軟體方案](../virtual-machines/linux/prepay-suse-software-charges.md)
+- [支付使用 Azure 保留的 SUSE 軟體方案](../virtual-machines/linux/prepay-suse-software-charges.md)
 - [預付具有 Azure 保留 VM 執行個體的虛擬機器](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [管理 Azure 保留項目](billing-manage-reserved-vm-instance.md)
-- [了解隨用隨付方案訂用帳戶的保留項目使用量](billing-understand-reserved-instance-usage.md)
-- [了解 Enterprise 註冊的保留項目使用量](billing-understand-reserved-instance-usage-ea.md)
+- [管理 Azure 保留的項目](billing-manage-reserved-vm-instance.md)
+- [了解您的隨用隨付訂用帳戶的保留使用情況](billing-understand-reserved-instance-usage.md)
+- [了解 Enterprise 註冊之保留項目使用方式](billing-understand-reserved-instance-usage-ea.md)
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡
 

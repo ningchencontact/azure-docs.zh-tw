@@ -2,25 +2,18 @@
 title: 使用 Azure CLI 將網域區域檔案匯入和匯出至 Azure DNS | Microsoft Docs
 description: 了解如何使用 Azure CLI 匯入和匯出 DNS 區域檔案至 Azure DNS
 services: dns
-documentationcenter: na
 author: vhorne
-manager: timlt
-ms.assetid: f5797782-3005-4663-a488-ac0089809010
 ms.service: dns
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/30/2018
+ms.date: 4/3/2019
 ms.author: victorh
-ms.openlocfilehash: d41ad3232fef57d1008f1e15d5d7d5ee1e106e9b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 25445415141372e1f231549c5b8f8575a89363c6
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312642"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905404"
 ---
-# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>使用 Azure CLI 匯入及匯出 DNS 區域檔案 
+# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>使用 Azure CLI 匯入及匯出 DNS 區域檔案
 
 本文會引導您了解如何使用 Azure CLI 來匯入和匯出適用於 Azure DNS 的 DNS 區域檔案。
 
@@ -32,7 +25,6 @@ Azure DNS 支援使用 Azure 命令列介面 (CLI) 匯入和匯出區域檔案�
 
 Azure CLI 是用來管理 Azure 服務的跨平台命令列工具。 它可從 [Azure 下載頁面](https://azure.microsoft.com/downloads/)取得，且適用於 Windows、Mac 及 Linux 平台。 跨平台支援對於匯入和匯出區域檔案十分重要，因為最常見的名稱伺服器軟體 [BIND](https://www.isc.org/downloads/bind/) 通常會在 Linux 上執行。
 
-
 ## <a name="obtain-your-existing-dns-zone-file"></a>取得現有的 DNS 區域檔案
 
 將 DNS 區域檔案匯入 Azure DNS 之前，您必須取得區域檔案的複本。 此檔案的來源取決於目前裝載 DNS 區域的位置。
@@ -40,14 +32,6 @@ Azure CLI 是用來管理 Azure 服務的跨平台命令列工具。 它可從 [
 * 如果 DNS 區域是由合作夥伴服務 (例如網域註冊機構、專用 DNS 主機服務提供者或其他雲端提供者) 託管，該服務應提供下載 DNS 區域檔案的能力。
 * 如果 DNS 區域託管在 Windows DNS 上，區域檔案的預設資料夾是 **%systemroot%\system32\dns**。 DNS 主控台的 [一般] 索引標籤上，也會顯示每個區域檔案的完整路徑。
 * 如果使用 BIND 裝載 DNS 區域，則 BIND 組態檔 **named.conf**中會指定每個區域的區域檔案位置。
-
-> [!NOTE]
-> 下載自 GoDaddy 的區域檔案會有些微非標準格式。 您必須先修正格式，再將這些區域檔案匯入 Azure DNS。
->
-> 每個 DNS 記錄 RDATA 中的 DNS 名稱會指定為完整名稱，但是結尾沒有「.」。這表示其他 DNS 系統會將這些名稱解譯為相對名稱。 將區域檔案匯入 Azure DNS 之前，您必須先加以編輯，以將結尾的 "." 附加至這些名稱。
->
-> 例如，CNAME 記錄「www 3600 IN CNAME contoso.com」應變更為「www 3600 IN CNAME contoso.com.」。
-> (結尾附加「.」)。
 
 ## <a name="import-a-dns-zone-file-into-azure-dns"></a>將 DNS 區域檔案匯入 Azure DNS
 
@@ -83,12 +67,11 @@ az network dns zone import -g <resource group> -n <zone name> -f <zone file name
 
 值：
 
-* `<resource group>` 是 Azure DNS 中區域的資源群組名稱。
+* `<resource group>` 是 Azure DNS 中區域的資源群組的名稱。
 * `<zone name>` 是區域的名稱。
-* `<zone file name>` 是要匯入之區域檔案的路徑/名稱。
+* `<zone file name>` 是要匯入區域檔案的路徑/名稱。
 
 如果資源群組中不存在具有此名稱的區域，則會為您建立。 如果區域已經存在，則匯入的記錄集會與現有的記錄集合併。 
-
 
 ### <a name="step-1-import-a-zone-file"></a>步驟 1. 匯入區域檔案
 
@@ -178,7 +161,7 @@ az network dns zone export -g <resource group> -n <zone name> -f <zone file name
 
 值：
 
-* `<resource group>` 是 Azure DNS 中區域的資源群組名稱。
+* `<resource group>` 是 Azure DNS 中區域的資源群組的名稱。
 * `<zone name>` 是區域的名稱。
 * `<zone file name>` 是要匯出之區域檔案的路徑/名稱。
 
@@ -191,3 +174,9 @@ az network dns zone export -g <resource group> -n <zone name> -f <zone file name
 ```
 az network dns zone export -g myresourcegroup -n contoso.com -f contoso.com.txt
 ```
+
+## <a name="next-steps"></a>後續步驟
+
+* 了解如何在 DNS 區域中[管理記錄集和記錄](dns-getstarted-create-recordset-cli.md)。
+
+* 了解如何[將您的網域委派給 Azure DNS](dns-domain-delegation.md)。

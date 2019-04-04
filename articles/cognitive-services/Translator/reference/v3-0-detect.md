@@ -3,19 +3,19 @@ title: 翻譯工具文字 API 偵測方法
 titlesuffix: Azure Cognitive Services
 description: 使用翻譯工具文字 API 偵測方法。
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 57b82bf65ccf002173df90fe19db444d1c087905
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: a552fece120d7978825a685960bf4faf65aba783
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857884"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916644"
 ---
 # <a name="translator-text-api-30-detect"></a>翻譯工具文字 API 3.0：Detect
 
@@ -35,7 +35,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 
 <table width="100%">
   <th width="20%">查詢參數</th>
-  <th>說明</th>
+  <th>描述</th>
   <tr>
     <td>api-version</td>
     <td>必要參數。<br/>用戶端要求的 API 版本。 值必須是 `3.0`。</td>
@@ -46,9 +46,9 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 
 <table width="100%">
   <th width="20%">headers</th>
-  <th>說明</th>
+  <th>描述</th>
   <tr>
-    <td>_一個授權_<br/>_標頭_</td>
+    <td>_一個授權_<br/>_頁首_</td>
     <td>必要的要求標頭。<br/>請參閱[可用的驗證選項](./v3-0-reference.md#authentication)。</td>
   </tr>
   <tr>
@@ -126,7 +126,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 
 <table width="100%">
   <th width="20%">headers</th>
-  <th>說明</th>
+  <th>描述</th>
   <tr>
     <td>X-RequestId</td>
     <td>服務產生的值，用於識別要求。 作為疑難排解之用。</td>
@@ -139,7 +139,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 
 <table width="100%">
   <th width="20%">狀態碼</th>
-  <th>說明</th>
+  <th>描述</th>
   <tr>
     <td>200</td>
     <td>成功。</td>
@@ -176,7 +176,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 
 以下範例顯示如何擷取支援文字轉換的語言。
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/detect?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'What language is this text written in?'}]"

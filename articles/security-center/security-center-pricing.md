@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
 ms.author: monhaber
-ms.openlocfilehash: 680e39b291cbaa1012cd972e188ab4e5f7aef694
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 27acda2496adea39321e498868aebcc2f824df3c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449011"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905285"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>升級為 Azure 資訊安全中心標準層以增強安全性
 Azure 資訊安全中心提供統一的安全性管理和進階的威脅防護，保護 Azure、內部部署和其他雲端中執行的工作負載。 其提供了針對混合式雲端工作負載的可見性和控制能力、可降低威脅曝露度的主動防禦措施、還有智慧型偵測可幫助您跟上網路攻擊快速發展的腳步。
@@ -46,7 +46,7 @@ Azure 資訊安全中心提供統一的安全性管理和進階的威脅防護�
 4. 選取 [標準版] 以進行升級。
 5. 按一下 [檔案] 。
 
-![資訊安全中心價格](./media/security-center-pricing/get-standard.png)
+（在映像的價格，例如是僅限用途）。![資訊安全中心價格](./media/security-center-pricing/get-standard.png)
 
 > [!NOTE]
 > 若要啟用資訊安全中心的所有功能，您必須套用標準定價層，以包含適用於虛擬機器的訂用帳戶。 設定工作區的定價不會啟用 Just-In-Time VM 存取、自動調整應用程式控制項，以及 Azure 資源的網路偵測。
@@ -65,7 +65,7 @@ Azure 資訊安全中心提供統一的安全性管理和進階的威脅防護�
 在本文中，已向您介紹資訊安全中心的價格。 若要深入了解標準層的增強式安全性和進階威脅防護，請參閱：
 
 - [進階威脅偵測](security-center-threat-report.md)
-- [Just-In-Time VM 存取控制](security-center-just-in-time.md)
+- [Just-in-time VM 存取控制](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-pricing/get-standard.png

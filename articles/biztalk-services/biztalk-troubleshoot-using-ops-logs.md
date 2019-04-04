@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: e58a62761284e0671c0083d41f5dde4c13b32fe2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 35c30ec97d4c033a687204b926d2f686c52be069
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108251"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916015"
 ---
 # <a name="biztalk-services-troubleshoot-using-operation-logs"></a>BizTalk 服務：使用作業記錄檔進行疑難排解
 
@@ -31,8 +31,8 @@ ms.locfileid: "58108251"
 「作業記錄檔」是一個管理服務功能，可讓您檢視在 Azure 服務上執行的作業 (包括 BizTalk 服務) 的歷程記錄。 它可讓您檢視與 BizTalk 訂用帳戶的管理作業相關歷程資料，最遠可回溯 180 天。
 
 > [!NOTE]
-> 這項功能只會在 BizTalk 服務啟動、備份等期間，針對服務的管理作業擷取記錄檔。 這類作業使用 [BizTalk 服務 REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx) 進行追蹤。 如需使用管理服務進行追蹤的作業完整清單，請參閱[使用 Azure 管理服務進行追蹤的作業](#bizops)。<br/><br/>
-> 此功能不會對 BizTalk 服務執行階段的相關活動 (例如橋接器等項目所處理的訊息) 擷取記錄檔。 若要檢視這些記錄檔，請使用 BizTalk 服務入口網站中的 [追蹤] 檢視。 如需詳細資訊，請參閱[追蹤訊息](https://msdn.microsoft.com/library/azure/hh949805.aspx)。
+> 這項功能只會在 BizTalk 服務啟動、備份等期間，針對服務的管理作業擷取記錄檔。 這類作業使用 [BizTalk 服務 REST API](/previous-versions/azure/reference/dn232347(v=azure.100)) 進行追蹤。 如需使用管理服務進行追蹤的作業完整清單，請參閱[使用 Azure 管理服務進行追蹤的作業](#bizops)。<br/><br/>
+> 此功能不會對 BizTalk 服務執行階段的相關活動 (例如橋接器等項目所處理的訊息) 擷取記錄檔。 若要檢視這些記錄檔，請使用 BizTalk 服務入口網站中的 [追蹤] 檢視。 如需詳細資訊，請參閱[追蹤訊息](/previous-versions/azure/hh949805(v=azure.100))。
 > 
 > 
 
@@ -70,7 +70,7 @@ ms.locfileid: "58108251"
 * [BizTalk 服務：佈建](https://go.microsoft.com/fwlink/p/?LinkID=302280)
 * [BizTalk 服務：佈建狀態圖](https://go.microsoft.com/fwlink/p/?LinkID=329870)
 * [BizTalk 服務：儀表板、 監視和調整索引標籤](https://go.microsoft.com/fwlink/p/?LinkID=302281)
-* [BizTalk 服務：節流設定](https://go.microsoft.com/fwlink/p/?LinkID=302282)
+* [BizTalk 服務：節流](https://go.microsoft.com/fwlink/p/?LinkID=302282)
 * [BizTalk 服務：簽發者名稱和簽發者金鑰](https://go.microsoft.com/fwlink/p/?LinkID=303941)
 * [如何開始使用 Azure BizTalk 服務 SDK](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 

@@ -17,12 +17,12 @@ ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 489ef2c472cb9622e83a04428ec9c5958e5a5003
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 54eb2ff43a5f36999294b8d0c580bc425ab65b28
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983367"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629078"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>何謂 Azure Stack 開發套件？
 [Microsoft Azure Stack 整合系統](../azure-stack-poc.md)的大小範圍為 4 到 16 個節點，並且由硬體合作夥伴與 Microsoft 共同支援。 您可以使用 Azure Stack 整合系統，來為生產環境工作負載啟用新案例。 如果您是管理整合系統基礎結構並提供服務的 Azure Stack 操作員，請參閱我們的[操作員文件](https://docs.microsoft.com/azure/azure-stack)。
@@ -49,7 +49,7 @@ ASDK 的設計目的是要為下列人員提供 Azure 一致的混合式雲端�
 |說明|ASDK|多節點 Azure Stack|
 |-----|-----|-----|
 |**調整**|所有元件都安裝在單一節點伺服器電腦上。|其大小範圍可為 4 到 16 個節點。|
-|**恢復功能**|單一節點組態未提供高可用性|支援[高可用性](../azure-stack-key-features.md#high-availability-for-azure-stack)功能。|
+|**恢復功能**|單一節點組態未提供高可用性|支援[高可用性](../azure-stack-overview.md#providing-high-availability)功能。|
 |**網路功能**|ASDK 主機會路由傳送所有的 ASDK 網路流量。 不需要任何其他參數。|多節點部署中需要更複雜的[網路路由基礎結構](../azure-stack-network.md#network-infrastructure)，包括機架頂端 (TOR)、基礎板管理控制器 (BMC) 和界限 (資料中心網路) 交換器。|
 |**修補和更新程序**|若要移至新版 ASDK，您必須在開發套件主機電腦上重新部署 ASDK。|[修補和更新](../azure-stack-updates.md)程序可用來更新已安裝的 Azure Stack 版本。|
 |**支援**|MSDN Azure Stack 論壇。 非生產環境「不」支援 Microsoft 客戶服務及支援 (CSS)。|[MSDN Azure Stack 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack)和完整的 CSS 支援。|

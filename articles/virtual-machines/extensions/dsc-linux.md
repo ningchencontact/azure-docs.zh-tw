@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 01c3e9c82959629dc3e43fb6b0833d4dbb05e0aa
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 67f72c5b396bc935f7bec34bc8a52f63131649b1
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823003"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904469"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>適用於 Linux 的 DSC 擴充功能 (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -57,27 +57,27 @@ DSC Linux 延伸模組可支援所有 [Azure 背書的 Linux 散發套件](https
 
 以下是所有受支援的公用組態參數：
 
-* `FileUri`：(選擇性，字串) MOF 檔案/中繼 MOF 檔案/自訂資源 ZIP 檔案的 URI。
-* `ResourceName`：(選擇性，字串) 自訂資源模組的名稱
-* `ExtensionAction`：(選擇性，字串) 指定擴充功能的作用。 有效值：註冊、推送、提取、安裝、移除。 若未指定，依預設會將其視為推送動作。
-* `NodeConfigurationName`：(選擇性，字串) 要套用的節點組態名稱。
-* `RefreshFrequencyMins`：(選擇性，int) 指定 DSC 嘗試從提取伺服器取得組態的頻率 (以分鐘為單位)。 
+* `FileUri`: （選擇性，字串) 的 MOF 檔案/中繼 MOF 檔案/自訂資源 ZIP 檔案 uri。
+* `ResourceName`: （選擇性，字串) 自訂資源模組的名稱
+* `ExtensionAction`: （選擇性，字串) 指定擴充的作用。 有效值：註冊、推送、提取、安裝、移除。 若未指定，依預設會將其視為推送動作。
+* `NodeConfigurationName`: （選擇性，字串) 要套用的節點組態的名稱。
+* `RefreshFrequencyMins`: (選擇性，int) 指定在 DSC 會嘗試從提取伺服器取得設定頻率 （以分鐘為單位）。 
        如果提取伺服器上的組態不同於目標節點上目前的組態，則會將該組態複製到擱置存放區並套用。
-* `ConfigurationMode`：(選擇性，字串) 指定 DSC 套用組態的方式。 有效值為：ApplyOnly、ApplyAndMonitor、ApplyAndAutoCorrect。
-* `ConfigurationModeFrequencyMins`：(選擇性，int) 指定 DSC 確認組態處於適當狀態的頻率 (以分鐘為單位)。
+* `ConfigurationMode`: （選擇性，字串) 指定 DSC 應該如何套用設定。 有效值為：ApplyOnly、ApplyAndMonitor、ApplyAndAutoCorrect。
+* `ConfigurationModeFrequencyMins`: (選擇性，int) DSC 可確保組態所需狀態指定頻率 （以分鐘為單位）。
 
 > [!NOTE]
-> 如果您使用低於 2.3 的版本，則模式參數會與 ExtensionAction 相同。 模式一詞似乎有太多涵義。 因此，為了避免混淆，自 2.3 版起均使用 ExtensionAction。 為了顧及回溯相容性，此擴充功能同時支援模式和 ExtensionAction。 
+> 如果您使用低於 2.3 的版本，則模式參數會與 ExtensionAction 相同。 模式似乎是一個多載的詞彙。 因此，為了避免混淆，自 2.3 版起均使用 ExtensionAction。 為了顧及回溯相容性，此擴充功能同時支援模式和 ExtensionAction。 
 >
 
 ### <a name="12-protected-configuration"></a>1.2 受保護的組態
 
 以下是所有受支援和保護的組態參數：
 
-* `StorageAccountName`：(選擇性，字串)：檔案所屬儲存體帳戶的名稱
-* `StorageAccountKey`：(選擇性，字串)：檔案所屬儲存體帳戶的金鑰
-* `RegistrationUrl`：(選擇性，字串) Azure 自動化帳戶的 URL
-* `RegistrationKey`：(選擇性，字串) Azure 自動化帳戶的存取金鑰
+* `StorageAccountName`: （選擇性，字串)，其中包含檔案的儲存體帳戶名稱
+* `StorageAccountKey`: （選擇性，字串)，其中包含檔案的儲存體帳戶金鑰
+* `RegistrationUrl`: （選擇性，字串) 的 Azure 自動化帳戶 URL
+* `RegistrationKey`: （選擇性，字串) 的 Azure 自動化帳戶的存取金鑰
 
 
 ## <a name="scenarios"></a>案例

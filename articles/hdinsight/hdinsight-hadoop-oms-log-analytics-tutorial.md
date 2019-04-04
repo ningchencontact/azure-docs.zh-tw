@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: hrasheed
-ms.openlocfilehash: b7e0dba70d7f3a201c5f3491f0bc906977fbf229
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 399a6bcb6e0bfd0edaddca471ba2c8e0802d3394
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886446"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904775"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>使用 Azure 監視器記錄以監視 HDInsight 叢集
 
-了解如何啟用 Azure 監視器記錄檔，以監視 HDInsight，Hadoop 叢集作業，以及如何新增 HDInisght 監視解決方案。
+了解如何啟用 Azure 監視器記錄檔，以監視 HDInsight，Hadoop 叢集作業，以及如何新增監視解決方案的 HDInsight。
 
 [Azure 監視器記錄](../log-analytics/log-analytics-overview.md)是一項服務在 Azure 監視器來監視您的雲端，並在內部部署環境，以維護其可用性和效能。 它會收集您的雲端和內部部署環境中的資源所產生的資料，以及從其他監視工具提供橫跨多個來源的分析。
 

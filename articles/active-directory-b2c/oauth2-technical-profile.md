@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Active Directory B2C 的自訂原則中定義 OAuth2 技術設定檔 | Microsoft Docs
-description: 在 Azure Active Directory B2C 的自訂原則中定義 OAuth2 技術設定檔。
+title: 在 Azure Active Directory B2C 自訂原則中定義的 OAuth2 的技術設定檔 |Microsoft Docs
+description: 在 Azure Active Directory B2C 自訂原則中定義的 OAuth2 的技術設定檔。
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
@@ -10,14 +10,14 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 86682525ae5246f9335e64e7dd3a812eaaf3c273
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: fde556c60f823f4bd287ca5672503158c7292f51
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157715"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918921"
 ---
-# <a name="define-a-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自訂原則中定義 OAuth2 技術設定檔
+# <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 自訂原則中定義的 OAuth2 的技術設定檔
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -76,7 +76,7 @@ Azure Active Directory (Azure AD) B2C 可提供 OAuth2 通訊協定識別提供�
 
 ## <a name="metadata"></a>中繼資料
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | client_id | 是 | 識別提供者的應用程式識別碼。 |
 | IdTokenAudience | 否 | id_token 的對象。 如果已指定，Azure AD B2C 會檢查權杖是否在識別提供者傳回的宣告中，以及是否等於指定的宣告。 |
@@ -100,7 +100,7 @@ Azure Active Directory (Azure AD) B2C 可提供 OAuth2 通訊協定識別提供�
 
 **CryptographicKeys** 元素包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | client_secret | 是 | 識別提供者應用程式的用戶端密碼。 只有在 **response_types** 中繼資料設為 `code` 時，才需要密碼編譯金鑰。 在此情況下，Azure AD B2C 會進行另一次呼叫，以交換存取權杖的授權碼。 如果中繼資料設為 `id_token`，則可以省略密碼編譯金鑰。  |  
 
@@ -112,7 +112,7 @@ Azure Active Directory (Azure AD) B2C 可提供 OAuth2 通訊協定識別提供�
 
 範例：
 
-- [使用自訂原則新增 Google+ 作為 OAuth2 識別提供者](active-directory-b2c-custom-setup-goog-idp.md)
+- [新增 Google + 作為 OAuth2 識別提供者使用自訂原則](active-directory-b2c-custom-setup-goog-idp.md)
 
 
 

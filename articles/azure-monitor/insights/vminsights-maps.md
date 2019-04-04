@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 0bf7c335f552fee103118e57239bcd872e880edb
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 34e6ce7f3b38dfd583aa557d2f1d7340ea444da9
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984844"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916728"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>使用適用於 VM 的 Azure 監視器 (預覽) 對應來了解應用程式元件
 檢視在 Azure 中執行之 Windows 和 Linux 虛擬機器上探索到的應用程式元件，可搭配適用於 VM 的 Azure 監視器使用下列兩種方式來觀測您的環境：直接從虛擬機器，或者從 Azure 監視器跨 VM 群組進行。 
@@ -43,7 +43,7 @@ ms.locfileid: "56984844"
 
 ![[屬性] 窗格中的記錄搜尋清單](./media/vminsights-maps/properties-pane-logs-01.png)
 
-關閉 [記錄]* 並返回 [屬性] 窗格，然後選取 [警示] 來檢視警示，警示是針對 VM 從健康情況準則所引發的。 對應會與 Azure 警示整合，以顯示所選時間範圍內針對所選伺服器而引發的警示。 如果有最新警示，伺服器就會顯示一個圖示，而 [機器警示] 窗格會列出警示。 
+關閉**記錄檔**，然後返回**屬性**窗格，然後選取**警示**以檢視警示，警示從健全狀況準則時引發。 對應會與 Azure 警示整合，以顯示所選時間範圍內針對所選伺服器而引發的警示。 如果有最新警示，伺服器就會顯示一個圖示，而 [機器警示] 窗格會列出警示。 
 
 ![[屬性] 窗格中的 [機器警示]](./media/vminsights-maps/properties-pane-alerts-01.png)
 

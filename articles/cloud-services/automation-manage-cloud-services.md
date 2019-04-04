@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2016
 ms.author: timlt
-ms.openlocfilehash: 40e91b4ba7ee62976b49975769bd1d1e656525f2
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: b3660901c86dd644369e6d1913e825cbd5ea316b
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54328863"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918462"
 ---
 # <a name="managing-azure-cloud-services-using-azure-automation"></a>使用 Azure 自動化管理 Azure 雲端服務
 本指南將為您介紹 Azure 自動化服務，以及如何使用它來簡化您的 Azure 雲端服務管理。
 
-## <a name="what-is-azure-automation"></a>什麼是 Azure 自動化？
+## <a name="what-is-azure-automation"></a>什么是 Azure 自动化？
 [Azure 自動化](https://azure.microsoft.com/services/automation/) 是一項 Azure 服務，可經由程序自動化簡化雲端管理。 透過 Azure 自動化，長時間執行、手動、容易發生錯誤和經常重複的工作都可以自動化，以提高可靠性、效率，並為您的組織縮短創造價值時程。
 
 Azure 自動化提供非常可靠且高度可用的工作流程執行引擎，可隨著組織的成長根據您的需求進行調整。 在 Azure 自動化中，程序可透過手動方式、經由協力廠商系統，或依照排程的間隔啟動，讓工作精準地在需要時執行。
@@ -32,12 +32,12 @@ Azure 自動化提供非常可靠且高度可用的工作流程執行引擎，�
 將您的雲端管理工作交由「Azure 自動化」自動執行，以降低營運負擔並釋出 IT/開發維運人力，使其專注於能夠為企業創造價值的工作上。
 
 ## <a name="how-can-azure-automation-help-manage-azure-cloud-services"></a>Azure 自動化為何有助於管理 Azure 雲端服務？
-Azure 雲端服務可透過 [Azure PowerShell 工具](https://msdn.microsoft.com/library/azure/jj156055.aspx)中提供的 PowerShell Cmdlet，在 Azure 自動化中受到管理。 Azure 自動化的這些雲端服務 PowerShell Cmdlet 都是內建的，以便您在服務內執行所有雲端服務管理工作。 您也可以在 Azure 自動化中將這些 Cmdlet 與其他 Azure 服務的 Cmdlet 配對，將跨 Azure 服務和協力廠商系統的複雜工作自動化。
+Azure 雲端服務可透過 [Azure PowerShell 工具](/powershell/)中提供的 PowerShell Cmdlet，在 Azure 自動化中受到管理。 Azure 自動化的這些雲端服務 PowerShell Cmdlet 都是內建的，以便您在服務內執行所有雲端服務管理工作。 您也可以在 Azure 自動化中將這些 Cmdlet 與其他 Azure 服務的 Cmdlet 配對，將跨 Azure 服務和協力廠商系統的複雜工作自動化。
 
 某些範例使用 Azure 自動化來管理 Azure 雲端服務，包括︰
 
-* [每當 Azure Blob 儲存體中更新 cscfg 或 cspkg 時，即連續部署雲端服務](https://gallery.technet.microsoft.com/scriptcenter/Continuous-Deployment-of-A-eeebf3a6)
-* [以平行方式重新啟動雲端服務執行個體，一次升級一個網域](https://gallery.technet.microsoft.com/scriptcenter/Reboot-Cloud-Service-PaaS-b337a06d)
+* [在 Azure Blob 儲存體中更新 cscfg 或 cspkg 時的雲端服務的持續部署](https://gallery.technet.microsoft.com/scriptcenter/Continuous-Deployment-of-A-eeebf3a6)
+* [正在重新啟動雲端服務執行個體，以平行方式，一次一個升級網域](https://gallery.technet.microsoft.com/scriptcenter/Reboot-Cloud-Service-PaaS-b337a06d)
 
 ## <a name="next-steps"></a>後續步驟
 了解 Azure 自動化的基本概念以及如何用它來管理 Azure 雲端服務之後，請參考下列連結，以深入了解 Azure 自動化。

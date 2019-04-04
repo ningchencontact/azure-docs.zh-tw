@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 63f26c8a4a0a9195083386b18c0fff9439428bf0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b2c665de94750c4c6f41bda47960fdb9ba17e819
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546189"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905625"
 ---
-# <a name="move-data-from-a-odata-source-using-azure-data-factory"></a>使用 Azure Data Factory 來移動 OData 來源的資料
+# <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>移動資料使用 Azure Data Factory 從 OData 來源
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版](data-factory-odata-connector.md)
-> * [第 2 版 (目前的版本)](../connector-odata.md)
+> * [版本 2 （目前的版本）](../connector-odata.md)
 
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[第 2 版中的 OData 連接器](../connector-odata.md)。
+> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[第 2 版中的 OData 連接器](../connector-odata.md)。
 
 
 本文說明如何使用 Azure Data Factory 中的「複製活動」，從內部部署的 OData 來源移動資料。 本文是根據[資料移動活動](data-factory-data-movement-activities.md)一文，該文提供使用複製活動來移動資料的一般概觀。

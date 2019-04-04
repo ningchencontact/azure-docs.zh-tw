@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 3a88c29739faca33794ce10de895c0439f007532
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 51d168474fd593dd537a25c0434e240a426c2cbf
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294224"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918343"
 ---
 # <a name="scaling-media-processing-overview"></a>調整媒體處理概觀 
 此頁面提供調整媒體處理的方式及原因的概觀。 
@@ -48,7 +48,7 @@ ms.locfileid: "58294224"
 
 ## <a name="billing"></a>計費
 
-您的費用取決於使用媒體保留單元的實際分鐘數。 如需詳細說明，請參閱[媒體服務定價](https://azure.microsoft.com/pricing/details/media-services/)頁面的＜常見問題集＞一節。   
+您的費用取決於佈建媒體保留單元的分鐘數在您的帳戶。 發生這種情況無關是否有任何在您的帳戶執行的作業。 如需詳細說明，請參閱[媒體服務定價](https://azure.microsoft.com/pricing/details/media-services/)頁面的＜常見問題集＞一節。   
 
 ## <a name="quotas-and-limitations"></a>配額和限制
 如需配額和限制以及如何開啟支援票證的相關資訊，請參閱 [配額和限制](media-services-quotas-and-limitations.md)。

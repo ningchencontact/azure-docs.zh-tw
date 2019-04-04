@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 04/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 720f4433c1e7b0d271e5729236f439c92a84687e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: a67cbd3bfca478a45e12adeb0bf119b891866718
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884647"
+ms.locfileid: "58905234"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Azure 資料方塊邊緣的系統需求
 
@@ -80,15 +80,23 @@ Azure IoT Edge 允許使用支援的 IoT Hub 通訊協定，進行從內部部�
 
 ### <a name="url-patterns-for-compute-feature"></a>計算功能的 URL 模式
 
-| URL 模式                      | 元件或功能                     |   |
-|----------------------------------|---------------------------------------------|---|
-| `https://mcr.microsoft.com`<br></br>https://\*.cdn.mscr.io | Microsoft 容器登錄 (必要)               |   |
-| https://\*.azurecr.io                     | 個人和協力廠商容器登錄 (選擇性) |   |
-| https://\*.azure-devices.net              | IoT 中樞存取權 (必要)                             |   |
+| URL 模式                      | 元件或功能                     |   
+|----------------------------------|---------------------------------------------|
+| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft 容器登錄 (必要)               |
+| https://\*.azurecr.io                     | 個人和協力廠商容器登錄 (選擇性) | 
+| https://\*.azure-devices.net              | IoT 中樞存取權 (必要)                             | 
 
-### <a name="url-patterns-for-azure-government"></a>Azure Government 的 URL 模式
+### <a name="url-patterns-for-gateway-for-azure-government"></a>Azure government 的閘道的 URL 模式
 
 [!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
+
+### <a name="url-patterns-for-compute-for-azure-government"></a>用於計算的 Azure Government 的 URL 模式
+
+| URL 模式                      | 元件或功能                     |  
+|----------------------------------|---------------------------------------------|
+| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Microsoft 容器登錄 (必要)               |
+| https://\*.azure-devices.us              | IoT 中樞存取權 (必要)           |
+| https://\*.azurecr.us                    | 個人和協力廠商容器登錄 (選擇性) | 
 
 ## <a name="internet-bandwidth"></a>網際網路頻寬
 

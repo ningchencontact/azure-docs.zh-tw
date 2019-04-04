@@ -16,12 +16,12 @@ ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 5c7031b0d0a08106473409233db0ad95ecb32525
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 226416688fe4f2c48981718e7a2f40b0ba5b0685
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095359"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649606"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>在 Azure Stack 中使用 API 版本設定檔搭配 Ruby
 
@@ -91,7 +91,7 @@ gem install 'azure_sdk'
 | 用戶端識別碼 | AZURE_CLIENT_ID | 您在本文件上一節中建立服務主體時儲存的服務主體應用程式識別碼。  |
 | 訂用帳戶識別碼 | AZURE_SUBSCRIPTION_ID | [訂用帳戶識別碼](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions)是您存取 Azure Stack 中供應項目的方式。 |
 | 用戶端密碼 | AZURE_CLIENT_SECRET | 服務主體建立時儲存的服務主體應用程式祕密。 |
-| Resource Manager 端點 | ARM_ENDPOINT | 請參閱 [Azure Stack Resource Manager 端點](#The-azure-stack-resource-manager-endpoint)。  |
+| Resource Manager 端點 | ARM_ENDPOINT | 請參閱 [Azure Stack Resource Manager 端點](#the-azure-stack-resource-manager-endpoint)。  |
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>Azure Stack Resource Manager 端點
 

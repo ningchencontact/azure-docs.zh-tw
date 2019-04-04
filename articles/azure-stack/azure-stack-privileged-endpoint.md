@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 9eb2e8ddde13783eabf3d82173e6a2fa75ec2b06
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ef75b161bcdb9e1b9658612b783dff46d1fa2502
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082665"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484333"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>使用 Azure Stack 中具有特殊權限的端點
 
@@ -53,7 +53,7 @@ PEP 會記錄您在 PowerShell 工作階段中執行的每個動作 (和其對�
 
     - 在整合的系統中，從提升權限的 Windows PowerShell 工作階段執行下列命令，將 PEP 新增為在硬體生命週期主機或特殊權限存取工作站上執行的強化虛擬機器的受信任主機。
 
-      ```PowerShell
+      ```powershell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
     - 如果您是執行 ASDK，請登入開發套件主機。
@@ -61,7 +61,7 @@ PEP 會記錄您在 PowerShell 工作階段中執行的每個動作 (和其對�
 2. 在硬體生命週期主機或特殊權限工作站中執行的強化虛擬機器上，開啟 Windows PowerShell 工作階段。 執行下列命令，以在裝載 PEP 的虛擬機器上建立遠端工作階段：
  
    - 在整合系統上：
-     ```PowerShell
+     ```powershell
        $cred = Get-Credential
 
        Enter-PSSession -ComputerName <IP_address_of_ERCS> `
@@ -70,7 +70,7 @@ PEP 會記錄您在 PowerShell 工作階段中執行的每個動作 (和其對�
      `ComputerName` 參數可以是其中一部裝載 PEP 之虛擬機器的 IP 位址或 DNS 名稱。 
    - 如果您是執行 ASDK：
      
-     ```PowerShell
+     ```powershell
        $cred = Get-Credential
 
        Enter-PSSession -ComputerName azs-ercs01 `
@@ -113,7 +113,7 @@ PEP 會記錄您在 PowerShell 工作階段中執行的每個動作 (和其對�
 
 因此，例如，若要取得特定 Cmdlet 的參數清單，您需執行下列命令：
 
-```PowerShell
+```powershell
     Get-Command <cmdlet_name> -Syntax
 ```
 
@@ -125,7 +125,7 @@ PEP 會記錄您在 PowerShell 工作階段中執行的每個動作 (和其對�
 
     -在整合的系統中，從提升權限的 Windows PowerShell 工作階段執行下列命令，將 PEP 新增為在硬體生命週期主機或特殊權限存取工作站上執行的強化虛擬機器的受信任主機。
 
-      ```PowerShell
+      ```powershell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ```
     - 如果您是執行 ASDK，請登入開發套件主機。
@@ -133,7 +133,7 @@ PEP 會記錄您在 PowerShell 工作階段中執行的每個動作 (和其對�
 2. 在硬體生命週期主機或特殊權限工作站中執行的強化虛擬機器上，開啟 Windows PowerShell 工作階段。 執行下列命令，以在裝載 PEP 的虛擬機器上建立遠端工作階段：
  
    - 在整合系統上：
-     ```PowerShell
+     ```powershell
        $cred = Get-Credential
 
        $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
@@ -142,7 +142,7 @@ PEP 會記錄您在 PowerShell 工作階段中執行的每個動作 (和其對�
      `ComputerName` 參數可以是其中一部裝載 PEP 之虛擬機器的 IP 位址或 DNS 名稱。 
    - 如果您是執行 ASDK：
      
-     ```PowerShell
+     ```powershell
       $cred = Get-Credential
 
       $session = New-PSSession -ComputerName azs-ercs01 `
@@ -154,7 +154,7 @@ PEP 會記錄您在 PowerShell 工作階段中執行的每個動作 (和其對�
      - **密碼**：輸入與 AzureStackAdmin 網域系統管理員帳戶安裝期間所提供的相同密碼。
 
 3. 將 PEP 工作階段匯入到本機電腦
-    ```PowerShell 
+    ```powershell 
         Import-PSSession $session
     ```
 4. 現在，您可以在本機 PowerShell 工作階段上，搭配 PEP 的所有函式和 Cmdlet 如常使用 TAB 鍵自動完成功能和進行指令碼處理，而無須降低 Azure Stack 的安全性狀態。 盡情享受！

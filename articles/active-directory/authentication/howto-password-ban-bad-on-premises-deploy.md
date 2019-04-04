@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3be702d1f75b0a96e22ea03602c924be580b0968
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: f1c24ec49652cfe9105aa66fd1d5e26c81afcd14
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499245"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904622"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>部署 Azure AD 密碼保護
 
@@ -37,6 +37,7 @@ ms.locfileid: "58499245"
 ## <a name="deployment-requirements"></a>部署需求
 
 * 所有網域控制站服務安裝的 Azure AD 密碼保護，必須執行 Windows Server 2012 或更新版本，取得 DC 代理程式。 這項需求並不表示，Active Directory 網域或樹系必須也是在 Windows Server 2012 網域或樹系功能等級。 中所述[設計原則](concept-password-ban-bad-on-premises.md#design-principles)，沒有任何最低網域功能等級為或 FFL 所需的 DC 代理程式或 proxy 軟體執行。
+* 取得安裝的 DC 代理程式服務的所有機器必須都已安裝.NET 4.5。
 * 取得 proxy 服務已安裝的 Azure AD 密碼保護，必須執行 Windows Server 2012 R2 或更新版本的所有機器。
 * 安裝 Azure AD 密碼保護 Proxy 服務的所有機器都必須都有安裝的.NET 4.7。
   完整地進行更新的 Windows Server 上時，應該已安裝.NET 4.7。 如果這不是這樣，下載並執行安裝程式，請參閱[for Windows 的.NET Framework 4.7 離線安裝程式](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows)。
@@ -44,7 +45,7 @@ ms.locfileid: "58499245"
 * 網路連線之間必須存在每個網域中的至少一個網域控制站和至少一部伺服器裝載的密碼保護的 proxy 服務。 此連線必須允許存取 RPC 端點對應程式連接埠 135 和 RPC 伺服器連接埠上的 proxy 服務的網域控制站。 根據預設，RPC 伺服器連接埠是動態的 RPC 連接埠，但將它設定為[使用靜態連接埠](#static)。
 * 裝載 proxy 服務的所有機器都必須都具有下列端點的網路存取：
 
-    |**端點**|**用途**|
+    |**端點**|**目的**|
     | --- | --- |
     |`https://login.microsoftonline.com`|驗證要求|
     |`https://enterpriseregistration.windows.net`|Azure AD 密碼保護功能|
@@ -91,7 +92,7 @@ ms.locfileid: "58499245"
 
    * 若要檢查服務正在執行，請使用下列 PowerShell 命令：
 
-      `Get-Service AzureADPasswordProtectionProxy | fl` 。
+      `Get-Service AzureADPasswordProtectionProxy | fl`上也提供本文中使用的原始碼。
 
      結果應該會顯示**狀態**為"Running"。
 
@@ -109,6 +110,7 @@ ms.locfileid: "58499245"
         ```powershell
         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
+
         > [!NOTE]
         > 此模式中不在 Server Core 作業系統上運作的。 相反地，使用下列驗證模式的其中一個。 此外，此模式也可能會失敗，如果已啟用 Internet Explorer 增強式安全性設定。 因應措施是停用該設定、 註冊 proxy，然後再重新啟用。
 
@@ -133,7 +135,6 @@ ms.locfileid: "58499245"
 
        您目前沒有在指定 *-ForestCredential*參數，其保留供未來的功能。
 
-   
    註冊密碼保護的 proxy 服務作業所需一次存留期間的服務。 在那之後，proxy 服務會自動執行任何其他必要的維護作業。
 
    > [!TIP]
@@ -149,6 +150,7 @@ ms.locfileid: "58499245"
         ```powershell
         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
+
         > [!NOTE]
         > 此模式中不會在 Server Core 作業系統上運作的。 改為使用其中一個下列兩種驗證模式。 此外，此模式也可能會失敗，如果已啟用 Internet Explorer 增強式安全性設定。 因應措施是停用該設定、 註冊 proxy，然後再重新啟用。  
 
@@ -162,6 +164,7 @@ ms.locfileid: "58499245"
         您接著會依據不同的裝置上顯示的指示完成驗證。
 
      * 無訊息 (密碼型) 驗證模式：
+
         ```powershell
         $globalAdminCredentials = Get-Credential
         Register-AzureADPasswordProtectionForest -AzureCredential $globalAdminCredentials
@@ -174,7 +177,7 @@ ms.locfileid: "58499245"
 
    > [!NOTE]
    > 如果您的環境中安裝多部 proxy 伺服器，並不重要的 proxy 伺服器，您用來註冊樹系。
-
+   >
    > [!TIP]
    > 可能有明顯的延遲，完成第一次針對特定的 Azure 租用戶執行這個指令程式之前。 除非在報告失敗時，不必擔心這種延遲。
 
@@ -220,7 +223,8 @@ ms.locfileid: "58499245"
 
 1. 選用：Proxy 服務設定為接聽特定通訊埠上的密碼保護。
    * 網域控制站上的密碼保護的 DC 代理程式軟體會使用 RPC over TCP 通訊的 proxy 服務。 根據預設，proxy 服務會接聽任何可用的動態 RPC 端點。 但如果這是因為網路拓樸或您的環境中的防火牆需求所需，您可以設定為接聽特定 TCP 通訊埠，服務。
-      * <a id="static" /></a>若要設定靜態連接埠之下執行服務，請使用`Set-AzureADPasswordProtectionProxyConfiguration`cmdlet。
+      * <a id="static" /></a>若要將服務設定成在靜態連接埠下執行，請使用 `Set-AzureADPasswordProtectionProxyConfiguration` Cmdlet。
+
          ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>
          ```
@@ -229,6 +233,7 @@ ms.locfileid: "58499245"
          > 您必須將服務停止後再重新啟動，這些變更才會生效。
 
       * 若要設定動態連接埠之下執行服務，使用相同的程序，但設定*StaticPort*設回零：
+
          ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort 0
          ```

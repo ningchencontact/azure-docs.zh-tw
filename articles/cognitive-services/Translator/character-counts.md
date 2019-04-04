@@ -3,19 +3,19 @@ title: 字元計數 - 翻譯工具文字 API
 titlesuffix: Azure Cognitive Services
 description: 翻譯工具文字 API 如何計算字元。
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 2164070c8f0efe2898e3780cac30a80c9f1ca986
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c88eb56288d3a7cf46ce84430a53c12a4ee31c7a
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874408"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917408"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>翻譯工具文字 API 如何計算字元
 
@@ -24,8 +24,8 @@ ms.locfileid: "55874408"
 會計算的項目包括：
 
 * 要求主體中傳遞至翻譯工具文字 API 的文字
-   * 使用翻譯、音譯和字典查閱方法時，會計算 `Text`
-   * 使用字典範例方法時，會計算 `Text` 和 `Translation`
+   * `Text` 當您使用平移、 Transliterate 和字典查閱方法
+   * `Text` 和`Translation`時使用字典範例方法
 * 所有標記：要求主體文字欄位內的 HTML、XML 標記等等。 用來建置要求的 JSON 表示法 (例如 "Text:") 則不會計入。
 * 個別字母
 * 標點符號

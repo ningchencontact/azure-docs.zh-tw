@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: a82035bfbed109d6521131d8c730bef04030c94f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 92fc8e9edfc745ae89c2b4d44e193566292d4f08
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093536"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918870"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Azure BizTalk 服務的版本資訊
 
@@ -30,7 +30,7 @@ ms.locfileid: "58093536"
 Microsoft Azure BizTalk 服務的版本資訊包含此版本已知的問題。
 
 ## <a name="whats-new-in-the-november-update-of-biztalk-services"></a>BizTalk 服務 11 月份更新的新增功能
-* BizTalk 服務入口網站中可以啟用靜態加密。 請參閱 [在 BizTalk 服務入口網站中啟用靜態加密](https://msdn.microsoft.com/library/azure/dn874052.aspx)。
+* BizTalk 服務入口網站中可以啟用靜態加密。 請參閱 [在 BizTalk 服務入口網站中啟用靜態加密](/previous-versions/azure/dn874052(v=azure.100))。
 
 ## <a name="update-history"></a>更新歷程記錄
 ### <a name="october-update"></a>10 月更新
@@ -39,14 +39,14 @@ Microsoft Azure BizTalk 服務的版本資訊包含此版本已知的問題。
   * **案例**：您使用 Azure Active Directory 中的組織帳戶註冊了 BizTalk 服務部署 (例如 user@fabrikam.com 或 user@contoso.com)。 在此情節中，只有相同組織內的 Azure Active Directory 使用者可以使用 BizTalk 服務入口網站來管理 BizTalk 服務。 無法使用 Microsoft 帳戶。  
 * 當您建立 BizTalk 服務時，您會自動在 BizTalk 服務入口網站中註冊。
   * **案例**：您第一次登入 Azure，建立 BizTalk 服務，然後選取 [管理]。 BizTalk 服務入口網站開啟時，BizTalk 服務自會動註冊，並且可用於您的部署。  
-    請參閱 [在 BizTalk 服務入口網站註冊和更新 BizTalk 服務部署](https://msdn.microsoft.com/library/azure/hh689837.aspx)。  
+    請參閱 [在 BizTalk 服務入口網站註冊和更新 BizTalk 服務部署](/previous-versions/azure/hh689837(v=azure.100))。  
 
 ### <a name="august-14-update"></a>8 月 14 日更新
-* 合約與橋接器分離 – 現在，交易夥伴合約和橋接器在 BizTalk 服務入口網站中會分離。 您現在分開建立合約和橋接器，而在執行階段，橋接器會根據 EDI 訊息中的值解析為合約。 請參閱[在 Azure BizTalk 服務中建立合約](https://msdn.microsoft.com/library/azure/hh689908.aspx)、[使用 BizTalk 服務入口網站建立 EDI 橋接器](https://msdn.microsoft.com/library/azure/dn793986.aspx)、[使用 BizTalk 服務入口網站建立 AS2 橋接器](https://msdn.microsoft.com/library/azure/dn793993.aspx)和[橋接器在執行階段如何解析合約？](https://msdn.microsoft.com/library/azure/dn794001.aspx)  
+* 合約與橋接器分離 – 現在，交易夥伴合約和橋接器在 BizTalk 服務入口網站中會分離。 您現在分開建立合約和橋接器，而在執行階段，橋接器會根據 EDI 訊息中的值解析為合約。 請參閱[在 Azure BizTalk 服務中建立合約](/previous-versions/azure/hh689908(v=azure.100))、[使用 BizTalk 服務入口網站建立 EDI 橋接器](/previous-versions/azure/dn793986(v=azure.100))、[使用 BizTalk 服務入口網站建立 AS2 橋接器](/previous-versions/azure/dn793993(v=azure.100))和[橋接器在執行階段如何解析合約？](/previous-versions/azure/dn794001(v=azure.100))  
 * 用於建立合約範本的選項已終止。  
-* 對於傳送端合約，您現在可以為每個結構描述指定不同的分隔符號集。 此設定是在傳送端合約的通訊協定設定下指定。 如需詳細資訊，請參閱[在 Azure BizTalk 服務中建立 X12 合約](https://msdn.microsoft.com/library/azure/hh689847.aspx)和[在 Azure BizTalk 服務中建立 EDIFACT合約](https://msdn.microsoft.com/library/azure/dn606267.aspx)。 兩個新的實體也為了相同目的而新增至 TPM OM API。 請參閱 [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) 和 [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx)。  
-* 現在支援標準 XSD 建構，包括衍生類型。 請參閱[在您的對應中使用標準 XSD 建構](https://msdn.microsoft.com/library/azure/dn793987.aspx)和[在對應案例和範例中使用衍生類型](https://msdn.microsoft.com/library/azure/dn793997.aspx)。  
-* AS2 支援用於訊息簽署的新 MIC 演算法，以及新的加密演算法。 請參閱 [在 Azure BizTalk 服務中建立 AS2合約](https://msdn.microsoft.com/library/azure/hh689890.aspx)。  
+* 對於傳送端合約，您現在可以為每個結構描述指定不同的分隔符號集。 此設定是在傳送端合約的通訊協定設定下指定。 如需詳細資訊，請參閱[在 Azure BizTalk 服務中建立 X12 合約](/previous-versions/azure/hh689847(v=azure.100))和[在 Azure BizTalk 服務中建立 EDIFACT合約](/previous-versions/azure/dn606267(v=azure.100))。 兩個新的實體也為了相同目的而新增至 TPM OM API。 請參閱 [X12DelimiterOverrides](/previous-versions/azure/dn798749(v=azure.100)) 和 [EDIFACTDelimiterOverride](/previous-versions/azure/dn798748(v=azure.100))。  
+* 現在支援標準 XSD 建構，包括衍生類型。 請參閱[在您的對應中使用標準 XSD 建構](/previous-versions/azure/dn793987(v=azure.100))和[在對應案例和範例中使用衍生類型](/previous-versions/azure/)。  
+* AS2 支援用於訊息簽署的新 MIC 演算法，以及新的加密演算法。 請參閱 [在 Azure BizTalk 服務中建立 AS2合約](/previous-versions/azure/hh689890(v=azure.100))。  
 
 ## <a name="known-issues"></a>已知問題
 
@@ -85,7 +85,7 @@ Microsoft Azure BizTalk 服務的版本資訊包含此版本已知的問題。
 
 ### <a name="tracking-in-biztalk-services-portal"></a>在 BizTalk 服務入口網站中追蹤
 擷取的追蹤事件以 EDI 訊息處理和任何相互關聯為範圍。 如果訊息在通訊協定階段之外失敗，追蹤會顯示為成功。 在此情況下，請參閱 [追蹤] 的 [詳細資料] 欄下的 [記錄] 區段，以取得錯誤詳細資料。
-X12 接收和傳送設定 ([在 Azure BizTalk 服務中建立 X12 合約](https://msdn.microsoft.com/library/azure/hh689847.aspx)) 提供通訊協定階段的相關資訊。  
+X12 接收和傳送設定 ([在 Azure BizTalk 服務中建立 X12 合約](/previous-versions/azure/hh689847(v=azure.100))) 提供通訊協定階段的相關資訊。  
 
 ### <a name="update-agreement"></a>更新合約
 BizTalk 服務入口網站可讓您在設定合約時修改身分識別的辨識符號。 這會導致屬性不一致。 比方說，合約使用 ZZ:1234567，而辨識符號為 ZZ:7654321。 在 BizTalk 服務入口網站設定檔設定中，您將 ZZ:1234567 變更為 01:ChangedValue。 您開啟合約，顯示的是 01:ChangedValue 而非 ZZ:1234567。
@@ -109,7 +109,8 @@ BizTalk 服務入口網站可讓您在設定合約時修改身分識別的辨識
 * 關閉 .bcs 檔案 (藉由關閉 Visual Studio 中的索引標籤)，而不儲存變更。  
 * 從 [方案總管] 再次開啟 .bcs 檔案。  
   您會注意到相關聯的 .bridgeconfig 檔案具有您指定的新名稱，而在設計介面上的實體名稱還是舊名稱。 如果您嘗試按兩下橋接器元件來開啟橋接器設定，您會收到下列錯誤：  
-  `‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist` 若要避免發生這種情況，請確定您會在將 BizTalk 服務專案中的實體重新命名之後儲存變更。  
+  `‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist`
+  若要避免發生這種情況，請確定您在 BizTalk 服務專案中的實體重新命名之後儲存變更。  
   
 ### <a name="biztalk-service-project-builds-successfully-even-if-an-artifact-has-been-excluded-from-a-visual-studio-project"></a>即使已經從 Visual Studio 專案中排除構件，BizTalk 服務專案仍會成功建置
 假設您將構件 (例如，XSD 檔案) 新增至 BizTalk 服務專案，在橋接器組態中加入此構件 (例如，將它指定為要求訊息類型)，然後從 Visual Studio 專案中排除它。 在這種情況下，只要已刪除的構件仍留在它加入 Visual Studio 專案時的相同磁碟位置中，則建置專案不會發生任何錯誤。
@@ -224,5 +225,5 @@ BizTalk Adapter Service 功能內的 BizTalk Adapter Pack 配接器可以在配�
 在這整份文件，「管線」和「橋接器」這兩個詞彙交替使用。 基本上，兩者都代表同一件事，也就是部署在 BizTalk 服務上的訊息處理單元。  
 
 ### <a name="concepts"></a>概念
-[BizTalk 服務](https://msdn.microsoft.com/library/azure/hh689864.aspx)   
+[BizTalk 服務](/previous-versions/azure/hh689864(v=azure.100))   
 

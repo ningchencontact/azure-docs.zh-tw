@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/26/2019
 ms.author: absha
-ms.openlocfilehash: 4755eeda6a254389f0e0fbceec602fef718a9c45
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cfc63349e20aa6dbef4e0d31e81842d325bd3ec6
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100167"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905532"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>使用内部负载均衡器 (ILB) 终结点配置应用程序网关
 
@@ -25,13 +25,16 @@ ms.locfileid: "58100167"
 - 为应用程序网关创建专用前端 IP 配置
 - 使用专用前端 IP 配置创建应用程序网关
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="log-in-to-azure"></a>登入 Azure
 
-在 <https://portal.azure.com> 上登入 Azure 入口網站
+在 Azure 入口網站登入 <https://portal.azure.com>
 
 ## <a name="create-an-application-gateway"></a>建立應用程式閘道
 
-Azure 需要虛擬網路才能在您所建立的資源之間進行通訊。 可以创建新的虚拟网络，或者使用现有的虚拟网络。 本示例将创建新的虚拟网络。 您建立應用程式閘道時，可以同時建立虛擬網路。 在独立的子网中创建应用程序网关实例。 在此範例中您會建立兩個子網路：一個用於應用程式閘道，另一個用於後端伺服器。
+Azure 需要虛擬網路才能在您所建立的資源之間進行通訊。 您可以建立新的虛擬網路，或使用現有的虛擬網路。 在此範例中，我們會建立新的虛擬網路。 您建立應用程式閘道時，可以同時建立虛擬網路。 在不同的子網路中，建立應用程式閘道執行個體。 在此範例中您會建立兩個子網路：一個用於應用程式閘道，另一個用於後端伺服器。
 
 1. 按一下 Azure 入口網站左上角的 [新增]。
 2. 在「精選」清單中選取 [網路]，然後選取 [應用程式閘道]。
@@ -54,10 +57,10 @@ Azure 需要虛擬網路才能在您所建立的資源之間進行通訊。 可�
 
 ## <a name="add-backend-pool"></a>新增後端集區
 
-后端池用于将请求路由到为请求提供服务的后端服务器。 后端可以包含 NIC、虚拟机规模集、公共 IP、内部 IP、完全限定的域名 (FQDN) 和多租户后端（例如 Azure 应用服务）。 本示例使用虚拟机作为目标后端。 我们可以使用现有的虚拟机，或者创建新的虚拟机。 本示例将创建两个虚拟机，供 Azure 用作应用程序网关的后端服务器。 为此，我们将会：
+後端集區可用來將要求路由至能為要求提供服務的後端伺服器。 后端可以包含 NIC、虚拟机规模集、公共 IP、内部 IP、完全限定的域名 (FQDN) 和多租户后端（例如 Azure 应用服务）。 本示例使用虚拟机作为目标后端。 我們可以使用現有的虛擬機器，或建立新的虛擬機器。 在此範例中，我們會建立兩個虛擬機器，供 Azure 作為應用程式閘道的後端伺服器。 为此，我们将会：
 
 1. 创建两个新的 VM *myVM* 和 *myVM2*，用作后端服务器。
-2. 在虚拟机上安装 IIS，以验证是否成功创建了应用程序网关。
+2. 在虛擬機器上安裝 IIS，以確認成功建立應用程式閘道。
 3. 将后端服务器添加到后端池。
 
 ### <a name="create-a-virtual-machine"></a>建立虛擬機器
@@ -82,7 +85,7 @@ Azure 需要虛擬網路才能在您所建立的資源之間進行通訊。 可�
 2. 執行下列命令以在虛擬機器上安裝 IIS：
 
    ```azurepowershell
-   Set-AzureRmVMExtension `
+   Set-AzVMExtension `
    
      -ResourceGroupName myResourceGroupAG `
    
@@ -100,7 +103,7 @@ Azure 需要虛擬網路才能在您所建立的資源之間進行通訊。 可�
 
 
 
-3. Create a second virtual machine and install IIS using the steps that you just finished. Enter myVM2 for its name and for VMName in Set-AzureRmVMExtension.
+3. Create a second virtual machine and install IIS using the steps that you just finished. Enter myVM2 for its name and for VMName in Set-AzVMExtension.
 
 ### Add backend servers to backend pool
 

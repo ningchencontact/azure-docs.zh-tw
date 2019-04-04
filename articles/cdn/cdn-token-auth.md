@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 6ff7b018cea8bedd93d3c9aef3b3250ecf5251b4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 75d6fb063a6cb5336a4d9945bf6a79a65ed25d40
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123720"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918887"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>使用權杖驗證保護 Azure CDN 資產
 
@@ -33,7 +33,7 @@ ms.locfileid: "58123720"
 
 權杖驗證會藉由提出要求需包含權杖值 (其中包含關於要求者的編碼資訊) 的要求，來確認要求是由受信任的網站所產生。 只有在編碼資訊符合需求時，才會將內容提供給要求者，否則會拒絕要求。 您可以使用下列一或多個參數來設定需求：
 
-- 國家/地區:允許或拒絕來自指定國家/地區的要求他們[國家/地區代碼](https://msdn.microsoft.com/library/mt761717.aspx)。
+- 國家/地區:允許或拒絕來自指定國家/地區的要求他們[國家/地區代碼](/previous-versions/azure/mt761717(v=azure.100))。
 - URL：允許符合指定的資產或路徑的要求。
 - 主機：允許或拒絕在要求標頭中使用指定的主機的要求。
 - 訪客來源︰允許或拒絕來自指定訪客來源的要求。
@@ -120,7 +120,7 @@ ms.locfileid: "58123720"
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>只允許來自一或多個指定國家/地區的要求。 來自其他所有國家/地區的要求將會遭到拒絕。 對每個國家/地區使用兩個字母 [ISO 3166 國家/地區碼](https://msdn.microsoft.com/library/mt761717.aspx)，並將每個國家/地區以逗號分隔；請勿加上空格。 例如，如果您只想允許來自美國和法國的存取，請輸入 `US,FR`。</td>
+      >    <td>只允許來自一或多個指定國家/地區的要求。 來自其他所有國家/地區的要求將會遭到拒絕。 對每個國家/地區使用兩個字母 [ISO 3166 國家/地區碼](/previous-versions/azure/mt761717(v=azure.100))，並將每個國家/地區以逗號分隔；請勿加上空格。 例如，如果您只想允許來自美國和法國的存取，請輸入 `US,FR`。</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 

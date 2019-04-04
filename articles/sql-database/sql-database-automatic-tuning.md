@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/06/2019
-ms.openlocfilehash: 028c69294d693202b626044cb903dc3124b5d7b7
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 6e818da29b7ee0d17ebe4f8e523648146973fa63
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58863214"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905353"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL Database 中的自動調整
 
@@ -70,9 +70,9 @@ Azure SQL Database 中可用的自動調整選項有：
 | :----------------------------- | ----- | ----- |
 | **CREATE INDEX** -找出可能改善您的工作負載的效能、 建立索引，並自動確認已改善查詢效能的索引。 | 是 | 否 | 
 | **DROP INDEX** -除了唯一索引和索引長時間未使用的每日，可識別備援和重複的索引 (> 90 天)。 請注意，目前該選項與使用分割區切換和索引提示的應用程式並不相容。 | 是 | 否 |
-| **FORCE LAST GOOD PLAN** -識別 SQL 查詢執行計畫低於前一個良好計畫，並查詢使用已知的良好計畫而不迴歸的計畫。 | 是 | 是 |
+| **FORCE LAST GOOD PLAN** （自動計劃更正中）-使用執行計畫低於前一個良好計畫，並使用已知的良好計畫而不迴歸的計畫查詢識別的 SQL 查詢。 | 是 | 是 |
 
-自動調整可識別 **CREATE INDEX**、**DROP INDEX** 和 **FORCE LAST GOOD PLAN** 建議，可以最佳化您的資料庫效能，並在 [Azure 入口網站](sql-database-advisor-portal.md)中顯示它們，還可以透過 [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 和 [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning) 來公開它們。 
+自動調整可識別 **CREATE INDEX**、**DROP INDEX** 和 **FORCE LAST GOOD PLAN** 建議，可以最佳化您的資料庫效能，並在 [Azure 入口網站](sql-database-advisor-portal.md)中顯示它們，還可以透過 [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 和 [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning) 來公開它們。 若要深入了解 FORCE LAST GOOD PLAN，並設定自動調整選項，透過 T-SQL，請參閱[自動調整引進了自動計劃更正](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/)。
 
 您可以使用入口網站來手動套用調整建議，或是讓自動調整為您自動套用調整建議。 讓系統為您自動套用調整建議的好處，就是系統會自動驗證工作負載效能是否有正面的改善，或者如果未偵測到明顯的效能改善，系統會自動還原調整建議。 請注意，針對受到沒有經常執行之調整建議所影響的查詢，其驗證階段根據設計可能需要最多 72 小時才能完成。
 

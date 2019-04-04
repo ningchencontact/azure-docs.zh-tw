@@ -15,18 +15,21 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c316176094f6d9b8b45b812acaad04ad37f4bce2
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 8ae6c9d5238f2853a12c20edfd3dba6d3f529b2c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449133"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905812"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>在 Azure App Service 中對網域和 SSL 憑證問題進行疑難排解
 
 本文列出在 Azure App Service 中為 Web 應用程式設定網域或 SSL 憑證時，可能會遇到的常見問題。 文中也會描述這些問題的可能原因和解決方案。
 
 如果您在本文中有任何需要協助的地方，您可以連絡 [MSDN 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="certificate-problems"></a>憑證問題
 
@@ -122,7 +125,7 @@ ms.locfileid: "58449133"
 
 網際網路瀏覽器快取的網域可能還是舊有的 IP 位址。 
 
-**原因 2 的解決方案**
+**原因 2 的解決辦法**
 
 清除瀏覽器。 如果您使用 Windows 裝置，可以執行命令 `ipconfig /flushdns`。 使用 [WhatsmyDNS.net](https://www.whatsmydns.net/) 來確認網域是否指向應用程式的 IP 位址。 
 
@@ -284,7 +287,7 @@ App Service 憑證必須經過網域驗證才能使用。 當您選取 [驗證] 
 
 App Service 網域使用 GoDaddy 網域註冊，將 Azure DNS 來裝載網域。 
 
-**我有自動更新啟用，但仍然會收到我的網域，透過電子郵件的續約通知。我該怎麼辦？**
+**我有自動更新啟用，但仍然會收到我的網域，透過電子郵件的續約通知。 我該怎麼辦？**
 
 如果您有自動更新啟用，您不需要採取任何動作。 提供通知電子郵件通知您的網域是即將過期，並手動更新，如果自動更新未在啟用。
 
@@ -292,7 +295,7 @@ App Service 網域使用 GoDaddy 網域註冊，將 Azure DNS 來裝載網域。
 
 網域註冊只適用於網域購買的初始成本。 除了註冊成本，還有您的使用量為基礎的 Azure dns 會產生費用。 如需詳細資訊，請參閱 < [Azure DNS 定價](https://azure.microsoft.com/pricing/details/dns/)如需詳細資訊。
 
-**我購買我稍早從 Azure 入口網站的網域，而且想要從 GoDaddy 裝載 Azure DNS 裝載移動。如何執行這個？**
+**我購買我稍早從 Azure 入口網站的網域，而且想要從 GoDaddy 裝載 Azure DNS 裝載移動。 如何執行這個？**
 
 您不一定要移轉至 Azure DNS 託管服務。 如果您想要移轉至 Azure DNS，在 Azure 入口網站中的網域管理體驗的相關資訊提供移往 Azure DNS 所需的步驟。 透過 App Service 購買網域，如果從 GoDaddy 給 Azure DNS 所主控的移轉會是相當順暢的程序。
 
@@ -314,7 +317,7 @@ App Service 網域使用 GoDaddy 網域註冊，將 Azure DNS 來裝載網域。
 
 **可以將傳輸網域從一個訂用帳戶到另一個訂用帳戶嗎？**
 
-您可以將網域移到另一個訂用帳戶/資源群組使用[Move-azurermresource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource) PowerShell cmdlet。
+您可以將網域移到另一個訂用帳戶/資源群組使用[移動 AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Move-azResource) PowerShell cmdlet。
 
 **如果我目前還沒有 Azure App Service 應用程式，如何管理我的自訂網域？**
 

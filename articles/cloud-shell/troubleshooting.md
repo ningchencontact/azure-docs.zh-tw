@@ -14,16 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: ad389cfaa92ad487fad8b7ecb6feac40324572f0
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: eb7deacc068661ca9a4f473ee2d36b7d4464c81c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100562"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905506"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Azure Cloud Shell 的疑難排解和限制
 
 針對 Azure Cloud Shell 問題進行疑難排的已知解決方式包括：
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general-troubleshooting"></a>一般疑難排解
 
@@ -39,7 +41,7 @@ ms.locfileid: "56100562"
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>儲存體對話方塊 - 錯誤：403 RequestDisallowedByPolicy
 
-- **詳細資料**：因為您的系統管理員設置的 Azure 原則，透過 Cloud Shell 建立儲存體帳戶失敗。錯誤訊息包括：`The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **詳細資料**：因為您的系統管理員設置的 Azure 原則，透過 Cloud Shell 建立儲存體帳戶失敗。將包含錯誤訊息： `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
 - **解決方案**︰連絡您的 Azure 系統管理員，請他移除或更新拒絕儲存體建立的 Azure 原則。
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>儲存體對話方塊 - 錯誤：400 DisallowedOperation
@@ -74,7 +76,7 @@ ms.locfileid: "56100562"
 > Azure VM 必須具有公用 IP 位址。
 
 - **詳細資料**：基於 WinRM 的預設 Windows 防火牆設定，使用者可能會看到下列錯誤：`Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
-- **解決方案**︰執行 `Enable-AzureRmVMPSRemoting`，在所有目標機器上啟用 PowerShell 遠端所有層面的功能。
+- **解決方案**︰執行 `Enable-AzVMPSRemoting`，在所有目標機器上啟用 PowerShell 遠端所有層面的功能。
 
 ### <a name="dir-does-not-update-the-result-in-azure-drive"></a>`dir` 不會更新 Azure 磁碟機中的結果
 

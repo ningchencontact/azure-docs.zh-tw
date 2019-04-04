@@ -16,12 +16,12 @@ ms.date: 12/27/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 6bf84d7ecf2d436bdc00839699b150466b9de3ca
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 02ceb6cbcbf824f8bf830c66bc9899c20f6ed822
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247301"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484036"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>使用範本驗證工具來檢查 Azure Stack 的範本
 
@@ -47,13 +47,13 @@ ms.locfileid: "55247301"
 1. 確定您能順利連線到 Azure Stack。 這些步驟可從 Azure Stack 開發套件主機執行，或者您可以使用 [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) 從您的工作站連線。
 2. 匯入 **AzureRM.CloudCapabilities** PowerShell 模組：
 
-    ```PowerShell
+    ```powershell
     Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
     ```
 
 3. 使用 `Get-CloudCapabilities` Cmdlet 來擷取服務版本並建立雲端功能 JSON 檔案。 如未指定 **-OutputPath**，目前的目錄中會建立 AzureCloudCapabilities.Json 檔案。 使用您的實際位置：
 
-    ```PowerShell
+    ```powershell
     Get-AzureRMCloudCapability -Location <your location> -Verbose
     ```
 
@@ -63,14 +63,14 @@ ms.locfileid: "55247301"
 
 1. 匯入 **AzureRM.TemplateValidator.psm1** PowerShell 模組：
 
-    ```PowerShell
+    ```powershell
     cd "c:\AzureStack-Tools-master\TemplateValidator"
     Import-Module .\AzureRM.TemplateValidator.psm1
     ```
 
 2. 執行範本驗證程式：
 
-    ```PowerShell
+    ```powershell
     Test-AzureRMTemplate -TemplatePath <path to template.json or template folder> `
     -CapabilitiesPath <path to cloudcapabilities.json> `
     -Verbose
@@ -86,9 +86,9 @@ ms.locfileid: "55247301"
 
 | 參數 | 說明 | 必要 |
 | ----- | -----| ----- |
-| TemplatePath | 指定要在其中遞迴尋找 Azure Resource Manager 範本的路徑 | 是 | 
+| TemplatePath | 指定要在其中遞迴尋找 Azure Resource Manager 範本的路徑 | yes | 
 | TemplatePattern | 指定要比對的範本檔案名稱。 | 否 |
-| CapabilitiesPath | 指定雲端功能 JSON 檔案的路徑 | 是 | 
+| CapabilitiesPath | 指定雲端功能 JSON 檔案的路徑 | yes | 
 | IncludeComputeCapabilities | 包括 IaaS 資源 (例如 VM 大小與 VM 擴充功能) 的評估 | 否 |
 | IncludeStorageCapabilities | 包括儲存體資源 (例如 SKU 類型) 的評估 | 否 |
 | 報告 | 指定所產生之 HTML 報告的名稱 | 否 |
@@ -98,7 +98,7 @@ ms.locfileid: "55247301"
 
 這個範例會驗證已下載到本機儲存體的所有 [Azure Stack 快速入門範本](https://github.com/Azure/AzureStack-QuickStart-Templates)。 此範例也會針對「Azure Stack 開發套件」功能，驗證虛擬機器大小和延伸模組：
 
-```PowerShell
+```powershell
 test-AzureRMTemplate -TemplatePath C:\AzureStack-Quickstart-Templates `
 -CapabilitiesPath .\TemplateValidator\AzureStackCloudCapabilities_with_AddOns_20170627.json `
 -TemplatePattern MyStandardTemplateName.json `

@@ -12,13 +12,15 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.subservice: hybrid
 ms.author: billmath
+search.appverid:
+- MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0506cc086cbc0c9ea30e199fd0bf18da3b8af545
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 146fdc3ca2af708a96e6b9a604493eb63c2e6530
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58863078"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916371"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步來實作密碼雜湊同步處理
 本文提供您所需資訊，以讓您將使用者密碼從內部部署 Active Directory 執行個體同步處理至雲端式 Azure Active Directory (Azure AD) 執行個體。

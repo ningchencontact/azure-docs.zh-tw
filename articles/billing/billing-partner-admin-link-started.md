@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 5a03805fc055583f1f965854d4da3ae6b0c90e20
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 9fb689a2a6e2c1c309d22836e88a63662fed9832
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444898"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904826"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>將合作夥伴識別碼連結到您的 Azure 帳戶
 
 身為合作夥伴，您可以追蹤對客戶業務開發的影響力。 您可以將合作夥伴識別碼連結到用來管理客戶資源的帳戶。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="get-access-from-your-customer"></a>取得客戶提供的存取權
 
@@ -57,9 +59,8 @@ ms.locfileid: "58444898"
 2. 以使用者帳戶或服務主體登入客戶的租用戶。 如需詳細資訊，請參閱[使用 PowerShell 登入](https://docs.microsoft.com/powershell/azure/authenticate-azureps) \(英文\)。
  
    ```azurepowershell-interactive
-    C:\> Connect-AzureRmAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
+    C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
    ```
-
 
 3. 連結到新的合作夥伴識別碼。 合作夥伴識別碼是您組織的 [Microsoft 合作夥伴網路](https://partner.microsoft.com/)識別碼。
 
@@ -125,15 +126,15 @@ C:\ az managementpartner delete --partner-id 12345
 
 夥伴組織中負責管理客戶 Azure 資源的任何使用者，都可將合作夥伴識別碼連結到帳戶。
 
-**連結合作夥伴識別碼之後可加以改變嗎？**
+**合作夥伴識別碼後可以改變連結嗎？**
 
 是。 連結的合作夥伴識別碼可以變更、新增或移除。
 
-**如果使用者在多個客戶租用戶中具有同一帳戶，將會如何？**
+**如果使用者擁有帳戶中多個客戶租用戶？**
 
 合作夥伴識別碼與帳戶之間的連結必須對個別的客戶租用戶建立。 在每個客戶租用戶中連結合作夥伴識別碼。
 
-**其他合作夥伴或客戶是否可編輯或移除合作夥伴識別碼的連結？**
+**可以其他夥伴或客戶編輯或移除合作夥伴識別碼連結嗎？**
 
 連結會在使用者帳戶層級產生關聯。 只有您才可編輯或移除合作夥伴識別碼的連結。 客戶和其他合作夥伴無法變更合作夥伴識別碼的連結。 
 

@@ -11,18 +11,18 @@ ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 1c02a30800e86c7b32524fb9cdba7dacf3bba9c7
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: ea409d6705d0146e9cb32ba11e6b785cf527739c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652088"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904571"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>在 Azure 資料處理站管線中使用自訂活動
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版](v1/data-factory-use-custom-activities.md)
-> * [目前的版本](transform-data-using-dotnet-custom-activity.md)
+> * [目前版本](transform-data-using-dotnet-custom-activity.md)
 
 您可以在 Azure Data Factory 管線中使用兩種活動。
 
@@ -356,7 +356,7 @@ Activity Error section:
   - 不再需要 Microsoft.Azure.Management.DataFactories NuGet 套件。
   - 編譯您的程式碼，將可執行檔及其相依性上傳至 Azure 儲存體，並在 `folderPath` 屬性中定義路徑。
 
-如需如何將 Data Factory 第 1 版文章[在 Azure Data Factory 管線中使用自訂活動](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities)中所述的端對端 DLL 和管線範例重新撰寫為 Data Factory 自訂活動的完整範例，請參閱 [Data Factory 自訂活動範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample) \(英文\)。
+如需如何將 Data Factory 第 1 版文章[在 Azure Data Factory 管線中使用自訂活動](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities)中所述的端對端 DLL 和管線範例重新撰寫為 Data Factory 自訂活動的完整範例，請參閱 [Data Factory 自訂活動範例](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample) \(英文\)。
 
 ## <a name="auto-scaling-of-azure-batch"></a>Azure Batch 的自動調整
 

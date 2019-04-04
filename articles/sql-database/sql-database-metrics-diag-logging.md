@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 785948c78b2b8205c4bebe2d68b62f6de7254d94
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 3004f073100b45de25655fc6dee6a96c90612c46
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58863129"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905198"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄
 
@@ -64,14 +64,14 @@ ms.locfileid: "58863129"
 | :------------------- | ----- | ----- |
 | [所有計量](#all-metrics)：包含 DTU/CPU 百分比、DTU/CPU 限制、實體資料讀取百分比、記錄寫入百分比、成功/失敗/防火牆封鎖的連線、工作階段百分比、背景工作角色百分比、儲存體、儲存體百分比和 XTP 儲存體百分比。 | 是 | 否 |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics)：包含關於查詢執行階段統計資料的資訊，例如 CPU 使用率和查詢持續時間統計資料。 | 是 | 是 |
-| [QueryStoreWaitStatistics](#query-store-wait-statistics)：包含關於查詢等候統計資料 (查詢等候的內容) 的資訊，例如 CPU、LOG 和 LOCKING。 | 是 | 是 |
-| [錯誤](#errors-dataset)：包含在資料庫上的 SQL 錯誤有關的資訊。 | 是 | 是 |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset)：包含和資料庫花費在不同等候類型的等候時間長度有關的資訊。 | 是 | 否 |
-| [逾時](#time-outs-dataset)：包含資料庫的逾時有關的資訊。 | 是 | 否 |
-| [封鎖](#blockings-dataset)：包含與資料庫上發生的封鎖事件有關的資訊。 | 是 | 否 |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics)：包含 （項目查詢等候） 的查詢等候統計資料的相關資訊這類是 CPU、 LOG 和 LOCKING。 | 是 | 是 |
+| [錯誤](#errors-dataset)：包含在資料庫上的 SQL 錯誤的相關資訊。 | 是 | 是 |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset)：包含資料庫花費在不同等候類型的等候時間的資訊。 | 是 | 否 |
+| [逾時](#time-outs-dataset)：包含在資料庫上逾時的相關資訊。 | 是 | 否 |
+| [封鎖](#blockings-dataset)：包含有關在資料庫上的事件資訊。 | 是 | 否 |
 | [死結](#deadlocks-dataset):包含在資料庫上死結事件的相關資訊。 | 是 | 否 |
-| [AutomaticTuning](#automatic-tuning-dataset):包含在資料庫上自動調整建議的相關資訊。 | 是 | 否 |
-| [SQLInsights](#intelligent-insights-dataset)：將 Intelligent Insights 納入效能。 若要深入了解，請參閱 [Intelligent Insights](sql-database-intelligent-insights.md)。 | 是 | 是 |
+| [AutomaticTuning](#automatic-tuning-dataset):包含資料庫的自動調整建議的相關資訊。 | 是 | 否 |
+| [SQLInsights](#intelligent-insights-dataset)：包含 Intelligent Insights 資料庫效能。 若要深入了解，請參閱 [Intelligent Insights](sql-database-intelligent-insights.md)。 | 是 | 是 |
 
 > [!IMPORTANT]
 > 彈性集區和受管理的執行個體都有自己個別的診斷遙測，從其所包含的資料庫。 这是必须注意的，因为诊断遥测数据是为每个这样的资源单独配置的，如下所述。

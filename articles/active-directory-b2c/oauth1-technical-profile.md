@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Active Directory B2C 的自訂原則中定義 OAuth1 技術設定檔 | Microsoft Docs
-description: 在 Azure Active Directory B2C 的自訂原則中定義 OAuth1 技術設定檔。
+title: 在 Azure Active Directory B2C 自訂原則中定義 OAuth1 技術設定檔 |Microsoft Docs
+description: 在 Azure Active Directory B2C 自訂原則中定義 OAuth1 技術設定檔。
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
@@ -10,14 +10,14 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 08fb0baf85b09b4804c83617dbae9ae9c69f0224
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 86de73394d96d1122abce44504d2b0fd99a01841
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162730"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915777"
 ---
-# <a name="define-a-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自訂原則中定義 OAuth1 技術設定檔
+# <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 自訂原則中定義 OAuth1 技術設定檔
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -67,7 +67,7 @@ Azure Active Directory (Azure AD) B2C 可提供 [OAuth 1.0 通訊協定](https:/
 
 ## <a name="metadata"></a>中繼資料
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | client_id | 是 | 識別提供者的應用程式識別碼。 |
 | ProviderName | 否 | 識別提供者的名稱。 |
@@ -81,7 +81,7 @@ Azure Active Directory (Azure AD) B2C 可提供 [OAuth 1.0 通訊協定](https:/
 
 **CryptographicKeys** 元素包含下列屬性：
 
-| 屬性 | 必要 | 說明 |
+| 屬性 | 必要項 | 描述 |
 | --------- | -------- | ----------- |
 | client_secret | 是 | 識別提供者應用程式的用戶端密碼。   | 
 

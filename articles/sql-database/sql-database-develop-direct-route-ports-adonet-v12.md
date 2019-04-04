@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 11/07/2018
-ms.openlocfilehash: 96b6b4866b17e15f544a10124d07e651d747b58b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 04/03/2019
+ms.openlocfilehash: ddb115370c62371e769ef98e0031f7e0379bafbf
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306437"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916167"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>ADO.NET 4.5 超過 1433 以外的連接埠
 
@@ -43,11 +43,11 @@ ms.locfileid: "57306437"
 
 1. ADO.NET 4.5 (或更新版本) 會起始與 Azure 雲端的簡短互動，並且接收動態已識別的連接埠號碼。
 
-   * 動態識別的連接埠號碼範圍為 11000-11999 或 14000-14999。
+   * 動態已識別的連接埠號碼是範圍內的 11000-11999。
 2. 然後 ADO.NET 會直接連線到 SQL Database 伺服器，中間沒有中介軟體。
 3. 查詢會直接傳送到資料庫，結果會直接傳回至用戶端。
 
-請確定已保留 Azure 用戶端電腦上的 11000-11999 及 14000-14999 連接埠範圍，以供 ADO.NET 4.5 用戶端與 SQL Database 進行互動使用。
+請確定 Azure 用戶端電腦上的 11000-11999 範圍保留供 ADO.NET 4.5 用戶端互動，使用 SQL Database 的連接埠。
 
 * 特別是範圍中的連接埠必須沒有其他任何輸出封鎖器。
 * 在您的 Azure VM 上， **具有進階安全性的 Windows 防火牆** 會控制此連接埠設定。
@@ -84,6 +84,6 @@ ms.locfileid: "57306437"
 * [TDS 通訊協定版本清單](http://www.freetds.org/userguide/tdshistory.htm)
 * [SQL Database 開發概觀](sql-database-develop-overview.md)
 * [Azure SQL Database 防火牆](sql-database-firewall-configure.md)
-* [操作說明：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)
+* [作法：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)
 
 

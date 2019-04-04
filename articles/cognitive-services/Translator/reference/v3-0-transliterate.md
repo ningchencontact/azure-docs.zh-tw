@@ -3,19 +3,19 @@ title: 翻譯文字 API 轉換方法
 titlesuffix: Azure Cognitive Services
 description: 使用翻譯文字 API 轉換方法。
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: a0fcd7159be075f0e311e9a242d389dca62f4a37
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 97a2318b7aa3591193108a8a061a15ec5692fac5
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859603"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918615"
 ---
 # <a name="translator-text-api-30-transliterate"></a>翻譯工具文字 API 3.0：Transliterate
 
@@ -35,7 +35,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 
 <table width="100%">
   <th width="20%">查詢參數</th>
-  <th>說明</th>
+  <th>描述</th>
   <tr>
     <td>api-version</td>
     <td>必要參數。<br/>用戶端要求的 API 版本。 值必須為 `3.0`。</td>
@@ -58,9 +58,9 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 
 <table width="100%">
   <th width="20%">headers</th>
-  <th>說明</th>
+  <th>描述</th>
   <tr>
-    <td>_一個授權_<br/>_標頭_</td>
+    <td>_一個授權_<br/>_頁首_</td>
     <td>必要的要求標頭。<br/>請參閱[可用的驗證選項](./v3-0-reference.md#authentication)。</td>
   </tr>
   <tr>
@@ -115,7 +115,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 
 <table width="100%">
   <th width="20%">headers</th>
-  <th>說明</th>
+  <th>描述</th>
   <tr>
     <td>X-RequestId</td>
     <td>服務產生的值，用於識別要求。 作為疑難排解之用。</td>
@@ -128,7 +128,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 
 <table width="100%">
   <th width="20%">狀態碼</th>
-  <th>說明</th>
+  <th>描述</th>
   <tr>
     <td>200</td>
     <td>成功。</td>
@@ -165,7 +165,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 
 下列範例示範如何將兩個日文字串轉換成羅馬拼音的日文。
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>curl](#tab/curl)
 
 此範例中要求的 JSON 酬載：
 

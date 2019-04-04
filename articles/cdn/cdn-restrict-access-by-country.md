@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: magattus
-ms.openlocfilehash: 471a7e3704f10674c8a1d9bdf26df5f0aaf8519b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: f6efec64b4e6659b822b76e0fd7f9cc71a164094
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093301"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917748"
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>依國家/地區限制 Azure CDN 內容
 
@@ -46,17 +46,17 @@ ms.locfileid: "49093301"
 
 例如，下列目錄路徑篩選條件全都有效：   
 */*                                 
-/Photos/     
-/Photos/Strasbourg/     
-/Photos/Strasbourg/city.png
+*/Photos/*     
+*/Photos/規則 /*     
+*/Photos/Strasbourg/city.png*
 
 ### <a name="define-the-type-of-action"></a>定義動作的類型
 
 從 [動作] 清單中，選取 [允許] 或 [封鎖]： 
 
-- **允許：** 只允許來自指定國家 (地區) 的使用者存取從該遞迴路徑要求的資產。
+- **允許**:只有從指定的國家/地區的使用者可以從遞迴路徑要求的資產的存取。
 
-- **封鎖：** 會拒絕來自指定國家 (地區) 的使用者存取從該遞迴路徑要求的資產。 若尚未設定該位置的其他國家 (地區) 篩選選項，則其他所有使用者都將允許存取。
+- **區塊**:從指定的國家/地區的使用者被拒絕存取，從遞迴路徑要求的資產。 若尚未設定該位置的其他國家 (地區) 篩選選項，則其他所有使用者都將允許存取。
 
 例如，用於封鎖 /Photos/Strasbourg/ 路徑的地區篩選規則會篩選出下列檔案：     
 http://<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg
@@ -110,5 +110,5 @@ http://<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg
 
 * 只能對相同的相對路徑套用一個規則。 也就是說，您無法建立多個指向相同相對路徑的國家 (地區) 篩選。 然而，由於國家 (地區) 篩選條件具有遞迴特性，資料夾可以有多個國家 (地區) 篩選條件。 換句話說，可以將不同的國家 (地區) 篩選指派給先前設定之資料夾的子資料夾。
 
-* 地區篩選功能可使用國碼 (地區碼) 來定義國家 (地區)，以允許或封鎖該國家 (地區) 對受保護目錄的要求。 雖然 Akamai 和 Verizon 設定檔可支援大部分的相同國碼 (地區碼)，但兩者有一些差異。 如需詳細資訊，請參閱 [Azure CDN 國碼 (地區碼)](https://msdn.microsoft.com/library/mt761717.aspx)。 
+* 地區篩選功能可使用國碼 (地區碼) 來定義國家 (地區)，以允許或封鎖該國家 (地區) 對受保護目錄的要求。 雖然 Akamai 和 Verizon 設定檔可支援大部分的相同國碼 (地區碼)，但兩者有一些差異。 如需詳細資訊，請參閱 [Azure CDN 國碼 (地區碼)](/previous-versions/azure/mt761717(v=azure.100))。 
 

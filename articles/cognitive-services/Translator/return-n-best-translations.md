@@ -3,19 +3,19 @@ title: 傳回前 N 名最佳翻譯 - Translator Text API
 titlesuffix: Azure Cognitive Services
 description: 使用 Microsoft Translator Text API 傳回前 N 名最佳翻譯。
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 41027cf83fd6074822c70b6039906592cb8698b0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 62992122dc16003078bb80ecd87c2bd3692586dd
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878641"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918309"
 ---
 # <a name="how-to-return-n-best-translations"></a>如何傳回前 N 名最佳翻譯
 
@@ -35,7 +35,7 @@ Microsoft Translator API 的 GetTranslations() 和 GetTranslationsArray() 方法
 
 **參數**
 
-| 參數 | 說明 |
+| 參數 | 描述 |
 |:---|:---|
 | appId | **必要** 如果使用 Authorization 標頭，請將 appid 欄位保留空白，否則請指定一個包含 "Bearer" + " " + 存取權杖的字串。|
 | text | **必要** 一個代表所要翻譯文字的字串。 文字大小不得超過 10000 個字元。|

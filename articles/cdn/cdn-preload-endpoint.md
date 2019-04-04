@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: magattus
-ms.openlocfilehash: d2dc8ad1e4b7e429dc758a96e49aa4825ae108e5
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: 0d34985c8d83e8adad43aeec36ead939d8b22132
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091312"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918360"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>在 Azure CDN 端點上預先載入資產
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -49,9 +49,9 @@ ms.locfileid: "49091312"
    > [!TIP]
    > 在您開始輸入文字之後，會出現更多 [內容路徑] 文字方塊，可讓您建置多個資產的清單。 若要將資產從清單中刪除，請選取省略符號 (...) 按鈕，然後選取 [刪除]。
    > 
-   > 每個內容路徑都必須是符合下列[規則運算式](https://msdn.microsoft.com/library/az24scfc.aspx)的相對 URL：  
-   > - 載入單一檔案路徑：`^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
-   > - 使用查詢字串來載入單一檔案：`^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
+   > 每個內容路徑都必須是符合下列[規則運算式](/dotnet/standard/base-types/regular-expression-language-quick-reference)的相對 URL：  
+   > - 載入單一檔案路徑： `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
+   > - 載入單一檔案使用的查詢字串： `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
    > 
    > 由於每個資產都必須有自己的路徑，因此預先載入資產沒有萬用字元功能。
    > 
@@ -66,8 +66,8 @@ ms.locfileid: "49091312"
 > 
 > 
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [清除 Azure CDN 端點](cdn-purge-endpoint.md)
-* [Azure CDN REST API 參考 - 預先載入端點上的內容](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
-* [Azure CDN REST API 參考 - 從端點清除內容](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
+* [Azure CDN REST API 參考：預先載入端點上的內容](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
+* [Azure CDN REST API 參考：從端點清除內容](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: ef07def377b74fb74d57372f471efcf48fcf7aa2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bbaf651233d4cebad3f45e5cf3823bcaf6ce38b6
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881090"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905778"
 ---
 # <a name="how-application-gateway-works"></a>应用程序网关的工作原理
 
@@ -36,7 +36,7 @@ ms.locfileid: "57881090"
 
 内部应用程序网关仅使用专用 IP 地址。 内部应用程序网关的 DNS 名称可在内部解析为其专用 IP 地址。 因此，内部负载均衡器只能路由有权访问应用程序网关 VNET 的客户端发出的请求。
 
-附註的網際網路對向及內部應用程式閘道路由傳送要求到您的後端伺服器使用私人 IP 位址，如果您的後端集區資源包含的私人 IP 位址、 VM NIC 組態或在內部解析的位址，而且您後端集區的公用端點，應用程式閘道會使用其前端的公用 IP 可連線到伺服器。 如果尚未预配前端公共 IP 地址，系统会分配一个公共 IP 地址来建立出站外部连接。
+如果您的後端集區會包含在內部解析的 FQDN 或私人 IP 位址，應用程式閘道會將要求路由到後端伺服器使用其執行個體的私人 IP 位址。 如果您的後端集區中包含的外部端點或外部可解析 FQDN，應用程式閘道會將要求路由到後端伺服器使用其前端公用 IP 位址。 DNS 解析為基礎的私人 DNS 區域或自訂 DNS 伺服器上，如果設定，或需要 Azure 提供的 DNS 的預設值。 如果尚未预配前端公共 IP 地址，系统会分配一个公共 IP 地址来建立出站外部连接。
 
 ### <a name="modifications-to-the-request"></a>对请求的修改
 

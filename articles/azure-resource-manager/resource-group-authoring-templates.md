@@ -12,18 +12,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5c8ec54df0d578c6d12524a4128b9cc54e6464a0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: f79518b26752d581d6360a3b770e8a5cba293fd7
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781896"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904928"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure Resource Manager 範本的結構和語法
 
 本文說明 Azure Resource Manager 範本的結構。 它會呈現範本的不同區段，以及這些區段中可用的屬性。 範本由 JSON 與運算式所組成，可讓您用來為部署建構值。
 
-這篇文章被適用於已熟悉 Resource Manager 範本的使用者。 它提供的結構和範本語法的詳細的資訊。 若要建立範本的簡介，請參閱[建立第一個 Azure Resource Manager 範本](resource-manager-create-first-template.md)。
+本文面向对资源管理器模板有一定了解的用户， 其中提供了有关模板结构和语法的详细信息。 有关创建模板的简介，请参阅[创建第一个 Azure 资源管理器模板](resource-manager-create-first-template.md)。
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="template-format"></a>範本格式
 
@@ -44,20 +47,20 @@ ms.locfileid: "57781896"
 
 | 元素名稱 | 必要項 | 描述 |
 |:--- |:--- |:--- |
-| $schema |是 |JSON 結構描述檔案的位置，說明範本語言的版本。<br><br> 針對資源群組部署，使用：`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>針對訂用帳戶部署，使用：`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
+| $schema |是 |JSON 結構描述檔案的位置，說明範本語言的版本。<br><br> 資源群組部署，請使用： `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>對於訂用帳戶的部署，請使用： `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |是 |範本版本 (例如 1.0.0.0)。 您可以為此元素提供任何值。 使用此值在範本中記載重大變更。 使用範本部署資源時，這個值可用來確定使用的是正確的範本。 |
-| apiProfile |否 | 做為資源類型的 API 版本的集合 API 版本。 若要避免在範本中指定的每個資源的 API 版本使用此值。 當您指定的 API 設定檔版本，並沒有指定的資源類型的 API 版本時，則資源管理員會使用 API 版本設定檔中定義該資源類型。<br><br>將範本部署到不同的環境，例如 Azure Stack 與全域 Azure 時，特別有幫助的 API 設定檔屬性。 使用 API 設定檔版本，藉此確定您的範本會自動使用這兩種環境中支援的版本。 如需目前的 API 設定檔版本和 API 版本設定檔中定義的資源的清單，請參閱 < [API 設定檔](https://github.com/Azure/azure-rest-api-specs/tree/master/profile)。<br><br>如需詳細資訊，請參閱 <<c0> [ 追蹤使用 API 設定檔的版本](templates-cloud-consistency.md#track-versions-using-api-profiles)。 |
-| [參數](#parameters) |否 |執行部署以自訂資源部署時所提供的值。 |
-| [變數](#variables) |否 |範本中做為 JSON 片段以簡化範本語言運算式的值。 |
+| apiProfile |否 | 用作资源类型 API 版本集合的 API 版本。 使用此值可以避免为模板中的每个资源指定 API 版本。 如果你指定 API 配置文件版本但不指定资源类型的 API 版本，则资源管理器将使用配置文件中为该资源类型定义的 API 版本。<br><br>将模板部署到不同的环境（例如 Azure Stack 和全球 Azure）时，API 配置文件属性非常有用。 使用 API 配置文件版本可确保模板自动使用两个环境均支持的版本。 有关最新 API 配置文件版本以及配置文件中定义的资源 API 版本的列表，请参阅 [API 配置文件](https://github.com/Azure/azure-rest-api-specs/tree/master/profile)。<br><br>有关详细信息，请参阅[使用 API 配置文件跟踪版本](templates-cloud-consistency.md#track-versions-using-api-profiles)。 |
+| [parameters](#parameters) |否 |執行部署以自訂資源部署時所提供的值。 |
+| [variables](#variables) |否 |範本中做為 JSON 片段以簡化範本語言運算式的值。 |
 | [functions](#functions) |否 |範本中可用的使用者定義函式。 |
 | [resources](#resources) |是 |在資源群組或訂用帳戶中部署或更新的資源類型。 |
-| [outputs](#outputs) |否 |部署後傳回的值。 |
+| [輸出](#outputs) |否 |部署後傳回的值。 |
 
 每個元素都有可以設定的屬性。 本文將詳細說明範本的各個區段。
 
 ## <a name="syntax"></a>語法
 
-範本的基本語法是 JSON。 不過，您可以使用運算式來延伸範本中提供的 JSON 值。  運算式開頭和結尾括號：`[`和`]`分別。 部署範本時，會評估運算式的值。 運算式可傳回字串、 整數、 布林值、 陣列或物件。 下列範例會顯示運算式中參數的預設值：
+範本的基本語法是 JSON。 但是，可以使用表达式来扩展模板中可用的 JSON 值。  表达式分别以方括号 `[` 与 `]` 开头和结尾。 部署範本時，會評估運算式的值。 表达式可以返回字符串、整数、布尔值、数组或对象。 以下示例演示了参数默认值中的表达式：
 
 ```json
 "parameters": {
@@ -68,19 +71,19 @@ ms.locfileid: "57781896"
 },
 ```
 
-在運算式中，語法`resourceGroup()`呼叫其中一個 Resource Manager 範本內使用所提供的函數。 和在 JavaScript 中相同，函式呼叫的格式為 `functionName(arg1,arg2,arg3)`。 語法`.location`擷取該函式所傳回的物件中的一個屬性。
+在该表达式中，语法 `resourceGroup()` 调用资源管理器提供的、在模板中使用的某个函数。 和在 JavaScript 中相同，函式呼叫的格式為 `functionName(arg1,arg2,arg3)`。 语法 `.location` 从该函数返回的对象中检索一个属性。
 
 範本函數和其參數不區分大小寫。 例如，Resource Manager 在解析 **variables('var1')** 和 **VARIABLES('VAR1')** 時，會將它們視為相同。 評估時，除非函式明確修改大小寫 (例如 toUpper 或 toLower)，否則函式將會保留大小寫。 特定資源類型可能有與評估函式方式無關的大小寫需求。
 
 針對開頭為方括號 `[` 的常值字串，若不要將它解譯為運算式，請加入額外的方括號，使字串開頭成為 `[[`。
 
-若要將字串值做為參數傳遞的函式，使用單引號。
+若要将字符串值作为参数传递给函数，请使用单引号。
 
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]"
 ```
 
-若要逸出雙引號括住運算式，例如在範本中，新增的 JSON 物件中使用反斜線。
+若要转义表达式中的双引号（例如，在模板中添加 JSON 对象），请使用反斜杠。
 
 ```json
 "tags": {
@@ -88,7 +91,7 @@ ms.locfileid: "57781896"
 },
 ```
 
-範本運算式不能超過 24,576 個字元。
+模板表达式不能超过 24,576 个字符。
 
 如需範本函數的完整清單，請參閱 [Azure 資源管理員範本函數](resource-group-template-functions.md)。 
 
@@ -100,7 +103,7 @@ ms.locfileid: "57781896"
 
 ### <a name="available-properties"></a>可用屬性
 
-參數的可用屬性包括：
+参数的可用属性为：
 
 ```json
 "parameters": {
@@ -261,13 +264,13 @@ ms.locfileid: "57781896"
 ]
 ```
 
-### <a name="parameter-example-templates"></a>參數的範例範本
+### <a name="parameter-example-templates"></a>参数示例模板
 
 這些範例範本示範使用參數的一些情況。 部署這些參數以測試如何在不同的情況下處理參數。
 
 |範本  |描述  |
 |---------|---------|
-|[具有預設值之帶有函式的參數](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | 示範定義參數的預設值時，如何使用範本函式。 範本不會部署任何資源。 它會建構參數值，並傳回這些值。 |
+|[使用預設值的函式的參數](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | 示範定義參數的預設值時，如何使用範本函式。 範本不會部署任何資源。 它會建構參數值，並傳回這些值。 |
 |[參數物件](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | 示範如何針對參數使用物件。 範本不會部署任何資源。 它會建構參數值，並傳回這些值。 |
 
 ## <a name="variables"></a>變數
@@ -276,7 +279,7 @@ ms.locfileid: "57781896"
 
 ### <a name="available-definitions"></a>可用定義
 
-下列範例顯示定義變數的可用選項：
+以下示例演示了可用于定义变量的选项：
 
 ```json
 "variables": {
@@ -303,11 +306,11 @@ ms.locfileid: "57781896"
 }
 ```
 
-如需有關使用資訊`copy`若要建立幾個變數的值，請參閱[變數的反覆項目](resource-group-create-multiple.md#variable-iteration)。
+有关使用 `copy` 为变量创建多个值的信息，请参阅[变量迭代](resource-group-create-multiple.md#variable-iteration)。
 
 ### <a name="define-and-use-a-variable"></a>定義及使用變數
 
-下列範例顯示變數定義。 它會建立儲存體帳戶名稱的字串值。 它會使用數個範本函式取得參數值，並串連至唯一字串。
+下列範例顯示變數定義。 它會建立儲存體帳戶名稱的字串值。 它使用多个模板函数来获取参数值，并将其连接到唯一字符串。
 
 ```json
 "variables": {
@@ -364,7 +367,7 @@ ms.locfileid: "57781896"
 "[variables('environmentSettings')[parameters('environmentName')].instanceSize]"
 ```
 
-### <a name="variable-example-templates"></a>變數的範例範本
+### <a name="variable-example-templates"></a>变量示例模板
 
 這些範例範本會示範使用變數的一些情況。 部署這些範本以測試如何在不同的情況下處理變數。 
 
@@ -382,7 +385,7 @@ ms.locfileid: "57781896"
 在定義使用者函式時，有一些限制：
 
 * 此函式無法存取變數。
-* 此函式只能使用函式中定義的參數。 當您使用[參數的函式](resource-group-template-functions-deployment.md#parameters)內的使用者定義函數，您要限制為該函式的參數。
+* 此函式只能使用函式中定義的參數。 如果在用户定义的函数中使用[参数函数](resource-group-template-functions-deployment.md#parameters)，则只能使用该函数的参数。
 * 此函式無法呼叫其他的使用者定義函式。
 * 此函式不能使用[參考函式](resource-group-template-functions-resource.md#reference)。
 * 函式的參數不能有預設值。
@@ -494,15 +497,15 @@ ms.locfileid: "57781896"
 | 元素名稱 | 必要項 | 描述 |
 |:--- |:--- |:--- |
 | 条件 | 否 | 布林值，指出是否會在此部署期間佈建資源。 若為 `true`，就會在部署期間建立資源。 若為 `false`，則會略過此部署的資源。 |
-| apiVersion |是 |要用來建立資源的 REST API 版本。 若要判斷可用的值，請參閱[範本參考](/azure/templates/)。 |
-| type |是 |資源類型。 這個值是資源提供者的命名空間與資源類型的組合 (例如 **Microsoft.Storage/storageAccounts**)。 若要判斷可用的值，請參閱[範本參考](/azure/templates/)。 |
+| apiVersion |是 |要用來建立資源的 REST API 版本。 若要确定可用值，请参阅[模板参考](/azure/templates/)。 |
+| type |是 |資源類型。 這個值是資源提供者的命名空間與資源類型的組合 (例如 **Microsoft.Storage/storageAccounts**)。 若要确定可用值，请参阅[模板参考](/azure/templates/)。 |
 | name |是 |資源名稱。 此名稱必須遵循在 RFC3986 中定義的 URI 元件限制。 此外，將資源名稱公開到外部合作對象的 Azure 服務會驗證該名稱，確定並非嘗試詐騙其他身分識別。 |
 | location |視情況而異 |所提供資源的支援地理位置。 您可以選取任何可用的位置，但通常選擇接近您的使用者的位置很合理。 通常，將彼此互動的資源放在相同區域也合乎常理。 大部分的資源類型都需要有位置，但某些類型 (例如角色指派) 不需要位置。 |
 | tags |否 |與資源相關聯的標記。 套用標籤，既可以邏輯方式組織訂用帳戶中的資源。 |
 | comments |否 |您在範本中記錄資源的註解。 如需詳細資訊，請參閱[範本中的註解](resource-group-authoring-templates.md#comments)。 |
 | copy |否 |如果需要多個執行個體，要建立的資源數目。 預設模式為平行。 如果您不想要同時部署所有或某些資源，請指定序列模式。 如需詳細資訊，請參閱[在 Azure Resource Manager 中建立資源的數個執行個體](resource-group-create-multiple.md)。 |
 | dependsOn |否 |在部署這項資源之前必須部署的資源。 Resource Manager 會評估資源之間的相依性，並依正確的順序進行部署。 資源若不互相依賴，則會平行部署資源。 值可以是以逗號分隔的資源名稱或資源唯一識別碼清單。 只會列出此範本中已部署的資源。 此範本中未定義的資源必須已經存在。 避免加入不必要的相依性，因為可能會降低部署速度並產生循環相依性。 如需設定相依性的指引，請參閱[定義 Azure Resource Manager 範本中的相依性](resource-group-define-dependencies.md)。 |
-| properties |否 |資源特定的組態設定。 屬性的值和您在 REST API 作業 (PUT 方法) 要求主體中提供來建立資源的值是一樣的。 您也可以指定複本陣列，以建立屬性的數個執行個體。 若要判斷可用的值，請參閱[範本參考](/azure/templates/)。 |
+| properties |否 |資源特定的組態設定。 屬性的值和您在 REST API 作業 (PUT 方法) 要求主體中提供來建立資源的值是一樣的。 您也可以指定複本陣列，以建立屬性的數個執行個體。 若要确定可用值，请参阅[模板参考](/azure/templates/)。 |
 | sku | 否 | 某些資源允許以值定義要部署的 SKU。 例如，您可以指定儲存體帳戶的備援類型。 |
 | kind | 否 | 某些資源允許以值定義您所部署的資源類型。 例如，您可以指定要建立的 Cosmos DB 類型。 |
 | 計劃 | 否 | 某些資源允許以值定義要部署的計劃。 例如，您可以指定虛擬機器的 Marketplace 映像。 | 
@@ -539,7 +542,7 @@ ms.locfileid: "57781896"
 * 不需要是唯一的資源名稱，但是您選擇提供的名稱可協助您識別資源。
 * 可以是一般的資源名稱。
 
-提供**唯一的資源名稱**具有資料存取端點之任何資源類型。 一些需要唯一名稱的常見資源類型包括︰
+对于具有数据访问终结点的任何资源类型，请提供**唯一的资源名称**。 一些需要唯一名稱的常見資源類型包括︰
 
 * Azure 儲存體<sup>1</sup> 
 * Azure App Service 中的 Web Apps 功能
@@ -561,7 +564,7 @@ ms.locfileid: "57781896"
 }
 ```
 
-對於某些資源類型，您可能想要提供**名稱來識別**，但名稱不必是唯一的。 對於這些資源類型，提供使用或特性描述它的名稱。
+对于某些资源类型，可能需要提供**标识名称**，但该名称并非一定是唯一的。 对于这些资源类型，请提供一个可以描述其用途或特征的名称。
 
 ```json
 "parameters": {
@@ -575,7 +578,7 @@ ms.locfileid: "57781896"
 }
 ```
 
-資源類型，您大部分是透過不同資源的存取，您可以使用**泛型名稱**是硬式編碼在範本中。 例如，您可以在 SQL Server 上設定防火牆規則的標準、一般名稱︰
+对于主要通过其他资源访问的资源类型，可以在模板中使用硬编码的**通用名称**。 例如，您可以在 SQL Server 上設定防火牆規則的標準、一般名稱︰
 
 ```json
 {
@@ -667,9 +670,9 @@ ms.locfileid: "57781896"
 
 形成巢狀後，類型會設為 `databases`，但是其完整資源類型為 `Microsoft.Sql/servers/databases`。 您未提供 `Microsoft.Sql/servers/`，因為它被認為是來自父資源類型。 子資源名稱會設為 `exampledatabase`，但是完整名稱包含父系名稱。 您未提供 `exampleserver`，因為它被認為是來自父資源。
 
-子資源類型的格式如下︰`{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
+子資源類型的格式為： `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`
 
-子資源名稱的格式如下︰`{parent-resource-name}/{child-resource-name}`
+子資源名稱的格式為： `{parent-resource-name}/{child-resource-name}`
 
 但是，您不必在伺服器內定義資料庫。 您可以定義最上層的子資源。 如果父資源並未部署在相同範本中，或者想要使用 `copy` 來建立多個子資源，您可以使用此方法。 使用這個方法，您必須提供完整資源類型，並將父資源名稱納入子資源名稱中。
 
@@ -698,11 +701,11 @@ ms.locfileid: "57781896"
 
 例如︰
 
-`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` 為正確 `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` 為不正確
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` 正確`Microsoft.Compute/virtualMachines/extensions/myVM/myExt`不正確
 
 ## <a name="outputs"></a>輸出
 
-在輸出區段中，您可以指定從部署傳回的值。 一般而言，您會從已部署的資源傳回值。
+在輸出區段中，您可以指定從部署傳回的值。 一般情况下，将从已部署的资源返回值。
 
 ### <a name="available-properties"></a>可用屬性
 
@@ -750,7 +753,7 @@ ms.locfileid: "57781896"
 }
 ```
 
-條件式輸出的簡單範例，請參閱[條件式的輸出範本](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json)。
+有关条件输出的简单示例，请参阅[条件输出模板](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json)。
 
 部署之後，您就可以使用指令碼來擷取值。 對於 PowerShell，請使用：
 
@@ -768,7 +771,7 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
 
 從連結的範本取得輸出屬性時，屬性名稱不能包含連字號。
 
-下列範例示範如何設定負載平衡器上的 IP 位址，藉由從連結的範本中擷取值。
+以下示例演示如何通过从链接模板检索值，在负载均衡器上设置 IP 地址。
 
 ```json
 "publicIPAddress": {
@@ -778,7 +781,7 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
 
 您無法在[巢狀範本](resource-group-linked-templates.md#link-or-nest-a-template)的輸出區段中使用 `reference` 函式。 若要傳回巢狀範本中已部署資源的值，請將巢狀範本轉換成連結範本。
 
-### <a name="output-example-templates"></a>輸出範例範本
+### <a name="output-example-templates"></a>输出示例模板
 
 |範本  |描述  |
 |---------|---------|

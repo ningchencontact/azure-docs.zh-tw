@@ -9,16 +9,19 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: lyrana
 ms.custom: seodec18
-ms.openlocfilehash: 725f95797de0a4d4e6240be4d42cf8a196d94889
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 72155799971760e9ddc93746dceafb1ea554d88b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118586"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905302"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>在 Azure Digital Twins 中建立及管理角色指派
 
 Azure Digital Twins 會使用角色型存取控制 ([RBAC](./security-role-based-access-control.md)) 來管理對資源的存取。
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="role-assignments-overview"></a>角色指派概觀
 
@@ -36,7 +39,7 @@ Azure Digital Twins 會使用角色型存取控制 ([RBAC](./security-role-based
 
 下表描述每個屬性：
 
-| 屬性 | Name | 必要 | 類型 | 說明 |
+| 屬性 | 名稱 | 必要項 | 類型 | 描述 |
 | --- | --- | --- | --- | --- |
 | roleId | 角色定義識別碼 | 是 | 字串 | 所需角色指派的唯一識別碼。 藉由查詢系統 API 或檢閱下表，來尋找角色定義及其識別碼。 |
 | objectId | 物件識別碼 | 是 | 字串 | Azure Active Directory 識別碼、服務主體物件識別碼或網域名稱。 角色指派的指派內容以及指派給誰。 角色指派必須根據其相關聯的類型進行格式化。 對於 `DomainName` objectIdType，objectId 必須以 `“@”` 字元開頭。 |
@@ -83,8 +86,8 @@ Azure Digital Twins 對於角色指派支援完整的*建立*、*讀取*和*刪�
 獲得應用程式識別碼之後，請執行以下 PowerShell 命令：
 
 ```shell
-Login-AzureRmAccount
-Get-AzureRmADServicePrincipal -ApplicationId  <ApplicationId>
+Login-AzAccount
+Get-AzADServicePrincipal -ApplicationId  <ApplicationId>
 ```
 
 然後，具有**管理員**角色的使用者可以透過對 URL 提出驗證的 HTTP POST 要求，將「空間管理員」角色指派給使用者：
@@ -160,7 +163,7 @@ YOUR_MANAGEMENT_API_URL/system/roles
 YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH&accessType=YOUR_ACCESS_TYPE&resourceType=YOUR_RESOURCE_TYPE
 ```
 
-| **參數值** | **必要** |  **類型** |  **說明** |
+| **參數值** | **必要項** |  **類型** |  **描述** |
 | --- | --- | --- | --- |
 | YOUR_USER_ID |  True | 字串 |   UserId objectIdType 的 objectId。 |
 | YOUR_PATH | True | 字串 |   用來檢查存取權的選擇路徑。 |

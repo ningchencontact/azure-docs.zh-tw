@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: c5d4f67e9c1e4e983133675c440b8c5b64183227
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 664c8b659152a370d7fb31907b6cdbcd414dce31
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851764"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905087"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP 的效能微調 Azure Vm
 
@@ -128,7 +128,7 @@ PMTUD 的程序是原本就是效率不佳，網路效能的影響。 封包傳�
 
 #### <a name="latency-and-round-trip-time"></a>延遲和反覆存取時間
 
-透過光纖相網路的網路延遲受到光線速度。 現實是，TCP 網路輸送量也會有效地控管 （實際的最大值） 因為的來回時間 (RTT) 中兩個網路裝置之間。
+透過光纖相網路的網路延遲受到光線速度。 現實是，TCP 網路輸送量也是有效地控管 （實際的最大值） 因為來回時間 (RTT) 中兩個網路裝置之間。
 
 | | | | |
 |-|-|-|-|

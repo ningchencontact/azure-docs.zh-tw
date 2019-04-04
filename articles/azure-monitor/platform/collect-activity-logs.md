@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 2fd74262d9c1b4a751df5d836f98bf89d31dbdc2
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 48fb09b73a6169da392443f5fbf4f005e9640c3e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540426"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905982"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>收集並分析 Azure 活動記錄中 Azure 監視器中的 Log Analytics 工作區
 
@@ -71,7 +71,7 @@ Log Analytics 工作區會收集活動記錄免費的並將記錄檔儲存 90 �
     2. 對於每個訂用帳戶，按一下訂用帳戶名稱。  
         ![新增訂用帳戶](./media/collect-activity-logs/add-subscription.png)
     3. 在 [SubscriptionName] 刀鋒視窗中，按一下 [連接]。  
-        ![connect subscription](./media/collect-activity-logs/subscription-connect.png)
+        ![連線訂用帳戶](./media/collect-activity-logs/subscription-connect.png)
 
 登入 Azure 入口網站，將 Azure 訂用帳戶連接至您的工作區。  
 

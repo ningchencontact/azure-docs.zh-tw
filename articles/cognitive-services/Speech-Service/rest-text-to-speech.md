@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: e6913b1de0045f86667fdcea824ee4cc613c4bc3
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 71710cd940aad3a56dae6c19d4d52a5b141b3d80
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497664"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58660959"
 ---
 # <a name="text-to-speech-rest-api"></a>文字轉換語音 REST API
 
@@ -44,14 +44,25 @@ ms.locfileid: "58497664"
 
 | 區域 | 端點 |
 |--------|----------|
-| 美國西部 | https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list  |
-| 美國西部 2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 澳洲東部 | https://australiaeast.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 巴西南部 | https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 加拿大中部 | https://canadacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 美國中部 | https://centralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 東亞 | https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
 | 美國東部 | https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list |
 | 美國東部 2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 東亞 | https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
-| 東南亞 | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 法國中部 | https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 印度中部 | https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 日本東部 | https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 南韓中部 | https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 美國中北部 | https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
 | 北歐 | https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 美國中南部 | https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 東南亞 | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 英國南部 | https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list |
 | 西歐 | https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 美國西部 | https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| 美國西部 2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
 
 ### <a name="request-headers"></a>要求標頭
 

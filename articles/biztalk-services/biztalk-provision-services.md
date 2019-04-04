@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 05327c05594d38caf5e3d54f8a13eaaaac3588ec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f5ffd1a9d0e7ff515b0819bb678bf0263f53e0d2
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097435"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918768"
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>使用 Azure 入口網站建立 BizTalk 服務
 
@@ -39,7 +39,7 @@ ms.locfileid: "58097435"
 
 ## <a name="post-provisioning-steps"></a>佈建後續步驟
 * [在本機電腦上安裝憑證](#InstallCert)
-* [新增實際執行備妥憑證](#AddCert)
+* [新增備妥憑證](#AddCert)
 * [取得存取控制命名空間](#ACS)
 
 #### <a name="InstallCert"></a>在本機電腦上安裝憑證
@@ -59,16 +59,16 @@ ms.locfileid: "58097435"
 存取控制值可用於任何應用程式。 當建立 Azure BizTalk 服務時，此存取控制命名空間會利用 BizTalk 服務部署來控制驗證。 如果想要變更訂閱或管理命名空間，請在左導覽窗格中選取 [ACTIVE DIRECTORY]  ，然後選取您的命名空間。 工作列會列出您的選項。
 
 按一下 [ **管理** ]，即可開啟存取控制管理入口網站。 在存取控制管理入口網站中，BizTalk 服務會使用 [服務身分識別]：  
-![存取控制管理入口網站中的 ACS 服務身分識別][ACSServiceIdentities]
+![ACS 服務身分識別，在 存取控制管理入口網站][ACSServiceIdentities]
 
 存取控制服務身分識別是一組認證，可讓應用程式或用戶端直接使用 Azure AD 存取控制進行驗證，並接收權杖。
 
 > [!IMPORTANT]
-> BizTalk 服務會使用 [擁有者] 做為預設服務識別，並使用 [密碼] 值。 如果您使用對稱金鑰值而不是密碼值，則可能發生下列錯誤。<br/><br/>*無法利用指定的認證連接至存取控制管理服務帳戶*
+> BizTalk 服務會使用 [擁有者] 做為預設服務識別，並使用 [密碼] 值。 如果您使用對稱金鑰值而不是密碼值，則可能發生下列錯誤。<br/><br/>*無法連接到指定的認證的存取控制管理服務帳戶*
 > 
 > 
 
-[管理您的 ACS 命名空間](https://msdn.microsoft.com/library/azure/hh674478.aspx) 列出一些指導方針和建議。
+[管理您的 ACS 命名空間](/previous-versions/azure/azure-services/hh674478(v=azure.100)) 列出一些指導方針和建議。
 
 ## <a name="requirements-explained"></a>說明各項需求
 這些需求並不適用於免費版本。
@@ -93,7 +93,7 @@ Azure 帳戶可擁有多個訂用帳戶，只要使用者取得允許皆可管�
 <br/><br/>
 在建立 BizTalk 服務時，您可使用現有的 Azure SQL Server、Azure SQL Database，或自動建立新的伺服器或資料庫。
 <br/><br/>
-系統會自動設定 SQL Database 調整。 一般來說，預設的調整對 BizTalk 服務已夠用。 修改調整會影響定價。 請參閱 <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=234930">Azure SQL Database 中的帳戶和計費</a>
+系統會自動設定 SQL Database 調整。 一般來說，預設的調整對 BizTalk 服務已夠用。 修改調整會影響定價。 請參閱<a HREF="https://go.microsoft.com/fwlink/p/?LinkID=234930">帳戶和 Azure SQL Database 中的計費</a>
 <br/><br/>
 <strong>注意</strong>
 <br/>
@@ -171,7 +171,7 @@ Azure 帳戶可擁有多個訂用帳戶，只要使用者取得允許皆可管�
 * [BizTalk 服務：版本圖表](biztalk-editions-feature-chart.md)<br/>
 * [BizTalk 服務：狀態圖表](biztalk-service-state-chart.md)<br/>
 * [BizTalk 服務：備份與還原](biztalk-backup-restore.md)<br/>
-* [BizTalk 服務：節流設定](biztalk-throttling-thresholds.md)<br/>
+* [BizTalk 服務：節流](biztalk-throttling-thresholds.md)<br/>
 * [BizTalk 服務：簽發者名稱和簽發者金鑰](biztalk-issuer-name-issuer-key.md)<br/>
 * [如何開始使用 Azure BizTalk 服務 SDK](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 * [混合式連線](integration-hybrid-connection-overview.md)

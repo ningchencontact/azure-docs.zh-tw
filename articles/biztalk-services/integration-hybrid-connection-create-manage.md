@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 584b9d67808e75222d832f045e5d3f93fbb326ae
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9d659262195fef0cc6871bac409dd5914b70f401
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105085"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916104"
 ---
 # <a name="create-and-manage-hybrid-connections"></a>建立和管理混合式連線
 
@@ -41,16 +41,16 @@ ms.locfileid: "58105085"
 > 
 > 例如 (虛擬程式碼)，您會定義 **10.4.5.6** 做為內部部署主機︰
 > 
-> **下列案例可運作︰**  
+> **下列案例的運作方式：**  
 > `Application code -> GetHostByName("10.4.5.6") -> Resolves to 127.0.0.3 -> Connect("127.0.0.3") -> Hybrid Connection -> on premises host`
 > 
-> **下列案例無法運作︰**  
+> **下列案例中無法運作︰**  
 > `Application code -> Connect("10.4.5.6") -> ?? -> No route to host`
 > 
 > 
 
 ## <a name="CreateHybridConnection"></a>建立混合式連線
-您可以 [Azure App Service 混合式連線](../app-service/app-service-hybrid-connections.md)中建立混合式連線**或**使用 [BizTalk 服務 REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx)。 
+您可以 [Azure App Service 混合式連線](../app-service/app-service-hybrid-connections.md)中建立混合式連線**或**使用 [BizTalk 服務 REST API](/previous-versions/azure/reference/dn232347(v=azure.100))。 
 
 <!-- **To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md). You can also install the Hybrid Connection Manager (HCM) from your web app, which is the preferred method.  -->
 
@@ -115,10 +115,10 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 複製之後，您可以使用群組原則編輯器來變更原則。
 
 ## <a name="next"></a>下一頁
-[混合式連線概觀](integration-hybrid-connection-overview.md)
+[混合式連接概觀](integration-hybrid-connection-overview.md)
 
 ## <a name="see-also"></a>另请参阅
-[用於管理 Microsoft Azure 上之 BizTalk 服務的 REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
+[用於管理 Microsoft Azure 上的 BizTalk 服務 REST API](/previous-versions/azure/reference/dn232347(v=azure.100))  
 [BizTalk 服務：版本圖表](biztalk-editions-feature-chart.md)  
 [建立 BizTalk 服務](biztalk-provision-services.md)  
 [BizTalk 服務：儀表板、 監視和調整索引標籤](biztalk-dashboard-monitor-scale-tabs.md)

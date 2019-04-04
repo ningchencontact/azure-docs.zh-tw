@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7bf7e341a83727e21e9225c384829c05b7230579
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5d6ec0197699f603c79f414e015cdebcde6b9f60
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095988"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905608"
 ---
 # <a name="azure-application-skus-tab"></a>Azure 應用程式 SKU 索引標籤
 
@@ -57,7 +57,7 @@ ms.locfileid: "58095988"
   >[!NOTE] 
   >Microsoft Azure Government 是政府社群雲端，US 聯邦政府、本地客戶或部落客戶，及符合資格可以為這些實體提供服務的合作夥伴，擁有此雲端的控管權限。
 
-- **此是否為私人 SKU？** – 如果此 SKU 僅適用於選定的一組客戶，請選取 [是]。
+- **這是私用的 SKU 嗎？** – 如果此 SKU 僅適用於選定的一組客戶，請選取 [是]。
 
     ![解決方案範本的 SKU 詳細資料表單](./media/azureapp-sku-details-solutiontemplate.png)
 
@@ -80,7 +80,7 @@ ms.locfileid: "58095988"
   >[!NOTE] 
   >Microsoft Azure Government 是政府社群雲端，US 聯邦政府、本地客戶或部落客戶，及符合資格可以為這些實體提供服務的合作夥伴，擁有此雲端的控管權限。
 
-- **此是否為私人 SKU？** – 如果此 SKU 僅適用於選定的一組客戶，請選取 [是]。
+- **這是私用的 SKU 嗎？** – 如果此 SKU 僅適用於選定的一組客戶，請選取 [是]。
 - **國家/地區可用性** – 使用 [選取區域] 以檢視可用的國家/地區清單。 檢查每個國家/地區，然後選取 [確定] 以儲存您的選擇。 
 
    ![國家/地區和區域可用性清單](./media/azure-app-select-country-region.png)
@@ -124,7 +124,7 @@ ms.locfileid: "58095988"
   >此套件應該包含佈建此應用程式所需的任何巢狀範本或指令碼。 這些檔案必須位在根資料夾中：MainTemplate.json、applianceMainTemplate.json 和 applianceCreateUIDefinition.json。
 
 - **租用戶識別碼** - 貴組織的 Azure Active Directory 租用戶識別碼。
-- **啟用 JIT 存取？** – 選取 [是] 以使用此供應項目為客戶部署啟用 Just-In-Time 管理存取權。
+- **啟用 JIT 存取嗎？** – 選取 [是] 以使用此供應項目為客戶部署啟用 Just-In-Time 管理存取權。
 
   >[!NOTE] 
   >如果您啟用 JIT，則必須更新 CreateUiDefinition.json 檔案以支援 JIT 存取。
@@ -135,7 +135,7 @@ ms.locfileid: "58095988"
 
 #### <a name="authorization"></a>Authorization
 
-將使用者、群組或應用程式的 Azure Active Directory 識別碼，新增至您要向其授與受控資源群組的存取權。 授與的權限由角色定義識別碼所指示。其可能是擁有者、參與者或任何自訂角色。
+將使用者、群組或應用程式的 Azure Active Directory 識別碼，新增至您要向其授與受控資源群組的存取權。 授與的權限由角色定義識別碼所指示。可能的擁有者、 參與者或任何自訂角色。
 
 #### <a name="policy-settings"></a>原則設定
 
@@ -144,7 +144,7 @@ ms.locfileid: "58095988"
 
    ![受控應用程式的授權和原則設定](./media/azureapp-sku-details-managedapp-auth-policy.png)
 
-**如需建立新的授權：**
+**若要建立新的授權：**
 
 1. 在 [授權] 下，選取 [+ 新增授權]。
 2. 針對**主體識別碼**，將使用者、群組或應用程式的 Azure Active Directory 識別碼，輸入至您要向其授與受控資源群組的存取權。 授與的權限由角色定義所指示。
@@ -153,7 +153,7 @@ ms.locfileid: "58095988"
 >[!NOTE] 
 >可以新增多個授權。 不過，建議要建立 Active Directory 使用者群組，並在 "PrincipalId" 中指定其識別碼。 如此可新增更多使用者到使用者群組，而不需要更新 SKU。
 
-**如需建立新的原則：**
+**若要建立新的原則：**
 
 1. 在 [原則設定] 下，選取 [+ 新增原則]。
 2. 針對 [原則名稱]，請輸入原則名稱。 該名稱的長度上限為 50 個字元。

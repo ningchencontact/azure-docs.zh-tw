@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 1a51e9b636e15f178de072af8372404af1dc47e2
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 6fe8cccf60e60ada34e3b7847964958cf6e03c4a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187989"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904741"
 ---
 # <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>如何使用適用於容器的 Azure 監視器 (預覽) 即時檢視容器記錄
-此功能目前處於預覽狀態，可提供您 Azure Kubernetes Service (AKS) 容器記錄 (stdout/stderr) 的即時檢視，而不需執行 kubectl 命令。 選取此選項時，[容器] 檢視上容器效能資料的資料表下方會顯示新窗格。  它會顯示容器引擎產生的即時記錄，以進一步協助疑難排解問題。  
+此功能目前處於預覽狀態，可提供您 Azure Kubernetes Service (AKS) 容器記錄 (stdout/stderr) 的即時檢視，而不需執行 kubectl 命令。 選取此選項時，[容器] 檢視上容器效能資料的資料表下方會顯示新窗格。  它會顯示容器引擎產生的即時記錄，以進一步協助疑難排解問題。 **參與者**叢集資源的存取權是需要這項功能才能運作。
 
 即時記錄支援三種不同的方法來控制記錄的存取：
 

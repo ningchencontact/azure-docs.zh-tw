@@ -12,24 +12,24 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 30a16c2a8b82ff4b32b95b14937166b94aba06b5
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: f94d731fd7b9a9fa85ae42d22949c7ca4024aabe
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726952"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904350"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>啟用自動調整以監視查詢並改進工作負載效能
 
 Azure SQL Database 是自動受控的資料服務，會不斷地監視您的查詢，並識別您為改善工作負載效能可以執行的動作。 您可以檢閱建議並加以手動套用，或讓 Azure SQL Database 自動套用矯正措施 - 這稱為**模式**。
 
-您可以透過 [Azure 入口網站](sql-database-automatic-tuning-enable.md#azure-portal)、[REST API](sql-database-automatic-tuning-enable.md#rest-api) 呼叫和 [T-SQL](sql-database-automatic-tuning-enable.md#t-sql) 命令，在伺服器或資料庫層級啟用自動調整。
+您可以透過 [Azure 入口網站](sql-database-automatic-tuning-enable.md#azure-portal)、[REST API](sql-database-automatic-tuning-enable.md#rest-api) 呼叫和 [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 命令，在伺服器或資料庫層級啟用自動調整。
 
 > [!NOTE]
-> 可以透過設定支援的選項 force_last_good_plan 和受控執行個體[T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current)只。 入口網站設定和這篇文章中所述的自動索引微調選項不會套用到受控執行個體。
+> 可以透過設定支援的選項 force_last_good_plan 和受控執行個體[T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management)只。 入口網站設定和這篇文章中所述的自動索引微調選項不會套用到受控執行個體。
 
 > [!NOTE]
-> 在此階段不支援設定透過 ARM (Azure Resource Manager) 範本的自動調整選項。
+> 目前不支持通过 ARM（Azure 资源管理器）模板配置自动优化选项。
 
 ## <a name="enable-automatic-tuning-on-server"></a>在伺服器上啟用自動調整
 

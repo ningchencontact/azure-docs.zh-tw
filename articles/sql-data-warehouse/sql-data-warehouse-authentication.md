@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 04/12/2018
+ms.date: 04/02/2019
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: ab439566da38a537534fc10e70058ab57005ce22
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a3bed9df5b62ce7f2f3df7046357dc4f2458575c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183793"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917901"
 ---
 # <a name="authenticate-to-azure-sql-data-warehouse"></a>驗證 Azure SQL 資料倉儲
 了解如何使用 Azure Active Directory (AAD) 或 SQL Server 驗證來驗證 Azure SQL 資料倉儲。
@@ -56,10 +56,10 @@ Azure Active Directory 的優點包括：
 * 藉由啟用整合式 Windows 驗證和 Azure Active Directory 支援的其他形式驗證來避免儲存密碼。
 * 使用包含的数据库用户在数据库级别对标识进行身份验证。
 * 針對連線到 SQL 資料倉儲的應用程式支援權杖型驗證。
-* 透過 SQL Server Management Studio 的 Active Directory 通用驗證支援 Multi-Factor Authentication。 如需 Multi-Factor Authentication 的說明，請參閱 [適用於 Azure AD MFA 與 SQL Database 和 SQL 資料倉儲的 SSMS 支援](../sql-database/sql-database-ssms-mfa-authentication.md)。
+* 透過 Active Directory 通用驗證 」 的各種工具，包括中的支援多重要素驗證[SQL Server Management Studio](../sql-database/sql-database-ssms-mfa-authentication.md)並[SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/azure-active-directory?toc=/azure/sql-data-warehouse/toc.json)。
 
 > [!NOTE]
-> Azure Active Directory 仍然相对较新，具有某些限制。 若要確定 Azure Active Directory 適合您的環境，請參閱 [Azure AD 功能和限制][Azure AD features and limitations]，特別是＜其他考量＞。
+> Azure Active Directory 相對來說仍較新，且具有一些限制。 若要確定 Azure Active Directory 適合您的環境，請參閱 [Azure AD 功能和限制][Azure AD features and limitations]，特別是＜其他考量＞。
 > 
 > 
 

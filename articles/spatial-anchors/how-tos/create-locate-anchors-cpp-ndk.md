@@ -8,12 +8,12 @@ ms.author: ramonarguelles
 ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b5e43b2fa81d1666622776ad29acd96613ef3574
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 09809270d6b42a5491d322628f1d98c580f65206
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632179"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915917"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cndk"></a>如何建立並找出錨點使用 Azure 空間的錨點，在 C + + /cli NDK
 
@@ -309,7 +309,7 @@ Azure Spatial Anchors 可讓您在世界各地的不同裝置間共用錨點。 
                 // This anchor has already been reported and is being tracked
                 break;
             case LocateAnchorStatus::NotLocatedAnchorDoesNotExist:
-                // The anchor was deleted or never exited in the first place
+                // The anchor was deleted or never existed in the first place
                 // Drop it, or show UI to ask user to anchor the content anew
                 break;
             case LocateAnchorStatus::NotLocated:

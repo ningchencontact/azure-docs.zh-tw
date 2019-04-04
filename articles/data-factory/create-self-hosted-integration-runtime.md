@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 37e3dbb5f69d7319e0b56a5d209e0487e0562e00
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6ab5ee923cc439901149a26d7af4b57f9933ee19
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838794"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905880"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>建立和設定自我裝載整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的資料整合功能。 如需 IR 的詳細資訊，請參閱[整合執行階段概觀](concepts-integration-runtime.md)。
@@ -53,7 +53,7 @@ ms.locfileid: "57838794"
 ![高階概述](media/create-self-hosted-integration-runtime/high-level-overview.png)
 
 1. 資料開發人員使用 PowerShell Cmdlet 在 Azure Data Factory 內建立自我裝載整合執行階段。 目前，Azure 入口網站不支援此功能。
-2. 資料開發人員建立內部部署資料存放區的連結服務，方法是指定應用來連結資料存放區的自我裝載整合執行階段執行個體。 在設定連結服務的過程中，資料開發人員會使用認證管理員應用程式 (目前尚未提供支援) 來設定驗證類型和認證。 認證管理員應用程式會與資料存放區進行通訊，以測試連線以及要儲存認證的自我裝載整合執行階段。
+2. 資料開發人員建立內部部署資料存放區的連結服務，方法是指定應用來連結資料存放區的自我裝載整合執行階段執行個體。
 3. 自我裝載整合執行階段節點會使用 Windows 資料保護應用程式開發介面 (DPAPI) 將加密，並將認證儲存在本機上。 如果有多個節點設定為高可用性，則該認證會進一步同步處理到其他節點。 每個節點都會使用 DPAPI 來加密認證，並將其儲存在本機上。 認證同步處理無需資料開發人員介入，並且由自我裝載 IR 處理。    
 4. Data Factory 服務會與自我裝載整合執行階段進行通訊，透過使用共用 Azure 服務匯流排佇列的*控制通道*，進行作業的排程和管理。 當需要執行活動作業時，Data Factory 會將要求與任何認證資訊排入佇列 (如果認證尚未儲存在自我裝載整合執行階段上)。 輪詢佇列之後，自我裝載整合執行階段便會開始作業。
 5. 自我裝載整合執行階段會根據複製活動在資料管線中的設定方式，將資料從內部部署存放區複製到雲端儲存體，反之亦然。 針對這個步驟，自我裝載整合執行階段會透過安全的 (HTTPS) 通道，直接與雲端式儲存體服務 (例如 Azure Blob 儲存體) 進行通訊。
@@ -182,13 +182,13 @@ ms.locfileid: "57838794"
 
 ### <a name="monitoring"></a>監視 
 
-- **共用 IR**
+- **共用的 IR**
 
   ![尋找共用整合執行階段的選取項目](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
 
   ![監視索引標籤](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
 
-- **連結 IR**
+- **連結的 IR**
 
   ![尋找連結整合執行階段的選取項目](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
 
@@ -329,7 +329,7 @@ download.microsoft.com | 443 | 用於下載更新
     ```
 
 ### <a name="enabling-remote-access-from-an-intranet"></a>啟用來自內部網路的遠端存取  
-針對 (網路中) 其他非安裝自我裝載整合執行階段的電腦，如果您使用 PowerShell 或認證管理員應用程式來為該電腦發出的認證加密，必須啟用 [來自內部網路的遠端存取] 選項。 針對在安裝自我裝載整合執行階段的同一台電腦，如果您使用 PowerShell 或認證管理員應用程式來為該電腦發出的認證加密，您無法啟用 [來自內部網路的遠端存取]。
+如果您使用 PowerShell 來加密認證 （在網路中） 以外的自我裝載的整合執行階段安裝所在的另一部電腦時，您可以啟用**來自內部網路的遠端存取**選項。 如果您執行 PowerShell，以加密認證，在相同電腦上的安裝自我裝載的整合執行階段，您無法啟用**來自內部網路的遠端存取**。
 
 在新增其他節點來實現高可用性和延展性之前，您應啟用 [來自內部網路的遠端存取]。  
 
@@ -339,9 +339,7 @@ download.microsoft.com | 443 | 用於下載更新
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
-```
-> [!NOTE]
-> 認證管理員應用程式尚無法為 Azure Data Factory V2 中的認證加密。  
+``` 
 
 如果您選擇不開啟自我裝載整合執行階段電腦上的連接埠 8060，則請使用設定認證應用程式以外的機制來設定資料存放區認證。 例如，您可以使用**新增 AzDataFactoryV2LinkedServiceEncryptCredential** PowerShell cmdlet。
 

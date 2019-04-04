@@ -3,19 +3,19 @@ title: 防火牆後翻譯 - Translator Text API
 titlesuffix: Azure Cognitive Services
 description: 使用 Translator Text API IP 進行防火牆後翻譯。
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 053bc5964644b4183572de35372e2580a80f19ae
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ebc8b7ce4ed0242f1bc62e3b97b6594cfe810374
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729979"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915742"
 ---
 # <a name="how-to-translate-behind-ip-firewalls-with-the-translator-text-api"></a>如何使用 Translator Text API IP 進行防火牆後翻譯
 
@@ -31,4 +31,4 @@ api.cognitive.microsofttranslator.com 的 IP 位址 - Microsoft Translator Text 
 
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"]
-> [在 Translator API 呼叫中進行 IP 防火牆後翻譯](reference/v3-0-translate.md)
+> [Translator API 呼叫中的 IP 防火牆之後，轉譯](reference/v3-0-translate.md)

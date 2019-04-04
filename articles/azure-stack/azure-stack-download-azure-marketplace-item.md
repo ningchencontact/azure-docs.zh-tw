@@ -16,12 +16,12 @@ ms.date: 02/14/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 2f51ab51cc352c5f3d95ac1a35a1cbf918899753
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9bf261918bdbdf3ee06ad28a037d5bb8a3631a20
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768394"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487629"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>將市集項目從 Azure 下載到 Azure Stack
 
@@ -101,14 +101,14 @@ ms.locfileid: "57768394"
 
 3. 如果您有多個訂用帳戶，請執行下列命令以選取您用於註冊的訂用帳戶：  
 
-   ```PowerShell  
+   ```powershell  
    Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    $AzureContext = Get-AzureRmContext
    ```
 
 4. 使用下列指令碼來下載最新版的市集摘要整合工具：  
 
-   ```PowerShell
+   ```powershell
    # Download the tools archive.
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
    invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip `
@@ -126,7 +126,7 @@ ms.locfileid: "57768394"
 
 5. 匯入摘要整合模組，然後執行下列命令來啟動工具。 使用一個位置取代 `Destination folder path`，以儲存您從 Azure Marketplace 下載的檔案。   
 
-   ```PowerShell  
+   ```powershell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
    Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes" 
@@ -164,7 +164,7 @@ ms.locfileid: "57768394"
 
 3. 匯入摘要整合模組，然後執行下列指令碼來啟動 Marketplace 摘要整合工具：
 
-   ```PowerShell
+   ```powershell
    $credential = Get-Credential -Message "Enter the azure stack operator credential:"
    Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -AzsCredential $credential
    ```
@@ -206,7 +206,7 @@ ms.locfileid: "57768394"
 
    除了此指令碼外，您也可以使用[本文說明的程序](azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal)，使用 Azure 入口網站匯入 VHD 映像。
 
-   ```PowerShell  
+   ```powershell  
    Add-AzsPlatformimage `
     -publisher "MicrosoftWindowsServer" `
     -offer "WindowsServer" `
@@ -229,7 +229,7 @@ ms.locfileid: "57768394"
 
 
 4.  使用 **Add-AzsGalleryItem** Cmdlet，透過 PowerShell 將市集項目發佈至 Azure Stack。 例如︰  
-    ```PowerShell  
+    ```powershell  
     Add-AzsGalleryItem `
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      –Verbose
@@ -239,7 +239,7 @@ ms.locfileid: "57768394"
 
 隨著 Azure Stack PowerShell 1.3.0 的發行，您現在可以新增虛擬機器擴充功能。 例如︰
 
-```PowerShell
+```powershell
 Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"
 ```
 

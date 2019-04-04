@@ -16,12 +16,12 @@ ms.date: 03/11/2019
 ms.author: anwestg
 ms.reviewer: anwestg
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 58be7b6dc9eeeadd69fe82f1dc03d959aa94f9c8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb2c01052b8dc5fe346196a64e3fcbf7d1b69c2b
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58088429"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485745"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>開始使用 Azure Stack 上的 App Service 之前
 
@@ -61,7 +61,7 @@ Azure App Service on Azure Stack 需要自訂指令碼擴充功能 v1.9.1。  �
 
 當您執行下列 PowerShell 命令時，必須提供特殊權限的端點和 AzureStack\CloudAdmin 的認證。
 
-```PowerShell
+```powershell
     Get-AzureStackRootCert.ps1
 ```
 
@@ -353,7 +353,7 @@ GO
 13. 選取 [Settings] \(設定) 。
 14. 選取 [必要權限] > [授與權限] > [是]。
 
-```PowerShell
+```powershell
     Create-AADIdentityApp.ps1
 ```
 
@@ -389,7 +389,7 @@ GO
 5. 在 [認證] 視窗中，輸入您的 AD FS 雲端管理帳戶和密碼。 選取 [確定] 。
 6. 提供[稍早建立之憑證](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started)的憑證檔案路徑和憑證密碼。 根據預設值，針對此步驟建立的憑證是 **sso.appservice.local.azurestack.external.pfx**。
 
-```PowerShell
+```powershell
     Create-ADFSIdentityApp.ps1
 ```
 

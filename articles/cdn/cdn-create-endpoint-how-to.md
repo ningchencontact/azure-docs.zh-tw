@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: a3fd85d1dbcba769f47e537e0231f63110752492
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: ba25bef75bc21eea2b0c3a57599a3b9ddd3164e0
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093675"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916813"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>建立 Azure CDN 端點
-此文章說明在現有 CDN 設定檔中建立 [Azure 內容傳遞網路 (CDN)](cdn-overview.md) 端點的所有設定。 建立設定檔與端點之後，即可開始將內容傳遞給您的客戶。 如需建立設定檔與端點的快速入門，請參閱[快速入門：建立 Azure CDN 設定檔和端點](cdn-create-new-endpoint.md)。
+此文章說明在現有 CDN 設定檔中建立 [Azure 內容傳遞網路 (CDN)](cdn-overview.md) 端點的所有設定。 建立設定檔與端點之後，即可開始將內容傳遞給您的客戶。 如需建立設定檔和端點的快速入門，請參閱[快速入門：建立 Azure CDN 設定檔和端點](cdn-create-new-endpoint.md)。
 
 ## <a name="prerequisites"></a>必要條件
 建立 CDN 端點之前，您必須至少建立一個 CDN 設定檔，其中可包含一或多個 CDN 端點。 若要依網際網路網域、Web 應用程式或其他準則來組織您的 CDN 端點，您可以使用多個設定檔。 由於 CDN 定價會套用於 CDN 設定檔層級，因此，如果您想要使用混合的 Azure CDN 定價層，就必須建立多個 CDN 設定檔。 若要建立 CDN 設定檔，請查看[建立新的 CDN 設定檔](cdn-create-new-endpoint.md#create-a-new-cdn-profile)。
@@ -67,7 +67,7 @@ ms.locfileid: "49093675"
    > [!NOTE]
    > [來源連接埠] 值只會決定端點用來從原始伺服器擷取資訊的連接埠。 不論 [原始連接埠] 的值為何，端點本身只會透過預設 HTTP 和 HTTPS 連接埠 (80 和 443) 提供給終端用戶端使用。  
    > 
-   > 在**來自 Akamai 的 Azure CDN** 設定檔中，端點不允許原始連接埠的完整 TCP 連接埠範圍。 如需不允許的原始連接埠清單，請參閱 [來自 Akamai 的 Azure CDN 允許的原始連接埠](https://msdn.microsoft.com/library/mt757337.aspx)。  
+   > 在**來自 Akamai 的 Azure CDN** 設定檔中，端點不允許原始連接埠的完整 TCP 連接埠範圍。 如需不允許的原始連接埠清單，請參閱 [來自 Akamai 的 Azure CDN 允許的原始連接埠](/previous-versions/azure/mt757337(v=azure.100))。  
    > 
    > **來自 Akamai 的 Azure CDN** 產品不支援對 Azure CDN 自訂網域的 HTTPS 支援。 如需詳細資訊，請參閱[在 Azure CDN 自訂網域上設定 HTTPS](cdn-custom-ssl.md)。
     
@@ -83,9 +83,9 @@ ms.locfileid: "49093675"
 
     - **來自 Akamai 的 Azure CDN 標準**設定檔：
        - [**一般 Web 傳遞**](cdn-optimization-overview.md#general-web-delivery)
-       - [**一般媒體串流**](cdn-optimization-overview.md#general-media-streaming)
+       - [**一般媒體串流處理**](cdn-optimization-overview.md#general-media-streaming)
        - [**點播視訊媒體串流**](cdn-optimization-overview.md#video-on-demand-media-streaming)
-       - [**下載大型檔案**](cdn-optimization-overview.md#large-file-download)
+       - [**大型檔案下載**](cdn-optimization-overview.md#large-file-download)
        - [**動態網站加速**](cdn-optimization-overview.md#dynamic-site-acceleration)
 
 10. 選取 [新增] 來建立新的端點。

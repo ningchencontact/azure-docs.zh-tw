@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: a73559e233f647d5bf0812a5acdf5e19f05b0858
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: d2daae2a3317d3b48748262d87ab8d7f7e13f2b0
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255416"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918411"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>對無法啟動的雲端服務角色進行疑難排解
 以下是與無法啟動的 Azure 雲端服務角色相關的一些常見問題和解決方案。
@@ -30,7 +30,7 @@ ms.locfileid: "51255416"
 ## <a name="missing-dlls-or-dependencies"></a>遺失 Dll 或相依性
 角色沒有回應，以及角色在 [正在初始化]、[忙碌] 和 [正在停止] 狀態之間循環，有可能是因為遺失 DLL 或組件所致。
 
-遺失 DLL 或組件的徵狀可能是：
+DLL 或程序集缺失的症状可能为：
 
 * 您的角色執行個體在 [正在初始化]、[忙碌] 及 [正在停止] 狀態之間循環。
 * 您的角色執行個體已進入 [就緒]  狀態，但當您瀏覽至 Web 應用程式時，發現頁面並未顯示。
@@ -40,7 +40,7 @@ ms.locfileid: "51255416"
 ## <a name="diagnose-missing-dll-issues-in-a-web-role"></a>診斷 Web 角色中遺失 DLL 的問題
 當您瀏覽至在 Web 角色中部署的網站時，瀏覽器顯示如下的伺服器錯誤，表示可能遺失 DLL。
 
-!['/' 應用程式中有伺服器錯誤。](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503388.png)
+!['/' 应用程序中出现服务器错误。](./media/cloud-services-troubleshoot-roles-that-fail-start/ic503388.png)
 
 ## <a name="diagnose-issues-by-turning-off-custom-errors"></a>關閉自訂錯誤以診斷問題
 設定 Web 角色的 web.config 以將自訂錯誤模式設為關閉，並重新部署服務，可以檢視更完整的錯誤資訊。
@@ -75,8 +75,8 @@ ms.locfileid: "51255416"
 瀏覽至網站現在會傳回更明確的錯誤訊息：
 
 * '/' 應用程式中有伺服器錯誤。
-* 說明：執行目前的 Web 要求期間發生未處理的例外狀況。 請檢閱堆疊追蹤，以進一步了解錯誤以及它產生於程式碼中的何處。
-* 例外狀況詳細資料：System.IO.FIleNotFoundException：無法載入檔案或組件 ‘Microsoft.WindowsAzure.StorageClient，Version=1.1.0.0，Culture=neutral，PublicKeyToken=31bf856ad364e35’ 或其相依性之一。 系統找不到指定的檔案。
+* Description:目前 web 要求執行期間發生未處理的例外狀況。 請檢閱堆疊追蹤，以進一步了解錯誤以及它產生於程式碼中的何處。
+* 例外狀況詳細資料：System.IO.FIleNotFoundException:無法載入檔案或組件 ' Microsoft.WindowsAzure.StorageClient，version=1.1.0.0，Culture = neutral，PublicKeyToken = 31bf856ad364e35' 或其中一個相依性。 系統找不到指定的檔案。
 
 例如︰
 
@@ -96,7 +96,7 @@ ms.locfileid: "51255416"
 7. 在角色啟動時，您會在 Internet Explorer 中看到詳細的錯誤資訊。 您也可以使用標準 Windows 疑難排解工具進一步診斷問題。
 
 ## <a name="diagnose-issues-by-using-intellitrace"></a>使用 IntelliTrace 診斷問題
-對於使用 .NET Framework 4 的背景工作角色和 Web 角色，您可以使用 Microsoft Visual Studio Enterprise 所提供的 [IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx)。
+對於使用 .NET Framework 4 的背景工作角色和 Web 角色，您可以使用 Microsoft Visual Studio Enterprise 所提供的 [IntelliTrace](/visualstudio/debugger/intellitrace)。
 
 請遵循下列步驟，部署已啟用 IntelliTrace 的服務：
 

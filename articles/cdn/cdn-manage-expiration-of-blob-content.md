@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: 1b2009b54c7f436667c316b7ca002314bc966a1b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f7fc11af8cd2574271b26f7dec62072692685672
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531924"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916796"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>在 Azure CDN 中管理 Azure Blob 儲存體的到期
 > [!div class="op_single_selector"]
@@ -59,7 +59,7 @@ Azure 儲存體中的 [Blob 儲存體服務](../storage/common/storage-introduct
    ![CDN 快取頁面](./media/cdn-manage-expiration-of-blob-content/cdn-caching-page.png)
 
 
-**使用全域快取規則設定 blob 儲存體服務的 Cache-Control 標頭：**
+**若要使用全域快取規則設定 Blob 儲存體服務的 Cache-control 標頭：**
 
 1. 在 [全域快取規則] 下方，將 [查詢字串快取行為] 設定為 [忽略查詢字串]，並將 [快取行為] 設定為 [覆寫]。
       
@@ -71,7 +71,7 @@ Azure 儲存體中的 [Blob 儲存體服務](../storage/common/storage-introduct
 
 3. 選取 [ **儲存**]。
  
-**使用自訂快取規則設定 blob 檔案的 Cache-Control 標頭：**
+**若要使用自訂快取規則設定 blob 檔案的 Cache-control 標頭：**
 
 1. 在 [自訂快取規則] 下，建立兩個比對條件：
 
@@ -114,7 +114,7 @@ $blob.ICloudBlob.SetProperties()
 >
 
 ## <a name="setting-cache-control-headers-by-using-net"></a>使用 .NET 設定 Cache-Control 標頭
-若要使用 .NET 程式碼指定 blob 的 `Cache-Control` 標頭，請使用[適用於 .NET 的 Azure 儲存體用戶端程式庫](../storage/blobs/storage-dotnet-how-to-use-blobs.md)，來設定 [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx) 屬性。
+若要使用 .NET 程式碼指定 blob 的 `Cache-Control` 標頭，請使用[適用於 .NET 的 Azure 儲存體用戶端程式庫](../storage/blobs/storage-dotnet-how-to-use-blobs.md)，來設定 [CloudBlob.Properties.CacheControl](/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol#Microsoft_WindowsAzure_Storage_Blob_BlobProperties_CacheControl) 屬性。
 
 例如︰
 
@@ -163,23 +163,23 @@ class Program
 ![Azure 儲存體總管屬性](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### <a name="azure-command-line-interface"></a>Azure 命令列介面
-透過 [Azure 命令列介面](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) (CLI)，您可以從命令列管理 Azure Blob 資源。 若要在使用 Azure CLI 上傳 Blob 時設定 Cache-Control 標頭，請使用 `-p` 參數來設定 *cacheControl* 屬性。 下列範例顯示如何將 TTL 設定為一小時 (3600 秒)：
+透過 [Azure 命令列介面](https://docs.microsoft.com/cli/azure) (CLI)，您可以從命令列管理 Azure Blob 資源。 若要在使用 Azure CLI 上傳 Blob 時設定 Cache-Control 標頭，請使用 `-p` 參數來設定 *cacheControl* 屬性。 下列範例顯示如何將 TTL 設定為一小時 (3600 秒)：
   
 ```azurecli
 azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\<blob name> <container name> <blob name>
 ```
 
 ### <a name="azure-storage-services-rest-api"></a>Azure 儲存體服務 REST API
-您可以使用 [Azure 儲存體服務 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) \(英文\)，在要求上使用下列作業來明確設定 *x-ms-blob-cache-control* 屬性：
+您可以使用 [Azure 儲存體服務 REST API](/rest/api/storageservices/) \(英文\)，在要求上使用下列作業來明確設定 *x-ms-blob-cache-control* 屬性：
   
-   - [Put Blob](https://msdn.microsoft.com/library/azure/dd179451.aspx) \(英文\)
-   - [Put Block List](https://msdn.microsoft.com/library/azure/dd179467.aspx) \(英文\)
-   - [Set Blob Properties](https://msdn.microsoft.com/library/azure/ee691966.aspx) \(英文\)
+   - [放置 Blob](/rest/api/storageservices/Put-Blob)
+   - [放置區塊清單](/rest/api/storageservices/Put-Block-List)
+   - [設定 Blob 屬性](/rest/api/storageservices/Set-Blob-Properties)
 
 ## <a name="testing-the-cache-control-header"></a>測試 Cache-Control 標頭
 您可以輕鬆地驗證 Blob 的 TTL 設定。 使用瀏覽器的[開發人員工具](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/)，測試 blob 是否包含 `Cache-Control` 的回應標頭。 您也可以使用 [Wget](https://www.gnu.org/software/wget/) \(英文\)、[Postman](https://www.getpostman.com/) \(英文\) 或 [Fiddler](https://www.telerik.com/fiddler) \(英文\) 之類的工具來檢查回應標頭。
 
 ## <a name="next-steps"></a>後續步驟
-* [了解如何在 Azure CDN 中管理雲端服務內容的到期](cdn-manage-expiration-of-cloud-service-content.md)
-* [了解快取概念](cdn-how-caching-works.md)
+* [了解如何管理 Azure CDN 中的雲端服務內容的到期](cdn-manage-expiration-of-cloud-service-content.md)
+* [深入了解快取概念](cdn-how-caching-works.md)
 

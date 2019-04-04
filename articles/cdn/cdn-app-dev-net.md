@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 5379586355ece98af6295236d6cbd09cb31c742b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 838c76e6a383b61ff465f3ed7506af34c8cd01d4
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38454459"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916609"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>開始使用 Azure CDN 開發
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "38454459"
 > 
 > 
 
-您可以使用 [適用於 .NET 的 Azure CDN 程式庫](https://msdn.microsoft.com/library/mt657769.aspx) ，自動建立和管理 CDN 設定檔與端點。  本教學課程會逐步建立簡單的 .NET 主控台應用程式，示範數個可用的作業。  本教學課程的目的不是詳細說明適用於 .NET 的 Azure CDN 程式庫的所有層面。
+您可以使用 [適用於 .NET 的 Azure CDN 程式庫](/dotnet/api/overview/azure/cdn) ，自動建立和管理 CDN 設定檔與端點。  本教學課程會逐步建立簡單的 .NET 主控台應用程式，示範數個可用的作業。  本教學課程的目的不是詳細說明適用於 .NET 的 Azure CDN 程式庫的所有層面。
 
 您需要 Visual Studio 2015，才能完成本教學課程。  [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) 可供免費下載。
 
@@ -155,7 +155,7 @@ ms.locfileid: "38454459"
 
 現在已撰寫了程式的基本結構，我們應該建立 `Main` 方法所呼叫的方法。
 
-## <a name="authentication"></a>驗證
+## <a name="authentication"></a>Authentication
 在可以使用 Azure CDN 管理庫之前，需要先驗證服務主體，並取得驗證權杖。  這個方法會使用 ADAL 來擷取權杖。
 
 ```csharp
@@ -338,7 +338,7 @@ private static void PromptDeleteCdnProfile(CdnManagementClient cdn)
 ## <a name="next-steps"></a>後續步驟
 若要查看此逐步解說中已完成的專案，請 [下載範例](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c)。
 
-若要尋找適用於 .NET 的 Azure CDN 管理程式庫的其他相關文件，請檢視 [MSDN 上的參考](https://msdn.microsoft.com/library/mt657769.aspx)。
+若要尋找適用於 .NET 的 Azure CDN 管理程式庫的其他相關文件，請檢視 [MSDN 上的參考](/dotnet/api/overview/azure/cdn)。
 
 使用 [PowerShell](cdn-manage-powershell.md)管理 CDN 資源。
 

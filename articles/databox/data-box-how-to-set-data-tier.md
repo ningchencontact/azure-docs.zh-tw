@@ -8,18 +8,21 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: bb1d6c5bd51fcfe35127c2f6d8dd6a80b727c45f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 44fa81ddf6b0892c6d900fd065589b3d6ac5a0bd
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517142"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905557"
 ---
 # <a name="use-azure-data-box-to-send-data-to-appropriate-azure-storage-blob-tier"></a>使用 Azure 資料箱將資料傳送到適當的 Azure 儲存體 Blob 層
 
 Azure 資料箱會寄給您適當的存放裝置，以將大量資料移動至 Azure。 您會將資料移到該裝置內並寄回。 來自資料箱的資料會上傳到與儲存體帳戶相關聯的預設層。 然後您可以將資料移動到其他儲存層。
 
 本文描述如何將藉由資料箱上傳的資料，移動到常性存取、非經常性存取或封存 Blob 層。  
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="choose-the-correct-storage-tier-for-your-data"></a>為您的資料選擇正確的儲存層
 
@@ -58,7 +61,7 @@ Azure 封存層已離線並提供最低的儲存成本，但存取成本最高�
 
 2. 登入 Azure PowerShell。 
 
-   `Login-AzureRmAccount`  
+   `Login-AzAccount`  
 
 3. 定義儲存體帳戶、存取金鑰、容器和儲存體內容的變數。
 
@@ -66,12 +69,12 @@ Azure 封存層已離線並提供最低的儲存成本，但存取成本最高�
     $StorageAccountName = "<enter account name>"
     $StorageAccountKey = "<enter account key>"
     $ContainerName = "<enter container name>"
-    $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
     ```
 
 4. 取得容器中的 Blob。
 
-    `$blobs = Get-AzureStorageBlob -Container "<enter container name>" -Context $ctx`
+    `$blobs = Get-AzStorageBlob -Container "<enter container name>" -Context $ctx`
  
 5. 將容器中的所有 Blob 的階層設定成封存。
 
@@ -91,7 +94,7 @@ Azure 封存層已離線並提供最低的儲存成本，但存取成本最高�
     Major  Minor  Build  Revision
     -----  -----  -----  --------
     5      1      17763  134
-    PS C:\WINDOWS\system32> Login-AzureRmAccount
+    PS C:\WINDOWS\system32> Login-AzAccount
 
     Account          : gus@contoso.com
     SubscriptionName : MySubscription
@@ -102,8 +105,8 @@ Azure 封存層已離線並提供最低的儲存成本，但存取成本最高�
     PS C:\WINDOWS\system32> $StorageAccountName = "mygpv2storacct"
     PS C:\WINDOWS\system32> $StorageAccountKey = "mystorageacctkey"
     PS C:\WINDOWS\system32> $ContainerName = "test"
-    PS C:\WINDOWS\system32> $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
-    PS C:\WINDOWS\system32> $blobs = Get-AzureStorageBlob -Container "test" -Context $ctx
+    PS C:\WINDOWS\system32> $ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    PS C:\WINDOWS\system32> $blobs = Get-AzStorageBlob -Container "test" -Context $ctx
     PS C:\WINDOWS\system32> Foreach ($blob in $blobs) {
     >> $blob.ICloudBlob.SetStandardBlobTier("Archive")
     >> }

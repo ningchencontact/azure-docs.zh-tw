@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3e217e0e3367c6e1200567f589749fec9e626da8
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 5f9cd5edfb360da507320306314e67ac61503132
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817451"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916830"
 ---
 # <a name="managing-azure-automation-data"></a>管理 Azure 自动化数据
 本文章包含用於管理 Azure 自動化環境的多個主題。
@@ -39,23 +39,23 @@ Azure 自動化會自動刪除並永久移除超過 90 天的工作。
 
 保留原則適用於所有使用者，而且目前無法自訂。
 
-不過，如果您需要保留較長的一段時間的資料，您可以將轉送 runbook 作業記錄，以 Azure 監視器記錄檔。  如需詳細資訊，請檢閱[Azure 自動化作業資料轉送到 Azure 監視器記錄](automation-manage-send-joblogs-log-analytics.md)。   
+但是，如果需要将数据保留更长一段时间，可以将 Runbook 作业日志转发到 Azure Monitor 日志。  有关详细信息，请参阅[将 Azure 自动化作业数据转发到 Azure Monitor 日志](automation-manage-send-joblogs-log-analytics.md)。   
 
 ## <a name="backing-up-azure-automation"></a>備份 Azure 自動化
 在 Microsoft Azure 中刪除自動化帳戶時，會刪除帳戶中的所有物件，包括 Runbook、模組、組態、設定、工作和資產。 刪除帳戶之後，就無法復原物件。  您可以使用下列資訊，在刪除之前備份您的自動化帳戶的內容。 
 
 ### <a name="runbooks"></a>Runbook
-您可以使用 Azure 入口網站或 Windows PowerShell 中的 [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition)Cmdlet，將您的 Runbook 匯出為指令碼檔案。  可以將這些指令碼檔案匯入到另一個自動化帳戶，如 [建立或匯入 Runbook](https://msdn.microsoft.com/library/dn643637.aspx)中所述。
+您可以使用 Azure 入口網站或 Windows PowerShell 中的 [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition)Cmdlet，將您的 Runbook 匯出為指令碼檔案。  可以將這些指令碼檔案匯入到另一個自動化帳戶，如 [建立或匯入 Runbook](/previous-versions/azure/dn643637(v=azure.100))中所述。
 
 ### <a name="integration-modules"></a>整合模組
 您無法從 Azure 自動化匯出整合模組。  您必須確定它們可供在自動化帳戶外部使用。
 
 ### <a name="assets"></a>Assets
-您無法從 Azure 自動化匯出 [資產](https://msdn.microsoft.com/library/dn939988.aspx) 。  使用 Azure 入口網站時，您必須記下變數、認證、憑證、連線及排程的詳細資料。  然後必須手動建立您匯入到另一個自動化的 Runbook 所使用的任何資產。
+您無法從 Azure 自動化匯出 [資產](/previous-versions/azure/dn939988(v=azure.100)) 。  使用 Azure 入口網站時，您必須記下變數、認證、憑證、連線及排程的詳細資料。  然後必須手動建立您匯入到另一個自動化的 Runbook 所使用的任何資產。
 
 您可以使用 [Azure Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.automation#automation) 來擷取未加密的資產的詳細資料並加以儲存供日後參考，或在另一個自動化帳戶中建立對等的資產。
 
-无法使用 cmdlet 检索已加密变量或凭据密码字段的值。  如果您不知道這些值，則可從 Runbook 使用 [Get-AutomationVariable](https://msdn.microsoft.com/library/dn940012.aspx) 和 [Get-AutomationPSCredential](https://msdn.microsoft.com/library/dn940015.aspx) 活動來擷取它們。
+无法使用 cmdlet 检索已加密变量或凭据密码字段的值。  如果您不知道這些值，則可從 Runbook 使用 [Get-AutomationVariable](/previous-versions/azure/dn940012(v=azure.100)) 和 [Get-AutomationPSCredential](/previous-versions/azure/dn940015(v=azure.100)) 活動來擷取它們。
 
 您無法從 Azure 自動化匯出憑證。  您必須確定 Azure 外部有任何憑證可供使用。
 
