@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 4223f9ec3bfaeacf7843508b13b5b5d81474311f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: a25418f30225184424011527def468d0d3909563
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195556"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045691"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>建立 Azure Key Vault 的憑證
 
@@ -32,11 +32,14 @@ ms.locfileid: "53195556"
 您可以針對這項工作使用新的或現有的 Azure 資源群組。  前一種方式用於以下的說明。
 
 
+
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
+
 ## <a name="create-the-certificate"></a>建立憑證
 
 編輯並執行下列 Azure Powershell 指令碼，以便在本機資料夾中建立憑證檔案 (.pfx)。  您必須取代下列參數的值：
 
-|  **參數**        |   **說明**                                                               |
+|  **參數**        |   **描述**                                                               |
 |  -------------        |   ---------------                                                               |
 | `$certroopath` | 儲存 .pfx 檔案所在的本機資料夾  |
 | `$location`    | 其中一個 Azure 標準的地理位置  |
@@ -82,7 +85,7 @@ ms.locfileid: "53195556"
 
 將[金鑰保存庫部署範本](./cpp-key-vault-deploy-template.md)的內容複製至本機電腦上的檔案  (在以下的範例指令碼中，此資源是 `C:\certLocation\keyvault.json`)。編輯並執行下列 Azure Powershell 指令碼來建立 Azure Key Vault 執行個體和相關聯的資源群組。  您必須取代下列參數的值：
 
-|  **參數**        |   **說明**                                                               |
+|  **參數**        |   **描述**                                                               |
 |  -------------        |   ---------------                                                               |
 | `$postfix`            | 附加至部署識別碼的任意數字字串                     |
 | `$rgName`             | 要建立的 Azure 資源群組 (RG) 名稱                                        |
@@ -130,7 +133,7 @@ ms.locfileid: "53195556"
         $id = $accountSelected.Id
                               
         Write-Host "User $id Selected"
-        $myobjectId=(Get-AzureRmADUser -Mail $id)[0].Id
+        $myobjectId=(Get-AzADUser -Mail $id)[0].Id
       }
       catch
       {
@@ -181,9 +184,9 @@ ms.locfileid: "53195556"
      Write-Host "-----------------------------------" 
     
     # Create key vault and configure access
-    New-AzureRmResourceGroupDeployment -Name "kvdeploy$postfix" -ResourceGroupName $rgName -TemplateFile $kvTemplateJson -keyVaultName $kvname -tenantId $mytenantId -objectId $myobjectId
+    New-AzResourceGroupDeployment -Name "kvdeploy$postfix" -ResourceGroupName $rgName -TemplateFile $kvTemplateJson -keyVaultName $kvname -tenantId $mytenantId -objectId $myobjectId
     
-    Set-AzureRmKeyVaultAccessPolicy -VaultName $kvname -ObjectId $myobjectId -PermissionsToKeys all -PermissionsToSecrets all 
+    Set-AzKeyVaultAccessPolicy -VaultName $kvname -ObjectId $myobjectId -PermissionsToKeys all -PermissionsToSecrets all 
         
 ```
 

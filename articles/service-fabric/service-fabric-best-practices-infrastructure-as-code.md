@@ -14,18 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 2a4c3adb39ebf6e58770348eccc8c78e8ff92167
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 9224ecebed35a631514c5254703ad2694675d40e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804462"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049615"
 ---
 # <a name="infrastructure-as-code"></a>基礎結構即程式碼
 
 在生產案例中，使用 Resource Manager 範本建立 Azure Service Fabric 叢集。 Resource Manager 範本可提供更好的資源屬性控制，並可確保您擁有一致的資源模型。
 
 您可以在 [GitHub 上的 Azure 範例](https://github.com/Azure-Samples/service-fabric-cluster-templates)中取得可供 Windows 和 Linux 使用的 Resource Manager 範本範例。 這些範本可以用作叢集範本的起點。 下載 `azuredeploy.json` 和 `azuredeploy.parameters.json`，並編輯它們以符合您的自訂需求。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 若要部署您在上面下載的 `azuredeploy.json` 和 `azuredeploy.parameters.json` 範例，請使用下列 Azure CLI 命令：
 
@@ -45,8 +47,8 @@ $Location="westus"
 $Template="azuredeploy.json"
 $Parameters="azuredeploy.parameters.json"
 
-New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
-New-AzureRmResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -TemplateParameterFile $Parameters
+New-AzResourceGroup -Name $ResourceGroupName -Location $Location
+New-AzResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -TemplateParameterFile $Parameters
 ```
 
 ## <a name="azure-service-fabric-resources"></a>Azure Service Fabric 資源

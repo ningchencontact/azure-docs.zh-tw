@@ -14,28 +14,30 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
 ms.author: aljo
-ms.openlocfilehash: 2bde95b744ac136e8ba5c0517e0f749a6dce8a1e
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 193a24aebff8f7de60752e53bbc1b18dd5c54f33
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805268"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051751"
 ---
 # <a name="remove-a-service-fabric-node-type"></a>移除 Service Fabric 節點類型
 此文章說明如何透過將現有的節點類型從叢集移除，來調整 Azure Service Fabric 叢集的規模。 Service Fabric 叢集是一組由網路連接的虛擬或實體機器，可用來將您的微服務部署到其中並進行管理。 屬於叢集一部分的機器或 VM 都稱為節點。 虛擬機器擴展集是一個 Azure 計算資源，可以用來將一組虛擬機器當做一個集合加以部署和管理。 在 Azure 叢集中定義的每個節點類型，會[設定為不同的擴展集](service-fabric-cluster-nodetypes.md)。 隨後，您即可個別管理每個節點類型。 建立 Service Fabric 叢集之後，您可以透過移除節點類型 (虛擬機器擴展集) 與其所有節點，來水平調整叢集規模。  您可以隨時調整叢集，即使正在叢集上執行工作負載，也是如此。  在叢集進行調整時，您的應用程式也會自動調整。
 
-使用 [Remove-AzureRmServiceFabricNodeType](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/remove-azurermservicefabricnodetype) 移除Service Fabric 節點類型。
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-呼叫 Remove-AzureRmServiceFabricNodeType 時，會發生三個作業：
+使用[移除 AzServiceFabricNodeType](https://docs.microsoft.com/powershell/module/az.servicefabric/remove-azservicefabricnodetype)移除 Service Fabric 節點類型。
+
+移除 AzServiceFabricNodeType 呼叫時，發生的三個作業為：
 1.  刪除節點類型後的虛擬機器擴展集。
 2.  從叢集移除節點類型。
 3.  針對該節點類型內的所有節點，從系統移除該節點的整體狀態。 如果該節點上有服務，則服務會先移出至另一個節點。 如果叢集管理員找不到複本/服務的節點，則作業會延遲/封鎖。
 
 > [!WARNING]
-> 不建議經常使用 Remove-AzureRmServiceFabricNodeType 從生產環境叢集移除節點類型。 它是非常危險的命令，因為它會刪除節點類型後的虛擬機器擴展集資源。 
+> 移除 AzServiceFabricNodeType 從生產環境叢集中移除節點類型不是建議使用頻繁地使用。 它是非常危險的命令，因為它會刪除節點類型後的虛擬機器擴展集資源。 
 
 ## <a name="durability-characteristics"></a>持久性特性
-使用 Remove-AzureRmServiceFabricNodeType 時，安全性會優於速度。 節點類型必須是銀級或金級[持久性層級](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster)，因為：
+使用移除 AzServiceFabricNodeType 時，會安全優先於速度。 節點類型必須是銀級或金級[持久性層級](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster)，因為：
 - 銅級不提供關於儲存狀態資訊的任何保證。
 - 銀級和金級持久性可以攔截對擴展集的任何變更。
 - 金級也可提供您對擴展集下 Azure 更新的控制。
@@ -48,14 +50,14 @@ Service Fabric 會「協調」基礎結構變更和更新，如此資料就不�
 
 ## <a name="recommended-node-type-removal-process"></a>建議的節點類型移除程序
 
-若要移除節點類型，請執行 [Remove-AzureRmServiceFabricNodeType](/powershell/module/azurerm.servicefabric/remove-azurermservicefabricnodetype) Cmdlet。  這個 Cmdlet 需要一些時間才能完成。  接著，在每個您要移除的節點上執行 [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps)。
+若要移除的節點類型，請執行[移除 AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) cmdlet。  這個 Cmdlet 需要一些時間才能完成。  接著，在每個您要移除的節點上執行 [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps)。
 
 ```powershell
 $groupname = "mynodetype"
 $nodetype = "nt2vm"
 $clustername = "mytestcluster"
 
-Remove-AzureRmServiceFabricNodeType -Name $clustername  -NodeType $nodetype -ResourceGroupName $groupname
+Remove-AzServiceFabricNodeType -Name $clustername  -NodeType $nodetype -ResourceGroupName $groupname
 
 Connect-ServiceFabricCluster -ConnectionEndpoint mytestcluster.eastus.cloudapp.azure.com:19000 `
           -KeepAliveIntervalInSec 10 `

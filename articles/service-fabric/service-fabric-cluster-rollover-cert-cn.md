@@ -14,15 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: aljo
-ms.openlocfilehash: e60eb33403b9c38972087706b9e62bc3578b97bb
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: dd4b6026772a20c522532e1ba65c6846addfa161
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663871"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046354"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>手動變換 Service Fabric 叢集憑證
 當 Service Fabric 叢集憑證即將到期時，您需要更新憑證。  只要叢集已[設定為使用基於通用名稱的憑證](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (而非指紋)，變換憑證將會是一件很簡單的事。  向憑證授權單位索取新到期日的新憑證。  自我簽署的憑證不支援生產 Service Fabric 叢集包含在 Azure 入口網站的叢集建立工作流程期間所產生的憑證。 新憑證的通用名稱必須與舊憑證相同。 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 主機上安裝了多個驗證憑證時，Service Fabric 叢集會自動使用具有未來到期日的宣告憑證。 最佳做法是使用 Resource Manager 範本來佈建 Azure 資源。 在非生產環境中，可以使用以下指令碼將新憑證上傳到金鑰保存庫，然後將憑證安裝於虛擬機器擴展集： 
 
@@ -32,7 +34,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 $SubscriptionId  =  <subscription ID>
 
 # Sign in to your Azure account and select your subscription
-Login-AzureRmAccount -SubscriptionId $SubscriptionId
+Login-AzAccount -SubscriptionId $SubscriptionId
 
 $region = "southcentralus"
 $KeyVaultResourceGroupName  = "keyvaultgroup"
@@ -44,10 +46,10 @@ $VmssResourceGroupName     = "sfclustertutorialgroup"
 $VmssName                  = "prnninnxj"
 
 # Create new Resource Group 
-New-AzureRmResourceGroup -Name $KeyVaultResourceGroupName -Location $region
+New-AzResourceGroup -Name $KeyVaultResourceGroupName -Location $region
 
 # Get the key vault.  The key vault must be enabled for deployment.
-$keyVault = Get-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName 
+$keyVault = Get-AzKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName 
 $resourceId = $keyVault.ResourceId  
 
 # Add the certificate to the key vault.
@@ -67,16 +69,16 @@ Write-Host "Common Name              :"  $CommName
 Set-StrictMode -Version 3
 $ErrorActionPreference = "Stop"
 
-$certConfig = New-AzureRmVmssVaultCertificateConfig -CertificateUrl $CertificateURL -CertificateStore "My"
+$certConfig = New-AzVmssVaultCertificateConfig -CertificateUrl $CertificateURL -CertificateStore "My"
 
 # Get current VM scale set 
-$vmss = Get-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -VMScaleSetName $VmssName
+$vmss = Get-AzVmss -ResourceGroupName $VmssResourceGroupName -VMScaleSetName $VmssName
 
 # Add new secret to the VM scale set.
-$vmss = Add-AzureRmVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $SourceVault -VaultCertificate $certConfig
+$vmss = Add-AzVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $SourceVault -VaultCertificate $certConfig
 
 # Update the VM scale set 
-Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -VirtualMachineScaleSet $vmss  -Verbose
+Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -VirtualMachineScaleSet $vmss  -Verbose
 ```
 
 >[!NOTE]
@@ -84,5 +86,5 @@ Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -Vi
 
 若要深入了解，請閱讀以下文章：
 * 了解[叢集安全性](service-fabric-cluster-security.md)。
-* [更新及管理叢集憑證](service-fabric-cluster-security-update-certs-azure.md)
+* [更新和管理叢集憑證](service-fabric-cluster-security-update-certs-azure.md)
 

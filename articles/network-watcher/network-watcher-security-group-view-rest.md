@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 77519c57c9a603ae0eff46d248ff15432d0404fa
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a2f55a65d88b499384fc961c3d6a479bac804ba8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485385"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051524"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>使用 REST API，利用安全性群組檢視分析虛擬機器的安全性
 
@@ -29,6 +29,9 @@ ms.locfileid: "58485385"
 > - [REST API](network-watcher-security-group-view-rest.md)
 
 安全性群組檢視會傳回套用至虛擬機器之已設定且有效的網路安全性規則。 這項功能可用來稽核及診斷 VM 所設定的網路安全性群組和規則，以確保會正確允許或拒絕流量。 在本文中，我們會說明如何使用 REST API 來擷取有效且已套用至虛擬機器的安全性規則
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -50,7 +53,7 @@ armclient login
 
 執行下列程式碼以傳回虛擬機器。下列程式碼需要變數︰
 
-- **subscriptionId** - 也可使用 **Get-AzureRMSubscription** Cmdlet 來擷取訂用帳戶識別碼。
+- **subscriptionId** -也可以使用擷取訂用帳戶 id **Get AzSubscription** cmdlet。
 - **resourceGroupName** - 包含虛擬機器的資源群組名稱。
 
 ```powershell

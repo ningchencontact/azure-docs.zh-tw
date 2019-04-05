@@ -14,18 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: aljo
-ms.openlocfilehash: 526e70fe8548b23f08a2c85e8a59bdc2c25199b4
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d95d2802398a61b948ff6c59fb3eab0e1ddddbc5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660919"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051660"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>開啟 Service Fabric 叢集的連接埠
 
 此負載平衡器會隨 Azure Service Fabric 叢集一起部署，以將流量導向至節點上所執行的應用程式。 如果您變更應用程式以使用不同的連接埠，您必須在 Azure Load Balancer 中公開該連接埠 (或路由不同的連接埠)。
 
 當您將 Service Fabric 叢集部署至 Azure 時，系統會自動為您建立負載平衡器。 如果您沒有負載平衡器，請參閱[設定網際網路面向的負載平衡器](../load-balancer/load-balancer-get-started-internet-portal.md)。
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configure-service-fabric"></a>設定 Service Fabric
 
@@ -82,14 +85,14 @@ PowerShell 比 Azure CLI 稍微複雜一點。 請遵循這些概念步驟來建
 >[!NOTE]
 >如果您需要決定負載平衡器的名稱，請使用此命令，以便快速取得一份所有負載平衡器和相關聯資源群組的清單。
 >
->`Get-AzureRmLoadBalancer | Select Name, ResourceGroupName`
+>`Get-AzLoadBalancer | Select Name, ResourceGroupName`
 
 ```powershell
 # Get the load balancer
-$lb = Get-AzureRmLoadBalancer -Name LB-svcfab3 -ResourceGroupName svcfab_cli
+$lb = Get-AzLoadBalancer -Name LB-svcfab3 -ResourceGroupName svcfab_cli
 
 # Create the rule based on information from the load balancer.
-$lbrule = New-AzureRmLoadBalancerRuleConfig -Name my-app-rule7 -Protocol Tcp -FrontendPort 39990 -BackendPort 40009 `
+$lbrule = New-AzLoadBalancerRuleConfig -Name my-app-rule7 -Protocol Tcp -FrontendPort 39990 -BackendPort 40009 `
                                             -FrontendIpConfiguration $lb.FrontendIpConfigurations[0] `
                                             -BackendAddressPool  $lb.BackendAddressPools[0] `
                                             -Probe $lb.Probes[0]
@@ -98,14 +101,14 @@ $lbrule = New-AzureRmLoadBalancerRuleConfig -Name my-app-rule7 -Protocol Tcp -Fr
 $lb.LoadBalancingRules.Add($lbrule)
 
 # Update the load balancer on Azure
-$lb | Set-AzureRmLoadBalancer
+$lb | Set-AzLoadBalancer
 ```
 
-至於 `New-AzureRmLoadBalancerRuleConfig` 命令，`-FrontendPort` 代表負載平衡器公開給外部連線的連接埠，而 `-BackendPort` 代表 Service Fabric 應用程式正在接聽的連接埠。
+至於 `New-AzLoadBalancerRuleConfig` 命令，`-FrontendPort` 代表負載平衡器公開給外部連線的連接埠，而 `-BackendPort` 代表 Service Fabric 應用程式正在接聽的連接埠。
 
 >[!NOTE]
 >如需如何使用 PowerShell 建立負載平衡器的詳細資訊，請參閱[使用 PowerShell 建立負載平衡器](../load-balancer/load-balancer-get-started-internet-arm-ps.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解 [Service Fabric 中的網路功能](service-fabric-patterns-networking.md)。
+深入了解[Service Fabric 中的網路功能](service-fabric-patterns-networking.md).rvice 網狀架構模式-networking.md)。

@@ -11,16 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 2b480df0100690a7a5064044d435a34845516fa6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2ce2e2b35d731c3edfed931d158b420e66ed5620
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442098"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045742"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>使用 PowerShell 管理流量管理員
 
 Azure Resource Manager 是 Azure 中的首选服务管理接口。 您可以使用以 Azure Resource Manager 為基礎的 API 和工具來管理 Azure 流量管理員設定檔。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="resource-model"></a>資源模型
 
@@ -253,10 +255,10 @@ Set-AzTrafficManagerEndpoint -TrafficManagerEndpoint $endpoint
 
 ### <a name="example-1-enabling-and-disabling-a-traffic-manager-profile"></a>範例 1：啟用和停用流量管理員設定檔
 
-若要啟用流量管理員設定檔，請使用 `Enable-AzureRmTrafficManagerProfile`。 您可以使用設定檔物件來指定設定檔。 您可以透過管線或使用 '-TrafficManagerProfile' 參數傳遞設定檔物件。 在此範例中，我們會以設定檔和資源群組名稱來指定設定檔。
+若要啟用流量管理員設定檔，請使用 `Enable-AzTrafficManagerProfile`。 您可以使用設定檔物件來指定設定檔。 您可以透過管線或使用 '-TrafficManagerProfile' 參數傳遞設定檔物件。 在此範例中，我們會以設定檔和資源群組名稱來指定設定檔。
 
 ```powershell
-Enable-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
+Enable-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
 ```
 
 若要停用流量管理員設定檔：
@@ -269,13 +271,13 @@ Disable-AzTrafficManagerProfile Cmdlet 會提示您確認。 使用 '-Force' 參
 
 ### <a name="example-2-enabling-and-disabling-a-traffic-manager-endpoint"></a>範例 2：啟用和停用流量管理員端點
 
-若要啟用流量管理員端點，請使用 `Enable-AzureRmTrafficManagerEndpoint`。 有兩種方式可指定端點
+若要啟用流量管理員端點，請使用 `Enable-AzTrafficManagerEndpoint`。 有兩種方式可指定端點
 
 1. 使用透過管線或利用 '-TrafficManagerEndpoint' 參數傳遞的 TrafficManagerEndpoint 物件
 2. 使用端點名稱、端點類型、設定檔名稱和資源群組名稱︰
 
 ```powershell
-Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
+Enable-AzTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
 ```
 
 同樣地，若要停用流量管理員端點：
@@ -323,4 +325,4 @@ Get-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG | Remove-AzT
 
 [流量管理員監視](traffic-manager-monitoring.md)
 
-[流量管理器性能注意事项](traffic-manager-performance-considerations.md)
+[流量管理員效能考量](traffic-manager-performance-considerations.md)

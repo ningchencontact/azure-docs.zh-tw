@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/18/2019
 ms.author: raynew
-ms.openlocfilehash: 018368d28dd34787046ae655a98527aede28603f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 231533f9609a4cf8cc11bedf88aafdfd37d1cb7e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313363"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050113"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery：常見問題集 (FAQ)
 本文摘要說明 Azure Site Recovery 的相關常見問題的解答。 
@@ -36,9 +36,9 @@ Site Recovery 可協調並自動執行區域、內部部署虛擬機器和實體
 ### <a name="what-do-i-need-in-hyper-v-to-orchestrate-replication-with-site-recovery"></a>在 Hyper-V 中，我需要什麼，才能使用 Site Recovery 來協調複寫？
 對於 Hyper-V 主機伺服器，您的需求視部署案例而定。 請查看下列主題中的 Hyper-V 先決條件：
 
-* [將 Hyper-V VM (不使用 VMM) 複寫至 Azure](site-recovery-hyper-v-site-to-azure.md)
-* [將 Hyper-V VM (使用 VMM) 複寫至 Azure](site-recovery-vmm-to-azure.md)
-* [將 Hyper-V VM 複寫至次要資料中心](site-recovery-vmm-to-vmm.md)
+* [將 HYPER-V Vm （不含 VMM) 複寫至 Azure](site-recovery-hyper-v-site-to-azure.md)
+* [將 HYPER-V Vm （含 VMM) 複寫至 Azure](site-recovery-vmm-to-azure.md)
+* [將 HYPER-V Vm 複寫至次要資料中心](site-recovery-vmm-to-vmm.md)
 * 如果您要複寫至次要資料中心，請參閱 [支援的 Hyper-V VM 客體作業系統](https://technet.microsoft.com/library/mt126277.aspx)。
 * 如果是覆寫至 Azure，則 Site Recovery 支援 [Azure 支援的](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx)所有客體作業系統。
 
@@ -107,9 +107,9 @@ Azure Site Recovery 會透過公用端點，將資料複寫至 Azure 儲存體�
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>我是否可以透過 SDK 自動化 Site Recovery 案例？
 是。 您可以使用 Rest API、PowerShell 或 Azure SDK 將 Site Recovery 的工作流程自動化。 針對使用 PowerShell 來部署 Site Recovery，目前支援的案例包括︰
 
-* [將 VMM 雲端中的 Hyper-V VM 複寫至 Azure PowerShell Resource Manager](hyper-v-vmm-powershell-resource-manager.md)
-* [將不使用 VMM 的 Hyper-V VM 複寫至 Azure PowerShell Resource Manager](hyper-v-azure-powershell-resource-manager.md)
-* [使用 PowerShell Resource Manager 將 VMware 複寫至 Azure](vmware-azure-disaster-recovery-powershell.md)
+* [將 Vmm 雲端中的 HYPER-V Vm 複寫至 Azure PowerShell Resource Manager](hyper-v-vmm-powershell-resource-manager.md)
+* [將不含 VMM 的 HYPER-V Vm 複寫至 Azure PowerShell Resource Manager](hyper-v-azure-powershell-resource-manager.md)
+* [將 VMware 複寫至 Azure 中搭配 PowerShell Resource Manager](vmware-azure-disaster-recovery-powershell.md)
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-or-managed-disk-do-i-need"></a>如果我複寫至 Azure，我需要哪種儲存體帳戶或受控的磁碟？
 您需要 LRS 或 GRS 儲存體。 我們建議使用 GRS，以便在發生區域性停電或無法復原主要區域時，能夠恢復資料。 此帳戶必須位於與復原服務保存庫相同的區域中。 當您在 Azure 入口網站部署 Site Recovery 時，進階儲存體支援 VMware VM、Hyper-V VM 和實體伺服器複寫。 受控的磁碟只支援 LRS。
@@ -138,22 +138,22 @@ Azure Site Recovery 會透過公用端點，將資料複寫至 Azure 儲存體�
 ### <a name="can-i-throttle-bandwidth-allotted-for-hyper-v-replication-traffic"></a>可以限制针对 Hyper-V 复制流量分配的带宽吗？
 是。 您可以從部署文章深入了解如何將頻寬節流︰
 
-* [適用於複寫 VMware VM 和實體伺服器的容量規劃](site-recovery-plan-capacity-vmware.md)
-* [適用於將 Hyper-V VM 複寫至 Azure 的容量規劃](site-recovery-capacity-planning-for-hyper-v-replication.md)
+* [將 VMware Vm 和實體伺服器複寫的容量規劃](site-recovery-plan-capacity-vmware.md)
+* [容量規劃 HYPER-V Vm 複寫至 Azure](site-recovery-capacity-planning-for-hyper-v-replication.md)
 
 ## <a name="failover"></a>容錯移轉
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-virtual-machines-after-failover"></a>如果容錯移轉到 Azure，在容錯移轉之後，我要如何存取存取 Azure 虛擬機器？
 您可以透過安全的網際網路連線、透過站台對站台 VPN 或透過 Azure ExpressRoute 存取 Azure VM。 您必須做好一些準備才能連線。 [深入了解](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
 
 
-### <a name="if-i-fail-over-to-azure-how-does-azure-make-sure-my-data-is-resilient"></a>如果故障转移到 Azure，Azure 如何确保我的数据可恢复？
+### <a name="if-i-fail-over-to-azure-how-does-azure-make-sure-my-data-is-resilient"></a>如果我容錯移轉到 Azure，Azure 如何確定我的資料具有復原能力？
 Azure 是針對復原能力而設計的。 Site Recovery 已經設計成可根據 Azure SLA，在需要時容錯移轉至次要 Azure 資料中心。 如果發生這種情況，我們會確保您的中繼資料和保存庫都保留在您為保存庫選擇的相同地理區域中。  
 
 ### <a name="if-im-replicating-between-two-datacenters-what-happens-if-my-primary-datacenter-experiences-an-unexpected-outage"></a>如果在两个数据中心之间进行复制，当我的主数据中心发生意外的服务中断时，会出现什么情况？
 您可以從次要站台觸發非計劃性容錯移轉。 Site Recovery 不需要來自主要站台的連線即可執行容錯移轉。
 
 ### <a name="is-failover-automatic"></a>容錯移轉是自動發生的嗎？
-容錯移轉並非自動發生。 您可以在入口網站中按一下某個按鈕來起始容錯移轉，或是使用 [Site Recovery PowerShell](/powershell/module/azurerm.siterecovery) 來觸發容錯移轉。 容錯回復在 Site Recovery 入口網站中是一個簡單的動作。
+容錯移轉並非自動發生。 您可以在入口網站中按一下某個按鈕來起始容錯移轉，或是使用 [Site Recovery PowerShell](/powershell/module/az.recoveryservices) 來觸發容錯移轉。 容錯回復在 Site Recovery 入口網站中是一個簡單的動作。
 
 若要進行自動化，您可以使用內部部署 Orchestrator 或 Operations Manager 來偵測虛擬機器失敗，然後使用 SDK 來觸發容錯移轉。
 
@@ -164,8 +164,8 @@ Azure 是針對復原能力而設計的。 Site Recovery 已經設計成可根�
 ### <a name="if-my-on-premises-host-is-not-responding-or-crashed-can-i-failover-back-to-a-different-host"></a>如果我的內部部署主機沒有回應或當機，我是否能針對不同的主機進行容錯回復？
 是，您可以使用替代位置復原從 Azure 針對不同的主機進行容錯回復。 請參閱下列關於 VMware 和 Hyper-V 虛擬機器的連結，深入了解各種選項。
 
-* [針對 VMware 虛擬機器](concepts-types-of-failback.md#alternate-location-recovery-alr)
-* [針對 Hyper-V 虛擬機器](hyper-v-azure-failback.md#perform-failback)
+* [適用於 VMware 虛擬機器](concepts-types-of-failback.md#alternate-location-recovery-alr)
+* [適用於 HYPER-V 虛擬機器](hyper-v-azure-failback.md#perform-failback)
 
 ## <a name="service-providers"></a>服務提供者
 ### <a name="im-a-service-provider-does-site-recovery-work-for-dedicated-and-shared-infrastructure-models"></a>我是服务提供商。 Site Recovery 是否適用於專用和共用基礎結構模型？

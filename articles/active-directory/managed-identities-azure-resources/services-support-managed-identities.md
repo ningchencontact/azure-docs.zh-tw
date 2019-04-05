@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5592ee7f3c4b5f55785100ceff09659aa437cb6
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d524f5f58e7381dd89f36c5d2821e6911ed9ec15
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578572"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045452"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>支援適用於 Azure 資源的受控識別服務
 
@@ -177,7 +177,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 | Azure Germany |  `https://vault.microsoftazure.de` | 可用 |
 | Azure China 21Vianet | `https://vault.azure.cn` | 可用 |
 
-## <a name="azure-data-lake"></a>Azure Data Lake 
+### <a name="azure-data-lake"></a>Azure Data Lake 
 
 | 雲端 | 資源識別碼 | 狀態 |
 |--------|------------|--------|
@@ -186,7 +186,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 | Azure Germany |   | 無法使用 |
 | Azure China 21Vianet |  | 無法使用 |
 
-## <a name="azure-sql"></a>Azure SQL 
+### <a name="azure-sql"></a>Azure SQL 
 
 | 雲端 | 資源識別碼 | 狀態 |
 |--------|------------|--------|
@@ -195,7 +195,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 | Azure Germany | `https://database.cloudapi.de/` | 可用 |
 | Azure China 21Vianet | `https://database.chinacloudapi.cn/` | 可用 |
 
-## <a name="azure-event-hubs"></a>Azure 事件中心
+### <a name="azure-event-hubs"></a>Azure 事件中心
 
 | 雲端 | 資源識別碼 | 狀態 |
 |--------|------------|--------|
@@ -204,7 +204,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 | Azure Germany |   | 無法使用 |
 | Azure China 21Vianet |  | 無法使用 |
 
-## <a name="azure-service-bus"></a>Azure 服務匯流排
+### <a name="azure-service-bus"></a>Azure 服務匯流排
 
 | 雲端 | 資源識別碼 | 狀態 |
 |--------|------------|--------|
@@ -213,7 +213,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 | Azure Germany |   | 無法使用 |
 | Azure China 21Vianet |  | 無法使用 |
 
-## <a name="azure-storage"></a>Azure 儲存體
+### <a name="azure-storage"></a>Azure 儲存體
 
 | 雲端 | 資源識別碼 | 狀態 |
 |--------|------------|--------|

@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 227ea446a75c167be27128b15de1d3c216e6856d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: HT
+ms.openlocfilehash: 3d35860452aabb6aecc4e8549c7b5ce4447d7aa4
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363371"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047665"
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>使用 Azure 網路監看員安全性群組檢視自動化 NSG 稽核
 
 客戶通常面臨難以驗證其基礎結構的安全性狀態之挑戰。 這項挑戰在其 Azure 中的 VM 沒有不同。 請務必根據套用的網路安全性群組 (NSG) 規則，具有類似的安全性設定檔。 您現在可以使用安全性群組檢視，取得套用到 NSG 中 VM 的規則清單。 您可以每週頻率定義黃金 NSG 安全性設定檔並起始安全性群組檢視，並比較輸出與標準設定檔且建立報告。 如此一來，您可以輕鬆識別不符合指定安全性設定檔規定的所有 VM。
 
 如果您不熟悉網路安全性群組，請參閱[網路安全性概觀](../virtual-network/security-overview.md)。
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -46,7 +49,7 @@ ms.locfileid: "34363371"
 
 ## <a name="retrieve-rule-set"></a>擷取規則集
 
-此範例中的第一個步驟是使用現有的基準。 下列範例是使用此範例中用作為基準的 `Get-AzureRmNetworkSecurityGroup` cmdlet，擷取自現有網路安全性小組的某些 JSON。
+此範例中的第一個步驟是使用現有的基準。 下列範例是使用此範例中用作為基準的 `Get-AzNetworkSecurityGroup` cmdlet，擷取自現有網路安全性小組的某些 JSON。
 
 ```json
 [
@@ -123,19 +126,19 @@ $nsgbaserules = Get-Content -Path C:\temp\testvm1-nsg.json | ConvertFrom-Json
 
 ## <a name="retrieve-network-watcher"></a>擷取網路監看員
 
-下一步是擷取網路監看員執行個體。 `$networkWatcher` 變數會傳遞至 `AzureRmNetworkWatcherSecurityGroupView` Cmdlet。
+下一步是擷取網路監看員執行個體。 `$networkWatcher` 變數會傳遞至 `AzNetworkWatcherSecurityGroupView` Cmdlet。
 
 ```powershell
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName 
+$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
+$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName 
 ```
 
 ## <a name="get-a-vm"></a>取得 VM
 
-必須有虛擬機器才能執行 `Get-AzureRmNetworkWatcherSecurityGroupView` Cmdlet。 下列範例會取得 VM 物件。
+必須有虛擬機器才能執行 `Get-AzNetworkWatcherSecurityGroupView` Cmdlet。 下列範例會取得 VM 物件。
 
 ```powershell
-$VM = Get-AzurermVM -ResourceGroupName "testrg" -Name "testvm1"
+$VM = Get-AzVM -ResourceGroupName "testrg" -Name "testvm1"
 ```
 
 ## <a name="retrieve-security-group-view"></a>擷取安全性群組檢視
@@ -143,7 +146,7 @@ $VM = Get-AzurermVM -ResourceGroupName "testrg" -Name "testvm1"
 下一步是擷取安全性群組檢視的結果。 此結果會與稍早顯示的「基準」JSON 相比較。
 
 ```powershell
-$secgroup = Get-AzureRmNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
+$secgroup = Get-AzNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
 ```
 
 ## <a name="analyzing-the-results"></a>分析結果

@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.openlocfilehash: e3757e94dcd8ccc39613b9a6fff8bf491812866a
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224192"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044975"
 ---
 # <a name="create-apache-hadoop-clusters-in-hdinsight-by-using-resource-manager-templates"></a>使用 Resource Manager 範本在 HDInsight 中建立 Apache Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "58224192"
 * Azure PowerShell 和/或 Azure 傳統 CLI。
 
 ### <a name="resource-manager-templates"></a>Resource Manager 範本
-Resource Manager 範本可讓您輕鬆地在單一、 協調的作業中建立您的應用程式的下列資源：
+通过资源管理器模板，可轻松地通过单个协调操作为应用程序创建以下资源：
 * HDInsight 叢集及其相依資源 (例如，預設儲存體帳戶)。
 * 其他資源 (例如，使用 [Apache Sqoop](https://sqoop.apache.org/) \(英文\) 的 Azure SQL Database)。
 
@@ -40,8 +40,8 @@ Resource Manager 範本可讓您輕鬆地在單一、 協調的作業中建立�
 
 如需 Resource Manager 範本的詳細資訊，請參閱下列文章和範例：
 
-* [編寫 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)
-* [使用 Azure Resource Manager 範本部署應用程式](../azure-resource-manager/resource-group-template-deploy.md)
+* [製作 Azure Resource Manager 範本](../azure-resource-manager/resource-group-authoring-templates.md)
+* [部署 Azure Resource Manager 範本的應用程式](../azure-resource-manager/resource-group-template-deploy.md)
 * [Microsoft.HDInsight/clusters](/azure/templates/microsoft.hdinsight/allversions) 範本參考
 * [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Hdinsight&pageNumber=1&sort=Popular)
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 5d1b2718b360a55d9b1510bcfcb2ddb6492e2830
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e2ffda3141462d19557af3af26c117ee505c40ab
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436743"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047342"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>暫止及重新啟動傳訊實體 (停用)
 
@@ -34,6 +34,8 @@ ms.locfileid: "57436743"
 
 入口網站只允許完全停止佇列。 您也可以使用 .NET Framework SDK 中的服務匯流排 [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API 分別停用傳送和接收作業，或是透過 Azure CLI 或 Azure PowerShell 使用 Azure Resource Manager 範本來達成。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="suspension-states"></a>暫止狀態
 
 可以為佇列設定的狀態為：
@@ -48,11 +50,11 @@ ms.locfileid: "57436743"
 [EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) 列舉另定義一組只能由系統設定的可轉換狀態。 以下範例展示停用佇列的 PowerShell 命令。 重新啟動命令與前述相同，它會將 `Status` 設定為 **Active**。
 
 ```powershell
-$q = Get-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue
+$q = Get-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue
 
 $q.Status = "Disabled"
 
-Set-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue -QueueObj $q
+Set-AzServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue -QueueObj $q
 ```
 
 ## <a name="next-steps"></a>後續步驟

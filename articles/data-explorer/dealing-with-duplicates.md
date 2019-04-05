@@ -1,21 +1,20 @@
 ---
-title: 處理資料重複
-description: 本主題將說明處理重複資料的各種方式
-services: data-explorer
+title: 處理 Azure 資料總管 中的重複資料
+description: 本主題將說明各種方法來處理具有重複資料時使用 Azure 的資料。
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 7a9ccd5139168393019a70aafb9b7b705ca25919
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 8f55b6dfb7b5bc9eda675aca4ed80a66b8a25a7f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756363"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045776"
 ---
-# <a name="deal-with-duplicate-data"></a>處理資料重複
+# <a name="handle-duplicate-data-in-azure-data-explorer"></a>處理 Azure 資料總管 中的重複資料
 
 將資料傳送至雲端的裝置會維持資料的本機快取。 根據資料大小，本機快取可能會將資料儲存數天或甚至數個月。 您想要保護分析資料庫，以免受到會重新傳送快取資料並造成分析資料庫中資料重複的故障裝置影響。 本主題概述處理這幾種情況下重複資料的最佳做法。
 
@@ -123,4 +122,4 @@ DeviceEventsAll
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [撰寫 Azure 資料總管的查詢](write-queries.md)
+> [撰寫 Azure 資料總管查詢](write-queries.md)

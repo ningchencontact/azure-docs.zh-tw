@@ -8,16 +8,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: asgang
-ms.openlocfilehash: b378f77874b1ebef243836c101fa71a53f4775d1
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 1c278d810df7e5ba8701529a59987c9bb16fa40c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517737"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044109"
 ---
 # <a name="exclude-disks-from-replication-of-azure-vms-to-azure-using-azure-powershell"></a>使用 Azure PowerShell 將 Azure VM 複寫的磁碟排除至 Azure
 
 本文說明如何在複寫 Azure VM 時排除磁碟。 這種排除可以最佳化已使用的複寫頻寬，或最佳化此類磁碟使用的目標端資源。 這項功能目前只透過 Azure PowerShell 公開。
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -25,8 +28,8 @@ ms.locfileid: "58517737"
 
 - 請確定您了解[情節架構和元件](azure-to-azure-architecture.md)。
 - 檢閱所有元件的[支援需求](azure-to-azure-support-matrix.md)。
-- 您有 AzureRm PowerShell 模組的 5.7.0 版或更高版本。 如果您需要安裝或升級 Azure PowerShell，請按照此[安裝和設定 Azure PowerShell 指南](/powershell/azureps-cmdlets-docs)的說明。
-- 您已建立復原服務保存庫，並至少完成保護虛擬機器一次。 如果沒有，請按照[此處](azure-to-azure-powershell.md)提到的文件 
+- 您有 Azure PowerShell`Az`模組。 如果您需要安裝或升級 Azure PowerShell，請按照此[安裝和設定 Azure PowerShell 指南](/powershell/azure/install-az-ps)的說明。
+- 您已建立復原服務保存庫，並至少完成保護虛擬機器一次。 如果沒有，即執行使用文件所述[此處](azure-to-azure-powershell.md)。
 
 ## <a name="why-exclude-disks-from-replication"></a>為什麼要排除磁碟不要複寫？
 排除磁碟不要複寫往往是因為︰
@@ -46,7 +49,7 @@ ms.locfileid: "58517737"
 
 ```azurepowershell
 # Get details of the virtual machine
-$VM = Get-AzureRmVM -ResourceGroupName "A2AdemoRG" -Name "AzureDemoVM"
+$VM = Get-AzVM -ResourceGroupName "A2AdemoRG" -Name "AzureDemoVM"
 
 Write-Output $VM     
 ```
@@ -85,7 +88,7 @@ $DataDisk1VhdURI = $VM.StorageProfile.DataDisks[0].Vhd
 ```azurepowershell
 
 #Get the resource group that the virtual machine must be created in when failed over.
-$RecoveryRG = Get-AzureRmResourceGroup -Name "a2ademorecoveryrg" -Location "West US 2"
+$RecoveryRG = Get-AzResourceGroup -Name "a2ademorecoveryrg" -Location "West US 2"
 
 #Specify replication properties for each disk of the VM that is to be replicated (create disk replication configuration)
 
@@ -94,7 +97,7 @@ $OSdiskId =  $vm.StorageProfile.OsDisk.ManagedDisk.Id
 $RecoveryOSDiskAccountType = $vm.StorageProfile.OsDisk.ManagedDisk.StorageAccountType
 $RecoveryReplicaDiskAccountType =  $vm.StorageProfile.OsDisk.ManagedDisk.StorageAccountType
 
-$OSDiskReplicationConfig = New-AzureRmRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $EastUSCacheStorageAccount.Id `
+$OSDiskReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $EastUSCacheStorageAccount.Id `
          -DiskId $OSdiskId -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
          -RecoveryTargetDiskAccountType $RecoveryOSDiskAccountType
 
@@ -105,7 +108,7 @@ $datadiskId2  = $vm.StorageProfile.DataDisks[1].ManagedDisk.id
 $RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[1]. StorageAccountType
 $RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[1]. StorageAccountType
 
-$DataDisk2ReplicationConfig  = New-AzureRmRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $CacheStorageAccount.Id `
+$DataDisk2ReplicationConfig  = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $CacheStorageAccount.Id `
          -DiskId $datadiskId2 -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
          -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType
 
@@ -115,7 +118,7 @@ $datadiskId3  = $vm.StorageProfile.DataDisks[2].ManagedDisk.id
 $RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[2]. StorageAccountType
 $RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[2]. StorageAccountType
 
-$DataDisk3ReplicationConfig  = New-AzureRmRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $CacheStorageAccount.Id `
+$DataDisk3ReplicationConfig  = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $CacheStorageAccount.Id `
          -DiskId $datadiskId3 -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
          -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType
 

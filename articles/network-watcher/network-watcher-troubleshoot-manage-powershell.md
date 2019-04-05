@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 51fb834c0c6a3602ed0edfee6256183eefb2026b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b25ebeadff46ea04c2adf5add6aeb86b751681ad
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889483"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047206"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>使用 Azure 網路監看員 PowerShell 來針對虛擬網路閘道和連線進行疑難排解
 
@@ -30,6 +30,9 @@ ms.locfileid: "57889483"
 > - [REST API](network-watcher-troubleshoot-manage-rest.md)
 
 網路監看員提供了許多功能，因為它的作用就是為了讓您了解您在 Azure 中的網路資源。 這些功能的其中之一便是資源疑難排解。 您可以透過入口網站、PowerShell、CLI 或 REST API 呼叫資源疑難排解。 一經呼叫，網路監看員就會檢查虛擬網路閘道或連線的健全狀況，並傳回其調查結果。
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -43,11 +46,11 @@ ms.locfileid: "57889483"
 
 ## <a name="retrieve-network-watcher"></a>擷取網路監看員
 
-第一步是擷取網路監看員執行個體。 `$networkWatcher`變數會在步驟 4 傳遞至 `Start-AzureRmNetworkWatcherResourceTroubleshooting` Cmdlet。
+第一步是擷取網路監看員執行個體。 `$networkWatcher`變數會在步驟 4 傳遞至 `Start-AzNetworkWatcherResourceTroubleshooting` Cmdlet。
 
 ```powershell
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName 
+$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
+$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName 
 ```
 
 ## <a name="retrieve-a-virtual-network-gateway-connection"></a>擷取虛擬網路閘道連線
@@ -55,7 +58,7 @@ $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $n
 在此範例中，系統會對連線執行資源疑難排解。 您也可以將它傳遞給虛擬網路閘道。
 
 ```powershell
-$connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "2to3" -ResourceGroupName "testrg"
+$connection = Get-AzVirtualNetworkGatewayConnection -Name "2to3" -ResourceGroupName "testrg"
 ```
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶
@@ -63,20 +66,20 @@ $connection = Get-AzureRmVirtualNetworkGatewayConnection -Name "2to3" -ResourceG
 資源疑難排解會傳回資源健全狀況的相關資料，它也會將記錄儲存到儲存體帳戶以供檢閱。 在此步驟中，我們會建立儲存體帳戶，如果已有現有的儲存體帳戶，您也可以使用它。
 
 ```powershell
-$sa = New-AzureRmStorageAccount -Name "contosoexamplesa" -SKU "Standard_LRS" -ResourceGroupName "testrg" -Location "WestCentralUS"
-Set-AzureRmCurrentStorageAccount -ResourceGroupName $sa.ResourceGroupName -Name $sa.StorageAccountName
-$sc = New-AzureStorageContainer -Name logs
+$sa = New-AzStorageAccount -Name "contosoexamplesa" -SKU "Standard_LRS" -ResourceGroupName "testrg" -Location "WestCentralUS"
+Set-AzCurrentStorageAccount -ResourceGroupName $sa.ResourceGroupName -Name $sa.StorageAccountName
+$sc = New-AzStorageContainer -Name logs
 ```
 
 ## <a name="run-network-watcher-resource-troubleshooting"></a>執行網路監看員資源疑難排解
 
-您可以使用 `Start-AzureRmNetworkWatcherResourceTroubleshooting` Cmdlet 對資源進行疑難排解。 我們將網路監看員物件、連線或虛擬網路閘道的識別碼、儲存體帳戶識別碼和用來儲存結果的路徑，傳遞給此 Cmdlet。
+您可以使用 `Start-AzNetworkWatcherResourceTroubleshooting` Cmdlet 對資源進行疑難排解。 我們將網路監看員物件、連線或虛擬網路閘道的識別碼、儲存體帳戶識別碼和用來儲存結果的路徑，傳遞給此 Cmdlet。
 
 > [!NOTE]
-> `Start-AzureRmNetworkWatcherResourceTroubleshooting` Cmdlet 執行時間較長，可能要花幾分鐘才能完成。
+> `Start-AzNetworkWatcherResourceTroubleshooting` Cmdlet 執行時間較長，可能要花幾分鐘才能完成。
 
 ```powershell
-Start-AzureRmNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "$($sa.PrimaryEndpoints.Blob)$($sc.name)"
+Start-AzNetworkWatcherResourceTroubleshooting -NetworkWatcher $networkWatcher -TargetResourceId $connection.Id -StorageId $sa.Id -StoragePath "$($sa.PrimaryEndpoints.Blob)$($sc.name)"
 ```
 
 在執行此 Cmdlet 後，網路監看員會檢閱資源以驗證其健全狀況。 它會將結果傳回殼層，並將結果的記錄儲存在指定的儲存體帳戶中。

@@ -3,29 +3,29 @@ title: Azure IoT 中樞裝置佈建服務的裝置重新佈建概念 | Microsoft
 description: 描述 Azure IoT 中樞裝置佈建服務的裝置重新佈建概念
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/14/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: f52e2a1095c329aabf44a846a644cc05548d4df3
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
-ms.translationtype: HT
+manager: philmea
+ms.openlocfilehash: fa8cb29f145c7658227f93d08a990c98563a0cfc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712274"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050844"
 ---
 # <a name="iot-hub-device-reprovisioning-concepts"></a>IoT 中樞裝置重新佈建概念
 
 在 IoT 解決方案的生命週期中，在 IoT 中樞之間移動裝置是很常見的。 移動原因可能包括下列案例：
 
-* **地理位置/地理延遲**：當裝置在位置之間移動時，可透過將裝置移轉至較近的 IoT 中樞以改善網路延遲。
+* **地理位置/地理延遲**：当设备在两位置之间移动时，通过将设备迁移到更近的 IoT 中心来改善网络延迟。
 
-* **多租用戶**：裝置可能會在相同的 IoT 解決方案內使用，並重新指派給新客戶或客戶網站。 系統可能會使用不同的 IoT 中樞為這個新客戶提供服務。
+* **多租用戶**：可以在同一 IoT 解决方案中使用设备并将其重新分配给新客户或客户站点。 系統可能會使用不同的 IoT 中樞為這個新客戶提供服務。
 
-* **解決方案變更**：裝置可移至新的或已更新的 IoT 解決方案。 此重新指派可能需要裝置與連線至其他後端元件的新 IoT 中樞通訊。
+* **解决方案更改**：可将设备移到新版或更新后的 IoT 解决方案中。 此重新指派可能需要裝置與連線至其他後端元件的新 IoT 中樞通訊。
 
-* **隔離**：類似於解決方案變更。 故障、遭入侵或已過期的裝置可能會重新指派給只能更新，讓裝置再次符合合規性要求的 IoT 中樞。 在裝置正常運作之後，就會移轉回其主要中樞。
+* **隔离**：类似于解决方案更改。 故障、遭入侵或已過期的裝置可能會重新指派給只能更新，讓裝置再次符合合規性要求的 IoT 中樞。 在裝置正常運作之後，就會移轉回其主要中樞。
 
 裝置佈建服務內的重新佈建支援可解決這些需求。 裝置可以根據其註冊項目中設定的重新佈建原則，自動重新指派給新的 IoT 中樞。
 
@@ -51,17 +51,17 @@ ms.locfileid: "51712274"
 
 根據情況，裝置通常會在重新開機時，將要求傳送至佈建服務執行個體。 它也支援依需求手動觸發佈建的方法。 註冊項目上的重新佈建原則會決定裝置佈建服務執行個體如何處理這些佈建要求。 此原則也會決定是否應該在重新佈建期間移轉裝置狀態資料。 相同原則可供個別註冊與註冊群組使用：
 
-* **重新佈建和移轉資料**：此原則為新註冊項目的預設值。 此原則會在與註冊項目關聯的裝置提交新的要求 (1) 時採取動作。 視註冊項目設定而定，裝置可能會重新指派給其他 IoT 中樞。 如果裝置所屬的 IoT 中樞有所變更，將會移除初始 IoT 中樞中的裝置註冊。 該初始 IoT 中樞中已更新的裝置狀態資訊將會移轉至新的 IoT 中樞 (2)。 移轉期間，裝置的狀態將回報為**指派中**。
+* **重新预配并迁移数据**：此策略是新注册项的默认策略。 此原則會在與註冊項目關聯的裝置提交新的要求 (1) 時採取動作。 視註冊項目設定而定，裝置可能會重新指派給其他 IoT 中樞。 如果裝置所屬的 IoT 中樞有所變更，將會移除初始 IoT 中樞中的裝置註冊。 該初始 IoT 中樞中已更新的裝置狀態資訊將會移轉至新的 IoT 中樞 (2)。 移轉期間，裝置的狀態將回報為**指派中**。
 
     ![使用裝置佈建服務佈建](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
 
-* **重新佈建並重設為初始設定**：此原則會在與註冊項目關聯的裝置提交新的佈建要求 (1) 時採取動作。 視註冊項目設定而定，裝置可能會重新指派給其他 IoT 中樞。 如果裝置所屬的 IoT 中樞有所變更，將會移除初始 IoT 中樞中的裝置註冊。 系統會將佈建服務執行個體在佈建裝置時收到的初始設定資料提供給新的 IoT 中樞 (2)。 移轉期間，裝置的狀態將回報為**指派中**。
+* **重新预配并重置为初始配置**：此原則會在與註冊項目關聯的裝置提交新的佈建要求 (1) 時採取動作。 視註冊項目設定而定，裝置可能會重新指派給其他 IoT 中樞。 如果裝置所屬的 IoT 中樞有所變更，將會移除初始 IoT 中樞中的裝置註冊。 系統會將佈建服務執行個體在佈建裝置時收到的初始設定資料提供給新的 IoT 中樞 (2)。 移轉期間，裝置的狀態將回報為**指派中**。
 
     此原則通常會用於在不變更 IoT 中樞的情況下，恢復出廠預設值。
 
     ![使用裝置佈建服務佈建](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
 
-* **永不重新佈建**：裝置永遠不會重新指派給其他中樞。 提供此原則的目的是為了管理回溯相容性。
+* **从不重新预配**：设备从不重新分配到不同的中心。 提供此原則的目的是為了管理回溯相容性。
 
 ### <a name="managing-backwards-compatibility"></a>管理回溯相容性
 
@@ -83,7 +83,7 @@ ms.locfileid: "51712274"
 
 | REST API | C SDK | Python SDK |  Node SDK | Java SDK | .NET SDK |
 | -------- | ----- | ---------- | --------- | -------- | -------- |
-| [2018-04-01 與先前版本](/rest/api/iot-dps/createorupdateindividualenrollment/createorupdateindividualenrollment#uri-parameters) | [1.2.8 與先前版本](https://github.com/Azure/azure-iot-sdk-c/blob/master/version.txt) | [1.4.2 與先前版本](https://github.com/Azure/azure-iot-sdk-python/blob/0a549f21f7f4fc24bc036c1d2d5614e9544a9667/device/iothub_client_python/src/iothub_client_python.cpp#L53) | [1.7.3 或先前版本](https://github.com/Azure/azure-iot-sdk-node/blob/074c1ac135aebb520d401b942acfad2d58fdc07f/common/core/package.json#L3) | [1.13.0 或先前版本](https://github.com/Azure/azure-iot-sdk-java/blob/794c128000358b8ed1c4cecfbf21734dd6824de9/device/iot-device-client/pom.xml#L7) | [1.1.0 或先前版本](https://github.com/Azure/azure-iot-sdk-csharp/blob/9f7269f4f61cff3536708cf3dc412a7316ed6236/provisioning/device/src/Microsoft.Azure.Devices.Provisioning.Client.csproj#L20)
+| [2018-04-01 或更早版本](/rest/api/iot-dps/createorupdateindividualenrollment/createorupdateindividualenrollment#uri-parameters) | [1.2.8 及更早版本](https://github.com/Azure/azure-iot-sdk-c/blob/master/version.txt) | [1.4.2 及更早版本](https://github.com/Azure/azure-iot-sdk-python/blob/0a549f21f7f4fc24bc036c1d2d5614e9544a9667/device/iothub_client_python/src/iothub_client_python.cpp#L53) | [1.7.3 或更早版本](https://github.com/Azure/azure-iot-sdk-node/blob/074c1ac135aebb520d401b942acfad2d58fdc07f/common/core/package.json#L3) | [1.13.0 或更早版本](https://github.com/Azure/azure-iot-sdk-java/blob/794c128000358b8ed1c4cecfbf21734dd6824de9/device/iot-device-client/pom.xml#L7) | [1.1.0 或更早版本](https://github.com/Azure/azure-iot-sdk-csharp/blob/9f7269f4f61cff3536708cf3dc412a7316ed6236/provisioning/device/src/Microsoft.Azure.Devices.Provisioning.Client.csproj#L20)
 
 > [!NOTE]
 > 這些值與連結可能會變更。 這只是嘗試判斷客戶可判斷之版本與預期版本的預留位置。

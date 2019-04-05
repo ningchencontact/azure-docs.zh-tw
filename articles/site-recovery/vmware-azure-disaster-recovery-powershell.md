@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: aa8292aac82f478422f9214c26d974825872eed6
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: d70f2b2f0afb99263eaefe1122dba565231d978c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226330"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046923"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>使用 PowerShell 設定 VMware VM 至 Azure 的災害復原
 
@@ -28,32 +28,35 @@ ms.locfileid: "58226330"
 > - 建立用來保存複寫資料的儲存體帳戶，並複寫 VM。
 > - 執行容錯移轉。 設定容錯移轉設定中，執行複寫虛擬機器的設定。
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>必要條件
 
 開始之前：
 
 - 請確定您了解[情節架構和元件](vmware-azure-architecture.md)。
 - 檢閱所有元件的[支援需求](site-recovery-support-matrix-to-azure.md)。
-- 您有 AzureRm PowerShell 模組的 5.0.1 版或更高版本。 如果您需要安裝或升級 Azure PowerShell，請按照此[安裝和設定 Azure PowerShell 指南](/powershell/azureps-cmdlets-docs)的說明。
+- 您有 Azure PowerShell`Az`模組。 如果您需要安裝或升級 Azure PowerShell，請按照此[安裝和設定 Azure PowerShell 指南](/powershell/azure/install-az-ps)的說明。
 
 ## <a name="log-into-azure"></a>登入 Azure
 
-使用 Connect-AzureRmAccount Cmdlet 登入您的 Azure 訂用帳戶：
+登入 Azure 訂用帳戶使用 Connect AzAccount cmdlet:
 
 ```azurepowershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
-選取作為 VMware 虛擬機器複寫目的地的 Azure 訂用帳戶。 您可以使用 Get AzureRmSubscription Cmdlet 取得您有存取權的 Azure 訂用帳戶的清單。 使用 Select-AzureRmSubscription Cmdlet 選取要使用的 Azure 訂用帳戶。
+選取作為 VMware 虛擬機器複寫目的地的 Azure 訂用帳戶。 您可以使用 Get AzSubscription cmdlet，取得您所擁有的 Azure 訂用帳戶的清單存取權。 選取 使用選取 AzSubscription cmdlet 運作的 Azure 訂用帳戶。
 
 ```azurepowershell
-Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
+Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 ```
 ## <a name="set-up-a-recovery-services-vault"></a>設定復原服務保存庫
 
 1. 建立要在其中建立復原服務保存庫的資源群組。 在下列範例中，資源群組名為 VMwareDRtoAzurePS，而且是在東亞地區建立。
 
    ```azurepowershell
-   New-AzureRmResourceGroup -Name "VMwareDRtoAzurePS" -Location "East Asia"
+   New-AzResourceGroup -Name "VMwareDRtoAzurePS" -Location "East Asia"
    ```
    ```
    ResourceGroupName : VMwareDRtoAzurePS
@@ -66,7 +69,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
 2. 建立復原服務保存庫。 在下列範例中，復原服務保存庫名為 VMwareDRToAzurePs，而且是在東亞地區建立，存在於上一個步驟中建立的資源群組。
 
    ```azurepowershell
-   New-AzureRmRecoveryServicesVault -Name "VMwareDRToAzurePs" -Location "East Asia" -ResourceGroupName "VMwareDRToAzurePs"
+   New-AzRecoveryServicesVault -Name "VMwareDRToAzurePs" -Location "East Asia" -ResourceGroupName "VMwareDRToAzurePs"
    ```
    ```
    Name              : VMwareDRToAzurePs
@@ -82,10 +85,10 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
 
    ```azurepowershell
    #Get the vault object by name and resource group and save it to the $vault PowerShell variable 
-   $vault = Get-AzureRmRecoveryServicesVault -Name "VMwareDRToAzurePS" -ResourceGroupName "VMwareDRToAzurePS"
+   $vault = Get-AzRecoveryServicesVault -Name "VMwareDRToAzurePS" -ResourceGroupName "VMwareDRToAzurePS"
 
    #Download vault registration key to the path C:\Work
-   Get-AzureRmRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
+   Get-AzRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
    ```
    ```
    FilePath
@@ -102,7 +105,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
 使用 Set-ASRVaultContext Cmdlet 設定保存庫內容。 設定後，會在所選保存庫的內容中執行 PowerShell 工作階段中的後續 Azure Site Recovery 作業。
 
 > [!TIP]
-> Azure Site Recovery PowerShell 模組 (AzureRm.RecoveryServices.SiteRecovery 模組) 提供對於大多數 Cmdlet 容易使用的別名。 模組中的 Cmdlet 採用 *\<Operation>-**AzureRmRecoveryServicesAsr**\<Object>* 的形式，並且有形式為 *\<Operation>-**ASR**\<Object>* 的對等別名。 本文使用 Cmdlet 別名提高可讀性。
+> Azure Site Recovery PowerShell 模組 （Az.RecoveryServices 模組） 隨附的大多數 cmdlet 容易使用的別名。 模組中的 cmdlet 的形式*\<作業 >-**AzRecoveryServicesAsr**\<物件 >* 形式的對等別名還有 *\<作業 >-**ASR**\<物件 >*。 本文使用 Cmdlet 別名提高可讀性。
 
 在下列範例中，來自 $vault 變數的保存庫詳細資料用於指定 PowerShell 工作階段的保存庫內容。
 
@@ -115,11 +118,11 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
 
-若要以 Set-ASRVaultContext Cmdlet 之外的方法進行，您還可以使用 Import-AzureRmRecoveryServicesAsrVaultSettingsFile Cmdlet 來設定保存庫內容。 以 Import-AzureRmRecoveryServicesAsrVaultSettingsFile Cmdlet 的 -path 參數指定保存庫註冊金鑰檔案的所在路徑。 例如︰
+以 Set-asrvaultcontext cmdlet 的替代方案，其中也可以使用匯入 AzRecoveryServicesAsrVaultSettingsFile cmdlet 來設定保存庫內容。 指定的保存庫註冊金鑰檔是位於-path 參數來匯入 AzRecoveryServicesAsrVaultSettingsFile 指令程式的路徑。 例如︰
 
    ```azurepowershell
-   Get-AzureRmRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
-   Import-AzureRmRecoveryServicesAsrVaultSettingsFile -Path "C:\Work\VMwareDRToAzurePs_2017-11-23T19-52-34.VaultCredentials"
+   Get-AzRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
+   Import-AzRecoveryServicesAsrVaultSettingsFile -Path "C:\Work\VMwareDRToAzurePs_2017-11-23T19-52-34.VaultCredentials"
    ```
 本文的後續小節假設已設定 Azure Site Recovery 作業的保存庫內容。
 
@@ -321,11 +324,11 @@ Errors           : {}
 
 ```azurepowershell
 
-$PremiumStorageAccount = New-AzureRmStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "premiumstorageaccount1" -Location "East Asia" -SkuName Premium_LRS
+$PremiumStorageAccount = New-AzStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "premiumstorageaccount1" -Location "East Asia" -SkuName Premium_LRS
 
-$LogStorageAccount = New-AzureRmStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "logstorageaccount1" -Location "East Asia" -SkuName Standard_LRS
+$LogStorageAccount = New-AzStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "logstorageaccount1" -Location "East Asia" -SkuName Standard_LRS
 
-$ReplicationStdStorageAccount= New-AzureRmStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "replicationstdstorageaccount1" -Location "East Asia" -SkuName Standard_LRS
+$ReplicationStdStorageAccount= New-AzStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "replicationstdstorageaccount1" -Location "East Asia" -SkuName Standard_LRS
 ```
 
 ## <a name="replicate-vmware-vms"></a>複寫 VMware VM
@@ -355,10 +358,10 @@ $ReplicationStdStorageAccount= New-AzureRmStorageAccount -ResourceGroupName "VMw
 ```azurepowershell
 
 #Get the target resource group to be used
-$ResourceGroup = Get-AzureRmResourceGroup -Name "VMwareToAzureDrPs"
+$ResourceGroup = Get-AzResourceGroup -Name "VMwareToAzureDrPs"
 
 #Get the target virtual network to be used
-$RecoveryVnet = Get-AzureRmVirtualNetwork -Name "ASR-vnet" -ResourceGroupName "asrrg" 
+$RecoveryVnet = Get-AzVirtualNetwork -Name "ASR-vnet" -ResourceGroupName "asrrg" 
 
 #Get the protection container mapping for replication policy named ReplicationPolicy
 $PolicyMap  = Get-ASRProtectionContainerMapping -ProtectionContainer $ProtectionContainer | where PolicyFriendlyName -eq "ReplicationPolicy"
@@ -444,7 +447,7 @@ Errors           : {}
    #Test failover of Win2K12VM1 to the test virtual network "V2TestNetwork"
 
    #Get details of the test failover virtual network to be used
-   TestFailovervnet = Get-AzureRmVirtualNetwork -Name "V2TestNetwork" -ResourceGroupName "asrrg" 
+   TestFailovervnet = Get-AzVirtualNetwork -Name "V2TestNetwork" -ResourceGroupName "asrrg" 
 
    #Start the test failover operation
    $TFOJob = Start-ASRTestFailoverJob -ReplicationProtectedItem $ReplicatedVM1 -AzureVMNetworkId $TestFailovervnet.Id -Direction PrimaryToRecovery
@@ -487,4 +490,4 @@ Errors           : {}
 2. 成功容錯移轉後，您可以認可容錯移轉作業，並設定從 Azure 複寫回內部部署 VMware 網站的反向複寫。
 
 ## <a name="next-steps"></a>後續步驟
-了解如何使用多個工作自動化[Azure Site Recovery PowerShell 參考](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery)。
+了解如何使用多個工作自動化[Azure Site Recovery PowerShell 參考](https://docs.microsoft.com/powershell/module/Az.RecoveryServices)。

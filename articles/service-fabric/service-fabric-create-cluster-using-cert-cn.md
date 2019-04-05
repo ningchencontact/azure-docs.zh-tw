@@ -14,16 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: aljo
-ms.openlocfilehash: b9ad592ecbeb68784b19269e3ff06931989e59af
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: bf28ddf7facbc742a107f67f3d7e81eca5a5c950
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663582"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045383"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>部署使用憑證通用名稱 (而非指紋) 的 Service Fabric 叢集
 由於憑證的指紋皆不相同，導致叢集憑證變換或管理變成艱難的任務。 然而，不同的憑證卻能擁有相同的通用名稱或主體。  使用憑證通用名稱的叢集能大幅簡化憑證管理工作的難度。 本文章描述如何部署 Service Fabric 叢集才能使用憑證通用名稱，而非憑證指紋。
  
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="get-a-certificate"></a>取得憑證
 首先，請向[憑證授權單位 (CA)](https://wikipedia.org/wiki/Certificate_authority) 索取憑證。  憑證的一般名稱應該用於您擁有的自訂網域，並且向網域註冊機構購買。 例如，"azureservicefabricbestpractices.com"；並非 Microsoft 員工的人員法佈建 MS 網域的憑證，因此您無法使用您的 LB 或流量管理員本身的 DNS 名稱作為您的憑證一般名稱，而且，如果您的自訂網域可以在 Azure 中解析，您必須佈建 [Azure DNS 區域](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns)。 如果您想要入口網站反映叢集的自訂網域別名，您也需要宣告您擁有的自訂網域成為叢集的 “managementEndpoint”。
 
@@ -41,7 +44,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 $SubscriptionId  =  "<subscription ID>"
 
 # Sign in to your Azure account and select your subscription
-Login-AzureRmAccount -SubscriptionId $SubscriptionId
+Login-AzAccount -SubscriptionId $SubscriptionId
 
 $region = "southcentralus"
 $KeyVaultResourceGroupName  = "mykeyvaultgroup"
@@ -51,10 +54,10 @@ $certname = "myclustercert"
 $Password  = "P@ssw0rd!123"
 
 # Create new Resource Group 
-New-AzureRmResourceGroup -Name $KeyVaultResourceGroupName -Location $region
+New-AzResourceGroup -Name $KeyVaultResourceGroupName -Location $region
 
 # Create the new key vault
-$newKeyVault = New-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName -Location $region -EnabledForDeployment 
+$newKeyVault = New-AzKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName -Location $region -EnabledForDeployment 
 $resourceId = $newKeyVault.ResourceId 
 
 # Add the certificate to the key vault.
@@ -199,18 +202,21 @@ $clusterloc="southcentralus"
 $id="<subscription ID"
 
 # Sign in to your Azure account and select your subscription
-Login-AzureRmAccount -SubscriptionId $id 
+Login-AzAccount -SubscriptionId $id 
 
 # Create a new resource group and deploy the cluster.
-New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
+New-AzResourceGroup -Name $groupname -Location $clusterloc
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\AzureDeploy.Parameters.json" -TemplateFile "C:\temp\cluster\AzureDeploy.json" -Verbose
+New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\AzureDeploy.Parameters.json" -TemplateFile "C:\temp\cluster\AzureDeploy.json" -Verbose
 ```
 
 ## <a name="next-steps"></a>後續步驟
 * 了解[叢集安全性](service-fabric-cluster-security.md)。
 * 了解如何[變換叢集憑證](service-fabric-cluster-rollover-cert-cn.md)
-* [更新及管理叢集憑證](service-fabric-cluster-security-update-certs-azure.md)
+* [更新和管理叢集憑證](service-fabric-cluster-security-update-certs-azure.md)
 * 藉由[將叢集從憑證指紋變更為一般名稱](service-fabric-cluster-change-cert-thumbprint-to-cn.md)來簡化憑證管理
+
+[image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png
+ic-cluster-change-cert-thumbprint-to-cn.md))
 
 [image1]: .\media\service-fabric-cluster-change-cert-thumbprint-to-cn\PortalViewTemplates.png

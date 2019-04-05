@@ -14,19 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: e30e8c94547ac0f9106a69f1e99cf9a7c03abea5
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
-ms.translationtype: HT
+ms.openlocfilehash: 2433f4b3563cc8b301d1815cccf5ab24406e8662
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43695892"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045572"
 ---
 # <a name="azure-relay-faqs"></a>Azure 轉送常見問題集
 
 本文提供 [Azure 轉送](https://azure.microsoft.com/services/service-bus/)的一些常見問題集 (FAQ) 答案。 如需一般的 Azure 定價和支援資訊，請參閱 [Azure 支援常見問題集](https://azure.microsoft.com/support/faq/)。
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="general-questions"></a>一般問題
-### <a name="what-is-azure-relay"></a>什麼是 Azure 轉送？
+### <a name="what-is-azure-relay"></a>什么是 Azure 中继？
 [Azure 轉送服務](relay-what-is-it.md)有助於您的混合式應用程式，方法是協助您更安全地將位於公司企業網路內的服務公開至公用雲端。 您可以在不開啟防火牆連線的情況下公開服務，也不需要對公司網路基礎結構做侵入式變更。
 
 ### <a name="what-is-a-relay-namespace"></a>什麼是轉送命名空間？
@@ -96,7 +99,7 @@ ms.locfileid: "43695892"
 ### <a name="naming-restrictions"></a>命名限制
 轉送命名空間名稱的長度必須介於 6 到 50 個字元之間。
 
-## <a name="subscription-and-namespace-management"></a>訂用帳戶和命名空間管理
+## <a name="subscription-and-namespace-management"></a>订阅和命名空间管理
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>如何將命名空間移轉到另一個 Azure 訂用帳戶？
 
 若要將命名空間從某個 Azure 訂用帳戶移至另一個訂用帳戶，您可以使用 [Azure 入口網站](https://portal.azure.com)或使用 PowerShell 命令。 若要將命名空間移至另一個訂用帳戶，命名空間必須已經是作用中。 執行命令的使用者必須是來源和目標訂用帳戶的系統管理員使用者。
@@ -111,13 +114,13 @@ ms.locfileid: "43695892"
 
 ```azurepowershell-interactive
 # Create a new resource group in the target subscription.
-Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
-New-AzureRmResourceGroup -Name 'targetRG' -Location 'East US'
+Select-AzSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
+New-AzResourceGroup -Name 'targetRG' -Location 'East US'
 
 # Move the namespace from the source subscription to the target subscription.
-Select-AzureRmSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
-$res = Find-AzureRmResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
-Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
+Select-AzSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
+$res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
+Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
 ## <a name="troubleshooting"></a>疑難排解
@@ -133,7 +136,7 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 ## <a name="next-steps"></a>後續步驟
 * [建立命名空間](relay-create-namespace-portal.md)
 * [開始使用 .NET](relay-hybrid-connections-dotnet-get-started.md)
-* [開始使用 Node](relay-hybrid-connections-node-get-started.md)
+* [開始使用 節點](relay-hybrid-connections-node-get-started.md)
 
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
 [Relay exceptions]: relay-exceptions.md

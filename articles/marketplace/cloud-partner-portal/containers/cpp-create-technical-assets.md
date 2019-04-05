@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 56de300a95d750957494865f9871127b2a9c8283
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: 5a7531be73a872d9c088a0bf02a8686f947c220a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980172"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047359"
 ---
 # <a name="prepare-your-container-technical-assets"></a>準備容器技術資產
 
@@ -52,9 +52,9 @@ ms.locfileid: "50980172"
 
 -   [Azure 儲存體總管](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 -   [Visual Studio Code](https://code.visualstudio.com/)
-    *   延伸模組：[Azure Resource Manager 工具](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
-    *   延伸模組：[Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
-    *   延伸模組：[Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
+    *   擴充功能：[Azure Resource Manager](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) \(英文\)
+    *   擴充功能：[Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify) \(英文\)
+    *   擴充功能：[Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
 也建議您至 [Azure 開發人員工具](https://azure.microsoft.com/tools/) 頁面查看可用的工具，若您使用 Visual Studio，也請查看 [Visual Studio Marketplace](https://marketplace.visualstudio.com/)。
 
@@ -66,4 +66,4 @@ ms.locfileid: "50980172"
 
 ## <a name="next-steps"></a>後續步驟
 
-[建立容器供應項目](./cpp-create-offer.md)
+[建立您的容器供應項目](./cpp-create-offer.md)

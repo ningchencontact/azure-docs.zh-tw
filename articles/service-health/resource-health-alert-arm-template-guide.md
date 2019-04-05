@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: de5419bbfa5a364cb570651fd4d57d7560e4aafd
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: afa89fc90552c7ccba1fcea0945ee223d0096be4
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663429"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047512"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>使用 Resource Manager 範本設定資源健康狀態警示
 
@@ -22,30 +22,32 @@ Azure 資源健康狀態會隨時通知您 Azure 資源目前和過去的健康�
 > [!NOTE]
 > 資源健康狀態警示目前處於預覽狀態。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>必要條件
 
 若要遵循此頁面上的指示，您將必須事先設定幾件事：
 
-1. 您必須安裝 [Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) (`AzureRm`)
+1. 您需要安裝[Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-Az-ps)
 2. 您需要[建立或重複使用動作群組](../azure-monitor/platform/action-groups.md)，該動作群組會設定來通知您
 
 ## <a name="instructions"></a>範例的指示
 1. 使用 PowerShell、使用您的帳戶登入 Azure，然後選取您想要與之互動的訂用帳戶
 
-        Login-AzureRmAccount
-        Select-AzureRmSubscription -Subscription <subscriptionId>
+        Login-AzAccount
+        Select-AzSubscription -Subscription <subscriptionId>
 
-    > 您可以使用 `Get-AzureRmSubscription` 來列出您有權存取的訂用帳戶。
+    > 您可以使用 `Get-AzSubscription` 來列出您有權存取的訂用帳戶。
 
 2. 針對您的動作群組尋找並儲存完整的 Azure Resource Manager 識別碼
 
-        (Get-AzureRmActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
+        (Get-AzActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
 
 3. 建立適用於資源健康狀態警示的 Resource Manager 範本並儲存為 `resourcehealthalert.json` ([請參閱下方的詳細資料](#resource-manager-template-for-resource-health-alerts))
 
 4. 使用此範本建立新的 Azure Resource Manager 部署
 
-        New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
+        New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
 
 5. 系統將提示您輸入警示名稱和您稍早複製的動作群組資源識別碼：
 
@@ -162,7 +164,7 @@ Azure 資源健康狀態會隨時通知您 Azure 資源目前和過去的健康�
 ],
 ```
 
-例如：`"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
+例如︰ `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
 
 > 您可以移至 Azure 入口網站，並在檢視您的 Azure 資源時查看 URL 以取得此字串。
 
@@ -427,7 +429,7 @@ Azure 資源健康狀態可以使用測試執行器持續監視資源，以向�
 
 深入了解資源健康狀態：
 -  [Azure 資源健康狀態概觀](Resource-health-overview.md)
--  [可透過 Azure 資源健康狀態使用的資源類型和健康檢查](resource-health-checks-resource-types.md)
+-  [可透過 Azure 資源健康狀態取得的資源類型和健康狀態檢查](resource-health-checks-resource-types.md)
 
 建立服務健康狀態警示：
--  [設定適用於服務健康情況的警示](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
+-  [設定服務健康情況警示](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 

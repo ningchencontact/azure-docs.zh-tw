@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 5542d61c5e615361ca96f911cfe11540fcd09037
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 598ddaa98b0c98d2123f0084a0b8b6dfaf615deb
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103820"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045708"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>建立和修改 ExpressRoute 線路的對等互連 (傳統)
 > [!div class="op_single_selector"]
 > * [Azure 入口網站](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
-> * [視訊 - 私用對等互連](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
-> * [視訊 - 公用對等互連](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
-> * [視訊 - Microsoft 對等互連](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
+> * [視訊-私用對等互連](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [視訊-公用對等互連](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
+> * [視訊-Microsoft 對等互連](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (傳統)](expressroute-howto-routing-classic.md)
 > 
 
@@ -35,6 +35,9 @@ ms.locfileid: "58103820"
 **關於 Azure 部署模型**
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configuration-prerequisites"></a>組態必要條件
 
@@ -59,17 +62,17 @@ Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRou
 1. 以提高的權限開啟 PowerShell 主控台並連接到您的帳戶。
 
    ```powershell
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 2. 檢查帳戶的訂用帳戶。
 
    ```powershell
-   Get-AzureRmSubscription
+   Get-AzSubscription
    ```
 3. 如果您有多個訂用帳戶，請選取您要使用的訂用帳戶。
 
    ```powershell
-   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
 
 4. 接下來，使用下列 Cmdlet，將您的 Azure 訂用帳戶新增到 PowerShell，以供傳統部署模型使用。
@@ -86,8 +89,8 @@ Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRou
 
 1. **建立 ExpressRoute 線路。**
 
-   請遵循指示建立 [ExpressRoute 線路](expressroute-howto-circuit-classic.md) ，並由連線提供者佈建它。 如果您的連線提供者是提供受控第 3 層服務，您可以要求連線提供者為您啟用 Azure 私用對等。 在此情況下，您不需要遵循後續幾節所列的指示。 不過，如果您的連線提供者不會為您管理路由，請在建立線路之後遵循下列指示。
-2. **檢查 ExpressRoute 線路以確定已佈建。**
+   请按说明创建 [ExpressRoute 线路](expressroute-howto-circuit-classic.md) ，并由连接服务提供商进行预配。 如果您的連線提供者是提供受控第 3 層服務，您可以要求連線提供者為您啟用 Azure 私用對等。 在此情況下，您不需要遵循後續幾節所列的指示。 不過，如果您的連線提供者不會為您管理路由，請在建立線路之後遵循下列指示。
+2. **檢查 ExpressRoute 線路以確定它佈建。**
    
    檢查 ExpressRoute 線路是否為 Provisioned 和 Enabled。
 
@@ -190,7 +193,7 @@ Remove-AzureBGPPeering -AccessType Private -ServiceKey "************************
 1. **建立 ExpressRoute 線路**
 
    請遵循指示建立 [ExpressRoute 線路](expressroute-howto-circuit-classic.md) ，並由連線提供者佈建它。 如果您的連線提供者提供受控第 3 層服務，您可以要求連線提供者為您啟用 Azure 公用對等。 在这种情况下，不需要遵循后续部分中所列的说明。 不過，如果您的連線提供者不會為您管理路由，請在建立線路之後遵循下列指示。
-2. **檢查 ExpressRoute 線路以確定已佈建**
+2. **檢查 ExpressRoute 線路，以確認它佈建**
 
    您必須先檢查 ExpressRoute 線路是否為 Provisioned 和 Enabled。
 
@@ -294,7 +297,7 @@ Remove-AzureBGPPeering -AccessType Public -ServiceKey "*************************
 1. **建立 ExpressRoute 線路**
   
    請遵循指示建立 [ExpressRoute 線路](expressroute-howto-circuit-classic.md) ，並由連線提供者佈建它。 如果您的連線提供者是提供受控第 3 層服務，您可以要求連線提供者為您啟用 Azure 私用對等。 在此情況下，您不需要遵循後續幾節所列的指示。 不過，如果您的連線提供者不會為您管理路由，請在建立線路之後遵循下列指示。
-2. **檢查 ExpressRoute 線路以確定已佈建**
+2. **檢查 ExpressRoute 線路，以確認它佈建**
 
    請確定線路顯示為 Provisioned 和 Enabled。 
    
@@ -321,9 +324,9 @@ Remove-AzureBGPPeering -AccessType Public -ServiceKey "*************************
    ServiceProviderProvisioningState : Provisioned
    Status                           : Enabled
    ```
-3. **設定線路的 Microsoft 對等**
+3. **設定 Microsoft 對等互連的循環**
    
-    繼續之前，請確定您擁有下列資訊：
+    繼續之前，請確定您擁有下列資訊。
    
    * 主要連結的 /30 子網路。 這必須是您所擁有且註冊在 RIR / IRR 中的有效公用 IPv4 首碼。
    * 次要連結的 /30 子網路。 這必須是您所擁有且註冊在 RIR / IRR 中的有效公用 IPv4 首碼。

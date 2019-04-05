@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: e5c4eca772cf17f04ea10f4d5ae166ea41eaa830
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 4471c9d5b6c09bcf4d9100cccfa725f36cf9a3f8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496916"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045077"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本來建立服務匯流排命名空間
 在本快速入門中，您會建立一個 Azure Resource Manager 範本，此範本會建立一個**訊息**類型且具有**標準** SKU 的服務匯流排命名空間。 本文也會定義針對部署執行而指定的參數。 您可以直接在自己的部署中使用此範本，或自訂此範本以符合您的需求。 如需關於建立範本的詳細資訊，請參閱[編寫 Azure Resource Manager 範本][Authoring Azure Resource Manager templates]。 如需完整的範本，請參閱 GitHub 上的 [服務匯流排命名空間範本][Service Bus namespace template]。
@@ -27,24 +27,27 @@ ms.locfileid: "58496916"
 > [!NOTE]
 > 下列 Azure Resource Manager 範本可供下載和部署。 
 > 
-> * [创建包含队列的服务总线命名空间](service-bus-resource-manager-namespace-queue.md)
+> * [建立服務匯流排命名空間和佇列](service-bus-resource-manager-namespace-queue.md)
 > * [建立服務匯流排命名空間與主題和訂用帳戶](service-bus-resource-manager-namespace-topic.md)
-> * [创建包含队列和授权规则的服务总线命名空间](service-bus-resource-manager-namespace-auth-rule.md)
-> * [建立服務匯流排命名空間與主題、訂用帳戶和規則](service-bus-resource-manager-namespace-topic-with-rule.md)
+> * [建立服務匯流排命名空間與佇列和授權規則](service-bus-resource-manager-namespace-auth-rule.md)
+> * [建立服務匯流排命名空間與主題、 訂用帳戶和規則](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
 > 若要檢查最新的範本，請造訪 [Azure 快速入門範本][Azure Quickstart Templates]資源庫並搜尋「服務匯流排」。
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="quick-deployment"></a>快速部署
 若要在不撰寫任何 JSON 及執行 PowerShell/CLI 命令的情況下執行範例，請選取下列按鈕：
 
-[![部署至 Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
+[![Deploy 至 Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
 
 若要手動建立及部署範本，請瀏覽本文中的下列各節。
 
 ## <a name="prerequisites"></a>必要條件
 若要完成本快速入門，您需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶](https://azure.microsoft.com/free/)。
 
-如果您想要使用 **Azure PowerShell** 來部署 Resource Manager 範本，請[安裝 Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)。
+如果您想要使用 **Azure PowerShell** 來部署 Resource Manager 範本，請[安裝 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)。
 
 如果您想要使用 **Azure CLI** 來部署 Resource Manager 範本，請[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
@@ -134,12 +137,12 @@ ms.locfileid: "58496916"
 2. 執行下列命令以登入 Azure：
 
    ```azurepowershell
-   Login-AzureRmAccount
+   Login-AzAccount
    ```
 3. 發出下列命令以設定目前的訂用帳戶內容：
 
    ```azurepowershell
-   Select-AzureRmSubscription -SubscriptionName "<YourSubscriptionName>" 
+   Select-AzSubscription -SubscriptionName "<YourSubscriptionName>" 
    ```
 
 ### <a name="deploy-resources"></a>部署資源
@@ -156,12 +159,12 @@ ms.locfileid: "58496916"
 2. 建立 Azure 資源群組。
 
     ```azurepowershell
-    New-AzureRmResourceGroup $resourceGroupName -location 'East US'
+    New-AzResourceGroup $resourceGroupName -location 'East US'
     ```
 3. 部署 Resource Manager 範本。 指定部署本身、資源群組、範本之 JSON 檔案、參數之 JSON 檔案的名稱
 
     ```azurepowershell
-    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile MyServiceBusNamespace.json -TemplateParameterFile MyServiceBusNamespace-Parameters.json
+    New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile MyServiceBusNamespace.json -TemplateParameterFile MyServiceBusNamespace-Parameters.json
     ```
 
 ## <a name="use-azure-cli-to-deploy-the-template"></a>使用 Azure CLI 來部署範本

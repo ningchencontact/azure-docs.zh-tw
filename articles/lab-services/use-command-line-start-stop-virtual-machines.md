@@ -12,15 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 9b7df83b710bac0b37ac28c432f63a47ddda21d1
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 51c45fdb0c96e84d3f37f485279aa805361f3818
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439793"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051201"
 ---
 # <a name="use-command-line-tools-to-start-and-stop-azure-devtest-labs-virtual-machines"></a>使用命令列工具來啟動和停止 Azure DevTest Labs 虛擬機器
 本文說明如何使用 Azure PowerShell 或 Azure CLI 來啟動或停止在 Azure DevTest Labs 中對實驗室中的虛擬機器。 您可以建立 PowerShell/CLI 指令碼來自動化這些作業。 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>概觀
 Azure DevTest Labs 是建立快速、 簡易且高效的開發/測試環境的方法。 它可讓您管理成本、 快速佈建 Vm，並減少浪費。  有內建在 Azure 入口網站中的功能，讓您在自動啟動，並在特定時間停止實驗室中設定 Vm。 
@@ -32,7 +34,7 @@ Azure DevTest Labs 是建立快速、 簡易且高效的開發/測試環境的�
 - 使用它作為 CI/CD 工作流程內的工作流程的開頭開始，使用 Vm 當做組建電腦，測試機器或基礎結構，然後完成程序時停止的 Vm。 這個範例會使用 Azure DevTest Labs 自訂映像處理站。  
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-下列 PowerShell 指令碼會在實驗室中啟動 VM。 [叫用 AzureRmResourceAction](/powershell/module/azurerm.resources/invoke-azurermresourceaction?view=azurermps-6.13.0)是此指令碼的主要焦點。 **ResourceId**參數是在實驗室中 VM 的完整的資源識別碼。 **動作**參數是要在哪裡**開始**或是**停止**選項都設為視需要的項目。
+下列 PowerShell 指令碼會在實驗室中啟動 VM。 [叫用 AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azurermps-6.13.0)是此指令碼的主要焦點。 **ResourceId**參數是在實驗室中 VM 的完整的資源識別碼。 **動作**參數是要在哪裡**開始**或是**停止**選項都設為視需要的項目。
 
 ```powershell
 # The id of the subscription
@@ -48,17 +50,17 @@ $vMToStart = "vmname"
 $vmAction = "Start"
 
 # Select the Azure subscription
-Select-AzureRMSubscription -SubscriptionId $subscriptionId
+Select-AzSubscription -SubscriptionId $subscriptionId
 
 # Get the lab information
 if ($(Get-Module -Name AzureRM).Version.Major -eq 6) {
-    $devTestLab = Get-AzureRmResource -ResourceType 'Microsoft.DevTestLab/labs' -Name $devTestLabName
+    $devTestLab = Get-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -Name $devTestLabName
 } else {
-    $devTestLab = Find-AzureRmResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceNameEquals $devTestLabName
+    $devTestLab = Find-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceNameEquals $devTestLabName
 }
 
 # Start the VM and return a succeeded or failed status
-$returnStatus = Invoke-AzureRmResourceAction `
+$returnStatus = Invoke-AzResourceAction `
                     -ResourceId "$($devTestLab.ResourceId)/virtualmachines/$vMToStart" `
                     -Action $vmAction `
                     -Force

@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: f5c4f8d2c9cec4372ef5de70485d45ab33e022de
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 323e5d63b5f8566d570dfd47323fcf12f7c6b28b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099391"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051575"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>透過 VPN 閘道診斷內部部署連線
 
 Azure VPN 閘道可讓您建立混合式解決方案，以解決內部部署網路與 Azure 虛擬網路之間的安全連線需求。 由於這項需求很獨特，所以選擇的內部部署 VPN 裝置也很獨特。 Azure 目前支援與裝置廠商合作來持續驗證的[數個 VPN 裝置](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable)。 請先檢閱裝置特定的組態設定，再設定內部部署 VPN 裝置。 同樣地，Azure VPN 閘道也使用一組用於建立連線的[受支援 IPsec 參數](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec)來進行設定。 目前您無法指定或選取來自 Azure VPN 閘道之 IPsec 參數的特定組合。 若要在內部部署環境與 Azure 之間成功建立連線，內部部署 VPN 裝置設定必須符合 Azure VPN 閘道所規定的 IPsec 參數。 如果設定不正確，連線會中斷，而且到目前為止，針對這些問題進行疑難排解並不容易，而且通常需要好幾個小時才能識別並修正問題。
 
 使用 Azure 網路監看員疑難排解功能後，您將能夠診斷閘道和連線的任何問題，並在幾分鐘內獲得足夠資訊來做出明智的問題改正決定。
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scenario"></a>案例
 
@@ -42,7 +45,7 @@ Azure VPN 閘道可讓您建立混合式解決方案，以解決內部部署網�
 
 ### <a name="ike-phase-1-setup"></a>IKE 第 1 階段設定
 
-| **屬性** | **原則式** | **路由式和標準或高效能 VPN 閘道** |
+| **屬性** | **PolicyBased** | **路由式和標準或高效能 VPN 閘道** |
 | --- | --- | --- |
 | IKE 版本 |IKEv1 |IKEv2 |
 | Diffie-Hellman 群組 |群組 2 (1024 位元) |群組 2 (1024 位元) |
@@ -57,7 +60,7 @@ Azure VPN 閘道可讓您建立混合式解決方案，以解決內部部署網�
 
 ## <a name="troubleshooting-using-azure-network-watcher"></a>使用 Azure 網路監看員進行疑難排解
 
-若要診斷連線，請連線到 Azure PowerShell，並起始 `Start-AzureRmNetworkWatcherResourceTroubleshooting` Cmdlet。 您可以在[針對虛擬網路閘道和連線進行疑難排解 - PowerShell](network-watcher-troubleshoot-manage-powershell.md)中找到有關使用這個 Cmdlet 的詳細資料。 這個 Cmdlet 最多可能需要幾分鐘的時間才能完成。
+若要診斷連線，請連線到 Azure PowerShell，並起始 `Start-AzNetworkWatcherResourceTroubleshooting` Cmdlet。 您可以在[針對虛擬網路閘道和連線進行疑難排解 - PowerShell](network-watcher-troubleshoot-manage-powershell.md)中找到有關使用這個 Cmdlet 的詳細資料。 這個 Cmdlet 最多可能需要幾分鐘的時間才能完成。
 
 此 Cmdlet 完成後，您可以瀏覽至 Cmdlet 指定的儲存體位置，以取得關於問題的詳細資訊和記錄。 Azure 網路監看員會建立包含下列記錄檔的 zip 資料夾︰
 
@@ -104,10 +107,10 @@ Azure 網路監看員疑難排解功能可讓您輕鬆地利用簡單的 PowerSh
 | ConnectionIsMarkedDisconnected | 連線標記為「已中斷連線」。 |否|
 | ConnectionNotConfiguredOnGateway | 基礎服務未設定連線。 | 是 |
 | ConnectionMarkedStandby | 基礎服務標記為「待命」。| 是|
-| 驗證 | 預先共用的金鑰不相符。 | 是|
+| Authentication | 預先共用的金鑰不相符。 | 是|
 | PeerReachability | 無法連線到對等閘道。 | 是|
 | IkePolicyMismatch | 對等閘道的 IKE 原則不受 Azure 支援。 | 是|
-| WfpParse 錯誤 | 剖析 WFP 記錄時發生錯誤。 |是|
+| WfpParse Error | 剖析 WFP 記錄時發生錯誤。 |是|
 
 ## <a name="next-steps"></a>後續步驟
 

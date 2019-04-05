@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7872a43d5000ddb1ba581f76358c8001902ab56b
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: e4e2f564de254c2aea779b30286183d0a4e17db6
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579711"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045479"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>什麼是 Azure AD 身分識別控管？
 
@@ -56,7 +56,7 @@ Azure Active Directory (Azure AD) 身分識別控管可讓您透過適當的程�
 
 組織可以透過[動態群組](../users-groups-roles/groups-dynamic-membership.md)這類技術，並結合使用者佈建至 [SaaS 應用程式](../saas-apps/tutorial-list.md)或[與 SCIM 整合的應用程式](../manage-apps/use-scim-to-provision-users-and-groups.md)來自動存取生命週期程序。  組織也可以控制哪些[來賓使用者能夠存取內部部署應用程式](../b2b/hybrid-cloud-to-on-premises.md)。  接著可以利用週期性 [Azure AD 存取權檢閱](access-reviews-overview.md)，定期檢閱這些存取權限。
 
-當使用者嘗試存取應用程式時，Azure AD 會強制執行[條件式存取](/azure/active-directory/conditional-access/)原則。 例如，條件式存取原則可以包含先顯示[使用規定](active-directory-tou.md)並[確保使用者已同意這些規定](../conditional-access/require-tou.md)，才能夠存取應用程式。
+當使用者嘗試存取應用程式時，Azure AD 會強制執行[條件式存取](/azure/active-directory/conditional-access/)原則。 例如，條件式存取原則可以包含顯示[使用規定](../conditional-access/terms-of-use.md)並[確保使用者已經同意這些條款](../conditional-access/require-tou.md)才能夠存取應用程式。
 
 ## <a name="privileged-access-lifecycle"></a>特殊權限的存取生命週期
 
@@ -69,19 +69,19 @@ Azure AD Privileged Identity Management (PIM) 提供量身訂做的其他控制�
 雖然沒有適用於每位客戶的完美解決方案或建議，但下列組態指引 Microsoft 建議使用哪些基準原則來確保更安全且更有生產力的工作力。
 
 - [身分識別與裝置存取設定](/microsoft-365/enterprise/microsoft-365-policies-configurations)
-- [保護特殊權限存取](../users-groups-roles/directory-admin-roles-secure.md)
+- [保護特殊權限的存取](../users-groups-roles/directory-admin-roles-secure.md)
 
 
 ### <a name="access-reviews"></a>存取權檢閱
 
 - [什麼是存取權檢閱？](access-reviews-overview.md)
-- [使用存取權檢閱來管理使用者存取權](manage-user-access-with-access-reviews.md)
-- [使用存取權檢閱來管理來賓存取權](manage-guest-access-with-access-reviews.md)
+- [管理與存取權檢閱的使用者存取](manage-user-access-with-access-reviews.md)
+- [管理與存取權檢閱的來賓存取](manage-guest-access-with-access-reviews.md)
 - [啟動 Azure AD 角色的存取權檢閱](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 ### <a name="terms-of-use"></a>使用規定
 
-- [使用規定對我有何幫助？](active-directory-tou.md)
+- [我可以用使用規定來做什麼？](../conditional-access/terms-of-use.md)
 
 ### <a name="privileged-identity-management"></a>Privileged Identity Management
 

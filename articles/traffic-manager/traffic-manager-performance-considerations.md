@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 85dd3cca081d492bfeefa3e8ea0d143c9c37af8f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c2821890408e38d0d2be730da10b7926d77697d4
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007939"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048294"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>流量管理員的效能考量
 
@@ -56,7 +56,7 @@ ms.locfileid: "58007939"
 
     ![pulse2](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse2.png)
 
-* [CA App Synthetic Monitor](https://asm.ca.com/en/checkit.php)
+* [CA 的應用程式的綜合監視器](https://asm.ca.com/en/checkit.php)
 
     之前稱為 「 監看式滑鼠 Check Website 工具，這個網站會顯示您的 DNS 解析時間從多個地理區域同時。 輸入 URL 可以看到 DNS 解析時間、連接時間，以及數個地理位置的速度。 使用這項測試，查看在世界各地不同位置哪個裝載的服務會傳回。
 
@@ -66,11 +66,11 @@ ms.locfileid: "58007939"
 
     這項工具提供網頁每個項目的效能統計資料。 [頁面分析] 索引標籤顯示執行 DNS 查閱所花費的時間百分比。
 
-* [What's My DNS?](https://www.whatsmydns.net/)
+* [什麼是我的 DNS？](https://www.whatsmydns.net/)
 
     這個網站將會從 20 個不同位置執行 DNS 查閱，並將結果顯示在地圖上。
 
-* [Dig Web Interface](https://www.digwebinterface.com)
+* [有提供 Web 介面](https://www.digwebinterface.com)
 
     這個網站會顯示更詳細的 DNS 資訊，包括 CNAME 和 A 記錄。 請務必選取選項下的 [Colorize output] 和 [Stats]，並選取 [Nameservers] 下的 [All]。
 
@@ -80,7 +80,7 @@ ms.locfileid: "58007939"
 
 [測試流量管理員設定](traffic-manager-testing-settings.md)
 
-[流量管理員的相關作業 (REST API 參考)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[在 Traffic Manager 的作業 （REST API 參考）](https://go.microsoft.com/fwlink/?LinkId=313584)
 
-[Azure 流量管理員 Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager)
+[Azure Traffic Manager Cmdlet](https://docs.microsoft.com/powershell/module/az.trafficmanager)
 

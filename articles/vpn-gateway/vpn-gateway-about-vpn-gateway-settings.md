@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 76323ab00a3562cae10520b18008d030e40043fc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4030c196d6a4de721b640f5da0b692f4d8157d12
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57864665"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049858"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>關於 VPN 閘道組態設定
 
@@ -77,7 +77,7 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 
 ###  <a name="resizechange"></a>調整大小或變更 SKU
 
-如果您擁有 VPN 閘道，且您想要使用不同的閘道 SKU，您可選擇調整您的閘道 SKU，或是變更為另一個 SKU。 當您變更為另一個閘道 SKU 時，會完全刪除現有的閘道並建立一個新的閘道。 閘道可能需要 45 分鐘的時間來建置。 相較之下，當您調整閘道 SKU，沒有太多的停機時間因為您需要刪除閘道並加以重建。 如果您可以選擇調整您閘道 SKU 的大小，而不必加以變更，建議您這麼做。 不過，關於調整大小有一些規則：
+如果您擁有 VPN 閘道，且您想要使用不同的閘道 SKU，您可選擇調整您的閘道 SKU，或是變更為另一個 SKU。 當您變更為另一個閘道 SKU 時，會完全刪除現有的閘道並建立一個新的閘道。 构建网关最多可能需要 45 分钟。 与之相比，当调整网关 SKU 的大小时，停机时间非常短，因为这不需要删除并重建网关。 如果您可以選擇調整您閘道 SKU 的大小，而不必加以變更，建議您這麼做。 不過，關於調整大小有一些規則：
 
 1. 您可以調整 VpnGw1、VpnGw2 和 VpnGw3 SKU 之間的大小。
 2. 使用舊式閘道 SKU 時，您可以在基本、標準和高效能 SKU 之間調整大小。
@@ -132,7 +132,7 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ## <a name="gwsub"></a>网关子网
 
-建立 VPN 閘道之前，您必須先建立閘道子網路。 閘道子網路包含虛擬網路閘道 VM 與服務所使用的 IP 位址。 建立虛擬網路閘道時，會將閘道 VM 部署到閘道子網路，並為 VM 設定必要的 VPN 閘道設定。 永遠不會將任何其他項目 (例如其他 Vm) 部署至閘道子網路。 此閘道子網路必須命名為 'GatewaySubnet' 才能正常運作。 將閘道子網路命名為 'GatewaySubnet' 可讓 Azure 知道這是要用來部署虛擬網路閘道 VM 和服務的子網路。
+建立 VPN 閘道之前，您必須先建立閘道子網路。 閘道子網路包含虛擬網路閘道 VM 與服務所使用的 IP 位址。 建立虛擬網路閘道時，會將閘道 VM 部署到閘道子網路，並為 VM 設定必要的 VPN 閘道設定。 永远不要将任何其他设备（例如，其他 VM）部署到网关子网。 此閘道子網路必須命名為 'GatewaySubnet' 才能正常運作。 將閘道子網路命名為 'GatewaySubnet' 可讓 Azure 知道這是要用來部署虛擬網路閘道 VM 和服務的子網路。
 
 >[!NOTE]
 >[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
@@ -169,7 +169,7 @@ New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 
 | **傳統** | **Resource Manager** |
 | --- | --- |
-| [PowerShell](/powershell/module/azurerm.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
+| [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
 | [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](/rest/api/network/virtualnetworkgateways) |
 | 不支援 | [Azure CLI](/cli/azure/network/vnet-gateway)|
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/31/2019
 ms.author: rimman
-ms.openlocfilehash: 850c8af3e3dd696ce0e84b9c553d6f1617deb3de
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 72ec8332a3363d5336fb84b3390d5e44ced0b2e5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762968"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047310"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的要求單位
 
@@ -71,6 +71,7 @@ Azure Cosmos DB 支援許多 API，例如 SQL、MongoDB、Cassandra、Gremlin �
 * 深入了解如何[全域調整佈建的輸送量](scaling-throughput.md)。
 * 了解如何[在 Azure Cosmos 容器上佈建輸送量](how-to-provision-container-throughput.md)。
 * 了解如何[在 Azure Cosmos 資料庫上佈建輸送量](how-to-provision-database-throughput.md)。
+* 了解如何[尋找作業的要求單位費用](find-request-unit-charge.md)。
 * 了解如何[最佳化 Azure Cosmos DB 中佈建的輸送量成本](optimize-cost-throughput.md)。
 * 了解如何[讀取和寫入 Azure Cosmos DB 中的成本最佳化](optimize-cost-reads-writes.md)。
 * 了解如何[最佳化 Azure Cosmos DB 中的查詢成本](optimize-cost-queries.md)。
