@@ -4,21 +4,21 @@ items:
 - name: 概觀
   items:
   - name: 什麼是 Azure Stack？
-    href: azure-stack-poc.md
-  - name: 重要功能與概念
-    href: azure-stack-key-features.md
+    href: azure-stack-overview.md
+  - name: 比較 Azure 生態系統
+    href: compare-azure-azure-stack.md
   - name: 版本資訊
     items:
     - name: 最近更新
       href: azure-stack-servicing-policy.md
+    - name: 1903 更新
+      href: azure-stack-update-1903.md
     - name: 1902 更新
       href: azure-stack-update-1902.md
     - name: 1901 更新
       href: azure-stack-update-1901.md
     - name: 1811 更新
       href: azure-stack-update-1811.md
-    - name: 1809 更新
-      href: azure-stack-update-1809.md
 - name: 快速入門
   items:
   - name: 使用系統管理入口網站
@@ -115,12 +115,12 @@ items:
         href: azure-stack-integrate-security.md
       - name: 裝置稽核
         href: azure-stack-integrate-physical-device-auditing.md
-  - name: 管理基本概念
-    href: azure-stack-manage-basics.md
 - name: 使用說明指南
   items:
   - name: 管理 Azure Stack
     items:
+    - name: 管理基本概念
+      href: azure-stack-manage-basics.md
     - name: 設定遙測資料收集
       href: azure-stack-telemetry.md
     - name: 註冊 Azure Stack
@@ -233,6 +233,8 @@ items:
       href: azure-stack-redhat-create-upload-vhd.md
     - name: 提供 Kubernetes 叢集
       href: azure-stack-solution-template-kubernetes-cluster-add.md
+    - name: 建立站對站 VPN 連線
+      href: azure-stack-create-vpn-connection-one-node.md
   - name: 供應項目服務
     href: azure-stack-offer-services-overview.md
   - name: 提供 SQL 做為 PaaS
@@ -403,9 +405,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: 訓練與憑證
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: f2ea6b4ae7ff49d3263805460a30e5d407f7c0e6
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: a0c5682428d740bd109411333f13849c0e74d88e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338355"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906305"

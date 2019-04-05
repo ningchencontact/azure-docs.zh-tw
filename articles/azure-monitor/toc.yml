@@ -64,17 +64,17 @@ items:
     href: azure-management.md
   - name: 連續監視
     href: continuous-monitoring.md
-  - name: 分析記錄資料
+  - name: 資料平台
     items:
-    - name: 記錄查詢
-      href: log-query/log-query-overview.md
-    - name: 記錄檔查詢入口網站
-      href: log-query/portals.md
-  - name: 監視資料
+    - name: 概觀
+      href: platform/data-platform.md
+    - name: 度量
+      href: platform/data-platform-metrics.md
+    - name: 記錄檔
+      href: platform/data-platform-logs.md
+  - name: 資料來源
     items:
-    - name: 計量與記錄檔
-      href: platform/data-collection.md
-    - name: 資料來源
+    - name: 資料來源摘要
       href: platform/data-sources.md
     - name: Azure 資料來源
       href: platform/data-sources-reference.md
@@ -86,14 +86,20 @@ items:
       href: platform/data-ingestion-time.md
     - name: 自訂計量至計量存放區
       href: platform/metrics-custom-overview.md
-    - name: 資料安全性
-      items:
-      - name: 記錄資料
-        href: platform/data-security.md
-      - name: 個人記錄檔資料處理
-        href: platform/personal-data-mgmt.md
-      - name: 應用程式資料收集、保留和儲存
-        href: app/data-retention-privacy.md
+  - name: 分析記錄資料
+    items:
+    - name: 記錄查詢
+      href: log-query/log-query-overview.md
+    - name: 記錄檔查詢入口網站
+      href: log-query/portals.md
+  - name: 資料安全性
+    items:
+    - name: 記錄資料
+      href: platform/data-security.md
+    - name: 個人記錄檔資料處理
+      href: platform/personal-data-mgmt.md
+    - name: 應用程式資料收集、保留和儲存
+      href: app/data-retention-privacy.md
   - name: 深入解析
     items:
     - name: Application Insights
@@ -128,6 +134,8 @@ items:
       href: platform/alerts-unified-log.md
     - name: 活動記錄警示
       href: platform/activity-log-alerts.md
+    - name: 一般警示結構描述
+      href: platform/alerts-common-schema.md
   - name: 顯現資料
     href: visualizations.md
   - name: 合作夥伴整合
@@ -180,8 +188,6 @@ items:
           href: learn/quick-create-workspace-posh.md
       - name: 刪除工作區
         href: platform/delete-workspace.md
-      - name: 管理工作區
-        href: platform/manage-access.md
       - name: 服務提供者的設計
         href: platform/service-providers.md
   - name: 收集資料
@@ -341,6 +347,8 @@ items:
           href: app/annotations.md
         - name: ApplicationInsights.config
           href: app/configuration-with-applicationinsights-config.md
+        - name: 快照集偵錯工具
+          href: app/snapshot-debugger.md
       - name: Java 應用程式
         items:
         - name: Web 應用程式
@@ -434,6 +442,8 @@ items:
         href: platform/collect-azure-metrics-logs.md
       - name: Azure 儲存體的診斷或記錄資料
         href: platform/azure-storage-iis-table.md
+      - name: Azure PaaS 資源
+        href: platform/collect-azurepass-posh.md
       - name: 將自訂資料來源相互關聯
         href: app/custom-data-correlation.md
     - name: 收集自訂資料
@@ -460,10 +470,10 @@ items:
         href: platform/archive-diagnostic-logs.md
       - name: 存放診斷記錄
         href: platform/diagnostic-logs-stream-log-store.md
-      - name: Azure 資源資料至事件中樞
-        href: platform/stream-monitoring-data-event-hubs.md
       - name: 將活動記錄串流至事件中樞
         href: platform/activity-logs-stream-event-hubs.md
+      - name: 記錄檔與計量到事件中樞
+        href: platform/stream-monitoring-data-event-hubs.md
       - name: 診斷記錄到事件中樞
         href: platform/diagnostic-logs-stream-event-hubs.md
       - name: 應用程式資料到 Log Analytics
@@ -650,9 +660,8 @@ items:
   - name: 顯現資料
     items:
     - name: Views
+      href: platform/view-designer.md
       items:
-      - name: '[檢視設計工具]'
-        href: platform/view-designer.md
       - name: 圖格參考
         href: platform/view-designer-tiles.md
       - name: 視覺效果組件參考
@@ -807,6 +816,8 @@ items:
           href: platform/action-groups.md
         - name: 了解 Webhook 結構描述
           href: platform/activity-log-alerts-webhook.md
+        - name: 常見的警示結構描述定義
+          href: platform/alerts-common-schema-definitions.md
         - name: SMS 警示行為
           href: platform/alerts-sms-behavior.md
         - name: 警示速率限制
@@ -978,9 +989,9 @@ items:
   - name: Azure PowerShell
     items:
     - name: 監視
-      href: /powershell/module/azurerm.insights
+      href: /powershell/module/az.applicationinsights
     - name: 記錄檔
-      href: /powershell/module/azurerm.operationalinsights
+      href: /powershell/module/az.operationalinsights
   - name: REST API
     items:
     - name: 監視
@@ -1056,9 +1067,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 程式碼範例
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 48ea888b5c21bc2c689d93684b4dbae7eaee1ed8
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 9c0f17f113b7940f83e3d3b5b2161fe9f88c01ac
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629424"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886636"

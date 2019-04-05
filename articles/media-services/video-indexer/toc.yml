@@ -41,8 +41,12 @@ items:
     href: video-indexer-output-json-v2.md
   - name: 尋找影片中的確切時間
     href: video-indexer-search.md
+  - name: 場景、擷取畫面和主要畫面格
+    href: scenes-shots-keyframes.md
   - name: 檢視及編輯影片索引器深入解析
     href: video-indexer-view-edit.md
+  - name: 使用編輯器來建立專案
+    href: use-editor-create-project.md
   - name: 從現有影片建立影片深入解析
     href: video-indexer-create-new.md
   - name: 將小工具內嵌至您的應用程式
@@ -85,9 +89,9 @@ items:
     href: faq.md
   - name: 法規遵循
     href: https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942
-ms.openlocfilehash: 667aacd14c7bc3aada0acfa4968bd7155effc4d5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f6caade807d37dfbf38e3f0dd47ab7f801c36a9a
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57836992"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894828"

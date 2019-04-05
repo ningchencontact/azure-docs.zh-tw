@@ -1,17 +1,11 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1d6daf9805737294fb5bf0e9f4e48a3c7cfbb98e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731832"
 documentType: LandingData
 title: 翻譯工具文字文件
 metadata:
   title: Translator Text 文件 - 快速入門、教學課程和 API 參考 - Azure 認知服務 | Microsoft Docs
   description: 了解如何使用翻譯工具文字翻譯多種語言的文字。
   services: cognitive-services
-  author: Jann-Skotdal
+  author: v-pawal
   manager: Chris.Wendt
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
@@ -20,87 +14,87 @@ metadata:
   ms.date: 02/21/2019
   ms.author: v-jansko
 abstract:
-  description: 翻譯工具文字是雲端式機器翻譯服務，可讓您透過 REST API 呼叫，近乎即時地翻譯文字。 此 API 採用先進的類神經機器翻譯技術，同時提供統計機器翻譯技術。 「自訂翻譯工具」是翻譯工具文字 API 的擴充功能，可讓您建置類神經翻譯系統。 自訂的翻譯系統可透過翻譯工具文字 API 或 <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/">Microsoft 語音服務</a>來翻譯文字。 如需了解包括類神經機器翻譯和統計機器翻譯的支援語言清單，請參閱<a href="languages.md">支援的語言</a>。
+  description: '翻譯工具文字是雲端式機器翻譯服務，可讓您透過 REST API 呼叫，近乎即時地翻譯文字。 此 API 採用先進的類神經機器翻譯技術，同時提供統計機器翻譯技術。 「自訂翻譯工具」是翻譯工具文字 API 的擴充功能，可讓您建置類神經翻譯系統。 自訂的翻譯系統可透過翻譯工具文字 API 或 <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/">Microsoft 語音服務</a>來翻譯文字。 如需了解包括類神經機器翻譯和統計機器翻譯的支援語言清單，請參閱<a href="languages.md">支援的語言</a>。'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/translator/translator-info-overview
+            html: <p>了解翻譯工具文字 API</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: 什麼是翻譯工具文字 API？
+          - href: /azure/cognitive-services/translator/custom-translator/overview
+            html: <p>了解自訂翻譯工具</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: 什麼是自訂翻譯工具？
+          - href: /azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model
+            html: <p>了解如何開始使用自訂翻譯工具</p>
+            image:
+              src: ../media/index/i_get-started.svg
+            title: 自訂翻譯工具快速入門
+  - title: 5 分鐘快速入門
     items:
-    - href: /azure/cognitive-services/translator/translator-info-overview
-      html: <p>了解翻譯工具文字 API</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: 什麼是翻譯工具文字 API？
-    - href: /azure/cognitive-services/translator/custom-translator/overview
-      html: <p>了解自訂翻譯工具</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: 什麼是自訂翻譯工具？
-    - href: /azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model
-      html: <p>了解如何開始使用自訂翻譯工具</p>
-      image:
-        src: ../media/index/i_get-started.svg
-      title: 自訂翻譯工具快速入門
-- title: 5 分鐘快速入門
-  items:
-  - type: paragraph
-    text: 開始使用 Translator Text API：
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: media/index/logo_csharp.svg
-      title: C#
-    - image:
-        src: media/index/logo_java.svg
-      title: Java
-    - image:
-        src: media/index/logo_nodejs.svg
-      title: Node.js
-    - image:
-        src: media/index/logo_python.svg
-      title: Python
-    - image:
-        src: media/index/logo_go.svg
-      title: Go
-    rows:
-    - title: 將文字從一種語言翻譯成另一種語言
-      values:
-      - href: quickstart-csharp-translate
-      - href: quickstart-java-translate
-      - href: quickstart-nodejs-translate
-      - href: quickstart-python-translate
-      - href: quickstart-go-translate
-    - title: 將文字從一種指令碼轉換成另一種指令碼
-      values:
-      - href: quickstart-csharp-transliterate
-      - href: quickstart-java-transliterate
-      - href: quickstart-nodejs-transliterate
-      - href: quickstart-python-transliterate
-      - href: quickstart-go-transliterate
-    - title: 識別文字的語言
-      values:
-      - href: quickstart-csharp-detect
-      - href: quickstart-java-detect
-      - href: quickstart-nodejs-detect
-      - href: quickstart-python-detect
-      - href: quickstart-go-detect
-    - title: 取得替代的翻譯和使用方式
-      values:
-      - href: quickstart-csharp-dictionary
-      - href: quickstart-java-dictionary
-      - href: quickstart-nodejs-dictionary
-      - href: quickstart-python-dictionary
-      - href: quickstart-go-dictionary
-- title: 逐步教學課程
-  items:
-  - type: paragraph
-    text: 了解如何使用翻譯工具文字 API 開發應用程式：
-  - type: paragraph
-    text: <a href="tutorial-wpf-translation-csharp.md">使用 C# 撰寫適用於翻譯工具文字的 WPF 應用程式</a>
-- title: 參考
-  items:
-  - type: paragraph
-    text: <p><a href="reference/v3-0-reference.md">API 參考</a></p>
+      - type: paragraph
+        text: 開始使用 Translator Text API：
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: media/index/logo_csharp.svg
+            title: 'C#'
+          - image:
+              src: media/index/logo_java.svg
+            title: Java
+          - image:
+              src: media/index/logo_nodejs.svg
+            title: Node.js
+          - image:
+              src: media/index/logo_python.svg
+            title: Python
+          - image:
+              src: media/index/logo_go.svg
+            title: Go
+        rows:
+          - title: 將文字從一種語言翻譯成另一種語言
+            values:
+              - href: quickstart-csharp-translate
+              - href: quickstart-java-translate
+              - href: quickstart-nodejs-translate
+              - href: quickstart-python-translate
+              - href: quickstart-go-translate
+          - title: 將文字從一種指令碼轉換成另一種指令碼
+            values:
+              - href: quickstart-csharp-transliterate
+              - href: quickstart-java-transliterate
+              - href: quickstart-nodejs-transliterate
+              - href: quickstart-python-transliterate
+              - href: quickstart-go-transliterate
+          - title: 識別文字的語言
+            values:
+              - href: quickstart-csharp-detect
+              - href: quickstart-java-detect
+              - href: quickstart-nodejs-detect
+              - href: quickstart-python-detect
+              - href: quickstart-go-detect
+          - title: 取得替代的翻譯和使用方式
+            values:
+              - href: quickstart-csharp-dictionary
+              - href: quickstart-java-dictionary
+              - href: quickstart-nodejs-dictionary
+              - href: quickstart-python-dictionary
+              - href: quickstart-go-dictionary
+  - title: 逐步教學課程
+    items:
+      - type: paragraph
+        text: 了解如何使用翻譯工具文字 API 開發應用程式：
+      - type: paragraph
+        text: '<a href="tutorial-wpf-translation-csharp.md">使用 C# 撰寫適用於翻譯工具文字的 WPF 應用程式</a>'
+  - title: 參考
+    items:
+      - type: paragraph
+        text: <p><a href="reference/v3-0-reference.md">API 參考</a></p>

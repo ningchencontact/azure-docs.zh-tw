@@ -149,6 +149,8 @@ items:
         href: devtest-lab-import-vm.md
       - name: 使用 PowerShell 或 CLI 啟動或停止 VM
         href: use-command-line-start-stop-virtual-machines.md
+      - name: 使用自動化 Runbook 啟動 VM
+        href: start-machines-use-automation-runbooks.md
     - name: 在實驗室環境中
       items:
       - name: 建立環境
@@ -157,6 +159,10 @@ items:
         href: devtest-lab-configure-use-public-environments.md
       - name: 建立具備 Service Fabric 叢集的環境
         href: create-environment-service-fabric-cluster.md
+      - name: 將環境連接到您的實驗室虛擬網路
+        href: connect-environment-lab-virtual-network.md
+      - name: 將環境與您的 Azure DevOps CI/CD 管線整合
+        href: integrate-environments-devops-pipeline.md
     - name: 保護對實驗室的存取
       items:
       - name: 加入實驗室擁有者與使用者
@@ -242,7 +248,7 @@ items:
     - name: CLI
       href: /cli/azure/lab
     - name: PowerShell
-      href: /powershell/module/azurerm.devtestlabs/#devtest_labs
+      href: /powershell/module/az.devtestlabs
     - name: REST API
       href: https://docs.microsoft.com/rest/api/dtl/
     - name: Resource Manager 範本
@@ -271,9 +277,9 @@ items:
       href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
     - name: 常見問題集
       href: devtest-lab-faq.md
-ms.openlocfilehash: 4c96945c5e7a0aed52d3148c7dbf084a8d8b9f29
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: bee44d9ce7378bd48960c47ed9be9c7f53e23110
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651160"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886670"
