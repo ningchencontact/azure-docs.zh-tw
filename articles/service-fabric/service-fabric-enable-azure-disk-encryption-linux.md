@@ -13,17 +13,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/22/2019
 ms.author: aljo
-ms.openlocfilehash: 3de26efb74b9349282d36beb94e8a2a269227fbf
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: f580bf02b222f01a3d5aad1254f208791ea22b38
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488197"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046969"
 ---
 # <a name="enable-disk-encryption-for-service-fabric-linux-cluster-nodes"></a>為服務網狀架構 Linux 叢集節點啟用磁碟加密 
 > [!div class="op_single_selector"]
 > * [適用於 Linux 的磁碟加密](service-fabric-enable-azure-disk-encryption-linux.md)
-> * [適用於 Windows 的磁碟加密](service-fabric-enable-azure-disk-encryption-windows.md)
+> * [Windows 的磁碟加密](service-fabric-enable-azure-disk-encryption-windows.md)
 >
 >
 
@@ -36,33 +36,36 @@ ms.locfileid: "58488197"
 * 在 Service Fabric Linux 叢集虛擬機器擴展集上啟用磁碟加密所要遵循的步驟。
 
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>必要條件
 
 * **自行註冊** - 為了能夠使用，虛擬機器擴展集磁碟加密預覽版需要自行註冊
 * 您可以執行下列步驟來自行註冊訂用帳戶： 
 ```powershell
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
+Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 * 等候約 10 分鐘，直到狀態變為「已註冊」。 您可以執行下列命令來檢查狀態： 
 ```powershell
-Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 * **Azure Key Vault** - 在與虛擬機器擴展集相同的訂用帳戶與區域中建立 KeyVault，並使用其 PS Cmdlet 在 KeyVault 上設定存取原則 'EnabledForDiskEncryption'。 您也可以在 Azure 入口網站中使用 KeyVault UI 來設定原則： 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
+Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
 ```
-* 安裝最新的 [Azure CLI 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest)，其含有新的加密命令。
-* 安裝最新版的 [Azure SDK (來自 Azure PowerShell)](https://github.com/Azure/azure-powershell/releases) 版本。 以下是虛擬機器擴展集來啟用 ADE cmdlet ([設定](/powershell/module/azurerm.compute/set-azurermvmssdiskencryptionextension?view=azurermps-4.4.1)) 加密，擷取 ([取得](/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption?view=azurermps-4.4.1)) 加密狀態] 和 [移除 ([停用](/powershell/module/azurerm.compute/disable-azurermvmssdiskencryption?view=azurermps-4.4.1)) 的標尺上的加密設定執行個體。 
+* 安裝最新版[Azure CLI](/cli/azure/install-azure-cli) ，其中包含新的加密命令。
+* 安裝最新版的 [Azure SDK (來自 Azure PowerShell)](https://github.com/Azure/azure-powershell/releases) 版本。 以下是虛擬機器擴展集來啟用 ADE cmdlet ([設定](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) 加密，擷取 ([取得](/powershell/module/az.compute/get-azvmssvmdiskencryption)) 加密狀態] 和 [移除 ([停用](/powershell/module/az.compute/disable-azvmssdiskencryption)) 的標尺上的加密設定執行個體。 
 
 | 命令 | 版本 |  來源  |
 | ------------- |-------------| ------------|
-| Get-AzureRmVmssDiskEncryptionStatus   | 3.4.0 或更新版本 | AzureRM.Compute |
-| Get-AzureRmVmssVMDiskEncryptionStatus   | 3.4.0 或更新版本 | AzureRM.Compute |
-| Disable-AzureRmVmssDiskEncryption   | 3.4.0 或更新版本 | AzureRM.Compute |
-| Get-AzureRmVmssDiskEncryption   | 3.4.0 或更新版本 | AzureRM.Compute |
-| Get-AzureRmVmssVMDiskEncryption   | 3.4.0 或更新版本 | AzureRM.Compute |
-| Set-AzureRmVmssDiskEncryptionExtension   | 3.4.0 或更新版本 | AzureRM.Compute |
+| Get-AzVmssDiskEncryptionStatus   | 1.0.0 或更新版本 | Az.Compute |
+| Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 或更新版本 | Az.Compute |
+| Disable-AzVmssDiskEncryption   | 1.0.0 或更新版本 | Az.Compute |
+| Get-AzVmssDiskEncryption   | 1.0.0 或更新版本 | Az.Compute |
+| Get-AzVmssVMDiskEncryption   | 1.0.0 或更新版本 | Az.Compute |
+| Set-AzVmssDiskEncryptionExtension   | 1.0.0 或更新版本 | Az.Compute |
 
 
 ## <a name="supported-scenarios-for-disk-encryption"></a>所支援的磁碟加密案例
@@ -79,8 +82,8 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncrypti
 
 ```powershell
 
-Login-AzureRmAccount
-Set-AzureRmContext -SubscriptionId <guid>
+Login-AzAccount
+Set-AzContext -SubscriptionId <guid>
 
 ```
 
@@ -147,7 +150,7 @@ $parameterFilePath="c:\templates\templateparam.json"
 $templateFilePath="c:\templates\template.json"
 
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
+New-AzServiceFabricCluster -ResourceGroupName $resourceGroupName -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
 
 ```
 
@@ -184,11 +187,11 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 $VmssName = "nt1vm"
 $vaultName = "mykeyvault"
 $resourceGroupName = "mycluster"
-$KeyVault = Get-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $rgName
+$KeyVault = Get-AzKeyVault -VaultName $vaultName -ResourceGroupName $rgName
 $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri
 $KeyVaultResourceId = $KeyVault.ResourceId
 
-Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType All
+Set-AzVmssDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType All
 
 ```
 
@@ -206,9 +209,9 @@ az vmss encryption enable -g <resourceGroupName> -n <VMSS name> --disk-encryptio
 
 $VmssName = "nt1vm"
 $resourceGroupName = "mycluster"
-Get-AzureRmVmssDiskEncryption -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName
+Get-AzVmssDiskEncryption -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName
 
-Get-AzureRmVmssVMDiskEncryption -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName -InstanceId "0"
+Get-AzVmssVMDiskEncryption -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName -InstanceId "0"
 
 ```
 
@@ -223,7 +226,7 @@ az vmss encryption show -g <resourceGroupName> -n <VMSS name>
 ```powershell
 $VmssName = "nt1vm"
 $resourceGroupName = "mycluster"
-Disable-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssName
+Disable-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssName
 
 ```
 

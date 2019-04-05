@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.custom: seodec18
-ms.openlocfilehash: fe348daa4613e0b515244686e48ed63a41991d81
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 79751dc0de8817c940355e8b64652014b1c67c35
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009382"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045895"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>使用 Azure Resource Manager 範本建立時間序列深入解析資源
 
@@ -33,11 +33,14 @@ ms.locfileid: "58009382"
 
 Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的基礎結構和設定。 如需詳細資訊，請參閱下列文件：
 
-- [Azure Resource Manager 概觀 - 範本部署](../azure-resource-manager/resource-group-overview.md#template-deployment)
+- [Azure Resource Manager 概觀-範本部署](../azure-resource-manager/resource-group-overview.md#template-deployment)
 - [使用 Resource Manager 範本與 Azure PowerShell 來部署資源](../azure-resource-manager/resource-group-template-deploy.md)
 - [Microsoft.TimeSeriesInsights 資源類型](/azure/templates/microsoft.timeseriesinsights/allversions)
 
 [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) 快速入門範本已在 GitHub 上發行。 此範本會建立一個「時間序列深入解析」環境、一個設定為從事件中樞取用事件的子系事件來源，以及授與環境資料存取權的存取原則。 如果未指定現有事件中樞，就會隨著部署建立一個事件中樞。
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>使用 PowerShell 在本機部署快速入門範本
 
@@ -110,8 +113,8 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
    | eventSourceDisplayName | 要在工具或使用者介面中顯示的選擇性易記名稱，而不是事件來源名稱。 |
    | eventSourceTimestampPropertyName | 將用來作為事件來源時間戳記的事件屬性。 如果沒有為 timestampPropertyName 指定值，或如果指定的是空值或空字串，將會使用事件建立時間。 |
    | eventSourceKeyName | 「時間序列深入解析」服務將用來連線至事件中樞的共用存取金鑰名稱。 |
-   | accessPolicyReaderObjectIds | Azure AD 中使用者或應用程式的物件識別碼清單，這些使用者和應用程式應擁有環境讀取者存取權。 服務主體 objectId 可透過呼叫 **Get-AzureRMADUser** 或 **Get-AzureRMADServicePrincipal** Cmdlet 來取得。 尚未支援為 Azure AD 群組建立存取原則。 |
-   | accessPolicyContributorObjectIds | Azure AD 中使用者或應用程式的物件識別碼清單，這些使用者和應用程式應擁有環境參與者存取權。 服務主體 objectId 可透過呼叫 **Get-AzureRMADUser** 或 **Get-AzureRMADServicePrincipal** Cmdlet 來取得。 尚未支援為 Azure AD 群組建立存取原則。 |
+   | accessPolicyReaderObjectIds | Azure AD 中使用者或應用程式的物件識別碼清單，這些使用者和應用程式應擁有環境讀取者存取權。 可取得服務主體 objectId，請呼叫**Get AzADUser**或**Get AzADServicePrincipal** cmdlet。 尚未支援為 Azure AD 群組建立存取原則。 |
+   | accessPolicyContributorObjectIds | Azure AD 中使用者或應用程式的物件識別碼清單，這些使用者和應用程式應擁有環境參與者存取權。 可取得服務主體 objectId，請呼叫**Get AzADUser**或**Get AzADServicePrincipal** cmdlet。 尚未支援為 Azure AD 群組建立存取原則。 |
 
 例如，以下參數檔案會用來建立環境和從現有事件中樞讀取事件的事件來源。 它也會建立兩個存取原則，將環境存取權授與參與者。
 
@@ -155,27 +158,27 @@ Resource Manager 範本是一個 JSON 檔案，定義了資源群組中資源的
 從 PowerShell 提示字元中執行下列命令：
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 系統會提示您登入您的 Azure 帳戶。 登入之後，執行下列命令以檢視可用的訂用帳戶：
 
 ```powershell
-Get-AzureRMSubscription
+Get-AzSubscription
 ```
 
 這個命令會傳回可用的 Azure 訂用帳戶清單。 執行下列命令為目前的工作階段選擇訂用帳戶。 以您要使用的 Azure 訂用帳戶 GUID 取代 `<YourSubscriptionId>`：
 
 ```powershell
-Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
+Set-AzContext -SubscriptionID <YourSubscriptionId>
 ```
 
 ### <a name="set-the-resource-group"></a>設定資源群組
 
-如果沒有現有的資源群組，請使用 **New-AzureRmResourceGroup** 命令建立新的資源群組。 提供您要使用的資源群組名稱和位置。 例如︰
+如果您沒有現有的資源群組中，建立新的資源群組**新增 AzResourceGroup**命令。 提供您要使用的資源群組名稱和位置。 例如︰
 
 ```powershell
-New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"
+New-AzResourceGroup -Name MyDemoRG -Location "West US"
 ```
 
 如果成功，就會顯示新資源群組的摘要。
@@ -190,38 +193,38 @@ ResourceId        : /subscriptions/<GUID>/resourceGroups/MyDemoRG
 
 ### <a name="test-the-deployment"></a>測試部署
 
-執行 `Test-AzureRmResourceGroupDeployment` Cmdlet 驗證部署。 測試部署時，請提供與執行部署時完全一致的參數。
+執行 `Test-AzResourceGroupDeployment` Cmdlet 驗證部署。 測試部署時，請提供與執行部署時完全一致的參數。
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
+Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
 ```
 
 ### <a name="create-the-deployment"></a>建立部署
 
-若要建立新的部署，請執行 `New-AzureRmResourceGroupDeployment` Cmdlet，並於提示出現時提供必要的參數。 參數會包含部署的名稱、資源群組的名稱，以及範本檔案的路徑或 URL。 如未指定 **Mode** 參數，即會使用預設值 **Incremental**。 如需詳細資訊，請參閱[累加部署與完整部署](../azure-resource-manager/deployment-modes.md)。
+若要建立新的部署，請執行 `New-AzResourceGroupDeployment` Cmdlet，並於提示出現時提供必要的參數。 參數會包含部署的名稱、資源群組的名稱，以及範本檔案的路徑或 URL。 如未指定 **Mode** 參數，即會使用預設值 **Incremental**。 如需詳細資訊，請參閱[累加部署與完整部署](../azure-resource-manager/deployment-modes.md)。
 
 以下命令會提示您在 PowerShell 視窗中輸入五個必要參數︰
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json 
+New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json 
 ```
 
 若要改為指定參數檔案，使用下列命令：
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
+New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
 ```
 
 執行部署 Cmdlet 時，您也可以使用內嵌參數。 命令如下所示︰
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
+New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
 若要執行[完整](../azure-resource-manager/deployment-modes.md)部署，請將 **Mode** 參數設為 **Complete**：
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
+New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
 ## <a name="verify-the-deployment"></a>驗證部署

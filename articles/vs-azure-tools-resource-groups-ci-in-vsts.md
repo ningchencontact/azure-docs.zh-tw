@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: cc9e2e09da572dc4260dcc0e20a8a1846ae17320
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: a2a730e2c3ca466a2705f053d7db0db12d7941da
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894144"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047311"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>使用 Azure 資源群組部署專案在 Azure DevOps Services 中進行持續整合
 若要部署 Azure 範本，您可以執行工作中各個階段：組建、 測試、 複製到 Azure （也稱為 「 暫存 」） 及部署範本。 有兩種不同的方式，可將範本部署到 Azure DevOps Services。 兩種方法所產生的結果都相同，因此請選擇最符合您工作流程的方法。
@@ -28,6 +28,8 @@ ms.locfileid: "58894144"
 2. 新增多個 Azure DevOps Services 組建步驟，每個都執行一個階段工作。
 
 本文將示範兩個選項。 第一個選項的優點是能夠使用開發人員在 Visual Studio 中所使用的相同指令碼，並在整個生命週期中提供一致性。 第二個選項可提供內建指令碼的方便替代選項。 這兩個程序假設您已經在 Azure DevOps Services 中簽入 Visual Studio 部署專案。
+
+[!INCLUDE [updated-for-az](../includes/updated-for-az.md)]
 
 ## <a name="copy-artifacts-to-azure"></a>將構件複製到 Azure
 無論何種情況，如果您有範本部署所需的任何構件，則必須提供存取權給 Azure Resource Manager。 這些構件包括下列檔案：
@@ -87,7 +89,7 @@ ms.locfileid: "58894144"
       
       對於 Azure PowerShell 指令碼，請使用：
       
-      `Get-AzureRmSubscription`
+      `Get-AzSubscription`
       
       对于 Azure CLI，请使用：
       

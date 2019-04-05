@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 81bbf2b69e0e492ea75e8cbbe980d7e83a86eae7
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: 6624ded670ef506dfef225a8b595da2e5ea19427
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912845"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051609"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>診斷虛擬機器網路路由問題 - Azure PowerShell
 
@@ -30,22 +30,26 @@ ms.locfileid: "54912845"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 
-如果您選擇在本機安裝和使用 PowerShell，本文會要求使用 AzureRM PowerShell 模組 5.4.1 版或更新版本。 若要尋找已安裝的版本，請執行 `Get-Module -ListAvailable AzureRM`。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
+如果您選擇要安裝在本機使用 PowerShell，本文需要 Azure PowerShell`Az`模組。 若要尋找已安裝的版本，請執行 `Get-Module -ListAvailable Az`。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。
+
+
 
 ## <a name="create-a-vm"></a>建立 VM
 
-您必須先建立資源群組來包含 VM，才能建立 VM。 使用 [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup)建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
+您必須先建立資源群組來包含 VM，才能建立 VM。 使用 [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup) 來建立資源群組。 下列範例會在 eastus 位置建立名為 myResourceGroup 的資源群組。
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
-使用 [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) 建立 VM。 執行此步驟時，系統會提示您輸入認證。 您輸入的值會設定為 VM 的使用者名稱和密碼。
+使用 [New-AzVM](/powershell/module/az.compute/new-azvm) 建立 VM。 執行此步驟時，系統會提示您輸入認證。 您輸入的值會設定為 VM 的使用者名稱和密碼。
 
 ```azurepowershell-interactive
-$vM = New-AzureRmVm `
+$vM = New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVm" `
     -Location "East US"
@@ -59,18 +63,18 @@ $vM = New-AzureRmVm `
 
 ## <a name="enable-network-watcher"></a>啟用網路監看員
 
-如果您已經在美國東部區域啟用網路監看員，請使用 [New-AzureRmNetworkWatcher](/powershell/module/azurerm.network/get-azurermnetworkwatcher) 來擷取網路監看員。 下列範例會擷取名為 *NetworkWatcher_eastus* 的現有網路監看員，其位於 *NetworkWatcherRG* 資源群組中：
+如果您已經在美國東部區域啟用網路監看員，請使用[Get AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher)擷取網路監看員。 下列範例會擷取名為 *NetworkWatcher_eastus* 的現有網路監看員，其位於 *NetworkWatcherRG* 資源群組中：
 
 ```azurepowershell-interactive
-$networkWatcher = Get-AzureRmNetworkWatcher `
+$networkWatcher = Get-AzNetworkWatcher `
   -Name NetworkWatcher_eastus `
   -ResourceGroupName NetworkWatcherRG
 ```
 
-如果您尚未在美國東部區域啟用網路監看員，請使用 [New-AzureRmNetworkWatcher](/powershell/module/azurerm.network/new-azurermnetworkwatcher) 在美國東部區域建立網路監看員：
+如果您還沒有在美國東部區域啟用網路監看員，使用[新增 AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher)美國東部區域中建立網路監看員：
 
 ```azurepowershell-interactive
-$networkWatcher = New-AzureRmNetworkWatcher `
+$networkWatcher = New-AzNetworkWatcher `
   -Name "NetworkWatcher_eastus" `
   -ResourceGroupName "NetworkWatcherRG" `
   -Location "East US"
@@ -78,12 +82,12 @@ $networkWatcher = New-AzureRmNetworkWatcher `
 
 ### <a name="use-next-hop"></a>使用下一個躍點
 
-Azure 會自動建立通往預設目的地的路由。 您可以建立覆寫預設路由的自訂路由。 有時候，自訂路由可能會導致通訊失敗。 當流量的目的地為特定位址時，若要測試來自 VM 的路由，請使用 [Get-AzureRmNetworkWatcherNextHop](/powershell/module/azurerm.network/get-azurermnetworkwatchernexthop) 命令判斷下一個路由躍點。
+Azure 會自動建立通往預設目的地的路由。 您可以建立覆寫預設路由的自訂路由。 有時候，自訂路由可能會導致通訊失敗。 若要測試從 VM 路由，請使用[Get AzNetworkWatcherNextHop](/powershell/module/az.network/get-aznetworkwatchernexthop)命令來判斷下一個路由的躍點，當流量的目的地的特定位址。
 
 測試從 VM 輸出至 www.bing.com 其中一個 IP 位址的通訊：
 
 ```azurepowershell-interactive
-Get-AzureRmNetworkWatcherNextHop `
+Get-AzNetworkWatcherNextHop `
   -NetworkWatcher $networkWatcher `
   -TargetVirtualMachineId $VM.Id `
   -SourceIPAddress 192.168.1.4 `
@@ -95,7 +99,7 @@ Get-AzureRmNetworkWatcherNextHop `
 測試從 VM 輸出至 172.31.0.100 的通訊：
 
 ```azurepowershell-interactive
-Get-AzureRmNetworkWatcherNextHop `
+Get-AzNetworkWatcherNextHop `
   -NetworkWatcher $networkWatcher `
   -TargetVirtualMachineId $VM.Id `
   -SourceIPAddress 192.168.1.4 `
@@ -106,10 +110,10 @@ Get-AzureRmNetworkWatcherNextHop `
 
 ## <a name="view-details-of-a-route"></a>檢視路由的詳細資料
 
-若要分析進一步路由，請使用 [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 命令，以檢閱網路介面的有效路由：
+若要分析進一步路由傳送，檢閱 網路介面的有效路由[Get AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable)命令：
 
 ```azurepowershell-interactive
-Get-AzureRmEffectiveRouteTable `
+Get-AzEffectiveRouteTable `
   -NetworkInterfaceName myVm `
   -ResourceGroupName myResourceGroup |
   Format-table
@@ -131,10 +135,10 @@ Name State  Source  AddressPrefix           NextHopType NextHopIpAddress
 
 ## <a name="clean-up-resources"></a>清除資源
 
-您可以使用 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 來移除不再需要的資源群組，以及其所包含的所有資源：
+當不再需要您可以使用[移除 AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)來移除資源群組和所有其包含之資源：
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>後續步驟

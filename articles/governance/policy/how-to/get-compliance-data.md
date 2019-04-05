@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: da027e492633ba3e4da912c2c45b2432fd217576
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: c3ef6ff73366ae3017e1126de16153195576a1a8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802944"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048704"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>取得 Azure 資源的合規性資料
 
@@ -30,7 +30,7 @@ Azure 原則的其中一個最大優點，就是能夠針對訂用帳戶中的�
 > [!WARNING]
 > 如果合規性狀態報告為**未註冊**，確認**Microsoft.PolicyInsights**註冊資源提供者和使用者有適當的角色型存取控制 （RBAC) 權限中所述[Azure 原則中的 RBAC](../overview.md#rbac-permissions-in-azure-policy)。
 
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="evaluation-triggers"></a>評估觸發程序
 
@@ -56,8 +56,8 @@ Azure 原則的其中一個最大優點，就是能夠針對訂用帳戶中的�
 
 在每個 REST API URI 中有一些變數，需要您以自己的值取代它們：
 
-- `{YourRG}` - 以您的資源群組名稱取代
-- `{subscriptionId}` - 以您的訂用帳戶識別碼取代
+- `{YourRG}` -以您的資源群組名稱取代
+- `{subscriptionId}` -以您的訂用帳戶識別碼取代
 
 掃描支援訂用帳戶或資源群組中的資源評估。 請使用 REST API **POST** 命令，運用下列 URI 結構來依據範圍啟動掃描：
 
@@ -79,7 +79,7 @@ Azure 原則的其中一個最大優點，就是能夠針對訂用帳戶中的�
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2018-07-01-preview
 ```
 
-`{ResourceContainerGUID}` 是針對要求的範圍以靜態方式所產生。 如果某個範圍已在執行隨選掃描，則不會啟動新的掃描。 相反地，系統會提供相同的 `{ResourceContainerGUID}` **location** URI 新要求以取得狀態。 針對 **Location** URI 的 REST API **GET** 命令會傳回 **202 已接受**，同時持續進行評估。 評估掃描完成時，會傳回 **200 確定**狀態。 完成掃描的主體是具有狀態的 JSON 回應：
+`{ResourceContainerGUID}` 以靜態方式會產生要求的範圍。 如果某個範圍已在執行隨選掃描，則不會啟動新的掃描。 相反地，系統會提供相同的 `{ResourceContainerGUID}` **location** URI 新要求以取得狀態。 針對 **Location** URI 的 REST API **GET** 命令會傳回 **202 已接受**，同時持續進行評估。 評估掃描完成時，會傳回 **200 確定**狀態。 完成掃描的主體是具有狀態的 JSON 回應：
 
 ```json
 {

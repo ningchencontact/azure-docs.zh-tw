@@ -3,17 +3,17 @@ title: Azure IoT 中樞裝置佈建服務的安全性概念 | Microsoft Docs
 description: 說明具有裝置佈建服務和 IoT 中樞之裝置的特定安全性佈建概念
 author: nberdy
 ms.author: nberdy
-ms.date: 03/30/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 92a30f0754decc3052bf53a64da13325ddc4f954
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 7835553dafd66830b7a483c58bc2c7b7cf8c93f8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946556"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046889"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>IoT 中樞裝置佈建服務的安全性概念 
 

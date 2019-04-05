@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 5e6a7cbc070d81de33fac07a89dabf2b469bd355
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 19a7d6052091f8889a88c61793186b7bf7d9d869
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449937"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047008"
 ---
 # <a name="add-an-artifact-to-a-vm"></a>將成品新增至 VM
 在建立 VM 時，您可以新增現有的成品。 這些成品可以是從其中[公用 DevTest Labs Git 存放庫](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts)或從您自己的 Git 存放庫。 這篇文章會示範如何在 Azure 入口網站中，並使用 Azure PowerShell 新增的成品。 
@@ -27,6 +27,8 @@ ms.locfileid: "58449937"
 Azure DevTest Labs「構件」可讓您指定會在 VM 佈建時執行的「動作」，例如執行 Windows PowerShell 指令碼、執行 Bash 命令，以及安裝軟體。 構件「參數」  可讓您自訂適用於特定案例的構件。
 
 若要深入了解如何建立自訂構件，請參閱文章：[建立自訂構件](devtest-lab-artifact-author.md)。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="use-azure-portal"></a>使用 Azure 入口網站 
 1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
@@ -63,11 +65,10 @@ Azure DevTest Labs「構件」可讓您指定會在 VM 佈建時執行的「動�
 1. 選取 [確定] 以關閉 [選取的構件] 窗格。
 
 ## <a name="use-powershell"></a>使用 PowerShell
-下列指令碼會套用指定的成品至指定的 VM。 [Invoke-azurermresourceaction](/powershell/module/azurerm.resources/invoke-azurermresourceaction?view=azurermps-6.13.0)命令就是執行作業。  
+下列指令碼會套用指定的成品至指定的 VM。 [Invoke AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction)命令就是執行作業。  
 
 ```powershell
-#Requires -Version 3.0
-#Requires -Module AzureRM.Resources
+#Requires -Module Az.Resources
 
 param
 (
@@ -86,14 +87,14 @@ param
 )
 
 # Set the appropriate subscription
-Set-AzureRmContext -SubscriptionId $SubscriptionId | Out-Null
+Set-AzContext -SubscriptionId $SubscriptionId | Out-Null
  
 # Get the lab resource group name
-$resourceGroupName = (Find-AzureRmResource -ResourceType 'Microsoft.DevTestLab/labs' | Where-Object { $_.Name -eq $DevTestLabName}).ResourceGroupName
+$resourceGroupName = (Find-AzResource -ResourceType 'Microsoft.DevTestLab/labs' | Where-Object { $_.Name -eq $DevTestLabName}).ResourceGroupName
 if ($resourceGroupName -eq $null) { throw "Unable to find lab $DevTestLabName in subscription $SubscriptionId." }
 
 # Get the internal repo name
-$repository = Get-AzureRmResource -ResourceGroupName $resourceGroupName `
+$repository = Get-AzResource -ResourceGroupName $resourceGroupName `
                     -ResourceType 'Microsoft.DevTestLab/labs/artifactsources' `
                     -ResourceName $DevTestLabName `
                     -ApiVersion 2016-05-15 `
@@ -103,7 +104,7 @@ $repository = Get-AzureRmResource -ResourceGroupName $resourceGroupName `
 if ($repository -eq $null) { "Unable to find repository $RepositoryName in lab $DevTestLabName." }
 
 # Get the internal artifact name
-$template = Get-AzureRmResource -ResourceGroupName $resourceGroupName `
+$template = Get-AzResource -ResourceGroupName $resourceGroupName `
                 -ResourceType "Microsoft.DevTestLab/labs/artifactSources/artifacts" `
                 -ResourceName "$DevTestLabName/$($repository.Name)" `
                 -ApiVersion 2016-05-15 `
@@ -116,7 +117,7 @@ if ($template -eq $null) { throw "Unable to find template $ArtifactName in lab $
 $FullVMId = "/subscriptions/$SubscriptionId/resourceGroups/$resourceGroupName`
                 /providers/Microsoft.DevTestLab/labs/$DevTestLabName/virtualmachines/$virtualMachineName"
 
-$virtualMachine = Get-AzureRmResource -ResourceId $FullVMId
+$virtualMachine = Get-AzResource -ResourceId $FullVMId
 
 # Generate the artifact id
 $FullArtifactId = "/subscriptions/$SubscriptionId/resourceGroups/$resourceGroupName`
@@ -150,7 +151,7 @@ artifacts = @(
 # Check the VM
 if ($virtualMachine -ne $null) {
    # Apply the artifact by name to the virtual machine
-   $status = Invoke-AzureRmResourceAction -Parameters $prop -ResourceId $virtualMachine.ResourceId -Action "applyArtifacts" -ApiVersion 2016-05-15 -Force
+   $status = Invoke-AzResourceAction -Parameters $prop -ResourceId $virtualMachine.ResourceId -Action "applyArtifacts" -ApiVersion 2016-05-15 -Force
    if ($status.Status -eq 'Succeeded') {
       Write-Output "##[section] Successfully applied artifact: $ArtifactName to $VirtualMachineName"
    } else {
@@ -167,5 +168,5 @@ if ($virtualMachine -ne $null) {
 
 - [指定必要的成品，您的實驗室](devtest-lab-mandatory-artifacts.md)
 - [建立自訂構件](devtest-lab-artifact-author.md)
-- [將構件儲存機制加入實驗室](devtest-lab-artifact-author.md)
+- [將成品存放庫新增至實驗室](devtest-lab-artifact-author.md)
 - [診斷構件失敗](devtest-lab-troubleshoot-artifact-failure.md)

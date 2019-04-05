@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 501f215ae3daf24db6307b4f8afb0c7d3271d8a5
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 2c64019ae667ff4a2ce0694ffc4a9cd69b9116b3
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361858"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048914"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>移轉至以 Azure Resource Manager 為基礎的開發工具 (適用於 HDInsight 叢集)
 
@@ -32,54 +32,54 @@ HDInsight 正在取代以 Azure Service Manager (ASM) 為基礎的工具 (適用
 
 透過 Azure 傳統 CLI 來使用 HDInsight 的基本命令如下︰
 
-* `azure hdinsight cluster create` - 建立新的 HDInsight 叢集
-* `azure hdinsight cluster delete` - 刪除現有的 HDInsight 叢集
-* `azure hdinsight cluster show` - 顯示現有叢集的相關資訊
-* `azure hdinsight cluster list` - 列出適用於您 Azure 訂用帳戶的 HDInsight 叢集
+* `azure hdinsight cluster create` -建立新的 HDInsight 叢集
+* `azure hdinsight cluster delete` -刪除現有的 HDInsight 叢集
+* `azure hdinsight cluster show` -顯示現有叢集的相關資訊
+* `azure hdinsight cluster list` -列出您的 Azure 訂用帳戶的 HDInsight 叢集
 
 使用 `-h` 切換參數來檢查每個命令可用的參數和切換參數。
 
 ### <a name="new-commands"></a>新的命令
 可用於 Azure Resource Manager 的新命令︰
 
-* `azure hdinsight cluster resize` - 在叢集中動態變更背景工作節點數目
-* `azure hdinsight cluster enable-http-access` - 啟用 HTTP 對叢集的存取 (預設為開啟)
-* `azure hdinsight cluster disable-http-access` - 禁用对群集的 HTTPs 访问
-* `azure hdinsight script-action` - 在叢集上提供建立/管理指令碼動作的命令
-* `azure hdinsight config` -提供可用於建立組態檔的命令，該組態檔可與 `hdinsight cluster create` 命令一起使用，以提供組態資訊。
+* `azure hdinsight cluster resize` -在叢集中的背景工作節點數目會動態變更
+* `azure hdinsight cluster enable-http-access` -可讓您在叢集的 HTTPs 存取 (在預設情況下)
+* `azure hdinsight cluster disable-http-access` -停用 HTTPs 存取叢集
+* `azure hdinsight script-action` -提供建立/管理指令碼動作在叢集上的命令
+* `azure hdinsight config` -提供建立組態檔，可搭配命令`hdinsight cluster create`命令，以提供組態資訊。
 
 ### <a name="deprecated-commands"></a>已取代的命令
 如果您使用 `azure hdinsight job` 命令將作業提交至 HDInsight 叢集，便無法透過資源管理員命令來使用這些命令。 如果您需要以程式設計方式，自指令碼將工作提交至 HDInsight，您應該改用 HDInsight 所提供的 REST API。 如需有關如何使用 REST API 提交工作的詳細資訊，請參閱下列文件。
 
-* [使用 Curl 搭配執行 MapReduce 工作與 HDInsight 上的 Hadoop](hadoop/apache-hadoop-use-mapreduce-curl.md)
-* [使用 cURL 搭配執行 Apache Hive 查詢與 HDInsight 上的 Hadoop](hadoop/apache-hadoop-use-hive-curl.md)
-* [使用 cURL 搭配 HDInsight 上的 Apache Hadoop 執行 Apache Pig 作業](hadoop/apache-hadoop-use-pig-curl.md)
+* [使用 curl 搭配 HDInsight 上，執行與 Hadoop 的 MapReduce 工作](hadoop/apache-hadoop-use-mapreduce-curl.md)
+* [使用 curl 搭配 HDInsight 上執行的 Apache Hadoop 的 Apache Hive 查詢](hadoop/apache-hadoop-use-hive-curl.md)
+* [使用 curl 搭配 HDInsight 上執行的 Apache Hadoop 的 Apache Pig 工作](hadoop/apache-hadoop-use-pig-curl.md)
 
 若要了解其他用來以互動方式執行 Apache Hadoop MapReduce、Apache Hive 和 Apache Pig 的方式，請參閱[使用 MapReduce 搭配 HDInsight 上的 Hadoop](hadoop/hdinsight-use-mapreduce.md)、[使用 Apache Hive 搭配 HDInsight 上的 Apache Hadoop](hadoop/hdinsight-use-hive.md) 和[使用 Apache Pig 搭配 HDInsight 上的 Apache Hadoop](hadoop/hdinsight-use-pig.md)。
 
 ### <a name="examples"></a>範例
 **建立叢集**
 
-* 舊的命令 (ASM) - `azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
-* 新命令 - `azure hdinsight cluster create myhdicluster -g myresourcegroup --location northeurope --osType linux --clusterType hadoop --defaultStorageAccountName mystorage --defaultStorageAccountKey <storagekey> --defaultStorageContainer mycontainer --userName admin -password mypassword --sshUserName sshuser --sshPassword mypassword`
+* 舊的命令 (ASM)- `azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
+* 新的命令- `azure hdinsight cluster create myhdicluster -g myresourcegroup --location northeurope --osType linux --clusterType hadoop --defaultStorageAccountName mystorage --defaultStorageAccountKey <storagekey> --defaultStorageContainer mycontainer --userName admin -password mypassword --sshUserName sshuser --sshPassword mypassword`
 
 **刪除叢集**
 
-* 舊的命令 (ASM) - `azure hdinsight cluster delete myhdicluster`
-* 新命令 - `azure hdinsight cluster delete mycluster -g myresourcegroup`
+* 舊的命令 (ASM)- `azure hdinsight cluster delete myhdicluster`
+* 新的命令- `azure hdinsight cluster delete mycluster -g myresourcegroup`
 
 **列出叢集**
 
-* 舊的命令 (ASM) - `azure hdinsight cluster list`
-* 新命令 - `azure hdinsight cluster list`
+* 舊的命令 (ASM)- `azure hdinsight cluster list`
+* 新的命令- `azure hdinsight cluster list`
 
 > [!NOTE]  
 > 針對清單命令，當使用 `-g` 來指定資源群組，將只會傳回在指定資源群組中的叢集。
 
 **顯示叢集資訊**
 
-* 舊的命令 (ASM) - `azure hdinsight cluster show myhdicluster`
-* 新命令 - `azure hdinsight cluster show myhdicluster -g myresourcegroup`
+* 舊的命令 (ASM)- `azure hdinsight cluster show myhdicluster`
+* 新的命令- `azure hdinsight cluster show myhdicluster -g myresourcegroup`
 
 ## <a name="migrating-azure-powershell-to-azure-resource-manager"></a>將 Azure PowerShell 移轉至 Azure Resource Manager
 有關 Azure PowerShell 在 Azure Resource Manager 模式中的一般資訊，請參閱 [搭配使用 Azure PowerShell 與 Azure Resource Manager](../powershell-azure-resource-manager.md)。
@@ -94,7 +94,7 @@ Azure PowerShell Resource Manager Cmdlet 可與 ASM Cmdlet 並存安裝。 來�
 ### <a name="renamed-cmdlets"></a>重新命名 Cmdlet
 若要在 Windows PowerShell 主控台中列出 HDInsight ASM Cmdlet：
 
-    help *azurermhdinsight*
+    help *azurehdinsight*
 
 下表列出 ASM Cmdlet 和其在資源管理員模式中的名稱︰
 
@@ -131,7 +131,7 @@ Azure PowerShell Resource Manager Cmdlet 可與 ASM Cmdlet 並存安裝。 來�
 ### <a name="new-cmdlets"></a>新的 Cmdlet
 下列是只在資源管理員模式中使用的新 Cmdlet。 
 
-**指令碼動作相關的 Cmdlet：**
+**指令碼動作相關的 cmdlet:**
 
 * **Get-AzHDInsightPersistedScriptAction**:取得叢集的持續性指令碼動作，並依時間先後順序列出，或取得有關指定持續性指令碼動作的詳細資料。 
 * **Get-AzHDInsightScriptActionHistory**:取得叢集的指令碼動作記錄，並依反向的時間先後順序列出，或取得有關先前執行指令碼動作的詳細資料。 
@@ -141,7 +141,7 @@ Azure PowerShell Resource Manager Cmdlet 可與 ASM Cmdlet 並存安裝。 來�
 
 如需關於其他使用方式的詳細資訊，請參閱 [使用指令碼動作自訂以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
-**叢集身分識別相關的 Cmdlet：**
+**叢集身分識別相關的 cmdlet:**
 
 * **新增 AzHDInsightClusterIdentity**:將叢集身分識別新增至叢集設定物件，以便讓 HDInsight 叢集可以存取 Azure Data Lake Storage。 請參閱[使用 Azure PowerShell 建立搭配 Data Lake Storage 的 HDInsight 叢集](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)。
 
@@ -213,9 +213,9 @@ Azure PowerShell Resource Manager Cmdlet 可與 ASM Cmdlet 並存安裝。 來�
 
 #### <a name="other-samples"></a>其他範例
 * [建立 HDInsight 叢集](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-* [提交 Apache Hive 作業](hadoop/apache-hadoop-use-hive-powershell.md)
-* [提交 Apache Pig 作業](hadoop/apache-hadoop-use-pig-powershell.md)
-* [提交 Apache Sqoop 作業](hadoop/apache-hadoop-use-sqoop-powershell.md)
+* [Apache Hive 工作提交](hadoop/apache-hadoop-use-hive-powershell.md)
+* [Apache Pig 工作提交](hadoop/apache-hadoop-use-pig-powershell.md)
+* [提交 Sqoop 工作](hadoop/apache-hadoop-use-sqoop-powershell.md)
 
 ## <a name="migrating-to-the-new-hdinsight-net-sdk"></a>移轉至新的 HDInsight .NET SDK
 以 Azure Service Management (ASM) 為基礎的 [HDInsight.NET SDK](https://msdn.microsoft.com/library/azure/mt416619.aspx) 現在已被取代。 建議您使用以 Azure Resource Management 的[以資源管理員為基礎的 HDInsight.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)。 下列以 ASM 為基礎的 HDInsight 封裝會被取代。

@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: ea10e83e8a5963c1ea0073179c15b1c2f3230805
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
-ms.translationtype: HT
+ms.openlocfilehash: 601a3f273a8da9100d24dfdbd13bd598b0e48884
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615192"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051558"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>建立 Azure 網路監看員執行個體
 
 網路監看員是一項區域性服務，可讓您監視與診斷位於和進出 Azure 的網路案例層級條件。 案例層級監視可讓您在端對端網路層級檢視診斷問題。 網路監看員提供的網路診斷和視覺效果工具，可幫助您了解、診斷及洞悉您在 Azure 中的網路。 網路監看員會透過建立網路監看員資源來啟用。 這項資源可讓您使用網路監看員功能。
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="network-watcher-is-automatically-enabled"></a>網路監看員會自動啟用
 當您建立或更新訂用帳戶中的虛擬網路時，網路監看員將會在虛擬網路的區域中自動啟用。 自動啟用網路監看員不會對您的資源或相關費用造成任何影響。
@@ -35,8 +38,8 @@ ms.locfileid: "51615192"
 > 退出自動啟用網路監看員是永久性變更。 一旦退出，便無法在不[連絡支援服務](https://azure.microsoft.com/support/options/)的情況下加入
 
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
-Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Network
+Register-AzProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 ```azurecli-interactive
@@ -63,7 +66,7 @@ az provider register -n Microsoft.Network
 若要建立網路監看員執行個體，請執行下列範例︰
 
 ```powershell
-New-AzureRmNetworkWatcher -Name "NetworkWatcher_westcentralus" -ResourceGroupName "NetworkWatcherRG" -Location "West Central US"
+New-AzNetworkWatcher -Name "NetworkWatcher_westcentralus" -ResourceGroupName "NetworkWatcherRG" -Location "West Central US"
 ```
 
 ## <a name="create-a-network-watcher-with-the-azure-cli"></a>使用 Azure CLI 建立網路監看員
@@ -110,6 +113,6 @@ armclient put "https://management.azure.com/subscriptions/${subscriptionId}/reso
 * [下一個躍點](network-watcher-next-hop-overview.md)
 * [安全性群組檢視](network-watcher-security-group-view-overview.md)
 * [NSG 流量記錄](network-watcher-nsg-flow-logging-overview.md)
-* [虛擬網路閘道疑難排解](network-watcher-troubleshoot-overview.md)
+* [虛擬網路閘道進行疑難排解](network-watcher-troubleshoot-overview.md)
 
 一旦有網路監看員執行個體後，您可以啟用虛擬機器內的封包擷取。 若要了解做法，請參閱[建立警示觸發的封包擷取](network-watcher-alert-triggered-packet-capture.md)

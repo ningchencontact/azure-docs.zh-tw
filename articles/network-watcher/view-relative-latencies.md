@@ -16,29 +16,32 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 0b6baec08470754c04aaa0bea2a3e6defe7fd91f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 895e29d9855372e418ad5ebf2a3949dc01ddb8de
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117847"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050487"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>檢視特定位置中 Azure 區域的相對延遲
 
 在本教學課程中，了解如何使用 Azure [網路監看員](network-watcher-monitoring-overview.md)服務來協助您以您的使用者人數統計為基礎，決定要在哪一個 Azure 區域部署您的應用程式或服務。 此外，還可以使用它來協助您評估對 Azure 的服務提供者連線。  
         
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="create-a-network-watcher"></a>建立網路監看員
 
 如果您在至少一個 Azure [區域](https://azure.microsoft.com/regions)中已有網路監看員，可以略過本節中的工作。 建立網路監看員的資源群組。 在此範例中，會在美國東部區域中建立資源群組，但您可以在任何 Azure 區域中建立資源群組。
 
 ```powershell
-New-AzureRmResourceGroup -Name NetworkWatcherRG -Location eastus
+New-AzResourceGroup -Name NetworkWatcherRG -Location eastus
 ```
 
 建立網路監看員。 您必須在至少一個 Azure 區域中建立網路監看員。 在此範例中，會在美國東部 Azure 區域中建立網路監看員。
 
 ```powershell
-New-AzureRmNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -Location eastus
+New-AzNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -Location eastus
 ```
 
 ## <a name="compare-relative-network-latencies-to-a-single-azure-region-from-a-specific-location"></a>比較相對的網路延遲與特定位置中的單一 Azure 區域
@@ -46,7 +49,7 @@ New-AzureRmNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName Network
 從特定位置到服務部署所在的 Azure 區域來評估服務提供者，或是針對使用者報告的問題 (例如「站台變慢」) 進行疑難排解。 例如，下列命令會傳回美國華盛頓州與美國西部 2 Azure 區域、在 2017 年 12 月 13 日至 15 日之間的平均相對網際網路服務提供者延遲：
 
 ```powershell
-Get-AzureRmNetworkWatcherReachabilityReport `
+Get-AzNetworkWatcherReachabilityReport `
   -NetworkWatcherName NetworkWatcher_eastus `
   -ResourceGroupName NetworkWatcherRG `
   -Location "West US 2" `
@@ -109,7 +112,7 @@ ReachabilityReport : [
 如果您不是使用 `-Location` 指定特定位置與特定 Azure 區域之間的相對延遲，而是需要從特定的實體位置決定對所有 Azure 區域的相對延遲，您也可以這麼做。 例如，如果您的主要使用者是位於華盛頓州的 Comcast 使用者，下列命令可協助您評估要在哪一個 Azure 區域中部署服務：
 
 ```powershell
-Get-AzureRmNetworkWatcherReachabilityReport `
+Get-AzNetworkWatcherReachabilityReport `
   -NetworkWatcherName NetworkWatcher_eastus `
   -ResourceGroupName NetworkWatcherRG `
   -Provider "Comcast Cable Communications, LLC - ASN 7922" `
@@ -127,7 +130,7 @@ Get-AzureRmNetworkWatcherReachabilityReport `
 資料可供特定的網際網路服務提供者、國家/地區、州和城市使用。 若要檢視所有您可以檢視資料的可用網際網路服務提供者、國家/地區、州和城市的清單，請輸入下列命令：
 
 ```powershell
-Get-AzureRmNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
+Get-AzNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
 ```
 
 資料僅可供前一個命令所傳回的國家/地區、州和城市使用。 前一個命令會要求您指定現有的網路監看員。 範例已在名為 *NetworkWatcherRG*的資源群組中指定 NetworkWatcher_eastus 網路監看員，但是您可以指定任何現有的網路監看員。 如果您沒有現有的網路監看員，請建立一個網路監看員，方法是完成[建立網路監看員](#create-a-network-watcher)中的工作。 
@@ -135,7 +138,7 @@ Get-AzureRmNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWa
 在執行前一個命令後，您可以篩選傳回的輸出，方法是指定 [國家/地區]、[州] 和 [城市] 的有效值。  例如，若要檢視美國境內華盛頓州的西雅圖中可用的網際網路服務提供者清單，請輸入下列命令：
 
 ```powershell
-Get-AzureRmNetworkWatcherReachabilityProvidersList `
+Get-AzNetworkWatcherReachabilityProvidersList `
   -NetworkWatcherName NetworkWatcher_eastus `
   -ResourceGroupName NetworkWatcherRG `
   -City Seattle `

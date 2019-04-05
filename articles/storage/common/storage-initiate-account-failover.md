@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f582ef8cca3c36bad40f14026aea1ad422b6106f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: fd8eecbd20446bfde8d3a7467e2982398c3b8c19
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668559"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044958"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>起始儲存體帳戶容錯移轉 (預覽)
 
@@ -23,6 +23,8 @@ ms.locfileid: "56668559"
 
 > [!WARNING]
 > 帳戶容錯移轉通常會導致一些資料遺失。 若要了解帳戶容錯移轉的影響並預先因應資料遺失，請檢閱[了解帳戶容錯移轉程序](storage-disaster-recovery-guidance.md#understand-the-account-failover-process)。
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -35,7 +37,7 @@ ms.locfileid: "56668559"
 
 當您為儲存體帳戶起始帳戶容錯移轉時，次要端點的 DNS 記錄將會更新，使次要端點成為主要端點。 在起始容錯移轉之前，請確實了解儲存體帳戶可能會受到的影響。
 
-若要在起始容錯移轉之前評估可能的資料遺失程度，請使用 `Get-AzureRmStorageAccount` PowerShell Cmdlet 並搭配 `-IncludeGeoReplicationStats` 參數，以查看 [上次同步時間] 屬性。 然後，查看帳戶的 `GeoReplicationStats` 屬性。 
+若要在起始容錯移轉之前評估可能的資料遺失程度，請使用 `Get-AzStorageAccount` PowerShell Cmdlet 並搭配 `-IncludeGeoReplicationStats` 參數，以查看 [上次同步時間] 屬性。 然後，查看帳戶的 `GeoReplicationStats` 屬性。 
 
 容錯移轉之後，您的儲存體帳戶類型在新的主要區域中會自動轉換為本地備援儲存體 (LRS)。 您可以為帳戶重新啟用異地備援儲存體 (GRS) 或讀取權限異地備援儲存體 (RA-GRS)。 請注意，從 LRS 轉換為 GRS 或 RA-GRS 時，會產生額外的費用。 如需詳細資訊，請參閱[頻寬定價詳細資料](https://azure.microsoft.com/pricing/details/bandwidth/)。 
 
@@ -104,6 +106,6 @@ az storage account failover \ --name accountName
 
 ## <a name="next-steps"></a>後續步驟
 
-- [Azure 儲存體中的災害復原和帳戶容錯移轉 (預覽)](storage-disaster-recovery-guidance.md)
+- [災害復原和帳戶的容錯移轉 （預覽） 在 Azure 儲存體](storage-disaster-recovery-guidance.md)
 - [使用 RA-GRS 設計高可用性應用程式](storage-designing-ha-apps-with-ragrs.md)
 - [教學課程：建置採用 Blob 儲存體的高可用性應用程式](../blobs/storage-create-geo-redundant-storage.md) 

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 2/15/2019
 ms.author: victorh
-ms.openlocfilehash: 21309060b7b4a93d798c444bd96bc21c62693a54
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3f329d3dd4af1faef8f77d08db655cc7d6ef79fd
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533998"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051813"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Azure 防火牆記錄檔分析範例
 
@@ -40,7 +40,7 @@ ms.locfileid: "57533998"
 
 ![網路規則記錄資料]( ./media/log-analytics-samples/azurefirewall-networkrulelogstats.png)
 
-Azure 防火牆會將資料記錄在 AzureDiagnostics 底下，並將類別設定為 **AzureFirewallApplicationRule** 或 **AzureFirewallApplicationRule**。 包含詳細資料的資料會儲存在 msg_s 欄位中。 使用 [parse](https://docs.microsoft.com/azure/kusto/query/parseoperator) \(英文\) 運算子，我們便可以從 msg_s 欄位中擷取各種有趣的屬性。 下列查詢會同時從兩個類別中擷取資訊。
+Azure 防火牆記錄與分類為 AzureDiagnostics 下方的資料**AzureFirewallApplicationRule**或是**AzureFirewallNetworkRule**。 包含詳細資料的資料會儲存在 msg_s 欄位中。 使用 [parse](https://docs.microsoft.com/azure/kusto/query/parseoperator) \(英文\) 運算子，我們便可以從 msg_s 欄位中擷取各種有趣的屬性。 下列查詢會同時從兩個類別中擷取資訊。
 
 ## <a name="application-rules-log-data-query"></a>應用程式規則記錄資料查詢
 

@@ -3,17 +3,17 @@ title: 使用範本建立 Azure IoT 中樞 (PowerShell) | Microsoft Docs
 description: 如何在 PowerShell 中使用 Azure Resource Manager 範本建立 IoT 中樞。
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: c9a72bc435517241cf705660a669e9fb57ae2a1a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fcc9af9e614b0a1b7977ba18f3147fddab8b7b7d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103106"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045044"
 ---
 # <a name="create-an-iot-hub-using-azure-resource-manager-template-powershell"></a>使用 Azure Resource Manager 範本建立 IoT 中樞 (PowerShell)
 

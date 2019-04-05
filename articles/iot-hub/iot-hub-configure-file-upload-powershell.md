@@ -7,13 +7,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.author: robin.shahan
-ms.openlocfilehash: 9754fe2bedae9c1eaf6b18614014485dbe8051f2
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.author: robinsh
+ms.openlocfilehash: 4f1a5d59c340a02dcdc0291046ef6361c6f41c86
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010472"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044907"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>使用 PowerShell 設定 IoT 中樞檔案上傳
 
@@ -136,5 +136,5 @@ Set-AzIotHub `
 若要進一步探索 IoT 中樞的功能，請參閱︰
 
 * [IoT 中樞開發人員指南](iot-hub-devguide.md)
-* [使用 Azure IoT Edge 將 AI 部署到 Edge 裝置](../iot-edge/tutorial-simulate-device-linux.md)
-* [徹底保護您的 IoT 解決方案](../iot-fundamentals/iot-security-ground-up.md)
+* [使用 Azure IoT Edge 將 AI 部署到 edge 裝置](../iot-edge/tutorial-simulate-device-linux.md)
+* [保護您的 IoT 解決方案所打造的註冊](../iot-fundamentals/iot-security-ground-up.md)

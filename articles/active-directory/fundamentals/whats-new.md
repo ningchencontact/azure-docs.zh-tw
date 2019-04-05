@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5077f09cba3548b03045011a7b8f16844156de55
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 7cd3286d51154c9c1dd53a2f87dd8a97999d064a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757648"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046694"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
 
@@ -157,7 +157,7 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 **服務類別：** 使用條款  
 **產品功能：** 控管
 
-我們已更新我們現有的條款的使用體驗以協助改善您在檢閱並同意在行動裝置上的使用規定。 此外，您現在可以放大和縮小，返回、 下載的詳細資訊，並選取超連結。 如需已更新使用規定的詳細資訊，請參閱[Azure Active Directory 使用規定特性](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#what-terms-of-use-looks-like-for-users)。
+我們已更新我們現有的條款的使用體驗以協助改善您在檢閱並同意在行動裝置上的使用規定。 此外，您現在可以放大和縮小，返回、 下載的詳細資訊，並選取超連結。 如需已更新使用規定的詳細資訊，請參閱[Azure Active Directory 使用規定特性](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#what-terms-of-use-looks-like-for-users)。
 
 ---
 
@@ -337,11 +337,11 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 
 我們引進了三項新的 cookie 設定，以供透過應用程式 Proxy 發佈的應用程式使用：
 
-- **使用僅限 HTTP Cookie。** 在您的應用程式 Proxy 存取和工作階段 Cookie 上設定 **HTTPOnly** 旗標。 開啟此設定可提供額外的安全性優點，例如協助防止透過用戶端指令碼複製或修改 Cookie。 我們建議您開啟這個旗標 (選擇 [是])，以獲得附加好處。
+- **使用僅限 HTTP cookie。** 在您的應用程式 Proxy 存取和工作階段 Cookie 上設定 **HTTPOnly** 旗標。 開啟此設定可提供額外的安全性優點，例如協助防止透過用戶端指令碼複製或修改 Cookie。 我們建議您開啟這個旗標 (選擇 [是])，以獲得附加好處。
 
-- **使用安全的 Cookie。** 在您的應用程式 Proxy 存取和工作階段 Cookie 上設定 [安全] 旗標。 開啟此設定可提供額外的安全性優點，例如確定 Cookie 只會透過 TLS 安全通道 (例如 HTTPS) 傳輸。 我們建議您開啟這個旗標 (選擇 [是])，以獲得附加好處。
+- **使用安全 cookie。** 在您的應用程式 Proxy 存取和工作階段 Cookie 上設定 [安全] 旗標。 開啟此設定可提供額外的安全性優點，例如確定 Cookie 只會透過 TLS 安全通道 (例如 HTTPS) 傳輸。 我們建議您開啟這個旗標 (選擇 [是])，以獲得附加好處。
 
-- **使用永續性 Cookie。** 防止存取 Cookie 在關閉 Web 瀏覽器關閉時過期。 這些 Cookie 會在存取權杖的存留期中持續存在。 不過，如果已達到期時間，或是使用者手動刪除 Cookie，便會重設 Cookie。 我們建議您保留預設設定 [否]，僅針對程序間不共用 Cookie 的舊版應用程式開啟此設定。
+- **使用永續性 cookie。** 防止存取 Cookie 在關閉 Web 瀏覽器關閉時過期。 這些 Cookie 會在存取權杖的存留期中持續存在。 不過，如果已達到期時間，或是使用者手動刪除 Cookie，便會重設 Cookie。 我們建議您保留預設設定 [否]，僅針對程序間不共用 Cookie 的舊版應用程式開啟此設定。
 
 如需新 Cookie 的詳細資訊，請參閱 [Azure Active Directory 中用來存取內部部署應用程式的 Cookie 設定](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings)。
 
@@ -424,11 +424,11 @@ Privileged Identity Management (PIM) 系統管理員現在可以針對特定資�
 
 因此，此修正防止直接更新從 AD 同步處理之使用者的 ImmutableID 屬性 (這在過去的某些案例中是必要的)。 根據設計，Azure AD 中物件的 ImmutableID 顧名思義就是不可變更的。 Azure Active Directory Connect Health 和 Azure AD Connect 同步用戶端實作的新功能，可用來解決這類案例：
 
-- **以分段方式完成大規模更新許多使用者的 ImmutableID**
+- **分階段方式中的許多使用者的大規模 ImmutableID 更新**
   
   例如，您需要執行冗長的 AD DS 內部樹系移轉。 解決方案：使用 Azure AD Connect **設定 Source Anchor**，然後隨著使用者移轉，從 Azure AD 將現有的 ImmutableID 值複製到新樹系本機 AD DS 使用者的 DS-Consistency-Guid 屬性。 如需詳細資訊，請參閱[使用 ms-DS-ConsistencyGuid 作為 sourceAnchor](/azure/active-directory/hybrid/plan-connect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor)。
 
-- **一次完成大規模更新許多使用者的 ImmutableID**
+- **一次完成的許多使用者的大規模 ImmutableID 更新**
 
   例如，您在實作 Azure AD Connect 時發生錯誤，而現在您需要變更 SourceAnchor 屬性。 解決方案：停用租用戶層級的 DirSync，並清除所有無效的 ImmutableID 值。 如需詳細資訊，請參閱[關閉 Office 365 的目錄同步處理](/office365/enterprise/turn-off-directory-synchronization)。
 
@@ -534,7 +534,7 @@ Azure AD 系統管理員現在可以使用 Microsoft Authenticator 應用程式�
  
 系統管理員現在可以開啟 [需要使用者在每部裝置上同意] 選項，要求使用者接受他們在您的租用戶上所使用之每個裝置的使用規定。
 
-如需詳細資訊，請參閱 [Azure Active Directory 使用規定特性的＜每部裝置的使用規定＞一節](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#per-device-terms-of-use)。
+如需詳細資訊，請參閱 [Azure Active Directory 使用規定特性的＜每部裝置的使用規定＞一節](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#per-device-terms-of-use)。
 
 ---
 
@@ -547,7 +547,7 @@ Azure AD 系統管理員現在可以使用 Microsoft Authenticator 應用程式�
 
 系統管理員現在可以開啟 [到期同意]選項，根據您指定的週期性排程，為所有使用者設定使用規定到期。 排程可以是每年、每兩年、每季，或每個月。 使用規定到期之後，必須接受使用者。
 
-如需詳細資訊，請參閱 [Azure Active Directory 使用規定特性的＜新增使用規定＞一節](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#add-terms-of-use)。
+如需詳細資訊，請參閱 [Azure Active Directory 使用規定特性的＜新增使用規定＞一節](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use)。
 
 ---
 
@@ -559,7 +559,7 @@ Azure AD 系統管理員現在可以使用 Microsoft Authenticator 應用程式�
 
 系統管理員現在可以指定使用者必須重新接受使用規定的持續時間。 例如，系統管理員可以指定使用者必須每隔 90 天重新接受使用規定。
 
-如需詳細資訊，請參閱 [Azure Active Directory 使用規定特性的＜新增使用規定＞一節](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#add-terms-of-use)。
+如需詳細資訊，請參閱 [Azure Active Directory 使用規定特性的＜新增使用規定＞一節](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use)。
  
 ---
 

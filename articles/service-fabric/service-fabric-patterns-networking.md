@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
-ms.openlocfilehash: feea57122d805ae065278458f90afbc960221a9d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d5aa09f3ff899766e6eb6d1784e4417f7b48eac0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670246"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049892"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric 网络模式
 您可以將 Azure Service Fabric 叢集與其他的 Azure 網路功能整合起來。 本文說明如何建立使用下列功能的叢集︰
@@ -34,6 +34,9 @@ Service Fabric 會在標準的虛擬機器擴展集內執行。 能在虛擬機�
 Service Fabric 有一個方面是其他網路功能所沒有的。 [Azure 入口網站](https://portal.azure.com)在內部會使用 Service Fabric 資源提供者來呼叫叢集，以取得節點和應用程式的相關資訊。 Service Fabric 資源提供者對管理端點上的 HTTP 閘道連接埠 (預設為連接埠 19080) 需具備可公開存取的輸入存取權。 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 會使用此管理端點來管理您的叢集。 Service Fabric 资源提供程序还使用此端口来查询有关群集的信息，以便在 Azure 门户中显示。 
 
 如果無法從 Service Fabric 資源提供者存取連接埠 19080，入口網站中會出現「找不到節點」之類的訊息，而且您的節點和應用程式清單會顯示為空白。 如果想要在 Azure 门户中查看群集，负载均衡器必须公开一个公共 IP 地址，并且网络安全组必须允许端口 19080 上的传入流量。 如果您的設定不符合這些需求，Azure 入口網站就不會顯示叢集的狀態。
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="templates"></a>範本
 
@@ -51,7 +54,7 @@ Service Fabric 有一個方面是其他網路功能所沒有的。 [Azure 入口
 靜態公用 IP 位址一般是會與 VM 或其指派到之 VM 分開管理的專用資源。 它會佈建在專用的網路資源群組中 (而非在 Service Fabric 叢集資源群組本身)。 請透過 Azure 入口網站或 Powershell，在同一個 ExistingRG 資源群組中建立名為 staticIP1 的靜態公用 IP 位址：
 
 ```powershell
-PS C:\Users\user> New-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location westus -AllocationMethod Static -DomainNameLabel sfnetworking
+PS C:\Users\user> New-AzPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location westus -AllocationMethod Static -DomainNameLabel sfnetworking
 
 Name                     : staticIP1
 ResourceGroupName        : ExistingRG
@@ -166,8 +169,8 @@ DnsSettings              : {
 6. 部署範本：
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingexistingvnet -Location westus
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
+    New-AzResourceGroup -Name sfnetworkingexistingvnet -Location westus
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
     ```
 
     在部署之後，您的虛擬網路應該會包含新的擴展集 VM。 虛擬機器擴展集節點類型應該會顯示現有虛擬網路和子網路。 您也可以使用遠端桌面通訊協定 (RDP) 來存取已存在於虛擬網路的 VM，以及 ping 新的擴展集 VM：
@@ -276,13 +279,13 @@ DnsSettings              : {
 8. 部署模板：
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingstaticip -Location westus
+    New-AzResourceGroup -Name sfnetworkingstaticip -Location westus
 
-    $staticip = Get-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG
+    $staticip = Get-AzPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG
 
     $staticip
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
     ```
 
 在部署後，您會看到負載平衡器繫結至另一個資源群組中的公用靜態 IP 位址。 Service Fabric 用戶端連線端點和 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 端點會指向靜態 IP 位址的 DNS FQDN。
@@ -378,9 +381,9 @@ DnsSettings              : {
 7. 部署範本：
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternallb -Location westus
+    New-AzResourceGroup -Name sfnetworkinginternallb -Location westus
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
     ```
 
 在部署後，負載平衡器會使用私用靜態 IP 位址 10.0.0.250。 如果您在相同的虛擬網路中有另一部電腦，您可以移至內部 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 端點。 請注意，它會連線至負載平衡器後的其中一個節點。
@@ -595,9 +598,15 @@ DnsSettings              : {
 7. 部署範本：
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternalexternallb -Location westus
+    New-AzResourceGroup -Name sfnetworkinginternalexternallb -Location westus
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
+    ```
+
+在部署後，您會看到資源群組中有兩個負載平衡器。 如果您瀏覽負載平衡器，您會看到公用 IP 位址和指派給公用 IP 位址的管理端點 (連接埠 19000 和 19080)。 您也會看到靜態內部 IP 位址和指派給內部負載平衡器的應用程式端點 (連接埠 80)。 這兩個負載平衡器會使用相同的虛擬機器擴展集後端集區。
+
+## <a name="next-steps"></a>後續步驟
+[建立叢集](service-fabric-cluster-creation-via-arm.md)ternalLB.json
     ```
 
 在部署後，您會看到資源群組中有兩個負載平衡器。 如果您瀏覽負載平衡器，您會看到公用 IP 位址和指派給公用 IP 位址的管理端點 (連接埠 19000 和 19080)。 您也會看到靜態內部 IP 位址和指派給內部負載平衡器的應用程式端點 (連接埠 80)。 這兩個負載平衡器會使用相同的虛擬機器擴展集後端集區。

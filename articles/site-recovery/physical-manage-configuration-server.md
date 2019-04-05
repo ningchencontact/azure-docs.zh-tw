@@ -7,16 +7,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: 325cd0d2f52405ae1cbf463f6335c8738317ea1f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 10bec01a3b90776c8dd8c32a74ba7754264da131
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878701"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050130"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>管理實體伺服器災害復原的組態伺服器
 
 當您使用 [Azure Site Recovery](site-recovery-overview.md) 服務將實體伺服器災害復原到 Azure 時，便會設定內部部署組態伺服器。 組態伺服器會協調內部部署機器與 Azure 之間的通訊，以及管理資料複寫。 本文摘要說明部署設定伺服器之後，管理設定伺服器的一般工作。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -265,28 +267,28 @@ ProxyPassword="Password"
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>將組態伺服器刪除或取消註冊 (PowerShell)
 
-1. [安裝](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) Azure PowerShell 模組
+1. [安裝](https://docs.microsoft.com/powershell/azure/install-Az-ps) Azure PowerShell 模組
 2. 使用命令登入您的 Azure 帳戶
     
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 3. 選取保存庫所在的訂用帳戶
 
-     `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
+     `Get-AzSubscription –SubscriptionName <your subscription name> | Select-AzSubscription`
 3.  現在設定保存庫內容
     
     ```powershell
-    $Vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
-    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $Vault
+    $Vault = Get-AzRecoveryServicesVault -Name <name of your vault>
+    Set-AzSiteRecoveryVaultSettings -ARSVault $Vault
     ```
 4. 選取組態伺服器
 
-    `$Fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+    `$Fabric = Get-AzSiteRecoveryFabric -FriendlyName <name of your configuration server>`
 6. 刪除組態伺服器
 
-    `Remove-AzureRmSiteRecoveryFabric -Fabric $Fabric [-Force]`
+    `Remove-AzSiteRecoveryFabric -Fabric $Fabric [-Force]`
 
 > [!NOTE]
-> Remove-AzureRmSiteRecoveryFabric 中的 **-Force** 選項可用來強制移除/刪除組態伺服器。
+> **-強制**中移除 AzSiteRecoveryFabric 選項可用來強制移除/刪除組態伺服器。
 
 ## <a name="renew-ssl-certificates"></a>更新 SSL 憑證
 設定伺服器有內建的 Web 伺服器，可協調它所連線的行動服務、處理伺服器和主要目標伺服器的活動。 Web 伺服器使用 SSL 憑證來驗證用戶端。 憑證會在三年後到期，且可隨時更新。

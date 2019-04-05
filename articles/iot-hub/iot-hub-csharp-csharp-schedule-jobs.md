@@ -7,13 +7,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/06/2018
-ms.author: robin.shahan
-ms.openlocfilehash: b39d7d4af4c476778665e844f647beecf20e3d9f
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.author: robinsh
+ms.openlocfilehash: db34734e9fbb8635f1a62def8a877d83d02e2206
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008877"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044435"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>排程及廣播作業 (.NET/.NET)
 
@@ -31,7 +31,7 @@ ms.locfileid: "57008877"
 
 * 裝置對應項和屬性：[開始使用裝置對應項](iot-hub-csharp-csharp-twin-getstarted.md)和[教學課程：如何使用裝置對應項屬性](tutorial-device-twins.md)
 
-* 直接方法：[IoT 中樞開發人員指南-直接方法](iot-hub-devguide-direct-methods.md)和[教學課程：使用直接方法](quickstart-control-device-dotnet.md)
+* 直接方法：[IoT 中心开发人员指南 - 直接方法](iot-hub-devguide-direct-methods.md)和[教程：使用直接方法](quickstart-control-device-dotnet.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 

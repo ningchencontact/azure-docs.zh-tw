@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 534335b15d61d1e411ec2e7fb96123eb4701878e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 0038de621a02a2edf3198686e1f2fc88fb917d9c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315262"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050232"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>新增或移除 Azure 中 Service Fabric 叢集的憑證
 建議您熟悉 Service Fabric 使用 X.509 憑證的方式，以及熟悉[叢集安全性案例](service-fabric-cluster-security.md)。 您必須瞭解什麼是叢集憑證及其用途，方可繼續進行後續作業。
@@ -33,6 +33,9 @@ Azure Service Fabric SDK 的預設憑證載入行為，是部署和使用到期�
 > 
 > 
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="add-a-secondary-cluster-certificate-using-the-portal"></a>使用入口網站來新增次要叢集憑證
 您無法透過 Azure 入口網站使用 Azure PowerShell 新增次要叢集憑證。 本文件稍後會簡要說明此程序。
 
@@ -45,7 +48,7 @@ Azure Service Fabric SDK 的預設憑證載入行為，是部署和使用到期�
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>使用 Resource Manager Powershell 來新增次要憑證
 > [!TIP]
-> 現在有更好而且更容易的方式，可使用 [Add-AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) Cmdlet 來新增次要憑證。 您不需要遵循本節中的其餘步驟。  此外，您也不需要原本在使用 [Add-AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) Cmdlet 時用來建立及部署叢集的範本。
+> 現在很好也更容易的方式來新增次要憑證，使用[新增 AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet。 您不需要遵循本節中的其餘步驟。  此外，您不需要原本用來建立及部署叢集時使用的範本[新增 AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet。
 
 這些步驟是假設您已熟悉 Resource Manager 的運作方式，並已使用 Resource Manager 範本至少部署一個 Service Fabric 叢集，而且已讓您使用的範本將叢集設定妥當。 此外亦假設您可輕鬆自如地使用 JSON。
 
@@ -58,7 +61,7 @@ Azure Service Fabric SDK 的預設憑證載入行為，是部署和使用到期�
 
 為了便於跟著操作，範例 5-VM-1-NodeTypes-Secure_Step2.JSON 包含我們將進行的所有編輯。 您可以從 [git 存放庫](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample)取得該範例。
 
-**務必依照所有步驟操作**
+**請務必遵循所有步驟**
 
 1. 開啟您用來部署叢集的 Resource Manager 範本。 (如果您已從上述存放庫下載該範例，則請使用 5-VM-1-NodeTypes-Secure_Step1.JSON 來部署一個安全的叢集，然後開啟該範本)。
 
@@ -195,19 +198,19 @@ Azure Service Fabric SDK 的預設憑證載入行為，是部署和使用到期�
 - 登入您的 Azure 帳戶，並選取特定的 Azure 訂用帳戶。 對於擁有多個 Azure 訂用帳戶存取權的使用者而言，這是一個重要步驟。
 
 ```powershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId <Subscription ID> 
+Connect-AzAccount
+Select-AzSubscription -SubscriptionId <Subscription ID> 
 
 ```
 
 部署範本前先進行測試。 使用您目前在其中部署叢集的同一個資源群組。
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
+Test-AzResourceGroupDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 
 ```
 
-將範本部署至您的資源群組。 使用您目前在其中部署叢集的同一個資源群組。 執行 New-AzureRmResourceGroupDeployment 命令。 您無須指定模式，因為預設值為 **增量**。
+將範本部署至您的資源群組。 使用您目前在其中部署叢集的同一個資源群組。 執行新增 AzResourceGroupDeployment 命令。 您無須指定模式，因為預設值為 **增量**。
 
 > [!NOTE]
 > 若您將 [模式] 設為 [完整]，您可能會無意間刪除不在您範本中的資源。 因此請勿在此案例中使用該模式。
@@ -215,7 +218,7 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName <Resource Group that your
 > 
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 ```
 
 以下是已填入資料的相同 Powershell 範例。
@@ -225,7 +228,7 @@ $ResourceGroup2 = "chackosecure5"
 $TemplateFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-VM-1-NodeTypes-Secure_Step2.json"
 $TemplateParmFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-VM-1-NodeTypes-Secure.parameters_Step2.json"
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroup2 -TemplateParameterFile $TemplateParmFile -TemplateUri $TemplateFile -clusterName $ResourceGroup2
+New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroup2 -TemplateParameterFile $TemplateParmFile -TemplateUri $TemplateFile -clusterName $ResourceGroup2
 
 ```
 
@@ -286,10 +289,10 @@ Get-ServiceFabricClusterHealth
 若要移除次要憑證，使其不用於叢集安全性，請瀏覽至 [安全性] 區段，然後從特定憑證上的操作功能表中選取 [刪除] 選項。
 
 ## <a name="next-steps"></a>後續步驟
-有关群集管理的详细信息，请阅读以下文章：
+如需有關叢集管理的詳細資訊，請參閱下列文件︰
 
-* [Service Fabric 群集升级过程和用户预期](service-fabric-cluster-upgrade.md)
-* [为客户端设置基于角色的访问](service-fabric-cluster-security-roles.md)
+* [Service Fabric 叢集升級程序和您的期望](service-fabric-cluster-upgrade.md)
+* [用戶端設定以角色為基礎的存取](service-fabric-cluster-security-roles.md)
 
 <!--Image references-->
 [Add_Client_Cert]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_13.PNG

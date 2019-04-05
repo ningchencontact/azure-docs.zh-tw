@@ -3,17 +3,17 @@ title: 了解 Azure IoT 中樞端點 | Microsoft Docs
 description: 開發人員指南 - IoT 中樞裝置對向端點和服務對向端點的相關參考資訊。
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: 085a4ffbe0b615408bfd8aa70c027013e16f0136
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 5015068f9b165190bef3b0cb97ddb194e173303e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201427"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045912"
 ---
 # <a name="reference---iot-hub-endpoints"></a>參考 - IoT 中樞端點
 
@@ -82,14 +82,14 @@ IoT 中樞目前支援下列 Azure 服務做為額外的端點︰
 
 如需您可以新增的端點數目限制，請參閱[配額和節流](iot-hub-devguide-quotas-throttling.md)。
 
-您可以使用 REST API[取得的端點健全狀況](https://docs.microsoft.com/de-de/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth)取得端點的健全狀況狀態。 我們建議您使用[IoT 中樞度量](iot-hub-metrics.md)與路由的訊息延遲，找出並無作用或狀況不良端點健康情況時，偵錯錯誤相關。
+可以使用 REST API [Get Endpoint Health](https://docs.microsoft.com/de-de/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) 获取终结点的运行状况状态。 当终结点运行状况为故障或不正常时，建议使用与路由消息延迟相关的 [IoT 中心指标](iot-hub-metrics.md)来标识并调试错误。
 
-|健全狀況狀態|描述|
+|运行状况状态|描述|
 |---|---|
-|healthy|端點會接受訊息，如預期般運作。|
-|狀況不良|端點不接受訊息，如預期般，IoT 中樞正在重試將資料傳送至這個端點。 IoT 中樞已建立最終一致的健全狀況狀態時，將更新的狀況不良的端點狀態為狀況良好。|
-|未知|IoT 中樞已不會建立與端點的連線。 已傳遞到任何訊息或拒絕此端點。|
-|無效信件|端點不接受訊息，IoT 中樞重試傳送訊息的 retrial 期間之後。|
+|healthy|终结点按预期方式接受消息。|
+|不正常|终结点未按预期方式接受消息，IoT 中心正重试将数据发送到此终结点。 当 IoT 中心建立了最终一致的运行状况状态以后，系统会将不正常终结点的状态更新为正常。|
+|未知|IoT 中心尚未建立与该终结点的连接。 尚未向该终结点传送任何消息，也未拒绝该终结点发送的任何消息。|
+|不活动|重试期间，在 IoT 中心重试发送消息以后，终结点不接受消息。|
 
 ## <a name="field-gateways"></a>現場閘道器
 

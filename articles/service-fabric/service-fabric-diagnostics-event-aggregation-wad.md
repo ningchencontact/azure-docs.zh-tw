@@ -14,23 +14,26 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: f886de9160b52b8a4e3ee8beaf2e22022a097666
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d49104c1d1402969917de63e22bd41e7489a08c7
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662783"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046286"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>使用 Windows Azure 診斷的事件彙總和收集
 > [!div class="op_single_selector"]
-> * [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
-> * [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
+> * [ Windows](service-fabric-diagnostics-event-aggregation-wad.md)
+> * [ Linux](service-fabric-diagnostics-event-aggregation-lad.md)
 >
 >
 
 當您執行 Azure Service Fabric 叢集時，最好從中央位置的所有節點收集記錄檔。 将日志放在中心位置可帮助分析和排查群集中的问题，或该群集中运行的应用程序与服务的问题。
 
 上傳和收集記錄的其中一種方式就是使用「Windows Azure 診斷 (WAD)」延伸模組，此延伸模組可將記錄上傳到「Azure 儲存體」，也可以選擇將記錄傳送至 Azure Application Insights 或「事件中樞」。 您也可以使用外部處理序讀取儲存體中的事件，例如將它們放在分析平台產品[Azure 監視器記錄](../log-analytics/log-analytics-service-fabric.md)或其他記錄剖析解決方案。
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>必要條件
 本文中使用下列工具：
@@ -42,7 +45,7 @@ ms.locfileid: "58662783"
 ## <a name="service-fabric-platform-events"></a>Service Fabric 平台事件
 Service Fabric 會設定一些[現成的記錄通道](service-fabric-diagnostics-event-generation-infra.md)，其使用擴充功能預先設定下列通道，將監視和診斷資料傳送至儲存體資料表或其他位置：
   * [操作事件](service-fabric-diagnostics-event-generation-operational.md)：Service Fabric 平台所執行的較高層級作業。 範例包括建立應用程式和服務、節點狀態變更和升級資訊。 這些是以 Windows 事件追蹤 (ETW) 記錄的形式發出。
-  * [Reliable Actors 编程模型事件](service-fabric-reliable-actors-diagnostics.md)
+  * [Reliable Actors 程式設計模型事件](service-fabric-reliable-actors-diagnostics.md)
   * [Reliable Services 程式設計模型事件](service-fabric-reliable-services-diagnostics.md)
 
 ## <a name="deploy-the-diagnostics-extension-through-the-portal"></a>透過入口網站部署診斷擴充功能
@@ -71,7 +74,7 @@ Service Fabric 會設定一些[現成的記錄通道](service-fabric-diagnostics
 
 若要查看 Resource Manager 範本中的 [診斷] 設定，請開啟 azuredeploy.json 檔案，並搜尋 **IaaSDiagnostics**。 若要使用這個範本建立叢集，請選取上一個連結所提供的 [部署到 Azure] 按鈕。
 
-或者，您也可以下載資源管理員範例，對它進行變更，然後在 Azure PowerShell 視窗中使用 `New-AzureRmResourceGroupDeployment` 命令來使用修改過的範本建立叢集。 針對您傳遞給命令的參數，請參閱以下程式碼。 如需如何使用 PowerShell 部署資源群組的詳細資訊，請參閱[使用 Azure Resource Manager 範本部署資源群組](../azure-resource-manager/resource-group-template-deploy.md)。
+或者，您也可以下載資源管理員範例，對它進行變更，然後在 Azure PowerShell 視窗中使用 `New-AzResourceGroupDeployment` 命令來使用修改過的範本建立叢集。 針對您傳遞給命令的參數，請參閱以下程式碼。 如需如何使用 PowerShell 部署資源群組的詳細資訊，請參閱[使用 Azure Resource Manager 範本部署資源群組](../azure-resource-manager/resource-group-template-deploy.md)。
 
 ### <a name="add-the-diagnostics-extension-to-an-existing-cluster"></a>將診斷擴充功能新增到現有叢集
 如果您具有未部署診斷的現有叢集，您可以透過叢集範本來新增或更新它。 修改用來建立現有叢集的 Resource Manager 範本，或是以上述方式從入口網站下載範本。 執行下列工作來修改 template.json 檔案：
@@ -189,7 +192,7 @@ Service Fabric 會設定一些[現成的記錄通道](service-fabric-diagnostics
 
 ### <a name="update-storage-quota"></a>更新儲存體配額
 
-因為由擴充功能填入的表格可成長到達到配額限制，因此建議您考慮降低配額大小。 預設值是 50 GB，並可在 `DiagnosticMonitorConfiguration` 下方，從 `overallQuotaInMB` 欄位下的範本中設定
+因為由擴充功能填入的表格可成長到達到配額限制，因此建議您考慮降低配額大小。 預設值是 50 GB，且可在範本中設定`overallQuotaInMB`欄位下 `DiagnosticMonitorConfiguration`
 
 ```json
 "overallQuotaInMB": "50000",
@@ -269,7 +272,7 @@ Service Fabric 會設定一些[現成的記錄通道](service-fabric-diagnostics
 
 若要更新診斷以從新的 EventSource 通道 (代表您將要部署的新應用程式) 收集記錄，請執行先前所述的相同步驟，以針對現有叢集設定診斷。
 
-在使用 `New-AzureRmResourceGroupDeployment` PowerShell 命令应用配置更新之前，请更新 template.json 文件中的 `EtwEventSourceProviderConfiguration` 节，添加新 EventSource 通道的条目。 在 Visual Studio 產生的 ServiceEventSource.cs 檔案中，事件來源的名稱定義為程式碼的一部分。
+在使用 `New-AzResourceGroupDeployment` PowerShell 命令应用配置更新之前，请更新 template.json 文件中的 `EtwEventSourceProviderConfiguration` 节，添加新 EventSource 通道的条目。 在 Visual Studio 產生的 ServiceEventSource.cs 檔案中，事件來源的名稱定義為程式碼的一部分。
 
 例如，如果您的事件資源名稱是 My-Eventsource，新增下列程式碼以將來自 My-Eventsource 的事件置於名稱為 MyDestinationTableName 的資料表中。
 
@@ -346,5 +349,7 @@ Service Fabric 會設定一些[現成的記錄通道](service-fabric-diagnostics
 >目前沒有任何方法可以篩選或清理已傳送至資料表的事件。 如果不實作從資料表移除事件的處理序，資料表將會繼續成長。 目前，我們可以提供具有 [Watchdog 範例](https://github.com/Azure-Samples/service-fabric-watchdog-service)中所執行資料清理服務的範例，除非您必須儲存超過 30 或 90 天時間範圍的記錄，否則建議您自行撰寫資料清理服務。
 
 * [了解如何使用診斷擴充功能收集效能計數器或記錄檔](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [使用 Application Insights 進行事件分析和視覺效果](service-fabric-diagnostics-event-analysis-appinsights.md)
+* [事件分析和視覺效果使用 Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+* [事件分析和視覺效果，與 Azure 監視器記錄檔](service-fabric-diagnostics-event-analysis-oms.md)
+* [事件分析和視覺效果使用 Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [事件分析和視覺效果，與 Azure 監視器記錄檔](service-fabric-diagnostics-event-analysis-oms.md)

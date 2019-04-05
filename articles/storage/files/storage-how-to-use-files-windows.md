@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 2bf323b34c5a5301094bdecdc9fa705fe9077320
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 315bad5c4ffc3d5e8909c86cb8de703e9cb941b0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482125"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048838"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>搭配 Windows 使用 Azure 檔案共用
 [Azure 檔案服務](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 Azure 檔案共用可在 Windows 和 Windows Server 中順暢地使用。 本文討論搭配 Windows 和 Windows Server 使用 Azure 檔案共用的考量。
@@ -40,20 +40,23 @@ ms.locfileid: "58482125"
 > [!Note]  
 > 我們一律建議針對您的 Windows 版本採取最新的 KB。
 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>必要條件 
 * **儲存體帳戶名稱**：若要掛接 Azure 檔案共用，您將需要儲存體帳戶的名稱。
 
 * **儲存體帳戶金鑰**：若要掛接 Azure 檔案共用，您將需要主要 (或次要) 儲存體金鑰。 掛接目前不支援 SAS 金鑰。
 
-* **請確定已開啟連接埠 445**：使用 SMB 通訊協定時必須開啟 TCP 連接埠 445；如果連接埠 445 遭到封鎖，連線將會失敗。 您可以使用 `Test-NetConnection` Cmdlet，查看您的防火牆是否封鎖連接埠 445。 您可以了解[各種因應措施，封鎖連接埠 445 這裡](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked)。
+* **請確定已開啟連接埠 445**：使用 SMB 通訊協定時必須開啟 TCP 連接埠 445；如果連接埠 445 遭到封鎖，連線將會失敗。 您可以使用 `Test-NetConnection` Cmdlet，查看您的防火牆是否封鎖連接埠 445。 可以在此处了解[如何通过各种方式来解决端口 445 被阻止的问题](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked)。
 
-    下列 PowerShell 程式碼假設您已安裝 AzureRM PowerShell 模組，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-az-ps)以獲得詳細資訊。 請記得以儲存體帳戶的相關名稱取代 `<your-storage-account-name>` 和 `<your-resource-group-name>`。
+    下列 PowerShell 程式碼會假設您有 Azure PowerShell 模組安裝，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-az-ps)如需詳細資訊。 請記得以儲存體帳戶的相關名稱取代 `<your-storage-account-name>` 和 `<your-resource-group-name>`。
 
     ```powershell
     $resourceGroupName = "<your-resource-group-name>"
     $storageAccountName = "<your-storage-account-name>"
 
-    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+    # This command requires you to be logged into your Azure account, run Login-AzAccount if you haven't
     # already logged in.
     $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
@@ -295,13 +298,13 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Par
 建立此登錄機碼之後，您必須重新啟動伺服器，才能停用 SMB 1。
 
 ### <a name="smb-resources"></a>SMB 資源
-- [停只使用 SMB 1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/)
-- [SMB 1 產品情報交換所](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
-- [使用 DSCEA 探索您環境中的 SMB 1](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/)
+- [停止使用 SMB 1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/)
+- [SMB 1 項產品 Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
+- [找出使用 DSCEA 環境中的 SMB 1](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/)
 - [透過群組原則停用 SMB 1](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/)
 
 ## <a name="next-steps"></a>後續步驟
 請參閱這些連結，以取得 Azure 檔案服務的詳細資訊：
-- [規劃 Azure 檔案部署](storage-files-planning.md)
+- [規劃 Azure 檔案服務部署](storage-files-planning.md)
 - [常見問題集](../storage-files-faq.md)
 - [在 Windows 上進行疑難排解](storage-troubleshoot-windows-file-connection-problems.md)      

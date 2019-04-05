@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f0963e7f558de7b591576a49a74750d6697d7127
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 87499c1b71e243fe976e436b525e0150689d3aa1
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486037"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051184"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Azure 儲存體中的災害復原和儲存體帳戶容錯移轉 (預覽)
 
@@ -22,6 +22,9 @@ Microsoft 致力於確保 Azure 服務皆能持續可用。 不過仍然可能�
 Azure 儲存體針對異地備援儲存體帳戶支援帳戶容錯移轉 (預覽)。 透過帳戶容錯移轉，您可以在主要端點無法使用時，為您的儲存體帳戶起始容錯移轉程序。 容錯移轉會更新次要端點以成為儲存體帳戶的主要端點。 容錯移轉完成後，用戶端便可以開始寫入到新的主要端點。
 
 本文說明涉及帳戶容錯移轉的概念和程序，並討論如何準備儲存體帳戶，以在對客戶造成最少影響的前提下進行復原。 若要了解如何在 Azure 入口網站或 PowerShell 中起始帳戶容錯移轉，請參閱[起始帳戶容錯移轉 (預覽)](storage-initiate-account-failover.md)。
+
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="choose-the-right-redundancy-option"></a>選擇正確的備援選項
 
@@ -122,14 +125,14 @@ Microsoft 也建議您將應用程式設計成可以因應可能的寫入失敗�
 若要註冊預覽，請在 PowerShell 中執行下列命令。 請務必將括號中的預留位置取代為您自己的訂用帳戶識別碼：
 
 ```powershell
-Connect-AzureRmAccount -SubscriptionId <subscription-id>
-Register-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
+Connect-AzAccount -SubscriptionId <subscription-id>
+Register-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 您可能需要等候 1 至 2 天才會收到預覽的核准。 若要確任您的註冊是否已被核准，請執行下列命令：
 
 ```powershell
-Get-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
+Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 ### <a name="additional-considerations"></a>其他考量 
@@ -176,6 +179,6 @@ Azure 虛擬機器 (VM) 不會隨著帳戶容錯移轉一起容錯移轉。 如�
 
 ## <a name="see-also"></a>請參閱
 
-* [起始帳戶容錯移轉 (預覽)](storage-initiate-account-failover.md)
+* [啟動帳戶容錯移轉 （預覽）](storage-initiate-account-failover.md)
 * [使用 RA-GRS 設計高可用性應用程式](storage-designing-ha-apps-with-ragrs.md)
 * [教學課程：建置採用 Blob 儲存體的高可用性應用程式](../blobs/storage-create-geo-redundant-storage.md) 

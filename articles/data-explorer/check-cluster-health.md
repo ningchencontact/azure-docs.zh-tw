@@ -1,19 +1,18 @@
 ---
 title: 檢查 Azure 資料總管叢集的健康情況
-description: 本文說明判斷「Azure 資料總管」叢集狀況是否良好的步驟。
+description: 本文說明如何監視 Azure 資料總管叢集健康情況。
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 8930c2a7538ca33622de68c9a888349b3301cd98
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a280d8869a3790444a97c38f792a3d9eeb6bde1d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755863"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046541"
 ---
 # <a name="check-the-health-of-an-azure-data-explorer-cluster"></a>檢查 Azure 資料總管叢集的健康情況
 

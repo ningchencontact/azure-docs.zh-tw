@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: aschhab
-ms.openlocfilehash: 8c33418a8de4510bd8e45487c2f97bd204750dec
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 9df321980db3a2481f0d8cc007546822fea46f9e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485094"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049841"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure 服務匯流排與 Event Grid 的整合概觀
 
@@ -34,6 +34,9 @@ Azure 服務匯流排已開始與 Azure Event Grid 進行全新整合。 此功�
 * 此外，您還需要適用於服務匯流排命名空間的 Event Grid 訂用帳戶。 此訂用帳戶會從有訊息可供挑選的 Event Grid 接收通知。 典型訂閱者可能是 Azure App Service 的 Logic Apps 功能、Azure Functions，或聯繫 Web 應用程式的 Web Hook。 訂閱者會接著處理訊息。 
 
 ![19][]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ### <a name="verify-that-you-have-contributor-access"></a>確認您具有參與者存取權
 移至您的服務匯流排命名空間，然後選取 [存取控制 (IAM)]，然後選取 [角色指派] 索引標籤。確認您具有命名空間的參與者存取權。 
@@ -152,20 +155,20 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 
 ## <a name="powershell-instructions"></a>PowerShell 指示
 
-確定您已安裝 Azure PowerShell。 [下載安裝程式](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)。 選取 [Windows + X]，然後以系統管理員權限開啟新的 PowerShell 主控台。 或者，也可以在 Azure 入口網站中使用命令 shell。
+確定您已安裝 Azure PowerShell。 [下載安裝程式](https://docs.microsoft.com/powershell/azure/install-Az-ps)。 選取 [Windows + X]，然後以系統管理員權限開啟新的 PowerShell 主控台。 或者，也可以在 Azure 入口網站中使用命令 shell。
 
 ```powershell-interactive
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName "<YOUR SUBSCRIPTION NAME>"
+Select-AzSubscription -SubscriptionName "<YOUR SUBSCRIPTION NAME>"
 
 # This might be installed already
-Install-Module AzureRM.ServiceBus
+Install-Module Az.ServiceBus
 
-$NSID = (Get-AzureRmServiceBusNamespace -ResourceGroupName "<YOUR RESOURCE GROUP NAME>" -Na
+$NSID = (Get-AzServiceBusNamespace -ResourceGroupName "<YOUR RESOURCE GROUP NAME>" -Na
 mespaceName "<YOUR NAMESPACE NAME>").Id
 
-New-AzureRmEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
+New-AzEVentGridSubscription -EventSubscriptionName “<YOUR EVENT GRID SUBSCRIPTION NAME (CAN BE ANY NOT EXISTING)>” -ResourceId $NSID -Endpoint "<YOUR FUNCTION URL>” -SubjectEndsWith “<YOUR SERVICE BUS SUBSCRIPTION NAME>”
 ```
 
 從這裡，您可以瀏覽其他安裝程式選項或測試事件是否流動。

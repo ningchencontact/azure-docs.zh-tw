@@ -9,12 +9,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 9becc7bacf1b2263f41d4cfb7b9cf3957063b230
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 078815185ddb6018a394401f57f7557ac3aedb73
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649573"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050147"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 合作夥伴客戶使用狀況屬性
 
@@ -31,6 +31,9 @@ Microsoft 現在提供一個模型，協助合作夥伴以更好的方式追蹤�
 客戶使用方式屬性為 新的部署，並不支援標記已部署的現有資源。
 
 客戶使用方式屬性，並要求[Azure 應用程式](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer)： 發佈到 Azure Marketplace 的解決方案範本供應項目。
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="use-resource-manager-templates"></a>使用 Resource Manager 範本
 許多合作夥伴解決方案都使用 Resource Manager 範本來部署在客戶的訂用帳戶上。 如果您有 Resource Manager 範本可在 Azure Marketplace 中，在 GitHub 上，或快速入門中，修改您的範本，讓客戶使用方式屬性的程序應直接。
@@ -223,12 +226,12 @@ Param(
 
 # Get the correlationId of the pid deployment
 
-$correlationId = (Get-AzureRmResourceGroupDeployment -ResourceGroupName
+$correlationId = (Get-AzResourceGroupDeployment -ResourceGroupName
 $resourceGroupName -Name "pid-$guid").correlationId
 
 # Find all deployments with that correlationId
 
-$deployments = Get-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName | Where-Object{$_.correlationId -eq $correlationId}
+$deployments = Get-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName | Where-Object{$_.correlationId -eq $correlationId}
 
 # Find all deploymentOperations in a deployment by name
 # PowerShell doesn't surface outputResources on the deployment
@@ -239,7 +242,7 @@ foreach ($deployment in $deployments){
 # Get deploymentOperations by deploymentName
 # then the resourceId for any create operation
 
-($deployment | Get-AzureRmResourceGroupDeploymentOperation | Where-Object{$_.properties.provisioningOperation -eq "Create" -and $_.properties.targetResource.resourceType -ne "Microsoft.Resources/deployments"}).properties.targetResource.id
+($deployment | Get-AzResourceGroupDeploymentOperation | Where-Object{$_.properties.provisioningOperation -eq "Create" -and $_.properties.targetResource.resourceType -ne "Microsoft.Resources/deployments"}).properties.targetResource.id
 
 }
 ```
@@ -317,15 +320,15 @@ foreach ($deployment in $deployments){
 
 Microsoft 提供其 influenced 的使用方式的合作夥伴與客戶部署自己的解決方案和深入解析的檢視。 Microsoft 與合作夥伴也可以使用此資訊來加強與銷售團隊之間的合作關係。 Microsoft 與合作夥伴可以使用該資料來取得個別合作夥伴對 Azure 成長的更一致檢視。
 
-**加入 GUID 之後能否予以變更？**
+**將 GUID 加入之後，可以變更嗎？**
 
 是，客戶或實作合作夥伴可自訂範本並能變更或移除該 GUID。 我們建議夥伴主動描述客戶及合作夥伴若要防止移除或編輯的 guid 角色以及與的資源 GUID。 變更 GUID 只會影響新的部署和資源，現有的部署和資源不受影響。
 
-**我可以從類似 GitHub 的非 Microsoft 存放庫追蹤部署的範本嗎？**
+**我可以追蹤從非 Microsoft 儲存機制，例如 GitHub 部署範本嗎？**
 
 是，只要有 GUID，當範本部署時，都會追蹤使用量。 合作夥伴必須擁有在註冊 Azure Marketplace 外部的部署所用的 Guid CPP 中的設定檔。
 
-**客戶也會收到報告嗎？**
+**會接收報告以及客戶嗎？**
 
 客戶可以在 Azure 入口網站內，追蹤其個別資源或客戶所定義資源群組的使用情況。
 
@@ -333,7 +336,7 @@ Microsoft 提供其 influenced 的使用方式的合作夥伴與客戶部署自�
 
 這種將部署與使用狀況連結至合作夥伴解決方案的新方法，提供將合作夥伴解決方案連結到 Azure 使用量的機制。 DPOR 可將諮詢 (系統整合者) 或管理 (受控服務提供者) 合作夥伴與客戶的 Azure 訂用帳戶建立關聯。
 
-**使用 Azure 儲存體 GUID 產生器表單的好處是什麼？**
+**使用 Azure 儲存體的 GUID 產生器表單的好處是什麼？**
 
 Azure 儲存體的 GUID 產生器表單保證會產生所需格式的 GUID。 此外，如果您是使用任何 Azure 儲存體的資料平面追蹤方法，可以利用相同的 GUID 來追蹤 Marketplace 控制平面。 這可讓您運用夥伴屬性的單一整合 GUID，而不需要維護個別的 GUID。
 

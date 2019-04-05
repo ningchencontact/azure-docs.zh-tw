@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: f5ce1fa46206588a1c84388b8d543051f97919a3
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: b5d035308c50525449edf47131c4a6a8c62b750b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449177"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045519"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>刪除 Site Recovery 復原服務保存庫
 
 相依性會阻擋您刪除 Azure Site Recovery 保存庫。 您所須採取的動作，會隨著 Site Recovery 案例而有所不同。 若要刪除 Azure 備份使用的保存庫，請參閱[刪除 Azure 中的備份保存庫](../backup/backup-azure-delete-vault.md)。
 
-
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="delete-a-site-recovery-vault"></a>刪除 Site Recovery 保存庫 
 請依照針對您案例的建議步驟刪除保存庫。
@@ -65,12 +65,12 @@ ms.locfileid: "58449177"
 
 即使有受保護的項目也要刪除 Site Recovery 保存庫，請使用這些命令：
 
-    Connect-AzureRmAccount
+    Connect-AzAccount
 
-    Select-AzureRmSubscription -SubscriptionName "XXXXX"
+    Select-AzSubscription -SubscriptionName "XXXXX"
 
-    $vault = Get-AzureRmRecoveryServicesVault -Name "vaultname"
+    $vault = Get-AzRecoveryServicesVault -Name "vaultname"
 
-    Remove-AzureRmRecoveryServicesVault -Vault $vault
+    Remove-AzRecoveryServicesVault -Vault $vault
 
-深入了解 [Get-AzureRMRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/get-azurermrecoveryservicesvault) 和 [Remove-AzureRMRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/remove-azurermrecoveryservicesvault)。
+深入了解[Get AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault)，並[移除 AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault)。

@@ -8,12 +8,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 12/01/2018
 ms.author: victorh
-ms.openlocfilehash: a15ffa23b64f944d8b2c088113bcc29443ce6873
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: e0fbec8b22993345114d8d6642e42095191d0b37
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038954"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046269"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>使用範本部署 Azure 防火牆
 
@@ -25,11 +25,14 @@ ms.locfileid: "54038954"
 
 如需 Azure 防火牆的詳細資訊，請參閱[使用 Azure 入口網站部署和設定 Azure 防火牆](tutorial-firewall-deploy-portal.md)。
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="use-the-template-to-deploy-azure-firewall"></a>使用範本來部署 Azure 防火牆
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-**若要使用範本安裝並部署 Azure 防火牆：**
+**若要安裝並使用範本部署 Azure 防火牆：**
 
 1. 存取位於 [https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox) 的範本。
    
@@ -56,10 +59,10 @@ ms.locfileid: "54038954"
 
 ## <a name="clean-up-resources"></a>清除資源
 
-當您不再需要這些資源時，您可以執行 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) PowerShell 命令來移除資源群組、防火牆和所有相關資源。 若要移除名為 MyResourceGroup 的資源群組，請執行： 
+當您不再需要它們時，您可以藉由執行移除資源群組、 防火牆和所有相關的資源[移除 AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) PowerShell 命令。 若要移除名為 MyResourceGroup 的資源群組，請執行： 
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name MyResourceGroup
+Remove-AzResourceGroup -Name MyResourceGroup
 ```
 如果您打算繼續進行防火牆監視教學課程，請勿移除資源群組和防火牆。 
 
@@ -68,4 +71,4 @@ Remove-AzureRmResourceGroup -Name MyResourceGroup
 接下來，您可以監視 Azure 防火牆記錄：
 
 > [!div class="nextstepaction"]
-> [教學課程：監視 Azure 防火牆記錄](./tutorial-diagnostics.md)
+> [教學課程：監視 Azure 防火牆記錄檔](./tutorial-diagnostics.md)

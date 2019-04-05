@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: be0c1611856a1fa68d20696c32b5fadcd8572004
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: a79753a897a62e194a759c23a9c0acc45c5f36c1
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793606"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049467"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>適用於 StorSimple 的角色型存取控制
 
 本文會簡短說明如何將 Azure 角色型存取控制 (RBAC) 用於 StorSimple 裝置。 RBAC 可提供細部的 Azure 存取管理能力。 使用 RBAC 授與 StorSimple 使用者適量的存取權以執行其工作，而非讓所有人不受限制地存取。 如需有關 Azure 存取權管理的基本資訊，請參閱[在 Azure 入口網站中開始使用角色型存取控制](../role-based-access-control/overview.md)。
 
 本文僅適用於 Azure 入口網站中執行 3.0 更新版本或以上版本的 StorSimple 8000 系列裝置。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="rbac-roles-for-storsimple"></a>適用於 StorSimple 的 RBAC 角色
 
@@ -46,14 +48,14 @@ ms.locfileid: "58793606"
 
 2. 登入 Azure。
 
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 
 3. 在電腦上將讀者角色匯出為 JSON 範本。
 
     ```powershell
-    Get-AzureRMRoleDefinition -Name "Reader"
+    Get-AzRoleDefinition -Name "Reader"
 
-    Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
+    Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
     ```
 
 4. 在 Visual Studio 中開啟 JSON 檔案。 您會發現典型的 RBAC 角色是由三個主要區段所組成：**Actions**、**NotActions** 和 **AssignableScopes**。
@@ -62,7 +64,7 @@ ms.locfileid: "58793606"
 
     使用 PowerShell 可查看所有可用且已在訂用帳戶中登錄的資源提供者。
 
-    `Get-AzureRMResourceProvider`
+    `Get-AzResourceProvider`
 
     您也可以檢查所有可用的 PowerShell Cmdlet 以管理資源提供者。
 
@@ -102,7 +104,7 @@ ms.locfileid: "58793606"
 
 6. 將自訂 RBAC 角色匯入回環境。
 
-    `New-AzureRMRoleDefinition -InputFile "C:\ssrbaccustom.json"`
+    `New-AzRoleDefinition -InputFile "C:\ssrbaccustom.json"`
 
 
 此角色現在應該會顯示於 [存取控制] 刀鋒視窗中的角色清單。
@@ -114,7 +116,7 @@ ms.locfileid: "58793606"
 ### <a name="sample-output-for-custom-role-creation-via-the-powershell"></a>透過 PowerShell 建立自訂角色的範例輸出
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ```Output
@@ -127,7 +129,7 @@ CurrentStorageAccount :
 ```
 
 ```powershell
-Get-AzureRMRoleDefinition -Name "Reader"
+Get-AzRoleDefinition -Name "Reader"
 ```
 
 ```Output
@@ -141,8 +143,8 @@ AssignableScopes : {/}
 ```
 
 ```powershell
-Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
-New-AzureRMRoleDefinition -InputFile "C:\ssrbaccustom.json"
+Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
+New-AzRoleDefinition -InputFile "C:\ssrbaccustom.json"
 ```
 
 ```Output

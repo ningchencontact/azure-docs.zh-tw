@@ -1,5 +1,5 @@
 ---
-title: 建立 Vnet 之間的連線： 傳統：Azure 入口網站 | Microsoft Docs
+title: 在 VNet 之间创建连接：经典：Azure 入口網站 | Microsoft Docs
 description: 使用 PowerShell 和 Azure 入口網站將 Azure 虛擬網路連接在一起。
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6924d4eca52bfab8c90e7787bb8849b47df064db
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e323a8d71bbffd1d29ad793dff7b5b4a072b6979
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112257"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046117"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>設定 VNet 對 VNet 連線 (傳統)
 
@@ -33,12 +33,14 @@ ms.locfileid: "58112257"
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Azure 入口網站 (傳統)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-> * [连接不同的部署模型 - Azure 门户](vpn-gateway-connect-different-deployment-models-portal.md)
-> * [連線不同的部署模型 - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
+> * [連線不同部署模型-Azure 入口網站](vpn-gateway-connect-different-deployment-models-portal.md)
+> * [連線不同部署模型-PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
 >
 
 ![VNet 對 VNet 連線能力圖表](./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="about-vnet-to-vnet-connections"></a>關於 VNet 對 VNet 連線
 
@@ -55,7 +57,7 @@ ms.locfileid: "58112257"
 * **跨區域的異地備援和異地目前狀態**
 
   * 您可以使用安全連線設定自己的異地複寫或同步處理，而不用查看網際網路對向端點。
-  * 有了 Azure Load Balancer 和 Microsoft 或第三方叢集技術，您便可以利用跨多個 Azure 區域的異地備援，設定具有高可用性的工作負載。 一个重要的示例就是对分布在多个 Azure 区域中的可用性组设置 SQL Always On。
+  * 有了 Azure Load Balancer 和 Microsoft 或第三方叢集技術，您便可以利用跨多個 Azure 區域的異地備援，設定具有高可用性的工作負載。 其中一個重要的範例就是使用分散在多個 Azure 區域的可用性群組來設定 SQL Always On。
 * **具有嚴密隔離界限的區域性多層式應用程式**
 
   * 在相同的區域中，您可以設定既有多個 VNet 相連又有嚴密的隔離及安全的層次間通訊的多層式應用程式。
@@ -99,9 +101,9 @@ ms.locfileid: "58112257"
 **TestVNet1 的值**
 
 名稱：TestVNet1<br>
-位址空間：10.11.0.0/16，10.12.0.0/16 （選擇性）<br>
+位址空間：10.11.0.0/16, 10.12.0.0/16（可选）<br>
 子網路名稱：default<br>
-子網路位址範圍：10.11.0.1/24<br>
+子网地址范围：10.11.0.1/24<br>
 資源群組：ClassicRG<br>
 位置：美國東部<br>
 GatewaySubnet：10.11.1.0/27
@@ -109,20 +111,20 @@ GatewaySubnet：10.11.1.0/27
 **TestVNet4 的值**
 
 名稱：TestVNet4<br>
-位址空間：10.41.0.0/16，10.42.0.0/16 （選擇性）<br>
+位址空間：10.41.0.0/16, 10.42.0.0/16（可选）<br>
 子網路名稱：default<br>
-子網路位址範圍：10.41.0.1/24<br>
+子网地址范围：10.41.0.1/24<br>
 資源群組：ClassicRG<br>
 位置：美國西部<br>
 GatewaySubnet：10.41.1.0/27
 
-**在建立 VNet 時，請牢記下列設定︰**
+**在建立 Vnet 時，請牢記下列設定：**
 
 * **虛擬網路位址空間** – 在 [虛擬網路位址空間] 頁面上，指定您想要用於虛擬網路的位址範圍。 這些是將指派給 VM 的動態 IP 位址，以及指派給您部署至此虛擬網路之其他角色執行個體的動態 IP 位址。<br>您選取的位址空間不能與任何其他 VNet 的位址空間，或此 VNet 連線之內部部署位置的位址空間重疊。
 
 * **位置** – 當您建立虛擬網路時，您會將該位置與 Azure 位置 (區域) 產生關聯。 例如，如果您希望部署到虛擬網路的 VM 實際位於美國西部，請選取該位置。 建立關聯之後，您就無法變更與您的虛擬網路相關聯的位置。
 
-**建立 VNet 之後，您可以新增下列設定︰**
+**建立 Vnet 之後, 您可以新增下列設定：**
 
 * **位址空間** – 此組態不需要額外的位址空間，但是您可以在建立 VNet 之後新增額外的位址空間。
 
@@ -210,7 +212,7 @@ Azure 會使用每個區域網路站台中指定的設定，來決定如何路�
 
 ## <a name="getvalues"></a>步驟 7 - 從網路組態檔擷取值
 
-當您在 Azure 入口網站中建立傳統 VNet 時，您所檢視的名稱不是在 PowerShell 中使用的完整名稱。 例如，在入口網站中名稱顯示為 **TestVNet1** 的 VNet，在網路組態檔中的名稱可能更長。 名稱可能如下所示：**群組 ClassicRG TestVNet1**。 當您建立連線時，務必使用您在網路組態檔中看到的值。
+當您在 Azure 入口網站中建立傳統 VNet 時，您所檢視的名稱不是在 PowerShell 中使用的完整名稱。 例如，在入口網站中名稱顯示為 **TestVNet1** 的 VNet，在網路組態檔中的名稱可能更長。 名稱可能如下所示：**Group ClassicRG TestVNet1**。 當您建立連線時，務必使用您在網路組態檔中看到的值。
 
 在下列步驟中，您將會連線到您的 Azure 帳戶，並且下載及檢視網路組態檔，以取得連線的必要值。
 
@@ -219,19 +221,19 @@ Azure 會使用每個區域網路站台中指定的設定，來決定如何路�
 2. 以提高的權限開啟 PowerShell 主控台並連接到您的帳戶。 使用下列範例來協助您連接：
 
    ```powershell
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 
    檢查帳戶的訂用帳戶。
 
    ```powershell
-   Get-AzureRmSubscription
+   Get-AzSubscription
    ```
 
    如果您有多個訂用帳戶，請選取您要使用的訂用帳戶。
 
    ```powershell
-   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
 
    接下來，使用下列 Cmdlet，將您的 Azure 訂用帳戶新增到 PowerShell，以供傳統部署模型使用。

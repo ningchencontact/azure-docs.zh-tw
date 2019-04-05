@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50b49ce05eb3309f5b21761dc55ab17a1a18f7cc
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f6fe7b2cefdd29f0497bbc18e969a77ac295ba42
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670926"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051949"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Azure Active Directory 新增功能的封存檔
 
@@ -308,7 +308,7 @@ Azure AD Connect 的最新版本包括：
 
 我們正在更新 TOU 終端使用者 UI 中的接受字串。
 
-**目前的文字。** 若要存取 [tenantName] 資源，您必須接受使用規定。<br>**新文字。** 若要存取 [tenantName] 資源，您必須閱讀使用規定。
+**目前的文字。** 若要存取 [tenantName] 資源，您必須接受使用規定。<br>**新的文字。** 若要存取 [tenantName] 資源，您必須閱讀使用規定。
 
 **目前的文字：** 選擇接受即表示您接受上述所有使用規定。<br>**新文字：** 請按一下 [接受] 以確認您已閱讀並了解使用規定。
 
@@ -372,7 +372,7 @@ Azure AD Connect 的最新版本包括：
 
 如果您有任何應用程式使用 Azure AD 活動記錄 API，請遵循下列步驟，以確保應用程式不會在變更執行後發生中斷。
 
-**更新您的應用程式權限**
+**若要更新您的應用程式權限**
 
 1. 登入 Azure 入口網站、選取 [Azure Active Directory]，然後選取 [應用程式註冊]。
 2. 選取使用 Azure AD 活動記錄 API 的應用程式、選取 [設定]、選取 [必要權限]，然後選取 [Windows Azure Active Directory] API。
@@ -398,9 +398,9 @@ Azure AD Connect 的最新版本包括：
 
 過時的瀏覽器可能不支援較新的 TLS 版本，例如 TLS 1.2。 若要查看瀏覽器支援的 TLS 版本，請前往 [Qualys SSL 實驗室](https://www.ssllabs.com/)網站並按一下 [測試您的瀏覽器]。 建議您升級到最新版本的網頁瀏覽器，最好只啟用 TLS 1.2。
 
-**透過瀏覽器啟用 TLS 1.2**
+**若要啟用 TLS 1.2 的瀏覽器**
 
-- **Microsoft Edge 和 Internet Explorer (這兩者都使用 Internet Explorer 設定)**
+- **Microsoft Edge 及 Internet Explorer （兩者都透過設定 Internet Explorer）**
 
     1. 開啟 [Internet Explorer]，然後選取 [工具]、 > [網際網路選項] > 、[進階]。
     2. 在 [安全性] 區域中，選取 [使用 TLS 1.2]，然後選取 [確定]。
@@ -466,7 +466,7 @@ Azure AD Connect 的最新版本包括：
 
 在建立使用規定 (ToU) 期間，也會針對「所有來賓」和「所有應用程式」擬定全新的條件式存取原則範本。 這個全新原則範本適用於新建立的 ToU，簡化了來賓建立和強制程序。
 
-如需詳細資訊，請參閱 [Azure Active Directory 使用規定功能](https://docs.microsoft.com/azure/active-directory/active-directory-tou)。
+如需詳細資訊，請參閱 [Azure Active Directory 使用規定功能](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use)。
 
 ---
 
@@ -478,7 +478,7 @@ Azure AD Connect 的最新版本包括：
 
 在建立使用規定 (ToU) 期間，也會擬定全新的「自訂」條件式存取原則範本。 這個全新原則範本可讓您建立 ToU，然後立即前往條件式存取原則建立刀鋒視窗，無須手動瀏覽入口網站。
 
-如需詳細資訊，請參閱 [Azure Active Directory 使用規定功能](https://docs.microsoft.com/azure/active-directory/active-directory-tou)。
+如需詳細資訊，請參閱 [Azure Active Directory 使用規定功能](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use)。
 
 ---
 
@@ -502,7 +502,7 @@ Azure AD Connect 的最新版本包括：
 
 管理員現在可以委派應用程式管理工作，而無須指派全域管理員角色。 全新角色和功能包括：
 
-- **全新的標準 Azure AD 管理員角色：**
+- **新的標準 Azure AD 管理員角色：**
 
     - **應用程式系統管理員。** 授予管理所有應用程式各方面的權限，包括註冊、SSO 設定、應用程式指派和授權、應用程式 Proxy 設定及同意 (Azure AD 資源除外)。
 
@@ -510,7 +510,7 @@ Azure AD Connect 的最新版本包括：
 
     - **應用程式開發人員。** 授予建立應用程式註冊的權限，即使已關閉 [允許使用者註冊應用程式] 選項亦同。
 
-- **擁有權 (設定每個應用程式註冊與每個企業應用程式，類似群組擁有權的程序：**
+- **擁有權 (設定個別應用程式註冊和每個企業應用程式，類似於群組擁有權的程序：**
  
     - **應用程式註冊擁有者。** 授予管理自有應用程式註冊各方面之權限，包括應用程式資訊清單，以及新增其他擁有者。
 
@@ -532,9 +532,9 @@ Azure Active Directory (Azure AD) 等這類 SaaS 供應項目旨在設計為適�
 
 雖然即將變更支援，但我們也知道在有些狀況下，您仍需要對驗證流量使用一組特定線路。 因為這個緣故，Azure AD 將會繼續支援使用 ExpressRoute 的每個租用戶 IP 範圍限制，以及針對包含「其他 Office 365 線上服務」社群的 Microsoft 對等互連，支援其中已存在的服務。 如果服務會受到影響，但您需要 ExpressRoute，則必須執行下列作業：
 
-- **如果您位在 Azure 公用對等互連上。** 移至 Microsoft 對等互連，並註冊**其他的 Office 365 線上服務 (12076:5100)** 社群。 如需如何從 Azure 公用對等互連移至 Microsoft 對等互連的詳細資訊，請參閱[將公用對等互連移至 Microsoft 對等互連](https://docs.microsoft.com/azure/expressroute/how-to-move-peering)一文。
+- **如果您是在 Azure 公用對等互連。** 移至 Microsoft 對等互連，並註冊**其他的 Office 365 線上服務 (12076:5100)** 社群。 如需如何從 Azure 公用對等互連移至 Microsoft 對等互連的詳細資訊，請參閱[將公用對等互連移至 Microsoft 對等互連](https://docs.microsoft.com/azure/expressroute/how-to-move-peering)一文。
 
-- **如果您在 Microsoft 對等互連上。** 註冊**其他 Office 365 線上服務 (12076:5100)** 社群。 如需路由需求的詳細資訊，請參閱 ExpressRoute 路由需求文章中的 [BGP 社群支援區段](https://docs.microsoft.com/azure/expressroute/expressroute-routing#bgp)。
+- **如果您是 Microsoft 對等互連。** 註冊**其他 Office 365 線上服務 (12076:5100)** 社群。 如需路由需求的詳細資訊，請參閱 ExpressRoute 路由需求文章中的 [BGP 社群支援區段](https://docs.microsoft.com/azure/expressroute/expressroute-routing#bgp)。
 
 如果您必須繼續使用特定線路，必須與您的 Microsoft 帳戶小組討論，了解如何取得使用**其他 Office 365 線上服務 (12076:5100)** 社群的授權。 由 MS Office 管理的檢閱面板會確認您是否需要這些線路，並確定您了解保留這些線路的技術含意。 未經授權的訂用帳戶若嘗試建立 Office 365 路由篩選，將會收到錯誤訊息。 
  
@@ -590,7 +590,7 @@ Azure AD 可讓您自動化在 SaaS 應用程式 (例如 Dropbox、Salesforce、
 
 - [BlueJeans](https://docs.microsoft.com/azure/active-directory/active-directory-saas-bluejeans-provisioning-tutorial)
 
-- [Cornerstone OnDemand](https://docs.microsoft.com/azure/active-directory/active-directory-saas-cornerstone-ondemand-provisioning-tutorial)
+- [cornerstone ondemand](https://docs.microsoft.com/azure/active-directory/active-directory-saas-cornerstone-ondemand-provisioning-tutorial)
 
 - [Zendesk](https://docs.microsoft.com/azure/active-directory/active-directory-saas-zendesk-provisioning-tutorial)
 
@@ -739,7 +739,7 @@ Azure AD Premium P2 中現已正式提供群組和應用程式的存取權檢閱
  
 系統管理員現在可以選取特定 ToU，並查看同意該 ToU 的所有使用者以及其發生日期/時間。
 
-如需詳細資訊，請參閱 [Azure AD 使用規定特性](https://docs.microsoft.com/azure/active-directory/active-directory-tou)。
+如需詳細資訊，請參閱 [Azure AD 使用規定特性](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use)。
 
 ---
  
@@ -782,7 +782,7 @@ Connect Health 現在能夠支援每小時或每日偵測超出失敗 U/P 登入
 
 Azure AD 使用規定已經從公用預覽移至正式推出。
 
-如需詳細資訊，請參閱 [Azure AD 使用規定特性](https://docs.microsoft.com/azure/active-directory/active-directory-tou)。
+如需詳細資訊，請參閱 [Azure AD 使用規定特性](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use)。
 
 ---
 
@@ -883,7 +883,7 @@ Criterion HCM、[FiscalNote](https://docs.microsoft.com/azure/active-directory/a
 
 如需詳細資訊，請參閱
 
-- [在 Azure Active Directory 中管理同盟單一登入的憑證](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs)
+- [針對同盟單一登入 Azure Active Directory 中管理憑證](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs)
 - [Azure Active Directory 入口網站中的稽核活動報告](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-activity-audit-logs)
  
 ---
@@ -906,7 +906,7 @@ Criterion HCM、[FiscalNote](https://docs.microsoft.com/azure/active-directory/a
 **服務類別：** 條件式存取  
 **產品功能：** 身分識別安全性與保護
  
-**現已在公開預覽版中推出！**
+**現正處於公開預覽 ！**
 
 **Intune Managed Browser SSO：** 您的員工可以在所有原生用戶端 (例如 Microsoft Outlook) 上使用單一登入，以及針對所有與 Azure AD 連線的應用程式使用 Intune Managed Browser。
 
@@ -918,7 +918,7 @@ Criterion HCM、[FiscalNote](https://docs.microsoft.com/azure/active-directory/a
 
 - [設定應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
-- [設定 Managed Browser 原則](https://aka.ms/managedbrowser)  
+- [設定 managed 的 browser 原則](https://aka.ms/managedbrowser)  
 
 ---
  
@@ -1275,7 +1275,7 @@ Azure AD Connect 是在 Azure AD 與內部部署資料來源 (包括 Windows Ser
 
 如需詳細資訊，請參閱
 
-- [已核准的用戶端應用程式需求](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [核准的用戶端應用程式需求](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
 - [Azure AD 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
@@ -1382,7 +1382,7 @@ MFA 設定位於：**Azure Active Directory \> MFA 伺服器**
 
 在新的「Azure Active Directory 系統管理」主控台正式運作且現在已有適用於活動和安全性報告的新 API 之後，"/reports" 端點底下的報告 API 自 2017 年 12 月 31 日結束起已淘汰。
 
-**可用的內容？**
+**什麼是可用？**
 
 在轉換至新系統管理主控台的過程中，我們提供了 2 個新 API 來擷取 Azure AD 活動記錄。 新的 API 集合除了能提供更豐富的稽核和登入活動外，還提供更豐富的篩選和排序功能。 現在可透過 Microsoft Graph 的 Identity Protection 風險事件 API 來存取先前透過安全性報告所使用的資料。
 
@@ -1414,7 +1414,7 @@ MFA 設定位於：**Azure Active Directory \> MFA 伺服器**
 
 4. 現在您可以檢閱您已接受的使用規定。 
 
-如需詳細資訊，請參閱 [Azure AD 使用規定特性 (預覽)](https://docs.microsoft.com/azure/active-directory/active-directory-tou)。
+如需詳細資訊，請參閱 [Azure AD 使用規定特性 (預覽)](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use)。
  
 ---
  
@@ -1454,7 +1454,7 @@ Azure AD 登入頁面上的 [讓我保持登入] 核取方塊已被新的提示�
 
 請選取 [開啟] 或 [關閉] 來要求使用者展開使用規定。 [開啟] 設定會要求使用者必須先檢視使用規定，才能接受該規定。
 
-如需詳細資訊，請參閱 [Azure AD 使用規定特性 (預覽)](https://docs.microsoft.com/azure/active-directory/active-directory-tou)。
+如需詳細資訊，請參閱 [Azure AD 使用規定特性 (預覽)](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use)。
  
 ---
 
@@ -1568,12 +1568,12 @@ Azure Active Directory 存取控制 (也稱為「存取控制」服務) 將於 2
 
 下列應用程式已列入[已核准的用戶端應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)清單：
 
-- [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/) \(英文\)
+- [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/)
 - Microsoft StaffHub
 
 如需詳細資訊，請參閱
 
-- [已核准的用戶端應用程式需求](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [核准的用戶端應用程式需求](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
 - [Azure AD 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
@@ -1659,14 +1659,14 @@ Azure Active Directory 存取控制 (也稱為「存取控制」服務) 將於 2
 
 您現在可以在 Azure AD 條件式存取原則中，包含 (或排除) macOS 作為裝置平台條件。 除了將 macOS 新增為支援的裝置平台之外，您也可以：
 
-- **使用 Intune 來註冊和管理 macOS 裝置。** 與其他平台 (例如 iOS 和 Android) 類似，有可供 macOS 用來進行統一註冊的公司入口網站應用程式。 您可以使用適用於 macOS 的新公司入口網站應用程式，向 Intune 註冊裝置，並向 Azure AD 註冊它。
-- **確保 macOS 裝置遵守組織在 Intune 中定義的合規性原則。** 您現在可以在 Azure 入口網站上的 Intune 中，設定適用於 macOS 裝置的合規性原則。 
-- **限制只有符合規範的 macOS 裝置才能存取 Azure AD 中的應用程式。** 條件式存取原則撰寫提供 macOS 作為個別裝置平台選項。 現在您可以針對在 Azure 中設定的目標應用程式，撰寫 macOS 特定的條件式存取原則。
+- **註冊和管理使用 Intune 的 macOS 裝置。** 與其他平台 (例如 iOS 和 Android) 類似，有可供 macOS 用來進行統一註冊的公司入口網站應用程式。 您可以使用適用於 macOS 的新公司入口網站應用程式，向 Intune 註冊裝置，並向 Azure AD 註冊它。
+- **確保 macOS 裝置遵守組織在 Intune 中定義的合規性政策。** 您現在可以在 Azure 入口網站上的 Intune 中，設定適用於 macOS 裝置的合規性原則。 
+- **限制只有符合規範的 macOS 裝置的 Azure AD 中應用程式存取。** 條件式存取原則撰寫提供 macOS 作為個別裝置平台選項。 現在您可以針對在 Azure 中設定的目標應用程式，撰寫 macOS 特定的條件式存取原則。
 
 如需詳細資訊，請參閱
 
-- [使用 Intune 為 macOS 裝置建立裝置合規性原則](https://aka.ms/macoscompliancepolicy)
-- [Azure AD 中的條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
+- [使用 Intune 建立 macOS 裝置的裝置合規性政策](https://aka.ms/macoscompliancepolicy)
+- [在 Azure AD 中的條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
  
 ---
 
@@ -1695,7 +1695,7 @@ Azure Active Directory 存取控制 (也稱為「存取控制」服務) 將於 2
 - 還原已刪除的使用者。 
 - 永久刪除使用者。
 
-**試用此功能：**
+**若要試試看：**
 
 1. 在 Azure AD 系統管理中心內，於 [管理] 區段中選取 [[所有使用者](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/All)]。 
 
@@ -1718,7 +1718,7 @@ Azure Active Directory 存取控制 (也稱為「存取控制」服務) 將於 2
 
 如需詳細資訊，請參閱
 
-- [已核准的用戶端應用程式需求](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
+- [核准的用戶端應用程式需求](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
 - [Azure AD 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
@@ -1807,7 +1807,7 @@ Azure AD 針對呈現 HTML 使用者名稱和密碼欄位的應用程式，支�
 - 依使用者屬性 (例如，醫生與護士或國內員工與國際員工 (藉由動態群組的方式完成)) 區分的特定使用規定
 - 適用於存取高影響力商務應用程式 (例如 Salesforce) 的特定使用規定
 
-如需詳細資訊，請參閱 [Azure AD 使用規定](https://docs.microsoft.com/azure/active-directory/active-directory-tou)。
+如需詳細資訊，請參閱 [Azure AD 使用規定](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use)。
 
 ---
 
@@ -1857,7 +1857,7 @@ Azure AD 針對呈現 HTML 使用者名稱和密碼欄位的應用程式，支�
 如需詳細資訊，請參閱[從 Azure AD 的使用者體驗中隱藏協力廠商應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app)。 
 
 
-**可用的內容？**
+**什麼是可用？**
 
  在轉換至新系統管理主控台的過程中，有兩個可擷取 Azure AD 活動記錄的新 API 可供使用。 新的 API 集合除了能提供更豐富的稽核和登入活動外，還提供更豐富的篩選和排序功能。 現在透過 Microsoft Graph 中的 Identity Protection 風險事件 API，即可存取先前透過安全性報告提供的資料。
 

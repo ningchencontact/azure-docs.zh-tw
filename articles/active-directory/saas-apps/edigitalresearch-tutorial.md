@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a4bebbda528f7ed6d7bee6ce77c744c6349d0bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d81797f0d1e7f72842c3a5a127756b99bdc93992
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190886"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047801"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>教學課程：Azure Active Directory 與 eDigitalResearch 整合
 
@@ -89,7 +89,7 @@ eDigitalResearch 與 Azure AD 整合提供下列優點：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 1. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-1. **[建立 eDigitalResearch 測試使用者](#create-a-edigitalresearch-test-user)** - 在 eDigitalResearch 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表使用者的項目連結。
+1. **[建立 eDigitalResearch 測試使用者](#create-an-edigitalresearch-test-user)** -使 eDigitalResearch 與 Azure AD 中代表使用者的連結中 Britta Simon 的對應。
 1. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 1. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
@@ -97,7 +97,7 @@ eDigitalResearch 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入，然後在您的 eDigitalResearch 應用程式中設定單一登入。
 
-**若要使用 eDigitalResearch 設定 Azure AD 單一登入，請執行下列步驟：**
+**若要使用 eDigitalResearch 設定 Azure AD 單一登入，執行下列步驟：**
 
 1. 在 Azure 入口網站的 [eDigitalResearch] 應用程式整合頁面上，按一下 [單一登入]。
 
@@ -111,9 +111,9 @@ eDigitalResearch 與 Azure AD 整合提供下列優點：
 
     ![eDigitalResearch 網域和 URL 單一登入資訊](./media/edigitalresearch-tutorial/tutorial_edigitalresearch_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<company-name>.edigitalresearch.com`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<company-name>.edigitalresearch.com`
 
-    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<company-name>.edigitalresearch.com/login/consume`
+    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL： `https://<company-name>.edigitalresearch.com/login/consume`
 
     > [!NOTE] 
     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [eDigitalResearch 支援小組](https://www.maruedr.com/contact)以取得這些值。
@@ -143,7 +143,7 @@ eDigitalResearch 與 Azure AD 整合提供下列優點：
 
    ![建立 Azure AD 測試使用者][100]
 
-**若要在 Azure AD 中建立測試使用者，請執行下列步驟：**
+**若要在 Azure AD 中建立的測試使用者，請執行下列步驟：**
 
 1. 在 Azure 入口網站的左窗格中，按一下 [Azure Active Directory] 按鈕。
 
@@ -169,7 +169,7 @@ eDigitalResearch 與 Azure AD 整合提供下列優點：
 
     d. 按一下頁面底部的 [新增] 。
   
-### <a name="create-a-edigitalresearch-test-user"></a>建立 eDigitalResearch 測試使用者
+### <a name="create-an-edigitalresearch-test-user"></a>建立 eDigitalResearch 測試使用者
 
 本節目標是在 eDigitalResearch 中建立名為 Britta Simon 的使用者。 
 
@@ -184,7 +184,7 @@ eDigitalResearch 與 Azure AD 整合提供下列優點：
 
 ![指派使用者角色][200] 
 
-**若要將 Britta Simon 指派到 eDigitalResearch，請執行下列步驟：**
+**若要將名為 Britta Simon 指派到 eDigitalResearch，請執行下列步驟：**
 
 1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]，然後按一下 [所有應用程式]。
 

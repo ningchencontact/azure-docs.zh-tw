@@ -1,19 +1,18 @@
 ---
 title: 撰寫 Azure 資料總管查詢
 description: 在此操作說明中，您將學到如何執行 Azure 資料總管的基本與進階查詢。
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 8afb829f806ab55a069ded9cb7198f66368e8720
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6a764c5051aad9123c605ae51807117ef75a7047
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758697"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048481"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>撰寫 Azure 資料總管查詢
 
@@ -902,7 +901,7 @@ StormEvents
 
 [**funnel_sequence_completion plugin**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-completion-plugin)：計算在不同時段內已完成序列步驟的漏斗圖。
 
-下列查詢會檢查序列的完成漏斗圖：在一小時、四小時及一天 (`[1h, 4h, 1d]`) 的「整體」時間中的 `Hail -> Tornado -> Thunderstorm -> Wind` 。
+下列查詢會檢查完成漏斗圖的序列： `Hail -> Tornado -> Thunderstorm -> Wind` 在 「 整體 」 的四個小時和一天的一小時 (`[1h, 4h, 1d]`)。
 
 **\[**[**按一下以執行查詢**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA12QTYvCMBCG74L/YW6tkIV2XT9g8SjsnlvwICKhM9JAOqlJqrj4402CW0RIIB/PPLwzmjwcnZfWwwZQevKqo/yzKFYfRRnW7Hs60ZEhxjdi/UZcFaO5VuqPAjhfLvD/w9F5IG7iM95YdqrJ99mPVDoTkNXGskSTju3ASNZ5Y7t43wVhdhj9PVll0L1aylbAV9glJqyKldsLsXfTyR3oIvUQAsNpYCY95jg2puuDUhnOt71yBukXBVRxCnVoTjwnIlLX4rUzAUlf3/pEPYViDDd7AOyqowFQAQAA)**\]**
 
@@ -949,4 +948,4 @@ MyFunction ("Texas")
 
 ## <a name="next-steps"></a>後續步驟
 
-[Kusto 查詢語言參考](https://aka.ms/kustolangref) (英文)
+[Kusto 查詢語言參考](https://aka.ms/kustolangref)

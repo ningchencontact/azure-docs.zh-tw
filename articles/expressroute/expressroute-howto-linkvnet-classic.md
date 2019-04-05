@@ -1,5 +1,5 @@
 ---
-title: 將虛擬網路連結至 ExpressRoute 線路：PowerShell： 傳統：Azure | Microsoft Docs
+title: 將虛擬網路連結至 ExpressRoute 線路：PowerShell：经典：Azure | Microsoft Docs
 description: 本文提供以下內容的概觀：如何使用傳統部署模型和 PowerShell 將虛擬網路 (VNet) 連結到 ExpressRoute 線路。
 services: expressroute
 documentationcenter: na
@@ -8,19 +8,19 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: cherylmc
-ms.openlocfilehash: bab38b98fa1f39691dfdeaf0b0492a2e3ed0df93
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 21676ff329613f792d6570713f044bb7440e58d4
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116855"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045354"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>使用 PowerShell 將虛擬網路連接到 ExpressRoute 線路 (傳統)
 > [!div class="op_single_selector"]
 > * [Azure 入口網站](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
-> * [影片 - Azure 入口網站](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [影片-Azure 入口網站](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (傳統)](expressroute-howto-linkvnet-classic.md)
 >
 
@@ -33,6 +33,9 @@ ms.locfileid: "58116855"
 **關於 Azure 部署模型**
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configuration-prerequisites"></a>組態必要條件
 
@@ -61,17 +64,17 @@ Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRou
 1. 以提高的權限開啟 PowerShell 主控台並連接到您的帳戶。
 
    ```powershell
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 2. 檢查帳戶的訂用帳戶。
 
    ```powershell
-   Get-AzureRmSubscription
+   Get-AzSubscription
    ```
 3. 如果您有多個訂用帳戶，請選取您要使用的訂用帳戶。
 
    ```powershell
-   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
 
 4. 接下來，使用下列 Cmdlet，將您的 Azure 訂用帳戶新增到 PowerShell，以供傳統部署模型使用。
@@ -182,7 +185,7 @@ Set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "************************
 
 **刪除授權**
 
-线路所有者可以通过运行以下 cmdlet 撤消/删除对用户的授权：
+線路擁有者可以使用下列 Cmdlet 來撤銷/刪除使用者的授權：
 
 ```powershell
 Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey "*****************************" -AuthorizationId "###############################"

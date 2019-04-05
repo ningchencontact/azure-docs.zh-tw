@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: ac4351bd2e125c922cb3044c1d06298b3ad6de97
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: f00c816f34978ee2f14f16ee9882860750d0e658
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805052"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051881"
 ---
 # <a name="traffic-analytics"></a>流量分析
 
@@ -28,6 +28,9 @@ ms.locfileid: "58805052"
 - 透過開啟的連接埠、嘗試存取網際網路的應用程式，和連線至 Rogue 網路的虛擬機器 (VM) 等資訊，識別網路的安全性威脅並保護您的網路。
 - 了解各個 Azure 區域間和網際網路的流量模式，使網路部署達到最理想的效能和容量。
 - 找出導致網路連線失敗的網路設定錯誤。
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="why-traffic-analytics"></a>為何要使用流量分析？
 
@@ -133,7 +136,7 @@ Log Analytics 工作區必須存在於下列區域：
 您必須先重新註冊網路資源提供者，才能使用流量分析。 請按一下以下程式碼方塊中的**試試看**，以開啟 Azure Cloud Shell。 Cloud Shell 會自動將您登入 Azure 訂用帳戶。 Cloud Shell 開啟後，請輸入下列命令以重新註冊網路資源提供者：
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Network"
+Register-AzResourceProvider -ProviderNamespace "Microsoft.Network"
 ```
 
 ### <a name="select-a-network-security-group"></a>選取網路安全性群組
@@ -153,13 +156,13 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Network"
 註冊 Azure Insights 提供者 (如果您的訂用帳戶尚未註冊)：
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Insights
+Register-AzResourceProvider -ProviderNamespace Microsoft.Insights
 ```
 
 如果您還沒有 Azure 儲存體帳戶可儲存 NSG 流量記錄，您必須建立儲存體帳戶。 您可以使用下列命令建立儲存體帳戶。 執行命令之前，請將 `<replace-with-your-unique-storage-account-name>` 取代為在所有 Azure 位置間具有唯一性、長度介於 3-24 個字元，且僅使用數字和小寫字母的名稱。 如有必要，您也可以變更資源群組名稱。
 
 ```azurepowershell-interactive
-New-AzureRmStorageAccount `
+New-AzStorageAccount `
   -Location westcentralus `
   -Name <replace-with-your-unique-storage-account-name> `
   -ResourceGroupName myResourceGroup `
@@ -182,7 +185,7 @@ New-AzureRmStorageAccount `
 
 針對要啟用流量分析的任何其他 NSG 重複前述步驟。 流量記錄中的資料會傳送至工作區，因此請確定您所在國家/地區的當地法律和規範允許在工作區所在的區域中進行資料儲存。
 
-您也可以使用 AzureRm PowerShell 模組版本 6.2.1 或更新版本中的 [Set-AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) PowerShell Cmdlet 來設定流量分析。 執行 `Get-Module -ListAvailable AzureRM` 來了解您安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/azurerm/install-azurerm-ps)。
+您也可以設定流量分析使用[組 AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) Azure PowerShell 中的 PowerShell cmdlet。 執行 `Get-Module -ListAvailable Az` 來了解您安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。
 
 ## <a name="view-traffic-analytics"></a>檢視流量分析
 

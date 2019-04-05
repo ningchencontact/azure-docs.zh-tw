@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 64a1693907dbf144aa34f5c35ae925af74d2cb34
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 65948b1de3a972687e738b011acf3542073db277
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803201"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046974"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>流量分析常見問題集
 
 本文在同一處收集許多關於 Azure 網路監看員流量分析的常見問題。
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-are-the-prerequisites-to-use-traffic-analytics"></a>使用流量分析的必要條件有哪些？
 
@@ -51,11 +54,11 @@ ms.locfileid: "58803201"
         
 檢查指派給訂用帳戶使用者的角色：
 
-1. 使用 **Login-AzureRmAccount** 登入 Azure。 
+1. 使用登入 Azure**登入 AzAccount**。 
 
-2. 使用 **Select-AzureRmSubscription** 選取需要的訂用帳戶。 
+2. 藉由選取所需的訂用帳戶**選取 AzSubscription**。 
 
-3. 若要列出指派給指定使用者的所有角色，請使用 **Get-AzureRmRoleAssignment -SignInName [使用者電子郵件] -IncludeClassicAdministrators**。 
+3. 若要列出指派給指定使用者的所有角色，請使用**Get AzRoleAssignment SignInName [使用者電子郵件]-IncludeClassicAdministrators**。 
 
 如果看不到任何輸出，請聯絡個別訂用帳戶管理員，取得執行命令的權限。 如需詳細資料，請參閱[使用 Azure PowerShell 管理角色型存取控制](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)。
 
@@ -139,8 +142,8 @@ Log Analytics 工作區必須存在於下列區域：
 為了讓流量記錄正常運作，您必須註冊 Microsoft.Insights 提供者。 如果您不確定自己是否已為訂用帳戶註冊 Microsoft.Insights 提供者，請取代下列命令中的 *xxxxx-xxxxx-xxxxxx-xxxx*，然後從 PowerShell 執行下列命令：
 
 ```powershell-interactive
-**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
+**Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
 ## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>我已設定解決方案。 為什麼在儀表板上看不到任何項目？
@@ -170,7 +173,7 @@ Log Analytics 工作區必須存在於下列區域：
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>我可以使用 PowerShell 或 Azure Resource Manager 範本或用戶端來設定流量分析嗎？
 
-您可以使用 Windows PowerShell 6.2.1 以上版本設定流量分析。 若要使用 Set cmdlet 針對特定 NSG 設定流量記錄和流量分析，請參閱 [Set-AzureRmNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog)。 若要取得特定 NSG 的流量記錄和流量分析狀態，請參閱 [Get-AzureRmNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcherflowlogstatus)。
+您可以使用 Windows PowerShell 6.2.1 以上版本設定流量分析。 若要使用的 Set 指令程式的特定 NSG 設定流量記錄和流量分析，請參閱[組 AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog)。 若要取得特定的 NSG 流程記錄與流量分析狀態，請參閱[Get AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus)。
 
 目前您無法使用 Azure Resource Manager 範本來設定流量分析。
 
@@ -217,7 +220,7 @@ $apiversion = "2016-09-01"
 armclient login
 armclient post "https://management.azure.com/subscriptions/<NSG subscription id>/resourceGroups/<network watcher resource group name>/providers/Microsoft.Network/networkWatchers/<network watcher name>/configureFlowlog?api-version=${apiversion}" $requestBody
 ```
-**取得 cmdlet 範例：**
+**取得 cmdlet 的範例：**
 ```
 #Requestbody parameters
 $TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<NSG name>"
@@ -269,7 +272,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
         
 ### <a name="keyboard-navigation-at-any-stage"></a>各階段的鍵盤瀏覽
     
-- `Esc` 可將展開的選取範圍摺疊。
+- `Esc` 摺疊已展開的選取範圍。
 - `Up arrow` 鍵可執行與 `Esc` 相同的動作。 `Down arrow` 鍵可執行與 `Enter` 相同的動作。
 - 使用 `Shift+Plus` 可放大，使用 `Shift+Minus` 可縮小。
 

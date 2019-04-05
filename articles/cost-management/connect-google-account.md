@@ -5,24 +5,22 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: b22d98c079a87943d3078fbe41e76074543c260a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7f63293900e116fd3175b0ea6d704993a2dcf591
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002615"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051388"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>連線 Google Cloud Platform 帳戶
 
 您可以將現有的 Google Cloud Platform 帳戶與 Cloudyn 相連。 將帳戶與 Cloudyn 相連後，Cloudyn 報表中便會提供成本與使用量資料。 此文章將協助您設定 Google 帳戶並將其與 Cloudyn 相連。
 
-> [!NOTE]
-> Google 已修改其帳戶安全性，這會防止在 Cloudyn 與 Google 之間建立新連線。 Cloudyn 會繼續為已經將 Cloudyn 連線至 Google 的使用者收集 Google 資料。 不過，您目前無法將新的 Google 帳戶新增至 Cloudyn。 Cloudyn 小組不知道何時會繼續支援將新的 Google 帳戶新增至 Cloudyn。 當可繼續支援時，我們將會移除這個附註。
 
 ## <a name="collect-project-information"></a>收集專案資訊
 
@@ -30,7 +28,7 @@ ms.locfileid: "58002615"
 
 1. 登入 Google Cloud Platform 主控台：[https://console.cloud.google.com](https://console.cloud.google.com)。
 2. 檢閱要在 Cloudyn 上線的專案資訊，並記下 [專案名稱] 和 [專案 ID]。 請就近保存此資訊以使用於後續步驟。  
-    ![Google Cloud Platform 主控台中 顯示的專案名稱和專案識別碼](./media/connect-google-account/gcp-console01.png)
+    ![專案名稱和 Google Cloud Platform 主控台中顯示的專案識別碼](./media/connect-google-account/gcp-console01.png)
 3. 如果未啟用計費並連結至您的專案，請建立計費帳戶。 如需詳細資訊，請參閱[建立新的計費帳戶](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create/_a/_new/_billing/_account) \(英文\)。
 
 ## <a name="enable-storage-bucket-billing-export"></a>啟用儲存體貯體計費匯出
@@ -41,7 +39,7 @@ Cloudyn 會從儲存體貯體擷取您的 Google 帳單資料。 請記下 [Buck
 
 1. 如果您未啟用計費匯出至檔案，請遵循[如何啟用計費匯出至檔案](https://cloud.google.com/billing/docs/how-to/export-data-file#how_to_enable_billing_export_to_a_file)的指示。 您可以使用 JSON 或 CSV 計費匯出格式。
 2. 否則，在 Google Cloud Platform 主控台中，巡覽至 [計費] > [計費匯出]。 注意您的計費「貯體名稱」和「報告前置詞」。  
-    ![[計費匯出] 頁面上顯示的計費匯出資訊](./media/connect-google-account/billing-export.png)
+    ![帳單的 [匯出] 頁面上所顯示的計費匯出資訊](./media/connect-google-account/billing-export.png)
 
 ## <a name="enable-google-cloud-platform-apis"></a>啟用 Google Cloud Platform API
 

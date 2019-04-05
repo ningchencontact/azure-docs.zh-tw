@@ -1,19 +1,18 @@
 ---
-title: 調整 Azure 資料總管叢集的大小，適應變更的需求
+title: 相應放大 Azure 資料總管群集，來滿足多變的需求
 description: 本文說明相應放大及相應的步驟在 Azure 資料總管叢集中根據變更的需求。
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 9b54bf182f23eceb47c392059ff52c04bf0a8aed
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: ab4ced6695e6066098dd5ff7348528deedfc0e1b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755076"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044229"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>管理叢集相應放大以因應不斷變化的需求
 
@@ -44,20 +43,20 @@ ms.locfileid: "58755076"
     | 設定 | 描述和值 |
     | --- | --- |
     | **時間彙總** | 選取彙總準則，例如 [平均]。 |
-    | **計量名稱** | 選取調整大小作業依據的計量，例如 [快取使用率]。 |
+    | **度量名稱** | 選取調整大小作業依據的計量，例如 [快取使用率]。 |
     | **時間粒紋統計資料** | 選擇 [平均]、[最小值]、[最大值]，或 [加總]。 |
     | **運算子** | 選擇適當的選項，例如 [大於或等於]。 |
     | **閾值** | 選擇適當的值。 比方說，快取使用量，如 80%是不錯的起點。 |
     | **持續時間 (分鐘)** | 選擇適當的時間長度，讓系統在計算計量時有所依據。 從預設的 10 分鐘開始。 |
     |  |  |
 
-    **Action**
+    ** 動作**
 
     | 設定 | 描述和值 |
     | --- | --- |
     | **作業** | 選擇相應縮小或相應放大的適當選項。 |
     | **執行個體計數** | 選擇滿足計量條件時，您欲新增或移除的節點或執行個體數。 |
-    | **冷卻時間 (分鐘)** | 選擇調整大小作業間適當的時間間隔。 請從預設的五分鐘開始。 |
+    | **緩和時間 (分鐘)** | 選擇調整大小作業間適當的時間間隔。 請從預設的五分鐘開始。 |
     |  |  |
 
 1. 選取 [新增] 。
@@ -66,7 +65,7 @@ ms.locfileid: "58755076"
 
     | 設定 | 描述和值 |
     | --- | --- |
-    | **最低** | 執行個體數；無論使用率為何，您的叢集都不會調整到低於此數值。 |
+    | **最小值** | 執行個體數；無論使用率為何，您的叢集都不會調整到低於此數值。 |
     | **最大值** | 執行個體數；無論使用率為何，您的叢集都不會調整到高於此數值。 |
     | **預設值** | 預設執行個體數目。 如果有讀取資源計量的問題，則會使用此設定。 |
     |  |  |

@@ -1,19 +1,18 @@
 ---
 title: 連接到 Azure 的資料總管，使用 ODBC
 description: 在此操作說明，您會學習如何設定 ODBC 連接到 Azure 資料總管，然後使用該連接要使用 Tableau 將資料視覺化。
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: 0ec1c2f4fc412ca6c81e179d0ad22f781b896357
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d01c825e50e30e3545a0d47e432835c658d677af
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757616"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59043876"
 ---
 # <a name="connect-to-azure-data-explorer-with-odbc"></a>連接到 Azure 的資料總管，使用 ODBC
 
@@ -101,6 +100,6 @@ ms.locfileid: "58757616"
 
 ## <a name="next-steps"></a>後續步驟
 
-[撰寫 Azure 資料總管的查詢](write-queries.md)
+[撰寫 Azure 資料總管查詢](write-queries.md)
 
-[教學課程：在 Power BI 中從 Azure 資料總管將資料視覺化](visualize-power-bi.md)
+[教學課程：Azure 中的資料總管 Power BI 中的資料視覺化](visualize-power-bi.md)

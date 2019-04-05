@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec509fc8957d20f95123e9f0f645c3e9b6e832f2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d75deaca7ce052d40274f1f57a8f6603a3ecdfd2
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122364"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046150"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>設定計算目標進行模型定型
 
@@ -118,7 +118,10 @@ Azure Machine Learning Compute 有預設限制，例如可配置的核心數目�
 
 #### <a name="run-based-creation"></a>執行式建立
 
-您可以建立 Azure Machine Learning Compute 做為執行階段的計算目標。 系統會自動為您的執行建立計算。 叢集可相應增加到回合組態中指定的 **max_nodes** 數目。執行完成之後，就會自動刪除計算。
+您可以建立 Azure Machine Learning Compute 做為執行階段的計算目標。 系統會自動為您的執行建立計算。 執行完成之後，就會自動刪除計算。 
+
+> [!NOTE]
+> 若要指定要使用的節點數目上限，您會通常設定`node_count`的節點數目。 目前沒有 (04/04/2019) 的錯誤會讓這無法運作。 因應措施，使用`amlcompute._cluster_max_node_count`執行組態的屬性。 例如： `run_config.amlcompute._cluster_max_node_count = 5`。
 
 > [!IMPORTANT]
 > Azure Machine Learning Compute 的執行式建立目前為「預覽」狀態。 如果您使用自動化超參數調整或自動化機器學習，請勿使用回合式建立。 若要使用超參數微調或自動化機器學習，請改為建立[持續性計算](#persistent)目標。
@@ -358,8 +361,8 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
     > [!NOTE]
     > Microsoft 建議使用 SSH 金鑰，因為它們比密碼更安全。 密碼很容易遭受暴力密碼破解攻擊。 SSH 金鑰需要密碼編譯簽章。 如需有關如何建立 SSH 金鑰以搭配 Azure 虛擬機器使用的資訊，請參閱下列文件：
     >
-    > * [在 Linux 或 macOS 上建立及使用 SSH 金鑰](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
-    > * [在 Windows 上建立及使用 SSH 金鑰](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
+    > * [建立和使用 Linux 或 macOS 上的 SSH 金鑰](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
+    > * [建立和使用在 Windows 上的 SSH 金鑰](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
 
 1. 選取 [附加]。 
 1. 從清單選取計算目標以檢視附加作業的狀態。
@@ -425,4 +428,4 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 * [教學課程：定型模型](tutorial-train-models-with-aml.md)會使用受控計算目標來定型模型。
 * 擁有定型的模型之後，請了解[部署模型的方式和位置](how-to-deploy-and-where.md)。
 * 檢視 [RunConfiguration 類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK 參考。
-* [透過 Azure 虛擬網路使用 Azure Machine Learning 服務](how-to-enable-virtual-network.md)
+* [使用 Azure Machine Learning 服務與 Azure 虛擬網路](how-to-enable-virtual-network.md)

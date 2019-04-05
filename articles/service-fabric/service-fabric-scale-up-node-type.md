@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/13/2019
 ms.author: aljo
-ms.openlocfilehash: fcf10152be645eb92596894a3e89258908d747c4
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: e6b429189491af71f6215f1c7660be5965741bf7
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668359"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044821"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type"></a>相應增加 Service Fabric 叢集主要節點類型
 本文說明如何透過增加虛擬機器資源來相應增加 Service Fabric 叢集主要節點類型。 Service Fabric 叢集是一組由網路連接的虛擬或實體機器，可用來將您的微服務部署到其中並進行管理。 屬於叢集一部分的機器或 VM 都稱為節點。 虛擬機器擴展集是一個 Azure 計算資源，可以用來將一組虛擬機器當做一個集合加以部署和管理。 在 Azure 叢集中定義的每個節點類型，會[設定為不同的擴展集](service-fabric-cluster-nodetypes.md)。 隨後，您即可個別管理每個節點類型。 建立 Service Fabric 叢集之後，您可以垂直調整叢集節點類型 (變更節點的資源) 或將節點類型 VM 的作業系統升級。  您可以隨時調整叢集，即使正在叢集上執行工作負載，也是如此。  在叢集進行調整時，您的應用程式也會自動調整。
@@ -29,6 +29,9 @@ ms.locfileid: "58668359"
 >
 > 建議您不要變更擴展集/節點類型的 VM SKU，除非它以[銀級耐久性或更高級別](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster)執行。 變更 VM SKU 大小是資料破壞性就地基礎結構作業。 如果沒有延遲或監視此變更的能力，作業可能會導致具狀態服務的資料遺失，或者甚至對於無狀態工作負載導致其他未預期作業問題。 這代表會載入您的主要節點類型 (其正在執行具狀態服務網狀架構系統服務) 或任何正在執行具狀態應用程式的節點類型。
 >
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="upgrade-the-size-and-operating-system-of-the-primary-node-type-vms"></a>將主要節點類型 VM 的大小和作業系統升級
 若要將主要節點類型 VM 的 VM 大小和作業系統升級，其程序如下。  升級之後，主要節點類型 VM 的大小為標準 D4_V2，所執行的是 Windows Server 2016 Datacenter with Containers。
@@ -56,13 +59,13 @@ $clusterloc="southcentralus"
 $subscriptionID="<your subscription ID>"
 
 # sign in to your Azure account and select your subscription
-Login-AzureRmAccount -SubscriptionId $subscriptionID 
+Login-AzAccount -SubscriptionId $subscriptionID 
 
 # Create a new resource group for your deployment and give it a name and a location.
-New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
+New-AzResourceGroup -Name $groupname -Location $clusterloc
 
 # Deploy the two node type cluster.
-New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\Deploy-2NodeTypes-2ScaleSets.parameters.json" `
+New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\Deploy-2NodeTypes-2ScaleSets.parameters.json" `
     -TemplateFile "C:\temp\cluster\Deploy-2NodeTypes-2ScaleSets.json" -Verbose
 
 # Connect to the cluster and check the cluster health.
@@ -80,7 +83,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveInterval
 Get-ServiceFabricClusterHealth
 
 # Deploy a new scale set into the primary node type.  Create a new load balancer and public IP address for the new scale set.
-New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\Deploy-2NodeTypes-3ScaleSets.parameters.json" `
+New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\Deploy-2NodeTypes-3ScaleSets.parameters.json" `
     -TemplateFile "C:\temp\cluster\Deploy-2NodeTypes-3ScaleSets.json" -Verbose
 
 # Check the cluster health again. All 15 nodes should be healthy.
@@ -120,7 +123,7 @@ foreach($name in $nodeNames){
 
 # Remove the scale set
 $scaleSetName="NTvm1"
-Remove-AzureRmVmss -ResourceGroupName $groupname -VMScaleSetName $scaleSetName -Force
+Remove-AzVmss -ResourceGroupName $groupname -VMScaleSetName $scaleSetName -Force
 Write-Host "Removed scale set $scaleSetName"
 
 $lbname="LB-sfupgradetest-NTvm1"
@@ -128,23 +131,23 @@ $oldPublicIpName="PublicIP-LB-FE-0"
 $newPublicIpName="PublicIP-LB-FE-2"
 
 # Store DNS settings of public IP address related to old Primary NodeType into variable 
-$oldprimaryPublicIP = Get-AzureRmPublicIpAddress -Name $oldPublicIpName  -ResourceGroupName $groupname
+$oldprimaryPublicIP = Get-AzPublicIpAddress -Name $oldPublicIpName  -ResourceGroupName $groupname
 
 $primaryDNSName = $oldprimaryPublicIP.DnsSettings.DomainNameLabel
 
 $primaryDNSFqdn = $oldprimaryPublicIP.DnsSettings.Fqdn
 
 # Remove Load Balancer related to old Primary NodeType. This will cause a brief period of downtime for the cluster
-Remove-AzureRmLoadBalancer -Name $lbname -ResourceGroupName $groupname -Force
+Remove-AzLoadBalancer -Name $lbname -ResourceGroupName $groupname -Force
 
 # Remove the old public IP
-Remove-AzureRmPublicIpAddress -Name $oldPublicIpName -ResourceGroupName $groupname -Force
+Remove-AzPublicIpAddress -Name $oldPublicIpName -ResourceGroupName $groupname -Force
 
 # Replace DNS settings of Public IP address related to new Primary Node Type with DNS settings of Public IP address related to old Primary Node Type
-$PublicIP = Get-AzureRmPublicIpAddress -Name $newPublicIpName  -ResourceGroupName $groupname
+$PublicIP = Get-AzPublicIpAddress -Name $newPublicIpName  -ResourceGroupName $groupname
 $PublicIP.DnsSettings.DomainNameLabel = $primaryDNSName
 $PublicIP.DnsSettings.Fqdn = $primaryDNSFqdn
-Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
+Set-AzPublicIpAddress -PublicIpAddress $PublicIP
 
 # Check the cluster health
 Get-ServiceFabricClusterHealth

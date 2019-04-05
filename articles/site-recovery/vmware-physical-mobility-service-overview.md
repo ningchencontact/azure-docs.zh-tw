@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 523567a0db79e54bea1ed6ff23557c7fa29c74f6
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 3b354492778426d1e3c31e53e277fd9be1e22c93
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541097"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048107"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>關於適用於 VMware VM 和實體伺服器的行動服務
 
@@ -101,13 +101,13 @@ ms.locfileid: "58541097"
 
 - 依以下方式進行安裝：
 
-    ``` 
+    ```
     UnifiedAgent.exe /Role "MS" /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /Platform "VmWare" /Silent
     ```
 
 - 向設定伺服器註冊代理程式。
 
-    ``` 
+    ```
     cd C:\Program Files (x86)\Microsoft Azure Site Recovery\agent
     UnifiedAgentConfigurator.exe  /CSEndPoint <CSIP> /PassphraseFilePath <PassphraseFilePath>
     ```
@@ -119,7 +119,7 @@ ms.locfileid: "58541097"
 安裝記錄檔 | 在 %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log 底下。
 /Role | 必要安裝參數。 指定應該要安裝行動服務 (MS) 還是主要目標 (MT)。
 /InstallLocation| 選擇性參數。 指定行動服務安裝位置 (任何資料夾)。
-/Platform | 必要。 指定要安裝行動服務的平台。 如果是 VMware VM/實體伺服器，則為 **VMware**；如果是 Azure VM，則為 **Azure**。 
+/Platform | 必要。 指定要安裝行動服務的平台。 如果是 VMware VM/實體伺服器，則為 **VMware**；如果是 Azure VM，則為 **Azure**。
 /Silent| 選用。 指定是否要以無訊息模式執行安裝程式。
 
 #### <a name="registration-settings"></a>註冊設定
@@ -136,7 +136,7 @@ ms.locfileid: "58541097"
 
     ```
     cd /tmp ;
-    tar -xvzf Microsoft-ASR_UA*release.tar.gz
+    tar -xvf Microsoft-ASR_UA*release.tar.gz
     ```
 
 2. 依以下方式進行安裝：
@@ -157,7 +157,7 @@ ms.locfileid: "58541097"
 使用量 | 。 安裝-d /\<安裝位置 >-r < MS|MT> -v VmWare -q
 -r | 必要安裝參數。 指定應該要安裝行動服務 (MS) 還是主要目標 (MT)。
 -d | 選擇性參數。 指定行動服務安裝位置：/usr/local/ASR。
--v | 必要。 指定要安裝行動服務的平台。 如果是 VMware VM/實體伺服器，則為 **VMware**；如果是 Azure VM，則為 **Azure**。 
+-v | 必要。 指定要安裝行動服務的平台。 如果是 VMware VM/實體伺服器，則為 **VMware**；如果是 Azure VM，則為 **Azure**。
 -q | 選用。 指定是否要以無訊息模式執行安裝程式。
 
 #### <a name="registration-settings"></a>註冊設定
@@ -176,18 +176,18 @@ ms.locfileid: "58541097"
 
 移至組態伺服器上的 %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository 資料夾。 請檢查您需要根據作業系統的安裝程式。 下表會摘要每個 VMware VM 和實體伺服器作業系統的安裝程式檔案。 您可以先檢閱[支援的作業系統](vmware-physical-azure-support-matrix.md#replicated-machines)，再開始進行操作。
 
-**安裝程式檔案** | **作業系統 (僅限 64 位元)** 
+**安裝程式檔案** | **作業系統 （僅 64 位元）**
 --- | ---
-Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2016；Windows Server 2012 R2；Windows Server 2012；Windows Server 2008 R2 SP1 
+Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2016；Windows Server 2012 R2；Windows Server 2012；Windows Server 2008 R2 SP1
 Microsoft-ASR\_UA\*RHEL6-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 6.* </br> CentOS 6.*
-Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.* </br> CentOS 7.* 
-Microsoft-ASR\_UA\*SLES12-64\*release.tar.gz | SUSE Linux Enterprise Server 12 SP1、SP2、SP3 
-Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 
-Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 
+Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.* </br> CentOS 7.*
+Microsoft-ASR\_UA\*SLES12-64\*release.tar.gz | SUSE Linux Enterprise Server 12 SP1、SP2、SP3
+Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3
+Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4
 Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4、6.5
 Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04
 Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 LTS 伺服器
-Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7 
+Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7
 Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
 
 ## <a name="next-steps"></a>後續步驟

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: 0bce0d407246ceab05c3951dc976884dd6f15b08
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: c251cc851b34f708a2150d3b0444f235d2bc50d6
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200185"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045299"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>流量管理員的計量與警示
 
@@ -33,13 +33,13 @@ ms.locfileid: "54200185"
   
 ![所有查詢的彙總檢視](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
 
-*圖 1：所有查詢的彙總檢視*
+*圖 1：所有的查詢與彙總檢視*
   
 圖 2 顯示相同的資訊，但是依端點分割。 因此，您可以查看傳回特定端點的查詢回應量。
 
 ![流量管理員計量 - 每個端點的查詢量分割檢視](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-query-volume-per-endpoint.png)
 
-*圖 2：顯示所傳回每個端點查詢量的分割檢視*
+*圖 2：分割檢視，以顯示每個端點傳回的查詢磁碟區*
 
 ## <a name="endpoint-status-by-endpoint"></a>依端點的端點狀態
 使用[此計量](../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles)來了解設定檔中端點的健全狀態。 它採用兩個值：
@@ -51,14 +51,14 @@ ms.locfileid: "54200185"
 
 ![流量管理員計量 - 端點狀態的複合檢視](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-composite-view.png)
 
-*圖 3：端點狀態計量的複合檢視 - 已選取 [平均] 彙總*
+*圖 3：端點狀態度量 – 選取的 「 平均 」 彙總的複合檢視*
 
 
 ![流量管理員計量 - 端點狀態的分割檢視](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-split-view.png)
 
-*圖 4：端點狀態計量的分割檢視*
+*圖 4：分割檢視的端點狀態度量*
 
-您可以透過 [Azure 監視器服務](../azure-monitor/platform/metrics-supported.md)的入口網站、[REST API](https://docs.microsoft.com/rest/api/monitor/)、[Azure CLI](https://docs.microsoft.com/cli/azure/monitor)、[Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights)，或流量管理員的入口網站體驗來取用這些計量。
+您可以透過 [Azure 監視器服務](../azure-monitor/platform/metrics-supported.md)的入口網站、[REST API](https://docs.microsoft.com/rest/api/monitor/)、[Azure CLI](https://docs.microsoft.com/cli/azure/monitor)、[Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights)，或流量管理員的入口網站體驗來取用這些計量。
 
 ## <a name="alerts-on-traffic-manager-metrics"></a>流量管理員計量的警示
 除了處理及顯示來自流量管理員的計量，Azure 監視器也能讓客戶設定和接收與計量相關聯的警示。 您可以選擇這些計量中需要滿足什麼條件才會出現警示、監視這些條件的頻率為何，以及傳送警示給您的方式。 如需詳細資訊，請參閱 [Azure 監視器警示文件](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)。

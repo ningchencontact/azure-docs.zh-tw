@@ -7,16 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 441b58e60bf8dfd5f164ac24d746b9791158ade2
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 69b8e1c533747d1bade69949911ea43f299f49e9
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58420107"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59043803"
 ---
 # <a name="manage-mobility-agent-on-protected-machines"></a>管理受保護機器上的行動代理程式
 
 您設定行動代理程式在伺服器上使用 Azure Site Recovery 針對 VMware Vm 和實體伺服器至 Azure 的災害復原時。 行動代理程式協調受保護的機器，組態伺服器/相應放大處理序伺服器之間的通訊，以及管理資料複寫。 本文摘要說明部署之後，管理行動代理程式的一般工作。
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="update-mobility-service-from-azure-portal"></a>从 Azure 门户更新移动服务
 
@@ -37,7 +40,7 @@ ms.locfileid: "58420107"
 使用以下脚本通过 power shell cmdlet 更新服务器上的移动服务
 
 ```azurepowershell
-Update-AzureRmRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
+Update-AzRecoveryServicesAsrMobilityService -ReplicationProtectedItem $rpi -Account $fabric.fabricSpecificDetails.RunAsAccounts[0]
 ```
 
 ## <a name="update-account-used-for-push-installation-of-mobility-service"></a>更新用於推入安裝行動服務的帳戶

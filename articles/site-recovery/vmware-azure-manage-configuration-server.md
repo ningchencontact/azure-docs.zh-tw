@@ -7,16 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ramamill
-ms.openlocfilehash: 93e05390d28b9e9998d84935417121696d2963cc
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: c23f3ec9c85bb3997380d83c097f2690b91c1f4f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877222"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049692"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>管理 VMware VM 災害復原的設定伺服器
 
 當您使用 [Azure Site Recovery](site-recovery-overview.md) 將 VMware VM 和實體伺服器災害復原到 Azure 時，便會設定內部部署設定伺服器。 設定伺服器會協調內部部署 VMware 與 Azure 之間的通訊，以及管理資料複寫。 本文摘要說明部署設定伺服器之後，管理設定伺服器的一般工作。
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="access-configuration-server"></a>存取設定伺服器
 
@@ -132,7 +135,7 @@ ms.locfileid: "58877222"
 
 ## <a name="upgrade-the-configuration-server"></a>升級設定伺服器
 
-執行更新彙總來更新組態伺服器。 更新最多可以套用到 N-4 版本。 例如︰
+您執行更新彙總來更新設定伺服器。 更新最多可以套用到 N-4 版本。 例如︰
 
 - 如果您執行 9.7、9.8、9.9 或 9.10，就可以直接升級至 9.11。
 - 如果您執行 9.6 或更早版本，而且想要升級至 9.11，則在升級到 9.11 之前，必須先升級到 版本 9.7。
@@ -234,28 +237,28 @@ ProxyPassword="Password"
 
 您可以選擇使用 PowerShell 來刪除設定伺服器。
 
-1. [安裝](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) Azure PowerShell 模組。
+1. [安裝](https://docs.microsoft.com/powershell/azure/install-Az-ps) Azure PowerShell 模組。
 2. 使用以下命令登入您的 Azure 帳戶：
 
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 3. 選取保存庫訂用帳戶。
 
-     `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
+     `Get-AzSubscription –SubscriptionName <your subscription name> | Select-AzSubscription`
 3.  設定保存庫內容。
 
     ```
-    $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
-    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+    $vault = Get-AzRecoveryServicesVault -Name <name of your vault>
+    Set-AzSiteRecoveryVaultSettings -ARSVault $vault
     ```
 4. 擷取設定伺服器。
 
-    `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+    `$fabric = Get-AzSiteRecoveryFabric -FriendlyName <name of your configuration server>`
 6. 刪除組態伺服器。
 
-    `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force]`
+    `Remove-AzSiteRecoveryFabric -Fabric $fabric [-Force]`
 
 > [!NOTE]
-> 您可以使用 Remove-AzureRmSiteRecoveryFabric 中的 **-Force** 選項來強制刪除設定伺服器。
+> 您可以使用 **-Force**中移除 AzSiteRecoveryFabric 來強制刪除組態伺服器 選項。
 
 ## <a name="generate-configuration-server-passphrase"></a>產生設定伺服器複雜密碼
 

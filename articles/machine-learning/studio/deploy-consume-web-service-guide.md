@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 592bf638cf0be26182dfdb28ac5a0c8345a7a250
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ad58b914c22c112a83c18a7c0377b567424e4efd
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116702"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046014"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio Web 服務：部署和取用
 
@@ -37,7 +37,7 @@ Studio 入口網站和 Microsoft Azure Machine Learning Web 服務入口網站�
 * 如需部署 Web 服務的特定範例，請參閱︰
 
   * [教學課程 3：部署信用風險模型](tutorial-part3-credit-risk-deploy.md)
-  * [如何將 Web 服務部署到多個區域](/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region)
+  * [如何將 web 服務部署至多個區域](/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>使用 Web 服務資源提供者 API (Azure Resource Manager API)
 
@@ -49,7 +49,7 @@ Studio 入口網站和 Microsoft Azure Machine Learning Web 服務入口網站�
 
 用於 Web 服務的 Azure Machine Learning Studio 資源提供者，可利用 PowerShell Cmdlet 來部署和管理 Web 服務。
 
-若要使用 Cmdlet，您必須先在 PowerShell 環境中，使用 [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) Cmdlet 登入您的 Azure 帳戶。 如果您不熟悉如何呼叫以 Resource Manager 為基礎的 PowerShell 命令，請參閱 [搭配使用 Azure PowerShell 與 Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md)。
+若要使用的 cmdlet，您必須先登入您的 Azure 帳戶的 PowerShell 環境中使用[Connect AzAccount](/powershell/module/az.profile/connect-azaccount) cmdlet。 如果您不熟悉如何呼叫以 Resource Manager 為基礎的 PowerShell 命令，請參閱 [搭配使用 Azure PowerShell 與 Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md)。
 
 若要匯出預測實驗，請使用這個 [範例程式碼](https://github.com/ritwik20/AzureML-WebServices)。 由程式碼建立 .exe 檔案之後，您可以輸入︰
 
@@ -78,7 +78,7 @@ Studio 入口網站和 Microsoft Azure Machine Learning Web 服務入口網站�
 
 如需更詳細的資訊，請參閱下列文章和範例程式碼：
 
-* MSDN 上的 [Azure Machine Learning Studio Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.machinelearning) 參考資料
+* MSDN 上的 [Azure Machine Learning Studio Cmdlet](https://docs.microsoft.com/powershell/module/az.machinelearning) 參考資料
 * GitHub 上的範例 [逐步解說](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt)
 
 ## <a name="consume-the-web-services"></a>取用 Web 服務
@@ -95,8 +95,8 @@ Studio 入口網站和 Microsoft Azure Machine Learning Web 服務入口網站�
 
 您可以下載可取用 Web 服務的 Excel 範本︰
 
-* [從 Excel 使用 Azure Machine Learning Web 服務](consuming-from-excel.md)
-* [適用於 Azure Machine Learning Web 服務的 Excel 增益集](excel-add-in-for-web-services.md)
+* [使用 Azure Machine Learning web 服務從 Excel](consuming-from-excel.md)
+* [Excel 增益集的 Azure Machine Learning Web 服務](excel-add-in-for-web-services.md)
 
 ### <a name="from-a-rest-based-client"></a>從以 REST 為基礎的用戶端
 
