@@ -1,21 +1,21 @@
 ---
 title: 使用 Azure Machine Learning 搭配來自 IoT 中樞的資料進行氣象預報 | Microsoft Docs
 description: 使用 Azure Machine Learning，根據 IoT 中樞透過感應器收集的溫度和溼度資料來預測下雨的機會。
-author: rangv
-manager: ''
+author: robinsh
+manager: philmea
 keywords: 氣象預報機器學習
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
-ms.author: rangv
-ms.openlocfilehash: 7fdd2a96044acdae223243d751bfcffb7a99da78
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: robinsh
+ms.openlocfilehash: a203018cb1a27c17b9c7162b50a380f9edae2e60
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534254"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273187"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>在 Azure Machine Learning 中使用 IoT 中樞的感應器資料進行氣象預報
 
@@ -51,14 +51,14 @@ ms.locfileid: "57534254"
 
 1. 移至 [氣象預報模型頁面](https://gallery.cortanaintelligence.com/Experiment/Weather-prediction-model-1)。
 1. 在 Microsoft Azure Machine Leaning Studio 中按一下 [在 Studio 中開啟]。
-   ![在 Cortana Intelligence 資源庫中開啟氣象預報模型頁面](media/iot-hub-weather-forecast-machine-learning/2_weather-prediction-model-in-cortana-intelligence-gallery.png)
+   ![Cortana Intelligence Gallery 中開啟氣象預報模型頁面](media/iot-hub-weather-forecast-machine-learning/2_weather-prediction-model-in-cortana-intelligence-gallery.png)
 1. 按一下 [執行] 來驗證模型中的步驟。 此步驟可能需要 2 分鐘才能完成。
    ![在 Azure Machine Learning Studio 中開啟氣象預報模型](media/iot-hub-weather-forecast-machine-learning/3_open-weather-prediction-model-in-azure-machine-learning-studio.png)
 1. 按一下 [設定 Web 服務] > [預測性 Web 服務]。
-   ![在 Azure Machine Learning Studio 中部署氣象預報模型](media/iot-hub-weather-forecast-machine-learning/4-deploy-weather-prediction-model-in-azure-machine-learning-studio.png)
+   ![部署 Azure Machine Learning Studio 中的氣象預報模型](media/iot-hub-weather-forecast-machine-learning/4-deploy-weather-prediction-model-in-azure-machine-learning-studio.png)
 1. 在圖表中，將 [Web 服務輸入] 模組拖曳至接近 [評分模型] 模組附近的位置。
 1. 將 [Web 服務輸入] 模組連線至 [評分模型] 模組。
-   ![在 Azure Machine Learning Studio 中連線兩個模組](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)
+   ![連接 Azure Machine Learning Studio 中的兩個模組](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)
 1. 按一下 [執行] 來驗證模型中的步驟。
 1. 按一下 [部署 Web 服務] 來將模型部署為 Web 服務。
 1. 在模型的儀表板上，下載**要求/回應**的 **Excel 2010 或舊版活頁簿**。
@@ -81,7 +81,7 @@ ms.locfileid: "57534254"
 
    **作業名稱**：作業的名稱。 此名稱必須是全域唯一的。
 
-   **資源群組**：使用 IoT 中樞所用的相同資源群組。
+   **资源组**：使用 IoT 中樞所用的相同資源群組。
 
    **位置**：使用與資源群組相同的位置。
 

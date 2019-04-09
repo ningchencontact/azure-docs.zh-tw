@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ca71fdc8074e56adc8595ee905d5b1db3b60cef1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 52226d07595120395909dd5f47d5d896f5cdaa75
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371788"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278984"
 ---
 # <a name="azure-storage-account-overview"></a>Azure 儲存體帳戶概觀
 
-Azure 儲存體帳戶包含您所有的 Azure 儲存體資料物件：Blob、檔案、佇列、資料表和磁碟。 Azure 儲存體帳戶中的資料具有持久性和高可用性、安全、可大規模調整，而且可以透過 HTTP 或 HTTPS 從世界各地存取任。 
+Azure 儲存體帳戶包含您所有的 Azure 儲存體資料物件：Blob、檔案、佇列、資料表和磁碟。 Azure 儲存體帳戶中的資料具有持久性和高可用性、安全、可大規模調整，而且可以透過 HTTP 或 HTTPS 從世界各地存取任。
 
 若要了解如何建立 Azure 儲存體帳戶，請參閱[建立儲存體帳戶](storage-quickstart-create-account.md)。
 
@@ -52,7 +52,7 @@ Azure 儲存體帳戶包含您所有的 Azure 儲存體資料物件：Blob、檔
 - 佇列
 - 資料表
 
-雖然建議在大部分情況下使用一般用途 v2 帳戶，但一般用途 v1 帳戶最適合下列案例： 
+雖然建議在大部分情況下使用一般用途 v2 帳戶，但一般用途 v1 帳戶最適合下列案例：
 
 * 您的應用程式需要 Azure 傳統部署模型。 一般用途 v2 帳戶和 Blob 儲存體帳戶僅支援 Azure Resource Manager 部署模型。
 
@@ -60,9 +60,13 @@ Azure 儲存體帳戶包含您所有的 Azure 儲存體資料物件：Blob、檔
 
 * 您使用早於 2014-02-14 的 [儲存體服務 REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) 版本，或版本低於 4.x 的用戶端程式庫，所以無法升級您的應用程式。
 
-### <a name="block-blob-storage-accounts"></a>區塊 blob 儲存體帳戶
+### <a name="block-blob-storage-accounts"></a>块 Blob 存储帐户
 
-區塊 blob 儲存體帳戶是專門的儲存體帳戶來將非結構化的物件資料儲存為區塊 blob 或附加 blob。 區塊 blob 儲存體帳戶提供多個存取層，來儲存您的使用量模式為基礎的資料。 如需詳細資訊，請參閱[區塊 blob 資料的存取層](#access-tiers-for-block-blob-data)。
+块 Blob 存储帐户是一种专用存储帐户，可以将非结构化对象数据作为块 Blob 或追加 Blob 存储。 块 Blob 存储帐户提供多个访问层，可以根据使用模式来存储数据。 如需詳細資訊，請參閱[區塊 blob 資料的存取層](#access-tiers-for-block-blob-data)。
+
+### <a name="filestorage-preview-storage-accounts"></a>FileStorage （預覽） 的儲存體帳戶
+
+FileStorage 儲存體帳戶是專門的儲存體帳戶，用來儲存及建立進階檔案共用。 FileStorage 儲存體帳戶會提供專用的唯一效能特性，例如 IOPS 負載平衡。 如需有關這些特性的詳細資訊，請參閱 <<c0> [ 檔案共用效能層級](../files/storage-files-planning.md#file-share-performance-tiers)planning guide 》 中的檔案區段。
 
 ## <a name="naming-storage-accounts"></a>儲存體帳戶命名
 
@@ -71,7 +75,7 @@ Azure 儲存體帳戶包含您所有的 Azure 儲存體資料物件：Blob、檔
 - 儲存體帳戶名稱必須介於 3 到 24 個字元的長度，而且只能包含數字和小寫字母。
 - 儲存體帳戶名稱必須在 Azure 中是獨一無二的。 任兩個儲存體帳戶名稱不得相同。
 
-## <a name="performance-tiers"></a>效能層級
+## <a name="general-purpose-performance-tiers"></a>一般用途的效能層級
 
 可以針對下列任一效能層級設定一般用途儲存體帳戶：
 
@@ -84,9 +88,9 @@ Azure 儲存體提供不同的選項，以便根據使用量模式來存取區�
 
 可用的存取層如下：
 
-* **經常性**存取層，最適合用於儲存體帳戶中經常存取的物件。 存取經常性存取層中資料的成本效益最高，而儲存成本稍高。 預設會在經常性存取層中建立新的儲存體帳戶。
-* **非經常性**存取層，最適合用於儲存不常存取且至少儲存 30 天的大量資料。 在非經常性存取層中儲存資料更符合成本效益，但是存取該資料可能比存取經常性存取層中的資料更為昂貴。
-* **封存**層，只適用於個別的區塊 Blob。 封存存取層最適合於可容許擷取延遲數個小時，而且將在封存存取層中至少保留 180 天的資料。 封存存取層是最具成本效益的資料儲存選項，但是存取該資料可能比存取經常性或非經常性存取層中的資料更為昂貴。 
+* **經常性**存取層，最適合用於儲存體帳戶中經常存取的物件。 存取經常性存取層中的資料是最具成本效益，而儲存體成本很高。 預設會在經常性存取層中建立新的儲存體帳戶。
+* **非經常性**存取層，最適合用於儲存不常存取且至少儲存 30 天的大量資料。 將資料儲存在非經常性存取層會更符合成本效益，但是存取該資料可能會比存取經常性存取層中的資料。
+* **封存**層，只適用於個別的區塊 Blob。 封存存取層最適合於可容許擷取延遲數個小時，而且將在封存存取層中至少保留 180 天的資料。 封存存取層是最具成本效益的資料儲存選項，但是存取該資料可能比存取經常性或非經常性存取層中的資料更為昂貴。
 
 如果您的資料使用模式有變動，您可以隨時在這些存取層之間切換。 如需有關存取層的詳細資訊，請參閱[Azure Blob 儲存體︰ 經常性存取、 非經常性存取和封存存取層](../blobs/storage-blob-storage-tiers.md)。
 

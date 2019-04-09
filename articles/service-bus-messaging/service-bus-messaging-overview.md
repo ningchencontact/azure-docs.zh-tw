@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: 8217eddd6f31a30b9113b178d74b59afb94f42af
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dd73fd8105de2a5fd24ffa8ad5db85da5e52228c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57900857"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918836"
 ---
 # <a name="what-is-azure-service-bus"></a>什麼是 Azure 服務匯流排？
 
@@ -39,7 +39,7 @@ Microsoft Azure 服務匯流排是完全受控的企業[整合](https://azure.co
 
 ![佇列](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-佇列中的訊息會進行排序並加上抵達時間戳記。 訊息一經接受就會安全地保存在備援儲存體中。 訊息會採用「提取」 ** 模式來傳遞，此模式會在收到要求時傳遞訊息。
+佇列中的訊息會進行排序並加上抵達時間戳記。 訊息一經接受就會安全地保存在備援儲存體中。 訊息會採用「提取」模式來傳遞，此模式會在收到要求時傳遞訊息。
 
 ## <a name="topics"></a>主題
 
@@ -117,7 +117,7 @@ Microsoft Azure 服務匯流排是完全受控的企業[整合](https://azure.co
 
 - [Event Grid](https://azure.microsoft.com/services/event-grid/) 
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
-- [函式](https://azure.microsoft.com/services/functions/) 
+- [Functions](https://azure.microsoft.com/services/functions/) 
 - [Dynamics 365](https://dynamics.microsoft.com)
 - [串流分析](https://azure.microsoft.com/services/stream-analytics/)
  
@@ -127,5 +127,5 @@ Microsoft Azure 服務匯流排是完全受控的企業[整合](https://azure.co
 
 * [比較 Azure 傳訊服務](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json)
 * 深入了解 Azure 服務匯流排的[標準和進階](https://azure.microsoft.com/pricing/details/service-bus/)層及其定價
-* [Azure 服務匯流排進階層的效能和延遲](https://blogs.msdn.microsoft.com/servicebus/2016/07/18/premium-messaging-how-fast-is-it/)
+* [Azure 服務匯流排進階層的效能和延遲](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722)
 * 在 [.NET](service-bus-dotnet-get-started-with-queues.md)、[Java](service-bus-java-how-to-use-queues.md) 或 [JMS](service-bus-java-how-to-use-jms-api-amqp.md) 中嘗試快速入門

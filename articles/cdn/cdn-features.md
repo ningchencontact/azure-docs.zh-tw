@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 03/25/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 0d0b3b38fe39e32c6a3c7c39de5cbed4f7400d92
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: d78b10edd005a593b4ebe4f34ca2280ccdfdaa04
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58435887"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918904"
 ---
 # <a name="compare-azure-cdn-product-features"></a>比較 Azure CDN 產品功能
 
@@ -54,14 +54,14 @@ Azure 內容傳遞網路 (CDN) 包含四項產品：**來自 Microsoft 的 Azure
 | CDN 端點的 HTTPS 支援 | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [自訂網域 HTTPS](cdn-custom-ssl.md)  | **&#x2713;** | **&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [自訂網域名稱支援](cdn-map-content-to-custom-domain.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [地理位置篩選](cdn-restrict-access-by-country.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| [地區篩選](cdn-restrict-access-by-country.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [權杖驗證](cdn-token-auth.md)  |  |  |  |**&#x2713;**| 
 | [DDOS 保護](https://www.us-cert.gov/ncas/tips/ST04-015)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [使用您自己的憑證](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#ssl-certificates) |**&#x2713;** |  |  |  |
 ||||
 | **分析和報告** | **標準 Microsoft** | **標準 Akamai** | **標準 Verizon** | **進階 Verizon** | 
 | [Azure 診斷記錄](cdn-azure-diagnostic-logs.md)  | **&#x2713;** | **&#x2713;** |**&#x2713;** |**&#x2713;** |
-| [來自 Verizon 的 Core 報告](cdn-analyze-usage-patterns.md)  |  | |**&#x2713;** |**&#x2713;** |
+| [來自 Verizon 的核心報告](cdn-analyze-usage-patterns.md)  |  | |**&#x2713;** |**&#x2713;** |
 | [來自 Verizon 的自訂報告](cdn-verizon-custom-reports.md)  |  | |**&#x2713;** |**&#x2713;** |
 | [進階 HTTP 報告](cdn-advanced-http-reports.md)  |  | | |**&#x2713;** |
 | [即時統計資料](cdn-real-time-stats.md)  |  | | |**&#x2713;** |
@@ -70,7 +70,7 @@ Azure 內容傳遞網路 (CDN) 包含四項產品：**來自 Microsoft 的 Azure
 ||||
 | **容易使用** | **標準 Microsoft** | **標準 Akamai** | **標準 Verizon** | **進階 Verizon** | 
 | 輕鬆地與 Azure 服務 (例如[儲存體](cdn-create-a-storage-account-with-cdn.md)、[Web Apps](cdn-add-to-web-app.md) 和[媒體服務](../media-services/media-services-portal-manage-streaming-endpoints.md)) 整合  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| 透過 [REST API](https://msdn.microsoft.com/library/mt634456.aspx)、[.NET](cdn-app-dev-net.md)、[Node.js](cdn-app-dev-node.md) 或 [PowerShell](cdn-manage-powershell.md) 管理  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
+| 透過 [REST API](/rest/api/cdn/)、[.NET](cdn-app-dev-net.md)、[Node.js](cdn-app-dev-node.md) 或 [PowerShell](cdn-manage-powershell.md) 管理  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [壓縮 MIME 類型](https://docs.microsoft.com/azure/cdn/cdn-improve-performance)  |僅限預設值 |可設定 |可設定  |可設定  |
 | 壓縮編碼  |gzip、brotli |gzip |gzip、deflate、bzip2、brotili  |gzip、deflate、bzip2、brotili  |
 

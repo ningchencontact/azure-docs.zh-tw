@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: e9efe96490ea1c9351d87b5b2477474ef68fbda9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d0ecf6a48735ec2ba1623f97d4760d230a6e6fbf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875232"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266294"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL Database 或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
 > * [第 1 版](v1/data-factory-azure-sql-connector.md)
-> * [目前的版本](connector-azure-sql-database.md)
+> * [目前版本](connector-azure-sql-database.md)
 
 本文說明如何使用 Azure Data Factory 中的「複製活動」，從 Azure SQL Database 來回複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
@@ -93,7 +93,7 @@ ms.locfileid: "57875232"
 }
 ```
 
-**Azure Key Vault 中的密碼：** 
+**Azure Key Vault 中密碼：** 
 
 ```json
 {
@@ -373,7 +373,7 @@ GO
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動接收的 **type** 屬性必須設定為：**SqlSink**。 | 是 |
-| writeBatchSize | 當緩衝區大小達到 **writeBatchSize** 時，將資料插入 SQL 資料表中。<br/> 允許的值為**整數** (資料列數目)。 | 沒有。 預設值為 10000。 |
+| writeBatchSize | 要插入至 SQL 資料表的資料列的數目**每個批次**。<br/> 允許的值為**整數** (資料列數目)。 | 沒有。 預設值為 10000。 |
 | writeBatchTimeout | 在逾時前等待批次插入作業完成的時間。<br/> 允許的值為**時間範圍**。 範例：“00:30:00” (30 分鐘)。 | 否 |
 | preCopyScript | 指定一個 SQL 查詢，供「複製活動」在將資料寫入 Azure SQL Database 之前執行。 每一複製回合只會叫用此查詢一次。 使用此屬性來清除預先載入的資料。 | 否 |
 | sqlWriterStoredProcedureName | 定義如何將來源資料套用到目標資料表的預存程序名稱。 例如，使用您自己的商務邏輯來進行 upsert 或轉換。 <br/><br/>此預存程序將會**依批次叫用**。 針對僅執行一次、且與來源資料無關的作業，請使用 `preCopyScript` 屬性。 範例作業為刪除和截斷。 | 否 |
@@ -535,7 +535,7 @@ create table dbo.TargetTbl
 
 下列範例示範如何使用預存程序，對 Azure SQL Database 中的資料表執行 upsert。 假設輸入資料和接收器 **Marketing** 資料表各有三個資料行：**ProfileID**、**State** 和 **Category**。 根據 **ProfileID** 資料行執行 upsert，然後僅針對特定的類別套用。
 
-#### <a name="output-dataset"></a>輸出資料集
+**輸出資料集：** "tableName"應該是您的預存程序 （請參閱下列預存程序的指令碼） 相同的資料表型別參數名稱。
 
 ```json
 {
@@ -554,7 +554,7 @@ create table dbo.TargetTbl
 }
 ```
 
-在複製活動中定義 **SqlSink** 區段：
+定義**SQL 接收器**一節中複製活動，如下所示。
 
 ```json
 "sink": {

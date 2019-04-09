@@ -6,21 +6,22 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-ms.assetid: na
+ms.assetid: 62d0392f-37d4-436e-9aff-22f4e5b83623
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2018
+ms.date: 03/28/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b51f8d9329bc86320501183d7dba7735fb369fa5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: ca43b62e66e3a736aa52fdd10fe36e635daba245
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092373"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058011"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>教學課程：設定 Samanage 來自動佈建使用者
 
@@ -33,39 +34,34 @@ ms.locfileid: "58092373"
 
 本教學課程中說明的案例假設您已經具有下列項目：
 
-*   Azure AD 租用戶
-*   具有專業套件的 [Samanage 租用戶](https://www.samanage.com/pricing/)
-*   Samanage 中具有管理員權限的使用者帳戶
+* Azure AD 租用戶
+* 具有專業套件的 [Samanage 租用戶](https://www.samanage.com/pricing/)
+* Samanage 中具有管理員權限的使用者帳戶
 
 > [!NOTE]
 > Azure AD 佈建整合需仰賴 [Samanage Rest API](https://www.samanage.com/api/)；此 API 可供 Samanage 開發人員用於具有專業套件的帳戶。
 
 ## <a name="adding-samanage-from-the-gallery"></a>從資源庫新增 Samanage
+
 將 Samanage 設定為可使用 Azure AD 自動佈建使用者之前，您必須從 Azure AD 應用程式庫將 Samanage 新增至您的受控 SaaS 應用程式清單。
 
-**若要從 Azure AD 應用程式庫新增 Samanage，請執行下列步驟：**
+**若要從 Azure AD 應用程式資源庫新增 Samanage，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
-    ![Azure Active Directory 按鈕][1]
+    ![Azure Active Directory 按鈕](common/select-azuread.png)
 
-2. 瀏覽至 [企業應用程式] > [所有應用程式]。
+2. 瀏覽至 [企業應用程式]，然後選取 [所有應用程式] 選項。
 
-    ![企業應用程式區段][2]
+    ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增 Samanage，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![新增應用程式按鈕][3]
+    ![新增應用程式按鈕](common/add-new-app.png)
 
-4. 在搜尋方塊中，輸入 **Samanage**。
+4. 在搜尋方塊中，輸入 **Samanage**，從結果面板中選取 **Samanage**，然後按一下 [新增] 按鈕以新增應用程式。
 
-    ![Samanage 佈建](./media/samanage-provisioning-tutorial/AppSearch.png)
-
-5. 在結果窗格中，選取 [Samanage]，然後按一下 [新增] 按鈕，將 Samanage 新增至您的 SaaS 應用程式清單。
-
-    ![Samanage 佈建](./media/samanage-provisioning-tutorial/AppSearchResults.png)
-
-    ![Samanage 佈建](./media/samanage-provisioning-tutorial/AppCreation.png)
+    ![結果清單中的 Samanage](common/search-new-app.png)
 
 ## <a name="assigning-users-to-samanage"></a>將使用者指派給 Samanage
 
@@ -92,11 +88,13 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 ### <a name="to-configure-automatic-user-provisioning-for-samanage-in-azure-ad"></a>若要在 Azure AD 中為 Samanage 設定自動使用者佈建：
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)，然後瀏覽至 [Azure Active Directory] > [企業應用程式] > [所有應用程式]。
+1. 登入[Azure 入口網站](https://portal.azure.com)，然後選取**企業應用程式**，選取**所有應用程式**，然後選取**Samanage**。
 
-2. 從您的 SaaS 應用程式清單中選取 Samanage。
+    ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-    ![Samanage 佈建](./media/samanage-provisioning-tutorial/AppInstanceSearch.png)
+2. 在應用程式清單中，選取 [Samanage] 。
+
+    ![應用程式清單中的 Samanage 連結](common/all-applications.png)
 
 3. 選取 [佈建] 索引標籤。
 
@@ -163,13 +161,13 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 ## <a name="additional-resources"></a>其他資源
 
-* [管理企業應用程式的使用者帳戶佈建](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [管理企業應用程式的佈建的使用者帳戶](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)
 
 
 ## <a name="next-steps"></a>後續步驟
 
-* [瞭解如何針對佈建活動檢閱記錄和取得報告](../manage-apps/check-status-user-account-provisioning.md)
+* [了解如何檢閱記錄檔，並取得有關佈建活動報告](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/samanage-provisioning-tutorial/tutorial_general_01.png

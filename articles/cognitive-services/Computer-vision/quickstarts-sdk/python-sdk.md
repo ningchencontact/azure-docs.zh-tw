@@ -10,16 +10,16 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: pafarley
-ms.openlocfilehash: 23db6f889e2ca4266b7e3566c18cf9a85d4062a8
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 16844f60f03e2bf488450797f43915462df08064
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517550"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904911"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>適用於 Python 的 Azure 認知服務電腦視覺 SDK
 
-電腦視覺服務可供開發人員存取進階演算法，以處理影像及傳回資訊。 電腦視覺演算法可根據您感興趣的視覺化功能，以不同的方式分析影像的內容。 
+電腦視覺服務可供開發人員存取進階演算法，以處理影像及傳回資訊。 電腦視覺演算法可根據您感興趣的視覺化功能，以不同的方式分析影像的內容。
 
 * [分析影像](#analyze-an-image)
 * [取得主題領域清單](#get-subject-domain-list)
@@ -38,23 +38,23 @@ ms.locfileid: "58517550"
 ## <a name="prerequisites"></a>必要條件
 
 * [Python 3.6+][python]
-* 免費的[電腦視覺金鑰][computervision_resource]和相關聯的區域。 在建立 [ComputerVisionAPI][ref_computervisionclient] 用戶端物件的執行個體時，您將需要這些值。 請使用下列其中一種方法取得這些值。 
+* 免費的[電腦視覺金鑰][computervision_resource]和相關聯的端點。 在建立 [ComputerVisionClient][ref_computervisionclient] 用戶端物件的執行個體時，您將需要這些值。 請使用下列其中一種方法取得這些值。
 
 ### <a name="if-you-dont-have-an-azure-subscription"></a>如果您沒有 Azure 訂用帳戶
 
-請針對電腦視覺服務，建立有效期為 7 天且提供**[試用][computervision_resource]** 體驗的免費金鑰。 建立金鑰時，請複製金鑰和區域名稱。 您在[建立用戶端](#create-client)時將需要這些資訊。
+請針對電腦視覺服務，建立有效期為 7 天且提供**[試用][computervision_resource]** 體驗的免費金鑰。 建立金鑰時，請複製金鑰和端點名稱。 您在[建立用戶端](#create-client)時將需要這些資訊。
 
 建立金鑰後請保存下列項目：
 
-* 金鑰值：一個包含 32 個字元、採用 `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` 格式的字串 
-* 金鑰區域：端點 URL 的子網域 (https://**westcentralus**.api.cognitive.microsoft.com)
+* 金鑰值：32 個字元的字串，格式如下： `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
+* 金鑰端點：基底端點 URL https://westcentralus.api.cognitive.microsoft.com
 
 ### <a name="if-you-have-an-azure-subscription"></a>如果您有 Azure 訂用帳戶
 
-在訂用帳戶中建立資源的最簡單方法是使用下列 [Azure CLI][azure_cli] 命令。 這會建立可用於許多認知服務的認知服務金鑰。 您必須選擇「現有」資源群組名稱 (例如 "my-cogserv-group") 和新的電腦視覺資源名稱 (例如 "my-computer-vision-resource")。 
+在訂用帳戶中建立資源的最簡單方法是使用下列 [Azure CLI][azure_cli] 命令。 這會建立可用於許多認知服務的認知服務金鑰。 您必須選擇「現有」資源群組名稱 (例如 "my-cogserv-group") 和新的電腦視覺資源名稱 (例如 "my-computer-vision-resource")。
 
 ```Bash
-RES_REGION=westeurope 
+RES_REGION=westeurope
 RES_GROUP=<resourcegroup-name>
 ACCT_NAME=<computervision-account-name>
 
@@ -92,31 +92,31 @@ pip install azure-cognitiveservices-vision-computervision
 
 ## <a name="authentication"></a>Authentication
 
-在建立電腦視覺資源後，您需要其**區域**及其中一個**帳戶金鑰**來具現化用戶端物件。
+在建立電腦視覺資源後，您需要其**端點**及其中一個**帳戶金鑰**來具現化用戶端物件。
 
-在建立 [ComputerVisionAPI][ref_computervisionclient] 用戶端物件的執行個體時，請使用這些值。 
+在建立 [ComputerVisionClient][ref_computervisionclient] 用戶端物件的執行個體時，請使用這些值。
 
 例如，使用 Bash 終端機來設定環境變數：
 
 ```Bash
-ACCOUNT_REGION=<resourcegroup-name>
+ACCOUNT_ENDPOINT=<resourcegroup-name>
 ACCT_NAME=<computervision-account-name>
 ```
 
-### <a name="for-azure-subscription-users-get-credentials-for-key-and-region"></a>對於 Azure 訂用帳戶使用者，取得金鑰和區域的認證
+### <a name="for-azure-subscription-users-get-credentials-for-key-and-endpoint"></a>對於 Azure 訂用帳戶使用者，取得金鑰和端點的認證
 
-如果不記得您的區域和金鑰，您可以使用下列方法來找出它們。 如果您需要建立金鑰和區域，可以將此方法用於 [Azure 訂用帳戶持有者](#if-you-have-an-azure-subscription)或[沒有 Azure 訂用帳戶的使用者](#if-you-dont-have-an-azure-subscription)。
+如果不記得您的端點和金鑰，您可以使用下列方法來找出它們。 如果您需要建立金鑰和端點，可以將此方法用於 [Azure 訂用帳戶持有者](#if-you-have-an-azure-subscription)或[沒有 Azure 訂用帳戶的使用者](#if-you-dont-have-an-azure-subscription)。
 
-請使用下面的 [Azure CLI][cloud_shell] 程式碼片段，來為兩個環境變數填入電腦視覺帳戶**區域**及其中一個**金鑰** (您也可以在 [Azure 入口網站][azure_portal]找到這些值)。 此程式碼片段會針對 Bash Shell 加以格式化。
+請使用下面的 [Azure CLI][cloud_shell] 程式碼片段，來為兩個環境變數填入電腦視覺帳戶**端點**及其中一個**金鑰** (您也可以在 [Azure 入口網站][azure_portal]找到這些值)。 此程式碼片段會針對 Bash Shell 加以格式化。
 
 ```Bash
 RES_GROUP=<resourcegroup-name>
 ACCT_NAME=<computervision-account-name>
 
-export ACCOUNT_REGION=$(az cognitiveservices account show \
+export ACCOUNT_ENDPOINT=$(az cognitiveservices account show \
     --resource-group $RES_GROUP \
     --name $ACCT_NAME \
-    --query location \
+    --query endpoint \
     --output tsv)
 
 export ACCOUNT_KEY=$(az cognitiveservices account keys list \
@@ -129,28 +129,28 @@ export ACCOUNT_KEY=$(az cognitiveservices account keys list \
 
 ### <a name="create-client"></a>建立用戶端
 
-取得環境變數中的區域和金鑰，然後建立 [ComputerVisionAPI][ref_computervisionclient] 用戶端物件。  
+取得環境變數中的端點和金鑰，然後建立 [ComputerVisionClient][ref_computervisionclient] 用戶端物件。
 
 ```Python
-from azure.cognitiveservices.vision.computervision import ComputerVisionAPI
+from azure.cognitiveservices.vision.computervision import ComputerVisionClient
 from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
 from msrest.authentication import CognitiveServicesCredentials
 
-# Get region and key from environment variables
+# Get endpoint and key from environment variables
 import os
-region = os.environ['ACCOUNT_REGION']
+endpoint = os.environ['ACCOUNT_ENDPOINT']
 key = os.environ['ACCOUNT_KEY']
 
 # Set credentials
 credentials = CognitiveServicesCredentials(key)
 
 # Create client
-client = ComputerVisionAPI(region, credentials)
+client = ComputerVisionClient(endpoint, credentials)
 ```
 
 ## <a name="examples"></a>範例
 
-您必須要有 [ComputerVisionAPI][ref_computervisionclient] 用戶端物件，才能使用任何下列工作。
+您必須要有 [ComputerVisionClient][ref_computervisionclient] 用戶端物件，才能使用任何下列工作。
 
 ### <a name="analyze-an-image"></a>分析影像
 
@@ -178,7 +178,7 @@ for x in models.models_property:
 
 ### <a name="analyze-an-image-by-domain"></a>依領域分析影像
 
-您可以使用 [`analyze_image_by_domain`][ref_computervisionclient_analyze_image_by_domain] 來依主題領域分析影像。 請取得[所支援主題領域的清單](#get-subject-domain-list)，以便使用正確的領域名稱。  
+您可以使用 [`analyze_image_by_domain`][ref_computervisionclient_analyze_image_by_domain] 來依主題領域分析影像。 請取得[所支援主題領域的清單](#get-subject-domain-list)，以便使用正確的領域名稱。
 
 ```Python
 # type of prediction
@@ -216,7 +216,7 @@ for caption in analysis.captions:
 
 ### <a name="get-text-from-image"></a>從影像中取得文字
 
-您可以從影像中取得任何手寫或列印的文字。 這需要對 SDK 發出兩個呼叫：[`recognize_text`][ref_computervisionclient_recognize_text] 和 [`get_text_operation_result`][ref_computervisionclient_get_text_operation_result]。 對於 recognize_text 的呼叫是非同步的。 在 get_text_operation_result 呼叫的結果中，您必須先確認第一個呼叫是否已完成且有 [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes]，再擷取文字資料。 結果中會包含文字以及文字的週框座標。 
+您可以從影像中取得任何手寫或列印的文字。 這需要對 SDK 發出兩個呼叫：[`recognize_text`][ref_computervisionclient_recognize_text] 和 [`get_text_operation_result`][ref_computervisionclient_get_text_operation_result]。 對於 recognize_text 的呼叫是非同步的。 在 get_text_operation_result 呼叫的結果中，您必須先確認第一個呼叫是否已完成且有 [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes]，再擷取文字資料。 結果中會包含文字以及文字的週框座標。
 
 ```Python
 # import models
@@ -238,13 +238,14 @@ idLocation = len(operationLocation) - numberOfCharsInOperationId
 operationId = operationLocation[idLocation:]
 
 # SDK call
-while result.status in ['NotStarted', 'Running']:
-    time.sleep(1)
+while True:
     result = client.get_text_operation_result(operationId)
+    if result.status not in ['NotStarted', 'Running']:
+        break
+    time.sleep(1)
 
 # Get data
 if result.status == TextOperationStatusCodes.succeeded:
-
     for line in result.recognition_result.lines:
         print(line.text)
         print(line.bounding_box)
@@ -252,13 +253,13 @@ if result.status == TextOperationStatusCodes.succeeded:
 
 ### <a name="generate-thumbnail"></a>產生縮圖
 
-您可以使用 [`generate_thumbnail`][ref_computervisionclient_generate_thumbnail] 來產生影像的縮圖 (JPG)。 縮圖的比例不必和原始影像相同。 
+您可以使用 [`generate_thumbnail`][ref_computervisionclient_generate_thumbnail] 來產生影像的縮圖 (JPG)。 縮圖的比例不必和原始影像相同。
 
 安裝 **Pillow** 以使用此範例：
 
 ```bash
 pip install Pillow
-``` 
+```
 
 安裝 Pillow 之後，請使用下列程式碼範例中的套件來產生縮圖影像。
 
@@ -285,7 +286,7 @@ image.save('thumbnail.jpg')
 
 ### <a name="general"></a>一般
 
-使用 Python SDK 與 [ComputerVisionAPI][ref_computervisionclient] 用戶端物件互動時，系統會用 [`ComputerVisionErrorException`][ref_computervision_computervisionerrorexception] 類別來傳回錯誤。 服務所傳回的錯誤會對應至 REST API 要求所傳回的相同 HTTP 狀態碼。
+使用 Python SDK 與 [ComputerVisionClient][ref_computervisionclient] 用戶端物件互動時，系統會用 [`ComputerVisionErrorException`][ref_computervision_computervisionerrorexception] 類別來傳回錯誤。 服務所傳回的錯誤會對應至 REST API 要求所傳回的相同 HTTP 狀態碼。
 
 例如，如果您嘗試使用無效的金鑰來分析影像，就會傳回 `401` 錯誤。 下列程式碼片段會藉由攔截例外狀況並顯示錯誤的其他相關資訊，來適當地處理[錯誤][ref_httpfailure]。
 
@@ -304,14 +305,14 @@ try:
         print(caption.confidence)
 except HTTPFailure as e:
     if e.status_code == 401:
-        print("Error unauthorized. Make sure your key and region are correct.")
+        print("Error unauthorized. Make sure your key and endpoint are correct.")
     else:
         raise
 ```
 
 ### <a name="handle-transient-errors-with-retries"></a>透過重試來處理暫時性錯誤
 
-在使用 [ComputerVisionAPI][ref_computervisionclient] 用戶端時，您可能會遇到由於服務強制執行[速率限制][computervision_request_units]而造成的暫時性失敗，或遇到其他暫時性問題 (例如，網路中斷)。 如需如何處理這些失敗類型的相關資訊，請參閱《雲端設計模式》指南中的[重試模式][azure_pattern_retry]，以及相關的[斷路器模式][azure_pattern_circuit_breaker]。
+在使用 [ComputerVisionClient][ref_computervisionclient] 用戶端時，您可能會遇到由於服務強制執行[速率限制][computervision_request_units]而造成的暫時性失敗，或遇到其他暫時性問題 (例如，網路中斷)。 如需如何處理這些失敗類型的相關資訊，請參閱《雲端設計模式》指南中的[重試模式][azure_pattern_retry]，以及相關的[斷路器模式][azure_pattern_circuit_breaker]。
 
 ### <a name="more-sample-code"></a>更多的程式碼範例
 

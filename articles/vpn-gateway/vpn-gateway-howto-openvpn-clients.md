@@ -7,16 +7,16 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 1/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: f7288202eb6dd66aee0bb38bb3611e8b319b50f2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d1e57e623e3e95f3d71e895c49c928f00aa0ad46
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010552"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274667"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>設定 Azure VPN 閘道的 OpenVPN 用戶端 (預覽)
 
-這篇文章可協助您設定 OpenVPN 用戶端。
+這篇文章可協助您設定**OpenVPN® 通訊協定**用戶端。
 
 > [!IMPORTANT]
 > 此公開預覽版是在沒有服務等級協定的情況下提供，不得用於生產工作負載。 可能不支援特定功能、可能已經限制功能，或者可能無法在所有 Azure 位置提供使用。 如需詳細資訊，請參閱 [Microsoft Azure 預覽專用的補充使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
@@ -49,7 +49,7 @@ ms.locfileid: "58010552"
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. 在記事本中開啟 profileinfo.txt。 若要取得私密金鑰，請選取介於 "-----BEGIN PRIVATE KEY-----" 和 "-----BEGIN PRIVATE KEY-----" 之間 (包含這兩句) 的文字，並加以複製。
+8. 在記事本中開啟 profileinfo.txt。 若要取得的私用的索引鍵，選取 文字 （包括以及之間）"---BEGIN PRIVATE KEY---"和"---END PRIVATE KEY---"並將它複製。
 9. 返回記事本中的 vpnconfig.ovpn 檔案，並尋找此區段。 貼上私密金鑰來取代 "key" 和 "/key" 之間的所有內容。
 
    ```
@@ -109,7 +109,7 @@ ms.locfileid: "58010552"
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. 在文字編輯器中開啟 profileinfo.txt。 若要取得私密金鑰，請選取介於 "-----BEGIN PRIVATE KEY-----" 和 "-----BEGIN PRIVATE KEY-----" 之間 (包含這兩句) 的文字，並加以複製。
+8. 在文字編輯器中開啟 profileinfo.txt。 若要取得的私用的索引鍵，選取 文字包括之間以及"---BEGIN 私用金鑰---"和"---END PRIVATE KEY---"並將它複製。
 
 9. 在文字編輯器中開啟 vpnconfig.ovpn 檔案，並尋找此區段。 貼上私密金鑰來取代 "key" 和 "/key" 之間的所有內容。
 
@@ -138,4 +138,6 @@ ms.locfileid: "58010552"
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您想要 VPN 用戶端能夠存取另一個 vnet (生產) 中的資源，那麼請按照 [VNet 對 VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) 文章的指示操作，以設定 vnet 對 vnet 連線。 請務必啟用閘道上的 BGP 和連線，否則流量無法流動。
+如果您想要能夠存取另一個 VNet （生產） 中的資源的 VPN 用戶端，然後依照[VNet 對 VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)文章，以設定 vnet 對 vnet 連線。 請務必啟用閘道上的 BGP 和連線，否則流量無法流動。
+
+**「 OpenVPN"是 OpenVPN Inc.的商標。**

@@ -9,22 +9,19 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: 0c6be20bfb2a6f15335564a1aa98dc0ac88e3507
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: c616b2578f7606ce7df19fdbef16bec8a24428d3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905829"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262494"
 ---
 # <a name="monitor-azure-app-service-performance"></a>監視 Azure App Service 效能
 
 啟用您的.NET 和.NET Core 上監視 Azure App Service 上執行的基礎的 web 應用程式現在較以往更為容易。 先前，您需要手動安裝網站延伸模組，而最新的延伸模組/代理程式現在內建應用程式服務映像的預設值。 這篇文章會逐步引導您完成啟用 Application Insights 監視，以及提供將進行大規模的部署程序自動化的初步指引。
 
 > [!NOTE]
-> 手動新增 Application Insights 網站延伸模組，透過**開發工具** > **延伸模組**已被取代。 最新穩定版本的延伸模組現[預先安裝](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions)納入應用程式服務映像。 檔案位於`d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent`和每一個穩定版本時，會自動更新。 如果您遵循架構的代理程式來啟用監視，它會自動移除已被取代的延伸模組供您。
-
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+> 手動新增 Application Insights 網站延伸模組，透過**開發工具** > **延伸模組**已被取代。 這個方法的延伸模組安裝已手動更新每個新的版本而定。 最新穩定版本的延伸模組現[預先安裝](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions)納入應用程式服務映像。 檔案位於`d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent`和每一個穩定版本時，會自動更新。 如果您遵循架構的代理程式來啟用監視，它會自動移除已被取代的延伸模組供您。
 
 ## <a name="enable-application-insights"></a>啟用 Application Insights
 
@@ -285,6 +282,8 @@ App service 的應用程式設定 JSON 的基本結構如下：
 
 若要讓透過 PowerShell 監視的應用程式，需要變更基礎應用程式設定。 以下是範例，可讓應用程式監視 「 AppMonitoredRG"的資源群組中稱為 「 AppMonitoredSite 」 網站，並設定要傳送至 「 012345678-abcd-ef01-2345年-6789abcd 「 檢測金鑰的資料。
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ```powershell
 $app = Get-AzWebApp -ResourceGroupName "AppMonitoredRG" -Name "AppMonitoredSite" -ErrorAction Stop
 $newAppSettings = @{} # case-insensitive hash map
@@ -348,6 +347,7 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 |問題的值|說明|修正
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | 這個值表示，延伸模組偵測到 SDK 的某些方面已經在應用程式，且將會退避法。 它可能是因為參考`System.Diagnostics.DiagnosticSource`， `Microsoft.AspNet.TelemetryCorrelation`，或 `Microsoft.ApplicationInsights`  | 移除的參考。 這些參考的一些預設會新增從特定的 Visual Studio 範本，並較舊版本的 Visual Studio 可能會將參考加入`Microsoft.ApplicationInsights`。
+|`AppAlreadyInstrumented:true` | 如果應用程式的目標.NET Core 2.1 或 2.2，而是指[Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All)中繼套件，然後它會將 Application Insights 中和延伸模組將會退避法。 | .NET Core 2.1,2.2 客戶，則[建議](https://github.com/aspnet/Announcements/issues/287)改為使用 Microsoft.AspNetCore.App 中繼套件。|
 |`AppAlreadyInstrumented:true` | 此值也可能被因上述的 dll 檔，從先前的部署的應用程式資料夾中的目前狀態。 | 清除 [應用程式] 資料夾，以確保這些 dll 會移除。|
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | 這個值表示延伸模組偵測到參考`Microsoft.AspNet.TelemetryCorrelation`中應用程式，並將會退避法。 | 移除參考。
 |`AppContainsDiagnosticSourceAssembly**:true`|這個值表示延伸模組偵測到參考`System.Diagnostics.DiagnosticSource`中應用程式，並將會退避法。| 移除參考。

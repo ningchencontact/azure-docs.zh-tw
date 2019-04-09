@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 5d9e33e5cf4c8a7d5b8085e1e2ff8f4bde3274b7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8e7eee40bed29117d2873393395a852e4b738533
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770896"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793476"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>教學課程：將實際裝置新增至 Azure IoT Central 應用程式
 
@@ -50,13 +50,13 @@ ms.locfileid: "57770896"
 
    ![顯示連線空調的裝置總管頁面](media/tutorial-add-device/explorer.png)
 
-   [裝置總管] 會顯示**連線的空調**裝置範本，以及建置者在建立裝置範本時自動建立的模擬裝置。
+   [裝置總管] 示範 [連線的空調] 裝置範本及模擬裝置。 當您建立模擬裝置時，IoT Central 會自動建立模擬裝置。
 
 2. 若要開始連接實際的連線空調裝置，請選取 **+**，然後選取 [實際]：
 
    ![開始新增，實際的連線空調裝置：](media/tutorial-add-device/newreal.png)
 
-3. 輸入裝置識別碼 (應為小寫)，或使用建議的裝置識別碼。您也可以輸入新裝置的名稱，然後選擇 [建立]。
+3. 輸入裝置識別碼 (應為小寫)，或使用建議的裝置識別碼。 您也可以輸入新裝置的名稱，然後選擇 [建立]。
 
    ![將裝置重新命名](media/tutorial-add-device/rename.png)
 
@@ -68,7 +68,7 @@ ms.locfileid: "57770896"
 
     ![設定顯示同步中](media/tutorial-add-device/settingssyncing.png)
 
-2. 在您新的實際連線空調裝置的 [屬性] 頁面上，服務的位置和上次維修日期都是裝置的可編輯屬性。 在裝置連線到應用程式之前，序號和韌體版本欄位將是空的。 這些值是從裝置傳送的唯讀值，無法編輯。
+2. 在您新的實際裝置的 [屬性] 頁面上，服務的位置和上次服務日期都是可編輯的屬性。 在裝置連線到應用程式之前，序號和韌體版本欄位將是空的。 這些唯讀值是由裝置傳送，無法加以編輯。
 
     ![實際裝置的裝置屬性](media/tutorial-add-device/setproperties1.png)
 
@@ -76,11 +76,11 @@ ms.locfileid: "57770896"
 
 ## <a name="generate-connection-string"></a>產生連接字串
 
-裝置開發人員必須在執行於裝置上的程式碼中內嵌實際裝置的*連接字串*。 連接字串可讓裝置安全地連線至您的 Azure IoT Central 應用程式。 在後續步驟中準備以 Node.js 撰寫的用戶端程式碼時，您可以產生連接字串。 Node.js 應用程式代表實際連線的空調。 
+裝置開發人員必須在執行於裝置上的程式碼中內嵌實際裝置的*連接字串*。 連接字串可讓裝置安全地連線至您的應用程式。 下列步驟說明如何產生連接字串及準備用戶端 Node.js 程式碼。
 
 ## <a name="prepare-the-client-code"></a>準備用戶端程式碼
 
-本文中的範例程式碼是以 [Node.js](https://nodejs.org/) 撰寫的，並顯示剛好足以執行下列作業的程式碼：
+本文中的範例程式碼是以 [Node.js](https://nodejs.org/) 撰寫的，並顯示足以執行下列作業的程式碼：
 
 * 以裝置連線至 Azure IoT Central 應用程式。
 * 以連線的空調裝置傳送溫度遙測資料。
@@ -88,7 +88,7 @@ ms.locfileid: "57770896"
 * 回應使用 [設定溫度] 設定的操作員。
 * 處理來自 Azure IoT Central 應用程式的回應命令。
 
-[後續步驟](#next-steps)一節中參考的「作法」文章將提供更多完整範例，並說明如何使用其他程式設計語言。 如需關於裝置如何連線至 Azure IoT Central 的詳細資訊，請參閱[裝置連線能力](concepts-connectivity.md)一文。
+[後續步驟](#next-steps)一節中所列的文章包含更多完整範例並說明其他程式設計語言。 如需關於裝置如何連線至 Azure IoT Central 的詳細資訊，請參閱[裝置連線能力](concepts-connectivity.md)一文。
 
 下列步驟說明如何準備 [Node.js](https://nodejs.org/) 範例：
 
@@ -163,7 +163,7 @@ ms.locfileid: "57770896"
 
 ## <a name="review-client-code"></a>檢閱用戶端程式碼
 
-在上一節中，您為連線至 Azure IoT Central 應用程式的應用程式建立了基本架構 Node.js 專案。 在本節中，您會新增程式碼，以：
+在上一節中，您為連線至 Azure IoT Central 應用程式的應用程式建立了基本架構 Node.js 專案。 下一個步驟是將程式碼新增至：
 
 * 連線至 Azure IoT Central 應用程式。
 * 將遙測資料傳送至 Azure IoT Central 應用程式。
@@ -300,7 +300,8 @@ ms.locfileid: "57770896"
 
 ## <a name="configure-client-code"></a>設定用戶端程式碼
 
-<!-- Add the connection string to the sample code, build, and run --> 若要設定用戶端程式碼以連線至 Azure IoT Central 應用程式，您必須新增稍早在此教學課程中記下的實際裝置連接字串。
+<!-- Add the connection string to the sample code, build, and run -->
+若要設定用戶端程式碼以連線至 Azure IoT Central 應用程式，您必須為您先前在本教學課程中記下的實際裝置新增連接字串。
 
 1. 在 **ConnectedAirConditioner.js** 檔案中，尋找以下這一行程式碼：
 
@@ -365,10 +366,8 @@ ms.locfileid: "57770896"
 
 身為裝置開發人員，您可以了解如何：
 
-* [準備及連線 DevKit](howto-connect-devkit.md)
-* [準備及連線 Raspberry Pi](howto-connect-raspberry-pi-python.md)
+* [準備及連線 DevKit 裝置 (C)](howto-connect-devkit.md)
+* [準備及連線 Raspberry Pi (Python)](howto-connect-raspberry-pi-python.md)
+* [準備及連線 Raspberry Pi (C#)](howto-connect-raspberry-pi-csharp.md)
+* [準備及連線 Windows 10 IoT 核心裝置 (C#)](howto-connect-windowsiotcore.md)
 * [將一般 Node.js 用戶端連線至 Azure IoT Central 應用程式](howto-connect-nodejs.md)
-* [自訂您的程式碼][lnk-nodejs-device-ref]
-
-
-[lnk-nodejs-device-ref]: /javascript/api/azure-iot-device/?view=azure-iot-typescript-latest

@@ -1,24 +1,25 @@
 ---
-title: 建立自訂 Python 模組的教學課程 - Azure IoT Edge | Microsoft Docs
+title: 建立自訂 Python 模組 - Azure IoT Edge | Microsoft Docs
 description: 本教學課程說明如何使用 Python 程式碼建立 IoT Edge 模組，並將其部署到邊緣裝置。
 services: iot-edge
 author: shizn
 manager: philmea
+ms.reviewer: kgremban
 ms.author: xshi
-ms.date: 01/04/2019
+ms.date: 03/24/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 24ca97c21ac3728880db4c924179be1b78ec2f18
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 0affd965bbfc587933a9cdbf5b96c470a6e4dd6a
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565763"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578283"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>教學課程：開發 Python IoT Edge 模組並部署到您的模擬裝置
 
-您可以使用 Azure IoT Edge 模組來部署程式碼，直接在 IoT Edge 裝置上實作您的商務邏輯。 本教學課程會逐步引導您建立並部署能篩選感應器資料的 IoT Edge 模組。 您將使用您在快速入門中建立的模擬 IoT Edge 裝置。 在本教學課程中，您了解如何：    
+您可以使用 Azure IoT Edge 模組來部署程式碼，直接在 IoT Edge 裝置上實作您的商務邏輯。 本教學課程會逐步引導您建立並部署 IoT Edge 模組，該模組可在您於快速入門中設定的 IoT Edge 裝置上篩選感應器資料。 在本教學課程中，您了解如何：    
 
 > [!div class="checklist"]
 > * 使用 Visual Studio Code 建立 IoT Edge Python 模組。
@@ -36,8 +37,8 @@ ms.locfileid: "55565763"
 
 Azure IoT Edge 裝置：
 
-* 您可以遵循 [Linux](quickstart-linux.md) 快速入門中的步驟，使用開發電腦或虛擬機器作為邊緣裝置。
-* 適用於 IoT Edge 的 Python 模組不支援 Windows 裝置。
+* 您可以遵循 [Linux](quickstart-linux.md) 快速入門中的步驟，使用 Azure 虛擬機器作為 IoT Edge 裝置。
+* 適用於 IoT Edge 的 Python 模組不支援 Windows 容器。
 
 雲端資源：
 
@@ -48,9 +49,10 @@ Azure IoT Edge 裝置：
 * [Visual Studio Code](https://code.visualstudio.com/)。 
 * 適用於 Visual Studio Code 的 [Azure IoT 工具](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)。
 * [適用於 Visual Studio Code 的 Python 擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-python.python)。 
-* [Docker CE](https://docs.docker.com/engine/installation/)。 
 * [Python](https://www.python.org/downloads/)。
 * [Pip](https://pip.pypa.io/en/stable/installing/#installation) 用於安裝 Python 套件 (通常包含在您的 Python 安裝中)。
+* [Docker CE](https://docs.docker.com/install/)。 
+  * 如果您在 Windows 機器上開發，請確定 Docker 已[設定為使用 Linux 容器](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)。 
 
 >[!Note]
 >請確認您的 `bin` 資料夾位於您平台的路徑上。 這通常是 `~/.local/` (在 UNIX 和 macOS 上) 或 `%APPDATA%\Python` (在 Windows 上)。
@@ -91,7 +93,7 @@ Azure IoT Edge 裝置：
 
 1. 在 Visual Studio Code 中，選取 [檢視] > [終端機] 以開啟 VS Code 整合式終端機。
 
-2. 在整合式終端機中，輸入下列命令來安裝 (或更新) **cookiecutter**，以便在 VS Code 中建立 IoT Edge 解決方案範本：
+2. 在終端機中，輸入下列命令來安裝 (或更新) **cookiecutter**，以便建立 IoT Edge 解決方案範本：
 
     ```cmd/sh
     pip install --upgrade --user cookiecutter
@@ -105,7 +107,7 @@ Azure IoT Edge 裝置：
 
 4. 在 [命令選擇區] 中，輸入並執行命令 **Azure:Sign in**，然後遵循指示來登入您的 Azure 帳戶。 如果您已登入，則可以略過此步驟。
 
-5. 在命令選擇區中，輸入並執行命令 **Azure IoT Edge:**[新增 IoT Edge 解決方案]。 依照命令選擇區中的提示建立解決方案。
+5. 在命令選擇區中，輸入並執行命令 **Azure IoT Edge:新增 IoT Edge 解決方案**。 遵循提示並提供下列資訊，以建立解決方案：
 
    | 欄位 | 值 |
    | ----- | ----- |
@@ -129,9 +131,9 @@ VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區�
 
 環境檔案會儲存容器存放庫的認證，並與 IoT Edge 執行階段共用這些認證。 執行階段需要有這些認證才能將私人映像提取到 IoT Edge 裝置。 
 
-1. 在 VS Code 總管中，開啟 .env 檔案。 
+1. 在 VS Code 總管中，開啟 **.env** 檔案。 
 2. 使用從 Azure Container Registry 複製過來的 [使用者名稱] 和 [密碼] 值來更新欄位。 
-3. 儲存這個檔案。 
+3. 儲存 .env 檔案。 
 
 ### <a name="update-the-module-with-custom-code"></a>使用自訂程式碼來更新模組
 
@@ -206,7 +208,7 @@ VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區�
 
 8. 在 VS Code 總管中，於 IoT Edge 解決方案工作區中開啟 **deployment.template.json** 檔案。 此檔案會告訴 IoT Edge 代理程式要部署哪些模組 (在此情況下為 **tempSensor** 和 **PythonModule**)，並告知 IoT Edge 中樞如何在其間路由傳送訊息。 Visual Studio Code 擴充功能會在部署範本中自動填入您需要的大部分資訊，但不會為您的解決方案確認一切正確無誤： 
 
-   1. IoT Edge 的預設平台會設定為 VS Code 狀態列中的 **amd64**，這表示您的 **PythonModule** 會設定為映像的 Linux amd64 版。 將狀態列中的預設平台從 **amd64** 變更為 **arm32v7** 或 **windows-amd64** (如果這是您 IoT Edge 裝置的架構)。 
+   1. IoT Edge 的預設平台會設定為 VS Code 狀態列中的 **amd64**，這表示您的 **PythonModule** 會設定為映像的 Linux amd64 版。 將狀態列中的預設平台從 **amd64** 變更為 **arm32v7** (如果這是您 IoT Edge 裝置的架構)。 
 
       ![更新模組映像平台](./media/tutorial-python-module/image-platform.png)
 
@@ -241,6 +243,9 @@ VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區�
    ```
    使用您在第一節中從 Azure 容器登錄複製而來的使用者名稱、密碼及登入伺服器。 您也可以在 Azure 入口網站中，從登錄的 [存取金鑰] 區段擷取這些資料。
 
+   您也可能看到安全性警告，建議您使用 --password-stdin 參數。 其使用超出本文的範圍時，建議您遵循此最佳做法。 如需詳細資訊，請參閱 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 命令參考。 
+
+
 2. 在 VS Code 總管中，以滑鼠右鍵按一下 deployment.template.json 檔案，然後選取 [建置並推送 IoT Edge 解決方案]。 
 
 當您指示 Visual Studio Code 建置解決方案時，它會先擷取部署範本中的資訊，再於名為 **config** 的新資料夾中，產生 deployment.json 檔案。然後，它會在整合式終端機中執行兩個命令：`docker build` 和 `docker push`。 這兩個命令會建置程式碼、將 Python 程式碼容器化，再將程式碼推送至您在初始化解決方案時所指定的容器登錄。 
@@ -250,7 +255,7 @@ VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區�
 >[!TIP]
 >如果您收到嘗試建置及推送模組時發生的錯誤，請進行下列檢查：
 >* 您已在 Visual Studio Code 中使用容器登錄中的認證登入 Docker？ 這些認證與您用來登入 Azure 入口網站的認證不同。
->* 您的容器存放庫是否正確？ 開啟 [模組] > [cmodule] > [module.json] 並尋找 [存放庫] 欄位。 映像存放庫看起來應類似於：**\<registryname\>.azurecr.io/pythonmodule**。 
+>* 您的容器存放庫是否正確？ 開啟 [模組] > [PythonModule] > [module.json]，然後尋找 [存放庫] 欄位。 映像存放庫看起來應類似於：**\<registryname\>.azurecr.io/pythonmodule**。 
 >* 您正在建置開發電腦正在執行的同類型容器嗎？ Visual Studio Code 會預設為 Linux amd64 容器。 如果開發電腦是 Linux arm32v7 容器，請在 VS Code 視窗底部的藍色狀態列上更新平台，以符合您的容器平台。 Python 模組不支援 Windows 容器。 
 
 ## <a name="deploy-and-run-the-solution"></a>部署並執行解決方案
@@ -267,7 +272,7 @@ VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區�
 
    ![建立單一裝置的部署](./media/tutorial-python-module/create-deployment.png)
 
-5. 選取 **config** 資料夾中的 **deployment.json** 檔案，然後按一下 [選取 Edge 部署資訊清單]。 請勿使用 deployment.template.json 檔案。 
+5. 選取 **config** 資料夾中的 **deployment.amd64** 或 **deployment.arm32v7** 檔案 (取決於您的目標結構)，然後按一下 [選取 Edge 部署資訊清單]。 請勿使用 deployment.template.json 檔案。 
 
 6. 按一下 [重新整理] 按鈕。 您應該會看到新的 **PythonModule** 正在與 **TempSensor** 模組以及 **$edgeAgent** 和 **$edgeHub** 一起執行。 
 
@@ -287,7 +292,7 @@ VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區�
 2. 若要監視特定裝置的 D2C 訊息，請以滑鼠右鍵按一下清單中的裝置，然後選取 [開始監視 D2C 訊息]。
 3. 若要停止監視資料，請在命令選擇區中執行命令 **Azure IoT Hub:Stop monitoring D2C message**。 
 4. 若要檢視或更新模組對應項，請以滑鼠右鍵按一下清單中的模組，然後選取 [編輯模組對應項]。 若要更新模組對應項，請儲存對應項 JSON 檔案，並以滑鼠右鍵按一下編輯器區域，然後選取 [更新模組對應項]。
-5. 若要檢視 Docker 記錄，請安裝適用於 VS Code 的 [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)。 您可以在本機的 Docker 總管中，找到您執行中的模組。 在操作功能表中，選取 [顯示記錄]，以在整合式終端機中進行檢視。 
+5. 若要檢視 Docker 記錄，請安裝[適用於 Visual Studio Code 的 Docker 擴充功能](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)。 您可以在本機的 Docker 總管中，找到您執行中的模組。 在操作功能表中，選取 [顯示記錄]，以在整合式終端機中進行檢視。 
 
 ## <a name="clean-up-resources"></a>清除資源 
 
@@ -297,36 +302,6 @@ VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區�
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-### <a name="delete-local-resources"></a>刪除本機資源
-
-如果您想要從裝置中移除 IoT Edge 執行階段和相關資源，請使用下列命令。 
-
-移除 IoT Edge 執行階段。
-
-   ```bash
-   sudo apt-get remove --purge iotedge
-   ```
-
-IoT Edge 執行階段移除後，它所建立的容器隨即停止，但仍會存在於您的裝置上。 檢視所有容器。
-
-   ```bash
-   sudo docker ps -a
-   ```
-
-刪除已在您的裝置上建立的執行階段容器。
-
-   ```bash
-   docker rm -f edgeHub
-   docker rm -f edgeAgent
-   ```
-
-藉由參照容器名稱，刪除在 `docker ps` 輸出中列出的任何其他容器。 
-
-移除容器執行階段。
-
-   ```bash
-   sudo apt-get remove --purge moby
-   ```
 
 ## <a name="next-steps"></a>後續步驟
 

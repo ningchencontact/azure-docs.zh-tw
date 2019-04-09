@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 6b6d0d1a7e14035f7a1b7998ec4b3e68761539f5
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 5d1c3e4bb1c4b3545c8f051432016348112f16b0
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158103"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903641"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>使用 Azure 入口網站來管理資料箱磁碟
 
@@ -25,7 +25,7 @@ ms.locfileid: "54158103"
 
 在下過訂單之後，您可能基於各種原因需要取消訂單。 您只能在磁碟準備開始之前取消訂單。 一旦磁碟準備好且訂單處理後，就不能夠取消訂單。 
 
-執行下列步驟來取消訂單。
+執行下列步驟以取消訂單。
 
 1.  移至 [概觀 > 取消]。 
 
@@ -55,7 +55,7 @@ ms.locfileid: "54158103"
 
 會在幾分鐘內建立複製，且入口網站更新會顯示新的訂單。
 
-[![複製訂單 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
+[![Clone order 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
 
 ## <a name="delete-order"></a>刪除訂單
 

@@ -1,39 +1,39 @@
 ---
-title: 設定適用於 IoT 的 ASC 解決方案 (預覽) | Microsoft Docs
-description: 了解如何使用適用於 IoT 的 ASC 設定端對端 IoT 解決方案。
-services: ascforiot
+title: 設定適用於 IoT 的 Azure 資訊安全中心解決方案 (預覽) | Microsoft Docs
+description: 了解如何使用適用於 IoT 的 Azure 資訊安全中心來設定端對端 IoT 解決方案。
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: ae2207e8-ac5b-4793-8efc-0517f4661222
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 3ba8b1a099dc204730813754fdfc4b0b8ce45303
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 64a04861b14e48eaa14a369546dd9d54bf59f019
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541707"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861916"
 ---
 # <a name="quickstart-configure-your-iot-solution"></a>快速入門：設定 IoT 解決方案
 
 > [!IMPORTANT]
-> 適用於 IoT 的 ASC 目前為公開預覽狀態。
+> 適用於 IoT 的 Azure 資訊安全中心目前為公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 本文說明如何使用適用於 IoT 的 ASC 來執行 IoT 安全性解決方案的初始設定。 
 
-## <a name="asc-for-iot"></a>適用於 IoT 的 ASC
+## <a name="azure-security-center-asc-for-iot"></a>適用於 IoT 的 Azure 資訊安全中心 (ASC)
 
 適用於 IoT 的 ASC 可為 Azure 型 IoT 解決方案提供完整的端對端安全性。
 
-使用適用於 IoT 的 ASC， 您便可以在一個儀表板內監視整個 IoT 解決方案，裡面會顯示您在 Azure 中的所有 IoT 裝置、IoT 平台和後端資源。
+使用適用於 IoT 的 ASC 時，您便可以在一個儀表板內監視整個 IoT 解決方案，裡面會顯示您在 Azure 中的所有 IoT 裝置、IoT 平台和後端資源。
 
 在 IoT 中樞上啟用後，適用於 IoT 的 ASC 就會自動識別其他同樣連線至 IoT 中樞，並與 IoT 解決方案相關的 Azure 服務。
 
@@ -50,7 +50,7 @@ ms.locfileid: "58541707"
 2. 從左側功能表中選取並開啟 [安全性] 下方的 [資源]。 
 3. 選取 [新增資源]。
 4. 選擇屬於您 IoT 解決方案的資源。
-4. 按一下 [新增] 。 
+5. 按一下 [新增] 。 
 
 恭喜！ 您已將新的資源新增至 IoT 解決方案。
 

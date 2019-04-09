@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 814ae0e79ac24d5b645c4bf107287ab1b8326ff4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2255004ae8cd92473b5fe71b44cccb79021a8bf7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121616"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267135"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>設定 Azure 雲端服務的自訂網域名稱
 當您建立雲端服務時，Azure 會將它指派給 **cloudapp.net**的子網域。 例如，如果您的雲端服務的名稱為 "contoso"，您的使用者可以透過 URL (如 http://contoso.cloudapp.net) 存取應用程式。 Azure 也會指派虛擬 IP 位址。
@@ -64,11 +64,11 @@ CNAME 記錄對應*特定*網域，例如**contoso.com**或是**www\.contoso.com
 
 1. 使用其中一種方法來尋找指派給雲端服務的 **.cloudapp.net** 網域名稱。
 
-   * 登入 [Azure 入口網站]，選取您的雲端服務，查看 [基本功能] 區段，然後尋找 [網站 URL] 項目。
+   * 登入[Azure 入口網站]，選取您的雲端服務，查看**概觀**區段，然後尋找**站台 URL**項目。
 
        ![快速瀏覽區段，其中顯示網站 URL][csurl]
 
-       **或者**
+       **或**
    * 安裝並設定 [Azure Powershell](/powershell/azure/overview)，然後使用下列命令：
 
        ```powershell
@@ -97,9 +97,9 @@ CNAME 記錄對應*特定*網域，例如**contoso.com**或是**www\.contoso.com
 
 1. 使用下列其中一種方法取得雲端服務的 IP 位址。
 
-   * 登入 [Azure 入口網站]，選取您的雲端服務，查看 [基本功能] 區段，然後尋找 [公用 IP 位址] 項目。
+   * 登入[Azure 入口網站]，選取您的雲端服務，查看**概觀**區段，然後尋找**公用 IP 位址**項目。
 
-       ![显示 VIP 的速览部分][vip]
+       ![快速瀏覽區段，其中顯示 VIP][vip]
 
        **或**
    * 安裝並設定 [Azure Powershell](/powershell/azure/overview)，然後使用下列命令：
@@ -130,11 +130,11 @@ CNAME 記錄對應*特定*網域，例如**contoso.com**或是**www\.contoso.com
 > 
 
 ## <a name="next-steps"></a>後續步驟
-* [如何管理云服务](cloud-services-how-to-manage-portal.md)
+* [如何管理雲端服務](cloud-services-how-to-manage-portal.md)
 * [如何將 CDN 內容對應至自訂網域](../cdn/cdn-map-content-to-custom-domain.md)
 * [雲端服務的一般設定](cloud-services-how-to-configure-portal.md)。
 * 了解如何 [部署雲端服務](cloud-services-how-to-create-deploy-portal.md)。
-* 配置 [SSL 证书](cloud-services-configure-ssl-certificate-portal.md)。
+* 設定 [SSL 憑證](cloud-services-configure-ssl-certificate-portal.md)。
 
 [Expose Your Application on a Custom Domain]: #access-app
 [Add a CNAME Record for Your Custom Domain]: #add-cname

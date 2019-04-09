@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: af14b242ae7578e1f9797895bd18c37231959ac9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 99c9caa167b1615705adc29193bc395b0c9e2a66
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342706"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803981"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources"></a>建立原則指派以識別不相容資源
 
@@ -31,15 +31,15 @@ ms.locfileid: "56342706"
 
 1. 藉由按一下 [所有服務] 然後搜尋並選取 [原則]，在 Azure 入口網站中啟動 Azure 原則服務。
 
-   ![搜尋原則](./media/assign-policy-portal/search-policy.png)
+   ![搜尋所有服務中的原則](./media/assign-policy-portal/search-policy.png)
 
 1. 選取 Azure 原則分頁左側的 [指派]。 指派是已指派在特定範圍內發生的原則。
 
-   ![選取指派](./media/assign-policy-portal/select-assignments.png)
+   ![從 [原則概觀] 頁面選取 [指派] 頁面](./media/assign-policy-portal/select-assignments.png)
 
 1. 從 [原則 - 指派] 分頁頂端選取 [指派原則]。
 
-   ![指派原則定義](./media/assign-policy-portal/select-assign-policy.png)
+   ![從 [指派] 頁面指派原則定義](./media/assign-policy-portal/select-assign-policy.png)
 
 1. 在 [指派原則] 頁面上，按一下省略符號並選取管理群組或訂用帳戶來選取 [範圍]。 選擇性地選取資源群組。 範圍會決定在哪些資源或資源群組上強制執行原則指派。  然後，按一下位於 [範圍] 分頁底部的 [選取]。
 
@@ -71,7 +71,7 @@ ms.locfileid: "56342706"
 
 選取頁面左側的 [合規性]。 接著，找出您所建立的 [稽核未使用受控磁碟的虛擬機器] 原則指派。
 
-![原則相容性](./media/assign-policy-portal/policy-compliance.png)
+![[原則合規性] 頁面上的合規性詳細資料](./media/assign-policy-portal/policy-compliance.png)
 
 如果有任何現有資源不符合這個新指派的規範，它們會顯示在 [不符合規範的資源] 下。
 
@@ -94,7 +94,7 @@ ms.locfileid: "56342706"
 
 1. 以滑鼠右鍵按一下 [稽核不是使用受控磁碟的 VM] 原則指派，並選取 [刪除指派]
 
-   ![刪除指派](./media/assign-policy-portal/delete-assignment.png)
+   ![從 [合規性] 頁面刪除指派](./media/assign-policy-portal/delete-assignment.png)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -12,12 +12,12 @@ ms.author: srinia
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: aa4fff24620ffd74393d549f1888bdf0e1cb0224
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 62efee57f3663f1dad0446da659de16d2800bf75
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773574"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264415"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>建立、設定及管理彈性作業
 
@@ -76,6 +76,8 @@ ms.locfileid: "57773574"
 
 若要確保在對 SQL 彈性集區中的資料庫執行作業時，資源不會負擔過重，則可以設定作業來限制作業可以同時執行的資料庫數目。
 
+設定並行作業的設定執行的資料庫數目`sp_add_jobstep`預存程序的`@max_parallelism`在 T-SQL 中的參數或`Add-AzSqlElasticJobStep -MaxParallelism`在 PowerShell 中。
+
 ## <a name="best-practices-for-creating-jobs"></a>建立作業的最佳做法
 
 ### <a name="idempotent-scripts"></a>等冪指令碼
@@ -96,5 +98,5 @@ IF NOT EXIST (some_object)
 
 ## <a name="next-steps"></a>後續步驟
 
-- [使用 PowerShell 建立及管理彈性作業](elastic-jobs-powershell.md)
-- [使用 Transact-SQL (T-SQL) 來建立及管理彈性作業](elastic-jobs-tsql.md)
+- [建立及管理彈性作業，使用 PowerShell](elastic-jobs-powershell.md)
+- [建立及管理彈性作業使用 TRANSACT-SQL (T-SQL)](elastic-jobs-tsql.md)

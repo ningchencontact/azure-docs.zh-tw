@@ -13,19 +13,19 @@ ms.topic: reference
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f09fded38e384126a8dfdbe567ce4a3ebd5b1af4
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 459758142c94ddfd244df1427dd5632186efc0de
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893583"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266917"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的規模調整和主控
 
 在兩個不同的計劃中，執行 azure Functions:取用方案和進階方案 （公開預覽狀態）。 執行您的程式碼時，取用方案會自動新增的計算能力。 您的應用程式是相應放大，以處理負載，需要時，且程式碼停止執行時相應減少。 您不必支付閒置虛擬機器的費用，或預先保留容量。  「 進階 」 方案會也會自動縮放及執行您的程式碼時新增額外的計算能力。  Premium 方案隨附其他功能，例如進階計算執行個體，可將無限期保留執行個體暖和 VNet 連線能力。  如果您有現有的 App Service 方案，您也可以執行您的函式應用程式中。
 
 > [!NOTE]  
-> 兩者[進階方案](https://azure.microsoft.com/blog/uncompromised-serverless-scale-for-enterprise-workloads-with-the-azure-functions-premium-plan/preview/)並[適用於 Linux 的耗用量計劃](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/)目前處於預覽狀態。
+> 兩者[進階方案](https://aka.ms/functions-premiumplan)並[適用於 Linux 的耗用量計劃](https://azure.microsoft.com/updates/azure-functions-consumption-plan-for-linux-preview/)目前處於預覽狀態。
 
 如果您還不熟悉 Azure Functions，請參閱 [Azure Functions 概觀](functions-overview.md)。
 

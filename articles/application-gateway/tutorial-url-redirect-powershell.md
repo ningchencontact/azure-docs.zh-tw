@@ -3,19 +3,15 @@ title: 建立包含 URL 路徑型重新導向的應用程式閘道 - Azure Power
 description: 瞭解如何使用 Azure PowerShell，以建立包含 URL 路徑型重新導向流量功能的應用程式閘道。
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 11/13/2018
+ms.date: 4/3/2019
 ms.author: victorh
-ms.custom: mvc
-ms.openlocfilehash: 91cc28ec3df6a1d9ef4fc773687a0ec2870b623d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: febe02ac7fe4dfcb4140a8e5796c4c9fa86f6de3
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001374"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918377"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>使用 Azure PowerShell 以建立包含 URL 路徑型重新導向的應用程式閘道
 
@@ -41,7 +37,7 @@ ms.locfileid: "58001374"
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-如果您選擇在本機安裝和使用 PowerShell，本教學課程會要求使用 Azure PowerShell 模組 1.0.0 版或更新版本。 若要尋找版本，請執行 ` Get-Module -ListAvailable Az`。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。
+如果您選擇在本機安裝和使用 PowerShell，本教學課程會要求使用 Azure PowerShell 模組 1.0.0 版或更新版本。 若要尋找版本，請執行 `Get-Module -ListAvailable Az`。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 
@@ -132,7 +128,7 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-default-listener-and-rule"></a>建立預設接聽程式和規則
 
-需要有接聽程式，才能讓應用程式閘道將流量適當地路由到後端集區。 在本教學課程中，您將建立多個接聽程式。 第一個基本接聽程式會預期根 URL 的流量。 其他接聽程式則會預期特定 URL 的流量，例如 `http://52.168.55.24:8080/images/` 或 `http://52.168.55.24:8081/video/`。
+需要有接聽程式，才能讓應用程式閘道將流量適當地路由到後端集區。 在本教學課程中，您將建立多個接聽程式。 第一個基本的接聽程式會預期位於根 URL 的流量。 其他接聽程式則會預期特定 URL 的流量，例如 `http://52.168.55.24:8080/images/` 或 `http://52.168.55.24:8081/video/`。
 
 使用 [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) 搭配您先前建立的前端設定和前端連接埠，來建立名為 *defaultListener* 的接聽程式。 接聽程式需要規則以便知道要針對連入流量使用哪個後端集區。 使用 [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule) 來建立名為 *rule1* 的基本規則。
 
@@ -502,7 +498,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![在應用程式閘道中測試基底 URL](./media/tutorial-url-redirect-powershell/application-gateway-iistest.png)
 
-將 URL 變更為 http://&lt;ip-address&gt;:8080/video/test.htm、使用您的 IP 位址取代 &lt;ip-address&gt;，就應該會看到類似下列的範例：
+將 URL 變更為 http://&lt;ip-address&gt;:8080/images/test.html，使用您的 IP 位址取代 &lt;ip-address&gt;，然後您就應該會看到類似下列的範例：
 
 ![在應用程式閘道中測試影像 URL](./media/tutorial-url-redirect-powershell/application-gateway-iistest-images.png)
 

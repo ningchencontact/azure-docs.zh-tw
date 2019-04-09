@@ -1,32 +1,32 @@
 ---
-title: 備份 Azure Vm 的復原服務保存庫中使用 Azure 備份
-description: 描述如何備份 Azure Vm 的復原服務保存庫中使用 Azure 備份
-services: backup
+title: 使用 Azure 備份復原服務保存庫中備份 Azure Vm
+description: 描述如何使用 Azure 備份復原服務保存庫中備份 Azure Vm
+service: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/03/2019
 ms.author: raynew
-ms.openlocfilehash: 3342b15511305ab337d9b5032080e205e36150d3
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 142ffdadf4adb1ee07f3592624cbdddfb310b580
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59049808"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264551"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>備份復原服務保存庫中的 Azure VM
 
-本文說明如何備份 Azure Vm 的復原服務保存庫中使用[Azure 備份](backup-overview.md)服務。 
+本文說明如何備份 Azure Vm 中的復原服務保存庫中，使用[Azure 備份](backup-overview.md)服務。 
 
 在本文中，您將了解：
 
 > [!div class="checklist"]
-> * 請確認支援和備份的必要條件。
-> * 準備 Azure VM。 視需要安裝 Azure VM 代理程式，並確認 VM 的輸出存取。
+> * 準備 Azure VM。
 > * 建立保存庫。
 > * 探索 Vm，並設定備份原則。
 > * 啟用 Azure Vm 的備份。
+> * 執行初始備份。
 
 
 > [!NOTE]
@@ -37,14 +37,128 @@ ms.locfileid: "59049808"
 
 - [檢閱](backup-architecture.md#architecture-direct-backup-of-azure-vms)Azure VM 備份架構。
 - [深入了解](backup-azure-vms-introduction.md) Azure VM 備份和備份擴充功能。
-- [檢閱](backup-support-matrix-iaas.md) Azure VM 備份的支援矩陣。
+- [請檢閱支援對照表](backup-support-matrix-iaas.md)設定備份之前。
+
+此外，有一些您可能需要在某些情況下執行的事項：
+
+- **在 VM 上安裝 VM 代理程式**:為機器上執行的 Azure VM 代理程式安裝擴充功能，以 Azure 備份來備份 Azure VM。 如果您的 VM 建立自 Azure marketplace 映像，代理程式已安裝並執行。 如果您建立自訂的 VM，或在內部部署機器移轉，您可能需要[手動安裝代理程式](#install-the-vm-agent)。
+- **明確允許輸出存取**:一般而言，您不需要明確允許輸出網路存取的 Azure VM，才能讓它與 Azure 備份通訊。 不過，某些 Vm 可能會遇到連線問題，顯示**ExtensionSnapshotFailedNoNetwork**嘗試連線時發生錯誤。 如果發生這種情況，您應該[明確允許輸出存取](#explicitly-allow-outbound-access)，所以 Azure 備份擴充功能可以與 Azure 的備份流量的公用 IP 位址通訊。
 
 
-## <a name="prepare-azure-vms"></a>準備 Azure VM
+## <a name="create-a-vault"></a>建立保存庫
 
-在某些情況下，您可能需要設定 Azure Vm 上的 Azure VM 代理程式，或明確允許在 VM 上的 輸出存取。
+ 保存庫會儲存在一段時間內建立的備份和復原點，並儲存與備份的機器相關聯的備份原則。 請依照下列方式建立保存庫：    
 
-### <a name="install-the-vm-agent"></a>安裝 VM 代理程式 
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。    
+2. 在搜尋中，輸入**復原服務**。 底下**Services**，按一下**復原服務保存庫**。   
+
+     ![搜尋復原服務保存庫](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/> 
+
+3. 在 **復原服務保存庫**功能表上，按一下 **+ 新增**。    
+
+     ![建立復原服務保存庫的步驟 2](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)   
+
+4. 在 **復原服務保存庫**，來識別保存庫中的易記名稱的型別。   
+    - 必須是 Azure 訂用帳戶中唯一的名稱。   
+    - 它可以包含 2 到 50 個字元。    
+    - 該名稱必須以字母開頭，而且只可以包含字母、數字和連字號。   
+5. 選取 Azure 訂用帳戶、 資源群組，以及應該在其中建立保存庫的地理區域。 接著，按一下 [建立]。    
+    - 建立保存庫可能需要一些時間。  
+    - 請監視入口網站右上方區域中的狀態通知。   
+
+
+ 在建立保存庫之後，它會顯示復原服務保存庫清單中。 如果您沒有看到保存庫，請選取 [重新整理]。
+ 
+![備份保存庫的清單](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)    
+
+### <a name="modify-storage-replication"></a>修改儲存體複寫
+
+根據預設，保存庫使用[異地備援儲存體 (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs)。
+
+- 如果保存庫是您主要的備份機制，我們建議使用 GRS。
+- 您可以使用[本地備援儲存體 (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)成本較低的選項。
+
+修改儲存體複寫類型如下所示：
+
+1. 在新的保存庫中，按一下**屬性**中**設定**一節。
+2. 在 **屬性**下方**備份設定**，按一下**更新**。
+3. 選取儲存體複寫類型，然後按一下**儲存**。
+
+      ![為新保存庫設定儲存體組態](./media/backup-try-azure-backup-in-10-mins/full-blade.png)
+> [!NOTE]
+   > 設定保存庫，並包含備份的項目之後，您無法修改儲存體複寫類型。 如果您想要執行這項操作必須重新建立保存庫。 
+
+## <a name="apply-a-backup-policy"></a>套用備份原則
+
+設定保存庫的備份原則。
+
+1. 在 保存庫中，按一下 **+ 備份**中**概觀**一節。
+
+   ![備份按鈕](./media/backup-azure-arm-vms-prepare/backup-button.png)
+
+
+2. 在 **備份目標** > **地方執行您的工作負載？** 選取**Azure**。 在 **怎麼想要備份？** 選取**虛擬機器** >  **確定**。 這會在保存庫中註冊 VM 擴充功能。
+
+   ![備份和備份目標窗格](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
+
+3. 在 [備份原則] 中，選取要與保存庫產生關聯的原則。 
+    - 預設的原則一天一次備份 VM。 每日備份會保留 30 天。 立即復原快照集會保留兩天。
+    - 如果您不想要使用的預設原則，請選取**新建**，並在下一個程序中所述，建立自訂的原則。
+
+      ![預設備份原則](./media/backup-azure-arm-vms-prepare/default-policy.png)
+
+4. 在 **選取虛擬機器**，選取您想要使用的原則備份的 Vm。 然後按一下 [確定] 。
+
+   - 選取的 Vm 進行驗證。
+   - 您只能選取與保存庫位於相同區域中的 VM。
+   - VM 只能在單一保存庫中備份。
+
+     ![[選取虛擬機器] 窗格](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
+
+5. 在 **備份**，按一下**啟用備份**。 這會將原則部署到保存庫和 VM，並在執行於 Azure VM 的 VM 代理程式上安裝備份擴充功能。
+     
+     ![[啟用備份] 按鈕](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
+
+啟用備份後：
+
+- 無論 VM 是否在執行，備份服務都會安裝備份擴充功能。
+- 根據您的備份排程，將會執行初始備份。
+- 當備份執行時，請注意:
+    - 正在執行的 VM 有擷取的應用程式一致復原點的絕佳機會。
+    - 不過，即使 VM 已關閉它會備份。 這類 VM 稱為離線 VM。 在此情況下，您將會損毀一致復原點。
+    
+
+### <a name="create-a-custom-policy"></a>建立自訂原則
+
+如果您選取要建立新的備份原則，填入 [原則] 設定。
+
+1. 在 **原則名稱**，指定有意義的名稱。
+2. 在 **備份排程**指定時應採取的備份。 您可以採取每日或每週備份 Azure vm。
+2. 在 **立即還原**，指定您想要保留在本機的 「 立即還原的快照集的時間長度。
+    - 當您還原時，備份 vm 磁碟複製從儲存體，透過網路與復原儲存體位置。 使用 「 立即還原，您可以利用儲存在本機的建立期間備份作業，而不需等待要傳輸到保存庫的備份資料的快照集。
+    - 您可以保留的一到五天之間的立即還原的快照集。 兩天是預設設定。
+3. 在 **保留範圍**，指定您想要保留每日或每週備份點的時間長度。
+4. 在 **每月備份點保留期**，指定您是否要保留每月每日或每週備份的備份。 
+5. 按一下 [ **確定** ] 儲存原則。
+
+    ![新的備份原則](./media/backup-azure-arm-vms-prepare/new-policy.png)
+
+> [!NOTE]
+   > Azure 備份在進行 Azure VM 備份時不支援依據日光節約變更而自動調整時鐘。 發生時間變更時，修改以手動方式視需要的備份原則。
+
+## <a name="trigger-the-initial-backup"></a>觸發初始備份
+
+初始備份會依照排程進行，但您可以執行它立即，如下所示：
+
+1. 在保存庫功能表中，按一下 [備份項目]。
+2. 在 [備份項目] 中，按一下 [Azure 虛擬機器]。
+3. 在 **備份項目**清單中，按一下省略符號 （...）。
+4. 按一下 [立即備份]。
+5. 在 **立即備份**，使用日曆控制項選取的復原點保留的最後一天。 然後按一下 [確定] 。
+6. 監視入口網站通知。 您可以在保存庫儀表板中監視作業進度 > [備份作業] > [進行中]。 根據您的 VM 大小，建立初始備份可能需要花一點時間。
+
+## <a name="optional-steps-install-agentallow-outbound"></a>（安裝代理程式/允許輸出） 的選擇性步驟
+### <a name="install-the-vm-agent"></a>安裝 VM 代理程式
 
 為機器上執行的 Azure VM 代理程式安裝擴充功能，以 Azure 備份來備份 Azure VM。 如果您的 VM 建立自 Azure Marketplace 映像，代理程式已安裝並執行。 如果您建立自訂的 VM，或在內部部署機器移轉，您可能需要以手動方式，在資料表中摘要說明安裝代理程式。
 
@@ -53,24 +167,23 @@ ms.locfileid: "59049808"
 ** Windows** | 1.[下載並安裝](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)代理程式 MSI 檔案。<br/><br/> 2.以機器的系統管理員權限安裝。<br/><br/> 3.驗證安裝。 在  *C:\WindowsAzure\Packages*的 VM 上，以滑鼠右鍵按一下**WaAppAgent.exe** > **屬性**。 在 **詳細資料**索引標籤上，**產品版本**應為 2.6.1198.718 或更高版本。<br/><br/> 如果您正在更新代理程式，請確定會執行任何備份作業，並[重新安裝代理程式](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。
 ** Linux** | 從您的散發套件存放庫使用 RPM 或 DEB 封裝安裝。 這是安裝和升級 Azure Linux 代理程式的慣用的方法。 所有[認可的散發套件提供者](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)都會將 Azure Linux 代理程式套件整合於本身的映像和儲存機制中。 代理程式可從 [GitHub](https://github.com/Azure/WALinuxAgent) 取得，但不建議從該處安裝。<br/><br/> 如果您正在更新代理程式，請確定任何備份作業正在執行，以及更新二進位檔案。
 
-
-### <a name="establish-network-connectivity"></a>建立網路連線
+### <a name="explicitly-allow-outbound-access"></a>明確允許輸出存取
 
 在 VM 上執行的備份擴充功能需要 Azure 公用 IP 位址的輸出存取。
 
-一般而言，您不需要明確地允許 Azure VM 的輸出網路存取，讓它能夠與 Azure 備份通訊。
-如果您的 Vm 無法連線，而且如果您看到錯誤**ExtensionSnapshotFailedNoNetwork**，您應該明確地允許存取。 備份擴充功能接著可與 Azure 的備份流量的公用 IP 位址通訊。
+- 通常您不需要明確允許輸出網路存取的 Azure VM，才能讓它與 Azure 備份通訊。
+- 如果您遇到困難與 Vm 連線，或如果您看到錯誤**ExtensionSnapshotFailedNoNetwork**時嘗試連線，您應該明確地允許存取讓備份擴充功能可以與 Azure 公用 IP 進行通訊備份流量的的位址。 下表摘要說明存取方法。
 
-
-#### <a name="explicitly-allow-outbound-access"></a>明確允許輸出存取
-
-如果 VM 無法連線到備份服務中，明確允許輸出存取，使用其中一個資料表中摘要說明的方法。
 
 **選項** | ** 動作** | **詳細資料** 
 --- | --- | --- 
-**設定 NSG 規則** | 允許 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。 | 而不是允許和管理每個位址範圍，您可以新增網路安全性群組 (NSG) 規則，可允許使用 Azure 備份服務的存取權[服務標籤](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure)。 [深入了解](../virtual-network/security-overview.md#service-tags)。<br/><br/> 有不需要額外費用。<br/><br/> 規則很容易就能使用服務標籤。
-**部署 proxy** | 部署 HTTP Proxy 伺服器來路由傳送流量。 | 這個方法會提供整個 Azure 中，並不只是儲存體的存取。<br/><br/> 可精確控制儲存體 URL。<br/><br/> 沒有適用於 Vm 的單一點的網際網路存取。<br/><br/> 沒有 proxy 的額外成本。
-**設定 Azure 防火牆** | 使用 Azure 備份服務的 FQDN 標記的 VM 上，允許流量通過 Azure 防火牆。 |  這個方法很簡單，您可以在虛擬網路子網路中設定的 Azure 防火牆時使用。<br/><br/> 您無法建立您自己的 FQDN 標籤，或修改在標記中的 Fqdn。<br/><br/> 如果您使用 Azure 受控磁碟，您可能需要在防火牆上開啟其他連接埠 (連接埠 8443)。
+**設定 NSG 規則** | 允許 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。<br/><br/> 而不是允許和管理每個位址範圍，您可以新增規則，以允許存取 Azure 備份服務會使用[服務標籤](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure)。 | [深入了解](../virtual-network/security-overview.md#service-tags)服務標記。<br/><br/> 服務標記簡化存取管理，並不會產生額外費用。
+**部署 proxy** | 部署 HTTP Proxy 伺服器來路由傳送流量。 | 提供整個 Azure 的存取權，而不只是儲存體的存取權。<br/><br/> 可精確控制儲存體 URL。<br/><br/> VM 具有單一網際網路存取點。<br/><br/> Proxy 需要額外成本。
+**設定 Azure 防火牆** | 使用 Azure 備份服務的 FQDN 標記，允許流量通過 VM 上的 Azure 防火牆 | 容易使用，如果您在 VNet 子網路中設定的 Azure 防火牆。<br/><br/> 您無法建立您自己的 FQDN 標籤，或修改在標記中的 Fqdn。<br/><br/> 如果您的 Azure Vm 具有受控磁碟，您可能需要開啟其他防火牆上連接埠 (8443)。
+
+#### <a name="establish-network-connectivity"></a>建立網路連線
+
+建立具有 NSG 的連線 proxy，或透過防火牆
 
 ##### <a name="set-up-an-nsg-rule-to-allow-outbound-access-to-azure"></a>設定 NSG 規則以允許對 Azure 的輸出存取
 
@@ -156,82 +269,12 @@ Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
 Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
 ```
 
-### <a name="allow-firewall-access-by-using-an-fqdn-tag"></a>允許使用 FQDN 標記防火牆存取
+##### <a name="allow-firewall-access-with-an-fqdn-tag"></a>允許使用 FQDN 標記的防火牆存取
 
 您可以設定 Azure 防火牆以允許備份至 Azure 備份的網路流量的輸出存取。
 
 - [了解](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)如何部署 Azure 防火牆。
 - [閱讀](https://docs.microsoft.com/azure/firewall/fqdn-tags) FQDN 標記的相關資訊。
-
-## <a name="modify-storage-replication-settings"></a>修改儲存體複寫設定
-
-根據預設，保存庫會有[異地備援儲存體 (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs)。 我們建議您的主要備份 GRS。 您可以使用[本地備援儲存體 (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)成本較低的選項。
-
-修改儲存體複寫類型如下所示：
-
-1. 在入口網站中，選取新的保存庫。 底下**設定**，選取**屬性**。
-2. 在 **屬性**下方**備份設定**，選取**更新**。
-3. 選取儲存體複寫類型，然後選取**儲存**。
-
-![為新保存庫設定儲存體組態](./media/backup-try-azure-backup-in-10-mins/full-blade.png)
-
-
-## <a name="configure-a-backup-policy"></a>設定備份原則
-
-探索訂用帳戶中的 VM，並設定備份。
-
-1. 在保存庫 >**概觀**，選取 **+ 備份**。
-
-   ![備份按鈕](./media/backup-azure-arm-vms-prepare/backup-button.png)
-
-   [備份] 和 [備份目標] 窗格隨即開啟。
-
-2. 在 [備份目標] > [工作負載的執行位置?] 下方，選取 [Azure]。 在 [您要備份什麼?] 中，選取 [虛擬機器] >  [確定]。
-
-   ![備份和備份目標窗格](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
-
-   此步驟會向保存庫註冊 VM 擴充功能。 [備份目標] 窗格隨即關閉，然後開啟 [備份原則] 窗格。
-
-3. 在 [備份原則] 中，選取要與保存庫產生關聯的原則。 然後選取 [確定]。
-    - 預設原則的詳細資料便會列在下拉式功能表之下。
-    - 選取 **新建**建立原則。 [深入了解](backup-azure-arm-vms-prepare.md#configure-a-backup-policy)如何定義原則。
-
-    ![[備份] 和 [備份原則] 窗格](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
-
-4. 在 [**選取虛擬機器**] 窗格中，選取將使用指定的備份原則的 Vm >**確定**。
-
-   選取的 VM 會接受驗證。 您只能選取與保存庫位於相同區域中的 VM。 VM 只能在單一保存庫中備份。
-
-   ![[選取虛擬機器] 窗格](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
-
-5. 在 [備份] 中，選取 [啟用備份]。
-
-   此步驟會將原則部署到保存庫和 Vm。 它也會在 Azure VM 上執行的 VM 代理程式上安裝備份擴充功能。
-   
-   此步驟並不會建立 VM 的初始復原點。
-
-   ![[啟用備份] 按鈕](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
-
-啟用之後，您備份：
-
-- 初始備份會根據您的備份排程執行。
-- 無論 VM 是否在執行，備份服務都會安裝備份擴充功能。
-
-執行中的 VM 提供了取得應用程式一致復原點的絕佳機會。 不過，即使 VM 關閉，且無法安裝擴充功能，VM 仍會備份。 因此也稱為離線 VM。 在此情況下，您將會損毀一致復原點。
-    
-> [!NOTE]
-> Azure 備份在進行 Azure VM 備份時不支援依據日光節約變更而自動調整時鐘。 請視需要手動修改備份原則。
-
-## <a name="run-the-initial-backup"></a>執行初始備份
-
-初始備份會根據您的排程執行，除非您立即手動執行。 手動執行，如下所示：
-
-1. 在 [保存庫] 功能表中，選取**備份項目**。
-2. 在 **備份項目**，選取**Azure 虛擬機器**。
-3. 在 **備份項目**清單中，選取省略符號 (**...**).
-4. 選取 **立即備份**。
-5. 在 **立即備份**，使用日曆控制項選取的復原點保留的最後一天 >**確定**。
-6. 監視入口網站通知。 您可以在保存庫儀表板中監視作業進度 > [備份作業] > [進行中]。 根據您的 VM 大小，建立初始備份可能需要一段時間。
 
 
 

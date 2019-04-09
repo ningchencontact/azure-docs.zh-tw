@@ -8,12 +8,12 @@ ms.date: 02/12/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: ddda2a8bf1fab4e4c48c647237617d8f705f0561
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 79b99532f5fb38123b03d2a39b7c9c6364e9f636
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112082"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802253"
 ---
 # <a name="create-a-custom-policy-definition"></a>建立自訂原則定義
 
@@ -72,7 +72,7 @@ ms.locfileid: "56112082"
 若要尋找屬性，最簡單的方式是查看相同類型的現有資源。 已使用所要強制執行的設定進行設定的資源，也會提供可用來比較的值。
 在 Azure 入口網站中，查看該特定資源的 [自動化指令碼] 頁面 (在 [設定] 底下)。
 
-![[自動化指令碼] 頁面](../media/create-custom-policy-definition/automation-script.png)
+![現有資源上的 [匯出範本] 頁面](../media/create-custom-policy-definition/automation-script.png)
 
 對儲存體帳戶執行此操作，就會顯示類似此範例的範本：
 

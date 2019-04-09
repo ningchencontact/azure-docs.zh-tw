@@ -8,14 +8,14 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 7b5d9d483d05ac8225ea4b7497922192be44f1bc
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 7440c9bbfce801ffcfc5c4e0f800f6f4f9d34f8c
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731679"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805120"
 ---
-# <a name="what-is-azure-policy"></a>什麼是 Azure 原則？
+# <a name="overview-of-the-azure-policy-service"></a>Azure 原則服務的概觀
 
 控管可驗證貴組織是否能夠透過符合 IT 效率及效益的方式來達成其目標。 透過在商務目標與 IT 專案之間建立明確見地符合此需求。
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11846ca2a323da5889f444024767df4803a48a51
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.openlocfilehash: b91af553c402cc1cb241e51e2bb2289bf45b1825
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892206"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269022"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>規劃雲端架構的 Azure Multi-factor Authentication
 
@@ -60,8 +60,14 @@ Microsoft 提供[溝通範本](https://aka.ms/mfatemplates)並[使用者文件](
 * 符合規範的裝置
 * 已加入混合式 Azure AD 的裝置
 * 已核准的用戶端應用程式
+ 
+
+在 [多重要素驗證首度發行的資料] 中使用可自訂的海報和電子郵件範本推出您的組織的多重要素驗證。 (https://www.microsoft.com/en-us/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all)
+
+## <a name="enable-multi-factor-authentication-with-conditional-access"></a>透過條件式存取啟用 Multi-Factor Authentication
 
 條件式存取原則會強制執行註冊，需要未註冊的使用者，以完成註冊，在第一次登入時，一項重要的安全性考量。
+
 
 [Azure AD Identity Protection](../identity-protection/howto-configure-risk-policies.md)參與的註冊原則和 Azure Multi-factor Authentication 劇本的自動化的風險偵測與修復原則。 原則可以建立以強制執行密碼變更，遭入侵的身分識別的威脅時，或登入已被視為高風險由下列時要求 MFA[事件](../reports-monitoring/concept-risk-events.md):
 

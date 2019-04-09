@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
-ms.openlocfilehash: f3ee9b7aa595ae07bb97a8513bc0b751e94d7cc9
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 9fd65dc0a6d2a5756acd2de7cb46fbf7943a8758
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883933"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264081"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>使用 HTTP 資料收集器 API 將記錄資料傳送給 Azure 監視器 (公開預覽)
 本文示範如何使用 HTTP 資料收集器 API 將記錄資料從 REST API 用戶端傳送給 Azure 監視器。  內容說明如何將您指令碼或應用程式所收集的資料格式化、將其包含在要求中，以及讓 Azure 監視器授權該要求。  提供的範例適用於 PowerShell、C# 及 Python。
@@ -61,7 +61,8 @@ Log Analytics 工作區中的所有資料都會以具有特定記錄類型的記
 | Authorization |授權簽章。 本文稍後會說明如何建立 HMAC-SHA256 標頭。 |
 | Log-Type |指定正在提交的資料記錄類型。 此參數的大小上限是 100 個字元。 |
 | x-ms-date |處理要求的日期 (採用 RFC 1123 格式)。 |
-| time-generated-field |資料中包含資料項目時間戳記的欄位名稱。 如果您指定欄位，則其內容會用於 **TimeGenerated**。 如果未指定此欄位，則 **TimeGenerated** 的預設值是所擷取訊息的時間。 訊息欄位的內容應遵循 ISO 8601 格式 YYYY-MM-DDThh:mm:ssZ。 |
+| x-ms-AzureResourceId | 應相關聯的 Azure 資源資料的資源識別碼。 這會填入[_ResourceId](log-standard-properties.md#_resourceid)屬性，並可讓要納入資料[資源中心](manage-access.md#access-modes)查詢。 如果未指定此欄位，資料將不會包含在資源為主的查詢中。 |
+| time-generated-field | 資料中包含資料項目時間戳記的欄位名稱。 如果您指定欄位，則其內容會用於 **TimeGenerated**。 如果未指定此欄位，則 **TimeGenerated** 的預設值是所擷取訊息的時間。 訊息欄位的內容應遵循 ISO 8601 格式 YYYY-MM-DDThh:mm:ssZ。 |
 
 ## <a name="authorization"></a>Authorization
 任何對於 Azure 監視器 HTTP 資料收集器 API 的要求都必須包含授權標頭。 若要驗證要求，您必須使用提出要求之工作區的主要或次要金鑰來簽署要求。 然後，將該簽章當作要求的一部分傳遞。   

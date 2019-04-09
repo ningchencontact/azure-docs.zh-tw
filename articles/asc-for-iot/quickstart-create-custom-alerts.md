@@ -1,30 +1,30 @@
 ---
-title: 為適用於 IoT 的 ASC 建立自訂警示 (預覽) | Microsoft Docs
-description: 適用於 IoT 的 ASC 建立和指派自訂裝置警示。
-services: ascforiot
+title: 為適用於 IoT 的 Azure 資訊安全中心建立自訂警示 (預覽) | Microsoft Docs
+description: 為適用於 IoT 的 Azure 資訊安全中心建立和指派自訂裝置警示。
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: d1757868-da3d-4453-803a-7e3a309c8ce8
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: 591000f251d384b961569f9d7ca09ae93edea617
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d793b105e6d73c98739cd05d6e19a218413d7813
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541712"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861990"
 ---
 # <a name="quickstart-create-custom-alerts"></a>快速入門：建立自訂警示
 
 > [!IMPORTANT]
-> 適用於 IoT 的 ASC 目前為公開預覽狀態。
+> 適用於 IoT 的 Azure 資訊安全中心目前為公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 使用自訂的安全性群組和警示，利用端對端安全性資訊和類別裝置知識，來確保您的 IoT 解決方案有更健全的安全性。 
@@ -33,7 +33,7 @@ ms.locfileid: "58541712"
 
 您最了解您自己的 IoT 裝置。
 
-對於徹底了解其裝置預期行為的客戶，適用於 IoT 的 ASC 可讓您將這方面的了解轉化為裝置行為原則，並對不在所預期正常行為內的任何偏差舉動發出警示。
+對於徹底了解其裝置預期行為的客戶，適用於 IoT 的 Azure 資訊安全中心 (ASC) 可讓您將這方面的了解轉化為裝置行為原則，並對不在所預期正常行為內的任何偏差舉動發出警示。
 
 ## <a name="security-groups"></a>安全性群組
 
@@ -90,4 +90,4 @@ ms.locfileid: "58541712"
 請前往下一篇文章，以了解如何部署安全性代理程式...
 
 > [!div class="nextstepaction"]
-> [部署安全性代理程式](select-deploy-agent.md)
+> [部署安全性代理程式](how-to-deploy-agent.md)

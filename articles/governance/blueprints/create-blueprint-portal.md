@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fdf87bff026dee4969b3995b37c31de3ead7714b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0b27514dfa34963901fb94be37d8fe330a3c65ce
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58004914"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804389"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>在入口網站中定義和指派 Azure 藍圖
 
@@ -40,7 +40,7 @@ ms.locfileid: "58004914"
 
    - 或是在 [開始使用] 頁面按一下 [建立]，即可直接建立藍圖。
 
-   ![建立藍圖](./media/create-blueprint-portal/create-blueprint-button.png)
+   ![從 [藍圖定義] 頁面建立藍圖](./media/create-blueprint-portal/create-blueprint-button.png)
 
 1. 提供藍圖的 [藍圖名稱]，例如「MyBlueprint」(僅限使用字母和數字，最多 48 個字元，不可加入空格或特殊字元)，但暫且將 [藍圖描述] 保留為空白。 在 [定義位置] 方塊中，按一下右側的省略符號，選取您要從中儲存藍圖的[管理群組](../management-groups/overview.md)或訂用帳戶，然後按一下 [選取]。
 
@@ -48,7 +48,7 @@ ms.locfileid: "58004914"
 
 1. 新增訂用帳戶的角色指派：以滑鼠左鍵按一下 [訂用帳戶] 底下的 [+ 新增成品...] 資料列，即可在瀏覽器右側開啟 [新增成品] 視窗。 選取 [角色指派] 作為 [成品類型]。 在 [角色] 下方選取 [參與者]，然後在 [新增使用者、應用程式或群組] 欄位勾選代表**動態參數**的核取方塊。 按一下 [新增] 將此成品新增至藍圖。
 
-   ![成品 - 角色指派](./media/create-blueprint-portal/add-role-assignment.png)
+   ![藍圖成品 - 角色指派](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
    > 大部分_成品_均可支援參數。 在藍圖建立期間，獲得指派值的參數是**靜態參數**。 如果是在藍圖指派期間受指派的參數，則為**動態參數**。 如需詳細資訊，請參閱[藍圖參數](./concepts/parameters.md)。
@@ -113,11 +113,11 @@ ms.locfileid: "58004914"
    }
    ```
 
-   ![成品 - Resource Manager 範本](./media/create-blueprint-portal/add-resource-manager-template.png)
+   ![藍圖成品 - Resource Manager 範本](./media/create-blueprint-portal/add-resource-manager-template.png)
 
 1. 完成的藍圖應該如下所示： 請注意，每個成品的 [參數] 資料行都會出現「已填入 _x_ 個參數，共 _y_ 個」。 在每次指派藍圖時都會設定**動態參數**。
 
-   ![完成的藍圖](./media/create-blueprint-portal/completed-blueprint.png)
+   ![已完成的藍圖定義](./media/create-blueprint-portal/completed-blueprint.png)
 
 1. 加入所有計劃中的成品之後，按一下頁面底部的 [儲存草稿]。
 
@@ -135,11 +135,11 @@ ms.locfileid: "58004914"
 
 1. 在資源群組下新增角色指派：以滑鼠左鍵按一下 [資源群組] 項目底下的 [+ 新增成品...] 資料列。 選取 [角色指派] 作為 [成品類型]。 在 [角色] 下方選取 [擁有者]，並取消勾選 [新增使用者、應用程式或群組] 欄位，然後搜尋並選取所要新增的使用者、應用程式或群組。 此成品會在每次指派此藍圖時使用設定相同的**靜態參數**。 按一下 [新增] 將此成品新增至藍圖。
 
-   ![成品 - 角色指派 #2](./media/create-blueprint-portal/add-role-assignment-2.png)
+   ![藍圖成品 - 角色指派 #2](./media/create-blueprint-portal/add-role-assignment-2.png)
 
 1. 完成的藍圖應該如下所示： 請注意，新增的角色指派會顯示**已填入 1 個參數，共 1 個**，表示這是**靜態參數**。
 
-   ![完成的藍圖 #2](./media/create-blueprint-portal/completed-blueprint-2.png)
+   ![已完成的藍圖定義 #2](./media/create-blueprint-portal/completed-blueprint-2.png)
 
 1. 更新之後，按一下 [儲存草稿]。
 
@@ -224,7 +224,7 @@ ms.locfileid: "58004914"
 
 1. 在藍圖清單中，以滑鼠右鍵按一下您先前指派的藍圖，然後選取 [檢視指派詳細資料]。
 
-   ![檢視指派詳細資料](./media/create-blueprint-portal/view-assignment-details.png)
+   ![從 [已指派的藍圖] 頁面檢視指派詳細資料](./media/create-blueprint-portal/view-assignment-details.png)
 
 1. 在 [藍圖指派] 頁面上，驗證已成功部署所有成品，且部署期間並未出現任何錯誤。 如果發生錯誤，請參閱[疑難排解藍圖](./troubleshoot/general.md)的步驟，判斷發生錯誤的原因。
 

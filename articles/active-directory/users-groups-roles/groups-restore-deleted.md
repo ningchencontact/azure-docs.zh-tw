@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81bf41dd183944a43d9558d0aec0c416d30620b2
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 32511b638d4674198ce919b8b3a90e67b1c3cfc7
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202566"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793249"
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>在 Azure Active Directory 中還原已刪除的 Office 365 群組
 
-當您在 Azure Active Directory (Azure AD) 中刪除 Office 365 群組時，從刪除日起算，仍會保留已刪除的群組 30 天，但您看不見該群組。 此行為便能讓您視需要還原該群組及其內容。 此功能專屬於 Azure AD 中的 Office 365 群組。 無法針對安全性群組和發佈群組使用。
+當您在 Azure Active Directory (Azure AD) 中刪除 Office 365 群組時，從刪除日起算，仍會保留已刪除的群組 30 天，但您看不見該群組。 此行為便能讓您視需要還原該群組及其內容。 此功能專屬於 Azure AD 中的 Office 365 群組。 無法針對安全性群組和發佈群組使用。 請注意，您無法自訂 30 天的群組還原期間。
 
 > [!NOTE]
 > 請勿使用 `Remove-MsolGroup`，因為它會永久清除群組。 一律使用 `Remove-AzureADMSGroup` 來刪除 Office 365 群組。
@@ -49,11 +49,13 @@ ms.locfileid: "58202566"
    - 選取 [永久刪除] 可永久移除已刪除的群組。 若要永久移除群組，您必須是系統管理員。
 
 ## <a name="view-the-deleted-office-365-groups-that-are-available-to-restore-using-powershell"></a>使用 Powershell 檢視可供還原的已刪除 Office 365 群組
+
 您可以使用下列 Cmdlet 來檢視已刪除的群組，以確認您感興趣的一或多個群組尚未被永久清除。 這些 Cmdlet 屬於 [Azure AD PowerShell 模組](https://www.powershellgallery.com/packages/AzureAD/)。 如需此模組的詳細資訊，請參閱 [Azure Active Directory PowerShell 第 2 版](/powershell/azure/install-adv2?view=azureadps-2.0)一文。
 
 1.  執行下列 Cmdlet，以顯示租用戶中所有已刪除但仍可供還原的 Office 365 群組。
    
-    ```
+
+    ```powershell
     Get-AzureADMSDeletedGroup
     ```
 
@@ -64,16 +66,19 @@ ms.locfileid: "58202566"
     ```
 
 ## <a name="how-to-restore-your-deleted-office-365-group-using-powershell"></a>如何使用 Powershell 還原已刪除的 Office 365 群組
+
 一旦確認群組仍可供還原，即可使用下列其中一個步驟來還原已刪除的群組。 如果群組包含文件、SP 網站或其他持續物件，則可能需要 24 小時，才能完全還原群組及其內容。
 
 1. 執行下列 Cmdlet 來還原的群組及其內容。
  
+
    ```
     Restore-AzureADMSDeletedDirectoryObject –Id <objectId>
     ``` 
 
 2. 或者，可以執行下列 Cmdlet，永久移除已刪除的群組。
     
+
     ```
     Remove-AzureADMSDeletedDirectoryObject –Id <objectId>
     ```
@@ -88,6 +93,7 @@ ms.locfileid: "58202566"
 - 您可以從任何 Exchange 端點和支援 Office 365 群組的其他 Office 365 工作負載存取該群組
 
 ## <a name="next-steps"></a>後續步驟
+
 這些文章提供有關 Azure Active Directory 群組的其他資訊。
 
 * [查看現有的群組](../fundamentals/active-directory-groups-view-azure-portal.md)

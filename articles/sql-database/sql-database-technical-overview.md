@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/29/2019
-ms.openlocfilehash: e71039c84c79c27a372a378144b21f6f724d08d8
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.date: 04/08/2019
+ms.openlocfilehash: bd696a003b54face4f95ae426c11840bb8805bee
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670830"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273136"
 ---
 # <a name="what-is-azure-sql-database-service"></a>什麼是 Azure SQL Database 服務？
 
@@ -156,7 +156,7 @@ SQL Database 會提供您需要監視之查詢的詳細解析。 SQL Database �
 SQL Database 提供了各式各樣的[內建安全性與合規性功能](sql-database-security-overview.md)，協助您的應用程式符合各種安全性與合規性需求。
 
 > [!IMPORTANT]
-> Azure SQL Database （所有部署選項）、 經過認證符合許多法規標準。 如需詳細資訊，請參閱 [Microsoft Azure 信任中心](https://azure.microsoft.com/support/trust-center/)，您可以在當中找到 [SQL Database 法規認證](https://www.microsoft.com/trustcenter/compliance/complianceofferings)的最新清單。
+> Azure SQL Database （所有部署選項）、 經過認證符合許多法規標準。 如需詳細資訊，請參閱 < [Microsoft Azure 信任中心](https://azure.microsoft.com/support/trust-center/compliance/)您可以在此找到最新的 SQL Database 的合規性認證清單。
 
 ### <a name="advance-threat-protection"></a>進階威脅保護
 
@@ -186,7 +186,7 @@ SQL Database 可讓您透過 [Azure Active Directory 整合](sql-database-aad-au
 
 ### <a name="compliance-certification"></a>合規性認證
 
-SQL Database 會參與定期稽核，並已經過數個合規性標準的認證。 如需詳細資訊，請參閱 [Microsoft Azure 信任中心](https://azure.microsoft.com/support/trust-center/)，您可以在當中找到 [SQL Database 法規認證](https://azure.microsoft.com/support/trust-center/services/)的最新清單。
+SQL Database 會參與定期稽核，並已經過數個合規性標準的認證。 如需詳細資訊，請參閱 < [Microsoft Azure 信任中心](https://azure.microsoft.com/support/trust-center/compliance/)您可以在此找到最新的 SQL Database 的合規性認證清單。
 
 ## <a name="easy-to-use-tools"></a>容易使用
 
@@ -255,10 +255,10 @@ SQL Database 客戶將會有下列與適用於 SQL Server 的 Azure Hybrid Benef
 - 如需單一資料庫及彈性資料庫的成本比較和計算機，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/sql-database/)。
 - 請參閱下列快速入門，以便開始使用產品：
 
-  - [在 Azure 入口網站中建立 SQL Database](sql-database-single-database-get-started.md)  
-  - [使用 Azure CLI 建立 SQL Database](sql-database-get-started-cli.md)
-  - [使用 PowerShell 建立 SQL Database](sql-database-get-started-powershell.md)
+  - [在 Azure 入口網站中建立 SQL database](sql-database-single-database-get-started.md)  
+  - [使用 Azure CLI 建立 SQL database](sql-database-get-started-cli.md)
+  - [建立使用 PowerShell 為 SQL database](sql-database-get-started-powershell.md)
 
 - 如需一組 Azure CLI 和 PowerShell 範例，請參閱︰
-  - [SQL Database 的 Azure CLI 範例](sql-database-cli-samples.md)
-  - [SQL Database 的 Azure PowerShell 範例](sql-database-powershell-samples.md)
+  - [SQL Database 的 azure CLI 範例](sql-database-cli-samples.md)
+  - [SQL Database 的 azure PowerShell 範例](sql-database-powershell-samples.md)

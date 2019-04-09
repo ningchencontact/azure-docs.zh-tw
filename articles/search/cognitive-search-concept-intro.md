@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 03/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3c2567564e015ef19adf9f8c776e1f377a9cdf30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 187e40716bc55f71623ef758722eb58d27651d4d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58133054"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882481"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>什麼是 Azure 搜尋服務的「認知搜尋」？
 
@@ -38,7 +38,7 @@ Azure 搜尋服務中的認知技術是以認知服務 API 中的機器學習模
 
 ## <a name="components-of-cognitive-search"></a>認知搜尋的元件
 
-認知搜尋是 [Azure 搜尋服務](search-what-is-azure-search.md)的預覽功能，並在[這些區域](#where-do-i-start)中受到支援。 
+認知搜尋是 [Azure 搜尋服務](search-what-is-azure-search.md)的預覽功能。
 
 認知搜尋管線以會搜耙資料來源並提供端對端索引處理的 [Azure 搜尋服務*索引子*](search-indexer-overview.md)為基礎。 技能現在已連結至索引子，會根據您所定義的技能集攔截及擴充文件。 完成索引編製後，您即可使用 [Azure 搜尋服務所支援的所有查詢類型](search-query-overview.md)，透過搜尋要求來存取內容。  如果您不熟悉索引子，本節將引導您逐步完成相關步驟。
 

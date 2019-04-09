@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: d33ef63f142763d5d29c9cb1931fdd87bae5976e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 17c5e568bbdbdd9aa07db0ee10438cb7d05bd56c
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891013"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849229"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netop-portal"></a>教學課程：Azure Active Directory 與 Netop Portal 整合
 
@@ -35,7 +35,7 @@ ms.locfileid: "57891013"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Netop Portal 的整合，您需要下列項目：
+若要設定 Azure AD 與 Netop Portal 整合，需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Netop Portal 單一登入的訂用帳戶
@@ -73,7 +73,7 @@ ms.locfileid: "57891013"
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Netop Portal 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Netop Portal中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Netop Portal 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要設定及測試對 Netop Portal 的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Netop Portal 單一登入](#configure-netop-portal-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -102,7 +102,7 @@ ms.locfileid: "57891013"
 
 4. 在 [基本 SAML 組態] 區段中，使用者不需要執行任何步驟，因為應用程式已預先與 Azure 整合。
 
-    ![Netop Portal 網域及 URL 單一登入資訊](common/preintegrated.png)
+    ![Netop Portal 網域與 URL 單一登入資訊](common/preintegrated.png)
 
 5. Netop Portal 應用程式需要特定格式的 SAML 判斷提示，要求您加入自訂屬性對應到您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] 圖示以開啟 [使用者屬性] 對話方塊。
 
@@ -128,7 +128,7 @@ ms.locfileid: "57891013"
 
     b. 在 [名稱] 文字方塊中，輸入該資料列所顯示的屬性名稱。
 
-    c. 讓 [命名空間] 保持空白。
+    c. 在 [命名空間] 文字方塊中，輸入 https:\//secure.netop.com。
 
     d. 選取 [來源] 作為 [屬性]。
 
@@ -154,7 +154,7 @@ ms.locfileid: "57891013"
 
 ### <a name="configure-netop-portal-single-sign-on"></a>設定 Netop Portal 單一登入
 
-若要在 **Netop Portal** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML] 和複製的適當 URL 傳送給 [Netop Portal 支援小組](mailto:casemanager@netop.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **Netop Portal** 端設定單一登入，您需要從 Azure 入口網站下載的 [同盟中繼資料 XML] 和登入 URL。 請依照[此處](https://kb.netop.com/assets/netop_portal_adfs_and_azure_ad_integration.pdf)文件內步驟 3 的指示，來為 NetOp 入口網站設定 Azure AD 驗證。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -183,7 +183,7 @@ ms.locfileid: "57891013"
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 Netop Portal 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在本節中，您會把 Netop Portal 的存取權授與 Britta Simon，讓其能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Netop Portal]。
 
@@ -191,7 +191,7 @@ ms.locfileid: "57891013"
 
 2. 在應用程式清單中，選取 [Netop Portal]。
 
-    ![應用程式清單中的 [Netop Portal] 連結](common/all-applications.png)
+    ![應用程式清單中的 Netop Portal 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -209,7 +209,7 @@ ms.locfileid: "57891013"
 
 ### <a name="create-netop-portal-test-user"></a>建立 Netop Portal 測試使用者
 
-在本節中，您會在 Netop Portal 中建立名為 Britta Simon 的使用者。 請與 [Netop Portal 支援小組](mailto:casemanager@netop.com)合作，在 Netop Portal 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 Netop Portal 中建立名為 Britta Simon 的使用者。 與 [Netop Portal 支援小組](mailto:casemanager@netop.com)合作，以將使用者加入 Netop Portal 平台。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

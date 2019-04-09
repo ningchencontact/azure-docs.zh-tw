@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 8a8c8c7abf5b6f0f2a870f6983c7e855db1e0192
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: ebc6388f1ebc7546ffda07095ead50797bde4e8b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231809"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884681"
 ---
 # <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>使用 Azure Logic Apps 來檢查排程上的流量
 
@@ -59,7 +59,7 @@ Azure Logic Apps 可協助您自動化定期執行的工作流程。 本教學�
 
    | 設定 | 值 | 說明 | 
    | ------- | ----- | ----------- | 
-   | **名稱** | LA-TravelTime | 邏輯應用程式的名稱 | 
+   | **Name** | LA-TravelTime | 邏輯應用程式的名稱 | 
    | **訂用帳戶** | <your-Azure-subscription-name> | Azure 訂用帳戶的名稱 | 
    | **資源群組** | LA-TravelTime-RG | 用來組織相關資源之 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱 | 
    | **位置** | 美國東部 2 | 用來存放邏輯應用程式相關資訊的區域 | 
@@ -74,11 +74,12 @@ Azure Logic Apps 可協助您自動化定期執行的工作流程。 本教學�
 
 ## <a name="add-scheduler-trigger"></a>新增排程器觸發程序
 
-1. 在設計工具的搜尋方塊中輸入 [週期]。 選取此觸發程序：**排程 - 重複**
+1. 在設計工具的搜尋方塊中輸入 [週期]。 選取此觸發程序：**排程 - 週期**
 
    ![尋找並新增 [排程 - 週期] 觸發程序](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-schedule-recurrence-trigger.png)
 
-2. 在 [週期] 圖形中，選擇**省略符號** (**...**) 按鈕，然後選擇 [重新命名]。 以下列描述為觸發程序重新命名：```Check travel time every weekday morning```
+2. 在 [週期] 圖形中，選擇**省略符號** (**...**) 按鈕，然後選擇 [重新命名]。 以下列描述為觸發程序重新命名：
+```Check travel time every weekday morning```
 
    ![為觸發程序重新命名](./media/tutorial-build-scheduled-recurring-logic-app-workflow/rename-recurrence-schedule-trigger.png)
 
@@ -117,7 +118,7 @@ Azure Logic Apps 可協助您自動化定期執行的工作流程。 本教學�
 
 1. 在 Logic Apps 設計工具中，於您的觸發程序之下，選擇 [+新增步驟] > [新增動作]。
 
-2. 搜尋「地圖」，然後選取此動作：**Bing 地圖服務 - 取得路線**
+2. 搜尋 "maps"，然後選取此動作：**Bing 地圖服務 - 取得路線**
 
 3. 如果您沒有 Bing 地圖服務連線，系統會要求您建立連線。 提供以下連線詳細資料，然後選擇 [建立]。
 
@@ -125,11 +126,12 @@ Azure Logic Apps 可協助您自動化定期執行的工作流程。 本教學�
 
    | 設定 | 值 | 說明 |
    | ------- | ----- | ----------- |
-   | 連線名稱 | BingMapsConnection | 為您的連線提供一個名稱。 | 
+   | **連線名稱** | BingMapsConnection | 為您的連線提供一個名稱。 | 
    | **API 金鑰** | <*your-Bing-Maps-key*> | 輸入您先前收到的 Bing 地圖服務金鑰。 如果您沒有 Bing 地圖服務金鑰，請了解<a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">如何取得金鑰</a>。 | 
    | | | |  
 
-4. 以下列描述為動作重新命名：```Get route and travel time with traffic```
+4. 以下列描述為動作重新命名：
+```Get route and travel time with traffic```
 
 5. 提供 [取得路線] 動作的詳細資料，如下面範例所示和描述，例如：
 
@@ -141,8 +143,8 @@ Azure Logic Apps 可協助您自動化定期執行的工作流程。 本教學�
    | **導航點 2** | <*end-location*> | 您的路線目的地 | 
    | **避開** | None | 您的路線所要避開的項目，例如高速公路、收費站等等 | 
    | **最佳化** | timeWithTraffic | 可將您的路線最佳化的參數，例如距離、目前流量的行進時間等等。 選取此參數："timeWithTraffic" | 
-   | **距離單位** | <*your-preference*> | 路線的距離單位。 本文使用此單位：[英哩]  | 
-   | **行進模式** | 開車 | 路線的行進模式。 選取此模式：[開車] | 
+   | **距離單位** | <*your-preference*> | 路線的距離單位。 本文使用此單位：「英哩」  | 
+   | **行進模式** | 開車 | 路線的行進模式。 選取此模式：「開車」 | 
    | **運輸日期時間** | None | 僅適用於運輸模式 | 
    | **日期時間類型** | None | 僅適用於運輸模式 | 
    |||| 
@@ -165,13 +167,14 @@ Azure Logic Apps 可協助您自動化定期執行的工作流程。 本教學�
 
    ![選取 [變數 - 初始化變數] 動作](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-initialize-variable-action.png)
 
-3. 以下列描述為動作重新命名：```Create variable to store travel time```
+3. 以下列描述為動作重新命名：
+```Create variable to store travel time```
 
 4. 為您的變數提供如下所述的詳細資料：
 
    | 設定 | 值 | 說明 | 
    | ------- | ----- | ----------- | 
-   | **名稱** | travelTime | 您的變數名稱 | 
+   | **Name** | travelTime | 您的變數名稱 | 
    | **類型** | 整數  | 您的變數資料類型 | 
    | **值** | 可將目前行進時間從秒數轉換為分鐘數的運算式 (請參閱此表格底下的步驟)。 | 您的變數初始值 | 
    |||| 
@@ -190,7 +193,7 @@ Azure Logic Apps 可協助您自動化定期執行的工作流程。 本教學�
       如果您的瀏覽器很寬，則會出現動態內容清單。 
       如果您的瀏覽器很窄，則參數清單會以內嵌方式顯示在目前具有焦點的編輯方塊底下。
 
-   2. 在運算式編輯器中，輸入此運算式：```div(,60)```
+   2. 在運算式編輯器中，輸入此運算式： ```div(,60)```
 
       ![輸入此運算式："div(,60)"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-action-settings-2.png)
 
@@ -219,7 +222,7 @@ Azure Logic Apps 可協助您自動化定期執行的工作流程。 本教學�
 
 1. 在前一個動作之下，選擇 [+ 新增步驟] > [新增條件]。 
 
-2. 以下列描述為條件重新命名：```If travel time exceeds limit```
+2. 以下列描述為條件重新命名： ```If travel time exceeds limit```
 
 3. 建立一個條件，以檢查 **travelTime** 是否超過您指定的限制，如下所描述和顯示：
 
@@ -256,13 +259,14 @@ Azure Logic Apps 可協助您自動化定期執行的工作流程。 本教學�
 
    Logic Apps 會建立與電子郵件帳戶的連線。
 
-4. 以下列描述為動作重新命名：```Send email with travel time```
+4. 以下列描述為動作重新命名：
+```Send email with travel time```
 
 5. 在 [收件者] 方塊中，輸入收件者的電子郵件地址。 若要進行測試，請使用您的電子郵件地址。
 
 6. 在 [主旨] 方塊中，指定電子郵件的主旨，以及包含 [travelTime] 變數。
 
-   1. 輸入尾端有一個空格的文字 ```Current travel time (minutes): ```。 
+   1. 輸入尾端有一個空格的文字 ```Current travel time (minutes):```。 
    
    2. 從參數清單或動態內容清單中，選取 [變數] 下方的 [travelTime]。 
    
@@ -272,7 +276,7 @@ Azure Logic Apps 可協助您自動化定期執行的工作流程。 本教學�
 
 7. 在 [內文] 方塊中，指定電子郵件內文的內容。 
 
-   1. 輸入尾端有一個空格的文字 ```Add extra travel time (minutes): ```。 
+   1. 輸入尾端有一個空格的文字 ```Add extra travel time (minutes):```。 
    
    2. 必要時，讓您的瀏覽器變寬，直到動態內容清單出現為止。 
    在動態內容清單中，選擇 [運算式]。

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 0d8fd6a0422ee26610f58f872cba4487d4e01e6b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: cac685cc3f5a19e9da134df87076299e3f38fe11
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403624"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880962"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>教學課程：Azure Active Directory 與 Periscope Data 整合
 
@@ -109,9 +109,9 @@ Periscope Data 與 Azure AD 整合提供下列優點：
     | |
     |--|
     | `https://app.periscopedata.com/` |
-    | ` https://app.periscopedata.com/app/<SITENAME>` |
+    | `https://app.periscopedata.com/app/<SITENAME>` |
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://app.periscopedata.com/<SITENAME>/sso`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `https://app.periscopedata.com/<SITENAME>/sso`
 
     > [!NOTE]
     > [登入 URL] 的值不是真正的值。 請以實際的登入 URL 更新該值。 請連絡 [Periscope Data 用戶端支援小組](mailto:support@periscopedata.com)以取得此值，以及從**設定 Periscope Data 單一登入**一節取得的識別碼值 (稍後會在本教學課程中說明)。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
@@ -231,9 +231,9 @@ Periscope Data 與 Azure AD 整合提供下列優點：
 
 ## <a name="additional-resources"></a>其他資源
 
-- [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ 如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單 ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？ ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

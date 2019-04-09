@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: 5b91e3082dba2ac8ea19606f4269e65a0f537ce1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/03/2019
+ms.openlocfilehash: 4990b5f42291856c3695b4bf0eb6ec4084e9214e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183130"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886398"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>教學課程：使用 DMS 將 RDS SQL Server 線上移轉至 Azure SQL Database 或 Azure SQL Database 受控執行個體
 您可以使用 Azure 資料庫移轉服務，以最短停機時間將資料庫從 RDS SQL Server 執行個體移轉至 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) 或 [Azure SQL Database 受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index)。 在本教學課程中，您會使用 Azure 資料庫移轉服務，將已還原至 SQL Server 2012 (或更新版本) RDS SQL Server 執行個體的 **Adventureworks2012** 資料庫移轉至 Azure SQL Database 或 Azure SQL Database 受控執行個體。
@@ -61,7 +61,7 @@ ms.locfileid: "58183130"
     >
     > 此為必要設定，因為 Azure 資料庫移轉服務沒有網際網路連線。 
  
-- 確定您的 VNET 網路安全性群組規則不會封鎖下列通訊埠：443、53、9354、445、12000。 如需 Azure VNET NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)。
+- 確定您的 VNET 網路安全性群組規則不會對 Azure 資料庫移轉服務封鎖下列輸入通訊埠：443、53、9354、445、12000。 如需 Azure VNET NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)。
 - 設定[用於 Database Engine 存取的 Windows 防火牆](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)。
 - 開啟您的 Windows 防火牆以允許 Azure 資料庫移轉服務存取來源 SQL Server，其預設會通過 TCP 連接埠 1433。
 - 針對 Azure SQL Database 伺服器建立伺服器層級的[防火牆規則](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)，以允許 Azure 資料庫移轉服務存取目標資料庫。 提供用於 Azure 資料庫移轉服務之 VNET 的子網路範圍。

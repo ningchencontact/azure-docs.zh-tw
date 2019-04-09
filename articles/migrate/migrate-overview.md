@@ -4,15 +4,15 @@ description: 提供 Azure Migrate 服務的概觀。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 03/11/2019
+ms.date: 04/03/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7f0b3a0f63b87928938e5c0e9d39cc49c0fc791d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9f1d127405046400e2a92ffc5ab695d287e297bd
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999965"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894964"
 ---
 # <a name="about-azure-migrate"></a>關於 Azure Migrate
 
@@ -37,7 +37,7 @@ Azure Migrate 可協助您：
 - Azure Migrate 只支援將受控磁碟用於進行移轉評估。
 -  您只能在下列地理位置建立 Azure Migrate 專案。 不過，這不會限制您建立其他目標 Azure 位置評量的能力。
 
-    **地理位置** | **儲存位置**
+    **[地理位置]** | **儲存位置**
     --- | ---
     Azure Government | 美國政府維吉尼亞州
     亞洲 | 東南亞或東亞
@@ -103,6 +103,12 @@ Azure Migrate 可協助您：
 
 - **Azure Site Recovery**：您可以使用 Azure Site Recovery 來移轉至 Azure。 若要這樣做，您必須[準備所需的 Azure 元件](../site-recovery/tutorial-prepare-azure.md)，包括儲存體帳戶和虛擬網路。 在內部部署中，您必須[準備 VMware 環境](../site-recovery/vmware-azure-tutorial-prepare-on-premises.md)。 在一切都準備就緒後，您設定並啟用對 Azure 的複寫，並移轉 VM。 [深入了解](../site-recovery/vmware-azure-tutorial.md)。
 - **Azure 資料庫移轉**：如果您的內部部署機器正在執行 SQL Server、MySQL 或 Oracle 等資料庫，您可以使用 [Azure 資料庫移轉服務](../dms/dms-overview.md)將資料庫移轉至 Azure。
+
+## <a name="want-to-learn-more-from-community-experts"></a>想要向社群專家進一步學習嗎？
+請瀏覽 [Azure Migrate MSDN 論壇](https://social.msdn.microsoft.com/Forums/home?forum=AzureMigrate&filter=alltypes&sort=lastpostdesc)或 [Stack Overflow](https://stackoverflow.com/search?q=azure+migrate)
+
+## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。  
+如果您有問題或需要協助，請[建立支援要求](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。 如果您的支援要求需要深入的技術指引，請瀏覽 [Azure 支援方案](https://azure.microsoft.com/support/plans/)     
 
 
 ## <a name="next-steps"></a>後續步驟

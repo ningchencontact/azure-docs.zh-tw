@@ -1,7 +1,6 @@
 ---
 title: 取得原則合規性資料
 description: Azure 原則評估和效果會決定合規性。 了解如何取得合規性詳細資料。
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/01/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: c3ef6ff73366ae3017e1126de16153195576a1a8
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 84ed1632a61ae097bd2e187de4766dfc50f2503f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59048704"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263760"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>取得 Azure 資源的合規性資料
 

@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/07/2019
 ms.author: juliako
-ms.openlocfilehash: 552c3fa81a213d0be32c5498cde5a50fb44291d0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 91cd8ab0565279f88a0949f873d6e44d564427af
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892570"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280208"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>檢查影片索引器輸出所產生的 API
 
@@ -79,7 +79,7 @@ ms.locfileid: "58892570"
 |privacyMode|您的明細可具有下列其中一個模式：**私人**、**公用**。 **公用** - 您帳戶中的所有人和具有影片連結的任何人都可看到影片。 **私人** - 只有您帳戶中的所有人可看到影片。|
 |duration|包含一個持續時間，用以說明深入解析發生的時間。 持續時間以秒為單位。|
 |thumbnailVideoId|從中取得縮圖的影片識別碼。
-|thumbnailId|影片的縮圖識別碼。 若要取得實際的縮圖，請呼叫 Get-Thumbnail (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail)，並為其傳入 thumbnailVideoId 和 thumbnailId。|
+|thumbnailId|影片的縮圖識別碼。 若要取得實際的縮圖，請呼叫[取得縮圖](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail)將 thumbnailVideoId 和 thumbnailId 傳遞。|
 |臉部|可包含零個或多個臉部。 如需詳細資訊，請參閱[臉部](#faces)。|
 |關鍵字|可包含零個或多個關鍵字。 如需詳細資訊，請參閱[關鍵字](#keywords)。|
 |人氣|可包含零個或多個情緒。 如需詳細資訊，請參閱[情緒](#sentiments)。|
@@ -106,7 +106,7 @@ ms.locfileid: "58892570"
 |中繼資料|影片的外部中繼資料 (如果使用者已指定)。|
 |isAdult|指出是否已手動檢閱影片並識別為成人影片。|
 |insights|深入解析物件。 如需詳細資訊，請參閱[深入解析](#insights)。|
-|thumbnailId|影片的縮圖識別碼。 若要取得實際的縮圖，請呼叫 Get-Thumbnail (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail)，並為其傳入影片識別碼和 thumbnailId。|
+|thumbnailId|影片的縮圖識別碼。 若要取得實際的縮圖呼叫[取得縮圖](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail)並將它傳遞視訊的識別碼和 thumbnailId。|
 |publishedUrl|串流影片的 URL。|
 |publishedUrlProxy|影片串流來源的 URL (適用於 Apple 裝置)。|
 |viewToken|用來串流影片的短期檢視權杖。|

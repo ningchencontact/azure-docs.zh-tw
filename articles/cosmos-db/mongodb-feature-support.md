@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 795002d450505b9103f1815a8b03c8d546bddde8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 168b5cdf4f65992bad886352921e9aaff6d5b09c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119457"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885782"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-supported-features-and-syntax"></a>Azure Cosmos DB 適用於 MongoDB 的 API：支援的功能和語法
 
@@ -214,22 +214,22 @@ Cosmos DB 支援公開預覽中的彙總管線。 請參閱 [Azure 部落格](ht
 
 運算子 | 範例 |
 --- | --- |
-$eq | ``` { "Volcano Name": { $eq: "Rainier" } } ``` |
-$gt | ``` { "Elevation": { $gt: 4000 } } ``` |
-$gte | ``` { "Elevation": { $gte: 4392 } } ``` |
-$lt | ``` { "Elevation": { $lt: 5000 } } ``` |
-$lte | ``` { "Elevation": { $lte: 5000 } } ``` |
-$ne | ``` { "Elevation": { $ne: 1 } } ``` |
-$in | ``` { "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } } ``` |
-$nin | ``` { "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } } ``` |
-$or | ``` { $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] } ``` |
-$and | ``` { $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] } ``` |
-$not | ``` { "Elevation": { $not: { $gt: 5000 } } } ```|
-$nor | ``` { $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] } ``` |
-$exists | ``` { "Status": { $exists: true } } ```|
-$type | ``` { "Status": { $type: "string" } } ```|
-$mod | ``` { "Elevation": { $mod: [ 4, 0 ] } } ``` |
-$regex | ``` { "Volcano Name": { $regex: "^Rain"} } ```|
+$eq | `{ "Volcano Name": { $eq: "Rainier" } }` |  | -
+$gt | `{ "Elevation": { $gt: 4000 } }` |  | -
+$gte | `{ "Elevation": { $gte: 4392 } }` |  | -
+$lt | `{ "Elevation": { $lt: 5000 } }` |  | -
+$lte | `{ "Elevation": { $lte: 5000 } }` | | -
+$ne | `{ "Elevation": { $ne: 1 } }` |  | -
+$in | `{ "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } }` |  | -
+$nin | `{ "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } }` | | -
+$or | `{ $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |  | -
+$and | `{ $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |  | -
+$not | `{ "Elevation": { $not: { $gt: 5000 } } }`|  | -
+$nor | `{ $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] }` |  | -
+$exists | `{ "Status": { $exists: true } }`|  | -
+$type | `{ "Status": { $type: "string" } }`|  | -
+$mod | `{ "Elevation": { $mod: [ 4, 0 ] } }` |  | -
+$regex | `{ "Volcano Name": { $regex: "^Rain"} }`|  | -
 
 ### <a name="notes"></a>注意
 
@@ -340,4 +340,4 @@ Cosmos DB 支援自動與伺服器端的分區化。 Cosmos DB 不支援手動�
 - 了解如何[使用 Robo 3T](mongodb-robomongo.md) 搭配 Azure Cosmos DB 適用於 MongoDB 的 API。
 - 使用 Azure Cosmos DB 適用於 MongoDB 的 API 瀏覽 Cosmos DB [範例](mongodb-samples.md)。
 
-<sup>注意：本文描述 Azure Cosmos DB 的功能，該功能提供對 MongoDB 資料庫的 Wire Protocol 相容性。Microsoft 不會執行 MongoDB 資料庫來提供這項服務。Azure Cosmos DB 與 MongoDB, Inc. 沒有附屬關係</sup>
+<sup>注意：本文描述 Azure Cosmos DB 的功能，該功能提供對 MongoDB 資料庫的 Wire Protocol 相容性。 Microsoft 不會執行 MongoDB 資料庫來提供這項服務。 Azure Cosmos DB 與 MongoDB, Inc. 沒有附屬關係</sup>

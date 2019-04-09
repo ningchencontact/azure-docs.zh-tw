@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 35dd6ff1-a14a-4a2e-b173-6d8467de3e89
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: b4d40f011b9a9e69953496fbdb0dc63ffc8a5027
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d1f94c5fd774b51f57da2885d1ccd8eb909cd3c0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774552"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268002"
 ---
 # <a name="manage-and-configure-projects"></a>管理及設定專案
 
@@ -95,9 +95,9 @@ Azure Notebooks 中的專案本質上是基礎 Linux 虛擬機器 (Jupyter Noteb
 
 | 項目類型 | 描述 | 命令行為 |
 | --- | --- | --- |
-| **Notebook** | Jupyter Notebook | 顯示快顯，您可以在其中指定 Notebook 的檔案名稱和語言。 |
+| **筆記本** | Jupyter Notebook | 顯示快顯，您可以在其中指定 Notebook 的檔案名稱和語言。 |
 | **資料夾** | 子資料夾 | 在專案的檔案清單中建立及編輯欄位，在該欄位中輸入資料夾名稱。 |
-| **空白檔案** | 您可以在空白檔案中儲存任何內容，例如文字、資料等等。 | 在專案的檔案清單中建立及編輯欄位，在該欄位中輸入檔案名稱。 |
+| **空白的檔案** | 您可以在空白檔案中儲存任何內容，例如文字、資料等等。 | 在專案的檔案清單中建立及編輯欄位，在該欄位中輸入檔案名稱。 |
 | **Markdown** | Markdown 檔案。 | 在專案的檔案清單中建立及編輯欄位，在該欄位中輸入檔案名稱。 |
 
 ### <a name="upload-files"></a>上傳檔案
@@ -222,5 +222,5 @@ cat .nb.log
 
 ## <a name="next-steps"></a>後續步驟
 
-- [操作說明：使用專案資料檔案](work-with-project-data-files.md)
+- [作法：使用專案資料檔案](work-with-project-data-files.md)
 - [在 Notebook 中存取雲端資料](access-data-resources-jupyter-notebooks.md)

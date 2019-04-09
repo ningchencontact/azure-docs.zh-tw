@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 6ab5ee923cc439901149a26d7af4b57f9933ee19
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 7fd4fd65b48c199527d9172b7cea89010c962f5b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905880"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261032"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>建立和設定自我裝載整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的資料整合功能。 如需 IR 的詳細資訊，請參閱[整合執行階段概觀](concepts-integration-runtime.md)。
@@ -39,7 +39,9 @@ ms.locfileid: "58905880"
 3. 擷取驗證金鑰，並使用該金鑰註冊自我裝載整合執行階段。 以下是 PowerShell 範例︰
 
     ```powershell
-    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+
+    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
+
     ```
 
 ## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template-automation"></a>使用 Azure Resource Manager 範本 (自動化) 在 Azure VM 上設定自我裝載 IR
@@ -110,7 +112,7 @@ ms.locfileid: "58905880"
 
 
 ## <a name="high-availability-and-scalability"></a>高可用性和延展性
-自我裝載的整合執行階段可以與多部內部部署電腦相關聯。 這些電腦稱為節點。 一個自我裝載整合執行階段最多可與四個節點建立關聯。 讓邏輯閘道擁有多個節點 (安裝了閘道的內部部署機器) 的優點如下：
+自我裝載的整合執行階段可以與多個內部部署機器或在 Azure 中的虛擬機器相關聯。 這些電腦稱為節點。 一個自我裝載整合執行階段最多可與四個節點建立關聯。 讓邏輯閘道擁有多個節點 (安裝了閘道的內部部署機器) 的優點如下：
 * 自我裝載整合執行階段最高可與四個節點建立關聯，提供高可用性並確保持續性，如此一來它就不再是您的巨量資料解決方案或 Azure Data Factory 雲端資料整合的單一失敗點。
 * 提升在內部部署和雲端資料存放區之間移動資料時的效能和輸送量。 如需詳細資訊，請參閱[效能比較](copy-activity-performance.md)。
 

@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/11/2018
+ms.date: 04/01/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 37fad0769753f462859809ff8600f5b15c7eaa1f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: a43ad92181415593b309b9fafb20f9934a997924
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437504"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805341"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>開始監視 ASP.NET Web 應用程式
 
@@ -61,21 +61,21 @@ Application Insights 會為您的應用程式收集遙測資料，不論其執�
 
 您現在可以在 Azure 入口網站中開啟 Application Insights 以檢視有關執行中應用程式的各種詳細資料。
 
-1. 在方案總管中以滑鼠右鍵按一下 [連線的服務 Application Insights] 資料夾，然後按一下 [開啟 Application Insights 入口網站]。  您可以看到有關您的應用程式的某些資訊和各種選項。
+1. 在方案總管中展開 [連線的服務] 資料夾 (雲端和加號圖示)，然後以滑鼠右鍵按一下 [Application Insights] 資料夾，並按一下 [開啟 Application Insights 入口網站]。  您可以看到有關您的應用程式的某些資訊和各種選項。
 
-    ![應用程式對應](media/quick-monitor-portal/overview-001.png)
+    ![應用程式對應](media/quick-monitor-portal/4overview.png)
 
 2. 按一下 [應用程式對應]，取得應用程式元件之間相依性關聯性的視覺化配置。  每個元件會顯示負載、效能、失敗和警示等 KPI。
 
-    ![應用程式對應](media/quick-monitor-portal/application-map-001.png)
+    ![應用程式對應](media/quick-monitor-portal/5appmap.png)
 
-3. 按一下其中一個應用程式元件的 [應用程式對應]![](media/quick-monitor-portal/app-analytics-icon.png) 上的 [應用程式分析] 圖示。  這樣會開啟 **Application Insights Analytics**，它提供一種豐富查詢語言，可用於分析 Application Insights 收集的所有資料。  此案例中會為您產生查詢，可將要求計數以圖表呈現。  您可以撰寫自己的查詢來分析其他資料。
+3. 按一下其中一個應用程式元件的 [應用程式分析] 圖示 ![應用程式對應](media/quick-monitor-portal/app-analytics-icon.png) **在 Analytics 中檢視**。 這樣會開啟 **Application Insights Analytics**，它提供一種豐富查詢語言，可用於分析 Application Insights 收集的所有資料。  此案例中會為您產生查詢，可將要求計數以圖表呈現。 您可以撰寫自己的查詢來分析其他資料。
 
-    ![分析](media/quick-monitor-portal/analytics.png)
+    ![分析](media/quick-monitor-portal/6viewanalytics.png)
 
-4. 返回 [概觀] 頁面，然後按一下 [即時資料流]。  這會顯示有關您的應用程式的即時統計資料，因為它在執行中。  這包含連入要求數量、這些要求的持續時間及發生的任何失敗之類的資訊。  您也可以檢查重要效能計量，例如處理器和記憶體。
+4. 在 [調查] 底下的左邊按一下 [即時計量資料流]。 這會顯示有關您的應用程式的即時統計資料，因為它在執行中。 這包含連入要求數量、這些要求的持續時間及發生的任何失敗之類的資訊。 您也可以檢查重要效能計量，例如處理器和記憶體。
 
-    ![即時資料流](media/quick-monitor-portal/live-stream.png)
+    ![即時資料流](media/quick-monitor-portal/7livemetrics.png)
 
     如果準備好要在 Azure 中裝載您的應用程式，您現在可以將它發佈。 請遵循[建立 ASP.NET Web 應用程式快速入門](../../app-service/app-service-web-get-started-dotnet.md#update-the-app-and-redeploy)中所述的步驟。
 
@@ -105,6 +105,11 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 ## <a name="video"></a>影片
 
 * 關於如何[使用 .NET 應用程式從零開始設定 Application Insights](https://www.youtube.com/watch?v=blnGAVgMAfA) 的外部逐步說明影片。
+
+## <a name="clean-up-resources"></a>清除資源
+當您完成測試時，您可以刪除資源群組和所有相關資源。 若要這樣做，請依照下列步驟執行。
+1. 從 Azure 入口網站的左側功能表中，依序按一下 [資源群組] 和 [myResourceGroup]。
+2. 在資源群組頁面上，按一下 [刪除]，在文字方塊中輸入 **myResourceGroup**，然後按一下 [刪除]。
 
 ## <a name="next-steps"></a>後續步驟
 在這個快速入門中，您已啟用您的應用程式，供 Azure Application Insights 進行監視。  繼續進行教學課程，以了解如何使用它來監視統計資料和偵測應用程式中的問題。

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: b975b34c638db812d3809bf50d1eccbb651028b5
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: e3a27ab15c72289dd28e31d832b81407a66dc754
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448921"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256782"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>使用 Azure Data Factory 將資料從 Azure Data Lake Storage Gen1 複製到 Gen2
 
@@ -34,11 +34,11 @@ Azure Data Factory 提供可向外延展的受控資料移動解決方案。 由
 
 * Azure 訂用帳戶：如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
 * 內有資料的 Azure Data Lake Storage Gen1 帳戶。
-* 啟用 Data Lake Storage Gen2 的 Azure 儲存體帳戶：如果您沒有儲存體帳戶，請按一下[這裡](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)來建立帳戶。
+* 啟用 Data Lake Storage Gen2 的 Azure 儲存體帳戶：如果您沒有儲存體帳戶[建立帳戶](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)。
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
-1. 在左側功能表中，選取**建立資源** > **資料 + 分析** > **Data Factory**:
+1. 在左側功能表上，選取 [建立資源] > [資料 + 分析] > [資料處理站]：
    
    ![在 [新增] 窗格中選取資料處理站](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -104,7 +104,7 @@ Azure Data Factory 提供可向外延展的受控資料移動解決方案。 由
    
    ![指定 Azure Data Lake Storage Gen2 帳戶](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 
-9. 在 [選擇輸出檔案或資料夾] 頁面中，輸入 [copyfromadlsgen1] 作為輸出資料夾名稱，然後選取 [下一步]： 
+9. 在 [**選擇輸出檔案或資料夾**頁面上，輸入**copyfromadlsgen1**作為輸出資料夾名稱，然後選取**下一步]**。 ADF 會建立子資料夾與對應的 ADLS Gen2 檔案系統複製期間，如果不存在。
 
     ![指定輸出資料夾](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-path.png)
 
@@ -140,4 +140,4 @@ Azure Data Factory 提供可向外延展的受控資料移動解決方案。 由
 ## <a name="next-steps"></a>後續步驟
 
 * [複製活動概觀](copy-activity-overview.md)
-* [Azure Data Lake Storage Gen2 連接器](connector-azure-data-lake-storage.md)
+* [Azure Data Lake 儲存體 Gen2 連接器](connector-azure-data-lake-storage.md)

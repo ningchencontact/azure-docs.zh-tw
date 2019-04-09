@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 03/29/2019
-ms.openlocfilehash: 7fc69c3d0b6820db2227b241d63e4304152d99bf
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.date: 04/08/2019
+ms.openlocfilehash: 7c01e8132cc8fe8fcc01e468973a273dbfcfad64
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664670"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261049"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL Database 安全性功能的概觀
 
@@ -157,7 +157,7 @@ SQL Database 動態資料遮罩可藉由遮罩處理，使不具權限的使用�
 
 ### <a name="compliance"></a>法規遵循
 
-除了上述可協助您的應用程式符合各種安全性需求的特色和功能之外，Azure SQL Database 也定期參與稽核，並且經過認證符合許多法規標準。 如需詳細資訊，請參閱 [Microsoft Azure 信任中心](https://azure.microsoft.com/support/trust-center/)，您可以在當中找到 [SQL Database 法規認證](https://www.microsoft.com/trustcenter/compliance/complianceofferings)的最新清單。
+除了上述可協助您的應用程式符合各種安全性需求的特色和功能之外，Azure SQL Database 也定期參與稽核，並且經過認證符合許多法規標準。 如需詳細資訊，請參閱 < [Microsoft Azure 信任中心](https://azure.microsoft.com/support/trust-center/compliance/)您可以在此找到最新的 SQL Database 的合規性認證清單。
 
 ## <a name="next-steps"></a>後續步驟
 

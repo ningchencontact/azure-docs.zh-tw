@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8c5cb04c17e508409e67f0441daee4bc44c29d5
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 3322e49c6fdc590b785806f67b5081700bf8b37b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285001"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264891"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>將 Azure 訂用帳戶關聯或新增至您的 Azure Active Directory 租用戶
 
@@ -30,6 +30,8 @@ Azure 訂用帳戶已與 Azure Active Directory (Azure AD)，這表示訂用帳�
 
 > [!Important]
 > 當您將建立關聯到另一個目錄，可使用指派的角色使用者的訂用帳戶[角色型存取控制 (RBAC)](../../role-based-access-control/role-assignments-portal.md)會失去其存取權。 傳統訂用帳戶系統管理員 （服務系統管理員和共同管理員） 也將無法存取。
+> 
+> 此外，將您的 Azure Kubernetes Service (AKS) 叢集移至不同的訂用帳戶，或將叢集擁有的訂用帳戶移至新的租用戶中，會導致叢集失去由於遺失的角色指派和服務主體權限的功能。 如需 AKS 的詳細資訊，請參閱[Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/)。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -67,15 +69,16 @@ Azure 訂用帳戶已與 Azure Active Directory (Azure AD)，這表示訂用帳�
 
     ![「 範例資訊的目錄切換器頁面](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
-變更訂用帳戶目錄是服務層級作業，因此不會影響訂用帳戶帳單擁有權。 帳戶系統管理員仍然可以從[帳戶中心](https://account.azure.com/subscriptions)變更服務系統管理員。 若要刪除原始目錄，您必須將訂用帳戶訂單擁有權傳輸到新的帳戶系統管理員。若要深入了解如何移轉帳單擁有權，請參閱[將 Azure 訂用帳戶的擁有權轉移轉至另一個帳戶](../../billing/billing-subscription-transfer.md)。 
+變更訂用帳戶目錄是服務層級作業，因此不會影響訂用帳戶帳單擁有權。 帳戶系統管理員仍然可以從[帳戶中心](https://account.azure.com/subscriptions)變更服務系統管理員。 若要刪除原始目錄，您必須將訂用帳戶訂單擁有權傳輸到新的帳戶系統管理員。若要深入了解如何移轉帳單擁有權，請參閱[將 Azure 訂用帳戶的擁有權轉移轉至另一個帳戶](../../billing/billing-subscription-transfer.md)。
 
 ## <a name="post-association-steps"></a>Post 關聯步驟
-
 您將建立關聯到另一個目錄的訂用帳戶之後，可能會有額外的步驟，您必須執行才能繼續作業。
 
 1. 如果您有任何金鑰保存庫，您必須變更金鑰保存庫租用戶識別碼。 如需詳細資訊，請參閱 <<c0> [ 訂用帳戶移動之後變更金鑰保存庫租用戶識別碼](../../key-vault/key-vault-subscription-move-fix.md)。
 
-1. 如果您已註冊 Azure Stack 中使用此訂用帳戶，您必須重新註冊。 如需詳細資訊，請參閱 <<c0> [ 向 Azure 註冊 Azure Stack](../../azure-stack/azure-stack-registration.md)。
+2. 如果您已註冊 Azure Stack 中使用此訂用帳戶，您必須重新註冊。 如需詳細資訊，請參閱 <<c0> [ 向 Azure 註冊 Azure Stack](../../azure-stack/azure-stack-registration.md)。
+
+
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 96ac8522f94a3555fe63575baca8bbfbabc272d9
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: d25fbfc058337c7a96414cf41f321e039ebc2258
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570448"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801833"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>使用 Java 和 Maven 建立您的第一個函式
 
@@ -49,7 +49,10 @@ mvn archetype:generate \
     -DarchetypeArtifactId=azure-functions-archetype 
 ```
 
-### <a name="windows"></a>Windows
+> [!NOTE]
+> 如果您遇到執行命令的問題，請查看使用哪個 `maven-archetype-plugin` 版本。 因為您在不含 `.pom` 檔案的空目錄中執行命令，如果您從舊版升級 Maven，則可能會嘗試使用來自 `~/.m2/repository/org/apache/maven/plugins/maven-archetype-plugin` 的舊版外掛程式。 若是如此，請嘗試刪除 `maven-archetype-plugin` 目錄，然後重新執行命令。
+
+### <a name="windows"></a> Windows
 
 ```powershell
 mvn archetype:generate `
@@ -150,6 +153,9 @@ az login
 ```
 
 使用 `azure-functions:deploy` Maven 目標將您的程式碼部署到新的函式應用程式。
+
+> [!NOTE]
+> 當您使用 Visual Studio Code 來部署函式應用程式時，請記得選擇非免費的訂用帳戶，否則您會收到錯誤。 您可以在 IDE 左側查看您的訂用帳戶。
 
 ```
 mvn azure-functions:deploy

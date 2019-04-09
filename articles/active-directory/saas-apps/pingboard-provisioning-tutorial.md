@@ -18,11 +18,11 @@ ms.author: asmalser
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d2ab7f58c3061044583baf9db73e193966d7d4eb
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59058370"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280327"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>教學課程：設定 Pingboard 來自動佈建使用者
 

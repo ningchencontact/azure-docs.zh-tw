@@ -7,20 +7,22 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/08/2019
+ms.date: 03/25/2019
 ms.author: dobett
-ms.openlocfilehash: befef76e19640683ba3219374702a049bdecb43b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32e2d3f9e8bbd63944188355774558ca5ea7bd9d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58184167"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792496"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>快速入門：試用雲端式遠端監視解決方案
 
 本快速入門說明如何部署 Azure IoT 遠端監視解決方案加速器。 在此雲端式解決方案中，您會使用 [儀表板] 頁面在地圖上以視覺化方式呈現模擬裝置，以及使用 [維護] 頁面以回應模擬冷卻器裝置的壓力警示。 您可以使用這個解決方案加速器，作為您自己實作的起點，或是作為學習工具。
 
 初始部署會針對名為 Contoso 的公司設定解決方案加速器。 身為 Contoso 的操作員，您管理了一組部署在不同實體環境的不同裝置類型 (例如冷卻器)。 冷卻器裝置會將溫度、溼度和壓力遙測資料傳送給遠端監視解決方案加速器。
+
+本快速入門會部署**基本**版本的解決方案加速器來進行測試和示範，以將成本最小化。 如需所能部署不同版本的詳細資訊，請參閱[基本和標準部署](iot-accelerators-remote-monitoring-deploy-cli.md#basic-and-standard-deployments)。
 
 若要完成本快速入門，您需要有效的 Azure 訂用帳戶。
 
@@ -36,9 +38,7 @@ ms.locfileid: "58184167"
 
 ![選擇遠端監視](./media/quickstart-remote-monitoring-deploy/remotemonitoring.png)
 
-在 [建立遠端監視解決方案] 頁面上，選取 [基本] 部署。 如果您要部署解決方案加速器來了解其運作方式或是執行示範，請選擇 [基本] 選項來將成本降至最低。
-
-選擇 [.NET] 作為語言。 Java 和 .NET 實作的功能相同。
+選擇 [C# 微服務] 作為 [部署選項]。 Java 和 C# 實作的功能相同。
 
 為遠端監視解決方案加速器輸入唯一的 [解決方案名稱]。 本快速入門中，我們的名稱是 **contoso-rm**。
 
@@ -111,7 +111,7 @@ ms.locfileid: "58184167"
 
 在 [作業] 面板中，選擇 [執行方法]，然後選擇 [EmergencyValveRelease] 方法。 新增作業名稱 **ChillerPressureRelease**，然後按一下 [套用]。 這些設定會為您建立立即執行的作業。
 
-若要檢視作業狀態，請返回 [維護] 頁面，然後在 [作業] 檢視中檢視作業清單。 您可能需要等候幾秒鐘的時間才能看到作業開始執行，從而釋放冷卻器上的閥門壓力：
+若要檢視作業狀態，請返回 [維護] 頁面，然後在 [作業] 檢視中檢視作業清單。 您可能需要等候幾秒鐘的時間才能看到作業開始執行：
 
 [![[作業] 檢視中的作業狀態](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-expanded.png#lightbox)
 

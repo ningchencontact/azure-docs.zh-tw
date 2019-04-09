@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77d2312c5a20aa6b90586d47ee120593e807295e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 93990a11860e8b8181bee0ba67351b095d940878
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893572"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879993"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ultipro"></a>教學課程：Azure Active Directory 與 UltiPro 整合
 
@@ -111,7 +111,7 @@ UltiPro 與 Azure AD 整合提供下列優點：
     |--|
     | `https://<companyname>.ultipro.com/`|
     | `https://<companyname>.ultiproworkplace.com?cpi=AZUREADISSSUERURL`|
-    | ` https://<companyname>.ultipro.ca`|
+    | `https://<companyname>.ultipro.ca`|
     
     b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
 

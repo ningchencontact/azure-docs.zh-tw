@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: e8888a0505a3a38d2844f82c0f7fff255d05353d
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 4f061dc66829c49fba6722215dc36ed2ce6464ee
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58261560"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58919181"
 ---
 在 Azure Cloud Shell 中，使用 [`az webapp deployment user set`](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) 命令來設定部署認證。 需要這個部署使用者，才能將 FTP 和本機 Git 部署至 Web 應用程式。 使用者名稱和密碼是帳戶等級。 _它們與您的 Azure 訂用帳戶認證不同。_
 
@@ -23,7 +23,7 @@ ms.locfileid: "58261560"
 az webapp deployment user set --user-name <username> --password <password>
 ```
 
-您會獲得一個密碼顯示為 `null` 的 JSON 輸出。 如果您收到 `'Conflict'. Details: 409` 錯誤，請變更使用者名稱。 如果您收到 ` 'Bad Request'. Details: 400` 錯誤，請使用更強的密碼。
+您會獲得一個密碼顯示為 `null` 的 JSON 輸出。 如果您收到 `'Conflict'. Details: 409` 錯誤，請變更使用者名稱。 如果您收到 ` 'Bad Request'. Details: 400` 錯誤，請使用更強的密碼。 本機 Git 推送的部署使用者名稱不能包含 '@' 符號。
 
 您只需設定此部署使用者一次。 您可以將它用於所有 Azure 部署。
 

@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 04/03/2019
 ms.author: danlep
-ms.openlocfilehash: 0a4d9f355a5cdc92bab4491c08677042c42986cb
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 15b67218b129b5e017e67651587c389af412d7a1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517924"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268399"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Azure container registry 使用 Azure 虛擬網路或防火牆規則限制存取
 
@@ -29,6 +29,8 @@ ms.locfileid: "58517924"
 * 只有**Premium**容器登錄庫可以使用網路存取規則來設定。 如需登錄的服務層的詳細資訊，請參閱[Azure Container Registry Sku](container-registry-skus.md)。 
 
 * 只有[Azure Kubernetes Service](../aks/intro-kubernetes.md)叢集或 Azure[虛擬機器](../virtual-machines/linux/overview.md)可以做為主機用來存取虛擬網路中的容器登錄庫。 *目前不支援其他 Azure 服務，包括 Azure 容器執行個體。*
+
+* [ACR 工作](container-registry-tasks-overview.md)作業目前不支援在容器登錄部署至虛擬網路。
 
 * 每個登錄最多 100 個虛擬網路規則，可支援。
 

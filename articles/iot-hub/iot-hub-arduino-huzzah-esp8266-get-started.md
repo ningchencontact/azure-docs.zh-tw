@@ -1,20 +1,20 @@
 ---
 title: ESP8266 連線到雲端 - 將 Feather HUZZAH ESP8266 連線到 Azure IoT 中樞 | Microsoft Docs
 description: 了解如何設定及連線 Adafruit Feather HUZZAH ESP8266 和 Azure IoT 中樞，在本教學課程中將資料傳送到 Azure 雲端平台。
-author: rangv
-manager: nasing
+author: wesmc7777
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
-ms.author: rangv
-ms.openlocfilehash: 82e31c498c6148454a5790a6eb4b82e3a2300a92
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.author: wesmc
+ms.openlocfilehash: 928860cd9b6493200ed8a14b7654f6a6f32c45d5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847054"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259383"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>將 Adafruit Feather HUZZAH ESP8266 連線到位於雲端的 Azure IoT 中樞
 
@@ -122,13 +122,13 @@ ms.locfileid: "58847054"
 
    在輸出中，請注意 `uucp` 或 `dialout` 是 USB 連接埠的群組擁有者名稱。
 
-2. 运行以下命令，将用户添加到该组中：
+2. 執行下列命令，將使用者新增至群組︰
 
    ```bash
    sudo usermod -a -G <group-owner-name> <username>
    ```
 
-   `<group-owner-name>` 是您在上一個步驟中取得的群組擁有者名稱。 `<username>` 是 Ubuntu 使用者名稱。
+   `<group-owner-name>` 這是您在上一個步驟中取得群組擁有者名稱。 `<username>` 是 Ubuntu 使用者名稱。
 
 3. 登出 Ubuntu，然後再次登入，以顯示變更。
 

@@ -1,18 +1,18 @@
 ---
-title: 相應放大 Azure 資料總管群集，來滿足多變的需求
+title: 相應放大 Azure 資料總管叢集
 description: 本文說明相應放大及相應的步驟在 Azure 資料總管叢集中根據變更的需求。
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 02/18/2019
-ms.openlocfilehash: ab4ced6695e6066098dd5ff7348528deedfc0e1b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/05/2019
+ms.openlocfilehash: 24bbddd28943adc929fbaea456eeae8165db290c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59044229"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261593"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>管理叢集相應放大以因應不斷變化的需求
 
@@ -22,21 +22,23 @@ ms.locfileid: "59044229"
 
 本文說明如何管理叢集向外延展，也就是自動調整規模。 自動調整可讓您相應放大自動根據預先定義的規則與排程的執行個體計數。 這篇文章中所述，請在 Azure 入口網站中，指定您的自動調整規模設定，為您的叢集。
 
-請移至您的叢集。 底下**設定**，選取**相應放大**。在 [設定] 下方，選取 [啟用自動調整]。
+## <a name="steps-to-configure-autoscale"></a>若要設定自動調整規模的步驟
 
-![啟用自動調整](media/manage-cluster-scaling/enable-autoscale.png)
+在 Azure 入口網站中，移至 資料總管叢集資源。 底下**設定**標題之下，選取**相應放大**。在 **設定**索引標籤上，選取**啟用自動調整規模**。
 
-下圖顯示接下來數個步驟的流程。 更多詳細資料如下的圖形。
+   ![啟用自動調整](media/manage-cluster-scaling/enable-autoscale.png)
 
-![調整規則](media/manage-cluster-scaling/scale-rule.png)
+下圖顯示接下來數個步驟的流程。 更多詳細資料，請依照下列圖形。
 
-1. 在 **自動調整規模設定名稱**方塊中，提供一個名稱，例如*向外延展： 快取使用量*。
+1. 在 **自動調整規模設定名稱**方塊中，提供一個名稱，例如*向外延展： 快取使用量*。 
 
-1. 針對**縮放模式**，選取**依據計量調整規模**。 此模式可提供動態調整。 您也可以選取**調整為特定執行個體計數**。
+   ![調整規則](media/manage-cluster-scaling/scale-rule.png)
 
-1. 選取  **+ 加入規則**。
+2. 針對**縮放模式**，選取**依據計量調整規模**。 此模式可提供動態調整。 您也可以選取**調整為特定執行個體計數**。
 
-1. 在右側的 [調整規則] 區段，提供每個設定的值。
+3. 選取  **+ 加入規則**。
+
+4. 在右側的 [調整規則] 區段，提供每個設定的值。
 
     **準則**
 
@@ -59,9 +61,9 @@ ms.locfileid: "59044229"
     | **緩和時間 (分鐘)** | 選擇調整大小作業間適當的時間間隔。 請從預設的五分鐘開始。 |
     |  |  |
 
-1. 選取 [新增] 。
+5. 選取 [新增] 。
 
-1. 在左側的 [執行個體限制] 中，提供每個設定的值。
+6. 在左側的 [執行個體限制] 中，提供每個設定的值。
 
     | 設定 | 描述和值 |
     | --- | --- |
@@ -70,10 +72,14 @@ ms.locfileid: "59044229"
     | **預設值** | 預設執行個體數目。 如果有讀取資源計量的問題，則會使用此設定。 |
     |  |  |
 
-1. 選取 [ **儲存**]。
+7. 選取 [ **儲存**]。
 
 您現在已為您的 Azure 資料總管叢集設定相應放大作業。 為相應縮小作業新增另一條規則。 此設定可讓您的叢集調整會根據您指定的計量，以動態方式。
 
 您也可以[管理叢集相應增加](manage-cluster-scale-up.md)適當調整大小的叢集。
 
 如果您需要叢集調整問題，協助[開啟支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)在 Azure 入口網站中。
+
+## <a name="next-steps"></a>後續步驟
+
+[監視 Azure 資料總管效能、 健全狀況和使用量計量](using-metrics.md)

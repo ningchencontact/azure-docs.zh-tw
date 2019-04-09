@@ -1,6 +1,6 @@
 ---
-title: Azure 監視器計量瀏覽器
-description: 了解 Azure 監視器計量瀏覽器中的新功能
+title: Azure 計量瀏覽器的進階的功能
+description: 深入了解 Azure 監視器計量瀏覽器進階功能
 author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,51 +8,46 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 08ae74bcd9ee0a7cf5e0fb6d38758b1429c39145
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 67e4281b24a7489cf202d82bdddbe99992aac095
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916337"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271674"
 ---
-# <a name="azure-monitor-metrics-explorer"></a>Azure 監視器計量瀏覽器
+# <a name="advanced-features-of-azure-metrics-explorer"></a>Azure 計量瀏覽器的進階的功能
 
-Azure 監視器計量瀏覽器是 Microsoft Azure 入口網站的一個元件，可用來繪製圖表、以視覺方式串連趨勢，以及調查計量值中的突增值與突降值。 計量瀏覽器是調查由 Azure 裝載或由 Azure 監視服務監視之應用程式與基礎結構中各種效能與可用性問題的起點。
+> [!NOTE]
+> 本文假設您已熟悉基本的計量瀏覽器的功能。 如果您是新的使用者，而且想要了解如何建立您第一次的計量圖表，請參閱[開始使用 Azure 計量瀏覽器](metrics-getting-started.md)。
 
 ## <a name="metrics-in-azure"></a>Azure 中的計量
 
 [Azure 監視器](data-platform-metrics.md)中的計量是隨時間收集並儲存的一系列度量與計數值。 計量包括標準 (或稱為「平台」) 計量與自訂計量。 標準計量是由 Azure 平台本身提供給您使用。 標準計量反映您 Azure 資源的健康情況與使用情形統計資料。 而自訂計量時，會傳送至 Azure 上，使用的應用程式所[自訂事件和度量的 Application Insights API](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics)， [Windows Azure 診斷 (WAD) extension](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview)，或由[Azure監視 REST API](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api)。
 
-## <a name="create-a-new-chart"></a>建立新的頻道
+## <a name="create-views-with-multiple-metrics-and-charts"></a>建立具有多個度量和圖表的檢視
 
-1. 開啟 Azure 入口網站
-2. 瀏覽至新的 [監視器] 索引標籤，然後選取 [計量]。
+您可以建立圖表的繪製多個計量行或一次顯示多個度量的圖表。 這項功能可讓您：
 
-   ![計量影像](./media/metrics-charts/00001.png)
+- 在相同的圖形，請參閱如何一個值上相互關聯相關的度量資訊與另一個
+- 顯示具有不同非常接近的測量單位的度量
+- 以視覺化方式彙總並比較多個資源的計量
 
-3. 系統將會自動為您開啟計量選取器。 從清單選擇資源以檢視其關聯計量。 清單中只會顯示具有計量的資源。
+例如，如果您有 5 個儲存體帳戶，而且您想要知道多少總空間用完其間，您可以建立 （堆疊） 區域圖會顯示所有值的總和與個人在特定時間點的時間。
 
-   ![計量影像](./media/metrics-charts/00002.png)
+### <a name="multiple-metrics-on-the-same-chart"></a>在相同圖表上的多個計量
 
-   > [!NOTE]
-   >若您有多個 Azure 訂用帳戶，計量瀏覽器會提取 [入口網站設定] > [依訂用帳戶篩選] 清單中選取之所有訂用帳戶的資源。 若要變更它，請按一下畫面頂端的入口網站設定齒輪圖示，然後選取您要使用的訂用帳戶。
-
-4. 針對某些資源類型 (「儲存體帳戶」與「虛擬機器」)，您必須先選擇 [命名空間] 再選取計量。 每個命名空間都具有自己的計量組 (只與此命名空間相關，未與其他命名空間相關)。
-
-   例如，每個 Azure 儲存體都有子服務「Blob」、「檔案」、「佇列」與「資料表」(這些都是儲存體帳戶的一部分) 的計量。 不過，「佇列訊息計數」計量本質上即適用於「佇列」子服務，而非任何其他儲存體帳戶子服務。
-
-   ![計量影像](./media/metrics-charts/00003.png)
-
-5. 從清單選取計量。 若您知道您要尋找之計量的部分名稱，您可以開始輸入以查看已篩選的可用計量清單：
-
-   ![計量影像](./media/metrics-charts/00004.png)
-
-6. 選取計量之後，圖表將會以所選計量的預設彙總來呈現。 此時，您只能按一下計量選取器以外的位置以將它關閉。 您也可以將圖表切換為不同的彙總。 針對某些計量，切換彙總可讓您選擇要在圖表上看到的值。 例如，您可以在平均、最小值與最大值之間切換。 
-
-7. 藉由按一下 [新增計量] 並重複執行步驟 3-6，即可在相同圖表上新增更多計量。
+首先，[建立新的圖表](metrics-getting-started.md#create-your-first-metric-chart)。 按一下 **新增計量**重複步驟，在相同圖表上新增其他計量。
 
    > [!NOTE]
    > 您一般不會想要有具有不同計量單位的計量 (例如「毫秒」與 “KB”) 或其刻度在單一圖表上會呈現大幅差異的計量。 如果是這樣，您應該考慮使用多個圖表。 按一下 [新增圖表] 按鈕以在計量瀏覽器中建立多個圖表。
+
+### <a name="multiple-charts"></a>多個圖表
+
+按一下 **新增圖表**，並使用不同的計量建立另一個圖表。
+
+### <a name="order-or-delete-multiple-charts"></a>排列或刪除多個圖表
+
+若要排序或刪除多個圖表，請按一下省略符號 ( **...** ) 符號以開啟 [圖表] 功能表，然後選擇適當的功能表項目**向上移動**，**下移**，或**刪除**。
 
 ## <a name="apply-filters-to-charts"></a>將篩選條件套用至圖表
 
@@ -76,27 +71,7 @@ Azure 監視器計量瀏覽器是 Microsoft Azure 入口網站的一個元件，
 
 5. 您可以重複步驟 1-4 以將多個篩選器套用到相同的圖表。
 
-## <a name="multiple-metrics-and-charts"></a>多個度量和圖表
 
-您也可以建立圖表的繪製多個計量，或一次顯示多個度量的圖表。 這項功能可讓您：
-
-- 在相同的圖形，請參閱如何一個值上相互關聯相關的度量資訊與另一個
-- 顯示具有不同非常接近的測量單位的度量
-- 以視覺化方式彙總並比較多個資源的計量
-
-例如，如果您有 5 個儲存體帳戶，而且您想要知道多少總空間用完其間，您可以建立 （堆疊） 區域圖會顯示所有值的總和與個人在特定時間點的時間。
-
-### <a name="multiple-metrics-on-a-chart"></a>在圖表上的多個計量
-
-首先，[建立新的圖表](#create-a-new-chart)。 按一下 **新增計量**重複步驟，在相同圖表上新增其他計量。
-
-### <a name="multiple-charts"></a>多個圖表
-
-按一下 **新增圖表**，並使用不同的計量建立另一個圖表。
-
-### <a name="order-or-delete-multiple-charts"></a>排列或刪除多個圖表
-
-若要排序或刪除多個圖表，請按一下省略符號 ( **...** ) 符號以開啟 [圖表] 功能表，然後選擇適當的功能表項目**向上移動**，**下移**，或**刪除**。
 
 ## <a name="apply-splitting-to-a-chart"></a>套用至圖表分割
 

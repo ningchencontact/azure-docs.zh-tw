@@ -12,28 +12,31 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 07/18/2018
+ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa21b1054fa6860a8acc5d6971f75e1d74c889f7
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 2a3e7373a8b0354a3d08debf944f2f77f1609382
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193750"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267033"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect：從舊版升級到最新版本
 本主題說明各種可用於將 Azure Active Directory (Azure AD) Connect 安裝升級到最新版本的方法。 我們建議您讓自己的 Azure AD Connect 保持在最新版本。 當您進行大幅組態變更時，也會使用[變換移轉](#swing-migration)一節中的步驟。
 
-如果要从 DirSync 升级，请参阅[从 Azure AD 同步工具 (DirSync) 升级](how-to-dirsync-upgrade-get-started.md)。
+>[!NOTE]
+> 它目前支援從任何版本的 Azure AD Connect 升級至最新版本。 不支援就地升級目錄同步的 ADSync，因此需要變換移轉。  如果您想要從 DirSync 升級，請參閱[從 Azure AD 同步作業工具 (DirSync) 升級](how-to-dirsync-upgrade-get-started.md)或[變換移轉](#swing-migration)一節。  </br>在實務上，在極舊的版本上的客戶可能會遇到不是直接與 Azure AD Connect 相關的問題。 已在幾年來，生產環境中的伺服器通常已套用至它們的數個修補程式，並非所有版本都可以負責。  一般而言，12 至 18 個月內尚未升級的客戶應考慮的迴旋升級而因為這是最保守，也至少風險的選項。
+
+如果您想要從 DirSync 升級，請改為參閱[從 Azure AD 同步作業工具 (DirSync) 升級](how-to-dirsync-upgrade-get-started.md)。
 
 您可以使用幾種不同的策略來升級 Azure AD Connect。
 
 | 方法 | 描述 |
 | --- | --- |
 | [自動升級](how-to-connect-install-automatic-upgrade.md) |對於使用快速安裝的客戶，這是最簡單的方法。 |
-| [就地升级](#in-place-upgrade) |如果您只有一台伺服器，您可以在該伺服器上就地升級安裝。 |
+| [就地升級](#in-place-upgrade) |如果您只有一台伺服器，您可以在該伺服器上就地升級安裝。 |
 | [變換移轉](#swing-migration) |如果您有兩台伺服器，可以將其中一台升級成新的版本或組態，然後在您準備好時變更作用中的伺服器。 |
 
 如需權限資訊，請參閱[升級所需的權限](reference-connect-accounts-permissions.md#upgrade)。
@@ -105,7 +108,7 @@ ms.locfileid: "57193750"
 
    ![DisableFullSyncAfterUpgrade](./media/how-to-upgrade-previous-version/disablefullsync01.png)
 
-2. 升級完成之後，執行下列 Cmdlet 來找出已新增哪些覆寫：`Get-ADSyncSchedulerConnectorOverride | fl`
+2. 升級完成之後，執行下列 cmdlet 來找出已新增哪些覆寫： `Get-ADSyncSchedulerConnectorOverride | fl`
 
    >[!NOTE]
    > 覆寫是連接器專屬。 在下列範例中，「完整匯入」步驟和「完整同步處理」步驟已新增至內部部署 AD 連接器與 Azure AD 連接器。
@@ -114,7 +117,7 @@ ms.locfileid: "57193750"
 
 3. 記下現有已新增的覆寫。
    
-4. 若要在任意連接器上同時移除完整匯入和完整同步處理的覆寫，請執行下列 Cmdlet：`Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
+4. 若要移除完整匯入和完整同步處理在任意連接器上的覆寫，請執行下列 cmdlet: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
 
    若要移除所有連接器上的覆寫，請執行下列 PowerShell 指令碼：
 
@@ -125,12 +128,12 @@ ms.locfileid: "57193750"
    }
    ```
 
-5. 若要繼續排程器，請執行下列 Cmdlet：`Set-ADSyncScheduler -SyncCycleEnabled $true`
+5. 若要繼續排程器，請執行下列 cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
    >[!IMPORTANT]
    > 請記得儘早執行必要的同步處理步驟。 您可以使用 Synchronization Service Manager 來手動執行這些步驟，或使用 Set-ADSyncSchedulerConnectorOverride Cmdlet 將覆寫加回。
 
-若要在任意連接器上同時新增完整匯入和完整同步處理的覆寫，請執行下列 Cmdlet：`Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
+若要新增完整匯入和完整同步處理的覆寫在任意連接器上，執行下列 cmdlet:  `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
 ## <a name="troubleshooting"></a>疑難排解
 下一節包含遇到 Azure AD Connect 升級問題時，您可以使用的疑難排解和資訊。
@@ -141,7 +144,7 @@ ms.locfileid: "57193750"
 
 ![Error](./media/how-to-upgrade-previous-version/error1.png)
 
-因為識別碼為 b891884f-051e-4a83-95af-2544101c9083 的 Azure Active Directory 連接器不存在於目前的 Azure AD Connect 設定中，所以發生此錯誤。 若要確認情況就是這樣，請開啟 PowerShell 視窗，並執行 Cmdlet `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`
+因為識別碼為 b891884f-051e-4a83-95af-2544101c9083 的 Azure Active Directory 連接器不存在於目前的 Azure AD Connect 設定中，所以發生此錯誤。 若要確認此情況下，開啟 PowerShell 視窗，請執行 Cmdlet `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`
 
 ```
 PS C:\> Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083

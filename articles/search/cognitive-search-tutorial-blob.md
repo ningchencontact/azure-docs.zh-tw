@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: c888c134054f50bc8ab17d17524a4f89d5081dfc
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: f60b9002f939cbf4c3a0ecfb78b358598713ea1c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259613"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881614"
 ---
 # <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>教學課程：在 Azure 搜尋服務索引管線中呼叫認知服務 API (預覽)
 
@@ -129,9 +129,6 @@ api-key: [admin key]
   ![入口網站中的資料來源圖格](./media/cognitive-search-tutorial-blob/data-source-tile.png "入口網站中的資料來源圖格")
 
 如果發生 403 或 404 錯誤，請檢查要求建構：`api-version=2017-11-11-Preview` 位於端點上，`api-key` 應位於標頭中的 `Content-Type` 後面，且其值必須是適用於搜尋服務的值。 您可以在本教學課程的其餘步驟中重複使用該標頭。
-
-> [!TIP]
-> 在您執行多項工作之前，建議您於此時確認搜尋服務正在其中一個提供預覽功能的支援位置上執行：美國中南部或西歐。
 
 ## <a name="create-a-skillset"></a>建立技能集
 

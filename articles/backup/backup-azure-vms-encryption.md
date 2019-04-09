@@ -1,143 +1,164 @@
 ---
-title: 備份和還原已加密的 Azure Vm 使用 Azure 備份服務
-description: 本文討論使用「Azure 磁碟加密」加密之 VM 的備份與還原經驗。
+title: 備份和還原已加密的 Azure Vm 使用 Azure 備份
+description: 描述如何備份及還原與 Azure 備份服務的已加密的 Azure Vm。
 services: backup
 author: geetha
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/10/2018
+ms.date: 4/3/2019
 ms.author: geetha
-ms.openlocfilehash: 28126df0dfd9a03e93a76fa5071331603c4819a4
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
-ms.translationtype: MT
+ms.openlocfilehash: 99117c96f79dd7d0da388a0e793908f6ffb8ed27
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851029"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266438"
 ---
-# <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>使用 Azure 備份來備份及還原加密的虛擬機器
-本文討論使用 Azure 備份來備份和還原虛擬機器 (VM) 的步驟。 它也提供有關支援的案例、必要條件的詳細資料，以及的錯誤案例的疑難排解步驟。
+# <a name="back-up-and-restore-encrypted-azure-vm"></a>備份及還原加密的 Azure VM
 
-## <a name="supported-scenarios"></a>支援的案例
+這篇文章會說明如何備份及還原 Windows 或 Linux Azure 虛擬機器 (Vm)，以使用加密的磁碟[Azure 備份](backup-overview.md)服務。
 
- 只有使用 Azure Resource Manager 部署模型的 VM 支援備份及還原加密的 VM。 使用傳統部署模型的 VM 不支援。 使用 Azure 磁碟加密的 Windows 和 Linux VM 皆支援備份及還原加密的 VM。 磁碟加密使用 Windows 的業界標準 BitLocker 功能和 Linux 的 dm-crypt 功能來提供磁碟的加密。 下表列出了虛擬機器的加密類型和支援。
+如果您想要深入了解 Azure 備份的互動方式使用 Azure Vm 在開始之前，請檢閱這些資源：
 
-   |  | BEK + KEK VM | 僅限 BEK VM |
-   | --- | --- | --- |
-   | **非受控 VM**  | 是 | 是  |
-   | **受控 VM**  | 是 | 是  |
+- [檢閱](backup-architecture.md#architecture-direct-backup-of-azure-vms)Azure VM 備份架構。
+- [深入了解](backup-azure-vms-introduction.md)Azure VM 備份和 Azure 備份擴充功能。
 
-   > [!NOTE]
-   > Azure 備份支援使用獨立金鑰加密的 Vm。 目前不支援任何屬於用來加密 VM 之憑證的金鑰。
-   >
+## <a name="encryption-support"></a>加密支援
 
-## <a name="prerequisites"></a>必要條件
-* VM 是使用 [Azure 磁碟加密](../security/azure-security-disk-encryption.md)來加密。
+Azure 備份支援有加密其 OS/資料磁碟與 Azure 磁碟加密 (ADE) 的 Azure Vm 的備份。 ADE 使用 BitLocker 來加密 Windows Vm 的 dm-crypt 功能適用於 Linux Vm。 ADE 可與 Azure Key Vault 來管理磁碟加密金鑰和祕密整合。 Key Vault 金鑰加密金鑰 (Kek) 可用來新增額外的安全性，加密加密密碼寫入金鑰保存庫之前。
 
-* 已建立復原服務保存庫，並且藉由遵循[準備環境以便備份](backup-azure-arm-vms-prepare.md)中的步驟來設定儲存體複寫。
+Azure 備份可以備份和還原使用 ADE，而 Azure AD 應用程式的 Azure Vm 下, 表摘要說明。
 
-* 備份已獲得存取金鑰保存庫的權限，該保存庫包含已加密 VM 的金鑰和祕密。
+**VM 磁碟類型** | **ADE (BEK/dm crypt 的)** | **ADE 和 kek 加密**
+--- | --- | --- 
+**非受控** | 是 | 是
+**受控**  | 是 | 是
 
-## <a name="back-up-an-encrypted-vm"></a>備份加密的 VM
-使用下列步驟來設定備份目標、定義原則、設定項目和觸發備份。
+- 深入了解[ADE](../security/azure-security-disk-encryption-overview.md)， [Key Vault](../key-vault/key-vault-overview.md)，並[Kek](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/)。
+- 讀取[常見問題集](../security/azure-security-disk-encryption-faq.md)Azure VM 磁碟加密。
 
-### <a name="configure-backup"></a>設定備份
-1. 如果您已開啟復原服務保存庫，請繼續下一個步驟。 如果您並未開啟復原服務保存庫，但位於 Azure 入口網站中，請選取 [所有服務]。
 
-   a. 在資源清單中輸入 **復原服務**。
 
-   b. 當您開始輸入時，清單會根據您輸入的文字進行篩選。 當您看到 [復原服務保存庫] 時，請選取它。
+### <a name="limitations"></a>限制
 
-      ![復原服務保存庫](./media/backup-azure-vms-encryption/browse-to-rs-vaults.png) <br/>
+- 您可以備份及還原加密的 Vm 位於相同的訂用帳戶和區域內。
+- Azure 備份支援使用獨立金鑰加密的 Vm。 目前不支援任何金鑰，這是用來將 VM 加密的憑證的一部分。
+- 您可以備份及還原加密的 Vm 位於相同訂用帳戶和區域與復原服務備份保存庫中。
+- 加密的 VM 無法在檔案/資料夾層級復原。 您需要復原整個 VM 還原檔案和資料夾。
+- 當還原 VM，您不能使用[取代現有的 VM](backup-azure-arm-restore-vms.md#restore-options)已加密 Vm 的選項。 此選項只有在未加密的受控磁碟上執行。
 
-    c. 隨即會出現 [復原服務保存庫] 清單。 從清單中選取保存庫。
 
-     選取的保存庫儀表板隨即開啟。
-1. 從出現在保存庫下方的項目清單中，選取 [備份] 以開始備份加密 VM。
 
-      ![備份刀鋒視窗](./media/backup-azure-vms-encryption/select-backup.png)
-1. 在 [備份] 圖格中，選取 [備份目標]。
+
+## <a name="before-you-start"></a>開始之前
+
+開始之前，請執行下列作業：
+
+1. 請確定您有一或多個[Windows](../security/azure-security-disk-encryption-windows.md)或是[Linux](../security/azure-security-disk-encryption-linux.md) ADE Vm 已啟用。
+2. [請檢閱支援對照表](backup-support-matrix-iaas.md)Azure VM 備份
+3. [建立](backup-azure-arm-vms-prepare.md#create-a-vault)如果您沒有帳戶，復原服務備份保存庫。
+4. 如果您啟用已啟用備份的 Vm 的加密，您只需要提供備份，讓備份可以不中斷地繼續存取 Key Vault 的權限。 [了解更多](#provide-permissions)需指派這些權限。
+
+此外，有一些您可能需要在某些情況下執行的事項：
+
+- **在 VM 上安裝 VM 代理程式**:為機器上執行的 Azure VM 代理程式安裝擴充功能，以 Azure 備份來備份 Azure VM。 如果您的 VM 建立自 Azure marketplace 映像，代理程式已安裝並執行。 如果您建立自訂的 VM，或在內部部署機器移轉，您可能需要[手動安裝代理程式](backup-azure-arm-vms-prepare.md#install-the-vm-agent)。
+- **明確允許輸出存取**:一般而言，您不需要明確允許輸出網路存取的 Azure VM，才能讓它與 Azure 備份通訊。 不過，某些 Vm 可能會遇到連線問題，顯示**ExtensionSnapshotFailedNoNetwork**嘗試連線時發生錯誤。 如果發生這種情況，您應該[明確允許輸出存取](backup-azure-arm-vms-prepare.md#explicitly-allow-outbound-access)，所以 Azure 備份擴充功能可以與 Azure 的備份流量的公用 IP 位址通訊。
+
+
+
+## <a name="configure-a-backup-policy"></a>設定備份原則
+
+1. 如果您尚未建立復原服務備份保存庫，請遵循[這些指示](backup-azure-arm-vms-prepare.md#create-a-vault)
+2. 在入口網站中，開啟保存庫，然後選取**備份**中**開始使用**一節。
+
+    ![備份刀鋒視窗](./media/backup-azure-vms-encryption/select-backup.png)
+
+3. 在 **備份目標** > **地方執行您的工作負載？** 選取**Azure**。
+4. 在 **您想要備份什麼？** 選取**虛擬機器** > **確定**。
 
       ![案例刀鋒視窗](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
-1. 在 [工作負載的執行位置?] 底下，選取 [Azure]。 底下**您想要備份什麼？**，選取**虛擬機器**。 然後選取 [確定]。
 
-   ![開啟 [案例] 刀鋒視窗](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
-1. 在 [選擇備份原則] 底下，選取您要套用至保存庫的備份原則。 然後選取 [確定]。
+5. 在 **備份原則** > **選擇備份原則**，選取您要向保存庫相關聯的原則。 然後按一下 [確定] 。
+    - 備份原則會指定包含執行備份，並儲存的時間長度。
+    - 預設原則的詳細資料便會列在下拉式功能表之下。
 
-      ![選取備份原則](./media/backup-azure-vms-encryption/setting-rs-backup-policy-new.png)
+    ![開啟 [案例] 刀鋒視窗](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
 
-    預設原則的詳細資料隨即列出。 如果您想要建立原則，請在下拉式清單中選取 [建立新的]。 選取 [確定] 之後，備份原則便會與保存庫建立關聯。
+6. 如果您不想要使用的預設原則，請選取**新建**，並[建立自訂原則](backup-azure-arm-vms-prepare.md#create-a-custom-policy)。
 
-1. 選擇要與指定的原則建立關聯的已加密 VM，然後選取 [確定]。
+
+7. 選擇您想要使用選取的原則，備份加密的 Vm，然後選取**確定**。
 
       ![選取加密的 VM](./media/backup-azure-vms-encryption/selected-encrypted-vms.png)
-1. 此頁面會顯示與所選加密的 VM 相關聯的金鑰保存庫相關訊息。 備份需要金鑰保存庫中金鑰和密碼的唯讀存取權。 它會使用這些權限來備份金鑰和密碼，以及相關聯的 VM。<br>
-您若是**成員使用者**，啟用備份程序會順暢地取得存取金鑰保存庫，來備份加密的 Vm，而不需要使用者介入。
 
-   ![加密的 VM 訊息](./media/backup-azure-vms-encryption/member-user-encrypted-vm-warning-message.png)
+8. 如果您使用 Azure 金鑰保存庫，在保存庫 頁面上，您會看到一則訊息，Azure 備份需要金鑰和祕密金鑰保存庫中的唯讀存取。
 
-   針對**來賓使用者**，您則必須將金鑰保存庫的存取權限提供給備份服務，才能進行備份。 您可以依照下一節所述的步驟來提供這些權限
+    - 如果您收到此訊息時，不不需要任何動作。
+    
+        ![存取 OK](./media/backup-azure-vms-encryption/access-ok.png)
+        
+    - 如果您收到這則訊息，您需要設定權限，如中所述[下列程序](#provide-permissions)。
+    
+        ![存取警告](./media/backup-azure-vms-encryption/access-warning.png)
 
-   ![加密的 VM 訊息](./media/backup-azure-vms-encryption/guest-user-encrypted-vm-warning-message.png)
+9. 按一下 **啟用備份**部署中保存庫的備份原則，並為選取的 Vm 啟用備份。 
 
-    現在您已定義保存庫的所有設定，接下來選取分頁底部的 [啟用備份]。 [啟用備份] 會將原則部署至保存褲和 VM。
 
-1. 下一個階段的準備作業是安裝 VM 代理程式，或確定 VM 代理程式已安裝。 若要執行相同的動作，請依照[準備環境以進行備份](backup-azure-arm-vms-prepare.md)中的步驟。
+## <a name="trigger-a-backup-job"></a>觸發備份作業
 
-### <a name="trigger-a-backup-job"></a>觸發備份作業
-遵循[將 Azure VM 備份至復原服務保存庫](backup-azure-arm-vms.md)中的步驟來觸發備份作業。
+初始備份會依照排程進行，但您可以執行它立即，如下所示：
 
-### <a name="continue-backups-of-already-backed-up-vms-with-encryption-enabled"></a>將啟用加密之已備份 VM 繼續備份  
-如果您有已正在備份復原服務保存庫中的 Vm 啟用加密之後，您必須提供給上一步 的權限以存取金鑰保存庫的備份，以繼續。 您可以遵循[下一節的步驟](#provide-permissions)來提供這些權限。 或者，您可以遵循 [PowerShell 文件](backup-azure-vms-automation.md)之「啟用備份」一節中的 PowerShell 步驟。
+1. 在保存庫功能表中，按一下 [備份項目]。
+2. 在 [備份項目] 中，按一下 [Azure 虛擬機器]。
+3. 在 **備份項目**清單中，按一下省略符號 （...）。
+4. 按一下 [立即備份]。
+5. 在 **立即備份**，使用日曆控制項選取的復原點保留的最後一天。 然後按一下 [確定] 。
+6. 監視入口網站通知。 您可以在保存庫儀表板中監視作業進度 > [備份作業] > [進行中]。 根據您的 VM 大小，建立初始備份可能需要花一點時間。
+
 
 ## <a name="provide-permissions"></a>提供權限
-使用下列步驟，以提供 Azure 備份來存取金鑰保存庫，並執行的已加密 Vm 備份的相關權限。
-1. 選取 [所有服務]，然後搜尋**金鑰保存庫**。
 
-    ![金鑰保存庫](./media/backup-azure-vms-encryption/search-key-vault.png)
+Azure VM 需要備份的金鑰和密碼，以及相關聯的 Vm 的唯讀存取。
 
-1. 從金鑰保存庫清單中選取與已加密之 VM 相關聯的金鑰保存庫，以讓其進行備份。
+- 您的 Key Vault 是 Azure 訂用帳戶的 Azure AD 租用戶相關聯。 如果你**成員使用者**，Azure 備份取得金鑰保存庫不需要進一步動作的存取。
+- 如果你**來賓使用者**，您必須提供存取金鑰保存庫的 Azure 備份的權限。
 
-     ![金鑰保存庫選取項目](./media/backup-azure-vms-encryption/select-key-vault.png)
+若要設定權限：
 
-1. 選取 [存取原則]，然後選取 [新增]。
-
-    ![新增](./media/backup-azure-vms-encryption/select-key-vault-access-policy.png)
-
-1. 選取 [選取主體]，然後在搜尋方塊中輸入**備份管理服務**。
-
-    ![備份服務搜尋](./media/backup-azure-vms-encryption/search-backup-service.png)
-
-1. 選取 [備份管理服務]，然後選取 [選取]。
+1. 在 Azure 入口網站中，選取**所有的服務**，然後搜尋**金鑰保存庫**。
+2. 選取您要備份加密的 VM 相關聯的金鑰保存庫。
+3. 選取 **存取原則** > **新增**。
+4. 選取 **選取主體**，然後輸入**備份管理**。 
+5. 選取 **備份管理服務** > **選取**。
 
     ![備份服務選取項目](./media/backup-azure-vms-encryption/select-backup-service.png)
 
-1. 在 [從範本設定 (選擇性)] 底下，選取 [Azure 備份]。 該備份會在 [金鑰權限] 和 [祕密權限] 預先填入必要的權限。 如果您是使用**僅 BE** 加密您的 VM，則需要機密資料的權限，因此您必須移除**金鑰權限**的選取項目。
+6. 在 **新增存取原則** > **從範本 （選擇性） 設定**，選取**Azure 備份**。
+    - 該備份會在 [金鑰權限] 和 [祕密權限] 預先填入必要的權限。
+    - 如果您的 VM 會使用加密**僅限 BEK**，移除選取的項目**金鑰權限**因為您只需要祕密權限。 
 
     ![Azure 備份選取項目](./media/backup-azure-vms-encryption/select-backup-template.png)
 
-1. 選取 [確定] 。 請注意「備份管理服務」會新增到 [存取原則] 中。
+6. 按一下 [確定]。 **備份管理服務**新增至**存取原則**。 
 
     ![存取原則](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
 
-1. 選取 [儲存] 對備份提供必要權限。
-
-    ![備份存取原則](./media/backup-azure-vms-encryption/save-access-policy.png)
-
-順利提供權限之後，您可以繼續為已加密的 VM 啟用備份。
+7. 按一下 **儲存**為 Azure 備份提供權限。
 
 ## <a name="restore-an-encrypted-vm"></a>還原已加密的 VM
-除了先前提供使用 Azure AD 對 Azure 加密的 VM 進行還原的支援以外，Azure 備份現在也支援[在沒有 Azure AD 的情況下還原 Azure 加密的 VM](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-prerequisites-aad)。<br>
 
-若要還原加密的 VM，請先遵循[選擇 VM 還原組態](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration)之「還原備份的磁碟」一節中的步驟來還原磁碟。 之後，您可以使用下列其中一個選項：
+您將還原已加密的 Vm，如下所示：
 
-* 遵循[從還原的磁碟建立 VM](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) 中的 PowerShell 步驟，從還原的磁碟建立完整的 VM。
-* 或者，[使用範本來自訂還原的 VM](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm)，以從還原的磁碟建立 VM。 只可將範本用於 2017 年 4 月 26 日之後建立的復原點。
+1. [還原 VM 磁碟](backup-azure-arm-restore-vms.md#restore-disks)。
+2. 然後執行下列其中一項：
+    - 使用自訂 VM 設定，以及觸發 VM 部署在還原作業期間所產生的範本。 [深入了解](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm)。
+    - 從還原的磁碟使用 Powershell 建立新的 VM。 [深入了解](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)。
 
-## <a name="troubleshooting-errors"></a>錯誤疑難排解
-| 作業 | 錯誤詳細資料 | 解決方案 |
-| --- | --- | --- |
-|Backup  | 錯誤碼：UserErrorKeyVaultPermissionsNotConfigured<br><br>錯誤訊息：Azure 備份服務沒有足夠的 Key Vault權限可備份加密的虛擬機器。 | 備份應該依照[上一節中的步驟](#provide-permissions)來提供這些權限。 或者，您可以遵循[使用 PowerShell 備份和還原虛擬機器](backup-azure-vms-automation.md#enable-protection)文章＜啟用保護＞一節中的 PowerShell 步驟。 |  
-| Restore | 您無法還原這部已加密的 VM，因為與此 VM 相關聯的金鑰保存庫不存在。 |依照[什麼是 Azure Key Vault？](../key-vault/key-vault-overview.md)中的指示來建立金鑰保存庫。 請參閱[使用 Azure 備份來還原金鑰保存庫金鑰和密碼](backup-azure-restore-key-secret.md)，來還原金鑰和密碼 (如果不存在)。 |
-| Restore | 錯誤碼：UserErrorKeyVaultKeyDoesNotExist<br><br> 錯誤訊息：您無法還原這部已加密的 VM，因為與此 VM 相關聯的金鑰不存在。 |請參閱[使用 Azure 備份來還原金鑰保存庫金鑰和密碼](backup-azure-restore-key-secret.md)，來還原金鑰和密碼 (如果不存在)。 |
-| Restore | 錯誤碼：ProviderAuthorizationFailed/UserErrorProviderAuthorizationFailed<br><br>錯誤訊息：備份服務無權存取您訂用帳戶中的資源。 |如先前所述，請先遵循[選擇 VM 還原組態](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration)之「還原備份的磁碟」一節中的步驟來還原磁碟。 之後，使用 PowerShell 來[從還原的磁碟建立 VM](backup-azure-vms-automation.md#create-a-vm-from-restored-disks)。 |
+## <a name="next-steps"></a>後續步驟
+
+如果您遇到任何問題，請檢閱
+
+- [常見的錯誤](backup-azure-vms-troubleshoot.md#troubleshoot-backup-of-encrypted-vms)加密時，備份和還原 Azure Vm。
+- [一般](backup-azure-vms-troubleshoot.md)Azure VM 的問題。
+- [Azure VM 代理程式/備份擴充功能](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)問題。

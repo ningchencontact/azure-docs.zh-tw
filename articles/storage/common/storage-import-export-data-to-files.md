@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e3cd9d0036a55a3e6de49988dddcd6a91b81b078
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 28026a429643c62434ddfd7591126169857a7371
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088650"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265625"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>使用 Azure 匯入/匯出服務將資料匯入 Azure 檔案服務
 
@@ -30,7 +30,7 @@ ms.locfileid: "58088650"
 - 具有屬於[支援類型](storage-import-export-requirements.md#supported-disks)的磁碟，且數量足夠。 
 - 具有執行[受支援 OS 版本](storage-import-export-requirements.md#supported-operating-systems) 的 Windows 系統。
 - 請在 Windows 系統上[下載 WAImportExport 第 2 版](https://aka.ms/waiev2)。 將檔案解壓縮至預設資料夾 `waimportexport`。 例如： `C:\WaImportExport`。
-- 擁有 FedEx/DHL 帳戶。 
+- 擁有 FedEx/DHL 帳戶。 如果您想要使用非 FedEx/DHL 貨運公司，請連絡 Azure 資料方塊作業小組`adbops@microsoft.com`。  
     - 帳戶必須是有效的、需要有餘額，且必須有退貨運送功能。
     - 產生匯出作業的追蹤號碼。
     - 每個作業都應該具有個別的追蹤號碼。 不支援多個作業使用相同的追蹤號碼。
@@ -145,7 +145,7 @@ ms.locfileid: "58088650"
 
 4. 在 [寄返資訊] 中：
 
-    - 從下拉式清單中選取貨運公司。
+    - 從下拉式清單中選取貨運公司。 如果您想要使用非 FedEx/DHL 貨運公司，請從下拉式清單中選擇現有的選項。 連絡 Azure 資料方塊作業小組`adbops@microsoft.com`您打算使用貨運公司的相關資訊。
     - 輸入您在該貨運公司中建立的有效貨運帳戶號碼。 當匯入作業完成時，Microsoft 會透過此帳戶將磁碟機寄還給您。 
     - 提供完整且有效的連絡人名稱、電話、電子郵件、街道地址、城市、郵遞區號、州/省和國家/地區。
 
@@ -207,7 +207,7 @@ ms.locfileid: "58088650"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [檢視作業和磁碟機狀態](storage-import-export-view-drive-status.md)
+* [檢視工作和磁碟機狀態](storage-import-export-view-drive-status.md)
 * [檢閱匯入/匯出的需求](storage-import-export-requirements.md)
 
 

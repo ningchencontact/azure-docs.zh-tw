@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 0f4f890afd8c698bec8dbd76e8bb8dca710f4d6c
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: e228c49d4ad8e691e59f76a9b6fb9013f7b1bb3a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203307"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890882"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>使用 Microsoft Authentication Library (MSAL) 登入使用者
 
@@ -140,7 +140,7 @@ if (!isIE) {
 
 #### <a name="getting-a-user-token-silently"></a>以無訊息方式取得使用者權杖
 
-` acquireTokenSilent` 方法會處理權杖取得和更新作業，不需要與使用者進行任何互動。 `loginPopup` (或 `loginRedirect`) 在第一次執行之後，`acquireTokenSilent` 就會成為用來取得權杖的常用方法，以在後續呼叫中使用那些權杖存取受保護的資源，並且會以無訊息方式進行要求或更新權杖的呼叫。
+`acquireTokenSilent` 方法會處理權杖取得和更新作業，不需要與使用者進行任何互動。 `loginPopup` (或 `loginRedirect`) 在第一次執行之後，`acquireTokenSilent` 就會成為用來取得權杖的常用方法，以在後續呼叫中使用那些權杖存取受保護的資源，並且會以無訊息方式進行要求或更新權杖的呼叫。
 `acquireTokenSilent` 在某些情況下可能會失敗 – 例如，使用者的密碼已過期。 您的應用程式可以透過兩種方式處理此例外狀況：
 
 1. 立即對 `acquireTokenPopup` 進行呼叫，這會促使系統提示使用者登入。 此模式通常用於應用程式中沒有未經驗證內容可供使用者使用的線上應用程式。 此引導式設定所產生的範例應用程式會使用此模式。

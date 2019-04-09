@@ -6,14 +6,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 04/8/2019
 ms.custom: seodec18
-ms.openlocfilehash: 994ccf292a4215624d4222fe13ca9ac25c863368
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 9eb66a9000c9add0718c6edf6674a26ce8e479b3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895861"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257972"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>驗證使用受管理的身分識別至 Azure Data Lake 儲存體 Gen1 的 Stream Analytics
 
@@ -71,7 +71,7 @@ Azure 串流分析支援向 Azure Data Lake Storage (ADLS) Gen1 輸出進行受�
 
    ![串流分析作業組態受控識別](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
 
-2. 在 ADLS Gen1 輸出接收的輸出屬性視窗中，按一下 [驗證模式] 下拉式清單，然後選擇 [受控識別 (預覽)]。
+2. 在 輸出屬性 視窗的 ADLS Gen1 輸出接收，按一下 下拉式清單，然後選取驗證模式 * * 受管理的身分識別 * *。
 
    ![ADLS 輸出受控識別](./media/stream-analytics-managed-identities-adls/adls-mi-output-vs.png)
 

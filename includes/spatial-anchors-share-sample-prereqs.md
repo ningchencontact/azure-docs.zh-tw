@@ -4,17 +4,21 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: 63c145bf20999145d4edb3bb85766e7251360411
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: bd7db1dd5d5fd6e19584e66a9af1523567d593bf
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305141"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58631160"
 ---
 ## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，請確定您具有下列項目︰
 
+* 已完整閱讀 [Azure Spatial Anchors 概觀](../articles/spatial-anchors/overview.md)。
+* 已完成其中一個 [5 分鐘快速入門](../articles/spatial-anchors/index.yml)。
+* 已基本了解 C# 和 Unity。
+* 已基本了解 <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> (如果您想要使用 Android) 或 <a href="https://developer.apple.com/arkit/" target="_blank">ARKit</a> (如果您想要使用 iOS)。
 * 已安裝具備 [ASP.NET 與網頁程式開發] 工作負載的 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> 或更新版本的 Windows 電腦。
 * [.NET Core 2.2 SDK](https://dotnet.microsoft.com/download)。
 * 用來部署並執行應用程式的一或多個裝置 (iOS 或 Android)。
@@ -25,3 +29,5 @@ ms.locfileid: "58305141"
     * 已安裝 <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10</a> \(英文\) 或更新版本、<a href="https://cocoapods.org" target="_blank">CocoaPods</a> \(英文\)，以及 <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a> \(英文\) 或更新版本的 macOS 電腦。
     * 已啟用開發人員功能且<a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">與 ARKit 相容</a> \(英文\) 的 iOS 裝置。
     * 透過 Homebrew 安裝的 Git。 在終端機中於單一行上輸入以下命令：`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` 然後執行 `brew install git`。
+
+

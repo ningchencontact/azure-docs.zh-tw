@@ -3,17 +3,17 @@ title: 快速入門：在 Power BI 中使用匯入的查詢將資料視覺化
 description: 在本快速入門中，您會了解如何使用三個選項之一在 Power BI 中將資料視覺化：從 Azure 資料總管匯入查詢。
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: 139b20a2390c7301bd83113c3e98be40846fab22
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 3251ae9f39ea38eac6887df3072257e1e8e88306
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51858147"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756118"
 ---
 # <a name="quickstart-visualize-data-using-a-query-imported-into-power-bi"></a>快速入門：在 Power BI 中使用匯入的查詢將資料視覺化
 

@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 01/10/2019
+ms.date: 03/20/2019
 ms.author: sajagtap
-ms.openlocfilehash: bd281191deb1a82d4b1b5247a011d9867f0c9bc4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9cc18ce1fde5de354e3da5e384c08ada1927d097
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879287"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757240"
 ---
-# <a name="quickstart-analyze-image-content-for-objectionable-material-in-c"></a>快速入門：使用 C# 分析影像內容中的不當題材
+# <a name="quickstart-analyze-images-for-objectionable-content-in-c"></a>快速入門：使用 C# 分析令人反感的影像
 
 本文提供可協助您開始使用 [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 的資訊和程式碼範例。 您將了解如何掃描成人或猥褻內容、可擷取的文字和人臉，以仲裁可能令人反感的內容。
 

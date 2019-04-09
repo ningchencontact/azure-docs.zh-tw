@@ -1,7 +1,6 @@
 ---
 title: 了解部署順序
 description: 了解藍圖定義將會經歷的生命週期和每個階段的詳細資料。
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/25/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 8451b858717e1a3e66214f66db624ee41f6da375
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 5552e44fcca056bd4fd5b4fd19559adfbd005444
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434801"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266183"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>了解 Azure 藍圖中的部署順序
 
@@ -26,7 +25,7 @@ Azure 藍圖會使用**排序順序**處理指派藍圖定義時，決定資源�
 
 在 JSON 範例中有一些變數。您需要使用自己的值取代它們：
 
-- `{YourMG}` - 以您的管理群組名稱取代
+- `{YourMG}` -以您的管理群組名稱取代
 
 ## <a name="default-sequencing-order"></a>預設排序順序
 
@@ -47,7 +46,7 @@ Azure 藍圖會使用**排序順序**處理指派藍圖定義時，決定資源�
 
 當您在撰寫大型藍圖定義，可能必須在以特定順序中建立的資源。 此案例的最常見的使用模式時，藍圖定義包含數個 Azure Resource Manager 範本。 藍圖會藉由允許定義排序順序來處理此模式。
 
-排序可透過在 JSON 中定義 `dependsOn` 屬性來完成。 藍圖定義中，資源群組和成品物件支援此屬性。 `dependsOn` 為成品名稱字串陣列，代表在其建立前必須建立的特定成品。
+排序可透過在 JSON 中定義 `dependsOn` 屬性來完成。 藍圖定義中，資源群組和成品物件支援此屬性。 `dependsOn` 是特定成品必須在建立之前建立的成品名稱的字串陣列。
 
 ### <a name="example---ordered-resource-group"></a>範例-排序資源群組
 

@@ -9,12 +9,12 @@ ms.subservice: content-moderator
 ms.topic: sample
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 4049211acd760f74fbb4a725f878e5c51acbe7dd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f2b5fb5c44cbb2e0d766c49ed6b715484c22f62e
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875935"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756735"
 ---
 # <a name="content-moderator-net-sdk-samples"></a>Content Moderator .NET SDK 範例
 
@@ -31,7 +31,7 @@ ms.locfileid: "55875935"
 > 上限是 **5 個影像清單**，其中每個清單**不可超過 10,000 個影像**。
 >
 
-- **文字審核**：[過濾粗話和個人識別資訊 (PII) 的文字](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs)。 請參閱[快速入門](text-moderation-quickstart-dotnet.md)。
+- **文字審核**：[過濾粗話和個人資料的文字](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TextModeration/Program.cs)。 請參閱[快速入門](text-moderation-quickstart-dotnet.md)。
 - **自訂字詞**：[使用自訂字詞清單進行審核](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/ContentModerator/TermListManagement/Program.cs)。 請參閱[快速入門](term-lists-quickstart-dotnet.md)。
 
 > [!NOTE]

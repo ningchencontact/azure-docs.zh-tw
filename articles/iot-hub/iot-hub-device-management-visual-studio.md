@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: xshi
-ms.openlocfilehash: f0cb740f04970aeed4342511a046862f05aaa736
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 87a0847f5d42e014f3b2691c96446892176b481b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54109223"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269566"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>使用適用於 Visual Studio 的 Cloud Explorer 來管理 Azure IoT 中樞裝置
 
-![端對端圖表](media/iot-hub-get-started-e2e-diagram/2.png)
+![端對端圖表](media/iot-hub-device-management-visual-studio/iot-e2e-simple.png)
 
 [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) 是非常有用的 Visual Studio 延伸模組，可讓您在 Visual Studio 內檢視您的 Azure 資源、檢查其屬性，以及執行重要的開發人員動作。 它隨附的管理選項可供您用來執行各種工作。
 
@@ -35,7 +35,7 @@ ms.locfileid: "54109223"
 
 ## <a name="what-you-learn"></a>您學到什麼
 
-您會學到在開發電腦上使用適用於 Visual Studio 的 Cloud Explorer 搭配各種管理選項。
+您了解如何使用適用於 Visual Studio 的 [雲端總管] 中，搭配您的開發電腦上的各種管理選項。
 
 ## <a name="what-you-do"></a>您要做什麼
 
@@ -43,8 +43,8 @@ ms.locfileid: "54109223"
 
 ## <a name="what-you-need"></a>您需要什麼
 
-- 有效的 Azure 訂用帳戶。
-- 位於您訂用帳戶中的 Azure IoT 中樞。
+- 作用中的 Azure 訂用帳戶
+- Azure IoT 中樞訂用帳戶
 - Microsoft Visual Studio 2017 Update 8 或更新版本
 - 來自 Visual Studio 安裝程式的 Cloud Explorer 元件 (使用 Azure 工作負載的預設選項)
 

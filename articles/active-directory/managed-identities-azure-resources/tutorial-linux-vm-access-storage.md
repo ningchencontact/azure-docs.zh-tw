@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/09/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7772797aa6c20c8f583608bac8fc002a92796a11
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: bb7de72a435faf100d6992815ef8d5ec00cb3581
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444049"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801856"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>教學課程：使用 Linux VM 系統指派的受控識別來存取 Azure 儲存體 
 
@@ -84,7 +84,7 @@ ms.locfileid: "58444049"
 1. 巡覽回到您新建立的儲存體帳戶。  
 2. 按一下左側面板中的 [存取控制 (IAM)] 連結。  
 3. 按一下頁面頂端的 [+ 新增角色指派]，以新增虛擬機器的新角色指派。
-4. 在 [角色] 下，從下拉式清單中，選取 [儲存體 Blob 資料讀取器 (預覽)]。 
+4. 在 [角色] 下，從下拉式清單中，選取 [儲存體 Blob 資料讀取器]。 
 5. 在下一個下拉式清單的 [將存取權指派給] 下，選取 [虛擬機器]。  
 6. 接下來，請確保 [訂用帳戶] 下拉式清單中已列出適當的訂用帳戶，然後將 [資源群組] 設定為 [所有資源群組]。  
 7. 在 [選取] 下，選擇您的虛擬機器，然後按一下 [儲存]。

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e25848359de91d67925f49901c6c170978ea592
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b0a20c2e6524b0c466f5c45578e0ba8eaad351ea
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078698"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881880"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>快速入門：建置可整合 Microsoft 登入的 Xamarin 應用程式
 
@@ -72,25 +72,25 @@ Xamarin 可讓您使用 C# 撰寫可在 iOS、Android 和 Windows (行動裝置�
 
 1. 使用 Package Manager Console 將 ADAL 新增到 DirectorySearcher 專案中。
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirectorySearcherLib
-    `
+    ```
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Android
-    `
+    ```
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Desktop
-    `
+    ```
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-iOS
-    `
+    ```
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Universal
-    `
+    ```
 
     請注意，每個專案會新增兩個程式庫參考：ADAL 的 PCL 部分和平台特定部分。
 2. 在 DirectorySearcherLib 專案中，開啟 DirectorySearcher.cs。

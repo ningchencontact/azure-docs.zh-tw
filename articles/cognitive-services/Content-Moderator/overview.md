@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 7a6424921b869428d1dbeffadd68e173a32d8821
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 440471acb6e122bf25ba21b0ab3b5a2f7d9b021d
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455241"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758137"
 ---
 # <a name="what-is-azure-content-moderator"></a>什麼是 Azure Content Moderator？
 
@@ -41,24 +41,23 @@ Content Moderator 服務由數個可透過 REST 呼叫和 .NET SDK 使用的 Web
 
 Content Moderator 服務包含適用於下列案例的 API。
 
-| 動作 | 說明 |
+| API 群組 | 說明 |
 | ------ | ----------- |
-|[**文字仲裁**](text-moderation-api.md)| 掃描文字中具冒犯性的內容、明顯色情或性暗示內容、粗話，和個人識別資訊 (PII)。|
+|[**文字仲裁**](text-moderation-api.md)| 掃描文字中具冒犯性的內容、明顯色情或性暗示內容、粗話和個人資料。|
 |[**自訂字詞清單**](try-terms-list-api.md)| 除了內建字詞外，也根據自訂字詞清單掃描文字。 使用自訂清單可根據您自己的內容原則來封鎖或允許內容。|  
 |[**影像仲裁**](image-moderation-api.md)| 掃描影像中的成人或猥褻內容、使用光學字元辨識 (OCR) 功能偵測影像中的文字，以及偵測臉部。|
 |[**自訂影像清單**](try-image-list-api.md)| 根據自訂影像清單掃描影像。 使用自訂影像清單，篩選掉重複出現、而您不想再次分類的內容執行個體。|
 |[**影片仲裁**](video-moderation-api.md)| 掃描影片中的成人或猥褻內容，並傳回該內容的時間標記。|
-|[**審核**](try-review-api-job.md)| 使用[作業](try-review-api-job.md)、[審核](try-review-api-review.md)與[工作流程](try-review-api-workflow.md)作業來建立及自動化審核工具的人機互動工作流程。 工作流程 API 尚無法透過 .NET SDK 來使用。|
+|[**檢閱 API**](try-review-api-job.md)| 使用[作業](try-review-api-job.md)、[審核](try-review-api-review.md)與[工作流程](try-review-api-workflow.md)作業來建立及自動化審核工具的人機互動工作流程。 .NET SDK 尚未提供工作流程 API。|
 
-### <a name="human-review-tool"></a>人工檢閱工具
+### <a name="review-tool"></a>檢閱工具
 
-Content Moderator 服務也包含以 Web 為基礎的[人工審核工具](Review-Tool-User-Guide/human-in-the-loop.md)。 
+Content Moderator 服務也包含以 Web 為基礎的[審核工具](Review-Tool-User-Guide/human-in-the-loop.md)，此工具會裝載內容審核以供人力審核者處理。 人工輸入不會訓練服務，但在服務與人工審核小組的搭配運作下，開發人員將可在效率和精確度之間取得適當的平衡。 審核工具也針對各種 Content Moderator 資源提供方便使用的前端。
 
 ![Content Moderator 的人工審核工具首頁](images/homepage.PNG)
 
-您可以使用審核 API，根據您指定的篩選條件來設定文字、影像和影片內容的小組審核。 然後，人工仲裁者可做出最終的仲裁決策。 人工輸入不會訓練服務，但在服務與人工審核小組的搭配運作下，開發人員將可在效率和精確度之間取得適當的平衡。
-
 ## <a name="data-privacy-and-security"></a>資料隱私權和安全性
+
 和所有認知服務一樣，使用 Content Moderator 服務的開發人員應該要了解 Microsoft 對於客戶資料的政策。 請參閱 Microsoft 信任中心上的[認知服務頁面](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices)，以進行深入了解。
 
 ## <a name="next-steps"></a>後續步驟

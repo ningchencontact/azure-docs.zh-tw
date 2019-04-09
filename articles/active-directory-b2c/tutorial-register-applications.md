@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 02/05/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: f79ecd96b15ff4ff96a3bb93061f0c9d7598191f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 849bcfe2b5ee177d06b8e4cf62fd29459d2e59ce
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338151"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278389"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>教學課程：在 Azure Active Directory B2C 中註冊應用程式
 
@@ -48,7 +48,7 @@ ms.locfileid: "58338151"
 
 ## <a name="create-a-client-secret"></a>建立用戶端密碼
 
-如果您的應用程式會交換權杖的程式碼，您必須建立應用程式密碼。
+如果您的應用程式交換權杖的程式碼，您需要建立應用程式祕密。
 
 1. 選取 [金鑰]，然後按一下 [產生金鑰]。
 2. 選取 [儲存] 以檢視金鑰。 請記下 [應用程式金鑰] 值。 您可以使用此值，作為應用程式程式碼中的應用程式祕密。

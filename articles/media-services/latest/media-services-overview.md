@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/20/2019
+ms.date: 03/29/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 88113fee64251344bd84085caedc9dfccfa10933
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: c65c797612e179a9f3c02696d827131f5c830b3c
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351451"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755911"
 ---
 # <a name="what-is-azure-media-services-v3"></a>什麼是 Azure 媒體服務 v3？
 
@@ -44,38 +44,41 @@ Azure 媒體服務是雲端式平台，可讓您建置的解決方案擁有廣�
 * 搭配使用 Azure 媒體服務與 [Azure 認知服務 API](https://docs.microsoft.com/azure/#pivot=products&panel=ai) 在影片加入標題和字幕，以服務更廣大的觀眾 (例如聽障人士或想要以其他語言閱讀的人)。
 * 啟用 Azure CDN 以達成大規模調整，進而妥善處理瞬間高負載 (例如，在產品上市活動開始時)。 
 
-## <a name="v3-capabilities"></a>v3 功能
+## <a name="how-can-i-get-started-with-v3"></a>如何開始使用 v3？ 
 
-v3 是會統一的 API 表面為基礎，併公開建置於 Azure Resource Manager 上的管理和操作功能。 
+了解如何使用媒體服務 v3 來編碼和封裝內容、串流隨選影片、即時廣播及分析您的影片。 教學課程、API 參考和其他文件會示範如何安全地提供可針對數百萬位使用者調整的隨選和即時視訊或音訊串流。
 
-此版本提供以下功能：  
+在開始開發之前，請檢閱[基本概念](concepts-overview.md)<br/>
 
-* **轉換**可協助您定義媒體處理或分析工作的簡單工作流程。 轉換是處理您的視訊和音訊檔案的配方。 然後藉由將工作提交至轉換，您可以重複地套用它來處理內容庫中的所有檔案。
-* **工作**可處理 (編碼或分析) 您的視訊。 您可以使用 HTTPS URL、SAS URL 或 Azure Blob 儲存體中的檔案路徑，在作業上指定輸入內容。 目前，AMS v3 不支援透過 HTTPS URL 的區塊傳送編碼。
-* **通知**可監視工作進度或狀態，或即時事件開始/停止及錯誤事件。 通知會與 Azure Event Grid 通知系統整合。 您輕鬆就能在 Azure 媒體服務中的數個資源上訂閱活動。 
-* **Azure 資源管理**範本可用於建立及部署轉換、串流端點、即時事件等等。
-* **角色型存取控制**可以設定在資源層級，讓您能鎖定對特定資源 (如轉換、即時事件等) 的存取。
-* **用戶端 SDK** 有多種語言：.NET、.NET Core、Python、Go、Java 和 Node.js。
+### <a name="quickstarts"></a>快速入門  
 
-## <a name="naming-conventions"></a>命名慣例
+快速入門會顯示第 1 天的基本指示，讓新客戶快速試用媒體服務。
 
-Azure 媒體服務 v3 資源名稱 (例如資產、作業、轉換) 會受到 Azure Resource Manager 命名規則的約束。 根據 Azure Resource Manager，資源名稱永遠是唯一的。 因此，您可以對資源名稱使用任何唯一識別碼字串 (例如，GUID)。 
+* [串流影片檔案 - .NET](stream-files-dotnet-quickstart.md)
+* [串流影片檔案 - CLI](stream-files-cli-quickstart.md)
+* [串流影片檔案 - Node.js](stream-files-nodejs-quickstart.md)
+    
+### <a name="tutorials"></a>教學課程 
 
-媒體服務資源名稱不可包含：'<'、'>'、'%'、'&'、':'、'&#92;'、'?'、'/'、'*'、'+'、'.'、單引號字元或任何控制字元。 允許所有其他字元。 資源名稱的長度上限是 260 個字元。 
+教學課程會顯示某些常用媒體服務工作的案例式程序。
 
-如需有關 Azure Resource Manager 命名的詳細資訊，請參閱：[命名需求](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource)和[命名慣例](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。
+* [遠端檔案編碼和串流影片 - REST](stream-files-tutorial-with-rest.md)
+* [已上傳檔案編碼和串流影片 - .NET](stream-files-tutorial-with-api.md)
+* [即時串流 - .NET](stream-live-tutorial-with-api.md)
+* [分析影片 - .NET](analyze-videos-tutorial-with-api.md)
+* [AES-128 動態加密 - .NET](protect-with-aes128.md)
+    
+### <a name="how-to-guides"></a>使用說明指南
 
-## <a name="v3-api-design-principles"></a>v3 API 設計原則
+文章中包含示範如何完成工作的程式碼範例。 在本節中，您會發現許多範例，以下只是其中幾個案例：
 
-v3 API 的金鑰設計原則之一，是讓 API 更為安全。 v3 API 不會從**取得**或**列出**作業傳回秘密或認證。 回應中的金鑰一律為 Null、空白或處理過的。 您必須呼叫個別的動作方法，以取得秘密或認證。 在有些 API 會擷取/顯示秘密，而有些 API 不會的情況下，個別的動作可讓您設定不同的 RBAC 安全性權限。 如需如何使用 RBAC 管理存取權的相關資訊，請參閱[使用 RBAC 管理存取權](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)。
-
-其範例包括 
-
-* 在取得 StreamingLocator 時不傳回 ContentKey 值、 
-* 在取得 ContentKeyPolicy 時不傳回限制金鑰、 
-* 不傳回作業的 HTTP 輸入 URL 的查詢字串部分 (以移除簽章)。
-
-請參閱[取得內容金鑰原則 - .NET](get-content-key-policy-dotnet-howto.md) 範例。
+* [建立帳戶 - CLI](create-account-cli-how-to.md)
+* [存取 API - CLI](access-api-cli-how-to.md)
+* [開始使用 SDK 開發](developers-guide.md)
+* [使用 HTTPS 即作業輸入編碼 - .NET](job-input-from-http-how-to.md)  
+* [監視事件 - 入口網站](monitor-events-portal-how-to.md)
+* [透過多重 DRM 進行動態加密 - .NET](protect-with-drm.md) 
+* [如何對自訂轉換進行編碼 - CLI](custom-preset-cli-howto.md)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
-ms.openlocfilehash: 138bc0350e4eecac4639125dc3ae508ddbbd7d72
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 9cfb320f0623f5a93527a4dc0e8d82096980cc2c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234861"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893736"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>教學課程：在 ASP.NET 上建立另行快取排行榜
 
@@ -79,7 +79,7 @@ ms.locfileid: "56234861"
     using System.Data.Entity.SqlServer;
     ```
 
-1. 將 `Team` 類別的定義取代為包含已更新的 `Team` 類別定義以及一些其他 Entity Framework 協助程式類別的下列程式碼片段。 本教學課程會對 Entity Framework 使用 Code First 方法。 這個方法可讓 Entity Framework 從程式碼建立資料庫。 如需本教學課程中使用之 Entity Framework 的 Code First 方法的詳細資訊，請參閱 [Code First 至新的資料庫](https://msdn.microsoft.com/data/jj193542)。
+1. 將 `Team` 類別的定義取代為包含已更新的 `Team` 類別定義以及一些其他 Entity Framework 協助程式類別的下列程式碼片段。 本教學課程會對 Entity Framework 使用 Code First 方法。 這個方法可讓 Entity Framework 從程式碼建立資料庫。 如需本教學課程中使用之 Entity Framework 的 Code First 方法的詳細資訊，請參閱 [Code First 至新的資料庫](/ef/ef6/modeling/code-first/workflows/new-database)。
 
     ```csharp
     public class Team
@@ -662,9 +662,9 @@ ms.locfileid: "56234861"
 
    | 設定       | 建議的值 | 說明 |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **資料庫名稱** | ContosoTeamsDatabase | 如需有效的資料庫名稱，請參閱[資料庫識別碼](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)。 |
+   | **資料庫名稱** | *ContosoTeamsDatabase* | 如需有效的資料庫名稱，請參閱[資料庫識別碼](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)。 |
    | **訂用帳戶** | *您的訂用帳戶*  | 選取您在建立快取和裝載 App Service 時所使用的相同訂用帳戶。 |
-   | **資源群組**  | TestResourceGroup | 按一下 [使用現有的]，並使用您用來放置快取和 App Service 的相同資源群組。 |
+   | **資源群組**  | *TestResourceGroup* | 按一下 [使用現有的]，並使用您用來放置快取和 App Service 的相同資源群組。 |
    | **選取來源** | **空白資料庫** | 以空白資料庫開始。 |
 
 1. 在 [伺服器] 底下，按一下 [進行必要設定] > [建立新的伺服器] 並提供下列資訊，然後按一下 [選取] 按鈕：
@@ -674,7 +674,7 @@ ms.locfileid: "56234861"
    | **伺服器名稱** | 任何全域唯一名稱 | 如需有效的伺服器名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 |
    | **伺服器管理員登入** | 任何有效名稱 | 如需有效的登入名稱，請參閱[資料庫識別碼](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)。 |
    | **密碼** | 任何有效密碼 | 您的密碼至少要有 8 個字元，而且必須包含下列幾種字元的其中三種︰大寫字元、小寫字元、數字和非英數字元。 |
-   | **位置** | 美國東部 | 選取您用來建立快取和 App Service 的相同區域。 |
+   | **位置** | *美國東部* | 選取您用來建立快取和 App Service 的相同區域。 |
 
 1. 按一下 [釘選到儀表板]，然後按一下 [建立] 以建立新的資料庫和伺服器。
 
@@ -688,8 +688,8 @@ ms.locfileid: "56234861"
 
     | Placeholder | 建議的值 |
     | --- | --- |
-    | {your_username} | 針對您剛才建立的資料庫伺服器使用**伺服器系統管理員登入**。 |
-    | {your_password} | 針對您剛才建立的資料庫伺服器使用密碼。 |
+    | *{your_username}* | 針對您剛才建立的資料庫伺服器使用**伺服器系統管理員登入**。 |
+    | *{your_password}* | 針對您剛才建立的資料庫伺服器使用密碼。 |
 
     藉由新增使用者名稱和密碼作為應用程式設定，程式碼中就不會包含使用者名稱和密碼。 這種方法可協助您保護這些認證。
 
@@ -744,4 +744,4 @@ ms.locfileid: "56234861"
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [如何調整 Azure Redis 快取](./cache-how-to-scale.md)
+> [如何調整 Azure Redis 快取的規模](./cache-how-to-scale.md)

@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: c2c02283518bab0723b7bc815f034c4324c944e1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: ecd30d30434d91893102ce6ec0df21daa84b677c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232875"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276829"
 ---
-# <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>準備用於 Azure 的 Oracle Linux 虛擬機器
+# <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>为 Azure 准备 Oracle Linux 虚拟机
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="prerequisites"></a>必要條件
@@ -30,17 +30,17 @@ ms.locfileid: "51232875"
 
 ### <a name="oracle-linux-installation-notes"></a>Oracle Linux 安裝注意事項
 * 如需有關準備 Azure 之 Linux 的更多秘訣，另請參閱 [一般 Linux 安裝注意事項](create-upload-generic.md#general-linux-installation-notes) 。
-* Hyper-V 和 Azure 都支援 Oracle 的 Red Hat 相容核心及其 UEK3 (Unbreakable Enterprise Kernel)。 若要獲得最佳結果，請在準備執行 Oracle Linux VHD 的同時，確實更新到最新核心。
+* Hyper-V 和 Azure 同时支持 Oracle 的 Red Hat 兼容内核及其 UEK3（坚不可摧企业内核）。 若要獲得最佳結果，請在準備執行 Oracle Linux VHD 的同時，確實更新到最新核心。
 * Hyper-V 和 Azure 不支援 Oracle 的 UEK2，因為它不包含必要的驅動程式。
 * Azure 不支援 VHDX 格式，只支援 **固定 VHD**。  您可以使用 Hyper-V 管理員或 convert-vhd Cmdlet，將磁碟轉換為 VHD 格式。
 * 安裝 Linux 系統時，建議您使用標準磁碟分割而不是 LVM (常是許多安裝的預設設定)。 這可避免 LVM 與複製之虛擬機器的名稱衝突，特別是為了疑難排解而需要將作業系統磁碟連接至其他虛擬機器時。 如果願意，您可以在資料磁碟上使用 [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 或 [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
-* 由於 2.6.37 以下的 Linux 核心版本有錯誤，因此較大的 VM 不支援 NUMA。 這個問題主要會影響使用上游 Red Hat 2.6.32 kernel 的散發套件。 手動安裝 Azure Linux 代理程式 (waagent) 將會自動停用 Linux Kernel GRUB 組態中的 NUMA。 您可以在以下步驟中找到與此有關的詳細資訊。
+* 由於 2.6.37 以下的 Linux 核心版本有錯誤，因此較大的 VM 不支援 NUMA。 這個問題主要會影響使用上游 Red Hat 2.6.32 kernel 的散發套件。 手动安装的 Azure Linux 代理 (waagent) 将自动在 Linux 内核的 GRUB 配置中禁用 NUMA。 您可以在以下步驟中找到與此有關的詳細資訊。
 * 請勿在作業系統磁碟上設定交換磁碟分割。 您可以設定 Linux 代理程式在暫存資源磁碟上建立交換檔。  您可以在以下步驟中找到與此有關的詳細資訊。
 * Azure 上的所有 VHD 必須具有與 1 MB 對應的虛擬大小。 從未經處理的磁碟轉換成 VHD 時，您必須確定未經處理的磁碟大小在轉換前是 1 MB 的倍數。 如需詳細資訊，請參閱 [Linux 安裝注意事項](create-upload-generic.md#general-linux-installation-notes)。
-* 確定已啟用 `Addons` 儲存機制。 編輯檔案 `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) 或 `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux)，將此檔案中 **[ol6_addons]** 或 **[ol7_addons]** 底下的 `enabled=0` 一行變更為 `enabled=1`。
+* 確定已啟用 `Addons` 儲存機制。 編輯檔案`/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) 或`/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux 7)，並變更這一行`enabled=0`要`enabled=1`之下 **[ol6_addons]** 或 **[ol7_addons]** 此檔案中。
 
 ## <a name="oracle-linux-64"></a>Oracle Linux 6.4+
-您必須在作業系統中完成特定組態步驟，虛擬機器才能在 Azure 中執行。
+你必须在操作系统中完成特定的配置步骤才能使虚拟机在 Azure 中运行。
 
 1. 在 Hyper-V 管理員的中間窗格中，選取虛擬機器。
 2. 按一下 **[連接]** ，以開啟虛擬機器的視窗。
@@ -48,12 +48,12 @@ ms.locfileid: "51232875"
    
         # sudo rpm -e --nodeps NetworkManager
    
-    **注意：** 如果尚未安裝封裝，此命令將會失敗，並出現錯誤訊息。 這是預期行為。
+    **附註：** 如果尚未安裝封裝，此命令將會失敗，並出現錯誤訊息。 這是預期行為。
 4. 在 `/etc/sysconfig/` 目錄中，建立名為 **network** 且包含下列文字的檔案：
    
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
-5. 在 `/etc/sysconfig/network-scripts/` 目錄中，建立名為 **ifcfg-eth0** 且包含下列文字的檔案：
+5. 在包含以下文本的 `/etc/sysconfig/network-scripts/` 目录中创建一个名为 **ifcfg-eth0** 的文件：
    
         DEVICE=eth0
         ONBOOT=yes
@@ -69,14 +69,14 @@ ms.locfileid: "51232875"
 7. 要確保開機時會啟動網路服務，可執行以下命令：
    
         # chkconfig network on
-8. 執行下列命令以安裝 python-pyasn1：
+8. 通过运行以下命令安装 python-pyasn1：
    
         # sudo yum install python-pyasn1
-9. 修改 grub 組態中的核心開機那一行，使其額外包含用於 Azure 的核心參數。 作法是，在文字編輯器中開啟 "/boot/grub/menu.lst"，並確定預設核心包含以下參數：
+9. 在 grub 配置中修改内核引导行，以使其包含 Azure 的其他内核参数。 作法是，在文字編輯器中開啟 "/boot/grub/menu.lst"，並確定預設核心包含以下參數：
    
         console=ttyS0 earlyprintk=ttyS0 rootdelay=300 numa=off
    
-   這也將確保所有主控台訊息都會傳送給第一個序列埠，有助於 Azure 支援團隊進行問題偵錯程序。 因為 Oracle Red Hat 相容核心的一個錯誤，這將會停用 NUMA。
+   這也將確保所有主控台訊息都會傳送給第一個序列埠，有助於 Azure 支援團隊進行問題偵錯程序。 由于 Oracle 的 Red Hat 兼容内核中的一个 bug，这将禁用 NUMA。
    
    除了上述以外，我們還建議您 *移除* 下列參數：
    
@@ -93,7 +93,7 @@ ms.locfileid: "51232875"
     請注意，如果 NetworkManager 和 NetworkManager-gnome 套件沒有如步驟 2 所述遭到移除，則在安裝 WALinuxAgent 套件時會將這兩個套件移除。
 12. 請勿在作業系統磁碟上建立交換空間。
     
-    Azure Linux 代理程式可在 VM 佈建於 Azure 後，使用附加至 VM 的本機資源磁碟自動設定交換空間。 請注意，資源磁碟是 *暫存* 磁碟，可能會在 VM 取消佈建時清空。 安裝 Azure Linux 代理程式 (請參閱上一個步驟) 後，請在 /etc/waagent.conf 中適當修改下列參數：
+    Azure Linux 代理可使用在 Azure 上设置后附加到虚拟机的本地资源磁盘自动配置交换空间。 請注意，資源磁碟是 *暫存* 磁碟，可能會在 VM 取消佈建時清空。 安裝 Azure Linux 代理程式 (請參閱上一個步驟) 後，請在 /etc/waagent.conf 中適當修改下列參數：
     
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -105,7 +105,7 @@ ms.locfileid: "51232875"
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
-14. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。 您現在可以將 Linux VHD 上傳至 Azure。
+14. 在 Hyper-V 管理器中单击“操作”->“关闭”。 您現在可以將 Linux VHD 上傳至 Azure。
 
 - - -
 ## <a name="oracle-linux-70"></a>Oracle Linux 7.0+
@@ -115,18 +115,18 @@ ms.locfileid: "51232875"
 
 * Azure 支援 Red Hat 相容核心和 Oracle 的 UEK3。  建議使用 UEK3 核心。
 * NetworkManager 封裝不會再與 Azure Linux 代理程式發生衝突。 依預設會安裝此封裝，建議您不要將它移除。
-* GRUB2 現已作為預設的開機載入器使用，因此我們已變更編輯核心參數的程序 (如下所示)。
+* GRUB2 现在用作默认引导加载程序，因此编辑内核参数的过程已更改（见下文）。
 * XFS 現為預設的檔案系統。 如有需要，您仍可使用 ext4 檔案系統。
 
 **組態步驟**
 
 1. 在 Hyper-V 管理員中，選取虛擬機器。
 2. 按一下 [連接] ，以開啟虛擬機器的主控台視窗。
-3. 在 `/etc/sysconfig/` 目錄中，建立名為 **network** 且包含下列文字的檔案：
+3. 在包含以下文本的 `/etc/sysconfig/` 目录中创建一个名为 **network** 的文件：
    
         NETWORKING=yes
         HOSTNAME=localhost.localdomain
-4. 在 `/etc/sysconfig/network-scripts/` 目錄中，建立名為 **ifcfg-eth0** 且包含下列文字的檔案：
+4. 在包含以下文本的 `/etc/sysconfig/network-scripts/` 目录中创建一个名为 **ifcfg-eth0** 的文件：
    
         DEVICE=eth0
         ONBOOT=yes
@@ -152,7 +152,7 @@ ms.locfileid: "51232875"
    
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
    
-   這也將確保所有主控台訊息都會傳送給第一個序列埠，有助於 Azure 支援團隊進行問題偵錯程序。 也會關閉新的 OEL 7 對 NIC 的命名慣例。 除了上述以外，我們還建議您 *移除* 下列參數：
+   這也將確保所有主控台訊息都會傳送給第一個序列埠，有助於 Azure 支援團隊進行問題偵錯程序。 也會關閉新的 OEL 7 對 NIC 的命名慣例。 除此之外，建议*删除*以下参数：
    
        rhgb quiet crashkernel=auto
    
@@ -169,7 +169,7 @@ ms.locfileid: "51232875"
         # sudo systemctl enable waagent
 13. 請勿在作業系統磁碟上建立交換空間。
     
-    Azure Linux 代理程式可在 VM 佈建於 Azure 後，使用附加至 VM 的本機資源磁碟自動設定交換空間。 請注意，資源磁碟是 *暫存* 磁碟，可能會在 VM 取消佈建時清空。 安裝 Azure Linux 代理程式 (請參閱上一個步驟) 後，請在 /etc/waagent.conf 中適當修改下列參數：
+    Azure Linux 代理可使用在 Azure 上设置后附加到虚拟机的本地资源磁盘自动配置交换空间。 請注意，資源磁碟是 *暫存* 磁碟，可能會在 VM 取消佈建時清空。 在安装 Azure Linux 代理（请参见前一步骤）后，相应地在 /etc/waagent.conf 中修改以下参数：
     
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -181,7 +181,7 @@ ms.locfileid: "51232875"
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
-15. 在 Hyper-V 管理員中，依序按一下 [動作] -> [關閉]。 您現在可以將 Linux VHD 上傳至 Azure。
+15. 在 Hyper-V 管理器中单击“操作”->“关闭”。 Linux VHD 现已准备好上传到 Azure。
 
 ## <a name="next-steps"></a>後續步驟
 您現在可以開始使用您的 Oracle Linux .vhd 在 Azure 中建立新的虛擬機器。 如果您是第一次將 .vhd 檔案上傳至 Azure，請參閱[從自訂磁碟建立 Linux VM](upload-vhd.md#option-1-upload-a-vhd)。

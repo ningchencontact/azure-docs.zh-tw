@@ -1,7 +1,7 @@
 ---
-title: 建立、 載入及查詢使用 PowerShell 和 REST API-Azure 搜尋服務索引
-description: 建立、 載入和使用 PowerShell、 Invoke-restmethod 和 Azure 搜尋服務 REST API 查詢索引。
-ms.date: 03/15/2019
+title: 快速入門：建立、 載入及查詢使用 PowerShell 和 REST API-Azure 搜尋服務索引
+description: 建立、 載入和使用 PowerShell 的查詢索引 Invoke-restmethod 」 和 「 Azure 搜尋服務 REST API。
+ms.date: 04/08/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 9e1b6fc0dc4e6a6c2c191960fa061c810e3a2e79
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2deba4bf941d561fcef7c2dff804646732e7ce24
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372109"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268019"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>快速入門：建立使用 PowerShell 和 REST API 的 Azure 搜尋服務索引
 > [!div class="op_single_selector"]
@@ -29,19 +29,23 @@ ms.locfileid: "58372109"
 
 ## <a name="prerequisites"></a>必要條件
 
-[建立 Azure 搜尋服務](search-create-service-portal.md)或是[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)目前訂用帳戶。 您可以使用本快速入門的免費服務。 其他先決條件包含下列項目。
+本快速入門使用下列服務和工具。 
+
+[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。 
 
 [PowerShell 5.1 或更新版本](https://github.com/PowerShell/PowerShell)，並使用[Invoke-restmethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod)循序和互動式步驟。
 
-取得 URL 端點，並管理您的搜尋服務的 api 金鑰。 搜尋服務是同時建立，因此如果您將 Azure 搜尋服務新增至您的訂用帳戶，請遵循下列步驟來取得必要的資訊：
+## <a name="get-a-key-and-url"></a>取得金鑰和 URL
 
-1. 在 Azure 入口網站中，搜尋服務中**概觀**頁面上，取得 URL。 範例端點看起來會像 https:\//my-service-name.search.windows.net。
+REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同時建立，因此如果您將 Azure 搜尋服務新增至您的訂用帳戶，請遵循下列步驟來取得必要的資訊：
 
-2. 在 **設定** > **金鑰**，取得在服務上的完整權限的系統管理金鑰。 有兩個可互換的系統管理金鑰，以防您需要轉換其中一個時，提供商務持續性。 您可以使用主要或次要金鑰在要求中加入、 修改和刪除的物件。
+1. [登入 Azure 入口網站](https://portal.azure.com/)，並在您的搜尋服務**概觀**頁面上，取得 URL。 範例端點看起來會像是 `https://mydemo.search.windows.net`。
 
-   ![取得 HTTP 端點和存取金鑰](media/search-fiddler/get-url-key.png "取得 HTTP 端點和存取金鑰")
+2. 在 [設定]  >  [金鑰] 中，取得服務上完整權限的管理金鑰。 可互換的管理金鑰有兩個，可在您需要變換金鑰時提供商務持續性。 您可以在新增、修改及刪除物件的要求上使用主要或次要金鑰。
 
-   所有要求均都需要每個要求傳送至您的服務上的 api 金鑰。 擁有有效的金鑰就能為每個要求在傳送要求之應用程式與處理要求之服務間建立信任。
+![取得 HTTP 端點和存取金鑰](media/search-fiddler/get-url-key.png "取得 HTTP 端點和存取金鑰")
+
+所有要求均都需要在傳送至您服務上的每個要求上使用 API 金鑰。 擁有有效的金鑰就能為每個要求在傳送要求之應用程式與處理要求之服務間建立信任。
 
 ## <a name="connect-to-azure-search"></a>連接到 Azure 搜尋服務
 
@@ -165,7 +169,7 @@ Invoke-RestMethod -Uri $url -Headers $headers -Method Put -Body $body | ConvertT
 
 <a name="load-documents"></a>
 
-## <a name="2---load-documents"></a>2-載入文件
+## <a name="2---load-documents"></a>2 - 載入文件
 
 若要推送的文件，使用 HTTP POST 要求至您的索引 URL 端點。 這項工作的 REST api[新增、 更新或刪除文件](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)。
 

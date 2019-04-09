@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 4b5b7cf3a00e21b9904f72a98d5f24264bb0ecbc
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 544ef8947f3a593071cabea018c722db96ab1475
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484282"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266200"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>在 Azure App Service 中設定預備環境
 <a name="Overview"></a>
@@ -84,7 +84,12 @@ ms.locfileid: "58484282"
 * 監視與診斷設定
 * 公開憑證
 * WebJobs 內容
-* 混合式連線
+* 混合式連線 *
+* VNet 整合 *
+* 服務端點 *
+* Azure CDN *
+
+功能標記與 * 已計劃進行自黏便箋的插槽。 
 
 **無法交換的設定**：
 
@@ -93,10 +98,15 @@ ms.locfileid: "58484282"
 * 私人憑證與 SSL 繫結
 * 擴充設定
 * WebJobs 排程器
+* IP 限制
+* 永遠開啟
+* 通訊協定設定 (HTTP**S**，TLS 版本，用戶端憑證)
+* 診斷記錄設定
+* CORS
 
-<!-- VNET, IP restrictions, CORS, hybrid connections? -->
+<!-- VNET and hybrid connections not yet sticky to slot -->
 
-若要將應用程式設定或連接字串設定為停留在特定位置 (未交換)，請瀏覽至該位置的 [應用程式設定] 頁面，然後針對應停留在該位置的設定元素，選取 [位置設定] 方塊。 將組態元素標記為「位置特定」，可向 App Service 指出那是無法交換的元素。
+若要將應用程式設定或連接字串設定為停留在特定位置 (未交換)，請瀏覽至該位置的 [應用程式設定] 頁面，然後針對應停留在該位置的設定元素，選取 [位置設定] 方塊。 將組態元素標記為「位置特定」，可向 App Service 指出那是無法交換的元素。 
 
 ![位置設定](./media/web-sites-staged-publishing/SlotSetting.png)
 
@@ -209,8 +219,8 @@ ms.locfileid: "58484282"
 
 您也可以使用下列一或多個[應用程式設定](web-sites-configure.md)來自訂準備行為：
 
-- `WEBSITE_SWAP_WARMUP_PING_PATH`:用來準備您網站的偵測路徑。 請指定開頭為斜線的自訂路徑作為值，以新增此應用程式設定。 例如： `/statuscheck`。 預設值為 `/`。 
-- `WEBSITE_SWAP_WARMUP_PING_STATUSES`:準備作業的有效 HTTP 回應碼。 請以 HTTP 代碼的逗號分隔清單方式新增此應用程式設定。 例如：`200,202`。 如果傳回的狀態碼不在清單中，準備和交換作業就會停止。 預設是所有回應碼都有效。
+- `WEBSITE_SWAP_WARMUP_PING_PATH`：用來準備您網站的偵測路徑。 請指定開頭為斜線的自訂路徑作為值，以新增此應用程式設定。 例如： `/statuscheck`。 預設值為 `/`。 
+- `WEBSITE_SWAP_WARMUP_PING_STATUSES`：準備作業的有效 HTTP 回應碼。 請以 HTTP 代碼的逗號分隔清單方式新增此應用程式設定。 例如：`200,202`。 如果傳回的狀態碼不在清單中，準備和交換作業就會停止。 預設是所有回應碼都有效。
 
 ## <a name="monitor-swap"></a>監視交換
 
@@ -329,4 +339,4 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 如需適用於部署位置的 [Azure CLI](https://github.com/Azure/azure-cli) 命令，請參閱 [az webapp deployment slot](/cli/azure/webapp/deployment/slot)。
 
 ## <a name="next-steps"></a>後續步驟
-[封鎖對非生產位置的存取](app-service-ip-restrictions.md)
+[封鎖對非生產位置存取](app-service-ip-restrictions.md)

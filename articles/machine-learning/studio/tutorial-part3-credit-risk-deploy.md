@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 7132c2073223008cd82d0ffd54aaf266d0a630ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6cdccd54546296c85864f1588b71109ed8b8f79f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57839012"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620501"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio"></a>教學課程 3：部署信用風險模型 - Azure Machine Learning Studio
 
@@ -172,7 +172,7 @@ Machine Learning Studio 已在移除[分割][split]模組時移除一個[執行 
 接著透過 **Web 服務輸出**模組，將結果從 Web 服務傳回給使用者。
 
 > [!TIP]
-> 基於您設定預測實驗的方式，會傳回[評分模型][score-model]模組的整個結果。 這包括所有輸入的資料以及信用風險值和評分機率。 但您可以視需要傳回不同的項目，例如，您可以只傳回信用風險值。 若要這樣做，請在[評分模型][score-model]和 **Web 服務輸出**之間插入[專案資料行][project-columns]模組，以排除您不想讓 Web 服務傳回的資料行。 
+> 基於您設定預測實驗的方式，會傳回[評分模型][score-model]模組的整個結果。 這包括所有輸入的資料以及信用風險值和評分機率。 但您可以視需要傳回不同的項目，例如，您可以只傳回信用風險值。 若要這樣做，請在[評分模型][score-model]和 **Web 服務輸出**之間插入[選取資料行][select-columns]模組，以排除您不想讓 Web 服務傳回的資料行。 
 > 
 > 
 
@@ -267,4 +267,4 @@ Machine Learning Studio 已在移除[分割][split]模組時移除一個[執行 
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/

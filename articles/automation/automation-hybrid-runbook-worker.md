@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/31/2019
+ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5f98cf51b618686e3c608535667993e9d5f9e939
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4c91bf389f5c63b95e5b68784b6657e92b109a46
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852912"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265860"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>使用混合式 Runbook 背景工作角色將資料中心內或雲端的資源自動化
 
@@ -97,11 +97,11 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 
 ### <a name="hybrid-worker-role"></a>混合式背景工作角色
 
-混合式 Runbook 背景工作角色連接到並向 Azure 監視器記錄檔，它必須能夠存取的連接埠號碼和 Url 這一節中所述。 這項存取是上方[連接埠和 Url 所需的 Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md)連接到 Azure 監視器記錄檔。
+連線並註冊使用 Azure 自動化 Hybrid Runbook Worker，它必須能夠存取的連接埠號碼和 Url 這一節中所述。 這項存取是上方[連接埠和 Url 所需的 Microsoft Monitoring Agent](../azure-monitor/platform/agent-windows.md)連接到 Azure 監視器記錄檔。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-如果您使用 proxy 伺服器，代理程式與 Azure 監視器服務之間的通訊，確保可以存取適當的資源。 如果您使用防火牆來限制網際網路存取，您必須設定防火牆以允許存取。 如果您使用 Log Analytics 閘道作為 Proxy，請確保已針對混合式背景工作角色進行設定。 如需有關如何執行這項操作的指示，請參閱[為自動化混合式背景工作角色設定 Log Analytics 閘道](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway)。
+如果您使用 proxy 伺服器，代理程式與 Azure 自動化服務之間的通訊，確保可以存取適當的資源。 Hybrid Runbook Worker 與自動化服務要求的逾時為 30 秒。 嘗試 3 之後，則要求會失敗。 如果您使用防火牆來限制網際網路存取，您必須設定防火牆以允許存取。 如果您使用 Log Analytics 閘道作為 Proxy，請確保已針對混合式背景工作角色進行設定。 如需有關如何執行這項操作的指示，請參閱[為自動化混合式背景工作角色設定 Log Analytics 閘道](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway)。
 
 若要讓混合式 Runbook 背景工作角色與自動化進行通訊，需要下列連接埠和 URL：
 

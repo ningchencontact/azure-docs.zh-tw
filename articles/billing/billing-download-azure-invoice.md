@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 82755f01cc881703eeefb6415b2e8e87e50fba60
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: f71fe9b02765e0fc8fd5f3b7abbd54c87b08132f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652377"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264058"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>檢視及下載您 Microsoft Azure 發票
 
@@ -135,15 +135,15 @@ ms.locfileid: "58652377"
 
 若要深入了解您的發票和費用，請參閱：
 
-- [檢視及下載您的 Microsoft Azure 使用量和費用](billing-download-azure-daily-usage.md)
+- [檢視及下載您 Microsoft Azure 使用量和費用](billing-download-azure-daily-usage.md)
 - [了解 Microsoft Azure 帳單](billing-understand-your-bill.md)
 - [了解您的 Azure 發票上的字詞](billing-understand-your-invoice.md)
-- [了解您 Microsoft Azure 詳細使用量上的字詞](billing-understand-your-usage.md)
+- [了解的字詞，在您的 Microsoft Azure 詳細使用量](billing-understand-your-usage.md)
 - [檢視您組織的 Azure 定價](billing-ea-pricing.md)
 
 如果您有 Microsoft 的客戶合約，請參閱：
 
-- [了解您帳單的設定檔的發票費用 ](billing-mca-understand-your-bill.md)
+- [了解您帳單的設定檔的發票費用](billing-mca-understand-your-bill.md)
 - [了解發票上的帳單設定檔中的字詞](billing-mca-understand-your-invoice.md)
 - [了解您帳單的設定檔的 Azure 使用量和費用檔案](billing-mca-understand-your-usage.md)
 - [檢視及下載帳單設定檔的稅務文件](billing-mca-download-tax-document.md)

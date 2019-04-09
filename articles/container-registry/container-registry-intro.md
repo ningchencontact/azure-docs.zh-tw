@@ -5,15 +5,15 @@ services: container-registry
 author: stevelas
 ms.service: container-registry
 ms.topic: overview
-ms.date: 09/25/2018
+ms.date: 03/29/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: befac6f1429d5099f68f0c2ba0a90bb1217f8b6f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 39f643bd66e2a96b0b9b93989d2941a9c30ea7fc
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530257"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894008"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure 中的私人 Docker 容器登錄的簡介
 
@@ -54,10 +54,10 @@ Azure 容器登錄是可管理的 [Docker Registry](https://docs.docker.com/regi
 
 [Azure Container Registry 工作](container-registry-tasks-overview.md) (ACR 工作) 是 Azure Container Registry 內的一組功能，可在 Azure 中提供精簡而有效率的 Docker 容器映像建置。 使用 ACR 工作將 `docker build` 作業卸載至 Azure，讓您的開發內部迴圈延伸到雲端。 設定建置工作以自動化您的容器作業系統與架構修補管線，並在您的小組將程式碼認可至來源控制項時自動建置影像。
 
-[多步驟工作](container-registry-tasks-overview.md#multi-step-tasks-preview) 是 ACR 工作的預覽功能，提供適用於在雲端建置、測試及修補容器映像的步驟型工作定義與執行。 工作步驟會定義個別的容器映像建置和推送作業。 它們也可以定義一或多個容器的執行，其中每個步驟都使用容器作為其執行環境。
+[多步驟工作](container-registry-tasks-overview.md#multi-step-tasks)提供適用於在雲端建置、測試及修補容器映像的步驟型工作定義與執行。 工作步驟會定義個別的容器映像建置和推送作業。 它們也可以定義一或多個容器的執行，其中每個步驟都使用容器作為其執行環境。
 
 ## <a name="next-steps"></a>後續步驟
 
 * [使用 Azure 入口網站建立容器登錄庫](container-registry-get-started-portal.md)
 * [使用 Azure CLI 建立容器登錄庫](container-registry-get-started-azure-cli.md)
-* [使用 ACR 工作自動進行 OS 與架構修補](container-registry-tasks-overview.md)
+* [使用 ACR 工作來自動執行 OS 和架構修補](container-registry-tasks-overview.md)

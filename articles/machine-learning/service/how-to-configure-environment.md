@@ -1,7 +1,7 @@
 ---
 title: 設定 Python 開發環境
 titleSuffix: Azure Machine Learning service
-description: 了解如何在使用 Azure Machine Learning 服務時設定開發環境。 在本文中，您將了解如何使用 Conda 環境、建立組態檔，以及設定 Jupyter Notebook、Azure Notebooks、Azure Databricks、IDE、程式碼編輯器和資料科學虛擬機器。
+description: 了解如何在使用 Azure Machine Learning 服務時設定開發環境。 在本文中，您將了解如何使用 Conda 環境、 建立組態檔，以及設定您自己的雲端架構的筆記本伺服器、 Jupyter Notebook、 Azure Databricks，Azure Notebooks、 Ide、 程式碼編輯器和資料科學虛擬機器。
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: c4bdeb4e00a59d6ba2b415801c0689d77ed9a825
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 4aabf15478a6f8e688ea591832ca325f53144df8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577555"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263191"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>設定 Azure Machine Learning 的開發環境
 
@@ -26,7 +26,7 @@ ms.locfileid: "58577555"
 
 本文著重於下列環境和工具：
 
-* Azure Notebooks：裝載於 Azure 雲端中的 Jupyter Notebook 服務。 這是最簡單的入門方式，因為已經安裝了 Azure Machine Learning SDK。
+* 您自己[雲端為基礎的 notebook server](#workstation):在您的工作站中使用的計算資源，執行 Jupyter notebook。 這是最簡單的入門方式，因為已經安裝了 Azure Machine Learning SDK。
 
 * [資料科學虛擬機器 (DSVM)](#dsvm)：Azure 雲端中預先設定的開發或實驗環境，此環境專為資料科學工作而設計，並可部署至純 CPU VM 執行個體或 GPU 型執行個體。 已安裝 Python 3、Conda、Jupyter Notebook 和 Azure Machine Learning SDK。 VM 隨附適用於開發機器學習解決方案的常用機器學習和深度學習架構、工具及編輯器。 針對 Azure 平台上的機器學習，它可能是最完整的開發環境。
 
@@ -36,16 +36,19 @@ ms.locfileid: "58577555"
 
 * [Azure Databricks](#aml-databricks)：以 Apache Spark 為基礎的常用資料分析平台。 了解如何將 Azure Machine Learning SDK 安裝在您的叢集上，讓您可以部署模型。
 
+* [Azure Notebooks](#aznotebooks)：裝載於 Azure 雲端中的 Jupyter Notebook 服務。 也可以輕鬆地開始使用，因為已安裝 Azure Machine Learning SDK。  
+
 如果您已經擁有 Python 3 環境，或者只是想要安裝 SDK 的基本步驟，請參閱[本機電腦](#local)一節。
 
 ## <a name="prerequisites"></a>必要條件
 
 - Azure Machine Learning 服務工作區。 若要建立工作區，請參閱[建立 Azure 機器學習服務工作區](setup-create-workspace.md)。
 
-- 任一[Anaconda](https://www.anaconda.com/download/)或是[Miniconda](https://conda.io/miniconda.html)封裝管理員。
+工作區是您只需要開始使用您自己[雲端為基礎的 notebook 伺服器](#workstation)，則[DSVM](#dsvm)， [Azure Databricks](#aml-databricks)，或[Azure Notebooks](#aznotebooks).
 
-    > [!IMPORTANT]
-    > 使用 Azure Notebooks 時不需要 Anaconda 和 Miniconda。
+若要安裝的 SDK 環境您[本機電腦](#local)， [Jupyter Notebook 伺服器](#jupyter)或是[Visual Studio Code](#vscode)也需要：
+
+- 任一[Anaconda](https://www.anaconda.com/download/)或是[Miniconda](https://conda.io/miniconda.html)封裝管理員。
 
 - 在 Linux 或 macOS 上，您需要 bash 殼層。
 
@@ -54,16 +57,16 @@ ms.locfileid: "58577555"
 
 - 在 Windows 上，您需要命令提示字元或 Anaconda 提示字元 (由 Anaconda 和 Miniconda 安裝)。
 
-## <a id="aznotebooks"></a>Azure Notebooks
+## <a id="workstation"></a>您自己的雲端架構的 notebook 伺服器
 
-[Azure Notebooks](https://notebooks.azure.com) (預覽) 是 Azure 雲端中的互動式開發環境。 這是開始使用 Azure Machine Learning 環境最簡單的方式。
+在您的 Azure Machine Learning 工作區的最簡單的方式，若要開始使用 Azure Machine Learning 開發中建立 notebook 伺服器。
 
 * Azure Machine Learning SDK 已安裝。
-* 在 Azure 入口網站中建立 Azure Machine Learning 服務工作區後，您可以按一下按鈕來自動設定您的 Azure Notebook 環境，以使用工作區。
+* 工作站環境會自動設定為使用您的工作區中。
+* 資源可用且可管理您的工作區中
 
-若要開始使用 Azure Notebooks 進行開發，請參閱[開始使用 Azure Machine Learning 服務](quickstart-run-cloud-notebook.md)。
+若要開始使用雲端架構的 notebook server 進行開發，請參閱[開始使用 Azure Machine Learning 服務](quickstart-run-cloud-notebook.md)。
 
-根據預設，Azure Notebooks 使用免費服務層，其限制為 4 GB 記憶體和 1GB 資料。 不過，您可以將資料科學虛擬機器執行個體附加到 Azure Notebooks 專案來移除這些限制。 如需詳細資訊，請參閱[管理和設定 Azure Notebooks 專案 - 計算層](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)。
 
 ## <a id="dsvm"></a>資料科學虛擬機器
 
@@ -276,7 +279,7 @@ Azure Databricks 的運作方式與 Azure Machine Learning 服務：
 ### <a name="set-up-your-databricks-cluster"></a>設定您的 Databricks 叢集
 
 建立[Databricks 叢集](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)。 只有當您安裝適用於自動化的機器學習服務在 Databricks 上的 SDK，適用於某些設定。
-**需要幾分鐘的時間來建立叢集。**
+**建立叢集將需要幾分鐘的時間。**
 
 使用這些設定：
 
@@ -376,6 +379,17 @@ SDK databricks **WITH**自動化機器學習服務![SDK 會自動安裝在 Datab
     ```
 
     此程式碼會將組態檔寫入 *aml_config/config.json* 檔案。
+
+## <a id="aznotebooks"></a>Azure Notebooks
+
+[Azure Notebooks](https://notebooks.azure.com) (預覽) 是 Azure 雲端中的互動式開發環境。 它是簡單的方法，若要開始使用 Azure Machine Learning 開發。
+
+* Azure Machine Learning SDK 已安裝。
+* 在 Azure 入口網站中建立 Azure Machine Learning 服務工作區後，您可以按一下按鈕來自動設定您的 Azure Notebook 環境，以使用工作區。
+
+使用[Azure 入口網站](https://portal.azure.com)若要開始使用 Azure Notebook。  開啟您的工作區往返**概觀**區段中，選取**開始使用 Azure Notebooks**。
+
+根據預設，Azure Notebooks 使用免費服務層，其限制為 4 GB 記憶體和 1GB 資料。 不過，您可以將資料科學虛擬機器執行個體附加到 Azure Notebooks 專案來移除這些限制。 如需詳細資訊，請參閱[管理和設定 Azure Notebooks 專案 - 計算層](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier)。
 
 ## <a name="next-steps"></a>後續步驟
 

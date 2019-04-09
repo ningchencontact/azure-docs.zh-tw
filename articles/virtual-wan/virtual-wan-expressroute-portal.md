@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/5/2018
+ms.date: 04/02/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 017c8c2f060f969f2e7f8d387dcbafa2dac426d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7b7adcc85b9274af45ddab653e875377e959e40c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842940"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876321"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>教學課程：使用 Azure 虛擬 WAN 來建立 ExpressRoute 關聯 (預覽)
 
@@ -47,8 +47,7 @@ ms.locfileid: "57842940"
 
 **預覽考量：**
 
-* 區域可用性：美國中西部
-* 必須在支援 [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported) 的國家/地區中啟用 ExpressRoute 線路
+必須在支援 [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported) 的國家/地區中啟用 ExpressRoute 線路。
 
 ## <a name="vnet"></a>1.建立虛擬網路
 
@@ -70,16 +69,16 @@ ms.locfileid: "57842940"
 
 ## <a name="hub"></a>4.尋找線路並將其關聯至中樞
 
-1. 選取您的 vWAN，並且在 [虛擬 WAN 架構] 底下選取 [ExpressRoute 線路]
-1. 如果 ExpressRoute 線路位在與您 vWAN 相同的訂用帳戶中，請從訂用帳戶按一下 [選取 ExpressRoute 線路] 
+1. 選取您的 vWAN，並且在 [虛擬 WAN 架構] 底下選取 [ExpressRoute 線路]。
+1. 如果 ExpressRoute 線路位在與您 vWAN 相同的訂用帳戶中，請從訂用帳戶按一下 [選取 ExpressRoute 線路]。 
 1. 使用下拉式清單，選取您要關聯至中樞的 ExpressRoute。
 1. 如果 ExpressRoute 線路不是在相同的訂用帳戶中，或是您已提供[授權金鑰和對等互連識別碼](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md)，請選取 [尋找線路來兌換授權金鑰]
 1. 輸入下列詳細資料：
 1. **授權金鑰** - 由線路擁有者產生，如上所述
 1. **對等互連線路 URI** - 由線路擁有者所提供的線路 URI，是線路的唯一識別碼
 1. **路由權重** - 當有來自不同對等互連位置的多個線路連線至相同中樞時，[路由權重](../expressroute/expressroute-optimize-routing.md)可讓您使用偏好的特定路徑
-1. 按一下 [尋找線路]，在找到時選取線路
-1. 從下拉式清單中選取 1 或多個中樞，然後按一下 [儲存]
+1. 按一下 [尋找線路]，在找到時選取線路。
+1. 從下拉式清單中選取 1 或多個中樞，然後按一下 [儲存]。
 
 ## <a name="vnet"></a>5.將 VNet 連線至中樞
 

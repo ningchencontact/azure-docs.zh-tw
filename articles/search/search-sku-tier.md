@@ -7,19 +7,21 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 523c99436eb49f1658a5d4c56d64248adccc5c3a
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: da8c8adacfead598a8dec6280cf3518fb7b31f49
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621263"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270933"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>選擇 Azure 搜尋服務的定價層
 
-在 Azure 搜尋服務中，[資源是建立](search-create-service-portal.md)在定價層或該服務之存留期內固定的 SKU。 階層都包含**空閒**，**基本**，**標準**，或**儲存體最佳化**。  **標準**並**儲存體最佳化**有數個組態和容量。 大部分的客戶開始使用**免費**層進行評估，然後再轉換為其中一個較高的付費層次，適用於開發和生產環境部署。 您可以完成**免費**層上的所有快速入門和教學課程，包括耗用大量資料之認知搜尋的快速入門和教學課程。
+在 Azure 搜尋服務中，[資源是建立](search-create-service-portal.md)在定價層或該服務之存留期內固定的 SKU。 階層都包含**空閒**，**基本**，**標準**，或**儲存體最佳化**。  **標準**並**儲存體最佳化**有數個組態和容量。 
+
+大部分的客戶開始使用**免費**層進行評估，然後再轉換為其中一個較高的付費層次，適用於開發和生產環境部署。 您可以完成**免費**層上的所有快速入門和教學課程，包括耗用大量資料之認知搜尋的快速入門和教學課程。
 
 > [!NOTE]
 > 在儲存體最佳化的服務層是目前可供預覽，以供測試和測試以收集意見反應為目標的實付款項折扣定價。 最終價格將於日後宣佈正式推出這些層時。 我們建議您避免使用這些層次，對於生產應用程式。
@@ -29,7 +31,7 @@ ms.locfileid: "58621263"
 + 您可以建立的索引數目
 + 分割區的大小和速度 (實體儲存體)
 
-雖然所有層 (包括**免費**層) 通常都提供功能同位，但較大的工作負載可以指定用於較高層級的需求。 例如，除非資料集剛好很小，否則[認知搜尋](cognitive-search-concept-intro.md)索引所擁有的長時間執行技能會在免費服務上逾時。
+雖然所有層 (包括**免費**層) 通常都提供功能同位，但較大的工作負載可以指定用於較高層級的需求。 例如，[認知服務與 AI 索引](cognitive-search-concept-intro.md)對長時間執行的技能逾時的一項免費服務除非剛好是小型資料集。
 
 > [!NOTE] 
 > 功能同位的例外狀況是[索引子](search-indexer-overview.md)，它們並不適用於 S3HD。
@@ -53,7 +55,7 @@ ms.locfileid: "58621263"
 |儲存體最佳化 2 (L2) | 2 TB/資料分割 (每個服務的最大 24 TB) |
 
 > [!NOTE] 
-> 儲存體最佳化層提供比標準層以較低價格每 TB 的較大儲存體容量。  主要的代價是較高的查詢延遲，您應該驗證特定的應用程式的需求。  若要深入了解這一層的效能考量，請參閱[效能與最佳化考量](search-performance-optimization.md)。
+> 儲存體最佳化層提供比標準層以較低價格每 TB 的較大儲存體容量。 主要的代價是較高的查詢延遲，您應該驗證特定的應用程式的需求。  若要深入了解這一層的效能考量，請參閱[效能與最佳化考量](search-performance-optimization.md)。
 >
 
 ## <a name="how-billing-works"></a>計費的運作方式
@@ -70,17 +72,27 @@ ms.locfileid: "58621263"
 
 額外的複本和分割區是初始的免費的附加元件。 搜尋服務需要複本和分割區，因此最小的組態，每一個。 超過最小值，您新增複本和分割區獨立。 比方說，您可以新增只能 「 複本 」 或 「 只有資料分割。 
 
-額外的複本和分割區收費依據[公式](#search-units)。 成本不是線性 （加倍容量多個雙精度浮點數的成本）。 如需公式的運作方式的範例，請參閱[「 如何配置複本和分割區 」](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)
+額外的複本和分割區收費依據[公式](#search-units)。 成本不是線性 （加倍容量多個雙精度浮點數的成本）。 如需公式的運作方式的範例，請參閱 < ["How to 複本和分割區配置"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)。
 
 ### <a name="2-data-egress-charges-during-indexing"></a>2.編製索引期間的資料輸出費用
 
-從 Azure SQL Database 或 Cosmos DB 資料來源提取資料時，您會在帳單中看到那些資源的交易費用。 這些費用不是 Azure 搜尋服務的計量，但它們會提因為如果您使用索引子，從 Azure SQL Database 或 Azure Cosmos DB 中提取資料，您會看到該費用在帳單中。
+利用[Azure 搜尋服務索引子](search-indexer-overview.md)可能會導致計費影響而定之服務的所在位置。 完全如果在您的資料與相同的區域中建立 Azure 搜尋服務，您可以排除資料輸出費用。
+
++ 在 Azure 上的任何服務的任何輸入資料不需要費用。
+
++ Azure 搜尋服務中的任何輸出資料不需要費用。
+
++ 免費的資料或檔案從 SQL DB，Cosmos，Blob 儲存體輸出 （輸入到 Azure 搜尋服務），只要所有服務都都位於相同的區域。
+
++ 如果儲存體和 Azure 搜尋服務位於不同的區域費用適用輸出資料或檔案。
+
+當資料路由傳送跨 Azure 區域中，您會看到這些資源的帳單中的頻寬費用。 這些費用並不屬於您 Azure 搜尋服務的帳單，但是他們提及這裡因為如果您使用索引子來提取資料或檔案在網路上，您會看到該費用，您整體的帳單中。
+
+如果您未使用索引子，會有任何頻寬費用。 
 
 ### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3.AI 豐富的編製索引使用認知服務
 
-僅針對[認知搜尋](cognitive-search-concept-intro.md)，在文件萃取期間的影像擷取，會根據從文件擷取的影像數目計費。 文字擷取目前是免費的。 其他類根據[內建認知技能](cognitive-search-predefined-skills.md)收費認知服務資源。 擴充的計費費率如同您直接使用認知服務執行工作。
-
-如果您不是使用[認知服務](cognitive-search-concept-intro.md)或 [Azure 搜尋服務索引子](search-indexer-overview.md)，您的成本只會與使用中的複本和分割區相關聯，用於一般編製索引和查詢工作負載。
+針對[認知服務與 AI 索引](cognitive-search-concept-intro.md)僅映像擷取文件破解期間的計費依據從您的文件中擷取的映像數目。 文字擷取目前是免費的。 自然語言處理，例如其他類，根據[內建認知技能](cognitive-search-predefined-skills.md)收費認知服務資源。 擴充的計費費率如同您直接使用認知服務執行工作。
 
 <a name="search-units"></a>
 
@@ -181,7 +193,7 @@ SU 是服務所用複本和分割區的乘積：**`(R X P = SU)`**
 
 其中一個預估容量的方法是從**免費**層開始。 請回想一下，**免費**服務最多可提供 3 個索引，50 MB 的儲存體，和 2 分鐘的索引時間。 使用這些條件約束來預估預計的索引大小並不容易，但下列範例會示範一個方法：
 
-+ [建立免費服務](search-create-service-portal.md)
++ [建立一項免費服務](search-create-service-portal.md)
 + 準備具代表性的小型資料集 (假設有 5000 份文件，取樣大小為 10%)
 + [建置初始索引](search-create-index-portal.md)，並注意它在入口網站中的大小 (假設有 30 MB)
 
@@ -209,7 +221,7 @@ SU 是服務所用複本和分割區的乘積：**`(R X P = SU)`**
 > 如果文件包含無關的資料，儲存體需求可能會過度膨脹。 理想情況是，文件只包含搜尋體驗所需的資料。 二進位資料不可搜尋，應該分開存放 (或許存放在 Azure 資料表或 Blob 儲存體中)，並且在索引中要有一個欄位用來保存外部資料的 URL 參考。 個別文件的大小上限是 16 MB (如果您在單一要求中大量上傳多個文件，則會小於 16 MB)。 [Azure 搜尋服務中的服務限制](search-limits-quotas-capacity.md)有更多資訊。
 >
 
-**查詢量的考量**
+**查詢磁碟區的注意事項**
 
 在微調效能時，每秒查詢數 (QPS) 計量會顯得重要，但除非您一開始就預期會有大量的查詢，否則此計量通常不是定價層的考量事項。
 

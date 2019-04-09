@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/11/2018
+ms.date: 04/01/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 542bc1a185f80eaae442931650eb3cd604c197b1
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: c6979ce5cade09d4daa4e6eddd79fb69175ec902
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54080463"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849388"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>開始監視 Node.js Web 應用程式
 
@@ -33,7 +33,7 @@ Azure Application Insights 可讓您輕鬆監視 Web 應用程式的可用性、
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
+## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
 登入 [Azure 入口網站](https://portal.azure.com/)。
 
@@ -41,9 +41,12 @@ Azure Application Insights 可讓您輕鬆監視 Web 應用程式的可用性、
 
 Application Insights 可以從任何連上網際網路的應用程式收集遙測資料，而不論應用程式在內部部署或雲端中執行。 請使用下列步驟來開始檢視此資料。
 
-1. 選取 [建立資源] > **[監視 + 管理]** > **[Application Insights]**。
+1. 選取 [建立資源] > [開發人員工具] > [Application Insights]。
 
-   ![新增 Application Insights 資源](./media/nodejs-quick-start/001-u.png)
+   ![新增 Application Insights 資源](./media/nodejs-quick-start/1createresourseappinsights.png)
+
+   ![新增 Application Insights 資源](./media/nodejs-quick-start/2createnodejs.png)
+
 
    設定方塊隨即出現，請使用下表來填寫輸入欄位。
 
@@ -58,9 +61,9 @@ Application Insights 可以從任何連上網際網路的應用程式收集遙�
 
 ## <a name="configure-app-insights-sdk"></a>設定 App Insights SDK
 
-1. 選取 [概觀] > **[程式集]** > 複製應用程式的 [檢測金鑰]。
+1. 選取 [概觀]，然後複製應用程式的 [檢測金鑰]。
 
-   ![新增 App Insights 資源表單](./media/nodejs-quick-start/instrumentation-key-001.png)
+   ![新增 App Insights 資源表單](./media/nodejs-quick-start/3key.png)
 
 2. 將 Application Insights SDK for Node.js 新增至您的應用程式。 從應用程式的根資料夾執行：
 
@@ -84,19 +87,19 @@ Application Insights 可以從任何連上網際網路的應用程式收集遙�
 
 1. 現在，您可以在 Azure 入口網站中重新開啟 Application Insights [概觀] 頁面 (您先前在此擷取檢測金鑰)，以檢視目前執行中應用程式的詳細資料。
 
-   ![Application Insights 概觀功能表](./media/nodejs-quick-start/overview-001.png)
+   ![Application Insights 概觀功能表](./media/nodejs-quick-start/4overview.png)
 
-2. 按一下 [應用程式對應]，以顯示應用程式元件之間相依性關聯性的視覺化配置。 每個元件會顯示負載、效能、失敗和警示等 KPI。
+2. 按一下 [應用程式對應]，以顯示應用程式元件之間相依性關係的視覺化配置。 每個元件會顯示負載、效能、失敗和警示等 KPI。
 
-   ![應用程式對應](./media/nodejs-quick-start/application-map.png)
+   ![應用程式對應](./media/nodejs-quick-start/5appmap.png)
 
-3. 按一下 [應用程式分析] 圖示 ![應用程式對應圖示](./media/nodejs-quick-start/006.png)。  這樣會開啟 **Application Insights Analytics**，它提供一種豐富查詢語言，可用於分析 Application Insights 收集的所有資料。 此案例中會為您產生查詢，可將要求計數以圖表呈現。 您可以撰寫自己的查詢來分析其他資料。
+3. 按一下 [應用程式分析] 圖示 ![應用程式對應圖示](./media/nodejs-quick-start/006.png) **在 Analytics 中檢視**。  這樣會開啟 **Application Insights Analytics**，它提供一種豐富查詢語言，可用於分析 Application Insights 收集的所有資料。 此案例中會為您產生查詢，可將要求計數以圖表呈現。 您可以撰寫自己的查詢來分析其他資料。
 
-   ![經過一段時間的使用者要求分析圖表](./media/nodejs-quick-start/007-Black.png)
+   ![經過一段時間的使用者要求分析圖表](./media/nodejs-quick-start/6analytics.png)
 
-4. 返回 [概觀] 頁面，檢查 [KPI 圖形]。  此儀表板會提供應用程式健康情況的統計資料，包括連入要求數量、這些要求的持續時間，以及任何發生的失敗。 
+4. 返回 [概觀] 頁面，檢查 [KPI 圖形]。  此儀表板會提供應用程式健康情況的統計資料，包括連入要求數量、這些要求的持續時間，以及任何發生的失敗。
 
-   ![健康情況概觀時間軸圖表](./media/nodejs-quick-start/overview-perf.png)
+   ![健康情況概觀時間軸圖表](./media/nodejs-quick-start/7kpidashboards.png)
 
    若要在 [網頁檢視載入時間] 圖表中填入**用戶端遙測**資料，請將此指令碼新增至您要追蹤的每個頁面：
 
@@ -120,15 +123,15 @@ Application Insights 可以從任何連上網際網路的應用程式收集遙�
    </script>
    ```
 
-5. 按一下 [調查] 標題下的 [瀏覽器]。 您在這裡可以找到應用程式頁面效能的相關計量。 您可以按一下 [新增新的圖表] 來建立額外的自訂檢視，或選取 [編輯] 來修改現有圖表的類型、高度、調色盤、群組和計量。
+5. 在左側按一下 [計量]。 使用計量瀏覽器來調查資源的健康情況和使用量。 您可以按一下 [新增新的圖表] 來建立額外的自訂檢視，或選取 [編輯] 來修改現有圖表的類型、高度、調色盤、群組和計量。 例如，您可以製作圖表來顯示平均瀏覽器頁面載入時間，方法是從 [計量] 下拉式清單選取 [瀏覽器頁面載入時間] 並從 [彙總] 選取 [平均]。 若要深入了解 Azure 計量瀏覽器，請瀏覽[開始使用 Azure 計量瀏覽器](../../azure-monitor/platform/metrics-getting-started.md)。
 
-   ![伺服器計量圖表](./media/nodejs-quick-start/009-Black.png)
+   ![伺服器計量圖表](./media/nodejs-quick-start/8metrics.png)
 
 若要深入了解監視 Node.js，請參閱[其他 App Insights Node.js 文件](../../azure-monitor/app/nodejs.md)。
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您打算繼續進行後續的快速入門或教學課程，請勿清除在此快速入門中建立的資源。 如果您不打算繼續，請使用下列步驟，在 Azure 入口網站中刪除本快速入門所建立的所有資源。
+當您完成測試時，您可以刪除資源群組和所有相關資源。 若要這樣做，請依照下列步驟執行。
 
 1. 從 Azure 入口網站的左側功能表中，依序按一下 [資源群組] 和 [myResourceGroup]。
 2. 在資源群組頁面上，按一下 [刪除]，在文字方塊中輸入 **myResourceGroup**，然後按一下 [刪除]。

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 32962e6d40103c23a0ec7fd1116aec8820f513bd
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 879636b9db2d7c2c48c7a4a194b43985785d2623
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780281"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878245"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>建立和管理原則來強制執行相容性
 
@@ -34,15 +34,15 @@ ms.locfileid: "57780281"
 
 1. 藉由按一下 [所有服務] 然後搜尋並選取 [原則]，在 Azure 入口網站中啟動 Azure 原則服務。
 
-   ![搜尋原則](../media/create-and-manage/search-policy.png)
+   ![搜尋所有服務中的原則](../media/create-and-manage/search-policy.png)
 
 1. 選取 Azure 原則分頁左側的 [指派]。 指派是已指派在特定範圍內發生的原則。
 
-   ![選取指派](../media/create-and-manage/select-assignments.png)
+   ![從 [原則概觀] 頁面選取指派](../media/create-and-manage/select-assignments.png)
 
 1. 從 [原則 - 指派] 分頁頂端選取 [指派原則]。
 
-   ![指派原則定義](../media/create-and-manage/select-assign-policy.png)
+   ![從 [指派] 頁面指派原則定義](../media/create-and-manage/select-assign-policy.png)
 
 1. 在 [指派原則] 頁面上，按一下省略符號並選取管理群組或訂用帳戶來選取 [範圍]。 選擇性地選取資源群組。 範圍會決定在哪些資源或資源群組上強制執行原則指派。  然後，按一下位於 [範圍] 分頁底部的 [選取]。
 
@@ -54,7 +54,7 @@ ms.locfileid: "57780281"
 
 1. 選取 [需要 SQL Server 12.0 版]。 如果您無法立即找到它，請在搜尋方塊中輸入 [需要 SQL Server]，然後按 ENTER 鍵或按一下 [搜尋] 方塊外面。 一旦您找到並選取原則定義後，請按一下 [可用的定義] 分頁底部的 [選取]。
 
-   ![找出原則](../media/create-and-manage/select-available-definition.png)
+   ![使用搜尋篩選條件來找出原則](../media/create-and-manage/select-available-definition.png)
 
 1. [指派名稱] 會自動填入您選取的原則名稱，但您可加以變更。 在此範例中，請保留「需要 SQL Server 12.0 版」。 您也可以新增選擇性的 [描述]。 描述會提供有關此原則指派的詳細資料。  系統會根據登入者自動填入 [指派者]。 這是選擇性欄位，因此可以輸入自訂值。
 
@@ -68,7 +68,7 @@ ms.locfileid: "57780281"
 
 1. 選取 Azure 原則分頁左側 [製作] 下的 [定義]。
 
-   ![定義正在製作中](../media/create-and-manage/definition-under-authoring.png)
+   ![[撰寫] 群組下的 [定義] 頁面](../media/create-and-manage/definition-under-authoring.png)
 
 1. 選取分頁頂端的 [+ 原則定義]。 這個按鈕會開啟至 [原則定義] 頁面。
 
@@ -120,7 +120,7 @@ ms.locfileid: "57780281"
 
 您可以使用「適用於原則定義的 REST API」來建立原則。 REST API 可讓您建立和刪除原則定義，以及取得現有定義的相關資訊。 若要建立原則定義，請使用下列範例：
 
-```http-interactive
+```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 ```
 
@@ -158,7 +158,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Micros
 
 ## <a name="create-a-policy-definition-with-powershell"></a>使用 PowerShell 來建立原則定義
 
-繼續進行 PowerShell 範例之前，請確定您已安裝最新版的 Azure PowerShell。 原則參數是於 3.6.0 版中加入。 如果您使用舊版本，範例會傳回找不到參數的錯誤。
+繼續進行 PowerShell 範例之前，請確定您已安裝最新版的 Azure PowerShell Az 模組。 
 
 您可以使用 `New-AzPolicyDefinition` cmdlet 建立原則定義。
 
@@ -328,11 +328,11 @@ az policy definition list
 
 1. 選取 Azure 原則分頁左側 [製作] 下的 [定義]。
 
-   ![選取定義](../media/create-and-manage/definition-under-authoring.png)
+   ![從 [定義] 頁面選取定義](../media/create-and-manage/definition-under-authoring.png)
 
 1. 選取分頁頂端的 [+ 計畫定義]，可開啟 [計畫定義] 分頁。
 
-   ![計畫定義](../media/create-and-manage/initiative-definition.png)
+   ![檢閱 [計畫定義] 頁面](../media/create-and-manage/initiative-definition.png)
 
 1. 使用 [定義位置] 省略符號，選取要儲存定義的管理群組或訂用帳戶。 如果在上一頁中，已將範圍設為單一管理群組或訂用帳戶，則 [定義位置] 會自動填入。
 
@@ -352,11 +352,11 @@ az policy definition list
 
    從清單中選取原則定義之後，系統會將該定義新增到 [原則和參數] 底下。
 
-   ![計畫定義](../media/create-and-manage/initiative-definition-2.png)
+   ![檢閱計畫定義參數](../media/create-and-manage/initiative-definition-2.png)
 
 1. 要新增至計畫的原則定義如果有參數，則會顯示在 [原則和參數] 區域的原則名稱下方。 「值」可以設定為 [設定值] (將此計畫的所有指派硬式編碼) 或 [使用計畫參數] (在每個計畫指派期間設定)。 如果選取 [設定值]，則 [值] 右側的下拉式清單會允許輸入或選取值。 如果選取 [使用計畫參數]，則會顯示新的 [計畫參數] 區段，讓您定義將在計畫指派期間設定的參數。 此計畫參數的允許值可進一步限制可在計畫指派期間設定的項目。
 
-   ![計畫定義參數](../media/create-and-manage/initiative-definition-3.png)
+   ![從允許的值變更計畫定義參數](../media/create-and-manage/initiative-definition-3.png)
 
    > [!NOTE]
    > 就某些 `strongType` 參數而言，值清單是無法自動決定的。 在這些情況下，參數資料列的右側會出現省略符號。 按一下省略符號以開啟 [參數範圍 (&lt;參數名稱&gt;)] 分頁。 在此頁面上，請選取要用來提供值選項的訂用帳戶。 此參數範圍只會在建立計畫定義期間使用，且對於原則評估或指派的計畫範圍均無影響。
@@ -369,11 +369,11 @@ az policy definition list
 
 1. 找出您先前建立的 [保障安全] 計畫定義並按一下它。 選取頁面頂端的 [指派] 以開啟至 [保障安全:指派計畫] 頁面。
 
-   ![指派定義](../media/create-and-manage/assign-definition.png)
+   ![從 [計畫定義] 頁面指派定義](../media/create-and-manage/assign-definition.png)
 
    您也可以用滑鼠右鍵按一下選取的資料列，或用滑鼠左鍵按一下資料列結尾的省略符號，以顯示快顯功能表。  然後選取 [指派]。
 
-   ![以滑鼠右鍵按一下資料列](../media/create-and-manage/select-right-click.png)
+   ![計畫的替代選項](../media/create-and-manage/select-right-click.png)
 
 1. 輸入下列範例資訊，以填寫 [保障安全:指派計畫] 頁面。 您可以使用自己的資訊。
 
@@ -393,11 +393,11 @@ az policy definition list
 
 1. 找出 [保障安全] 計劃。 其 [合規性狀態]可能仍然是 [未啟動]。 按一下該計畫可取得指派程序的完整詳細資料。
 
-   ![合規性 - 未啟動](../media/create-and-manage/compliance-status-not-started.png)
+   ![[計畫合規性] 頁面 - 未啟動評估](../media/create-and-manage/compliance-status-not-started.png)
 
 1. 當完成計畫指派之後，合規性分頁的 [合規性狀態] 會更新為 [符合規範]。
 
-   ![合規性 - 符合規範](../media/create-and-manage/compliance-status-compliant.png)
+   ![[計畫合規性] 頁面 - 資源符合規範](../media/create-and-manage/compliance-status-compliant.png)
 
 1. 按一下計畫合規性分頁上的任何原則，即可開啟該原則的合規性詳細資料頁面。 此分頁提供資源層級上的合規性詳細資料。
 
@@ -426,7 +426,7 @@ az policy definition list
 
 1. 按一下省略符號並選取要排除的資源群組 (在此範例中為 SQLServers_Excluded) 以設定 [排除]。
 
-   ![要求排除](../media/create-and-manage/request-exclusion.png)
+   ![將排除的資源群組新增至原則指派中](../media/create-and-manage/request-exclusion.png)
 
    > [!NOTE]
    > 根據原則及其效果，也可將排除授與給指派範圍內資源群組中的特定資源。 由於此教學課程中使用 [拒絕] 效果，因此對已經存在的特定資源設定排除將沒有意義。

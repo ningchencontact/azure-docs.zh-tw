@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 99e3abb1bedffdb5a7d49c033ebc8b4c46df1c03
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: fc02e830953f8612a077fb219c7fef4e86bc3827
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769267"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263823"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>使用 Azure 匯入/匯出服務匯出 Azure Blob 儲存體中的資料
 本文提供的逐步指示會說明如何使用 Azure 匯入/匯出服務，安全地從 Azure Blob 儲存體匯出大量資料。 此服務需要您將空磁碟機寄送至 Azure 資料中心。 此服務會將您儲存體帳戶的資料匯出至磁碟機，然後將磁碟機寄回給您。
@@ -25,7 +25,7 @@ ms.locfileid: "55769267"
 - 具有可用於匯入/匯出服務的有效 Azure 訂用帳戶。
 - 具有至少一個 Azure 儲存體帳戶。 請參閱[匯入/匯出服務支援的儲存體帳戶和儲存體類型](storage-import-export-requirements.md)清單。 如需建立新儲存體帳戶的詳細資訊，請參閱 [如何建立儲存體帳戶](storage-quickstart-create-account.md)(英文)。
 - 具有屬於[支援類型](storage-import-export-requirements.md#supported-disks)的磁碟，且數量足夠。
-- 擁有 FedEx/DHL 帳戶。  
+- 擁有 FedEx/DHL 帳戶。 如果您想要使用非 FedEx/DHL 貨運公司，請連絡 Azure 資料方塊作業小組`adbops@microsoft.com`。 
     - 帳戶必須是有效的、需要有餘額，且必須有退貨運送功能。
     - 產生匯出作業的追蹤號碼。
     - 每個作業都應該具有個別的追蹤號碼。 不支援多個作業使用相同的追蹤號碼。 
@@ -82,7 +82,7 @@ ms.locfileid: "55769267"
 
 4. 在 [寄返資訊] 中：
 
-    - 從下拉式清單中選取貨運公司。
+    - 從下拉式清單中選取貨運公司。 如果您想要使用非 FedEx/DHL 貨運公司，請從下拉式清單中選擇現有的選項。 連絡 Azure 資料方塊作業小組`adbops@microsoft.com`您打算使用貨運公司的相關資訊。
     - 輸入您在該貨運公司中建立的有效貨運帳戶號碼。 當匯入作業完成時，Microsoft 會透過此帳戶將磁碟機寄還給您。 
     - 提供完整且有效的連絡人名稱、電話、電子郵件、街道地址、城市、郵遞區號、州/省和國家/地區。
 
@@ -139,14 +139,14 @@ ms.locfileid: "55769267"
 
     下表會說明這些參數：
     
-    |命令列參數|說明|  
+    |命令列參數|描述|  
     |--------------------------|-----------------|  
     |**/logdir:**|選用。 記錄檔目錄。 詳細資訊記錄檔會寫入至這個目錄。 如未指定，將使用目前的目錄做為記錄目錄。|  
     |**/sn:**|必要。 匯出作業的儲存體帳戶名稱。|  
     |**/sk:**|如果未指定容器 SAS 時，才是必要參數。 匯出作業之儲存體帳戶的帳戶金鑰。|  
     |**/csas:**|如果未指定儲存體帳戶金鑰時，才是必要參數。 容器 SAS，可供列出要在匯出作業中匯出的 blob。|  
     |**/ExportBlobListFile:**|必要。 XML 檔案的路徑，此檔案包含要匯出的 Blob 的Blob 路徑清單或 Blob 路徑前置詞。 匯入/匯出服務 REST API 的 [Put Job](/rest/api/storageimportexport/jobs) 作業中 `BlobListBlobPath` 元素中所使用的檔案格式。|  
-    |**/DriveSize:**|必要。 要用於匯出作業的磁碟機大小，例如 500 GB、1.5 TB。|  
+    |**/ DriveSize:**|必要。 要用於匯出作業的磁碟機大小，例如 500 GB、1.5 TB。|  
 
     請參閱 [PreviewExport 命令的範例](#example-of-previewexport-command)。
  
@@ -193,9 +193,9 @@ Number of drives needed:        3
 
 下表顯示有效 Blob 路徑範例：
    
-   | 選取器 | Blob 路徑 | 說明 |
+   | 选择器 | Blob 路徑 | 描述 |
    | --- | --- | --- |
-   | 開頭為 |/ |匯出儲存體帳戶中的所有 Blob |
+   | 开头为 |/ |匯出儲存體帳戶中的所有 Blob |
    | 開頭為 |/$root/ |匯出根容器中的所有 Blob |
    | 開頭為 |/book |匯出任何容器中以首碼 **book** |
    | 開頭為 |/music/ |匯出容器 **music** |
@@ -205,7 +205,7 @@ Number of drives needed:        3
 
 ## <a name="next-steps"></a>後續步驟
 
-* [檢視作業和磁碟機狀態](storage-import-export-view-drive-status.md)
+* [檢視工作和磁碟機狀態](storage-import-export-view-drive-status.md)
 * [檢閱匯入/匯出的需求](storage-import-export-requirements.md)
 
 

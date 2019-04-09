@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/01/2019
-ms.openlocfilehash: 21408f87c4446ebad4092cb982179c7d78ea9e32
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.date: 04/05/2019
+ms.openlocfilehash: b5e0336a290090ed6bd7f5af508e691677780a80
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847766"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265283"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>建立和管理讀取的複本，從 Azure CLI
 
@@ -44,7 +44,7 @@ ms.locfileid: "58847766"
 
 ## <a name="create-a-read-replica"></a>建立讀取複本
 
-`az mysql server replica create` 命令需要下列參數：
+[Az postgres server 複本建立](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create)命令需要下列參數：
 
 | 設定 | 範例值 | 描述  |
 | --- | --- | --- |
@@ -64,14 +64,14 @@ az postgres server replica create --name mydemoserver-replica --source-server my
 > 在將主要伺服器設定更新為新值之前，應將複本的設定更新為相等或更大的值。 此動作可確保複本可以跟上主要伺服器上所做的變更。
 
 ## <a name="list-replicas"></a>清單複本
-您可以檢視主要伺服器的複本的清單。
+您可以使用檢視的主要伺服器的複本清單[az postgres server 複本清單](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-list)命令。
 
 ```azurecli-interactive
-az postgres server replica stop --server-name mydemoserver --resource-group myresourcegroup 
+az postgres server replica list --server-name mydemoserver --resource-group myresourcegroup 
 ```
 
 ## <a name="stop-replication-to-a-replica-server"></a>停止複寫至複本伺服器
-您可以停止主要伺服器與讀取複本之間的複寫。
+您可以使用，以停止主要伺服器與讀取的複本之間的複寫[az postgres server 複本停止](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-stop)命令。
 
 停止主要伺服器和讀取複本的複寫之後，即無法再復原。 讀取複本會變成支援讀取和寫入的獨立伺服器。 獨立伺服器無法再次設定為複本。
 
@@ -80,7 +80,7 @@ az postgres server replica stop --name mydemoserver-replica --resource-group myr
 ```
 
 ## <a name="delete-a-master-or-replica-server"></a>刪除主要或複本伺服器
-若要刪除的主要或複本伺服器，您可以使用相同的命令，並刪除獨立 Azure Database for PostgreSQL 伺服器。 
+若要刪除的主要或複本伺服器，您使用[az postgres server delete](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-delete)命令。
 
 刪除主要伺服器時，所有讀取複本上的複寫都會停止。 讀取複本會變成獨立伺服器，進而支援讀取和寫入。
 

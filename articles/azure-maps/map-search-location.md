@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 8ae6c8a20a05df723d3f6b394e0639f218896a85
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: be01c9d96386804b8bc074d81041104cbf592df6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845132"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271589"
 ---
 # <a name="show-search-results-on-the-map"></a>在地圖上顯示搜尋結果
 
@@ -29,11 +29,11 @@ ms.locfileid: "57845132"
 
 在上述程式碼，程式碼的第一個區塊會建構對應物件，並設定的驗證機制，利用訂用帳戶金鑰。 如需相關指示，您可以查看[建立對應](./map-create.md)。
 
-建立程式碼的第二個區塊**SubscriptionKeyCredentialPolicy**來驗證對 Azure 地圖服務的 HTTP 要求，與訂用帳戶金鑰。 然後**atlas.service.MapsURL.newPipeline()** 採用**SubscriptionKeyCredential**原則，並建立[管線](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest)執行個體。 **SearchURL**表示 Azure 地圖服務的 URL[搜尋](https://docs.microsoft.com/rest/api/maps/search)作業。
+程式碼的第二個區塊建立`SubscriptionKeyCredentialPolicy`來驗證對 Azure 地圖服務的 HTTP 要求，與訂用帳戶金鑰。 然後`atlas.service.MapsURL.newPipeline()`會採用`SubscriptionKeyCredential`原則，並建立[管線](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest)執行個體。 `searchURL`表示 Azure 地圖服務的 URL[搜尋](https://docs.microsoft.com/rest/api/maps/search)作業。
 
 第三個程式碼區塊會使用 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 類別來建立資料來源物件，以及搜尋其結果。 [符號層](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)會使用文字或圖示，將包裝在 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 中的點式資料轉譯為地圖上的符號。  接著會建立符號圖層，而資料來源會新增至符號層，然後新增至地圖。
 
-第四個程式碼區塊會使用[SearchFuzzy](/javascript/api/azure-maps-rest/atlas.service.models.searchgetsearchfuzzyoptionalparams)方法中的[服務模組](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2)。 它可讓您執行自由格式文字搜尋，則透過[取得搜尋模糊的 rest API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)來搜尋景點。 取得搜尋模糊 API 可以處理任何模糊的輸入組合。 使用再擷取回應中的 GeoJSON 功能集合**geojson.getFeatures()** 方法，並加入資料來源，這會自動產生符號層透過地圖上所呈現的資料。
+第四個程式碼區塊會使用[SearchFuzzy](/javascript/api/azure-maps-rest/atlas.service.models.searchgetsearchfuzzyoptionalparams)方法中的[服務模組](https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js)。 它可讓您執行自由格式文字搜尋，則透過[取得搜尋模糊的 rest API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)來搜尋景點。 取得搜尋模糊 API 可以處理任何模糊的輸入組合。 使用再擷取回應中的 GeoJSON 功能集合`geojson.getFeatures()`方法，並加入資料來源，這會自動產生符號層透過地圖上所呈現的資料。
 
 程式碼的最後一個區塊會使用地圖的 [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) 屬性，為地圖調整觀景窗界限。
 
@@ -67,7 +67,7 @@ ms.locfileid: "57845132"
 深入了解本文使用的類別和方法：
 
 > [!div class="nextstepaction"]
-> [地圖](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [對應](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
 請參閱下列文章中的完整程式碼範例：
 

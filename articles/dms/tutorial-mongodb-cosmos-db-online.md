@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: dd14ec4f4b6395e5733f4f17165e94ca7e77f883
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/03/2019
+ms.openlocfilehash: 1e1cb509f296d8bed8efc3a3d520a1c480c1f775
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008640"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885293"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms-preview"></a>教學課程：使用 DMS 在線上狀態下將 MongoDB 移轉至 Azure Cosmos DB 的 Mongo 版 API (預覽)
 您可以使用 Azure 資料庫移轉服務，在線上狀態下 (以最短的停機時間) 將資料庫從內部部署或雲端的 MongoDB 執行個體移轉至 Azure Cosmos DB 的 Mongo 版 API。
@@ -54,7 +54,7 @@ ms.locfileid: "58008640"
     >
     > 此為必要設定，因為 Azure 資料庫移轉服務沒有網際網路連線。
 
-- 確定您的 VNET 網路安全性群組規則不會封鎖下列通訊埠：443、53、9354、445 及 12000。 如需 Azure VNET NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)。
+- 確定您的 VNET 網路安全性群組規則不會對 Azure 資料庫移轉服務封鎖下列輸入通訊埠：443、53、9354、445 及 12000。 如需 Azure VNET NSG 流量篩選的詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg)。
 - 變更來源伺服器的防火牆，以允許 Azure 資料庫移轉服務存取來源 MongoDB 伺服器 (依預設會使用 TCP 連接埠 27017)。
 - 使用來源資料庫前面的防火牆應用裝置時，您可能必須新增防火牆規則，才能讓 Azure 資料庫移轉服務存取來源資料庫，以進行移轉。
 

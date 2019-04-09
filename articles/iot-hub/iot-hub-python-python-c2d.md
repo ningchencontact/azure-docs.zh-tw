@@ -9,58 +9,63 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: kgremban
-ms.openlocfilehash: 0feff40aff4db65104cb2531881119086dc813a7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7ac668bdbc3698be3ed2aa50a428cef84e68369a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541905"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272865"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>使用 IoT 中樞傳送雲端到裝置訊息 (Python)
+
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-
 ## <a name="introduction"></a>簡介
-Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备和单个解决方案后端之间实现安全可靠的双向通信。 [開始使用 IoT 中樞] 教學課程會示範如何建立 IoT 中樞、在其中佈建裝置識別，以及編寫模擬的裝置應用程式，以傳送裝置到雲端的訊息。
+Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置和一個解決方案後端進行可靠且安全的雙向通訊。 [開始使用 IoT 中樞](quickstart-send-telemetry-python.md)快速入門示範如何建立 IoT 中樞、 佈建裝置識別，以及編寫模擬的裝置應用程式，以傳送裝置到雲端訊息。
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-本教程是在 [開始使用 IoT 中樞]的基础上编写的。 其中了说明了如何：
+本教學課程是以 [開始使用 IoT 中樞](quickstart-send-telemetry-python.md)為基礎。 其中了说明了如何：
 
 * 從您的解決方案後端，透過 IoT 中樞將雲端到裝置訊息傳送給單一裝置。
+
 * 接收裝置上的雲端到裝置訊息。
+
 * 從您的解決方案後端，要求確認收到從 IoT 中樞傳送到裝置的訊息 (「意見反應」)。
 
 您可以找到更多有關雲端到裝置訊息[IoT 中樞開發人員指南](iot-hub-devguide-messaging.md)。
 
 在本教學課程結尾，您會執行兩個 Python 主控台應用程式：
 
-* **SimulatedDevice.py**，這是在[開始使用 IoT 中樞]建立之應用程式的修改版本，可連線到您的 IoT 中樞，並接收雲端到裝置的訊息。
+* **SimulatedDevice.py**，這是在[開始使用 IoT 中樞](quickstart-send-telemetry-python.md)建立之應用程式的修改版本，可連線到您的 IoT 中樞，並接收雲端到裝置的訊息。
+
 * **SendCloudToDeviceMessage.py**，會透過 IoT 中樞，將雲端到裝置訊息傳送到模擬裝置應用程式，然後接收其傳遞通知。
 
 > [!NOTE]
 > 「IoT 中樞」透過 Azure IoT 裝置 SDK 為許多裝置平台和語言 (包括 C、Java 及 Javascript) 提供 SDK 支援。 有关如何将设备连接到本教程的代码以及通常如何连接到 Azure IoT 中心的分步说明，请参阅 [Azure IoT 开发人员中心](https://www.azure.com/develop/iot)。
-> 
+>
 
 若要完成此教學課程，您需要下列項目：
 
 * [Python 2.x 或 3.x](https://www.python.org/downloads/)。 請務必使用安裝程式所需的 32 位元或 64 位元安裝。 在安裝期間出現系統提示時，務必將 Python 新增至平台特有的環境變數。 如果您是使用 Python 2.x，可能需要[安裝或升級 pip (Python 套件管理系統](https://pip.pypa.io/en/stable/installing/))。
+
 * 如果您是使用 Windows 作業系統，則 [Visual C++ 可轉散發套件](https://www.microsoft.com/download/confirmation.aspx?id=48145)允許使用 Python 的原生 DLL。
+
 * 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。)
 
 > [!NOTE]
 > `azure-iothub-service-client` 和 `azure-iothub-device-client` 的 pip 套件目前僅適用於 Windows OS。 若為 Linux/Mac OS，請參閱以 Linux 和 Mac OS 特定章節[準備開發環境適用於 Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)張貼。
-> 
-
+>
 
 ## <a name="receive-messages-in-the-simulated-device-app"></a>在模擬的裝置應用程式中接收訊息
+
 在本節中，您會建立一個 Python 主控台應用程式，來模擬裝置並接收來自 IoT 中樞的雲端到裝置訊息。
 
 1. 使用文字編輯器，建立 **SimulatedDevice.py** 檔案。
 
-1. 在 **SimulatedDevice.py** 檔案開頭新增下列 `import` 陳述式和變數：
-   
-    ```python
+2. 在 **SimulatedDevice.py** 檔案開頭新增下列 `import` 陳述式和變數：
+
+   ```python
     import time
     import sys
     import iothub_client
@@ -73,16 +78,16 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
     RECEIVE_CALLBACKS = 0
     ```
 
-1. 將下列程式碼新增至 **SimulatedDevice.py** 檔案。 使用您在[開始使用 IoT 中樞]教學課程中為裝置建立的裝置連接字串來取代 "{deviceConnectionString}" 預留位置值：
-   
+3. 將下列程式碼新增至 **SimulatedDevice.py** 檔案。 "{DeviceConnectionString}"預留位置值取代為您在中建立裝置的裝置連接字串[開始使用 IoT 中樞](quickstart-send-telemetry-python.md)快速入門：
+
     ```python
     # choose AMQP or AMQP_WS as transport protocol
     PROTOCOL = IoTHubTransportProvider.AMQP
     CONNECTION_STRING = "{deviceConnectionString}"
     ```
 
-1. 新增下列函式，將接收的訊息列印至主控台：
-   
+4. 新增下列函式，將接收的訊息列印至主控台：
+
     ```python
     def receive_message_callback(message, counter):
         global RECEIVE_CALLBACKS
@@ -117,8 +122,8 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
                 print ( iothub_client_error )
     ```
 
-1. 新增下列程式碼，將用戶端初始化，並等候以接收雲端到裝置訊息：
-   
+5. 新增下列程式碼，將用戶端初始化，並等候以接收雲端到裝置訊息：
+
     ```python
     def iothub_client_init():
         client = IoTHubClient(CONNECTION_STRING, PROTOCOL)
@@ -150,8 +155,8 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
         print_last_message_time(client)
     ```
 
-1. 新增下列 main 函式：
-   
+6. 新增下列 main 函式：
+
     ```python
     if __name__ == '__main__':
         print ( "Starting the IoT Hub Python sample..." )
@@ -161,16 +166,16 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
         iothub_client_sample_run()
     ```
 
-1. 儲存並關閉 **SimulatedDevice.py** 檔案。
-
+7. 儲存並關閉 **SimulatedDevice.py** 檔案。
 
 ## <a name="send-a-cloud-to-device-message"></a>傳送雲端到裝置訊息
-在本節中，您會建立一個 Python 主控台應用程式，將雲端到裝置訊息傳送到模擬裝置應用程式。 您需要您在[開始使用 IoT 中樞]教學課程中所新增裝置的裝置識別碼。 您也需要中樞的 IoT 中樞連接字串 (可在 [Azure 入口網站](https://portal.azure.com)中找到)。
+
+在本節中，您會建立一個 Python 主控台應用程式，將雲端到裝置訊息傳送到模擬裝置應用程式。 您需要您在新增裝置的裝置識別碼[開始使用 IoT 中樞](quickstart-send-telemetry-python.md)快速入門。 您也需要中樞的 IoT 中樞連接字串 (可在 [Azure 入口網站](https://portal.azure.com)中找到)。
 
 1. 使用文字編輯器，建立 **SendCloudToDeviceMessage.py** 檔案。
 
-1. 在 **SendCloudToDeviceMessage.py** 檔案開頭新增下列 `import` 陳述式和變數：
-   
+2. 在 **SendCloudToDeviceMessage.py** 檔案開頭新增下列 `import` 陳述式和變數：
+
     ```python
     import random
     import sys
@@ -184,15 +189,15 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
     MSG_TXT = "{\"service client sent a message\": %.2f}"
     ```
 
-1. 將下列程式碼新增至 **SendCloudToDeviceMessage.py** 檔案。 使用您在[開始使用 IoT 中樞]教學課程為中樞建立的 IoT 中樞連接字串來取代 "{IoTHubConnectionString}" 預留位置值。 使用您在[開始使用 IoT 中樞]教學課程中新增之裝置的裝置識別碼來取代 "{deviceId}" 預留位置：
-   
+3. 將下列程式碼新增至 **SendCloudToDeviceMessage.py** 檔案。 "{IoTHubConnectionString}"預留位置值取代為您在建立中樞的 IoT 中樞連接字串[開始使用 IoT 中樞](quickstart-send-telemetry-python.md)快速入門。 "{DeviceId}"預留位置取代為您在新增裝置的裝置識別碼[開始使用 IoT 中樞](quickstart-send-telemetry-python.md)快速入門：
+
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"
     DEVICE_ID = "{deviceId}"
     ```
 
-1. 新增下列函式，將意見反應訊息列印至主控台：
-   
+4. 新增下列函式，將意見反應訊息列印至主控台：
+
     ```python
     def open_complete_callback(context):
         print ( 'open_complete_callback called with context: {0}'.format(context) )
@@ -203,8 +208,8 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
         print ( 'messagingResult : {0}'.format(messaging_result) )
     ```
 
-1. 加入下列程式碼，當裝置收到雲端到裝置訊息時，會將訊息傳送至您的裝置，並處理意見反應訊息︰
-   
+5. 加入下列程式碼，當裝置收到雲端到裝置訊息時，會將訊息傳送至您的裝置，並處理意見反應訊息︰
+
     ```python
     def iothub_messaging_sample_run():
         try:
@@ -244,8 +249,8 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
             print ( "IoTHubMessaging sample stopped" )
     ```
 
-1. 新增下列 main 函式：
-   
+6. 新增下列 main 函式：
+
     ```python
     if __name__ == '__main__':
         print ( "Starting the IoT Hub Service Client Messaging Python sample..." )
@@ -255,10 +260,10 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
         iothub_messaging_sample_run()
     ```
 
-1. 儲存並關閉 **SendCloudToDeviceMessage.py** 檔案。
-
+7. 儲存並關閉 **SendCloudToDeviceMessage.py** 檔案。
 
 ## <a name="run-the-applications"></a>執行應用程式
+
 現在您已經準備好執行應用程式。
 
 1. 開啟命令提示字元並安裝**適用於 Python 的 Azure IoT 中樞裝置 SDK**。
@@ -267,44 +272,36 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
     pip install azure-iothub-device-client
     ```
 
-1. 在命令提示字元中，執行下列命令，以接聽雲端到裝置訊息：
-   
-    ```shell
-    python SimulatedDevice.py 
-    ```
-   
-    ![執行模擬裝置應用程式][img-simulated-device]
+2. 在命令提示字元中，執行下列命令，以接聽雲端到裝置訊息：
 
-1. 開啟新的命令提示字元並安裝**適用於 Python 的 Azure IoT 裝中樞服務 SDK**。
+    ```shell
+    python SimulatedDevice.py
+    ```
+
+    ![執行模擬裝置應用程式](./media/iot-hub-python-python-c2d/simulated-device.png)
+
+3. 開啟新的命令提示字元並安裝**適用於 Python 的 Azure IoT 裝中樞服務 SDK**。
 
     ```
     pip install azure-iothub-service-client
     ```
 
-1. 在命令提示字元中，執行下列命令，以傳送雲端到裝置訊息並等候訊息意見反應：
-   
+4. 在命令提示字元中，執行下列命令，以傳送雲端到裝置訊息並等候訊息意見反應：
+
     ```shell
-    python SendCloudToDeviceMessage.py 
+    python SendCloudToDeviceMessage.py
     ```
-   
-    ![執行應用程式以傳送雲端到裝置命令][img-send-command]
-   
-1. 請注意裝置所接收的訊息。
 
-    ![已接收的訊息][img-message-received]
+    ![執行應用程式以傳送雲端到裝置命令](./media/iot-hub-python-python-c2d/send-command.png)
 
+5. 請注意裝置所接收的訊息。
+
+    ![已接收的訊息](./media/iot-hub-python-python-c2d/message-received.png)
 
 ## <a name="next-steps"></a>後續步驟
-在本教學課程中，您已了解如何傳送和接收雲端到裝置的訊息。 
+
+在本教學課程中，您已了解如何傳送和接收雲端到裝置的訊息。
 
 若要查看使用 IoT 中樞的完整端對端解決方案範例，請參閱 [Azure IoT 遠端監視解決方案加速器](https://azure.microsoft.com/documentation/suites/iot-suite/)。
 
 若要深入了解如何使用 IoT 中樞開發解決方案，請參閱 [IoT 中樞開發人員指南](iot-hub-devguide.md)。
-
-<!-- Images -->
-[img-simulated-device]: media/iot-hub-python-python-c2d/simulated-device.png
-[img-send-command]:  media/iot-hub-python-python-c2d/send-command.png
-[img-message-received]: media/iot-hub-python-python-c2d/message-received.png
-
-<!-- Links -->
-[開始使用 IoT 中樞]: quickstart-send-telemetry-python.md

@@ -3,21 +3,21 @@ title: 在 Azure IoT Central 中使用 Webhook 觸發 Azure Functions
 description: 建立每次在 Azure IoT Central 中觸發規則時就會執行的函式應用程式。
 author: viv-liu
 ms.author: viviali
-ms.date: 02/20/2018
+ms.date: 03/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c80b007c3c9c1a35540e690554603a5ae8f16d62
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 0d92e9bdf8ec207e5ef0e3f891c162182b5a4fff
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58284624"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264840"
 ---
 # <a name="trigger-azure-functions-using-webhooks-in-azure-iot-central"></a>在 Azure IoT Central 中使用 Webhook 觸發 Azure Functions
 
-*本主題適用於建置員和系統管理員。*
+*本主題適用於產生器和系統管理員。*
 
 使用 Azure Functions，在自 IoT Central 規則輸出的 Webhook 上執行無伺服器程式碼。 您不需要佈建 VM 或發佈的 web 應用程式，以使用 Azure Functions，但相反地，您也可以執行此無伺服器程式碼。 您可以使用 Azure Functions 先轉換 Webhook 承載，再將之傳送到其最終目的地，例如 SQL 資料庫或事件方格。
 

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/03/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9d4661f6c975265ec710b29a8a05cc7ef41b4011
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 0445643d3aae0e4e072e7fa8e3a73dc8973e84a5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057416"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268495"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>在 Azure 自动化中执行 Runbook
 
@@ -51,6 +51,8 @@ Azure 自動化中的 Runbook 可以在 Azure 中的沙箱或[混合式 Runbook 
 ## <a name="runbook-behavior"></a>Runbook 行為
 
 Runbook 會根據定義於其內部的邏輯來執行。 如果 Runbook 中斷，該 Runbook 會從頭重新啟動。 需要將 Runbook 撰寫為支援在發生暫時性問題時可重新啟動，才能有此行為。
+
+啟動 runbook 的 PowerShell 工作已在 Azure 中執行完整的語言模式中，可能無法執行沙箱。 若要深入了解 PowerShell 語言模式，請參閱[PowerShell 語言模式](/powershell/module/microsoft.powershell.core/about/about_language_modes)。 如需有關如何在 Azure 自動化中的作業與互動的詳細資訊，請參閱[擷取使用 PowerShell 的作業狀態](#retrieving-job-status-using-powershell)
 
 ### <a name="creating-resources"></a>建立資源
 

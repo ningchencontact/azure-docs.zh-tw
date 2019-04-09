@@ -1,7 +1,6 @@
 ---
 title: 了解如何稽核的虛擬機器內容
 description: 了解「Azure 原則」如何使用「來賓設定」來稽核 Azure 虛擬機器內的設定。
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/18/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 045339ec0a725359593797bda172a2e93f7c2890
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: c11d6519986cf7a0e70d1fe004ef527c3df247d5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339018"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277712"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>了解 Azure 原則的來賓設定
 
@@ -125,9 +124,9 @@ Windows Server Nano Server 不支援任何版本。
 
 Guest 設定的延伸模組會將記錄檔寫入下列位置：
 
-Windows：`C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\<version>\dsc\logs\dsc.log`
+Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindows\<version>\dsc\logs\dsc.log`
 
-Linux：`/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<version>/GCAgent/logs/dsc.log`
+Linux： `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<version>/GCAgent/logs/dsc.log`
 
 其中`<version>`指的是目前的版本號碼。
 

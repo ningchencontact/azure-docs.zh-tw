@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f733b2c9bcd8dc8ad8c068c465e1beda00b45d28
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 31c6c1258b6d20eb2d2802cf23244cb59df682c0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471006"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281262"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>資料科學專案的平台和工具
 
@@ -44,7 +44,7 @@ Microsoft 對於 Windows 和 Linux 所提供的資料科學虛擬機器，包含
 - 適用於 Windows 的 Power BI desktop
 - Windows / Postgres on Linux 上的 SQL Server 2016 Developer Edition
 
-它也包含 **ML 和 AI 工具**，例如 CNTK (Microsoft 的 Open Source Deep Learning 工具組)、xgboost、mxnet 和 Vowpal Wabbit。
+它也包含**ML 和 AI 工具**，例如 xgboost、 mxnet 和 Vowpal Wabbit。
 
 目前 DSVM 可用於 **Windows** 和 **Linux CentOS** 作業系統。 根據您規劃在上面執行之資料科學專案的需要，選擇 DSVM 的大小(CPU 核心數目和記憶體數量)。 
 

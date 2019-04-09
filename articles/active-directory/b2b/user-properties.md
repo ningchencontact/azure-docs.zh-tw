@@ -1,27 +1,27 @@
 ---
-title: B2B 共同作業使用者-Azure Active Directory 的屬性 |Microsoft Docs
-description: Azure Active Directory B2B 共同作業的使用者屬性可進行設定
+title: 屬性的 B2B 來賓使用者-Azure Active Directory |Microsoft Docs
+description: Azure Active Directory B2B 來賓使用者屬性和狀態之前和之後邀請兌換
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 04/08/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 791dcfadf1db6cae48bee5c926f75e454c88fc55
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 4d4466e4ac7a4e818da6332254e3094eccbaf2b4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294649"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257598"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Azure Active Directory B2B 共同作業使用者的屬性
 
-Azure Active Directory (Azure AD) 企業對企業 (B2B) 共同作業使用者是 UserType = [來賓] 的使用者。 此來賓使用者通常是來自合作夥伴組織的使用者，且依預設在邀請目錄中的權限有限。
+邀請兌換的前後，本文會說明的屬性和 Azure Active Directory (Azure AD) 中的 B2B 來賓使用者物件的狀態。 在 Azure AD 企業對企業 (B2B) 共同作業使用者是使用者具有 UserType = Guest。 此來賓使用者通常是來自合作夥伴組織的使用者，且依預設在邀請目錄中的權限有限。
 
 根據邀請組織的需求，Azure AD B2B 共同作業使用者可以是下列帳戶狀態之一︰
 
@@ -105,6 +105,6 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 共同作業使用者是
 
 ## <a name="next-steps"></a>後續步驟
 
-* [何謂 Azure AD B2B 共同作業？](what-is-b2b.md)
+* [什麼是 Azure AD B2B 共同作業？](what-is-b2b.md)
 * [B2B 共同作業使用者權杖](user-token.md)
 * [B2B 共同作業使用者宣告對應](claims-mapping.md)

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: c8f7e3cd6a2b4b6105547d7a4429803a00f6999f
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d6250b778cdaec47ccbe2f45d35adea0b676a20a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285508"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882001"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>使用 Azure Cosmos DB 模擬器建置工作在 Azure DevOps 中設定 CI/CD 管線
 
@@ -130,7 +130,7 @@ namespace todo.Tests
 }
 ```
 
-巡覽至 Visual Studio 測試工作中的執行選項。 在 [設定檔] 選項中，請指定測試將使用 **.runsettings** 檔案進行設定。 在 [覆寫測試回合參數] 選項中，於 ` -endpoint $(CosmosDbEmulator.Endpoint)` 中新增。 如此一來，就會設定測試工作參考模擬器建置工作的端點，而不是在 **.runsettings** 檔案中定義的端點。  
+巡覽至 Visual Studio 測試工作中的執行選項。 在 [設定檔] 選項中，請指定測試將使用 **.runsettings** 檔案進行設定。 在 [覆寫測試回合參數] 選項中，於 `-endpoint $(CosmosDbEmulator.Endpoint)` 中新增。 如此一來，就會設定測試工作參考模擬器建置工作的端點，而不是在 **.runsettings** 檔案中定義的端點。  
 
 ![使用模擬器建置工作端點來覆寫端點變數](./media/tutorial-setup-ci-cd/addExtension_5.png)
 

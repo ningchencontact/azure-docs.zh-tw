@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 2baabe6837d25cce5e9f5d9e1071af8417fe5f4d
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: da653842b09c15a5fd42bae0ed45e7b31452b972
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401857"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578742"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>教學課程：管理 Windows 虛擬桌面預覽版的應用程式群組
 
@@ -28,7 +28,7 @@ ms.locfileid: "58401857"
 
 ## <a name="create-a-remoteapp-group"></a>建立 RemoteApp 群組
 
-1. 執行下列 PowerShell Cmdlet 來建立新的空白 RemoteApp 群組。
+1. 執行下列 PowerShell Cmdlet 來建立新的空白 RemoteApp 應用程式群組。
 
    ```powershell
    New-RdsAppGroup <tenantname> <hostpoolname> <appgroupname> -ResourceType "RemoteApp"
@@ -45,17 +45,17 @@ ms.locfileid: "58401857"
    ```powershell
    Get-RdsStartMenuApp <tenantname> <hostpoolname> <appgroupname>
    ```
-
-4. 執行下列 Cmdlet 將新的 RemoteApp 發佈到步驟 1 中建立的應用程式群組。
+   
+4. 執行下列 Cmdlet 以根據 appalias 安裝應用程式。 當您執行執行步驟 3 的輸出時，appalias 隨即顯示。
 
    ```powershell
-   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
+   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -AppAlias <appalias>
    ```
 
-5. (選取) 執行下列 Cmdlet 以根據 appalias 安裝應用程式。 當您執行執行步驟 3 的輸出時，appalias 隨即顯示。
+5. (選擇性) 執行下列 Cmdlet 將新的 RemoteApp 發佈到步驟 1 中建立的應用程式群組。
 
    ```powershell
-   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> <remoteappname> -AppAlias <appalias>
+   New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -Filepath <filepath>  -IconPath <iconpath> -IconIndex <iconindex>
    ```
 
 6. 若要確認已發佈應用程式，請執行下列 Cmdlet。

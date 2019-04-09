@@ -1,19 +1,18 @@
 ---
-title: 開始使用 Apache Kafka - Azure HDInsight 快速入門
+title: 使用 Azure 入口網站設定 HDInsight 上的 Apache Kafka - 快速入門
 description: 在本快速入門中，您會了解如何使用 Azure 入口網站，在 Azure HDInsight 上建立 Apache Kafka 叢集。 您也會了解 Kafka 主題、訂閱者與取用者。
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
-ms.custom: mvc,hdinsightactive
+ms.custom: mvc
 ms.topic: quickstart
-ms.date: 03/26/2019
-ms.openlocfilehash: c2e4b5b1b56ef7940b0774845af5b06661c5e8bf
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.date: 04/01/2019
+ms.openlocfilehash: 4099d6ea12774fec2b24895b42d8e780bd36e2a4
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522106"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917340"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>快速入門：在 HDInsight 叢集上建立 Apache Kafka 叢集
 
@@ -32,18 +31,7 @@ Apache Kafka 是一個開放原始碼的分散式串流平台。 它通常會用
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-* SSH 用戶端。 本文件中的步驟會使用 SSH 來連線到叢集。
-
-    Linux、Unix 及 macOS 系統上預設會提供 `ssh` 命令。 在 Windows 10 上，使用下列其中一種方法來安裝 `ssh` 命令：
-
-  * 使用 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart)。 Cloud Shell 會提供 `ssh` 命令，並可設定為使用 Bash 或 PowerShell 作為殼層環境。
-
-  * 安裝[適用於 Linux 的 Windows 子系統](https://docs.microsoft.com/windows/wsl/install-win10) \(英文\)。 可透過 Microsoft Store 取得的 Linux 發行版本會提供 `ssh` 命令。
-
-    > [!IMPORTANT]  
-    > 本文件中的步驟假設您使用上述其中一個 SSH 用戶端。 如果您使用不同的 SSH 用戶端並遇到問題，請參閱您的 SSH 用戶端文件。
-    >
-    > 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) 文件。
+* SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## <a name="create-an-apache-kafka-cluster"></a>建立 Apache Kafka 叢集
 
@@ -51,15 +39,11 @@ Apache Kafka 是一個開放原始碼的分散式串流平台。 它通常會用
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 
-1. 在左側功能表中，選取 [+ 建立資源]。
-
-1. 在 [Azure Marketplace] 下方，選取 [分析]。
-
-1. 在 [精選] 下方，選取 [HDInsight]。
+2. 從左側功能表，瀏覽至 [+ 建立資源] > [分析] > [HDInsight]。
    
     ![建立 HDInsight 叢集](./media/apache-kafka-get-started/create-hdinsight.png)
 
-2. 從 [基本] 中，輸入或選取以下資訊：
+3. 從 [基本] 中，輸入或選取以下資訊：
 
     | 設定 | 值 |
     | --- | --- |
@@ -70,18 +54,18 @@ Apache Kafka 是一個開放原始碼的分散式串流平台。 它通常會用
    
    ![HDInsight 基本組態上的 Apache Kafka 叢集](./media/apache-kafka-get-started/hdinsight-basic-configuration-1.png)
 
-3. 從 [叢集設定] 選取下列值：
+4. 從 [叢集設定] 選取下列值：
 
     | 設定 | 值 |
     | --- | --- |
     | 叢集類型 | Kafka |
     | 版本 | Kafka 1.1.0 (HDI 3.6) |
 
-    使用 [選取] 按鈕來儲存叢集類型設定，然後返回 [基本]。
+    選取 [選取] 來儲存叢集類型設定，然後返回 [基本]。
 
     ![選取叢集類型](./media/apache-kafka-get-started/kafka-cluster-type.png)
 
-4. 從 [基本] 中，輸入或選取以下資訊：
+5. 從 [基本] 中，輸入或選取以下資訊：
 
     | 設定 | 值 |
     | --- | --- |
@@ -98,21 +82,21 @@ Apache Kafka 是一個開放原始碼的分散式串流平台。 它通常會用
 
    ![選取訂用帳戶](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
 
-    使用 [下一步] 按鈕來完成基本設定。
+    選取 [下一步] 來完成基本設定。
 
-5. 針對本快速入門，請保留預設的安全性設定。 若要深入了解企業安全性套件，請造訪[使用 Azure Active Directory Domain Services 設定具有企業安全性套件的 HDInsight 叢集](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)。 若要了解如何在 Apache Kafka 磁碟加密上使用自己的金鑰，請造訪[在 Azure HDInsight 上攜帶您自己的 Apache Kafka 金鑰](apache-kafka-byok.md)
+6. 針對本快速入門，請保留預設的安全性設定。 若要深入了解企業安全性套件，請造訪[使用 Azure Active Directory Domain Services 設定具有企業安全性套件的 HDInsight 叢集](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)。 若要了解如何在 Apache Kafka 磁碟加密上使用自己的金鑰，請造訪[在 Azure HDInsight 上攜帶您自己的 Apache Kafka 金鑰](apache-kafka-byok.md)
 
    如果您想要將叢集連線到虛擬網路，請從 [虛擬網路] 下拉式清單中選取虛擬網路。
 
    ![將叢集新增至虛擬網路](./media/apache-kafka-get-started/kafka-security-config.png)
 
-6. 從 [儲存體]，選取或建立儲存體帳戶。 本文件的步驟是將其他欄位保留為預設值。 使用 [下一步] 按鈕以儲存儲存體組態。 如需有關如何使用 Data Lake Storage Gen2 的詳細資訊，請參閱[快速入門：在 HDInsight 中設定叢集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
+7. 從 [儲存體]，選取或建立儲存體帳戶。 本文件的步驟是將其他欄位保留為預設值。 使用 [下一步] 按鈕以儲存儲存體組態。 如需有關如何使用 Data Lake Storage Gen2 的詳細資訊，請參閱[快速入門：在 HDInsight 中設定叢集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
 
    ![設定 HDInsight 的儲存體帳戶](./media/apache-kafka-get-started/storage-configuration.png)
 
-7. 從 [應用程式 (選擇性)] 中選取 [下一步]，以使用預設設定繼續進行。
+8. 從 [應用程式 (選擇性)] 中選取 [下一步]，以使用預設設定繼續進行。
 
-8. 從 [叢集大小] 中選取 [下一步]，以使用預設設定繼續進行。
+9. 從 [叢集大小] 中選取 [下一步]，以使用預設設定繼續進行。
 
     > [!IMPORTANT]  
     > 若要保證 HDInsight 上的 Apache Kafka 可用性，則必須將 [背景工作節點數] 項目設為 3 或更高。 預設值為 4。
@@ -122,9 +106,9 @@ Apache Kafka 是一個開放原始碼的分散式串流平台。 它通常會用
 
    ![設定 Apache Kafka 叢集大小](./media/apache-kafka-get-started/kafka-cluster-size.png)
 
-9. 從 [進階設定] 中選取 [下一步]，以使用預設設定繼續進行。
+10. 從 [進階設定] 中選取 [下一步]，以使用預設設定繼續進行。
 
-10. 從 [摘要] 檢閱叢集組態。 使用 [編輯] 連結來變更所有不正確的設定。 最後，使用 [建立] 按鈕來建立叢集。
+11. 從 [摘要] 檢閱叢集組態。 使用 [編輯] 連結來變更所有不正確的設定。 最後，選取 [建立] 以建立叢集。
    
     ![叢集組態摘要](./media/apache-kafka-get-started/kafka-configuration-summary.png)
    
@@ -143,29 +127,28 @@ Apache Kafka 是一個開放原始碼的分散式串流平台。 它通常會用
 
 3. 出現提示時，請輸入 SSH 使用者的密碼。
 
-連線之後，您會看到類似下列文字的資訊：
+    連線之後，您會看到類似下列文字的資訊：
+    
+    ```text
+    Authorized uses only. All activity may be monitored and reported.
+    Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
+    
+     * Documentation:  https://help.ubuntu.com
+     * Management:     https://landscape.canonical.com
+     * Support:        https://ubuntu.com/advantage
+    
+      Get cloud support with Ubuntu Advantage Cloud Guest:
+        https://www.ubuntu.com/business/services/cloud
+    
+    83 packages can be updated.
+    37 updates are security updates.
 
-```text
-Authorized uses only. All activity may be monitored and reported.
-Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
 
- * Documentation:  https://help.ubuntu.com
- * Management:     https://landscape.canonical.com
- * Support:        https://ubuntu.com/advantage
-
-  Get cloud support with Ubuntu Advantage Cloud Guest:
-    https://www.ubuntu.com/business/services/cloud
-
-83 packages can be updated.
-37 updates are security updates.
-
-
-
-Welcome to Apache Kafka on HDInsight.
-
-Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
-ssuhuser@hn0-mykafk:~$
-```
+    Welcome to Apache Kafka on HDInsight.
+    
+    Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
+    ssuhuser@hn0-mykafk:~$
+    ```
 
 ## <a id="getkafkainfo"></a>取得 Apache Zookeeper 和訊息代理程式主機資訊
 
@@ -173,59 +156,58 @@ ssuhuser@hn0-mykafk:~$
 
 在本節中，您會從叢集上的 Apache Ambari REST API 取得主機資訊。
 
-1. 從連往叢集的 SSH 連線中，使用下列命令來安裝 `jq` 公用程式。 此公用程式可用來剖析 JSON 文件，而且在擷取主機資訊時很有用：
+1. 安裝 [jq](https://stedolan.github.io/jq/)，這是命令列 JSON 處理器。 此公用程式可用來剖析 JSON 文件，而且在剖析主機資訊時很有用。 從開啟的 SSH 連線，輸入下列命令來安裝 `jq`：
    
     ```bash
     sudo apt -y install jq
     ```
 
-2. 若要將環境變數設為叢集名稱，請使用下列命令：
-
-    > [!Important]
-    > 以全部小寫字母輸入此命令的叢集名稱，即使名稱中是大寫字母也一樣。 大寫名稱無法與 Zookeeper 或訊息代理程式資訊一起使用。
+2. 設定環境變數。 分別以叢集登入密碼和叢集名稱取代 `PASSWORD` 和 `CLUSTERNAME`，然後輸入命令：
 
     ```bash
-    read -p "Enter the Kafka on HDInsight cluster name: " CLUSTERNAME
+    export password='PASSWORD'
+    export clusterNameA='CLUSTERNAME'
     ```
 
-    出現提示時，輸入 Apache Kafka 叢集的名稱。
+3. 擷取正確大小寫的叢集名稱。 視叢集的建立方式而定，叢集名稱的實際大小寫可能與您預期的不同。 此命令會取得實際的大小寫、將它儲存在變數中，然後顯示正確大小寫的名稱，以及您稍早提供的名稱。 輸入下列命令：
 
-3. 若要使用 Zookeeper 主機資訊設定環境變數，請使用下列命令：
+    ```bash
+    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
+    echo $clusterName, $clusterNameA
+    ```
+
+4. 若要使用 Zookeeper 主機資訊設定環境變數，請使用下列命令：
     
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin -G http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    export KAFKAZKHOSTS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    > [!TIP]
-    > 此命令會直接在叢集前端節點上查詢 Ambari 服務。 您也可以使用 `https://$CLUSTERNAME.azurehdinsight.net:80/` 的公用位址來存取 ambari。 某些網路組態可以防止存取公用位址。 例如，使用網路安全性群組 (NSG) 來限制存取虛擬網路中的 HDInsight。
+    > [!TIP]  
+    > 此命令會直接在叢集前端節點上查詢 Ambari 服務。 您也可以使用 `https://$CLUSTERNAME.azurehdinsight.net:80/` 的公用位址來存取 Ambari。 某些網路組態可以防止存取公用位址。 例如，使用網路安全性群組 (NSG) 來限制存取虛擬網路中的 HDInsight。
 
-    出現提示時，輸入叢集登入帳戶 (不是 SSH 帳戶) 的密碼。
-
-    > [!NOTE]
+    > [!NOTE]  
     > 此命令會擷取所有的 Zookeeper 主機，然後只傳回前兩個項目。 這是因為考量備援之故，以防某一部主機無法連線。
 
-4. 若要確認是否已正確設定環境變數，請使用下列命令：
+5. 若要確認是否已正確設定環境變數，請使用下列命令：
 
     ```bash
-     echo '$KAFKAZKHOSTS='$KAFKAZKHOSTS
+    echo $KAFKAZKHOSTS
     ```
 
     此命令會傳回類似以下文字的資訊：
 
     `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
 
-5. 若要使用 Apache Kafka 訊息代理程式主機資訊來設定環境變數，請使用下列命令：
+6. 若要使用 Apache Kafka 訊息代理程式主機資訊來設定環境變數，請使用下列命令：
 
     ```bash
-    export KAFKABROKERS=`curl -sS -u admin -G http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export KAFKABROKERS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    出現提示時，輸入叢集登入帳戶 (不是 SSH 帳戶) 的密碼。
-
-6. 若要確認是否已正確設定環境變數，請使用下列命令：
+7. 若要確認是否已正確設定環境變數，請使用下列命令：
 
     ```bash   
-    echo '$KAFKABROKERS='$KAFKABROKERS
+    echo $KAFKABROKERS
     ```
 
     此命令會傳回類似以下文字的資訊：
@@ -248,14 +230,14 @@ Kafka 會將資料串流儲存於「主題」中。 您可以使用 `kafka-topic
 
     * 每個分割區都會在叢集中的三個背景工作節點之間進行複寫。
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > 如果您已在 Azure 區域中建立叢集來提供三個容錯網域，請使用複寫因子 3。 否則，使用複寫因子 4。
         
         在具有三個容錯網域的區域中，複寫因子 3 可讓複本散佈於容錯網域中。 在具有兩個容錯網域的區域中，複寫因子 4 會在網域中平均散佈複本。
         
         如需區域中的容錯網域數目的資訊，請參閱 [Linux 虛擬機器的可用性](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)文件。
 
-        > [!IMPORTANT] 
+        > [!IMPORTANT]  
         > Apache Kafka 不知道 Azure 容錯網域。 為主題建立副本時，可能無法正確發散副本以實現高可用性。
 
         若要確保高可用性，請使用 [Apache Kafka 分割重新平衡工具](https://github.com/hdinsight/hdinsight-kafka-tools)。 您必須從連往 Apache Kafka 叢集前端節點的 SSH 連線來執行此工具。
@@ -282,7 +264,7 @@ Kafka 會將資料串流儲存於「主題」中。 您可以使用 `kafka-topic
 
     此命令會刪除名為 `topicname` 的主題。
 
-    > [!WARNING]
+    > [!WARNING]  
     > 如果您刪除先前建立的 `test` 主題，則必須加以重新建立。 本文件稍後的步驟會用到此主題。
 
 如需 `kafka-topics.sh` 公用程式可用命令的詳細資訊，請使用下列命令：
@@ -332,7 +314,7 @@ Kafka 會在主題中儲存「記錄」。 記錄是由「產生者」產生，�
 2. 找出要刪除的資源群組，然後以滑鼠右鍵按一下清單右側的 [更多] 按鈕 (...)。
 3. 選取 [刪除資源群組]，並加以確認。
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight 叢集的計費起自叢集建立時，終至叢集刪除時。 計費是以每分鐘按比例計算，因此不再使用時，請一律刪除您的叢集。
 > 
 > 刪除 HDInsight 叢集上的 Apache Kafka，也會刪除 Kafka 中儲存的任何資料。
@@ -341,4 +323,3 @@ Kafka 會在主題中儲存「記錄」。 記錄是由「產生者」產生，�
 
 > [!div class="nextstepaction"]
 > [使用 Apache Spark 搭配 Apache Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
-

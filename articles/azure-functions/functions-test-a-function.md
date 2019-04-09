@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 030/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 4b3cba7e7656ea13a6e7b36be4cb2fef99893867
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 15e4cf484ae38268c59781101256d64ef85e72ef
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439323"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283030"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>在 Azure Functions 中測試程式碼的策略
 
@@ -26,8 +26,8 @@ ms.locfileid: "58439323"
 
 接下來的內容分為兩個不同小節，以不同的語言和環境為目標。 您可了解如何在下列案例中建置測試：
 
-- [Visual Studio 中的 C# 搭配 xUnit](#c-in-visual-studio)
-- [VS Code 中的 JavaScript 搭配 Jest](#javascript-in-vs-code)
+- [C#在 Visual Studio 中使用 xUnit](#c-in-visual-studio)
+- [在 VS Code 與 Jest 的 JavaScript](#javascript-in-vs-code)
 
 範例存放庫可於 [GitHub](https://github.com/Azure-Samples/azure-functions-tests) 取得。
 
@@ -253,6 +253,8 @@ namespace Functions.Tests
 
 - **Timer_should_log_message**：此測試會建立 `ListLogger` 的執行個體，並將它傳遞給計時器函式。 一旦函式執行之後，便會檢查記錄以確保是否存在預期的訊息。
 
+如果您想要存取您的測試中的應用程式設定，您可以使用[System.Environment.GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables)。
+
 ### <a name="run-tests"></a>執行測試
 
 若要執行測試，請瀏覽至 [測試總管]，然後按一下 [全部執行]。
@@ -376,5 +378,5 @@ npm test
 
 現在既然您已經了解如何為您的函式撰寫自動化測試，請繼續使用這些資源：
 - [手動執行非 HTTP 觸發的函式](./functions-manually-run-non-http.md)
-- [Azure Functions 錯誤處理](./functions-bindings-error-pages.md)
+- [Azure 函式錯誤處理](./functions-bindings-error-pages.md)
 - [Azure Functions 事件方格觸發程序本機偵錯](./functions-debug-event-grid-trigger-local.md)

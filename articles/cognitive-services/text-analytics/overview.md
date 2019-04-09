@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 03/01/2019
 ms.author: aahi
-ms.openlocfilehash: 1e6aea792666447141e504f45a3ff55cb70f6261
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 59763b1146986b9920b87152101fd1dcdb00fece
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533233"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904758"
 ---
 # <a name="what-is-text-analytics-api"></a>什麼是文字分析 API？
 
@@ -77,7 +77,7 @@ ms.locfileid: "57533233"
 | 整體要求的大小上限 | 1 MB |
 | 要求中的文件數上限 | 1,000 份文件 |
 
-速率限制為每分鐘呼叫 100 次。 請注意，您可以在單一呼叫中提交大量文件 (最多 1000 份文件)。
+速率限制是每秒 100 個要求和每分鐘 1000 個要求。 您可以在單一呼叫中提交大量文件 (最多 1000 份文件)。
 
 ## <a name="unicode-encoding"></a>Unicode 編碼
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: raynew
-ms.openlocfilehash: 4eaaff859811e4d97cbd4f73231d702285792064
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d99a3d23959cfdd9bd068fbde3a882eb1bc9b4ae
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285440"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847306"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>關於 Azure VM 中的 SQL Server 備份
 
@@ -55,7 +55,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 
 - 您可以透過 Azure 入口網站或 **PowerShell** 來設定 SQL Server 備份。 我們不支援 CLI。
 - 執行 SQL Server 的 VM 需要有網際網路連線能力，才能存取 Azure 公用 IP 位址。
-- 不支援 SQL Server Always On **容錯移轉叢集執行個體 (FCI)**。
+- 不支援 SQL Server **容錯移轉叢集執行個體 (FCI)** 和 SQL Server Always On 容錯移轉叢集執行個體。
 - 不支援鏡像資料庫和資料庫快照集的備份和還原作業。
 - 使用多個備份解決方案來備份獨立 SQL Server 執行個體或 SQL Always On 可用性群組可能會導致備份失敗；請避免這麼做。
 - 使用相同或不同的解決方案來備份可用性群組的兩個節點，也可能導致備份失敗。 「Azure 備份」可以偵測並保護與保存庫位於相同區域中的所有節點。 如果您的 SQL Always On 可用性群組跨多個 Azure 區域，請從具有主要節點的區域設定備份。 「Azure 備份」可以依據您的備份喜好設定，偵測並保護可用性群組中的所有資料庫。  

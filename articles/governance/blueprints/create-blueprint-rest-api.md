@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9dada3c6f0718db41a24368aca594bbd3215fec5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 06ee97cff08804093d3ee77ee11eca1b4e84bb0f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994870"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885956"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>使用 REST API 定義和指派 Azure 藍圖
 
@@ -40,10 +40,10 @@ ms.locfileid: "57994870"
 
 如果您還沒有發出 REST API 呼叫的工具，請考慮使用 PowerShell 取得這些指示。 以下是向 Azure 進行驗證的範例標頭。 產生驗證標頭 (有時也稱為**持有人權杖**)，並提供 REST API URI 以連接到任何參數或**要求本文**:
 
-```powershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if not using Cloud Shell
 
-$azContext = Get-AzureRmContext
+$azContext = Get-AzContext
 $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
 $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
@@ -69,7 +69,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 在每個 REST API URI 中有一些變數，需要您以自己的值取代它們：
 
 - `{YourMG}` - 取代為您的管理群組識別碼
-- `{subscriptionId}` - 以您的訂用帳戶識別碼取代
+- `{subscriptionId}` - 取代為您的訂用帳戶識別碼
 
 > [!NOTE]
 > 藍圖也可能在訂用帳戶層級建立。 若要查看範例，請參閱[在訂用帳戶建立藍圖範例](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint)。
@@ -334,9 +334,9 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 
 在每個 REST API URI 中有一些變數，需要您以自己的值取代它們：
 
-- `{tenantId}` - 以您的租用戶識別碼取代
+- `{tenantId}` - 取代為您的租用戶識別碼
 - `{YourMG}` - 取代為您的管理群組識別碼
-- `{subscriptionId}` - 以您的訂用帳戶識別碼取代
+- `{subscriptionId}` - 取代為您的訂用帳戶識別碼
 
 1. 在目標訂用帳戶上提供 Azure 藍圖服務主題**擁有者**角色。 AppId 是靜態的 (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`)，但服務主體識別碼則依租用戶而各為不同。 使用下列 REST API 可要求租用戶的詳細資料。 它使用具有不同授權的 [Azure Active Directory 圖形 API](../../active-directory/develop/active-directory-graph-api.md)。
 
