@@ -1,10 +1,9 @@
 ---
-title: Azure SQL Database 受控執行個體的 T-SQL 差異 | Microsoft Docs
+title: Azure SQL Database 受控執行個體的 T-SQL 差異 |Microsoft Docs
 description: 本文將討論 Azure SQL Database 中的受控執行個體與 SQL Server 之間的 T-SQL 差異
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
@@ -12,20 +11,17 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 208370884d89a7a2585f320c037284d6657732db
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.custom: seoapril2019
+ms.openlocfilehash: 14e33ec25dd2384607d41e4be6e5a33ebf889cbc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010595"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260488"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database 受控執行個體的 T-SQL 差異
 
-受控執行個體的部署選項提供對內部部署 SQL Server 資料庫引擎的高度相容性。 受控執行個體支援大部分的 SQL Server 資料庫引擎功能。
-
-![移轉](./media/sql-database-managed-instance/migration.png)
-
-由於仍有一些語法和行為上的差異，因此本文將摘要說明這些差異。 <a name="Differences"></a>
+本文摘要說明，並說明 Azure SQL Database 受控執行個體和內部部署 SQL Server Database Engine 之間的語法和行為差異。 <a name="Differences"></a>
 
 - [可用性](#availability)上的差異包括 [Always-On](#always-on-availability) 和[備份](#backup)，
 - [安全性](#security)上的差異包括[稽核](#auditing)、[憑證](#certificates)、[認證](#credential)、[密碼編譯提供者](#cryptographic-providers)、[登入 / 使用者](#logins--users)、[服務金鑰和服務主要金鑰](#service-key-and-service-master-key)，
@@ -33,6 +29,10 @@ ms.locfileid: "59010595"
 - [功能](#functionalities)包括 [/OPENROWSET](#bulk-insert--openrowset)、[CLR](#clr)、[DBCC](#dbcc)、[分散式交易](#distributed-transactions)、[擴充事件](#extended-events)、[外部程式庫](#external-libraries)、[Filestream 和 Filetable](#filestream-and-filetable)、[全文檢索語意搜尋](#full-text-semantic-search)、[連結伺服器](#linked-servers)、[Polybase](#polybase)、[複寫](#replication)、[RESTORE](#restore-statement)、[Service Broker](#service-broker)、[預存程序、函式和觸發程序](#stored-procedures-functions-triggers)，
 - [受控執行個體中具有不同行為的功能](#Changes)
 - [暫時性限制與已知的問題](#Issues)
+
+受控執行個體的部署選項提供對內部部署 SQL Server 資料庫引擎的高度相容性。 受控執行個體支援大部分的 SQL Server 資料庫引擎功能。
+
+![移轉](./media/sql-database-managed-instance/migration.png)
 
 ## <a name="availability"></a>可用性
 
@@ -494,7 +494,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 在此範例中，現有資料庫會繼續運作，只要不新增檔案，就可正常成長而不會有任何問題。 不過，因為沒有足夠空間可供新的磁碟機使用，所以無法建立或還原新的資料庫，即使所有資料庫的大小總計未達到執行個體大小限制也是如此。 在該情況下所傳回的錯誤將不清楚。
 
-您可以[找出其餘的檔案數目](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1)使用系統檢視表。 如果您已達到此限制會試著[空白，然後刪除一些較小的檔案，使用 DBCC SHRINKFILE 陳述式](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file)或以 shitch[業務關鍵層中，不會有此限制](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)。
+您可以[找出其餘的檔案數目](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1)使用系統檢視表。 如果您已達到此限制會試著[空白，然後刪除一些較小的檔案，使用 DBCC SHRINKFILE 陳述式](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file)，或切換到[業務關鍵層中，不會有此限制](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)。
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>還原資料庫期間 SAS 金鑰設定不正確
 

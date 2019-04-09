@@ -86,12 +86,6 @@ items:
       href: platform/data-ingestion-time.md
     - name: 自訂計量至計量存放區
       href: platform/metrics-custom-overview.md
-  - name: 分析記錄資料
-    items:
-    - name: 記錄查詢
-      href: log-query/log-query-overview.md
-    - name: 記錄檔查詢入口網站
-      href: log-query/portals.md
   - name: 資料安全性
     items:
     - name: 記錄資料
@@ -327,6 +321,8 @@ items:
           items:
           - name: Linux 應用程式服務的分析工具 (預覽)
             href: app/profiler-aspnetcore-linux.md
+        - name: 不使用 Visual Studio 的 ASP.NET Core
+          href: app/asp-net-core-no-visualstudio.md
         - name: 主控台
           href: app/console.md
         - name: 應用程式儀表板
@@ -611,6 +607,8 @@ items:
           href: insights/vminsights-maps.md
         - name: 監視效能
           href: insights/vminsights-performance.md
+        - name: 使用活頁簿
+          href: insights/vminsights-workbooks.md
         - name: 使用 Log Analytics 來查詢資料
           href: insights/vminsights-log-search.md
         - name: 停用監視
@@ -680,18 +678,20 @@ items:
       href: platform/grafana-plugin.md
   - name: 分析資料
     items:
-    - name: 開始使用計量瀏覽器
-      href: platform/metrics-getting-started.md
-    - name: 計量瀏覽器進階功能
-      href: platform/metrics-charts.md
-    - name: 計量圖表範例
-      href: platform/metric-chart-samples.md
-    - name: 檢視活動記錄中的事件
-      href: ../azure-resource-manager/resource-group-audit.md
-    - name: 檢視服務通知
-      href: platform/service-notifications.md
-    - name: 查詢記錄檔資料
+    - name: 度量
       items:
+      - name: 開始使用計量瀏覽器
+        href: platform/metrics-getting-started.md
+      - name: 計量瀏覽器進階功能
+        href: platform/metrics-charts.md
+      - name: 計量圖表範例
+        href: platform/metric-chart-samples.md
+    - name: 記錄檔
+      items:
+      - name: 記錄查詢
+        href: log-query/log-query-overview.md
+      - name: 記錄檔查詢入口網站
+        href: log-query/portals.md
       - name: 查詢語言文件
         href: log-query/query-language.md
       - name: 語言差異
@@ -766,6 +766,10 @@ items:
         href: platform/flow-tutorial.md
       - name: 記錄檔搜尋 API
         href: https://dev.loganalytics.io/
+    - name: 檢視活動記錄中的事件
+      href: ../azure-resource-manager/resource-group-audit.md
+    - name: 檢視服務通知
+      href: platform/service-notifications.md
   - name: 回應事件
     items:
     - name: 警示
@@ -1067,9 +1071,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 程式碼範例
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 9c0f17f113b7940f83e3d3b5b2161fe9f88c01ac
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: b2021ca33265e06f882f04f726a889ddae0fd91f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886636"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261151"

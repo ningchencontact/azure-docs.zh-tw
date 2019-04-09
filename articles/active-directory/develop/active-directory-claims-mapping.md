@@ -13,12 +13,12 @@ ms.date: 03/28/2019
 ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e492586f0c70d4cd3013ef8f466afd6bb2bb65ac
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 2076aec1585ff8b60ee2b593621b75abfaeaa1ac
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884072"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260301"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>作法：為租用戶中特定應用程式的權杖，自訂發出的宣告 (預覽)
 
@@ -415,7 +415,7 @@ ms.locfileid: "58884072"
 
 ### <a name="custom-signing-key"></a>自訂簽署金鑰
 
-您必須對服務主體物件指派自訂簽署金鑰，宣告對應原則才會生效。 所有受到原則影響的權杖，都已由自訂簽署金鑰簽署，應用程式也必須設為接受已由簽署金鑰簽署的權杖， 如此可確認權杖是由宣告對應原則的建立者所修改，並且可遏止惡意執行者建立的宣告對應原則，保護應用程式不受威脅。
+您必須對服務主體物件指派自訂簽署金鑰，宣告對應原則才會生效。 如此可確認權杖是由宣告對應原則的建立者所修改，並且可遏止惡意執行者建立的宣告對應原則，保護應用程式不受威脅。  已啟用對應必須檢查其權杖簽署金鑰，藉由附加的特殊 URI 宣告的應用程式`appid={client_id}`至其[OpenID Connect 中繼資料要求](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document)。  
 
 ### <a name="cross-tenant-scenarios"></a>跨租用戶案例
 
@@ -462,7 +462,7 @@ ms.locfileid: "58884072"
       ``` powershell
       Get-AzureADPolicy
       ```
-1. 將原則指派給服務主體。 您也需要取得服務主體的 ObjectId。
+1. 将策略分配到服务主体。 您也需要取得服務主體的 ObjectId。
    1. 若要查看您組織的所有服務主體，您可以查詢 Microsoft Graph。 或者，在 Azure AD Graph 總管，登入您的 Azure AD 帳戶。
    2. 當您有服務主體的 ObjectId 時，執行下列命令︰  
      
@@ -486,7 +486,7 @@ ms.locfileid: "58884072"
       ``` powershell  
       Get-AzureADPolicy
       ```
-1. 將原則指派給服務主體。 您也需要取得服務主體的 ObjectId。 
+1. 将策略分配到服务主体。 您也需要取得服務主體的 ObjectId。 
    1. 若要查看您組織的所有服務主體，您可以查詢 Microsoft Graph。 或者，在 Azure AD Graph 總管，登入您的 Azure AD 帳戶。
    2. 當您有服務主體的 ObjectId 時，執行下列命令︰  
      
@@ -510,7 +510,7 @@ ms.locfileid: "58884072"
       ``` powershell
       Get-AzureADPolicy
       ```
-1. 將原則指派給服務主體。 您也需要取得服務主體的 ObjectId。 
+1. 将策略分配到服务主体。 您也需要取得服務主體的 ObjectId。 
    1. 若要查看您組織的所有服務主體，您可以查詢 Microsoft Graph。 或者，在 Azure AD Graph 總管，登入您的 Azure AD 帳戶。
    2. 當您有服務主體的 ObjectId 時，執行下列命令︰ 
      
