@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17c9ef471ca1536f928ca5ae2fe4f55e8e2b3424
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 4b94004aa4b4834be80c13a044fcf7eb0023b6f7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878412"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259859"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory 存取權杖
 
@@ -148,7 +148,7 @@ Microsoft 身分識別可透過各種方式來驗證，這些方式可能與您�
 
 ## <a name="validating-tokens"></a>驗證權杖
 
-若要驗證 id_token 或 access_token，您的應用程式應該驗證權杖的簽章和宣告。 為了驗證存取權杖，您的應用程式也應該驗證簽發者、受眾及簽署權杖。 這些都需要對 OpenID 探索文件中的值進行驗證。 例如，租用戶獨立版的文件位於 [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration)。 
+若要驗證 id_token 或 access_token，您的應用程式應該驗證權杖的簽章和宣告。 為了驗證存取權杖，您的應用程式也應該驗證簽發者、受眾及簽署權杖。 這些都需要對 OpenID 探索文件中的值進行驗證。 比方說，租用戶獨立版的文件位於[ https://login.microsoftonline.com/common/.well-known/openid-configuration ](https://login.microsoftonline.com/common/.well-known/openid-configuration)。 
 
 Azure AD 中介軟體已內建驗證存取權杖的功能，您可以瀏覽我們的[範例](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples)，以找到您所選擇語言的範例。 如需如何明確地驗證 JWT 權杖的詳細資訊，請參閱[手動 JWT 驗證範例 (manual JWT validation sample)](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation)。 
 
@@ -173,14 +173,14 @@ Azure AD 所簽發的權杖是使用業界標準非對稱式加密演算法 (例
 
 在任何指定的時間點，Azure AD 可能會使用一組特定公開-私密金鑰組的其中一個金鑰組來簽署 id_token。 Azure AD 會定期替換一組可能的金鑰，所以應將您的應用程式撰寫成自動處理這些金鑰變更。 檢查 Azure AD 所用公開金鑰的更新的合理頻率為每 24 小時。
 
-您可以使用位於下列位置的 OpenID Connect 中繼資料文件來取得驗證簽章所需的簽署金鑰資料：
+您可以取得必要驗證所使用的簽章的簽署金鑰資料[OpenID Connect 中繼資料文件](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document)位於：
 
 ```
-https://login.microsoftonline.com/common/.well-known/openid-configuration
+https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 ```
 
 > [!TIP]
-> 在瀏覽器中嘗試此 [URL](https://login.microsoftonline.com/common/.well-known/openid-configuration)！
+> 在瀏覽器中嘗試此 [URL](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration)！
 
 此中繼資料文件：
 
@@ -190,7 +190,9 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 > [!NOTE]
 > v1.0 端點會傳回 `x5t` 和 `kid` 宣告，而 v2.0 端點只會以 `kid` 宣告進行回應。 往後，建議您使用 `kid` 宣告來驗證權杖。
 
-執行簽章驗證已超出本文件的範圍 - 有許多開放原始碼程式庫可協助您這麼做 (如有必要)。
+執行簽章驗證已超出本文件的範圍 - 有許多開放原始碼程式庫可協助您這麼做 (如有必要)。  不過，Microsoft 身分識別平台會有一個權杖簽署標準-自訂簽署金鑰的擴充功能。  
+
+您的應用程式是否使用自訂簽署金鑰[宣告對應](active-directory-claims-mapping.md)功能，您必須附加`appid`查詢參數包含的應用程式識別碼才能取得`jwks_uri`指向您的應用程式的簽署金鑰詳細資訊，應該用於驗證。 例如：`https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e`包含`jwks_uri`的`https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`。
 
 ### <a name="claims-based-authorization"></a>以宣告為基礎的授權
 

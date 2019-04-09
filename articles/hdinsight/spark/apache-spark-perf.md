@@ -3,18 +3,18 @@ title: 最佳化 Spark 作業的效能 - Azure HDInsight
 description: 顯示為了達到 Spark 叢集最佳效能的一般策略。
 services: hdinsight
 ms.service: hdinsight
-author: maxluk
-ms.author: maxluk
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/08/2019
-ms.openlocfilehash: d1eeedfd91dfe1d4a174a3cbed2c0db826a8d5ab
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.date: 04/03/2019
+ms.openlocfilehash: b846b19d180bf19a0d023a9cd0b92393132f47d4
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117855"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058623"
 ---
 # <a name="optimize-apache-spark-jobs"></a>最佳化 Apache Spark 作業
 
@@ -24,7 +24,7 @@ ms.locfileid: "54117855"
 
 ## <a name="choose-the-data-abstraction"></a>選擇資料抽象
 
-舊版 Spark 使用 RDD 來提取資料，Spark 1.3 和 1.6 分別導入了 DataFrame 和 DataSet。 請考慮下列的相對優勢：
+Spark 上的舊版資料抽象化，Spark 1.3 使用 Rdd，而且 1.6 DataFrames 和 DataSets，分別。 請考慮下列的相對優勢：
 
 * **DataFrames**
     * 大部分情況下的最佳選擇。
@@ -33,7 +33,7 @@ ms.locfileid: "54117855"
     * 直接記憶體存取。
     * 低記憶體回收 (GC) 額外負荷。
     * 不像 DataSets 適合開發人員使用，因為沒有任何編譯時間檢查或網域物件程式設計。
-* **DataSets**
+* **資料集**
     * 適合可接受效能影響的複雜 ETL 管線。
     * 不適合效能影響可能相當大的彙總。
     * 透過 Catalyst 提供查詢最佳化。
@@ -41,7 +41,7 @@ ms.locfileid: "54117855"
     * 新增序列化/還原序列化額外負荷。
     * 高 GC 額外負荷。
     * 中斷整體階段程式碼產生。
-* **RDDs**
+* **Rdd**
     * 除非您需要建立新的自訂 RDD，否則不需要使用 RDD。
     * 沒有透過 Catalyst 的任何查詢最佳化。
     * 沒有整體階段程式碼產生。
@@ -60,8 +60,9 @@ Spark 支援許多格式，例如 csv、json、xml、parquet、orc 和 avro。 S
 
 | 存放區類型 | 檔案系統 | 速度 | 暫時性 | 使用案例 |
 | --- | --- | --- | --- | --- |
-| Azure Blob 儲存體 | **wasb:**//url/ | **標準** | 是 | 暫時性叢集 |
-| Azure Data Lake 儲存體 | **adl:**//url/ | **更快** | 是 | 暫時性叢集 |
+| Azure Blob 儲存體 | **wasb[s]:**//url/ | **標準** | 是 | 暫時性叢集 |
+| Azure Data Lake 儲存體第 2 代| **abfs[s]:**//url/ | **更快** | 是 | 暫時性叢集 |
+| Azure Data Lake Storage Gen 1| **adl:**//url/ | **更快** | 是 | 暫時性叢集 |
 | 本機 HDFS | **hdfs:**//url/ | **最快** | 否 | 互動式全天候叢集 |
 
 ## <a name="use-the-cache"></a>使用快取
@@ -159,9 +160,9 @@ sql("SELECT col1, col2 FROM V_JOIN")
 
 以下是您可以調整的一些常見參數：
 
-* `--num-executors` 設定適當數量的執行程式。
+* `--num-executors` 設定適當的執行程式數目。
 * `--executor-cores` 設定每個執行程式的核心數目。 一般而言，您應該有中型執行程式，因為其他處理序會耗用一些可用的記憶體。
-* `--executor-memory` 設定每個執行程式的記憶體大小，控制 YARN 的堆積大小。 您應該對於執行額外負荷保留一些記憶體。
+* `--executor-memory` 設定每個執行程式，控制 YARN 的堆積大小的記憶體大小。 您應該對於執行額外負荷保留一些記憶體。
 
 ### <a name="select-the-correct-executor-size"></a>選取正確的執行程式大小
 
@@ -213,8 +214,8 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 ## <a name="next-steps"></a>後續步驟
 
 * [對 Azure HDInsight 上執行的 Apache Spark 作業進行偵錯](apache-spark-job-debugging.md)
-* [在 HDInsight 上管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
+* [管理 HDInsight 上的 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
 * [使用 Apache Spark REST API 將遠端作業提交至 Apache Spark 叢集](apache-spark-livy-rest-interface.md)
-* [調整 Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
-* [如何實際調整 Apache Spark 作業，以便這些作業運作](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
+* [微調的 Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
+* [如何實際調整您的 Apache Spark 作業讓它們運作](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 * [Kryo 序列化](https://github.com/EsotericSoftware/kryo)

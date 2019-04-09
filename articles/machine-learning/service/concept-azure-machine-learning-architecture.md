@@ -10,18 +10,18 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9e910fb3bc75c285986871627d875296f1a2a746
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 1cc1b1584fdeb24aaba07f33cc260532c75249a2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577317"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269124"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 服務的運作方式：架構和概念
 
 本文說明 Azure Machine Learning 服務的架構與概念。 服務的主要元件以及使用服務時的一般工作流程顯示在下圖中：
 
-[![Azure Machine Learning 服務架構與工作流程](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+[![Aazure Machine Learning 服務架構和工作流程](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
 工作流程一般遵循下列順序：
 
@@ -66,7 +66,7 @@ ms.locfileid: "58577317"
 
 下圖說明工作區的分類：
 
-[![工作區分類](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+[![Workspace 分類](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="experiment"></a>實驗
 
@@ -80,7 +80,7 @@ ms.locfileid: "58577317"
 
 模型是由 Azure Machine Learning 中的回合所產生的。 您也可以使用在 Azure Machine Learning 外部定型的模型。 您可以在 Azure Machine Learning 服務工作區中註冊模型。
 
-Azure Machine Learning 服務與架構無關。 建立模型時，您可以使用任何常用的機器學習服務架構，例如 Scikit-learn、XGBoost、PyTorch、TensorFlow、Chainer 與 Microsoft Cognitive Toolkit (先前稱為 CNTK)。
+Azure Machine Learning 服務與架構無關。 當您建立模型時，您可以使用任何受歡迎的機器學習架構，等 scikit-learn、 XGBoost、 PyTorch、 TensorFlow、 Chainer。
 
 定型模型的範例，請參閱[教學課程：使用 Azure Machine Learning 服務將映像分類模型定型](tutorial-train-models-with-aml.md)。
 
@@ -185,6 +185,10 @@ Azure Machine Learning 可以建立兩種類型的映像：
 
 * **FPGA 映像**：在部署至 Azure 雲端的現場可程式化閘陣列時使用。
 * **Docker 映像**：在部署至 FPGA 以外的計算目標時使用。 例如，Azure 容器執行個體與 Azure Kubernetes Service。
+
+Azure Machine Learning 服務提供基底映像，預設會使用。 您也可以提供您自己的自訂映像。
+
+如需詳細資訊，請參閱[部署模型](how-to-deploy-and-where.md#configureimage)的設定和註冊映像一節。
 
 如需建立映像的範例，請參閱[在 Azure 容器執行個體中部署映像分類模型](tutorial-deploy-models-with-aml.md)。
 

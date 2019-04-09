@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 782027f19d4e82f26fc1265f25b86223386d7182
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9cb3c028c14e6c47d47eafcf6279a918c0917442
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903380"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272201"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL Database 受控執行個體及從該處複製資料
 
@@ -83,7 +83,7 @@ ms.locfileid: "57903380"
 }
 ```
 
-**範例 2：使用 SQL 驗證搭配 Azure Key Vault 中的密碼**
+**範例 2：使用 SQL 驗證，以在 Azure Key Vault 的密碼**
 
 ```json
 {
@@ -282,7 +282,7 @@ GO
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動接收的 type 屬性必須設定為 **SqlSink**。 | 是。 |
-| writeBatchSize |當緩衝區大小達到 writeBatchSize 時，此屬性會將資料插入 SQL 資料表中。<br/>允許的值為整數的資料列數目。 |否 (預設值：10,000)。 |
+| writeBatchSize |要插入至 SQL 資料表的資料列的數目**每個批次**。<br/>允許的值為整數的資料列數目。 |否 (預設值：10,000)。 |
 | writeBatchTimeout |此屬性會指定在逾時前等待批次插入作業完成的時間。<br/>允許的值為時間範圍。 範例是 “00:30:00”，也就是 30 分鐘。 |沒有。 |
 | preCopyScript |此屬性會針對複製活動指定一個 SQL 查詢，在將資料寫入到受控執行個體之前執行。 每一複製回合只會叫用此查詢一次。 您可以使用此屬性來清除預先載入的資料。 |沒有。 |
 | sqlWriterStoredProcedureName |這是用來定義如何將來源資料套用到目標資料表的預存程序名稱。 程序的範例是使用您自己的商務邏輯來進行 upsert 或轉換。 <br/><br/>此預存程序將會*依批次叫用*。 若要進行只執行一次且與來源資料無關的作業 (例如刪除或截斷)，請使用 `preCopyScript` 屬性。 |沒有。 |
@@ -324,7 +324,7 @@ GO
 ]
 ```
 
-**範例 2：在複製期間叫用預存程序來進行 upsert**
+**範例 2：Upsert 複製期間叫用預存程序**
 
 若要了解更多詳細資料，請參閱[叫用 SQL 接收中的預存程序](#invoke-a-stored-procedure-from-a-sql-sink)。
 
@@ -438,9 +438,9 @@ create table dbo.TargetTbl
 
 當內建的複製機制無法滿足需求時，您可以使用預存程序。 在最後將來源資料插入目的地資料表之前，必須完成 upsert (更新並插入) 或額外處理時，通常會使用此程序。 額外處理可能包含合併資料行、查閱其他值和插入多個資料表等等的工作。
 
-下列範例示範如何使用預存程序，對受控執行個體中的資料表執行更新插入。 範例會假設輸入資料和接收 "Marketing" 資料表各有三個資料行：ProfileID、State 與 Category。 根據 ProfileID 資料行執行 upsert，然後僅針對特定的類別套用。
+下列範例示範如何使用預存程序，對 SQL Server 資料庫中的資料表執行更新插入。 假設輸入資料和接收器 **Marketing** 資料表各有三個資料行：**ProfileID**、**State** 和 **Category**。 根據 **ProfileID** 資料行執行 upsert，然後僅針對特定的類別套用。
 
-**輸出資料集**
+**輸出資料集：** "tableName"應該是您的預存程序 （請參閱下列預存程序的指令碼） 相同的資料表型別參數名稱。
 
 ```json
 {
@@ -459,7 +459,7 @@ create table dbo.TargetTbl
 }
 ```
 
-依下列方式定義複製活動中的 SqlSink 區段：
+定義**SQL 接收器**一節中複製活動，如下所示。
 
 ```json
 "sink": {
@@ -474,7 +474,7 @@ create table dbo.TargetTbl
 }
 ```
 
-在資料庫中，使用與 SqlWriterStoredProcedureName 相同的名稱定義預存程序。 這會處理來自指定來源的輸入資料，並將其合併至輸出資料表。 預存程序中資料表類型的參數名稱會與資料集中定義的 "tableName" 相同。
+在資料庫中，使用與 **SqlWriterStoredProcedureName** 相同的名稱來定義預存程序。 它會處理來自指定來源的輸入資料，並合併至輸出資料表。 預存程序中資料表類型的參數名稱應該與資料集中定義的 **tableName** 相同。
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)

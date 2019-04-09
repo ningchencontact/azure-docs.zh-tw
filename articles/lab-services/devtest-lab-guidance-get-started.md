@@ -1,5 +1,5 @@
 ---
-title: 開始使用 Azure DevTest Labs
+title: 使用 Azure DevTest Labs 的常見案例
 description: 本文提供使用 Azure DevTest Labs 和兩個一般路徑來開始使用您的組織中的服務的主要案例。
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 219697451174811fab7880ba0d5930ba85edf8fb
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 8736ba4c24ac4c8f8d84345028d1cadfdef38697
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803794"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272373"
 ---
-# <a name="get-started-with-using-azure-devtest-labs"></a>開始使用 Azure DevTest Labs
+# <a name="popular-scenarios-for-using-azure-devtest-labs"></a>使用 Azure DevTest Labs 的常見案例
 根據企業需求，DevTest Labs 可以設定以符合不同的需求。  這篇文章討論常見的案例。 每個案例涵蓋因所使用，用以實作這些案例的研發/測試實驗室和資源的優點。  
 
 - 開發人員桌面

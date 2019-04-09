@@ -3,15 +3,15 @@ title: 如何變更、 刪除或管理您的管理群組-Azure 治理
 description: 了解如何檢視、維護、更新及刪除您的管理群組階層。
 author: rthorn17
 ms.service: azure-resource-manager
-ms.date: 02/20/2019
+ms.date: 04/04/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: f75686d19a468983a6b0ce68eb4a456e00c90eeb
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.openlocfilehash: 58f8b3346ddd250736e09966b7c36e570b62bb10
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881036"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057739"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>利用管理群組來管理您的資源
 
@@ -34,6 +34,8 @@ ms.locfileid: "58881036"
 1. 選取 [所有服務] > [管理群組]。
 
 1. 選取您需要重新命名的管理群組。
+
+1. 選取 **詳細資料**。
 
 1. 選取頁面頂端的 [重新命名群組] 選項。
 
@@ -80,6 +82,8 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 1. 選取 [所有服務] > [管理群組]。
 
 1. 選取您要刪除的管理群組。
+
+1. 選取 **詳細資料**。
 
 1. 選取 [刪除]
 

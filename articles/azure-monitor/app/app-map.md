@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: a42eb7b57319df7de4c5277cdcdd93eb777f376c
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 11f7bb69ed408adf87d62a4af1aa4bd87e70bd6d
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622105"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009190"
 ---
 # <a name="application-map-triage-distributed-applications"></a>應用程式對應：將分散式應用程式分級
 
@@ -36,7 +36,7 @@ ms.locfileid: "58622105"
 
 您可以查看跨相關應用程式元件多個層級的完整應用程式拓撲。 元件可以是不同的 Application Insights 資源，或是單一資源中的不同角色。 應用程式對應會尋找元件，方法是遵循已安裝 Application Insights SDK 之伺服器之間所發出的 HTTP 相依性呼叫。 
 
-這項體驗一開始會漸進地探索元件。 首次載入應用程式對應時會觸發一組查詢，以探索與此元件相關的元件。 在探索到應用程式中的元件時，左上角的按鈕會依探索到的元件數目進行更新。 
+這項體驗一開始會漸進地探索元件。 當您第一次載入應用程式對應時，被觸發一組查詢，以探索與此元件相關的元件。 在探索到應用程式中的元件時，左上角的按鈕會依探索到的元件數目進行更新。 
 
 當您按一下 [更新對應元件] 時，系統便會使用目前為止所探索的所有元件來重新整理對應。 視應用程式的複雜度，可能需要數分鐘的時間載入。
 
@@ -109,7 +109,8 @@ namespace CustomInitializer.Telemetry
             if (string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
             {
                 //set custom role name here
-                telemetry.Context.Cloud.RoleName = "RoleName";
+                telemetry.Context.Cloud.RoleName = "Custom RoleName";
+                telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance"
             }
         }
     }
@@ -184,6 +185,32 @@ appInsights.context.addTelemetryInitializer((envelope) => {
 });
 });
 ```
+
+### <a name="understanding-cloudrolename-within-the-context-of-the-application-map"></a>了解 Cloud.RoleName 內容中的應用程式對應
+
+遠如何思考 Cloud.RoleName 很有幫助查看應用程式對應具有多個 Cloud.RoleNames 存在：
+
+![應用程式對應螢幕擷取畫面](media/app-map/cloud-rolename.png)
+
+在上方的綠色方塊中的名稱的每個應用程式對應是 Cloud.RoleName/role 值，這個特定的分散式應用程式的不同層面。 讓此應用程式及其角色所組成： `Authentication`， `acmefrontend`， `Inventory Management`、 `Payment Processing Worker Role`。 
+
+在此應用程式每個這些情況下`Cloud.RoleNames`也代表不同的獨特的 Application Insights 資源，與他們自己的檢測金鑰。 因為此應用程式的擁有者可以存取每個這些四個不同的 Application Insights 資源，應用程式對應是能夠將拼接在一起的基礎關聯性的對應。
+
+針對[正式定義](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/39a5ef23d834777eefdd72149de705a016eb06b0/Schema/PublicSchema/ContextTagKeys.bond#L93):
+
+```
+   [Description("Name of the role the application is a part of. Maps directly to the role name in azure.")]
+    [MaxStringLength("256")]
+    705: string      CloudRole = "ai.cloud.role";
+    
+    [Description("Name of the instance where the application is running. Computer name for on-premises, instance name for Azure.")]
+    [MaxStringLength("256")]
+    715: string      CloudRoleInstance = "ai.cloud.roleInstance";
+```
+
+或者，Cloud.RoleInstance 可以是其中 Cloud.RoleName 會告訴您問題就在您的 web 前端，但您可能會執行您 web 前端跨越多個負載平衡的伺服器，能夠向下鑽研更深入一層的情況下很有幫助透過 Kusto 查詢和了解問題影響所有 web 前端伺服器/執行個體，或僅只一個可以是非常重要。
+
+您可能想要針對 Cloud.RoleInstance 覆寫值的案例是如果您的應用程式執行容器化的環境中，只了解個別的伺服器可能不足夠的資訊來找出特定的問題。
 
 如需如何使用遙測初始設定式覆寫 cloud_RoleName 屬性的詳細資訊，請參閱[新增屬性：ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer)。
 

@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 52a18203e5c6973822f52a65364ae2786913d4f0
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803845"
 documentType: LandingData
 title: Azure 媒體服務文件
 metadata:
-  document_id: 
+  document_id: null
   title: Azure 媒體服務文件 | Microsoft Docs
-  meta.description: Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more.
+  meta.description: 'Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more.'
   services: media-services
   author: juliako
   manager: femila
@@ -21,36 +15,36 @@ metadata:
   ms.date: 03/11/2019
   ms.author: juliako
 abstract:
-  description: Azure 媒體服務是雲端式平台，可讓您建置解決方案以實現高畫質視訊編碼和廣播品質影片串流，讓使用者能在最受歡迎的裝置上觀看。 媒體服務 v3 也可讓您使用影片索引器，透過媒體服務 v3 分析器預設從影片及音訊檔案中擷取深入解析。 若您希望獲得更多詳細深入解析，請直接使用影片索引器。
+  description: Azure 媒體服務是雲端式媒體工作流程平台，可讓您建置需要編碼、封裝、進行內容保護和即時事件廣播的各項解決方案。 Azure 媒體服務與 Azure CDN 整合，調整從 Akamai 和 Verison 中透過 CDN 服務傳遞的方式，讓客戶得以選擇最符合其需求的解決方案，例如內容傳遞網路間的負載平衡。 Azure 媒體服務影片可讓您透過內建影片和音訊分析器預設，使用 AI 擷取中繼資料和深入解析。 您可以透過影片索引器 API，使用您的內容將提供的 AI 模型定型，輕鬆改善精確度。
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 2
-    items:
-    - href: /azure/media-services/latest/
-      html: <p>使用媒體服務 v3 來編碼、封裝和保護內容、串流隨選影片、即時廣播及分析您的影片。</p>
-      image:
-        src: /azure/media-services/latest/media/index/AMSIcons-encoding.svg
-      title: Azure 媒體服務 v3
-    - href: /azure/media-services/previous/
-      html: <p>媒體服務 v2 不會再新增任何新的特性或功能。 </p>
-      image:
-        src: 
-      title: Azure 媒體服務 v2 (舊版)
-    - href: /azure/cdn/
-      html: <p>使用 CDN 來快取靜態物件，並加速無法快取的動態內容。</p>
-      image:
-        src: /azure/cdn/media/index/cdn.svg
-      title: CDN
-    - href: http://amp.azure.net/libs/amp/latest/docs/index.html
-      html: <p>在各種瀏覽器和裝置上播放 Microsoft Azure 媒體服務的媒體內容。</p>
-      image:
-        src: /azure/media-services/latest/media/index/AMSIcons-Player.svg
-      title: Azure 媒體播放器
-    - href: /azure/media-services/video-indexer/
-      html: <p>使用影片索引器從影片和音訊檔案中擷取深入解析。</p>
-      image:
-        src: media/index/AMSIcons-media_analytics.svg
-      title: 影片索引子
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 2
+        items:
+          - href: /azure/media-services/latest/
+            html: <p>使用媒體服務 v3 來編碼、封裝和保護內容、串流隨選影片、即時廣播及分析您的影片。</p>
+            image:
+              src: /azure/media-services/latest/media/index/AMSIcons-encoding.svg
+            title: Azure 媒體服務 v3
+          - href: /azure/media-services/previous/
+            html: <p>編碼、封裝、保護和更多功能。 這是舊版服務，目前維護中。 客戶可以遷移到媒體服務 v3，使用各項新功能及增強功能。</p>
+            image:
+              src: null
+            title: Azure 媒體服務 v2 (舊版)
+          - href: /azure/cdn/
+            html: <p>使用 Azure CDN 的強大功能，透過 Akamai 和 Verizon 的各項服務或跨多個內容傳遞網路的負載平衡，大量串流內容。</p>
+            image:
+              src: /azure/cdn/media/index/cdn.svg
+            title: CDN
+          - href: 'http://amp.azure.net/libs/amp/latest/docs/index.html'
+            html: <p>在各種瀏覽器和裝置上播放 Microsoft Azure 媒體服務的媒體內容。</p>
+            image:
+              src: /azure/media-services/latest/media/index/AMSIcons-Player.svg
+            title: Azure 媒體播放器
+          - href: /azure/media-services/video-indexer/
+            html: <p>使用影片索引器從影片和音訊檔案中擷取深入解析。</p>
+            image:
+              src: media/index/AMSIcons-media_analytics.svg
+            title: Azure 媒體服務影片索引器

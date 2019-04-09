@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: ee867303-a5e5-4686-b2da-8a0108247d18
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 17f7e7acc70047119b882a5bb6e60bfdf06f79c0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 14a4191612a5d42836ae4be3ff902ca47a6b06d4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775453"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271504"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>在 Notebook 中存取雲端資料
 
@@ -69,8 +69,8 @@ Azure 儲存體提供數種不同類型的非關聯式儲存體，視您所具�
 Azure Cosmos DB 針對 JSON 文件提供了具完整索引的 NoSQL 存放區。 下列文章提供了多種不同從 Python 使用 Cosmos DB 的方式：
 
 - [使用 Python 建置 SQL API 應用程式](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
-- [使用適用於 MongoDB 的 Azure Cosmos DB API 建置 Flask 應用程式](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
-- [使用 Python 和 Gremlin API 建立圖形資料庫](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
+- [建置適用於 MongoDB 的 Flask 應用程式使用 Azure Cosmos DB 的 API](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
+- [建立圖形資料庫，使用 Python 和 Gremlin API](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
 - [使用 Python 和 Azure Cosmos DB 建置 Cassandra 應用程式](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
 - [使用 Python 與 Azure Cosmos DB 建置資料表 API 應用程式](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
 
@@ -81,11 +81,11 @@ Azure Cosmos DB 針對 JSON 文件提供了具完整索引的 NoSQL 存放區。
 Azure 提供了許多其他資料庫類型供您使用。 以下文章提供了從 Python 存取這些資料庫的指引：
 
 - [適用於 PostgreSQL 的 Azure 資料庫：使用 Python 連線並查詢資料](https://docs.microsoft.com/azure/postgresql/connect-python)
-- [快速入門：搭配使用 Azure Redis 快取與 Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
+- [快速入門：使用 Azure Redis 快取與 Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
 - [適用於 MySQL 的 Azure 資料庫：使用 Python 連線並查詢資料](https://docs.microsoft.com/azure/mysql/connect-python)
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
-  - [Azure Data Factory 的複製精靈](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
+  - [針對 Azure Data Factory 複製精靈](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 
 ## <a name="next-steps"></a>後續步驟
 
-- [操作說明：使用專案資料檔案](work-with-project-data-files.md)
+- [作法：使用專案資料檔案](work-with-project-data-files.md)

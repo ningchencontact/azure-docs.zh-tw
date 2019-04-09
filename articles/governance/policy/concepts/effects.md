@@ -1,7 +1,6 @@
 ---
 title: 了解效果的運作方式
 description: 「Azure 原則」定義有各種效果，可決定合規性的管理和回報方式。
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/29/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: ae9c9c5ed8b951760ddac3034c617a13ebe35006
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 67a195932ad1afc3c93a94dfcbda8ab8a47760b2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802633"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256850"
 ---
 # <a name="understand-azure-policy-effects"></a>了解 Azure 原則效果
 

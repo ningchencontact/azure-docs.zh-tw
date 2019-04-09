@@ -3,7 +3,7 @@ title: Azure Data Factory 中複製活動的容錯 | Microsoft Docs
 description: 了解如何跳過不相容的資料列，以在 Azure Data Factory 的複製活動中新增容錯。
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/26/2018
-ms.author: jingwang
-ms.openlocfilehash: f1a40c09c2d08eddedd3b6b51d2a138ec403f6bc
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.author: yexu
+ms.openlocfilehash: ef0bb3716a32a0f25b90e74bc44d7291c146b431
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014908"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267458"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Azure Data Factory 中複製活動的容錯
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版](v1/data-factory-copy-activity-fault-tolerance.md)
-> * [目前的版本](copy-activity-fault-tolerance.md)
+> * [目前版本](copy-activity-fault-tolerance.md)
 
 Azure Data Factory 中的複製活動可在來源和接收資料存放區之間複製資料時，提供您兩個方式來處理不相容的資料列：
 
@@ -71,7 +71,7 @@ Azure Data Factory 中的複製活動可在來源和接收資料存放區之間�
 }
 ```
 
-屬性 | 說明 | 允許的值 | 必要
+屬性 | 描述 | 允許的值 | 必要項
 -------- | ----------- | -------------- | -------- 
 enableSkipIncompatibleRow | 指定是否要在複製期間略過不相容的資料列。 | True<br/>FALSE (預設值) | 否
 redirectIncompatibleRowSettings | 當您想要記錄不相容的資料列時，可指定的一組屬性。 | &nbsp; | 否
@@ -109,6 +109,6 @@ data4, data5, data6, "2627", "Violation of PRIMARY KEY constraint 'PK_tblintstrd
 請參閱其他複製活動文章：
 
 - [複製活動概觀](copy-activity-overview.md)
-- [複製活動效能](copy-activity-performance.md)
+- [複製活動的效能](copy-activity-performance.md)
 
 

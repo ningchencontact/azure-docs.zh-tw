@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 4557ce7dea207be0bc6f68a62e3dd7f81ce87911
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: f505f922685cd192525814df25cca1a1401d2913
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010663"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281211"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>適用於 Azure 資源的內建角色
 
@@ -121,7 +121,6 @@ ms.locfileid: "59010663"
 | [空間錨點帳戶擁有者](#spatial-anchors-account-owner) | 讓您可管理帳戶中的空間錨點，包含將其刪除 |
 | [空間錨點帳戶讀者](#spatial-anchors-account-reader) | 讓您可找出及讀取帳戶中空間錨點的屬性 |
 | [SQL DB 參與者](#sql-db-contributor) | 可讓您管理 SQL 資料庫，但無法存取它們。 此外，您也無法管理其安全性相關原則或其父 SQL 伺服器。 |
-| [SQL 受管理的執行個體參與者](#sql-managed-instance-contributor) | 可讓您管理 SQL 受控執行個體，但無法提供給其他人的存取。 |
 | [SQL 安全性管理員](#sql-security-manager) | 可讓您管理 SQL 伺服器及資料庫的安全性相關原則，但無法存取它們。 |
 | [SQL Server 參與者](#sql-server-contributor) | 可讓您管理 SQL 伺服器及資料庫，但無法存取它們，也無法存取其安全性相關原則。 |
 | [儲存體帳戶參與者](#storage-account-contributor) | 可讓您管理儲存體帳戶，但無法存取它們。 |
@@ -2229,31 +2228,6 @@ ms.locfileid: "59010663"
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
-> | **DataActions** |  |
-> | *None* |  |
-> | **NotDataActions** |  |
-> | *None* |  |
-
-## <a name="sql-managed-instance-contributor"></a>SQL 受管理的執行個體參與者
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **描述** | 可讓您管理 SQL 受控執行個體，但無法提供給其他人的存取。 |
-> | **id** | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
-> | **動作** |  |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | 取得指定範圍中所有資源的可用性狀態 |
-> | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
-> | Microsoft.Network/networkSecurityGroups/write | 建立網路安全性群組，或更新現有的網路安全性群組 |
-> | Microsoft.Network/routeTables/write | 建立路由表或更新現有的路由表 |
-> | Microsoft.Sql/locations/*/read |  |
-> | Microsoft.Sql/managedInstances/* |  |
-> | Microsoft.Support/* | 建立和管理支援票證 |
-> | Microsoft.Network/virtualNetworks/subnets/write | 建立虛擬網路子網路，或更新現有的虛擬網路子網路 |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | 加入虚拟网络。 不可发出警报。 |
-> | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
-> | **NotActions** |  |
-> | *None* |  |
 > | **DataActions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |

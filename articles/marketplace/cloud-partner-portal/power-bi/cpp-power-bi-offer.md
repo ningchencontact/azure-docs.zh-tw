@@ -12,20 +12,20 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 03/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 11bbd87eb283dca2c7da19e32833221c7320a79f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: f18a1b05e5a38a79945d8df6706dd2147d6b43df
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817791"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009711"
 ---
 # <a name="power-bi-app-offer"></a>Power BI 應用程式供應項目
 
 |              |                                |
-|-|--------------------------------|
-| 這篇文章說明如何將 Power BI 應用程式發佈至 Microsoft [AppSource marketplace](https://appsource.microsoft.com/)。 Power BI 應用程式封裝的 Power BI 內容，並使用資料流程中常見的資料儲存體的資料連接的報表和儀表板。 然後，您就可以部署應用程式透過 AppSource 其他租用戶。 | ![Power BI 圖示](./media/powerbi-icon.png) |
+|--------------|--------------------------------|
+| 這篇文章說明如何將 Power BI 應用程式發佈至 Microsoft [AppSource marketplace](https://appsource.microsoft.com/)。  Power BI 應用程式封裝可自訂的 Power BI 內容，包括資料集、 報表和儀表板。 然後可以將應用程式部署到其他的 Power BI 租用戶透過 AppSource、 執行調整和自訂開發人員所允許的項目並將它連接到您自己的資料。 | ![Power BI 圖示](./media/powerbi-icon.png) |
 
 
 本文分為三個主要部分：
@@ -43,16 +43,15 @@ ms.locfileid: "56817791"
 
 以下是 Power BI 應用程式供應項目發佈程序：
 
-1. Power BI 中建立服務應用程式。 這個動作會產生套件安裝 URL，其代表的技術資產的供應項目。 如需詳細資訊，請參閱 <<c0> [ 什麼是 Power BI？](https://go.microsoft.com/fwlink/?linkid=2028636)。
-2. 收集或建立商務資產，包括：
-    - 行銷資料。
-    - 法律及支援文件。
-3.  建立供應項目。 您可以使用 Cloud Partner 入口網站來設定的供應項目，包括供應項目描述中，行銷資料、 法律資訊、 支援資訊，以及資產規格詳細資料。
-4.  認證和發行供應項目。 這會啟動發佈程序。
-    - AppSource 上架小組會測試、驗證以及認證您的應用程式。 
-    - 供應項目已通過認證後，請檢閱其測試環境中，並釋放它。
+1. Power BI 中建立的範本應用程式。 這個動作會產生套件安裝 URL，表示主要的技術資產的供應項目。 也在這個階段中，升級進入生產階段前測試封裝。 如需詳細資訊，請參閱 <<c0> [ 什麼是 Power BI 範本應用程式？](https://docs.microsoft.com/power-bi/service-template-apps-overview)。 
+2. 收集或建立供應項目的行銷資料，包括： 正式名稱、 描述、 標誌等。 
+3. 收集或建立供應項目的法律，而且支援文件：*使用條款*，*隱私權原則*，*支援原則*，使用者說明等。
+4. 建立供應項目： 使用 Cloud Partner 入口網站設定的供應項目，包括供應項目描述中，行銷資料、 法律資訊、 支援資訊，以及資產規格詳細資料。  完整指定供應項目之後，請將它提交進行發佈。
+5. 監視發佈的程序，在 Cloud Partner 入口網站中。  在此步驟中，AppSource 上架小組將測試、 驗證以及認證您的應用程式。 
+6. 應用程式中成功認證後，請檢閱其測試環境中，並釋放它。 
+7. Power BI 應用程式會列在 AppSource （它 」 會即時"）。
+8. 在 Power BI 中，將升階到生產環境進入生產階段前套件。 如需詳細資訊，請參閱 <<c0> [ 管理範本的應用程式發行](https://docs.microsoft.com/power-bi/service-template-apps-create#manage-the-template-app-release)。
 
-在您完成這些步驟之後，您的 Power BI 應用程式供應項目上線在 AppSource 上。
 
 ## <a name="next-steps"></a>後續步驟
 

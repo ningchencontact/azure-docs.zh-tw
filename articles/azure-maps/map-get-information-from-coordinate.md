@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 9ab6d9708843cda492795b92b6fb5f58bd7a9154
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 50f906a9d8a0dc19f5eb47bef4cb68f4703f020f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571417"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256051"
 ---
 # <a name="get-information-from-a-coordinate"></a>從座標取得資訊
 
@@ -29,11 +29,11 @@ ms.locfileid: "57571417"
 
 在上述程式碼，程式碼的第一個區塊會建構對應物件，並設定的驗證機制，利用訂用帳戶金鑰。 如需相關指示，您可以查看[建立對應](./map-create.md)。
 
-建立程式碼的第二個區塊**SubscriptionKeyCredentialPolicy**來驗證對 Azure 地圖服務的 HTTP 要求，與訂用帳戶金鑰。 然後**atlas.service.MapsURL.newPipeline()** 採用**SubscriptionKeyCredential**原則，並建立[管線](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest)執行個體。 **SearchURL**表示 Azure 地圖服務的 URL[搜尋](https://docs.microsoft.com/rest/api/maps/search)作業。
+程式碼的第二個區塊建立`SubscriptionKeyCredentialPolicy`來驗證對 Azure 地圖服務的 HTTP 要求，與訂用帳戶金鑰。 然後`atlas.service.MapsURL.newPipeline()`會採用`SubscriptionKeyCredential`原則，並建立[管線](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest)執行個體。 `searchURL`表示 Azure 地圖服務的 URL[搜尋](https://docs.microsoft.com/rest/api/maps/search)作業。
 
 程式碼的第三個區塊的指標會更新滑鼠資料指標的樣式，並建立[快顯](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open)物件。 如需相關指示，您可以查看[在地圖上新增快顯](./map-add-popup.md)。
 
-程式碼的第四個區塊將按下滑鼠[事件接聽程式](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)。 當觸發時，它會建立搜尋查詢的按下點的座標。 然後它會使用服務模組[getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-iot-typescript-latest#searchaddressreverse-aborter--geojson-position--searchaddressreverseoptions-)方法來查詢[反向 API 取得搜尋地址](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)座標的位址。 使用再擷取回應中的 GeoJSON 功能集合**geojson.getFeatures()** 方法。
+程式碼的第四個區塊將按下滑鼠[事件接聽程式](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)。 當觸發時，它會建立搜尋查詢的按下點的座標。 然後它會使用服務模組[getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-iot-typescript-latest#searchaddressreverse-aborter--geojson-position--searchaddressreverseoptions-)方法來查詢[反向 API 取得搜尋地址](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse)座標的位址。 使用再擷取回應中的 GeoJSON 功能集合`geojson.getFeatures()`方法。
 
 程式碼的第五個區塊會設定要顯示的已按下 座標位置的回應位址的 HTML 快顯視窗內容。
 
@@ -59,10 +59,10 @@ ms.locfileid: "57571417"
 深入了解本文使用的類別和方法：
 
 > [!div class="nextstepaction"]
-> [地圖](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [對應](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
+> [快顯視窗](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
 
 請參閱下列文章中的完整程式碼範例：
 
