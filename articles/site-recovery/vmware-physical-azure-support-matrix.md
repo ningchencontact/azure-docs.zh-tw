@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: raynew
-ms.openlocfilehash: 199f9508b599e2f946404446a23e9608bb969ba7
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 7f24e027edd5de0eecd97e5c7c19126c9ac34301
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649453"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006923"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>從 VMware VM 和實體伺服器至 Azure 之災害復原的支援矩陣
 
@@ -108,7 +108,7 @@ SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | [9.20][9.20 UR] | SP1 3.12.4
 **元件** | **支援**
 --- | ---
 檔案系統 | ext3、ext4、XFS
-磁碟區管理員 | [9.20 版](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)之前， <br/> 1.支援 LVM2。 <br/> 2.資料磁碟才支援 LVM。 <br/> 3.Azure VM 只有單一 OS 磁碟。<br/><br/>自 [9.20 版](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)起，即支援 LVM 和 LVM2。
+磁碟區管理員 | [9.20 版](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)之前， <br/> 1.適用於 LVM。 <br/> 2./boot LVM 磁碟區上不支援。 <br/> 3.不支援多個 OS 磁碟。<br/><br/>從[9.20 版本](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)上 LVM 的 /boot 及更新版本，才支援。 不支援多個 OS 磁碟。
 並行虛擬存放裝置 | 不支援並行虛擬驅動程式所匯出的裝置。
 多佇列區塊 IO 裝置 | 不支援。
 使用 HP CCISS 儲存體控制器的實體伺服器 | 不支援。
@@ -120,7 +120,7 @@ SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | [9.20][9.20 UR] | SP1 3.12.4
 
 ## <a name="vmdisk-management"></a>VM/磁碟管理
 
-**Action** | **詳細資料**
+** 動作** | **詳細資料**
 --- | ---
 在複寫的 VM 上調整磁碟大小 | 支援。
 在複寫的 VM 上新增磁碟 | 停用 VM 的複寫、新增磁碟，然後重新啟用複寫。 目前不支援在複寫的 VM 上新增磁碟。
@@ -187,6 +187,7 @@ Docker 磁碟設定 | 否
 >
 > - 僅支援移轉到 Azure。 不支援容錯回復至內部部署 VMware 網站。
 > - 伺服器的 OS 磁碟上不應有超過 4 個磁碟分割。
+> - 只支援 NTFS
 > - 需要行動服務 9.13 版或更新版本。
 
 ## <a name="azure-storage"></a>Azure 儲存體
@@ -236,7 +237,7 @@ VM 名稱 | 從 1 到 63 個字元。<br/><br/> 只能使用字母、數字和�
 
 下表提供 Azure Site Recovery 限制。 上述限制是以我們的測試為基礎，但無法涵蓋所有可能的應用程式 I/O 組合。 實際的結果會隨著您的應用程式 I/O 混合而有所不同。 為了獲得最佳結果，我們強烈建議[執行部署規劃工具](site-recovery-deployment-planner.md)和執行廣泛的應用程式藉由發出測試容錯移轉來測試以取得應用程式的真正的效能情況。
 
-**複寫儲存體目標** | **平均來源磁碟 I/O 大小** |**平均來源磁碟資料變換** | **每日的來源磁碟資料變換總計**
+**複寫儲存體目標** | **平均來源磁碟 I/O 大小** |**平均來源磁碟資料變換** | **來源磁碟資料變換總計每日**
 ---|---|---|---
 標準儲存體 | 8 KB | 2 MB/秒 | 每個磁碟 168 GB
 進階 P10 或 P15 磁碟 | 8 KB  | 2 MB/秒 | 每個磁碟 168 GB
@@ -255,7 +256,7 @@ VM 上所有磁碟的尖峰資料變換 | 54 MB/秒
 
 ## <a name="vault-tasks"></a>保存庫工作
 
-**Action** | **支援**
+** 動作** | **支援**
 --- | ---
 在資源群組間移動保存庫<br/><br/> 订阅内和跨订阅移动 | 否
 跨資源群組間移動儲存體、網路、Azure VM<br/><br/> 內及跨訂用帳戶 | 否
@@ -263,7 +264,7 @@ VM 上所有磁碟的尖峰資料變換 | 54 MB/秒
 
 ## <a name="download-latest-azure-site-recovery-components"></a>下載最新的 Azure Site Recovery 元件
 
-**名稱** | **說明** | **最新版本下載指示**
+**名稱** | **描述** | **最新版本的下載指示**
 --- | --- | ---
 組態伺服器 | 協調內部部署 VMware 伺服器與 Azure 之間的通訊  <br/><br/> 安裝在內部部署 VMware 伺服器上 | 如需詳細資訊，請造訪我們的指引[全新安裝](vmware-azure-deploy-configuration-server.md)並[升級至最新版本的現有元件的](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)。
 處理序伺服器|預設會安裝在組態伺服器上。 負責接收複寫資料，以快取、壓縮和加密進行最佳化，然後將複寫資料傳送至 Azure 儲存體。 隨著部署規模擴大，您可以新增額外的個別處理序伺服器，以處理日較大的複寫流量。| 如需詳細資訊，請造訪我們的指引[全新安裝](vmware-azure-set-up-process-server-scale.md)並[升級至最新版本的現有元件的](vmware-azure-manage-process-server.md#upgrade-a-process-server)。

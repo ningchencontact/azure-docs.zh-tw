@@ -1,6 +1,6 @@
 ---
 title: 將 Azure 流量導向至 Azure SQL Database 與 SQL 資料倉儲 | Microsoft Docs
-description: 本文件說明 Azure 內外部的 Azure SQL Database 與 SQL 資料倉儲連線架構。
+description: 本文件說明 Azcure SQL onnectivity 架構的資料庫連線從 Azure 內部或從 Azure 外部。
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,34 +12,16 @@ ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/03/2019
-ms.openlocfilehash: 619893ad42664f8d37fff5e61b8560f6c6d83e23
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 4ff6cc0ba18074f353eb5b99af7052edd658a80e
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918598"
+ms.locfileid: "59006786"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 連線架構
 
 本文說明 Azure SQL Database 與 SQL 倉儲連線架構，以及不同的元件函數如何將流量導向至 Azure SQL 的執行個體。 這些連線元件函數可使用從 Azure 內部連線的用戶端和從 Azure 外部連線的用戶端，將網路流量導向至 Azure SQL Database 或 SQL 資料倉儲。 本文也提供可變更連線方式的指令碼範例，以及和變更預設連線設定相關的考量。
-
-> [!IMPORTANT]
-> **[即將推出的變更]服務端點連線至 Azure SQL 伺服器，如`Default`連線行為變更`Redirect`。**
-> 建議客戶建立新的伺服器，並根據連線架構，將具有連線類型的現有伺服器明確地設定為 [重新導向] (建議使用) 或 [Proxy]。
->
-> 為了避免現有環境中通過服務端點的連線因變更而中斷，我們會使用遙測進行下列作業：
->
-> - 對於在變更前偵測到透過服務端點存取的伺服器，會將連線類型切換成 `Proxy`。
-> - 對於所有其他伺服器，則會將即將切換的連線類型切換為 `Redirect`。
->
-> 在下列情況下，服務端點使用者仍會受到影響：
->
-> - 應用程式不常連線到現有伺服器，因此我們的遙測並未擷取這些應用程式的資訊
-> - 自動化的部署的邏輯會建立假設服務端點連線的預設行為 SQL Database 伺服器 `Proxy`
->
-> 如果無法建立連到 Azure SQL 伺服器的服務端點連線，且您懷疑受到此變更的影響，請確認連線類型是否已明確設為 `Redirect`。 如果發生這種情況，您必須開啟所有 Azure IP 位址的區域中屬於 Sql VM 防火牆規則和網路安全性群組 (NSG)[服務標籤](../virtual-network/security-overview.md#service-tags)連接埠 11000-11999。 如果您不願如此做，請將伺服器明確地切換至 `Proxy`。
-> [!NOTE]
-> 本主題適用於裝載單一資料庫和彈性集區中，SQL 資料倉儲資料庫、 適用於 MySQL 的 Azure 資料庫、 適用於 MariaDB 的 Azure 資料庫和適用於 PostgreSQL 的 Azure 資料庫的 Azure SQL Database 伺服器。 為了簡單起見，參考到 SQL Database、 SQL 資料倉儲、 Azure Database for MySQL、 MariaDB 的 Azure 資料庫和適用於 PostgreSQL 的 Azure 資料庫時，會使用 SQL Database。
 
 ## <a name="connectivity-architecture"></a>連線架構
 

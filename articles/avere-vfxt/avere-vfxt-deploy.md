@@ -4,14 +4,14 @@ description: 在 Azure 中部署 Avere vFXT 叢集的步驟
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 04/05/2019
 ms.author: v-erkell
-ms.openlocfilehash: 7dbfc39075bb42b1ec13823849eb769e117ddd4a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.openlocfilehash: 7ded66c29f12b8f68746726ca6c126bffbc51f0d
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409681"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056600"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>部署 vFXT 叢集
 
@@ -31,18 +31,17 @@ ms.locfileid: "57409681"
 1. [新的訂用帳戶](avere-vfxt-prereqs.md#create-a-new-subscription)
 1. [訂用帳戶擁有者權限](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [vFXT 叢集配額](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
-1. [自訂存取角色](avere-vfxt-prereqs.md#create-access-roles) - 您必須建立要指派給叢集節點的角色型存取控制角色。 您也可以選擇為叢集控制器建立自訂存取角色，但大部分使用者會採用預設的「擁有者」角色，此角色會提供資源群組擁有者的對應權限給控制器。 如需詳細資訊，請參閱 [Azure 資源的內建角色](../role-based-access-control/built-in-roles.md#owner)。
 1. [儲存體服務端點 （如有需要）](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) -必要的部署使用現有的虛擬網路，並建立 blob 儲存體
 
 如需有關叢集部署步驟和規劃的詳細資訊，請參閱[規劃您的 Avere vFXT 系統](avere-vfxt-deploy-plan.md)和[部署概觀](avere-vfxt-deploy-overview.md)。
 
 ## <a name="create-the-avere-vfxt-for-azure"></a>建立 Avere vFXT for Azure
 
-若要在 Azure 入口網站中存取建立範本，請搜尋 Avere 並選取「Avere vFXT ARM 部署」。 
+Avere 搜尋並選取 「 Azure ARM 範本的 Avere vFXT 」 來存取 Azure 入口網站中的建立範本。 
 
-![使用階層連結 [新增 > Marketplace > 全部內容] 瀏覽顯示的 Azure 入口網站的視窗。 在 [全部內容] 頁面上，[搜尋] 欄位有「avere」一詞，而且第二個結果「Avere vFXT ARM 部署」是以紅色外框顯示。](media/avere-vfxt-template-choose.png)
+![使用階層連結 [新增 > Marketplace > 全部內容] 瀏覽顯示的 Azure 入口網站的視窗。 在所有項目 頁面上，搜尋 欄位有詞彙"avere 」 和第二個結果，也就是 「 Avere vFXT Azure ARM 範本 」 是紅色外框的以反白顯示。](media/avere-vfxt-template-choose.png)
 
-閱讀「Avere vFXT ARM 部署」頁面上的詳細資料之後，按下 [建立] 開始。 
+閱讀 Azure ARM 範本頁面 Avere vFXT 的詳細資料之後, 請按**建立**開始。 
 
 ![使用部署範本的 Azure Marketplace 第一頁顯示畫面](media/avere-vfxt-deploy-first.png)
 
@@ -69,14 +68,6 @@ ms.locfileid: "57409681"
 
 * **密碼**或 **SSH 公開金鑰** - 根據您選取的驗證類型，您必須在下方欄位中提供 RSA 公開金鑰或密碼。 此認證會與稍早提供的使用者名稱搭配使用。
 
-* **Avere 叢集建立角色識別碼**- 使用此欄位來指定叢集控制器的存取控制角色。 預設值是內建角色：[擁有者](../role-based-access-control/built-in-roles.md#owner)。 叢集控制器的擁有者權限範圍僅限於叢集的資源群組。 
-
-  您必須使用對應至角色的唯一識別碼。 針對預設值 (擁有者)，GUID 會是 8e3af657-a8ff-443c-a75c-2fe8c4bcb635。 若要尋找自訂角色的 GUID，請使用下列命令： 
-
-  ```azurecli
-  az role definition list --query '[*].{roleName:roleName, name:name}' -o table --name 'YOUR ROLE NAME'
-  ```
-
 * **訂用帳戶** - 選取 Avere vFXT 的訂用帳戶。 
 
 * **資源群組**- 選取 Avere vFXT 叢集的現有空資源群組，或按一下 [新建] 並輸入新的資源群組名稱。 
@@ -97,10 +88,6 @@ ms.locfileid: "57409681"
 * **Avere vFXT 叢集節點計數** - 選擇要在叢集中使用的節點數目。 最小值是三個節點，而最大值是十二個。 
 
 * **叢集管理密碼** - 建立用於管理叢集的密碼。 搭配使用此密碼和使用者名稱 ```admin```，即可登入叢集控制台來監視叢集並進行設定。
-
-* **Avere 叢集操作角色** - 為叢集節點的存取控制角色指定名稱。 這是作為必要步驟建立的自訂角色。 
-
-  [建立叢集節點存取角色](avere-vfxt-prereqs.md#create-the-cluster-node-access-role)中所述的範例會將檔案儲存為 ```avere-operator.json```，而對應的角色名稱為 ```avere-operator```。
 
 * **Avere vFXT 叢集名稱** - 為叢集提供唯一名稱。 
 
@@ -138,7 +125,7 @@ ms.locfileid: "57409681"
 
 ![部署範本的第三頁 - 驗證](media/avere-vfxt-deploy-3.png)
 
-在第四頁上，按一下 [建立] 按鈕以接受條款，並建立 Avere vFXT for Azure 叢集。 
+在四個頁面上，輸入任何必要的連絡資訊，然後按一下**建立**按鈕以接受條款並建立 Avere vFXT，適用於 Azure 的叢集。 
 
 ![部署範本的第四頁 - 條款和條件、建立按鈕](media/avere-vfxt-deploy-4.png)
 

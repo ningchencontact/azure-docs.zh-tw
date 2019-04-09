@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2.0 OAuth2.0 代理者流程 | Microsoft Docs
-description: 本文介绍如何使用 OAuth2.0 代理流通过 HTTP 消息实现服务到服务身份验证。
+title: Microsoft 身分識別平台和 OAuth2.0 代理者的流程 |Azure
+description: 本文說明如何使用 HTTP 訊息，以利用 OAuth2.0 代理者流程實作服務對服務驗證。
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -13,30 +13,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 04/05/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d933eaf99258a3f3322a915b418b52fad6e459f
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.openlocfilehash: f4de33bb02a008d6b394055c64119ac2a4fbc4d9
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576925"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058674"
 ---
-# <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 和 OAuth 2.0 代理者流程
+# <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft 身分識別平台和 OAuth 2.0 代理者流程
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-OAuth2.0 代理者流程 (OBO) 的使用案例，是應用程式叫用服務/Web API，而後者又需要呼叫另一個服務/Web API。 其概念是透過要求鏈傳播委派的使用者身分識別和權限。 中介層服務若要向下游服務提出已驗證的要求，需要代表使用者保護來自 Azure Active Directory (Azure AD) 存取權杖。
+OAuth2.0 代理者流程 (OBO) 的使用案例，是應用程式叫用服務/Web API，而後者又需要呼叫另一個服務/Web API。 其概念是透過要求鏈傳播委派的使用者身分識別和權限。 下游服務提出已驗證的要求中介層服務，需要保護 Microsoft 身分識別平台，代表使用者的存取權杖。
 
 > [!NOTE]
-> v2.0 端點並未支援所有的 Azure AD 案例和功能。 若要判斷您是否應該使用 v2.0 端點，請參閱 [v2.0 限制](active-directory-v2-limitations.md)。 特別是已知用戶端應用程式不支援具有 Microsoft 帳戶 (MSA) 和 Azure AD 對象的應用程式。 因此，OBO 的常見同意模式不適用於登入個人和公司或學校帳戶的用戶端。 若要深入了解如何處理流程的這個步驟，請參閱[取得中介層應用程式的同意](#gaining-consent-for-the-middle-tier-application)。
-
-
-> [!IMPORTANT]
-> 從 2018 年 5 月起，部分隱含流程衍生 `id_token` 無法用於 OBO 流程。 單頁應用程式 (SPA) 應該將**存取**權杖傳遞至中介層機密用戶端，才能改為執行 OBO 流程。 若要進一步了解哪些用戶端可執行 OBO 呼叫，請參閱[限制](#client-limitations)。
+>
+> - Microsoft 身分識別平台端點不支援所有的案例和功能。 若要判斷您是否應該使用 Microsoft 身分識別平台的端點，請參閱[Microsoft 身分識別平台限制](active-directory-v2-limitations.md)。 特別是已知用戶端應用程式不支援具有 Microsoft 帳戶 (MSA) 和 Azure AD 對象的應用程式。 因此，OBO 的常見同意模式不適用於登入個人和公司或學校帳戶的用戶端。 若要深入了解如何處理流程的這個步驟，請參閱[取得中介層應用程式的同意](#gaining-consent-for-the-middle-tier-application)。
+> - 從 2018 年 5 月起，部分隱含流程衍生 `id_token` 無法用於 OBO 流程。 單頁應用程式 (SPA) 應該將**存取**權杖傳遞至中介層機密用戶端，才能改為執行 OBO 流程。 若要進一步了解哪些用戶端可執行 OBO 呼叫，請參閱[限制](#client-limitations)。
 
 ## <a name="protocol-diagram"></a>通訊協定圖表
 
@@ -44,16 +42,16 @@ OAuth2.0 代理者流程 (OBO) 的使用案例，是應用程式叫用服務/Web
 
 接下來的步驟由 OBO 流程構成，並搭配下圖協助說明。
 
-![OAuth2.0 代理者流程](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+![OAuth2.0 代理者流程](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
 
 1. 用戶端應用程式使用權杖 A (含 API A 的 `aud` 宣告) 向 API A 提出要求。
-1. API A會向 Azure AD 權杖發行端點進行驗證，並要求存取 API B 的權杖。
-1. Azure AD 權杖發行端點以權杖 A 驗證 API A 的認證，並發出 API B 的存取權杖 (權杖 B)。
+1. API A 會向 Microsoft 身分識別平台權杖發行端點，並要求存取 API B 的權杖
+1. Microsoft 身分識別平台權杖發行端點驗證 API A 的認證，以權杖 A，並發出 API b (權杖 B) 的存取權杖。
 1. 在對 API B 的要求的授權標頭中設定權杖 B。
 1. API B 傳回來自受保護資源的資料。
 
 > [!NOTE]
-> 在此方案中，中间层服务无需用户干预，就要获取用户对访问下游 API 的许可。 因此，在驗證期間必須先呈現授與存取下游 API 的選項，作為同意步驟的一部分。 若要深入了解如何為您的應用程式進行這個設定，請參閱[取得中介層應用程式的同意](#gaining-consent-for-the-middle-tier-application)。 
+> 在此方案中，中间层服务无需用户干预，就要获取用户对访问下游 API 的许可。 因此，在驗證期間必須先呈現授與存取下游 API 的選項，作為同意步驟的一部分。 若要深入了解如何為您的應用程式進行這個設定，請參閱[取得中介層應用程式的同意](#gaining-consent-for-the-middle-tier-application)。
 
 ## <a name="service-to-service-access-token-request"></a>服務對服務存取權杖要求
 
@@ -139,7 +137,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 | 參數 | 描述 |
 | --- | --- |
-| `token_type` | 表示權杖類型值。 Azure AD 唯一支援的類型是 `Bearer`。 如需有關持有人權杖的詳細資訊，請參閱 [OAuth 2.0 授權架構︰持有人權杖使用方式 (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) \(英文\)。 |
+| `token_type` | 表示權杖類型值。 唯一的輸入身分識別平台支援是由 Microsoft `Bearer`。 如需有關持有人權杖的詳細資訊，請參閱 [OAuth 2.0 授權架構︰持有人權杖使用方式 (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) \(英文\)。 |
 | `scope` | 在權杖中授與的存取範圍。 |
 | `expires_in` | 存取權杖的有效時間長度 (以秒為單位)。 |
 | `access_token` | 所要求的存取權杖。 呼叫端服務可以使用此權杖來向接收端服務進行驗證。 |
@@ -161,7 +159,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 ```
 
 > [!NOTE]
-> 上述存取權杖是 v1.0 格式的權杖。 這是因為提供的權杖會以要存取的資源為依據。 既然 Microsoft Graph 要求的是 v1.0 權杖，因此當用戶端要求 Microsoft Graph 權杖時，Azure AD 即會產生 v1.0 存取權杖。 只有應用程式應該檢查存取權杖。 用戶端應該不需要檢查它們。 
+> 上述存取權杖是 v1.0 格式的權杖。 這是因為提供的權杖會以要存取的資源為依據。 Microsoft Graph 會要求在 v1.0 權杖，讓 Microsoft 身分識別平台會產生 v1.0 存取權杖，當用戶端要求適用於 Microsoft Graph 的權杖。 只有應用程式應該檢查存取權杖。 用戶端應該不需要檢查它們。
 
 ### <a name="error-response-example"></a>錯誤回應範例
 
@@ -199,9 +197,9 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 #### <a name="default-and-combined-consent"></a>/.預設和合併的同意
 
-針對僅需要登入公司或學校帳戶的應用程式，傳統「已知用戶端應用程式」方法就已足夠。 中介層應用程式會將用戶端新增至已知用戶端應用程式清單的資訊清單中，然後用戶端可以針對自己本身與中介層應用程式觸發合併的同意流程。 在 v2.0 端點上，這是使用 [`/.default` 範圍](v2-permissions-and-consent.md#the-default-scope)來完成。 當使用已知用戶端應用程式和 `/.default` 來觸發同意畫面時，同意畫面會顯示兩個用戶端對中介層 API 的權限，也會要求中介層 API 需要的任何權限。 使用者提供兩個應用程式的同意，然後 OBO 流程就能運作。 
+針對僅需要登入公司或學校帳戶的應用程式，傳統「已知用戶端應用程式」方法就已足夠。 中介層應用程式會將用戶端新增至已知用戶端應用程式清單的資訊清單中，然後用戶端可以針對自己本身與中介層應用程式觸發合併的同意流程。 在 v2.0 端點上，這是使用 [`/.default` 範圍](v2-permissions-and-consent.md#the-default-scope)來完成。 當使用已知用戶端應用程式和 `/.default` 來觸發同意畫面時，同意畫面會顯示兩個用戶端對中介層 API 的權限，也會要求中介層 API 需要的任何權限。 使用者提供兩個應用程式的同意，然後 OBO 流程就能運作。
 
-目前個人 Microsoft 帳戶系統不支援合併的同意，因此這個方法不適用於想要特定登入個人帳戶的應用程式。 用來作為租用戶中來賓帳戶的個人 Microsoft 帳戶，是使用 Azure AD 系統進行處理，可以通過合併的同意。 
+目前個人 Microsoft 帳戶系統不支援合併的同意，因此這個方法不適用於想要特定登入個人帳戶的應用程式。 用來作為租用戶中來賓帳戶的個人 Microsoft 帳戶，是使用 Azure AD 系統進行處理，可以通過合併的同意。
 
 #### <a name="pre-authorized-applications"></a>已預先授權應用程式
 
@@ -209,24 +207,24 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 #### <a name="admin-consent"></a>系統管理員同意
 
-租用戶系統管理員可以藉由提供中介層應用程式的同意，保證應用程式有呼叫其所需 API 的權限。 若要這樣做，系統管理員可以在其租用戶中尋找中介層應用程式、開啟必要的權限頁面，並選擇提供應用程式的權限。 若要深入了解系統管理員同意，請參閱[同意和權限文件](v2-permissions-and-consent.md)。 
+租用戶系統管理員可以藉由提供中介層應用程式的同意，保證應用程式有呼叫其所需 API 的權限。 若要這樣做，系統管理員可以在其租用戶中尋找中介層應用程式、開啟必要的權限頁面，並選擇提供應用程式的權限。 若要深入了解系統管理員同意，請參閱[同意和權限文件](v2-permissions-and-consent.md)。
 
 ### <a name="consent-for-azure-ad--microsoft-account-applications"></a>Azure AD + Microsoft 帳戶應用程式的同意
 
-由於個人帳戶權限模型的限制以及缺乏控管租用戶，所以個人帳戶的同意需求與 Azure AD 有一些不同。 沒有可用來提供整個租用戶同意的租用戶，也沒有執行合併同意的能力。 因此有其他策略，請注意，這些策略僅適用於只需要支援 Azure AD 帳戶的應用程式。 
+由於個人帳戶權限模型的限制以及缺乏控管租用戶，所以個人帳戶的同意需求與 Azure AD 有一些不同。 沒有可用來提供整個租用戶同意的租用戶，也沒有執行合併同意的能力。 因此有其他策略，請注意，這些策略僅適用於只需要支援 Azure AD 帳戶的應用程式。
 
 #### <a name="use-of-a-single-application"></a>使用單一應用程式
 
-在某些案例中，您可能只有中介層與前端用戶端的單一配對。 在此案例中，您可能會發現使用單一應用程式更輕鬆，不管中介層應用程式的需求。 若要在前端與 Web API 之間進行驗證，您可以使用 Cookie、id_token 或針對應用程式本身要求的存取權杖。 然後，要求從這個單一應用程式到後端資源的同意。 
+在某些案例中，您可能只有中介層與前端用戶端的單一配對。 在此案例中，您可能會發現使用單一應用程式更輕鬆，不管中介層應用程式的需求。 若要在前端與 Web API 之間進行驗證，您可以使用 Cookie、id_token 或針對應用程式本身要求的存取權杖。 然後，要求從這個單一應用程式到後端資源的同意。
 
 ## <a name="client-limitations"></a>用戶端限制
 
-若用戶端使用隱含流程來取得 id_token，而且該用戶端的回覆 URL 中也有萬用字元，id_token 就無法用於 OBO 流程。  不過，機密用戶端仍可兌換透過隱含授與流程取得的存取權杖，即使起始用戶端已註冊萬用字元回覆 URL 亦然。 
+若用戶端使用隱含流程來取得 id_token，而且該用戶端的回覆 URL 中也有萬用字元，id_token 就無法用於 OBO 流程。  不過，機密用戶端仍可兌換透過隱含授與流程取得的存取權杖，即使起始用戶端已註冊萬用字元回覆 URL 亦然。
 
 ## <a name="next-steps"></a>後續步驟
 
 進一步了解 OAuth 2.0 通訊協定，以及另一種使用用戶端認證來執行服務對服務驗證的方式。
 
-* [Azure AD v2.0 中的 OAuth 2.0 用戶端認證授與](v2-oauth2-client-creds-grant-flow.md)
-* [Azure AD v2.0 中的 OAuth 2.0 程式碼流程](v2-oauth2-auth-code-flow.md)
-* [使用 `/.default` 範圍](v2-permissions-and-consent.md#the-default-scope) 
+* [OAuth 2.0 用戶端認證授與在 Microsoft 身分識別平台](v2-oauth2-client-creds-grant-flow.md)
+* [在 Microsoft 身分識別平台的 OAuth 2.0 程式碼流程](v2-oauth2-auth-code-flow.md)
+* [使用`/.default`範圍](v2-permissions-and-consent.md#the-default-scope)

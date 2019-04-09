@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: b633c6a8ccbf9f29b93314bb9391215031d523eb
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.openlocfilehash: 208370884d89a7a2585f320c037284d6657732db
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893056"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010595"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database 受控執行個體的 T-SQL 差異
 
@@ -288,10 +288,9 @@ WITH PRIVATE KEY (<private_key_options>)
     - 不支援佇列讀取器。  
     - 尚不支援命令殼層。
   - 受控執行個體無法存取外部資源 (例如，透過 robocopy 的網路共用)。  
-  - 尚不支援 PowerShell。
   - 不支援 Analysis Services。
 - 部分支援通知。
-- 支援電子郵件通知，但必須設定「資料庫郵件」設定檔。 可能只有一個資料庫郵件設定檔，而且在公開預覽中一定名為 `AzureManagedInstance_dbmail_profile` (暫時性限制)。  
+- 支援電子郵件通知，但必須設定「資料庫郵件」設定檔。 SQL 代理程式可以使用只有一個 database mail 設定檔，而且它必須在呼叫`AzureManagedInstance_dbmail_profile`。  
   - 不支援呼叫器。  
   - 不支援 NetSend。
   - 尚不支援警示。
@@ -432,10 +431,7 @@ WITH PRIVATE KEY (<private_key_options>)
 - `.BAK` 無法還原包含多個備份組檔案。
 - `.BAK` 無法還原包含多個記錄檔的檔案。
 - 如果 .bak 包含 `FILESTREAM` 資料，還原將會失敗。
-- 若備份中包含的資料庫具有作用中的記憶體內部物件，則目前無法還原該備份。  
-- 若備份中包含的資料庫在某時間點上有記憶體內部物件，則目前無法還原該備份。
-- 若備份中包含的資料庫處於唯讀模式中，則目前無法還原該備份。 這項限制很快將會移除。
-
+- 包含有使用中記憶體中物件的資料庫備份無法還原在一般用途執行個體上。  
 如需有關 Restore 陳述式的資訊，請參閱 [陳述式](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)。
 
 ### <a name="service-broker"></a>Service broker
@@ -485,6 +481,8 @@ WITH PRIVATE KEY (<private_key_options>)
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>小型資料庫檔案造成儲存空間超出限制
 
+`CREATE DATABASE ``ALTER DATABASE ADD FILE`，和`RESTORE DATABASE`陳述式可能會失敗，因為執行個體可以連線到 Azure 儲存體限制。
+
 每個一般目的受控執行個體 」 最多 35 TB 的儲存體保留給 Azure 進階磁碟空間，以及每個資料庫檔案會放在不同的實體磁碟上。 磁碟大小可以是 128 GB、256 GB、512 GB、1 TB 或 4 TB。 針對磁碟上未使用的空間，並不收費，但「Azure 進階磁碟」大小的總和不可超過 35 TB。 在某些情況下，總計不需 8 TB 的「受控執行個體」可能會因內部分散的緣故而超過 35 TB 的 Azure 儲存體大小限制。
 
 例如，一般目的受控執行個體可以有一個檔案置於 4 TB 磁碟的大小和放在不同的 128GB 磁碟的 248 檔案 (大小每 1 GB) 1.2 TB。 在此範例中：
@@ -514,9 +512,13 @@ SQL Server Management Studio (SSMS) 和 SQL Server Data Tools (SSDT) 在存取�
 
 數個系統檢視、效能計數器、錯誤訊息、XEvents 與錯誤記錄檔項目都會顯示 GUID 資料庫識別碼，而非實際資料庫名稱。 不要依賴這些 GUID 識別碼，因為它們未來會被實際資料庫名稱取代。
 
+### <a name="database-mail"></a>Database Mail
+
+`@query` 中的參數[sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql)程序無法運作。
+
 ### <a name="database-mail-profile"></a>資料庫郵件 XP
 
-SQL 代理程式所使用的 database mail 設定檔，必須先呼叫`AzureManagedInstance_dbmail_profile`。
+SQL 代理程式所使用的 database mail 設定檔，必須先呼叫`AzureManagedInstance_dbmail_profile`。 有相關的其他 database mail 設定檔名稱沒有限制。
 
 ### <a name="error-logs-are-not-persisted"></a>錯誤記錄檔不會在工作階段之間保存下來
 

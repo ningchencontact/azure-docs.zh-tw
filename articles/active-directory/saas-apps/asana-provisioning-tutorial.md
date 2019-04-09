@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 03/27/2019
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f35de1865f2e02331b8455bbdce92e8fe2f9a1b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a763b2516f88e8c92efc321db50dc15881f54c9b
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210470"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057841"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>教學課程：設定 Asana 來自動佈建使用者
 
@@ -32,16 +32,16 @@ ms.locfileid: "56210470"
 
 本教學課程中說明的案例假設您已經具有下列項目：
 
-*   Azure AD 租用戶
-*   已啟用 [Enterprise 方案](https://www.asana.com/pricing)或更好方案的 Asana 租用戶 
-*   Asana 中具有管理員權限的使用者帳戶 
+* Azure AD 租用戶
+* 已啟用 [Enterprise 方案](https://www.asana.com/pricing)或更好方案的 Asana 租用戶
+* Asana 中具有管理員權限的使用者帳戶
 
-> [!NOTE] 
+> [!NOTE]
 > Azure AD 佈建整合需仰賴可供 Asana 使用的 [Asana API](https://asana.com/developers/api-reference/users)。
 
 ## <a name="assign-users-to-asana"></a>將使用者指派給 Asana
 
-Azure AD 會使用稱為「指派」的概念，來判斷哪些使用者應接收對指定應用程式的存取權。 在自動使用者帳戶佈建的內容中，只有已指派至 Azure AD 中應用程式的使用者會進行同步處理。 
+Azure AD 會使用稱為概念*指派*來判斷哪些使用者應接收所選的應用程式的存取。 在自動使用者帳戶佈建的內容中，只有已指派至 Azure AD 中應用程式的使用者會進行同步處理。
 
 在您設定並啟用佈建服務之前，必須決定 Azure AD 中的哪些使用者需要存取 Asana 應用程式。 然後，您就可以遵循此處的指示，將這些使用者指派給 Asana 應用程式︰
 
@@ -51,7 +51,7 @@ Azure AD 會使用稱為「指派」的概念，來判斷哪些使用者應接�
 
 建議您將單一 Azure AD 使用者指派給 Asana 來測試佈建組態。 稍後可以指派其他使用者。
 
-## <a name="configure-user-provisioning-to-asana"></a>設定將使用者佈建至 Asana 
+## <a name="configure-user-provisioning-to-asana"></a>設定將使用者佈建至 Asana
 
 本節將引導您將 Azure AD 連線至 Asana 使用者帳戶佈建 API。 您也會將佈建服務設定為根據 Azure AD 中的使用者指派，建立、更新和停用 Asana 中已指派的使用者帳戶。
 
@@ -86,7 +86,7 @@ Azure AD 會使用稱為「指派」的概念，來判斷哪些使用者應接�
 
 1. 在 [通知電子郵件] 中，輸入應收到佈建錯誤通知之個人或群組的電子郵件地址。 選取下方的核取方塊。
 
-1. 選取 [ **儲存**]。 
+1. 選取 [ **儲存**]。
 
 1. 在 [對應] 區段中，選取 [將 Azure Active Directory 使用者同步至 Asana]。
 
@@ -94,7 +94,7 @@ Azure AD 會使用稱為「指派」的概念，來判斷哪些使用者應接�
 
 1. 若要啟用 Asana 的 Azure AD 佈建服務，請在 [設定] 區段中，將 [佈建狀態] 變更為 [開啟]。
 
-1. 選取 [ **儲存**]。 
+1. 選取 [ **儲存**]。
 
 現在首次同步處理會針對在 [使用者] 區段中指派給 Asana 的任何使用者啟動。 初始同步處理會比後續同步處理花費更多時間執行，只要服務正在執行，這大約每 40 分鐘便會發生一次。 請使用 [同步處理詳細資料] 區段來監視進度，並依循連結來佈建活動記錄。 稽核記錄會描述在 Asana 應用程式上佈建服務執行的所有動作。
 
@@ -102,6 +102,6 @@ Azure AD 會使用稱為「指派」的概念，來判斷哪些使用者應接�
 
 ## <a name="additional-resources"></a>其他資源
 
-* [管理企業應用程式的使用者帳戶佈建](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [管理企業應用程式的佈建的使用者帳戶](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)
 * [設定單一登入](asana-tutorial.md)

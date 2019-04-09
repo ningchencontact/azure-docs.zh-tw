@@ -1,16 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: cf5eeff9aa56a2c3366c57ddef47f4020e73c161
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804644"
 documentType: LandingData
 title: Azure 原則服務文件
 metadata:
   title: Azure 原則文件 - 教學課程、API 參考
   description: Azure 原則可協助您進行管理，同時透過原則定義讓您的資源強制執行規則並產生效果，避免發生 IT 問題。 當您使用 Azure 原則時，資源會符合您的公司標準及服務等級協定規範。
-  services: azure-policy
   author: DCtheGeek
   manager: carmonm
   ms.service: azure-policy
@@ -20,60 +13,60 @@ metadata:
 abstract:
   description: Azure 原則可協助您進行管理，同時透過原則定義讓您的資源強制執行規則並產生效果，避免發生 IT 問題。 當您使用 Azure 原則時，資源會符合您的公司標準及服務等級協定規範。
 sections:
-- title: 5 分鐘快速入門
-  items:
-  - type: paragraph
-    text: 了解如何在 Azure 中建立、指派和管理原則定義。
-  - type: list
-    style: icon48
+  - title: 5 分鐘快速入門
     items:
-    - image:
-        alt: Azure 入口網站
-        src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Azure 入口網站
-      href: ./assign-policy-portal
-    - image:
-        alt: Azure PowerShell
-        src: ./media/powershell.svg
-      text: Azure PowerShell
-      href: ./assign-policy-powershell
-    - image:
-        alt: Azure CLI
-        src: ./media/cli.svg
-      text: Azure CLI
-      href: ./assign-policy-azurecli
-    - image:
-        alt: Resource Manager 範本
-        src: https://docs.microsoft.com/media/logos/logo_vs-code.svg
-      text: Resource Manager 範本
-      href: ./assign-policy-template
-- title: 逐步教學課程
-  items:
-  - type: paragraph
-    text: 了解如何在 Azure 中建立、指派和管理原則定義。
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 了解如何在 Azure 中建立、指派和管理原則定義。
+      - type: list
+        style: icon48
+        items:
+          - image:
+              alt: Azure 入口網站
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Azure 入口網站
+            href: ./assign-policy-portal
+          - image:
+              alt: Azure PowerShell
+              src: ./media/powershell.svg
+            text: Azure PowerShell
+            href: ./assign-policy-powershell
+          - image:
+              alt: Azure CLI
+              src: ./media/cli.svg
+            text: Azure CLI
+            href: ./assign-policy-azurecli
+          - image:
+              alt: Resource Manager 範本
+              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
+            text: Resource Manager 範本
+            href: ./assign-policy-template
+  - title: 逐步教學課程
     items:
-    - html: <a href="/azure/governance/policy/tutorials/create-and-manage">建立和管理 Azure 原則</a>
-    - html: <a href="/azure/governance/policy/tutorials/create-custom-policy-definition">建立自訂原則定義</a>
-- title: 範例
-  items:
-  - type: paragraph
-    text: 檢閱可用的範例協助您在 Azure 中建立原則定義。
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 了解如何在 Azure 中建立、指派和管理原則定義。
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/governance/policy/tutorials/create-and-manage">建立和管理 Azure 原則</a>
+          - html: <a href="/azure/governance/policy/tutorials/create-custom-policy-definition">建立自訂原則定義</a>
+  - title: 範例
     items:
-    - html: <a href="/azure/governance/policy/samples/index">範例索引</a>
-- title: 參考
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 檢閱可用的範例協助您在 Azure 中建立原則定義。
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/governance/policy/samples/index">範例索引</a>
+  - title: 參考
     items:
-    - title: 命令列
-      html: <p><a href="/cli/azure/policy">Azure CLI</a></p><p><a href="/powershell/module/az.resources/#policies">Azure PowerShell (原則)</a></p><p><a href="/powershell/module/az.policyinsights#policy_insights">Azure PowerShell (原則深入解析)</a></p><p><a href="https://www.powershellgallery.com/packages/Az.GuestConfiguration">Azure PowerShell (來賓組態)</a></p>
-    - title: Resource Manager 範本
-      html: <p><a href="/azure/templates/microsoft.authorization/policyassignments">指派</a></p><p><a href="/azure/templates/microsoft.authorization/policydefinitions">原則定義</a></p><p><a href="/azure/templates/microsoft.authorization/policysetdefinitions">計劃定義</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/policy-insights/policyevents">事件</a></p><p><a href="/rest/api/policy-insights/policystates">狀態</a></p><p><a href="/rest/api/resources/policyassignments">指派</a></p><p><a href="/rest/api/resources/policydefinitions">原則定義</a></p><p><a href="/rest/api/resources/policysetdefinitions">計劃定義</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">已追蹤原則的資源</a></p><p><a href="/rest/api/policy-insights/remediations">補救</a></p><p><a href="/rest/api/guestconfiguration/">來賓組態</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 命令列
+            html: '<p><a href="/cli/azure/policy">Azure CLI</a></p><p><a href="/powershell/module/az.resources/#policies">Azure PowerShell (原則)</a></p><p><a href="/powershell/module/az.policyinsights#policy_insights">Azure PowerShell (原則深入解析)</a></p><p><a href="https://www.powershellgallery.com/packages/Az.GuestConfiguration">Azure PowerShell (來賓組態)</a></p>'
+          - title: Resource Manager 範本
+            html: <p><a href="/azure/templates/microsoft.authorization/policyassignments">指派</a></p><p><a href="/azure/templates/microsoft.authorization/policydefinitions">原則定義</a></p><p><a href="/azure/templates/microsoft.authorization/policysetdefinitions">計劃定義</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/policy-insights/policyevents">活動</a></p><p><a href="/rest/api/policy-insights/policystates">狀態</a></p><p><a href="/rest/api/resources/policyassignments">指派</a></p><p><a href="/rest/api/resources/policydefinitions">原則定義</a></p><p><a href="/rest/api/resources/policysetdefinitions">計劃定義</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">已追蹤原則的資源</a></p><p><a href="/rest/api/policy-insights/remediations">補救</a></p><p><a href="/rest/api/guestconfiguration/">來賓組態</a></p>

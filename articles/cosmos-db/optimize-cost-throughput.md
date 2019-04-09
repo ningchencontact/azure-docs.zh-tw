@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 63adb354d51caa8f01df8bf05c85257c75b5fe41
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 280d389875d5ac951e0a846f3331ea727176b5e0
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877821"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009762"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中最佳化已佈建的輸送量成本
 
@@ -33,7 +33,7 @@ Azure Cosmos DB 可藉由提供所佈建的輸送量模型，於任何規模提�
 
 1. 您有幾十個 Azure Cosmos 容器，並想要在全部或其中一部分共用輸送量。 
 
-2. 您要從設計目的是要在 IaaS 所裝載的 VM 上或在內部部署環境上執行的單一租用戶資料庫 (例如，NoSQL 或關聯式資料庫) 遷移至 Azure Cosmos DB。 而且如果您有許多集合/資料表/圖表，但不想對資料模型進行任何變更。 請注意，您可能會危害的一些優點，如果您不更新您的資料模型，從內部部署資料庫移轉時，Azure Cosmos DB 所提供。 建議您一律重新存取資料模型，以獲得最佳效能，並獲得最佳成本。 
+2. 您要從設計目的是要在 IaaS 所裝載的 VM 上或在內部部署環境上執行的單一租用戶資料庫 (例如，NoSQL 或關聯式資料庫) 遷移至 Azure Cosmos DB。 如果有許多的集合/資料表/圖形，並不希望對您的資料模型中的任何變更。 請注意，您可能會危害的一些優點，如果您不更新您的資料模型，從內部部署資料庫移轉時，Azure Cosmos DB 所提供。 建議您一律重新存取資料模型，以獲得最佳效能，並獲得最佳成本。 
 
 3. 您想要在會有非預期突增工作負載的資料庫層級，透過集區輸送量來應付不在規劃中的突增工作負載。 
 

@@ -7,12 +7,12 @@ manager: jhubbard
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: aef55660d07c8923a82baf7f8b6320abf3ccdd1d
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 37cc8192cc5934cf967ad9b9c62614d0b4503fb4
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430211"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006611"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>針對適用於 MySQL 的 Azure 資料庫使用虛擬網路服務端點和規則
 
@@ -93,7 +93,7 @@ ms.locfileid: "56430211"
 - **網路管理：**&nbsp;開啟端點。
 - **資料庫管理：**&nbsp;更新存取控制清單 (ACL)，以將指定的子網路新增至適用於 MySQL 的 Azure 資料庫伺服器。
 
-RBAC 替代方案：
+*RBAC 替代方案：*
 
 「網路管理員」和「資料庫管理員」角色的能力已超過管理虛擬網路規則所需。 只需要其中一部分能力。
 
@@ -107,6 +107,8 @@ RBAC 替代方案：
 ## <a name="limitations"></a>限制
 
 針對適用於 MySQL 的 Azure 資料庫，虛擬網路規則功能具有下列限制：
+
+- Web 應用程式可以對應到 VNet/子網路中的私人 IP。 即使服務端點已從指定的 VNet/子網路上開啟，從 Web 應用程式至伺服器的連線仍具有 Azure 公用 IP 來源，而非 VNet/子網路來源。 若要啟用 Web 應用程式具有 VNet 防火牆規則的伺服器的連線，您必須允許 Azure 服務存取伺服器上的伺服器。
 
 - 在適用於 MySQL 的 Azure 資料庫防火牆中，每個虛擬網路規則都會參考一個子網路。 裝載所有這些參考子網路的地理區域，必須和裝載適用於 MySQL 的 Azure 資料庫的地理區域相同。
 
@@ -140,8 +142,8 @@ RBAC 替代方案：
 
 ## <a name="next-steps"></a>後續步驟
 如需建立 VNet 規則的文章，請參閱：
-- [使用 Azure 入口網站建立及管理適用於 MySQL 的 Azure 資料庫的 VNet 規則](howto-manage-vnet-using-portal.md)
-- [使用 Azure CLI 建立及管理適用於 MySQL 的 Azure 資料庫的 VNet 規則](howto-manage-vnet-using-cli.md)
+- [建立和管理 Azure Database for MySQL VNet 規則使用 Azure 入口網站](howto-manage-vnet-using-portal.md)
+- [建立和管理 Azure Database for MySQL VNet 規則使用 Azure CLI](howto-manage-vnet-using-cli.md)
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md

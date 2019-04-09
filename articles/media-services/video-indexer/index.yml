@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 45c8f83ce814d5fa8b6d9cde29e59e4628534522
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521987"
 documentType: LandingData
-title: 影片索引器文件
+title: Azure 媒體服務影片索引器文件
 metadata:
-  document_id: 
-  title: 影片索引器文件 | Microsoft Docs
+  document_id: null
+  title: Azure 媒體服務影片索引器文件 | Microsoft Docs
   meta.description: Learn about Video Indexer.
   services: media-services
   author: juliako
@@ -21,38 +15,38 @@ metadata:
   ms.date: 03/11/2019
   ms.author: juliako
 abstract:
-  description: Azure 影片索引器是以 Azure 媒體分析、Azure 搜尋服務、認知服務 (例如臉部 API、Microsoft Translator、電腦視覺 API 及自訂語音服務) 為建置基礎的雲端應用程式。 它可讓您使用影片索引器的影片與音訊模型，從影片中擷取見解。<br/>若要了解使用影片索引器以及媒體服務分析器預設的時機，請參閱<a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">比較文件</a>。
+  description: Azure 媒體服務是以 Azure 媒體分析、Azure 搜尋服務、認知服務 (例如臉部 API、Microsoft Translator、電腦視覺 API 及自訂語音服務) 為建置基礎的雲端應用程式。 它可讓您使用影片索引器的影片與音訊模型，從影片中擷取見解。<br/>若要了解使用影片索引器以及媒體服務分析器預設的時機，請參閱<a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">比較文件</a>。
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 2
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 2
+        items:
+          - href: video-indexer-overview.md
+            html: <p>影片索引器納入媒體 AI 技術，可讓您更輕鬆地從影片擷取深入解析。</p>
+            image:
+              src: media/index/AMSIcons-media_servicesV3.svg
+            title: 什麼是 Azure 媒體服務影片索引器？
+  - title: 5 分鐘快速入門
     items:
-    - href: video-indexer-overview.md
-      html: <p>影片索引器納入媒體 AI 技術，可讓您更輕鬆地從影片擷取深入解析。</p>
-      image:
-        src: media/index/AMSIcons-media_servicesV3.svg
-      title: 什麼是影片索引子？
-- title: 5 分鐘快速入門
-  items:
-  - type: paragraph
-    text: 登入影片索引器網站上傳您的第一部影片：
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: 登入影片索引器網站上傳您的第一部影片：
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/AMSIcons-media_analytics.svg
+            text: 擷取深入解析
+            href: /azure/media-services/video-indexer/video-indexer-get-started
+  - title: 逐步教學課程
     items:
-    - image:
-        src: media/index/AMSIcons-media_analytics.svg
-      text: 擷取深入解析
-      href: /azure/media-services/video-indexer/video-indexer-get-started
-- title: 逐步教學課程
-  items:
-  - type: paragraph
-    text: 了解如何使用影片索引器 API 從影片中擷取深入解析：
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: media/index/AMSIcons-media_analytics.svg
-      text: 擷取深入解析
-      href: /azure/media-services/video-indexer/video-indexer-use-apis
+      - type: paragraph
+        text: 了解如何使用影片索引器 API 從影片中擷取深入解析：
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/AMSIcons-media_analytics.svg
+            text: 擷取深入解析
+            href: /azure/media-services/video-indexer/video-indexer-use-apis

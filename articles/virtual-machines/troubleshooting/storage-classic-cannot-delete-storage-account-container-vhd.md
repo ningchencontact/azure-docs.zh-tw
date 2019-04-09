@@ -31,7 +31,7 @@ ms.locfileid: "58078154"
 
 ## <a name="steps-while-deleting-a-classic-virtual-machine"></a>刪除傳統虛擬機器的步驟 
 1. 刪除傳統虛擬機器。
-2. 如果已選取 [磁碟] 核取方塊，則與分頁 Blob *.vhd 相關聯的**磁碟租用** (如上圖所示) 已中斷。 實際分頁 Blob *.vhd 檔案仍會存在於儲存體帳戶中。
+2. 如果已選取 [磁碟] 核取方塊，則與分頁 Blob *.vhd 相關聯的 **磁碟租用** (如上圖所示) 已中斷。 實際分頁 Blob *.vhd 檔案仍會存在於儲存體帳戶中。
 ![開啟虛擬機器 (傳統)「刪除」錯誤窗格的入口網站螢幕擷取畫面](./media/storage-classic-cannot-delete-storage-account-container-vhd/steps_while_deleting_classic_vm.jpg) 
 
 3. 磁碟租用中斷之後，就可以刪除分頁 Blobb 本身。 在刪除儲存體帳戶或容器上的所有「磁碟」資源之後，即可刪除儲存體帳戶或容器。

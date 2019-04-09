@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 957ce60b8519ccb1e3287232f7a5459a56b25bb7
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 93dae9a69997dd1b513d205118a112119025f4fd
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960610"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057110"
 ---
 # <a name="add-a-heat-map-layer"></a>新增熱度圖層
 
@@ -25,7 +25,7 @@ ms.locfileid: "55960610"
 * 將包括速度的 GPS 追蹤視覺化為權重高度圖 (其中每個資料點的強度都以速度為基礎)，這是可快速看到車輛正在何處高速行駛的好方法。
 
 > [!TIP]
-> 根據預設，熱度圖圖層會轉譯資料來源中所有幾何圖形的座標。 若要限制圖層，使其只轉譯點幾何特徵，請將圖層的 `filter` 屬性設為 `['==', '$type', 'Point']`
+> 根據預設，熱度圖圖層會轉譯資料來源中所有幾何圖形的座標。 若要限制圖層，使它只會轉譯點幾何功能設定`filter`的圖層屬性`['==', ['geometry-type'], 'Point']`或`['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]`如果您想要包含 MultiPoint 的功能。
 
 ## <a name="add-a-heat-map-layer"></a>新增熱度圖層
 
@@ -36,21 +36,21 @@ ms.locfileid: "55960610"
 <iframe height='500' scrolling='no' title='簡易熱度圖層' src='//codepen.io/azuremaps/embed/gQqdQB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>請參閱 <a href='https://codepen.io'>CodePen</a> 上由 Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) 建立的 Pen：<a href='https://codepen.io/azuremaps/pen/gQqdQB/'>簡易熱度圖層</a>。
 </iframe>
 
-在此範例中，每個熱度點在所有縮放層級上都有半徑為 10 的像素。 將熱度圖層新增至地圖時，此範例會將圖層插入標籤圖層下方。 這會建立較佳的使用者體驗，因為標籤會清楚地顯示在熱度圖上方。 此範例中的資料來自 [USGS 地震災害計畫 (USGS Earthquake Hazards Program)](https://earthquake.usgs.gov/)，其中包含的點代表過去 30 天內發生的重大地震。
+在此範例中，每個熱度點在所有縮放層級上都有半徑為 10 的像素。 將熱度圖地圖圖層加入至地圖中，此範例會建立較佳的使用者體驗，標籤會清楚地顯示熱量分佈圖上方標籤層下面的將其插入。 此範例中的資料來自 [USGS 地震災害計畫 (USGS Earthquake Hazards Program)](https://earthquake.usgs.gov/)，其中包含的點代表過去 30 天內發生的重大地震。
 
 ## <a name="customizing-the-heat-map-layer"></a>自訂熱度圖層
 
 前一個範例已藉由設定半徑和透明度選項來自訂熱度圖。 熱度圖層會提供數個自訂選項；
 
-* `radius`：定義用來轉譯每個資料點的像素半徑。 半徑可設為固定數字或運算式。 使用運算式時，可以依縮放層級來調整半徑，它會顯示來代表地圖上的一致空間區域 (例如 5 英哩的半徑)。
-* `color`：指定如何以色彩標示熱度圖。 熱度圖通常會使用漸層色彩調色盤，但如果您想要讓熱度圖看起來更像等高線資料，也可使用分階色彩調色盤。 這些色彩調色盤會定義最小密度值到最大密度值的顏色。 熱度圖的色彩值會指定為 `heatmap-density` 值上的的運算式。 漸層運算式中位於指數 0 的色彩和分階色彩中的預設色彩，能夠表示沒資料區域的色彩，並可用來作為為背景色彩。 許多人偏好將此值設定為透明或半透明的黑色。 以下是色彩運算式的範例；
+* `radius`：定義用來轉譯每個資料點的像素半徑。 半徑可設為固定數字或運算式。 使用運算式，就可以調整的縮放層級，來代表對應 (例如，5 英哩 radius) 上的一致空間區域會顯示為基礎的半徑。
+* `color`：指定如何以色彩標示熱度圖。 漸層色彩調色盤，通常會用於熱度，而且可以是達到內插補點運算式，但階梯狀的色彩調色盤是也很有用，如果您想要讓您將對應的熱度圖看起來更像分佈的資料，並可透過是步驟運算式。 這些色彩調色盤會定義最小密度值到最大密度值的顏色。 熱度圖的色彩值會指定為 `heatmap-density` 值上的的運算式。 位於索引 0 內插補點運算式中的色彩或預設色彩是步驟運算式中，定義區域的色彩沒有任何資料而且可用來定義背景色彩。 許多人偏好將此值設定為透明或半透明的黑色。 以下是色彩運算式的範例；
 
-| 漸層色彩運算式 | 分階色彩運算式 | 
-|---------------------------|--------------------------|
-| \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'interpolate',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['linear'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, 'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'purple',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.5, '#fb00fb',<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, '#00c3ff'<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'step',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'navy',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.25, 'navy',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.50, 'green',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.75, 'yellow',<br/>&nbsp;&nbsp;&nbsp;&nbsp;1.00, 'red'<br/>\] |   
+| 插補色彩運算式 | 分階色彩運算式 | 
+|--------------------------------|--------------------------|
+| \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'interpolate',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['linear'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, 'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'purple',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.5, '#fb00fb',<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, '#00c3ff'<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'step',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'navy',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.25，' 綠色 '<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.50，[黃色]，<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.75，'red'<br/>\] | 
 
 * `opacity`：指定熱度圖層的透明度。
-* `intensity`：對每個資料點的權重套用乘數，以增加熱度圖的整體強度。 這有助於讓資料點權重中的微小差異變得更為凸顯。
+* `intensity`：適用於以增加整體的強度的熱度圖，每個資料點的加權乘數，有助於讓小型差異變得更容易視覺化的資料點的加權。
 * `weight`：根據預設，所有資料點的權數為 1，因此所有資料點的權重都一樣。 加權選項會作為乘數使用，並可設定為數字或運算式。 如果數字設為權重，假設為 2，則等於是將每個資料點放在地圖上兩次，因此密度會變成兩倍。 將加權選項設定為數字所呈現的熱度圖，與使用強度選項呈現的熱度圖相似。 不過，如果使用運算式，每個資料點的權重便能以每個資料點屬性中的一些計量作為基礎。 以地震資料作為例子，每個資料點都代表一次地震。 每個地震資料點的一個重要計量便是震度值。 地震隨時都在發生，但大部分地震的震度低，甚至感覺不到。 在運算式中使用震度值來為每個資料點指派權重，將能在熱度圖上以更佳的方式表示較大的地震。
 * 除了基底圖層選項 (最小/最大縮放、可見度和篩選) 之外，另外還有用於更新資料來源的 `source` 選項，以及用於資料來源是向量圖格來源的 `source-layer` 選項。
 
@@ -61,8 +61,18 @@ ms.locfileid: "55960610"
 <iframe height='700' scrolling='no' title='熱度圖層選項' src='//codepen.io/azuremaps/embed/WYPaXr/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>請參閱 <a href='https://codepen.io'>CodePen</a> 上由 Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) 建立的 Pen：<a href='https://codepen.io/azuremaps/pen/WYPaXr/'>熱度圖層選項</a>。
 </iframe>
 
+## <a name="consistent-zoomable-heat-map"></a>一致的可熱圖
+
+根據預設，在熱度圖地圖圖層中呈現的資料點的半徑會有固定的像素半徑，所有的縮放層級。 如已放大地圖放在一起的資料彙總與熱度圖地圖圖層看起來不同。 A`zoom`運算式可用來調整每個縮放層級的半徑，使得每個資料點涵蓋相同的實體區域的地圖。 靜態更一致，這會讓尋找熱度圖地圖圖層。 對應的每個縮放層級具有兩倍的像素垂直和水平先前的縮放層級，因此，調整 radius，使得它加倍每個縮放層級將會建立熱度圖，在所有的縮放層級上一致的外觀。 這可藉由使用`zoom`基底 2`exponential interpolation`運算式，如下列範例所示。 放大地圖以查看的資料點中與縮放層級的熱度圖地圖比例的方式。
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="一致的可熱圖" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=light&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+請參閱畫筆<a href='https://codepen.io/azuremaps/pen/OGyMZr/'>一致對熱度</a>由 Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) 上<a href='https://codepen.io'>CodePen</a>。
+</iframe>
+
 > [!TIP]
-> 藉由啟用資料來源上的叢集功能，彼此接近的點會群組在一起，成為叢集點。 每個叢集的點計數可以作為熱度圖的加權運算式，以及大幅降低必須要轉譯的點數目。 叢集的點計數會儲存在點特徵的 `point_count property`，如下所示。 
+> 藉由啟用資料來源上的叢集功能，彼此接近的點會群組在一起，成為叢集點。 每個叢集的點計數可以作為熱度圖的加權運算式，以及大幅降低必須要轉譯的點數目。 叢集的點計數會儲存在`point_count`點功能，如下所示的屬性。 
 > ```JavaScript
 > var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 >    weight: ['get', 'point_count']

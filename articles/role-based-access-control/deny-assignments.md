@@ -15,12 +15,12 @@ ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: fff213c8d1a408bf96e385f2097a5ef30dcc05d2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 497571a65510f806d7d7994c9dc37f9a00b65a5f
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992102"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006734"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>了解 Azure 資源的拒絕指派
 
@@ -31,7 +31,7 @@ ms.locfileid: "57992102"
 此文章說明如何定義拒絕指派。
 
 > [!NOTE]
-> 在此階段中，您也可以加入自己的唯一方式會拒絕指派是使用 Azure 藍圖。 如需詳細資訊，請參閱 <<c0> [ 保護新的資源，Azure 藍圖資源鎖定](../governance/blueprints/tutorials/protect-new-resources.md)。
+> 目前，您可以新增自己的拒絕指派的唯一方式是使用 Azure 藍圖。 如需詳細資訊，請參閱[使用 Azure 藍圖資源鎖定保護新資源](../governance/blueprints/tutorials/protect-new-resources.md)。
 
 ## <a name="deny-assignment-properties"></a>拒絕指派屬性
 
@@ -56,12 +56,12 @@ ms.locfileid: "57992102"
 
 ## <a name="system-defined-principal"></a>系統定義的主體
 
-為了支援拒絕指派，我們引進了**系統定義的主體**。 此主體代表 Azure AD 目錄中的所有使用者、群組、服務主體和受控識別。 若主體識別碼是零值 GUID `00000000-0000-0000-0000-000000000000` 且主體類型是 `SystemDefined`，則主體代表所有主體。 `SystemDefined` 可以結合 `ExcludePrincipals` 來拒絕某些使用者以外的所有主體。 `SystemDefined` 有下列限制：
+為了支援拒絕指派，我們引進了**系統定義的主體**。 此主體代表 Azure AD 目錄中的所有使用者、群組、服務主體和受控識別。 若主體識別碼是零值 GUID `00000000-0000-0000-0000-000000000000` 且主體類型是 `SystemDefined`，則主體代表所有主體。 `SystemDefined` 可以結合`ExcludePrincipals`拒絕某些使用者以外，所有主體。 `SystemDefined` 有下列限制：
 
 - 只能在 `Principals` 中使用，而無法在 `ExcludePrincipals` 中使用。
 - `Principals[i].Type` 必須設為 `SystemDefined`。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [使用 REST API 列出 Azure 資源的拒絕指派](deny-assignments-rest.md)
-* [了解 Azure 資源的角色定義](role-definitions.md)
+* [使用 Azure 入口網站檢視 Azure 資源的拒絕指派](deny-assignments-portal.md)
+* [了解適用於 Azure 資源的角色定義](role-definitions.md)

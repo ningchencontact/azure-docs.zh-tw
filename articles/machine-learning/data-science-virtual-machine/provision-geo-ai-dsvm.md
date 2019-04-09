@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: c4b178cc7e0604f38e4da25452a3bad01f8145de
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dde9b71c3615a592f8c08e040c5e9ba7bc756bd6
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858131"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008833"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>在 Azure 上佈建地區人工智慧虛擬機器 
 
@@ -87,7 +87,7 @@ Geo-DSVM 已經預先安裝 ArcGIS Pro 桌面及預先設定環境，以搭配 D
 
 ![ArcGIS-Free-Trial](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
 
-一旦註冊付費或免費試用 ArcGIS 帳戶，即可藉由遵循[開始使用 ArcGIS Pro 文件](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf)中的指示，為您的帳戶授權 ArcGIS Pro。 
+其中一個付費或免費試用 ArcGIS 帳戶登入之後，您可以依照下列中的指示，為您的帳戶授權 ArcGIS Pro [Getting Started with ArcGIS Pro](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf)。 
 
 以您的 ArcGIS 帳戶登入 ArcGIS Pro 桌面之後，您就可以針對地理空間分析和機器學習專案，開始使用在 VM 上安裝及設定的資料科學工具。
 
@@ -95,4 +95,4 @@ Geo-DSVM 已經預先安裝 ArcGIS Pro 桌面及預先設定環境，以搭配 D
 
 利用下列主題中的指引開始使用地區人工智慧資料科學 VM：
 
-* [使用地區人工智慧資料科學 VM](use-geo-ai-dsvm.md)
+* [使用地區 AI 資料科學 VM](use-geo-ai-dsvm.md)

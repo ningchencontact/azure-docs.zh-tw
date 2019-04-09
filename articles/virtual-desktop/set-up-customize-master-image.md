@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: fb107d9e48db5a9809ceb7ffcbac09550279f12d
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: d22fffcb792227b4d0805abd005d8c050cb97248
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485861"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006209"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>準備和自訂主要 VHD 映像
 
@@ -260,7 +260,7 @@ Windows 虛擬桌面不正式支援的商務和小組 Skype。
 ```batch
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fResetBroken /t REG_DWORD /d 1 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxConnectionTime /t REG_DWORD /d 600000 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxConnectionTime /t REG_DWORD /d 10800000 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxDisconnectionTime /t REG_DWORD /d 5000 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxIdleTime /t REG_DWORD /d 7200000 /f
@@ -368,8 +368,8 @@ remove CorporateWerServer* from Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\W
 
 有映像之後，您可以建立或更新主應用程式集區。 若要深入了解如何建立和更新主應用程式集區，請參閱下列文章：
 
-- [使用 Azure Resource Manager 範本建立的主應用程式集區](create-host-pools-arm-template.md)
-- [教學課程：使用 Azure Marketplace 中建立主應用程式集區](create-host-pools-azure-marketplace.md)
-- [使用 PowerShell 建立主應用程式集區](create-host-pools-powershell.md)
-- [設定主應用程式集區的使用者設定檔共用](create-host-pools-user-profile.md)
+- [使用 Azure Resource Manager 範本建立主機集區](create-host-pools-arm-template.md)
+- [教學課程：透過 Azure Marketplace 建立主機集區](create-host-pools-azure-marketplace.md)
+- [使用 PowerShell 建立主機集區](create-host-pools-powershell.md)
+- [設定主機集區的使用者設定檔共用](create-host-pools-user-profile.md)
 - [設定 Windows 虛擬桌面負載平衡方法](configure-host-pool-load-balancing.md)

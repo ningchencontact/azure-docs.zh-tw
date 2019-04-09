@@ -19,10 +19,14 @@ items:
   items:
   - name: 開啟高對比或變更佈景主題
     href: azure-portal-change-theme-high-contrast.md
+  - name: 新增、移除及排序我的最愛
+    href: azure-portal-add-remove-sort-favorites.md
   - name: 使用自訂的 Markdown 圖格
     href: azure-portal-markdown-tile.md
   - name: 匯出或刪除使用者設定
     href: azure-portal-export-delete-settings.md
+  - name: Azure 入口網站操作說明影片系列
+    href: https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR
 - name: 參考
   items:
   - name: 鍵盤快速鍵
@@ -31,8 +35,6 @@ items:
     href: azure-portal-dashboards-structure.md
 - name: 資源
   items:
-  - name: Azure 入口網站操作說明影片系列
-    href: https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR
   - name: Azure 藍圖
     href: https://azure.microsoft.com/updates/
   - name: 透過 Microsoft Learn 增進您的技巧
@@ -45,9 +47,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-management-portal
   - name: Azure 影片
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest
-ms.openlocfilehash: aa50db89704ec020c0126f6703deb364a89daf6c
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 3846b9198d79be1a9580919a97e568c6a2467b12
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620898"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047980"

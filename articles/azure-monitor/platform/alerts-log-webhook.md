@@ -1,6 +1,6 @@
 ---
 title: Azure 警示中各項記錄警示的 Webhook 動作
-description: 本文說明使用 Log Analytics 或 Application Insights 的記錄警示規則如何將資料作為 HTTP Webhook 推送以及不同可行自訂的詳細資料。
+description: 本文說明如何記錄警示規則來使用 log analytics 工作區或 application insights，將資料作為 HTTP webhook 推送以及不同的自訂的詳細資料可能。
 author: msvijayn
 services: monitoring
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: a592dc150d535df775a62c157f76f327b54240fd
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 2307fa985c88608d80400c8951c47b9f20caa1dc
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496083"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006627"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook 動作記錄警示規則
 [在 Azure 中建立記錄警示](alerts-log.md)後，您可以選擇[使用動作群組設定](action-groups.md)以執行一或多個動作。  本文說明各種可用的 Webhook 動作以及設定自訂 JSON 型 Webhook 的詳細資訊。
@@ -202,5 +202,5 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
 - 了解[管理 Azure 中的記錄警示](alerts-log.md)
 - 建立和管理 [Azure 中的動作群組](action-groups.md)
 - 深入了解 [Application Insights](../../azure-monitor/app/analytics.md)
-- 深入了解 [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)。 
+- 深入了解[記錄查詢](../log-query/log-query-overview.md)。 
 

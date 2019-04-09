@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5ddae616f81052e005210310e2d28b1bc10512ab
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: MT
+ms.openlocfilehash: a6da0a92e99cbfe49bdebfb33dfaab91e2411acc
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58906203"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010731"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 資源提供者作業
 
@@ -3430,7 +3430,7 @@ ms.locfileid: "58906203"
 > |  動作 | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/snapshots/write | 寫入快照集資源。 |
 > |  動作 | Microsoft.NetApp/netAppAccounts/capacityPools/volumes/write | 寫入磁碟區資源。 |
 > |  動作 | Microsoft.NetApp/netAppAccounts/capacityPools/write | 寫入集區資源。 |
-> |  動作 | Microsoft.NetApp/netAppAccounts/delete | 刪除帳戶資源。 |
+> |  動作 | Microsoft.NetApp/netAppAccounts/delete | 删除帐户资源。 |
 > |  動作 | Microsoft.NetApp/netAppAccounts/read | 讀取帳戶資源。 |
 > |  動作 | Microsoft.NetApp/netAppAccounts/write | 寫入帳戶資源。 |
 > |  動作 | Microsoft.NetApp/Operations/read | 讀取作業資源。 |
@@ -4795,7 +4795,7 @@ ms.locfileid: "58906203"
 > |  動作 | Microsoft.Sql/locations/instanceFailoverGroups/failover/action | 在現有的執行個體容錯移轉群組中執行規劃的容錯移轉。 |
 > |  動作 | Microsoft.Sql/locations/instanceFailoverGroups/forceFailoverAllowDataLoss/action | 在現有的執行個體容錯移轉群組中執行強制容錯移轉。 |
 > |  動作 | Microsoft.Sql/locations/instanceFailoverGroups/read | 傳回執行個體容錯移轉群組的清單，或取得指定執行個體容錯移轉群組的屬性。 |
-> |  動作 | Microsoft.Sql/locations/instanceFailoverGroups/write | 使用指定的參數建立執行個體容錯移轉群組，或更新的屬性或標記為指定的執行個體容錯移轉群組。 |
+> |  動作 | Microsoft.Sql/locations/instanceFailoverGroups/write | 使用指定参数创建实例故障转移组，或更新指定实例故障转移组的属性或标记。 |
 > |  動作 | Microsoft.Sql/locations/instancePoolAzureAsyncOperation/read | 取得執行個體集區作業的狀態 |
 > |  動作 | Microsoft.Sql/locations/instancePoolOperationResults/read | 取得執行個體的集區作業的結果 |
 > |  動作 | Microsoft.Sql/locations/interfaceEndpointProfileAzureAsyncOperation/read | 傳回特定介面端點 Azure 非同步作業的詳細資料 |
@@ -5066,7 +5066,7 @@ ms.locfileid: "58906203"
 > |  動作 | Microsoft.Sql/servers/importExportOperationResults/read | 取得進行中的匯入/匯出作業 |
 > |  動作 | Microsoft.Sql/servers/interfaceEndpointProfiles/delete | 刪除指定的介面端點設定檔 |
 > |  動作 | Microsoft.Sql/servers/interfaceEndpointProfiles/read | 傳回指定介面端點設定檔的屬性 |
-> |  動作 | Microsoft.Sql/servers/interfaceEndpointProfiles/write | 使用指定參數建立介面端點設定檔，或更新指定介面端點的屬性或標記 |
+> |  動作 | Microsoft.Sql/servers/interfaceEndpointProfiles/write | 使用指定参数创建接口终结点配置文件，或更新指定接口终结点的属性或标记 |
 > |  動作 | Microsoft.Sql/servers/jobAgents/delete | 刪除 Azure SQL DB 工作代理程式 |
 > |  動作 | Microsoft.Sql/servers/jobAgents/read | 取得 Azure SQL DB 工作代理程式 |
 > |  動作 | Microsoft.Sql/servers/jobAgents/write | 建立或更新 Azure SQL DB 工作代理程式 |

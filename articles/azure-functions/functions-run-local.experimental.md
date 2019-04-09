@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
-ms.openlocfilehash: a5acc65609b7d8387eca0ec4e091bf823d9d1d67
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: dcd6d907fec3d7f2cc0c8d5c06fdec28125154c1
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402689"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009541"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -33,7 +33,7 @@ Azure Functions Core Tools 可讓您從命令提示字元或終端機，在本�
 > * [定義儲存體和其他連接。](#local-settings-file)
 > * [建立函式，從觸發程序和特定語言的範本。](#create-func)
 > * [在本機執行函式](#start)
-> * [將專案發佈至 Azure](#publish)
+> * [將專案發佈到 Azure](#publish)
 
 ## <a name="core-tools-versions"></a>Core Tools 版本
 
@@ -147,7 +147,7 @@ Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
 Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 ```
 
-`func init` 支援下列選項 (僅限用於 2.x 版，除非另有指定)：
+`func init` 支援下列選項，也就是版本 2.x-僅限，除非另有說明：
 
 | 選項     | 描述                            |
 | ------------ | -------------------------------------- |
@@ -194,22 +194,22 @@ local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Fu
 
 | 設定      | 描述                            |
 | ------------ | -------------------------------------- |
-| **`IsEncrypted`** | 當設定為`true`，所有的值會使用本機電腦金鑰加密。 需搭配 `func settings` 命令使用。 預設值為 `false`。 |
-| **`Values`** | 於本機執行時使用的應用程式設定集合與連接字串。 這些值會對應至在 Azure 中，函數應用程式中的應用程式設定這類[ `AzureWebJobsStorage` ]。 許多觸發程序和繫結具有的屬性，是指連接字串的應用程式設定，像是`Connection`for [Blob 儲存體觸發程序](functions-bindings-storage-blob.md#trigger---configuration)。 對於這類屬性中，您需要應用程式設定中定義`Values`陣列。 <br/>[`AzureWebJobsStorage`] 必要的應用程式，設定 HTTP 以外的觸發程序。 <br/>版本 2.x 的 Functions 執行階段需要[ `FUNCTIONS_WORKER_RUNTIME` ]核心工具為您的專案產生的設定。 <br/> 當您擁有[Azure 儲存體模擬器](../storage/common/storage-use-emulator.md)安裝在本機，您可以設定[ `AzureWebJobsStorage` ]至`UseDevelopmentStorage=true`和 Core Tools 會使用模擬器。 此功能在開發期間非常實用，但您應在部署前先透過實際的儲存體連接進行測試。 |
+| **`IsEncrypted`** | 设置为 `true` 时，使用本地计算机密钥加密所有值。 需搭配 `func settings` 命令使用。 預設值為 `false`。 |
+| **`Values`** | 於本機執行時使用的應用程式設定集合與連接字串。 这些值对应于 Azure 中你的函数应用中的应用设置，例如 [`AzureWebJobsStorage`]。 许多触发器和绑定都有一个引用连接字符串应用设置的属性，例如 [Blob 存储触发器](functions-bindings-storage-blob.md#trigger---configuration)的 `Connection`。 对于此类属性，你需要一个在 `Values` 数组中定义的应用程序设置。 <br/>对于 HTTP 之外的触发器，[`AzureWebJobsStorage`] 是一个必需的应用设置。 <br/>2.x 版的 Functions 运行时需要 [`FUNCTIONS_WORKER_RUNTIME`] 设置，该设置是由 Core Tools 为项目生成的。 <br/> 在本地安装 [Azure 存储模拟器](../storage/common/storage-use-emulator.md)后，可以将 [`AzureWebJobsStorage`] 设置为 `UseDevelopmentStorage=true`，以便 Core Tools 使用此模拟器。 此功能在開發期間非常實用，但您應在部署前先透過實際的儲存體連接進行測試。 |
 | **`Host`** | 此區段中的設定能自訂於本機執行的 Functions 主機處理序。 |
 | **`LocalHttpPort`** | 設定於執行本機 Functions 主機 (`func host start` 和 `func run`) 時所使用的預設連接埠。 `--port` 命令列選項的優先順序高於此值。 |
 | **`CORS`** | 定義針對[跨來源資源共享 (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) 所允許的來源。 來源是以不含空格的逗號分隔清單提供。 支援萬用字元值 (\*)，它允許來自任何來源的要求。 |
-| **`ConnectionStrings`** | 請勿將此集合用於您函式繫結所使用的連接字串。 這個集合只能由通常會從連接字串的架構`ConnectionStrings`一節中的某個組態檔，例如[Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx)。 此物件中的連接字串會新增至具有 [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx) 提供者類型的環境。 此集合中的項目不會發佈至具備其他應用程式設定的 Azure。 您必須明確將這些值來`Connection strings`函式應用程式設定的集合。 如果您要建立[ `SqlConnection` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx)函式程式碼中，您應該儲存中的連接字串值**應用程式設定**在入口網站中與您其他的連線。 |
+| **`ConnectionStrings`** | 請勿將此集合用於您函式繫結所使用的連接字串。 此集合仅供通常从配置文件的 `ConnectionStrings` 节获取连接字符串的框架使用，例如[实体框架](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx)。 此物件中的連接字串會新增至具有 [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx) 提供者類型的環境。 此集合中的項目不會發佈至具備其他應用程式設定的 Azure。 必须将这些值显式添加到函数应用设置的 `Connection strings` 集合中。 如果要在函数代码中创建 [`SqlConnection`](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx)，则应将连接字符串值与其他连接一起存储在门户的“应用程序设置”中。 |
 
 這些函數應用程式設定值在您的程式碼中也可以做為環境變數加以讀取。 如需詳細資訊，請參閱這些特定語言參考主題的「環境變數」章節：
 
-* [先行編譯 C#](functions-dotnet-class-library.md#environment-variables)
+* [C#先行編譯](functions-dotnet-class-library.md#environment-variables)
 * [C# 指令碼 (.csx)](functions-reference-csharp.md#environment-variables)
-* [F# 指令碼 (.fsx)](functions-reference-fsharp.md#environment-variables)
+* [F#指令碼 (.fsx)](functions-reference-fsharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
-當沒有有效的儲存體連接字串設定為[ `AzureWebJobsStorage` ]與模擬器不在使用中，會顯示下列錯誤訊息：
+如果没有为 [`AzureWebJobsStorage`] 设置有效的存储连接字符串并且没有使用模拟器，则会显示以下错误消息：
 
 > 在 local.settings.json 中遺失 AzureWebJobsStorage 的值。 這對 HTTP 以外的所有觸發程序是必要的。 您可以執行 'func azure functionapp fetch-app-settings \<functionAppName\>'，或指定 local.settings.json 中的連接字串。
 
@@ -472,7 +472,7 @@ func deploy
 | 選項     | 描述                            |
 | ------------ | -------------------------------------- |
 | **`--registry`** | 目前的使用者所登入的 Docker 登錄名稱。 |
-| **`--platform`** | 函式應用程式的裝載平台。 有效選項為 `kubernetes` |
+| **`--platform`** | 函式應用程式的裝載平台。 有效的選項 `kubernetes` |
 | **`--name`** | 函式應用程式名稱。 |
 | **`--max`**  | (選擇性) 設定作為部署目標的函式應用程式執行個體數目上限。 |
 | **`--min`**  | (選擇性) 設定作為部署目標的函式應用程式執行個體數目下限。 |

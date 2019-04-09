@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: dfd91caf67592b349bd16bab673a3e45397ad282
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 311fdb0b0a2e587e7cf8581f967ed0248de85f6d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58807473"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59291749"
 ---
 ## <a name="benefits-of-managed-disks"></a>受控磁碟的好處
 
@@ -31,6 +31,10 @@ ms.locfileid: "58807473"
 
 受控磁碟會與可用性設定組整合，以確定[可用性設定組中的虛擬機器](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)磁碟彼此充分隔離，以避免出現單一失敗點。 磁碟會自動放置在不同的儲存體縮放單位 (戳記)。 如果因為硬體或軟體失敗造成戳記失敗，則只有磁碟在這些戳記上的 VM 執行個體才會失敗。 例如，假設您的應用程式在五個 VM 上執行，且這些 VM 位於可用性設定組中。 這些磁碟的 VM 不會全部以相同的戳記儲存，因此，如果有一個戳記失效，應用程式的其他執行個體會繼續執行。
 
+## <a name="integration-with-availability-zones"></a>可用性區域與整合
+
+受控磁碟支援[可用性區域](../articles/availability-zones/az-overview.md)，這是資料中心失敗可防止您的應用程式的高可用性供應項目。 「可用性區域」是 Azure 地區內獨特的實體位置。 每個區域皆由一或多個配備獨立電力、冷卻系統及網路的資料中心所組成。 若要確保復原能力，在所有已啟用的地區中都至少要有三個個別的區域。 使用「可用性區域」時，Azure 可提供業界最佳的 99.99% VM 執行時間 SLA。
+
 ### <a name="azure-backup-support"></a>Azure 備份支援
 
 為了防止發生區域災難，可使用 [Azure 備份](../articles/backup/backup-introduction-to-azure-backup.md)透過時間型備份和備份保留原則，來建立備份作業。 如此即可隨心所欲地執行簡易虛擬機器還原。 目前 Azure 備份支援的磁碟大小上限為四個 TiB 磁碟。 如需詳細資訊，請參閱[搭配使用受控磁碟 VM 與 Azure 備份](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)。
@@ -41,11 +45,15 @@ ms.locfileid: "58807473"
 
 ## <a name="disk-roles"></a>磁碟角色
 
-### <a name="data-disks"></a>資料磁碟
+在 Azure 中有三個主要磁碟角色： 資料磁碟、 OS 磁碟和暫存磁碟。 這些角色會對應到磁碟已附加至您的虛擬機器。
+
+![作用中的磁碟角色](media/virtual-machines-managed-disks-overview/disk-types.png)
+
+### <a name="data-disk"></a>資料磁碟
 
 資料磁碟是連接至虛擬機器的受控磁碟，用來儲存應用程式資料或其他您需要保留的資料。 資料磁碟註冊為 SCSI 磁碟機，並以您選擇的字母標示。 每個資料磁碟具有 32,767 gib (GiB) 的最大容量。 虛擬機器的大小會決定您可以連接之磁碟的數量，以及您可以用來裝載磁碟的儲存體類型。
 
-### <a name="os-disks"></a>作業系統磁碟
+### <a name="os-disk"></a>作業系統磁碟
 
 每個虛擬機器都有一個連接的作業系統磁碟。 作業系統磁碟有預先安裝作業系統，在建立虛擬機器時即已選取。
 
@@ -61,8 +69,8 @@ ms.locfileid: "58807473"
 
 若要深入了解如何建立受控磁碟的快照集，請參閱下列資源︰
 
-* [在 Windows 中建立 VHD 複本並儲存為受控磁碟](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [在 Linux 中建立 VHD 複本並儲存為受控磁碟](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [建立儲存為受控磁碟，在 Windows 中的 VHD 複本](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [建立儲存為受控磁碟，在 Linux 中使用快照集的 VHD 複本](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 ### <a name="images"></a>映像
 
@@ -71,7 +79,7 @@ ms.locfileid: "58807473"
 如需建立映像的詳細資訊，請參閱下列文章︰
 
 * [在 Azure 中如何擷取一般化 VM 的受控映像](../articles/virtual-machines/windows/capture-image-resource.md)
-* [如何使用 Azure CLI 將 Linux 虛擬機器一般化並加以擷取](../articles/virtual-machines/linux/capture-image.md)
+* [如何一般化和擷取 Linux 虛擬機器使用 Azure CLI](../articles/virtual-machines/linux/capture-image.md)
 
 #### <a name="images-versus-snapshots"></a>映像與快照集的比較
 

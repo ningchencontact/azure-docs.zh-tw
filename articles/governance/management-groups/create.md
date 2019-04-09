@@ -7,15 +7,15 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/20/2018
+ms.date: 04/04/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: a89df98224634c08c84cb059eb58e64e3c7febf7
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: MT
+ms.openlocfilehash: 928cb790bd97270870618534a73316bba5eeb070
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58801257"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057433"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>建立用於資源組織及管理的管理群組
 
@@ -41,7 +41,7 @@ ms.locfileid: "58801257"
 
 1. 填寫管理群組識別碼欄位。
 
-   - [管理群組識別碼] 是用來在此管理群組上提交命令的目錄唯一識別碼。 在建立之後無法編輯這個識別碼，因為整個 Azure 系統會使用它來識別此群組。
+   - [管理群組識別碼] 是用來在此管理群組上提交命令的目錄唯一識別碼。 此識別碼在建立後即無法編輯，因為整個 Azure 系統會使用它來識別此群組。 [根管理群組](index.md#root-management-group-for-each-directory)會自動建立的 id，這是 Azure Active Directory 識別碼。 對於所有其他的管理群組中，指派唯一的識別碼。
    - [顯示名稱] 欄位是顯示在 Azure 入口網站內的名稱。 在建立管理群組時，不同的顯示名稱是選擇性欄位，並且可以隨時進行變更。  
 
    ![建立新的管理群組的 [選項] 窗格](./media/create_context_menu.png)  
@@ -56,7 +56,7 @@ ms.locfileid: "58801257"
 New-AzManagementGroup -GroupName 'Contoso'
 ```
 
-**GroupName** 是要建立的唯一識別碼。 其他命令會使用此識別碼來參考這個群組，且之後無法變更。
+**GroupName** 是要建立的唯一識別碼。 此識別碼來參考這個群組時，可由其他命令，並稍後就無法進行變更。
 
 如果您需要管理群組在 Azure 入口網站中顯示不同的名稱，可以新增包含字串的 **DisplayName** 參數。 例如，如果您需要建立 GroupName 為 Contoso，以及顯示名稱為 "Contoso Group" 的管理群組，可以使用下列 Cmdlet：
 
@@ -79,7 +79,7 @@ az account management-group create --name 'Contoso'
 若要深入了解管理群組，請參閱：
 
 - [建立管理群組以組織 Azure 資源](create.md)
-- [如何變更、刪除或管理您的管理群組](manage.md)
-- [檢閱 Azure PowerShell 資源模組中的管理群組](/powershell/module/az.resources#resources)
+- [如何變更、 刪除或管理您的管理群組](manage.md)
+- [檢閱在 Azure PowerShell 模組中資源的管理群組](/powershell/module/az.resources#resources)
 - [檢閱 REST API 中的管理群組](/rest/api/resources/managementgroups)
-- [檢閱 Azure CLI 中的管理群組](/cli/azure/account/management-group)
+- [檢閱在 Azure CLI 中的管理群組](/cli/azure/account/management-group)

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 5efcc92bc2054dfb66b5fe03ae083c49f924d2ce
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 537450dbc386a94fa5c2e0d9334435dce041a32f
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668189"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057637"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>修補 Service Fabric 叢集中的 Linux 作業系統
 
 > [!div class="op_single_selector"]
-> * [Windows](service-fabric-patch-orchestration-application.md)
-> * [Linux](service-fabric-patch-orchestration-application-linux.md)
+> * [ Windows](service-fabric-patch-orchestration-application.md)
+> * [ Linux](service-fabric-patch-orchestration-application-linux.md)
 >
 >
 
@@ -76,7 +76,7 @@ ms.locfileid: "58668189"
 
 ##### <a name="azure-portal"></a>Azure 入口網站
 您可以在設定叢集時從 Azure 入口網站啟用修復管理員。 設定叢集時，選取 [附加元件功能] 底下的 [包含修復管理員] 選項。
-![從 Azure 入口網站啟用修復管理員的映像](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
+![從 Azure 入口網站的映像的啟用修復管理員](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
 ##### <a name="azure-resource-manager-deployment-model"></a>Azure Resource Manager 部署模型
 或者，您可以使用 [Azure Resource Manager 部署模型](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm)，在新的和現有的 Service Fabric 叢集上啟用修復管理員服務。 取得您想要部署之叢集的範本。 您可以使用範例範本，或建立自訂的 Azure Resource Manager 部署模型範本。 
@@ -121,7 +121,7 @@ ms.locfileid: "58668189"
 
 應用程式和安裝指令碼可以從[封存連結](https://go.microsoft.com/fwlink/?linkid=867984)下載。
 
-Sfpkg 格式的應用程式可以從 [sfpkg 連結](https://aka.ms/POA/POA_v2.0.2.sfpkg)下載。 這對於 [Azure Resource Manager 型應用程式部署](service-fabric-application-arm-resource.md)非常有用。
+Sfpkg 格式的應用程式可以從 [sfpkg 連結](https://aka.ms/POA/POA_v2.0.3.sfpkg)下載。 這對於 [Azure Resource Manager 型應用程式部署](service-fabric-application-arm-resource.md)非常有用。
 
 ## <a name="configure-the-app"></a>設定應用程式
 
@@ -173,7 +173,8 @@ Sfpkg 格式的應用程式可以從 [sfpkg 連結](https://aka.ms/POA/POA_v2.0.
 
 ## <a name="view-the-update-results"></a>檢視更新結果
 
-修補程式協調流程應用程式會公開 REST API，以向使用者顯示歷程記錄的結果。 以下是範例結果︰```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
+修補程式協調流程應用程式會公開 REST API，以向使用者顯示歷程記錄的結果。 以下是範例結果：
+```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
 ```json
 [ 
   { 
@@ -271,7 +272,7 @@ RejectedList | 預設值為 "" | 此更新已拒絕的修補程式清單
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 
-問： **當修補程式協調流程應用程式執行時，為什麼我看到叢集處於錯誤狀態？**
+問： **修補程式協調流程應用程式執行時為何看到叢集處於錯誤狀態？**
 
 A. 在安裝程序期間，修補程式協調流程應用程式會停用或重新啟動節點。 這項作業可能會導致叢集暫時關閉的健康情況。
 
@@ -289,11 +290,11 @@ A. 在安裝程序期間，修補程式協調流程應用程式會停用或重�
 
 A. 檢查針對應用程式所公佈的健康情況報告，是否為根本原因。 警告通常包含問題的詳細資料。 如果是暫時性的問題，應用程式預期會從這個狀態中自動復原。
 
-問： **如果我的叢集健康情況不良，我可以做什麼？我需要採取緊急作業系統更新嗎？**
+問： **如果我的叢集健康情況不良，我需要採取緊急作業系統更新，我可以做什麼？**
 
 A. 當叢集健康情況不良時，修補程式協調流程應用程式就不會安裝更新。 若要將修補程式協調流程應用程式工作流程解除封鎖，請嘗試使叢集處於良好的健康情況。
 
-問： **為什麼跨叢集修補的執行時間這麼久？**
+問： **為什麼跨叢集修補時間這麼久執行？**
 
 A. 修補程式協調流程應用程式所花費的時間大部分是取決於下列因素︰
 
@@ -303,7 +304,7 @@ A. 修補程式協調流程應用程式所花費的時間大部分是取決於�
 - 下載並安裝更新時所需的平均時間，不應該超過幾個小時。
 - VM 和網路頻寬的效能。
 
-問： **修補程式協調流程應用程式如何決定哪些更新是安全性更新。**
+問： **如何進行修補程式協調流程應用程式會決定哪些更新是安全性更新。**
 
 A. 修補程式協調流程應用程式會使用散發套件專用邏輯來判斷可用的更新之中有哪些是安全性更新。 例如︰在 ubuntu 中，应用会搜索存档 $RELEASE-security、$RELEASE-updates 中的更新（$RELEASE 为 Xenial 或 Linux 标准基础发行版）。 
 
@@ -313,16 +314,16 @@ A. 修補程式協調流程應用程式會使用散發套件專用邏輯來判�
 A. 您可以使用使用 ApprovedPatches 設定讓您的套件鎖定特定版本。 
 
 
-問： **在 Ubuntu 中啟用自動更新會怎樣？**
+問： **在 Ubuntu 中啟用自動更新會發生什麼事？**
 
 A. 當您在叢集上安裝修補程式協調流程應用程式時，您的叢集節點就會停用自動升級。 所有定期更新工作流程皆由修補程式協調流程應用程式驅動。
 若要讓整個叢集保有一致性的環境，建議您一律透過修補程式協調流程應用程式來安裝更新。 
  
-問： **升級後，修補程式協調流程應用程式是否會清理未使用的套件？**
+問： **Post 升級修補程式協調流程應用程式是否會清理未使用的套件？**
 
 A. 是，清理會在後續安裝步驟中執行。 
 
-問： **修補協調流程應用程式可用來更新我的開發叢集 (一個雙節點的叢集) 嗎？**
+問： **修補程式協調流程應用程式可用來修補我的開發叢集 （單節點叢集）？**
 
 A. 否，修補協調流程應用程式無法用來修補單一節點的叢集。 此限制的設計：因為 [Service Fabric 系統服務](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services)或任何客戶應用程式將會面臨停機時間，所以修復管理員決不會核准以任何修復作業進行修補。
 
@@ -373,5 +374,10 @@ A. 否，修補協調流程應用程式無法用來修補單一節點的叢集�
 ### <a name="version-201"></a>版本 2.0.1
 - 已使用最新 Service Fabric SDK 重新編譯應用程式
 
-### <a name="version-202-latest"></a>版本 2.0.2 (最新)
+### <a name="version-202"></a>版本 2.0.2 
 - 已修正會在重新啟動期間遺留健康情況警告的問題。
+
+### <a name="version-203-latest"></a>版本 2.0.3 （最新版）
+- 其中的節點代理程式背景服務的 CPU 使用量已達到最多 99%Standard_D1_v2 Vm 上修正問題。
+- 修正問題的影響修補-週期的節點上，如果有 節點名稱，也就是目前的節點名稱的一部分。 對於這類節點，很可能會遺漏修補或者會擱置重新開機。
+- 已修正的錯誤，因為節點代理程式精靈會損毀時損毀的設定會傳遞至服務。

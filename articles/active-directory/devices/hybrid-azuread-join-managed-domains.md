@@ -69,7 +69,7 @@ ms.locfileid: "58519080"
 - https://enterpriseregistration.windows.net
 - https://login.microsoftonline.com
 - https://device.login.microsoftonline.com
-- https://autologon.microsoftazuread-sso.com (如果您正在使用或預計要使用無縫 SSO)
+- [https://autologon.microsoftazuread-sso.com](https://autologon.microsoftazuread-sso.com)(如果您正在使用或預計要使用無縫 SSO)
 
 如果您的組織需要透過輸出 Proxy 存取網際網路，自 Windows 10 1709 起，您可以[使用群組原則物件 (GPO) 在電腦上設定 Proxy 設定](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/)。 如果您的電腦執行任何早於 Windows 10 1709 的版本，您就必須實作 Web Proxy 自動探索 (WPAD)，Windows 10 電腦才能向 Azure AD 進行裝置註冊。 
 

@@ -1,5 +1,5 @@
 ---
-title: 針對 Azure 監視器中的記錄警示進行疑難排解
+title: 疑難排解在 Azure 監視器中的記錄警示 |Microsoft Docs
 description: Azure 中記錄警示規則的常見問題、錯誤及解決方式。
 author: msvijayn
 services: azure-monitor
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 56d76cd43b63a389569ae39c1e987a5fccbb9793
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: aa42e8975432de8ca489cf9b1b6dd509c9fb01c1
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429441"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005301"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>針對 Azure 監視器中的記錄警示進行疑難排解  
 
 ## <a name="overview"></a>概觀
 
-本文說明如何解決在設定 Azure 監視器內記錄警示時遇到的常見問題。 並提供有關記錄警示功能或設定常見問題集的解決方案。 
+這篇文章會示範如何解決設定 Azure 監視器中的記錄警示時常見的問題。 並提供有關記錄警示功能或設定常見問題集的解決方案。 
 
-**記錄警示**一詞描述根據 [Log Analytics](../learn/tutorial-viewdata.md) 或 [Application Insights](../../azure-monitor/app/analytics.md) 中的自訂查詢引發的警示。 閱讀[記錄警示 - 概觀](../platform/alerts-unified-log.md)以深入了解其功能、術語和類型。
+詞彙**記錄警示**告訴您火災根據記錄檔查詢中的警示[Log Analytics 工作區](../learn/tutorial-viewdata.md)或是[Application Insights](../../azure-monitor/app/analytics.md)。 閱讀[記錄警示 - 概觀](../platform/alerts-unified-log.md)以深入了解其功能、術語和類型。
 
 > [!NOTE]
 > 本文並不考慮以下情況：Azure 入口網站顯示所觸發的警示規則，以及由相關聯「動作群組」所執行的通知。 針對這類情況，請參考[動作群組](../platform/action-groups.md)一文中的詳細資料。
@@ -33,7 +33,7 @@ ms.locfileid: "54429441"
 
 ### <a name="data-ingestion-time-for-logs"></a>記錄的資料擷取時間
 
-記錄警示會根據 [Log Analytics](../learn/tutorial-viewdata.md) 或 [Application Insights](../../azure-monitor/app/analytics.md) 定期執行您的查詢。 因為 Log Analytics 會處理來自全球各種來源及數千個客戶的數 TB 資料，所以服務容易受到多變的時間延遲影響。 如需詳細資訊，請參閱 [Log Analytics 中的資料擷取時間](../platform/data-ingestion-time.md)。
+記錄警示會根據 [Log Analytics](../learn/tutorial-viewdata.md) 或 [Application Insights](../../azure-monitor/app/analytics.md) 定期執行您的查詢。 因為 Azure 監視器處理世界各地的多個 tb 的資料從數千個客戶從不同來源，所以服務就會很容易在不同的時間延遲。 如需詳細資訊，請參閱 <<c0> [ 在 Azure 監視器記錄檔中的資料擷取時間](../platform/data-ingestion-time.md)。
 
 為了減少資料擷取延遲，如果系統發現尚未擷取所需的資料，則會等候並多次重試警示查詢。 系統已設定以指數方式增加等候時間。 記錄警示只會在取得資料之後觸發，所以延遲可能是因為慢速記錄資料擷取而造成。 
 
@@ -57,7 +57,7 @@ ms.locfileid: "54429441"
 
 例如，假設計量度量記錄警示規則已設定如下：
 
-- 查詢為：`search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
+- 查詢是： `search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
 - 時間週期為 6 小時
 - 閾值為 50
 - 警示邏輯為三個連續違規
@@ -84,7 +84,7 @@ ms.locfileid: "54429441"
 
 ### <a name="alert-triggered-by-partial-data"></a>警示被部分資料觸發
 
-由 Analytics 提供技術支援的 Log Analytics 和 Application Insights 會受到擷取延遲和處理限制；因此，在執行所提供的記錄警示查詢時，可能會有沒有資料可用或只有部分資料可用的情況。 如需詳細資訊，請參閱 [Log Analytics 中的資料擷取時間](../platform/data-ingestion-time.md)。
+由 Analytics 提供技術支援的 Log Analytics 和 Application Insights 會受到擷取延遲和處理限制；因此，在執行所提供的記錄警示查詢時，可能會有沒有資料可用或只有部分資料可用的情況。 如需詳細資訊，請參閱 < [Azure 監視器中的記錄資料擷取時間](../platform/data-ingestion-time.md)。
 
 視警示規則的設定方式而定，在警示執行時，如果記錄中沒有資料或只有部分資料，可能會導致錯誤地引發警示。 在此種情況下，我們建議您變更警示查詢或組態。 
 
@@ -92,7 +92,7 @@ ms.locfileid: "54429441"
 
 ### <a name="alert-query-output-misunderstood"></a>警示查詢輸出被誤解
 
-您在分析查詢中提供記錄警示的邏輯。 分析查詢可以使用各種巨量資料和數學函式。  警示服務會在指定的時間間隔，以指定之時段的資料執行查詢。 警示服務會根據選擇的警示類型，對所提供的查詢進行細微變更。 這可以在 [設定訊號邏輯] 畫面的 [要執行的查詢] 區段中看到，如下所示：![要執行的查詢](media/alert-log-troubleshoot/LogAlertPreview.png)
+您在分析查詢中提供記錄警示的邏輯。 分析查詢可以使用各種巨量資料和數學函式。  警示服務會在指定的時間間隔，以指定之時段的資料執行查詢。 警示服務會根據選擇的警示類型，對所提供的查詢進行細微變更。 這可以在 [設定訊號邏輯] 畫面的 [要執行的查詢] 區段中看到，如下所示：![若要執行的查詢](media/alert-log-troubleshoot/LogAlertPreview.png)
 
 在 [要執行的查詢] 方塊中顯示的內容就是記錄警示服務執行的內容。 如果您想要在實際建立警示之前，了解警示查詢輸出的內容，您可以執行指定的查詢，以及 [Analytics 入口網站](../log-query/portals.md)或 [Analytics API](https://docs.microsoft.com/rest/api/loganalytics/) 執行時間範圍。
 
@@ -100,4 +100,4 @@ ms.locfileid: "54429441"
 
 - 了解 [Azure 警示中的記錄警示](../platform/alerts-unified-log.md)
 - 深入了解 [Application Insights](../../azure-monitor/app/analytics.md)
-- 深入了解 [Log Analytics](../../log-analytics/log-analytics-overview.md)
+- 深入了解[記錄查詢](../log-query/log-query-overview.md)

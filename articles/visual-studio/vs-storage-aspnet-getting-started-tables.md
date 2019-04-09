@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
-ms.openlocfilehash: 1a35d1cbd49a55b0c25f5e2b993358130589c125
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ea50506df53bfd586656d0030be4536d9d3b907d
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444628"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010136"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>開始使用 Azure 資料表儲存體和 Visual Studio 已連線的服務 (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -31,7 +31,7 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
 ## <a name="prerequisites"></a>必要條件
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure 存储帐户](../storage/common/storage-quickstart-create-account.md)
+* [Azure 儲存體帳戶](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
 
@@ -537,7 +537,7 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. 具現化 **TableQuery** 物件，以在 **Where** 子句中指定查詢。 使用 **CustomerEntity** 類別和[將資料表新增至實體批次](#add-a-batch-of-entities-to-a-table)章節中顯示的資料，下列程式碼片段會查詢所有實體的資料表，其中 **PartitionKey** (客戶的姓氏) 的值為 "Smith":
+1. 具現化 **TableQuery** 物件，以在 **Where** 子句中指定查詢。 使用**CustomerEntity**類別和資料 區段中顯示[將一批實體新增至資料表](#add-a-batch-of-entities-to-a-table)，下列程式碼片段可查詢資料表中的所有實體， **PartitionKey** （客戶的姓氏） 的值為"Smith":
 
     ```csharp
     TableQuery<CustomerEntity> query = 
@@ -545,7 +545,7 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
         .Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"));
     ```
 
-1. 在循环中调用 **CloudTable.ExecuteQuerySegmented** 方法，传递在上一步实例化的查询对象。  **CloudTable.ExecuteQuerySegmented** 方法會傳回 **TableContinuationToken** 物件 - 若為 **null**，表示再也沒有要擷取的實體。 在循环中，使用另一个循环来循环访问返回的实体。 在下列程式碼範例中，每個傳回的實體都會新增至清單。 一旦迴圈結束後，清單會傳遞至檢視顯示︰ 
+1. 在迴圈內呼叫 **CloudTable.ExecuteQuerySegmented** 方法，以傳遞您在上一個步驟中具現化的查詢物件。  **CloudTable.ExecuteQuerySegmented** 方法會傳回 **TableContinuationToken** 物件 - 若為 **null**，表示再也沒有要擷取的實體。 在循环中，使用另一个循环来循环访问返回的实体。 在下列程式碼範例中，每個傳回的實體都會新增至清單。 一旦迴圈結束後，清單會傳遞至檢視顯示︰ 
 
     ```csharp
     List<CustomerEntity> customers = new List<CustomerEntity>();
@@ -711,4 +711,4 @@ Azure 表存储使用户可以存储大量结构化数据。 此服務是一個 
 如需了解 Azure 中的其他資料儲存選項，請檢視更多功能指南。
 
   * [開始使用 Azure Blob 儲存體和 Visual Studio 已連接服務 (ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)
-  * [Azure 队列存储和 Visual Studio 连接服务入门 (ASP.NET)](../storage/vs-storage-aspnet-getting-started-queues.md)
+  * [開始使用 Azure 佇列儲存體和 Visual Studio 已連線的服務 (ASP.NET)](../storage/vs-storage-aspnet-getting-started-queues.md)

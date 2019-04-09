@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 18d8a0e231e8b4dbe33911dd6267966674366904
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 6ce27ba699ae766ed4d2428f67d91379464bb9f1
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734484"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006150"
 ---
 # <a name="azure-data-factory-mapping-data-flow-exists-transformation"></a>Azure Data Factory 對應資料流程存在轉換
 
@@ -25,3 +25,10 @@ ms.locfileid: "56734484"
 為您的「存在」選擇第二個來源，使資料流程可以比較來自資料流 1 與資料流 2 的值。
 
 從「來源 1」和「來源 2」選取您想要針對 [存在] 或 [不存在] 檢查其值的資料行。
+
+## <a name="multiple-exists-conditions"></a>多個存在條件
+
+旁您的資料行的條件存在每個資料列，您會發現 + 符號可用時暫留於達到資料列。 這可讓您將新增多個資料列，Exists 條件。
+
+## <a name="next-steps"></a>後續步驟
+

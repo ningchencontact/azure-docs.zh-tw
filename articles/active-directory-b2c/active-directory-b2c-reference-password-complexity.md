@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 2c6f3d88aae99c419b2507f421cc4dfebb2c022b
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 1d7874d7c8d04e3d3565cdfe2e52e49c538b3091
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100195"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009796"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>設定 Azure Active Directory B2C 中的密碼複雜度需求
 
@@ -23,7 +23,7 @@ Azure Active Directory (Azure AD) B2C 支援在建立帳戶時變更終端使用
 
 ## <a name="password-rule-enforcement"></a>密碼規則強制執行
 
-在註冊期間或密碼重設期間，使用者必須提供符合複雜度規則的密碼。 依每個使用者流程強制執行密碼複雜度規則。 可能在註冊期間一個使用者流程會需要四位數的 PIN，同時另一個使用者流程在註冊期間會需要八個字元字串。 例如，您可能會針對成人的使用者流程與針對兒童的原則使用不同的密碼複雜度。
+在註冊期間或密碼重設期間，使用者必須提供符合複雜度規則的密碼。 依每個使用者流程強制執行密碼複雜度規則。 可以有一個需要四位數 pin，另一個使用者流程期間註冊的時間在註冊期間需要八個字元字串的使用者流程。 例如，您可能會針對成人的使用者流程與針對兒童的原則使用不同的密碼複雜度。
 
 登入期間一律不會強制要求密碼複雜度。 系統一律不會在登入時提示使用者變更其密碼，因為它不符合目前的複雜度需求。
 
@@ -45,7 +45,7 @@ Azure Active Directory (Azure AD) B2C 支援在建立帳戶時變更終端使用
 
 ### <a name="comparison-chart"></a>比較圖表
 
-| 複雜度 | 說明 |
+| 複雜度 | 描述 |
 | --- | --- |
 | 簡單 | 密碼至少為 8 到 64 個字元。 |
 | 強式 | 密碼至少為 8 到 64 個字元。 它需要小寫字母、大寫字母、數字或符號 4 個之中的 3 個。 |

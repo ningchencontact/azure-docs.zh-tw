@@ -5,18 +5,18 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/04/2019
 ms.author: helohr
-ms.openlocfilehash: af4147de06f9fb7c856dfd93dc186f1a6e83ffff
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: a7e2f3c95819c6ab6d2e63e5c7a2f62649ebd15c
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58628994"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056090"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>設定主機集區的使用者設定檔共用
 
-Windows 虛擬桌面預覽服務提供建議的使用者設定檔方案 FSLogix 設定檔的容器。 我們不建議使用使用者設定檔磁碟 (UPD) 方案，並將 Windows 虛擬桌面的未來版本中被取代。
+Windows 虛擬桌面預覽服務提供建議的使用者設定檔方案 FSLogix 設定檔的容器。 我們不建議使用使用者設定檔磁碟 (UPD) 解決方案，將會取代在未來版本的 Windows 虛擬桌面。
 
 本節會告訴您如何設定主應用程式集區的 FSLogix 設定檔容器共用。 如 FSLogix 有關的一般文件，請參閱 < [FSLogix 網站](https://docs.fslogix.com/)。
 
@@ -40,12 +40,12 @@ Windows 虛擬桌面預覽服務提供建議的使用者設定檔方案 FSLogix 
 
 以下是有關如何準備虛擬機器的一般指示，以做為使用者設定檔的檔案共用：
 
-1. 加入工作階段主機的虛擬機器，以[Active Directory 安全性群組](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups)。 此安全性群組將用來驗證工作階段主機的虛擬機器，以您剛建立檔案共用的虛擬機器中。
+1. Windows 虛擬桌面 Active Directory 將使用者加入至[Active Directory 安全性群組](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups)。 此安全性群組，將用於驗證的 Windows 虛擬桌面使用者，以您剛建立檔案共用的虛擬機器。
 2. [連接到檔案共用的虛擬機器](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine)。
 3. 在檔案共用的虛擬機器，請上建立資料夾**C 磁碟機**，用以做為設定檔共用。
 4. 以滑鼠右鍵按一下新的資料夾中，選取**屬性**，選取**共用**，然後選取**進階共用...**.
 5. 選取 **共用此資料夾**，選取**權限...**，然後選取**加入...**.
-6. 搜尋您要加入工作階段主機虛擬機器的安全性群組，然後確定該群組具有**完全控制**。
+6. 搜尋您要加入 Windows 虛擬桌面使用者的安全性群組，然後確認該群組具有**完全控制**。
 7. 之後新增的安全性群組，以滑鼠右鍵按一下該資料夾中，選取**屬性**，選取**共用**，然後向下複製**網路路徑**供稍後使用。
 
 如需有關權限的詳細資訊，請參閱[FSLogix 文件](https://docs.fslogix.com/display/20170529/Requirements%2B-%2BProfile%2BContainers)。
@@ -56,17 +56,13 @@ Windows 虛擬桌面預覽服務提供建議的使用者設定檔方案 FSLogix 
 
 1. [連接到虛擬機器](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine)時建立虛擬機器所提供的認證。
 2. 啟動網際網路瀏覽器並瀏覽至[此連結](https://go.microsoft.com/fwlink/?linkid=2084562)下載 FSLogix 代理程式。 Windows 虛擬桌面的公開預覽的一部分，您會收到啟用 FSLogix 軟體的授權金鑰。 關鍵在於 FSLogix 代理程式.zip 檔案中所包含的 LicenseKey.txt 檔。
-3. 安裝 FSLogix 代理程式。
+3. 瀏覽至其中一個\\ \\Win32\\版本或\\ \\X64\\.zip 檔案，並在執行中的發行**FSLogixAppsSetup**安裝 FSLogix 代理程式。
 4. 瀏覽至**Program Files** > **FSLogix** > **應用程式**以確認安裝的代理程式。
-5. 從 [開始] 功能表中，執行**RegEdit**身為系統管理員。 瀏覽至**電腦\\HKEY_LOCAL_MACHINE\\軟體\\FSLogix\\設定檔**
-6. 建立下列值：
+5. 從 [開始] 功能表中，執行**RegEdit**身為系統管理員。 瀏覽至**電腦\\HKEY_LOCAL_MACHINE\\軟體\\FSLogix**。
+6. 建立名為索引鍵**設定檔**。
+7. 建立設定檔索引鍵的下列值：
 
 | 名稱                | 類型               | 資料/值                        |
 |---------------------|--------------------|-----------------------------------|
 | 已啟用             | DWORD              | 1                                 |
-| VHDLocations        | 多字串值 | 「 檔案共用的網路路徑 」 |
-| VolumeType          | 字串             | VHDX                              |
-| SizeInMBs           | DWORD              | "的整數表示設定檔的大小 」     |
-| IsDynamic           | DWORD              | 1                                 |
-| LockedRetryCount    | DWORD              | 1                                 |
-| LockedRetryInterval | DWORD              | 0                                 |
+| VHDLocations        | 多字串值 | 「 檔案共用的網路路徑 」     |

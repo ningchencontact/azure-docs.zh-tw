@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: d7f44ace1625b9859eb8914f15526cf98fe883bc
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 74b22f194e7af000dbd8b53ec95dbbff2c5c588a
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878349"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010527"
 ---
 # <a name="mapping-data-flow-data-transformation-expressions"></a>對應工作流程資料轉換運算式
 
@@ -509,7 +509,7 @@ CumeDist 函式會計算某個值與分割區中所有值的相對位置。 依�
 <code>log</code>
 ==============================
 <code><b>log(<i>&lt;value1&gt;</i> : number, [<i>&lt;value2&gt;</i> : number]) => double</b></code><br/><br/>
-計算對數值。 選擇性基底可以是提供其他幾個歐如果使用
+計算對數值。 選擇性基底可以是提供其他歐數使用
 * ``log(100, 10) -> 2``
 *********************************
 <code>log10</code>

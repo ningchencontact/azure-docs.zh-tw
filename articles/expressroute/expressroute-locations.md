@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2019
+ms.date: 04/03/2019
 ms.author: pareshmu
-ms.openlocfilehash: 06e93639e487439207aface0e56616b6492c6f5e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.openlocfilehash: 6d1fa0235c91d17887a40bbe0be9831623fce775
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879233"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006974"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -50,6 +50,7 @@ ms.locfileid: "58879233"
 | **印度** | 2 |印度西部、印度中部、印度南部 |辰內、辰內 2、孟買、孟買 2 |
 | **日本** | 2 |日本西部、日本東部 |大阪、東京 |
 | **南韓** | 2 |南韓中部、南韓南部 |釜山、首爾|
+| **阿拉伯聯合大公國** | 2 | 阿拉伯聯合大公國中部、 阿拉伯聯合大公國北部 | 杜拜 |
 | **南非** | 3 |南非西部、 南非北部 |開普敦、約翰尼斯堡 |
 | **南美洲** | 3 |巴西南部 |聖保羅 |
 
@@ -64,7 +65,7 @@ ms.locfileid: "58879233"
 | **中國北部** |中國北部、中國北部 2 |北京、北京 2 |
 | **德國** |德國中部、德國東部 |柏林、法蘭克福 |
 
-標準 ExpressRoute SKU 不支援跨地緣政治區域的連線。 您必須啟用 ExpressRoute 進階附加元件，以支援全球連線。 不支援連線至國家雲端環境。 如果需要，请与连接服务提供商合作。
+标准 ExpressRoute SKU 不支持跨地缘政治区域的连接。 您必須啟用 ExpressRoute 進階附加元件，以支援全球連線。 不支援連線至國家雲端環境。 如果需要，请与连接服务提供商合作。
 
 ## <a name="locations"></a>連線提供者位置
 
@@ -95,6 +96,7 @@ ms.locfileid: "58879233"
 | **eir** |支援 |支援 |都柏林|
 | **Epsilon Global Communications** |支援 |支援 |新加坡、新加坡 2 |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |支援 |支援 |阿姆斯特丹、亞特蘭大、芝加哥、達拉斯、都柏林、香港、倫敦、倫敦2、洛杉磯、墨爾本、邁阿密、紐約、大阪、巴黎+、聖保羅、西雅圖、矽谷、新加坡、雪梨、東京、多倫多、華盛頓特區 |
+| **Etisalat 阿拉伯聯合大公國** |支援 |支援 |杜拜|
 | **euNetworks** |支援 |支援 |阿姆斯特丹、都柏林、倫敦 |
 | **GÉANT** |支援 |支援 |阿姆斯特丹 |
 | **[全域定域機組 Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | 支援| 支援 | 辰內，孟買 |
@@ -106,6 +108,7 @@ ms.locfileid: "58879233"
 | **[IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**|支援 |支援 | 阿姆斯特丹、 London2、 矽谷、 多倫多 |
 | **Jisc** |支援 |支援 |倫敦 |
 | **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |支援 |支援 |首爾 |
+| **Kordia** | 支援 |支援 |雪梨 |
 | **[KPN](https://www.kpn.com/zakelijk/cloud/connect.htm)** | 支援 | 支援 | 阿姆斯特丹 | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |支援 |支援 |阿姆斯特丹、芝加哥、達拉斯、倫敦、新港 (威爾斯)、聖保羅、西雅圖、矽谷、新加坡、華盛頓特區 |
 | **LG CNS** |支援 |支援 |釜山、首爾 |

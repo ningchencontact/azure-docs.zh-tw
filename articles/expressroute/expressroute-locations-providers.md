@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2019
+ms.date: 04/03/2019
 ms.author: pareshmu
-ms.openlocfilehash: e4ddd4bb435b472e6837862e49856c7b98011467
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 01e48a7f78be16d51878b5458174a35253841539
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878517"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006523"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -50,6 +50,7 @@ ms.locfileid: "58878517"
 | **印度** | 2 |印度西部、印度中部、印度南部 |辰內、辰內 2、孟買、孟買 2 |
 | **日本** | 2 |日本西部、日本東部 |大阪、東京 |
 | **南韓** | 2 |南韓中部、南韓南部 |釜山、首爾|
+| **阿拉伯聯合大公國** | 2 | 阿拉伯聯合大公國中部、 阿拉伯聯合大公國北部 | 杜拜 |
 | **南非** | 3 |南非西部、 南非北部 |開普敦、約翰尼斯堡 |
 | **南美洲** | 3 |巴西南部 |聖保羅 |
 
@@ -63,7 +64,7 @@ ms.locfileid: "58878517"
 | **中國北部** |中國北部、中國北部 2 |北京、北京 2 |
 | **德國** |德國中部、德國東部 |柏林、法蘭克福 |
 
-標準 ExpressRoute SKU 不支援跨地緣政治區域的連線。 您必須啟用 ExpressRoute 進階附加元件，以支援全球連線。 不支援連線至國家雲端環境。 如果需要，请与连接服务提供商合作。
+标准 ExpressRoute SKU 不支持跨地缘政治区域的连接。 您必須啟用 ExpressRoute 進階附加元件，以支援全球連線。 不支援連線至國家雲端環境。 如果需要，请与连接服务提供商合作。
 
 ## <a name="locations"></a>连接服务提供商位置
 
@@ -85,6 +86,7 @@ ms.locfileid: "58878517"
 | **芝加哥** | Equinix | Aryaka Networks、 AT At&t NetBond、 Cologix、 Comcast、 Coresite、 Equinix、 InterCloud、 Internet2、 Level 3 Communications、 Megaport、 PacketFabric、 PCCW Global Limited、 衝刺 （sprint)、 Telia 電信業者、 Verizon、 Zayo |
 | **達拉斯** | Equinix | Aryaka Networks、 AT At&t NetBond、 Cologix、 Equinix、 Internet2、 Level 3 Communications、 Megaport、 Neutrona Networks、 Telmex Uninet Telia 電信業者、 Verizon、 Zayo|
 | **丹佛** | CoreSite | CoreSite、 Megaport、 Zayo |
+| **杜拜** | Etisalat 阿拉伯聯合大公國 | Etisalat 阿拉伯聯合大公國 |
 | **都柏林** | Equinix | Colt、eir、Equinix、Interxion、Megaport |
 | **香港** | Equinix | Aryaka Networks、British Telecom、China Telecom Global、Equinix、Megaport、NTT Communications、Orange、PCCW Global Limited、Tata Communications、Verizon |
 | **約翰尼斯堡** | Teraco | Internet Solutions - Cloud Connect、Liquid Telecom、Teraco |
@@ -112,7 +114,7 @@ ms.locfileid: "58878517"
 | **矽谷** | Equinix | Aryaka Networks、AT&T NetBond、British Telecom、CenturyLink Cloud Connect、Comcast、Coresite、Equinix、InterCloud、IX Reach、PacketFabric、Level 3 Communications、Megaport、Orange、Sprint、Tata Communications、Verizon、Zayo |
 | **新加坡** | Equinix | Aryaka Networks、AT&T NetBond、British Telecom、Epsilon Global Communications、Equinix、InterCloud、Level 3 Communications、Megaport、NTT Communications、Orange、SingTel、Tata Communications、Telstra Corporation、Verizon、Vodafone |
 | **新加坡 2** | 全域切換 | Colt、 Epsilon Global Communications、 Megaport、 SingTel |
-| **雪梨** | Equinix | AARNet、AT&T NetBond、British Telecom、Equinix、Megaport、NEXTDC、NTT Communications、Optus、Orange、Telstra Corporation、Verizon |
+| **雪梨** | Equinix | AARNet、 AT & T NetBond，British Telecom，Equinix，Kordia 的 Megaport、 NEXTDC、 NTT Communications，Optus，橙色，Telstra Corporation、 Verizon |
 | **台北** | Chief Telecom | Chief Telecom |
 | **東京** | Equinix | Aryaka Networks、AT&T NetBond、British Telecom、CenturyLink Cloud Connect、Colt、Equinix、Internet Initiative Japan Inc. - IIJ、NTT Communications、NTT EAST、Orange、Softbank、Verizon |
 | **多倫多** | Cologix | AT&T NetBond、Bell Canada、CenturyLink Cloud Connect、Cologix、Equinix、Megaport、Telus、Zayo |

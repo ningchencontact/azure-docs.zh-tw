@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: e74b9b5c8347c7348c4da27b80d00daa091b826f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: a5350befd8d0fb1582606554314d909f7fec04c5
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521086"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058759"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -117,7 +117,7 @@ ms.locfileid: "58521086"
 * SQL Database 伺服器 - 資料庫和伺服器必須位於相同的資源群組。 當您移動 SQL 伺服器時，其所有資料庫也會跟著移動。 此行為會套用至 Azure SQL Database 和 Azure SQL Data Warehouse 資料庫。
 * 時間序列深入解析
 * 流量管理員
-* 虛擬機器-請參閱[虛擬機器限制](#virtual-machines-limitations)
+* 虚拟机 - 请参阅[虚拟机限制](#virtual-machines-limitations)
 * 虛擬機器 (傳統) - 請參閱 [傳統部署限制](#classic-deployment-limitations)
 * 虛擬機器擴展集 - 請參閱[虛擬機器限制](#virtual-machines-limitations)
 * 虛擬網路 - 請參閱[虛擬網路限制](#virtual-networks-limitations)
@@ -133,6 +133,7 @@ ms.locfileid: "58521086"
 * Azure 資料庫移轉
 * Azure Databricks
 * Azure 防火牆
+* Azure Kubernetes Service (AKS)
 * Azure Migrate
 * Azure NetApp Files
 * 憑證 - App Service 憑證可以移動，但上傳的憑證則有其[限制](#app-service-limitations)。
@@ -143,7 +144,6 @@ ms.locfileid: "58521086"
 * Dev Spaces
 * Dynamics LCS
 * ExpressRoute
-* Kubernetes 服務
 * 實驗室服務-教室實驗室無法移到新的資源群組或訂用帳戶。 DevTest Labs 可以移至新的資源群組相同的訂用帳戶，但不是會跨訂用帳戶中。
 * 受控應用程式
 * Microsoft Genomics
@@ -166,12 +166,12 @@ ms.locfileid: "58521086"
 
 ### <a name="virtual-machines-limitations"></a>虛擬機器限制
 
-您可以繼續搭配使用受控的磁碟的虛擬機器的虛擬機器使用受控的磁碟、 受管理的映像、 受控快照集和可用性設定組。 受控的磁碟位於可用性區域中無法移到不同的訂用帳戶中。
+可以移动包含托管磁盘、托管映像和托管快照的虚拟机，以及移动所含虚拟机使用托管磁盘的可用性集。 受控的磁碟位於可用性區域中無法移到不同的訂用帳戶中。
 
 尚未支援下列案例：
 
 * 憑證儲存在 Key Vault 中的虛擬機器可以移動至相同訂用帳戶中的新資源群組，但是無法跨訂用帳戶移動。
-* 不能移動標準 SKU 負載平衡器或標準 SKU 公用 IP 的虛擬機器擴展集。
+* 无法移动具有标准 SKU 负载均衡器或标准 SKU 公共 IP 的虚拟机规模集。
 * 從 Marketplace 資源建立且附加方案的虛擬機器無法在資源群組或訂用帳戶之間移動。 在目前的訂用帳戶中取消佈建虛擬機器，然後於新訂用帳戶中再次部署。
 
 若要移動使用 Azure 備份設定的虛擬機器，請使用下列因應措施：
@@ -180,8 +180,8 @@ ms.locfileid: "58521086"
 * 尋找具有下列命名模式的資源群組：`AzureBackupRG_<location of your VM>_1`，例如 AzureBackupRG_westus2_1
 * 如果是在 Azure 入口網站中，則請選取 [顯示隱藏的類型]
 * 如果是在 PowerShell 中，請使用 `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` Cmdlet
-* 如果是在 CLI 中，請使用 `az resource list -g AzureBackupRG_<location of your VM>_1`
-* 尋找類型為 `Microsoft.Compute/restorePointCollections` 且命名模式為 `AzureBackup_<name of your VM that you're trying to move>_###########` 的資源
+* 在 CLI 中，使用 `az resource list -g AzureBackupRG_<location of your VM>_1`
+* 尋找資源類型`Microsoft.Compute/restorePointCollections`具有的命名模式 `AzureBackup_<name of your VM that you're trying to move>_###########`
 * 刪除此資源。 此作業只會刪除立即復原點，而不會刪除保存庫中備份的資料。
 * 完成刪除之後，您將能移動您的虛擬機器。 您可以將保存庫和虛擬機器移至目標訂用帳戶。 移動之後，您可以繼續備份而不會遺失資料。
 * 如需移動復原服務保存庫以進行備份的相關資訊，請參閱[復原服務限制](#recovery-services-limitations)。
@@ -190,7 +190,7 @@ ms.locfileid: "58521086"
 
 當您移動虛擬網路時，也必須移動其相依資源。 針對 VPN 閘道，您必須移動 IP 位址、虛擬網路閘道和所有相關聯的連線資源。 區域網路閘道可位於不同的資源群組。
 
-若要移動虛擬機器網路介面卡，您必須移動所有的相依資源。 您必須移動網路介面卡的虛擬網路中，所有其他網路介面卡的虛擬網路和 VPN 閘道。
+若要移动带网络接口卡的虚拟机，必须移动所有依赖的资源。 必须移动与该网络接口卡对应的虚拟网络、该虚拟网络的所有其他网络接口卡，以及 VPN 网关。
 
 若要移動對等虛擬網路，您必須先停用虛擬網路對等互連。 停用之後，您可以移動虛擬網路。 移動之後，重新啟用虛擬網路對等互連。
 
@@ -514,7 +514,7 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要深入了解用於管理資源的 PowerShell cmdlet，請參閱[使用 Azure PowerShell 與 Resource Manager](manage-resources-powershell.md)。
-* 若要深入了解 Azure CLI 命令來管理資源，請參閱[使用 Azure CLI 搭配 Resource Manager](manage-resources-cli.md)。
+* 若要了解管理资源所需的 PowerShell cmdlet，请参阅[将 Azure PowerShell 与资源管理器配合使用](manage-resources-powershell.md)。
+* 若要了解管理资源所需的 Azure CLI 命令，请参阅[将 Azure CLI 与资源管理器配合使用](manage-resources-cli.md)。
 * 若要了解用於管理訂用帳戶的入口網站功能，請參閱 [使用 Azure 入口網站來管理資源](resource-group-portal.md)。
 * 若要了解如何將邏輯組織套用到您的資源，請參閱 [使用標記來組織您的資源](resource-group-using-tags.md)。

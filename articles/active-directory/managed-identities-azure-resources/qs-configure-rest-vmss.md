@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc3a32f9fb2755fc164c33a6759d0130ac7ddad5
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: cafb3c97befd64cc6413a2eefa5e5baa9e01bf93
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445765"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009577"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>使用 REST API 呼叫在虛擬機器擴展集上設定 Azure 資源受控識別
 
@@ -93,9 +93,9 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    |要求標頭  |描述  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
-   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
+   |*Authorization*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
 
-   **要求本文**
+   **Request body**
 
    ```JSON
     {
@@ -160,7 +160,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
     }  
    ```  
 
-### <a name="enable-system-assigned-managed-identity-on-a-existing-virtual-machine-scale-set"></a>在現有虛擬機器擴展集上啟用系統指派的受控識別
+### <a name="enable-system-assigned-managed-identity-on-an-existing-virtual-machine-scale-set"></a>在現有虛擬機器擴展集上啟用系統指派的受控識別
 
 若要在現有的虛擬機器擴展集上啟用系統指派的受控識別，您需要取得存取權杖，然後使用 CURL 呼叫 Resource Manager REST 端點來更新識別類型。
 
@@ -188,9 +188,9 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    |要求標頭  |描述  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
-   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
+   |*Authorization*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
 
-   **要求本文**
+   **Request body**
 
    ```JSON
     {
@@ -206,7 +206,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
    API 版本 `2018-06-01` 會將使用者指派的受控身分識別儲存在 `userAssignedIdentities` 值內 (採用字典格式)，而不是儲存在 `identityIds` 值內 (採用 API 版本 `2017-12-01` 中所使用的陣列格式)。
    
-   **API 版本 2018-06-01**
+   **API 版本 2018年-06-01**
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned,UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -221,9 +221,9 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    |要求標頭  |描述  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
-   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。 |
+   |*Authorization*     | 必要。 設定為有效的 `Bearer` 存取權杖。 |
  
-   **要求本文**
+   **Request body**
 
    ```JSON
     {
@@ -240,7 +240,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
     }
    ```
    
-   **API 版本 2017-12-01**
+   **API 版本 2017年-12-01**
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned,UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -255,9 +255,9 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    |要求標頭  |描述  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
-   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
+   |*Authorization*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
 
-   **要求本文**
+   **Request body**
 
    ```JSON
     {
@@ -299,9 +299,9 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    |要求標頭  |描述  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
-   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
+   |*Authorization*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
 
-   **要求本文**
+   **Request body**
 
    ```JSON
     {
@@ -341,7 +341,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 5. 使用 CURL 呼叫 Azure Resource Manager REST 端點來建立虛擬機器擴展集。 下列範例會使用使用者指派的受控識別 `ID1` (如同在要求本文中由 `"identity":{"type":"UserAssigned"}` 值所識別)，在資源群組 myResourceGroup 中建立名為 myVMSS 的虛擬機器擴展集。 將上一個步驟中要求持有人存取權杖時所收到的值用以取代 `<ACCESS TOKEN>`值，`<SUBSCRIPTION ID>` 的值則為適用於您的環境的值。
  
-   **API 版本 2018-06-01**
+   **API 版本 2018年-06-01**
 
    ```bash   
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"UserAssigned","userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -356,9 +356,9 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    |要求標頭  |描述  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
-   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
+   |*Authorization*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
 
-   **要求本文**
+   **Request body**
 
    ```JSON
     {
@@ -428,7 +428,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
     }
    ```   
 
-   **API 版本 2017-12-01**
+   **API 版本 2017年-12-01**
 
    ```bash   
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"UserAssigned","identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -443,9 +443,9 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    |要求標頭  |描述  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
-   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。 |
+   |*Authorization*     | 必要。 設定為有效的 `Bearer` 存取權杖。 |
  
-   **要求本文**
+   **Request body**
 
    ```JSON
     {
@@ -537,14 +537,14 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
    |要求標頭  |描述  |
    |---------|---------|
-   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。 |   
+   |*Authorization*     | 必要。 設定為有效的 `Bearer` 存取權杖。 |   
  
 
 4. 如果您沒有任何使用者或系統指派的受控識別指派給您的虛擬機器擴展集，請使用下列 CURL 命令呼叫 Azure Resource Manager REST 端點，將第一個使用者指派的受控識別指派給虛擬機器擴展集。  如有使用者或系統指派的受控識別是指派給虛擬機器擴展集，請跳至步驟 5，此步驟將說明如何將多個使用者指派的受控識別新增到虛擬機器擴展集，同時維持系統指派的受控識別。
 
    下列範例會將使用者指派的受控識別 `ID1` 指派給資源群組 *myResourceGroup* 中名為 *myVMSS* 的虛擬機器擴展集。  將上一個步驟中要求持有人存取權杖時所收到的值用以取代 `<ACCESS TOKEN>`值，`<SUBSCRIPTION ID>` 的值則為適用於您的環境的值。
 
-   **API 版本 2018-06-01**
+   **API 版本 2018年-06-01**
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -559,9 +559,9 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    |要求標頭  |描述  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
-   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
+   |*Authorization*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
 
-   **要求本文**
+   **Request body**
 
    ```JSON
     {
@@ -576,7 +576,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
     }
    ``` 
     
-   **API 版本 2017-12-01**
+   **API 版本 2017年-12-01**
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -591,9 +591,9 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    |要求標頭  |描述  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
-   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
+   |*Authorization*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
 
-   **要求本文**
+   **Request body**
 
    ```JSON
     {
@@ -608,7 +608,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 5. 如果您將現有的使用者指派或系統指派受控識別指派給虛擬機器擴展集：
    
-   **API 版本 2018-06-01**
+   **API 版本 2018年-06-01**
 
    將使用者指派的受控識別新增至 `userAssignedIdentities` 字典值。
 
@@ -627,9 +627,9 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    |要求標頭  |描述  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
-   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
+   |*Authorization*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
 
-   **要求本文**
+   **Request body**
 
    ```JSON
     {
@@ -647,7 +647,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
     }
    ```
 
-   **API 版本 2017-12-01**
+   **API 版本 2017年-12-01**
 
    保留您想要留在 `identityIds` 陣列值內的使用者指派受控識別，同時新增使用者指派的受控識別。
 
@@ -666,9 +666,9 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    |要求標頭  |描述  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
-   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
+   |*Authorization*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
 
-   **要求本文**
+   **Request body**
 
    ```JSON
     {
@@ -704,13 +704,13 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
    |要求標頭  |描述  |
    |---------|---------|
-   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。 |
+   |*Authorization*     | 必要。 設定為有效的 `Bearer` 存取權杖。 |
    
    若您有指派給虛擬機器的受控識別，則會在 `identity` 值的回應中列出。 
     
    例如，如果您將使用者指派的受控識別 `ID1` 和 `ID2` 指派給虛擬機器擴展集，而且只想要繼續指派 `ID1`，並保留系統指派的受控識別：
 
-   **API 版本 2018-06-01**
+   **API 版本 2018年-06-01**
 
    將 `null` 新增至您想要移除的使用者指派受控識別：
 
@@ -727,9 +727,9 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    |要求標頭  |描述  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
-   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
+   |*Authorization*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
 
-   **要求本文**
+   **Request body**
 
    ```JSON
     {
@@ -742,7 +742,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
     }
    ```
 
-   **API 版本 2017-12-01**
+   **API 版本 2017年-12-01**
 
    只保留您想要留在 `identityIds` 陣列中的使用者指派受控識別：
 
@@ -759,9 +759,9 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    |要求標頭  |描述  |
    |---------|---------|
    |*Content-Type*     | 必要。 設定為 `application/json`。        |
-   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
+   |*Authorization*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
 
-   **要求本文**
+   **Request body**
 
    ```JSON
     {
@@ -789,9 +789,9 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 |要求標頭  |描述  |
 |---------|---------|
 |*Content-Type*     | 必要。 設定為 `application/json`。        |
-|*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
+|*Authorization*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
 
-**要求本文**
+**Request body**
 
 ```JSON
 {
@@ -816,9 +816,9 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 |要求標頭  |描述  |
 |---------|---------|
 |*Content-Type*     | 必要。 設定為 `application/json`。        |
-|*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
+|*Authorization*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
 
-**要求本文**
+**Request body**
 
 ```JSON
 {

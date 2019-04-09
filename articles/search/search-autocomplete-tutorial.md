@@ -7,23 +7,23 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/04/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: 9fb3cdd4b4b809e45180cd95b8fe930cce86826e
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 43d289f2688bbf4927ee244d6ae9992782bf380e
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498803"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009813"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>範例：將建議或自動完成功能新增至您的 Azure 搜尋服務應用程式
 
-在此範例中，了解如何使用[建議](https://docs.microsoft.com/rest/api/searchservice/suggestions)並[自動完成](https://docs.microsoft.com/rest/api/searchservice/autocomplete)建置功能強大的搜尋方塊中支援搜尋---輸入時的行為。
+在這篇文章，了解如何使用[建議](https://docs.microsoft.com/rest/api/searchservice/suggestions)並[自動完成](https://docs.microsoft.com/rest/api/searchservice/autocomplete)建置功能強大的搜尋方塊中支援搜尋---輸入時的行為。
 
-+ *建議*是一份建議產生當您輸入時，其中每項建議是符合您已到目前為止輸入索引的單一結果的結果。 
++ *建議*會產生當您輸入時，其中每項建議是符合您已到目前為止輸入索引的單一結果的建議的結果。 
 
-+ *自動完成*，[預覽功能](search-api-preview.md)，「 完成 」 的單字或片語，在使用者目前輸入。 如同建議，已完成的單字或片語被基於索引中相符項目。 
++ *自動完成*，[預覽功能](search-api-preview.md)，「 完成 」 的單字或片語，在使用者目前輸入。 而不是傳回結果，它會完成的查詢，即可執行以傳回結果。 如同建議，已完成的單字或片語查詢中的都被基於索引中相符項目。 服務不會提供傳回零筆結果，在索引中的查詢。
 
 您可以下載並執行範例應用程式**DotNetHowToAutocomplete**來評估這些功能。 範例程式碼為目標的預先建置的索引，填入[為 NYCJobs 示範資料](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)。 為 NYCJobs 索引包含[建議工具建構](index-add-suggesters.md)，這是建議或自動完成是必要項。 您可以使用裝載在沙箱服務中，已備妥之的索引或[填入您自己的索引](#configure-app)為 NYCJobs 範例方案中使用的資料載入器。 
 
@@ -42,7 +42,7 @@ ms.locfileid: "58498803"
 
 Azure 搜尋服務是針對此練習中選擇性的因為解決方案會使用即時沙箱服務裝載的已備妥的為 NYCJobs 示範索引也一樣。 如果您想要在您自己的搜尋服務上執行這個範例，請參閱[設定 NYC 工作索引](#configure-app)如需相關指示。
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)，任何版本。 免費的 Community edition 上測試範例程式碼和指示。
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 的任何版本。 範例程式碼和指示已在免費的 Community 版本上經過測試。
 
 * 下載[DotNetHowToAutoComplete 範例](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)。
 
@@ -89,7 +89,7 @@ $(function () {
 });
 ```
 
-若要設定 「 example1a"的輸入方塊的 jQuery UI 自動完成的頁面載入上，瀏覽器中執行上述程式碼。  `minLength: 3` 可確保在搜尋方塊中至少有三個字元時，才會顯示建議。  來源值很重要：
+若要設定 「 example1a"的輸入方塊的 jQuery UI 自動完成的頁面載入上，瀏覽器中執行上述程式碼。  `minLength: 3` 可確保在搜尋方塊中有至少三個字元時，才會顯示建議。  來源值很重要：
 
 ```javascript
 source: "/home/suggest?highlights=false&fuzzy=false&",
@@ -156,7 +156,7 @@ $(function () {
 });
 ```
 
-## <a name="c-version"></a>C#版本
+## <a name="c-example"></a>C# 範例
 
 既然我們已檢閱了網頁的 JavaScript 程式碼，讓我們看看C#實際擷取建議的相符項目使用 Azure 搜尋服務.NET SDK 的伺服器端控制器程式碼。
 
@@ -229,9 +229,11 @@ public ActionResult AutoComplete(string term)
 
 在頁面上的其他範例會遵循相同的模式，將搜尋結果醒目提示和以支援用戶端快取的自動完成結果的 facet。 檢閱上述每一個項目以了解其運作方式，以及如何在搜尋體驗中運用這些項目。
 
-## <a name="javascript-version-with-rest"></a>使用 REST 的 JavaScript 版本
+## <a name="javascript-example"></a>JavaScript 範例
 
-如需 JavaScript 實作中，開啟**IndexJavaScript.cshtml**。 請注意，jQuery UI 自動完成函式也會用於搜尋方塊中，收集搜尋詞彙輸入進行非同步呼叫以擷取 Azure 搜尋服務建議的相符項目或完成條款。 
+自動完成和建議的 Javascript 實作會呼叫 REST API，做為來源使用的 URI，以指定的索引和作業。 
+
+若要檢閱 JavaScript 實作，請開啟**IndexJavaScript.cshtml**。 請注意，jQuery UI 自動完成函式也會用於搜尋方塊中，收集搜尋詞彙輸入進行非同步呼叫以擷取 Azure 搜尋服務建議的相符項目或完成條款。 
 
 請看第一個範例的 JavaScript 程式碼：
 
@@ -291,7 +293,7 @@ var autocompleteUri = "https://" + searchServiceName + ".search.windows.net/inde
 
 到目前為止，您已使用的裝載為 NYCJobs 示範索引。 如果您想要完整可見性的所有程式碼，包括索引，請遵循下列指示來建立並載入您自己的搜尋服務中的索引。
 
-1. [建立 Azure 搜尋服務](search-create-service-portal.md)或是[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)目前訂用帳戶。 您可以使用此範例中的免費服務。 
+1. [建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用此範例中的免費服務。 
 
    > [!Note]
    > 如果您使用免費的 Azure 搜尋服務，則最多只能使用三個索引。 NYCJobs 資料載入器會建立兩個索引。 請確定服務內有空間可接受新的索引。

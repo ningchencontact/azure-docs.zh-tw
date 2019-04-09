@@ -4,7 +4,7 @@ items:
   href: latest/
 - name: Azure 媒體服務 v2 (舊版)
   href: previous/media-services-overview.md
-- name: 影片索引子
+- name: Azure 媒體服務影片索引器
   href: video-indexer/
 - name: Azure 媒體播放器
   href: http://amp.azure.net/libs/amp/latest/docs/index.html
@@ -14,9 +14,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=media
   - name: 定價計算機
     href: https://azure.microsoft.com/pricing/calculator/
-ms.openlocfilehash: 2c5a13e8982761596ae2e08c4a54845310b6f80c
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: b4aa4e90b23f6c15753ee874a57b0d85d6fcc4fa
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660738"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049943"

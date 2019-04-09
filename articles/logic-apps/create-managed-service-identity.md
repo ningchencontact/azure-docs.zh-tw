@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
-ms.openlocfilehash: c5fabf37ecc97f8edea437f1628949e45aefde77
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 8445b67fa049116d93f3710ff108f904ca7ecd77
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755696"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010544"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>使用 Azure Logic Apps 中的受控識別驗證及存取資源
 
@@ -113,8 +113,8 @@ ms.locfileid: "58755696"
 
 | 屬性 | 值 | 描述 | 
 |----------|-------|-------------|
-| **principalId** | <*principal-ID*> | 代表 Azure AD 租用戶中的邏輯應用程式，且有時會以「物件識別碼」或 `objectID` 之形式呈現的全域唯一識別碼 (GUID) | 
-| tenantId | <*Azure-AD-tenant-ID*> | 代表邏輯應用程式現在已是其成員之 Azure AD 租用戶的全域唯一識別碼 (GUID)。 在 Azure AD 租用戶中，服務主體會有與邏輯應用程式執行個體相同的名稱。 | 
+| **principalId** | <*principal-ID*> | 全域唯一識別碼 (GUID)，表示邏輯應用程式在 Azure AD 租用戶中，有時會顯示為 [物件識別碼] 或 `objectID` | 
+| **tenantId** | <*Azure-AD-tenant-ID*> | 代表邏輯應用程式現在已是其成員之 Azure AD 租用戶的全域唯一識別碼 (GUID)。 在 Azure AD 租用戶中，服務主體會有與邏輯應用程式執行個體相同的名稱。 | 
 ||| 
 
 <a name="access-other-resources"></a>
@@ -158,7 +158,7 @@ ms.locfileid: "58755696"
    在 [URI] 方塊中，輸入該 Azure 服務的端點 URL。 
    因此，假設您是使用 Azure Resource Manager，請在 [URI] 屬性中輸入此值：
 
-   `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version-2016-06-01`
+   `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version=2016-06-01`
 
 1. 在 HTTP 動作中，選擇 [顯示進階選項]。
 

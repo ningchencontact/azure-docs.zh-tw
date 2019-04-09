@@ -6,21 +6,22 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-ms.assetid: na
+ms.assetid: 0be9c435-f9a1-484d-8059-e578d5797d8e
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 03/27/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ed8bae32cb8d0680b1f9aa66f26407c3313ea06
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: f732eebd410a6b52a21a46925a29bf4676f7c8cb
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077814"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057484"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>教學課程：設定 Tableau Online 來自動佈建使用者
 
@@ -43,29 +44,23 @@ ms.locfileid: "58077814"
 ## <a name="adding-tableau-online-from-the-gallery"></a>從資源庫新增 Tableau Online
 將 Tableau Online 設定為可使用 Azure AD 自動佈建使用者之前，您必須從 Azure AD 應用程式庫將 Tableau Online 新增至您的受控 SaaS 應用程式清單。
 
-**若要從 Azure AD 應用程式庫新增 Tableau Online，請執行下列步驟：**
+**若要新增 Tableau Online 從 Azure AD 應用程式庫，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
-    ![Azure Active Directory 按鈕][1]
+    ![Azure Active Directory 按鈕](common/select-azuread.png)
 
-2. 瀏覽至 [企業應用程式] > [所有應用程式]。
+2. 瀏覽至 [企業應用程式]，然後選取 [所有應用程式] 選項。
 
-    ![企業應用程式區段][2]
+    ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-3. 若要新增 Tableau Online，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
+3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![新增應用程式按鈕][3]
+    ![新增應用程式按鈕](common/add-new-app.png)
 
-4. 在搜尋方塊中，輸入 **Tableau Online**。
+4. 在 搜尋 方塊中，輸入**Tableau Online**，選取**Tableau Online**從結果面板中按一下 **新增**按鈕以新增應用程式。
 
-    ![Tableau Online 佈建](./media/tableau-online-provisioning-tutorial/AppSearch.png)
-
-5. 在結果窗格中，選取 [Tableau Online]，然後按一下 [新增] 按鈕，將 Tableau Online 新增至您的 SaaS 應用程式清單。
-
-    ![Tableau Online 佈建](./media/tableau-online-provisioning-tutorial/AppSearchResults.png)
-
-    ![Tableau Online 佈建](./media/tableau-online-provisioning-tutorial/AppCreation.png)
+    ![結果清單中的 tableau Online](common/search-new-app.png)
 
 ## <a name="assigning-users-to-tableau-online"></a>將使用者指派給 Tableau Online
 
@@ -90,11 +85,13 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 ### <a name="to-configure-automatic-user-provisioning-for-tableau-online-in-azure-ad"></a>若要在 Azure AD 中為 Tableau Online 設定自動使用者佈建：
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)，然後瀏覽至 [Azure Active Directory] > [企業應用程式] > [所有應用程式]。
+1. 登入[Azure 入口網站](https://portal.azure.com)，然後選取**企業應用程式**，選取**所有應用程式**，然後選取**Tableau Online**。
 
-2. 從您的 SaaS 應用程式清單中選取 Tableau Online。
+    ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
-    ![Tableau Online 佈建](./media/tableau-online-provisioning-tutorial/AppInstanceSearch.png)
+2. 在應用程式清單中，選取 [Tableau Online] 。
+
+    ![應用程式清單中的 [Tableau Online] 連結](common/all-applications.png)
 
 3. 選取 [佈建] 索引標籤。
 
@@ -116,13 +113,16 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 6. 登入 Tableau Online 的系統管理帳戶之後，即可從系統管理頁面的 URL 中擷取 [網域] 和 [內容 URL] 的值。
 
-    *   Tableau Online 帳戶的**網域**可以從 URL 的這個部分複製：![Tableau Online 佈建](./media/tableau-online-provisioning-tutorial/DomainUrlPart.png)
+    * Tableau Online 帳戶的**網域**可以從 URL 的這個部分複製：
 
-    *   Tableau Online 帳戶的**內容 URL**可從此區段複製，這是在帳戶設定期間所定義的值。 在此範例中，值是 "contoso"：![Tableau Online 佈建](./media/tableau-online-provisioning-tutorial/ContentUrlPart.png)
+        ![Tableau Online 佈建](./media/tableau-online-provisioning-tutorial/DomainUrlPart.png)
+
+    * Tableau Online 帳戶的**內容 URL**可從此區段複製，這是在帳戶設定期間所定義的值。 在此範例中，值是 "contoso"：
+
+        ![Tableau Online 佈建](./media/tableau-online-provisioning-tutorial/ContentUrlPart.png)
 
         > [!NOTE]
-        > 您的**網域**可能會與此處顯示的不一樣。 
-
+        > 您的**網域**可能會與此處顯示的不一樣。
 
 7. 如步驟 5 所示填寫欄位後，按一下 [測試連線] 以確認 Azure AD 可以連線到 Tableau Online。 如果連線失敗，請確定您的 Tableau Online 帳戶具有管理員權限，然後再試一次。
 
@@ -132,35 +132,35 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
     ![Tableau Online 佈建](./media/tableau-online-provisioning-tutorial/EmailNotification.png)
 
-10. 按一下 [檔案] 。
+9. 按一下 [檔案] 。
 
-11. 在 [對應] 區段中，選取 [將 Azure Active Directory 使用者同步至 Tableau]。
+10. 在 [對應] 區段中，選取 [將 Azure Active Directory 使用者同步至 Tableau]。
 
     ![Tableau Online 佈建](./media/tableau-online-provisioning-tutorial/UserMappings.png)
 
-12. 在 [屬性對應] 區段中，檢閱從 Azure AD 同步處理至 Tableau Online 的使用者屬性。 選取為 [比對] 屬性的屬性會用來比對 Tableau Online 中的使用者帳戶以進行更新作業。 選取 [儲存] 按鈕以認可所有變更。
+11. 在 [屬性對應] 區段中，檢閱從 Azure AD 同步處理至 Tableau Online 的使用者屬性。 選取為 [比對] 屬性的屬性會用來比對 Tableau Online 中的使用者帳戶以進行更新作業。 選取 [儲存] 按鈕以認可所有變更。
 
     ![Tableau Online 佈建](./media/tableau-online-provisioning-tutorial/UserAttributeMapping.png)
 
-13. 在 [對應] 區段中，選取 [同步處理 Azure Active Directory 群組至 Tableau]。
+12. 在 [對應] 區段中，選取 [同步處理 Azure Active Directory 群組至 Tableau]。
 
     ![Tableau Online 佈建](./media/tableau-online-provisioning-tutorial/GroupMappings.png)
 
-14. 在 [屬性對應] 區段中，檢閱從 Azure AD 同步處理至 Tableau Online 的群組屬性。 選取為 [比對] 屬性的屬性會用來比對 Tableau Online 中的使用者帳戶以進行更新作業。 選取 [儲存] 按鈕以認可所有變更。
+13. 在 [屬性對應] 區段中，檢閱從 Azure AD 同步處理至 Tableau Online 的群組屬性。 選取為 [比對] 屬性的屬性會用來比對 Tableau Online 中的使用者帳戶以進行更新作業。 選取 [儲存] 按鈕以認可所有變更。
 
     ![Tableau Online 佈建](./media/tableau-online-provisioning-tutorial/GroupAttributeMapping.png)
 
-15. 若要設定範圍篩選，請參閱[範圍篩選教學課程](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)中提供的下列指示。
+14. 若要設定範圍篩選，請參閱[範圍篩選教學課程](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)中提供的下列指示。
 
-16. 若要啟用 Tableau Online 的 Azure AD 佈建服務，在 [設定]區段中，將 [佈建狀態] 變更為 [開啟]。
+15. 若要啟用 Tableau Online 的 Azure AD 佈建服務，在 [設定]區段中，將 [佈建狀態] 變更為 [開啟]。
 
     ![Tableau Online 佈建](./media/tableau-online-provisioning-tutorial/ProvisioningStatus.png)
 
-17. 透過在 [設定] 區段的 [範圍] 中選擇需要的值，可定義要佈建到 Tableau Online 的使用者和/或群組。
+16. 透過在 [設定] 區段的 [範圍] 中選擇需要的值，可定義要佈建到 Tableau Online 的使用者和/或群組。
 
     ![Tableau Online 佈建](./media/tableau-online-provisioning-tutorial/ScopeSync.png)
 
-18. 當您準備好要佈建時，按一下 [儲存]。
+17. 當您準備好要佈建時，按一下 [儲存]。
 
     ![Tableau Online 佈建](./media/tableau-online-provisioning-tutorial/SaveProvisioning.png)
 
@@ -170,13 +170,12 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 ## <a name="additional-resources"></a>其他資源
 
-* [管理企業應用程式的使用者帳戶佈建](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [管理企業應用程式的佈建的使用者帳戶](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)
-
 
 ## <a name="next-steps"></a>後續步驟
 
-* [瞭解如何針對佈建活動檢閱記錄和取得報告](../manage-apps/check-status-user-account-provisioning.md)
+* [了解如何檢閱記錄檔，並取得有關佈建活動報告](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/tableau-online-provisioning-tutorial/tutorial_general_01.png

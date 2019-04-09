@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: d35918659acb899e43f76e94168abcba080aa006
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 1c80395880c556138313ebfd9af1610ace946c8a
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452125"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006762"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure 中的網路效能監控解決方案
 
@@ -59,7 +59,7 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 
 ### <a name="install-and-configure-agents"></a>安裝及設定代理程式 
 
-使用[將 Windows 電腦連接到 Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) 和[將 Operations Manager 連接到 Log Analytics](../../azure-monitor/platform/om-agents.md) 中的基本程序，進行代理程式安裝。
+若要安裝代理程式使用基本程序[連線的 Windows 電腦連線到 Azure 監視器](../platform/agent-windows.md)並[Operations Manager 連接到 Azure 監視器](../platform/om-agents.md)。
 
 ### <a name="where-to-install-the-agents"></a>安裝代理程式的位置 
 
@@ -101,7 +101,7 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 
 ### <a name="configure-the-solution"></a>設定方案 
 
-1. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) 將網路效能監視器解決方案新增至您的 OMS 工作區。 您也可以使用[從方案庫新增 Log Analytics 解決方案](../../azure-monitor/insights/solutions.md)中說明的程序。 
+1. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) 將網路效能監視器解決方案新增至您的 OMS 工作區。 您也可以使用中的程序[從方案庫新增 Azure 監視解決方案](../../azure-monitor/insights/solutions.md)。 
 2. 開啟 Log Analytics 工作區，然後選取 [概觀] 圖格。 
 3. 選取含有 *「解決方案需要其他設定」* 訊息的 [網路效能監視器]  圖格。
 
@@ -168,7 +168,7 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
  
 
  
-此方案會使用綜合交易來評估網路的健全狀況。 Log Analytics 代理程式已安裝在網路交換 TCP 封包或 ICMP Echo 相互執行的各種端點上。 代理程式會使用 TCP 封包還是 ICMP Echo，取決於您為監視選取的通訊協定。 在過程中，代理程式會了解來回行程時間和封包遺失 (如果有的話)。 此外，每個代理程式也會定期執行其他代理程式的路徑追蹤，以找出網路中必須測試的所有各種路由。 使用這項資料，代理程式就能夠推論網路延遲和封包遺失數字。 測試會每五秒重複一次。 代理程式會先彙總資料約三分鐘，再將資料上傳至 Log Analytics 服務。
+此方案會使用綜合交易來評估網路的健全狀況。 Log Analytics 代理程式已安裝在網路交換 TCP 封包或 ICMP Echo 相互執行的各種端點上。 代理程式會使用 TCP 封包還是 ICMP Echo，取決於您為監視選取的通訊協定。 在過程中，代理程式會了解來回行程時間和封包遺失 (如果有的話)。 此外，每個代理程式也會定期執行其他代理程式的路徑追蹤，以找出網路中必須測試的所有各種路由。 使用這項資料，代理程式就能夠推論網路延遲和封包遺失數字。 測試會每五秒重複一次。 資料會彙總三分鐘的代理程式之前上傳至 Azure 監視器中的 Log Analytics 工作區。
 
 
 
@@ -241,9 +241,9 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 ![拓撲圖](media/network-performance-monitor/topology-map.png)
  
 
-## <a name="log-analytics-search"></a>Log Analytics 搜尋 
+## <a name="log-queries-in-azure-monitor"></a>Azure 監視器中的記錄檔查詢
 
-以圖形方式透過網路效能監視器儀表板和深入鑽研頁面公開的所有資料，也都可以在 [Log Analytics 搜尋](../../azure-monitor/log-query/log-query-overview.md)中取得。 您可以對存放庫中的資料執行互動式分析，並且讓不同來源的資料相互關聯。 您也可以建立自訂警示和檢視，並將資料匯出至 Excel、Power BI 或可共用的連結。 儀表板中的  **[常用查詢]**  區域有一些實用的查詢，您可以使用這些查詢作為起點來建立自己的查詢和報告。 
+以圖形方式透過網路效能監視器儀表板和向下鑽研頁面公開的所有資料也都會提供原生[記錄查詢](../log-query/log-query-overview.md)。 您可以對存放庫中的資料執行互動式分析，並且讓不同來源的資料相互關聯。 您也可以建立自訂警示和檢視，並將資料匯出至 Excel、Power BI 或可共用的連結。 儀表板中的  **[常用查詢]**  區域有一些實用的查詢，您可以使用這些查詢作為起點來建立自己的查詢和報告。 
 
 ## <a name="alerts"></a>警示
 
@@ -251,7 +251,7 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 
 這表示所有通知都可透過[動作群組](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview)來加以管理。  
 
-如果您是透過 Log Analytics 建立警示的 NPM 使用者： 
+如果您是建立透過 LAzure 監視器警示的 NPM 使用者： 
 1. 將您重新導向 Azure 入口網站的連結將會出現。 按一下可存取入口網站。
 2. 按一下 [網路效能監控] 解決方案圖格。 
 3. 導覽至 [設定]。  

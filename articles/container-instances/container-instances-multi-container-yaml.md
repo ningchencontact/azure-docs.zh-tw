@@ -1,38 +1,51 @@
 ---
-title: 使用 CLI 和 YAML 在 Azure 容器執行個體中部署多個容器群組
-description: 了解如何使用 Azure CLI 和 YAML 檔案在 Azure 容器執行個體中部署具有多個容器的容器群組。
+title: 教學課程-部署多容器群組在 Azure Container Instances YAML
+description: 在本教學課程中，您將了解如何使用 Azure CLI 使用 YAML 檔案來部署 Azure Container Instances 中的多個容器的容器群組。
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/03/2019
 ms.author: danlep
-ms.openlocfilehash: 10f2340bd85da3dabcd50d51a4dd56d58d31675b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a0a91ece4f219cf822673cd457c064c326b89478
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372432"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006181"
 ---
-# <a name="deploy-a-multi-container-container-group-with-yaml"></a>使用 YAML 部署多容器的容器群組
+# <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>教學課程：部署多容器群組使用 YAML 檔案
 
-Azure 容器執行個體支援使用[容器群組](container-instances-container-groups.md)將多個容器部署至單一主機。 在建置應用程式 Sidecar 以便記錄、監視或進行服務需要第二個附加程序的任何其他設定時，多容器的容器群組非常有用。
+> [!div class="op_single_selector"]
+> * [YAML](container-instances-multi-container-yaml.md)
+> * [Resource Manager](container-instances-multi-container-group.md)
+>
 
-使用 Azure CLI 來部署多容器群組有兩種方法：
+Azure 容器執行個體支援使用[容器群組](container-instances-container-groups.md)將多個容器部署至單一主機。 容器群組時，建置應用程式 sidecar 記錄、 監視或任何其他設定的服務需要第二個附加的處理序。
 
-* YAML 檔案部署 (本文)
-* [Resource Manager 範本部署](container-instances-multi-container-group.md)
+在本教學課程中，您可以遵循步驟來部署 YAML 檔案，使用 Azure CLI 執行簡單的兩個容器 sidecar 設定。 YAML 檔案會提供精簡的格式來指定執行個體設定。 您會了解如何：
 
-由於 YAML 格式的本質較簡潔，當您的部署「只」包含容器執行個體時，建議您使用 YAML 檔案進行部署。 如果您在部署容器執行個體時，需要部署其他 Azure 服務資源 (例如 Azure 檔案服務共用)，建議您使用 Resource Manager 範本部署。
+> [!div class="checklist"]
+> * 設定 YAML 檔案
+> * 部署容器群組
+> * 檢視容器記錄
 
 > [!NOTE]
-> 多容器群組目前僅限於 Linux 容器。 在我們致力於將所有功能帶入 Windows 容器的同時，您可以在 [Azure 容器執行個體配額和區域可用性](container-instances-quotas.md)中找到目前的平台差異。
+> 多容器群組目前僅限於 Linux 容器。
 
-## <a name="configure-the-yaml-file"></a>設定 YAML 檔案
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-若要在 Azure CLI 中使用 [az container create][az-container-create] 命令部署多容器的容器群組，您必須在 YAML 檔案中指定容器群組組態，然後以參數的形式將 YAML 檔案傳遞到命令中。
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-一開始先將下列 YAML 複製到名為 **deploy-aci.yaml** 的新檔案中。
+## <a name="configure-a-yaml-file"></a>設定 YAML 檔案
+
+若要部署多容器群組[az 容器建立][ az-container-create]命令在 Azure CLI 中，您必須在 YAML 檔案中指定的容器群組設定。 然後將 YAML 檔案，做為參數傳遞的命令。
+
+一開始先將下列 YAML 複製到名為 **deploy-aci.yaml** 的新檔案中。 在 Azure Cloud Shell 中，您可以使用 Visual Studio Code，在您的工作目錄中建立檔案：
+
+```
+code deploy-aci.yaml
+```
 
 此 YAML 檔案會定義名為 "myContainerGroup"，且含有兩個容器 (一個公用 IP 位址和兩個公開連接埠) 的容器群組。 容器會從公用 Microsoft 映像進行部署。 群組中第一個容器會執行網際網路對向的 Web 應用程式。 第二個容器 sidecar 會透過容器群組的區域網路，定期對第一個容器中執行的 Web 應用程式執行 HTTP 要求。
 
@@ -71,6 +84,15 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
+若要使用私用容器映像登錄，新增`imageRegistryCredentials`屬性，以在容器群組，修改為您的環境的值：
+
+```YAML
+  imageRegistryCredentials:
+  - server: imageRegistryLoginServer
+    username: imageRegistryUsername
+    password: imageRegistryPassword
+```
+
 ## <a name="deploy-the-container-group"></a>部署容器群組
 
 使用 [az group create][az-group-create] 命令來建立資源群組：
@@ -103,9 +125,9 @@ Name              ResourceGroup    Status    Image                              
 myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tutorial-sidecar,mcr.microsoft.com/azuredocs/aci-helloworld:latest  20.42.26.114:80,8080  Public     1.0 core/1.5 gb  Linux     eastus
 ```
 
-## <a name="view-logs"></a>檢視記錄檔
+## <a name="view-container-logs"></a>檢視容器記錄
 
-使用 [az container logs][az-container-logs] 命令，檢視容器的記錄輸出。 `--container-name` 引數會指定要從中提取記錄的容器。 此範例所指定的會是第一個容器。
+使用 [az container logs][az-container-logs] 命令，檢視容器的記錄輸出。 `--container-name` 引數會指定要從中提取記錄的容器。 在此範例中，`aci-tutorial-app`指定容器。
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
@@ -120,7 +142,7 @@ listening on port 80
 ::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-若要查看 Sidecar 容器的記錄，請執行相同命令來指定第二個容器名稱。
+若要查看 sidecar 容器的記錄，執行類似的命令指定`aci-tutorial-sidecar`容器。
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
@@ -146,92 +168,25 @@ Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
-如您所見，Sidecar 會透過群組的區域網路定期地向主要 Web 應用程式提出 HTTP 要求，以確保它正在執行。 您可以擴充此 Sidecar 範例，以在其收到 200 OK 以外的 HTTP 回應碼時觸發警示。
-
-## <a name="deploy-from-private-registry"></a>從私人登錄部署
-
-若要使用私人容器映像登錄，請加入下列 YAML 和針對您環境修改的值：
-
-```YAML
-  imageRegistryCredentials:
-  - server: imageRegistryLoginServer
-    username: imageRegistryUsername
-    password: imageRegistryPassword
-```
-
-例如，下列 YAML 部署的容器群組包含了單一容器，其映像就是取自名為"myregistry" 的私人 Azure 容器登錄：
-
-```YAML
-apiVersion: 2018-10-01
-location: eastus
-name: myContainerGroup2
-properties:
-  containers:
-  - name: aci-tutorial-app
-    properties:
-      image: myregistry.azurecr.io/aci-helloworld:latest
-      resources:
-        requests:
-          cpu: 1
-          memoryInGb: 1.5
-      ports:
-      - port: 80
-  osType: Linux
-  ipAddress:
-    type: Public
-    ports:
-    - protocol: tcp
-      port: '80'
-  imageRegistryCredentials:
-  - server: myregistry.azurecr.io
-    username: myregistry
-    password: REGISTRY_PASSWORD
-tags: null
-type: Microsoft.ContainerInstance/containerGroups
-```
-
-## <a name="export-container-group-to-yaml"></a>將容器群組匯出至 YAML
-
-您可以使用 Azure CLI 的 [az container export][az-container-export] 命令，將現有容器群組的組態匯出至 YAML 檔案。
-
-為方便保留容器群組的組態，匯出可讓您將容器群組組態儲存在「組態即代碼 (configuration as code)」的版本控制中。 或者，在 YAML 中開發新組態時，您可以使用匯出的檔案作為起點。
-
-發出下列 [az container export][az-container-export] 命令，即可匯出稍早建立的容器群群組組態：
-
-```azurecli-interactive
-az container export --resource-group myResourceGroup --name myContainerGroup --file deployed-aci.yaml
-```
-
-命令執行成功時不會顯示輸出，但您可以檢視檔案的內容以查看結果。 例如，`head` 後的前幾行：
-
-```console
-$ head deployed-aci.yaml
-additional_properties: {}
-apiVersion: '2018-06-01'
-location: eastus
-name: myContainerGroup
-properties:
-  containers:
-  - name: aci-tutorial-app
-    properties:
-      environmentVariables: []
-      image: mcr.microsoft.com/azuredocs/aci-helloworld:latest
-```
+如您所見，Sidecar 會透過群組的區域網路定期地向主要 Web 應用程式提出 HTTP 要求，以確保它正在執行。 可以擴充此 sidecar 範例，以觸發警示，如果它收到的 HTTP 回應碼以外`200 OK`。
 
 ## <a name="next-steps"></a>後續步驟
 
-本文涵蓋部署多容器 Azure 容器執行個體所需的步驟。 如需端對端的 Azure 容器執行個體體驗 (包括使用私人 Azure 容器登錄)，請參閱 Azure 容器執行個體教學課程。
+在本教學課程中，您可以使用 YAML 檔案來部署 Azure Container Instances 中的多容器群組。 您已了解如何︰
 
-> [!div class="nextstepaction"]
-> [Azure 容器執行個體教學課程][aci-tutorial]
+> [!div class="checklist"]
+> * 設定多容器群組的 YAML 檔案
+> * 部署容器群組
+> * 檢視容器記錄
+
+您也可以指定多個容器群組，使用[Resource Manager 範本](container-instances-multi-container-group.md)。 當您需要部署額外的 Azure 服務與容器群組的資源時，Resource Manager 範本，可輕易地調整案例。
 
 <!-- LINKS - External -->
-[cli-issue-6525]: https://github.com/Azure/azure-cli/issues/6525
+
 
 <!-- LINKS - Internal -->
 [aci-tutorial]: ./container-instances-tutorial-prepare-app.md
 [az-container-create]: /cli/azure/container#az-container-create
-[az-container-export]: /cli/azure/container#az-container-export
 [az-container-logs]: /cli/azure/container#az-container-logs
 [az-container-show]: /cli/azure/container#az-container-show
 [az-group-create]: /cli/azure/group#az-group-create

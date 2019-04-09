@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: 7e14b5f2c5f84c4f1f21454f733987df6933f0c7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c4950d03449f2b293a87ab88f1ea3f49eee29557
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886621"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006639"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS 入口網站移至 Azure
 
@@ -70,7 +70,7 @@ Azure 入口網站存取管理功能，比在 OMS 入口網站中的存取管理
  
 
 ## <a name="new-workspaces"></a>新工作區
-您無法再使用 OMS 入口網站來建立新的工作區。 若要在 Azure 入口網站中建立新工作區，請遵循[在 Azure 入口網站中建立 Log Analytics 工作區](../../azure-monitor/learn/quick-create-workspace.md)的指引。
+您無法再使用 OMS 入口網站來建立新的工作區。 若要在 Azure 入口網站中建立新工作區，請遵循[在 Azure 入口網站中建立 Log Analytics 工作區](../learn/quick-create-workspace.md)的指引。
 
 ## <a name="changes-to-alerts"></a>警示的變更
 
@@ -79,25 +79,25 @@ Azure 入口網站存取管理功能，比在 OMS 入口網站中的存取管理
 > [!NOTE]
 > 公用雲端的警示功能現在已完全擴充至 Azure 入口網站。 您可以在 OMS 入口網站中檢視現有的警示規則，但只能在 Azure 入口網站中管理這些警示規則。 警示將在 2019 年 2 月從 Azure 政府雲端開始擴充至 Azure 入口網站中。
 
-警示已[擴充至 Azure 入口網站](../../azure-monitor/platform/alerts-extend.md)。 一旦完成後，警示的管理動作將只能在 Azure 入口網站中使用。 現有警示會繼續列在 OMS 入口網站中。 若您藉由使用 Log Analytics 警示 REST API 或 Log Analytics 警示資源範本以程式設計的方式存取警示，則必須使用動作群組，而非您 API 呼叫、Azure Resource Manager 範本及 PowerShell 命令中的動作。
+警示已[擴充至 Azure 入口網站](alerts-extend.md)。 一旦完成後，警示的管理動作將只能在 Azure 入口網站中使用。 現有警示會繼續列在 OMS 入口網站中。 若您藉由使用 Log Analytics 警示 REST API 或 Log Analytics 警示資源範本以程式設計的方式存取警示，則必須使用動作群組，而非您 API 呼叫、Azure Resource Manager 範本及 PowerShell 命令中的動作。
 
 ### <a name="alert-management-solution"></a>警示管理解決方案
-如先前公告的變更，Azure 入口網站將會繼續提供及完整地支援[警示管理解決方案](../../azure-monitor/platform/alert-management-solution.md)。 您可以繼續從 Azure Marketplace 安裝該解決方案。
+如先前公告的變更，Azure 入口網站將會繼續提供及完整地支援[警示管理解決方案](alert-management-solution.md)。 您可以繼續從 Azure Marketplace 安裝該解決方案。
 
-雖然仍可繼續取得警示管理解決方案，但我們鼓勵您使用 [Azure 監視器的整合警示介面](../../azure-monitor/platform/alerts-overview.md)，以在 Azure 中視覺化及管理所有警示。 這個新體驗會從 Azure 內多個來源原生地彙總警示，包括 Log Analytics 的記錄檔警示。 如果您使用 Azure 監視器的整合警示介面，則只有在啟用來自 System Center Operation Manager 的警示整合時，才需要警示管理解決方案。 在 Azure 監視器的整合警示介面中，您可以看到警示的分佈、透過智慧型群組充分利用對相關警示的自動化分組功能，以及套用豐富的篩選器同時檢視多個訂用帳戶的警示。 警示管理的未來改進主要都能從此新體驗取得。 
+雖然仍可繼續取得警示管理解決方案，但我們鼓勵您使用 [Azure 監視器的整合警示介面](alerts-overview.md)，以在 Azure 中視覺化及管理所有警示。 這個新體驗會從 Azure 內多個來源原生地彙總警示，包括 Log Analytics 的記錄檔警示。 如果您使用 Azure 監視器的整合警示介面，則只有在啟用來自 System Center Operation Manager 的警示整合時，才需要警示管理解決方案。 在 Azure 監視器的整合警示介面中，您可以看到警示的分佈、透過智慧型群組充分利用對相關警示的自動化分組功能，以及套用豐富的篩選器同時檢視多個訂用帳戶的警示。 警示管理的未來改進主要都能從此新體驗取得。 
 
 只要為工作區安裝解決方案，警示管理解決方案 (具有「警示」類型的記錄) 所收集的資料就會繼續存在於 Log Analytics 中。 
 
 ## <a name="oms-mobile-app"></a>OMS 行動裝置應用程式
-OMS 行動裝置應用程式將會連同 OMS 入口網站一併終止。 您不必使用 OMS 行動裝置應用程式來存取有關 IT 基礎結構、 儀表板和已儲存查詢的資訊，而可以直接從您的行動裝置瀏覽器中存取 Azure 入口網站。 若要收到警示，請設定 [Azure 動作群組](../../azure-monitor/platform/action-groups.md)，即可以簡訊 或語音電話的形式接收通知
+OMS 行動裝置應用程式將會連同 OMS 入口網站一併終止。 您不必使用 OMS 行動裝置應用程式來存取有關 IT 基礎結構、 儀表板和已儲存查詢的資訊，而可以直接從您的行動裝置瀏覽器中存取 Azure 入口網站。 若要收到警示，請設定 [Azure 動作群組](action-groups.md)，即可以簡訊 或語音電話的形式接收通知
 
 ## <a name="application-insights-connector-and-solution"></a>Application Insights Connector 與解決方案
-[Application Insights Connector](../../azure-monitor/platform/app-insights-connector.md) 可用來將 Application Insights 資料包含到 Log Analytics 工作區中。 若要啟用整個基礎結構和應用程式資料的可見度，則需要複製此資料。 由於 Application Insights 在 2019 年 3 月延伸資料保留支援，且能夠執行[跨資源查詢](../../azure-monitor/log-query/cross-workspace-query.md)，而且能夠[檢視多個 Azure 監視器 Application Insights 資源](../log-query/unify-app-resource-data.md)，因此不需要從您的 Application Insights 資源複製資料並傳送到 Log Analytics。 此外，連接器會將應用程式屬性的子集傳送到 Log Analytics，而跨資源查詢提供您更多彈性。  
+[Application Insights Connector](app-insights-connector.md) 可用來將 Application Insights 資料包含到 Log Analytics 工作區中。 若要啟用整個基礎結構和應用程式資料的可見度，則需要複製此資料。 由於 Application Insights 在 2019 年 3 月延伸資料保留支援，且能夠執行[跨資源查詢](../log-query/cross-workspace-query.md)，而且能夠[檢視多個 Azure 監視器 Application Insights 資源](../log-query/unify-app-resource-data.md)，因此不需要從您的 Application Insights 資源複製資料並傳送到 Log Analytics。 此外，連接器會將應用程式屬性的子集傳送到 Log Analytics，而跨資源查詢提供您更多彈性。  
 
 因此在 2019 年 3 月 30 日，Application Insights Connector 將會從 Marketplace 淘汰並移除，且 OMS 入口網站也會一併淘汰，現有連線將繼續運作到 2019 年 6 月 30 日。 隨著 OMS 入口網站被淘汰，將無法從入口網站設定及移除現有連線。 於 2019 年 1 月提供的 REST API 將會支援此作業，通知將會張貼在 [Azure 更新](https://azure.microsoft.com/updates/)上。 
 
 ## <a name="azure-network-security-group-analytics"></a>Azure 網路安全性群組分析
-[Azure 網路安全性群組分析解決方案](../../azure-monitor/insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics)將由最近推出的[流量分析](https://azure.microsoft.com/blog/traffic-analytics-in-preview/)所取代，讓您清楚掌握雲端網路上使用者和應用程式的活動。 流量分析可協助您稽核貴組織的網路活動、保護應用程式和資料、將工作負載效能最佳化並保持符合規範。 
+[Azure 網路安全性群組分析解決方案](../insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-azure-monitor)將由最近推出的[流量分析](https://azure.microsoft.com/blog/traffic-analytics-in-preview/)所取代，讓您清楚掌握雲端網路上使用者和應用程式的活動。 流量分析可協助您稽核貴組織的網路活動、保護應用程式和資料、將工作負載效能最佳化並保持符合規範。 
 
 此解決方案可分析 NSG 流程記錄，並提供下列深入見解。
 
@@ -111,7 +111,7 @@ OMS 行動裝置應用程式將會連同 OMS 入口網站一併終止。 您不�
 您可以繼續仰賴診斷設定將 NSG 記錄檔傳送到 Log Analytics，如此一來，您現有已儲存的搜尋、 警示、 儀表板將可繼續運作。 在進一步通知之前，已安裝解決方案的客戶可以繼續使用。 自 9 月 5 日起，「網路安全性群組分析」解決方案將從市集中移除，並透過社群以 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Operationalinsights)的方式提供。
 
 ## <a name="system-center-operations-manager"></a>System Center Operations Manager
-如果您已經[將 Operations Manager 管理群組連線到 Log Analytics](../../azure-monitor/platform/om-agents.md)，則此服務將繼續運作，無須變更。 然而，針對新連線，您必須依照[使用 Microsoft System Center Operations Manager 管理組件設定 Operations Management Suite](https://blogs.technet.microsoft.com/momteam/2018/07/25/microsoft-system-center-operations-manager-management-pack-to-configure-operations-management-suite/) 中的指引。
+如果您已經[將 Operations Manager 管理群組連線到 Log Analytics](om-agents.md)，則此服務將繼續運作，無須變更。 然而，針對新連線，您必須依照[使用 Microsoft System Center Operations Manager 管理組件設定 Operations Management Suite](https://blogs.technet.microsoft.com/momteam/2018/07/25/microsoft-system-center-operations-manager-management-pack-to-configure-operations-management-suite/) 中的指引。
 
 ## <a name="next-steps"></a>後續步驟
 - 如需有關從 OMS 入口網站移至 Azure 入口網站的指引，請參閱 [Log Analytics 使用者從 OMS 入口網站轉換至 Azure 入口網站的常見問題](oms-portal-faq.md)。

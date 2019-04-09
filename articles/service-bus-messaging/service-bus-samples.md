@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: aschhab
-ms.openlocfilehash: 7b34233e10c5d622b598d35c6eb136b88daf8eb6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2da6e46ad4866ad624ff6bc8aa61a96e41568ca2
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880155"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006550"
 ---
 # <a name="service-bus-messaging-samples"></a>服务总线消息传送示例
 服務匯流排傳訊範例在[服務匯流排傳訊](https://azure.microsoft.com/services/service-bus/)中示範主要功能。 目前，您也可以在下列位置找到範例：
@@ -27,7 +27,7 @@ ms.locfileid: "57880155"
 | 程式設計語言 | SDK 或範例的位置 |
 | -------------------- | ----------------------- |
 | .NET、 Java 和管理 | https://github.com/Azure/azure-service-bus/ |
-| Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/packages/%40azure/servicebus/data-plane/examples |
+| Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples |
 | Python | https://github.com/Azure/azure-sdk-for-python/tree/master/azure-servicebus |
 
 ## <a name="service-bus-explorer"></a>服務匯流排總管
@@ -38,6 +38,6 @@ ms.locfileid: "57880155"
 
 請參閱下列主題以取得服務匯流排的概念性概觀。
 
-* [服務匯流排訊息概觀](service-bus-messaging-overview.md)
+* [服務匯流排傳訊概觀](service-bus-messaging-overview.md)
 * [服務匯流排架構](service-bus-architecture.md)
 

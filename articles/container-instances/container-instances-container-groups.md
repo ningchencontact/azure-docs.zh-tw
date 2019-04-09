@@ -6,15 +6,15 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/20/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8724bd7e13b0d8607ad5a6814b27c8c06681f331
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: f4bbea8acd447a731cf5c56f9876baf9183735ea
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202005"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005540"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure Container Instances 中的容器群組
 
@@ -41,7 +41,9 @@ ms.locfileid: "58202005"
 
 ## <a name="deployment"></a>部署
 
-以下是兩個常見的方式來部署多容器群組： 使用[Resource Manager 範本][ resource-manager template]或是[YAML 檔案][yaml-file]。 使用 Resource Manager 範本，當您需要部署額外的 Azure 服務資源 (例如[Azure 檔案共用][azure-files]) 時，您部署的容器執行個體。 由於 YAML 格式的更簡潔的本質，YAML 檔案時，建議您的部署包含只有容器執行個體。
+以下是兩個常見的方式來部署多容器群組： 使用[Resource Manager 範本][ resource-manager template]或是[YAML 檔案][yaml-file]。 Resource Manager 範本時，建議使用您需要部署額外的 Azure 服務資源 (例如[Azure 檔案共用][azure-files]) 當您部署的容器執行個體。 由於 YAML 格式的更簡潔的本質，YAML 檔案時，建議您的部署包含只有容器執行個體。
+
+若要保留的容器群組的組態，您可以匯出組態 YAML 檔案來使用 Azure CLI 命令[az 容器匯出][az-container-export]。 匯出可讓您將您的容器群組組態儲存在版本控制的 「 組態即程式碼 」。 或者，在 YAML 中開發新組態時，您可以使用匯出的檔案作為起點。
 
 ## <a name="resource-allocation"></a>資源配置
 
@@ -110,3 +112,4 @@ Azure 容器執行個體配置的資源，例如 Cpu、 記憶體，並選擇性
 [azure-files]: container-instances-volume-azure-files.md
 [virtual-network]: container-instances-vnet.md
 [gpus]: container-instances-gpu.md
+[az-container-export]: /cli/azure/container#az-container-export

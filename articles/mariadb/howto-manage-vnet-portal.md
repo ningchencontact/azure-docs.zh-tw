@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: a1d92f324c30c498b1a42f6155a478cf131ecc96
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 6644b6ae3a9482a1bd3f840a814d3bb6361517fc
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961953"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006509"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>使用 Azure 入口網站建立及管理適用於 MariaDB 的 Azure 資料庫的 VNet 服務端點和 VNet 規則
 
@@ -22,11 +22,18 @@ ms.locfileid: "56961953"
 
 ## <a name="create-a-vnet-rule-and-enable-service-endpoints"></a>建立 VNet 規則並啟用服務端點
 
-1. 在 [MariaDB 伺服器] 頁面的 [設定] 標題下，按一下 [連線安全性]，以開啟適用於 MariaDB 的 Azure 資料庫的 [連線安全性] 窗格。 接下來，按一下 [+ 新增現有的虛擬網路]。 如果您沒有現有的 VNet，就可以按一下 [+ 建立新的虛擬網路] 來建立新的 VNet。 請參閱[快速入門：使用 Azure 入口網站建立虛擬網路](../virtual-network/quick-create-portal.md)
+1. 在 [MariaDB 伺服器] 頁面的 [設定] 標題下，按一下 [連線安全性]，以開啟適用於 MariaDB 的 Azure 資料庫的 [連線安全性] 窗格。
+
+2. 請確定允許存取 Azure 服務的控制項設為**OFF**。
+
+> [!Important]
+> 如果您將它設定為 ON，您的 Azure MariaDB 資料庫伺服器會接受來自任何子網路通訊。 就安全性觀點而言，讓此控制項保持 [開啟] 可能使存取過多。 Microsoft Azure 虛擬網路服務端點功能搭配虛擬網路規則功能的 Azure 資料庫適用於 MariaDB，同時可以減少安全性曝露面。
+
+3. 接下來，按一下 [+ 新增現有的虛擬網路]。 如果您沒有現有的 VNet，就可以按一下 [+ 建立新的虛擬網路] 來建立新的 VNet。 請參閱[快速入門：使用 Azure 入口網站建立虛擬網路](../virtual-network/quick-create-portal.md)
 
    ![Azure 入口網站 - 按一下 [連線安全性]](./media/howto-manage-vnet-portal/1-connection-security.png)
 
-2. 輸入 VNet 規則名稱，選取訂用帳戶、虛擬網路和子網路名稱，然後按一下 [啟用]。 這會使用 **Microsoft.SQL** 服務標籤自動啟用子網路上的 VNet 服務端點。
+4. 輸入 VNet 規則名稱，選取訂用帳戶、虛擬網路和子網路名稱，然後按一下 [啟用]。 這會使用 **Microsoft.SQL** 服務標籤自動啟用子網路上的 VNet 服務端點。
 
    ![Azure 入口網站 - 設定 VNet](./media/howto-manage-vnet-portal/2-configure-vnet.png)
 
@@ -44,7 +51,7 @@ ms.locfileid: "56961953"
    > 強烈建議您在設定服務端點之前，先閱讀這篇有關服務端點設定和考量的文章。 **虛擬網路服務端點：**[虛擬網路服務端點](../virtual-network/virtual-network-service-endpoints-overview.md)是一個子網路，其屬性值包含一或多個正式的 Azure 服務類型名稱。 VNet 服務端點使用 **Microsoft.Sql** 服務類型名稱，它參考名為 SQL Database 的 Azure 服務。 此服務標籤也會套用到 Azure SQL Database、適用於 MariaDB、PostgreSQL 和 MySQL 的 Azure 資料庫服務。 請務必注意，當您將 **Microsoft.Sql** 服務標籤套用到 VNet 服務端點時，它會設定所有 Azure 資料庫服務的服務端點流量，包括子網路上的 Azure SQL Database、適用於 PostgreSQL 的 Azure 資料庫、適用於 MariaDB 的 Azure 資料庫，和適用於 MySQL 的 Azure 資料庫伺服器。
    > 
 
-3. 啟用之後，按一下 [確定]，您將會看到 VNet 服務端點和 VNet 規則一起啟用。
+5. 啟用之後，按一下 [確定]，您將會看到 VNet 服務端點和 VNet 規則一起啟用。
 
    ![VNet 服務端點已啟用且 VNet 規則已建立](./media/howto-manage-vnet-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png)
 

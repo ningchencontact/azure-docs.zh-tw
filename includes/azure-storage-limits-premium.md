@@ -8,20 +8,33 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e3d2466f05028a963256dbcc052c46650857836d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 1cb353d22e39447d7aeb723b5506ac0209cf74d8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372708"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59287097"
 ---
 ### <a name="premium-performance-block-blob-storage"></a>Premium 效能區塊 blob 儲存體
 
-使用較小，kb 的範圍，物件的應用程式最適合的 premium 效能區塊 blob 儲存體帳戶。 它很適合用於需要極高交易率或一致的低延遲儲存體應用程式。 Premium 效能區塊 blob 儲存體被設計來調整您的應用程式。 如果您打算部署需要數十萬的每秒的要求或以 pb 計的儲存體容量的應用程式，請與我們連絡來提交支援要求中的[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
+使用較小，kb 的範圍，物件的應用程式最適合的 premium 效能區塊 blob 儲存體帳戶。 它很適合用於需要高交易率或一致的低延遲儲存體應用程式。 Premium 效能區塊 blob 儲存體被設計來調整您的應用程式。 如果您打算部署需要數十萬的每秒的要求或以 pb 計的儲存體容量的應用程式，請與我們連絡來提交支援要求中的[Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
+
+### <a name="premium-performance-filestorage-preview"></a>進階效能 FileStorage （預覽）
+
+進階檔案會使用名為唯一的儲存體帳戶**FileStorage （預覽）**。 此帳戶類型被設計用於具有高 IOPS 工作負載，以一致的低延遲高輸送量。 進階檔案儲存體的延展性與佈建的共用大小。
+
+|領域  |目標  |
+|---------|---------|
+|大小上限     |5 TiB （公開預覽）、 100 TiB （有限公開預覽）     |
+|共用   |無限  |
+|IOPS     |100,000 （有限公開預覽）    |
+|頻寬|5 GB/s     |
+
+ 對於進階檔案共用中的擴展目標，請參閱 <<c0> [ 進階檔案調整目標](../articles/storage/common/storage-scalability-targets.md#premium-files-scale-targets)一節。
 
 ### <a name="premium-performance-page-blob-storage"></a>Premium 效能分頁 blob 儲存體
 
-高階效能，一般用途 v1 或 v2 儲存體帳戶有下列延展性目標：
+進階效能、 一般用途 v1 或 v2 儲存體帳戶有下列延展性目標：
 
 | 總帳戶容量                            | 本地備援儲存體帳戶總頻寬                     |
 | ------------------------------------------------- | --------------------------------------------------------------------------- |

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 04af92f21cecaa832e857a7017b67f815f6ab685
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
-ms.translationtype: MT
+ms.openlocfilehash: 352833b12c00abbefcf7016d27dfb580ee25e450
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417967"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056736"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>準備建立 Avere vFXT
 
@@ -30,23 +30,16 @@ ms.locfileid: "58417967"
 
 ## <a name="configure-subscription-owner-permissions"></a>設定訂用帳戶擁有者權限
 
-具有擁有者權限的使用者應建立 vFXT 叢集。 需要訂用帳戶擁有者權限的動作包括：
+具有擁有者權限的使用者應建立 vFXT 叢集。 需要訂用帳戶擁有者權限，才能接受服務條款的軟體，並執行其他動作。 
 
-* 接受 Avere vFXT 軟體的條款
-* 建立叢集節點存取角色 
+有一些因應措施案例可讓非擁有者來建立 Azure 叢集 Avere vFTX。 這些案例包括限制資源，以及將其他的角色指派給建立者。 在這兩種情況下，訂用帳戶擁有者也必須[接受 Avere vFXT 軟體合約](#accept-software-terms)事先。 
 
-如果您不想將擁有者存取權提供給建立 vFXT 的使用者，可用兩種方式來因應：
-
-* 在符合下列條件時，資源群組擁有者可建立叢集：
-
-  * 訂用帳戶擁有者必須[接受 Avere vFXT 軟體條款](#accept-software-terms)，並[建立叢集節點存取角色](#create-the-cluster-node-access-role)。 
-  * 所有 Avere vFXT 資源都必須部署在資源群組內，包括：
-    * 叢集控制器
-    * 叢集節點
-    * Blob 儲存體
-    * 網路元素
+| 案例 | 限制 | 若要建立 Avere vFXT 叢集所需的存取權角色 | 
+|----------|--------|-------|
+| 資源群組系統管理員 | 資源群組內，則必須建立虛擬網路、 叢集控制器和叢集節點 | [使用者存取系統管理員](../role-based-access-control/built-in-roles.md#user-access-administrator)並[參與者](../role-based-access-control/built-in-roles.md#contributor)角色，都只限於目標資源群組 | 
+| 外部的 vnet | 叢集節點與叢集控制站會建立資源群組內，但使用不同的資源群組中的現有虛擬網路 | （1)[使用者存取系統管理員](../role-based-access-control/built-in-roles.md#user-access-administrator)並[參與者](../role-based-access-control/built-in-roles.md#contributor)限於 vFXT 資源群組，以及 (2) 的角色[虛擬機器參與者](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)，[使用者存取權系統管理員](../role-based-access-control/built-in-roles.md#user-access-administrator)，並[Avere 參與者](../role-based-access-control/built-in-roles.md#avere-contributor)VNET 資源群組範圍內的角色。 |
  
-* 對於沒有擁有者權限的使用者，可以事先使用角色型存取控制 (RBAC) 將權限指派給使用者，以建立 vFXT 叢集。 此方法會讓使用者獲得重要的權限。 [本文](avere-vfxt-non-owner.md)會說明如何建立存取角色，並為非擁有者授與建立叢集的權限。
+替代方式是建立自訂的角色型存取控制 (RBAC) 角色事先和權限指派給使用者，如所述[這篇文章](avere-vfxt-non-owner.md)。 此方法會讓使用者獲得重要的權限。 
 
 ## <a name="quota-for-the-vfxt-cluster"></a>vFXT 叢集配額
 
@@ -57,7 +50,7 @@ ms.locfileid: "58417967"
 
 |Azure 元件|Quota|
 |----------|-----------|
-|虛擬機器|3 個或多個 E32s_v3|
+|虛擬機器|3 或更多 E32s_v3|
 |進階 SSD 儲存體|200 GB 的 OS 空間，外加每個節點 1 TB 到 4 TB 的快取空間 |
 |儲存體帳戶 (選擇性) |v2|
 |資料後端儲存體 (選擇性) |一個新的 LRS Blob 容器 |
@@ -83,75 +76,6 @@ ms.locfileid: "58417967"
    ```azurecli
    az vm image accept-terms --urn microsoft-avere:vfxt:avere-vfxt-controller:latest
    ```
-
-## <a name="create-access-roles"></a>建立存取角色 
-
-[角色型存取控制](../role-based-access-control/index.yml) (RBAC) 會為 vFXT 叢集控制器和叢集節點提供授權來執行必要的工作。
-
-* 叢集控制器需要有建立和修改 VM 的權限，才能建立叢集。 
-
-* 作為標準叢集作業的一部分，個別 vFXT 節點必須執行諸如讀取 Azure 資源屬性、管理儲存體及控制其他節點網路介面設定等作業。
-
-建立 Avere vFXT 叢集之前，您必須定義要搭配叢集節點使用的自訂角色。 
-
-針對叢集控制器，您可以接受範本中的預設角色。 預設角色會將資源群組擁有者的權限提供給叢集控制器。 如果您想要為控制器建立自訂角色，請參閱[自訂控制器存取角色](avere-vfxt-controller-role.md)。
-
-> [!NOTE] 
-> 只有訂用帳戶擁有者，或是具有「擁有者」角色或「使用者存取系統管理員」角色的使用者可以建立角色。 您可以事先建立角色。  
-
-### <a name="create-the-cluster-node-access-role"></a>建立叢集節點存取角色
-
-<!-- caution - this header is linked to in the template so don't change it unless you can change that -->
-
-您必須先建立叢集節點角色，才能建立 Avere vFXT for Azure 叢集。
-
-> [!TIP] 
-> Microsoft 內部使用者應使用名為「Avere 叢集執行階段操作員」的現有角色，而非嘗試建立一個角色。 
-
-1. 複製此檔案。 在 AssignableScopes 列中加入您的訂用帳戶識別碼。
-
-   (此檔案的目前版本會在 github.com/Azure/Avere 存放庫中儲存為 [AvereOperator.txt](https://github.com/Azure/Avere/blob/master/src/vfxt/src/roles/AvereOperator.txt)。)  
-
-   ```json
-   {
-      "AssignableScopes": [
-          "/subscriptions/PUT_YOUR_SUBSCRIPTION_ID_HERE"
-      ],
-      "Name": "Avere Operator",
-      "IsCustom": "true",
-      "Description": "Used by the Avere vFXT cluster to manage the cluster",
-      "NotActions": [],
-      "Actions": [
-          "Microsoft.Compute/virtualMachines/read",
-          "Microsoft.Network/networkInterfaces/read",
-          "Microsoft.Network/networkInterfaces/write",
-          "Microsoft.Network/virtualNetworks/read",
-          "Microsoft.Network/virtualNetworks/subnets/read",
-          "Microsoft.Network/virtualNetworks/subnets/join/action",
-          "Microsoft.Network/networkSecurityGroups/join/action",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/read",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/write"
-      ],
-      "DataActions": [
-          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
-      ]
-   }
-   ```
-
-1. 將檔案儲存為 ``avere-operator.json``，或是類似的易記檔案名稱。 
-
-
-1. 開啟 Azure Cloud shell，並使用您的訂用帳戶識別碼登入 (如[本文件](#accept-software-terms)稍早所述)。 使用此命令以建立角色：
-
-   ```bash
-   az role definition create --role-definition /avere-operator.json
-   ```
-
-建立叢集時會使用角色名稱。 在此範例中，該名稱為 ``avere-operator``。
 
 ## <a name="create-a-storage-service-endpoint-in-your-virtual-network-if-needed"></a>在虛擬網路 （如有需要） 中建立儲存體服務端點
 

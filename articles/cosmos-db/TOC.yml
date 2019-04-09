@@ -463,12 +463,18 @@ items:
     - name: 佈建資料庫的輸送量
       displayName: request units, RUs, RU, shared throughput, database level
       href: how-to-provision-database-throughput.md
+    - name: 尋找要求單位費用
+      displayName: request units, RUs, RU, charge, consumption
+      href: find-request-unit-charge.md
   - name: 與容器和項目搭配運作
     items:
     - name: 建立容器
       href: how-to-create-container.md
     - name: 查詢容器
       href: how-to-query-container.md
+    - name: 資料模型和資料分割 - 實際範例
+      displayName: model, partition, example
+      href: how-to-model-partition-example.md
     - name: 設定存留時間
       displayName: delete, delete data, ttl
       href: how-to-time-to-live.md
@@ -659,9 +665,9 @@ items:
       href: use-cases.md
     - name: 社交媒體應用程式
       href: social-media-apps.md
-ms.openlocfilehash: 5400c02829ce14da6226fb6ce85c476b3ed96edf
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 8f70665eba9fa6b542b546f592b22ba516af06b4
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886738"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047087"

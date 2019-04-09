@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cda9f976a7680a1338584e4308426683de82a79
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: c1bac4d2c0f236b8fca611c7391846abdb782796
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802112"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009592"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>使用 Azure Active Directory 新增或刪除使用者
 新增使用者或組織的 Azure Active Directory (Azure AD) 中刪除現有的使用者。
@@ -37,9 +37,9 @@ ms.locfileid: "58802112"
 
     ![新增使用者，包含使用者資訊的 [使用者] 頁面](media/add-users-azure-active-directory/new-user-user-blade.png)
 
-   - **名稱 (必要)。** 新使用者的姓氏與名字。 例如，Mary Parker。
+   - **（必要） 的名稱。** 新使用者的姓氏與名字。 例如，Mary Parker。
 
-   - **使用者名稱 (必要)。** 新使用者的使用者名稱。 例如： mary@contoso.com。
+   - **使用者名稱 （必要）。** 新使用者的使用者名稱。 例如： mary@contoso.com。
     
        使用者名稱的網域部分必須使用初始預設網域名稱 (<_yourdomainname_>.onmicrosoft.com)，或自訂網域名稱，例如 contoso.com。 如需如何建立自訂網域名稱的詳細資訊，請參閱[如何將自訂網域名稱新增到 Azure Active Directory](add-custom-domain.md)。
 
@@ -47,7 +47,7 @@ ms.locfileid: "58802112"
 
    - **群組。** (選擇性) 您可以將使用者新增到一或多個現有的群組。 您也可以稍後再將使用者新增到群組。 如需有關將使用者新增到群組的詳細資訊，請參閱[如何建立基本的群組及新增成員](active-directory-groups-create-azure-portal.md)。
 
-   - **目錄角色。** （選擇性） 您可以在其中新增使用者的 Azure AD 系統管理員角色。 您可以指派使用者必須在 Azure AD 中的全域管理員或一或多個受限的管理員角色。 如需有關指派角色的詳細資訊，請參閱[如何將角色指派給使用者](active-directory-users-assign-role-azure-portal.md)。
+   - **目錄角色。** （選擇性） 您可以將使用者加入 Azure AD 系統管理員角色。 您可以指派使用者必須在 Azure AD 中的全域管理員或一或多個受限的管理員角色。 如需有關指派角色的詳細資訊，請參閱[如何將角色指派給使用者](active-directory-users-assign-role-azure-portal.md)。
 
 4. 複製在 [密碼] 方塊中提供的自動產生密碼。 您必須將此密碼提供給使用者，讓其進行初始登入程序。
 
@@ -85,6 +85,6 @@ ms.locfileid: "58802112"
 
 - [建立基本群組並新增成員](active-directory-groups-create-azure-portal.md)
 
-- [使用動態群組與使用者](../users-groups-roles/groups-create-rule.md)
+- [使用動態群組和使用者](../users-groups-roles/groups-create-rule.md)
 
 或者，您可以執行其他使用者管理工作，例如[從另一個目錄新增來賓使用者](../b2b/what-is-b2b.md)或[還原已刪除的使用者](active-directory-users-restore.md)。 如需有關其他可用動作的詳細資訊，請參閱 [Azure Active Directory 使用者管理文件](../users-groups-roles/index.yml)。

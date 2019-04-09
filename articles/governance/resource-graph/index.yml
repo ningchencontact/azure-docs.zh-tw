@@ -1,16 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4e2515e8976976184b720ad1a612f96bff3eeaba
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803404"
 documentType: LandingData
 title: Azure Resource Graph 服務文件
 metadata:
   title: Azure Resource Graph 文件 - 教學課程、API 參考
   description: Azure Resource Graph 是 Azure 中的一項服務，能夠大規模進行複雜的資源查詢。
-  services: resource-graph
   author: DCtheGeek
   manager: carmonm
   ms.service: resource-graph
@@ -20,36 +13,36 @@ metadata:
 abstract:
   description: Azure Resource Graph 文件可協助您設定及了解查詢語言，進而大規模探索您的資源。
 sections:
-- title: 5 分鐘快速入門
-  items:
-  - type: paragraph
-    text: 設定 Resource Graph 並執行您的第一個查詢。
-  - type: list
-    style: icon48
+  - title: 5 分鐘快速入門
     items:
-    - image:
-        alt: Azure CLI
-        src: ./media/cli.svg
-      text: Azure CLI
-      href: first-query-azurecli.md
-    - image:
-        alt: Azure PowerShell
-        src: ./media/powershell.svg
-      text: Azure PowerShell
-      href: first-query-powershell.md
-- title: 意見反應
-  items:
-  - type: paragraph
-    text: 若要針對此功能提供意見反應或有任何疑問需要協助，請造訪 Azure 入口網站中 <b>Azure 原則</b> 的 <b>Resource Graph (預覽)</b> 頁面，並按一下 [意見反應]。 您也可以在 <a href="https://feedback.azure.com/forums/915958-azure-governance">UserVoice</a>將建議傳送給我們。
-- title: 參考
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 設定 Resource Graph 並執行您的第一個查詢。
+      - type: list
+        style: icon48
+        items:
+          - image:
+              alt: Azure CLI
+              src: ./media/cli.svg
+            text: Azure CLI
+            href: first-query-azurecli.md
+          - image:
+              alt: Azure PowerShell
+              src: ./media/powershell.svg
+            text: Azure PowerShell
+            href: first-query-powershell.md
+  - title: 意見反應
     items:
-    - title: 命令列
-      html: <p><a href="/cli/azure/ext/resource-graph/graph">Azure CLI</a></p><p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
-    - title: Languages
-      html: <p><a href="/dotnet/api/Microsoft.Azure.Management.ResourceGraph">Azure SDK for .NET</a></p><p><a href="/python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph">Azure SDK for Python</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/azureresourcegraph/resources/resources">API 參考</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview">2018-09-01-preview (OpenAPI)</a></p>
+      - type: paragraph
+        text: '若要針對此功能提供意見反應或有任何疑問需要協助，請造訪 Azure 入口網站中 <b>Azure 原則</b> 的 <b>Resource Graph (預覽)</b> 頁面，並按一下 [意見反應]。 您也可以在 <a href="https://feedback.azure.com/forums/915958-azure-governance">UserVoice</a>將建議傳送給我們。'
+  - title: 參考
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 命令列
+            html: <p><a href="/cli/azure/ext/resource-graph/graph">Azure CLI</a></p><p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
+          - title: Languages
+            html: <p><a href="/dotnet/api/Microsoft.Azure.Management.ResourceGraph">適用於 .NET 的 Azure SDK</a></p><p><a href="/python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph">適用於 Python 的 Azure SDK</a></p>
+          - title: REST
+            html: '<p><a href="/rest/api/azureresourcegraph/resources/resources">API 參考</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview">2018-09-01-preview (OpenAPI)</a></p>'
