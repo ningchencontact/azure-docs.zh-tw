@@ -1,18 +1,20 @@
 items:
 - name: 資料目錄文件
-  href: index.md
+  href: index.yml
 - name: 概觀
   items:
   - name: 什麼是資料目錄？
-    href: data-catalog-what-is-data-catalog.md
+    href: overview.md
+- name: 快速入門
+  items:
+  - name: 建立 Azure 資料目錄
+    href: data-catalog-get-started.md
+- name: 概念
+  items:
   - name: 常見案例
     href: data-catalog-common-scenarios.md
   - name: 支援的資料來源
     href: data-catalog-dsr.md
-- name: 開始使用
-  items:
-  - name: 開始使用 Azure 資料目錄
-    href: data-catalog-get-started.md
   - name: 採用 Azure 資料目錄
     href: data-catalog-adopting-data-catalog.md
   - name: 必要條件
@@ -69,17 +71,15 @@ items:
     href: https://azure.microsoft.com/pricing/details/data-catalog/
   - name: 定價計算機
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: 版本資訊
-    href: ../active-directory/fundamentals/whats-new.md
   - name: 服務更新
     href: https://azure.microsoft.com/updates/?product=data-catalog
   - name: 堆疊溢位
     href: https://stackoverflow.com/questions/tagged/azure-data-catalog
   - name: 術語
     href: data-catalog-terminology.md
-ms.openlocfilehash: 47fef3cf68ca9ab34c0dd349106ed4ca8c8ad4f1
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 17965d0b9394cfea83fdb463db6ee2b0fde15d87
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340637"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277624"
