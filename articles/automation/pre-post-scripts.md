@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/01/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dc0c516ce9dc3a13474cefc61b6634dbeea0fce0
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
-ms.translationtype: MT
+ms.openlocfilehash: 76cd877380090ccad8b2f7b7dbe79957e0eab5bb
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793630"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056672"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>管理前置和後置指令碼 (預覽)
 
@@ -67,6 +67,23 @@ ms.locfileid: "58793630"
 如果您需要另一種物件類型，您可以在 Runbook 中使用您自己的邏輯將其轉換成另一種類型。
 
 除了標準的 Runbook 參數外，系統還會提供一個額外的參數。 這個參數是 **SoftwareUpdateConfigurationRunContext**。 此參數是 JSON 字串，如果您在前置或後置指令碼中定義該參數，更新部署就會自動傳遞該參數。 此參數包含更新部署的相關資訊，也就是 [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) 傳回的一部分資訊。下表顯示變數中所提供的屬性：
+
+## <a name="stopping-a-deployment"></a>正在停止部署
+
+如果您想要停止前指令碼，您必須為基礎的部署[擲回](automation-runbook-execution.md#throw)例外狀況。 如果您未擲回例外狀況，部署和後置指令碼仍會執行。 [範例 runbook](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0)資源庫中的顯示方式可以這麼做。 以下是從該 runbook 的程式碼片段。
+
+```powershell
+#In this case, we want to terminate the patch job if any run fails.
+#This logic might not hold for all cases - you might want to allow success as long as at least 1 run succeeds
+foreach($summary in $finalStatus)
+{
+    if ($summary.Type -eq "Error")
+    {
+        #We must throw in order to fail the patch deployment.  
+        throw $summary.Summary
+    }
+}
+```
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext 屬性
 
@@ -231,6 +248,17 @@ if ($summary.Type -eq "Error")
 }
 ```
 
+## <a name="abort-patch-deployment"></a>中止修補部署
+
+如果您的前指令碼會傳回錯誤，您可能想要中止您的部署。 若要這樣做，您必須[擲回](/powershell/module/microsoft.powershell.core/about/about_throw)會構成失敗的任何邏輯的指令碼中的錯誤。
+
+```powershell
+if (<My custom error logic>)
+{
+    #Throw an error to fail the patch deployment.  
+    throw "There was an error, abort deployment"
+}
+```
 ## <a name="known-issues"></a>已知問題
 
 * 使用更新前和更新後指令碼時，您無法將物件或陣列傳遞給參數。 Runbook 將會失敗。

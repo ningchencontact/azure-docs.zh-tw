@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 3212befac60e3677c0b556825560cc548df42969
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.openlocfilehash: 46978d19a0789bb43e861ca89661aa5b78eb4ec7
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990980"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056719"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>規劃您的 Avere vFXT 系統
 
@@ -130,6 +130,17 @@ Avere vFXT for Azure 位於私人子網路，叢集並沒有公用 IP 位址。 
 
 * 如果您建立新的 Vnet 或新的子網路，則系統將會指派公用 IP 位址給叢集控制器。
 * 如果您選取現有的 Vnet 和子網路，則叢集控制器就只會有私人 IP 位址。 
+
+## <a name="vm-access-roles"></a>VM 存取角色 
+
+Azure 會使用[角色型存取控制](../role-based-access-control/index.yml)(RBAC) 來授權叢集來執行特定工作的 Vm。 例如，叢集控制器需要授權，才能建立和設定叢集節點 Vm。 叢集節點必須能夠指派或重新指派到其他叢集節點的 IP 位址。
+
+兩個內建的 Azure 角色用於 Avere vFXT 虛擬機器： 
+
+* 叢集控制站會使用內建角色[Avere 參與者](../role-based-access-control/built-in-roles.md#avere-contributor)。 
+* 叢集節點使用的內建角色[Avere 運算子](../role-based-access-control/built-in-roles.md#avere-operator)
+
+如果您需要自訂 Avere vFXT 元件存取角色，您必須定義您自己的角色，並將其指派給 Vm 時建立。 您無法在 Azure Marketplace 中使用的部署範本。 中所述，在 Azure 入口網站中開啟票證，請參閱 Microsoft 客戶服務與支援中心[取得協助與您的系統](avere-vfxt-open-ticket.md)。 
 
 ## <a name="next-step-understand-the-deployment-process"></a>下一步：了解部署程序
 

@@ -3,7 +3,7 @@ title: Azure Data Factory 中的整合執行階段 | Microsoft Docs
 description: 了解 Azure Data Factory 中的整合執行階段。
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: nabhishek
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/14/2018
-ms.author: jingwang
-ms.openlocfilehash: ab6da597457fa94c171a1e2547c1d48cf35cd0f9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: abnarain
+ms.openlocfilehash: d63ede800f7e60db44072234f5ec74910e4c70f2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893045"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275398"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory 中的整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可跨不同網路環境提供下列資料整合功能：
@@ -156,5 +156,5 @@ Data Factory 位置中儲存資料處理站的中繼資料，也是觸發管道�
 ## <a name="next-steps"></a>後續步驟
 請參閱下列文章：
 
-- [建立自我裝載整合執行階段](create-self-hosted-integration-runtime.md)
+- [建立自我裝載的整合執行階段](create-self-hosted-integration-runtime.md)
 - [建立 Azure-SSIS Integration Runtime](create-azure-ssis-integration-runtime.md)。 這篇文章會詳述教學課程，並提供使用 Azure SQL Database 受控執行個體，以及將 IR 加入虛擬網路的指示。 

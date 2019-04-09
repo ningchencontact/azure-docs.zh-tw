@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 20ca4b9d347b9dc01e3b890fcf3758fb2fb135b9
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ccc1f94b9411a158b5c60509e09bd3edc0a61640
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486133"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277590"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -177,7 +177,7 @@ ms.locfileid: "58486133"
 
 ### <a name="claimsproviderselection-example"></a>ClaimsProviderSelection 範例
 
-在下列協調流程步驟中，使用者可以選擇使用 Facebook、LinkIn、Twitter、Google 或本機帳戶登入。 如果使用者選取其中一個社交識別提供者，第二個協調流程步驟就會使用 `TargetClaimsExchangeId` 屬性中指定的所選取宣告交換來執行。 第二個協調流程步驟會將使用者重新導向到該社交識別提供者，以完成登入程序。 如果使用者選擇使用本機帳戶登入，Azure AD B2C 就會停留在同一個協調流程步驟 (相同的註冊頁面或登入頁面)，並略過第二個協調流程步驟。
+在下列的協調流程步驟中，使用者可以選擇使用 Facebook、 LinkedIn、 Twitter、 Google 或本機帳戶登入。 如果使用者選取其中一個社交識別提供者，第二個協調流程步驟就會使用 `TargetClaimsExchangeId` 屬性中指定的所選取宣告交換來執行。 第二個協調流程步驟會將使用者重新導向到該社交識別提供者，以完成登入程序。 如果使用者選擇使用本機帳戶登入，Azure AD B2C 就會停留在同一個協調流程步驟 (相同的註冊頁面或登入頁面)，並略過第二個協調流程步驟。
 
 ```XML
 <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">

@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: node
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: 80132a2d15333308766b62e89262133b1f05b394
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 312d3abad2ee2c9e668f8b354aaba96f8a652698
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57888718"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259281"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-nodejs-back-end-and-nodejs-device"></a>透過 Node.js 後端和 Node.js 裝置開始使用 IoT 中樞模組身分識別和模組對應項
 
@@ -24,14 +24,15 @@ ms.locfileid: "57888718"
 在本教學課程結尾處，您會有兩個 Node.js 應用程式：
 
 * **CreateIdentities**，這會建立裝置身分識別、模組身分識別和相關聯的安全性金鑰，以連線到您的裝置和模組用戶端。
+
 * **UpdateModuleTwinReportedProperties**，這會將已更新的模組對應項報告的屬性傳送到您的 IoT 中樞。
 
 > [!NOTE]
-> 如需可用來建置兩個應用程式，以在裝置與您的解決方案後端執行之 Azure IoT SDK 的相關資訊，請參閱 [Azure IoT SDK][lnk-hub-sdks]。
+> 如需可用來建置兩個應用程式，以在裝置上與解決方案後端執行的 Azure IoT SDK 詳細資訊，請參閱 [Azure IoT SDK](iot-hub-devguide-sdks.md)。
 
 若要完成此教學課程，您需要下列項目：
 
-* 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶][lnk-free-trial]。)
+* 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。)
 * IoT 中樞。
 * 安裝最新的 [Node.js SDK](https://github.com/Azure/azure-iot-sdk-node)。
 
@@ -39,10 +40,12 @@ ms.locfileid: "57888718"
 
 ## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>在 IoT 中樞中建立裝置身分識別與模組身分識別
 
-在本節中，您會建立 Node.js 應用程式，它會在 IoT 中樞的身分識別登錄中建立裝置身分識別和模組身分識別。 裝置或模組無法連線到 IoT 中樞，除非它在身分識別登錄中具有項目。 如需詳細資訊，請參閱 [IoT 中樞開發人員指南][lnk-devguide-identity]的＜身分識別登錄＞一節。 當您執行此主控台應用程式時，它會針對裝置和模組產生唯一的識別碼和金鑰。 當裝置和模組將裝置到雲端的訊息傳送給 IoT 中樞時，裝置和模組會使用這些值來識別自己。 識別碼會區分大小寫。
+在本節中，您會建立 Node.js 應用程式，它會在 IoT 中樞的身分識別登錄中建立裝置身分識別和模組身分識別。 裝置或模組無法連線到 IoT 中樞，除非它在身分識別登錄中具有項目。 如需詳細資訊，請參閱的 < 身分識別登錄 > 一節[IoT 中樞開發人員指南](iot-hub-devguide-identity-registry.md)。 當您執行此主控台應用程式時，它會針對裝置和模組產生唯一的識別碼和金鑰。 當裝置和模組將裝置到雲端的訊息傳送給 IoT 中樞時，裝置和模組會使用這些值來識別自己。 識別碼會區分大小寫。
 
 1. 建立目錄來保存您的程式碼。
+
 2. 在該目錄的內部，先執行  **npm init -y**  以使用預設值建立空白的 package.json。 這是程式碼的專案檔。
+
 3. 執行 **npm 安裝-S azure iothub\@模組-preview**若要安裝的服務 SDK 內 **node_modules** 子目錄。
 
     > [!NOTE]
@@ -84,14 +87,14 @@ ms.locfileid: "57888718"
       }
       console.log('device connection string = "HostName=' + hubName + ';DeviceId=' + deviceId + ';SharedAccessKey=' + primaryKey + '"');
 
-    // Then add a module to that device
+      // Then add a module to that device
       registry.addModule({ deviceId: deviceId, moduleId: moduleId }, function(err) {
         if (err) {
           console.log('Error creating module identity: ' + err);
           process.exit(1);
         }
 
-    // Finally, retrieve the module details from the hub so we can construct the connection string
+        // Finally, retrieve the module details from the hub so we can construct the connection string
         registry.getModule(deviceId, moduleId, function(err, foundModule) {
           if (err) {
             console.log('Error getting module back from hub: ' + err);
@@ -107,26 +110,26 @@ ms.locfileid: "57888718"
 
 此應用程式會在 **myFirstDevice** 裝置下方建立識別碼為 **myFirstDevice** 的裝置身分識別，以及識別碼為 **myFirstModule** 的模組身分識別。 (如果該模組識別碼已經存在身分識別登錄中，程式碼就只會擷取現有的模組資訊)。接著，應用程式會顯示該身分識別的主要金鑰。 您會在模擬模組應用程式中使用此金鑰來連線到您的 IoT 中樞。
 
-1. 使用 add.js 節點執行。 它會為裝置身分識別提供一個連接字串，並為模組身分識別提供另一個連接字串。
+使用 add.js 節點執行。 它會為裝置身分識別提供一個連接字串，並為模組身分識別提供另一個連接字串。
 
-    > [!NOTE]
-    > IoT 中樞身分識別登錄只會儲存裝置和模組身分識別，以啟用對 IoT 中樞的安全存取。 身分識別登錄會儲存裝置識別碼和金鑰，以作為安全性認證使用。 身分識別登錄也會儲存每個裝置的已啟用/已停用旗標，以便您用來停用該裝置的存取權。 如果您的應用程式需要儲存其他裝置特定的中繼資料，它應該使用應用程式專用的存放區。 模組身分識別沒有啟用/停用旗標。 如需詳細資訊，請參閱 [IoT 中樞開發人員指南][lnk-devguide-identity]。
+> [!NOTE]
+> IoT 中樞身分識別登錄只會儲存裝置和模組身分識別，以啟用對 IoT 中樞的安全存取。 身分識別登錄會儲存裝置識別碼和金鑰，以作為安全性認證使用。 身分識別登錄也會儲存每個裝置的已啟用/已停用旗標，以便您用來停用該裝置的存取權。 如果您的應用程式需要儲存其他裝置特定的中繼資料，它應該使用應用程式專用的存放區。 模組身分識別沒有啟用/停用旗標。 如需詳細資訊，請參閱 [IoT 中樞開發人員指南](iot-hub-devguide-identity-registry.md)。
 
 ## <a name="update-the-module-twin-using-nodejs-device-sdk"></a>使用 Node.js 裝置 SDK 更新模組對應項
 
 在這一節中，您會在模擬裝置上建立 Node.js 應用程式，以便更新模組對應項報告的屬性。
 
-1. **取得您的模組連接字串** - 如果您登入 [Azure 入口網站][lnk-portal]，請立即取得。 瀏覽至您的 IoT 中樞並按一下 IoT 裝置。 尋找 myFirstDevice 並加以開啟，您會看到已成功建立 myFirstModule。 複製模組連接字串。 在下一個步驟中需要用到它。
+1. **取得模組的連接字串**-登入[Azure 入口網站](https://portal.azure.com/)。 瀏覽至您的 IoT 中樞並按一下 IoT 裝置。 尋找 myFirstDevice 並加以開啟，您會看到已成功建立 myFirstModule。 複製模組連接字串。 在下一個步驟中需要用到它。
 
-    ![Azure 入口網站模組詳細資料][15]
+   ![Azure 入口網站模組詳細資料](./media/iot-hub-node-node-module-twin-getstarted/module-detail.png)
 
 2. 類似於您未在上述步驟中，建立裝置程式碼的目錄，並使用 NPM 來將它初始化，並安裝的裝置 SDK (**npm 安裝-S-裝置-azure-iot-device-amqp\@模組-preview**)。
 
-    > [!NOTE]
-    > 您可能會感覺 npm 安裝命令執行速度慢。 請耐心等候，它正從封裝存放庫中提取大量程式碼。
+   > [!NOTE]
+   > 您可能會感覺 npm 安裝命令執行速度慢。 請耐心等候，它正從封裝存放庫中提取大量程式碼。
 
-    > [!NOTE]
-    > 如果您看見錯誤訊息表示 npm ERR! registry error parsing json，可放心忽略此訊息。 如果您看見錯誤訊息表示 npm ERR! registry error parsing json，可放心忽略此訊息。
+   > [!NOTE]
+   > 如果您看見錯誤訊息表示 npm ERR! registry error parsing json，可放心忽略此訊息。 如果您看見錯誤訊息表示 npm ERR! registry error parsing json，可放心忽略此訊息。
 
 3. 建立名為 twin.js 的檔案。 將模組身分識別字串複製貼上。
 
@@ -153,15 +156,15 @@ ms.locfileid: "57888718"
           console.error('error getting twin: ' + err);
           process.exit(1);
         }
-    // Output the current properties
+        // Output the current properties
         console.log('twin contents:');
         console.log(twin.properties);
-    // Add a handler for desired property changes
+        // Add a handler for desired property changes
         twin.on('properties.desired', function(delta) {
             console.log('new desired properties received:');
             console.log(JSON.stringify(delta));
         });
-    // create a patch to send to the hub
+        // create a patch to send to the hub
         var patch = {
           updateTime: new Date().toString(),
           firmwareVersion:'1.2.1',
@@ -170,7 +173,7 @@ ms.locfileid: "57888718"
             humidity: 17
           }
         };
-    // send the patch
+        // send the patch
         twin.properties.reported.update(patch, function(err) {
           if (err) throw err;
           console.log('twin state reported');
@@ -179,7 +182,7 @@ ms.locfileid: "57888718"
     });
     ```
 
-2. 使用  **node twin.js** 命令執行此動作。
+4. 使用  **node twin.js** 命令執行此動作。
 
     ```
     F:\temp\module_twin>node twin.js
@@ -196,17 +199,6 @@ ms.locfileid: "57888718"
 
 若要繼續開始使用 IoT 中樞並瀏覽其他 IoT 案例，請參閱︰
 
-* [開始使用裝置管理][lnk-device-management]
-* [開始使用 IoT Edge][lnk-iot-edge]
+* [開始使用裝置管理](iot-hub-node-node-device-management-get-started.md)
 
-<!-- Images. -->
-[15]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
-<!-- Links -->
-[lnk-hub-sdks]: iot-hub-devguide-sdks.md
-[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[lnk-portal]: https://portal.azure.com/
-
-[lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
-[lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+* [開始使用 IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 38b8e8a0e413f367d34a4ccf5dbd87817891b8ea
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 34def35eba1e5c1645e6e1f9a505704d153ac716
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313015"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277761"
 ---
 # <a name="set-rbac-roles-for-administrative-access"></a>設定系統管理存取權的 RBAC 角色
 
@@ -36,8 +36,8 @@ Azure 特別為透過入口網站或 Resource Manager API 管理的所有服務�
 
 角色不會授與服務端點的存取權限。 搜尋服務作業 (例如索引管理、索引母體擴展，以及搜尋資料查詢) 可透過 api-key 而非角色來控制。 如需詳細資訊，請參閱[管理 API 金鑰](search-security-api-keys.md)。
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 
 + [使用 Powershell 管理](search-manage-powershell.md) 
-+ [Azure 搜尋服務中的效能和最佳化](search-performance-optimization.md)
++ [效能與最佳化，在 Azure 搜尋服務](search-performance-optimization.md)
 + [在 Azure 入口網站中開始使用角色型存取控制](../role-based-access-control/overview.md)。

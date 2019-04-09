@@ -1,19 +1,18 @@
 ---
 title: 原則範例索引
 description: Azure 原則範例索引。 分類包含命名、標籤、Key Vault、網路、儲存體等。
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 03/19/2019
 ms.author: dacoulte
-ms.openlocfilehash: 14b61ffe96c6a75f6addf40ee411cd42b2532c55
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 5a39614d544157695b8b2f02ab5f1fe4427d5ca5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189728"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275669"
 ---
 # <a name="azure-policy-samples"></a>Azure 原則範例
 

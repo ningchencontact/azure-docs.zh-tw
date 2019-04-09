@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/13/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f503d890dcc8ba90a8a4d8bafc09d5fd8b2856e6
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 03bad12b7fcba5a247e05884aa0eb0493163a5c4
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804848"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009779"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>疑難排解停機期間啟動/停止 VM 解決方案
 
@@ -88,7 +88,7 @@ The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<R
 
 * 請檢查您是否已正確設定啟動/停止 VM 解決方案的排程。 若要了解如何設定排程，請參閱[排程](../automation-schedules.md)一文。
 
-* 檢查 Runbook 的作業資料流以尋找任何錯誤。 在入口網站中，移至 [自動化帳戶]，然後在 [程序自動化] 下選取 [作業]。 從 [作業] 頁面，尋找下列其中一個 Runbook 中的作業：
+* 請檢查[作業串流](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal)尋找任何錯誤。 在入口網站中，移至 [自動化帳戶]，然後在 [程序自動化] 下選取 [作業]。 從 [作業] 頁面，尋找下列其中一個 Runbook 中的作業：
 
   * AutoStop_CreateAlert_Child
   * AutoStop_CreateAlert_Parent
@@ -143,6 +143,8 @@ The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<R
 
 * 如果 VM 在啟動或解除配置時出現問題，這種行為可能是由 VM 本身的問題引起的。 部分範例或潛在的問題是，在嘗試關閉、服務停止回應等時會套用更新。 瀏覽至您的 VM 資源並檢查**活動記錄**，以查看記錄檔中是否有任何錯誤。 您還可以嘗試登入 VM，以查看事件記錄檔中是否有任何錯誤。 若要深入了解疑難排解您的 VM，請參閱[疑難排解 Azure 虛擬機器](../../virtual-machines/troubleshooting/index.md)
 
+* 請檢查[作業串流](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal)尋找任何錯誤。 在入口網站中，移至 [自動化帳戶]，然後在 [程序自動化] 下選取 [作業]。
+
 ## <a name="custom-runbook"></a>案例：我的自訂 Runbook 無法啟動或停止我的 VM
 
 ### <a name="issue"></a>問題
@@ -155,7 +157,7 @@ The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<R
 
 ### <a name="resolution"></a>解決方案
 
-建議使用[停機期間啟動/停止 VM 解決方案](../automation-solution-vm-management.md)來啟動和停止 Azure 自動化中的 VM。 此解決方案是由 Microsoft 所撰寫。 Microsoft 不支援自訂的 Runbook。 您可以透過造訪 [Runbook 疑難排解](runbooks.md)文章找到自訂 Runbook 的解決方案。 本文提供了所有類型 Runbook 的一般指引和疑難排解。
+建議使用[停機期間啟動/停止 VM 解決方案](../automation-solution-vm-management.md)來啟動和停止 Azure 自動化中的 VM。 此解決方案是由 Microsoft 所撰寫。 Microsoft 不支援自訂的 Runbook。 您可以透過造訪 [Runbook 疑難排解](runbooks.md)文章找到自訂 Runbook 的解決方案。 本文提供了所有類型 Runbook 的一般指引和疑難排解。 請檢查[作業串流](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal)尋找任何錯誤。 在入口網站中，移至 [自動化帳戶]，然後在 [程序自動化] 下選取 [作業]。
 
 ## <a name="dont-start-stop-in-sequence"></a>案例：VM 無法以正確的順序啟動或停止
 
@@ -209,7 +211,7 @@ The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<R
 
 ### <a name="resolution"></a>解決方案
 
-若要解決許多錯誤，建議移除並更新解決方案。 若要了解如何更新解決方案，請參閱[更新停機期間啟動/停止 VM 解決方案](../automation-solution-vm-management.md#update-the-solution)。
+若要解決許多錯誤，建議移除並更新解決方案。 若要了解如何更新解決方案，請參閱[更新停機期間啟動/停止 VM 解決方案](../automation-solution-vm-management.md#update-the-solution)。 此外，您可以檢查[作業串流](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal)尋找任何錯誤。 在入口網站中，移至 [自動化帳戶]，然後在 [程序自動化] 下選取 [作業]。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/03/2019
+ms.date: 04/03/2019
 ms.author: b-juche
-ms.openlocfilehash: 1cce1883295277f6c6c36d686d90370238265dbf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3df092377a29492facd972745933cd5f4a1ae3bf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775844"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275511"
 ---
 # <a name="understand-the-storage-hierarchy-of-azure-netapp-files"></a>了解 Azure NetApp Files 的儲存體階層
 
@@ -36,18 +36,15 @@ ms.locfileid: "57775844"
 
 - 容量集區是依據其佈建容量進行測量。  
 - 容量是以您購買的固定 SKU (例如 4-TiB 容量) 進行佈建。
-- 單一容量集區的大小下限為 4 TiB，大小上限為 500 TiB。 
 - 容量集區只能有一個服務等級。  
-  目前只有進階服務等級可用。
 - 每個容量集區都只能屬於一個 NetApp 帳戶。 不過，您的 NetApp 帳戶內可以有多個容量集區。  
 - 容量集區不能跨越 NetApp 帳戶移動。   
   例如，在下方[儲存體階層的概念圖表](#conceptual_diagram_of_storage_hierarchy)中，容量集區 1 無法從美國東部 NetApp 帳戶移至美國西部 2 NetApp 帳戶。  
 
 ## <a name="volumes"></a>磁碟區
 
-- 磁碟區會依據邏輯容量耗用量進行測量，且可以調整。 單一磁碟區的大小下限為 100 GiB，大小上限為 92 TiB。
+- 磁碟區會依據邏輯容量耗用量進行測量，且可以調整。 
 - 磁碟區的容量耗用量是根據其集區的佈建容量進行計算。
--   您在每個區域的每個 Azure 訂用帳戶中最多可以有 100 個磁碟區。 
 - 每個磁碟區都只屬於一個集區，但是一個集區可以包含多個磁碟區。 
 - 您可以在相同的 NetApp 帳戶內，於集區之間移動磁碟區。    
   例如，在下方[儲存體階層的概念圖表](#conceptual_diagram_of_storage_hierarchy)中，您可以將磁碟區從容量集區 1 移至容量集區 2。
