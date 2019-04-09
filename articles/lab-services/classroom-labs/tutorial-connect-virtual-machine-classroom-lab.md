@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 3ec3abffc7962051f4cfc02d5369581ca193d70e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5482ea720ea8d21230587dd9216bd006bf4e5a6e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775572"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650643"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>教學課程：存取 Azure 實驗室服務中的教室實驗室
 在本教學課程中，您會以學生的身分連線到教室實驗室中的虛擬機器 (VM)。 
@@ -46,7 +46,7 @@ ms.locfileid: "57775572"
     ![連接到 VM](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
 2. 執行下列其中一個步驟： 
     1. 針對 **Windows** 虛擬機器，將 **RDP** 檔案儲存至硬碟。 開啟 RDP 檔案以連線至虛擬機器。 使用授課者/教授提供給您的**使用者名稱**和**密碼**來登入機器。 
-    3. 針對 **Linux** 虛擬機器，在 [連線至您的虛擬機器] 對話方塊上複製並儲存 SSH 連接字串。 使用此連接字串，從 SSH 終端機 (例如 [Putty](https://www.putty.org/)) 連線至虛擬機器。 
+    3. 對於 **Linux** 虛擬機器，您可以使用 **SSH** 或 **RDP** (若已啟用) 進行連線。 如需詳細資訊，請參閱[啟用 Linux 機器的遠端桌面連線](how-to-enable-remote-desktop-linux.md)。 
 
 ## <a name="next-steps"></a>後續步驟
 在本教學課程中，您已可以使用授課者/教師提供給您的註冊連結來存取教室實驗室。

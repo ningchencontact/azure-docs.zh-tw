@@ -3,21 +3,21 @@ title: 教學課程：在 Power BI 中從 Azure 資料總管將資料視覺化
 description: 在本教學課程中，您將了解如何使用 Power BI 來連線至「Azure 資料總管」，然後將資料視覺化。
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: c04c9d9618cfc507ebdba170e0697aeaeecb1e99
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: f253911c1830e606dd47b64aaea1f17cb3478cd5
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854096"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757746"
 ---
 # <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>教學課程：在 Power BI 中從 Azure 資料總管將資料視覺化
 
-「Azure 資料總管」是一項快速又彈性極佳的資料探索服務，可用於處理記錄和遙測資料。 Power BI 是一個商務分析解決方案，可讓您將資料視覺化並在整個組織共用結果。 在本教學課程中，您會先了解如何在「Azure 資料總管」中轉譯視覺效果。 接著，您會使用 Power BI 來連線至「Azure 資料總管」、根據範例資料來建置報表，然後將報表發佈至 Power BI 服務。
+Azure 資料總管是一項快速又可高度調整的資料探索服務，可用於處理記錄和遙測資料。 Power BI 是一個商務分析解決方案，可讓您將資料視覺化並在整個組織共用結果。 在本教學課程中，您會先了解如何在「Azure 資料總管」中轉譯視覺效果。 接著，您會使用 Power BI 來連線至「Azure 資料總管」、根據範例資料來建置報表，然後將報表發佈至 Power BI 服務。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。 如果您沒有註冊 Power BI Pro，請先[註冊免費試用](https://app.powerbi.com/signupredirect?pbi_source=web)再開始進行操作。
 

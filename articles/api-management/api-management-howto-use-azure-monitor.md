@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 7f2fe6fc3ba3ae515d372fb5a794e46897bad115
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 6a4e9a0c33b227716227213e94948df430566065
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517941"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622190"
 ---
 # <a name="monitor-published-apis"></a>監視發佈的 API
 
@@ -77,21 +77,28 @@ API 管理會每分鐘發出計量，讓您近乎即時地了解 API 的狀態�
 
 設定警示：
 
-1. 從靠近頁面底部的功能表列中，選取 [警示 (傳統)]。
+1. 從靠近頁面底部的功能表列中選取 [警示]。
 
-    ![alerts](./media/api-management-azure-monitor/api-management-alert-rules-blade.png)
+    ![alerts](./media/api-management-azure-monitor/alert-menu-item.png)
 
-2. 選取 [新增計量警示]。
-3. 輸入此警示的**名稱**。
-4. 選取 [未經授權的閘道要求] 作為要監視的計量。
-5. 選取**電子郵件擁有者、參與者和讀取者**。
-6. 按 [確定]。
-7. 嘗試呼叫沒有 API 金鑰的會議 API。 身為此 API 管理服務的擁有者，您會收到電子郵件警示。 
+2. 按一下此警示的 [新警示規則]。
+3. 按一下 [新增條件]。
+4. 在 [訊號類型] 下拉式清單中選取 [計量]。
+5. 選取 [未經授權的閘道要求] 作為要監視的訊號。
 
-    > [!TIP]
-    > 警示規則也可以在觸發時呼叫 Web Hook 或 Azure Logic App。
+    ![alerts](./media/api-management-azure-monitor/signal-type.png)
 
-    ![set-up-alert](./media/api-management-azure-monitor/set-up-alert.png)
+6. 在 [設定訊號邏輯] 檢視中，指定應觸發警示的閾值，然後按一下 [完成]。
+
+    ![alerts](./media/api-management-azure-monitor/threshold.png)
+
+7. 選取現有動作群組或建立新的群組。 在下列範例中，系統會傳送電子郵件給系統管理員。 
+
+    ![alerts](./media/api-management-azure-monitor/action-details.png)
+
+8. 提供警示規則的名稱和描述，並選擇嚴重性層級。 
+9. 按 [建立警示規則]。
+10. 現在，嘗試呼叫沒有 API 金鑰的會議 API。 系統會觸發警示，並傳送電子郵件送給系統管理員。 
 
 ## <a name="activity-logs"></a>活動記錄檔
 
@@ -184,7 +191,7 @@ API 管理目前提供關於個別 API 要求的診斷記錄 (每小時提供一
 | correlationId | 字串 | API 管理所指派的唯一 http 要求識別碼 |
 | location | 字串 | 處理要求的閘道所在的 Azure 區域名稱 |
 | httpStatusCodeCategory | 字串 | HTTP 回應狀態碼的類別：成功 (301 或更小或 304 或 307)、未經授權 (401、403、429)、錯誤 (400，介於 500 與 600 之間)、其他 |
-| ResourceId | 字串 | API 管理資源的識別碼 /SUBSCRIPTIONS/\<訂用帳戶>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<名稱> |
+| ResourceId | 字串 | API 管理資源的識別碼 /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | 物件 | 目前要求的屬性 |
 | method | 字串 | 連入要求的 HTTP 方法 |
 | url | 字串 | 連入要求的 URL |

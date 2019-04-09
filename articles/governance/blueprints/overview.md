@@ -1,6 +1,6 @@
 ---
 title: Azure 藍圖概觀
-description: 「Azure 藍圖」是 Azure 中的服務，可讓您用來建立、定義及在您的 Azure 環境中部署成品。
+description: 了解 Azure 藍圖服務如何讓您在 Azure 環境中建立、定義及部署成品。
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,14 +9,14 @@ ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: cf3801381359bb973d126e2ee946cdb51e5aecb7
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 29c58abb3a69da0886d512767cbc301621943f07
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823088"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802570"
 ---
-# <a name="what-is-azure-blueprints"></a>什麼是 Azure 藍圖？
+# <a name="overview-of-the-azure-blueprints-service"></a>Azure 藍圖服務概觀
 
 正如「藍圖」可讓工程師或架構設計人員勾勒出專案的設計參數一樣，Azure 藍圖可讓雲端架構人員和中央資訊技術人員定義一組可重複使用的 Azure 資源，其中實作並遵循組織的標準、模式和需求。 Azure 藍圖可讓開發小組在知道他們是以符合組織合規性進行建置的情況下，快速地建置及建立新環境，並包含一組內建元件 (例如網路) 以加速開發和交貨。
 

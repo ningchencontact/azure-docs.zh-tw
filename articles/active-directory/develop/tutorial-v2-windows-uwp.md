@@ -9,19 +9,19 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/20/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b00a4f9ee561e8e9356b36d4a14b4bcb4f9a3357
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: c5e05faa37baf3c25be70a9500f1131cc0ea9f66
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202855"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629419"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>自通用 Windows 平台應用程式 (XAML) 呼叫 Microsoft Graph API
 
@@ -37,7 +37,7 @@ ms.locfileid: "58202855"
 
 ## <a name="how-this-guide-works"></a>本指南使用方式
 
-![顯示本教學課程所產生的範例應用程式的運作方式](./media/tutorial-v2-windows-uwp/uwp-intro-updated.png)
+![示範本教學課程所產生的應用程式範例如何運作](./media/tutorial-v2-windows-uwp/uwp-intro-updated.png)
 
 本指南建立的範例 UWP 應用程式會查詢可接受來自 Azure Active Directory v2.0 端點存取權杖的 Microsoft Graph API 或 Web API。 針對這個案例，系統會透過授權標頭將一個權杖新增到 HTTP 要求。 Microsoft 驗證程式庫 (MSAL) 會處理權杖取得和更新作業。
 
@@ -45,7 +45,7 @@ ms.locfileid: "58202855"
 
 本指南會使用以下 NuGet 套件：
 
-|程式庫|描述|
+|程式庫|說明|
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft 驗證程式庫|
 
@@ -355,7 +355,7 @@ ms.locfileid: "58202855"
 
 您也會在 [權杖資訊] 方塊中，看到透過 `AcquireTokenAsync` 或 `AcquireTokenSilentAsync` 取得之權杖的相關基本資訊：
 
-|屬性  |格式  |描述 |
+|屬性  |格式  |說明 |
 |---------|---------|---------|
 |**名稱** |使用者的全名|使用者的名字和姓氏。|
 |**使用者名稱** |<span>user@domain.com</span> |識別使用者的使用者名稱。|

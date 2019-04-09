@@ -10,36 +10,36 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/26/2018
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 11/26/2018
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 23bbcbf6947100db26f31562c44f8073e16e986f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: cfea454b20b010148eba063ec724e55134944ac3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239336"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482924"
 ---
 # <a name="deploy-the-local-agent"></a>部署本機代理程式
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-了解如何使用驗證即服務 (VaaS) 本機代理程式檢查您的硬體。 必須先將本機代理程式部署在要驗證的 Azure Stack 解決方案上，才能執行驗證測試。
+了解如何使用驗證即服務 (VaaS) 本機代理程式來執行驗證測試。 必須先部署本機代理程式再執行驗證測試。
 
 > [!Note]  
-> 您必須確定本機代理程式執行所在的機器並未失去網際網路的輸出存取能力。 只有已獲授權代表您的租用戶使用 VaaS 的使用者，才可存取這部機器。
+> 請確定本機代理程式執行所在的機器並未失去網際網路的輸出存取能力。 您應該只讓已獲授權代表租用戶使用 VaaS 的使用者存取這部機器。
 
 若要部署本機代理程式：
 
-1. 安裝本機代理程式
-2. 執行例行性檢查
-3. 執行本機代理程式
+1. 安裝本機代理程式。
+2. 執行例行性檢查。
+3. 執行本機代理程式。
 
 ## <a name="download-and-start-the-local-agent"></a>下載並啟動本機代理程式
 
-請將代理程式下載到資料中心內的機器，且此機器必須符合必要條件、不屬於 Azure Stack 系統的一部分，但可存取所有的 Azure Stack 端點。
+請將代理程式下載到資料中心內符合必要條件，且可存取所有 Azure Stack 端點的機器。 此機器不應屬於 Azure Stack 系統的一部分，也不應裝載在 Azure Stack 雲端中。
 
 ### <a name="machine-prerequisites"></a>機器的必要條件
 
@@ -52,14 +52,12 @@ ms.locfileid: "55239336"
 - 至少有 200 GB 的磁碟空間
 - 穩定的網際網路連線
 
-Azure Stack 是待測系統。 機器不應為 Azure Stack 的一部分，或裝載在 Azure Stack 雲端中。
-
 ### <a name="download-and-install-the-agent"></a>下載並安裝代理程式
 
 1. 在您要用來執行測試的機器上，透過已提升權限的提示字元開啟 Windows PowerShell。
 2. 執行下列命令以下載本機代理程式：
 
-    ```PowerShell
+    ```powershell
     Invoke-WebRequest -Uri "https://storage.azurestackvalidation.com/packages/Microsoft.VaaSOnPrem.TaskEngineHost.latest.nupkg" -outfile "OnPremAgent.zip"
     Expand-Archive -Path ".\OnPremAgent.zip" -DestinationPath VaaSOnPremAgent -Force
     Set-Location VaaSOnPremAgent\lib\net46
@@ -67,7 +65,7 @@ Azure Stack 是待測系統。 機器不應為 Azure Stack 的一部分，或裝
 
 3. 執行下列命令以安裝本機代理程式相依性：
 
-    ```PowerShell
+    ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
     Import-Module .\VaaSPreReqs.psm1 -Force
     Install-VaaSPrerequisites -AadTenantId $AadTenantId `
@@ -95,7 +93,7 @@ Azure Stack 是待測系統。 機器不應為 Azure Stack 的一部分，或裝
 
 ## <a name="checks-before-starting-the-tests"></a>開始測試前的檢查
 
-測試會執行遠端動作。 執行測試的機器必須能夠存取 Azure Stack 端點，否則測試將無法執行。 如果您使用 VaaS 本機代理程式，請使用將作為代理程式執行位置的機器。 您可以執行下列檢查以確認您的機器是否能夠存取 Azure Stack 端點：
+測試會執行遠端作業。 執行測試的機器必須能夠存取 Azure Stack 端點，否則測試將無法執行。 如果您使用 VaaS 本機代理程式，請使用將作為代理程式執行位置的機器。 您可以執行下列檢查以確認您的機器是否能夠存取 Azure Stack 端點：
 
 1. 檢查是否能夠連線至「基底 URI」。 開啟 CMD 提示字元或 Bash 殼層，然後執行下列命令 (請將 `<EXTERNALFQDN>` 取代為環境的外部 FQDN)：
 
@@ -115,14 +113,15 @@ Azure Stack 是待測系統。 機器不應為 Azure Stack 的一部分，或裝
 
 2. 執行以下命令：
 
-    ```PowerShell
+    ```powershell
     .\Microsoft.VaaSOnPrem.TaskEngineHost.exe -u <VaaSUserId> -t <VaaSTenantId>
     ```
 
       **參數**  
+
     | 參數 | 說明 |
     | --- | --- |
-    | VaaSUserId | 用來登入 VaaS 入口網站的使用者識別碼 (例如 UserName@Contoso.com) |
+    | VaaSUserId | 用來登入 VaaS 入口網站的使用者識別碼 (例如 UserName\@Contoso.com) |
     | VaaSTenantId | 向驗證即服務註冊之 Azure 帳戶的 Azure AD 租用戶識別碼。 |
 
     > [!Note]  

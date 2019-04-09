@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: sajagtap
-ms.openlocfilehash: cc8cbc19f416e6e80d2d0fdfb4862536da7f0ce2
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 09fd58fa33873c06ac5dab4970af199bc3030479
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312237"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756539"
 ---
-# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>快速入門：使用 C# 分析文字內容中的不當題材 
+# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>快速入門：使用 C# 分析文字內容中的不當題材
 
 本文提供可協助您開始使用 [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 的資訊和程式碼範例。 您將了解如何執行文字內容的字詞型篩選和分類，以仲裁可能令人反感的內容。
 
@@ -74,7 +74,7 @@ These are all UK phone numbers, the last two being Microsoft UK support numbers:
 將以下程式碼新增至 **Main** 方法。 **ScreenText** 方法是基本作業。 其參數會指定將執行哪些內容仲裁作業。 在此範例中，方法會設定為：
 - 偵測文字中可能的粗話。
 - 將文字正規化並自動校正錯字。
-- 偵測個人識別資訊 (PII)，例如美國和英國電話號碼、電子郵件地址及美國郵寄地址。
+- 偵測個人資料，例如美國和英國電話號碼、電子郵件地址及美國郵寄地址。
 - 使用機器學習型模型將文字分成三種類別。
 
 若要深入了解這些作業的功用，請進入[後續步驟](#next-steps)一節中的連結。

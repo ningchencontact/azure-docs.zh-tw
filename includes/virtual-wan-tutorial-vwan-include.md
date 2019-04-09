@@ -5,19 +5,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 02/27/2019
+ms.date: 03/27/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 485a386210458d57b87aaa0537b1c58a6adab2c7
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: b2549abd3a4f87de99efa9a916e39b99c6fc8747
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58342543"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58616517"
 ---
-1. 您可以藉由瀏覽至 [所有服務] 並搜尋虛擬 WAN 來找到虛擬 WAN。 或是，在 Azure 入口網站頂端的搜尋方塊中搜尋虛擬 WAN。 按一下 [虛擬 WAN] 來開啟頁面。
-2. 按一下 [+新增] 來開啟 [建立 WAN] 頁面。
-3. 在 [建立 WAN] 頁面上，填寫下列欄位：
+1. 瀏覽至 [虛擬 WAN] 頁面。 瀏覽至該頁面的其中一種方法是移至 [所有服務]，然後搜尋「虛擬 WAN」。
+1. 按一下 [+新增] 來開啟 [建立 WAN] 頁面。
+1. 在 [建立 WAN] 頁面上，填寫下列欄位：
 
    * **名稱** - 選取您想要用來稱呼 WAN 的名稱。
    * **訂用帳戶** - 選取您要使用的訂用帳戶。

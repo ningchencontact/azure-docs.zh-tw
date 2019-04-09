@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/18/2019
+ms.date: 03/29/2019
 ms.author: spelluru
-ms.openlocfilehash: 31bf2de7417a1be6139de3ec9dcc8d531df586d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 00c32d1aaace765a1b46d5b25e82bab6e937d2ed
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090316"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649701"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>教學課程：設定教室實驗室 
 您將在本教學課程中設定教室實驗室，且其中包含教室中學生所使用的虛擬機器。  
@@ -48,8 +48,8 @@ ms.locfileid: "58090316"
 
         ![建立教室實驗室](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. 在 [選取虛擬機器規格] 頁面上，執行下列步驟：
-    1. 選取在實驗室中建立的虛擬機器 (VM) [大小]。 
-    3. 選取要用來在實驗室中建立 VM 的 [VM 映像]。 
+    1. 選取在實驗室中建立的虛擬機器 (VM) [大小]。 目前允許使用 [小]、[中]、[大] 及 [GPU] 大小。
+    3. 選取要用來在實驗室中建立 VM 的 [VM 映像]。 如果您選取 Linux 映像，您會看到可啟用遠端桌面連接的選項。 如需詳細資料，請參閱[啟用 Linux 遠端桌面連線](how-to-enable-remote-desktop-linux.md)。
     4. 選取 [下一步] 。
 
         ![指定 VM 規格](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
@@ -69,7 +69,7 @@ ms.locfileid: "58090316"
 
     ![在範本頁面完成後加以設定](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. 在 [設定範本] 頁面上，執行下列步驟：這些都是本教學課程的**選擇性**步驟。
-    1. 選取 [連線] 以連線至範本 VM。 
+    1. 選取 [連線] 以連線至範本 VM。 如果是 Linux 範本 VM，您可選擇是否要使用 SSH 或 RDP 連線 (若已啟用 RDP)。
     2. 在您的範本 VM 上安裝並設定軟體。     
     3. 輸入範本的 [描述]
 9. 選取 [範本] 頁面上的 [下一步]。 
@@ -109,14 +109,19 @@ ms.locfileid: "58090316"
 
 
 ## <a name="send-an-email-with-the-registration-link"></a>傳送含有註冊連結的電子郵件
+
 1. 如果您尚未在 [使用者] 頁面上，請切換至該檢視。 
-2. 在清單中選取特定或所有使用者。 若要選取特定使用者，選取清單第一個資料行中的核取方塊。 若要選取所有使用者，則選取第一個資料行標題 (**名稱**) 前面的核取方塊，或全部選取清單中所有使用者的核取方塊。
-3. 選取工具列上的 [傳送邀請]。 您也可以將滑鼠停留在清單中的學生名稱上，並傳送電子郵件圖示。 
+2. 在清單中選取特定或所有使用者。 若要選取特定使用者，選取清單第一個資料行中的核取方塊。 若要選取所有使用者，則選取第一個資料行標題 (**名稱**) 前面的核取方塊，或全部選取清單中所有使用者的核取方塊。 您可以在此清單中查看**邀請狀態**的狀態。  在下圖中，所有學員的邀請狀態會設為 [邀請未送出]。 
+
+    ![選取學員](../media/tutorial-setup-classroom-lab/select-students.png)
+1. 選取其中一個資料列中的 [電子郵件圖示 (信封)]，或選取工具列上的 [傳送邀請]。 您也可以將滑鼠停留在清單中的學生名稱上，即可看到電子郵件圖示。 
 
     ![透過電子郵件傳送註冊連結](../media/tutorial-setup-classroom-lab/send-email.png)
 4. 在 [透過電子郵件傳送註冊連結] 頁面上，遵循下列步驟： 
     1. 輸入您想要傳送給學生的**選擇性訊息**。 電子郵件會自動包含註冊連結。 
-    2. 在 [透過電子郵件傳送註冊連結] 頁面上，選取 [傳送]。 
+    2. 在 [透過電子郵件傳送註冊連結] 頁面上，選取 [傳送]。 您會看到邀請狀態變更為 [正在傳送邀請]，然後變更為 [邀請已送出]。 
+        
+        ![邀請已送出](../media/tutorial-setup-classroom-lab/invitations-sent.png)
 
 ## <a name="next-steps"></a>後續步驟
 在本教學課程中，您已建立教室實驗室並已設定實驗室。 若要了解學生可以如何使用註冊連結，來存取實驗室中的 VM，請前往下一個教學課程：

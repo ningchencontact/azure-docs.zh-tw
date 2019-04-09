@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/08/2019
+ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 98eb2574ab427f2d5727d74a077628d3a7f829bc
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 213b227c4ab3f97d9f8787f4e84348e36c43a6e6
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311450"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630515"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>快速入門：使用電腦視覺 REST API 與 Java 分析遠端影像
 
@@ -57,8 +57,6 @@ ms.locfileid: "56311450"
    1. 將 `subscriptionKey` 的值取代為您的訂用帳戶金鑰。
    1. 如有需要，請從您取得訂用帳戶金鑰的 Azure 區域，將 `uriBase` 的值取代為[分析影像](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)方法的端點 URL。
    1. (選擇性) 將 `imageToAnalyze` 的值取代為您要分析之不同影像的 URL。
-1. 儲存並建置 Java 專案。
-1. 如果您使用 IDE，請執行 `Main`。 否則，請開啟命令提示字元視窗，然後使用 `java` 命令執行已編譯的類別。 例如： `java Main`。
 
 ```java
 public class Main {
@@ -125,6 +123,25 @@ public class Main {
     }
 }
 ```
+
+## <a name="compile-and-run-the-program"></a>編譯並執行程式
+
+1. 儲存並建置 Java 專案。
+1. 如果您使用 IDE，請執行 `Main`。
+
+或者，如果您從命令列視窗執行程式，請執行下列命令。 這些命令假設您的程式庫位於名為 `libs` 的資料夾，此資料夾和 `Main.java` 位於相同的資料夾；如果不是，您就必須將 `libs` 取代為程式庫的路徑。
+
+1. 編譯 `Main.java` 檔案。
+
+    ```bash
+    javac -cp ".;libs/*" Main.java
+    ```
+
+1. 執行程式。 程式會將要求傳送至 QnA Maker API 以建立 KB，然後會每隔 30 秒輪詢結果。 每個回應都會列印到命令列視窗。
+
+    ```bash
+    java -cp ".;libs/*" Main
+    ```
 
 ## <a name="examine-the-response"></a>檢查回應
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: a721cc2252619923496ee5a3a8ae590a5cda3b04
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 23c74c0b1d4c311cd57a02cbac9498f3acb16992
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487544"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578113"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>快速入門：使用 Azure 應用程式設定建立 ASP.NET Core 應用程式
 
@@ -93,13 +93,15 @@ ASP.NET Core 會使用應用程式所指定一或多個資料來源中的設定�
 
     此祕密可使用設定 API 來存取。 在所有支援的平台上，組態 API 的組態名稱中都適用冒號 (:)。 請參閱[取決於環境的組態](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0)。
 
-4. 開啟 Program.cs，並藉由呼叫 `config.AddAzureAppConfiguration()` 方法將 `CreateWebHostBuilder` 方法更新為使用應用程式設定。
+4. 開啟 Program.cs，並新增應用程式設定 .NET Core 設定提供者的參考。
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+    ```
 
-    ...
+5. 藉由呼叫 `config.AddAzureAppConfiguration()` 方法將 `CreateWebHostBuilder` 方法更新為使用應用程式設定。
 
+    ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
             .ConfigureAppConfiguration((hostingContext, config) =>
@@ -113,7 +115,7 @@ ASP.NET Core 會使用應用程式所指定一或多個資料來源中的設定�
             .UseStartup<Startup>();
     ```
 
-5. 開啟 Views > Home 目錄中的 Index.cshtml，並將其內容更換為下列程式碼：
+6. 開啟 Views > Home 目錄中的 Index.cshtml，並將其內容更換為下列程式碼：
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -139,7 +141,7 @@ ASP.NET Core 會使用應用程式所指定一或多個資料來源中的設定�
     </html>
     ```
 
-6. 開啟 Views > Shared 目錄中的 _Layout.cshtml，並將其內容更換為下列程式碼：
+7. 開啟 Views > Shared 目錄中的 _Layout.cshtml，並將其內容更換為下列程式碼：
 
     ```html
     <!DOCTYPE html>

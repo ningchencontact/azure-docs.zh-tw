@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d1debbcc8f225a0d4608d67b19e5e00aca580ce1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 51191f3276a9420129f47944b47a182479719d5a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122007"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621663"
 ---
 # <a name="what-is-azure-backup"></a>何謂 Azure 備份？
 
@@ -28,10 +28,14 @@ Azure 備份可提供下列主要優點：
 - **卸載內部部署備份**：Azure 備份提供了簡單的解決方案，可讓您將內部部署資源備份到雲端。 您不需部署複雜的內部部署備份解決方案，即可取得短期與長期備份。 
 - **備份 Azure IaaS VM**：Azure 備份提供獨立且隔離的備份，可防止原始資料意外毀損。 備份會儲存在復原服務保存庫中，且具有內建的受控復原點。 設定和調整都十分容易，且備份會最佳化，可在必要時輕易還原。
 - **輕鬆調整** - Azure 備份使用 Azure 雲端的基礎功能及無限制調整來提供高可用性，沒有維護或監視的額外負荷。 
-- **取得無限制的資料傳輸** - Azure 備份不會限制輸入或輸出資料的傳輸，或對傳輸的資料收費。
+- **取得無限制的資料傳輸**：Azure 備份不會限制輸入或輸出資料的傳輸，或對傳輸的資料收費。
     - 輸出資料是指還原作業期間傳輸自復原服務保存庫的資料。
     - 如果您使用 Azure 匯入/匯出服務執行離線初始備份以匯出大量資料，則會有輸入資料的相關費用。  [深入了解](backup-azure-backup-import-export.md)。 
-- **確保資料安全性**：資料加密可讓您在公用雲端中的資料安全地進行傳輸和儲存。 加密複雜密碼會儲存在本機，並且永遠不會傳送至或儲存在 Azure 中。 如果需要還原任何資料，只有您有加密複雜密碼或金鑰。
+- **確保資料安全性**：
+    - 在內部部署環境，傳輸中的資料會在內部部署機器上以 AES256 加密。 傳輸的資料會受到儲存體與備份之間的 HTTPS 保護。 iSCSI 通訊協定會保護備份與使用者電腦之間傳輸的資料。 安全通道用於保護 iSCSI 通道。
+    - 對於內部部署環境至 Azure 的備份，系統會使用您在設定備份時所提供的複雜密碼來加密 Azure 中的待用資料。 複雜密碼或金鑰永遠不會在 Azure 中傳輸或儲存。 如果需要還原任何資料，只有您有加密複雜密碼或金鑰。
+    - 針對 Azure VM，會使用「儲存體服務加密」(SSE) 對資料進行靜態加密。 備份會儲存資料前自動進行加密。 Azure 儲存體會在擷取資料前進行解密。
+    - 備份也支援使用 Azure 磁碟加密 (ADE) 加密的 Azure VM。 [深入了解](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups)。
 - **取得應用程式一致備份**：應用程式一致備份表示復原點具有還原備份複本所需的所有資料。 Azure 備份提供應用程式一致備份，確保資料還原不需要其他修正程式。 還原應用程式一致的資料會減少還原時間，讓您能夠快速回到執行狀態。
 - **保留短期和長期資料**：您可以使用復原服務保存庫進行短期和長期資料保留。 Azure 不會限制您可在復原服務保存庫中保留資料的時間長度。 您可以無限期保留資料。 Azure 備份的每個受保護執行個體上限為 9999 個復原點。 [深入了解](backup-introduction-to-azure-backup.md#backup-and-retention)這項限制對您的備份需求有何影響。
 - **自動儲存管理** - 混合式環境通常需要異質性儲存體 - 部份在內部部署，部份在雲端。 使用 Azure 備份，使用內部部署儲存體裝置無需成本。 Azure 備份會自動配置和管理備份儲存體，且採用隨用隨付模式，因此您只需為已使用的儲存體付費。 [深入了解](https://azure.microsoft.com/pricing/details/backup)定價。

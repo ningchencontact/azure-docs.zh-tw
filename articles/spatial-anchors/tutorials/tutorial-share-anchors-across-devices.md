@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 透過 Azure Spatial Anchors 跨工作階段和裝置進行共用 | Microsoft Docs
+title: 教學課程 - 跨工作階段和裝置來共用 Azure Spatial Anchors | Microsoft Docs
 description: 在本教學課程中，您將了解如何在 Unity 中透過後端服務於 Adroid/iOS 裝置之間共用 Azure Spatial Anchors 識別碼。
 author: ramonarguelles
 manager: vicenterivera
@@ -8,19 +8,16 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7d9fe58b7db60513eed81aae628ebd7ca754a53a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ff9868dd7347812eb6ef566288ec364bc89b6955
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901299"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629313"
 ---
-# <a name="tutorial-sharing-across-sessions-and-devices-with-azure-spatial-anchors"></a>教學課程：透過 Azure Spatial Anchors 跨工作階段和裝置進行共用
+# <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>教學課程：跨工作階段和裝置來共用 Azure Spatial Anchors
 
-本教學課程將說明如何使用 [Azure Spatial Anchors](../overview.md) 來：
-
-1. 在一個工作階段中建立錨點，然後在相同或不同裝置上的另一個工作階段中尋找這些錨點。 例如，在不同的日期。
-2. 建立可由多個裝置同時在相同位置找到的錨點。
+在本教學課程中，您將了解如何使用 [Azure Spatial Anchors](../overview.md) 在一個工作階段中建立錨點，然後在相同或不同裝置上找到這些錨點。 這些相同的錨點也可由多個裝置在相同的位置同時找到。
 
 ![持續性](./media/persistence.gif)
 
@@ -51,10 +48,6 @@ Azure Spatial Anchors 是一款跨平台開發人員服務，可讓您使用在�
 
 [!INCLUDE [Publish Azure](../../../includes/spatial-anchors-publish-azure.md)]
 
-## <a name="open-the-sample-project-in-unity"></a>在 Unity 中開啟範例專案
-
-[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
-
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
@@ -63,7 +56,7 @@ Azure Spatial Anchors 是一款跨平台開發人員服務，可讓您使用在�
 
 在本教學課程中，您已在 Azure 中部署 ASP.NET Core Web 應用程式，然後設定並部署 Unity 應用程式。 您使用應用程式建立了 Spatial Anchors，並使用 ASP.NET Core Web 應用程式與其他裝置共用這些錨點。
 
-若要深入了解如何改善 ASP.NET Core Web 應用程式，使它能夠使用 Azure Cosmos DB 儲存共用的 Spatial Anchors，請繼續下一個教學課程。
+若要深入了解如何改善 ASP.NET Core Web 應用程式，使它能夠使用 Azure Cosmos DB 儲存共用的 Spatial Anchors 識別碼，請繼續下一個教學課程。 Azure Cosmos DB 會為您的 ASP.NET Core Web 應用程式提供持續性。 這樣做會讓您的應用程式在今天建立一個錨點，幾天後回來時還能使用儲存在 Web 應用程式中的錨點識別碼再次找到該錨點。
 
 > [!div class="nextstepaction"]
 > [教學課程：使用 Azure Cosmos DB 儲存錨點](./tutorial-use-cosmos-db-to-store-anchors.md)

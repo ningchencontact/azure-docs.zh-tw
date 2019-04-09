@@ -12,12 +12,12 @@ ms.author: joke
 ms.reviwer: sstein
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: f90e4281be27f4f30f4fdf0e3eb2932fa4e743ef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb5066185f9301450a68276dd4b2ce2123231b34
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840812"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666779"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>使用 PowerShell 建立彈性作業代理程式
 
@@ -129,7 +129,7 @@ $Db2
 
 ## <a name="enable-the-elastic-jobs-preview-for-your-subscription"></a>為您的訂用帳戶啟用彈性作業預覽版
 
-若要使用彈性作業，請執行下列命令以在 Azure 訂用帳戶中註冊此功能 (此命令只需要在每個要使用彈性作業的訂用帳戶中執行一次即可)：
+若要使用彈性作業，請執行下列命令以在 Azure 訂用帳戶中註冊此功能。 針對要在其中佈建彈性作業代理程式的訂用帳戶執行此命令一次。 訂用帳戶若只包含屬於作業目標的資料庫就不需要註冊。
 
 ```powershell
 Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql

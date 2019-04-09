@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 06b2a5211c720d50a2f14e5fa56fa296cb80d41f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: b536c55b0f7c29bc463781d9fda0348ef994c5ce
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519624"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662219"
 ---
 # <a name="what-are-the-speech-services"></a>什麼是語音服務？
 
@@ -39,7 +39,7 @@ Azure 語音服務是由以下功能所組成。 請使用此資料表中的連�
 
 了解 Azure 語音服務的新功能。
 
-* 2019 年 3 月 - 現已推出新的文字轉語音端點，其可傳回特定區域中可用的完整語音清單。 如需詳細資訊，請參閱[文字轉語音 API 參考 (REST)](rest-text-to-speech.md)。
+* 2019 年 3 月 - 現已推出新的文字轉語音 (TTS) 端點，其可傳回特定區域中可用的完整語音清單。 此外，TTS 現在支援新的區域。 如需詳細資訊，請參閱[文字轉語音 API 參考 (REST)](rest-text-to-speech.md)。
 * 2019 年 2 月 - 發行支援 [Unity (Beta)](quickstart-csharp-unity.md) 的語音 SDK 1.3.0。 新增 `AudioInput` 類別的支援，可讓您選擇音訊的串流來源。 如需增強功能和已知問題的完整清單，請參閱[版本資訊](releasenotes.md)。
 * 2018 年 12 月 - 發行支援 [Python](quickstart-python.md)、[Node.js](quickstart-js-node.md) 和 Ubuntu 18.04 LTS 的語音 SDK 1.2.0。 如需詳細資訊，請參閱[版本資訊](releasenotes.md)。
 

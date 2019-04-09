@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Graph 概觀
-description: Azure Resource Graph 是 Azure 中的一項服務，能夠大規模進行複雜的資源查詢。
+description: 了解 Azure Resource Graph 服務如何能夠大規模進行複雜的資源查詢。
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,14 +8,14 @@ ms.date: 02/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: b5062dd4edf43fbb348a6de57f534096a8c922de
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 15cfdc87fafa25e9f37c63c8159289b25a547817
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193563"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802317"
 ---
-# <a name="what-is-azure-resource-graph"></a>何謂 Azure Resource Graph
+# <a name="overview-of-the-azure-resource-graph-service"></a>Azure Resource Graph 服務的概觀
 
 Azure Resource Graph 是 Azure 中的一項服務，透過大規模查詢所有訂用帳戶及管理群組的能力，提供兼具效率及效能的資源探索延伸 Azure 資源管理，讓您可以有效的治理環境。 這些查詢提供下列功能：
 

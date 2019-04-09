@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/06/2019
+ms.date: 03/27/2019
 ms.author: pafarley
-ms.openlocfilehash: e9f613b6cd02bd1e85b75db7a3b2c2b4adccce3f
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 57605f9bd1a39435e27a2f2c56c06cf3bfb38605
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372126"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630710"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>快速入門：使用 Face .NET SDK 偵測影像中的臉部
 
@@ -34,9 +34,7 @@ ms.locfileid: "58372126"
 1. 如果您的解決方案中有其他專案，請選取此專案作為單一啟始專案。
 1. 取得必要的 NuGet 套件。 以滑鼠右鍵按一下 [方案總管] 中的專案，然後選取 [管理 NuGet 套件]。 按一下 [瀏覽] 索引標籤，並選取 [包含發行前版本]；然後尋找並安裝下列套件：
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
-    - Microsoft.Rest.ClientRuntime
-    - Microsoft.Rest.ClientRuntime.Azure
-    - Newtonsoft.Json
+1. 請確定您已為專案的所有 NuGet 套件安裝最新版本。 以滑鼠右鍵按一下 [方案總管] 中的專案，然後選取 [管理 NuGet 套件]。 按一下 [更新] 索引標籤，然後安裝所出現套件的最新版本。
 
 ## <a name="add-face-detection-code"></a>新增臉部偵測程式碼
 
@@ -50,21 +48,21 @@ ms.locfileid: "58372126"
 
 ### <a name="add-essential-fields"></a>新增必要欄位
 
-將下列欄位新增到 **Program** 類別。 這項資料會指定連線到 Face 服務的方式，以及接收輸入資料的位置。 您將需要以訂用帳戶金鑰更新 `subscriptionKey` 欄位的值，而且可能需要變更 `faceEndpoint` 字串，使其包含正確的區域識別碼。 您也需要為指向實際影像檔的路徑設定 `localImagePath` 及/或 `remoteImageUrl` 值。
+使用下列欄位新增 [程式] 類別。 這項資料會指定連線到 Face 服務的方式，以及接收輸入資料的位置。 您將需要以訂用帳戶金鑰更新 `subscriptionKey` 欄位的值，而且可能需要變更 `faceEndpoint` 字串，使其包含正確的區域識別碼。 您也需要為指向實際影像檔的路徑設定 `localImagePath` 及/或 `remoteImageUrl` 值。
 
 `faceAttributes` 欄位只是特定屬性類型的陣列。 其用於指定要對偵測到的臉部擷取哪些資訊。
 
-[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=13-34)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=9-34)]
 
 ### <a name="create-and-use-the-face-client"></a>建立和使用 Face 用戶端
 
-接下來，對 **Program** 類別的 **Main** 方法新增下列程式碼。 這會設定臉部 API 用戶端。
+接下來，使用下列程式碼新增 **Program** 類別的 **Main** 方法。 這會設定臉部 API 用戶端。
 
-[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=38-41)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=36-41)]
 
 此外，在 **Main** 方法中新增下列程式碼，即可使用新建的 Face 用戶端來偵測遠端影像和本機影像中的臉部。 接下來將會定義偵測方法。 
 
-[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=43-49)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=43-50)]
 
 ### <a name="detect-faces"></a>偵測臉部
 
@@ -82,9 +80,9 @@ ms.locfileid: "58372126"
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=103-116)]
 
-最後，定義 **DisplayAttributes** 方法，將臉部屬性資料寫入主控台輸出中。
+最後，定義 **DisplayAttributes** 方法，將臉部屬性資料寫入主控台輸出中。 然後您就可以關閉類別和命名空間。
 
-[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=118-123)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=118-125)]
 
 ## <a name="run-the-app"></a>執行應用程式
 

@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 0d4689e35cd308478ae0c0154761534dd834f146
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 34a967640ec039727e8947e865eeff1f5fef4649
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482329"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758590"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>快速入門：將 Windows 容器部署至 Service Fabric
 
 Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理可調整和可信賴的微服務與容器。
 
-在 Service Fabric 叢集上的 Windows 容器中執行現有的應用程式，不需要變更您的應用程式。 本快速入門示範如何在 Service Fabric 應用程式中部署預先建立的 Docker 容器映像。 當您完成時，您會有執行中的 Windows Server 2016 Nano Server 和 IIS 容器。 本快速入門說明如何部署 Windows 容器，請閱讀[本快速入門](service-fabric-quickstart-containers-linux.md)以部署 Linux 容器。
+在 Service Fabric 叢集上的 Windows 容器中執行現有的應用程式，不需要變更您的應用程式。 本快速入門示範如何在 Service Fabric 應用程式中部署預先建立的 Docker 容器映像。 當您完成時，您會有執行中的 Windows Server Core 2016 Server 和 IIS 容器。 本快速入門說明如何部署 Windows 容器，請閱讀[本快速入門](service-fabric-quickstart-containers-linux.md)以部署 Linux 容器。
 
 ![IIS 預設網頁][iis-default]
 
@@ -54,7 +54,7 @@ Service Fabric SDK 和工具會提供一個服務範本，協助您將容器部�
 
 從 [裝載的容器和應用程式] 範本選取 [容器]。
 
-在 [映像名稱] 中，輸入 "microsoft/iis:nanoserver"、[Windows Server Nano Server 和 IIS 基底映像](https://hub.docker.com/r/microsoft/iis/)。
+在 [映像名稱] 中，輸入 "mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016"、[Windows Server Core Server 和 IIS 基底映像](https://hub.docker.com/r/microsoft-windows-servercore-iis)。
 
 設定容器連接埠對主機的連接埠對應，以便讓通訊埠 80 上服務的連入要求對應到容器上的連接埠 80。  將 [容器連接埠] 設定為 "80"，並將 [主機連接埠] 設定為 "80"。  
 
@@ -74,14 +74,14 @@ Microsoft 針對建置於不同 Windows Server 版本的 IIS 版本，發行了�
     <ContainerHostPolicies CodePackageRef="Code"> 
       <ImageOverrides> 
         ...
-          <Image Name="microsoft/iis:nanoserverDefault" /> 
-          <Image Name= "microsoft/iis:nanoserver" Os="14393" /> 
-          <Image Name="microsoft/iis:windowsservercore-1709" Os="16299" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1803" /> 
+          <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016" Os="14393" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1709" Os="16299" /> 
       </ImageOverrides> 
     </ContainerHostPolicies> 
 ```
 
-服務資訊清單會繼續只為 nanoserver `microsoft/iis:nanoserver` 指定一個映像。
+服務資訊清單會繼續只為 nanoserver `mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016` 指定一個映像。
 
 此外，在 *ApplicationManifest.xml* 檔案中，將 **PasswordEncrypted** 變更為 **false**。 對於 Docker Hub 上的公用容器映像，帳戶和密碼都是空白的，所以我們會關閉加密功能，因為加密空白密碼將會產生建置錯誤。
 

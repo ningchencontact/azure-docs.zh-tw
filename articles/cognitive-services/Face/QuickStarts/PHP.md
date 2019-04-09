@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 03/27/2019
 ms.author: pafarley
-ms.openlocfilehash: c29647e4ee312302b66535ba834edabb42e4cff7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0c48b85e48153eb70400fc6da4822271f49b7fbe
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550595"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630169"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>快速入門：使用 REST API 和 PHP 偵測影像中的人臉
 
@@ -24,7 +24,8 @@ ms.locfileid: "57550595"
 ## <a name="prerequisites"></a>必要條件
 
 - 臉部 API 訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=face-api)取得免費的試用訂用帳戶金鑰。 或是，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱臉部 API 服務並取得金鑰。
-- 程式碼編輯器，例如 [Visual Studio Code](https://code.visualstudio.com/download)
+- 程式碼編輯器，例如 [Visual Studio Code](https://code.visualstudio.com/download)。
+- PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2) 套件。
 
 ## <a name="initialize-the-html-file"></a>初始化 HTML 檔案
 

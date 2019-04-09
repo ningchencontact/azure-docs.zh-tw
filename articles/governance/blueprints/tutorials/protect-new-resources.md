@@ -4,16 +4,16 @@ description: 了解如何使用 Azure 藍圖資源鎖定的「唯讀」和「請
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/13/2018
+ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: e3a05329ea247dbf5baa23ae9b3d32f909c0d1bb
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: f39d59ef7ab3f555637aef69b301a0e77c00fc24
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57855754"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629223"
 ---
 # <a name="protect-new-resources-with-azure-blueprints-resource-locks"></a>使用 Azure 藍圖資源鎖定保護新資源
 
@@ -40,7 +40,7 @@ Azure 藍圖[資源鎖定](../concepts/resource-locking.md)能夠防止新部署
 
 1. 在左側的 [快速入門] 頁面上，選取 [建立藍圖] **下方的 [建立]** 按鈕。
 
-1. 在頁面上方尋找**空白範例**作為藍圖範例，然後選取 [使用此範例]。
+1. 在頁面頂端尋找 [空白藍圖] 藍圖範例，然後選取 [從空白藍圖開始]。
 
 1. 輸入藍圖範例的 [基本資料]：
 
@@ -81,7 +81,7 @@ Azure 藍圖[資源鎖定](../concepts/resource-locking.md)能夠防止新部署
        "resources": [{
            "type": "Microsoft.Storage/storageAccounts",
            "name": "[variables('storageAccountName')]",
-           "location": "[resourceGroups('RGtoLock').location]",
+           "location": "[resourceGroup().location]",
            "apiVersion": "2018-07-01",
            "sku": {
                "name": "[parameters('storageAccountType')]"
@@ -114,7 +114,7 @@ Azure 藍圖[資源鎖定](../concepts/resource-locking.md)能夠防止新部署
 
 1. 選取頁面頂端的 [發佈藍圖]。 在右側的新窗格中，提供 _1.0_ 作為 [版本]。 如果您稍後會進行修改，此屬性十分實用。 請提供**變更附註**，例如「為鎖定藍圖部署資源發佈的第一版」。 然後選取頁面底端的 [發佈]。
 
-此步驟可讓您將藍圖指派給訂用帳戶。 發佈之後，仍可進行變更。 進行其他變更時，需要以新的**版本**值來發佈，如此才能追蹤相同藍圖定義的各版本差異。
+此步驟可讓您將藍圖指派給訂用帳戶。 發佈之後，仍可進行變更。 進行其他變更時，需要以新的 [版本] 值來發佈，如此才能追蹤相同藍圖定義的各版本差異。
 
 出現**成功發佈藍圖定義**的入口網站通知後，請移至下一個步驟。
 
@@ -134,7 +134,7 @@ Azure 藍圖[資源鎖定](../concepts/resource-locking.md)能夠防止新部署
 
      - **訂用帳戶**：在儲存您藍圖定義的管理群組中，選取一個或多個訂用帳戶。 如果您選取多個訂用帳戶，輸入的參數就會用來為每個訂用帳戶建立指派。
      - **指派名稱**：名稱會根據藍圖定義名稱預先填入。 我們想要用此指派來表示鎖定新資源群組，因此將指派名稱變更為 _assignment-locked-storageaccount-TestingBPLocks_。
-     - **位置**：選取將建立受控識別的區域。 Azure 藍圖會使用此受控識別來部署指派的藍圖之中的所有成品。 若要深入了解，請參閱[適用於 Azure 資源的受控識別](../../../active-directory/managed-identities-azure-resources/overview.md)。
+     - **位置**：選取要在其中建立受控識別的區域。 Azure 藍圖會使用此受控識別來部署指派的藍圖之中的所有成品。 若要深入了解，請參閱[適用於 Azure 資源的受控識別](../../../active-directory/managed-identities-azure-resources/overview.md)。
        在本教學課程中，我們選取 [美國東部 2]。
      - **藍圖定義版本**：選取藍圖定義的**已發佈**版本：_1.0_。
 
@@ -158,7 +158,7 @@ Azure 藍圖[資源鎖定](../concepts/resource-locking.md)能夠防止新部署
 
 1. 輸入所有參數後，選取頁面底部的 [指派]。
 
-此步驟會部署已定義的資源，並設定所選的**鎖定指派**。 套用藍圖鎖定可能需要 30 分鐘的時間。
+此步驟會部署已定義的資源，並設定所選的 [鎖定指派]。 套用藍圖鎖定可能需要 30 分鐘的時間。
 
 出現**成功指派藍圖定義**的入口網站通知後，請移至下一個步驟。
 
@@ -181,6 +181,8 @@ Azure 藍圖[資源鎖定](../concepts/resource-locking.md)能夠防止新部署
 1. 選取 [拒絕指派] 索引標籤。
 
    藍圖指派已在部署的資源群組上建立[拒絕指派](../../../role-based-access-control/deny-assignments.md)，進而強制執行「唯讀」鎖定模式。 針對在 [角色指派] 索引標籤上具有適當權限的人員，拒絕指派可阻止他們採取特定動作。 拒絕指派會影響「所有主體」。
+
+   如需從拒絕指派中排除主體的相關資訊，請參閱[藍圖資源鎖定](../concepts/resource-locking.md#exclude-a-principal-from-a-deny-assignment)。
 
 1. 選取 [拒絕指派]，然後選取左側的 [拒絕的權限] 頁面。
 
@@ -221,9 +223,9 @@ Azure 藍圖[資源鎖定](../concepts/resource-locking.md)能夠防止新部署
 
 ## <a name="next-steps"></a>後續步驟
 
-- 了解[藍圖生命週期](../concepts/lifecycle.md) (英文)
-- 了解如何使用[靜態和動態參數](../concepts/parameters.md)
-- 了解如何使用[藍圖資源鎖定](../concepts/resource-locking.md) (英文)
-- 了解如何自訂[藍圖排序順序](../concepts/sequencing-order.md) (英文)
-- 了解如何[更新現有的指派](../how-to/update-existing-assignments.md)
-- 使用[一般疑難排解](../troubleshoot/general.md)來解決藍圖指派期間發生的問題
+- 了解[藍圖生命週期](../concepts/lifecycle.md)。
+- 了解如何使用[靜態與動態參數](../concepts/parameters.md)。
+- 了解如何使用[藍圖資源鎖定](../concepts/resource-locking.md)。
+- 了解如何自訂[藍圖排序順序](../concepts/sequencing-order.md)。
+- 了解如何[更新現有的指派](../how-to/update-existing-assignments.md)。
+- 使用[一般疑難排解](../troubleshoot/general.md)來解決藍圖指派期間發生的問題。
