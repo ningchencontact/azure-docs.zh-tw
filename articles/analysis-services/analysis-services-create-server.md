@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4e9080cfc863b4253a4eb4d427f21df74bb08874
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: e54c18eb405ffa36260e9980705784130bc0ca4c
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54186731"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802996"
 ---
 # <a name="quickstart-create-a-server---portal"></a>快速入門：建立伺服器 - 入口網站
 
@@ -46,7 +46,7 @@ ms.locfileid: "54186731"
    * **備份儲存體設定**：選用。 如果您已經有[儲存體帳戶](../storage/common/storage-introduction.md)，您可以將它指定為模型資料庫備份的預設值。 您也可以稍後指定[備份和還原](analysis-services-backup.md)設定。
    * **儲存體金鑰到期日**：選用。 指定儲存體金鑰到期期間。
 
-建立伺服器通常不到一分鐘即可完成。 如果您選取 [新增到入口網站]，請瀏覽至您的入口網站來查看新的伺服器。 或者，導覽至 [所有服務] > [Analysis Services]，以查看您的伺服器是否就緒。
+建立伺服器通常不到一分鐘即可完成。 如果您選取 [新增到入口網站]，請瀏覽至您的入口網站來查看新的伺服器。 或者，導覽至 [所有服務] > [Analysis Services]，以查看您的伺服器是否就緒。 伺服器支援 1200 或更高相容性層級的表格式模型。 模型相容性層級指定於 SSDT 或 SSMS 中。
 
 ## <a name="clean-up-resources"></a>清除資源
 

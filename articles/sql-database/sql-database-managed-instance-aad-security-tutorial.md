@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 7511b85384c2c64c823d93df4369b0fea3e64b51
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 5d168264cbc392e1ba426707429f47dea70d1ea8
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226210"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882050"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>教學課程：Azure SQL Database 中使用 Azure AD 伺服器主體 (登入) 的受控執行個體安全性
 
@@ -69,7 +69,7 @@ ms.locfileid: "58226210"
 - [快速入門：設定從內部部署連線至受控執行個體的點對站連線](sql-database-managed-instance-configure-p2s.md)
 
 > [!IMPORTANT]
-> 用來設定受控執行個體的 Azure AD 系統管理員不可用來在受控執行個體內建立 Azure AD 伺服器主體 (登入)。 您必須使用屬於 `sysadmin` 的 SQL Server 帳戶來建立第一個 Azure AD 伺服器主體 (登入)。 此一限制是暫時性的，在 Azure AD 伺服器主體 (登入) 正式運作後便會消除。 如果您嘗試使用 Azure AD 系統管理員帳戶來建立登入，則會看到下列錯誤：`Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
+> 用來設定受控執行個體的 Azure AD 系統管理員不可用來在受控執行個體內建立 Azure AD 伺服器主體 (登入)。 您必須使用屬於 `sysadmin` 的 SQL Server 帳戶來建立第一個 Azure AD 伺服器主體 (登入)。 此一限制是暫時性的，在 Azure AD 伺服器主體 (登入) 正式運作後便會消除。 如果您嘗試使用 Azure AD 系統管理員帳戶來建立登入，則會看到下列錯誤： `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
 
 1. 使用 [SQL Server Management Studio](sql-database-managed-instance-configure-p2s.md#use-ssms-to-connect-to-the-managed-instance)，透過屬於 `sysadmin` 的標準 SQL Server 帳戶 (非 Azure AD) 來登入受控執行個體。
 

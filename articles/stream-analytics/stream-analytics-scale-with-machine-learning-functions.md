@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 216ce32997a4114f4f2684b14338b4e36d9afd03
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: f11034a4970e3fb95333310af82a6b2a2551f1eb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558000"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257275"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>使用 Azure Machine Learning 函式調整串流分析作業
 設定串流分析作業並透過它執行一些範例資料很簡單。 當我們需要以較高的資料量來執行相同的作業時，我們該怎麼辦？ 我們必須了解如何設定串流分析作業，以便進行調整。 本文件的重點在於使用 Machine Learning 函數調整串流分析作業的特殊層面。 如需有關如何調整串流分析作業的一般資訊，請參閱 [調整作業](stream-analytics-scale-jobs.md)文章。
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>什麼是串流分析中的 Azure Machine Learning 函式？
-串流分析中的 Machine Learning 函式可如同一般函式呼叫使用於串流分析查詢語言中。 不過，在幕後，函式呼叫實際上是 Azure Machine Learning Web 服務要求。 Machine Learning Web 服務在相同的 Web 服務 API 呼叫中支援「批次處理」多個資料列 (稱之為迷你批次)，以改善整體輸送量。 如需詳細資訊，請參閱[串流分析中的 Azure Machine Learning 函數](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/)和 [Azure Machine Learning Web 服務](../machine-learning/studio/consume-web-services.md)。
+串流分析中的 Machine Learning 函式可如同一般函式呼叫使用於串流分析查詢語言中。 不過，在幕後，函式呼叫實際上是 Azure Machine Learning Web 服務要求。 Machine Learning Web 服務在相同的 Web 服務 API 呼叫中支援「批次處理」多個資料列 (稱之為迷你批次)，以改善整體輸送量。 如需詳細資訊，請參閱 < [Azure Machine Learning Web 服務](../machine-learning/studio/consume-web-services.md)。
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>使用 Machine Learning 函式設定串流分析作業
 設定串流分析作業的 Machine Learning 函式時，需要考量兩個參數：Machine Learning 函式呼叫的批次大小，以及針對串流分析作業所佈建的串流單元 (SU)。 若要決定 SU 的適當值，必須先決定延遲與輸送量，也就是串流分析作業的延遲，以及每個 SU 的輸送量。 雖然額外的 SU 會增加執行作業的成本，但 SU 一律會新增至作業，以提高妥善分割之串流分析查詢的輸送量。
@@ -88,7 +88,7 @@ ms.locfileid: "53558000"
 一般來說，我們為 Machine Learning 函式設定的批次大小不會正好可被每次串流分析作業「提取」所傳回的事件數目除盡。 發生此狀況時，會以「部分」的批次呼叫 Machine Learning Web 服務。 這麼做是為了不會在結合各提取的事件時，導致額外的作業延遲負擔。
 
 ## <a name="new-function-related-monitoring-metrics"></a>新的函式相關監視計量
-在串流分析作業的 [監視] 區域中，已加入三個額外的函式相關計量。 分別是 [函式要求]、[函式事件] 和 [失敗的函式要求]，如下圖所示。
+在串流分析作業的 [監視] 區域中，已加入三個額外的函式相關計量。 它们是 FUNCTION REQUESTS、FUNCTION EVENTS 和 FAILED FUNCTION REQUESTS，如下图所示。
 
 ![使用 Machine Learning 函式計量調整串流分析](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-01.png "使用 Machine Learning 函式計量調整串流分析")
 
@@ -115,4 +115,4 @@ ms.locfileid: "53558000"
 * [開始使用 Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [調整 Azure Stream Analytics 工作](stream-analytics-scale-jobs.md)
 * [Azure Stream Analytics 查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Azure 串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Azure Stream Analytics Management REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)

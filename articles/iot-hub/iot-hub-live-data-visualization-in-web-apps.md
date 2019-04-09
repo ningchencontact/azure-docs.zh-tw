@@ -1,23 +1,23 @@
 ---
 title: Azure IoT 中樞感應器資料的即時資料視覺效果 – Web Apps | Microsoft Docs
 description: 使用 Microsoft Azure App Service 的 Web Apps 功能來視覺化收集自感應器並傳送至 IoT 中樞的溫度和溼度資料。
-author: rangv
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
-ms.author: rangv
-ms.openlocfilehash: c43431cd6ddbbbf8f6cb709b8c1783179d6cf760
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.author: robinsh
+ms.openlocfilehash: b870c432ea8021d9eeb14eec85ff9912b96ddc96
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158715"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270875"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-by-using-the-web-apps-feature-of-azure-app-service"></a>使用 Azure App Service 的 Web Apps 功能將來自 Azure IoT 中樞的即時感應器資料視覺化
 
-![端對端圖表](./media/iot-hub-live-data-visualization-in-web-apps/1_iot-hub-end-to-end-diagram.png)
+![端到端关系图](./media/iot-hub-live-data-visualization-in-web-apps/1_iot-hub-end-to-end-diagram.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -73,7 +73,7 @@ ms.locfileid: "50158715"
 
    ![切換 Web 通訊端選項](./media/iot-hub-live-data-visualization-in-web-apps/4_toggle_web_sockets.png)
 
-## <a name="upload-a-web-application-to-be-hosted-by-the-web-app"></a>上傳要供 Web 應用程式 (web app) 裝載的 Web 應用程式 (web application)
+## <a name="upload-a-web-application-to-be-hosted-by-the-web-app"></a>上传要在 Web 应用中托管的 Web 应用程序
 
 在 GitHub 上，我們已啟用 Web 應用程式 (web application)，以顯示 IoT 中樞的即時感應器資料。 您只需要設定 Web 應用程式 (web app) 來使用 Git 存放庫、從 GitHub 下載 Web 應用程式 (web application)，然後將它上傳至 Azure 以供 Web 應用程式 (web app) 裝載。
 

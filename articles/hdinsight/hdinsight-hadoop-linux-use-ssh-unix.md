@@ -7,44 +7,37 @@ ms.reviewer: jasonh
 keywords: linux 中的 hadoop 命令,hadoop linux 命令,hadoop macos,ssh hadoop,ssh hadoop 叢集
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 04/03/2019
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: b7cad422cd7e177206e21bfa8941afe70a7864fd
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: ffae3e8c23a30e683db85ad6745ab30cfee93f2e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497800"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283986"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>使用 SSH 連線到 HDInsight (Apache Hadoop)
 
-了解如何使用[安全殼層 (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) 安全地連線到 Apache Hadoop on Azure HDInsight。 
+了解如何使用[安全殼層 (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) 安全地連線到 Apache Hadoop on Azure HDInsight。 如需透過虛擬網路連接的詳細資訊，請參閱[Azure HDInsight 虛擬網路架構](./hdinsight-virtual-network-architecture.md)並[使用 Azure 虛擬網路延伸 Azure HDInsight](./hdinsight-extend-hadoop-virtual-network.md)。
 
-HDInsight 可以使用 Linux (Ubuntu) 作為 Hadoop 叢集節點的作業系統。 下表包含使用 SSH 用戶端連線到以 Linux 為基礎的 HDInsight 時所需的位址和連接埠資訊︰
+下表包含位址和連接埠所需的資訊連接到 HDInsight 使用 SSH 用戶端時：
 
 | 位址 | 連接埠 | 連線到... |
 | ----- | ----- | ----- |
-| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | 邊緣節點 (HDInsight 上的 ML 服務) |
-| `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | 邊緣節點 (任何其他叢集類型，如果邊緣節點存在的話) |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | 主要前端節點 |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | 次要前端節點 |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | 邊緣節點 (HDInsight 上的 ML 服務) |
+| `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | 邊緣節點 (任何其他叢集類型，如果邊緣節點存在的話) |
 
-> [!NOTE]  
-> 將 `<edgenodename>` 替換為邊緣節點的名稱。
->
-> 使用您叢集的名稱取代 `<clustername>`。
->
-> 如果您的叢集包含邊緣節點，我們建議您__一律使用 SSH 連線到邊緣節點__。 前端節點會裝載對於 Hadoop 健康狀態至關重要的服務。 邊緣節點則只會執行您放在上面的服務。
->
-> 如需使用邊緣節點的詳細資訊，請參閱[在 HDInsight 中使用邊緣節點](hdinsight-apps-use-edge-node.md#access-an-edge-node)。
+將 `<clustername>` 取代為您的叢集名稱。 將 `<edgenodename>` 替換為邊緣節點的名稱。 
+
+如果您的叢集包含邊緣節點，我們建議您__一律使用 SSH 連線到邊緣節點__。 前端節點會裝載對於 Hadoop 健康狀態至關重要的服務。 邊緣節點則只會執行您放在上面的服務。 如需使用邊緣節點的詳細資訊，請參閱[在 HDInsight 中使用邊緣節點](hdinsight-apps-use-edge-node.md#access-an-edge-node)。
 
 > [!TIP]  
 > 當您初次連線至 HDInsight，您的 SSH 用戶端可能會顯示警告，指出無法建立主機的真確性。 在系統提示時，選取 [是] 將主機新增至您的 SSH 用戶端信任的伺服器清單。
 >
 > 如果您之前曾連線至相同名稱的伺服器，您可能會收到警告，指出預存的主機金鑰與伺服器的主機金鑰不符。 如需了解如何移除現有的伺服器名稱項目，請參閱您的 SSH 用戶端文件。
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="ssh-clients"></a>SSH 用戶端
 
@@ -52,20 +45,15 @@ Linux、Unix 和 macOS 系統提供 `ssh` 和 `scp` 命令。 `ssh` 用戶端通
 
 Microsoft Windows 預設不會安裝任何 SSH 用戶端。 `ssh` 和 `scp` 用戶端均可透過下列套件使用於 Windows︰
 
-* OpenSSH 用戶端搶鮮版 (Beta)：在 Fall Creators Update 中，移至 [設定] > [應用程式和功能] > [管理選擇性功能] > [新增功能] 以及選取 [OpenSSH 用戶端]。 
+* [OpenSSH 用戶端](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse)。 這是在 Windows 10 Fall Creators Update 中導入的選用功能。
 
-    > [!NOTE]  
-    > 如果啟用這項功能之後，無法在 PowerShell 中使用 `ssh` 和 `scp` 命令，請登出而後重新登入。
+* [Bash on Ubuntu on Windows 10](https://docs.microsoft.com/windows/wsl/about)。
 
-* [位於 Windows 10 之 Ubuntu 上的 Bash](https://msdn.microsoft.com/commandline/wsl/about)：`ssh` 和`scp` 命令可透過 Windows 命令列上的 Bash 來取得。
+* [Azure Cloud Shell](../cloud-shell/quickstart.md)。 Cloud Shell 中提供 Bash 環境，在您的瀏覽器中。
 
-* [OpenSSH 用戶端 (搶鮮版 (Beta))](https://blogs.msdn.microsoft.com/powershell/2017/12/15/using-the-openssh-beta-in-windows-10-fall-creators-update-and-windows-server-1709/)：這是在 Windows 10 Fall Creators Update 中導入的選用功能。
+* [Git](https://git-scm.com/)。
 
-* [Azure Cloud Shell](../cloud-shell/quickstart.md)：Cloud Shell 在瀏覽器中提供 Bash 環境，並提供 `ssh`、`scp` 和其他常見的 Linux 命令。
-
-* [Git (https://git-scm.com/)](https://git-scm.com/)：`ssh` 和 `scp` 命令可透過 GitBash 命令列來取得。
-
-另有數個圖形化的 SSH 用戶端，如 [PuTTY (https://www.chiark.greenend.org.uk/~sgtatham/putty/)](https://www.chiark.greenend.org.uk/~sgtatham/putty/) 和 [MobaXterm (https://mobaxterm.mobatek.net/)](https://mobaxterm.mobatek.net/)。 雖然這些用戶端可用來連線到 HDInsight，但連線的程序與使用 `ssh` 公用程式時不同。 如需詳細資訊，請參閱您使用之圖形化用戶端的文件。
+另外還有數個圖形化 SSH 用戶端，例如[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)並[MobaXterm](https://mobaxterm.mobatek.net/)。 雖然這些用戶端可用來連線到 HDInsight，但連線的程序與使用 `ssh` 公用程式時不同。 如需詳細資訊，請參閱您使用之圖形化用戶端的文件。
 
 ## <a id="sshkey"></a>驗證：SSH 金鑰
 
@@ -101,10 +89,10 @@ SSH 金鑰會使用[公開金鑰加密](https://en.wikipedia.org/wiki/Public-key
 
 | 创建方法 | 如何使用公開金鑰 |
 | ------- | ------- |
-| **Azure 入口網站** | 取消核取 [使用與叢集登入相同的密碼]，然後選取 [公開金鑰] 作為 SSH 驗證類型。 最後，選取公開金鑰檔案，或將檔案的文字內容貼到 [SSH 公開金鑰] 欄位。</br>![建立 HDInsight 叢集時的 [SSH 公開金鑰] 對話方塊](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
-| **Azure PowerShell** | 使用 `New-AzHdinsightCluster` Cmdlet 的 `-SshPublicKey` 參數，並以字串形式傳遞公開金鑰的內容。|
-| **Azure 傳統 CLI** | 使用 `azure hdinsight cluster create` 命令的 `--sshPublicKey` 參數，並以字串形式傳遞公開金鑰的內容。 |
-| **Resource Manager 範本** | 如需對範本使用 SSH 金鑰的範例，請參閱[使用 SSH 金鑰在 Linux 上部署 HDInsight](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/)。 [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) 檔案中的 `publicKeys` 元素可用來在建立叢集時將金鑰傳遞至 Azure。 |
+| Azure 入口網站 | 取消核取 [使用與叢集登入相同的密碼]，然後選取 [公開金鑰] 作為 SSH 驗證類型。 最後，選取公開金鑰檔案，或將檔案的文字內容貼到 [SSH 公開金鑰] 欄位。</br>![SSH 公開金鑰 對話方塊中建立 HDInsight 叢集](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
+| Azure PowerShell | 使用`-SshPublicKey`的參數[新增 AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet 並以字串形式傳遞公開金鑰的內容。|
+| Azure CLI | 使用`--sshPublicKey`的參數[az hdinsight 建立](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create)命令，並以字串形式傳遞公開金鑰的內容。 |
+| Resource Manager 範本 | 如需對範本使用 SSH 金鑰的範例，請參閱[使用 SSH 金鑰在 Linux 上部署 HDInsight](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/)。 [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) 檔案中的 `publicKeys` 元素可用來在建立叢集時將金鑰傳遞至 Azure。 |
 
 ## <a id="sshpassword"></a>驗證：密碼
 
@@ -120,10 +108,10 @@ SSH 金鑰會使用[公開金鑰加密](https://en.wikipedia.org/wiki/Public-key
 
 | 建立方法 | 如何指定密碼 |
 | --------------- | ---------------- |
-| **Azure 入口網站** | 根據預設，SSH 使用者帳戶會具有和叢集登入帳戶相同的密碼。 若要使用不同的密碼，請取消核取 [使用與叢集登入相同的密碼]，然後在 [SSH 密碼] 欄位中輸入密碼。</br>![建立 HDInsight 叢集時的 [SSH 密碼] 對話方塊](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
-| **Azure PowerShell** | 使用 `New-AzHdinsightCluster` Cmdlet 的 `--SshCredential` 參數，並傳遞包含 SSH 使用者帳戶名稱和密碼的 `PSCredential` 物件。 |
-| **Azure 傳統 CLI** | 使用 `azure hdinsight cluster create` 命令的 `--sshPassword` 參數，並提供密碼值。 |
-| **Resource Manager 範本** | 如需對範本使用密碼的範例，請參閱[使用 SSH 密碼在 Linux 上部署 HDInsight](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/)。 [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) 檔案中的 `linuxOperatingSystemProfile` 元素可用來在建立叢集時將 SSH 帳戶名稱和密碼傳遞至 Azure。|
+| Azure 入口網站 | 根據預設，SSH 使用者帳戶會具有和叢集登入帳戶相同的密碼。 若要使用不同的密碼，請取消核取 [使用與叢集登入相同的密碼]，然後在 [SSH 密碼] 欄位中輸入密碼。</br>![在建立 HDInsight 叢集的 SSH 密碼 對話方塊](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
+| Azure PowerShell | 使用`--SshCredential`的參數[新增 AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet 並傳遞`PSCredential`物件，其中包含的 SSH 使用者帳戶名稱和密碼。 |
+| Azure CLI | 使用`--sshPassword`的參數[az hdinsight 建立](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create)命令，並提供密碼值。 |
+| Resource Manager 範本 | 如需對範本使用密碼的範例，請參閱[使用 SSH 密碼在 Linux 上部署 HDInsight](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/)。 [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) 檔案中的 `linuxOperatingSystemProfile` 元素可用來在建立叢集時將 SSH 帳戶名稱和密碼傳遞至 Azure。|
 
 ### <a name="change-the-ssh-password"></a>變更 SSH 密碼
 
@@ -133,11 +121,11 @@ SSH 金鑰會使用[公開金鑰加密](https://en.wikipedia.org/wiki/Public-key
 
 如果您使用__已加入網域的 HDInsight 叢集__，您必須在使用 SSH 本機使用者連線之後使用 `kinit` 命令。 此命令會提示您輸入網域使用者和密碼，並向與叢集相關聯的 Azure Active Directory 網域驗證您的工作階段。
 
-您也可以在每個加入網域的節點 (例如前端節點、邊緣節點) 上啟用 Kerberos 驗證，以便使用網域帳戶進行 ssh 連線。 若要進行此作業，請編輯 sshd 組態檔：
+您也可以啟用 Kerberos 驗證每個網域加入的節點 （例如前端節點、 邊緣節點） 上以 ssh 使用網域帳戶。 若要進行此作業，請編輯 sshd 組態檔：
 ```bash
 sudo vi /etc/ssh/sshd_config
 ```
-取消註解，並將 `KerberosAuthentication` 變更為 `yes`
+取消註解，並變更`KerberosAuthentication`至 `yes`
 
 ```bash
 sudo service sshd restart
@@ -246,7 +234,7 @@ scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
 ```
 
 > [!IMPORTANT]  
-> `scp` 只能存取叢集內個別節點的檔案系統。 它不能用來存取叢集的 HDFS 相容儲存體中的資料。
+> `scp` 只能存取在叢集內的個別節點的檔案系統。 它不能用來存取叢集的 HDFS 相容儲存體中的資料。
 >
 > 當您需要從 SSH 工作階段上傳資源以供使用時，請使用 `scp`。 例如，上傳 Python 指令碼，然後從 SSH 工作階段執行指令碼。
 >
@@ -258,6 +246,6 @@ scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
 
 ## <a name="next-steps"></a>後續步驟
 
-* [對 HDInsight 使用 SSH 通道](hdinsight-linux-ambari-ssh-tunnel.md)
-* [對 HDInsight 使用虛擬網路](hdinsight-extend-hadoop-virtual-network.md)
+* [使用 SSH 通道與 HDInsight](hdinsight-linux-ambari-ssh-tunnel.md)
+* [搭配 HDInsight 使用虛擬網路](hdinsight-extend-hadoop-virtual-network.md)
 * [在 HDInsight 中使用邊緣節點](hdinsight-apps-use-edge-node.md#access-an-edge-node)

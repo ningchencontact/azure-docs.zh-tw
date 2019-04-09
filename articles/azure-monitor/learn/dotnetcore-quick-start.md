@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/11/2018
+ms.date: 03/29/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: fe986d24df8dce6a390d21a262056f7ab857070c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eae9dc6447dd8211a3919c52beaea64274fc0ec5
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886723"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801074"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>開始監視 ASP.NET Core Web 應用程式
 
@@ -37,7 +37,7 @@ Azure Application Insights 可讓您輕鬆監視 Web 應用程式的可用性、
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
-## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
+## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
 登入 [Azure 入口網站](https://portal.azure.com/)。
 
@@ -45,9 +45,9 @@ Azure Application Insights 可讓您輕鬆監視 Web 應用程式的可用性、
 
 Application Insights 可以從任何連上網際網路的應用程式收集遙測資料，而不論應用程式在內部部署或雲端中執行。 請使用下列步驟來開始檢視此資料。
 
-1. 選取 [建立資源] > **[監視 + 管理]** > **[Application Insights]**。
+1. 選取 [建立資源] > [開發人員工具] > [Application Insights]。
 
-   ![新增 Application Insights 資源](./media/dotnetcore-quick-start/0001-dc.png)
+   ![新增 Application Insights 資源](./media/dotnetcore-quick-start/1createresourceappinsight.png)
 
     設定方塊隨即出現，請使用下表來填寫輸入欄位。
 
@@ -64,32 +64,36 @@ Application Insights 可以從任何連上網際網路的應用程式收集遙�
 
 1. 在 Visual Studio 中開啟您的 ASP.NET Core Web 應用程式**專案** > 在 [方案總管] 中以滑鼠右鍵按一下 AppName > 選取 [新增] > [Application Insights 遙測]。
 
-    ![新增 Application Insights 遙測](./media/dotnetcore-quick-start/0001.png)
+    ![新增 Application Insights 遙測](./media/dotnetcore-quick-start/2vsaddappinsights.png)
 
-2. 按一下 [免費開始] 按鈕 > 選取您在 Azure 入口網站中建立的 [現有資源] > 按一下[註冊]。
+2. 按一下 [開始使用] 按鈕
 
-3. 選取 [偵錯] > [啟動但不偵錯] (Ctrl + F5) 來啟動您的應用程式
+3. 選取您的帳戶和訂用帳戶 > 選取您在 Azure 入口網站中建立的 [現有資源] > 按一下[註冊]。
+
+4. 選取 [偵錯] > [啟動但不偵錯] \(Ctrl + F5) 來啟動您的應用程式
+
+    ![Application Insights 概觀功能表](./media/dotnetcore-quick-start/3debug.png)
 
 > [!NOTE]
 > 經過 3-5 分鐘，資料就會開始出現在入口網站。 如果此應用程式是低流量測試應用程式，請記住，只在有使用中的要求或作業時，才會擷取大部分的計量。
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>在 Azure 入口網站中開始監視
 
-1. 現在，您可以在 Azure 入口網站中，選取 [專案] > [Application Insights] > [開啟 Application Insights 入口網站]來重新開啟 Application Insights [概觀]頁面，以檢視目前執行中應用程式的詳細資料。
+1. 在 Azure 入口網站中選取 [首頁] 重新開啟 Application Insights 的 [概觀] 頁面，然後在最近使用的資源底下選取您稍早建立的資源，以檢視目前執行中應用程式的相關詳細資料。
 
-   ![Application Insights 概觀功能表](./media/dotnetcore-quick-start/overview-001.png)
+   ![Application Insights 概觀功能表](./media/dotnetcore-quick-start/4overview.png)
 
 2. 按一下 [應用程式對應]，以顯示應用程式元件之間相依性關係的視覺化配置。 每個元件會顯示負載、效能、失敗和警示等 KPI。
 
-   ![應用程式對應](./media/dotnetcore-quick-start/application-map.png)
+   ![應用程式對應](./media/dotnetcore-quick-start/5appmap.png)
 
-3. 按一下 [應用程式分析] 圖示 ![應用程式對應圖示](./media/dotnetcore-quick-start/006.png)。  這樣會開啟 **Application Insights Analytics**，它提供一種豐富查詢語言，可用於分析 Application Insights 收集的所有資料。 此案例中會為您產生查詢，可將要求計數以圖表呈現。 您可以撰寫自己的查詢來分析其他資料。
+3. 按一下 [應用程式分析] 圖示 ![應用程式對應圖示](./media/dotnetcore-quick-start/006.png) **在 Analytics 中檢視**。 這樣會開啟 **Application Insights Analytics**，它提供一種豐富查詢語言，可用於分析 Application Insights 收集的所有資料。 此案例中會為您產生查詢，可將要求計數以圖表呈現。 您可以撰寫自己的查詢來分析其他資料。
 
-   ![經過一段時間的使用者要求分析圖表](./media/dotnetcore-quick-start/0007-dc.png)
+   ![經過一段時間的使用者要求分析圖表](./media/dotnetcore-quick-start/6analytics.png)
 
 4. 返回 [概觀] 頁面，並檢查 [KPI 儀表板]。  此儀表板會提供應用程式健康情況的統計資料，包括連入要求數量、這些要求的持續時間，以及任何發生的失敗。 
 
-   ![健康情況概觀時間軸圖表](./media/dotnetcore-quick-start/overview-graphs.png)
+   ![健康情況概觀時間軸圖表](./media/dotnetcore-quick-start/7kpidashboards.png)
 
    若要在 [網頁檢視載入時間] 圖表中填入**用戶端遙測**資料，請將此指令碼新增至您要追蹤的每個頁面：
 
@@ -113,13 +117,12 @@ Application Insights 可以從任何連上網際網路的應用程式收集遙�
    </script>
    ```
 
-5. 按一下 [調查] 標題下的 [瀏覽器]。 您在這裡可以找到應用程式頁面效能的相關計量。 您可以按一下 [新增新的圖表] 來建立額外的自訂檢視，或選取 [編輯] 來修改現有圖表的類型、高度、調色盤、群組和計量。
+5. 在左側按一下 [計量]。 使用計量瀏覽器來調查資源的健康情況和使用量。 您可以按一下 [新增新的圖表] 來建立額外的自訂檢視，或選取 [編輯] 來修改現有圖表的類型、高度、調色盤、群組和計量。 例如，您可以製作圖表來顯示平均瀏覽器頁面載入時間，方法是從 [計量] 下拉式清單選取 [瀏覽器頁面載入時間] 並從 [彙總] 選取 [平均]。 若要深入了解 Azure 計量瀏覽器，請瀏覽[開始使用 Azure 計量瀏覽器](../../azure-monitor/platform/metrics-getting-started.md)。
 
-   ![伺服器計量圖表](./media/dotnetcore-quick-start/009-Black.png)
+     ![[計量] 索引標籤：瀏覽器頁面的平均載入時間圖表](./media/dotnetcore-quick-start/8metrics.png)
 
 ## <a name="clean-up-resources"></a>清除資源
-
-如果您打算繼續進行後續的快速入門或教學課程，請勿清除在此快速入門中建立的資源。 如果您不打算繼續，請使用下列步驟，在 Azure 入口網站中刪除本快速入門所建立的所有資源。
+當您完成測試時，您可以刪除資源群組和所有相關資源。 若要這樣做，請依照下列步驟執行。
 
 1. 從 Azure 入口網站的左側功能表中，依序按一下 [資源群組] 和 [myResourceGroup]。
 2. 在資源群組頁面上，按一下 [刪除]，在文字方塊中輸入 **myResourceGroup**，然後按一下 [刪除]。

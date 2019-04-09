@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/25/2019
+ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: c1c6e0408145ea76ad93b6dc3803fd56a01dc6d4
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 5bc67551c70b185ad0b5ed993a510ded2229481f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444645"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279613"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 服務版本資訊
 
@@ -23,6 +23,31 @@ ms.locfileid: "58444645"
 + Azure Machine Learning 的 [**主要 SDK for Python**](https://aka.ms/aml-sdk)
 + Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
 
+## <a name="2019-04-08"></a>2019-04-08
+
+### <a name="azure-machine-learning-sdk-for-python-v1023"></a>Azure Machine Learning SDK for Python v1.0.23
+
++ **新功能**
+  + Azure 機器學習服務 SDK 現在支援 Python 3.7。
+
+### <a name="azure-machine-learning-data-prep-sdk-v111"></a>Azure Machine Learning 資料準備 SDK v1.1.1
+
++ **新功能**
+  + 您可以閱讀使用 read_ * 轉型的多個資料存放區/資料路徑/DataReference 來源。
+  + 您可以執行下列作業來建立新的資料行的資料行： 部門、 樓層、 模數電源，長度。
+  + 資料準備現在是 Azure ML 診斷套件的一部分，而且會依預設記錄診斷資訊。
+    + 若要關閉這個功能，設定這個環境變數設為 true:DISABLE_DPREP_LOGGER
+
++ **Bug 修正和增強功能**
+  + 改進程式碼文件常使用的類別和函式。
+  + 無法讀取 Excel 檔案的 auto_read_file 中修正的 bug。
+  + 已覆寫 read_pandas_dataframe 中的資料夾的選項。
+  + 已新增的支援的 Fedora 27/28 和 Ubuntu 1804 dotnetcore2 相依性安裝，以及提升的效能。
+  + 改善從 Azure Blob 的讀取效能。
+  + 資料行類型偵測現在支援類型的資料行的長時間。
+  + 修正的 bug，其中有些日期值顯示為時間戳記，而不是 Python datetime 物件。
+  + 修正了其中一些類型的計數正顯示為雙精度浮點數，而不是整數。
+  
 ## <a name="2019-03-25"></a>2019-03-25
 
 ### <a name="azure-machine-learning-sdk-for-python-v1021"></a>Azure Machine Learning SDK for Python v1.0.21
@@ -67,7 +92,7 @@ ms.locfileid: "58444645"
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1016"></a>Azure Machine Learning 資料準備 SDK v1.0.16
 
-+ **Bug 修正**
++ **錯誤修正**
   + 修正服務主體驗證問題所造成的 API 變更。
 
 ## <a name="2019-02-25"></a>2019-02-25
@@ -122,7 +147,7 @@ ms.locfileid: "58444645"
  
 + **變更**
   + 大幅改善大型資料上某些作業的記憶體效能。
-  + `read_pandas_dataframe()` 現在會要求必須指定 `temp_folder`。
+  + `read_pandas_dataframe()` 現在需要`temp_folder`指定。
   + `ColumnProfile` 上的 `name` 屬性即將淘汰，請改用 `column_name`。
 
 ## <a name="2019-01-28"></a>2019-01-28
@@ -184,7 +209,7 @@ ms.locfileid: "58444645"
 ### <a name="azure-machine-learning-data-prep-sdk-v104"></a>Azure Machine Learning Data Prep SDK v1.0.4
 
 + **新功能**
-  + `to_bool` 函式現在允許將不相符的值轉換成 Error 值。 這是 `to_bool` 和 `set_column_types` 新的預設不相符行為，先前的預設行為會將不相符的值轉換為 False。
+  + `to_bool` 函式現在允許不相符的值轉換成錯誤值。 這是 `to_bool` 和 `set_column_types` 新的預設不相符行為，先前的預設行為會將不相符的值轉換為 False。
   + 在呼叫 `to_pandas_dataframe` 時，有新的選項可將數字資料行中的 null/遺失值解譯為 NaN。
   + 新增了功能，會檢查某些運算式的傳回類型，以確保類型一致性，並及早失敗。
   + 您現在可以呼叫 `parse_json`，以將資料行中的值剖析為 JSON 物件，並將其展開成多個資料行。
@@ -221,14 +246,14 @@ Azure Machine Learning 服務現已正式運作。
   + 在此版本中，我們會移除從 Azure Machine Learning 中建立 VM 的支援。 您仍然可以附加現有的雲端 VM 或遠端內部部署伺服器。 
   + 我們也會移除對 BatchAI 的支援，這些功能現在全都應透過 Azure Machine Learning Compute 來支援。
 
-+ <bpt id="p1">**</bpt>New<ept id="p1">**</ept>
++ **新增**
   + 針對機器學習管線：
-    + [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimator_step.estimatorstep?view=azure-ml-py) \(英文\)
-    + [HyperDriveStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.hyper_drive_step.hyperdrivestep?view=azure-ml-py) \(英文\)
-    + [MpiStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.mpi_step.mpistep?view=azure-ml-py) \(英文\)
+    + [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimator_step.estimatorstep?view=azure-ml-py)
+    + [HyperDriveStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.hyper_drive_step.hyperdrivestep?view=azure-ml-py)
+    + [MpiStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.mpi_step.mpistep?view=azure-ml-py)
 
 
-+ **已更新**
++ **更新時間**
   + 針對機器學習管線：
     + [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py) \(英文\) 現在接受 runconfig
     + [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) \(英文\) 現在可從 SQL 資料來源複製或複製到其中
@@ -238,7 +263,7 @@ Azure Machine Learning 服務現已正式運作。
 
 ### <a name="azure-machine-learning-data-prep-sdk-v052"></a>Azure Machine Learning 資料準備 SDK v0.5.2
 + **重大變更** 
-  * `SummaryFunction.N` 已重新命名為 `SummaryFunction.Count`。
+  * `SummaryFunction.N` 已重新命名為`SummaryFunction.Count`。
   
 + **錯誤修正**
   * 讀取自和寫入至遠端回合上的資料存放區時，請使用最新 AML 執行權杖 以前，如果在 Python 中更新 AML 執行權杖，將不會使用已更新的 AML 執行權杖來更新資料準備執行階段。
@@ -257,7 +282,7 @@ Azure Machine Learning 服務現已正式運作。
   + 了解如何[使用管線執行批次預測](how-to-run-batch-predictions.md)
 + Azure Machine Learning 計算目標
   + [範例 Notebook](https://aka.ms/aml-notebooks) 現在已更新為使用新的受控計算。
-  + [了解這個計算](how-to-set-up-training-targets.md#amlcompute)。
+  + [了解此計算](how-to-set-up-training-targets.md#amlcompute)
 
 ### <a name="azure-portal-new-features"></a>Azure 入口網站：新功能
 + 在入口網站中建立和管理 [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute) 類型。
@@ -290,8 +315,8 @@ Azure Machine Learning 服務現已正式運作。
    * 可透過分層取樣來取樣
    * 可從包含 CSV 檔案的 zip 檔案讀取
    * 可使用隨機劃分來分割資料列取向的資料集 (例如，測試-訓練集)
-   * 可以藉由呼叫 `.dtypes` 從資料流程或資料設定檔取得所有資料行的資料類型
-   * 可以藉由呼叫 `.row_count` 從資料流程或資料設定檔取得資料列計數
+   * 可以取得所有資料行資料類型從資料流程或資料設定檔藉由呼叫 `.dtypes`
+   * 可以從資料流程或資料設定檔取得的資料列計數方法呼叫 `.row_count`
 
 + **錯誤修正**
    * 修正長時間的雙重轉換 
@@ -336,7 +361,7 @@ Azure Machine Learning 服務的 Azure 入口網站含有下列更新：
   * 當您將包含資料存放區的資料流程儲存至 DataPrep 套件時，資料存放區資訊將保存為 DataPrep 套件的一部分
   * 現在支援寫入至資料存放區 
         
-+ **已修正的 Bug**
++ **已修正的 bug**
   * 64 位元不帶正負號的整數溢位現在會在 Linux 上正確處理
   * 已在 smart_read 中修正純文字檔案不正確的文字標籤
   * 字串資料行類型現在會出現在 [計量] 檢視中
@@ -412,7 +437,7 @@ Azure Machine Learning 服務的 Azure 入口網站含有下列更新：
   * One-hot 編碼的支援
   * 分量轉換的支援
    
-+ **已修正的 Bug：**
++ **已修正的 bug:**
   * 適用於任何 Tornado 版本，不必降級 Tornado 版本
   * 值計數代表所有值，不只是前三個值
 

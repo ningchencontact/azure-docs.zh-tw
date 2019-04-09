@@ -3,17 +3,17 @@ title: 快速入門：在 Power BI 中使用 SQL 查詢將資料視覺化
 description: 在本快速入門中，您會了解如何使用三個選項之一在 Power BI 中將資料視覺化：對 Azure 資料總管叢集的 SQL 查詢。
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: 4eb6fdd5b5a78f0afb00265ebd957231464a9083
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: f41bd1dcd354d75788569f5c1f24a50c604b5737
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977279"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756347"
 ---
 # <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>快速入門：使用適用於 Power BI 的 Azure 資料總管連接器將資料視覺化
 

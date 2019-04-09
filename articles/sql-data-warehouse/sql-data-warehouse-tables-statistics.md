@@ -9,55 +9,65 @@ ms.topic: conceptual
 ms.subservice: implement
 ms.date: 05/09/2018
 ms.author: kevin
-ms.reviewer: igorstan
-ms.openlocfilehash: c11cdd6d1cc24d639d837993e94f3b304228634a
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.reviewer: jrasnick
+ms.custom: seoapril2019
+ms.openlocfilehash: 62007624bdf2b5f1b9c387bcc51d58c020860913
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55299549"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279766"
 ---
-# <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>建立、更新 Azure SQL 資料倉儲中資料表的查詢最佳化統計資料
+# <a name="table-statistics-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的資料表統計資料
+
 建立和更新 Azure SQL 資料倉儲中資料表的查詢最佳化統計資料。
 
-## <a name="why-use-statistics"></a>為何要使用統計資料？
-Azure SQL 資料倉儲越了解您的資料，執行查詢的速度就越快。 從資料中收集統計資料，然後將其載入 SQL 資料倉儲是將查詢最佳化最重要的工作之一。 這是因為 SQL 資料倉儲查詢最佳化工具是一種以成本為考量的最佳化工具。 它會比較各種查詢計畫的成本，然後選擇成本最低的計畫，也就是執行速度最快的計畫。 例如，如果最佳化工具估計您在查詢中篩選的日期會傳回一個資料列，一旦它估計選取的日期會傳回一百萬個資料列，它可能會選擇不同的計畫。
+## <a name="why-use-statistics"></a>為何要使用統計資料
 
-## <a name="automatic-creation-of-statistics"></a>自動建立統計資料
-當自動建立統計資料選項開啟時，AUTO_CREATE_STATISTICS，SQL 資料倉儲會分析連入的使用者查詢，其中會為缺少統計資料的資料行建立單一資料行的統計資料。 查詢最佳化工具會在查詢述詞或聯結條件中的個別資料行上建立統計資料，以改善查詢計劃的基數估計值。 自動建立統計資料目前依預設開啟。
+Azure SQL 資料倉儲越了解您的資料，執行查詢的速度就越快。 之後資料載入 SQL 資料倉儲中，您的資料中收集統計資料是其中一個最重要的工作，您可以將查詢最佳化。 SQL 資料倉儲查詢最佳化工具是成本型的最佳化工具。 它會比較各種查詢計畫的成本，並選擇成本最低的計劃。 在大部分情況下，它會選擇將執行速度最快的計畫。 例如，如果最佳化工具估計您的查詢會篩選的日期，會傳回一個資料列，它就會選擇一個計劃。 一旦它估計選取的日期會傳回 1 百萬個資料列，它會傳回不同的計劃。
 
-可以執行下列命令，檢查您的資料倉儲是否已將之設定完畢：
+## <a name="automatic-creation-of-statistic"></a>自動建立統計資料
+
+開啟資料庫的 AUTO_CREATE_STATISTICS 選項時，SQL 資料倉儲會分析傳入的使用者查詢遺漏的統計資料。 如果統計資料已遺失，查詢最佳化工具會在查詢述詞或聯結條件，以改善查詢計劃的基數估計值中的個別資料行建立統計資料。 自動建立統計資料目前依預設開啟。
+
+您可以檢查您的資料倉儲是否 AUTO_CREATE_STATISTICS 設定藉由執行下列命令：
 
 ```sql
-SELECT name, is_auto_create_stats_on 
+SELECT name, is_auto_create_stats_on
 FROM sys.databases
 ```
-如果您的資料倉儲尚未設定 AUTO_CREATE_STATISTICS，建議執行以下命令來啟用此屬性：
+
+如果您的資料倉儲並沒有設定 AUTO_CREATE_STATISTICS，我們建議您執行下列命令來啟用此屬性：
 
 ```sql
-ALTER DATABASE <yourdatawarehousename> 
+ALTER DATABASE <yourdatawarehousename>
 SET AUTO_CREATE_STATISTICS ON
 ```
-若含有聯結或偵測到有述詞存在，下列陳述式將觸發統計資料的自動建立動作：SELECT、INSERT-SELECT、CTAS、UPDATE、DELETE、EXPLAIN。 
+
+這些陳述式將會觸發自動建立統計資料：
+
+- SELECT
+- INSERT-SELECT
+- CTAS
+- UPDATE
+- 刪除
+- 說明當偵測到包含聯結或述詞存在時
 
 > [!NOTE]
 > 不會在暫存或外部資料表上建立自動建立統計資料。
-> 
 
-系統會同步產生自動建立統計資料，因此如果您的資料行尚未為這些陳述式建立統計資料，效能可能會略為降低。 在單一資料行上建立統計資料需要數秒的時間，視資料表大小而定。 若要避免測量效能降低 (尤其在進行效能基準測試時)，請在分析系統前先執行基準測試的工作負載，以確定會先建立統計資料。
+自動建立統計資料會以同步方式執行，因此如果您的資料行遺漏統計資料，您可能會產生稍微降低整體的查詢效能。 若要針對單一資料行建立統計資料的時間取決於資料表的大小。 若要避免可測量的效能降低，尤其是在效能基準測試，您應該確定統計資料都由第一次之前的系統程式碼剖析執行基準測試工作負載。
 
 > [!NOTE]
-> 統計資料的建立也會記錄在不同使用者內容之下的 [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016) 中。
-> 
+> 建立統計資料將會登入[sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest)在不同的使用者內容下。
 
-當自動統計資料建立完成時，會採用以下格式：_WA_Sys_<十六進位的 8 位數資料行識別碼>_<十六進位的 8 位數資料表識別碼>。 您可以執行 [DBCC SHOW_STATISTICS](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-2017) 命令來檢視已建立的統計資料：
+當自動統計資料建立完成時，會採用以下格式：_WA_Sys_<十六進位的 8 位數資料行識別碼>_<十六進位的 8 位數資料表識別碼>。 您可以檢視已執行的統計資料[DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=azure-sqldw-latest)命令：
 
 ```sql
-DBCC SHOW_STATISTICS (<tablename>, <targetname>)
+DBCC SHOW_STATISTICS (<table_name>, <target>)
 ```
-第一個引數是資料表，其中包含要顯示的統計資料。 不能是外部資料表。 第二個引數是用來顯示統計資料資訊的目標索引、統計資料或資料行名稱。
 
-
+Table_name 是資料表的包含要顯示的統計資料名稱。 不能是外部資料表。 目標為目標索引、 統計資料或要顯示統計資料資訊的資料行的名稱。
 
 ## <a name="updating-statistics"></a>更新統計資料
 
@@ -67,19 +77,17 @@ DBCC SHOW_STATISTICS (<tablename>, <targetname>)
 
 |||
 |-|-|
-| **統計資料更新的頻率**  | 保守：每日 <br></br> 載入或轉換資料之後 |
-| **取樣** |  小於 10 億個資料列，使用預設取樣 (20%) <br></br> 超過 10 億個資料列，2% 範圍的統計資料是理想狀況 |
+| **統計資料更新頻率**  | 保守：每日 </br> 載入或轉換資料之後 |
+| **取樣** |  小於 1 億個資料列，使用預設取樣 （20%)。 </br> 超過 1 億個資料列，使用兩個 %的取樣。 |
 
 為查詢疑難排解時，首先要詢問的問題之一就是「統計資料是最新的嗎？」
 
 這個問題不是可依資料年齡回答的問題。 如果基礎資料並沒有任何實質變更，最新的統計資料物件可能會是舊的。 當資料列數目已顯著變更，或資料行的值散發有實質變更時，就應該更新統計資料。
 
-由於沒有動態管理檢視可以判斷資料表內的資料於上次更新統計資料後是否有變更，了解您統計資料的年齡將可以協助您做出判斷。  您可以使用下列查詢來判斷每份資料表上次更新了哪些統計資料。  
+沒有動態管理檢視來判斷資料表內的資料是否已變更，因為最後一個時間統計資料已更新。 了解您統計資料的年齡，可以協助您圖片的部分。 您可以使用下列查詢來判斷每份資料表上次更新了哪些統計資料。
 
 > [!NOTE]
-> 請記住，如果資料行的值散發有實質變更，無論統計資料上一次更新的時間為何，您都應該更新統計資料。  
-> 
-> 
+> 如果沒有資料行的值分佈的實質變更，您應該更新統計資料，不論他們已更新的時間。
 
 ```sql
 SELECT
@@ -92,27 +100,28 @@ FROM
     sys.objects ob
     JOIN sys.stats st
         ON  ob.[object_id] = st.[object_id]
-    JOIN sys.stats_columns sc    
+    JOIN sys.stats_columns sc
         ON  st.[stats_id] = sc.[stats_id]
         AND st.[object_id] = sc.[object_id]
-    JOIN sys.columns co    
+    JOIN sys.columns co
         ON  sc.[column_id] = co.[column_id]
         AND sc.[object_id] = co.[object_id]
-    JOIN sys.types  ty    
+    JOIN sys.types  ty
         ON  co.[user_type_id] = ty.[user_type_id]
-    JOIN sys.tables tb    
+    JOIN sys.tables tb
         ON  co.[object_id] = tb.[object_id]
-    JOIN sys.schemas sm    
+    JOIN sys.schemas sm
         ON  tb.[schema_id] = sm.[schema_id]
 WHERE
     st.[user_created] = 1;
 ```
 
-例如，資料倉儲中的**日期資料行**通常需要經常更新統計資料。 每次有新資料列載入資料倉儲時，就會加入新的載入日期或交易日期。 這些會改變資料散發情況並使統計資料過時。  相反地，客戶資料表上性別資料行的統計資料可能永遠不需要更新。 假設客戶間的散發固定不變，將新資料列加入至資料表變化並不會改變資料散發情況。 不過，如果資料倉儲只包含一種性別，而新的需求導致多種性別，則需要更新性別資料行的統計資料。
+例如，資料倉儲中的**日期資料行**通常需要經常更新統計資料。 每次有新資料列載入資料倉儲時，就會加入新的載入日期或交易日期。 這些會改變資料散發情況並使統計資料過時。 相反地，客戶資料表上性別資料行的統計資料可能永遠不需要更新。 假設客戶間的散發固定不變，將新資料列加入至資料表變化並不會改變資料散發情況。 不過，如果資料倉儲只包含一種性別，而新的需求導致多種性別，則需要更新性別資料行的統計資料。
 
 如需詳細資訊，請參閱[統計資料](/sql/relational-databases/statistics/statistics)的一般指引。
 
 ## <a name="implementing-statistics-management"></a>實作統計資料管理
+
 擴充您的資料載入程序通常是個不錯的主意，可確保在載入結束時更新統計資料。 當資料表變更其大小和/或其值散發時，資料載入最為頻繁。 因此，這是實作某些管理程序的合理位置。
 
 以下提供指導原則，以便在載入過程中更新您的統計資料：
@@ -126,10 +135,12 @@ WHERE
 如需詳細資訊，請參閱[基數估計](/sql/relational-databases/performance/cardinality-estimation-sql-server)。
 
 ## <a name="examples-create-statistics"></a>範例：建立統計資料
+
 下列範例顯示如何使用各種選項來建立統計資料。 您用於每個資料行的選項取決於您的資料特定以及在查詢中使用資料行的方式。
 
 ### <a name="create-single-column-statistics-with-default-options"></a>使用預設選項建立單一資料行統計資料
-若要建立資料行的統計資料，只需提供統計資料物件的名稱和資料行的名稱。
+
+若要基于某个列创建统计信息，只需提供统计信息对象的名称和列的名称。
 
 此語法會使用所有預設選項。 根據預設，SQL 資料倉儲在建立統計資料時會取樣 **20%** 的資料表。
 
@@ -144,6 +155,7 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 ```
 
 ### <a name="create-single-column-statistics-by-examining-every-row"></a>檢查每個資料列以建立單一資料行統計資料
+
 20% 的預設取樣率足以應付大部分的情況。 不過，您可以調整取樣率。
 
 若要取樣整個資料表，請使用此語法：
@@ -159,6 +171,7 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 ```
 
 ### <a name="create-single-column-statistics-by-specifying-the-sample-size"></a>指定取樣大小以建立單一資料行統計資料
+
 或者，您可以以百分比指定取樣大小：
 
 ```sql
@@ -166,6 +179,7 @@ CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
 ```
 
 ### <a name="create-single-column-statistics-on-only-some-of-the-rows"></a>只對某些資料列建立單一資料行統計資料
+
 您也可以對資料表中部分的資料列建立統計資料。 這稱為篩選的統計資料。
 
 例如，當您計劃查詢大型分割資料表的特定分割時，可以使用篩選的統計資料。 只對分割值建立統計資料，統計資料的精確度將會改善，並因而改善查詢效能。
@@ -178,10 +192,9 @@ CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '
 
 > [!NOTE]
 > 若要讓查詢最佳化工具在選擇分散式查詢計劃時考慮使用篩選的統計資料，查詢必須符合統計資料物件的定義。 使用上述範例，查詢的 WHERE 子句需要指定介於 2000101 和 20001231 之間的 col1 值。
-> 
-> 
 
 ### <a name="create-single-column-statistics-with-all-the-options"></a>使用所有選項建立單一資料行統計資料
+
 您也可以將選項結合在一起。 以下範例會使用自訂樣本大小建立篩選的統計資料物件：
 
 ```sql
@@ -191,12 +204,11 @@ CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < 
 如需完整參考，請參閱 [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql)。
 
 ### <a name="create-multi-column-statistics"></a>建立多重資料行統計資料
+
 若要建立多重資料行統計資料物件，只需利用上述範例，但要指定更多資料行。
 
 > [!NOTE]
 > 用來估計查詢結果中資料列數目的長條圖，只適用於統計資料物件定義中所列的第一個資料行。
-> 
-> 
 
 在此範例中，長條圖位於 *product\_category*。 跨資料行統計資料會依據 *product\_category* 和 *product\_sub_category* 計算：
 
@@ -207,6 +219,7 @@ CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category)
 因為 product\_category 和 product\_sub\_category 之間有關聯性，所以多重資料行統計資料物件在同時存取這些資料行時相當實用。
 
 ### <a name="create-statistics-on-all-columns-in-a-table"></a>對資料表中的所有資料行建立統計資料
+
 建立統計資料的其中一個方法是在建立資料表後發出 CREATE STATISTICS 命令：
 
 ```sql
@@ -228,6 +241,7 @@ CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
 ### <a name="use-a-stored-procedure-to-create-statistics-on-all-columns-in-a-database"></a>使用預存程序對資料庫中的所有資料行建立統計資料
+
 SQL 資料倉儲沒有相當於 SQL Server 中 sp_create_stats 的系統預存程序。 此預存程序會對資料庫中還沒有統計資料的每個資料行建立單一資料行統計資料物件。
 
 以下範例會協助您開始進行資料庫設計。 請放心地依照您的需求進行調整：
@@ -318,33 +332,36 @@ END
 DROP TABLE #stats_ddl;
 ```
 
-若要使用預設值為資料表中的所有資料行建立統計資料，只需呼叫以下程序即可。
+若要使用預設值的資料表中的所有資料行建立統計資料，請執行預存程序。
 
 ```sql
 EXEC [dbo].[prc_sqldw_create_stats] 1, NULL;
 ```
+
 若要使用 fullscan 為資料表中的所有資料行建立統計資料，請呼叫以下程序：
 
 ```sql
 EXEC [dbo].[prc_sqldw_create_stats] 2, NULL;
 ```
-若要為資料表中的所有資料行建立取樣的統計資料，請輸入 3 和取樣百分比。  此程序使用的取樣率為 20%。
+
+若要為資料表中的所有資料行建立取樣的統計資料，請輸入 3 和取樣百分比。 此程序使用的取樣率為 20%。
 
 ```sql
 EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 ```
 
-
-針對所有資料行建立取樣統計資料 
+針對所有資料行建立取樣統計資料
 
 ## <a name="examples-update-statistics"></a>範例：更新統計資料
+
 若要更新統計資料，您可以：
 
 - 更新一個統計資料物件。 指定您要更新的統計資料物件名稱。
 - 更新資料表上的所有統計資料物件。 指定資料表名稱，而不是一個特定統計資料物件。
 
 ### <a name="update-one-specific-statistics-object"></a>更新一個特定統計資料物件
-使用下列語法來更新特定統計資料物件：
+
+使用以下语法来更新特定的统计信息对象：
 
 ```sql
 UPDATE STATISTICS [schema_name].[table_name]([stat_name]);
@@ -359,7 +376,8 @@ UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 藉由更新特定統計資料物件，即可減少管理統計資料所需的時間和資源。 這需要經過思考，才能選擇要更新的最佳統計資料物件。
 
 ### <a name="update-all-statistics-on-a-table"></a>更新資料表上的所有統計資料。
-這顯示一個簡單的方法來更新資料表上的所有統計資料物件：
+
+是一個簡單的方法，來更新資料表上的所有統計資料物件：
 
 ```sql
 UPDATE STATISTICS [schema_name].[table_name];
@@ -371,24 +389,24 @@ UPDATE STATISTICS [schema_name].[table_name];
 UPDATE STATISTICS dbo.table1;
 ```
 
-此陳述式很容易使用。 只要記住這會更新資料表上的所有統計資料，因此可能會執行超出所需的更多工作。 如果效能不成問題，這是保證擁有最新統計資料的最簡單且最完整的方式。
+UPDATE STATISTICS 陳述式很容易使用。 只要記住這會更新資料表上的所有統計資料，因此可能會執行超出所需的更多工作。 如果效能不成問題，這是保證的統計資料是最新狀態的最簡單且最完整的方式。
 
 > [!NOTE]
 > 更新資料表上的所有統計資料時，SQL 資料倉儲會進行掃描，以針對每個統計資料物件進行資料表取樣。 如果資料表很大，而且有許多資料行以及許多統計資料，則根據需求來更新個別統計資料可能比較有效率。
-> 
-> 
 
 如需 `UPDATE STATISTICS` 程序的實作，請參閱[暫存資料表](sql-data-warehouse-tables-temporary.md)。 實作方法與上述的 `CREATE STATISTICS` 程序有點不同，但結果相同。
 
 如需完整語法，請參閱[更新統計資料](/sql/t-sql/statements/update-statistics-transact-sql)。
 
 ## <a name="statistics-metadata"></a>統計資料中繼資料
+
 您可利用數個系統檢視和函式來尋找統計資料相關資訊。 例如，使用 stats-date 函式來查看最後建立或更新統計資料的時間，即可查看統計資料物件是否可能過期。
 
 ### <a name="catalog-views-for-statistics"></a>統計資料的目錄檢視
+
 這些系統檢視提供統計資料的相關資訊：
 
-| 目錄檢視 | 說明 |
+| 目錄檢視 | 描述 |
 |:--- |:--- |
 | [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |每個資料行有一個資料列。 |
 | [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |資料庫中每個物件有一個資料列。 |
@@ -399,14 +417,16 @@ UPDATE STATISTICS dbo.table1;
 | [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql) |每個資料類型有一個資料列。 |
 
 ### <a name="system-functions-for-statistics"></a>統計資料的系統函式
+
 這些系統函式很適合用於處理統計資料：
 
-| 系統函式 | 說明 |
+| 系統函式 | 描述 |
 |:--- |:--- |
 | [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql) |上次更新統計資料物件的日期。 |
 | [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql) |有關統計資料物件所理解之值散發的摘要層級和詳細資訊。 |
 
 ### <a name="combine-statistics-columns-and-functions-into-one-view"></a>將統計資料資料行和函式結合成一個檢視
+
 此檢視會一起顯示與統計資料相關的資料行，以及 STATS_DATE() 函式的結果。
 
 ```sql
@@ -446,6 +466,7 @@ AND     st.[user_created] = 1
 ```
 
 ## <a name="dbcc-showstatistics-examples"></a>DBCC SHOW_STATISTICS() 範例
+
 DBCC SHOW_STATISTICS() 顯示統計資料物件中保存的資料。 此資料來自三個部分：
 
 - 頁首
@@ -455,6 +476,7 @@ DBCC SHOW_STATISTICS() 顯示統計資料物件中保存的資料。 此資料�
 有關統計資料的標頭中繼資料。 此長條圖會顯示統計資料物件的第一個索引鍵資料行中的值散發。 密度向量可測量跨資料行關聯性。 SQL 資料倉儲可使用統計資料物件中的任何資料來計算基數估計值。
 
 ### <a name="show-header-density-and-histogram"></a>顯示標頭、密度和長條圖
+
 這個簡單範例顯示統計資料物件的所有三個部分：
 
 ```sql
@@ -468,6 +490,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
 ### <a name="show-one-or-more-parts-of-dbcc-showstatistics"></a>顯示 DBCC SHOW_STATISTICS() 的一或多個部分
+
 如果您只想要檢視特定部分，請使用 `WITH` 子句並指定您要查看哪些部分：
 
 ```sql
@@ -481,16 +504,17 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
 ## <a name="dbcc-showstatistics-differences"></a>DBCC SHOW_STATISTICS() 差異
+
 相較於 SQL Server，DBCC SHOW_STATISTICS() 在 SQL 資料倉儲中會更嚴格地實作：
 
 - 不支援未記載的功能。
 - 無法使用 Stats_stream。
-- 無法聯結特定統計資料子集的結果。 例如，(STAT_HEADER JOIN DENSITY_VECTOR)。
+- 無法聯結特定統計資料子集的結果。 例如，STAT_HEADER JOIN DENSITY_VECTOR。
 - 無法針對訊息隱藏項目設定 NO_INFOMSGS。
 - 無法使用統計資料名稱前後的方括弧。
 - 無法使用資料行名稱來識別統計資料物件。
 - 不支援自訂錯誤 2767。
 
 ## <a name="next-steps"></a>後續步驟
-如需進一步改善查詢效能，請參閱[監視工作負載](sql-data-warehouse-manage-monitor.md)
 
+如需進一步改善查詢效能，請參閱[監視工作負載](sql-data-warehouse-manage-monitor.md)

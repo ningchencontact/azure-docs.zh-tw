@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 02/14/2019
+ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a908b00022351b9a91f9381229c773d063390744
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8eccc79969ce1a474fe0b22f2c250f8e31281550
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444152"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893124"
 ---
 # <a name="what-is-azure-analysis-services"></a>什麼是 Azure Analysis Services？
 
@@ -144,6 +144,11 @@ DirectQuery 模式* 會利用後端關聯式資料庫來提供儲存和查詢執
 
 Azure Analysis Services 中的表格式模型可支援各種資料來源，從簡單的文字檔案到 Azure Data Lake Store 中的巨量資料都行。 若要深入了解，請參閱 [Azure Analysis Services 中所支援的資料來源](analysis-services-datasource.md)。
 
+## <a name="compatibility-level"></a>相容性層級
+
+相容性層級是指 Analysis Services 引擎中特定版本的表現方式。 Azure Analysis Services 支援 1200 或更高相容性層級的表格式模型。 若要深入了解，請參閱 [Analysis Services 表格式模型的相容性層級](analysis-services-compat-level.md)。
+
+
 ## <a name="your-data-is-secure"></a>您的資料很安全
 
 Azure Analysis Services 可為敏感性資料提供多種層級的安全性。 Analysis Services 是一項 Azure 服務，可在 Azure 平台中自動啟用**基本**層級的分散式阻斷服務 (DDoS) 攻擊防護。 若要深入了解，請參閱 [Azure DDoS 保護標準概觀](../virtual-network/ddos-protection-overview.md)。 
@@ -193,7 +198,7 @@ Azure Analysis Services 受 [Microsoft Online Services 條款](https://www.micro
 
 ### <a name="visual-studio"></a>Visual Studio
 
-包含免費 [適用於 Visual Studio 的 SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) 的開發和部署模型。 SSDT 包含可讓您快速啟動並執行的 Analysis Services 專案範本。 SSDT 現在包含適用於表格式 1400 模型的新式 Get Data 資料來源查詢和混搭功能。 如果您已熟悉 Power BI Desktop 和 Excel 2016 中的 Get Data，您就已經知道建立高度自訂的資料來源查詢有多輕鬆。 
+包含免費 [適用於 Visual Studio 的 SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt) 的開發和部署模型。 SSDT 包含可讓您快速啟動並執行的 Analysis Services 專案範本。 SSDT 現在包含適用於表格式 1400 模型的新式 Get Data 資料來源查詢和混搭功能。 如果您已熟悉 Power BI Desktop 和 Excel 2016 中的 Get Data，您就已經知道建立高度自訂的資料來源查詢有多輕鬆。 
 
 如果您使用 Visual Studio 2017，Microsoft Analysis Services 專案會提供為免費的可安裝 VSIX 套件。 [從 Marketplace 下載](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects)。
 
@@ -207,7 +212,7 @@ Azure Analysis Services 受 [Microsoft Online Services 條款](https://www.micro
 
 ### <a name="object-model-and-scripting"></a>物件模型和編寫指令碼
 
-表格式模型可供快速進行開發，並可高度自訂。 表格式模型包含可說明模型物件的[表格式物件模型](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (TOM)。 TOM 會經由 [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx) 命名空間透過[表格式模型指令碼語言 (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)和 AMO 資料定義語言以 JSON 公開。 
+表格式模型可供快速進行開發，並可高度自訂。 表格式模型包含可說明模型物件的[表格式物件模型](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (TOM)。 TOM 會經由 [Microsoft.AnalysisServices.Tabular](/dotnet/api/microsoft.analysisservices.tabular) 命名空間透過[表格式模型指令碼語言 (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)和 AMO 資料定義語言以 JSON 公開。 
 
 ## <a name="supports-the-latest-client-tools"></a>支援最新的用戶端工具
 

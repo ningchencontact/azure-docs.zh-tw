@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d30fe326ef677ca4543534d57dd306ed2a660300
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: eafc379a65fda1ed64c6afee1427e704558b1ee6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895557"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261516"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory 中條件式存取的最佳做法
 
@@ -138,6 +138,7 @@ Azure Active Directory 會強制執行這兩個原則，而且只有在符合所
 
 - **需要加入網域** - 如果您還沒有已加入網域的裝置，此原則也可能封鎖您組織中所有使用者的存取。
 
+- **需要應用程式保護原則**-這個原則區塊存取也有可能會封鎖您的組織中的所有使用者的存取，如果您沒有 Intune 原則。 如果您是系統管理員，而不需要有 Intune 應用程式保護原則的用戶端應用程式時，此原則會阻擋您回到入口網站，例如 Intune 和 Azure。
 
 **適用於所有使用者、 所有雲端應用程式、 所有裝置平台：**
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: e186effb63c1ca96ace33ec389c2487448e4d20d
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
-ms.translationtype: MT
+ms.openlocfilehash: 686c91669e5eccd7979c248db42d6f5b5079308b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407092"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280905"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>使用機器相依性對應分組機器
 
@@ -132,6 +132,44 @@ Azure Migrate 會利用 Azure 監視器記錄檔，以啟用機器的相依性�
 5. 按一下 [執行] 以執行查詢。 
 
 [了解更多](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)關於如何撰寫 Kusto 查詢。 
+
+### <a name="sample-azure-monitor-logs-queries"></a>範例 Azure 監視器的記錄查詢
+
+以下是可用來擷取相依性資料的範例查詢。 請注意可以修改查詢，以擷取您慣用的資料點。 相依性資料記錄中的欄位的完整清單位於[這裡](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)
+
+#### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>彙總一組機器上的輸入的連線
+
+請注意，對於連線計量，VMConnection，資料表中的記錄並不代表個別的實體網路連線。 多個實體網路連線會分組為邏輯連接。 [了解更多](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections)如何實體網路連線的相關資料會彙總成單一的邏輯記錄中 VMConnection。 
+
+```
+// the machines of interest
+let ips=materialize(ServiceMapComputer_CL
+| summarize ips=makeset(todynamic(Ipv4Addresses_s)) by MonitoredMachine=ResourceName_s
+| mvexpand ips to typeof(string));
+let StartDateTime = datetime(2019-03-25T00:00:00Z);
+let EndDateTime = datetime(2019-03-30T01:00:00Z); 
+VMConnection
+| where Direction == 'inbound' 
+| where TimeGenerated > StartDateTime and TimeGenerated  < EndDateTime
+| join kind=inner (ips) on $left.DestinationIp == $right.ips
+| summarize sum(LinksEstablished) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
+```
+
+#### <a name="summarize-volume-of-data-sent-and-received-on-inbound-connections-between-a-set-of-machines"></a>彙總資料傳送和接收的一組機器之間的傳入連接的磁碟的區
+
+```
+// the machines of interest
+let ips=materialize(ServiceMapComputer_CL
+| summarize ips=makeset(todynamic(Ipv4Addresses_s)) by MonitoredMachine=ResourceName_s
+| mvexpand ips to typeof(string));
+let StartDateTime = datetime(2019-03-25T00:00:00Z);
+let EndDateTime = datetime(2019-03-30T01:00:00Z); 
+VMConnection
+| where Direction == 'inbound' 
+| where TimeGenerated > StartDateTime and TimeGenerated  < EndDateTime
+| join kind=inner (ips) on $left.DestinationIp == $right.ips
+| summarize sum(BytesSent), sum(BytesReceived) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
+```
 
 ## <a name="next-steps"></a>後續步驟
 

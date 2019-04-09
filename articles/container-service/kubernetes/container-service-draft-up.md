@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 48afb867a5455ffea10f8a74b1fff2c2b7f361ab
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fb34be09ec08957621517c957b3570cdbcfc0468
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849749"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283676"
 ---
 # <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(已淘汰) 使用 Draft 搭配 Azure Container Service 與 Azure Container Registry，可將應用程式建置及部署至 Kubernetes
 
@@ -139,7 +139,7 @@ waiting for AAD role to propagate.done
 
 ## <a name="build-and-deploy-an-application"></a>建置和部署應用程式
 
-在 Draft 存放庫中，有[六個簡單的範例應用程式](https://github.com/Azure/draft/tree/master/examples)。 複製存放庫，讓我們使用 [Java 範例](https://github.com/Azure/draft/tree/master/examples/java) \(英文\)。 變更到 examples/java 目錄，並輸入 `draft create` 來建置應用程式。 它看起來會如下範例所示。
+在 Draft 存放庫中，有[六個簡單的範例應用程式](https://github.com/Azure/draft/tree/master/examples)。 複製存放庫，讓我們使用 [Java 範例](https://github.com/Azure/draft/tree/master/examples/example-java) \(英文\)。 變更到 examples/java 目錄，並輸入 `draft create` 來建置應用程式。 它看起來會如下範例所示。
 ```bash
 $ draft create
 --> Draft detected the primary language as Java with 91.228814% certainty.

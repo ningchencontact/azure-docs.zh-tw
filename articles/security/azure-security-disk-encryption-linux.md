@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 33011a419c8c966fc59b769106aaff428b2a0709
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 624ad22b1c63498e8ce936472cfc884910bc6f84
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057671"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276944"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>啟用 Linux IaaS VM 適用的 Azure 磁碟加密 
 
@@ -226,8 +226,7 @@ key-encryption-key 參數值的語法為 KEK 的完整 URI： https://[keyvault-
 若要將 Linux 虛擬機器擴展集加密或解密，請使用下方的 Azure Resource Manager 範本與指示：
 
 - [在 Linux 虛擬機器擴展集上啟用加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
-- [部署 jumpbox 的 Linux Vm 的 VM 擴展集，並在 Linux VM 擴展集上啟用加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
-- [Linux VM 擴展集上停用加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+- [Linux 虛擬機器擴展集上停用加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
 
      1. 按一下 [ **部署至 Azure**]。
      2. 填寫必要欄位，然後同意條款及條件。

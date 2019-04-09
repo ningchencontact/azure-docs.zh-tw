@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: ca9c4c959d21f26369600129f3897b7624dd84f2
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 96322c730300e360ed03f4b623db2a7f18825f55
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371168"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267696"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Azure 儲存體延展性和效能目標儲存體帳戶
 
@@ -23,7 +23,7 @@ ms.locfileid: "58371168"
 
 當您的應用程式達到分割區可處理的工作負載限制時，Azure 儲存體會開始傳回錯誤碼 503 (伺服器忙碌) 或錯誤碼 500 (作業逾時) 回應。 如果發生 503 錯誤，請考慮將您的應用程式修改為針對重試使用指數輪詢原則。 指數輪詢讓分割的負載減少，也能減輕該分割流量的尖峰。
 
-## <a name="standard-performance-storage-account-scale-limits"></a>標準效能儲存體帳戶的規模限制
+## <a name="storage-account-scale-limits"></a>儲存體帳戶的規模限制
 
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
@@ -45,6 +45,36 @@ ms.locfileid: "58371168"
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
+### <a name="premium-files-scale-targets"></a>進階檔案調整目標
+
+有三種類別的限制時應考量的進階檔案： 儲存體帳戶、 共用和檔案。
+
+例如︰單一共用可達到 100,000 IOPS 和單一檔案可以調整最多 5,000 個 IOPS。 因此，比方說，如果您有一個共用中的三個檔案，您可以從共用取得的最大 IOPs 是 15000。
+
+#### <a name="premium-file-share-limits"></a>進階檔案共用限制
+
+> [!IMPORTANT]
+> 儲存體帳戶限制套用到所有的共用。 最多調整儲存體帳戶的最大值才可達成，如果沒有每個儲存體帳戶只能有一個共用。
+
+|領域  |目標  |
+|---------|---------|
+|最小大小                        |100 GiB      |
+|大小上限                        |100 TiB      |
+|最小的大小增加/減少    |1 GiB      |
+|基準 IOPS    |每 GiB，最多 100,000 個 1 IOPS|
+|負載平衡的 IOPS    |3 個 x IOPS 每 GiB，最多 100,000 個|
+|最小頻寬                     |100        |
+|頻寬 |0.1 秒 MB 每 GiB，最多 5 GiB/秒     |
+|快照集的最大數目        |200       |
+
+#### <a name="premium-file-limits"></a>進階檔案限制
+
+|領域  |目標  |
+|---------|---------|
+|大小                  |1 TiB         |
+|每個檔案的最大 IOPS     |5,000         |
+|並行控制代碼    |2,000         |
+
 ### <a name="azure-file-sync-scale-targets"></a>Azure 檔案同步擴展目標
 
 Azure 檔案同步的設計目標是無限制的使用方式，但無限制的使用方式不一定行得通。 下表指出 Microsoft 的測試界限，也指出哪些目標是固定限制：
@@ -62,6 +92,6 @@ Azure 檔案同步的設計目標是無限制的使用方式，但無限制的�
 ## <a name="see-also"></a>另请参阅
 
 - [儲存體定價詳細資料](https://azure.microsoft.com/pricing/details/storage/)
-- [Azure 訂用帳戶和服務限制、配額與限制](../../azure-subscription-service-limits.md)
+- [Azure 訂用帳戶和服務限制、 配額和條件約束](../../azure-subscription-service-limits.md)
 - [Azure 儲存體複寫](../storage-redundancy.md)
 - [Microsoft Azure 儲存體效能與延展性檢查清單](../storage-performance-checklist.md)

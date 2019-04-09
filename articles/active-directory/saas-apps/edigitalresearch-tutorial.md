@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d81797f0d1e7f72842c3a5a127756b99bdc93992
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 78b21e686d6ee6109ccf142dc4ca9956dc4d36ee
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59047801"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278712"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>教學課程：Azure Active Directory 與 eDigitalResearch 整合
 
@@ -40,7 +40,7 @@ eDigitalResearch 與 Azure AD 整合提供下列優點：
 若要設定 Azure AD 與 eDigitalResearch 整合，您需要下列項目：
 
 - Azure AD 訂用帳戶
-- 已啟用 eDigitalResearch 單一登入的訂用帳戶
+- 啟用 eDigitalResearch 單一登入的 訂用帳戶
 
 > [!NOTE]
 > 若要測試本教學課程中的步驟，我們不建議使用生產環境。

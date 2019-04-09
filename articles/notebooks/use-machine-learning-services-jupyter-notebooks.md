@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 0dc4fc31-ae1c-422c-ac34-7b025e6651b4
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: eb162e51a6091b22abd4a8d12275423d726b1785
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 2ef327721fd42e5274381834721fd987ec7e9d75
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763940"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263276"
 ---
 # <a name="use-azure-machine-learning-service-in-a-notebook"></a>在 Notebook 中使用 Azure Machine Learning 服務
 
@@ -47,9 +47,9 @@ Azure Notebooks 已預先設定必要的環境，可與 [Azure Machine Learning 
 
 Azure Machine Learning 服務文件包含各種不同的其他資源，引導您完成在 Notebooks 內使用機器學習服務：
 
-- [快速入門：使用 Python 來開始使用 Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
-- [教學課程 1：使用 Azure Machine Learning 服務將映像分類模型定型](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
-- [教學課程 2：在 Azure 容器執行個體 (ACI) 中部署映像分類模型](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
-- [教學課程：使用 Azure Machine Learning 服務中的自動化機器學習將分類模型定型](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
+- [快速入門：若要開始使用 Azure Machine Learning 中使用 Python](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
+- [教學課程 1:使用 Azure Machine Learning 服務將映像分類模型定型](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
+- [教學課程 2:部署影像分類模型在 Azure 容器執行個體 (ACI)](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
+- [教學課程：定型分類模型利用自動化的機器學習服務，在 Azure Machine Learning 服務](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
 
 另請參閱 [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 文件。

@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: 5635e0f669cec64bdbbf947099f980066a4aebc1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6f79614e4b1ec660d2ec5c8aee40924908cf8f5c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121412"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884120"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>教學課程：透過 QnA Maker 入口網站建立知識庫然後回答問題
 
@@ -105,7 +105,7 @@ ms.locfileid: "58121412"
 
     ![Curl 命令](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-3-curl.png)
 
-1. 複製 [Curl] 索引標籤的文字，然後在支援 Curl 的終端機或命令列中執行。 授權標頭的值包含文字 `Endpoint `，而其後依序有尾端空格和索引鍵。
+1. 複製 [Curl] 索引標籤的文字，然後在支援 Curl 的終端機或命令列中執行。 授權標頭的值包含文字 `Endpoint`，而其後依序有尾端空格和索引鍵。
 
 1. 將 `<Your question>` 取代為 `How large can my KB be?`。 此問題類似於 `How large a knowledge base can I create?`，但並非完全相同。 QnA Maker 會套用自然語言處理，以判斷兩個問題是否相同。     
 

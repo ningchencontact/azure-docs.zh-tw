@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 763ff0d5f619d2808fb06c05d5b266160b3a7069
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5aa637938433eb1f906f0a4d81038cec0d6c6dcc
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868560"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893005"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>教學課程：於認可原始程式碼時在雲端自動執行容器映像建置
 
@@ -52,7 +52,7 @@ ACR 工作目前支援下列觸發程序：
 * 認可至 Git 存放庫
 * 基底映像更新
 
-在本教學課程中，您的 ACR 工作會建置並推送在 Dockerfile 中指定的單一容器映像。 ACR 工作也可以執行[多步驟的工作](container-registry-tasks-multi-step.md) (目前處於預覽狀態)，使用 YAML 檔案來定義相關步驟，以建置、推送並選擇性地測試多個容器。
+在本教學課程中，您的 ACR 工作會建置並推送在 Dockerfile 中指定的單一容器映像。 ACR 工作也可執行[多步驟工作](container-registry-tasks-multi-step.md)，使用 YAML 檔案來定義相關步驟，以建置、推送並選擇性地測試多個容器。
 
 ## <a name="create-a-build-task"></a>建立建置工作
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: c1165fcebf8382d30b1be86f102da78ef0a4ac9a
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 3b6860c9a84384bfade099fb7c8c8c72281c3593
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244361"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257156"
 ---
 # <a name="set-alerts-in-application-insights"></a>在 Application Insights 中設定警示
 [Azure Application Insights][start] 可在 Web 應用程式中發生效能或使用量計量變更時對您發出警示。 
@@ -45,7 +45,7 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 * 如果您已設定回應通知的 Web 應用程式，請設定 [Webhook 位址](../../azure-monitor/platform/alerts-webhooks.md)。 系統會在警示啟動和解決時加以呼叫。 (不過請注意，查詢參數目前不會當作 Webhook 屬性傳遞)。
 * 您可以停用或啟用警示： 請參閱上方的按鈕。
 
-<bpt id="p1">*</bpt>I don't see the Add Alert button.<ept id="p1">*</ept>
+*我沒有看到 [新增警示] 按鈕。*
 
 * 您是否使用組織帳戶？ 如果您有這個應用程式資源的擁有者或參與者存取權，您可以設定警示。 請看一下 [存取控制] 索引標籤。[深入了解存取控制][roles]。
 
@@ -143,7 +143,7 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 
 10. 最後加入您的警示詳細資料 （警示規則名稱、 描述、 嚴重性）。 當您完成之後時，按一下**建立警示規則**底部。
 
-    ![警示詳細資料下方輸入您的警示規則名稱、 撰寫描述和挑選嚴重性 ](./media/alerts/9alertdetails.png)
+    ![警示詳細資料下方輸入您的警示規則名稱、 撰寫描述和挑選嚴重性](./media/alerts/9alertdetails.png)
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>誰會收到 (傳統) 警示通知？
 
@@ -159,8 +159,8 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 如果您需要根據使用者的角色來通知他們，請使用新警示體驗/近乎即時警示。 使用[動作群組](../platform/action-groups.md)，您可以為具有任一個參與者/擁有者/讀者角色 (不會結合來作為單一選項) 的使用者設定電子郵件通知。
 
 ## <a name="automation"></a>自動化
-* [使用 PowerShell 自動設定警示](../../azure-monitor/app/powershell-alerts.md)
-* [使用 Webhook 自動回應警示](../../azure-monitor/platform/alerts-webhooks.md)
+* [使用 PowerShell 來自動化設定警示](../../azure-monitor/app/powershell-alerts.md)
+* [使用 webhook 自動回應警示](../../azure-monitor/platform/alerts-webhooks.md)
 
 ## <a name="see-also"></a>請參閱
 * [可用性 Web 測試](../../azure-monitor/app/monitor-web-app-availability.md)

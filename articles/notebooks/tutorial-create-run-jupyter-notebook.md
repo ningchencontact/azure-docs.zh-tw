@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 65bbb5fe-9939-4e8e-8f5b-c197d4be142a
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 8fa873ca1ab20fbd8b3ca4ff57507adf34529246
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d5ccf3e9f35a8d35387962278577333ff92ff02b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903652"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258520"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>教學課程：使用 Python 建立和執行 Jupyter Notebook
 
@@ -128,7 +128,7 @@ ms.locfileid: "57903652"
 1. 因為您的環境設定中有 requirements.txt 檔案，所以您會看到訊息「等候您的容器完成準備」。 您可以選取 [確定] 以關閉訊息並繼續在 Notebook 中操作；不過，在完整設定環境之前，您無法執行程式碼資料格。
 1. 以單一空白程式碼資料格作為預設值，在 Jupyter 介面中開啟 Notebook。
 
-    [![Azure Notebooks 中新 Notebook 的起始檢視](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
+    [![Ivlastnost i&nitial Azure Notebook 中的新 notebook 的 [檢視](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
 ## <a name="tour-the-notebook-interface"></a>Notebook 介面導覽
 
@@ -144,7 +144,7 @@ ms.locfileid: "57903652"
 (F) 表示 Notebook 是否受信任的指標 (預設值為 [不受信任])。
 (G) 用來執行 Notebook 的核心以及活動指標。
 
-[![Jupyter 介面的主要 UI 區域](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
+[![PJupyter 介面的主要 UI 區域](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
 Jupyter 會提供主要 UI 元素的內建導覽。 選取 [說明] > [使用者介面導覽] 命令並點選快顯功能表，即可開始導覽。
 
@@ -427,8 +427,8 @@ Jupyter 會提供主要 UI 元素的內建導覽。 選取 [說明] > [使用者
 
 - [建立及複製專案](create-clone-jupyter-notebooks.md)
 - [設定和管理專案](configure-manage-azure-notebooks-projects.md)
-- [從筆記本內安裝套件](install-packages-jupyter-notebook.md)
-- [放映投影片](present-jupyter-notebooks-slideshow.md)
+- [從 Notebook 內安裝套件](install-packages-jupyter-notebook.md)
+- [顯示投影片放映](present-jupyter-notebooks-slideshow.md)
 - [使用資料檔案](work-with-project-data-files.md)
 - [存取資料資源](access-data-resources-jupyter-notebooks.md)
 - [使用 Azure 機器學習服務](use-machine-learning-services-jupyter-notebooks.md)

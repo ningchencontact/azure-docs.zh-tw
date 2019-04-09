@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: b8b5c2cef1db5018ce0d61e1950f49a3bd215ac2
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 1c66b3de9e18cb74c43f20499e4065c7ec7ae5ca
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402893"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801669"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>教學課程：在 Windows 虛擬桌面預覽版中建立租用戶
 
@@ -30,6 +30,8 @@ ms.locfileid: "58402893"
 * Windows 虛擬桌面使用者的 [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) 租用戶識別碼。
 * Azure Active Directory 租用戶中的全域管理員帳戶。
    * 這也適用於為其客戶建立 Windows 虛擬桌面租用戶的雲端解決方案提供者 (CSP) 組織。 如果您是 CSP 組織，則必須能夠以客戶的 Azure Active Directory 全域管理員身分登入。
+   * 系統管理員帳戶必須來自要在其中建立 Windows 虛擬桌面租用戶的 Azure Active Directory 租用戶。 此程序不支援 Azure Active Directory B2B (來賓) 帳戶。
+   * 系統管理員帳戶必須是公司或學校帳戶。
 * Azure 訂用帳戶識別碼
 
 ## <a name="grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service"></a>將 Azure Active Directory 權限授與給 Windows 虛擬桌面預覽版服務
@@ -75,7 +77,7 @@ ms.locfileid: "58402893"
 透過此 Cmdlet，使用 TenantCreator 使用者帳戶登入 Windows 虛擬桌面：
 
 ```powershell
-Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
 然後，建立與 Azure Active Directory 租用戶相關聯的新 Windows 虛擬桌面租用戶：

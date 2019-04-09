@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c010a7bcd2d811b31d9c2d05e81cce5dc85c2ce
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2949559542759cadf90d329bc50b352998b3eb7e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118590"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262545"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>重新導向使用 Azure AD Application Proxy 發佈之應用程式的硬式編碼連結
 
@@ -82,6 +82,31 @@ Azure AD Application Proxy 讓您的內部部署應用程式可供遠端使用�
 - **相對內部連結**，其指向本機檔案結構中的共用資源，例如 `/claims/claims.html`。 這些連結會自動在透過應用程式 Proxy 發佈的應用程式中運作，並且持續運作 (不論是否啟用連結轉譯)。 
 - 其他內部部署應用程式 (例如 `http://expenses`) 或已發佈檔案 (例如 `http://expenses/logo.jpg`) 的**硬式編碼內部連結**。 連結轉譯功能適用於硬式編碼內部連結，並可將這些連結變更為指向遠端使用者必須通過的外部 URL。
 
+對該應用程式 Proxy 連結轉譯的支援包含的 HTML 程式碼標記的完整清單：
+* a
+* audio
+* 基底
+* 按鈕
+* div
+* 內嵌
+* 表單
+* 畫面格
+* 標頭
+* html
+* iframe
+* 影像
+* input
+* link
+* menuitem
+* meta
+* 物件
+* script
+* 來源
+* 追蹤
+* video
+
+此外，在 CSS URL 屬性是也會轉譯。
+
 ### <a name="how-do-apps-link-to-each-other"></a>應用程式如何彼此連結？
 
 每個應用程式都已啟用連結轉譯，以便您控制每個應用程式層級的使用者經驗。 當您想要轉譯「來自」該應用程式的連結 (而非「連到」該應用程式的連結) 時，請開啟應用程式的連結轉譯。 
@@ -123,4 +148,4 @@ Azure AD Application Proxy 讓您的內部部署應用程式可供遠端使用�
 ## <a name="next-steps"></a>後續步驟
 [使用自訂網域搭配 Azure AD 應用程式 Proxy](application-proxy-configure-custom-domain.md) 以具有相同的內部和外部 URL
 
-[設定 SharePoint 2013 的備用存取對應](https://technet.microsoft.com/library/cc263208.aspx)
+[設定適用於 SharePoint 2013 的備用存取對應](https://technet.microsoft.com/library/cc263208.aspx)

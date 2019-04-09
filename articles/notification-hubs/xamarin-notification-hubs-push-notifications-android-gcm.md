@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 1/4/2019
+ms.date: 03/28/2019
 ms.author: jowargo
-ms.openlocfilehash: f7088179f43c69fb9f72eacd6ff3703a926cabe2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 79913fc300f2ca66a84cf47c0e5b650b9ea2cc59
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886553"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878769"
 ---
 # <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至 Xamarin.Android 應用程式
 
@@ -28,7 +28,7 @@ ms.locfileid: "57886553"
 
 ## <a name="overview"></a>概觀
 
-本教學課程示範如何使用 Azure 通知中樞將推播通知傳送至 Xamarin.Android 應用程式。 您會建立可使用 Firebase 雲端通訊 (FCM) 接收推播通知的空白 Xamarin.Android 應用程式。 您會使用通知中樞，將推播通知廣播到所有執行您的應用程式的裝置。 [NotificationHubs 應用程式][GitHub]範例中提供完成的程式碼。
+本教學課程示範如何使用 Azure 通知中樞將推播通知傳送至 Xamarin.Android 應用程式。 您會建立可使用 Firebase 雲端通訊 (FCM) 接收推播通知的空白 Xamarin.Android 應用程式。 您會使用通知中樞，將推播通知廣播到所有執行您的應用程式的裝置。 [NotificationHubs 應用程式](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/Xamarin/GetStartedXamarinAndroid)範例中提供完成的程式碼。
 
 在本教學課程中，您會執行下列步驟：
 
@@ -112,8 +112,15 @@ ms.locfileid: "57886553"
         </intent-filter>
     </receiver>
     ```
+2. 在**應用程式元素前面**新增下列陳述式。 
 
-2. 收集您的 Android 應用程式和通知中樞的下列資訊：
+    ```xml
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    ```
+1. 收集您的 Android 應用程式和通知中樞的下列資訊：
 
    * **接聽連接字串**：在 [Azure 入口網站]的儀表板上，選擇 [檢視連接字串]。 複製此值得 `DefaultListenSharedAccessSignature` 連接字串。
    * **中樞名稱**：您的中樞在 [Azure 入口網站]中的名稱。 例如， *mynotificationhub2*。
@@ -131,13 +138,61 @@ ms.locfileid: "57886553"
 
     ```csharp
     using Android.Util;
+    using Android.Gms.Common;
     ```
-6. 將執行個體變數新增至 `MainActivity.cs*`，以用來在應用程式執行時顯示警示對話方塊：
+6. 將下列屬性新增至 MainActivity 類別。 當應用程式正在執行時，TAG 變數將用於顯示警示對話方塊：
 
     ```csharp
     public const string TAG = "MainActivity";
+    internal static readonly string CHANNEL_ID = "my_notification_channel";
     ```
-7. 在 `MainActivity.cs` 中，將下列程式碼新增到 `base.OnCreate(savedInstanceState)` 之後的 `OnCreate`：
+7. 將下列方法新增至 MainActivity 類別。 它會檢查裝置是否可以使用 **Google Play Services**。 
+
+    ```csharp
+    public bool IsPlayServicesAvailable()
+    {
+        int resultCode = GoogleApiAvailability.Instance.IsGooglePlayServicesAvailable(this);
+        if (resultCode != ConnectionResult.Success)
+        {
+            if (GoogleApiAvailability.Instance.IsUserResolvableError(resultCode))
+                Log.Debug(TAG, GoogleApiAvailability.Instance.GetErrorString(resultCode));
+            else
+            {
+                Log.Debug(TAG, "This device is not supported");
+                Finish();
+            }
+            return false;
+        }
+     
+        Log.Debug(TAG, "Google Play Services is available.");
+        return true;
+    }
+    ```
+1. 將下列方法新增至可建立通知管道的 MainActivity 類別。
+
+    ```csharp
+    private void CreateNotificationChannel()
+    {
+        if (Build.VERSION.SdkInt < BuildVersionCodes.O)
+        {
+            // Notification channels are new in API 26 (and not a part of the
+            // support library). There is no need to create a notification
+            // channel on older versions of Android.
+            return;
+        }
+     
+        var channelName = CHANNEL_ID;
+        var channelDescription = string.Empty;
+        var channel = new NotificationChannel(CHANNEL_ID, channelName, NotificationImportance.Default)
+        {
+            Description = channelDescription
+        };
+     
+        var notificationManager = (NotificationManager)GetSystemService(NotificationService);
+        notificationManager.CreateNotificationChannel(channel);
+    }
+    ```
+1. 在 `MainActivity.cs` 中，將下列程式碼新增到 `base.OnCreate(savedInstanceState)` 之後的 `OnCreate`：
 
     ```csharp
     if (Intent.Extras != null)
@@ -151,6 +206,9 @@ ms.locfileid: "57886553"
             }
         }
     }
+    
+    IsPlayServicesAvailable();
+    CreateNotificationChannel();
     ```
 8. 建立新類別 `MyFirebaseIIDService`，如同您所建立的 `Constants` 類別。
 9. 將下列 using 陳述式新增至 `MyFirebaseIIDService.cs`：
@@ -201,6 +259,9 @@ ms.locfileid: "57886553"
     using Android.App;
     using Android.Util;
     using Firebase.Messaging;
+    using Android.OS;
+    using Android.Support.V4.App;
+    using Build = Android.OS.Build;
     ```
 14. 於 class 宣告之上新增下列內容，並讓您的類別繼承自 `FirebaseMessagingService`：
 
@@ -236,12 +297,18 @@ ms.locfileid: "57886553"
         intent.AddFlags(ActivityFlags.ClearTop);
         var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
 
-        var notificationBuilder = new Notification.Builder(this)
+        var notificationBuilder = new NotificationCompat.Builder(this)
                     .SetContentTitle("FCM Message")
                     .SetSmallIcon(Resource.Drawable.ic_launcher)
                     .SetContentText(messageBody)
                     .SetAutoCancel(true)
+                    .SetShowWhen(false)
                     .SetContentIntent(pendingIntent);
+
+        if (Build.VERSION.SdkInt >= BuildVersionCodes.O)
+        {
+            notificationBuilder.SetChannelId(MainActivity.CHANNEL_ID);
+        }
 
         var notificationManager = NotificationManager.FromContext(this);
 
@@ -264,7 +331,7 @@ ms.locfileid: "57886553"
 在本教學課程中，您已將廣播通知傳送給向後端註冊的所有 Android 裝置。 若要了解如何將通知推送至特定 Android 裝置，請繼續進行下列教學課程：
 
 > [!div class="nextstepaction"]
->[將通知推送至特定裝置](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
+>[將推播通知傳送至特定裝置](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md)
 
 <!-- Anchors. -->
 [Enable Google Cloud Messaging]: #register
@@ -302,4 +369,4 @@ ms.locfileid: "57886553"
 [Notification Hubs How-To for Android]: https://msdn.microsoft.com/library/dn282661.aspx
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-[GitHub]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/Xamarin/GetStartedXamarinAndroid
+[GitHub]: https://github.com/Azure/azure-notificationhubs-android

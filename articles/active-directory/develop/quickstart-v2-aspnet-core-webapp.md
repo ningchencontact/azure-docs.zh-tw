@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 04/03/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fed62dfc3f7e7dc974fb709261e363f26ce97c51
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 0fa2e38a680e8590a89131717136a7960c1d3680
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200985"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903585"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>快速入門：將「使用 Microsoft 登入」新增至 ASP.NET Core Web 應用程式
 
@@ -40,7 +40,7 @@ ms.locfileid: "58200985"
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>選項 1：註冊和自動設定您的應用程式，然後下載程式碼範例
 >
-> 1. 移至 [Azure 入口網站 - 應用程式註冊 (預覽)](https://aka.ms/aspnetcore2-1-aad-quickstart-v2)。
+> 1. 移至 [Azure 入口網站 - 應用程式註冊](https://aka.ms/aspnetcore2-1-aad-quickstart-v2)。
 > 1. 輸入應用程式的名稱，並選取 [註冊]。
 > 1. 依照指示按一下滑鼠，即可下載並自動設定新的應用程式。
 >
@@ -51,7 +51,8 @@ ms.locfileid: "58200985"
 >
 > 1. 使用公司或學校帳戶或個人的 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 > 1. 如果您的帳戶可讓您存取多個租用戶，請在右上角選取帳戶，然後將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
-> 1. 在左側導覽窗格中，選取 [Azure Active Directory] 服務，然後選取 [應用程式註冊 (預覽)] > [新增註冊]。
+> 1. 瀏覽至 Microsoft 身分識別平台，以取得開發人員的[應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)頁面。
+> 1. 選取 [新增註冊]。
 > 1. 當 [註冊應用程式] 頁面出現時，輸入您應用程式的註冊資訊：
 >    - 在 [名稱] 區段中，輸入將對應用程式使用者顯示、且有意義的應用程式名稱，例如 `AspNetCore-Quickstart`。
 >    - 在 [回覆 URL] 中新增 `https://localhost:44321/`，然後選取 [註冊]。
@@ -78,7 +79,7 @@ ms.locfileid: "58200985"
 
 1. 將 ZIP 檔案解壓縮至根資料夾內的本機資料夾 - 例如 **C:\Azure-Samples**
 1. 如果您使用 Visual Studio 2017，請在 Visual Studio 中開啟解決方案 (選用)。
-1. 編輯 **appsettings.json** 檔案。 找到 `ClientId`，並以您剛剛所註冊之應用程式的**應用程式 (用戶端) 識別碼**取代 `Enter_the_Application_Id_here`。 
+1. 編輯 **appsettings.json** 檔案。 找到 `ClientId`，並將 `ClientId` 的值更新為剛剛所註冊應用程式的 [應用程式 (用戶端) 識別碼] 值。 
 
     ```json
     "ClientId": "Enter_the_Application_Id_here"
@@ -87,8 +88,8 @@ ms.locfileid: "58200985"
 
 > [!div renderon="docs"]
 > 其中：
-> - `Enter_the_Application_Id_here` 是註冊於 Azure 入口網站中的應用程式所具備的**應用程式 (用戶端) 識別碼**。 您可以在應用程式的 [概觀] 頁面中找到**應用程式 (用戶端) 識別碼**。
-> - `Enter_the_Tenant_Info_Here` 是下列其中一個選項：
+> - `Enter_the_Application_Id_here` - 是註冊於 Azure 入口網站中的應用程式所具備的**應用程式 (用戶端) 識別碼**。 您可以在應用程式的 [概觀] 頁面中找到**應用程式 (用戶端) 識別碼**。
+> - `Enter_the_Tenant_Info_Here` - 是下列其中一個選項：
 >   - 如果您的應用程式支援 [僅限此組織目錄中的帳戶]，請將此值取代為 [租用戶識別碼] 或 [租用戶名稱] (例如 contoso.microsoft.com)
 >   - 如果您的應用程式支援 [任何組織目錄中的帳戶]，請將此值取代為 `organizations`
 >   - 如果您的應用程式支援 [所有 Microsoft 帳戶使用者]，請將此值取代為 `common`

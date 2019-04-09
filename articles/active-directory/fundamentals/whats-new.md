@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cd3286d51154c9c1dd53a2f87dd8a97999d064a
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: e5d85d1f211a4cc0307cca6d631a4bf286d3e576
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046694"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271810"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory 的新增功能？
 
@@ -39,7 +39,39 @@ Azure AD 會持續不斷進行改進。 為了讓您隨時掌握最新的開發�
 
 ---
 
+## <a name="april-2019"></a>2019 年 4 月
+
+### <a name="increased-security-using-the-app-protection-based-conditional-access-policy-in-azure-ad-public-preview"></a>更高的安全性，Azure AD （公開預覽） 中使用應用程式保護型條件式存取原則
+
+**類型：** 新功能  
+**服務類別：** 條件式存取  
+**產品功能：** 身分識別安全性與保護
+
+應用程式保護為基礎的條件式存取是現在使用**需要應用程式保護**原則。 這個新的原則，可協助增加您組織的安全性，協助預防：
+
+- 取得應用程式，而不需要 Microsoft Intune 授權的存取權的使用者。
+
+- 無法取得 Microsoft Intune 應用程式保護原則的使用者。
+
+- 使用者沒有已設定的 Microsoft Intune 應用程式保護原則的應用程式的存取。
+
+如需詳細資訊，請參閱 <<c0> [ 如何使用條件式存取的雲端應用程式存取要求應用程式保護原則](https://docs.microsoft.com/azure/active-directory/conditional-access/app-protection-based-conditional-access)。
+
+---
+
 ## <a name="march-2019"></a>2019 年 3 月
+
+### <a name="new-support-for-azure-ad-single-sign-on-and-conditional-access-in-microsoft-edge-public-preview"></a>新的支援，Azure ad 單一登入和條件式存取在 Microsoft Edge （公開預覽）
+
+**類型：** 新功能  
+**服務類別：** 條件式存取  
+**產品功能：** 身分識別安全性與保護
+
+我們已增強我們的 Azure AD 支援 Microsoft edge 的適用性，包括 Azure AD 單一登入和條件式存取提供新的支援。 如果您先前使用過 Microsoft Intune Managed Browser，您現在可以使用 Microsoft Edge 改。
+
+如需有關設定和管理您的裝置和應用程式使用條件式存取的詳細資訊，請參閱 <<c0> [ 需要受管理的裝置存取雲端應用程式使用條件式存取](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/require-managed-devices)和[需要核准的用戶端應用程式，適用於雲端使用條件式存取應用程式存取](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/app-based-conditional-access)。 如需如何使用 Microsoft Edge 與 Microsoft Intune 原則管理存取權的詳細資訊，請參閱[使用 Microsoft Intune 原則保護瀏覽器管理網際網路存取](https://docs.microsoft.com/en-us/intune/app-configuration-managed-browser)。
+
+---
 
 ### <a name="identity-experience-framework-and-custom-policy-support-in-azure-active-directory-b2c-is-now-available-ga"></a>身分識別體驗架構和自訂原則中 Azure Active Directory B2C 的支援現已推出 (GA)
 
@@ -679,7 +711,7 @@ Azure Active Directory Domain Services 會在 Azure 入口網站上提供有關�
 
 - 全域管理員
 
-- Intune 系統管理員
+- Intune 管理員
 
 - 使用者管理員
 

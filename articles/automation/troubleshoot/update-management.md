@@ -4,16 +4,16 @@ description: 了解如何針對更新管理問題進行疑難排解
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/05/2018
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b92ce1d5fb0e0b2b043b1bbfcb78dbaf3dde2e23
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 22e3ea1c90946902fc2a16d947ff2884e5e0a44b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804457"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274581"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>針對更新管理問題進行疑難排解
 
@@ -181,6 +181,8 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 |`0x8024402C`     | 如果您使用 WSUS 伺服器，請確定 `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` 登錄機碼底下 `WUServer` 和 `WUStatusServer` 的登錄值具有正確的 WSUS 伺服器。        |
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | 確定 Windows Update 服務 (wuauserv) 正在執行而未停用。        |
 |任何其他一般例外狀況     | 搜尋網際網路來尋找可能的解決方案，並與您當地的 IT 支援人員合作。         |
+
+檢閱`windowsupdate.log`可以幫助您嘗試判斷以及可能的原因。 如需有關如何讀取記錄檔的詳細資訊，請參閱 <<c0> [ 如何讀取 Windowsupdate.log 檔案](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file)。
 
 此外，您可以下載並執行 [Windows Update 疑難排解員](https://support.microsoft.com/help/4027322/windows-update-troubleshooter)，以檢查機器上的 Windows Update 是否有任何問題。
 

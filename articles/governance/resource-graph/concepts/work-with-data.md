@@ -1,19 +1,18 @@
 ---
 title: 使用大型資料集
 description: 了解如何在使用 Azure Resource Graph 期間取得並控制大型資料集。
-services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 40aa8ca0ebfcc8eb5b686143960af1441768622a
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 729e9fe749212942c6dc18fc7d6301934e7dd184
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59058375"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262460"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>使用大型 Azure 資源資料集
 

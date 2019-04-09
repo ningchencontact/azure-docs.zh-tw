@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/04/2019
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 0defb1a8572cc3adad48dbcdb27a04e366fc3e60
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 1fc04ee953ea53f96adfd1e85c9a616c62268ade
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046781"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282979"
 ---
 # <a name="understand-cost-management-data"></a>了解成本管理資料
 
@@ -31,8 +31,8 @@ ms.locfileid: "59046781"
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
 | **Enterprise 合約 (EA)** | Enterprise 開發/測試                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P |
 | **Enterprise 合約 (EA)** | [Microsoft Azure 企業版](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P |
-| **Microsoft 客戶合約** | [Microsoft Azure 方案](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017G |
-| **Microsoft 客戶合約** | [適用於開發/測試的 Microsoft Azure 方案](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | MS-AZR-0148G |
+| **Microsoft 客戶合約** | [Microsoft Azure 方案](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/A |
+| **Microsoft 客戶合約** | [適用於開發/測試的 Microsoft Azure 方案](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | N/A |
 | **Microsoft Developer Network (MSDN)** | [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p) | MSDN_2014-09-01 | MS-AZR-0062P |
 | **Pay-As-You-Go** | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p)                       | PayAsYouGo_2014-09-01 | MS-AZR-0003P |
 | **Pay-As-You-Go** | [預付型方案的開發/測試](https://azure.microsoft.com/offers/ms-azr-0023p)              | MSDNDevTest_2014-09-01 | MS-AZR-0023P |
@@ -80,20 +80,21 @@ ms.locfileid: "59046781"
 | **已包括** | **未包括** |
 | --- | --- |
 | Azure 服務使用量<sup>1</sup> | 保留購買 – 如需詳細資訊，請參閱[適用於 Azure 保留自動化的 API](../billing/billing-reservation-apis.md)。 |
-| Marketplace 供應項目使用量 | Marketplace 購買 – 如需詳細資訊，請參閱[第三方服務費用](../billing/billing-understand-your-azure-marketplace-charges.md)。 |
+| Marketplace 供應項目使用方式<sup>2</sup> | Marketplace 購買 – 如需詳細資訊，請參閱[第三方服務費用](../billing/billing-understand-your-azure-marketplace-charges.md)。 |
 |   | 支援費用 - 如需詳細資訊，請參閱[發票條款說明](../billing/billing-understand-your-invoice.md)。 |
 |   | 稅金 - 如需詳細資訊，請參閱[發票條款說明](../billing/billing-understand-your-invoice.md)。 |
 |   | 點數 - 如需詳細資訊，請參閱[發票條款說明](../billing/billing-understand-your-invoice.md)。 |
 
 <sup>1</sup> Azure 服務使用量以保留和議定價格為基礎。
+<sup>2</sup> marketplace 供應項目使用方式不適用於隨用隨付、 MSDN、 與 Visual Studio 提供這一次。
 
 **中繼資料**
 
 | **已包括** | **未包括** |
 | --- | --- |
-| 資源標記<sup>2</sup> | 資源群組標記 |
+| 資源標記<sup>3</sup> | 資源群組標記 |
 
-<sup>2</sup> 每項服務發出使用量資料時即會套用資源標記，且其套用不會溯及歷史使用量。
+<sup>3</sup>資源標記使用方式，就會發出每個服務會套用，而且無法追溯至歷程記錄的使用方式。
 
 ## <a name="rated-usage-data-refresh-schedule"></a>評比使用量資料重新整理排程
 

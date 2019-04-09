@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: c6aa3a1999460b5eb3e62e36883bb4827bd41305
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: f17dc61f47dadf4c808467b2158cd9ef034e1ce9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010340"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277114"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>啟用 Windows IaaS VM 適用的 Azure 磁碟加密
 
@@ -223,8 +223,7 @@ ms.locfileid: "59010340"
 若要將 Windows 虛擬機器擴展集加密或解密，請使用下方的 Azure Resource Manager 範本與指示：
 
 - [在 Windows 虛擬機器擴展集上啟用加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
-- [部署 jumpbox 的 Windows Vm 的 VM 擴展集，並在 Windows VM 擴展集上啟用加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
-- [Windows VM 擴展集上停用加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
+- [Windows 虛擬機器擴展集上停用加密](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
      1. 按一下 [ **部署至 Azure**]。
      2. 填寫必要欄位，然後同意條款及條件。

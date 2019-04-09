@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e39f271eaf0eccd0b3f3439492205e0d3398358
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 06639f943542e322e79e137e31be7b8954566a0f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851200"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261984"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>使用 OpenID Connect 和 Azure Active Directory 授權存取 Web 應用程式
 
@@ -47,12 +47,12 @@ OpenID Connect 所描述的中繼資料文件包含應用程式執行登入所�
 ```
 https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration
 ```
-元数据是简单的 JavaScript 对象表示法 (JSON) 文档。 如需範例，請參閱下列程式碼片段。 [OpenID Connect 規格](https://openid.net)中有程式碼片段內容的完整說明。 請注意，提供租用戶而非 `common` 來取代上面的 {tenant}，會導致傳回的 JSON 物件中有租用戶特有的 URI。
+元数据是简单的 JavaScript 对象表示法 (JSON) 文档。 如需範例，請參閱下列程式碼片段。 [OpenID Connect 規格](https://openid.net)中有程式碼片段內容的完整說明。 請注意，提供租用戶識別碼而不是`common`在上面的 {tenant} 的位置會導致傳回的 JSON 物件中的租用戶特定 Uri。
 
 ```
 {
-    "authorization_endpoint": "https://login.microsoftonline.com/common/oauth2/authorize",
-    "token_endpoint": "https://login.microsoftonline.com/common/oauth2/token",
+    "authorization_endpoint": "https://login.microsoftonline.com/{tenant}/oauth2/authorize",
+    "token_endpoint": "https://login.microsoftonline.com/{tenant}/oauth2/token",
     "token_endpoint_auth_methods_supported":
     [
         "client_secret_post",
@@ -64,6 +64,8 @@ https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration
     ...
 }
 ```
+
+您的應用程式是否使用自訂簽署金鑰[宣告對應](active-directory-claims-mapping.md)功能，您必須附加`appid`查詢參數包含的應用程式識別碼才能取得`jwks_uri`指向您的應用程式的簽署金鑰資訊。 例如：`https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e`包含`jwks_uri`的`https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`。
 
 ## <a name="send-the-sign-in-request"></a>傳送登入要求
 
@@ -91,14 +93,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | 參數 |  | 描述 |
 | --- | --- | --- |
 | tenant |必要 |请求路径中的 `{tenant}` 值可用于控制哪些用户可以登录应用程序。 租用戶獨立權杖允許的值為租用戶識別碼，例如 `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` 或 `contoso.onmicrosoft.com` 或 `common` |
-| client_id |必要 |向 Azure AD 註冊應用程式時，指派給您的應用程式的識別碼。 您可以在 Azure 入口網站中找到這個值。 依序按一下 [Azure Active Directory]、[應用程式註冊]，選擇應用程式，然後在應用程式頁面上找到 [應用程式識別碼]。 |
+| client_id |必要 |向 Azure AD 註冊應用程式時，指派給您應用程式的應用程式識別碼。 您可以在 Azure 入口網站中找到這個值。 按一下  **Azure Active Directory**，按一下**應用程式註冊**，選擇 應用程式，找出應用程式頁面上的應用程式識別碼。 |
 | response_type |必要 |必須包含 OpenID Connect 登入的 `id_token` 。 它也可能包含其他 response_types，例如 `code` 或 `token`。 |
 | scope | 建議使用 | OpenID Connect 规范要求范围 `openid`，该范围在许可 UI 中会转换为“将你登录”权限。 在 v1.0 终结点上，此范围和其他 OIDC 范围会被忽略，但对符合标准的客户端而言仍是最佳做法。 |
 | nonce |必要 |包含在要求中的值 (由應用程式所產生)，將會包含在所得的 `id_token` 中來做為宣告。 應用程式接著便可確認此值，以減少權杖重新執行攻擊。 此值通常是随机的唯一字符串或 GUID，可用以识别请求的来源。 |
 | redirect_uri | 建議使用 |应用的 redirect_uri，应用可向其发送及从其接收身份验证响应。 其必須完全符合您在入口網站中註冊的其中一個 redirect_uris，不然就必須得是編碼的 url。 如果缺失，则会将用户代理随机发送回某个为应用注册的重定向 URI。 最大長度是 255 個位元組 |
 | response_mode |選用 |指定將產生的 authorization_code 傳回到應用程式所應該使用的方法。 支援的值為 `form_post` (*HTTP 表單張貼*) 和 `fragment` (*URL 片段*)。 針對 Web 應用程式，建議使用 `response_mode=form_post`，確保會以最安全的方式將權杖傳輸至您的應用程式。 包括 id_token 在內的任何流程預設值皆為 `fragment`。|
 | state |建議使用 |随令牌响应返回的请求中所包含的值。 可以是想要的任何内容的字符串。 隨機產生的唯一值通常用於 [防止跨站台要求偽造攻擊](https://tools.ietf.org/html/rfc6749#section-10.12)。 该 state 也用于在身份验证请求出现之前，于应用中编码用户的状态信息，例如之前所在的网页或视图。 |
-| prompt |選用 |表示需要的用户交互类型。 目前只有 'login'、'none'、'consent' 是有效值。 `prompt=login` 會強制使用者在該要求上輸入認證，否定單一登入。 `prompt=none` 則相反 - 它會確保不會對使用者顯示任何互動式提示。 如果無法透過單一登入以無訊息方式完成要求，端點就會傳回錯誤。 `prompt=consent` 會在使用者登入之後觸發 OAuth 同意對話方塊，詢問使用者是否要授與權限給應用程式。 |
+| prompt |選用 |表示需要的用户交互类型。 目前只有 'login'、'none'、'consent' 是有效值。 `prompt=login` 會強制使用者針對該要求，否定單一登入輸入其認證。 `prompt=none` 則相反-它可確保使用者不向任何互動式提示。 如果無法透過單一登入以無訊息方式完成要求，端點就會傳回錯誤。 `prompt=consent` 在使用者登入，要求使用者授與應用程式的權限之後，觸發 OAuth 同意對話方塊。 |
 | login_hint |可选 |如果您事先知道其使用者名稱，可用來預先填入使用者登入頁面的使用者名稱/電子郵件地址欄位。 通常，应用在重新身份验证期间使用此参数，并且已经使用 `preferred_username` 声明从前次登录提取用户名。 |
 
 此時，系統會要求使用者輸入其認證並完成驗證。
@@ -179,7 +181,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 | 參數 |  | 描述 |
 | --- | --- | --- |
-| post_logout_redirect_uri |建議使用 |使用者在成功登出之後，應該要前往的 URL。 如果此參數，則會向使用者顯示一般訊息。 |
+| post_logout_redirect_uri |建議使用 |使用者應該重新導向至在成功登出之後的 URL。如果此參數，則會向使用者顯示一般訊息。 |
 
 ## <a name="single-sign-out"></a>單一登出
 
@@ -200,7 +202,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 // Line breaks for legibility only
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/authorize?
-client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Application Id
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Application ID
 &response_type=id_token+code
 &redirect_uri=http%3A%2F%2Flocalhost%3a12345          // Your registered Redirect Uri, url encoded
 &response_mode=form_post                              // `form_post' or 'fragment'

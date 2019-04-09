@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ca50c7cbbcccadf96641c28e43f7da48421c8f3b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 98acb6c5b83ce31046b50f744492c518cdf77498
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994422"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621646"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Azure 備份中的功能概觀
 Azure 備份是您可用來備份 (或保護) 和還原 Microsoft Cloud 資料的 Azure 服務。 Azure 備份將以一個可靠、安全及具成本競爭力的雲端架構解決方案，取代您現有的內部部署或異地備份解決方案。 Azure 備份提供多個元件，您可以下載並部署在適當的電腦、伺服器或雲端中。 您部署的元件或代理程式，取決於您想要保護的項目。 所有 Azure 備份的元件 (無論您要保護的是內部部署或雲端資料) 都可以將資料備份至 Azure 中的復原服務保存庫。 請參閱 [Azure 備份元件資料表](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (稍後於本文提及) 以取得該使用哪個元件來保護特定資料、應用程式或工作負載的資訊。
@@ -37,7 +37,11 @@ Azure 備份是您可用來備份 (或保護) 和還原 Microsoft Cloud 資料�
 
 **無限制的資料傳輸** -Azure 備份不會限制輸入或輸出資料的傳輸。 Azure 備份也不會對傳輸資料收取費用。 不過，如果您使用 Azure 匯入/匯出服務匯入大量的資料，會有與輸入資料關聯的費用。 如需這項成本的詳細資訊，請參閱 [Azure Backup 中的離線備份工作流程](backup-azure-backup-import-export.md)。 輸出資料是指還原作業期間傳輸自復原服務保存庫的資料。
 
-**資料加密** - 資料加密可安全傳輸與儲存您在公用雲端中的資料。 加密複雜密碼會儲存在本機，並且永遠不會傳送至或儲存在 Azure 中。 如果需要還原任何資料，只有您有加密複雜密碼或金鑰。
+**資料加密**：
+- 在內部部署環境，傳輸中的資料會在內部部署機器上以 AES256 加密。 傳輸的資料會受到儲存體與備份之間的 HTTPS 保護。 iSCSI 通訊協定會保護備份與使用者電腦之間傳輸的資料。 安全通道用於保護 iSCSI 通道。
+- 對於內部部署環境至 Azure 的備份，系統會使用您在設定備份時所提供的複雜密碼來加密 Azure 中的待用資料。 複雜密碼或金鑰永遠不會在 Azure 中傳輸或儲存。 如果需要還原任何資料，只有您有加密複雜密碼或金鑰。
+- 針對 Azure VM，會使用「儲存體服務加密」(SSE) 對資料進行靜態加密。 備份會儲存資料前自動進行加密。 Azure 儲存體會在擷取資料前進行解密。
+- 備份也支援使用 Azure 磁碟加密 (ADE) 加密的 Azure VM。 [深入了解](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups)。
 
 **應用程式一致備份** - 應用程式一致備份表示復原點具有所有必要的資料來還原備份複本。 Azure 備份提供應用程式一致備份，確保資料還原不需要其他修正程式。 還原應用程式一致的資料會減少還原時間，讓您能夠快速回到執行狀態。
 
@@ -84,9 +88,9 @@ Azure 備份是您可用來備份 (或保護) 和還原 Microsoft Cloud 資料�
 **元件** | **Linux (Azure 背書)**
 --- | ---
 Azure 備份 (MARS) 代理程式 | 否 (僅限 Windows 代理程式)
-System Center DPM | Hyper-V 和 VMWare 上 Linux 來賓 VM 的檔案一致性備份<br/><br/> Hyper-V 和 VMWare Linux 來賓 VM 的 VM 還原</br></br> 不適用於 Azure VM 的檔案一致性備份
+System Center DPM | Hyper-V 和 VMWare 上 Linux 來賓 VM 的檔案一致性備份<br/><br/> Hyper-V 和 VMWare Linux 客體 VM 的 VM 還原</br></br> 不適用於 Azure VM 的檔案一致性備份
 Azure 備份伺服器 | Hyper-V 和 VMWare 上 Linux 來賓 VM 的檔案一致性備份<br/><br/> Hyper-V 和 VMWare Linux 來賓 VM 的 VM 還原</br></br> 不適用於 Azure VM 的檔案一致性備份
-Azure IaaS VM 備份 | 使用[前置指令碼和後置指令碼架構](backup-azure-linux-app-consistent.md)的應用程式一致備份<br/><br/> [檔案層級復原](backup-azure-restore-files-from-vm.md)<br/><br/> [從還原的磁碟建立 VM](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [從復原點還原檔案](backup-azure-arm-restore-vms.md#create-new-create-a-vm)。
+Azure IaaS VM 備份 | 使用[前置指令碼和後置指令碼架構](backup-azure-linux-app-consistent.md)的應用程式一致備份<br/><br/> [檔案層級復原](backup-azure-restore-files-from-vm.md)<br/><br/> [從還原的磁碟建立 VM](backup-azure-arm-restore-vms.md#restore-disks)<br/><br/> [從復原點還原檔案](backup-azure-arm-restore-vms.md#create-a-vm)。
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>搭配使用進階儲存體 VM 與 Azure 備份
 Azure 備份可保護進階儲存體 VM。 Azure 進階儲存體是一個以固態硬碟 (SSD) 為基礎的儲存體產品，可支援需要大量 I/O 的工作負載。 進階儲存體非常適合用於虛擬機器 (VM) 工作負載。 如需關於進階儲存體和其他磁碟類型的詳細資訊，請參閱[選取磁碟類型](../virtual-machines/windows/disks-types.md)一文。
