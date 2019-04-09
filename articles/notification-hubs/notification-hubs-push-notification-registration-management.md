@@ -13,13 +13,13 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
-ms.date: 01/23/2019
-ms.openlocfilehash: 028e9a2973ed524037f6415d9e802f947458cfa6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/08/2019
+ms.openlocfilehash: 559dd5ecfa4615e42e4f7ac40008e69c9210e2a4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58166764"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260442"
 ---
 # <a name="registration-management"></a>註冊管理
 
@@ -45,12 +45,12 @@ ms.locfileid: "58166764"
 以下是使用安裝的一些主要優點：
 
 - 建立或更新安裝是完全等冪的。 因此您可以重試它，而不需顧慮重複註冊的情況。
-- 安裝模型可讓您更容易進行個別推播 (以特定裝置為目標)。 在每個安裝型註冊，都會自動新增一個系統標記 **"$InstallationId:[installationId]"** 。 因此，您不需編寫任何額外的程式碼，即可對此標記進行傳送呼叫來以特定裝置做為目標。
+- 「 安裝 」 模型支援特殊的標記格式 (`$InstallationId:{INSTALLATION_ID}`)，可讓您直接將傳送通知到特定的裝置。 例如，如果應用程式的程式碼設定的安裝識別碼`joe93developer`針對這個特定的裝置，開發人員可以目標此裝置時傳送通知給`$InstallationId:{joe93developer}`標記。 這可讓您套用至特定的裝置，而不需要進行任何額外的程式碼。
 - 使用安裝也可讓您進行部分註冊更新。 要求部分安裝更新時，是使用 [JSON-Patch 標準](https://tools.ietf.org/html/rfc6902)以 PATCH 方法來要求。 當您想要更新註冊的相關標記時，這會特別有用。 您不需要移除整個註冊，然後再次重新傳送所有先前的標記。
 
 安裝可以包含下列屬性。 如需完整的安裝屬性清單，請參閱[使用 REST API 建立或覆寫安裝](https://msdn.microsoft.com/library/azure/mt621153.aspx)或[安裝屬性](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx)。
 
-```javascript
+```json
 // Example installation format to show some supported properties
 {
     installationId: "",
@@ -101,8 +101,7 @@ ms.locfileid: "58166764"
 
 就「Windows 市集」用戶端應用程式而言，將通知傳送給次要磚與將通知傳送給主要磚一樣。 在安裝中也支援此行為。 次要磚具有不同的 ChannelUri，您用戶端 app 上的 SDK 會在背景處理此 ChannelUri。
 
-SecondaryTiles 字典使用的 TileId 會與在「Windows 市集」應用程式中建立 SecondaryTiles 時使用的 TileId 相同。
-如同主要 ChannelUri，次要磚的 ChannelUri 也會隨時變更。 為了讓通知中樞內的安裝保持更新，裝置必須以次要磚的 ChannelUri 來重新整理它們。
+SecondaryTiles 字典使用的 TileId 會與在「Windows 市集」應用程式中建立 SecondaryTiles 時使用的 TileId 相同。 如同主要 ChannelUri，次要磚的 ChannelUri 也會隨時變更。 為了讓通知中樞內的安裝保持更新，裝置必須以次要磚的 ChannelUri 來重新整理它們。
 
 ## <a name="registration-management-from-the-device"></a>從裝置管理註冊
 

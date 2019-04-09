@@ -8,14 +8,14 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/06/2019
 ms.author: heidist
-ms.openlocfilehash: a59451c659effb55a2e16236b359b7601eb31cd4
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 64b07d37ce9267681ccfb5de3c7201586bd85b35
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286596"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273408"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>針對 Azure 搜尋服務建立及管理 API 金鑰
 
@@ -53,30 +53,37 @@ API 金鑰是由隨機產生的數字和字母所組成的字串。 透過[角�
 
 ## <a name="create-query-keys"></a>建立查詢金鑰
 
-查詢金鑰用於索引內的文件的唯讀存取。 限制存取和用戶端應用程式中的作業務必保護您的服務上的搜尋資產。 一律針對源自於用戶端應用程式的任何查詢中使用查詢金鑰，而不是系統管理金鑰。
+查詢金鑰用於唯讀存取文件索引中的目標文件集合的作業。 搜尋、 篩選和建議的查詢會先查詢金鑰的所有作業。 會傳回系統資料或物件的定義，例如索引或索引子定義狀態、 任何唯讀作業需要系統管理金鑰。
+
+限制存取和用戶端應用程式中的作業務必保護您的服務上的搜尋資產。 一律針對源自於用戶端應用程式的任何查詢中使用查詢金鑰，而不是系統管理金鑰。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 列出您訂用帳戶的[搜尋服務](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。
 3. 選取服務，然後在 概觀 頁面中，按一下 **設定** >**金鑰**。
 4. 按一下 **管理查詢金鑰**。
-5. 使用已為您的服務，產生的查詢或建立最多可到 50 個新的查詢金鑰。 未命名的預設查詢金鑰，但可以命名為其他的查詢金鑰的管理性。
+5. 使用已為您的服務，產生的查詢金鑰，或建立最多可到 50 個新的查詢金鑰。 未命名的預設查詢金鑰，但可以命名為其他的查詢金鑰的管理性。
 
    ![建立或使用查詢金鑰](media/search-security-overview/create-query-key.png) 
-
 
 > [!Note]
 > 顯示查詢金鑰使用方法的程式碼範例可在[查詢中的 Azure 搜尋服務索引C# ](search-query-dotnet.md)。
 
+<a name="regenerate-admin-keys"></a>
+
 ## <a name="regenerate-admin-keys"></a>重新產生系統管理金鑰
 
-兩個管理員金鑰會針對每個服務，以便您可以旋轉主索引鍵，以繼續存取使用次要金鑰。
-
-如果您同時重新產生主要和次要金鑰，使用任一金鑰來存取服務作業的任何應用程式將無法再存取服務。
+兩個管理員金鑰會針對每個服務，以便您可以旋轉主索引鍵，來提供商務持續性使用次要金鑰。
 
 1. 在 [設定] >[金鑰] 頁面上，複製次要金鑰。
 2. 針對所有的應用程式，更新 API 金鑰設定以使用次要金鑰。
 3. 重新產生主要金鑰。
 4. 更新所有應用程式以使用新的主要金鑰。
+
+如果在相同的時間不小心重新產生了兩個金鑰，使用這些金鑰的所有用戶端要求會失敗並 HTTP 403 禁止。 不過，不會刪除內容，而且您不會鎖定永久時。 
+
+您仍然可以透過入口網站或管理層來存取服務 ([REST API](https://docs.microsoft.com/rest/api/searchmanagement/)， [PowerShell](https://docs.microsoft.com/azure/search/search-manage-powershell)，或 Azure Resource Manager)。 管理功能會有效透過訂用帳戶 ID 不服務 api 金鑰，並因此仍可使用，即使您的 api 金鑰卻安然無恙。 
+
+建立新的金鑰，透過入口網站或管理層之後，您的內容 （索引、 索引子、 資料來源、 同義字地圖） 還原存取新的金鑰，並在要求中提供這些機碼之後。
 
 ## <a name="secure-api-keys"></a>保護 API 金鑰
 藉由限制透過入口網站或 Resource Manager 介面 (PowerShell 或命令列介面) 的存取來確保金鑰安全性。 如前所述，訂用帳戶系統管理員可以檢視及重新產生所有的 API 金鑰。 為以防萬一，請檢閱角色指派以了解誰具有管理員金鑰存取權。
@@ -92,4 +99,4 @@ API 金鑰是由隨機產生的數字和字母所組成的字串。 透過[角�
 
 + [Azure 搜尋服務中的角色型存取控制](search-security-rbac.md)
 + [使用 Powershell 管理](search-manage-powershell.md) 
-+ [效能與最佳化發行項](search-performance-optimization.md)
++ [效能與最佳化文章](search-performance-optimization.md)

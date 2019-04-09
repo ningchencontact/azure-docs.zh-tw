@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b8a7cd69c7b8d8f44d059fd15718e3493875e20
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fffaa266a29a500f27759adb7526d1aa6d61ccd0
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894439"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915232"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cherwell"></a>教學課程：Azure Active Directory 與 Cherwell 整合
 
@@ -108,7 +108,7 @@ ms.locfileid: "57894439"
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<companyname>.cherwellondemand.com/cherwellclient`
 
     > [!NOTE]
-    > 這不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [Cherwell 用戶端支援小組](https://csm.cherwell.com/contact)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [Cherwell 用戶端支援小組](https://cherwellsupport.com/CherwellPortal)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
 

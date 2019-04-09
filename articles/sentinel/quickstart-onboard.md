@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/12/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: c055b3d9dec2e2538a7dc7ac0eb707c97313d0d6
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
-ms.translationtype: HT
+ms.openlocfilehash: 5c6dfa359a85b5330e70a2618d59ffab15cf24f4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006598"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276638"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>內建的 Azure Sentinel 預覽
 
@@ -29,7 +29,7 @@ ms.locfileid: "59006598"
 
 在本快速入門中，您將學習如何將 Azure Sentinel。 
 
-若要將 Azure Sentinel 上架，必須先連線到資料來源。 Azure 的 Sentinel 隨附了多種連接器的方塊，並提供即時的整合，包括 Microsoft 威脅防護解決方案，Microsoft 365 來源，包括 Office 365，Azure AD 中，Azure ATP，從可用的 Microsoft 解決方案和Microsoft Cloud App Security，等等。 此外，還有適用於非 Microsoft 解決方案的內建連接器，用於連線至更廣泛的安全性生態系統。 您也可以使用常見事件格式，將資料來源連接與 Azure Sentinel Syslog 或 REST API。  
+若要將 Azure Sentinel，必須先啟用 Azure Sentinel，並再將資料來源的連接。 Azure 的 Sentinel 隨附了多種連接器的方塊，並提供即時的整合，包括 Microsoft 威脅防護解決方案，Microsoft 365 來源，包括 Office 365，Azure AD 中，Azure ATP，從可用的 Microsoft 解決方案和Microsoft Cloud App Security，等等。 此外，還有適用於非 Microsoft 解決方案的內建連接器，用於連線至更廣泛的安全性生態系統。 您也可以使用常見事件格式，將資料來源連接與 Azure Sentinel Syslog 或 REST API。  
 
 將資料來源的連接之後，請選擇從範本庫建立評閱呈現資料為基礎的深入解析儀表板。 您的需求，可以輕鬆地自訂這些儀表板。
 
@@ -40,9 +40,10 @@ ms.locfileid: "59006598"
 
 - Log Analytics 工作區。 了解如何[建立 Log Analytics 工作區](../log-analytics/log-analytics-quick-create-workspace.md)
 
-    - 繫結至 Azure 的 Sentinel 的資源群組的 「 參與者 」 權限
-    - 您的資源群組的 「 參與者 」 權限，才能啟用 Azure Sentinel 
-
+-  若要啟用 Azure Sentinel，您需要 Azure Sentinel 工作區所在的訂用帳戶的參與者權限。 
+- 若要使用 Azure 的 Sentinel，您需要 「 參與者 」 或 「 檢視器 工作區所屬的資源群組的權限
+- 可能需要額外的權限，才能連接特定資料來源
+ 
 ## 啟用 Azure 的 Sentinel <a name="enable"></a>
 
 1. 移至 Azure 入口網站。

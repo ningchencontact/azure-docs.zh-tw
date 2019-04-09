@@ -1,21 +1,21 @@
 ---
 title: 连接到云的模拟 Raspberry Pi (Node.js) - 将 Raspberry Pi Web 模拟器连接到 Azure IoT 中心 | Microsoft Docs
 description: 將 Raspberry Pi Web 模擬器連線至 Azure IoT Hub，以便 Raspberry Pi 將資料傳送至 Azure 雲端。
-author: rangv
-manager: ''
+author: wesmc7777
+manager: philmea
 keywords: raspberry pi 模擬器, azure iot raspberry pi, raspberry pi iot 中樞, raspberry pi 將資料傳送至雲端, raspberry pi 至 cloud
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
-ms.author: rangv
-ms.openlocfilehash: 3f8fbf571efafe22d7d0c5ccfd71dded381ba6fb
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.author: wesmc
+ms.openlocfilehash: 58e05ba4fb2e362147f7ca28d83440ddabb6ef38
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847222"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267730"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>將 Raspberry Pi 線上模擬器連線至 Azure IoT Hub (Node.js)
 
@@ -94,7 +94,7 @@ Web 模擬器中有三個區域。
 
 2. 按一下 [執行] 或輸入 `npm start` 以執行應用程式。
 
-您應該會看見下列輸出，顯示傳送至 IoT 中樞的感應器資料和訊息 ![輸出 - 從 Raspberry Pi 傳送至 IoT 中樞的感應器資料](media/iot-hub-raspberry-pi-web-simulator/2_run_application.png)
+您應該會看到下列輸出顯示感應器資料傳送至 IoT 中樞的訊息，![輸出-從 Raspberry Pi 傳送至 IoT 中樞的感應器資料](media/iot-hub-raspberry-pi-web-simulator/2_run_application.png)
 
 ## <a name="read-the-messages-received-by-your-hub"></a>讀取您的中樞所接收的訊息
 

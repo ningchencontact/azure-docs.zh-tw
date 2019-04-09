@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8b56151ae56de44cbab3003743ce6df33ec89612
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 20c05bddddce4c7748e29551fe78d3e5609b2fa5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075624"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275890"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>開始使用 Key Vault 憑證
 下列情節概述 Key Vault 憑證管理服務的數個主要用法 (包括在金鑰保存庫中建立第一個憑證所需的其他步驟)。
@@ -102,6 +102,17 @@ ms.locfileid: "58075624"
 
 -   此外，使用者可以編輯原則，而此原則是在匯入時作用，但包含匯入時未指定任何資訊的預設值。 例如 無簽發者資訊  
 
+### <a name="formats-of-import-we-support"></a>我們支援的匯入的格式
+我們支援下列類型的匯入 PEM 檔案格式。 PKCS #8 編碼，其具有下列的未加密金鑰以及單一 PEM 編碼的憑證
+
+---BEGIN CERTIFICATE------END CERTIFICATE--
+
+---BEGIN PRIVATE KEY------END PRIVATE KEY---美元
+
+憑證合併中，我們支援 2 個架構的 PEM 格式。 是，您可以合併為單一的 PKCS #8 編碼的憑證，或以 base64 編碼而 P7B 檔案。 ---BEGIN CERTIFICATE------END CERTIFICATE--
+
+我們目前不支援以 PEM 格式 EC 索引鍵。
+
 ## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>使用未與 Key Vault 合作的 CA 建立憑證  
  這種方法允許與 Key Vault 合作提供者以外的其他 CA 合作，這表示您的組織可以與它選擇的 CA 合作。  
 
@@ -121,4 +132,4 @@ ms.locfileid: "58075624"
 
 ## <a name="see-also"></a>另请参阅
 
-- [關於金鑰、密碼與憑證](about-keys-secrets-and-certificates.md)
+- [關於金鑰、祕密與憑證](about-keys-secrets-and-certificates.md)

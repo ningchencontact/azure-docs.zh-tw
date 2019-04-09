@@ -3,7 +3,7 @@ title: 使用預存程序活動執行 SSIS 套件 - Azure | Microsoft Docs
 description: 本文描述如何使用預存程序活動，在 Azure Data Factory 管線執行 SQL Server Integration Services (SSIS) 套件。
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: swinarko
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/17/2018
-ms.author: jingwang
-ms.openlocfilehash: 1cff60e6134e08e4b9e59a9f69ec09700cca1814
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: sawinark
+ms.openlocfilehash: b71a954da746ba04aeaa0797c13bf2c81838179d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098741"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256289"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>在 Azure Data Factory 中使用預存程序活動執行 SSIS 套件
 本文描述如何使用預存程序活動，在 Azure Data Factory 管線執行 SSIS 套件。 
@@ -176,7 +176,7 @@ ms.locfileid: "58098741"
     $DataFactoryName = "ADFTutorialFactory";
     ```
 
-5. 若要建立資料處理站，執行下列**組 AzDataFactoryV2** cmdlet，並使用 Location 和 ResourceGroupName 屬性從 $ResGrp 變數： 
+5. 若要建立 Data Factory，請從 $ResGrp 變數使用 Location 和 ResourceGroupName 屬性來執行下列 **Set-AzDataFactoryV2** Cmdlet： 
     
     ```powershell       
     $DataFactory = Set-AzDataFactoryV2 -ResourceGroupName $ResGrp.ResourceGroupName -Location $ResGrp.Location -Name $dataFactoryName 
@@ -217,7 +217,7 @@ ms.locfileid: "58098741"
 
 2. 在 **Azure PowerShell** 中，切換至 **C:\ADF\RunSSISPackage** 資料夾。
 
-3. 執行**組 AzDataFactoryV2LinkedService** cmdlet 來建立連結的服務：**AzureSqlDatabaseLinkedService**。 
+3. 執行 **Set-AzDataFactoryV2LinkedService** Cmdlet 來建立連結服務：**AzureSqlDatabaseLinkedService**。 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "AzureSqlDatabaseLinkedService" -File ".\AzureSqlDatabaseLinkedService.json"

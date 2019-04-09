@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 4c4870dc0f5a423288e6cb561b985501414e8525
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: 9b88a6f3f7e17cfc549b30d1f0d80d4cdf1c3e2d
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203596"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58919170"
 ---
 ## <a name="test-your-code"></a>測試您的程式碼
 
@@ -43,11 +43,11 @@ ms.locfileid: "58203596"
 
 瀏覽至控制器檢視之後，您應該就會看到一個資料表，包含使用者的基本屬性：
 
-|屬性 |值 |描述 |
+|屬性 |值 |說明 |
 |---|---|---|
-|**名稱** |使用者的全名 | 使用者的名字和姓氏。
+|**Name** |使用者的全名 | 使用者的名字和姓氏。
 |**使用者名稱** |user<span>@domain.com</span> | 用來識別使用者的使用者名稱。
-|**主旨** |主體 |用來跨網站唯一識別使用者的字串。|
+|**主體** |主體 |用來跨網站唯一識別使用者的字串。|
 |**租用戶識別碼** |Guid | 唯一代表使用者 Azure AD 組織的 **guid**。|
 
 此外，您應該會看到驗證要求中所有宣告的資料表。 如需詳細資訊，請參閱 [Azure AD ID 權杖中的宣告清單](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)。
@@ -82,12 +82,12 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 #### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>選項 1：註冊只來自一個組織之 Active Directory 執行個體的使用者以登入您的應用程式 (單一租用戶)
 
-此選項是常見的案例*LOB 應用程式*:如果您想要接受只能從屬於特定的 Azure Active Directory 執行個體的帳戶登入您的應用程式 (包括*來賓帳戶*該執行個體) 執行下列動作：
+此選項為「企業營運應用程式」的常見案例：如果您想要讓應用程式只接受特定 Azure Active Directory 執行個體的成員帳戶進行登入 (包括該執行個體的「來賓帳戶」)，請執行下列作業：
 
 1. 在 **web.config** 檔案中，將 `Tenant` 參數的值從 `Common` 變更為組織的租用戶名稱 (如 `contoso.onmicrosoft.com`)。
 2. 在您的 [OWIN Startup 類別](#configure-the-authentication-pipeline) 中，將 `ValidateIssuer` 引數設為 `true`。
 
-#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>選項 2：限制對您特定的清單中的使用者之組織的應用程式的存取
+#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>選項 2：將應用程式的存取限制為特定組織清單內的使用者
 
 您可以將登入存取限制為僅限允許組織清單內之 Azure AD 組織中的使用者帳戶：
 1. 在您的 [OWIN Startup 類別](#configure-the-authentication-pipeline) 中，將 `ValidateIssuer` 引數設為 `true`。
@@ -95,6 +95,6 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 #### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>選項 3：使用自訂方法來驗證簽發者
 
-您可以實作自訂方法，使用 **IssuerValidator** 參數來驗證簽發者。 如需此參數使用方式的詳細資訊，請閱讀 MSDN 上的 [TokenValidationParameters 類別](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx)。
+您可以實作自訂方法，使用 **IssuerValidator** 參數來驗證簽發者。 如需此參數使用方式的詳細資訊，請閱讀 [TokenValidationParameters 類別](/previous-versions/visualstudio/dn464192(v=vs.114))。
 
 [!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

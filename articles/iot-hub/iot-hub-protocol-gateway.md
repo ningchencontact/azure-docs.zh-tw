@@ -8,18 +8,20 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.openlocfilehash: ecce53420a92713ad2dcfcc7e0fed9fc226b1d52
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 9dbb7905c2a0fed65ede610577e0fa11a1deef92
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046422"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276230"
 ---
 # <a name="support-additional-protocols-for-iot-hub"></a>讓 IoT 中樞支援其他通訊協定
+
 「Azure IoT 中樞」原生就支援透過 MQTT、AMQP 及 HTTPS 通訊協定進行通訊。 在某些情況下，裝置或現場閘道可能無法使用這些標準通訊協定之一，因此需要通訊協定調適。 在這種情況下，您可以使用自訂閘道。 自訂閘道可以橋接進出 IoT 中樞的流量，藉此為 IoT 中樞端點啟用通訊協定調適。 您可以使用 [Azure IoT 通訊協定閘道](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) 做為自訂閘道，來為 IoT 中樞啟用通訊協定調適。
 
 ## <a name="azure-iot-protocol-gateway"></a>Azure IoT 通訊協定閘道
-Azure IoT 通訊協定閘道是通訊協定調適的架構，專門用來與 IoT 中樞的高延展性雙向裝置通訊。 通訊協定閘道是一種傳遞元件，會透過特定通訊協定接受裝置的連接。 透過 AMQP 1.0 橋接 IoT 中樞的流量。 
+
+Azure IoT 通訊協定閘道是通訊協定調適的架構，專門用來與 IoT 中樞的高延展性雙向裝置通訊。 通訊協定閘道是一種傳遞元件，會透過特定通訊協定接受裝置的連接。 透過 AMQP 1.0 橋接 IoT 中樞的流量。
 
 您可以使用 Azure Service Fabric、「Azure 雲端服務」背景工作角色或「Windows 虛擬機器」，以可靈活調整的方式，在 Azure 中部署通訊協定閘道。 此外，可将协议网关部署在本地环境中，例如现场网关。
 
@@ -30,17 +32,17 @@ MQTT 适配器还会演示用来为其他协议构建协议适配器的编程模
 為了讓您有彈性空間，Azure IoT 通訊協定閘道和 MQTT 實作是以開放原始碼軟體專案的方式來提供。 您可以使用開放原始碼專案，以新增對各種通訊協定和通訊協定版本的支援，或是自訂案例的實作。 
 
 ## <a name="next-steps"></a>後續步驟
+
 若要深入了解 Azure IoT 通訊協定閘道，以及如何使用並將其部署為 IoT 方案的一部分，請參閱：
 
 * [Azure IoT 通訊協定閘道儲存機制在 GitHub 上](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
+
 * [Azure IoT 通訊協定閘道開發人員指南](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
 
 若要深入了解如何規劃 IoT 中樞部署，請參閱：
 
-* [與事件中樞比較][lnk-compare]
-* [調整規格、高可用性和災害復原][lnk-scaling]
-* [IoT 中樞開發人員指南][lnk-devguide]
+* [與事件中樞比較](iot-hub-compare-event-hubs.md)
 
-[lnk-compare]: iot-hub-compare-event-hubs.md
-[lnk-scaling]: iot-hub-scaling.md
-[lnk-devguide]: iot-hub-devguide.md
+* [調整、 高可用性和災害復原](iot-hub-scaling.md)
+
+* [IoT 中樞開發人員指南](iot-hub-devguide.md)

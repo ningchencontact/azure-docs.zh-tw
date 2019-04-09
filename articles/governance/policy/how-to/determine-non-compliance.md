@@ -1,27 +1,26 @@
 ---
 title: 判斷不符合的原因
 description: 不符合規範的資源時，有許多可能的原因。 了解如何找出造成不符合規範的原因。
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1121bdb379265ef592a26a8a31a90d402e529cc8
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 8a593e92d7f24885c35043b874528e881d2e021e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802740"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276094"
 ---
 # <a name="determine-causes-of-non-compliance"></a>判斷不符合的原因
 
 當 Azure 資源會判定為不符合規範的原則規則時，最好了解哪一部分的資源不符合規範的規則。 它也是有助於您了解哪些變更會改變先前符合規範的資源，以讓它不符合規範。 有兩種方式可找到這項資訊：
 
 > [!div class="checklist"]
-> - [合規性詳細資料](#compliance-details)
-> - [變更歷程記錄 （預覽）](#change-history-preview)
+> - [相容性詳細資料](#compliance-details)
+> - [變更歷程記錄 (預覽)](#change-history-preview)
 
 ## <a name="compliance-details"></a>相容性詳細資料
 

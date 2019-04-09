@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ff37184cd8789c5408d02a427080db86de00b7d
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 69440fb99439231cdc046ef48bddfa852c17924c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295448"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271793"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>驗證與授權錯誤碼
 
@@ -58,7 +58,7 @@ ms.locfileid: "58295448"
 | AADSTS50007 | PartnerEncryptionCertificateMissing - 找不到此應用程式的夥伴加密憑證。 請向 Microsoft [開啟支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)以修正此問題。 |
 | AADSTS50008 | InvalidSamlToken - 權杖中的 SAML 判斷提示遺漏或設定不正確。 請連絡同盟提供者。 |
 | AADSTS50010 | AudienceUriValidationFailed - 應用程式的對象 URI 驗證失敗，因為未設定權杖對象。 |
-| AADSTS50011 | InvalidReplyTo - 回覆地址遺漏、設定不正確或不符合針對應用程式所設定的回覆地址。 請嘗試使用下列文件所列出的解決方式：[https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application)。 如果還是有問題，請連絡應用程式擁有者或應用程式管理員。 |
+| AADSTS50011 | InvalidReplyTo - 回覆地址遺漏、設定不正確或不符合針對應用程式所設定的回覆地址。  做為解析度務必將此遺漏的回覆地址新增至 Azure Active Directory 應用程式，或讓其他人的權限來管理您的應用程式，在 Active Directory 中為您執行這項操作。|
 | AADSTS50012 | AuthenticationFailed - 驗證因為下列其中一個原因而失敗：<ul><li>簽署憑證的主旨名稱未獲授權</li><li>已授權的主體名稱找不到相符的受信任授權原則</li><li>憑證鏈結無效</li><li>簽署憑證無效</li><li>未在租用戶上設定原則</li><li>簽署憑證的指紋未獲授權</li><li>用戶端判斷提示包含無效的簽章</li></ul> |
 | AADSTS50013 | InvalidAssertion - 判斷提示因為各種原因而無效：權杖簽發者不符合其有效時間範圍內的 API 版本；過期；格式不正確；判斷提示中的重新整理權杖不是主要的重新整理權杖。 |
 | AADSTS50014 | GuestUserInPendingState - 使用者的兌換處於擱置狀態。 來賓使用者帳戶建立尚未完成。 |
@@ -70,7 +70,7 @@ ms.locfileid: "58295448"
 | AADSTS50032 | WeakRsaKey - 表示錯誤的使用者嘗試使用弱式 RSA 金鑰。 |
 | AADSTS50033 | RetryableError - 表示與資料庫作業無關的暫時性錯誤。 |
 | AADSTS50034 | UserAccountNotFound - 若要登入此應用程式，必須將帳戶新增至目錄。 |
-| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt-產生成對識別碼所需的 salt 遺漏原則。 請連絡租用戶管理員。 |
+| AADSTS50042 | UnableToGeneratePairwiseIdentifierWithMissingSalt - 原则中缺少用于生成成对标识符的盐。 請連絡租用戶管理員。 |
 | AADSTS50043 | UnableToGeneratePairwiseIdentifierWithMultipleSalts |
 | AADSTS50048 | SubjectMismatchesIssuer - 主體與用戶端判斷提示中的簽發者宣告不符。 請連絡租用戶管理員。 |
 | AADSTS50049 | NoSuchInstanceForDiscovery - 未知或無效的執行個體。 |

@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/10/2019
+ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 3da9982d1af886a4329ddc77a7b297e9e285453e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 258113f5201ad3d09df6119dec738d528e640c40
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101545"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269345"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>使用 PowerShell 以應用程式閘道設定端對端 SSL
 
@@ -52,20 +52,17 @@ Azure 應用程式閘道支援為流量進行端對端加密。 應用程式閘�
 
 本節將引導您建立資源群組，其中包含應用程式閘道。
 
-
 1. 登入您的 Azure 帳戶。
 
    ```powershell
    Connect-AzAccount
    ```
 
-
 2. 選取要用於此案例的訂用帳戶。
 
    ```powershell
    Select-Azsubscription -SubscriptionName "<Subscription name>"
    ```
-
 
 3. 建立資源群組。 (如果您使用現有的資源群組，請略過此步驟。)
 
@@ -77,7 +74,6 @@ Azure 應用程式閘道支援為流量進行端對端加密。 應用程式閘�
 
 以下示例创建一个虚拟网络和两个子网。 一個子網路用來保留應用程式閘道。 另一個子網路則用於裝載 Web 應用程式的後端。
 
-
 1. 指派要用於應用程式閘道的子網路位址範圍。
 
    ```powershell
@@ -86,8 +82,7 @@ Azure 應用程式閘道支援為流量進行端對端加密。 應用程式閘�
 
    > [!NOTE]
    > 應該適當地調整針對應用程式閘道所設定的子網路大小。 一個應用程式閘道最多可以針對 10 個執行個體進行設定。 每個執行個體會從子網路取得 1 個 IP 位址。 子網路太小可能會對相應放大應用程式閘道產生負面影響。
-   > 
-   > 
+   >
 
 2. 指派要用於後端位址集區的位址範圍。
 
@@ -130,7 +125,6 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name 'publicIP01'
    $gipconfig = New-AzApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
    ```
 
-
 2. 建立前端 IP 組態。 此設定會將私人或公用 IP 位址對應到應用程式閘道的前端。 下一個步驟會將先前步驟中的公用 IP 位址關聯到前端 IP 組態。
 
    ```powershell
@@ -145,7 +139,6 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name 'publicIP01'
 
    > [!NOTE]
    > 完整網域名稱 (FQDN) 也是可用來取代後端伺服器 IP 位址的有效值。 您可以使用 **-BackendFqdns** 參數啟用它。 
-
 
 4. 設定公用 IP 端點的前端 IP 連接埠。 此連接埠是供使用者連接到的連接埠。
 
@@ -177,7 +170,7 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name 'publicIP01'
    > 如果您在後端上使用主機標頭和伺服器名稱指示 (SNI)，擷取的公開金鑰不一定就是流量要流向的預定網站。 如果不能確定，請在後端伺服器造訪 https://127.0.0.1/ 以確認要將哪一個憑證用於*預設* SSL 繫結。 請使用來自本節該要求的公開金鑰。 如果您在 HTTPS 繫結上使用主機標頭和 SNI，且並未從對於後端伺服器上 https://127.0.0.1/ 的手動瀏覽器要求收到回應和憑證，您必須在後端伺服器上設定預設 SSL 繫結。 如果您未這麼做，探查將會失敗，而且後端不會加入允許清單。
 
    ```powershell
-   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
+   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\cert.cer
    ```
 
    > [!NOTE]
@@ -227,7 +220,7 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName appgw-rg -Name 'publicIP01'
     下列範例將最小通訊協定版本設定為 **TLSv1_2**，並且只啟用 **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** 和 **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256**。
 
     ```powershell
-    $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
+    $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -PolicyType Custom
     ```
 
 ## <a name="create-the-application-gateway"></a>建立應用程式閘道

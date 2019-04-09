@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 1/25/2019
+ms.date: 04/08/2019
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f5234674bc41e1f5bfa260dfc32042a3345d9f7
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 3b817346c37ec43fd66d166684f5d51ecb5a9718
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294820"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257326"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>電子郵件單次密碼驗證 (預覽版)
 
@@ -26,7 +26,7 @@ ms.locfileid: "58294820"
 | 電子郵件單次密碼是 Azure Active Directory 的公開預覽功能。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。|
 |     |
 
-當無法透過如 Azure AD、Microsoft 帳戶 (MSA) 或 Google 同盟等方式驗證 B2B 來賓使用者時，可使用電子郵件單次密碼功能來驗證。 使用單次密碼驗證時，不需要建立 Microsoft 帳戶。 當來賓使用者兌換邀請或存取共用資源時，他們可以要求一個暫時性驗證碼，此驗證碼會傳送到他們的電子郵件地址。 之後，他們便可輸入此驗證碼繼續登入。
+本文說明如何啟用電子郵件給 B2B 來賓使用者的單次密碼驗證。 當無法透過如 Azure AD、Microsoft 帳戶 (MSA) 或 Google 同盟等方式驗證 B2B 來賓使用者時，可使用電子郵件單次密碼功能來驗證。 使用單次密碼驗證時，不需要建立 Microsoft 帳戶。 當來賓使用者兌換邀請或存取共用資源時，他們可以要求一個暫時性驗證碼，此驗證碼會傳送到他們的電子郵件地址。 之後，他們便可輸入此驗證碼繼續登入。
 
 此功能目前可供預覽 (請參閱下方的[選擇加入預覽版](#opting-in-to-the-preview))。 預覽結束後，這項功能預設會對所有租用戶開啟。
 

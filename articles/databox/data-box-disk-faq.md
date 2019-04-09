@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 02/26/2019
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 97794675f3d489e1154d9c327c18d40708dd5b53
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b104f2578938997ff12778d65f08cca226d9a445
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877848"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892325"
 ---
 # <a name="what-is-azure-data-box-disk"></a>什麼是 Azure 資料箱磁碟？
 
@@ -42,7 +42,7 @@ A. Azure 資料箱磁碟可讓您快速、實惠且安全地將數 TB 的資料�
 A. 如果您有不超過 40 TB 的資料要傳輸至 Azure，則使用資料箱磁碟將有其效益。
 
 ### <a name="q-what-is-the-price-of-data-box-disks"></a>問： 資料箱磁碟的價格為何？
-A. 如需資料箱磁碟價格的資訊，請移至[定價頁面](https://azure.microsoft.com/pricing/details/storage/databox/disk/)。
+A. 如需資料箱磁碟價格的資訊，請移至[定價頁面](https://azure.microsoft.com/pricing/details/databox/disk/)。
 
 ### <a name="q-how-do-i-get-data-box-disks"></a>問： 如何取得資料箱磁碟？ 
 A.  若要取得 Azure 資料箱磁碟，請登入 Azure 入口網站，並建立磁碟的資料箱訂單。 請提供您的連絡資訊和通知詳細資料。 在您下訂單後，根據可用性，磁碟會在 10 天內寄送給您。
@@ -170,6 +170,6 @@ A. 是。 您的資料已上傳至 Azure，但如果您沒有看到任何受控�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 檢閱[資料箱系統需求](data-box-disk-system-requirements.md)。
-- 了解[資料箱限制](data-box-disk-limits.md)。
+- 檢閱[資料箱磁碟系統需求](data-box-disk-system-requirements.md)。
+- 了解[資料箱磁碟限制](data-box-disk-limits.md)。
 - 在 Azure 入口網站中快速部署 [Azure 資料箱磁碟](data-box-disk-quickstart-portal.md)。

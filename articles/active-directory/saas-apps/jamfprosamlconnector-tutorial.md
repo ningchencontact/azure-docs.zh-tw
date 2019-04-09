@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50349d008e3c2a7a8a09fd3e2d9e96097acc0c9e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 18b575b74c80499f2ddd6648bf051b5245077d2f
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855813"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906135"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>教學課程：Azure Active Directory 與 Jamf Pro 整合
 
@@ -71,10 +71,10 @@ Jamf Pro 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Jamf Pro 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者身分，搭配 Jamf Pro 設定及測試 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Jamf Pro 中相關使用者之間的連結關聯性。
 
-若要搭配 Jamf Pro 設定及測試 Azure AD 單一登入，您需要完成下列構成要素：
+若要搭配 Jamf Pro 設定及測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Jamf Pro 單一登入](#configure-jamf-pro-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -105,9 +105,9 @@ Jamf Pro 與 Azure AD 整合提供下列優點：
 
     ![Jamf Pro 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.jamfcloud.com/saml/metadata`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://<subdomain>.jamfcloud.com/saml/metadata`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.jamfcloud.com/saml/SSO`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<subdomain>.jamfcloud.com/saml/SSO`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
@@ -208,7 +208,7 @@ Jamf Pro 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Jamf Pro]。
 
-    ![應用程式清單中的 [Jamf Pro] 連結](common/all-applications.png)
+    ![應用程式清單中的 Jamf Pro 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

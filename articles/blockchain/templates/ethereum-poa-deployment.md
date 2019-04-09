@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: CodyBorn
 ms.author: coborn
-ms.date: 8/2/2018
+ms.date: 04/08/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 5a693fef2f77471f799bec46f149ff19d6edca80
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905914"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274785"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>以太坊權威證明聯盟
 
@@ -279,7 +279,7 @@ SSH 金鑰 (驗證類型 = 公開金鑰)|用於遠端登入的安全殼層金鑰
 管理員以太坊位址|用來參與 PoA 控管的以太坊帳戶位址。  建議使用 MetaMask 來產生以太坊位址。|42 個以 0x 開頭的英數字元|NA
 進階選項|以太坊設定的進階選項|啟用或停用|停用
 公用 IP (進階選項 = 啟用)|將網路部署在 VNet 閘道後方，並移除對等互連存取權。 如果選取此選項，則所有成員都必須使用 VNet 閘道，連線才能相容。|公用 IP 私人 VNet|公用 IP
-區塊燃料限值 (進階選項 = 啟用)|網路的開始區塊燃料限值|任何數值|50,000,00
+區塊燃料限值 (進階選項 = 啟用)|網路的開始區塊燃料限值|任何數值|50000000
 區塊重新封印期 (秒)|當網路上沒有任何交易時，將建立空白區塊的頻率。 頻率越高，越快有定局，但會增加儲存成本。|任何數值|15
 交易權限合約 (進階選項 = 啟用)|交易授權合約的位元組程式碼。 會限制智慧合約部署和執行以太坊帳戶到允許清單。|合約位元組程式碼|NA
 

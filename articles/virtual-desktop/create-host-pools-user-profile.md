@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/04/2019
+ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: a7e2f3c95819c6ab6d2e63e5c7a2f62649ebd15c
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 0cb4df099faad8ca482fd15cf0bb50504c1528ab
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056090"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276383"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>設定主機集區的使用者設定檔共用
 
@@ -66,3 +66,6 @@ Windows 虛擬桌面預覽服務提供建議的使用者設定檔方案 FSLogix 
 |---------------------|--------------------|-----------------------------------|
 | 已啟用             | DWORD              | 1                                 |
 | VHDLocations        | 多字串值 | 「 檔案共用的網路路徑 」     |
+
+>[!IMPORTANT]
+>若要協助保護您的 Windows 虛擬桌面環境，在 Azure 中，我們建議您不要在您的 Vm 上開啟輸入連接埠 3389。 Windows 虛擬桌面並不需要開啟輸入連接埠 3389，讓使用者存取主應用程式集區的 Vm。 如果您必須開啟連接埠 3389 以進行疑難排解，我們建議您使用[在 just-in-time VM 存取](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time)。

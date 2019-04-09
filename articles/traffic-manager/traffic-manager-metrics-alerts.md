@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: c251cc851b34f708a2150d3b0444f235d2bc50d6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 1c0c48efc7abf4b810e92b5cd04d1538577c71d3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045299"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268275"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>流量管理員的計量與警示
 
@@ -65,4 +65,4 @@ ms.locfileid: "59045299"
 
 ## <a name="next-steps"></a>後續步驟
 - 深入了解 [Azure 監視器服務](../azure-monitor/platform/metrics-supported.md)
-- 深入了解如何[使用 Azure 監視器建立圖表](../azure-monitor/platform/metrics-charts.md#create-a-new-chart)
+- 深入了解如何[使用 Azure 監視器建立圖表](../azure-monitor/platform/metrics-getting-started.md#create-your-first-metric-chart)

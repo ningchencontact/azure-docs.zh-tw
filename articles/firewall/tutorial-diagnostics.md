@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 2befbf66733430e6077f5e5ff3044c30a77b7e5c
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 10837730bea17f98083f456ec4c9fb0d7567af57
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958969"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877256"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>教學課程：監視 Azure 防火牆記錄和計量
 
@@ -41,7 +41,7 @@ ms.locfileid: "56958969"
 在您完成此程序來開啟診斷記錄之後，資料可能需要幾分鐘的時間，才會出現在您的記錄中。 如果您一開始沒有看到任何項目，請在幾分鐘後重新檢查一次。
 
 1. 在 Azure 入口網站中，開啟您的防火牆資源群組，然後按一下防火牆。
-2. 在 [監視] 底下，按一下 [診斷記錄]。
+2. 在 [監視] 底下，按一下 [診斷設定]。
 
    針對 Azure 防火牆，可以使用兩個服務特定的記錄：
 

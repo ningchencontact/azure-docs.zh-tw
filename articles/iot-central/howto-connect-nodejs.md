@@ -3,17 +3,17 @@ title: 將一般 Node.js 用戶端應用程式連線至 Azure IoT Central | Micr
 description: 身為裝置開發人員，如何將一般的 Node.js 裝置連線到 Azure IoT Central 應用程式。
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/04/2019
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4c04d9dbaf0065f2e68182c9ad84181845dee3e9
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 428e20995f6d2723c5af1ba2beb18ac1336243e7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905319"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259961"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>將一般用戶端應用程式連線到 Azure IoT 中心應用程式 (Node.js)
 

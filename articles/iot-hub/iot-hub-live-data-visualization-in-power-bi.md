@@ -1,20 +1,20 @@
 ---
 title: Azure IoT 中樞感應器資料的即時資料視覺效果 – Power BI | Microsoft Docs
 description: 使用 Power BI 來視覺化收集自感應器並傳送至 Azure IoT 中樞的溫度和溼度資料。
-author: rangv
+author: robinsh
 keywords: 即時資料視覺效果, 即時資料視覺效果, 感應器資料視覺效果
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
-ms.author: rangv
-ms.openlocfilehash: 240895f4e8567426fec8e270b96b9e6528392a46
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: robinsh
+ms.openlocfilehash: 5349a8a81c1d1361637b4fc9cf83e1ee83f5276a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103072"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265503"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>使用 Power BI 可视化 Azure IoT 中心的实时传感器数据
 

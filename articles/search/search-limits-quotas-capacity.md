@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8a6023c87dd1d68ab76c5c2342cb825e63d2b336
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: c52ac6128ad00d9bb772816d6130f3aedc480138
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620632"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273391"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure 搜尋中的服務限制
 最大值限制儲存體、 工作負載和數量的索引、 文件，和其他物件相依於是否您[佈建 Azure 搜尋服務](search-create-service-portal.md)在**免費**，**基本**， **標準**，或**儲存體最佳化**定價層。
@@ -114,7 +114,7 @@ ms.locfileid: "58620632"
 | Blob 索引子︰Blob 大小上限，MB |16 |16 |128 |256 |256 |N/A  |256 |256 |
 | Blob 索引子︰從 Blob 擷取的內容字元數上限 |32,000 |64,000 |4 百萬 |4 百萬 |4 百萬 |N/A |4 百萬 |4 百萬 |
 
-<sup>1</sup> 免費服務有索引子執行時間上限，針對 Blob 來源為 3 分鐘，針對其他所有資料來源為 1 分鐘。
+<sup>1</sup> 免費服務有索引子執行時間上限，針對 Blob 來源為 3 分鐘，針對其他所有資料來源為 1 分鐘。 該呼叫認知服務編製索引的 ai，免費服務僅限於 20 免費的交易，每日交易，定義如下的成功通過擴充管線的文件。
 
 <sup>2</sup> 在 2017 年底之後建立的基本服務已將限制提高為 15 個索引、資料來源和索引子。 稍早建立的服務有 5 個。
 

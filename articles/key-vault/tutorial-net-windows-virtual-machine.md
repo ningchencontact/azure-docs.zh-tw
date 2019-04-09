@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: c66a7d7af2a73e26878b92f34e0f42ce0b3ae7f2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fb17afa4bfe8c00c91cc8fb33ab3326452065a9e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437492"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885412"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>教學課程：在 .NET 中搭配使用 Azure Key Vault 與 Windows 虛擬機器
 
@@ -148,7 +148,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
 您可以執行下列命令以在主控台中列印出「Hello World」：
 
-```
+```batch
 dotnet new console -o helloworldapp
 cd helloworldapp
 dotnet run
@@ -158,7 +158,7 @@ dotnet run
 
 開啟 Program.cs 檔案並新增這些套件：
 
-```
+```csharp
 using System;
 using System.IO;
 using System.Net;
@@ -172,7 +172,7 @@ using Newtonsoft.Json.Linq;
 1. 從 VM 上的本機 MSI 端點擷取權杖。 這樣做也會從 Azure AD 擷取權杖。
 1. 將權杖傳遞給金鑰保存庫，然後擷取祕密。 
 
-```
+```csharp
  class Program
     {
         static void Main(string[] args)

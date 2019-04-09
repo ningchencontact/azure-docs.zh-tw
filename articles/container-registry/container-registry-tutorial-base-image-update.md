@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: b9f153aa2da32fac2bf2e64f9fc4cd469acb0b89
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a5d89051ef479cf9d87ca8f921e05c6d0be12b8c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007504"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892172"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>教學課程：在 Azure Container Registry 中更新基底映像時自動執行容器映像建置 
 
@@ -79,7 +79,7 @@ GIT_PAT=<personal-access-token> # The PAT you generated in the second tutorial
 
 在以下幾節中，您會建立工作、更新基底映像 Dockerfile 中的 `NODE_VERSION` 值，然後使用 ACR 工作來建置基底映像。 當 ACR 工作將新的基底映像推送至您的登錄時，它會自動觸發應用程式映像的建置。 您可以選擇性地在本機執行應用程式容器映像，以查看已建置的映像中不同的版本字串。
 
-在本教學課程中，您的 ACR 工作會建置並推送在 Dockerfile 中指定的單一容器映像。 ACR 工作也可以執行[多步驟的工作](container-registry-tasks-multi-step.md) (目前處於預覽狀態)，使用 YAML 檔案來定義相關步驟，以建置、推送並選擇性地測試多個容器。
+在本教學課程中，您的 ACR 工作會建置並推送在 Dockerfile 中指定的單一容器映像。 ACR 工作也可執行[多步驟工作](container-registry-tasks-multi-step.md)，使用 YAML 檔案來定義相關步驟，以建置、推送並選擇性地測試多個容器。
 
 ## <a name="build-the-base-image"></a>建置基底映像
 

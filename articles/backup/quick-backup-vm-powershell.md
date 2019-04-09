@@ -10,16 +10,14 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: aa637571ca11ea294b1f95df49855d7ee81b3001
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 00ec813aec37697526233532b75ba6c55bf852c2
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258865"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906067"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>使用 PowerShell 在 Azure 中備份虛擬機器
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [Azure PowerShell AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) 模組用於從命令列或在指令碼中建立和管理 Azure 資源。 
 
@@ -27,8 +25,9 @@ ms.locfileid: "58258865"
 
 本快速入門能夠在現有的 Azure VM 上進行備份。 如果您需要建立 VM，您可以[使用 Azure PowerShell 來建立 VM](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json)。
 
-本快速入門需要 Azure PowerShell AZ 模組 1.0.0 版或更新版本。 執行 ` Get-Module -ListAvailable Az` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。
+本快速入門需要 Azure PowerShell AZ 模組 1.0.0 版或更新版本。 執行 `Get-Module -ListAvailable Az` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-az-ps)。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="log-in-and-register"></a>登入並註冊
 
@@ -46,13 +45,13 @@ ms.locfileid: "58258865"
 
 ## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫
 
-[復原服務保存庫](backup-azure-recovery-services-vault-overview.md)是一個邏輯容器，可儲存受保護資源 (例如 Azure VM) 的備份資料。 執行備份作業時，它會在復原服務保存庫內建立復原點。 然後您可以使用其中一個復原點，將資料還原到指定的時間點。
+[復原服務保存庫](backup-azure-recovery-services-vault-overview.md)是一個邏輯容器，可儲存受保護資源 (例如 Azure VM) 的備份資料。 當備份作業執行時，它會在復原服務保存庫內建立復原點。 然後您可以使用其中一個復原點，將資料還原到指定的時間點。
 
 當您建立保存庫：
 
 - 針對資源群組和位置，指定您想要備份的資源群組和 VM 的位置。
 - 如果您使用[範例指令碼](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json)來建立 VM，則資源群組為 **myResourceGroup**、VM 為***myVM**，而資源位於 **WestEurope** 區域。
-- Azure 備份會自動處理用於備份資料的儲存體。 根據預設，保存庫會使用[異地備援儲存體 (GRS)](../storage/common/storage-redundancy-grs.md)。 異地備援可確保會將備份的資料複寫到與主要區域相距數百英哩的次要 Azure 區域。
+- Azure 備份會自動處理用於備份資料的儲存體。 保存庫預設會使用[異地備援儲存體 (GRS)](../storage/common/storage-redundancy-grs.md)。 異地備援可確保會將備份的資料複寫到與主要區域相距數百英哩的次要 Azure 區域。
 
 現在請建立保存庫。
 
@@ -73,6 +72,14 @@ ms.locfileid: "58258865"
         -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesVaultContext
     ```
 
+3. 使用 [Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperties?view=azps-1.6.0) 變更保存庫的儲存體備援組態 (LRS/GRS)，如下所示：
+    
+    ```powershell
+    Get-AzRecoveryServicesVault `
+        -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant/GeoRedundant
+    ```
+    > [!NOTE]
+    > 只有當保存庫中沒有受保護的備份項目時，才可以修改儲存體備援。
 
 ## <a name="enable-backup-for-an-azure-vm"></a>啟用 Azure VM 的備份
 

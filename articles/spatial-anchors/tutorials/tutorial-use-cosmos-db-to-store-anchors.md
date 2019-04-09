@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 透過 Azure Spatial Anchors 和 Azure Cosmos DB 後端跨工作階段和裝置進行共用 | Microsoft Docs
+title: 教學課程 - 跨工作階段和裝置與 Azure Cosmos DB 後端共用 Azure Spatial Anchors | Microsoft Docs
 description: 在本教學課程中，您將了解如何透過後端服務和 Azure Cosmos DB 在 Unity 中跨 Android/iOS 裝置共用 Azure Spatial Anchors 識別碼。
 author: ramonarguelles
 manager: vicenterivera
@@ -8,19 +8,16 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 0e7011b9778221869940b137a2b87239f2d8db9b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d955654eee1d02994f303b6270b156eb9a61c29b
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286392"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915249"
 ---
-# <a name="tutorial-sharing-across-sessions-and-devices-with-azure-spatial-anchors-and-an-azure-cosmos-db-back-end"></a>教學課程：透過 Azure Spatial Anchors 和 Azure Cosmos DB 後端跨工作階段和裝置進行共用
+# <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>教學課程：跨工作階段和裝置與 Azure Cosmos DB 後端共用 Azure Spatial Anchors
 
-本教學課程將說明如何使用 [Azure Spatial Anchors](../overview.md) 來：
-
-- 在一個工作階段中建立錨點，然後在相同或不同裝置上的另一個工作階段中找到這些錨點。 例如，第二個工作階段的日期可能並不一樣。
-- 建立可由多個裝置同時在相同位置找到的錨點。
+在本教學課程中，您將了解如何使用 [Azure Spatial Anchors](../overview.md) 在一個工作階段中建立錨點，然後在另一個工作階段中於相同或不同裝置上找到這些錨點。 例如，第二個工作階段的日期可能並不一樣。 這些相同的錨點也可由多個裝置在相同的位置同時找到。
 
 ![說明物件持續性的 GIF](./media/persistence.gif)
 
@@ -73,7 +70,7 @@ ms.locfileid: "58286392"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已使用 Azure Cosmos DB 在各裝置間共用錨點識別碼。 若要深入了解 Azure Spatial Anchors 程式庫，請繼續參考關於如何建立和尋找錨點的指南。
+在本教學課程中，您已使用 Azure Cosmos DB 在各裝置間共用錨點識別碼。 若要深入了解如何在新的 Android 應用程式中使用 Azure Spatial Anchors，請繼續進行下一個教學課程。
 
 > [!div class="nextstepaction"]
-> [使用 Azure Spatial Anchors 建立和尋找錨點](../create-locate-anchors-overview.md)
+> [啟動新的 Android 應用程式](./tutorial-new-android-app.md)

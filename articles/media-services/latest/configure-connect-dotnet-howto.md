@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/04/2019
 ms.author: juliako
-ms.openlocfilehash: 9fad5874a0e595ee2c275f06504665ce143266f6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.openlocfilehash: cb6826be8f6a9a8caf54a23b0dbc5f3dda7830d6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759459"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273969"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>連線到媒體服務 v3 API-.NET
 
@@ -200,10 +200,6 @@ namespace ConsoleApp1
  
         private static async Task<ServiceClientCredentials> GetCredentialsAsync(ConfigWrapper config)
         {
-            // Use UserTokenProvider.LoginWithPromptAsync or UserTokenProvider.LoginSilentAsync to get a token using user authentication
-            //// ActiveDirectoryClientSettings.UsePromptOnly
-            //// UserTokenProvider.LoginWithPromptAsync
-
             // Use ApplicationTokenProvider.LoginSilentWithCertificateAsync or UserTokenProvider.LoginSilentAsync to get a token using service principal with certificate
             //// ClientAssertionCertificate
             //// ApplicationTokenProvider.LoginSilentWithCertificateAsync
@@ -229,17 +225,17 @@ namespace ConsoleApp1
 
 ## <a name="see-also"></a>請參閱
 
-- [教學課程：上傳、編碼和串流影片 - .NET](stream-files-tutorial-with-api.md) 
-- [教學課程：透過媒體服務 v3 進行即時串流 - .NET](stream-live-tutorial-with-api.md)
-- [教學課程：透過媒體服務 v3 分析影片 - .NET](analyze-videos-tutorial-with-api.md)
-- [從本機檔案建立作業輸入 - .NET](job-input-from-local-file-how-to.md)
-- [從 HTTPS URL 建立作業輸入 - .NET](job-input-from-http-how-to.md)
-- [使用自訂轉換進行編碼 - .NET](customize-encoder-presets-how-to.md)
-- [使用 AES-128 動態加密和金鑰傳遞服務 - .NET](protect-with-aes128.md)
-- [使用 DRM 動態加密與授權傳遞服務 - .NET](protect-with-drm.md)
-- [從現有原則取得簽署金鑰 - .NET](get-content-key-policy-dotnet-howto.md)
-- [使用媒體服務建立篩選 - .NET](filters-dynamic-manifest-dotnet-howto.md)
-- [搭配使用 Azure Functions v2 與媒體服務 v3 的進階影片隨選範例](https://aka.ms/ams3functions)
+- [教學課程：上傳、 編碼和串流處理視訊-.NET](stream-files-tutorial-with-api.md) 
+- [教學課程：Stream 即時使用媒體服務 v3-.NET](stream-live-tutorial-with-api.md)
+- [教學課程：分析影片使用媒體服務 v3-.NET](analyze-videos-tutorial-with-api.md)
+- [從本機檔案-.NET 中建立的作業輸入](job-input-from-local-file-how-to.md)
+- [從 HTTPS URL-.NET 中建立的作業輸入](job-input-from-http-how-to.md)
+- [使用自訂的轉換為.NET 進行編碼](customize-encoder-presets-how-to.md)
+- [使用 AES-128 動態加密和金鑰傳遞服務-.NET](protect-with-aes128.md)
+- [使用 DRM 動態加密和授權傳遞服務-.NET](protect-with-drm.md)
+- [取得簽署金鑰，從現有的原則-.NET](get-content-key-policy-dotnet-howto.md)
+- [使用媒體服務-.NET 建立篩選器](filters-dynamic-manifest-dotnet-howto.md)
+- [進階的 Azure Functions v2 使用媒體服務 v3 的影片隨範例](https://aka.ms/ams3functions)
 
 ## <a name="next-steps"></a>後續步驟
 

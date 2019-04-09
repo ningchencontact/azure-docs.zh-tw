@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 6a764c5051aad9123c605ae51807117ef75a7047
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/07/2019
+ms.openlocfilehash: b1a7e64cf6b85b517bc027d6541d63c9be729734
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59048481"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274618"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>撰寫 Azure 資料總管查詢
 
@@ -367,7 +367,7 @@ MyData
 //The first two lines generate sample data, and the last line uses
 //the ago() operator to get records for last 12 hours.
 print TimeStamp= range(now(-5d), now(), 1h), SomeCounter = range(1,121)
-| mvexpand TimeStamp, SomeCounter
+| mv-expand TimeStamp, SomeCounter
 | where TimeStamp > ago(12h)
 ```
 
@@ -612,11 +612,11 @@ StormEvents
 | project State, FloodReports
 ```
 
-### <a name="mvexpand"></a>mvexpand
+### <a name="mv-expand"></a>mv-expand
 
-[**mvexpand**](https://docs.microsoft.com/azure/kusto/query/mvexpandoperator)：從動態輸入的資料行展開多值的集合，讓集合中的每個值取得不同的資料列。 所展開資料列中的其他所有資料行則會重複。 並且與 makelist 相反。
+[**mv-依序展開**](https://docs.microsoft.com/azure/kusto/query/mvexpandoperator):從動態輸入的資料行展開多值的集合，讓集合中的每個值取得不同的資料列。 所展開資料列中的其他所有資料行則會重複。 並且與 makelist 相反。
 
-下列查詢會先建立一個集合，然後利用該集合來示範 **mvexpand** 功能，藉此產生範例資料。
+下列查詢會產生範例資料，藉由建立一組，並再利用它來示範**mv-展開**功能。
 
 **\[**[**按一下以執行查詢**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAFWOQQ6CQAxF9yTcoWGliTcws1MPIFygyk9EKTPpVBTj4Z2BjSz%2f738v7WF06r1vD2xcp%2bCoNq9yHDFYLIsvvW5Q0JybKYCco2omqnyNTxHW7oPFckbwajFZhB%2bIsE1trNZ0gi1dpuRmQ%2baC%2bjuuthS7Fbwvi%2f%2bP8lpGvAMP7Wr3A6BceSu7AAAA)**\]**
 
@@ -626,7 +626,7 @@ let FloodDataSet = StormEvents
 | summarize FloodReports = makeset(StartTime) by State
 | project State, FloodReports;
 FloodDataSet
-| mvexpand FloodReports
+| mv-expand FloodReports
 ```
 
 ### <a name="percentiles"></a>percentiles()
@@ -727,7 +727,7 @@ StormEvents
 | extend row_number = row_number()
 ```
 
-資料列集合如果是以下運算子的結果，則也視為佇列化：**sort** **top** 或 **range** 運算子，後面可選擇性加上 **project** **project-away** **extend**、**where** **parse** **mvexpand** 或 **take** 運算子。
+資料列集也是為序列化時的結果：**排序**，**頂端**，或**範圍**運算子，可以選擇性地跟著**專案**，**專案離開**，**擴充**，**其中**，**剖析**， **mv-展開**，或**採取**運算子。
 
 **\[**[**按一下以執行查詢**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlVIzi%2fNK9HQVEiqVAguSSxJBcvmF5XABRQSi5NBgqkVJal5KQpF%2beXxeaW5SalFCrZIHA1NAEGimf5iAAAA)**\]**
 
@@ -804,7 +804,7 @@ range _day from _start to _end step 1d
 | extend d = tolong((_day - _start)/1d)
 | extend r = rand()+1
 | extend _users=range(tolong(d*50*r), tolong(d*50*r+100*r-1), 1)
-| mvexpand id=_users to typeof(long) limit 1000000
+| mv-expand id=_users to typeof(long) limit 1000000
 // Calculate DAU/WAU ratio
 | evaluate activity_engagement(['id'], _day, _start, _end, 1d, 7d)
 | project _day, Dau_Wau=activity_ratio*100
@@ -830,7 +830,7 @@ range _day from _start to _end step 1d
 | extend d = tolong((_day - _start)/1d)
 | extend r = rand()+1
 | extend _users=range(tolong(d*50*r), tolong(d*50*r+200*r-1), 1)
-| mvexpand id=_users to typeof(long) limit 1000000
+| mv-expand id=_users to typeof(long) limit 1000000
 | where _day > datetime(2017-01-02)
 | project _day, id
 // Calculate weekly retention rate
@@ -855,7 +855,7 @@ range Day from _start to _end step 1d
 | extend d = tolong((Day - _start)/1d)
 | extend r = rand()+1
 | extend _users=range(tolong(d*50*r), tolong(d*50*r+200*r-1), 1)
-| mvexpand id=_users to typeof(long) limit 1000000
+| mv-expand id=_users to typeof(long) limit 1000000
 // Take only the first week cohort (last parameter)
 | evaluate new_activity_metrics(['id'], Day, _start, _end, 7d, _start)
 | project from_Day, to_Day, retention_rate, churn_rate

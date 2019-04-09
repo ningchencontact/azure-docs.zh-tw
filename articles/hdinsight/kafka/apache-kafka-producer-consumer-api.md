@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 11/06/2018
-ms.openlocfilehash: 556fc1f04cc6a1d1b594bdd3787ed43d30f607c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/02/2019
+ms.openlocfilehash: 6b77cd9939e244fd031788164cdfe391c3e2b9d5
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091166"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916388"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>教學課程：使用 Apache Kafka Producer 和 Consumer API
 
@@ -25,38 +25,22 @@ Kafka Producer API 可讓應用程式將資料流傳送至 Kafka 叢集。 Kafka
 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
-> * 設定開發環境
-> * 設定您的部署環境
+> * 必要條件
 > * 了解程式碼
 > * 建置並部署應用程式
 > * 在叢集上執行應用程式
 
 如需 API 的詳細資訊，請參閱 [Producer API](https://kafka.apache.org/documentation/#producerapi) 和 [Consumer API](https://kafka.apache.org/documentation/#consumerapi) 的 Apache 說明文件。
 
-## <a name="set-up-your-development-environment"></a>設定開發環境
+## <a name="prerequisites"></a>必要條件
 
-您必須在開發環境中安裝下列元件：
+* HDInsight 3.6 上的 Apache Kafka。 若要深入了解如何建立 HDInsight 上的 Apache Kafka 叢集，請參閱[開始使用 HDInsight 上的 Apache Kafka](apache-kafka-get-started.md)。
 
-* [Java JDK 8](https://aka.ms/azure-jdks) 或同等功能版本，例如 OpenJDK。
+* [Java Developer Kit (JDK) 第 8 版](https://aka.ms/azure-jdks)或同等版本，例如 OpenJDK。
 
-* [Apache Maven](https://maven.apache.org/)
+* 根據 Apache 正確[安裝](https://maven.apache.org/install.html)的 [Apache Maven](https://maven.apache.org/download.cgi)。  Maven 是適用於 Java 專案的專案建置系統。
 
-* SSH 用戶端和 `scp` 命令。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) 文件。
-
-* 文字編輯器或 Java IDE。
-
-當您在開發工作站上安裝 Java 和 JDK 時可能會設定下列環境變數。 不過，您應該檢查它們是否存在，以及它們是否包含您系統的正確值。
-
-* `JAVA_HOME` - 應指向已安裝 JDK 的目錄。
-* `PATH` - 應該包含下列路徑：
-
-    * `JAVA_HOME` (或對等的路徑)。
-    * `JAVA_HOME\bin` (或對等的路徑)。
-    * 已安裝 Maven 的目錄。
-
-## <a name="set-up-your-deployment-environment"></a>設定您的部署環境
-
-本教學課程需要 HDInsight 3.6 上的 Apache Kafka。 若要深入了解如何建立 HDInsight 上的 Apache Kafka 叢集，請參閱[開始使用 HDInsight 上的 Apache Kafka](apache-kafka-get-started.md) 文件。
+* SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## <a name="understand-the-code"></a>了解程式碼
 
@@ -134,88 +118,98 @@ consumer = new KafkaConsumer<>(properties);
 
 ## <a name="build-and-deploy-the-example"></a>建置並部署範例
 
-您可以略過步驟 1 和 2 來進行建置，並從 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars) 下載預先建置的 jars (kafka-producer-consumer.jar)。 您接著可以將這個 jar 複製到您的 HDInsight 叢集。
+1. 從 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) 下載並解壓縮範例。
 
-1. 從 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) 下載範例。
+2. 將目前目錄設定為 `hdinsight-kafka-java-get-started\Producer-Consumer` 目錄的位置並使用下列命令︰
 
-2. 將目錄變更為 `Producer-Consumer` 目錄的位置並使用下列命令︰
-
-    ```
+    ```cmd
     mvn clean package
     ```
 
     此命令會建立名為 `target` 的目錄，其中包含名為 `kafka-producer-consumer-1.0-SNAPSHOT.jar` 的檔案。
 
-3. 使用下列命令將 `kafka-producer-consumer-1.0-SNAPSHOT.jar` 檔案複製到 HDInsight 叢集：
+3. 將 `sshuser` 取代為叢集的 SSH 使用者，並將 `CLUSTERNAME` 取代為叢集的名稱。 輸入下列命令，將 `kafka-producer-consumer-1.0-SNAPSHOT.jar` 檔案複製到 HDInsight 叢集。 出現提示時，請輸入 SSH 使用者的密碼。
 
-    ```bash
-    scp ./target/kafka-producer-consumer-1.0-SNAPSHOT.jar SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
+    ```cmd
+    scp ./target/kafka-producer-consumer-1.0-SNAPSHOT.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
     ```
-
-    以叢集的 SSH 使用者取代 **USERNAME**，並以叢集的名稱取代 **CLUSTERNAME**。 出現提示時，請輸入 SSH 使用者的密碼。
 
 ## <a id="run"></a> 執行範例
 
-1. 若要開啟與叢集的 SSH 連線，使用下列命令：
+1. 將 `sshuser` 取代為叢集的 SSH 使用者，並將 `CLUSTERNAME` 取代為叢集的名稱。 輸入下列命令，開啟與叢集的 SSH 連線。 出現提示時，請輸入 SSH 使用者帳戶的密碼。
 
-    ```bash
-    ssh SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-    以叢集的 SSH 使用者取代 **USERNAME**，並以叢集的名稱取代 **CLUSTERNAME**。 出現提示時，請輸入 SSH 使用者帳戶的密碼。 如需搭配 HDInsight 使用 `scp` 的詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
-
-2. 若要建立本範例所使用的 Kafka 主題，請使用下列步驟：
-
-    1. 將叢集名稱儲存到變數，並安裝 JSON 剖析公用程式 (`jq`)，請使用下列命令。 出現提示時，請輸入 Kafka 叢集名稱：
-    
-        ```bash
-        sudo apt -y install jq
-        read -p 'Enter your Kafka cluster name:' CLUSTERNAME
-        ```
-    
-    2. 若要取得 Kafka 代理程式主機和 Apache Zookeeper 主機，請使用下列命令。 出現提示時，輸入叢集登入 (admin) 帳戶的密碼。
-    
-        ```bash
-        export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
-        ```
-
-    3. 若要建立 `test` 主題，請使用下列命令：
-
-        ```bash
-        java -jar kafka-producer-consumer.jar create test $KAFKABROKERS
-        ```
-
-3. 若要執行產生器，並且將資料寫入至主題，請使用下列命令：
+2. 安裝 [jq](https://stedolan.github.io/jq/)，這是命令列 JSON 處理器。 從開啟的 SSH 連線，輸入下列命令來安裝 `jq`：
 
     ```bash
-    java -jar kafka-producer-consumer.jar producer test $KAFKABROKERS
+    sudo apt -y install jq
     ```
 
-4. 產生器完成後，請使用下列命令從主題讀取︰
+3. 設定環境變數。 分別以叢集登入密碼和叢集名稱取代 `PASSWORD` 和 `CLUSTERNAME`，然後輸入命令：
 
     ```bash
-    java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS
+    export password='PASSWORD'
+    export clusterNameA='CLUSTERNAME'
+    ```
+
+4. 擷取正確大小寫的叢集名稱。 視叢集的建立方式而定，叢集名稱的實際大小寫可能與您預期的不同。 此命令會取得實際的大小寫、將它儲存在變數中，然後顯示正確大小寫的名稱，以及您稍早提供的名稱。 輸入下列命令：
+
+    ```bash
+    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" \
+  	| jq -r '.items[].Clusters.cluster_name')
+    echo $clusterName, $clusterNameA
+    ```
+
+5. 若要取得 Kafka 代理程式主機和 Apache Zookeeper 主機，請使用下列命令：
+
+    ```bash
+    export KAFKABROKERS=`curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER \
+  	| jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    ```
+
+6. 輸入下列命令，建立 Kafka 主題 `myTest`：
+
+    ```bash
+    java -jar kafka-producer-consumer.jar create myTest $KAFKABROKERS
+    ```
+
+7. 若要執行產生器，並且將資料寫入至主題，請使用下列命令：
+
+    ```bash
+    java -jar kafka-producer-consumer.jar producer myTest $KAFKABROKERS
+    ```
+
+8. 產生器完成後，請使用下列命令從主題讀取︰
+
+    ```bash
+    java -jar kafka-producer-consumer.jar consumer myTest $KAFKABROKERS
     ```
 
     已讀取的記錄以及記錄計數隨即顯示。
 
-5. 使用 __Ctrl + C__ 來結束取用者。
+9. 使用 __Ctrl + C__ 來結束取用者。
 
 ### <a name="multiple-consumers"></a>多個取用者
 
 Kafka 取用者會在讀取記錄時使用取用者群組。 多個取用者使用相同群組會導致從主題讀取負載平衡。 群組中的每個取用者都會收到一部分的記錄。
 
-取用者應用程式接受作為群組識別碼的參數。 例如，下列命令會使用 `mygroup` 的群組識別碼啟動取用者：
+取用者應用程式接受作為群組識別碼的參數。 例如，下列命令會使用 `myGroup` 的群組識別碼啟動取用者：
 
 ```bash
-java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygroup
+java -jar kafka-producer-consumer.jar consumer myTest $KAFKABROKERS myGroup
 ```
+
+使用 __Ctrl + C__ 來結束取用者。
 
 若要查看此程序的運作情況，請使用下列命令︰
 
 ```bash
-tmux new-session 'java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygroup' \; split-w
-indow -h 'java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygroup' \; attach
+tmux new-session 'java -jar kafka-producer-consumer.jar consumer myTest $KAFKABROKERS myGroup' \
+\; split-window -h 'java -jar kafka-producer-consumer.jar consumer myTest $KAFKABROKERS myGroup' \
+\; attach
 ```
 
 此命令會使用 `tmux` 將終端機分割成兩個資料行。 取用者會在每個資料行中啟動 (使用相同的群組識別碼值)。 取用者完成讀取後，請留意到每個取用者僅讀取了記錄的一部分。 請使用 __Ctrl + C__ 兩次來結束 `tmux`。

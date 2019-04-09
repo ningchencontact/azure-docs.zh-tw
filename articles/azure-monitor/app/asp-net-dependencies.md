@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights 中的相依性追蹤 | Microsoft Docs
-description: 使用 Application Insights 分析內部部署或 Microsoft Azure Web 應用程式的使用情況、可用性和效能。
+description: 分析使用狀況、 可用性和您的內部部署或使用 Application Insights 的 Microsoft Azure web 應用程式的效能。
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4aa18ae791e5fa573eae76d5bdb9c45b9311e6b5
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: c77b5810164aef7508f717a0f75d90cf6cba2089
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888078"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273102"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>設定 Application Insights：相依性追蹤
 「相依性」  是由應用程式呼叫的外部元件。 這通常是使用 HTTP 呼叫的服務，或資料庫，或檔案系統。 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 會測量您應用程式等待相依性所花費的時間，以及相依性呼叫失敗的頻率。 您可以調查特定的呼叫，然後將它們與要求和例外狀況建立關聯。
@@ -50,7 +50,7 @@ ms.locfileid: "56888078"
 
 ## <a name="where-to-find-dependency-data"></a>哪裡可以找到相依性資料
 * [應用程式對應](#application-map)會以視覺化方式顯示您應用程式與相鄰元件之間的相依性。
-* [效能、瀏覽器及失敗刀鋒視窗](#performance-and-failure-blades)會顯示伺服器相依性資料。
+* [效能、瀏覽器及失敗刀鋒視窗](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-performance)會顯示伺服器相依性資料。
 * [瀏覽器刀鋒視窗](#ajax-calls)會顯示來自您使用者瀏覽器的 AJAX 呼叫。
 * 從速度緩慢或失敗的要求逐一點選以檢查其相依性呼叫。
 * [分析](#analytics)可用來查詢相依性資料。
@@ -58,7 +58,7 @@ ms.locfileid: "56888078"
 ## <a name="application-map"></a>應用程式對應
 應用程式對應可做為探索應用程式元件之間相依性的視覺輔助工具。 它會從來自您應用程式的遙測自動產生。 此範例顯示來自瀏覽器指令碼的 AJAX 呼叫，以及從伺服器應用程式到兩個外部服務的 REST 呼叫。
 
-![應用程式對應](./media/asp-net-dependencies/08.png)
+![應用程式對應](./media/asp-net-dependencies/cloud-rolename.png)
 
 * **從方塊中瀏覽**至相關的相依性及其他圖表。
 * **將對應釘選**至[儀表板](../../azure-monitor/app/app-insights-dashboards.md) (對應將可在其中完整運作)。
@@ -66,18 +66,12 @@ ms.locfileid: "56888078"
 [深入了解](../../azure-monitor/app/app-map.md)。
 
 ## <a name="performance-and-failure-blades"></a>效能和失敗刀鋒視窗
-[效能] 刀鋒視窗會顯示伺服器應用程式所發出之相依性呼叫的持續時間。 其中會顯示摘要圖表和依呼叫劃分的表格。
-
-![效能刀鋒視窗相依性圖表](./media/asp-net-dependencies/dependencies-in-performance-blade.png)
-
-在摘要圖表或表格項目上逐一點選來搜尋這些呼叫的原始發生項目。
-
-![相依性呼叫執行個體](./media/asp-net-dependencies/dependency-call-instance.png)
+[效能] 刀鋒視窗會顯示伺服器應用程式所發出之相依性呼叫的持續時間。
 
 [失敗計數] 會顯示在 [失敗] 刀鋒視窗上。 失敗是指任何範圍不在 200-399 內或是不明的傳回碼。
 
 > [!NOTE]
-> **100% 失敗？** - 這可能是指您取得的只是部分相依性資料。 您必須[設定適合您平台的相依性監視](#set-up-dependency-monitoring)。
+> **100%失敗？** - 這可能是指您取得的只是部分相依性資料。 您必須[設定適合您平台的相依性監視](#set-up-dependency-monitoring)。
 >
 >
 
@@ -85,52 +79,11 @@ ms.locfileid: "56888078"
 [瀏覽器] 刀鋒視窗會顯示來自[您網頁中 JavaScript](../../azure-monitor/app/javascript.md) 之 AJAX 呼叫的持續時間和失敗率。 它們會顯示為「相依性」。
 
 ## <a name="diagnosis"></a> 診斷速度緩慢的要求
-每個要求事件都與相依性呼叫、例外狀況及您應用程式處理要求時所追蹤的其他事件相關聯。 因此，如果某些要求執行效能很差，您可以了解是否是因為某個相依性的回應太慢。
-
-讓我們逐步解說一個該情況的範例。
-
-### <a name="tracing-from-requests-to-dependencies"></a>進行從要求到相依性的追蹤
-開啟 [效能] 刀鋒視窗，然後查看要求方格：
-
-![含有平均和計數的要求清單](./media/asp-net-dependencies/02-reqs.png)
-
-最上方的要求花了很長的時間。 來看看我們是否可以查明時間花費在何處。
-
-按一下該列，以查看個別的要求事件：
-
-![要求發生次數的清單](./media/asp-net-dependencies/03-instances.png)
-
-按一下任何長時間執行的執行個體來進一步檢查，然後向下捲動至與此要求相關的遠端相依性呼叫：
-
-![尋找遠端相依性的呼叫，識別不尋常的持續時間](./media/asp-net-dependencies/04-dependencies.png)
-
-看起來此要求的大部分時間似乎都花費在呼叫本機服務上。
-
-選取該列，以取得詳細資訊：
-
-![點選該遠端相依性來找出問題原因](./media/asp-net-dependencies/05-detail.png)
-
-看起來這就是問題所在。 我們已經指出問題，因此現在只需要了解為何該呼叫花費那麼長的時間。
-
-### <a name="request-timeline"></a>要求時間軸
-在一個不同的案例中，並沒有任何特別長的相依性呼叫。 但藉由切換到時間軸檢視，我們即可看到在內部處理中發生延遲的地方：
-
-![尋找遠端相依性的呼叫，識別不尋常的持續時間](./media/asp-net-dependencies/04-1.png)
-
-在第一次相依性呼叫之後似乎有一個很大的間隔，因此我們應該查看程式碼來找出原因。
+每個要求事件是相關聯的相依性呼叫、 例外狀況，以及其他應用程式處理要求時所追蹤的事件。 因此，如果某些要求執行效能很差，您可以了解是否是因為某個相依性的回應太慢。
 
 ### <a name="profile-your-live-site"></a>剖析您的即時網站
 
-不清楚時間花在哪裡嗎？ [Application Insights 分析工具](../../azure-monitor/app/profiler.md)會追蹤對您即時站台發出的 HTTP 呼叫，並顯示您程式碼中哪些函式花費的時間最長。
-
-## <a name="failed-requests"></a>失敗的要求
-失敗的要求可能也會與失敗的相依性呼叫關聯。 同樣地，我們可以逐一點選來追蹤問題。
-
-![按一下失敗要求的圖表](./media/asp-net-dependencies/06-fail.png)
-
-逐一點選至失敗要求的某個發生項目，然後查看其相關事件。
-
-![按一下要求類型，按一下執行個體以取得同一個執行個體的不同檢視，按一下執行個體以取得例外狀況的詳細資料。](./media/asp-net-dependencies/07-faildetail.png)
+不清楚時間花在哪裡嗎？ [Application Insights profiler](../../azure-monitor/app/profiler.md)追蹤 HTTP 呼叫您的即時網站，並顯示您的程式碼中哪些函式花費的最長的時間。
 
 ## <a name="analytics"></a>分析
 您可以在 [Kusto 查詢語言](/azure/kusto/query/)中追蹤相依性。 以下是一些範例。
@@ -201,7 +154,7 @@ ms.locfileid: "56888078"
 ## <a name="troubleshooting"></a>疑難排解
 *相依性成功旗標一律顯示 true 或 false。*
 
-*SQL 查詢未完整顯示。*
+*不會顯示完整的 SQL 查詢。*
 
 請參閱下表，確保您已選擇正確的設定來啟用應用程式的相依性監視。
 
@@ -212,11 +165,7 @@ ms.locfileid: "56888078"
 | Azure Web 應用程式 |在您的 Web 應用程式控制台中，[開啟 Application Insights 刀鋒視窗](../../azure-monitor/app/azure-web-apps.md)，然後在出現提示時選擇 [安裝]。 |
 | Azure 雲端服務 |[使用啟動工作](../../azure-monitor/app/cloudservices.md)或[安裝 .NET Framework 4.6+](../../cloud-services/cloud-services-dotnet-install-dotnet.md)。 |
 
-## <a name="video"></a>影片
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
-
 ## <a name="next-steps"></a>後續步驟
 * [例外狀況](../../azure-monitor/app/asp-net-exceptions.md)
 * [使用者和頁面資料](../../azure-monitor/app/javascript.md)
-* [Availability](../../azure-monitor/app/monitor-web-app-availability.md)
+* [可用性](../../azure-monitor/app/monitor-web-app-availability.md)

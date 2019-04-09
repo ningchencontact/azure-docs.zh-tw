@@ -10,16 +10,16 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: f055ecdcc157a9ecf1a564913b0a4f889364b427
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: a1caec1cd0c05fbc306b1a19c88fbe469be7fa6d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309820"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881744"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-nodejs"></a>使用 Node.js 從知識庫取得答案
 
-本快速入門會逐步引導您以程式設計方式從已發佈的 QnA Maker 知識庫取得答案。 知識庫包含來自[資料來源](../Concepts/data-sources-supported.md)的問題和答案，例如常見問題集。 [問題](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration)會傳送至 QnA Maker 服務。 [回應](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties)包含位居預測首位的答案。 
+本快速入門會逐步引導您以程式設計方式從已發佈的 QnA Maker 知識庫取得答案。 知識庫包含[資料來源](../Concepts/data-sources-supported.md)中的問題和答案，例如常見問題集。 [問題](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration)會傳送至 QnA Maker 服務。 [回應](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties)包含位居預測首位的答案。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -56,7 +56,7 @@ ms.locfileid: "57309820"
 
 [!code-nodejs[Add a POST request to send question to knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/get-answer/get-answer.js?range=24-49 "Add a POST request to send question to knowledge base")]
 
-`Authorization` 標頭的值包含字串 `EndpointKey `。 
+`Authorization` 標頭的值包含字串 `EndpointKey`。 
 
 ## <a name="install-the-dependencies"></a>安裝相依性
 

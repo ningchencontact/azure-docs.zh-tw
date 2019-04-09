@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: 89b48175d7707458cd92916f6b26e298163a7416
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: b97db09c477a940ca36129316613f5ceb4eb13b1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58915913"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256187"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>使用 ACR 工作來自動執行 OS 和架構修補
 
@@ -78,7 +78,7 @@ Azure CLI 中的 [az acr build][az-acr-build]命令會使用熟悉的 `docker bu
 > [!NOTE]
 > 只有當基底和應用程式映像都位於相同的 Azure 容器登錄，或當基底位於公用 Docker Hub 存放庫時，基底映像更新才會觸發建置。
 
-## <a name="multi-step-tasks"></a>多重步驟的工作
+## <a name="multi-step-tasks"></a>多步驟工作
 
 多重步驟的工作提供的步驟為基礎的工作定義和建置、 測試和修復的容器映像，在雲端中執行。 工作步驟會定義個別的容器映像建置和推送作業。 它們也可以定義一或多個容器的執行，其中每個步驟都使用容器作為其執行環境。
 
@@ -97,10 +97,9 @@ Azure CLI 中的 [az acr build][az-acr-build]命令會使用熟悉的 `docker bu
 
 ## <a name="next-steps"></a>後續步驟
 
-當您已藉由在雲端建置容器映像，而做好自動執行 OS 和架構修補的準備時，請查看由三部分組成的「ACR 工作」教學課程系列。
+當您準備好自動化 OS 和修補藉由建置您的容器映像，在雲端中的 framework 時，請參閱三段[ACR 工作的教學課程系列](container-registry-tutorial-quick-task.md)。
 
-> [!div class="nextstepaction"]
-> [建置使用 Azure 容器登錄工作在雲端中的容器映像](container-registry-tutorial-quick-task.md)
+選擇性地安裝[適用於 Visual Studio Code 的 Docker 擴充功能](https://code.visualstudio.com/docs/azure/docker)並[Azure 帳戶](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)才能使用您的 Azure 容器登錄庫的延伸模組。 提取，並將映像推送至 Azure container registry，或者執行 ACR 工作，全部都在 Visual Studio Code 內。
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

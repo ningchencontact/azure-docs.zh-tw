@@ -18,12 +18,12 @@ ms.date: 03/23/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ceaf472f53c48b17701b14fdf4107045c2e43fdc
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: a92d10f67533efc2f5893b012aefbcb92efee59a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521970"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258737"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的存取控制？
 
@@ -58,7 +58,7 @@ ms.locfileid: "58521970"
 - 滿足所有選取的控制項 (*AND*)
 - 滿足一項選取的控制項 (*OR*)
 
-![控制](./media/controls/17.png)
+![控制](./media/controls/18.png)
 
 ### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
@@ -77,7 +77,7 @@ ms.locfileid: "58521970"
 您的裝置必須向 Azure AD 註冊，才能標示為符合規範。 若要註冊裝置，您會有三個選項： 
 
 - [Azure AD 註冊裝置](../devices/overview.md#azure-ad-registered-devices)
-- [Azure AD 已加入裝置](../devices/overview.md#azure-ad-joined-devices)  
+- [Azure AD 加入裝置](../devices/overview.md#azure-ad-joined-devices)  
 - [混合式 Azure AD 已加入裝置](../devices/overview.md#hybrid-azure-ad-joined-devices)
 
 如需詳細資訊，請參閱[如何透過條件式存取要求必須從受控裝置存取雲端應用程式](require-managed-devices.md)。
@@ -94,6 +94,18 @@ ms.locfileid: "58521970"
 您可以使用 [Intune 應用程式保護原則](https://docs.microsoft.com/intune/app-protection-policy)來保護公司的資料，並且不受任何行動裝置管理 (MDM) 解決方案影響。
 
 藉由核准的用戶端應用程式，您可以要求嘗試存取雲端應用程式的用戶端應用程式支援 [Intune 應用程式保護原則](https://docs.microsoft.com/intune/app-protection-policy)。 例如，您可以限制唯有 Outlook 應用程式能存取 Exchange Online。 要求通過核准之用戶端應用程式的條件式存取原則，也稱為[應用程式型條件式存取原則](app-based-conditional-access.md)。 如需支援的核准用戶端應用程式清單，請參閱[核准的用戶端應用程式需求](technical-reference.md#approved-client-app-requirement)。
+
+### <a name="app-protection-policy-preview"></a>應用程式保護原則 （預覽）
+
+由於員工使用行動裝置來處理個人和工作事務，因此即使您不負責管理公司資料，可能也會想要在員工使用裝置存取公司資料時保護資料。
+您可以使用 [Intune 應用程式保護原則](https://docs.microsoft.com/intune/app-protection-policy)來保護公司的資料，並且不受任何行動裝置管理 (MDM) 解決方案影響。
+
+使用應用程式保護原則，您可以限制已向 Azure 回報的用戶端應用程式的存取 AD 有接收[Intune 應用程式保護原則](https://docs.microsoft.com/intune/app-protection-policy)。 比方說，您可以限制 Exchange online 的存取，Outlook 應用程式具有 Intune 應用程式保護原則。 需要應用程式保護原則的條件式存取原則就是所謂[應用程式保護型條件式存取原則](app-protection-based-conditional-access.md)。 
+
+您的裝置必須向 Azure AD 應用程式可以標示為受保護的原則。
+
+如需支援的原則的受保護的用戶端應用程式，請參閱[應用程式保護原則需求](technical-reference.md#app-protection-policy-requirement)。
+
 
 ### <a name="terms-of-use"></a>使用條款
 
@@ -112,8 +124,8 @@ ms.locfileid: "58521970"
 目前提供相容服務的提供者包括：
 
 - [Duo Security](https://duo.com/docs/azure-ca)
-- [委託 Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
-- [Ping 身分識別](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
+- [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
+- [Ping Identity](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - RSA
 - [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
 - [Silverfort](https://www.silverfort.io/company/using-silverfort-mfa-with-azure-active-directory/)
@@ -162,9 +174,9 @@ ms.locfileid: "58521970"
 
 若要深入了解，請參閱：
 
-- [啟用 SharePoint Online 的有限存取](https://aka.ms/spolimitedaccessdocs)
+- [啟用 SharePoint Online 的有限的存取](https://aka.ms/spolimitedaccessdocs)
 
-- [啟用 Exchange Online 的有限存取](https://aka.ms/owalimitedaccess)
+- [啟用 Exchange Online 的有限的存取](https://aka.ms/owalimitedaccess)
 
 ## <a name="next-steps"></a>後續步驟
 

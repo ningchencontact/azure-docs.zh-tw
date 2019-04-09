@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: d7122b78-6daa-4bea-883b-ff832cfecef3
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: cfce5765cda1e3a1dfb7eb073719191b13b0696e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 30625423553b71e848d27d047d4b7bc3add6eaff
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089194"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265146"
 ---
 # <a name="quickstart-clone-a-notebook"></a>快速入門：複製筆記本
 
@@ -52,7 +52,7 @@ ms.locfileid: "58089194"
 
 1. 複製完成之後，Azure Notebook 會帶您前往新的專案，您可以在那裡看到所有檔案的複本。
 
-    [![](media/quickstarts/completed-clone.png "檢視已完成的複本")](media/quickstarts/completed-clone.png#lightbox)
+    [![](media/quickstarts/completed-clone.png "已完成複製的檢視")](media/quickstarts/completed-clone.png#lightbox)
 
 ## <a name="share-a-notebook"></a>共用筆記本
 
@@ -77,4 +77,4 @@ ms.locfileid: "58089194"
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [教學課程：建立和執行 Jupyter Notebook 來執行線性迴歸](tutorial-create-run-jupyter-notebook.md)
+> [教學課程： 建立執行的 Jupyter notebook 來執行線性迴歸](tutorial-create-run-jupyter-notebook.md)

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 901c844ecbfbbe68163c70b12cc061eae0f75d5a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ed5df09d492bbf6123e76f73717a1738a23a066c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860468"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893702"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>教學課程：使用 Azure Container Registry 工作在雲端中建置和部署容器映像
 
@@ -30,7 +30,7 @@ ms.locfileid: "55860468"
 > * 在 Azure 中建置容器映像
 > * 將容器部署至 Azure 容器執行個體
 
-在後續的教學課程中，您將了解如何將 ACR 工作工作用於程式碼認可和基礎映像更新的自動化容器映像建置。 ACR 工作也可以執行[多步驟的工作](container-registry-tasks-multi-step.md) (目前處於預覽狀態)，使用 YAML 檔案來定義相關步驟，以建置、推送並選擇性地測試多個容器。
+在後續的教學課程中，您將了解如何將 ACR 工作工作用於程式碼認可和基礎映像更新的自動化容器映像建置。 ACR 工作也可執行[多步驟工作](container-registry-tasks-multi-step.md)，使用 YAML 檔案來定義相關步驟，以建置、推送並選擇性地測試多個容器。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -220,8 +220,8 @@ az keyvault secret set \
 
 您已建立 Azure Key Vault，並在其中儲存兩個祕密：
 
-* `$ACR_NAME-pull-usr`：服務主體識別碼，用來作為容器登錄**使用者名稱**。
-* `$ACR_NAME-pull-pwd`：服務主體密碼，用來作為容器登錄**密碼**。
+* `$ACR_NAME-pull-usr`：服務主體識別碼，用來作為容器登錄 **使用者名稱**。
+* `$ACR_NAME-pull-pwd`：服務主體密碼，用來作為容器登錄 **密碼**。
 
 現在，當您或應用程式和服務從登錄提取映像時，您可以依名稱參考這些祕密。
 

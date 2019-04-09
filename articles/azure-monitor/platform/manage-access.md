@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: fd47b5de2226d88b6295cb28713db2a5d251e768
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577241"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276401"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>管理記錄檔資料與 Azure 監視器中的工作區
 「Azure 監視器」會將記錄資料儲存在 Log Analytics 工作區中，這基本上是一個包含資料和設定資訊的容器。 若要管理對記錄資料的存取，您需執行與工作區相關的各種系統管理工作。 您或組織的其他成員可能會使用多個工作區來管理從所有或部分 IT 基礎結構收集而來的不同資料。
@@ -102,7 +102,6 @@ _存取模式_是指使用者如何存取 Log Analytics 工作區，並定義其
 > - Service Fabric
 > - Application Insights
 > - 容器
-> - HTTP 資料收集器 API 所建立的自訂記錄檔
 >
 > 您可以測試是否記錄是正確聯其資源來執行查詢，並且檢查記錄您感興趣。 如果正確的資源識別碼[_ResourceId](log-standard-properties.md#_resourceid)屬性，則資料可供資源為主的查詢。
 

@@ -1,16 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: bc646bd1c1e2ada45971359b9a17d71d66e301d4
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58800432"
 documentType: LandingData
 title: Azure 藍圖服務文件
 metadata:
   title: Azure 藍圖文件 - 教學課程、API 參考
   description: 「Azure 藍圖」是 Azure 中的服務，可讓您用來建立、定義及在您的 Azure 環境中部署成品。
-  services: blueprints
   author: DCtheGeek
   manager: carmonm
   ms.service: blueprints
@@ -20,32 +13,32 @@ metadata:
 abstract:
   description: Azure 藍圖使用 Azure Resource Manager 範本等可組合成品來佈建資源、角色型存取控制和原則，協助您透過重複的步驟部署及更新雲端環境。
 sections:
-- title: 5 分鐘快速入門
-  items:
-  - type: paragraph
-    text: 了解如何在 Azure 中建立、指派和管理藍圖定義。
-  - type: list
-    style: icon48
+  - title: 5 分鐘快速入門
     items:
-    - image:
-        alt: Azure 入口網站
-        src: ./media/portal.svg
-      text: Azure 入口網站
-      href: create-blueprint-portal.md
-    - image:
-        alt: REST
-        src: ./media/rest.svg
-      text: REST
-      href: create-blueprint-rest-api.md
-- title: 參考
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 了解如何在 Azure 中建立、指派和管理藍圖定義。
+      - type: list
+        style: icon48
+        items:
+          - image:
+              alt: Azure 入口網站
+              src: ./media/portal.svg
+            text: Azure 入口網站
+            href: create-blueprint-portal.md
+          - image:
+              alt: REST
+              src: ./media/rest.svg
+            text: REST
+            href: create-blueprint-rest-api.md
+  - title: 參考
     items:
-    - title: 命令列
-      html: <p><a href="/powershell/module/az.blueprint/#blueprint">Azure PowerShell</a></p>
-    - title: Languages
-      html: <p><a href="/dotnet/api/overview/azure/blueprints/management">Azure SDK for .NET</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/blueprints/">API 參考</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 命令列
+            html: '<p><a href="/powershell/module/az.blueprint/#blueprint">Azure PowerShell</a></p>'
+          - title: Languages
+            html: <p><a href="/dotnet/api/overview/azure/blueprints/management">適用於 .NET 的 Azure SDK</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/blueprints/">API 參考</a></p>

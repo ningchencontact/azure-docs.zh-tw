@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 84db71f8dabfb7557b5efbc06e024c43e654b56d
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: f93f6c8891ba9f7407310a8f09387e97f5c1f578
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805069"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267339"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>針對 Runbook 的錯誤進行疑難排解
 
@@ -137,7 +137,7 @@ Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is re
 
 #### <a name="issue"></a>問題
 
-您會在搭配 `-Wait` 參數叫用子 Runbook，且輸出資料流包含物件時收到下列錯誤：
+叫用子 runbook 時，收到下列錯誤`-Wait`參數和輸出資料流包含與物件：
 
 ```error
 Object reference not set to an instance of an object
@@ -483,6 +483,29 @@ Runbook 的執行時間已超過「Azure 沙箱」中公平共用所允許的 3 
 
 * 編輯 Runbook，並減少它所發出的作業資料流數目。
 * 減少在執行 Cmdlet 時所要擷取的資料流數目。 若要這麼做，您可以指定讓 `Get-AzureRmAutomationJobOutput` Cmdlet 的 `-Stream Output` 參數僅擷取輸出資料流。 
+
+### <a name="cannot-invoke-method"></a>案例：PowerShell 工作失敗，錯誤：無法叫用方法
+
+#### <a name="issue"></a>問題
+
+開始在 Azure 中執行 runbook 中的 PowerShell 工作時，您會收到下列錯誤訊息：
+
+```error
+Exception was thrown - Cannot invoke method. Method invocation is supported only on core types in this language mode.
+```
+
+#### <a name="cause"></a>原因
+
+當您啟動的 PowerShell，在 Azure 中執行的 runbook 中的工作，可能會發生此錯誤。 這種行為可能是因為在 Azure 中執行的 runbook 無法執行沙箱[完整的語言模式](/powershell/module/microsoft.powershell.core/about/about_language_modes))。
+
+#### <a name="resolution"></a>解決方案
+
+有兩種方法可以解決此錯誤：
+
+* 而不是使用`Start-Job`，使用`Start-AzureRmAutomationRunbook`來啟動 runbook
+* 如果您的 runbook 會有此錯誤訊息，其混合式 Runbook 背景工作角色上執行
+
+若要深入了解 Azure 自動化 Runbook 的其他行為，此種行為，請參閱[Runbook 行為](../automation-runbook-execution.md#runbook-behavior)。
 
 ## <a name="next-steps"></a>後續步驟
 

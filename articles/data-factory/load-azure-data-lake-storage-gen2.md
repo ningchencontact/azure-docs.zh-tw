@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: 2c04c13eb6399bebf908337d8f71bd03adf4d06a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 8e3a23b38dc95f05ed9a6d99d303f3d86eac60ad
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447226"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269260"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>使用 Azure Data Factory 將資料載入 Azure Data Lake Storage Gen2 中
 
@@ -34,12 +34,12 @@ Azure Data Factory 提供可向外延展的受控資料移動解決方案。 由
 ## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶：如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
-* 啟用 Data Lake Storage Gen2 的 Azure 儲存體帳戶：如果您沒有儲存體帳戶，請按一下[這裡](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)來建立帳戶。
+* 啟用 Data Lake Storage Gen2 的 Azure 儲存體帳戶：如果您沒有儲存體帳戶[建立帳戶](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)。
 * AWS 帳戶與含有資料的 S3 貯體：本文示範如何從 Amazon S3 複製資料。 您可以依照類似的步驟來使用其他資料存放區。
 
 ## <a name="create-a-data-factory"></a>建立 Data Factory
 
-1. 在左側功能表中，選取**建立資源** > **資料 + 分析** > **Data Factory**:
+1. 在左側功能表上，選取 [建立資源] > [資料 + 分析] > [資料處理站]：
    
    ![在 [新增] 窗格中選取資料處理站](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -104,7 +104,7 @@ Azure Data Factory 提供可向外延展的受控資料移動解決方案。 由
    
    ![指定 Azure Data Lake Storage Gen2 帳戶](./media/load-azure-data-lake-storage-gen2/specify-adls.png)
 
-9. 在 [選擇輸出檔案或資料夾] 頁面中，輸入 [copyfroms3] 作為輸出資料夾名稱，然後選取 [下一步]： 
+9. 在 **選擇輸出檔案或資料夾**頁面上，輸入**copyfroms3**作為輸出資料夾名稱，然後選取**下一步**。 ADF 會建立子資料夾與對應的 ADLS Gen2 檔案系統複製期間，如果不存在。
 
     ![指定輸出資料夾](./media/load-azure-data-lake-storage-gen2/specify-adls-path.png)
 
@@ -141,4 +141,4 @@ Azure Data Factory 提供可向外延展的受控資料移動解決方案。 由
 ## <a name="next-steps"></a>後續步驟
 
 * [複製活動概觀](copy-activity-overview.md)
-* [Azure Data Lake Storage Gen2 連接器](connector-azure-data-lake-storage.md)
+* [Azure Data Lake 儲存體 Gen2 連接器](connector-azure-data-lake-storage.md)

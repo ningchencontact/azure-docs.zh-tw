@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: cc0f452cf9dc27354124437acc8d9a7c99fa80f4
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 577a047fb88208d7e14e8ba06a1b9e7e87c5ef91
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065183"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884224"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>快速入門：使用 Azure Logic Apps 建立第一個自動化工作流程 - Azure 入口網站
 
@@ -44,7 +44,7 @@ ms.locfileid: "54065183"
 
    | 屬性 | 值 | 說明 | 
    |----------|-------|-------------| 
-   | **名稱** | MyFirstLogicApp | 邏輯應用程式的名稱 | 
+   | **Name** | MyFirstLogicApp | 邏輯應用程式的名稱 | 
    | **訂用帳戶** | <your-Azure-subscription-name> | Azure 訂用帳戶的名稱 | 
    | **資源群組** | My-First-LA-RG | 用來組織相關資源之 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱 | 
    | **位置** | 美國西部 | 用來存放邏輯應用程式資訊的區域 | 
@@ -114,7 +114,7 @@ ms.locfileid: "54065183"
       現在，請忽略出現的 [新增動態內容] 清單。 
       當您按一下某些編輯方塊內部時，這份清單隨即出現，並顯示上一個步驟中可在工作流程中納為輸入的任何可用參數。 
 
-   2. 在 [主旨] 方塊中，輸入以下文字且尾端加上一個空格：```New RSS item: ```
+   2. 在 [主旨] 方塊中，輸入以下文字且尾端加上一個空格：```New RSS item:```
 
       ![輸入電子郵件主旨](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject.png)
  

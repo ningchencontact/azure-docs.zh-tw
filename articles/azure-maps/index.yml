@@ -1,18 +1,12 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 684e6a798c690c65f70c2f6224ac8f11256ce6eb
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270125"
 documentType: LandingData
 title: Azure 地圖服務文件
 metadata:
-  document_id: 
+  document_id: null
   title: Azure 地圖服務文件 | Microsoft Docs
   meta.description: Use Azure Maps to provide geospatial services to your web or mobile application.
   author: philmea
-  manager: 
+  manager: null
   ms.service: azure-maps
   services: azure-maps
   ms.topic: landing-page
@@ -21,36 +15,43 @@ metadata:
 abstract:
   description: Azure 地圖服務為來自各個產業的開發人員提供功能強大的地理空間功能，另納入可用的最新地圖資料，可提供網路和行動應用程式地理空間內容。 Azure 地圖服務是一套符合 Azure One API 標準的 REST API，適用於地圖、搜尋、路由、流量、時區、地理位置、地理柵欄、地圖資料和空間作業，並同時隨附 Web 和 Android SDK，使開發作業更簡單、富有彈性且可攜至多個平台。
 sections:
-- title: 5 分鐘快速入門
-  items:
-  - type: paragraph
-    text: 使用 Azure 地圖服務啟動地圖搜尋應用程式。
-  - type: list
-    style: icon48
+  - title: 5 分鐘快速入門
     items:
-    - image:
-        src: /azure/sql-database/media/index/portal.svg
-      text: 啟動示範地圖應用程式
-      href: /azure/azure-maps/quick-demo-map-app
-- title: 逐步教學課程
-  items:
-  - type: paragraph
-    text: 建置地理空間 Web 應用程式以搜尋景點及位置路線，並使用 Azure 地圖服務建立地理柵欄以追蹤裝置。
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 了解如何使用 Azure 地圖服務建立地理空間應用程式。
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_js.svg'
+            text: 建立 Web 應用程式
+            href: /azure/azure-maps/quick-demo-map-app
+  - title: 逐步教學課程
     items:
-    - html: <a href="/azure/azure-maps/tutorial-search-location">搜尋興趣點</a>
-    - html: <a href="/azure/azure-maps/tutorial-route-location">興趣點路線</a>
-    - html: <a href="/azure/azure-maps/tutorial-prioritized-routes">依旅遊方式區分的路線</a>
-    - html: <a href="/azure/azure-maps/tutorial-create-store-locator">建立存放區定位器</a>
-    - html: <a href="/azure/azure-maps/tutorial-geofence">設定地理柵欄</a>
-- title: 參考
-  items:
-  - type: list
-    style: cards
-    className: cardsW
+      - html: <b>Web SDK 教學課程</b>
+      - type: paragraph
+        text: 使用 Azure 地圖服務 Web SDK 建置地理空間 Web 應用程式。
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/azure-maps/tutorial-search-location">搜尋景點</a>
+          - html: <a href="/azure/azure-maps/tutorial-route-location">景點路線</a>
+          - html: <a href="/azure/azure-maps/tutorial-prioritized-routes">依旅遊方式區分的路線</a>
+          - html: <a href="/azure/azure-maps/tutorial-create-store-locator">建立存放區定位器</a>
+      - html: <b>REST API 教學課程</b>
+      - type: paragraph
+        text: 建置可呼叫 Azure 地圖服務 REST 服務的地理空間應用程式。
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/azure-maps/tutorial-geofence">設定地理柵欄</a>
+  - title: 參考
     items:
-    - title: JavaScript
-      html: <p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">地圖控制項</a></p>
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/maps/data">資料服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/geolocation">地理位置服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/render">轉譯服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">路線規劃服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">搜尋服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/spatial">空間服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">時區服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">交通服務</a></p>
+      - type: list
+        style: cards
+        className: cardsW
+        items:
+          - title: JavaScript
+            html: '<p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">地圖控制項</a></p>'
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/maps/data">資料服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/geolocation">地理位置服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/render">轉譯服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">路線規劃服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">搜尋服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/spatial">空間服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">時區服務</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">交通服務</a></p>'

@@ -1,19 +1,19 @@
 ---
-title: 在 NoSQL 資料庫中將文件資料模型化
+title: 在 Azure Cosmos DB 中模型化資料
 titleSuffix: Azure Cosmos DB
 description: 了解如何在 NoSQL 資料庫中將資料模型化，以及在關聯式資料庫和文件資料庫中將資料模型化的差異。
-author: aliuy
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: andrl
-ms.custom: seodec18
-ms.openlocfilehash: 5f117d51378f895755b4f5a27fe892d85e12074a
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.date: 04/08/2019
+ms.author: rimman
+ms.custom: rimman
+ms.openlocfilehash: e8581cb130c8b2d7ac044838f0ae922b9b5e86cd
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762577"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275675"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Azure Cosmos DB 中模型化的資料
 

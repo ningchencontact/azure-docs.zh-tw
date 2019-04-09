@@ -12,19 +12,19 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/25/2018
+ms.date: 04/02/2019
 ms.author: aljo
-ms.openlocfilehash: ccb5f690b7947192af401233aa03e799e5c5be0b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 45d5d1b4e050d01b003b6321e1af44c0da762e19
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668716"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275473"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>在 Windows 上準備您的開發環境
 > [!div class="op_single_selector"]
-> * [Windows](service-fabric-get-started.md) 
-> * [Linux](service-fabric-get-started-linux.md)
+> * [ Windows](service-fabric-get-started.md) 
+> * [ Linux](service-fabric-get-started-linux.md)
 > * [OSX](service-fabric-get-started-mac.md)
 > 
 > 
@@ -69,8 +69,8 @@ Service Fabric 工具屬於 Visual Studio 2017 中的 Azure 開發工作負載�
 * [安裝 Microsoft Azure Service Fabric SDK][core-sdk]
 
 目前的版本如下︰
-* Service Fabric SDK 和工具 3.3.644
-* Service Fabric 執行階段 6.4.644
+* Service Fabric SDK 和工具 3.3.654
+* Service Fabric 執行階段 6.4.654
 * Service Fabric Tools for Visual Studio 2015 2.4.11116.1
 * Visual Studio 2017 15.9 包含 Service Fabric Tools for Visual Studio 2.4.11024.1 
 
@@ -91,11 +91,11 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ## <a name="next-steps"></a>後續步驟
 現在您的開發環境已完成設定，您可以開始建置和執行應用程式。
 
-* [了解如何建立、部署及管理應用程式](service-fabric-tutorial-create-dotnet-app.md)
-* [了解程式設計模型：Reliable Services 和 Reliable Actors](service-fabric-choose-framework.md)
-* [請查看 GitHub 上的 Service Fabric 程式碼範例](https://aka.ms/servicefabricsamples)
-* [使用 Service Fabric 總管將叢集視覺化](service-fabric-visualizing-your-cluster.md)
-* 了解 [Service Fabric 支持选项](service-fabric-support.md)
+* [了解如何建立、 部署及管理應用程式](service-fabric-tutorial-create-dotnet-app.md)
+* [深入了解程式設計模型：Reliable Services 和 Reliable Actors](service-fabric-choose-framework.md)
+* [請參閱 GitHub 上的 Service Fabric 程式碼範例](https://aka.ms/servicefabricsamples)
+* [使用 Service Fabric Explorer 視覺化叢集](service-fabric-visualizing-your-cluster.md)
+* 了解 [Service Fabric 支援選項](service-fabric-support.md)
 
 [1]: https://azure.microsoft.com/campaigns/service-fabric/ "Service Fabric 活動頁面"
 [2]: https://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
