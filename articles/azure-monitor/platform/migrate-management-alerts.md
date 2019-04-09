@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 4d82cc59eb1098451a263957aa028b66996bb072
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: fb54e11c9da6bec2a1e0354317df6343140cbf09
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307177"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006802"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>將管理事件的 Azure 警示移轉至活動記錄警示
 
@@ -104,7 +104,7 @@ ResourceUri          : /subscriptions/<subscription-id>/resourceGroups/<resource
 * 遵循[有關如何在 Azure 入口網站中建立警示的指南](../../azure-monitor/platform/activity-log-alerts.md)
 * 了解[如何使用 Resource Manager 範本建立警示](../../azure-monitor/platform/alerts-activity-log.md)
  
-您先前建立之管理事件的警示，將不會自動移轉至活動記錄警示。 您需要使用上述 PowerShell 指令碼，列出您目前已設定之管理事件的警示，並以手動方式將其重新建立為活動記錄警示。 這必須在 10 月 1 日之前完成，之後您的 Azure 訂用帳戶將不再顯示管理事件的警示。 其他類型的 Azure 警示，包括 Azure 監視器計量警示、Application Insights 警示，以及不受此變更影響的 Log Analytics 警示。 如果您有任何問題，請張貼於下列的註解中。
+您先前建立之管理事件的警示，將不會自動移轉至活動記錄警示。 您需要使用上述 PowerShell 指令碼，列出您目前已設定之管理事件的警示，並以手動方式將其重新建立為活動記錄警示。 這必須在 10 月 1 日之前完成，之後您的 Azure 訂用帳戶將不再顯示管理事件的警示。 其他類型的 Azure 警示，包括 Azure 監視器計量警示、 Application Insights 警示和記錄搜尋警示不會受到這項變更。 如果您有任何問題，請張貼於下列的註解中。
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/22/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d99c6b419ee201be50e74849cd95a332845f5b73
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 483f9092d29fc40937ed9d54510269af2af30872
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58623164"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008641"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>在 Azure 自動化中排程 Runbook
 
@@ -156,6 +156,9 @@ Register-AzureRmAutomationScheduledRunbook –AutomationAccountName $automationA
 1. 在 Azure 入口網站中，從您的自動化帳戶選取左側 [共用資源] 區段底下的 [排程]。
 2. 按一下排程的名稱以開啟詳細資料窗格。
 3. 將 [已啟用] 變更為 [否]。
+
+> [!NOTE]
+> 如果您想要停用排程的開始時間在過去，您必須變更開始日期之前將它儲存在未來的時間。
 
 ### <a name="to-disable-a-schedule-with-powershell"></a>若要停用的排程使用 PowerShell
 

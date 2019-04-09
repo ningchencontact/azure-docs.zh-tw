@@ -13,21 +13,42 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/01/2019
+ms.date: 04/02/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b186aa2692033a774d1d8f294315fcc0f5e874d5
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 8240308b3e0955b1d4d3ef2e82cad215daf95b00
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58763134"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009363"
 ---
-# <a name="azure-hana-large-instances-control-through-azure-portal"></a>Azure HANA 大型執行個體控制，透過 Azure 入口網站
+# <a name="azure-hana-large-instances-control-through-azure-portal"></a>透過 Azure 入口網站控制 Azure HANA Large Instances
 本文件涵蓋如何[HANA 大型執行個體](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)按照[Azure 入口網站](https://portal.azure.com)和透過 Azure 入口網站會為您部署的 HANA 大型執行個體單位，可以執行哪些活動。 在 Azure 入口網站中 HANA 大型執行個體的可見性是透過 Azure 資源提供者提供的 HANA 大型執行個體，其中目前處於公開預覽狀態
 
+## <a name="register-hana-large-instance-resource-provider"></a>註冊 HANA 大型執行個體的資源提供者
+通常您使用 HANA 大型執行個體部署您 Azure 訂用帳戶註冊的 HANA 大型執行個體資源提供者。 不過，如果您無法看到您已部署的 HANA 大型執行個體單位，您就應該在您的 Azure 訂用帳戶註冊資源提供者。 有兩種方式註冊的 HANA 大型執行個體 」 資源提供者
+
+### <a name="register-through-cli-interface"></a>透過 CLI 介面註冊
+您必須登入您的 Azure 訂閱，用於 HANA 大型執行個體部署，透過 Azure CLI 介面。 您可以 （re） 註冊此命令使用 HANA 大型執行個體提供者：
+    
+    az provider register --namespace Microsoft.HanaOnAzure
+
+如需詳細資訊，請參閱文章[Azure 資源提供者和類型](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-cli)
+
+
+### <a name="register-through-azure-portal"></a>透過 Azure 入口網站註冊
+您可以 （re） 註冊 HANA 大型執行個體資源提供者透過 Azure 入口網站。 您要列出您在 Azure 入口網站中的訂用帳戶和訂用帳戶，用來部署您的 HANA 大型執行個體單位上按兩下。 其中一個您會在您的訂用帳戶中，[概觀] 頁面中選取 「 資源提供者 」，如下所示，[搜尋] 視窗中輸入 「 HANA"。 
+
+![透過 Azure 入口網站註冊 HLI RP](./media/hana-li-portal/portal-register-hli-rp.png)
+
+下列螢幕擷取畫面所示，資源提供者已經註冊。 如果尚未註冊資源提供者，請按 [re-register] 或 [註冊]。
+
+如需詳細資訊，請參閱文章[Azure 資源提供者和類型](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#azure-powershell)
+
+
 ## <a name="display-of-hana-large-instance-units-in-the-azure-portal"></a>在 Azure 入口網站中的 HANA 大型執行個體單位的顯示
-提交的 HANA 大型執行個體部署要求，系統會要求您指定您要連接到 「 HANA 大型執行個體以及 Azure 訂用帳戶。 建議使用相同的訂用帳戶用來部署適用於 HANA 大型執行個體單位的 SAP 應用程式層。
+提交的 HANA 大型執行個體部署要求，系統會要求您指定您要連接到 「 HANA 大型執行個體以及 Azure 訂用帳戶。 建議，使用相同的訂用帳戶用來部署適用於 HANA 大型執行個體單位的 SAP 應用程式層。
 為您的第一個 HANA 大型執行個體部署，新[Azure 資源群組](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal)會在您提交部署要求針對 HANA 大型執行個體中的 Azure 訂用帳戶中建立。  新的資源群組會列出所有您特定的訂用帳戶中，您已部署的 HANA 大型執行個體單位。
 
 若要尋找新的 Azure 資源群組，您列出的資源群組中的訂用帳戶透過瀏覽 Azure 入口網站的左側的導覽窗格
@@ -46,6 +67,8 @@ ms.locfileid: "58763134"
 
 列出的所有單元都代表已部署您的訂用帳戶中的單一 HANA 大型執行個體單位。 在此情況下，您看看八個不同 HANA 大型執行個體單位，您的訂用帳戶中部署。
 
+如果您部署在相同的 Azure 訂用帳戶下的多個 HANA 大型執行個體租用戶，您會發現多個 Azure 資源群組 
+
 
 ## <a name="look-at-attributes-of-single-hli-unit"></a>看看單一 HLI 單位的屬性
 在清單中的 HANA 大型執行個體單位，您可以按一下單一單位，並取得單一 HANA 大型執行個體單位的詳細資料。 
@@ -54,10 +77,10 @@ ms.locfileid: "58763134"
 
 ![顯示 HLI 單位的概觀](./media/hana-li-portal/portal-show-overview.png)
 
-看看顯示的不同屬性，這些屬性看起來不太不同於 Azure VM 屬性。 在左手邊標頭，它會顯示資源群組、 Azure 區域、 訂用帳戶名稱和識別碼，以及您新增一些標記。 根據預設，HANA 大型執行個體單位會有任何指派的標記。 在標頭的右手邊，部署已完成時所指派，會列出單位的名稱。 作業系統會顯示以及 IP 位址。 為 HANA 大型執行個體單位類型的 CPU 數目的 Vm 使用執行緒和記憶體也會顯示。 在不同的 HANA 大型執行個體單位上的更多詳細資料如下所示：
+看看顯示的不同屬性，這些屬性看起來不太不同於 Azure VM 屬性。 在左手邊的標頭，它會顯示資源群組、 Azure 區域、 訂用帳戶名稱和識別碼，以及您新增一些標記。 根據預設，HANA 大型執行個體單位會有任何指派的標記。 標頭的右手邊，部署已完成時所指派，會列出單位的名稱。 作業系統會顯示以及 IP 位址。 為 HANA 大型執行個體單位類型的 CPU 數目的 Vm 使用執行緒和記憶體也會顯示。 在不同的 HANA 大型執行個體單位上的更多詳細資料如下所示：
 
-- [適用於 HLI 的可用 SKU](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus)
-- [SAP HANA （大型執行個體） 儲存體架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
+- [HLI 可用的 SKU](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus)
+- [SAP HANA (大型執行個體) 儲存體架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
 
 右側的資料行的標頭中的其他欄位會告知的 HANA 大型執行個體單位的電源狀態。
 
@@ -86,7 +109,7 @@ ms.locfileid: "58763134"
 
 ![上半部的 Azure 入口網站中的 HLI 屬性](./media/hana-li-portal/portal-properties-top.png)
 
-前幾個資料項目，您看到 [概觀] 畫面中已經。 但重要的一部分資料是 ExpressRoute 線路識別碼，得到了交由第一個部署的單位。 在某些支援情況下，可能會取得要求您提供該資料。 重要資料的項目會顯示在螢幕擷取畫面的底部。 顯示的資料是的 IP 位址的 NFS 儲存體標頭，隔離儲存體，以您**租用戶**HANA 大型執行個體堆疊中。 當您編輯時，也需要此 IP 位址[組態檔的儲存體快照集備份](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore#set-up-storage-snapshots)。 
+前幾個資料項目，您看到 [概觀] 畫面中已經。 但是，資料的重要部分是 ExpressRoute 線路識別碼，所得到的第一個部署的單位已移交時。 在某些支援情況下，可能會取得要求您提供該資料。 重要資料的項目會顯示在螢幕擷取畫面的底部。 顯示的資料是的 IP 位址的 NFS 儲存體標頭，隔離儲存體，以您**租用戶**HANA 大型執行個體堆疊中。 當您編輯時，也需要此 IP 位址[組態檔的儲存體快照集備份](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-backup-restore#set-up-storage-snapshots)。 
 
 當您向下捲動 [屬性] 窗格中，您會取得額外資料，例如您的 HANA 大型執行個體單位的唯一資源識別碼或已指派給部署的訂用帳戶識別碼。
 
@@ -99,6 +122,9 @@ ms.locfileid: "58763134"
 
 > [!NOTE]
 > 重新啟動處理序中，將會經歷小時間單位的狀態會變為**起始**移動的狀態**Started**。 處於的狀態**已啟動**表示正在啟動作業系統，或作業系統，已完全啟動。 如此一來，單位的重新啟動之後, 您不能預期能夠立即登入的單位，狀態會切換成**已啟動**。
+
+> [!IMPORTANT]
+> 根據您的 HANA 大型執行個體單位中的記憶體數量，重新啟動和重新開機的硬體和作業系統可能需要最多一小時
 
 
 ## <a name="open-a-support-request-for-hana-large-instances"></a>HANA 大型執行個體中開啟支援要求
@@ -115,7 +141,7 @@ ms.locfileid: "58763134"
 
 ![在 Azure 入口網站中選取問題類別](./media/hana-li-portal/portal-select-problem-class.png)
 
-在每個不同的問題類型，您可以選取的問題子類型，您需要選取描述您在進一步的問題。 選取子類型之後, 現在您可以命名主體。 一旦您完成選取程序時，您可以移至下一個步驟建立。 在 [**解決方案**] 區段中，您是指 HANA 大型執行個體周圍的文件，這可能會讓指標的解決方案的問題。 如果您的問題，建議的文件中找不到方案，您會移至下一個步驟。 在下一個步驟中，您要的問題 Vm 還是與 HANA 大型執行個體單位的要求。 這有助於將支援要求導向到正確的專家。 
+在每個不同的問題類型，您可以選取的問題子類型，您需要選取描述您在進一步的問題。 選取子類型之後, 現在您可以命名主體。 一旦您完成選取程序時，您可以移至下一個步驟建立。 在 [**解決方案**] 區段中，您是指 HANA 大型執行個體周圍的文件，這可能會讓指標的解決方案的問題。 如果您的問題，建議的文件中找不到方案，您會移至下一個步驟。 在下一個步驟中，您要的問題 Vm 還是與 HANA 大型執行個體單位的要求。 這項資訊可協助支援要求導向至正確的專家。 
 
 ![在 Azure 入口網站中的支援案例的詳細資料](./media/hana-li-portal/portal-support-request-details.png)
 
@@ -123,6 +149,6 @@ ms.locfileid: "58763134"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [如何監視 Azure 上的 SAP HANA （大型執行個體）](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
+- [如何監視 Azure 上的 SAP HANA (大型執行個體)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
 - [從 HANA 端進行監視和疑難排解](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-monitor-troubleshoot)
 

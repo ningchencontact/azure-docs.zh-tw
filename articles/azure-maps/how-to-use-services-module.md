@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: e614758a91cb3ff02822eeeeb8ae7e80d2123e5d
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 3aa39568904cb0acc9b5b76ff7e07729bf99d6b1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578725"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278593"
 ---
 # <a name="using-the-azure-maps-services-module"></a>使用 Azure Maps 服務模組
 
@@ -27,7 +27,7 @@ Azure 地圖服務 Web SDK 提供的協助程式庫，可讓您更容易使用�
     a. 使用全域 CDN 的裝載的版本 Azure Maps 服務模組新增的指令碼參考<head>檔案項目：
     
     ```html
-    <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
     ```
     
     b. 或者，載入在本機使用的 Azure 對應 Web SDK 原始程式碼[azure 地圖服務 rest](https://www.npmjs.com/package/azure-maps-rest) NPM 封裝，並裝載您的應用程式。 此套件也包含 TypeScript 定義。

@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: a4d1a54e94b3228c64352bf08cd8cc69820a5e2d
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 3225ae919e221935b6d8a52e20d943d2178f6a47
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500044"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056841"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>將符號圖層新增至地圖
 
-本文會說明如何將資料來源中的點資料轉譯為地圖上的符號圖層。 符號圖層會使用 WebGL 來呈現且支援比 HTML 標記更多的資料點，但不支援傳統 CSS 與 HTML 樣式元素。  
+本文會說明如何將資料來源中的點資料轉譯為地圖上的符號圖層。 符號的圖層會使用 WebGL 呈現和支援更大組點比 HTML 標記，但不支援傳統的 CSS 與 HTML 項目樣式。  
 
 > [!TIP]
-> 根據預設，符號圖層會轉譯資料來源中所有幾何圖形的座標。 若要限制圖層，使其只轉譯點幾何特徵，請將圖層的 `filter` 屬性設為 `['==', '$type', 'Point']`
+> 根據預設，符號圖層會轉譯資料來源中所有幾何圖形的座標。 若要限制圖層，使它只會呈現點幾何功能組`filter`的圖層屬性`['==', ['geometry-type'], 'Point']`或`['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]`如果您想要包含 MultiPoint 的功能。
 
 ## <a name="add-a-symbol-layer"></a>新增符號圖層
 
@@ -34,14 +34,14 @@ ms.locfileid: "58500044"
 
 第三個程式碼區塊會建立[事件接聽程式](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)，並使用 shape 類別的 [setCoordinates](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) 方法，透過滑鼠點選來更新點的座標。
 
-[符號層](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)會使用文字或圖示，將包裝在 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 中的點式資料轉譯為地圖上的符號。  資料來源 (點選事件接聽程式) 及符號圖層會在[事件接聽程式](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)函式內建立並新增至地圖，以確保點會在地圖完全載入後顯示。
+[符號層](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)會使用文字或圖示，將包裝在 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 中的點式資料轉譯為地圖上的符號。  建立並加入至地圖中的資料來源，按一下事件接聽程式及符號層`ready`[事件接聽程式](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)函式，以確保點會顯示在地圖載入並準備好存取之後。
 
 > [!TIP]
 > 根據預設，效能，符號層最佳化符號的呈現隱藏重疊的符號。 當您放大隱藏符號就可以看見。 若要停用此功能，並隨時呈現所有符號，設定`allowOverlap`的屬性`iconOptions`選項，以`true`。
 
 ## <a name="add-a-custom-icon-to-a-symbol-layer"></a>將自訂圖示新增至符號圖層
 
-使用 WebGL 來呈現符號圖層。 所有這類資源 (例如圖示影像) 必須載入 WebGL 內容中。 此範例示範如何將自訂符號圖示新增至地圖資源，然後使用自訂符號在地圖上呈現點資料。 符號圖層的 `textField` 屬性需要指定運算式。 在此情況下，我們想要呈現的文字值 「 點 」 功能的 [溫度] 屬性。 這可透過此運算式達成：`['get', 'temperature']`。 
+使用 WebGL 來呈現符號圖層。 所有這類資源 (例如圖示影像) 必須載入 WebGL 內容中。 此範例示範如何將自訂圖示新增至對應的資源，然後用它來呈現使用自訂的符號，在地圖上的點資料。 符號圖層的 `textField` 屬性需要指定運算式。 在此案例中，我們想要呈現 temperature 屬性，但因為它是數字，所以需要轉換成字串。 此外，我們想要附加到其中的"° F"。 運算式可以用來執行此動作;`['concat', ['to-string', ['get', 'temperature']], '°F']`. 
 
 <br/>
 
@@ -85,4 +85,4 @@ ms.locfileid: "58500044"
 > [新增泡泡圖層](./map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
-> [新增 HTML 標記](./map-add-bubble-layer.md)
+> [新增 HTML 製作者](./map-add-bubble-layer.md)

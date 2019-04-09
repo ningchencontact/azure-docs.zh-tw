@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 監視器來建立、檢視及管理記錄警示
+title: 建立、 檢視及管理使用 Azure 監視器的記錄警示 |Microsoft Docs
 description: 使用 Azure 監視器來撰寫、檢視及管理 Azure 中的記錄警示規則。
 author: msvijayn
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: f26c8e670855513995463ffaaf7e49a8e00e35fa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d3285a6b2aa09dd78bbb63c384bd1f65c17034ff
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57873786"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006946"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>使用 Azure 監視器來建立、檢視及管理記錄警示
 
@@ -23,10 +23,10 @@ ms.locfileid: "57873786"
 - 準則：訊號中所示且會觸發動作的特定條件或邏輯
 - 動作：傳送至通知 (電子郵件、SMS、Webhook 等) 接收者的特定呼叫。
 
-使用**記錄警示**一詞來描述符合下列條件的警示：其訊號是以 [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) 或 [Application Insights](../../azure-monitor/app/analytics.md) 為基礎的自訂查詢。 閱讀[記錄警示 - 概觀](../../azure-monitor/platform/alerts-unified-log.md)以深入了解其功能、術語和類型。
+詞彙**記錄警示**來描述其訊號是記錄檔查詢中的警示[Log Analytics 工作區](../learn/tutorial-viewdata.md)或是[Application Insights](../app/analytics.md)。 閱讀[記錄警示 - 概觀](alerts-unified-log.md)以深入了解其功能、術語和類型。
 
 > [!NOTE]
-> [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) 中常用的記錄資料現在也會在 Azure 監視器的計量平台上提供。 如需詳細資料檢視，請參閱[記錄的計量警示](../../azure-monitor/platform/alerts-metric-logs.md)
+> 從的常用記錄資料[Log Analytics 工作區](../../azure-monitor/learn/tutorial-viewdata.md)現在也會提供在 Azure 監視器計量平台上。 如需詳細資料檢視，請參閱[記錄的計量警示](alerts-metric-logs.md)
 
 ## <a name="managing-log-alerts-from-the-azure-portal"></a>從 Azure 入口網站管理記錄警示
 
@@ -58,7 +58,7 @@ ms.locfileid: "57873786"
 
    > [!NOTE]
    > 
-   > [警示] 清單可匯入分析查詢作為訊號類型 - [記錄 (已儲存的查詢)]，如上圖所示。 因此使用者可在 Analytics 中完成理想的查詢後，將其儲存以供日後在警示中使用 - 如需使用儲存查詢的詳細資料，請參閱[在記錄分析中使用記錄搜尋](../../azure-monitor/log-query/log-query-overview.md)或[在 Application Insights 分析中的共用的查詢](../../azure-monitor/log-query/log-query-overview.md)。
+   > [警示] 清單可匯入分析查詢作為訊號類型 - [記錄 (已儲存的查詢)]，如上圖所示。 讓使用者可以完成理想的查詢在 Analytics 中的，然後將它們儲存供日後使用，在警示中-更多詳細資料上使用儲存在查詢[使用 Azure 監視器中的記錄檔查詢](../log-query/log-query-overview.md)或[application insights 分析中的共用的查詢](../log-query/log-query-overview.md).
 
 1. *記錄警示*：選取後，即可在 [搜尋查詢] 欄位中指定警示的查詢；如果查詢語法不正確，欄位會以紅色顯示錯誤。 如果查詢語法正確 - 指定查詢的記錄資料會顯示為圖形以供參考，以及顯示調整時間範圍的選項 (從過去六小時到過去一週)。
 
@@ -119,19 +119,19 @@ ms.locfileid: "57873786"
     > 記錄警示規則由使用者提供的自訂查詢邏輯所組成，因此沒有已解決的狀態。 所以只要符合記錄警示規則中所指定的條件時，就會引發它。
 
 1. 在頂端的工具列上選取 [管理規則]，即可瀏覽到規則管理區段 - 其中會列出所有已建立的警示規則 (包括已停用的警示)。
-    ![管理警示規則](media/alerts-log/manage-alert-rules.png)
+    ![ 管理警示規則](media/alerts-log/manage-alert-rules.png)
 
 ## <a name="managing-log-alerts-using-azure-resource-template"></a>使用 Azure 資源範本管理記錄警示
 
 「Azure 監視器」中的記錄警示與資源類型 `Microsoft.Insights/scheduledQueryRules/`相關聯。 如需有關此資源類型的詳細資訊，請參閱 [Azure 監視器 - 排程的查詢規則 API 參考](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)。 建立 Application Insights 或 Log Analytics 的記錄警示時，可以使用[排程的查詢規則 API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) 來建立。
 
 > [!NOTE]
-> 管理 Log Analytics 的記錄警示時，也可以使用舊版 [Log Analytics Alert API](../../azure-monitor/platform/api-alerts.md) 及舊版 [Log Analytics 儲存的搜尋和警示](../../azure-monitor/insights/solutions-resources-searches-alerts.md)範本來管理。 如需有關預設使用這裡詳述之新 ScheduledQueryRules API 的詳細資訊，請參閱[切換至 Log Analytics 警示的新 API](alerts-log-api-switch.md)。
+> 管理 Log Analytics 的記錄警示時，也可以使用舊版 [Log Analytics Alert API](api-alerts.md) 及舊版 [Log Analytics 儲存的搜尋和警示](../insights/solutions-resources-searches-alerts.md)範本來管理。 如需有關預設使用這裡詳述之新 ScheduledQueryRules API 的詳細資訊，請參閱[切換至 Log Analytics 警示的新 API](alerts-log-api-switch.md)。
 
 
 ### <a name="sample-log-alert-creation-using-azure-resource-template"></a>使用 Azure 資源範本建立範例記錄警示
 
-以下結構可用來根據資源範本使用[結果類型記錄警示數目](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules)的標準記錄搜尋查詢[建立排程的查詢規則](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate)，其中使用資料集範例作為變數。
+以下結構可用來根據資源範本使用[結果類型記錄警示數目](alerts-unified-log.md#number-of-results-alert-rules)的標準記錄搜尋查詢[建立排程的查詢規則](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate)，其中使用資料集範例作為變數。
 
 ```json
 {
@@ -316,7 +316,7 @@ Azure 監視器 - 排程的查詢規則 API](https://docs.microsoft.com/rest/api
 
 
 > [!NOTE]
-> 管理 Log Analytics 的記錄警示時，也可以使用舊版 [Log Analytics Alert API](../../azure-monitor/platform/api-alerts.md) 及舊版 [Log Analytics 儲存的搜尋和警示](../../azure-monitor/insights/solutions-resources-searches-alerts.md)範本來管理。 如需有關預設使用這裡詳述之新 ScheduledQueryRules API 的詳細資訊，請參閱[切換至 Log Analytics 警示的新 API](alerts-log-api-switch.md)。
+> 管理 Log Analytics 的記錄警示時，也可以使用舊版 [Log Analytics Alert API](api-alerts.md) 及舊版 [Log Analytics 儲存的搜尋和警示](../insights/solutions-resources-searches-alerts.md)範本來管理。 如需有關預設使用這裡詳述之新 ScheduledQueryRules API 的詳細資訊，請參閱[切換至 Log Analytics 警示的新 API](alerts-log-api-switch.md)。
 
 記錄警示目前不需要專用的 PowerShell 或 CLI 命令目前;但是，如下所示可透過 Azure Resource Manager PowerShell cmdlet 的範例資源範本稍早所示 (sampleScheduledQueryRule.json) 資源範本區段中：
 
@@ -335,4 +335,4 @@ On successful operation, 201 will be returned to state new alert rule creation o
 * Learn about [Log Alerts in Azure Alerts](../../azure-monitor/platform/alerts-unified-log.md)
 * Understand [Webhook actions for log alerts](../../azure-monitor/platform/alerts-log-webhook.md)
 * Learn more about [Application Insights](../../azure-monitor/app/analytics.md)
-* Learn more about [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+* Learn more about [log queries](../log-query/log-query-overview.md).

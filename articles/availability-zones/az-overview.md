@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/19/2019
+ms.date: 04/02/2019
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 3d4b0b143b41daca376aecc64cf734fadcc94faa
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 557757fc4d99fe57ad545e9d2eebcce61ddb3a8f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226567"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268716"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>什麼是 Azure 中的可用性區域？
 「可用性區域」是高可用性供應項目，可保護您的應用程式和資料不受資料中心故障影響。 「可用性區域」是 Azure 地區內獨特的實體位置。 每個區域皆由一或多個配備獨立電力、冷卻系統及網路的資料中心所組成。 若要確保復原能力，在所有已啟用的地區中都至少要有三個個別的區域。 地區內「可用性區域」的實體區隔可保護應用程式和資料不受資料中心故障影響。 區域備援服務會將應用程式和資料複寫至所有「可用性區域」，以防出現單一失敗點。 使用「可用性區域」時，Azure 可提供業界最佳的 99.99% VM 執行時間 SLA。 完整 [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) 說明保證的 Azure 整體可用性。
@@ -45,6 +45,7 @@ Azure 區域中的可用性區域是由容錯網域和更新網域組成。 例�
 - 法國中部
 - 北歐
 - 東南亞 
+- 英國南部&#42;
 - 西歐
 - 美國西部 2
 
@@ -57,8 +58,8 @@ Azure 區域中的可用性區域是由容錯網域和更新網域組成。 例�
 - Windows 虛擬機器
 - 虛擬機器擴展集
 - 受控磁碟
-- 負載平衡器
-- 公用 IP 位址
+- 標準 Load Balancer&#42;
+- 標準公用 IP 位址&#42;
 - 區域備援儲存體
 - SQL Database
 - 事件中樞
@@ -66,6 +67,8 @@ Azure 區域中的可用性區域是由容錯網域和更新網域組成。 例�
 - VPN 閘道
 - ExpressRoute
 - 應用程式閘道 (預覽)
+
+&#42;2019 年 3 月 25 日之前建立於英國南部運作的資源將會很快就將其轉換為區域備援。 立即在 2019 年 3 月 25 日之後建立的資源都將區域備援。
 
 ## <a name="services-resiliency"></a>服務復原
 所有的 Azure 管理服務架構的目的，是為了可從從區域層級的失敗中復原。 失敗的範圍，在區域內的一或多個可用性區域失敗會有較小的失敗 radius，相較於整個區域失敗。 Azure 可以復原區域中的管理服務的區域層級失敗，或從另一個 Azure 區域。 Azure 會在區域中，以避免影響客戶資源部署在可用性區域的區域內的任何失敗一次執行重要的維護一個區域。
@@ -76,14 +79,14 @@ Azure 區域中的可用性區域是由容錯網域和更新網域組成。 例�
 
 ## <a name="get-started-with-availability-zones"></a>開始使用可用性區域
 - [建立虛擬機器](../virtual-machines/windows/create-portal-availability-zone.md)
-- [使用 PowerShell 來新增受控磁碟](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
+- [新增受控磁碟，使用 PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 - [建立區域備援虛擬機器擴展集](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
-- [使用具有區域備援前端的標準 Load Balancer 來進行跨區域的 VM 負載平衡](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
-- [使用具有區域前端的標準 Load Balancer 來進行區域內的 VM 負載平衡](../load-balancer/load-balancer-standard-public-zonal-cli.md)
+- [使用具有區域備援前端的標準 Load Balancer 的區域之間的負載平衡 Vm](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
+- [使用具有區域前端的標準 Load Balancer 區域內的負載平衡 Vm](../load-balancer/load-balancer-standard-public-zonal-cli.md)
 - [區域備援儲存體](../storage/common/storage-redundancy-zrs.md)
 - [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
-- [事件中樞地理災害復原](../event-hubs/event-hubs-geo-dr.md#availability-zones)
-- [服務匯流排地理災害復原](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
+- [事件中樞異地災害復原](../event-hubs/event-hubs-geo-dr.md#availability-zones)
+- [服務匯流排異地災害復原](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [建立區域備援虛擬網路閘道](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 
 

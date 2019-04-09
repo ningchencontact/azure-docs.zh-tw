@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 08/24/2017
-ms.author: robin.shahan
-ms.openlocfilehash: 8a59f2ad7d3af09f776aa22b96ddf58403da28e2
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.date: 04/03/2019
+ms.author: robinsh
+ms.openlocfilehash: d16f57db6a3c39be34c13663db62d7be50749f57
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010883"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010510"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>使用 IoT 中樞將訊息從雲端傳送至裝置 (.NET)
 
@@ -36,7 +36,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 
 您可以在[使用 IoT 中樞的 D2C 和 C2D 傳訊](iot-hub-devguide-messaging.md)中，找到有關雲端到裝置訊息的詳細資訊。
 
-在本教學課程結尾處，您會執行兩個 .NET 主控台應用程式：
+在本教學課程結束時，您可以執行兩個.NET 主控台應用程式。
 
 * **SimulatedDevice** 是在[將遙測資料從裝置傳送到 IoT 中樞...](quickstart-send-telemetry-dotnet.md)中建立的應用程式修改版本，可連線到您的 IoT 中樞，並接收雲端到裝置的訊息。
 
@@ -58,13 +58,13 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 
 1. 在 Visual Studio 的 **SimulatedDevice** 專案中，將下列方法新增 [程式] 類別。
 
-   ```csharp   
+   ```csharp
     private static async void ReceiveC2dAsync()
     {
         Console.WriteLine("\nReceiving cloud to device messages from service");
         while (true)
         {
-            Message receivedMessage = await deviceClient.ReceiveAsync();
+            Message receivedMessage = await s_deviceClient.ReceiveAsync();
             if (receivedMessage == null) continue;
 
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -72,74 +72,91 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
             Encoding.ASCII.GetString(receivedMessage.GetBytes()));
             Console.ResetColor();
 
-            await deviceClient.CompleteAsync(receivedMessage);
+            await s_deviceClient.CompleteAsync(receivedMessage);
         }
     }
    ```
 
    `ReceiveAsync` 方法會以非同步方式，在裝置收到訊息時，傳回收到的訊息。 它會在可指定的逾時期間過後傳回「null」  (在本例中，使用的是預設值 1 分鐘)。 當應用程式收到 *null* 時，應繼續等待新訊息。 此要求是使用 `if (receivedMessage == null) continue` 行的原因。
-   
+
     对 `CompleteAsync()` 的调用通知 IoT 中心，指出已成功处理消息。 可以安全地從裝置佇列中移除該訊息。 如果因故導致裝置應用程式無法完成訊息處理作業，「IoT 中樞」將會重新傳遞該訊息。 因此，裝置應用程式中的訊息處理邏輯必須是「等冪」，如此一來，多次接收相同的訊息才會產生相同的結果。 
-    
+
     應用程式也可以暫時放棄訊息，這會使得「IoT 中樞」將訊息保留在佇列中以供未來取用。 或者，應用程式可以拒絕訊息，這會將訊息從佇列中永久移除。 如需有關雲端到裝置訊息生命週期的詳細資訊，請參閱[使用 IoT 中樞的 D2C 和 C2D 傳訊](iot-hub-devguide-messaging.md)。
-   
+
    > [!NOTE]
    > 使用 HTTPS 而不使用 MQTT 或 AMQP 作為傳輸時，`ReceiveAsync` 方法會立即傳回。 使用 HTTPS 時，針對雲端到裝置訊息支援的模式是裝置以間歇方式連接而不常檢查訊息 (低於每 25 分鐘一次)。 發出更多 HTTPS 接收會導致「IoT 中樞」對要求進行節流。 如需有關 MQTT、AMQP 和 HTTPS 支援之間的差異，以及「IoT 中樞」節流的詳細資訊，請參閱[使用 IoT 中樞的 D2C 和 C2D 傳訊](iot-hub-devguide-messaging.md)。
-   > 
-   > 
+   >
+
 2. 將下列方法新增到 **Main** 方法中緊接在 `Console.ReadLine()` 行前面：
-   
-   ``` csharp   
+
+   ```csharp
    ReceiveC2dAsync();
    ```
 
-## <a name="send-a-cloud-to-device-message"></a>傳送雲端到裝置訊息
-在本節中，您會撰寫 .NET 主控台應用程式，將雲端到裝置訊息傳送至裝置應用程式。
+## <a name="get-the-iot-hub-connection-string"></a>取得 IoT 中樞連接字串
 
-1. 在目前的 Visual Studio 方案中，使用 [主控台應用程式] 專案範本來建立「Visual C# 傳統型應用程式」專案。 将项目命名为 **SendCloudToDevice**。
-   
+首先，從入口網站中擷取的 IoT 中樞連接字串。
+
+1. 登入[Azure 入口網站](https://portal.azure.com)，選取**資源群組**。
+
+2. 選取您要用於此操作說明的資源群組。
+
+3. 選取您所使用的 IoT 中樞。
+
+4. 在 [中樞] 窗格中選取**共用存取原則**。
+
+5. 選取 [iothubowner]。 它會在顯示的連接字串**iothubowner**面板。 選取複製圖示，如**連接字串-主索引鍵**。 儲存連接字串以供稍後使用。
+
+   ![取得 IoT 中樞連接字串](./media/iot-hub-csharp-csharp-c2d/get-iot-hub-connection-string.png)
+
+## <a name="send-a-cloud-to-device-message"></a>傳送雲端到裝置訊息
+
+現在，您會撰寫.NET 主控台應用程式，將雲端到裝置訊息傳送到裝置應用程式。
+
+1. 在目前的 Visual Studio 解決方案中，以滑鼠右鍵按一下方案，然後選取 新增 > 新的專案。 選取  **Windows 桌面**，然後**主控台應用程式 (.NET Framework)**。 將專案命名為**SendCloudToDevice**並選取.NET Framework 中，最新版本，然後選取**確定**建立專案。
+
    ![Visual Studio 中的新專案](./media/iot-hub-csharp-csharp-c2d/create-identity-csharp1.png)
 
-2. 在“解决方案资源管理器”中，右键单击该解决方案，并单击“为解决方案管理 NuGet 包...” 。 
-   
-    此動作會開啟 [管理 NuGet 套件] 視窗。
+2. 在“解决方案资源管理器”中，右键单击该解决方案，并单击“为解决方案管理 NuGet 包...” 。
 
-3. 搜尋 **Microsoft.Azure.Devices**，按一下 [安裝]，然後接受使用規定。 
-   
-    這會下載和安裝 [Azure IoT 服務 SDK NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.Devices/)，並新增其參考。
+   此動作會開啟 [管理 NuGet 套件] 視窗。
 
-4. 在 **Program.cs** 檔案開頭處新增下列 `using` 陳述式：
+3. 搜尋**Microsoft.Azure.Devices**，選取 [瀏覽] 索引標籤。當您找到封裝時，按一下**安裝**，並接受使用規定。
 
-   ``` csharp   
+   這會下載和安裝 [Azure IoT 服務 SDK NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.Devices/)，並新增其參考。
+
+4. 新增下列`using`陳述式，在頂端**Program.cs**檔案。
+
+   ``` csharp
    using Microsoft.Azure.Devices;
    ```
 
-5. 將下列欄位新增到 **Program** 類別。 使用來自[將遙測資料從裝置傳送到 IoT 中樞...](quickstart-send-telemetry-dotnet.md)的 IoT 中樞連接字串，取代預留位置值：
+5. 將下列欄位新增到 **Program** 類別。 替代成您先前儲存在本節中的 IoT 中樞連接字串預留位置的值。 
 
    ``` csharp
    static ServiceClient serviceClient;
    static string connectionString = "{iot hub connection string}";
    ```
 
-6. 將下列方法加入至 **Program** 類別：
-   
+6. 將下列方法新增至 **Program** 類別。 裝置名稱設為所使用定義中的裝置時[將遙測從裝置傳送到 IoT 中樞...](quickstart-send-telemetry-dotnet.md).
+
    ``` csharp
    private async static Task SendCloudToDeviceMessageAsync()
    {
-        var commandMessage = new 
+        var commandMessage = new
          Message(Encoding.ASCII.GetBytes("Cloud to device message."));
-        await serviceClient.SendAsync("myFirstDevice", commandMessage);
+        await serviceClient.SendAsync("myDevice", commandMessage);
    }
    ```
 
    這個方法會將新的雲端到裝置訊息傳送給識別碼為 `myFirstDevice`的裝置。 只有在您修改了在[將遙測資料從裝置傳送到 IoT 中樞...](quickstart-send-telemetry-dotnet.md)中使用的參數時，才要變更此參數。
 
-7. 最後，將下列幾行新增至 **Main** 方法：
+7. 最後，將下列幾行新增到 **Main** 方法中。
 
    ``` csharp
    Console.WriteLine("Send Cloud-to-Device message\n");
    serviceClient = ServiceClient.CreateFromConnectionString(connectionString);
-   
+
    Console.WriteLine("Press any key to send a C2D message.");
    Console.ReadLine();
    SendCloudToDeviceMessageAsync().Wait();
@@ -149,7 +166,7 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 8. 從 Visual Studio 中，在您的方案上按一下滑鼠右鍵，然後選取 [設定啟始專案...]。選取 [多個啟始專案]，然後同時針對 **ReadDeviceToCloudMessages**、**SimulatedDevice** 以及 **SendCloudToDevice** 選取 [啟動] 動作。
 
 9. 按 **F5**。 三個應用程式應該全部都會啟動。 选择“**SendCloudToDevice**”窗口并按 **Enter**。 您應該會看到裝置應用程式正在接收訊息。
-   
+
    ![正在接收訊息的應用程式](./media/iot-hub-csharp-csharp-c2d/sendc2d1.png)
 
 ## <a name="receive-delivery-feedback"></a>接收傳遞意見反應
@@ -164,18 +181,18 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
    private async static void ReceiveFeedbackAsync()
    {
         var feedbackReceiver = serviceClient.GetFeedbackReceiver();
-   
+
         Console.WriteLine("\nReceiving c2d feedback from service");
         while (true)
         {
             var feedbackBatch = await feedbackReceiver.ReceiveAsync();
             if (feedbackBatch == null) continue;
-   
+
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Received feedback: {0}", 
+            Console.WriteLine("Received feedback: {0}",
               string.Join(", ", feedbackBatch.Records.Select(f => f.StatusCode)));
             Console.ResetColor();
-   
+
             await feedbackReceiver.CompleteAsync(feedbackBatch);
         }
     }
@@ -183,29 +200,29 @@ Azure IoT 中樞是一項完全受控的服務，有助於讓數百萬個裝置�
 
     請注意，此接收模式與用來從裝置應用程式接收雲端到裝置訊息的模式相同。
 
-2. 緊接在 `serviceClient = ServiceClient.CreateFromConnectionString(connectionString)` 行後面，將下列方法新增到 **Main** 方法中：
-   
+2. 新增下列方法中的**Main**方法，立即`serviceClient = ServiceClient.CreateFromConnectionString(connectionString)`列。
+
    ``` csharp
    ReceiveFeedbackAsync();
    ```
 
-3. 為了要求雲端到裝置訊息傳遞狀況的意見反應，您必須在 **SendCloudToDeviceMessageAsync** 方法中指定屬性。 將以下行加入 `var commandMessage = new Message(...);` 行之後：
-   
+3. 為了要求雲端到裝置訊息傳遞狀況的意見反應，您必須在 **SendCloudToDeviceMessageAsync** 方法中指定屬性。 後面加入下列這一行，`var commandMessage = new Message(...);`列。
+
    ``` csharp
    commandMessage.Ack = DeliveryAcknowledgement.Full;
    ```
 
 4. 按 **F5**來執行應用程式。 您應該會看到三個應用程式全部都啟動。 選取 [SendCloudToDevice] 視窗，然後按 **Enter**。 您應該會看到裝置應用程式正在接收訊息，而幾秒之後，則會看到您的 **SendCloudToDevice** 應用程式正在接收意見反應訊息。
-   
+
    ![正在接收訊息的應用程式](./media/iot-hub-csharp-csharp-c2d/sendc2d2.png)
 
 > [!NOTE]
 > 為了簡單起見，本教學課程不會實作任何重試原則。 在生產環境程式碼中，您應該如[暫時性錯誤處理](/azure/architecture/best-practices/transient-faults)文章所建議，實作重試原則 (例如指數型輪詢)。
-> 
+>
 
 ## <a name="next-steps"></a>後續步驟
 
-在本操作說明中，您已了解如何傳送和接收雲端到裝置的訊息。 
+在本操作說明中，您已了解如何傳送和接收雲端到裝置的訊息。
 
 若要查看使用 IoT 中樞的完整端對端解決方案範例，請參閱 [Azure IoT 遠端監視解決方案加速器](https://docs.microsoft.com/azure/iot-suite/)。
 

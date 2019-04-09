@@ -5,22 +5,22 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: bd46e5f7428bab58508521b2c7d4d7cca25d689b
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 2af9df4771d58f2288820dad8ef8d7ac84deb8ae
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439068"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258465"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>使用 PowerShell 建立主機集區
 
-主應用程式集區是一或多個相同的虛擬機器在 Windows 虛擬桌面預覽租用戶環境中的集合。 每個主應用程式集區可以包含實體的桌上型電腦上，使用者可以與互動的應用程式群組。
+主機集區是 Windows 虛擬桌面預覽版租用戶環境中一或多個相同虛擬機器的集合。 每個主機集區都可以包含一個應用程式群組，而使用者可如同在實體桌面上與其互動。
 
 ## <a name="use-your-powershell-client-to-create-a-host-pool"></a>使用您的 PowerShell 用戶端建立主應用程式集區
 
-首先，[下載並匯入的 Windows 虛擬桌面的 PowerShell 模組](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)來使用您的 PowerShell 工作階段中，如果您還沒有這麼做。
+首先，[下載並匯入 Windows 虛擬桌面的 PowerShell 模組](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)，以在您的 PowerShell 工作階段中使用 (如果您還沒這麼做的話)。
 
 執行下列 cmdlet 來登入 Windows 虛擬桌面環境
 
@@ -112,9 +112,12 @@ $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hos
      - 選取 **檔案**，然後**開啟...**，然後尋找 PowerShell 指令碼從下載的檔案，並開啟它。
      - 選取綠色的播放按鈕，以執行指令碼。
 
+>[!IMPORTANT]
+>若要協助保護您的 Windows 虛擬桌面環境，在 Azure 中，我們建議您不要在您的 Vm 上開啟輸入連接埠 3389。 Windows 虛擬桌面並不需要開啟輸入連接埠 3389，讓使用者存取主應用程式集區的 Vm。 如果您必須開啟連接埠 3389 以進行疑難排解，我們建議您使用[在 just-in-time VM 存取](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time)。
+
 ## <a name="next-steps"></a>後續步驟
 
-既然您已擬定主應用程式集區，您可以將它填入 Remoteapp。 若要深入了解如何管理 Windows 虛擬桌面中的應用程式，請參閱管理應用程式群組教學課程。
+既然您已擬定主應用程式集區，您可以將它填入 Remoteapp。 若要深入了解如何管理 Windows 虛擬桌面中的應用程式，請參閱「管理應用程式群組」教學課程。
 
 > [!div class="nextstepaction"]
 > [管理應用程式群組教學課程](./manage-app-groups.md)

@@ -12,16 +12,16 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 02/27/2019
+ms.date: 03/28/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 6d18adfaec965d858bdcb1f74ebcea89f57eea39
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 437009079c1bebe3694aaa26f945bd726b3c9fb9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878021"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59010562"
 ---
-# <a name="saas-fulfillment-api"></a>SaaS 履行 API
+# <a name="saas-fulfillment-apis-version-2"></a>SaaS 履行 Api 第 2 版 
 
 本文詳細說明 API，可讓獨立軟體廠商 (Isv) 整合 SaaS 應用程式使用 Azure Marketplace。 此 API 可讓 ISV 應用程式參與所有商務功能頻道： 直接存取，合作夥伴主導 （轉銷商） 及欄位 led。  此 API 是可交易的 SaaS 提供在 Azure Marketplace 上列出的需求。
 
@@ -73,14 +73,34 @@ Microsoft SaaS 服務會管理 SaaS 訂用帳戶購買的整個生命週期，�
 
 訂用帳戶連線到此狀態，以明確的客戶要求或回應給未支付會費的回應。 從 ISV 預期是客戶的資料時，保留復原 X 天的最少的要求，並再刪除。 
 
+
 ## <a name="api-reference"></a>API 參考資料
 
-本章節記載 SaaS*訂用帳戶 API*並*作業 API*。
+本章節記載 SaaS*訂用帳戶 API*並*作業 API*。  值`api-version`參數，針對第 2 版 Api 是`2018-08-31`。  
+
+
+### <a name="parameter-and-entity-definitions"></a>參數和實體的定義
+
+下表列出常見的參數和履行 Api 所使用的實體的定義。
+
+|     實體/參數     |     定義                         |
+|     ----------------     |     ----------                         |
+| `subscriptionId`         | SaaS 資源的 GUID 識別碼  |
+| `name`                   | 由客戶提供這項資源的易記名稱 |
+| `publisherId`            | 針對每一個發行者上，例如"conotosocorporation 」 自動產生的唯一字串識別項 |
+| `offerId`                | 針對每個供應項目，例如"contosooffer1 」 自動產生的唯一字串識別項  |
+| `planId`                 | 針對每個計劃/sku，例如"contosobasicplan 」 自動產生的唯一字串識別項 |
+| `operationId`            | 針對特定作業的 GUID 識別碼  |
+|  `action`                | 可能是正在執行的資源上的動作`subscribe`， `unsubscribe`， `suspend`， `reinstate`，或 `changePlan`  |
+|   |   |
+
+全域唯一識別碼 ([Guid](https://en.wikipedia.org/wiki/Universally_unique_identifier)) 是通常自動產生的 128 位元 （32 個十六進位） 數字。 
 
 
 ### <a name="subscription-api"></a>訂用帳戶 API
 
 訂用帳戶的 API 支援 HTTPS 執行下列作業：**取得**， **Post**， **Patch**，和**刪除**。
+
 
 #### <a name="list-subscriptions"></a>列出訂用帳戶
 
@@ -106,34 +126,37 @@ Microsoft SaaS 服務會管理 SaaS 訂用帳戶購買的整個生命週期，�
 *回應碼：*
 
 程式碼：200<br>
-根據驗證權杖取得 「 發行者 」 與對應的訂用帳戶的所有發行者的供應項目。<br> 回應裝載：<br>
+根據驗證權杖，取得 「 發行者 」 與對應的訂用帳戶的所有發行者的供應項目。<br> 回應裝載：<br>
 
 ```json
 {
-  "subscriptions": [
+  [
       {
-          "id": "",
-          "name": "CloudEndure for Production use",
-          "publisherId": "cloudendure",
-          "offerId": "ce-dr-tier2",
+          "id": "<guid>",
+          "name": "Contoso Cloud Solution",
+          "publisherId": "contoso",
+          "offerId": "cont-cld-tier2",
           "planId": "silver",
           "quantity": "10",
           "beneficiary": { // Tenant for which SaaS subscription is purchased.
-              "tenantId": "cc906b16-1991-4b6d-a5a4-34c66a5202d7"
+              "tenantId": "<guid>"
           },
           "purchaser": { // Tenant that purchased the SaaS subscription. These could be different for reseller scenario
-              "tenantId": "0396833b-87bf-4f31-b81c-c67f88973512"
+              "tenantId": "<guid>"
           },
           "allowedCustomerOperations": [
               "Read" // Possible Values: Read, Update, Delete.
           ], // Indicates operations allowed on the SaaS subscription. For CSP initiated purchases, this will always be Read.
           "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
-          "status": "Subscribed" // Indicates the status of the operation. [Provisioning, Subscribed, Suspended, Unsubscribed]
+          "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation. [Provisioning, Subscribed, Suspended, Unsubscribed]
       }
   ],
   "continuationToken": ""
 }
 ```
+
+接續權杖才會存在，如果有其他 「 頁面 」 的計劃，以擷取。 
+
 
 程式碼：403 <br>
 未經授權。 驗證權杖未提供，不正確，或要求嘗試存取不屬於目前使用者的併購。 
@@ -174,22 +197,22 @@ Microsoft SaaS 服務會管理 SaaS 訂用帳戶購買的整個生命週期，�
 *回應碼：*
 
 程式碼：200<br>
-從識別碼取得 saas 訂用帳戶<br> 回應裝載：<br>
+從識別碼取得 SaaS 訂用帳戶<br> 回應裝載：<br>
 
 ```json
 Response Body:
 { 
         "id":"",
-        "name":"CloudEndure for Production use",
-        "publisherId": "cloudendure",
-        "offerId": "ce-dr-tier2",
+        "name":"Contoso Cloud Solution",
+        "publisherId": "contoso",
+        "offerId": "cont-cld-tier2",
         "planId": "silver",
         "quantity": "10"",
           "beneficiary": { // Tenant for which SaaS subscription is purchased.
-              "tenantId": "cc906b16-1991-4b6d-a5a4-34c66a5202d7"
+              "tenantId": "<guid>"
           },
           "purchaser": { // Tenant that purchased the SaaS subscription. These could be different for reseller scenario
-              "tenantId": "0396833b-87bf-4f31-b81c-c67f88973512"
+              "tenantId": "<guid>"
           },
         "allowedCustomerOperations": ["Read"], // Indicates operations allowed on the SaaS subscription. For CSP initiated purchases, this will always be Read.
         "sessionMode": "None", // Dry Run indicates all transactions run as Test-Mode in the commerce stack
@@ -240,18 +263,16 @@ Response Body:
 程式碼：200<br>
 取得客戶一份可用的方案。<br>
 
+回應內文：
+
 ```json
-Response Body:
-[{
-    "planId": "silver",
-    "displayName": "Silver",
-    "isPrivate": false
-},
 {
-    "planId": "silver-private",
-    "displayName": "Silver-private",
-    "isPrivate": true
-}]
+    "plans": [{
+        "planId": "Platinum001",
+        "displayName": "Private platinum plan for Contoso",
+        "isPrivate": true
+    }]
+}
 ```
 
 程式碼：404<br>
@@ -301,12 +322,12 @@ SaaS 的訂用帳戶將解析的不透明的語彙基元。<br>
 ```json
 Response body:
 {
-    "subscriptionId": "cd9c6a3a-7576-49f2-b27e-1e5136e57f45",  
-    "subscriptionName": "My Saas application",
-    "offerId": "ce-dr-tier2",
+    "subscriptionId": "<guid>",  
+    "subscriptionName": "Contoso Cloud Solution",
+    "offerId": "cont-cld-tier2",
     "planId": "silver",
     "quantity": "20",
-    "operationId": " be750acb-00aa-4a02-86bc-476cbe66d7fa"  
+    "operationId": "<guid>"  
 }
 ```
 
@@ -348,7 +369,7 @@ Response body:
 |  ---------------   |  ---------------  |
 |  Content-Type      | `application/json`  |
 |  x-ms-requestid    | 用於追蹤要求從用戶端，最好是一個 GUID 唯一的字串值。 如果未提供此值，則回應標頭中會產生並提供一個。  |
-|  x-ms-correlationid  | 在用戶端上的作業的唯一字串值。 這會將來自用戶端作業的所有事件與伺服器端上的事件相關聯。 如果未提供此值，其中會產生並提供回應標頭中。  |
+|  x-ms-correlationid  | 在用戶端上的作業的唯一字串值。 這個字串會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。  |
 |  授權     |  JSON web 權杖 (JWT) 持有人權杖 |
 
 *要求：*
@@ -511,7 +532,7 @@ ISV 會起始變更計劃] 或 [變更數量。 <br>
 
 更新訂用帳戶，以提供的值。
 
-**修補程式：<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operation/<operationId>?api-version=<ApiVersion>`**
+**修補程式：<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
 
 *查詢參數：*
 
@@ -534,15 +555,15 @@ ISV 會起始變更計劃] 或 [變更數量。 <br>
 
 ```json
 {
-    "planId": "",
-    "quantity": "",
+    "planId": "cont-cld-tier2",
+    "quantity": "44",
     "status": "Success"    // Allowed Values: Success/Failure. Indicates the status of the operation.
 }
 ```
 
 *回應碼：*
 
-程式碼：200<br> 呼叫以通知 ISV 端作業的完成。 比方說，這可能是基座/計劃的變更。
+程式碼：200<br> 呼叫以通知 ISV 端作業的完成。 例如，此回應可能表示基座/計劃的變更。
 
 程式碼：404<br>
 找不到
@@ -597,11 +618,11 @@ ISV 會起始變更計劃] 或 [變更數量。 <br>
 
 ```json
 [{
-    "id": "be750acb-00aa-4a02-86bc-476cbe66d7fa",  
-    "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
-    "subscriptionId": "cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
-    "offerId": "ce-dr-tier2",
-    "publisherId": "cloudendure",  
+    "id": "<guid>",  
+    "activityId": "<guid>",
+    "subscriptionId": "<guid>",
+    "offerId": "cont-cld-tier2",
+    "publisherId": "contoso",  
     "planId": "silver",
     "quantity": "20",
     "action": "Convert",
@@ -634,7 +655,7 @@ ISV 會起始變更計劃] 或 [變更數量。 <br>
 
 #### <a name="get-operation-status"></a>取得作業狀態
 
-可讓使用者追蹤觸發的非同步作業 （訂閱/取消訂閱/變更計劃） 的狀態。
+可讓使用者追蹤指定觸發的非同步作業 （訂閱/取消訂閱/變更計劃） 的狀態。
 
 **取得此項目：<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`**
 
@@ -653,23 +674,23 @@ ISV 會起始變更計劃] 或 [變更數量。 <br>
 |  x-ms-correlationid |  用於用戶端作業的特殊字串值。 此參數會將相互關聯來自用戶端作業的所有事件與伺服器端上的事件。 如果未提供此值，其中會產生並提供回應標頭中。  |
 |  授權     | JSON Web 權杖 (JWT) 持有人權杖。  |
 
-*回應碼：* 程式碼：200<br> 取得所有暫止的 SaaS 作業的清單<br>
+*回應碼：* 程式碼：200<br> 取得指定的暫止的 SaaS 作業<br>
 回應裝載：
 
 ```json
 Response body:
-[{
-    "id  ": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
-    "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
-    "subscriptionId":"cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
-    "offerId": "ce-dr-tier2",
-    "publisherId": "cloudendure",  
+{
+    "id  ": "<guid>",
+    "activityId": "<guid>",
+    "subscriptionId":"<guid>",
+    "offerId": "cont-cld-tier2",
+    "publisherId": "contoso",  
     "planId": "silver",
     "quantity": "20",
     "action": "Convert",
     "timeStamp": "2018-12-01T00:00:00",
     "status": "NotStarted"
-}]
+}
 
 ```
 
@@ -700,11 +721,11 @@ Response body:
 
 ```json
 {
-    "operationId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
-    "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
-    "subscriptionId":"cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
-    "offerId": "ce-dr-tier2",
-    "publisherId": "cloudendure",
+    "operationId": "<guid>",
+    "activityId": "<guid>",
+    "subscriptionId":"<guid>",
+    "offerId": "cont-cld-tier2",
+    "publisherId": "contoso",
     "planId": "silver",
     "quantity": "20"  ,
     "action": "Activate",   // Activate/Delete/Suspend/Reinstate/Change[new]  
@@ -713,14 +734,12 @@ Response body:
 
 ```
 
-<!-- Review following, might not be needed when this publishes -->
-
 
 ## <a name="mock-api"></a>模擬 （mock) 的 API
 
 您可以使用我們的模擬 （mock) Api，可協助您開始進行開發，特別是原型設計和測試專案。 
 
-主機的端點： https://marketplaceapi.microsoft.com/api API 版本：2018-09-15 沒有驗證所需範例 Uri: https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15
+主機的端點：`https://marketplaceapi.microsoft.com/api` API 版本：`2018-09-15` 沒有驗證所需範例 Uri: `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15`
 
 這篇文章中的 API 呼叫的任何可模擬 （mock） 的主應用程式端點。 您可以預期取得模擬 （mock） 的資料，傳回做為回應。
 

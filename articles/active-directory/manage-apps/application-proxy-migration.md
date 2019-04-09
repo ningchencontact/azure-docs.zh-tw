@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15e831bbcb956401149d8c33fce4d00a3be5a11d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5fa143aac52fe0024620047eb67f24cc79e55c9b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170868"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279307"
 ---
 # <a name="compare-remote-access-solutions"></a>比較遠端存取解決方案
 
@@ -34,23 +34,23 @@ Azure Active Directory 應用程式 Proxy 是 Microsoft 提供的兩個遠端存
 
 | 功能 | TMG | UAG | WAP | AP |
 | ------- | --- | --- | --- | --- |
-| 憑證驗證 | yes | yes | - | - |
-| 選擇性地發佈瀏覽器應用程式 | yes | 是 | 是 | yes |
-| 預先驗證和單一登入 | yes | 是 | 是 | yes | 
-| 第 2 層/第 3 層防火牆 | yes | yes | - | - |
-| 轉接 Proxy 功能 | yes | - | - | - |
-| VPN 功能 | yes | yes | - | - |
-| 豐富通訊協定支援 | - | yes | 是，如果是透過 HTTP 執行 | 是，如果是透過 HTTP 或透過遠端桌面閘道執行 |
-| 作為 ADFS Proxy 伺服器 | - | yes | yes | - |
-| 應用程式存取的單一入口網站 | - | yes | - | yes |
-| 回應內文連結轉譯 | yes | 是 | - | yes | 
-| 使用標頭進行驗證 | - | yes | - | 是，使用 PingAccess | 
-| 雲端級別安全性 | - | - | - | yes | 
-| 條件式存取 | - | yes | - | yes |
+| 憑證驗證 | 是 | 是 | - | - |
+| 選擇性地發佈瀏覽器應用程式 | 是 | 是 | 是 | 是 |
+| 預先驗證和單一登入 | 是 | 是 | 是 | 是 | 
+| 第 2 層/第 3 層防火牆 | 是 | 是 | - | - |
+| 轉接 Proxy 功能 | 是 | - | - | - |
+| VPN 功能 | 是 | 是 | - | - |
+| 豐富通訊協定支援 | - | 是 | 是，如果是透過 HTTP 執行 | 是，如果是透過 HTTP 或透過遠端桌面閘道執行 |
+| 作為 ADFS Proxy 伺服器 | - | 是 | 是 | - |
+| 應用程式存取的單一入口網站 | - | 是 | - | 是 |
+| 回應內文連結轉譯 | 是 | 是 | - | 是 | 
+| 使用標頭進行驗證 | - | 是 | - | 是，使用 PingAccess | 
+| 雲端級別安全性 | - | - | - | 是 | 
+| 條件式存取 | - | 是 | - | yes |
 | 周邊網路 (DMZ) 中沒有任何元件 | - | - | - | yes |
-| 沒有輸入連線 | - | - | - | yes |
+| 沒有輸入連線 | - | - | - | 是 |
 
-大部分情節中，建議將 Azure AD 應用程式作為現代化解決方案。 Web 應用程式 Proxy 只建議用在需要 AD FS Proxy 伺服器的情節中，而且您無法使用 Azure Active Directory 中的自訂網域。 
+大部分的情況下，我們建議 Azure AD 應用程式 Proxy 作為現代化解決方案。 Web 應用程式 Proxy 只建議用在需要 AD FS Proxy 伺服器的情節中，而且您無法使用 Azure Active Directory 中的自訂網域。 
 
 相較於類似的產品，Azure AD 應用程式 Proxy 提供獨特的優點，包括：
 
@@ -64,5 +64,5 @@ Azure Active Directory 應用程式 Proxy 是 Microsoft 提供的兩個遠端存
 
 ## <a name="next-steps"></a>後續步驟
 
-- [使用 Azure AD 應用程式提供對內部部署應用程式的安全遠端存取](application-proxy.md)
+- [使用 Azure AD 應用程式提供安全遠端存取內部部署應用程式](application-proxy.md)
 - [從 Forefront TMG 和 UAG 轉換至應用程式 Proxy](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/)。

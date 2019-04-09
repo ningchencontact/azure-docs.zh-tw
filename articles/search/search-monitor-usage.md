@@ -8,15 +8,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 04/04/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d7084a42f64234cff4e5e2742ed3d27a3fd00e1e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: f4a0cba18f27c9cabfc03d1934469e6899c5cd18
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652292"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010408"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>監視 Azure 搜尋服務中的資源耗用量和查詢活動
 
@@ -60,9 +60,9 @@ ms.locfileid: "58652292"
 
 | 資源 | 用於 |
 |----------|----------|
-| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | 根據下方的結構描述，記錄與您應用程式中使用者事件相互關聯的事件和查詢計量。 這是唯一會將使用者動作或信號列入考量的解決方案，其中會將來自使用者所起始搜尋的事件與應用程式碼所提交的篩選要求對應。 若要使用此方法，請複製檢測程式碼並貼到您的原始程式檔中，以將要求資訊路由傳送至 Application Insights。 如需詳細資訊，請參閱[搜尋流量分析](search-traffic-analytics.md)。 |
-| [Azure 監視器記錄](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | 根據下方的結構描述，記錄事件和查詢計量。 事件會記錄到 Log Analytics 工作區。 您可以對工作區執行查詢，以從記錄傳回詳細的資訊。 如需詳細資訊，請參閱[開始使用 Azure 監視器記錄檔](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Blob 儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | 根據下方的結構描述，記錄事件和查詢計量。 事件會記錄至 Blob 容器並儲存在 JSON 檔案中。 請使用 JSON 編輯器來檢視檔案內容。|
+| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | 記錄的事件和查詢度量，根據下列結構描述與您的應用程式中的使用者事件相互關聯。 這是唯一會將使用者動作或信號列入考量的解決方案，其中會將來自使用者所起始搜尋的事件與應用程式碼所提交的篩選要求對應。 若要使用此方法，請複製檢測程式碼並貼到您的原始程式檔中，以將要求資訊路由傳送至 Application Insights。 如需詳細資訊，請參閱[搜尋流量分析](search-traffic-analytics.md)。 |
+| [Azure 監視器記錄](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | 記錄的事件和查詢度量，根據下列結構描述。 事件會記錄到 Log Analytics 工作區。 您可以對工作區執行查詢，以從記錄傳回詳細的資訊。 如需詳細資訊，請參閱[開始使用 Azure 監視器記錄檔](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
+| [Blob 儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | 記錄的事件和查詢度量，根據下列結構描述。 事件會記錄至 Blob 容器並儲存在 JSON 檔案中。 請使用 JSON 編輯器來檢視檔案內容。|
 | [事件中樞](https://docs.microsoft.com/azure/event-hubs/) | 根據本文中記載的結構描述，記錄事件和查詢計量。 請選擇此選項作為非常大型記錄的替代資料收集服務。 |
 
 Azure 監視器記錄檔和 Blob 儲存體是免費的共用服務的形式提供，以便您可以試用免費的 Azure 訂用帳戶的存留期。 Application Insights 可供免費註冊和使用，只要應用程式資料大小在特定限制範圍內即可 (如需詳細資訊，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/monitor/))。
@@ -96,7 +96,7 @@ Azure 監視器記錄檔和 Blob 儲存體是免費的共用服務的形式提�
 * insights-logs-operationlogs：適用於搜尋流量記錄
 * insights-metrics-pt1m：適用於計量
 
-需要一小時的時間，容器才會出現在 Blob 儲存體中。 每個容器每小時會有一個 Blob。 
+**需要一小時的時間，容器才會出現在 Blob 儲存體中。 每個容器每小時會有一個 Blob。**
 
 您可以使用 [Visual Studio Code](#download-and-open-in-visual-studio-code) 或另一個 JSON 編輯器還檢視檔案。 
 

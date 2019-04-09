@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 40e2baaeaae933e8ff6a88eff2e2d86f645ad37b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e734ebb2032a5354e8701129b6a8ad913837bb52
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881030"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010612"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>關於 Azure Cosmos DB 內不同 API 的常見問題集
 
@@ -95,8 +95,9 @@ Azure Cosmos DB 不需要結構描述的索引引擎能夠自動建立所內嵌�
 * MongoDB 帳戶的每個訂用帳戶最多 3 個集合。
 * 10 GB 儲存體容量。
 * 全域複寫試用於下列 [Azure 區域](https://azure.microsoft.com/regions/)：美國中部、北歐和東南亞
-* 輸送量上限 5K RU/s。
-* 訂用帳戶將於 24 小時之後到期，可以擴充到最多總時數 48 小時。
+* 5 K RU/s 佈建容器層級時的最大輸送量。
+* 20 K RU/s 佈建資料庫層級時的最大輸送量。
+* 訂用帳戶在 30 天之後, 過期，而且可以擴充到最多總計 31 天。
 * 無法為試用 Azure Cosmos DB 帳戶建立 Azure 支援票證，不過，會以現有支援計劃為訂閱者提供支援。
 
 ## <a name="set-up-azure-cosmos-db"></a>設定 Azure Cosmos DB
@@ -228,7 +229,7 @@ Azure Cosmos DB 會強制執行嚴格的安全性需求和標準。 Azure Cosmos
 | Error               | 代碼  | 描述  | 解決方法  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | 取用的要求單位總數已超過針對集合佈建的要求單位率並已進行節流。 | 請考慮從 Azure 入口網站調整指派給容器或容器集的輸送量，或重試一次。 |
-| ExceededMemoryLimit | 16501 | 做為多租用戶服務，作業已超出用戶端的記憶體配額。 | 透過更嚴格的查詢準則來縮小作業的範圍，或經由 [Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)連絡支援人員。 <br><br>範例： <em> &nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {名稱："Andy"}}， <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])</em>) |
+| ExceededMemoryLimit | 16501 | 做為多租用戶服務，作業已超出用戶端的記憶體配額。 | 透過更嚴格的查詢準則來縮小作業的範圍，或經由 [Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)連絡支援人員。 <br><br>示例：<em>&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name:"Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])</em>) |
 
 ### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmos-dbs-api-for-mongodb"></a>適用於 MongoDB 的 Simba 驅動程式是否支援與適用於 MongoDB 的 Azure Cosmos DB API 搭配使用？
 

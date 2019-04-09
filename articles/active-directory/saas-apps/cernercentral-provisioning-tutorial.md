@@ -13,27 +13,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 03/27/2019
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dda84d30124eca1526f227ffec134f48451c9cb0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 00a967d61a5f81fc871488ea48df9cb4cf18c269
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102562"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058062"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>教學課程：設定 Cerner Central 來自動佈建使用者
 
-本教學課程旨在說明您需要在 Cerner Central 和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 Cerner Central 中的使用者名冊。 
-
+本教學課程旨在說明您需要在 Cerner Central 和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 Cerner Central 中的使用者名冊。
 
 ## <a name="prerequisites"></a>必要條件
 
 本教學課程中說明的案例假設您已經具有下列項目：
 
-*   Azure Active Directory 租用戶
-*   Cerner Central 租用戶 
+* Azure Active Directory 租用戶
+* Cerner Central 租用戶
 
 > [!NOTE]
 > Azure Active Directory 使用 [SCIM](http://www.simplecloud.info/) 通訊協定與 Cerner Central 整合。
@@ -48,12 +47,11 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 ### <a name="important-tips-for-assigning-users-to-cerner-central"></a>將使用者指派給 Cerner Central 的重要秘訣
 
-*   建議將單一 Azure AD 使用者指派給 Cerner Central，以測試佈建設定。 其他使用者及/或群組可能會稍後再指派。
+* 建議將單一 Azure AD 使用者指派給 Cerner Central，以測試佈建設定。 其他使用者及/或群組可能會稍後再指派。
 
 * 對單一使用者完成初始測試後，Cerner Central 建議指派嘗試存取要佈建至 Cerner 使用者名冊之任何 Cerner 解決方案 (不只是 Cerner Central) 的完整使用者清單。  其他 Cerner 解決方案會利用這份使用者名冊中的使用者清單。
 
-*   將使用者指派給 Cerner Central 時，您必須在 [指派] 對話方塊中選取 [使用者] 角色。 具有「預設存取」角色的使用者會從佈建中排除。
-
+* 將使用者指派給 Cerner Central 時，您必須在 [指派] 對話方塊中選取 [使用者] 角色。 具有「預設存取」角色的使用者會從佈建中排除。
 
 ## <a name="configuring-user-provisioning-to-cerner-central"></a>設定使用者佈建至 Cerner Central
 
@@ -62,9 +60,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 > [!TIP]
 > 您也可以選擇啟用 SAML 型單一登入 Cerner Central，下列指示中提供[Azure 入口網站](https://portal.azure.com)。 可以獨立設定自動佈建的單一登入，雖然這兩個功能彼此補充。 如需詳細資訊，請參閱 [Cerner Central 單一登入教學課程](cernercentral-tutorial.md)。
 
-
 ### <a name="to-configure-automatic-user-account-provisioning-to-cerner-central-in-azure-ad"></a>若要在 Azure AD 中設定自動使用者帳戶佈建至 Cerner Central：
-
 
 為了將使用者帳戶佈建至 Cerner Central，您必須從 Cerner 要求 Cerner Central 系統帳戶，並產生 Azure AD 可用來連線到 Cerner 之 SCIM 端點的 OAuth 持有人權杖。 此外，建議在 Cerner 沙箱環境中執行整合，再部署至生產環境。
 
@@ -106,9 +102,9 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
    * 在 [租用戶 URL] 欄位中，以下列格式輸入 URL，並將 "User-Roster-Realm-ID" 取代為您在步驟 4 中取得的領域識別碼。
 
-> 沙箱： https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
-> 
-> 生產環境： https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+    > 沙箱： https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+    > 
+    > 生產環境： https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
    * 在 [祕密權杖] 欄位中，輸入您在步驟 3 中產生的 OAuth 持有人權杖，然後按一下 [測試連接]。
 
@@ -116,13 +112,13 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 1. 在 [通知電子郵件] 欄位中輸入應收到佈建錯誤通知的個人或群組之電子郵件地址，然後勾選下列核取方塊。
 
-1. 按一下 [檔案] 。 
+1. 按一下 [檔案] 。
 
 1. 在 [屬性對應] 區段中，檢閱將從 Azure AD 同步處理至 Cerner Central 的使用者和群組屬性。 選取為 [比對] 屬性的屬性會用來比對 Cerner Central 中的使用者帳戶和群組以進行更新作業。 選取 [儲存] 按鈕以認可任何變更。
 
 1. 若要啟用 Cerner Central 的 Azure AD 佈建服務，在 [設定] 區段中，將 [佈建狀態] 變更為 [開啟]
 
-1. 按一下 [檔案] 。 
+1. 按一下 [檔案] 。
 
 這會啟動在 [使用者和群組] 區段中指派給 Cerner Central 的任何使用者和/或群組之首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要 Azure AD 佈建服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，並依循連結前往佈建活動記錄，此記錄會表描述您 Cerner Central 應用程式上佈建服務所執行的所有動作。
 
@@ -130,10 +126,11 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 ## <a name="additional-resources"></a>其他資源
 
-* [Cerner Central：使用 Azure AD 來發佈身分識別資料](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD) \(英文\)
-* [教學課程：設定 Cerner Central 搭配 Azure Active Directory 進行單一登入](cernercentral-tutorial.md)
-* [管理企業應用程式的使用者帳戶佈建](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Cerner Central:使用 Azure AD 發佈身分識別資料](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
+* [教學課程：讓單一登入與 Azure Active Directory 設定 Cerner Central](cernercentral-tutorial.md)
+* [管理企業應用程式的佈建的使用者帳戶](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>後續步驟
+
 * [了解如何針對佈建活動檢閱記錄和取得報告](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting)。

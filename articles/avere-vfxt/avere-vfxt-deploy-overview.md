@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0c61db5e34ba58bb767b0bda773a54c8e65cd404
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.openlocfilehash: 88305e5d877f5bc3cc7ebb116f69b0f49f162b79
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991796"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056226"
 ---
 # <a name="avere-vfxt-for-azure---deployment-overview"></a>Avere vFXT for Azure - 部署概觀
 
@@ -32,14 +32,6 @@ Azure Marketplace 中的 Azure Resource Manager 範本會收集所需的資訊�
 1. 設定必要條件 
 
    建立 VM 訂閱 之前，您必須先為 Avere vFXT 專案建立新訂用帳戶、設定訂用帳戶擁有權、檢查配額並在需要時要求增加配額，以及接受使用 Avere vFXT 軟體的條款。 閱讀[準備建立 Avere vFXT](avere-vfxt-prereqs.md) 以取得詳細指示。
-
-1. 為叢集節點建立存取角色
-
-   Azure 使用[角色型存取控制](../role-based-access-control/index.yml) (RBAC) 來授權叢集節點 VM 執行特定工作。 例如，叢集節點必須能指派或重新指派 IP 位址給其他叢集節點。 在建立叢集之前，您必須定義能為它們授與適當權限的角色。
-
-   閱讀[建立叢集節點存取角色](avere-vfxt-prereqs.md#create-the-cluster-node-access-role)以取得指示。
-
-   叢集控制器也會使用存取角色，但您可以接受預設角色「擁有者」，而不要自行建立。 如果您想要為叢集控制器建立自訂角色，請參閱[自訂控制器存取角色](avere-vfxt-controller-role.md)。 
 
 1. 建立 Avere vFXT 叢集 
 

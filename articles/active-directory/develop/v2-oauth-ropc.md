@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 716f48a5db437ef1dc865aca66fbac1c1d51aec3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: df9073bbf9789875c373bb7093ab1878a20c399f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207427"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274176"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-resource-owner-password-credential"></a>Azure Active Directory v2.0 和 OAuth 2.0 資源擁有者密碼認證
 
@@ -51,18 +51,17 @@ POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token?
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &scope=user.read%20openid%20profile%20offline_access
-&client_secret=wkubdywbc2894u
 &username=MyUsername@myTenant.com
 &password=SuperS3cret
 &grant_type=password
 ```
 
-| 參數 | 條件 | 說明 |
+| 參數 | 條件 | 描述 |
 | --- | --- | --- |
-| `tenant` | 必要 | 您想要將使用者登入的目標目錄租用戶。 這可以採用 GUID 或易記名稱格式。 此參數無法設為 `common` 或 `consumers`，但可設定為 `organizations`。 |
-| `grant_type` | 必要 | 必須設為 `password`。 |
-| `username` | 必要 | 使用者的電子郵件地址。 |
-| `password` | 必要 | 使用者的密碼。 |
+| `tenant` | 必要項 | 您想要將使用者登入的目標目錄租用戶。 這可以採用 GUID 或易記名稱格式。 此參數無法設為 `common` 或 `consumers`，但可設定為 `organizations`。 |
+| `grant_type` | 必要項 | 必須設為 `password`。 |
+| `username` | 必要項 | 使用者的電子郵件地址。 |
+| `password` | 必要項 | 使用者的密碼。 |
 | `scope` | 建議 | 以空格分隔的[範圍](v2-permissions-and-consent.md)清單或應用程式所需的權限。 系統管理員或使用者必須在互動式流程中事先同意這些範圍。 |
 
 ### <a name="successful-authentication-response"></a>成功驗證回應
@@ -80,7 +79,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 }
 ```
 
-| 參數 | 格式 | 說明 |
+| 參數 | 格式 | 描述 |
 | --------- | ------ | ----------- |
 | `token_type` | 字串 | 一律設定為 `Bearer`。 |
 | `scope` | 空格分隔的字串 | 如果傳回了存取權杖，此參數會列出存取權杖的有效範圍。 |
@@ -95,7 +94,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 如果使用者未提供正確的使用者名稱或密碼，或用戶端未收到所要求的同意，驗證將會失敗。
 
-| Error | 說明 | 用戶端動作 |
+| Error | 描述 | 用戶端動作 |
 |------ | ----------- | -------------|
 | `invalid_grant` | 驗證失敗 | 認證不正確，或用戶端沒有同意所要求的範圍。 如果未授與範圍，將會傳回 `consent_required` 子錯誤。 如果發生這種情況，用戶端應使用 WebView 或瀏覽器將使用者傳送至互動式提示。 |
 | `invalid_request` | 要求未正確建構 | `/common` 或 `/consumers` 驗證內容不支援授與類型。  請改用 `/organizations`。 |

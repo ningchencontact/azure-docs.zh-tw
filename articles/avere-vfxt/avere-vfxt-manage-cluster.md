@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: bc91b052d3d69924af9afeb012c0ebb5be01dfbf
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: be9205fdf7fec0661d7382ed0d1bedf47487b15e
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745549"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058028"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>管理 Avere vFXT 叢集
 
@@ -98,7 +98,7 @@ vfxt.py 指令碼可以用於以下叢集管理工作：
 * 叢集的資源群組名稱，如果網路和儲存體資源與叢集不同，則也是它們的名稱
 * 叢集位置
 * 叢集網路和子網路 
-* 叢集節點存取角色 
+* 叢集節點存取的角色 (您可以使用內建角色[Avere 運算子](../role-based-access-control/built-in-roles.md#avere-operator))
 * 叢集管理 IP 位址和系統管理密碼 
 * 要新增的節點數目 (1、2 或 3)
 * 節點執行個體類型和快取大小值 
@@ -113,7 +113,7 @@ vfxt.py 指令碼可以用於以下叢集管理工作：
    --add-nodes --nodes NODE_COUNT \
    --management-address CLUSTER_IP --admin-password ADMIN_PASSWORD \
    --instance-type TYPE --node-cache-size SIZE \
-   --azure-role ROLE_NAME \
+   --azure-role "Avere Operator" \
    --log ~/vfxt.log
 ```
 
@@ -187,7 +187,7 @@ Azure 入口網站可以用於以下叢集管理工作：
 
 ### <a name="delete-additional-cluster-resources-from-the-azure-portal"></a>從 Azure 入口網站刪除額外的叢集資源
 
-如果您專為 vFXT 叢集建立額外的資源，您可能想要在卸除叢集時加以移除。 您不得終結含有所需資料的元素，或與其他專案共用的任何項目。
+如果您專為 vFXT 叢集建立額外的資源，您可能想要在卸除叢集時加以移除。 無法終結需的資料或與其他專案共用任何項目所包含的項目。
 
 除了刪除叢集節點之外，請考慮移除下列元件： 
 

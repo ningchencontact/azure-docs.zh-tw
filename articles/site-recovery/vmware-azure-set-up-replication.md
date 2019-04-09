@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 4f558d8d1e5e4e743e6d44cca1a804b3e5898b30
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 18dc7ea513d1e3787dbd38b1ab687be607a79f8b
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443425"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006807"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery-to-azure"></a>設定及管理「將 VMware 災害復原至 Azure」的複寫原則
 本文說明使用 [Azure Site Recovery](site-recovery-overview.md) 將 VMware VM 複寫至 Azure 時，如何設定複寫原則。
@@ -45,7 +45,7 @@ ms.locfileid: "58443425"
 1. 選取 **管理** > **Site Recovery 基礎結構** > **複寫原則**。
 2. 選取您想要修改的複寫原則。
 3. 按一下 **編輯設定**，並更新 RPO 臨界值/復原點保留小時/應用程式一致快照集頻率欄位為必要。
-4. 如果您想要關閉的應用程式的一致性點產生，請選擇 「 關閉 」 所記載的下拉式清單中的值**應用程式一致快照頻率**。
+4. 如果您想要關閉的應用程式的一致性點產生，請選擇 「 關閉 」 欄位的下拉式清單中的值**應用程式一致快照頻率**。
 5. 按一下 [檔案] 。 應該更新原則，以 30 到 60 秒為單位。
 
 ## <a name="disassociate-or-delete-a-replication-policy"></a>中斷關聯或刪除複寫原則
