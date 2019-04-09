@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/27/2019
+ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5213affe953636c46486614ee2a020d7727e1478
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: d2de802b2170feb6130cdce8007e16cc37561f5e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407507"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265384"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager 部署模式
 
@@ -28,18 +28,20 @@ ms.locfileid: "57407507"
 
 在完整模式中，Resource Manager 會**刪除**現存於資源群組中但未在範本內指定的資源。 資源如果是範本中已指定的資源，但因為某個[條件](resource-group-authoring-templates.md#condition)評估為 false 而未部署，則不會被刪除。
 
-資源類型處理完整模式刪除的方式有所不同。 當不在以完整模式部署的範本中時，將自動刪除父代資源。 當不在範本中時，不會自動刪除某些子系資源。 但是，如果刪除父代資源，則會刪除這些子系資源。 
+有一些差異，在 資源類型如何處理完整模式刪除。 當不在以完整模式部署的範本中時，將自動刪除父代資源。 當不在範本中時，不會自動刪除某些子系資源。 不過，如果刪除父資源，會刪除這些子資源。 
 
-例如，如果您的資源群組包含 DNS 區域 (Microsoft.Network/dnsZones 資源類型) 和 CNAME 記錄 (Microsoft.Network/dnsZones/CNAME 資源類型)，則 DNS 區域是 CNAME 記錄的父代資源。 如果您使用完整模式部署，且範本中不包含 DNS 區域，則 DNS 區域和 CNAME 記錄都將同時刪除。 如果在範本中包含 DNS 區域但不包含 CNAME 記錄，則不會刪除 CNAME。 
+例如，如果您的資源群組包含 DNS 區域 (Microsoft.Network/dnsZones 資源類型) 和 CNAME 記錄 (Microsoft.Network/dnsZones/CNAME 資源類型)，則 DNS 區域是 CNAME 記錄的父代資源。 如果您使用完整模式部署，且範本中不包含 DNS 區域，則 DNS 區域和 CNAME 記錄都將同時刪除。 如果您在範本中包含的 DNS 區域，但不包括 CNAME 記錄，CNAME 不會刪除。 
 
 如需資源類型如何處理刪除的清單，請參閱[刪除完整模式部署的 Azure 資源](complete-mode-deletion.md)。
+
+如果資源群組[鎖定](resource-group-lock-resources.md)，完整模式並不會刪除資源。
 
 > [!NOTE]
 > 只有根層級範本支援完整部署模式。 針對[連結或巢狀的範本](resource-group-linked-templates.md)，您必須使用累加模式。 
 >
-> [訂用帳戶層級部署](deploy-to-subscription.md)不支援完整的模式。
+> [订阅级别部署](deploy-to-subscription.md)不支持完整模式。
 >
-> 目前，入口網站不支援完整模式。
+> 目前，门户不支持完整模式。
 >
 
 ## <a name="incremental-mode"></a>累加模式
