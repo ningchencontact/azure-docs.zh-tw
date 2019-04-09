@@ -1,19 +1,18 @@
 ---
 title: 如何管理使用 PowerShell 指派
 description: 了解如何管理使用官方 Azure 藍圖 PowerShell 模組，Az.Blueprint 藍圖指派。
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 47026975a5142760f90a1a5712b532519f969fd7
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: d8eacffe4b792eda5d81051f6aa65caa3292c896
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57997618"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256867"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>如何管理使用 PowerShell 指派
 

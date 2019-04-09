@@ -7,16 +7,19 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: yizhon
-ms.openlocfilehash: 683f3ca88c349fef31f9647566dbed8a840f94dd
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
-ms.translationtype: HT
+ms.openlocfilehash: 7788bca621a59ec8cdfe36edf73a99efca8c460c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451726"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261389"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>使用 Azure IoT C SDK 開發受限裝置
 
 Azure IoT 中樞 C SDK 是以 ANSI C (C99) 撰寫，非常適合於操作具有少量磁碟和記憶體使用量的各種平台。 建議的 RAM 至少為 64 KB，但確切的記憶體使用量取決於所用的通訊協定、開啟的連線數目，以及設為目標的平台。
+> [!NOTE]
+> * Azure IoT C SDK 會定期發佈以進行開發的資源耗用量資訊。  請瀏覽我們[GitHub 存放庫](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md)並檢閱最新的基準測試。
+>
 
 C SDK 是以 apt-get、NuGet 和 MBED 的套件形式提供。 若要以受限裝置為目標，您可以在本機為您的目標平台建置 SDK。 本文件會示範如何使用 [cmake](https://cmake.org/) 來移除特定功能，以縮減 C SDK 的使用量。 此外，本文件會討論適用於受限裝置的最佳做法程式設計模型。
 
@@ -30,7 +33,7 @@ C SDK 是以 apt-get、NuGet 和 MBED 的套件形式提供。 若要以受限�
 
 ### <a name="remove-additional-protocol-libraries"></a>移除額外的通訊協定程式庫
 
-C SDK 目前支援五個通訊協定：MQTT、MQTT over WebSocket、AMQPs、AMQP over WebSocket 和 HTTPS。 大部分的案例都要求有一到兩個通訊協定在用戶端上執行，因此您可以從 SDK 移除您未使用的通訊協定程式庫。 您可以在[選擇 IoT 中樞通訊的通訊協定](iot-hub-devguide-protocols.md)中，找到有關針對您案例選擇適當通訊協定的其他資訊。 例如，MQTT 是輕量型通訊協定，通常比較適合於受限裝置。
+C SDK 目前支援五個通訊協定：MQTT、 MQTT over WebSocket、 AMQPs、 AMQP over WebSocket 和 HTTPS。 大部分的案例都要求有一到兩個通訊協定在用戶端上執行，因此您可以從 SDK 移除您未使用的通訊協定程式庫。 您可以在[選擇 IoT 中樞通訊的通訊協定](iot-hub-devguide-protocols.md)中，找到有關針對您案例選擇適當通訊協定的其他資訊。 例如，MQTT 是輕量型通訊協定，通常比較適合於受限裝置。
 
 您可以使用下列 cmake 命令來移除 AMQP 和 HTTP 程式庫：
 
@@ -80,4 +83,4 @@ C SDK 支援兩種程式設計模型。 一組具有 _LL_ 中置詞 (代表較�
 
 若要深入了解 Azure IoT C SDK 架構：
 -   [Azure IoT C SDK 原始程式碼](https://github.com/Azure/azure-iot-sdk-c/)
--   [C 適用的 Azure IoT 裝置 SDK 簡介](iot-hub-device-sdk-c-intro.md)
+-   [Azure IoT 裝置 SDK for C 簡介](iot-hub-device-sdk-c-intro.md)

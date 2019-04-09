@@ -4,22 +4,20 @@ description: 描述 Azure Resource Manager 範本中用來使用字串的函式�
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/11/2019
+ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 07221e5d93c004a2542adfc3a5374fd75ca34b31
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: bf9faa34c1f0923761ce583c22ba4084d7bd42a8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621400"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278780"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的字串函式
 
@@ -35,18 +33,19 @@ ms.locfileid: "58621400"
 * [empty](#empty)
 * [endsWith](#endswith)
 * [first](#first)
-* [guid](#guid)
+* [format](#format)
+* [GUID](#guid)
 * [indexOf](#indexof)
 * [last](#last)
 * [lastIndexOf](#lastindexof)
 * [length](#length)
 * [newGuid](#newguid)
 * [padLeft](#padleft)
-* [replace](#replace)
+* [取代](#replace)
 * [skip](#skip)
-* [分割](#split)
+* [split](#split)
 * [startsWith](#startswith)
-* [字符串](#string)
+* [字串](#string)
 * [substring](#substring)
 * [take](#take)
 * [toLower](#tolower)
@@ -541,7 +540,7 @@ JSON 物件。
 
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
-| itemToTest |是 |陣列、物件或字串 |要檢查其是否為空白的值。 |
+| itemToTest |是 |陣列、物件或字串 |要檢查其是否空白的值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -714,9 +713,66 @@ JSON 物件。
 | arrayOutput | 字串 | one |
 | stringOutput | 字串 | O |
 
+## <a name="format"></a>format
+
+`format(formatString, arg1, arg2, ...)`
+
+從輸入值來建立格式化的字串。
+
+### <a name="parameters"></a>參數
+
+| 參數 | 必要項 | 類型 | 描述 |
+|:--- |:--- |:--- |:--- |
+| formatString | 是 | 字串 | 複合格式字串中。 |
+| arg1 | 是 | 字串、 整數或布林值 | 要在格式化字串中包含的值。 |
+| 其他引數 | 否 | 字串、 整數或布林值 | 要包含在格式化字串中的其他值。 |
+
+### <a name="remarks"></a>備註
+
+使用此函式來格式化您的範本中的字串。 它會使用與相同的格式設定選項[System.String.Format](/dotnet/api/system.string.format)在.NET 中的方法。
+
+### <a name="examples"></a>範例
+
+下列範本範例會示範如何使用 format 函數。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "greeting": {
+            "type": "string",
+            "defaultValue": "Hello"
+        },
+        "name": {
+            "type": "string",
+            "defaultValue": "User"
+        },
+        "numberToFormat": {
+            "type": "int",
+            "defaultValue": 8175133
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "formatTest": {
+            "type": "string",
+            "value": "[format('{0}, {1}. Formatted number: {2:N0}', parameters('greeting'), parameters('name'), parameters('numberToFormat'))]"
+        }
+    }
+}
+```
+
+上述範例中具有預設值的輸出如下：
+
+| 名稱 | 類型 | 值 |
+| ---- | ---- | ----- |
+| formatTest | 字串 | Hello，使用者。 格式化數字：8,175,133 |
+
 ## <a name="guid"></a>GUID
 
-`guid (baseString, ...)`
+`guid(baseString, ...)`
 
 建立一個值，格式為根據提供作為參數之值的全域唯一識別碼。
 
@@ -731,7 +787,7 @@ JSON 物件。
 
 當您需要建立格式為全域唯一識別碼的值時，此函式很有幫助。 您提供限制結果唯一性範圍的參數值。 您可以指定名稱對於訂用帳戶、資源群組或部署是否唯一。
 
-返回的值不是随机字符串，而是参数中哈希函数的结果。 傳回的值為 36 個字元長。 它不是全域唯一的。 若要创建不是基于该参数哈希值的新 GUID，请使用 [newGuid](#newguid) 函数。
+傳回的值不是隨機字串，但而雜湊函式的參數上的結果。 傳回的值為 36 個字元長。 它不是全域唯一的。 若要建立新的 GUID，不會根據參數的該雜湊值，請使用[newGuid](#newguid)函式。
 
 下列範例顯示如何使用 guid 來建立常用層級的唯一值。
 
@@ -800,7 +856,7 @@ JSON 物件。
 
 ### <a name="return-value"></a>傳回值
 
-整數，代表要尋找之項目的位置。 该值从零开始。 如果找不到項目，則傳回 -1。
+整數，代表要尋找之項目的位置。 此值是以零為起始。 如果找不到項目，則傳回-1。
 
 ### <a name="examples"></a>範例
 
@@ -913,7 +969,7 @@ JSON 物件。
 
 ### <a name="return-value"></a>傳回值
 
-整數，代表要尋找之項目的最後一個位置。 此值是以零為起始。 如果找不到項目，則傳回 -1。
+整數，代表要尋找之項目的最後一個位置。 此值是以零為起始。 如果找不到項目，則傳回-1。
 
 ### <a name="examples"></a>範例
 
@@ -1022,7 +1078,7 @@ JSON 物件。
 
 `newGuid()`
 
-以全局唯一标识符的格式返回一个值。 **此函数只能在参数的默认值中使用。**
+以全局唯一标识符的格式返回一个值。 **此函式只可用以預設值的參數。**
 
 ### <a name="remarks"></a>備註
 
@@ -1229,7 +1285,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
 | originalValue |是 |陣列或字串 |要用於略過的陣列或字串。 |
-| numberToSkip |是 |int |要略過的元素或字元數。 如果此值為 0 或更小的值，則會傳回值內的所有元素或字元。 如果此值大于数组或字符串的长度，则返回空数组或字符串。 |
+| numberToSkip |是 |int |要略過的元素或字元數。 如果此值為 0 或更小的值，則會傳回值內的所有元素或字元。 如果其值大於陣列或字串的長度，會傳回空陣列或字串。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1554,7 +1610,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 | 參數 | 必要項 | 類型 | 描述 |
 |:--- |:--- |:--- |:--- |
 | originalValue |是 |陣列或字串 |要從其中擷取元素的陣列或字串。 |
-| numberToTake |是 |int |要擷取的元素或字元數。 如果此值為 0 或更小的值，則會傳回空白陣列或字串。 如果此值大於給定陣列或字串的長度，則會傳回陣列或字串中的所有元素。 |
+| numberToTake |是 |int |要擷取的元素或字元數。 如果此值為 0 或更小的值，則會傳回空白陣列或字串。 如果其值大於給定的陣列或字串的長度，則會傳回陣列或字串中的所有項目。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -1776,7 +1832,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 
 當您需要建立資源的唯一名稱時，這個函式很有幫助。 您提供限制結果唯一性範圍的參數值。 您可以指定名稱對於訂用帳戶、資源群組或部署是否唯一。 
 
-傳回的值不是隨機字串，而是雜湊函式的結果。 傳回的值為 13 個字元長。 它不是全域唯一的。 建議您將值與來自命名慣例的前置詞結合，建立有意義的名稱。 以下示例显示了返回值的格式。 依提供的參數而改變的實際值。
+傳回的值不是隨機字串，但而雜湊函式的結果。 傳回的值為 13 個字元長。 它不是全域唯一的。 建議您將值與來自命名慣例的前置詞結合，建立有意義的名稱。 以下示例显示了返回值的格式。 依提供的參數而改變的實際值。
 
     tcvhiyu5h2o5o
 
@@ -1800,7 +1856,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
-下列範例顯示如何根據您的資源群組建立儲存體帳戶的唯一名稱。 在資源群組內，如果名稱是以相同方式建構，就不是唯一的名稱。
+下列範例顯示如何根據您的資源群組建立儲存體帳戶的唯一名稱。 在資源群組內，名稱不是唯一的如果相同的方式建構。
 
 ```json
 "resources": [{ 
@@ -1809,7 +1865,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
     ...
 ```
 
-如果每次部署模板都需要创建新的唯一名称并且不希望更新资源，可以结合 uniqueString 使用 [utcNow](#utcnow) 函数。 可以在测试环境中使用此方法。 有关示例，请参阅 [utcNow](#utcnow)。
+如果您需要建立新的唯一名稱，每次您部署範本時，且不想要更新資源，您可以使用[utcNow](#utcnow) uniqueString 函式。 可以在测试环境中使用此方法。 有关示例，请参阅 [utcNow](#utcnow)。
 
 ### <a name="return-value"></a>傳回值
 
@@ -2015,7 +2071,7 @@ URI 編碼值的解碼字串。
 
 `utcNow(format)`
 
-以指定的格式返回当前的 (UTC) 日期时间值。 如果未提供格式，则使用 ISO 8601 (yyyyMMddTHHmmssZ) 格式。 **此函数只能在参数的默认值中使用。**
+以指定的格式返回当前的 (UTC) 日期时间值。 如果未提供格式，则使用 ISO 8601 (yyyyMMddTHHmmssZ) 格式。 **此函式只可用以預設值的參數。**
 
 ### <a name="parameters"></a>參數
 

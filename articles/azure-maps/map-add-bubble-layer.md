@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 7f1379bbd3a52b364efc5e4c47612e645fa119ed
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: f2c4c6b8655d5efb993a2dedf536000ac94328c2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056991"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281483"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>將泡泡圖層新增至地圖
 
@@ -73,4 +73,7 @@ Point 物件 (資料來源) 及泡泡圖層會在[事件接聽程式](https://do
 請參閱下列文章，以取得更多可新增至地圖的程式碼範例：
 
 > [!div class="nextstepaction"]
-> [新增符號圖層](./map-add-pin.md)
+> [新增符號圖層](map-add-pin.md)
+
+> [!div class="nextstepaction"]
+> [使用資料驅動樣式運算式](data-driven-style-expressions-web-sdk.md)

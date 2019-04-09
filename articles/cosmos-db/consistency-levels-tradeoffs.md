@@ -1,18 +1,18 @@
 ---
 title: 在 Azure Cosmos DB 中各種一致性層級的可用性和效能權衡取捨
 description: 在 Azure Cosmos DB 中各種一致性層級的可用性和效能權衡取捨。
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 2/13/2019
-ms.author: mjbrown
+ms.date: 04/08/2019
+ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: ac5b6e0d44376332e005d30b4a8fcc97021c4eda
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: a76e277bf56861bcaefb5bf7f8b3b3bc03ad1164
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407516"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266421"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>一致性、可用性與效能權衡取捨 
 
@@ -21,9 +21,9 @@ ms.locfileid: "58407516"
 Azure Cosmos DB 會針對資料一致性提供選項頻譜。 這個方法所包含的選項比強式和最終一致性這兩個極端方法所含的選項還多。 一致性頻譜上有五個定義完善的模型可供您選擇。 最強到最弱的模型分別為：
 
 - *強式*
-- *限定過期*
+- *界限-陳舊*
 - *工作階段*
-- *一致前置詞*
+- *一致的前置詞*
 - *最終*
 
 每個模型會提供可用性和效能的權衡取捨，並由全方位 Sla 支援。
@@ -67,6 +67,6 @@ Azure Cosmos DB 會針對資料一致性提供選項頻譜。 這個方法所包
 
 深入了解分散式系統中的全域散發和一般一致性權衡取捨。 請參閱下列文章：
 
-- [新式分散式資料庫系統設計的一致性權衡取捨](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k) \(英文\)
+- [現代分散式的資料庫系統設計的一致性取捨，](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 - [高可用性](high-availability.md)
 - [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

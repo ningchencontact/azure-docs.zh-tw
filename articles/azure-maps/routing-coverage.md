@@ -3,17 +3,17 @@ title: Azure 地圖服務中的路線規劃涵蓋範圍 | Microsoft Docs
 description: 了解 Azure 地圖服務中的路線規劃涵蓋範圍
 author: jingjing-z
 ms.author: jinzh
-ms.date: 03/22/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 9337a8fcc7aa097c94515bc2dc64d0f059be5e0a
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 718eefc95384dde050a4a25e6850fe6db574d294
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369457"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258924"
 ---
 # <a name="azure-maps-routing-coverage"></a>Azure 地圖服務路線規劃涵蓋範圍
 
@@ -199,14 +199,14 @@ ms.locfileid: "58369457"
 | +Aruba                         |        ✓       |                      |             | 
 | + 加勒比海荷蘭         |        ✓       |                      |             |
 | +Curaçao                       |        ✓       |                      |             |
-| + 荷屬聖馬丁                  |        ✓       |                      |             |
+| + 法屬聖馬丁                  |        ✓       |                      |             |
 | 挪威                         |        ✓       |         ✓            |     ✓      | 
 | 波蘭                         |        ✓       |         ✓            |     ✓      | 
 | 葡萄牙                       |        ✓       |         ✓            |     ✓      |  
 | 羅馬尼亞                        |        ✓       |         ✓            |     ✓      | 
 | 俄羅斯聯邦             |        ✓       |         ✓            |     ✓      | 
 | 聖馬利諾                     |        ✓       |         ✓            |             |
-| + 荷屬聖馬丁                  |        ✓       |                      |             |
+| + 法屬聖馬丁                  |        ✓       |                      |             |
 | 塞爾維亞                         |        ✓       |                      |     ✓      | 
 | 斯洛伐克                       |        ✓       |         ✓            |     ✓      | 
 | 斯洛維尼亞                       |        ✓       |         ✓            |     ✓      |
@@ -233,7 +233,7 @@ ms.locfileid: "58369457"
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | 巴林                        |        ✓       |         ✓            |             |
 | 伊拉克                           |        ✓       |                      |             |
-| 以色列                         |                |         ✓            |             |
+| 以色列                         |        ✓       |         ✓            |             |
 | 約旦                         |        ✓       |                      |             |
 | 科威特                         |        ✓       |         ✓            |             |
 | 黎巴嫩                        |        ✓       |                      |             |

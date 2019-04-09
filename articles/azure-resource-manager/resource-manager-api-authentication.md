@@ -4,22 +4,20 @@ description: 使用 Azure Resource Manager API 與 Azure Active Directory 進行
 services: azure-resource-manager,active-directory
 documentationcenter: na
 author: dushyantgill
-manager: timlt
-editor: tysonn
 ms.assetid: 17b2b40d-bf42-4c7d-9a88-9938409c5088
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 3/22/2019
+ms.date: 04/05/2019
 ms.author: dugill
-ms.openlocfilehash: 7e6ce8c4e5e6ff79a8e77708bd76cef6c24cadd3
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: ae405d5dd99a0e2acced924ccccab292b4489cde
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805511"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264330"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>使用 Resource Manager 驗證 API 來存取訂用帳戶
 
@@ -31,8 +29,6 @@ ms.locfileid: "58805511"
 2. **僅限應用程式存取**︰適用於執行協助程式服務和已排程之作業的應用程式。 应用的标识获得资源的直接访问权限。 此方式適用於需要長期無周邊 (自動) 存取 Azure 的應用程式。
 
 本文提供建立應用程式來運用這兩種授權方法的逐步指示。 它會顯示如何使用 REST API 的每個步驟或C#。 在 [https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense) 可取得完整的 ASP.NET MVC 應用程式。
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-the-web-app-does"></a>Web 應用程式的功用
 
@@ -72,27 +68,9 @@ Web 應用程式：
 ## <a name="register-application"></a>注册应用程序
 在開始撰寫程式碼之前，請先使用 Azure Active Directory (AD) 註冊 Web 應用程式。 應用程式註冊會為您在 Azure AD 中的應用程式建立中央身分識別。 它會保留您的應用程式的基本資訊，例如您的應用程式用來驗證和存取 Azure Resource Manager API 的 OAuth 用戶端識別碼、回覆 URL 和認證。 應用程式註冊也會記錄使用者存取 Microsoft Api 應用程式所需的各種委派權限。
 
-由於應用程式會存取其他訂用帳戶，您必須將它設定為多租用戶應用程式。 為了通過驗證，請提供與 Azure Active Directory 相關聯的網域。 若要查看與 Azure Active Directory 相關聯的網域，請登入入口網站。
+若要註冊您的應用程式，請參閱[快速入門：註冊應用程式與 Microsoft 身分識別平台](../active-directory/develop/quickstart-register-app.md)。 指定您的應用程式的名稱，然後選取**任何組織的目錄中的帳戶**支援的帳戶類型。 針對重新導向 URL，提供與 Azure Active Directory 相關聯的網域。
 
-下列範例示範如何使用 Azure PowerShell 註冊應用程式。 您必須擁有最新版 (2016 年 8 月) Azure PowerShell 才能讓此命令生效。
-
-```azurepowershell-interactive
-$app = New-AzADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
-```
-
-若要以 AD 應用程式的身分登入，您需要應用程式的識別碼和密碼。 若要查看前一個命令所傳回的應用程式識別碼，請使用︰
-
-```azurepowershell-interactive
-$app.ApplicationId
-```
-
-下列範例示範如何使用 Azure CLI 註冊應用程式。
-
-```azurecli-interactive
-az ad app create --display-name {app name} --homepage https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available-to-other-tenants true
-```
-
-結果內包含 AppId，以應用程式的形式進行驗證時會需要此資料。
+若要登入的 AD 應用程式，您將需要的應用程式識別碼和密碼。 應用程式識別碼會顯示在應用程式的概觀。 若要建立祕密，並要求 API 權限，請參閱[快速入門：設定用戶端應用程式以存取 web Api](../active-directory/develop/quickstart-configure-app-access-web-apis.md)。 提供新的用戶端祕密。 API 權限，請選取**Azure 服務管理**。 選取 **委派的權限**並**user_impersonation**。
 
 ### <a name="optional-configuration---certificate-credential"></a>選擇性組態 - 憑證認證
 Azure AD 也支援應用程式的憑證認證︰您建立自我簽署憑證、保留私密金鑰，然後將公開金鑰新增至 Azure AD 應用程式註冊。 若為驗證，您的應用程式會使用您的私密金鑰將小裝載傳送至簽署的 Azure AD，且 Azure AD 會使用您註冊的公開金鑰來驗證簽章。

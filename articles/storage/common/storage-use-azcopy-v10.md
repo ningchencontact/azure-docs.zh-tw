@@ -2,18 +2,18 @@
 title: 複製或移動資料至 Azure 儲存體，使用 AzCopy v10 （預覽） |Microsoft Docs
 description: 使用 AzCopy v10 （預覽） 來移動或來回複製資料從 blob、 data lake 和檔案內容的命令列公用程式。 從本機檔案複製資料到 Azure 儲存體，或在儲存體帳戶內或之間複製資料。 輕鬆地將資料移轉至 Azure 儲存體。
 services: storage
-author: artemuwka
+author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 02/24/2019
-ms.author: artemuwka
+ms.date: 04/05/2019
+ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: ad3e96af95d952956af02acfd87d6d317bc29ed0
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: ffd448db86c8658619da5339cd34eb9dba7e05ce
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574972"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278423"
 ---
 # <a name="transfer-data-with-azcopy-v10-preview"></a>使用 AzCopy v10 傳輸資料 （預覽）
 
@@ -24,6 +24,7 @@ AzCopy v10 （預覽） 是 Microsoft Azure Blob 和檔案儲存體來回複製�
 - 同步處理檔案系統，Azure Blob 儲存體，反之亦然。 使用 `azcopy sync <source> <destination>`。 適用於增量複製案例。
 - 支援 Azure Data Lake Storage Gen2 API。 使用`myaccount.dfs.core.windows.net`為呼叫 Data Lake 儲存體 Gen2 Api 的 URI。
 - 支援將整個帳戶 (僅限 Blob 服務) 複製到另一個帳戶。
+- 複製資料從 Amazon Web Services S3 貯體的支援。
 - 使用新[放置的區塊，從 URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url)支援帳戶-複製的 Api。 資料傳輸速度快，因為傳送到用戶端不需要。
 - 列出或移除指定的路徑中的檔案和 blob。
 - 支援萬用字元模式比對的路徑和--排除旗標。
@@ -65,7 +66,7 @@ AzCopy v10 不需要安裝。 開啟您慣用的命令列應用程式，並瀏�
 > [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)，桌面的用戶端，可簡化管理的 Azure 儲存體資料，現在使用 AzCopy 來加速資料傳輸及移出 Azure 儲存體。
 >
 > 啟用下的儲存體總管中的 AzCopy**預覽**功能表。
-> ![在 Azure 存储资源管理器中启用 AzCopy 作为传输引擎](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
+> ![為 Azure 儲存體總管中的傳輸引擎讓 AzCopy](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
 
 AzCopy v10 語法自行記錄。 當您已登入 Azure Active Directory 時，一般的語法看起來如下所示：
 
@@ -79,8 +80,8 @@ AzCopy v10 語法自行記錄。 當您已登入 Azure Active Directory 時，�
 .\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/container"
 
 # Examples if you're using SAS tokens to authenticate:
-.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container?sastoken" --recursive=true
-.\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile?sastoken"
+.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container?st=2019-04-05T04%3A10%3A00Z&se=2019-04-13T04%3A10%3A00Z&sp=rwdl&sv=2018-03-28&sr=c&sig=Qdihej%2Bsbg4AiuyLVyQZklm9pSuVGzX27qJ508wi6Es%3D" --recursive=true
+.\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile?st=2019-04-05T04%3A10%3A00Z&se=2019-04-13T04%3A10%3A00Z&sp=rwdl&sv=2018-03-28&sr=c&sig=Qdihej%2Bsbg4AiuyLVyQZklm9pSuVGzX27qJ508wi6Es%3D"
 ```
 
 用來取得可用命令清單的方法如下：
@@ -101,7 +102,7 @@ AzCopy v10 語法自行記錄。 當您已登入 Azure Active Directory 時，�
 
 ## <a name="create-a-blob-container-or-file-share"></a>建立 blob 容器或檔案共用 
 
-**建立 blob 容器**
+**建立 Blob 容器**
 
 ```azcopy
 .\azcopy make "https://account.blob.core.windows.net/container-name"
@@ -135,16 +136,16 @@ AzCopy v10 語法自行記錄。 當您已登入 Azure Active Directory 時，�
 .\azcopy cp <source path> <destination path> --<flag-name>=<flag-value>
 ```
 
-下列命令會將資料夾下的所有檔案上都傳`C:\local\path`容器的遞迴`mycontainer1`建立`path`目錄中的容器：
+下列命令會將資料夾下的所有檔案上都傳`C:\local\path`容器的遞迴`mycontainer1`建立`path`目錄中的容器。 當`--put-md5`會提供旗標，AzCopy 會計算並儲存在每個檔案的 md5 雜湊`Content-md5`屬性對應的 blob，以供稍後使用。
 
 ```azcopy
-.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
+.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true --put-md5
 ```
 
 下列命令會將資料夾 `C:\local\path` 下的所有檔案 (不會遞迴至子目錄) 上傳到容器 `mycontainer1`：
 
 ```azcopy
-.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>"
+.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --put-md5
 ```
 
 若要尋找更多範例，請使用下列命令：
@@ -153,21 +154,27 @@ AzCopy v10 語法自行記錄。 當您已登入 Azure Active Directory 時，�
 .\azcopy cp -h
 ```
 
-## <a name="copy-data-between-two-storage-accounts"></a>在兩個儲存體帳戶之間複製資料
+## <a name="copy-blob-data-between-two-storage-accounts"></a>複製兩個儲存體帳戶之間的 Blob 資料
 
 兩個儲存體帳戶之間複製資料會使用[從 URL 將區塊](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url)API，但未使用用戶端電腦的網路頻寬。 AzCopy 只是用來協調的複製作業時，會直接，兩個 Azure 儲存體伺服器之間複製資料。 這個選項目前只適用於 Blob 儲存體。
 
-若要在兩個儲存體帳戶之間複製資料，請使用下列命令：
+若要複製所有的 Blob 資料，兩個儲存體帳戶之間，使用下列命令：
 ```azcopy
 .\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
 ```
 
-> [!NOTE]
-> 此命令會列舉所有的 blob 容器，並將其複製到目的地帳戶。 在此階段中，AzCopy v10 支援複製只有兩個儲存體帳戶之間的區塊 blob。 它會略過所有其他儲存體帳戶物件 （例如附加 blob、 分頁 blob、 檔案、 資料表和佇列）。
+若要將 Blob 容器複製到另一個 Blob 容器中，使用下列命令：
+```azcopy
+.\azcopy cp "https://myaccount.blob.core.windows.net/mycontainer/<sastoken>" "https://myotheraccount.blob.core.windows.net/mycontainer/<sastoken>" --recursive=true
+```
 
 ## <a name="copy-a-vhd-image-to-a-storage-account"></a>將 VHD 映像複製到儲存體帳戶
 
-AzCopy v10 依預設會將資料上傳至區塊 Blob。 不過，如果原始程式檔有`.vhd`延伸模組，AzCopy v10 會預設為上傳至分頁 blob。 在此階段中，此動作不是可設定。
+AzCopy 依預設會將資料上傳至區塊 blob。 若要上傳檔案，因為附加 Blob 或分頁 Blob 使用旗標`--blob-type=[BlockBlob|PageBlob|AppendBlob]`。
+
+```azcopy
+.\azcopy cp "C:\local\path\mydisk.vhd" "https://myotheraccount.blob.core.windows.net/mycontainer/mydisk.vhd<sastoken>" --blob-type=PageBlob
+```
 
 ## <a name="sync-incremental-copy-and-delete-blob-storage-only"></a>同步處理：累加複製和刪除 (僅限 Blob 儲存體)
 
@@ -192,6 +199,30 @@ AzCopy v10 依預設會將資料上傳至區塊 Blob。 不過，如果原始程
 ```
 
 此命令以累加方式同步處理到目的地的上次修改時間戳記為基礎的來源。 如果您在來源中新增或刪除檔案，AzCopy v10 也會在目的地進行相同操作。 刪除之前，AzCopy 會提示您確認。
+
+## <a name="copy-data-from-amazon-web-services-aws-s3"></a>從 Amazon Web Services (AWS) S3 複製資料
+
+若要使用 AWS S3 貯體進行驗證，設定下列環境變數：
+
+```
+# For Windows:
+set AWS_ACCESS_KEY_ID=<your AWS access key>
+set AWS_SECRET_ACCESS_KEY=<AWS secret access key>
+# For Linux:
+export AWS_ACCESS_KEY_ID=<your AWS access key>
+export AWS_SECRET_ACCESS_KEY=<AWS secret access key>
+# For MacOS
+export AWS_ACCESS_KEY_ID=<your AWS access key>
+export AWS_SECRET_ACCESS_KEY=<AWS secret access key>
+```
+
+若要複製到 Blob 容器的貯體，請發出下列命令：
+
+```
+.\azcopy cp "https://s3.amazonaws.com/mybucket" "https://myaccount.blob.core.windows.net/mycontainer?<sastoken>" --recursive
+```
+
+如需複製使用 AzCopy，將資料從 AWS S3 的詳細資訊，請參閱頁面[此處](https://github.com/Azure/azure-storage-azcopy/wiki/Copy-from-AWS-S3)。
 
 ## <a name="advanced-configuration"></a>進階組態
 
@@ -277,10 +308,11 @@ AzCopy v10 建立記錄檔和每個工作的方案檔。 您可以使用記錄�
 .\azcopy jobs show <job-id> --with-status=Failed
 ```
 
-若要繼續失敗/已取消的工作中使用下列命令。 此命令會使用 SAS 權杖以及其識別碼。 它不是基於安全性理由，持續性：
+若要繼續失敗/已取消的工作中使用下列命令。 此命令會使用 SAS 權杖以及其識別項，並不持續基於安全性理由：
 
 ```azcopy
-.\azcopy jobs resume <jobid> --sourcesastokenhere --destinationsastokenhere
+.\azcopy jobs resume <jobid> --source-sas="<sastokenhere>"
+.\azcopy jobs resume <jobid> --destination-sas="<sastokenhere>"
 ```
 
 ## <a name="next-steps"></a>後續步驟

@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 3663526dc32b0a607c9fca3d7c76496bfb5566f4
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3c1bb38eb12ce77d172257706cd458cebda4bd8c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549134"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260743"
 ---
 # <a name="managed-identity-for-data-factory"></a>適用於 Data Factory 的受控身分識別
 
@@ -46,7 +46,7 @@ Data factory 受控身分識別的產生過程如下所示：
 
 - [產生使用 PowerShell 的受管理身分識別](#generate-managed-identity-using-powershell)
 - [產生受控身分識別，使用 REST API](#generate-managed-identity-using-rest-api)
-- 產生受控身分識別使用 Azure Resource Manager 範本
+- [產生受控身分識別使用 Azure Resource Manager 範本](#generate-managed-identity-using-an-azure-resource-manager-template)
 - [產生使用 SDK 的受管理身分識別](#generate-managed-identity-using-sdk)
 
 >[!NOTE]
@@ -156,11 +156,11 @@ client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
 
 ### <a name="retrieve-managed-identity-using-azure-portal"></a>使用 Azure 入口網站的擷取受控身分識別
 
-您可以找到受管理的身分識別資訊，從 Azure 入口網站]-> [您的 data factory]-> [設定]-> [屬性：
+您可以找到受管理的身分識別資訊，從 Azure 入口網站]-> [您的 data factory]-> [屬性：
 
-- 服務識別識別碼
-- 服務識別租用戶
-- **服務識別應用程式識別碼** > 複製此值
+- 受控識別物件識別碼
+- 受控識別租用戶
+- **受管理身分識別應用程式識別碼**> 複製此值
 
 ![擷取受管理的身分識別](media/data-factory-service-identity/retrieve-service-identity-portal.png)
 
@@ -192,6 +192,6 @@ Type                  : ServicePrincipal
 請參閱下列主題介紹何時及如何使用 data factory 受控身分識別：
 
 - [在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)
-- [使用 Azure 資源的受控識別驗證，從 Azure Data Lake Store 來回複製資料](connector-azure-data-lake-store.md)
+- [來回複製資料從 Azure Data Lake Store 使用 Azure 資源驗證的受管理的身分識別](connector-azure-data-lake-store.md)
 
 請參閱[管理 Azure 資源概觀的身分識別](/azure/active-directory/managed-identities-azure-resources/overview)的背景資訊管理的身分識別用於 data factory 管理身分識別的 Azure 資源為基礎。 

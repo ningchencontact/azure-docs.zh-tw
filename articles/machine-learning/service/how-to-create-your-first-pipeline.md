@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1ace13b8802c86b3ad40725554c698851ff421b0
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: cc561bd88c18788be3ed1b9aef8a6a985af8a6f2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360515"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278542"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>使用 Azure Machine Learning SDK 建立及執行機器學習管線
 
@@ -35,6 +35,8 @@ ms.locfileid: "58360515"
 * 建立 [Azure Machine Learning 工作區](how-to-configure-environment.md#workspace)以保存您的所有管線資源。 
 
   ```python
+  from azureml.core import Workspace
+  
   ws = Workspace.create(
      name = '<workspace-name>',
      subscription_id = '<subscription-id>',
@@ -91,7 +93,7 @@ blob_input_data = DataReference(
     path_on_datastore="20newsgroups/20news.pkl")
 ```
 
-中繼資料 (或步驟的輸出) 會由 [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) 物件代表。 `output_data1` 會產生為步驟的輸出，並用來作為一或多個未來步驟的輸入。 `PipelineData` 會在步驟之間導入資料相依性，並在管線中建立隱含的執行順序。
+中繼資料 (或步驟的輸出) 會由 [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) 物件代表。 `output_data1` 產生做為輸出的步驟中，並做為輸入的一或多個後續的步驟。 `PipelineData` 導入了資料之間的相依性的步驟，並在管線中建立的隱含的執行順序。
 
 ```python
 output_data1 = PipelineData(
@@ -118,6 +120,8 @@ output_data1 = PipelineData(
 您可以建立用來執行步驟的 Azure Machine Learning Compute。
 
 ```python
+from azureml.core.compute import ComputeTarget, AmlCompute
+
 compute_name = "aml-compute"
  if compute_name in ws.compute_targets:
     compute_target = ws.compute_targets[compute_name]
@@ -357,7 +361,7 @@ response = requests.post(published_pipeline1.endpoint,
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。  
 
 1. [檢視您的工作區](how-to-manage-workspace.md#view)以尋找管線清單。
- ![機器學習管線清單](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
+ ![機器學習服務管線的清單](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. 選取特定管線以查看執行結果。
 

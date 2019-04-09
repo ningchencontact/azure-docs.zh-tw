@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 11d07f33a4f5e268ff2f0ac2966bde40a63a7529
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776799"
 documentType: LandingData
 title: Azure Notebooks 文件
 metadata:
@@ -13,62 +7,62 @@ metadata:
   services: notebooks
   author: kraigb
   manager: douge
-  ms.service: azure
+  ms.service: azure-notebooks
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 12/04/2018
   ms.author: kraigb
 abstract:
-  description: Azure Notebooks 是免費的裝載服務，無需任何安裝程序，就能用來在雲端中開發和執行 Jupyter Notebooks。 Jupyter (前稱 IPython) 是開放原始碼專案，可輕鬆將 Markdown 文字、可執行程式碼 (Python、R 和 F#)、持續性資料、圖形以及視覺效果統整至名為「筆記本」的單一且可分享的畫布上。
+  description: 'Azure Notebooks 是免費的裝載服務，無需任何安裝程序，就能用來在雲端中開發和執行 Jupyter Notebooks。 Jupyter (前稱 IPython) 是開放原始碼專案，可輕鬆將 Markdown 文字、可執行程式碼 (Python、R 和 F#)、持續性資料、圖形以及視覺效果統整至名為「筆記本」的單一且可分享的畫布上。'
 sections:
-- title: 5 分鐘快速入門
-  items:
-  - type: paragraph
-    text: 探索這些快速入門，了解如何使用 Azure Notebooks。
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 2
+  - title: 5 分鐘快速入門
     items:
-    - href: /azure/notebooks/quickstart-create-share-jupyter-notebook
-      html: <p>了解如何在 Azure Notebooks 上建立和執行 Jupyter 筆記本，並與他人共用。</p>
-      image:
-        src: media/index/Azure_AddNotebook.svg
-      title: 建立及共用筆記本
-    - href: /azure/notebooks/quickstart-clone-jupyter-notebook
-      html: <p>了解如何從 GitHub 存放庫中複製 Jupyter 筆記本，並在您的 Azure Notebooks 帳戶中執行。</p>
-      image:
-        src: media/index/Azure_ClonePage.svg
-      title: 複製筆記本
-    - href: /azure/notebooks/quickstart-migrate-local-jupyter-notebook
-      html: <p>了解如何從本機電腦或 Web URL，將 Jupyter 筆記本傳送至 Azure Notebooks，並共用筆記本以進行共同作業。</p>
-      image:
-        src: media/index/Azure_MigrateNotebook.svg
-      title: 遷移本機 Jupyter 筆記本
-    - href: /azure/notebooks/quickstart-create-jupyter-notebook-project-environment
-      html: <p>了解如何使用一組已安裝的特定套件及啟動指令碼，設定 Azure Notebooks 專案。</p>
-      image:
-        src: media/index/Azure_CustomEnvironment.svg
-      title: 使用自訂環境建立專案
-    - href: /azure/notebooks/quickstart-sign-in-azure-notebooks
-      html: <p>了解如何登入 Azure Notebooks 並設定使用者識別碼，如此可讓您存取己儲存的專案並與他人供用 Notebooks。</p>
-      image:
-        src: media/index/Azure_UserAccount.svg
-      title: 登入並設定使用者識別碼
-- title: 逐步教學課程
-  items:
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 探索這些快速入門，了解如何使用 Azure Notebooks。
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 2
+        items:
+          - href: /azure/notebooks/quickstart-create-share-jupyter-notebook
+            html: <p>了解如何在 Azure Notebooks 上建立和執行 Jupyter 筆記本，並與他人共用。</p>
+            image:
+              src: media/index/Azure_AddNotebook.svg
+            title: 建立及共用筆記本
+          - href: /azure/notebooks/quickstart-clone-jupyter-notebook
+            html: <p>了解如何從 GitHub 存放庫中複製 Jupyter 筆記本，並在您的 Azure Notebooks 帳戶中執行。</p>
+            image:
+              src: media/index/Azure_ClonePage.svg
+            title: 複製筆記本
+          - href: /azure/notebooks/quickstart-migrate-local-jupyter-notebook
+            html: <p>了解如何從本機電腦或 Web URL，將 Jupyter 筆記本傳送至 Azure Notebooks，並共用筆記本以進行共同作業。</p>
+            image:
+              src: media/index/Azure_MigrateNotebook.svg
+            title: 遷移本機 Jupyter 筆記本
+          - href: /azure/notebooks/quickstart-create-jupyter-notebook-project-environment
+            html: <p>了解如何使用一組已安裝的特定套件及啟動指令碼，設定 Azure Notebooks 專案。</p>
+            image:
+              src: media/index/Azure_CustomEnvironment.svg
+            title: 使用自訂環境建立專案
+          - href: /azure/notebooks/quickstart-sign-in-azure-notebooks
+            html: <p>了解如何登入 Azure Notebooks 並設定使用者識別碼，如此可讓您存取己儲存的專案並與他人供用 Notebooks。</p>
+            image:
+              src: media/index/Azure_UserAccount.svg
+            title: 登入並設定使用者識別碼
+  - title: 逐步教學課程
     items:
-    - html: <a href="/azure/notebooks/tutorial-create-run-jupyter-notebook">了解如何從頭開始建置筆記本。</a>
-- title: 範例
-  items:
-  - type: paragraph
-    text: 使用下列範例來使用 Notebooks：
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/notebooks/tutorial-create-run-jupyter-notebook">了解如何從頭開始建置筆記本。</a>
+  - title: 範例
     items:
-    - html: <a href="/azure/notebooks/azure-notebooks-samples">Jupyter Notebooks 範例</a>
+      - type: paragraph
+        text: 使用下列範例來使用 Notebooks：
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/notebooks/azure-notebooks-samples">Jupyter Notebooks 範例</a>

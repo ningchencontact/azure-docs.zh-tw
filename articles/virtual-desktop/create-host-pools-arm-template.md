@@ -5,18 +5,18 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: 262ec35a8a177652dff12bccb3b5435cb5856d81
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: ba98328002cafbcede855b1187881d39f1de8fc5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401425"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279222"
 ---
-# <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立的主應用程式集區
+# <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立主機集區
 
-主應用程式集區是一或多個相同的虛擬機器在 Windows 虛擬桌面預覽租用戶環境中的集合。 每個主應用程式集區可以包含實體的桌上型電腦上，使用者可以與互動的應用程式群組。
+主機集區是 Windows 虛擬桌面預覽版租用戶環境中一或多個相同虛擬機器的集合。 每個主機集區都可以包含一個應用程式群組，而使用者可如同在實體桌面上與其互動。
 
 請遵循本節中的指示使用 Microsoft 所提供的 Azure Resource Manager 範本建立 Windows 虛擬桌面租用戶的主應用程式集區。 這篇文章會告訴您如何建立主應用程式集區中 Windows 虛擬桌面、 與 Vm 建立的資源群組中的 Azure 訂用帳戶、 將這些 Vm 加入 AD 網域，以及向 Windows 虛擬桌面的 Vm。
 
@@ -52,7 +52,7 @@ ms.locfileid: "58401425"
 
 GitHub 的 Azure Resource Manager 範本完成之後，請在您開始測試您的虛擬機器上的完整的工作階段桌面之前先指派使用者存取權。
 
-首先，[下載並匯入的 Windows 虛擬桌面的 PowerShell 模組](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)來使用您的 PowerShell 工作階段中，如果您還沒有這麼做。
+首先，[下載並匯入 Windows 虛擬桌面的 PowerShell 模組](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)，以在您的 PowerShell 工作階段中使用 (如果您還沒這麼做的話)。
 
 若要將使用者指派至桌面應用程式群組，請開啟 PowerShell 視窗並執行這個指令程式可登入 Windows 虛擬桌面環境：
 
@@ -72,6 +72,9 @@ Set-RdsContext -TenantGroupName <Tenant Group name>
 Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
 ```
 
-使用者的 UPN 應該符合 Azure Active Directory 中的使用者的身分識別 (例如user1@contoso.com)。 如果您想要新增多個使用者，您必須執行這個指令程式的每個使用者。
+使用者的 UPN 應該符合 Azure Active Directory 中的使用者身分識別 (例如user1@contoso.com)。 如果您想要新增多個使用者，則必須針對每個使用者執行此 Cmdlet。
 
-在您完成這些步驟之後，新增至桌面應用程式群組的使用者可以使用支援的遠端桌面用戶端登入 Windows 虛擬桌面，並查看工作階段桌面的資源。
+在您完成這些步驟之後，新增至桌面應用程式群組的使用者可以透過支援的遠端桌面用戶端登入 Windows 虛擬桌面，並看到工作階段桌面的資源。
+
+>[!IMPORTANT]
+>若要協助保護您的 Windows 虛擬桌面環境，在 Azure 中，我們建議您不要在您的 Vm 上開啟輸入連接埠 3389。 Windows 虛擬桌面並不需要開啟輸入連接埠 3389，讓使用者存取主應用程式集區的 Vm。 如果您必須開啟連接埠 3389 以進行疑難排解，我們建議您使用[在 just-in-time VM 存取](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time)。

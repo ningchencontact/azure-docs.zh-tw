@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: e078f838620f633743b27d26ba1218e753ff690e
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: f3f013f2e3090b54846ebba94ef54506275d6311
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259817"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282860"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常见问题
 
@@ -43,7 +43,7 @@ ExpressRoute 連線不會經過公用網際網路。 相較於網際網路一般
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>如果我支付指定頻寬的 ExpressRoute 線路，是否能夠在需要時突增到較高的速度？
 
-是。 ExpressRoute 線路設定允許您可以突增兩倍的所採購頻寬限制，且無需另外付費。 請洽詢您的服務提供者，以了解是否支援此功能。
+是的。 ExpressRoute 線路設定允許您可以突增兩倍的所採購頻寬限制，且無需另外付費。 請洽詢您的服務提供者，以了解是否支援此功能。
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>我是否可以在虛擬網路和其他 Azure 服務中同時使用相同的私人網路連線？
 
@@ -144,7 +144,7 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>我可以在相同的城市擁有多個 ExpressRoute 線路嗎？ 是否可以將這些線路連結至相同的虛擬網路？
 
-是。 您可以有多個 ExpressRoute 線路，且服務提供者不一定要相同。 如果城市中有多個 ExpressRoute 對等互連位置，且線路是建立在不同的對等互連位置，您就可以將這些線路連結至相同的虛擬網路。 如果線路是建立在相同的對等互連位置，則無法將線路連結至相同的虛擬網路。 Azure 入口網站或 PowerShell/CLI API 中的每個位置名稱各代表一個對等互連位置。 例如，您可以選取對等互連位置「新加坡」和「新加坡 2」，並將其中的線路連線至相同的虛擬網路。 
+是。 您可以有多個 ExpressRoute 線路，且服務提供者不一定要相同。 如果城市中有多個 ExpressRoute 對等互連位置，且線路是建立在不同的對等互連位置，您就可以將這些線路連結至相同的虛擬網路。 如果線路建立在相同的對等互連位置，您仍然可以連結它們相同的虛擬網路，但僅最多 4 ExpressRoute 線路在每個對等互連的位置。 例如，您可以選取對等互連位置「新加坡」和「新加坡 2」，並將其中的線路連線至相同的虛擬網路。 
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>我要如何將虛擬網路連線至 ExpressRoute 電路
 

@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 03/27/2019
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e36d0985aee53f2a7f701f9bf7887ae26a426b68
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d2ab7f58c3061044583baf9db73e193966d7d4eb
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203738"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058370"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>教學課程：設定 Pingboard 來自動佈建使用者
 
@@ -32,11 +32,11 @@ ms.locfileid: "56203738"
 
 本教學課程中說明的案例假設您已經具有下列項目：
 
-*   Azure AD 租用戶
-*   Pingboard 租用戶 [Pro 帳戶](https://pingboard.com/pricing) 
-*   Pingboard 中具有管理員權限的使用者帳戶 
+* Azure AD 租用戶
+* Pingboard 租用戶 [Pro 帳戶](https://pingboard.com/pricing)
+* Pingboard 中具有管理員權限的使用者帳戶
 
-> [!NOTE] 
+> [!NOTE]
 > Azure AD 佈建整合依存於可供您的帳戶使用的 [Pingboard API](https://pingboard.docs.apiary.io/#)。
 
 ## <a name="assign-users-to-pingboard"></a>將使用者指派給 Pingboard
@@ -69,7 +69,7 @@ Azure AD 會使用稱為「指派」的概念，來判斷哪些使用者應收�
 1. 將 [佈建模式] 設定為 [自動]。
 
     ![Pingboard 佈建](./media/pingboard-provisioning-tutorial/pingboardazureprovisioning.png)
-    
+
 1. 在 [管理員認證] 區段底下，使用下列步驟：
 
     a. 在 [租用戶 URL] 中輸入 `https://your_domain.pingboard.com/scim/v2`，並將 "your_domain" 取代為您實際的網域。
@@ -86,7 +86,7 @@ Azure AD 會使用稱為「指派」的概念，來判斷哪些使用者應收�
 
 1. 在 [通知電子郵件] 中，輸入應收到佈建錯誤通知之個人或群組的電子郵件地址。 選取下方的核取方塊。
 
-1. 選取 [ **儲存**]。 
+1. 選取 [ **儲存**]。
 
 1. 在 [對應] 區段之下，選取 [將 Azure Active Directory 使用者同步至 Pingboard]。
 
@@ -102,6 +102,6 @@ Azure AD 會使用稱為「指派」的概念，來判斷哪些使用者應收�
 
 ## <a name="additional-resources"></a>其他資源
 
-* [管理企業應用程式的使用者帳戶佈建](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [管理企業應用程式的佈建的使用者帳戶](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)
 * [設定單一登入](pingboard-tutorial.md)

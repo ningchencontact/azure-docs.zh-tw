@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: ea7f2e730b4963016d221705ba8c9356efffa858
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 9d5e25e0fd00f9c0635009f684e79336d58b7b4a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905268"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263752"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>適用於.NET Core ILogger 記錄 ApplicationInsightsLoggerProvider
 
@@ -208,10 +208,10 @@ public class Startup
 1. 先前的提供者缺乏的支援[範圍](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-scopes)。 在新的提供者，從範圍的屬性會自動為自訂屬性新增至所收集之遙測。
 2. 現在可以在應用程式啟動管線中的較早擷取記錄檔。 亦即 現在可以擷取從 程式和啟動類別的記錄檔。
 3. 使用新的提供者，在架構層級本身進行篩選。 篩選的記錄檔至 Application Insights 提供者可以完成其他提供者，包括內建的提供者，例如 [主控台] 中，偵錯，完全相同方式等等。 它也可將相同的篩選套用至多個提供者。
-4. [建議](https://github.com/aspnet/Announcements/issues/255)啟用記錄提供者在 Asp.Net Core (2.0 及更新版本) 中的方式是使用擴充方法中 ILoggingBuilder 上`Program.cs`本身。
+4. [建議](https://github.com/aspnet/Announcements/issues/255)啟用記錄提供者在 ASP.NET Core (2.0 及更新版本) 中的方式是使用擴充方法中 ILoggingBuilder 上`Program.cs`本身。
 
 > [!Note]
-新的提供者是適用於目標的應用程式`NETSTANDARD2.0`或更高版本。 如果您的應用程式以較舊的.NET Core 版本，例如.NET Core 1.1 為目標，或以.NET Framework 為目標，繼續使用舊的提供者。
+> 新的提供者是適用於目標的應用程式`NETSTANDARD2.0`或更高版本。 如果您的應用程式以較舊的.NET Core 版本，例如.NET Core 1.1 為目標，或以.NET Framework 為目標，繼續使用舊的提供者。
 
 ## <a name="console-application"></a>主控台應用程式
 

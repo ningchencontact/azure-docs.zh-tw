@@ -7,30 +7,32 @@ items:
     href: about-azure-maps.md
 - name: 快速入門
   items:
-  - name: 建立地圖應用程式
+  - name: 建立 Web 應用程式
     href: quick-demo-map-app.md
 - name: 教學課程
   items:
-  - name: 1 - 搜尋興趣點
-    href: tutorial-search-location.md
-  - name: 2 - 前往目的地的路線
-    href: tutorial-route-location.md
-  - name: 3 - 依旅遊方式區分的多個路線
-    href: tutorial-prioritized-routes.md
-  - name: 4 - 建立存放區定位器
-    href: tutorial-create-store-locator.md
-  - name: 5 - 設定地理柵欄
-    href: tutorial-geofence.md
+  - name: Web SDK 教學課程
+    items:
+    - name: 搜尋景點
+      href: tutorial-search-location.md
+    - name: 前往目的地的路線
+      href: tutorial-route-location.md
+    - name: 依旅遊方式區分的多個路線
+      href: tutorial-prioritized-routes.md
+    - name: 建立存放區定位器
+      href: tutorial-create-store-locator.md
+  - name: REST API 教學課程
+    items:
+    - name: 設定地理柵欄
+      href: tutorial-geofence.md
 - name: 概念
   items:
-  - name: 縮放層級和圖格格線
-    href: zoom-levels-and-tile-grid.md
+  - name: 向 Azure 地圖服務驗證
+    href: azure-maps-authentication.md
   - name: Azure 地圖服務事件方格整合
     href: azure-maps-event-grid-integration.md
   - name: 選擇適當的定價層
     href: choose-pricing-tier.md
-  - name: 向 Azure 地圖服務驗證
-    href: azure-maps-authentication.md
   - name: 涵蓋範圍
     items:
     - name: 地理編碼涵蓋範圍
@@ -47,6 +49,8 @@ items:
     href: supported-map-styles.md
   - name: Web SDK 支援的瀏覽器
     href: supported-browsers.md
+  - name: 縮放層級和圖格格線
+    href: zoom-levels-and-tile-grid.md
 - name: 使用說明指南
   items:
   - name: 管理地圖服務帳戶
@@ -63,6 +67,8 @@ items:
     items:
     - name: 搜尋地址
       href: how-to-search-for-address.md
+    - name: 搜尋的最佳做法
+      href: how-to-use-best-practices-for-search.md
     - name: 轉譯靜態地圖上的自訂資料
       href: how-to-render-custom-data.md
   - name: 利用 Web SDK 進行開發
@@ -89,6 +95,8 @@ items:
         href: map-add-heat-map-layer.md
       - name: 叢集點資料
         href: clustering-point-data-web-sdk.md
+      - name: 使用資料驅動樣式運算式
+        href: data-driven-style-expressions-web-sdk.md
       - name: 將影像重疊
         href: map-add-image-layer.md
       - name: 新增圖格圖層
@@ -159,7 +167,7 @@ items:
   items:
   - name: Azure 地圖服務使用規定
     href: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31
-  - name: 價格
+  - name: Azure 地圖服務定價
     href: https://azure.microsoft.com/pricing/details/azure-maps
   - name: 定價計算機
     href: https://azure.microsoft.com/pricing/calculator/
@@ -167,7 +175,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-maps
   - name: MSDN 論壇
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs
-  - name: 詞彙
+  - name: Azure 地圖服務影片
+    href: https://aka.ms/AzureMapsVideos
+  - name: Azure 地圖服務字彙
     href: glossary.md
   - name: 服務更新
     href: https://azure.microsoft.com/updates
@@ -177,7 +187,7 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=iot
   - name: 技術案例研究
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
-  - name: 影片
+  - name: IoT School 中的 Azure 地圖服務
     href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo
 - name: 相關參考
   items:
@@ -205,9 +215,9 @@ items:
       href: /azure/iot-edge
     - name: IoT 裝置 SDK
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
-ms.openlocfilehash: db82c8eac3288867b524f19b688b6358b8e6bbc6
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 94e02b599bffd24e9c9aa65560e4a74bd05ecea6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575818"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263584"

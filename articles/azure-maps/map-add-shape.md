@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 43406aee8d2e350b82659156bb2837e952fd4a92
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 1e550002948fc1320b8645bf1af635536d524fe6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057020"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282384"
 ---
 # <a name="add-a-shape-to-a-map"></a>在地圖中新增圖形
 
@@ -35,7 +35,7 @@ ms.locfileid: "59057020"
 
 在第二個程式碼區塊中，則會使用 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 類別來建立資料來源物件。 [LineString](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.linestring?view=azure-iot-typescript-latest) 物件會建立並新增至資料來源。
 
-[LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) 會轉譯 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 中已包裝的線條物件。 最後一個程式碼區塊會建立線條圖層，並將其新增至地圖。 請在 [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest) 查看線條圖層的屬性。 資料來源及線條圖層會在[事件接聽程式](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)函式內建立並新增至地圖，以確保線條會在地圖完全載入後顯示。
+[LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) 會轉譯 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 中已包裝的線條物件。 最後一個程式碼區塊會建立線條圖層，並將其新增至地圖。 請在 [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest) 查看線條圖層的屬性。 建立並加入至地圖中的資料來源及線條圖層[事件處理常式](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)以確保對應完全載入後，會顯示線條。
 
 ### <a name="add-symbols-along-a-line"></a>將沿著一條線的符號
 
@@ -49,7 +49,7 @@ ms.locfileid: "59057020"
 
 ### <a name="line-stroke-gradient"></a> 加入一條線的筆劃漸層
 
-除了能夠將單一筆劃色彩套用至的行中，您也可以使用漸層的色彩顯示從一個直線線段轉換到下一步，以填入一條線。 例如，列漸層可用來跨物件相連線條代表不同時間和距離或不同的溫度的變更。 若要將這項功能套用至一條線中，資料來源必須`lineMetrics`選項設為 true，，然後再色彩漸層停駐的運算式可以傳遞至`strokeColor`線條的選項。 筆劃的漸層停駐運算式必須參考`['line-progress']`會公開為運算式的導出的列計量的資料運算式。
+除了能夠將單一筆劃色彩套用至的行中，您也可以使用漸層的色彩顯示從一個直線線段轉換到下一步，以填入一條線。 例如，列漸層可用來跨物件相連線條代表不同時間和距離或不同的溫度的變更。 若要將這項功能套用至一條線中，資料來源必須`lineMetrics`選項設為 true，，然後再色彩漸層停駐的運算式可以傳遞至`strokeColor`線條的選項。 筆劃的漸層停駐運算式必須參考`['line-progress']`公開 （expose） 至運算式的導出的列計量的資料運算式。
 
 <br/>
 
@@ -83,7 +83,7 @@ ms.locfileid: "59057020"
 
 在第二個程式碼區塊中，則會使用 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 類別來建立資料來源物件。 [多邊形](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon?view=azure-iot-typescript-latest)會從座標陣列來建立，並且會新增至資料來源。 
 
-[PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) 會在地圖上轉譯 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 中包裝的資料。 最後一個程式碼區塊會建立多邊形圖層，並將其新增至地圖。 請在 [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest) 查看多邊形圖層的屬性。 資料來源及多邊形圖層會在[事件接聽程式](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)函式內建立並新增至地圖，以確保多邊形會在地圖完全載入後顯示。
+[PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) 會在地圖上轉譯 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 中包裝的資料。 最後一個程式碼區塊會建立多邊形圖層，並將其新增至地圖。 請在 [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest) 查看多邊形圖層的屬性。 建立並加入至地圖中的資料來源及多邊形圖層[事件處理常式](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)以確保對應完全載入後，會顯示多邊形。
 
 ### <a name="use-a-polygon-and-line-layer-together"></a>同時使用多邊形和線條圖層
 
@@ -98,7 +98,7 @@ ms.locfileid: "59057020"
 
 [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) 會在地圖上轉譯 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 中包裝的資料。 請在 [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest) 查看多邊形圖層的屬性。 [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest)是線條的陣列。 請在 [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest) 查看線條圖層的屬性。 第三個程式碼區塊會建立多邊形和線條圖層。
 
-最後一個程式碼區塊會將多邊形和線條圖層新增至地圖中。 資料來源及圖層會在[事件接聽程式](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)函式內建立並新增至地圖，以確保多邊形會在地圖完全載入後顯示。
+最後一個程式碼區塊會將多邊形和線條圖層新增至地圖中。 建立並加入至地圖中的資料來源和階層[事件處理常式](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)以確保對應完全載入後，會顯示多邊形。
 
 > [!TIP]
 > 線條圖層預設會呈現多邊形，以及資料來源中的線條的座標。 若要限制圖層，使它只會呈現 LineString 功能組`filter`的圖層屬性`['==', ['geometry-type'], 'LineString']`或`['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]`如果您想要包含也 MultiLineString 功能。
@@ -126,7 +126,7 @@ ms.locfileid: "59057020"
 
 ## <a name="add-a-circle-to-the-map"></a>將圓形加入至對應
 
-Azure 地圖服務會使用提供的定義，如所述的圓形的 GeoJSON 結構描述的擴充的版本[此處](extend-geojson.md#circle)。 圓形可以呈現在地圖上，藉由建立`Point`的功能，具有`subType`屬性值是`Circle`和`radius`屬性有數字代表以公尺為單位的半徑。 例如︰
+Azure 地圖服務會使用提供的定義，如所述的圓形 GeoJSON 結構描述的擴充的版本[此處](extend-geojson.md#circle)。 圓形可以呈現在地圖上，藉由建立`Point`的功能，具有`subType`屬性值是`"Circle"`和`radius`具有數字，代表以公尺為單位的半徑屬性。 例如︰
 
 ```javascript
 {
@@ -149,9 +149,9 @@ Azure 地圖服務 Web SDK 轉換這些`Pooint`功能到`Polygon`功能在幕後
 
 上述程式碼中的第一個程式碼區塊會建構地圖物件。 如需相關指示，您可以查看[建立對應](./map-create.md)。
 
-在第二個程式碼區塊中，則會使用 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 類別來建立資料來源物件。 圓形是[點](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest)的[特徵](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest)，其具有 `subType` 屬性 (設定為 "circle") 和 `radius` 屬性值計量。 當 subType 為 circle 的點特徵新增至資料來源時，便會將它轉換為地圖內的圓弧多邊形。
+在第二個程式碼區塊中，則會使用 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 類別來建立資料來源物件。 圓形[功能](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest)的[點](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest)且`subType`屬性設為`"Circle"`和`radius`以公尺為單位的屬性值。 當點功能`subType`的`"Circle"`會新增至資料來源時，它轉換成循環的多邊形內的對應。
 
-[PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) 會在地圖上轉譯 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 中包裝的資料。 最後一個程式碼區塊會建立多邊形圖層，並將其新增至地圖。 請在 [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest) 查看多邊形圖層的屬性。 資料來源及多邊形圖層會在[事件接聽程式](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)函式內建立並新增至地圖，以確保圓形會在地圖完全載入後顯示。
+[PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) 會在地圖上轉譯 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 中包裝的資料。 最後一個程式碼區塊會建立多邊形圖層，並將其新增至地圖。 請在 [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest) 查看多邊形圖層的屬性。 建立並加入至地圖中的資料來源及多邊形圖層[事件處理常式](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)以確保對應完全載入後，會顯示圓形。
 
 ## <a name="make-a-geometry-easy-to-update"></a>輕鬆更新幾何
 
@@ -171,14 +171,11 @@ A`Shape`類別會包裝[幾何](https://docs.microsoft.com/javascript/api/azure-
 
 在第四個程式碼區塊中，則會使用 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 類別來建立資料來源物件。 然後，點就會新增至資料來源。
 
-[PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) 會在地圖上轉譯 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 中包裝的資料。 第三個程式碼區塊會建立多邊形圖層。 請在 [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest) 查看多邊形圖層的屬性。 資料來源 (點選事件接聽程式) 及多邊形圖層會在[事件接聽程式](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)函式內建立並新增至地圖，以確保點會在地圖完全載入後顯示。
+[PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) 會在地圖上轉譯 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 中包裝的資料。 第三個程式碼區塊會建立多邊形圖層。 請在 [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest) 查看多邊形圖層的屬性。 建立並加入至地圖中的資料來源，按一下事件 hanlder 中，多邊形圖層[事件處理常式](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)以確保對應完全載入後，會顯示的點。
 
 ## <a name="next-steps"></a>後續步驟
 
 如需更多可新增至地圖的程式碼範例，請參閱下列文章：
 
 > [!div class="nextstepaction"]
-> [HTML 標記](./map-add-custom-html.md)
-
-> [!div class="nextstepaction"]
-> [新增熱度圖層](./map-add-heat-map-layer.md)
+> [使用資料驅動樣式運算式](data-driven-style-expressions-web-sdk.md)

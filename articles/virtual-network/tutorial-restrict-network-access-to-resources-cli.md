@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: e4f8b99cfeaa35644ed51fd8ad712fe4744c0226
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 35f2c1bcc3db82f5fbca5f0458d534bf73d9067a
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890938"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010493"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>透過使用 Azure CLI 的虛擬網路服務端點來限制對 PaaS 資源的網路存取
 
@@ -118,9 +118,11 @@ az network nsg rule create \
   --source-port-range "*" \
   --destination-address-prefix "Storage" \
   --destination-port-range "*"
+```
 
-Each network security group contains several [default security rules](security-overview.md#default-security-rules). The rule that follows overrides a default security rule that allows outbound access to all public IP addresses. The `destination-address-prefix "Internet"` option denies outbound access to all public IP addresses. The previous rule overrides this rule, due to its higher priority, which allows access to the public IP addresses of Azure Storage.
+每個網路安全性群組包含數個[預設安全性規則](security-overview.md#default-security-rules)。 下列規則會覆寫預設安全性規則，允許輸出存取所有公用 IP 位址。 `destination-address-prefix "Internet"`選項，拒絕對所有公用 IP 位址的輸出存取。 上一個規則會因其具有較高優先順序而覆寫這項規則，從而允許對 Azure 儲存體之公用 IP 位址的存取。
 
+```azurecli-interactive
 az network nsg rule create \
   --resource-group myResourceGroup \
   --nsg-name myNsgPrivate \
@@ -133,9 +135,11 @@ az network nsg rule create \
   --source-port-range "*" \
   --destination-address-prefix "Internet" \
   --destination-port-range "*"
+```
 
-The following rule allows SSH traffic inbound to the subnet from anywhere. The rule overrides a default security rule that denies all inbound traffic from the internet. SSH is allowed to the subnet so that connectivity can be tested in a later step.
+下列規則允許 SSH 流量從任何地方輸入子網路。 此規則會覆寫拒絕來自網際網路之所有輸入流量的預設安全性規則。 SSH 允許子網路，以便在稍後的步驟，就可以測試連線。
 
+```azurecli-interactive
 az network nsg rule create \
   --resource-group myResourceGroup \
   --nsg-name myNsgPrivate \

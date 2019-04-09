@@ -12,12 +12,12 @@ manager: celested
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cb7296ea4acfbf90d94b8f94a644b8a382b033b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 98f81edcfa2a9daf5162ff1c7e23025b405092b8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877358"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260386"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B 共同作業常見問題集
 
@@ -60,7 +60,7 @@ ms.locfileid: "58877358"
 可以！ 當您設定此原則時，請小心避免不慎封鎖成員和管理員的存取權。
 若要封鎖來賓使用者的 [Azure 入口網站](https://portal.azure.com)存取權，請在 Windows Azure 傳統部署模型 API 中使用條件式存取原則︰
 1. 將**所有使用者**群組修改為只包含成員。
-   ![顯示所有使用者 」 群組 UserType 不等於來賓的螢幕擷取畫面 ](media/faq/modify-all-users-group.png)
+   ![顯示所有使用者 」 群組 UserType 不等於來賓的螢幕擷取畫面](media/faq/modify-all-users-group.png)
 2. 建立包含來賓使用者的動態群組。
    ![螢幕擷取畫面顯示新的所有來賓使用者群組](media/faq/group-with-guest-users.png)
 3. 設定條件式存取原則以防止來賓使用者存取入口網站，如下列影片中所示：

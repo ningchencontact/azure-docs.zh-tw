@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cd9f6112cbca78b323e0a14818b06f891a3f673
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: d58c019cf3d801ce938a4ca6eca70b1606bf4ff6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862882"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264466"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>強制執行 Windows Server Active Directory 的 Azure AD 密碼保護
 
@@ -31,7 +31,8 @@ Azure AD 密碼保護的設計考量這些原則：
 * 不需要 Active Directory 結構描述變更。 軟體會使用現有的 Active Directory**容器**並**serviceConnectionPoint**結構描述物件。
 * 需要任何最低 Active Directory 網域或樹系功能等級 (DFL/FFL) 不。
 * 軟體不會建立，或需要在它所保護的 Active Directory 網域中的帳戶。
-* 使用者使用純文字密碼不保留網域控制站，在密碼驗證作業期間，或在任何其他的時間。
+* 使用者使用純文字密碼絕不能離開網域控制站，在密碼驗證作業期間或在任何其他的時間。
+* 軟體不會相依於其他 Azure AD 功能;例如 Azure AD 密碼雜湊同步處理不相關，而不需要為了讓 Azure AD 密碼保護，函式。
 * 支援累加部署，但密碼原則只會強制執行已安裝網域控制站代理程式 （DC 代理程式）。 請參閱下一步 的主題，如需詳細資訊。
 
 ## <a name="incremental-deployment"></a>累加部署
@@ -62,7 +63,7 @@ DC 代理程式服務負責初始化下載新的密碼原則，從 Azure AD。 �
 
 DC 代理程式服務從 Azure AD 收到新的密碼原則之後，服務會將原則儲存在專用的資料夾，在其網域的根目錄*sysvol*資料夾共用。 如果較新的原則中，複寫從網域中的其他 DC 代理程式服務的 DC 代理程式服務也會監視此資料夾。
 
-此 DC 代理程式服務一律會要求在服務啟動新的原則。 DC 代理程式服務啟動之後，它會檢查每小時的目前在本機上可用的原則存在時間。 如果原則超過一小時，DC 代理程式要求新的原則從 Azure AD 中，如先前所述。 如果目前的原則不超過一小時時，DC 代理程式會繼續使用該原則。
+此 DC 代理程式服務一律會要求在服務啟動新的原則。 DC 代理程式服務啟動之後，它會檢查每小時的目前在本機上可用的原則存在時間。 如果原則超過一小時，DC 代理程式要求新的原則從 Azure AD 透過 proxy 服務，如先前所述。 如果目前的原則不超過一小時時，DC 代理程式會繼續使用該原則。
 
 下載 Azure AD 密碼保護的密碼原則之後，每當該原則是特定租用戶。 換句話說，密碼原則一律是 Microsoft 全域的禁用密碼清單和每一租用戶自訂的禁用密碼清單的組合。
 
@@ -77,6 +78,8 @@ Proxy 服務是無狀態。 它永遠不會快取原則，或從 Azure 下載的
 DC 代理程式服務一律使用最新的本機可用密碼原則，以評估使用者的密碼。 是否可在本機網域控制站沒有密碼原則，自動接受的密碼。 當發生這種情況時，則事件訊息會記錄警告系統管理員。
 
 Azure AD 密碼保護並非即時原則應用程式引擎。 可以在 Azure AD 中進行的密碼原則設定變更時，與當變更到達，會強制執行所有網域控制站之間的延遲。
+
+Azure AD 密碼保護做為補充現有 Active Directory 密碼的原則，這不是加以取代。 這包括任何其他第 3 方密碼篩選 dll 可能會安裝。 Active Directory 一律需要密碼驗證的所有元件表示都同意之前接受的密碼。
 
 ## <a name="foresttenant-binding-for-password-protection"></a>樹系/租用戶密碼保護的繫結
 
