@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: f0f156568eed5a1e8f3296ff7c37df7f050dbc33
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0ed6747573edf4c059eb29d28107a22706c52856
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540040"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426184"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>從 Log Analytics Linux 代理程式在 Azure 監視器中收集來自 Nagios 和 Zabbix 的警示 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -92,15 +92,15 @@ Nagios 所收集之警示記錄的 **Type** 為 **Alert**，而 **SourceSystem**
 
 | 屬性 | 描述 |
 |:--- |:--- |
-| 類型 |*警示* |
-| SourceSystem |*Nagios* |
-| AlertName |警示的名稱。 |
-| AlertDescription | 警示的描述。 |
-| AlertState | 服務或主機的狀態。<br><br>OK<br>WARNING<br>UP<br>DOWN |
-| HostName | 建立警示的主機名稱。 |
-| PriorityNumber | 警示的優先順序層級。 |
-| StateType | 警示的狀態類型。<br><br>SOFT - 未重新檢查的問題。<br>HARD - 已依指定次數重新檢查的問題。  |
-| TimeGenerated |建立警示的日期和時間。 |
+| `Type` |*警示* |
+| `SourceSystem` |*Nagios* |
+| `AlertName` |警示的名稱。 |
+| `AlertDescription` | 警示的描述。 |
+| `AlertState` | 服務或主機的狀態。<br><br>OK<br>WARNING<br>UP<br>DOWN |
+| `HostName` | 建立警示的主機名稱。 |
+| `PriorityNumber` | 警示的優先順序層級。 |
+| `StateType` | 警示的狀態類型。<br><br>SOFT - 未重新檢查的問題。<br>HARD - 已依指定次數重新檢查的問題。  |
+| `TimeGenerated` |建立警示的日期和時間。 |
 
 
 ### <a name="zabbix-alert-records"></a>Zabbix 警示記錄
@@ -108,17 +108,17 @@ Zabbix 所收集之警示記錄的 **Type** 為 **Alert**，而 **SourceSystem**
 
 | 屬性 | 描述 |
 |:--- |:--- |
-| 類型 |*警示* |
-| SourceSystem |*Zabbix* |
-| AlertName | 警示的名稱。 |
-| AlertPriority | 警示的嚴重性。<br><br>未分類<br>資訊<br>警告<br>average<br>高<br>嚴重損壞  |
-| AlertState | 警示的狀態。<br><br>0 - 最新狀態。<br>1 - 狀態未知。  |
-| AlertTypeNumber | 指定警示是否可以產生多個問題事件。<br><br>0 - 最新狀態。<br>1 - 狀態未知。    |
-| 註解 | 警示的其他註解。 |
-| HostName | 建立警示的主機名稱。 |
-| PriorityNumber | 指出警示嚴重性的值。<br><br>0 - 未分類<br>1- 資訊<br>2 - 警告<br>3 - 平均<br>4 - 高<br>5 - 嚴重損壞 |
-| TimeGenerated |建立警示的日期和時間。 |
-| TimeLastModified |上次變更警示狀態的日期和時間。 |
+| `Type` |*警示* |
+| `SourceSystem` |*Zabbix* |
+| `AlertName` | 警示的名稱。 |
+| `AlertPriority` | 警示的嚴重性。<br><br>未分類<br>資訊<br>警告<br>average<br>高<br>嚴重損壞  |
+| `AlertState` | 警示的狀態。<br><br>0 - 最新狀態。<br>1 - 狀態未知。  |
+| `AlertTypeNumber` | 指定警示是否可以產生多個問題事件。<br><br>0 - 最新狀態。<br>1 - 狀態未知。    |
+| `Comments` | 警示的其他註解。 |
+| `HostName` | 建立警示的主機名稱。 |
+| `PriorityNumber` | 指出警示嚴重性的值。<br><br>0 - 未分類<br>1- 資訊<br>2 - 警告<br>3 - 平均<br>4 - 高<br>5 - 嚴重損壞 |
+| `TimeGenerated` |建立警示的日期和時間。 |
+| `TimeLastModified` |上次變更警示狀態的日期和時間。 |
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -12,26 +12,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 03/30/2018
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 0b75085754a66fabf07076282c977acd7f10a556
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f920059f97f43a2ac3c48dad1c8f999833f6add1
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992323"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757774"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker Cmdlet 參考
 
-模組：Microsoft.AzureStack.ReadinessChecker
+模組：**Microsoft.AzureStack.ReadinessChecker**
 
-此模組只包含單一 Cmdlet。  此 Cmdlet 會為 Azure Stack 執行一或多個預先部署或預先服務函式。
+此模組只包含單一 Cmdlet。 Cmdlet 會為 Azure Stack 執行一或多個預先部署或預先維護函式。
 
 ## <a name="syntax"></a>語法
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        [-CertificatePath <String>]
        -PfxPassword <SecureString>
@@ -45,7 +45,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        [-CertificatePath <String>]
        -PfxPassword <SecureString>
@@ -57,7 +57,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        -PaaSCertificates <Hashtable>
        -DeploymentDataJSONPath <String>
@@ -67,7 +67,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        -PaaSCertificates <Hashtable>
        -RegionName <String>
@@ -79,7 +79,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        -RegionName <String>
        -FQDN <String>
@@ -94,7 +94,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        -PfxPassword <SecureString>
        -PfxPath <String>
@@ -105,7 +105,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        -AADServiceAdministrator <PSCredential>
        -AADDirectoryTenantName <String>
@@ -118,7 +118,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        -AADServiceAdministrator <PSCredential>
        -DeploymentDataJSONPath <String>
@@ -129,7 +129,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        -RegistrationAccount <PSCredential>
        -RegistrationSubscriptionID <Guid>
@@ -141,7 +141,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        -RegistrationAccount <PSCredential>
        -RegistrationSubscriptionID <Guid>
@@ -153,7 +153,7 @@ Start-AzsReadinessChecker
        [<CommonParameters>]
 ```
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker
        -ReportPath <String>
        [-ReportSections <String>]
@@ -166,42 +166,42 @@ Start-AzsReadinessChecker
 
 ## <a name="description"></a>說明
 
-**Start-AzsReadinessChecker** Cmdlet 會驗證憑證、Azure 帳戶、Azure 訂用帳戶和 Azure Active Directory。 在部署 Azure Stack 之前，或在執行 Azure Stack 服務動作 (例如密碼輪替) 前，請先執行驗證。 此 Cmdlet 也可用來產生基礎結構憑證的憑證簽署要求，以及選擇性地產生 PaaS 憑證的要求。  最後，此 Cmdlet 可以重新封裝 PFX 憑證，以修正常見的封裝問題。
+**Start-AzsReadinessChecker** Cmdlet 會驗證憑證、Azure 帳戶、Azure 訂用帳戶和 Azure Active Directory。 在部署 Azure Stack 之前，或在執行 Azure Stack 維護動作 (例如祕密輪替) 之前，請先執行驗證。 此 Cmdlet 也可用來產生基礎結構憑證的憑證簽署要求，以及選擇性地產生 PaaS 憑證的要求。 最後，此 Cmdlet 可以重新封裝 PFX 憑證，以修正常見的封裝問題。
 
 ## <a name="examples"></a>範例
 
 ### <a name="example-generate-certificate-signing-request"></a>範例：產生憑證簽署要求
 
-```PowerShell
+```powershell
 $regionName = 'east'
 $externalFQDN = 'azurestack.contoso.com'
 $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"}
 Start-AzsReadinessChecker -regionName $regionName -externalFQDN $externalFQDN -subject $subjectHash -IdentitySystem ADFS -requestType MultipleCSR
 ```
 
-在此範例中，Start-AzsReadinessChecker 會針對區域名稱為 "east"、外部 FQDN 為 "azurestack.contoso.com" 的 ADFS Azure Stack 部署所適用的憑證產生多個憑證簽署要求 (CSR)
+在此範例中，`Start-AzsReadinessChecker` 會針對區域名稱為 **east** 且外部 FQDN 為 **azurestack.contoso.com** 的 AD FS Azure Stack 部署所適用的憑證產生多個憑證簽署要求 (CSR)。
 
 ### <a name="example-validate-certificates"></a>範例：驗證憑證
 
-```PowerShell
+```powershell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $password -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
 ```
 
-在此範例中，系統會基於安全考量發出 PFX 密碼的提示，而 Start-AzsReadinessChecker 會在相對的資料夾 "Certificates" 中檢查是否有區域名稱為 "east"、外部 FQDN 為 "azurestack.contoso.com" 的 AAD 部署所適用的有效憑證
+在此範例中，基於安全考量會需要 PFX 密碼，而 `Start-AzsReadinessChecker` 會在相對的資料夾 **Certificates** 中檢查是否有區域名稱為 **east** 且外部 FQDN 為 **azurestack.contoso.com** 的 AAD 部署所適用的有效憑證。
 
-### <a name="example-validate-certificates-with-deployment-data-deployment-and-support"></a>範例：以部署資料驗證憑證 (部署和支援)
+### <a name="example-validate-certificates-with-deployment-data-deployment-and-support"></a>範例：驗證部署資料的憑證 (部署和支援)
 
-```PowerShell
+```powershell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -CertificatePath .\Certificates\ -PfxPassword $password -DeploymentDataJSONPath .\deploymentdata.json
 ```
 
-在此部署和支援範例中，系統會基於安全考量發出 PFX 密碼的提示，而 Start-AzsReadinessChecker 會在相對的資料夾 "Certificates" 中檢查是否有身分識別、區域和外部 FQDN 皆是從為部署產生的部署資料 JSON 檔案中讀取的部署所適用的有效憑證。 
+在此部署和支援範例中，基於安全考量需要 PFX 密碼，而 `Start-AzsReadinessChecker` 會在相對的資料夾 **Certificates** 中檢查是否有身分識別、區域和外部 FQDN 皆是從為部署產生的部署資料 JSON 檔案中讀取的部署所適用的有效憑證。
 
 ### <a name="example-validate-paas-certificates"></a>範例：驗證 PaaS 憑證
 
-```PowerShell
+```powershell
 $PaaSCertificates = @{
     'PaaSDBCert' = @{'pfxPath' = '<Path to DBAdapter PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
     'PaaSDefaultCert' = @{'pfxPath' = '<Path to Default PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
@@ -212,11 +212,11 @@ $PaaSCertificates = @{
 Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates – RegionName east -FQDN azurestack.contoso.com
 ```
 
-在此範例中，會以每個 PaaS 憑證的路徑和密碼建構雜湊表。 連接埠可以省略。 Start-AzsReadinessChecker 會檢查每個 PFX 路徑是否存在，並使用區域 ‘east’ 和外部 FQDN ‘azurestack.contoso.com’ 加以驗證。
+在此範例中，會以每個 PaaS 憑證的路徑和密碼建構雜湊表。 連接埠可以省略。 `Start-AzsReadinessChecker` 會檢查每個 PFX 路徑是否存在，並使用區域 **east** 和外部 FQDN **azurestack.contoso.com** 加以驗證。
 
-### <a name="example-validate-paas-certificates-with-deployment-data"></a>範例：以部署資料驗證 PaaS 憑證
+### <a name="example-validate-paas-certificates-with-deployment-data"></a>範例：驗證部署資料的 PaaS 憑證
 
-```PowerShell
+```powershell
 $PaaSCertificates = @{
     'PaaSDBCert' = @{'pfxPath' = '<Path to DBAdapter PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
     'PaaSDefaultCert' = @{'pfxPath' = '<Path to Default PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
@@ -227,78 +227,78 @@ $PaaSCertificates = @{
 Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -DeploymentDataJSONPath .\deploymentdata.json
 ```
 
-在此範例中，會以每個 PaaS 憑證的路徑和密碼建構雜湊表。 連接埠可以省略。 Start-AzsReadinessChecker 會檢查每個 PFX 路徑是否存在，並使用從為部署產生的部署資料 JSON 檔案中讀取的區域和外部 FQDN 加以驗證。 
+在此範例中，會以每個 PaaS 憑證的路徑和密碼建構雜湊表。 連接埠可以省略。 `Start-AzsReadinessChecker` 會檢查每個 PFX 路徑是否存在，並使用從為部署產生的部署資料 JSON 檔案中讀取的區域和外部 FQDN 加以驗證。
 
 ### <a name="example-validate-azure-identity"></a>範例：驗證 Azure 身分識別
 
-```PowerShell
+```powershell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
 # Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment "<environment name>" -AzureDirectoryTenantName azurestack.contoso.com
 ```
 
-在此範例中，系統會基於安全考量發出服務管理員帳戶認證的提示，而 Start-AzsReadinessChecker 會檢查 Azure 帳戶和 Azure Active Directory 是否適用於租用戶目錄名稱為 "azurestack.contoso.com" 的 AAD 部署
+在此範例中，基於安全考量需要服務管理員帳戶認證，而 `Start-AzsReadinessChecker` 會檢查 Azure 帳戶和 Azure Active Directory 是否適用於租用戶目錄名稱為 **azurestack.contoso.com** 的 AAD 部署。
 
-### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>範例：以部署資料驗證 Azure 身分識別 (部署支援)
+### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>範例：驗證部署資料的 Azure 身分識別 (部署支援)
 
 ```PowerSHell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.onmicrosoft.com"
 Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -DeploymentDataJSONPath .\contoso-depploymentdata.json
 ```
 
-在此範例中，系統會基於安全考量發出服務管理員帳戶認證的提示，而 Start-AzsReadinessChecker 會檢查 Azure 帳戶和 Azure Active Directory 是否適用於 AzureCloud 和 TenantName 皆是從為部署產生的部署資料 JSON 檔案中讀取的 AAD 部署。
+在此範例中，基於安全考量需要服務管理員帳戶認證，而 `Start-AzsReadinessChecker` 會檢查 Azure 帳戶和 Azure Active Directory 是否適用於 **AzureCloud** 和 **TenantName** 皆是從為部署產生的部署資料 JSON 檔案讀取的 AAD 部署。
 
 ### <a name="example-validate-azure-registration"></a>範例：驗證 Azure 註冊
 
-```PowerShell
+```powershell
 $registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner e.g. subscriptionowner@contoso.onmicrosoft.com"
 $subscriptionID = "<subscription ID"
 # Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
 Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -AzureEnvironment "<environment name>"
 ```
 
-在此範例中，系統會基於安全考量發出訂用帳戶擁有者認證的提示，接著 Start-AzsReadinessChecker 會對指定的帳戶和訂用帳戶執行驗證，以確定它可以用於 Azure Stack 註冊。 
+在此範例中，基於安全考量需要訂用帳戶擁有者認證，而 `Start-AzsReadinessChecker` 會對指定的帳戶和訂用帳戶執行驗證，以確定它可以用於 Azure Stack 註冊。
 
-### <a name="example-validate-azure-registration-with-deployment-data-deployment-team"></a>範例：以部署資料驗證 Azure 註冊 (部署小組)
+### <a name="example-validate-azure-registration-with-deployment-data-deployment-team"></a>範例：驗證部署資料的 Azure 註冊 (部署小組)
 
-```PowerShell
+```powershell
 $registrationCredential = Get-Credential -Message "Enter Credentials for Subscription Owner e.g. subscriptionowner@contoso.onmicrosoft.com"
 $subscriptionID = "<subscription ID>"
 Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -RegistrationSubscriptionID $subscriptionID -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
 
-在此範例中，系統會基於安全考量發出訂用帳戶擁有者認證的提示，接著 Start-AzsReadinessChecker 會對指定的帳戶和訂用帳戶執行驗證，以確定它可以用於有其他詳細資料是從為部署產生的部署資料 JSON 檔案中讀取的 Azure Stack 註冊。
+在此範例中，基於安全考量需要訂用帳戶擁有者認證，而 `Start-AzsReadinessChecker` 會對指定的帳戶和訂用帳戶執行驗證，以確定它可以用於有其他詳細資料是從為部署產生的部署資料 JSON 檔案中讀取的 Azure Stack 註冊。
 
 ### <a name="example-importexport-pfx-package"></a>範例：匯入/匯出 PFX 套件
 
-```PowerShell
+```powershell
 $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx
 ```
 
-在此範例中，系統會基於安全考量發出 PFX 密碼的提示。 ssl.pfx 檔案 會匯入本機電腦憑證存放區中，然後以相同的密碼重新匯出並儲存為 ssl_new.pfx。  此程序適用於憑證驗證以旗標指出私密金鑰未設定本機電腦屬性、憑證鏈結已中斷、PFX 中有不相關的憑證存在，或憑證鏈結順序錯誤等情況。
+在此範例中，基於安全考量需要 PFX 密碼。 Ssl.pfx 檔案會匯入到本機電腦憑證存放區、以相同的密碼重新匯出，並儲存為 Ssl_new.pfx。 此程序適用於憑證驗證以旗標指出私密金鑰未設定**本機電腦**屬性、憑證鏈結已中斷、PFX 中有不相關的憑證存在，或憑證鏈結順序錯誤等情況。
 
 ### <a name="example-view-validation-report-deployment-support"></a>範例：檢視驗證報告 (部署支援)
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json
 ```
 
-在此範例中，部署或支援小組會皆來客戶 (Contoso) 傳來的整備報告，並使用 Start-AzsReadinessChecker 檢視 Contoso 所執行之驗證的狀態。
+在此範例中，部署或支援小組會接收客戶 (Contoso) 傳來的整備報告，並使用 `Start-AzsReadinessChecker` 檢視 Contoso 所執行之驗證的狀態。
 
 ### <a name="example-view-validation-report-summary-for-certificate-validation-only-deployment-and-support"></a>範例：僅檢視憑證驗證的驗證報告摘要 (部署和支援)
 
-```PowerShell
+```powershell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSections Certificate -Summary
 ```
 
-在此範例中，部署或支援小組會皆來客戶 (Contoso) 傳來的整備報告，並使用 Start-AzsReadinessChecker 檢視 Contoso 所執行之憑證驗證的摘要狀態。
+在此範例中，部署或支援小組會接收客戶 (Contoso) 傳來的整備報告，並使用 `Start-AzsReadinessChecker` 檢視 Contoso 所執行之憑證驗證的摘要狀態。
 
 ## <a name="required-parameters"></a>必要參數
 
-> -RegionName
+### <a name="-regionname"></a>-RegionName
 
-指定 Azure Stack 部署的區域名稱。
+指定 Azure Stack 部署區域名稱。
 
 |  |  |
 |----------------------------|--------------|
@@ -308,9 +308,9 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |接受管線輸入：      |False         |
 |接受萬用字元： |False         |
 
-> -FQDN
+### <a name="-fqdn"></a>-FQDN
 
-指定 Azure Stack 部署的外部 FQDN，同時設定為 ExternalFQDN 和 ExternalDomainName 別名。
+指定 Azure Stack 部署外部 FQDN，同時設定為 **ExternalFQDN** 和 **ExternalDomainName** 別名。
 
 |  |  |
 |----------------------------|--------------|
@@ -320,9 +320,9 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |接受管線輸入：      |False         |
 |接受萬用字元： |False         |
 
-> -IdentitySystem
+### <a name="-identitysystem"></a>-IdentitySystem
 
-為 Azure Stack 部署分別指定 Azure Active Directory 和 Active Directory 同盟服務的身分識別系統有效值 AAD 或 ADFS。
+指定 Azure Stack 部署身分識別系統有效值 AAD 或 ADFS (分別代表 Azure Active Directory 和 Active Directory 同盟服務)。
 
 |  |  |
 |----------------------------|--------------|
@@ -333,7 +333,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |接受管線輸入：      |False         |
 |接受萬用字元： |False         |
 
-> -PfxPassword
+### <a name="-pfxpassword"></a>-PfxPassword
 
 指定與 PFX 憑證檔案相關聯的密碼。
 
@@ -345,9 +345,9 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |接受管線輸入：      |False    |
 |接受萬用字元： |False    |
 
-> -PaaSCertificates
+### <a name="-paascertificates"></a>-PaaSCertificates
 
-指定包含 PaaS 憑證之路徑和密碼的雜湊表。
+指定包含 PaaS 憑證之路徑與密碼的雜湊表。
 
 |  |  |
 |----------------------------|---------|
@@ -357,7 +357,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |接受管線輸入：      |False    |
 |接受萬用字元： |False    |
 
-> -DeploymentDataJSONPath
+### <a name="-deploymentdatajsonpath"></a>-DeploymentDataJSONPath
 
 指定 Azure Stack 部署的資料 JSON 組態檔。 此檔案是為部署產生的。
 
@@ -369,7 +369,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |接受管線輸入：      |False    |
 |接受萬用字元： |False    |
 
-> -PfxPath
+### <a name="-pfxpath"></a>-PfxPath
 
 指定有問題而需要以匯入/匯出常式修正的憑證 (如此工具中的憑證驗證所指出) 的路徑。
 
@@ -381,7 +381,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |接受管線輸入：      |False    |
 |接受萬用字元： |False    |
 
-> -ExportPFXPath  
+### <a name="-exportpfxpath"></a>-ExportPFXPath  
 
 指定匯入/匯出常式所產生之 PFX 檔案的目的地路徑。  
 
@@ -393,7 +393,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |接受管線輸入：      |False    |
 |接受萬用字元： |False    |
 
-> -Subject
+### <a name="-subject"></a>-Subject
 
 指定用來產生憑證要求之主體已排序的字典。
 
@@ -405,12 +405,12 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |接受管線輸入：      |False    |
 |接受萬用字元： |False    |
 
-> -RequestType
+### <a name="-requesttype"></a>-RequestType
 
-指定憑證要求的 SAN 類型。 有效值為 MultipleCSR、SingleCSR。
+指定憑證要求的 SAN 類型。 有效值為 **MultipleCSR**、**SingleCSR**。
 
-- *MultipleCSR* 會產生多個憑證要求，每項服務各一個。
-- *SingleCSR* 會為所有服務產生一個憑證要求。
+- **MultipleCSR** 會產生多個憑證要求，每項服務各一個。
+- **SingleCSR** 會為所有服務產生一個憑證要求。
 
 |  |  |
 |----------------------------|---------|
@@ -421,9 +421,9 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |接受管線輸入：      |False    |
 |接受萬用字元： |False    |
 
-> -OutputRequestPath
+### <a name="-outputrequestpath"></a>-OutputRequestPath
 
-指定憑證要求檔案的目的地路徑，目錄必須已存在。
+指定憑證要求檔案的目的地路徑。 目錄必須已存在。
 
 |  |  |
 |----------------------------|---------|
@@ -433,7 +433,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |接受管線輸入：      |False    |
 |接受萬用字元： |False    |
 
-> -AADServiceAdministrator
+### <a name="-aadserviceadministrator"></a>-AADServiceAdministrator
 
 指定要用於 Azure Stack 部署的 Azure Active Directory 服務管理員。
 
@@ -445,7 +445,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |接受管線輸入：      |False    |
 |接受萬用字元： |False    |
 
-> -AADDirectoryTenantName
+### <a name="-aaddirectorytenantname"></a>-AADDirectoryTenantName
 
 指定要用於 Azure Stack 部署的 Azure Active Directory 名稱。
 
@@ -457,7 +457,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |接受管線輸入：      |False    |
 |接受萬用字元： |False    |
 
-> -AzureEnvironment
+### <a name="-azureenvironment"></a>-AzureEnvironment
 
 指定要用於 Azure Stack 部署與註冊的帳戶、目錄和訂用帳戶所屬的 Azure 服務執行個體。
 
@@ -470,7 +470,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |接受管線輸入：      |False    |
 |接受萬用字元： |False    |
 
-> -RegistrationAccount
+### <a name="-registrationaccount"></a>-RegistrationAccount
 
 指定要用於 Azure Stack 註冊的註冊帳戶。
 
@@ -482,7 +482,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |接受管線輸入：      |False    |
 |接受萬用字元： |False    |
 
-> -RegistrationSubscriptionID
+### <a name="-registrationsubscriptionid"></a>-RegistrationSubscriptionID
 
 指定要用於 Azure Stack 註冊的註冊訂用帳戶識別碼。
 
@@ -494,7 +494,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 |接受管線輸入：      |False    |
 |接受萬用字元： |False    |
 
-> -ReportPath
+### <a name="-reportpath"></a>-ReportPath
 
 指定整備報告的路徑，預設值為目前的目錄和預設報告名稱。
 
@@ -508,7 +508,7 @@ Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json -ReportSec
 
 ## <a name="optional-parameters"></a>選擇性參數
 
-> -CertificatePath
+### <a name="-certificatepath"></a>-CertificatePath
 
 指定只有憑證所需的憑證資料夾存在的路徑。
 
@@ -528,7 +528,7 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 |接受管線輸入：      |False    |
 |接受萬用字元： |False    |
 
-> -IncludePaaS  
+### <a name="-includepaas"></a>-IncludePaaS  
 
 指定 PaaS 服務/主機名稱是否應新增至憑證要求。
 
@@ -540,7 +540,7 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 |接受管線輸入：      |False             |
 |接受萬用字元： |False             |
 
-> -ReportSections
+### <a name="-reportsections"></a>-ReportSections
 
 指定是否僅顯示報告摘要，而省略詳細資料。
 
@@ -553,7 +553,7 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 |接受管線輸入：      |False    |
 |接受萬用字元： |False    |
 
-> -Summary
+### <a name="-summary"></a>-Summary
 
 指定是否僅顯示報告摘要，而省略詳細資料。
 
@@ -565,7 +565,7 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 |接受管線輸入：      |False             |
 |接受萬用字元： |False             |
 
-> -CleanReport
+### <a name="-cleanreport"></a>-CleanReport
 
 移除先前的執行和驗證歷程記錄，並將驗證寫入至新報表。
 
@@ -578,9 +578,9 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 |接受管線輸入：      |False             |
 |接受萬用字元： |False             |
 
-> -OutputPath
+### <a name="-outputpath"></a>-OutputPath
 
-指定用來儲存整備 JSON 報告和詳細記錄檔的自訂路徑。  如果路徑不存在，工具會嘗試建立目錄。
+指定用來儲存整備 JSON 報告和詳細記錄檔的自訂路徑。 如果路徑不存在，命令會嘗試建立目錄。
 
 |  |  |
 |----------------------------|------------------|
@@ -590,7 +590,7 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 |接受管線輸入：      |False             |
 |接受萬用字元： |False             |
 
-> -Confirm
+### <a name="-confirm"></a>-Confirm
 
 在執行 Cmdlet 前提示您確認。
 
@@ -603,7 +603,7 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 |接受管線輸入：      |False             |
 |接受萬用字元： |False             |
 
-> -WhatIf
+### <a name="-whatif"></a>-WhatIf
 
 顯示執行 Cmdlet 後會發生的情況。 Cmdlet 並不會執行。
 
@@ -615,4 +615,3 @@ ACSBlob、ACSQueue、ACSTable、ADFS、Admin Portal、ARM Admin、ARM Public、G
 |預設值：              |False             |
 |接受管線輸入：      |False             |
 |接受萬用字元： |False             |
-

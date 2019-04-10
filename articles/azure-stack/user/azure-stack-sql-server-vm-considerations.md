@@ -1,6 +1,6 @@
 ---
-title: Azure Stack 虛擬機器中的 SQL Server 效能最佳做法
-description: 提供將 Microsoft Azure Stack 虛擬機器中的 SQL Server 效能最佳化的最佳做法。
+title: 在 Azure Stack 中使用 SQL Server 最佳做法並提升效能 | Microsoft Docs
+description: 本文提供 SQL Server 最佳做法，協助提升 Azure Stack VM 中的 SQL Server 效能並予以最佳化。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7981df6aa1e08688bdbe3b18629450b996f7609e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 03a354a7d670033fa86ebbb094710a836b6219c4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123397"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879059"
 ---
-# <a name="optimize-sql-server-performance"></a>將 SQL Server 效能最佳化
+# <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack"></a>可將 Azure Stack 中的效能最佳化的 SQL Server 最佳做法
 
-本文提供將 Microsoft Azure Stack 虛擬機器中的 SQL Server 效能最佳化的指導方針。 在 Azure Stack 虛擬機器中執行 SQL Server 時，所使用的資料庫效能微調選項，應該和適用於內部部署伺服器環境中 SQL Server 的選項相同。 在 Azure Stack 雲端中，關聯式資料庫的效能取決於諸多因素。 這些因素包括虛擬機器的系列大小，以及資料磁碟的設定。
+本文提供 SQL Server 最佳做法，將 Microsoft Azure Stack 虛擬機器中的 SQL Server 最佳化並提升效能。 在 Azure Stack 虛擬機器中執行 SQL Server 時，所使用的資料庫效能微調選項，應該和適用於內部部署伺服器環境中 SQL Server 的選項相同。 在 Azure Stack 雲端中，關聯式資料庫的效能取決於諸多因素。 這些因素包括虛擬機器的系列大小，以及資料磁碟的設定。
 
 建立 SQL Server 映像時，[請考慮在 Azure Stack 入口網站中佈建虛擬機器](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision)。 從 Azure Stack 管理入口網站中的 [Marketplace 管理] 下載 SQL IaaS 擴充功能，然後下載您所選擇的 SQL 虛擬機器虛擬硬碟 (VHD)。 這些項目包括 SQL2014SP2、SQL2016SP1 及 SQL2017。
 
@@ -37,7 +37,8 @@ ms.locfileid: "58123397"
 > [!NOTE]  
 > 如需 Azure 虛擬機器的 SQL Server 效能指導方針，請參閱[本文](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance)。
 
-## <a name="before-you-begin"></a>開始之前
+## <a name="checklist-for-sql-server-best-practices"></a>SQL Server 最佳做法的檢查清單
+
 下列檢查清單是為了讓您在 Azure Stack 虛擬機器上獲得最佳的 SQL Server 效能：
 
 
@@ -97,7 +98,7 @@ Azure Stack 虛擬機器上有三種主要的磁碟類型︰
 
 ### <a name="data-disks"></a>資料磁碟
 
-- **對資料和記錄檔使用資料磁碟。** 如果您未使用磁碟等量分割，請使用 2 個支援進階儲存體的虛擬機器資料磁碟，一個磁碟包含記錄檔，另一個則包含資料和 TempDB 檔案。 每個資料磁碟都會提供數個 IOPS 和頻寬 (MB/s) (取決於虛擬機器系列)，如 [Azure Stack 中支援的虛擬機器大小](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes)一文所述。 如果您使用磁碟等量分割技術 (例如「儲存空間」)，請將所有資料和記錄檔放置在相同磁碟機 (包括 TempDB)。 此設定會讓您有最大的 IOPS 數目供 SQL Server 取用 (不論哪個檔案在哪個特定時間有需要)。
+- **將資料磁碟用於資料檔和記錄檔。** 如果您未使用磁碟等量分割，請使用 2 個支援進階儲存體的虛擬機器資料磁碟，一個磁碟包含記錄檔，另一個則包含資料和 TempDB 檔案。 每個資料磁碟都會提供數個 IOPS 和頻寬 (MB/s) (取決於虛擬機器系列)，如 [Azure Stack 中支援的虛擬機器大小](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-sizes)一文所述。 如果您使用磁碟等量分割技術 (例如「儲存空間」)，請將所有資料和記錄檔放置在相同磁碟機 (包括 TempDB)。 此設定會讓您有最大的 IOPS 數目供 SQL Server 取用 (不論哪個檔案在哪個特定時間有需要)。
 
 > [!NOTE]  
 > 當您在入口網站中佈建 SQL Server 虛擬機器時，您可以選擇編輯儲存體設定。 根據您的設定，Azure Stack 會設定一或多個磁碟。 多個磁碟會合併成單一儲存體集區。 資料和記錄檔皆在此設定中。
@@ -112,7 +113,7 @@ Azure Stack 虛擬機器上有三種主要的磁碟類型︰
 
        例如，下列 PowerShell 會建立新的儲存體集區，其間隔大小設定為 64 KB，且資料行數目設定為 2︰
 
-       ```PowerShell  
+       ```powershell  
        $PoolCount = Get-PhysicalDisk -CanPool $True
        $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
 

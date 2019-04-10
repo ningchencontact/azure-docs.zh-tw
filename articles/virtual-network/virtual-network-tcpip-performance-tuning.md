@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 60424edc8e617aca55777d019e6a0f9409f7ca28
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 1e8605a41cbe610c971b891309b2149d221b8b27
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59276519"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426438"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP 的效能微調 Azure Vm
 
@@ -85,7 +85,7 @@ ms.locfileid: "59276519"
 
 #### <a name="azure-and-fragmentation"></a>Azure 和片段
 
-虛擬網路堆疊設定卸除 「 次序不對的片段，"也就是分散的封包不在其原始的片段順序抵達。 由於網路安全性的弱點可能會在 11 月 2018 呼叫 FragmentStack 宣布，這些封包會卸除。
+虛擬網路堆疊設定卸除 「 次序不對的片段，"也就是分散的封包不在其原始的片段順序抵達。 由於網路安全性的弱點可能會在 11 月 2018 呼叫 FragmentSmack 宣布，這些封包會卸除。
 
 FragmentSmack 是 Linux 核心處理重組的分散的 IPv4 和 IPv6 封包方式的缺失。 遠端攻擊者可以使用觸發程序昂貴的片段重組作業，可能會導致更高的 CPU 和阻絕服務目標系統上的這項弱點。
 

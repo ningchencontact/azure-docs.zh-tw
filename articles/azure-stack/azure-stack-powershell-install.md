@@ -15,12 +15,12 @@ ms.date: 02/08/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 4e623c6a2423d2e61334932d0c40f05e548d3c38
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7e631281405b173405f28c134432e870c757b3da
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109860"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648397"
 ---
 # <a name="install-powershell-for-azure-stack"></a>安裝適用於 Azure Stack 的 PowerShell
 
@@ -46,7 +46,6 @@ API 設定檔提供一個管理 Azure 與 Azure Stack 之間版本差異的方�
 
 - **PowerShell 資源庫存取權** 您需要存取 [PowerShell 資源庫](https://www.powershellgallery.com)。 此資源庫是 PowerShell 內容的中央存放庫。 **PowerShellGet** 模組包含用於探索、安裝、更新及發佈 PowerShell 成品 (例如來自「PowerShell 資源庫」和其他私人存放庫的模組、DSC 資源、角色功能及指令碼) 的 Cmdlet。 如果您是在已中斷連線的情況下使用 PowerShell，您必須從可連線至網際網路的電腦擷取資源，然後將它們儲存在已中斷連線之電腦可存取的位置中。
 
-
 ## <a name="2-validate-the-powershell-gallery-accessibility"></a>2.驗證 PowerShell 資源庫協助工具
 
 驗證 PSGallery 是否已註冊為存放褲。
@@ -56,7 +55,7 @@ API 設定檔提供一個管理 Azure 與 Azure Stack 之間版本差異的方�
 
 開啟已提升權限的 PowerShell 提示字元，然後執行下列 Cmdlet：
 
-```PowerShell
+```powershell
 Import-Module -Name PowerShellGet -ErrorAction Stop
 Import-Module -Name PackageManagement -ErrorAction Stop
 Get-PSRepository -Name "PSGallery"
@@ -64,7 +63,7 @@ Get-PSRepository -Name "PSGallery"
 
 如果存放庫未註冊，請開啟提升權限的 PowerShell 工作階段，並執行下列命令：
 
-```PowerShell
+```powershell
 Register-PsRepository -Default
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
@@ -75,17 +74,18 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 1. 若要將現有的 AzureRM PowerShell 模組解除安裝，請關閉所有作用中的 PowerShell 工作階段，然後執行下列 Cmdlet：
 
-    ```PowerShell
+    ```powershell
     Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
     Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
     ```
+
     若您遇到「模組已在使用中」之類的錯誤，請關閉正在使用模組的 PowerShell 工作階段，然後重新執行上面的指令碼。
 
 2. 從 `C:\Program Files\WindowsPowerShell\Modules` 和 `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` 資料夾中，刪除開頭為 `Azure` 或 `Azs.`的所有資料夾。 刪除這些資料夾會移除任何現有的 PowerShell 模組。
 
 ## <a name="4-connected-install-powershell-for-azure-stack-with-internet-connectivity"></a>4.已連線：在具備網際網路連線能力的情況下安裝適用於 Azure Stack 的 PowerShell
 
-Azure Stack 需要 Azure Stack 版本 1808 或更新版本的 **2018-03-01-hybrid** API 版本設定檔。 透過安裝 **AzureRM.Bootstrapper** 模組可以使用該設定檔。 除了 AzureRM 模組外，您也應該安裝 Azure Stack 特有的 Azure PowerShell 模組。 您所需的 API 版本設定檔和 Azure Stack PowerShell 模組，將取決於您正在執行的 Azure Stack 版本。
+Azure Stack 需要 Azure Stack 版本 1808 或更新版本的 **2018-03-01-hybrid** API 版本設定檔。 透過安裝 **AzureRM.BootStrapper** 模組可以使用該設定檔。 除了 AzureRM 模組外，您也應該安裝 Azure Stack 特有的 Azure PowerShell 模組。 您所需的 API 版本設定檔和 Azure Stack PowerShell 模組，將取決於您正在執行的 Azure Stack 版本。
 
 安裝有三個步驟：
 
@@ -99,20 +99,22 @@ Azure Stack 需要 Azure Stack 版本 1808 或更新版本的 **2018-03-01-hybri
 
 - Azure Stack 1901 或更新版本：
 
-    ```PowerShell
+    ```powershell
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
+
     Install-Module AzureRM -RequiredVersion 2.4.0
-    Install-Module -Name AzureStack -RequiredVersion 1.7.0
+    Install-Module -Name AzureStack -RequiredVersion 1.7.1
     ```
 
     > [!Note]  
-    > Azure Stack 模組 1.7.0 版是重大變更版本。 若要從 Azure Stack 1.6.0 移轉，請參閱[移轉指南](https://aka.ms/azspshmigration170)。
+    > Azure Stack 模組 1.7.1 版是重大變更版本。 若要從 Azure Stack 1.6.0 移轉，請參閱[移轉指南](https://aka.ms/azspshmigration171)。
     > AzureRm 模組 2.4.0 版附有 Cmdlet Remove-AzureRmStorageAccount 的重大變更。 此 Cmdlet 預期應指定 -Force 參數，以直接移除儲存體帳戶而無須確認。
+
 - Azure Stack 1811：
 
-    ```PowerShell
-    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
-    Install-Module -Name AzureRm.BootStrapper
+    ```powershell
+    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+    Install-Module -Name AzureRM.BootStrapper
 
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
     Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
@@ -122,9 +124,9 @@ Azure Stack 需要 Azure Stack 版本 1808 或更新版本的 **2018-03-01-hybri
 
 - Azure Stack 1810 或先前版本：
 
-    ```PowerShell
-    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet
-    Install-Module -Name AzureRm.BootStrapper
+    ```powershell
+    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
+    Install-Module -Name AzureRM.BootStrapper
 
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
     Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
@@ -139,7 +141,7 @@ Azure Stack 需要 Azure Stack 版本 1808 或更新版本的 **2018-03-01-hybri
 
 若要利用額外的儲存功能 (＜已連線＞一節中所提及的功能)，請一併下載並安裝下列套件。
 
-```PowerShell
+```powershell
 # Install the Azure.Storage module version 4.5.0
 Install-Module -Name Azure.Storage -RequiredVersion 4.5.0 -Force -AllowClobber
 
@@ -158,7 +160,7 @@ Import-Module -Name AzureRM.Storage -RequiredVersion 5.0.4
 
 執行下列命令來確認安裝：
 
-```PowerShell
+```powershell
 Get-Module -Name "Azure*" -ListAvailable
 Get-Module -Name "Azs*" -ListAvailable
 ```
@@ -178,27 +180,25 @@ Get-Module -Name "Azs*" -ListAvailable
 3. 將 PowerShell 套件傳輸到已中斷連線的工作站
 4. 確認 PowerShell 的安裝
 
-
 ### <a name="install-azure-stack-powershell"></a>安裝 Azure Stack PowerShell
 
 - Azure Stack 1901 或更新版本。
 
-    ```PowerShell
+    ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
     Import-Module -Name PackageManagement -ErrorAction Stop
 
     $Path = "<Path that is used to save the packages>"
     Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.4.0
-    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.7.0
+    Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.7.1
     ```
 
     > [!Note]  
-    > Azure Stack 模組版本 1.7.0 是一項重大變更。 若要從 Azure Stack 1.6.0 移轉，請參閱[移轉指南](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack)。
-
+    > Azure Stack 模組版本 1.7.1 是一個重大變更。 若要從 Azure Stack 1.6.0 移轉，請參閱[移轉指南](https://github.com/Azure/azure-powershell/tree/AzureRM/documentation/migration-guides/Stack)。
 
   - Azure Stack 1811 或先前版本。
 
-    ```PowerShell
+    ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
     Import-Module -Name PackageManagement -ErrorAction Stop
 
@@ -209,7 +209,7 @@ Get-Module -Name "Azs*" -ListAvailable
 
   - Azure Stack 1809 或先前版本。
 
-    ```PowerShell
+    ```powershell
     Import-Module -Name PowerShellGet -ErrorAction Stop
     Import-Module -Name PackageManagement -ErrorAction Stop
 
@@ -220,7 +220,7 @@ Get-Module -Name "Azs*" -ListAvailable
 
     > [!NOTE]
     > 在沒有網際網路連線的電腦上，建議您執行下列 Cmdlet 以停用遙測資料收集。 若未停用遙測資料收集，可能會發生 Cmldet 效能降低的狀況。 不具網際網路連線的電腦才有可能發生此狀況
-    > ```PowerShell
+    > ```powershell
     > Disable-AzureRmDataCollection
     > ```
 
@@ -228,7 +228,7 @@ Get-Module -Name "Azs*" -ListAvailable
 
 若要利用額外的儲存功能 (＜已連線＞一節中所提及的功能)，請一併下載並安裝下列套件。
 
-```PowerShell
+```powershell
 $Path = "<Path that is used to save the packages>"
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name Azure.Storage -Path $Path -Force -RequiredVersion 4.5.0
 Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRm.Storage -Path $Path -Force -RequiredVersion 5.0.4
@@ -242,7 +242,7 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 
 3. 現在註冊此位置作為預設存放庫，並從此存放庫安裝 AzureRM 與 AzureStack 模組：
 
-   ```PowerShell
+   ```powershell
    #requires -Version 5
    #requires -RunAsAdministrator
    #requires -Module PowerShellGet
@@ -262,7 +262,7 @@ Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v
 
 執行下列命令來確認安裝：
 
-```PowerShell
+```powershell
 Get-Module -Name "Azure*" -ListAvailable
 Get-Module -Name "Azs*" -ListAvailable
 ```
@@ -274,7 +274,7 @@ Get-Module -Name "Azs*" -ListAvailable
 1. 開啟提升權限的 PowerShell 提示字元。
 2. 執行下列命令：
 
-   ```PowerShell
+   ```powershell
    #To use Windows credentials for proxy authentication
    [System.Net.WebRequest]::DefaultWebProxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials
 
@@ -284,7 +284,7 @@ Get-Module -Name "Azs*" -ListAvailable
 
 ## <a name="next-steps"></a>後續步驟
 
- - [從 GitHub 下載 Azure Stack 工具](azure-stack-powershell-download.md)
- - [設定 Azure Stack 使用者的 PowerShell 環境](user/azure-stack-powershell-configure-user.md)
- - [設定 Azure Stack 操作員的 PowerShell 環境](azure-stack-powershell-configure-admin.md)
- - [在 Azure Stack 中管理 API 版本設定檔](user/azure-stack-version-profiles.md)
+- [從 GitHub 下載 Azure Stack 工具](azure-stack-powershell-download.md)
+- [設定 Azure Stack 使用者的 PowerShell 環境](user/azure-stack-powershell-configure-user.md)
+- [設定 Azure Stack 操作員的 PowerShell 環境](azure-stack-powershell-configure-admin.md)
+- [在 Azure Stack 中管理 API 版本設定檔](user/azure-stack-version-profiles.md)

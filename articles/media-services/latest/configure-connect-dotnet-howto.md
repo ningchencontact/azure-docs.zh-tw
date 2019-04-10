@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
-ms.openlocfilehash: cb6826be8f6a9a8caf54a23b0dbc5f3dda7830d6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 8f8a1434af768180e34afcaacd6e92ab402ad8cd
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59273969"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361248"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>連線到媒體服務 v3 API-.NET
 
@@ -35,7 +35,7 @@ ms.locfileid: "59273969"
 1. 從**檔案**功能表上，按一下**新增** > **專案**。 
 1. 建立 **.NET Core**主控台應用程式。
 
-本主題中，範例應用程式為目標`netcoreapp2.0`。 使用 'async main'，也就是從程式中的程式碼C#7.1。 請參閱此[部落格](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/)如需詳細資訊。
+本主題中，範例應用程式為目標`netcoreapp2.0`。 程式碼會使用 'async main'，也就是可以使用開頭為C#7.1。 請參閱此[部落格](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/)如需詳細資訊。
 
 ## <a name="add-required-nuget-packages"></a>新增必要的 NuGet 套件
 
@@ -223,7 +223,7 @@ namespace ConsoleApp1
 }
 ```
 
-## <a name="see-also"></a>請參閱
+## <a name="next-steps"></a>後續步驟
 
 - [教學課程：上傳、 編碼和串流處理視訊-.NET](stream-files-tutorial-with-api.md) 
 - [教學課程：Stream 即時使用媒體服務 v3-.NET](stream-live-tutorial-with-api.md)
@@ -237,6 +237,6 @@ namespace ConsoleApp1
 - [使用媒體服務-.NET 建立篩選器](filters-dynamic-manifest-dotnet-howto.md)
 - [進階的 Azure Functions v2 使用媒體服務 v3 的影片隨範例](https://aka.ms/ams3functions)
 
-## <a name="next-steps"></a>後續步驟
+## <a name="see-also"></a>請參閱
 
 [.NET 參考](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)

@@ -5,29 +5,37 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 127e970927e8ac1d0cd9b431c0c0175bdc4f5c0b
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6e57b629a0007b06af6e37f96e1466e35afafccc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315770"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361881"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>準備內部部署 Hyper-V 伺服器以進行至 Azure 的災害復原
 
-本教學課程說明如何基於災害復原的目的，在您想要將 Hyper-V VM 複寫至 Azure 時，準備內部部署 Hyper-V 基礎結構。 Hyper-V 主機可由 System Center Virtual Machine Manager (VMM) 管理，但並非必要。  在本教學課程中，您將了解如何：
+本文說明如何準備您的內部部署 HYPER-V 基礎結構，當您想要設定的 Hyper-v Vm 的災害復原至 Azure，使用[Azure Site Recovery](site-recovery-overview.md)。
+
+
+這是說明如何設定內部部署 HYPER-V Vm 至 Azure 的災害復原一系列的第二個教學課程。 在第一個教學課程中，我們[設定 Azure 元件](tutorial-prepare-azure.md)HYPER-V 嚴重損壞修復所需。
+
+在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
-> * 檢閱 Hyper-V 需求和 VMM 需求 (如果適用)。
-> * 準備 VMM (如果適用)
-> * 確認對 Azure 位置的網際網路存取
-> * 準備 VM，讓您可以在容錯移轉至 Azure 之後存取它們
+> * 如果您的 HYPER-V 主機由 System Center VMM 管理，請檢閱 HYPER-V 需求和 VMM 需求。
+> * 如果適用的話，請準備 VMM。
+> * 確認網際網路存取的 Azure 位置。
+> * 準備 Vm，以便您可以在容錯移轉至 Azure 之後存取它們。
 
-這是系列中的第二個教學課程。 確定您已如上一個教學課程中所述[設定 Azure 元件](tutorial-prepare-azure.md)。
+> [!NOTE]
+> 教學課程會示範最簡單的部署路徑的案例。 可能的話，會使用預設選項，而不會顯示所有可能的設定與路徑。 如需詳細指示，檢閱 [如何] 區段中的站台復原資料表的內容。
 
+## <a name="before-you-start"></a>開始之前
 
+請確定您已備妥 Azure 中所述[在這一系列的第一個教學課程](tutorial-prepare-azure.md)。
 
 ## <a name="review-requirements-and-prerequisites"></a>檢閱需求和必要條件
 
@@ -79,7 +87,7 @@ ms.locfileid: "58315770"
 
 1. 若要透過網際網路存取，請在內部部署 VM 上啟用 RDP，再進行容錯移轉。 確定已針對 [公用] 設定檔新增 TCP 和 UDP 規則，且在 [Windows 防火牆] > [允許的應用程式] 中已針對所有設定檔允許 RDP。
 2. 若要透過站對站 VPN 存取，請在內部部署機器上啟用 RDP。 您應該在 [Windows 防火牆] -> [允許的應用程式與功能] 中，針對 [網域] 和 [私人] 網路允許 RDP。
-   確認作業系統的 SAN 原則已設為 [OnlineAll]。 [深入了解](https://support.microsoft.com/kb/3031135)。 觸發容錯移轉時，VM 上不應該有任何擱置的 Windows 更新。 如果有，在更新完成之前，您將無法登入虛擬機器。
+   確認作業系統的 SAN 原則已設為 [OnlineAll]。 [深入了解](https://support.microsoft.com/kb/3031135)。 觸發容錯移轉時，VM 上不應該有任何擱置的 Windows 更新。 如果沒有，您無法在更新完成之前，登入虛擬機器。
 3. 在容錯移轉之後，於 Windows Azure VM 上，勾選 [開機診斷] 以檢視 VM 的螢幕擷取畫面。 如果您無法連線，請檢查 VM 是否正在執行，並檢閱這些[疑難排解祕訣](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)。
 
 容錯移轉之後，您可以使用與複寫的內部部署 VM 相同的 IP 位址或不同 IP 位址來存取 Azure VM。 [深入了解](concepts-on-premises-to-azure-networking.md)如何設定 IP 位址以進行容錯移轉。

@@ -1,6 +1,6 @@
 ---
 title: Azure Stack 中支援的虛擬機器大小 | Microsoft Docs
-description: Azure Stack 所支援之虛擬機器大小的參考。
+description: Azure Stack 所支援虛擬機器大小的參考。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,26 +10,26 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 0188de6d3a29034ec00999b2e07cab6ddb911631
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 79d18f938dc51bb7eec62120e8bc6743cb2840c4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176254"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886466"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Azure Stack 中支援的虛擬機器大小
 
-*適用範圍：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
-本文列出 Azure Stack 中可用的虛擬機器 (VM) 大小。
+本文列出 Azure Stack 中可用的虛擬機器大小。
 
-Azure Stack 的磁碟 IOPS (每秒輸入/輸出作業數) 是 VM 大小的函式，而不是磁碟類型的函式。 這表示，對於 Standard_Fs 系列 VM，無論您選擇 SSD 或 HDD 的磁碟類型，單一額外資料磁碟的 IOPS 限制都是 2300 個 IOPS。 加諸的 IOPS 限制是上限 (盡可能最大的上限)，以避免雜訊相當多的鄰近磁碟。 這不保證您可對特定的 VM 大小達到所需的 IOPS。
+Azure Stack 的磁碟 IOPS (每秒輸入/輸出作業數) 是虛擬機器 (VM)大小的函式，而不是磁碟類型的函式。 這表示，對於 Standard_Fs 系列 VM，無論您選擇 SSD 或 HDD 的磁碟類型，單一額外資料磁碟的 IOPS 限制都是 2300 個 IOPS。 加諸的 IOPS 限制是上限 (盡可能最大的上限)，以避免雜訊相當多的鄰近磁碟。 這不保證您可對特定的 VM 大小達到所需的 IOPS。
 
-## <a name="general-purpose"></a>一般用途
+## <a name="virtual-machine-general-purpose"></a>虛擬機器一般用途
 
 一般用途 VM 大小提供平衡的 CPU 與記憶體比例。 可用於測試和開發、小型至中型資料庫，以及低至中流量網頁伺服器。 除了基本 A 系列以外，每個資料磁碟的進階 VM 大小均為 2300 IOPS。 若為基本 A 系列，資料磁碟大小為 500 IOPS。
 
@@ -59,7 +59,7 @@ Azure Stack 的磁碟 IOPS (每秒輸入/輸出作業數) 是 VM 大小的函式
 |**Standard_A7** |8 |56    |605 |500 |500 |16x500 |4 |
 
 ### <a name="av2-series"></a>Av2 系列
-需要 Azure Stack 1804 版或更新版本
+*需要 Azure Stack 1804 版或更新版本*
 
 |大小     |vCPU     |記憶體 (GiB) | 暫存儲存體 (GiB)  | 最大 OS 磁碟輸送量 (IOPS) | 最大暫存儲存體輸送量 (IOPS) | 最大資料磁碟/輸送量 (IOPS) | 最大 NIC |
 |-----------------|----|----|-----|-----|------|--------------|---------|
@@ -74,10 +74,10 @@ Azure Stack 的磁碟 IOPS (每秒輸入/輸出作業數) 是 VM 大小的函式
 ### <a name="d-series"></a>D 系列
 |大小     |vCPU     |記憶體 (GiB) | 暫存儲存體 (GiB)  | 最大 OS 磁碟輸送量 (IOPS) | 最大暫存儲存體輸送量 (IOPS) | 最大資料磁碟/輸送量 (IOPS) | 最大 NIC |
 |----------------|----|----|-----|----|------|------------|---------|
-|**Standard_D1** |1   |3.5 |50   |500 |3000  |4 / 4x500   |1 |
-|**Standard_D2** |2   |7   |100  |500 |6000  |8 / 8x500   |2 |
+|**標準_D1** |1   |3.5 |50   |500 |3000  |4 / 4x500   |1 |
+|**標準_D2** |2   |7   |100  |500 |6000  |8 / 8x500   |2 |
 |**Standard_D3** |4   |14  |200  |500 |12000 |16 / 16x500 |4 |
-|**Standard_D4** |8   |28  |400  |500 |24000 |32 / 32x500 |8 |
+|**標準_D4** |8   |28  |400  |500 |24000 |32 / 32x500 |8 |
 
 
 ### <a name="ds-series"></a>DS 系列
@@ -109,7 +109,7 @@ Azure Stack 的磁碟 IOPS (每秒輸入/輸出作業數) 是 VM 大小的函式
 
 ## <a name="compute-optimized"></a>計算最佳化
 ### <a name="f-series"></a>F 系列
-需要 Azure Stack 1804 版或更新版本
+*需要 Azure Stack 1804 版或更新版本*
 
 |大小     |vCPU     |記憶體 (GiB) | 暫存儲存體 (GiB)  | 最大 OS 磁碟輸送量 (IOPS) | 最大暫存儲存體輸送量 (IOPS) | 最大資料磁碟/輸送量 (IOPS) | 最大 NIC |
 |-----------------|----|----|-----|----|------|------------|---------|
@@ -121,7 +121,7 @@ Azure Stack 的磁碟 IOPS (每秒輸入/輸出作業數) 是 VM 大小的函式
 
 
 ### <a name="fs-series"></a>Fs 系列
-需要 Azure Stack 1804 版或更新版本  
+*需要 Azure Stack 1804 版或更新版本*  
 
 |大小     |vCPU     |記憶體 (GiB) | 暫存儲存體 (GiB)  | 最大 OS 磁碟輸送量 (IOPS) | 最大暫存儲存體輸送量 (IOPS) | 最大資料磁碟/輸送量 (IOPS) | 最大 NIC |
 |------------------|----|----|----|-----|------|-------------|---------|
@@ -133,7 +133,7 @@ Azure Stack 的磁碟 IOPS (每秒輸入/輸出作業數) 是 VM 大小的函式
 
 
 ### <a name="fsv2-series"></a>Fsv2 系列
-需要 Azure Stack 1804 版或更新版本 
+*需要 Azure Stack 1804 版或更新版本* 
 
 |大小     |vCPU     |記憶體 (GiB) | 暫存儲存體 (GiB)  | 最大 OS 磁碟輸送量 (IOPS) | 最大暫存儲存體輸送量 (IOPS) | 最大資料磁碟/輸送量 (IOPS) | 最大 NIC |
 |---------------------|----|----|-----|-----|-------|--------------|---------|
@@ -152,10 +152,10 @@ Azure Stack 的磁碟 IOPS (每秒輸入/輸出作業數) 是 VM 大小的函式
 ### <a name="mo-d"></a>D 系列
 |大小     |vCPU     |記憶體 (GiB) | 暫存儲存體 (GiB)  | 最大 OS 磁碟輸送量 (IOPS) | 最大暫存儲存體輸送量 (IOPS) | 最大資料磁碟/輸送量 (IOPS) | 最大 NIC |
 |------------------|---|----|----|--------|------|------------|---------|
-|**Standard_D11**  |2  |14  |100 |500     |6000  |8 / 8x500   |2 |
-|**Standard_D12**  |4  |28  |200 |500     |12000 |16 / 16x500 |4 |
-|**Standard_D13**  |8  |56  |400 |500     |24000 |32 / 32x500 |8 |
-|**Standard_D14**  |16 |112 |800 |500     |48000 |64 / 64x500 |8 |
+|**標準_D11**  |2  |14  |100 |500     |6000  |8 / 8x500   |2 |
+|**標準_D12**  |4  |28  |200 |500     |12000 |16 / 16x500 |4 |
+|**標準_D13**  |8  |56  |400 |500     |24000 |32 / 32x500 |8 |
+|**標準_D14**  |16 |112 |800 |500     |48000 |64 / 64x500 |8 |
 
 ### <a name="mo-ds"></a>DS 系列
 |大小     |vCPU     |記憶體 (GiB) | 暫存儲存體 (GiB)  | 最大 OS 磁碟輸送量 (IOPS) | 最大暫存儲存體輸送量 (IOPS) | 最大資料磁碟/輸送量 (IOPS) | 最大 NIC |

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/26/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 68e8bfa16c56b8c864ac99cdf6c19243bc7e881c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8cffcc938a247a2b08ff53b128560e1ab5e1653a
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101868"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499772"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>為 SMySQL 資源提供者新增主控伺服器
 
@@ -90,16 +90,19 @@ MySQL 5.6、5.7 和 8.0 版可用於您的主控伺服器。 MySQL RP 不支援 
 
 無法將 SKU 指派給特定使用者或群組。
 
-最多需要一小時才能在入口網站中看到 SKU。 在完整建立 SKU 前，使用者無法建立資料庫。
+若要編輯 SKU，請移至 [所有服務] > [MySQL 配接器] > [SKU]。 選取要修改的 SKU、進行任何必要的變更，然後按一下 [儲存] 以儲存變更。 
 
-若要編輯 SKU，請移至 [所有服務] > [MySQL 配接器] > [SKU]。 選取要修改的 SKU、進行任何必要的變更，然後按一下 [儲存] 以儲存變更。 若要刪除已不再需要的 SKU，請移至 [所有服務] > [MySQL 配接器] > [SKU]。 以滑鼠右鍵按一下 SKU 名稱，然後選取 [刪除] 將它刪除。
+若要刪除已不再需要的 SKU，請移至 [所有服務] > [MySQL 配接器] > [SKU]。 以滑鼠右鍵按一下 SKU 名稱，然後選取 [刪除] 將它刪除。
 
-> [!TIP]
-> 您可以編輯或刪除相同位置的 MySQL 資源提供者配額。
+> [!IMPORTANT]
+> 最多可能需要一小時的時間，才能在使用者入口網站中提供新的 SKU。
 
 ## <a name="make-mysql-database-servers-available-to-your-users"></a>讓您的使用者可使用 MySQL 資料庫伺服器
 
 建立方案和供應項目，讓使用者使用 MySQL 資料庫伺服器。 將 Microsoft.MySqlAdapter 服務新增到方案，然後建立新配額。 MySQL 不允許限制資料庫的大小。
+
+> [!IMPORTANT]
+> 最多可能需要兩小時的時間，才能在使用者入口網站中提供新的配額，或強制執行變更的配額。
 
 ## <a name="next-steps"></a>後續步驟
 

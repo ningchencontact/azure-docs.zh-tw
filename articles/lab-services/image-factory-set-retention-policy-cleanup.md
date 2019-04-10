@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 5c1465f31c8b5eb15b6fe63ed61a946e3b32d550
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 8190c2043d7d3daae91c93fd3b66126d0941710b
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439852"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361856"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中建立自訂映像處理站
 本文章涵蓋設定保留原則、 清理 factory，並從所有其他 DevTest Labs 組織中淘汰舊的映像。 
@@ -27,7 +27,7 @@ ms.locfileid: "58439852"
 
 - [建立映像處理站](image-factory-create.md)
 - [從 Azure DevOps 執行映像處理站](image-factory-set-up-devops-lab.md)
-- [儲存自訂映像，並散發的多個實驗室](image-factory-save-distribute-custom-images.md)
+- [儲存自訂映像並散發至多個實驗室](image-factory-save-distribute-custom-images.md)
 
 下列項目應該已經準備就緒：
 
@@ -73,7 +73,7 @@ ms.locfileid: "58439852"
 
 
 ## <a name="next-steps"></a>後續步驟
-1. [排程組建/發行](/devops/pipelines/build/triggers?view=azure-devops&tabs=designer)定期執行映像處理站。 它會重新整理您的映像處理站產生定期執行。
+1. [排程組建/發行](/azure/devops/pipelines/build/triggers?view=azure-devops&tabs=designer)定期執行映像處理站。 它會重新整理您的映像處理站產生定期執行。
 2. 讓更多的黃金映像處理站。 您也可以考慮[建立成品](devtest-lab-artifact-author.md)指令碼的 VM 安裝程式工作的其他部分，並將成品包含在您的原廠映像。
-4. 建立[分隔組建/發行](/devops/pipelines/overview.md?view=azure-devops-2019)來執行**DistributeImages**個別指令碼。 當您變更 Labs.json 並取得映像複製到目標實驗室中，而不需要再重新建立所有映像時，您可以執行此指令碼。
+4. 建立[分隔組建/發行](/azure/devops/pipelines/overview.md?view=azure-devops-2019)來執行**DistributeImages**個別指令碼。 當您變更 Labs.json 並取得映像複製到目標實驗室中，而不需要再重新建立所有映像時，您可以執行此指令碼。
 

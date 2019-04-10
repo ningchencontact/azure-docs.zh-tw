@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8137f7d167cc697671de99699c6031014d6a966e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 341b4d23664900cdf1f9a209df663ad4e6e96fe4
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275958"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426353"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>將 Raspberry Pi 連線到 Azure IoT Central 應用程式 (C#)
 
@@ -269,7 +269,7 @@ Azure IoT Central 應用程式中加入實際的裝置，從**Raspberry Pi**裝�
 
 ## <a name="run-your-net-application"></a>執行 .NET 應用程式
 
-請將裝置專屬的連接字串新增至裝置的程式碼中，以便向 Azure IoT Central 進行驗證。 請遵循下列指示[產生的裝置連接字串](concepts-connectivity.md#get-a-connection-string)使用**範圍識別碼**，**裝置識別碼**，以及**主索引鍵**您做先前的注意。
+請將裝置專屬的連接字串新增至裝置的程式碼中，以便向 Azure IoT Central 進行驗證。 請遵循下列指示[產生的裝置連接字串](howto-generate-connection-string.md)使用**範圍識別碼**，**裝置識別碼**，以及**主索引鍵**您做先前的注意。
 
 1. 取代`{your device connection string}`中**Program.cs**您產生的連接字串的檔案。
 

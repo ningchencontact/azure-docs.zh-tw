@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: 該 power Azure 開發人員空格和 azds.yaml 組態檔中的設定方式說明的程序
 keywords: azds.yaml，Azure 開發人員空格、 開發空格、 Docker、 Kubernetes、 Azure，AKS，Azure Kubernetes Service，容器
-ms.openlocfilehash: 622a0780d74618fe694e5b9da0327490e0ec38dd
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 0c22a6bbc9b75a14085f24a5be955e3482687965
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500554"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361489"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure 開發空間的運作方式，並已設定
 
@@ -85,10 +85,10 @@ Azure 的 Dev 空間有兩個不同的元件，與您互動： 控制器和用�
 * 啟用 Azure 開發人員空格，在您的叢集使用 `az aks use-dev-spaces`
 
 如需有關如何建立和設定適用於 Azure 開發空間的 AKS 叢集的詳細資訊，請參閱使用者入門指南：
-* [開始使用 Java 的 Azure 開發空格](get-started-java.md)
-* [開始使用 Azure 開發人員使用.NET Core 和 Visual Studio 的空格](get-started-netcore-visualstudio.md)
-* [開始使用 Azure 開發人員使用.NET Core 的空格](get-started-netcore.md)
-* [開始使用 Node.js 的 Azure 開發空格](get-started-nodejs.md)
+* [在使用 Java 的 Azure Dev Spaces 上開始使用](get-started-java.md)
+* [在使用 .NET Core 和 Visual Studio 的 Azure 開發人員空間上開始使用](get-started-netcore-visualstudio.md)
+* [在使用 .NET Core 的 Azure 開發人員空間上開始使用](get-started-netcore.md)
+* [在使用 Node.js 的 Azure 開發人員空間上開始使用](get-started-nodejs.md)
 
 在您的 AKS 叢集上啟用 Azure 開發人員空格時，它會安裝適用於您叢集的控制站。 控制器是您的叢集外的個別 Azure 資源，並會進行下列作業在叢集中的資源：
 

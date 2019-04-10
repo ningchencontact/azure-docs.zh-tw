@@ -1,6 +1,6 @@
 ---
-title: 將 Kubernetes 部署至 Azure Stack | Microsoft Docs
-description: 了解如何將 Kubernetes 部署至 Azure Stack。
+title: 部署 Kubernetes 以使用 Azure Stack 容器 | Microsoft Docs
+description: 了解如何部署 Kubernetes 以使用 Azure Stack 提供的容器。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,14 +15,14 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 6b00f63fac0110a8964270b9cbcad5330ac44645
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 77275ec274a9c76918874007cfe564eea09e6de5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986238"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877188"
 ---
-# <a name="deploy-kubernetes-to-azure-stack"></a>將 Kubernetes 部署至 Azure Stack
+# <a name="deploy-kubernetes-to-use-containers-with-azure-stack"></a>部署 Kubernetes 以使用 Azure Stack 提供的容器
 
 *適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
@@ -43,7 +43,7 @@ ms.locfileid: "56986238"
 
 您只須支付支援您叢集節點所需的計算使用量。 如需詳細資訊，請參閱 [Azure Stack 中的使用量和計費](https://docs.microsoft.com/azure/azure-stack/azure-stack-billing-and-chargeback)。
 
-## <a name="deploy-kubernetes"></a>部署 Kubernetes
+## <a name="deploy-kubernetes-to-use-containers"></a>部署 Kubernetes 以使用容器
 
 在 Azure Stack 上部署 Kubernetes 叢集的步驟取決於您的身分識別管理服務。 確認您的 Azure Stack 安裝所使用的身分識別管理解決方案。 請連絡 Azure Stack 系統管理員來確認您的身分識別管理服務。
 

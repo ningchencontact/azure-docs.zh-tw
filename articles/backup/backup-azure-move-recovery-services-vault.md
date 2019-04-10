@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/08/2019
 ms.author: sogup
-ms.openlocfilehash: 7745f986c6e9ba22258f51f9329444b8232762e1
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: f4ab983fbebe9c0219e70fa7bd5742cf1c3a0491
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905751"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361970"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>跨 Azure 訂用帳戶和資源群組來移動復原服務保存庫 (有限公開預覽)
 
@@ -22,7 +22,9 @@ ms.locfileid: "58905751"
 > [!NOTE]
 > 若要將復原服務保存庫和其相關聯的資源移至不同的資源群組中，您應該先[註冊的來源訂用帳戶](#register-the-source-subscription-to-move-your-recovery-services-vault)。
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="supported-geos"></a>支援的地區
+
+復原服務保存庫支援在澳大利亞東部、 澳洲南部東部、 加拿大中部、 加拿大東部、 東南亞、 東亞、 美國中部、 North Central US、 美國東部、 美國東部 2 中的資源移動南部中央 US、 美國中西部、 西部中部美國 2、 美國西部、印度中部、 印度南部、 日本東部、 日本西部、 韓國中部、 韓國南部、 北歐、 西歐、 南非北部、 南非西部、 英國南部、 英國西部、 阿拉伯聯合大公國中部和阿拉伯聯合大公國北部。
 
 ## <a name="prerequisites-for-moving-a-vault"></a>移動保存庫的必要條件
 
@@ -34,12 +36,12 @@ ms.locfileid: "58905751"
 - 目前每個區域一次可移動一個復原服務保存庫。
 - 如果 VM 未隨著復原服務保存庫來跨訂用帳戶或往新的資源群組移動，則目前的 VM 復原點會在保存庫中維持不變直到過期。
 - 無論 VM 是否隨著保存庫移動，您一律可以從保留在保存庫內的備份記錄還原 VM。
--   Azure 磁碟加密需要您的金鑰保存庫和 VM 位於相同的 Azure 區域和訂用帳戶中。
--   若要移動具有受控磁碟的虛擬機器，請參閱這篇[文章](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/)。
--   移動透過傳統模型所部署之資源的選項，會根據移動訂用帳戶內的資源還是將資源移到新的訂用帳戶而有所不同。 如需詳細資訊，請參閱這篇[文章](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#classic-deployment-limitations)。
--   在保存庫跨訂用帳戶或往新的資源群組移動之後，為保存庫所定義的備份原則會保留下來。
--   目前，您無法跨訂用帳戶和資源群組來移動在 IaaS VM 中含有 Azure 檔案儲存體、Azure 檔案同步或 SQL 的保存庫。 未來的版本會新增對於這些案例的支援。
--   如果您跨訂用帳戶移動含有 VM 備份資料的保存庫，則必須將 VM 移至相同的訂用帳戶，並使用相同的目標資源群組來繼續備份。<br>
+- Azure 磁碟加密需要您的金鑰保存庫和 VM 位於相同的 Azure 區域和訂用帳戶中。
+- 若要移動具有受控磁碟的虛擬機器，請參閱這篇[文章](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/)。
+- 移動透過傳統模型所部署之資源的選項，會根據移動訂用帳戶內的資源還是將資源移到新的訂用帳戶而有所不同。 如需詳細資訊，請參閱這篇[文章](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#classic-deployment-limitations)。
+- 在保存庫跨訂用帳戶或往新的資源群組移動之後，為保存庫所定義的備份原則會保留下來。
+- 目前，您無法跨訂用帳戶和資源群組來移動在 IaaS VM 中含有 Azure 檔案儲存體、Azure 檔案同步或 SQL 的保存庫。
+- 如果您跨訂用帳戶移動含有 VM 備份資料的保存庫，則必須將 VM 移至相同的訂用帳戶，並使用相同的目標資源群組來繼續備份。<br>
 
 > [!NOTE]
 >
@@ -52,24 +54,24 @@ ms.locfileid: "58905751"
 1. 登入您的 Azure 帳戶
 
    ```
-   Connect-AzAccount
+   Connect-AzureRmAccount
    ```
 
 2. 選取您要註冊的訂用帳戶
 
    ```
-   Get-AzSubscription –SubscriptionName "Subscription Name" | Select-AzSubscription
+   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
    ```
 3. 註冊此訂用帳戶
 
    ```
-   Register-AzProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
+   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
    ```
 
 4. 執行命令
 
    ```
-   Register-AzResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
    ```
 
 等候 30 分鐘，讓訂用帳戶加入到允許清單，再使用 Azure 入口網站或 PowerShell 開始移動作業。
@@ -139,18 +141,18 @@ ms.locfileid: "58905751"
 
 ## <a name="use-powershell-to-move-a-vault"></a>使用 PowerShell 來移動保存庫
 
-若要將復原服務保存庫移動到另一個資源群組，請使用 `Move-AzResource` Cmdlet。 `Move-AzResource` 需要資源名稱和資源類型。 您可以從 `Get-AzRecoveryServicesVault` Cmdlet 取得這兩項資訊。
+若要將復原服務保存庫移動到另一個資源群組，請使用 `Move-AzureRMResource` Cmdlet。 `Move-AzureRMResource` 需要資源名稱和資源類型。 您可以從 `Get-AzureRmRecoveryServicesVault` Cmdlet 取得這兩項資訊。
 
 ```
 $destinationRG = "<destinationResourceGroupName>"
-$vault = Get-AzRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
-Move-AzResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+$vault = Get-AzureRmRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
+Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 若要將資源移到不同的訂用帳戶，請納入 `-DestinationSubscriptionId` 參數。
 
 ```
-Move-AzResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 在執行上述 Cmdlet 之後，系統會要求您確認您想要移動指定的資源。 輸入 **Y** 來確認。 成功通過驗證後，資源便會移動。

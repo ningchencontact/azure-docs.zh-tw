@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Azure IaaS、混合式解決方案、不同雲端服務之間、Active Directory 以及使用專屬 DNS 伺服器的名稱解析案例。
 services: virtual-network
 documentationcenter: na
-author: subsarma
+author: rohinkoul
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
-ms.author: subsarma
-ms.openlocfilehash: ea15468722fcf1b9e2649236ef4dd05549d8f460
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.author: rohink
+ms.openlocfilehash: 78c66ac25e9d20d9202236407d42f815879cd3f2
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418732"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426421"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 虛擬網路中的資源名稱解析
 
@@ -34,7 +34,7 @@ ms.locfileid: "58418732"
 > 視您的案例而定，您可以使用「Azure DNS 私人區域」功能，該功能目前處於公開預覽狀態。 如需詳細資訊，請參閱[使用私人網域的 Azure DNS](../dns/private-dns-overview.md)。
 >
 
-| **案例** | **方案** | **尾碼** |
+| **案例** | **解決方法** | **尾碼** |
 | --- | --- | --- |
 | 相同虛擬網路內的 VM 之間或相同雲端服務的 Azure 雲端服務角色執行個體之間所進行的名稱解析。 | [Azure DNS 私人區域](../dns/private-dns-overview.md)或 [Azure 提供的名稱解析](#azure-provided-name-resolution) |主機名稱或 FQDN |
 | 不同虛擬網路的 VM 之間或不同雲端服務的角色執行個體之間所進行的名稱解析。 |[Azure DNS 私人區域](../dns/private-dns-overview.md)，或客戶受控的 DNS 伺服器將虛擬網路之間的查詢轉送供 Azure (DNS Proxy) 解析。 請參閱[使用專屬 DNS 伺服器的名稱解析](#name-resolution-that-uses-your-own-dns-server)。 |僅 FQDN |

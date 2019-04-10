@@ -17,12 +17,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 77942e24af847f7c8f9680ca793dacf8ba0be55f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 284e1ce3c3b9a63f3c25e85891b1d2688726183e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112580"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879976"
 ---
 # <a name="redeploy-the-asdk"></a>重新部署 ASDK
 在本文中，您會了解如何在非生產環境中重新部署 Azure Stack 開發套件 (ASDK)。 因為不支援升級 ASDK，您需要將其完全重新部署到較新的版本。 若您想要從頭開始，也可以隨時重新部署 ASDK。
@@ -61,10 +61,11 @@ ms.locfileid: "58112580"
 3. 指令碼執行時，系統會提示您登入您的 Azure 訂用帳戶和本機 ASDK 安裝。
 4. 指令碼完成時，您應該會看到類似下列範例的訊息：
 
-    ` De-Activating Azure Stack (this may take up to 10 minutes to complete).` ` Your environment is now unable to syndicate items and is no longer reporting usage data.`
-    ` Remove registration resource from Azure...`
-    ` "Deleting the resource..." on target "/subscriptions/<subscription information>"`
-    ` ********** End Log: Remove-AzsRegistration ********* `
+    `De-Activating Azure Stack (this may take up to 10 minutes to complete).`
+    `Your environment is now unable to syndicate items and is no longer reporting usage data.`
+    `Remove registration resource from Azure...`
+    `"Deleting the resource..." on target "/subscriptions/<subscription information>"`
+    `********** End Log: Remove-AzsRegistration *********`
 
 
 
@@ -99,7 +100,7 @@ ms.locfileid: "58112580"
 
 
 ## <a name="next-steps"></a>後續步驟
-[部署 ASDK 後的工作](asdk-post-deploy.md)
+[ASDK 部署後的工作](asdk-post-deploy.md)
 
 
 

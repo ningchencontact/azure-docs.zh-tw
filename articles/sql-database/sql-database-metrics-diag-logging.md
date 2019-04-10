@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 3004f073100b45de25655fc6dee6a96c90612c46
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: f023ab4fe55cf180ac1e3f0634856a528c911746
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905198"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426480"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄
 
@@ -77,7 +77,7 @@ ms.locfileid: "58905198"
 > 彈性集區和受管理的執行個體都有自己個別的診斷遙測，從其所包含的資料庫。 这是必须注意的，因为诊断遥测数据是为每个这样的资源单独配置的，如下所述。
 
 > [!NOTE]
-> 無法從資料庫的診斷設定中啟用安全性稽核和 SQLSecurityAuditEvents 的記錄檔。 若要啟用稽核記錄資料流，請參閱[設定資料庫的稽核](sql-database-auditing.md#subheading-2)，並[稽核記錄中 Azure 監視器記錄檔和 Azure 事件中樞](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/)。
+> （雖然在螢幕上顯示），無法啟用安全性稽核和 SQLSecurityAuditEvents 記錄從資料庫的診斷設定。 若要啟用稽核記錄資料流，請參閱[設定資料庫的稽核](sql-database-auditing.md#subheading-2)，並[稽核記錄中 Azure 監視器記錄檔和 Azure 事件中樞](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)。
 
 ## <a name="azure-portal"></a>Azure 入口網站
 
@@ -141,7 +141,7 @@ ms.locfileid: "58905198"
 1. 針對您想要監視每個資料庫重複這些步驟。
 
 > [!NOTE]
-> 無法從資料庫的診斷設定中啟用安全性稽核和 SQLSecurityAuditEvents 的記錄檔。 若要啟用稽核記錄資料流，請參閱[設定資料庫的稽核](sql-database-auditing.md#subheading-2)，並[稽核記錄中 Azure 監視器記錄檔和 Azure 事件中樞](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/)。
+> （雖然在螢幕上顯示），無法啟用安全性稽核和 SQLSecurityAuditEvents 記錄從資料庫的診斷設定。 若要啟用稽核記錄資料流，請參閱[設定資料庫的稽核](sql-database-auditing.md#subheading-2)，並[稽核記錄中 Azure 監視器記錄檔和 Azure 事件中樞](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)。
 > [!TIP]
 > 針對您想要監視的每個 Azure SQL Database 重複執行這些步驟。
 

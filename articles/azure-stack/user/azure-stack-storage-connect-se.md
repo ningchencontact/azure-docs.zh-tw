@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 03/14/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 1c59f092957704c44b5cda012aa7c471fdaa3275
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.lastreviewed: 03/14/2019
+ms.openlocfilehash: 314304e75ce0f2586f41b71a889fa0185501b845
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763362"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622003"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>將儲存體總管連線到 Azure Stack 訂用帳戶或儲存體帳戶
 
@@ -49,25 +49,27 @@ ms.locfileid: "57763362"
 
 1. 在 Azure Stack 主機電腦或可使用 VPN 連線到 Azure Stack 的本機電腦上開啟 `mmc.exe`。 
 
-2. 在 [檔案] 中，選取 [新增/移除嵌入式管理單元]，然後新增 [憑證] 以管理 [我的使用者帳戶]。
+2. 在 [檔案] 中，選取 [新增/移除嵌入式管理單元]。 在 [可用的嵌入式管理單元] 中，選取 [憑證]。 
 
-3.  在 [主控台根目錄]\[憑證 (本機電腦)]\[受信任的根憑證授權單位]\[憑證] 底下。 尋找 **AzureStackSelfSignedRootCert**。
+3. 選取 [電腦帳戶]，然後選取 [下一步]。 選取 [本機電腦]，然後選取 [完成]。
+
+4.  在 [主控台根目錄]\[憑證 (本機電腦)]\[受信任的根憑證授權單位]\[憑證] 底下。 尋找 **AzureStackSelfSignedRootCert**。
 
     ![透過 mmc.exe 載入 Azure Stack 根憑證](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
 
-4. 以滑鼠右鍵按一下憑證，選取 [所有工作] > [匯出]，然後依照指示，匯出 **Base-64 encoded X.509 (.CER)** 憑證。
+5. 以滑鼠右鍵按一下憑證，選取 [所有工作] > [匯出]，然後依照指示，匯出 **Base-64 encoded X.509 (.CER)** 憑證。
 
     下一個步驟中會使用所匯出的憑證。
 
-5. 啟動儲存體總管，如果您看到 [連線至 Azure 儲存體] 對話方塊，請將它取消。
+6. 啟動儲存體總管，如果您看到 [連線至 Azure 儲存體] 對話方塊，請將它取消。
 
-6. 在 [編輯] 功能表上，指向 [SSL 憑證]，然後選取 [匯入憑證]。 使用檔案選擇器對話方塊來尋找和開啟您在上一個步驟中瀏覽的憑證。
+7. 在 [編輯] 功能表上，指向 [SSL 憑證]，然後選取 [匯入憑證]。 使用檔案選擇器對話方塊來尋找和開啟您在上一個步驟中瀏覽的憑證。
 
     匯入憑證之後，系統會提示您重新啟動儲存體總管。
 
     ![將憑證匯入儲存體總管中](./media/azure-stack-storage-connect-se/import-azure-stack-cert-storage-explorer.png)
 
-7. 儲存體總管重新啟動後，請選取 [編輯] 功能表，然後查看是否已選取 [目標 Azure Stack]。 若未選取，請選取 [目標 Azure Stack]，然後重新啟動儲存體總管，變更才會生效。 不需要進行此設定，即可相容於 Azure Stack 環境。
+8. 儲存體總管重新啟動後，請選取 [編輯] 功能表，然後查看是否已選取 [目標 Azure Stack API]。 若未選取，請選取 [目標 Azure Stack]，然後重新啟動儲存體總管，變更才會生效。 不需要進行此設定，即可相容於 Azure Stack 環境。
 
     ![確保已選取目標 Azure Stack](./media/azure-stack-storage-connect-se/target-azure-stack.png)
 
@@ -82,7 +84,7 @@ ms.locfileid: "57763362"
 
     ![新增 Azure Stack 帳戶](./media/azure-stack-storage-connect-se/add-azure-stack-account.png)
 
-3. 在 [連線到 Azure 儲存體] 對話方塊的 [Azure 環境] 之下，選取 [Azure] 或 [Azure China] (視正在使用的 Azure Stack 帳戶而定)，選取 [登入] 以使用與至少一個有效 Azure Stack 訂用帳戶相關聯的 Azure Stack 帳戶來登入。
+3. 在 [連線到 Azure 儲存體] 對話方塊的 [Azure 環境] 下，選取 [Azure]、[Azure 中國]、[Azure 德國]、[Azure 美國政府] 或 [新增環境] (視正在使用的 Azure Stack 帳戶而定)。 選取 [登入]，使用與至少一個作用中 Azure Stack 訂用帳戶相關聯的 Azure Stack 帳戶登入。
 
     ![連線到 Azure 儲存體](./media/azure-stack-storage-connect-se/azure-stack-connect-to-storage.png)
 

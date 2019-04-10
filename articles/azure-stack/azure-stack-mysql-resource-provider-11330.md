@@ -16,12 +16,12 @@ ms.date: 01/09/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 7f44e8c2c4587ecfdb3bd5eb4304789674da96f3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e0101aebadcaef71f35c72b54f9126e69cff0f61
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251998"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882830"
 ---
 # <a name="mysql-resource-provider-11330--release-notes"></a>MySQL 資源提供者 1.1.33.0 版本資訊
 
@@ -50,7 +50,8 @@ ms.locfileid: "55251998"
 
 - **如果未啟用 TLS 1.2，之前的 MySQL 資源提供者 (1.1.30.0) 部署可能會失敗**。 將 MySQL 資源提供者更新為 1.1.33.0，以在部署資源提供者、更新資源提供者或輪替祕密時啟用 TLS 1.2。 
 
-- **MySQL 資源提供者的祕密輪替失敗**。 已修正會在輪替祕密時導致下列錯誤碼的問題：` New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
+- **MySQL 資源提供者的祕密輪替失敗**。 已修正會在輪替祕密時導致下列錯誤碼的問題：
+`New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
 
 ## <a name="known-issues"></a>已知問題 
 

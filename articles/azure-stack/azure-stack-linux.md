@@ -15,12 +15,12 @@ ms.date: 02/15/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: 277af6f139e815f46894f5b8df82a1d92ef573d1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c957812271d2ddd6639672d862026b30cfd19661
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537128"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804508"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>將 Linux 映像新增到 Azure Stack
 
@@ -38,7 +38,7 @@ ms.locfileid: "57537128"
 
 請盡可能下載透過市集管理提供並專為 Azure Stack 準備及測試的映像。
 
-需要 Azure Linux 代理程式 (通常稱為 `WALinuxAgent` 或 `walinuxagent`)，而且並非所有代理程式版本都適用於 Azure Stack。 如果您建立了自己的映像，請使用最新版或 2.2.20 版的 WALA。 請注意，2.2.20 到 2.2.35.1 (含) 之間的版本無法在 Azure Stack 上運作。 請注意，Azure Stack 目前不支援 [cloud-init](https://cloud-init.io/)。
+需要 Azure Linux 代理程式 (通常稱為 `WALinuxAgent` 或 `walinuxagent`)，而且並非所有代理程式版本都適用於 Azure Stack。 如果您建立了自己的映像，請使用最新版或 2.2.20 版的 WALA。 請注意，2.2.20 到 2.2.35.1 (不含) 之間的版本無法在 Azure Stack 上運作。 若要使用 2.2.20 到 2.2.35.1 之間的代理程式版本，請套用 1901 Hotfix/1902 Hotfix，或將 Azure Stack 更新至 1903 版 (或更新版本)。 請注意，Azure Stack 目前不支援 [cloud-init](https://cloud-init.io/)。
 
 您可以使用下列指示來準備自己的 Linux 映像：
 

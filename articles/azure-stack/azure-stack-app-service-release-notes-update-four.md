@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 5108d4f65208f12875ad592e2e9222f8e1fdb130
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.lastreviewed: 03/25/2019
+ms.openlocfilehash: c8900e639e6baba29067c50d4ac754d4dbda2dd6
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991076"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449230"
 ---
 # <a name="app-service-on-azure-stack-update-4-release-notes"></a>App Service on Azure Stack 更新 4 版本資訊
 
@@ -64,6 +64,8 @@ Azure App Service on Azure Stack 更新 4 包含下列改良功能和修正：
 - 已新增對 App Service 2018-02-01 API 版本的支援
 
 - **App Service 租用戶、系統管理員、Functions 入口網站和 Kudu 工具**的更新。 與 Azure Stack 入口網站 SDK 版本保持一致。
+
+- 將 **Azure Functions 執行階段**更新至 **v1.0.11959**。
 
 - 用來改善可靠性和錯誤訊息以利進行常見問題診斷的核心服務更新。
 

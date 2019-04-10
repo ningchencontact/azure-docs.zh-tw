@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 104eae7c8d18c32fd5b9b84147df2bf121345c22
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 668862714b416bd89d3b5f82caf8b0305fccae54
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59277406"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426523"
 ---
 # <a name="example-3-build-a-perimeter-network-to-protect-networks-with-a-firewall-udr-and-nsgs"></a>範例 3：： 建置周邊網路，以透過防火牆、 UDR 和 Nsg 保護網路
 
@@ -396,7 +396,7 @@ Barracuda 網站可以找到這些規則的詳細資訊。
     > [!TIP]
     > 雖然此範例規則使用`<explicit-dest>`參考，您應該使用一致的方法，在整個防火牆設定。 我們建議使用更容易閱讀和支援的具名的網路物件。 `<explicit-dest>`僅為顯示替代參考方法如下所示。 我們通常不建議，特別是針對複雜的組態。
 
-* **輸出到網際網路規則**:此傳遞規則允許來自任何來源的網路傳遞至所選目的地網路流量。 Barracuda NextGen 防火牆通常有這這項規則 「 開啟 」 預設情況下，而是在停用狀態。 若要存取此規則上按一下滑鼠右鍵**啟用的規則**命令。 修改螢幕擷取畫面顯示將後端與前端的子網路的網路物件新增至來源屬性，此規則的規則。 您在這篇文章的必要條件 > 一節中建立這些網路物件。
+* **輸出到網際網路規則**:此傳遞規則允許來自任何來源的網路傳遞至所選目的地網路流量。 根據預設，但停用狀態，Barracuda NextGen 防火牆會將此規則通常具有 「 開啟 」。 若要存取此規則上按一下滑鼠右鍵**啟用的規則**命令。 修改螢幕擷取畫面顯示將後端與前端的子網路的網路物件新增至來源屬性，此規則的規則。 您在這篇文章的必要條件 > 一節中建立這些網路物件。
   
     ![防火牆輸出規則][14]
 

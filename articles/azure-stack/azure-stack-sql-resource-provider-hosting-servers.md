@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/26/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 1cef0010464671982109b8dc4bc94e6925eaf825
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1b9c7f00c8ec8408547620111634470d455334c8
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210521"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499228"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>為 SQL 資源提供者新增主控伺服器
 
@@ -40,7 +40,7 @@ ms.locfileid: "56210521"
 
 ### <a name="general-requirements"></a>一般需求
 
-* 資源提供者和使用者工作負載專用的 SQL 執行個體。 您無法使用任何其他取用者正在使用的 SQL 執行個體。 此限制也適用於 App Service。
+* 資源提供者和使用者工作負載專用的 SQL 執行個體。 您無法使用任何其他取用者正在使用的 SQL 執行個體。 這項限制也適用於 App Service。
 * 設定具有適當權限層級的帳戶以供資源提供者使用 (如下所述)。
 * 您負責管理 SQL 執行個體及其主機。  例如，資源提供者不會套用更新、處理備份，或處理認證輪換。
 
@@ -186,14 +186,19 @@ ms.locfileid: "56210521"
 
 最多需要一小時才能在入口網站中看到 SKU。 在完整建立 SKU 前，使用者無法建立資料庫。
 
-若要編輯 SKU，請移至 [所有服務] > [SQL 配接器] > [SKU]。 選取要修改的 SKU、進行任何必要的變更，然後按一下 [儲存] 以儲存變更。 若要刪除已不再需要的 SKU，請移至 [所有服務] > [SQL 配接器] > [SKU]。 以滑鼠右鍵按一下 SKU 名稱，然後選取 [刪除] 將它刪除。
+若要編輯 SKU，請移至 [所有服務] > [SQL 配接器] > [SKU]。 選取要修改的 SKU、進行任何必要的變更，然後按一下 [儲存] 以儲存變更。 
 
-> [!TIP]
-> 您可以編輯或刪除相同位置的 SQL 資源提供者配額。
+若要刪除已不再需要的 SKU，請移至 [所有服務] > [SQL 配接器] > [SKU]。 以滑鼠右鍵按一下 SKU 名稱，然後選取 [刪除] 將它刪除。
+
+> [!IMPORTANT]
+> 最多可能需要一小時的時間，才能在使用者入口網站中提供新的 SKU。
 
 ## <a name="make-sql-databases-available-to-users"></a>將 SQL 資料庫提供給使用者使用
 
 建立方案和供應項目，將 SQL 資料庫提供給使用者使用。 將 **Microsoft.SqlAdapter** 服務新增到方案，然後建立新配額。
+
+> [!IMPORTANT]
+> 最多可能需要兩小時的時間，才能在使用者入口網站中提供新的配額，或強制執行變更的配額。
 
 ## <a name="next-steps"></a>後續步驟
 

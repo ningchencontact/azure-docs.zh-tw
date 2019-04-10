@@ -15,16 +15,16 @@ ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 09988009712f9312eb97d5c32dc8991ec5b2f1f9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 54bc6bc105dab2831df6e48a64a6f766582a3fb9
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251345"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917555"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>在 Azure Stack 中輪替使用祕密
 
-這些指示只適用於 Azure Stack 整合系統 1803 版或更新版本。*請勿在早於 1802 版本的 Azure Stack 上嘗試使用秘密輪替*
+*這些指示只適用於 Azure Stack 整合系統 1803 版或更新版本。 請勿在 1802 以前版本的 Azure Stack 上嘗試使用祕密輪替*
 
 Azure Stack 會使用各種祕密來維護 Azure Stack 基礎結構資源和服務之間的通訊安全。
 
@@ -83,14 +83,14 @@ Azure Stack 支援在下列環境中使用新憑證授權單位 (CA) 的外部�
 - 擱置的內部憑證到期
 - 擱置的外部憑證到期
 
-使用下列指示執行秘密輪替將會修正這些警示。
+使用下列指示執行祕密輪替將會修正這些警示。
 
 > [!Note]
 > 在 1811 之前版本的 Azure Stack 環境中，可能會看到擱置中的內部憑證或祕密到期警示。
 > 這些是不正確的警示，應該予以忽略而不需執行內部祕密輪替。
 > 不正確的內部祕密到期警示是在 1811 中已解決的已知問題 – 除非環境處於作用中的時間已達兩年，否則內部祕密不會過期。
 
-## <a name="pre-steps-for-secret-rotation"></a>秘密輪替前的步驟
+## <a name="pre-steps-for-secret-rotation"></a>祕密輪替前的步驟
 
    > [!IMPORTANT]
    > 如果您的 Azure Stack 環境上已經執行過祕密輪替，在您重新執行祕密輪替之前，必須先將系統更新至 1811 版或更新版本。
@@ -102,7 +102,7 @@ Azure Stack 支援在下列環境中使用新憑證授權單位 (CA) 的外部�
     > [!Note] 
     > 針對 1811 前的版本，您無須輪替祕密，即可新增延伸主機憑證。 您應該依照 [Azure Stack 的延伸主機準備](azure-stack-extension-host-prepare.md)一文中的指示，來新增延伸主機憑證。
 
-2. 運算子可能會注意到警示開啟，並在 Azure Stack 秘密輪替期間，自動關閉警示。  這是可預期的行為，可以忽略這類警示。  操作員可以執行 **Test-AzureStack** 來驗證這些警示的有效性。  若運算子使用 SCOM 監控 Azure Stack 系統，讓系統進入維護模式，即可避免這些警示傳送到其所屬的 ITSM 系統，但如果無法連線到 Azure Stack，就會持續發出警示。
+2. 運算子可能會注意到警示開啟，並在 Azure Stack 祕密輪替期間，自動關閉警示。  這是可預期的行為，可以忽略這類警示。  操作員可以執行 **Test-AzureStack** 來驗證這些警示的有效性。  若運算子使用 SCOM 監控 Azure Stack 系統，讓系統進入維護模式，即可避免這些警示傳送到其所屬的 ITSM 系統，但如果無法連線到 Azure Stack，就會持續發出警示。
 
 3. 將任何維護作業告知您的使用者。 排程一般維護期間，盡可能排在非上班時間。 維護作業會影響使用者工作負載和入口網站作業。
 
@@ -122,7 +122,7 @@ Azure Stack 支援在下列環境中使用新憑證授權單位 (CA) 的外部�
 > **.\Certificates\AAD** 或 ***.\Certificates\ADFS***，取決於用於 Azure Stack 的識別提供者而定
 >
 > 至關重要的是，您的資料夾結構是以 **AAD** 或 **ADFS** 資料夾結尾，而且所有子資料夾都在此結構中；否則，**Start-SecretRotation** 將提供：
-> ```PowerShell
+> ```powershell
 > Cannot bind argument to parameter 'Path' because it is null.
 > + CategoryInfo          : InvalidData: (:) [Test-Certificate], ParameterBindingValidationException
 > + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Test-Certificate
@@ -147,7 +147,7 @@ Azure Stack 支援在下列環境中使用新憑證授權單位 (CA) 的外部�
 1. 在前面步驟新建的 **\Certificates\\\<IdentityProvider>** 目錄中，依據 [Azure Stack PKI 憑證需求](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates)內＜必要憑證＞一節中所述的格式，將新的一組替代外部憑證放入目錄結構中。
 
     AAD 識別提供者的資料夾結構範例：
-    ```PowerShell
+    ```powershell
         <ShareName>
         │   │
         │   ├───Certificates
@@ -202,25 +202,25 @@ Azure Stack 支援在下列環境中使用新憑證授權單位 (CA) 的外部�
     - **CertificatePassword**  
     密碼的安全字串，用於所有建立的 pfx 憑證檔案。
 
-5. 等候秘密進行輪替。 外部祕密輪替通常需要大約一小時的時間。
+5. 等候祕密進行輪替。 外部祕密輪替通常需要大約一小時的時間。
 
-    當秘密輪替成功完成時，您的主控台會顯示**整體動作狀態：成功**。
+    當祕密輪替成功完成時，您的主控台會顯示**整體動作狀態：成功**。
 
     > [!Note]
     > 如果祕密輪替失敗，請依照錯誤訊息中的指示進行操作，並搭配 **-ReRun** 參數來重新執行 **Start-SecretRotation**。
 
-    ```PowerShell
+    ```powershell
     Start-SecretRotation -ReRun
     ```
-    如果秘密輪替重複失敗，請聯絡支援人員。
+    如果祕密輪替重複失敗，請聯絡支援人員。
 
-6. 成功完成秘密輪替後，請從前面步驟建立的共用中移除您的憑證，並將其儲存在安全的備份位置。
+6. 成功完成祕密輪替後，請從前面步驟建立的共用中移除您的憑證，並將其儲存在安全的備份位置。
 
-## <a name="walkthrough-of-secret-rotation"></a>秘密輪替的逐步解說
+## <a name="walkthrough-of-secret-rotation"></a>祕密輪替的逐步解說
 
-下列 PowerShell 範例會示範輪替秘密時須執行的 Cmdlet 與參數。
+下列 PowerShell 範例會示範輪替祕密時須執行的 Cmdlet 與參數。
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -236,7 +236,7 @@ Invoke-Command -Session $PEPSession -ScriptBlock {
 Remove-PSSession -Session $PEPSession
 ```
 
-## <a name="rotating-only-internal-secrets"></a>僅輪替內部秘密
+## <a name="rotating-only-internal-secrets"></a>僅輪替內部祕密
 
 > [!Note]
 > 只有當您懷疑內部祕密已受到惡意實體危害，或當您收到指出內部憑證即將到期的警示 (在 1811 或更新版本的組建上) 時，才應該執行「內部祕密輪替」。
@@ -250,45 +250,45 @@ Remove-PSSession -Session $PEPSession
     > [!Note]
     > 1811 之前版本的 Azure Stack 環境將不需要 **-Internal** 旗標。 **Start-SecretRotation** 只會輪替內部祕密。
 
-3. 等候秘密進行輪替。
+3. 等候祕密進行輪替。
 
-當秘密輪替成功完成時，您的主控台會顯示**整體動作狀態：成功**。
+當祕密輪替成功完成時，您的主控台會顯示**整體動作狀態：成功**。
     > [!Note]
     > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **–Internal** and **-ReRun** parameters.  
 
-```PowerShell
+```powershell
 Start-SecretRotation -Internal -ReRun
 ```
 
-如果秘密輪替重複失敗，請聯絡支援人員。
+如果祕密輪替重複失敗，請聯絡支援人員。
 
 ## <a name="start-secretrotation-reference"></a>Start-SecretRotation 參考
 
-輪替 Azure Stack 系統的秘密。 只針對 Azure Stack 具特殊權限的端點執行。
+輪替 Azure Stack 系統的祕密。 只針對 Azure Stack 具特殊權限的端點執行。
 
 ### <a name="syntax"></a>語法
 
 #### <a name="for-external-secret-rotation"></a>針對外部祕密輪替
 
-```PowerShell
+```powershell
 Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential <PSCredential>] [-CertificatePassword <SecureString>]  
 ```
 
 #### <a name="for-internal-secret-rotation"></a>針對內部祕密輪替
 
-```PowerShell
+```powershell
 Start-SecretRotation [-Internal]  
 ```
 
 #### <a name="for-external-secret-rotation-rerun"></a>針對外部祕密輪替的重新執行
 
-```PowerShell
+```powershell
 Start-SecretRotation [-ReRun]
 ```
 
 #### <a name="for-internal-secret-rotation-rerun"></a>針對內部祕密輪替的重新執行
 
-```PowerShell
+```powershell
 Start-SecretRotation [-ReRun] [-Internal]
 ```
 
@@ -312,15 +312,15 @@ Start-SecretRotation [-ReRun] [-Internal]
 
 這必須透過您 Azure Stack [環境的具特殊權限端點](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint)來執行。
 
-```PowerShell
+```powershell
 PS C:\> Start-SecretRotation -Internal
 ```
 
-此命令會輪替對 Azure Stack 內部網路公開的所有基礎結構秘密。
+此命令會輪替對 Azure Stack 內部網路公開的所有基礎結構祕密。
 
 #### <a name="rotate-only-external-infrastructure-secrets"></a>僅輪替外部基礎結構祕密  
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -344,9 +344,9 @@ Remove-PSSession -Session $PEPSession
 > [!IMPORTANT]
 > 這個命令僅適用於 Azure Stack **1811 之前的版本**，因為已為內部和外部憑證分割輪替。
 >
-> **在 *1811 以上的版本*中，您無法再同時輪替內部和外部憑證！**
+> **從 1811 版開始，您無法再同時輪替內部和外部憑證！**
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -363,17 +363,17 @@ Invoke-Command -Session $PEPSession -ScriptBlock {
 Remove-PSSession -Session $PEPSession
 ```
 
-此命令會輪替對 Azure Stack 內部網路公開的所有基礎結構祕密，以及用於 Azure Stack 外部網路基礎結構端點的 TLS 憑證。 Start-SecretRotation 會輪替所有堆疊產生的秘密，且因為有提供認證，外部端點憑證也會輪替。  
+此命令會輪替對 Azure Stack 內部網路公開的所有基礎結構祕密，以及用於 Azure Stack 外部網路基礎結構端點的 TLS 憑證。 Start-SecretRotation 會輪替所有堆疊產生的祕密，且因為有提供認證，外部端點憑證也會輪替。  
 
 ## <a name="update-the-baseboard-management-controller-bmc-credential"></a>更新基礎板管理控制器 (BMC) 認證
 
 基礎板管理控制器 (BMC) 可監視伺服器的實體狀態。 與更新 BMC 使用者帳戶名稱和密碼相關的規格及指示，會依據您的原始設備製造商 (OEM) 硬體廠商而有所不同。 您應該定期更新您的 Azure Stack 元件密碼。
 
-1. 依照您的 OEM 指示，更新 Azure Stack 實體伺服器上的 BMC。 您環境中每個 BMC 的使用者帳戶名稱和密碼必須相同。
+1. 依照您的 OEM 指示，更新 Azure Stack 實體伺服器上的 BMC。 您環境中每個 BMC 的使用者名稱與密碼都必須相同。 請注意，BMC 使用者名稱不能超過 16 個字元。
 2. 在 Azure Stack 工作階段中開啟具有特殊權限的端點。 如需相關指示，請參閱[使用 Azure Stack 中具有特殊權限的端點](azure-stack-privileged-endpoint.md)。
 3. 在您的 PowerShell 提示變更為 **[IP 位址或 ERCS VM 名稱]:PS>** 或變更為 **[azs-ercs01]:PS>** (取決於環境) 之後，藉由執行 `Invoke-Command` 來執行 `Set-BmcCredential`。 將具有特殊權限的端點工作階段變數當作參數傳送。 例如︰
 
-    ```PowerShell
+    ```powershell
     # Interactive Version
     $PEPIp = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
     $PEPCreds = Get-Credential "<Domain>\CloudAdmin" -Message "PEP Credentials"
@@ -391,7 +391,7 @@ Remove-PSSession -Session $PEPSession
 
     您也可以使用靜態 PowerShell 版本搭配密碼，如以下程式碼行所示：
 
-    ```PowerShell
+    ```powershell
     # Static Version
     $PEPIp = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
     $PEPUser = "<Privileged Endpoint user for example Domain\CloudAdmin>"

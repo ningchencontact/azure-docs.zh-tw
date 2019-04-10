@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab, vanto
+ms.reviewer: sstein, carlrab, vanto
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: f1e86e4556931c00d317a618eeaf35ac988a2879
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 15b7bfc9e1d747fcefdbba03ca254a9604197b5f
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59266234"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361814"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>使用 SQL Database 進階資料安全性搭配虛擬網路幾乎 100%相容
 
@@ -50,7 +50,7 @@ ms.locfileid: "59266234"
 |隔離的環境 ([VNet 整合](sql-database-managed-instance-connectivity-architecture.md)、單一租用戶服務、專用的運算和儲存體) <br>[透明資料加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD 驗證](sql-database-aad-authentication.md)、單一登入支援 <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD 伺服器主體 (登入)</a> (**公開預覽**) <br>與 Azure SQL 資料庫遵循相同的合規性標準 <br>[SQL 稽核](sql-database-managed-instance-auditing.md) <br>[威脅偵測](sql-database-managed-instance-threat-detection.md) |用於自動化服務佈建與調整的 Azure Resource Manager API <br>用於手動服務佈建與調整的 Azure 入口網站功能 <br>資料移轉服務
 
 > [!IMPORTANT]
-> Azure SQL Database （所有部署選項）、 經過認證符合許多法規標準。 如需詳細資訊，請參閱 < [Microsoft Azure 信任中心](https://azure.microsoft.com/support/trust-center/compliance/)您可以在此找到最新的 SQL Database 的合規性認證清單。
+> Azure SQL Database （所有部署選項）、 經過認證符合許多法規標準。 如需詳細資訊，請參閱 < [Microsoft Azure 信任中心](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)您可以在此找到最新的 SQL Database 的合規性認證清單。
 
 下表顯示受控執行個體的主要功能：
 

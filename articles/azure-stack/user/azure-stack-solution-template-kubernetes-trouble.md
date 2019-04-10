@@ -11,17 +11,17 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.author: mabrigg
-ms.date: 03/20/2019
+ms.date: 04/02/2019
 ms.reviewer: waltero
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 9af4b7a622bfb47d44c3da0edcece8c9528b08c4
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 2a9eccfa109292b7d142092f69f4a664b0ff8f20
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361535"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878123"
 ---
-# <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>針對 Azure Stack 上的 Kubernetes 部署進行疑難排解
+# <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>針對 Azure Stack 上的 Kubernetes 部署進行疑難排解
 
 *適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
@@ -30,11 +30,11 @@ ms.locfileid: "58361535"
 
 下列文章探討 Kubernetes 叢集的疑難排解方法。 您可以檢閱部署警示，並根據部署所需元素來檢閱部署狀態。 您可能需要從 Azure Stack 或裝載 Kubernetes 的 Linux VM 收集部署記錄。 您也可能需要與 Azure Stack 系統管理員合作，從系統管理端點擷取記錄。
 
-## <a name="overview-of-deployment"></a>部署概觀
+## <a name="overview-of-kubernetes-deployment"></a>Kubernetes 部署概觀
 
 在針對叢集開始進行疑難排解之前，您可以先檢閱 Azure Stack Kubernetes 叢集部署程序。 此部署會使用 Azure Resource Manager 解決方案範本來建立 VM，並為叢集安裝 ACS 引擎。
 
-### <a name="deployment-workflow"></a>部署工作流程
+### <a name="kubernetes-deployment-workflow"></a>Kubernetes 部署工作流程
 
 下圖顯示一般的叢集部署程序。
 
@@ -85,7 +85,7 @@ ms.locfileid: "58361535"
 
 您可以在支援 Kubernetes 叢集的 VM 上收集記錄。 您也可以檢閱部署記錄。 您可能也需要詢問 Azure Stack 系統管理員來確認您需要使用的 Azure Stack 版本，並從 Azure Stack 取得與部署相關的記錄。
 
-1. 檢閱[部署狀態](#review-deployment-status)，並從 Kubernetes 叢集中的主要節點[擷取記錄](#get-logs-from-a-vm)。
+1. 檢閱[部署狀態](#review-deployment-status)，並從 Kubernetes 叢集中的主要節點擷取記錄。
 2. 務必使用最新版的 Azure Stack。 如果您不確定您使用的是哪一個版本，請連絡您的 Azure Stack 管理員。
 3.  檢閱 VM 建立檔案。 您可能會有下列問題：  
     - 公開金鑰可能無效。 檢閱您建立的金鑰。  

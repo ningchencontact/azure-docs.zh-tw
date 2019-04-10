@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: e02a09bdc8bd80b93f7fa33632c32a75c1d705bd
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.lastreviewed: 03/27/2019
+ms.openlocfilehash: 00eb4fc3eb0b2e7120208e6318bf35fc2cc6f188
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226856"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649402"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 更新
 
@@ -56,18 +56,20 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
 
 ### <a name="azure-stack-hotfixes"></a>Azure Stack Hotfix
 
+如果您已有 1901 且尚未安裝任何 Hotfix，您不需要先安裝 1901 Hotfix，就可以[直接安裝 1902](azure-stack-update-1902.md)。
+
 - **1809**：[KB 4481548 – Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/)
 - **1811**：沒有目前的 Hotfix 可供使用。
-- **1901**:[KB 4481548 – Azure Stack Hotfix 1.1901.2.103](https://support.microsoft.com/help/4494720)
+- **1901**:[KB 4495662 – Azure Stack Hotfix 1.1901.3.105](https://support.microsoft.com/help/4495662)
 
 ## <a name="prerequisites"></a>必要條件
 
 > [!IMPORTANT]
-> - 在更新成 1901 之前，請先安裝 1811 的[最新 Azure Stack Hotfix](#azure-stack-hotfixes) (如果有的話)。
+> 在更新成 1901 之前，請先安裝 1811 的[最新 Azure Stack Hotfix](#azure-stack-hotfixes) (如果有的話)。 如果您已有 1901 且尚未安裝任何 Hotfix，您不需要先安裝 1901 Hotfix，就可以直接安裝 1902。
 
 - 開始安裝此更新之前，請先執行 [Test-AzureStack](azure-stack-diagnostic-test.md) 與下列參數來驗證 Azure Stack 的狀態，並解決所發現的一切運作問題，包括所有警告和失敗。 也請檢閱作用中警示，並將所有需要採取動作的警示解決：
 
-    ```PowerShell
+    ```powershell
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
@@ -93,7 +95,7 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
    * **AzureRm.Insights**  
          AzureRm 彙總模組現在包含已發佈的 5.1.5 版，針對計量、計量定義資源類型支援 **api-version 2018-01-01**。
 
-- **AzureStack 1.7.0** 這是重大變更版本。 如需重大變更的詳細資訊，請參閱 https://aka.ms/azspshmigration170
+- **AzureStack 1.7.1** 這是重大變更版本。 如需重大變更的詳細資訊，請參閱 https://aka.ms/azspshmigration171
    * **Azs.Backup.Admin 模組**  
          重大變更：備份對憑證型加密模式所做的變更。 對於對稱金鑰的支援已被取代。  
    * **Azs.Fabric.Admin 模組**  
@@ -117,9 +119,6 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
 
 - <!-- 3235634 – IS, ASDK -->
   已修正以下問題：部署包含 **v2** 後置詞大小的 VM (例如 **Standard_A2_v2**) 需要將後置詞指定為 **Standard_A2_v2** (小寫 v)。 使用全域 Azure 時，您現在可以使用 **Standard_A2_V2** (大寫 V)。
-
-<!-- 2869209 – IS, ASDK --> 
-- 已修正以下問題：當使用 [Add-AzsPlatformImage Cmdlet](/powershell/module/azs.compute.admin/add-azsplatformimage) 時您必須使用 **-OsUri** 參數作為儲存體帳戶 URI，磁碟上傳到該儲存體帳戶。 您現在也可以使用磁碟的本機路徑。
 
 <!--  2795678 – IS, ASDK --> 
 - 已修正以下問題：當您使用入口網站來建立進階 VM 大小 (DS、Ds_v2、FS、FSv2) 的虛擬機器 (VM) 時產生警告。 VM 是建立在標準儲存體帳戶中。 雖然這不會影響功能、IOPs 或計費，但是已修正警告。
@@ -228,7 +227,7 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
 
 - 當您執行 [Test-AzureStack](azure-stack-diagnostic-test.md) 時，會顯示來自「基礎板管理控制器」(BMC) 的警告訊息。 您可以放心地忽略此警告。
 
-- <!-- 2468613 - IS --> 在安裝此更新的期間，您可能會看到具有下列標題的警示：`Error – Template for FaultType UserAccounts.New is missing.` 您可以放心地忽略這些警示。 在此更新安裝完成之後，這些警示會自動關閉。
+- <!-- 2468613 - IS --> 安裝此更新時，您可能會看到具有下列標題的警示：`Error – Template for FaultType UserAccounts.New is missing.`。您可以放心地忽略這些警示。 在此更新安裝完成之後，這些警示會自動關閉。
 
 ## <a name="post-update-steps"></a>更新後步驟
 

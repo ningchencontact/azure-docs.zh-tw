@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: 99b4134f8f2d6ed2f521a7f488c33e06c0f436bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3d75467da01f0672bb735e01cbd6d7634cdf843e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58165823"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445254"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>App Service on Azure Stack 更新 1 版本資訊
 
@@ -56,6 +56,8 @@ Azure App Service on Azure Stack 更新 1 包含下列改良功能和修正：
 - **在現有的虛擬網路中部署** - 客戶現在可以在現有的虛擬網路內部署 App Service on Azure Stack。 在現有的虛擬網路中部署可以讓客戶透過私人連接埠連線至 SQL Server 和檔案伺服器，這些項目是 Azure App Service 必須的。 在部署期間，客戶可以選取在現有的虛擬網路中部署，但是在部署之前，[必須建立要供 App Service 使用的子網路](azure-stack-app-service-before-you-get-started.md#virtual-network)。
 
 - **App Service 租用戶、系統管理員、Functions 入口網站和 Kudu 工具**的更新。 與 Azure Stack 入口網站 SDK 版本保持一致。
+
+- 將 **Azure Functions 執行階段**更新至 **v1.0.11388**。
 
 - **下列應用程式架構和工具的更新**：
     - 已新增 **.NET Core 2.0** 支援

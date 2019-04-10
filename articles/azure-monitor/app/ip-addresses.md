@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 16c614c4ee8a404a24d89d3ea320be81c484a1ae
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: b383a4f85a039eb8eed87e2e78940aaf48b30a33
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369561"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425911"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 和 Log Analytics 使用的 IP 位址
 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 服務會使用一些 IP 位址。 如果您所監視的應用程式裝載於防火牆後面，您可能需要知道這些位址。
@@ -37,7 +37,7 @@ ms.locfileid: "58369561"
 
 | 目的 | URL | IP | 連接埠 |
 | --- | --- | --- | --- |
-| 遙測 |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7 | 443 |
+| 遙測 |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7 | 443 |
 | 即時計量串流 |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
 
 ## <a name="status-monitor"></a>狀態監視器
@@ -52,7 +52,7 @@ ms.locfileid: "58369561"
 | 組態 |`secure.aadcdn.microsoftonline-p.com` | |`443` |
 | 組態 |`auth.gfx.ms` | |`443` |
 | 組態 |`login.live.com` | |`443` |
-| 安裝 |`packages.nuget.org`、`nuget.org`、`api.nuget.org`、`az320820.vo.msecnd.net` (NuGet 下載) | |`443` |
+| 安裝 |`packages.nuget.org` `nuget.org`， `api.nuget.org`， `az320820.vo.msecnd.net` （NuGet 下載） | |`443` |
 
 ## <a name="availability-tests"></a>可用性集合
 這是用來執行 [可用性 Web 測試](../../azure-monitor/app/monitor-web-app-availability.md) 的位址清單。 如果您想要在您的應用程式上執行 Web 測試，但您的 Web 伺服器限於為特定用戶端提供服務，則您必須允許來自我們的可用性測試伺服器的連入流量。

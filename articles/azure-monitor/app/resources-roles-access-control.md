@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 213f4313e96638e4d94455be5f16aa3221d35b73
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 0f348e3e7dc2812bf354d1f8ec86330b0742439a
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905676"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361865"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Application Insights 中的資源、角色及存取控制
 
@@ -48,7 +48,7 @@ ms.locfileid: "58905676"
 
 ## <a name="access"></a> 控制資源群組中的存取
 
-請務必了解除了您為應用程式建立的資源之外，還有警示和 Web 測試的個別隱藏資源。 它們會附加到與您的應用程式相同的 [資源群組](#resource-group) 。 您也可以在那裡放置其他 Azure 服務，例如網站或儲存體。
+請務必了解除了您為應用程式建立的資源之外，還有警示和 Web 測試的個別隱藏資源。 它們會附加至相同[資源群組](#resource-group)與您的 Application Insights 資源。 您也可以在那裡放置其他 Azure 服務，例如網站或儲存體。
 
 為了控制這些資源的存取，因此建議您：
 

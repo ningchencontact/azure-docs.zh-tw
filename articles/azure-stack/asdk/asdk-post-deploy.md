@@ -16,12 +16,12 @@ ms.date: 02/15/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: b1b11dc27b279173ede4498ca353aea4018ea8f9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7699c9279138aedfdcfe63fb42e65ad102ac92c9
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102429"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652462"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK 安裝後設定工作
 
@@ -48,14 +48,14 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 - Azure Stack 1901 或更新版本：
 
-    ```PowerShell
+    ```powershell
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
     Install-Module AzureRM -RequiredVersion 2.4.0
-    Install-Module -Name AzureStack -RequiredVersion 1.7.0
+    Install-Module -Name AzureStack -RequiredVersion 1.7.1
     ```
 
     > [!Note]  
-    > Azure Stack 模組版本 1.7.0 是一項重大變更。 若要從 Azure Stack 1.6.0 移轉，請參閱[移轉指南](https://aka.ms/azspshmigration170)。
+    > Azure Stack 模組版本 1.7.1 是一個重大變更。 若要從 Azure Stack 1.6.0 移轉，請參閱[移轉指南](https://aka.ms/azspshmigration171)。
 
   - Azure Stack 1811：
 
@@ -87,7 +87,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 - **不具有來自 ASDK 主機電腦的網際網路連線**。 在中斷連線的案例中，您必須先使用下列 PowerShell 命令，將 PowerShell 模組下載至具有網際網路連線的機器：
 
-  ```PowerShell
+  ```powershell
   $Path = "<Path that is used to save the packages>"
 
   Save-Package `
@@ -99,7 +99,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
   接著，將下載的套件複製到 ASDK 電腦，然後註冊該位置作為預設存放庫，並從此存放庫安裝 AzureRM 與 AzureStack 模組：
 
-    ```PowerShell  
+    ```powershell  
     $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
     $RepoName = "MyNuGetSource"
 
@@ -114,7 +114,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 [AzureStack-Tools](https://github.com/Azure/AzureStack-Tools) 是裝載 PowerShell 模組的 GitHub 存放庫，可用來管理資源並部署至 Azure Stack。 若要取得這些工具，請複製 GitHub 存放庫或下載 AzureStack-Tools 資料夾，方法是執行下列指令碼：
 
-  ```PowerShell
+  ```powershell
   # Change directory to the root directory.
   cd \
 

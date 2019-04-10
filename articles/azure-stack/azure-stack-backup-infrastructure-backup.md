@@ -14,12 +14,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 080129ca1520dc2b1b085c69f6389508f11c7ba2
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: da1ae76925ffeba7a1df57b4121f8cfe20b2887f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285916"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882101"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>使用基礎結構備份服務進行 Azure Stack 的備份和資料復原
 
@@ -32,7 +32,7 @@ ms.locfileid: "58285916"
 啟用備份服務前，請確定您[已符合需求](#verify-requirements-for-the-infrastructure-backup-service)。
 
 > [!Note]  
-> 基礎結構備份服務不包括使用者資料和應用程式。 如需有關如何保護 IaaS VM 型應用程式的詳細資訊，請參閱[保護部署在 Azure Stack 上的 VM](user/azure-stack-manage-vm-protect.md)。 如需有關如何保護 Azure Stack 上之應用程式的全面了解，請參閱[商務持續性和災害復原的 Azure Stack 考量白皮書](http://aka.ms/azurestackbcdrconsiderationswp)。
+> 基礎結構備份服務不包括使用者資料和應用程式。 如需有關如何保護 IaaS VM 型應用程式的詳細資訊，請參閱[保護部署在 Azure Stack 上的 VM](user/azure-stack-manage-vm-protect.md)。 如需有關如何保護 Azure Stack 上之應用程式的全面了解，請參閱[商務持續性和災害復原的 Azure Stack 考量白皮書](https://aka.ms/azurestackbcdrconsiderationswp) \(英文\)。
 
 ## <a name="the-infrastructure-backup-service"></a>基礎結構備份服務
 

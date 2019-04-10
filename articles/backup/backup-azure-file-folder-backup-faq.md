@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
 ms.author: trinadhk
-ms.openlocfilehash: acf71ae6f37ab6ea32d9cdd0ac06f297b00fba2e
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: c1690fe6d0ce24bd319b042a3850bbfe487ffcfc
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918564"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426251"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>關於 Azure 備份代理程式的問題
 本文包含常見問題的解答，可協助您快速了解 Azure 備份代理程式元件。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -74,8 +74,8 @@ ms.locfileid: "58918564"
 
 1. 在提高權限的命令提示字元中執行下列命令以停止備份引擎：
 
-    ```PS C:\> Net stop obengine``` 
-  
+    ```PS C:\> Net stop obengine```
+
 2. 請勿移動檔案。 相反地，請將快取空間資料夾複製到具有足夠空間的其他磁碟機。 确认备份使用新的缓存空间后，可以删除原始缓存空间。
 3. 更新下列登錄項目，其具備新快取空間資料夾的路徑。<br/>
 
@@ -111,7 +111,14 @@ ms.locfileid: "58918564"
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-by-the-backup-servicebr"></a>是否有辦法調整備份服務所使用的頻寬量？<br/>
   是，使用備份代理程式中的 [變更屬性]  選項來調整頻寬。 您可以調整頻寬量以及使用該頻寬的時間。 如需逐步指示，請參閱**[啟用網路節流](backup-configure-vault.md#enable-network-throttling)**。
 
+## <a name="restore"></a>Restore
+
+### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>如果我取消進行中的還原作業，會發生什麼事？
+如果取消進行中的還原作業時，還原程序會停止，且所有的檔案還原，取消作業，才能維持設定的目的地 （原始或替代位置），而不需要任何回復。
+
+
 ## <a name="manage-backups"></a>管理備份
+
 ### <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>若重新命名正在將資料備份至 Azure 的 Windows 伺服器，則會發生什麼情況？<br/>
 當您重新命名伺服器時，所有目前設定的備份都會停止。 向備份保存庫註冊伺服器的新名稱。 向保管库注册新名称时，第一个备份操作是*完全*备份。 如果您需要復原已備份到採用舊伺服器名稱之保存庫的資料，請使用 [復原資料] 精靈中的 [[其他伺服器](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)] 選項。
 
@@ -119,7 +126,7 @@ ms.locfileid: "58918564"
 Azure 备份代理依赖于 NTFS。 [檔案路徑長度規格受限於 Windows API](/windows/desktop/FileIO/naming-a-file#fully_qualified_vs._relative_paths)。 如果您要保護之檔案的檔案路徑長度超過 Windows API 所允許的長度，請備份父資料夾或磁碟機。  
 
 ### <a name="what-characters-are-allowed-in-file-path-of-azure-backup-policy-using-azure-backup-agent-br"></a>使用 Azure 备份代理的 Azure 备份策略的文件路径中允许哪些字符？ <br>
- Azure 備份代理程式依存於 NTFS。 它可讓 [NTFS 支援的字元](/windows/desktop/FileIO/naming-a-file#naming_conventions) 成為檔案規格的一部分。 
- 
+ Azure 備份代理程式依存於 NTFS。 它可讓 [NTFS 支援的字元](/windows/desktop/FileIO/naming-a-file#naming_conventions) 成為檔案規格的一部分。
+
 ### <a name="i-receive-the-warning-azure-backups-have-not-been-configured-for-this-server-even-though-i-configured-a-backup-policy-br"></a>我收到「Azure 備份尚未針對此伺服器設定」警告，即使我已設定備份原則 <br/>
 當本機伺服器儲存的備份排程設定與備份保存庫儲存的設定不同時，會發生此警告。 當伺服器或設定已復原至已知的良好狀態時，備份排程可能會失去同步處理。 如果您收到此警告，請[重新設定備份原則](backup-azure-manage-windows-server.md)，然後 [立即執行備份] 以重新同步處理本機伺服器與 Azure。

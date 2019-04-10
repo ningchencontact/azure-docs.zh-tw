@@ -127,7 +127,7 @@ ASA 作業從連線裝置將遙測資料傳送到 Time Series Insights 進行儲
 [Azure 時間序列深入解析](https://docs.microsoft.com/azure/time-series-insights/)會儲存連接到解決方案加速器的裝置之中的遙測資料。 它也可透過解決方案 Web UI 以視覺效果呈現和查詢裝置遙測資料。
 
 > [!NOTE]
-> Azure China 雲端目前不提供時間序列見解。 Azure 中國雲端中的新遠端監視解決方案加速器部署將 Cosmos DB 使用於所有的儲存體。
+> Azure China 雲端目前不提供時間序列見解。 Azure China 雲端中新的遠端監視解決方案加速器部署，將 Cosmos DB 用於所有儲存體。
 
 ### <a name="configuration-microservice"></a>設定微服務
 

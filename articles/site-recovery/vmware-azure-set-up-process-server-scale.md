@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/11/2018
-ms.author: mayg
-ms.openlocfilehash: e3f6a160f57a4432f91c395a2e0dd664bc8f323d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 4/9/2019
+ms.author: ramamill
+ms.openlocfilehash: 6849ffb6fa46365aa775b9410067cb0874c70ef8
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106537"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59362165"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>進行調整以使用額外處理序伺服器進行容錯回復
 
@@ -51,7 +51,7 @@ ms.locfileid: "58106537"
 
 依照下列指示下載處理序伺服器的安裝檔案：
 
-1. 登入 Azure 入口網站並瀏覽至您的復原服務保存庫。
+1. 登入 Azure 入口網站中，並瀏覽至您的復原服務保存庫。
 2. 開啟 **Site Recovery 基礎結構** >  **VMWare 和實體機器** > **設定伺服器** (位於 [適用於 VMware 和實體機器] 底下)。
 3. 選取設定伺服器以切入伺服器的詳細資料。 接著按一下 **[+ 處理序伺服器]**。
 4. 在 **[新增處理序伺服器]** >  **[選擇您要部署處理序伺服器的位置]**，選擇 **[於內部部署部署相應放大處理序伺服器]**。

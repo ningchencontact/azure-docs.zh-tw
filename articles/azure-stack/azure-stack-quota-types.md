@@ -12,22 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 03/27/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 3d9376ba5945c97d18f6cf68c242d5217beee679
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 848b2a0c912a00a2185d7e4b7b8d8446bc1f6aca
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349700"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497171"
 ---
 # <a name="quota-types-in-azure-stack"></a>Azure Stack 中的配額類型
 
 *適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 [配額](azure-stack-plan-offer-quota-overview.md#plans)會定義使用者訂用帳戶可以佈建或取用的資源限制。 例如，配額可能會允許使用者建立最多五個 VM。 每個資源都可以有自己的配額類型。
+
+> [!IMPORTANT]
+> 最多可能需要兩小時的時間，才能在使用者入口網站中提供新的配額，或強制執行變更的配額。
 
 ## <a name="compute-quota-types"></a>計算配額類型
 
@@ -41,9 +44,9 @@ ms.locfileid: "58349700"
 | 進階受控磁碟的容量上限 (以 GB 為單位) | 2048 | 可以在這個位置建立的進階受控磁碟容量上限。 |
 
 > [!NOTE]  
-> 非受控磁碟 (分頁 Blob) 的最大容量是與受控磁碟配額分開的，應該在「儲存體配額」中設定。
+> 非受控磁碟 (分頁 Blob) 的最大容量會與受控的磁碟配額分開計算。 您可以在 [儲存體配額] 中設定此值。
 
-## <a name="storage-quota-types"></a>儲存體配額類型 
+## <a name="storage-quota-types"></a>儲存體配額類型
 
 | **Item** | **預設值** | **說明** |
 | --- | --- | --- |
@@ -51,13 +54,13 @@ ms.locfileid: "58349700"
 | 儲存體帳戶的總數 |20 |訂用帳戶可以在這個位置建立的儲存體帳戶數目上限。 |
 
 > [!NOTE]  
-> 最多可能需要兩個小時，才會強制使用儲存體配額。 受控磁碟的最大容量是與總儲存體配額分開的，應該在「計算配額」中設定。
+> 受控磁碟的最大容量會和總儲存體配額分開計算。 您可以在 [計算配額] 中設定此值。
 
 ## <a name="network-quota-types"></a>網路配額類型
 
 | **Item** | **預設值** | **說明** |
 | --- | --- | --- |
-| 公用 IP 數目上限 |50 |訂用帳戶可以在這個位置建立的公用 IP 數目上限。 |
+| 公用 IP 數目上限 |50 |訂用帳戶可以在這個位置建立的公用 IP 位址數目上限。 |
 | 虛擬網路數目上限 |50 |訂用帳戶可以在這個位置建立的虛擬網路數目上限。 |
 | 虛擬網路閘道數目上限 |1 |訂用帳戶可以在這個位置建立的虛擬網路閘道 (VPN 閘道) 數目上限。 |
 | 網路連線數目上限 |2 |訂用帳戶可以在這個位置所有虛擬網路閘道上建立的網路連線 (點對點或站台對站台) 數目上限。 |

@@ -16,12 +16,12 @@ ms.date: 01/09/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 4b9b91c17a9199c7890d17a2b721ce0803e6bd6c
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: ae5a824fbd96a9a76eb18811a46bfc17afa15073
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55243329"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879347"
 ---
 # <a name="sql-resource-provider-11330-release-notes"></a>SQL 資源提供者 1.1.33.0 版本資訊
 
@@ -48,9 +48,10 @@ ms.locfileid: "55243329"
 
 - **SQL 裝載伺服器不會列出裝載的資料庫。** 在檢視 SQL 裝載伺服器的租用戶資源時，可能不會列出使用者建立的資料庫。
 
-- **如果未啟用 TLS 1.2，之前的 SQL 資源提供者 (1.1.30.0) 部署可能會失敗**。 將 SQL 資源提供者更新為 1.1.33.0 以在部署資源提供者、更新資源提供者或輪替秘密時啟用 TLS 1.2。 
+- **如果未啟用 TLS 1.2，之前的 SQL 資源提供者 (1.1.30.0) 部署可能會失敗**。 將 SQL 資源提供者更新為 1.1.33.0 以在部署資源提供者、更新資源提供者或輪替祕密時啟用 TLS 1.2。 
 
-- **SQL 資源提供者的秘密輪替失敗**。 已修正會在輪替秘密時導致下列錯誤碼的問題：` New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
+- **SQL 資源提供者的祕密輪替失敗**。 已修正會在輪替祕密時導致下列錯誤碼的問題：
+`New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
 
 ## <a name="known-issues"></a>已知問題 
 

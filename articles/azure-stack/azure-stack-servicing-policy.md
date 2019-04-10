@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 03/23/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: a61820dc05752d43774b13399d071c5a2be98483
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 8abbf3a9db02fda0c92485ef75a12d82f4e8c8e9
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400540"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903942"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 服務原則
 
@@ -53,10 +53,10 @@ Microsoft 預期每月發行軟體更新封裝。 不過，可能一個月內發
 
 如需特定更新的詳細資訊，包括如何下載更新，請參閱該更新的版本資訊：
 
+- [Azure Stack 1903 更新](azure-stack-update-1903.md)
 - [Azure Stack 1902 更新](azure-stack-update-1902.md)
 - [Azure Stack 1901 更新](azure-stack-update-1901.md)
 - [Azure Stack 1811 更新](azure-stack-update-1811.md)
-- [Azure Stack 1809 更新](azure-stack-update-1809.md)
 
 ## <a name="hotfixes"></a>Hotfix
 
@@ -78,4 +78,4 @@ Azure Stack 會遵循和 Azure 相同的支援程序。 企業客戶可以依照
 
 ## <a name="next-steps"></a>後續步驟
 
-- [在 Azure Stack 中管理更新](azure-stack-updates.md)
+- [管理 Azure Stack 中的更新](azure-stack-updates.md)

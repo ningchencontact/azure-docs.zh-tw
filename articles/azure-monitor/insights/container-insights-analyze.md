@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2019
+ms.date: 04/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 5a72c0539cabec3bf4168280c85a2afb92569b25
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 3261c2389a9706537366bcd60e00517bbcfb5f48
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233995"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426387"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>使用適用於容器的 Azure 監視器來了解 AKS 叢集效能 
 使用適用於容器的 Azure 監視器，您可以使用效能圖和健全狀態，從下列兩個檢視方塊中監視 Azure Kubernetes Service (AKS) 叢集的工作負載：直接從 AKS 叢集，或者從 Azure 監視器監視訂用帳戶中的所有 AKS 叢集。 當您監視特定的 AKS 叢集時，也可以檢視 Azure 容器執行個體 (ACI)。
@@ -71,7 +71,7 @@ Azure 監視器提供多叢集檢視，可顯示您訂用帳戶中跨資源群�
 | |警告 |N/A |
 | |重要 |<100% |
 | |不明 |如果未在過去 30 分鐘內報告 |
-|**Node** | | |
+|**節點** | | |
 | |Healthy |>85% |
 | |警告 |60 - 84% |
 | |重要 |<60% |
@@ -100,7 +100,34 @@ Azure 監視器提供多叢集檢視，可顯示您訂用帳戶中跨資源群�
 
 您可以使用向左/向右鍵循環顯示圖表上的每個資料點，使用向上/向下鍵來循環顯示百分位數線。
 
-當您切換至 [節點]、[控制站] 和 [容器] 索引標籤時，頁面右邊會自動顯示屬性窗格。  它會顯示所選項目的屬性，包括您為了組織 Kubernetes 物件而定義的標籤。 按一下窗格中的 **>>** 連結，以檢視\隱藏此窗格。  
+適用於容器的 azure 監視器也支援 Azure 監視器[計量瀏覽器](../platform/metrics-getting-started.md)，您可以建立您自己的盒狀圖，相互關聯和調查趨勢，並釘選到儀表板。 從計量瀏覽器中，您也可以使用您設定用來視覺化您的計量作為基礎的準則[度量型警示規則](../platform/alerts-metric.md)。  
+
+## <a name="view-container-metrics-in-metrics-explorer"></a>在 計量瀏覽器中檢視容器計量
+在計量瀏覽器中，您可以檢視彙總的節點，和 pod 容器從 Azure 監視器使用率計量。 下表摘要說明可協助您了解如何使用以視覺化方式檢視容器計量的度量圖表的詳細資料。
+
+|命名空間 | 計量 |
+|----------|--------|
+| insights.container/nodes | |
+| | cpuUsageMillicores |
+| | cpuUsagePercentage |
+| | memoryRssBytes |
+| | memoryRssPercentage |
+| | memoryWorkingSetBytes |
+| | memoryWorkingSetPercentage |
+| | nodesCount |
+| insights.container/pods | |
+| | PodCount |
+
+您可以套用[分割](../platform/metrics-charts.md#apply-splitting-to-a-chart)計量維度來檢視它，並以視覺化方式檢視其中的不同區段的比較彼此。 對於節點，您可以分割圖表*主機*維度，並從 pod 您可以透過區隔其下列維度：
+
+* Controller
+* Kubernetes 命名空間
+* 節點
+* 階段
+
+## <a name="analyze-nodes-controllers-and-container-health"></a>分析節點、 控制器及容器健康情況
+
+當您切換至 [節點]、[控制站] 和 [容器] 索引標籤時，頁面右邊會自動顯示屬性窗格。  它會顯示選取項目-，的內容包括您組織的 Kubernetes 物件定義的標籤。 按一下窗格中的 **>>** 連結，以檢視\隱藏此窗格。  
 
 ![範例 Kubernetes 觀點屬性窗格](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
@@ -133,7 +160,7 @@ Azure 監視器提供多叢集檢視，可顯示您訂用帳戶中跨資源群�
 
 當您將滑鼠暫留在 [趨勢] 資料行底下的長條圖上方時，每個長條圖都會依據所選取的計量，在 15 分鐘的取樣期間內顯示 CPU 或記憶體使用量。 透過鍵盤選取趨勢圖後，您可以使用 Alt+PageUp 或 Alt+PageDown 鍵來循環顯示每個橫條，並取得和滑鼠指標置於其上時相同的詳細資訊。
 
-![趨勢長條圖滑鼠暫留範例](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
+![橫條圖停留在範例中的趨勢](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
 
 在下列範例中，請注意清單中的第一個節點 *aks-nodepool1-*，**容器**的值為 9，這是已部署容器總數的彙總。
 
@@ -143,9 +170,9 @@ Azure 監視器提供多叢集檢視，可顯示您訂用帳戶中跨資源群�
 
 當您檢視節點時所顯示的資訊已詳述於下表：
 
-| 欄 | 說明 | 
+| 欄 | 描述 | 
 |--------|-------------|
-| Name | 主機的名稱。 |
+| 名稱 | 主機的名稱。 |
 | 狀態 | 節點狀態的 Kubernetes 檢視。 |
 | Avg&nbsp;%、Min&nbsp;%、Max&nbsp;%、50th&nbsp;%、90th&nbsp;% | 根據選取期間內百分位數的平均節點百分比。 |
 | Avg、Min、Max、50th、90th | 根據所選取時間的期間內百分位數的平均節點實際值。 從為節點設定的 CPU/記憶體限制測量所得的平均值；對於 Pod 與容器而言，則是主機所報告的平均值。 |
@@ -172,14 +199,14 @@ Azure 監視器提供多叢集檢視，可顯示您訂用帳戶中跨資源群�
 
 在您檢視控制器時所顯示的資訊已詳述於下表：
 
-| 欄 | 說明 | 
+| 欄 | 描述 | 
 |--------|-------------|
-| Name | 控制器的名稱。|
+| 名稱 | 控制器的名稱。|
 | 狀態 | 容器的彙總狀態，就是當其完成執行後的狀態，例如「確定」、「終止」、「失敗」、「停止」或「暫停」。 如果容器在執行中，但狀態卻未正確呈現或未由代理程式擷取，而且超過 30 分鐘都沒有回應時，則狀態為 [未知]。 下表中提供狀態圖示的其他詳細資料。|
-| Avg&nbsp;%、Min&nbsp;%、Max&nbsp;%、50th&nbsp;%、90th&nbsp;% | 針對所選取計量和百分位數之每個實體的平均百分比彙總平均值。 |
-| Avg、Min、Max、50th、90th  | 容器針對所選取百分位數的平均 CPU millicore 或記憶體效能彙總。 平均值是從為 Pod 設定的 CPU/記憶體限制測量所得。 |
+| Avg&nbsp;%、Min&nbsp;%、Max&nbsp;%、50th&nbsp;%、90th&nbsp;% | 彙總平均每個實體已選定的度量和百分位數的平均百分比。 |
+| Avg、Min、Max、50th、90th  | 彙總容器所選百分位數的平均 CPU millicore 或記憶體效能。 平均值是從為 Pod 設定的 CPU/記憶體限制測量所得。 |
 | 容器 | 該控制器或 Pod 的容器總數。 |
-| Restarts | 容器重新啟動計數的彙總。 |
+| Restarts | 積存容器中的重新啟動計數。 |
 | Uptime | 代表自容器啟動以來經過的時間。 |
 | 節點 | 僅適用於容器與 Pod。 顯示它位在哪個控制器之中。 | 
 | Trend Avg&nbsp;%、Min&nbsp;%、Max&nbsp;%、50th&nbsp;%、90th&nbsp;%| 長條圖趨勢代表控制器的平均百分位數計量。 |
@@ -209,9 +236,9 @@ Azure 監視器提供多叢集檢視，可顯示您訂用帳戶中跨資源群�
 
 在您檢視容器時所顯示的資訊已詳述於下表：
 
-| 欄 | 說明 | 
+| 欄 | 描述 | 
 |--------|-------------|
-| Name | 控制器的名稱。|
+| 名稱 | 控制器的名稱。|
 | 狀態 | 容器的狀態，若有的話。 下一個表格會提供狀態圖示的其他詳細資料。|
 | Avg&nbsp;%、Min&nbsp;%、Max&nbsp;%、50th&nbsp;%、90th&nbsp;% | 針對所選取計量和百分位數之每個實體的平均百分比彙總。 |
 | Avg、Min、Max、50th、90th  | 容器針對所選取百分位數的平均 CPU millicore 或記憶體效能彙總。 平均值是從為 Pod 設定的 CPU/記憶體限制測量所得。 |
@@ -267,7 +294,7 @@ Log Analytics 可協助您找出趨勢、診斷瓶頸、預測或讓將資料相
 ### <a name="example-log-search-queries"></a>範例記錄檔搜尋查詢
 從一或兩個範例開始建置查詢，然後加以修改以滿足您的需求，通常很實用。 若要取得建置更進階查詢的協助，您可以試驗下列範例查詢：
 
-| 查詢 | 說明 | 
+| 查詢 | 描述 | 
 |-------|-------------|
 | ContainerInventory<br> &#124; project Computer, Name, Image, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124; render table | 列出所有容器的生命週期資訊| 
 | KubeEvents_CL<br> &#124; where not(isempty(Namespace_s))<br> &#124; sort by TimeGenerated desc<br> &#124; render table | Kubernetes 事件|

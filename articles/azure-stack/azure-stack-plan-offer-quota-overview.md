@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 03/26/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 10/12/2018
-ms.openlocfilehash: 0de021f4666da805eab8faba527f7c5322c39e9d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9d495087a0b3db5bba3b00fa9d0d40c91e5e9244
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763447"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497852"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>方案、供應項目、配頭和訂用帳戶概觀
 
@@ -52,6 +52,9 @@ ms.locfileid: "57763447"
 ### <a name="quotas"></a>配額
 
 您可以使用預先設定的*配額*，或為方案中的每項服務建立新的配額，以利管理雲端容量。 配額會定義使用者訂用帳戶可以佈建或取用的資源上限。 例如，配額可能會允許使用者建立最多五部虛擬機器 (VM)。
+
+> [!IMPORTANT]
+> 最多可能需要兩小時的時間，才能在使用者入口網站中提供新的配額，或強制執行變更的配額。
 
 您可以依區域設定配額。 例如，為區域 A 提供計算服務的方案，可以有兩個 VM 的配額。
 

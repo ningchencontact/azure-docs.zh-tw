@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 08/20/2018
-ms.openlocfilehash: 765701188de6375a5dfe0c9a6c04afe1ee9f6740
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5ea711d3d4ffff72279e745290c1c8d9d854298e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57886434"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447498"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>App Service on Azure Stack 更新 3 版本資訊
 
@@ -55,6 +55,8 @@ Azure App Service on Azure Stack 更新 3 包含下列改良功能和修正：
 - 在 Create-AADIdentityApp 協助程式指令碼中新增環境變數，以協助將不同的 AAD 區域當作目標。
 
 - **App Service 租用戶、系統管理員、Functions 入口網站和 Kudu 工具**的更新。 與 Azure Stack 入口網站 SDK 版本保持一致。
+
+- 將 **Azure Functions 執行階段**更新至 **v1.0.11820**。
 
 - 用來改善可靠性和錯誤訊息以利進行常見問題診斷的核心服務更新。
 

@@ -10,7 +10,7 @@ ms.date: 11/20/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1bd08596a30db7322a72b4269fddfe0b9df19119
 ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/23/2019
 ms.locfileid: "54464216"
@@ -66,7 +66,7 @@ Azure IoT 中樞可作為遠端監視解決方案雲端閘道。 [IoT 中樞](ht
 Azure Cosmos DB 是針對 IoT 應用程式所建議的一般用途暖儲存體解決方案。 不過，Azure 時間序列深入解析和 Azure Data Lake 等解決方案適用於許多使用案例。 透過 Azure 時間序列深入解析，您可以識別趨勢和異常狀況來針對時間序列感應器資料獲得更深入的見解。 這項功能可讓您進行根本原因分析，並且避免代價高昂的停機時間。
 
 > [!NOTE]
-> Azure China 雲端目前不提供時間序列見解。 Azure 中國雲端中的新遠端監視解決方案加速器部署將 Cosmos DB 使用於所有的儲存體。
+> Azure China 雲端目前不提供時間序列見解。 Azure China 雲端中新的遠端監視解決方案加速器部署，將 Cosmos DB 用於所有儲存體。
 
 ### <a name="business-integration"></a>商務整合
 

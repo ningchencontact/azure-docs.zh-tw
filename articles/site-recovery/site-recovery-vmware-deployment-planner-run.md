@@ -5,14 +5,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/28/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 55d6f1393f4f180776557ea9a2651064d61c3e06
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 1cf324887a225ecb9ba2cb40176a1f358e40a8e1
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301493"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361986"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>針對 VMware 至 Azure 的災害復原執行 Azure Site Recovery 部署規劃工具
 本文是 VMware 到 Azure 生產部署的 Azure Site Recovery Deployment Planner 使用者指南。
@@ -65,12 +65,12 @@ ms.locfileid: "55301493"
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
 
-| 參數名稱 | 說明 |
+| 參數名稱 | 描述 |
 |---|---|
 | -Operation | StartProfiling |
 | -Server | 要剖析其 VM 之 vCenter Server/vSphere ESXi 主機的完整網域名稱或 IP 位址。|
 | -User | 用於連線至 vCenter Server/vSphere ESXi 主機的使用者名稱。 使用者必須至少具備唯讀存取權限。|
-| -VMListFile | 包含要剖析之 VM 清單的檔案。 此檔案路徑可以是絕對或相對路徑。 此檔案的每一行應包含一個 VM 名稱/IP 位址。 檔案中指定的虛擬機器名稱應該與 vCenter Server/vSphere ESXi 主機上的 VM 名稱相同。<br>例如，VMList.txt 檔案包含下列 VM︰<ul><li>virtual_machine_A</li><li>10.150.29.110</li><li>virtual_machine_B</li><ul> |
+| -VMListFile | 包含要剖析之 VM 清單的檔案。 此檔案路徑可以是絕對或相對路徑。 此檔案的每一行應包含一個 VM 名稱/IP 位址。 檔案中指定的虛擬機器名稱應該與 vCenter Server/vSphere ESXi 主機上的 VM 名稱相同。<br>例如，VMList.txt 文件包含以下 VM：<ul><li>virtual_machine_A</li><li>10.150.29.110</li><li>virtual_machine_B</li><ul> |
 |-NoOfMinutesToProfile|要執行分析的分鐘數。 最小值為 30 分鐘。|
 |-NoOfHoursToProfile|要執行分析的時數。|
 | -NoOfDaysToProfile | 要執行分析的天數。 建議您執行分析 7 天以上，以確保觀察到指定期間內您環境中的工作負載模式，並用來提供精確的建議。 |
@@ -81,7 +81,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Protocol| (選用) 指定用來連線至 vCenter 的通訊協定 ('http' 或 'https')。 預設通訊協定為 https。|
 | -StorageAccountName | (選用) 儲存體帳戶名稱，用於找出從內部部署至 Azure 的資料複寫可達成的輸送量。 此工具會將測試資料上傳到此儲存體帳戶，以計算輸送量。 儲存體帳戶必須是一般用途 v1 (GPv1) 類型。 |
 | -StorageAccountKey | (選用) 用來存取儲存體帳戶的儲存體帳戶金鑰。 移至 [Azure 入口網站] > *儲存體帳戶*儲存體帳戶名稱設定存取金鑰Key1 。 |
-| -Environment | (選擇性) 這是您的目標 Azure 儲存體帳戶環境。 可以是下列三個值之一 - AzureCloud、AzureUSGovernment、AzureChinaCloud。 預設值為 AzureCloud。 當目標 Azure 區域是 Azure US Government 或 Azure China 雲端時，請使用此參數。 |
+| -Environment | (選擇性) 這是您的目標 Azure 儲存體帳戶環境。 可以是下列三個值之一 - AzureCloud、AzureUSGovernment、AzureChinaCloud。 預設值為 AzureCloud。 當目標 Azure 區域是 Azure US Government 或 Azure 中國 21Vianet 時，請使用參數。 |
 
 
 我們建議至少分析您的 VM 7 天以上。 如果變換模式在一個月內改變，我們建議在您看到最大變換的一週內進行分析。 最好的方法是分析 31 天，以取得更好的建議。 在分析期間，ASRDeploymentPlanner.exe 會持續執行。 此工具會採用分析階段輸入 (以天為單位)。 如需工具快速測試或概念證明，您可以分析幾個小時或幾分鐘。 允許的最小分析時間為 30 分鐘。
@@ -95,7 +95,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
-使用預設設定，來分析假設 1500 個 VM，建立兩個 VMList.txt 檔案。 其中一個包含 1000 個 VM 和另一個包含 500 個 VM 的清單。 執行兩個 ASR 部署規劃工具的執行個體，其中一個包含 VMList1.txt，另一個包含 VMList2.txt。 您可以使用相同的目錄路徑來儲存兩個 VMList VM 的已分析資料。
+使用預設設定，來分析假設 1500 個 VM，建立兩個 VMList.txt 檔案。 其中一個包含 1000 個 VM 和另一個包含 500 個 VM 的清單。 執行 Azure Site Recovery Deployment Planner，一個包含 VMList1.txt，另 vmlist2.txt 兩個執行個體。 您可以使用相同的目錄路徑來儲存兩個 VMList VM 的已分析資料。
 
 我們已經看到，作業會以硬體設定 (特別是執行工具從而產生報告之伺服器的 RAM 大小) 作為基礎，可能會因記憶體不足而發生失敗。 如果您的硬體良好，可以將 MaxVMsSupported 變更為任何較高的值。  
 
@@ -145,7 +145,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 
 `ASRDeploymentPlanner.exe -Operation GenerateReport /?`
 
-|參數名稱 | 說明 |
+|參數名稱 | 描述 |
 |-|-|
 | -Operation | GenerateReport |
 | -Server |  將產生報告之已分析 VM 所在的 vCenter/vSphere Server 完整網域名稱或 IP 位址 (使用您在分析時所用的相同名稱或 IP 位址)。 請注意，如果您在分析時使用 vCenter Server，則無法使用 vSphere Server 產生報告，反之亦然。|
@@ -158,7 +158,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 |-Port|(選用) 要連線到 vCenter/ESXi 主機的連接埠號碼。 預設連接埠為 443。|
 |-Protocol|(選用) 指定用來連線至 vCenter 的通訊協定 ('http' 或 'https')。 預設通訊協定為 https。|
 | -DesiredRPO | (選用) 以分鐘為單位的所需復原點目標。 預設值是 15 分鐘。|
-| -Bandwidth | 頻寬 (以 Mbps 為單位)。 此參數用來計算指定的頻寬可達成的 RPO。 |
+| -Bandwidth | 以 Mbps 为单位的带宽。 此參數用來計算指定的頻寬可達成的 RPO。 |
 | -StartDate | (選用) 採用 MM-DD-YYYY:HH:MM 格式 (24 小時制) 的開始日期和時間。 StartDate 必須與 EndDate 一起指定。 若已指定 StartDate，則會針對在 StartDate 與 EndDate 之間收集的剖析資料產生報告。 |
 | -EndDate | (選用) 採用 MM-DD-YYYY:HH:MM 格式 (24 小時制) 的結束日期和時間。 EndDate 必須與 StartDate 一起指定。 若已指定 EndDate，則會針對在 StartDate 與 EndDate 之間收集的剖析資料產生報告。 |
 | -GrowthFactor | (選用) 以百分比表示的成長因子。 預設值為 30%。 |
@@ -214,7 +214,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 ```
 
 ## <a name="percentile-value-used-for-the-calculation"></a>用來計算的百分位數值
-**工具在產生報告時，會使用分析期間所收集之效能計量的哪些預設百分位數值？**
+**產生報表時，分析期間收集效能計量的哪些預設百分位數值並工具使用嗎？**
 
 此工具預設為在所有 VM 的分析期間收集之讀/寫 IOPS、寫入 IOPS 及資料變換的第 95 個百分位數值。 此計量可確保您的 VM 可以看到第 100 個百分位數尖峰，因為暫存事件不會用來判斷您的目標儲存體帳戶和來源頻寬需求。 例如，暫存事件可能是一天執行一次的備份作業、定期資料庫檢索或分析報告產生活動，或其他類似的短期時間點事件。
 
@@ -226,7 +226,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 ```
 
 ## <a name="growth-factor-considerations"></a>成長因子考量
-**規劃部署時為何應考量成長因子？**
+**為什麼我應該考慮的成長因子規劃部署時？**
 
 假設使用量可能會隨著時間增加，請務必考量您的工作負載特性成長。 防護就緒之後，如果工作負載特性變更，在未停用並重新啟用保護的情況下，您無法切換到不同的儲存體帳戶進行保護。
 
@@ -240,24 +240,24 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 
 產生的 Microsoft Excel 報告包含下列資訊：
 
-* [內部部署摘要](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
+* [在內部部署摘要](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
 * [建議](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
-* [VM<->儲存體放置](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
+* [VM <>-儲存體放置](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
 * [相容的 VM](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-vms)
 * [不相容的 VM](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-vms)
-* [成本估計](site-recovery-vmware-deployment-planner-cost-estimation.md)
+* [成本的估計](site-recovery-vmware-deployment-planner-cost-estimation.md)
 
 ![Deployment Planner](media/site-recovery-vmware-deployment-planner-analyze-report/Recommendations-v2a.png)
 
-## <a name="get-throughput"></a>取得輸送量
+## <a name="get-throughput"></a>获取吞吐量
 
 若要預估 Site Recovery 在複寫期間可以達成的輸送量 (從內部部署至 Azure)，請以 GetThroughput 模式執行工具。 此工具會計算來自工具執行所在伺服器的輸送量。 在理想情況下，此伺服器是以組態伺服器調整大小指南為基礎。 如果您已在內部部署環境部署 Site Recovery 基礎結構元件，請在組態伺服器上執行此工具。
 
-開啟命令列主控台，然後移至 Site Recovery 部署規劃工具資料夾。 使用下列參數執行 ASRDeploymentPlanner.exe。
+開啟命令列主控台，然後移至 Site Recovery 部署規劃工具資料夾。 结合以下参数运行 ASRDeploymentPlanner.exe。
 
 `ASRDeploymentPlanner.exe -Operation GetThroughput /?`
 
-|參數名稱 | 說明 |
+|參數名稱 | 描述 |
 |-|-|
 | -Operation | GetThroughput |
 |-Virtualization|指定虛擬化類型 (VMware 或 Hyper-V)。|
@@ -265,7 +265,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 | -StorageAccountName | 儲存體帳戶名稱，用於找出從內部部署至 Azure 的資料複寫所耗用的頻寬。 此工具會將測試資料上傳到此儲存體帳戶，以找出所耗用的頻寬。 儲存體帳戶必須是一般用途 v1 (GPv1) 類型。|
 | -StorageAccountKey | 用來存取儲存體帳戶的儲存體帳戶金鑰。 移至 Azure 入口網站 > 儲存體帳戶 > <儲存體帳戶名稱> > 設定 > 存取金鑰 > Key1 (或傳統儲存體帳戶的主要存取金鑰)。 |
 | -VMListFile | 包含要剖析之 VM 清單的檔案，以便計算所耗用的頻寬。 此檔案路徑可以是絕對或相對路徑。 此檔案的每一行應包含一個 VM 名稱/IP 位址。 檔案中指定的 VM 名稱應該與 vCenter Server/vSphere ESXi 主機上的 VM 名稱相同。<br>例如，VMList.txt 檔案包含下列 VM︰<ul><li>VM_A</li><li>10.150.29.110</li><li>VM_B</li></ul>|
-| -Environment | (選擇性) 這是您的目標 Azure 儲存體帳戶環境。 可以是下列三個值之一 - AzureCloud、AzureUSGovernment、AzureChinaCloud。 預設值為 AzureCloud。 當目標 Azure 區域是 Azure US Government 或 Azure China 雲端時，請使用此參數。 |
+| -Environment | (選擇性) 這是您的目標 Azure 儲存體帳戶環境。 可以是下列三個值之一 - AzureCloud、AzureUSGovernment、AzureChinaCloud。 預設值為 AzureCloud。 當目標 Azure 區域是 Azure US Government 或 Azure 中國 21Vianet 時，請使用參數。 |
 
 此工具會在指定的目錄中建立數個 64MB asrvhdfile<#>.vhd 檔案 (其中 # 是檔案數目)。 此工具會將這些檔案上傳至儲存體帳戶，以找出輸送量。 測量輸送量之後，此工具會從儲存體帳戶和本機伺服器中刪除所有這類檔案。 如果此工具在計算輸送量時因為任何原因而終止，它不會從儲存體或本機伺服器中刪除檔案。 您必須手動加以刪除。
 

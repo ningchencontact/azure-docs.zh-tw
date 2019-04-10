@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: 7252af42ac515f9177b8988e2995e6ce77f4e12f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 4b4ddd765996d8bb936d2abda4015f37d6df9098
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268206"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361554"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>自訂 Service Fabric 叢集設定
 本文說明您可以為 Service Fabric 叢集自訂的各種網狀架構設定。 針對裝載於 Azure 中的叢集，您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來自訂設定。 如需詳細資訊，請參閱[升級 Azure 叢集的設定](service-fabric-cluster-config-upgrade-azure.md)。 針對獨立叢集，您會透過更新 *ClusterConfig.json* 檔案並在叢集上執行設定升級來自訂設定。 如需詳細資訊，請參閱[升級獨立叢集的設定](service-fabric-cluster-config-upgrade-windows-server.md)。
@@ -407,11 +407,14 @@ ms.locfileid: "59268206"
 |AzureStorageMaxWorkerThreads | 整數，預設值為 25 |動態|平行背景工作執行緒的數目上限。 |
 |AzureStorageOperationTimeout | 時間 (秒)，預設值為 6000 |動態|以秒為單位指定時間範圍。 可供 xstore 作業完成的逾時值。 |
 |CleanupApplicationPackageOnProvisionSuccess|布林值，預設值為 FALSE |動態|此組態會在成功佈建時，啟用或停用應用程式套件的自動清除。 |
+|CleanupUnusedApplicationTypes|布林值，預設值為 FALSE |動態|此設定啟用時，可允許自動取消註冊未使用的應用程式類型版本，略過最新三個未儲存的版本，藉此調整映像存放區所佔用的磁碟空間。 成功佈建該特定應用程式型別的結尾，就會觸發自動清除，並也會執行定期一天一次的所有應用程式類型。 略過未使用的版本數目是可設定使用參數"MaxUnusedAppTypeVersionsToKeep 」。 |
 |DisableChecksumValidation | 布林值，預設值為 false |靜態| 此組態可讓我們在應用程式佈建期間啟用或停用總和檢查碼驗證。 |
 |DisableServerSideCopy | 布林值，預設值為 false |靜態|此組態會在應用程式佈建期間，啟用或停用 ImageStore 上應用程式套件的伺服器端複製作業。 |
 |ImageCachingEnabled | 布林值，預設值為 true |靜態|此組態可讓我們啟用或停用快取。 |
 |ImageStoreConnectionString |SecureString |靜態|ImageStore 根目錄的連接字串。 |
 |ImageStoreMinimumTransferBPS | 整數，預設值為 1024 |動態|叢集與 ImageStore 之間的傳輸速率下限。 此值可用來決定外部 ImageStore 的存取逾時。 只有在叢集和 ImageStore 之間的延遲偏高時才需變更此值，以允許叢集有更多時間可從外部 ImageStore 進行下載。 |
+|MaxUnusedAppTypeVersionsToKeep | 整數，預設值為 3 |動態|此組態定義略過清除未使用的應用程式類型版本的號碼。 啟用參數 CleanupUnusedApplicationTypes 時才適用此參數。 |
+
 
 ## <a name="metricactivitythresholds"></a>MetricActivityThresholds
 | **參數** | **允許的值** |**升級原則**| **指引或簡短描述** |

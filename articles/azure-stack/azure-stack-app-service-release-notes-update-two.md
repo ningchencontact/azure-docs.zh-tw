@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 05/18/2018
-ms.openlocfilehash: d57b06a33421a94c4f849a1c1fd7cd6f1f4248dd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 98d084794accb99e0fecac85f7de861ec35bc15e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848893"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446036"
 ---
 # <a name="app-service-on-azure-stack-update-2-release-notes"></a>App Service on Azure Stack 更新 2 版本資訊
 
@@ -52,6 +52,8 @@ App Service on Azure Stack 更新 2 組建編號是 **72.0.13698.10**
 Azure App Service on Azure Stack 更新 2 包含下列改良功能和修正：
 
 - **App Service 租用戶、系統管理員、Functions 入口網站和 Kudu 工具**的更新。 與 Azure Stack 入口網站 SDK 版本保持一致。
+
+- 將 **Azure Functions 執行階段**更新至 **v1.0.11612**。
 
 - 用來改善可靠性和錯誤訊息以利進行常見問題診斷的核心服務更新。
 

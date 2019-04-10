@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 776523bb001848e6ecc153f670a96e3143e2ac0d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6528b683ec9464c2b1982d631455718e6fe6f3b7
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58006340"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361348"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>針對 Hyper-V 至 Azure 的災害復原執行 Azure Site Recovery 部署規劃工具
 
@@ -98,7 +98,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 |-Password|(選用) 用於連線到 Hyper-V 主機的密碼。 如果您未將其指定為參數，您會在執行命令時收到提示。|
 |-StorageAccountName|(選用) 儲存體帳戶名稱，用於找出從內部部署至 Azure 的資料複寫可達成的輸送量。 此工具會將測試資料上傳到此儲存體帳戶，以計算輸送量。 儲存體帳戶必須是一般用途 v1 (GPv1) 類型。|
 |-StorageAccountKey|(選用) 用來存取儲存體帳戶的金鑰。 移至 Azure 入口網站 > [儲存體帳戶] > 儲存體帳戶名稱 > [設定] > [存取金鑰] > [Key1] \(或傳統儲存體帳戶的主要存取金鑰)。|
-|-Environment|(選用) Azure 儲存體帳戶的目標環境。 可以是下列其中一個值：AzureCloud、AzureUSGovernment 或 AzureChinaCloud。 預設值為 AzureCloud。 當目標區域是 Azure US Government 或 Azure China 時，請使用此參數。|
+|-Environment|(選用) Azure 儲存體帳戶的目標環境。 可以是下列其中一個值：AzureCloud、AzureUSGovernment 或 AzureChinaCloud。 預設值為 AzureCloud。 當目標區域是 Azure US Government 或 Azure 中國 21Vianet 時，請使用參數。|
 
 我們建議至少分析您的 VM 7 天以上。 如果變換模式在一個月內改變，我們建議在您看到最大變換的一週內進行分析。 最好的方法是分析 31 天，以取得更好的建議。 
 
@@ -256,7 +256,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Dire
 
 * [內部部署摘要](hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
 * [建議](hyper-v-deployment-planner-analyze-report.md#recommendations)
-* [虛擬機器儲存體放置](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
+* [VM 儲存體放置](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
 * [相容的 VM](hyper-v-deployment-planner-analyze-report.md#compatible-vms)
 * [不相容的 VM](hyper-v-deployment-planner-analyze-report.md#incompatible-vms)
 * [內部部署儲存體需求](hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
@@ -283,7 +283,7 @@ ASRDeploymentPlanner.exe -Operation GetThroughput /?
 | -StorageAccountName | 儲存體帳戶名稱，用於找出從內部部署至 Azure 的資料複寫所耗用的頻寬。 此工具會將測試資料上傳到此儲存體帳戶，以找出所耗用的頻寬。 儲存體帳戶必須是一般用途 v1 (GPv1) 類型。|
 | -StorageAccountKey | 用來存取儲存體帳戶的儲存體帳戶金鑰。 移至 [Azure 入口網站] > **儲存體帳戶** > *儲存體帳戶名稱* > **設定** > **存取金鑰** > **Key1** 。|
 | -VMListFile | 包含要剖析之 VM 清單的檔案，以便計算所耗用的頻寬。 此檔案路徑可以是絕對或相對路徑。 對於 Hyper-V，這個檔案是 GetVMList 作業的輸出檔。 如果以手動方式準備，此檔案應包含一個伺服器名稱或 IP 位址，並在後面接著虛擬機器名稱 (每一行以 \ 分隔)。 檔案中指定的虛擬機器名稱應該與 Hyper-V 主機上的虛擬機器名稱相同。<br><br>**範例：** VMList.txt 包含下列虛擬機器︰<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
-|-Environment|(選用) Azure 儲存體帳戶的目標環境。 可以是下列其中一個值：AzureCloud、AzureUSGovernment 或 AzureChinaCloud。 預設值為 AzureCloud。 當目標 Azure 區域是 Azure US Government 或 Azure China 時，請使用此參數。|
+|-Environment|(選用) Azure 儲存體帳戶的目標環境。 可以是下列其中一個值：AzureCloud、AzureUSGovernment 或 AzureChinaCloud。 預設值為 AzureCloud。 當目標 Azure 區域是 Azure US Government 或 Azure 中國 21Vianet 時，請使用參數。|
 
 ### <a name="example"></a>範例
 ```

@@ -3,7 +3,7 @@ title: 建立及上傳 Red Hat Enterprise Linux VHD 以在 Azure Stack 中使用
 description: 了解如何建立及上傳包含 Red Hat Linux 作業系統的 Azure 虛擬硬碟 (VHD)。
 services: azure-stack
 documentationcenter: ''
-author: JeffGoldner
+author: mattbriggs
 manager: BradleyB
 editor: ''
 tags: ''
@@ -13,15 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
-ms.author: jeffgo
+ms.date: 03/28/2019
+ms.author: mabrigg
+ms.reviewer: jeffgo
 ms.lastreviewed: 08/15/2018
-ms.openlocfilehash: ad0419cee3fc5c838d6d81adf9040432b9feaf07
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e287a6f436b51f55d9a5aa59dbbe2a195015c292
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242224"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883108"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>準備適用於 Azure Stack 的 Red Hat 型虛擬機器
 
@@ -76,7 +77,7 @@ ms.locfileid: "55242224"
     sudo systemctl enable network
     ```
 
-1. 透過執行以下命令來註冊 Red Hat 訂用帳戶，以便從 RHEL 儲存機制安裝封裝：
+1. 透過執行以下命令來註冊 Red Hat 訂用帳戶，以便從 RHEL 存放庫安裝套件：
 
     ```bash
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
@@ -102,13 +103,20 @@ ms.locfileid: "55242224"
     sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
+1. 停止並解除安裝 cloud-init：
+
+    ```bash
+    systemctl stop cloud-init
+    yum remove cloud-init
+    ```
+
 1. 確定已安裝 SSH 伺服器，並已設定為在開機時啟動 (這通常為預設值)。 修改 `/etc/ssh/sshd_config` 以包含下面一行：
 
     ```sh
     ClientAliveInterval 180
     ```
 
-1. WALinuxAgent 套件 `WALinuxAgent-<version>` 已推送至 Red Hat extras 儲存機制。 執行下列命令以啟用 extras 儲存機制：
+1. WALinuxAgent 套件 `WALinuxAgent-<version>` 已推送至 Red Hat extras 存放庫。 執行下列命令以啟用 extras 存放庫：
 
     ```bash
     subscription-manager repos --enable=rhel-7-server-extras-rpms
@@ -206,7 +214,7 @@ ms.locfileid: "55242224"
     sudo systemctl enable network
     ```
 
-1. 透過執行以下命令來註冊 Red Hat 訂用帳戶，以便從 RHEL 儲存機制安裝封裝：
+1. 透過執行以下命令來註冊 Red Hat 訂用帳戶，以便從 RHEL 存放庫安裝套件：
 
     ```bash
     subscription-manager register --auto-attach --username=XXX --password=XXX
@@ -246,15 +254,17 @@ ms.locfileid: "55242224"
     dracut -f -v
     ```
 
-1. 解除安裝 cloud-init：
+1. 停止並解除安裝 cloud-init：
 
     ```bash
+    systemctl stop cloud-init
     yum remove cloud-init
     ```
 
 1. 確定您已安裝 SSH 伺服器，並已設定為在開機時啟動：
 
     ```bash
+    systemctl stop cloud-init
     systemctl enable sshd
     ```
 
@@ -265,22 +275,55 @@ ms.locfileid: "55242224"
     ClientAliveInterval 180
     ```
 
-1. WALinuxAgent 套件 `WALinuxAgent-<version>` 已推送至 Red Hat extras 儲存機制。 執行下列命令以啟用 extras 儲存機制：
+1. 為 Azure Stack 建立自訂的 vhd 時，請記住，在執行 1903 之前組建的 Azure Stack 環境中，無法執行介於 2.2.20 和 2.2.35.1 (兩者均不含) 之間的 WALinuxAgent 版本。 若要解決此問題，請套用 1901/1902 Hotfix，或遵循這部分指示的後半段。 
+
+如果您在執行 Azure Stack 組建 1903 (或更新版本) 或有 1901 /1902 Hotfix，請從 Redhat extras 存放庫下載 WALinuxAgent 套件，如下所示：
+    
+   WALinuxAgent 套件 `WALinuxAgent-<version>` 已推送至 Red Hat extras 存放庫。 執行下列命令以啟用 extras 存放庫：
 
     ```bash
     subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-1. 執行以下命令來安裝 Azure Linux 代理程式：
+   執行以下命令來安裝 Azure Linux 代理程式：
 
     ```bash
     yum install WALinuxAgent
     ```
 
-    啟用 waagent 服務：
+   啟用 waagent 服務：
 
     ```bash
     systemctl enable waagent.service
+    ```
+    
+    
+如果您在執行 1903 之前的 Azure Stack 組建且尚未套用 1901 /1902 Hotfix，請遵循下列指示來下載 WALinuxAgent：
+    
+   a.   下載 setuptools
+    ```bash
+    wget https://pypi.python.org/packages/source/s/setuptools/setuptools-7.0.tar.gz --no-check-certificate
+    tar xzf setuptools-7.0.tar.gz
+    cd setuptools-7.0
+    ```
+   b. 您可以從 github 下載最新版的代理程式。 以下是我們從 github 存放庫下載 "2.2.36" 版的範例。
+    ```bash
+    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.36.zip
+    unzip v2.2.36.zip
+    cd WALinuxAgent-2.2.36
+    ```
+    c. Install setup.py
+    ```bash
+    sudo python setup.py install
+    ```
+    d. Restart waagent
+    ```bash
+    sudo systemctl restart waagent
+    ```
+    e. Test if the agent version matches the one your downloaded. For this example, it should be 2.2.36.
+    
+    ```bash
+    waagent -version
     ```
 
 1. 請勿在作業系統磁碟上建立交換空間。
@@ -382,7 +425,7 @@ ms.locfileid: "55242224"
     sudo chkconfig network on
     ```
 
-1. 透過執行以下命令來註冊 Red Hat 訂用帳戶，以便從 RHEL 儲存機制安裝封裝：
+1. 透過執行以下命令來註冊 Red Hat 訂用帳戶，以便從 RHEL 存放庫安裝套件：
 
     ```bash
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
@@ -422,13 +465,20 @@ ms.locfileid: "55242224"
     dracut -f -v
     ```
 
+1. 停止並解除安裝 cloud-init：
+
+    ```bash
+    systemctl stop cloud-init
+    yum remove cloud-init
+    ```
+
 1. 確定您已安裝 SSH 伺服器，並已設定為在開機時啟動。 此設定通常是預設值。 修改 `/etc/ssh/sshd_config` 以包含下面一行：
 
     ```sh
     ClientAliveInterval 180
     ```
 
-1. WALinuxAgent 套件 `WALinuxAgent-<version>` 已推送至 Red Hat extras 儲存機制。 執行下列命令以啟用 extras 儲存機制：
+1. WALinuxAgent 套件 `WALinuxAgent-<version>` 已推送至 Red Hat extras 存放庫。 執行下列命令以啟用 extras 存放庫：
 
     ```bash
     subscription-manager repos --enable=rhel-7-server-extras-rpms
@@ -581,6 +631,10 @@ ms.locfileid: "55242224"
     Install latest repo update
     yum update -y
 
+    Stop and Uninstall cloud-init
+    systemctl stop cloud-init
+    yum remove cloud-init
+    
     Enable extras repo
     subscription-manager repos --enable=rhel-7-server-extras-rpms
 
@@ -657,15 +711,15 @@ ms.locfileid: "55242224"
 
 編輯 `/etc/dracut.conf` 檔案並新增下列內容：
 
-    ```sh
-    add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
-    ```
+```sh
+add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+```
 
 重建 initramfs：
 
-    ```bash
-    dracut -f -v
-    ```
+```bash
+dracut -f -v
+```
 
 如需詳細資訊，請參閱[重建 initramfs](https://access.redhat.com/solutions/1958)。
 

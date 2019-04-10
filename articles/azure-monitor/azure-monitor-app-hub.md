@@ -5,17 +5,17 @@ title: Azure 監視器 Application Insights 文件 - 教學課程和 API 參考 
 description: Azure Monitor Application Insights 提供深入的程式碼層級應用程式效能監視。
 services: application-insights
 author: mrbullwinkle
-manager: carmonmills
+manager: carmonm
 ms.service: application-insights
 ms.topic: landing-page
 ms.date: 01/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4bf1ccd3da83900208ab8f15b54ea110b1dbb2f4
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 514f0c193dbbca6d8583c9f93feadee3415f163c
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244236"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426268"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -85,7 +85,7 @@ ms.locfileid: "56244236"
                                                             <a href="./learn/dotnetcore-quick-start.md">ASP.NET Core</a><br>
                                                             <a href="./learn/nodejs-quick-start.md">Node.js</a><br>
                                                             <a href="./learn/java-quick-start.md">Java</a><br>
-                                                            <a href="./learn/mobile-center-quickstart.md">Mobile</a><br>
+                                                            <a href="./learn/mobile-center-quickstart.md">行動</a><br>
                                                             <a href="./app/website-monitoring.md">瀏覽器/用戶端監視</a>
                                                         </p>
                                                         <br><br>
@@ -93,14 +93,14 @@ ms.locfileid: "56244236"
                                                         <p>
                                                             <a href="./learn/tutorial-runtime-exceptions.md">尋找並診斷執行階段例外狀況</a><br>
                                                             <a href="./learn/tutorial-performance.md">尋找並診斷效能問題</a><br>
-                                                            <a href="./learn/tutorial-alert.md">應用程式健康情況的監視和警示</a><br>
+                                                            <a href="./learn/tutorial-alert.md">應用程式健全狀況的監視和警示</a><br>
                                                             <a href="./learn/tutorial-users.md">了解使用者行為</a><br>
                                                             <a href="./learn/tutorial-app-dashboards.md">建立自訂儀表板</a>
                                                             </p>
                                                         <br><br>
                                                         <h3>分散式追蹤</h3>
                                                         <p>
-                                                            <a href="./app/distributed-tracing.md">什麼是分散式追蹤？</a><br>
+                                                            <a href="./app/distributed-tracing.md">什麼被分散式追蹤？</a><br>
                                                             <a href="./app/opencensus-python.md">適用於 Python 的 OpenCensus</a><br>
                                                             <a href="./app/opencensus-go.md">適用於 Go 的 OpenCensus</a><br>
                                                             <a href="./app/opencensus-local-forwarder.md">本機轉送工具</a>
@@ -111,12 +111,12 @@ ms.locfileid: "56244236"
                                                             <a href="./app/proactive-failure-diagnostics.md">失敗的異常</a><br>
                                                             <a href="./app/proactive-performance-diagnostics.md">效能異常</a><br>
                                                             <a href="./app/proactive-trace-severity.md">追蹤轉化</a><br>
-                                                            <a href="./app/proactive-exception-volume.md">例外狀況數異常上升</a><br>
+                                                            <a href="./app/proactive-exception-volume.md">在 例外狀況的異常上升</a><br>
                                                             <a href="./app/proactive-potential-memory-leak.md">記憶體流失</a><br>
                                                             <a href="./app/proactive-low-utilization-cloud-resources.md">低 CPU 使用率</a><br>
                                                             <a href="./app/proactive-application-security-detection-pack.md">安全性問題</a><br>
                                                             <a href="./app/proactive-cloud-services.md">Azure 雲端服務</a><br>
-                                                            <a href="./app/proactive-arm-config.md">運用範本管理智慧偵測</a>
+                                                            <a href="./app/proactive-arm-config.md">管理與範本的智慧偵測</a>
                                                         </p>
                                                         <br><br>
                                                         <h3>參考</h3>
@@ -138,47 +138,47 @@ ms.locfileid: "56244236"
                                                     <div class="cardText">
                                                         <h3>Java 應用程式</h3>
                                                         <p>
-                                                            <a href="./app/java-get-started.md">深入監視組態</a><br>
+                                                            <a href="./app/java-get-started.md">深入的監視組態</a><br>
                                                             <a href="https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights?view=azure-java-stable">Spring Boot starter</a><br>
                                                             <a href="./app/micrometer-java.md">Micrometer 計量</a><br>
                                                             <a href="./app/java-filter-telemetry.md">篩選遙測</a><br>
                                                             <a href="./app/java-trace-logs.md">追蹤記錄</a><br>
                                                             <a href="./app/java-agent.md">相依性追蹤的代理程式設定</a><br>
-                                                            <a href="./app/api-custom-events-metrics.md">自訂事件和計量</a><br>
+                                                            <a href="./app/api-custom-events-metrics.md">自訂事件與計量</a><br>
                                                             <a href="https://docs.microsoft.com/azure/azure-monitor/app/configuration-with-applicationinsights-config#channel-parameters-java
-">設定 .xml</a><br>
-                                                            <a href="https://github.com/Microsoft/ApplicationInsights-Java">開放原始碼 Java SDK GitHub 存放庫</a>
+">組態.xml</a><br>
+                                                            <a href="https://github.com/Microsoft/ApplicationInsights-Java">開放原始碼 Java SDK 的 GitHub 存放庫</a>
                                                         </p>
                                                         <br><br>
                                                         <h3>.NET 應用程式</h3>
                                                         <p>
-                                                            <a href="./app/asp-net.md">深入監視組態</a><br>
+                                                            <a href="./app/asp-net.md">深入的監視組態</a><br>
                                                             <a href="./app/monitor-performance-live-website-now.md">狀態監視器</a><br>
-                                                            <a href="./app/azure-web-apps.md">App Service 監視</a><br>
-                                                            <a href="./app/api-custom-events-metrics.md">自訂事件和計量</a><br>
-                                                            <a href="https://github.com/Microsoft/ApplicationInsights-dotnet">開放原始碼 .NET SDK GitHub 存放庫</a>
+                                                            <a href="./app/azure-web-apps.md">監視 app Service</a><br>
+                                                            <a href="./app/api-custom-events-metrics.md">自訂事件與計量</a><br>
+                                                            <a href="https://github.com/Microsoft/ApplicationInsights-dotnet">開放原始碼.NET SDK GitHub 存放庫</a>
                                                         </p>
                                                         <br><br>
                                                           <h3>.NET Core 應用程式</h3>
                                                         <p>
-                                                            <a href="./app/asp-net-core.md">深入監視組態</a><br>
-                                                            <a href="./app/profiler-aspnetcore-linux.md">ASP.NET Core 分析</a><br>
-                                                            <a href="./app/api-custom-events-metrics.md">自訂事件和計量</a><br>
-                                                            <a href="https://github.com/Microsoft/ApplicationInsights-aspnetcore">開放原始碼 .NET Core SDK GitHub 存放庫</a>
+                                                            <a href="./app/asp-net-core.md">深入的監視組態</a><br>
+                                                            <a href="./app/profiler-aspnetcore-linux.md">程式碼剖析的 ASP.NET Core</a><br>
+                                                            <a href="./app/api-custom-events-metrics.md">自訂事件與計量</a><br>
+                                                            <a href="https://github.com/Microsoft/ApplicationInsights-aspnetcore">開放原始碼.NET Core SDK GitHub 存放庫</a>
                                                         </p>
                                                         <br><br>
                                                           <h3>Node.js 應用程式</h3>
                                                         <p>
-                                                            <a href="./app/nodejs.md">深入監視組態</a><br>
-                                                            <a href="./app/api-custom-events-metrics.md">自訂事件和計量</a><br>
-                                                            <a href="https://github.com/Microsoft/ApplicationInsights-node.js">開放原始碼 Node.js SDK GitHub 存放庫</a>
+                                                            <a href="./app/nodejs.md">深入的監視組態</a><br>
+                                                            <a href="./app/api-custom-events-metrics.md">自訂事件與計量</a><br>
+                                                            <a href="https://github.com/Microsoft/ApplicationInsights-node.js">開啟來源 Node.js SDK GitHub 存放庫</a>
                                                         </p>
                                                         <br><br>
                                                         <h3>用戶端/瀏覽器端監視</h3>
                                                         <p>
-                                                            <a href="./app/javascript.md">深入監視組態</a><br>
-                                                            <a href="./app/api-custom-events-metrics.md">自訂事件和計量</a><br>
-                                                            <a href="https://github.com/Microsoft/ApplicationInsights-JS">開放原始碼 JavaScript SDK GitHub 存放庫</a><br>
+                                                            <a href="./app/javascript.md">深入的監視組態</a><br>
+                                                            <a href="./app/api-custom-events-metrics.md">自訂事件與計量</a><br>
+                                                            <a href="https://github.com/Microsoft/ApplicationInsights-JS">開啟來源 JavaScript SDK GitHub 存放庫</a><br>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -194,9 +194,9 @@ ms.locfileid: "56244236"
                                                         <p>
                                                             <a href="./app/usage-overview.md">概觀</a><br>
                                                             <a href="./app/usage-send-user-context.md">傳送使用者內容識別碼</a><br>
-                                                            <a href="./app/usage-segmentation.md">使用者、工作階段和事件</a><br>
+                                                            <a href="./app/usage-segmentation.md">使用者、 工作階段和事件</a><br>
                                                             <a href="./app/usage-funnels.md">漏斗圖</a><br>
-                                                            <a href="./app/usage-cohorts.md">世代</a><br>
+                                                            <a href="./app/usage-cohorts.md">同群使用者</a><br>
                                                             <a href="./app/usage-impact.md">影響</a><br>
                                                             <a href="./app/usage-retention.md">保留</a><br>
                                                             <a href="./app/usage-flows.md">使用者流程</a>
@@ -204,9 +204,9 @@ ms.locfileid: "56244236"
                                                         <br><br>
                                                         <h3>即時監視、<br> 視覺效果 &amp; 分析</h3>
                                                         <p>
-                                                            <a href="./app/overview-dashboard.md">概觀儀表板 &amp; 應用程式儀表板</a><br>
-                                                            <a href="./app/monitor-web-app-availability.md">整體可用性監視</a><br>
-                                                            <a href="./app/live-stream.md">即時計量資料流</a><br>
+                                                            <a href="./app/overview-dashboard.md">概觀儀表板&amp;應用程式儀表板</a><br>
+                                                            <a href="./app/monitor-web-app-availability.md">全球可用性監視</a><br>
+                                                            <a href="./app/live-stream.md">即時計量串流</a><br>
                                                             <a href="./app/app-map.md">分散式應用程式對應</a><br>
                                                             <a href="../monitoring-and-diagnostics/resource-group-insights.md">資源群組層級監視</a><br>
                                                             <a href="./app/usage-workbooks.md">互動式報表</a><br>
@@ -217,9 +217,9 @@ ms.locfileid: "56244236"
                                                         <h3>隱私權、安全性、使用方式 &amp; 成本</h3>
                                                         <p>
                                                             <a href="https://docs.microsoft.com/azure/log-analytics/log-analytics-personal-data-mgmt">處理個人資料</a><br>
-                                                            <a href="./app/data-retention-privacy.md">資料收集、保留、&amp;儲存</a><br>
+                                                            <a href="./app/data-retention-privacy.md">資料收集、 保留期，&amp;儲存體</a><br>
                                                             <a href="./app/resources-roles-access-control.md">角色型存取</a><br>
-                                                            <a href="./app/ip-addresses.md"> IP 位址 &amp; 防火牆例外狀況</a><br>
+                                                            <a href="./app/ip-addresses.md">IP 位址&amp;防火牆例外</a><br>
                                                             <a href="https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-usage-and-estimated-costs">使用量和估計成本</a>
                                                         </p>
                                                         <br><br>
@@ -231,8 +231,8 @@ ms.locfileid: "56244236"
                                                             <a href="./app/data-model-exception-telemetry.md">例外狀況</a><br>
                                                             <a href="./app/data-model-trace-telemetry.md">追蹤</a><br>
                                                             <a href="./app/data-model-event-telemetry.md">Event</a><br>
-                                                            <a href="./app/data-model-metric-telemetry.md">度量</a><br>
-                                                            <a href="./app/data-model-context.md">內容</a>
+                                                            <a href="./app/data-model-metric-telemetry.md">計量</a><br>
+                                                            <a href="./app/data-model-context.md">Context</a>
                                                             </p>
                                                         </p>
                                                     </div>

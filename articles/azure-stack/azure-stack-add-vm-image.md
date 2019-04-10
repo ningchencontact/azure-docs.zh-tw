@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Stack 中新增及移除 VM 映像 | Microsoft Docs
-description: 新增或移除組織的自訂 Windows 或 Linux VM 映像以供租用戶使用。
+title: 將 VM 映像新增到 Azure Stack | Microsoft Docs
+description: 對組織的自訂 Windows 或 Linux VM 映像新增 VM 映像或移除映像，以供租用戶使用。
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: ccf3beaacd15ad7d3e9177614bb62b0050bd8d5c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9e20abfde8a4524b00e60651bbe71135d357a237
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109150"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881455"
 ---
-# <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>在 Azure Stack 中提供虛擬機器映像
+# <a name="add-a-vm-image-to-offer-in-azure-stack"></a>新增要在 Azure Stack 中提供的 VM 映像
 
 *適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
-在 Azure Stack 中，您可以製作虛擬機器映像供使用者使用。 這些映像可供 Azure Resource Manager 範本使用。 您也可以將其新增至 Azure Marketplace UI 作為 Marketplace 項目。 請使用全球 Azure Marketplace 中的映像，或您自己的自訂映像。 您可以使用入口網站或 Windows PowerShell 來新增映像。
+在 Azure Stack 中，您可以將虛擬機器 (VM) 映像新增至 Marketplace，提供給您的使用者。 您可以使用適用於 Azure Stack 的 Azure Resource Manager 範本來新增 VM 映像。 您也可以將 VM 映像新增至 Azure Marketplace UI 作為 Marketplace 項目。 請使用全球 Azure Marketplace 中的映像，或您自己的自訂 VM 映像。 您可以使用系統管理入口網站或 Windows PowerShell 來新增 VM 映像。
 
 ## <a name="add-a-vm-image-through-the-portal"></a>透過入口網站新增 VM 映像
 
@@ -83,7 +83,7 @@ ms.locfileid: "58109150"
 
 3. 使用已提升權限的提示字元開啟 PowerShell，並執行：
 
-   ```PowerShell  
+   ```powershell
     Add-AzsPlatformimage -publisher "<publisher>" `
       -offer "<offer>" `
       -sku "<sku>" `
@@ -94,22 +94,22 @@ ms.locfileid: "58109150"
 
    **Add-AzsPlatformimage** Cmdlet 會指定供 Azure Resource Manager 範本用來參考 VM 映像的值。 這些值包括：
    - **publisher**  
-     例如：`Canonical`  
+     例如︰ `Canonical`  
      部署映像時，使用者所使用 VM 映像的發行者名稱區段。 例如 **Microsoft**。 請勿在此欄位中包含空格或其他特殊字元。  
    - **供應項目**  
-     例如：`UbuntuServer`  
+     例如︰ `UbuntuServer`  
      部署 VM 映像時，使用者所使用 VM 映像的供應項目名稱區段。 例如 **WindowsServer**。 請勿在此欄位中包含空格或其他特殊字元。  
    - **sku**  
-     例如：`14.04.3-LTS`  
+     例如︰ `14.04.3-LTS`  
      部署 VM 映像時，使用者所使用 VM 映像的 SKU 名稱區段。 例如 **Datacenter2016**。 請勿在此欄位中包含空格或其他特殊字元。  
    - **version**  
-     例如：`1.0.0`  
+     例如︰ `1.0.0`  
      部署 VM 映像時，使用者所使用 VM 映像的版本。 版本的格式為 *\#.\#.\#*。 例如 **1.0.0**。 請勿在此欄位中包含空格或其他特殊字元。  
    - **osType**  
-     例如：`Linux`  
+     例如︰ `Linux`  
      映像的 osType 必須是 **Windows** 或 **Linux**。  
    - **OSUri**  
-     例如：`https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd`  
+     例如︰ `https://storageaccount.blob.core.windows.net/vhds/Ubuntu1404.vhd`  
      您可以為 `osDisk` 指定 blob 儲存體 URI。  
 
      如需詳細資訊，請參閱 [Add-AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) Cmdlet 和 [New-DataDiskObject](https://docs.microsoft.com/powershell/module/Azs.Compute.Admin/New-DataDiskObject) Cmdlet 的 PowerShell 參考。
@@ -118,7 +118,7 @@ ms.locfileid: "58109150"
  
 1. [安裝適用於 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。
 
-   ```PowerShell  
+   ```powershell
     # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
     Add-AzureRMEnvironment `
       -Name "AzureStackAdmin" `
@@ -139,7 +139,7 @@ ms.locfileid: "58109150"
 
 2. 如果使用 **Active Directory 同盟服務**，請使用下列 Cmdlet：
 
-   ```PowerShell
+   ```powershell
    # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
    $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
@@ -158,7 +158,7 @@ ms.locfileid: "58109150"
 
 5. 準備 VHD 格式 (非 VHDX) 的 Windows 或 Linux 作業系統映像，將該映像上傳到儲存體帳戶，並取得可供 PowerShell 擷取 VM 映像的 URI。  
 
-   ```PowerShell  
+   ```powershell
     Add-AzureRmAccount `
       -EnvironmentName "AzureStackAdmin" `
       -TenantId $TenantID
@@ -166,14 +166,14 @@ ms.locfileid: "58109150"
 
 6. (選擇性) 您可以上傳資料磁碟陣列作為 VM 映像的一部分。 使用 New-DataDiskObject Cmdlet 建立資料磁碟。 從已提升權限的提示字元開啟 PowerShell，並執行：
 
-   ```PowerShell  
+   ```powershell
     New-DataDiskObject -Lun 2 `
     -Uri "https://storageaccount.blob.core.windows.net/vhds/Datadisk.vhd"
    ```
 
 7. 使用已提升權限的提示字元開啟 PowerShell，並執行：
 
-   ```PowerShell  
+   ```powershell
     Add-AzsPlatformimage -publisher "<publisher>" -offer "<offer>" -sku "<sku>" -version "<#.#.#>” -OSType "<ostype>" -OSUri "<osuri>"
    ```
 
@@ -189,7 +189,7 @@ ms.locfileid: "58109150"
 
 3. 使用已提升權限的提示字元開啟 PowerShell，並執行：
 
-   ```PowerShell  
+   ```powershell  
    Remove-AzsPlatformImage `
     -publisher "<publisher>" `
     -offer "<offer>" `
@@ -198,16 +198,16 @@ ms.locfileid: "58109150"
    ```
    **Remove-AzsPlatformimage** Cmdlet 會指定供 Azure Resource Manager 範本用來參考 VM 映像的值。 這些值包括：
    - **publisher**  
-     例如：`Canonical`  
+     例如︰ `Canonical`  
      部署映像時，使用者所使用 VM 映像的發行者名稱區段。 例如 **Microsoft**。 請勿在此欄位中包含空格或其他特殊字元。  
    - **供應項目**  
-     例如：`UbuntuServer`  
+     例如︰ `UbuntuServer`  
      部署 VM 映像時，使用者所使用 VM 映像的供應項目名稱區段。 例如 **WindowsServer**。 請勿在此欄位中包含空格或其他特殊字元。  
    - **sku**  
-     例如：`14.04.3-LTS`  
+     例如︰ `14.04.3-LTS`  
      部署 VM 映像時，使用者所使用 VM 映像的 SKU 名稱區段。 例如 **Datacenter2016**。 請勿在此欄位中包含空格或其他特殊字元。  
    - **version**  
-     例如：`1.0.0`  
+     例如︰ `1.0.0`  
      部署 VM 映像時，使用者所使用 VM 映像的版本。 版本的格式為 *\#.\#.\#*。 例如 **1.0.0**。 請勿在此欄位中包含空格或其他特殊字元。  
     
      如需 Remove-AzsPlatformImage Cmdlet 的詳細資訊，請參閱 Microsoft PowerShell [Azure Stack 操作員模組文件](https://docs.microsoft.com/powershell/module/)。
