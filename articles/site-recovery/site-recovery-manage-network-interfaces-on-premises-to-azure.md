@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: e5757cee2238f44706194da5247da7d4721762f3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 5d5dd7bc3f6b60c2f9d7c2179f2bd356ca101dc4
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52837565"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360406"
 ---
 # <a name="manage-virtual-machine-network-interfaces-for-on-premises-disaster-recovery-to-azure"></a>管理內部部署至 Azure 災害復原的虛擬機器網路介面
 Azure 中的虛擬機器 (VM) 必須至少擁有一個連接的網路介面。 可連接的網路介面數量上限則不盡相同，須視 VM 大小支援的數量而定。

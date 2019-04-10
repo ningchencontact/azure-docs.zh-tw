@@ -45,7 +45,7 @@ ms.locfileid: "57193206"
 
 您可以追蹤 B2B 訊息的邏輯應用程式的 Azure 監視器記錄檔之前，新增**Logic Apps B2B** Azure 監視器記錄檔的方案。 深入了解[將解決方案新增至 Azure 監視器記錄](../azure-monitor/learn/quick-create-workspace.md)。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [所有服務]。 在搜尋方塊中，尋找「log analytics」，然後選取 [Log Analytics]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [所有服務]。 在搜尋方塊中，尋找「記錄分析」，然後選取 [Log Analytics]。
 
    ![選取 [Log Analytics]](media/logic-apps-track-b2b-messages-omsportal/find-log-analytics.png)
 

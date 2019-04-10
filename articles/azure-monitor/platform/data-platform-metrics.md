@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 1027398a1a7f790adedf6c7eebed44a8db501b8a
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 2646941e2384acf6d303615f564b65d616931180
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905030"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358885"
 ---
 # <a name="metrics-in-azure-monitor"></a>Azure 監視器中的計量
 
@@ -39,7 +39,7 @@ Azure 監視器中的計量是輕量型且能夠支援近乎即時的情境，�
 | 警示 | 設定[計量警示規則](alerts-metric.md)，傳送通知或採取[自動化動作](action-groups.md)度量值超出臨界值的時候。 |
 | 自動化 |  使用[自動調整規模](autoscale-overview.md)以增加或減少資源，根據超出閾值的基準值。 |
 | 匯出 | [將度量路由至記錄檔](diagnostic-logs-stream-log-store.md)來分析 Azure 監視器計量中的資料以及在 Azure 監視器記錄檔中的資料，以及儲存超過 93 天的度量值。<br>Stream 度量[事件中樞](stream-monitoring-data-event-hubs.md)若要將它們路由傳送到外部系統。 |
-| 擷取 | 存取計量的值，從命令列使用[PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>從自訂應用程式使用存取度量值[REST API](rest-api-walkthrough.md)。<br>存取計量的值，從命令列使用[CLI](/azure/monitor/metrics)。 |
+| 擷取 | 存取計量的值，從命令列使用[PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>從自訂應用程式使用存取度量值[REST API](rest-api-walkthrough.md)。<br>存取計量的值，從命令列使用[CLI](/cli/azure/monitor/metrics)。 |
 | 封存 | [封存](..//learn/tutorial-archive-data.md)資源的效能或健全狀況歷程記錄，以用於相容性、稽核或離線報告。 |
 
 

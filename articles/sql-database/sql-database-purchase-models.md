@@ -7,17 +7,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 0e9001111d6aa48f0dad69a2fb3b2186bfc37ab7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 46a620900896d07273da22e53171330b85d3f1ec
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58010502"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360184"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database 購買模型
 
@@ -36,7 +36,7 @@ Azure SQL Database 部署模型提供不同的購買模型：
 
 下列資料表和圖表會比較和對照這兩種購買模型。
 
-|**購買模型**|**說明**|**適用對象**|
+|**購買模型**|**描述**|**適用對象**|
 |---|---|---|
 |以 DTU 為基礎的模型|此模型是以計算、儲存體和 IO 資源的配套量值為基礎。 單一資料庫的計算大小會以資料庫交易單位 (DTU) 表示，而彈性集區的計算大小則會以彈性資料庫交易單位 (eDTU) 表示。 如需 DTU 和 eDTU 的詳細資訊，請參閱[什麼是 DTU 和 eDTU？](sql-database-purchase-models.md#dtu-based-purchasing-model)。|適合想要簡單選項且該選項已預先設定好資源的客戶。|
 |以虛擬核心為基礎的模型|此模型可讓您獨立地選擇計算和儲存體資源。 V 核心形式的購買模型也可讓您使用[適用於 SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)，以節省成本。|適合重視彈性、控制力和透明度的客戶。|
@@ -50,11 +50,11 @@ Azure SQL Database 部署模型提供不同的購買模型：
 
 ## <a name="storage-costs"></a>儲存成本
 
-不同類型的儲存體會以不同方式計費。 對於資料儲存體，您必須根據您所選取的資料庫或集區大小上限，為佈建的儲存體支付費用。 除非您減少或增加此最大值，否則成本不會變更。 備份儲存體與您執行個體的自動備份相關聯，而且是動態配置的。 增加您的備份保留期限，即會增加執行個體所取用的備份儲存體。 
+不同類型的儲存體會以不同方式計費。 對於資料儲存體，您必須根據您所選取的資料庫或集區大小上限，為佈建的儲存體支付費用。 除非您減少或增加此最大值，否則成本不會變更。 備份儲存體與您執行個體的自動備份相關聯，而且是動態配置的。 增加您的備份保留期限，即會增加執行個體所取用的備份儲存體。
 
 根據預設，系統會將您資料庫的 7 天自動備份複製到 RA-GRS 標準 Blob 儲存體。 每週完整備份、每日差異備份以及每 5 分鐘複製一次的交易記錄備份都使用此儲存體。 交易記錄檔的大小取決於資料庫的變動率。 會提供等於資料庫大小 100% 的最低儲存空間，且無額外費用。 備份儲存體的額外使用量會按每月每 GB 來收費。
 
-如需儲存體價格的詳細資訊，請參閱[定價](https://azure.microsoft.com/pricing/details/sql-database/single/)頁面。 
+如需儲存體價格的詳細資訊，請參閱[定價](https://azure.microsoft.com/pricing/details/sql-database/single/)頁面。
 
 ## <a name="vcore-based-purchasing-model"></a>以虛擬核心為基礎的購買模型
 
@@ -71,7 +71,7 @@ Azure SQL Database 部署模型提供不同的購買模型：
 > **區域限制：** 如需目前支援的區域清單，請參閱[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all)。 如果您想要在目前不支援的區域中建立受控執行個體，您可以[透過 Azure 入口網站傳送支援要求](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance)。
 上也提供本文中使用的原始碼。
 
-如果您的單一資料庫或彈性集區取用超過 300 DTU，則轉換為 V 核心形式的購買模型可減少您的成本。 如果您決定轉換，您可以使用您選擇的 API 或使用 Azure 入口網站來轉換，且沒有任何停機時間。 不過，不需要轉換且轉換不會自動完成。 如果 DTU 形式的購買模型符合您的效能和商務需求，請繼續使用即可。 如果您決定要從 DTU 形式的購買模型轉換為 V 核心形式的購買模型，請使用下列經驗法則選取計算大小： 
+如果您的單一資料庫或彈性集區取用超過 300 DTU，則轉換為 V 核心形式的購買模型可減少您的成本。 如果您決定轉換，您可以使用您選擇的 API 或使用 Azure 入口網站來轉換，且沒有任何停機時間。 不過，不需要轉換且轉換不會自動完成。 如果 DTU 形式的購買模型符合您的效能和商務需求，請繼續使用即可。 如果您決定要從 DTU 形式的購買模型轉換為 V 核心形式的購買模型，請使用下列經驗法則選取計算大小：
 
 - 標準層中的每 100 DTU 需要至少 1 個一般用途層中的 V 核心
 - 進階層中每 125 DTU 需要至少 1 個業務關鍵層中的 V 核心

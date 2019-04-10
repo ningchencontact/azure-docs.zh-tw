@@ -82,7 +82,7 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
 這兩個範例都提供只含有兩個資料行和兩個資料列的虛擬承載。
 
 #### <a name="log-alert-for-azure-log-analytics"></a>Azure Log-Analytics 記錄警示
-以下是用於 Log-Analytics 型警示時，*不含自訂 Json 選項*的標準 Webhook 動作範例承載。
+以下是用於記錄分析型警示時，*不含自訂 Json 選項*的標準 Webhook 動作範例承載。
 
 ```json
 {

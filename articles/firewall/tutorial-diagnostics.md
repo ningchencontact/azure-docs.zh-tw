@@ -98,7 +98,7 @@ ms.locfileid: "58877256"
 
 [Azure 監視器記錄](../azure-monitor/insights/azure-networking-analytics.md)會收集計數器和事件記錄檔。 它也納入了視覺效果和強大的搜尋功能來分析您的記錄。
 
-關於 Azure 防火牆的 Log Analytics 查詢範例，請參閱 [Azure 防火牆 Log Analytics 範例](log-analytics-samples.md)。
+關於 Azure 防火牆的記錄分析查詢範例，請參閱 [Azure 防火牆記錄分析範例](log-analytics-samples.md)。
 
 您也可以連接到儲存體帳戶並擷取存取和效能記錄檔的 JSON 記錄檔項目。 下載 JSON 檔案後，可以將它們轉換成 CSV，並在 Excel、PowerBI 或任何其他資料視覺化工具中檢視它們。
 

@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: c7e78f89883e5cfc3fc8b9088c3ac0b3166682c7
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e60a58a8d2f1c69728a2d049fe1414ca1997893e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878174"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283268"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>使用 Azure 匯入/匯出服務將資料匯入 Azure Blob 儲存體
 
@@ -31,7 +31,7 @@ ms.locfileid: "58878174"
 - 具有執行[受支援 OS 版本](storage-import-export-requirements.md#supported-operating-systems) 的 Windows 系統。 
 - 在 Windows 系統上啟用 BitLocker。 請參閱[如何啟用 BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/)。
 - 請在 Windows 系統上[下載 WAImportExport 第 1 版](https://aka.ms/waiev1)。 將檔案解壓縮至預設資料夾 `waimportexportv1`。 例如： `C:\WaImportExportV1`。
-- 擁有 FedEx/DHL 帳戶。  
+- 擁有 FedEx/DHL 帳戶。 如果您想要使用非 FedEx/DHL 貨運公司，請連絡 Azure 資料方塊作業小組`adbops@microsoft.com`。  
     - 帳戶必須是有效的、需要有餘額，且必須有退貨運送功能。
     - 產生匯出作業的追蹤號碼。
     - 每個作業都應該具有個別的追蹤號碼。 不支援多個作業使用相同的追蹤號碼。
@@ -113,7 +113,7 @@ ms.locfileid: "58878174"
 
 4. 在 [寄返資訊] 中：
 
-   - 從下拉式清單中選取貨運公司。
+   - 從下拉式清單中選取貨運公司。 如果您想要使用非 FedEx/DHL 貨運公司，請從下拉式清單中選擇現有的選項。 連絡 Azure 資料方塊作業小組`adbops@microsoft.com`您打算使用貨運公司的相關資訊。
    - 輸入您在該貨運公司中建立的有效貨運帳戶號碼。 當匯入作業完成時，Microsoft 會透過此帳戶將磁碟機寄還給您。 如果您沒有帳戶號碼，請建立 [FedEx](https://www.fedex.com/us/oadr/) 或 [DHL](http://www.dhl.com/) 貨運帳戶。
    - 提供完整且有效的連絡人名稱、電話、電子郵件、街道地址、城市、郵遞區號、州/省和國家/地區。 
         

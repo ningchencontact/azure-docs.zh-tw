@@ -34,9 +34,9 @@ items:
   expanded: true
 - name: 教學課程
   items:
-  - name: 在 Log Analytics 中分析資料
+  - name: 在記錄分析中分析資料
     href: learn/tutorial-viewdata.md
-  - name: 在 Log Analytics 中將資料視覺化
+  - name: 在記錄分析中將資料視覺化
     href: learn/tutorial-logs-dashboards.md
   - name: 封存平台計量和記錄資料
     href: learn/tutorial-archive-data.md

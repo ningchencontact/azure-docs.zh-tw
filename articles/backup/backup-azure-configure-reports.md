@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
-ms.openlocfilehash: dbfe33d062c4609ba29adbaa2d9956687115cb5a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e3004a44958d75d18d608a2fbed7ccc44a00dc93
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440993"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278814"
 ---
 # <a name="configure-azure-backup-reports"></a>設定 Azure 備份報告
 此文章說明使用「復原服務」保存庫針對「Azure 備份」設定報告時，所需依循的步驟。 本文也說明如何使用 Power BI 來存取報告。 完成這些步驟之後，您可以直接移至 Power BI 來檢閱、自訂及建立報告。
@@ -43,9 +43,6 @@ ms.locfileid: "57440993"
 
    * 在資源清單中，輸入**復原服務**。
    * 當您開始輸入時，清單會根據您輸入的文字進行篩選。 當您看到 [復原服務保存庫] 時，請選取它。
-
-      ![建立復原服務保存庫的步驟 1](./media/backup-azure-vms-encryption/browse-to-rs-vaults.png) <br/>
-
    * 隨即會出現 [復原服務保存庫] 清單。 在 [復原服務保存庫] 清單中選取保存庫。
 
      選取的保存庫儀表板隨即開啟。
@@ -154,5 +151,5 @@ ms.locfileid: "57440993"
 在您設定好儲存體帳戶並匯入「Azure 備份」內容套件之後，接下來的步驟就是自訂報告，並使用報告資料模型來建立報告。 如需詳細資訊，請參閱下列文章。
 
 * [使用 Azure 備份報告資料模型](backup-azure-reports-data-model.md)
-* [在 Power BI 中篩選報告](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
-* [在 Power BI 中建立報告](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
+* [在 Power BI 中篩選報表](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
+* [在 Power BI 中建立報表](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)

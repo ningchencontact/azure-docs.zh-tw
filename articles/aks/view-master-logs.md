@@ -115,7 +115,7 @@ AzureDiagnostics
 
 若要檢視其他記錄，您可以更新查詢以將 *Category* 名稱變更為 *kube-controller-manager* 或 *kube-scheduler* (視您所啟用的其他記錄而定)。 您可以接著使用額外的 *where* 陳述式來精簡您想要查詢的事件。
 
-如需查詢及篩選記錄資料之方式的詳細資訊，請參閱[檢視或分析以 Log Analytics 記錄搜尋所收集的資料][analyze-log-analytics]。
+如需查詢及篩選記錄資料之方式的詳細資訊，請參閱[檢視或分析以記錄分析記錄搜尋所收集的資料][analyze-log-analytics]。
 
 ## <a name="log-event-schema"></a>記錄事件結構描述
 

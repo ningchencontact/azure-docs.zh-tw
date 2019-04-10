@@ -33,7 +33,7 @@ Log Analytics 工作區提供集中式位置，不僅可讓您從 Azure 資源�
 
 Azure 容器執行個體必須具備將資料傳送至 Log Analytics 工作區的權限。 若要授與此權限並啟用記錄，您必須在建立容器群組時提供 Log Analytics 工作區識別碼，以及它的其中一個金鑰 (主要或次要)。
 
-若要取得 Log Analytics 工作區識別碼和主要金鑰：
+若要取得記錄分析工作區識別碼和主要金鑰：
 
 1. 在 Azure 入口網站中瀏覽至您的 Log Analytics 工作區
 1. 在 [設定] 下，選取 [進階設定]
@@ -44,7 +44,7 @@ Azure 容器執行個體必須具備將資料傳送至 Log Analytics 工作區�
 
 ## <a name="create-container-group"></a>建立容器群組
 
-現在您已有 Log Analytics 工作區識別碼和主要金鑰，接下來即可建立已啟用記錄的容器群組。
+現在您已有記錄分析工作區識別碼和主要金鑰，接下來即可建立已啟用記錄的容器群組。
 
 下列範例示範兩種以單一 [fluentd][fluentd] 容器建立容器群組的方式：Azure CLI，以及包含 YAML 範本的 Azure CLI。 Fluentd 容器在其預設組態中會產生數行輸出。 此輸出會傳送到您的 Log Analytics 工作區，因此很適合用來示範記錄的檢視和查詢。
 

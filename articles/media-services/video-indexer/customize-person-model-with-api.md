@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: 6fe4f391b5337929efc3f6190a925fd1e967cf1c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: e5a34a75c73401c567a0e898a1ce9f85cde96586
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999346"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360524"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>使用影片索引器 API 自訂人員模型
 
@@ -50,16 +50,16 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Person
 curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels?name={name}&accessToken={accessToken}"
 ```
 
-[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-PersonModel?) \(英文\)。
+[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?) \(英文\)。
 
 ### <a name="request-parameters"></a>要求參數 
 
-|**名稱**|**類型**|**必要**|**說明**|
+|**名稱**|**類型**|**必要項**|**描述**|
 |---|---|---|---|
-|location|字串|yes|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|字串|yes|帳戶的全域唯一識別碼|
-|name|字串|yes|人員模型的名稱|
-|accessToken|字串|yes|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountId|字串|是|帳戶的全域唯一識別碼|
+|name|字串|是|人員模型的名稱|
+|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
 
 ### <a name="request-body"></a>Request body
 
@@ -95,16 +95,16 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Person
 curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels/{id}?accessToken={accessToken}"
 ```
 
-[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-PersonModel?) \(英文\)。
+[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Person-Model?) \(英文\)。
 
 ### <a name="request-parameters"></a>要求參數
 
-|**名稱**|**類型**|**必要**|**說明**|
+|**名稱**|**類型**|**必要項**|**描述**|
 |---|---|---|---|
-|location|字串|yes|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|字串|yes|帳戶的全域唯一識別碼|
-|id|字串|yes|人員模型識別碼 (建立人員模型時產生)|
-|accessToken|字串|yes|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountId|字串|是|帳戶的全域唯一識別碼|
+|id|字串|是|人員模型識別碼 (建立人員模型時產生)|
+|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
 
 ### <a name="request-body"></a>Request body
 
@@ -132,15 +132,15 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Person
 curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels?accessToken={accessToken}"
 ```
 
-[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-PersonModels?) \(英文\)。
+[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Person-Models?) \(英文\)。
 
 ### <a name="request-parameters"></a>要求參數
 
-|**名稱**|**類型**|**必要**|**說明**|
+|**名稱**|**類型**|**必要項**|**描述**|
 |---|---|---|---|
-|location|字串|yes|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|字串|yes|帳戶的全域唯一識別碼|
-|accessToken|字串|yes|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountId|字串|是|帳戶的全域唯一識別碼|
+|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
 
 ### <a name="request-body"></a>Request body
 
@@ -187,18 +187,18 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Videos/{videoId}/Ind
 curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Videos/{videoId}/Index/Faces/{faceId}?accessToken={accessToken}&newName={newName}"
 ```
 
-[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-face?) \(英文\)。
+[查看所需的參數，並使用影片索引器開發人員入口網站進行測試](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Video-Face?) \(英文\)。
 
 ### <a name="request-parameters"></a>要求參數
 
-|**名稱**|**類型**|**必要**|**說明**|
+|**名稱**|**類型**|**必要項**|**描述**|
 |---|---|---|---|
-|location|字串|yes|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
-|accountId|字串|yes|帳戶的全域唯一識別碼|
-|videoId|字串|yes|您想要更新的人臉出現在視訊中的識別碼。 這是在上傳視訊及編製視訊索引時建立的。|
-|faceId|integer|yes|將更新之人臉的識別碼。 您可以從影片索引取得 faceId|
-|accessToken|字串|yes|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
-|name|字串|yes|更新人臉所使用的新名稱。|
+|location|字串|是|應該路由傳送呼叫的目標 Azure 區域。 如需詳細資訊，請參閱 [Azure 區域和影片索引器](regions.md)。|
+|accountId|字串|是|帳戶的全域唯一識別碼|
+|videoId|字串|是|您想要更新的人臉出現在視訊中的識別碼。 這是在上傳視訊及編製視訊索引時建立的。|
+|faceId|integer|是|將更新之人臉的識別碼。 您可以從影片索引取得 faceId|
+|accessToken|字串|是|用來針對呼叫進行驗證的存取權杖 (必須是[帳戶存取權杖](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) \(英文\) 範圍)。 存取權杖會在 1 小時後過期。|
+|name|字串|是|更新人臉所使用的新名稱。|
 
 名稱對於人員模型而言是獨一無二的，因此如果您在相同的人員模型中為兩個不同的人臉提供相同的 **name** 參數值，影片索引器會將這些人臉視為同一個人，並在您重新編製視訊索引時加以匯整。 
 
@@ -212,4 +212,4 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Vide
 
 ## <a name="next-steps"></a>後續步驟
 
-[使用影片索引器網站自訂人員模型](customize-person-model-with-website.md)
+[自訂使用影片索引子網站的人員模型](customize-person-model-with-website.md)

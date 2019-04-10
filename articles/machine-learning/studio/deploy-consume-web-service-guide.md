@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: ad58b914c22c112a83c18a7c0377b567424e4efd
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 0a29d763ab54ee716e514df23576e9c3b294d792
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046014"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359649"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio Web 服務：部署和取用
 
@@ -49,7 +49,7 @@ Studio 入口網站和 Microsoft Azure Machine Learning Web 服務入口網站�
 
 用於 Web 服務的 Azure Machine Learning Studio 資源提供者，可利用 PowerShell Cmdlet 來部署和管理 Web 服務。
 
-若要使用的 cmdlet，您必須先登入您的 Azure 帳戶的 PowerShell 環境中使用[Connect AzAccount](/powershell/module/az.profile/connect-azaccount) cmdlet。 如果您不熟悉如何呼叫以 Resource Manager 為基礎的 PowerShell 命令，請參閱 [搭配使用 Azure PowerShell 與 Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md)。
+若要使用的 cmdlet，您必須先登入您的 Azure 帳戶的 PowerShell 環境中使用[Connect AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet。 如果您不熟悉如何呼叫以 Resource Manager 為基礎的 PowerShell 命令，請參閱 [搭配使用 Azure PowerShell 與 Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md)。
 
 若要匯出預測實驗，請使用這個 [範例程式碼](https://github.com/ritwik20/AzureML-WebServices)。 由程式碼建立 .exe 檔案之後，您可以輸入︰
 

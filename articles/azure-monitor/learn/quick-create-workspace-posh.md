@@ -22,7 +22,7 @@ ms.locfileid: "58905727"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>使用 Azure PowerShell 建立 Log Analytics 工作區
 
-Azure PowerShell 模組用於從 PowerShell 命令列或在指令碼中建立和管理 Azure 資源。 本快速入門示範如何使用 Azure PowerShell 模組來部署「Azure 監視器」中的 Log Analytics 工作區。 Log Analytics 工作區是用於「Azure 監視器」記錄資料的獨特環境。 每個工作區都有自己的資料存放庫與設定，而且資料來源和解決方案會設定為將其資料儲存在特定的工作區中。 如果您想從下列來源收集資料，就必須要有 Log Analytics 工作區：
+Azure PowerShell 模組用於從 PowerShell 命令列或在指令碼中建立和管理 Azure 資源。 本快速入門示範如何使用 Azure PowerShell 模組來部署「Azure 監視器」中的 Log Analytics 工作區。 Log Analytics 工作區是 Azure 監視器記錄資料的唯一環境。 每個工作區都有自己的資料存放庫與設定，而且資料來源和解決方案會設定為將其資料儲存在特定的工作區中。 如果您想從下列來源收集資料，就必須要有 Log Analytics 工作區：
 
 * 訂用帳戶中的 Azure 資源  
 * System Center Operations Manager 監視的內部部署電腦  

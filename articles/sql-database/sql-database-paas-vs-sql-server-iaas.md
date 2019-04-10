@@ -8,17 +8,17 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 keywords: SQL Server 雲端, 雲端中的 SQL Server, PaaS 資料庫, 雲端 SQL Server, DBaaS
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/11/2019
-ms.openlocfilehash: e5f400bb25fce58a4fb63ca1ad76ddf2b71fbd9c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9cd5ba0b697cbf67f943eb49d66010745d8561e
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835413"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360812"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>在 Azure 中選擇適當的 SQL Server 選項
 
@@ -62,11 +62,11 @@ ms.locfileid: "57835413"
 
 一般而言，這兩個 SQL 選項適合用於不同的用途：
 
-- **Azure SQL Database**
+- **連接字串**
 
 已經過最佳化，可將佈建和管理許多資料庫的整體管理成本降到最低。 由於您無需管理任何虛擬機器、作業系統或資料庫軟體，它會將進行中的系統管理成本降到最低。 您不需要管理升級、高可用性或 [備份](sql-database-automated-backups.md)。 一般而言，Azure SQL Database 可能會大幅增加由單一 IT 或開發資源管理的資料庫數目。 [彈性集區](sql-database-elastic-pool.md)也支援 SaaS 多租用戶應用程式架構，其中包括租用戶隔離和調整等功能，可藉由跨資料庫共用資源來降低成本。 [受控執行個體](sql-database-managed-instance.md)可提供執行個體範圍功能的支援，以便輕鬆地移轉現有的應用程式，以及在資料庫之間共用資源。
 
-- **在 Azure VM 上執行的 SQL Server**
+- **在 Azure Vm 上執行的 SQL Server**
 
 已經過最佳化，適合將現有的應用程式移轉到 Azure 或者在混合式部署中將現有的內部部署應用程式擴充到雲端。 此外，您可以使用虛擬機器中的 SQL Server 開發和測試傳統的 SQL Server 應用程式。 有了 Azure VM 上的 SQL server，您即擁有專用 SQL Server 執行個體和雲端架構 VM 的完整系統管理權限。 當組織擁有可用來維護虛擬機器的 IT 資源時，此選項會是最佳選擇。 這些功能可讓您建立高度自訂的系統，以解決應用程式的特定效能和可用性需求。
 
@@ -80,8 +80,8 @@ ms.locfileid: "57835413"
 |  | 最多 100 TB 的資料庫。 | 最多 8 TB。 | 具有高達 64 TB 儲存空間的 SQL Server 執行個體。 執行個體可以支援所需數量的資料庫。 |
 | **相容性** | 支援大多數的內部部署資料庫層級功能。 | 支援幾乎所有的內部部署執行個體層級和資料庫層級功能。 | 支援所有內部部署功能。 |
 | **資源：** | 您不想要運用 IT 資源來設定和管理基礎結構，但想要專注於應用程式層級。 | 與 SQL Database 單一資料庫與集區資料庫相同。 | 您有一些設定和管理的 IT 資源。 某些所提供的自動化功能大幅簡化了這部分。 |
-| **擁有權的總成本：** | 排除硬體成本，並降低管理成本。 | 與 SQL Database 單一資料庫與集區資料庫相同。 | 排除硬體成本。 |
-| **業務持續性︰** |除了[內建的容錯基礎結構功能](sql-database-high-availability.md)以外，Azure SQL Database 還提供可增加業務持續性的功能，例如[自動備份](sql-database-automated-backups.md)、[時間點還原](sql-database-recovery-using-backups.md#point-in-time-restore)、[異地還原](sql-database-recovery-using-backups.md#geo-restore)、[主動式異地複寫](sql-database-active-geo-replication.md)和[自動容錯移轉群組](sql-database-auto-failover-group.md)。 如需詳細資訊，請參閱 [SQL Database 業務持續性概觀](sql-database-business-continuity.md)。 | 與 SQL Database 單一資料庫和集區資料庫相同，加上可以使用使用者起始、僅限複製的備份。 | Azure VM 上的 SQL Server 可讓您設定高可用性和災害復原解決方案，以滿足您資料庫的特定需求。 因此，您可以有已針對您的應用程式進行高度最佳化的系統。 您可以視需要自我測試並執行容錯移轉。 如需詳細資訊，請參閱 [Azure 虛擬機器中的 SQL Server 高可用性和災害復原](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md)。 |
+| **擁有權總成本：** | 排除硬體成本，並降低管理成本。 | 與 SQL Database 單一資料庫與集區資料庫相同。 | 排除硬體成本。 |
+| **業務連續性：** |除了[內建的容錯基礎結構功能](sql-database-high-availability.md)以外，Azure SQL Database 還提供可增加業務持續性的功能，例如[自動備份](sql-database-automated-backups.md)、[時間點還原](sql-database-recovery-using-backups.md#point-in-time-restore)、[異地還原](sql-database-recovery-using-backups.md#geo-restore)、[主動式異地複寫](sql-database-active-geo-replication.md)和[自動容錯移轉群組](sql-database-auto-failover-group.md)。 如需詳細資訊，請參閱 [SQL Database 業務持續性概觀](sql-database-business-continuity.md)。 | 與 SQL Database 單一資料庫和集區資料庫相同，加上可以使用使用者起始、僅限複製的備份。 | Azure VM 上的 SQL Server 可讓您設定高可用性和災害復原解決方案，以滿足您資料庫的特定需求。 因此，您可以有已針對您的應用程式進行高度最佳化的系統。 您可以視需要自我測試並執行容錯移轉。 如需詳細資訊，請參閱 [Azure 虛擬機器中的 SQL Server 高可用性和災害復原](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md)。 |
 | **混合式雲端：** |您的內部部署應用程式可以存取 Azure SQL Database 中的資料。 | [實作原生虛擬網路](sql-database-managed-instance-vnet-configuration.md)和使用 Azure Express Route 或 VPN 閘道與內部部署環境連線。 | 有了 Azure VN 上的 SQL Server，您的應用程式可以部分在雲端中執行和部分在內部部署中執行。 例如，您可以透過 [ [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)] 將內部部署網路和 Active Directory 網域延伸到雲端。 如需有關混合式雲端解決方案的詳細資訊，請參閱[將內部部署資料解決方案擴充至雲端](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud)。 |
 |  | 支援 [SQL Server 交易式複寫](https://msdn.microsoft.com/library/mt589530.aspx) 為訂閱者以複寫資料。 | 受控執行個體以預覽功能的方式支援複寫。 | 完全支援 [SQL Server 交易式複寫](https://msdn.microsoft.com/library/mt589530.aspx)、[Always On 可用性群組](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md)、整合服務和記錄傳送以複寫資料。 此外也完全支援傳統的 SQL Server 備份 |
 |  | | |
@@ -119,14 +119,14 @@ ms.locfileid: "57835413"
 
 當您開始使用雲端平台時，執行應用程式的成本包括新開發和持續管理成本，以及公用雲端平台的服務成本。
 
-**使用 Azure SQL Database 時：**
+**當使用 Azure SQL Database:**
 
 - 高度縮減的系統管理成本
 - 已移轉應用程式的開發成本有限 (受控執行個體)
 - SQL Database 服務成本
 - 沒有硬體購買成本
 
-**使用 Azure VM 上的 SQL Server 時：**
+**當使用 SQL Server Azure Vm 上：**
 
 - 較高的系統管理成本
 - 受限於已移轉的應用程式沒有開發成本

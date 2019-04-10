@@ -1,6 +1,6 @@
 ---
-title: v2.0 的應用程式類型 | Azure
-description: Azure Active Directory v2.0 端點所支援的應用程式類型與案例。
+title: Microsoft 身分識別平台的應用程式類型 |Azure
+description: 應用程式與 Microsoft 身分識別平台 (v2.0) 端點支援的案例型別。
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -13,36 +13,36 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 04/06/2019
 ms.author: celested
-ms.reviewer: saeeda, jmprieur, andret
+ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aac3e40089c67cd71a2c634280e333964e47902
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 562b45f30bf057feba38a716e040ab2efc15da90
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499976"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283319"
 ---
-# <a name="application-types-for-v20"></a>v2.0 的應用程式類型
+# <a name="application-types-for-microsoft-identity-platform"></a>Microsoft 身分識別平台的應用程式類型
 
-Azure Active Directory (Azure AD) v2.0 端點支援各種新型應用程式架構的驗證，它們全都以產業標準通訊協定 [OAuth 2.0 或 OpenID Connect](active-directory-v2-protocols.md) 為基準。 本文描述您可以使用 Azure AD v2.0 來建置的應用程式類型，不論您慣用的語言或平台是哪一種。 本文中的資訊是設計來協助您在[開始使用程式碼](v2-overview.md#getting-started)之前，先了解概要的案例。
+Microsoft 身分識別平台 (v2.0) 端點支援各種新型應用程式架構，全部都符合業界標準通訊協定為基礎的驗證[OAuth 2.0 或 OpenID Connect](active-directory-v2-protocols.md)。 此文章說明您可以使用 Microsoft 身分識別平台，不論您偏好的語言或平台建置的應用程式類型。 資訊設計來協助您了解高階的案例，您才[開始使用程式碼](v2-overview.md#getting-started)。
 
 > [!NOTE]
-> v2.0 端點並未支援所有的 Azure Active Directory 案例和功能。 若要判斷您是否應該使用 v2.0 端點，請參閱 [v2.0 限制](active-directory-v2-limitations.md)。
+> Microsoft 身分識別平台端點不支援所有的 Azure Active Directory (Azure AD) 案例和功能。 若要判斷您是否應該使用 Microsoft 身分識別平台的端點，請參閱[Microsoft 身分識別平台限制](active-directory-v2-limitations.md)。
 
-## <a name="the-basics"></a>基础知识
+## <a name="the-basics"></a>基本概念
 
-您必須在 [Microsoft 應用程式註冊入口網站](https://apps.dev.microsoft.com)中註冊每個使用 v2.0 端點的應用程式。 應用程式註冊程序會為您的應用程式收集和指派下列值：
+您必須註冊每個應用程式使用在新的 Microsoft 身分識別平台 endpoint[應用程式註冊入口網站](https://go.microsoft.com/fwlink/?linkid=2083908)。 應用程式註冊程序會為您的應用程式收集和指派下列值：
 
-* 用于唯一标识应用的 **应用程序 ID**
+* **應用程式 （用戶端） 識別碼**可唯一識別您的應用程式
 * 可用來將回應導回到應用程式的「重新導向 URI」
-* 其他一些特定于方案的值
+* 一些其他案例特定的值，例如支援帳戶類型
 
-如需詳細資訊，請了解如何[註冊應用程式](quickstart-v2-register-an-app.md)。
+如需詳細資訊，請了解如何[註冊應用程式](quickstart-register-app.md)。
 
-註冊應用程式之後，應用程式便可傳送要求給 Azure AD v2.0 端點來與 Azure AD 通訊。 我們提供開放原始碼架構，以及可處理這些要求詳細資料的程式庫。 您也可以選擇建立對這些端點的要求，來自行實作驗證邏輯：
+註冊 app 之後，應用程式會將要求傳送到端點與 Microsoft 身分識別平台通訊。 我們提供開放原始碼架構，以及可處理這些要求詳細資料的程式庫。 您也可以選擇建立對這些端點的要求，來自行實作驗證邏輯：
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize
@@ -51,13 +51,13 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## <a name="single-page-apps-javascript"></a>單頁應用程式 (JavaScript)
 
-許多新式應用程式都有一個單頁應用程式前端，主要是以 JavaScript 撰寫。 通常是使用 AngularJS、Ember.js、Durandal.js 等架構來撰寫它們。 Azure AD v2.0 端點是透過使用 [OAuth 2.0 隱含流程](v2-oauth2-implicit-grant-flow.md)來支援這些應用程式。
+許多新式應用程式都有一個單頁應用程式前端，主要是以 JavaScript 撰寫。 通常是使用 AngularJS、Ember.js、Durandal.js 等架構來撰寫它們。 Microsoft 身分識別平台端點支援這些應用程式使用[OAuth 2.0 隱含流程](v2-oauth2-implicit-grant-flow.md)。
 
-在此流程中，應用程式會直接從 v2.0 授權端點接收權杖，而不需要執行任何伺服器對伺服器交換。 所有驗證邏輯和工作階段處理都完全在 JavaScript 用戶端中進行，而不需要執行額外的頁面重新導向。
+應用程式在此流程中，直接從 Microsoft 身分識別平台收到權杖授權端點，而不需要任何伺服器對伺服器交換。 所有驗證邏輯和工作階段處理都完全在 JavaScript 用戶端中進行，而不需要執行額外的頁面重新導向。
 
-![隱含驗證流程](./media/v2-app-types/convergence_scenarios_implicit.png)
+![隱含驗證流程](./media/v2-app-types/convergence-scenarios-implicit.svg)
 
-若要查看此案例的實際運作情形，請在 [v2.0 開始使用](v2-overview.md#getting-started)一節的單頁應用程式程式碼範例中擇一試用。
+若要查看此案例的實際運作，請嘗試在單一頁面應用程式程式碼範例[開始使用 Microsoft 身分識別平台](v2-overview.md#getting-started)一節。
 
 ## <a name="web-apps"></a>Web 應用程式
 
@@ -76,21 +76,21 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 }
 ```
 
-如需 v2.0 端點中所用不同權杖類型的詳細說明，請參閱[存取權杖](access-tokens.md)參考和 [`id_token` 參考](id-tokens.md)
+中有進一步的詳細資料的不同類型的 Microsoft 身分識別平台端點中使用 token[存取權杖](access-tokens.md)參考和[id_token 參考](id-tokens.md)
 
 在 Web 伺服器應用程式中，登入驗證流程會採用下列概要步驟：
 
-![Web 應用程式驗證流程](./media/v2-app-types/convergence_scenarios_webapp.png)
+![Web 應用程式驗證流程](./media/v2-app-types/convergence-scenarios-webapp.svg)
 
-您可以使用接收自 v2.0 端點的公開簽署金鑰來驗證識別碼權杖，來確保使用者的身分識別。 系統會設定工作階段 Cookie，這可在後續的頁面要求上用來識別使用者。
+您可以使用接收自 Microsoft 身分識別平台端點的公開簽署金鑰驗證識別碼權杖，以確保使用者的身分識別。 系統會設定工作階段 Cookie，這可在後續的頁面要求上用來識別使用者。
 
-若要查看此案例的實際運作情形，請在 [v2.0 開始使用](v2-overview.md#getting-started)一節的 Web 應用程式登入程式碼範例中擇一試用。
+若要查看此案例的實際運作，請嘗試在 web 應用程式登入程式碼範例[開始使用 Microsoft 身分識別平台](v2-overview.md#getting-started)一節。
 
 除了簡易登入之外，Web 伺服器應用程式可能也需要存取其他 Web 服務，例如 REST API。 在此情況下，Web 伺服器應用程式可以使用 [OAuth 2.0 授權碼流程](active-directory-v2-protocols.md)，參與結合了 OpenID Connect 與 OAuth 2.0 的流程。 如需有關此案例的詳細資訊，請參閱[開始使用 Web 應用程式和 Web API](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md)。
 
 ## <a name="web-apis"></a>Web API
 
-您可以使用 v2.0 端點來保護 Web 服務，例如應用程式的 RESTful Web API。 Web API 使用 OAuth 2.0 存取權杖來保護其資料及驗證連入要求，而不是使用識別碼權杖和工作階段 Cookie。 Web API 的呼叫端會在 HTTP 要求的授權標頭中附加存取權杖，就像這樣：
+您可以使用 Microsoft 身分識別平台端點來保護 web 服務，例如您的應用程式的 RESTful Web API。 Web API 使用 OAuth 2.0 存取權杖來保護其資料及驗證連入要求，而不是使用識別碼權杖和工作階段 Cookie。 Web API 的呼叫端會在 HTTP 要求的授權標頭中附加存取權杖，就像這樣：
 
 ```
 GET /api/items HTTP/1.1
@@ -100,32 +100,32 @@ Accept: application/json
 ...
 ```
 
-Web API 會使用這個存取權杖來驗證 API 呼叫端的身分識別，並從存取權杖中所編碼的宣告擷取呼叫端的相關資訊。 如需 v2.0 端點中所用不同權杖類型的詳細說明，請參閱[存取權杖](access-tokens.md)參考和 [`id_token` 參考](id-tokens.md)
+Web API 會使用這個存取權杖來驗證 API 呼叫端的身分識別，並從存取權杖中所編碼的宣告擷取呼叫端的相關資訊。 中有進一步的詳細資料的不同類型的 Microsoft 身分識別平台端點中使用 token[存取權杖](access-tokens.md)參考和[id_token 參考](id-tokens.md)
 
-Web API 可透過公開權限的方式 (亦稱為[範圍](v2-permissions-and-consent.md))，讓使用者能夠選擇加入或退出特定的功能或資料。 為了讓發出呼叫的應用程式取得範圍的權限，使用者必須在流程中對範圍表示同意。 v2.0 端點會向使用者要求權限，然後將這些權限記錄在 Web API 接收的所有存取權杖中。 Web API 會驗證它在每次呼叫所收到的存取權杖，並執行授權檢查。
+Web API 可透過公開權限的方式 (亦稱為[範圍](v2-permissions-and-consent.md))，讓使用者能夠選擇加入或退出特定的功能或資料。 為了讓發出呼叫的應用程式取得範圍的權限，使用者必須在流程中對範圍表示同意。 Microsoft 身分識別平台端點要求使用者提供權限，並再記錄在 Web API 收到的所有存取權杖中的 權限。 Web API 會驗證它在每次呼叫所收到的存取權杖，並執行授權檢查。
 
 Web API 可以從所有類型的應用程式接收存取權杖，包括 Web 伺服器應用程式、傳統型應用程式和行動應用程式、單頁應用程式、伺服器端精靈，甚至是其他的 Web API。 Web API 的概要流程看起來像這樣：
 
-![Web API 驗證流程](./media/v2-app-types/convergence_scenarios_webapi.png)
+![Web API 驗證流程](./media/v2-app-types/convergence-scenarios-webapi.svg)
 
-若要了解如何使用 OAuth2 存取權杖來保護 Web API，請查看 [v2.0 開始使用](v2-overview.md#getting-started)一節中的 Web API 程式碼範例。
+若要了解如何使用 OAuth2 存取權杖來保護 Web API，請參閱中的 Web API 程式碼範例[開始使用 Microsoft 身分識別平台](v2-overview.md#getting-started)一節。
 
-在許多情況下，Web API 也需要對受 Azure Active Directory 保護的其他下游 Web API 發出傳出要求。 若要這樣做，Web API 可以利用 Azure AD 的「代理者」流程，它能允許 Web API 將傳入存取權杖交換為要在傳出要求中使用的另一個存取權杖。 v2.0 端點的「代理者」流程已[在此詳細說明](v2-oauth2-on-behalf-of-flow.md)。
+在許多情況下，web Api 也需要對其他下游的 web Api 會受到 Microsoft 身分識別平台發出傳出要求。 若要這樣做，web Api 可以充分善用**代表的**流程，可讓 web API 來交換另一個用於輸出要求的存取權杖的傳入存取權杖。 如需詳細資訊，請參閱 < [Microsoft 身分識別平台和 OAuth 2.0 代理者流程](v2-oauth2-on-behalf-of-flow.md)。
 
 ## <a name="mobile-and-native-apps"></a>行動和原生應用程式
 
 裝置安裝的應用程式 (例如行動應用程式和傳統型應用程式) 通常需要存取儲存資料及代表使用者執行功能的後端服務或 Web API。 這些應用程式可以使用 [OAuth 2.0 授權碼流程](v2-oauth2-auth-code-flow.md)，將登入和授權新增至後端服務。
 
-在此流程中，應用程式會在使用者登入時，從 v2.0 端點接收授權碼。 授權碼代表應用程式具備權限，可代表登入的使用者呼叫後端服務。 應用程式可以在背景中以授權碼交換 OAuth 2.0 存取權杖和重新整理權杖。 應用程式可以使用存取權杖在 HTTP 要求中向 Web API 進行驗證，以及在舊存取權杖到期時，使用重新整理權杖來取得新的存取權杖。
+在此流程中，應用程式收到授權碼的 Microsoft 身分識別平台端點使用者登入時。 授權碼代表應用程式具備權限，可代表登入的使用者呼叫後端服務。 應用程式可以在背景中以授權碼交換 OAuth 2.0 存取權杖和重新整理權杖。 應用程式可以使用存取權杖在 HTTP 要求中向 Web API 進行驗證，以及在舊存取權杖到期時，使用重新整理權杖來取得新的存取權杖。
 
-![原生應用程式驗證流程](./media/v2-app-types/convergence_scenarios_native.png)
+![原生應用程式驗證流程](./media/v2-app-types/convergence-scenarios-native.svg)
 
 ## <a name="daemons-and-server-side-apps"></a>精靈和伺服器端應用程式
 
-應用程式如果含有長時間執行的程序，或其運作方式不需要與使用者互動，就也需要一個存取受保護資源 (例如 Web API) 的方法。 這些應用程式可以使用應用程式的身分識別 (而非使用者委派的身分識別) 搭配 OAuth 2.0 用戶端認證流程，來驗證及取得權杖。 您可以使用用戶端密碼或憑證來提供應用程式的身分識別。 如需詳細資訊，請參閱[在精靈應用程式中使用憑證向 Azure AD 驗證](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/) \(英文\)。
+應用程式如果含有長時間執行的程序，或其運作方式不需要與使用者互動，就也需要一個存取受保護資源 (例如 Web API) 的方法。 這些應用程式可以使用應用程式的身分識別 (而非使用者委派的身分識別) 搭配 OAuth 2.0 用戶端認證流程，來驗證及取得權杖。 您可以使用用戶端密碼或憑證來提供應用程式的身分識別。 如需詳細資訊，請參閱 <<c0> [ 驗證 Microsoft 身分識別平台，在精靈應用程式使用憑證](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/)。
 
 在此流程中，應用程式則是直接與互動`/token`端點，以取得存取權：
 
-![精靈應用程式驗證流程](./media/v2-app-types/convergence_scenarios_daemon.png)
+![精靈應用程式驗證流程](./media/v2-app-types/convergence-scenarios-daemon.svg)
 
 若要建置精靈應用程式，請參閱[用戶端認證文件](v2-oauth2-client-creds-grant-flow.md)，或試試 [.NET 範例應用程式](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)。

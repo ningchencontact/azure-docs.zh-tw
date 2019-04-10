@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: kumud
-ms.openlocfilehash: 0b46cbdec6d0ffe2a614a976f70b833726fb0e8a
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: f28088a1a0586964092a0b5f86ce8bf0f95402cd
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849952"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281942"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>使用 Azure CLI 在 Standard Load Balancer 中設定負載平衡和輸出規則
 
@@ -99,7 +99,7 @@ ms.locfileid: "58849952"
 建立其他的後端位址集區來定義使用 Vm 集區的輸出連線能力[az network lb ip-config address-pool 建立](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest)同名*bepooloutbound*。  建立不同的輸出集區可提供最大的彈性，但您可以略過此步驟只會使用傳入*bepoolinbound*以及。
 
 ```azurecli-interactive
-  az network lb address-pool \
+  az network lb address-pool create \
     --resource-group myresourcegroupoutbound \
     --lb-name lb \
     --name bepooloutbound
@@ -183,4 +183,4 @@ az network lb outbound-rule create \
 在本文中，您建立了 Standard Load Balancer、設定了兩個輸入負載平衡器流量規則，並設定了後端集區 VM 的健康情況探查。 若要深入了解 Azure Load Balancer，請繼續 Azure Load Balancer 的教學課程。
 
 > [!div class="nextstepaction"]
-> [Azure Load Balancer 教學課程](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Azure 負載平衡器教學課程](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

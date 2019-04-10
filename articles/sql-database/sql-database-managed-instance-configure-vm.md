@@ -9,19 +9,19 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlrab, srbozovi, bonova
+ms.reviewer: sstein, carlrab, srbozovi, bonova
 manager: craigg
 ms.date: 02/18/2019
-ms.openlocfilehash: 9e1001816e9a4cf62d2e6c84c72aae84428148d0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 59088ad53e923f1303c0e800df9c25f70e63812f
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997911"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360493"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>快速入門：設定 Azure VM 以連線到 Azure SQL Database 受控執行個體
 
-此快速入門示範了如何設定 Azure 虛擬機器，以使用 SQL Server Management Studio (SSMS) 連線到 Azure SQL Database 受控執行個體。 如需如何使用點對站連線從內部部署用戶端電腦進行連線的快速入門，請參閱[設定點對站連線](sql-database-managed-instance-configure-p2s.md) 
+此快速入門示範了如何設定 Azure 虛擬機器，以使用 SQL Server Management Studio (SSMS) 連線到 Azure SQL Database 受控執行個體。 如需如何使用點對站連線從內部部署用戶端電腦進行連線的快速入門，請參閱[設定點對站連線](sql-database-managed-instance-configure-p2s.md)
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -33,7 +33,7 @@ ms.locfileid: "57997911"
 
 ## <a name="create-a-new-subnet-in-the-managed-instance-vnet"></a>在受控執行個體 VNet 中建立新的子網路
 
-下列步驟可在受控執行個體 VNet 中建立新的子網路，以便 Azure 虛擬機器可以連線到受控執行個體。 受控執行個體子網路專門用於受控執行個體。 您無法在該子網路中建立 Azure 虛擬機器等其他資源。 
+下列步驟可在受控執行個體 VNet 中建立新的子網路，以便 Azure 虛擬機器可以連線到受控執行個體。 受控執行個體子網路專門用於受控執行個體。 您無法在該子網路中建立 Azure 虛擬機器等其他資源。
 
 1. 您在[建立受控執行個體](sql-database-managed-instance-get-started.md)快速入門中建立過受控執行個體的資源群組，請開啟該資源群組。 選取受控執行個體的虛擬網路。
 
@@ -46,21 +46,21 @@ ms.locfileid: "57997911"
 3. 使用此資料表中的資訊填妥表單：
 
    | 設定| 建議的值 | 說明 |
-   | ---------------- | ----------------- | ----------- | 
+   | ---------------- | ----------------- | ----------- |
    | **名稱** | 任何有效名稱|如需有效的名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。|
    | **位址範圍 (CIDR 區塊)** | 有效範圍 | 針對此快速入門，使用預設值即可。|
    | **網路安全性群組** | None | 針對此快速入門，使用預設值即可。|
    | **路由表** | None | 針對此快速入門，使用預設值即可。|
    | **服務端點** | 已選取 0 | 針對此快速入門，使用預設值即可。|
    | **子網路委派** | None | 針對此快速入門，使用預設值即可。|
- 
+
    ![為用戶端 VM 新增受控執行個體子網路](./media/sql-database-managed-instance-configure-vm/new-subnet.png)
 
 4. 選取 [確定] 以在受控執行個體 VNet 中建立這個額外的子網路。
 
 ## <a name="create-a-virtual-machine-in-the-new-subnet-in-the-vnet"></a>在 VNet 的新子網路中建立虛擬機器
 
-下列步驟顯示如何在建立受控執行個體的相同 VNet 中建立虛擬機器。 
+下列步驟顯示如何在建立受控執行個體的相同 VNet 中建立虛擬機器。
 
 ## <a name="prepare-the-azure-virtual-machine"></a>準備 Azure 虛擬機器
 
@@ -74,20 +74,20 @@ ms.locfileid: "57997911"
 
 2. 使用下表中的資訊填妥表單：
 
-   | 設定| 建議的值 | 說明 |
+   | 設定| 建議的值 | 描述 |
    | ---------------- | ----------------- | ----------- |
    | **訂用帳戶** | 有效的訂用帳戶 | 必須是您有權限在其中建立新資源的訂用帳戶。 |
    | **資源群組** |您在[建立受控執行個體](sql-database-managed-instance-get-started.md)快速入門中指定的資源群組。|此資源群組必須是 VNet 所在的資源群組。|
-   | **位置** | 資源群組的位置 | 根據選取的資源群組填入此值。 | 
+   | **位置** | 資源群組的位置 | 根據選取的資源群組填入此值。 |
    | **虛擬機器名稱**  | 任何有效名稱 | 如需有效的名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。|
-   |**系統管理員使用者名稱**|任何有效的使用者名稱|如需有效的名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 請勿使用 "serveradmin"，因為這是保留的伺服器層級角色。<br>您隨時要[連線至 VM](#connect-to-virtual-machine) 時，都可以使用這個使用者名稱。| 
+   |**管理員使用者名稱**|任何有效的使用者名稱|如需有效的名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 請勿使用 "serveradmin"，因為這是保留的伺服器層級角色。<br>您隨時要[連線至 VM](#connect-to-virtual-machine) 時，都可以使用這個使用者名稱。|
    |**密碼**|任何有效密碼|密碼長度至少必須有 12 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。<br>您隨時要[連線至 VM](#connect-to-virtual-machine) 時，都可以使用這個密碼。|
    | **虛擬機器大小** | 任何有效大小 | 在此快速入門中，使用此範本的預設值 **Standard_B2s** 就已足夠。 |
    | **位置**|[resourceGroup().location]。| 請勿變更此值。 |
-   | **虛擬網路名稱**|您可以在其中建立受控執行個體的虛擬網路。|
+   | **虛擬網路名稱**|在其中创建了托管实例的虚拟网络。|
    | **子網路名稱**|您在上一個程序中建立的子網路名稱| 請勿選擇您在其中建立受控執行個體的子網路。|
    | **構件位置** | [deployment().properties.templateLink.uri] | 請勿變更此值。 |
-   | **構件位置 SAS 權杖** | 保留空白 | 請勿變更此值。 |
+   | **構件位置 Sas 權杖** | 保留空白 | 請勿變更此值。 |
 
    ![建立用戶端 VM](./media/sql-database-managed-instance-configure-vm/create-client-sql-vm.png)
 
@@ -108,31 +108,31 @@ ms.locfileid: "57997911"
 
     ![VM](./media/sql-database-managed-instance-configure-vm/vm.png)  
 
-2. 選取 [ **連接**]。 
-   
-   將顯示遠端桌面通訊協定檔案 (.rdp 檔案) 表單，其中包含虛擬機器的公用 IP 位址與連接埠號碼。 
+2. 選取 [ **連接**]。
+
+   將顯示遠端桌面通訊協定檔案 (.rdp 檔案) 表單，其中包含虛擬機器的公用 IP 位址與連接埠號碼。
 
    ![RDP 表單](./media/sql-database-managed-instance-configure-vm/rdp.png)  
 
 3. 選取 [下載 RDP 檔案]。
- 
+
    > [!NOTE]
    > 您也可以使用 SSH 來連線到您的 VM。
 
 4. 關閉**連線至虛擬機器**表單。
-5. 若要連線至您的 VM，請開啟下載的 RDP 檔案。 
+5. 若要連線至您的 VM，請開啟下載的 RDP 檔案。
 6. 出現提示時，請選取 [連接]。 在 Mac 上，您需要 RDP 用戶端，例如來自 Mac App Store 的[遠端桌面用戶端](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12)。
 
-6. 輸入在建立虛擬機器時指定的使用者名稱和密碼，然後選擇 [確定]。
+7. 輸入在建立虛擬機器時指定的使用者名稱和密碼，然後選擇 [確定]。
 
-7. 您可能會在登入過程中收到憑證警告。 選擇 [是] 或 [繼續] 以繼續進行連線。
+8. 您可能會在登入過程中收到憑證警告。 選擇 [是] 或 [繼續] 以繼續進行連線。
 
 您已連線到 [伺服器管理員] 儀表板中的虛擬機器。
 
 ## <a name="use-ssms-to-connect-to-the-managed-instance"></a>使用 SSMS 連線到受控執行個體
 
 1. 在虛擬機器中，開啟 SQL Server Management Studio (SSMS)。
- 
+
    由於這是第一次啟動 SSMS，因此需要一些時間才能完成其設定。
 2. 在 [連接到伺服器] 對話方塊方塊中，於 [伺服器名稱] 方塊中輸入受控執行個體的完整 [主機名稱]。 選取 [SQL Server 驗證]，提供您的使用者名稱和密碼，然後選取 [連線]。
 

@@ -68,7 +68,7 @@ ms.locfileid: "56815887"
 
 在您的自動化帳戶中，瀏覽置 [組態管理] 下的 [清查]。
 
-選取 [+ 新增 Azure VM]，這會開啟 [虛擬機器] 頁面，並可讓您從清單中選取現有的 VM。 選取您要上架的 VM。 在開啟的頁面上，按一下 [啟用] 以啟用 VM 上的解決方案。 系統會將 Microsoft Management Agent 部署至 VM　　，並將代理程式設定為能與啟用方案時設定的 Log Analytics 工作區通訊。 這需要數分鐘的時間來完成上架。 此時，您可以從清單中選取新的 VM，然後讓另一個 VM 上架。
+選取 [+ 新增 Azure VM]，這會開啟 [虛擬機器] 頁面，並可讓您從清單中選取現有的 VM。 選取您要上架的 VM。 在開啟的頁面上，按一下 [啟用] 以啟用 VM 上的解決方案。 系統會將 Microsoft Management Agent 部署至 VM，並將代理程式設定為能與啟用方案時設定的 Log Analytics 工作區通訊。 這需要數分鐘的時間來完成上架。 此時，您可以從清單中選取新的 VM，然後讓另一個 VM 上架。
 
 ## <a name="onboard-a-non-azure-machine"></a>讓非 Azure 機器上線
 

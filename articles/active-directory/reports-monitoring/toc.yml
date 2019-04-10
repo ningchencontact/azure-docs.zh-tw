@@ -76,7 +76,7 @@ items:
       href: howto-integrate-activity-logs-with-log-analytics.md
     - name: 分析 Azure 監視器記錄中的活動記錄
       href: howto-analyze-activity-logs-log-analytics.md
-    - name: 安裝與使用適用於 Azure AD 的 Log Analytics 檢視
+    - name: 安裝與使用適用於 Azure AD 的記錄分析檢視
       href: howto-install-use-log-analytics-views.md
     - name: 整合活動記錄與 SumoLogic
       href: howto-integrate-activity-logs-with-sumologic.md

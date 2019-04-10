@@ -37,7 +37,7 @@ ms.locfileid: "57194906"
 
 若要根據特定屬性或值來尋找訊息，您可以建立使用篩選的查詢。 
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [所有服務]。 在搜尋方塊中，尋找「log analytics」，然後選取 [Log Analytics]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [所有服務]。 在搜尋方塊中，尋找「記錄分析」，然後選取 [Log Analytics]。
 
    ![選取 [Log Analytics]](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/find-log-analytics.png)
 
@@ -110,7 +110,7 @@ ms.locfileid: "57194906"
 
 ## <a name="find-and-run-saved-queries"></a>尋找並執行已儲存的查詢
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [所有服務]。 在搜尋方塊中，尋找「log analytics」，然後選取 [Log Analytics]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [所有服務]。 在搜尋方塊中，尋找「記錄分析」，然後選取 [Log Analytics]。
 
    ![選取 [Log Analytics]](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/find-log-analytics.png)
 

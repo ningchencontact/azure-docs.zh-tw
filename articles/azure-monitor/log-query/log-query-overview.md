@@ -16,7 +16,7 @@ ms.locfileid: "58904724"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>在 Azure 監視器中分析記錄資料
 
-Azure 監視器所收集的記錄檔資料會儲存在 Log Analytics 工作區中，此作業取決於 [Azure 資料總管](/azure/data-explorer)。 它會從各種來源收集遙測，並使用資料總管使用的 [Kusto 查詢語言](/azure/kusto/query)來擷取和分析資料。
+Azure 監視器所收集的記錄資料會儲存在 Log Analytics 工作區中，此作業取決於 [Azure 資料總管](/azure/data-explorer)。 它會從各種來源收集遙測，並使用資料總管使用的 [Kusto 查詢語言](/azure/kusto/query)來擷取和分析資料。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 

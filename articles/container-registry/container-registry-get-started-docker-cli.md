@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 180cbb9c31d14c36679bb84f92b3c9892ee3602d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2cb401dfd68075ff0867ae3f89eee3474000b5de
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011163"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282690"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>使用 Docker CLI 將您的第一個映像推送至私人 Docker 容器登錄
 
@@ -127,5 +127,13 @@ az acr repository delete --name myregistry --image samples/nginx:latest
 現在您已瞭解基本概念了，可以開始使用您的登錄庫！ 例如，將登錄中的容器映像部署至：
 
 * [Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
-* [Azure 容器執行個體](../container-instances/container-instances-tutorial-prepare-app.md)
+* [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
 * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)
+
+選擇性地安裝[適用於 Visual Studio Code 的 Docker 擴充功能](https://code.visualstudio.com/docs/azure/docker)並[Azure 帳戶](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)才能使用您的 Azure 容器登錄庫的延伸模組。 提取，並將映像推送至 Azure container registry，或者執行 ACR 工作，全部都在 Visual Studio Code 內。
+
+
+<!-- LINKS - external -->
+[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-windows]: https://docs.docker.com/docker-for-windows/

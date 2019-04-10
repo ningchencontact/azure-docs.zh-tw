@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: a7271aa3faf438b42319f8c2c297c6e39baab92e
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 59213c5391b5b652eeead05c4a5af761571fcece
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904146"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360622"
 ---
 # <a name="logs-in-azure-monitor"></a>Azure 監視器中的記錄
 
@@ -46,7 +46,7 @@ Azure 監視器中的記錄檔包含不同類型的資料組織成不同的每�
 | 分析 | 使用[Log Analytics](../log-query/get-started-portal.md)在 Azure 入口網站中撰寫[記錄查詢](../log-query/log-query-overview.md)並以互動方式分析記錄資料使用功能強大的資料總管分析引擎。<br>使用[Application Insights analytics 主控台](../app/analytics.md)寫入記錄檔查詢，並以互動方式分析記錄資料從 Application Insights 在 Azure 入口網站。 |
 | 視覺化 | 將查詢結果轉譯為資料表或圖表釘選[Azure 儀表板](../../azure-portal/azure-portal-dashboards.md)。<br>建立[活頁簿](../app/usage-workbooks.md)結合多個互動式的報表中的資料集。 <br>將查詢的結果匯出到 [Power BI](powerbi.md) 以使用不同的視覺效果，並與 Azure 外部的使用者共用。<br>若要查詢的結果匯出[Grafana](grafana-plugin.md)運用其儀表板，並結合其他資料來源。|
 | 警示 | 設定[記錄警示規則](alerts-log.md)，在查詢結果符合特定結果時，傳送通知或採取[自動化動作](action-groups.md)。<br>設定[計量警示規則](alerts-metric-logs.md)擷取來作為計量的特定記錄檔資料記錄檔。 |
-| 擷取 | 從命令列使用存取記錄檔查詢結果[Azure CLI](/azure/ext/log-analytics/monitor/log-analytics)。<br>從命令列使用存取記錄檔查詢結果[PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.operationalinsights)。<br>從自訂應用程式使用存取記錄檔查詢結果[REST API](https://dev.loganalytics.io/)。 |
+| 擷取 | 從命令列使用存取記錄檔查詢結果[Azure CLI](/cli/azure/ext/log-analytics/monitor/log-analytics)。<br>從命令列使用存取記錄檔查詢結果[PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.operationalinsights)。<br>從自訂應用程式使用存取記錄檔查詢結果[REST API](https://dev.loganalytics.io/)。 |
 | 匯出 | 建立擷取記錄檔資料，並將它複製到外部位置使用的工作流程[Logic Apps](~/articles/logic-apps/index.yml)。 |
 
 
@@ -105,8 +105,8 @@ Azure 監視器可以在 Azure 中及內部部署資源的各種來源收集資�
 |:---|:---|
 | 要求和例外狀況 | 應用程式的要求和例外狀況的詳細的資料位於_要求_， _pageViews_，並_例外狀況_資料表。 若要呼叫[外部元件](../app/asp-net-dependencies.md)處於_相依性_資料表。 |
 | 使用情況和效能 | 應用程式的效能可用於_要求_， _browserTimings_並_performanceCounters_資料表。 資料[自訂度量](../app/api-custom-events-metrics.md#trackevent)處於_customMetrics_資料表。|
-| 追蹤資料 | 所得[分散式追蹤](/app/distributed-tracing)會儲存在_追蹤_資料表。 |
-| 可用性集合 | 從摘要資料[可用性測試](/app/monitor-web-app-availability)會儲存在_availabilityResults_資料表。 從這些測試的詳細的資料位於不同的儲存體，並在 Azure 入口網站中存取從 Application Insights。 |
+| 追蹤資料 | 所得[分散式追蹤](../app/distributed-tracing.md)會儲存在_追蹤_資料表。 |
+| 可用性集合 | 從摘要資料[可用性測試](../app/monitor-web-app-availability.md)會儲存在_availabilityResults_資料表。 從這些測試的詳細的資料位於不同的儲存體，並在 Azure 入口網站中存取從 Application Insights。 |
 
 ### <a name="insights"></a>深入解析
 
@@ -127,7 +127,7 @@ Azure 監視器可以在 Azure 中及內部部署資源的各種來源收集資�
 | 資料 | 描述 |
 |:---|:---|
 | Azure 資訊安全中心 | [Azure 資訊安全中心](/azure/security-center/)儲存它，進行分析與其他記錄資料的 Log Analytics 工作區中收集的資料。 請參閱[Azure 資訊安全中心的資料收集](../../security-center/security-center-enable-data-collection.md)的工作區設定的詳細資訊。 |
-| Azure Sentinel | [Azure 的 Sentinel](/azure/sentinel/)將從資料來源的資料儲存到 Log Analytics 工作區。 請參閱 [](/sentinel/connect-data-sources.md)  |
+| Azure Sentinel | [Azure 的 Sentinel](/azure/sentinel/)將從資料來源的資料儲存到 Log Analytics 工作區。 請參閱[將資料來源連接](/azure/sentinel/connect-data-sources)。  |
 
 
 ## <a name="next-steps"></a>後續步驟

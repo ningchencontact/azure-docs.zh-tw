@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 5c4ad5c200bd2e49f3c472d82ad030c6a8f2478d
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 6f3177c37a2db03b8821e3e4f5b68c8b1315a016
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918258"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358247"
 ---
 # <a name="sizes-for-cloud-services"></a>雲端服務的大小
 本主題描述雲端服務角色執行個體 (Web 角色和背景工作角色)的可用大小和選項。 同時也提供計劃使用這些資源時，需注意的部署考量。 每種大小都有一個識別碼，可讓您放入[服務定義檔](cloud-services-model-and-package.md#csdef)。 每種大小的價格可以在[雲端服務價格](https://azure.microsoft.com/pricing/details/cloud-services/)頁面上取得。
@@ -205,7 +205,7 @@ Azure H 系列虚拟机是下一代高性能计算 VM，旨在满足高端计算
 
 ## <a name="changing-the-size-of-an-existing-role"></a>變更現有角色的大小
 
-因為您的工作負載的本質變更或新的 VM 大小變得可用，您可能想要變更您的角色大小。 若要這樣做，您必須變更您的服務定義檔中的 VM 大小 (如上所示)、重新封裝您的雲端服務，然後部署。 您不可以直接從入口網站或 PowerShell 變更 VM 大小。
+因為您的工作負載的本質變更或新的 VM 大小變得可用，您可能想要變更您的角色大小。 若要這樣做，您必須變更您的服務定義檔中的 VM 大小 (如上所示)、重新封裝您的雲端服務，然後部署。
 
 >[!TIP]
 > 您可能想要在不同環境中對您的角色使用不同 VM 大小 (例如， 測試與生產環境)。 其中一種方式是在專案中建立多個服務定義 (.csdef) 檔案，然後在使用 CSPack 工具自動化建置期間於每個環境建立不同的雲端服務套件。 若要深入了解雲端服務套件的元素，以及如何建立這些元素，請參閱[什麼是雲端服務模型，以及如何封裝？](cloud-services-model-and-package.md)

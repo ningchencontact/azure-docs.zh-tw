@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 24391e9e8541f12c434ade837b8f4944711ae375
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: deb5595ac6a8b0d189e5594fda8e4b60480d038c
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58887187"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357400"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>將環境整合到您的 Azure DevOps 的 CI/CD 管線
 您可以使用 Azure DevTest Labs 工作擴充功能安裝於 Azure DevOps 服務 （前身為 Visual Studio Team Services） 中輕鬆整合您的持續整合 (CI) / 持續傳遞 (CD) 建置和發行管線與 Azure研發/測試實驗室。 這些擴充功能進行快速部署的工作變得更容易[環境](devtest-lab-test-env.md)特定測試工作，並在測試完成後加以刪除。 
@@ -56,7 +56,7 @@ ms.locfileid: "58887187"
 
 1. 在發行定義中，選取 [新增工作]。
 2. 在 **任務**索引標籤上，加入 Azure DevTest Labs 建立環境的工作。 請依照下列方式設定工作：
-    1. 針對 [Azure RM 訂用帳戶]，選取 [可用的 Azure 服務連線] 清單中的連線，或對您的 Azure 訂用帳戶建立權限更具限制性的連線。 如需詳細資訊，請參閱 [Azure Resource Manager 服務端點](/devops/pipelines/library/service-endpoints)。
+    1. 針對 [Azure RM 訂用帳戶]，選取 [可用的 Azure 服務連線] 清單中的連線，或對您的 Azure 訂用帳戶建立權限更具限制性的連線。 如需詳細資訊，請參閱 [Azure Resource Manager 服務端點](/azure/devops/pipelines/library/service-endpoints)。
 2. 針對**實驗室名稱**，選取您稍早建立的執行個體的名稱 *。
 3. 針對**存放庫名稱**，選取 Resource Manager 範本 (201) 已推送至存放庫 *。
 4. 針對**範本名稱**，選取 儲存到您來源的程式碼存放庫 * 環境的名稱。 
@@ -71,7 +71,7 @@ ms.locfileid: "58887187"
 在發行定義中，選取**將工作加入**，然後在**部署**索引標籤上，新增**Azure DevTest Labs 刪除環境**工作。 進行下列設定：
 
 1. 若要刪除 VM，請參閱[Azure DevTest Labs 工作](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks):
-    1. 針對 [Azure RM 訂用帳戶]，選取 [可用的 Azure 服務連線] 清單中的連線，或對您的 Azure 訂用帳戶建立權限更具限制性的連線。 如需詳細資訊，請參閱 [Azure Resource Manager 服務端點](/devops/pipelines/library/service-endpoints)。
+    1. 針對 [Azure RM 訂用帳戶]，選取 [可用的 Azure 服務連線] 清單中的連線，或對您的 Azure 訂用帳戶建立權限更具限制性的連線。 如需詳細資訊，請參閱 [Azure Resource Manager 服務端點](/azure/devops/pipelines/library/service-endpoints)。
     2. 針對**實驗室名稱**，選取的實驗室所在的環境。
     3. 針對**環境名稱**，輸入要移除環境的名稱。
 2. 輸入發行定義的名稱，並加以儲存。
@@ -80,5 +80,5 @@ ms.locfileid: "58887187"
 請參閱下列文章： 
 - [使用 Resource Manager 範本建立多個 VM 環境](devtest-lab-create-environment-from-arm.md)。
 - 從 DevTest Labs 自動化的快速入門 Resource Manager 範本[DevTest Labs GitHub 存放庫](https://github.com/Azure/azure-quickstart-templates)。
-- [VSTS 疑難排解頁面](/devops/pipelines/troubleshooting)
+- [VSTS 疑難排解頁面](/azure/devops/pipelines/troubleshooting)
 

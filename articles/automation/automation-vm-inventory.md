@@ -99,7 +99,7 @@ ms.locfileid: "57441384"
 
 ![在清查頁面上檢視電腦群組](./media/automation-vm-inventory/inventory-machine-groups.png)
 
-從清單中選取電腦群組，就會開啟 [電腦群組] 頁面。 此頁面會顯示電腦群組的相關詳細資料。 這些詳細資料包括用來定義群組的 Log Analytics 查詢。 頁面底部是屬於該群組的電腦分頁清單。
+從清單中選取電腦群組，就會開啟 [電腦群組] 頁面。 此頁面會顯示電腦群組的相關詳細資料。 這些詳細資料包括用來定義群組的記錄分析查詢。 頁面底部是屬於該群組的電腦分頁清單。
 
 ![檢視電腦群組頁面](./media/automation-vm-inventory/machine-group-page.png)
 

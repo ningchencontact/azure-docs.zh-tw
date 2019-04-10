@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: sstein
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 04a99be40f1a89d834c560bddf3f49c2a73f34b8
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: ec9bd3ee106571484c513c2d005a374a90c1d17e
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650252"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359735"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>預付具有 Azure SQL Database 保留容量的 SQL Database 計算資源
 
@@ -85,11 +85,11 @@ vCore 大小彈性可協助您在效能層級和區域內相應增加或相應�
 若要深入了解 Azure 保留項目，請參閱下列文章：
 
 - [什麼是 Azure 保留項目？](../billing/billing-save-compute-costs-reservations.md)
-- [管理 Azure 保留項目](../billing/billing-manage-reserved-vm-instance.md)
-- [了解 Azure 保留折扣](../billing/billing-understand-reservation-charges.md)
-- [了解隨用隨付方案訂用帳戶的保留項目使用量](../billing/billing-understand-reserved-instance-usage.md)
-- [了解 Enterprise 註冊的保留項目使用量](../billing/billing-understand-reserved-instance-usage-ea.md)
-- [合作夥伴中心雲端解決方案提供者 (CSP) 計畫中的 Azure 保留項目](https://docs.microsoft.com/partner-center/azure-reservations)
+- [管理 Azure 保留的項目](../billing/billing-manage-reserved-vm-instance.md)
+- [了解 Azure 保留的折扣](../billing/billing-understand-reservation-charges.md)
+- [了解您的隨用隨付訂用帳戶的保留使用情況](../billing/billing-understand-reserved-instance-usage.md)
+- [了解 Enterprise 註冊之保留項目使用方式](../billing/billing-understand-reserved-instance-usage-ea.md)
+- [合作夥伴中心雲端解決方案提供者 (CSP) 計畫中的 azure 保留項目](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡
 

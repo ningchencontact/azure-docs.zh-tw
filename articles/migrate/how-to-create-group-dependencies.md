@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 71f792dd1238b11810abfb6a97ac9e051da2ec45
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 3ee528cc68a2a5637e85dc1d5ef68203916138e7
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59274620"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357185"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>使用群組相依性對應調整群組
 
@@ -127,14 +127,14 @@ Azure Migrate 會利用 Azure 監視器記錄檔，以啟用機器的相依性�
 1. 安裝代理程式之後，請移至入口網站，然後按一下 [概觀]。
 2. 在 [概觀] 中，移至專案的 [Essentials] 區域，然後按一下 [OMS 工作區] 旁提供的工作區名稱。
 3. 在 Log Analytics 工作區頁面上，按一下 [一般] > [記錄]。
-4. 撰寫查詢，以蒐集使用 Azure 監視器記錄檔的相依性資料。 [此處](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches)提供收集相依性資料的範例查詢。
+4. 撰寫查詢，以蒐集使用 Azure 監視器記錄檔的相依性資料。 在下一節中找到查詢範例。
 5. 按一下 [執行] 以執行查詢。 
 
 [了解更多](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)關於如何撰寫 Kusto 查詢。 
 
 ## <a name="sample-azure-monitor-logs-queries"></a>範例 Azure 監視器的記錄查詢
 
-以下是可用來擷取相依性資料的範例查詢。 您可以修改查詢以擷取您慣用的資料點。 相依性資料記錄中的欄位的完整清單位於[這裡](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)
+以下是可用來擷取相依性資料的範例查詢。 您可以修改查詢以擷取您慣用的資料點。 相依性資料記錄中的欄位的完整清單可[此處](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)。 尋找更多的範例查詢[此處](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches)。
 
 ### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>彙總一組機器上的輸入的連線
 

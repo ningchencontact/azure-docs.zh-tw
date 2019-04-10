@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 1/14/2019
 ms.author: alkarche
-ms.openlocfilehash: 8bbc44e7af68f005f30fff143741bc4bfe0adcf2
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 10d7daa6da45c56e20c622fcbca9ee288e737dab
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896336"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358140"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 的網路功能選項
 
@@ -43,7 +43,8 @@ ms.locfileid: "58896336"
 
 IP 限制可讓您針對允許存取應用程式的 IP 位址，定義有先後順序的允許/拒絕清單。 允許清單可以包含 IPv4 和 IPv6 位址。 有一個或多個項目時，清單結尾會有隱含的「拒絕全部」語句。 IP 限制功能適用於裝載選項的所有函式。
 
-> ![重要]若要能夠使用 Azure 入口網站的編輯器，在入口網站必須要能夠直接存取您執行的函式應用程式，和您用來存取入口網站的裝置必須有其 IP 允許清單。 在位置的網路限制，您仍然可以存取任何功能**平台功能** 索引標籤。
+> [!NOTE]
+> 若要能夠使用 Azure 入口網站的編輯器，在入口網站必須要能夠直接存取您執行的函式應用程式，和您用來存取入口網站的裝置必須有其 IP 允許清單。 在位置的網路限制，您仍然可以存取任何功能**平台功能** 索引標籤。
 
 [進一步了解](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)
 

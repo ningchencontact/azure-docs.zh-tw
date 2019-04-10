@@ -53,7 +53,7 @@ ms.locfileid: "56816928"
 1. 在左側功能表上，選取 [虛擬機器]，然後從清單中選取 VM
 1. 在左側功能表的 [作業] 區段下，按一下 [清查]。 [變更追蹤] 頁面隨即開啟。
 
-![啟用變更](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) [變更追蹤] 畫面隨即開啟。 設定位置、記錄分析工作區以及要使用的自動化帳戶，然後按一下 [啟用]。 如果欄位呈現灰色，就表示已啟用 VM 的另一個自動化解決方案，且必須使用相同的工作區和自動化帳戶。
+![啟用變更](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) [變更追蹤] 畫面隨即開啟。 設定位置、Log Analytics 工作區以及要使用的自動化帳戶，然後按一下 [啟用]。 如果欄位呈現灰色，就表示已啟用 VM 的另一個自動化解決方案，且必須使用相同的工作區和自動化帳戶。
 
 [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) 工作區用來收集功能和服務 (例如清查) 所產生的資料。
 工作區提供單一位置來檢閱和分析來自多個來源的資料。

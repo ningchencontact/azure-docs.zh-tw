@@ -1,7 +1,6 @@
 ---
 title: 原則定義結構的詳細資料
 description: 說明「Azure 原則」如何使用資源原則定義，藉由描述強制執行原則的時機及所產生的效果，為您組織中的資源建立慣例。
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/13/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 35cb5c286b9c9657c37dcede7f51082b5c48ef99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: f554be0803041b12dc49a576e8eb737732ec2a80
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894422"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283098"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -75,12 +74,12 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 
 **Mode** 決定原則要評估哪些資源類型。 支援的模式如下：
 
-- `all`：評估資源群組和所有資源類型
-- `indexed`：只評估支援標記和位置的資源類型
+- `all`： 評估資源群組和所有資源類型
+- `indexed`： 只評估支援標記和位置的資源類型
 
 我們建議您在大部分的情況下都將 **mode** 設定為 `all`。 透過入口網站使用 `all` 模式建立的所有原則定義。 如果您是使用 PowerShell 或 Azure CLI，則可手動指定 **mode** 參數。 如果原則定義未包含 **mode** 值，則在 Azure PowerShell 中會預設為 `all`，而在 Azure CLI 中會預設為 `null`。 `null` 模式與使用 `indexed` 來支援回溯相容性相同。
 
-建立會強制執行標籤或位置的原則時，應該使用 `indexed`。 雖然並非必要，但它可防止不支援標籤和位置的資源在合規性結果中顯示為不符合規範。 有一個例外，就是**資源群組**。 原則如果會在資源群組上強制執行位置或標籤，就應該將 **mode** 設定為 `all`，並明確地以 `Microsoft.Resources/subscriptions/resourceGroups` 類型作為目標。 如需範例，請參閱[強制執行資源群組標籤](../samples/enforce-tag-rg.md)。 如需支援標記的資源，請參閱[標記適用於 Azure 資源的支援](../../../azure-resource-manager/tag-support.md)。
+`indexed` 建立原則，強制執行標籤或位置時，應使用。 雖然並非必要，但它可防止不支援標籤和位置的資源在合規性結果中顯示為不符合規範。 有一個例外，就是**資源群組**。 原則如果會在資源群組上強制執行位置或標籤，就應該將 **mode** 設定為 `all`，並明確地以 `Microsoft.Resources/subscriptions/resourceGroups` 類型作為目標。 如需範例，請參閱[強制執行資源群組標籤](../samples/enforce-tag-rg.md)。 如需支持标记的资源的列表，请参阅 [Azure 资源的标记支持](../../../azure-resource-manager/tag-support.md)。
 
 ## <a name="parameters"></a>參數
 
@@ -95,13 +94,13 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 參數有下列在原則定義中使用的屬性：
 
 - **名稱**：參數的名稱。 由原則規則中的 `parameters` 部署函式使用。 如需詳細資訊，請參閱[使用參數值](#using-a-parameter-value)。
-- `type`:判斷參數是**字串**或**陣列**。
-- `metadata`:定義主要由 Azure 入口網站使用的子屬性，以顯示使用者易讀的資訊：
-  - `description`:參數用途的說明。 能用來提供可接受值的範例。
-  - `displayName`:參數在入口網站中顯示的易記名稱。
-  - `strongType`:(選擇性) 透過入口網站指派原則定義時會使用。 提供內容感知清單。 如需詳細資訊，請參閱 [strongType](#strongtype)。
-- `defaultValue`:(選擇性) 如果沒有提供值，就在指派中設定參數的值。 更新已指派的現有原則定義時需要。
-- `allowedValues`:（選擇性）提供在指派期間會接受參數的值陣列。
+- `type`：判斷參數是**字串**或**陣列。
+- `metadata`：定義主要由 Azure 入口網站使用的子屬性，以顯示使用者易讀的資訊：
+  - `description`：參數用途的說明。 能用來提供可接受值的範例。
+  - `displayName`：參數在入口網站中顯示的易記名稱。
+  - `strongType`：(選擇性) 透過入口網站指派原則定義時會使用。 提供內容感知清單。 如需詳細資訊，請參閱 [strongType](#strongtype)。
+- `defaultValue`：(選擇性) 如果沒有提供值，就在指派中設定參數的值。 更新已指派的現有原則定義時需要。
+- `allowedValues`：（選擇性）提供在指派期間會接受參數的值陣列。
 
 舉例來說，您可以定義一個原則定義來限制可部署資源的位置。 該原則定義的參數可為 **allowedLocations**。 原則定義的每個指派都會使用此參數來限制接受的值。 透過入口網站完成指派時，**strongType** 提供增強的體驗：
 
@@ -259,7 +258,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 - 屬性別名 - 如需清單，請參閱[別名](#aliases)。
 
 > [!NOTE]
-> `tags.<tagName>`、`tags[tagName]` 和 `tags[tag.with.dots]` 都仍是可接受的宣告標籤欄位方式。
+> `tags.<tagName>``tags[tagName]`，和`tags[tag.with.dots]`是否仍在可接受方法宣告的標籤欄位。
 > 不過，建議的運算式為上面所列的運算式。
 
 #### <a name="use-tags-with-parameters"></a>搭配參數使用標籤
@@ -290,7 +289,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 **value** 已和任何支援的 [condition](#conditions) 配對。
 
 > [!WARNING]
-> 如果結果_範本函式_發生錯誤，原則評估失敗。 失敗的評估會隱含**拒絕**。 如需詳細資訊，請參閱 <<c0> [ 避免範本失敗](#avoiding-template-failures)。
+> 如果模板函数的结果是错误，策略评估将会失败。 失败的评估是一种隐式**拒绝**。 有关详细信息，请参阅[避免模板错误](#avoiding-template-failures)。
 
 #### <a name="value-examples"></a>Value 範例
 
@@ -332,9 +331,9 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 }
 ```
 
-#### <a name="avoiding-template-failures"></a>避免範本失敗
+#### <a name="avoiding-template-failures"></a>避免模板错误
 
-使用_範本函式_中**值**可讓許多複雜的巢狀函式。 如果結果_範本函式_發生錯誤，原則評估失敗。 失敗的評估會隱含**拒絕**。 舉例**值**在某些情況下失敗：
+在 **value** 中使用模板函数可以指定许多复杂的嵌套函数。 如果模板函数的结果是错误，策略评估将会失败。 失败的评估是一种隐式**拒绝**。 在特定情况下失败的 **value** 示例：
 
 ```json
 {
@@ -350,9 +349,9 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 }
 ```
 
-使用上面的範例原則規則[substring （)](../../../azure-resource-manager/resource-group-template-functions-string.md#substring)要比較的前三個字元**名稱**來**abc**。 如果**名稱**短於三個字元，`substring()`函式會導致錯誤。 此錯誤會引起的原則才能**拒絕**效果。
+上面的示例策略规则使用 [substring()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) 将 **name** 的前三个字符与 **abc** 进行比较。 如果 **name** 短于三个字符，`substring()` 函数会导致出错。 此错误导致策略成为一种 **deny**（拒绝）效果。
 
-請改用[if()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if)函式，若要檢查的前三個字元**名稱**相等**abc**不允許**名稱**短於造成錯誤的三個字元：
+改用 [if()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if) 函数来检查 **name** 的前三个字符是否等于 **abc**，同时避免短于三个字符的 **name** 导致出错：
 
 ```json
 {
@@ -368,7 +367,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 }
 ```
 
-使用修改過的原則規則中，`if()`會檢查長度**名稱**之前嘗試取得`substring()`有少於三個字元的值。 如果**名稱**太短，改為傳回 「 未啟動與 abc"的值而且相較於**abc**。 資源不是以開頭的簡稱**abc**仍然失敗原則規則中，但不會再評估期間造成錯誤。
+`if()` 使用修改后的策略规则检查 **name** 的长度，然后尝试在短于三个字符的值中获取 `substring()`。 如果 **name** 过短，则会返回“not starting with abc”，而不是与 **abc** 进行比较。 短名称不是以 **abc** 开头的资源仍不符合策略规则，但不再在评估期间导致出错。
 
 ### <a name="effect"></a>效果
 
@@ -421,7 +420,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 - resourceId()
 - variables()
 
-此外，`field` 函式可用於原則規則。 `field` 主要是與 **AuditIfNotExists** 和 **DeployIfNotExists** 搭配使用，以參考所評估資源上的欄位。 如需此用法的範例，請參閱 [DeployIfNotExists 範例](effects.md#deployifnotexists-example)。
+此外，`field` 函式可用於原則規則。 `field` 主要搭配**AuditIfNotExists**並**DeployIfNotExists**資源上的參考欄位進行評估。 如需此用法的範例，請參閱 [DeployIfNotExists 範例](effects.md#deployifnotexists-example)。
 
 #### <a name="policy-function-example"></a>原則函式範例
 
@@ -484,7 +483,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
-'Normal' 別名代表的欄位做為單一值。 此欄位時完全相符項目比較案例的整組值必須完全依照定義，不多也不少。 使用**ipRules**，範例會驗證一組精確的規則存在包含規則的數目和每個規則的結構。 此範例規則會檢查兩者完全**192.168.1.1**並**10.0.4.1**具有_動作_的**允許**中**ipRules**套用**effectType**:
+“normal”别名表示单一值字段。 如果整个值集必须确切定义（不能多定义，也不能少定义），则此字段将用于完全匹配比较方案。 使用 **ipRules** 时，某个示例将会验证是否存在确切的规则集，包括规则数目和每个规则的构成。 此示例规则检查 **ipRules** 中 _action_ 为 **Allow** 的 **192.168.1.1** 和 **10.0.4.1** 是否应用 **effectType**：
 
 ```json
 "policyRule": {
@@ -515,7 +514,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 }
 ```
 
-**[\*]** 別名可讓您針對陣列中每個元素的值，而且每個元素的特定屬性進行比較。 這種方法可讓您比較項目屬性的 'if none 的'、 '如果有的話的' 或 '如果要將所有的' 案例。 使用**ipRules [\*]**，範例就驗證每個_動作_是_拒絕_，但不是擔心多少規則存在，或什麼 IP _值_是。 此範例規則會檢查是否有任何符合的**ipRules [\*].value**來**10.0.4.1** ，並套用**effectType**才找不到至少一個相符項目：
+使用 **[\*]** 别名可以比较数组中的每个元素值以及每个元素的特定属性。 使用这种方法可以比较“if none of”、“if any of”或“if all of”方案的元素属性。 使用 **ipRules [\*]** 时，某个示例将会验证每个 _action_ 是否为 _Deny_，但不考虑存在多少个规则，或 IP 的 _value_ 是什么。 此示例规则检查 **10.0.4.1** 的所有 **ipRules [\*].value** 匹配项，仅当至少未找到一个匹配项时，才应用 **effectType**：
 
 ```json
 "policyRule": {
@@ -537,7 +536,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 }
 ```
 
-如需詳細資訊，請參閱 <<c0> [ 評估 [\*] 別名](../how-to/author-policies-for-arrays.md#evaluating-the--alias)。
+有关详细信息，请参阅[评估 [\*] 别名](../how-to/author-policies-for-arrays.md#evaluating-the--alias)。
 
 ## <a name="initiatives"></a>計畫
 

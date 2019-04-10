@@ -49,7 +49,7 @@ Log Analytics 是 Microsoft 的雲端型 IT 管理解決方案，可協助您管
 
    ![](media/container-service-monitoring-oms/image4.png)
 
-3. 這裡將要求您輸入 `wsid` (Log Analytics 工作區識別碼) 和 `wskey` (工作區識別碼的主索引鍵)。 若要取得 `wsid` 和 `wskey`，您需要在 <https://mms.microsoft.com> 建立帳戶。
+3. 這裡將要求您輸入 `wsid`(Log Analytics 工作區識別碼) 和`wskey` (工作區識別碼的主索引鍵)。 若要取得 `wsid` 和 `wskey`，您需要在 <https://mms.microsoft.com> 建立帳戶。
    請遵循步驟來建立帳戶。 建立帳戶之後，您必須依序按一下 [Settings]\(設定)、[Connected Sources]\(連接的來源)、[Linux Servers]\(Linux 伺服器)，以取得您的 `wsid` 和 `wskey`，如下所示。
 
    ![](media/container-service-monitoring-oms/image5.png)

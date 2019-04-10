@@ -60,7 +60,7 @@ ms.locfileid: "57192457"
 
 如果您已開啟 Azure 監視器記錄您在建立邏輯應用程式時，略過此步驟。 您已安裝 Logic Apps 管理解決方案。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [所有服務]。 在搜尋方塊中，尋找「log analytics」，然後選取 [Log Analytics]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [所有服務]。 在搜尋方塊中，尋找「記錄分析」，然後選取 [Log Analytics]。
 
    ![選取 [Log Analytics]](./media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
 

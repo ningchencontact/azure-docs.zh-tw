@@ -10,7 +10,7 @@ ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 194fba3296359f5f7d29a37425a938fe08f1332b
 ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/20/2019
 ms.locfileid: "56452877"
@@ -152,7 +152,7 @@ Azure 警示會建立記錄搜尋規則，以自動定期執行指定的記錄�
 
 若要使用[舊版 Log Analytics API](api-alerts.md) 來移除為警示規則計費建立的隱藏 scheduleQueryRules 資源，使用者可以執行下列任一項：
 
-- 使用者可以在 [Log Analytics 工作區上切換警示規則的 API 喜好設定](../../azure-monitor/platform/alerts-log-api-switch.md)，並且不會遺失警示規則或監控移至 Azure Resource Manager 規範 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)。 因此可排除為計費建立虛擬隱藏警示規則的需求。
+- 使用者可以在 [Log Analytics 工作區上切換警示規則的 API 喜好設定](../../azure-monitor/platform/alerts-log-api-switch.md)，並且不會遺失警示規則或監視移至 Azure Resource Manager 規範 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)。 因此可排除為計費建立虛擬隱藏警示規則的需求。
 - 或者，如果使用者不想切換 API 喜好設定，使用者則必須使用[舊版 Log Analytics API](api-alerts.md) 來**刪除**原始排程和警示動作，或在 [Azure 入口網站刪除原始警示動作](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal)。
 
 ## <a name="next-steps"></a>後續步驟

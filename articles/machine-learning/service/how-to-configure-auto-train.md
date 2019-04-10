@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: fd937aba302004f23904e4f743c93e69460f9026
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 5aa9a60c624e1bfaa1570d02bfd1a421fcab3301
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541140"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358302"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>設定自動化機器學習實驗
 
@@ -26,7 +26,7 @@ ms.locfileid: "58541140"
 
 自動化機器學習服務中的可用設定選項：
 
-* 選取您的實驗類型：分類、迴歸或預測
+* 選取您的實驗類型：分類、 迴歸或時間序列預測
 * 資料來源、格式和擷取資料
 * 選擇您的計算目標：本機或遠端
 * 自動化機器學習實驗設定
@@ -39,17 +39,17 @@ ms.locfileid: "58541140"
 
 在自動化和調整程序期間，自動化機器學習支援下列演算法。 身為使用者，您不需要指定演算法。 在定型期間，DNN 演算法可供使用，而自動化的 ML 就不會建置 DNN 模型。
 
-分類 | 迴歸 | 預測
+分類 | 迴歸 | 時間序列預測
 |-- |-- |--
-[羅吉斯迴歸](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [彈性網路](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [彈性網路](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
+[羅吉斯迴歸](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [彈性 Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [彈性 Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
 [Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
 [漸層停駐提升](https://scikit-learn.org/stable/modules/ensemble.html#classification)|[漸層停駐提升](https://scikit-learn.org/stable/modules/ensemble.html#regression)|[漸層停駐提升](https://scikit-learn.org/stable/modules/ensemble.html#regression)
 [決策樹](https://scikit-learn.org/stable/modules/tree.html#decision-trees)|[決策樹](https://scikit-learn.org/stable/modules/tree.html#regression)|[決策樹](https://scikit-learn.org/stable/modules/tree.html#regression)
-[K 最近鄰演算法](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K 最近鄰演算法](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K 最近鄰演算法](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
-[線性 SVC](https://scikit-learn.org/stable/modules/svm.html#classification)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[LARS Lasso](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
+[K 最近鄰近項目](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K 最近鄰近項目](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K 最近鄰近項目](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
+[線性 SVC](https://scikit-learn.org/stable/modules/svm.html#classification)|[LARS 套索](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[LARS 套索](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
 [C 支援向量分類 (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)|[隨機梯度下降 (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)|[隨機梯度下降 (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
 [隨機樹系](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[隨機樹系](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[隨機樹系](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
-[極度隨機樹狀結構](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[極度隨機樹狀結構](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[極度隨機樹狀結構](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
+[極隨機的樹狀結構](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[極隨機的樹狀結構](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[極隨機的樹狀結構](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)|[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)| [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
 [DNN 分類](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier)|[DNN 迴歸輸入變數](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [DNN 迴歸輸入變數](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
 [DNN 線性分類器](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[線性迴歸輸入變數](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)|[線性迴歸輸入變數](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
@@ -84,7 +84,7 @@ ms.locfileid: "58541140"
 
 ## <a name="fetch-data-for-running-experiment-on-remote-compute"></a>擷取用來對遠端計算執行實驗的資料
 
-如果您使用遠端計算來執行實驗，則必須將資料擷取包覆在個別的 python 指令碼 `get_data()` 中。 此指令碼會在自動化機器學習實驗執行所在的遠端計算上執行。 若使用 `get_data`，您即無須在每次反覆運算時透過連線擷取資料。 若未使用 `get_data`，您在遠端計算上執行的實驗將會失敗。
+如果您使用遠端計算來執行實驗，則必須將資料擷取包覆在個別的 python 指令碼 `get_data()` 中。 此指令碼會在自動化機器學習實驗執行所在的遠端計算上執行。 `get_data` 不需要針對每個反覆項目在網路上擷取資料。 若未使用 `get_data`，您在遠端計算上執行的實驗將會失敗。
 
 以下是 `get_data` 的範例：
 
@@ -110,9 +110,9 @@ def get_data(): # Burning man 2016 data
 automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", **** )
 ```
 
-`get_data` 指令碼可傳回：
+`get_data` 指令碼可以傳回：
 
-Key | 類型 |    互斥項目 | 描述
+Key | 類型 | 互斥項目    | 描述
 ---|---|---|---
 X | Pandas 資料框架或 Numpy 陣列 | data_train、標籤、資料行 |  所有要用於訓練的特徵
 y | Pandas 資料框架或 Numpy 陣列 |   標籤   | 要用於訓練的標籤資料。 就分類而言，應為整數的陣列。
@@ -191,6 +191,7 @@ y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelec
         primary_metric='AUC_weighted',
         max_time_sec=12000,
         iterations=50,
+        blacklist_models='XGBoostClassifier',
         X=X,
         y=y,
         n_cross_validations=2)
@@ -202,55 +203,25 @@ y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelec
         task='regression',
         max_time_sec=600,
         iterations=100,
+        whitelist_models='kNN regressor'
         primary_metric='r2_score',
         X=X,
         y=y,
         n_cross_validations=5)
     ```
 
-有三個不同的 `task` 參數值，可決定要套用的演算法清單。  使用 `whitelist` 或 `blacklist` 參數，以進一步修改可用的演算法來包含或排除反覆項目。
-* 分類
-    * LogisticRegression
-    * SGD
-    * MultinomialNaiveBayes
-    * BernoulliNaiveBayes
-    * SVM
-    * LinearSVM
-    * KNN
-    * DecisionTree
-    * RandomForest
-    * ExtremeRandomTrees
-    * LightGBM
-    * GradientBoosting
-    * TensorFlowDNN
-    * TensorFlowLinearClassifier
-    * XGBoostClassifier
-* 迴歸
-    * ElasticNet
-    * GradientBoosting
-    * DecisionTree
-    * KNN
-    * LassoLars
-    * SGD 
-    * RandomForest
-    * ExtremeRandomTree
-    * LightGBM
-    * TensorFlowLinearRegressor
-    * TensorFlowDNN
-    * XGBoostRegressor
-* 預測
-    * ElasticNet
-    * GradientBoosting
-    * DecisionTree
-    * KNN
-    * LassoLars
-    * SGD 
-    * RandomForest
-    * ExtremeRandomTree
-    * LightGBM
-    * TensorFlowLinearRegressor
-    * TensorFlowDNN
-    * XGBoostRegressor
+三個不同`task`參數值會決定要套用的演算法的清單。  使用 `whitelist` 或 `blacklist` 參數，以進一步修改可用的演算法來包含或排除反覆項目。 支援模型的清單可於[SupportedAlgorithms 類別](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedalgorithms?view=azure-ml-py)
+
+## <a name="primary-metric"></a>主要計量
+主要的計量;如所示，在上述範例中會決定要用於模型定型期間，進行最佳化的計量。 您可以選取主要度量取決於您所選擇的工作類型。 以下是可用計量清單。
+
+|分類 | 迴歸 | 時間序列預測
+|-- |-- |--
+|精確度| spearman_correlation | spearman_correlation
+|AUC_weighted | normalized_root_mean_squared_error | normalized_root_mean_squared_error
+|average_precision_score_weighted | r2_score | r2_score
+|norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
+|precision_score_weighted |
 
 ## <a name="data-pre-processing-and-featurization"></a>資料預先處理與特徵化
 
@@ -269,7 +240,7 @@ y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelec
 
 ## <a name="time-series-forecasting"></a>時間序列預測
 時間序列預測的工作類型，您會有額外的參數定義。
-1. time_horizon_name-這是必要的參數定義的定型資料包含日期/時間序列的資料行的名稱。 
+1. time_column_name-這是必要的參數定義的定型資料包含日期/時間序列的資料行的名稱。 
 1. max_horizon-這會定義您想要預測出根據定型資料的週期性的時間長度。 比方說如果您有與每日的時間粒紋的定型資料，則您幅度縮小定義天後您想要定型的模型中。
 1. grain_column_names-這會定義包含定型資料中的個別的時間序列資料的資料行的名稱。 比方說，如果您預測的存放區的特定品牌的銷售，您會將存放區和品牌的資料行定義為您的資料粒度資料行。
 
@@ -324,7 +295,6 @@ run = experiment.submit(automl_config, show_output=True)
 1. 一段時間-在您設定，您可以定義以分鐘為單位的時間長度應該繼續執行中的實驗中使用的 experiment_timeout_minutes 後結束。
 1. 分數已達到-使用您可以選擇在達到您主要的計量為基礎的分數之後完成 experiement experiment_exit_score 後，就會結束。
 
-
 ## <a name="explore-model-metrics"></a>探索模型計量
 如果您使用 Notebook，您可以在小工具中或以內嵌方式檢視結果。 請參閱[追蹤和評估模型](how-to-track-experiments.md#view-run-details)以取得更多詳細資料。
 
@@ -355,7 +325,7 @@ recall_score_micro|Recall 是真正在已正確標示的特定類別中的元素
 recall_score_weighted|Recall 是真正在已正確標示的特定類別中的元素百分比。 Weighted 是每個類別的召回率，以每個類別中 true 執行個體數目為權重加權的算術平均值|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="weighted"|
 weighted_accuracy|Weighted accuracy 是給予每個範例的權重等於範例其 true 類別中 true 執行個體比例時的精確度|[計算](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight 是一種向量，等於目標中每個元素為該類別的比例|
 
-### <a name="regression-and-forecasting-metrics"></a>迴歸和預測計量
+### <a name="regression-and-time-series-forecasting-metrics"></a>迴歸 」 和 「 時間序列預測的計量
 下列計量儲存在迴歸或預測工作的每個反覆項目中。
 
 |計量|描述|計算|額外的參數

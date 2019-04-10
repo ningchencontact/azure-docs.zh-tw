@@ -1,24 +1,22 @@
 ---
 title: 從 HDFS 相容的 Azure 儲存體查詢資料 - Azure HDInsight
 description: 了解如何從 Azure 儲存體和 Azure Data Lake Storage 查詢資料以儲存分析的結果。
-services: hdinsight,storage
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 01/28/2019
-ms.openlocfilehash: d88a05b03813eb0ec94a84f60bffb903e1344987
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.date: 04/08/2019
+ms.openlocfilehash: 3356d3eee00a640efe10e2d9f3aa4fa7be775995
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361909"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360790"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>搭配 Azure HDInsight 叢集使用 Azure 儲存體
 
-若要分析 HDInsight 叢集中的資料，您可以將資料儲存在 [Azure 儲存體](../storage/common/storage-introduction.md)、[Azure Data Lake Storage Gen 1](../data-lake-store/data-lake-store-overview.md)/[Azure Data Lake Storage Gen 2](../storage/blobs/data-lake-storage-introduction.md) 或同時儲存在兩者中。 這兩種儲存體選項都可讓您安全地刪除用於計算的 HDInsight 叢集，而不會遺失使用者資料。
+若要分析 HDInsight 叢集中的資料，您可以儲存的資料可以是在[Azure 儲存體](../storage/common/storage-introduction.md)， [Azure Data Lake 儲存體 Gen 1](../data-lake-store/data-lake-store-overview.md)/[Azure Data Lake 儲存體 Gen 2](../storage/blobs/data-lake-storage-introduction.md)，或組合。 這些儲存體選項可讓您安全地刪除 HDInsight 叢集所使用的計算，而不會遺失使用者資料。
 
 Apache Hadoop 支援預設檔案系統的概念。 預設檔案系統意指預設配置和授權。 也可用來解析相對路徑。 進行 HDInsight 叢集建立程序時，您可以指定 Azure Blob 儲存體中的 Blob 容器作為預設檔案系統，或在使用 HDInsight 3.6 時，選取 Azure 儲存體或 Azure Data Lake Storage Gen 1/ Azure Data Lake Storage Gen 2 作為預設檔案系統 (有一些例外狀況)。 如需了解使用 Data Lake Storage Gen 1 作為預設及連結儲存體的支援能力，請參閱 [HDInsight 叢集的可用性](./hdinsight-hadoop-use-data-lake-store.md#availability-for-hdinsight-clusters)。
 
@@ -41,6 +39,8 @@ Azure 儲存體是強大的一般用途儲存體解決方案，其完美整合�
  
  > [!NOTE]  
  > 「封存」存取層是一個有數小時擷取延遲的離線層，不建議與 HDInsight 搭配使用。 如需詳細資訊，請參閱<a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#archive-access-tier">封存存取層</a>。
+
+如果您選擇要保護使用儲存體帳戶**防火牆和虛擬網路**限制**選取的網路**，請務必啟用例外狀況**允許信任的 Microsoft服務...** ，讓 HDInsight 可以存取您的儲存體帳戶。
 
 ## <a name="hdinsight-storage-architecture"></a>HDInsight 儲存架構
 下圖提供使用 Azure 儲存體之 HDInsight 儲存架構的摘要檢視：

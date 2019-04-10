@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 27c1481314ba1dd77cdcf229842aeec7de3e4444
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b3e997a37bb5d030d559b6771b2c0e2f74cc62ab
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117450"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277678"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>將已啟用 Azure 磁碟加密 (ADE) 的虛擬機器複寫到另一個 Azure 區域
 
@@ -148,7 +148,7 @@ Azure Site Recovery 要求使用者有權限在目標區域建立金鑰保存庫
 如果您要在目標區域中選取已建立的金鑰保存庫，而非讓 Azure Site Recovery 建立。 請確保金鑰保存庫具備先前所述的權限。</br>
 *例如*：使用者嘗試複寫的 VM 在來源區域上的金鑰保存庫顯示「ContososourceKeyvault」。
 使用者在來源區域上具備所有權限，但他在保護期間選取已建立的金鑰保存庫「ContosotargetKeyvault」，因此不具備權限，而保護則會擲回錯誤。</br>
-**修正方式：** 前往「[首頁] > [金鑰保存庫] > [ContososourceKeyvault] > [存取原則]」，並新增權限，如上所示。 
+**修正方式：** 前往「[首頁] > [金鑰保存庫] > [ContososourceKeyvault] > [存取原則]」，並新增權限，如上所示。
 
 **原因 2：** 您可能是從沒有解密加密權限的目標區域中，選取了已建立的金鑰保存庫。
 如果您要在目標區域中選取已建立的金鑰保存庫，而非讓 Azure Site Recovery 建立。 如果您也要在來源區域上為金鑰加密，請確保使用者具有解密加密權限。</br>

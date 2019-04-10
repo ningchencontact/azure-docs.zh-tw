@@ -14,7 +14,7 @@ ms.date: 02/02/2019
 ms.author: mbullwin
 ms.openlocfilehash: 4c3ecdd01106cc8d305764206bc75535fa4dac3a
 ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/14/2019
 ms.locfileid: "56268595"
@@ -33,7 +33,7 @@ Analytics 是 [Application Insights](app-insights-overview.md) 強大的搜尋�
 ## <a name="relation-to-azure-monitor-logs"></a>Azure 監視器記錄的關聯
 Application Insights 分析是根據 [Azure 資料總管](/azure/data-explorer)，例如 Azure 監視器記錄，也使用 [Kusto 查詢語言](/azure/kusto/query)。 儘管其資料儲存在單獨的分割區中，它使用與 Azure 監視器記錄相同的[記錄分析入口網站](../log-query/get-started-portal.md)。
 
-您無法從 Application Insights 分析直接存取 Log Analytics 工作區中的資料，也無法直接從 Log Analytics 中存取應用程式資料。 若要同時查詢這兩組資料，請撰寫 [記錄分析中的查詢](../log-query/log-query-overview.md)，並使用 [ 運算式](../log-query/app-expression.md)，以存取應用程式資料。
+您無法從 Application Insights 分析直接存取 Log Analytics 工作區中的資料，也無法直接從記錄分析中存取應用程式資料。 若要同時查詢這兩組資料，請撰寫[記錄分析中的查詢](../log-query/log-query-overview.md)，並使用 [ 運算式](../log-query/app-expression.md)，以存取應用程式資料。
 
 
 ## <a name="query-data-in-analytics"></a>在 Analytics 中查詢資料

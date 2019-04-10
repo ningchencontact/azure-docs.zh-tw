@@ -10,18 +10,18 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: c37e41bce481fff5e172687907cce527c10ae006
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 3faa3b0a5cd919752f8b7e4969e3affd668c8077
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225003"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360759"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>在 Azure Logic Apps 中建立會重複工作流程動作或處理陣列的迴圈
 
 若要處理邏輯應用程式中的陣列，您可以建立 ["Foreach" 迴圈](#foreach-loop)。 這個迴圈會對陣列中的每個項目重複執行一或多個動作。 如需 "Foreach" 迴圈可處理的陣列項目數上限，請參閱[限制和設定](../logic-apps/logic-apps-limits-and-config.md)。 
 
-若要重複執行動作直到條件符合或狀態改變，您可以建立 ["Until" 迴圈](#until-loop)。 邏輯應用程式會執行迴圈內的所有動作，然後檢查條件或狀態。 如果符合條件，則迴圈會停止。 否則，迴圈會重複。 如需一個邏輯應用程式回合中可擁有的 "Until" 迴圈數上限，請參閱[限制和設定](../logic-apps/logic-apps-limits-and-config.md)。 
+若要重複執行動作直到條件符合或狀態改變，您可以建立 ["Until" 迴圈](#until-loop)。 邏輯應用程式首先會執行在迴圈中，所有動作，並接著會檢查的條件或狀態。 如果符合條件，則迴圈會停止。 否則，迴圈會重複。 如需一個邏輯應用程式回合中可擁有的 "Until" 迴圈數上限，請參閱[限制和設定](../logic-apps/logic-apps-limits-and-config.md)。 
 
 > [!TIP]
 > 如果您的觸發程序接收到陣列，並想要針對每個陣列項目執行工作流程，您可以使用 [**SplitOn** 觸發屬性](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)將該陣列「解除批次」。 
@@ -154,7 +154,9 @@ ms.locfileid: "58225003"
 
 ## <a name="until-loop"></a>"Until" 迴圈
   
-若要重複執行動作直到條件符合或狀態改變，請將這些動作放入 "Until" 迴圈。 以下是可以使用 "Until" 迴圈的一些常見案例：
+若要執行並重複動作直到符合條件，取得或狀態變更，置於"Until"迴圈中的這些動作。 邏輯應用程式首先會執行所有動作在迴圈中，並接著會檢查的條件或狀態。 如果符合條件，則迴圈會停止。 否則，迴圈會重複。
+
+以下是可以使用 "Until" 迴圈的一些常見案例：
 
 * 呼叫端點，直到您獲得想要的回應。
 
@@ -234,9 +236,9 @@ ms.locfileid: "58225003"
 
       | 屬性 | 值 | 描述 |
       | -------- | ----- | ----------- | 
-      | **To** | *<email-address\@domain>* | 收件者的電子郵件地址。 若要進行測試，請使用自己的電子郵件地址。 | 
-      | **主旨** | [限制] 目前的值是**限制** | 指定電子郵件主旨。 在此範例中，請確定您已包含**限制**變數。 | 
-      | **內文** | <*email-content*> | 指定您想要傳送的電子郵件訊息內容。 針對此範例，輸入任何您喜歡的文字。 | 
+      | **至** | *<email-address\@domain>* | 收件者的電子郵件地址。 若要進行測試，請使用自己的電子郵件地址。 | 
+      | **主體** | [限制] 目前的值是**限制** | 指定電子郵件主旨。 在此範例中，請確定您已包含**限制**變數。 | 
+      | **body** | <*email-content*> | 指定您想要傳送的電子郵件訊息內容。 針對此範例，輸入任何您喜歡的文字。 | 
       |||| 
 
 1. 儲存您的邏輯應用程式。 若要手動測試邏輯應用程式，在設計工具的工具列上，選擇 [執行]。
@@ -251,7 +253,7 @@ ms.locfileid: "58225003"
 
 | 屬性 | 預設值 | 描述 | 
 | -------- | ------------- | ----------- | 
-| **Count** | 60 | 迴圈結束前可執行的最高迴圈數。 預設為 60 個循環。 | 
+| **計數** | 60 | 迴圈結束前可執行的最高迴圈數。 預設為 60 個循環。 | 
 | **逾時** | PT1H | 迴圈結束前可執行迴圈的最大時間。 預設值是一小時，並以 ISO 8601 格式指定。 <p>逾時值的評估會以每個迴圈循環為基礎。 如果迴圈中有任何動作所花費的時間超過逾時限制，目前的循環並不會停止。 但不會啟動下一個循環，因為不符合限制條件。 | 
 |||| 
 
@@ -342,7 +344,7 @@ ms.locfileid: "58225003"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [根據條件 (條件陳述式) 執行步驟](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [根據不同值 (Switch 陳述式) 執行步驟](../logic-apps/logic-apps-control-flow-switch-statement.md)
-* [執行或合併平行步驟 (分支)](../logic-apps/logic-apps-control-flow-branches.md)
-* [依據群組的動作狀態執行步驟 (範圍)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
+* [根據條件 （條件式陳述式） 執行步驟](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [根據不同的值 （switch 陳述式） 執行步驟](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [執行或合併平行步驟 （分支）](../logic-apps/logic-apps-control-flow-branches.md)
+* [根據群組的動作狀態 （範圍） 執行步驟](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

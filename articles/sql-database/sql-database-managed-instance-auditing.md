@@ -13,20 +13,20 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: d283cfa18d31e360aed78ae5262c5416f94c0676
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.date: 04/08/2019
+ms.openlocfilehash: fc8b300cea714ee44f826a78ce8c7a10c1443414
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086049"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282112"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>開始使用 Azure SQL Database 受控執行個體稽核
 
 [受控執行個體稽核](sql-database-managed-instance.md)會追蹤資料庫事件並將事件寫入您 Azure 儲存體帳戶中的稽核記錄。 稽核也具備下列功能：
 
 - 協助您保持法規遵循、了解資料庫活動，以及深入了解可指出商務考量或疑似安全違規的不一致和異常。
-- 啟用及推動遵循法規標準，但不保證符合法規。 如需有關支援標準法規的 Azure 程式詳細資訊，請參閱 [Azure 信任中心](https://azure.microsoft.com/support/trust-center/compliance/)。
+- 啟用及推動遵循法規標準，但不保證符合法規。 如需有關 Azure 程式支援標準法規的請參閱 < [Azure 信任中心](https://azure.microsoft.com/support/trust-center/compliance/)您可以在此找到最新的 SQL Database 的合規性認證清單。
 
 ## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>設定將伺服器的稽核儲存至 Azure 儲存體
 
@@ -60,7 +60,7 @@ ms.locfileid: "58086049"
 
         ![Blob 容器屬性按鈕](./media/sql-managed-instance-auditing/4_container_properties_button.png)
 
-     1. 按一下複製圖示來複製容器 URL，然後儲存 URL (例如，儲存在 [記事本] 中) 供之後使用。 容器 URL 的格式應為 `https://<StorageName>.blob.core.windows.net/<ContainerName>`
+     1. 按一下複製圖示來複製容器 URL，然後儲存 URL (例如，儲存在 [記事本] 中) 供之後使用。 容器 URL 的格式應該是 `https://<StorageName>.blob.core.windows.net/<ContainerName>`
 
         ![Blob 容器複製 URL](./media/sql-managed-instance-auditing/5_container_copy_name.png)
 
@@ -154,8 +154,8 @@ ms.locfileid: "58086049"
 
 如需其他資訊：
 
-- [Azure SQL Database 中的單一資料庫、彈性集區和受控執行個體以及 SQL Server 中的資料庫兩者之間的稽核差異](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
-- [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
+- [稽核 Azure SQL Database 和 SQL Server 資料庫中單一資料庫、 彈性集區、 s 和受管理的執行個體之間的差異](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
+- [建立伺服器稽核](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
 ## <a name="set-up-auditing-for-your-server-to-event-hub-or-azure-monitor-logs"></a>設定您的伺服器事件中樞或 Azure 監視器的記錄檔的稽核
@@ -237,12 +237,12 @@ Azure SQL Database 中的資料庫和 SQL Server 中的資料庫兩者之間的�
 - 一種新語法`TO EXTERNAL MONITOR`提供，讓即使中樞和 Azure 監視器的記錄目標。
 - `TO FILE` 語法**不受支援**，因為 SQL Database 無法存取 Windows 檔案共用。
 - **不支援**關機選項。
-- **不支援**使用 0 的 `queue_delay`。
+- `queue_delay` 0 的**不支援**。
 
 ## <a name="next-steps"></a>後續步驟
 
 - 如需稽核記錄耗用方法的完整清單，請參閱[開始使用 SQL 資料庫稽核](sql-database-auditing.md)。
-- 如需有關支援標準法規的 Azure 程式詳細資訊，請參閱 [Azure 信任中心](https://azure.microsoft.com/support/trust-center/compliance/)。
+- 如需有關 Azure 程式支援標準法規的請參閱 < [Azure 信任中心](https://azure.microsoft.com/support/trust-center/compliance/)您可以在此找到最新的 SQL Database 的合規性認證清單。
 
 <!--Image references-->
 

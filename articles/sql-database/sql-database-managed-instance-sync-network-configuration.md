@@ -9,34 +9,34 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 12/13/2018
-ms.openlocfilehash: 02c64fcd51862d8ff9f107adb0ca5cfda5812a88
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 0d7920080fd61389741fbe785f5141003bef5251
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567106"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358799"
 ---
 # <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>同步處理 Azure App Service 裝載方案的網路組態
 
-可能會發生這樣的情況：雖然您已[整合您的應用程式與 Azure 虛擬網路](../app-service/web-sites-integrate-with-vnet.md)，但無法建立與受控執行個體的連線。 您可以嘗試重新整理服務方案的網路組態。 
+可能會發生這樣的情況：雖然您已[整合您的應用程式與 Azure 虛擬網路](../app-service/web-sites-integrate-with-vnet.md)，但無法建立與受控執行個體的連線。 您可以嘗試重新整理服務方案的網路組態。
 
 ## <a name="sync-network-configuration-for-app-service-hosting-plan"></a>同步處理 App Service 裝載方案的網路組態
 
 若要這樣做，請遵循下列步驟：  
 
 1. 移至您的 Web 應用程式 App Service 方案。
- 
+
    ![App Service 方案](./media/sql-database-managed-instance-sync-networking/app-service-plan.png)
 
 2. 按一下 [網路]，然後按一下 [按一下這裡進行管理]。
- 
+
    ![管理服務方案](./media/sql-database-managed-instance-sync-networking/manage-plan.png)
 
-3. 選取您的 VNet，按一下 [同步處理網路]。 
- 
+3. 選取您的 VNet，按一下 [同步處理網路]。
+
    ![同步網路網路](./media/sql-database-managed-instance-sync-networking/sync.png)
 
 4. 等待同步處理完成。

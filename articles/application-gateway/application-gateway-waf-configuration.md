@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 1/29/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 29c2e53c4fb496e0f12e04f08b0add4273db25a7
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: a814fc6e9a72ba92d915821bd1e1694366844555
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790151"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277405"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Web 應用程式防火牆要求大小限制與排除清單
 
@@ -54,6 +54,7 @@ WAF 排除清單可讓您略過 WAF 評估的特定要求屬性。 常見範例�
 - **開頭為**：此運算子會比對開頭與指定之選取器值相符的所有欄位。
 - **結尾為**：此運算子會比對結尾與指定之選取器值相符的所有欄位。
 - **包含**：此運算子會比對包含與指定之選取器值相符的所有欄位。
+- **等於任何**:這個運算子會比對要求的所有欄位。 * 將會選取器的值。
 
 在所有情況下，比對都不會區分大小寫，且不允許使用規則運算式作為選取器。
 

@@ -10,19 +10,19 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 78d82f7604d86b50ee5e05e5c3b5b9802a9559e5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cb1b8171dc45c286d3f87a3c33e366d818cfaad9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877933"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283404"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 SQL Server 及從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版](v1/data-factory-sqlserver-connector.md)
-> * [目前的版本](connector-sql-server.md)
+> * [目前版本](connector-sql-server.md)
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，從 SQL Server 資料庫複製資料及將資料複製到該處。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
@@ -64,7 +64,7 @@ ms.locfileid: "57877933"
 >[!TIP]
 >如果您遇到錯誤，其錯誤碼為 "UserErrorFailedToConnectToSqlServer"，以及「資料庫的工作階段限制為 XXX 並已達到。」訊息，請將 `Pooling=false` 新增至您的連接字串並再試一次。
 
-**範例 1：使用 SQL 驗證**
+**範例 1： 使用 SQL 驗證**
 
 ```json
 {
@@ -85,7 +85,7 @@ ms.locfileid: "57877933"
 }
 ```
 
-**範例 2：使用 SQL 驗證搭配 Azure Key Vault 中的密碼**
+**範例 2： 使用 SQL 驗證，以在 Azure Key Vault 的密碼**
 
 ```json
 {
@@ -114,7 +114,7 @@ ms.locfileid: "57877933"
 }
 ```
 
-**範例 3：使用 Windows 驗證**
+**範例 3： 使用 Windows 驗證**
 
 ```json
 {
@@ -190,7 +190,7 @@ ms.locfileid: "57877933"
 - 如果已為 SqlSource 指定 **sqlReaderQuery**，「複製活動」就會針對 SQL Server 來源執行此查詢來取得資料。 或者，您可以藉由指定 **sqlReaderStoredProcedureName** 和 **storedProcedureParameters** (如果預存程序接受參數) 來指定預存程序。
 - 如果您未指定 "sqlReaderQuery" 或 "sqlReaderStoredProcedureName"，就會使用資料集 JSON 的 "structure" 區段中定義的資料行，來建構要針對 SQL Server 執行的查詢 (`select column1, column2 from mytable`)。 如果資料集定義沒有 "structure"，則會從資料表中選取所有資料行。
 
-**範例：使用 SQL 查詢**
+**範例： 使用 SQL 查詢**
 
 ```json
 "activities":[
@@ -222,7 +222,7 @@ ms.locfileid: "57877933"
 ]
 ```
 
-**範例：使用預存程序**
+**範例： 使用預存程序**
 
 ```json
 "activities":[
@@ -258,7 +258,7 @@ ms.locfileid: "57877933"
 ]
 ```
 
-**預存程序定義：**
+**預存程序定義中：**
 
 ```sql
 CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
@@ -284,7 +284,7 @@ GO
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 複製活動接收器的類型屬性必須設定為：**SqlSink** | 是 |
-| writeBatchSize |當緩衝區大小達到 writeBatchSize 時，將資料插入 SQL 資料表中<br/>允許的值為：整數 (資料列數目)。 |無 (預設值：10000) |
+| writeBatchSize |要插入至 SQL 資料表的資料列的數目**每個批次**。<br/>允許的值為：整數 (資料列數目)。 |無 (預設值：10000) |
 | writeBatchTimeout |在逾時前等待批次插入作業完成的時間。<br/>允許的值為：時間範圍。 範例：“00:30:00” (30 分鐘)。 |否 |
 | preCopyScript |指定一個供「複製活動」在將資料寫入到 SQL Server 前執行的 SQL 查詢。 每一複製回合只會叫用此查詢一次。 您可以使用此屬性來清除預先載入的資料。 |否 |
 | sqlWriterStoredProcedureName |預存程序的名稱，此預存程序定義如何將來源資料套用至目標資料表，例如使用您自己的商務邏輯來執行更新插入或轉換。 <br/><br/>請注意，將會**依批次叫用**此預存程序。 如果您想要進行只執行一次且與來源資料無關的作業 (例如刪除/截斷)，請使用 `preCopyScript` 屬性。 |否 |
@@ -294,7 +294,7 @@ GO
 > [!TIP]
 > 將資料複製到 SQL Server 時，複製活動預設會將資料附加至接收資料表。 若要執行 UPSERT 或其他商務邏輯，請在 SqlSink 中使用該預存程序。 若要了解更多詳細資料，請參閱[叫用 SQL 接收器的預存程序](#invoking-stored-procedure-for-sql-sink)。
 
-**範例 1：附加資料**
+**範例 1： 附加資料**
 
 ```json
 "activities":[
@@ -326,7 +326,7 @@ GO
 ]
 ```
 
-**範例 2：在複製期間叫用預存程序來進行更新插入**
+**範例 2： 叫用預存程序，在複製 upsert**
 
 若要了解更多詳細資料，請參閱[叫用 SQL 接收器的預存程序](#invoking-stored-procedure-for-sql-sink)。
 
@@ -440,9 +440,9 @@ create table dbo.TargetTbl
 
 當內建的複製機制無法滿足需求時，可以使用預存程序。 通常是在最後一次將來源資料插入到目的地資料表之前，如果必須執行更新插入 (插入 + 更新) 或額外的處理 (合併資料行、查閱其他值、插入到多個資料表等) 時，會使用此程序。
 
-下列範例示範如何使用預存程序，對 SQL Server 資料庫中的資料表執行更新插入。 假設輸入資料和接收器 "Marketing" 資料表各有三個資料行：ProfileID、State 與 Category。 根據 “ProfileID” 資料行執行更新插入，然後僅針對特定的類別套用。
+下列範例示範如何使用預存程序，對 SQL Server 資料庫中的資料表執行更新插入。 假設輸入資料和接收器 **Marketing** 資料表各有三個資料行：**ProfileID**、**State** 和 **Category**。 根據 **ProfileID** 資料行執行 upsert，然後僅針對特定的類別套用。
 
-**輸出資料集**
+**輸出資料集：** "tableName"應該是您的預存程序 （請參閱下列預存程序的指令碼） 相同的資料表型別參數名稱。
 
 ```json
 {
@@ -461,7 +461,7 @@ create table dbo.TargetTbl
 }
 ```
 
-依下列方式定義複製活動中的 SqlSink 區段。
+定義**SQL 接收器**一節中複製活動，如下所示。
 
 ```json
 "sink": {
@@ -476,7 +476,7 @@ create table dbo.TargetTbl
 }
 ```
 
-在資料庫中，使用與 SqlWriterStoredProcedureName 相同的名稱定義預存程序。 它會處理來自指定來源的輸入資料，並合併至輸出資料表。 預存程序中資料表類型的參數名稱應該與資料集中定義的 "tableName" 相同。
+在資料庫中，使用與 **SqlWriterStoredProcedureName** 相同的名稱來定義預存程序。 它會處理來自指定來源的輸入資料，並合併至輸出資料表。 預存程序中資料表類型的參數名稱應該與資料集中定義的 **tableName** 相同。
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)

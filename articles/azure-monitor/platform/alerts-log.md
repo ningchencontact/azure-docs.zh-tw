@@ -106,7 +106,7 @@ ms.locfileid: "59006946"
 
      在幾分鐘之內，警示會開始作用，且先前所述觸發。
 
-使用者可以也可以在 [Logs Analytics](../log-query/portals.md) 中完成其分析查詢，然後再透過 [設定警示] 按鈕推送它以建立警示，接著按照上述教學中從步驟 6 開始的指示進行操作。
+使用者可以也可以在[記錄分析](../log-query/portals.md)中完成其分析查詢，然後再透過 [設定警示] 按鈕推送它以建立警示，接著按照上述教學中從步驟 6 開始的指示進行操作。
 
  ![Log Analytics - 設定警示](media/alerts-log/AlertsAnalyticsCreate.png)
 

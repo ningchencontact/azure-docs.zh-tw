@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 80091adaa364289ec9cddf6e259242e376b76b37
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 04fc1da04d9da715acfed8ca9d26e9c325afb403
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549607"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279919"
 ---
 # <a name="get-started-with-device-management-python"></a>開始使用裝置管理 (Python)
 
@@ -23,21 +23,27 @@ ms.locfileid: "57549607"
 本教學課程說明如何：
 
 * 使用 Azure 门户创建 IoT 中心，以及如何在 IoT 中心创建设备标识。
+
 * 建立模擬裝置應用程式，其包含可將該裝置重新開機的直接方法。 直接方法是從雲端叫用。
+
 * 建立 Python 主控台應用程式，可透過您的 IoT 中樞在模擬的裝置應用程式中呼叫重新啟動直接方法。
 
 在本教學課程結尾，您會有兩個 Python 主控台應用程式：
 
-**dmpatterns_getstarted_device.py**，它會以先前建立的裝置識別連線到您的 IoT 中樞，接收重新啟動直接方法，模擬實體重新啟動，並報告上一次重新啟動的時間。
+* **dmpatterns_getstarted_device.py**，它會以先前建立的裝置識別連線到您的 IoT 中樞，接收重新啟動直接方法，模擬實體重新啟動，並報告上一次重新啟動的時間。
 
-**dmpatterns_getstarted_service.py**，它會在模擬裝置應用程式上呼叫直接方法，顯示回應，並顯示更新的報告屬性。
+* **dmpatterns_getstarted_service.py**，它會在模擬裝置應用程式上呼叫直接方法，顯示回應，並顯示更新的報告屬性。
 
 若要完成此教學課程，您需要下列項目：
 
 * [Python 2.x 或 3.x](https://www.python.org/downloads/)。 請務必使用安裝程式所需的 32 位元或 64 位元安裝。 在安裝期間出現系統提示時，務必將 Python 新增至平台特有的環境變數。 如果您是使用 Python 2.x，可能需要[安裝或升級 pip (Python 套件管理系統](https://pip.pypa.io/en/stable/installing/))。
-    * 使用 `pip install azure-iothub-device-client` 命令，安裝 [azure-iothub-device-client](https://pypi.org/project/azure-iothub-device-client/) 套件
-    * 使用 `pip install azure-iothub-service-client` 命令，安裝 [azure-iothub-service-client](https://pypi.org/project/azure-iothub-service-client/) 套件
+
+* 安裝[azure-iothub-裝置-用戶端](https://pypi.org/project/azure-iothub-device-client/)封裝，請使用命令       `pip install azure-iothub-device-client`
+
+* 安裝[azure-iothub-服務-用戶端](https://pypi.org/project/azure-iothub-service-client/)封裝，請使用命令       `pip install azure-iothub-service-client`
+
 * 如果您是使用 Windows 作業系統，則 [Visual C++ 可轉散發套件](https://www.microsoft.com/download/confirmation.aspx?id=48145)允許使用 Python 的原生 DLL。
+
 * 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。)
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
@@ -49,16 +55,19 @@ ms.locfileid: "57549607"
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 ## <a name="create-a-simulated-device-app"></a>建立模擬裝置應用程式
+
 在本節中，您將：
 
 * 建立 Python 主控台應用程式，以回應雲端所呼叫的直接方法
+
 * 模擬裝置重新啟動
+
 * 使用報告屬性來啟用裝置對應項查詢，以識別裝置及其上次重新啟動時間
 
 1. 使用文字編輯器，建立 **dmpatterns_getstarted_device.py** 檔案。
 
-1. 在 **dmpatterns_getstarted_device.py** 檔案的開頭新增下列 `import` 陳述式。
-   
+2. 在 **dmpatterns_getstarted_device.py** 檔案的開頭新增下列 `import` 陳述式。
+
     ```python
     import random
     import time, datetime
@@ -68,8 +77,8 @@ ms.locfileid: "57549607"
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError, DeviceMethodReturnValue
     ```
 
-1. 新增變數，包括 **CONNECTION_STRING** 變數和用戶端初始化。  以您裝置的連接字串取代連接字串。  
-   
+3. 新增變數，包括 **CONNECTION_STRING** 變數和用戶端初始化。  以您裝置的連接字串取代連接字串。  
+
     ```python
     CONNECTION_STRING = "{deviceConnectionString}"
     PROTOCOL = IoTHubTransportProvider.MQTT
@@ -85,44 +94,43 @@ ms.locfileid: "57549607"
     METHOD_CALLBACKS = 0
     ```
 
-1. 新增下列函式回呼以在裝置上實作直接方法。
-   
+4. 新增下列函式回呼以在裝置上實作直接方法。
+
     ```python
     def send_reported_state_callback(status_code, user_context):
         global SEND_REPORTED_STATE_CALLBACKS
-    
+
         print ( "Device twins updated." )
 
     def device_method_callback(method_name, payload, user_context):
         global METHOD_CALLBACKS
-    
+
         if method_name == "rebootDevice":
             print ( "Rebooting device..." )
-        
             time.sleep(20)
-        
+
             print ( "Device rebooted." )
-        
+
             current_time = str(datetime.datetime.now())
             reported_state = "{\"rebootTime\":\"" + current_time + "\"}"
             CLIENT.send_reported_state(reported_state, len(reported_state), send_reported_state_callback, SEND_REPORTED_STATE_CONTEXT)
-        
+
             print ( "Updating device twins: rebootTime" )
-            
+
         device_method_return_value = DeviceMethodReturnValue()
         device_method_return_value.response = "{ \"Response\": \"This is the response from the device\" }"
         device_method_return_value.status = 200
-    
+
         return device_method_return_value
     ```
 
-1. 啟動直接方法接聽程式並等待。
-   
+5. 啟動直接方法接聽程式並等待。
+
     ```python
     def iothub_client_init():
         if CLIENT.protocol == IoTHubTransportProvider.MQTT or client.protocol == IoTHubTransportProvider.MQTT_WS:
             CLIENT.set_device_method_callback(device_method_callback, METHOD_CONTEXT)
-        
+
     def iothub_client_sample_run():
         try:
             iothub_client_init()
@@ -149,19 +157,20 @@ ms.locfileid: "57549607"
         iothub_client_sample_run()
     ```
 
-1. 儲存並關閉 **dmpatterns_getstarted_device.py** 檔案。
+6. 儲存並關閉 **dmpatterns_getstarted_device.py** 檔案。
 
 > [!NOTE]
 > 為了簡單起見，本教學課程不會實作任何重試原則。 在生產環境程式碼中，您應該如[暫時性錯誤處理](/azure/architecture/best-practices/transient-faults)一文中所建議，實作重試原則 (例如指數型輪詢)。
 
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>使用直接方法在裝置上觸發遠端重新啟動
+
 在本節中，您會建立 Python 主控台應用程式，此應用程式會使用直接方法起始遠端重新開機。 應用程式使用裝置對應項查詢來探索該裝置的上次重新開機時間。
 
 1. 使用文字編輯器，建立 **dmpatterns_getstarted_service.py** 檔案。
 
-1. 在 **dmpatterns_getstarted_service.py** 檔案的開頭新增下列 `import` 陳述式。
-   
+2. 在 **dmpatterns_getstarted_service.py** 檔案的開頭新增下列 `import` 陳述式。
+
     ```python
     import sys, time
     import iothub_service_client
@@ -169,8 +178,8 @@ ms.locfileid: "57549607"
     from iothub_service_client import IoTHubDeviceMethod, IoTHubError, IoTHubDeviceTwin
     ```
 
-1. 新增下列變數宣告。 只會取代 IoTHubConnectionString 和 deviceId 的預留位置值。
-   
+3. 新增下列變數宣告。 只會取代 IoTHubConnectionString 和 deviceId 的預留位置值。
+
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"
     DEVICE_ID = "{deviceId}"
@@ -181,14 +190,14 @@ ms.locfileid: "57549607"
     WAIT_COUNT = 10
     ```
 
-1. 新增下列函式來叫用裝置方法，以重新啟動目標裝置，然後查詢裝置對應項並取得上次重新啟動時間。
-   
+4. 新增下列函式來叫用裝置方法，以重新啟動目標裝置，然後查詢裝置對應項並取得上次重新啟動時間。
+
     ```python
     def iothub_devicemethod_sample_run():
         try:
             iothub_twin_method = IoTHubDeviceTwin(CONNECTION_STRING)
             iothub_device_method = IoTHubDeviceMethod(CONNECTION_STRING)
-        
+
             print ( "" )
             print ( "Invoking device to reboot..." )
 
@@ -199,7 +208,7 @@ ms.locfileid: "57549607"
 
             print ( "" )
             print ( response.payload )
-        
+
             while True:
                 print ( "" )
                 print ( "IoTHubClient waiting for commands, press Ctrl-C to exit" )
@@ -207,7 +216,7 @@ ms.locfileid: "57549607"
                 status_counter = 0
                 while status_counter <= WAIT_COUNT:
                     twin_info = iothub_twin_method.get_twin(DEVICE_ID)
-                
+
                     if twin_info.find("rebootTime") != -1:
                         print ( "Last reboot time: " + twin_info[twin_info.find("rebootTime")+11:twin_info.find("rebootTime")+37])
                     else:
@@ -232,24 +241,24 @@ ms.locfileid: "57549607"
         iothub_devicemethod_sample_run()
     ```
 
-1. 儲存並關閉 **dmpatterns_getstarted_service.py** 檔案。
-
+5. 儲存並關閉 **dmpatterns_getstarted_service.py** 檔案。
 
 ## <a name="run-the-apps"></a>執行應用程式
+
 您現在可以開始執行應用程式。
 
 1. 在命令提示字元中，執行下列命令來開始接聽重新啟動直接方法。
-   
+
     ```
     python dmpatterns_getstarted_device.py
     ```
 
-1. 在另一個命令提示字元中，執行下列命令以觸發裝置對應項的遠端重新啟動，以及查詢裝置對應項來尋找上次重新啟動時間。
-   
+2. 在另一個命令提示字元中，執行下列命令以觸發裝置對應項的遠端重新啟動，以及查詢裝置對應項來尋找上次重新啟動時間。
+
     ```
     python dmpatterns_getstarted_service.py
     ```
 
-1. 您會在主控台中看到直接方法的裝置回應。
+3. 您會在主控台中看到直接方法的裝置回應。
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]

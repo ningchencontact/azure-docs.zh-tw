@@ -2,16 +2,16 @@
 title: 使用 Azure Site Recovery 在 Azure VM 容錯轉移期間保留的 IP 位址 | Microsoft Docs
 description: 說明如何在容錯移轉 Azure VM 時保留 IP 位址，以便使用 Azure Site Recovery 災害復原至次要區域
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: aefb0684ea065841824ad27d1105ef309418c6b9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 618d60417aa6b582eaef94bf75dcf16c74750f83
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090741"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357895"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>在容錯轉移期間保留 IP 位址
 
@@ -49,7 +49,7 @@ ms.locfileid: "58090741"
         - 東南亞有一個復原 VNet (**復原 VNet**) 與**來源 VNet** 相同。
         - 東南亞有一個額外的 VNet (**Azure VNet**)，位址空間為 10.2.0.0/16。
         - **Azure VNet** 包含子網路 (**子網路 4**)，位址空間為 10.2.4.0/24。
-        - SQL Server Always On 的複本節點、網域控制站等位於**子網路 4** 中。
+        - SQL Server Always on 複本節點，網域控制站等位於**Subnet 4**。
     - **來源 VNet** 和 **Azure VNet** 是透過 VPN 站對站連線來連線。
     - **Recovery VNet** 並未與任何其他虛擬網路連線。
     - **公司 A** 會針對已複寫的項目指派/驗證目標 IP 位址。 每個 VM 的目標 IP 皆等同於來源 IP。
@@ -92,7 +92,7 @@ ms.locfileid: "58090741"
 - 次要 (目標) 區域是 Azure 東南亞 - 東南亞有與 **來源 VNet 1** 和**來源 VNet 2** 相同的復原 VNet (**復原 VNet 1** 和**復原 VNet 2**)。
         - **復原 VNet 1** 和**復原 VNet 2**都有兩個與**來源 VNet 1** 和**來源 VNet 2** 中的子網路相符的子網路 - 東南亞有一個額外的 VNet (**Azure VNet**)，位址空間為 10.3.0.0/16。
         - **Azure VNet** 包含一個子網路 (**子網路 4**)，位址空間為 10.3.4.0/24。
-        - SQL Server Always On 的複本節點、網域控制站等位於**子網路 4**。
+        SQL Server Always on 複本節點，網域控制站等位於**Subnet 4**。
 - 有許多站對站 VPN 連線： 
     - **來源 VNet 1** 和 **Azure VNet**
     - **來源 VNet 2** 和 **Azure VNet**

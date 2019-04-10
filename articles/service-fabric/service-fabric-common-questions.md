@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: f75236c826584d742fe3163a2fdac29c4030bf66
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 0bd8a7d403ad1fe0f7abb15356cc9c90ed6b3f02
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045793"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359414"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric 的常見問題
 
@@ -136,7 +136,7 @@ ms.locfileid: "59045793"
 您的應用程式可使用下列方法取得向 KeyVault 驗證所需的認證：
 
 A. 在您的應用程式建置/封裝作業期間，您可以將憑證提取到 SF 應用程式的資料套件中，並以此憑證向 KeyVault 驗證。
-B. 針對已啟用虛擬機器擴展集 MSI 的主機，您可以針對 SF 應用程式開發簡單的 PowerShell SetupEntryPoint，以取得[來自 MSI 端點的存取權杖](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)，然後[從 KeyVault 擷取您的祕密](https://docs.microsoft.com/powershell/module/az.keyvault/Get-AzureKeyVaultSecret)
+B. 針對虛擬機器擴展集已啟用 MSI 的主機，您可以開發簡單 PowerShell SetupEntryPoint SF 應用程式以取得[來自 MSI 端點的存取權杖](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)，然後[從金鑰保存庫擷取您的祕密](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
 ## <a name="application-design"></a>應用程式設計
 

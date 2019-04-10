@@ -27,7 +27,7 @@ ms.locfileid: "56961409"
 
 了解如何診斷 Azure Digital Twins 執行個體內所發生的任何問題，能協助您有效地找出問題、問題的原因和解決方案。
 
-### <a name="enable-log-analytics-for-your-instance"></a>啟用適用於您執行個體的 Log Analytics
+### <a name="enable-log-analytics-for-your-instance"></a>啟用適用於您執行個體的記錄分析
 
 Azure Digital Twins 執行個體的記錄和計量顯示在 Azure 監視器中。 這份文件假設您已建立[Azure 監視器記錄](../azure-monitor/log-query/log-query-overview.md)工作區透過[Azure 入口網站](../azure-monitor/learn/quick-create-workspace.md)，透過[Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md)，或透過[PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md)。
 

@@ -11,29 +11,31 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2019
+ms.date: 04/5/2019
 ms.author: banders
-ms.openlocfilehash: 229b5a0948a81c9b5d78dd49f304e7b6891f95ee
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: aa1a218fbf0bc7eacac65b50e4ee1f86791e2b3b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652997"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281976"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>自助服務交換記錄和退費記錄 Azure 保留項目
 
 Azure 保留的項目會提供彈性，幫助您滿足不斷成長的需求。 您可以交換相同類型的另一個保留的保留項目。 如果您不再需要您也可以退還保留，最多 50,000 美元每年。
+
+自助 exchange 和 [取消] 功能不適用於美國政府的 Enterprise 合約客戶。 支援其他美國政府訂用帳戶類型，包括隨用隨付和 CSP。
 
 ## <a name="exchange-an-existing-reserved-instance"></a>交換現有的保留執行個體
 
 您可以交換中的三個快速步驟保留[Azure 入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade)。
 
 1. 選取您想要退款，然後按一下 保留**Exchange**。  
-    ![範例影像中顯示傳回的保留項目 ](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-return.png)
+    ![範例影像中顯示傳回的保留項目](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-return.png)
 2. 選取您想要購買，並輸入 quantity 的 VM 產品。 請確定新購買總數是多個傳回的總計。 [判斷正確的大小，在購買](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy)。  
-    ![顯示 VM 產品購買與 exchange 的範例影像 ](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-select-purchase.png)
+    ![顯示 VM 產品購買與 exchange 的範例影像](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-select-purchase.png)
 3. 檢閱並完成交易。  
-    ![顯示 VM 產品購買跟 exchange 一樣，完成傳回的範例影像 ](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-confirm-exchange.png)
+    ![顯示 VM 產品購買跟 exchange 一樣，完成傳回的範例影像](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-confirm-exchange.png)
 
 若要退還保留項目，請移至**保留詳細資料**然後按一下**退款**。
 
@@ -85,9 +87,9 @@ Money 新增至財務承諾交換和退款如果原始的購買已使用其中�
 - 若要了解如何管理保留項目，請參閱[管理 Azure 保留項目](billing-manage-reserved-vm-instance.md)。
 - 若要深入了解 Azure 保留項目，請參閱下列文章：
     - [什麼是 Azure 保留項目？](billing-save-compute-costs-reservations.md)
-    - [管理 Azure 中的保留](billing-manage-reserved-vm-instance.md)
-    - [了解保留項目折扣的套用方式](billing-understand-vm-reservation-charges.md)
-    - [了解預付型方案訂用帳戶的保留項目使用量](billing-understand-reserved-instance-usage.md)
-    - [了解 Enterprise 註冊的保留項目使用量](billing-understand-reserved-instance-usage-ea.md)
-    - [Windows 軟體的成本不包括在保留項目內](billing-reserved-instance-windows-software-costs.md)
-    - [合作夥伴中心雲端解決方案提供者 (CSP) 計畫中的 Azure 保留項目](/partner-center/azure-reservations)
+    - [管理 Azure 中的保留項目](billing-manage-reserved-vm-instance.md)
+    - [了解如何套用保留折扣](billing-understand-vm-reservation-charges.md)
+    - [了解您的隨用隨付訂用帳戶的保留使用情況](billing-understand-reserved-instance-usage.md)
+    - [了解 Enterprise 註冊之保留項目使用方式](billing-understand-reserved-instance-usage-ea.md)
+    - [Windows 軟體成本不包括在保留項目](billing-reserved-instance-windows-software-costs.md)
+    - [合作夥伴中心雲端解決方案提供者 (CSP) 計畫中的 azure 保留項目](/partner-center/azure-reservations)

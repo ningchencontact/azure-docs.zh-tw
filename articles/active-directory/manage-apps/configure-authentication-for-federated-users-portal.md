@@ -1,6 +1,6 @@
 ---
 title: 使用主領域探索原則為應用程式設定登入自動加速 | Microsoft Docs
-description: 說明什麼是 Azure AD 租用戶，以及如何透過 Azure Active Directory 管理 Azure。
+description: 了解如何設定 Azure Active Directory 驗證適用於同盟使用者，包括自動加速 」 和 「 網域提示的主領域探索原則。
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -11,19 +11,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/08/2018
+ms.date: 04/08/2019
 ms.author: celested
+ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 333258ef9696e6dbe4aab5b10e815bb84428d425
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d82ccf7c2983051597ff634117be81311c4c78a9
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190257"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360928"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>使用主領域探索原則為應用程式設定 Azure Active Directory 登入行為
 
-下列文件簡介如何為同盟使用者設定 Azure Active Directory 驗證行為。   其中涵蓋自動加速組態，以及同盟網域中的使用者驗證限制。
+本文將介紹如何設定 Azure Active Directory 的同盟使用者的驗證行為。 其中涵蓋自動加速組態，以及同盟網域中的使用者驗證限制。
 
 ## <a name="home-realm-discovery"></a>主領域探索
 主領域探索 (HRD) 是讓 Azure Active Directory (Azure AD) 判斷使用者登入時應在何處驗證的程序。  使用者在登入 Azure AD 租用戶以存取資源或 Azure AD 一般登入頁面時，會輸入使用者名稱 (UPN)。 Azure AD 會使用該值來探索使用者需在何處登入。 

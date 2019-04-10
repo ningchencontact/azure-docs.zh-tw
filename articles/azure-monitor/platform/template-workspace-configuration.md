@@ -34,8 +34,8 @@ ms.locfileid: "58540766"
 * 從 Linux 和 Windows 電腦收集效能計數器
 * 在 Linux 電腦上收集 syslog 事件 
 * 從 Windows 事件記錄檔收集事件
-* 將 Log Analytics 代理程式加入至 Azure 虛擬機器
-* 設定 Log Analytics 將 Azure 診斷所收集的資料編製索引
+* 將記錄分析代理程式加入至 Azure 虛擬機器
+* 設定記錄分析將 Azure 診斷所收集的資料編製索引
 
 本文提供範例範本，示範您可以透過範本執行的一些設定。
 

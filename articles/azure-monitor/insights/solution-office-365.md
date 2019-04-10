@@ -524,7 +524,7 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../platform/
 
 ## <a name="azure-monitor-log-records"></a>Azure 監視器記錄
 
-由 Office 365 解決方案在 Azure 監視器工作區中建立的所有記錄，都具有 **OfficeActivity** 的「類型」。  **OfficeWorkload** 屬性可決定該記錄所指的 Office 365 服務：Exchange、AzureActiveDirectory、SharePoint 或 OneDrive。  **RecordType** 屬性指定作業的類型。  每種作業類型會有不同的屬性，如下表所示。
+由 Office 365 解決方案在 Azure 監視器 Log Analytics 工作區中建立的所有記錄，都具有 **OfficeActivity** 的「類型」。  **OfficeWorkload** 屬性可決定該記錄所指的 Office 365 服務：Exchange、AzureActiveDirectory、SharePoint 或 OneDrive。  **RecordType** 屬性指定作業的類型。  每種作業類型會有不同的屬性，如下表所示。
 
 ### <a name="common-properties"></a>通用屬性
 

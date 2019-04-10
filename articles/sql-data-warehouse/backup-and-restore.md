@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 03/01/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 14e7d8cfdaa9ac59a5a43881283fac6e2c9ee08f
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: ebe45bf8f562b5be9ae2afda9d5940296396f155
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847000"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359021"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的備份與還原
 
@@ -25,7 +25,7 @@ ms.locfileid: "58847000"
 
 「資料倉儲快照集」會建立還原點，您可以利用此還原點將資料倉儲還原或複製到先前的狀態。  由於 SQL 資料倉儲是一個分散式系統，所以一個資料倉儲快照集會由位於 Azure 儲存體中的許多檔案組成。 快照集會從資料倉儲中儲存的資料內擷取增量變更。
 
-「資料倉儲還原」係指從現有或已刪除的資料倉儲還原點建立的新資料倉儲。 還原資料倉儲是所有商務持續性和災害復原策略中不可或缺的一部分，因為它可在您的資料發生意外損毀或刪除之後重新建立該資料。 資料倉儲也是功能強大的機制，可建立資料倉儲的副本，以用於測試或開發。  SQL 資料倉儲可在相同區域內對任何大小的資料使用快速還原機制，經過測量，還原時間皆少於 20 分鐘。
+「資料倉儲還原」係指從現有或已刪除的資料倉儲還原點建立的新資料倉儲。 還原資料倉儲是所有商務持續性和災害復原策略中不可或缺的一部分，因為它可在您的資料發生意外損毀或刪除之後重新建立該資料。 資料倉儲也是功能強大的機制，可建立資料倉儲的副本，以用於測試或開發。  SQL 資料倉儲還原費率取決於資料庫大小和來源和目標的資料倉儲的位置而異。 在相同區域內的平均來說，還原速度通常需要大約 20 分鐘的時間。 
 
 ## <a name="automatic-restore-points"></a>自動還原點
 

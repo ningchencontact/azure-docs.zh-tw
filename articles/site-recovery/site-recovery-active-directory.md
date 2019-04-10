@@ -7,14 +7,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: f4da0a4672bc50688d0a25bbd2db1f3be984ee8b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 58e360bb355c7faf9608b00dd65b14f27aca4367
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821383"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358038"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>設定 Active Directory 和 DNS 的災害復原
 
@@ -106,9 +106,9 @@ ms.locfileid: "55821383"
 從 Windows Server 2012 開始，[Active Directory Domain Services (AD DS) 已內建額外保護措施](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100)。 如果基礎 hypervisor 平台支援 **VM-GenerationID**，這些保護措施就能協助保護虛擬化網域控制站，避免進行 USN 復原。 Azure 支援 **VM-GenerationID**。 因此，在 Azure 虛擬機器上執行 Windows Server 2012 或更新版本的網域控制站，具有額外的保護措施。
 
 
-當 **VM-GenerationID** 重設時，AD DS 資料庫的 **InvocationID** 值也會重設。 此外，RID 集區會被捨棄，且 SYSVOL 會標示為非授權。 如需詳細資訊，請參閱 [Active Directory Domain Services 虛擬化的簡介](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100)和[安全地虛擬化 DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/)。
+當 **VM-GenerationID** 重設時，AD DS 資料庫的 **InvocationID** 值也會重設。 此外，會捨棄 RID 集區，以及 sysvol 資料夾會標示為非授權。 如需詳細資訊，請參閱 [Active Directory Domain Services 虛擬化的簡介](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100)和[安全地虛擬化 DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/)。
 
-容錯移轉至 Azure 可能會導致 **VM-GenerationID** 重設。 重設 **VM-GenerationID** 後，在網域控制站虛擬機器於 Azure 中啟動時將會執行額外的保護措施。 這可能會導致使用者在登入網域控制站虛擬機器時產生*明顯的延遲*。
+容錯移轉至 Azure 可能會導致 **VM-GenerationID** 重設。 重設 **VM-GenerationID** 後，在網域控制站虛擬機器於 Azure 中啟動時將會執行額外的保護措施。 這可能會導致*明顯的延遲*能夠登入網域控制站虛擬機器。
 
 此網域控制站只會用於測試容錯移轉，因此不需要虛擬化保護措施。 若要確保網域控制站虛擬機器的 **VM-GenerationID** 值不會變更，您可以將內部部署網域控制站中的下列 DWORD 值變更為 **4**：
 
@@ -128,11 +128,11 @@ ms.locfileid: "55821383"
 
     ![叫用識別碼變更](./media/site-recovery-active-directory/Event1109.png)
 
-* 無法使用 SYSVOL 與 NETLOGON 共用。
+* Sysvol 資料夾與 NETLOGON 共用無法使用。
 
-    ![SYSVOL 共用](./media/site-recovery-active-directory/sysvolshare.png)
+    ![Sysvol 資料夾共用](./media/site-recovery-active-directory/sysvolshare.png)
 
-    ![NtFrs SYSVOL](./media/site-recovery-active-directory/Event13565.png)
+    ![NtFrs sysvol 資料夾](./media/site-recovery-active-directory/Event13565.png)
 
 * DFSR 資料庫會被刪除。
 
@@ -146,7 +146,7 @@ ms.locfileid: "55821383"
 >
 >
 
-1. 在命令提示字元上執行下列命令，以檢查 SYSVOL 與 NETLOGON 資料夾是否共用︰
+1. 在命令提示字元中，執行下列命令，以檢查 sysvol 資料夾與 NETLOGON 資料夾是否為共用：
 
     `NET SHARE`
 
@@ -166,7 +166,7 @@ ms.locfileid: "55821383"
     * 雖然我們不建議 [FRS 複寫](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/)，但如果您使用 FRS 複寫，請依照權威還原的步驟操作。 其程序請見[使用 BurFlags 登錄機碼重新初始化檔案複寫服務](https://support.microsoft.com/kb/290762)。
 
         如需 BurFlags 的詳細資訊，請參閱部落格文章 [D2 和 D4：有何功用？](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/)。
-    * 如果您使用 DFSR 複寫，請完成權威還原的步驟。 其程序請見[對 DFSR 複寫的 SYSVOL (例如 FRS 的 "D4/D2") 強制執行權威和非權威同步](https://support.microsoft.com/kb/2218556)。
+    * 如果您使用 DFSR 複寫，請完成權威還原的步驟。 此程序所述[強制執行權威和非權威的同步處理 （例如"D4/D2"frs) 的 DFSR 複寫 sysvol 資料夾](https://support.microsoft.com/kb/2218556)。
 
         您也可以使用 PowerShell 函式。 如需詳細資訊，請參閱 [DFSR-SYSVOL 授權/非權威還原 PowerShell 函式](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/)。
 

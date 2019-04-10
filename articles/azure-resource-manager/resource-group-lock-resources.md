@@ -4,22 +4,20 @@ description: 透過將鎖定套用到所有使用者和角色，防止使用者�
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: 53c57e8f-741c-4026-80e0-f4c02638c98b
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 83518825c91cdd727b3d4fb9ecc86d51dea8fc26
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 8942ae9a24613f7b7896cf7124b344d9d9315954
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649164"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360435"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>鎖定資源以防止非預期的變更 
 
@@ -36,26 +34,46 @@ ms.locfileid: "56649164"
 
 不同於角色型存取控制，您可以使用管理鎖定來對所有使用者和角色套用限制。 若要了解如何为用户和角色设置权限，请参阅 [Azure 基于角色的访问控制](../role-based-access-control/role-assignments-portal.md)。
 
-Resource Manager 鎖定只會套用於管理平面發生的作業，亦即要傳送至 `https://management.azure.com` 的作業。 鎖定並不會限制資源執行自己函式的方式。 限制資源的變更，但沒有限制資源的作業。 比方說，在 SQL Database 上的 ReadOnly 鎖定會防止您刪除或修改資料庫，但它不會阻止您建立、 更新或刪除資料庫中的資料。 已允許資料交易，因為這些作業不傳送至`https://management.azure.com`。
+Resource Manager 鎖定只會套用於管理平面發生的作業，亦即要傳送至 `https://management.azure.com` 的作業。 鎖定並不會限制資源執行自己函式的方式。 限制資源的變更，但沒有限制資源的作業。 例如，SQL Database 上的唯讀鎖定會防止您刪除或修改資料庫。 它不會防止您建立、更新或刪除資料庫中的資料。 允许数据事务，因为这些操作不会发送到 `https://management.azure.com`。
 
 套用 **ReadOnly** 會導致無法預期的結果，因為有些看似讀取作業的作業實際上需要其他動作。 例如，將 **ReadOnly** 鎖定放置在儲存體帳戶上，會防止所有使用者列出金鑰。 清單金鑰作業是透過 POST 要求進行處理，因為傳回的金鑰可用於寫入作業。 至於其他範例，將 **ReadOnly** 鎖定放置在 App Service 資源，會防止 Visual Studio 伺服器總管顯示資源的檔案，因為該互動需要寫入存取權。
 
-## <a name="who-can-create-or-delete-locks-in-your-organization"></a>誰可以建立或刪除您的組織中的鎖定
-若要创建或删除管理锁，必须有权执行 `Microsoft.Authorization/*` 或 `Microsoft.Authorization/locks/*` 操作。 在内置角色中，只有“所有者”和“用户访问管理员”有权执行这些操作。
+## <a name="who-can-create-or-delete-locks"></a>誰可以建立或刪除鎖定嗎
+若要建立或刪除管理鎖定，您必須擁有 `Microsoft.Authorization/*` 或 `Microsoft.Authorization/locks/*` 動作的存取權。 在內建角色中，只有 **擁有者** 和 **使用者存取管理員** 被授與這些動作的存取權。
+
+## <a name="managed-applications-and-locks"></a>受管理的應用程式和鎖定
+
+使用某些 Azure 服務，例如 Azure Databricks[受控應用程式](../managed-applications/overview.md)實作服務。 在此情況下，服務會建立兩個資源群組。 一個資源群組包含服務的概觀，並不會遭到鎖定。 另一個資源群組包含服務的基礎結構，並已被鎖定。
+
+如果您嘗試刪除的基礎結構資源群組，您會收到錯誤指出 已鎖定的資源群組。 如果您嘗試刪除的基礎結構資源群組的鎖定，您會收到錯誤指出無法刪除鎖定，因為它屬於系統應用程式。
+
+相反地，刪除服務，這也會刪除基礎結構資源群組。
+
+對於受管理的應用程式，選取您部署的服務。
+
+![選取服務](./media/resource-group-lock-resources/select-service.png)
+
+請注意，服務包含的連結**受管理的資源群組**。 該資源群組會保留在基礎結構，並已被鎖定。 它無法直接刪除。
+
+![顯示受管理的群組](./media/resource-group-lock-resources/show-managed-group.png)
+
+若要刪除所有項目服務，包括鎖定的基礎結構資源群組中，選取**刪除**服務。
+
+![刪除服務](./media/resource-group-lock-resources/delete-service.png)
 
 ## <a name="portal"></a>入口網站
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]
 
 ## <a name="template"></a>範本
 
-當使用 Resource Manager 範本部署鎖定，您可以使用不同的值名稱和鎖定類型視範圍而定。
+使用资源管理器模板来部署某个锁定时，请根据锁定范围对名称和类型使用不同的值。
 
-套用鎖定時**資源**，使用下列格式：
+对**资源**应用锁定时，请使用以下格式：
 
 * name - `{resourceName}/Microsoft.Authorization/{lockName}`
 * type - `{resourceProviderNamespace}/{resourceType}/providers/locks`
 
-套用鎖定時**資源群組**或是**訂用帳戶**，使用下列格式：
+对**资源组**或**订阅**应用锁定时，请使用以下格式：
 
 * name - `{lockName}`
 * type - `Microsoft.Authorization/locks`
@@ -117,7 +135,7 @@ Resource Manager 鎖定只會套用於管理平面發生的作業，亦即要傳
 }
 ```
 
-資源群組上設定鎖定的範例，請參閱 <<c0> [ 建立資源群組，並將其鎖定](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment)。
+如需在资源组上设置锁定的示例，请参阅[创建资源组并将其锁定](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment)。
 
 ## <a name="powershell"></a>PowerShell
 您可以使用 Azure PowerShell 以 [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock) 命令鎖定已部署的資源。
@@ -207,7 +225,7 @@ az lock delete --ids $lockid
 
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/locks/{lock-name}?api-version={api-version}
 
-範圍可以是訂用帳戶、資源群組或資源。 lock-name 是您想要命名鎖定的任何名稱。 對於 api-version，請使用**2016年-09-01**。
+範圍可以是訂用帳戶、資源群組或資源。 lock-name 是您想要命名鎖定的任何名稱。 对于 api 版本，请使用 **2016-09-01**。
 
 在要求中，包含指定鎖定屬性的 JSON 物件。
 

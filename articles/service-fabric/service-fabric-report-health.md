@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: 49ebf4ab95816a3da2f74a464b12b46de6228456
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59058606"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280548"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>新增自訂 Service Fabric 健康狀態報告
 Azure Service Fabric 引入了 [健康狀態模型](service-fabric-health-introduction.md) ，主要用於在特定實體上標示狀況不良的叢集和應用程式條件。 健康狀態模型使用 **健康狀態報告程式** (系統元件及看門狗)。 目標為輕易迅速的診斷並修復問題。 服務寫入器必須預先考慮到健康狀態。 任何可能會影響到健康狀態的條件都需加以回報，尤其是如果它有助標示出接近根目錄的問題。 健康情況資訊將可有效減少偵錯和調查工作所需的時間和心力。 一旦在雲端 (私人或 Azure) 大規模啟動並執行服務，效益特別明顯。

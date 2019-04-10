@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 13038bb7159556b36e82b598732d1f2d497bf314
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c4ff12f0c9adcb9943a6e2426eaf2740ba171e39
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762767"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358841"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>針對 Azure SQL Database 受控執行個體設定現有虛擬網路
 
@@ -25,10 +25,9 @@ Azure SQL Database 受控執行個體必須部署在 Azure [虛擬網路](../vir
 
 如果下列案例的其中一個適用於您，您就可以使用本文中說明的指令碼來驗證及修改您的網路：
 
-* 您有一個尚未設定的子網路。
-* 您不確定該子網路是否符合[需求](sql-database-managed-instance-connectivity-architecture.md#network-requirements)。
-* 您想要檢查該子網路在您進行變更之後仍然符合[網路需求](sql-database-managed-instance-connectivity-architecture.md#network-requirements)。
-
+- 您有一個尚未設定的子網路。
+- 您不確定該子網路是否符合[需求](sql-database-managed-instance-connectivity-architecture.md#network-requirements)。
+- 您想要檢查該子網路在您進行變更之後仍然符合[網路需求](sql-database-managed-instance-connectivity-architecture.md#network-requirements)。
 
 > [!Note]
 > 您只能在透過 Azure Resource Manager 部署模型建立的虛擬網路中建立受控執行個體。 不支援透過傳統部署模型建立的 Azure 虛擬網路。 藉由遵循[決定受控執行個體的子網路大小](sql-database-managed-instance-determine-size-vnet-subnet.md)一文中的指導方針來計算子網路大小。 在其中部署資源後，就無法再調整子網路的大小。

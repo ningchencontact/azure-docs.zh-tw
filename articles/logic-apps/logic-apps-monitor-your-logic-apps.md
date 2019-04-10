@@ -109,7 +109,7 @@ ms.locfileid: "58112308"
 
 若要在邏輯應用程式中尋找並檢視觸發程序事件、執行事件和動作事件這類事件，請遵循下列步驟。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選擇 [所有服務]。 搜尋 "log analytics"，然後選擇 [Log Analytics]，如下所示：
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選擇 [所有服務]。 搜尋「記錄分析」，然後選擇 [Log Analytics]，如下所示：
 
    ![選擇 [Log Analytics]](media/logic-apps-monitor-your-logic-apps/browseloganalytics.png)
 

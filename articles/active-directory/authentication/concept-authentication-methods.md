@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7a2866952d5e66e24770b81e69039d733fdd2a1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: e0c9af1a9ad8b816809f661d368133997f55329d
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894588"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360642"
 ---
 # <a name="what-are-authentication-methods"></a>驗證方法有哪些？
 
-當系統管理員選擇驗證方法，Azure Multi-factor Authentication 與自助式密碼重設 (SSPR) 建議您要求使用者註冊多個驗證方法。 無法使用使用者驗證方法時，他們可以選擇使用另一個方法進行驗證。
+身為管理員，請針對 Azure Multi-factor Authentication 與自助式密碼重設 (SSPR) 建議您要求使用者註冊多個驗證方法選擇驗證方法。 無法使用使用者驗證方法時，他們可以選擇使用另一個方法進行驗證。
 
 系統管理員可以定義在原則中可用於 SSPR 和 MFA 使用者的驗證方法。 某些驗證方法可能不適用於所有功能。 如需有關設定您的原則請參閱文章[如何成功推出自助式密碼重設](howto-sspr-deployment.md)和[規劃雲端架構的 Azure Multi-factor Authentication](howto-mfa-getstarted.md)
 
@@ -141,6 +141,9 @@ Microsoft Authenticator 應用程式可協助防止未經授權即存取帳戶�
 
 如果您允許使用透過行動裝置應用程式的通知和來自行動裝置應用程式的驗證碼，使用通知註冊 Microsoft Authenticator 應用程式的使用者，就能使用通知和驗證碼來確認其身分識別。
 
+> [!NOTE]
+> 如果您的組織有人員在運作，或用於中國，進而**行動應用程式的通知**方法**Android 裝置**不適用於該國家/地區。 替代方法應該可供這些使用者。
+
 ### <a name="verification-code-from-mobile-app"></a>行動應用程式傳回的驗證碼
 
 Microsoft Authenticator 應用程式或其他第三方應用程式可以作為軟體權杖來產生 OATH 驗證碼。 在輸入您的使用者名稱和密碼後，必須在登入畫面出現提示時輸入應用程式提供的驗證碼。 驗證碼提供第二種形式的驗證。
@@ -149,11 +152,11 @@ Microsoft Authenticator 應用程式或其他第三方應用程式可以作為�
 > 對於自助式密碼重設，當重設只需要一個方法時，驗證程式碼是使用者可**確保最高層級安全性**的唯一可用選項。
 >
 
-使用者可設定最多 5 個 OATH 硬體權杖或驗證器應用程式 (例如 Microsoft Authenticator 應用程式) 的組合，以在任何時間點使用。
+使用者可能會有最多五個 OATH 硬體權杖或驗證器應用程式，例如設定要在任何時候使用的 Microsoft Authenticator 應用程式的組合。
 
 ## <a name="oath-hardware-tokens-public-preview"></a>OATH 硬體權杖 (公開預覽)
 
-OATH 是一項開放標準，可指定單次密碼 (OTP) 程式碼的產生方式。 Azure AD 將會支援使用每 30 秒或 60 秒變換一次的 OATH-TOTP SHA-1 權杖。 客戶可以從他們選擇的廠商購買這些權杖。 請注意，祕密金鑰限制為 128 個字元，可能會與所有權杖不相容。
+OATH 是一項開放標準，可指定單次密碼 (OTP) 程式碼的產生方式。 Azure AD 將會支援使用每 30 秒或 60 秒變換一次的 OATH-TOTP SHA-1 權杖。 客戶可以從他們選擇的廠商購買這些權杖。 祕密金鑰，僅限於 128 個字元，可能會不相容的所有權杖。
 
 ![將 OATH 權杖上傳至 MFA Server OATH 權杖 刀鋒視窗](media/concept-authentication-methods/oath-tokens-azure-ad.png)
 
@@ -175,7 +178,7 @@ Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKe
 
 一旦已解決任何錯誤後，系統管理員可以接著按一下 [啟動] 來啟動每個金鑰，以便啟動權杖及輸入權杖上顯示的 OTP。
 
-使用者可設定最多 5 個 OATH 硬體權杖或驗證器應用程式 (例如 Microsoft Authenticator 應用程式) 的組合，以在任何時間點使用。
+使用者可能會有最多五個 OATH 硬體權杖或驗證器應用程式，例如設定要在任何時候使用的 Microsoft Authenticator 應用程式的組合。
 
 ## <a name="mobile-phone"></a>行動電話
 

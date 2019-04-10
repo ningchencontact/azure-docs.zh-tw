@@ -9,12 +9,12 @@ ms.reviewer: klam
 ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
 ms.topic: article
 ms.date: 08/18/2016
-ms.openlocfilehash: 5c80e86699d671994a0989b99c0f97ebe2680592
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: daf960bec0fac5f0c96749c219304bc77a4ba905
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59044992"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358561"
 ---
 # <a name="powershell-cmdlets-reference-for-azure-scheduler"></a>Azure 排程器 PowerShell Cmdlet 參考
 
@@ -27,23 +27,23 @@ ms.locfileid: "59044992"
 
 | Cmdlet | 描述 |
 |--------|-------------|
-| [Disable-AzSchedulerJobCollection](/powershell/module/az.scheduler/disable-azschedulerjobcollection) |停用工作集合。 |
-| [Enable-AzureRmSchedulerJobCollection](/powershell/module/az.scheduler/enable-azschedulerjobcollection) |啟用工作集合。 |
-| [Get-AzSchedulerJob](/powershell/module/az.scheduler/get-azschedulerjob) |取得排程器作業。 |
-| [Get-AzSchedulerJobCollection](/powershell/module/az.scheduler/get-azschedulerjobcollection) |取得工作集合。 |
-| [Get-AzSchedulerJobHistory](/powershell/module/az.scheduler/get-azschedulerjobhistory) |取得工作歷程記錄。 |
-| [New-AzSchedulerHttpJob](/powershell/module/az.scheduler/new-azschedulerhttpjob) |建立 HTTP 工作。 |
-| [New-AzSchedulerJobCollection](/powershell/module/az.scheduler/new-azschedulerjobcollection) |建立工作集合。 |
-| [New-AzSchedulerServiceBusQueueJob](/powershell/module/az.scheduler/new-azschedulerservicebusqueuejob) | 建立服務匯流排佇列作業。 |
-| [New-AzSchedulerServiceBusTopicJob](/powershell/module/az.scheduler/new-azschedulerservicebustopicjob) |建立服務匯流排主題作業。 |
-| [New-AzSchedulerStorageQueueJob](/powershell/module/az.scheduler/new-azschedulerstoragequeuejob) |建立儲存體佇列作業。 |
-| [Remove-AzSchedulerJob](/powershell/module/az.scheduler/remove-azschedulerjob) |移除排程器工作。 |
-| [Remove-AzSchedulerJobCollection](/powershell/module/az.scheduler/remove-azschedulerjobcollection) |移除工作集合。 |
-| [Set-AzSchedulerHttpJob](/powershell/module/az.scheduler/set-azschedulerhttpjob) |修改排程器 HTTP 工作。 |
-| [Set-AzSchedulerJobCollection](/powershell/module/az.scheduler/set-azschedulerjobcollection) |修改工作集合。 |
-| [Set-AzSchedulerServiceBusQueueJob](/powershell/module/az.scheduler/set-azschedulerservicebusqueuejob) |修改服務匯流排佇列作業。 |
-| [Set-AzSchedulerServiceBusTopicJob](/powershell/module/az.scheduler/set-azschedulerservicebustopicjob) |修改服務匯流排主題作業。 |
-| [Set-AzSchedulerStorageQueueJob](/powershell/module/az.scheduler/set-azschedulerstoragequeuejob) |修改儲存體佇列作業。 |
+| [Disable-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/disable-azschedulerjobcollection) |停用工作集合。 |
+| [Enable-AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/enable-azschedulerjobcollection) |啟用工作集合。 |
+| [Get-AzSchedulerJob](/powershell/module/azurerm.scheduler/get-azschedulerjob) |取得排程器作業。 |
+| [Get-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/get-azschedulerjobcollection) |取得工作集合。 |
+| [Get-AzSchedulerJobHistory](/powershell/module/azurerm.scheduler/get-azschedulerjobhistory) |取得工作歷程記錄。 |
+| [New-AzSchedulerHttpJob](/powershell/module/azurerm.scheduler/new-azschedulerhttpjob) |建立 HTTP 工作。 |
+| [New-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/new-azschedulerjobcollection) |建立工作集合。 |
+| [New-AzSchedulerServiceBusQueueJob](/powershell/module/azurerm.scheduler/new-azschedulerservicebusqueuejob) | 建立服務匯流排佇列作業。 |
+| [New-AzSchedulerServiceBusTopicJob](/powershell/module/azurerm.scheduler/new-azschedulerservicebustopicjob) |建立服務匯流排主題作業。 |
+| [New-AzSchedulerStorageQueueJob](/powershell/module/azurerm.scheduler/new-azschedulerstoragequeuejob) |建立儲存體佇列作業。 |
+| [Remove-AzSchedulerJob](/powershell/module/azurerm.scheduler/remove-azschedulerjob) |移除排程器工作。 |
+| [Remove-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/remove-azschedulerjobcollection) |移除工作集合。 |
+| [Set-AzSchedulerHttpJob](/powershell/module/azurerm.scheduler/set-azschedulerhttpjob) |修改排程器 HTTP 工作。 |
+| [Set-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/set-azschedulerjobcollection) |修改工作集合。 |
+| [Set-AzSchedulerServiceBusQueueJob](/powershell/module/azurerm.scheduler/set-azschedulerservicebusqueuejob) |修改服務匯流排佇列作業。 |
+| [Set-AzSchedulerServiceBusTopicJob](/powershell/module/azurerm.scheduler/set-azschedulerservicebustopicjob) |修改服務匯流排主題作業。 |
+| [Set-AzSchedulerStorageQueueJob](/powershell/module/azurerm.scheduler/set-azschedulerstoragequeuejob) |修改儲存體佇列作業。 |
 ||| 
 
 如需詳細資訊，您可以執行下列任何 Cmdlet： 

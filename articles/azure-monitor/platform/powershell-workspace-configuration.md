@@ -28,8 +28,8 @@ ms.locfileid: "58903398"
 * 在 Linux 電腦上收集 syslog 事件
 * 從 Windows 事件記錄檔收集事件
 * 收集自訂事件記錄檔
-* 將 Log Analytics 代理程式加入至 Azure 虛擬機器
-* 設定 Log Analytics 將 Azure 診斷所收集的資料編製索引
+* 將記錄分析代理程式加入至 Azure 虛擬機器
+* 設定記錄分析將 Azure 診斷所收集的資料編製索引
 
 本文提供兩個程式碼範例，示範您可以從 PowerShell 執行的一些功能。  關於其他功能，您可以參考 [Log Analytics PowerShell Cmdlet 參考文件](https://docs.microsoft.com/powershell/module/az.operationalinsights/) 。
 

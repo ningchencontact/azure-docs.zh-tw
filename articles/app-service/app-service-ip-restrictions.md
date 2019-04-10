@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 805de614246028bc75268e83991fa7831b990325
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: bb6ab29f02282a394e3f93e41682ceaec5208b75
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882322"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357627"
 ---
 # <a name="azure-app-service-static-access-restrictions"></a>Azure App Service 靜態存取限制 #
 
@@ -85,3 +85,9 @@ management.azure.com/subscriptions/**subscription ID**/resourceGroups/**resource
         "name": "allowed access"
       }
     ],
+
+## <a name="function-app-ip-restrictions"></a>函式應用程式 IP 限制
+
+IP 限制可供這兩個函式使用應用程式與 App Service 方案相同的功能。 請注意，啟用 IP 限制會停用任何不允許的 Ip 入口網站的程式碼編輯器。
+
+[進一步了解](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)

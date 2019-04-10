@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: carlrab
+ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 542db0200229b4fea4ac67ad19c468f2b9dc67d1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b7eb9ecd6b94aad263346ad6b5c45b694e0bd46f
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772774"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359764"
 ---
 # <a name="determine-the-management-endpoint-ip-address"></a>判斷管理端點 IP 位址
 
@@ -32,7 +32,6 @@ Azure SQL Database 受控執行個體的虛擬叢集包含 Microsoft 用來進�
 現在執行另一個`nslookup`反白顯示的名稱移除`.vnet.`區段。 當您執行此命令時，您將取得的公用 IP 位址。
 
 ![解析公用 IP 位址](./media/sql-database-managed-instance-management-endpoint/02_find_public_ip.png)
-
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 2/28/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 99c7309e22d8ebe61a0a85b38c92bd3027977848
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ecaabe0cf2e9e55bf02f8e12244d55fc2bef830b
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013120"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359821"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>為 VNet 設定網路對應和 IP 位址
 
@@ -73,7 +73,7 @@ ms.locfileid: "58013120"
 
 ## <a name="ip-address-assignment-during-failover"></a>容錯移轉期間的 IP 位址指派
 
-**來源與目標子網路** | **詳細資料**
+**來源和目標子網路** | **詳細資料**
 --- | ---
 相同的位址空間 | 來源 VM NIC 的 IP 位址設為目標 VM 的 NIC IP 位址。<br/><br/> 如果該位址無法使用，則會設定下一個可用的 IP 位址作為目標。
 

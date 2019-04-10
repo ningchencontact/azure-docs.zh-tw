@@ -7,17 +7,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: sashan, moslake
+author: stevestein
+ms.author: sstein
+ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: a14912c48f27c4f4d0e54239f8e0523ffa62324f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: edba858f9be3350034ff48ea16d3c9137254bb97
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57888497"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357940"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>V 核心服務層、Azure Hybrid Benefit 及移轉
 
@@ -37,7 +37,7 @@ ms.locfileid: "57888497"
 
 下表可協助您了解這三層的差異︰
 
-||**一般用途**|**商務關鍵性**|**超大規模 (預覽)**|
+||**一般用途**|**業務關鍵**|**超大規模 （預覽）**|
 |---|---|---|---|
 |適用對象|大部分的商業工作負載。 提供以預算為導向、平衡且可調整規模的計算與儲存體選項。|高 IO 需求的商務應用程式。 使用數個分開的複本，針對失敗提供最高的復原能力。|具有可高度擴充的儲存體和讀取規模需求的多數商務工作負載|
 |計算|第 4 代：1 到 24 個虛擬核心<br/>第 5 代：1 到 80 個虛擬核心|第 4 代：1 到 24 個虛擬核心<br/>第 5 代：1 到 80 個虛擬核心|第 4 代：1 到 24 個虛擬核心<br/>第 5 代：1 到 80 個虛擬核心|
@@ -76,17 +76,17 @@ ms.locfileid: "57888497"
 
 - 使用 Azure CLI 來設定或更新授權類型：
 
-  - [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
+  - [az sql db 建立](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
   - [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
-  - [az sql mi create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
+  - [az sql mi 建立](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
   - [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
 
 - 使用 REST API 來設定或更新授權類型：
 
-  - [資料庫 - 建立或更新](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
-  - [資料庫 - 更新](https://docs.microsoft.com/rest/api/sql/databases/update)
-  - [Managed Instances - Create Or Update](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
-  - [Managed Instances - Update](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
+  - [資料庫-建立或更新](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
+  - [資料庫-更新](https://docs.microsoft.com/rest/api/sql/databases/update)
+  - [受控執行個體-建立或更新](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
+  - [受管理的執行個體-更新](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
 
 ## <a name="migration-from-dtu-model-to-vcore-model"></a>從 DTU 模型移轉至虛擬核心模型
 

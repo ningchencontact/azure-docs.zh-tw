@@ -291,11 +291,11 @@ ms.locfileid: "58540749"
 1. 按一下 [新增步驟] > [新增動作]
 2. 鍵入 log analytics 作為篩選條件，然後選取 [Azure Log Analytics Data Collector - Send Data] \(Azure Log Analytics 資料收集器 - 傳送資料) 動作。
 
-   ![在 Logic Apps 中新增 Log Analytics 傳送資料動作](media/collect-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-connector.png)
+   ![在記錄分析中新增 Log Analytics 傳送資料動作](media/collect-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-connector.png)
 
 3. 輸入您連線的名稱，並貼入 Log Analytics 工作區的 [工作區識別碼] 和 [工作區金鑰]。  按一下頁面底部的 [新增] 。
 
-   ![在 Logic Apps 中新增 Log Analytics 連線](media/collect-activity-logs-subscriptions/logic-apps-log-analytics-add-connection.png)
+   ![在記錄分析中新增 Log Analytics 連線](media/collect-activity-logs-subscriptions/logic-apps-log-analytics-add-connection.png)
 
 4. 建立連線之後，請編輯下表中的設定。 
 

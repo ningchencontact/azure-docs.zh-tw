@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlr
+ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: f7e31c9e153f25faae9224f04eabf5ca54bb06b4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7db9c6400ac7d235153a59965e34e30d9b809a81
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57759214"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359709"
 ---
 # <a name="how-to-use-azure-sql-database"></a>如何使用 Azure SQL Database
 
@@ -25,9 +25,9 @@ ms.locfileid: "57759214"
 
 ## <a name="load-data"></a>載入資料
 
-- [在 Azure 內複製單一資料庫或集區資料庫](sql-database-copy.md)
+- [複製單一資料庫或在 Azure 中的集區的資料庫](sql-database-copy.md)
 - [從 BACPAC 匯入 DB](sql-database-import.md)
-- [將 DB 匯出到 BACPAC](sql-database-export.md)
+- [從 BACPAC 匯出 DB](sql-database-export.md)
 - [使用 BCP 載入資料](sql-database-load-from-csv-with-bcp.md)
 - [使用 ADF 載入資料](../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json)
 
@@ -74,10 +74,10 @@ ms.locfileid: "57759214"
 - [使用 Spark 連接器](sql-database-spark-connector.md)
 - [驗證應用程式](sql-database-client-id-keys.md)
 - [錯誤訊息](sql-database-develop-error-messages.md)
-- [使用批次處理改善效能](sql-database-use-batching-to-improve-performance.md)
-- [連線能力指導](sql-database-connectivity-issues.md)
+- [使用批次處理，以提升效能](sql-database-use-batching-to-improve-performance.md)
+- [連線指導方針](sql-database-connectivity-issues.md)
 - [DNS 別名](dns-alias-overview.md)
-- [DNS 別名 PowerShell](dns-alias-powershell.md)
+- [設定 DNS 別名 PowerShell](dns-alias-powershell.md)
 - [連接埠 - ADO.NET](sql-database-develop-direct-route-ports-adonet-v12.md)
 - [C 和 C ++](sql-database-develop-cplusplus-simple.md)
 - [Excel](sql-database-connect-excel.md)

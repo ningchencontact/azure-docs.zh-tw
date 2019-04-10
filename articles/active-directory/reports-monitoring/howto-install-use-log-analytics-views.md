@@ -1,6 +1,6 @@
 ---
-title: 如何安裝與使用適用於 Azure Active Directory 的 Log Analytics 檢視 (預覽) | Microsoft Docs
-description: 了解如何安裝與使用適用於 Azure Active Directory 的 Log Analytics 檢視 (預覽)
+title: 如何安裝與使用適用於 Azure Active Directory 的記錄分析檢視 (預覽) | Microsoft Docs
+description: 了解如何安裝與使用適用於 Azure Active Directory 的記錄分析檢視 (預覽)
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -24,22 +24,22 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 03/26/2019
 ms.locfileid: "58437300"
 ---
-# <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>安裝與使用適用於 Azure Active Directory 的 Log Analytics 檢視
+# <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>安裝與使用適用於 Azure Active Directory 的記錄分析檢視
 
-Azure Active Directory 的 Log Analytics 檢視可協助您分析和搜尋 Azure AD 租用戶中的 Azure AD 活動記錄。 Azure AD 活動記錄包含：
+Azure Active Directory 的記錄分析檢視可協助您分析和搜尋 Azure AD 租用戶中的 Azure AD 活動記錄。 Azure AD 活動記錄包含：
 
 * 稽核記錄：[稽核記錄活動報告](concept-audit-logs.md)可讓您對每個在租用戶中執行的工作存取歷程記錄。
 * 登入記錄：透過[登入活動報告](concept-sign-ins.md)，您可以判斷是誰執行了稽核記錄中所報告的工作。
 
 ## <a name="prerequisites"></a>必要條件
 
-若要使用 Log Analytics 檢視，您需要：
+若要使用記錄分析檢視，您需要：
 
 * Azure 訂用帳戶中的 Log Analytics 工作區。 了解如何[建立 Log Analytics 工作區](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)。
 * 首先，請完成[將 Azure AD 活動記錄路由至 Log Analytics 工作區](howto-integrate-activity-logs-with-log-analytics.md)的步驟。
 * 從 [GitHub 存放庫](https://aka.ms/AADLogAnalyticsviews)將檢視下載到您的本機電腦。
 
-## <a name="install-the-log-analytics-views"></a>安裝 Log Analytics 檢視
+## <a name="install-the-log-analytics-views"></a>安裝記錄分析檢視
 
 1. 瀏覽至您的 Log Analytics 工作區。 若要這麼做，請先瀏覽至 [Azure 入口網站](https://portal.azure.com)，然後選取 [所有服務]。 在文字方塊中輸入 **Log Analytics**，然後選取 [Log Analytics 工作區]。 請選取您的活動記錄路由到的工作區，作為必要條件的一部分。
 2. 依序選取 [檢視設計工具]、[匯入] 和 [選擇檔案]，以從本機電腦匯入檢視。

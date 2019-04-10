@@ -10,19 +10,19 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: 32f96a28e027bfd0e65d934bb47bb98400af459d
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: e1b584d38c4583e37b7c47535c836d1fa7d428f1
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360716"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357243"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>自動定型時間序列預測的模型
 
 在本文中，您會學習如何使用自動化的機器學習在 Azure Machine Learning 服務中將時間序列預測迴歸模型定型。 設定預測的模型類似於設定標準迴歸模型使用自動化的機器學習服務，但使用時間序列資料的存在的某些設定選項和前置處理步驟。 下列範例將示範如何以：
 
 * 準備資料進行時間序列模型化
-* 設定在特定時間序列參數[ `AutoMLConfig` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py)物件
+* 設定在特定時間序列參數[ `AutoMLConfig` ](/python/api/azureml-train-automl/azureml.train.automl.automlconfig)物件
 * 以時間序列資料執行預測
 
 ## <a name="prerequisites"></a>必要條件

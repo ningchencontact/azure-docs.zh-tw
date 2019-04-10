@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: dccc967e7899d8cc9c4bde6829d6fc44f9cba4e0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 2957b45a0a26c590e2db1b402f4956ae9c3b8000
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58890889"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59291853"
 ---
 下表說明 Azure 儲存體的預設限制。 “传入”限制是指请求中发送到存储帐户的所有数据。 “传出”限制是指响应中从存储帐户接收的所有数据。
 
@@ -22,10 +22,15 @@ ms.locfileid: "58890889"
 | 每個區域中每個訂用帳戶的儲存體帳戶數目，包括標準和進階帳戶 | 250 |
 | 最大存储帐户容量 | 2 適用於美國和歐洲地區，其他所有區域，其中包括英國的 500 TB 的 PB |
 | 每个存储帐户的 Blob 容器、Blob、文件共享、表、队列、实体或消息数上限 | 沒有限制 |
+| FileStorage （預覽） 的儲存體帳戶的大小上限 | 100,000 GiB |
+| FileStorage （預覽） 儲存體帳戶的最大 IOPS | 100,000 |
+| FileStorage （預覽） 儲存體帳戶的最大頻寬 | 5 GB/s |
 | 每一儲存體帳戶的要求率上限<sup>1</sup> | 每秒 20,000 個要求 |
 | 最大輸入<sup>1</sup>每個儲存體帳戶 （美國地區） | 如果啟用 RA-GRS/GRS，則為 10 Gbps，LRS/ZRS 為 20 Gbps<sup>2</sup> |
 | 最大輸入<sup>1</sup>每個儲存體帳戶 （非美國地區） | 如果啟用 RA-GRS/GRS，則 5 Gbps，LRS/ZRS 為 10 Gbps<sup>2</sup> |
-| 一般用途 v2 和 Blob 儲存體帳戶 （所有區域） 的最大輸出 | 50 Gbps |
+| 每個 FileStorage （預覽） 儲存體帳戶 （美國地區） 的最大輸入 | (只有 LRS) 為 20 Gbps |
+| 每個 FileStorage （預覽） 儲存體帳戶 （非美國地區） 的最大輸入 | 10 Gbps (只有 LRS)|
+| 最大輸出一般用途 v2、 FileStorage （預覽） 和 Blob 儲存體帳戶 （所有區域） | 50 Gbps |
 | 針對一般用途 v1 儲存體帳戶 （美國地區） 的最大輸出 | 如果啟用 RA-GRS/GRS，則為 20 Gbps，LRS/ZRS 為 30 Gbps<sup>2</sup> |
 | 針對一般用途 v1 儲存體帳戶 （非美國地區） 的最大輸出 | 如果啟用 RA-GRS/GRS，則為 10 Gbps，LRS/ZRS 為 15 Gbps<sup>2</sup> |
 
