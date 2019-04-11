@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 6c96b7139787a3863b3f7a47949d9cdf20cc5021
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c9e6e289fbda3188449ecc71cbc90bed546512e1
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855668"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471523"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>針對啟用或檢視 Application Insights Profiler 的問題進行疑難排解
 
@@ -67,9 +67,15 @@ Profiler 會將追蹤訊息和自訂事件寫入至您的 Application Insights �
 若要讓 Profiler 正常運作：
 * Web 應用程式服務方案必須至少是「基本」層。
 * 您的 Web 應用程式必須已啟用 Application Insights。
-* 在設定 Web 應用程式的 **APPINSIGHTS_INSTRUMENTATIONKEY** 應用程式設定時，所使用的檢測金鑰必須和 Application Insights SDK 所使用的檢測金鑰相同。
-* Web 應用程式必須已定義 **APPINSIGHTS_PROFILERFEATURE_VERSION** 應用程式設定，並將其設定為 1.0.0。
-* Web 應用程式必須已定義 **DiagnosticServices_EXTENSION_VERSION** 應用程式設定，並將其值設定為 ~3。
+* 您的 web 應用程式必須具有下列應用程式設定：
+
+    |應用程式設定    | 值    |
+    |---------------|----------|
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | 為您的 Application Insights 資源的 iKey    |
+    |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
+    |DiagnosticServices_EXTENSION_VERSION | ~3 |
+
+
 * **ApplicationInsightsProfiler3** WebJob 必須正在執行。 若要檢查 WebJob：
    1. 移至 [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/)。
    1. 在 [工具] 功能表中，選取 [WebJob 儀表板]。  
@@ -93,12 +99,13 @@ Profiler 會將追蹤訊息和自訂事件寫入至您的 Application Insights �
 1. 設定 **.NET Framework 版本**要**v4.6**。
 
 1. 將 [一律開啟] 設定為 [開啟]。
+1. 建立這些應用程式設定：
 
-1. 新增 **APPINSIGHTS_INSTRUMENTATIONKEY** 應用程式設定，並將值設定為與 SDK 所用相同的檢測金鑰。
-
-1. 新增 **APPINSIGHTS_PROFILERFEATURE_VERSION** 應用程式設定，並將其值設定為 1.0.0。
-
-1. 新增 **DiagnosticServices_EXTENSION_VERSION** 應用程式設定，並將其值設定為 ~3。
+    |應用程式設定    | 值    |
+    |---------------|----------|
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | 為您的 Application Insights 資源的 iKey    |
+    |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
+    |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 ### <a name="too-many-active-profiling-sessions"></a>太多個使用中分析工作階段
 
@@ -108,7 +115,7 @@ Profiler 會將追蹤訊息和自訂事件寫入至您的 Application Insights �
 
 如果您要將 Web 應用程式重新部署到已啟用 Profiler 的 Web Apps 資源，您可能會看到下列訊息：
 
-目錄尚有資料 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
+*目錄尚有資料 'D:\\home\\site\\wwwroot\\App_Data\\jobs'*
 
 如果您從指令碼或從 Azure DevOps 部署管線執行 Web Deploy，就會發生此錯誤。 解決方法是將下列額外的部署參數新增至 Web Deploy 工作：
 
@@ -124,7 +131,7 @@ Profiler 會在 Web 應用程式中以連續 WebJob 的形式執行。 您可以
 
 ## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>對 Profiler 和 Azure 診斷的問題進行疑難排解
 
-  >**分析工具中隨附的 WAD 的最新版本的雲端服務中沒有錯誤。** 若要使用的雲端服務中的程式碼剖析工具，它只支援 AI SDK 升級到版本 2.7.2。 如果您使用較新版的 AI SDK，您必須返回 2.7.2 若要使用分析工具。 如果您使用 Visual Studio 的應用程式的 application Insights SDK 的版本降級時，您可能會在執行階段的繫結重新導向錯誤。 這是因為 「 newVersion"Microsoft.ApplicationInsights 的 web.config 檔案中應該設定為"2.7.2.0 」 之後降級 AI SDK，但它不會自動更新。
+>**已修正程式碼剖析工具中的 WAD 發行雲端服務的錯誤。** WAD (1.12.2.0) 針對雲端服務的最新版本適用於所有應用程式的 application Insights SDK 的最新版本。 雲端服務主機將會自動升級 WAD，但它不是即時的。 若要強制升級，您可以重新部署您的服務，或重新啟動節點。
 
 若要查看 Azure 診斷是否已正確設定 Profiler，請執行下列三項作業： 
 1. 首先，請確認部署的 Azure 診斷組態內容是否符合您的預期。 

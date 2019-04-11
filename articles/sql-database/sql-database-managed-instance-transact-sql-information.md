@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: d84e52878c285ddd66fd799efe8c0f3cd2fc3e31
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: HT
+ms.openlocfilehash: 4ceed2fb2b42dc8e09d1a837200652d29838d81b
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358432"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471557"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database 受控執行個體的 T-SQL 差異
 
@@ -27,8 +27,8 @@ ms.locfileid: "59358432"
 - [安全性](#security)上的差異包括[稽核](#auditing)、[憑證](#certificates)、[認證](#credential)、[密碼編譯提供者](#cryptographic-providers)、[登入 / 使用者](#logins--users)、[服務金鑰和服務主要金鑰](#service-key-and-service-master-key)，
 - [設定](#configuration)上的差異包括[緩衝集區延伸](#buffer-pool-extension)、[定序](#collation)、[相容性層級](#compatibility-levels)、[資料庫鏡像](#database-mirroring)、[資料庫選項](#database-options)、[SQL Server Agent](#sql-server-agent)、[資料表選項](#tables)，
 - [功能](#functionalities)包括 [/OPENROWSET](#bulk-insert--openrowset)、[CLR](#clr)、[DBCC](#dbcc)、[分散式交易](#distributed-transactions)、[擴充事件](#extended-events)、[外部程式庫](#external-libraries)、[Filestream 和 Filetable](#filestream-and-filetable)、[全文檢索語意搜尋](#full-text-semantic-search)、[連結伺服器](#linked-servers)、[Polybase](#polybase)、[複寫](#replication)、[RESTORE](#restore-statement)、[Service Broker](#service-broker)、[預存程序、函式和觸發程序](#stored-procedures-functions-triggers)，
-- [受控執行個體中具有不同行為的功能](#Changes)
-- [暫時性限制與已知的問題](#Issues)
+- [在托管实例中行为不同的功能](#Changes)
+- [暂时性的限制和已知问题](#Issues)
 
 受控執行個體的部署選項提供對內部部署 SQL Server 資料庫引擎的高度相容性。 受控執行個體支援大部分的 SQL Server 資料庫引擎功能。
 
@@ -40,10 +40,10 @@ ms.locfileid: "59358432"
 
 受控執行個體內建[高可用性](sql-database-high-availability.md)，並且無法由使用者控制。 不支援下列陳述式︰
 
-- [建立端點... FOR DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql)
-- [建立可用性群組](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql)
+- [CREATE ENDPOINT … FOR DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql)
+- [CREATE AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/create-availability-group-transact-sql)
 - [ALTER AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/alter-availability-group-transact-sql)
-- [卸除可用性群組](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql)
+- [DROP AVAILABILITY GROUP](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql)
 - [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql)陳述式的 [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr) 子句
 
 ### <a name="backup"></a>Backup 
@@ -52,9 +52,9 @@ ms.locfileid: "59358432"
 
 - 使用受控執行個體，您可以將執行個體資料庫只備份到 Azure Blob 儲存體帳戶：
   - 只支援 `BACKUP TO URL`
-  - `FILE``TAPE`，並不支援備份裝置  
+  - `FILE`、`TAPE` 和备份设备不受支持  
 - 支援大部分一般的 `WITH` 選項
-  - `COPY_ONLY` 是必要項目
+  - `COPY_ONLY` 必需
   - `FILE_SNAPSHOT` 不支援
   - 磁帶選項：不支援 `REWIND`、`NOREWIND`、`UNLOAD` 和 `NOUNLOAD`
   - 記錄專用選項：不支援 `NORECOVERY`、`STANDBY` 和 `NO_TRUNCATE`
@@ -62,16 +62,16 @@ ms.locfileid: "59358432"
 限制：  
 
 - 使用受控執行個體，您可以將執行個體資料庫備份至最多具有 32 個等量磁碟區的備份，這足夠最多 4 TB 的資料庫使用 (如果使用備份壓縮)。
-- 使用的最大備份等量磁碟區大小`BACKUP`受管理的執行個體中的命令為 195 GB （最大 blob 大小）。 在備份命令中增加條帶 (Stripe) 數目，可減少個別條帶 (Stripe) 的大小並維持在此限制內。
+- 在托管实例中使用 `BACKUP` 命令的最大备份条带大小为 195 GB（最大 Blob 大小）。 在備份命令中增加條帶 (Stripe) 數目，可減少個別條帶 (Stripe) 的大小並維持在此限制內。
 
     > [!TIP]
-    > 若要解決這項限制，從 SQL Server 中的內部部署環境或虛擬機器中備份資料庫時，您可以執行下列作業：
+    > 从本地环境或虚拟机中的 SQL Server 备份数据库时，若要解决此限制，可执行以下操作：
     >
-    > - 備份至`DISK`而不要備份至 `URL`
-    > - 備份的檔案上傳至 Blob 儲存體
-    > - 還原至受控執行個體
+    > - 备份到 `DISK`，而不是备份到 `URL`
+    > - 将备份文件上传到 Blob 存储
+    > - 还原到托管实例
     >
-    > `Restore`受管理的執行個體中的命令會支援備份檔案中較大 blob 大小因為不同的 blob 類型用來上傳備份檔案的儲存體。
+    > 托管实例中的 `Restore` 命令支持备份文件中的更大 Blob 大小，因为将使用不同的 Blob 类型来存储上传的备份文件。
 
 如需使用 T-SQL 進行備份的相關資訊，請參閱[備份](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql)。
 
@@ -94,7 +94,7 @@ Azure SQL Database 中的資料庫和 SQL Server 中的資料庫兩者之間的�
 
 如需詳細資訊，請參閱  
 
-- [建立伺服器稽核](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)  
+- [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)  
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 - [稽核](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)
 
@@ -102,8 +102,8 @@ Azure SQL Database 中的資料庫和 SQL Server 中的資料庫兩者之間的�
 
 受控執行個體無法存取檔案共用及 Windows 資料夾，因此會有下列限制：
 
-- `CREATE FROM`/`BACKUP TO` 檔案不支援憑證
-- `CREATE`/`BACKUP` 從憑證`FILE` / `ASSEMBLY`不受支援。 無法使用私密金鑰檔案。  
+- `CREATE FROM`不支持将 /`BACKUP TO` 文件用于证书
+- `CREATE`不支持 `FILE`/`ASSEMBLY` 中的 /`BACKUP` 证书。 無法使用私密金鑰檔案。  
 
 請參閱 [CREATE CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/create-certificate-transact-sql) 和 [BACKUP CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/backup-certificate-transact-sql)。  
   
@@ -125,8 +125,8 @@ WITH PRIVATE KEY (<private_key_options>)
 
 受控執行個體無法存取檔案，所以無法建立密碼編譯提供者：
 
-- `CREATE CRYPTOGRAPHIC PROVIDER` 不支援。 請參閱 [CREATE CRYPTOGRAPHIC PROVIDER](https://docs.microsoft.com/sql/t-sql/statements/create-cryptographic-provider-transact-sql)。
-- `ALTER CRYPTOGRAPHIC PROVIDER` 不支援。 請參閱 [ALTER CRYPTOGRAPHIC PROVIDER](https://docs.microsoft.com/sql/t-sql/statements/alter-cryptographic-provider-transact-sql)。
+- `CREATE CRYPTOGRAPHIC PROVIDER` 不受支持。 請參閱 [CREATE CRYPTOGRAPHIC PROVIDER](https://docs.microsoft.com/sql/t-sql/statements/create-cryptographic-provider-transact-sql)。
+- `ALTER CRYPTOGRAPHIC PROVIDER` 不受支持。 請參閱 [ALTER CRYPTOGRAPHIC PROVIDER](https://docs.microsoft.com/sql/t-sql/statements/alter-cryptographic-provider-transact-sql)。
 
 ### <a name="logins--users"></a>登入 / 使用者
 
@@ -156,7 +156,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
   - 受控執行個體的 Active Directory 系統管理員限制：
 
-    - 用來設定受控執行個體的 Azure AD 系統管理員不可用來在受控執行個體內建立 Azure AD 伺服器主體 (登入)。 您必須使用屬於 `sysadmin` 的 SQL Server 帳戶來建立第一個 Azure AD 伺服器主體 (登入)。 此一限制是暫時性的，在 Azure AD 伺服器主體 (登入) 正式運作後便會消除。 如果您嘗試使用 Azure AD 系統管理員帳戶建立登入，您會看到下列錯誤： `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
+    - 用來設定受控執行個體的 Azure AD 系統管理員不可用來在受控執行個體內建立 Azure AD 伺服器主體 (登入)。 您必須使用屬於 `sysadmin` 的 SQL Server 帳戶來建立第一個 Azure AD 伺服器主體 (登入)。 此一限制是暫時性的，在 Azure AD 伺服器主體 (登入) 正式運作後便會消除。 如果尝试使用 Azure AD 管理员帐户创建登录名，将会看到以下错误： `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
       - 目前，在 Master DB 中建立的第一個 Azure AD 登入必須使用標準 SQL Server 帳戶 (非 Azure AD) 來建立，也就是使用 [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) FROM EXTERNAL PROVIDER 的 `sysadmin`。 正式運作後，這項限制將會移除，而初始 Azure AD 登入就能夠由受控執行個體的 Active Directory 系統管理員來建立。
     - 與 SQL Server Management Studio (SSMS) 或 SqlPackage 搭配使用的 DacFx (匯出/匯入) 不可用於 Azure AD 登入。 此一限制會在 Azure AD 伺服器主體 (登入) 正式運作後移除。
     - 搭配 SSMS 使用 Azure AD 伺服器層級主體 (登入)
@@ -190,7 +190,7 @@ WITH PRIVATE KEY (<private_key_options>)
 ### <a name="buffer-pool-extension"></a>緩衝集區延伸
 
 - [不支援緩衝集區延伸](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension)。
-- `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION` 不支援。 請參閱 [ALTER SERVER CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-server-configuration-transact-sql)。
+- `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION` 不受支持。 請參閱 [ALTER SERVER CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-server-configuration-transact-sql)。
 
 ### <a name="collation"></a>Collation
 
@@ -208,8 +208,8 @@ WITH PRIVATE KEY (<private_key_options>)
 
 不支援資料庫鏡像。
 
-- `ALTER DATABASE SET PARTNER` 和`SET WITNESS`選項不支援。
-- `CREATE ENDPOINT … FOR DATABASE_MIRRORING` 不支援。
+- `ALTER DATABASE SET PARTNER` 和 `SET WITNESS` 选项不受支持。
+- `CREATE ENDPOINT … FOR DATABASE_MIRRORING` 不受支持。
 
 如需詳細資訊，請參閱 [ALTER DATABASE SET PARTNER and SET WITNESS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-database-mirroring) 和 [CREATE ENDPOINT … FOR DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql)。
 
@@ -217,7 +217,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 - 不支援多個記錄檔。
 - 「一般用途」服務層中不支援記憶體內部物件。  
-- 沒有 280 個檔案，每個一般用途執行個體最多 280 個檔案，每個資料庫的限制。 資料和記錄檔案一般用途層都會計入這項限制。 [業務關鍵層支援每個資料庫的 32,767 檔案](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)。
+- 沒有 280 個檔案，每個一般用途執行個體最多 280 個檔案，每個資料庫的限制。 資料和記錄檔案一般用途層都會計入這項限制。 [業務關鍵層支援每個資料庫的 32,767 檔案](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)。
 - 資料庫不能包含具有 Filestream 資料的檔案群組。  如果 .bak 包含 `FILESTREAM` 資料，還原將會失敗。  
 - 每個檔案都位於 Azure Blob 儲存體中。 每個檔案的 IO 和輸送量均取決於每個個別檔案的大小。  
 
@@ -226,13 +226,13 @@ WITH PRIVATE KEY (<private_key_options>)
 以下是 `CREATE DATABASE` 的限制：
 
 - 無法定義檔案和檔案群組。  
-- `CONTAINMENT` 不支援選項。  
-- `WITH`不支援選項。  
+- `CONTAINMENT` 选项不受支持。  
+- `WITH`选项不受支持。  
    > [!TIP]
    > 因應措施是在 `CREATE DATABASE` 之後使用 `ALTER DATABASE` 來設定資料庫選項以新增檔案，或設定內含項目。  
 
-- `FOR ATTACH` 不支援選項
-- `AS SNAPSHOT OF` 不支援選項
+- `FOR ATTACH` 选项不受支持。
+- `AS SNAPSHOT OF` 选项不受支持。
 
 如需詳細資訊，請參閱 [CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-sql-server-transact-sql)。
 
@@ -323,24 +323,24 @@ WITH PRIVATE KEY (<private_key_options>)
 
 受控執行個體無法存取檔案共用及 Windows 資料夾，因此必須從 Azure Blob 儲存體匯入這些檔案：
 
-- `DATASOURCE` 所需要的是`BULK INSERT`命令從 Azure Blob 儲存體匯入檔案時。 請參閱[大量插入](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql)。
-- `DATASOURCE` 所需要的是`OPENROWSET`函式，當您從 Azure Blob 儲存體讀取檔案的內容。 請參閱 [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql)。
+- `DATASOURCE` 必须在 `BULK INSERT` 命令中指定，才能从 Azure Blob 存储导入文件。 請參閱[大量插入](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql)。
+- `DATASOURCE` 必须在 `OPENROWSET` 函数中指定，才能从 Azure Blob 存储中读取文件内容。 請參閱 [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql)。
 
 ### <a name="clr"></a>CLR
 
 受控執行個體無法存取檔案共用及 Windows 資料夾，因此會有下列限制：
 
 - 只支援 `CREATE ASSEMBLY FROM BINARY`。 請參閱 [CREATE ASSEMBLY FROM BINARY](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql)。  
-- `CREATE ASSEMBLY FROM FILE` 不支援。 請參閱 [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql)。
-- `ALTER ASSEMBLY` 無法參考檔案。 請參閱 [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql)。
+- `CREATE ASSEMBLY FROM FILE` 不受支持。 請參閱 [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql)。
+- `ALTER ASSEMBLY` 不能引用文件。 請參閱 [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql)。
 
 ### <a name="dbcc"></a>DBCC
 
 受控執行個體中不支援已在 SQL Server 中啟用但無文件說明的 DBCC 陳述式。
 
-- `Trace Flags` 不支援。 請參閱[追蹤旗標](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql)。
-- `DBCC TRACEOFF` 不支援。 請參閱 [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql)。
-- `DBCC TRACEON` 不支援。 請參閱 [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql)。
+- `Trace Flags` 不受支持。 請參閱[追蹤旗標](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql)。
+- `DBCC TRACEOFF` 不受支持。 請參閱 [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql)。
+- `DBCC TRACEON` 不受支持。 請參閱 [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql)。
 
 ### <a name="distributed-transactions"></a>分散式交易
 
@@ -350,8 +350,8 @@ WITH PRIVATE KEY (<private_key_options>)
 
 不支援 XEvent 的某些 Windows 特定目標：
 
-- `etw_classic_sync target` 不支援。 將 `.xel` 檔案儲存在 Azure Blob 儲存體中。 請參閱 [etw_classic_sync 目標](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etw_classic_sync_target-target)。
-- `event_file target` 不支援。 將 `.xel` 檔案儲存在 Azure Blob 儲存體中。 請參閱 [event_file 目標](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target)。
+- `etw_classic_sync target` 不受支持。 將 `.xel` 檔案儲存在 Azure Blob 儲存體中。 請參閱 [etw_classic_sync 目標](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etw_classic_sync_target-target)。
+- `event_file target` 不受支持。 將 `.xel` 檔案儲存在 Azure Blob 儲存體中。 請參閱 [event_file 目標](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target)。
 
 ### <a name="external-libraries"></a>外部程式庫
 
@@ -361,7 +361,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 - 不支援 Filestream 資料。
 - 資料庫不能包含具有 `FILESTREAM` 資料的檔案群組。
-- `FILETABLE` 不支援。
+- `FILETABLE` 不受支持。
 - 資料表不能有 `FILESTREAM` 類型
 - 以下是不支援的函式：
   - `GetPathLocator()`
@@ -386,9 +386,9 @@ WITH PRIVATE KEY (<private_key_options>)
 作業
 
 - 不支援跨執行個體寫入交易。
-- `sp_dropserver` 支援卸除連結的伺服器。 請參閱 [sp_dropserver](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql)。
-- `OPENROWSET` 函式可用來執行查詢，只在 SQL Server 執行個體 (受控、 內部部署，或在虛擬機器)。 請參閱 [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql)。
-- `OPENDATASOURCE` 函式可用來執行查詢，只在 SQL Server 執行個體 (受控、 內部部署，或在虛擬機器)。 只支援使用 `SQLNCLI`、`SQLNCLI11` 和 `SQLOLEDB` 值作為提供者。 例如： `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee` 。 請參閱 [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql)。
+- `sp_dropserver` 可用于删除链接服务器。 請參閱 [sp_dropserver](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql)。
+- `OPENROWSET` 函数可用于仅针对 SQL Server 实例（托管实例、本地实例或虚拟机中的实例）执行查询。 請參閱 [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql)。
+- `OPENDATASOURCE` 函数可用于仅针对 SQL Server 实例（托管实例、本地实例或虚拟机中的实例）执行查询。 只支援使用 `SQLNCLI`、`SQLNCLI11` 和 `SQLOLEDB` 值作為提供者。 例如： `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee` 。 請參閱 [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql)。
 
 ### <a name="polybase"></a>Polybase
 
@@ -410,26 +410,26 @@ WITH PRIVATE KEY (<private_key_options>)
   - `RESTORE LOG ONLY`
   - `RESTORE REWINDONLY ONLY`
 - 來源  
-  - `FROM URL` （azure Blob 儲存體） 是唯一支援的選項。
-  - `FROM DISK`/`TAPE`/ 不支援備份裝置。
+  - `FROM URL` （Azure Blob 存储）是唯一受支持的选项。
+  - `FROM DISK`/`TAPE`/备份设备不受支持。
   - 不支援備份組。
-- `WITH` 不支援選項 (否`DIFFERENTIAL`， `STATS`，依此類推。)
-- `ASYNC RESTORE` 即使用戶端連線中斷，仍會繼續還原。 如果您的連線中斷，您可以檢查 `sys.dm_operation_status` 檢視，了解還原作業的狀態 (也適用於 CREATE (建立) 和 DROP (捨棄) 資料庫作業)。 請參閱 [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)。  
+- `WITH` 选项不受支持（不允许 `DIFFERENTIAL`、`STATS` 等）。
+- `ASYNC RESTORE` - 即使客户端连接断开，还原也会继续。 如果您的連線中斷，您可以檢查 `sys.dm_operation_status` 檢視，了解還原作業的狀態 (也適用於 CREATE (建立) 和 DROP (捨棄) 資料庫作業)。 請參閱 [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)。  
 
 系統會設定/覆寫下列資料庫選項，而且之後無法變更：  
 
-- `NEW_BROKER` （如果.bak 檔案中未啟用 broker）  
-- `ENABLE_BROKER` （如果.bak 檔案中未啟用 broker）  
-- `AUTO_CLOSE=OFF` (如果.bak 檔案中的資料庫具有`AUTO_CLOSE=ON`)  
-- `RECOVERY FULL` (如果.bak 檔案中的資料庫具有`SIMPLE`或`BULK_LOGGED`復原模式)
+- `NEW_BROKER` （如果未在 .bak 文件中启用代理）  
+- `ENABLE_BROKER` （如果未在 .bak 文件中启用代理）  
+- `AUTO_CLOSE=OFF` （如果 .bak 文件中的数据库采用 `AUTO_CLOSE=ON`）  
+- `RECOVERY FULL` （如果 .bak 文件中的数据库采用 `SIMPLE` 或 `BULK_LOGGED` 恢复模式）
 - 新增記憶體最佳化檔案群組並呼叫 XTP (如果來源 .bak 檔案中沒有的話)  
 - 任何現有的記憶體最佳化檔案群組已重新命名為 XTP  
-- `SINGLE_USER` 和`RESTRICTED_USER`選項會轉換成 `MULTI_USER`
+- `SINGLE_USER` 和 `RESTRICTED_USER` 选项将转换为 `MULTI_USER`
 
 限制：  
 
-- `.BAK` 無法還原包含多個備份組檔案。
-- `.BAK` 無法還原包含多個記錄檔的檔案。
+- `.BAK` 文件（包含多个备份集）无法还原。
+- `.BAK` 文件（包含多个日志文件）无法还原。
 - 如果 .bak 包含 `FILESTREAM` 資料，還原將會失敗。
 - 包含有使用中記憶體中物件的資料庫備份無法還原在一般用途執行個體上。  
 如需有關 Restore 陳述式的資訊，請參閱 [陳述式](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)。
@@ -438,46 +438,45 @@ WITH PRIVATE KEY (<private_key_options>)
 
 不支援跨執行個體的服務訊息代理程式：
 
-- `sys.routes` 必要條件： 從 sys.routes 選取位址。 每個路由上的位址必須是 LOCAL。 請參閱 [sys.routes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-routes-transact-sql)。
-- `CREATE ROUTE` -您無法使用`CREATE ROUTE`具有`ADDRESS`以外的其他`LOCAL`。 請參閱 [CREATE ROUTE](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql)。
-- `ALTER ROUTE` 不能`ALTER ROUTE`具有`ADDRESS`以外的其他`LOCAL`。 請參閱 [ALTER ROUTE](https://docs.microsoft.com/sql/t-sql/statements/alter-route-transact-sql)。  
+- `sys.routes` - 先决条件：从 sys.routes 中选择地址。 每個路由上的位址必須是 LOCAL。 請參閱 [sys.routes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-routes-transact-sql)。
+- `CREATE ROUTE` - 不能使用除 `LOCAL` 以外的 `ADDRESS` 执行 `CREATE ROUTE`。 請參閱 [CREATE ROUTE](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql)。
+- `ALTER ROUTE` 不能使用除 `LOCAL` 以外的 `ADDRESS` 执行 `ALTER ROUTE`。 請參閱 [ALTER ROUTE](https://docs.microsoft.com/sql/t-sql/statements/alter-route-transact-sql)。  
 
 ### <a name="stored-procedures-functions-triggers"></a>預存程序、函式、觸發程序
 
-- `NATIVE_COMPILATION` 不支援在一般目的層。
+- `NATIVE_COMPILATION` 在常规用途层中不受支持。
 - 不支援下列 [sp_configure](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-configure-transact-sql) 選項：
   - `allow polybase export`
   - `allow updates`
   - `filestream_access_level`
   - `remote data archive`
   - `remote proc trans`
-- `sp_execute_external_scripts` 不支援。 請參閱 [sp_execute_external_scripts](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples)。
-- `xp_cmdshell` 不支援。 請參閱 [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql)。
-- `Extended stored procedures` 不支援，包括`sp_addextendedproc` 和`sp_dropextendedproc`。 請參閱[擴充預存程序](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
-- `sp_attach_db``sp_attach_single_file_db`，和`sp_detach_db`不支援。 請參閱 [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql)、[sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) 和 [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql)。
+- `sp_execute_external_scripts` 不受支持。 請參閱 [sp_execute_external_scripts](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples)。
+- `xp_cmdshell` 不受支持。 請參閱 [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql)。
+- `Extended stored procedures` 不受支持，包括 `sp_addextendedproc`  和 `sp_dropextendedproc`。 請參閱[擴充預存程序](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
+- `sp_attach_db`、`sp_attach_single_file_db` 和 `sp_detach_db` 不受支持。 請參閱 [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql)、[sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) 和 [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql)。
 
 ## <a name="Changes"></a> 行為變更
 
 下列變數、函式和檢視會傳回不同的結果：
 
-- `SERVERPROPERTY('EngineEdition')` 傳回值 「 8。 此屬性只會識別出受控執行個體。 請參閱 [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql)。
-- `SERVERPROPERTY('InstanceName')` 會傳回 NULL，因為執行個體作為它的概念存在，SQL Server 不會套用至受控執行個體。 請參閱 [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql)。
+- `SERVERPROPERTY('EngineEdition')` 返回值 8。 此屬性只會識別出受控執行個體。 請參閱 [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql)。
+- `SERVERPROPERTY('InstanceName')` 返回 NULL，因为 SQL Server 存在的实例概念并不适用于托管实例。 請參閱 [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql)。
 - `@@SERVERNAME` 傳回完整 DNS 「 可連線 」 名稱，例如，my-managed-instance.wcus17662feb9ce98.database.windows.net。 請參閱 [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql)。  
-- `SYS.SERVERS` -傳回完整 DNS 「 可連線 」 名稱，例如`myinstance.domain.database.windows.net`屬性 'name' 和 'data_source'。 請參閱 [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql)。
-- `@@SERVICENAME` 會傳回 NULL，因為服務，因為它的概念存在，SQL Server 不會套用至受控執行個體。 請參閱 [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql)。
-- `SUSER_ID` 支援。 如果 Azure AD 登入不在 sys.syslogins 中，則傳回 NULL。 請參閱 [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql)。  
-- `SUSER_SID` 不支援。 傳回錯誤資料 (暫時的已知問題)。 請參閱 [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql)。
-- `GETDATE()` 和其他內建的日期/時間函數一律傳回 UTC 時區的時間。 請參閱 [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql)。
+- `SYS.SERVERS` - 返回完整的 DNS“可连接”名称，例如，为属性“name”和“data_source”返回 `myinstance.domain.database.windows.net`。 請參閱 [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql)。
+- `@@SERVICENAME` 返回 NULL，因为 SQL Server 存在的服务概念并不适用于托管实例。 請參閱 [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql)。
+- `SUSER_ID` 受支持。 如果 Azure AD 登入不在 sys.syslogins 中，則傳回 NULL。 請參閱 [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql)。  
+- `SUSER_SID` 不受支持。 傳回錯誤資料 (暫時的已知問題)。 請參閱 [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql)。
 
 ## <a name="Issues"></a>已知問題與限制
 
 ### <a name="tempdb-size"></a>TEMPDB 大小
 
-最大檔案大小的`tempdb`不能大於 24 GB/core 一般用途層上。 最大`tempdb`業務關鍵層上的大小會限制執行個體儲存體大小。 `tempdb` 一律將分成 12 個資料檔案。 無法變更每個檔案大小的上限，但可將新檔案新增至 `tempdb`。 有些查詢可能會傳回錯誤，如果他們需要超過 24 GB / 核心中`tempdb`。
+最大檔案大小的`tempdb`不能大於 24 GB/core 一般用途層上。 在业务关键层上，最大 `tempdb` 大小根据实例存储大小受到限制。 `tempdb` 始终拆分为 12 个数据文件。 無法變更每個檔案大小的上限，但可將新檔案新增至 `tempdb`。 如果某些查询需要 `tempdb` 中 24GB/核心以上的空间，这些查询可能返回错误。
 
-### <a name="cannot-restore-contained-database"></a>無法還原自主的資料庫
+### <a name="cannot-restore-contained-database"></a>无法还原包含的数据库
 
-受控執行個體無法還原[自主資料庫](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases)。 時間點還原現有的自主資料庫無法運作的受控執行個體。 即將移除此問題，我們建議您在此同時移除內含項目選項，從您的資料庫放在受控執行個體上，請勿使用生產資料庫的內含項目選項。
+托管实例无法还原[包含的数据库](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases)。 在托管实例无法对现有包含的数据库执行时间点还原。 此问题即将得到解决，在此期间，我们建议从托管实例上的数据库中删除包含选项，并且不要对生产数据库使用包含选项。
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>小型資料庫檔案造成儲存空間超出限制
 
@@ -494,11 +493,11 @@ WITH PRIVATE KEY (<private_key_options>)
 
 在此範例中，現有資料庫會繼續運作，只要不新增檔案，就可正常成長而不會有任何問題。 不過，因為沒有足夠空間可供新的磁碟機使用，所以無法建立或還原新的資料庫，即使所有資料庫的大小總計未達到執行個體大小限制也是如此。 在該情況下所傳回的錯誤將不清楚。
 
-您可以[找出其餘的檔案數目](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1)使用系統檢視表。 如果您已達到此限制會試著[空白，然後刪除一些較小的檔案，使用 DBCC SHRINKFILE 陳述式](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file)，或切換到[業務關鍵層中，不會有此限制](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)。
+您可以[找出其餘的檔案數目](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1)使用系統檢視表。 如果您已達到此限制會試著[空白，然後刪除一些較小的檔案，使用 DBCC SHRINKFILE 陳述式](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file)，或切換到[業務關鍵層中沒有此限制](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)。
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>還原資料庫期間 SAS 金鑰設定不正確
 
-`RESTORE DATABASE` 它會讀取.bak 檔案可能會不斷重試讀取.bak 檔案，並傳回錯誤很長一段時間之後如果共用存取簽章中`CREDENTIAL`不正確。 請在還原資料庫前執行 RESTORE HEADERONLY，以確定 SAS 金鑰正確無誤。
+`RESTORE DATABASE` 如果 `CREDENTIAL` 中的共享访问签名不正确，读取 .bak 文件的  可能会不断重试读取 .bak 文件，并在较长一段时间后返回错误。 請在還原資料庫前執行 RESTORE HEADERONLY，以確定 SAS 金鑰正確無誤。
 請確定您已從使用 Azure 入口網站所產生的 SAS 金鑰中移除 `?` 前置符號。
 
 ### <a name="tooling"></a>工具
@@ -518,7 +517,7 @@ SQL Server Management Studio (SSMS) 和 SQL Server Data Tools (SSDT) 在存取�
 
 ### <a name="database-mail-profile"></a>資料庫郵件 XP
 
-SQL 代理程式所使用的 database mail 設定檔，必須先呼叫`AzureManagedInstance_dbmail_profile`。 有相關的其他 database mail 設定檔名稱沒有限制。
+SQL 代理使用的数据库邮件配置文件必须名为 `AzureManagedInstance_dbmail_profile`。 有相關的其他 database mail 設定檔名稱沒有限制。
 
 ### <a name="error-logs-are-not-persisted"></a>錯誤記錄檔不會在工作階段之間保存下來
 
@@ -532,7 +531,7 @@ SQL 代理程式所使用的 database mail 設定檔，必須先呼叫`AzureMana
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>不支援相同執行個體內兩個資料庫上的異動範圍
 
-`TransactionScope` 如果兩個查詢傳送到相同的執行個體的相同交易範圍內的兩個資料庫，在.NET 中的類別無法運作︰
+`TransactionScope` 如果在同一事务范围中将两个查询发送到了同一实例内的两个数据库，则 .NET 中的类不会工作。
 
 ```C#
 using (var scope = new TransactionScope())
@@ -567,11 +566,11 @@ using (var scope = new TransactionScope())
 
 **因應措施**：可能的話，在 CLR 模組中使用內容連線。
 
-### <a name="tde-encrypted-databases-dont-support-user-initiated-backups"></a>TDE 加密資料庫不支援使用者啟動備份
+### <a name="tde-encrypted-databases-with-service-managed-key-dont-support-user-initiated-backups"></a>使用服務管理金鑰的 TDE 加密資料庫不支援使用者起始的備份
 
-您無法在使用透明資料加密 (TDE) 的資料庫上執行 `BACKUP DATABASE ... WITH COPY_ONLY`。 TDE 會強制使用內部 TDE 金鑰對備份進行加密，並且無法匯出金鑰，因此您將無法還原備份。
+您無法執行`BACKUP DATABASE ... WITH COPY_ONLY`資料庫加密的受控服務的透明資料加密 (TDE)。 服務管理的 TDE 會強制使用內部 TDE 的金鑰加密備份，無法匯出金鑰，因此您無法還原備份。
 
-**因應措施**：使用自動備份和時間點還原，或停用資料庫加密。
+**因應措施**：使用自動備份 」 和 「 時間點還原，或使用[客戶管理 (BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key)相反的或停用資料庫上的加密。
 
 ## <a name="next-steps"></a>後續步驟
 

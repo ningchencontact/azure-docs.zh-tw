@@ -1,7 +1,6 @@
 ---
 title: 使用 Azure CLI 執行第一個查詢
 description: 此文章將引導您完成為 Azure CLI 啟用 Resource Graph 延伸模組並執行第一個查詢的步驟。
-services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 10/22/2018
@@ -9,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 47f3c4bdf21d751cd3804c6a854e7f8706b0815a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 188733266c15bf214c0177762b9d10aecd05223b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767952"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266472"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-cli"></a>使用 Azure CLI 執行您的第一個 Resource Graph 查詢
 

@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/20/2019
+ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e25af938d09a254abd5d28ca3a5eecca2d3f8f1
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 804efa6e0a39e009e18bbb9dec5ad1638a163597
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576188"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471625"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>建立群組的存取權檢閱，或在 Azure AD 中的應用程式存取權檢閱
 
@@ -30,18 +30,18 @@ ms.locfileid: "58576188"
 
 ## <a name="prerequisites"></a>必要條件
 
-- [存取權檢閱已啟用](access-reviews-overview.md)
+- [已啟用的存取權檢閱](access-reviews-overview.md)
 - 全域管理員或使用者管理員
 
 ## <a name="create-one-or-more-access-reviews"></a>建立一或多個存取權檢閱
 
-1. 登入 Azure 入口網站，並開啟[存取權檢閱頁面](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)。
+1. 登入 Azure 入口網站，然後開啟[存取權檢閱頁面](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)。
 
-1. 按一下 [控制項]。
+1. 在左側功能表中，按一下**存取權檢閱**。
 
 1. 按一下 [新增存取權檢閱]，以建立新的存取權檢閱。
 
-    ![存取權檢閱 - 控制項](./media/create-access-review/controls.png)
+    ![存取權檢閱 - 控制項](./media/create-access-review/access-reviews.png)
 
 1. 替存取權檢閱命名。 選擇性地提供檢閱的描述。 檢閱者就會看到名稱和描述。
 
@@ -51,11 +51,11 @@ ms.locfileid: "58576188"
 
     ![建立存取權檢閱 - 開始和結束日期](./media/create-access-review/start-end-dates.png)
 
-1. 若要讓存取權檢閱定期發生，請將 [頻率] 設定從 [一次] 變更為 [每週]、[每月]、[每季] 或 [每年]，並使用 [持續時間] 滑桿或文字方塊來定義每個週期性檢閱系列會開啟多少天，以便檢閱者輸入資料。 例如，您可以為每月檢閱設定的最長持續期間為 27 天，以避免重疊的檢閱。
+1. 若要讓存取權檢閱重複發生，請變更**頻率**從設定**一次**來**每週**，**每月**， **每季**或是**每年**。 使用**持續時間**滑桿或文字的方塊，以定義多少天後，每個檢閱的週期性的序列將會開啟從檢閱者的輸入。 例如，您可以為每月檢閱設定的最長持續期間為 27 天，以避免重疊的檢閱。
 
 1. 使用 [結束] 設定來指定如何結束週期性存取權檢閱系列。 此系列的結束方式有三種：它會持續執行而無限期地啟動檢閱、直到特定日期為止，或是在完成所定義的發生次數之後。 您、 其他使用者的系統管理員或其他全域系統管理員可以停止數列建立之後變更的日期**設定**，如此一來，在該日期結束。
 
-1. 在 [使用者] 區段中，指定存取權檢閱所適用的使用者。 存取權檢閱可針對群組成員或指派給應用程式的使用者執行。 您可以進一步將存取權檢閱限縮成僅檢閱身為成員 (或指派給應用程式) 的來賓使用者，而非檢閱身為成員或可存取應用程式的所有使用者。
+1. 在 **使用者**區段中，指定要套用的存取權檢閱的使用者。 存取權檢閱可針對群組成員或指派給應用程式的使用者執行。 您可以進一步將存取權檢閱限縮成僅檢閱身為成員 (或指派給應用程式) 的來賓使用者，而非檢閱身為成員或可存取應用程式的所有使用者。
 
     ![建立存取權檢閱 - 使用者](./media/create-access-review/users.png)
 
@@ -112,7 +112,9 @@ ms.locfileid: "58576188"
 
 ## <a name="start-the-access-review"></a>開始存取權檢閱
 
-在指定存取權檢閱的設定後，請按一下 [啟動]。
+在指定存取權檢閱的設定後，請按一下 [啟動]。 存取權檢閱會出現在您的清單，其中包含其狀態的指標。
+
+![存取權檢閱清單](./media/create-access-review/access-reviews-list.png)
 
 依預設，Azure AD 會在檢閱開始不久後傳送電子郵件給檢閱者。 如果您選擇不讓 Azure AD 傳送電子郵件，請務必通知檢閱者有存取權檢閱等待他們完成。 您可以提供他們如何指示[檢閱存取權的群組或應用程式](perform-access-review.md)。 如果您允許來賓檢閱自己的存取權的可顯示它們如何指示[自行檢閱存取權，來群組或應用程式](review-your-access.md)。
 
@@ -120,13 +122,15 @@ ms.locfileid: "58576188"
 
 ## <a name="manage-the-access-review"></a>管理存取權檢閱
 
-當檢閱者完成其檢閱的 Azure AD 儀表板中，您可以追蹤進度**存取權檢閱**一節。 在[完成檢閱](complete-access-review.md)之前，不會變更目錄中的任何存取權限。
+當檢閱者完成其檢閱，您可以追蹤進度**概觀**的存取權檢閱 頁面。 在[完成檢閱](complete-access-review.md)之前，不會變更目錄中的任何存取權限。
+
+![存取權檢閱進度](./media/create-access-review/overview-progress.png)
 
 如果這是一次性的檢閱，然後存取權檢閱期間結束後或系統管理員停止存取權檢閱之後, 請依照下列中的步驟[完成群組或應用程式的存取權檢閱](complete-access-review.md)來查看並套用結果。  
 
-若要管理一系列的存取權檢閱，請從 [控制項] 巡覽至存取權檢閱，而您會在 [已排程的檢閱] 中發現即將發生的項目，請據此編輯結束日期或新增/移除檢閱者。 
+若要管理一系列的存取權檢閱，瀏覽至 [存取權檢閱，和您將即將推出的項目中尋找已排程檢閱和編輯的結束日期] 或新增/移除檢閱者據以。
 
-根據您在 [完成時] 設定中所選取的項目，自動套用會在檢閱的結束日期之後，或在您手動停止檢閱時執行。 檢閱的狀態會從 [已完成] 歷經中繼狀態 (例如 [套用中])，最後變更為 [已套用] 狀態。 您應該會看到遭到拒絕的使用者 (若有的話)，在幾分鐘內從群組成員資格或應用程式指派中移除。
+根據您的選取項目，在**當設定完成時**，將會自動套用檢閱的結束日期，或當您以手動方式停止檢閱之後執行。 檢閱的狀態將會變更**已完成**歷經中繼狀態，例如**套用**最後狀態**套用**。 您應該會看到遭到拒絕的使用者 (若有的話)，在幾分鐘內從群組成員資格或應用程式指派中移除。
 
 ## <a name="create-reviews-via-apis"></a>透過 API 建立檢閱
 

@@ -6,16 +6,18 @@ ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 11/10/2018
-ms.openlocfilehash: f457246b429062625e6542cfdaf00f3526a85209
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/09/2019
+ms.openlocfilehash: 562987b953f0a8a20a917e208f43557bd768c0a0
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083227"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471149"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>使用 Azure CLI 建立和管理適用於 MariaDB 的 Azure 資料庫防火牆規則
-伺服器層級的防火牆規則可讓系統管理員從指定的 IP 位址或 IP 位址範圍，管理適用於 MariaDB 的 Azure 資料庫伺服器的存取。 透過方便的 Azure CLI 命令，您可以建立、更新、刪除、列出及顯示防火牆規則，以管理您的伺服器。 如需「適用於 MariaDB 的 Azure 資料庫」防火牆的概觀，請參閱[適用於 MariaDB 的 Azure 資料庫伺服器防火牆規則](./concepts-firewall-rules.md)
+伺服器層級防火牆規則可以用來從特定的 IP 位址或 IP 位址範圍 MariaDB 伺服器管理存取權的 Azure 資料庫中。 透過方便的 Azure CLI 命令，您可以建立、更新、刪除、列出及顯示防火牆規則，以管理您的伺服器。 針對 MariaDB 防火牆的 Azure 資料庫概觀，請參閱[MariaDB 伺服器防火牆規則的 Azure 資料庫](./concepts-firewall-rules.md)。
+
+虛擬網路 (VNet) 規則也可用來安全地存取您的伺服器。 深入了解[建立及管理虛擬網路服務端點和規則使用 Azure CLI](howto-manage-vnet-cli.md)。
 
 ## <a name="prerequisites"></a>必要條件
 * [安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
@@ -31,7 +33,7 @@ ms.locfileid: "58083227"
 - **show**：顯示 Azure MariaDB 伺服器防火牆規則的詳細資料。
 - **update**：更新 Azure MariaDB 伺服器防火牆規則。
 
-## <a name="log-in-to-azure-and-list-your-azure-database-for-mariadb-servers"></a>登入 Azure 並列出適用於 MariaDB 的 Azure 資料庫伺服器
+## <a name="sign-in-to-azure-and-list-your-azure-database-for-mariadb-servers"></a>登入 Azure，並針對 MariaDB 伺服器列出您的 Azure 資料庫
 使用 **az login** 命令，安全地連接 Azure CLI 與 Azure 帳戶。
 
 1. 從命令列中執行下列命令：
@@ -42,7 +44,7 @@ ms.locfileid: "58083227"
 
 2. 請使用網頁瀏覽器開啟 [https://aka.ms/devicelogin](https://aka.ms/devicelogin) 頁面並輸入代碼。
 
-3. 出現提示時，使用您的 Azure 認證登入。
+3. 出現提示時，使用登入您的 Azure 認證。
 
 4. 當您的登入獲得授權之後，主控台就會列印訂用帳戶清單。 複製所需訂用帳戶的識別碼，以設定目前要使用的訂用帳戶。 使用 [az account set](/cli/azure/account#az-account-set) 命令。
    ```azurecli-interactive
@@ -119,3 +121,4 @@ az mariadb server firewall-rule delete --resource-group myresourcegroup --server
 ## <a name="next-steps"></a>後續步驟
 - 進一步了解[適用於 MariaDB 的 Azure 資料庫伺服器防火牆規則](./concepts-firewall-rules.md)。
 - [使用 Azure 入口網站建立和管理適用於 MariaDB 的 Azure 資料庫防火牆規則](./howto-manage-firewall-portal.md)。
+- 進一步保護您的伺服器的存取權[建立及管理虛擬網路服務端點和規則使用 Azure CLI](howto-manage-vnet-cli.md)。

@@ -9,12 +9,12 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.openlocfilehash: 7a4aae87cd704cf94c89c308c0c056ae5b9a8b4d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: fe28aa8b88f557d4bbcdabf1de1c4bc6491743ce
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250997"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471404"
 ---
 # <a name="export-a-u-sql-database"></a>匯出 U-SQL 資料庫
 
@@ -26,7 +26,7 @@ ms.locfileid: "51250997"
 
 ## <a name="export-steps"></a>匯出步驟
 
-### <a name="step-1-export-the-database-in-server-explorer"></a>步驟 1：在 [伺服器總管] 中匯出資料庫
+### <a name="step-1-export-the-database-in-server-explorer"></a>步驟 1：在 [伺服器總管] 將資料庫匯出
 
 您有權限的所有 Data Lake Analytics 帳戶會在 [伺服器總管] 中列出。 匯出資料庫：
 
@@ -37,7 +37,7 @@ ms.locfileid: "51250997"
 
      如果 [匯出] 功能表選項無法使用，您需要[將工具更新至最新版本](https://aka.ms/adltoolsvs)。
 
-### <a name="step-2-configure-the-objects-that-you-want-to-export"></a>步驟 2：設定想要匯出的物件
+### <a name="step-2-configure-the-objects-that-you-want-to-export"></a>步驟 2：設定您想要匯出的物件
 
 如果您只需要大型資料庫的一小部分，則可以在匯出精靈中設定您想要匯出的物件子集。 
 
@@ -51,7 +51,7 @@ ms.locfileid: "51250997"
 
 您也可以設定匯出目標的其他設定。 設定描述於下表中列出：
 
-|組態|說明|
+|組態|描述|
 |-------------|-----------|
 |目的地名稱|此名稱指出您要儲存匯出之資料庫資源的位置。 範例包括組件、其他檔案和範例資料。 系統會在您本機資料根資料夾底下建立具有此名稱的資料夾。|
 |專案目錄|此路徑定義您要儲存匯出之 U-SQL 指令碼的位置。 所有資料庫物件定義都會儲存在此位置。|
@@ -84,7 +84,7 @@ ms.locfileid: "51250997"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [了解 U-SQL 資料庫](https://msdn.microsoft.com/library/azure/mt621299.aspx) 
+* [了解 U-SQL 資料庫](/u-sql/data-definition-language-ddl-statements) 
 * [使用本機執行和 Azure Data Lake U-SQL SDK 對 U-SQL 作業進行測試和偵錯](data-lake-analytics-data-lake-tools-local-run.md)
 
 

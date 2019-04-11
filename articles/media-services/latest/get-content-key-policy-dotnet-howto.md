@@ -10,24 +10,20 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/08/2018
+ms.date: 04/09/2019
 ms.author: juliako
-ms.openlocfilehash: 882f4650c0a3d558ee06c96658b779f9f0c76f76
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: 49cc2b8c151053377f8f1da0792f10a06695b332
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322481"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471166"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>從現有原則取得簽署金鑰
 
-v3 API 的金鑰設計原則之一，是讓 API 更為安全。 v3 API 不會從**取得**或**列出**作業傳回秘密或認證。 回應中的金鑰一律為 Null、空白或處理過的。 您必須呼叫個別的動作方法，以取得秘密或認證。 在有些 API 會擷取/顯示秘密，而有些 API 不會的情況下，個別的動作可讓您設定不同的 RBAC 安全性權限。 如需如何使用 RBAC 管理存取權的相關資訊，請參閱[使用 RBAC 管理存取權](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)。
+v3 API 的金鑰設計原則之一，是讓 API 更為安全。 v3 Api 不會傳回密碼或認證上**取得**或是**清單**作業。 回應中的金鑰一律為 Null、空白或處理過的。 使用者需要呼叫個別的動作方法，以取得祕密或認證。 **讀取器**角色不能呼叫作業，使其無法呼叫 Asset.ListContainerSas，StreamingLocator.ListContentKeys，ContentKeyPolicies.GetPolicyPropertiesWithSecrets 等作業。 擁有個別的動作，可讓您設定更細微的 RBAC 安全性權限，如有需要的自訂角色。
 
-其範例包括 
-
-* 在取得 StreamingLocator 時不傳回 ContentKey 值、 
-* 在取得 ContentKeyPolicy 時不傳回限制金鑰、 
-* 不傳回作業的 HTTP 輸入 URL 的查詢字串部分 (以移除簽章)。
+如需詳細資訊，請參閱[RBAC 和媒體服務帳戶](rbac-overview.md)
 
 本文中的範例示範如何使用 .NET 從現有原則取得簽署金鑰。 
  

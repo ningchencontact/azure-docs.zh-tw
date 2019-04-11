@@ -10,21 +10,24 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/05/2019
-ms.openlocfilehash: 38a59a3a390977c5a3fd22b185542f5f2ec33d79
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/09/2019
+ms.openlocfilehash: a822e540db87c36358f1a0e34d75e05ed866868d
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091489"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471234"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>線上移轉到 Azure SQL DB 的已知問題/移轉限制
 
 從 SQL Server 線上移轉到 Azure SQL Database 的相關聯已知問題和限制，如下所述。
 
+> [!IMPORTANT]
+> 進行移轉到 Azure SQL Database 的 SQL server 的線上作業，不支援 SQL_variant 資料類型的移轉。
+
 ### <a name="migration-of-temporal-tables-not-supported"></a>不支援移轉時態表
 
-**徵兆**
+**徵狀**
 
 如果您的來源資料庫包含一或多個時態表，則「完整資料載入」作業期間，資料庫移轉會失敗，您可能會看到下列訊息：
 
@@ -48,7 +51,7 @@ ms.locfileid: "58091489"
  
 ### <a name="migration-of-tables-includes-one-or-more-columns-with-the-hierarchyid-data-type"></a>移轉資料表包含具有 hierarchyid 資料類型的一或多個資料行
 
-**徵兆**
+**徵狀**
 
 您可能會看到 SQL 例外狀況，表示在「完整資料載入」期間「ntext 與 hierarchyid 不相容」：
      
@@ -62,24 +65,27 @@ ms.locfileid: "58091489"
       select object_name(object_id) 'Table name' from sys.columns where system_type_id =240 and object_id in (select object_id from sys.objects where type='U')
       ``` 
 
-   1. 從 [進行移轉設定] 刀鋒視窗 (您在其中指定要移轉的資料表) 中，排除這些資料表。
+2. 從 [進行移轉設定] 刀鋒視窗 (您在其中指定要移轉的資料表) 中，排除這些資料表。
 
-   1. 重新執行移轉活動。
+3. 重新執行移轉活動。
 
 ### <a name="migration-failures-with-various-integrity-violations-with-active-triggers-in-the-schema-during-full-data-load-or-incremental-data-sync"></a>移轉失敗，具有「完整資料載入」或「增量資料同步處理」期間，結構描述中使用中觸發程序的各種完整性違規
 
 **因應措施**
+
 1. 請使用以下查詢，尋找來源資料庫中目前使用中的觸發程序：
+
      ```
      select * from sys.triggers where is_disabled =0
      ```
+
 2. 使用 [DISABLE TRIGGER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017) 一文中提供的步驟，停用來源資料庫中的觸發程序。
 
 3. 重新執行移轉活動。
 
 ### <a name="support-for-lob-data-types"></a>支援 LOB 資料類型
 
-**徵兆**
+**徵狀**
 
 如果大型物件 (LOB) 資料行的長度大於 32 KB，目標的資料可能會遭到截斷。 您可以使用以下查詢，檢查 LOB 資料行的長度： 
 
@@ -93,7 +99,7 @@ SELECT max(DATALENGTH(ColumnName)) as LEN from TableName
 
 ### <a name="issues-with-timestamp-columns"></a>時間戳記資料行的問題
 
-**徵兆**
+**徵狀**
 
 DMS 不會遷移來源時間戳記值；相反地，DMS 會在目標資料表中產生新的時間戳記值。
 
@@ -101,11 +107,11 @@ DMS 不會遷移來源時間戳記值；相反地，DMS 會在目標資料表中
 
 如果您需要移轉的來源資料表中儲存的確切的時間戳記值的 DMS，請連絡工程團隊[詢問的 Azure 資料庫移轉](mailto:AskAzureDatabaseMigrations@service.microsoft.com)。
 
-### <a name="data-migration-errors-do-not-provide-additional-details-on-the-database-detailed-status-blade"></a>資料移轉錯誤不會在資料庫詳細狀態刀鋒視窗上，提供其他詳細資料。
+### <a name="data-migration-errors-dont-provide-additional-details-on-the-database-detailed-status-blade"></a>資料移轉錯誤不提供其他詳細資料，在 [資料庫詳細的狀態] 刀鋒視窗上。
 
-**徵兆**
+**徵狀**
 
-當您在資料庫詳細資料狀態檢視中遇到移轉失敗時，選取頂端功能區上的 [資料移轉錯誤] 連結，可能不會提供移轉失敗的特定其他詳細資料。
+當您遇到移轉失敗，資料庫的詳細資料狀態檢視中時，選取**資料的移轉錯誤**頂端功能區上的連結可能不會提供特定移轉失敗的其他詳細資料。
 
 ![資料移轉錯誤沒有詳細資料範例](media/known-issues-azure-sql-online/dms-data-migration-errors-no-details.png)
 

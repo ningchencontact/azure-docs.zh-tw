@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: f0f5a4ee5206201cca20e705011126e6cf472a1a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835447"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471081"
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL 可程式性指南
 
@@ -85,7 +85,7 @@ OUTPUT @rs1
 
 ### <a name="use-c-expressions-for-todays-date"></a>使用 C# 運算式來表示今天的日期
 
-若要提取今天的日期，我們可以使用下列 C# 運算式：`DateTime.Now.ToString("M/d/yyyy")`
+若要提取今天的日期，我們可以使用下列C#運算式： `DateTime.Now.ToString("M/d/yyyy")`
 
 如何在指令碼中使用此運算式的範例如下︰
 
@@ -534,7 +534,7 @@ public class MyTypeFormatter : IFormatter<MyType>
 * **序列化**：使用指定根將物件或物件圖形序列化到所提供的串流。
 
 `MyType` 執行個體：類型的執行個體。  
-`IColumnWriter` 寫入器 / `IColumnReader` 讀取器：基礎資料行串流。  
+`IColumnWriter` 寫入器 /`IColumnReader`讀取器：基礎資料行串流。  
 `ISerializationContext` 內容：定義一組旗標的列舉，可在序列化期間指定串流的來源或目的地內容。
 
 * **中繼**：指定來源或目的地內容不是持續性存放區。
@@ -1267,9 +1267,9 @@ public class MyOutputter : IOutputter
 }
 ```
 
-* 會針對每個輸入資料列呼叫 `Output`。 它會傳回 `IUnstructuredWriter output` 資料列集。
+* `Output` 會呼叫每個輸入資料列。 它會傳回 `IUnstructuredWriter output` 資料列集。
 * 建構函式類別可用來將參數傳遞至使用者定義輸出器。
-* `Close` 可選擇性地覆寫，以釋出耗費資源的狀態或判斷最後一個資料列的寫入時間。
+* `Close` 用來選擇性地覆寫，以釋出耗費資源的狀態，或判斷最後一個資料列已寫入時。
 
 **SqlUserDefinedOutputter** 表示類型應該註冊為使用者定義輸出器。 這個類別無法繼承。
 
@@ -1601,7 +1601,7 @@ CROSS APPLYis used to pass parameters
 new MyScript.MyApplier(param1, param2) AS alias(output_param1 string, …);
 ```
 
-如需在 SELECT 運算式中使用套用器的詳細資訊，請參閱[從 CROSS APPLY 和 OUTER APPLY 選取的 U-SQL SELECT](https://msdn.microsoft.com/library/azure/mt621307.aspx)。
+如需在 SELECT 運算式中使用套用器的詳細資訊，請參閱[從 CROSS APPLY 和 OUTER APPLY 選取的 U-SQL SELECT](/u-sql/statements-and-expressions/select/from/select-selecting-from-cross-apply-and-outer-apply)。
 
 使用者定義套用器的基底類別定義如下所示：
 
@@ -1815,7 +1815,7 @@ Combine_Expression :=
     USING_Clause.
 ```
 
-如需詳細資訊，請參閱 [COMBINE 運算式 (U-SQL)](https://msdn.microsoft.com/library/azure/mt621339.aspx)。
+如需詳細資訊，請參閱 [COMBINE 運算式 (U-SQL)](/u-sql/statements-and-expressions/combine-expression)。
 
 若要定義使用者定義結合器，我們必須以 [`SqlUserDefinedCombiner`] 屬性 (這是使用者定義結合器之定義的選擇性屬性) 建立 `ICombiner` 介面。
 
@@ -1877,7 +1877,7 @@ CombinerMode 列舉可以採用下列值︰
 
 若要快取，我們可以透過執行 LINQ 查詢來建立記憶體結構的 List\<T\> 類型，特別是 List<`IRow`>。 列舉期間也可以使用匿名資料類型。
 
-如需 LINQ 查詢的詳細資訊，請參閱 [LINQ 查詢 (C#) 簡介](https://msdn.microsoft.com/library/bb397906.aspx)，如需 IEnumerable\<T\> 介面的詳細資訊，請參閱 [IEnumerable\<T\> 介面](https://msdn.microsoft.com/library/9eekhta0(v=vs.110).aspx)。
+如需 LINQ 查詢的詳細資訊，請參閱 [LINQ 查詢 (C#) 簡介](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries)，如需 IEnumerable\<T\> 介面的詳細資訊，請參閱 [IEnumerable\<T\> 介面](/dotnet/api/system.collections.generic.ienumerable-1)。
 
 若要從傳入的 `IRowset` 取得實際資料值，我們可以使用 `IRow` 介面的 Get() 方法。
 

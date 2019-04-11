@@ -5,13 +5,14 @@ author: christianreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: conceptual
+ms.custom: fasttrack-new
 services: batch
-ms.openlocfilehash: 1e3b2d42ae390b9eb755e568b82fc1a90e0eae6a
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 5b7c44d3ea3394ff728adfb9d9fd72293138fb2e
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58806815"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471319"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>使用 Azure 管線來建置和部署的 HPC 解決方案
 
@@ -50,7 +51,7 @@ Azure 的管線會提供一系列新式 CI/CD 程序，建置、 部署、 測�
 本節假設您已熟悉使用版本控制和設計 Resource Manager 範本。 如果您不熟悉這些概念，請參閱下列頁面，如需詳細資訊。
 
 * [什麼是原始檔控制？](https://docs.microsoft.com/azure/devops/user-guide/source-control?view=azure-devops)
-* [了解 Azure Resource Manager 範本的的結構和語法](../azure-resource-manager/resource-group-authoring-templates.md)
+* [了解 Azure Resource Manager 範本的結構和語法](../azure-resource-manager/resource-group-authoring-templates.md)
 
 #### <a name="azure-resource-manager-templates"></a>Azure 資源管理員範本
 
@@ -396,7 +397,7 @@ Azure 的管線也會用來部署您的應用程式和基礎結構。 [發行管
     * **batchApplicationVersion**:語意版本的 batch 應用程式 （也就是 ffmpeg 二進位檔）
     * **location**：部署 Azure 資源的位置
     * **resourceGroupName**:要建立的資源群組名稱，並部署您的資源
-    * **StorageAccountName**:連結 Resource Manager 範本來保存的儲存體帳戶的名稱。
+    * **storageAccountName**：連結 Resource Manager 範本來保存的儲存體帳戶的名稱。
 
     ![設定 Azure 管線版本變數的範例](media/batch-ci-cd/Release-4.jpg)
 
@@ -505,5 +506,5 @@ az batch pool resize --pool-id <poolname> --target-dedicated-nodes 4
 
 除了本文中，有兩個教學課程會使用 ffmpeg，使用.NET 和 Python。 這些教學課程，如需詳細資訊，請參閱如何與 Batch 帳戶，透過簡單的應用程式互動。
 
-* [透過使用 Python API 的 Azure Batch 執行平行工作負載](tutorial-parallel-python.md)
-* [透過使用.NET API 的 Azure Batch 執行平行工作負載](tutorial-parallel-dotnet.md)
+* [使用 Python API 透過 Azure Batch 執行平行工作負載](tutorial-parallel-python.md)
+* [使用 .NET API 透過 Azure Batch 執行平行工作負載](tutorial-parallel-dotnet.md)

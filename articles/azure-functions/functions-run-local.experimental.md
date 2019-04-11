@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
-ms.openlocfilehash: dcd6d907fec3d7f2cc0c8d5c06fdec28125154c1
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 84c578fdbcfb555bde23d6a9e6f8258259cff8de
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009541"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471271"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -478,6 +478,15 @@ func deploy
 | **`--min`**  | (選擇性) 設定作為部署目標的函式應用程式執行個體數目下限。 |
 | **`--config`** | 設定選用的部署組態檔。 |
 
+## <a name="monitoring-functions"></a>監視函式
+
+監視您的函式執行的建議的方式是藉由使用 Azure Application Insights 整合。 當您在 Azure 入口網站中建立函式應用程式時，系統會依預設為您完成這項整合。 不過，當您使用 Azure CLI 建立您的函式應用程式，您在 Azure 中的函式應用程式中的整合不會完成。
+
+若要啟用函式應用程式的 Application Insights:
+
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+
+若要深入了解，請參閱[監視 Azure Functions](functions-monitoring.md)。
 ## <a name="next-steps"></a>後續步驟
 
 Azure Functions Core Tools 是[開放原始碼且裝載於 GitHub 上](https://github.com/azure/azure-functions-cli)。  
