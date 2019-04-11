@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 04/05/2019
 ms.author: diberry
-ms.openlocfilehash: c418e15dbe133d94c081db2b925fa390307c240f
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 96157511c0255774a64c0f64a333fe88a37f80d6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905047"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261411"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>在您 LUIS 模型中，每個文化特性的實體
 
@@ -110,12 +110,12 @@ Language Understanding (LUIS) 提供預先建置的實體。 當您的應用程�
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md)：<br>日期<br>daterange<br>分析<br>時間範圍   |    ✔   | 
 [維度](luis-reference-prebuilt-dimension.md)：<br>磁碟區<br>區域<br>重量<br>資訊 (例如：位元/位元組)<br>長度 (例如：公尺)<br>速度 (例如：英哩/小時)  |    ✔   | 
 [電子郵件](luis-reference-prebuilt-email.md)   |    ✔   | 
-[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    ✔   | 
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [數字](luis-reference-prebuilt-number.md)   |    ✔   |  
 [序數](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
 [百分比](luis-reference-prebuilt-percentage.md)   |    ✔   | 
-[PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
+[PersonName](luis-reference-prebuilt-person.md)   |   -   | 
 [電話號碼](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
 [溫度](luis-reference-prebuilt-temperature.md)：<br>華氏<br>克式<br>蘭氏<br>德氏<br>攝氏   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |

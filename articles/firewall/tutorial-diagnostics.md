@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 10837730bea17f98083f456ec4c9fb0d7567af57
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 393441e7ff620f3795e42c2cb376f99f8763f25b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877256"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044856"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>教學課程：監視 Azure 防火牆記錄和計量
 
@@ -30,6 +30,9 @@ ms.locfileid: "58877256"
 > * 檢視和分析活動記錄檔
 > * 檢視及分析網路和應用程式規則記錄
 > * 檢視計量
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -79,7 +82,7 @@ ms.locfileid: "58877256"
 3. 使用下列 Powershell Cmdlet 啟用診斷記錄功能：
 
     ```powershell
-    Set-AzureRmDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name> `
+    Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name> `
    -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> `
    -Enabled $true     
     ```

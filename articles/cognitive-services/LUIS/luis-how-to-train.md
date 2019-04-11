@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 04/07/2019
 ms.author: diberry
-ms.openlocfilehash: 1c3c7e913f2f096918efaebb84384df98bd68be8
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: ba0db22437961a33b0b415ec7cb60ad3df12821c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895827"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267050"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>訓練您 LUIS 應用程式的作用中版本 
 
@@ -43,6 +43,10 @@ When you train a LUIS app by example, LUIS generalizes from the examples you hav
 
 >[!NOTE]
 >若應用程式中有一或多個未包含範例語調的意圖，則無法訓練應用程式。 新增所有意圖的語調。 如需詳細資訊，請參閱[新增範例語調](luis-how-to-add-example-utterances.md)。
+
+## <a name="training-date-and-time"></a>訓練的日期和時間
+
+訓練的日期和時間是 GMT + 2。 
 
 ## <a name="train-with-all-data"></a>以所有資料進行訓練
 

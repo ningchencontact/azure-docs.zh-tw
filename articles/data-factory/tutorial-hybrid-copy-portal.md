@@ -3,7 +3,7 @@ title: 使用 Azure Data Factory 將資料從 SQL Server 複製到 Blog 儲存�
 description: 了解如何使用 Azure Data Factory 中自我裝載的整合執行階段，將資料從內部部署資料存放區複製到雲端。
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: nabhishek
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
-ms.author: jingwang
-ms.openlocfilehash: f2dc2418354cb1083c02516fbcdea710a74152ad
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.author: abnarain
+ms.openlocfilehash: 7e09c36128c3471ce9df33b2a78eb14fab89435b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445417"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256986"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體
 在本教學課程中，您會使用 Azure Data Factory 使用者介面 (UI) 來建立資料處理站管線，以將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體。 您要建立及使用自我裝載的整合執行階段，其會在內部部署與雲端資料存放區之間移動資料。

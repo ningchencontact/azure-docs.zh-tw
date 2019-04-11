@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/19/2018
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: fd0bfac873d77e02c16fca78a85706afc18265f9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 35a428c2ae706d7838778c7590e5378ab5df40f9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55241571"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258397"
 ---
 # <a name="what-is-azure-blob-storage"></a>什麼是 Azure Blob 儲存體？ 
 
@@ -22,4 +22,4 @@ ms.locfileid: "55241571"
 ## <a name="next-steps"></a>後續步驟
 
 - [Azure Blob 儲存體簡介](storage-blobs-introduction.md)
-- [Azure Data Lake Storage Gen2 預覽版簡介](../blobs/data-lake-storage-introduction.md)
+- [Azure Data Lake Storage Gen2 簡介](../blobs/data-lake-storage-introduction.md)

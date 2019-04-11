@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 6400e3d3fa7f0317ff927f2931e705365a450770
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 9e6bc1264e668ba5c6593ce36e721f54e685c391
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520661"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008487"
 ---
 # <a name="what-is-speech-to-text"></a>什麼是語音轉換文字？
 
@@ -51,17 +51,17 @@ ms.locfileid: "58520661"
 
 | 快速入門 | 平台 | API 參考資料 |
 |------------|----------|---------------|
-| [C#, .NET Core](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnetcore-windows) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#.NET framework](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnet-windows) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-uwp) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-windows) |  Windows | [Browse](https://aka.ms/csspeech/cppref)|
-| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-linux) |  Linux | [Browse](https://aka.ms/csspeech/cppref) |
-| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-android) | Android | [Browse](https://aka.ms/csspeech/javaref) |
-| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-jre) | Windows、Linux | [Browse](https://aka.ms/csspeech/javaref) |
-| [Javascript 中，瀏覽器](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-browser) | Browser、Windows、Linux、macOS | [Browse](https://aka.ms/AA434tv) |
-| [Javascript、 Node.js](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-node) | Windows、Linux、macOS | [Browse](https://aka.ms/AA434tv) |
-| [Objective-C](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-objectivec-ios) | iOS | [Browse](https://aka.ms/csspeech/objectivecref) |
-| [Python](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-python) | Windows、Linux、macOS | [Browse](https://aka.ms/AA434tr)  |
+| [C#, .NET Core](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnetcore-windows) |  Windows | [瀏覽](https://aka.ms/csspeech/csharpref) |
+| [C#.NET framework](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnet-windows) |  Windows | [瀏覽](https://aka.ms/csspeech/csharpref) |
+| [C#UWP](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-uwp) |  Windows | [瀏覽](https://aka.ms/csspeech/csharpref) |
+| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-windows) |  Windows | [瀏覽](https://aka.ms/csspeech/cppref)|
+| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-linux) |  Linux | [瀏覽](https://aka.ms/csspeech/cppref) |
+| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-android) | Android | [瀏覽](https://aka.ms/csspeech/javaref) |
+| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-jre) | Windows、Linux | [瀏覽](https://aka.ms/csspeech/javaref) |
+| [JavaScript 中，瀏覽器](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-browser) | Browser、Windows、Linux、macOS | [瀏覽](https://aka.ms/AA434tv) |
+| [JavaScript、 Node.js](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-node) | Windows、Linux、macOS | [瀏覽](https://aka.ms/AA434tv) |
+| [Objective-C](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-objectivec-ios) | iOS | [瀏覽](https://aka.ms/csspeech/objectivecref) |
+| [Python](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-python) | Windows、Linux、macOS | [瀏覽](https://aka.ms/AA434tr)  |
 
 如果您想要使用語音轉換文字 REST 服務，請參閱[REST Api](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)。
 
@@ -69,12 +69,12 @@ ms.locfileid: "58520661"
 
 當您有機會使用語音服務後，請嘗試使用我們的教學課程，其中會教導您如何使用語音 SDK 和 LUIS 從語音辨識意圖。
 
-* [教學課程：使用語音 SDK 和 LUIS 從語音辨識意圖 (C#)](how-to-recognize-intents-from-speech-csharp.md)
+* [教學課程：識別從語音 SDK 與 LUIS，語音意圖C#](how-to-recognize-intents-from-speech-csharp.md)
 
 使用 GitHub 上適用於語音 SDK 的範例程式碼。 這些範例包含常見案例，例如：從檔案或資料流讀取音訊、連續辨識、一次性辨識及使用自訂模型。
 
 * [語音轉換文字範例 (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
-* [批次轉譯範例 (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
+* [Batch 轉譯範例 (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 
 ## <a name="customization"></a>自訂
 
@@ -104,10 +104,10 @@ ms.locfileid: "58520661"
 * [語音 SDK](speech-sdk-reference.md)
 * [語音裝置 SDK](speech-devices-sdk.md)
 * [REST API：語音轉文字](rest-speech-to-text.md)
-* [REST API：文字轉語音](rest-text-to-speech.md)
-* [REST API：批次轉譯與自訂](https://westus.cris.ai/swagger/ui/index)
+* [REST API：文字轉換語音](rest-text-to-speech.md)
+* [REST API：Batch 轉譯和自訂](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>後續步驟
 
-* [免費取得語音服務的訂用帳戶金鑰](get-started.md)
+* [免費取得語音服務訂用帳戶金鑰](get-started.md)
 * [取得語音 SDK](speech-sdk.md)

@@ -10,19 +10,19 @@ ms.subservice: acoustics
 ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 0baaf31386e1155dee6ca2bbfda6827ca3fc36fe
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c6baa9f8330338c1e5fdc9ee0b5a8cc8b344e871
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313442"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006493"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>專案樂器 Unreal 和 Wwise 整合
 此操作說明提供詳細的整合步驟的專案樂器外掛程式封裝到您現有的 Unreal 和 Wwise 遊戲專案。 
 
 軟體需求：
-* [Unreal Engine](https://www.unrealengine.com/) 4.21
-* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1。 +
+* [Unreal Engine](https://www.unrealengine.com/) 4.20 或 4.21
+* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1。\*
 * [Unreal Wwise 外掛程式](https://www.audiokinetic.com/library/?source=UE4&id=index.html)
   * 如果您使用 Wwise SDK 直接整合，而不使用 Wwise Unreal 外掛程式，請參閱專案樂器 Unreal 外掛程式，並調整 Wwise API 呼叫。
 
@@ -57,7 +57,7 @@ ms.locfileid: "58313442"
 ## <a name="2-redeploy-wwise-into-your-game"></a>2.（重新） 將 Wwise 部署到您的遊戲
 即使您已整合 Wwise，重新部署至您的遊戲 Wwise。 這會挑選專案樂器 Wwise 外掛程式。
 
-* **引擎外掛程式：** 如果您有安裝 Unreal c + + 專案中的遊戲外掛程式為 Wwise，略過此步驟。 如果執行個體因為您的 Unreal 專案是使用我們的混音器 」 外掛程式藍圖，Wwise 部署是更複雜，它會改為引擎外掛程式安裝。 建立空的、 空的 Unreal c + + 專案、 關閉它，如果 Unreal 編輯器隨即開啟，並遵循其餘的程序，來將 Wwise 部署到此虛擬的專案。 然後複製已部署的 Wwise 外掛程式。
+* **引擎外掛程式：** 如果您有安裝中的 Unreal 遊戲外掛程式為 WwiseC++專案中，略過此步驟。 如果執行個體因為您的 Unreal 專案是使用我們的混音器 」 外掛程式藍圖，Wwise 部署是更複雜，它會改為引擎外掛程式安裝。 建立空的、 空的 UnrealC++專案、 Unreal 編輯器隨即開啟，如果將它關閉，然後遵循其餘的程序，來將 Wwise 部署到此虛擬的專案。 然後複製已部署的 Wwise 外掛程式。
  
 * 從 Wwise 啟動器，按一下 [Unreal Engine] 索引標籤，然後按一下 [Recent Unreal Engine Projects] \(最近使用的 Unreal Engine 專案\) 旁邊的漢堡功能表，並選取 [Browse for project] \(瀏覽專案\)。 開啟您的遊戲 Unreal 專案`.uproject`檔案。
 
@@ -65,7 +65,7 @@ ms.locfileid: "58313442"
 
 * 然後按一下**專案中的整合 Wwise**或是**專案中的修改 Wwise**。 （重新） 的這個步驟會整合到您的專案，現在還包含了專案樂器 mixer 外掛程式 Wwise 二進位檔。
 
-* **引擎外掛程式：** 如果您使用 Wwise 為引擎外掛程式，並建立與上述的虛設專案複製資料夾部署的 Wwise:`[DummyUProject]\Plugins\Wwise`並貼上`[UESource]\Engine\Plugins\Wwise`。 `[DummyUProject]` 是空的 Unreal c + + 專案路徑，以及`[UESource]`是當您有安裝 Unreal 引擎來源。 一旦您完成複製，您可以刪除空的專案。
+* **引擎外掛程式：** 如果您使用 Wwise 為引擎外掛程式，並建立與上述的虛設專案複製資料夾部署的 Wwise:`[DummyUProject]\Plugins\Wwise`並貼上`[UESource]\Engine\Plugins\Wwise`。 `[DummyUProject]` 是空的 UnrealC++專案的路徑，並`[UESource]`是當您有安裝 Unreal 引擎來源。 一旦您完成複製，您可以刪除空的專案。
 
 ## <a name="3-add-the-project-acoustics-unreal-plugin-to-your-game"></a>3.將專案樂器 Unreal 外掛程式加入您的遊戲
  
@@ -80,9 +80,9 @@ ms.locfileid: "58313442"
 
     ![螢幕擷取畫面的 Windows 檔案總管視窗反白顯示所提供的指令碼，以修補程式 Wwise](media/patch-wwise-script.png)
 
-* 如果您沒有安裝 DirectX SDK，便需要將 `[UProject]\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`中包含 DXSDK_DIR 的程式碼行註解化
+* 如果您沒有安裝 DirectX SDK，您將需要標記為註解包含 DXSDK_DIR 中的行 `[UProject]\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
 
-    ![顯示 DXSDK 標記為註解的程式碼編輯器的螢幕擷取畫面](media/directx-sdk-comment.png)
+    ![顯示已註解排除 DXSDK 的程式碼編輯器螢幕擷取畫面](media/directx-sdk-comment.png)
 
 ## <a name="5-build-game-and-check-python-is-enabled"></a>5.建置遊戲，並確認已啟用 Python
 

@@ -1,28 +1,28 @@
 ---
 title: 遷移知識庫 - Qna Maker
 titleSuffix: Azure Cognitive Services
-description: 將使用 QnA Maker 所建立的知識庫移至新的知識庫。
+description: 遷移知識庫必須先從某個知識庫匯出，再匯入至另一個知識庫。
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 04/08/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: e91f41633bf6cf6581c237e7634150a5b92746a7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: eac5e43c69cc09c5945316827a35f729c158d47a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245910"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264313"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>使用匯出-匯入移轉知識庫
 
 遷移知識庫必須先從某個知識庫匯出，再匯入至另一個知識庫。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 開始之前，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 * 設定新的 [QnA Maker 服務](../How-To/set-up-qnamaker-service-azure.md)
@@ -48,10 +48,10 @@ ms.locfileid: "56245910"
    ![匯入知識庫](../media/qnamaker-how-to-migrate-kb/Import.png)
 
 1. 使用 [測試] 面板來 [測試] 新知識庫。 了解如何[測試知識庫](../How-To/test-knowledge-base.md)。
-1. [發佈] 知識庫。 了解如何[發佈知識庫](../How-To/publish-knowledge-base.md)。
+1. [發佈] 知識庫。 了解如何[發佈知識庫](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base)。
 1. 在應用程式或 Bot 程式碼中使用此端點。 請參閱如何[建立 QnA Bot](../Tutorials/create-qna-bot.md)。
 
-    ![QnA Maker 值](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
+    ![QnA Maker 值](../media/qnamaker-how-to-migrate-kb/qnamaker-settings-kbid-key.png)
 
     此時，所有知識庫內容 (問題、解答和中繼資料，以及來源檔案名稱和 URL) 都會匯入新的知識庫。 
 

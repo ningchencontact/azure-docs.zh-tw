@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: troubleshooting
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: a6d5d7b3ab83c8e405c6866562b4095434b9acff
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 20b8dbcae36555baf3913ab160575a631e204dd9
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539015"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049416"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Bing 影像搜尋 API 的常見問題集 (FAQ)
 
@@ -25,11 +25,11 @@ ms.locfileid: "57539015"
 
 下列標頭可能會發生於來自 Bing 影像搜尋 API 的回應。
 
-|||
-|-|-|
-|`X-MSEdge-ClientID`|Bing 已指派給使用者的唯一識別碼|
-|`BingAPIs-Market`|用來履行要求的市場|
-|`BingAPIs-TraceId`|這項要求 (適用於支援) 的 Bing API 伺服器上的記錄項目|
+| `Attribute`         | `Description` |
+| ------------------- | ------------- |
+| `X-MSEdge-ClientID` |Bing 已指派給使用者的唯一識別碼 |
+| `BingAPIs-Market`   |用來履行要求的市場 |
+| `BingAPIs-TraceId`  |這項要求 (適用於支援) 的 Bing API 伺服器上的記錄項目 |
 
 保存用戶端識別碼，並將它與後續要求一起傳回尤其重要。 當您這麼做時，搜尋會在排名搜尋結果中使用過去的內容，也會提供一致的使用者體驗。
 
@@ -65,4 +65,4 @@ ms.locfileid: "57539015"
 
 ## <a name="see-also"></a>請參閱
 
- Stack Overflow：認知服務](https://stackoverflow.com/questions/tagged/bing-api)
+ [Stack Overflow：認知服務](https://stackoverflow.com/questions/tagged/bing-api)

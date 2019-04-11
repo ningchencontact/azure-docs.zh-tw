@@ -1,19 +1,18 @@
 ---
 title: 快速入門：在 Azure 資料總管中查詢資料
 description: 在本快速入門中，您將了解如何在 Azure 資料總管中查詢和共用資料。
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 1774ae943dc96e07837a3cd155b5980ff732ceb4
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6b371cf9aeb55a92fc72357ad7dc6b2cbddcc058
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756143"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050555"
 ---
 # <a name="quickstart-query-data-in-azure-data-explorer"></a>快速入門：在 Azure 資料總管中查詢資料
 
@@ -193,4 +192,4 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [撰寫 Azure 資料總管的查詢](write-queries.md)
+> [撰寫 Azure 資料總管查詢](write-queries.md)

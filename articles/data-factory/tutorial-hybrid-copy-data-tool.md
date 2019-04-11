@@ -3,25 +3,25 @@ title: 使用 Azure 複製資料工具複製內部部署資料 | Microsoft Docs
 description: 建立 Azure 資料處理站，然後使用「複製資料」工具將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體。
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: nabhishek
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
-ms.date: 01/04/2018
-ms.author: jingwang
-ms.openlocfilehash: 3569d39b8e4668894e44507dfdd0e20297028290
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.date: 04/09/2018
+ms.author: abnarain
+ms.openlocfilehash: 26bc6861602cae349c8ebaafefe070c119a93e87
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226499"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261510"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>使用複製資料工具將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [目前的版本](tutorial-hybrid-copy-data-tool.md)
+> * [目前版本](tutorial-hybrid-copy-data-tool.md)
 
 在這個教學課程中，您會使用 Azure 入口網站來建立資料處理站。 接著，您會使用複製資料工具建立管線，以將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體。
 
@@ -205,21 +205,19 @@ ms.locfileid: "58226499"
 
 1. 選取 [下一步] 。
 
-       ![](./media/tutorial-hybrid-copy-data-tool/select-source-linked-service.png)
+   ![](./media/tutorial-hybrid-copy-data-tool/select-source-linked-service.png)
 
 1. 在 [選取要從中複製資料的資料表或使用自訂查詢] 頁面中，選取清單中的 **[dbo].[emp]** 資料表，然後選取 [下一步]。 您可以根據自己的資料庫選取任何其他資料表。
 
-       ![The Product table selection](./media/tutorial-hybrid-copy-data-tool/select-emp-table.png)
+   ![生產資料表選取項目](./media/tutorial-hybrid-copy-data-tool/select-emp-table.png)
 
 1. 在 [目的地資料存放區] 頁面上，選取 [建立新連線]
 
-       //image create-new-sink-connection.png
-
-       ![Create Destination linked service](./media/tutorial-hybrid-copy-data-tool/create-new-sink-connection.png)
+   ![建立目的地連結服務](./media/tutorial-hybrid-copy-data-tool/create-new-sink-connection.png)
 
 1. 在 [新增連結服務] 中，搜尋並選取 [Azure Blob]，然後選取 [繼續]。 
 
-       ![Blob storage selection](./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png)
+   ![Blob 儲存體選取](./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png)
 
 1. 在 [新增連結服務 (Azure Blob 儲存體)] 對話方塊上，執行下列步驟： 
 
@@ -231,47 +229,47 @@ ms.locfileid: "58226499"
 
        d. Select **Next**.
 
-       ![Specify the storage account](./media/tutorial-hybrid-copy-data-tool/specify-azure-blob-storage-account.png)
+   ![指定儲存帳號](./media/tutorial-hybrid-copy-data-tool/specify-azure-blob-storage-account.png)
 
 1. 在 [目的地資料存放區] 對話方塊中，選取 [下一步]。 在 [連線屬性] 中，選取 [Azure 儲存體服務] 作為 [Azure Blob 儲存體]。 選取 [下一步] 。 
 
-       ![connection properties](./media/tutorial-hybrid-copy-data-tool/select-connection-properties.png)
+   ![連線屬性](./media/tutorial-hybrid-copy-data-tool/select-connection-properties.png)
 
 1. 在 [選擇輸出檔案或資料夾] 對話方塊中的 [資料夾路徑] 下，輸入 **adftutorial/fromonprem**。 您已建立 **adftutorial** 容器作為必要條件的一部分。 如果輸出資料夾不存在 (在此案例中為 **fromonprem**)，Data Factory 會自動加以建立。 您也可以使用 [瀏覽] 按鈕以瀏覽 Blob 儲存體和其容器/資料夾。 如果您未在 [檔案名稱] 下指定任何值，依預設將會使用來自來源的名稱 (在此案例中為 **dbo.emp**)。
            
-       ![Choose the output file or folder](./media/tutorial-hybrid-copy-data-tool/choose-output-file-folder.png)
+   ![選擇輸出檔案或資料夾](./media/tutorial-hybrid-copy-data-tool/choose-output-file-folder.png)
 
 1. 在 [檔案格式設定] 對話方塊上，選取 [下一步]。 
 
-       ![File format settings page](./media/tutorial-hybrid-copy-data-tool/file-format-settings-page.png)
+   ![檔案格式設定頁面](./media/tutorial-hybrid-copy-data-tool/file-format-settings-page.png)
 
 1. 在 [設定] 對話方塊上，選取 [下一步]。 
 
-       ![Settings page](./media/tutorial-hybrid-copy-data-tool/settings-page.png)
+   ![設定頁面](./media/tutorial-hybrid-copy-data-tool/settings-page.png)
 
 1. 在 [摘要] 對話方塊上，檢閱所有設定的值，然後選取 [下一步]。 
 
-       ![Summary page](./media/tutorial-hybrid-copy-data-tool/summary-page.png)
+   ![摘要頁面](./media/tutorial-hybrid-copy-data-tool/summary-page.png)
 
 1. 在 [部署] 頁面中，選取 [監視] 來監視您建立的管線或工作。
 
-       ![Deployment page](./media/tutorial-hybrid-copy-data-tool/deployment-page.png)
+   ![部署頁面](./media/tutorial-hybrid-copy-data-tool/deployment-page.png)
 
 1. 在 [監視] 索引標籤上，您可以檢視您所建立管線的狀態。 您可以使用 [動作] 資料行中的連結檢視與此管線執行相關聯的活動執行，以及重新執行管線。 
 
-       ![Monitor pipeline runs](./media/tutorial-hybrid-copy-data-tool/monitor-pipeline-runs.png)
+   ![監視管線回合](./media/tutorial-hybrid-copy-data-tool/monitor-pipeline-runs.png)
 
 1. 選取 [動作] 資料行中的 [檢視活動執行] 連結，以查看與此管線執行相關聯的活動執行。 若要看與關於複製作業的詳細資料，請選取 [動作] 資料行中的 [詳細資料] 連結 (眼鏡圖示)。 若要切換回 [管線執行] 檢視，請選取頂端的 [管線]。
 
-       ![Monitor activity runs](./media/tutorial-hybrid-copy-data-tool/monitor-activity-runs.png)
+   ![監視活動回合](./media/tutorial-hybrid-copy-data-tool/monitor-activity-runs.png)
 
 1. 確認您在 **adftutorial** 容器的 **fromonprem** 資料夾中看到輸出檔案。 
 
-       ![Output blob](./media/tutorial-hybrid-copy-data-tool/output-blob.png)
+   ![輸出 Blob](./media/tutorial-hybrid-copy-data-tool/output-blob.png)
 
 1. 選取左側的 [編輯] 索引標籤以切換至編輯器模式。 您可以使用編輯器更新此工具所建立的連結服務、資料集和管線。 選取 [程式碼] 以檢視與編輯器中開啟之實體相關聯的 JSON 程式碼。 如需如何在 Data Factory 使用者介面中編輯這些實體的詳細資訊，請參閱[本教學課程的 Azure 入口網站版本](tutorial-copy-data-portal.md)。
 
-       ![Edit tab](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
+   ![編輯索引標籤](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
 
 
 ## <a name="next-steps"></a>後續步驟

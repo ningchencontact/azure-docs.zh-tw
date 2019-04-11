@@ -1,7 +1,6 @@
 ---
 title: 使用 Azure PowerShell 執行第一個查詢
 description: 本文將引導您完成為 Azure PowerShell 啟用 Resource Graph 模組並執行第一個查詢的步驟。
-services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/23/2019
@@ -9,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: a23bbf224b0a8803a24d5d2e775a5efcc7e7d2da
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: a94fe86cd9c2a6e775be1ec4b3d14798e4cac693
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877137"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258312"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-powershell"></a>使用 Azure PowerShell 執行您的第一個 Resource Graph 查詢
 

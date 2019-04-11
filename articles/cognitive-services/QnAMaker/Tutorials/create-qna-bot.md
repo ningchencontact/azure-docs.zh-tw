@@ -1,7 +1,7 @@
 ---
 title: QnA Bot - Azure Bot 服務 - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: 本教學課程會逐步引導您在 Azure 入口網站上使用 Azure Bot 服務 v3 建置 QnA Bot。
+description: 建立從現有知識庫為基礎的發行頁面的 QnA 聊天機器人。 此 bot 將會使用 Bot Framework SDK v4。 您不需要撰寫任何程式碼來建置機器人，為您提供的所有程式碼。
 services: cognitive-services
 author: tulasim88
 manager: nitinme
@@ -9,101 +9,80 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 04/08/2019
 ms.author: tulasim
-ms.openlocfilehash: 218103f2c75ec1016a997c259767ccd011191fab
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 85b0004288a06a834b61f6e3d50017d35d66ce86
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879603"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263871"
 ---
-# <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>教學課程：使用 Azure Bot 服務 v3 建立 QnA Bot
+# <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>教學課程：建立與 Azure 的 QnA Bot Bot 服務 v4
 
-本教學課程會逐步引導您在 [Azure 入口網站](https://portal.azure.com)中使用 Azure Bot 服務 v3 來建置 QnA Bot，而不必撰寫任何程式碼。 將已發佈的知識庫 (KB) 連線至 Bot 的作業，和變更 Bot 應用程式設定的作業一樣簡單。 
-
-> [!Note] 
-> 本主題適用於 Bot SDK 第 3 版。 您可以在[這裡](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs)找到第 4 版。 
+建立從 QnA 聊天機器人**發佈**現有知識庫為基礎的頁面。 此 bot 將會使用 Bot Framework SDK v4。 您不需要撰寫任何程式碼來建置機器人，為您提供的所有程式碼。
 
 **在本教學課程中，您了解如何：**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * 使用 QnA Maker 範本來建立 Azure Bot 服務
+> * 從現有的知識庫中建立的 Azure Bot Service
 > * 與 Bot 聊天以確認程式碼可行 
-> * 將已發佈的 KB 連線至 Bot
-> * 使用問題來測試 Bot
-
-在本文中，您可以使用免費的 QnA Maker [服務](../how-to/set-up-qnamaker-service-azure.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
-您需要有已發佈的知識庫以供本教學課程使用。 如果沒有，請遵循[建立知識庫](../How-To/create-knowledge-base.md)中的步驟，來建立含有問題和解答的 QnA Maker 服務。
+您需要有已發佈的知識庫以供本教學課程使用。 如果您沒有，請依照下列中的步驟[建立並回應從 KB](create-publish-query-in-portal.md)教學課程，以使用問與答建立 QnA Maker 的知識庫。
+
+<a name="create-a-knowledge-base-bot"></a>
 
 ## <a name="create-a-qna-bot"></a>建立 QnA Bot
 
-1. 在 Azure 入口網站中，選取 [建立資源]。
+建立知識庫的用戶端應用程式 bot。 
 
-    ![Bot 服務建立](../media/qnamaker-tutorials-create-bot/bot-service-creation.png)
+1. 在 QnA Maker 入口網站中，移至**發佈**頁面，然後發佈您的知識庫。 選取 **建立 Bot**。 
 
-2. 在搜尋方塊中，搜尋 **Web App Bot**。
+    ![QnA Maker 入口網站中，移至 [發行] 頁面中，並發佈您的知識庫。 選取 建立 Bot。](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base-page.png)
 
-    ![Bot 服務選取](../media/qnamaker-tutorials-create-bot/bot-service-selection.png)
+    Azure 入口網站會開啟與 bot 建立組態。
 
-3. 在 [Bot 服務] 中提供必要資訊：
+1.  輸入要建立 bot 的設定：
 
-    - 將 [應用程式名稱] 設定為您 Bot 的名稱。 當您的 Bot 部署到雲端 (例如，mynotesbot.azurewebsites.net) 時，此名稱會當作子網域使用。
-    - 選取訂用帳戶、資源群組和 App Service 方案和位置。
+    |設定|值|目的|
+    |--|--|--|
+    |Bot 名稱|`my-tutorial-kb-bot`|這是機器人的 Azure 資源名稱。|
+    |訂用帳戶|請參閱用途。|選取相同的訂用帳戶與您用來建立 QnA Maker 資源。|
+    |資源群組|`my-tutorial-rg`|所有的 bot 相關 Azure 資源使用資源群組。|
+    |位置|`west us`|機器人的 Azure 資源的位置。|
+    |定價層|`F0`|Azure bot 服務免費層。|
+    |應用程式名稱|`my-tutorial-kb-bot-app`|這是以支援您的機器人，只有 web 應用程式。 因為已使用 QnA Maker 服務，這不應該是相同的應用程式名稱。 不支援與任何其他資源共用 QnA Maker 的 web 應用程式。|
+    |SDK 語言|C#|這是使用 bot framework SDK 的基礎程式設計語言。 您可以選擇C#或 Node.js。|
+    |QnA 驗證金鑰|**不要變更**|這個值會為您填入。|
+    |App Service 方案/位置|**不要變更**|本教學課程中，位置並不重要。|
+    |Azure 儲存體|**不要變更**|對話資料會儲存在 Azure 儲存體資料表。|
+    |Application Insights|**不要變更**|記錄會傳送至 Application Insights。|
+    |Microsoft 應用程式識別碼|**不要變更**|Active directory 使用者和密碼是必要項目。|
 
-4. 若要使用 v3 範本，請選取 **SDK v3** 的 SDK 版本以及 **C#** 或 **Node.js** 的 SDK 語言。
+    ![使用這些設定建立知識庫 bot。](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base.png)
 
-    ![bot sdk 設定](../media/qnamaker-tutorials-create-bot/bot-v3.png)
+    等待幾分鐘，直到 bot 建立處理程序通知會報告成功。
 
-5. 選取 Bot 範本欄位的 [問答] 範本，然後選取 [選取] 以儲存範本設定。
-
-    ![儲存 Bot 服務範本選取項目](../media/qnamaker-tutorials-create-bot/bot-v3-template.png)
-
-6. 檢閱您的設定，然後選取 [建立]。 這會建立 Bot 服務，並將其部署到 Azure。
-
-    ![建立 Bot](../media/qnamaker-tutorials-create-bot/bot-blade-settings-v3.png)
-
-7. 確認已部署 Bot 服務。
-
-    - 選取 [通知] (位於 Azure 入口網站頂邊的鈴鐺圖示)。 通知會 [部署開始] 變更為 [部署成功]。
-    - 在通知變更為 [部署成功] 之後，選取該通知上的 [移至資源]。
+<a name="test-the-bot"></a>
 
 ## <a name="chat-with-the-bot"></a>與 Bot 聊天
 
-選取 [前往資源] 會帶您前往 Bot 的資源。
+1. 在 Azure 入口網站中，開啟新的 bot 資源從通知。 
 
-選取 [在網路聊天中測試] 來開啟 [網路聊天] 窗格。 在網路聊天中輸入「hi」。
+    ![在 Azure 入口網站中，開啟新的 bot 資源從通知。](../media/qnamaker-tutorials-create-bot/azure-portal-notifications.png)
 
-![QnA Bot 網路聊天](../media/qnamaker-tutorials-create-bot/qna-bot-web-chat.PNG)
+1. 從**Bot 管理**，選取**測試中 Web 對談**，然後輸入： `How large can my KB be?`。 Bot 會回應： 
 
-Bot 會以「請在應用程式設定中設定 QnAKnowledgebaseId 和 QnASubscriptionKey」回應。 此回應可確認 QnA Bot 已收到訊息，但還沒有與其相關聯的 QnA Maker 知識庫。 
 
-## <a name="connect-your-qna-maker-knowledge-base-to-the-bot"></a>將 QnA Maker 知識庫連線至 Bot
+    `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment)for more details.`
 
-1. 開啟 [應用程式設定]，然後編輯 [QnAKnowledgebaseId]、[QnAAuthKey] 和 [QnAEndpointHostName] 欄位以包含 QnA Maker 知識庫的值。
 
-    ![app settings](../media/qnamaker-tutorials-create-bot/application-settings.PNG)
+    ![測試新的知識庫 bot。](../media/qnamaker-tutorial-create-publish-query-in-portal/test-bot-in-web-chat-in-azure-portal.png)
 
-1. 在 QnA Maker 入口網站中，從知識庫的 [設定] 索引標籤取得知識庫識別碼、主機 url 和端點金鑰。
-
-   - 登入 [QnA Maker](https://qnamaker.ai)
-   - 移至您的知識庫
-   - 選取 [設定] 索引標籤
-   - [發佈] 您的知識庫 (如果尚未這麼做)
-
-     ![QnA Maker 值](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
-
-## <a name="test-the-bot"></a>測試 Bot
-
-在 Azure 入口網站中，選取 [Test in Web Chat]\(在網路聊天中測試\) 以測試 Bot。 
-
-![QnA Maker Bot](../media/qnamaker-tutorials-create-bot/qna-bot-web-chat-response.PNG)
-
-QnA Bot 會從知識庫找出解答。
+    如需有關 Azure 上的機器人的詳細資訊，請參閱[使用 QnA Maker 回答問題](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs)
 
 ## <a name="related-to-qna-maker-bots"></a>QnA Maker bot 相關
 
@@ -113,7 +92,11 @@ QnA Bot 會從知識庫找出解答。
 
 ## <a name="clean-up-resources"></a>清除資源
 
-當您完成本教學課程的 Bot 時，請在 Azure 入口網站中移除該 Bot。 Bot 服務包括：
+當您完成本教學課程的 Bot 時，請在 Azure 入口網站中移除該 Bot。 
+
+如果您建立新的資源群組，機器人的資源，刪除資源群組。 
+
+如果您未建立新的資源群組，您需要尋找 bot 相關聯的資源。 最簡單的方法是搜尋的 bot 和 bot 應用程式的名稱。 Bot 資源包括：
 
 * App Service 方案
 * 搜尋服務

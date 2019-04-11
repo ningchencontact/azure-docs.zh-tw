@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: 78ee24280600d336d394819d33762d8cf6278858
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: d0f0f3b120187a7538989f219876a8c10569a98e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891475"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051460"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>如何使用自訂視覺建置分類器
 
@@ -56,9 +56,8 @@ ms.locfileid: "58891475"
     |__Food__|已針對菜餚相片進行最佳化，如同您在餐廳菜單上看見的一樣。 如果您想要將個別水果或蔬菜的相片分類，請使用「食物」領域。|
     |__特徵點__|已針對可辨識的地標 (包括自然和人工) 進行最佳化。 地標在相片中清楚顯示時，此領域的效果最佳。 即使地標前面的人稍微阻擋到該地標，此領域還是能夠運作。|
     |__零售__|已針對在購物目錄或購物網站上找到的影像進行最佳化。 如果您想在連衣裙、褲子和襯衫之間進行高精確度的分類，請使用此領域。|
-    |__成人__|已進行最佳化，能以更好的方式定義成人內容與非成人內容。 例如，如果您想要封鎖身穿泳衣的人的影像，這個區域允許您建置自訂分類器來達到此目的。|
     |__Compact 的網域__| 已針對行動裝置上的即時分類條件約束進行最佳化。 精簡領域所產生的模型可以匯出到本機執行。|
-    
+
 1. 最後，選取 [建立專案]。
 
 ## <a name="choose-training-images"></a>選擇定型影像

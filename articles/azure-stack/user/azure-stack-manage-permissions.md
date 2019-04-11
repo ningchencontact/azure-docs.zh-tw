@@ -16,12 +16,12 @@ ms.date: 03/11/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 3565bf4c4a19bcf1b136b4cbb781006658865a1c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 58c16b8a102ea27499fc464c209d4ca1c0d4db33
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767204"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264704"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>使用 Azure Stack 角色型存取控制來管理資源存取
 
@@ -40,28 +40,6 @@ Azure Stack 有三個基本角色，可套用在所有資源類型：
 * **擁有者**可以管理所有事項，包括對於資源的存取。
 * **參與者**可以管理所有事項，但不包括對於資源的存取。
 * **讀者**可以檢視所有事項，但無法進行任何變更。
-
-### <a name="resource-hierarchy-and-inheritance"></a>資源階層和繼承
-
-Azure Stack 具有下列資源階層：
-
-* 每個訂用帳戶隸屬於單一目錄。
-* 每個資源群組隸屬於單一訂用帳戶。
-* 每個資源隸屬於單一資源群組。
-
-在父系範圍授與的存取權會在子系範圍繼承。 例如︰
-
-* 您可將讀者角色指派給訂用帳戶範圍內的 Azure AD 群組。 該群組的成員可以檢視訂用帳戶中的每個資源群組和資源。
-* 您可將參與者角色指派給資源群組範圍內的應用程式。 應用程式可以管理該資源群組中所有類型的資源，但是無法管理訂用帳戶中的其他資源群組。
-
-### <a name="assigning-roles"></a>指派角色
-
-您可以將多個角色指派給使用者，而且每個角色可以關聯不同的範圍。 例如︰
-
-* 您指派了 TestUser-A 讀者角色給 Subscription-1。
-* 您指派了 TestUser-A 擁有者角色給 TestVM-1。
-
-Azure [角色指派](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) \(機器翻譯\) 文章提供了檢視、指派與刪除角色的詳細資訊。
 
 ### <a name="resource-hierarchy-and-inheritance"></a>資源階層和繼承
 

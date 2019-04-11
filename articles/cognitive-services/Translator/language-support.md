@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 62a4493204fdc09dbd48b1463e5558fabf9c7c40
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 5c41456f1cf661fd372a565885c9196593c894ee
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918037"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267901"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>翻譯工具文字 API 支援的語言和區域
 
@@ -33,7 +33,10 @@ ms.locfileid: "58918037"
 * 類神經預設值：類神經是預設翻譯系統。 使用 `category=smt` 參數存取搭配 Microsoft Translator Hub 使用的統計系統。
 * 僅限類神經：僅可使用類神經翻譯。
 
-**V3 Translator API** V3 Translator API 預設為類神經架構，而統計系統僅適用於沒有類神經系統存在時。 「自訂翻譯」只能搭配類神經語言使用。 [檢視自訂轉譯器中目前可用的語言](#customization)。
+**V3 Translator API** V3 Translator API 預設為類神經架構，而統計系統僅適用於沒有類神經系統存在時。 
+
+> [!NOTE]
+> 目前，類神經語言子集可用於自訂轉譯器，我們會逐漸加入額外的。 [檢視自訂轉譯器中目前可用的語言](#customization)。
 
 |語言|  語言代碼|  V2 API| V3 API|
 |:-----|:-----:|:-----|:-----|
