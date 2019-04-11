@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 2e13f1f09fcdfb68a99e705511e3659f1632132e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 93d0f148c1fa3f13e79b28e19527251455a1b65c
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895476"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470826"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>使用 Application Insights 來分析即時 Azure 雲端服務
 
@@ -33,7 +33,7 @@ Application Insights Profiler 會與 Azure 診斷擴充功能一起安裝。 您
 
 1. [將 Application Insights SDK 新增至 Azure 雲端服務](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json)。
 
-   >**分析工具中隨附的 WAD 的最新版本的雲端服務中沒有錯誤。** 若要使用的雲端服務中的程式碼剖析工具，它只支援 AI SDK 升級到版本 2.7.2。 如果您使用較新版的 AI SDK，您必須返回 2.7.2 若要使用分析工具。 如果您使用 Visual Studio 的應用程式的 application Insights SDK 的版本降級時，您可能會在執行階段的繫結重新導向錯誤。 這是因為 「 newVersion"Microsoft.ApplicationInsights 的 web.config 檔案中應該設定為"2.7.2.0 」 之後降級 AI SDK，但它不會自動更新。
+    **已修正程式碼剖析工具中的 WAD 發行雲端服務的錯誤。** WAD (1.12.2.0) 針對雲端服務的最新版本適用於所有應用程式的 application Insights SDK 的最新版本。 雲端服務主機將會自動升級 WAD，但它不是即時的。 若要強制升級，您可以重新部署您的服務，或重新啟動節點。
 
 1. 使用 Application Insights 來追蹤要求：
 

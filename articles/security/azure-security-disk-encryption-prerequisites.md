@@ -7,16 +7,16 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 896553890252572e4b5524d047893953b78a4ba1
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 1da35b55a458ad73689f51c49e73855fd33ee45f
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010086"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470282"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure 磁碟加密的先決條件
 
- ＜Azure 磁碟加密的先決條件＞這篇文章會說明要先備妥才能使用 Azure 磁碟加密的項目。 Azure 磁碟加密會與 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) 整合，以協助管理加密金鑰。 您可以使用 [Azure PowerShell](/powershell/azure/overview)、[Azure CLI](/cli/azure/)或 [Azure 入口網站](https://portal.azure.com)來設定 Azure 磁碟加密。
+＜Azure 磁碟加密的先決條件＞這篇文章會說明要先備妥才能使用 Azure 磁碟加密的項目。 Azure 磁碟加密會與 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) 整合，以協助管理加密金鑰。 您可以使用 [Azure PowerShell](/powershell/azure/overview)、[Azure CLI](/cli/azure/)或 [Azure 入口網站](https://portal.azure.com)來設定 Azure 磁碟加密。
 
 針對 [Azure 磁碟加密概觀](azure-security-disk-encryption-overview.md)一文中所討論的支援案例，當您在 Azure IaaS VM 上啟用 Azure 磁碟加密之前，請務必先備妥先決條件。 
 
@@ -29,10 +29,11 @@ ms.locfileid: "59010086"
 ## <a name="bkmk_OSs"></a> 受支援的作業系統
 下列作業系統支援 Azure 磁碟加密：
 
-- Windows Server 版本：Windows Server 2008 R2、 Windows Server 2012、 Windows Server 2012 R2 和更高版本的 Windows Azure 資源庫中找到。
-  - 針對 Windows Server 2008 R2，您必須先安裝 .NET Framework 4.5，才能在 Azure 中啟用加密。 請從 Windows Update 使用選用的更新「Windows Server 2008 R2 x64 型系統的 Microsoft .NET Framework 4.5.2 ([KB2901983](https://support.microsoft.com/kb/2901983))」來加以安裝。    
+- Windows Server 版本：Windows Server 2008 R2、 Windows Server 2012、 Windows Server 2012 R2、 Windows Server 2016、 Windows Server 2012 R2 Server Core 和 Windows Server 2016 Server core。
+針對 Windows Server 2008 R2，您必須先安裝 .NET Framework 4.5，才能在 Azure 中啟用加密。 從 Windows Update 以選用更新適用於 Windows Server 2008 R2 x64 型系統 (KB2901983) 的 Microsoft.NET Framework 4.5.2 中安裝它。
+- Windows Server 2012 R2 Core 和 Windows Server 2016 Core 支援 Azure 磁碟加密一旦 bdehdcfg 元件安裝在 VM 上。
 - Windows 用戶端版本：Windows 8 用戶端和 Windows 10 用戶端。
-- 只有特定以 Azure 資源庫為基礎的 Linux 伺服器散發套件和版本可支援 Azure 磁碟加密。 如需目前支援的版本清單，請參閱 [Azure 磁碟加密常見問題集](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)。
+- 只有特定以 Azure 資源庫為基礎的 Linux 伺服器散發套件和版本可支援 Azure 磁碟加密。 如需目前支援的版本清單，請參閱 [Azure 磁碟加密常見問題集](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)。 請參閱[on Azure 背書的 Linux 散發套件](../virtual-machines/linux/endorsed-distros.md)如需支援由 Microsoft 和映像的清單[哪些 Linux 散發套件沒有 Azure 磁碟加密支援？](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)中[Azure磁碟加密常見問題集](azure-security-disk-encryption-faq.md)的基礎映像背書散發套件目前支援的版本清單。
 - Azure 磁碟加密需要您的金鑰保存庫和 VM 位於相同的 Azure 區域和訂用帳戶中。 若在不同的區域設定資源，會導致 Azure 磁碟加密功能啟用失敗。
 
 ## <a name="bkmk_LinuxPrereq"></a> Linux IaaS VM 的其他先決條件 

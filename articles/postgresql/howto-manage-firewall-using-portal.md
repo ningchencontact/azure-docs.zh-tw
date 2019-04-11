@@ -5,16 +5,18 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 555904642df069e9d87b2286bce23181da0f8184
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/09/2019
+ms.openlocfilehash: cb142e01009efbeaabd5d4e56dbedfe6384c5fc6
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086627"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470792"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>使用 Azure 入口網站建立和管理適用於 PostgreSQL 的 Azure 資料庫防火牆規則
-伺服器等級防火牆規則可讓系統管理員從指定的 IP 位址或 IP 位址範圍，存取適用於 PostgreSQL 的 Azure 資料庫伺服器。 
+伺服器層級防火牆規則可用來管理存取 Azure Database for PostgreSQL 伺服器從指定的 IP 位址或 IP 位址範圍。
+
+虛擬網路 (VNet) 規則也可用來安全地存取您的伺服器。 深入了解[建立及管理虛擬網路服務端點和規則使用 Azure 入口網站](howto-manage-vnet-using-portal.md)。
 
 ## <a name="prerequisites"></a>必要條件
 若要逐步執行本作法指南，您需要︰
@@ -34,7 +36,7 @@ ms.locfileid: "58086627"
 
    ![使用 Bing 搜尋「我的 IP 是什麼」](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
 
-4. 新增其他位址範圍。 在適用於 PostgreSQL 的 Azure 資料庫防火牆規則中，您可以指定單一 IP 位址，或位址範圍。 如果您想要將規則限制到單一 IP 位址，請在 [起始 IP] 和 [結束 IP] 欄位中輸入相同位址。 開啟防火牆可讓系統管理員、使用者和應用程式登入他們在 PostgreSQL 伺服器上具備有效認證的任何資料庫。
+4. 新增其他位址範圍。 在適用於 PostgreSQL 的 Azure 資料庫防火牆規則中，您可以指定單一 IP 位址，或位址範圍。 如果您想要將規則限制到單一 IP 位址，請在 [起始 IP] 和 [結束 IP] 欄位中輸入相同位址。 開放防火牆可讓系統管理員、 使用者和應用程式存取任何他們具備有效的認證在 PostgreSQL 伺服器上的資料庫。
 
    ![Azure 入口網站 - 防火牆規則](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 
@@ -58,4 +60,5 @@ ms.locfileid: "58086627"
 
 ## <a name="next-steps"></a>後續步驟
 - 同樣地，您可以透過指令碼[使用 Azure CLI 建立和管理適用於 PostgreSQL 的 Azure 資料庫防火牆規則](howto-manage-firewall-using-cli.md)。
+- 進一步保護您的伺服器的存取權[建立及管理虛擬網路服務端點和規則使用 Azure 入口網站](howto-manage-vnet-using-portal.md)。
 - 如需連線至「適用於 PostgreSQL 的 Azure 資料庫」伺服器的說明，請參閱[適用於 PostgreSQL 的 Azure 資料庫的連線庫](concepts-connection-libraries.md)。

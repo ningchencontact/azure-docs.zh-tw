@@ -5,16 +5,18 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: b55f8d44d12fa503a17218db4a5166819024f1aa
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.date: 04/09/2018
+ms.openlocfilehash: 017266fd28fb31b4509957560a042abf74314453
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872891"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469449"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>使用 Azure 入口網站建立和管理適用於 MySQL 的 Azure 資料庫防火牆規則
-伺服器層級的防火牆規則可讓系統管理員從指定的 IP 位址或 IP 位址範圍，存取適用於 MySQL 的 Azure 資料庫伺服器。 
+伺服器層級防火牆規則可用來管理存取 Azure Database for MySQL 伺服器從指定的 IP 位址或 IP 位址範圍。 
+
+虛擬網路 (VNet) 規則也可用來安全地存取您的伺服器。 深入了解[建立及管理虛擬網路服務端點和規則使用 Azure 入口網站](howto-manage-vnet-using-portal.md)。
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>在 Azure 入口網站中建立伺服器層級的防火牆規則
 
@@ -57,4 +59,5 @@ ms.locfileid: "56872891"
 
 ## <a name="next-steps"></a>後續步驟
 - 同樣地，您可以透過指令碼[使用 Azure CLI 建立和管理適用於 MySQL 的 Azure 資料庫防火牆規則](howto-manage-firewall-using-cli.md)。
-- 如需連線至「適用於 MySQL 的 Azure 資料庫」伺服器的說明，請參閱[「適用於 MySQL 的 Azure 資料庫」的連線庫](./concepts-connection-libraries.md)
+- 進一步保護您的伺服器的存取權[建立及管理虛擬網路服務端點和規則使用 Azure 入口網站](howto-manage-vnet-using-portal.md)。
+- 在 連接到 Azure Database for MySQL 伺服器的說明，請參閱[適用於 MySQL 的 Azure 資料庫的連線庫](./concepts-connection-libraries.md)。

@@ -9,12 +9,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由, kubectl, k8s '
-ms.openlocfilehash: 22f68b4350bfa0310a517bd36cda9763601aad2a
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 8b75fbde461d2d9660c9fbcf7fdd33aee4650e73
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438709"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360973"
 ---
 [!INCLUDE [](../../includes/devspaces-team-development-1.md)]
 

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/02/2019
+ms.date: 04/09/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1af2117b1d12c98182434705181462fd7c9bebf4
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 39e8c06228381143a6f4975e4d6415799ce16d43
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862942"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426474"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -565,7 +565,7 @@ Update
 | project-away ClassificationWeight, InformationId, InformationUrl
 ```
 
-## <a name="using-dynamic-groups"></a>使用動態群組 (預覽)
+## <a name="using-dynamic-groups"></a>使用動態群組
 
 「更新管理」讓您能夠以動態 Azure VM 群組作為更新部署目標。 這些群組會由查詢定義，當更新部署開始時，就會評估該群組的成員。 動態群組功能不適用於傳統 Vm。 定義查詢時，可以搭配使用下列項目來填入動態群組
 

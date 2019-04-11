@@ -9,12 +9,12 @@ ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/23/2017
-ms.openlocfilehash: b70de1e4494bb142da1cad0d0154b5dc7f765983
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 9de5c7228944bd0448d9dfa833ef223140ccf0e8
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233351"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469602"
 ---
 # <a name="get-started-with-u-sql-in-azure-data-lake-analytics"></a>開始在 Azure Data Lake Analytics 中使用 U-SQL
 U-SQL 是一種語言，結合了宣告式 SQL 與命令式 C#，可讓您處理任何規模的資料。 透過 U-SQL 的可調整分散式查詢功能，您可以有效率地分析各關聯式存放區 (Azure SQL Database) 中的資料。 使用 U-SQL，您可以藉由在讀取時套用結構描述並插入自訂邏輯和 UDF，來處理非結構化資料。 此外，U-SQL 所含有的擴充性可讓您細微控制如何大規模執行。 
@@ -27,7 +27,7 @@ U-SQL 是一種語言，結合了宣告式 SQL 與命令式 C#，可讓您處理
 
 ## <a name="prerequisites"></a>必要條件
 
-在進行本文中的 U-SQL 範例前，請閱讀並完成[教學課程：使用適用於 Visual Studio 的 Data Lake 工具開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)。 本教學課程說明將 U-SQL 搭配 Azure Data Lake Tools for Visual Studio 使用的機制。
+您瀏覽這份文件中的 U-SQL 範例前，閱讀並完成[教學課程：開發 U-SQL 指令碼，使用 Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)。 本教學課程說明將 U-SQL 搭配 Azure Data Lake Tools for Visual Studio 使用的機制。
 
 ## <a name="your-first-u-sql-script"></a>您的第一個 U-SQL 指令碼
 
@@ -55,9 +55,9 @@ OUTPUT @searchlog
 請注意 `Duration` 欄位中資料類型旁的問號， 它表示 `Duration` 欄位可能是 null。
 
 ### <a name="key-concepts"></a>重要概念
-* **資料列集變數**：每個會產生資料列集的查詢運算式都可以指派給變數。 在指令碼中，U-SQL 會遵循 T-SQL 變數命名模式 (例如 `@searchlog`)。
-* EXTRACT 關鍵字會從檔案讀取資料，並在讀取時定義結構描述。 `Extractors.Tsv` 是內建的 U-SQL 擷取器，適用於以定位點分隔值的檔案。 您可以開發自訂擷取器。
-* OUTPUT 會將資料列集的資料寫入檔案。 `Outputters.Csv()` 是內建的 U-SQL 輸出器，用於建立以逗號分隔值的檔案。 您可以開發自訂輸出器。
+* **資料列集變數**:每個產生的資料列集的查詢運算式可以指派給變數。 在指令碼中，U-SQL 會遵循 T-SQL 變數命名模式 (例如 `@searchlog`)。
+* EXTRACT 關鍵字會從檔案讀取資料，並在讀取時定義結構描述。 `Extractors.Tsv` 是內建的 U-SQL 擷取器的定位點分隔值檔案。 您可以開發自訂擷取器。
+* OUTPUT 會將資料列集的資料寫入檔案。 `Outputters.Csv()` 是內建的 U-SQL 輸出器，用於建立以逗號分隔值檔案。 您可以開發自訂輸出器。
 
 ### <a name="file-paths"></a>檔案路徑
 
@@ -117,7 +117,7 @@ EXTRACT 與 OUTPUT 陳述式使用檔案路徑。 檔案路徑可以是絕對或
         TO "/output/SearchLog-transform-rowsets.csv"
         USING Outputters.Csv();
 
-WHERE 子句使用 [C# 布林運算式](https://msdn.microsoft.com/library/6a71f45d.aspx)。 您可以使用 C# 運算式語言來建置自己的運算式和函式。 您甚至可以將它們與邏輯結合 (AND) 和邏輯分離 (OR) 做結合，以執行更複雜的篩選。
+WHERE 子句使用 [C# 布林運算式](/dotnet/csharp/language-reference/operators/index)。 您可以使用 C# 運算式語言來建置自己的運算式和函式。 您甚至可以將它們與邏輯結合 (AND) 和邏輯分離 (OR) 做結合，以執行更複雜的篩選。
 
 下列指令碼使用 DateTime.Parse() 方法和邏輯結合。
 
@@ -222,8 +222,8 @@ U-SQL 的 HAVING 子句可以用來將輸出限制為符合 HAVING 條件的群�
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-如需進階的彙總案例，請參閱 U-SQL 的[彙總、分析及參考函式](https://msdn.microsoft.com/library/azure/mt621335.aspx)參考文件
+如需進階的彙總案例，請參閱 U-SQL 的[彙總、分析及參考函式](/u-sql/built-in-functions)參考文件
 
 ## <a name="next-steps"></a>後續步驟
 * [Microsoft Azure Data Lake Analytics 概觀](data-lake-analytics-overview.md)
-* [使用 Data Lake Tools for Visual Studio 來開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)
+* [使用適用於 Visual Studio 的 Data Lake 工具來開發 U-SQL 指令碼](data-lake-analytics-data-lake-tools-get-started.md)

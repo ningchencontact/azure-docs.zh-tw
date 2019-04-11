@@ -1,20 +1,18 @@
 ---
 title: 從藍圖範例建立環境
 description: 使用藍圖範例建立藍圖定義，以設定兩個資源群組及其各自的角色指派。
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/05/2019
 ms.topic: tutorial
 ms.service: blueprints
-ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 68bd6e3942d2b2e2c8bcf39bfcff10540e564315
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 4f400e45d8defc304cf58c4bd05fa19f16d0501b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57411168"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277767"
 ---
 # <a name="create-an-environment-from-a-blueprint-sample"></a>從藍圖範例建立環境
 
@@ -48,7 +46,7 @@ ms.locfileid: "57411168"
    - **藍圖名稱**：為您的藍本範例複本提供名稱。 在本教學課程中，我們使用的名稱是「two-rgs-with-role-assignments」。
    - **定義位置**：使用省略符號，然後選取要作為範例複本儲存位置的管理群組或訂用帳戶。
 
-1. 選取頁面頂端的 [成品] 索引標籤，或選取頁面底部的 [下一步: 成品]。
+1. 在頁面頂端選取 [成品]索引標籤，或在頁面底部選取 **[下一步：成品]**。
 
 1. 檢閱構成此藍圖範例的成品清單。 這個範例會定義兩個資源群組，其顯示名稱分別為「ProdRG」和「PreProdRG」。 在指派藍圖期間會設定每個資源群組的最終名稱和位置。 「ProdRG」資源群組會獲派「參與者」角色，「PreProdRG」資源群組則會獲派「擁有者」和「讀取者」角色。 定義中所指派的角色是靜態的，但獲派該角色的使用者、應用程式或群組則是在藍圖指派期間進行設定的。
 

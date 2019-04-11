@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 33ec96b3708bc89f3fbd415f892e0810fc468876
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 4e67e91e93ef3a2e2acf88a87b97eaab56ca6479
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58889799"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471030"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>使用 Visual Studio 來開發 Azure Functions  
 
@@ -80,7 +80,7 @@ Azure Functions Tools 提供下列優點：
 
 * **host.json**：可讓您設定 Functions 主機。 這些設定同時適用於在本機執行及在 Azure 中執行。 如需詳細資訊，請參閱 [host.json 參考](functions-host-json.md)。
 
-* **local.settings.json**：維護在本機執行函數時所使用的設定。 Azure 不會使用這些設定，[Azure Functions Core Tools](functions-run-local.md) 會使用這些設定。 請使用這個檔案來指定函式所需變數的應用程式設定。 針對專案中函式繫結所需的每個連接，將新項目新增至 [值] 陣列。 如需詳細資訊，請參閱＜Azure Functions Core Tools＞一文中的[本機設定檔](functions-run-local.md#local-settings-file)。
+* **local.settings.json**：維護在本機執行函數時所使用的設定。 Azure 不會使用這些設定，[Azure Functions Core Tools](functions-run-local.md) 會使用這些設定。 使用此檔案指定您的函式所需的環境變數的應用程式設定。 針對專案中函式繫結所需的每個連接，將新項目新增至 [值] 陣列。 如需詳細資訊，請參閱＜Azure Functions Core Tools＞一文中的[本機設定檔](functions-run-local.md#local-settings-file)。
 
     >[!IMPORTANT]
     >由於 local.settings.json 檔案可以包含祕密，因此，您必須從專案原始檔控制中排除它。 這個檔案的 [複製到輸出目錄] 設定應該一律是 [有更新時才複製]。 
@@ -207,15 +207,11 @@ For an example of how to test a queue triggered function, see the [queue trigger
 
 ## <a name="monitoring-functions"></a>監視函式
 
-若要監視您的函式在 Azure 中的執行情形，建議您整合 Azure Application Insights。 當您在 Azure 入口網站中建立函式應用程式時，系統會依預設為您完成這項整合。 不過，當您在 Visual Studio 發佈期間建立函式應用程式時，則不會完成您的函式應用程式在 Azure 中的整合。 您反而會取得內建記錄，但這並非建議做法。
+監視您的函式執行的建議的方式是藉由使用 Azure Application Insights 整合您的函式應用程式。 當您在 Azure 入口網站中建立函式應用程式時，系統會依預設為您完成這項整合。 不過，當您在 Visual Studio 發佈期間建立函式應用程式時，則不會完成您的函式應用程式在 Azure 中的整合。
 
-若要為您在 Azure 中的函式應用程式啟用 Application Insights：
+若要啟用函式應用程式的 Application Insights:
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中建立 Application Insights 執行個體，並複製其檢測金鑰。 若要了解操作方式，請參閱[手動連線 App Insights 資源](functions-monitoring.md#manually-connect-an-app-insights-resource)。  
-
-1. 將名為 `APPINSIGHTS_INSTRUMENTATIONKEY` 的應用程式設定新增至 Azure 中的函式應用程式設定，如[函式應用程式設定](#function-app-settings)所說明。 此應用程式設定包含您在上一個步驟中建立的檢測金鑰。
-
-1. 從 Azure 中的函式應用程式移除 `AzureWebJobsDashboard` 應用程式設定，以停用內建記錄。  
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
 若要深入了解，請參閱[監視 Azure Functions](functions-monitoring.md)。
 

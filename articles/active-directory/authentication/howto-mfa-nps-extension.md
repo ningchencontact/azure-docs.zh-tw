@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b36b6e513e382e25f7d7038f49e7467a21686a0f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 87a416b6ff73fd658158276a02796aaae946bc20
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311725"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470350"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>將現有的 NPS 基礎結構與 Azure Multi-Factor Authentication 整合
 
@@ -59,8 +59,8 @@ Windows Server 2008 R2 SP1 或更新版本。
 
 這些程式庫會自動連同延伸模組一起安裝。
 
-- [適用於 Visual Studio 2013 的 Visual C++ 可轉散發套件 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
-- [適用於 Windows PowerShell 1.1.1660 版本的 Microsoft Azure Active Directory 模組](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
+- [視覺化C++適用於 Visual Studio 2013 (X64) 的可轉散發套件](https://www.microsoft.com/download/details.aspx?id=40784)
+- [Microsoft Azure Active Directory 的 Windows PowerShell 模組 1.1.166.0 版](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
 如果您還沒有適用於 Windows PowerShell 的 Microsoft Azure Active Directory 模組，系統會透過您在安裝過程中執行的設定指令碼來加以安裝。 因此，如果您尚未安裝此模組，就不必事先安裝。
 
@@ -207,6 +207,8 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 
 在憑證存放區中尋找安裝程式所建立的自我簽署憑證，並確認私密金鑰已將權限授與給使用者 **NETWORK SERVICE**。 憑證的主體名稱為 **CN \<tenantid\>, OU = Microsoft NPS Extension**
 
+所產生的自我簽署的憑證*AzureMfaNpsExtnConfigSetup.ps1*指令碼也會有兩年的有效存留期。 當正在驗證已安裝的憑證，您也應該檢查憑證尚未過期。
+
 -------------------------------------------------------------
 
 ### <a name="how-can-i-verify-that-my-client-cert-is-associated-to-my-tenant-in-azure-active-directory"></a>如何確認用戶端憑證是否已和 Azure Active Directory 中的租用戶相關聯？
@@ -261,6 +263,14 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>為何我會在記錄中看到 HTTP 連線錯誤，且我的所有驗證都失敗？
 
 確認可以從執行 NPS 延伸模組的伺服器存取 https://adnotifications.windowsazure.com。
+
+-------------------------------------------------------------
+
+### <a name="why-is-authentication-not-working-despite-a-valid-certificate-being-present"></a>為什麼驗證無法運作，儘管出現有效的憑證？
+
+如果您先前的電腦憑證已過期，且已產生新的憑證，您應該刪除過期的憑證。 具有過期的憑證會導致發生問題的 NPS 擴充功能啟動。
+
+若要檢查是否有有效的憑證，檢查本機電腦帳戶的憑證存放區，使用 MMC 中，並確認憑證未跳過其到期日。 若要產生新的有效憑證，請重新執行的步驟 」 區段底下 「[執行 PowerShell 指令碼](#run-the-powershell-script)"
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>管理的 TLS/SSL 通訊協定和加密套件
 

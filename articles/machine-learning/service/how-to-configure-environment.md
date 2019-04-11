@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ca64071d068f95bf3de2dc9730629b5f475d92e
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
-ms.translationtype: HT
+ms.openlocfilehash: d4866a6863143d2228c556a64c8e75c9f273076e
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426370"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469891"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>設定 Azure Machine Learning 的開發環境
 
@@ -320,8 +320,8 @@ Azure Databricks 的運作方式與 Azure Machine Learning 服務：
       
    也請考慮：
    + 在 Automl 組態中，當使用 Azure Databricks 請新增下列參數：
-    1. ```max_concurrent_iterations``` 根據您的叢集中的背景工作節點數目。 
-    2. ```spark_context=sc``` #databricks/spark 預設 spark 內容。 
+        1. ```max_concurrent_iterations``` 取決於您的叢集中的背景工作節點數目。 
+        2. ```spark_context=sc``` 取決於預設 spark 內容。 
    + 或者，如果您有較舊的 SDK 版本時，取消選取它，從叢集的已安裝的程式庫，並移至垃圾桶。 安裝新版 SDK，並重新啟動叢集。 如果在此之後發生問題，請中斷連結再重新連結叢集。
 
 如果安裝成功，匯入程式庫應該看起來像其中一個：

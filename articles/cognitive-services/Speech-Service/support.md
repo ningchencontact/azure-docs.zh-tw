@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: a4c256a6acd8e51986b40e28a6f658f1103ab337
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bf0916f197ff5bf1a9531fde98fe8cefc8d7727f
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877695"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358063"
 ---
 # <a name="support-and-help-options"></a>支援和協助選項
 
@@ -23,6 +23,7 @@ ms.locfileid: "57877695"
 
 > [!div class="checklist"]
 > * 掌握「Azure 認知服務」的最新發展，或尋找與「語音服務」相關的最新消息。
+> * 版本資訊包含所有版本的資訊。
 > * 搜尋以查看社群是否已經在討論您的問題，或者您想要實作的功能是否已有現有文件。
 > * 如果您找不到滿意的答案，請在 Stack Overflow 上發問。
 > * 如果您發現 GitHub 上的其中一個範例有問題，請提出 GitHub 問題。
@@ -31,6 +32,10 @@ ms.locfileid: "57877695"
 ## <a name="stay-informed"></a>掌握最新資訊
 
 認知服務的相關消息會收集在[認知服務部落格](https://azure.microsoft.com/blog/topics/cognitive-services/)中。 如需語音服務最新的資訊，追蹤[語音服務部落格](https://azure.microsoft.com/blog/tag/speech-service/)。
+
+## <a name="release-notes"></a>版本資訊
+
+[版本資訊](https://aka.ms/csspeech/whatsnew)會更新為新的版本都有提供。 資訊會包含新功能、 改善和 bug 修正的相關資訊。
 
 ## <a name="search"></a>Search
 
@@ -51,7 +56,7 @@ ms.locfileid: "57877695"
 Azure 客戶可以在 Azure 入口網站中建立和管理支援要求。
 
 * [Azure 入口網站](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
-* [美國政府的 Azure 入口網站](https://portal.azure.us)
+* [適用於美國政府的 azure 入口網站](https://portal.azure.us)
 
 ## <a name="post-a-question-to-stack-overflow"></a>在 Stack Overflow 張貼問題
 
@@ -70,7 +75,7 @@ Stack Overflow 是適用於開發相關問題的慣用管道。 社群成員和 
 > [!TIP]
 > Stack Overflow 的下列貼文包含如何提出問題以及新增原始程式碼的提示。 遵循這些指導方針有助於增加社群成員快速評估並回應您問題的機會：  
 > * [要如何問一個好問題？](https://stackoverflow.com/help/how-to-ask)
-> * [如何建立最小、完成且可驗證的範例](https://stackoverflow.com/help/mcve)
+> * [如何建立最小、 完成且可驗證的範例](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>建立 GitHub 問題
 
@@ -81,11 +86,11 @@ Stack Overflow 是適用於開發相關問題的慣用管道。 社群成員和 
 
 您可以建立 Bug 報告、功能要求，或詢問一般問題及分享最佳做法。 針對 Bug 報告，請依照所提供的範本進行操作：
 
-**描述 Bug**
+**描述錯誤**
 
 一個清楚且簡潔的 Bug 描述。
 
-**重現**
+**若要重現**
 
 重現行為的步驟：
 1. ...
@@ -99,16 +104,16 @@ Stack Overflow 是適用於開發相關問題的慣用管道。 社群成員和 
 
 您目前使用哪個 SDK 版本。
 
-**平台、作業系統及程式設計語言**
+**平台、 作業系統和程式設計語言**
 
  - OS：[例如 Windows、Linux、Android、iOS...] - 請指明
  - 硬體 - x64、x86、ARM...
  - 瀏覽器 [例如 Chrome、Safari] (如果適用)- 請指明
 
-**額外內容**
+**其他內容**
 
  - 錯誤訊息、記錄資訊、堆疊追蹤...
- - 如果您要回報特定服務互動的錯誤，請回報所報告事件的 SessionId 和時間 (包括時區)。 在您收到的所有回呼/事件中都會回報 SessionId。
+ - 如果您報告錯誤的特定服務互動時，回報 SessionId 與報告事件的時間 （包括時區）。 在您收到的所有回呼/事件中都會回報 SessionId。
  - 任何其他額外資訊
 
 

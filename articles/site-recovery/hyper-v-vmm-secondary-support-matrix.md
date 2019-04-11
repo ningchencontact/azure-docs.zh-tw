@@ -6,18 +6,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2018
+ms.date: 04/08/2019
 ms.author: raynew
-ms.openlocfilehash: 419974138d6f556a2f774e8c1a355729c824fddc
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 60ca12e5b362a37eb9f85c9a0d1fc23ca99e9edc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310603"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360806"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>將 Hyper-V 虛擬機器災害復原至次要網站的支援矩陣
 
-本文摘要說明使用 [Azure Site Recovery](site-recovery-overview.md) 服務將 System Center Virtual Machine Manager (VMM) 雲端中管理的 Hyper-V VM 複寫至次要網站時所支援的項目。 如果您需要將 Hyper-V VM 複寫至 Azure，請檢閱[此支援矩陣](hyper-v-azure-support-matrix.md)。
+本文摘要說明當您使用支援內容[Azure Site Recovery](site-recovery-overview.md)服務，以將 HYPER-V Vm 複寫至次要站台的 System Center Virtual Machine Manager (VMM) 雲端中所管理。 如果您需要將 Hyper-V VM 複寫至 Azure，請檢閱[此支援矩陣](hyper-v-azure-support-matrix.md)。
 
 > [!NOTE]
 > 當您的 Hyper-V 主機是在 VMM 雲端中進行管理時，您只能複寫至次要網站。
@@ -36,7 +36,7 @@ Windows Server 2016 |  目前不支援混用 Windows Server 2016 和 2012 R2 主
 
 下表摘要說明使用 Site Recovery 複寫的機器支援的作業系統。 任何工作負載都可以在支援的作業系統上執行。
 
-**Windows 版本** | **Hyper-V (含 VMM)**
+**Windows 版本** | **Hyper-v （含 VMM)**
 --- | ---
 Windows Server 2016 | Windows Server 2016 上 [Hyper-V 所支援的](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows)任何一種客體作業系統 
 Windows Server 2012 R2 | Windows Server 2012 R2 上 [Hyper-V 所支援的](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027%28v%3dws.11%29)任何一種客體作業系統
@@ -70,7 +70,7 @@ Windows Server 2012 R2 | Windows Server 2012 R2 上 [Hyper-V 所支援的](https
 
 ### <a name="host-storage"></a>主機儲存體
 
-**儲存體 (主機)** | **支援**
+**儲存體 （主機）** | **支援**
 --- | --- 
 NFS | N/A
 SMB 3.0 |  是
@@ -99,7 +99,7 @@ RDM | N/A
 
 ## <a name="vaults"></a>保存庫
 
-**Action** | **支援**
+** 動作** | **支援**
 --- | --- 
 跨資源群組間移動保存庫 (在訂用帳戶之內或跨訂用帳戶) |  否
 跨資源群組間移動儲存體、網路、Azure VM (在訂用帳戶之內或跨訂用帳戶) | 否
@@ -116,5 +116,5 @@ RDM | N/A
 
 ## <a name="next-steps"></a>後續步驟
 
-[将 VMM 云中的 Hyper-V VM 复制到辅助站点](tutorial-vmm-to-vmm.md)
+[將 VMM 雲端中的 HYPER-V Vm 複寫至次要站台](tutorial-vmm-to-vmm.md)
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3b6860c9a84384bfade099fb7c8c8c72281c3593
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 8026576478b16b753ba960155c383ffec62c61ce
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257156"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469789"
 ---
 # <a name="set-alerts-in-application-insights"></a>在 Application Insights 中設定警示
 [Azure Application Insights][start] 可在 Web 應用程式中發生效能或使用量計量變更時對您發出警示。 
@@ -144,6 +144,24 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 10. 最後加入您的警示詳細資料 （警示規則名稱、 描述、 嚴重性）。 當您完成之後時，按一下**建立警示規則**底部。
 
     ![警示詳細資料下方輸入您的警示規則名稱、 撰寫描述和挑選嚴重性](./media/alerts/9alertdetails.png)
+
+## <a name="how-to-unsubscribe-from-classic-alert-e-mail-notifications"></a>如何取消訂閱傳統警示的電子郵件通知
+
+本節適用於**傳統可用性警示**， **Application Insights 計量警示**，以及**傳統失敗異常警示**。
+
+您會收到這些傳統警示的電子郵件通知，如果下列任何一項適用於：
+
+* 您的電子郵件地址會列在 [警示規則設定中的通知電子郵件收件者] 欄位中。
+
+* 將電子郵件通知傳送至保存訂用帳戶的特定角色的使用者選項已啟用，而且您擁有該特定的 Azure 訂用帳戶的個別角色。
+
+![警示通知的螢幕擷取畫面](./media/alerts/alert-notification.png)
+
+若要進一步控制您的安全性和隱私權，我們通常建議您明確指定通知收件者為您的傳統警示**通知電子郵件收件者**欄位。 通知所有保留的特定角色的使用者選項被提供回溯相容性。
+
+若要取消訂閱特定警示的規則所產生的電子郵件通知，請移除從您的電子郵件地址**通知電子郵件收件者**欄位。
+
+如果未明確列出您的電子郵件地址，我們建議您停用自動通知的特定角色的所有成員的選項，並改為列出所有的使用者電子郵件使用者需要收到通知電子郵件中的該警示規則的通知收件者 欄位中。
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>誰會收到 (傳統) 警示通知？
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 100d33bbd888d00ed33a38680df5a777e12fd63e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f7bbde98c6ef35021cc03b2646193d3601ca1cff
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58120800"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425843"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>使用 Azure 監視器監視 Active Directory 複寫狀態
 
@@ -44,7 +44,7 @@ Active Directory 是企業 IT 環境的重要元件。 為了確保高可用性�
 3. 該該電腦上，設定下列登錄機碼︰<br>機碼：**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**<br>值：**IsTarget**<br>數值資料︰**true**
 
    > [!NOTE]
-   > 在您重新啟動 Microsoft Monitoring Agent service (HealthService.exe) 後，這些變更才會生效。
+   > 這些變更才生效，直到您重新啟動 Microsoft Monitoring Agent 服務 (HealthService.exe)。
    > ### <a name="install-solution"></a>安裝解決方案
    > 按照[安裝監視解決方案](solutions.md#install-a-monitoring-solution)中描述的程序操作，以新增 **Active Directory 複寫狀態**解決方案到您的 Log Analytics 工作區。 不需要進一步的組態。
 
@@ -119,23 +119,23 @@ Active Directory 是企業 IT 環境的重要元件。 為了確保高可用性�
 ![Excel 中匯出的 AD 複寫狀態錯誤](./media/ad-replication-status/oms-ad-replication-export.png)
 
 ## <a name="ad-replication-status-faq"></a>AD 複寫狀態常見問題集
-**問：多久更新一次 AD 複寫狀態資料？**
+**問：AD 複寫狀態資料，而更新的頻率？**
 答：此資訊會每隔五天更新一次。
 
 **問：是否有設定此資料更新頻率的方法？**
 答：目前沒有。
 
-**問：我是否必須將所有網域控制站加入至我的 Log Analytics 工作區，才能查看複寫狀態？**
+**問：我需要將所有的網域控制站新增至我的 Log Analytics 工作區中，才能查看複寫狀態嗎？**
 答：否，只需加入單一網域控制站。 如果您的 Log Analytics 工作區中有多個網域控制站，這些網域控制站的資料都會傳送至 Azure 監視器。
 
-**問：我不想要將任何網域控制站新增至我的 Log Analytics 工作區。仍可使用 AD 複寫狀態解決方案嗎？**
+**問：我不想要將任何網域控制站新增至我的 Log Analytics 工作區。 仍然可以使用 AD 複寫狀態解決方案嗎？**
 
 答：是。 您可以設定要啟用此解決方案的登錄機碼值。 請參閱[啟用非網域控制站](#enable-non-domain-controller)。
 
-**問：負責收集資料之處理序的名稱為何？**
+**問：資料收集程序的名稱為何？**
 答：AdvisorAssessment.exe
 
-**問：收集資料需要花費多少時間？**
+**問：多久需要收集的資料？**
 答：資料收集時間取決於 Active Directory 環境的大小，但所需時間通常少於 15 分鐘。
 
 **問：收集的資料類型為何？**
@@ -144,7 +144,7 @@ Active Directory 是企業 IT 環境的重要元件。 為了確保高可用性�
 **問：是否有設定資料收集時間的方法？**
 答：目前沒有。
 
-**問：我需要哪些權限才能收集資料？**
+**問：我需要哪些權限來收集資料？**
 答：Active Directory 的一般使用者權限就足夠了。
 
 ## <a name="troubleshoot-data-collection-problems"></a>疑難排解資料收集問題

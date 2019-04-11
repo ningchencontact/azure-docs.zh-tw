@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 04/09/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 22a95ce506a7f906604cc65d08a04b7f761bb4c2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 704aefd68f35ca20f72a2a0c46bf11912c139e65
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59273578"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469483"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>教學課程：建立和管理 Azure 預算
 
@@ -63,9 +63,9 @@ ms.locfileid: "59273578"
 
 ![在 Azure 入口網站中顯示的成本管理預算](./media/tutorial-acm-create-budgets/budgets01.png)
 
-在 [建立預算] 視窗中，輸入預算名稱和預算金額。 然後，選擇任一個每月、 每季，或每年的持續期間<sup>1</sup>。 接下來，選取結束日期。 預算需要至少一個成本閾值 (預算的百分比) 與對應的電子郵件地址。 您可以選擇性地在單一預算中最多包含五個閾值與五個電子郵件地址。 當達到預算閾值時，通常會在 8 小時內收到電子郵件通知。 如需有關通知的詳細資訊，請參閱[使用成本警示](cost-mgt-alerts-monitor-usage-spending.md)。
+在 [建立預算] 視窗中，輸入預算名稱和預算金額。 然後選擇每月、每季或每年持續期間。 接下來，選取結束日期。 預算需要至少一個成本閾值 (預算的百分比) 與對應的電子郵件地址。 您可以選擇性地在單一預算中最多包含五個閾值與五個電子郵件地址。 當達到預算閾值時，通常會在 8 小時內收到電子郵件通知。 如需有關通知的詳細資訊，請參閱[使用成本警示](cost-mgt-alerts-monitor-usage-spending.md)。
 
-<sup>1</sup>如果您是隨用隨付、 MSDN 或 Visual Studio 客戶，您的訂用帳戶的發票計費期間不見得日曆月。 訂用帳戶和資源群組，屬於此貯體中,，您可以建立對齊預算發票或行事曆月。 若要建立您的發票對齊的預算，選取 一段計費月份、 季計費或在建立時的計費年之間的重設。 若要建立日曆月份調整預算，選取 重設期間的每月、 每季或每年在建立時。
+如果您有隨用隨付、 MSDN 或 Visual Studio 訂用帳戶，則您發票的計費期間可能會不一致日曆月份中。 對於這些類型的訂用帳戶和資源群組中中,，您可以建立對齊預算發票期間或行事曆月。 若要建立符合您的發票期間的預算，選取 重設時間計費月份、 計費季或年計費。 若要建立日曆月份調整預算，選取的重設期間的每月、 每季或每年。
 
 以下是建立每月美金 $4,500 的預算範例。 達到預算的 90% 時，就會產生電子郵件警示。
 

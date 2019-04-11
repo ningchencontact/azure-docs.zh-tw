@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 04/05/2019
 ms.author: tulasim
-ms.openlocfilehash: 97da0608781c286e685fd70dd7be37192dd3c9fd
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 671d76b6c0a5a2cdac5797668fb0e5651b5823e0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580453"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281738"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>將受保護的 Sharepoint 資料來源新增至您的知識庫
 
@@ -57,7 +57,7 @@ ms.locfileid: "58580453"
 
 ### <a name="active-directory-manager-grant-file-read-access-to-qna-maker"></a>Active directory 管理員： 檔案讀取權限授與 QnA Maker
 
-Active Directory 管理員 （而不 QnA Maker 管理員） 必須授與存取權來存取 Sharepoint 資源，方法是選取的 QnA Maker[此連結](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=files.read%20openid%20profile&client_id=c2c11949-e9bb-4035-bda8-59542eb907a6&redirect_uri=https%3A%2F%2Fwww.qnamaker.ai%3A%2FCreate&state=68)授權 QnA Maker 入口網站 Sharepoint 企業應用程式能夠讀取檔案權限。 
+Active Directory 管理員 （而不 QnA Maker 管理員） 必須授與存取權來存取 Sharepoint 資源，方法是選取的 QnA Maker[此連結](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=Files.Read%20Files.Read.All%20Sites.Read.All%20User.Read%20User.ReadBasic.All%20profile%20openid%20email&client_id=c2c11949-e9bb-4035-bda8-59542eb907a6&redirect_uri=https%3A%2F%2Fwww.qnamaker.ai%3A%2FCreate&state=68)授權 QnA Maker 入口網站 Sharepoint 企業應用程式能夠讀取檔案權限。 
 
 ![Azure Active Directory 管理員授與權限以互動方式](../media/add-sharepoint-datasources/aad-manager-grants-permission-interactively.png)
 
@@ -96,22 +96,22 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 1. Select **YES** in the pop-up confirmation windows. 
 
     ![Grant required permissions](../media/add-sharepoint-datasources/grant-required-permissions.png)
-
-### Grant access from the Azure Active Directory admin center
-
-1. The Active Directory manager signs in to the Azure portal and opens **[Enterprise applications](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)**. 
-
-1. Search for `QnAMakerPortalSharepoint` the select the QnA Maker app. 
-
-    [![Search for QnAMakerPortalSharepoint in Enterprise apps list](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
-
-1. Under **Security**, go to **Permissions**. Select **Grant admin consent for Organization**. 
-
-    [![Select authenticated user for Active Directory Admin](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png)](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png#lightbox)
-
-1. Select a Sign-On account with permissions to grant permissions for the Active Directory. 
-
 -->
+### <a name="grant-access-from-the-azure-active-directory-admin-center"></a>從 Azure Active Directory 系統管理中心授與存取權
+
+1. Active Directory 管理員登入 Azure 入口網站，並開啟**[企業應用程式](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)**。 
+
+1. 搜尋`QnAMakerPortalSharepoint`選取 QnA Maker 應用程式。 
+
+    [![S在 [企業應用程式清單中的 QnAMakerPortalSharepoint 搜尋](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
+
+1. 底下**安全性**，請前往**權限**。 選取 **授與組織的系統管理員同意**。 
+
+    [![S選擇 [已驗證的使用者的 Active Directory 系統管理員](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png)](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png#lightbox)
+
+1. 選取 Active directory 的權限授與的權限的登入帳戶。 
+
+
   
 <!--
 
@@ -174,4 +174,4 @@ Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileu
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [在您的知識庫上共同作業](collaborate-knowledge-base.md)
+> [對知識庫進行共同作業](collaborate-knowledge-base.md)

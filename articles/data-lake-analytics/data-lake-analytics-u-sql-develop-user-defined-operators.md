@@ -9,18 +9,18 @@ ms.reviewer: jasonwhowell
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 9751801449eebc5d07ca4bbb9b408d9679fef24e
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 122a4b6af78a22f74d5057da75767077f8d9b978
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040985"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469619"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>開發 U-SQL 使用者定義的運算子 (UDO)
 本文說明如何開發使用者定義的運算子，來處理 U-SQL 作業中的資料。
 
 ## <a name="define-and-use-a-user-defined-operator-in-u-sql"></a>在 U-SQL 中定義和使用使用者定義的運算子
-**建立和提交 U-SQL 工作**
+**若要建立並提交 U-SQL 作業**
 
 1. 從 Visual Studio 中，選取 [檔案] > [新增] > [專案] > [U-SQL 專案]。
 2. 按一下 [確定]。 Visual Studio 會建立具有 Script.usql 檔案的解決方案。
@@ -118,11 +118,11 @@ ms.locfileid: "43040985"
 11. 按一下 [提交] 。 提交作業完成時，提交結果和工作連結都可以在 [結果] 視窗中取得。
 12. 按一下 [重新整理] 按鈕，以查看最新的作業狀態並重新整理畫面。
 
-**查看輸出**
+**若要查看輸出**
 
 1. 從 [伺服器總管] 依序展開 [Azure]、[Data Lake Analytics]、您的 Data Lake Analytics 帳戶、[儲存體帳戶]，以滑鼠右鍵按一下 [預設儲存體]，然後按一下 [總管]。
 2. 展開範例、展開輸出，然後按兩下 [Drivers.csv] 。
 
-## <a name="see-also"></a>另請參閱
-* [使用使用者程式碼延伸 U-SQL 運算式](https://msdn.microsoft.com/library/azure/mt621316.aspx)
-* [使用適用於 Visual Studio 的 Data Lake 工具來開發 U-SQL 應用程式](data-lake-analytics-data-lake-tools-get-started.md)
+## <a name="see-also"></a>請參閱
+* [使用使用者程式碼延伸 U-SQL 運算式](/u-sql/concepts/extending-u-sql-expressions-with-user-code)
+* [使用 Data Lake Tools for Visual Studio 開發 U-SQL 應用程式](data-lake-analytics-data-lake-tools-get-started.md)

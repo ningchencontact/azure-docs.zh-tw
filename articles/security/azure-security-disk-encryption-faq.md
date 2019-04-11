@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 275907eed94f3165853ecf9adcb11fb62460d2e2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 413ed4a56afad5ced221ba957af9ddb007622b6a
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59282214"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470044"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM 適用的 Azure 磁碟加密常見問題集
 
@@ -37,7 +37,11 @@ Azure 磁碟加密可用於標準層 VM，包括 [A、D、DS、G、GS 及 F](htt
 
 ## <a name="bkmk_LinuxOSSupport"></a> Azure 磁碟加密支援哪些 Linux 散發套件？
 
-在下列 Linux 伺服器的散發套件和版本上支援 Azure 磁碟加密︰
+子集上支援 azure 磁碟加密[經 Azure 背書的 Linux 散發套件](../virtual-machines/linux/endorsed-distros.md)，它本身就是所有可能的散發套件的子集。
+
+ ![支援 Azure 磁碟加密的文氏圖的 Linux 伺服器散發套件](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
+
+不由 Azure 背書的散發套件不支援 Azure 磁碟加密，而且這些所背書的只有下列 Linux 伺服器散發套件和版本支援 Azure 磁碟加密：
 
 | Linux 散發套件 | 版本 | 支援加密的磁碟區類型|
 | --- | --- |--- |
@@ -64,7 +68,8 @@ Azure 磁碟加密可用於標準層 VM，包括 [A、D、DS、G、GS 及 F](htt
 | SLES | 12-SP4 | 資料磁碟 |
 | SLES | 12-SP3 | 資料磁碟 |
 
-*__新的 ADE 實作支援 RHEL OS 和資料磁碟使用 RHEL7 預付型方案映像。ADE 目前不支援 RHEL 自備訂用帳戶 (BYOS) 映像。另請參閱[適用於 Linux 的 Azure 磁碟加密](azure-security-disk-encryption-linux.md)一文深入了解。__
+> [!NOTE]
+> 新的 ADE 實作適用於 RHEL OS 和資料磁碟 RHEL7 隨用隨付映像的支援。 ADE 目前不支援 RHEL 自備訂用帳戶 (BYOS) 映像。 另請參閱[適用於 Linux 的 Azure 磁碟加密](azure-security-disk-encryption-linux.md)如需詳細資訊的發行項。 __
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>如何開始使用 Azure 磁碟加密？
 

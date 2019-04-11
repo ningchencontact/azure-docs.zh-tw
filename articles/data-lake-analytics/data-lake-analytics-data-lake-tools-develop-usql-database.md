@@ -10,18 +10,18 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 1982f974acd1e9d5e8cae91201f6503eb2ae678a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 47235fa5676acd8de8a7cc0d969b813837faf0af
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898787"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469704"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>使用 U-SQL 資料庫專案開發 Azure Data Lake 的 U-SQL 資料庫
 
 U-SQL 資料庫會提供結構化的檢視，以便在資料表中檢視非結構化的資料和受控的結構化資料。 也會提供一般的中繼資料目錄系統來組織結構化資料和自訂程式碼。 資料庫是將這些相關物件編排在一起的概念。
 
-深入了解 [U-SQL 資料庫和資料定義語言 (DDL)](https://msdn.microsoft.com/azure/data-lake-analytics/u-sql/data-definition-language-ddl-statements-u-sql)。 
+深入了解 [U-SQL 資料庫和資料定義語言 (DDL)](/u-sql/data-definition-language-ddl-statements)。 
 
 U-SQL 資料庫專案是 Visual Studio 中的專案類型，能協助開發人員快速而輕鬆地開發、管理及部署 U-SQL 資料庫。
 
@@ -92,7 +92,7 @@ U-SQL 資料庫專案的建置輸出，是一個名稱加上 `.usqldbpack` 尾�
   
 ### <a name="deploy-u-sql-database-by-using-the-sdk"></a>使用 SDK 部署 U-SQL 資料庫
 
-`PackageDeploymentTool.exe` 提供程式設計和命令列介面，協助您部署 U-SQL 資料庫。 SDK 包含在 [U-SQL SDK Nuget 套件](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)中，位於 `build/runtime/PackageDeploymentTool.exe`。
+`PackageDeploymentTool.exe` 提供的程式設計和幫助您部署 U-SQL 資料庫的命令列介面。 SDK 包含在 [U-SQL SDK Nuget 套件](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/)中，位於 `build/runtime/PackageDeploymentTool.exe`。
 
 [深入了解 SDK，以及如何為 U-SQL 資料庫部署設定 CI/CD 管線](data-lake-analytics-cicd-overview.md)。
 

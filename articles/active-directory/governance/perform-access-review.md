@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/20/2019
+ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02c12a8cc8163fa70008b21995ddb35aec57dfcf
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d42fe972b79ecd9bcee65d0664c5d13da02d2238
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579677"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470605"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>檢閱群組的存取權或在 Azure AD 中的應用程式存取權檢閱
 
@@ -46,7 +46,7 @@ Azure Active Directory (Azure AD)，簡化企業在 Azure AD 中管理群組和�
 
 1. 在頁面右上角按一下使用者符號，其中顯示您的名稱和預設組織。 如果列出多個組織，請選取已要求存取權檢閱的組織。
 
-1. 在頁面的右側，按一下**存取權檢閱**圖格以查看暫止的存取權檢閱的清單。
+1. 按一下 **存取權檢閱**圖格以查看暫止的存取權檢閱的清單。
 
     如果看不到磚，則沒有針對該組織執行的存取權檢閱，此時也不需要採取任何動作。
 
@@ -76,6 +76,8 @@ Azure Active Directory (Azure AD)，簡化企業在 Azure AD 中管理群組和�
 1. 按一下 **核准**或是**拒絕**。 如果您不確定，您可以按一下**不知道**。 這樣會導致使用者維護自己的存取權，但選取項目將會反映在稽核記錄檔。
 
     ![執行存取權檢閱](./media/perform-access-review/approve-deny.png)
+
+1. 如有必要，請輸入中的原因**原因** 方塊中。
 
     存取權檢閱的系統管理員可能會要求您提供理由來核准持續存取權或群組成員資格。
 

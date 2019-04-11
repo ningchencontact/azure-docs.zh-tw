@@ -1,6 +1,6 @@
 ---
-title: 信賴分數 - Microsoft 認知服務 | Microsoft Docs
-titleSuffix: Azure
+title: 信賴分數 - QnA Maker
+titleSuffix: Azure Cognitive Services
 description: 信賴分數表示解答對給定的使用者查詢而言的切合程度。
 services: cognitive-services
 author: tulasim88
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/05/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: bf254d661f7819114d34631359aaecb97e9d0e0d
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 97c44c9285ec7a29827361111599db37bc6a86f3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403731"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282571"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>QnA Maker 知識庫的信賴分數
 當使用者查詢與某個知識庫相符時，QnA Maker 會傳回相關的答案以及信賴分數。 此分數表示該答案針對指定之使用者查詢正確比對的信賴度。 
@@ -66,7 +66,7 @@ ms.locfileid: "57403731"
 
 
 ## <a name="confidence-score-differences"></a>信賴分數差異
-在測試和發佈的知識庫版本之間，即使內容相同，不過答案的信賴分數可能會略微變化。 這是因為測試和發佈的知識庫位於不同的 Azure 搜尋服務索引中。 發佈知識庫時，知識庫的問題與答案內容會從測試索引移到 Azure 搜尋服務中的生產索引。 請查看[發佈](../How-To/publish-knowledge-base.md)作業的運作方式。
+在測試和發佈的知識庫版本之間，即使內容相同，不過答案的信賴分數可能會略微變化。 這是因為測試和發佈的知識庫位於不同的 Azure 搜尋服務索引中。 發佈知識庫時，知識庫的問題與答案內容會從測試索引移到 Azure 搜尋服務中的生產索引。 請查看[發佈](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base)作業的運作方式。
 
 如果您的知識庫位於不同區域，則每個區域都會使用自己的 Azure 搜尋服務索引。 由於會使用不同的索引，因此，分數將不會完全相同。 
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 48cf0f2e219d141a039f508f0ea948aa5c78b882
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3c6c552a6605278d8ab31264f5d180206e0badac
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838267"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470690"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Azure 磁碟加密疑難排解指南
 
@@ -49,6 +49,14 @@ sudo reboot
 ```
 uname -a
 ```
+
+## <a name="update-the-azure-virtual-machine-agent-and-extension-versions"></a>更新 Azure 虛擬機器代理程式和擴充功能版本
+
+Azure 磁碟加密作業使用不受支援的版本的 Azure 虛擬機器代理程式的虛擬機器映像上可能會失敗。 如需詳細資訊，請參閱[在 Azure 中的虛擬機器代理程式的最小版本支援](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)。  
+
+也需要 Microsoft.Azure.Security.AzureDiskEncryption 或 Microsoft.Azure.Security.AzureDiskEncryptionForLinux 的客體代理程式擴充功能的正確版本。 可維護及平台符合 Azure 虛擬機器代理程式的必要條件，並可支援的虛擬機器代理程式版本時自動更新延伸模組版本。
+
+Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux 延伸模組已被取代，不再支援。  
 
 ## <a name="unable-to-encrypt-linux-disks"></a>無法將 Linux 磁碟加密
 
@@ -148,5 +156,5 @@ If the expected encryption state does not match what is being reported in the po
 
 在本文件中，您已深入了解 Azure 磁碟加密中的一些常見問題，以及如何進行疑難排解。 如需此服務和其功能的相關資訊，請參閱下列文章：
 
-- [在 Azure 資訊安全中心套用磁碟加密](../security-center/security-center-apply-disk-encryption.md)
-- [待用 Azure 資料加密](azure-security-encryption-atrest.md)
+- [在 Azure 資訊安全中心中套用磁碟加密](../security-center/security-center-apply-disk-encryption.md)
+- [Azure 資料靜態加密](azure-security-encryption-atrest.md)

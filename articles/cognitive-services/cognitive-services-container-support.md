@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: a60013bce63ed234e15dfddb13c07fbdc33a4073
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: c6cf3f188309891b0456b034e3809a0f0209c124
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57339618"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469534"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure 認知服務中的容器支援
 
@@ -25,7 +25,7 @@ Azure 認知服務中的容器支援可讓開發人員使用 Azure 中可用的�
 
 以下影片將示範如何使用認知服務容器。
 
-[![認知服務的容器示範](./media/index/containers-video-image.png)](https://azure.microsoft.com/resources/videos/containers-support-of-cognitive-services)
+[![C認知服務的 ontainer 示範](./media/index/containers-video-image.png)](https://azure.microsoft.com/resources/videos/containers-support-of-cognitive-services)
 
 [電腦視覺](Computer-vision/Home.md)、[臉部](Face/Overview.md)[文字分析](text-analytics/overview.md)和 [Language Understanding (LUIS)](LUIS/what-is-luis.md) 服務可在 [Microsoft Azure](https://azure.microsoft.com) 上取得。 請登入 [Azure 入口網站](https://portal.azure.com/)以建立並探索適用於這些服務的 Azure 資源。
 
@@ -41,14 +41,16 @@ Azure 認知服務中的容器支援可讓開發人員使用 Azure 中可用的�
 
 Azure 認知服務容器能提供下列 Docker 容器集合，每個容器都包含 Azure 認知服務中服務之功能的子集：
 
-| 服務 | 容器| 描述 |
-|---------|----------|-------------|
-|[電腦視覺](Computer-vision/computer-vision-how-to-install-containers.md) |**辨識文字** |從具不同表面和背景之各種物件 (例如收據、海報和名片) 的影像擷取印刷文字。<br/><br/>**重要事項：** 辨識文字容器目前只適用於英文。<br>[要求存取](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
-|[臉部](Face/face-how-to-install-containers.md) |**臉部** |能偵測影像中的人臉並識別其特性，包括臉部特徵點 (例如鼻子和眼睛)、性別、年齡及其他機器預測的臉部容貌。 除了偵測以外，臉部也可以使用信賴分數檢查相同或不同影像中的兩張臉是否相同，或將臉部向資料庫進行比對，看看是否有樣貌相似或相同的臉部。 它也能夠使用共同視覺特徵，將相似臉部分組。<br>[要求存取](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
-|[LUIS](LUIS/luis-container-howto.md) |**LUIS** ([影像](https://go.microsoft.com/fwlink/?linkid=2043204))|將已定型或發佈的 Language Understanding 模型 (也稱為 LUIS 應用程式) 載入 Docker 容器中，並提供從容器的 API 端點存取查詢預測的權限。 您可以從容器收集查詢記錄，並將這些記錄重新上傳至 [LUIS 入口網站](https://www.luis.ai)，以改善應用程式的預測精確度。|
-|[文字分析](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |**關鍵片語擷取** ([影像](https://go.microsoft.com/fwlink/?linkid=2018757)) |擷取關鍵片語來識別重點。 例如，若輸入文字為 "The food was delicious and there were wonderful staff"，API 即會傳回主要討論要點："food" 和 "wonderful staff"。 |
-|[文字分析](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|**語言偵測** ([影像](https://go.microsoft.com/fwlink/?linkid=2018759)) |偵測輸入文字是以何種語言撰寫的，並針對要求所提交的每份文件回報單一語言代碼，最多可達 120 種語言。 語言代碼各配有一個分數，表示分數的強度。 |
-|[文字分析](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|**情感分析** ([影像](https://go.microsoft.com/fwlink/?linkid=2018654)) |分析原始文字以尋找正面或負面情感的線索。 此 API 會為每份文件傳回 0 到 1 之間的情感分數，1 代表最正面的情感。 分析模型是使用大量文字主體和 Microsoft 的自然語言技術預先定型。 針對[選取的語言](./text-analytics/language-support.md)，API 可對您所提供的任何原始文字進行分析及評分，並直接將結果傳回至呼叫端應用程式。 |
+| 服務 | 支援的定價層 | 容器 | 描述 |
+|---------|----------|----------|-------------|
+|[電腦視覺](Computer-vision/computer-vision-how-to-install-containers.md) |F0, S1|**辨識文字** |從具不同表面和背景之各種物件 (例如收據、海報和名片) 的影像擷取印刷文字。<br/><br/>**重要事項：** 辨識文字容器目前只適用於英文。<br>[要求存取](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
+|[臉部](Face/face-how-to-install-containers.md) |F0, S0|**臉部** |能偵測影像中的人臉並識別其特性，包括臉部特徵點 (例如鼻子和眼睛)、性別、年齡及其他機器預測的臉部容貌。 除了偵測以外，臉部也可以使用信賴分數檢查相同或不同影像中的兩張臉是否相同，或將臉部向資料庫進行比對，看看是否有樣貌相似或相同的臉部。 它也能夠使用共同視覺特徵，將相似臉部分組。<br>[要求存取](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
+|[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS** ([影像](https://go.microsoft.com/fwlink/?linkid=2043204))|將已定型或發佈的 Language Understanding 模型 (也稱為 LUIS 應用程式) 載入 Docker 容器中，並提供從容器的 API 端點存取查詢預測的權限。 您可以從容器收集查詢記錄，並將這些記錄重新上傳至 [LUIS 入口網站](https://www.luis.ai)，以改善應用程式的預測精確度。|
+|[文字分析](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |其中 F0、 S|**關鍵片語擷取** ([影像](https://go.microsoft.com/fwlink/?linkid=2018757)) |擷取關鍵片語來識別重點。 例如，若輸入文字為 "The food was delicious and there were wonderful staff"，API 即會傳回主要討論要點："food" 和 "wonderful staff"。 |
+|[文字分析](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|其中 F0、 S|**語言偵測** ([影像](https://go.microsoft.com/fwlink/?linkid=2018759)) |偵測輸入文字是以何種語言撰寫的，並針對要求所提交的每份文件回報單一語言代碼，最多可達 120 種語言。 語言代碼各配有一個分數，表示分數的強度。 |
+|[文字分析](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|其中 F0、 S|**情感分析** ([影像](https://go.microsoft.com/fwlink/?linkid=2018654)) |分析原始文字以尋找正面或負面情感的線索。 此 API 會為每份文件傳回 0 到 1 之間的情感分數，1 代表最正面的情感。 分析模型是使用大量文字主體和 Microsoft 的自然語言技術預先定型。 針對[選取的語言](./text-analytics/language-support.md)，API 可對您所提供的任何原始文字進行分析及評分，並直接將結果傳回至呼叫端應用程式。 |
+
+此外，認知服務中支援容器[-全方位供應項目](https://azure.microsoft.com/pricing/details/cognitive-services/)。 您可以建立一個單一的認知服務-全方位資源，並如先前所述的所有容器類型中使用相同的計費金鑰。
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Azure 認知服務中的容器可用性
 
@@ -79,7 +81,7 @@ Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至
 
 安裝並探索由 Azure 認知服務中的容器所提供的功能：
 
-* [安裝並使用電腦視覺容器](Computer-vision/computer-vision-how-to-install-containers.md)
-* [安裝並使用臉部容器](Face/face-how-to-install-containers.md)
-* [安裝並使用文字分析容器](text-analytics/how-tos/text-analytics-how-to-install-containers.md)
+* [安裝和使用電腦視覺容器](Computer-vision/computer-vision-how-to-install-containers.md)
+* [安裝和使用臉部容器](Face/face-how-to-install-containers.md)
+* [安裝和使用 Text Analytics 容器](text-analytics/how-tos/text-analytics-how-to-install-containers.md)
 * [安裝和使用 Language Understanding (LUIS) 容器](LUIS/luis-container-howto.md)

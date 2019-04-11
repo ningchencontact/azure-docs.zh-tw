@@ -9,17 +9,17 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: f08b22f24dfde41646f56dc1ecd9777f267620ee
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 801294241f399097d363dd8dc2682f158c0bf2cc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651307"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358275"
 ---
-# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL Database 中的 managed 執行個體的連線架構 
+# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL Database 中的 managed 執行個體的連線架構
 
 這篇文章說明 Azure SQL Database 受控執行個體中的通訊。 此外，它也會說明連線架構以及如何元件將流量導向至受管理的執行個體。  
 
@@ -117,7 +117,6 @@ Microsoft 會管理受管理的執行個體所使用的管理端點。 這個端
 
 > [!IMPORTANT]
 > 必要的輸入的安全性規則允許流量從雖然_任何_來源連接埠 9000，9003、 1438年、 1440 和 1452，內建的防火牆所保護這些連接埠。 如需詳細資訊，請參閱 <<c0> [ 判斷管理端點位址](sql-database-managed-instance-find-management-endpoint-ip-address.md)。
-
 > [!NOTE]
 > 如果您使用異動複寫中的受管理的執行個體，而且您可以使用任何執行個體的資料庫當做發行者或散發者，請在子網路的安全性規則中開啟連接埠 445 (TCP 輸出)。 此連接埠可讓 Azure 檔案共用的存取權。
 

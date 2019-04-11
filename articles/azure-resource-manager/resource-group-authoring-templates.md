@@ -10,23 +10,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/11/2019
+ms.date: 04/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: f79518b26752d581d6360a3b770e8a5cba293fd7
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 264db79f5c934603004eb595930b44abc622efd5
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904928"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470962"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure Resource Manager 範本的結構和語法
 
 本文說明 Azure Resource Manager 範本的結構。 它會呈現範本的不同區段，以及這些區段中可用的屬性。 範本由 JSON 與運算式所組成，可讓您用來為部署建構值。
 
 本文面向对资源管理器模板有一定了解的用户， 其中提供了有关模板结构和语法的详细信息。 有关创建模板的简介，请参阅[创建第一个 Azure 资源管理器模板](resource-manager-create-first-template.md)。
-
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="template-format"></a>範本格式
 
@@ -496,7 +493,7 @@ ms.locfileid: "58904928"
 
 | 元素名稱 | 必要項 | 描述 |
 |:--- |:--- |:--- |
-| 条件 | 否 | 布林值，指出是否會在此部署期間佈建資源。 若為 `true`，就會在部署期間建立資源。 若為 `false`，則會略過此部署的資源。 |
+| 条件 | 否 | 布林值，指出是否會在此部署期間佈建資源。 若為 `true`，就會在部署期間建立資源。 若為 `false`，則會略過此部署的資源。 請參閱[條件](#condition)。 |
 | apiVersion |是 |要用來建立資源的 REST API 版本。 若要确定可用值，请参阅[模板参考](/azure/templates/)。 |
 | type |是 |資源類型。 這個值是資源提供者的命名空間與資源類型的組合 (例如 **Microsoft.Storage/storageAccounts**)。 若要确定可用值，请参阅[模板参考](/azure/templates/)。 |
 | name |是 |資源名稱。 此名稱必須遵循在 RFC3986 中定義的 URI 元件限制。 此外，將資源名稱公開到外部合作對象的 Azure 服務會驗證該名稱，確定並非嘗試詐騙其他身分識別。 |
@@ -533,6 +530,8 @@ ms.locfileid: "58904928"
 ```
 
 如需使用 `condition` 項目的完整範例範本，請參閱[ 使用新的或現有的虛擬網路、儲存體和公用 IP 的 VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions)。
+
+如果您使用[參考](resource-group-template-functions-resource.md#reference)或是[清單](resource-group-template-functions-resource.md#list)即使未部署資源，會評估與資源，有條件地部署，此函式的函式。 如果函式會參考不存在的資源，您會收到錯誤。 使用[如果](resource-group-template-functions-logical.md#if)函式，以確定函式只會評估條件部署資源時。 請參閱[如果函式](resource-group-template-functions-logical.md#if)如果所使用的範例範本和有條件地部署資源的參考。
 
 ### <a name="resource-names"></a>資源名稱
 

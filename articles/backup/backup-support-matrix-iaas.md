@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: f4034a3462d7221c16464e6a2cee9aad2105a6cd
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 974e640977fcf4d580575705d7fdf0faf632c31b
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649806"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361468"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 備份的支援矩陣
 您可以使用[Azure 備份服務](backup-overview.md)備份內部部署機器和工作負載和 Azure 虛擬機器 (Vm)。 本文摘要說明支援設定和限制，當您使用 Azure 備份的 Azure Vm 備份。
@@ -28,7 +28,7 @@ ms.locfileid: "58649806"
 
 以下說明如何使用 Azure 備份服務來備份和還原 Azure VM。
 
-**案例** | **備份** | **代理程式** |**Restore**
+**案例** | **Backup ** | **代理程式** |**Restore**
 --- | --- | --- | ---
 直接備份 Azure VM  | 備份整個 VM。  | Azure VM 上不需要代理程式。 Azure 備份會安裝並使用的延伸模組[Azure VM 代理程式](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows)VM 上執行。 | 以下列方式進行還原：<br/><br/> - **建立基本 VM**。 這非常有用，如果 VM 不有任何特殊的設定，例如多個 IP 位址。<br/><br/> - **還原 VM 磁碟**。 還原磁碟。 然後將它附加至現有的 VM，或使用 PowerShell，從磁碟建立新的 VM。<br/><br/> - **取代 VM 磁碟**。 如果有 VM 存在，且該 VM 使用受控磁碟 (未加密)，您可以還原某個磁碟，並用它來取代 VM 上現有的磁碟。<br/><br/> - **還原特定檔案/資料夾**。 您可以從 VM，而不是從整個 VM 還原檔案/資料夾。
 直接備份 Azure vm (僅 Windows)  | 備份特定檔案/資料夾/磁碟區。 | 安裝[Azure 復原服務代理程式](backup-azure-file-folder-backup-faq.md)。<br/><br/> 您可以將 MARS 代理程式與 Azure VM 代理程式的備份擴充功能一起執行，以在檔案/資料夾層級備份 VM。 | 還原特定資料夾/檔案。
@@ -38,7 +38,7 @@ ms.locfileid: "58649806"
 
 ## <a name="supported-backup-actions"></a>支援的備份動作
 
-**Action** | **支援**
+** 動作** | **支援**
 --- | ---
 建立 Windows Azure VM 時啟用備份 | 支援：Windows Server 2019 (資料中心/Datacenter Core)、 Windows Server 2016 (資料中心/Datacenter Core);Windows Server 2012 R2 Datacenter;Windows Server 2008 R2 （RTM 和 SP1）
 建立 Linux VM 時啟用備份 | 支援：<br/><br/> - Ubuntu Server：1710、1704、1604 (LTS)、1404 (LTS)<br/><br/> - Red Hat：RHEL 6.7、6.8、6.9、7.2、7.3、7.4<br/><br/> - SUSE Linux Enterprise Server：11 SP4、12 SP2、12 SP3<br/><br/> - Debian：8、9<br/><br/> - CentOS：6.9、7.3<br/><br/> -Oracle Linux:6.7、6.8、6.9、7.2、7.3
@@ -69,7 +69,7 @@ ms.locfileid: "58649806"
 
 以下是您備份 Linux 機器時所支援的項目。
 
-**Action** | **支援**
+** 動作** | **支援**
 --- | ---
 使用 Linux Azure VM 代理程式備份 Linux Azure VM | 檔案一致備份。<br/><br/> 使用[自訂指令碼](backup-azure-linux-app-consistent.md)進行應用程式一致備份。<br/><br/> 在還原期間，您可以建立新的 VM，還原磁碟並使用它來建立 VM 時，或還原磁碟並使用它來取代現有的 VM 上的磁碟。 您也可以還原個別檔案和資料夾。
 使用 MARS 代理程式備份 Linux Azure VM | 不支援。<br/><br/> MARS 代理程式只能安裝在 Windows 機器上。
@@ -100,7 +100,7 @@ DPM/MABS 磁碟上的復原點 | 檔案伺服器和應用程式伺服器的 448 
 
 ## <a name="supported-restore-methods"></a>支援的還原方法
 
-**還原方法** | **詳細資料**
+**Restore 方法** | **詳細資料**
 --- | ---
 建立新的 VM | 您可以在還原程序中建立 VM。 <br/><br/> 此選項會啟動基本 VM 並加以執行。 您可以指定 VM 名稱、資源群組、虛擬網路、子網路和儲存體。  
 還原磁碟 | 您可以還原磁碟，並使用它來建立 VM。<br/><br/> 選取此選項時，Azure 備份會將資料從保存庫複製到您選取的儲存體帳戶。 還原作業會產生範本。 您可以下載此範本，用它來指定自訂的 VM 設定，並建立 VM。<br/><br/> 相較於前述用來建立 VM 的選項，此選項可讓您指定更多設定。<br/><br/>
@@ -157,8 +157,8 @@ VM 大小 |   至少有 2 個 CPU 核心和 1 GB RAM 的任何 Azure VM 大小�
 
 **元件** | **支援**
 --- | ---
-Azure VM 資料磁碟 | 備份具有 16 個或較少資料磁碟的 VM。
-資料磁碟大小 | 個別磁碟最多可達 4095 GB。<br/><br/> 如果您的保存庫執行最新版的 Azure 備份 （又稱為立即還原 」），磁碟大小最多 4 TB 支援。 [深入了解](backup-instant-restore-capability.md)。
+Azure VM 資料磁碟 | 備份具有 16 個或較少資料磁碟的 VM。 <br/><br/> 支援最多 4 TB 磁碟大小。
+資料磁碟大小 | 個別磁碟最多可達 4095 GB。<br/><br/> 如果您的保存庫執行最新版的 Azure 備份 （又稱為立即還原 」），磁碟大小最多 4 TB 支援。 [深入了解](backup-instant-restore-capability.md)。  
 儲存體類型 | 標準的 HDD 上，標準的 SSD 進階 SSD。 <br/><br/> 如果您的保存庫升級為最新版的 Azure VM 備份 （稱為立即還原 」），則支援標準的 SSD。 [深入了解](backup-instant-restore-capability.md)。
 受控磁碟 | 支援。
 加密磁碟 | 支援。<br/><br/> 使用 Azure 磁碟加密啟用的 azure Vm 可以備份 （不論有無 Azure AD 應用程式）。<br/><br/> 加密的 VM 無法在檔案/資料夾層級復原。 您必須復原整個 VM。<br/><br/> 您可以對已受到 Azure 備份保護的 VM 啟用加密。
@@ -168,8 +168,11 @@ Azure VM 資料磁碟 | 備份具有 16 個或較少資料磁碟的 VM。
 在受保護的 VM 上調整磁碟大小 | 支援。
 共用存放裝置| 建議您不要使用 CSV 或向外延展檔案伺服器的 vm。 CSV 寫入器可能會失敗。
 
-## <a name="vm-network-support"></a>VM 網路支援
+> [!NOTE]
+> Azure 備份不支援等量的磁碟。 Azure 備份，建議您不調整大小的磁碟。
 
+
+## <a name="vm-network-support"></a>VM 網路支援
 
 **元件** | **支援**
 --- | ---

@@ -8,25 +8,59 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 2/20/2019
+ms.date: 4/5/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 7f54507fdfd21c9402e04eb867710a774f9e6bb3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d53019294a255e42c4cf66f59226c9234a5adf73
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57856085"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359753"
 ---
 # <a name="release-notes"></a>版本資訊
 
-## <a name="speech-sdk-131-2019-february-refresh"></a>語音 SDK 1.3.1:2019 年 2 月重新整理
+## <a name="speech-sdk-141"></a>Speech SDK 1.4.1
 
-這是修正程式的版本，只會影響原生 SDK。 它不會影響 JavaScript 版本的 sdk。
+這是僅限 JavaScript 的版本。 未新增任何功能。 已進行下列修正：
 
-**Bug 修正**
+* 防止 webpack 載入 https proxy 代理程式。
 
-* 使用麥克風的輸入時，已修正記憶體流失。 不會影響基礎 Stream 或輸入的檔案。
+## <a name="speech-sdk-140-2019-april-release"></a>語音 SDK 1.4.0:2019 年 4 月版本
+
+**新功能** 
+
+* SDK 會為 beta 版，現在支援文字轉換語音服務。 它支援 Windows 和 Linux 桌面，從C++， C#，和 Java。 如需詳細資訊，請[文字轉換語音概觀](text-to-speech.md#get-started-with-text-to-speech)。
+* SDK 現在支援 MP3 和這種門外漢只/Ogg 音訊檔案做為資料流輸入檔。 這項功能是只能在從 Linux 上使用C++和C#，目前在 beta 測試階段 (更多詳細資料[此處](how-to-use-compressed-audio-input-streams.md))。
+* 語音 SDK for Java，.NET core C++ ，OBJECTIVE-C 已獲得 macOS 的支援。 適用於 macOS 的 Objective C 支援目前為 beta 版。
+* iOS：語音 SDK 適用於 iOS (Objective C) 現在也發行為 CocoaPod。
+* JavaScript：做為輸入裝置的非預設麥克風的支援。
+* JavaScript：適用於 Node.js 的 proxy 支援。
+
+**範例**
+
+* 適用於使用語音 SDK 與範例C++和已加入在 macOS 上的 Objective C。
+* 已加入示範文字轉換語音服務的使用方式的範例。
+
+**改善 / 變更**
+
+* Python：現在透過公開的辨識結果的其他屬性`properties`屬性。
+* 如需其他開發和偵錯支援重新導向到記錄檔的 SDK 的記錄和診斷資訊 (更多詳細資料[此處](how-to-use-logging.md))。
+* JavaScript：改善音訊處理效能。
+
+**錯誤修正**
+
+* Mac/iOS:已修正導致長時間的等待，無法建立語音服務的連接時的錯誤。
+* Python： 改善錯誤處理中 Python 回呼的引數。
+* JavaScript：已修正錯誤的狀態報告語音已經在 RequestSession 結束。
+
+## <a name="speech-sdk-131-2019-february-refresh"></a>语音 SDK 1.3.1：2019 年 2 月刷新
+
+这是一个 Bug 修复版本，只影响本机/托管 SDK。 它不影响 SDK 的 JavaScript 版本。
+
+**錯誤修正**
+
+* 修复了使用麦克风输入时出现的内存泄漏问题。 基于流的输入或文件输入不受影响。
 
 ## <a name="speech-sdk-130-2019-february-release"></a>語音 SDK 1.3.0：2019 年 2 月版本
 
@@ -34,7 +68,7 @@ ms.locfileid: "57856085"
 
 * 語音 SDK 支援透過 AudioConfig 類別來選取輸入麥克風。 這可讓您將音訊資料串流到語音服務從非預設麥克風。 如需詳細資訊，請參閱文件描述[音訊輸入裝置選取](how-to-select-audio-input-devices.md)。 此功能還無法在 JavaScript 中使用。
 * 語音 SDK 現在支援搶鮮版 (Beta) Unity。 請透過 [GitHub 範例存放庫](https://aka.ms/csspeech/samples)中的問題一節提供意見反應。 此版本可在 Windows x86 和 x64 (桌面或通用 Windows 平台應用程式) 以及 Android (ARM32/64、x86) 上支援 Unity。 詳情請參閱 [Unity 快速入門](quickstart-csharp-unity.md)。
-* 檔案`Microsoft.CognitiveServices.Speech.csharp.bindings.dll`（隨附於之前的版本），則不需要再。 功能現在已整合至核心 SDK。
+* 不再需要 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` 文件（在以前的版本中提供）。 此功能现在集成到核心 SDK 中。
 
 
 **範例**
@@ -47,7 +81,7 @@ ms.locfileid: "57856085"
 * 額外的 Java 範例，適用於以音訊輸出進行翻譯。
 * [批次轉譯 REST API](batch-transcription.md) 的新使用範例。
 
-**/變更**
+**改善 / 變更**
 
 * Python
   * 改善了 SpeechConfig 中的參數驗證及錯誤訊息。
@@ -64,7 +98,7 @@ ms.locfileid: "57856085"
   * 初次支援和實作片語提示。
   * 傳回含有服務 JSON 的屬性集合以供辨識
 * Windows DLL 現在會包含版本資源。
-* 如果您建立的辨識器`FromEndpoint`您可以將參數，直接加入的端點 URL。 使用`FromEndpoint`您無法設定辨識器，透過標準的組態屬性。
+* 如果创建识别器 `FromEndpoint`，则可将参数直接添加到终结点 URL。 使用`FromEndpoint`您無法設定辨識器，透過標準的組態屬性。
 
 **錯誤修正**
 
@@ -192,7 +226,7 @@ ms.locfileid: "57856085"
 * 實驗性：在 Windows (64 位元) 和 Linux (Ubuntu 16.04 x64) 上支援 Java 8。
   請參閱 [Java 執行階段環境快速入門](quickstart-java-jre.md)。
 
-**功能性變更**
+**功能變更**
 
 * 公開關於連線錯誤的其他錯誤詳細資訊。
 
