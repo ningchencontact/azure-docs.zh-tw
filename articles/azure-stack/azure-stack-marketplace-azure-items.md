@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 03/28/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: ca9f25700622a8d8435a1b05bfc46d210038aeaa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f0c92ff11ba992170b7da89dbbfa9bf14f92a9d6
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895821"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541293"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack 可用的 Azure Marketplace 項目
 
@@ -59,7 +59,7 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案
 | ![SharePoint Server 2016 試用版](media/azure-stack-marketplace-azure-items/sharepoint.png) | [SharePoint Server 2016 試用版](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SharePointServer2016Trial) | Windows Server 2016 Datacenter 上的 SharePoint Server 2016 試用版。 | Microsoft |
 | ![Windows Server 2012 R2 上的 SQL Server 2014 SP2](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2012 R2 上的 SQL Server 2014 SP2](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp2-ws2012r2)
 ) | SQL Server 2014 Service Pack 2。 **所需的下載：** SQL IaaS 延伸模組。 | Microsoft |
-| ![Windows Server 2016 上的 SQL Server 2016 SP2 Standard](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016 上的 SQL Server 2016 SP2 Standard](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2016SP2StandardWindowsServer2016) | 適用於智慧型、任務關鍵式應用程式的資料庫平台。 **所需的下載：** SQL IaaS 延伸模組。 | Microsoft |
+| ![Windows Server 2016 上的 SQL Server 2016 SP2 Standard](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016 上的 SQL Server 2016 SP2 Standard](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) | 適用於智慧型、任務關鍵式應用程式的資料庫平台。 **所需的下載：** SQL IaaS 延伸模組。 | Microsoft |
 | ![免費授權：Windows Server 2016 上的 SQL Server 2016 SP2 Developer](media/azure-stack-marketplace-azure-items/sql.png) | [免費授權：Windows Server 2016 上的 SQL Server 2016 SP2 Developer](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | SQL Server 2016 SP2 免費開發人員版本，適用於交易、資料倉儲、商業智慧和分析工作負載。 **所需的下載：** SQL IaaS 延伸模組。 | Microsoft |
 | ![免費授權：Windows Server 2016 上的 SQL Server 2016 SP2 Express](media/azure-stack-marketplace-azure-items/sql.png) | [免費授權：Windows Server 2016 上的 SQL Server 2016 SP2 Express](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | 免費 Express 版本的 SQL Server 2016 SP2。 **所需的下載：** SQL IaaS 延伸模組。 | Microsoft |
 | ![Windows Server 2016 上的 SQL Server 2016 SP2 Enterprise](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016 上的 SQL Server 2016 SP2 Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2016sp2-ws2016) | 適用於智慧型、任務關鍵式應用程式的資料庫平台。 **所需的下載：** SQL IaaS 延伸模組。 | Microsoft |
@@ -69,11 +69,7 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案
 | ![免費授權：Windows Server 2016 上的 SQL Server 2017 Express](media/azure-stack-marketplace-azure-items/sql.png) | [免費授權：Windows Server 2016 上的 SQL Server 2017 Express](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | 免費 Express 版本的 SQL Server 2017。 **所需的下載：** SQL IaaS 延伸模組。 | Microsoft |
 | ![Windows Server 2016 上的 SQL Server 2017 Enterprise](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016 上的 SQL Server 2017 Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ws2016) | 適用於智慧型、任務關鍵式應用程式的資料庫平台。 **所需的下載：** SQL IaaS 延伸模組。 | Microsoft |
 | ![Windows Server 2016 上的 SQL Server 2017 Web](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016 上的 SQL Server 2017 Web](https://azuremarketplace.microsoft.com/marketplace/apps/cognosys.sql-server-2007-web-win2016-debug-utilities) | 適用於智慧型、任務關鍵式應用程式的資料庫平台。 **所需的下載：** SQL IaaS 延伸模組。 | Microsoft |
-| ![Ubuntu Server 16.04 LTS 上的 SQL Server 2017 Standard](media/azure-stack-marketplace-azure-items/sql.png) | [Ubuntu Server 16.04 LTS 上的 SQL Server 2017 Standard](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017StandardonUbuntuServer1604LTS) | 適用於智慧型、任務關鍵式應用程式的資料庫平台。 | Microsoft + Canonical |
-| ![免費授權：Ubuntu Server 16.04 LTS 上的 SQL Server 2017 Developer](media/azure-stack-marketplace-azure-items/sql.png) | [免費授權：Ubuntu Server 16.04 LTS 上的 SQL Server 2017 Developer](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonUbuntuServer1604LTS) | SQL Server 2017 免費開發人員版本，適用於交易、資料倉儲、商業智慧和分析工作負載。 | Microsoft + Canonical |
-| ![免費授權：Ubuntu Server 16.04 LTS 上的 SQL Server 2017 Express](media/azure-stack-marketplace-azure-items/sql.png) | [免費授權：Ubuntu Server 16.04 LTS 上的 SQL Server 2017 Express](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonUbuntuServer1604LTS) | 免費 Express 版本的 SQL Server 2017。 | Microsoft + Canonical |
-| ![Ubuntu Server 16.04 LTS 上的 SQL Server 2017 Enterprise](media/azure-stack-marketplace-azure-items/sql.png) | [Ubuntu Server 16.04 LTS 上的 SQL Server 2017 Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017EnterpriseonUbuntuServer1604LTS) | 適用於智慧型、任務關鍵式應用程式的資料庫平台。 | Microsoft + Canonical |
-| ![Ubuntu Server 16.04 LTS 上的 SQL Server 2017 Web](media/azure-stack-marketplace-azure-items/sql.png) | [Ubuntu Server 16.04 LTS 上的 SQL Server 2017 Web](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017WebonUbuntuServer1604LTS) | 適用於智慧型、任務關鍵式應用程式的資料庫平台。 | Microsoft + Canonical |
+| ![Ubuntu Server 16.04 LTS 上的 SQL Server 2017](media/azure-stack-marketplace-azure-items/sql.png) | [Ubuntu Server 16.04 LTS 上的 SQL Server 2017 Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2017-ubuntu1604) | 適用於智慧型、任務關鍵式應用程式的資料庫平台。 | Microsoft + Canonical |
 | ![SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Standard](media/azure-stack-marketplace-azure-items/sql.png) | [SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Standard](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017StandardonSLES12SP2?tab=Overview) | 適用於智慧型、任務關鍵式應用程式的資料庫平台。 | Microsoft + SUSE |
 | ![免費授權：SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Developer](media/azure-stack-marketplace-azure-items/sql.png) | [免費授權：SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Developer](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonSLES12SP2?tab=Overview) | SQL Server 2017 免費開發人員版本，適用於交易、資料倉儲、商業智慧和分析工作負載。 | Microsoft + SUSE |
 | ![免費授權：SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Express](media/azure-stack-marketplace-azure-items/sql.png) | [免費授權：SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Express](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2) | 免費 Express 版本的 SQL Server 2017。 | Microsoft + SUSE |

@@ -16,12 +16,12 @@ ms.date: 2/17/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 1ab59dfc42213fc5c5ce22841e572e2724e239aa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a271edd710356ff612a4558034e9f7459a17ecaa
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118998"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666285"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack 上的支援客體作業系統
 
@@ -53,24 +53,24 @@ Marketplace 中有 Datacenter 版本可供下載；客戶可以自備包括其�
 列為 Marketplace 中可用的 Linux 發行版本包含必要的 Windows Azure Linux 代理程式 (WALA)。 如果您自備映像到 Azure Stack，請遵循[將 Linux 映像新增到 Azure Stack](azure-stack-linux.md) 中的方針。
 
 > [!NOTE]
-> 請使用最新公開的 WALA 版本或是版本 2.2.20 來建置自訂映像。 2.2.20 之前的版本以及 2.2.20 和 2.2.36 之間的版本可能無法在 Azure Stack 上正常運作。 
+> 請使用最新公開的 WALA 版本或是版本 2.2.20 來建置自訂映像。 2.2.20 以前的版本以及 2.2.20 和 2.2.35.1 (不含) 之間的版本，可能無法在 Azure Stack 上正常運作。 
 >
 > Azure Stack 目前不支援 [cloud-init](https://cloud-init.io/)。
 
-| 配送映像 | 說明 | 發行者 | Marketplace |
+| 散發套件 | 說明 | 發行者 | Marketplace |
 | --- | --- | --- | --- |
-| CentOS 型 6.9 | 64 位元 | Rogue Wave | yes |
-| CentOS 型 7.4 | 64 位元 | Rogue Wave | yes |
-| ClearLinux | 64 位元 | ClearLinux.org | yes |
+| CentOS 型 6.9 | 64 位元 | Rogue Wave | 是 |
+| CentOS 型 7.4 | 64 位元 | Rogue Wave | 是 |
+| ClearLinux | 64 位元 | ClearLinux.org | 是 |
 | 容器 Linux |  64 位元 | CoreOS | Stable |
-| Debian 8 "Jessie" | 64 位元 | credativ |  yes |
-| Debian 9 "Stretch" | 64 位元 | credativ | yes |
+| Debian 8 "Jessie" | 64 位元 | credativ |  是 |
+| Debian 9 "Stretch" | 64 位元 | credativ | 是 |
 | Red Hat Enterprise Linux 7.x | 64 位元 | Red Hat |自備映像 |
-| SLES 11SP4 | 64 位元 | SUSE | yes |
-| SLES 12SP3 | 64 位元 | SUSE | yes |
-| Ubuntu 14.04-LTS | 64 位元 | Canonical | yes |
-| Ubuntu 16.04-LTS | 64 位元 | Canonical | yes |
-| Ubuntu 18.04-LTS | 64 位元 | Canonical | yes |
+| SLES 11SP4 | 64 位元 | SUSE | 是 |
+| SLES 12SP3 | 64 位元 | SUSE | 是 |
+| Ubuntu 14.04-LTS | 64 位元 | Canonical | 是 |
+| Ubuntu 16.04-LTS | 64 位元 | Canonical | 是 |
+| Ubuntu 18.04-LTS | 64 位元 | Canonical | 是 |
 
 如需 Red Hat Enterprise Linux 支援資訊，請參閱 [Red Hat 和 Azure Stack：常見問題集](https://access.redhat.com/articles/3413531) \(英文\)。
 

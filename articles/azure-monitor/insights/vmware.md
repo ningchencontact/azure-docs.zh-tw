@@ -1,6 +1,6 @@
 ---
 title: Azure 監視器中的 VMware 監視解決方案 |Microsoft Docs
-description: 了解 VMware 監視解決方案如何協助您管理記錄檔和監視 ESXi 主機。
+description: 了解 VMware 監控解決方案如何協助您管理記錄和監視 ESXi 主機。
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -78,7 +78,7 @@ vSphere ESXi 主機 5.5、6.0 和 6.5
     如果您的檢視記錄搜尋結果類似上圖，表示您已設定為可使用 VMware 監控解決方案儀表板。  
 
 ## <a name="vmware-data-collection-details"></a>VMware 資料收集詳細資料
-VMware 監視解決方案會使用您已啟用的 Log Analytics Linux 代理程式，從 ESXi 主機收集各種效能度量和記錄檔資料。
+VMware 監視解決方案會使用您已啟用的 Log Analytics Linux 代理程式，從 ESXi 主機收集各種效能度量和記錄資料。
 
 下表顯示資料收集方法和其他資料收集方式的詳細資料。
 
@@ -86,7 +86,7 @@ VMware 監視解決方案會使用您已啟用的 Log Analytics Linux 代理程�
 | --- | --- | --- | --- | --- | --- | --- |
 |  Linux |&#8226; |  |  |  |  |每隔 3 分鐘 |
 
-下表顯示由 VMware 監視解決方案收集的資料欄位範例︰
+下表顯示由 VMware 監控解決方案收集的資料欄位範例︰
 
 | 欄位名稱 | 說明 |
 | --- | --- |
@@ -109,7 +109,7 @@ VMware 監視解決方案會使用您已啟用的 Log Analytics Linux 代理程�
 | DataCenter_s |VMware 資料中心 |
 | StorageLatency_s |儲存體延遲 (毫秒) |
 
-## <a name="vmware-monitoring-solution-overview"></a>VMware 監視解決方案概觀
+## <a name="vmware-monitoring-solution-overview"></a>VMware 監控解決方案概觀
 [VMware] 圖格會出現在 Log Analytics 工作區中。 它提供任何失敗的高階檢視。 當您按一下圖格時，會進入儀表板檢視。
 
 ![圖格](./media/vmware/tile.png)
@@ -132,7 +132,7 @@ VMware 監視解決方案會使用您已啟用的 Log Analytics Linux 代理程�
 從這裡開始，您可以編輯記錄查詢，若要修改的特定項目。 如需有關建立記錄查詢的詳細資訊，請參閱 <<c0> [ 使用 Azure 監視器中的記錄檔查詢以尋找資料](../log-query/log-query-overview.md)。
 
 #### <a name="find-esxi-host-events"></a>尋找 ESXi 主機事件
-單一 ESXi 主機會產生多個記錄檔，取決於其程序。 VMware 監視解決方案會將它們集中在一起，並總結事件計數。 這個集中式的檢視可幫助您了解哪些 ESXi 主機有大量的事件，以及在您的環境中最常發生哪些事件。
+單一 ESXi 主機會產生多個記錄檔，取決於其程序。 VMware 監控解決方案會將它們集中在一起，並總結事件計數。 這個集中式的檢視可幫助您了解哪些 ESXi 主機有大量的事件，以及在您的環境中最常發生哪些事件。
 
 ![事件](./media/vmware/events.png)
 

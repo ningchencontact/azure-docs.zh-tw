@@ -14,12 +14,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 4e92f2aeec21ccef5a6a553b17e099d54de7266a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4385e982b2a1da52ae55acf50c601108863c452a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774332"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905948"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>使用 Azure Stack 儲存體的資料傳輸工具
 
@@ -71,17 +71,17 @@ AzCopy 公用程式有兩個版本：「Windows 上的 AzCopy」和「Linux 上�
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>資料傳輸適用的 AzCopy 命令範例
 
-下列範例會遵循將資料複製至 Azure Stack Blob 以及從 Azure Stack Blob 複製資料的典型案例。 如需深入了解，請參閱 [AzCopy on Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) 和 [AzCopy on Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux)。
+下列範例會遵循將資料複製至 Azure Stack Blob 以及從 Azure Stack Blob 複製資料的典型案例。 如需深入了解，請參閱 [AzCopy on Windows](../../storage/common/storage-use-azcopy.md) 和 [AzCopy on Linux](../../storage/common/storage-use-azcopy-linux.md)。
 
 ### <a name="download-all-blobs-to-a-local-disk"></a>將所有 Blob 下載至本機磁碟
 
-**Windows**
+** Windows**
 
 ```shell
 AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer /dest:C:\myfolder /sourcekey:<key> /S
 ```
 
-**Linux**
+** Linux**
 
 ```bash
 azcopy \
@@ -93,13 +93,13 @@ azcopy \
 
 ### <a name="upload-single-file-to-virtual-directory"></a>上傳單一檔案到虛擬目錄
 
-**Windows**
+** Windows**
 
 ```shell
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
 
-**Linux**
+** Linux**
 
 ```bash
 azcopy \
@@ -112,13 +112,13 @@ azcopy \
 
 不支援在 Azure 儲存體和 Azure Stack 之間的非同步資料傳輸。 您必須使用 **/SyncCopy** 或 **--sync-copy** 選項來指定傳輸。
 
-**Windows**
+** Windows**
 
 ```shell
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
 ```
 
-**Linux**
+** Linux**
 
 ```bash
 azcopy \
@@ -156,7 +156,7 @@ Azure PowerShell 是一個模組，可提供管理 Azure 和 Azure Stack 上服�
    > [!NOTE]
    > 此指令碼必須在 **AzureStack_Tools** 的根目錄上執行。
 
-```PowerShell  
+```powershell  
 # begin
 
 $ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environment name
@@ -263,8 +263,8 @@ Azure Stack 需要有 Azure CLI 2.0 版或更新版本。 如需有關安裝和�
 1. 開啟您喜愛的文字編輯器，然後複製上述指令碼並貼入編輯器中。
 2. 更新指令碼的變數以反映您的組態設定。
 3. 在您更新必要變數之後，請儲存指令碼並結束編輯器。 後續步驟假設您已將指令碼命名為 **my_storage_sample.sh**。
-4. 如有必要，請將指令碼標示為可執行檔︰`chmod +x my_storage_sample.sh`
-5. 執行指令碼。 例如，在 Bash 中：`./my_storage_sample.sh`
+4. 如有必要，請將指令碼標示為可執行︰ `chmod +x my_storage_sample.sh`
+5. 執行指令碼。 例如，在 Bash 中： `./my_storage_sample.sh`
 
 ```azurecli
 #!/bin/bash
