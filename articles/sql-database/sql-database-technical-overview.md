@@ -67,7 +67,7 @@ SQL Database 提供具有多個資源類型、服務層和計算大小的可預�
 SQL Database 提供兩種購買模型：
 
 - [DTU 型購買模型](sql-database-service-tiers-dtu.md)提供在下列三個服務層中混用的計算、記憶體、IO 資源，以支援各種資料庫工作負載 (輕量型到重量型)。 各層內的計算大小分別提供這些資源的不同混用方式，而且您可以為其新增額外的儲存體資源。
-- [虛擬核心形式的購買模式](sql-database-service-tiers-vcore.md)可讓您選擇虛擬核心的數目、記憶體數量，以及儲存體的數量和速度。 虛擬核心形式的購買模型也可讓您使用[適用於 SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)，以節省成本。 如需 Azure Hybrid Benefit 的詳細資訊，請參閱[常見問題集](#sql-database-frequently-asked-questions-faq)。
+- [虛擬核心形式的購買模式](sql-database-service-tiers-vcore.md)可讓您選擇虛擬核心的數目、記憶體數量，以及儲存體的數量和速度。 以虛擬核心為基礎的購買模型也可讓您使用[適用於 SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)，以節省成本。 如需 Azure Hybrid Benefit 的詳細資訊，請參閱[常見問題集](#sql-database-frequently-asked-questions-faq)。
 
   > [!IMPORTANT]
   > 單一資料庫的[超大規模服務層](sql-database-service-tier-hyperscale.md)目前處於公開預覽狀態。 我們還不建議在超大規模資料庫中執行任何生產工作負載。 您無法將超大規模資料庫更新為其他服務層。 如需進行測試，建議您建立目前資料庫的複本，並將該複本更新至超大規模服務層。

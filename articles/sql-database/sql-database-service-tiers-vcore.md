@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database 服務 - vCore | Microsoft Docs
-description: 虛擬核心形式的採購模型可讓您獨立地調整計算和儲存體資源、符合內部部署效能，並獲得最佳價格。
+description: 以虛擬核心為基礎的購買模型可讓您獨立地調整計算和儲存體資源、符合內部部署效能，並獲得最佳價格。
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -21,7 +21,7 @@ ms.locfileid: "59357940"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>V 核心服務層、Azure Hybrid Benefit 及移轉
 
-虛擬核心形式的採購模型可讓您獨立地調整計算和儲存體資源、符合內部部署效能，並獲得最佳價格。 它也可讓您選擇硬體世代：
+以虛擬核心為基礎的購買模型可讓您獨立地調整計算和儲存體資源、符合內部部署效能，並獲得最佳價格。 它也可讓您選擇硬體世代：
 
 - Gen4 - 最多 24 個以 Intel E5-2673 v3 (Haswell) 2.4 GHz 處理器為基礎的邏輯 CPU，虛擬核心 = 1 PP (實體核心)，每一核心 7 GB，連結的 SSD
 - Gen5 - 最多 80 個以 Intel E5-2673 v4 (Broadwell) 2.3 GHz 處理器為基礎的邏輯 CPU，虛擬核心 = 1 LP (超執行緒)，每一核心 5.1 GB，快速 eNVM SSD
@@ -54,14 +54,14 @@ ms.locfileid: "59357940"
 
 - 如需詳細資訊，請參閱[單一資料庫中的虛擬核心資源限制](sql-database-vcore-resource-limits-single-databases.md)和[受控執行個體中的虛擬核心資源限制](sql-database-managed-instance.md#vcore-based-purchasing-model)。
 - 如需一般用途與商務關鍵性服務層的詳細資訊，請參閱[一般用途與商務關鍵性服務層](sql-database-service-tiers-general-purpose-business-critical.md)。
-- 如需 V 核心形式購買模型中超大規模服務層的詳細資訊，請參閱[超大規模服務層](sql-database-service-tier-hyperscale.md)。  
+- 如需以虛擬核心為基礎的購買模型中超大規模服務層的詳細資訊，請參閱[超大規模服務層](sql-database-service-tier-hyperscale.md)。  
 
 > [!IMPORTANT]
 > 如果您需要的計算容量少於一個虛擬核心，請使用以 DTU 為基礎的購買模型。
 
 ## <a name="azure-hybrid-benefit"></a>Azure Hybrid Benefit
 
-在 V 核心形式的購買模型中，您可以使用[適用於 SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)，以折扣優惠在 SQL Database 上交換現有授權。 這個 Azure 權益可讓您使用具備軟體保證的內部部署 SQL Server 授權，在 Azure SQL Database 上使用內部部署 SQL Server 授權省下最高 30% 的成本。
+在以虛擬核心為基礎的購買模型中，您可以使用[適用於 SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)，以折扣優惠在 SQL Database 上交換現有授權。 這個 Azure 權益可讓您使用具備軟體保證的內部部署 SQL Server 授權，在 Azure SQL Database 上使用內部部署 SQL Server 授權省下最高 30% 的成本。
 
 ![定價](./media/sql-database-service-tiers/pricing.png)
 
@@ -92,7 +92,7 @@ ms.locfileid: "59357940"
 
 ### <a name="migration-of-a-database"></a>資料庫移轉
 
-將資料庫從 DTU 形式的購買模型移轉至 V 核心形式的購買模型，類似於在 DTU 形式購買模型中的標準和高階資料庫之間進行升級或降級。
+將資料庫從以 DTU 為基礎的購買模型移轉至以虛擬核心為基礎的購買模型，類似於在以 DTU 為基礎的購買模型中的標準和高階資料庫之間進行升級或降級。
 
 ### <a name="migration-of-databases-with-geo-replication-links"></a>使用異地複寫連結來移轉資料庫
 

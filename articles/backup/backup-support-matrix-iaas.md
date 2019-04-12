@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: 974e640977fcf4d580575705d7fdf0faf632c31b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: aacfe725310b3c8e4785e24b80728f0e60694814
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361468"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496090"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 備份的支援矩陣
 您可以使用[Azure 備份服務](backup-overview.md)備份內部部署機器和工作負載和 Azure 虛擬機器 (Vm)。 本文摘要說明支援設定和限制，當您使用 Azure 備份的 Azure Vm 備份。
@@ -41,8 +41,8 @@ ms.locfileid: "59361468"
 ** 動作** | **支援**
 --- | ---
 建立 Windows Azure VM 時啟用備份 | 支援：Windows Server 2019 (資料中心/Datacenter Core)、 Windows Server 2016 (資料中心/Datacenter Core);Windows Server 2012 R2 Datacenter;Windows Server 2008 R2 （RTM 和 SP1）
-建立 Linux VM 時啟用備份 | 支援：<br/><br/> - Ubuntu Server：1710、1704、1604 (LTS)、1404 (LTS)<br/><br/> - Red Hat：RHEL 6.7、6.8、6.9、7.2、7.3、7.4<br/><br/> - SUSE Linux Enterprise Server：11 SP4、12 SP2、12 SP3<br/><br/> - Debian：8、9<br/><br/> - CentOS：6.9、7.3<br/><br/> -Oracle Linux:6.7、6.8、6.9、7.2、7.3
-備份已關閉/離線/正在搜尋 VM 的 VM | 支援。<br/><br/> 僅建立絕對一致快照集，而非應用程式一致快照集。
+建立 Linux VM 時啟用備份 | 支援：<br/><br/> - Ubuntu Server：1710、1704、1604 (LTS)、1404 (LTS)<br/><br/> - Red Hat：RHEL 6.7、6.8、6.9、7.2、7.3、7.4<br/><br/> - SUSE Linux Enterprise Server：11 SP4，12 SP2，12 SP3，15 <br/><br/> - Debian：8、9<br/><br/> - CentOS：6.9、7.3<br/><br/> -Oracle Linux:6.7、6.8、6.9、7.2、7.3
+備份 VM 關機/離線的 VM | 支援。<br/><br/> 僅建立絕對一致快照集，而非應用程式一致快照集。
 備份後移轉至受控磁碟的磁碟 | 支援。<br/><br/> 備份會繼續運作。 不需採取任何動作。
 啟用資源群組鎖定後備份受控磁碟 | 不支援。<br/><br/> Azure 備份無法刪除較舊的資源點，且備份會開始失敗時還原點的最大限制為止。
 修改 VM 的備份原則 | 支援。<br/><br/> VM 將備份在新原則中使用的排程和保留設定。 如果延長保留期設定，就會標示現有的復原點，並加以保留。 如果它們縮減，就會在下一步 的清除作業中剪除並最終刪除現有的復原點。
@@ -149,8 +149,7 @@ VM 大小 |   至少有 2 個 CPU 核心和 1 GB RAM 的任何 Azure VM 大小�
 從部署的 Vm 備份[Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> （由 Microsoft、 協力廠商發行） |  支援。<br/><br/> VM 必須執行支援的作業系統。<br/><br/> 復原 VM 上的檔案時，只能還原至相容的作業系統 (而非較舊或較新版的作業系統)。
 將自訂映像 （第三方） 從備份部署的 Vm |   支援。<br/><br/> VM 必須執行支援的作業系統。<br/><br/> 復原 VM 上的檔案時，只能還原至相容的作業系統 (而非較舊或較新版的作業系統)。
 將 Vm 移轉至 Azure 備份  | 支援。<br/><br/> 若要備份 VM，必須在已移轉的機器上安裝 VM 代理程式。
-備份的 Vm 一致性 | 不支援。 <br/><br/>Azure 備份無法保持 VM 間的一致性。
-
+備份多部 VM 一致性 | Azure 備份不提供跨多個 Vm 的資料和應用程式的一致性。
 
 
 ## <a name="vm-storage-support"></a>VM 儲存體支援
@@ -166,7 +165,7 @@ Azure VM 資料磁碟 | 備份具有 16 個或較少資料磁碟的 VM。 <br/><
 備份已刪除重複資料的磁碟 | 不支援。
 將磁碟新增至受保護的 VM | 支援。
 在受保護的 VM 上調整磁碟大小 | 支援。
-共用存放裝置| 建議您不要使用 CSV 或向外延展檔案伺服器的 vm。 CSV 寫入器可能會失敗。
+共用存放裝置| 不建議備份使用叢集共用磁碟區 (CSV) 或向外延展檔案伺服器的 Vm。 CSV 寫入器都可能會在備份期間失敗項目。 [還原]，包含 CSV 磁碟區的磁碟可能會不來增加。
 
 > [!NOTE]
 > Azure 備份不支援等量的磁碟。 Azure 備份，建議您不調整大小的磁碟。

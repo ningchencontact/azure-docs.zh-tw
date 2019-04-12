@@ -5,29 +5,29 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 04/08/2019
 ms.author: iainfou
-ms.openlocfilehash: a20dfcd9e2ef12252235b74455964d115d9aef9b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 29180d6c1bb5f0991a4f33c3b7c9418f84d8260c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181481"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494760"
 ---
 # <a name="preview---secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>預覽-保護 Azure Kubernetes Service (AKS) 中使用網路原則的 pod 之間的流量
 
 當您在 Kubernetes 中執行新式微服務架構的應用程式時，您通常想要控制哪些元件可以彼此通訊。 最低權限原則應該套用至流量可以在 Azure Kubernetes Service (AKS) 叢集中的 pod 之間流動的方式。 例如，假設您可能想要封鎖直接流向後端應用程式。 *網路原則*在 Kubernetes 中的功能可讓您定義規則，以便在叢集中的 pod 之間的輸入和輸出流量。
 
-Calico、 開放原始碼網路和網路安全性解決方案，由 Tigera，提供一個網路原則引擎可以實作 Kubernetes 網路原則規則。 這篇文章會示範如何安裝 Calico 網路原則引擎，並建立 Kubernetes 網路原則來控制在 AKS 中的 pod 之間的流量流程。
+這篇文章會示範如何安裝網路原則引擎，並建立 Kubernetes 網路原則來控制在 AKS 中的 pod 之間的流量流程。 此功能目前為預覽狀態。
 
 > [!IMPORTANT]
-> AKS 預覽功能是自助服務和選用功能。 預覽可供收集從我們的社群的意見及 bug。 不過，它們不是支援 Azure 技術支援。 如果您建立叢集，或將這些功能加入到現有的叢集，該叢集不支援此功能不再處於預覽狀態，並發展至公開上市 (GA) 之前。
+> AKS 预览功能是自助服务和可以选择加入的功能。 提供预览是为了从我们的社区收集反馈和 bug。 但是，Azure 技术支持部门不为其提供支持。 如果你创建一个群集，或者将这些功能添加到现有群集，则除非该功能不再为预览版并升级为公开发布版 (GA)，否则该群集不会获得支持。
 >
-> 如果您遇到問題，使用預覽功能[開立 AKS GitHub 儲存機制][ aks-github] bug 標題中的預覽功能的名稱。
+> 如果遇到预览版功能的问题，请[在 AKS GitHub 存储库中提交问题][aks-github]，并在 Bug 标题中填写预览版功能的名称。
 
 ## <a name="before-you-begin"></a>開始之前
 
-您必須安裝並設定 Azure CLI 版本 2.0.56 或更新版本。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
+您需要 Azure CLI 2.0.61 版或更新版本安裝並設定。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
 
 若要建立的 AKS 叢集，可以使用網路原則，請先啟用您的訂用帳戶的功能旗標。 若要註冊 EnableNetworkPolicy 功能旗標，請使用 [az feature register][az-feature-register] 命令，如下列範例所示：
 
@@ -51,7 +51,35 @@ az provider register --namespace Microsoft.ContainerService
 
 在 AKS 叢集中的所有 pod 可以傳送和接收流量而不會限制，預設值。 為了提升安全性，您可以定義可控制流量流程的規則。 後端應用程式通常才會顯示必要的前端服務，例如。 或者，資料庫元件才能夠連接到這些應用程式層。
 
-網路原則是一種 Kubernetes 資源，可讓您控制 Pod 之間的流量流程。 您可以選擇要允許或拒絕流量會根據設定，例如指派的標籤、 命名空間或流量的連接埠。 網路原則會定義為 YAML 資訊清單。 這些原則可以包含更多的資訊清單，也會建立部署或服務的過程。
+網路原則是 Kubernetes 規格會定義 Pod 之間進行通訊的存取原則。 使用網路原則，您會定義規則來傳送和接收流量，並將它們套用至的 pod 符合一或多個標籤選取器集合的已排序的集合。
+
+這些網路原則規則會定義為 YAML 資訊清單。 網路原則可以包含更多的資訊清單，也會建立部署或服務的過程。
+
+### <a name="network-policy-options-in-aks"></a>在 AKS 中的網路原則選項
+
+Azure 提供兩種方式來實作網路原則。 當您建立 AKS 叢集時，您可以選擇網路原則選項。 在建立叢集之後，就無法變更原則選項：
+
+* Azure 本身的實作，稱為*Azure 網路原則*。
+* *Calico 網路原則*，開放原始碼網路和網路安全性解決方案，由[Tigera][tigera]。
+
+這兩個實作會使用 Linux *iptables 相關自定義*來強制執行指定的原則。 原則會轉譯成允許和不允許的 IP 組之集合。 這些組再設計方式為 IPTable 篩選規則。
+
+網路原則僅適用於 Azure CNI （進階） 選項。 實作是不同的兩個選項：
+
+* *Azure 的網路原則*-Azure CNI 設定 VM 主機的內部節點的網路中的橋接器。 封包通過橋接器時，會套用篩選規則。
+* *Calico 網路原則*-Azure CNI 設定局部核心之內部節點流量路由。 Pod 的網路介面上所套用的原則。
+
+### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Azure 和 Calico 原則和其功能之間的差異
+
+| 功能                               | Azure                      | Calico                      |
+|------------------------------------------|----------------------------|-----------------------------|
+| 支援的平台                      |  Linux                      |  Linux                       |
+| 支援網路功能選項             | Azure CNI                  | Azure CNI                   |
+| Kubernetes 規格的合規性 | 支援的所有原則類型 |  支援的所有原則類型 |
+| 其他功能                      | None                       | 擴充原則模型，其中包含全域網路原則、 全域網路設定，以及主應用程式端點。 如需有關使用`calicoctl`CLI 來管理這些擴充功能，請參閱[calicoctl 使用者參考][calicoctl]。 |
+| 支援                                  | Azure 支援和工程小組支援 | Calico 社群支援。 如需有關其他的付費支援的詳細資訊，請參閱[專案 Calico 支援選項][calico-support]。 |
+
+## <a name="create-an-aks-cluster-and-enable-network-policy"></a>建立 AKS 叢集並啟用網路原則
 
 若要讓我們查看動作中的網路原則建立，然後再展開定義流量的原則：
 
@@ -59,9 +87,7 @@ az provider register --namespace Microsoft.ContainerService
 * 允許以 Pod 標籤為基礎的流量。
 * 允許以命名空間為基礎的流量。
 
-## <a name="create-an-aks-cluster-and-enable-network-policy"></a>建立 AKS 叢集並啟用網路原則
-
-只有在建立叢集時，才可以啟用網路原則。 您無法在現有的 AKS 叢集上啟用網路原則。 
+首先，讓我們建立的 AKS 叢集，支援網路原則。 只有在叢集建立時，才可以啟用網路原則功能。 您無法在現有的 AKS 叢集上啟用網路原則。
 
 若要使用網路原則與 AKS 叢集，您必須使用[Azure CNI 外掛程式][ azure-cni]並定義您自己的虛擬網路和子網路。 如需有關如何規劃出必要子網路範圍的詳細資訊，請參閱[設定進階網路][use-advanced-networking]。
 
@@ -71,6 +97,7 @@ az provider register --namespace Microsoft.ContainerService
 * 建立 Azure Active Directory (Azure AD) 使用的服務主體與 AKS 叢集。
 * 針對虛擬網路上的 AKS 叢集服務主體指派「參與者」權限。
 * 在定義的虛擬網路中建立 AKS 叢集，並讓網路原則。
+    * *Azure*使用網路原則選項。 若要改為使用 Calico 做為網路原則選項中，使用`--network-policy calico`參數。
 
 提供您自己的安全 *SP_PASSWORD*。 您可以取代*RESOURCE_GROUP_NAME*並*CLUSTER_NAME*變數：
 
@@ -122,7 +149,7 @@ az aks create \
     --vnet-subnet-id $SUBNET_ID \
     --service-principal $SP_ID \
     --client-secret $SP_PASSWORD \
-    --network-policy calico
+    --network-policy azure
 ```
 
 建立叢集需要幾分鐘的時間。 備妥叢集時，設定`kubectl`若要使用連線到 Kubernetes 叢集[az aks get-credentials 來取得認證][ az-aks-get-credentials]命令。 此命令會下載憑證並設定 Kubernetes CLI 以供使用：
@@ -454,6 +481,9 @@ kubectl delete namespace development
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 [aks-github]: https://github.com/azure/aks/issues]
+[tigera]: https://www.tigera.io/
+[calicoctl]: https://docs.projectcalico.org/v3.5/reference/calicoctl/
+[calico-support]: https://www.projectcalico.org/support
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

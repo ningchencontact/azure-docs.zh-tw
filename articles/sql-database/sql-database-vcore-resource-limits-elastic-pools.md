@@ -19,7 +19,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57853117"
 ---
-# <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>使用以 vCore 為基礎的購買模型的彈性集區資源限制
+# <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>使用以虛擬核心為基礎的購買模型的彈性集區資源限制
 
 本文使用以虛擬核心為基礎的購買模型，來提供 Azure SQL Database 彈性集區和集區資料庫的詳細資源限制。
 
@@ -277,7 +277,7 @@ ms.locfileid: "57853117"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需單一資料庫的 vCore 資源限制，請參閱[使用以 vCore 為基礎之購買模型的單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)
+- 如需單一資料庫的虛擬核心資源限制，請參閱[使用以虛擬核心為基礎的購買模型的單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)
 - 如需單一資料庫的 DTU 資源限制，請參閱[使用以 DTU 為基礎之購買模型的單一資料庫資源限制](sql-database-dtu-resource-limits-single-databases.md)
 - 如需適用於彈性集區的 DTU 資源限制，請參閱[使用以 DTU 為基礎之購買模型的彈性集區資源限制](sql-database-dtu-resource-limits-elastic-pools.md)
 - 如需受控執行個體的資源限制，請參閱[受控執行個體資源限制](sql-database-managed-instance-resource-limits.md)。

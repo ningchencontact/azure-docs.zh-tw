@@ -27,10 +27,10 @@ Azure SQL Database 是以會針對雲端環境調整的 SQL Server 資料庫引�
 - [業務關鍵](sql-database-service-tier-business-critical.md)專門用於具有一個可讀複本的低延遲工作負載。
 - [超大規模](sql-database-service-tier-hyperscale.md)專門用於具有多個可讀複本的大型資料庫 (最多 100 TB)。
 
-本文討論以 V 核心為基礎的購買模型中，一般用途和業務關鍵服務層的儲存體和備份考量。
+本文討論以虛擬核心為基礎的購買模型中，一般用途和業務關鍵服務層的儲存體和備份考量。
 
 > [!NOTE]
-> 如需 V 核心形式購買模型中超大規模服務層的詳細資訊，請參閱[超大規模服務層](sql-database-service-tier-hyperscale.md)。 如需 V 核心形式購買模型與 DTU 形式購買模型的比較，請參閱 [Azure SQL Database 購買模型和資源](sql-database-purchase-models.md)。
+> 如需以虛擬核心為基礎的購買模型中超大規模服務層的詳細資訊，請參閱[超大規模服務層](sql-database-service-tier-hyperscale.md)。 如需以虛擬核心為基礎的購買模型與以 DTU 為基礎的購買模型的比較，請參閱 [Azure SQL Database 購買模型和資源](sql-database-purchase-models.md)。
 
 ## <a name="data-and-log-storage"></a>資料和記錄儲存體
 

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2cceaf61129c6c756fadb3d41e825264fa23331f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.openlocfilehash: 3eed2bbb03334fed41bf0c74b1c287d9ca3f53eb
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278865"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501462"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 資源提供者作業
 
@@ -1107,7 +1107,7 @@ ms.locfileid: "59278865"
 根据指定人脸的 persistedFaceId 在大型人脸列表中更新该人脸的 userData 字段。 |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/read | 检索大型人脸列表的 largeFaceListId、名称和 userData。
 列出大型人脸列表的 largeFaceListId、名称和 userData 信息。 |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/train/action | 提交大型人脸列表训练任务。 训练是只有经过训练的大型人脸列表可以使用的关键步骤 |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/train/action | 提交大型人脸列表训练任务。 訓練是很重要的步驟，可以使用定型的大型臉部清單。 |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/training/read | 检查已完成或仍在进行的大型人脸列表训练状态。 LargeFaceList 训练是异步操作 |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/write | 使用用户指定的 largeFaceListId、名称和可选的 userData 创建空的大型人脸列表。
 更新大型人脸列表的信息，包括名称和 userData。 |
@@ -1123,7 +1123,7 @@ ms.locfileid: "59278865"
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/write | 更新某个人员的姓名或 userData。 |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/read | 检索大型人员组的信息，包括其名称和 userData。 此 API 返回大型人员组信息
 列出所有现有大型人员组的 largePesonGroupId、名称和 userData。 |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/train/action | 提交大型人员组训练任务。 训练是只有经过训练的大型人员组可以使用的关键步骤 |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/train/action | 提交大型人员组训练任务。 訓練是很重要的步驟，可以使用定型的大型使用者群組。 |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/training/read | 检查已完成或仍在进行的大型人员组训练状态。 LargePersonGroup 训练是异步操作 |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/write | 使用用户指定 largePersonGroupId、名称和可选的 userData 创建新的大型人员组。
 更新现有大型人员组的名称和 userData。 如果属性不在请求正文中，则属性保持不变。 |
@@ -1139,7 +1139,7 @@ ms.locfileid: "59278865"
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/write | 更新某个人员的姓名或 userData。 |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/read | 检索人员组名称和 userData。 若要获取此 personGroup 下的人员信息，请使用
 列出人员组的 pesonGroupId、名称和 userData。 |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/train/action | 提交人员组训练任务。 训练是只有经过训练的人员组可以使用的关键步骤 |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/train/action | 提交人员组训练任务。 訓練是很重要的步驟，可以使用定型的人員群組。 |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/training/read | 检查已完成或仍在进行的人员组训练状态。 PersonGroup 训练是触发的异步操作 |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/write | 使用指定的 personGroupId、名称和用户提供的 userData 创建新的人员组。
 更新现有人员组的名称和 userData。 如果属性不在请求正文中，则属性保持不变。 |
@@ -5118,11 +5118,11 @@ ms.locfileid: "59278865"
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action | 傳回新增 Blob 內容的結果 |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | 傳回刪除 Blob 的結果 |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteAutomaticSnapshot/action | 傳回刪除自動快照集的結果 |
-> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action | 傳回相符的標記篩選條件的帳戶下的 blob 清單 |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action | 傳回帳戶下具有相符標籤篩選的 Blob 清單 |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | 傳回 Blob 或 Blob 清單 |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action | 傳回 blob 命令的結果 |
-> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read | 傳回的結果讀取 blob 標記 |
-> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write | 傳回寫入 blob 標記的結果 |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read | 傳回讀取 Blob 標籤的結果 |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write | 傳回寫入 Blob 標籤的結果 |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | 傳回寫入 Blob 的結果 |
 > |  動作 | Microsoft.Storage/storageAccounts/blobServices/containers/clearLegalHold/action | 清除 Blob 容器法務保存措施 |
 > |  動作 | Microsoft.Storage/storageAccounts/blobServices/containers/delete | 傳回刪除容器的結果 |
@@ -5141,7 +5141,7 @@ ms.locfileid: "59278865"
 > |  動作 | Microsoft.Storage/storageAccounts/blobServices/read | 傳回 Blob 服務屬性或統計資料 |
 > |  動作 | Microsoft.Storage/storageAccounts/blobServices/write | 傳回放置 Blob 服務屬性的結果 |
 > |  動作 | Microsoft.Storage/storageAccounts/delete | 刪除現有的儲存體帳戶。 |
-> |  動作 | Microsoft.Storage/storageAccounts/failover/action | 客戶可控制發生可用性問題時容錯移轉 |
+> |  動作 | Microsoft.Storage/storageAccounts/failover/action | 客戶可在發生可用性問題時控制容錯移轉 |
 > |  動作 | Microsoft.Storage/storageAccounts/fileServices/fileShare/delete | 允許使用者刪除 FileShare |
 > |  動作 | Microsoft.Storage/storageAccounts/fileServices/fileShare/read | 允許使用者讀取 FileShare |
 > |  動作 | Microsoft.Storage/storageAccounts/fileServices/fileShare/write | 允許使用者寫入 FileShare |
@@ -5151,7 +5151,7 @@ ms.locfileid: "59278865"
 > |  動作 | Microsoft.Storage/storageAccounts/listServiceSas/action | 傳回指定儲存體帳戶的服務 SAS 權杖。 |
 > |  動作 | Microsoft.Storage/storageAccounts/managementPolicies/delete | 刪除儲存體帳戶管理原則 |
 > |  動作 | Microsoft.Storage/storageAccounts/managementPolicies/read | 取得儲存體管理帳戶原則 |
-> |  動作 | Microsoft.Storage/storageAccounts/managementPolicies/write | 將儲存體帳戶管理原則 |
+> |  動作 | Microsoft.Storage/storageAccounts/managementPolicies/write | Put 儲存體帳戶管理原則 |
 > |  動作 | Microsoft.Storage/storageAccounts/queueServices/queues/delete | 傳回刪除佇列的結果 |
 > | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | 傳回新增訊息的結果 |
 > | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | 傳回刪除訊息的結果 |

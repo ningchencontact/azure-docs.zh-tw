@@ -125,6 +125,8 @@ items:
       href: dbms_guide_oracle.md
     - name: 適用於 SAP 工作負載的 IBM DB2 Azure 虛擬機器 DBMS 部署
       href: dbms_guide_ibm.md
+    - name: SUSE Linux Enterprise Server 上 Azure VM 的 IBM Db2 LUW 高可用性
+      href: dbms-guide-ha-ibm.md
     - name: 適用於 SAP 工作負載的 SAP ASE Azure 虛擬機器 DBMS 部署
       href: dbms_guide_sapase.md
     - name: Azure 上的 SAP MaxDB、liveCache 與內容伺服器部署
@@ -229,9 +231,9 @@ items:
   items:
   - name: Azure 藍圖
     href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: e366d205b3d903ad79b26798a82ee05752ac5622
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: b91931661ad91f813ca84e0c9b7bef4b22e2e975
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762951"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489031"

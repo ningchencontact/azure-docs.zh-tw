@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database 超大規模概觀 | Microsoft Docs
-description: 本文描述 Azure SQL Database V 核心形式購買模型中的超大規模服務層級，並說明其與一般用途和商務關鍵性服務層級的差異。
+description: 本文描述 Azure SQL Database 以虛擬核心為基礎的購買模型中的超大規模服務層級，並說明其與一般用途和商務關鍵性服務層級的差異。
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -27,12 +27,12 @@ Azure SQL Database 是以會針對雲端環境調整的 SQL Server 資料庫引�
 - 業務關鍵/進階
 - 超大規模
 
-Azure SQL Database 中的超大規模服務層是 V 核心形式購買模型中的最新服務層。 此服務層是可高度擴充的儲存體和計算效能層，可利用 Azure 架構以相應放大 Azure SQL Database 的儲存體和計算資源，而大幅超過一般用途和商務關鍵性服務層的可用限制。
+Azure SQL Database 中的超大規模服務層是以虛擬核心為基礎的購買模型中的最新服務層。 此服務層是可高度擴充的儲存體和計算效能層，可利用 Azure 架構以相應放大 Azure SQL Database 的儲存體和計算資源，而大幅超過一般用途和商務關鍵性服務層的可用限制。
 
 > [!IMPORTANT]
 > 超大規模服務層級目前為公開預覽版本，且僅在有限的 Azure 區域中提供。 如需完整的區域清單，請參閱[超大規模服務層級的可用區域](#available-regions)。 我們不建議在超大規模資料庫中執行任何生產環境工作負載。 您無法將超大規模資料庫更新為其他服務層級。 基於測試目的，我們建議您建立目前資料庫的複本，並將該複本更新至超大規模服務層級。
 > [!NOTE]
-> 若要深入了解 V 核心形式購買模型中的一般用途與商務關鍵服務層級，請參閱[一般目的](sql-database-service-tier-general-purpose.md)與[業務關鍵](sql-database-service-tier-business-critical.md)服務層。 如需 V 核心形式購買模型與 DTU 形式購買模型的比較，請參閱 [Azure SQL Database 購買模型和資源](sql-database-purchase-models.md)。
+> 若要深入了解以虛擬核心為基礎的購買模型中的一般用途與商務關鍵服務層級，請參閱[一般目的](sql-database-service-tier-general-purpose.md)與[業務關鍵](sql-database-service-tier-business-critical.md)服務層。 如需以虛擬核心為基礎的購買模型與以 DTU 為基礎的購買模型的比較，請參閱 [Azure SQL Database 購買模型和資源](sql-database-purchase-models.md)。
 
 ## <a name="what-are-the-hyperscale-capabilities"></a>超大規模功能有哪些
 
@@ -110,7 +110,7 @@ Azure 儲存體節點是來自頁面伺服器之資料的最終目的地。 此�
 
 ## <a name="create-a-hyperscale-database"></a>建立超大規模資料庫
 
-可以使用會建立一個超大規模資料庫[Azure 入口網站](https://portal.azure.com)， [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)， [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase)或是[CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)。 超大規模資料庫僅在使用 [V 核心形式購買模型](sql-database-service-tiers-vcore.md)時才提供。
+可以使用會建立一個超大規模資料庫[Azure 入口網站](https://portal.azure.com)， [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)， [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase)或是[CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)。 超大規模資料庫僅在使用[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)時才提供。
 
 下列 T-SQL 命令會建立超大規模資料庫。 您必須在 `CREATE DATABASE` 陳述式中指定版本和服務目標。
 
@@ -162,5 +162,5 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 - 如需超大規模的常見問題集，請參閱[關於超大規模的常見問題集](sql-database-service-tier-hyperscale-faq.md)。
 - 如需服務層的資訊，請參閱[服務層](sql-database-purchase-models.md)
 - 如需伺服器和訂用帳戶層級的限制資訊，請參閱 [SQL Database 伺服器上的資源限制概觀](sql-database-resource-limits-database-server.md) \(英文\)。
-- 如需單一資料庫的購買模型限制相關資訊，請參閱[適用於單一資料庫的 Azure SQL Database V 核心形式購買模型限制](sql-database-vcore-resource-limits-single-databases.md)。
+- 如需單一資料庫的購買模型限制相關資訊，請參閱[適用於單一資料庫的 Azure SQL Database 以虛擬核心為基礎的購買模型限制](sql-database-vcore-resource-limits-single-databases.md)。
 - 如需功能與比較清單，請參閱 [SQL 的一般功能](sql-database-features.md)。

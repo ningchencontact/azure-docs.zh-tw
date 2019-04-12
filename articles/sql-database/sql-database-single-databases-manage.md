@@ -38,7 +38,7 @@ ms.locfileid: "57905234"
   ![建立資料庫-1](./media/sql-database-get-started-portal/create-database-1.png)
 
 > [!IMPORTANT]
-> 如需選取資料庫定價層的資訊，請參閱 [DTU 形式的購買模型](sql-database-service-tiers-dtu.md)和[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。
+> 如需選取資料庫定價層的資訊，請參閱[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)。
 
 若要建立「受控執行個體」，請參閱[建立受控執行個體](sql-database-managed-instance-get-started.md)
 
@@ -51,7 +51,7 @@ ms.locfileid: "57905234"
    ![伺服器防火牆規則](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
 > [!IMPORTANT]
-> 若要設定資料庫的效能屬性，請參閱 [DTU 形式的購買模型](sql-database-service-tiers-dtu.md)和[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。
+> 若要設定資料庫的效能屬性，請參閱[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)。
 > [!TIP]
 > 如需 Azure 入口網站快速入門，請參閱[在 Azure 入口網站中建立 Azure SQL 資料庫](sql-database-single-database-get-started.md)。
 

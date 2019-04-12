@@ -22,7 +22,7 @@ ms.locfileid: "59362195"
 # <a name="business-critical-tier---azure-sql-database"></a>業務關鍵層 - Azure SQL Database
 
 > [!NOTE]
-> 在 DTU 購買模型中，業務關鍵層稱為進階層。 如需 V 核心形式購買模型與 DTU 形式購買模型的比較，請參閱 [Azure SQL Database 購買模型和資源](sql-database-purchase-models.md)。
+> 在 DTU 購買模型中，業務關鍵層稱為進階層。 如需以虛擬核心為基礎的購買模型與以 DTU 為基礎的購買模型的比較，請參閱 [Azure SQL Database 購買模型和資源](sql-database-purchase-models.md)。
 
 Azure SQL Database 是以會針對雲端環境調整的 SQL Server 資料庫引擎架構為基礎，以確保 99.99% 的可用性 (即使在基礎結構失敗的情況下)。 Azure SQL Database 中使用三個架構模型：
 - 一般目的/標準 

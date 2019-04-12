@@ -65,7 +65,7 @@ ms.locfileid: "58075180"
 7. 在 [SQL Database] 表單上，選取 [定價層]。 瀏覽每個服務層可用的 DTU 數量和儲存體。
 
    > [!NOTE]
-   > 本快速入門使用 [DTU 型購買模型](sql-database-service-tiers-dtu.md)，但[虛擬核心型購買模型](sql-database-service-tiers-vcore.md)也可供使用。
+   > 本快速入門使用[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)，但[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)也可供使用。
    > [!IMPORTANT]
    > 所有區域目前均可使用進階層中超過 1 TB 的儲存體，但下列區域除外：中國東部、中國北部、德國中部、德國東北部、美國中西部、美國 DoD 區域和美國政府中部。 在這些區域中，進階層中的儲存空間上限為 1 TB。  如需詳細資訊，請參閱 [P11-P15 目前的限制](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)。  
 

@@ -224,5 +224,5 @@ Azure 基礎結構能夠在 SQL Database 服務出現繁重的工作負載時動
 
 * 深入了解 [Azure SQL Database 功能](sql-database-features.md)。
 * 深入了解[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)。
-* 深入了解[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。
+* 深入了解[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)。
 

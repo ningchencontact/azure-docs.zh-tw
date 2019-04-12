@@ -263,6 +263,6 @@ SQL Server 使用者通常會在個別資料庫內結合許多功能。 例如�
 ## <a name="next-steps"></a>後續步驟
 
 - 如需以 DTU 為基礎的服務層詳細資訊，請參閱[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)。
-- 如需虛擬核心形式的服務層詳細資訊，請參閱[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。
+- 如需以虛擬核心為基礎的服務層詳細資訊，請參閱[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)。
 - 如需彈性集區的詳細資訊，請參閱[什麼是 Azure 彈性集區？](sql-database-elastic-pool.md)
 - 如需效能和彈性集區的相關資訊，請參閱 [考慮使用彈性集區的時機](sql-database-elastic-pool-guidance.md)

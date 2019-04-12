@@ -22,7 +22,7 @@ ms.locfileid: "59357906"
 # <a name="general-purpose-service-tier---azure-sql-database"></a>一般用途服務層 - Azure SQL Database
 
 > [!NOTE]
-> 以虛擬核心為基礎之購買模型中的一般用途服務層，在以 DTU 為基礎的購買模型中，稱為標準服務層。 如需 V 核心形式購買模型與 DTU 形式購買模型的比較，請參閱 [Azure SQL Database 購買模型和資源](sql-database-purchase-models.md)。
+> 以虛擬核心為基礎的購買模型中的一般用途服務層，在以 DTU 為基礎的購買模型中，稱為標準服務層。 如需以虛擬核心為基礎的購買模型與以 DTU 為基礎的購買模型的比較，請參閱 [Azure SQL Database 購買模型和資源](sql-database-purchase-models.md)。
 
 Azure SQL Database 是以會針對雲端環境調整的 SQL Server 資料庫引擎架構為基礎，以確保 99.99% 的可用性 (即使在基礎結構失敗的情況下)。 Azure SQL Database 中使用三個服務層，每個服務層具有不同的架構模型。 這些服務層為：
 

@@ -286,11 +286,11 @@ items:
         href: quickstart-v2-uwp.md
       - name: Windows 桌面型 .NET
         href: quickstart-v2-windows-desktop.md
+    - name: 精靈應用程式
+      items:
       - name: .NET Core 主控台 (精靈)
         href: quickstart-v2-netcore-daemon.md
-    - name: 服務對服務
-      items:
-      - name: ASP .NET
+      - name: ASP.NET 精靈 Web 應用程式
         href: https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2
   - name: 教學課程
     items:
@@ -326,19 +326,20 @@ items:
         href: authentication-scenarios.md
       - name: OAuth 2.0 和 OpenID Connect 通訊協定
         href: active-directory-v2-protocols.md
-        items:
-        - name: OpenID Connect
-          href: v2-protocols-oidc.md
-        - name: OAuth 2.0 隱含授與流程
-          href: v2-oauth2-implicit-grant-flow.md
-        - name: OAuth 2.0 驗證碼授與
-          href: v2-oauth2-auth-code-flow.md
-        - name: OAuth 2.0 代理者流程
-          href: v2-oauth2-on-behalf-of-flow.md
-        - name: OAuth 2.0 用戶端認證授與
-          href: v2-oauth2-client-creds-grant-flow.md
-        - name: OAuth 2.0 資源擁有者密碼認證授與
-          href: v2-oauth-ropc.md
+      - name: OpenID Connect
+        href: v2-protocols-oidc.md
+      - name: OAuth 2.0 隱含授與流程
+        href: v2-oauth2-implicit-grant-flow.md
+      - name: OAuth 2.0 驗證碼授與
+        href: v2-oauth2-auth-code-flow.md
+      - name: OAuth 2.0 代理者流程
+        href: v2-oauth2-on-behalf-of-flow.md
+      - name: OAuth 2.0 用戶端認證授與
+        href: v2-oauth2-client-creds-grant-flow.md
+      - name: OAuth 2.0 裝置程式碼流程
+        href: v2-oauth2-device-code.md
+      - name: OAuth 2.0 資源擁有者密碼認證授與
+        href: v2-oauth-ropc.md
       - name: 簽署金鑰變換
         href: active-directory-signing-key-rollover.md
       - name: ID 權杖
@@ -394,12 +395,10 @@ items:
         href: howto-add-app-roles-in-azure-ad-apps.md
       - name: 商標方針
         href: howto-add-branding-in-azure-ad-apps.md
+      - name: 發行者網域
+        href: howto-configure-publisher-domain.md
       - name: 服務條款和隱私權聲明
         href: howto-add-terms-of-service-privacy-statement.md
-      - name: Java
-        items:
-        - name: 保護 Java Web 應用程式
-          href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?toc=/java/azure/toc.json&bc=/java/azure/breadcrumb/toc.json
     - name: 使用 Visual Studio
       items:
       - name: 使用 Active Directory 連線服務
@@ -419,8 +418,8 @@ items:
     - name: 驗證程式庫
       displayName: MSAL
       href: reference-v2-libraries.md
-    - name: Microsoft Graph 中的 Azure AD API
-      href: https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview
+    - name: 在 Microsoft Graph 中識別和存取 API
+      href: https://docs.microsoft.com/graph/api/resources/azure-ad-overview?view=graph-rest-beta
     - name: 應用程式資訊清單
       href: reference-app-manifest.md
     - name: 驗證與授權錯誤碼
@@ -436,6 +435,8 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Azure AD 部落格
     href: https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory
+  - name: Microsoft 身分識別平台開發人員部落格
+    href: https://developer.microsoft.com/en-us/identity/blogs/
   - name: 嘗試使用 Microsoft 登入
     href: https://azure.microsoft.com/develop/identity/signin/
   - name: 取得說明
@@ -443,9 +444,9 @@ items:
     href: developer-support-help-options.md
   - name: 適用於 Azure 資源的受控識別
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
-ms.openlocfilehash: 974758ddcaa4d855b395e982b6bc9a3b0b72e130
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 9283d643717d4c516fb615a9ff5ec132a11e754c
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886602"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500425"

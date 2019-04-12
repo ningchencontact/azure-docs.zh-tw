@@ -27,7 +27,7 @@ ms.locfileid: "58619886"
 
 **讀取縮放**可讓您使用一個唯讀複本的容量對 Azure SQL Database 唯讀工作負載進行負載平衡。
 
-進階層 ([ DTU 型購買模型](sql-database-service-tiers-dtu.md)) 或業務關鍵層 ([vCore 型購買模型](sql-database-service-tiers-vcore.md)) 中的每個資料庫，都會自動佈建數個 AlwaysOn 複本，以支援可用性 SLA。 下圖說明這種情形。
+進階層 ([ DTU 型購買模型](sql-database-service-tiers-dtu.md)) 或業務關鍵層 ([以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)) 中的每個資料庫，都會自動佈建數個 AlwaysOn 複本，以支援可用性 SLA。 下圖說明這種情形。
 
 ![唯讀複本](media/sql-database-read-scale-out/business-critical-service-tier-read-scale-out.png)
 

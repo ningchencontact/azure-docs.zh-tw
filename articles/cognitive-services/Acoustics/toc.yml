@@ -12,18 +12,24 @@ items:
     href: unreal-quickstart.md
 - name: 教學課程
   items:
-  - name: Unity 設計工作流程
-    href: unity-workflow.md
-  - name: Unreal/Wwise 設計工作流程
-    href: unreal-workflow.md
-  - name: 使用 Unity 模擬聲場
-    href: unity-baking.md
-  - name: 使用 Unreal/Wwise 模擬聲場
-    href: unreal-baking.md
+  - name: Unity
+    items:
+    - name: 使用 Unity 模擬聲場
+      href: unity-baking.md
+    - name: Unity 設計工作流程
+      href: unity-workflow.md
+  - name: Unreal/Wwise
+    items:
+    - name: 使用 Unreal/Wwise 模擬聲場
+      href: unreal-baking.md
+    - name: Unreal/Wwise 設計工作流程
+      href: unreal-workflow.md
 - name: 概念
   items:
   - name: 聲場模擬的設計概念
     href: design-process.md
+  - name: 聲場模擬解析
+    href: bake-resolution.md
 - name: 作法
   items:
   - name: 建立 Azure Batch 帳戶
@@ -38,9 +44,9 @@ items:
     href: faq.md
   - name: 已知問題
     href: known-issues.md
-ms.openlocfilehash: 37514a3f8c149c1e34b4e0faa8a7109290a80feb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a445890369e48f61dfa545d7107f46e3d0675a1
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58138214"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495629"
