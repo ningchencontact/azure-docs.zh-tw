@@ -42,7 +42,7 @@ ms.locfileid: "58904911"
 
 ### <a name="if-you-dont-have-an-azure-subscription"></a>如果您沒有 Azure 訂用帳戶
 
-請針對電腦視覺服務，建立有效期為 7 天且提供**[試用][computervision_resource]** 體驗的免費金鑰。 建立金鑰時，請複製金鑰和端點名稱。 您在[建立用戶端](#create-client)時將需要這些資訊。
+請針對電腦視覺服務，建立有效期為 7 天且提供 **[試用][computervision_resource]** 體驗的免費金鑰。 建立金鑰時，請複製金鑰和端點名稱。 您在[建立用戶端](#create-client)時將需要這些資訊。
 
 建立金鑰後請保存下列項目：
 

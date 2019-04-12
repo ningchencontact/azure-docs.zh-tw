@@ -139,7 +139,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 >
 >
 
-在 **SSL 類型**中，選擇使用**[伺服器名稱指示 (SNI) ](https://en.wikipedia.org/wiki/Server_Name_Indication)** 還是以 IP 為基礎的 SSL。
+在 **SSL 類型**中，選擇使用 **[伺服器名稱指示 (SNI) ](https://en.wikipedia.org/wiki/Server_Name_Indication)** 還是以 IP 為基礎的 SSL。
 
 - **以 SNI 為基礎的 SSL**：可能會新增多個以 SNI 為基礎的 SSL 繫結。 此選項可允許多個 SSL 憑證保護同一個 IP 位址上的多個網域。 大多數現代化的瀏覽器 (包括 Internet Explorer、Chrome、Firefox 和 Opera) 都支援 SNI (可在[伺服器名稱指示](https://wikipedia.org/wiki/Server_Name_Indication)找到更完整的瀏覽器支援資訊)。
 - **以 IP 為基礎的 SSL**：可能只會新增一個以 IP 為基礎的 SSL 繫結。 此選項只允許一個 SSL 憑證保護專用的公用 IP 位址。 若要保護多個網域，您必須全部使用相同的 SSL 憑證來保護它們。 這是 SSL 繫結的傳統選項。

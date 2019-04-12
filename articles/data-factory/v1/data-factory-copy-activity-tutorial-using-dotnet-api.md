@@ -136,7 +136,7 @@ ms.locfileid: "58484299"
    2. 執行下列命令安裝 Azure Active Directory 套件 (您在程式碼中使用 Active Directory API)︰`Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213`
 4. 將下列 **appSetttings** 區段新增 **App.config** 檔案。 以下協助程式方法會使用這些設定：**GetAuthorizationHeader**。
 
-    以您自己的值取代**&lt;應用程式識別碼&gt;**、**&lt;密碼&gt;**、**&lt;訂用帳戶識別碼&gt;****&lt;租用戶識別碼&gt;** 的值。
+    以您自己的值取代 **&lt;應用程式識別碼&gt;**、 **&lt;密碼&gt;**、 **&lt;訂用帳戶識別碼&gt;** **&lt;租用戶識別碼&gt;** 的值。
 
     ```xml
     <?xml version="1.0" encoding="utf-8" ?>
