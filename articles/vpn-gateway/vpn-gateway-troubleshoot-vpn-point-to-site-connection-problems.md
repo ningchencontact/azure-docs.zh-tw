@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 04/11/2018
 ms.author: genli
-ms.openlocfilehash: 7990a98e0e2d688456db054e3cdfa447e1ed1043
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630459"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492374"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>疑難排解：點對站連線問題
 
@@ -29,9 +29,9 @@ ms.locfileid: "58630459"
 
 ### <a name="symptom"></a>徵狀
 
-尝试使用 VPN 客户端连接到 Azure 虚拟网络时，看到以下错误消息：
+當您嘗試使用 VPN 用戶端來連線到 Azure 虛擬網路時，會收到下列錯誤訊息：
 
-**找不到可用于此可扩展身份验证协议的证书。(錯誤 798)**
+**找不到可用於這個可延伸驗證通訊協定的憑證。 （錯誤 798）**
 
 ### <a name="cause"></a>原因
 
@@ -58,13 +58,42 @@ ms.locfileid: "58630459"
 > [!NOTE]
 > 匯入用戶端憑證時，請勿選取 [啟用加強私密金鑰保護] 選項。
 
+## <a name="the-network-connection-between-your-computer-and-the-vpn-server-could-not-be-established-because-the-remote-server-is-not-responding"></a>無法建立您的電腦和 VPN 伺服器之間的網路連線，因為遠端伺服器沒有回應
+
+### <a name="symptom"></a>徵狀
+
+當您嘗試，並連接到 Azure 虛擬網路 gteway，在 Windows 上使用 IKEv2 時，您會收到下列的錯誤訊息：
+
+**無法建立您的電腦和 VPN 伺服器之間的網路連線，因為遠端伺服器沒有回應**
+
+### <a name="cause"></a>原因
+ 
+ 如果 Windows 的版本並沒有支援 IKE 片段，就會發生問題
+ 
+### <a name="solution"></a>解決方法
+
+Windows 10 和 Server 2016 都支援 IKEv2。 不過，若要使用 IKEv2，您必須在本機安裝更新並設定登錄機碼值。 Windows 10 之前的作業系統版本不受支援，且只能使用 SSTP。
+
+若要針對 IKEv2 準備 Windows 10 或 Server 2016：
+
+1. 安裝更新。
+
+   | 作業系統版本 | 日期 | 號碼/連結 |
+   |---|---|---|---|
+   | Windows Server 2016<br>Windows 10 版本 1607 | 2018 年 1 月 17 日 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+   | Windows 10 版本 1703 | 2018 年 1 月 17 日 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+   | Windows 10 版本 1709 | 2018 年 3 月 22 日 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
+   |  |  |  |  |
+
+2. 設定登錄機碼值。 在登入中建立 “HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload” REG_DWORD 機碼或將其設定為 1。
+
 ## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>VPN 用戶端錯誤：接收到的訊息超出預期或格式不正確
 
 ### <a name="symptom"></a>徵狀
 
 當您嘗試使用 VPN 用戶端來連線到 Azure 虛擬網路時，會收到下列錯誤訊息：
 
-**接收到的訊息超出預期或格式不正確。(錯誤 0x80090326)**
+**收到的訊息超出預期或格式不正確。 （錯誤 0x80090326）**
 
 ### <a name="cause"></a>原因
 
@@ -87,7 +116,7 @@ ms.locfileid: "58630459"
 
 當您嘗試使用 VPN 用戶端來連線到 Azure 虛擬網路時，會收到下列錯誤訊息：
 
-**憑證鏈結已處理，但它終止於信任提供者所未信任的根憑證。**
+**憑證鏈結處理但它終止於信任提供者不信任的根憑證。**
 
 ### <a name="solution"></a>解決方法
 
@@ -107,7 +136,7 @@ ms.locfileid: "58630459"
 
 您收到下列錯誤訊息：
 
-**檔案下載錯誤。未指定目標 URI。**
+**檔案下載錯誤。 未指定目標 URI。**
 
 ### <a name="cause"></a>原因 
 
@@ -123,7 +152,7 @@ VPN 閘道類型必須是 **VPN**，且 VPN 類型必須是 **RouteBased**。
 
 當您嘗試使用 VPN 用戶端來連線到 Azure 虛擬網路時，會收到下列錯誤訊息：
 
-**自訂指令碼 (更新您的路由表) 失敗。(錯誤 8007026f)**
+**自訂指令碼 （更新您的路由表） 失敗。 （錯誤 8007026f）**
 
 ### <a name="cause"></a>原因
 
@@ -156,7 +185,7 @@ VPN 閘道類型必須是 **VPN**，且 VPN 類型必須是 **RouteBased**。
 
 當您嘗試在 Azure 入口網站中儲存 VPN 閘道變更時，收到下列錯誤訊息：
 
-**無法儲存虛擬網路閘道 &lt;*閘道名稱*&gt;。憑證 &lt;*憑證識別碼*&gt; 的資料無效。**
+**無法儲存虛擬網路閘道&lt;*閘道名稱*&gt;。 憑證資料&lt;*憑證識別碼*&gt;無效。**
 
 ### <a name="cause"></a>原因 
 
@@ -203,7 +232,7 @@ VPN 閘道類型必須是 **VPN**，且 VPN 類型必須是 **RouteBased**。
 
 當您嘗試下載 VPN 用戶端組態套件時，收到下列錯誤訊息：
 
-**無法下載檔案。錯誤詳細資料：錯誤 503。伺服器忙碌中。**
+**無法下載檔案。 錯誤詳細資料：錯誤 503。 伺服器太忙碌。**
  
 ### <a name="solution"></a>解決方法
 

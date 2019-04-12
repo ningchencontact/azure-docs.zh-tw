@@ -17,25 +17,26 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b94004aa4b4834be80c13a044fcf7eb0023b6f7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 88c47e1090673eb0a56f12c2eaf790a0ac851c6b
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59259859"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501139"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory 存取權杖
 
 存取權杖可讓用戶端安全地呼叫受 Azure 保護的 API。 Azure Active Directory (Azure AD) 存取權杖為 [JWT](https://tools.ietf.org/html/rfc7519)，是由 Azure 簽署的 Base64 編碼 JSON 物件。 用戶端應將存取權杖視為不透明字串，因為權杖的內容僅會用於存取資源。 若要用於驗證及偵錯，開發人員可以使用 [jwt.ms](https://jwt.ms) 等網站來解碼 JWT。 您的用戶端可以使用各種通訊協定從其中一個端點 (v1.0 或 v2.0) 取得存取權杖。
 
-當您要求存取權杖時，Azure AD 也會傳回一些有關存取權杖的中繼資料，以供您的應用程式取用。 此資訊包括存取權杖的到期時間以及其有效範圍。 此資料可讓應用程式執行存取權杖的智慧型快取，而不需剖析存取權杖本身。
+當用戶端要求存取權杖，Azure AD 也會傳回一些有關存取權杖，供您的應用程式的中繼資料。 此資訊包括存取權杖的到期時間以及其有效範圍。 此資料可讓應用程式執行存取權杖的智慧型快取，而不需剖析存取權杖本身。
 
 如果您的應用程式是用戶端可以要求存取的資源 (Web API)，存取權杖會提供可用於驗證和授權的資訊，例如使用者、用戶端、簽發者和權限等等。 
 
 請參閱下列各節以了解資源可以如何驗證及使用存取權杖內部的宣告。
 
-> [!NOTE]
-> 當您使用個人帳戶來測試用戶端應用程式時 (例如 hotmail.com 或 outlook.com)，您可能會發現用戶端收到的存取權杖是不透明字串。 這是因為所存取的資源已要求舊版 MSA (Microsoft 帳戶) 票證，這些票證已加密，而且無法讓用戶端解讀。
+> [!Important]
+> 會根據建立存取權杖*觀眾*語彙基元，這表示該應用程式擁有權杖中的範圍。  這是資源設定如何`accessTokenAcceptedVersion`中[應用程式資訊清單](reference-app-manifest.md#manifest-reference)到`2`允許用戶端呼叫 v1.0 端點以接收 v2.0 存取權杖。  同樣地，這就是為什麼變更的存取權杖[選擇性宣告](active-directory-optional-claims.md)對您的用戶端執行變更的存取權杖收到時的要求的權杖`user.read`，擁有的 MS Graph 資源。  
+> 基於相同理由，同時測試您的用戶端應用程式，使用個人帳戶 （例如 hotmail.com 或 outlook.com），您可能會發現您的用戶端收到的存取權杖是不透明的字串。 這是因為所存取的資源已要求舊版 MSA (Microsoft 帳戶) 票證，這些票證已加密，而且無法讓用戶端解讀。
 
 ## <a name="sample-tokens"></a>權杖範例
 

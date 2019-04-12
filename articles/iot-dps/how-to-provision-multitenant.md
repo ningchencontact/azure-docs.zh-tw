@@ -3,17 +3,17 @@ title: 如何在 Azure IoT 中樞裝置佈建服務中針對多組織用戶佈�
 description: 如何使用裝置佈建服務執行個體針對多組織用戶佈建裝置
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/15/2018
+ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: ea071b704c58383ce52615bb1dfd88df8017ef7f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+manager: philmea
+ms.openlocfilehash: 84e1f57175d772ad281c18b67fa1be484c0cac69
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544438"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500731"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>如何針對多組織用戶佈建 
 
@@ -208,7 +208,7 @@ ms.locfileid: "57544438"
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
 
-    此存放庫的大小目前約為 220 MB。 預期此作業需要幾分鐘的時間才能完成。
+    預期此作業需要幾分鐘的時間才能完成。
 
 1. 為兩部 VM 在存放庫內部建立新的 **cmake** 資料夾，然後變更至該資料夾。
 
@@ -420,7 +420,7 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入了解如何重新佈建，請參閱 [IoT 中樞裝置重新佈建的概念](concepts-device-reprovision.md) 
+- 若要深入了解更多的 Reprovisioning，請參閱[IoT 中樞裝置重新佈建概念](concepts-device-reprovision.md) 
 - 若要了解有关取消设置的详细信息，请参阅[如何取消设置以前自动预配的设备](how-to-unprovision-devices.md) 
 
 

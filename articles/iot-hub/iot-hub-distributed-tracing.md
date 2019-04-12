@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: fc6db4d02898ea0e8eed3cdf3d0b1a9788d943e9
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 302c382a7e19e9dcc4c979d31ddc0768655a1465
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439291"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501350"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>透過分散式追蹤來追蹤 Azure IoT 裝置到雲端的訊息 (預覽)
 
@@ -98,7 +98,7 @@ IoT 中樞是其中一項最先支援分散式追蹤的 Azure 服務。 隨著�
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
 
-    此存放庫的大小目前約為 220 MB。 預期此作業需要幾分鐘的時間才能完成。
+    預期此作業需要幾分鐘的時間才能完成。
 
 1. 在 git 存放庫的根目錄中建立 `cmake` 子目錄，並瀏覽至該資料夾。
 
@@ -242,7 +242,7 @@ IoT 中樞是其中一項最先支援分散式追蹤的 Azure 服務。 隨著�
 
 | 元素名稱 | 必要項 | 類型 | 描述 |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | 是 | 整數  | 目前支援兩個模式值來開啟和關閉取樣。 `1` 為開啟，而 `2` 為關閉。 |
+| `sampling_mode` | 是 | 整數  | 目前支援兩個模式值來開啟和關閉取樣。 `1` 位於，`2`已關閉。 |
 | `sampling_rate` | 是 | 整數  | 這個值是百分比。 只允許從 `0` 到 `100` (含) 的值。  |
 
 ## <a name="query-and-visualize"></a>查詢並以視覺方式呈現
@@ -276,7 +276,7 @@ Log Analytics 所顯示的範例記錄：
 若要以視覺化方式呈現 IoT 訊息的流程，請設定應用程式對應範例應用程式。 範例應用程式會使用 Azure 函式和事件中樞，將分散式追蹤記錄傳送到[應用程式對應](../application-insights/app-insights-app-map.md)。
 
 > [!div class="button"]
-> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">在 Github 上取得範例</a>
+> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">在 Github 上取得的範例</a>
 
 下圖以包含三個路由端點的「應用程式對應」顯示分散式追蹤：
 

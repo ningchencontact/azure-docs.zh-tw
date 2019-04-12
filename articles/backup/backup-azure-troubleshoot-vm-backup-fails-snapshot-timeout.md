@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 4d090740b75acbe2629ae4f1e13cde8947f190bb
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: ae89ab811015fca9bcb50fcc149534754533c25f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286426"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491506"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式或擴充功能相關的問題
 
@@ -30,11 +30,11 @@ ms.locfileid: "58286426"
 **錯誤訊息**：VM 代理程式無法與 Azure 備份通訊<br>
 
 在註冊及排程備份服務的 VM 之後，備份就會藉由與 VM 代理程式通訊以取得時間點快照集，來起始作業。 下列任一種狀況都可能會阻止觸發快照集。 若未觸發快照集，備份可能會失敗。 請依照列出的順序完成下列疑難排解步驟，然後重試作業：<br>
-**原因 1：[代理程式已安裝在 VM 中，但沒有回應 (適用於 Windows VM)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
-**原因 2：[VM 中安裝的代理程式已過時 (適用於 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**原因 1：[代理程式安裝在 VM 中，但沒有回應 （適用於 Windows Vm)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**原因 2：[VM 中安裝的代理程式已過時 （適用於 Linux Vm)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **原因 3：[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
-**原因 4︰[備份擴充功能無法更新或載入](#the-backup-extension-fails-to-update-or-load)**  
-**原因 5：[VM 沒有網際網路存取](#the-vm-has-no-internet-access)**
+**原因 4：[備份擴充功能無法更新或載入](#the-backup-extension-fails-to-update-or-load)**  
+**原因 5︰[VM 沒有網際網路存取](#the-vm-has-no-internet-access)**
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - 無法與 VM 代理程式通訊來取得快照集狀態
 
@@ -42,8 +42,8 @@ ms.locfileid: "58286426"
 **錯誤訊息**：無法與 VM 代理程式通訊來取得快照集狀態 <br>
 
 在註冊及排程 Azure 備份服務的 VM 之後，備份就會藉由與 VM 備份擴充功能通訊以取得時間點快照，來起始作業。 下列任一種狀況都可能會阻止觸發快照集。 如果未觸發快照集，可能會發生備份失敗。 請依照列出的順序完成下列疑難排解步驟，然後重試作業：  
-**原因 1：[代理程式已安裝在 VM 中，但沒有回應 (適用於 Windows VM)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**原因 2：[VM 中安裝的代理程式已過時 (適用於 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**原因 1：[代理程式安裝在 VM 中，但沒有回應 （適用於 Windows Vm)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**原因 2：[VM 中安裝的代理程式已過時 （適用於 Linux Vm)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **原因 3：[VM 沒有網際網路存取](#the-vm-has-no-internet-access)**
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached - 已達到還原點集合上限
@@ -51,15 +51,15 @@ ms.locfileid: "58286426"
 **錯誤碼**：UserErrorRpCollectionLimitReached <br>
 **錯誤訊息**：已達到還原點集合上限。 <br>
 * 如果鎖定復原點資源群組以防止復原點自動清除，就可能會發生此問題。
-* 如果每日觸發多個備份，也會發生此問題。 目前，我們建議每日只能觸發一個備份，因為立即 RP 會保留 7 天，而一段指定時間內只能讓 18 個立即 RP 與 VM 相關聯。 <br>
+* 如果每日觸發多個備份，也會發生此問題。 目前我們建議每日的只有一個備份，因為 「 立即還原點會保留 1-5 天，根據設定的快照集保留期，並在任何時候，只有 18 立即 Rp 可以是與 VM 相關聯。 <br>
 
 建議的動作：<br>
 若要解決此問題，請移除 VM 資源群組的鎖定，並重試此作業以觸發清除動作。
 > [!NOTE]
 > 備份服務會建立與 VM 資源群組不同的資源群組，來儲存還原點集合。 建議客戶請勿鎖定建立給備份服務使用的資源群組。 備份服務建立的資源群組命名格式為：AzureBackupRG_`<Geo>`_`<number>` 例如：AzureBackupRG_northeurope_1
 
-**步驟 1：[從還原點資源群組中移除鎖定](#remove_lock_from_the_recovery_point_resource_group)** <br>
-**步驟 2：[清除還原點集合](#clean_up_restore_point_collection)**<br>
+**步驟 1：[從還原點的資源群組中移除鎖定](#remove_lock_from_the_recovery_point_resource_group)** <br>
+**步驟 2：[清除 還原點集合](#clean_up_restore_point_collection)**<br>
 
 ## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured - 備份沒有足夠的金鑰保存庫權限來備份加密的 VM
 
@@ -86,8 +86,8 @@ ms.locfileid: "58286426"
 在註冊及排程 Azure 備份服務的 VM 之後，備份就會藉由與 VM 備份擴充功能通訊以取得時間點快照，來起始作業。 下列任一種狀況都可能會阻止觸發快照集。 如果未觸發快照集，可能會發生備份失敗。 請依照列出的順序完成下列疑難排解步驟，然後重試作業：  
 **原因 1：[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **原因 2：[備份擴充功能無法更新或載入](#the-backup-extension-fails-to-update-or-load)**  
-**原因 3：[代理程式已安裝在 VM 中，但沒有回應 (適用於 Windows VM)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**原因 4︰[VM 中安裝的代理程式已過時 (適用於 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
+**原因 3：[代理程式安裝在 VM 中，但沒有回應 （適用於 Windows Vm)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**原因 4：[VM 中安裝的代理程式已過時 （適用於 Linux Vm)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
 ## <a name="backupoperationfailed--backupoperationfailedv2---backup-fails-with-an-internal-error"></a>BackUpOperationFailed / BackUpOperationFailedV2 - 備份失敗，發生內部錯誤
 
@@ -95,12 +95,12 @@ ms.locfileid: "58286426"
 **錯誤訊息**：備份因為內部錯誤而失敗 - 請在幾分鐘內重試此作業 <br>
 
 在註冊及排程 Azure 備份服務的 VM 之後，備份就會藉由與 VM 備份擴充功能通訊以取得時間點快照，來起始作業。 下列任一種狀況都可能會阻止觸發快照集。 如果未觸發快照集，可能會發生備份失敗。 請依照列出的順序完成下列疑難排解步驟，然後重試作業：  
-**原因 1：[代理程式已安裝到 VM 中，但沒有回應 (適用於 Windows VM)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**原因 2：[VM 中安裝的代理程式已過時 (適用於 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**原因 1：[安裝到 VM 中，但它的代理程式沒有回應 （適用於 Windows Vm)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**原因 2：[VM 中安裝的代理程式已過時 （適用於 Linux Vm)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **原因 3：[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**原因 4︰[備份擴充功能無法更新或載入](#the-backup-extension-fails-to-update-or-load)**  
-**原因 5：備份服務因資源群組鎖定而沒有刪除舊還原點的權限** <br>
-**原因 6：[VM 沒有網際網路存取](#the-vm-has-no-internet-access)**
+**原因 4：[備份擴充功能無法更新或載入](#the-backup-extension-fails-to-update-or-load)**  
+**原因 5︰備份服務沒有刪除舊還原點因資源群組鎖定而權限** <br>
+**原因 6:[VM 沒有網際網路存取](#the-vm-has-no-internet-access)**
 
 ## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095gb"></a>UserErrorUnsupportedDiskSize-目前的 Azure 備份不支援大於 4095 GB 的磁碟大小
 
@@ -164,12 +164,12 @@ VM 代理程式可能已損毀，或服務可能已停止。 重新安裝 VM 代
    > [!NOTE]
    > 我們強烈建議您只透過散發套件存放庫更新代理程式。 我們不建議直接從 GitHub 下載代理程式程式碼，並加以更新。 如果最新的代理程式不適用於您的散發套件，請連絡散發套件支援以取得如何進行安裝的指示。 若要檢查最新的代理程式，請移至 GitHub 儲存機制中的 [Microsoft Azure Linux 代理程式 (英文)](https://github.com/Azure/WALinuxAgent/releases) 頁面。
 
-2. 執行下列命令，確定 Azure 代理程式正在 VM 上執行：`ps -e`
+2. 請確定 Azure 代理程式在 VM 上執行下列命令： `ps -e`
 
    如果此程序不在執行中，請使用下列命令來重新啟動它：
 
-   * 針對 Ubuntu：`service walinuxagent start`
-   * 針對其他散發套件︰`service waagent start`
+   * 針對 Ubuntu: `service walinuxagent start`
+   * 針對其他散發套件： `service waagent start`
 
 3. [設定自動重新啟動代理程式](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash)。
 4. 執行新的測試備份。 如果失敗持續發生，請從 VM 收集下列記錄：
@@ -225,7 +225,7 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 ### <a name="clean_up_restore_point_collection"></a> 清除還原點集合
 移除鎖定之後，必須清除還原點。 若要清除還原點，請遵循下列任一方法：<br>
 * [清除還原點集合執行臨機操作備份](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
-* [從 Azure 入口網站清除還原點集合](#clean-up-restore-point-collection-from-azure-portal)<br>
+* [从 Azure 门户清理还原点集合](#clean-up-restore-point-collection-from-azure-portal)<br>
 
 #### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>清除還原點集合執行臨機操作備份
 請移除鎖定之後, 觸發 ad 臨機操作/手動備份。 這可確保還原點會自動清除。 預期失敗的第一次; 這個 ad 臨機操作/手動操作不過，它可確保自動清除，而不是手動刪除還原點。 完成清除作業之後，下一個排定的備份應該會成功。

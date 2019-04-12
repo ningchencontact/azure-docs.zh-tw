@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: be9bde90684b46adef509532eb7b0cc236c5efb1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 950d248d2525f053981c8642ee2d39021b9a0494
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180597"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490354"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>連線的處理站解決方案加速器的逐步解說
 
@@ -73,7 +73,7 @@ OPC 發行者模組會連線至工作站 OPC UA 伺服器，並訂閱所要發�
 
 1. 將節點資料轉換成 JSON 格式。
 1. 將 JSON 加密。
-1. 以 OPC UA Pub/Sub 訊息的形式將 JSON 傳送到 IoT 中樞。
+1. 會傳送 JSON 到 IoT 中樞作為 OPC UA pub/sub 訊息。
 
 OPC 發行者模組只需要輸出的 https 連接埠 (443)，並且可以使用現有的企業基礎結構。
 
@@ -230,7 +230,7 @@ TSI 會使用時間型 **SearchSpan** 針對節點資料進行查詢，並依 **
 您可以繼續閱讀下列文章，了解如何開始使用 IoT 解決方案加速器︰
 
 * [Azureiotsolutions.com 網站的權限][lnk-permissions]
-* [在 Windows 或 Linux 上部署連線的處理站解決方案加速器的閘道](iot-accelerators-connected-factory-gateway-deployment.md)
+* [部署連線處理站解決方案加速器在 Windows 或 Linux 上的閘道](iot-accelerators-connected-factory-gateway-deployment.md)
 * [OPC 發行者參考實作](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md)。
 
 [connected-factory-logical]:media/iot-accelerators-connected-factory-sample-walkthrough/cf-logical-architecture.png

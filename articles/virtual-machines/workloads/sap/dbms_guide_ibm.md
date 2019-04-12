@@ -1,6 +1,6 @@
 ---
-title: 適用於 SAP 工作負載的 IBM DB2 Azure 虛擬機器 DBMS 部署 | Microsoft Docs
-description: 適用於 SAP 工作負載的 IBM DB2 Azure 虛擬機器 DBMS 部署
+title: 針對 SAP 工作負載的 IBM Db2 Azure 虛擬機器 DBMS 部署 |Microsoft Docs
+description: 針對 SAP 工作負載的 IBM Db2 Azure 虛擬機器 DBMS 部署
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
@@ -13,17 +13,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/11/2018
+ms.date: 04/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7e746b5fa964249c3a3d34df5805cc1008c7fe77
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5cbecdb39a35339bd0b3f4d3d29d7893cdab0ac6
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014922"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496857"
 ---
-# <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>適用於 SAP 工作負載的 IBM DB2 Azure 虛擬機器 DBMS 部署
+# <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>針對 SAP 工作負載的 IBM Db2 Azure 虛擬機器 DBMS 部署
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
@@ -158,7 +158,7 @@ ms.locfileid: "58014922"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -172,7 +172,7 @@ ms.locfileid: "58014922"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -310,10 +310,10 @@ ms.locfileid: "58014922"
 
 
 
-使用 Microsoft Azure，您可以將目前在 IBM DB2 for Linux、UNIX 及 Windows (LUW) 上執行的 SAP 應用程式移轉至 Azure 虛擬機器。 透過 IBM DB2 for LUW 上的 SAP，系統管理員和開發人員仍然可以使用可在內部部署使用的相同開發和管理工具。
-如需關於在 IBM DB2 for LUW 上執行「SAP 商務套件」的一般資訊，請參閱「SAP 社群網路」(SCN)，網址是：<https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>。
+使用 Microsoft Azure，您可以移轉您現有的 SAP 應用程式上執行 IBM Db2 for Linux、 UNIX 和 Windows (LUW) Azure 虛擬機器。 透過 IBM Db2 for LUW 上的 SAP，系統管理員和開發人員仍然可以使用的相同開發和管理工具，也就是可在內部。
+有關在 IBM Db2 上執行 SAP Business Suite，在 「 SAP 社群網路 (SCN)，可以找到 LUW 的一般資訊<https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>。
 
-如需有關 Azure 中 DB2 for LUW 上 SAP 的詳細資訊和更新，請參閱 SAP 附註 [2233094]。 
+如需詳細資訊和 Db2 for LUW 上 Azure 上的 SAP 有關的更新，請參閱 SAP 附註[2233094]。 
 
 目前有各種公佈的文章提到 Azure 上的 SAP 工作負載。  建議您先從[Azure 上的 SAP 工作負載 - 入門](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)開始，然後挑選感興趣的領域
 
@@ -336,19 +336,19 @@ ms.locfileid: "58014922"
 在閱讀本文件之前，您應該先參閱[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)文件，以及 [Azure 上的 SAP 工作負載文件](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)中的其他指南。 
 
 
-## <a name="ibm-db2-for-linux-unix-and-windows-version-support"></a>IBM DB2 for Linux, UNIX, and Windows 支援版本
-當 DB2 版本為 10.5 時，支援 Microsoft Azure 虛擬機器中 IBM DB2 for LUW 上的 SAP。
+## <a name="ibm-db2-for-linux-unix-and-windows-version-support"></a>IBM Db2 for Linux、 UNIX 和 Windows 版本支援
+IBM Db2 for LUW 上 Microsoft Azure 虛擬機器服務上的 SAP 支援 Db2 版本為 10.5 時。
 
 如需有關支援之 SAP 產品和 Azure VM 類型的資訊，請參閱 SAP 附註 [1928533]。
 
-## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>在 Azure VM 中安裝 SAP 的 IBM DB2 for Linux, UNIX, and Windows 組態指導方針
+## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>IBM Db2 for Linux，UNIX，and Windows 組態指導方針 Azure Vm 中安裝 SAP
 ### <a name="storage-configuration"></a>儲存體組態
 所有的資料庫檔案都必須儲存於以直接連接磁碟為基礎的 NTFS 檔案系統上。 這些磁碟會掛接到 Azure VM，並且以 Azure 分頁 Blob 儲存體 (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) 或受控磁碟 (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>) 為基礎。 針對資料庫檔案，「不」  支援任何類型的網路磁碟機或遠端共用 (例如下列的 Azure 檔案服務)︰ 
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
 
-使用以 Azure 分頁 BLOB 儲存體或受控磁碟為基礎的磁碟時，[針對 SAP 工作負載而部署 Azure 虛擬機器 DBMS 時的考量](dbms_guide_general.md)中的描述，同樣適用於利用 DB2 DBMS 所做的部署。
+使用根據 Azure 分頁 BLOB 儲存體或受控磁碟的磁碟，這些陳述式中所做[針對 SAP 工作負載的 Azure 虛擬機器 DBMS 部署的考量](dbms_guide_general.md)適用於 Db2 的 DBMS 也利用部署。
 
 如同先前在文件通用部分中所述，適用於 Azure 磁碟的 IOPS 輸送量上有配額存在。 確切的配額會根據使用的 VM 類型而定。 如需 VM 類型及其配額的清單，請參閱[這裡 (Linux)][virtual-machines-sizes-linux] 和[這裡 (Windows)][virtual-machines-sizes-windows]。
 
@@ -358,12 +358,14 @@ ms.locfileid: "58014922"
 
 或者，如同[針對 SAP 工作負載而部署 Azure 虛擬機器 DBMS 時的考量](dbms_guide_general.md)所述，您也可以使用「Windows 儲存集區」(僅適用於 Windows Server 2012 和更新版本)，在多個磁碟上建立一個大型邏輯裝置。
 
-如果磁碟包含適用於您 sapdata 和 saptmp 目錄的 DB2 儲存路徑，您必須將實體磁碟磁區大小指定為 512 KB。 使用 Windows 儲存集區時，您必須透過命令列介面，使用參數 `-LogicalSectorSizeDefault`，以手動方式建立儲存集區。 如需詳細資訊，請參閱 <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>。
+<!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
-和「Azure 進階儲存體」相比之下，使用 Azure 寫入加速器時，會有諸多因素造成寫入交易日誌的延遲時間被縮短。 因此，您應該針對組成 DB2 交易記錄檔磁碟區的 VHD 來部署 Azure 寫入加速器。 如需詳細資訊，請參閱[寫入加速器](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)文件。
+如果磁碟包含適用於您 sapdata 和 saptmp 目錄的 Db2 儲存路徑，您必須指定實體磁碟磁區大小為 512 KB。 使用 Windows 儲存集區時，您必須透過命令列介面，使用參數 `-LogicalSectorSizeDefault`，以手動方式建立儲存集區。 如需詳細資訊，請參閱 <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>。
+
+和「Azure 進階儲存體」相比之下，使用 Azure 寫入加速器時，會有諸多因素造成寫入交易日誌的延遲時間被縮短。 因此，您應該部署 Azure 寫入加速器的表單適用於 Db2 交易記錄磁碟區 VHD。 如需詳細資訊，請參閱[寫入加速器](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)文件。
 
 ### <a name="backuprestore"></a>備份/還原
-針對 IBM DB2 for LUW 的備份/還原功能，是利用與標準 Windows Server 作業系統和 Hyper-V 上所做的相同方式來支援。
+標準的 Windows Server 作業系統和 HYPER-V 上的相同方式來支援 IBM Db2 for LUW 的備份/還原功能。
 
 您必須確定您擁有恰當且有效的資料庫備份策略。 
 
@@ -379,24 +381,26 @@ ms.locfileid: "58014922"
 * 使用一個以上的目標目錄來寫入備份
 
 >[!NOTE]
->在 Windows 上的 DB2 不支援 Windows VSS 技術。 如此一來，Azure 備份服務的應用程式一致 VM 備份，便不能用於部署了 DB2 DBMS 的 VM。
+>在 Windows 上的 Db2 不支援 Windows VSS 技術。 如此一來，應用程式一致的 VM 備份的 Azure 備份服務無法利用適用於 Db2 的 DBMS 部署中的 Vm。
 
 ### <a name="high-availability-and-disaster-recovery"></a>高可用性和災害復原
 不支援 Microsoft Cluster Server (MSCS)。
 
-支援 DB2 高可用性災害復原 (HADR)。 如果 HA 組態的虛擬機器具有運作中的名稱解析，則 Azure 中的設定與內部部署中完成的任何設定並無任何差別。 不建議只依賴 IP 解析。
+支援 Db2 高可用性災害復原 (HADR)。 如果 HA 組態的虛擬機器具有運作中的名稱解析，則 Azure 中的設定與內部部署中完成的任何設定並無任何差別。 不建議只依賴 IP 解析。
 
 請勿將異地複寫使用於可儲存資料庫磁碟的儲存體帳戶。 如需詳細資訊，請參閱[針對 SAP 工作負載而部署 Azure 虛擬機器 DBMS 時的考量](dbms_guide_general.md)文件。 
 
 ### <a name="accelerated-networking"></a>加速網路
-至於 Windows 上的 DB2 部署，強烈建議按照[Azure 加速網路](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) \(英文\) 所述，使用 Azure 的加速網路功能。 另請考慮在[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)中所提出的建議。 
+針對在 Windows 上的 Db2 部署，強烈建議使用加速網路的 Azure 功能，文件中所述[Azure 加速網路](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/)。 另請考慮在[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)中所提出的建議。 
 
 
 ### <a name="specifics-for-linux-deployments"></a>Linux 部署專屬的詳細資料
 只要每個磁碟上目前有足夠的 IOPS 配額，就可以將所有資料庫檔案儲存於單一磁碟上。 而您一律要將資料檔案和交易記錄檔，分別儲存在不同的磁碟/VHD 上。
 
 或者，如果單一 Azure VHD 的 IOPS 或 I/O 輸送量不足夠，您可以按照[針對 SAP 工作負載而部署 Azure 虛擬機器 DBMS 時的考量](dbms_guide_general.md)文件所述，使用 LVM (邏輯磁碟區管理員) 或 MDADM，在多個磁碟上建立一個大型邏輯裝置。
-如果磁碟包含適用於您 sapdata 和 saptmp 目錄的 DB2 儲存路徑，您必須將實體磁碟磁區大小指定為 512 KB。
+如果磁碟包含適用於您 sapdata 和 saptmp 目錄的 Db2 儲存路徑，您必須指定實體磁碟磁區大小為 512 KB。
+
+<!-- sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
 
 ### <a name="other"></a>其他

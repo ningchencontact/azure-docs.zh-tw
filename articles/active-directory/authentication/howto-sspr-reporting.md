@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53140c7b02dd657036b76db0dd137bd770d97f4d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 49b247338bbb1f20082fdef2a2bc291fb6183b10
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369525"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493054"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 密碼管理的報告選項
 
@@ -118,7 +118,7 @@ ms.locfileid: "58369525"
 下列清單詳細說明此活動︰
 
 * **活動描述**：指出系統管理員從 Azure 入口網站代表使用者執行密碼重設。
-* **活動執行者**：代表另一個使用者或系統管理員來執行密碼重設的系統管理員。 必須是全域管理員、密碼管理員、使用者管理員或技術服務管理員。
+* **活動執行者**：代表另一個使用者或系統管理員來執行密碼重設的系統管理員。 必須是密碼管理員、 使用者管理員或技術支援中心管理員。
 * **活動目標**：已重設密碼的使用者。 使用者可以是一般使用者或不同的系統管理員。
 * **活動狀態**：
   * _成功_：指出系統管理員已成功重設使用者的密碼。
@@ -176,16 +176,16 @@ ms.locfileid: "58369525"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [如何完成 SSPR 成功首度發行？](howto-sspr-deployment.md)
+* [我要如何完成 SSPR 成功推出？](howto-sspr-deployment.md)
 * [重設或變更您的密碼](../user-help/active-directory-passwords-update-your-own-password.md)。
 * [註冊自助式密碼重設](../user-help/active-directory-passwords-reset-register.md)。
 * [您有授權問題嗎？](concept-sspr-licensing.md)
-* [SSPR 使用哪些資料，以及您應該為使用者填入哪些資料？](howto-sspr-authenticationdata.md)
-* [哪些驗證方法可供使用者使用？](concept-sspr-howitworks.md#authentication-methods)
+* [SSPR 使用哪些資料以及哪些資料應該您為使用者填入嗎？](howto-sspr-authenticationdata.md)
+* [使用者可以使用哪些驗證方法？](concept-sspr-howitworks.md#authentication-methods)
 * [使用 SSPR 的原則選項有哪些？](concept-sspr-policy.md)
-* [什麼是密碼回寫，且為什麼我需要了解它？](howto-sspr-writeback.md)
-* [SSPR 中的所有選項有哪些，以及它們有何意義？](concept-sspr-howitworks.md)
-* [我認為有中斷。如何針對 SSPR 進行疑難排解？](active-directory-passwords-troubleshoot.md)
-* [在其他某處並未涵蓋我的問題](active-directory-passwords-faq.md)
+* [什麼是密碼回寫，為什麼我需要了解它？](howto-sspr-writeback.md)
+* [所有 SSPR 中的選項是什麼，以及做什麼它們的意義？](concept-sspr-howitworks.md)
+* [我認為有中斷。 如何疑難排解 SSPR？](active-directory-passwords-troubleshoot.md)
+* [我有已某處並未涵蓋其他的問題](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Azure AD 中 SSPR 活動稽核記錄的範例"

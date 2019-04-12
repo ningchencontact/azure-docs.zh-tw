@@ -1,6 +1,6 @@
 ---
-title: 保護 OPC UA 用戶端和 OPC UA 伺服器應用程式使用 Azure IoT OPC UA 憑證管理 |Microsoft Docs
-description: 安全的 OPC UA 用戶端並使用新的金鑰組和憑證使用 OPC 保存庫的 OPC UA 伺服器應用程式。
+title: 安全 OPC UA 用戶端與 OPC UA 伺服器應用程式使用 OPC 保存庫-Azure |Microsoft Docs
+description: 安全 OPC UA 用戶端與 OPC UA 伺服器應用程式使用新的金鑰組與使用 OPC 保存庫的憑證。
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,28 +8,28 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: bfa6bdf6a54cb5e54087055988e9682565667105
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 5ba2dba02585598b3797dd1b490976ebe34b489e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759377"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495289"
 ---
-# <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>保護 OPC UA 用戶端和 OPC UA 伺服器應用程式 
-Azure IoT OPC UA 憑證管理，也稱為 OPC 保存庫，是微服務可以設定暫存器，及管理 OPC UA 伺服器和用戶端應用程式在雲端中的憑證生命週期。 這篇文章會示範如何使用新的金鑰組保護 OPC UA 用戶端與 OPC UA 伺服器應用程式及憑證使用 OPC 保存庫。
+# <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>安全 OPC UA 用戶端與 OPC UA 伺服器應用程式 
+OPC 保存庫是微服務，可以設定、 註冊和管理憑證生命週期的 OPC UA 伺服器和雲端中的用戶端應用程式。 本文說明如何保護 OPC UA 用戶端和 OPC UA 伺服器應用程式使用新的金鑰組與使用 OPC 保存庫的憑證。
 
 在下列設定中，OPC 用戶端正在測試 OPC 有的連線。 根據預設，連線不可能因為這兩個元件具有尚未佈建正確的憑證。 在此工作流程中，我們請勿使用 OPC UA 元件的自我簽署的憑證並簽署它們透過 OPC 保存庫。 請參閱先前[testbed](howto-opc-vault-deploy-existing-client-plc-communication.md)。 相反地，此 testbed 會佈建兩者所產生 OPC 保存庫的元件使用新的憑證，以及使用新的私密金鑰。 OPC UA 安全性的一些背景資訊可在這[（英文） 白皮書](https://opcfoundation.org/wp-content/uploads/2014/05/OPC-UA_Security_Model_for_Administrators_V1.00.pdf)。 OPC UA 規格中，可以找到完整的資訊。
 
 Testbed:下列環境的測試設定。
 
 OPC 保存庫的指令碼：
-- 安全的 OPC UA 用戶端並使用新的金鑰組和憑證使用 OPC 保存庫的 OPC UA 伺服器應用程式。
+- 安全 OPC UA 用戶端與 OPC UA 伺服器應用程式使用新的金鑰組與使用 OPC 保存庫的憑證。
 
 > [!NOTE]
 > 如需詳細資訊，請參閱 GitHub[存放庫](https://github.com/Azure-Samples/iot-edge-industrial-configs#testbeds)。
 
 ## <a name="generate-a-new-certificate-and-private-key"></a>產生新的憑證和私密金鑰 
-**準備**
+**準備工作**
 - 請確認環境變數`$env:_PLC_OPT`和`$env:_CLIENT_OPT`為未定義。 比方說，`$env:_PLC_OPT=""`在您的 PowerShell
 - 設定環境變數`$env:_OPCVAULTID`設為字串，可讓您一次 OPC 保存庫中尋找您的資料。 我們建議將它設定為 6 位數的數字。 我們的範例，"123456"用於做為值的變數。
 - 請確定沒有 docker 磁碟區`opcclient`或`opcplc`。 洽詢`docker volume ls`並將它們與移除`docker volume rm <volumename>`。 您可能需要移除也具有容器`docker rm <containerid>`如果容器仍使用磁碟區。
@@ -118,7 +118,7 @@ opcplc-123456 | [13:40:09 INF] Activating the new application certificate with t
 
 應用程式憑證和私密金鑰是現在應用程式的憑證存放區中安裝及使用的 OPC UA 應用程式。
 
-請確認 OPC 用戶端與 OPC 有之間的連線可以成功建立 OPC 用戶端可以成功地從 OPC 有讀取資料。 您應該會看到下列輸出中 OPC 用戶端記錄輸出：
+請確認 OPC 用戶端與 OPC 有之間的連線可以成功建立 OPC 用戶端可以成功地從 OPC 有讀取資料。 您應該會看到下列輸出的 OPC 用戶端記錄輸出：
 ```
 opcclient-123456 | [13:40:12 INF] Create secured session for endpoint URI 'opc.tcp://opcplc-123456:50000/' with timeout of 10000 ms.
 opcclient-123456 | [13:40:12 INF] Session successfully created with Id ns=3;i=941910499.
@@ -132,7 +132,7 @@ opcclient-123456 | [13:40:12 INF] Execute 'OpcClient.OpcTestAction' action on no
 opcclient-123456 | [13:40:12 INF] Action (ActionId: 000 ActionType: 'OpcTestAction', Endpoint: 'opc.tcp://opcplc-123456:50000/' Node 'i=2258') completed successfully
 opcclient-123456 | [13:40:12 INF] Value (ActionId: 000 ActionType: 'OpcTestAction', Endpoint: 'opc.tcp://opcplc-123456:50000/' Node 'i=2258'): 10/21/2018 13:40:12
 ```
-如果您看到此輸出，然後 OPC 有已經信任 OPC 用戶端，反之亦然，因為兩者都有現在由 CA 和這兩種信任憑證所簽署此 CA 所簽署的憑證。
+如果您看到此輸出，然後 OPC 有現在信任 OPC 用戶端，反之亦然，因為兩者都有現在由 CA 和這兩種信任憑證所簽署此 CA 所簽署的憑證。
 
 ### <a name="a-testbed-for-opc-publisher"></a>OPC 發行者 testbed ###
 
@@ -145,7 +145,7 @@ docker-compose -f testbed.yml up
 
 **驗證**
 - 確認資料會傳送至您設定的設定 IoTHub`_HUB_CS`使用[Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)或是[iothub explorer](https://github.com/Azure/iothub-explorer)。
-- OPC 測試用戶端會使用 IoTHub 直接方法呼叫和 OPC 方法呼叫來設定發行/取消發行 OPC Testserver 節點的 OPC 發行者。
+- OPC 測試用戶端會使用 IoTHub 直接方法呼叫和 OPC 方法呼叫來設定 OPC 發行者發佈/取消發行 OPC 測試伺服器的節點。
 - 監看有錯誤訊息輸出。
 
 ## <a name="next-steps"></a>後續步驟

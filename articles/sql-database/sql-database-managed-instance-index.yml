@@ -15,7 +15,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: null
   ms.topic: overview
-  ms.date: 01/03/2019
+  ms.date: 04/09/2019
   ms.author: jovanpop
 abstract:
   description: 在 Azure SQL Database 受控執行個體是受到完整管理的 SQL Server 資料庫引擎執行個體裝載於 Azure 雲端中。 這是將 SQL Server 資料庫遷移至雲端的最佳 PaaS 選項。 了解如何利用我們的快速入門、教學課程和範例，建立及使用受控執行個體。
@@ -78,6 +78,7 @@ sections:
           - html: 受管理的執行個體受到<a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">內建防火牆</a>。
           - html: '（預覽）<a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">重新建立卸除資料庫時使用 PowerShell</a>'
           - html: '異地還原功能可讓您<a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">將資料庫還原至另一個資料中心使用 PowerShell</a>。'
+          - html: '（預覽）<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">設定時區</a>期間建立執行個體。'
   - title: 5 分鐘快速入門
     items:
       - type: paragraph

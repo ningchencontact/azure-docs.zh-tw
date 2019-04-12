@@ -10,21 +10,18 @@ ms.subservice: manage
 ms.date: 03/21/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 69b33b9629863702d576eac39fb4097a2bff2e57
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: de5d8a3cd329e023b57d887a22db5459f13c7486
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337559"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492782"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>監視 Azure SQL 資料倉儲中的資源使用率和查詢活動
 Azure SQL 資料倉儲在 Azure 入口網站中提供豐富的監視體驗，讓您可看到資料倉儲工作負載的深入解析。 Azure 入口網站是監視資料倉儲的建議工具，因為其提供可設定的保留期、警示、建議，以及可自訂的計量與記錄圖表及儀表板。 在入口網站也可讓您整合與 Operations Management Suite (OMS) 和 Azure 監視器 （記錄），來提供全面的監視體驗不只您的資料倉儲但也您整個 Azure analytics 等其他 Azure 監視服務平台的整合式的監視體驗。 本文件將說明哪些監視功能可用來最佳化及管理分析平台與 SQL 資料倉儲。 
 
 ## <a name="resource-utilization"></a>資源使用率 
 在 Azure 入口網站中，下列計量可供 SQL 資料倉儲使用。 我們透過 [Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics)提供這些計量。
-
-> [!NOTE]
-> 直到 2018 年 11 月，工程小組一直在解決導致 CPU 百分比與資料 IO 百分比低估的問題。 這也導致「已使用 DWU」與百分比低估。 
 
 | 度量名稱                           | 描述     | 彙總類型 |
 | --------------------------------------- | ---------------- | --------------------------------------- |
@@ -46,11 +43,11 @@ Azure SQL 資料倉儲在 Azure 入口網站中提供豐富的監視體驗，讓
 若要檢視 SQL 資料倉儲提供的 DMV 清單，請參閱此[文件](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs)。 
 
 ## <a name="metrics-and-diagnostics-logging"></a>計量和診斷記錄
-計量和記錄檔可以匯出至 Azure 監視器，特別[Azure 監視器記錄](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)元件並可透過程式設計方式存取[記錄查詢](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata)。 SQL 資料倉儲的記錄檔延遲是大約為 10-15 分鐘的時間。 如需影響延遲因素的詳細資訊，請瀏覽下列文件。
+計量和記錄檔可以匯出至 Azure 監視器，特別[Azure 監視器記錄](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)元件並可透過程式設計方式存取[記錄查詢](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata)。 SQL 数据仓库的日志延迟大约为 10-15 分钟。 有关影响延迟的因素的更多详细信息，请访问以下文档。
 
 
 ## <a name="next-steps"></a>後續步驟
 下列使用說明指南會說明監視和管理資料倉儲時的常見案例及使用案例：
 
-- [使用 DMV 監視您的資料倉儲工作負載](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)
+- [監視您的資料倉儲工作負載使用 Dmv](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 413ed4a56afad5ced221ba957af9ddb007622b6a
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: d7ccf370ae2f3f9add2b73797e8938d4580d81dd
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470044"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493139"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM 適用的 Azure 磁碟加密常見問題集
 
@@ -37,11 +37,11 @@ Azure 磁碟加密可用於標準層 VM，包括 [A、D、DS、G、GS 及 F](htt
 
 ## <a name="bkmk_LinuxOSSupport"></a> Azure 磁碟加密支援哪些 Linux 散發套件？
 
-子集上支援 azure 磁碟加密[經 Azure 背書的 Linux 散發套件](../virtual-machines/linux/endorsed-distros.md)，它本身就是所有可能的散發套件的子集。
+子集上支援 azure 磁碟加密[經 Azure 背書的 Linux 散發套件](../virtual-machines/linux/endorsed-distros.md)、 哪些是本身的所有 Linux 伺服器可能散發套件子集。
 
  ![支援 Azure 磁碟加密的文氏圖的 Linux 伺服器散發套件](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
 
-不由 Azure 背書的散發套件不支援 Azure 磁碟加密，而且這些所背書的只有下列 Linux 伺服器散發套件和版本支援 Azure 磁碟加密：
+不由 Azure 背書的 Linux 伺服器散發套件不支援 Azure 磁碟加密，而且這些所背書的只有下列散發套件和版本支援 Azure 磁碟加密：
 
 | Linux 散發套件 | 版本 | 支援加密的磁碟區類型|
 | --- | --- |--- |

@@ -32,7 +32,7 @@ sections:
         style: unordered
         items:
           - html: <a href="front-door-custom-domain.md">將自訂網域新增到您的前端</a>
-          - html: <a href="front-door-custom-domain-https.md">針對自訂網域啟用 HTTPS</a>
+          - html: <a href="front-door-custom-domain-https.md">讓自訂網域使用 HTTPS</a>
   - title: 參考
     items:
       - type: list

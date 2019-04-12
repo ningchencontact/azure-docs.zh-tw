@@ -1,5 +1,5 @@
 ---
-title: 保護 OPC 用戶端和 OPC 有使用 Azure IoT OPC UA 憑證管理的通訊安全 |Microsoft Docs
+title: 安全通訊的 OPC 用戶端與 OPC 有 OPC 保存庫-Azure |Microsoft Docs
 description: 簽署其使用 OPC 保存庫的 CA 的憑證，以保護 OPC 用戶端與 OPC 有進行通訊。
 author: dominicbetts
 ms.author: dobett
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: c437f6db21956d1be5e4f6d3512f325f37ca7308
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 30eedd982fa0536ce45506c159de6d04132e9a14
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759454"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493981"
 ---
 # <a name="secure-the-communication-of-opc-client-and-opc-plc"></a>安全 OPC 用戶端與 OPC 有的通訊
 
-Azure IoT OPC UA 憑證管理，也稱為 OPC 保存庫，是微服務，可以設定暫存器，及管理 OPC UA 伺服器和用戶端應用程式在雲端中的憑證生命週期。 本文說明如何保護通訊的 OPC 用戶端與 OPC 有簽署其使用 OPC 保存庫的 CA 的憑證。
+OPC 保存庫是微服務，可以設定、 註冊和管理憑證生命週期的 OPC UA 伺服器和雲端中的用戶端應用程式。 本文說明如何保護通訊的 OPC 用戶端與 OPC 有簽署其使用 OPC 保存庫的 CA 的憑證。
 
 在下列設定中，OPC 用戶端測試連線到 OPC 有。 根據預設，連線不可能因為這兩個元件不會使用正確的憑證佈建。 如果未 OPC UA 元件尚未使用憑證佈建，它會產生自我簽署的憑證，在啟動。 不過，憑證可以由憑證授權單位 (CA) 簽署，而且安裝 OPC UA 元件中。 這為了 OPC 用戶端與 OPC 有後，會啟用連線。 下面的工作流程說明的程序。 OPC UA 安全性的一些背景資訊可在[這份文件](https://opcfoundation.org/wp-content/uploads/2014/05/OPC-UA_Security_Model_for_Administrators_V1.00.pdf)白皮書 （英文）。 OPC UA 規格中，可以找到完整的資訊。
 
@@ -31,7 +31,7 @@ OPC 保存庫的指令碼：
 
 ## <a name="generate-a-self-signed-certificate-on-startup"></a>產生自我簽署的憑證，在啟動
 
-**準備**
+**準備工作**
 
 - 確保環境變數`$env:_PLC_OPT`並`$env:_CLIENT_OPT`都未定義，例如`$env:_PLC_OPT=""`在您的 PowerShell。
 
@@ -59,7 +59,7 @@ opcplc-123456 | [20:51:32 INF] Rejected certificate store contains 0 certs
 ```
 如果您看到報告的憑證，請遵循上述的準備步驟，並刪除 docker 磁碟區。
 
-請確認以 OPC 有連接已失敗。 您應該會看到下列輸出中 OPC 用戶端記錄輸出：
+請確認以 OPC 有連接已失敗。 您應該會看到下列輸出的 OPC 用戶端記錄輸出：
 
 ```
 opcclient-123456 | [20:51:35 INF] Create secured session for endpoint URI 'opc.tcp://opcplc-123456:50000/' with timeout of 10000 ms.
@@ -70,7 +70,7 @@ opcclient-123456 | Opc.Ua.ServiceResultException: Certificate is not trusted.
 
 ## <a name="sign-and-install-certificates-in-opc-ua-components"></a>登入，然後將憑證安裝在 OPC UA 元件
 
-**準備**
+**準備工作**
 1. 查看 步驟 1 的記錄輸出，並擷取 OPC 有和 OPC 用戶端的 「 CreateSigningRequest 資訊 」。 這裡 OPC 有只顯示輸出：
 
     ```
@@ -175,7 +175,7 @@ opcplc-123456 | [20:54:39 INF] Rejected certificate store contains 0 certs
 應用程式憑證的簽發者是 CA`CN=Azure IoT OPC Vault CA, O=Microsoft Corp.`和 OPC 有信任也此 CA 所簽署的所有憑證。
 
 
-確認已成功建立連線到 OPC 有 OPC 用戶端可以從 OPC 有讀取資料。 您應該會看到下列輸出中 OPC 用戶端記錄輸出：
+確認已成功建立連線到 OPC 有 OPC 用戶端可以從 OPC 有讀取資料。 您應該會看到下列輸出的 OPC 用戶端記錄輸出：
 ```
 opcclient-123456 | [20:54:42 INF] Create secured session for endpoint URI 'opc.tcp://opcplc-123456:50000/' with timeout of 10000 ms.
 opcclient-123456 | [20:54:42 INF] Session successfully created with Id ns=3;i=1085867946.
@@ -189,7 +189,7 @@ opcclient-123456 | [20:54:42 INF] Execute 'OpcClient.OpcTestAction' action on no
 opcclient-123456 | [20:54:42 INF] Action (ActionId: 000 ActionType: 'OpcTestAction', Endpoint: 'opc.tcp://opcplc-123456:50000/' Node 'i=2258') completed successfully
 opcclient-123456 | [20:54:42 INF] Value (ActionId: 000 ActionType: 'OpcTestAction', Endpoint: 'opc.tcp://opcplc-123456:50000/' Node 'i=2258'): 10/20/2018 20:54:42
 ```
-如果您看到此輸出，則 OPC 有現在信任 OPC 用戶端且反之亦然，因為兩者都有現在由 CA 簽署的憑證和這兩種信任憑證的位置此 CA 所簽署。
+如果您看到此輸出，然後 OPC 有已經信任 OPC 用戶端，反之亦然，因為兩者都有現在由 CA 簽署的憑證，並同時信任憑證的位置，所以此 CA 所簽署。
 
 > [!NOTE] 
 > 雖然我們只會針對 OPC 有示範的第一個的兩個驗證步驟，需要驗證也 OPC 用戶端。

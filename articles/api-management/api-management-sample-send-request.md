@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: adb7329249570750002f04fb72465698f869afdc
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 2c4e5d0117f046343b140ef2b2c46c074c835075
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58792479"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505646"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>使用來自 Azure API 管理服務的外部服務
 Azure API 管理服務中可用的原則可純粹根據傳入的要求、傳出的回應及基本組態資訊來進行各式各樣的有用工作。 不過，能夠與來自 API 管理原則的外部服務進行互動，可開啟更多的機會。
@@ -201,7 +201,7 @@ API 管理的主要功能是保護後端資源。 如果您的 API 所使用的�
 </send-request>
 
 <send-request mode="new" response-variable-name="accidentdata" timeout="20" ignore-error="true">
-<set-url>@($"https://production.acme.com/throughput?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+<set-url>@($"https://production.acme.com/accidentdata?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
   <set-method>GET</set-method>
 </send-request>
 ```
@@ -252,7 +252,7 @@ API 管理的主要功能是保護後端資源。 如果您的 API 所使用的�
     </send-request>
 
     <send-request mode="new" response-variable-name="accidentdata" timeout="20" ignore-error="true">
-    <set-url>@($"https://production.acme.com/throughput?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
+    <set-url>@($"https://production.acme.com/accidentdata?from={(string)context.Variables["fromDate"]}&to={(string)context.Variables["fromDate"]}")"</set-url>
       <set-method>GET</set-method>
     </send-request>
 

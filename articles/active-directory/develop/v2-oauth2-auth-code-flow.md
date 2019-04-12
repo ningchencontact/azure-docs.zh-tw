@@ -13,34 +13,34 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 04/12/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcda3e1ee8029bf40a0d7eec2ad440b7b128a650
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: 79e0ebce5704e7b61956568f5ebbce6ea6cbc3af
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470251"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500952"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft 身分識別平台和 OAuth 2.0 授權碼流程
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-OAuth 2.0 授權碼授與可用於裝置上所安裝的應用程式中，以存取受保護的資源，例如 Web API。 透過應用程式模型的 v2.0 實作 OAuth 2.0，您可以將登入及 API 存取新增至您的行動應用程式和桌面應用程式。 本指南不限於特定語言，其中說明如何在不使用任何 [Azure 開放原始碼驗證程式庫](active-directory-authentication-libraries.md)的情況下，傳送和接收 HTTP 訊息。
+OAuth 2.0 授權碼授與可用於裝置上所安裝的應用程式中，以存取受保護的資源，例如 Web API。 使用 OAuth 2.0 的 Microsoft 身分識別平台實作，您可以新增登入及 API 存取您的行動和桌面應用程式。 本指南不限於特定語言，其中說明如何在不使用任何 [Azure 開放原始碼驗證程式庫](active-directory-authentication-libraries.md)的情況下，傳送和接收 HTTP 訊息。
 
 > [!NOTE]
-> v2.0 端點並非支援每個 Azure Active Directory 案例和功能。 若要判斷是否應該使用 v2.0 端點，請閱讀相關的 [v2.0 限制](active-directory-v2-limitations.md)。
+> 並非所有的 Azure Active Directory 案例和功能會受到 Microsoft 身分識別平台的端點。 若要判斷是否應該使用 Microsoft 身分識別平台的端點，請參閱[Microsoft 身分識別平台限制](active-directory-v2-limitations.md)。
 
-如需 OAuth 2.0 授權碼流程的說明，請參閱 [OAuth 2.0 規格的 4.1 節](https://tools.ietf.org/html/rfc6749)。 在大部分的應用程式類型中，其用於執行驗證與授權，包括 [Web Apps](v2-app-types.md#web-apps) 和[原始安裝的應用程式](v2-app-types.md#mobile-and-native-apps)。 此流程可讓應用程式安全地取得可用來存取受 v2.0 端點保護之資源的 access_token。
+如需 OAuth 2.0 授權碼流程的說明，請參閱 [OAuth 2.0 規格的 4.1 節](https://tools.ietf.org/html/rfc6749)。 它用來執行驗證和授權，在大部分的應用程式類型，包括[web 應用程式](v2-app-types.md#web-apps)並[原生安裝的應用程式](v2-app-types.md#mobile-and-native-apps)。 此流程可讓應用程式安全地取得可用來存取受保護的 Microsoft 身分識別平台端點資源的 access_token。
 
 ## <a name="protocol-diagram"></a>通訊協定圖表
 
 概括而言，原生/行動應用程式的整個驗證流程看起來像是這樣：
 
-![OAuth 授權碼流程](./media/v2-oauth2-auth-code-flow/convergence_scenarios_native.png)
+![OAuth 授權碼流程](./media/v2-oauth2-auth-code-flow/convergence-scenarios-native.svg)
 
 ## <a name="request-an-authorization-code"></a>要求授權碼
 
@@ -61,8 +61,6 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > [!TIP]
 > 按一下下面的連結以執行此要求！ 登入之後，您的瀏覽器應重新導向至在位址列中有 `code` 的 `https://localhost/myapp/`。
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize.. 。</a>
-> 
-> 
 
 | 參數    | 必要/選用 | 描述 |
 |--------------|-------------|--------------|
@@ -71,17 +69,17 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `response_type` | 必要    | 授權碼流程必須包含 `code`。       |
 | `redirect_uri`  | 必要 | 應用程式的 redirect_uri，您的應用程式可在此傳送及接收驗證回應。 其必須完全符合您在入口網站中註冊的其中一個 redirect_uris，不然就必須得是編碼的 url。 對於原生和行動應用程式，請使用 `https://login.microsoftonline.com/common/oauth2/nativeclient` 的預設值。   |
 | `scope`  | 必要    | 您要使用者同意的 [範圍](v2-permissions-and-consent.md) 空格分隔清單。 |
-| `response_mode`   | 建議使用 | 指定將產生的權杖送回到應用程式所應該使用的方法。 可以是下列其中一項：<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` 提供的程式碼做為查詢字串參數，在您重新導向 URI。 如果您要求可使用隱含流程的識別碼權杖，就無法使用 [OpenID 規格](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations)中指定的 `query`。如果您只要求程式碼，您可以使用 `query`、`fragment` 或 `form_post`。 `form_post` 執行 POST，其中包含您重新導向 URI 的程式碼。 如需詳細資訊，請參閱 [OpenID Connect 通訊協定](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code)。  |
+| `response_mode`   | 建議使用 | 指定將產生的權杖送回到應用程式所應該使用的方法。 可以是下列其中一項：<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` 提供的程式碼做為查詢字串參數，在您重新導向 URI。 如果您要求使用隱含流程的識別碼權杖時，就無法使用`query`中所指定[OpenID 規格](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations)。如果您只要求程式碼，您可以使用 `query`、`fragment` 或 `form_post`。 `form_post` 執行 POST，其中包含您重新導向 URI 的程式碼。 如需詳細資訊，請參閱 [OpenID Connect 通訊協定](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code)。  |
 | `state`                 | 建議使用 | 同样随令牌响应返回的请求中所包含的值。 其可以是您想要之任何內容的字串。 隨機產生的唯一值通常用於 [防止跨站台要求偽造攻擊](https://tools.ietf.org/html/rfc6749#section-10.12)。 此值也可以將驗證要求發生前使用者在應用程式中的狀態相關資訊 (例如他們所在的網頁或檢視) 編碼。 |
-| `prompt`  | 選用    | 表示需要的使用者互動類型。 此時唯有 `login`、`none` 及 `consent` 是有效值。<br/><br/>- `prompt=login` 會強制使用者在該要求上輸入認證，否定單一登入。<br/>- `prompt=none` 則相反 - 它會確保不會對使用者顯示任何互動式提示。 如果要求無法透過單一登入以無訊息方式完成，v2.0 端點會傳回 `interaction_required` 錯誤。<br/>- `prompt=consent` 會在使用者登入之後觸發 OAuth 同意對話方塊，詢問使用者是否要授與權限給應用程式。 |
+| `prompt`  | 選用    | 表示需要的使用者互動類型。 此時唯有 `login`、`none` 及 `consent` 是有效值。<br/><br/>- `prompt=login` 會強制使用者在該要求上輸入認證，否定單一登入。<br/>- `prompt=none` 則相反-它會確保使用者不顯示任何互動式提示。 如果要求不能透過單一登入以無訊息方式完成，Microsoft 身分識別平台端點會傳回`interaction_required`時發生錯誤。<br/>- `prompt=consent` 會在使用者登入之後觸發 OAuth 同意對話方塊，詢問使用者是否要授與權限給應用程式。 |
 | `login_hint`  | 選用    | 如果您事先知道其使用者名稱，可用來預先填入使用者登入頁面的使用者名稱/電子郵件地址欄位。 通常應用程式會在重新驗證期間使用此參數，已經使用 `preferred_username` 宣告從上一個登入擷取使用者名稱。   |
-| `domain_hint`  | 選用    | 可以是 `consumers` 或 `organizations` 其中一個。<br/><br/>如果包含，它會略過使用者在 v2.0 登入頁面上所經歷以電子郵件為基礎的探索程序，進而提供略為更有效率的使用者體驗。 通常應用程式會在重新驗證 (擷取上一次登入的 `tid` ) 期間使用此參數。 如果 `tid` 宣告值是 `9188040d-6c67-4c5b-b112-36a304b66dad`，您應該使用 `domain_hint=consumers`。 否則，使用 `domain_hint=organizations`。  |
-| `code_challenge_method` | 選用    | 用來為 `code_challenge` 參數編碼 `code_verifier` 的方法。 可以是下列其中一個值：<br/><br/>- `plain` <br/>- `S256`<br/><br/>如果排除，則當包含 `code_challenge` 時，會假設 `code_challenge` 是純文字。 Azure AAD v2.0 同時支援 `plain` 和 `S256`。 如需詳細資訊，請參閱 [PKCE RFC](https://tools.ietf.org/html/rfc7636)。 |
+| `domain_hint`  | 選用    | 可以是 `consumers` 或 `organizations` 其中一個。<br/><br/>如果包含，它會略過電子郵件為基礎的探索程序，使用者會經歷在登入頁面上，導致稍微更流暢的使用者體驗。 通常應用程式會在重新驗證 (擷取上一次登入的 `tid` ) 期間使用此參數。 如果 `tid` 宣告值是 `9188040d-6c67-4c5b-b112-36a304b66dad`，您應該使用 `domain_hint=consumers`。 否則，使用 `domain_hint=organizations`。  |
+| `code_challenge_method` | 選用    | 用來為 `code_challenge` 參數編碼 `code_verifier` 的方法。 可以是下列其中一個值：<br/><br/>- `plain` <br/>- `S256`<br/><br/>如果排除，則當包含 `code_challenge` 時，會假設 `code_challenge` 是純文字。 Microsoft 身分識別平台支援兩者`plain`和`S256`。 如需詳細資訊，請參閱 [PKCE RFC](https://tools.ietf.org/html/rfc7636)。 |
 | `code_challenge`  | 選用 | 用來透過來自原生用戶端的「代碼交換的證明金鑰」(PKCE) 保護授權碼授與。 如果包含 `code_challenge_method`，則為必要參數。 如需詳細資訊，請參閱 [PKCE RFC](https://tools.ietf.org/html/rfc7636)。 |
 
-此時，會要求使用者輸入其認證並完成驗證。 v2.0 端點也會確保使用者已經同意 `scope` 查詢參數所示的權限。 如果使用者未曾同意這些權限的任何一項，就會要求使用者同意要求的權限。 [這裡提供權限、同意與多租用戶應用程式](v2-permissions-and-consent.md)的詳細資料。
+此時，會要求使用者輸入其認證並完成驗證。 Microsoft 身分識別平台端點也會確保使用者已經同意中指出的權限`scope`查詢參數。 如果使用者未曾同意這些權限的任何一項，就會要求使用者同意要求的權限。 [這裡提供權限、同意與多租用戶應用程式](v2-permissions-and-consent.md)的詳細資料。
 
-一旦使用者驗證並同意，v2.0 端點就會使用 `response_mode` 參數中指定的方法，將回應傳回至位於指定所在 `redirect_uri` 的應用程式。
+一旦使用者驗證，並授與同意，Microsoft 身分識別平台端點會將回應傳回給您的應用程式所指定`redirect_uri`，使用中指定的方法`response_mode`參數。
 
 #### <a name="successful-response"></a>成功回應
 
@@ -95,7 +93,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 
 | 參數 | 描述  |
 |-----------|--------------|
-| `code` | 應用程式要求的 authorization_code。 应用可以使用授权代码请求目标资源的访问令牌。 Authorization_code 的有效期很短，通常約 10 分鐘後即到期。 |
+| `code` | 應用程式要求的 authorization_code。 應用程式可以使用授權碼要求目標資源的存取權杖。 Authorization_code 的有效期短，通常約 10 分鐘後到期。 |
 | `state` | 如果要求中包含狀態參數，回應中就應該出現相同的值。 应用应该验证请求和响应中的 state 值是否完全相同。 |
 
 #### <a name="error-response"></a>錯誤回應
@@ -120,13 +118,13 @@ error=access_denied
 | 错误代码  | 描述    | 客户端操作   |
 |-------------|----------------|-----------------|
 | `invalid_request` | 通訊協定錯誤，例如遺漏必要的參數。 | 修正並重新提交要求。 這是通常會在初始測試期間擷取到的開發錯誤。 |
-| `unauthorized_client` | 不允許用戶端應用程式要求授權碼。 | 此錯誤通常會在用戶端應用程式未在 Azure AD 中註冊，或未新增至使用者的 Azure AD 租用戶時發生。 應用程式可以對使用者提示關於安裝應用程式，並將它加入至 Azure AD 的指示。 |
-| `access_denied`  | 资源所有者拒绝了许可  | 用戶端應用程式可以通知使用者，除非使用者同意，否則無法繼續進行。 |
-| `unsupported_response_type` | 授權伺服器不支援要求中的回應類型。 | 修正並重新提交要求。 这通常是在初始测试期间捕获的开发错误。  |
+| `unauthorized_client` | 用戶端應用程式不允許要求授權碼。 | 當用戶端應用程式未在 Azure AD 中註冊，或不會新增至使用者的 Azure AD 租用戶時，通常會發生此錯誤。 應用程式可以對使用者提示關於安裝應用程式，並將它加入至 Azure AD 的指示。 |
+| `access_denied`  | 資源擁有者拒絕同意  | 用戶端應用程式可以通知使用者，除非使用者同意，否則無法繼續進行。 |
+| `unsupported_response_type` | 授權伺服器不支援要求中的回應類型。 | 修正並重新提交要求。 這是通常會在初始測試期間擷取到的開發錯誤。  |
 | `server_error`  | 伺服器發生非預期的錯誤。| 重试请求。 這些錯誤可能是由暫時性狀況所引起。 用戶端應用程式可能會向使用者解釋其回應因暫時性錯誤而延遲。 |
-| `temporarily_unavailable`   | 伺服器暫時過於忙碌而無法處理要求。 | 重試要求。 用戶端應用程式可能會向使用者解釋，說明其回應因暫時性狀況而延遲。 |
-| `invalid_resource`  | 目標資源無效，因為它不存在、Azure AD 無法找到它，或是它並未正確設定。 | 此錯誤表示尚未在租用戶中設定資源 (如果存在)。 應用程式可以對使用者提示關於安裝應用程式，並將它加入至 Azure AD 的指示。 |
-| `login_required` | 找到太多使用者或找不到使用者 | 用戶端已要求無訊息驗證 (`prompt=none`)，但找不到單一使用者。 這可能表示工作階段中有多個作用中使用者，或沒有任何使用者。 這會將選擇的租用戶列入考慮 (例如，如果有 2 個使用中的 AAD 帳戶和一個 MSA，且選擇了 `consumers`，無訊息驗證即可運作)。 |
+| `temporarily_unavailable`   | 伺服器暫時過於忙碌而無法處理要求。 | 重試要求。 用戶端應用程式可能會向使用者解釋其回應，因為暫時的狀況而延遲。 |
+| `invalid_resource`  | 目標資源無效，因為它不存在、 Azure AD 無法找到它，或是未正確設定。 | 此錯誤表示尚未在租用戶中設定資源 (如果存在)。 應用程式可以對使用者提示關於安裝應用程式，並將它加入至 Azure AD 的指示。 |
+| `login_required` | 找到太多使用者或找不到使用者 | 用戶端已要求無訊息驗證 (`prompt=none`)，但找不到單一使用者。 這可能表示工作階段中有多個作用中使用者，或沒有任何使用者。 這會考慮選擇租用戶 (例如，如果有使用中的兩個 Azure AD 帳戶和一個 Microsoft 帳戶，和`consumers`選擇，則會使用無訊息的驗證)。 |
 | `interaction_required` | 要求需要使用者互動。 | 必須進行其他驗證步驟或同意。 請在不使用 `prompt=none` 的情況下重試要求。 |
 
 ## <a name="request-an-access-token"></a>要求存取權杖
@@ -149,17 +147,17 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> 嘗試在 Postman 中執行這項要求！ (別忘了取代 `code`) [![在 Postman 中執行](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
+> 嘗試在 Postman 中執行這項要求！ (別忘了取代 `code`) [![在 Postman 中執行](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 | 參數  | 必要/選用 | 描述     |
 |------------|-------------------|----------------|
 | `tenant`   | 必要   | 要求路徑中的 `{tenant}` 值可用來控制可登入應用程式的人員。 可以使用的值包括 `common`、`organizations`、`consumers` 和租户标识符。 如需更多詳細資訊，請參閱 [通訊協定基本概念](active-directory-v2-protocols.md#endpoints)。  |
 | `client_id` | 必要  | （用戶端） 應用程式識別碼[Azure 入口網站-應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)指派給您的應用程式的頁面。 |
 | `grant_type` | 必要   | 必須是授權碼流程的 `authorization_code` 。   |
-| `scope`      | 必要   | 範圍的空格分隔清單。 在此階段中要求的範圍必須相當於或為第一個階段中所要求的範圍子集。 如果這個要求中指定的範圍遍及多個資源伺服器，v2.0 端點就會傳回第一個範圍中所指定資源的權杖。 如需範圍的詳盡說明，請參閱 [權限、同意和範圍](v2-permissions-and-consent.md)。 |
+| `scope`      | 必要   | 範圍的空格分隔清單。 在此階段中要求的範圍必須相當於或為第一個階段中所要求的範圍子集。 如果這個要求中指定的範圍遍及多個資源伺服器，Microsoft 身分識別平台端點會傳回第一個範圍中指定資源的權杖。 如需範圍的詳盡說明，請參閱 [權限、同意和範圍](v2-permissions-and-consent.md)。 |
 | `code`          | 必要  | 您在流程的第一個階段中取得的 authorization_code。 |
 | `redirect_uri`  | 必要  | 用來取得 authorization_code 的相同 redirect_uri 值。 |
-| `client_secret` | Web Apps 所需 | 您在應用程式註冊入口網站中為應用程式建立的應用程式密碼。 它不应用于本机应用，因为设备无法可靠地存储 client_secrets。 Web Apps 和 Web API 都需要應用程式密碼，其能夠將 client_secret 安全地儲存在伺服器端。  用戶端密碼必須在傳送之前先進行 URL 編碼。  |
+| `client_secret` | Web Apps 所需 | 您在應用程式註冊入口網站中為應用程式建立的應用程式密碼。 您不應該在原生應用程式中使用應用程式祕密，因為 client_secret 無法可靠地儲存在裝置上。 您需要 web 應用程式和 web Api，能夠將 client_secret 安全地儲存在伺服器端。  用戶端密碼必須在傳送之前先進行 URL 編碼。  |
 | `code_verifier` | 選用  | 用來取得 authorization_code 的相同 code_verifier。 如果在授權碼授與要求中已使用 PKCE，則為必要參數。 如需詳細資訊，請參閱 [PKCE RFC](https://tools.ietf.org/html/rfc7636)。 |
 
 ### <a name="successful-response"></a>成功回應
@@ -218,19 +216,19 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 |--------------------|--------------------|------------------|
 | `invalid_request`  | 通訊協定錯誤，例如遺漏必要的參數。 | 修正並重新提交要求   |
 | `invalid_grant`    | 授權碼或 PKCE 代碼驗證器無效或已過期。 | 嘗試向 `/authorize` 端點提出新的要求，並確認 code_verifier 參數正確。  |
-| `unauthorized_client` | 未授權驗證用戶端使用此授權授與類型。 | 這通常會在用戶端應用程式未在 Azure AD 中註冊，或未加入至使用者的 Azure AD 租用戶時發生。 應用程式可以對使用者提示關於安裝應用程式，並將它加入至 Azure AD 的指示。 |
+| `unauthorized_client` | 驗證的用戶端未獲授權使用此授權授與類型。 | 當用戶端應用程式未在 Azure AD 中註冊，或不會新增至使用者的 Azure AD 租用戶，這通常會發生。 應用程式可以對使用者提示關於安裝應用程式，並將它加入至 Azure AD 的指示。 |
 | `invalid_client` | 用戶端驗證失敗。  | 用戶端認證無效。 若要修正，應用程式系統管理員必須更新認證。   |
 | `unsupported_grant_type` | 授權伺服器不支援授權授與類型。 | 變更要求中的授與類型。 這種類型的錯誤應該只會在開發期間發生，並且會在初始測試期間偵測出來。 |
-| `invalid_resource` | 目標資源無效，因為它不存在、Azure AD 無法找到它，或是它並未正確設定。 | 這表示尚未在租用戶中設定資源 (如果存在)。 應用程式可以對使用者提示關於安裝應用程式，並將它加入至 Azure AD 的指示。  |
+| `invalid_resource` | 目標資源無效，因為它不存在、 Azure AD 無法找到它，或是未正確設定。 | 這表示尚未在租用戶中設定資源 (如果存在)。 應用程式可以對使用者提示關於安裝應用程式，並將它加入至 Azure AD 的指示。  |
 | `interaction_required` | 要求需要使用者互動。 例如，必須進行其他驗證步驟。 | 使用同一资源重试请求。  |
-| `temporarily_unavailable` | 伺服器暫時過於忙碌而無法處理要求。 | 重試要求。 用戶端應用程式可能會向使用者解釋，說明其回應因暫時性狀況而延遲。 |
+| `temporarily_unavailable` | 伺服器暫時過於忙碌而無法處理要求。 | 重試要求。 用戶端應用程式可能會向使用者解釋其回應，因為暫時的狀況而延遲。 |
 
 ## <a name="use-the-access-token"></a>使用存取權杖
 
 既然您已經成功取得 `access_token`，您就可以透過在 `Authorization` 標頭中包含權杖，在 Web API 的要求中使用權杖：
 
 > [!TIP]
-> 在 Postman 中執行這項要求！ (先取代 `Authorization` 標頭) [![在 Postman 中執行](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
+> 在 Postman 中執行這項要求！ (先取代 `Authorization` 標頭) [![在 Postman 中執行](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```
 GET /v1.0/me/messages
@@ -261,8 +259,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> 嘗試在 Postman 中執行這項要求！ (別忘了取代 `refresh_token`) [![在 Postman 中執行](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/8f5715ec514865a07e6a)
-> 
+> 嘗試在 Postman 中執行這項要求！ (別忘了取代 `refresh_token`) [![在 Postman 中執行](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 > 
 
 | 參數     |                | 描述        |
@@ -270,9 +267,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `tenant`        | 必要     | 要求路徑中的 `{tenant}` 值可用來控制可登入應用程式的人員。 可以使用的值包括 `common`、`organizations`、`consumers` 和租户标识符。 如需更多詳細資訊，請參閱 [通訊協定基本概念](active-directory-v2-protocols.md#endpoints)。   |
 | `client_id`     | 必要    | **應用程式 （用戶端） 識別碼**可[Azure 入口網站-應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)指派給您的應用程式的體驗。 |
 | `grant_type`    | 必要    | 必須是授權碼流程此階段的 `refresh_token` 。 |
-| `scope`         | 必要    | 范围的空格分隔列表。 在此階段中要求的範圍必須相當於或為原始 authorization_code 要求階段中所要求的範圍子集。 如果這個要求中指定的範圍遍及多個資源伺服器，v2.0 端點就會傳回第一個範圍中所指定資源的權杖。 如需範圍的詳盡說明，請參閱 [權限、同意和範圍](v2-permissions-and-consent.md)。 |
+| `scope`         | 必要    | 范围的空格分隔列表。 在此階段中要求的範圍必須相當於或為原始 authorization_code 要求階段中所要求的範圍子集。 如果這個要求中指定的範圍遍及多個資源伺服器，Microsoft 身分識別平台端點會傳回第一個範圍中指定資源的權杖。 如需範圍的詳盡說明，請參閱 [權限、同意和範圍](v2-permissions-and-consent.md)。 |
 | `refresh_token` | 必要    | 您在流程的第二個階段中取得的 refresh_token。 |
-| `client_secret` | Web Apps 所需 | 在应用注册门户中为应用创建的应用程序机密。 其不應用於原生應用程式，因為裝置無法穩當地儲存 client_secret。 Web 应用和 Web API 都需要应用程序机密，能够将 client_secret 安全地存储在服务器端。 |
+| `client_secret` | Web Apps 所需 | 您在應用程式註冊入口網站中為應用程式建立的應用程式密碼。 它應該不能在原生應用程式中，因為 client_secret 無法可靠地儲存在裝置上。 您需要 web 應用程式和 web Api，能夠將 client_secret 安全地儲存在伺服器端。 |
 
 #### <a name="successful-response"></a>成功回應
 

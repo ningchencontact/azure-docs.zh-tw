@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/04/2019
 ms.author: mayg
-ms.openlocfilehash: 75c97a7feb63a100d322610b7e6d2e5c57bebda2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2156ee6cf27ecfa32b19ad5bbef7549e99c3f7ef
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889687"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492850"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>針對將 VMware VM 或實體機器容錯移轉至 Azure 時的錯誤進行疑難排解
 
@@ -76,10 +76,10 @@ Site Recovery 無法在 Azure 中建立已容錯移轉的虛擬機器。 這可�
 
 如果 Azure 中容錯移轉虛擬機器上的 [連線] 按鈕呈現灰色，而您未透過 Express Route 或網站間 VPN 連線來連線到 Azure，則請：
 
-1. 移至 [虛擬機器] > [網路]，按一下所需網路介面的名稱。  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+1. 移至 [虛擬機器] > [網路]，按一下所需網路介面的名稱。  ![網路介面](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
 2. 瀏覽至 [IP 組態]，然後按一下所需 IP 組態的名稱欄位。 ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
 3. 若要啟用公用 IP 位址，請按一下 [啟用]。 ![啟用 IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
-4. 按一下 [設定必要設定] > [建立新項目]。 ![建立新項目](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+4. 按一下 [設定必要設定] > [建立新項目]。 ![新建](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
 5. 輸入公用位址的名稱，選擇 [SKU] 和 [指派] 的預設選項，然後按一下 [確定]。
 6. 現在，為了儲存所做的變更，請按一下 [儲存]。
 7. 關閉面板，然後瀏覽至虛擬機器的 [概觀] 區段來進行連線/RDP。
@@ -132,8 +132,10 @@ Site Recovery 無法在 Azure 中建立已容錯移轉的虛擬機器。 這可�
  
 此錯誤會以安裝記錄檔中的下列字串： 
 
-RegisterHostStaticInfo 發生失敗的例外狀況 config/talwrapper.cpp(107) [post] CurlWrapper Post： 伺服器：10.38.229.221，連接埠：443，phpUrl: request_handler.php，安全： 為 true，ignoreCurlPartialError: false，錯誤: [at curlwrapperlib/curlwrapper.cpp:processCurlResponse:231] 無法張貼要求：(35)-SSL 連線錯誤。 
- 
+```
+RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] CurlWrapper Post failed : server : 10.38.229.221, port : 443, phpUrl : request_handler.php, secure : true, ignoreCurlPartialError : false with error: [at curlwrapperlib/curlwrapper.cpp:processCurlResponse:231]   failed to post request: (35) - SSL connect error. 
+```
+
 若要解決此問題：
  
 1. 在組態伺服器 VM 上，開啟命令提示字元，並確認 proxy 設定，使用下列命令：

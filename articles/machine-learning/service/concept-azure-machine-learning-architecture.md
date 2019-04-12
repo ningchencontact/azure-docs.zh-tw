@@ -1,29 +1,31 @@
 ---
-title: 雲端的機器學習服務：詞彙與架構
+title: 架構與重要概念
 titleSuffix: Azure Machine Learning service
-description: 了解組成 Azure Machine Learning 服務的架構、技術與概念。 您也會了解使用服務的一般工作流程，以及 Azure Machine Learning 服務所使用的 Azure 服務。
+description: 深入了解架構、 條款、 概念和 Azure Machine Learning 服務所組成的工作流程。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 12/04/2018
+ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1cc1b1584fdeb24aaba07f33cc260532c75249a2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 83ca4d2bf767d338943c396330b36f3f8180e170
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269124"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489942"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 服務的運作方式：架構和概念
 
-本文說明 Azure Machine Learning 服務的架構與概念。 服務的主要元件以及使用服務時的一般工作流程顯示在下圖中：
+深入了解架構、 概念和 Azure Machine Learning 服務的工作流程。 服務的主要元件以及使用服務時的一般工作流程顯示在下圖中：
 
 [![Aazure Machine Learning 服務架構和工作流程](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
-工作流程一般遵循下列順序：
+## <a name="workflow"></a>工作流程
+
+機器學習服務工作流程通常會遵循此順序：
 
 1. 使用 **Python** 開發機器學習服務定型指令碼。
 1. 建立並設定**計算目標**。

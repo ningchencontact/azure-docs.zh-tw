@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: f00c816f34978ee2f14f16ee9882860750d0e658
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 7e90e42f768ceb333ac90f56249457ffa46ae461
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051881"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490991"
 ---
 # <a name="traffic-analytics"></a>流量分析
 
@@ -173,15 +173,16 @@ New-AzStorageAccount `
 選取下列選項，如下圖所示：
 
 1. 針對 [狀態] 選取 [開啟]。
-2. 選取用來儲存流量記錄的現有儲存體帳戶。 如果您想要永久儲存資料，請將值設為 *0*。 您的儲存體帳戶會產生 Azure 儲存體費用。
-3. 將 [保留] 設為您要儲存資料的天數。
-4. 針對 [流量分析狀態]，選取 [開啟]。
-5. 選取現有的 Log Analytics 工作區，或選取**建立新的工作區**建立新的帳戶。 流量分析會使用 Log Analytics 工作區來儲存已彙總並編製索引的資料，而這些資料後續將用來產生分析。 如果您選取現有的工作區時，該工作區必須存在於其中一個支援區域中，並且已升級至新的查詢語言。 如果您不想要升級現有的工作區，或是沒有支援區域中的工作區，請建立新的工作區。 如需有關查詢語言的詳細資訊，請參閱[Azure 監視器記錄升級為新的記錄搜尋](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
+2. 選取 *第 2 版*for**流量記錄版本**。 第 2 版包含流量工作階段統計資料 (位元組和封包)
+3. 選取用來儲存流量記錄的現有儲存體帳戶。 如果您想要永久儲存資料，請將值設為 *0*。 您的儲存體帳戶會產生 Azure 儲存體費用。
+4. 將 [保留] 設為您要儲存資料的天數。
+5. 針對 [流量分析狀態]，選取 [開啟]。
+6. 選取現有的 Log Analytics (OMS) 工作區，或選取 [建立新的工作區] 以建立新工作區。 流量分析會使用 Log Analytics 工作區來儲存已彙總並編製索引的資料，而這些資料後續將用來產生分析。 如果您選取現有的工作區時，該工作區必須存在於其中一個[支援區域](#supported-regions)中，並且已升級至新的查詢語言。 如果您不想要升級現有的工作區，或是沒有支援區域中的工作區，請建立新的工作區。 如需關於查詢語言的詳細資訊，請參閱 [Azure Log Analytics 升級為新的記錄搜尋](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
 
-    在相同區域中沒有裝載流量分析解決方案和 Nsg 的 Log Analytics 工作區。 例如，您可以用西歐區域的工作區來處理流量分析，而 NSG 則位於美國東部和美國西部。 在相同的工作區中可設定多個 NSG。
-6. 選取 [ **儲存**]。
+    裝載流量分析解決方案和 NSG 的記錄分析工作區不需要位於相同區域中。 例如，您可以用西歐區域的工作區來處理流量分析，而 NSG 則位於美國東部和美國西部。 在相同的工作區中可設定多個 NSG。
+7. 選取 [ **儲存**]。
 
-    ![選取儲存體帳戶、Log Analytics 工作區和啟用流量分析](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement.png)
+    ![選取儲存體帳戶、Log Analytics 工作區和啟用流量分析](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
 
 針對要啟用流量分析的任何其他 NSG 重複前述步驟。 流量記錄中的資料會傳送至工作區，因此請確定您所在國家/地區的當地法律和規範允許在工作區所在的區域中進行資料儲存。
 
@@ -300,7 +301,7 @@ New-AzStorageAccount `
     ![顯示虛擬網路分布的儀表板](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - 「虛擬網路拓撲」會顯示頂端功能區以供您選取參數，例如虛擬網路 (內部虛擬網路連線/使用中/非使用中)、外部連線、使用中流量，以及虛擬網路的惡意流量。
-- 您可以依照訂用帳戶、工作區、資源群組和時間間隔篩選虛擬網路拓撲。 可協助您了解流程的其他篩選器包括：流程類型 (內部 Vnet、IntraVNET 等)、流程方向 (「輸入」、「輸出」)、流程狀態 (「允許」、「封鎖」)、Vnet (「鎖定目標」和「已連線」)、連線類型 (「對等互連」或「閘道」- P2S 和 S2S) 和 NSG。 使用這些篩選條件將焦點放在您想要檢查詳細資料的 Vnet。
+- 您可以依照訂用帳戶、工作區、資源群組和時間間隔篩選虛擬網路拓撲。 可協助您了解流程的其他篩選器包括：流程 （內部 Vnet、 IntraVNET，等等） 的型別、 流程方向 （輸入、 輸出），流量狀態 （允許、 封鎖），Vnet （目標和連線），連線類型 (對等互連或閘道-P2S 和 S2S)，和 NSG。 使用這些篩選條件將焦點放在您想要檢查詳細資料的 Vnet。
 - 「虛擬網路拓撲」會以若干層面來顯示虛擬網路的流量分布，例如流量 (允許/封鎖/輸入/輸出/良性/惡意)、應用程式通訊協定，以及網路安全性群組：
 
     ![顯示流量分布和流量詳細資料的虛擬網路拓撲](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)

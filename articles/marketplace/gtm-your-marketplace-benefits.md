@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 3fa4fb9fb7accfbe4517e2bf917a3df31ea10fa7
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 896e5a3f3b5c9f7d217340c396707718adf93dbb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887245"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489566"
 ---
 # <a name="your-marketplace-benefits"></a>您的市集優惠
 
@@ -73,7 +73,7 @@ Azure Marketplace 和 AppSource 中的新清單都有資格透過我們的 Micro
 
 \* 需要銀級或金級專長認證。 <br>
 \*\* 需要金級專長認證。 <br>
-\*\*\* 在 OCP 目錄中需要金級專長認證和共同銷售準備就緒清單。 <br>
+\*\*\* 需要金級專長認證，以及共同銷售準備就緒在協力廠商清單中。 <br>
 ^ 僅限 Transact，適用於 Azure Marketplace。
 
 ## <a name="next-steps"></a>後續步驟

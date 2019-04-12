@@ -1,6 +1,6 @@
 ---
-title: 收集 Microsoft Azure Sentinel 預覽版中的 web 應用程式防火牆資料 |Microsoft Docs
-description: 了解如何收集在 Azure Sentinel Microsoft web 應用程式防火牆資料。
+title: Microsoft web 應用程式防火牆資料連線至 Azure 的 Sentinel Preview |Microsoft Docs
+description: 了解如何將 Microsoft web 應用程式防火牆資料連接至 Azure 的 Sentinel。
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2238060acb60b1be0d06b81f62fb45a7f1c7a9b6
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 5316fa7e3aa4465349b762b99bec9171f821062f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580594"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491025"
 ---
-# <a name="collect-data-from-microsoft-web-application-firewall"></a>收集資料，從 Microsoft web 應用程式防火牆
+# <a name="connect-data-from-microsoft-web-application-firewall"></a>將資料連接，從 Microsoft web 應用程式防火牆
 
 > [!IMPORTANT]
 > Azure Sentinel 目前為公開預覽狀態。
@@ -39,15 +39,15 @@ ms.locfileid: "58580594"
 如果您已經有 Microsoft web 應用程式防火牆，請確定您有現有的閘道資源。
 一旦部署您的 Microsoft web 應用程式防火牆，並取得資料，請參閱警示的資料可以輕鬆地串流到 Azure 的 Sentinel。
     
-5. 在 Azure Sentinel 入口網站中，選取**資料連接器**。
-5. 在 [資料連接器] 頁面中，選取**WAF**圖格。
+1. 在 Azure Sentinel 入口網站中，選取**資料連接器**。
+1. 在 [資料連接器] 頁面中，選取**WAF**圖格。
 1. 移至[應用程式閘道資源](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) 選擇 WAF。
     1. 選取  **診斷設定**。
     1. 選取  **+ 新增診斷設定**資料表下。
     1. 在  **診斷設定**頁面上，輸入 **名稱**，然後選取 **傳送至 Log Analytics**。
     1. 底下**Log Analytics 工作區**選取 [Azure Sentinel] 工作區。
     1. 選取您想要分析的記錄類型。 我們建議使用：ApplicationGatewayAccessLog 和 ApplicationGatewayFirewallLog。
-6. 若要使用 Log Analytics 中 Microsoft 的 web 應用程式防火牆警示相關的結構描述，搜尋**AzureDiagnostics**。
+1. 若要使用 Log Analytics 中 Microsoft 的 web 應用程式防火牆警示相關的結構描述，搜尋**AzureDiagnostics**。
 
 ## <a name="next-steps"></a>後續步驟
 在本文件中，您已了解如何連接至 Azure 的 Sentinel 的 Microsoft web 應用程式防火牆。 若要深入了解 Azure Sentinel，請參閱下列文章：

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: d6c46d6ebfa8ae44c9bfac4929d3478f6701758a
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: c767406ceec703b5c14680ec96fdf703c2316044
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497834"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500136"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>訊息工作階段：先進先出 (FIFO) 
 
@@ -51,7 +51,7 @@ Microsoft Azure 服務匯流排工作階段能夠聯合和依序處理未繫結�
 
 [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) 接收者會由接受工作階段的用戶端所建立。 用戶端會在 C# 中呼叫 [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) 或 [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync)。 在回應式回呼模型中，它會註冊工作階段處理常式。
 
-接受 [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) 物件且由用戶端加以保留時，該用戶端就會在具有該工作階段之 [SessionId](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) (存在於佇列或訂用帳戶中) 的所有訊息上保留獨佔鎖定，同時也會在具有保留工作階段時仍會送達之 **SessionId** 的所有訊息上保留獨佔鎖定。
+接受 [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) 物件且由用戶端加以保留時，該用戶端就會在具有該工作階段之 [SessionId](/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) (存在於佇列或訂用帳戶中) 的所有訊息上保留獨佔鎖定，同時也會在具有保留工作階段時仍會送達之 **SessionId** 的所有訊息上保留獨佔鎖定。
 
 鎖定會在呼叫 **Close** 或 **CloseAsync** 時釋放，或者當鎖定在應用程式無法執行關閉作業而到期時加以釋放。 工作階段鎖定應被視為類似檔案上的獨佔鎖定，這表示只要應用程式不再需要工作階段和 (或) 不預期會有任何後續訊息時，就應儘速關閉該工作階段。
 

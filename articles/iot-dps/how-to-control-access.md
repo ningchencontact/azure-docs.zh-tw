@@ -2,18 +2,18 @@
 title: IoT 裝置佈建服務中的安全性端點 | Microsoft Docs
 description: 概念 - 如何控制後端應用程式之 IoT 裝置佈建服務的存取權。 包含安全性權杖的相關資訊。
 author: wesmc7777
-manager: timlt
+manager: philmea
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 09/28/2017
+ms.date: 04/09/2019
 ms.author: wesmc
-ms.openlocfilehash: 0258a37b0614ca7505a90f88afaaaee1a6d5c04e
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 7ff622ceac9c49eda7ba6bca1a8bb3aaabccb816
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55496954"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495425"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>控制 Azure IoT 中樞裝置佈建服務的存取權
 
@@ -39,7 +39,7 @@ ms.locfileid: "55496954"
 > [!NOTE]
 > 如需詳細資訊，請參閱[權限](#device-provisioning-service-permissions)。
 
-## <a name="authentication"></a>驗證
+## <a name="authentication"></a>Authentication
 
 Azure IoT 中樞裝置佈建服務可根據共用存取原則驗證權杖，以授與端點的存取權。 安全性認證 (例如對稱金鑰) 決不會在網路上傳送。
 
@@ -75,7 +75,7 @@ SharedAccessSignature sr =
 
 以下是預期的值：
 
-| 值 | 說明 |
+| 值 | 描述 |
 | --- | --- |
 | {signature} |HMAC-SHA256 簽章字串，格式為： `{URL-encoded-resourceURI} + "\n" + expiry`。 **重要事項**：金鑰是從 base64 解碼而來，並且會做為用來執行 HMAC-SHA256 計算的金鑰。|
 | {expiry} |從新紀元時間 (Epoch) 1970 年 1 月 1日 00:00:00 UTC 時間至今秒數的 UTF8 字串。 |
@@ -137,7 +137,7 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 
 ### <a name="use-security-tokens-from-service-components"></a>使用來自服務元件的安全性權杖
 
-服務元件只能使用授與適當權限的共用存取原則來產生安全性權杖，如上所述。
+如前所述，服务组件使用共享访问策略只能生成安全令牌，授予适当权限。
 
 以下是在端點上公開的服務功能︰
 

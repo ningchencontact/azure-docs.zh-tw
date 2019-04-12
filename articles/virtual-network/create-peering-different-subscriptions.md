@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: 了解如何在透過 Resource Manager 建立且存在於不同 Azure 訂用帳戶中的虛擬網路之間，建立虛擬網路對等互連。
 services: virtual-network
 documentationcenter: ''
-author: jimdial
+author: anavinahar
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
-ms.author: jdial;anavin
-ms.openlocfilehash: 2965f72a1f0532cd9e13d5fa03750cf4ed8bab99
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.date: 04/09/2019
+ms.author: anavin
+ms.openlocfilehash: ff8c866f62e8d795f04491cf249b7dae26c8269c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403455"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492289"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>建立虛擬網路對等互連 - Resource Manager，不同訂用帳戶
 
@@ -28,7 +28,7 @@ ms.locfileid: "58403455"
 |Azure 部署模型  | Azure 訂用帳戶  |
 |--------- |---------|
 |[兩者皆使用 Resource Manager](tutorial-connect-virtual-networks-portal.md) |相同|
-|[一个为资源管理器模型，一个为经典模型](create-peering-different-deployment-models.md) |相同|
+|[一個使用 Resource Manager、一個使用傳統部署模型](create-peering-different-deployment-models.md) |相同|
 |[一個使用 Resource Manager、一個使用傳統部署模型](create-peering-different-deployment-models-subscriptions.md) |不同|
 
 虛擬網路對等互連無法在透過傳統部署模型建立的兩個虛擬網路之間建立。 如果您需要將兩個都是透過傳統部署模型建立的虛擬網路連接，可以使用 Azure [VPN 閘道](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)來連接這些虛擬網路。
@@ -39,7 +39,9 @@ ms.locfileid: "58403455"
 
 ## <a name="portal"></a>建立對等互連 - Azure 入口網站
 
-如果要對等互連的虛擬網路位於與不同 Azure Active Directory 租用戶相關聯的訂用帳戶中，請遵循本文之 CLI 和 PowerShell 章節中的步驟。 入口網站不支援屬於來自不同 Active Directory 租用戶之訂用帳戶的對等互連虛擬網路。
+如果要對等互連的虛擬網路位於與不同 Azure Active Directory 租用戶相關聯的訂用帳戶中，請遵循本文之 CLI 和 PowerShell 章節中的步驟。 入口網站不支援屬於來自不同 Active Directory 租用戶之訂用帳戶的對等互連虛擬網路。 
+
+請注意，Cloud Shell 中切換訂用帳戶和租用戶因為 VNet 對等互連或全球 VNet 對等互連 Vnet 屬於不同 Azure Active Directory 租用戶中訂用帳戶之間將無法運作的限制。 請使用 PowerShell 或 CLI。
 
 下列步驟針對每個訂用帳戶使用不同的帳戶。 如果您使用對兩個訂用帳戶都有權限的帳戶，便可以使用該相同帳戶來進行所有步驟、略過登出入口網站的步驟，以及略過指派另一位使用者權限給虛擬網路的步驟。
 

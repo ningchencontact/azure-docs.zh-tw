@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.openlocfilehash: dead1fae9bc3287ed0fc80c6120914e965ef96dd
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470724"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493020"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Azure 監視器中的檢視表設計工具視覺效果組件參考指南
 透過 Azure 監視器中檢視表設計工具，您可以建立各種不同的自訂檢視，在 Azure 入口網站中，可協助您以視覺化方式檢視您的 Log Analytics 工作區中的資料。 此文章是自訂檢視中可用的視覺效果組件設定的參考指南。

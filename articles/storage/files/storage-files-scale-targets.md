@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 7/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 9cbb44fed8a9cc9e30e70e58f33fb943ee43b412
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 630ad1e0558fc089d79eee50175e497b771a0a8a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269158"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494964"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure 檔案服務延展性和效能目標
 
@@ -76,9 +76,9 @@ Azure 檔案共用的父資源是 Azure 儲存體帳戶。 儲存體帳戶代表
 
 | 初始一次性佈建  |  |
 |-|-|
-| 物件數目 | 1 千萬個物件 |
-| 資料集大小| ~4 TiB |
-| 平均檔案大小 | ~500 KiB (最大檔案：100 GiB) |
+| 物件數目 | 2500 萬個物件 |
+| 資料集大小| ~4.7 TiB |
+| 平均檔案大小 | ~ 200 KiB (最大的檔案：100 GiB) |
 | 上傳輸送量 | 每秒 20 個物件 |
 | 命名空間下載輸送量* | 每秒 400 個物件 |
 

@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/21/2019
-ms.author: jdial;anavin
-ms.openlocfilehash: e0a5674d434d997d04bfd42ca0e0863c11046d69
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.date: 04/01/2019
+ms.author: anavin
+ms.openlocfilehash: fdc3a0030859e97cb81b8b9f6a66de1901b6eb3b
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882898"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491282"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>建立、變更或刪除虛擬網路對等互連
 
@@ -113,7 +113,7 @@ ms.locfileid: "58882898"
 - <a name="cross-region"></a>您可以將相同區域或不同區域中的虛擬網路對等互連。 對等互連不同區域中的虛擬網路也稱為*全域 VNet 對等互連*。 
 - 建立全域對等互連，對等互連的虛擬網路可以位於任何 Azure 公用雲端區域或中國雲端區域或政府雲端區域。 您不能跨雲端對等互連。 例如，Azure 公用雲端中的 VNet 不能對等互連 Azure 中國雲端中的 VNet。
 - 一個虛擬網路中的資源無法與全域對等互連的虛擬網路中的基本的內部負載平衡器的前端 IP 位址通訊。 基本 Load Balancer 支援只存在於相同區域內。 標準 Load Balancer 支援存在，VNet 對等互連和全域 VNet 對等互連。
-- 您可以使用遠端閘道，或全域對等互連在預覽中的虛擬網路中允許閘道傳輸。 預覽適用於所有 Azure 區域、 中國雲端區域和政府雲端區域。 需要未列入允許清單。 您可以透過 CLI、 PowerShell、 範本或 API 的預覽中進行測試。 在預覽中不支援入口網站。
+- 您可以使用遠端閘道，或允許閘道傳輸全域對等互連的虛擬網路和本機對等互連的虛擬網路中。
 - 虛擬網路可位於相同或不同的訂用帳戶。 當您將不同訂用帳戶中的虛擬網路對等互連時，這兩個訂用帳戶可以與相同或不同的 Azure Active Directory 租用戶相關聯。 如果您還沒有 AD 租用戶，您可以[建立一個](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant)。 入口網站中不提供跨虛擬網路 (來自與不同 Azure Active Directory 租用戶相關聯的訂用帳戶) 進行對等互連的支援。 您可以使用 CLI、PowerShell 或範本。
 - 要建立對等互連的虛擬網路必須有非重疊的 IP 位址空間。
 - 一旦虛擬網路與另一個虛擬網路對等互連，您便無法在虛擬網路中新增或刪除位址範圍。 若要新增或移除位址範圍，請刪除對等互連，新增或移除位址範圍，然後重新建立對等互連。 若要在虛擬網路新增或移除位址範圍，請參閱[管理虛擬網路](manage-virtual-network.md)。

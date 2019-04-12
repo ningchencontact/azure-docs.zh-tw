@@ -1,6 +1,6 @@
 ---
-title: 收集 Azure Sentinel 預覽版中的 Windows 安全性事件資料 |Microsoft Docs
-description: 了解如何收集 Azure Sentinel 中的 Windows 安全性事件資料。
+title: 連線至 Azure 的 Sentinel Preview 的 Windows 安全性事件資料 |Microsoft Docs
+description: 了解如何連接到 Azure Sentinel 的 Windows 安全性事件資料。
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 90bff4cd98046a42fa31d98ff00e76d7fc9ac307
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d131d39a9d9770046fa3f9368250204e4d0b0162
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576083"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491947"
 ---
 # <a name="connect-windows-security-events"></a>連線 Windows 安全性事件 
 
@@ -42,7 +42,7 @@ ms.locfileid: "58576083"
 
 若要完全與 Azure Sentinel 整合您的 Windows 安全性事件：
 
-1. 在 Azure Sentinel 入口網站中，選取**資料收集**，然後按一下**Windows 安全性事件**圖格。 
+1. 在 Azure Sentinel 入口網站中，選取**資料連接器**，然後按一下**Windows 安全性事件**圖格。 
 1. 選取您要串流處理的資料類型。
 1. 按一下 [更新] 。
 6. 若要使用 Log Analytics 中的 Windows 安全性事件相關的結構描述，搜尋**SecurityEvent**。

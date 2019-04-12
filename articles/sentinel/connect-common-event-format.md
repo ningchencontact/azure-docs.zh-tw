@@ -1,6 +1,6 @@
 ---
-title: 收集 Azure Sentinel 預覽版中的 CEF 資料 |Microsoft Docs
-description: 了解如何收集在 Azure Sentinel CEF 資料。
+title: CEF 資料連接至 Azure 的 Sentinel 預覽 |Microsoft Docs
+description: 了解如何將 CEF 資料連接至 Azure 的 Sentinel。
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2117a139de52643f7cdbc6d054f46e5fb8ec0a77
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: 18eb305beb79913713898b939ef840ca9ffab014
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59005609"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489394"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>連接您外部解決方案中使用常見事件格式
 
@@ -29,8 +29,7 @@ ms.locfileid: "59005609"
 
 您可以連接 Azure Sentinel 外部的解決方案，可讓您將 Syslog 中儲存的記錄檔。 如果您的應用裝置可讓您將記錄檔儲存為 Syslog 常見事件格式 (CEF)，與 Azure Sentinel 整合可讓您輕鬆地執行分析和查詢資料。
 
-> [!NOTE]
-> 
+> [!NOTE] 
 > 資料會儲存在您在執行 Azure Sentinel 的工作區的地理位置。
 
 ## <a name="how-it-works"></a>運作方式
@@ -59,7 +58,7 @@ Azure Sentinel 與您的 CEF 設備之間的連線會發生在三個步驟：
 ### <a name="deploy-the-agent-in-azure"></a>部署在 Azure 中的代理程式
 
 
-1. 在 Azure Sentinel 入口網站中，按一下**資料收集**，然後選取您的設備類型。 
+1. 在 Azure Sentinel 入口網站中，按一下**資料連接器**，然後選取您的設備類型。 
 
 1. 底下**Linux Syslog 代理程式設定**:
    - 選擇**自動部署**如果您想要建立新的機器會預先安裝 Azure Sentinel 代理程式，並且包含所有組態必要，如上面所述。 選取 **自動部署**然後按一下**自動代理程式部署**。 這會帶您前往 [購買] 頁面的專用的 Linux 虛擬機器，即會自動連接到您的工作區。 VM 處於**標準 D2s v3 系列 （2 個 vcpu，8 GB 記憶體）** 且具有公用 IP 位址。
@@ -96,7 +95,7 @@ Azure Sentinel 與您的 CEF 設備之間的連線會發生在三個步驟：
 如果您未使用 Azure，以手動方式部署 Azure Sentinel 代理程式專用的 Linux 伺服器上執行。
 
 
-1. 在 Azure Sentinel 入口網站中，按一下**資料收集**，然後選取您的設備類型。
+1. 在 Azure Sentinel 入口網站中，按一下**資料連接器**，然後選取您的設備類型。
 1. 底下建立專用的 Linux VM **Linux Syslog 代理程式設定**選擇**手動部署**。
    1. 底下**下載並安裝代理程式 Syslog**，選取**非 Azure Linux 機器**。 
    1. 在 **直接代理程式**畫面隨即開啟，並選取**Agent for Linux**下載代理程式，或執行下列命令來下載您的 Linux 機器上：   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`

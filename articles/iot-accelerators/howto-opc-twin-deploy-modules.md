@@ -1,5 +1,5 @@
 ---
-title: 如何部署 Azure IoT OPC UA 裝置管理模組從頭 |Microsoft Docs
+title: 如何部署適用於 Azure 的 OPC 對應項的模組，從頭 |Microsoft Docs
 description: 如何從零開始部署 OPC 對應項。
 author: dominicbetts
 ms.author: dobett
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: fe1b141ecacbd1d96c217322e69709828a3bf36c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f470beb79e69b5a4a3febeb6a433c48490b96cf7
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759372"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491351"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>部署 OPC 對應項的模組，並從可用的相依性
 
-OPC 裝置對應項的模組會在 IoT Edge 上執行，並提供數個 edge 服務的 OPC 裝置對應項和登錄服務。 
+OPC 對應項的模組會在 IoT Edge 上執行，並提供數個邊緣服務以 OPC 裝置對應項，登錄服務。 
 
 有數個選項可將模組來部署您[Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/)閘道，在它們之間
 
@@ -109,7 +109,7 @@ OPC 裝置對應項的模組會在 IoT Edge 上執行，並提供數個 edge 服
 
 ### <a name="prerequisites"></a>必要條件
 
-1. 部署的 OPC UA 裝置管理[相依性](howto-opc-twin-deploy-dependencies.md)並取得所產生的`.env`檔案。 請注意已部署`hub name`的`PCS_IOTHUBREACT_HUB_NAME`中所產生的使用者定義變數`.env`檔案。
+1. 部署 OPC 對應項[相依性](howto-opc-twin-deploy-dependencies.md)並取得所產生的`.env`檔案。 請注意已部署`hub name`的`PCS_IOTHUBREACT_HUB_NAME`中所產生的使用者定義變數`.env`檔案。
 
 2. 註冊並啟動[Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)或是[Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) IoT Edge 閘道，並記下其`device id`。
 
@@ -205,7 +205,7 @@ OPC 裝置對應項的模組會在 IoT Edge 上執行，並提供數個 edge 服
 
 ### <a name="prerequisites"></a>必要條件
 
-1. 部署的 OPC UA 裝置管理[相依性](howto-opc-twin-deploy-dependencies.md)。
+1. 部署 OPC 對應項[相依性](howto-opc-twin-deploy-dependencies.md)。
 
 2. 安裝[Docker CE (18.02.0+)](https://www.docker.com/community-edition)上[Windows](https://docs.docker.com/docker-for-windows/install/)， [macOS](https://docs.docker.com/docker-for-mac/install/)或是[Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce)。
 

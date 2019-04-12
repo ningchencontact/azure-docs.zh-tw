@@ -12,33 +12,38 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 9915392f7bb12b31dce6e141383a48b69c6f70a9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 55eee839e24db2ad96eb635adc488e9a119c5907
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842765"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501190"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>如何將服務匯流排佇列搭配 PHP 使用
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-本指南將說明如何使用服務匯流排佇列。 這些範例均是以 PHP 撰寫，並使用 [Azure SDK for PHP](../php-download-sdk.md) (英文)。 本文說明的案例包括**建立佇列**、**傳送並接收訊息**，以及**刪除佇列**。
+在本教學課程中，您將了解如何建立 PHP 應用程式，來傳送和接收來自服務匯流排佇列的訊息。 
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>必要條件
+1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用您[MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或是註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+2. 如果您沒有要使用的佇列，後續步驟[使用 Azure 入口網站來建立服務匯流排佇列](service-bus-quickstart-portal.md)文章，以建立佇列。
+    1. 閱讀快速**概觀**的服務匯流排**佇列**。 
+    2. 建立服務匯流排**命名空間**。 
+    3. 取得**連接字串**。 
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+        > [!NOTE]
+        > 您將建立**佇列**在本教學課程中使用 PHP 的服務匯流排命名空間中。 
+3. [Azure SDK for PHP](../php-download-sdk.md)
 
 ## <a name="create-a-php-application"></a>建立 PHP 應用程式
 若要建立 PHP 應用程式並使其存取 Azure Blob 服務，唯一要求就是在您的程式碼中參考 [Azure SDK for PHP](../php-download-sdk.md) 中的類別。 您可以使用任何開發工具來建立應用程式，或記事本。
 
 > [!NOTE]
-> 在安装 PHP 的过程中，还必须安装并启用 [OpenSSL 扩展](https://php.net/openssl) 。
-> 
-> 
+> 您的 PHP 安裝也必須已安裝並啟用 [OpenSSL 延伸模組](https://php.net/openssl)。
 
-在本指南中，您將使用可從 PHP 應用程式內本機呼叫的服務功能，或可從 Azure Web 角色、背景工作角色或網站內執行的程式碼中呼叫的資料表服務功能。
+在本指南中，您將使用 PHP 應用程式內本機，或在 Azure web 角色、 背景工作角色或網站內執行的程式碼可以從呼叫的服務功能。
 
 ## <a name="get-the-azure-client-libraries"></a>取得 Azure 用戶端程式庫
 [!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
@@ -128,7 +133,7 @@ catch(ServiceException $e){
 > 
 
 ## <a name="send-messages-to-a-queue"></a>傳送訊息至佇列
-若要將訊息傳送至服務匯流排佇列，應用程式會呼叫 `ServiceBusRestProxy->sendQueueMessage` 方法。 下面的代码演示了如何将消息发送到先前在 `MySBNamespace` 服务命名空间内创建的 `myqueue` 队列。
+若要將訊息傳送至服務匯流排佇列，應用程式會呼叫 `ServiceBusRestProxy->sendQueueMessage` 方法。 下列程式碼示範如何將訊息傳送至先前在 `MySBNamespace` 服務命名空間中建立的 `myqueue` 佇列。
 
 ```php
 require_once 'vendor/autoload.php';
@@ -158,7 +163,7 @@ catch(ServiceException $e){
 }
 ```
 
-傳送至 (和接收自) 服務匯流排佇列的訊息是 [BrokeredMessage][BrokeredMessage] 類別的執行個體。 [BrokeredMessage][BrokeredMessage] 物件具有一組標準方法和屬性，可用來保存自訂的應用程式特定屬性，以及任意的應用程式資料。
+傳送至 （及接收自） 服務匯流排訊息佇列是的執行個體[BrokeredMessage] [ BrokeredMessage]類別。 [BrokeredMessage][BrokeredMessage] 物件具有一組標準方法和屬性，可用來保存自訂的應用程式特定屬性，以及任意的應用程式資料。
 
 服務匯流排佇列支援的訊息大小上限：在[標準層](service-bus-premium-messaging.md)中為 256 KB 以及在[進階層](service-bus-premium-messaging.md)中為 1 MB。 標頭 (包含標準和自訂應用程式屬性) 可以容納 64 KB 的大小上限。 佇列中所保存的訊息數目沒有限制，但佇列所保存的訊息大小總計會有最高限制。 佇列大小的這項上限為 5 GB。
 

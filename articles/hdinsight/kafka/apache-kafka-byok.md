@@ -9,11 +9,11 @@ ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: b5f7c472c8ebd60d8e7f928534834c9672fe3b14
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471302"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489014"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>在 Azure HDInsight 上攜帶您自己的 Apache Kafka 金鑰 (預覽)
 

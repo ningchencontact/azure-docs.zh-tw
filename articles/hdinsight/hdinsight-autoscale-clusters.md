@@ -1,5 +1,5 @@
 ---
-title: 自動調整 Azure HDInsight 叢集 （預覽）
+title: 自动缩放 Azure HDInsight 群集（预览）
 description: 使用 HDInsight 自動調整功能自動調整叢集規模
 services: hdinsight
 author: hrasheed-msft
@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 28f04f5ab3cf8310a6ee3828405910d34b31591b
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 9631e4b82ceb14a98740491b98288d75dd23f9a3
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227571"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501003"
 ---
-# <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>自動調整 Azure HDInsight 叢集 （預覽）
+# <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>自动缩放 Azure HDInsight 群集（预览）
 
 >[!Important]
->HDInsight 自動調整功能目前為預覽狀態。 請傳送電子郵件給hdiautoscalepm@microsoft.com能夠啟用您的訂用帳戶的自動調整。
+>HDInsight 自动缩放功能目前以预览版提供。 若要为订阅启用自动缩放，请向 hdiautoscalepm@microsoft.com 发送电子邮件。
 
 Azure HDInsight 的叢集自動調整功能可根據預先定義範圍內的負載，自動相應增加和減少叢集中背景工作節點的數目。 在建立新的 HDInsight 叢集時，可以設定最小和最大的背景工作節點數目。 系統在自動調整後會監視分析負載的資源需求，並據以相應增加或減少背景工作節點數目。 這項功能不需額外付費。
 
@@ -30,11 +30,11 @@ Azure HDInsight 的叢集自動調整功能可根據預先定義範圍內的負�
 > [!Note]
 > 目前只有 Azure HDInsight Hive、MapReduce 和 Spark 叢集 3.6 版支援自動調整。
 
-若要啟用自動調整功能，執行下列一般叢集建立程序的一部分：
+若要启用自动缩放功能，请在正常群集创建过程中执行以下操作：
 
 1. 選取 [自訂 (大小、設定、應用程式)]，而非 [快速建立]。
 2. 在 [自訂] 步驟 5 [(叢集大小)]上，勾選 [背景工作節點自動調整] 核取方塊。
-3. 下列屬性輸入所需的值：  
+3. 为以下属性输入所需的值：  
 
     * 初始**背景工作節點數目**。  
     * 背景工作節點**最小**數目。  
@@ -83,11 +83,11 @@ Azure HDInsight 的叢集自動調整功能可根據預先定義範圍內的負�
 
 ### <a name="enable-and-disable-autoscale-for-a-running-cluster"></a>針對正在執行的叢集啟用和停用自動調整
 
-您可以啟用或停用自動調整在 Azure 入口網站的 於 2019 年 1 月 1 日之後建立的 HDInsight 叢集。
+您只能啟用或停用自動調整為新的 HDInsight 叢集。
 
 ## <a name="monitoring"></a>監視
 
-您可以檢視叢集計量的叢集相應增加和相應減少歷程的記錄。 您也可以列出過去一天、一週或更長期間的所有規模調整動作。
+可查看群集指标中包含的群集增加和减少历史记录。 您也可以列出過去一天、一週或更長期間的所有規模調整動作。
 
 ## <a name="how-it-works"></a>運作方式
 
@@ -100,27 +100,27 @@ Azure HDInsight 的叢集自動調整功能可根據預先定義範圍內的負�
 3. **可用的 CPU 總計**：作用中背景工作節點上所有未使用核心的總和。
 4. **可用的記憶體總計**：作用中背景工作節點上所有未使用記憶體的總和 (MB)。
 5. **每個節點的已使用記憶體**：背景工作節點上的負載。 已使用 10 GB 記憶體的背景工作節點會被視為所承受的負載高於已使用 2 GB 記憶體的背景工作節點。
-6. **每個節點的應用程式主機數目**：背景工作節點上執行的應用程式主機 (AM) 容器數目。 裝載兩個的上午容器在背景工作節點會被視為比裝載零上午容器在背景工作節點更重要的。
+6. **每個節點的應用程式主機數目**：背景工作節點上執行的應用程式主機 (AM) 容器數目。 托管两个 AM 容器的工作节点被认为比托管零个 AM 容器的工作节点更重要。
 
-系統每隔 60 秒就會檢查上述計量。 自動調整規模將根據這些計量的向上延展和向下調整決策。
+系統每隔 60 秒就會檢查上述計量。 自动缩放将根据这些指标做出纵向扩展和纵向缩减决策。
 
-### <a name="cluster-scale-up"></a>叢集相應增加
+### <a name="cluster-scale-up"></a>群集纵向扩展
 
-當偵測到下列條件時，自動調整規模就會發出相應增加要求：
+检测到以下情况时，自动缩放将发出纵向扩展请求：
 
-* 擱置中的 CPU 總計大於可用的 CPU 總計超過 1 分鐘。
-* 擱置中的記憶體總計大於可用的記憶體總計超過 1 分鐘。
+* 暫止 CPU 總計大於可用的 CPU 總計超過 3 分鐘。
+* 暫止的記憶體總計大於總可用記憶體超過 3 分鐘。
 
-我們會計算新的背景工作角色節點數目所需符合目前的 CPU 和記憶體需求，然後發出將加入的新背景工作節點數目相應增加要求。
+我们将计算得出需要一定数量新的工作节点来满足当前 CPU 和内存需求，然后通过添加相同数量的新工作节点来发出纵向扩展请求。
 
-### <a name="cluster-scale-down"></a>向下調整叢集
+### <a name="cluster-scale-down"></a>群集纵向缩减
 
-當偵測到下列條件時，自動調整規模就會發出相應減少要求：
+检测到以下情况时，自动缩放将发出纵向缩减请求：
 
 * 擱置中的 CPU 總計小於可用的 CPU 總計超過 10 分鐘。
 * 擱置中的記憶體總計小於可用的記憶體總計超過 10 分鐘。
 
-根據每個節點和目前的 CPU 和記憶體需求的上午容器的數目，自動調整規模將會發出要求，若要移除特定數目的節點，指定哪些節點可移除的潛在候選項目。 根據預設，一次循環中將會移除兩個節點。
+根據每個節點和目前的 CPU 和記憶體需求的上午容器的數目，自動調整規模將會發出要求，若要移除特定數目的節點，指定哪些節點可移除的潛在候選項目。相應減少會觸發解除委任的節點和節點都是完全解除委任後，將會移除。
 
 ## <a name="next-steps"></a>後續步驟
 

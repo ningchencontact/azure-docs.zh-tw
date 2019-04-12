@@ -10,15 +10,15 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/09/2019
-ms.openlocfilehash: c9be129624c87ca0bff1e85a5d1c71425ef06b89
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.date: 04/10/2019
+ms.openlocfilehash: 23314e97051da95ab164baeab6e9d089f486351a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471857"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489685"
 ---
-# <a name="time-zone-in-azure-sql-database-managed-instance"></a>Azure SQL Database 受控執行個體的時區
+# <a name="time-zone-in-azure-sql-database-managed-instance-preview"></a>Azure SQL Database 受控執行個體 （預覽） 的時區
 
 Azure SQL Database 受控執行個體時使用 Coordinated Universal Time (UTC) 的雲端解決方案的資料層的建議的作法，提供儲存日期和時間值和通話日期的現有應用程式的需求所選擇的時區和隱含的內容，針對特定時區的時間函數。
 
@@ -72,7 +72,7 @@ T-SQL 的功能，例如[getdate （)](https://docs.microsoft.com/sql/t-sql/func
 
 ## <a name="checking-the-time-zone-of-instance"></a>檢查執行個體的時區
 
-[CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timestamp-transact-sql)函式會傳回執行個體的時區的顯示名稱。
+[CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)函式會傳回執行個體的時區的顯示名稱。
 
 ## <a name="cross-feature-considerations"></a>跨功能的考量
 

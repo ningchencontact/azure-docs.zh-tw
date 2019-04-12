@@ -1,6 +1,6 @@
 ---
-title: 收集 Azure Sentinel 預覽版中的 DNS 資料 |Microsoft Docs
-description: 了解如何收集 DNS 資料，在 Azure Sentinel。
+title: 連接 Azure Sentinel 預覽版中的 DNS 資料 |Microsoft Docs
+description: 了解如何在 Azure Sentinel 的 DNS 資料連接。
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: a7f075b74876ec807d790f3ffbea5dad14163535
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e34db2bdc78eb846cf4885b1ef083fd3b21e21b5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530411"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489737"
 ---
 # <a name="connect-your-domain-name-server"></a>連接您的網域名稱伺服器
 
 > [!IMPORTANT]
-> Azure 的 Sentinel 目前處於公開預覽狀態。
+> Azure Sentinel 目前為公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 您可以連接任何網域名稱伺服器 (DNS) 上執行 Windows Azure 的 Sentinel。 這是 DNS 的電腦上安裝代理程式。 使用 DNS 記錄，您可以取得安全性、 效能及作業相關深入了解您的組織的 DNS 基礎結構收集、 分析和相互關聯分析和稽核記錄檔及其他相關資料，從 DNS 伺服器。
 
-當您啟用 DNS 記錄集合時，您可以：
+當您啟用 DNS 記錄的連線時，您可以：
 - 指出嘗試解析惡意網域名稱的用戶端
 - 指出過時的資源記錄
 - 指出經常查詢的網域名稱和 Talkative DNS 用戶端
@@ -38,11 +38,11 @@ ms.locfileid: "57530411"
 
 ## <a name="how-it-works"></a>運作方式
 
-DNS 集合被透過 DNS 電腦上安裝代理程式。 代理程式會從 DNS 中提取事件，並將它們傳送至 Log Analytics。
+DNS 連線被透過 DNS 電腦上安裝代理程式。 代理程式會從 DNS 中提取事件，並將它們傳送至 Log Analytics。
 
 ## <a name="connect-your-dns-appliance"></a>連接您的 DNS 設備
 
-1. 在 Azure Sentinel 入口網站中，選取**資料收集**，然後選擇**DNS**圖格。
+1. 在 Azure Sentinel 入口網站中，選取**資料連接器**，然後選擇**DNS**圖格。
 1. 如果您的 DNS 機器是在 Azure 中：
     1. 按一下 **下載並安裝代理程式的 Windows 虛擬機器**。
     1. 在 **虛擬機器**清單中，選取您想要串流處理至 Azure 的 Sentinel DNS 機器。 請確定這是 Windows VM。

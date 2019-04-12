@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.openlocfilehash: 9c0283081bd7245b1b886ed82ba03130a7a3bf2c
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470250"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495323"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Azure 監視器中的檢視表設計工具圖格參考指南
 透過 Azure 監視器中檢視表設計工具，您可以建立各種不同的自訂檢視，在 Azure 入口網站中，可協助您以視覺化方式檢視您的 Log Analytics 工作區中的資料。 本文章是自訂檢視中可用的圖格設定的參考指南。

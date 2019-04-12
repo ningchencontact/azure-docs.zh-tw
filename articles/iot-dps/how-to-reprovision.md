@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: c7163667ec370abf468b289cea231e86a4b5753f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 92680a453d93c8dc0189c6ae376449a8e7a22076
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046832"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499847"
 ---
 # <a name="how-to-reprovision-devices"></a>如何重新佈建裝置
 
@@ -27,7 +27,7 @@ ms.locfileid: "59046832"
 
 * **隔离**：类似于解决方案更改。 故障、遭入侵或已過期的裝置可能會重新指派給只能將裝置更新，讓裝置再次符合合規性要求的 IoT 中樞。 在裝置正常運作之後，就會移轉回其主要中樞。
 
-如需更詳細的重新佈建概觀，請參閱 [IoT 中樞裝置重新佈建概念](concepts-device-reprovision.md)。
+更詳細的概觀重新佈建，請參閱 < [IoT 中樞裝置重新佈建概念](concepts-device-reprovision.md)。
 
 
 ## <a name="configure-the-enrollment-allocation-policy"></a>設定註冊配置原則
@@ -93,7 +93,7 @@ ms.locfileid: "59046832"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入了解如何重新佈建，請參閱 [IoT 中樞裝置重新佈建的概念](concepts-device-reprovision.md) 
+- 若要深入了解更多的 Reprovisioning，請參閱[IoT 中樞裝置重新佈建概念](concepts-device-reprovision.md) 
 - 若要了解有关取消设置的详细信息，请参阅[如何取消设置以前自动预配的设备](how-to-unprovision-devices.md) 
 
 

@@ -1,6 +1,6 @@
 ---
-title: 收集 Azure Sentinel 預覽版中的 Azure AD 資料 |Microsoft Docs
-description: 了解如何收集在 Azure Sentinel 的 Azure Active Directory 資料。
+title: 將 Azure AD 資料連接至 Azure 的 Sentinel Preview |Microsoft Docs
+description: 了解如何將 Azure Active Directory 資料連接至 Azure 的 Sentinel。
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/30/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b42fb982abb916503d530d5040641ba1dcce3c92
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: f29ae9a8fcaecfc345efae02084f31d133e67b5d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575125"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494879"
 ---
-# <a name="collect-data-from-azure-active-directory"></a>從 Azure Active Directory 中收集資料
+# <a name="connect-data-from-azure-active-directory"></a>從 Azure Active Directory 連線資料
 
 > [!IMPORTANT]
 > Azure Sentinel 目前為公開預覽狀態。
@@ -38,7 +38,7 @@ Azure 的 Sentinel 可讓您要從中收集資料[Azure Active Directory](../act
 
 ## <a name="connect-to-azure-ad"></a>連接至 Azure AD
 
-1. 在 Azure Sentinel，選取**資料收集**，然後按一下**Azure Active Directory**圖格。
+1. 在 Azure Sentinel，選取**資料連接器**，然後按一下**Azure Active Directory**圖格。
 
 2. 記錄檔，您想要串流處理至 Azure 的 Sentinel，旁邊按一下  **Connect**。
 

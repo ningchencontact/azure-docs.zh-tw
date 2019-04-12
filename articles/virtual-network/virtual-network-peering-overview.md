@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: 了解 Azure 中的虛擬網路對等互連。
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: anavinahar
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/21/2019
-ms.author: jdial
-ms.openlocfilehash: 3488e8501b0b9bea83bfcce5085d42b6476d3ed2
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.date: 04/01/2019
+ms.author: anavin
+ms.openlocfilehash: e6c5a9aa3e4e173ecfc79f4072d091493677afed
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58880418"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489976"
 ---
 # <a name="virtual-network-peering"></a>虛擬網路對等互連
 
@@ -63,7 +63,7 @@ ms.locfileid: "58880418"
 
 ![虛擬網路對等互連傳輸](./media/virtual-networks-peering-overview/figure04.png)
 
-VNet 對等互連和全域 VNet 對等互連 （預覽） 支援閘道傳輸。 您可以使用遠端閘道，或全域對等互連在預覽中的虛擬網路中允許閘道傳輸。 預覽適用於所有 Azure 區域、 中國雲端區域和政府雲端區域。 需要未列入允許清單。 您可以透過 CLI、 PowerShell、 範本或 API 的預覽中進行測試。 在預覽中不支援入口網站。
+VNet 對等互連和全域 VNet 對等互連 （預覽） 支援閘道傳輸。 您可以使用遠端閘道，或全域對等互連在預覽中的虛擬網路中允許閘道傳輸。 預覽適用於所有 Azure 區域、 中國雲端區域和政府雲端區域。 不需要加入允许列表。 可以通过 CLI、PowerShell、模板或 API 在预览版中进行测试。 预览版不支持门户。
 只有當閘道位於虛擬網路 (Resource Manager) 時，才支援透過不同部署模型 （Resource Manager 和傳統） 建立虛擬網路之間的閘道傳輸。 若要深入了解如何使用閘道來進行傳輸，請參閱[設定 VPN 閘道以在虛擬網路對等互連中進行傳輸](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
 當共用單一 Azure ExpressRoute 連線的虛擬網路已對等互連時，它們之間的流量會經過對等互連關聯性 (也就是透過 Azure 骨幹網路)。 您依然可以在每個虛擬網路中使用本機閘道來連線內部部署線路。 此外，您也可以使用共用閘道並設定內部部署連線的傳輸。
@@ -80,7 +80,6 @@ VNet 對等互連和全域 VNet 對等互連 （預覽） 支援閘道傳輸。 
 
 只有在為虛擬網路建立全域的對等互連時，會受到下列限制：
 - 一個虛擬網路中的資源無法與全域對等互連的虛擬網路中的基本的內部負載平衡器的前端 IP 位址通訊。 基本 Load Balancer 支援只存在於相同區域內。 標準 Load Balancer 支援存在於全域 VNet 對等互連。
-- 您可以使用遠端閘道，或全域對等互連在預覽中的虛擬網路中允許閘道傳輸。 預覽適用於所有 Azure 區域、 中國雲端區域和政府雲端區域。 需要未列入允許清單。 您可以透過 CLI、 PowerShell、 範本或 API 的預覽中進行測試。 在預覽中不支援入口網站。
 
 若要深入了解需求和限制，請參閱[虛擬網路對等互連需求和限制](virtual-network-manage-peering.md#requirements-and-constraints)。 若要了解您可為虛擬網路建立之對等互連數目的限制，請參閱 [Azure 網路限制](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。 
 

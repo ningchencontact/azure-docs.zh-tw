@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 2/6/2019
+ms.date: 04/10/2019
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celested
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e43123e77a5c1cfb37f51c472420d3d7f2d440c9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ef0a4e4a05427b1ed83b017b7a49862596aaf50a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173363"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490906"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>在 Azure 入口網站中新增 Azure Active Directory B2B 共同作業使用者
 
-身為全域管理員或是獲派任何受限管理員目錄角色的使用者，您可以使用 Azure 入口網站來邀請 B2B 共同作業使用者。 您可以將來賓使用者邀請到目錄、群組或應用程式。 透過上述任一方法邀請使用者之後，受邀使用者的帳戶就會新增至 Azure Active Directory (Azure AD)，且使用者類型為「來賓」。 來賓使用者接著必須兌換其邀請才能存取資源。
+身為使用者獲派任何受限的管理員目錄角色，您可以使用 Azure 入口網站來邀請 B2B 共同作業使用者。 您可以將來賓使用者邀請到目錄、群組或應用程式。 透過上述任一方法邀請使用者之後，受邀使用者的帳戶就會新增至 Azure Active Directory (Azure AD)，且使用者類型為「來賓」。 來賓使用者接著必須兌換其邀請才能存取資源。
 
 將來賓使用者新增至目錄之後，您就可以將共用應用程式的直接連結傳送給來賓使用者，或者來賓使用者可以按一下邀請電子郵件中的兌換 URL。 如需關於兌換程序的詳細資訊，請參閱 [B2B 共同作業邀請兌換](redemption-experience.md)。
 
@@ -31,7 +31,7 @@ ms.locfileid: "56173363"
 
 若要將 B2B 共同作業使用者新增至目錄，請遵循下列步驟：
 
-1. 以 Azure AD 系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
+1. 登入[Azure 入口網站](https://portal.azure.com)身為使用者指派任何受限的管理員目錄角色。
 2. 在導覽窗格中，選取 [Azure Active Directory]。
 3. 在 [管理] 底下選取 [使用者]。
 4. 選取 [新增來賓使用者]。

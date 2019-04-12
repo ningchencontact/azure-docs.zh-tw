@@ -12,39 +12,40 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 2c28ae3bf05a994293a8bf2af0675280d818fdde
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 622b1f6f6a852251c07c5576ed10cd76adbf5231
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242593"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500493"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>如何將服務匯流排佇列搭配 Python 使用
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-本文說明如何使用服務匯流排佇列。 相關範例是以 Python 撰寫，並且使用 [Python Azure 服務匯流排封裝][Python Azure Service Bus package]。 本文說明的案例包括**建立佇列、傳送並接收訊息**，以及**刪除佇列**。
+在本教學課程中，您將了解如何建立 Python 應用程式，來傳送和接收來自服務匯流排佇列的訊息。 
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>必要條件
+1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用您[MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或是註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+2. 中的後續步驟[使用 Azure 入口網站來建立服務匯流排佇列](service-bus-quickstart-portal.md)文章。
+    1. 閱讀快速**概觀**的服務匯流排**佇列**。 
+    2. 建立服務匯流排**命名空間**。 
+    3. 取得**連接字串**。 
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-> [!IMPORTANT]
-> 若要安裝 Python 或 [Python Azure 服務匯流排封裝][Python Azure Service Bus package]，請參閱 [Python 安裝指南](../python-how-to-install.md)。
-> 
-> 請參閱服務匯流排 Python SDK 的完整文件[這裡](/python/api/overview/azure/servicebus?view=azure-python)
-
+        > [!NOTE]
+        > 您將建立**佇列**在本教學課程中使用 Python 的服務匯流排命名空間中。 
+1. 安裝 Python 或[Python Azure 服務匯流排套件][Python Azure Service Bus package]，請參閱[Python 安裝指南](../python-how-to-install.md)。 請參閱完整的文件的服務匯流排 Python SDK[此處](/python/api/overview/azure/servicebus?view=azure-python)。
 
 ## <a name="create-a-queue"></a>建立佇列
-**ServiceBusClient**物件可讓您能夠使用佇列。 將下列程式碼新增至您想要在其中以程式設計方式存取服務匯流排之任何 Python 檔案內的頂端附近：
+可以通过 **ServiceBusClient** 对象处理队列。 將下列程式碼新增至您想要在其中以程式設計方式存取服務匯流排之任何 Python 檔案內的頂端附近：
 
 ```python
 from azure.servicebus import ServiceBusClient
 ```
 
-下列程式碼會建立**ServiceBusClient**物件。 請使用您的命名空間、共用存取簽章 (SAS) 金鑰名稱和值來取代 `mynamespace`、`sharedaccesskeyname` 和 `sharedaccesskey`。
+以下代码创建 **ServiceBusClient** 对象。 請使用您的命名空間、共用存取簽章 (SAS) 金鑰名稱和值來取代 `mynamespace`、`sharedaccesskeyname` 和 `sharedaccesskey`。
 
 ```python
 sb_client = ServiceBusClient.from_connection_string('<CONNECTION STRING>')
@@ -69,7 +70,7 @@ sb_client.create_queue("taskqueue", queue_options)
 如需詳細資訊，請參閱 < [Azure 服務匯流排 Python 文件](/python/api/overview/azure/servicebus?view=azure-python)。
 
 ## <a name="send-messages-to-a-queue"></a>傳送訊息至佇列
-若要將訊息傳送至服務匯流排佇列，應用程式會呼叫`send`方法`ServiceBusClient`物件。
+要将消息发送到服务总线队列，应用程序需对 `ServiceBusClient` 对象调用 `send` 方法。
 
 下列範例示範如何使用 `send_queue_message` 將測試訊息傳送至名為 `taskqueue` 的佇列：
 
@@ -89,7 +90,7 @@ queue_client.send(Message("Message"))
 如需詳細資訊，請參閱 < [Azure 服務匯流排 Python 文件](/python/api/overview/azure/servicebus?view=azure-python)。
 
 ## <a name="receive-messages-from-a-queue"></a>從佇列接收訊息
-從使用佇列接收訊息`get_receiver`方法`ServiceBusService`物件：
+对 `ServiceBusService` 对象使用 `get_receiver` 方法可从队列接收消息：
 
 ```python
 from azure.servicebus import QueueClient, Message

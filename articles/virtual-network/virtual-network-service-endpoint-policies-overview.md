@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 2d65d51ae8148e2e55d57d39e306ded0f75da687
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: b39f365c8b66f7cab074a20bc574803e12f93422
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652581"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494162"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>虛擬網路服務端點原則 (預覽)
 
@@ -24,7 +24,7 @@ ms.locfileid: "58652581"
 
 這項功能會以__預覽__形式在下列 Azure 服務和地區提供：
 
-__Azure 儲存體__：WestCentralUS、WestUS2。
+__Azure 儲存體__：WestCentralUS、 WestUS2、 NorthCentralUS、 SouthCentralUS、 CentralUS、 EastUS2。
 
 如需此預覽的最新通知，請參閱 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network)頁面。
 
@@ -35,13 +35,13 @@ __Azure 儲存體__：WestCentralUS、WestUS2。
 
 虛擬網路服務端點原則具有下列優勢：
 
-- __提升流向 Azure 服務的虛擬網路流量安全性__
+- __適用於您 Azure 服務的虛擬網路流量的提升的安全性__
 
   [網路安全性群組的 Azure 服務標籤](https://aka.ms/servicetags)可讓您將虛擬網路輸出流量限制為特定 Azure 服務。 不過，這會允許流向該 Azure 服務任何資源的流量。 
   
   現在，您可以使用端點原則，將虛擬網路輸出存取限制為僅限特定 Azure 資源。 這可提供更細微的安全性控制，以保護在您虛擬網路中受存取的資料。 
 
-- __可用來篩選 Azure 服務流量的可調整與高可用性原則__
+- __若要篩選的 Azure 服務流量的可調整、 高可用性原則__
 
    端點原則提供可水平調整的高可用性解決方案，以篩選從虛擬網路透過服務端點通往 Azure 服務的流量。 在虛擬網路中，這個流量完全不會對中央網路設備的維護產生額外負荷。
 

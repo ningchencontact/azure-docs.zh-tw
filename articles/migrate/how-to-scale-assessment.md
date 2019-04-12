@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
-ms.openlocfilehash: ae84313cd750e3d6c7eb9443ec59095dec9c632e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 1b03cf648ad65960cce4ffc874cf32ad91ef7dc1
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59265244"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490632"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>探索及評定大型 VMware 環境
 
@@ -39,20 +39,11 @@ Azure Migrate 需要存取 VMware 伺服器，才能自動探索 VM 以進行評
 - 詳細資料：在資料中心層級指派的使用者，且能夠存取資料中心內的所有物件。
 - 如果要限制存取權，請將具備 [傳播至子物件] 權限的 [沒有存取權] 角色指派給子物件 (vSphere 主機、資料存放區、VM 與網路)。
 
-如果是在租用戶環境中部署，可透過以下方式進行設定：
+如果您在多租用戶環境中進行部署，並想要針對單一租用戶的範圍由 Vm 的資料夾，您無法直接選取 [VM] 資料夾，當範圍在 Azure Migrate 中的集合。 以下是如何由資料夾的領域探索的 Vm 的指示：
 
-1. 為每個租用戶建立一個使用者，並使用 [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)，將唯讀權限指派給屬於特定租用戶的所有 VM。 然後，使用這些認證進行探索。 RBAC 會確保對應的 vCenter 使用者只能存取租用戶特定 VM。
-2. 您要為不同的租用戶使用者設定 RBAC，如以下使用者 1 和使用者 2 的範例所述：
-
-    - 在 [使用者名稱] 和 [密碼] 中，指定收集器要用來探索虛擬機器的唯讀帳戶認證
-    - Datacenter1 - 為使用者 1 和使用者 2 提供唯讀權限。 請勿將這些使用權限傳播給所有子物件，因為您是要在個別 VM 上設定權限。
-
-      - VM1 (租用戶 1) (使用者 1 的唯讀權限)
-      - VM2 (租用戶 1) (使用者 1 的唯讀權限)
-      - VM3 (租用戶 2) (使用者 2 的唯讀權限)
-      - VM4 (租用戶 2) (使用者 2 的唯讀權限)
-
-   - 如果您使用「使用者 1」認證進行探索，則只會探索 VM1 和 VM2。
+1. 建立每個租用戶使用者，並將唯讀權限指派給屬於特定的租用戶的所有 Vm。 
+2. 授與此使用者唯讀存取權裝載 Vm 之所有父物件。 所要包含的資料中心到階層中所有的父物件-主機、 主機、 叢集、 叢集資料夾的資料夾。 您不需要傳播到所有子物件的權限。
+3. 針對選取的資料中心的探索使用的認證*集合範圍*。 設定的 RBAC 可確保對應的 vCenter 使用者可存取只會將租用戶專屬的 Vm。
 
 ## <a name="plan-your-migration-projects-and-discoveries"></a>規劃您的移轉專案及探索
 
@@ -97,7 +88,7 @@ Azure Migrate 需要存取 VMware 伺服器，才能自動探索 VM 以進行評
 
 ### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>在單一 vCenter Server 中超過 1500 部機器
 
-如果您在單一 vCenter Server 中有超過 1500 部虛擬機器，則必須將探索分割為多個移轉專案。 若要分割探索，您可以利用設備中的 [範圍] 欄位，並指定主機、叢集、資料夾，或您想要探索的資料中心。 例如，如果您在 vCenter Server 中有兩個資料夾，一個包含 1000 個 VM (Folder1)，另一個包含 800 個 VM (Folder2)，則您可以使用範圍欄位來分割這些資料夾之間的探索。
+如果您在單一 vCenter Server 中有超過 1500 部虛擬機器，則必須將探索分割為多個移轉專案。 若要分割探索，您可以利用設備中的 [領域] 欄位，並指定主機、 叢集、 資料夾的主機、 叢集或您想要探索的資料中心內的資料夾。 例如，如果您在 vCenter Server 中有兩個資料夾，一個包含 1000 個 VM (Folder1)，另一個包含 800 個 VM (Folder2)，則您可以使用範圍欄位來分割這些資料夾之間的探索。
 
 **連續探索：** 在此案例中，您必須建立兩個收集器設備，並且為第一個收集器指定 Folder1 作為範圍，並將其連線到第一個移轉專案。 您可以使用第二個收集器設備平行啟動 Folder2 的探索，並將其連線到第二個移轉專案。
 

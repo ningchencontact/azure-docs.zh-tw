@@ -9,16 +9,16 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: c616b2578f7606ce7df19fdbef16bec8a24428d3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 25f620cb36c2bfb548ecf08c33dc04b37118a256
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262494"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489617"
 ---
 # <a name="monitor-azure-app-service-performance"></a>監視 Azure App Service 效能
 
-啟用您的.NET 和.NET Core 上監視 Azure App Service 上執行的基礎的 web 應用程式現在較以往更為容易。 先前，您需要手動安裝網站延伸模組，而最新的延伸模組/代理程式現在內建應用程式服務映像的預設值。 這篇文章會逐步引導您完成啟用 Application Insights 監視，以及提供將進行大規模的部署程序自動化的初步指引。
+啟用監視您的.NET 和.NET Core 架構上執行的 web 應用程式[Azure App Service](https://docs.microsoft.com/azure/app-service/)現在較以往更為容易。 先前，您需要手動安裝網站延伸模組，而最新的延伸模組/代理程式現在內建應用程式服務映像的預設值。 這篇文章會逐步引導您完成啟用 Application Insights 監視，以及提供將進行大規模的部署程序自動化的初步指引。
 
 > [!NOTE]
 > 手動新增 Application Insights 網站延伸模組，透過**開發工具** > **延伸模組**已被取代。 這個方法的延伸模組安裝已手動更新每個新的版本而定。 最新穩定版本的延伸模組現[預先安裝](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions)納入應用程式服務映像。 檔案位於`d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent`和每一個穩定版本時，會自動更新。 如果您遵循架構的代理程式來啟用監視，它會自動移除已被取代的延伸模組供您。

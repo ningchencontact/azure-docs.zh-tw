@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/11/2018
+ms.date: 04/10/2019
 ms.author: aljo
-ms.openlocfilehash: 4b4ddd765996d8bb936d2abda4015f37d6df9098
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 97f75438cf6401b4e2d5043038c1ca32b7022e7c
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361554"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501292"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>自訂 Service Fabric 叢集設定
 本文說明您可以為 Service Fabric 叢集自訂的各種網狀架構設定。 針對裝載於 Azure 中的叢集，您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來自訂設定。 如需詳細資訊，請參閱[升級 Azure 叢集的設定](service-fabric-cluster-config-upgrade-azure.md)。 針對獨立叢集，您會透過更新 *ClusterConfig.json* 檔案並在叢集上執行設定升級來自訂設定。 如需詳細資訊，請參閱[升級獨立叢集的設定](service-fabric-cluster-config-upgrade-windows-server.md)。
@@ -403,10 +403,11 @@ ms.locfileid: "59361554"
 
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
+|AutomaticUnprovisionInterval|時間範圍，預設值是 Common::TimeSpan::FromMinutes(5)|動態|以秒為單位指定時間範圍。 允許的清除間隔自動應用程式類型的清理期間取消註冊應用程式類型。|
 |AzureStorageMaxConnections | 整數，預設值為 5000 |動態|Azure 儲存體的並行連線數目上限。 |
 |AzureStorageMaxWorkerThreads | 整數，預設值為 25 |動態|平行背景工作執行緒的數目上限。 |
 |AzureStorageOperationTimeout | 時間 (秒)，預設值為 6000 |動態|以秒為單位指定時間範圍。 可供 xstore 作業完成的逾時值。 |
-|CleanupApplicationPackageOnProvisionSuccess|布林值，預設值為 FALSE |動態|此組態會在成功佈建時，啟用或停用應用程式套件的自動清除。 |
+|CleanupApplicationPackageOnProvisionSuccess|布林值，預設值為 FALSE |動態|啟用或停用上成功佈建應用程式套件自動清除。 |
 |CleanupUnusedApplicationTypes|布林值，預設值為 FALSE |動態|此設定啟用時，可允許自動取消註冊未使用的應用程式類型版本，略過最新三個未儲存的版本，藉此調整映像存放區所佔用的磁碟空間。 成功佈建該特定應用程式型別的結尾，就會觸發自動清除，並也會執行定期一天一次的所有應用程式類型。 略過未使用的版本數目是可設定使用參數"MaxUnusedAppTypeVersionsToKeep 」。 |
 |DisableChecksumValidation | 布林值，預設值為 false |靜態| 此組態可讓我們在應用程式佈建期間啟用或停用總和檢查碼驗證。 |
 |DisableServerSideCopy | 布林值，預設值為 false |靜態|此組態會在應用程式佈建期間，啟用或停用 ImageStore 上應用程式套件的伺服器端複製作業。 |

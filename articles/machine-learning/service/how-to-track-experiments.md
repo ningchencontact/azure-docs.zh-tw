@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 7ef3cfe1df792721db3fe3657c08f58ca82e3c91
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 41797caa89108448f0eaa27309046c01d7432823
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652309"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494622"
 ---
 # <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>記錄度量在定型期間執行 Azure Machine Learning 中
 
@@ -34,7 +34,7 @@ ms.locfileid: "58652309"
 |資料表|函式：<br>`run.log_table(name, value, description='')`<br><br>範例：<br>run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]}) | 使用指定名稱將字典物件記錄到執行中。 |
 |映像|函式：<br>`run.log_image(name, path=None, plot=None)`<br><br>範例：<br>`run.log_image("ROC", plt)` | 將映像記錄到執行記錄中。 使用 log_image 將映像檔案或 matplotlib 繪圖記錄到執行中。  這些映像會顯示在執行記錄中，並可供比較。|
 |標記執行|函式：<br>`run.tag(key, value=None)`<br><br>範例：<br>run.tag("selected", "yes") | 使用字串索引鍵和可選字串值標記執行。|
-|上傳檔案或目錄|函式：<br>`run.upload_file(name, path_or_stream)`<br> <br> 範例：<br>run.upload_file("best_model.pkl", "./model.pkl") | 將檔案上傳到執行記錄。 執行會自動擷取特定輸出目錄中的檔案，對於大多數執行類型，預設為「./outputs」。  只有在需要上傳其他檔案或未指定輸出目錄時，才使用 upload_file。 我們建議在名稱中加上 `outputs`，以便將其上傳到輸出目錄。 您可以透過呼叫 `run.get_file_names()`，列出與該執行記錄相關聯的所有檔案|
+|上傳檔案或目錄|函式：<br>`run.upload_file(name, path_or_stream)`<br> <br> 範例：<br>run.upload_file("best_model.pkl", "./model.pkl") | 將檔案上傳到執行記錄。 執行會自動擷取特定輸出目錄中的檔案，對於大多數執行類型，預設為「./outputs」。  只有在需要上傳其他檔案或未指定輸出目錄時，才使用 upload_file。 我們建議在名稱中加上 `outputs`，以便將其上傳到輸出目錄。 您可以列出所有相關聯的檔案與這個執行記錄呼叫 `run.get_file_names()`|
 
 > [!NOTE]
 > 純量、清單、資料列和資料表的計量可具有以下類型：浮點數、整數或字串。
@@ -217,37 +217,9 @@ ms.locfileid: "58652309"
    run = experiment.submit(src)
    ```
 
-## <a name="cancel-a-run"></a>取消執行
+## <a name="manage-a-run"></a>管理測試回合
 
-提交 Alter 執行時，您可以取消它即使您遺失物件參考，只要您知道實驗名稱，並執行識別碼。 
-
-
-```python
-from azureml.core import Experiment
-exp = Experiment(ws, "my-experiment-name")
-
-# if you don't know the run id, you can list all runs under an experiment
-for r in exp.get_runs():  
-    print(r.id, r.get_status())
-
-# if you know the run id, you can "rehydrate" the run
-from azureml.core import get_run
-r = get_run(experiment=exp, run_id="my_run_id", rehydrate=True)
-  
-# check the returned run type and status
-print(type(r), r.get_status())
-
-# you can cancel a run if it hasn't completed or failed
-if r.get_status() not in ['Complete', 'Failed']:
-    r.cancel()
-```
-目前只有 ScriptRun 和 PipelineRun 類型支援取消作業。
-
-此外，您也可以透過 CLI 使用下列命令來取消執行：
-```shell
-az ml run cancel -r <run_id> -p <project_path>
-```
-
+[開始]、 [監視器] 和 [取消定型執行](how-to-manage-runs.md)篇文章強調特定的 Azure Machine Learning 工作流程，如何管理您的實驗。
 
 ## <a name="view-run-details"></a>檢視執行詳細資料
 
@@ -293,7 +265,7 @@ az ml run cancel -r <run_id> -p <project_path>
 
 當實驗完成執行時，您可以瀏覽記錄的實驗執行記錄。 您可以使用下列兩種方式來存取記錄：
 
-* 直接取得執行的 URL ```print(run.get_portal_url())```
+* 取得執行 URL 直接 ```print(run.get_portal_url())```
 * 藉由提交執行名稱 (在此情況下為 ```run```)，以檢視執行詳細資料。 此方式可為您指出實驗名稱、識別碼、類型、狀態、詳細資料頁面、Azure 入口網站的連結，以及文件連結。
 
 執行連結將帶您直接前往 Azure 入口網站中的執行詳細資料頁面。 在這裡，您可以看到實驗中記錄的任何屬性、追蹤計量、映像和圖表。 在此情況下，我們會記錄 MSE 和 Alpha 值。
@@ -319,9 +291,9 @@ az ml run cancel -r <run_id> -p <project_path>
 在 Notebook 中提交自動化 ML 作業之後，您可以在機器學習服務工作區中找到這些回合的記錄。 
 
 深入了解：
-+ [分類模型的圖表和曲線](#classification)
-+ [迴歸模型的圖表和圖形](#regression)
-+ [模型說明能力](#model-explain-ability-and-feature-importance)
++ [圖表和分類模型的曲線](#classification)
++ [圖表和圖形的迴歸模型](#regression)
++ [模型說明功能](#model-explain-ability-and-feature-importance)
 
 
 ### <a name="view-the-run-charts"></a>檢視回合圖表
@@ -350,8 +322,8 @@ az ml run cancel -r <run_id> -p <project_path>
 
 對於您使用 Azure Machine Learning 自動化機器學習功能建置的每個分類模型，您可以查看下列圖表： 
 + [混淆矩陣](#confusion-matrix)
-+ [精確度與召回率圖表](#precision-recall-chart)
-+ [接收者操作特徵 (或 ROC)](#roc)
++ [正確性-召回圖表](#precision-recall-chart)
++ [接收者作業特性 （或 ROC）](#roc)
 + [升力曲線](#lift-curve)
 + [增益曲線](#gains-curve)
 + [校正圖](#calibration-plot)
@@ -362,9 +334,9 @@ az ml run cancel -r <run_id> -p <project_path>
 
 針對分類問題，Azure Machine Learning 會針對每個已建置的模型自動提供混淆矩陣。 針對每個混淆矩陣，自動化 ML 會將分類正確的標籤顯示為綠色，並將分類不正確的標籤顯示為紅色。 圓形的大小代表該組合中的樣本數。 此外，每個預測標籤和每個真值標籤的頻率計數均會顯示於相鄰的長條圖中。 
 
-範例 1：準確度很差的分類模型 ![準確度很差的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix1.PNG)
+範例 1：分類模型不佳的精確度![分類模型不佳的精確度](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix1.PNG)
 
-範例 2：高準確度的分類模型 (理想) ![高準確度的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix2.PNG)
+範例 2：高精確度 （理想） 的分類模型![高精確度的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-confusion_matrix2.PNG)
 
 
 #### <a name="precision-recall-chart"></a>精確度與召回率圖表
@@ -373,17 +345,17 @@ az ml run cancel -r <run_id> -p <project_path>
 
 精確度一詞代表分類器能夠正確標示所有執行個體。 召回率代表分類器能夠針對特定標籤找到的所有執行個體。 精確度與召回率曲線會顯示這兩個概念之間的關聯性。 在理想情況下，此模型會有 100% 的精確度和 100% 的準確度。
 
-範例 1：具有低精確度與低召回率的分類模型 ![具有低精確度與低召回率的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall1.PNG)
+範例 1：分類模型具有低的有效位數和低的重新叫用![低的有效位數和低的重新叫用的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall1.PNG)
 
-範例 2：具有 ~100% 精確度與 ~100% 召回率的分類模型 (理想) ![具有高精確度與召回率的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall2.PNG)
+範例 2：~ 100%的精確度和 ~ 100%重新叫用 （理想） 的分類模型![分類模型中的高精確度與回收](./media/how-to-track-experiments/azure-machine-learning-auto-ml-precision_recall2.PNG)
 
 #### <a name="roc"></a>ROC
 
 接收者操作特徵 (或 ROC) 是對於特定模型之分類正確標籤與分類不正確標籤的繪圖。 在具有高偏差的資料集上將模型定型時，ROC 曲線可提供的資訊較少，因為它將不會顯示誤判標籤。
 
-範例 1：具有低確判標籤與高誤判標籤的分類模型 ![具有低確判標籤與高誤判標籤的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc1.PNG)
+範例 1：使用低，則為 true 的標籤與高，則為 false 的標籤分類模型![低，則為 true 的標籤與高，則為 false 的標籤分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc1.PNG)
 
-範例 2：具有高確判標籤與低誤判標籤的分類模型 ![具有高確判標籤與低誤判標籤的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc2.PNG)
+範例 2：具有高，則為 true 的標籤和低，則為 false 的標籤分類模型![具有高，則為 true 的標籤和低，則為 false 的標籤分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-roc2.PNG)
 
 #### <a name="lift-curve"></a>升力曲線
 
@@ -391,9 +363,9 @@ az ml run cancel -r <run_id> -p <project_path>
 
 升力圖可用來評估分類模型的效能。 它會顯示相較於不使用模型，您能夠預期使用模型會做得更好。 
 
-範例 1：模型執行效能比隨機選取模型更糟 ![比隨機選取模型更糟的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve1.PNG)
+範例 1：模型的執行效能比隨機選取的模型更糟的是![比隨機選取更糟的是建立模型的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve1.PNG)
 
-範例 2：模型執行效能優於隨機選取模型 ![執行得更好的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve2.PNG)
+範例 2：模型的效能優於隨機選取模型![執行得更好的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-lift_curve2.PNG)
 
 #### <a name="gains-curve"></a>增益曲線
 
@@ -401,9 +373,9 @@ az ml run cancel -r <run_id> -p <project_path>
 
 使用累計增益圖，可協助您使用對應至模型中所需增益的百分比來選擇分類截止。 此資訊提供另一種方式來查看隨附升力圖中的結果。
 
-範例 1：增益最少的分類模型 ![增益最少的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve1.PNG)
+範例 1：最小增益的分類模型![最小增益的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve1.PNG)
 
-範例 2：增益顯著的分類模型 ![增益顯著的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve2.PNG)
+範例 2：分類模型，以大幅提升![顯著提升的分類模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-gains_curve2.PNG)
 
 #### <a name="calibration-plot"></a>校正圖
 
@@ -411,26 +383,26 @@ az ml run cancel -r <run_id> -p <project_path>
 
 校正圖可用來顯示預測模型的信賴度。 它會顯示預測機率與實際機率之間的關聯性，其中「機率」代表特定執行個體屬於某個標籤的可能性。 經過準確校正的模型會與 y=x 線對齊，在其預測中具有合理的信賴度。 過度信賴的模型會與 y=0 線對齊，其會顯示預測機率，但沒有任何實際機率。
 
-範例 1：經過更準確校正的模型 ![經過更準確校正的模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve1.PNG)
+範例 1：更完善的校正模型![更完善的校正的模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve1.PNG)
 
-範例 2：過度信賴的模型 ![過度信賴的模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve2.PNG)
+範例 2：過度 confident 模型![過度 confident 模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-calib_curve2.PNG)
 
 ### <a name="regression"></a>迴歸
 對於您使用 Azure Machine Learning 自動化機器學習功能建置的每個迴歸模型，您可以查看下列圖表： 
-+ [預測與真值](#pvt)
++ [「預測與True](#pvt)
 + [殘差直方圖](#histo)
 
 <a name="pvt"></a>
 
-#### <a name="predicted-vs-true"></a>預測與True
+#### <a name="predicted-vs-true"></a>「預測與True
 
 「預測與真值」會針對迴歸問題顯示預測值與其相互關聯真值之間的關聯性。 此圖表可用來測量模型的效能，因為預設值愈接近 y=x 線，預測模型的準確度就愈好。
 
 在每個回合之後，您都能查看每個迴歸模型的預測與真值圖。 為了保護資料隱私權，會將值組合在一起，而每組的大小均會顯示為圖表區域下半部的長條圖。 您可以根據模型所在的理想值，將預測模型與顯示誤差幅度且顏色較淡的陰影區域進行比較。
 
-範例 1：在預測中準確度較低的迴歸模型 ![在預測中準確度較低的迴歸模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression1.PNG)
+範例 1：迴歸模型中預測的低精確度![迴歸模型中預測的低精確度](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression1.PNG)
 
-範例 2：在其預測中準確度較高的迴歸模型 ![在其預測中準確度較高的迴歸模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression2.PNG)
+範例 2：迴歸模型在預測中的高精確度![其預測中的高精確度的迴歸模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression2.PNG)
 
 <a name="histo"></a>
 
@@ -438,9 +410,9 @@ az ml run cancel -r <run_id> -p <project_path>
 
 殘差代表觀察到的 y - 預測的 y。 若要顯示低偏差的錯誤幅度，殘差直方圖應該會形成以 0 為中心的鐘形曲線。 
 
-範例 1：其錯誤中有偏差的迴歸模型 ![其錯誤中有偏差的 SA 迴歸模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression3.PNG)
+範例 1：迴歸模型，以在其錯誤中的偏差![偏差，其錯誤與 SA 迴歸模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression3.PNG)
 
-範例 2：錯誤分佈更均勻的迴歸模型 ![錯誤分佈更均勻的迴歸模型](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression4.PNG)
+範例 2：迴歸模型使用的錯誤更均勻分佈![迴歸模型使用更均勻分佈的錯誤](./media/how-to-track-experiments/azure-machine-learning-auto-ml-regression4.PNG)
 
 ### <a name="model-explain-ability-and-feature-importance"></a>模型說明能力與特徵重要性
 

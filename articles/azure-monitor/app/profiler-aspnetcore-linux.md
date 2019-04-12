@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: cweining
-ms.openlocfilehash: 5787db7e2b726a10891fcabb0b215399d0d4e0ae
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 35789cc1e516fb24d5e985e12b44fe3cd01b795d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884302"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494743"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>使用 Application Insights Profiler 來分析 ASP.NET Core Azure Linux Web 應用程式
 
@@ -39,21 +39,40 @@ ms.locfileid: "55884302"
 
 1. 在您的機器上開啟命令提示字元視窗。 下列指示適用於所有 Windows、Linux 和 Mac 開發環境。
 
-2. 建立 ASP.NET Core MVC Web 應用程式：
+1. 建立 ASP.NET Core MVC Web 應用程式：
 
     ```
     dotnet new mvc -n LinuxProfilerTest
     ```
 
-3. 將工作目錄變更為專案的根資料夾。
+1. 將工作目錄變更為專案的根資料夾。
 
-4. 新增 NuGet 套件來收集分析工具追蹤：
+1. 新增 NuGet 套件來收集分析工具追蹤：
 
-    ```
+    ```shell
     dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
 
-5. 在 **HomeController.cs** 區段中加入一行程式碼，以隨機延遲幾秒鐘的時間：
+1. 啟用在 Program.cs 中的 Application Insights:
+
+    ```csharp
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .UseApplicationInsights() // Add this line of code to Enable Application Insights
+            .UseStartup<Startup>();
+    ```
+    
+1. 啟用 Profiler 在 Startup.cs 中：
+
+    ```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddServiceProfiler(); // Add this line of code to Enable Profiler
+        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+    }
+    ```
+
+1. 在 **HomeController.cs** 區段中加入一行程式碼，以隨機延遲幾秒鐘的時間：
 
     ```csharp
         using System.Threading;
@@ -68,7 +87,7 @@ ms.locfileid: "55884302"
             }
     ```
 
-6. 儲存並認可您對本機存放庫的變更：
+1. 儲存並認可您對本機存放庫的變更：
 
     ```
         git init
@@ -143,10 +162,7 @@ ms.locfileid: "55884302"
 
     ```
     APPINSIGHTS_INSTRUMENTATIONKEY: [YOUR_APPINSIGHTS_KEY]
-    ASPNETCORE_HOSTINGSTARTUPASSEMBLIES: Microsoft.ApplicationInsights.Profiler.AspNetCore
     ```
-
-    ![應用程式設定](./media/profiler-aspnetcore-linux/set-appsettings.png)
 
     應用程式的設定變更時，網站會自動重新啟動。 一旦套用新的設定後，分析工具會立即執行 2 分鐘。 之後，分析工具會每小時執行兩分鐘。
 
@@ -160,16 +176,8 @@ ms.locfileid: "55884302"
 
 ## <a name="known-issues"></a>已知問題
 
-### <a name="the-enable-action-in-the-profiler-configuration-pane-doesnt-work"></a>[分析工具設定] 窗格中的 [啟用] 動作沒有作用
-
-> [!NOTE]
-> 如果您在 Linux 上使用 App Services 裝載應用程式，則不需要在 App Insights 入口網站的 [效能] 窗格中再次啟用分析工具。 您可以在專案中包含 NuGet 套件，並在您的 Web 應用程式設定中設定 Application Insights **iKey** 值，來啟用分析工具。
-
-如果您遵循「[適用於 Windows 的 Application Insights Profiler](./profiler.md) 」啟用工作流程，又選取了 [設定分析工具] 窗格中的 [啟用]，就會收到錯誤。 啟用動作會嘗試在 Linux 環境上安裝 Windows 版本的分析工具代理程式。
-
-我們正在解決這個問題。
-
-![請勿在 [效能] 窗格中嘗試重新啟用分析工具。](./media/profiler-aspnetcore-linux/issue-enable-profiler.png)
+### <a name="profile-now-button-doesnt-work-for-linux-profiler"></a>現在按鈕不適用於 Linux Profiler 的設定檔
+App Insights profiler 的 Linux 版本還不支援隨選分析現在使用設定檔 按鈕。
 
 
 ## <a name="next-steps"></a>後續步驟

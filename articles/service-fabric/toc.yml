@@ -84,6 +84,22 @@ items:
       href: service-fabric-tutorial-standalone-install-an-application.md
     - name: 4- 清除叢集並刪除基礎結構
       href: service-fabric-tutorial-standalone-clean-up.md
+- name: 最佳作法
+  items:
+  - name: Service Fabric 最佳做法概觀
+    href: service-fabric-best-practices-overview.md
+  - name: 安全性
+    href: service-fabric-best-practices-security.md
+  - name: 網路功能
+    href: service-fabric-best-practices-networking.md
+  - name: 計算規劃和調整
+    href: service-fabric-best-practices-capacity-scaling.md
+  - name: 基礎結構即程式碼
+    href: service-fabric-best-practices-infrastructure-as-code.md
+  - name: 監視和診斷
+    href: service-fabric-best-practices-monitoring.md
+  - name: 實際執行整備檢查清單
+    href: service-fabric-production-readiness-checklist.md
 - name: 範例
   items:
   - name: 程式碼範例
@@ -112,20 +128,6 @@ items:
       href: service-fabric-cluster-security.md
     - name: Azure 常見安全性屬性
       href: service-fabric-security-attributes.md
-  - name: 最佳作法
-    items:
-    - name: Service Fabric 最佳做法概觀
-      href: service-fabric-best-practices-overview.md
-    - name: 網路功能
-      href: service-fabric-best-practices-networking.md
-    - name: 計算規劃和調整
-      href: service-fabric-best-practices-capacity-scaling.md
-    - name: 基礎結構即程式碼
-      href: service-fabric-best-practices-infrastructure-as-code.md
-    - name: 監視和診斷
-      href: service-fabric-best-practices-monitoring.md
-    - name: 實際執行整備檢查清單
-      href: service-fabric-production-readiness-checklist.md
   - name: 術語
     href: service-fabric-technical-overview.md
   - name: 建置應用程式
@@ -851,9 +853,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: 影片
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: 02b5712aedc96fce447f11b755b837b52855379b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 9490e4a9b91dc752e373d696e27069bc4d402342
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278457"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495578"

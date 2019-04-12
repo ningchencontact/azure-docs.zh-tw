@@ -11,20 +11,20 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 04/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 48fb09b73a6169da392443f5fbf4f005e9640c3e
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 4476bb0a5a343fd43ce5ed70cf0e493d0ccae0e9
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905982"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505629"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>收集並分析 Azure 活動記錄中 Azure 監視器中的 Log Analytics 工作區
 
 ![Azure 活動記錄符號](./media/collect-activity-logs/activity-log-analytics.png)
 
-活動記錄分析解決方案可協助您分析和搜尋所有 Azure 訂用帳戶的 [Azure 活動記錄](../../azure-monitor/platform/activity-logs-overview.md)。 Azure 活動記錄能為您提供訂用帳戶中的資源所執行的作業有關的深入解析。 活動記錄檔之前稱為「稽核記錄」或「作業記錄」，因為它會報告訂用帳戶的事件。
+活動記錄分析解決方案可協助您分析和搜尋所有 Azure 訂用帳戶的 [Azure 活動記錄](activity-logs-overview.md)。 Azure 活動記錄能為您提供訂用帳戶中的資源所執行的作業有關的深入解析。 活動記錄檔之前稱為「稽核記錄」或「作業記錄」，因為它會報告訂用帳戶的事件。
 
 您可以使用活動記錄檔來判斷訂用帳戶中的資源上任何寫入作業 (PUT、POST、DELETE) 的「*內容*」、「對象」和「時間」。 您也可以了解作業的狀態和其他相關屬性。 活動記錄不包含讀取 (GET) 作業，或使用傳統部署模型的資源有關的作業。
 
@@ -52,28 +52,39 @@ Log Analytics 工作區會收集活動記錄免費的並將記錄檔儲存 90 �
 
 | 連接的來源 | 支援 | 描述 |
 | --- | --- | --- |
-| [Windows 代理程式](../../azure-monitor/platform/agent-windows.md) | 否 | 解決方案不會收集來自 Windows 代理程式的資訊。 |
-| [Linux 代理程式](../../azure-monitor/learn/quick-collect-linux-computer.md) | 否 | 解決方案不會收集來自 Linux 代理程式的資訊。 |
-| [SCOM 管理群組](../../azure-monitor/platform/om-agents.md) | 否 | 解決方案不會收集來自連線 SCOM 管理群組的代理程式之中的資訊。 |
+| [Windows 代理程式](agent-windows.md) | 否 | 解決方案不會收集來自 Windows 代理程式的資訊。 |
+| [Linux 代理程式](../learn/quick-collect-linux-computer.md) | 否 | 解決方案不會收集來自 Linux 代理程式的資訊。 |
+| [System Center Operations Manager 管理群組](om-agents.md) | 否 | 解決方案不會從 Operations Manager 管理群組回報的代理程式收集的資訊。 |
 | [Azure 儲存體帳戶](collect-azure-metrics-logs.md) | 否 | 解決方案不會收集來自 Azure 儲存體的資訊。 |
 
 ## <a name="prerequisites"></a>必要條件
 
-- 若要存取 Azure 活動記錄資訊，您必須有 Azure 訂用帳戶。
+若要存取 Azure 活動記錄資訊，您必須有 Azure 訂用帳戶。
+
+此解決方案也會需要下列兩個資源提供者會註冊您的訂用帳戶中：
+
+1. Microsoft.OperationalInsights
+2. Microsoft.OperationsManagement
+
+若要了解如何註冊或驗證其所註冊，請參閱[Azure 資源提供者和類型](../../azure-resource-manager/resource-manager-supported-services.md)
 
 ## <a name="configuration"></a>組態
 
 執行下列步驟來設定您工作區的 Activity Log Analytics 解決方案。
 
-1. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) 或使用[從方案庫新增 Log Analytics 方案](../../azure-monitor/insights/solutions.md)中所述的程序，啟用 Activity Log Analytics 解決方案。
+1. 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
+
+2. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) 或使用[從方案庫新增 Log Analytics 方案](../insights/solutions.md)中所述的程序，啟用 Activity Log Analytics 解決方案。
+
 2. 設定活動記錄移至您的 Log Analytics 工作區。
     1. 在 Azure 網站中，選取您的工作區，然後按一下 [Azure 活動記錄]。
     2. 對於每個訂用帳戶，按一下訂用帳戶名稱。  
+        
         ![新增訂用帳戶](./media/collect-activity-logs/add-subscription.png)
+    
     3. 在 [SubscriptionName] 刀鋒視窗中，按一下 [連接]。  
+    
         ![連線訂用帳戶](./media/collect-activity-logs/subscription-connect.png)
-
-登入 Azure 入口網站，將 Azure 訂用帳戶連接至您的工作區。  
 
 ## <a name="using-the-solution"></a>使用解決方案
 
@@ -98,5 +109,5 @@ Log Analytics 工作區會收集活動記錄免費的並將記錄檔儲存 90 �
 
 ## <a name="next-steps"></a>後續步驟
 
-- 特定活動時建立[警示](../../azure-monitor/platform/alerts-metric.md)。
-- 使用[記錄搜尋](../../azure-monitor/log-query/log-query-overview.md)檢視活動記錄的詳細資訊。
+- 特定活動時建立[警示](../platform/alerts-metric.md)。
+- 使用[記錄搜尋](../log-query/log-query-overview.md)檢視活動記錄的詳細資訊。

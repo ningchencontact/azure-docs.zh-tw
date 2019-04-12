@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1897ddf328413decdc13cffaab0fb569d8d95665
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 82baef7ce0d91713c8bef202ab0ea0925d290f3a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521664"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496585"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>将作业状态和作业流从自动化转发到 Azure Monitor 日志
 
@@ -32,7 +32,7 @@ ms.locfileid: "58521664"
 
 若要开始将自动化日志发送到 Azure Monitor 日志，需要：
 
-* 2016 年 11 月或更新版本的 [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) (v2.3.0)。
+* 最新版[Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)。
 * Log Analytics 工作區。 有关详细信息，请参阅 [Azure Monitor 日志入门](../log-analytics/log-analytics-get-started.md)。 
 * 您「Azure 自動化」帳戶的 ResourceId。
 
@@ -40,14 +40,14 @@ ms.locfileid: "58521664"
 
 ```powershell-interactive
 # Find the ResourceId for the Automation Account
-Get-AzureRmResource -ResourceType "Microsoft.Automation/automationAccounts"
+Get-AzResource -ResourceType "Microsoft.Automation/automationAccounts"
 ```
 
 若要尋找您 Log Analytics 工作區的 ResourceId，請執行下列 PowerShell：
 
 ```powershell-interactive
 # Find the ResourceId for the Log Analytics workspace
-Get-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
+Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 ```
 
 如果您有多個「自動化」帳戶或工作區，請在先前命令的輸出中，尋找您需要設定的 *Name*，並複製 *ResourceId* 的值。
@@ -63,19 +63,20 @@ Get-AzureRmResource -ResourceType "Microsoft.OperationalInsights/workspaces"
    $workspaceId = "[resource id of the log analytics workspace]"
    $automationAccountId = "[resource id of your automation account]"
 
-   Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
+   Set-AzDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
    ```
 
 运行此脚本后，可能需要一小时才能开始在 Azure Monitor 日志中看到写入新 JobLogs 或 JobStreams 的记录。
 
-若要查看日志，请在 Log Analytics 日志搜索中运行以下查询：`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+若要查看記錄檔，請在 log analytics 記錄搜尋中執行下列查詢：
+`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>驗證組態
 
 若要確認您的「自動化」帳戶會將記錄傳送到 Log Analytics 工作區，請使用下列 PowerShell 來確認已在「自動化」帳戶上正確設定診斷：
 
 ```powershell-interactive
-Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
+Get-AzDiagnosticSetting -ResourceId $automationAccountId
 ```
 
 在輸出中，確定：
@@ -85,7 +86,7 @@ Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 
 ## <a name="azure-monitor-log-records"></a>Azure 監視器記錄
 
-来自 Azure 自动化的诊断将在 Azure Monitor 日志中创建两种类型的记录，并将其标记为 **AzureDiagnostics**。 以下查询使用升级的 Azure Monitor 日志查询语言。 如需有關舊版查詢語言和新的 Azure Kusto 查詢語言之間通用查詢資訊，請造訪[舊版到新的 Azure Kusto 查詢語言速查表](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language)
+来自 Azure 自动化的诊断将在 Azure Monitor 日志中创建两种类型的记录，并将其标记为 **AzureDiagnostics**。 以下查询使用升级的 Azure Monitor 日志查询语言。 有关旧查询语言与新 Azure Kusto 查询语言之间的共有查询的相关信息，请访问[新旧 Azure Kusto 查询语言速查表](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language)。
 
 ### <a name="job-logs"></a>作業記錄檔
 
@@ -136,7 +137,8 @@ Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 
 开始将自动化作业日志发送到 Azure Monitor 日志后，让我们看一下在 Azure Monitor 日志中可对这些日志执行哪些操作。
 
-若要查看記錄，請執行下列查詢：`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+若要查看記錄檔，請執行下列查詢：
+`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="send-an-email-when-a-runbook-job-fails-or-suspends"></a>在 Runbook 工作失敗或暫停時傳送電子郵件
 客戶最常要求的其中一項功能便是希望系統能在 Runbook 作業發生問題時，傳送電子郵件或文字通知。   
@@ -144,7 +146,7 @@ Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 若要建立警示規則，首先針對應叫用警示的 Runbook 工作記錄，建立記錄檔搜尋。 按一下 [警示] 按鈕，以建立並設定警示規則。
 
 1. 在“Log Analytics 工作区概述”页中，单击“查看日志”。
-2. 在查詢欄位中鍵入下列搜尋內容來為您的警示建立記錄搜尋查詢：`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`  您也可以透過使用下列內容來依 RunbookName 分組：`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
+2. 在查詢欄位中鍵入下列搜尋內容來為您的警示建立記錄搜尋查詢：`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`  您也可以依 RunbookName 分組，使用： `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    如果您將來自多個「自動化」帳戶或訂用帳戶的記錄設定到您的工作區，就能依訂用帳戶或「自動化」帳戶來將警示分組。 您可以在搜尋 JobLogs 時，在 [資源] 欄位中找到「自動化」帳戶名稱。
 3. 若要開啟 [建立規則] 畫面，按一下頁面頂端的 [+ 新增警示規則]。 如需設定警示選項的詳細資訊，請參閱 [Azure 中的記錄警示](../azure-monitor/platform/alerts-unified-log.md)。
@@ -173,7 +175,7 @@ Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 ```powershell-interactive
 $automationAccountId = "[resource id of your automation account]"
 
-Remove-AzureRmDiagnosticSetting -ResourceId $automationAccountId
+Remove-AzDiagnosticSetting -ResourceId $automationAccountId
 ```
 
 ## <a name="summary"></a>總結
@@ -185,8 +187,8 @@ Remove-AzureRmDiagnosticSetting -ResourceId $automationAccountId
 Azure Monitor 日志可以更直观地显示自动化作业的运行情况，并且可以帮助更快地解决事件。  
 
 ## <a name="next-steps"></a>後續步驟
-* 若要深入了解如何建構不同的搜尋查詢，以及檢閱使用 Azure 監視器記錄檔的自動化作業記錄檔，請參閱[Azure 監視器記錄檔中的記錄搜尋](../log-analytics/log-analytics-log-searches.md)。
+* 若要详细了解如何使用 Azure Monitor 日志构造不同的搜索查询和查看自动化作业日志，请参阅 [Azure Monitor 日志中的日志搜索](../log-analytics/log-analytics-log-searches.md)。
 * 若要了解如何從 Runbook 建立及擷取輸出與錯誤訊息，請參閱 [Runbook 輸出與訊息](automation-runbook-output-and-messages.md)。
 * 若要深入了解 Runbook 執行方式、如何監視 Runbook 作業，以及其他技術性詳細資料，請參閱[追蹤 Runbook 作業](automation-runbook-execution.md)。
-* 若要深入了解 Azure 監視器記錄檔和資料收集來源，請參閱[在 Azure 監視器中收集 Azure 儲存體的資料記錄檔概觀](../azure-monitor/platform/collect-azure-metrics-logs.md)。
+* 若要了解有关 Azure Monitor 日志和数据收集源的详细信息，请参阅[在 Azure Monitor 日志中收集 Azure 存储数据概述](../azure-monitor/platform/collect-azure-metrics-logs.md)。
 

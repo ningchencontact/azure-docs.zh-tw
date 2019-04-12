@@ -1,6 +1,6 @@
 ---
-title: 收集 Azure Sentinel 預覽版中的 Azure 資訊保護資料 |Microsoft Docs
-description: 了解如何收集在 Azure Sentinel 的 Azure 資訊保護資料。
+title: Azure 資訊保護資料連接至 Azure 的 Sentinel Preview |Microsoft Docs
+description: 了解如何將 Azure 資訊保護中 Azure Sentinel 的資料連接。
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7c5866d3096823f91a70b28c7c5dd1790e1b3bf8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2f970910e19b3c1ed9d262d356c49848f4248b09
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537162"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489823"
 ---
-# <a name="collect-data-from-azure-information-protection"></a>收集的資料，Azure Information protection
+# <a name="connect-data-from-azure-information-protection"></a>將資料連接，從 Azure 資訊保護
 
 > [!IMPORTANT]
-> Azure 的 Sentinel 目前處於公開預覽狀態。
+> Azure Sentinel 目前為公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 您可以從串流記錄[Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip)到 Azure Sentinel 只要按一下。 Azure 資訊保護可協助保護您的資料，無論是儲存在雲端或內部部署基礎結構和控制項，並協助保護電子郵件、 文件和您的公司外部共用的敏感性資料。 從簡易的分類到內嵌的標籤和權限，加強資料保護隨時都與 Azure 資訊保護。 當您連接 Azure 資訊保護到 Azure Sentinel，您的資料流的所有警示從 Azure 資訊保護至 Azure 的 Sentinel。
@@ -41,7 +41,7 @@ ms.locfileid: "57537162"
 如果在部署 Azure 資訊保護，而且取得資料，請參閱警示的資料可以輕鬆地串流到 Azure 的 Sentinel。
 
 
-1. 在 Azure Sentinel，選取**資料收集**，然後按一下**Azure Information Protection**圖格。
+1. 在 Azure Sentinel，選取**資料連接器**，然後按一下**Azure Information Protection**圖格。
 
 2. 移至[Azure Information Protection 入口網站](https://portal.azure.com/?ScannerConfiguration=true&EndpointDiscovery=true#blade/Microsoft_Azure_InformationProtection/DataClassGroupEditBlade/quickstartBlade) 
 

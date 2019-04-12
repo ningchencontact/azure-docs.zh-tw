@@ -17,7 +17,7 @@ ms.locfileid: "59006700"
 
 *虛擬網路規則*是一項防火牆安全性功能，可控制適用於 MariaDB 的 Azure 資料庫伺服器是否接受從虛擬網路中特定子網路所傳來的通訊。 本文說明為何虛擬網路規則功能有時是讓適用於 MariaDB 的 Azure 資料庫伺服器安全接受通訊的最佳選項。
 
-若要建立虛擬網路規則，必須先有[虛擬網路][vm-virtual-network-overview] (VNet) 和[虛擬網路服務端點][vm-virtual-network-service-endpoints-overview-649d]，以供規則參考。 下圖說明虛擬網路服務端點如何與適用於 MariaDB 的 Azure 資料庫搭配運作：
+若要建立虛擬網路規則，必須先有[虛擬網路][vm-virtual-network-overview] (VNet) 和[虛擬網路服務端點][vm-virtual-network-service-endpoints-overview-649d]可供規則參考。 下圖說明虛擬網路服務端點如何與適用於 MariaDB 的 Azure 資料庫搭配運作：
 
 ![VNet 服務端點的運作方式範例](media/concepts-data-access-security-vnet/vnet-concept.png)
 

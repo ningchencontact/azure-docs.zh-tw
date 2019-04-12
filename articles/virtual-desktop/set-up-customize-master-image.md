@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: d22fffcb792227b4d0805abd005d8c050cb97248
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: e82b9ae96ae43278e22da22702d3d899abadb1b5
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006209"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505595"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>準備和自訂主要 VHD 映像
 
@@ -158,21 +158,20 @@ reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hide
 reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideenabledisableupdates /t REG_DWORD /d 1 /f
 ```
 
-您可以手動停用自動更新。
+### <a name="disable-automatic-updates"></a>停用自動更新
 
-若要停用自動更新：
+若要停用自動更新，透過本機群組原則：
 
-1. 依照中的指示安裝 Office365[軟體準備及安裝](set-up-customize-master-image.md#software-preparation-and-installation)。
-2. 安裝任何其他的應用程式中的指示[設定使用者設定檔的容器 (FSLogix)](set-up-customize-master-image.md#set-up-user-profile-container-fslogix)，[設定 Windows Defender](set-up-customize-master-image.md#configure-windows-defender)，和[其他應用程式和登錄設定](set-up-customize-master-image.md#other-applications-and-registry-configuration)。
-3. 停用本機 VM 上的 Windows 自動更新服務。
-4. 開啟**本機群組原則編輯器\\系統管理範本\\Windows 元件\\Windows Update**。
-5. 以滑鼠右鍵按一下**設定自動更新**並將它設定為**停用**。
+1. 開啟**本機群組原則編輯器\\系統管理範本\\Windows 元件\\Windows Update**。
+2. 以滑鼠右鍵按一下**設定自動更新**並將它設定為**停用**。
 
 您也可以執行下列命令，在命令提示字元，以停用自動更新。
 
 ```batch
 reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
+
+### <a name="specify-start-layout-for-windows-10-pcs-optional"></a>適用於 Windows 10 電腦 （選擇性） 指定 [開始] 配置
 
 執行此命令來指定適用於 Windows 10 電腦的 [開始] 配置。
 

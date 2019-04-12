@@ -1,6 +1,6 @@
 ---
-title: 收集 Azure Sentinel 預覽版中的 Azure ATP 資料 |Microsoft Docs
-description: 了解如何收集 Azure ATP 的資料，在 Azure Sentinel。
+title: 將 Azure ATP 資料連接至 Azure 的 Sentinel Preview |Microsoft Docs
+description: 了解如何將 Azure ATP 資料連接至 Azure 的 Sentinel。
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/26/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5254e60b9b7c38e5f4534e90f8aabe938aef99b2
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 153b6cb44cbcf5ecca9a4941c6bef7a8721dc56c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574938"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492646"
 ---
-# <a name="collect-data-from-azure-advanced-threat-protection-atp"></a>收集的資料從 Azure 進階威脅防護 (ATP)
+# <a name="connect-data-from-azure-advanced-threat-protection-atp"></a>將資料從 Azure 進階威脅防護 (ATP) 的連接
 
 > [!IMPORTANT]
 > Azure Sentinel 目前為公開預覽狀態。
@@ -42,7 +42,7 @@ ms.locfileid: "58574938"
 
 
 
-1. 在 Azure Sentinel，選取**資料收集**，然後按一下**Azure ATP**圖格。
+1. 在 Azure Sentinel，選取**資料連接器**，然後按一下**Azure ATP**圖格。
 
 2. 按一下 [ **連接**]。
 

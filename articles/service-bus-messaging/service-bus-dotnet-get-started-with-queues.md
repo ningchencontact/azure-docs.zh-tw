@@ -12,38 +12,29 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: dfdea9f8d50c467bf0e4317c8d95135afefa765f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 22996b277aba96cbbfedbb3e9cc67644d1a535ca
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57778003"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500680"
 ---
 # <a name="get-started-with-service-bus-queues"></a>開始使用服務匯流排佇列
-
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-
-本教學課程涵蓋下列步驟：
-
-1. 使用 Azure 入口網站建立服務匯流排命名空間。
-2. 使用 Azure 入口網站建立服務匯流排佇列。
-3. 撰寫 .NET Core 主控台應用程式，以將一組訊息傳送到佇列。
-4. 撰寫 .NET Core 主控台應用程式，以從佇列接收這些訊息。
+在本教學課程中，您可以建立.NET Core 主控台應用程式，以傳送和接收來自服務匯流排佇列的訊息。 
 
 ## <a name="prerequisites"></a>必要條件
 
 1. [Visual Studio 2017 Update 3 (版本 15.3, 26730.01)](https://www.visualstudio.com/vs) 或更新版本。
 2. [.NET Core SDK](https://www.microsoft.com/net/download/windows)，2.0 版或更新版本。
-2. Azure 訂用帳戶。
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-[!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
-
+2. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用您[MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或是註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+3. 如果您沒有要使用的佇列，後續步驟[使用 Azure 入口網站來建立服務匯流排佇列](service-bus-quickstart-portal.md)文章，以建立佇列。
+    1. 閱讀快速**概觀**的服務匯流排**佇列**。 
+    2. 建立服務匯流排**命名空間**。 
+    3. 取得**連接字串**。 
+    4. 建立服務匯流排**佇列**。 
 
 ## <a name="send-messages-to-the-queue"></a>將訊息傳送到佇列
 
@@ -206,7 +197,7 @@ ms.locfileid: "57778003"
 
 ## <a name="receive-messages-from-the-queue"></a>從佇列接收訊息
 
-若要接收您剛傳送的訊息，請建立另一個 .NET Core 主控台應用程式，並安裝 **Microsoft.Azure.ServiceBus** NuGet 套件 (類似於先前的傳送者應用程式)。
+若要接收您傳送的訊息，建立另一個.NET Core 主控台應用程式並安裝**Microsoft.Azure.ServiceBus** NuGet 套件，類似於先前的傳送者應用程式。
 
 ### <a name="write-code-to-receive-messages-from-the-queue"></a>撰寫程式碼以從佇列接收訊息
 

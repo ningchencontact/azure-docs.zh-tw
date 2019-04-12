@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: c9e6e289fbda3188449ecc71cbc90bed546512e1
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: 6ab13e1ecd5f4825270f4b3a28251b959ad98f02
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471523"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495391"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>針對啟用或檢視 Application Insights Profiler 的問題進行疑難排解
 
@@ -71,7 +71,7 @@ Profiler 會將追蹤訊息和自訂事件寫入至您的 Application Insights �
 
     |應用程式設定    | 值    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | 為您的 Application Insights 資源的 iKey    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights 資源的 iKey    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
     |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
@@ -83,7 +83,7 @@ Profiler 會將追蹤訊息和自訂事件寫入至您的 Application Insights �
    
       ![profiler-webjob]   
    
-   1. 若要檢視 WebJob 的詳細資料 (包括記錄)，請選取 [ApplicationInsightsProfiler2] 連結。  
+   1. 若要檢視詳細資料的 webjob，包括記錄檔中，選取**ApplicationInsightsProfiler3**連結。  
      [連續 WebJob 詳細資料] 窗格隨即開啟。
 
       ![profiler-webjob-log]
@@ -92,7 +92,7 @@ Profiler 會將追蹤訊息和自訂事件寫入至您的 Application Insights �
     
 ### <a name="manual-installation"></a>手動安裝
 
-當您設定 Profiler 時，系統會對 Web 應用程式的設定進行更新。 您可以視環境需要手動套用這些更新。 可能的範例為您的應用程式在 PowerApps 的 Web Apps 環境中執行。 若要手動套用更新，請執行下列作業：
+當您設定 Profiler 時，系統會對 Web 應用程式的設定進行更新。 您可以視環境需要手動套用這些更新。 可能的範例為您的應用程式在 PowerApps 的 Web Apps 環境中執行。 若要手動套用更新：
 
 1. 在 [Web 應用程式控制項] 窗格中，開啟 [設定]。
 
@@ -103,7 +103,7 @@ Profiler 會將追蹤訊息和自訂事件寫入至您的 Application Insights �
 
     |應用程式設定    | 值    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | 為您的 Application Insights 資源的 iKey    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights 資源的 iKey    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
     |DiagnosticServices_EXTENSION_VERSION | ~3 |
 

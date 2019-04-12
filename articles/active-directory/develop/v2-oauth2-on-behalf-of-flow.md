@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4de33bb02a008d6b394055c64119ac2a4fbc4d9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d0c7c29bf3094c3d5fc99b9906ee4469a6643317
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59276043"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501584"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft 身分識別平台和 OAuth 2.0 代理者流程
 
@@ -33,7 +33,7 @@ OAuth2.0 代理者流程 (OBO) 的使用案例，是應用程式叫用服務/Web
 
 > [!NOTE]
 >
-> - Microsoft 身分識別平台端點不支援所有的案例和功能。 若要判斷您是否應該使用 Microsoft 身分識別平台的端點，請參閱[Microsoft 身分識別平台限制](active-directory-v2-limitations.md)。 特別是已知用戶端應用程式不支援具有 Microsoft 帳戶 (MSA) 和 Azure AD 對象的應用程式。 因此，OBO 的常見同意模式不適用於登入個人和公司或學校帳戶的用戶端。 若要深入了解如何處理流程的這個步驟，請參閱[取得中介層應用程式的同意](#gaining-consent-for-the-middle-tier-application)。
+> - Microsoft 身分識別平台端點不支援所有的案例和功能。 若要判斷您是否應該使用 Microsoft 身分識別平台的端點，請參閱[Microsoft 身分識別平台限制](active-directory-v2-limitations.md)。 具體來說，已知的用戶端應用程式不支援 Microsoft 帳戶 (MSA) 與 Azure AD 的對象的應用程式。 因此，OBO 的常見同意模式不適用於登入個人和公司或學校帳戶的用戶端。 若要深入了解如何處理流程的這個步驟，請參閱[取得中介層應用程式的同意](#gaining-consent-for-the-middle-tier-application)。
 > - 從 2018 年 5 月起，部分隱含流程衍生 `id_token` 無法用於 OBO 流程。 單頁應用程式 (SPA) 應該將**存取**權杖傳遞至中介層機密用戶端，才能改為執行 OBO 流程。 若要進一步了解哪些用戶端可執行 OBO 呼叫，請參閱[限制](#client-limitations)。
 
 ## <a name="protocol-diagram"></a>通訊協定圖表
@@ -55,7 +55,7 @@ OAuth2.0 代理者流程 (OBO) 的使用案例，是應用程式叫用服務/Web
 
 ## <a name="service-to-service-access-token-request"></a>服務對服務存取權杖要求
 
-若要要求存取權杖，請對租用戶特定的 v2.0 權杖端點搭配下列參數提出 HTTP POST。
+若要要求存取權杖，HTTP POST 對租用戶專屬 Microsoft 身分識別平台權杖端點提出包含下列參數。
 
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
@@ -191,13 +191,13 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>取得中介層應用程式的同意
 
-根據您的應用程式的對象，您可以考慮不同的策略，以確保 OBO 流程已成功。 在所有情況下，最終的目標是確保適當同意。 而如何發生則取決於您的應用程式支援哪些使用者。 
+根據您的應用程式的對象，您可以考慮不同的策略，以確保 OBO 流程已成功。 在所有情況下，最終的目標是確保適當同意。 而如何發生則取決於您的應用程式支援哪些使用者。
 
 ### <a name="consent-for-azure-ad-only-applications"></a>僅限 Azure AD 應用程式的同意
 
 #### <a name="default-and-combined-consent"></a>/.預設和合併的同意
 
-針對僅需要登入公司或學校帳戶的應用程式，傳統「已知用戶端應用程式」方法就已足夠。 中介層應用程式會將用戶端新增至已知用戶端應用程式清單的資訊清單中，然後用戶端可以針對自己本身與中介層應用程式觸發合併的同意流程。 在 v2.0 端點上，這是使用 [`/.default` 範圍](v2-permissions-and-consent.md#the-default-scope)來完成。 當使用已知用戶端應用程式和 `/.default` 來觸發同意畫面時，同意畫面會顯示兩個用戶端對中介層 API 的權限，也會要求中介層 API 需要的任何權限。 使用者提供兩個應用程式的同意，然後 OBO 流程就能運作。
+針對僅需要登入公司或學校帳戶的應用程式，傳統「已知用戶端應用程式」方法就已足夠。 中介層應用程式會將用戶端新增至已知用戶端應用程式清單的資訊清單中，然後用戶端可以針對自己本身與中介層應用程式觸發合併的同意流程。 端點上的 Microsoft 身分識別平台，這是使用[`/.default`範圍](v2-permissions-and-consent.md#the-default-scope)。 當使用已知用戶端應用程式和 `/.default` 來觸發同意畫面時，同意畫面會顯示兩個用戶端對中介層 API 的權限，也會要求中介層 API 需要的任何權限。 使用者提供兩個應用程式的同意，然後 OBO 流程就能運作。
 
 目前個人 Microsoft 帳戶系統不支援合併的同意，因此這個方法不適用於想要特定登入個人帳戶的應用程式。 用來作為租用戶中來賓帳戶的個人 Microsoft 帳戶，是使用 Azure AD 系統進行處理，可以通過合併的同意。
 
@@ -211,7 +211,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 ### <a name="consent-for-azure-ad--microsoft-account-applications"></a>Azure AD + Microsoft 帳戶應用程式的同意
 
-由於個人帳戶權限模型的限制以及缺乏控管租用戶，所以個人帳戶的同意需求與 Azure AD 有一些不同。 沒有可用來提供整個租用戶同意的租用戶，也沒有執行合併同意的能力。 因此有其他策略，請注意，這些策略僅適用於只需要支援 Azure AD 帳戶的應用程式。
+因為個人帳戶的權限模型以及缺乏控管租用戶中的限制，個人帳戶的同意需求則會從 Azure AD 有些許不同項目。 沒有可用來提供整個租用戶同意的租用戶，也沒有執行合併同意的能力。 因此有其他策略，請注意，這些策略僅適用於只需要支援 Azure AD 帳戶的應用程式。
 
 #### <a name="use-of-a-single-application"></a>使用單一應用程式
 
@@ -219,7 +219,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 ## <a name="client-limitations"></a>用戶端限制
 
-若用戶端使用隱含流程來取得 id_token，而且該用戶端的回覆 URL 中也有萬用字元，id_token 就無法用於 OBO 流程。  不過，機密用戶端仍可兌換透過隱含授與流程取得的存取權杖，即使起始用戶端已註冊萬用字元回覆 URL 亦然。
+如果用戶端會使用隱含流程來取得 id_token，而該用戶端也有萬用字元，在 回覆 URL，id_token 無法用於 OBO 流程。  不過，機密用戶端仍可兌換透過隱含授與流程取得的存取權杖，即使起始用戶端已註冊萬用字元回覆 URL 亦然。
 
 ## <a name="next-steps"></a>後續步驟
 

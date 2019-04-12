@@ -1,5 +1,5 @@
 ---
-title: 收集 Azure Sentinel 預覽版中的威脅情報資料 |Microsoft Docs
+title: 連接到 Azure Sentinel 預覽版的 威脅情報資料 |Microsoft Docs
 description: 深入了解如何連接到 Azure Sentinel 的 威脅情報資料。
 documentationcenter: na
 author: rkarlin
@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: bc8a644f99d9a84e1f2c177a87e2668ae9a57868
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: a33b00e4e553824f1f719be2c8518487241f0a11
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400638"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494828"
 ---
-# <a name="collect-data-from-threat-intelligence-providers"></a>從 威脅情報提供者收集資料 
+# <a name="connect-data-from-threat-intelligence-providers"></a>威脅情報提供者從連線資料 
 
 > [!IMPORTANT]
-> Azure 的 Sentinel 目前處於公開預覽狀態。
+> Azure Sentinel 目前為公開預覽狀態。
 > 此預覽版本是在沒有服務等級協定的情況下提供，不建議用於生產工作負載。 可能不支援特定功能，或可能已經限制功能。 如需詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 您將您的資料串流至 Azure 的 Sentinel 之後，您可以擴充它使用威脅情報摘要，您使用您的組織。 
@@ -44,7 +44,7 @@ ms.locfileid: "58400638"
 
 1. 如果您已經使用威脅情報提供者，請務必瀏覽至應用程式提示，並將指標傳送給 Microsoft，並為 Azure Sentinel 指定服務的權限授與。  
 
-2. 在 Azure Sentinel，選取**資料收集**，然後按一下**威脅情報**圖格。
+2. 在 Azure Sentinel，選取**資料連接器**，然後按一下**威脅情報**圖格。
 
 3. 按一下 [ **連接**]。 
 
@@ -55,5 +55,5 @@ ms.locfileid: "58400638"
 
 本文件中，您已了解如何在您的威脅情報提供者連線到 Azure 的 Sentinel。 若要深入了解 Azure Sentinel，請參閱下列文章。
 
-- 若要開始使用 Azure 的 Sentinel，您需要 Microsoft Azure 訂用帳戶。 如果您沒有訂用帳戶，可以註冊[免費試用](https://azure.microsoft.com/free/)。
-- 了解如何[登入您的資料，Azure Sentinel](quickstart-onboard.md)，並[洞悉您的資料，與潛在的威脅](quickstart-get-visibility.md)。
+- 若要開始使用 Azure Sentinel，您需要 Microsoft Azure 訂用帳戶。 如果您沒有訂用帳戶，可以註冊[免費試用](https://azure.microsoft.com/free/)。
+- 了解如何[將資料上架到 Azure Sentinel](quickstart-onboard.md)，並[掌握您的資料和潛在威脅](quickstart-get-visibility.md)。

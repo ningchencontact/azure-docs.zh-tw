@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4ed0be3178f9d5d014e9e50c11d555b586ced765
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 882d4e0592b74e8af30ff5bf110a41e403c3bf7d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579320"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494025"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>使用 Azure 資訊安全中心管理端點保護
 Azure 資訊安全中心會監視反惡意程式碼軟體的狀態，並在 [端點保護問題] 刀鋒視窗下報告此狀態。 資訊安全中心會強調問題所在，例如偵測到威脅和防護不足，這些問題會造成虛擬機器 (VM) 和電腦容易遭受反惡意程式碼軟體威脅。 您可以使用 [端點保護問題] 的資訊，找出可解決找出的問題的方案。
@@ -47,7 +47,7 @@ Azure 資訊安全中心會監視反惡意程式碼軟體的狀態，並在 [端
 
 ## <a name="install-antimalware-on-azure-vms"></a>在 Azure VM 上安裝反惡意程式碼軟體
 
-1. 在 [資訊安全中心] 主功能表或 [概觀] 下選取 [計算]。
+1. 選取 **計算及應用程式**下方 資訊安全中心主功能表或**概觀**。
 
    ![選取 [計算]][1]
 

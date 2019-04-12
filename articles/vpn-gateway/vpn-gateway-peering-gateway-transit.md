@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 05b25a524894248152114ca9c756d4a0f8944ad8
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: d5e62bf1838c8f07068208019d28d7273c28bd63
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199625"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492340"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>為虛擬網路對等互連設定 VPN 閘道傳輸
 
@@ -37,9 +37,6 @@ ms.locfileid: "58199625"
 1. 兩個虛擬網路都使用資源管理員部署模型
 2. 輪輻虛擬網路使用傳統部署，而具有閘道的中樞虛擬網路位於資源管理員中
 
-> [!IMPORTANT]  
-> 全域虛擬網路對等互連在預覽中目前支援閘道傳輸。 預覽適用於所有 Azure 區域、 中國雲端區域和政府雲端區域中，但不是會跨雲端。 需要未列入允許清單。 您可以透過 CLI、 PowerShell、 範本或 API 的預覽中進行測試。 在預覽中不支援入口網站。 
-
 ## <a name="requirements"></a>需求
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -53,9 +50,9 @@ ms.locfileid: "58199625"
 
 請參閱下列文件的指示：
 
-1. [在虛擬網路中建立 VPN 閘道](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-2. [以相同部署模型建立虛擬網路對等互連](../virtual-network/tutorial-connect-virtual-networks-portal.md)
-3. [以不同部署模型建立虛擬網路對等互連](../virtual-network/create-peering-different-deployment-models.md)
+1. [在 虛擬網路中建立 VPN 閘道](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+2. [建立虛擬網路對等互連，使用相同的部署模型](../virtual-network/tutorial-connect-virtual-networks-portal.md)
+3. [建立虛擬網路對等互連使用不同的部署模型](../virtual-network/create-peering-different-deployment-models.md)
 
 ## <a name="permissions"></a>權限
 
@@ -63,7 +60,7 @@ ms.locfileid: "58199625"
     
 |虛擬網路|部署模型|角色|權限|
 |---|---|---|---|
-|Hub-RM|Resource Manager|[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
+|Hub-RM|Resource Manager|[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
 | |傳統|[傳統網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/A|
 |Spoke-Classic|Resource Manager|[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||傳統|[傳統網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|

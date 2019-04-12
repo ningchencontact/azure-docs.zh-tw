@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 188cb21688ee092db426e51c6ae327def3ff02d0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: e8fe694cc757f5bcb9cf470f17306e8aa0028744
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58919172"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502831"
 ---
 | 資源 | 預設限制 | 上限 |
 | --- | --- | --- |
@@ -25,7 +25,7 @@ ms.locfileid: "58919172"
 | 每一訂閱的 DNS 伺服器 |9 |100 |
 | 每一訂用帳戶的保留 IP |20 |100 |
 | 每一訂用帳戶[同質群組](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) |256 |256 |
-
+| 訂用帳戶名稱長度 （字元） | 64 | 64 |
 
 <sup>1</sup>額外小型執行個體計數為一種 vCPU，即使使用部分的 CPU 核心的 vCPU 限制。
 

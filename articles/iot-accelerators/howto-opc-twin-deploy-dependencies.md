@@ -1,5 +1,5 @@
 ---
-title: 如何部署 Azure IoT OPC UA 裝置管理雲端相依性 |Microsoft Docs
+title: 如何在 Azure 中的 OPC 對應項雲端相依性的部署 |Microsoft Docs
 description: 如何部署 OPC 對應項 Azure 相依性。
 author: dominicbetts
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: cdd89293328da47c8e338bb6fca8c7b93dd84f97
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: ae9f2b05bfc6ea6315022d04c8d267d916cf282e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759447"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491981"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>部署適用於本機開發的相依性
 
@@ -52,7 +52,7 @@ ms.locfileid: "58759447"
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已成功部署至現有專案的 OPC 裝置管理服務，以下是建議的下一個步驟：
+既然您已成功部署至現有專案的 OPC 對應項服務，以下是建議的下一個步驟：
 
 > [!div class="nextstepaction"]
-> [深入了解如何部署 OPC 裝置管理模組](howto-opc-twin-deploy-modules.md)
+> [深入了解如何部署 OPC 對應項模組](howto-opc-twin-deploy-modules.md)

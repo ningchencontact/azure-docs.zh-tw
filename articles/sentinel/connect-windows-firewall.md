@@ -1,6 +1,6 @@
 ---
-title: 收集 Azure Sentinel 預覽版中的 Windows 防火牆資料 |Microsoft Docs
-description: 了解如何收集 Azure Sentinel 的 Windows 防火牆資料。
+title: 將 Windows 防火牆資料連接至 Azure 的 Sentinel Preview |Microsoft Docs
+description: 了解如何將 Windows 防火牆的資料連接至 Azure 的 Sentinel。
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3839d81f70b8bc6dcb1da3c4dd77f52443294707
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 27a82545f77fe15541ac598abadbfc8ffb6d3405
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574835"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494191"
 ---
 # <a name="connect-windows-firewall"></a>連線 Windows 防火牆
 
@@ -31,12 +31,11 @@ ms.locfileid: "58574835"
 
 
 > [!NOTE]
-> 
-> - 資料會儲存在您在執行 Azure Sentinel 的工作區的地理位置。
+> 資料會儲存在您在執行 Azure Sentinel 的工作區的地理位置。
 
 ## <a name="enable-the-connector"></a>啟用連接器 
 
-1. 在 Azure Sentinel 入口網站中，選取**資料收集**，然後按一下**Windows 防火牆**圖格。 
+1. 在 Azure Sentinel 入口網站中，選取**資料連接器**，然後按一下**Windows 防火牆**圖格。 
 1. 選取您要串流處理的資料類型。
 1. 按一下 [Install] 。
 6. 若要使用相關的結構描述在 Log Analytics 中的 Windows 防火牆，搜尋**SecurityEvent**。

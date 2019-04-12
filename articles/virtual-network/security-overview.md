@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: efce606f9c48668f569b0fb4fc45745adc6652c4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 6b100846ec08ca1bdda49d0d7bce9eb78ecf019b
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262137"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501122"
 ---
 # <a name="security-groups"></a>安全性群組
 <a name="network-security-groups"></a>
@@ -80,6 +80,7 @@ ms.locfileid: "59262137"
 * **AzureMonitor** (僅限 Resource Manager)：此標記代表 AzureMonitor 服務的位址前置詞。 如果您指定 AzureMonitor 作為值，就會允許或拒絕 AzureMonitor 的流量。 
 * **ServiceFabric** (僅限 Resource Manager)：此標記代表 ServiceFabric 服務的位址前置詞。 如果您指定 ServiceFabric 作為值，就會允許或拒絕 ServiceFabric 的流量。 
 * **AzureMachineLearning** (僅限 Resource Manager)：此標記代表 AzureMachineLearning 服務的位址前置詞。 如果您指定 AzureMachineLearning 作為值，就會允許或拒絕 AzureMachineLearning 的流量。 
+* **BatchNodeManagement** (僅限 Resource Manager):這個標籤代表 Azure BatchNodeManagement 服務的位址首碼。 如果您指定*BatchNodeManagement*的值，是允許或拒絕流量從 Batch 服務至計算節點。
 
 > [!NOTE]
 > Azure 服務的服務標記代表所使用之特定雲端中的位址前置詞。 

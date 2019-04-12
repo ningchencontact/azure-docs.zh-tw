@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure AD v2.0 透過 ROPC 登入使用者 | Microsoft Docs
+title: 使用 Microsoft 身分識別平台，讓使用者使用 ROPC 登入 |Azure
 description: 使用資源擁有者密碼認證授與支援無瀏覽器的驗證流程。
 services: active-directory
 documentationcenter: ''
@@ -11,25 +11,25 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/28/2018
+ms.topic: conceptual
+ms.date: 04/12/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df9073bbf9789875c373bb7093ab1878a20c399f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 8c1372263bfa3f684d30ad583bfb6a9d434c3cc2
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59274176"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499932"
 ---
-# <a name="azure-active-directory-v20-and-the-oauth-20-resource-owner-password-credential"></a>Azure Active Directory v2.0 和 OAuth 2.0 資源擁有者密碼認證
+# <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Microsoft 身分識別平台和 OAuth 2.0 資源擁有者密碼認證
 
-Azure Active Directory (Azure AD) 支援[資源擁有者密碼認證 (ROPC) 授與](https://tools.ietf.org/html/rfc6749#section-4.3)，可讓應用程式藉由直接處理其密碼來登入使用者。 ROPC 流程需要高度的信任和使用者公開，因此，開發人員只應該在其他更安全的流程無法使用時，才使用此流程。
+Microsoft 身分識別平台支援[資源擁有者密碼認證 (ROPC) 授與](https://tools.ietf.org/html/rfc6749#section-4.3)，可讓應用程式藉由直接處理其密碼登入使用者。 ROPC 流程需要高度的信任和使用者公開，因此，開發人員只應該在其他更安全的流程無法使用時，才使用此流程。
 
-> [!Important]
-> * Azure AD v2.0 端點僅針對 Azure AD 租用戶支援 ROPC，而不會針對個人帳戶提供支援。 因此您必須使用租用戶特定端點 (`https://login.microsoftonline.com/{TenantId_or_Name}`) 或 `organizations` 端點。
+> [!IMPORTANT]
+> * Microsoft 身分識別平台端點僅支援 ROPC，Azure AD 租用戶，而不是個人帳戶。 因此您必須使用租用戶特定端點 (`https://login.microsoftonline.com/{TenantId_or_Name}`) 或 `organizations` 端點。
 > * 受邀加入 Azure AD 租用戶的個人帳戶無法使用 ROPC。
 > * 沒有密碼的帳戶無法透過 ROPC 登入。 針對此案例，建議您改用不同的應用程式流程。
 > * 如果使用者必須使用多重要素驗證 (MFA) 來登入應用程式，則會遭到封鎖。
@@ -44,10 +44,17 @@ Azure Active Directory (Azure AD) 支援[資源擁有者密碼認證 (ROPC) 授�
 
 ROPC 流程是單一要求&mdash;它會將用戶端識別與使用者的認證傳送至 IDP，然後接收權杖。 用戶端這麼做之前，必須先要求使用者的電子郵件地址 (UPN) 和密碼。 要求成功之後，用戶端應該就會立即從記憶體安全地釋出使用者的認證。 用戶端永遠不得儲存這些認證。
 
+> [!TIP]
+> 嘗試在 Postman 中執行這項要求！
+> [![在 Postman 中執行](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+
+
 ```
 // Line breaks and spaces are for legibility only.
 
-POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token?
+POST {tenant}/oauth2/v2.0/token
+Host: login.microsoftonline.com
+Content-Type: application/x-www-form-urlencoded
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &scope=user.read%20openid%20profile%20offline_access
@@ -96,11 +103,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Error | 描述 | 用戶端動作 |
 |------ | ----------- | -------------|
-| `invalid_grant` | 驗證失敗 | 認證不正確，或用戶端沒有同意所要求的範圍。 如果未授與範圍，將會傳回 `consent_required` 子錯誤。 如果發生這種情況，用戶端應使用 WebView 或瀏覽器將使用者傳送至互動式提示。 |
-| `invalid_request` | 要求未正確建構 | `/common` 或 `/consumers` 驗證內容不支援授與類型。  請改用 `/organizations`。 |
-| `invalid_client` | 未正確設定應用程式 | 如果[應用程式資訊清單](reference-app-manifest.md)中的 `allowPublicClient` 屬性未設定為 true，就會發生這個情形。 需要 `allowPublicClient` 屬性，因為 ROPC 授與沒有重新導向 URI。 除非設定此屬性，否則 Azure AD 無法判斷應用程式是公用用戶端應用程式還是機密用戶端應用程式。 請注意，ROPC 只支援用於公用用戶端應用程式。 |
+| `invalid_grant` | 驗證失敗 | 認證不正確，或用戶端沒有同意所要求的範圍。 如果未授與的範圍，`consent_required`便會傳回錯誤。 如果發生這種情況，用戶端應使用 WebView 或瀏覽器將使用者傳送至互動式提示。 |
+| `invalid_request` | 要求未正確建構 | 不支援的授與類型`/common`或`/consumers`驗證內容。  請改用 `/organizations`。 |
+| `invalid_client` | 未正確設定應用程式 | 如果此情形`allowPublicClient`屬性未設定為在中，則為 true[應用程式資訊清單](reference-app-manifest.md)。 需要 `allowPublicClient` 屬性，因為 ROPC 授與沒有重新導向 URI。 除非設定此屬性，否則 Azure AD 無法判斷應用程式是公用用戶端應用程式還是機密用戶端應用程式。 請注意，ROPC 只支援用於公用用戶端應用程式。 |
 
 ## <a name="learn-more"></a>深入了解
 
 * 使用[範例主控台應用程式](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2)自行試用 ROPC。
-* 若要判斷您是否應該使用 v2.0 端點，請參閱 [v2.0 限制](active-directory-v2-limitations.md)。
+* 若要判斷您是否應該使用 v2.0 端點，請參閱[Microsoft 身分識別平台限制](active-directory-v2-limitations.md)。

@@ -1,6 +1,6 @@
 ---
-title: 收集 Azure Sentinel 預覽版中的 Office 365 資料 |Microsoft Docs
-description: 了解如何收集 Azure Sentinel 中的 Office 365 資料。
+title: 將 Office 365 資料連接至 Azure 的 Sentinel Preview |Microsoft Docs
+description: 了解如何將 Office 365 資料連接至 Azure 的 Sentinel。
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/26/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: ad501958a5f88c821e48a3e21f69a960160b3c8e
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 77587b0b7506ef0ccadbeb6d1f010f5b6a72d93e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574853"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495185"
 ---
-# <a name="collect-data-from-office-365-logs"></a>從 Office 365 記錄檔收集資料
+# <a name="connect-data-from-office-365-logs"></a>連接 Office 365 記錄資料
 
 > [!IMPORTANT]
 > Azure Sentinel 目前為公開預覽狀態。
@@ -33,11 +33,11 @@ ms.locfileid: "58574853"
 ## <a name="prerequisites"></a>必要條件
 
 - 您必須是全域管理員或安全性系統管理員在您的租用戶
-- 您在電腦上，您登入 Azure Sentinel 來建立連線，請 suretha 連接埠 4433 則是 web 流量開啟項目。
+- 您在電腦上，您登入 Azure Sentinel 來建立連線，請確定已對 web 流量開啟連接埠 4433。
 
 ## <a name="connect-to-office-365"></a>連接至 Office 365
 
-1. 在 Azure Sentinel，選取**資料收集**，然後按一下**Office 365**圖格。
+1. 在 Azure Sentinel，選取**資料連接器**，然後按一下**Office 365**圖格。
 
 2. 如果您沒有已啟用，底下**連接**使用**啟用**按鈕來啟用 Office 365 解決方案。 如果已啟用，也會在已啟用的 [連接] 畫面中識別它。
 1. Office 365 可讓您將資料串流處理來自 Azure Sentinel 的多重租用戶中。 針對您想要連接到每個租用戶，新增 租用戶**將租用戶連接到 Azure 的 Sentinel**。 

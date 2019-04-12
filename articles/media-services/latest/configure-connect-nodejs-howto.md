@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 7f3afa59b4c8eaaeaf54576eb9fcaad626749683
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 40880a2c28ce28a671930ef8837082247e61e24b
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358908"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495083"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>連線到媒體服務 v3 API-Node.js
 
@@ -122,10 +122,10 @@ node index.js
 
 ## <a name="see-also"></a>請參閱
 
-[.NET 參考](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
+- [媒體服務概念](concepts-overview.md)
+- [NPM 安裝 azure arm mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/)
 
 ## <a name="next-steps"></a>後續步驟
 
-- [媒體服務概念](concepts-overview.md)
-- [Node.js 參考](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/?view=azure-node-latest)
-- [NPM 安裝 azure arm mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/)<br>
+探索媒體服務 [Node.js 參考](https://aka.ms/ams-v3-nodejs-ref)文件，並查看[範例](https://github.com/Azure-Samples/media-services-v3-node-tutorials)示範如何搭配使用媒體服務 API 與 Node.js。
+

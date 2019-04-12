@@ -9,19 +9,19 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 1ffeab91933bfcba9f3ffa0b557e849a1e6890f5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: dae74e730d6e175fa3e447150adce4caecd3d7a3
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486150"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496483"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Azure 診斷 1.2 組態結構描述
 > [!NOTE]
 > Azure 診斷是一種元件，可針對 Azure 虛擬機器、虛擬機器擴展集，Service Fabric 以及雲端服務，收集相關效能計數器和其他統計資料。  此頁面只在您使用其中一個服務時才相關。
 >
 
-Azure 診斷要與 Azure 監視器、Application Insights 和 Log Analytics 等其他 Microsoft 診斷產品搭配使用。
+Azure 診斷是 Azure 監視器 」，它包含 Application Insights 和 Log Analytics 等其他 Microsoft 診斷產品搭配使用。
 
 此結構描述定義當診斷監視器啟動，您可以用來初始化診斷組態設定的可能值。  
 
@@ -100,7 +100,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |------------------|-----------------|  
 |**WadCfg**|必要。 要收集之遙測資料的組態設定。|  
 |**StorageAccount**|要儲存資料的 Azure 儲存體帳戶名稱。 這可能也會在執行 Set-AzureServiceDiagnosticsExtension Cmdlet 時指定為參數。|  
-|**LocalResourceDirectory**|虛擬機器上監視代理程式用來儲存事件資料的目錄。 如果沒有設定，會使用預設的目錄：<br /><br /> 針對背景工作/web 角色：`C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> 針對虛擬機器：`C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> 必要屬性包括：<br /><br /> -                      **path** - 系統上 Azure 診斷所使用的目錄。<br /><br /> -                      **expandEnvironment** - 控制是否要展開路徑名稱中的環境變數。|  
+|**LocalResourceDirectory**|虛擬機器上監視代理程式用來儲存事件資料的目錄。 如果沒有設定，會使用預設的目錄：<br /><br /> 背景工作 /web 角色： `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> 虛擬機器： `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> 必要屬性包括：<br /><br /> -                      **path** - 系統上 Azure 診斷所使用的目錄。<br /><br /> -                      **expandEnvironment** - 控制是否要展開路徑名稱中的環境變數。|  
 
 ## <a name="wadcfg-element"></a>WadCFG 元素  
 定義要收集之遙測資料的組態設定。 下表說明子元素：  
@@ -110,9 +110,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**DiagnosticMonitorConfiguration**|必要。 選用屬性包括：<br /><br /> -                     **overallQuotaInMB** - 可供 Azure 診斷所收集的各種類型診斷資料取用的本機磁碟空間量上限。 預設設定為 5120 MB。<br /><br /> -                     **useProxyServer** - 設定 Azure 診斷來使用 Proxy 伺服器設定，如 IE 設定中所設定。|  
 |**CrashDumps**|啟用收集損毀傾印。 選用屬性包括：<br /><br /> -                     **containerName** - 在您的 Azure 儲存體帳戶中用來儲存損毀傾印的 Blob 容器名稱。<br /><br /> -                     **crashDumpType** - 設定 Azure 診斷來收集迷你或完整的損毀傾印。<br /><br /> -                     **directoryQuotaPercentage**- 設定要在 VM 上保留以供損毀傾印使用的 **overallQuotaInMB** 百分比。|  
 |**DiagnosticInfrastructureLogs**|啟用收集 Azure 診斷所產生的記錄。 診斷基礎結構記錄適用於疑難排解診斷系統本身。 選用屬性包括：<br /><br /> -                     **scheduledTransferLogLevelFilter** - 設定所收集之記錄的最低嚴重性層級。<br /><br /> -                     **scheduledTransferPeriod** - 排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](https://www.w3schools.com/xml/schema_dtypes_date.asp)。|  
-|**Directories**|啟用收集目錄、IIS 失敗的存取要求記錄和/或 IIS 記錄的內容。 選用屬性：<br /><br /> **scheduledTransferPeriod** - 排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](https://www.w3schools.com/xml/schema_dtypes_date.asp)。|  
+|**目錄**|啟用收集目錄、IIS 失敗的存取要求記錄和/或 IIS 記錄的內容。 選用屬性：<br /><br /> **scheduledTransferPeriod** - 排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](https://www.w3schools.com/xml/schema_dtypes_date.asp)。|  
 |**EtwProviders**|設定要收集來自 EventSource 和/或以 ETW 資訊清單為基礎之提供者的 ETW 事件。|  
-|**計量**|此元素讓您能夠產生已最佳化的效能計數器資料表來進行快速查詢。 除了效能計數器資料表之外，**PerformanceCounters** 元素中所定義的每個效能計數器都會儲存於 Metrics 資料表中。 必要屬性：<br /><br /> **resourceId** - 這是您要部署 Azure 診斷的虛擬機器資源識別碼。 從 [Azure 入口網站](https://portal.azure.com)取得 **resourceID**。 選取 [瀏覽][資源群組] ->  -> **<Name\>**。 按一下 [屬性] 圖格，並複製 [識別碼] 欄位的值。|  
+|**度量**|此元素讓您能夠產生已最佳化的效能計數器資料表來進行快速查詢。 除了效能計數器資料表之外，**PerformanceCounters** 元素中所定義的每個效能計數器都會儲存於 Metrics 資料表中。 必要屬性：<br /><br /> **resourceId** - 這是您要部署 Azure 診斷的虛擬機器資源識別碼。 從 [Azure 入口網站](https://portal.azure.com)取得 **resourceID**。 選取 [瀏覽][資源群組] ->  -> **<Name\>**。 按一下 [屬性] 圖格，並複製 [識別碼] 欄位的值。|  
 |**PerformanceCounters**|啟用收集效能計數器。 選用屬性：<br /><br /> **scheduledTransferPeriod** - 排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](https://www.w3schools.com/xml/schema_dtypes_date.asp)。|  
 |**WindowsEventLog**|啟用收集 Windows 事件記錄檔。 選用屬性：<br /><br /> **scheduledTransferPeriod** - 排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](https://www.w3schools.com/xml/schema_dtypes_date.asp)。|  
 
@@ -146,7 +146,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |元素名稱|描述|  
 |------------------|-----------------|  
-|**Absolute**|要監視之目錄的絕對路徑。 以下為必要屬性：<br /><br /> -                     **Path** - 要監視之目錄的絕對路徑。<br /><br /> -                      **expandEnvironment** - 設定是否要展開 Path 中的環境變數。|  
+|**絕對**|要監視之目錄的絕對路徑。 以下為必要屬性：<br /><br /> -                     **Path** - 要監視之目錄的絕對路徑。<br /><br /> -                      **expandEnvironment** - 設定是否要展開 Path 中的環境變數。|  
 |**LocalResource**|相對於要監視之本機資源的路徑。 必要屬性包括：<br /><br /> -                     **Name** - 包含要監視之目錄的本機資源<br /><br /> -                     **relativePath** - 包含要監視目錄之 Name 的相對路徑|  
 
 ## <a name="etwproviders-element"></a>EtwProviders 元素  
@@ -192,7 +192,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |元素名稱|描述|  
 |------------------|-----------------|  
-|**annotation**|必要屬性：<br /><br /> **displayName** - 計數器的顯示名稱<br /><br /> 選用屬性：<br /><br /> **locale** - 顯示計數器名稱時所使用的地區設定|  
+|**註釋**|必要屬性：<br /><br /> **displayName** - 計數器的顯示名稱<br /><br /> 選用屬性：<br /><br /> **locale** - 顯示計數器名稱時所使用的地區設定|  
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog 元素  
  下表說明子元素：  

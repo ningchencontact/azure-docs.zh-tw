@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 37e2dcc13ed41911c8117dc1841a389c14e5867f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: edd7a397598bcb5941f3ac1b29d385d6eac40f8d
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848561"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501632"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>使用服務匯流排傳訊的效能改進最佳作法
 
@@ -80,7 +80,7 @@ AMQP 和 SBMP 會更有效率，因為只要傳訊處理站存在，它們就會
 
 ## <a name="client-side-batching"></a>用戶端批次處理
 
-用戶端批次處理可讓佇列或主題用戶端將訊息的傳送延遲一段時間。 如果用戶端在此期間傳送其他訊息，它將以單一批次傳輸訊息。 用戶端批次處理也會導致佇列或訂用帳戶用戶端將多個**完成**要求整批放入單一要求中處理。 批次處理僅適用於非同步**傳送**及**完成**作業。 同步作業會立即傳送至服務匯流排服務。 查看或接收作業不會進行批次處理，也不會跨用戶端進行。
+用戶端批次處理可讓佇列或主題用戶端將訊息的傳送延遲一段時間。 如果用戶端在此期間傳送其他訊息，它將以單一批次傳輸訊息。 用戶端批次處理也會導致佇列或訂用帳戶用戶端將多個**完成**要求整批放入單一要求中處理。 批处理仅适用于异步**发送**和**完成**操作。 同步作業會立即傳送至服務匯流排服務。 查看或接收作業不會進行批次處理，也不會跨用戶端進行。
 
 根據預設，用戶端使用的批次間隔為 20 毫秒。 您可以藉由在建立傳訊處理站之前設定 [BatchFlushInterval][BatchFlushInterval] 屬性來變更批次間隔。 這個設定會影響此處理站所建立的所有用戶端。
 
@@ -95,7 +95,7 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 
 批次處理並不會影響可計費的傳訊作業數目，而且僅適用於使用 [Microsoft.ServiceBus.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) 程式庫的服務匯流排用戶端通訊協定。 HTTP 通訊協定不支援批次處理。
 
-## <a name="batching-store-access"></a>批次處理存放區存取
+## <a name="batching-store-access"></a>批处理存储访问
 
 為了提高佇列、主題或訂用帳戶的輸送量，服務匯流排會在寫入至其內部存放區時批次處理多個訊息。 如果在佇列或主題上啟用，將會批次處理訊息寫入至存放區。 如果在佇列或訂用帳戶上啟用，將會批次處理從存放區刪除訊息。 如果某個實體啟用批次處理的存放區存取，服務匯流排會延遲與該實體有關的存放區寫入作業，最多 20 毫秒。 
 
@@ -116,7 +116,7 @@ Queue q = namespaceManager.CreateQueue(qd);
 
 ## <a name="prefetching"></a>預先擷取
 
-[預先擷取](service-bus-prefetch.md)可讓佇列或訂用帳戶用戶端在執行接收作業時從服務載入額外的訊息。 用戶端會將這些訊息儲存在本機快取中。 快取的大小取決於 [QueueClient.PrefetchCount][QueueClient.PrefetchCount] 或 [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] 屬性。 啟用預先擷取的每個用戶端會維護自己的快取。 快取不會跨用戶端共用。 如果用戶端起始接收作業且其快取是空的，則服務會傳輸一批次的訊息。 批次的大小等於快取的大小或 256 KB，以較小者為準。 如果用戶端起始接收作業且快取包含一則訊息，訊息會從快取中擷取。
+[預先擷取](service-bus-prefetch.md)可讓佇列或訂用帳戶用戶端在執行接收作業時從服務載入額外的訊息。 用戶端會將這些訊息儲存在本機快取中。 快取的大小取決於 [QueueClient.PrefetchCount][QueueClient.PrefetchCount] 或 [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] 屬性。 啟用預先擷取的每個用戶端會維護自己的快取。 快取不會跨用戶端共用。 如果客户端启动接收操作，而其缓存是空的，则服务会传输一批消息。 批次的大小等於快取的大小或 256 KB，以較小者為準。 如果用戶端起始接收作業且快取包含一則訊息，訊息會從快取中擷取。
 
 預先擷取訊息時，服務會鎖定預先擷取的訊息。 藉由鎖定，其他接收者就無法接收預先擷取的訊息。 如果接收者無法在鎖定到期之前完成訊息，訊息就會變成可供其他接收者接收。 訊息的預先擷取副本會保留在快取中。 當取用過其快取複本的接收者嘗試完成該訊息時，他會收到例外狀況。 根據預設，訊息鎖定會在 60 秒之後到期。 此值可延長為 5 分鐘。 若要避免過期訊息遭到取用，快取大小應該一律小於用戶端在鎖定逾時間隔內可取用的訊息數目。
 
@@ -127,6 +127,19 @@ Queue q = namespaceManager.CreateQueue(qd);
 伺服器會在它將訊息傳送至用戶端時，檢查訊息的存留時間 (TTL) 屬性。 用戶端不會在收到訊息時檢查訊息的 TTL 屬性。 相反地，即使訊息由用戶端快取時已超過其 TTL，仍然可以收到訊息。
 
 預先擷取並不會影響可計費的傳訊作業數目，而且僅適用於服務匯流排用戶端通訊協定。 HTTP 通訊協定不支援預先擷取。 同步和非同步接收作業皆可使用預先擷取。
+
+## <a name="prefetching-and-receivebatch"></a>預先擷取，而且 ReceiveBatch
+
+雖然在一起的預先提取多個訊息的概念都有類似的語意，以處理批次 (ReceiveBatch) 中的訊息，有必須務必記住，利用這些字典有些微的差異。
+
+預先擷取會在用戶端 （QueueClient 和 SubscriptionClient） 是 「 組態 （或模式） 和 ReceiveBatch 是包含的運算 （要求-回應語意）。
+
+同時使用這些字典，請考慮下列案例-
+
+* 預先擷取應該大於或等於您預期從 ReceiveBatch 接收的訊息數目。
+* 預先擷取可達 n/3 其中 n 預設鎖定期間每秒所處理的訊息數目。
+
+有一些挑戰，有 greedy （窮盡） 」 的方式 （也就維持不預先擷取計數相當高），因為這表示訊息已鎖定至特定的接收者。 建議是嘗試出預先擷取的值之間的前面所提到的臨界值，並依據經驗找出什麼適合。
 
 ## <a name="multiple-queues"></a>多個佇列
 
@@ -146,7 +159,7 @@ Queue q = namespaceManager.CreateQueue(qd);
 
 目標：最大化單一佇列的輸送量。 傳送者和接收者的數目很少。
 
-* 若要增加傳送到佇列的整體速率，請使用多個訊息處理站來建立傳送者。 對每個傳送者使用非同步作業或多個執行緒。
+* 若要增加傳送到佇列的整體速率，請使用多個訊息處理站來建立傳送者。 为每个发送方使用异步操作或多个线程。
 * 若要增加從佇列接收的整體速率，請使用多個訊息處理站來建立接收者。
 * 使用非同步作業來利用用戶端批次處理。
 * 將批次處理間隔設為 50 毫秒，以減少服務匯流排用戶端通訊協定傳輸數目。 如果使用多個傳送者，批次處理間隔會增加到 100 毫秒。
@@ -215,7 +228,7 @@ Queue q = namespaceManager.CreateQueue(qd);
 
 ### <a name="topic-with-a-large-number-of-subscriptions"></a>具有大量訂用帳戶的主題
 
-目標：最大化具有大量訂用帳戶之主題的輸送量。 許多訂用帳戶收到一則訊息，表示所有訂用帳戶的合併接收速率遠高於傳送速率。 傳送者的數目很少。 每個訂用帳戶的接收者數目很少。
+目標：最大化具有大量訂用帳戶之主題的輸送量。 許多訂用帳戶收到一則訊息，表示所有訂用帳戶的合併接收速率遠高於傳送速率。 发送方的数目较小。 每個訂用帳戶的接收者數目很少。
 
 如果所有訊息都路由傳送至所有訂用帳戶，具有大量訂用帳戶的主題通常會顯露較低的整體輸送量。 這樣較低的輸送量是因為每個訊息都被接收了許多次，而且包含在主題與其所有訂用帳戶中的所有訊息都儲存在相同的存放區中。 它會假設每個訂用帳戶的傳送者數目和接收者數目都很少。 服務匯流排支援每個主題最多 2,000 個訂用帳戶。
 

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 12f8b3d9dd461dc5d09d76245aa02f0e1cefc343
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 8b6745a2b9afe8d3101585e3f7a13f2fc978c84a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188963"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492083"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>如何從適用於 VM 的 Azure 監視器 (預覽) 查詢記錄
 適用於 Vm 的 azure 監視器會收集效能和連線計量、 電腦和處理程序清查資料，以及健全狀況狀態資訊，並將它轉送至 Log Analytics 工作區，在 Azure 監視器中。  這項資料可供[查詢](../../azure-monitor/log-query/log-query-overview.md)Azure 監視器中。 您可以將此資料套用至各種案例，包括移轉規劃、容量分析、探索和隨選效能疑難排解。
@@ -125,7 +125,12 @@ ms.locfileid: "58188963"
 ### <a name="ports"></a>連接埠 
 在電腦上，主動接受連入流量，或可能無法接受流量，但在報告的時間期間，會處於閒置狀態的連接埠會寫入 VMBoundPort 資料表。  
 
-根據預設，資料不會寫入此資料表。 若要有寫入此資料表的資料，請傳送電子郵件給vminsights@microsoft.com與您的工作區識別碼和工作區區域。   
+>[!NOTE]
+>適用於 Vm 的 azure 監視器不支援收集和記錄的 Log Analytics 工作區，在以下區域內的連接埠資料：  
+>- 美國東部  
+>- 西歐
+>
+> 此資料收集已啟用另[支援的區域](vminsights-onboard.md#log-analytics)適用於 Vm 的 Azure 監視。 
 
 VMBoundPort 中的每一筆記錄識別下列欄位： 
 

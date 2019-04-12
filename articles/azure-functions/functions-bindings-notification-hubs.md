@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 9f80f1a8d02352daa663ee5ea4fa9287e0e8580e
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 79ea9455fec7d31f800b2b5d36df6a2a53f502c3
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893787"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490957"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Azure Functions 的通知中樞輸出繫結
 
@@ -25,6 +25,9 @@ ms.locfileid: "58893787"
 必須為您要使用的平台通知服務 (PNS) 設定 Azure 通知中樞。 若要了解如何在用戶端應用程式中收到通知中樞的推播通知，請參閱[開始使用通知中心](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)，並從靠近頁面頂端的下拉式清單中選取目標用戶端平台。
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+> [!IMPORTANT]
+> Google 已[已被取代的 Google 雲端通訊 (GCM) 並改用 Firebase 雲端通訊 (FCM)](https://developers.google.com/cloud-messaging/faq)。 此輸出繫結不支援 FCM。 傳送使用 FCM 的通知，請使用[Firebase API](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option)直接在您的函式或使用[範本通知](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)。
 
 ## <a name="packages---functions-1x"></a>套件 - Functions 1.x
 
@@ -197,37 +200,6 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 }
 ```
 
-## <a name="example---gcm-native"></a>範例 - GCM 原生
-
-這個 C# 指令碼範例會示範如何傳送原生 GCM 通知。 
-
-```cs
-#r "Microsoft.Azure.NotificationHubs"
-#r "Newtonsoft.Json"
-
-using System;
-using Microsoft.Azure.NotificationHubs;
-using Newtonsoft.Json;
-
-public static async Task Run(string myQueueItem, IAsyncCollector<Notification> notification, TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
-
-    // In this example the queue item is a new user to be processed in the form of a JSON string with 
-    // a "name" value.
-    //
-    // The JSON format for a native GCM notification is ...
-    // { "data": { "message": "notification message" }}  
-
-    log.Info($"Sending GCM notification of a new user");    
-    dynamic user = JsonConvert.DeserializeObject(myQueueItem);    
-    string gcmNotificationPayload = "{\"data\": {\"message\": \"A new user wants to be added (" + 
-                                        user.name + ")\" }}";
-    log.Info($"{gcmNotificationPayload}");
-    await notification.AddAsync(new GcmNotification(gcmNotificationPayload));        
-}
-```
-
 ## <a name="example---wns-native"></a>範例 - WNS 原生
 
 這個 C# 指令碼範例示範如何使用 [Microsoft Azure 通知中樞程式庫](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)中定義的類型來傳送原生 WNS 快顯通知。 
@@ -289,7 +261,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 |**tagExpression** |**TagExpression** | 標籤運算式可讓您指定將通知傳遞到一組裝置，這些裝置已註冊要接收與標籤運算式相符的通知。  如需詳細資訊，請參閱 [路由與標籤運算式](../notification-hubs/notification-hubs-tags-segment-push-message.md)。 |
 |**hubName** | **HubName** | Azure 入口網站中通知中樞資源的名稱。 |
 |**connection** | **ConnectionStringSetting** | 包含「通知中樞」連接字串的應用程式設定名稱。  必須針對通知中樞將連接字串設為 DefaultFullSharedAccessSignature 值。 請參閱本文稍後的[連線字串設定](#connection-string-setup)。|
-|**平台** | **平台** | 此平台屬性指出作為您通知目標的用戶端平台。 依照預設，如果輸出繫結中省略平台屬性，範本通知可用來以「Azure 通知中樞」上所設定的任何平台為目標。 如需有關一般使用範本搭配「Azure 通知中樞」來傳送跨平台通知的詳細資訊，請參閱[範本](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)。 platform 在設定時必須是以下其中一個值： <ul><li><code>apns</code>&mdash;Apple Push Notification Service。 如果有關設定適用於 APNS 的通知中樞及在用戶端 App 中接收通知的詳細資訊，請參閱[使用 Azure 通知中樞將推播通知傳送至 iOS](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md)。</li><li><code>adm</code>&mdash;[Amazon 裝置傳訊](https://developer.amazon.com/device-messaging)。 如果有關設定適用於 ADM 的通知中樞及在 Kindle App 中接收通知的詳細資訊，請參閱[開始使用適用於 Kindle 應用程式的通知中樞](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md)。</li><li><code>gcm</code>&mdash;[Google Cloud Messaging](https://developers.google.com/cloud-messaging/)。 也支援 Firebase Cloud Messaging (新版 GCM)。 如需詳細資訊，請參閱[使用 Azure 通知中樞將推播通知傳送至 Android](../notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started.md)。</li><li><code>wns</code>&mdash;[Windows 推播通知服務](/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview)Windows 平台為目標。 WNS 也支援 Windows Phone 8.1 和更新版本。 如需詳細資訊，請參閱[開始使用適用於 Windows 通用平台應用程式的通知中樞](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)。</li><li><code>mpns</code>&mdash;[Microsoft 推播通知服務](/previous-versions/windows/apps/ff402558(v=vs.105))。 此平台支援 Windows Phone 8 和舊版 Windows Phone 平台。 如需詳細資訊，請參閱[在 Windows Phone 上使用 Azure 通知中樞傳送推播通知](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md)。</li></ul> |
+|**平台** | **平台** | 此平台屬性指出作為您通知目標的用戶端平台。 依照預設，如果輸出繫結中省略平台屬性，範本通知可用來以「Azure 通知中樞」上所設定的任何平台為目標。 如需有關一般使用範本搭配「Azure 通知中樞」來傳送跨平台通知的詳細資訊，請參閱[範本](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)。 platform 在設定時必須是以下其中一個值： <ul><li><code>apns</code>&mdash;Apple Push Notification Service。 如果有關設定適用於 APNS 的通知中樞及在用戶端 App 中接收通知的詳細資訊，請參閱[使用 Azure 通知中樞將推播通知傳送至 iOS](../notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started.md)。</li><li><code>adm</code>&mdash;[Amazon 裝置傳訊](https://developer.amazon.com/device-messaging)。 如果有關設定適用於 ADM 的通知中樞及在 Kindle App 中接收通知的詳細資訊，請參閱[開始使用適用於 Kindle 應用程式的通知中樞](../notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md)。</li><li><code>wns</code>&mdash;[Windows 推播通知服務](/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview)Windows 平台為目標。 WNS 也支援 Windows Phone 8.1 和更新版本。 如需詳細資訊，請參閱[開始使用適用於 Windows 通用平台應用程式的通知中樞](../notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)。</li><li><code>mpns</code>&mdash;[Microsoft 推播通知服務](/previous-versions/windows/apps/ff402558(v=vs.105))。 此平台支援 Windows Phone 8 和舊版 Windows Phone 平台。 如需詳細資訊，請參閱[在 Windows Phone 上使用 Azure 通知中樞傳送推播通知](../notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns.md)。</li></ul> |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -307,7 +279,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
       "tagExpression": "",
       "hubName": "my-notification-hub",
       "connection": "MyHubConnectionString",
-      "platform": "gcm"
+      "platform": "apns"
     }
   ],
   "disabled": false

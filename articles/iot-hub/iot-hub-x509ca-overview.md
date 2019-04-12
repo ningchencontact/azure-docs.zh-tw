@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 6a9b4fc5479dda58dd024cdf93cbdf4853f9c965
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
-ms.translationtype: HT
+ms.openlocfilehash: 38cbd32be30885837d2f98a9e1dd5d967b4938b4
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42140680"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489806"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>使用 X.509 CA 憑證進行裝置驗證
 
@@ -40,7 +40,7 @@ X.509 CA 憑證位於您每個裝置的憑證鏈結頂端。  您可以購買或
 
 您也可以建立自我簽署的 X.509 CA 來進行測試，或在封閉式 IoT 網路中使用。
 
-不論您如何取得 X.509 CA 憑證，請務必在任何時候都將其對應的私密金鑰妥善保密及保護。  這對於在 X.509 CA 驗證中建立信任來說是必要的。 
+不論您如何取得 X.509 CA 憑證，請務必在任何時候都將其對應的私密金鑰妥善保密及保護。  這對於在 X.509 CA 驗證中建立信任來說是必要的。
 
 了解如何[建立自我簽署的 CA 憑證](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)，您可以使用此憑證在這整個功能描述中進行測試。
 
@@ -49,6 +49,8 @@ X.509 CA 憑證位於您每個裝置的憑證鏈結頂端。  您可以購買或
 X.509 CA 憑證的擁有者可以透過密碼編譯方式簽署中繼 CA，此 CA 可再簽署另一個中繼 CA，依此類推，直到最後一個中繼 CA 藉由簽署裝置來終止此程序為止。 結果會是串聯的憑證鏈結，稱為憑證信任鏈結。 在現實生活中，這最後會變成朝向簽署裝置發展的信任委派。 這個委派相當重要，因為它會建立一個在密碼編譯上多變的保管鏈結，以避免共用簽署金鑰。
 
 ![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
+
+（也稱為分葉憑證） 的裝置憑證必須具備*主體名稱*設為**裝置識別碼**註冊在 Azure IoT 中樞的 IoT 裝置時會用到。 這是必要設定進行驗證。
 
 了解如何[建立憑證鏈結](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) (會在簽署裝置時完成)。
 

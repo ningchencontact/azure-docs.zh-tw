@@ -1,5 +1,5 @@
 ---
-title: 如何將 Azure IoT OPC UA 裝置管理模組部署至現有的專案 |Microsoft Docs
+title: 如何將 OPC 對應項模組部署至現有的 Azure 專案 |Microsoft Docs
 description: 如何部署至現有的專案的 OPC 對應項。
 author: dominicbetts
 ms.author: dobett
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: dcf6acca344fe2a34fdc48fe89c5a1ee62b10b23
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 6bdfeefc366734aa10dbaccec69bac8e0b41103f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59255881"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493241"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>部署至現有的專案的 OPC 對應項
 
-OPC 裝置對應項的模組會在 IoT Edge 上執行，並提供數個 edge 服務的 OPC 裝置對應項和登錄服務。 
+OPC 對應項的模組會在 IoT Edge 上執行，並提供數個 edge 服務的 OPC 對應項和登錄服務。 
 
-OPC 裝置對應項微服務有助於 factory 運算子與透過 OPC 對應項 IoT Edge 模組在工廠的 OPC UA 伺服器裝置之間的通訊。 微服務會公開透過其 REST API （瀏覽、 讀取、 寫入及執行） 的 OPC UA 服務。 
+OPC 對應項微服務有助於 factory 運算子與透過 OPC 對應項 IoT Edge 模組在工廠的 OPC UA 伺服器裝置之間的通訊。 微服務會公開透過其 REST API （瀏覽、 讀取、 寫入及執行） 的 OPC UA 服務。 
 
-OPC UA 裝置登錄的微服務會提供已註冊的 OPC UA 應用程式和其端點的存取。 操作員和系統管理員可以註冊和取消註冊新的 OPC UA 應用程式及瀏覽現有的項目，包括其端點。 除了應用程式和管理端點，「 登錄 」 服務也會分類已註冊的 OPC 裝置對應項 IoT Edge 模組。 服務 API 可讓您控制 edge 模組的功能，例如啟動或停止伺服器探索 （掃描服務），或啟動新的 「 端點 」 對應項，可以使用 OPC 對應項微服務來存取。
+OPC UA 裝置登錄微服務會提供已註冊的 OPC UA 應用程式和其端點的存取。 操作員和系統管理員可以註冊和取消註冊新的 OPC UA 應用程式及瀏覽現有的項目，包括其端點。 除了應用程式和管理端點，「 登錄 」 服務也會分類已註冊的 OPC 對應項 IoT Edge 模組。 服務 API 可讓您控制 edge 模組的功能，例如啟動或停止伺服器探索 （掃描服務），或啟動新的 「 端點 」 對應項，可以使用 OPC 對應項微服務來存取。
 
 模組的核心是監督員身分識別。 監督員管理端點對應項，其對應至使用對應的 OPC UA 登錄 API 啟動的 OPC UA 伺服器端點。 此端點的對應項會轉譯從 OPC 對應項微服務在雲端中執行 OPC UA 二進位訊息，會透過可設定狀態的安全通道傳送至受管理的端點收到的 OPC UA JSON。 監督員也會提供探索服務，傳送給 OPC UA 裝置上架服務以進行處理，其中這些事件會導致更新至 OPC UA 登錄的裝置探索事件。  這篇文章會示範如何將 OPC 對應項模組部署到現有的專案。 
 
@@ -71,7 +71,7 @@ cd azure-iiot-components
 2. 或者，部署私用的 AAD 租用戶，另一個訂用帳戶中，重新啟動指令碼，並選取要使用它。
 
 > [!WARNING]
-> 永遠不會繼續使用不驗證。  如果您選擇這樣做，任何人都可以從網際網路未經驗證的認證來存取 OPC 裝置管理端點。   您可以隨時[「 本機 」 的部署選項](howto-opc-twin-deploy-dependencies.md)以親身。
+> 永遠不會繼續使用不驗證。  如果您選擇這樣做，任何人都可以從網際網路未經驗證的認證來存取 OPC 對應項端點。   您可以隨時[「 本機 」 的部署選項](howto-opc-twin-deploy-dependencies.md)以親身。
 
 ## <a name="deploy-an-all-in-one-industrial-iot-services-demo"></a>部署-全方位工業 IoT 服務示範
 

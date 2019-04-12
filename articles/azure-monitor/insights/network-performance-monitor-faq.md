@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 5186c11259a03717f83db675cbfe7c90f3ecb7cc
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 285f29055d0ac9ba656ec828972ef15f4c0d36c7
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734550"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496959"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>網路效能監控解決方案常見問題集
 
@@ -25,7 +25,7 @@ ms.locfileid: "55734550"
 
 本文集結了一些 Azure 內網路效能監控 (NPM) 相關的常見問題 (常見問題集)。
 
-[網路效能監控](/azure/networking/network-monitoring-overview)是雲端式的[混合網路監視](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md)解決方案，可協助您監視網路基礎結構中多個端點間的網路效能。 也可協助您監視[服務和應用程式端點](../../azure-monitor/insights/network-performance-monitor-service-endpoint.md)的網路連線能力，以及[監視 Azure ExpressRoute 的效能](../../azure-monitor/insights/network-performance-monitor-expressroute.md)。 
+[網路效能監控](/azure/networking/network-monitoring-overview)是雲端式的[混合網路監視](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md)解決方案，可協助您監視網路基礎結構中多個端點間的網路效能。 也可協助您監視[服務和應用程式端點](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md)的網路連線能力，以及[監視 Azure ExpressRoute 的效能](../../azure-monitor/insights/network-performance-monitor-expressroute.md)。 
 
 網路效能監視器會偵測網路問題，例如流量黑洞、路由錯誤，以及傳統網路監視方法無法偵測的問題。 此解決方案會在違反網路連結的臨界值時產生警示並通知您。 它可確實而及時地偵測網路效能問題，並將問題的來源限縮於特定網路區段或裝置。 
 

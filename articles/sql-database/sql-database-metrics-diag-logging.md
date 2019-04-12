@@ -1,10 +1,10 @@
 ---
 title: Azure SQL Database 計量和診斷記錄 | Microsoft Docs
-description: 了解如何設定 Azure SQL Database，以儲存資源使用量及查詢執行的統計資料。
+description: 了解如何在 Azure SQL Database 來儲存資訊的資源使用率和查詢執行統計資料中啟用診斷。
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
-ms.custom: ''
+ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
@@ -12,14 +12,16 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: f023ab4fe55cf180ac1e3f0634856a528c911746
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: a2bd25f6dac4e73c0d8e3e951981f45e669b226a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426480"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490063"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄
+
+本主題中，您將了解如何設定記錄的診斷遙測為 Azure SQL Database 透過 Azure 入口網站、 PowerShell、 Azure CLI、 Azure 監視器 REST API 和 Azure Resource Manager 範本。 這些診斷可用來量測計的資源使用率和查詢執行統計資料。 
 
 單一資料庫、彈性集區中的集區式資料庫，以及受控執行個體中的執行個體資料庫可以傳輸計量和診斷記錄，讓您以較輕鬆的方式監視效能。 您可以將資料庫設定為將資源使用量、背景工作角色與工作階段及連線傳輸下列其中一項 Azure 資源：
 
@@ -32,7 +34,7 @@ ms.locfileid: "59426480"
 如需進一步了解不同 Azure 服務所支援的計量和記錄類別，請參閱：
 
 - [Microsoft Azure 中的度量概觀](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Azure 診斷記錄檔概觀](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Azure 诊断日志概述](../azure-monitor/platform/diagnostic-logs-overview.md)
 
 本文會指引您啟用 Azure SQL 資料庫、彈性集區和受控執行個體的診斷遙測。 也有助於您了解如何將 Azure SQL 分析設為檢視資料庫診斷遙測的監視工具。
 
@@ -81,7 +83,7 @@ ms.locfileid: "59426480"
 
 ## <a name="azure-portal"></a>Azure 入口網站
 
-您可以使用**診斷設定**功能表每寫單一、 集區，或執行個體在 Azure 入口網站來設定診斷遙測串流中的資料庫。 此外，診斷遙測也可以設定個別資料庫的容器： 彈性集區和受管理的執行個體。 可设置以下目标来流式传输诊断遥测数据：Azure 儲存體、 Azure 事件中樞和 Azure 監視器的記錄。
+您可以使用**診斷設定**功能表每寫單一、 集區，或執行個體在 Azure 入口網站來設定診斷遙測串流中的資料庫。 此外，診斷遙測也可以設定個別資料庫的容器： 彈性集區和受管理的執行個體。 可设置以下目标来流式传输诊断遥测数据：Azure 存储、Azure 事件中心和 Azure Monitor 日志。
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-elastic-pools"></a>設定彈性集區診斷遙測的串流處理
 
@@ -119,7 +121,7 @@ ms.locfileid: "59426480"
 > [!IMPORTANT]
 > 除了为弹性池配置诊断遥测数据，还需为弹性池中的每个数据库配置诊断遥测数据，如下所述。 
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>設定診斷遙測的單一資料庫或彈性集區中的資料庫的資料流
+### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>为单一数据库或弹性池中的数据库配置诊断遥测数据的流式传输
 
    ![SQL Database 圖示](./media/sql-database-metrics-diag-logging/icon-sql-database-text.png)
 
@@ -209,7 +211,7 @@ ms.locfileid: "59426480"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 您可以使用 PowerShell 啟用計量和診斷記錄功能。
 
@@ -310,7 +312,7 @@ Azure SQL 分析是雲端解決方案，可以跨多個訂用帳戶大規模監�
 
 ![Azure SQL 分析概觀](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
 
-使用入口網站的 [診斷設定] 索引標籤中內建的 [傳送至 Log Analytics] 選項，即可將 SQL Database 計量和診斷記錄串流到 Azure SQL 分析中。 您也可以使用診斷設定，透過 PowerShell cmdlet、 Azure CLI 或 Azure 監視器 REST API 來啟用 log analytics。
+使用入口網站的 [診斷設定] 索引標籤中內建的 [傳送至 Log Analytics] 選項，即可將 SQL Database 計量和診斷記錄串流到 Azure SQL 分析中。 此外，还可以通过 PowerShell cmdlet、Azure CLI 或 Azure Monitor REST API 使用诊断设置来启用日志分析。
 
 ### <a name="installation-overview"></a>安裝概觀
 
@@ -354,7 +356,7 @@ Azure SQL 分析是雲端解決方案，可以跨多個訂用帳戶大規模監�
 
 所選的資料串流到事件中樞之後，您很快就能啟用進階監視案例。 事件中樞是作為事件管線的大門。 資料收集到事件中樞之後，這些資料可以透過即時分析提供者或儲存體配接器來轉換和儲存。 事件中樞會讓事件串流的產生從這些事件的取用分離。 如此一來，事件消費者可以在自己的排程存取事件。 如需事件中樞的詳細資訊，請參閱：
 
-- [Azure 事件中樞是什麼？](../event-hubs/event-hubs-what-is-event-hubs.md)
+- [什么是 Azure 事件中心？](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [開始使用事件中心](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 您可以在事件中樞使用串流的計量：
@@ -401,7 +403,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ## <a name="data-retention-policy-and-pricing"></a>資料保留原則和價格
 
-如果您選取事件中樞或儲存體帳戶，您可以指定保留原則。 此原則會刪除早於選取時間期間的資料。 如果您指定 Log Analytics，則保留原則取決於所選的定價層。 在這種情況下，所提供的免費資料擷取單位可以每個月免費監視多個資料庫。 超過免費單位的診斷遙測耗用量可能會收取費用。 請注意，相較於閒置的資料庫，較繁重工作負載的作用中資料庫會擷取更多資料。 如需詳細資訊，請參閱 < [Log analytics 定價](https://azure.microsoft.com/pricing/details/monitor/)。
+如果您選取事件中樞或儲存體帳戶，您可以指定保留原則。 此原則會刪除早於選取時間期間的資料。 如果您指定 Log Analytics，則保留原則取決於所選的定價層。 在這種情況下，所提供的免費資料擷取單位可以每個月免費監視多個資料庫。 超過免費單位的診斷遙測耗用量可能會收取費用。 請注意，相較於閒置的資料庫，較繁重工作負載的作用中資料庫會擷取更多資料。 有关详细信息，请参阅 [Log Analytics 定价](https://azure.microsoft.com/pricing/details/monitor/)。
 
 如果您使用的是 Azure SQL 分析，您可以藉由選取 Azure SQL 分析導覽功能表上的 [OMS 工作區]，然後選取 [使用量] 和 [估計成本]，監視您解決方案中的資料擷取使用量。
 
@@ -708,7 +710,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 若要了解如何啟用記錄，並了解各種 Azure 服務支援的計量和記錄類別，請參閱：
 
 - [Microsoft Azure 中的度量概觀](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Azure 診斷記錄檔概觀](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Azure 诊断日志概述](../azure-monitor/platform/diagnostic-logs-overview.md)
 
 若要了解事件中樞，請閱讀：
 

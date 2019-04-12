@@ -1,6 +1,6 @@
 ---
-title: 收集 Azure Sentinel 預覽版中的 Barracuda 資料 |Microsoft Docs
-description: 了解如何收集在 Azure Sentinel Barracuda 資料。
+title: Barracuda 資料連接至 Azure 的 Sentinel 預覽 |Microsoft Docs
+description: 了解如何將 Barracuda 資料連接至 Azure 的 Sentinel。
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b4d1830e705e1813c8448787e587d720eaf5ddbd
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d8e92fd3918230b48449926dcbb7528d919fd96f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574713"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492833"
 ---
 # <a name="connect-your-barracuda-appliance"></a>連接您的 Barracuda 應用裝置 
 
@@ -31,11 +31,10 @@ Barracuda Web 應用程式防火牆 (WAF) 連接器可讓您輕鬆地連接您�
 
 
 > [!NOTE]
-> 
-> - 資料會儲存在您在執行 Azure Sentinel 的工作區的地理位置。
+> 資料會儲存在您在執行 Azure Sentinel 的工作區的地理位置。
 
 ## <a name="configure-and-connect-barracuda-waf"></a>設定及連接 Barracuda WAF
-Barracuda Web 應用程式防火牆整合和匯出 Azure OMS Server 透過直接到 [ASI] 的記錄檔。
+Barracuda Web 應用程式防火牆整合和記錄檔將直接匯出至 Azure Sentinel 透過 Azure OMS 的伺服器。
 1. 移至[Barracuda WAF 設定流程](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/)，並遵循指示來設定連線，使用下列參數：
     - **工作區識別碼**： 從 Azure Sentinel Barracuda 連接器頁面複製您的工作區識別碼的值。
     - **主索引鍵**： 從 Azure Sentinel Barracuda 連接器頁面複製您的主索引鍵的值。

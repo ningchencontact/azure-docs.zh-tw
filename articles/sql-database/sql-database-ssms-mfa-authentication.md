@@ -1,10 +1,10 @@
 ---
-title: Multi-Factor Authentication - Azure SQL | Microsoft Docs
+title: 使用 Azure SQL Database 和 Azure SQL 資料倉儲使用多重要素 AAD 驗證 |Microsoft Docs
 description: Azure SQL Database 和 Azure SQL 資料倉儲支援使用「Active Directory 通用驗證」，從 SQL Server Management Studio (SSMS) 連線。
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: ''
+ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
 author: GithubMirek
@@ -12,21 +12,38 @@ ms.author: mireks
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/08/2018
-ms.openlocfilehash: 938d1b820bbc85824138d77b81b0f922fd494d0d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ccb78e201b90dfc27f52523348e76da57087bcc8
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003388"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494896"
 ---
-# <a name="universal-authentication-with-sql-database-and-sql-data-warehouse-ssms-support-for-mfa"></a>SQL Database 和 SQL 資料倉儲的通用驗證 (MFA 的 SSMS 支援)
-Azure SQL Database 和 Azure SQL 資料倉儲支援使用「Active Directory 通用驗證」 ，從 SQL Server Management Studio (SSMS) 連線。 
-**下載最新的 SSMS** - 在用戶端電腦上，從[下載 SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) 下載最新版的 SSMS。 對於本文中的所有功能，至少使用 2017 年 7 月的 17.2 版。  最新的連線對話方塊，看起來像這樣：![1mfa-universal-connect](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "完成 [使用者名稱] 方塊。")  
+# <a name="using-multi-factor-aad-authentication-with-azure-sql-database-and-azure-sql-data-warehouse-ssms-support-for-mfa"></a>使用多重要素 AAD 驗證搭配 Azure SQL Database 和 Azure SQL 資料倉儲 （mfa 的 SSMS 支援）
+Azure SQL Database 和 Azure SQL 資料倉儲支援使用「Active Directory 通用驗證」 ，從 SQL Server Management Studio (SSMS) 連線。 這篇文章討論的各種驗證選項，以及與使用通用驗證相關聯的限制之間的差異。 
+
+**下載最新的 SSMS** - 在用戶端電腦上，從[下載 SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx) 下載最新版的 SSMS。 
+
+
+所有功能這篇文章所述，使用至少 2017 年 7 月 17.2 版。  最新的 [連線] 對話方塊中，看起來應該類似下圖：
+ 
+  ![1mfa-universal-connect](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "完成 [使用者名稱] 方塊。")  
 
 ## <a name="the-five-authentication-options"></a>五個驗證選項  
-- Active Directory 通用驗證支援兩種非互動式驗證方法 (`Active Directory - Password` 驗證和 `Active Directory - Integrated` 驗證)。 非互動式 `Active Directory - Password` 和 `Active Directory - Integrated` 驗證方法，可以在許多不同的應用程式 (ADO.NET、JDBC、ODBC 等) 中使用。 這兩種方法絕對不會產生快顯對話方塊。
 
-- `Active Directory - Universal with MFA` 驗證也是支援 Azure Multi-Factor Authentication (MFA) 的互動式方法。 Azure MFA 有助於保護對資料與應用程式的存取，同時可以滿足使用者對簡單登入程序的需求。 它利用各種簡單的驗證選項來提供強大的驗證 (包括電話、簡訊、含有 Pin 的智慧卡或行動應用程式通知)，讓使用者能夠選擇自己喜歡的方式。 搭配 Azure AD 使用互動式 MFA 時，會出現快顯對話方塊以進行驗證。
+Active Directory 通用驗證支援兩種非互動式驗證方法：
+    - `Active Directory - Password` 驗證
+    - `Active Directory - Integrated` 驗證
+
+有兩種非互動式驗證模型，可以用於許多不同的應用程式 （ADO.NET、 JDCB、 ODC 等等）。 這兩種方法絕對不會產生快顯對話方塊中： 
+- `Active Directory - Password` 
+- `Active Directory - Integrated` 
+
+互動式的方法，也是 Azure multi-factor authentication (MFA) 的支援： 
+- `Active Directory - Universal with MFA` 
+
+
+Azure MFA 有助於保護對資料與應用程式的存取，同時可以滿足使用者對簡單登入程序的需求。 它利用各種簡單的驗證選項來提供強大的驗證 (包括電話、簡訊、含有 Pin 的智慧卡或行動應用程式通知)，讓使用者能夠選擇自己喜歡的方式。 搭配 Azure AD 使用互動式 MFA 時，會出現快顯對話方塊以進行驗證。
 
 有关多重身份验证的说明，请参阅[多重身份验证](../active-directory/authentication/multi-factor-authentication.md)。
 有关配置步骤，请参阅[配置 SQL Server Management Studio 的 Azure SQL 数据库多重身份验证](sql-database-ssms-mfa-authentication-configure.md)。
@@ -37,7 +54,7 @@ Azure SQL Database 和 Azure SQL 資料倉儲支援使用「Active Directory 通
    ![mfa-tenant-ssms](./media/sql-database-ssms-mfa-auth/mfa-tenant-ssms.png)   
 
 ### <a name="azure-ad-business-to-business-support"></a>Azure AD 企業對企業支援   
-在 Azure AD B2B 案例中，以來賓使用者身分支援的 Azure AD 使用者 (請參閱[什麼是 Azure B2B 共同作業](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md))，只能以在目前 Azure AD 中建立之群組的成員連線至 SQL Database 和 SQL 資料倉儲，並且在指定的資料庫中使用 Transact-SQL `CREATE USER` 手動對應。 例如，如果 `steve@gmail.com` 受邀加入 Azure AD `contosotest` (與 Azure Ad 網域`contosotest.onmicrosoft.com`)，則必須在 Azure AD 中建立包含 `steve@gmail.com` 成員的 Azure AD 群組 (例如 `usergroup`)。 然後，Azure AD SQL 系統管理員或 Azure AD DBO 必須藉由執行 Transact-SQL `CREATE USER [usergroup] FROM EXTERNAL PROVIDER` 陳述式，針對特定資料庫 (也就是 MyDatabase) 建立此群組。 建立資料庫使用者後，使用者 `steve@gmail.com` 就可以使用 SSMS 驗證選項 `Active Directory – Universal with MFA support` 來登入 `MyDatabase`。 根據預設，使用者群組只有 connect 權限，而任何進一步的資料存取權則需以一般方式進行授與。 請注意，身為來賓使用者的使用者 `steve@gmail.com` 必須核取此方塊，並且在 SSMS [連線屬性] 對話方塊中新增 AD 網域名稱 `contosotest.onmicrosoft.com`。 [AD 網域名稱或租用戶 ID] 選項僅對 [通用驗證搭配 MFA 連線] 選項提供支援，否則會呈現灰色。
+在 Azure AD B2B 案例中，以來賓使用者身分支援的 Azure AD 使用者 (請參閱[什麼是 Azure B2B 共同作業](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md))，只能以在目前 Azure AD 中建立之群組的成員連線至 SQL Database 和 SQL 資料倉儲，並且在指定的資料庫中使用 Transact-SQL `CREATE USER` 手動對應。 例如，如果 `steve@gmail.com` 受邀加入 Azure AD `contosotest` (與 Azure Ad 網域`contosotest.onmicrosoft.com`)，則必須在 Azure AD 中建立包含 `steve@gmail.com` 成員的 Azure AD 群組 (例如 `usergroup`)。 然後，此群組必須建立特定的資料庫 (也就是 MyDatabase) 的 Azure AD SQL 系統管理員或 Azure AD DBO 藉由執行 TRANSACT-SQL`CREATE USER [usergroup] FROM EXTERNAL PROVIDER`陳述式。 建立資料庫使用者後，使用者 `steve@gmail.com` 就可以使用 SSMS 驗證選項 `Active Directory – Universal with MFA support` 來登入 `MyDatabase`。 根據預設，使用者群組只有 connect 權限，而任何進一步的資料存取權則需以一般方式進行授與。 請注意，身為來賓使用者的使用者 `steve@gmail.com` 必須核取此方塊，並且在 SSMS [連線屬性] 對話方塊中新增 AD 網域名稱 `contosotest.onmicrosoft.com`。 [AD 網域名稱或租用戶 ID] 選項僅對 [通用驗證搭配 MFA 連線] 選項提供支援，否則會呈現灰色。
 
 ## <a name="universal-authentication-limitations-for-sql-database-and-sql-data-warehouse"></a>適用於 SQL Database 和 SQL 資料倉儲的通用驗證限制
 - SSMS 和 SqlPackage.exe 是目前唯一透過 Active Directory 通用驗證，針對 MFA 啟用的工具。
@@ -55,7 +72,7 @@ Azure SQL Database 和 Azure SQL 資料倉儲支援使用「Active Directory 通
 - 授與其他人存取您的資料庫：[SQL Database 驗證和授權：授與存取權](sql-database-manage-logins.md)  
 - 請確定其他人可以透過防火牆連線：[使用 Azure 入口網站設定 Azure SQL Database 伺服器層級防火牆規則](sql-database-configure-firewall-settings.md)  
 - [使用 SQL Database 或 SQL 資料倉儲設定和管理 Azure Active Directory 驗證](sql-database-aad-authentication-configure.md)  
-- [Microsoft SQL Server Data-Tier Application Framework (17.0.0 GA)](https://www.microsoft.com/download/details.aspx?id=55088)  
+- [Microsoft SQL Server 資料層應用程式架構 (17.0.0 GA)](https://www.microsoft.com/download/details.aspx?id=55088)  
 - [SQLPackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage)  
 - [將 BACPAC 檔案匯入到新的 Azure SQL Database](../sql-database/sql-database-import.md)  
 - [將 Azure SQL 資料庫匯出到 BACPAC 檔案](../sql-database/sql-database-export.md)  

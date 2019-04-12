@@ -1,6 +1,6 @@
 ---
-title: 收集 Azure Sentinel 預覽版中的 Fortinet 資料 |Microsoft Docs
-description: 了解如何收集在 Azure Sentinel Fortinet 資料。
+title: Fortinet 資料連接至 Azure 的 Sentinel 預覽 |Microsoft Docs
+description: 了解如何將 Fortinet 資料連接至 Azure 的 Sentinel。
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6c4bfbf67e45284f8f21166543228a821074b3b9
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 612e384a2ee5bdc449d22ba469026d38c7469e73
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883211"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492117"
 ---
 # <a name="connect-your-fortinet-appliance"></a>連接您的 Fortinet 應用裝置 
 
@@ -42,7 +42,7 @@ ms.locfileid: "58883211"
 
 ### <a name="deploy-the-agent-in-azure"></a>部署在 Azure 中的代理程式
 
-1. 在 Azure Sentinel 入口網站中，按一下**資料收集**，然後選取您的設備類型。 
+1. 在 Azure Sentinel 入口網站中，按一下**資料連接器**，然後選取您的設備類型。 
 
 1. 底下**Linux Syslog 代理程式設定**:
    - 選擇**自動部署**如果您想要建立新的機器會預先安裝 Azure Sentinel 代理程式，並且包含所有組態必要，如上面所述。 選取 **自動部署**然後按一下**自動代理程式部署**。 這會帶您前往 [購買] 頁面，會自動連接到您的工作區，是使用專用 vm。 VM 處於**標準 D2s v3 系列 （2 個 vcpu，8 GB 記憶體）** 且具有公用 IP 位址。
@@ -79,7 +79,7 @@ ms.locfileid: "58883211"
 如果您未使用 Azure，以手動方式部署 Azure Sentinel 代理程式專用的 Linux 伺服器上執行。
 
 
-1. 在 Azure Sentinel 入口網站中，按一下**資料收集**，然後選取您的設備類型。
+1. 在 Azure Sentinel 入口網站中，按一下**資料連接器**，然後選取您的設備類型。
 1. 底下建立專用的 Linux VM **Linux Syslog 代理程式設定**選擇**手動部署**。
    1. 底下**下載並安裝代理程式 Syslog**，選取**非 Azure Linux 機器**。 
    1. 在 **直接代理程式**畫面隨即開啟，並選取**Agent for Linux**下載代理程式，或執行下列命令來下載您的 Linux 機器上：   `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`

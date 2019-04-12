@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 7835553dafd66830b7a483c58bc2c7b7cf8c93f8
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: e35330874c647eba2cddde694563c8a1d9e83df5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046889"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490267"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>IoT 中樞裝置佈建服務的安全性概念 
 
@@ -77,7 +77,11 @@ TPM 證明是以 nonce 挑戰為基礎，會使用簽署和儲存根金鑰來出
 
 ### <a name="end-entity-leaf-certificate"></a>終端實體「分葉」憑證
 
-分葉憑證 (或終端實體憑證) 會識別憑證持有者。 它在其憑證鏈結中有根憑證，以及零或多個中繼憑證。 分葉憑證無法用來簽署其他任何憑證。 它會唯一識別裝置來佈建服務，且有時稱為裝置憑證。 在驗證期間，裝置會使用與此憑證相關聯的私密金鑰，回應以證明來自服務的持有挑戰。 若要深入了解，請參閱[驗證以 X.509 CA 憑證簽署的裝置](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates)。
+分葉憑證 (或終端實體憑證) 會識別憑證持有者。 它在其憑證鏈結中有根憑證，以及零或多個中繼憑證。 分葉憑證無法用來簽署其他任何憑證。 它會唯一識別裝置來佈建服務，且有時稱為裝置憑證。 在驗證期間，裝置會使用與此憑證相關聯的私密金鑰，回應以證明來自服務的持有挑戰。
+
+分葉憑證搭配[個別註冊](./concepts-service.md#individual-enrollment)項目都有需要，**主體名稱**必須設定為 個別註冊項目的註冊識別碼。 分葉憑證搭配[註冊群組](./concepts-service.md#enrollment-group)項目都應該有**主體名稱**設定為會顯示在所需的裝置識別碼**註冊記錄**的註冊群組中已驗證的裝置。
+
+若要深入了解，請參閱[驗證以 X.509 CA 憑證簽署的裝置](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates)。
 
 ## <a name="controlling-device-access-to-the-provisioning-service-with-x509-certificates"></a>使用 X.509 憑證控制對於佈建服務的裝置存取
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba77772352d3f6f6494abeddc7faf9f12e5f80c2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 40918493071fe0dd694c43e2b087a2bf7eb197d8
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262562"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489188"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>疑難排解合併安全性資訊註冊 （預覽）
 
@@ -154,7 +154,7 @@ ms.locfileid: "59262562"
 
 若要停用使用者的預覽體驗，請完成下列步驟：
 
-1. 以全域系統管理員或使用者系統管理員身分登入 Azure 入口網站。
+1. 使用者的系統管理員身分登入 Azure 入口網站。
 2. 移至**Azure Active Directory** > **使用者設定** > **管理的存取面板的預覽功能設定**。
 3. 底下**使用者可以使用預覽功能註冊和管理的安全性資訊**，選取器設定為**無**，然後選取**儲存**。
 

@@ -11,17 +11,18 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/08/2019
+ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 4c330e36210e97172c8f06bbfc3850210e200777
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b1118a3add665de403e4e0f8fd8883ce0094d9dd
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260335"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490030"
 ---
-# <a name="understand-the-health-of-your-azure-virtual-machines"></a>了解 Azure 虛擬機器的健全狀況 
-Azure 包含多個服務，它們可在監視空間中分別執行特定的角色或工作，但無法用來為裝載於 Azure 虛擬機器的作業系統提供深入的健康情況檢視方塊。  雖然您無法針對使用 Azure 監視器的不同條件進行監視，它不被設計模型，並代表的核心元件的健康情況或虛擬機器的整體健全狀況。  透過適用於 VM 的 Azure 監視器健康情況功能，它會利用一個模型主動監視 Windows 或 Linux 客體 OS 的可用性和效能，該模型代表重要元件及其關聯性、指定如何測量那些元件健康情況的準則，並在偵測到狀況不良的情況時向您發出警示。  
+# <a name="understand-the-health-of-your-azure-virtual-machines"></a>了解 Azure 虛擬機器的健全狀況
+
+Azure 包含多項服務個別在監視空間中，執行特定角色或工作，但還沒有 Azure 虛擬機器上提供一種代管的作業系統的觀點深入的健全狀況。 雖然您無法針對使用 Azure 監視器的不同條件進行監視，它不被設計模型，並代表的核心元件的健康情況或虛擬機器的整體健全狀況。 透過適用於 VM 的 Azure 監視器健康情況功能，它會利用一個模型主動監視 Windows 或 Linux 客體 OS 的可用性和效能，該模型代表重要元件及其關聯性、指定如何測量那些元件健康情況的準則，並在偵測到狀況不良的情況時向您發出警示。  
 
 檢視 Azure VM 和基礎作業系統的整體健康狀態，可以從含有適用於 VM 的 Azure 監視器健康情況的兩個檢視方塊、直接從虛擬機器，或者跨 Azure 監視器中某個資源群組的所有 VM 來觀測。
 
@@ -30,6 +31,7 @@ Azure 包含多個服務，它們可在監視空間中分別執行特定的角�
 如需設定適用於 VM 的 Azure 監視器相關資訊，請參閱[啟用適用於 VM 的 Azure 監視器](vminsights-onboard.md)。
 
 ## <a name="monitoring-configuration-details"></a>監視設定詳細資料
+
 本節將概述定義來監視 Azure Windows 和 Linux 虛擬機器的預設健康情況準則。 所有健康情況準則均預先設定為在符合狀況不良的條件時發出警示。 
 
 ### <a name="windows-vms"></a>Windows VM
@@ -76,17 +78,20 @@ Azure 包含多個服務，它們可在監視空間中分別執行特定的角�
 - 作業系統記憶體的可用 MB
 
 ## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
+
 登入 [Azure 入口網站](https://portal.azure.com)。 
 
 ## <a name="introduction-to-health-experience"></a>健康情況體驗簡介
+
 深入了解如何針對單一虛擬機器或 VM 群組使用健康情況功能之前，重要的是我們將提供一段簡介，讓您能夠了解資訊的呈現方式，以及視覺效果所呈現的內容。  
 
 ## <a name="view-health-directly-from-a-virtual-machine"></a>直接從虛擬機器檢視健康情況 
+
 若要檢視 Azure VM 的健康情況，從虛擬機器的左側窗格選取 [Insights (預覽)]。 在 [VM Insights] 頁面中，預設會開啟 [健康情況] 並顯示 VM 的健康情況檢視。  
 
 ![所選取 Azure 虛擬機器之適用於 VM 的 Azure 監視器健康情況概觀](./media/vminsights-health/vminsights-directvm-health.png)
 
-在 [健康情況] 索引標籤的 [客體 VM 健康情況] 區段下方，有個表格會顯示您虛擬機器目前的健康狀態，以及由狀況不良元件所引發的 VM 健康情況警示總數。 如需有關警示體驗的更多詳細資料，請參閱＜警示＞一節。  
+在 [健康情況] 索引標籤的 [客體 VM 健康情況] 區段下方，有個表格會顯示您虛擬機器目前的健康狀態，以及由狀況不良元件所引發的 VM 健康情況警示總數。 如需詳細資訊，請參閱 <<c0> [ 警示](#alerts)的其他詳細資料的警示體驗。  
 
 為 VM 定義的健全狀態如下表所述： 
 
@@ -104,6 +109,7 @@ Azure 包含多個服務，它們可在監視空間中分別執行特定的角�
 當存取從執行 Windows 作業系統的 Azure VM 的健全狀況，頂端的健全狀況狀態五個核心的 Windows 服務則會顯示在下一節**核心服務健全狀況**。  選取其中任一個服務，即會開啟一個頁面，列出監視該元件的健康情況準則及其健康狀態。  按一下健康情況準則的名稱將會開啟屬性窗格，而您可以從這裡檢閱設定詳細資料，包括健康情況準則是否已定義對應的 Azure 監視器警示。 若要深入了解，請參閱[健康情況診斷和健康情況的使用方式](#health-diagnostics)。  
 
 ## <a name="aggregate-virtual-machine-perspective"></a>彙總虛擬機器檢視方塊
+
 若要檢視資源群組中所有虛擬機器的健康情況集合，從入口網站的瀏覽清單中選取 [Azure 監視器]，然後選取 [虛擬機器 (預覽)]。  
 
 ![Azure 監視器中的 VM Insights 監視檢視](./media/vminsights-health/vminsights-aggregate-health.png)
@@ -147,6 +153,7 @@ Azure 包含多個服務，它們可在監視空間中分別執行特定的角�
 您可以按一下 [狀況不良的元件] 資料行下方的值，進一步向下切入來查看哪些執行個體的狀況不良。  在頁面上，有個表格會列出處於重大健康情況狀態的元件。    
 
 ## <a name="health-diagnostics"></a>健康情況診斷
+
 [健康情況診斷] 頁面讓您能夠檢視 VM 的健康情況模型、列出 VM 的所有元件、相關健全準則、狀態變更，以及與 VM 相關之監視元件所識別的其他重大問題。
 
 ![適用於 VM 的健康情況診斷頁面範例](./media/vminsights-health/health-diagnostics-page-01.png)
@@ -166,7 +173,7 @@ Azure 包含多個服務，它們可在監視空間中分別執行特定的角�
  
 定義特定的元件，例如邏輯磁碟的所有健全狀況準則 CPU 等可檢視不含篩選條件 （也就是所有準則的全面檢視） 的兩個分類，或選取時，篩選的結果依任一類別**可用性**或是**效能**頁面上的選項。 此外，準則的類別可以看到它在旁邊**健全狀況準則**資料行。 如果條件不符合選取的類別，它會顯示訊息**沒有可供所選類別的健全狀況準則**中**健全狀況準則**資料行。  
 
-適用於健全準則的狀態會由下列四種狀態之一來定義：「重大」、「警告」、「狀況良好」及「未知」。 前三種狀態是可設定的，這表示您可以使用[工作負載監視器 API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update) 修改監視器的閾值。 「未知」狀態無法設定，並保留供特定情況使用。  
+適用於健全準則的狀態會由下列四種狀態之一來定義：「重大」、「警告」、「狀況良好」及「未知」。 前三個是可設定的這表示您可以修改直接從 [健全狀況準則組態] 窗格的監視器的臨界值，或使用 Azure 監視器 REST API[更新監視作業](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update)。 「未知」狀態無法設定，並保留供特定情況使用。  
 
 [健康情況診斷] 頁面具有三個主要區段：
 
@@ -177,6 +184,7 @@ Azure 包含多個服務，它們可在監視空間中分別執行特定的角�
 ![[健康情況診斷] 頁面的區段](./media/vminsights-health/health-diagnostics-page-02.png)
 
 ### <a name="component-model"></a>元件模型
+
 [健康情況診斷] 頁面中最左邊的資料行是元件模型。 所有元件 (與 VM 相關聯) 均會顯示於此資料行及其目前的健全狀態中。 
 
 在下列範例中，探索到的元件為磁碟、邏輯磁碟、處理器、記憶體和作業系統。 將在此資料行中探索及顯示這些元件的多個執行個體。 例如，下圖顯示 VM 具有邏輯磁碟 (C: 和 D:) 的兩個執行個體，皆處於狀況良好的狀態。  
@@ -184,19 +192,20 @@ Azure 包含多個服務，它們可在監視空間中分別執行特定的角�
 ![[健康情況診斷] 中所呈現的範例元件模型](./media/vminsights-health/health-diagnostics-page-component.png)
 
 ### <a name="health-criteria"></a>健康情況準則
+
 [健康情況診斷] 頁面上的中間資料行為 [健全準則] 資料行。 針對 VM 定義的健康情況模型會以階層樹狀結構來顯示。 VM 的健康情況模型會由單位和彙總健全準則所組成。  
 
 ![[健康情況診斷] 中所呈現的範例健康情況準則](./media/vminsights-health/health-diagnostics-page-healthcriteria.png)
 
 健全準則會使用一些準則來測量受監視執行個體的健康情況，準則可以是閾值、實體狀態等。如先前所述，健全準則具有兩或三個可設定的健全狀態閾值。 在任何指定的時間點，健康情況準則都只能處於它的其中一個可能狀態。 
 
-目標的整體健康情況會從其定義於健康情況模型中每個健全準則的健康情況來判斷。 它是健全狀況準則目標對象為目標，作為目標的彙總至彙總的健康狀態準則透過目標元件的健全狀況準則的組合。 [健康情況診斷] 頁面的 [健康情況準則] 區段中會說明這個階層。 健康情況彙總原則是彙總健全準則設定的一部分 (預設值設為*最差*)。 您可以在[監視設定詳細資料](#monitoring-configuration-details)一節中，找到預設要當成此功能一部分來執行的健康情況準則組合清單。  
+目標的整體健康情況會從其定義於健康情況模型中每個健全準則的健康情況來判斷。 它是健全狀況準則目標對象為目標，作為目標的彙總至彙總的健康狀態準則透過目標元件的健全狀況準則的組合。 [健康情況診斷] 頁面的 [健康情況準則] 區段中會說明這個階層。 健康情況彙總原則是彙總健全準則設定的一部分 (預設值設為*最差*)。 您可以找到一份預設集的一部分 區段下的這項功能執行的健全狀況準則[監視組態詳細資料](#monitoring-configuration-details)，而且您可以使用 Azure 監視器 REST API[監視執行個體-依資源的清單作業](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitorinstances/listbyresource)取得一份所有健全狀況準則和 Azure VM 資源上執行其詳細的組態。  
 
 **單位**健全準則類型可藉由按一下最右邊的省略符號連結，然後選取 [顯示詳細資料] 以開啟設定窗格，來修改它們的設定。 
 
 ![設定健康情況準則範例](./media/vminsights-health/health-diagnostics-vm-example-02.png)
 
-在選定健全準則的 [設定] 窗格中，使用範例**每次寫入的平均磁碟秒數**，其閾值可以設定不同的數值。 這是雙狀態監視器，亦即狀態只會從「狀況良好」變更為「警告」。 其他健全準則可能是三個狀態，您可以在其中設定警告和重大健全狀態閾值的值。  
+在選定健全準則的 [設定] 窗格中，使用範例**每次寫入的平均磁碟秒數**，其閾值可以設定不同的數值。 這是雙狀態監視器，亦即狀態只會從「狀況良好」變更為「警告」。 其他健全準則可能是三個狀態，您可以在其中設定警告和重大健全狀態閾值的值。 您也可以修改使用 Azure 監視器 REST API 的臨界值[更新監視作業](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update)。
 
 >[!NOTE]
 >將健全準則設定變更套用到一個執行個體後，亦適用於所有受監視的執行個體。  例如，如果您選取**磁碟 -1 D:**，並修改**每次寫入的平均磁碟秒數**閾值，它不只會套用到該執行個體，還會套用到所有在 VM 上探索到且受監視的其他磁碟執行個體。
@@ -207,13 +216,15 @@ Azure 包含多個服務，它們可在監視空間中分別執行特定的角�
 如果您想要深入了解健康情況指標，有一些知識文章可協助您找出問題、原因和解決方式。 按一下頁面上的 [檢視資訊] 連結可在瀏覽器中開啟新的索引標籤，其中顯示特定的知識文章。 您可以在[這裡](https://docs.microsoft.com/azure/monitoring/infrastructure-health/)隨時檢閱適用於 VM 的 Azure 監視器健康情況功能隨附的所有健康情況準則知識文章。
   
 ### <a name="state-changes"></a>狀態變更
+
 [健康情況診斷] 頁面中最右邊的資料行是 [狀態變更]。 它會列出與在 [健康情況準則] 區段中所選取健康狀態準則相關聯的所有狀態變更，或者，如果 VM 選取自資料表的 [元件模型] 或 [健康情況準則] 資料行，則會列出該 VM 的狀態變更。 
 
 ![[健康情況診斷] 中所呈現的範例狀態變更](./media/vminsights-health/health-diagnostics-page-statechanges.png)
 
 此區段會由健康情況準則狀態，以及由最上方之最新狀態所儲存的相關聯時間所組成。   
 
-### <a name="association-of-component-model-health-criteria-and-state-change-columns"></a>元件模型、健康情況準則和狀態變更資料行的關聯 
+### <a name="association-of-component-model-health-criteria-and-state-change-columns"></a>關聯的元件模型、 健全狀況準則和狀態變更的資料行 
+
 這三個資料行彼此交互連結。 當您在 [元件模型] 區段中選取探索到的執行個體時，會將 [健全準則] 區段篩選到該元件檢視，並根據所選取的健全準則相應更新 [狀態變更] 區段。 
 
 ![選取受監視的執行個體和結果範例](./media/vminsights-health/health-diagnostics-vm-example-01.png)
@@ -223,13 +234,14 @@ Azure 包含多個服務，它們可在監視空間中分別執行特定的角�
 若要查看更新的健康狀態，您可以按一下 [重新整理] 連結，重新整理 [健康情況診斷] 頁面。  如果要基於預先定義的輪詢間隔來更新健康情況準則的健康狀態，此工作可讓您避免等候，並反映最新的健康狀態。  [健全準則狀態] 是一個篩選條件，可讓您根據所選取的健全狀態 ([狀況良好]、[警告]、[重大]、[未知]，以及 [全部]) 來設定結果範圍。  右上角的**上次更新**時間表示上次重新整理 [健康情況診斷] 頁面時的時間。  
 
 ## <a name="alerts"></a>警示
+
 適用於 VM 的 Azure 監視器健康情況功能會與 [Azure 警示](../../azure-monitor/platform/alerts-overview.md)整合，並在預先定義的健康情況準則於偵測到狀況時從狀況良好變更為狀況不良狀態時引發警示。 警示會依嚴重性 (嚴重性 0 到 4，嚴重性 0 表示最高的嚴重性層級) 分類。  
 
 依嚴重性分類的 VM 健康情況警示總數可在 [健康情況] 儀表板的 [警示] 區段下方取得。 當您選取警示總數或對應到嚴重性層級的數字時，[警示] 頁面隨即開啟並列出所有符合您選取項目的警示。  例如，如果您選取了對應至**嚴重性層級 1** 的資料列，則會看到下列檢視：
 
 ![所有嚴重性層級 1 的警示範例](./media/vminsights-health/vminsights-sev1-alerts-01.png)
 
-[警示] 頁面上不僅可顯示與您的選取項目相符的警示，也可藉由**資源類型**的篩選而僅顯示虛擬機器資源所引發的健康情況警示。  這會反映在警示清單的 [目標資源] 資料行下方，其中顯示在符合特定健康情況準則的狀況不良條件時已引發警示的 Azure VM。  
+[警示] 頁面上不僅可顯示與您的選取項目相符的警示，也可藉由**資源類型**的篩選而僅顯示虛擬機器資源所引發的健康情況警示。  它會反映在警示的清單，資料行底下**目標資源**，它會顯示符合特定的健全狀況準則的狀況不良的條件時引發警示的 Azure VM。  
 
 從其他的資源類型或服務的警示不適合包含在此檢視，例如記錄檔查詢為基礎的記錄警示，或計量警示，您通常會檢視從預設 Azure 監視器[所有警示](../../azure-monitor/platform/alerts-overview.md#all-alerts-page)頁面。 
 
@@ -267,7 +279,7 @@ Azure 包含多個服務，它們可在監視空間中分別執行特定的角�
 
 #### <a name="enable-or-disable-alert-rule"></a>啟用或停用警示規則
 
-啟用或停用特定的健全狀況準則，健全狀況準則屬性的警示規則*alertGeneration*需要使用的值修改**已停用**或**已啟用**. 若要找出*monitorId*特定的健全狀況準則的下列範例將示範如何查詢準則該值**LogicalDisk\Avg Disk 秒 Per Transfer**。
+啟用或停用特定的健全狀況準則，健全狀況準則屬性的警示*alertGeneration*需要使用的值修改**停用**或**Enabled**. 若要找出*monitorId*特定的健全狀況準則的下列範例將示範如何查詢準則該值**LogicalDisk\Avg Disk 秒 Per Transfer**。
 
 1. 在終端機視窗中，輸入 armclient.exe login 。 如此一來，會提示您登入 Azure。
 
@@ -277,14 +289,49 @@ Azure 包含多個服務，它們可在監視空間中分別執行特定的角�
     armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview”
     ```
 
-    下列範例會顯示該命令的輸出。 請記下的值*MonitorId*以紅色反白顯示。 這是必要值的下一步我們要指定健康條件的識別碼，並修改其屬性，來建立警示。
+    下列範例會顯示該命令的輸出。 請記下的值*MonitorId*。 這是必要值的下一步我們要指定健康條件的識別碼，並修改其屬性，來建立警示。
 
-    ![擷取健全狀況準則的監視器識別碼的範例](./media/vminsights-health/get-monitor-identifier-01.png)
+    ```
+    "id": "/subscriptions/a7f23fdb-e626-4f95-89aa-3a360a90861e/resourcegroups/Lab/providers/Microsoft.Compute/virtualMachines/SVR01/providers/Microsoft.WorkloadMonitor/monitors/ComponentTypeId='LogicalDisk',MonitorId='Microsoft_LogicalDisk_AvgDiskSecPerRead'",
+      "name": "ComponentTypeId='LogicalDisk',MonitorId='Microsoft_LogicalDisk_AvgDiskSecPerRead'",
+      "type": "Microsoft.WorkloadMonitor/virtualMachines/monitors"
+    },
+    {
+      "properties": {
+        "description": "Monitor the performance counter LogicalDisk\\Avg Disk Sec Per Transfer",
+        "monitorId": "Microsoft_LogicalDisk_AvgDiskSecPerTransfer",
+        "monitorName": "Microsoft.LogicalDisk.AvgDiskSecPerTransfer",
+        "monitorDisplayName": "Average Logical Disk Seconds Per Transfer",
+        "parentMonitorName": null,
+        "parentMonitorDisplayName": null,
+        "monitorType": "Unit",
+        "monitorCategory": "PerformanceHealth",
+        "componentTypeId": "LogicalDisk",
+        "componentTypeName": "LogicalDisk",
+        "componentTypeDisplayName": "Logical Disk",
+        "monitorState": "Enabled",
+        "criteria": [
+          {
+            "healthState": "Warning",
+            "comparisonOperator": "GreaterThan",
+            "threshold": 0.1
+          }
+        ],
+        "alertGeneration": "Enabled",
+        "frequency": 1,
+        "lookbackDuration": 17,
+        "documentationURL": "https://aka.ms/Ahcs1r",
+        "configurable": true,
+        "signalType": "Metrics",
+        "signalName": "VMHealth_Avg. Logical Disk sec/Transfer"
+      },
+      "etag": null,
+    ```
 
 3. 輸入下列命令來修改*alertGeneration*屬性。
 
     ```
-    armclient patch subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors/Microsoft_LogicalDisk_AvgDiskSecPerTransfer?api-version=2018-08-31-preview 1-preview "{'properties':{'alertGeneration':'Disabled'}}"
+    armclient patch subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors/Microsoft_LogicalDisk_AvgDiskSecPerTransfer?api-version=2018-08-31-preview "{'properties':{'alertGeneration':'Disabled'}}"
     ```   
 
 4. 輸入在步驟 2 中用於驗證之屬性的值設定為 GET 命令**已停用**。  
@@ -313,7 +360,25 @@ Azure Vm 的健全狀況監視器就會產生警示時，支援 SMS 和電子郵
 
     輸出應該如以下所示：
     
-    ![取得 notificationSettings 的範例輸出](./media/vminsights-health/get-notification-config-status.png)
+    ```
+    {
+      "value": [
+        {
+          "properties": {
+            "actionGroupResourceIds": [
+              "/subscriptions/a7f23fdb-e626-4f95-89aa-3a360a90861e/resourceGroups/Lab/providers/microsoft.insights/actionGroups/Lab-IT%20Ops%20Notify"
+            ]
+          },
+          "etag": null,
+          "id": "/subscriptions/a7f23fdb-e626-4f95-89aa-3a360a90861e/resourcegroups/Lab/providers/Microsoft.Compute/virtualMachines/SVR01/providers/Microsoft.WorkloadMonitor/notificationSettings/default",
+          "name": "notificationSettings/default",
+          "type": "Microsoft.WorkloadMonitor/virtualMachines/notificationSettings"
+        }
+      ],
+      "nextLink": null
+    }
+    ```
 
 ## <a name="next-steps"></a>後續步驟
+
 若要找出 VM 效能的瓶頸和整體使用率，請參閱[檢視 Azure VM 效能](vminsights-performance.md)，或者，若要檢視探索到的應用程式相依性，請參閱[檢視適用於 VM 的 Azure 監視器對應](vminsights-maps.md)。 

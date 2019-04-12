@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 94465e95dbf5f2eb381c124349bf8fda6622a6c2
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: b84238e8a659358f2c065eb1533f0d21a5335d43
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650286"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496874"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>使用 Azure 活動記錄監視訂用帳戶活動
 
@@ -48,7 +48,7 @@ ms.locfileid: "58650286"
 
 ## <a name="event-schema-per-category"></a>每個類別的事件結構描述
 
-[請參閱這篇文章以了解每一類活動記錄事件的結構描述。](../../azure-monitor/platform/activity-log-schema.md)
+[請參閱本文，了解活動記錄事件結構描述，每個類別。](../../azure-monitor/platform/activity-log-schema.md)
 
 ## <a name="what-you-can-do-with-the-activity-log"></a>Azure 活動記錄檔的用途
 
@@ -58,7 +58,7 @@ ms.locfileid: "58650286"
 
 
 * 在 **Azure 入口網站**中查詢和檢視活動記錄檔。
-* [根據活動記錄事件建立警示。](../../azure-monitor/platform/activity-log-alerts.md)
+* [建立活動記錄事件的警示。](../../azure-monitor/platform/activity-log-alerts.md)
 * [Stream 以便**事件中樞**](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)供第三方服務或自訂的分析解決方案，例如 Power BI 擷取。
 * 分析中使用 Power BI [ **Power BI 內容套件**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/)。
 * [將活動記錄檔儲存到**儲存體帳戶**以供封存或手動檢查](../../azure-monitor/platform/archive-activity-log.md)。 您可以使用**記錄設定檔**指定保留時間 (以天為單位)。
@@ -92,22 +92,14 @@ ms.locfileid: "58650286"
 **記錄檔設定檔** 控制活動記錄檔的匯出方式。 使用記錄檔設定檔，您可以設定︰
 
 * 活動記錄檔應該要傳送至何處 (儲存體帳戶或事件中樞)
-* 应发送哪些事件类别（写入、删除、操作）。 *「類別」一詞在記錄設定檔和活動記錄事件中的意義並不相同。在記錄設定檔中，「類別」代表作業類型 (寫入、刪除、動作)。在活動記錄事件中，「類別」屬性代表事件的來源或類型 (例如，管理、ServiceHealth、警示等等)。*
+* 應該要傳送何種事件分類 (Write、Delete、Action)。 *記錄設定檔和活動記錄事件中的 「 類別 」 的意義都不同。 在記錄設定檔中，「類別」代表作業類型 (寫入、刪除、動作)。 活動記錄事件，在"category"屬性會代表來源或類型的事件 （例如，管理、 ServiceHealth、 警示等等）。*
 * 應該要匯出哪一個區域 (位置)。 請務必包含「全域」，因為活動記錄中的許多事件都是全域事件。
 * 活動記錄應該在儲存體帳戶中保留多久。
-    - 保留期為 0 天表示會永遠保留記錄。 否則，此值可以是 1 到 2147483647 之間的任意天數。
+    - 保留期為 0 天表示會永遠保留記錄。 否則，值可以是任意數目的 1 到 365 之間的天數。
     - 如果已設定保留原則，但將儲存體帳戶的記錄儲存停用 (例如，若只選取事件中樞或 Log Analytics 選項)，保留原則不會有任何作用。
     - 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄會被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄檔會被刪除。 刪除程序會從 UTC 午夜開始，但是請注意，可能需要長達 24 小時的時間，記錄才會從您的儲存體帳戶中刪除。
 
 您可以使用並非發出記錄的同一個訂用帳戶中的儲存體帳戶或事件中樞命名空間。 進行此設定的使用者必須具有這兩個訂用帳戶的適當 RBAC 存取權。
-
-> [!NOTE]
->  您目前無法將資料封存到位在安全虛擬網路後面的儲存體帳戶。
-
-> [!WARNING]
-> 2018 年 11 月 1 日起，儲存體帳戶中的記錄資料格式已變更為 JSON 資料行。 [請參閱本文以了解影響的描述，以及如何更新您的工具，來處理新的格式。](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md)
->
->
 
 這些設定可透過入口網站中 [活動記錄檔] 刀鋒視窗中的 [匯出] 選項來設定。 也可以[使用 Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx)、PowerShell Cmdlet 或 CLI 以程式設計方式設定。 一個訂用帳戶只能有一個記錄檔的設定檔。
 
@@ -191,5 +183,5 @@ az monitor log-profiles delete --name <profile name>
 
 ## <a name="next-steps"></a>後續步驟
 
-* [详细了解活动日志（以前称为审核日志）](../../azure-resource-manager/resource-group-audit.md)
+* [深入了解活動記錄檔 （前身為稽核記錄檔）](../../azure-resource-manager/resource-group-audit.md)
 * [將 Azure 活動記錄檔串流至事件中樞](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
