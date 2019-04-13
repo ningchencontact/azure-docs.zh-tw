@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 78c66ac25e9d20d9202236407d42f815879cd3f2
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: fe63b76589c841706ae335c61e56a57c3c33fb3e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426421"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527178"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 虛擬網路中的資源名稱解析
 
@@ -34,7 +34,7 @@ ms.locfileid: "59426421"
 > 視您的案例而定，您可以使用「Azure DNS 私人區域」功能，該功能目前處於公開預覽狀態。 如需詳細資訊，請參閱[使用私人網域的 Azure DNS](../dns/private-dns-overview.md)。
 >
 
-| **案例** | **解決方法** | **尾碼** |
+| **案例** | **方案** | **尾碼** |
 | --- | --- | --- |
 | 相同虛擬網路內的 VM 之間或相同雲端服務的 Azure 雲端服務角色執行個體之間所進行的名稱解析。 | [Azure DNS 私人區域](../dns/private-dns-overview.md)或 [Azure 提供的名稱解析](#azure-provided-name-resolution) |主機名稱或 FQDN |
 | 不同虛擬網路的 VM 之間或不同雲端服務的角色執行個體之間所進行的名稱解析。 |[Azure DNS 私人區域](../dns/private-dns-overview.md)，或客戶受控的 DNS 伺服器將虛擬網路之間的查詢轉送供 Azure (DNS Proxy) 解析。 請參閱[使用專屬 DNS 伺服器的名稱解析](#name-resolution-that-uses-your-own-dns-server)。 |僅 FQDN |
@@ -147,7 +147,7 @@ DNS 轉送也會實現虛擬網路之間的 DNS 解析，並使內部部署電�
 
 > [!NOTE]
 > 角色執行個體可以對相同虛擬網路內的虛擬機器執行名稱解析。 這個操作是藉由使用 FQDN (由虛擬機器的主機名稱和 **internal.cloudapp.net** DNS 尾碼所組成) 來完成。 不過，在此情況下，名稱解析只有在角色執行個體具有[角色結構描述 (.cscfg 檔案)](https://msdn.microsoft.com/library/azure/jj156212.aspx) 中定義的 VM 名稱時才會成功。
-> <Role name="<role-name>" vmName="<vm-name>">
+> `<Role name="<role-name>" vmName="<vm-name>">`
 >
 > 必須對其他虛擬網路 (使用 **internal.cloudapp.net** 尾碼的 FQDN) 中的虛擬機器執行名稱解析的角色執行個體，必須使用本節中所述的方法來執行這項操作 (在兩個虛擬網路之間轉送的自訂 DNS 伺服器)。
 >

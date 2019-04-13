@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: c6ae28e076d14faa7c2173f3a23d92daad4bd59e
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 332f899f3502f34e46b4f158a6980dc96248140e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651118"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544019"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>管理 Azure 實驗室服務中的教室實驗室 
 本文說明如何建立和刪除教室實驗室。 它也示範如何檢視實驗室帳戶中的所有教室實驗室。 
@@ -28,7 +28,7 @@ ms.locfileid: "58651118"
 
 ## <a name="create-a-classroom-lab"></a>建立教室實驗室
 
-1. 瀏覽至 [Azure 實驗室服務網站](https://labs.azure.com)。 
+1. 瀏覽至 [Azure 實驗室服務網站](https://labs.azure.com)。 請注意，Internet Explorer 11 尚不支援。 
 2. 選取 [登入]。 選取或輸入**使用者識別碼** (其為實驗室帳戶中具有**實驗室建立者**角色的成員)，然後輸入密碼。 Azure 實驗室服務支援組織帳戶和 Microsoft 帳戶。 
 3. 在 [新增實驗室] 視窗中，執行下列動作： 
     1. 指定實驗室的**名稱**。 
@@ -37,9 +37,9 @@ ms.locfileid: "58651118"
 
         ![建立教室實驗室](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. 在 [選取虛擬機器規格] 頁面上，執行下列步驟：
-    1. 選取在實驗室中建立的虛擬機器 (VM) [大小]。 目前，**小型**， **medium**，**大型**，以及**GPU**允許大小。
+    1. 選取在實驗室中建立的虛擬機器 (VM) [大小]。 目前允許使用 [小]、[中]、[大] 及 [GPU] 大小。
     2. 選取您要在其中建立 VM 的 [區域]。 
-    3. 選取要用來在實驗室中建立 VM 的 [VM 映像]。 如果您選取的 Linux 映像，您會看到一個選項來啟用遠端桌面連接它。 如需詳細資訊，請參閱 <<c0> [ 啟用適用於 Linux 的遠端桌面連線](how-to-enable-remote-desktop-linux.md)。
+    3. 選取要用來在實驗室中建立 VM 的 [VM 映像]。 如果您選取 Linux 映像，您會看到可啟用遠端桌面連接的選項。 如需詳細資料，請參閱[啟用 Linux 遠端桌面連線](how-to-enable-remote-desktop-linux.md)。
     4. 選取 [下一步] 。
 
         ![指定 VM 規格](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
@@ -60,7 +60,7 @@ ms.locfileid: "58651118"
     ![在範本頁面完成後加以設定](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. 以下是本教學課程中的選擇性步驟： 
     1. 選取 [啟動] 以啟動範本 VM。
-    2. 選取 [連線] 以連線至範本 VM。 如果是 Linux 範本 VM，您可以選擇是否要使用 SSH 或 RDP （如果已啟用 RDP） 連線。
+    2. 選取 [連線] 以連線至範本 VM。 如果是 Linux 範本 VM，您可選擇是否要使用 SSH 或 RDP 連線 (若已啟用 RDP)。
     3. 在您的範本 VM 上安裝並設定軟體。 
     4. **停止** VM。  
     5. 輸入範本的 [描述]

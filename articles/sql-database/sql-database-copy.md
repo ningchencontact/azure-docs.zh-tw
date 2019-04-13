@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: CarlRabeler
-ms.author: carlrab
+ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 2aeb756bda50597bf3e43c0c84391e0750bd8acb
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.date: 04/11/2019
+ms.openlocfilehash: 47aa88040b6010aeca4aeed696310505d1e17df9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486813"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549676"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>複製 Azure SQL 資料庫的交易一致性複本
 
@@ -50,9 +50,9 @@ Azure SQL Database 提供數種方式，可讓您在同個伺服器或不同的�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
-若要使用 PowerShell 複製資料庫，請使用[新增 AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) cmdlet。 
+若要使用 PowerShell 复制数据库，请使用 [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) cmdlet。 
 
 ```powershell
 New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
@@ -90,10 +90,16 @@ New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
     -- Execute on the master database of the target server (server2)
     -- Start copying from Server1 to Server2
     CREATE DATABASE Database2 AS COPY OF server1.Database1;
+    
+> [!IMPORTANT]
+> 這兩部伺服器的防火牆必須允許輸入的連線，從用戶端發出 T-SQL 複製命令的 IP 設定。
 
-## <a name="to-move-a-database-between-subscriptions"></a>在訂用帳戶之間移動資料庫
+### <a name="copy-a-sql-database-to-a-different-subscription"></a>將 SQL database 複製到不同的訂用帳戶
 
-在 [Azure 入口網站](https://portal.azure.com)中，按一下 [SQL Server]，然後從清單中選取裝載您資料庫的伺服器。 按一下 [移動] ，然後挑選要移動的資源以及要移入的訂用帳戶。
+您可以使用上一節中的步驟 descrbed，將資料庫複製到不同的訂用帳戶中的 SQL Database 伺服器。 請確定您使用來源資料庫的資料庫擁有者具有相同的名稱和密碼登入，而且它是 dbmanager 角色的成員或伺服器層級主體登入。 
+
+> [!NOTE]
+> [Azure 入口網站](https://portal.azure.com)不支援複製到不同的訂用帳戶，因為入口網站呼叫 ARM API，並使用訂用帳戶憑證存取這兩個異地複寫中涉及的伺服器。  
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>監視複製作業的進度
 

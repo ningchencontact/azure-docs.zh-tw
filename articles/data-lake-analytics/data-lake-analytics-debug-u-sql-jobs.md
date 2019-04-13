@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: 11587d5a0520d42d554c13a525c3b57db82326aa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5417f66696191cebadc2af9c6d634419a0eb8e5b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229470"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526447"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>對 U-SQL 失敗作業的使用者定義 C# 程式碼進行偵錯
 
@@ -28,7 +28,7 @@ U-SQL 提供使用 C# 的擴充性模型。 在 U-SQL 指令碼中，可以輕�
 >
 
 > [!IMPORTANT]
-> Visual Studio 需要下列兩個更新以使用此功能：[Microsoft Visual C++ 2015 可轉散發更新 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) 和[適用於 Windows 的通用 C 執行階段](https://www.microsoft.com/download/details.aspx?id=50410)。
+> Visual Studio 會使用這項功能需要下列兩項更新：[Microsoft Visual C++ 2015年可轉散發套件 Update 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840)並[Windows 的通用 C 執行階段](https://www.microsoft.com/download/details.aspx?id=50410)。
 >
 
 ## <a name="download-failed-vertex-to-local-machine"></a>將失敗的頂點下載至本機電腦
@@ -80,7 +80,7 @@ U-SQL 提供使用 C# 的擴充性模型。 在 U-SQL 指令碼中，可以輕�
 
 2. 取得 **FailedVertexDebugHost** 專案的專案資料夾路徑。 
 
-3. 以滑鼠右鍵按一下新增的組件原始程式碼專案 > [屬性]，選取左側的 [建置] 索引標籤，並將結尾為 \bin\debug 的複製路徑貼上為 [輸出] > [輸出路徑]。 最後的輸出路徑會像是 "<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\"。
+3. 以滑鼠右鍵按一下新增的組件原始程式碼專案 > [屬性]，選取左側的 [建置] 索引標籤，並將結尾為 \bin\debug 的複製路徑貼上為 [輸出] > [輸出路徑]。 最後的輸出路徑會像是`<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\`。
 
     ![Azure Data Lake Analytics U-SQL 偵錯設定 pdb 路徑](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png)
 

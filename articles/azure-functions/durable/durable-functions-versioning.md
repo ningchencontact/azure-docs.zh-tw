@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: a90a6811b1c59538db98b85d950906dba2969d57
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 33ca6c36cd11d53a3c50a8374181c511fd2f8c3e
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338221"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549079"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的版本控制
 
@@ -140,7 +140,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 建議您將函式應用程式的新版本部署到新的[部署位置](https://blogs.msdn.microsoft.com/appserviceteam/2017/06/13/deployment-slots-preview-for-azure-functions/)。 部署位置可讓您並存執行函式應用程式的多個複本，而且其中只有一個是作用中的「生產」位置。 當您準備將新的協調流程邏輯公開到現有的基礎結構時，只要將新的版本調換到生產位置即可，就是這麼簡單。
 
 > [!NOTE]
-> 當您對協調器函式使用 HTTP 和 Webhook 觸發程序時，此策略最理想。 對於非 HTTP 觸發程序，例如佇列或事件中樞，應該從應用程式設定衍生觸發程序定義，此設定會隨著交換作業而更新。
+> 當您對協調器函式使用 HTTP 和 Webhook 觸發程序時，此策略最理想。 對於非 HTTP 觸發程序，例如佇列或事件中樞觸發程序定義應該[衍生自應用程式設定](../functions-bindings-expressions-patterns.md#binding-expressions---app-settings)，取得更新做為交換作業的一部分。
 
 ## <a name="next-steps"></a>後續步驟
 

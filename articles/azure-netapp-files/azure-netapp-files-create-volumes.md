@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to-article
+ms.topic: conceptual
 ms.date: 3/17/2019
 ms.author: b-juche
-ms.openlocfilehash: c2dd8b636223e0484e36eed9fcc616dc6f19cf3a
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 3c59fb6abe9c26e6886706dae360ff40787e8faa
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877970"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549179"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>建立適用於 Azure NetApp Files 的磁碟區
 
@@ -49,7 +49,7 @@ ms.locfileid: "58877970"
     * **容量集區**  
         指定您想要建立的磁碟區容量集區。
 
-    * **Quota**  
+    * **配額**  
         指定配置給磁碟區的邏輯儲存體大小。  
 
         [可用配額] 欄位會顯示所選容量集區中可用來建立新磁碟區的未使用空間量。 新磁碟區的大小不可超過可用配額。  
@@ -137,14 +137,14 @@ Azure 的 NetApp 檔案支援 SMBv3 磁碟區。 您要新增的 SMB 磁碟區�
         名稱在資源群組內必須是唯一的。 長度至少必須有三個字元。  您可以使用任何英數字元。
 
     * **檔案路徑**  
-        指定要用來建立新磁碟區匯出路徑的檔案路徑。 匯出路徑會用來掛接和存取磁碟區。   
+        指定要用於建立新磁碟區匯出路徑的檔案路徑。 匯出路徑會用來掛接和存取磁碟區。   
      
         檔案路徑名稱只能包含字母、數字和連字號 ("-")。 長度必須介於 16 到 40 個字元之間。  
 
     * **容量集區**  
         指定您想要建立的磁碟區容量集區。
 
-    * **Quota**  
+    * **配額**  
         指定配置給磁碟區的邏輯儲存體大小。  
 
         [可用配額] 欄位會顯示所選容量集區中可用來建立新磁碟區的未使用空間量。 新磁碟區的大小不可超過可用配額。  
@@ -179,6 +179,6 @@ Azure 的 NetApp 檔案支援 SMBv3 磁碟區。 您要新增的 SMB 磁碟區�
 
 ## <a name="next-steps"></a>後續步驟  
 
-* [對 Windows 或 Linux 虛擬機器掛接或取消掛接磁碟區](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
-* [設定 NFS 磁碟區的匯出原則](azure-netapp-files-configure-export-policy.md)
-* [深入了解 Azure 服務的虛擬網路整合](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
+* [掛接或取消掛接 Windows 或 Linux 虛擬機器的磁碟區](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [設定 NFS 磁碟區的 匯出原則](azure-netapp-files-configure-export-policy.md)
+* [了解 Azure 服務的虛擬網路整合](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)

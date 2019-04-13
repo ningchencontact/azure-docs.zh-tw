@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 04/08/2019
-ms.openlocfilehash: f9387d68139119c13d57ebb135e0c0f5b7bba8ec
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.date: 04/11/2019
+ms.openlocfilehash: de9eb8ff33dc6d99c386ee92118a2d737ba1e476
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59359043"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523685"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL Database 安全性功能的概觀
 
@@ -107,7 +107,7 @@ Sql Server 會強制執行加密 (SSL/TLS) 在所有時間的所有連線。 這
 例如，使用 ADO.NET 驅動程式時這是透過**Encrypt = True**並**TrustServerCertificate = False**。如果您從 Azure 入口網站取得連接字串，它會有正確的設定。
 
 > [!IMPORTANT]
-> 請注意，有些非 Microsoft 驅動程式可能不預設使用 TLS 或依賴較舊版本的 TLS (< 2.0) 才能運作。 在此情況下 SQL Server 仍可讓您連接到您的資料庫。 不過，我們建議您評估安全性風險，特別是當您儲存的敏感性資料時，才允許這類驅動程式和應用程式連接到 SQL Database。 
+> 請注意，有些非 Microsoft 驅動程式可能不預設使用 TLS 或依賴較舊版本的 TLS (< 1.2) 才能運作。 在此情況下 SQL Server 仍可讓您連接到您的資料庫。 不過，我們建議您評估安全性風險，特別是當您儲存的敏感性資料時，才允許這類驅動程式和應用程式連接到 SQL Database。 
 >
 > 如需 TLS 和連線能力的進一步資訊，請參閱[TLS 考量](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 

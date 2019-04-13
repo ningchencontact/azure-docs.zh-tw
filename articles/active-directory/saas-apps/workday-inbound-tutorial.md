@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73e5b081e85726a1fc78d92996846faa18ce616a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d34bd9d7f80f72b3c6c0821ad48e6be1fd260be9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897617"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524628"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>教學課程：設定 Workday 來自動佈建使用者
 
@@ -50,7 +50,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>誰最適合使用此使用者佈建解決方案？
 
-這個新的 Workday 的使用者佈建解決方案目前處於公開預覽狀態，最適合用於：
+此 Workday 使用者佈建解決方案最適合：
 
 * 需要以預先建置的雲端式解決方案進行 Workday 使用者佈建的組織
 
@@ -460,7 +460,7 @@ Azure AD 使用者佈建服務支援的 Workday 使用者佈建工作流程，�
 
 2. 在 [來源物件範圍] 欄位中，您可以透過定義一組屬性型篩選，選取應該佈建至 AD 的 Workday 使用者集合範圍。 預設範圍是「Workday 中的所有使用者」。 範例篩選：
 
-   * 範例：人員識別碼介於 1000000 到 2000000 之間的使用者範圍
+   * 範例：人員識別碼介於 1000000 到 2000000 （不含 2000000） 之間的使用者範圍
 
       * 屬性：WorkerID
 

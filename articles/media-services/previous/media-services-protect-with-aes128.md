@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8516035705ad9dfb2ff37592f9381c4f905bb67f
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 6f76d6aed8dc5eed3dbf673b265c404f27b0536d
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802825"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526821"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>使用 AES-128 動態加密和金鑰傳遞服務
 > [!div class="op_single_selector"]
@@ -141,7 +141,7 @@ ms.locfileid: "58802825"
 在上一個步驟中，您可以建構指向資訊清單檔案的 URL。 您的用戶端必須從串流資訊清單檔案擷取所需的資訊，才能向金鑰傳遞服務提出要求。
 
 ### <a name="manifest-files"></a>資訊清單檔案
-用戶端必須從資訊清單檔案擷取 URL (其中也包含內容金鑰識別碼 [kid]) 值。 用戶端接著會嘗試從金鑰傳遞服務取得加密金鑰。 用戶端也必須擷取 IV 值，並使用它來進行串流解密。 下列程式碼片段說明 Smooth Streaming 資訊清單的 <Protection> 元素：
+用戶端必須從資訊清單檔案擷取 URL (其中也包含內容金鑰識別碼 [kid]) 值。 用戶端接著會嘗試從金鑰傳遞服務取得加密金鑰。 用戶端也必須擷取 IV 值，並使用它來進行串流解密。 下列程式碼片段說明 Smooth Streaming 資訊清單的 `<Protection>` 元素：
 
 ```xml
     <Protection>

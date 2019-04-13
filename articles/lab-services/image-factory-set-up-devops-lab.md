@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 62cb8222b592660f2e7ab32d438fd4073246ee50
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 5a3d6e51a71f6aab742fe042d6e6e281192319a4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439789"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523013"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>從 Azure DevOps 執行映像處理站
 本文章涵蓋 Azure DevOps (前身為 Visual Studio Team Services) 從執行映像處理站所需的所有準備工作。
@@ -44,12 +44,12 @@ Azure 的 DevOps 可讓您儲存的原始碼、 執行 Azure PowerShell 在一�
 
 如果您有現有的 DevOps 帳戶或您想要改為使用的專案，請略過此步驟。
 
-若要開始，建立 Azure DevOps 中的免費帳戶。 請瀏覽 https://www.visualstudio.com/，然後選取**免費開始**正下方**Azure DevOps** (先前稱為 VSTS)。 您必須選擇唯一的帳戶名稱，然後請務必選擇管理使用 Git 的程式碼。 這建立之後，儲存到您的 team 專案的 URL。 以下是範例 URL: https://<accountname>.visualstudio.com/MyFirstProject。
+若要開始，建立 Azure DevOps 中的免費帳戶。 請瀏覽 https://www.visualstudio.com/，然後選取**免費開始**正下方**Azure DevOps** (先前稱為 VSTS)。 您必須選擇唯一的帳戶名稱，然後請務必選擇管理使用 Git 的程式碼。 這建立之後，儲存到您的 team 專案的 URL。 以下是範例 URL: `https://<accountname>.visualstudio.com/MyFirstProject`。
 
 ## <a name="check-in-the-image-factory-to-git"></a>簽入至 Git 的映像處理站
 所有的 PowerShell、 範本和映像處理站的設定位於[公用 DevTest Labs GitHub 存放庫](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory)。 取得程式碼到新的 team 專案的最快方式是匯入存放庫。 （如此您才能取得額外的文件和範例），這會在整個研發/測試實驗室的儲存機制中提取。 
 
-1. 請瀏覽您在上一個步驟中建立 Azure DevOps 專案 (URL 看起來**https://<accountname>.visualstudio.com/MyFirstProject**)。
+1. 請瀏覽您在上一個步驟中建立 Azure DevOps 專案 (URL 看起來**https:\//\<accountname >.visualstudio.com/MyFirstProject**)。
 2. 選取 **匯入存放庫**。
 3. 請輸入**複製 URL** DevTest Labs 存放庫： `https://github.com/Azure/azure-devtestlab`。
 4. 選取 [匯入]。

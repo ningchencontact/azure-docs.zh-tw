@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 66973ce78004d0f29d08264869f166202aaaf109
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3ef1656a7e8a66092de3050a8f14c5b38e0e2e6c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011861"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525461"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>使用 STONITH 在 SUSE 中進行高可用性設定
 本文件提供使用 STONITH 裝置在 SUSE 作業系統上進行高可用性設定的詳細逐步指示。
@@ -258,7 +258,7 @@ systemctl start pacemaker
 ```
 crm_mon
 ```
-![crm-mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png) 您也可以登入hawk 來檢查叢集狀態 *https://<node IP>:7630*。 預設使用者為 hacluster，而密碼為 linux。 如有需要，您可以使用 *passwd* 命令來變更密碼。
+![crm-mon.png](media/HowToHLI/HASetupWithStonith/crm-mon.png)您也可以登入 hawk 來檢查叢集狀態*https://\<節點 IP >: 7630*。 預設使用者為 hacluster，而密碼為 linux。 如有需要，您可以使用 *passwd* 命令來變更密碼。
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7.設定叢集屬性及資源 
 本節說明設定叢集資源的步驟。
@@ -323,7 +323,7 @@ crm configure load update crm-vip.txt
 當您執行命令 *crm_mon* 時，您可以看到有兩個資源。
 ![crm_mon_command.png](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
-此外，您可以在 *https://<node IP address>:7630/cib/live/state* 查看狀態
+此外，您可以看到在狀態*https://\<節點 IP 位址 >: 7630 cib/狀態*
 
 ![hawlk-status-page.png](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
 

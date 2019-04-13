@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 9584f0ee4264724787c5913c0d6baa4c2769fa82
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 39fbe30ccf4429003dc0c9f11165c5dd057a89cd
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085672"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549147"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>將語言分析器新增至 Azure 搜尋服務索引
 
@@ -92,7 +92,7 @@ Azure 搜尋服務支援由 Lucene 所支援的 35 種分析器，以及由專�
 |愛爾蘭文||ga.lucene|  
 |義大利文|it.microsoft|it.lucene|  
 |日文|ja.microsoft|ja.lucene|  
-|坎那達文|ka.microsoft||  
+|坎那達文|kn.microsoft||  
 |韓文|ko.microsoft|ko.lucene|  
 |拉脫維亞文|lv.microsoft|lv.lucene|  
 |立陶宛文|lt.microsoft||  

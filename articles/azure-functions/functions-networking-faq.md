@@ -3,19 +3,19 @@ title: 關於在 Azure Functions 中的網路功能的常見問題集
 description: 最常見的問題和案例的網路功能搭配 Azure Functions 的一些解答。
 services: functions
 author: alexkarcher-msft
-manager: jehollan
+manager: jeconnoc
 ms.service: azure-functions
 ms.topic: troubleshooting
-ms.date: 2/26/2019
-ms.author: alkarche
-ms.openlocfilehash: 7946b7f45ff3df9225a27b70ccfbdb895bfd03c4
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.date: 4/11/2019
+ms.author: alkarche, glenga
+ms.openlocfilehash: 126b9ccefedee1f5cefdac8a8666a58e7a4a1fef
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896287"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548624"
 ---
-# <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>關於在 Azure Functions 中的網路功能的常見問題集
+# <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>在 Azure Functions 中的網路功能的相關常見問題的解答
 
 以下是網路相關常見問題的清單。 如需更完整的概觀，請參閱[函式網路功能選項的文件](functions-networking-options.md)
 
@@ -54,3 +54,13 @@ ms.locfileid: "58896287"
 部署至 App Service Environment 是唯一的辦法建立完全位於 VNET 的詳細資料上使用 ILB ASE 中的函式應用程式，請從以下的文章開始：[建立和使用 ILB ASE](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase)。
 
 只需要單向存取 VNET 的資源，或小於完整的網路隔離的情況下，請參閱[函式網路功能概觀](functions-networking-options.md)。
+
+## <a name="next-steps"></a>後續步驟
+
+若要深入了解網路和函式： 
+
+* [請依照下列快速入門開始使用的 VNET 整合教學課程](./functions-create-vnet.md)
+* [深入了解網路功能選項，在此處的函式](./functions-networking-options.md)
+* [在此處深入了解與 App Service / Functions 的 VNET 整合](../app-service/web-sites-integrate-with-vnet.md)
+* [深入了解 Azure 中的 VNET](../virtual-network/virtual-networks-overview.md)
+* [啟用更多的網路功能和使用 App Service 環境的控制](../app-service/environment/intro.md)

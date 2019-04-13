@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 4bef785a08d7482468630bc690d6c19b05bdf770
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 0d56d901ca932f044ef71ef2bc24933bcf18c24a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202957"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544580"
 ---
 # <a name="script-action-development-with-hdinsight"></a>使用 HDInsight 開發指令碼動作
 
@@ -333,7 +333,6 @@ Microsoft 提供了在 HDInsight 叢集上安裝元件的範例指令碼。 請�
 
 * [在 HDInsight 叢集上安裝及使用色調](hdinsight-hadoop-hue-linux.md)
 * [在 HDInsight 叢集上安裝和使用 Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
-* [在 HDInsight 叢集上安裝或升級 Mono](hdinsight-hadoop-install-mono.md)
 
 ## <a name="troubleshooting"></a>疑難排解
 

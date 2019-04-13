@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: magattus
-ms.openlocfilehash: f6efec64b4e6659b822b76e0fd7f9cc71a164094
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 248a51da76cdee06e55438a706c543c70dcf141e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917748"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526176"
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>依國家/地區限制 Azure CDN 內容
 
@@ -46,9 +46,9 @@ ms.locfileid: "58917748"
 
 例如，下列目錄路徑篩選條件全都有效：   
 */*                                 
-*/Photos/*     
-*/Photos/規則 /*     
-*/Photos/Strasbourg/city.png*
+/Photos/     
+/Photos/Strasbourg/     
+/Photos/Strasbourg/city.png
 
 ### <a name="define-the-type-of-action"></a>定義動作的類型
 
@@ -59,8 +59,8 @@ ms.locfileid: "58917748"
 - **區塊**:從指定的國家/地區的使用者被拒絕存取，從遞迴路徑要求的資產。 若尚未設定該位置的其他國家 (地區) 篩選選項，則其他所有使用者都將允許存取。
 
 例如，用於封鎖 /Photos/Strasbourg/ 路徑的地區篩選規則會篩選出下列檔案：     
-http://<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg
-http://<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg
+*http:\//\<端點 >.azureedge.net/Photos/Strasbourg/1000.jpg*
+*http:\//\<端點 >.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
 
 ### <a name="define-the-countries"></a>定義國家 (地區)
 從 [國碼 (地區碼)] 清單中，選取您想要封鎖或允許路徑的國家 (地區)。 

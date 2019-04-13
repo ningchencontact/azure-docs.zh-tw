@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 845bd7a6ad690288585418a42e5706fdbebbf143
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 16ccd89fe6eaad3fd6c2704b2f324f486eee45e1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58890879"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59532812"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>從傳統到 Azure Resource Manager 移轉的常見錯誤
 本文收錄將 IaaS 資源從 Azure 傳統部署模型移轉至 Azure Resource Manager 堆疊的常見錯誤和緩和措施。
@@ -23,8 +23,8 @@ ms.locfileid: "58890879"
 | 內部伺服器錯誤 |在某些情況下，這是隨著重試消失的暫時性錯誤。 如果持續發生，請[連絡 Azure 支援](../articles/azure-supportability/how-to-create-azure-support-request.md)，因為需要平台記錄檔的調查。 <br><br> **注意：** 一旦支援小組追蹤事件，請不要嘗試任何自我緩和，這可能會使您的環境中產生非預期的結果。 |
 | 移轉不支援 HostedService {hosted-service-name} 中的部署 {deployment-name}，因為它是 PaaS 部署 (Web/背景工作角色)。 |這會在部署包含 Web/背景工作角色時發生。 因為移轉僅支援虛擬機器，請從部署移除 Web/背景工作角色，然後再試一次移轉。 |
 | 範本 {template-name} 部署失敗。 相互關聯識別碼 = {guid} |在移轉服務後端，我們可以使用 Azure Resource Manager 範本來建立 Azure Resource Manager 堆疊中的資源。 因為範本具有等冪性，通常您可以安全地重試移轉作業，以通過這項錯誤。 如果此錯誤持續存在，請[連絡 Azure 支援](../articles/azure-supportability/how-to-create-azure-support-request.md)，並給予他們相互關聯識別碼。 <br><br> **注意：** 一旦支援小組追蹤事件，請不要嘗試任何自我緩和，這可能會使您的環境中產生非預期的結果。 |
-| 虛擬網路 {virtual-network-name} 不存在。 |如果您在新的 Azure 入口網站中建立虛擬網路，會發生這種情形。 實際虛擬網路名稱遵循 "Group * <VNET name>" 模式 |
-| HostedService {hosted-service-name} 中的 VM {vm-name} 包含擴充 {extension-name}，在 Azure Resource Manager 中不支援。 建議您先從 VM 中將它解除安裝，再繼續進行移轉。 |XML 擴充功能，例如 BGInfo 1。\*不支援在 Azure Resource Manager。 因此，這些擴充功能不能移轉。 如果這些擴充功能保持安裝在虛擬機器上，它們會在完成移轉之前自動解除安裝。 |
+| 虛擬網路 {virtual-network-name} 不存在。 |如果您在新的 Azure 入口網站中建立虛擬網路，會發生這種情形。 實際的虛擬網路名稱遵循模式 」 群組 * \<VNET 名稱 > 」 |
+| HostedService {hosted-service-name} 中的 VM {vm-name} 包含擴充 {extension-name}，在 Azure Resource Manager 中不支援。 建議您先從 VM 中將它解除安裝，再繼續進行移轉。 |Azure 资源管理器不支持 XML 扩展（例如 BGInfo 1.\*）。 因此，這些擴充功能不能移轉。 如果這些擴充功能保持安裝在虛擬機器上，它們會在完成移轉之前自動解除安裝。 |
 | HostedService {hosted-service-name} 中的 VM {vm-name} 包含擴充 VMSnapshot/VMSnapshotLinux，目前不支援移轉。 從 VM 解除安裝，並且在移轉完成之後使用 Azure Resource Manager 將它新增回來 |這是虛擬機器針對 Azure 備份進行設定的案例。 由於這是目前不支援的案例，請遵循 https://aka.ms/vmbackupmigration 的因應措施 |
 | HostedService {hosted-service-name} 中的 VM {vm-name} 包含擴充 {extension-name}，其狀態未從 VM 報告。 因此，無法移轉此 VM。 請確定擴充的狀態已報告，或從 VM 解除安裝擴充，然後重試移轉。 <br><br> HostedService {hosted-service-name} 中的 VM {vm-name} 包含擴充 {extension-name}，報告處理常式狀態：{handler-status}。 因此，此 VM 无法迁移。 請確定報告的擴充處理常式狀態是 {handler-status}，或從 VM 解除安裝，然後重試移轉。 <br><br> HostedService {hosted-service-name} 中 VM {vm-name} 的 VM 代理程式將整體代理程式狀態報告為「未就緒」。 因此，VM 可能不會移轉，如果它有可移轉的擴充。 請確定 VM 代理程式將整體代理程式狀態報告為「就緒」。 請參閱 https://aka.ms/classiciaasmigrationfaqs。 |Azure 客體代理程式與 VM 擴充需要 VM 儲存體帳戶的輸出網際網路存取，來填入其狀態。 狀態失敗的常見原因包括 <li> 封鎖輸出網際網路存取的網路安全性群組 <li> 如果 VNET 有內部部署 DNS 伺服器，且 DNS 連線遺失 <br><br> 如果您持續看到不支援的狀態，您可以解除安裝擴充以略過這項檢查，然後繼續進行移轉。 |
 | 移轉不支援 HostedService {hosted-service-name} 中的部署 {deployment-name}，因為它有多個可用性設定組。 |目前，只能移轉具有 1 或更少可用性設定組的託管服務。 若要解決這個問題，請將額外可用性設定組和這些可用性設定組中的虛擬機器移至不同的託管服務。 |

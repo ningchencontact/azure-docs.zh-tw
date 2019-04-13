@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 8fd737bb784938f7cbff243837678f41d5ac55c9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 96c2f1c021e27a8f5a0f4d2af2b34970b9d44e80
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076797"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524169"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>使用擴充的 Apache Spark 記錄伺服器對 Apache Spark 應用程式進行偵錯和診斷
 
@@ -32,7 +32,7 @@ ms.locfileid: "58076797"
     ![Spark 歷程記錄伺服器](./media/apache-azure-spark-history-server/launch-history-server.png "Spark 歷程記錄伺服器")
 
 ### <a name="open-the-spark-history-server-web-ui-by-url"></a>透過 URL 開啟 Spark 記錄伺服器 Web UI
-藉由瀏覽至下列 URL 來開啟 Spark 記錄伺服器，並以客戶的 Spark 叢集名稱取代 <ClusterName>。
+藉由瀏覽至下列 URL 來開啟 Spark 記錄伺服器，並以客戶的 Spark 叢集名稱取代 `<ClusterName>`。
 
    ```
    https://<ClusterName>.azurehdinsight.net/sparkhistory

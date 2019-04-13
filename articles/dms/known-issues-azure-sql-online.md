@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 04/09/2019
-ms.openlocfilehash: a822e540db87c36358f1a0e34d75e05ed866868d
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 1a8f46c74693b00fd8e30b1e1a78d90111dea08b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491385"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59520739"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-sql-db"></a>線上移轉到 Azure SQL DB 的已知問題/移轉限制
 
@@ -27,12 +27,14 @@ ms.locfileid: "59491385"
 
 ### <a name="migration-of-temporal-tables-not-supported"></a>不支援移轉時態表
 
-**徵狀**
+**徵兆**
 
 如果您的來源資料庫包含一或多個時態表，則「完整資料載入」作業期間，資料庫移轉會失敗，您可能會看到下列訊息：
 
-{ "resourceId":"/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType":"Database migration error", "errorEvents":"["Capture functionalities could not be set. RetCode:SQL_ERROR SqlState:42000 NativeError:13570 Message: [Microsoft][SQL Server Native Client 11.0][SQL Server]The use of replication is not supported with system-versioned temporal table '[Application. Cities]' Line:1 Column: -1 "]" }
- 
+```
+{ "resourceId":"/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType":"Database migration error", "errorEvents":"["Capture functionalities could not be set. RetCode: SQL_ERROR SqlState: 42000 NativeError: 13570 Message: [Microsoft][SQL Server Native Client 11.0][SQL Server]The use of replication is not supported with system-versioned temporal table '[Application. Cities]' Line: 1 Column: -1 "]" }
+```
+
  ![時態表錯誤範例](media/known-issues-azure-sql-online/dms-temporal-tables-errors.png)
 
 **因應措施**
@@ -51,7 +53,7 @@ ms.locfileid: "59491385"
  
 ### <a name="migration-of-tables-includes-one-or-more-columns-with-the-hierarchyid-data-type"></a>移轉資料表包含具有 hierarchyid 資料類型的一或多個資料行
 
-**徵狀**
+**徵兆**
 
 您可能會看到 SQL 例外狀況，表示在「完整資料載入」期間「ntext 與 hierarchyid 不相容」：
      
@@ -85,7 +87,7 @@ ms.locfileid: "59491385"
 
 ### <a name="support-for-lob-data-types"></a>支援 LOB 資料類型
 
-**徵狀**
+**徵兆**
 
 如果大型物件 (LOB) 資料行的長度大於 32 KB，目標的資料可能會遭到截斷。 您可以使用以下查詢，檢查 LOB 資料行的長度： 
 
@@ -99,7 +101,7 @@ SELECT max(DATALENGTH(ColumnName)) as LEN from TableName
 
 ### <a name="issues-with-timestamp-columns"></a>時間戳記資料行的問題
 
-**徵狀**
+**徵兆**
 
 DMS 不會遷移來源時間戳記值；相反地，DMS 會在目標資料表中產生新的時間戳記值。
 
@@ -109,7 +111,7 @@ DMS 不會遷移來源時間戳記值；相反地，DMS 會在目標資料表中
 
 ### <a name="data-migration-errors-dont-provide-additional-details-on-the-database-detailed-status-blade"></a>資料移轉錯誤不提供其他詳細資料，在 [資料庫詳細的狀態] 刀鋒視窗上。
 
-**徵狀**
+**徵兆**
 
 當您遇到移轉失敗，資料庫的詳細資料狀態檢視中時，選取**資料的移轉錯誤**頂端功能區上的連結可能不會提供特定移轉失敗的其他詳細資料。
 

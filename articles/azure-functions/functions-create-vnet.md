@@ -6,14 +6,14 @@ author: alexkarcher-msft
 manager: jehollan
 ms.service: azure-functions
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 4f27bbeb43bbf373b621d151d68583f0041378b3
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: f8ddcbcb25dc45ee71304ffa1bc5c0c4d3751b61
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894195"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523727"
 ---
 # <a name="integrate-a-function-app-with-an-azure-virtual-network"></a>整合 Azure 虛擬網路中的函式應用程式
 
@@ -99,7 +99,7 @@ ms.locfileid: "58894195"
     <img src="./media/functions-create-vnet/new-proxy.png" width="250">
 
 1. 設定 Proxy 名稱和路由。 我選擇了 /plant 作為我的路由。
-1. 填寫稍早的 wordpress 網站的 IP，然後將後端 URL 設定 `http://{YOUR VM IP}/wp-content/themes/twentyseventeen/assets/images/header.jpg`
+1. 填寫稍早取得的 WordPress 網站 IP，然後將 [後端 URL] 設定為 `http://{YOUR VM IP}/wp-content/themes/twentyseventeen/assets/images/header.jpg`
     
     <img src="./media/functions-create-vnet/create-proxy.png" width="900">
 
@@ -111,13 +111,14 @@ ms.locfileid: "58894195"
 
 ## <a name="next-steps"></a>後續步驟
 
-在進階方案中執行的函式會共用相同基礎 App Service 的基礎結構做為 Web 應用程式。 這表示所有 Web 應用程式的文件適用於您的進階方案函式。
+進階方案中執行的函式會共用相同的 「 基礎 」 App Service 基礎結構，當作 PV2 上的 Web 應用程式方案。 這表示所有 Web 應用程式的文件適用於您的進階方案函式。
 
-1. [深入了解與 App Service 的 VNET 整合 / 以下功能](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
-1. [深入了解 Azure 中的 Vnet](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/)
-1. [啟用網路功能與控制的 App Service 環境](https://docs.microsoft.com/azure/app-service/environment/intro)
-1. [連接到個別內部部署資源，而不需要使用混合式連線的防火牆變更](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
-1. [深入了解 Functions Proxy](https://review.docs.microsoft.com/azure/azure-functions/functions-proxies)
+1. [深入了解網路功能選項，在此處的函式](./functions-networking-options.md)
+1. [讀取網路常見問題集，此函式](./functions-networking-faq.md)
+1. [深入了解 Azure 中的 VNET](../virtual-network/virtual-networks-overview.md)
+1. [啟用更多的網路功能和使用 App Service 環境的控制](../app-service/environment/intro.md)
+1. [連線到個別的內部部署資源，而不需使用混合式連線進行防火牆變更](../app-service/app-service-hybrid-connections.md)
+1. [深入了解函式 Proxy](./functions-proxies.md)
 
 <!--Image references-->
 [1]: ./media/functions-create-vnet/topology.png

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: d7363c3d1cd3aaf6aae8cadbea232c909000f214
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 1a2e75dcffe32c6f1aeaba8646b96bbc1500ffdf
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669597"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546908"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Azure 中 Windows VM 的時間同步
 
@@ -31,15 +31,15 @@ Azure 現在支援採用 Windows Server 2016 的基礎結構。 Windows Server 2
 >[!NOTE]
 >如需 Windows 時間服務的快速概觀，請觀看本[高階概觀影片](https://aka.ms/WS2016TimeVideo)。
 >
-> 如需詳細資訊，請參閱 [Windows Server 2016 的準確時間](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)。 
+> 有关详细信息，请参阅 [Windows Server 2016 的准确时间](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)。 
 
 ## <a name="overview"></a>概觀
 
-電腦時鐘精確度的衡量方式，是依據電腦時鐘與國際標準時間 (UTC) 時間標準的接近程度。 UTC 是由多國的精準原子鐘樣本所定義；原子鐘在 300 年內只會誤差一秒。 但是直接讀取 UTC 需使用專用的硬體。 替代方式為系統將時間伺服器同步為 UTC，並從其他電腦存取以提供延展性和強固性。 每部電腦都有持續運作的時間同步服務，知道需使用哪些時間伺服器，且會定期檢查電腦時鐘是否需要修正，並視需要調整時間。 
+计算机时钟的准确性根据计算机时钟与协调世界时 (UTC) 时间标准的接近程度来测量。 UTC 是由多國的精準原子鐘樣本所定義；原子鐘在 300 年內只會誤差一秒。 但是直接讀取 UTC 需使用專用的硬體。 替代方式為系統將時間伺服器同步為 UTC，並從其他電腦存取以提供延展性和強固性。 每部電腦都有持續運作的時間同步服務，知道需使用哪些時間伺服器，且會定期檢查電腦時鐘是否需要修正，並視需要調整時間。 
 
 Azure 主機會與內部 Microsoft 時間伺服器同步，這些時間伺服器會透過 GPS 天線從 Microsoft 所屬的 Stratum 1 裝置擷取時間。 Azure 中的虛擬機器可以依賴其主機將準確的時間 (*主機時間*) 傳遞至 VM，也可以由 VM 直接從時間伺服器取得時間，或結合兩種方式。 
 
-虛擬機器與主機的互動也可能會影響時鐘。 進行[記憶體保留維修](maintenance-and-updates.md#memory-preserving-maintenance)期間，VM 會暫停最多 30 秒。 比方說，維修開始之前 VM 時鐘顯示上午 10:00:00，並持續 28 秒。 VM 繼續執行後，VM 上的時鐘仍會顯示上午 10:00:00，也就是有 28 秒的誤差。 為了修正這個誤差，VMICTimeSync 服務會監視主機上發生的狀況，並提示您為了進行補償需在 VM 上做的變更。
+虛擬機器與主機的互動也可能會影響時鐘。 進行[記憶體保留維修](maintenance-and-updates.md#maintenance-not-requiring-a-reboot)期間，VM 會暫停最多 30 秒。 比方說，維修開始之前 VM 時鐘顯示上午 10:00:00，並持續 28 秒。 VM 繼續執行後，VM 上的時鐘仍會顯示上午 10:00:00，也就是有 28 秒的誤差。 為了修正這個誤差，VMICTimeSync 服務會監視主機上發生的狀況，並提示您為了進行補償需在 VM 上做的變更。
 
 VMICTimeSync 服務會在範例或同步模式中運作，而且只會影響後續的時鐘。 在需要執行 W32time 的範例模式中，VMICTimeSync 服務會每隔 5 秒輪詢一次主機，並提供 W32time 時間範例。 大約每隔 30 秒，W32time 服務就會採用最近的時間範例，並使用它來影響客體的時鐘。 如果客體已繼續或客體的時鐘落後主機的時鐘 5 秒以上，就會啟動同步處理模式。 在 W32time 服務正常執行的情況下，應該永遠不會發生後面的情況。
 
@@ -49,11 +49,11 @@ VMICTimeSync 服務會在範例或同步模式中運作，而且只會影響後�
 - 如果記錄 (或其他資料) 認知的時間有所差異，很難想像系統會發生什麼問題。 同一個事件看起來可能像發生在不同時間，導致難以建立相互關聯。
 - 當時鐘有所誤差，計費功能也可能會計算錯誤。
 
-採用 Windows Server 2016 做為客體作業系統可達成 Windows 部署的最佳結果，Windows Server 2016 確保您可使用最新的時間同步處理改良功能。
+可以将 Windows Server 2016 用作来宾操作系统，这样可确保使用时间同步方面的最新改进，获得 Windows 部署的最佳结果。
 
 ## <a name="configuration-options"></a>組態選項
 
-為裝載於 Azure 中 Windows VM 設定時間同步時有三個選項可選：
+可以通过三个选项来配置托管在 Azure 中的 Windows VM 的时间同步：
 
 - 主機時間和 time.windows.com。 這是 Azure Marketplace 映像中的預設設定。
 - 僅限主機。
@@ -169,7 +169,7 @@ w32tm /config /update
 
 為了讓 w32time 使用新的輪詢間隔，系統會將 NtpServers 標示為使用新輪詢間隔。 如果伺服器標註使用 0x1 位元旗標遮罩，便會覆寫此機制，且 w32time 會改用 SpecialPollInterval。 請確定指定的 NTP 伺服器使用 0x8 旗標或未使用任何旗標：
 
-檢查哪些旗標用於所使用的 NTP 伺服器。
+检查哪些标志正用于已使用的 NTP 服务器。
 
 ```
 w32tm /dumpreg /subkey:Parameters | findstr /i "ntpserver"
@@ -177,7 +177,7 @@ w32tm /dumpreg /subkey:Parameters | findstr /i "ntpserver"
 
 ## <a name="next-steps"></a>後續步驟
 
-以下是時間同步的更多詳細資訊：
+下面是有关时间同步的更多详细信息的链接：
 
 - [Windows 時間服務工具和設定](https://docs.microsoft.com/windows-server/networking/windows-time-service/Windows-Time-Service-Tools-and-Settings)
 - [Windows Server 2016 改良功能](https://docs.microsoft.com/windows-server/networking/windows-time-service/windows-server-2016-improvements)

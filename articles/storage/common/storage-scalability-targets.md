@@ -1,6 +1,6 @@
 ---
-title: Azure 儲存體延展性和效能目標-儲存體帳戶
-description: 深入了解延展性和效能目標，包括容量、 要求率以及輸入和輸出頻寬，Azure 儲存體帳戶。
+title: Azure 存储可伸缩性和性能目标 - 存储帐户
+description: 了解 Azure 存储帐户的可伸缩性和性能目标，包括容量、请求速率以及入站和出站带宽。
 services: storage
 author: roygara
 ms.service: storage
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 96322c730300e360ed03f4b623db2a7f18825f55
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: e3e0e9ae4a1939aad9ab2ae42a1b51b1b00e2462
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267696"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521711"
 ---
-# <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Azure 儲存體延展性和效能目標儲存體帳戶
+# <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>存储帐户的 Azure 存储可伸缩性和性能目标
 
 本文會詳細說明 Azure 儲存體帳戶的延展性和效能目標。 列於此處的延展性和效能目標都是高階目標，但仍可達成。 在所有情況下，您的儲存體帳戶所達到的要求率和頻寬取決於已儲存物件的大小、使用的存取模式、應用程式執行的工作負載類型。
 
@@ -27,7 +27,7 @@ ms.locfileid: "59267696"
 
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
-## <a name="premium-performance-storage-account-scale-limits"></a>進階效能儲存體帳戶調整限制
+## <a name="premium-performance-storage-account-scale-limits"></a>高级性能存储帐户缩放限制
 
 [!INCLUDE [azure-premium-limits](../../../includes/azure-storage-limits-premium.md)]
 
@@ -58,13 +58,13 @@ ms.locfileid: "59267696"
 
 |領域  |目標  |
 |---------|---------|
-|最小大小                        |100 GiB      |
-|大小上限                        |100 TiB      |
+|佈建的最小大小                        |100 GiB      |
+|最大可佈建大小                        |100 TiB      |
 |最小的大小增加/減少    |1 GiB      |
 |基準 IOPS    |每 GiB，最多 100,000 個 1 IOPS|
 |負載平衡的 IOPS    |3 個 x IOPS 每 GiB，最多 100,000 個|
-|最小頻寬                     |100        |
-|頻寬 |0.1 秒 MB 每 GiB，最多 5 GiB/秒     |
+|輸出速率         |60 MiB/秒 + $0.06 * 佈建 GiB        |
+|輸入速率| 40 MiB/秒 + 0.04 * 佈建 GiB |
 |快照集的最大數目        |200       |
 
 #### <a name="premium-file-limits"></a>進階檔案限制
@@ -89,9 +89,9 @@ Azure 檔案同步的設計目標是無限制的使用方式，但無限制的�
 
 [!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
-## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>請參閱
 
 - [儲存體定價詳細資料](https://azure.microsoft.com/pricing/details/storage/)
-- [Azure 訂用帳戶和服務限制、 配額和條件約束](../../azure-subscription-service-limits.md)
+- [Azure 訂用帳戶和服務限制、配額與限制](../../azure-subscription-service-limits.md)
 - [Azure 儲存體複寫](../storage-redundancy.md)
 - [Microsoft Azure 儲存體效能與延展性檢查清單](../storage-performance-checklist.md)

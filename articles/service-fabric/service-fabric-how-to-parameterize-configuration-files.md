@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/09/2018
 ms.author: mikhegn
-ms.openlocfilehash: 0ab6e3f189d4a2e7e8f3bc96108d7979c99fffa8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3d03ca5cec2cef67862c2678b3b0a8f17b413787
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102664"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524509"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>如何參數化 Service Fabric 中的設定檔
 
@@ -27,7 +27,7 @@ ms.locfileid: "58102664"
 
 在此範例中，您會使用應用程式部署中的參數來覆寫設定值。
 
-1. 開啟服務專案中的 *<MyService>\PackageRoot\Config\Settings.xml* 檔案。
+1. 開啟 *\<MyService > \PackageRoot\Config\Settings.xml*服務專案中的檔案。
 1. 新增下列 XML 來設定組態參數名稱和值 (例如快取大小等於 25)：
 
    ```xml
@@ -37,7 +37,7 @@ ms.locfileid: "58102664"
    ```
 
 1. 儲存並關閉檔案。
-1. 開啟 *<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml* 檔案。
+1. 開啟 *\<MyApplication > \ApplicationPackageRoot\ApplicationManifest.xml*檔案。
 1. 在 ApplicationManifest.xml 檔案中，於 `Parameters` 元素中宣告參數和預設值。  建議使參數名稱包含服務的名稱 (例如 "MyService")。
 
    ```xml

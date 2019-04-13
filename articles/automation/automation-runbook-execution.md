@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0445643d3aae0e4e072e7fa8e3a73dc8973e84a5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 38dd4d13aa45b69fc846ef9b6b2e1b56f56de573
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268495"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544750"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>在 Azure 自动化中执行 Runbook
 
@@ -46,7 +46,7 @@ Azure 自動化中的 Runbook 可以在 Azure 中的沙箱或[混合式 Runbook 
 |安裝需要安裝程式的模組|Hybrid Runbook Worker|沙箱的模組必須是 copiable|
 |使用需要 4.7.2 以外之 .NET Framework 的 Runbook 或模組|Hybrid Runbook Worker|自動化沙箱具備 .NET Framework 4.7.2，而且沒有任何方法可將它升級|
 |需要提高權限的指令碼|Hybrid Runbook Worker|沙箱並不會允許提高權限。 若要解決這個問題，使用混合式 Runbook 背景工作角色，您可以關閉 UAC，並使用`Invoke-Command`時執行此命令需要提高權限|
-|需要存取 WMI 的指令碼|Hybrid Runbook Worker|在沙箱中執行雲端作業[不能存取 WMI](#device-and-application-characteristics)|
+|需要存取 WMI 的指令碼|Hybrid Runbook Worker|在雲端中的沙箱中執行的作業[沒有與 wmi 的存取](#device-and-application-characteristics)|
 
 ## <a name="runbook-behavior"></a>Runbook 行為
 
@@ -192,7 +192,7 @@ function Get-ContosoFiles
 
 ### <a name="device-and-application-characteristics"></a>设备和应用程序特征
 
-在 Azure 沙盒中运行的 Runbook 作业无权访问任何设备或应用程序特征。 最常用于在 Windows 上查询性能指标的 API 是 WMI。 其中的一些常见指标是内存和 CPU 使用率。 但是，使用哪个 API 并不重要。 在雲端執行的作業無法存取 Microsoft 實作的 Web 式企業管理 (WBEM)，內建在通用訊息模型 (CIM)，這是業界標準，用來定義裝置和應用程式的特性。
+在 Azure 沙盒中运行的 Runbook 作业无权访问任何设备或应用程序特征。 最常用于在 Windows 上查询性能指标的 API 是 WMI。 其中的一些常见指标是内存和 CPU 使用率。 但是，使用哪个 API 并不重要。 在雲端執行的作業並沒有存取權的 Microsoft 實作的 Web 架構企業管理 (WBEM)，這建置在通用訊息模型 (CIM)，這是業界標準，用來定義裝置和應用程式的特性。
 
 ## <a name="job-statuses"></a>工作狀態
 

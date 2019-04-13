@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 08189522f4f73e996ed98f3996f87da8d93b5d2a
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: e3106a792f486a62986734e562c96b41dd8a75dc
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895630"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524118"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>使用 Azure CLI 以路由表路由網路流量
 
@@ -208,7 +208,7 @@ az vm create \
 
 ## <a name="route-traffic-through-an-nva"></a>透過 NVA 路由傳送流量
 
-使用下列命令來對 myVmPrivate 虛擬機器建立 SSH 工作階段。 以虛擬機器的公用 IP 位址取代 <publicIpAddress>。 在上述範例中，IP 位址是 *13.90.242.231*。
+使用下列命令來對 myVmPrivate 虛擬機器建立 SSH 工作階段。 取代 *\<publicIpAddress >* 與您的 VM 的公用 IP 位址。 在上述範例中，IP 位址是 *13.90.242.231*。
 
 ```bash 
 ssh azureuser@<publicIpAddress>

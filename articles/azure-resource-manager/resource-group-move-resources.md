@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: a5350befd8d0fb1582606554314d909f7fec04c5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f5ff43102c42823891f2035c3f577e7def87fcb7
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272286"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528232"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
-本文示範如何將 Azure 資源移至其他 Azure 訂用帳戶或相同訂用帳戶內的其他資源群組。 您可以使用 Azure 入口網站、Azure PowerShell、Azure CLI 或 REST API 來移動資源。 若要進行教學課程，請參閱[教學課程：將 Azure 資源移至另一個資源群組或訂用帳戶](./resource-manager-tutorial-move-resources.md)。
+本文示範如何將 Azure 資源移至其他 Azure 訂用帳戶或相同訂用帳戶內的其他資源群組。 您可以使用 Azure 入口網站、Azure PowerShell、Azure CLI 或 REST API 來移動資源。
 
 移動作業期間會同時鎖定來源群組和目標群組。 資源群組上的寫入和刪除作業將會封鎖，直到移動完成。 此鎖定表示您無法新增、更新或刪除資源群組中的資源，但不表示資源已遭到凍結。 例如，如果您將 SQL Server 和其資料庫移至新的資源群組，使用該資料庫的應用程式不會發生停機時間。 它仍可對資料庫讀取和寫入。
 
@@ -180,8 +180,8 @@ ms.locfileid: "59272286"
 * 尋找具有下列命名模式的資源群組：`AzureBackupRG_<location of your VM>_1`，例如 AzureBackupRG_westus2_1
 * 如果是在 Azure 入口網站中，則請選取 [顯示隱藏的類型]
 * 如果是在 PowerShell 中，請使用 `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` Cmdlet
-* 在 CLI 中，使用 `az resource list -g AzureBackupRG_<location of your VM>_1`
-* 尋找資源類型`Microsoft.Compute/restorePointCollections`具有的命名模式 `AzureBackup_<name of your VM that you're trying to move>_###########`
+* 如果是在 CLI 中，請使用 `az resource list -g AzureBackupRG_<location of your VM>_1`
+* 尋找類型為 `Microsoft.Compute/restorePointCollections` 且命名模式為 `AzureBackup_<name of your VM that you're trying to move>_###########` 的資源
 * 刪除此資源。 此作業只會刪除立即復原點，而不會刪除保存庫中備份的資料。
 * 完成刪除之後，您將能移動您的虛擬機器。 您可以將保存庫和虛擬機器移至目標訂用帳戶。 移動之後，您可以繼續備份而不會遺失資料。
 * 如需移動復原服務保存庫以進行備份的相關資訊，請參閱[復原服務限制](#recovery-services-limitations)。

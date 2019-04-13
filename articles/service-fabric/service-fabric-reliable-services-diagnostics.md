@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: 96fc58ca8456e9a2e539e432f0ed85f6edc1a54f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f49176f944aa2abfa1d355ce0bd207d1b544c275
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664110"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527045"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>具狀態 Reliable Services 診斷功能
 Azure Service Fabric 具狀態可靠服務 StatefulServiceBase 類別會發出 [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 事件，可用於偵錯服務、提供執行階段運作情形的深入了解，以及協助疑難排解。
@@ -106,7 +106,7 @@ Reliable Services 執行階段會發出 `Service Fabric Transactional Replicator
 | --- | --- |
 | Begin Txn Operations/sec | 每秒建立的新寫入異動數目。|
 | Txn Operations/sec | 每秒在可靠集合上所執行的新增/更新/刪除作業數目。|
-| Avg.Flush Latency (ms) | 異動複寫器每秒排清到磁碟的位元組數 |
+| Log Flush Bytes/sec | 異動複寫器每秒排清到磁碟的位元組數 |
 | Throttled Operations/sec | 異動複寫器每秒因為節流而拒絕的作業數目。 |
 | Avg.Transaction ms/Commit | 每一次異動的平均認可延遲 (毫秒) |
 | Avg.Flush Latency (ms) | 異動複寫器起始的磁碟排清作業平均持續時間 (毫秒) |

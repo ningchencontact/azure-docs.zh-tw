@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 970e570d9ad27da2690cd38fe480823128322db0
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: c5f37873b51d6257ffec3ada10be886995f7f5d5
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370698"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521864"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>設定 Azure Multi-Factor Authentication Server 以搭配 Windows Server 中的 AD FS 運作
 
@@ -81,7 +81,7 @@ ms.locfileid: "58370698"
 請遵循下列步驟來編輯 MultiFactorAuthenticationAdfsAdapter.config 檔案：
 
 1. 將 **UseWebServiceSdk** 節點設定為 **true**。  
-2. 將 **WebServiceSdkUrl** 的值設定為 Multi-Factor Authentication Web 服務 SDK 的 URL。 例如： *<https://contoso.com/&lt;certificatename&gt;/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx>*，其中*certificatename*是您的憑證名稱。  
+2. 將 **WebServiceSdkUrl** 的值設定為 Multi-Factor Authentication Web 服務 SDK 的 URL。 例如： *https:\/\/contoso.com/\<certificatename > /MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*，其中 *\<certificatename >* 是您的憑證名稱。  
 3. 編輯 Register-MultiFactorAuthenticationAdfsAdapter.ps1 指令碼，方法是將 `-ConfigurationFilePath &lt;path&gt;` 新增至 `Register-AdfsAuthenticationProvider` 命令的結尾，其中 *&lt;path&gt;* 是 MultiFactorAuthenticationAdfsAdapter.config 檔案的完整路徑。
 
 ### <a name="configure-the-web-service-sdk-with-a-username-and-password"></a>以使用者名稱和密碼設定 Web 服務 SDK

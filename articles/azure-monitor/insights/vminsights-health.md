@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/10/2019
+ms.date: 04/12/2019
 ms.author: magoedte
-ms.openlocfilehash: b1118a3add665de403e4e0f8fd8883ce0094d9dd
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: f2a0d64da5a88e82c0ae1fd893af52f2070268f8
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490030"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549860"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>了解 Azure 虛擬機器的健全狀況
 
@@ -235,7 +235,9 @@ Azure 包含多項服務個別在監視空間中，執行特定角色或工作�
 
 ## <a name="alerts"></a>警示
 
-適用於 VM 的 Azure 監視器健康情況功能會與 [Azure 警示](../../azure-monitor/platform/alerts-overview.md)整合，並在預先定義的健康情況準則於偵測到狀況時從狀況良好變更為狀況不良狀態時引發警示。 警示會依嚴重性 (嚴重性 0 到 4，嚴重性 0 表示最高的嚴重性層級) 分類。  
+適用於 VM 的 Azure 監視器健康情況功能會與 [Azure 警示](../../azure-monitor/platform/alerts-overview.md)整合，並在預先定義的健康情況準則於偵測到狀況時從狀況良好變更為狀況不良狀態時引發警示。 警示會依嚴重性 (嚴重性 0 到 4，嚴重性 0 表示最高的嚴重性層級) 分類。 
+
+無法在觸發警示時通知您的動作群組相關聯的警示。 訂用帳戶擁有者必須設定通知的步驟[本主題稍後的](#configure-alerts)。   
 
 依嚴重性分類的 VM 健康情況警示總數可在 [健康情況] 儀表板的 [警示] 區段下方取得。 當您選取警示總數或對應到嚴重性層級的數字時，[警示] 頁面隨即開啟並列出所有符合您選取項目的警示。  例如，如果您選取了對應至**嚴重性層級 1** 的資料列，則會看到下列檢視：
 
@@ -253,7 +255,7 @@ Azure 包含多項服務個別在監視空間中，執行特定角色或工作�
 |資源群組 |選取單一資源群組。 檢視僅會包含所選資源群組中具有目標的警示。 | 
 |資源類型 |選取一個或多個資源類型。 依預設只會選取目標**虛擬機器**的警示，並將其包含在此檢視中。 指定資源群組之後，才可使用此欄。 | 
 |資源 |選取資源。 只有以該資源作為目標的警示才會包含在檢視中。 指定資源類型之後，才可使用此欄。 | 
-|嚴重性 |選取警示嚴重性，或選取 [全部] 以包含所有嚴重性的警示。 | 
+|严重性 |選取警示嚴重性，或選取 [全部] 以包含所有嚴重性的警示。 | 
 |監視條件 |選取監視條件來篩選警示，但前提是系統已「引發」它們，或者如果該條件不再使用中，則系統已「解決」它們。 或者，選取 [全部] 來包含所有條件的警示。 | 
 |警示狀態 |選取警示狀態 (「新的」、「認可」、「已關閉」)，或選取 [全部] 以包含所有狀態的警示。 | 
 |監視器服務 |選取服務，或選取 [所有] 以包含所有服務。 此功能僅支援來自 VM Insights 的警示。| 

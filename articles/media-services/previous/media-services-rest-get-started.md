@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d1453a558032e458e89c724e30472cc06f9cf33c
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: fea9bae9fadc20622a6ca3d2e08db9cd3a92c800
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295125"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523982"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>使用 REST 傳遞點播內容入門  
 
@@ -560,7 +560,7 @@ SAS URL 具有下列格式：
 有任何工作要求中有一些重要事項要注意：
 
 * TaskBody 屬性必須使用 XML 常值來定義工作所使用的輸入或輸出資產數目。 工作文章包含 XML 的 XML 結構描述定義。
-* 在 TaskBody 定義中，<inputAsset> 和 <outputAsset> 的每一個內部值必須設定為 JobInputAsset(value) 或 JobOutputAsset(value)。
+* 在 TaskBody 定義中，`<inputAsset>` 和 `<outputAsset>` 的每一個內部值必須設定為 JobInputAsset(value) 或 JobOutputAsset(value)。
 * 每個工作可以有多個輸出資產。 一個 JobOutputAsset(x) 只能使用一次做為工作中的工作輸出。
 * 您可以指定 JobInputAsset 或 JobOutputAsset 做為工作的輸入資產。
 * 工作不能形成循環。
@@ -572,7 +572,7 @@ SAS URL 具有下列格式：
 >
 
 * InputMediaAsset 對應至您在媒體服務中建立的一個或多個資產。 OutputMediaAssets 由系统创建。 它們不會參考現有的資產。
-* OutputMediaAssets 可以使用 assetName 属性来命名。 如果這個屬性不存在，則 OutputMediaAsset 的名稱是 <outputAsset> 元素的任何內部文字值，並且尾碼為工作名稱值或工作識別碼值 (在未定義 Name 屬性的情況下)。 例如，如果您將 assetName 的值設為 "Sample"，則 OutputMediaAsset Name 屬性會設為 "Sample"。 不過，如果您未設定 assetName 的值，但已將工作名稱設為 "NewJob"，則 OutputMediaAsset Name 會是 "JobOutputAsset(value)_NewJob"。
+* OutputMediaAssets 可以使用 assetName 属性来命名。 如果该属性不存在，则 OutputMediaAsset 的名称为 `<outputAsset>` 元素的任意内部文本值，并以作业名称值或作业 ID 值（在没有定义名称属性的情况下）为后缀。 例如，如果您將 assetName 的值設為 "Sample"，則 OutputMediaAsset Name 屬性會設為 "Sample"。 不過，如果您未設定 assetName 的值，但已將工作名稱設為 "NewJob"，則 OutputMediaAsset Name 會是 "JobOutputAsset(value)_NewJob"。
 
     以下示例说明了如何设置 assetName 属性：
 

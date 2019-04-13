@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 40e034a563074e10a2dfbee36b6792a095022057
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: b7ac96d3588923727a71cf6152ba36481ef44545
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649624"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526651"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Azure 中的網路虛擬設備問題
 
@@ -67,7 +67,9 @@ ms.locfileid: "56649624"
 1. 開啟 PowerShell，然後登入您的 Azure 帳戶。
 2. 執行下列命令 (請將括弧中的值取代為您的資訊)：
 
-   Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>  
+   ```powershell
+   Get-AzNetworkInterface -ResourceGroupName <ResourceGroupName> -Name <NicName>
+   ```
 
 3. 檢查 **EnableIPForwarding** 屬性。
 4. 如果未啟用 IP 轉送，請執行下列命令加以啟用：

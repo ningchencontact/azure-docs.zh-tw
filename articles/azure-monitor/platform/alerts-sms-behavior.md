@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 225c86ee1a7f764f60b2da0b8e3be02aa5dd22e7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 74666149824627308b6c5b026e0c9ba7a7750ada
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123295"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523608"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>動作群組中的 SMS 警示行為
 ## <a name="overview"></a>概觀 ##
@@ -32,8 +32,8 @@ ms.locfileid: "58123295"
 
 | REPLY | 描述 |
 | ----- | ----------- |
-| DISABLE <Action Group Short name> | 停用來自動作群組的其他 SMS |
-| ENABLE <Action Group Short name> | 重新啟用來自動作群組的 SMS |
+| DISABLE `<Action Group Short name>` | 停用來自動作群組的其他 SMS |
+| ENABLE `<Action Group Short name>` | 重新啟用來自動作群組的 SMS |
 | STOP | 停用來自所有動作群組的其他 SMS |
 | START | 重新啟用來自所有動作群組的 SMS |
 | HELP | 使用者將會收到包含本文連結的回應。 |

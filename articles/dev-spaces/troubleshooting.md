@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s '
-ms.openlocfilehash: b205f7782dc14c9108032d2b4a274f884194874e
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 16b33203099765633d6bc5992fdc266aa1f28a26
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357853"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548775"
 ---
 # <a name="troubleshooting-guide"></a>疑難排解指南
 
@@ -147,9 +147,9 @@ kubectl delete pod -n kube-system -l app=addon-http-application-routing-nginx-in
 
 下載並安裝最新版的 Azure Dev Spaces CLI：
 
-* [ Windows](https://aka.ms/get-azds-windows)
+* [Windows](https://aka.ms/get-azds-windows)
 * [Mac](https://aka.ms/get-azds-mac)
-* [ Linux](https://aka.ms/get-azds-linux)
+* [Linux](https://aka.ms/get-azds-linux)
 
 ## <a name="error-azds-is-not-recognized-as-an-internal-or-external-command-operable-program-or-batch-file"></a>錯誤：'azds' 未辨識為內部或外部命令、可執行程式或批次檔
  
@@ -187,11 +187,11 @@ Azure Dev Spaces 提供 C# 和 Node.js 的原生支援。 如果您在目錄中�
 1. 查看您的連接埠組態。 下列所有資產中的指定連接埠號碼都應該**相同**：
     * **Dockerfile：** 由 `EXPOSE` 指令所指定。
     * **[Helm 圖表](https://docs.helm.sh)：** 由服務的 `externalPort` 和 `internalPort` 值 (通常位於 `values.yml` 檔案) 所指定。
-    * 正在開啟應用程式的程式碼，例如在 Node.js 中的任何連接埠： `var server = app.listen(80, function () {...}`
+    * 在應用程式程式碼中開啟的任何連接埠，例如在 Node.js 中：`var server = app.listen(80, function () {...}`
 
 
 ## <a name="config-file-not-found"></a>找不到組態檔
-在您執行`azds up`並收到下列錯誤： `Config file not found: .../azds.yaml`
+您執行 `azds up` 並且收到下列錯誤︰`Config file not found: .../azds.yaml`
 
 ### <a name="reason"></a>原因
 您必須從想要執行的程式碼根目錄執行 `azds up`，而且您必須初始化程式碼資料夾，才能執行 Azure Dev Spaces。
@@ -208,7 +208,7 @@ Azure Dev Spaces 提供 C# 和 Node.js 的原生支援。 如果您在目錄中�
 2. 再點擊一次 F5。
 
 ## <a name="debugging-error-failed-to-find-debugger-extension-for-typecoreclr"></a>偵錯錯誤「找不到 coreclr 類型的偵測工具擴充」
-執行 VS Code 偵錯工具會回報錯誤： `Failed to find debugger extension for type:coreclr.`
+執行 VS Code 偵錯工具會回報錯誤：`Failed to find debugger extension for type:coreclr.`
 
 ### <a name="reason"></a>原因
 您的開發機器上未安裝適用於 C# 的 VS Code 延伸模組。 C#的擴充功能包含偵錯.NET Core (CoreCLR) 支援。
@@ -217,7 +217,7 @@ Azure Dev Spaces 提供 C# 和 Node.js 的原生支援。 如果您在目錄中�
 安裝[適用於 C# 的 VS Code 擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)。
 
 ## <a name="debugging-error-configured-debug-type-coreclr-is-not-supported"></a>偵錯錯誤「不支援設定的偵錯類型 'coreclr'」
-執行 VS Code 偵錯工具會回報錯誤： `Configured debug type 'coreclr' is not supported.`
+執行 VS Code 偵錯工具會回報錯誤：`Configured debug type 'coreclr' is not supported.`
 
 ### <a name="reason"></a>原因
 您沒有 VS Code 擴充功能可以讓 Azure Dev Spaces 在您的開發機器上安裝。
@@ -226,7 +226,7 @@ Azure Dev Spaces 提供 C# 和 Node.js 的原生支援。 如果您在目錄中�
 安裝[適用於 Azure Dev Spaces 的 VS Code 擴充功能](get-started-netcore.md)。
 
 ## <a name="debugging-error-invalid-cwd-value-src-the-system-cannot-find-the-file-specified-or-launch-program-srcpath-to-project-binary-does-not-exist"></a>偵錯錯誤「無效的 'cwd' 值 '/src'。 系統找不到指定的檔案。」 或「launch: program '/src/[專案二進位檔案路徑]' 不存在」
-執行 VS Code 偵錯工具會回報錯誤`Invalid 'cwd' value '/src'. The system cannot find the file specified.`和 （或) `launch: program '/src/[path to project executable]' does not exist`
+執行 VS Code 偵錯工具回報 `Invalid 'cwd' value '/src'. The system cannot find the file specified.` 和/或 `launch: program '/src/[path to project executable]' does not exist` 錯誤
 
 ### <a name="reason"></a>原因
 VS Code 延伸模組預設會使用 `src` 作為容器上專案的工作目錄。 如果您已將 `Dockerfile` 更新成指定不同的工作目錄，就可能看到此錯誤。
@@ -325,3 +325,35 @@ configurations:
 
 ### <a name="try"></a>嘗試
 暫時的解決方法，此問題是要增加的值*fs.inotify.max_user_watches*叢集中的每個節點上，然後重新啟動該節點，變更才會生效。
+
+## <a name="new-pods-are-not-starting"></a>不啟動新的 pod
+
+### <a name="reason"></a>原因
+
+Kubernetes 的初始設定式無法套用新的 pod，RBAC 權限變更會針對 PodSpec*叢集系統管理員*叢集中的角色。 新的 pod 可能也會有無效的 PodSpec，例如 pod 相關聯的服務帳戶不存在。 若要查看中的 pod*暫止*狀態，因為初始設定式問題，而使用`kubectl get pods`命令：
+
+```bash
+kubectl get pods --all-namespaces --include-uninitialized
+```
+
+此問題可能會影響在 pod*的所有命名空間*在叢集中包括其中未啟用 Azure 開發空間的命名空間。
+
+### <a name="try"></a>嘗試
+
+[更新為最新版本的開發人員空格 CLI](./how-to/upgrade-tools.md#update-the-dev-spaces-cli-extension-and-command-line-tools)並刪除*azds InitializerConfiguration*從 Azure 開發人員空格控制器：
+
+```bash
+az aks get-credentials --resource-group <resource group name> --name <cluster name>
+kubectl delete InitializerConfiguration azds
+```
+
+一旦移除了*azds InitializerConfiguration*從 Azure 開發人員空白控制器，使用`kubectl delete`移除中的任何 pod*暫止*狀態。 在所有擱置中的 pod 已移除、 重新部署您的 pod。
+
+如果仍停留在新的 pod*暫止*狀態之後重新部署，使用`kubectl delete`移除中的任何 pod*暫止*狀態。 畢竟暫止的 pod 已移除，刪除叢集中控制站並重新安裝它：
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+azds controller create --name <cluster name> -g <resource group name> -tn <cluster name>
+```
+
+您的控制器會重新安裝之後，重新部署您的 pod。

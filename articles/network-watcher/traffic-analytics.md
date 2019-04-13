@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 7e90e42f768ceb333ac90f56249457ffa46ae461
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: cb61366a672a48cdc84e14f40d889e646e0e23b8
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490991"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545394"
 ---
 # <a name="traffic-analytics"></a>流量分析
 
@@ -369,3 +369,8 @@ New-AzStorageAccount `
 ## <a name="frequently-asked-questions"></a>常見問題集
 
 若要取得常見問題的解答，請參閱[流量分析常見問題集](traffic-analytics-faq.md)。
+
+## <a name="next-steps"></a>後續步驟
+
+- 若要了解如何啟用流量記錄，請參閱[啟用 NSG 流量記錄](network-watcher-nsg-flow-logging-portal.md)。
+- 若要了解結構描述和處理流量分析的詳細資訊，請參閱[流量分析的結構描述](traffic-analytics-schema.md)。

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 1390d68a93dd3d80b5977bab6665553ea3f8b398
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: f521fd11a2053cf8cf1ea0f9f91667fe475f0eee
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403069"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522430"
 ---
 # <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>透過 DASH.js 將 MPEG-DASH 彈性資料流視訊嵌入到 HTML5 應用程式  
 
@@ -55,7 +55,7 @@ Dash.js 是以 JavaScript 撰寫的開放原始碼 MPEG-DASH 視訊播放程式�
 ```
 
 ## <a name="adding-the-dashjs-player"></a>新增 DASH.js 播放程式
-若要將 dash.js 參考實作新增至應用程式中，您需要捕捉 dash.all.js 檔案最新版本的 dash.js 專案。 這應該儲存在您應用程式的 JavaScript 資料夾中。 此檔案可讓您很方便地將所有必要的 dash.js 程式碼提取到一個檔案中。 如果您瀏覽過 dash.js 存放庫，就會發現各個檔案、測試程式碼等等，但如果您只是要使用 dash.js，那麼 dash.all.js 就是您所需的檔案。
+要将 dash.js 引用实现添加到应用程序，需要从最新版本的 dash.js 项目中找到 dash.all.js 文件。 這應該儲存在您應用程式的 JavaScript 資料夾中。 此檔案可讓您很方便地將所有必要的 dash.js 程式碼提取到一個檔案中。 如果您瀏覽過 dash.js 存放庫，就會發現各個檔案、測試程式碼等等，但如果您只是要使用 dash.js，那麼 dash.all.js 就是您所需的檔案。
 
 若要在應用程式中新增 dash.js 播放程式，請將指令碼標記新增到 basicPlayer.html 的標頭區段：
 
@@ -86,7 +86,7 @@ Dash.js 是以 JavaScript 撰寫的開放原始碼 MPEG-DASH 視訊播放程式�
 
 這會呼叫 MediaPlayer 類別的 startup () 函式，以確保播放程式準備好播放視訊。 此外，這個函式可確保已載入所有必要的類別 (如內容所定義)。 一旦播放程式準備就緒，您可以使用 attachview () 函式將視訊元素附加到播放程式。 startup 函式可讓 MediaPlayer 將視訊資料流插入元素中，並視需要控制播放。
 
-將 MPD 檔案的 URL 傳遞到 MediaPlayer，讓它知道預期要播放的視訊。 一旦頁面整個載入後，就必須執行剛剛建立的 setupVideo() 函式。 做法是使用內文元素的載入事件。 將 <body> 元素變更為：
+將 MPD 檔案的 URL 傳遞到 MediaPlayer，讓它知道預期要播放的視訊。 一旦頁面整個載入後，就必須執行剛剛建立的 setupVideo() 函式。 做法是使用內文元素的載入事件。 將 `<body>` 元素變更為：
 
 ```html
     <body onload="setupVideo()">

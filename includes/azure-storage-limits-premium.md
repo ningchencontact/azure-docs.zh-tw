@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 1cb353d22e39447d7aeb723b5506ac0209cf74d8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: da796f8eeb6b24dfbbe8418cc728f09b424228cf
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59287097"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528487"
 ---
 ### <a name="premium-performance-block-blob-storage"></a>Premium 效能區塊 blob 儲存體
 
@@ -25,10 +25,11 @@ ms.locfileid: "59287097"
 
 |領域  |目標  |
 |---------|---------|
-|大小上限     |5 TiB （公開預覽）、 100 TiB （有限公開預覽）     |
+|最大可佈建大小     |5 TiB （公開預覽）、 100 TiB （有限公開預覽）     |
 |共用   |無限  |
 |IOPS     |100,000 （有限公開預覽）    |
-|頻寬|5 GB/s     |
+|輸入|4,136 MiB/s     |
+|輸出|6,204 MiB/s |
 
  對於進階檔案共用中的擴展目標，請參閱 <<c0> [ 進階檔案調整目標](../articles/storage/common/storage-scalability-targets.md#premium-files-scale-targets)一節。
 

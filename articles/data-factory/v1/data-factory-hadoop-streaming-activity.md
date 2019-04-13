@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f4bdeee08e81c16dfdd03620eb1fc61251f90400
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: dd00c0a2998009ce6c39ca19abb25a2548682cee
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025168"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523217"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>使用 Azure Data Factory 中的 Hadoop 資料流活動轉換資料
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -99,7 +99,7 @@ HDInsight 叢集會使用範例程式 (wc.exe 和 cat.exe) 和資料 (將 davinc
 2. 將活動的類型設為 **HDInsightStreaming**。
 3. 針對 **mapper** 屬性，指定對應程式可執行檔的名稱。 在範例中，cat.exe 是對應程式可執行檔。
 4. 針對 **reducer** 屬性，指定減壓器可執行檔的名稱。 在範例中，cat.exe 是減壓器可執行檔。
-5. 針對 **input** 類型屬性，指定對應程式的輸入檔 (包括位置)。 在 "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt" 範例中：adfsample 是 blob 容器，example/data/Gutenberg 是資料夾，而 davinci.txt 是 blob。
+5. 針對 **input** 類型屬性，指定對應程式的輸入檔 (包括位置)。 在 `wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt` 範例中：adfsample 是 blob 容器、example/data/Gutenberg 是資料夾，而 davinci.txt 是 blob。
 6. 針對 **output** 類型屬性，指定減壓器的輸出檔 (包括位置)。 Hadoop 串流作業的輸出會寫入針對這個屬性指定的位置。
 7. 在 **filePaths** 區段中，指定對應程式和減壓器可執行檔的路徑。 在 "adfsample/example/apps/wc.exe" 範例中，adfsample 是 blob 容器，example/apps 是資料夾，而 wc.exe 是可執行檔。
 8. 針對 **fileLinkedService** 屬性，指定代表 Azure 儲存體 (包含 filePaths 區段中指定的檔案) 的 Azure 儲存體連結服務。
@@ -223,7 +223,7 @@ HDInsight 叢集會使用範例程式 (wc.exe 和 cat.exe) 和資料 (將 davinc
     }
 }
 ```
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>另请参阅
 * [Hive 活動](data-factory-hive-activity.md)
 * [Pig 活動](data-factory-pig-activity.md)
 * [MapReduce 活動](data-factory-map-reduce.md)

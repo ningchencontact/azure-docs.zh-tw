@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 38d403be1dc35b8ab4cd1b15fa259b5e6917197c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c3be0cdf2ef33c26dfa9d177e9b34f808b1b862a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314445"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525522"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>使用 StorSimple 裝置管理員服務來檢視和管理 StorSimple 警示
 
@@ -160,7 +160,7 @@ StorSimple 裝置管理員服務的摘要刀鋒視窗，可讓您快速概覽裝
 | 裝置容錯移轉至 <裝置名稱>。 |其他/未知的原因。 |如果您看到大量的這些警示，請連絡 Microsoft 支援服務。 問題解決之後，請從警示頁面清除此警示。 |
 | 重大裝置服務會回報故障狀態。 |資料路徑服務失敗。 |連絡 Microsoft 支援服務尋求協助。 |
 | 網路介面 <DATA #> 的虛擬 IP 位址會回報故障狀態。 |其他/未知的原因。 |有時候暫時性狀況可能會導致這些警示。 如果情況如此，一段時間之後會自動清除這個警示。 如果問題持續發生，請連絡 Microsoft 支援服務。 |
-| 網路介面 <DATA #> 的虛擬 IP 位址會回報故障狀態。 |介面名稱：<Data #> IP 位址 <IP address> 無法連線，因為在網路上偵測到重複的 IP 位址。 |確定已移除網路中重複的 IP 位址或以不同的 IP 位址重新設定介面。 |
+| 網路介面 <DATA #> 的虛擬 IP 位址會回報故障狀態。 |介面名稱：<Data #> IP 位址 `<IP address>` 無法連線，因為在網路上偵測到重複的 IP 位址。 |確定已移除網路中重複的 IP 位址或以不同的 IP 位址重新設定介面。 |
 
 ### <a name="disaster-recovery-alerts"></a>災害復原警示
 
@@ -200,8 +200,8 @@ StorSimple 裝置管理員服務的摘要刀鋒視窗，可讓您快速概覽裝
 | 警示文字 | Event | 詳細資訊 / 建議的動作 |
 |:--- |:--- |:--- |
 | 無法啟動 StorSimple 服務。 |資料路徑錯誤 |如果問題持續發生，請連絡 Microsoft 支援服務。 |
-| 偵測到 'Data0' 的 IP 位址重複。 | |系統已偵測到 IP 位址 '10.0.0.1' 衝突。 在裝置上的網路資源 'Data0' *<device1>* 已離線。 確定此網路中的其他任何實體並未使用此 IP 位址。 若要疑難排解網路問題，請移至 [Get-NetAdapter Cmdlet 疑難排解](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet)。 請連絡網路系統管理員協助解決此問題。 如果問題持續發生，請連絡 Microsoft 支援服務。 |
-| 'Data0' 的 IPv4 (或 IPv6) 位址已離線。 | |網路資源 'Data0' 與 IP 位址 '10.0.0.1'。 裝置 *<device1>* 上的首碼長度 '22' 處於離線狀態。 請確定此介面所連接的交換器連接埠運作正常。 若要疑難排解網路問題，請移至 [Get-NetAdapter Cmdlet 疑難排解](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet)。 |
+| 偵測到 'Data0' 的 IP 位址重複。 | |系統已偵測到 IP 位址 '10.0.0.1' 衝突。 在裝置上的網路資源 'Data0'  *\<device1 >* 處於離線狀態。 確定此網路中的其他任何實體並未使用此 IP 位址。 若要疑難排解網路問題，請移至 [Get-NetAdapter Cmdlet 疑難排解](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet)。 請連絡網路系統管理員協助解決此問題。 如果問題持續發生，請連絡 Microsoft 支援服務。 |
+| 'Data0' 的 IPv4 (或 IPv6) 位址已離線。 | |網路資源 'Data0' 與 IP 位址 '10.0.0.1'。 在裝置上的長度 '22' 做為前置詞 *\<device1 >* 處於離線狀態。 請確定此介面所連接的交換器連接埠運作正常。 若要疑難排解網路問題，請移至 [Get-NetAdapter Cmdlet 疑難排解](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet)。 |
 | 無法連線到驗證服務。 |資料路徑錯誤 |無法連線到用來驗證的 URL。 請確定您的防火牆規則有包含為 StorSimple 裝置指定的 URL 模式。 如需有關在 Azure 入口網站的 URL 模式的詳細資訊，請移至 https:\//aka.ms/ss-8000-network-reqs. 如果使用 Azure Government 雲端，請移至 https 的 URL 模式：\//aka.ms/ss8000-gov-network-reqs.|
 
 ### <a name="performance-alerts"></a>效能警示

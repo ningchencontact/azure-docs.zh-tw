@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: d4866a6863143d2228c556a64c8e75c9f273076e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 720f984feb5675281510962d4ebee63f638d696d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489496"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548881"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>設定 Azure Machine Learning 的開發環境
 
@@ -280,7 +280,7 @@ Azure Databricks 的運作方式與 Azure Machine Learning 服務：
 ### <a name="set-up-your-databricks-cluster"></a>設定您的 Databricks 叢集
 
 建立[Databricks 叢集](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)。 只有當您安裝適用於自動化的機器學習服務在 Databricks 上的 SDK，適用於某些設定。
-**建立叢集將需要幾分鐘的時間。**
+**需要幾分鐘的時間來建立叢集。**
 
 使用這些設定：
 
@@ -350,7 +350,7 @@ SDK databricks **WITH**自動化機器學習服務![SDK 會自動安裝在 Datab
 }
 ```
 
-這個 JSON 檔案必須位於包含您的 Python 指令碼或 Jupyter Notebook 的目錄結構中。 它可以位於相同的目錄，名為 *aml_config* 的子目錄，也可以位於父目錄中。
+這個 JSON 檔案必須位於包含您的 Python 指令碼或 Jupyter Notebook 的目錄結構中。 它可以是在相同的目錄中，命名的子目錄 *.azureml*，或父目錄中。
 
 要使用程式碼中的此檔案，請使用 `ws=Workspace.from_config()`。 此程式碼會從檔案載入資訊，並連接到您的工作區。
 
@@ -379,7 +379,7 @@ SDK databricks **WITH**自動化機器學習服務![SDK 會自動安裝在 Datab
         print('Workspace not found')
     ```
 
-    此程式碼會將組態檔寫入 *aml_config/config.json* 檔案。
+    此程式碼會寫入至組態檔 *.azureml/config.json*檔案。
 
 
 ## <a name="next-steps"></a>後續步驟

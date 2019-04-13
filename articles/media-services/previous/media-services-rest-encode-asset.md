@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2412bd5b4b4f05cdeb1638aa3d9ef1676e7b8315
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 8db9e60e9ce99eaf2621821825620966b8b8b4ae
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293068"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521623"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>如何使用媒體編碼器標準為資產編碼
 > [!div class="op_single_selector"]
@@ -94,14 +94,14 @@ ms.locfileid: "58293068"
 
 ## <a name="considerations"></a>考量
 * TaskBody 屬性必須使用 XML 常值，來定義工作所使用的輸入或輸出資產數目。 工作文章包含 XML 的 XML 結構描述定義。
-* 在 TaskBody 定義中，<inputAsset> 和 <outputAsset> 的每一個內部值必須設定為 JobInputAsset(value) 或 JobOutputAsset(value)。
+* 在 TaskBody 定義中，`<inputAsset>` 和 `<outputAsset>` 的每一個內部值必須設定為 JobInputAsset(value) 或 JobOutputAsset(value)。
 * 每個工作可以有多個輸出資產。 一個 JobOutputAsset(x) 只能使用一次做為工作中的工作輸出。
 * 您可以指定 JobInputAsset 或 JobOutputAsset 做為工作的輸入資產。
 * 工作不能形成循環。
 * 您傳遞至 JobInputAsset 或 JobOutputAsset 的 value 參數代表資產的索引值。 實際的資產定義於作業實體定義上的 InputMediaAsset 與 OutputMediaAsset 導覽屬性中。
 * 由於媒體服務建置在 OData v3 之上，因此，會透過 "__metadata: uri" 名稱/值組來參考 InputMediaAsset 與 OutputMediaAsset 導覽屬性集合中的個別資產。
 * InputMediaAsset 對應至您在媒體服務中建立的一或多個資產。 OutputMediaAsset 由系統建立。 它們不會參考現有的資產。
-* OutputMediaAsset 可以使用 assetName 屬性來命名。 如果這個屬性不存在，則 OutputMediaAsset 的名稱是 <outputAsset> 元素的任何內部文字值，並且尾碼為工作名稱值或工作識別碼值 (在未定義 Name 屬性的情況下)。 例如，如果您將 assetName 的值設為 "Sample"，則會將 OutputMediaAsset Name 屬性設為 "Sample"。 不過，如果您未設定 assetName 的值，但已將作業名稱設為 "NewJob"，則 OutputMediaAsset Name 會是 "JobOutputAsset(value)_NewJob"。
+* OutputMediaAsset 可以使用 assetName 屬性來命名。 如果這個屬性不存在，則 OutputMediaAsset 的名稱是 `<outputAsset>` 元素的任何內部文字值，並且尾碼為工作名稱值或工作識別碼值 (在未定義 Name 屬性的情況下)。 例如，如果您將 assetName 的值設為 "Sample"，則會將 OutputMediaAsset Name 屬性設為 "Sample"。 不過，如果您未設定 assetName 的值，但已將作業名稱設為 "NewJob"，則 OutputMediaAsset Name 會是 "JobOutputAsset(value)_NewJob"。
 
 ## <a name="create-a-job-with-chained-tasks"></a>建立具有鏈結工作的工作
 在許多應用程式案例中，開發人員想要建立一連串的處理工作。 在媒體服務中，您可以建立一連串的鏈結工作。 每一項工作會執行不同的處理步驟，而且可以使用不同的媒體處理器。 鏈結工作可以將資產從一個工作遞交到另一個工作，對資產執行一連串的工作。 不過，在工作中執行的工作不必按照順序。 當您建立鏈結工作時，鏈結的 **ITask** 物件會建立在單一 **IJob** 物件中。

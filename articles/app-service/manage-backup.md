@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 18fc86e8d9b9622f11faad0f11dc57a83124a857
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 7e697329e83b530157e490b04f5155d28d243bb6
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417497"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549483"
 ---
 # <a name="back-up-your-app-in-azure"></a>在 Azure 中備份應用程式
 [Azure App Service](overview.md) 中的「備份與還原」功能可讓您以手動或透過排程方式，輕鬆建立應用程式備份。 您可以透過覆寫現有的應用程式或還原到另一個應用程式，將應用程式還原到先前狀態的快照。 
@@ -122,6 +122,9 @@ App Service 可以將下列資訊備份到您已設定讓應用程式使用的 A
 
 部分備份可讓您精確選擇想要備份的檔案。
 
+> [!NOTE]
+> 在備份中的個別資料庫可以是使用 4 GB 最大，但備份的總大小上限為 10 GB
+
 ### <a name="exclude-files-from-your-backup"></a>從備份中排除檔案
 假設您有一個應用程式，其中包含已經備份過一次且不會再變更的記錄檔和靜態映像。 在這類情況下，您可以將這些資料夾和檔案排除，而不儲存在您未來的備份中。 若要將檔案和資料夾從您的備份中排除，請在應用程式的 `D:\home\site\wwwroot` 資料夾中建立 `_backup.filter` 檔案。 請在此檔案中指定您想要排除的檔案和資料夾清單。 
 
@@ -147,7 +150,7 @@ App Service 可以將下列資訊備份到您已設定讓應用程式使用的 A
 > [!NOTE]
 > 您還原站台部分備份的方式會與[還原一般備份](web-sites-restore.md)的方式相同。 還原程序會執行正確的作業。
 > 
-> 還原完整備份時，網站上的所有內容都會取代為備份中的內容。 如果檔案在網站上，而不在備份中，系統就會將它刪除。 但是，還原部分備份時，位於其中一個封鎖清單目錄或任何封鎖清單檔案中的任何內容都會保持原狀。
+> 还原完整备份后，站点上的所有内容都被替换为备份中的所有内容。 如果檔案在網站上，而不在備份中，系統就會將它刪除。 但是，还原部分备份时，位于其中一个方块列表目录或任何方块列表文件中的任何内容都保持不变。
 > 
 
 

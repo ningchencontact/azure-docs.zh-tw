@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 609e774c36ab685d017f311a74c8680dbb9750c9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d4361fc37d01b351d20a273aa39f558e9b00faa4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59283013"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525920"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>規劃 Azure 檔案服務部署
 
@@ -109,9 +109,9 @@ Azure 檔案服務提供兩個效能層級： 標準和進階。
 >
 > 高載限制 = 3 * 基準 IOPS。 （最多 100,000 IOPS 的上限）。
 >
-> 輸出速率 = 60 MiB/秒 + 0.06 佈建的 GiB （最多 6 GiB/秒）
+> 輸出速率 = 60 MiB/秒 + $0.06 * 佈建 GiB
 >
-> 輸入速率 = 40 的 MiB/秒 + 0.04 佈建的 GiB （最多 4 GiB)
+> 輸入速率 = 40 的 MiB/秒 + 0.04 * 佈建 GiB
 
 共用大小可以隨時增加在任何時間，並降低，但可以減少一次後的最後一個增加每隔 24 小時。 大小變更後的 24 小時內，IOPS/輸送量規模變更將會有效的。
 
@@ -128,9 +128,9 @@ Azure 檔案服務提供兩個效能層級： 標準和進階。
 |10,240 *     | 10,240  | 最多 30,720  | 675 | 450   |
 |33,792 *     | 33,792  | 最多 100,000 部 | 2,088 | 1,392   |
 |51,200 *     | 51,200  | 最多 100,000 部 | 3,132 | 2,088   |
-|100,000 *    | 100,000 | 最多 100,000 部 | 6,204 | 4,136   |
+|102,400 *    | 100,000 | 最多 100,000 部 | 6,204 | 4,136   |
 
-最多 5 TiB 的檔案共用大小目前處於公開預覽狀態，最多 102 TiB 的大小有限公開預覽的詳細資訊，來要求權限有限的公開預覽完成時[這份問卷。](https://aka.ms/azurefilesatscalesurvey)
+最多 5 TiB 的檔案共用大小目前處於公開預覽狀態，最多 100 TiB 的大小有限公開預覽的詳細資訊，來要求權限有限的公開預覽完成時[這份問卷。](https://aka.ms/azurefilesatscalesurvey)
 
 ### <a name="bursting"></a>負載平衡
 

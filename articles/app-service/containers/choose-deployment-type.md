@@ -16,19 +16,19 @@ ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 079bfae19a4960ef5ab95c9d48d5603423407a9e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c8a700bcd2780ef7b0c7ad1fbb513d4b4febffcb
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772869"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549315"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>自訂映像、多容器或內建平台映像？
 
 [Linux 上的 App Service](app-service-linux-intro.md) 提供三種不同的路徑將應用程式發佈到網路上：
 
 - **自訂映像部署**：將您的應用程式 Docker 化成為 Docker 映像，您所有的檔案和相依性都包含在執行就緒的封裝之中。
-- **多容器部署**：使用 Docker Compose 或 Kubernetes 組態檔在多個容器中將您的應用程式「Docker 化」。 如需詳細資訊，請參閱[多容器應用程式](#multi-container-apps-supportability)。
+- **多容器部署**：使用 Docker Compose 或 Kubernetes 組態檔在多個容器中將您的應用程式「Docker 化」。
 - **使用內建平台映像的應用程式部署**：我們的內建平台映像包含常用的 Web 應用程式執行階段和相依性，例如節點和 PHP。 使用任何一種 [Azure App Service 部署方法](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)，將您的應用程式部署至 Web 應用程式的存放區，然後使用內建的平台映像執行應用程式。
 
 ## <a name="which-method-is-right-for-your-app"></a>哪一種方法最適合您的應用程式？ 
@@ -43,38 +43,3 @@ ms.locfileid: "57772869"
 - **磁碟讀取/寫入需求**：所有 Web 應用程式會針對 Web 內容配置存放磁碟區。 此磁碟區獲得 Azure 儲存體支援，掛接於應用程式檔案系統中的 `/home`。 不同於容器檔案系統中的檔案，磁碟區中的檔案可供應用程式所有級別的執行個體存取，而且修改會保存到應用程式重新啟動之後。 不過，內容磁碟區的磁碟延遲較高，延遲的變化也比本機容器檔案系統更多，而且存取可能會受到平台升級、規劃外的停機時間和網路連線問題所影響。 自訂映像部署可能有益於需要對於內容檔案進行大量唯讀存取的應用程式，這類應用程式會將檔案放在映像檔案系統上，而非內容磁碟區上。
 - **組建資源使用方式**：若是從來源部署應用程式，Kudu 執行的部署指令碼會使用與執行中的應用程式相同的 App Service 方案之計算和儲存體資源。 大型應用程式部署可能會耗用比所需程度更多的資源或時間。 尤其許多部署工作流程會在應用程式內容磁碟區產生大量磁碟活動，但是應用程式內容磁碟區並非針對這類活動最佳化。 自訂映像不需要額外的檔案傳輸或部署動作，就能夠以單一封裝將所有的應用程式檔案和相依性提供給 Azure。
 - **需要快速反覆項目**：Docker 化應用程式需要額外的組建步驟。 若要使變更生效，在每次更新時都必須將新的映像推送到儲存機制。 這些更新接著會被提取到 Azure 環境。 如果其中一個內建容器符合您的應用程式需求，從來源部署可能會加快開發工作流程。
-
-## <a name="multi-container-apps-supportability"></a>多容器應用程式支援能力
-
-### <a name="supported-docker-compose-configuration-options"></a>支援的 Docker Compose 組態選項
-- 命令
-- entrypoint
-- Environment
-- 映像
-- 連接埠
-- restart
-- 服務
-- 磁碟區
-
-### <a name="unsupported-docker-compose-configuration-options"></a>不支援的 Docker Compose 組態選項
-- build (不允許)
-- depends_on (已忽略)
-- networks (已忽略)
-- secrets (已忽略)
-- 80 和 8080 以外的連接埠 (已忽略)
-
-> [!NOTE]
-> 公開預覽中也會忽略任何未明確標註的其他選項。
-
-### <a name="supported-kubernetes-configuration-options"></a>支援的 Kubernetes 組態選項
-- args
-- 命令
-- containers
-- 映像
-- name
-- 連接埠
-- 規格
-
-> [!NOTE]
->公開預覽中不支援任何未明確標註的其他 Kubernetes 選項。
->

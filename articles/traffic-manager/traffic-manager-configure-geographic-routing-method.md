@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 64e3cbd082f2d18668dff87fbec098add73ffda6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 30c4a6817272f7b5f1810873a93280b234ff6cc9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58010092"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524305"
 ---
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>使用流量管理員設定地理流量路由方法
 
@@ -26,7 +26,7 @@ ms.locfileid: "58010092"
 1. 從瀏覽器登入 [Azure 入口網站](https://portal.azure.com)。 如果您沒有帳戶，您可以註冊[免費試用一個月](https://azure.microsoft.com/free/)。
 2. 按一下 [建立資源] > [網路] > [流量管理員設定檔] > [建立]。
 4. 在 [建立流量管理員設定檔] 中：
-    1. 提供設定檔的名稱。 此名稱必須是 trafficmanager.net 區域內的唯一名稱。 若要存取流量管理員設定檔，您可以使用 DNS 名稱 <profilename>.trafficmanager.net。
+    1. 提供設定檔的名稱。 此名稱必須是 trafficmanager.net 區域內的唯一名稱。 若要存取您的 Traffic Manager 設定檔，您可以使用 DNS 名稱`<profilename>.trafficmanager.net`。
     2. 選取 [地理] 路由方法。
     3. 選取您要用來建立此設定檔的訂用帳戶。
     4. 使用現有的資源群組，或建立新的資源群組來放置此設定檔。 如果您選擇建立新的資源群組，請使用 [資源群組位置] 下拉式清單來指定資源群組的位置。 這項設定是指資源群組的位置，完全不影響將部署到全球的流量管理員設定檔。

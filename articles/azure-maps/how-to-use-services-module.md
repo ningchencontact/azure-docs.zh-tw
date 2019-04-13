@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 3aa39568904cb0acc9b5b76ff7e07729bf99d6b1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: e89a4675f867e53c499bb82b239ddb9bec1aed6f
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278593"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521194"
 ---
 # <a name="using-the-azure-maps-services-module"></a>使用 Azure Maps 服務模組
 
@@ -24,7 +24,7 @@ Azure 地圖服務 Web SDK 提供的協助程式庫，可讓您更容易使用�
 1. 建立新的 HTML 檔案。
 2. 載入 Azure Maps 服務模組中。 這可以透過兩個不同的選項來達成：
 
-    a. 使用全域 CDN 的裝載的版本 Azure Maps 服務模組新增的指令碼參考<head>檔案項目：
+    a. 使用全域 CDN 的裝載的版本 Azure Maps 服務模組新增的指令碼參考`<head>`檔案項目：
     
     ```html
     <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>

@@ -9,19 +9,48 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 04/11/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 18b72ceaee0ca0747a0bf2144d5f9ffddbee8b8c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 9d1fa5786dcde70d42363dbb9af7221ca5383e64
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492136"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546393"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>使用媒體服務 v3 Api 進行開發
 
 這篇文章會討論使用媒體服務 v3 進行開發時套用至實體和 Api 的規則。
+
+## <a name="accessing-the-azure-media-services-api"></a>存取 Azure 媒體服務 API
+
+若要存取 Azure 媒體服務資源，您應該使用 Azure Active Directory (AD) 服務主體驗證。 Azure 媒體服務 API 要求的使用者或發出 REST API 的應用程式要求存取 Azure 媒體服務帳戶資源 (通常是**參與者**或是**擁有者**角色）。 如需詳細資訊，請參閱 <<c0> [ 媒體服務帳戶的角色型存取控制](rbac-overview.md)。
+
+而不是建立服務主體，請考慮使用適用於 Azure 資源管理的身分識別存取媒體服務 API 透過 Azure Resource Manager。 若要深入了解適用於 Azure 資源管理的身分識別，請參閱[什麼是適用於 Azure 資源管理的身分識別](../../active-directory/managed-identities-azure-resources/overview.md)。
+
+### <a name="azure-ad-service-principal"></a>Azure AD 服務主體 
+
+如果您要建立的 Azure AD 應用程式和服務主體，應用程式必須在它自己的租用戶。 建立應用程式之後，指定應用程式**參與者**或是**擁有者**到媒體服務帳戶的角色存取權。 
+
+如果您不確定是否有權限建立 Azure AD 應用程式，請參閱[必要的權限](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)。
+
+在下圖中，數字代表依時間先後順序的要求流量：
+
+![中介層應用程式](../previous/media/media-services-use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
+
+1. 中介層應用程式要求 Azure AD 存取權杖具有下列參數：  
+
+   * Azure AD 租用戶端點。
+   * 媒體服務資源 URI。
+   * REST 媒體服務的資源 URI。
+   * Azure AD 應用程式的值：用戶端識別碼和用戶端祕密。
+   
+   若要取得所有所需的值，請參閱[存取 Azure 媒體服務 API 使用 Azure CLI](access-api-cli-how-to.md)
+
+2. Azure AD 存取權杖會傳送至中介層。
+4. 中介層使用該 Azure AD 權杖傳送要求至 Azure 媒體 REST API。
+5. 媒體服務回傳資料給中介層。
 
 ## <a name="naming-conventions"></a>命名慣例
 
@@ -30,17 +59,6 @@ Azure 媒體服務 v3 資源名稱 (例如資產、作業、轉換) 會受到 Az
 媒體服務資源名稱不可包含：'<'、'>'、'%'、'&'、':'、'&#92;'、'?'、'/'、'*'、'+'、'.'、單引號字元或任何控制字元。 允許所有其他字元。 資源名稱的長度上限是 260 個字元。 
 
 如需有關 Azure Resource Manager 命名的詳細資訊，請參閱：[命名需求](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource)和[命名慣例](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。
-
-## <a name="v3-api-design-principles-and-rbac"></a>v3 API 設計原則和 RBAC
-
-v3 API 的金鑰設計原則之一，是讓 API 更為安全。 v3 Api 不會傳回密碼或認證上**取得**或是**清單**作業。 回應中的金鑰一律為 Null、空白或處理過的。 使用者需要呼叫個別的動作方法，以取得祕密或認證。 **讀取器**角色不能呼叫作業，使其無法呼叫 Asset.ListContainerSas，StreamingLocator.ListContentKeys，ContentKeyPolicies.GetPolicyPropertiesWithSecrets 等作業。 擁有個別的動作，可讓您設定更細微的 RBAC 安全性權限，如有需要的自訂角色。
-
-如需詳細資訊，請參閱
-
-- [內建角色定義](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
-- [使用 RBAC 管理存取](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)
-- [媒體服務帳戶的角色型存取控制](rbac-overview.md)
-- [取得內容的索引鍵原則-.NET](get-content-key-policy-dotnet-howto.md)。
 
 ## <a name="long-running-operations"></a>長時間執行的作業
 
@@ -71,4 +89,4 @@ v3 API 的金鑰設計原則之一，是讓 API 更為安全。 v3 Api 不會傳
 
 ## <a name="next-steps"></a>後續步驟
 
-[使用 SDK/工具透過媒體服務 v3 API 開始進行開發](developers-guide.md)
+[開始使用媒體服務 v3 API 使用 Sdk/工具進行開發](developers-guide.md)

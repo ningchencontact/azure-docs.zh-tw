@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d67bd26dcb2ac0b3bf909e1ef3d5ca75a0882eb3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 28e399eaf62731d7c38cea5f5a8cb8ebf876e686
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840642"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522498"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>建立 Hive 資料表，並從 Azure Blob 儲存體載入資料
 
@@ -112,7 +112,7 @@ Hive 查詢類似 SQL。 如果您熟悉 SQL，您可能會發現 [Hive for SQL 
 ![Azure 儲存體總管顯示的 Hive 查詢輸出](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="hive-editor"></a> 2.利用 Hive 編輯器提交 Hive 查詢
-您也可以在網頁瀏覽器中輸入*https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* 格式的 URL，以使用查詢主控台 (Hive 編輯器)。 您必須登入才能看到此主控台，因此您在這裡需要 Hadoop 叢集認證。
+您也可以使用查詢主控台 （Hive 編輯器） 輸入格式的 URL *https:\//\<Hadoop 叢集名稱 >.azurehdinsight.net/Home/HiveEditor*在網頁瀏覽器。 您必須登入才能看到此主控台，因此您在這裡需要 Hadoop 叢集認證。
 
 ### <a name="ps"></a> 3.利用 Azure PowerShell 命令提交 Hive 查詢
 您也可以使用 PowerShell 提交 Hive 查詢。 如需指示，請參閱 [使用 PowerShell 提交 Hive 工作](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md)。
@@ -149,7 +149,7 @@ Hive 查詢會在 [GitHub 存放庫](https://github.com/Azure/Azure-MachineLearn
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **\<Blob 資料路徑\>**：如果要上傳至 Hive 資料表的 Blob 檔案是在 HDInsight Hadoop 叢集的預設容器中，則 *\<Blob 資料路徑\>* 的格式應該是 *'wasb:///<directory in this container>/<blob file name>'*。 Blob 檔案也可以位於 HDInsight Hadoop 叢集的其他容器中。 在此情況下，*\<Blob 資料路徑\>* 的格式應該是 *'wasb://<container name><storage account name>.blob.core.windows.net/<blob file name>'*。
+* **\<Blob 資料路徑\>**：如果是在 HDInsight Hadoop 叢集的預設容器中的 blob 檔案上傳至 Hive 資料表 *\<blob 資料路徑\>* 的格式應該是 *' wasb: / /\<在此容器中的目錄 > /\<blob 檔案名稱 >'*。 Blob 檔案也可以位於 HDInsight Hadoop 叢集的其他容器中。 在此情況下，  *\<blob 資料路徑\>* 的格式應該是 *' wasb: / /\<容器名稱 >\<儲存體帳戶名稱 >.blob.core.windows.net/\<blob 檔案名稱 >'*。
 
   > [!NOTE]
   > 上傳至 Hive 資料表的 Blob 資料必須位於 Hadoop 叢集儲存體帳戶的預設或其他容器中。 否則，「LOAD DATA」  查詢會失敗並提報它無法存取資料。

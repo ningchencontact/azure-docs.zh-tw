@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/08/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: ae07c29e9fcc7e498e1e39b3d4dc1d93de64e883
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: b4e255f35761924f46714f1844d8fbe1b2e70956
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58763282"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551636"
 ---
 一般用途的虛擬機器大小可讓 CPU 與記憶體比例達到平均。 適用於測試和開發、小型至中型資料庫，以及低至中流量 Web 伺服器。 本文提供 vCPU 數量、資料磁碟和 NIC 的相關資訊，以及此群組中各種大小之儲存體輸送量的相關資訊。 
 
@@ -23,13 +23,12 @@ ms.locfileid: "58763282"
 
   使用案例範例包括開發與測試伺服器、低流量網頁伺服器、中小型資料庫、概念證明以及程式碼存放庫。
 
-- Dv2 系列是原始 D 系列的升級版，搭載更強大的 CPU 及最佳的 CPU 記憶體設定，更適合大多數生產工作負載。 Dv2 系列 CPU 比 D 系列 CPU 快約 35%。 它以最新一代的 Intel Xeon® E5-2673 v3 2.4 GHz (Haswell) 或 E5-2673 v4 2.3 GHz (Broadwell) 處理器為基礎，搭配 Intel Turbo Boost Technology 2.0，最高可達 3.1 GHz。 Dv2 系列的記憶體和磁碟組態和 D 系列一樣。
+- Dv2 系列是原始 D 系列的升級版，搭載更強大的 CPU 及最佳的 CPU 記憶體設定，更適合大多數生產工作負載。 Dv2 系列 CPU 比 D 系列 CPU 快約 35%。 它根據最新的層代 Intel Xeon® E5 2673 v3 2.4 GHz (Haswell) 或 E5 2673 v4 2.3 GHz (Broadwell) 處理器，並使用 Intel 渦輪加速技術 2.0 可達 3.1 GHz。 Dv2 系列的記憶體和磁碟組態和 D 系列一樣。
 
 - Dv3 系列以超執行緒組態搭配 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 處理器或最新的 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwell) 處理器，可為大多數一般用途的工作負載提供更好的價值主張。  除了記憶體已擴充 (從 ~3.5 GiB/vCPU 到 4 GiB/vCPU)，磁碟和網路限制也已就個別核心進行調整，以符合移轉至超執行緒的需求。  Dv3 不再擁有 D/Dv2 系列的高記憶體 VM 大小，這些都已移至新的 Ev3 系列。
 
-  D 系列的範例使用案例包括企業級應用程式、關聯式資料庫、記憶體內部快取及分析。 
+  D 系列使用案例範例包括企業級應用程式、 關聯式資料庫、 記憶體中快取和分析。 
   
-
 ## <a name="b-series"></a>B 系列
 
 進階儲存體：支援
@@ -99,7 +98,6 @@ Dv3 系列大小以 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 處理器或 2.3 G
 
 <sup>1</sup> Dv3 系列 VM 的功能 Intel® 超執行緒技術
 
-
 ## <a name="dsv2-series"></a>DSv2 系列
 
 ACU：210-250
@@ -116,8 +114,6 @@ ACU：210-250
 | Standard_DS4_v2 |8 |28 |56 |32 |32,000 / 256 (344) |25,600 / 384 |8 / 6000 |
 | Standard_DS5_v2 |16 |56 |112 |64 |64,000 / 512 (688) |51,200 / 768 |8 / 12000 |
 
-
-
 ## <a name="dv2-series"></a>Dv2 系列
 
 ACU：210-250
@@ -133,7 +129,6 @@ ACU：210-250
 | Standard_D3_v2 | 4    | 14          | 200                    | 12000 / 187 / 93                                           | 16             | 16x500           | 4 / 3000                                       |
 | Standard_D4_v2 | 8    | 28          | 400                    | 24000 / 375 / 187                                          | 32             | 32x500           | 8 / 6000                                       |
 | Standard_D5_v2 | 16   | 56          | 800                    | 48000 / 750 / 375                                          | 64             | 64x500           | 8 / 12000                                    |
-
 
 ## <a name="av2-series"></a>Av2 系列
 
@@ -153,9 +148,6 @@ ACU：100
 | Standard_A2m_v2 | 2         | 16          | 20             | 2000 / 40 / 20                                           | 4 / 4x500               | 2 / 500                 |
 | Standard_A4m_v2 | 4         | 32          | 40             | 4000 / 80 / 40                                           | 8 / 8x500               | 4 / 1000                     |
 | Standard_A8m_v2 | 8         | 64          | 80             | 8000 / 160 / 80                                          | 16 / 16x500             | 8 / 2000                     |
-
-<br>
-
 
 ## <a name="dc-series"></a>DC 系列
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71b7784d054f279dfccdb3a2424fd427789ca658
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2ddf0885ce7615e06b78eccbd6424e63cc6103c2
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370069"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547000"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>針對高可用性設定 Azure Multi-Factor Authentication Server
 
@@ -36,7 +36,7 @@ MFA Server 是已安裝 Azure Multi-Factor Authentication 軟體的 Windows Serv
 
 向 AD 成功驗證之後，MFA Server 將會與 MFA 服務通訊。 MFA Server 會等候來自 MFA 服務的通知，以允許或拒絕使用者存取應用程式。
 
-如果 MFA 主要伺服器離線，仍可處理驗證，但無法處理需要變更 MFA 資料庫的作業。 (範例包括：新增使用者、自助式 PIN 變更及變更使用者資訊)。
+如果 MFA 主要伺服器離線，仍可處理驗證，但無法處理需要變更 MFA 資料庫的作業。 (範例包括： 新增使用者、 自助式 PIN 變更、 變更使用者的詳細資訊或使用者入口網站的存取權)
 
 ## <a name="deployment"></a>部署
 

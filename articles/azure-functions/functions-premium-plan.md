@@ -8,14 +8,14 @@ ms.assetid: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: ca65b6a1691a870054682b36109f2bdc10d4ad98
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: d327146c4a1fa61e55bb904308038c1ce717123d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918700"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543730"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Azure Functions 的進階方案 （預覽）
 
@@ -42,7 +42,7 @@ az functionapp plan create -g <resource-group> -n <plan-name> -l <region> --numb
 
 未發生任何事件和執行立即在取用方案中，您的應用程式可能會相應減少為零的執行個體。 當有新的事件時的新執行個體必須在其上執行的應用程式進行特製化。  特製化的新執行個體可能需要一些時間，取決於應用程式。  第一次呼叫此額外的延遲通常稱為應用程式冷啟動。
 
-在 「 進階 」 方案，您可以讓您預先準備指定數目的執行個體上的應用程式。  已預先準備的執行個體也可讓您預先調整之前高負載的應用程式。 應用程式相應放大，它首先會調整成預先 warmed 的執行個體。 其他執行個體會繼續緩衝和暖立即在下一個調整規模作業的準備。 擁有已預先準備的執行個體的緩衝區，您可以有效避免冷啟動延遲。  已預先準備的執行個體是 「 進階 」 方案的功能和您需要保留至少一個執行的執行個體，可在所有時間計劃是使用中。
+在 「 進階 」 方案，您可以讓您預先準備的執行個體，但不超過最小的計劃大小的指定數目的應用程式。  已預先準備的執行個體也可讓您預先調整之前高負載的應用程式。 應用程式相應放大，它首先會調整成預先 warmed 的執行個體。 其他執行個體會繼續緩衝和暖立即在下一個調整規模作業的準備。 擁有已預先準備的執行個體的緩衝區，您可以有效避免冷啟動延遲。  已預先準備的執行個體是 「 進階 」 方案的功能和您需要保留至少一個執行的執行個體，可在所有時間計劃是使用中。
 
 您也可以選取 Azure 入口網站中設定預先準備的執行個體數目**相應放大**中**平台功能** 索引標籤。
 
@@ -69,6 +69,8 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 ### <a name="unbounded-run-duration"></a>執行持續時間的未繫結
 
 取用方案中的 azure 函式僅限於單一執行 10 分鐘的時間。  在 「 進階 」 方案，執行持續期間預設值為 30 分鐘，以防止失控的執行。 不過，您可以[修改 host.json 組態](./functions-host-json.md#functiontimeout)若要將此進階方案的應用程式的未繫結。
+
+在預覽中，您的持續期間不保證過去的 12 分鐘的時間，而且必須執行超過 30 分鐘，如果您的應用程式並未調升超出其最小的背景工作計數的最佳機會。
 
 ## <a name="plan-and-sku-settings"></a>計劃和 SKU 的設定
 
@@ -104,9 +106,8 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 |區域|
 |--|
 |澳洲東部|
-|澳洲東南部|
+|澳大利亞東南部|
 |加拿大中部|
-|印度中部|
 |美國中部|
 |東亞|
 |美國東部 2|

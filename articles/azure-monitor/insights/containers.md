@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: fbc9e0f8e7dfda86b5c53e28aa3aa3b733bb9600
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 0a45c84b01cace7e14bd1a945617598c6295631e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905744"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524271"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Azure 監視器中的容器監視解決方案
 
@@ -49,7 +49,7 @@ ms.locfileid: "58905744"
 ### <a name="container-monitoring-solution-support-for-docker-orchestrator-and-os-platform"></a>容器監視解決方案支援 Docker Orchestrator 和作業系統平台
 下表概述的 Docker 協調流程和使用 Azure 監視器中監視的容器詳細目錄、 效能和記錄檔支援的作業系統。   
 
-| | ACS |  Linux | Windows | 容器<br>清查 | 映像<br>清查 | 節點<br>清查 | 容器<br>效能 | 容器<br>Event | Event<br>記錄檔 | 容器<br>記錄檔 |
+| | ACS | Linux | Windows | 容器<br>清查 | 映像<br>清查 | 節點<br>清查 | 容器<br>效能 | 容器<br>Event | Event<br>記錄檔 | 容器<br>記錄檔 |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
@@ -128,7 +128,7 @@ ms.locfileid: "58905744"
 
 - 如需如何安裝適用於 Linux 的 Log Analytics 代理程式詳細資訊和步驟，請參閱 [Log Analytics 代理程式概觀](../../azure-monitor/platform/log-analytics-agent.md)。
 
-**適用於包含 CoreOS 所有 Linux 容器主機：**
+**適用於包含 CoreOS 的所有 Linux 容器主機：**
 
 啟動您要監視的容器。 修改並使用下列範例：
 
@@ -136,7 +136,7 @@ ms.locfileid: "58905744"
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
 ```
 
-**適用於包含 CoreOS 所有 Azure Government Linux 容器主機：**
+**適用於包含 CoreOS 的所有 Azure Government Linux 容器主機：**
 
 啟動您要監視的容器。 修改並使用下列範例：
 
@@ -236,7 +236,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 如果在使用 Log Analytics 代理程式精靈集 YAML 檔案時，您想要使用祕密來保護您的 Log Analytics 工作區識別碼及主要金鑰，請執行下列步驟。
 
 1. 登入 OpenShift 主要節點，並從 GitHub 複製 YAML 檔 [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) 和密碼產生指令碼 [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh)。  這個指令碼會產生 Log Analytics 工作區識別碼及主要金鑰的密碼 YAML 檔案，來保護您的密碼資訊。  
-2. 執行下列命令，以針對 Azure 監視器中建立專案，並設定使用者帳戶。 祕密產生指令碼會要求您的 Log Analytics 工作區識別碼 <WSID> 和主要金鑰 <KEY>，並且在完成時，建立 ocp-secret.yaml 檔案。  
+2. 執行下列命令，以針對 Azure 監視器中建立專案，並設定使用者帳戶。 祕密產生指令碼會要求您的 Log Analytics 工作區識別碼 `<WSID>` 和主要金鑰 `<KEY>`，並且在完成時，建立 ocp-secret.yaml 檔案。  
 
     ```
     oadm new-project omslogging --node-selector='zone=default'  
@@ -365,7 +365,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
         KEY:    88 bytes
         ```
 
-    5. 建立您的 omsagent daemon-set 執行 ```sudo kubectl create -f omsagent-ds-secrets.yaml```
+    5. 執行 ```sudo kubectl create -f omsagent-ds-secrets.yaml``` 以建立您的 omsagent daemon-set
 
 2. 確認 Log Analytics 代理程式 DaemonSet 正在執行，如下所示：
 
@@ -409,7 +409,7 @@ KEY:    88 bytes
         ```
         #> sudo bash ./secret-gen.sh
         ```
-    3. 建立您的 omsagent daemon-set 執行 ```kubectl create -f omsagentsecret.yaml```
+    3. 執行 ```kubectl create -f omsagentsecret.yaml``` 以建立您的 omsagent daemon-set
     4. 若要檢查，請執行下列命令：
 
         ```
@@ -436,7 +436,7 @@ KEY:    88 bytes
         KEY:    88 bytes
         ```
 
-    5. 建立您的 omsagent daemon-set 執行 ```kubectl create -f ws-omsagent-de-secrets.yaml```
+    5. 執行 ```kubectl create -f ws-omsagent-de-secrets.yaml``` 以建立您的 omsagent daemon-set
 
 2. 確認 Log Analytics 代理程式 DaemonSet 正在執行，如下所示：
 
@@ -451,7 +451,7 @@ KEY:    88 bytes
 #### <a name="use-helm-to-deploy-log-analytics-agent-on-linux-kubernetes"></a>使用 Helm 在 Linux Kubernetes 上部署 Log Analytics 代理程式
 若要使用 Helm 在 Linux Kubernetes 環境下部署 Log Analytics 代理程式，請執行下列步驟。
 
-1. 建立您的 omsagent daemon-set 執行 ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```
+1. 執行 ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms``` 以建立您的 omsagent daemon-set
 2. 結果將看起來如下所示：
 
     ```
@@ -530,7 +530,7 @@ Start-Service docker
 
 每隔三分鐘會依下列代理程式類型收集資料。
 
-- [Log Analytics Linux 代理程式](../../azure-monitor/learn/quick-collect-linux-computer.md)
+- [適用於 Linux 的 Log Analytics 代理程式](../../azure-monitor/learn/quick-collect-linux-computer.md)
 - [Windows 代理程式](../../azure-monitor/platform/agent-windows.md)
 - [Log Analytics VM 延伸模組](../../azure-monitor/learn/quick-collect-azurevm.md)
 
@@ -567,12 +567,12 @@ Start-Service docker
 
 - **容器事件** - 會顯示容器狀態和包含失敗容器的電腦。
 - **容器記錄** - 會顯示一段時間所產生的容器記錄檔圖表，和包含最大量記錄檔的電腦清單。
-- **Kubernetes 事件** - 會顯示一段時間所產生的 Kubernetes 事件圖表，和 Pod 產生事件的原因清單。 *此資料集是只能用在 Linux 環境。*
-- **Kubernetes 命名空間清查** - 會顯示命名空間和 Pod 的數目，並顯示其階層。 *此資料集是只能用在 Linux 環境。*
-- **容器節點清查** - 會顯示容器節點/主機上使用的協調流程類型數目。 還會依容器數目列出電腦節點/主機。 *此資料集是只能用在 Linux 環境。*
+- **Kubernetes 事件** - 會顯示一段時間所產生的 Kubernetes 事件圖表，和 Pod 產生事件的原因清單。 只有在 Linux 環境中才會使用此資料集。
+- **Kubernetes 命名空間清查** - 會顯示命名空間和 Pod 的數目，並顯示其階層。 只有在 Linux 環境中才會使用此資料集。
+- **容器節點清查** - 會顯示容器節點/主機上使用的協調流程類型數目。 還會依容器數目列出電腦節點/主機。 只有在 Linux 環境中才會使用此資料集。
 - **容器映像庫存** - 會顯示已使用的容器映像總數和映像類型的數目。 還會依影像標籤列出映像數目。
 - **容器狀態** - 會顯示具有執行中容器的容器節點/主機電腦總數。 還會依執行中主機的數目列出電腦。
-- **容器流程** - 會顯示一段時間執行的容器流程折線圖。 還會依容器內的執行命令/流程列出容器。 *此資料集是只能用在 Linux 環境。*
+- **容器流程** - 會顯示一段時間執行的容器流程折線圖。 還會依容器內的執行命令/流程列出容器。 只有在 Linux 環境中才會使用此資料集。
 - **容器 CPU 效能** - 會顯示一段時間電腦節點/主機的平均 CPU 使用率折線圖。 還會以平均 CPU 使用率作為基礎列出電腦節點/主機。
 - **容器記憶體效能** - 會顯示一段時間的記憶體使用量折線圖。 還會以執行個體名稱作為基礎列出電腦記憶體使用率。
 - **電腦效能** - 會顯示一段時間的 CPU 效能百分比、一段時間的記憶體使用量百分比，以及一段時間的可用磁碟空間 MB 等折線圖。 您可以將滑鼠停留在圖表中的任一行，以檢視更多詳細資料。
@@ -607,7 +607,7 @@ Log Analytics 隨即開啟，顯示您的容器狀態的相關資訊。
    ![失敗的容器](./media/containers/containers-state-failed-select.png)  
 1. 執行查詢，然後展開 若要檢視映像識別碼。 結果中的資料行  
    ![失敗的容器](./media/containers/containers-state-failed.png)  
-1. 記錄檔查詢中，輸入下列命令。 `ContainerImageInventory | where ImageID == <ImageID>` 若要查看詳細的映像，例如停止和失敗映像的映像大小和數目。  
+1. 記錄檔查詢中，輸入下列命令。 `ContainerImageInventory | where ImageID == <ImageID>`可查看關於映像的詳細資料，例如停止和失敗映像的映像大小與數目。  
    ![失敗的容器](./media/containers/containers-failed04.png)
 
 ## <a name="query-logs-for-container-data"></a>容器資料的查詢記錄

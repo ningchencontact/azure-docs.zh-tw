@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: a4907a65f100fd6efcabe422becad69aaee4b6ef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/12/2019
+ms.openlocfilehash: 8a2a61e821ad41265dc9262064a79a5c44abbc7f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57882704"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545819"
 ---
 # <a name="automated-backups"></a>自動備份
 
@@ -66,13 +66,13 @@ SQL Database 會自動建立保留 7 到 35 天的資料庫備份，並使用 Az
 如果您是使用[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)，預設的備份保留期限是 7 天 (適用於單一、集區和執行個體資料庫)。 針對所有 Azure SQL 資料庫 (單一、集區和執行個體資料庫)，您可以[將備份保留期限變更為最多 35 天](#how-to-change-the-pitr-backup-retention-period)。
 
 > [!WARNING]
-> 如果您減少目前的保留期限，已不再提供所有現有的備份超過新的保留期限。 如果您延長目前的保留期間，則 SQL Database 將保留現有備份，直到達到較長的保留期間為止。
+> 如果缩短当前保留期，早于新保留期的所有现有备份将不再可用。 如果您延長目前的保留期間，則 SQL Database 將保留現有備份，直到達到較長的保留期間為止。
 
 ## <a name="how-often-do-backups-happen"></a>備份發生頻率為何
 
 ### <a name="backups-for-point-in-time-restore"></a>時間點還原的備份
 
-SQL Database 透過自動建立完整備份、差異備份和交易記錄備份，以支援自助式時間點還原 (PITR)。 根據計算大小和資料庫活動量的頻率，完整資料庫備份會每週建立，差異資料庫備份通常每隔 12 小時建立，而交易記錄備份通常每隔 5-10 分鐘建立。 建立資料庫之後，會立即排程第一次完整備份。 通常會在 30 分鐘內完成，但如果資料庫很大，則時間可能更久。 比方說，在還原的資料庫或資料庫複本上，初始備份可能需要較長的時間。 在完成首次完整备份后，在后台以静默方式自动计划和管理所有后续备份。 資料庫備份的確切時間，依 SQL Database 服務整體系統工作負載維持平衡而決定。
+SQL Database 透過自動建立完整備份、差異備份和交易記錄備份，以支援自助式時間點還原 (PITR)。 根據計算大小和資料庫活動量的頻率，完整資料庫備份會每週建立，差異資料庫備份通常每隔 12 小時建立，而交易記錄備份通常每隔 5-10 分鐘建立。 建立資料庫之後，會立即排程第一次完整備份。 通常會在 30 分鐘內完成，但如果資料庫很大，則時間可能更久。 比方說，在還原的資料庫或資料庫複本上，初始備份可能需要較長的時間。 在完成首次完整备份后，在后台以静默方式自动计划和管理所有后续备份。 資料庫備份的確切時間，依 SQL Database 服務整體系統工作負載維持平衡而決定。 您無法變更或停用備份作業。 
 
 PITR 備份為異地備援，並受到 [Azure 儲存體跨區域複寫](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)保護
 
@@ -107,14 +107,14 @@ Azure SQL Database 工程小組會持續自動地對服務上所有資料庫，�
 
 ## <a name="how-to-change-the-pitr-backup-retention-period"></a>如何變更 PITR 備份保留期間
 
-您可以使用 Azure 入口網站、PowerShell 或 REST API 變更預設的 PITR 備份保留期限。 支援的值為：7、14、21、28 或 35 天。 下列範例說明如何將 PITR 保留變更為 28 天。
+您可以變更使用 Azure 入口網站、 PowerShell 或 REST API 的預設 PITR 備份保留期限。 支援的值為：7、14、21、28 或 35 天。 下列範例說明如何將 PITR 保留變更為 28 天。
 
 > [!NOTE]
 > 這些 API 只會影響 PITR 保留期間。 如果您已將資料庫設定為 LTR，則它不受影響。 如需如何變更 LTR 保留期間的詳細資訊，請參閱[長期保留](sql-database-long-term-retention.md)。
 
 ### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>使用 Azure 入口網站變更 PITR 備份保留期間
 
-若要使用 Azure 入口網站變更 PITR 備份保留期間，請導覽至要在入口網站中變更其保留期間的伺服器物件，然後根據要修改的伺服器物件，選取適當的選項。
+若要變更使用 Azure 入口網站的 PITR 備份保留期限，請瀏覽至 伺服器物件的保留期限，您想要在入口網站中變更，然後選取適當的選項以您要修改哪一個伺服器物件。
 
 #### <a name="change-pitr-for-a-sql-database-server"></a>變更 SQL Database 伺服器的 PITR
 
@@ -128,7 +128,7 @@ Azure SQL Database 工程小組會持續自動地對服務上所有資料庫，�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 ```powershell
 Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
@@ -175,4 +175,4 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 - 若要使用 Azure 入口網站還原至某個時間點，請參閱[使用 Azure 入口網站將資料庫還原至時間點](sql-database-recovery-using-backups.md)。
 - 若要使用 PowerShell 還原至某個時間點，請參閱[使用 PowerShell 將資料庫還原至時間點](scripts/sql-database-restore-database-powershell.md)。
 - 若要使用 Azure 入口網站在 Azure Blob 儲存體中設定、管理自動備份的長期保留及從該保留還原，請參閱[使用 Azure 入口網站來管理長期備份保留 (英文)](sql-database-long-term-backup-retention-configure.md)。
-- 若要設定、 管理及從長期保留期還原自動使用 PowerShell 的 Azure Blob 儲存體中的備份，請參閱 <<c0> [ 管理使用 PowerShell 的長期備份保留](sql-database-long-term-backup-retention-configure.md)。
+- 若要使用 PowerShell 在 Azure Blob 存储中配置和管理自动备份的长期保留，并从中进行还原，请参阅[使用 PowerShell 管理长期备份保留](sql-database-long-term-backup-retention-configure.md)。

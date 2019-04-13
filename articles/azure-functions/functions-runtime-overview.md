@@ -2,26 +2,24 @@
 title: Azure Functions 執行階段概觀 | Microsoft Docs
 description: Azure Functions 執行階段預覽的概觀
 services: functions
-documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: ''
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 2be04c7037dd26755300cf8b7794678a6a958278
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 2af9575c50ee522d6330ddf46c75b666132b7a84
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488455"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546828"
 ---
 # <a name="azure-functions-runtime-overview-preview"></a>Azure Functions 執行階段概觀 (預覽)
+
+[!INCLUDE [intro](../../includes/functions-runtime-preview-note.md)]
 
 Azure Functions 執行階段 (預覽) 提供新的方法，讓您在內部部署利用 Azure Functions 程式設計模型的簡易性和彈性。 與 Azure Functions 一樣，Azure Functions 執行階段以相同的開放原始碼根源為基礎，並於內部部署，提供與雲端服務幾乎完全相同的開發經驗。
 

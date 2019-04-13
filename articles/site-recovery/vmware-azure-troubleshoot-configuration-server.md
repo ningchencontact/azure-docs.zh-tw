@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 287a4104104c12e33fa2c50c398f422f9e6ea8c5
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: f08d7bb2087ef4f30b325b3796a13e387ccdea22
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418698"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525835"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>針對組態伺服器問題進行疑難排解
 
@@ -81,7 +81,7 @@ ms.locfileid: "58418698"
 
 ## <a name="failure-to-activate-windows-license-from-server-standard-evaluation-to-server-standard"></a>若要啟用伺服器標準的 Windows 授權伺服器標準的評估失敗
 
-1. 透過 OVF 組態伺服器部署的一部分，會使用 evaluation 授權，其有效期限為 180 天。 您必須在此授權過期前啟用此授權。 否則，這可以導致頻繁的關機，組態伺服器，並因此會導致複寫活動的障礙。
+1. 通过 OVF 部署配置服务器的过程中，使用了评估许可证，该许可证的有效期为 180 天。 您必須在此授權過期前啟用此授權。 否則，這可以導致頻繁的關機，組態伺服器，並因此會導致複寫活動的障礙。
 2. 如果您無法啟用 Windows 的授權，請連絡 [Windows 支援小組](https://aka.ms/Windows_Support)來解決此問題。
 
 ## <a name="register-source-machine-with-configuration-server"></a>向設定伺服器註冊來源電腦
@@ -203,7 +203,7 @@ ms.locfileid: "58418698"
 
 若要確認主要目標代理程式可以針對組態伺服器 IP 建立 TCP 工作階段，請在主要目標代理程式記錄中尋找類似以下的追蹤：
 
-TCP <Replace IP with CS IP here>:52739 <Replace IP with CS IP here>:443 SYN_SENT 
+TCP\<取代 IP 這裡 CS IP >: 52739\<取代這裡 CS ip 的 IP >: 443 SYN_SENT 
 
 TCP    192.168.1.40:52739     192.168.1.40:443      SYN_SENT  // 以這裡的 CS IP 取代 IP
 

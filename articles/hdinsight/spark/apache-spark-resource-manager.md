@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8072d72dbb164d5012ad42d5cba66c8b425e99a1
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 023fd8267a557fa57e98a6a57785fb9ebfcb12ab
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787898"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523965"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>在 Azure HDInsight 上管理 Apache Spark 叢集的資源 
 
@@ -45,7 +45,7 @@ Apache Ambari 可用來監視叢集和進行設定變更。 如需詳細資訊�
     https://<ClusterName>.azurehdinsight.net/sparkhistory
     ```
 
-    將 <ClusterName> 取代為您的 Spark 叢集名稱。
+    將 `<ClusterName>` 取代為您的 Spark 叢集名稱。
 
 「Spark 記錄伺服器」Web UI 看起來像這樣：
 
@@ -67,7 +67,7 @@ Apache Ambari 可用來監視叢集和進行設定變更。 如需詳細資訊�
 
 這三個組態參數可以在叢集層級設定 (適用於在叢集執行的所有應用程式)，或者也可以針對每個個別應用程式指定。
 
-### <a name="change-the-parameters-using-ambari-ui"></a>使用 Ambari UI 變更參數
+### <a name="change-the-parameters-using-ambari-ui"></a>使用 Ambari UI 更改参数
 1. 從 Ambari UI 按一下 [Spark]、按一下 [設定]，然後展開 [自訂 spark-defaults]。
 
     ![使用 Ambari UI 設定參數](./media/apache-spark-resource-manager/set-parameters-using-ambari.png)
@@ -99,7 +99,7 @@ Apache Ambari 可用來監視叢集和進行設定變更。 如需詳細資訊�
     curl -k -v -H 'Content-Type: application/json' -X POST -d '{"file":"<location of application jar file>", "className":"<the application class to execute>", "args":[<application parameters>], "numExecutors":10, "executorMemory":"2G", "executorCores":5' localhost:8998/batches
 
 ### <a name="change-these-parameters-on-a-spark-thrift-server"></a>在 Spark Thrift 伺服器上變更這些參數
-Spark Thrift 伺服器提供對 Spark 叢集的 JDBC/ODBC 存取，並且用來服務 Spark SQL 查詢。 Power BI、Tableau 等工具 使用 ODBC 通訊協定與 Spark Thrift 伺服器通訊，將 Spark SQL 查詢當作 Spark 應用程式執行。 建立 Spark 叢集時，會啟動 Spark Thrift 伺服器的兩個執行個體，每個前端節點上一個執行個體。 每個 Spark Thrift 伺服器會顯示為 YARN UI 中的 Spark 應用程式。
+Spark Thrift 伺服器提供對 Spark 叢集的 JDBC/ODBC 存取，並且用來服務 Spark SQL 查詢。 Power BI、Tableau 等工具 使用 ODBC 通訊協定與 Spark Thrift 伺服器通訊，將 Spark SQL 查詢當作 Spark 應用程式執行。 创建 Spark 群集时，将启动 Spark Thrift 服务器的两个实例（每个头节点上各有一个实例）。 每個 Spark Thrift 伺服器會顯示為 YARN UI 中的 Spark 應用程式。
 
 Spark Thrift 伺服器會使用 Spark 動態執行程式配置，因此不會使用 `spark.executor.instances` 。 而是 Spark Thrift 伺服器會使用 `spark.dynamicAllocation.minExecutors` 和 `spark.dynamicAllocation.maxExecutors` 來指定執行程式計數。 會使用組態參數 `spark.executor.cores` 和 `spark.executor.memory` 以修改執行程式大小。 您可以變更這些參數，如下列步驟所示：
 
@@ -151,7 +151,7 @@ Spark Thrift 伺服器會使用 Spark 動態執行程式配置，因此不會使
 
     ![終止 App2](./media/apache-spark-resource-manager/kill-app2.png "終止 App2")
 
-## <a name="see-also"></a>另請參閱
+## <a name="see-also"></a>請參閱
 * [追蹤和偵錯在 HDInsight 中的 Apache Spark 叢集上執行的作業](apache-spark-job-debugging.md)
 
 ### <a name="for-data-analysts"></a>針對資料分析師

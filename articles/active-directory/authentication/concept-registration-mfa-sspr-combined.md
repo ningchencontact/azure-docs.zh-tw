@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f3eec1f846f1b74ab3e19bca022d4e009540d1a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 7cf8d5cb13b39d58920555ff9d99a4949e1bfc20
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59280004"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521422"
 ---
 # <a name="combined-security-information-registration-preview"></a>合併的安全性資訊註冊 （預覽）
 
@@ -25,6 +25,8 @@ ms.locfileid: "59280004"
 ![我的設定檔顯示已註冊使用者的安全性資訊](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
 啟用新的體驗前, 檢閱此系統管理員為焦點的文件和使用者為主的說明文件，以確保您了解這項功能的作用與功能。 您的訓練，在新體驗中準備您的使用者，並協助確保成功首度發行的使用者文件的基底。
+
+Azure AD 結合註冊目前不提供如 Azure 美國政府、 Azure Germany 或 Azure 中國 21vianet 經營的國家/地區雲端的安全性資訊。
 
 |     |
 | --- |
@@ -139,4 +141,4 @@ ms.locfileid: "59280004"
 
 [設定自助式密碼重設](howto-sspr-deployment.md)
 
-[設定 Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+[設定 Azure Multi-factor Authentication](howto-mfa-getstarted.md)

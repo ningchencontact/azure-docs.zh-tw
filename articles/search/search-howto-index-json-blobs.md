@@ -1,7 +1,7 @@
 ---
 title: 為 Azure Blob 索引子的 JSON Blob 編製索引以用於全文檢索搜尋 - Azure 搜尋服務
 description: 使用 Azure 搜尋服務 Blob 索引子，搜耙文字內容的 Azure JSON Blob。 索引子可為選取的資料來源 (例如 Azure Blob 儲存體) 將資料擷取自動化。
-ms.date: 02/28/2019
+ms.date: 04/11/2019
 author: HeidiSteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: f44161586f9f4e121001b9f5e285b0e1e1dcd9d1
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 6db86d3e5aba1a2e43e69e71df8cc516fb14581f
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518740"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527348"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>如何使用 Azure 搜尋服務 Blob 索引子編製 JSON blob
 本文說明如何設定 Azure 搜尋服務 blob [indexer](search-indexer-overview.md)擷取 Azure Blob 儲存體中的 JSON 文件中的結構化的內容，並使其可在 Azure 搜尋服務。 此工作流程建立 Azure 搜尋服務索引，並將其載入具有現有從 JSON blob 擷取的文字。 
@@ -40,14 +40,15 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 文件或 JSON 實體�
 
 ### <a name="1---prepare-source-data"></a>1 - 準備來源資料
 
-請準備 Azure 儲存體帳戶，此帳戶必須有 Blob 儲存體和 JSON 文件容器。 如果您不熟悉這些需求，檢閱 「 設定 Azure Blob 服務和載入範例資料 」 中[認知搜尋-快速入門](cognitive-search-quickstart-blob.md#set-up-azure-blob-service-and-load-sample-data)。
+1. [登入 Azure 入口網站](https://portal.azure.com/)。
 
-> [!Important]
-> 在容器中，務必**公用存取層級**設為 「 容器 （匿名讀取權限適用於容器和 blob） 」。 Azure 儲存體和 Azure 搜尋服務應位於相同的訂用帳戶，且可能的話，請在相同的區域中。 
+1. [建立 Blob 容器](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)來包含的資料。 公用存取層級可以設定為任何有效的值。
+
+您將需要儲存體帳戶名稱、 容器名稱和存取金鑰，才能擷取您的資料**匯入資料**精靈。
 
 ### <a name="2---start-import-data-wizard"></a>2 - 啟動匯入資料精靈
 
-您可以從 Azure 搜尋服務頁面中的命令列[啟動精靈](search-import-data-portal.md)，也可以藉由在儲存體帳戶左側瀏覽窗格的 [Blob 服務] 區段中按一下 [新增 Azure 搜尋服務] 來啟動。
+在您的 Azure 搜尋服務的 [概觀] 頁面中，您可以[啟動精靈](search-import-data-portal.md)從 [命令] 列中，或按一下**新增 Azure 搜尋服務**中**Blob 服務**區段的程式儲存體帳戶的左導覽窗格中。
 
    ![在入口網站匯入資料命令](./media/search-import-data-portal/import-data-cmd2.png "啟動匯入資料精靈")
 

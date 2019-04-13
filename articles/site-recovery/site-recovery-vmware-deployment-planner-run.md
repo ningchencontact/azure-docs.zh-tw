@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 1cf324887a225ecb9ba2cb40176a1f358e40a8e1
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: a3aef06e6ee0d3989a4da8fdd93d27d28f2eede4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361986"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527674"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>針對 VMware 至 Azure 的災害復原執行 Azure Site Recovery 部署規劃工具
 本文是 VMware 到 Azure 生產部署的 Azure Site Recovery Deployment Planner 使用者指南。
@@ -136,7 +136,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 
 
 ## <a name="generate-report"></a>產生報告
-此工具會產生啟用巨集的 Microsoft Excel 檔案 (XLSM) 做為報告輸出，其中摘要說明所有的部署建議。 此報告的名稱為 DeploymentPlannerReport_<unique numeric identifier>.xlsm 且置於指定的目錄中。
+此工具會產生啟用巨集的 Microsoft Excel 檔案 (XLSM) 做為報告輸出，其中摘要說明所有的部署建議。 此報表稱為`DeploymentPlannerReport_<unique numeric identifier>.xlsm`且置於指定的目錄。
 
 >[!NOTE]
 >該報告要求將小數符號設定為 "." 以在執行部署規劃工具的伺服器上產生成本估計。 如果您在 Windows 電腦上設定了 "," 作為小數點符號，請移至 [控制台] 中的 [變更日期、時間或數字格式]，然後移至 [其他設定] 將小數點符號更改為 "."。
@@ -214,7 +214,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 ```
 
 ## <a name="percentile-value-used-for-the-calculation"></a>用來計算的百分位數值
-**產生報表時，分析期間收集效能計量的哪些預設百分位數值並工具使用嗎？**
+**工具在產生報告時，會使用分析期間所收集之效能計量的哪些預設百分位數值？**
 
 此工具預設為在所有 VM 的分析期間收集之讀/寫 IOPS、寫入 IOPS 及資料變換的第 95 個百分位數值。 此計量可確保您的 VM 可以看到第 100 個百分位數尖峰，因為暫存事件不會用來判斷您的目標儲存體帳戶和來源頻寬需求。 例如，暫存事件可能是一天執行一次的備份作業、定期資料庫檢索或分析報告產生活動，或其他類似的短期時間點事件。
 
@@ -226,7 +226,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 ```
 
 ## <a name="growth-factor-considerations"></a>成長因子考量
-**為什麼我應該考慮的成長因子規劃部署時？**
+**規劃部署時為何應考量成長因子？**
 
 假設使用量可能會隨著時間增加，請務必考量您的工作負載特性成長。 防護就緒之後，如果工作負載特性變更，在未停用並重新啟用保護的情況下，您無法切換到不同的儲存體帳戶進行保護。
 
@@ -240,12 +240,12 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 
 產生的 Microsoft Excel 報告包含下列資訊：
 
-* [在內部部署摘要](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
+* [內部部署摘要](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
 * [建議](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
-* [VM <>-儲存體放置](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
+* [VM<->儲存體放置](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
 * [相容的 VM](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-vms)
 * [不相容的 VM](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-vms)
-* [成本的估計](site-recovery-vmware-deployment-planner-cost-estimation.md)
+* [成本估計](site-recovery-vmware-deployment-planner-cost-estimation.md)
 
 ![Deployment Planner](media/site-recovery-vmware-deployment-planner-analyze-report/Recommendations-v2a.png)
 

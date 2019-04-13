@@ -8,21 +8,20 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 97efb82f104742993f7b2fac40a74f4feb9e0b38
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 7984172c2b66f2b09e31c646b111e4b9d04fce2b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56333992"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551568"
 ---
 記憶體最佳化的虛擬機器大小的記憶體與 CPU 比例相當高，最適合關聯式資料庫伺服器、中型到大型快取，以及記憶體內部分析。 本文提供 vCPU 數量、資料磁碟和 NIC 的相關資訊，以及此群組中各種大小之儲存體輸送量和網路頻寬的相關資訊。 
 
 * M 系列可在雲端提供最高 vCPU 計數 (最多 128 個 vCPU) 和最大記憶體 (最多 3.8 TiB) 的 VM。  它很適合用於受益於高 vCPU 計數和大量記憶體的極大型資料庫或其他應用程式。
 
-* Dv2 系列、G 系列以及對應的 DSv2/GS 是要求更快速的 vCPU、更好的暫存儲存體效能，或有更高記憶體需求之應用程式的最佳選擇。  它們為許多企業級應用程式提供了強大的組合。
+* Dv2 系列、 G 系列以及對應的 DSv2/GS 是適合用來要求更快速的 Vcpu、 更好的暫存儲存體效能，或有更高記憶體需求的應用程式。 它們為許多企業級應用程式提供了強大的組合。
 
-
-* Dv2 系列是原始 D 系列的延續，擁有更強大的 CPU。 Dv2 系列 CPU 比 D 系列 CPU 快約 35%。 它以最新一代的 2.4 GHz Intel Xeon® E5-2673 v3 2.4 GHz (Haswell) 或 E5-2673 v4 2.3 GHz (Broadwell) 處理器為基礎，搭配 Intel Turbo Boost Technology 2.0，最高可達 3.1 GHz。 Dv2 系列的記憶體和磁碟組態和 D 系列一樣。
+* Dv2 系列是原始 D 系列的延續，擁有更強大的 CPU。 Dv2 系列 CPU 比 D 系列 CPU 快約 35%。 它根據最新一代 2.4 GHz Intel Xeon® E5 2673 v3 2.4 GHz (Haswell) 或 E5 2673 v4 2.3 GHz (Broadwell) 處理器，並使用 Intel 渦輪加速技術 2.0 可達 3.1 GHz。 Dv2 系列的記憶體和磁碟組態和 D 系列一樣。
 
 * Ev3 系列以超執行緒組態搭配 E5-2673 v4 2.3 GHz (Broadwell) 處理器，可為多數一般用途的工作負載提供更好的價值主張，並且讓 Ev3 更為符合其他多數雲端的一般用途 VM 的需求。  除了記憶體已擴充 (從 7 GiB/vCPU 到 8 GiB/vCPU)，磁碟和網路限制也已就個別核心進行調整，以符合移轉至超執行緒的需求。  Ev3 承襲了 D/Dv2 系列的高記憶體 VM 大小。
 
@@ -170,7 +169,6 @@ ACU：180 - 240
 <sup>1</sup> 執行個體會隔離至單一客戶專用的硬體。
 <br>
 
-
 ## <a name="dsv2-series-11-15"></a>DSv2 系列 11-15
 
 ACU：210 - 250 <sup>1</sup>
@@ -187,14 +185,10 @@ ACU：210 - 250 <sup>1</sup>
 | Standard_DS14_v2&nbsp;<sup>3</sup>|16 |112 |224 |64 |64,000 / 512 (576) |51,200 / 768 |8 / 12000 |
 | Standard_DS15_v2&nbsp;<sup>2</sup> |20 |140 |280 |64 |80,000 / 640 (720) |64,000 / 960 |8 / 25000&nbsp;<sup>4</sup>
 
-
-<sup>1</sup> DSv2 系列 VM 的最大磁碟輸送量 (IOPS 或 MBps)，可能會受到所連接磁碟的數量、大小和串接所限制。  如需詳細資訊，請參閱[為高效能而設計](../articles/virtual-machines/windows/premium-storage-performance.md)。
-
-<sup>2</sup> 執行個體會隔離至單一客戶專用的硬體。
-
-<sup>3</sup> 可用限制核心大小。
-
-<sup>4</sup> 25000 Mbps (含加速網路)。
+<sup>1</sup> DSv2 系列 VM 的最大磁碟輸送量 (IOPS 或 MBps)，可能會受到所連接磁碟的數量、大小和串接所限制。  如需詳細資訊，請參閱[為高效能而設計](../articles/virtual-machines/windows/premium-storage-performance.md)。  
+<sup>2</sup> 執行個體會隔離至單一客戶專用的硬體。  
+<sup>3</sup> 可用限制核心大小。  
+<sup>4</sup> 25000 Mbps (含加速網路)。 
 
 <br>
 
@@ -214,13 +208,5 @@ ACU：210 - 250
 | Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 12000          |
 | Standard_D15_v2&nbsp;<sup>1</sup> | 20        | 140         | 1,000          | 60000 / 937 / 468                                        | 64 / 64x500                       | 8 / 25000&nbsp;<sup>2</sup> |
 
-<sup>1</sup> 執行個體會隔離至單一客戶專用的硬體。 
-
-<sup>2</sup> 25000 Mbps (含加速網路)。
-
-
-
-<br>
-
-
-
+<sup>1</sup> 執行個體會隔離至單一客戶專用的硬體。  
+<sup>2</sup> 25000 Mbps (含加速網路)。 

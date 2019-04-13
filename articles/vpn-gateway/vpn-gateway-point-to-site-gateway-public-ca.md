@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 24956dd51ef4c2544ce28005fa3bff31113e5959
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 29f2aeee53e07adfeafb8017c489c0b830f24b36
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848917"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521589"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>轉換為 P2S 的公用 CA 閘道憑證
 
@@ -56,7 +56,7 @@ Azure VPN 閘道不會再向其 P2S 連線閘道簽發 Azure 層級的自我簽�
 
 ### <a name="classic"></a>傳統
 
-1. 在用戶端電腦上，瀏覽至路徑 %appdata%/Microsoft/Network/Connections/Cm/<gatewayID>。 在 [閘道識別碼] 資料夾中，您可以檢視憑證。
+1. 用戶端電腦上，瀏覽至路徑`%appdata%/Microsoft/Network/Connections/Cm/<gatewayID>`。 在 [閘道識別碼] 資料夾中，您可以檢視憑證。
 2. 在憑證的 [一般] 索引標籤上，確認簽發授權單位是 "DigiCert Global Root CA"。 如果您有此簽發授權單位以外的任何項目，則您的閘道憑證會是更新的一部分，而且將會進行轉換。
 
 ## <a name="2-check-certificate-transition-schedule"></a>2.檢查憑證轉換排程

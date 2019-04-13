@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/18/2019
+ms.date: 04/12/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: e2360b5587d204ec87fe82c029391c7252d27914
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: ff1f613dfdfb5c43b727bcc9c7f7a1f0afca0975
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189541"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546891"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>使用 DMV 監視工作負載
 本文說明如何使用動態管理檢視 (DMV) 來監視您的工作負載。 這包括調查 Azure SQL 資料倉儲中的查詢執行。
@@ -68,9 +68,9 @@ WHERE   [label] = 'My Query';
 
 從前述的查詢結果中，記下您想要調查之查詢的 **要求 ID** 。
 
-中的查詢**Suspended**狀態可以因為大量的作用中執行的查詢排入佇列。 這些查詢也會出現在[sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)等候查詢中的，類型為 UserConcurrencyResourceType。 如需有關並行限制的資訊，請參閱[效能層級](performance-tiers.md)或[適用於工作負載管理的資源類別](resource-classes-for-workload-management.md)。 查詢也會因其他原因 (例如物件鎖定) 而等候。  如果您的查詢正在等候資源，請參閱本文稍後的[檢查正在等候資源的查詢][Investigating queries waiting for resources]。
+由于存在大量活动的运行查询，因此处于“挂起”状态的查询可以排队。 这些查询也出现在类型为 UserConcurrencyResourceType 的 [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) 等待查询中。 如需有關並行限制的資訊，請參閱[效能層級](performance-tiers.md)或[適用於工作負載管理的資源類別](resource-classes-for-workload-management.md)。 查詢也會因其他原因 (例如物件鎖定) 而等候。  如果您的查詢正在等候資源，請參閱本文稍後的[檢查正在等候資源的查詢][Investigating queries waiting for resources]。
 
-若要簡化中的查詢[sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)資料表，請使用[標籤][ LABEL]為可以 sys.dm_pdw_exec_ 中查閱您查詢指派註解要求的檢視。
+为了简化在 [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 表中查找查询的过程，请使用 [LABEL][LABEL] 将注释分配给可在 sys.dm_pdw_exec_requests 视图中查找的查询。
 
 ```sql
 -- Query with Label
@@ -170,33 +170,10 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 如果查詢正在主動等候另一個查詢的資源，則狀態會是 **AcquireResources**。  如果查詢具有全部的所需資源，則狀態會是 **Granted**。
 
 ## <a name="monitor-tempdb"></a>監視 tempdb
-高 tempdb 使用量是效能緩慢及記憶體不足問題的根本原因。 如果您在查詢執行期間發現 tempdb 達到其上限，請考慮調整您的資料倉儲。 以下資訊描述如何識別每個節點上每個查詢的 tempdb 使用量。 
+Tempdb 用以查詢執行期間保存中繼結果。 Tempdb 資料庫的高使用率可能會導致查詢效能變慢。 Azure SQL 資料倉儲中的每個節點有大約 1 TB 的原始 tempdb 的空間。 以下是監視 tempdb 使用量並降低在查詢中的 tempdb 使用量的秘訣。 
 
-建立下列檢視，以針對 sys.dm_pdw_sql_requests 建立適當節點識別碼的關聯。 擁有節點識別碼可讓您使用其他傳遞 DMV，並將這些資料表與 sys.dm_pdw_sql_requests 聯結。
-
-```sql
--- sys.dm_pdw_sql_requests with the correct node id
-CREATE VIEW sql_requests AS
-(SELECT
-       sr.request_id,
-       sr.step_index,
-       (CASE 
-              WHEN (sr.distribution_id = -1 ) THEN 
-              (SELECT pdw_node_id FROM sys.dm_pdw_nodes WHERE type = 'CONTROL') 
-              ELSE d.pdw_node_id END) AS pdw_node_id,
-       sr.distribution_id,
-       sr.status,
-       sr.error_id,
-       sr.start_time,
-       sr.end_time,
-       sr.total_elapsed_time,
-       sr.row_count,
-       sr.spid,
-       sr.command
-FROM sys.pdw_distributions AS d
-RIGHT JOIN sys.dm_pdw_sql_requests AS sr ON d.distribution_id = sr.distribution_id)
-```
-若要監視 tempdb，請執行下列查詢：
+### <a name="monitoring-tempdb-with-views"></a>監視 tempdb 與檢視
+若要監視 tempdb 使用量，請先安裝[microsoft.vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql)從檢視[適用於 SQL 資料倉儲的 Microsoft 工具組](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring)。 然後，您可以執行下列查詢，以查看每個節點的所有執行查詢的 tempdb 使用量：
 
 ```sql
 -- Monitor tempdb
@@ -221,12 +198,17 @@ SELECT
 FROM sys.dm_pdw_nodes_db_session_space_usage AS ssu
     INNER JOIN sys.dm_pdw_nodes_exec_sessions AS es ON ssu.session_id = es.session_id AND ssu.pdw_node_id = es.pdw_node_id
     INNER JOIN sys.dm_pdw_nodes_exec_connections AS er ON ssu.session_id = er.session_id AND ssu.pdw_node_id = er.pdw_node_id
-    INNER JOIN sql_requests AS sr ON ssu.session_id = sr.spid AND ssu.pdw_node_id = sr.pdw_node_id
+    INNER JOIN microsoft.vw_sql_requests AS sr ON ssu.session_id = sr.spid AND ssu.pdw_node_id = sr.pdw_node_id
 WHERE DB_NAME(ssu.database_id) = 'tempdb'
     AND es.session_id <> @@SPID
     AND es.login_name <> 'sa' 
 ORDER BY sr.request_id;
 ```
+
+如果您有會耗用大量記憶體或已收到的 tempdb 配置相關的錯誤訊息的查詢，則它通常是因為非常大型[CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)或是[INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql)在最後的資料移動作業中失敗執行的陳述式。 這通常被可識別為 ShuffleMove 操作分散式的查詢計劃之前最後一個 INSERT SELECT 中。
+
+最常見的緩和措施是 CTAS 或 INSERT SELECT 陳述式分成多個 load 陳述式，以便將資料磁碟區將不會超過 1 TB，每個節點 tempdb 的限制。 您也可以調整您的叢集較大的大小會減少每個個別的節點上 tempdb 的更多節點散佈的 tempdb 大小。 
+
 ## <a name="monitor-memory"></a>監視記憶體
 
 記憶體是效能緩慢及記憶體不足問題的根本原因。 如果您在查詢執行期間發現 SQL Server 記憶體使用量達到其上限，請考慮調整您的資料倉儲。

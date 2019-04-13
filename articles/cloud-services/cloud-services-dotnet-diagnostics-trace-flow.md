@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/20/2016
 ms.author: jeconnoc
-ms.openlocfilehash: f0724fd6e5f08f3e09bcb147c12d1657235dc704
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: f597bc760a3f3825416912642ee66a53dfb91696
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916881"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525556"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>使用 Azure 診斷追蹤雲端服務應用程式的流程
 追蹤是一種方式，可讓您在應用程式執行時加以監視。 您可以使用 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace)、[System.Diagnostics.Debug](/dotnet/api/system.diagnostics.debug) 和 [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource) 類別，在記錄檔、文字檔或其他裝置中記錄錯誤和應用程式執行的相關資訊，供稍後分析。 如需追蹤的詳細資訊，請參閱 [追蹤和檢測應用程式](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications)。
@@ -69,7 +69,7 @@ Trace、Debug 和 TraceSource，需要您設定「接聽程式」來收集和記
 完成加入接聽程式的步驟之後，您可以加入您的追蹤陳述式到程式碼中。
 
 ### <a name="to-add-trace-statement-to-your-code"></a>將追蹤陳述式加入至您的程式碼
-1. 開啟您的應用程式的原始程式檔。 例如，背景工作角色或 Web 角色的 <RoleName>.cs 檔案。
+1. 開啟您的應用程式的原始程式檔。 比方說， \<RoleName > 背景工作角色或 web 角色的.cs 檔案。
 2. 加入下列 using 陳述式 (如果尚未加入)：
     ```
         using System.Diagnostics;

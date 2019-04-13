@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: a5ddc17f6200ba2d43d67fcd2e4bcc35c224e6cb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9ae7795381f036bb819ce24554d8cea94ceb5552
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004069"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548537"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務將 PyTorch 模型定型
 
@@ -46,7 +46,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-proj',
 參數 | 描述
 --|--
 `source_directory` |  包含定型作業所需之所有程式碼的本機目錄。 此資料夾是從您的本機電腦複製到遠端計算
-`script_params` |  用於指定您的定型指令碼 `entry_script` 命令列引數的字典，格式為 <命令列引數, 值> 組
+`script_params` |  指定您的訓練指令碼的命令列引數的字典`entry_script`，形式 < 命令列引數的值 > 組。  若要指定的詳細資訊的旗標，在`script_params`，使用`<command-line argument, "">`。
 `compute_target` |  您的定型指令碼執行所在的遠端計算目標，在此案例中為 Azure Machine Learning Compute ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) 叢集
 `entry_script` |  要在遠端計算上執行之定型指令碼的檔案路徑 (相對於 `source_directory`)。 此檔案 (以及此檔案所相依的其他任何檔案) 都應位於此資料夾
 `conda_packages` |  要透過 Conda 安裝的 Python 套件清單 (其中包含您的定型指令碼所需的套件)。 建構函式有另一個名為 `pip_packages` 的參數，您可以視需要將此參數用於任何 pip 套件

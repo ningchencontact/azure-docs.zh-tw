@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: prashanthyv
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 5ec5109aa8079b37015f66443b8ebac905ad2fcb
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 99b37a9b12c4b66e9b254156dfe4b59c7ab6594c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370553"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526267"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault 受控儲存體帳戶 - CLI
 
@@ -109,7 +109,7 @@ Key Vault 受控儲存體帳戶功能會代表您執行數個管理功能：
 當您完成上面所列的步驟之後，可以執行下列命令，以要求 Key Vault 為您產生 SAS 權杖。 
 
 會在以下步驟中完成的事項清單為
-- 在您保存庫 '<VaultName>' 中由 KeyVault 管理的儲存體帳戶 '<YourStorageAccountName>' 上，設定名為 '<YourSASDefinitionName>' 的帳戶 SAS 定義。 
+- 設定帳戶 SAS 定義名為`<YourSASDefinitionName>`KeyVault 受控儲存體帳戶`<YourStorageAccountName>`在您的保存庫`<VaultName>`。 
 - 透過 Https 並使用指定的開始和結束日期，為資源型「服務」、「容器」和「物件」，建立服務 Blob、檔案、資料表和佇列的帳戶 SAS 權杖
 - 使用如上面所建立 SAS 權杖的範本 URI，在保存庫中設定 KeyVault 管理的儲存體 SAS 定義，其 SAS 類型為 'account' 且有效期為 N 天
 - 從與 SAS 定義相對應的 KeyVault 祕密擷取實際的存取權杖

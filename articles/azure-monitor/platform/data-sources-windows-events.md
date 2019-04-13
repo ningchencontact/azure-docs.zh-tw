@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 1f55e03d9a925bf939d627f376d29edf27461e74
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 8fcab1ead4ab6135e715dc173829178e43f8af2a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001114"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522705"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Azure 監視器中的 Windows 事件記錄檔資料來源
 Windows 事件記錄檔是使用 Windows 代理程式收集資料的常見[資料來源](agent-data-sources.md)之一，因為許多應用程式會寫入 Windows 事件記錄檔。  除了指定您要監視之應用程式所建立的任何自訂記錄檔之外，您也可以透過標準記錄檔 (例如系統和應用程式) 來收集事件。
@@ -44,7 +44,7 @@ Azure 監視器只會從設定中指定的 Windows 事件記錄檔收集事件�
 ## <a name="windows-event-records-properties"></a>Windows 事件記錄屬性
 Windows 事件記錄都具有 **Event** 類型以及下表中的屬性。
 
-| 屬性 | 說明 |
+| 屬性 | 描述 |
 |:--- |:--- |
 | 電腦 |收集事件的來源電腦名稱。 |
 | EventCategory |事件的類別。 |
@@ -54,7 +54,7 @@ Windows 事件記錄都具有 **Event** 類型以及下表中的屬性。
 | EventLevelName |文字格式的事件嚴重性。 |
 | EventLog |收集事件的來源事件記錄檔名稱。 |
 | ParameterXml |XML 格式的事件參數值。 |
-| ManagementGroupName |System Center Operations Manager 代理程式的管理群組名稱。  若為其他代理程式，此值為 AOI-<workspace ID>。 |
+| ManagementGroupName |System Center Operations Manager 代理程式的管理群組名稱。  對於其他代理程式，這個值是 `AOI-<workspace ID>` |
 | RenderedDescription |含參數值的事件描述 |
 | 來源 |事件的來源。 |
 | SourceSystem |收集事件的來源代理程式類型。 <br> OpsManager - Windows 代理程式，直接連接或由 Operations Manager 管理 <br> Linux – 所有的 Linux 代理程式  <br> AzureStorage – Azure 診斷 |
@@ -64,7 +64,7 @@ Windows 事件記錄都具有 **Event** 類型以及下表中的屬性。
 ## <a name="log-queries-with-windows-events"></a>使用 Windows 事件的記錄查詢
 下表提供擷取 Windows 事件記錄的不同記錄查詢範例。
 
-| 查詢 | 說明 |
+| 查詢 | 描述 |
 |:---|:---|
 | Event |所有的 Windows 事件。 |
 | Event &#124; where EventLevelName == "error" |所有 Windows 事件與錯誤的嚴重性。 |

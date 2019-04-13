@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 1ee409bc9e4ad60602ddffd3d1896baf09df52da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4415759530985710c8376709db9955ba98066160
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854784"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527005"
 ---
 # <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>專案負責人在 Team Data Science Process 中的工作
 
@@ -150,7 +150,7 @@ ms.locfileid: "57854784"
 
 ![10](./media/project-lead-tasks/project-leads-10-clone-project-repository-linux.png)
 
-如果您使用 Azure DevOps 作為程式碼裝載平台，_專案存放庫的 SSH URL_ 通常是 _ssh://<Azure DevOps Services 名稱\>@<Azure DevOps Services 名稱\>.visualstudio.com:22/<Your Project Name>/\_git/<您的專案存放庫名稱\>。 在此範例中，我們有***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***。
+如果您使用 Azure DevOps 的程式碼裝載平台，為通常_專案存放庫的 SSH URL_是 _ssh: / / < Azure DevOps 服務名稱\>@< Azure DevOps 服務名稱\>.visualstudio.com:22/ < 您的專案名稱\>/\_git / < 您的專案存放庫名稱\>。 在此範例中，我們有***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***。
 
 ### <a name="copy-contents-of-d3-to-d5"></a>將 D3 的內容複製到 D5 
 

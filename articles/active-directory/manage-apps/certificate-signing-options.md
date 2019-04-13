@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a5548e7a5f60d9882fdfb4fb6eb777ab993e121
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: bede53ef2bc05750be21f831fc0cb790a001c6c5
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58915989"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549332"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>在 Azure Active Directory 中，針對資源庫應用程式使用 SAML 權杖中的進階憑證簽署選項
 
@@ -49,7 +49,7 @@ Azure AD 支援兩種簽署演算法或安全雜湊演算法 (Sha)，來簽署 S
 
 * **SHA-1**。 此演算法是更舊版本，而且它被視為小於比 SHA-256 安全。 如果應用程式僅支援此簽署演算法，您可以在 [簽署演算法] 下拉式清單中選取此選項。 接著，Azure AD 會使用 SHA-1 演算法簽署 SAML 回應。
 
-## <a name="change-the-certificate-signing-options-and-certificate-signing-algorithm"></a>變更憑證簽署選項和憑證簽署演算法
+## <a name="change-certificate-signing-options-and-signing-algorithm"></a>變更憑證簽署選項，並採用簽署演算法
 
 若要變更應用程式的 SAML 憑證簽署選項和憑證簽署演算法，請選取有問題的應用程式：
 
@@ -81,5 +81,5 @@ Azure AD 支援兩種簽署演算法或安全雜湊演算法 (Sha)，來簽署 S
 
 ## <a name="next-steps"></a>後續步驟
 
-* [設定單一登入不在 Azure Active Directory 應用程式庫中的應用程式](configure-federated-single-sign-on-non-gallery-applications.md)
+* [設定對不在 Azure Active Directory 應用程式庫中的應用程式的單一登入](configure-federated-single-sign-on-non-gallery-applications.md)
 * [針對 SAML 型單一登入進行疑難排解](../develop/howto-v1-debug-saml-sso-issues.md)

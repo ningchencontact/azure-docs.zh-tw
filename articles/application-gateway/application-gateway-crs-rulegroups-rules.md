@@ -4,22 +4,24 @@ description: 此頁面提供關於 Web 應用程式防火牆 CRS 規則群組與
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 4/8/2019
+ms.date: 4/11/2019
 ms.author: victorh
-ms.openlocfilehash: 61ab41eed7703c82c2e5ef2a3b5412a9f56389ba
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 0ad5cc76c0f4631fd60eea7d0a57e4740b6a9db3
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59279698"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523914"
 ---
-# <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>提供的 web 應用程式防火牆 CRS 規則群組與規則的清單
+# <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Web 應用程式防火牆 CRS 規則群組與規則
 
-應用程式閘道 web 應用程式防火牆 (WAF) 會保護 web 應用程式免於一般安全性弱點和攻擊。 這是透過根據 OWASP 核心規則集 2.2.9 或 3.0 所定義的規則來完成。 可依規則基礎在規則上停用這些規則。 這篇文章包含目前的規則和提供的規則集。
+應用程式閘道 web 應用程式防火牆 (WAF) 會保護 web 應用程式免於一般安全性弱點和攻擊。 這是透過定義的規則根據 OWASP 核心規則集 3.0 或 2.2.9。 可依規則基礎在規則上停用這些規則。 這篇文章包含目前的規則和提供的規則集。
 
-下表是規則群組以及使用應用程式閘道搭配 web 應用程式防火牆時可供使用的規則。  每個資料表代表特定 CRS 版本的規則群組中找到的規則。
+當使用應用程式閘道 web 應用程式防火牆，會出現下列規則群組和規則。
 
-## <a name="owasp30"></a> OWASP_3.0
+# <a name="owasp-30tabowasp3"></a>[OWASP 3.0](#tab/owasp3)
+
+## <a name="owasp30"></a> 規則集
 
 ### <a name="General"></a> <p x-ms-format-detection="none">一般</p>
 
@@ -50,7 +52,7 @@ ms.locfileid: "59279698"
 |---|---|
 |920100|无效的 HTTP 请求行|
 |920130|無法剖析要求內文。|
-|920140|多部分请求正文未通过严格验证 =     PE %@{REQBODY_PROCESSOR_ERROR}     BQ %@{MULTIPART_BOUNDARY_QUOTED}     BW %@{MULTIPART_BOUNDARY_WHITESPACE}     DB %@{MULTIPART_DATA_BEFORE}     DA %@{MULTIPART_DATA_AFTER}     HF %@{MULTIPART_HEADER_FOLDING}     LF %@{MULTIPART_LF_LINE}     SM %@{MULTIPART_SEMICOLON_MISSING}     IQ %@{MULTIPART_INVALID_QUOTING}     IH %@{MULTIPART_INVALID_HEADER_FOLDING}     FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
+|920140|多部分要求內文的嚴格驗證失敗|
 |920160|Content-Length HTTP 标头不是数字。|
 |920170|具有內文內容的 GET 或 HEAD 要求。|
 |920180|POST 请求缺少 Content-Length 标头。|
@@ -216,7 +218,9 @@ ms.locfileid: "59279698"
 |943110|可能的工作階段 Fixation 攻擊 = 具有關閉網域查閱者的工作階段識別碼參數名稱|
 |943120|可能的工作階段 Fixation 攻擊 = 沒有查閱者的工作階段識別碼參數名稱|
 
-## <a name="owasp229"></a> OWASP_2.2.9
+# <a name="owasp-229tabowasp2"></a>[OWASP 2.2.9](#tab/owasp2)
+
+## <a name="owasp229"></a> 規則集
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 
@@ -225,7 +229,7 @@ ms.locfileid: "59279698"
 |960911|無效的 HTTP 要求列|
 |981227|Apache 錯誤 = 要求中無效的 URI。|
 |960912|無法剖析要求內文。|
-|960914|多部分要求內文的嚴格驗證失敗 =     PE %@{REQBODY_PROCESSOR_ERROR}     BQ %@{MULTIPART_BOUNDARY_QUOTED}     BW %@{MULTIPART_BOUNDARY_WHITESPACE}     DB %@{MULTIPART_DATA_BEFORE}     DA %@{MULTIPART_DATA_AFTER}     HF %@{MULTIPART_HEADER_FOLDING}     LF %@{MULTIPART_LF_LINE}     SM %@{MULTIPART_SEMICOLON_MISSING}     IQ %@{MULTIPART_INVALID_QUOTING}     IH %@{MULTIPART_INVALID_HEADER_FOLDING}     FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
+|960914|多部分要求內文的嚴格驗證失敗|
 |960915|多部分剖析偵測到可能的不相符界限。|
 |960016|內容長度 HTTP 標頭不是數值。|
 |960011|具有內文內容的 GET 或 HEAD 要求。|
@@ -472,6 +476,8 @@ ms.locfileid: "59279698"
 |950921|後門程式存取|
 |950922|后门访问|
 
+---
+
 ## <a name="next-steps"></a>後續步驟
 
-了解如何停用 WAF 規則，請造訪︰[自訂 WAF 規則](application-gateway-customize-waf-rules-portal.md)
+了解如何停用 WAF 規則：[自訂 WAF 規則](application-gateway-customize-waf-rules-portal.md)

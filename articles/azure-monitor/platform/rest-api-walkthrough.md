@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.subservice: ''
-ms.openlocfilehash: f47e9fd8842f9884ced290385e5f647fac57bc13
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ddbc00155c3c5c136f7d33861e9ad5177df77470
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484977"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528062"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure 監視 REST API 逐步解說
 
@@ -657,7 +657,7 @@ Version        : 08586982649483762729
 
 ### <a name="azure-cli"></a>Azure CLI
 
-若要使用 Azure CLI 取出 Azure 儲存體帳戶的資源識別碼，請執行 'az storage account show' 命令，如下列範例所示：
+若要擷取使用 Azure CLI 的 Azure 儲存體帳戶的資源識別碼，請執行`az storage account show`命令，如下列範例所示：
 
 ```
 az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017

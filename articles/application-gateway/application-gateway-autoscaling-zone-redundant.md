@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/6/2019
 ms.author: victorh
-ms.openlocfilehash: 4410dd9e61fe5b585ca5b245dbf33dbf8c38e701
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 95b14a0028134e522206f3595bc3b9ebf9aaf396
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010204"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548699"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>自動調整規模和區域備援應用程式閘道 (公開預覽)
 
@@ -31,7 +31,7 @@ ms.locfileid: "59010204"
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 > [!NOTE]
-> 自動調整和區域備援應用程式閘道 SKU 現在支援[預設健全狀況探查](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe)自動監視它的後端集區中的所有資源的健全狀況，並移除任何從集區被視為狀況不良的資源。 預設健全狀況探查將會自動設定，您還沒有設定任何自訂探查設定這些後端。 若要進一步了解，請參閱[健康情況探查應用程式閘道中](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview)。
+> 自動調整和區域備援應用程式閘道 SKU 現在支援[預設健全狀況探查](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe)自動監視它的後端集區中的所有資源的健全狀況，並反白顯示會被視為這些後端成員狀況不良。 預設健全狀況探查將會自動設定，您還沒有設定任何自訂探查設定這些後端。 若要進一步了解，請參閱[健康情況探查應用程式閘道中](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview)。
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>SKU v1 與 v2 SKU 之間的功能比較
 
@@ -79,6 +79,6 @@ ms.locfileid: "59010204"
 |Netwatcher 整合|公開預覽版不支援此功能。|
 
 ## <a name="next-steps"></a>後續步驟
-- [使用保留的虛擬 IP 位址使用 Azure PowerShell 建立自動調整、 區域備援應用程式閘道](tutorial-autoscale-ps.md)
+- [使用 Azure PowerShell 建立具有保留虛擬 IP 位址的自動調整規模、區域備援應用程式閘道](tutorial-autoscale-ps.md)
 - 深入了解[應用程式閘道](overview.md)。
 - 深入了解 [Azure 防火牆](../firewall/overview.md)。

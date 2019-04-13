@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e21058d47f554ca4a057ab90433895800fb17dd9
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 85a1dad9feb15550cf27cf032802af5055fdf155
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886718"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525631"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 中的變更摘要 - 概觀
 
@@ -58,7 +58,7 @@ Azure Cosmos DB 中的變更摘要可讓您針對每一個模式建置有效率�
 
 ### <a name="change-feed-and-etag-lsn-or-ts"></a>變更摘要和 _etag、_lsn 或 _ts
 
-_etag 格式是作為內部之用，因為該格式可以隨時變更，請別依賴它。 _ts 是修改或建立時間戳記。 您可以使用 _ts，依時間順序進行比較。 _lsn 是僅為變更摘要新增的批次 ID，它代表交易 ID。許多項目可能有相同的 _lsn。 FeedResponse 上的 ETag 與您在項目上看到的 _etag 不同。 _etag 是內部識別碼，而且用於並行控制，它會指示項目版本，而使用 ETag 來排序摘要。
+_etag 格式是作為內部之用，因為該格式可以隨時變更，請別依賴它。 _ts 是修改或建立時間戳記。 您可以使用 _ts，依時間順序進行比較。 _lsn 是批次識別碼，加入的變更摘要它代表交易識別碼。 許多項目可能有相同的 _lsn。 FeedResponse 上的 ETag 與您在項目上看到的 _etag 不同。 _etag 是內部識別碼，而且用於並行控制，它會指示項目版本，而使用 ETag 來排序摘要。
 
 ## <a name="change-feed-use-cases-and-scenarios"></a>變更摘要使用個案和案例
 
@@ -84,7 +84,7 @@ _etag 格式是作為內部之用，因為該格式可以隨時變更，請別�
 
 以下是您可以使用變更摘要輕鬆實作的一些案例：
 
-* 在您的 [serverless](https://azure.microsoft.com/en-us/solutions/serverless/) Web 和行動應用程式內，您可以追蹤像是對客戶設定檔、喜好設定或其位置等所做之所有變更的事件，並觸發特定動作，例如使用 [Azure Functions](change-feed-functions.md) 傳送推播通知到客戶裝置。
+* 在您的 [serverless](https://azure.microsoft.com/solutions/serverless/) Web 和行動應用程式內，您可以追蹤像是對客戶設定檔、喜好設定或其位置等所做之所有變更的事件，並觸發特定動作，例如使用 [Azure Functions](change-feed-functions.md) 傳送推播通知到客戶裝置。
 
 * 例如，如果您使用 Azure Cosmos DB 來建置遊戲，就可以根據完成遊戲的分數，使用變更摘要來實作即時排行榜。
 

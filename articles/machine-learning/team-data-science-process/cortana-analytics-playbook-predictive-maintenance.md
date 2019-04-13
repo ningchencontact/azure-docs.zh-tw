@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: fdc7aec703fdb5b6bb9744fad226b51769e73385
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 547b6a629677830b6f37883a4be835c12a62e599
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650473"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524036"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>適用於預測性維護解決方案的 AI 指南
 
@@ -227,7 +227,7 @@ PdM 有另一個實用的技巧，就是使用可偵測資料異常的演算法�
 
 目前為止所討論的資料準備工作應會導致資料整理成如下所示的方式。 訓練、測試及驗證資料應具有此邏輯結構描述 (此範例是以天為單位顯示時間)。
 
-| 資產識別碼 | 時間 | <Feature Columns> | 標籤 |
+| 資產識別碼 | 時間 | \<特徵資料行 > | 標籤 |
 | ---- | ---- | --- | --- |
 | A123 |第 1 天 | 上也提供本文中使用的原始碼。 . . | 上也提供本文中使用的原始碼。 |
 | A123 |第 2 天 | 上也提供本文中使用的原始碼。 . . | 上也提供本文中使用的原始碼。 |

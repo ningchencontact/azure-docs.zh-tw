@@ -7,21 +7,24 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/21/2019
+ms.date: 04/12/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: de5d8a3cd329e023b57d887a22db5459f13c7486
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: f80c1817d5c0ce79f2dc53f40a2cc4e00dd5c72b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492782"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545551"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>監視 Azure SQL 資料倉儲中的資源使用率和查詢活動
 Azure SQL 資料倉儲在 Azure 入口網站中提供豐富的監視體驗，讓您可看到資料倉儲工作負載的深入解析。 Azure 入口網站是監視資料倉儲的建議工具，因為其提供可設定的保留期、警示、建議，以及可自訂的計量與記錄圖表及儀表板。 在入口網站也可讓您整合與 Operations Management Suite (OMS) 和 Azure 監視器 （記錄），來提供全面的監視體驗不只您的資料倉儲但也您整個 Azure analytics 等其他 Azure 監視服務平台的整合式的監視體驗。 本文件將說明哪些監視功能可用來最佳化及管理分析平台與 SQL 資料倉儲。 
 
 ## <a name="resource-utilization"></a>資源使用率 
 在 Azure 入口網站中，下列計量可供 SQL 資料倉儲使用。 我們透過 [Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics)提供這些計量。
+
+> [!NOTE]
+> 目前節點層級 CPU 和 IO 度量資訊不正確地反映資料倉儲使用。 這些度量將在不久的將來移除，因為監視和疑難排解體驗，SQL 資料倉儲，可改善小組。 
 
 | 度量名稱                           | 描述     | 彙總類型 |
 | --------------------------------------- | ---------------- | --------------------------------------- |
@@ -49,5 +52,5 @@ Azure SQL 資料倉儲在 Azure 入口網站中提供豐富的監視體驗，讓
 ## <a name="next-steps"></a>後續步驟
 下列使用說明指南會說明監視和管理資料倉儲時的常見案例及使用案例：
 
-- [監視您的資料倉儲工作負載使用 Dmv](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)
+- [使用 DMV 監視您的資料倉儲工作負載](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)
 

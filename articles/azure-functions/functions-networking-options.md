@@ -3,19 +3,19 @@ title: Azure Functions 的網路功能選項
 description: 在 Azure Functions 中，您可以使用所有網路功能選項的概觀
 services: functions
 author: alexkarcher-msft
-manager: jehollan
+manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 1/14/2019
+ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 10d7daa6da45c56e20c622fcbca9ee288e737dab
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: a4ae2d8bad50a4103da6afaa0bee5cbb75c877aa
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358140"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545497"
 ---
-# <a name="azure-functions-networking-options"></a>Azure Functions 的網路功能選項
+# <a name="azure-functions-networking-options"></a>Azure 網路功能選項的函式
 
 本文件說明可用的網路功能的套件，在 Azure Functions 裝載選項。 下列網路功能選項的所有提供一些能夠存取資源，而不使用網際網路可路由的位址，或函式應用程式限制網際網路存取。 所有的裝載模型有不同程度的網路隔離，並選擇正確的密碼，將可讓您以符合您的網路隔離需求。
 
@@ -32,8 +32,8 @@ ms.locfileid: "59358140"
 |                |[取用方案](functions-scale.md#consumption-plan)|⚠ [進階方案](functions-scale.md##premium-plan-public-preview)|[App Service 方案](functions-scale.md#app-service-plan)|[App Service 環境](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[**輸入的 IP 限制**](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
-|[**VNET 整合**](#vnet-integration)|❌No|⚠ [是]|✅Yes|✅Yes|
-|[**預覽 VNET 整合 （Express Route 與服務端點）**](#preview-vnet-integration)|❌No|⚠ [是]|⚠ [是]|✅Yes|
+|[**VNET 整合**](#vnet-integration)|❌No|❌No|✅Yes|✅Yes|
+|[**預覽 VNET 整合 （Express Route 與服務端點）**](#preview-vnet-integration)|❌No|⚠[是]|⚠[是]|✅Yes|
 |[**混合式連線**](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
 |[**私人網站存取**](#private-site-access)|❌No| ❌No|❌No|✅Yes|
 
@@ -46,9 +46,9 @@ IP 限制可讓您針對允許存取應用程式的 IP 位址，定義有先後�
 > [!NOTE]
 > 若要能夠使用 Azure 入口網站的編輯器，在入口網站必須要能夠直接存取您執行的函式應用程式，和您用來存取入口網站的裝置必須有其 IP 允許清單。 在位置的網路限制，您仍然可以存取任何功能**平台功能** 索引標籤。
 
-[進一步了解](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)
+[在這裡深入了解](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)
 
-## <a name="vnet-integration"></a>VNET 整合
+## <a name="vnet-integration"></a>VNet 整合
 
 VNET 整合可讓您的函式應用程式，來存取 VNET 內的資源。 VNET 整合可在進階方案和 App Service 方案中。 如果您的應用程式在 App Service 環境，它已在 VNet 中，而且不需要使用 VNet 整合功能來觸達相同 VNet 中的資源。
 
@@ -89,3 +89,13 @@ VNet 整合功能的新版本處於預覽狀態。 它不會相依於點對站 V
 私人網站存取是指讓您的應用程式只能透過私人網路 (例如從 Azure 虛擬網路中) 存取。 只有使用透過內部負載平衡器 (ILB) 設定的 ASE 才可使用私人網站存取。 如需使用 ILB ASE 的詳細資訊，請參閱[建立和使用 ILB ASE](../app-service/environment/create-ilb-ase.md)。
 
 有許多方法來存取 VNET 資源在其他裝載選項，但 ASE 是允許的函式以在 VNET 上發生的觸發程序的唯一方法。
+
+## <a name="next-steps"></a>後續步驟
+若要深入了解網路和函式： 
+
+* [請依照下列快速入門開始使用的 VNET 整合教學課程](./functions-create-vnet.md)
+* [讀取網路常見問題集，此函式](./functions-networking-faq.md)
+* [在此處深入了解與 App Service / Functions 的 VNET 整合](../app-service/web-sites-integrate-with-vnet.md)
+* [深入了解 Azure 中的 VNET](../virtual-network/virtual-networks-overview.md)
+* [啟用更多的網路功能和使用 App Service 環境的控制](../app-service/environment/intro.md)
+* [連線到個別的內部部署資源，而不需使用混合式連線進行防火牆變更](../app-service/app-service-hybrid-connections.md)

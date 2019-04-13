@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 9c628b02961ee289833e669a4c77de0bf824de22
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 061156a455664a5a3f0b4c4497d24f4e8ff6eea7
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999987"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527246"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>使用 Azure CLI 建立包含 URL 路徑型路由規則的應用程式閘道
 
@@ -220,7 +220,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>測試應用程式閘道
 
-若要取得應用程式閘道的公用 IP 位址，您可以使用 [az network public-ip show](/cli/azure/network/public-ip)。 將公用 IP 位址複製並貼到您瀏覽器的網址列。 例如， `http://40.121.222.19`， `http://40.121.222.19:8080/images/test.htm`，或`http://40.121.222.19:8080/video/test.htm`。
+若要取得應用程式閘道的公用 IP 位址，您可以使用 [az network public-ip show](/cli/azure/network/public-ip)。 將公用 IP 位址複製並貼到您瀏覽器的網址列。 例如 `http://40.121.222.19`、`http://40.121.222.19:8080/images/test.htm` 或 `http://40.121.222.19:8080/video/test.htm`。
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -232,11 +232,11 @@ az network public-ip show \
 
 ![在應用程式閘道中測試基底 URL](./media/application-gateway-create-url-route-cli/application-gateway-nginx.png)
 
-將基底 URL 結尾的 URL 變更為 http://<ip-address>:8080/video/test.html，您應該會看到類似下列的範例：
+將 URL 變更為`http://<ip-address>:8080/video/test.html`結尾的基底 URL，您應該會看到類似下列的範例：
 
 ![在應用程式閘道中測試影像 URL](./media/application-gateway-create-url-route-cli/application-gateway-nginx-images.png)
 
-將 URL 變更為 http://<ip-address>:8080/video/test.html，您應該會看到類似下列的範例。
+將 URL 變更為`http://<ip-address>:8080/video/test.html`，您應該會看到類似下列的範例。
 
 ![在應用程式閘道中測試影片 URL](./media/application-gateway-create-url-route-cli/application-gateway-nginx-video.png)
 

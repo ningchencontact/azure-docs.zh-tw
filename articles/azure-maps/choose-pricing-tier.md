@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: ac88bc95ac9ffe4c2f32307b0bee427829242add
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 1bf60014b20f4cec29d661db4deb029fea4ab1d5
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234674"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547338"
 ---
 # <a name="choose-the-right-pricing-tier-in-azure-maps"></a>在 Azure 地圖服務中選擇正確的定價層
 
@@ -29,7 +29,7 @@ S0 和 S1 定價層會處理不同的資料輸送量。 選擇 Azure 地圖服�
 
 | 功能                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
-| Search                                  |        ✓           |     ✓    |
+| 搜尋 （在 快轉/反轉地理編碼，感興趣的點）  |        ✓           |     ✓    |
 | 批次地理編碼 (預覽)              |                   |     ✓    |
 | 透過搜尋繪製多邊形          |                   |     ✓    |
 | 路由                                 |        ✓           |     ✓    |

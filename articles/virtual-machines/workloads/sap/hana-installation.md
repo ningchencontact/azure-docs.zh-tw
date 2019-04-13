@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 03/05/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5b6c636366d494901a34078100290084298de686
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 96acb2e7af797f2777cc751417f50eb21faa46da
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999833"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522549"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>如何在 Azure 上安裝和設定 SAP HANA (大型執行個體)
 
@@ -151,8 +151,8 @@ SAP HANA on Azure (大型執行個體) 的儲存體配置是由 Azure服務管�
 
 | 儲存體使用量 | 掛接名稱 | 磁碟區名稱 | 
 | --- | --- | ---|
-| HANA 資料 | /hana/data/SID/mnt0000<m> | 儲存體 IP：/hana_data_SID_mnt00001_tenant_vol |
-| HANA 記錄檔 | /hana/log/SID/mnt0000<m> | 儲存體 IP：/hana_log_SID_mnt00001_tenant_vol |
+| HANA 資料 | /hana/data/SID/mnt0000\<m> | 儲存體 IP：/hana_data_SID_mnt00001_tenant_vol |
+| HANA 記錄檔 | /hana/log/SID/mnt0000\<m> | 儲存體 IP：/hana_log_SID_mnt00001_tenant_vol |
 | HANA 記錄備份 | /hana/log/backups | 儲存體 IP：/hana_log_backups_SID_mnt00001_tenant_vol |
 | HANA 共用 | /hana/shared/SID | 儲存體 IP：/hana_shared_SID_mnt00001_tenant_vol/shared |
 | usr/sap | /usr/sap/SID | 儲存體 IP：/hana_shared_SID_mnt00001_tenant_vol/usr_sap |

@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 42fde2804c04b2449068d649e1c660d02e72edb1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: aadab68185347dc0a12e0802f675efe13ecea545
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729350"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547139"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>對應資料流程結構描述漂移
 
@@ -26,7 +26,7 @@ ms.locfileid: "56729350"
 * 定義可搭配資料模式 (而不是硬式編碼的欄位和值) 運作的轉換參數
 * 定義一些運算式，以了解要比對傳入欄位的模式，而不需使用具名欄位
 
-在 Azure Data Factory 資料流程中，這些設施會透過此工作流程呈現：
+## <a name="how-to-implement-schema-drift"></a>如何實作結構描述漂移
 
 * 選擇在您的來源轉換中 [允許結構描述漂移]
 
@@ -67,3 +67,10 @@ Azure Data Factory 資料流程語法會使用 $$ 表示您的比對模式中每
 
 <img src="media/data-flow/taxidrift2.png" width="800">
 
+## <a name="access-new-columns-downstream"></a>下游存取新的資料行
+
+當您產生新的資料行與資料行模式時，您可以存取這些新的資料行，稍後您使用 「 byName"運算式函數資料流程轉換。
+
+## <a name="next-steps"></a>後續步驟
+
+在 [流程運算式語言](data-flow-expression-functions.md)您會發現額外的功能資料行模式和包括 「 byName"和"byPosition"的結構描述漂移。

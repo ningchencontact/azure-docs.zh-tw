@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: 該 power Azure 開發人員空格和 azds.yaml 組態檔中的設定方式說明的程序
 keywords: azds.yaml，Azure 開發人員空格、 開發空格、 Docker、 Kubernetes、 Azure，AKS，Azure Kubernetes Service，容器
-ms.openlocfilehash: 0397a52e8cd838aafe44a35508f8a68caba4c94e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 494dd3774ec47598a95c6e20de6283abc2e4ff94
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489583"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544918"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Azure 開發空間的運作方式，並已設定
 
@@ -85,16 +85,18 @@ Azure 的 Dev 空間有兩個不同的元件，與您互動： 控制器和用�
 * 啟用 Azure 開發人員空格，在您的叢集使用 `az aks use-dev-spaces`
 
 如需有關如何建立和設定適用於 Azure 開發空間的 AKS 叢集的詳細資訊，請參閱使用者入門指南：
-* [在使用 Java 的 Azure Dev Spaces 上開始使用](get-started-java.md)
-* [在使用 .NET Core 和 Visual Studio 的 Azure 開發人員空間上開始使用](get-started-netcore-visualstudio.md)
-* [在使用 .NET Core 的 Azure 開發人員空間上開始使用](get-started-netcore.md)
-* [在使用 Node.js 的 Azure 開發人員空間上開始使用](get-started-nodejs.md)
+* [開始使用 Java 的 Azure 開發空格](get-started-java.md)
+* [開始使用 Azure 開發人員使用.NET Core 和 Visual Studio 的空格](get-started-netcore-visualstudio.md)
+* [開始使用 Azure 開發人員使用.NET Core 的空格](get-started-netcore.md)
+* [開始使用 Node.js 的 Azure 開發空格](get-started-nodejs.md)
 
 在您的 AKS 叢集上啟用 Azure 開發人員空格時，它會安裝適用於您叢集的控制站。 控制器是您的叢集外的個別 Azure 資源，並會進行下列作業在叢集中的資源：
 
 * 建立或指定 Kubernetes 命名空間，以做為開發人員的空間。
 * 移除名為任何 Kubernetes 命名空間*azds*，如果它存在，而且會建立一個新。
-* 部署 Kubernetes 初始設定式物件。
+* 部署 Kubernetes webhook 組態。
+* 部署的 webhook 許可伺服器。
+    
 
 它也會使用相同的服務主體用來進行其他 Azure 開發人員空間元件的服務呼叫的 AKS 叢集。
 
@@ -104,9 +106,9 @@ Azure 的 Dev 空間有兩個不同的元件，與您互動： 控制器和用�
 
 根據預設，控制器會建立名為 dev 空間*預設*升級現有*預設*Kubernetes 命名空間。 您可以使用用戶端工具來建立新的開發人員分享空間和移除現有的開發人員空間。 由於在 Kubernetes 中，限制*預設*開發空間無法移除。 控制器也會移除名為任何現有的 Kubernetes 命名空間*azds*若要避免 je v konfliktu`azds`用戶端工具所使用的命令。
 
-Kubernetes 初始設定式物件用來部署檢測期間插入具有三個容器的 pod: devspaces proxy 容器、 devspaces proxy init 容器和 devspaces 組建容器。 **這三個容器執行您的 AKS 叢集根目錄存取權。** 他們也使用相同的服務主體用來進行其他 Azure 開發人員空間元件的服務呼叫的 AKS 叢集。
+Kubernetes webhook 許可伺服器可用來插入與三個容器的 pod 部署檢測期間： devspaces proxy 容器、 devspaces proxy init 容器和 devspaces 組建容器。 **這三個容器執行您的 AKS 叢集根目錄存取權。** 他們也使用相同的服務主體用來進行其他 Azure 開發人員空間元件的服務呼叫的 AKS 叢集。
 
-![Azure 開發人員空格 Kubernetes 初始設定式](media/how-dev-spaces-works/kubernetes-initializer.svg)
+![Azure 開發人員空格 Kubernetes webhook 許可伺服器](media/how-dev-spaces-works/kubernetes-webhook-admission-server.svg)
 
 Devspaces proxy 容器為側車容器處理傳入和傳出的應用程式容器的所有 TCP 流量，並可協助執行路由。 Devspaces proxy 容器 device-mapper HTTP 訊息，如果正在使用特定的空間。 比方說，它可以協助將父和子空間中的應用程式之間的 HTTP 訊息路由傳送。 所有的非 HTTP 流量通過 devspaces proxy 未經修改的狀態。 Devspaces proxy 容器也會記錄所有的傳入和傳出 HTTP 訊息，並將它們傳送到用戶端工具為追蹤。 若要檢查的行為，應用程式的開發人員接著可以檢視這些追蹤。
 
@@ -117,7 +119,7 @@ Devspaces 組建容器是 init 容器，以及具有專案原始程式碼和掛�
 > [!NOTE]
 > Azure 開發人員的空間會使用相同的節點，來建置您的應用程式容器，並執行它。 如此一來，Azure 開發人員空間不需要外部的容器登錄庫來建置和執行您的應用程式。
 
-Kubernetes 初始設定式物件會接聽任何新的 pod，會建立在 AKS 叢集中。 如果這個 pod 會部署到所有命名空間的*azds.io/space=true*標籤，它與其他的容器插入這個 pod。 如果使用用戶端工具執行應用程式的容器，只會插入 devspaces 組建容器。
+Kubernetes webhook 許可伺服器會接聽任何新的 pod，會建立在 AKS 叢集中。 如果這個 pod 會部署到所有命名空間的*azds.io/space=true*標籤，它與其他的容器插入這個 pod。 如果使用用戶端工具執行應用程式的容器，只會插入 devspaces 組建容器。
 
 一旦您已備妥您的 AKS 叢集，您可以使用用戶端工具來準備及執行您的程式碼在您開發的空間。
 
@@ -221,7 +223,7 @@ azds up
 1. 檔案會從使用者的電腦同步處理到 Azure 檔案儲存體的唯一使用者的 AKS 叢集。 上傳原始程式碼、 Helm 圖表和組態檔。 更多有關同步處理程序可用於下一節。
 1. 控制器會建立啟動新的工作階段的要求。 此要求包含數個屬性，包括唯一識別碼、 空間名稱、 原始碼的路徑和偵錯旗標。
 1. 控制器會取代 *$(tag)* Helm 圖表的唯一工作階段識別碼 」 及 「 安裝 Helm 圖表為您的服務中的預留位置。 新增至 Helm 圖表的唯一工作階段識別碼的參考，可讓容器部署至 AKS 叢集，此繫結至工作階段要求的特定工作階段和相關聯的資訊。
-1. 在安裝 Helm 圖表時，Kubernetes 初始設定式物件，請將您的應用程式的檢測和存取您的專案原始程式碼的 pod 其他容器。 Devspaces proxy 和 devspaces proxy init 容器會提供 HTTP 追蹤和空間路由加入。 Devspaces 組建容器會加入至提供存取來建置您的應用程式容器的 Docker 執行個體和專案原始程式碼的 pod。
+1. 在 Helm 圖表安裝時，Kubernetes webhook 許可伺服器會將其他容器加入至您的應用程式 pod 的檢測和存取您的專案原始程式碼。 Devspaces proxy 和 devspaces proxy init 容器會提供 HTTP 追蹤和空間路由加入。 Devspaces 組建容器會加入至提供存取來建置您的應用程式容器的 Docker 執行個體和專案原始程式碼的 pod。
 1. 啟動應用程式的 pod 時，devspaces 組建容器和 devspaces proxy init 容器來建置應用程式容器。 然後啟動應用程式容器和 devspaces proxy 容器。
 1. 用戶端功能的應用程式容器啟動後，會使用 Kubernetes*連接埠轉送*功能，以提供透過 HTTP 存取您的應用程式 http://localhost。 此連接埠轉送至您的開發人員分享空間中的服務連接您的開發電腦。
 1. 當所有容器的 pod 中都啟動時，服務正在執行。 此時，用戶端功能開始串流處理的 HTTP 追蹤、 stdout 和 stderr。 這項資訊會顯示開發人員適用的用戶端功能。

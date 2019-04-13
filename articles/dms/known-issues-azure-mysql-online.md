@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: e2b82c8a7bcdc1982ed4489e9422a4a0efd64f3c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cf5215ff5acaf08125cf280103ba8ff0123dc116
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58175094"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523812"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>線上移轉到適用於 MySQL 的 Azure 資料庫已知問題/移轉限制
 
@@ -30,7 +30,7 @@ ms.locfileid: "58175094"
 - 相同版本移轉。 不支援將 MySQL 5.6 移轉到適用於 MySQL 5.7 的 Azure 資料庫。
 - 在 my.ini (Windows) 或 my.cnf (Unix) 中啟用二進位記錄
     - 將 Server_id 設為大於或等於 1 的任何數字，例如，Server_id=1 (僅適用於 MySQL 5.6)
-    - 設定 log-bin = <path> (僅適用於 MySQL 5.6)
+    - 設定記錄檔分類收納 =\<路徑 > （僅適用於 MySQL 5.6)
     - 設定 binlog_format = row
     - Expire_logs_days = 5 (建議 - 僅適用於 MySQL 5.6)
 - 使用者必須擁有 ReplicationAdmin 角色。

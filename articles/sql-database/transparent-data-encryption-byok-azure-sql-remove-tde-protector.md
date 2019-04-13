@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 73fcb2753fa7eb15f34b04ddc5bb0b55c4636623
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 51cdd43e62bd511da55978bbac3215200c3a8e01
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847813"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528258"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>使用 PowerShell 移除透明資料加密 (TDE) 保護裝置
 
@@ -25,7 +25,7 @@ ms.locfileid: "58847813"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 - 您必須具有 Azure 訂用帳戶，並且是該訂用帳戶的系統管理員
 - 您必須安裝並執行 Azure PowerShell。 
@@ -40,6 +40,12 @@ ms.locfileid: "58847813"
 如果金鑰疑似遭到破壞，而使服務或使用者可在未經授權的情況下存取金鑰，則最好將金鑰刪除。
 
 請切記，在 Key Vault 中刪除 TDE 保護裝置後，**系統會封鎖該伺服器下所有與已加密資料庫的連線；這些資料庫會離線，並在 24 小時內遭到捨棄**。 以遭破壞的金鑰加密的舊備份，將不再可供存取。
+
+下列步驟概述如何檢查仍在使用中的虛擬記錄檔 (VLF) 給定資料庫的 TDE 保護裝置指紋。 目前的資料庫和資料庫識別碼的 TDE 保護裝置的憑證指紋可在執行：選取 [database_id]、       [sys.dm_database_encryption_keys]，[encryptor_type]，/*非對稱金鑰表示 AKV，憑證表示服務管理的金鑰*/ [encryptor_thumbprint]，從 [sys]。 [dm_database_encryption_keys] 
+ 
+下列查詢會傳回 Vlf 和加密程式個別的指紋使用中。 每個不同的憑證指紋會參考不同的金鑰在 Azure Key Vault (AKV):SELECT * FROM sys.dm_db_log_info (database_id) 
+
+PowerShell 命令 Get-azurermsqlserverkeyvaultkey 提供憑證指紋的 TDE 保護裝置在查詢中，使用，因此您可以看到哪些金鑰來確保和 AKV 中刪除哪一個索引鍵。 只有資料庫不再使用的索引鍵可以從 Azure Key Vault 安全地刪除。
 
 本操作指南會根據事件回應之後的所需結果討論兩種方法：
 

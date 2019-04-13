@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 65023fbf96dc3e1276413f8c40ecb262d60c1454
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b6a5712c617ab1e16b5341d9727b840fe8ea2213
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57863350"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524016"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>在 Azure Cosmos DB 資料上使用大量執行程式 Java 程式庫執行大量作業
 
@@ -118,8 +118,8 @@ ms.locfileid: "57863350"
    |int getNumberOfDocumentsImported()  |   在提供給大量匯入 API 呼叫的文件中，成功匯入的文件總數。      |
    |double getTotalRequestUnitsConsumed()   |  大量匯入 API 呼叫取用的要求單位 (RU) 總數。       |
    |Duration getTotalTimeTaken()   |    大量匯入 API 呼叫完成執行的時間總計。     |
-   |List<Exception> getErrors() |  如果提供給大量匯入 API 呼叫的批次中有部分文件無法插入，則會取得錯誤清單。       |
-   |List<Object> getBadInputDocuments()  |    格式錯誤而未成功匯入大量匯入 API 呼叫的文件清單。 使用者應該修正傳回的文件，然後再次嘗試匯入。 格式錯誤的文件包含其識別碼值不是字串 (Null 或任何其他視為無效的資料類型) 的文件。     |
+   |清單\<例外狀況 > getErrors() |  如果提供給大量匯入 API 呼叫的批次中有部分文件無法插入，則會取得錯誤清單。       |
+   |清單\<物件 > getBadInputDocuments()  |    格式錯誤而未成功匯入大量匯入 API 呼叫的文件清單。 使用者應該修正傳回的文件，然後再次嘗試匯入。 格式錯誤的文件包含其識別碼值不是字串 (Null 或任何其他視為無效的資料類型) 的文件。     |
 
 5. 大量匯入應用程式已備妥之後，請使用 'mvn clean package' 命令從來源建置命令列工具。 此命令會在目標資料夾中產生 jar 檔案：  
 
@@ -182,7 +182,7 @@ ms.locfileid: "57863350"
    |int getNumberOfDocumentsUpdated()  |   在提供給大量更新 API 呼叫的文件中，成功更新的文件總數。      |
    |double getTotalRequestUnitsConsumed() |  大量更新 API 呼叫取用的要求單位 (RU) 總數。       |
    |Duration getTotalTimeTaken()  |   大量更新 API 呼叫完成執行的時間總計。      |
-   |List<Exception> getErrors()   |     如果提供給大量更新 API 呼叫的批次中有部分文件無法插入，則會取得錯誤清單。      |
+   |清單\<例外狀況 > getErrors()   |    如果提供給大量更新 API 呼叫的批次中有部分文件無法插入，則會取得錯誤清單。      |
 
 3. 大量更新應用程式已備妥之後，請使用 'mvn clean package' 命令從來源建置命令列工具。 此命令會在目標資料夾中產生 jar 檔案：  
 

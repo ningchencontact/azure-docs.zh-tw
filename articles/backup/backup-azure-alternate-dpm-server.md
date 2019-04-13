@@ -8,22 +8,22 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: kasinh
-ms.openlocfilehash: a0960cba58817a6d340998933fe315d6fca887e4
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: d1fb3434f0d3954a07980963866bcd7cce004379
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55488431"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528096"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>從 Azure 備份伺服器復原資料
-您可以使用 Azure 備份伺服器，將您已備份到復原服務保存庫的資料復原。 要這麼做的程序就是整合到 Azure 備份伺服器管理主控台，且類似於其他 Azure 備份元件的復原工作流程。
+您可以使用 Azure 備份伺服器，將您已備份到復原服務保存庫的資料復原。 用于执行此操作的过程已集成到 Azure 备份服务器管理控制台中，且与其他 Azure 备份组件的恢复工作流类似。
 
 > [!NOTE]
 > 本文適用於 [System Center Data Protection Manager 2012 R2 with UR7 或更新版本](https://support.microsoft.com/en-us/kb/3065246) \(英文\)，結合[最新版的 Azure 備份代理程式](https://aka.ms/azurebackup_agent)。
 >
 >
 
-若要從 Azure 備份伺服器復原資料：
+若要从 Azure 备份服务器恢复数据，请执行以下操作：
 
 1. 在 Azure 備份伺服器管理主控台的 [復原] 索引標籤中，按一下 [新增外部 DPM] \(在畫面左上方)。   
     ![新增外部 DPM](./media/backup-azure-alternate-dpm-server/add-external-dpm.png)
@@ -39,7 +39,7 @@ ms.locfileid: "55488431"
     順利新增外部 Azure 備份伺服器之後，您就可以從 [復原] 索引標籤瀏覽外部伺服器和本機 Azure 備份伺服器的資料。
 3. 瀏覽由外部 Azure 備份伺服器保護的實際執行伺服器可用清單，並選取適當的資料來源。
 
-    ![瀏覽外部 DPM 伺服器](./media/backup-azure-alternate-dpm-server/browse-external-dpm.png)
+    ![浏览外部 DPM 服务器](./media/backup-azure-alternate-dpm-server/browse-external-dpm.png)
 4. 從 [復原點] 下拉式清單中選取「月份和年份」，選取代表復原點何時建立的必要 [復原日期]，並選取 [復原時間]。
 
     檔案和資料夾清單會出現在底部窗格中，方便您瀏覽並復原到任何位置。
@@ -74,18 +74,18 @@ ms.locfileid: "55488431"
    >
    >
 
-    ![監視復原](./media/backup-azure-alternate-dpm-server/monitoring-recovery.png)
+    ![监视恢复](./media/backup-azure-alternate-dpm-server/monitoring-recovery.png)
 10. 您可以在 DPM 伺服器的 [復原] 索引標籤上，按一下 [清除外部 DPM]，以移除外部 DPM 伺服器的檢視。
 
     ![清除外部 DPM](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
 
 ## <a name="troubleshooting-error-messages"></a>疑難排解錯誤訊息
-| 沒有。 | 錯誤訊息 | 疑難排解步驟 |
+| 没有。 | 错误消息 | 疑難排解步驟 |
 |:---:|:--- |:--- |
 | 1. |保存庫認證所指定的保存庫中未登錄此伺服器。 |**原因：** 如果選取的保存庫認證檔案不屬於與所嘗試復原之 Azure 備份伺服器關聯的復原服務保存庫，就會出現此錯誤。 <br> **解決方案：** 從已登錄 Azure 備份伺服器的復原服務保存庫下載保存庫認證檔。 |
 | 2. |可復原資料無法使用，或選取的伺服器不是 DPM 伺服器。 |**原因：** 沒有任何其他 Azure 備份伺服器已向復原服務保存庫登錄，或伺服器尚未上傳中繼資料，或選取的伺服器不是 Azure 備份伺服器 (也稱為 Windows Server 或 Windows 用戶端)。 <br> **解決方案：** 如果有其他已向復原服務保存庫登錄的 Azure 備份伺服器，請確定已安裝最新的 Azure 備份代理程式。 <br>如果有其他 Azure 備份伺服器已向復原服務保存庫登錄，請在安裝後等候一天，再開始復原程序。 夜間作業會針對所有受保護的備份，將中繼資料上傳至雲端。 資料將可供復原。 |
 | 3. |此保存庫未登錄其他 DPM 伺服器。 |**原因：** 沒有任何其他 Azure 備份伺服器已向嘗試復原的保存庫登錄。<br>**解決方案：** 如果有其他已向復原服務保存庫登錄的 Azure 備份伺服器，請確定已安裝最新的 Azure 備份代理程式。<br>如果有其他 Azure 備份伺服器已向復原服務保存庫登錄，請在安裝後等候一天，再開始復原程序。 夜間作業會針對所有受保護的備份，將中繼資料上傳至雲端。 資料將可供復原。 |
-| 4. |提供的加密複雜密碼與下列伺服器關聯的複雜密碼不相符： **<server name>** |**原因：** 在加密來自要復原之 Azure 備份伺服器的資料過程中使用的加密複雜密碼，與所提供的加密複雜密碼不符。 代理程式無法解密資料。 因此復原失敗。<br>**解決方案：** 請提供與要復原資料的 Azure 備份伺服器關聯且完全相同的加密複雜密碼。 |
+| 4. |與下列伺服器關聯的複雜密碼不符合提供的加密複雜密碼： **\<伺服器名稱 >** |**原因：** 在加密來自要復原之 Azure 備份伺服器的資料過程中使用的加密複雜密碼，與所提供的加密複雜密碼不符。 代理程式無法解密資料。 因此復原失敗。<br>**解決方案：** 請提供與要復原資料的 Azure 備份伺服器關聯且完全相同的加密複雜密碼。 |
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 

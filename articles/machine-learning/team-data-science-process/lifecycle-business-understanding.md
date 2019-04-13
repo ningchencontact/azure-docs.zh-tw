@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3e897a3fbc76a75e526e4d0706a2678cd29dfc2e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 35d03a52125bd2646f86b96bcffe123d9fab7f64
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477449"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545309"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process 生命週期的了解商務階段
 
@@ -46,7 +46,7 @@ ms.locfileid: "55477449"
 ### <a name="define-objectives"></a>定義目標
 1. 此步驟的中心目標是要識別分析工作需要預測的重要業務變數。 我們把這些變數稱為*模型目標*，我們使用與其相關聯的標準決定專案是否成功。 這類目標的兩個範例是銷售預測或訂單被詐騙的機率。
 
-2. 詢問並改進相關、特定且模稜兩可的「尖銳」問題以定義專案目標。 資料科學是使用名稱和數字來回答這類問題的程序。 如需詢問尖銳問題的詳細資訊，請參閱[如何進行資料科學](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/) \(英文\) 部落格。 您通常會使用資料科學或機器學習來回答五種問題︰
+2. 詢問並改進相關、特定且模稜兩可的「尖銳」問題以定義專案目標。 資料科學是使用名稱和數字來回答這類問題的程序。 您通常會使用資料科學或機器學習來回答五種問題︰
  
    * 有多少？ (迴歸)
    * 什麼類別？ (分類)

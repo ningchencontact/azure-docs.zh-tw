@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: article
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 743b078eac783365ae83e540a7dc05aba0ae8754
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 646119f223067fac5ee36574fb10273819251cce
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517586"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547051"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>作法：調查有風險的使用者和登入記錄 
 
@@ -151,7 +151,7 @@ ms.locfileid: "58517586"
 
 ### <a name="download-risky-users-data"></a>下載具風險使用者的資料
 
-如果您想要在 Azure 入口網站以外使用登入活動資料，您可以下載具風險使用者資料。 按一下 [下載]，以建立最近 5000 筆記錄的 CSV 檔案。 
+如果您想要從 Azure 入口網站外部使用，您可以下載具風險的使用者資料。 按一下 下載時，會建立最新的 2,500 記錄的 CSV 檔案。 
 
 ![具風險使用者報告](./media/howto-investigate-risky-users-signins/07.png)
 
@@ -320,7 +320,7 @@ ms.locfileid: "58517586"
 
 ### <a name="download-risky-sign-ins-data"></a>下載具風險的登入資料
 
-如果您想要在 Azure 入口網站以外使用風險登入資料，您可以下載該資料。 按一下 [下載]，以建立最近 5000 筆記錄的 CSV 檔案。 
+如果您想要從 Azure 入口網站外部使用，您可以下載的有風險的登入資料。 按一下 下載時，會建立最新的 2,500 記錄的 CSV 檔案。 
 
 ![具風險使用者報告](./media/howto-investigate-risky-users-signins/15.png)
 

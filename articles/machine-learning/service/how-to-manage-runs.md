@@ -11,23 +11,23 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 04/05/2019
-ms.openlocfilehash: 82df2258116ce55fa440b67ec0a66b106d0d72c7
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: c0c1c1353b12944fa913dfb0789192917b99f234
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494042"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543588"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>啟動、 監視及取消在 Python 中的定型執行
 
 [適用於 Python 的 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)提供各種方法來監視、 組織及管理您的定型和測試的執行。
 
-此操作說明會顯示下列工作的範例：
+本文將說明下列工作的範例：
 
-* [執行效能監視器](#monitor)
-* [取消或失敗執行](#cancel)
-* [建立子執行](#children)
-* [標記，並找出執行](#tag)
+* 執行效能的監視。
+* 取消或失敗執行。
+* 建立子執行。
+* 標記，並找出執行。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -35,19 +35,17 @@ ms.locfileid: "59494042"
 
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
-* Azure Machine Learning 服務工作區。 請參閱[建立 Azure 機器學習服務工作區](setup-create-workspace.md)。
+* [Azure 機器學習服務工作區](setup-create-workspace.md)。
 
-* Azure 機器學習服務 SDK for Python 安裝 (版本 1.0.21 或更新版本)。 若要安裝或更新至最新版的 sdk，請前往[安裝/更新 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)頁面。
+* Azure 機器學習服務 SDK for Python (版本 1.0.21 或更新版本)。 若要安裝或更新至最新版的 sdk，請參閱[安裝或更新 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)。
 
-    若要檢查您的 Azure 機器學習服務 sdk 的版本，請使用下列程式碼。
+    若要檢查您的 Azure 機器學習服務 sdk 的版本，請使用下列程式碼：
 
     ```Python
     print(azureml.core.VERSION)
     ```
 
-<a name="monitor"></a>
-
-## <a name="start-a-run-and-set-its-status"></a>啟動測試回合，並將它的狀態
+## <a name="start-a-run-and-its-logging-process"></a>啟動測試回合和其記錄處理程序
 
 藉由匯入設定您的實驗[工作區](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py)，[實驗](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py)，[執行](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py)，以及[ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) 類別[azureml.core](https://docs.microsoft.com/python/api/azureml-core/azureml.core?view=azure-ml-py)封裝。
 
@@ -68,13 +66,15 @@ notebook_run = exp.start_logging()
 notebook_run.log(name="message", value="Hello from run!")
 ```
 
-取得與執行的狀態[ `get_status()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-status--)。
+## <a name="monitor-the-status-of-a-run"></a>監視執行中的狀態
+
+取得與執行中的狀態[ `get_status()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-status--)方法。
 
 ```Python
 print(notebook_run.get_status())
 ```
 
-若要取得有關執行使用的其他詳細資料[ `get_details()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#get-details--)。
+若要取得有關執行的其他詳細資料，請使用[ `get_details()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#get-details--)方法。
 
 ```Python
 notebook_run.get_details()
@@ -87,7 +87,7 @@ notebook_run.complete()
 print(notebook_run.get_status())
 ```
 
-您也可以使用 Python 的`with...as`模式。 在此情況下，執行會自動將標示本身為已完成執行時超出範圍。 如此一來您不需要以手動方式將執行結果標示為已完成。
+如果您使用 Python 的`with...as`模式中，執行會自動將標示為已完成執行時超出範圍本身。 您不需要以手動方式將執行結果標示為已完成。
 
 ```Python
 with exp.start_logging() as notebook_run:
@@ -97,11 +97,9 @@ with exp.start_logging() as notebook_run:
 print("Has it completed?",notebook_run.get_status())
 ```
 
-<a name="cancel"></a>
-
 ## <a name="cancel-or-fail-runs"></a>取消或失敗執行
 
- 如果您注意到發生錯誤，或您的執行似乎需要一些時間來完成，請使用[ `cancel()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--)方法完成之前停止執行，並將其標示為已取消。
+ 如果您注意到發生錯誤，或如果您的執行時間太長，無法完成，請使用[ `cancel()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--)方法完成之前停止執行，並將其標示為已取消。
 
 ```Python
 run_config = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')
@@ -113,7 +111,7 @@ local_script_run.cancel()
 print("Did the run cancel?",local_script_run.get_status())
 ```
 
-如果您執行完成，但包含類似的錯誤，使用不正確的定型指令碼，您可以使用[ `fail()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#fail-error-details-none---set-status-true-)方法，以將它標示為失敗。
+如果您執行完成時，但它包含錯誤 （例如，不正確的定型指令碼使用），您可以使用[ `fail()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#fail-error-details-none---set-status-true-)方法，以將它標示為失敗。
 
 ```Python
 local_script_run = exp.submit(run_config)
@@ -122,13 +120,11 @@ local_script_run.fail()
 print(local_script_run.get_status())
 ```
 
-<a name="children"></a>
-
 ## <a name="create-child-runs"></a>建立子執行
 
-建立子系將群組在一起相關的執行，例如針對不同的超參數微調反覆項目執行。
+建立子系執行，以便分組相關的執行，例如不同超參數微調的反覆項目。
 
-此程式碼範例使用 hello_with_children.py 指令碼來建立的五個子會從內送出執行使用批次[ `child_run()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#child-run-name-none--run-id-none--outputs-none-)方法。
+此程式碼範例會使用`hello_with_children.py`指令碼，以使用建立的五個子會從內送出執行批次[ `child_run()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#child-run-name-none--run-id-none--outputs-none-)方法：
 
 ```Python
 !more hello_with_children.py
@@ -145,17 +141,15 @@ with exp.start_logging() as parent_run:
 ```
 
 > [!NOTE]
-> 移出範圍時，執行自動完成子系。
+> 移出範圍，子執行會自動標示為已完成。
 
 您也可以啟動子執行，但每個建立產生的網路呼叫，因為它是比提交批次的執行效率。
 
-使用[ `get_children()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-)查詢子系的方法會執行特定的父代。
+若要查詢特定父系的子系執行，請使用[ `get_children()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-)方法。
 
 ```Python
 list(parent_run.get_children())
 ```
-
-<a name="tag"></a>
 
 ## <a name="tag-and-find-runs"></a>標記，並找出執行
 
@@ -163,14 +157,14 @@ list(parent_run.get_children())
 
 ### <a name="add-properties-and-tags"></a>新增屬性和標籤
 
-使用[ `add_properties()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#add-properties-properties-)將可搜尋的中繼資料新增至您的執行。 比方說，下列程式碼會將"author"屬性加入至執行。
+若要加入您的執行中的可搜尋的中繼資料，請使用[ `add_properties()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#add-properties-properties-)方法。 例如，下列程式碼加入`"author"`屬性來執行：
 
 ```Python
 local_script_run.add_properties({"author":"azureml-user"})
 print(local_script_run.get_properties())
 ```
 
-屬性是不可變的這是為永久記錄為稽核用途很有用。 下列程式碼範例會導致錯誤，因為我們已經在上述程式碼中新增 「 azureml 位使用者 」 與 「 作者 」 屬性。
+屬性不變，因此它們會建立稽核的永久記錄。 下列程式碼範例會產生錯誤，因為我們已新增`"azureml-user"`做為`"author"`前面的程式碼的屬性值：
 
 ```Python
 try:
@@ -179,7 +173,7 @@ except Exception as e:
     print(e)
 ```
 
-標記，不過會變更。 使用[ `tag()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#tag-key--value-none-)將可搜尋且有意義資訊的取用者的您的實驗。
+與屬性不同，標記是可變更。 若要新增您的實驗的取用者可搜尋且有意義資訊，請使用[ `tag()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#tag-key--value-none-)方法。
 
 ```Python
 local_script_run.tag("quality", "great run")
@@ -189,7 +183,7 @@ local_script_run.tag("quality", "fantastic run")
 print(local_script_run.get_tags())
 ```
 
-您也可以加入簡單的字串標記。 它會出現在值的標記字典`None`。
+您也可以加入簡單的字串標記。 當這些標記會出現在標記字典中時，它們會有值為`None`。
 
 ```Python
 local_script_run.tag("worth another look")
@@ -198,7 +192,7 @@ print(local_script_run.get_tags())
 
 ### <a name="query-properties-and-tags"></a>查詢屬性和標籤
 
-您可以查詢執行實驗，以符合特定的屬性和標籤。
+您可以查詢執行實驗，以傳回符合特定的屬性和標籤的回合的清單內。
 
 ```Python
 list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
@@ -207,12 +201,12 @@ list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"
 
 ## <a name="example-notebooks"></a>Notebook 範例
 
-下列 Notebook 示範了此文章中說明的概念：
+下列 notebook 會示範如何在這篇文章中的概念：
 
 * 若要深入了解記錄 Api，請參閱[記錄 API notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api/logging-api.ipynb)。
 
-* 如有 Azure 機器學習服務 SDK，執行管理的其他資訊，請參閱 <<c0> [ 管理執行 notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/manage-runs)。
+* 如有 Azure 機器學習服務 SDK，執行管理的詳細資訊，請參閱 <<c0> [ 管理執行 notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/manage-runs)。
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要了解如何記錄計量，為您的實驗，請參閱[定型執行期間記錄計量](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiment)文章。
+* 若要了解如何記錄計量，為您的實驗，請參閱[定型執行期間記錄計量](how-to-track-experiments.md)。

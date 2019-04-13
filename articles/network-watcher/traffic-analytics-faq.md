@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 65948b1de3a972687e738b011acf3542073db277
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 3938427c23993f0546e7df62da88dadaf3353118
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046974"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549366"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>流量分析常見問題集
 
@@ -220,7 +220,7 @@ $apiversion = "2016-09-01"
 armclient login
 armclient post "https://management.azure.com/subscriptions/<NSG subscription id>/resourceGroups/<network watcher resource group name>/providers/Microsoft.Network/networkWatchers/<network watcher name>/configureFlowlog?api-version=${apiversion}" $requestBody
 ```
-**取得 cmdlet 的範例：**
+**取得 cmdlet 範例：**
 ```
 #Requestbody parameters
 $TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<NSG name>"
@@ -239,12 +239,27 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 ```
 
 
-
 ## <a name="how-is-traffic-analytics-priced"></a>流量分析的價格為何？
 
 流量分析採計量付費。 計量是以服務處理的流量記錄資料來進行，並將所產生的加強型記錄儲存在 Log Analytics 工作區中。 
 
 例如，根據[定價方案](https://azure.microsoft.com/pricing/details/network-watcher/)，以美國中西部區域為例，如果儲存在儲存體帳戶且由流量分析處理的流量記錄資料為 10 GB，而內嵌於 Log Analytics 工作區的加強型記錄為 1 GB，則適用費用為：10 x 2.3$ + 1 x 2.76$ = 25.76$
+
+## <a name="how-frequently-does-traffic-analytics-process-data"></a>頻率流量分析會處理資料？
+
+請參閱[資料彙總區段](https://docs.microsoft.com/en-us/azure/network-watcher/traffic-analytics-schema#data-aggregation)流量分析的結構描述和資料彙總文件中
+
+## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>流量分析如何決定惡意 IP 時的？ 
+
+流量分析會依賴 Microsoft 內部威脅智慧系統，才能認定為惡意 IP。 這些系統運用等 Microsoft 產品和服務、 Microsoft 數位犯罪防治中心 (DCU)、 Microsoft Security Response Center (MSRC)，以及外部摘要的各種不同的遙測資料來源，並建置在其上的智慧很多。 有些資料是 Mircosoft 內部。 如果已知的 IP 取得標示為 malicios，請提出支援票證，以了解詳細資料。
+
+## <a name="how-can-i-set-alerts-on-traffic-analytics-data"></a>如何設定流量分析資料的警示？
+
+流量分析沒有內建的支援警示。 不過，因為流量分析資料會儲存在 Log Analytics 中，您可以撰寫自訂查詢，並在其上設定警示。 步驟：
+- 在 流量分析的 Log analytics，您可以使用簡短連結。 
+- 使用[結構描述，請參閱](traffic-analytics-schema.md)來撰寫查詢 
+- 按一下 [新增警示規則] 來建立警示
+- 請參閱[文件的記錄警示](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log)建立警示
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>如何在地理地圖檢視中使用鍵盤來瀏覽？
 
@@ -272,7 +287,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
         
 ### <a name="keyboard-navigation-at-any-stage"></a>各階段的鍵盤瀏覽
     
-- `Esc` 摺疊已展開的選取範圍。
+- `Esc` 可將展開的選取範圍摺疊。
 - `Up arrow` 鍵可執行與 `Esc` 相同的動作。 `Down arrow` 鍵可執行與 `Enter` 相同的動作。
 - 使用 `Shift+Plus` 可放大，使用 `Shift+Minus` 可縮小。
 

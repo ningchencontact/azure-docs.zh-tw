@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
-ms.openlocfilehash: 0a29e453c723ecc9ac378ee337365525587aaef2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c2babb5a86d69881b6a76c6dceae80a24a891f6c
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444118"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549298"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Azure 監視器的記錄檔查詢中的電腦群組
 Azure 監視器中的電腦群組可讓您將[記錄查詢](../log-query/log-query-overview.md)範圍限於一組特定的電腦。  使用您所定義的查詢，或從不同來源匯入群組，將電腦填入每個群組中。  當記錄查詢包含群組時，結果就僅限於與群組中的電腦相符的記錄。
@@ -127,15 +127,15 @@ Azure 監視器中的電腦群組可讓您將[記錄查詢](../log-query/log-que
 
 | 屬性 | 描述 |
 |:--- |:--- |
-| 類型 |*ComputerGroup* |
-| SourceSystem |*SourceSystem* |
-| 電腦 |成員電腦的名稱。 |
-| 群組 |群組的名稱。 |
-| GroupFullName |群組的完整路徑，包括來源和來源名稱。 |
-| GroupSource |群組的收集來源。 <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
-| GroupSourceName |群組的收集來源名稱。  對於 Active Directory，這是網域名稱。 |
-| ManagementGroupName |SCOM 代理程式的管理群組名稱。  若為其他代理程式，此為 AOI-\<工作區 ID\> |
-| TimeGenerated |建立或更新電腦群組的日期和時間。 |
+| `Type` |*ComputerGroup* |
+| `SourceSystem` |*SourceSystem* |
+| `Computer` |成員電腦的名稱。 |
+| `Group` |群組的名稱。 |
+| `GroupFullName` |群組的完整路徑，包括來源和來源名稱。 |
+| `GroupSource` |群組的收集來源。 <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
+| `GroupSourceName` |群組的收集來源名稱。  對於 Active Directory，這是網域名稱。 |
+| `ManagementGroupName` |SCOM 代理程式的管理群組名稱。  若為其他代理程式，此為 AOI-\<工作區 ID\> |
+| `TimeGenerated` |建立或更新電腦群組的日期和時間。 |
 
 ## <a name="next-steps"></a>後續步驟
 * 了解[記錄查詢](../log-query/log-query-overview.md)，以分析從資料來源和解決方案收集到的資料。  

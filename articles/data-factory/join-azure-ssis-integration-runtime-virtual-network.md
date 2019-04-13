@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 6c01232c9bdb685fbc54e5ebe1e1f9fa83073dc2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e528b70e257c41f771a1bd3e5ec811c61eb512cc
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107792"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526668"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>將 Azure-SSIS 整合執行階段加入虛擬網路
 在下列案例中，將 Azure-SSIS 整合執行階段 (IR) 加入 Azure 虛擬網路： 
@@ -135,9 +135,9 @@ ms.locfileid: "58107792"
 
 ### <a name="resource-group"></a> 資源群組的需求
 -   Azure-SSIS IR 需要在與虛擬網路相同的資源群組下，建立特定的網路資源。 這些資源包括下列各項：
-    -   Azure 負載平衡器，名稱為 *<Guid>-azurebatch-cloudserviceloadbalancer*。
-    -   Azure 公用 IP 位址，名稱為 *<Guid>-azurebatch-cloudservicepublicip*。
-    -   網路工作安全性群組，名稱為 *<Guid>-azurebatch-cloudservicenetworksecuritygroup*。 
+    -   Azure load balancer，同名 *\<Guid >-azurebatch-cloudserviceloadbalancer*。
+    -   Azure 公用 IP 位址，以及名稱 *\<Guid >-azurebatch-cloudservicepublicip*。
+    -   網路工作安全性群組同名 *\<Guid >-azurebatch-cloudservicenetworksecuritygroup*。 
 
 -   請確認在虛擬網路所屬的資源群組或訂用帳戶上，沒有任何鎖定的資源。 如果您設定了唯讀鎖定或刪除鎖定，則啟動或停止 IR 可能會失敗或停止回應。 
 

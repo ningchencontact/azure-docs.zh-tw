@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2ba6b2d33c3fb5d9fda6821718ac61513a958b7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: dfd38e775ba418fbe31cafa8df5f37b45c3b0643
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369134"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524359"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>將您的工作裝置加入組織的網路
 將您工作用的 Windows 10 裝置加入組織的網路，如此就能存取可能受限的資源。
@@ -62,7 +62,7 @@ ms.locfileid: "58369134"
 
     ![[設定] 畫面上的帳戶](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. 選取 [存取公司或學校資源]，然後確定您看到類似**已連線到 *<your_organization>* Azure AD** 的文字。
+2. 選取 **存取工作或學校**，並確定您會看到指出，類似於文字**連線到 *\<your_organization >* Azure AD**。
 
     ![具有已連線之 contoso 帳戶的 [存取公司或學校資源] 畫面](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
@@ -107,7 +107,7 @@ ms.locfileid: "58369134"
 
     ![[設定] 畫面上的帳戶](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. 選取 [存取公司或學校資源]，然後確定您看到類似**已連線到 *<your_organization>* Azure AD** 的文字。
+2. 選取 **存取工作或學校**，並確定您會看到指出，類似於文字**連線到 *\<your_organization >* Azure AD**。
 
     ![具有已連線之 contoso 帳戶的 [存取公司或學校資源] 畫面](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: adbf3e4fbc0f9d49458dadaebcdd2a090030654e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e27c4462e7137145917d1284bfb6f8838e8a090b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838879"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523591"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team Data Science Process 實務：使用 SQL 資料倉儲
 在本教學課程中，我們將引導您使用 SQL 資料倉儲 (SQL DW)，針對可公開使用的資料集 ( [NYC 計程車車程](https://www.andresmh.com/nyctaxitrips/) 資料集) 建置和部署機器學習服務模型。 所建構的二元分類模型可預測是否已針對某趟車程支付小費，並且也會討論預測支付的小費金額分佈的多元分類模型和迴歸模型。
@@ -77,7 +77,7 @@ ms.locfileid: "57838879"
 **佈建 Azure SQL DW 執行個體。**
 遵循 [建立 SQL 資料倉儲](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) 中的說明來佈建 SQL 資料倉儲執行個體。 請務必記下下列 SQL 資料倉儲認證以用於稍後的步驟。
 
-* **伺服器名稱**：<server Name>.database.windows.net
+* **伺服器名稱**:\<伺服器名稱 >。 database.windows.net
 * **SQLDW (資料庫) 名稱**
 * **使用者名稱**
 * **密碼**

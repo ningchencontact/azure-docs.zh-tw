@@ -10,14 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 1ad1d2c74be97afcb62f3f8e8161111f4938f645
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
-ms.translationtype: HT
+ms.openlocfilehash: aae6bc41f3c2fc2c5f8cf63d07f6b4d79bb3564a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093663"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547535"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>安裝 Azure Functions 執行階段預覽 2
+
+[!INCLUDE [intro](../../includes/functions-runtime-preview-note.md)]
 
 如果您想要安裝 Azure Functions 執行階段預覽 2，請遵循下列步驟：
 
@@ -49,7 +51,7 @@ Azure Functions 執行階段預覽安裝程式會引導您完成安裝 Azure Fun
 
     ![Azure Functions 執行階段預覽安裝程式][1]
 
-1. 按 [下一步] 。
+1. 单击“下一步”。
 1. 閱讀 **EULA** 的條款之後，**勾選方塊接受條款**，然後按 [下一步] 前進。
 1. 選取您想要在這部電腦上安裝的角色：**Functions 管理角色**和/或 **Functions 背景工作角色**，然後按一下 [下一步]。
 
@@ -102,36 +104,37 @@ Azure Functions 執行階段預覽安裝程式會引導您完成安裝 Azure Fun
 
 在 Azure Functions 執行階段預覽中建立您的第一個函式
 
-1. 瀏覽至 **Azure Functions 執行階段入口網站**： https://<machinename>.<domain> 例如 https://mycomputer.mydomain.com
+1. 瀏覽至**Azure Functions 執行階段入口網站**作為`https://<machinename>.<domain>`例如`https://mycomputer.mydomain.com`。
+
 1. 如果是部署在使用您的網域帳戶使用者名稱與密碼的網域，系統就會提示您**登入**，否則請使用您的本機帳戶使用者名稱與密碼來登入入口網站。
 
-![Azure Functions 執行階段預覽入口網站登入][14]
+    ![Azure Functions 執行階段預覽入口網站登入][14]
 
-1. 若要建立函數應用程式，您必須建立訂用帳戶。  在入口網站左上角，按一下訂用帳戶旁的 [+] 選項
+1. 若要建立函數應用程式，您必須建立訂用帳戶。  在入口網站左上角，按一下**+** 訂用帳戶旁邊的選項。
 
-![Azure Functions 執行階段預覽入口網站訂用帳戶][15]
+    ![Azure Functions 執行階段預覽入口網站訂用帳戶][15]
 
 1. 選擇 [DefaultPlan]、輸入您的訂用帳戶名稱，然後按一下 [建立]。
 
-![Azure Functions 執行階段預覽入口網站訂用帳戶計畫和名稱][16]
+    ![Azure Functions 執行階段預覽入口網站訂用帳戶計畫和名稱][16]
 
 1. 入口網站的左側窗格中會列出您的所有函數應用程式。  若要建立新的函數應用程式，請選取 [函數應用程式] 標題，然後按一下 [+] 選項。
 
 1. 輸入您的函數應用程式名稱、選取正確的訂用帳戶、選擇您想要據以進行程式設計的 Azure Functions 執行階段版本，然後按一下 [建立]
 
-![Azure Functions 執行階段預覽入口網站新的函數應用程式][17]
+    ![Azure Functions 執行階段預覽入口網站新的函數應用程式][17]
 
 1. 您的新函數應用程式會列於入口網站的左側窗格中。  選取 [函式]，然後按一下入口網站中央窗格頂端的 [新增函式]。
 
-![Azure Functions 執行階段預覽範本][18]
+    ![Azure Functions 執行階段預覽範本][18]
 
 1. 選取 [計時器觸發程序] 函式、在右側彈出式視窗中為您的函式命名並將 [排程] 變更為 `*/5 * * * * *` (這個 cron 運算式會使得您的計時器函式每隔五秒鐘執行一次)，然後按一下 [建立]
 
-![Azure Functions 執行階段預覽新的計時器函式設定][19]
+    ![Azure Functions 執行階段預覽新的計時器函式設定][19]
 
 1. 現在已建立您的函式。  您可以透過展開入口網站底部的 [記錄] 窗格，來檢視函數應用程式的執行記錄。
 
-![Azure Functions 執行階段預覽函式執行][20]
+    ![Azure Functions 執行階段預覽函式執行][20]
 
 <!--Image references-->
 [1]: ./media/functions-runtime-install/AzureFunctionsRuntime_Installer1.png

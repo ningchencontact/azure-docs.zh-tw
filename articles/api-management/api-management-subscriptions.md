@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 1f7c2bde631e42ac94ce4c0394d13e369f6ea23f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 6f577530c42952c6340a15110bcd37383a5fca57
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54049753"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526583"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Azure API 管理中的訂用帳戶
 
@@ -50,9 +50,6 @@ ms.locfileid: "54049753"
 > 在某些情況下，API 發行者可能會想要公開發佈 API 產品，而不需要訂用帳戶。 他們可以取消選取 Azure 入口網站中產品 [設定] 頁面中的 [需要訂用帳戶] 選項。 因此，無需 API 金鑰即可存取產品下的所有 API。
 
 ### <a name="subscriptions-for-all-apis-or-an-individual-api"></a>適用於所有 API 或個別 API 的訂用帳戶
-
-> [!NOTE]
-> 目前，這項功能僅可在 API 管理使用層中使用。
 
 當我們引進 APIM 的[使用](https://aka.ms/apimconsumptionblog)層時，我們進行了一些變更以簡化金鑰管理：
 - 首先，我們新增了兩個訂用帳戶範圍：所有 API 和單一 API。 訂用帳戶的範圍不再限於 API 產品。 現在可以建立金鑰以授與對 API (或 APIM 執行個體中所有 API) 的存取權，而不需要先建立一項產品，並向其新增 API。 此外，每個 APIM 執行個體現在隨附不可變動的「所有 API」訂用帳戶。 此訂用帳戶可讓測試主控台內的 API 測試和偵錯變得更容易且方便。

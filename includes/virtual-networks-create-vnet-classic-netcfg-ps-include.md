@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: 4ae4c3100ae13fdb05e17974b433b247128c1a50
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: bda289e73b9a782cd56c0c94b8f53e8002b1ccf4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31805050"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59532425"
 ---
 ## <a name="how-to-create-a-virtual-network-using-a-network-config-file-from-powershell"></a>如何使用 PowerShell 的網路組態檔建立虛擬網路
 Azure 會使用 xml 檔案定義訂用帳戶可用的所有虛擬網路。 您可以下載這個檔案，加以編輯以進行修改或刪除現有的虛擬網路，以及建立新的虛擬網路。 在本教學課程中，您將了解如何下載這個檔案 (稱為網路組態或 netcfg 檔案)，以及如何編輯該檔案以建立新的虛擬網路。 若要深入了解網路組態檔，請參閱 [Azure 虛擬網路組態結構描述](https://msdn.microsoft.com/library/azure/jj157100.aspx)。
@@ -35,8 +35,8 @@ Azure 會使用 xml 檔案定義訂用帳戶可用的所有虛擬網路。 您�
       <?xml version="1.0" encoding="utf-8"?>...
       ```
 
-3. 使用任何 XML 或文字編輯器應用程式，開啟您在步驟 2 中儲存的檔案，並尋找 **<VirtualNetworkSites>** 項目。 如果您已建立網路，每個網路都會顯示為其自身的 **<VirtualNetworkSite>** 項目。
-4. 若要建立此案例所述的虛擬網路，請在 **<VirtualNetworkSites>** 元素正下方，新增下列 XML：
+3. 開啟您在步驟 2 使用任何 XML 或文字編輯器應用程式，儲存檔案並尋找 **\<VirtualNetworkSites >** 項目。 如果您有已建立網路，每個網路會顯示為其自身 **\<VirtualNetworkSite >** 項目。
+4. 若要建立的虛擬網路，在此案例中所述，新增下列 XML 程式碼正下方 **\<VirtualNetworkSites >** 項目：
 
    ```xml
          <?xml version="1.0" encoding="utf-8"?>

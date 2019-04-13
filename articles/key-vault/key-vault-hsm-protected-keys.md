@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: 71931194c88412467252d16c5333d7a77338378c
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 70a33b0ec55705c6fb00671cc801415cd7459558
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630618"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522723"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>如何為 Azure 金鑰保存庫產生並傳輸受 HSM 保護的金鑰
 
@@ -445,7 +445,7 @@ KeyVault-BYOK-Tools-UnitedKingdom.zip
 
 系統會要求您插入您的安全世界系統管理員卡。
 
-當命令完成時，您會看到 **Result:SUCCESS**，而降低權限的金鑰複本會在名為 key_xferacId_<contosokey> 的檔案中。
+當命令完成時，您會看到 **Result:成功**降低權限金鑰的複本位於名為 key_xferacId_ 的檔案和\<contosokey >。
 
 您可使用 Thales 公用程式，以下列命令檢查 ACLS：
 

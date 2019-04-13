@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 04/11/2019
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b11c71f7f5a329a836d379a16afe66c08572ccde
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8d710a86bb63765ea8a1a777818ca5f99e38d3a7
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177983"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548030"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>使用 Azure Active Directory 新增或更新使用者的設定檔資訊
 使用 Azure Active Directory (Azure AD) 新增使用者設定檔資訊，包括個人資料圖片、工作特定資訊，以及一些設定。 如需新增使用者的詳細資訊，請參閱[如何在 Azure Active Directory 中新增或刪除使用者](add-users-azure-active-directory.md)。
@@ -26,7 +26,7 @@ ms.locfileid: "56177983"
 如您所見，使用者設定檔中所提供資訊比您在使用者建立期間可以新增的資訊還多。 所有這些額外資訊都是選擇性，可以依據您的組織需求新增。
 
 ## <a name="to-add-or-change-profile-information"></a>新增或變更設定檔資訊
-1. 以目錄的全域系統管理員或使用者系統管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
+1. 登入[Azure 入口網站](https://portal.azure.com/)組織的使用者系統管理員身分。
 
 2. 選取 [Azure Active Directory] 並選取 [使用者]，然後選取一位使用者。 例如 _Alain Charon_。
 
@@ -40,7 +40,7 @@ ms.locfileid: "56177983"
 
     - **個人資料圖片。** 選取使用者帳戶的縮圖影像。 此圖會出現在 Azure Active Directory 和使用者的個人頁面上，例如 myapps.microsoft.com 頁面。
 
-    - **身分識別。** 新增任何帳戶相關資訊，例如已婚姓氏或變更的使用者名稱。 
+    - **身分識別。** 新增或更新使用者，例如已婚的最後一個名稱的其他身分識別值。 您可以獨立設定此名稱的名字和姓氏值。 例如，您可以使用它來包含縮寫，公司名稱，或變更顯示名稱的順序。 另舉一例，其名稱為 'Chris Green' 的兩個使用者可使用身分識別字串將其名稱為' Chris B.Green' 'Chris R Green (Contoso)。'
 
     - **工作資訊。** 新增任何工作相關資訊，例如使用者的職稱、部門或經理。
 

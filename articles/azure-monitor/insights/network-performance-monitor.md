@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 465d59ff13982eee8432d7ef97e2f522b0d7125b
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: ac10f1f1c6336098afc2abd2b8f720cedfb6f579
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489719"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548930"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure 中的網路效能監控解決方案
 
@@ -152,7 +152,7 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 設定您想要的功能：
 
 - [效能監視器](network-performance-monitor-performance-monitor.md#configuration)
-- [服務連線能力監視](network-performance-monitor-performance-monitor.md#configuration)
+- [服務連線監視](network-performance-monitor-performance-monitor.md#configuration)
 - [ExpressRoute 監視](network-performance-monitor-expressroute.md#configuration)
 
  
@@ -251,13 +251,13 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 
 這表示所有通知都可透過[動作群組](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview)來加以管理。  
 
-如果您是建立透過 LAzure 監視器警示的 NPM 使用者： 
-1. 將您重新導向 Azure 入口網站的連結將會出現。 按一下可存取入口網站。
+如果您是透過 Log Analytics 建立警示的 NPM 使用者： 
+1. 您會看到可將您重新導向至 Azure 入口網站的連結。 按一下可存取入口網站。
 2. 按一下 [網路效能監控] 解決方案圖格。 
 3. 導覽至 [設定]。  
 4. 選取您要建立警示的測試，然後遵循下文所述的步驟。
 
-如果您是透過 Azure 入口網站建立警示的 NPM 使用者：  
+如果您是建立透過 Azure 入口網站警示 NPM 使用者：  
 1. 您可以選擇直接輸入電子郵件，或選擇透過動作群組建立警示。
 2. 如果您選擇直接輸入電子郵件，系統會建立名為 **NPM 電子郵件動作群組**的動作群組，並將電子郵件識別碼加入該動作群組。
 3. 如果您選擇使用動作群組，必須選取先前建立的動作群組。 您可以在[這裡](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal)了解如何建立動作群組。 

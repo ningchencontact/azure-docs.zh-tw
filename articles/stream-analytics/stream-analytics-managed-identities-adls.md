@@ -1,19 +1,18 @@
 ---
-title: 向 Azure Data Lake Storage Gen1 輸出驗證 Azure 串流分析作業
+title: 驗證 Azure Stream Analytics 作業，以 Azure Data Lake 儲存體 Gen1 輸出
 description: 本文說明如何使用受控識別向 Azure Data Lake Storage Gen1 輸出驗證 Azure 串流分析作業。
-services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/8/2019
+ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9eb66a9000c9add0718c6edf6674a26ce8e479b3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 695591fedfacb34742335a6e9d6ca32a9c77eb7e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257972"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522056"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>驗證使用受管理的身分識別至 Azure Data Lake 儲存體 Gen1 的 Stream Analytics
 
@@ -100,36 +99,40 @@ Azure 串流分析支援向 Azure Data Lake Storage (ADLS) Gen1 輸出進行受�
    這個屬性會要求 Azure Resource Manager 建立及管理您的 Azure 串流分析作業身分識別。
 
    **範例作業**
-
-    ```json
-    {
-      "Name": "AsaJobWithIdentity",
-      "Type": "Microsoft.StreamAnalytics/streamingjobs",
-      "Location": "West US",
-      "Identity": {
-        "Type": "SystemAssigned",
-      },
-      "properties": {
-        "sku": {
-          "name": "standard"
-        },
-        "outputs": [
-          {
-            "name": "string",
-            "properties":{
-              "datasource": {
-                "type": "Microsoft.DataLake/Accounts",
-                "properties": {
-                  "accountName": "myDataLakeAccountName",
-                  "filePathPrefix": "cluster1/logs/{date}/{time}",
-                  "dateFormat": "YYYY/MM/DD",
-                  "timeFormat": "HH",
-                  "authenticationMode": "Msi"
-                }
-              }
+   
+   ```json
+   {
+     "Name": "AsaJobWithIdentity",
+     "Type": "Microsoft.StreamAnalytics/streamingjobs",
+     "Location": "West US",
+     "Identity": {
+       "Type": "SystemAssigned",
+     },
+     "properties": {
+       "sku": {
+         "name": "standard"
+       },
+       "outputs": [
+         {
+           "name": "string",
+           "properties":{
+             "datasource": {
+               "type": "Microsoft.DataLake/Accounts",
+               "properties": {
+                 "accountName": "myDataLakeAccountName",
+                 "filePathPrefix": "cluster1/logs/{date}/{time}",
+                 "dateFormat": "YYYY/MM/DD",
+                 "timeFormat": "HH",
+                 "authenticationMode": "Msi"
+             }
+           }
+         }
+       }
+     }
+   }
    ```
   
-   **作業回應範例**
+   **範例作業回應**
 
    ```json
    {
@@ -145,7 +148,8 @@ Azure 串流分析支援向 Azure Data Lake Storage (ADLS) Gen1 輸出進行受�
         "sku": {
           "name": "standard"
         },
-      }
+     }
+   }
    ```
 
    請記下作業回應中的主體識別碼，以授予必要 ADLS 資源的存取權。
@@ -169,18 +173,17 @@ Azure 串流分析支援向 Azure Data Lake Storage (ADLS) Gen1 輸出進行受�
    User -Id 14c6fd67-d9f5-4680-a394-cd7df1f9bacf -Permissions WriteExecute
    ```
 
-   若要深入了解上述 PowerShell 命令，請參閱[組 AzDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry)文件。
+   若要深入了解上述 PowerShell 命令，請參閱[組 AzDataLakeStoreItemAclEntry](/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry)文件。
 
 ## <a name="limitations"></a>限制
 這項功能不支援下列功能：
 
-1.  **多租用戶存取**:針對給定的 Stream Analytics 作業所建立的服務主體會位於 Azure Active Directory 租用戶的作業已建立，而且不能針對位於不同的 Azure Active Directory 租用戶的資源。 因此，您只可以使用 MSI 與您的 Azure Stream Analytics 作業相同的 Azure Active Directory 租用戶內的 ADLS Gen 1 資源上。 
+1. **多租用戶存取**:針對給定的 Stream Analytics 作業所建立的服務主體會位於 Azure Active Directory 租用戶的作業已建立，而且不能針對位於不同的 Azure Active Directory 租用戶的資源。 因此，您只可以使用 MSI 與您的 Azure Stream Analytics 作業相同的 Azure Active Directory 租用戶內的 ADLS Gen 1 資源上。 
 
-2.  **[使用者指派身分識別](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**： 不支援這表示使用者不是可以輸入自己的服務主體，以供其 Stream Analytics 作業。 Azure Stream Analytics 會產生服務主體。 
-
+2. **[使用者指派身分識別](../active-directory/managed-identities-azure-resources/overview.md)**： 不支援。 這表示使用者不是可以輸入自己的服務主體，以供其 Stream Analytics 作業。 Azure Stream Analytics 會產生服務主體。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [使用串流分析建立 Data lake Store 輸出](../data-lake-store/data-lake-store-stream-analytics.md)
+* [使用串流分析建立 Data Lake Store 輸出](../data-lake-store/data-lake-store-stream-analytics.md)
 * [使用 Visual Studio 在本機測試串流分析查詢](stream-analytics-vs-tools-local-run.md)
-* [測試在本機使用 Azure Stream Analytics tools for Visual Studio 的即時資料](stream-analytics-live-data-local-testing.md) 
+* [使用適用於 Visual Studio 的 Azure 串流分析工具在本機測試即時資料](stream-analytics-live-data-local-testing.md) 

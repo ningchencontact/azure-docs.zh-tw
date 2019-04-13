@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
-ms.openlocfilehash: fc7c957b766c1c95ea247ccb63cad5bedec6feec
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a88ff7c7b889d197e78dddfbb498b7150e08d5ed
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668989"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526804"
 ---
 # <a name="machine-learning-on-hdinsight"></a>HDInsight 上的機器學習服務
 
@@ -65,4 +65,4 @@ Azure Machine Learning 提供可建立預測性分析模型的工具，也提供
 
 * [使用 Microsoft Cognitive Toolkit 深度學習模型與 Azure HDInsight Spark 叢集](spark/apache-spark-microsoft-cognitive-toolkit.md)
 * [在 Azure HDInsight Spark 上使用 Caffe 進行分散式深入學習](spark/apache-spark-deep-learning-caffe.md)
-* [深度學習和 AI 架構資料科學虛擬機器 (DSVM)](https://docs.microsoft.com/en-us/azure/machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks)
+* [深度學習和 AI 架構資料科學虛擬機器 (DSVM)](../machine-learning/data-science-virtual-machine/dsvm-deep-learning-ai-frameworks.md)

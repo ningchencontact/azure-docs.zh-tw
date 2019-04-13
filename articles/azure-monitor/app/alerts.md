@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 8026576478b16b753ba960155c383ffec62c61ce
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: eb8e98f66d000290ce7eb07d3d73e82fbc43514a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491537"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548693"
 ---
 # <a name="set-alerts-in-application-insights"></a>在 Application Insights 中設定警示
 [Azure Application Insights][start] 可在 Web 應用程式中發生效能或使用量計量變更時對您發出警示。 
@@ -45,7 +45,7 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 * 如果您已設定回應通知的 Web 應用程式，請設定 [Webhook 位址](../../azure-monitor/platform/alerts-webhooks.md)。 系統會在警示啟動和解決時加以呼叫。 (不過請注意，查詢參數目前不會當作 Webhook 屬性傳遞)。
 * 您可以停用或啟用警示： 請參閱上方的按鈕。
 
-*我沒有看到 [新增警示] 按鈕。*
+<bpt id="p1">*</bpt>I don't see the Add Alert button.<ept id="p1">*</ept>
 
 * 您是否使用組織帳戶？ 如果您有這個應用程式資源的擁有者或參與者存取權，您可以設定警示。 請看一下 [存取控制] 索引標籤。[深入了解存取控制][roles]。
 
@@ -147,7 +147,7 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 
 ## <a name="how-to-unsubscribe-from-classic-alert-e-mail-notifications"></a>如何取消訂閱傳統警示的電子郵件通知
 
-本節適用於**傳統可用性警示**， **Application Insights 計量警示**，以及**傳統失敗異常警示**。
+本節適用於**傳統可用性警示**，**傳統的 Application Insights 計量警示**，以及**傳統失敗異常警示**。
 
 您會收到這些傳統警示的電子郵件通知，如果下列任何一項適用於：
 
@@ -177,8 +177,8 @@ Application Insights 會在[多種平台][platforms]上監視即時應用程式�
 如果您需要根據使用者的角色來通知他們，請使用新警示體驗/近乎即時警示。 使用[動作群組](../platform/action-groups.md)，您可以為具有任一個參與者/擁有者/讀者角色 (不會結合來作為單一選項) 的使用者設定電子郵件通知。
 
 ## <a name="automation"></a>自動化
-* [使用 PowerShell 來自動化設定警示](../../azure-monitor/app/powershell-alerts.md)
-* [使用 webhook 自動回應警示](../../azure-monitor/platform/alerts-webhooks.md)
+* [使用 PowerShell 自動設定警示](../../azure-monitor/app/powershell-alerts.md)
+* [使用 Webhook 自動回應警示](../../azure-monitor/platform/alerts-webhooks.md)
 
 ## <a name="see-also"></a>請參閱
 * [可用性 Web 測試](../../azure-monitor/app/monitor-web-app-availability.md)

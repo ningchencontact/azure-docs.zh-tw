@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: a2c7ceae342124f06fcfe8dc18b1a69f7176f4e1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 0191c56e1140870b1710b48c4fa1189fd92a337b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090970"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521470"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>串流分析的常見問題以及疑難排解的步驟
 
@@ -26,7 +26,7 @@ ms.locfileid: "53090970"
 
 ![Azure 串流分析儀表板上的輸入圖格](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
-若要參閱詳細資訊，請啟用診斷記錄以檢視警告的詳細資料。 對於格式錯誤的輸入事件，執行記錄包含具有類似以下訊息的項目：「訊息：無法將來自資源 <blob URI> 的輸入事件還原序列化為 Json。」 
+若要參閱詳細資訊，請啟用診斷記錄以檢視警告的詳細資料。 對於格式錯誤的輸入事件，執行記錄包含具有類似以下訊息的項目：「訊息：無法還原序列化來自資源的輸入的事件\<blob URI > 為 json 」。 
 
 ### <a name="troubleshooting-steps"></a>疑難排解步驟
 

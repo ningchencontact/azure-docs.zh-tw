@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a7aa5401cbba9fafda9f995a882934ef0edfa481
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d26bc6044ca106b0f081cee5a39405b4b78ce7ac
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881141"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523999"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process 實務：使用 Azure HDInsight Hadoop 叢集
 在此逐步解說中，我們在端對端案例中使用 [Team Data Science Process (TDSP)](overview.md)。 我們使用 [Azure HDInsight Hadoop 叢集](https://azure.microsoft.com/services/hdinsight/)，以對 [NYC 計程車車程](https://www.andresmh.com/nyctaxitrips/) \(英文\) 資料集內可公開使用的資料進行儲存、探索和特徵工程設計，並縮減取樣資料。 若要處理二元和多元分類和迴歸預測工作，我們使用 Azure Machine Learning 建置資料的模型。 
@@ -88,11 +88,11 @@ NYC 計程車車程資料是約 20 GB 的壓縮逗點分隔值 (CSV) 檔案 (未
 
 我們在這裡說明如何使用 AzCopy 來傳輸含有資料的檔案。 若要下載並安裝 AzCopy，請遵循[開始使用 AzCopy 命令列公用程式](../../storage/common/storage-use-azcopy.md)的指示。
 
-1. 從命令提示字元視窗中執行下列 AzCopy 命令，以所需的目的地取代 *<path_to_data_folder>*：
+1. 從命令提示字元 視窗中，執行下列 AzCopy 命令，將 *\<path_to_data_folder >* 與所需的目的地：
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-1. 複製完成時，您會在選擇的資料夾中看到總共 24 個壓縮檔。 將下載的檔案解壓縮到您本機電腦上的相同目錄。 記下未壓縮檔案所在的資料夾。 接下來會將這個資料夾稱為 *<path\_to\_unzipped_data\_files\>*。
+1. 複製完成時，您會在選擇的資料夾中看到總共 24 個壓縮檔。 將下載的檔案解壓縮到您本機電腦上的相同目錄。 記下未壓縮檔案所在的資料夾。 此資料夾指*\<路徑\_要\_unzipped_data\_檔案\>* 在下面。
 
 ## <a name="upload"></a>將資料上傳至 HDInsight Hadoop 叢集的預設容器
 > [!NOTE]
@@ -102,10 +102,10 @@ NYC 計程車車程資料是約 20 GB 的壓縮逗點分隔值 (CSV) 檔案 (未
 
 在下列 AzCopy 命令中，以建立 Hadoop 叢集和解壓縮資料檔案時指定的實際值取代下列參數。
 
-* ***<path_to_data_folder>***：您的電腦上包含未解壓縮之資料檔案的目錄 (以及路徑)。  
-* ***<storage account name of Hadoop cluster>*** 與您的 HDInsight 叢集相關聯的儲存體帳戶。
-* ***<default container of Hadoop cluster>*** 您的叢集所使用的預設容器。 請注意，預設容器的名稱通常與叢集本身的名稱相同。 例如，如果叢集稱為 "abc123.azurehdinsight.net"，預設容器即為 abc123。
-* ***<storage account key>*** 您的叢集所使用的儲存體帳戶金鑰。
+* ***\<path_to_data_folder >*** 包含未解壓縮的資料檔案之電腦上的目錄 （以及路徑）。  
+* ***\<Hadoop 叢集的儲存體帳戶名稱 >*** 與您的 HDInsight 叢集相關聯的儲存體帳戶。
+* ***\<Hadoop 叢集預設容器 >*** 叢集所使用的預設容器。 請注意，預設容器的名稱通常與叢集本身的名稱相同。 例如，如果叢集稱為 "abc123.azurehdinsight.net"，預設容器即為 abc123。
+* ***\<儲存體帳戶金鑰 >*** 叢集所使用的儲存體帳戶金鑰。
 
 從命令提示字元或 Windows PowerShell 視窗，執行下列兩個 AzCopy 命令。
 

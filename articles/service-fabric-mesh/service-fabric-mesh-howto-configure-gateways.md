@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/28/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1c75d781c8a83b54ac9474c83388cf02b5d03e3c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2e2502e35b3720ddbfe5950b89e2388de378f2ba
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57532077"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528113"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>設定閘道資源以路由要求
 
@@ -228,8 +228,8 @@ HTTP 路由規則中包含下列屬性：
 ```
 
 此閘道已設定為適用於 Linux 應用程式 "meshAppLinux"，其包含至少兩種服務 "helloWorldService" 和 "counterService"，而服務會接聽連接埠 80。 根據傳入要求的 URL 結構，閘道會將要求路由至這些服務中的其中一個。 
-* "<IPAddress>:80/helloWorld/\<request\>" 會使要求導向 helloWorldService 中的 "helloWorldListener"。 
-* "<IPAddress>:80/counter/\<request\>" 會使要求導向 counterService 中的 "counterListener"。 
+* 「\<IPAddress >: 80/helloWorld/\<要求\>"會造成要求被導向到在 helloWorldService"helloWorldListener 」。 
+* 「\<IPAddress >: 80/計數器/\<要求\>"會造成要求被導向到在 counterService"counterListener 」。 
 
 ## <a name="next-steps"></a>後續步驟
 * 部署[輸入範例](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/ingress)以查看作用中的閘道

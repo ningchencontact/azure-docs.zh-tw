@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 5293c44a3e4494593e069ab45fbc38806c6999ee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1d1c9ef5ba355f1944a362bf0e6f5d7ba91a700a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57976771"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523931"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - 函式與系統變數
 > [!NOTE]
@@ -59,7 +59,7 @@ ms.locfileid: "57976771"
 
 1. 指定資料選取範圍查詢 (請參閱 [資料移動活動](data-factory-data-movement-activities.md) 文章中參考的連接器文章)。
    
-   針對資料選取範圍查詢和活動與資料集中的其他屬性，叫用 Data Factory 函式的語法是： **$$<function>** 。  
+   叫用 data factory 函式的語法是：  **$$\<函式 >** 針對資料選取範圍查詢和活動與資料集中的其他屬性。  
 2. 使用 Data Factory 函式在活動輸入集合中指定輸入相依性。
    
     指定輸入相依性運算式不需要 $$。     

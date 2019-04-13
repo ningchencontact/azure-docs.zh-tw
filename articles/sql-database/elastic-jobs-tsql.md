@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 4f4032551efbf517ab47a64afc393cc57ace6bc1
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621493"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523761"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>使用 Transact-SQL (T-SQL) 建立及管理彈性資料庫作業
 
@@ -193,7 +193,7 @@ CREATE TABLE [dbo].[Test]([TestId] [int] NOT NULL);',
 根據預設，作業代理程式會建立資料表將傳回的結果儲存於其中。 因此，與用於輸出認證相關聯的登入必須要有足夠的權限能執行此作業。 如果您想要事先手動建立資料表，則必須具有下列屬性：
 1. 結果集使用正確名稱和資料類型的資料行。
 2. internal_execution_id 的其他資料行 (資料類型為 uniqueidentifier)。
-3. internal_execution_id 資料行上名為 "IX_<TableName>_Internal_Execution_ID" 的非叢集索引。
+3. 非叢集索引，名為`IX_<TableName>_Internal_Execution_ID`internal_execution_id 資料行上。
 
 連線至[*作業資料庫*](sql-database-job-automation-overview.md#job-database)，然後執行下列命令：
 
@@ -284,7 +284,7 @@ select * from jobs.jobsteps
 ```
 
 
-## <a name="begin-ad-hoc-execution-of-a-job"></a>開始執行臨機操作作業
+## <a name="begin-ad-hoc-execution-of-a-job"></a>开始即席执行作业
 
 下列範例說明如何立即啟動作業。  
 連線至[*作業資料庫*](sql-database-job-automation-overview.md#job-database)，然後執行下列命令：
@@ -691,7 +691,7 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 [ **\@output_table_name =** ] 'output_table_name'  
 如果不是 Null，則為命令的第一個結果集將會寫入的目標資料表名稱。 如果資料表尚不存在，則會根據傳回的結果集所具備的結構描述建立資料表。 如果 output_type 是 SqlDatabase，則必須指定。 output_table_name 是 nvarchar(128)，預設值為 NULL。
 
-[  **\@job_version =** ] job_version 輸出  
+[ **\@job_version =** ] job_version OUTPUT  
 將會被指派新的作業版本號碼的輸出參數。 job_version 是 int。
 
 [ **\@max_parallelism =** ] max_parallelism OUTPUT  
@@ -815,7 +815,7 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 [ **\@output_table_name =** ] 'output_table_name'  
 如果不是 Null，則為命令的第一個結果集將會寫入的目標資料表名稱。 如果資料表尚不存在，則會根據傳回的結果集所具備的結構描述建立資料表。 如果 output_type 是 SqlDatabase，則必須指定。 若要將 output_server_name 的值重設為 NULL，請將此參數的值設為 '' (空字串)。 output_table_name 是 nvarchar(128)，預設值為 NULL。
 
-[  **\@job_version =** ] job_version 輸出  
+[ **\@job_version =** ] job_version OUTPUT  
 將會被指派新的作業版本號碼的輸出參數。 job_version 是 int。
 
 [ **\@max_parallelism =** ] max_parallelism OUTPUT  
@@ -862,7 +862,7 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 [ **\@step_name =** ] 'step_name'  
 要刪除的步驟名稱。 必須指定 step_id 或 step_name。 step_name 是 nvarchar(128)。
 
-[  **\@job_version =** ] job_version 輸出  
+[ **\@job_version =** ] job_version OUTPUT  
 將會被指派新的作業版本號碼的輸出參數。 job_version 是 int。
 
 #### <a name="return-code-values"></a>傳回碼值
@@ -961,7 +961,7 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 [ **\@target_group_name =** ] 'target_group_name'  
 要建立的目標群組名稱。 target_group_name 是 nvarchar(128)，沒有預設值。
 
-[  **\@target_group_id =** ] target_group_id 輸出目標群組建立成功時，指派給作業的識別碼。 target_group_id 是 uniqueidentifier 類型的輸出變數，預設值為 NULL。
+[ **\@target_group_id =** ] target_group_id OUTPUT 分配给已成功创建的作业的目标组标识号。 target_group_id 是 uniqueidentifier 類型的輸出變數，預設值為 NULL。
 
 #### <a name="return-code-values"></a>傳回碼值
 0 (成功) 或 1 (失敗)

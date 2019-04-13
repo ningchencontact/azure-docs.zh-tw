@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: fe0fec082ace997a3bd66ca7c7575ce8dce3be1a
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e67e41d5e423e07371fbce06066076ab809f60df
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58885565"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545326"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>藉由使用指令碼動作來自訂 Azure HDInsight 叢集
 
@@ -147,12 +147,11 @@ HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
 
 | 名稱 | 指令碼 |
 | --- | --- |
-| 新增 Azure 儲存體帳戶 |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`上也提供本文中使用的原始碼。 請參閱[將其他儲存體帳戶新增至 HDInsight](hdinsight-hadoop-add-storage.md)。 |
-| 安裝 Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`上也提供本文中使用的原始碼。 請參閱[在 HDInsight Hadoop 叢集上安裝和使用 Hue](hdinsight-hadoop-hue-linux.md)。 |
-| 安裝 Presto |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`上也提供本文中使用的原始碼。 請參閱[在 Hadoop 型 HDInsight 叢集上安裝和使用 Presto](hdinsight-hadoop-install-presto.md)。 |
-| 安裝 Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`上也提供本文中使用的原始碼。 請參閱[在 HDInsight Hadoop 叢集上安裝 Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)。 |
-| 預先載入 Hive 程式庫 |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`上也提供本文中使用的原始碼。 請參閱[建立 HDInsight 叢集時新增自訂 Apache Hive 程式庫](hdinsight-hadoop-add-hive-libraries.md)。 |
-| 安裝或更新 Mono | `https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash`上也提供本文中使用的原始碼。 請參閱 [在 HDInsight 上安裝或更新 Mono](hdinsight-hadoop-install-mono.md)。 |
+| 新增 Azure 儲存體帳戶 |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh` 。 請參閱[將其他儲存體帳戶新增至 HDInsight](hdinsight-hadoop-add-storage.md)。 |
+| 安裝 Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh` 。 請參閱[在 HDInsight Hadoop 叢集上安裝和使用 Hue](hdinsight-hadoop-hue-linux.md)。 |
+| 安裝 Presto |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh` 。 請參閱[在 Hadoop 型 HDInsight 叢集上安裝和使用 Presto](hdinsight-hadoop-install-presto.md)。 |
+| 安裝 Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh` 。 請參閱[在 HDInsight Hadoop 叢集上安裝 Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)。 |
+| 預先載入 Hive 程式庫 |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh` 。 請參閱[建立 HDInsight 叢集時新增自訂 Apache Hive 程式庫](hdinsight-hadoop-add-hive-libraries.md)。 |
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>在建立叢集期間使用指令碼動作
 
@@ -212,11 +211,11 @@ HDInsight 提供一些指令碼以在 HDInsight 叢集上安裝下列元件：
 
 * [使用 Resource Manager 範本與 Azure PowerShell 來部署資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
 
-* [使用 Resource Manager 範本和 Azure CLI 來部署資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli)
+* [使用 Resource Manager 範本與 Azure CLI 部署資源](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli)
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>在建立叢集期間從 Azure PowerShell 使用指令碼動作
 
-在本節中，您會使用[新增 AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) cmdlet 以叫用來自訂叢集的指令碼。 在您開始之前，請務必先安裝和設定 Azure PowerShell。 若要使用下列 PowerShell 命令，您需要[AZ 模組](https://docs.microsoft.com/powershell/azure/overview)。
+本部分使用 [Add-AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) cmdlet 来调用脚本，以自定义群集。 在您開始之前，請務必先安裝和設定 Azure PowerShell。 若要使用下列 PowerShell 命令，您需要[AZ 模組](https://docs.microsoft.com/powershell/azure/overview)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -457,11 +456,11 @@ HDInsight 服務提供數種方式以使用自訂元件。 不論元件在叢集
 
     在此目錄底下，記錄會個別針對**前端節點**、**背景工作節點**及 **Zookeeper 節點**進行組織。 請參閱下列範例：
 
-    * **前端節點**: `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
+    * **前端節點**：`<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
 
-    * **背景工作角色節點**: `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
+    * **背景工作節點**：`<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
 
-    * **Zookeeper 節點**: `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
+    * **Zookeeper 節點**：`<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
 * 相對應主機的所有 **stdout** 和 **stderr** 都會上傳到儲存體帳戶。 每個指令碼動作都有一個 **output-\*.txt** 和 **errors-\*.txt**。 **output-*.txt** 檔案包含在主機上執行之指令碼的 URI 相關資訊。 以下文字是此資訊的範例：
 
@@ -518,7 +517,7 @@ sudo pip install azure-storage==0.20.0
 ## <a name="next-steps"></a>後續步驟
 
 * [開發 HDInsight 的指令碼動作指令碼](hdinsight-hadoop-script-actions-linux.md)
-* [安裝和使用 HDInsight 叢集上的 Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
-* [新增儲存體的 HDInsight 叢集](hdinsight-hadoop-add-storage.md)
+* [在 HDInsight 叢集上安裝和使用 Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
+* [在 HDInsight 叢集新增儲存體](hdinsight-hadoop-add-storage.md)
 
-[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "叢集建立期間的階段"
+[img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "群集创建过程中的阶段"

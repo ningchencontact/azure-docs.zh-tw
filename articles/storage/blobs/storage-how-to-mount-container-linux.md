@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 2/1/2019
 ms.author: seguler
-ms.openlocfilehash: 1e26eb213ad2613877c46758299c2e962894d358
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: eadf52afd115eb1cb642082cea4b9f338bd44914
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697997"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521648"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>如何使用 Blobfuse 將 Blob 儲存體掛接為檔案系統
 
@@ -29,7 +29,7 @@ ms.locfileid: "55697997"
 ## <a name="install-blobfuse-on-linux"></a>在 Linux 上安裝 Blobfuse
 在 [Microsoft 的 Linux 軟體存放庫](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software)可取得適用於 Ubuntu 和 RHEL 散發套件的 Blobfuse 二進位檔案。 若要在這些發行版本上安裝 Blobfuse，請設定清單中的任一個存放庫。 如果您的發行版本沒有可用的二進位檔，您也可以遵循 [Azure 儲存體安裝步驟](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) \(英文\)，從原始程式碼建置二進位檔。
 
-Blobfuse 支援安裝在 Ubuntu 14.04 和 16.04 上。 執行此命令以確定您已部署其中一個版本：
+Blobfuse 會支援安裝在 Ubuntu 14.04、 16.04 和 18.04 上。 執行此命令以確定您已部署其中一個版本：
 ```
 lsb_release -a
 ```
@@ -51,7 +51,7 @@ sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
 
-同樣地，將 URL 變更為 `.../ubuntu/16.04/...`，以指向 Ubuntu 16.04 發行版本。
+同樣地，將 URL 變更為`.../ubuntu/16.04/...`或`.../ubuntu/18.04/...`參考另一個的 Ubuntu 版本。
 
 ### <a name="install-blobfuse"></a>安裝 Blobfuse
 
@@ -85,7 +85,7 @@ sudo chown <youruser> /mnt/ramdisk/blobfusetmp
 
 請確認使用者擁有權存取暫存路徑：
 ```bash
-sudo mkdir /mnt/resource/blobfusetmp
+sudo mkdir /mnt/resource/blobfusetmp -p
 sudo chown <youruser> /mnt/resource/blobfusetmp
 ```
 
@@ -97,8 +97,15 @@ accountName myaccount
 accountKey storageaccesskey
 containerName mycontainer
 ```
+`accountName`是您的儲存體帳戶-不是完整的 URL 前置詞。
 
-建立檔案後，請務必限制該檔案的存取權限，以禁止其他使用者讀取。
+建立此檔案使用：
+
+```
+touch ~/fuse_connection.cfg
+```
+
+一旦您已建立並編輯這個檔案，請務必要限制存取，讓其他使用者可以讀取它。
 ```bash
 chmod 600 fuse_connection.cfg
 ```

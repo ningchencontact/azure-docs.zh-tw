@@ -5,14 +5,14 @@ services: iot-hub
 ms.service: iot-hub
 author: ash2017
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: edaa0cdcd98ce529ccbf9bf6aafaacf57a3ea383
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: ff8f8c6656c4cd095749b3e048c72572d113f1ad
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337522"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546925"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>使用 Azure Cosmos DB 排序來自 Azure IoT 中樞的裝置連線事件
 
@@ -24,11 +24,11 @@ Azure 事件方格可協助您建置以事件為基礎的應用程式，並輕�
 
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，您可以[建立免費帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 
-* 使用中的 Azure Cosmos DB SQL API 帳戶。 如果您尚未建立此帳戶，請參閱[建立資料庫帳戶](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#create-an-account)以取得逐步解說。
+* 使用中的 Azure Cosmos DB SQL API 帳戶。 如果您尚未建立此帳戶，請參閱[建立資料庫帳戶](../cosmos-db/create-sql-api-dotnet.md#create-an-azure-cosmos-db-account)以取得逐步解說。
 
-* 您資料庫中的集合。 請參閱[新增集合](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#add-a-database-and-a-collection)以取得逐步解說。
+* 您資料庫中的集合。 請參閱[新增集合](../cosmos-db/create-sql-api-dotnet.md#add-a-database-and-a-collection)以取得逐步解說。 當您建立您的集合時，使用`/id`資料分割索引鍵。
 
-* Azure 中的 IoT 中樞。 若尚未建立，請參閱[開始使用 IoT 中樞](../iot-hub/iot-hub-csharp-csharp-getstarted.md)的逐步解說。 
+* Azure 中的 IoT 中樞。 若尚未建立，請參閱[開始使用 IoT 中樞](iot-hub-csharp-csharp-getstarted.md)的逐步解說。
 
 ## <a name="create-a-stored-procedure"></a>建立預存程序
 
@@ -38,14 +38,14 @@ Azure 事件方格可協助您建置以事件為基礎的應用程式，並輕�
 
    ![建立預存程序](./media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png)
 
-2. 輸入預存程序識別碼，然後將下列內容貼到「預存程序主體」中。 請注意，此程式碼應取代預存程序主體中任何現有的程式碼。 此程式碼會為每個裝置識別碼維護一個資料列，並藉由識別最高的序號，來記錄該裝置識別碼的最新連線狀態。 
+2. 請輸入**LatestDeviceConnectionState**預存程序識別碼並貼上下列**預存程序主體**。 請注意，此程式碼應取代預存程序主體中任何現有的程式碼。 此程式碼會為每個裝置識別碼維護一個資料列，並藉由識別最高的序號，來記錄該裝置識別碼的最新連線狀態。
 
     ```javascript
     // SAMPLE STORED PROCEDURE
     function UpdateDevice(deviceId, moduleId, hubName, connectionState, connectionStateUpdatedTime, sequenceNumber) {
       var collection = getContext().getCollection();
       var response = {};
-      
+
       var docLink = getDocumentLink(deviceId, moduleId);
 
       var isAccepted = collection.readDocument(docLink, function(err, doc) {
@@ -127,42 +127,44 @@ Azure 事件方格可協助您建置以事件為基礎的應用程式，並輕�
     }
     ```
 
-3. 儲存預存程序： 
+3. 儲存預存程序：
 
     ![儲存預存程序](./media/iot-hub-how-to-order-connection-state-events/save-stored-procedure.png)
 
 ## <a name="create-a-logic-app"></a>建立邏輯應用程式
 
-首先，建立邏輯應用程式，並新增可監視您虛擬機器資源群組的 Event Grid 觸發程序。 
+首先，建立邏輯應用程式，並新增可監視您虛擬機器資源群組的 Event Grid 觸發程序。
 
 ### <a name="create-a-logic-app-resource"></a>建立邏輯應用程式資源
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [新增] > [整合] > [邏輯應用程式]。
+1. 在  [Azure 入口網站](https://portal.azure.com)，選取 **+ 建立資源**，選取**整合**，然後**邏輯應用程式**。
 
    ![建立邏輯應用程式](./media/iot-hub-how-to-order-connection-state-events/select-logic-app.png)
 
-2. 在訂用帳戶中為邏輯應用程式指定唯一的名稱，然後選取與您的 IoT 中樞相同的訂用帳戶、資源群組和位置。 
+2. 在訂用帳戶中為邏輯應用程式指定唯一的名稱，然後選取與您的 IoT 中樞相同的訂用帳戶、資源群組和位置。
 
-3. 選取 [釘選到儀表板]，然後選擇 [建立]。
+   ![新的邏輯應用程式](./media/iot-hub-how-to-order-connection-state-events/new-logic-app.png)
+
+3. 選取 [建立] 以建立邏輯應用程式。
 
    您現在已經為您的應用程式邏輯建立一項 Azure 資源。 在 Azure 部署您的邏輯應用程式之後，Logic Apps 設計工具會顯示常見模式的範本，以便您更快開始使用。
 
-   > [!NOTE] 
-   > 當您選取 [釘選到儀表板] 時，邏輯應用程式會自動在 Logic Apps 設計工具中開啟。 不然，您可以手動尋找並開啟您的邏輯應用程式。
+   > [!NOTE]
+   > 若要尋找並重新開啟邏輯應用程式，選取**資源群組**，然後選取您要用於此作法的資源群組。 然後，選取您新的邏輯應用程式。 這會開啟邏輯應用程式設計工具。
 
-4. 在 [範本] 下的 [邏輯應用程式設計工具] 中，選擇 [空白邏輯應用程式]，以便從頭建置邏輯應用程式。
+4. 在邏輯應用程式設計工具中，則向右捲動，直到您看到一般觸發程序。 底下**範本**，選擇**空白邏輯應用程式**，讓您可以建置邏輯應用程式從零開始。
 
 ### <a name="select-a-trigger"></a>選取觸發程序
 
-觸發程序是啟動邏輯應用程式的特定事件。 在本教學課程中，啟動工作流程的觸發程序會透過 HTTP 接收要求。  
+觸發程序是啟動邏輯應用程式的特定事件。 在本教學課程中，啟動工作流程的觸發程序會透過 HTTP 接收要求。
 
-1. 在連接器和觸發程序搜尋列中，輸入 **HTTP**。
+1. 在連接器和觸發程序搜尋列中，輸入**HTTP**按 enter 鍵。
 
-2. 選取 [要求 - 收到 HTTP 要求時] 作為觸發程序。 
+2. 選取 [要求 - 收到 HTTP 要求時] 作為觸發程序。
 
    ![選取 HTTP 要求觸發程序](./media/iot-hub-how-to-order-connection-state-events/http-request-trigger.png)
 
-3. 選取 [使用範例承載來產生結構描述]。 
+3. 選取 [使用範例承載來產生結構描述]。
 
    ![使用範例承載來產生結構描述](./media/iot-hub-how-to-order-connection-state-events/sample-payload.png)
 
@@ -190,76 +192,93 @@ Azure 事件方格可協助您建置以事件為基礎的應用程式，並輕�
    }]
    ```
 
-5. 您可能會收到快顯通知，指出**請務必在您的要求中加入 Content-Type 標頭，並將其設為 application/json。** 您可以放心地忽略這項建議，並移至下一節。 
+   ![貼上範例 JSON 承載](./media/iot-hub-how-to-order-connection-state-events/paste-sample-payload.png)
+
+5. 您可能會收到快顯通知，指出**請務必在您的要求中加入 Content-Type 標頭，並將其設為 application/json。** 您可以放心地忽略這項建議，並移至下一節。
 
 ### <a name="create-a-condition"></a>建立條件
 
-在您的邏輯應用程式工作流程中，條件有助於在特定條件通過後，執行特定動作。 一旦符合條件，就可以定義所需的動作。 在本教學課程中，條件是要檢查 eventType 是裝置連線還是中斷連線。 此動作將會在您的資料庫中執行預存程序。 
+在您的邏輯應用程式工作流程中，條件有助於在特定條件通過後，執行特定動作。 一旦符合條件，就可以定義所需的動作。 在本教學課程中，條件是要檢查 eventType 是裝置連線還是中斷連線。 此動作將會在您的資料庫中執行預存程序。
 
-1. 選取 [新增步驟]，然後選取 [內建項目] 和 [條件]。 
+1. 選取  **+ 新步驟**再**內建**，然後尋找並選取**條件**。 在中按一下**選擇值**方塊就會出現顯示動態內容可以選取的欄位。 填寫欄位，可供只執行連接裝置和裝置已中斷連接事件，如下所示：
 
-2. 依照下列方式填入條件，以僅對「裝置連線」和「裝置中斷連線」事件執行此動作：
-
-   * 選擇值：**eventType**
-   * 將「等於」變更為**結尾是**
-   * 選擇值：**nected**
+   * 選擇一個值： **eventType** -選取此選項，從動態內容會顯示當您按一下此欄位的欄位。
+   * 變更"is equal to"來**結尾**。
+   * 選擇一個值： **nected**。
 
      ![填入條件](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
 
-3. 如果條件為 true，請按一下 [新增動作]。
+2. 在 [**若為 true** ] 對話方塊中，按一下**新增動作**。
   
    ![若為 true 則新增動作](./media/iot-hub-how-to-order-connection-state-events/action-if-true.png)
 
-4. 搜尋 Cosmos DB，然後按一下 [Azure Cosmos DB - 執行預存程序]
+3. 搜尋 Cosmos DB，然後選取  **Azure Cosmos DB-執行預存程序**
 
    ![搜尋 CosmosDB](./media/iot-hub-how-to-order-connection-state-events/cosmosDB-search.png)
 
-5. 從您的資料庫中選取值，以填入「執行」預存程序的表單。 輸入分割區索引鍵值和參數，如下所示。 
+4. 填寫**cosmosdb test-connection**如**連線名稱**並在資料表中，選取項目，然後選取**建立**。 您會看到**執行預存程序**面板。 輸入欄位的值：
+
+   **資料庫識別碼**:ToDoList
+
+   **集合識別碼**:項目
+
+   **Sproc 識別碼**:LatestDeviceConnectionState
+
+5. 選取 **加入新參數**。 會出現在下拉式清單中，核取方塊旁**分割區索引鍵**並**預存程序的參數**，然後按一下 在螢幕上的其他地方，它會新增資料分割索引鍵值的欄位和欄位預存程序的參數。
 
    ![填入邏輯應用程式動作](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
 
-6. 儲存您的邏輯應用程式。 
+6. 現在，如下所示輸入參數與資料分割索引鍵值。 請務必將放在方括號和雙引號所示。 您可能必須按一下**新增動態內容**取得有效的值，您可以在這裡使用。
+
+   ![填入邏輯應用程式動作](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
+
+7. 在該處會指示窗格頂端**針對每個**下方**先前步驟中選取的輸出**，並確定它**主體**已選取。
+
+   ![填入邏輯應用程式的各種](./media/iot-hub-how-to-order-connection-state-events/logicapp-foreach-body.png)
+
+8. 儲存您的邏輯應用程式。
 
 ### <a name="copy-the-http-url"></a>複製 HTTP URL
 
-離開 Logic Apps 設計工具之前，為觸發程序複製邏輯應用程式正在接聽的 URL。 您可以使用此 URL 來設定 Event Grid。 
+離開 Logic Apps 設計工具之前，為觸發程序複製邏輯應用程式正在接聽的 URL。 您可以使用此 URL 來設定 Event Grid。
 
-1. 按一下以展開 [收到 HTTP 要求時] 觸發程序設定方塊。 
+1. 按一下以展開 [收到 HTTP 要求時] 觸發程序設定方塊。
 
-2. 選取 [HTTP POST URL] 旁的複製按鈕來複製其值。 
+2. 選取 [HTTP POST URL] 旁的複製按鈕來複製其值。
 
    ![複製 HTTP POST URL](./media/iot-hub-how-to-order-connection-state-events/copy-url.png)
 
-3. 儲存這個 URL，以便在下一節參考它。 
+3. 儲存這個 URL，以便在下一節參考它。
 
 ## <a name="configure-subscription-for-iot-hub-events"></a>設定 IoT 中樞事件的訂用帳戶
 
-在本節中，您可將 IoT 中樞設定為在事件發生時進行發佈。 
+在本節中，您可將 IoT 中樞設定為在事件發生時進行發佈。
 
-1. 在 Azure 入口網站中，瀏覽至您的 IoT 中樞。 
+1. 在 Azure 入口網站中，瀏覽至您的 IoT 中樞。
 
 2. 選取 [事件]。
 
    ![開啟 Event Grid 詳細資料](./media/iot-hub-how-to-order-connection-state-events/event-grid.png)
 
-3. 選取 [事件訂用帳戶]。 
+3. 選取  **+ 事件訂用帳戶**。
 
    ![建立新的事件訂用帳戶](./media/iot-hub-how-to-order-connection-state-events/event-subscription.png)
 
-4. 使用下列值來建立事件訂用帳戶： 
+4. 填寫**事件的訂用帳戶詳細資料**:提供描述性的名稱，然後選取 [事件方格結構描述]。
 
-   * **事件類型**：取消核取 [訂閱所有事件類型]，然後從功能表中選取 [裝置已連線] 和 [裝置已中斷連線]。
+5. 填寫**事件類型**欄位。 取消核取**訂閱所有事件類型**，然後選取**裝置連線**並**裝置中斷連接**從功能表。
 
-   * **端點詳細資料**：選取 [Web Hook] 作為 [端點類型]，然後點選端點，再貼上您從邏輯應用程式複製的 URL，並確認您的選取。
+   ![設定要尋找的事件類型](./media/iot-hub-how-to-order-connection-state-events/set-event-types.png)
 
-       ![選取端點 URL](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
+6. 針對**端點詳細資料**，選取端點類型為**Web Hook**和按一下選取的端點，然後貼上您從邏輯應用程式複製的 URL 並確認選取項目。
 
-   * **事件訂用帳戶詳細資料**：提供描述性的名稱，然後選取 [事件方格結構描述]。
-   此表單大致如下列範例所示： 
+   ![選取的端點 url](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
 
-       ![事件訂用帳戶表單範例](./media/iot-hub-how-to-order-connection-state-events/subscription-form.png)
+7. 表單現在看起來應該類似下列的範例：
 
-5. 選取 [建立] 以儲存事件訂用帳戶。
+   ![事件訂用帳戶表單範例](./media/iot-hub-how-to-order-connection-state-events/subscription-form.png)
+
+   選取 [建立] 以儲存事件訂用帳戶。
 
 ## <a name="observe-events"></a>觀察事件
 
@@ -267,21 +286,23 @@ Azure 事件方格可協助您建置以事件為基礎的應用程式，並輕�
 
 ### <a name="register-a-device-in-iot-hub"></a>在 IoT 中樞登錄裝置
 
-1. 從您的 IoT 中樞，選取 [IoT 裝置]。 
+1. 從您的 IoT 中樞，選取 [IoT 裝置]。
 
-2. 選取 [新增] 。
+2. 選取  **+ 新增**窗格的頂端。
 
 3. 在 [裝置識別碼] 中，輸入 `Demo-Device-1`。
 
-4. 選取 [ **儲存**]。 
+4. 選取 [ **儲存**]。
 
 5. 您可以使用不同的裝置識別碼來新增多個裝置。
 
-   ![操作結果](./media/iot-hub-how-to-order-connection-state-events/AddIoTDevice.png)
+   ![新增至中樞的裝置](./media/iot-hub-how-to-order-connection-state-events/AddIoTDevice.png)
 
-6. 複製**連接字串 -- 主索引鍵**，以供稍後使用。
+6. 在裝置上按一下 再次;現在的連接字串和金鑰將會填入。 複製**連接字串 -- 主索引鍵**，以供稍後使用。
 
-   ![操作結果](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
+   ![裝置的連接字串](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
+
+HostName=test-eventgrid-hub.azure-devices.net;DeviceId=Demo-Device-1;SharedAccessKey=cv8uPNixe7E2R9EHtimoY/PlJfBV/lOYCMajVOp/Cuw=
 
 ### <a name="start-raspberry-pi-simulator"></a>啟動 Raspberry Pi 模擬器
 
@@ -293,19 +314,19 @@ Azure 事件方格可協助您建置以事件為基礎的應用程式，並輕�
 
 這將會觸發裝置連線事件。
 
-1. 在編碼區域中，將行 15 中的預留位置取代為您的 Azure IoT 中樞裝置連接字串。
+1. 在編碼區域中，取代您在上一節結尾處儲存您 Azure IoT 中樞裝置連接字串中的行 15 中的預留位置。
 
-   ![操作結果](./media/iot-hub-how-to-order-connection-state-events/raspconnstring.png)
+   ![在裝置連接字串中貼上](./media/iot-hub-how-to-order-connection-state-events/raspconnstring.png)
 
-2. 按一下 [執行] 以執行應用程式。
+2. 執行應用程式，方法是選取**執行**。
 
-您應該會看見下列輸出，顯示傳送至 IoT 中樞的感應器資料和訊息。
+您會看到類似下列的輸出，顯示的感應器資料並傳送至 IoT 中樞的訊息。
 
-   ![操作結果](./media/iot-hub-how-to-order-connection-state-events/raspmsg.png)
+   ![執行應用程式](./media/iot-hub-how-to-order-connection-state-events/raspmsg.png)
 
    按一下 [停止] 以停止模擬器，然後觸發 [裝置中斷連線] 事件。
 
-現在，您已執行範例應用程式以收集感應器資料，並將其傳送至 IoT 中樞。 
+現在，您已執行範例應用程式以收集感應器資料，並將其傳送至 IoT 中樞。
 
 ### <a name="observe-events-in-cosmos-db"></a>觀察 Cosmos DB 中的事件
 
@@ -319,27 +340,27 @@ Azure 事件方格可協助您建置以事件為基礎的應用程式，並輕�
 
 ## <a name="clean-up-resources"></a>清除資源
 
-本教學課程使用了會使您的 Azure 訂用帳戶產生費用的資源。 完成教學課程試用和結果測試時，請停用或刪除不想保留的資源。 
+本教學課程使用了會使您的 Azure 訂用帳戶產生費用的資源。 完成教學課程試用和結果測試時，請停用或刪除不想保留的資源。
 
-如果不想遺失您在應用程式邏輯上所做的工作，請將它停用，而非刪除它。 
+如果不想遺失您在應用程式邏輯上所做的工作，請將它停用，而非刪除它。
 
 1. 瀏覽至您的邏輯應用程式。
 
-2. 在 [概觀] 刀鋒刀鋒視窗上選取 [刪除] 或 [停用]。 
+2. 在 [概觀] 刀鋒刀鋒視窗上選取 [刪除] 或 [停用]。
 
-每個訂用帳戶都可以有一個免費的 IoT 中樞。 如果您為本教學課程建立了免費中樞，則不必為了避免費用而將它刪除。
+    每個訂用帳戶都可以有一個免費的 IoT 中樞。 如果您為本教學課程建立了免費中樞，則不必為了避免費用而將它刪除。
 
-1. 瀏覽至您的 IoT 中樞。 
+3. 瀏覽至您的 IoT 中樞。
 
-2. 在 [概觀] 刀鋒視窗上選取 [刪除]。 
+4. 在 [概觀] 刀鋒視窗上選取 [刪除]。
 
-即使要保留 IoT 中樞，您也可以刪除您所建立的事件訂用帳戶。 
+    即使要保留 IoT 中樞，您也可以刪除您所建立的事件訂用帳戶。
 
-1. 在 IoT 中樞中，選取 [Event Grid]。
+5. 在 IoT 中樞中，選取 [Event Grid]。
 
-2. 選取您想要移除的事件訂用帳戶。 
+6. 選取您想要移除的事件訂用帳戶。
 
-3. 選取 [刪除] 。 
+7. 選取 [刪除] 。
 
 若要從 Azure 入口網站中移除 Azure Cosmos DB 帳戶，請以滑鼠右鍵按一下帳戶名稱，然後按一下 [刪除帳戶]。 請參閱[刪除 Azure Cosmos DB 帳戶](https://docs.microsoft.com/azure/cosmos-db/manage-account)中的詳細指示。
 

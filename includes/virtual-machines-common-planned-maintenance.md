@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/14/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: 34723a6ee37e54ea2d81e6d1143672e3ccb30d1e
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: c26c037455b6d14a906894ec39bf46630826950b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53805721"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551483"
 ---
 Azure 會定期更新平台來提升虛擬機器之主機基礎結構的可靠性、效能及安全性。 這些更新的範圍涵蓋修補主控環境中的軟體元件、升級網路元件，以及硬體解除委任。 這些更新大多數都不影響所裝載的虛擬機器。 不過，在某些情況下，更新的確會造成影響，而 Azure 會選擇影響最小的更新方法：
 
@@ -27,9 +27,9 @@ Azure 會定期更新平台來提升虛擬機器之主機基礎結構的可靠�
 
 如需管理計劃性維護的「作法」資訊，請參閱適用於 [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) 或 [Windows](../articles/virtual-machines/windows/maintenance-notifications.md) 的「處理計劃性維護通知」。
 
-## <a name="memory-preserving-maintenance"></a>記憶體保留維護
+## <a name="maintenance-not-requiring-a-reboot"></a>不需要重新開機的維護
 
-就大多數無須重新開機的更新而言，目標是讓 VM 的暫停時間少於 10 秒。 在某些情況下，會使用記憶體保留維護機制，這會暫停 VM 最長達 30 秒，並將記憶體保留在 RAM 中。 虛擬機器會接著繼續執行，而系統會自動同步虛擬機器的時鐘。 Azure 正逐漸增加使用即時移轉技術，以及改進記憶體保留維護機制，以縮短暫停持續時間。
+大部分不需要重新開機的維護的目標是小於 10 秒暫停 vm。 在某些情況下，會使用記憶體保留維護機制，這會暫停 VM 最長達 30 秒，並將記憶體保留在 RAM 中。 虛擬機器會接著繼續執行，而系統會自動同步虛擬機器的時鐘。 Azure 正逐漸增加使用即時移轉技術，以及改進記憶體保留維護機制，以縮短暫停持續時間。
 
 這些不需要重新開機的維護作業會逐個容錯網域套用，而且如果收到任何警告健康情況訊號，進度就會停止。 
 
@@ -38,7 +38,7 @@ Azure 會定期更新平台來提升虛擬機器之主機基礎結構的可靠�
 
 ## <a name="maintenance-requiring-a-reboot"></a>維護需要重新開機
 
-在罕見的情況下 VM 會需要針對計劃性維護重新啟動，但您會事先收到通知。 計劃性維護有兩個階段：自助時段和排程維護時段。
+在罕見的情況下 VM 會需要針對計劃性維護重新啟動，但您會事先收到通知。 計劃性維護有兩個階段：自助式期間和排程維護期間。
 
 **自助時段**可讓您在您的 VM 上開始進行維護。 在此期間，您可以查詢每個 VM 來查看其狀態，並檢查上次維護要求的結果。
 
@@ -46,7 +46,7 @@ Azure 會定期更新平台來提升虛擬機器之主機基礎結構的可靠�
 
 如果您開始自助維護且在此過程中發生錯誤，此作業就會停止，系統不會更新 VM，而且您可以選擇重試自助維護。 
 
-在自助時段過後，**排程維護時段**就會開始。 在這段期間內，您仍然可以查詢維護時段，但是無法再自行開始進行維護。
+當自助式期間過後，**排程的維護期間**隨即開始。 在這段期間內，您仍然可以查詢維護時段，但是無法再自行開始進行維護。
 
 如需管理需要重新開機的維護作業的相關資訊，請參閱 [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) 或 [Windows](../articles/virtual-machines/windows/maintenance-notifications.md) 的「處理預定進行的維修作業通知」。 
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 3b286bbe2c246345bf6acd84a4fc0c400451c706
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 04b13c1e511f54c1fcf7b632d3a368fde16bf319
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445342"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549000"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync"></a>將大量資料移轉至 Azure 檔案同步
 您可以移轉至 Azure 檔案同步的大量資料，有兩種：
@@ -36,13 +36,13 @@ ms.locfileid: "57445342"
 - Data Box 和 Azure 檔案同步需要停機。 當您將資料傳輸至 Azure 中使用資料 方塊中時，您會有效率地使用網路頻寬，並保留檔案的精確度。 您也讓您的命名空間最新狀態上傳的變更之後您將資料移至 Azure 的檔案。
 
 ## <a name="prerequisites-for-the-offline-data-transfer"></a>離線的資料傳輸的必要條件
-開始之前的離線資料傳輸：
+您不應該啟用您正在移轉之前完成您的離線資料傳輸在伺服器上的同步處理。 若要在您開始前，請考慮其他項目如下所示：
 
-- 啟用 Azure 檔案同步的同步處理之前，請將大量資料移轉到一或多個 Azure 檔案共用。
-- 如果您打算用於大量移轉資料 方塊中，檢閱[的資料 方塊中的部署必要條件](../../databox/data-box-deploy-ordered.md#prerequisites)。
-- 規劃您最終的 Azure 檔案同步拓撲。 如需詳細資訊，請參閱 <<c0> [ 規劃 Azure 檔案同步部署](storage-sync-files-planning.md)。
-- 選取會包含您要同步的檔案共用帳戶的 Azure 儲存體帳戶。 將大量資料移轉到暫存的預備共用位於相同的儲存體帳戶或帳戶。 您可以使用最後一個共用和預備共用相同的儲存體帳戶中。
-- 使用伺服器的位置中建立新的同步處理關聯性。 您無法使用現有的同步處理關聯性，將大量資料移轉。
+- 如果您打算使用資料箱進行大量移轉：檢閱[資料箱的部署必要條件](../../databox/data-box-deploy-ordered.md#prerequisites)。
+- 規劃您最終的 Azure 檔案同步拓撲：[規劃 Azure 檔案同步部署](storage-sync-files-planning.md)
+- 選取 Azure 儲存體帳戶，該帳戶將保留您要同步的檔案共用。 確定您的大量移轉發生於相同儲存體帳戶中的暫存預備共用。 大量移轉只能利用位於相同儲存體帳戶中的最終和預備共用來啟用。
+- 當您建立與伺服器位置的新同步關聯性時，才可以利用大量移轉。 您無法啟用具有現有同步關聯性的大量移轉。
+
 
 ## <a name="process-for-offline-data-transfer"></a>離線的資料傳輸程序
 以下是如何設定 Azure 檔案同步與大量移轉工具，例如 Azure 資料箱相容的方式：
@@ -51,7 +51,7 @@ ms.locfileid: "57445342"
 
 | 步驟 | 詳細資料 |
 |---|---------------------------------------------------------------------------------------|
-| ![步驟 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [訂購資料箱](../../databox/data-box-deploy-ordered.md)。 系列提供的資料箱[有幾項產品](https://azure.microsoft.com/services/storage/databox/data)以符合您的需求。 當您收到您的資料箱時，請遵循其[說明文件，以將資料複製](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box)Data Box 上此 UNC 路徑：*\\<DeviceIPAddres>\<StorageAccountName_AzFile >\<ShareName >*。 在這裡， *ShareName*是預備的共用名稱。 將資料箱送回 Azure。 |
+| ![步驟 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [訂購資料箱](../../databox/data-box-deploy-ordered.md)。 系列提供的資料箱[有幾項產品](https://azure.microsoft.com/services/storage/databox/data)以符合您的需求。 當您收到您的資料箱時，請遵循其[說明文件，以將資料複製](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box)Data Box 上此 UNC 路徑：  *\\< DeviceIPAddres\>\<StorageAccountName_AzFile\>\<ShareName\>*。 在這裡， *ShareName*是預備的共用名稱。 將資料箱送回 Azure。 |
 | ![步驟 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | 等候，直到您的檔案顯示在您選擇做為暫存的預備共用的 Azure 檔案共用。 *請勿啟用同步至這些共用。* |
 | ![步驟 3](media/storage-sync-files-offline-data-transfer/bullet_3.png) | 建立新的空白共用，為您的資料 方塊中建立每個檔案共用。 這個新的共用應該位於與資料 方塊中共用相同的儲存體帳戶。 [如何建立新的 Azure 檔案共用](storage-how-to-create-file-share.md)。 |
 | ![步驟 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [建立同步群組](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint)在儲存體同步服務。 空白的共用作為雲端端點的參考。 針對每個資料箱檔案共用，重複此步驟。 [設定 Azure 檔案同步](storage-sync-files-deployment-guide.md)。 |

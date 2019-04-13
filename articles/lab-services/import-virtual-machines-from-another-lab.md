@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 8b2eee0bfd32b58cd751f8bf70aff1d4f460a353
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 9cd2e5e211fcda7c59469d3b09e9c9e5bdefdbd6
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58340135"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546578"
 ---
 # <a name="import-virtual-machines-from-another-lab-in-azure-devtest-labs"></a>從 Azure DevTest Labs 中的另一個實驗匯入虛擬機器
 本文章提供有關如何從另一個實驗室的虛擬機器匯入到您的實驗室資訊。 
@@ -47,7 +47,7 @@ ms.locfileid: "58340135"
 - 目前，只能透過 Powershell 和 REST API 支援此功能。
 
 ## <a name="use-powershell"></a>使用 PowerShell
-下載檔案 ImportVirtualMachines.ps1 [GitHub](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/ImportVirtualMachines/ImportVirtualMachines.ps1)。 您可以使用指令碼至單一 VM 或所有來源實驗室 Vm 匯入目的地實驗室。 
+下載檔案 ImportVirtualMachines.ps1 [GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines)。 您可以使用指令碼至單一 VM 或所有來源實驗室 Vm 匯入目的地實驗室。 
 
 ### <a name="use-powershell-to-import-a-single-vm"></a>使用 PowerShell 匯入單一 VM
 執行這個 powershell 指令碼需要識別 VM 的來源和目的地實驗室中，並選擇性地提供要用於目的地電腦的新名稱：

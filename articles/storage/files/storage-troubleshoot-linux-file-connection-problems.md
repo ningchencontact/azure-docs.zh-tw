@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: ca7e89f4b7f976633d5f097b7e335fe9b7631985
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 09898ac7dd4a6f3ee9cf0ea26ded607a8673b9f6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477738"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526855"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>針對 Linux 中的 Azure 檔案服務問題進行疑難排解
 
@@ -49,7 +49,7 @@ ms.locfileid: "55477738"
 
 在 Linux 中，您會收到類似以下的錯誤訊息︰
 
-**<filename> [使用權限被拒] 超出磁碟配額**
+**\<檔案名稱 > [使用權限被拒] 超出的磁碟配額**
 
 ### <a name="cause"></a>原因
 

@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
 ms.date: 03/21/2019
-ms.openlocfilehash: f417aef1fd1cc48a37399ff7a157a0e658bbbb02
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e2304f45cef2db720adf4430868205c00714034f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879279"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547943"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>建立 Azure 機器學習服務工作區
 
@@ -37,7 +37,7 @@ ms.locfileid: "58879279"
 - [Azure 金鑰保存庫](https://azure.microsoft.com/services/key-vault/)
 
 >[!Note]
->如同其他 Azure 服務，Machine Learning 也有其相關的特定限制和配額。 [深入了解配額，以及如何要求更多。](how-to-manage-quotas.md)
+>如同其他 Azure 服務，Machine Learning 也有其相關的特定限制和配額。 [深入了解配額及如何要求更多配額。](how-to-manage-quotas.md)
 
 
 ## <a name="prerequisites"></a>必要條件
@@ -160,7 +160,7 @@ ms.locfileid: "58879279"
 
 ### <a name="write-a-configuration-file"></a>寫入組態檔
 
-將組態檔中的工作區詳細資料儲存到目前的目錄。 這個檔案稱為*aml_config/config.json*。  
+將組態檔中的工作區詳細資料儲存到目前的目錄。 這個檔案稱為 *.azureml/config.json*。  
 
 此工作區組態檔可讓您稍後輕鬆地載入相同的工作區。 您可以將它與其他 notebook 和相同的目錄或子目錄，使用程式碼中的指令碼`ws=Workspace.from_config()`。 
 
@@ -177,13 +177,14 @@ ms.locfileid: "58879279"
 ```
 
 > [!TIP]
-> 若要使用您的工作區中的 Python 指令碼或位於另一個目錄中的 Jupyter Notebook，請將這個檔案複製到該目錄。 檔案可以在相同的目錄中，命名的子目錄*aml_config*，或父目錄中。
+> 若要使用您的工作區中的 Python 指令碼或位於另一個目錄中的 Jupyter Notebook，請將這個檔案複製到該目錄。 檔案可以在相同的目錄中，命名的子目錄 *.azureml*，或父目錄中。
 
 ## <a name="resource-manager-template"></a>Resource manager 範本
 
 若要使用範本建立工作區，請參閱[使用範本建立 Azure Machine Learning 服務工作區](how-to-create-workspace-template.md)
 
-## <a name="cli"></a>CLI
+<a name="cli"></a>
+## <a name="command-line-interface"></a>命令列介面
 
 若要使用 CLI 建立工作區，請參閱[使用 Azure Machine Learning 服務的 CLI 擴充功能](reference-azure-machine-learning-cli.md)。
 

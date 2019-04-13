@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: jrasnik
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 0a9472dec9b76dfbde1690e11f13836746b0dfaa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 983a090942a77c2f40e0136b00acdc0a3d49c571
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57862891"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528334"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL Database 中擴充事件的事件檔案目標程式碼
 
@@ -39,7 +39,7 @@ ms.locfileid: "57862891"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 * Azure 帳戶和訂用帳戶。 您可以註冊 [免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * 您可以在當中建立資料表的任何資料庫。
@@ -52,7 +52,7 @@ ms.locfileid: "57862891"
   * [直接指向下载位置的链接。](https://go.microsoft.com/fwlink/?linkid=616025)
 * 您必須安裝 [Azure PowerShell 模組](https://go.microsoft.com/?linkid=9811175) 。
   
-  * 模組提供命令，這類**新增 AzStorageAccount**。
+  * 这些模块提供 **New-AzStorageAccount** 等命令。
 
 ## <a name="phase-1-powershell-code-for-azure-storage-container"></a>第 1 階段：Azure 儲存體容器的 PowerShell 程式碼
 
@@ -72,7 +72,7 @@ ms.locfileid: "57862891"
 
 ### <a name="powershell-code"></a>PowerShell 程式碼
 
-此 PowerShell 指令碼假設您已安裝 Az 模組。 如需資訊，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-Az-ps)。
+此 PowerShell 脚本假定你已安装 Az 模块。 有关信息，请参阅[安装 Azure PowerShell 模块](/powershell/azure/install-Az-ps)。
 
 ```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
@@ -463,9 +463,9 @@ GO
 
 ## <a name="output"></a>输出
 
-Transact-SQL 指令碼完成時，按一下 **event_data_XML** 資料欄標題下的儲存格。 此時會顯示一個 **<event>** 元素，此元素會顯示一個 UPDATE 陳述式。
+Transact-SQL 指令碼完成時，按一下 **event_data_XML** 資料欄標題下的儲存格。 一**\<事件 >** 項目隨即會顯示一個 UPDATE 陳述式。
 
-以下是測試期間所產生的一個 **<event>** 元素：
+以下是其中一個**\<事件 >** 測試期間所產生的項目：
 
 
 ```xml

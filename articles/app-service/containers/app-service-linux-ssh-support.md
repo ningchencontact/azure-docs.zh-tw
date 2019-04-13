@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: a56c4b0bac61bd2039138ffed554130c6e520821
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2d84a4dd0b69ce9ca7fc594dffce3238c620c426
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58167128"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543968"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux 上的 Azure App Service 支援 SSH
 
@@ -35,71 +35,11 @@ ms.locfileid: "58167128"
 
 ## <a name="open-ssh-session-in-browser"></a>在瀏覽器中開啟 SSH 工作階段
 
-若要進行容器的 SSH 用戶端連線，您的應用程式應在執行中。
-
-在瀏覽器中貼入下列 URL，並以您的應用程式名稱取代 \<app_name>：
-
-```
-https://<app_name>.scm.azurewebsites.net/webssh/host
-```
-
-如果您尚未經過驗證，必須向您的 Azure 訂用帳戶進行驗證才能連線。 驗證之後，您會看到瀏覽器中的殼層，您可以在其中執行您容器內的命令。
-
-![SSH 連線](./media/app-service-linux-ssh-support/app-service-linux-ssh-connection.png)
+[!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-no-h.md)]
 
 ## <a name="use-ssh-support-with-custom-docker-images"></a>使用 SSH 支援搭配自訂 Docker 映像
 
-為使自訂 Docker 映像支援容器與 Azure 入口網站之用戶端的 SSH 通訊，請針對 Docker 映像執行下列步驟。
-
-這些步驟會顯示在 Azure App Service 存放庫中，作為[範例](https://github.com/Azure-App-Service/node/blob/master/6.9.3/)。
-
-1. 將 [`RUN`指示](https://docs.docker.com/engine/reference/builder/#run)中的 `openssh-server` 安裝納入映像的 Dockerfile，並將根帳戶的密碼設為 `"Docker!"`。
-
-    > [!NOTE]
-    > 此設定不允許容器的外部連線。 只可透過使用發佈認證進行驗證的 Kudu / SCM 網站存取 SSH。
-
-    ```Dockerfile
-    # ------------------------
-    # SSH Server support
-    # ------------------------
-    RUN apt-get update \
-        && apt-get install -y --no-install-recommends openssh-server \
-        && echo "root:Docker!" | chpasswd
-    ```
-
-2. 將 [`COPY` 指示](https://docs.docker.com/engine/reference/builder/#copy)新增至 Dockerfile，以將 [sshd_config](https://man.openbsd.org/sshd_config) 檔案複製到 */etc/ssh/* 目錄。 組態檔需根據[這裡](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config)的 Azure-App-Service GitHub 存放庫中的 sshd_config 檔案。
-
-    > [!NOTE]
-    > sshd_config 檔案必須包含下列項目，否則無法連線︰ 
-    > * `Ciphers` 必須至少包含下列其中一個：`aes128-cbc,3des-cbc,aes256-cbc`。
-    > * `MACs` 必須至少包含下列其中一個：`hmac-sha1,hmac-sha1-96`。
-
-    ```Dockerfile
-    COPY sshd_config /etc/ssh/
-    ```
-
-3. 針對 Dockerfile，請納入 [`EXPOSE` 指示](https://docs.docker.com/engine/reference/builder/#expose) 中的連接埠 2222。 雖然已知根密碼，但無法從網際網路存取連接埠 2222。 它是僅供內部使用的連接埠，只有私人虛擬網路之橋接網路內的容器可以存取。
-
-    ```Dockerfile
-    EXPOSE 2222 80
-    ```
-
-4. 請務必使用殼層指令碼來啟動 SSH 服務 (請參閱位於 [init_container.sh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) 的範例)。
-
-    ```bash
-    #!/bin/bash
-    service ssh start
-    ```
-
-Dockerfile 會使用 [`ENTRYPOINT` 指示](https://docs.docker.com/engine/reference/builder/#entrypoint)來執行指令碼。
-
-    ```Dockerfile
-    COPY init_container.sh /opt/startup
-    ...
-    RUN chmod 755 /opt/startup/init_container.sh
-    ...
-    ENTRYPOINT ["/opt/startup/init_container.sh"]
-    ```
+請參閱[設定 SSH 自訂容器中](configure-custom-container.md#enable-ssh)。
 
 ## <a name="open-ssh-session-from-remote-shell"></a>從遠端殼層開啟 SSH 工作階段
 
@@ -111,10 +51,10 @@ Dockerfile 會使用 [`ENTRYPOINT` 指示](https://docs.docker.com/engine/refere
 
 若要開始，您必須安裝 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)。 若要查看未安裝 Azure CLI 時的運作方式，請開啟 [Azure Cloud Shell](../../cloud-shell/overview.md)。 
 
-使用 [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) 命令，開啟您應用程式的遠端連線。 為您的應用程式指定 _\<subscription\_id>_、_\<group\_name>_ 和 \_<app\_name>_。
+使用 [az webapp remote-connection create](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) 命令，開啟您應用程式的遠端連線。 指定_\<訂用帳戶識別碼 >_， _\<群組名稱 >_ 並\_< 應用程式名稱 > _，您的應用程式。
 
 ```azurecli-interactive
-az webapp remote-connection create --subscription <subscription_id> --resource-group <group_name> -n <app_name> &
+az webapp remote-connection create --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &
 ```
 
 > [!TIP]
