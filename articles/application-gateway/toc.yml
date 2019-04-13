@@ -18,8 +18,6 @@ items:
   expanded: true
 - name: 教學課程
   items:
-  - name: 裝載單一網站
-    href: quick-create-portal.md
   - name: 啟用 Web 應用程式防火牆
     href: application-gateway-web-application-firewall-portal.md
   - name: 使用 SSL 保護
@@ -32,8 +30,6 @@ items:
     href: tutorial-url-redirect-cli.md
   - name: 自動調整和區域備援
     href: tutorial-autoscale-ps.md
-  - name: 重新撰寫 HTTP 標頭
-    href: tutorial-http-header-rewrite-powershell.md
 - name: 範例
   items:
   - name: Azure PowerShell
@@ -178,8 +174,10 @@ items:
         href: redirect-internal-site-cli.md
     - name: 使用 Azure PowerShell 重新導向網路流量
       href: tutorial-url-redirect-powershell.md
-  - name: 在現有閘道中重新撰寫 HTTP 標頭
+  - name: 重新撰寫 HTTP 標頭
     items:
+    - name: Azure 入口網站
+      href: rewrite-http-headers-portal.md
     - name: Azure PowerShell
       href: add-http-header-rewrite-rule-powershell.md
   - name: 設定應用程式服務 Webapp 和多租用戶服務
@@ -240,9 +238,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: 堆疊溢位
     href: https://stackoverflow.com/questions/tagged/azure-application-gateway
-ms.openlocfilehash: 01ca52cb94059cd0281fb81f605380c8bd852704
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 26ec063b5ad05325eb654a3b112eb5dd6ef23bcc
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803760"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547375"

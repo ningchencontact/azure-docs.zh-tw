@@ -1,18 +1,12 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 2d1c2aaa47d056a56d6fb0fc09f4de8072258c9a
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
-ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242124"
 documentType: LandingData
 title: Azure Logic Apps 文件
 metadata:
   title: Azure Logic Apps 文件 - 教學課程和 API 參考 | Microsoft Docs
   description: Azure Logic Apps 會整合雲端服務和內部部署系統的應用程式和資料，簡化您建置可調整的自動化工作流程。 了解如何透過我們的快速入門、教學課程、範本和 API，來建立、設計和部署讓商務程序自動化的邏輯應用程式。
   services: logic-apps
-  author: czeumault
-  manager: estfan
+  author: ecfan
+  manager: carmonm
   ms.service: logic-apps
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -22,34 +16,34 @@ metadata:
 abstract:
   description: Azure Logic Apps 會整合雲端服務和內部部署系統的應用程式和資料，簡化您建置可調整的自動化工作流程。 了解如何透過我們的快速入門、教學課程、範本和 API，來建立、設計和部署讓商務程序自動化的邏輯應用程式。
 sections:
-- title: 5 分鐘快速入門
-  items:
-  - type: paragraph
-    text: 了解如何在 Azure 中建立邏輯應用程式。
-  - type: list
-    style: icon48
+  - title: 5 分鐘快速入門
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Azure 入口網站
-      href: /azure/logic-apps/quickstart-create-first-logic-app-workflow
-- title: 逐步教學課程
-  items:
-  - type: paragraph
-    text: 了解如何如何建置依排程執行的邏輯應用程式，並整合 Azure 服務、Microsoft 服務和其他軟體即服務 (SaaS) 應用程式的資料。
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 了解如何在 Azure 中建立邏輯應用程式。
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Azure 入口網站
+            href: /azure/logic-apps/quickstart-create-first-logic-app-workflow
+  - title: 逐步教學課程
     items:
-    - html: <a href="/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow">使用以排程為基礎的邏輯應用程式來檢查流量</a>
-    - html: <a href="/azure/logic-apps/tutorial-process-mailing-list-subscriptions-workflow">使用邏輯應用程式來管理郵寄清單要求</a>
-    - html: <a href="/azure/logic-apps/tutorial-process-email-attachments-workflow">使用邏輯應用程式來處理電子郵件和附件</a>
-- title: 參考
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 了解如何如何建置依排程執行的邏輯應用程式，並整合 Azure 服務、Microsoft 服務和其他軟體即服務 (SaaS) 應用程式的資料。
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow">使用以排程為基礎的邏輯應用程式來檢查流量</a>
+          - html: <a href="/azure/logic-apps/tutorial-process-mailing-list-subscriptions-workflow">使用邏輯應用程式來管理郵寄清單要求</a>
+          - html: <a href="/azure/logic-apps/tutorial-process-email-attachments-workflow">使用邏輯應用程式來處理電子郵件和附件</a>
+  - title: 參考
     items:
-    - title: 命令列
-      html: <p><a href="/powershell/module/az.logicapp">Azure PowerShell</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/logic/">REST API 參考</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 命令列
+            html: <p><a href="/powershell/module/az.logicapp">Azure PowerShell</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/logic/">REST API 參考</a></p>
