@@ -15,19 +15,19 @@ items:
   items:
   - name: Android
     items:
-    - name: 使用 Firebase 雲端通訊將通知推送至 Android 裝置
+    - name: 使用 Firebase 雲端傳訊傳送推播通知
       href: notification-hubs-android-push-notification-google-fcm-get-started.md
-    - name: 使用 Google 雲端通訊將通知推送至 Android 裝置
+    - name: 使用 Google 雲端通訊傳送推播通知
       href: notification-hubs-android-push-notification-google-gcm-get-started.md
+    - name: 將推播通知傳送至特定裝置
+      href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
+    - name: 將推播通知傳送給特定使用者
+      href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
     - name: 將推播通知傳送至 Xamarin Android 應用程式
       href: xamarin-notification-hubs-push-notifications-android-gcm.md
-    - name: 將推播通知傳送至特定的 Android 裝置
-      href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-    - name: 將推播通知傳送給特定的 Android 應用程式使用者
-      href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
   - name: Baidu
     items:
-    - name: 使用百度雲推送來傳送推播通知
+    - name: 使用百度雲推送傳送推播通知
       href: notification-hubs-baidu-china-android-notifications-get-started.md
   - name: Chrome
     items:
@@ -37,31 +37,31 @@ items:
     items:
     - name: 向 iOS 使用者傳送推播通知
       href: notification-hubs-ios-apple-push-notification-apns-get-started.md
-    - name: 向 Xamarin iOS 應用程式傳送推播通知
-      href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md
     - name: 將推播通知傳送至特定裝置
       href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
-    - name: 向 iOS 裝置推送當地語系化的通知
-      href: notification-hubs-ios-xplat-localized-apns-push-notification.md
     - name: 將推播通知傳送給特定使用者
       href: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+    - name: 向 Xamarin iOS 應用程式傳送推播通知
+      href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md
+    - name: 向 iOS 裝置推送當地語系化的通知
+      href: notification-hubs-ios-xplat-localized-apns-push-notification.md
   - name: Kindle
     items:
-    - name: 使用 Amazon 裝置傳訊將推播通知傳送至 Kindle 應用程式
+    - name: 使用 Amazon 裝置傳訊傳送推播通知
       href: notification-hubs-kindle-amazon-adm-push-notification.md
   - name: Windows Phone
     items:
-    - name: 將推播通知傳送至 Windows Phone 應用程式
+    - name: 向使用者傳送推播通知
       href: notification-hubs-windows-mobile-push-notifications-mpns.md
-    - name: 將推播通知傳送至特定的 Windows Phone 裝置
+    - name: 將推播通知傳送至特定裝置
       href: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
   - name: " Windows"
     items:
     - name: 將推播通知傳送至通用 Windows 平台應用程式
       href: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-    - name: 將推播通知傳送至特定的 Windows 裝置
+    - name: 將推播通知傳送至特定裝置
       href: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-    - name: 向 Windows 應用程式推送當地語系化的通知
+    - name: 將當地語系化通知推送至應用程式
       href: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
     - name: 將推播通知傳送給特定使用者
       href: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
@@ -140,9 +140,7 @@ items:
     href: /dotnet/api/microsoft.azure.notificationhubs
   - name: PowerShell
     href: /powershell/module/az.notificationhubs
-  - name: 通知中樞服務 REST API
-    href: https://docs.microsoft.com/previous-versions/azure/reference/dn223264(v%3dazure.100)
-  - name: 管理 REST API
+  - name: REST
     href: /rest/api/notificationhubs/
   - name: Resource Manager 範本
     href: /azure/templates/microsoft.notificationhubs/allversions
@@ -168,9 +166,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: 支援選項
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 0d7708a44e953659e1904fe2bc3b79364ba33926
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.openlocfilehash: 1a62b954144db057a19fc39069538f208a1bf035
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505324"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521796"

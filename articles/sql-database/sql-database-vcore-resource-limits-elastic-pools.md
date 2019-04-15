@@ -35,7 +35,7 @@ ms.locfileid: "57853117"
 > [!NOTE]
 > 彈性集區中個別資料庫的資源限制通常與集區外部具有相同計算大小的單一資料庫資源限制相同。 例如，GP_Gen4_1 資料庫的並行背景工作上限是 200 個背景工作。 因此，GP_Gen4_1 集區中資料庫的並行背景工作上限也是 200 個背景工作。 請注意，GP_Gen4_1 集區中的並行背景工作總數為 210。
 
-## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>一般目的服務層：儲存體大小和計算大小
+## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>一般目的服務層：儲存體大小與計算大小
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>一般目的服務層：第 4 代計算平台 (第 1 部分)
 
@@ -148,7 +148,7 @@ ms.locfileid: "57853117"
 
 \* 關於任何個別資料庫的最大並行背景工作角色 (要求)，請參閱[單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)。 例如，如果彈性集區是使用 Gen5 而且其最大 V 核心數是每個資料庫 2 個，則最大並行背景工作角色數是 200 個。  如果每個資料庫的最大 V 核心數是 0.5 個，則最大並行背景工作角色數是 50 個，因為 Gen5 上的最大並行背景工作角色數是每個 V 核心 100 個。  對於少於 1 個 V 核心的每個資料庫 V 核心最大數量的其他設定，並行背景工作角色的最大數目也是同樣地重新調整。
 
-## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>業務關鍵服務層：儲存體大小和計算大小
+## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>業務關鍵服務層：儲存體大小與計算大小
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>業務關鍵服務層：第 4 代計算平台 (第 1 部分)
 

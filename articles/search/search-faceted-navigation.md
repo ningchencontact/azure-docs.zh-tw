@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b5c7050ac006ea2500854f8f41b134895e5e0061
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 3b31e796b07bea8c11bccb3f2bb306a4279f2ca3
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541208"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523710"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>如何在 Azure 搜尋服務中實作多面向導覽
 多面向導覽是一個篩選機制，它在搜尋應用程式中提供自動導向的向下鑽研導覽。 「多面向導覽」一詞可能讓您感到陌生，但您可能早已使用過它。 如下列範例所示，多面向導覽其實就是用來篩選結果的類別。
@@ -321,7 +321,7 @@ if (businessTitleFacet != "")
 
 面向計數可能會因為分區結構而不正確。 每個搜尋索引都有多個分區，且每個分區都會依照文件計數報告前 N 個面向，然後結合為單一結果。 如果一些分區有許多相符值，而一些有較少相符值，您可能發現結果中有一些面向值遺失或短少。
 
-雖然此行為可以隨時變更，但如果您今天碰到這個行為，您可以透過人工將計數:<number> 擴張到很大的數目，以加強來自各分區的完整報告來暫時解決問題。 如果計數: 的值大於或等於欄位中唯一值的數目，您就能保證結果正確。 不過，當文件計數很高的時候，則會有效能的負面影響，因此請謹慎使用此選項。
+雖然此行為可以隨時變更，如果您今天碰到這個行為，您可以解決它以人為方式擴張的計數：\<數字 > 大的數字，以加強來自各分區的完整報告。 如果計數: 的值大於或等於欄位中唯一值的數目，您就能保證結果正確。 不過，當文件計數很高的時候，則會有效能的負面影響，因此請謹慎使用此選項。
 
 ### <a name="user-interface-tips"></a>使用者介面秘訣
 **針對多面向導覽中的各欄位新增標籤**

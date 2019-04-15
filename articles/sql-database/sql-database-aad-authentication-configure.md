@@ -155,7 +155,7 @@ ms.locfileid: "58481649"
 ## <a name="provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server"></a>為 Azure SQL Database 伺服器佈建 Azure Active Directory 系統管理員
 
 > [!IMPORTANT]
-> 只有當您要佈建的是 Azure SQL Database 或「資料倉儲」時，才可依照這些步驟進行操作。
+> 只有當您要佈建的是 Azure SQL Database 伺服器或「資料倉儲」時，才可依照這些步驟進行操作。
 
 下列兩個程序會示範如何在 Azure 入口網站以及使用 PowerShell，佈建 Azure SQL 伺服器的 Azure Active Directory 系統管理員。
 

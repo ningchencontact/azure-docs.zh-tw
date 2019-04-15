@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: 42fd28f2a18ecf81c7846abdc7b3159a275a9cd7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8d4fc5fbdc3185c46f00d94537b197ec03f66755
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013552"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528164"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Azure CDN 規則引擎的 HTTP 變數
 HTTP 變數能提供擷取 HTTP 要求和回應中繼資料的方法。 此中繼資料可以接著用來動態調整要求或回應。 HTTP 變數的使用，僅限於下列規則引擎功能：
@@ -38,7 +38,7 @@ HTTP 變數能提供擷取 HTTP 要求和回應中繼資料的方法。 此中�
 | ---- | -------- | ----------- | ------------ |
 | ASN (要求者) | %{geo_asnum} | 表示要求者的 AS 號碼。 <br /><br />**已淘汰：**%{virt_dst_asnum}。 <br />此變數已由 %{geo_asnum} 取代。 雖然使用此已淘汰變數的規則仍然可以運作，您應該更新規則以使用新的變數。 | AS15133 |
 | 城市 (要求者) | %{geo_city} | 表示要求者的城市。 | 洛杉磯 |
-| 大陸 (要求者) | %{geo_continent} | 透過縮寫表示要求者的大陸。 <br />有效值為： <br />AF:非洲<br />做為：亞洲<br />歐洲：歐洲<br />NA:北美洲<br />OC:大洋洲<br />SA:南美洲<br /><br />**已淘汰：**%{virt_dst_continent}。 <ber />此變數已由 %{geo_continent} 取代。 <br />雖然使用此已淘汰變數的規則仍然可以運作，您應該更新規則以使用新的變數。| N/A |
+| 大陸 (要求者) | %{geo_continent} | 透過縮寫表示要求者的大陸。 <br />有效值為： <br />AF:非洲<br />做為：亞洲<br />歐洲：歐洲<br />NA:北美洲<br />OC:大洋洲<br />SA:南美洲<br /><br />**已淘汰：**%{virt_dst_continent}。 <br />此變數已被取代，而 %{geo_continent}。 <br />雖然使用此已淘汰變數的規則仍然可以運作，您應該更新規則以使用新的變數。| N/A |
 | Cookie 值 | %{cookie_Cookie} | 傳回 Cookie 字詞所識別 Cookie 索引鍵的對應值。 | 範例用法： <br />%{cookie__utma}<br /><br />範例值：<br />111662281.2.10.1222100123 |
 | 國家 (要求者) | %{geo_country} | 透過國碼 (地區碼) 表示要求者的國家/地區。 <br />**已淘汰：**%{virt_dst_country}。 <br /><br />此變數已由 %{geo_country} 取代。 雖然使用此已淘汰變數的規則仍然可以運作，您應該更新規則以使用新的變數。 | US |
 | 指定市場地區 (Requester) | %{geo_dma_code} |依地區碼表示要求者的媒體市場。 <br /><br />此欄位僅適用於源自美國的要求。| 745 |

@@ -220,7 +220,7 @@ AzureSqlLinkedService 會將 Azure SQL Database 連結至資料處理站。 從 
     ProvisioningState : Succeeded
     ```
 
-   確認 Azure SQL Server 已開啟 [允許存取 Azure 服務] 設定。 若要確認並開啟此設定，請執行下列步驟：
+   確認 SQL 資料庫伺服器已開啟 [允許存取 Azure 服務] 設定。 若要確認並開啟此設定，請執行下列步驟：
 
     1. 登入 [Azure 入口網站](https://portal.azure.com)
     1. 按一下左邊的 [更多服務 >]，然後按一下 [資料庫] 類別中的 [SQL Server]。

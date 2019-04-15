@@ -164,7 +164,7 @@ ms.locfileid: "57453706"
    > [!IMPORTANT]
    > 此程序需要大約 20 到 30 分鐘才能完成。
    >
-   > 此 Data Factory 服務會連線到您的 Azure SQL 資料庫伺服器，以準備 SSIS 目錄 (SSISDB 資料庫)。 
+   > 此 Data Factory 服務會連線到您的 Azure SQL Database 伺服器，以準備 SSIS 目錄 (SSISDB 資料庫)。 
    > 
    > 當您佈建 Azure-SSIS IR 的執行個體時，也會安裝適用於 SSIS 的 Azure Feature Pack 和 Access 可轉散發套件。 除了內建元件所支援的資料來源以外，這些元件還提供對 Excel 和 Access 檔案以及各種 Azure 資料來源的連線能力。 您也可以安裝其他元件。 如需詳細資訊，請參閱 [Azure-SSIS 整合執行階段自訂設定](how-to-configure-azure-ssis-ir-custom-setup.md)。 
 

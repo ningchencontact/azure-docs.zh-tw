@@ -247,7 +247,7 @@ ms.locfileid: "58013446"
    sudo apt-get --assume-yes install freetds-dev freetds-bin
    ```
 
-6. 安裝完成後，請使用下列命令連線至 SQL 資料庫伺服器。
+6. 安裝完成後，請使用下列命令連線至 SQL Database 伺服器。
 
    ```bash
    TDSVER=8.0 tsql -H '<server-name>.database.windows.net' -U '<admin-login>' -p 1433 -D '<database-name>'

@@ -45,7 +45,7 @@ ms.locfileid: "59359146"
 |[Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)|設定 Azure SQL Database 受控執行個體的屬性|
 |[Remove-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance)|移除 Azure SQL Database 受控執行個體|
 |[New-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstancedatabase)|建立 Azure SQL Database 受控執行個體資料庫|
-|[Get-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabase)|傳回 Azure SQL Database 受控執行個體的資訊資料庫|
+|[Get-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabase)|傳回 Azure SQL Database 受控執行個體的資料庫資訊|
 |[Remove-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabase)|移除 Azure SQL Database 受控執行個體資料庫|
 |[Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase)|還原 Azure SQL Database 受控執行個體資料庫|
 

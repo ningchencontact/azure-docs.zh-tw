@@ -33,7 +33,7 @@ ms.locfileid: "58260225"
 > [!IMPORTANT]
 > 調整指引和考量，請參閱[單一資料庫相應](sql-database-single-database-scale.md)。
 
-## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>一般目的服務層：儲存體大小和計算大小
+## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>一般目的服務層：儲存體大小與計算大小
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>一般目的服務層：第 4 代計算平台 (第 1 部分)
 
@@ -127,7 +127,7 @@ ms.locfileid: "58260225"
 |讀取向外延展|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 
-## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>業務關鍵服務層：儲存體大小和計算大小
+## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>業務關鍵服務層：儲存體大小與計算大小
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>業務關鍵服務層：第 4 代計算平台 (第 1 部分)
 
@@ -227,7 +227,7 @@ ms.locfileid: "58260225"
 
 ## <a name="hyperscale-service-tier-preview"></a>超大規模服務層 (預覽)
 
-### <a name="generation-4-compute-platform-storage-sizes-and-compute-sizes"></a>第 4 代計算平台：儲存體大小和計算大小
+### <a name="generation-4-compute-platform-storage-sizes-and-compute-sizes"></a>第 4 代計算平台：儲存體大小與計算大小
 
 |效能等級|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |

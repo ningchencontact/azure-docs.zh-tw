@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: 130cc66831b25621cb022eb19005c624fcd71b9e
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
-ms.translationtype: HT
+ms.openlocfilehash: 4c5b4c5eacd4be751004af551e3753a61873c7a7
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40105501"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551476"
 ---
-**上次文件更新**：太平洋標準時間 2018 年 8 月 14 日上午 10:00。
+**上次文件更新**:14 年 8 月 2018 太平洋標準時間上午 10:00。
 
 揭露的[新 CPU 漏洞類別](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) (也稱為推測性執行旁路攻擊)，讓許多客戶不知所措。  
 
 Microsoft 已在我們所有的雲端服務上部署防護功能。 執行 Azure 的基礎結構，以及將客戶的工作負載互相隔離這方面已受到保護。 這表示，使用相同基礎結構的潛在攻擊者不能利用這些漏洞來攻擊您的應用程式。
 
-Azure 會盡可能使用[記憶體保留維護](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#memory-preserving-maintenance)，將客戶的影響降到最低，以及避免重新開機。 Azure 會在對主機進行全系統更新時，繼續使用這些方法，並且保護我們的客戶。
+Azure 會盡可能使用[記憶體保留維護](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-not-requiring-a-reboot)，將客戶的影響降到最低，以及避免重新開機。 Azure 會在對主機進行全系統更新時，繼續使用這些方法，並且保護我們的客戶。
 
 如何將安全性整合至 Azure 各個層面的詳細資訊位於 [Azure 安全性文件](https://docs.microsoft.com/azure/security/)網站。 
 
@@ -66,21 +66,21 @@ Azure 會盡可能使用[記憶體保留維護](https://docs.microsoft.com/azure
 
 您可以在 VM 或雲端服務內啟用額外的安全性功能。
 
-### <a name="windows"></a>Windows 
+### <a name="windows"></a> Windows 
 
 目標作業系統必須是最新版本，才能啟用這些額外的安全性功能。 雖然許多推測性執行旁路攻擊的防護功能會預設為啟用，但此處描述的其他功能必須手動啟用，並可能會對效能造成影響。 
 
-**步驟 1**：[連絡 Azure 支援](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical)，將更新的韌體 (微碼) 公開到您的虛擬機器中。 
+**步驟 1**：[請連絡 Azure 支援](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical)公開更新韌體 （微碼） 到您的虛擬機器。 
 
-**步驟 2**：啟用核心虛擬位址遮蔽功能 (Kernel Virtual Address Shadowing，KVAS) 和分支目標注入 (Branch Target Injection，BTI) 作業系統支援。 請依照 [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 中的指示，透過 `Session Manager` 登錄機碼啟用保護功能。 需要重新開機。 
+**步驟 2**：啟用核心虛擬位址的遮蔽功能 (KVAS) 和分支目標資料隱碼攻擊 (BTI) 作業系統的支援。 請依照 [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 中的指示，透過 `Session Manager` 登錄機碼啟用保護功能。 需要重新開機。 
 
-**步驟 3**：針對使用[巢狀虛擬化](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization)的部署 (僅限 D3 和 E3)：這些指示適用於作為 HYPER-V 主機的 VM。 
+**步驟 3**：使用的部署[巢狀虛擬化](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization)（D3 和 E3 只）：這些指示適用於您使用做為 HYPER-V 主機的 vm。 
 
 1. 請依照 [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 中的指示，透過 `MinVmVersionForCpuBasedMitigations` 登錄機碼啟用保護功能。  
  
 1. 請遵循[這裡](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types)的指示，將 Hypervisor 排程器類型設定為**核心**。 
 
-**步驟 4**：遵循 [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 中的指示，使用 [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell 模組確認保護功能已啟用。 
+**步驟 4**：請依照下列中的指示[KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution)若要確認使用啟用保護[SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell 模組。 
 
 > [!NOTE]
 > 如果您先前已下載此模組，則必須安裝最新版本。
@@ -97,15 +97,15 @@ L1TFWindowsSupportEnabled: True
 ```
 
 
-### <a name="linux"></a>Linux
+### <a name="linux"></a> Linux
 
 <a name="linux"></a>若要在內部啟用一組額外安全性功能，目標作業系統必須完全是最新版本。 有些防護功能會預設為啟用。 下節會描述預設為關閉的功能，以及 (或) 相依於硬體支援 (微碼) 的功能。 啟用這些功能可能會對效能造成影響。 請參閱作業系統提供者的文件，以取得進一步的指示
  
-**步驟 1**：[連絡 Azure 支援](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical)，將更新的韌體 (微碼) 公開到您的虛擬機器中。
+**步驟 1**：[請連絡 Azure 支援](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical)公開更新韌體 （微碼） 到您的虛擬機器。
  
-**步驟 2**：遵循作業系統提供者的文件，啟用分支目標注入 (BTI) 作業系統支援來減輕 CVE-2017-5715 (Spectre Variant 2) 的影響。 
+**步驟 2**：啟用分支目標資料隱碼攻擊 (BTI) OS 支援下列作業系統提供者的文件，以降低 CVE-2017-5715 (Spectre Variant 2)。 
  
-**步驟 3**：遵循作業系統提供者的文件，啟用核心分頁表隔離 (KPTI) 來減輕 CVE-2017-5754 (Meltdown Variant 3) 的影響。 
+**步驟 3**：下列作業系統提供者的文件，以啟用核心分頁表隔離 (KPTI) 以減輕 CVE-2017-5754 (Meltdown Variant 3)。 
  
 作業系統提供者可提供的更多資訊：  
  
