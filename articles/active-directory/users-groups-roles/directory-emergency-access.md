@@ -71,7 +71,7 @@ ms.locfileid: "58224935"
 
 ## <a name="monitor-sign-in-and-audit-logs"></a>監視登入與稽核記錄
 
-監控 [Azure AD 登入和稽核記錄](../reports-monitoring/concept-sign-ins.md)，可了解緊急存取帳戶的任何登入和稽核活動。 通常這些帳戶應該不會登入，且應該不會進行變更，因此帳戶的使用很可能是出現異常，需要安全性檢查。
+監視 [Azure AD 登入和稽核記錄](../reports-monitoring/concept-sign-ins.md)，可了解緊急存取帳戶的任何登入和稽核活動。 通常這些帳戶應該不會登入，且應該不會進行變更，因此帳戶的使用很可能是出現異常，需要安全性檢查。
 
 ## <a name="validate-accounts-at-regular-intervals"></a>定期驗證帳戶
 

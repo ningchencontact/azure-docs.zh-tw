@@ -45,7 +45,7 @@ items:
       href: data-lake-analytics-policies.md
     - name: 安全的作業資料夾
       href: data-lake-analytics-secure.md
-    - name: 存取診斷記錄檔
+    - name: 存取診斷記錄
       href: data-lake-analytics-diagnostic-logs.md
     - name: 調整配額限制
       href: data-lake-analytics-quota-limits.md

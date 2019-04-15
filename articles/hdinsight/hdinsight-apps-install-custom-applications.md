@@ -95,7 +95,7 @@ HDInsight 應用程式可以在您建立叢集時安裝，或安裝至現有的 
     從 [設定] 刀鋒視窗按一下 [指令碼動作]。 指令碼動作歷程記錄會顯示錯誤訊息
 
     ![hdinsight 應用程式的指令碼動作錯誤](./media/hdinsight-apps-install-applications/hdinsight-apps-script-action-error.png)
-* Ambari Web UI：如果安裝指令碼是失敗的原因，請使用 Ambari Web UI 來檢查有關安裝指令碼的完整記錄檔。
+* Ambari Web UI：如果安裝指令碼是失敗的原因，請使用 Ambari Web UI 來檢查有關安裝指令碼的完整記錄。
 
     如需詳細資訊，請參閱 [疑難排解](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)。
 

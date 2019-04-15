@@ -291,7 +291,7 @@ Default: 0
 Type: Boolean  
 Default: n
 ```
-如果設定，則記錄詳細程度會提高。 Waagent 會記錄到 /var/log/waagent.log，並利用系統 logrotate 功能來輪換記錄檔。
+如果設定，則記錄詳細程度會提高。 Waagent 會記錄到 /var/log/waagent.log，並利用系統 logrotate 功能來輪換記錄。
 
 **OS.EnableRDMA**  
 ```

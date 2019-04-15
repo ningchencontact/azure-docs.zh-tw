@@ -26,14 +26,14 @@ Azure 診斷延伸模組可以收集下列類型的資料：
 | 資料來源 | 描述 |
 | --- | --- |
 | 效能計數器計量 |作業系統和自訂效能計數器 |
-| 應用程式記錄檔 |追蹤您應用程式寫入的訊息 |
+| 應用程式記錄 |追蹤您應用程式寫入的訊息 |
 | Windows 事件日志 |傳送至 Windows 事件記錄系統的資訊 |
 | .NET EventSource 記錄 |使用 .NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 類別的程式碼編寫事件 |
-| IIS 記錄檔 |IIS 網站的相關資訊 |
+| IIS 記錄 |IIS 網站的相關資訊 |
 | [以資訊清單為基礎的 ETW 記錄](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) \(英文\) |針對任何程序所產生之 Windows 事件所進行的事件追蹤。(1) |
 | 損毀傾印 (記錄) |應用程式損毀時之程序狀態的相關資訊 |
-| 自訂錯誤記錄檔 |应用程序或服务创建的日志 |
-| Azure 診斷基礎結構記錄檔 |Azure 診斷本身的相關資訊 |
+| 自訂錯誤記錄 |应用程序或服务创建的日志 |
+| Azure 診斷基礎結構記錄 |Azure 診斷本身的相關資訊 |
 
 (1) 若要取得 ETW 提供者的清單，請在您要從中收集資訊的電腦上，在主控台視窗中執行 `c:\Windows\System32\logman.exe query providers`。
 

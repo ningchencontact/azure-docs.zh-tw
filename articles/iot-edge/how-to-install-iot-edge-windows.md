@@ -205,7 +205,7 @@ Install-SecurityDaemon -Manual -DeviceConnectionString '<connection-string>' -Of
 Get-Service iotedge
 ```
 
-使用以下命令，檢查最後 5 分鐘的服務記錄檔：
+使用以下命令，檢查最後 5 分鐘的服務記錄：
 
 ```powershell
 

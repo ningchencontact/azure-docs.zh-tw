@@ -38,7 +38,7 @@ ms.locfileid: "58630451"
 | [`TrackMetric`](#trackmetric) |效能度量，例如與特定事件不相關的佇列長度。 |
 | [`TrackException`](#trackexception) |記錄例外狀況以供診斷。 追蹤與其他事件的發生相對位置，並且檢查堆疊追蹤。 |
 | [`TrackRequest`](#trackrequest) |記錄伺服器要求的頻率和持續時間以進行效能分析。 |
-| [`TrackTrace`](#tracktrace) |診斷記錄訊息。 您也可以擷取第三方記錄檔。 |
+| [`TrackTrace`](#tracktrace) |診斷記錄訊息。 您也可以擷取第三方記錄。 |
 | [`TrackDependency`](#trackdependency) |記錄應用程式所依賴之外部元件呼叫的持續時間及頻率。 |
 
 您可以 [附加屬性和度量](#properties) 至這裡大部分的遙測呼叫。

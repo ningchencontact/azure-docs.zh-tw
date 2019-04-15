@@ -25,7 +25,7 @@ ms.locfileid: "57881260"
 
 使用[適用於容器的 Azure 監視器](container-insights-overview.md)，您可以快速檢視 Linux 容器基礎結構的效能與健康情況，並迅速調查問題。 遙測資料儲存在 Log Analytics 工作區並整合於 Azure 入口網站中，您可以在此處透過儀表板探索、篩選及分割彙總資料，留意負載、效能及健康情況。  
 
-對於在裝載的 Azure Kubernetes 服務外部執行的容器，Log Analytics [Windows 與 Docker 容器解決方案](../../azure-monitor/insights/containers.md)可協助您檢視和管理 Windows 與 Docker 容器主機。 您可以從 Log Analytics 工作區檢視清查環境中節點與容器的詳細資料、效能及事件。 您可以檢視詳細的稽核資訊，顯示和容器搭配使用的命令，且可以藉由檢視和搜尋集中式記錄檔，對容器進行疑難排解，完全不必從遠端存取 Docker 或 Windows 主機。
+對於在裝載的 Azure Kubernetes 服務外部執行的容器，Log Analytics [Windows 與 Docker 容器解決方案](../../azure-monitor/insights/containers.md)可協助您檢視和管理 Windows 與 Docker 容器主機。 您可以從 Log Analytics 工作區檢視清查環境中節點與容器的詳細資料、效能及事件。 您可以檢視詳細的稽核資訊，顯示和容器搭配使用的命令，且可以藉由檢視和搜尋集中式記錄，對容器進行疑難排解，完全不必從遠端存取 Docker 或 Windows 主機。
 
 若要達成監視整體或端對端應用程式，應該使用 Azure 監視器或 Log Analytics 監視任何相依性，不論是 Azure 或內部部署資源。  應將應用程式層包含在內，才能使用 Application Insights 在平台與應用程式層級，另外添加一層健康情況感知。 在平台層級，有 Application Insights SDK 可用於 [Kubernetes]( https://github.com/Microsoft/ApplicationInsights-Kubernetes)、[Docker](https://hub.docker.com/r/microsoft/applicationinsights/) 及 [Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights)。 對於微服務應用程式中，沒有支援[Java](../../azure-monitor/app/java-get-started.md)， [Node.js](../../azure-monitor/learn/nodejs-quick-start.md)， [.NET](../../azure-monitor/app/asp-net.md)， [.NET Core](../../azure-monitor/app/asp-net-core.md)，以及多個其他[語言/架構](../../azure-monitor/app/platforms.md)。 
 

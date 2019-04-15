@@ -96,7 +96,7 @@ Data Factory [管線](data-factory-create-pipelines.md)中的 HDInsight Pig 活�
 | 定義 |在使用 Pig 指令碼內指定參數做為參考的機碼/值組 |否 |
 
 ## <a name="example"></a>範例
-讓我們思考一下一個遊戲記錄檔分析範例，在此範例中，您想要了解遊戲玩家花費多少時間玩貴公司所推出的遊戲。
+讓我們思考一下一個遊戲記錄分析範例，在此範例中，您想要了解遊戲玩家花費多少時間玩貴公司所推出的遊戲。
 
 下列範例遊戲記錄檔是一個逗點 (,) 分隔檔。 它包含下列欄位 – ProfileID、SessionStart、Duration、SrcIPAddress 及 GameType。
 
@@ -169,7 +169,7 @@ Store PigSampleOut into 'wasb://adfwalkthrough@anandsub14.blob.core.windows.net/
 7. 使用資料處理站監視和管理檢視來監視管線。 如需詳細資料，請參閱〈 [監視及管理 Data Factory 管線](data-factory-monitor-manage-pipelines.md) 〉文章。
 
 ## <a name="specifying-parameters-for-a-pig-script"></a>指定 Pig 指令碼的參數
-請思考一下下列範例：遊戲記錄檔每天都會被擷取至「Azure Blob 儲存體」，並儲存在根據日期和時間分割的資料夾中。 您想要參數化 Pig 指令碼，在執行階段期間以動態方式傳遞輸入資料夾位置，並且產生使用日期和時間分割的輸出。
+請思考一下下列範例：遊戲記錄每天都會被擷取至「Azure Blob 儲存體」，並儲存在根據日期和時間分割的資料夾中。 您想要參數化 Pig 指令碼，在執行階段期間以動態方式傳遞輸入資料夾位置，並且產生使用日期和時間分割的輸出。
 
 若要使用參數化 Pig 指令碼，請執行下列動作：
 

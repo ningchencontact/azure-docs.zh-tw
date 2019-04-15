@@ -29,7 +29,7 @@ ms.locfileid: "58359890"
 * 開啟 [Windows 服務] 主控台並確認 [Microsoft AAD 應用程式 Proxy 連接器]  服務已啟用並在執行中。 您也可以查看應用程式 Proxy 服務屬性頁面，如下圖所示：  
   ![[Microsoft AAD 應用程式 Proxy 連接器屬性] 視窗螢幕擷取畫面](./media/application-proxy-troubleshoot/connectorproperties.png)
 * 開啟 [事件檢視器]，然後在 [應用程式及服務記錄檔] > [Microsoft] > [AadApplicationProxy] > [Connector] > [Admin] 中尋找「應用程式 Proxy」連接器事件。
-* 如有需要，請透過[開啟應用程式 Proxy 連接器工作階段記錄檔](application-proxy-connectors.md#under-the-hood)，來取得更詳細的記錄檔。
+* 如有需要，請透過[開啟應用程式 Proxy 連接器工作階段記錄](application-proxy-connectors.md#under-the-hood)，來取得更詳細的記錄。
 
 如需 Azure AD 疑難排解工具的詳細資訊，請參閱[用於驗證連接器網路必要條件的疑難排解工具](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/03/troubleshooting-tool-to-validate-connector-networking-prerequisites)。
 
@@ -42,7 +42,7 @@ ms.locfileid: "58359890"
 
 ## <a name="connector-errors"></a>連接器錯誤
 
-如果在連接器精靈安裝期間註冊失敗，有兩種方式可以檢視失敗的原因。 在事件記錄檔中的 **Applications and Services Logs\Microsoft\AadApplicationProxy\Connector\Admin** 底下尋找，或執行下列 Windows PowerShell 命令：
+如果在連接器精靈安裝期間註冊失敗，有兩種方式可以檢視失敗的原因。 在事件記錄中的 **Applications and Services Logs\Microsoft\AadApplicationProxy\Connector\Admin** 底下尋找，或執行下列 Windows PowerShell 命令：
 
     Get-EventLog application –source "Microsoft AAD Application Proxy Connector" –EntryType "Error" –Newest 1
 

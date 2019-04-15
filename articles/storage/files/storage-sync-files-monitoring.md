@@ -79,7 +79,7 @@ ms.locfileid: "57534628"
 
 在 Windows 伺服器上，您可以檢視雲端階層處理，已註冊的伺服器，並同步處理健全狀況。
 
-### <a name="event-logs"></a>事件記錄檔
+### <a name="event-logs"></a>事件記錄
 
 使用伺服器上的遙測事件記錄，可監視已註冊的伺服器、同步、和雲端階層處理健康情況。 遙測事件記錄檔位於事件檢視器底下*Applications and Services\Microsoft\FileSync\Agent*。
 

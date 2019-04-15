@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 儲存體分析收集記錄檔和計量資料 | Microsoft Docs
-description: 儲存體分析可讓您追蹤所有儲存體服務的度量資料，以及收集 Blob、佇列和資料表儲存體的記錄檔。
+title: 使用 Azure 儲存體分析收集記錄和計量資料 | Microsoft Docs
+description: 儲存體分析可讓您追蹤所有儲存體服務的度量資料，以及收集 Blob、佇列和資料表儲存體的記錄。
 services: storage
 author: roygara
 ms.service: storage
@@ -43,7 +43,7 @@ Azure 儲存體分析會執行記錄，並提供儲存體帳戶的度量資料�
 
 對帳戶的儲存體服務所提出的每個要求，都會被歸類為計費或不計費。 儲存體分析會記錄對服務所做的每個個別要求，包括表示如何處理要求的狀態訊息。 同樣地，儲存體分析會儲存服務及該服務之 API 作業的度量，包括特定狀態訊息的百分比和計數。 這些功能可共同協助您分析計費要求、改善您的應用程式，以及診斷服務要求的問題。 如需計費的詳細資訊，請參閱 [了解 Azure 儲存體計費 - 頻寬、交易和容量](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)。
 
-檢視儲存體分析資料時，您可以使用 [儲存體分析記錄作業和狀態訊息](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) 主題中的資料表，來判斷哪些要求需要計費。 然後，您可以將記錄檔和度量資料與狀態訊息進行比較，以查看您是否需為特定要求支付費用。 您也可以使用上述主題中的資料表，來調查儲存體服務或個別 API 作業的可用性。
+檢視儲存體分析資料時，您可以使用 [儲存體分析記錄作業和狀態訊息](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) 主題中的資料表，來判斷哪些要求需要計費。 然後，您可以將記錄和度量資料與狀態訊息進行比較，以查看您是否需為特定要求支付費用。 您也可以使用上述主題中的資料表，來調查儲存體服務或個別 API 作業的可用性。
 
 ## <a name="next-steps"></a>後續步驟
 * [在 Azure 入口網站中監視儲存體帳戶](storage-monitor-storage-account.md)

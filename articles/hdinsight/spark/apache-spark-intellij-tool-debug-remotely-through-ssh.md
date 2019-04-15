@@ -117,7 +117,7 @@ ms.locfileid: "58005914"
    
    ![遠端執行按鈕](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/perform-remote-run.png)
 
-1. 按一下送出記錄檔未出現在左面板中的 [中斷連線] 按鈕。 不過，它仍在後端執行。
+1. 按一下送出記錄未出現在左面板中的 [中斷連線] 按鈕。 不過，它仍在後端執行。
 
    ![遠端執行按鈕](./media/apache-spark-intellij-tool-debug-remotely-through-ssh/remote-run-result.png)
 

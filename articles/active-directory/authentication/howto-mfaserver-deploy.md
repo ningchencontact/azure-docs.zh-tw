@@ -158,7 +158,7 @@ ms.locfileid: "58370239"
 
 ## <a name="how-the-azure-multi-factor-authentication-server-handles-user-data"></a>Azure Multi-Factor Authentication Server 如何處理使用者資料？
 
-當您使用 Multi-Factor Authentication (MFA) Server 內部部署時，使用者的資料會儲存在內部部署伺服器中。 雲端中不會儲存任何持續性的使用者資料。 當使用者執行雙步驟驗證時，MFA Server 會將資料傳送至 Azure MFA 雲端服務，以執行驗證。 當這些驗證要求傳送至雲端服務時，要求和記錄檔中會傳送下列欄位，供客戶的驗證/使用情況報告中使用。 某些欄位是選擇性，可以在 Multi-Factor Authentication Server 內啟用或停用。 從 MFA Server 到 MFA 雲端服務的通訊使用透過連接埠 443 輸出的 SSL/TLS。 這些欄位包括：
+當您使用 Multi-Factor Authentication (MFA) Server 內部部署時，使用者的資料會儲存在內部部署伺服器中。 雲端中不會儲存任何持續性的使用者資料。 當使用者執行雙步驟驗證時，MFA Server 會將資料傳送至 Azure MFA 雲端服務，以執行驗證。 當這些驗證要求傳送至雲端服務時，要求和記錄中會傳送下列欄位，供客戶的驗證/使用情況報告中使用。 某些欄位是選擇性，可以在 Multi-Factor Authentication Server 內啟用或停用。 從 MFA Server 到 MFA 雲端服務的通訊使用透過連接埠 443 輸出的 SSL/TLS。 這些欄位包括：
 
 * 唯一識別碼 - 使用者名稱或內部的 MFA 伺服器識別碼
 * 名字和姓氏 (選擇性)

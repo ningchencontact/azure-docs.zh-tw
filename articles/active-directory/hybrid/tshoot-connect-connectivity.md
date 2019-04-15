@@ -102,14 +102,14 @@ PowerShell 會使用 machine.config 中的組態來連絡 Proxy。 winhttp/netsh
 當 Azure AD Connect 將匯出要求傳送至 Azure AD 時，Azure AD 在產生回應之前，可能需要 5 分鐘的時間來處理要求。 特別是當相同的匯出要求中包含多個具有大型群組成員資格的群組時，可能就會發生這個情況。 請確認 Proxy 閒置逾時設定為 5 分鐘以上。 否則，可能會在 Azure AD Connect 伺服器上觀察到 Azure AD 的間歇性連線問題。
 
 ## <a name="the-communication-pattern-between-azure-ad-connect-and-azure-ad"></a>Azure AD Connect 與 Azure AD 之間的通訊模式
-如果您已依照上述這些步驟操作卻仍然無法連接，這時可以開始查看網路記錄檔。 本部分说明正常且成功的连接模式。 它也會列出常見的假象，當您閱讀網路記錄檔時可以略過。
+如果您已依照上述這些步驟操作卻仍然無法連接，這時可以開始查看網路記錄。 本部分说明正常且成功的连接模式。 它也會列出常見的假象，當您閱讀網路記錄時可以略過。
 
 * 會有一些對 https://dc.services.visualstudio.com 的呼叫。 並不需要在 Proxy 中開啟此 URL，安裝即可成功，因此可以忽略這些呼叫。
 * 您會看到 DNS 解析列出要在 DNS 命名空間 nsatc.net 中的實際主機，以及其他不在 microsoftonline.com 底下的命名空間。 不過，實際伺服器名稱上沒有任何 Web 服務要求，因此您不需要將這些 URL 新增到 Proxy。
 * 端點 adminwebservice 和 provisioningapi 是探索端點，可用來尋找要使用的實際端點。 這些端點會依據您的區域而有所不同。
 
-### <a name="reference-proxy-logs"></a>參考 Proxy 記錄檔
-以下是實際 Proxy 記錄檔的傾印及取得它的安裝精靈頁面 (已移除至相同端點的重複項目)。 本節可以作為您自己 Proxy 和網路記錄檔的參考。 您環境中實際的端點可能會有所不同 (特別是以「斜體字」表示的 URL)。
+### <a name="reference-proxy-logs"></a>參考 Proxy 記錄
+以下是實際 Proxy 記錄檔的傾印及取得它的安裝精靈頁面 (已移除至相同端點的重複項目)。 本節可以作為您自己 Proxy 和網路記錄的參考。 您環境中實際的端點可能會有所不同 (特別是以「斜體字」表示的 URL)。
 
 **连接到 Azure AD**
 

@@ -94,7 +94,7 @@ az dla account show --account "<Data Lake Analytics Account Name>"
 ```
 
 ## <a name="upload-data-to-data-lake-store"></a>將資料上傳至 Data Lake Store
-在本教學課程中，您會處理一些搜尋記錄檔。  搜尋記錄檔可以儲存在 Data Lake Store 或 Azure Blob 儲存體中。
+在本教學課程中，您會處理一些搜尋記錄。  搜尋記錄檔可以儲存在 Data Lake Store 或 Azure Blob 儲存體中。
 
 Azure 入口網站會提供使用者介面，可將範例資料檔案複製到預設的 Data Lake Store 存放區帳戶，其中包括搜尋記錄檔案。 若要將資料上傳至預設 Data Lake Store 帳戶，請參閱 [準備來源資料](data-lake-analytics-get-started-portal.md) 。
 
@@ -197,4 +197,4 @@ az dls fs download --account "myadlsaccount" --source-path "/Output/SearchLog-fr
 
 * 若要查看 Data Lake Analytics Azure CLI 參考文件，請參閱 [Data Lake Analytics](/cli/azure/dla)。
 * 若要查看 Data Lake Store Azure CLI 參考文件，請參閱 [Data Lake Store](/cli/azure/dls)。
-* 若要了解更複雜的查詢，請參閱 [使用 Azure Data Lake Analytics 來分析網站記錄檔](data-lake-analytics-analyze-weblogs.md)。
+* 若要了解更複雜的查詢，請參閱 [使用 Azure Data Lake Analytics 來分析網站記錄](data-lake-analytics-analyze-weblogs.md)。

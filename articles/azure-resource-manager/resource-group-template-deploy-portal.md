@@ -135,7 +135,7 @@ ms.locfileid: "58652445"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要檢視稽核記錄檔，請參閱 [使用 Resource Manager 來稽核作業](./resource-group-audit.md)。
+- 若要檢視稽核記錄，請參閱 [使用 Resource Manager 來稽核作業](./resource-group-audit.md)。
 - 若要針對部署錯誤進行疑難排解，請參閱[檢視部署作業](./resource-manager-deployment-operations.md)。
 - 若要从部署或资源组中导出模板，请参阅[导出 Azure 资源管理器模板](./manage-resource-groups-portal.md#export-resource-groups-to-templates)。
 - 若要安全地在多個區域推出您的服務，請參閱 [Azure 部署管理員](./deployment-manager-overview.md)。

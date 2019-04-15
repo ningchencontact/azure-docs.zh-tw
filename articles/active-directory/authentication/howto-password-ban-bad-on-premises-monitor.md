@@ -273,7 +273,7 @@ HeartbeatUTC          : 2/16/2018 8:35:02 AM
 
 ## <a name="proxy-service-event-logging"></a>Proxy 服務事件記錄
 
-Proxy 服務會發出最小集合的事件至下列事件記錄檔：
+Proxy 服務會發出最小集合的事件至下列事件記錄：
 
 `\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Admin`
 
@@ -318,7 +318,7 @@ HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionProxy\Parameters
 
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 
-如果發生 Cmdlet 錯誤，且原因和/或解決方式不明顯，可能也會參考這些文字記錄檔。
+如果發生 Cmdlet 錯誤，且原因和/或解決方式不明顯，可能也會參考這些文字記錄。
 
 ## <a name="proxy-discovery"></a>Proxy 探索
 

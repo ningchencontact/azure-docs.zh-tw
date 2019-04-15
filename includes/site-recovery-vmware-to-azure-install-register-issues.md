@@ -6,7 +6,7 @@ ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: 9919521c8cb77f23f50a8097c4e630b4467dc725
 ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/26/2018
 ms.locfileid: "50164381"
@@ -17,7 +17,7 @@ ms.locfileid: "50164381"
 |ERROR   無法載入帳戶。 錯誤︰System.IO.IOException︰無法在安裝和註冊 CS 伺服器時從傳輸連線讀取資料。| 確定電腦上已啟用 TLS 1.0。 |
 
 ### <a name="registration-failures"></a>註冊失敗
-檢閱 **%ProgramData%\ASRLogs** 資料夾中的記錄檔，即可進行註冊失敗的偵錯。
+檢閱 **%ProgramData%\ASRLogs** 資料夾中的記錄，即可進行註冊失敗的偵錯。
 
 | **範例錯誤訊息** | **建議的動作** |
 |--------------------------|------------------------|

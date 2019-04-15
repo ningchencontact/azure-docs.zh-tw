@@ -388,7 +388,7 @@ Azure 儲存體連結服務會提供連線資訊，以將 Azure 儲存體帳戶�
   
     ![活動執行詳細資料](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png)    
 
-    從記錄檔中，您可以看到所執行的 Hive 查詢和狀態資訊。 這些記錄檔適合用來排解任何疑難問題。  
+    從記錄檔中，您可以看到所執行的 Hive 查詢和狀態資訊。 這些記錄適合用來排解任何疑難問題。  
 
 如需如何使用 Azure 入口網站來監視您在本教學課程中建立的管線和資料集的指示，請參閱 [監視資料集和管線](data-factory-monitor-manage-pipelines.md) 。
 

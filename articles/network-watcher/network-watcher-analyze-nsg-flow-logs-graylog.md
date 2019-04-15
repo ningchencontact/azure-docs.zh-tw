@@ -174,7 +174,7 @@ sudo ./logstash-plugin install logstash-input-azureblob
 
 ### <a name="set-up-connection-from-logstash-to-graylog"></a>設定從 Logstash 到 Graylog 的連線
 
-您已使用 Logstash 建立了流量記錄的連線並已設定 Graylog 伺服器，接下來您需要將 Graylog 設定為接受內送記錄檔。
+您已使用 Logstash 建立了流量記錄的連線並已設定 Graylog 伺服器，接下來您需要將 Graylog 設定為接受內送記錄。
 
 1. 使用您為 Graylog 伺服器 Web 介面所設定的 URL 來瀏覽至該介面。 您可以將瀏覽器導向至 `http://<graylog-server-ip>:9000/` 來存取該介面
 

@@ -206,7 +206,7 @@ ms.locfileid: "57534066"
    ![所有檔案的角色內容][2]
 
 ## <a name="configure-diagnostics-to-transfer-startup-logs-to-blob-storage"></a>設定診斷以將啟動記錄傳輸到 Blob 儲存體
-如要簡化針對安裝問題進行疑難排解，您可以設定 Azure 診斷，來將啟動工作指令碼或 .NET 安裝程式所產生的所有記錄檔傳輸到 Azure Blob 儲存體。 您可以使用這種方法，從 Blob 儲存體下載記錄檔，而無需遠端桌面到角色，即可檢視記錄。
+如要簡化針對安裝問題進行疑難排解，您可以設定 Azure 診斷，來將啟動工作指令碼或 .NET 安裝程式所產生的所有記錄檔傳輸到 Azure Blob 儲存體。 您可以使用這種方法，從 Blob 儲存體下載記錄，而無需遠端桌面到角色，即可檢視記錄。
 
 
 若要設定診斷，請開啟 diagnostics.wadcfgx 檔案，並在 [目錄] 節點下新增下列內容： 

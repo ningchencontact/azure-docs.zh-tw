@@ -25,7 +25,7 @@ ms.locfileid: "58662800"
 如果您在與本機 Azure Service Fabric 開發叢集互動時遇到問題，請檢閱下列建議，以尋求可能的解決方法。
 
 ## <a name="cluster-setup-failures"></a>叢集設定失敗
-### <a name="cannot-clean-up-service-fabric-logs"></a>無法清除 Service Fabric 記錄檔
+### <a name="cannot-clean-up-service-fabric-logs"></a>無法清除 Service Fabric 記錄
 #### <a name="problem"></a>問題
 執行 DevClusterSetup 指令碼時，看到以下錯誤：
 

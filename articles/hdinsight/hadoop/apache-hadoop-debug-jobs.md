@@ -18,11 +18,11 @@ ms.locfileid: "58449493"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>分析 Apache Hadoop 記錄
 
-Azure HDInsight 中的每個 Apache Hadoop 叢集都有一個 Azure 儲存體帳戶作為預設檔案系統。 這個儲存體帳戶稱為預設儲存體帳戶。 叢集使用預設儲存體帳戶上的 Azure 資料表儲存體和 Blob 儲存體來儲存其記錄檔。  若要找出叢集的預設儲存體帳戶，請參閱[在 HDInsight 中管理 Apache Hadoop 叢集](../hdinsight-administer-use-portal-linux.md#find-the-storage-accounts)。 即使在刪除叢集之後，記錄檔仍會保留在儲存體帳戶中。
+Azure HDInsight 中的每個 Apache Hadoop 叢集都有一個 Azure 儲存體帳戶作為預設檔案系統。 這個儲存體帳戶稱為預設儲存體帳戶。 叢集使用預設儲存體帳戶上的 Azure 資料表儲存體和 Blob 儲存體來儲存其記錄。  若要找出叢集的預設儲存體帳戶，請參閱[在 HDInsight 中管理 Apache Hadoop 叢集](../hdinsight-administer-use-portal-linux.md#find-the-storage-accounts)。 即使在刪除叢集之後，記錄仍會保留在儲存體帳戶中。
 
-## <a name="logs-written-to-azure-tables"></a>寫入 Azure 資料表的記錄檔
+## <a name="logs-written-to-azure-tables"></a>寫入 Azure 資料表的記錄
 
-寫入 Azure 資料表的記錄檔可讓人更深入了解 HDInsight 叢集發生的情形。
+寫入 Azure 資料表的記錄可讓人更深入了解 HDInsight 叢集發生的情形。
 
 當您建立 HDInsight 叢集時，系統會自動在預設的資料表儲存體中，為以 Linux 為基礎的叢集建立 6 個資料表：
 
@@ -51,7 +51,7 @@ Azure HDInsight 中的每個 Apache Hadoop 叢集都有一個 Azure 儲存體帳
 * TIMESTAMP
 * TraceLevel
 
-### <a name="tools-for-accessing-the-logs"></a>用於存取記錄檔的工具
+### <a name="tools-for-accessing-the-logs"></a>用於存取記錄的工具
 有許多工具可用來存取這些資料表中的資料：
 
 * Visual Studio
@@ -70,11 +70,11 @@ Azure HDInsight 中的每個 Apache Hadoop 叢集都有一個 Azure 儲存體帳
 3. 輸入儲存體帳戶名稱 (簡短名稱或 FQDN)。
 4. 輸入儲存體帳戶金鑰。 您應該會看到一份資料表清單：
    
-    ![儲存在 Azure 資料表儲存體中的 HDInsight Hadoop 記錄檔](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-table-names.png)
+    ![儲存在 Azure 資料表儲存體中的 HDInsight Hadoop 記錄](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-table-names.png)
 5. 在 [導覽器] 窗格中以滑鼠右鍵按一下 hadoopservicelog 資料表，然後選取 [編輯]。 您應該會看到 4 個資料行。 選擇性地選取 [分割區索引鍵]、[資料列索引鍵] 和 [時間戳記] 資料行，然後從功能區的選項中按一下 [移除資料行]，將它們刪除。
 6. 按一下 [內容] 資料行上的展開圖示，選擇您要匯入至 Excel 試算表的資料行。 在此示範中，我選擇 TraceLevel 和 ComponentName：它可以提供一些基本資訊讓我知道哪些元件有問題。
    
-    ![HDInsight Hadoop 記錄檔選擇資料行](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png)
+    ![HDInsight Hadoop 記錄選擇資料行](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png)
 7. 按一下 [確定] 以匯入資料。
 8. 選取 [TraceLevel]、[Role] 和 [ComponentName] 資料行，然後按一下功能區的 [群組依據] 控制項。
 9. 按一下 [群組依據] 對話方塊中的 [確定]
@@ -94,20 +94,20 @@ Azure HDInsight 中的每個 Apache Hadoop 叢集都有一個 Azure 儲存體帳
    
         TraceLevel eq 'ERROR'
    
-    ![HDInsight Hadoop 記錄檔選擇資料行](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png)
+    ![HDInsight Hadoop 記錄選擇資料行](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-visual-studio-filter.png)
    
     如需建構篩選器的詳細資訊，請參閱[建構資料表設計工具的篩選字串](../../vs-azure-tools-table-designer-construct-filter-strings.md)。
 
-## <a name="logs-written-to-azure-blob-storage"></a>寫入 Azure Blob 儲存體的記錄檔
-寫入 Azure 資料表的記錄檔可讓人更深入了解 HDInsight 叢集發生的情形。 不過，這些資料表並不會提供工作層級記錄檔，這些記錄檔有助於發生問題時進一步深入探索。 為了提供這一層更深入的詳細資料，針對透過 Templeton 提交的任何作業，HDInsight 叢集設定成將工作記錄檔寫入 Blob 儲存體帳戶。 實際上，這代表使用 Microsoft Azure PowerShell Cmdlet 或 .NET Job Submission API 提交的作業，而不是透過叢集的 RDP/命令列存取所提交的作業。 
+## <a name="logs-written-to-azure-blob-storage"></a>寫入 Azure Blob 儲存體的記錄
+寫入 Azure 資料表的記錄可讓人更深入了解 HDInsight 叢集發生的情形。 不過，這些資料表並不會提供工作層級記錄，這些記錄有助於發生問題時進一步深入探索。 為了提供這一層更深入的詳細資料，針對透過 Templeton 提交的任何作業，HDInsight 叢集設定成將工作記錄寫入 Blob 儲存體帳戶。 實際上，這代表使用 Microsoft Azure PowerShell Cmdlet 或 .NET Job Submission API 提交的作業，而不是透過叢集的 RDP/命令列存取所提交的作業。 
 
-若要檢視記錄檔，請參閱[在 Linux 型 HDInsight 上存取 Apache Hadoop YARN 應用程式記錄檔](../hdinsight-hadoop-access-yarn-app-logs-linux.md)。
-
-
-如需應用程式記錄檔的詳細資訊，請參閱 [簡化 Apache Hadoop YARN 的使用者記錄檔管理和存取](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/)。
+若要檢視記錄，請參閱[在 Linux 型 HDInsight 上存取 Apache Hadoop YARN 應用程式記錄](../hdinsight-hadoop-access-yarn-app-logs-linux.md)。
 
 
-## <a name="view-cluster-health-and-job-logs"></a>檢視叢集健康情況和工作記錄檔
+如需應用程式記錄的詳細資訊，請參閱 [簡化 Apache Hadoop YARN 的使用者記錄管理和存取](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/)。
+
+
+## <a name="view-cluster-health-and-job-logs"></a>檢視叢集健康情況和工作記錄
 ### <a name="access-the-ambari-ui"></a>存取 Ambari UI
 從 Azure 入口網站中，按一下 HDInsight 叢集名稱以開啟叢集窗格。 從叢集窗格中，按一下 [儀表板]。
 

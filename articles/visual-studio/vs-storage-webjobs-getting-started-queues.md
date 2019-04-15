@@ -503,24 +503,24 @@ public class Program
 }
 ```
 
-## <a name="how-to-write-logs"></a>如何寫入記錄檔
-儀表板會在兩個地方顯示記錄檔：WebJob 的頁面與特定 WebJob 引動過程的頁面。
+## <a name="how-to-write-logs"></a>如何寫入記錄
+儀表板會在兩個地方顯示記錄：WebJob 的頁面與特定 WebJob 引動過程的頁面。
 
-![WebJob 頁面中的記錄檔](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
+![WebJob 頁面中的記錄](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-![函式引動過程頁面中的記錄檔](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
+![函式引動過程頁面中的記錄](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
 
 您在函式或在 **Main()** 方法中所呼叫主控台方法的輸出會顯示在 WebJob 的 [儀表板] 頁面，而不是特定方法引動過程的頁面。 您從方法簽章的參數所取得 TextWriter 物件的輸出會顯示在方法引動過程的 [儀表板] 頁面。
 
 因為主控台屬於單一執行緒，無法同時執行許多工作函式，所以主控台輸出無法連結到特定的方法引動過程。 這就是 SDK 提供的每個函式引動過程都使用自己專屬的記錄寫入器物件的原因。
 
-若要寫入[應用程式追蹤記錄](../app-service/troubleshoot-dotnet-visual-studio.md#logsoverview)，使用 **Console.Out** (建立標示為 INFO 的記錄檔) 和 **Console.Error** (建立標示為 ERROR 的記錄檔)。 替代方法是使用 [Trace 或 TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)，除了資訊與錯誤之外，還能提供詳細資訊、警告及嚴重層級。 視您設定 Azure 網頁應用程式的方式而定，應用程式追蹤記錄檔會出現在網頁應用程式記錄檔、Azure 資料表或 Azure Blob 中。 所有主控台輸出的應用程式記錄檔裡最近的 100 筆記錄也同樣會顯示在 WebJob 的 [儀表板] 頁面，而不是函式引動過程的頁面。
+若要寫入[應用程式追蹤記錄](../app-service/troubleshoot-dotnet-visual-studio.md#logsoverview)，使用 **Console.Out** (建立標示為 INFO 的記錄) 和 **Console.Error** (建立標示為 ERROR 的記錄)。 替代方法是使用 [Trace 或 TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx)，除了資訊與錯誤之外，還能提供詳細資訊、警告及嚴重層級。 視您設定 Azure 網頁應用程式的方式而定，應用程式追蹤記錄會出現在網頁應用程式記錄、Azure 資料表或 Azure Blob 中。 所有主控台輸出的應用程式記錄裡最近的 100 筆記錄也同樣會顯示在 WebJob 的 [儀表板] 頁面，而不是函式引動過程的頁面。
 
 只有當程式是以 Azure WebJob 執行時，主控台輸出才會顯示在儀表板，而不是在本機或在某些其他環境中執行時。
 
 您可以將儀表板連接字串設定為 null 來停用記錄。 如需詳細資訊，請參閱 [如何設定組態選項](#how-to-set-configuration-options)。
 
-下列範例示範寫入記錄檔的數種方式：
+下列範例示範寫入記錄的數種方式：
 
 ```csharp
 public static void WriteLog(
@@ -538,21 +538,21 @@ public static void WriteLog(
 
 ![叫用連結](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png)
 
-![函式引動過程頁面中的記錄檔](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
+![函式引動過程頁面中的記錄](./media/vs-storage-webjobs-getting-started-queues/dashboardlogs.png)
 
 在「WebJobs SDK 儀表板」中，當您移至 WebJob (而非函數叫用) 的頁面並選取 [切換輸出] 時，會顯示最近 100 行的「主控台」輸出。
 
 ![TextWriter](./media/vs-storage-webjobs-getting-started-queues/dashboardapplogs.png)
 
-在連續的 WebJob 中，應用程式記錄檔顯示在 Web 應用程式檔案系統中的 /data/jobs/continuous/*{webjobname}*/job_log.txt。
+在連續的 WebJob 中，應用程式記錄顯示在 Web 應用程式檔案系統中的 /data/jobs/continuous/*{webjobname}*/job_log.txt。
 
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Write - Hello world!
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Out - Hello world!
 
-在 Azure Blob 中，應用程式記錄檔看起來如下所示：2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!, 2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Hello world!, 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hello world!,
+在 Azure Blob 中，應用程式記錄看起來如下所示：2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738373502,0,17404,17,Console.Write - Hello world!, 2014-09-26T21:01:13,Error,contosoadsnew,491e54,635473620738373502,0,17404,19,Console.Error - Hello world!, 2014-09-26T21:01:13,Information,contosoadsnew,491e54,635473620738529920,0,17404,17,Console.Out - Hello world!,
 
-而在 Azure 資料表中，**Console.Out** 和 **Console.Error** 記錄檔看起來像這樣：
+而在 Azure 資料表中，**Console.Out** 和 **Console.Error** 記錄看起來像這樣：
 
 ![在資料表中的資訊記錄檔](./media/vs-storage-webjobs-getting-started-queues/tableinfo.png)
 

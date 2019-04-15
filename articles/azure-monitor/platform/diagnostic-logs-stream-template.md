@@ -1,6 +1,6 @@
 ---
 title: 使用 Resource Manager 範本自動啟用診斷設定
-description: 了解如何使用 Resource Manager 範本來建立診斷設定，以讓您將診斷記錄檔串流至事件中樞，或將它們儲存在儲存體帳戶中。
+description: 了解如何使用 Resource Manager 範本來建立診斷設定，以讓您將診斷記錄串流至事件中樞，或將它們儲存在儲存體帳戶中。
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -23,7 +23,7 @@ ms.locfileid: "58371463"
 >
 > 
 
-使用 Resource Manager 範本啟用診斷記錄檔的方法，取決於資源類型。
+使用 Resource Manager 範本啟用診斷記錄的方法，取決於資源類型。
 
 * **非計算** 資源 (例如，網路安全性群組、Logic Apps、自動化) 使用 [這篇文章中所述的診斷設定](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)。
 * **計算** 資源 (以 WAD/LAD 為基礎) 使用 [本文中所述的WAD/LAD 組態檔](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)。
@@ -74,7 +74,7 @@ ms.locfileid: "58371463"
       }
     }
     ```
-2. 在您要啟用診斷記錄檔的資源的資源陣列中，加入 `[resource namespace]/providers/diagnosticSettings`類型的資源。
+2. 在您要啟用診斷記錄的資源的資源陣列中，加入 `[resource namespace]/providers/diagnosticSettings`類型的資源。
    
     ```json
     "resources": [

@@ -55,7 +55,7 @@ StorSimple Manager 裝置管理員服務在 Microsoft Azure 中執行，並連�
 | 如果您想要執行此動作... | 使用此程序 |
 | --- | --- |
 | 建立服務</br>刪除服務</br>取得服務註冊金鑰。</br>重新產生服務註冊金鑰 |[部署 StorSimple 裝置管理員服務](storsimple-virtual-array-manage-service.md) |
-| 檢視活動記錄檔 |[使用 StorSimple 服務摘要](storsimple-virtual-array-service-summary.md) |
+| 檢視活動記錄 |[使用 StorSimple 服務摘要](storsimple-virtual-array-service-summary.md) |
 | 停用 Virtual Array</br>刪除 Virtual Array |[停用或刪除虛擬陣列](storsimple-virtual-array-deactivate-and-delete-device.md) |
 | 災害復原和裝置容錯移轉</br>容錯移轉必要條件</br>業務持續性災害復原 (BCDR)</br>災害復原時發生錯誤 |[StorSimple Virtual Array 的災害復原和裝置容錯移轉](storsimple-virtual-array-failover-dr.md) |
 | 備份共用和磁碟區</br>進行手動備份</br>變更備份排程</br>檢視現有的備份 |[備份 StorSimple Virtual Array](storsimple-virtual-array-backup.md) |

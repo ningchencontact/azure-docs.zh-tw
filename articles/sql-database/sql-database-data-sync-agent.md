@@ -105,7 +105,7 @@ SQL 資料同步服務會透過用戶端代理程式來與 SQL Server 資料庫�
   - 安裝：`msiexec.exe /i SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
   - 解除安裝：`msiexec.exe /x SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
 
-    您也可以為 Windows Installer 所執行的所有安裝開啟記錄。 Microsoft 知識庫文章[如何啟用 Windows Installer 記錄](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging)提供開啟 Windows Installer 記錄的單鍵解決方案。 它也提供記錄檔的位置。
+    您也可以為 Windows Installer 所執行的所有安裝開啟記錄。 Microsoft 知識庫文章[如何啟用 Windows Installer 記錄](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging)提供開啟 Windows Installer 記錄的單鍵解決方案。 它也提供記錄的位置。
 
 ### <a name="agent-uninstall"></a> 我取消解除安裝之後，我的用戶端代理程式無法運作
 

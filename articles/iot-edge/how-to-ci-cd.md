@@ -38,7 +38,7 @@ ms.locfileid: "57896223"
 如需使用 Azure Repos 的詳細資訊，請參閱[與 Visual Studio 和 Azure Repos 共用程式碼](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts) \(英文\)
 
 ## <a name="configure-continuous-integration"></a>設定持續整合
-在本節中，您會建立新的建置管線。 設定管線以在將任何變更簽入範例 IoT Edge 解決方案時自動執行，並發行組建記錄檔。
+在本節中，您會建立新的建置管線。 設定管線以在將任何變更簽入範例 IoT Edge 解決方案時自動執行，並發行組建記錄。
 
 >[!NOTE]
 >本文會使用 Azure DevOps 視覺化設計工具。 在遵循本節中的步驟之前，請關閉新的 YAML 管線建立體驗的預覽功能。 
@@ -210,7 +210,7 @@ ms.locfileid: "57896223"
 
 3. 選取建置作業以查看其進度。 如果建置管線順利完成，它會觸發針對 **QA** 階段的發行。 
 
-    ![組建記錄檔](./media/how-to-ci-cd/build-logs.png)
+    ![組建記錄](./media/how-to-ci-cd/build-logs.png)
 
 4. 成功部署到 **QA** 階段會觸發向核准者的通知。 驗證模組是否已成功部署到在 QA 階段設定為目標的裝置。 然後，瀏覽至發行管線並選取 [PROD] 按鈕，然後選取 [核准] 來核准該版本進入 PROD 階段。 
 

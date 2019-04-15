@@ -26,7 +26,7 @@ ms.locfileid: "58094172"
 1. 確認 Hyper-V 主機和 VM 符合所有的[需求和必要條件](hyper-v-azure-support-matrix.md)。
 2. 如果 Hyper-V 伺服器位於 System Center Virtual Machine Manager (VMM) 雲端中，請確認您已備妥 [VMM 伺服器](hyper-v-prepare-on-premises-tutorial.md#prepare-vmm-optional)。
 3. 確認已在 Hyper-V 主機上執行 Hyper-V 虛擬機器管理服務。
-4. 檢查 Hyper-V-VMMS\Admin 登入虛擬機器時出現的問題。 此記錄檔位於 [應用程式及服務記錄檔] > [Microsoft] > [Windows] 中。
+4. 檢查 Hyper-V-VMMS\Admin 登入虛擬機器時出現的問題。 此記錄位於 [應用程式及服務記錄] > [Microsoft] > [Windows] 中。
 5. 在客體 VM 上，確認 WMI 已啟用並可供存取。
    - [了解](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)基本 WMI 測試。
    - 對 WMI 進行[疑難排解](https://aka.ms/WMiTshooting)。
@@ -122,8 +122,8 @@ ms.locfileid: "58094172"
 
 ### <a name="vss-failing-inside-the-hyper-v-host"></a>Hyper-V 主機內部的 VSS 失敗
 
-1. 檢查事件日誌中是否有 VSS 錯誤和建議：
-    - 在 Hyper-V 主機伺服器上，從 [事件檢視器] > [應用程式及服務記錄檔] > [Microsoft] > [Windows] > [Hyper V] > [管理] 開啟 Hyper-V 管理員事件記錄。
+1. 檢查事件記錄檔中是否有 VSS 錯誤和建議：
+    - 在 Hyper-V 主機伺服器上，從 [事件檢視器] > [應用程式及服務記錄] > [Microsoft] > [Windows] > [Hyper V] > [管理] 開啟 Hyper-V 管理員事件記錄。
     - 確認是否有任何事件指出應用程式一致快照集失敗。
     - 典型的錯誤為：「Hyper-V 無法產生虛擬機器 'XYZ' 的 VSS 快照集：寫入器發生非暫時性錯誤。 如果 VSS 服務沒有回應，重新啟動服務或許可解決問題」。
 
@@ -143,9 +143,9 @@ ms.locfileid: "58094172"
 
 ## <a name="collect-replication-logs"></a>收集複寫記錄
 
-所有 Hyper-V 複寫事件都記錄在位於 [應用程式及服務記錄檔] > [Microsoft] > [Windows] 的 Hyper-V-VMMS\Admin 記錄中。 此外，您還可以啟用 Hyper-V 虛擬機器管理服務的分析記錄，如下所示：
+所有 Hyper-V 複寫事件都記錄在位於 [應用程式及服務記錄] > [Microsoft] > [Windows] 的 Hyper-V-VMMS\Admin 記錄中。 此外，您還可以啟用 Hyper-V 虛擬機器管理服務的分析記錄，如下所示：
 
-1. 讓 [分析] 與 [偵錯] 記錄可在 [事件檢視器] 中檢視。 若要讓記錄檔可供使用，請在 [事件檢視器] 中按一下 [檢視] > [顯示分析與偵錯記錄檔]。 [分析] 記錄會出現在 **Hyper-V-VMMS** 下。
+1. 讓 [分析] 與 [偵錯] 記錄可在 [事件檢視器] 中檢視。 若要讓記錄可供使用，請在 [事件檢視器] 中按一下 [檢視] > [顯示分析與偵錯記錄]。 [分析] 記錄會出現在 **Hyper-V-VMMS** 下。
 2. 在 [動作] 窗格中，按一下 [啟用記錄檔]。 
 
     ![啟用記錄](media/hyper-v-azure-troubleshoot/enable-log.png)

@@ -22,7 +22,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 03/07/2019
 ms.locfileid: "57535541"
 ---
-# <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>檢視活動記錄檔中 Azure 資源的各種 RBAC 變更
+# <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>檢視活動記錄中 Azure 資源的各種 RBAC 變更
 
 有時，您會需要 Azure 資源之角色型存取控制 (RBAC) 變更的相關資訊，例如用來進行稽核或疑難排解。 每當有人對您訂用帳戶內的角色指派或角色定義進行變更時，這些變更都會記錄在 [Azure 活動記錄](../azure-monitor/platform/activity-logs-overview.md)中。 您可以檢視活動記錄來查看過去 90 天的所有 RBAC 變更。
 

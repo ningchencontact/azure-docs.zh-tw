@@ -56,7 +56,7 @@ ms.locfileid: "57216334"
 
 ## <a name="diagnostic-logs-schema"></a>診斷記錄結構描述
 
-所有的記錄檔都會以 JavaScript 物件標記法 (JSON) 格式儲存。 每個項目都具有字串欄位，這些欄位會使用下列小節所述的格式。
+所有記錄都會以「JavaScript 物件標記法」(JSON) 格式儲存。 每個項目都具有字串欄位，這些欄位會使用下列小節所述的格式。
 
 ## <a name="operational-logs-schema"></a>作業記錄結構描述
 

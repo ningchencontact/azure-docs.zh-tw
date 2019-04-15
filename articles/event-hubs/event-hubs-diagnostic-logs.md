@@ -25,7 +25,7 @@ ms.locfileid: "56957516"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>為 Azure 事件中樞設定診斷記錄
 
-您可以檢視 Azure 事件中樞的兩種記錄檔類型：
+您可以檢視 Azure 事件中樞的兩種記錄類型：
 
 * **[活動記錄](../azure-monitor/platform/activity-logs-overview.md)**：這些記錄包含對工作執行之操作的相關資訊。 系統一律會啟用這些記錄。
 * **[診斷記錄](../azure-monitor/platform/diagnostic-logs-overview.md)**：您可以設定診斷記錄，以更深入檢視與作業一起發生的所有事件。 診斷記錄涵蓋從建立工作到刪除工作期間的活動，包括工作執行時發生的更新與活動。
@@ -46,7 +46,7 @@ ms.locfileid: "56957516"
 
 4.  針對 [狀態]，按一下 [開啟]。
 
-    ![變更診斷記錄檔的狀態](./media/event-hubs-diagnostic-logs/image3.png)
+    ![變更診斷記錄的狀態](./media/event-hubs-diagnostic-logs/image3.png)
 
 5.  設定的封存目標，您想要的選項;例如，儲存體帳戶、 事件中樞或 Azure 監視器記錄。
 
@@ -58,16 +58,16 @@ ms.locfileid: "56957516"
 
 ## <a name="diagnostic-logs-categories"></a>診斷記錄類別
 
-事件中樞會擷取兩種類別的診斷記錄檔：
+事件中樞會擷取兩種類別的診斷記錄：
 
 * **封存記錄**：與「事件中樞」封存相關的記錄，具體而言，就是與封存錯誤相關的記錄。
 * **作業記錄**：與「事件中樞」作業期間發生的事件有關的資訊，具體而言，就是作業類型 (包括事件中樞的建立)、使用的資源及作業狀態。
 
 ## <a name="diagnostic-logs-schema"></a>診斷記錄結構描述
 
-所有的記錄檔都會以 JavaScript 物件標記法 (JSON) 格式儲存。 每個項目都具有字串欄位，這些欄位會使用下列小節所述的格式。
+所有記錄都會以「JavaScript 物件標記法」(JSON) 格式儲存。 每個項目都具有字串欄位，這些欄位會使用下列小節所述的格式。
 
-### <a name="archive-logs-schema"></a>封存記錄檔結構描述
+### <a name="archive-logs-schema"></a>封存記錄結構描述
 
 封存記錄檔 JSON 字串包括下表所列的元素：
 

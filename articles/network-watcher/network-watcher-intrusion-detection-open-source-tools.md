@@ -77,7 +77,7 @@ tail -f /var/log/suricata/fast.log
 
 ### <a name="set-up-the-elastic-stack"></a>設定彈性堆疊
 
-雖然 Suricata 產生的記錄檔包含有關我們網路上所發生事件的重要資訊，並不容易閱讀並了解這些記錄檔。 藉由連線 Suricata 與彈性堆疊，我們可以建立 Kibana 儀表板，讓我們可從記錄搜尋、繪圖、分析和洞察。
+雖然 Suricata 產生的記錄包含有關我們網路上所發生事件的重要資訊，並不容易閱讀並了解這些記錄。 藉由連線 Suricata 與彈性堆疊，我們可以建立 Kibana 儀表板，讓我們可從記錄搜尋、繪圖、分析和洞察。
 
 #### <a name="install-elasticsearch"></a>安裝 Elasticsearch
 

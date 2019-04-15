@@ -35,7 +35,7 @@ ms.locfileid: "58650737"
 
     ![VM 狀態的螢幕擷取畫面](./media/troubleshoot-remote-desktop-services-issues/login-page.png)
 
-- 您使用事件檢視器從遠端檢視 VM 中的事件記錄檔。 您看到遠端桌面服務 (TermService)，沒有啟動或無法啟動。 下列記錄檔是範例：
+- 您使用事件檢視器從遠端檢視 VM 中的事件記錄。 您看到遠端桌面服務 (TermService)，沒有啟動或無法啟動。 下列記錄檔是範例：
 
     **日志名称**：    系統 </br>
     **來源**：      服務控制管理員 </br>

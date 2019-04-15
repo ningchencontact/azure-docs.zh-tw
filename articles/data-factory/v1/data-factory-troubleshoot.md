@@ -103,7 +103,7 @@ ms.locfileid: "57549199"
 請參閱[針對閘道問題進行疑難排解](data-factory-data-management-gateway.md#troubleshooting-gateway-issues)以取得對於使用資料管理閘道複製到/自內部部署資料存放區的問題的疑難排解步驟。
 
 ### <a name="problem-on-demand-hdinsight-provisioning-fails"></a>問題：隨選 HDInsight 佈建失敗
-使用 HDInsightOnDemand 類型的連結服務時，您必須指定指向 Azure Blob 儲存體的 linkedServiceName。 Data Factory 服務會使用此儲存體來儲存記錄檔和您的隨選 HDInsight 叢集的支援檔案。  有時候隨選 HDInsight 叢集的佈建會失敗，並且有下列錯誤︰
+使用 HDInsightOnDemand 類型的連結服務時，您必須指定指向 Azure Blob 儲存體的 linkedServiceName。 Data Factory 服務會使用此儲存體來儲存記錄和您的隨選 HDInsight 叢集的支援檔案。  有時候隨選 HDInsight 叢集的佈建會失敗，並且有下列錯誤︰
 
 ```
 Failed to create cluster. Exception: Unable to complete the cluster create operation. Operation failed with code '400'. Cluster left behind state: 'Error'. Message: 'StorageAccountNotColocated'.

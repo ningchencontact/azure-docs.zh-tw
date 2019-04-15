@@ -32,7 +32,7 @@ ms.locfileid: "58482431"
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>所有同步群組的監視儀表板 
 
-當您要尋找問題時，再也不用分別查看每個同步群組的記錄檔。 您可以使用自訂的 Azure 監視器檢視，從您的訂用帳戶，在同一個地方的任何監視所有同步群組。 此檢視會呈現 SQL 資料同步客戶重視的相關資訊。
+當您要尋找問題時，再也不用分別查看每個同步群組的記錄。 您可以使用自訂的 Azure 監視器檢視，從您的訂用帳戶，在同一個地方的任何監視所有同步群組。 此檢視會呈現 SQL 資料同步客戶重視的相關資訊。
 
 ![資料同步監視儀表板](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 

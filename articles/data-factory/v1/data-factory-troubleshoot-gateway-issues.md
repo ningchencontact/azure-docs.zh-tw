@@ -239,49 +239,49 @@ ms.locfileid: "58119338"
 
 ![在 [診斷] 索引標籤中的測試連接](media/data-factory-troubleshoot-gateway-issues/test-connection-in-diagnostics-tab.png)
 
-## <a name="gateway-logs"></a>閘道記錄檔
-### <a name="send-gateway-logs-to-microsoft"></a>將閘道記錄檔傳送給 Microsoft
-向「Microsoft 支援服務」尋求閘道問題疑難排解協助時，支援人員可能會要求您分享閘道記錄檔。 隨著閘道的發行，您可以透過在「資料管理閘道組態管理員」上點選按鈕兩次，共用所需的閘道記錄檔。    
+## <a name="gateway-logs"></a>閘道記錄
+### <a name="send-gateway-logs-to-microsoft"></a>將閘道記錄傳送給 Microsoft
+向「Microsoft 支援服務」尋求閘道問題疑難排解協助時，支援人員可能會要求您分享閘道記錄。 隨著閘道的發行，您可以透過在「資料管理閘道組態管理員」上點選按鈕兩次，共用所需的閘道記錄。    
 
 1. 切換至「資料管理閘道組態管理員」中的 [診斷] 索引標籤。
 
     ![資料管理閘道診斷索引標籤](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-diagnostics-tab.png)
-2. 按一下 [傳送記錄檔] 可看到以下對話方塊。
+2. 按一下 [傳送記錄] 可看到以下對話方塊。
 
-    ![資料管理閘道傳送記錄檔](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-dialog.png)
-3. (選擇性) 按一下 [檢視記錄檔] 以在事件檢視器檢閱記錄檔。
+    ![資料管理閘道傳送記錄](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-dialog.png)
+3. (選擇性) 按一下 [檢視記錄] 以在事件檢視器檢閱記錄。
 4. (選擇性) 按一下 [隱私權] 以檢閱 Microsoft Web 服務隱私權聲明。
-5. 當您滿意即將上傳的內容時，請按一下 [傳送記錄檔]，將過去 7 天的記錄檔傳送給 Microsoft 進行疑難排解。 您應該會看到「傳送記錄檔」作業的狀態，如下列螢幕擷取畫面所示。
+5. 當您滿意即將上傳的內容時，請按一下 [傳送記錄]，將過去 7 天的記錄傳送給 Microsoft 進行疑難排解。 您應該會看到「傳送記錄檔」作業的狀態，如下列螢幕擷取畫面所示。
 
-    ![資料管理閘道傳送記錄檔狀態](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png)
+    ![資料管理閘道傳送記錄狀態](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png)
 6. 作業完成之後，您會看到一個對話方塊，如下列螢幕擷取畫面所示。
 
-    ![資料管理閘道傳送記錄檔狀態](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-result.png)
-7. 儲存**報告識別碼**並與 Microsoft 支援服務共用。 報告識別碼是用來尋找為了進行疑難排解所上傳的閘道記錄檔。  報告識別碼也會儲存在事件檢視器。  查看事件識別碼 "25" 即可找到它，並檢查日期和時間。
+    ![資料管理閘道傳送記錄狀態](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-result.png)
+7. 儲存**報告識別碼**並與 Microsoft 支援服務共用。 報告識別碼是用來尋找為了進行疑難排解所上傳的閘道記錄。  報告識別碼也會儲存在事件檢視器。  查看事件識別碼 "25" 即可找到它，並檢查日期和時間。
 
-    ![資料管理閘道傳送記錄檔報告識別碼](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-report-id.png)    
+    ![資料管理閘道傳送記錄報告識別碼](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-report-id.png)    
 
-### <a name="archive-gateway-logs-on-gateway-host-machine"></a>在閘道主機電腦上封存閘道記錄檔
-在某些情況下，您會有閘道問題但無法直接共用閘道記錄檔︰
+### <a name="archive-gateway-logs-on-gateway-host-machine"></a>在閘道主機電腦上封存閘道記錄
+在某些情況下，您會有閘道問題但無法直接共用閘道記錄︰
 
 * 您以手動方式安裝閘道及註冊閘道。
 * 您嘗試在「資料管理閘道組態管理員」中使用重新產生的金鑰來註冊閘道。
-* 您嘗試傳送記錄檔，但無法與閘道主機服務連線。
+* 您嘗試傳送記錄，但無法與閘道主機服務連線。
 
-對於這些案例，您可以將閘道記錄檔儲存為 zip 檔案，並在連絡 Microsoft 支援服務時共用。 例如，如果您在註冊閘道時收到錯誤，如下列螢幕擷取畫面所示。   
+對於這些案例，您可以將閘道記錄儲存為 zip 檔案，並在連絡 Microsoft 支援服務時共用。 例如，如果您在註冊閘道時收到錯誤，如下列螢幕擷取畫面所示。   
 
 ![資料管理閘道註冊錯誤](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-registration-error.png)
 
-按一下 [封存閘道記錄檔] 連結以封存和儲存記錄檔，然後與 Microsoft 支援服務共用 zip 檔案。
+按一下 [封存閘道記錄] 連結以封存和儲存記錄，然後與 Microsoft 支援服務共用 zip 檔案。
 
-![資料管理閘道封存記錄檔](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-archive-logs.png)
+![資料管理閘道封存記錄](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-archive-logs.png)
 
-### <a name="locate-gateway-logs"></a>找出閘道記錄檔
-您可以在 Windows 事件記錄檔中找到詳細的閘道記錄檔資訊。
+### <a name="locate-gateway-logs"></a>找出閘道記錄
+您可以在 Windows 事件記錄中找到詳細的閘道記錄資訊。
 
 1. 啟動 Windows **事件檢視器**。
 2. 找出 [應用程式及服務記錄檔]  >  [資料管理閘道] 資料夾中的記錄檔。
 
    針對閘道相關問題進行疑難排解時，請在事件檢視器中尋找錯誤層級的事件。
 
-![資料管理閘道事件檢視器中的記錄檔](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)
+![資料管理閘道事件檢視器中的記錄](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)

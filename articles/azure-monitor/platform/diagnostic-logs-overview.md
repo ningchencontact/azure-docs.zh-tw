@@ -1,5 +1,5 @@
 ---
-title: Azure 診斷記錄檔概觀
+title: Azure 診斷記錄概觀
 description: 認識 Azure 診斷記錄，並了解如何利用它們來了解 Azure 資源內發生的事件。
 author: nkiest
 services: azure-monitor
@@ -36,7 +36,7 @@ ms.locfileid: "58519386"
 ## <a name="what-you-can-do-with-diagnostic-logs"></a>診斷記錄的用途
 以下是您可以利用診斷記錄進行的事：
 
-![診斷記錄檔的邏輯位置](./media/diagnostic-logs-overview/Diagnostics_Logs_Actions.png)
+![診斷記錄的邏輯位置](./media/diagnostic-logs-overview/Diagnostics_Logs_Actions.png)
 
 * 將診斷記錄檔儲存到[**儲存體帳戶**](../../azure-monitor/platform/archive-diagnostic-logs.md)以利稽核或手動檢查。 您可以使用**資源診斷設定**指定保留時間 (以天為單位)。
 * [將診斷記錄檔串流至**事件中樞**](diagnostic-logs-stream-event-hubs.md)，以供第三方服務或自訂的分析解決方案 (如 PowerBI) 擷取。
@@ -58,7 +58,7 @@ ms.locfileid: "58519386"
 * 每個記錄類別應該在儲存體帳戶中保留多久
     - 保留期為 0 天表示會永遠保留記錄。 否則，值可以是任意數目的 1 到 365 之間的天數。
     - 如果已設定保留原則，但將儲存體帳戶的記錄儲存停用 (例如，若只選取事件中樞或 Log Analytics 選項)，保留原則不會有任何作用。
-    - 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄會被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄檔會被刪除。 刪除程序會從 UTC 午夜開始，但是請注意，可能需要長達 24 小時的時間，記錄才會從您的儲存體帳戶中刪除。
+    - 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄會被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄會被刪除。 刪除程序會從 UTC 午夜開始，但是請注意，可能需要長達 24 小時的時間，記錄才會從您的儲存體帳戶中刪除。
 
 從入口網站中的診斷設定、透過 Azure PowerShell 和 CLI 命令，或是使用 [Azure 監視器 REST API](https://docs.microsoft.com/rest/api/monitor/)，可以輕鬆地進行這些設定。
 
@@ -216,7 +216,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 請確定所有資源皆已設定了診斷設定。 在入口網站中，巡覽至 [監視器]，然後開啟 [診斷設定]。
 
-![入口網站中的診斷記錄檔刀鋒視窗](./media/diagnostic-logs-overview/diagnostic-settings-nav.png)
+![入口網站中的診斷記錄刀鋒視窗](./media/diagnostic-logs-overview/diagnostic-settings-nav.png)
 
 您可能必須按一下 [所有服務] 才能找到 [監視器] 區段。
 

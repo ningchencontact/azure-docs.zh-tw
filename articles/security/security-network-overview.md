@@ -398,7 +398,7 @@ Azure 虛擬網路 TAP (終端機存取點) 可讓您持續將虛擬機器網路
 * 事件記錄。 這些記錄會提供已套用哪些 NSG 規則的相關資訊。
 * 計數器記錄。 這些記錄可讓您知道套用每個 NSG 規則以拒絕或允許流量的次數。
 
-您也可以使用 [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/)(功能強大的資料視覺化工具) 來檢視和分析這些記錄檔。
+您也可以使用 [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/) (功能強大的資料視覺化工具) 來檢視和分析這些記錄。
 深入了解：
 
 * [網路安全性群組 (Nsg) 的 azure 監視器記錄檔](../virtual-network/virtual-network-nsg-manage-log.md)

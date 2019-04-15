@@ -14,7 +14,7 @@ ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: 433c6b7d70cea9406b67d65e23cc357939cb5aa0
 ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/25/2018
 ms.locfileid: "50024285"
@@ -77,7 +77,7 @@ I/O 密集工作負載可以透過減少 Tez 容器大小，而從更符合平�
 
 **Data Lake Storage Gen1 節流** 
 
-如果您達到 Data Lake Storage Gen1 所提供的頻寬限制，則會開始看到工作失敗。 透過觀察工作記錄檔中的節流錯誤即可加以識別。  您可以藉由增加 Tez 容器大小來減少平行處理原則。  如果您的作業需要更多並行能力，請與我們連絡。
+如果您達到 Data Lake Storage Gen1 所提供的頻寬限制，則會開始看到工作失敗。 透過觀察工作記錄中的節流錯誤即可加以識別。  您可以藉由增加 Tez 容器大小來減少平行處理原則。  如果您的作業需要更多並行能力，請與我們連絡。
 
 若要檢查您是否遭到節流，您必須在用戶端啟用偵錯記錄。 做法如下：
 

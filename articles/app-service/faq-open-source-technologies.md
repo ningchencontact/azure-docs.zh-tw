@@ -50,7 +50,7 @@ ms.locfileid: "58082937"
     ```
 12. 在 Azure 入口網站的 Web 應用程式功能表中，重新啟動 Web 應用程式。
 
-如需詳細資訊，請參閱[啟用 WordPress 錯誤記錄檔](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/) (英文)。
+如需詳細資訊，請參閱[啟用 WordPress 錯誤記錄](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/) (英文)。
 
 ## <a name="how-do-i-log-python-application-errors-in-apps-that-are-hosted-in-app-service"></a>如何在 App Service 內裝載的應用程式中記錄 Python 應用程式錯誤？
 [!INCLUDE [web-sites-python-troubleshooting-wsgi-error-log](../../includes/web-sites-python-troubleshooting-wsgi-error-log.md)]
@@ -87,9 +87,9 @@ ms.locfileid: "58082937"
 
 ## <a name="i-see-the-message-error-establishing-a-database-connection-in-my-wordpress-app-thats-hosted-in-app-service-how-do-i-troubleshoot-this"></a>在 App Service 裝載的 WordPress 應用程式中，顯示「建立資料庫連接時發生錯誤」訊息。 我該如何進行疑難排解？
 
-如果您在 Azure WordPress 應用程式中看到這個錯誤，而要啟用 php_errors.log 和 debug.log，請完成[啟用 WordPress 錯誤記錄檔](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/) (英文) 中詳述的步驟。
+如果您在 Azure WordPress 應用程式中看到這個錯誤，而要啟用 php_errors.log 和 debug.log，請完成[啟用 WordPress 錯誤記錄](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/) (英文) 中詳述的步驟。
 
-在記錄檔已啟用時重現錯誤，然後檢查記錄檔查看是否即將用盡連線：
+在記錄已啟用時重現錯誤，然後檢查記錄查看是否即將用盡連線：
 ```
 [09-Oct-2015 00:03:13 UTC] PHP Warning: mysqli_real_connect(): (HY000/1226): User ‘abcdefghijk79' has exceeded the ‘max_user_connections’ resource (current value: 4) in D:\home\site\wwwroot\wp-includes\wp-db.php on line 1454
 ```
@@ -99,7 +99,7 @@ ms.locfileid: "58082937"
 ## <a name="how-do-i-debug-a-nodejs-app-thats-hosted-in-app-service"></a>如何對於 App Service 中裝載的 Node.js 應用程式進行偵錯？
 
 1.  移至 [Kudu 主控台](https://*yourwebsitename*.scm.azurewebsites.net/DebugConsole)。
-2.  移至應用程式記錄檔資料夾 (D:\home\LogFiles\Application)。
+2.  移至應用程式記錄資料夾 (D:\home\LogFiles\Application)。
 3.  在 Logging_errors.txt 檔案中檢查內容。
 
 ## <a name="how-do-i-install-native-python-modules-in-an-app-service-web-app-or-api-app"></a>如何在 App Service Web 應用程式或 API 應用程式中安裝原生 Python 模組？
@@ -135,7 +135,7 @@ ms.locfileid: "58082937"
 
 ## <a name="how-do-i-troubleshoot-jdbc-driver-connection-errors"></a>如何進行 JDBC 驅動程式連線錯誤的疑難排解？
 
-您可能會在 Tomcat 記錄檔中看見下列訊息：
+您可能會在 Tomcat 記錄中看見下列訊息：
 
 ```
 The web application[ROOT] registered the JDBC driver [com.mysql.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak,the JDBC Driver has been forcibly unregistered
@@ -176,7 +176,7 @@ The process cannot access the file because it is being used by another process.
 
 ## <a name="where-do-i-find-the-log-files-for-jetty"></a>在哪裡可找到 Jetty 的記錄檔？
 
-對於 Marketplace 和自訂部署，記錄檔位於 D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs 資料夾。 請注意，資料夾位置取決於您使用的 Jetty 版本。 例如，此處提供的路徑是 Jetty 9.1.2 的路徑。 尋找 jetty_*YYYY_MM_DD*.stderrout.log。
+對於 Marketplace 和自訂部署，記錄位於 D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs 資料夾。 請注意，資料夾位置取決於您使用的 Jetty 版本。 例如，此處提供的路徑是 Jetty 9.1.2 的路徑。 尋找 jetty_*YYYY_MM_DD*.stderrout.log。
 
 對於入口網站應用程式設定部署，記錄檔位於 D:\home\LogFiles。 尋找 jetty_*YYYY_MM_DD*.stderrout.log
 

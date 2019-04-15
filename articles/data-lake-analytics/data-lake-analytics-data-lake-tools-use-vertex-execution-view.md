@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 10/13/2016
 ms.openlocfilehash: 9f834d697c0d3fe537bbdb190b0ba0d0f294ac87
 ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 08/27/2018
 ms.locfileid: "43041008"
@@ -51,6 +51,6 @@ ms.locfileid: "43041008"
 * 處理序建立開始時間/處理序佇列時間/處理序開始時間/處理序完成時間：頂點處理序開始建立時；頂點處理序開始佇列時；特定頂點處理序開始時；特定頂點完成時。
 
 ## <a name="next-steps"></a>後續步驟
-* 若要記錄診斷資訊，請參閱 [為 Azure Data Lake Analytics 存取診斷記錄檔](data-lake-analytics-diagnostic-logs.md)
-* 若要了解更複雜的查詢，請參閱 [使用 Azure 資料湖分析來分析網站記錄檔](data-lake-analytics-analyze-weblogs.md)。
+* 若要記錄診斷資訊，請參閱 [為 Azure Data Lake Analytics 存取診斷記錄](data-lake-analytics-diagnostic-logs.md)
+* 若要了解更複雜的查詢，請參閱 [使用 Azure Data Lake Analytics 來分析網站記錄](data-lake-analytics-analyze-weblogs.md)。
 * 若要檢視作業詳細資料，請參閱[針對 Azure Data Lake Analytics 作業使用作業瀏覽器和作業檢視](data-lake-analytics-data-lake-tools-view-jobs.md)

@@ -111,7 +111,7 @@ SQL/資料管理員會建立大量資料匯入函式和操作資料更新函式�
 [Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started)會將監視資料全部顯示出來，包括活動記錄、計量和診斷資料，讓客戶可以完整地看到系統健康情況。  
 [Azure 監視器記錄](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)提供系統和使用者活動，以及系統健康情況的廣泛記錄。 它可收集及分析 Azure 和內部部署環境中資源所產生的資料。
 - **活動記錄**：[活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)能讓您深入了解在訂用帳戶資源上執行的作業。
-- **診斷記錄**：[診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)包含每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄、Azure Blob 儲存體、資料表和佇列記錄。
+- **診斷記錄**：[診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)包含每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄，以及 Azure Blob 儲存體、資料表和佇列記錄。
 - **防火牆記錄**：應用程式閘道會提供完整的診斷和存取記錄。 防火牆記錄可供已啟用 WAF 的應用程式閘道資源使用。
 - **記錄封存**：所有診斷記錄都會寫入到集中且加密的 Azure 儲存體帳戶進行封存，並包含定義的保留期 (2 天)。 這些記錄檔連接到 Azure 監視器記錄檔處理、 儲存和儀表板報表。
 

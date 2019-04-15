@@ -12,7 +12,7 @@ ms.workload: big-data
 ms.date: 07/03/2018
 ms.openlocfilehash: 9e73fc4db1404842e6d3878d88d8f02511587bc9
 ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 08/27/2018
 ms.locfileid: "43044972"
@@ -50,6 +50,6 @@ ms.locfileid: "43044972"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需更複雜查詢的範例，請參閱[使用 Azure Data Lake Analytics 來分析網站記錄檔](data-lake-analytics-analyze-weblogs.md)。
+- 如需更複雜查詢的範例，請參閱[使用 Azure Data Lake Analytics 來分析網站記錄](data-lake-analytics-analyze-weblogs.md)。
 - 若要檢視作業詳細資料，請參閱[針對 Azure Data Lake Analytics 作業使用作業瀏覽器和作業檢視](data-lake-analytics-data-lake-tools-view-jobs.md)。
 - 若要使用頂點執行檢視，請參閱[在 Data Lake Tools for Visual Studio 中使用頂點執行檢視](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)。

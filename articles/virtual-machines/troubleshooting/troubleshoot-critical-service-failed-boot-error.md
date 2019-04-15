@@ -50,11 +50,11 @@ Windows 虛擬機器未啟動。 當您檢查[開機診斷](./boot-diagnostics.m
 2. [將 OS 磁碟連結至復原 VM](./troubleshoot-recovery-disks-portal-windows.md)。 
 3. 對復原 VM 建立遠端桌面連線。
 
-### <a name="enable-dump-logs-and-serial-console"></a>啟用傾印記錄檔和序列主控台
+### <a name="enable-dump-logs-and-serial-console"></a>啟用傾印記錄和序列主控台
 
 傾印記錄檔及[序列主控台](./serial-console-windows.md)有助我們進行進一步的疑難排解。
 
-若要啟用傾印記錄檔與序列主控台，請執行下列指令碼。
+若要啟用傾印記錄與序列主控台，請執行下列指令碼。
 
 1. 開啟提升權限的命令提示字元工作階段 (以系統管理員身分執行)。
 2. 執行下列指令碼：
@@ -104,7 +104,7 @@ Windows 虛擬機器未啟動。 當您檢查[開機診斷](./boot-diagnostics.m
         bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
 8.  重新啟動 VM。 
 
-### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>選用：分析傾印損毀模式中的傾印記錄檔
+### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>選用：分析傾印損毀模式中的傾印記錄
 
 若要自行分析傾印記錄檔，請遵循下列步驟：
 

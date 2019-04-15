@@ -29,7 +29,7 @@ ms.locfileid: "58401451"
 >
 
 ## <a name="troubleshooting-guide"></a>疑難排解指南
-本指南說明如何針對資訊安全中心相關問題進行疑難排解。 大多數在資訊安全中心進行的疑難排解作業會先查看失敗元件的[稽核記錄](../azure-monitor/platform/activity-logs-overview.md)。 透過稽核記錄檔，您可以判斷︰
+本指南說明如何針對資訊安全中心相關問題進行疑難排解。 大多數在資訊安全中心進行的疑難排解作業會先查看失敗元件的[稽核記錄](../azure-monitor/platform/activity-logs-overview.md)。 透過稽核記錄，您可以判斷︰
 
 * 已發生的作業
 * 起始作業的人員

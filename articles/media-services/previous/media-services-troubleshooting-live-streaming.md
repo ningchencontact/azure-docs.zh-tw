@@ -31,7 +31,7 @@ ms.locfileid: "58309889"
 * **可能的問題**：找不到可能有助於偵錯問題的編碼器記錄。
   
   * **Telestream Wirecast**：您通常可以在 C:\Users\{username}\AppData\Roaming\Wirecast\ 下找到記錄 
-  * **Elemental Live**：您可在管理入口網站上找到記錄檔連結。 依序按一下 [統計] 及 [記錄檔]。 在 [記錄檔]  頁面上，您會看到一份所有 LiveEvent 項目的記錄檔清單，請選取符合您目前工作階段的項目。 
+  * **Elemental Live**：您可在管理入口網站上找到記錄連結。 依序按一下 [統計] 及 [記錄]。 在 [記錄]  頁面上，您會看到一份所有 LiveEvent 項目的記錄清單，請選取符合您目前工作階段的項目。 
   * **Flash Media Live Encoder**：瀏覽至 [編碼記錄檔] 索引標籤，即可找到 [記錄檔目錄...]。
 
 ### <a name="problem-there-is-no-option-for-outputting-a-progressive-stream"></a>問題：沒有輸出漸進式資料流的選項

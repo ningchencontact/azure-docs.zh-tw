@@ -56,7 +56,7 @@ Azure 中國 (21Vianet) 和 Azure 德國 (T-Systems International) 區域目前�
 | 格式 | 僅適用於 JSON 序列化。 分隔的行會指定輸出的格式化方式為利用新行分隔每個 JSON 物件。 陣列會指定輸出將會格式化為 JSON 物件的陣列。 只有在作業停止或串流分析已移動到下一個時間範圍時，才會關閉這個陣列。 一般情況下，最好使用分行的 JSON，因為它不需要任何特殊處理，同時仍會寫入輸出檔案。|
 
 ### <a name="renew-data-lake-store-authorization"></a>更新 Data Lake Store 授權
-如果您在建立作業之後或上次驗證過後變更了密碼，則需要重新驗證您的 Data Lake Store 帳戶。 如果您不重新驗證，您的作業將不會產生輸出結果，並在作業記錄檔中會顯示錯誤，指出需要重新授權。 目前有一個限制，即每隔 90 天必須針對 Data Lake Store 輸出的所有工作，以手動方式更新驗證 Token。 不過，您可以在其中克服這項限制所[驗證使用受控身分識別 （預覽）](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-managed-identities-adls)。
+如果您在建立作業之後或上次驗證過後變更了密碼，則需要重新驗證您的 Data Lake Store 帳戶。 如果您不重新驗證，您的作業將不會產生輸出結果，並在作業記錄中會顯示錯誤，指出需要重新授權。 目前有一個限制，即每隔 90 天必須針對 Data Lake Store 輸出的所有工作，以手動方式更新驗證 Token。 不過，您可以在其中克服這項限制所[驗證使用受控身分識別 （預覽）](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-managed-identities-adls)。
 
 若要更新授權，請 [停止] 您的工作 > 移至 Data Lake Store 輸出 > 按一下 [更新授權] 連結，螢幕很快就會出現一個頁面，指出「正在重新導向至授權...」。此頁面會自動關閉，並在成功的情況下指出「已成功更新授權」。 接著，您必須按一下頁面底部的 [儲存]，然後可以從**上次停止的時間**重新開始您的工作繼續，以避免資料遺失。
 
@@ -192,7 +192,7 @@ datetime | 字串 | 字串 |  datetime | 字串
 
 
 ### <a name="renew-power-bi-authorization"></a>更新 Power BI 授權
-如果您的 Power BI 帳戶密碼在建立或最後一次驗證串流分析作業之後出現變更，便必須重新驗證串流分析。 如果您的 Azure Active Directory (AAD) 租用戶上有設定多重要素驗證 (MFA)，則也需要每兩週更新一次 Power BI 授權。 此問題發生時的徵兆就是沒有工作輸出，且作業記錄檔中出現「驗證使用者錯誤」：
+如果您的 Power BI 帳戶密碼在建立或最後一次驗證串流分析作業之後出現變更，便必須重新驗證串流分析。 如果您的 Azure Active Directory (AAD) 租用戶上有設定多重要素驗證 (MFA)，則也需要每兩週更新一次 Power BI 授權。 此問題發生時的徵兆就是沒有工作輸出，且作業記錄中出現「驗證使用者錯誤」：
 
   ![Power BI 驗證使用者錯誤](./media/stream-analytics-define-outputs/03-stream-analytics-define-outputs.png)
 

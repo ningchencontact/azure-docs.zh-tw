@@ -154,7 +154,7 @@ C:\Packages\Plugins\{Extension_Name}\{Extension_Version}
 C:\Packages\Plugins\{Extension_Name}\{Extension_Version}\Status\{0}.Status  -> {0} being the sequence number
 ```
 
-擴充功能輸出記錄檔會記錄到下列目錄：
+擴充功能輸出記錄會記錄到下列目錄：
 
 ```
 C:\WindowsAzure\Logs\Plugins\{Extension_Name}\{Extension_Version}
@@ -164,7 +164,7 @@ C:\WindowsAzure\Logs\Plugins\{Extension_Name}\{Extension_Version}
 
 | 錯誤碼 | 意義 | 可能的動作 |
 | :---: | --- | --- |
-| 1000 | 一般錯誤 | 擴充功能記錄檔中的特定例外狀況會提供此錯誤的訊息 |
+| 1000 | 一般錯誤 | 擴充功能記錄中的特定例外狀況會提供此錯誤的訊息 |
 | 52 | 擴充功能安裝錯誤 | 特定例外狀況會提供此錯誤的訊息 |
 | 1002 | Wmf 安裝錯誤 | 安裝 WMF 時發生錯誤。 |
 | 1004 | Zip 套件無效 | Zip 無效；解壓縮 Zip 時發生錯誤 |

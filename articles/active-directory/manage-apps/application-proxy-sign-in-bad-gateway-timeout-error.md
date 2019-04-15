@@ -99,7 +99,7 @@ ms.locfileid: "58091200"
 
 如果上述方法都無法解決此問題，下一步就是找出連接器本身的問題或錯誤。 您可以在[疑難排解文件](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-troubleshoot#connector-errors)中看見一些常見錯誤。 
 
-您也可以直接查看連接器記錄檔，以找出任何錯誤。 許多錯誤訊息會提供具體的程式修正建議。 若要檢視記錄，請參閱[連接器文件](application-proxy-connectors.md#under-the-hood)。
+您也可以直接查看連接器記錄，以找出任何錯誤。 許多錯誤訊息會提供具體的程式修正建議。 若要檢視記錄，請參閱[連接器文件](application-proxy-connectors.md#under-the-hood)。
 
 ## <a name="additional-resolutions"></a>其他解決方式
 
@@ -111,7 +111,7 @@ ms.locfileid: "58091200"
 
 如果您繼續看到此錯誤，請移到已安裝連接器的電腦，開啟瀏覽器，並嘗試連線到應用程式使用的內部 URL。 連接器就像同一台電腦中的另一個用戶端。 如果您無法連線到應用程式，請調查為何該電腦無法連線到應用程式，或使用能夠存取應用程式之伺服器上的連接器。
 
-如果您可以從電腦連線到應用程式，請找出連接器本身的問題或錯誤。 您可以在[疑難排解文件](application-proxy-troubleshoot.md#connector-errors)中看見一些常見錯誤。 您也可以直接查看連接器記錄檔，以找出任何錯誤。 我們的錯誤訊息中有許多能夠分享更具體的修正程式建議。 若要了解如何檢視記錄檔，請參閱[連接器文件](application-proxy-connectors.md#under-the-hood)。
+如果您可以從電腦連線到應用程式，請找出連接器本身的問題或錯誤。 您可以在[疑難排解文件](application-proxy-troubleshoot.md#connector-errors)中看見一些常見錯誤。 您也可以直接查看連接器記錄，以找出任何錯誤。 我們的錯誤訊息中有許多能夠分享更具體的修正程式建議。 若要了解如何檢視記錄，請參閱[連接器文件](application-proxy-connectors.md#under-the-hood)。
 
 ## <a name="next-steps"></a>後續步驟
 [了解 Azure AD 應用程式 Proxy 連接器](application-proxy-connectors.md)

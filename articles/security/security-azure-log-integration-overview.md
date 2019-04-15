@@ -45,7 +45,7 @@ Azure 記錄整合會從 Windows 事件檢視器記錄收集 Windows 事件，�
 
 ![Azure 記錄整合流程][1]
 
-## <a name="what-logs-can-i-integrate"></a>可以整合哪些記錄檔？
+## <a name="what-logs-can-i-integrate"></a>可以整合哪些記錄？
 
 Azure 會為每個 Azure 服務產生大量記錄。 記錄呈現三種記錄類型：
 

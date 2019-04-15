@@ -28,7 +28,7 @@ ms.locfileid: "58313221"
 
 使用 Multi-Factor Authentication Server，使用者資料只會儲存在內部部署伺服器。 云中不会持久存储任何用户数据。 使用者執行雙步驟驗證時，Multi-Factor Authentication Server 會將資料傳送到 Azure Multi-Factor Authentication 雲端服務以供驗證。 Multi-Factor Authentication Server 與 Multi-Factor Authentication 雲端服務之間的通訊會透過傳出連接埠 443，使用安全通訊端層 (SSL) 或傳輸層安全性 (TLS) 通訊。
 
-驗證要求傳送至雲端服務時，會收集資料以用於驗證和使用方式報告。 雙步驟驗證記錄檔中包含的資料欄位如下：
+驗證要求傳送至雲端服務時，會收集資料以用於驗證和使用方式報告。 雙步驟驗證記錄中包含的資料欄位如下：
 
 * **唯一識別碼** (使用者名稱或內部部署 Multi-Factor Authentication Server 識別碼兩者之一)
 * **名字和姓氏** (選擇性)

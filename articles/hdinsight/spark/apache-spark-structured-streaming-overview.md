@@ -126,7 +126,7 @@ Spark 結構化串流會將資料流表示為無限深度的資料表，也就�
 
 如需深入了解 Spark 結構化串流 API 及其支援的輸入資料來源、作業和輸出接收，請參閱 [Apache Spark Structured Streaming Programming Guide](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html) (Apache Spark 結構化串流程式設計指南)。
 
-## <a name="checkpointing-and-write-ahead-logs"></a>檢查點與預寫記錄檔
+## <a name="checkpointing-and-write-ahead-logs"></a>檢查點與預寫記錄
 
 為了提供備援和容錯，結構化串流會藉由「檢查點」來確保串流處理即使在發生節點錯誤時，也能夠持續而不中斷。 在 HDInsight 中，Spark 會在可靠的儲存體 (Azure 儲存體或 Data Lake Storage) 上建立檢查點。 這些檢查點會儲存有關串流查詢的進度資訊。 此外，結構化串流會使用「預寫記錄檔 (WAL)」。 WAL 會擷取已接收但未由查詢處理的內嵌資料。 如果發生失敗，處理作業會從 WAL 重新啟動，這樣一來從來源收到的任何事件就不會遺失。
 

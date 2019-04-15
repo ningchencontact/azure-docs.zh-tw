@@ -340,7 +340,7 @@ public class Function {
 }
 ```
 
-## <a name="view-logs-and-trace"></a>檢視記錄檔和追蹤
+## <a name="view-logs-and-trace"></a>檢視記錄和追蹤
 
 您可以使用 Azure CLI 來串流 Java stdout 和 stderr 記錄，以及其他應用程式記錄。 
 

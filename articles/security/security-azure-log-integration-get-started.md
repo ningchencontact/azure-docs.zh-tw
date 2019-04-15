@@ -30,7 +30,7 @@ ms.locfileid: "57894371"
 
 只有在無法從安全性資訊與事件管理 (SIEM) 廠商取得 [Azure 監視器](../monitoring-and-diagnostics/monitoring-get-started.md)連接器時，才應該使用 Azure 記錄整合。
 
-Azure 記錄整合使得 Azure 記錄檔可供您的 SIEM 使用，讓您可以為所有資產建立整合的安全性儀表板。
+Azure 記錄整合使得 Azure 記錄可供您的 SIEM 使用，讓您可以為所有資產建立整合的安全性儀表板。
 如需 Azure 監視器連接器狀態的詳細資訊，請連絡 SIEM 廠商。
 
 > [!IMPORTANT]

@@ -73,7 +73,7 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 
 ## <a name="view-the-state-configuration-logs"></a>檢視 State Configuration 記錄
 
-为 Automation State Configuration 数据设置与 Azure Monitor 日志的集成后，“日志搜索”按钮会出现在自动化帐户的“DSC 节点”边栏选项卡上。 按一下 [記錄搜尋] 按鈕以檢視 DSC 節點資料的記錄檔。
+为 Automation State Configuration 数据设置与 Azure Monitor 日志的集成后，“日志搜索”按钮会出现在自动化帐户的“DSC 节点”边栏选项卡上。 按一下 [記錄搜尋] 按鈕以檢視 DSC 節點資料的記錄。
 
 ![記錄搜尋按鈕](media/automation-dsc-diagnostics/log-search-button.png)
 
@@ -133,7 +133,7 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 | NodeName_s |受控節點名稱。 |
 | NodeComplianceStatus_s |節點是否符合規範。 |
 | DscReportStatus |合規性檢查是否已順利執行。 |
-| ConfigurationMode | 設定如何套用至節點。 可能的值為 __"ApplyOnly"__、__"ApplyandMonitior"__ 和 __"ApplyandAutoCorrect"__。 <ul><li>__ApplyOnly__：DSC 會套用設定但不執行任何進一步的動作，除非有新的設定發送到目標節點，或從伺服器提取新的設定時。 初始套用新的設定之後，DSC 不會檢查先前設定的狀態是否漂移。 DSC 在 __ApplyOnly__ 生效之前會一直嘗試套用設定，直到成功為止。 </li><li> __ApplyAndMonitor__：這是預設值。 LCM 會套用任何新的設定。 初始套用新設定之後，如果目標節點從所需狀態漂移，DSC 會在記錄檔中報告差異。 DSC 在 __ApplyAndMonitor__ 生效之前會一直嘗試套用設定，直到成功為止。</li><li>__ApplyAndAutoCorrect__：DSC 會套用任何新的組態。 初始套用新設定之後，如果目標節點從所需狀態漂移，DSC 會在記錄檔中報告差異，然後重新套用目前的設定。</li></ul> |
+| ConfigurationMode | 設定如何套用至節點。 可能的值為 __"ApplyOnly"__、__"ApplyandMonitior"__ 和 __"ApplyandAutoCorrect"__。 <ul><li>__ApplyOnly__：DSC 會套用設定但不執行任何進一步的動作，除非有新的設定發送到目標節點，或從伺服器提取新的設定時。 初始套用新的設定之後，DSC 不會檢查先前設定的狀態是否漂移。 DSC 在 __ApplyOnly__ 生效之前會一直嘗試套用設定，直到成功為止。 </li><li> __ApplyAndMonitor__：這是預設值。 LCM 會套用任何新的設定。 初始套用新設定之後，如果目標節點從所需狀態漂移，DSC 會在記錄中報告差異。 DSC 在 __ApplyAndMonitor__ 生效之前會一直嘗試套用設定，直到成功為止。</li><li>__ApplyAndAutoCorrect__：DSC 會套用任何新的組態。 初始套用新設定之後，如果目標節點從所需狀態漂移，DSC 會在記錄中報告差異，然後重新套用目前的設定。</li></ul> |
 | HostName_s | 受控節點名稱。 |
 | IPAddress | 受控節點的 IPv4 位址。 |
 | 類別 | DscNodeStatus |

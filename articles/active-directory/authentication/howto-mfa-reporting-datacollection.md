@@ -168,7 +168,7 @@ MFA Server、NPS 擴充功能和 Windows Server 2016 Azure MFA AD FS Adapter 會
 使用 [Microsoft 隱私權入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview)提出匯出要求。 
 
 - MFA 資訊會包含在匯出中，可能需要數小時或數天才能完成。
-- AD FS 追蹤/偵錯事件記錄檔 (如果已啟用) 中出現的使用者名稱會視為仍在使域中，而且與匯出中提供的資訊相重複。
+- AD FS 追蹤/偵錯事件記錄 (如果已啟用) 中出現的使用者名稱會視為仍在使域中，而且與匯出中提供的資訊相重複。
 
 ## <a name="delete-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>刪除 Windows Server 2016 Azure MFA AD FS Adapter 中的資料
 

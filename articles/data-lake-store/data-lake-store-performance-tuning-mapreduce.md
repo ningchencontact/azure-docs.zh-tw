@@ -14,7 +14,7 @@ ms.date: 12/19/2016
 ms.author: stewu
 ms.openlocfilehash: b661499786057a3083f79684dfd12c85266b7b5c
 ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 09/18/2018
 ms.locfileid: "46128786"
@@ -85,7 +85,7 @@ CPU 排程和 CPU 隔離預設會關閉，因此 YARN 容器的數目會受記�
 
 **Data Lake Storage Gen1 節流**
 
-Data Lake Storage Gen1 為多租用戶服務，因此會設定帳戶層級的頻寬限制。  如果您達到這些限制，您將會開始看到工作失敗。 透過觀察工作記錄檔中的節流錯誤即可加以識別。  如果您的作業需要更多頻寬，請與我們連絡。   
+Data Lake Storage Gen1 為多租用戶服務，因此會設定帳戶層級的頻寬限制。  如果您達到這些限制，您將會開始看到工作失敗。 透過觀察工作記錄中的節流錯誤即可加以識別。  如果您的作業需要更多頻寬，請與我們連絡。   
 
 若要檢查您是否遭到節流，您必須在用戶端啟用偵錯記錄。 做法如下：
 

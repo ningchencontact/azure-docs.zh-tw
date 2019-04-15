@@ -57,9 +57,9 @@ ms.locfileid: "58104670"
 
    ![安裝代理程式][5]
 
-Linux 資訊安全中心代理程式的記錄檔可以在下列位置找到：*/var/opt/microsoft/omsagent/<workspace id>/log/*
+Linux 資訊安全中心代理程式的記錄可以在下列位置找到：*/var/opt/microsoft/omsagent/<workspace id>/log/*
 
-  ![代理程式記錄檔][6]
+  ![代理程式記錄][6]
 
 有時候可能需要最多 30 分鐘，Linux 電腦才會在資訊安全中心中出現。
 

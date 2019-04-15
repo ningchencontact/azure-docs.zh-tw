@@ -173,7 +173,7 @@ Azure SQL Database [Intelligent Insights](../../sql-database/sql-database-intell
 
 ## <a name="analyze-data-and-create-alerts"></a>分析資料並建立警示
 
-Azure SQL 分析中的資料分析以 [Log Analytics 語言](../log-query/get-started-queries.md)為基礎，提供您自訂查詢和報告功能。 請參閱[可用的計量和記錄檔](../../sql-database/sql-database-metrics-diag-logging.md#metrics-and-logs-available)，內有針對收集自資料庫資源可自訂查詢的資料的說明。
+Azure SQL 分析中的資料分析以 [Log Analytics 語言](../log-query/get-started-queries.md)為基礎，提供您自訂查詢和報告功能。 請參閱[可用的計量和記錄](../../sql-database/sql-database-metrics-diag-logging.md#metrics-and-logs-available)，內有針對收集自資料庫資源可自訂查詢的資料的說明。
 
 解決方案中的自動化警示以寫入的 Log Analytics 查詢為依據，一旦符合條件，該查詢便會觸發警示。 以下請參考數個可在解決方案中設為警示設定的 Log Analytics 查詢。
 

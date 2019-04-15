@@ -440,7 +440,7 @@ Azure Multi-Factor Authentication 記錄中的相關事件顯示如下：
 
 ![Azure Multi-Factor Authentication 記錄](./media/howto-mfa-nps-extension-vpn/image48.png)
 
-若要執行進階的疑難排解，請參閱安裝了 NPS 服務的 NPS 資料庫格式記錄檔。 記錄檔會建立於 _%SystemRoot%\System32\Logs_ 資料夾，並以逗號分隔文字檔的形式存在。 如需這些記錄檔的說明，請參閱[解譯 NPS 資料庫格式記錄檔](https://technet.microsoft.com/library/cc771748.aspx) \(英文\)。
+若要執行進階的疑難排解，請參閱安裝了 NPS 服務的 NPS 資料庫格式記錄檔。 記錄會建立於 _%SystemRoot%\System32\Logs_ 資料夾，並以逗號分隔文字檔的形式存在。 如需這些記錄檔的說明，請參閱[解譯 NPS 資料庫格式記錄檔](https://technet.microsoft.com/library/cc771748.aspx) \(英文\)。
 
 這些記錄檔中的項目除非匯入到試算表或資料庫，否則將難以解譯。 您可以找到許多線上的網際網路驗證服務 (IAS) 剖析工具，以協助您解譯記錄檔。 以下是其中一個這類可下載[共享軟體應用程式](https://www.deepsoftware.com/iasviewer)的輸出：
 

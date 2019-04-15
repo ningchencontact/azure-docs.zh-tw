@@ -39,7 +39,7 @@ ms.locfileid: "58446592"
    * 若未使用 Azure 負載平衡器，則無法使用連接埠重新導向 / 對應功能。
 4. 檢查 [VM 資源健康狀態](../../resource-health/resource-health-overview.md)。
    * 確定 VM 回報告為狀況良好。
-   * 如果您已[啟用開機診斷](boot-diagnostics.md)，請確認 VM 並未在記錄檔中回報開機錯誤。
+   * 如果您已[啟用開機診斷](boot-diagnostics.md)，請確認 VM 並未在記錄中回報開機錯誤。
 5. [重新啟動 VM](#restart-vm)。
 6. [重新部署 VM](#redeploy-vm)。
 

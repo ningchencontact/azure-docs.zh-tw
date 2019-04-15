@@ -29,7 +29,7 @@ ms.locfileid: "57402371"
 |[在 Azure 上開發安全應用程式](abstract-develop-secure-apps.md)|一般指南，其中說明當您開發雲端應用程式時，您在軟體開發生命週期的每個階段所應考量的安全性問題和控制項。|
 |[進階威脅偵測](azure-threat-detection.md)|逐步引導您了解 Azure 的威脅漏洞評量、診斷及分析方法。 說明 Microsoft 如何使用進階威脅偵測機制來保護平台。 此外，也說明 Microsoft 如何將這些機制納入公開的功能與服務中。|
 |[Azure 資料靜態加密](azure-security-encryption-atrest.md)|著重於說明在整個 Azure 保護靜態資料的方式，以及參與資料保護實作的各種元件。 檢閱不同金鑰管理保護方法的優缺點。|
-|[Azure 記錄與稽核](azure-log-audit.md)|提供從 Azure 上所裝載的服務產生、收集及分析安全性記錄檔的簡介。 這些記錄檔可協助您深入了解 Azure 部署的安全性。 |
+|[Azure 記錄與稽核](azure-log-audit.md)|提供從 Azure 上所裝載的服務產生、收集及分析安全性記錄的簡介。 這些記錄可協助您深入了解 Azure 部署的安全性。 |
 |[Azure 網路安全性](abstract-azure-network-security.md)|介紹您可設定來增強您在 Azure 中所部署解決方案之安全性的一系列網路控制措施。 焦點放在客戶面向的網路安全性控制措施。|
 |[Azure Functions 和無伺服器平台安全性](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-functions-serverless-platform-security/Microsoft%20Serverless%20Platform.pdf)|這個可下載的白皮書包含無伺服器運算的優點，同時提供 Azure 環境中的安全性考量和緩和措施。 |
 |[Microsoft Azure 中的容器安全性](abstract-container-security-microsoft-azure.md)|說明容器、容器部署和管理，以及原生平台服務。 此外也說明在 Azure 平台上使用容器時所引發的執行階段安全性問題。 |

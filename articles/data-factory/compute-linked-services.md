@@ -46,7 +46,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 請注意下列有關隨選 HDInsight 連結服務的 **重點** ：
 
 * 您的 Azure 訂用帳戶下會建立隨選 HDInsight 叢集。 該叢集啟動並執行時，您能看到該叢集出現在您的 Azure 入口網站中。 
-* 在隨選 HDInsight 叢集上執行之工作的記錄檔會被複製到與 HDInsight 叢集相關聯的儲存體帳戶。 連結服務定義中定義的 clusterUserName、clusterPassword、clusterSshUserName、clusterSshPassword 可用來登入該叢集，以便在該叢集的生命週期中進行深入的疑難排解。 
+* 在隨選 HDInsight 叢集上執行之工作的記錄會被複製到與 HDInsight 叢集相關聯的儲存體帳戶。 連結服務定義中定義的 clusterUserName、clusterPassword、clusterSshUserName、clusterSshPassword 可用來登入該叢集，以便在該叢集的生命週期中進行深入的疑難排解。 
 * 只會針對 HDInsight 叢集啟動並執行工作的時間來向您收取費用。
 * 您可以使用**指令碼動作**搭配 Azure HDInsight 隨選連結服務。  
 

@@ -60,10 +60,10 @@ ms.locfileid: "58182433"
 5. 若要設定 [快速合併] 設定 - 在 [POWER QUERY] 功能區索引標籤中，選取 [選項] 以顯示 [選項] 對話方塊。 选择“隐私”部分，然后选择第二个选项 -“忽略隐私级别并潜在地改善性能”：
    
     ![瀏覽窗格](media/sql-data-warehouse-security-threat-detection/8_td_excel_fast_combine.png)
-6. 若要載入 SQL 稽核記錄檔，請確定 [設定] 索引標籤中的參數已正確設定，然後選取 [資料] 功能區，並按一下 [全部重新整理] 按鈕。
+6. 若要載入 SQL 稽核記錄，請確定 [設定] 索引標籤中的參數已正確設定，然後選取 [資料] 功能區，並按一下 [全部重新整理] 按鈕。
    
     ![瀏覽窗格](media/sql-data-warehouse-security-threat-detection/9_td_excel_parameters.png)
-7. 結果會出現在 [SQL 稽核記錄檔]  工作表，可讓您對偵測到的異常活動執行更深入的分析，減輕應用程式中的安全性事件造成的影響。
+7. 結果會出現在 [SQL 稽核記錄]  工作表，可讓您對偵測到的異常活動執行更深入的分析，減輕應用程式中的安全性事件造成的影響。
 
 ## <a name="next-steps"></a>後續步驟
 如需安全性的詳細資訊，請參閱[保護資料倉儲](sql-data-warehouse-overview-manage-security.md)。

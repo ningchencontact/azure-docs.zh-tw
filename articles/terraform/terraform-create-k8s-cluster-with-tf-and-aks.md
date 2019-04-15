@@ -408,7 +408,7 @@ Kubernetes 工具可用來驗證新建立的叢集。
 
     ![kubectl 工具可讓您驗證 Kubernetes 叢集的健康情況](./media/terraform-create-k8s-cluster-with-tf-and-aks/kubectl-get-nodes.png)
 
-## <a name="monitor-health-and-logs"></a>監視健康情況和記錄檔
+## <a name="monitor-health-and-logs"></a>監視健康情況和記錄
 建立 AKS 叢集時，啟用了監視功能來擷取叢集節點和 pod 的健康狀態計量。 在 Azure 入口網站中可取得這些健康狀態度量。 如需容器健康情況監視的詳細資訊，請參閱[監視 Azure Kubernetes Service 健康情況](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)。
 
 ## <a name="next-steps"></a>後續步驟

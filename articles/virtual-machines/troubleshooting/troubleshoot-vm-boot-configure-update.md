@@ -109,7 +109,7 @@ ms.locfileid: "58485810"
     > [!Note]
     > 前一個命令會假設要加密的磁碟使用的代號是 f。
 
-8. 如果您需要收集記錄檔，請至路徑**磁碟機代號:\Windows\System32\winevt\Logs**。
+8. 如果您需要收集記錄，請至路徑**磁碟機代號:\Windows\System32\winevt\Logs**。
 
 9. 將磁碟機從復原 VM 中斷連結。
 

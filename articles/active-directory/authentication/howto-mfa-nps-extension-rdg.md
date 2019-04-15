@@ -368,7 +368,7 @@ NPS 角色服務可提供 RADIUS 伺服器和用戶端功能，以及網路存�
 
 ![在 事件檢視器中的範例 Azure MFA 記錄](./media/howto-mfa-nps-extension-rdg/image34.png)
 
-若要執行進階的疑難排解選項，請參閱安裝了 NPS 服務的 NPS 資料庫格式記錄檔。 這些記錄檔會建立於 %SystemRoot%\System32\Logs 資料夾，並以逗號分隔文字檔的形式存在。
+若要執行進階的疑難排解選項，請參閱安裝了 NPS 服務的 NPS 資料庫格式記錄檔。 這些記錄會建立於 %SystemRoot%\System32\Logs 資料夾，並以逗號分隔文字檔的形式存在。
 
 如需這些記錄檔的說明，請參閱[解譯 NPS 資料庫格式記錄檔](https://technet.microsoft.com/library/cc771748.aspx)。 這些記錄檔中的項目若不匯入到試算表或資料庫，將難以解譯。 您可以在線上找到數個 IAS 剖析器來協助您解譯記錄檔。
 

@@ -85,11 +85,11 @@ ms.locfileid: "57436472"
 |---|---|---|
 |Microsoft.AnalysisServices/servers|引擎|引擎|
 |Microsoft.AnalysisServices/servers|服務|服務|
-|Microsoft.ApiManagement/service|GatewayLogs|ApiManagement 閘道的相關記錄檔|
-|Microsoft.Automation/automationAccounts|JobLogs|作業記錄檔|
+|Microsoft.ApiManagement/service|GatewayLogs|ApiManagement 閘道的相關記錄|
+|Microsoft.Automation/automationAccounts|JobLogs|作業記錄|
 |Microsoft.Automation/automationAccounts|JobStreams|作業串流|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Dsc 節點狀態|
-|Microsoft.Batch/batchAccounts|ServiceLog|服務記錄檔|
+|Microsoft.Batch/batchAccounts|ServiceLog|服務記錄|
 |Microsoft.Cdn/profiles/endpoints|CoreAnalytics|取得端點的計量，例如頻寬、輸出等資訊。|
 |Microsoft.ClassicNetwork/networksecuritygroups|網路安全性群組規則流程事件|網路安全性群組規則流程事件|
 |Microsoft.CognitiveServices/accounts|稽核|稽核記錄|
@@ -106,7 +106,7 @@ ms.locfileid: "57436472"
 |Microsoft.DataLakeAnalytics/accounts|审核|稽核記錄|
 |Microsoft.DataLakeAnalytics/accounts|要求|请求日志|
 |Microsoft.DataLakeStore/accounts|稽核|稽核記錄|
-|Microsoft.DataLakeStore/accounts|Requests|要求記錄檔|
+|Microsoft.DataLakeStore/accounts|Requests|要求記錄|
 |Microsoft.DBforMySQL/servers|MySqlSlowLogs|MySQL 伺服器記錄|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL 伺服器記錄|
 |Microsoft.Devices/IotHubs|連線|連線|
@@ -127,9 +127,9 @@ ms.locfileid: "57436472"
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
 |Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
 |Microsoft.DocumentDB/databaseAccounts|QueryRuntimeStatistics|QueryRuntimeStatistics|
-|Microsoft.EventHub/namespaces|ArchiveLogs|封存記錄檔|
+|Microsoft.EventHub/namespaces|ArchiveLogs|封存記錄|
 |Microsoft.EventHub/namespaces|OperationalLogs|作業記錄|
-|Microsoft.EventHub/namespaces|AutoScaleLogs|自動調整規模記錄檔|
+|Microsoft.EventHub/namespaces|AutoScaleLogs|自動調整規模記錄|
 |Microsoft.Insights/AutoscaleSettings|AutoscaleEvaluations|自動調整評估|
 |Microsoft.Insights/AutoscaleSettings|AutoscaleScaleActions|自動調整的調整動作|
 |Microsoft.IoTSpaces/Graph|追蹤|追蹤|

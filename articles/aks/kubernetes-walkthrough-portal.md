@@ -214,7 +214,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 ![瀏覽至 Azure 投票應用程式範例的影像](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-## <a name="monitor-health-and-logs"></a>監視健康情況和記錄檔
+## <a name="monitor-health-and-logs"></a>監視健康情況和記錄
 
 當您建立叢集後，就已啟用容器的 Azure 監視器。 此監視功能可針對 AKS 叢集和叢集上執行的 Pod 提供健康情況計量。
 

@@ -1,6 +1,6 @@
 ---
 title: 在 Application Insights 中探索 .NET 追蹤記錄
-description: 搜尋使用 Trace、NLog 或 Log4Net 產生的記錄檔。
+description: 搜尋使用 Trace、NLog 或 Log4Net 產生的記錄。
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -21,7 +21,7 @@ ms.locfileid: "57552141"
 ---
 # <a name="explore-netnet-core-trace-logs-in-application-insights"></a>在 Application Insights 中探索 .NET/.NET Core 追蹤記錄
 
-如果您使用 ILogger、NLog、log4Net 或 System.Diagnostics.Trace 在 ASP.NET/ASP.NET Core 應用程式中進行診斷追蹤，您可以將記錄傳送至 [Azure Application Insights][start]，以在其中探索和搜尋這些記錄。 您的記錄檔會與來自應用程式的其他遙測合併，讓您可以識別與服務每個使用者要求相關聯的追蹤，並將它們與其他事件和例外狀況報告相互關聯。
+如果您使用 ILogger、NLog、log4Net 或 System.Diagnostics.Trace 在 ASP.NET/ASP.NET Core 應用程式中進行診斷追蹤，您可以將記錄傳送至 [Azure Application Insights][start]，以在其中探索和搜尋這些記錄。 您的記錄會與來自應用程式的其他遙測合併，讓您可以識別與服務每個使用者要求相關聯的追蹤，並將它們與其他事件和例外狀況報告相互關聯。
 
 > [!NOTE]
 > 您需要記錄擷取模組嗎？ 對於第三方記錄器來說，它是一個有用的配接器，但是如果您還沒使用 NLog、log4Net 或 System.Diagnostics.Trace，請考慮直接呼叫 [Application Insights TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) 。

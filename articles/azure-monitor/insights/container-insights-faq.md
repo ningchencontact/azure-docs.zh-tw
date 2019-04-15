@@ -62,7 +62,7 @@ LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will 
 
 如需此問題的詳細探討，請檢閱下列 [github 連結](https://github.com/moby/moby/issues/22920) \(英文\)。
 
-## <a name="how-do-i-resolve-azure-active-directory-errors-when-i-enable-live-logs"></a>當我啟用即時記錄檔時如何解決 Azure Active Directory 錯誤？ 
+## <a name="how-do-i-resolve-azure-active-directory-errors-when-i-enable-live-logs"></a>當我啟用即時記錄時如何解決 Azure Active Directory 錯誤？ 
 您可能會看到下列錯誤：**回覆要求中指定的 url 不符合為應用程式設定的回覆 url: '< 應用程式識別碼\>'**。 來解決此問題的解決方案可在發行項[如何檢視容器記錄檔使用即時 Azure 監視器容器](container-insights-live-logs.md#configure-aks-with-azure-active-directory)。 
 
 ## <a name="next-steps"></a>後續步驟
