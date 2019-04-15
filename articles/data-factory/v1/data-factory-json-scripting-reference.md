@@ -4913,7 +4913,7 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 | accountName |建立 Azure Batch 帳戶。 |是 |
 | accessKey |Azure Batch 帳戶的存取金鑰。 |是 |
 | poolName |虛擬機器的集區名稱。 |是 |
-| 預設容器 |與此 Azure Batch 連結服務相關聯的 Azure 儲存體服務連結名稱。 此連結服務用於執行活動及儲存活動執行記錄檔所需的暫存檔案。 |是 |
+| 預設容器 |與此 Azure Batch 連結服務相關聯的 Azure 儲存體服務連結名稱。 此連結服務用於執行活動及儲存活動執行記錄所需的暫存檔案。 |是 |
 
 
 #### <a name="json-example"></a>JSON 範例
@@ -5292,7 +5292,7 @@ Azure Data Factory 服務可自動建立以 Windows/Linux 為基礎的隨選 HDI
 | filePaths | 對應器和歸納器可執行檔的路徑。 在 "adfsample/example/apps/wc.exe" 範例中，adfsample 是 blob 容器，example/apps 是資料夾，而 wc.exe 是可執行檔。 |
 | fileLinkedService | Azure 儲存體連結服務，代表含有 filePaths 區段中指定之檔案的 Azure 儲存體。 |
 | arguments | MapReduce 程式以逗號分隔的引數清單。 在執行階段，您會看到幾個來自 MapReduce 架構的額外引數 (例如：mapreduce.job.tags)。 若要區分您的引數與 MapReduce 引數，請考慮同時使用選項和值作為引數，如下列範例所示 (-s、--input、--output 等等是後面接著其值的選項) |
-| getDebugInfo | 選擇性元素。 該屬性設定為 [失敗] 時，只能在執行失敗時下載記錄檔。 當其設定為「所有」時，無論執行狀態為何，一律下載記錄檔。 |
+| getDebugInfo | 選擇性元素。 該屬性設定為 [失敗] 時，只能在執行失敗時下載記錄。 當其設定為「所有」時，無論執行狀態為何，一律下載記錄。 |
 
 > [!NOTE]
 > 您必須在 **outputs** 屬性中指定 Hadoop 串流活動的輸出資料集。 這個資料集可能只是驅動管線排程 (每小時、每天等) 所需的虛設資料集。 如果活動不需要有輸入，您可以略過不用在 **inputs** 屬性中指定活動的輸入資料集。

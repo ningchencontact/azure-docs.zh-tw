@@ -327,8 +327,8 @@ if not exist "%DiagnosticStore%\LogFiles" mkdir "%DiagnosticStore%\LogFiles"
 
 部署需要幾分鐘才能完成，然後 Web 及/或背景工作角色就會在 Azure 上運作！
 
-### <a name="investigate-logs"></a>調查記錄檔
-雲端服務虛擬機器啟動並安裝 Python 之後，您可以查看記錄檔，以找出任何失敗訊息。 這些記錄檔位於 **C:\Resources\Directory\\{role}\LogFiles** 資料夾中。 當指令碼嘗試偵測是否已安裝 Python 時，**PrepPython.err.txt** 中至少會有一個錯誤，而 **PipInstaller.err.txt** 可能會抱怨 pip 的版本過時。
+### <a name="investigate-logs"></a>調查記錄
+雲端服務虛擬機器啟動並安裝 Python 之後，您可以查看記錄，以找出任何失敗訊息。 這些記錄位於 **C:\Resources\Directory\\{role}\LogFiles** 資料夾中。 當指令碼嘗試偵測是否已安裝 Python 時，**PrepPython.err.txt** 中至少會有一個錯誤，而 **PipInstaller.err.txt** 可能會抱怨 pip 的版本過時。
 
 ## <a name="next-steps"></a>後續步驟
 如需在 Python Tools for Visual Studio 中使用 Web 和背景工作角色的相關詳細資訊，請參閱 PTVS 文件：

@@ -48,7 +48,7 @@ ms.locfileid: "58663178"
 
 * ContainerInventory︰顯示容器位置、名稱和映像的相關資訊
 * ContainerImageInventory︰已部署映像相關資訊，包括 ID 或大小
-* ContainerLog︰特定的錯誤記錄檔、 docker 記錄檔 (stdout 等) 及其他項目
+* ContainerLog︰特定的錯誤記錄、 docker 記錄 (stdout 等) 及其他項目
 * ContainerServiceLog：已執行的 docker 精露命令
 * 效能︰包括容器 CPU、記憶體、網路流量、磁碟 I/O，以及主機電腦的自訂計量
 

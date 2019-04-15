@@ -24,7 +24,7 @@ ms.locfileid: "58085611"
 
 您可以透過 Azure 入口網站檢視部署的作業。 當您在部署期間收到錯誤時，您可能對於檢視作業最感興趣，所以此文章著重於檢視失敗的作業。 入口網站提供介面，讓您輕鬆地找到錯誤並判斷可能的修正方法。
 
-您可以藉由查看稽核記錄檔或部署作業來疑難排解您的部署。 本文章示範這兩種方法。 如需解決特定部署錯誤的說明，請參閱 [針對使用 Azure Resource Manager 將資源部署至 Azure 時常見的錯誤進行疑難排解](resource-manager-common-deployment-errors.md)。
+您可以藉由查看稽核記錄或部署作業來疑難排解您的部署。 本文章示範這兩種方法。 如需解決特定部署錯誤的說明，請參閱 [針對使用 Azure Resource Manager 將資源部署至 Azure 時常見的錯誤進行疑難排解](resource-manager-common-deployment-errors.md)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

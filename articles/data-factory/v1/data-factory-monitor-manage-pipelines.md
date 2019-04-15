@@ -150,7 +150,7 @@ Data Factory 中的資料集配量可以有下列狀態之一：
 
 ![配量的詳細資料](./media/data-factory-monitor-manage-pipelines/slice-details.png)
 
-若已多次執行配量，則您會在 [活動執行]  清單中看到多個資料列。 您可按一下 [ **活動執行** ] 清單中的執行項目，檢視有關活動執行的詳細資訊。 此清單會顯示所有記錄檔，且如果有錯誤訊息的話，也會一併展示。 這個功能非常實用，您可以檢視和偵錯記錄檔而不必離開您的 Data Factory。
+若已多次執行配量，則您會在 [活動執行]  清單中看到多個資料列。 您可按一下 [ **活動執行** ] 清單中的執行項目，檢視有關活動執行的詳細資訊。 此清單會顯示所有記錄檔，且如果有錯誤訊息的話，也會一併展示。 這個功能非常實用，您可以檢視和偵錯記錄而不必離開您的 Data Factory。
 
 ![活動執行詳細資料](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 

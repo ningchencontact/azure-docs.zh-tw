@@ -20,7 +20,7 @@ ms.locfileid: "58368998"
 
 如果您的容器發生異常，可先透過 [az container logs][az-container-logs] 檢查其記錄，然後使用 [az container attach][az-container-attach] 串流其標準輸出和標準錯誤。
 
-## <a name="view-logs"></a>檢視記錄檔
+## <a name="view-logs"></a>檢視記錄
 
 若要在容器內檢視應用程式程式碼中的記錄，您可以使用 [az container logs][az-container-logs] 命令。
 

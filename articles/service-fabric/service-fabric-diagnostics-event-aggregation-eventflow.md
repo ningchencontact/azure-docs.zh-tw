@@ -31,7 +31,7 @@ EventFlow 二進位檔是以一組 NuGet 套件的形式提供。 若要將 Even
 
 ![Visual Studio NuGet 套件管理員 UI 中的 EventFlow NuGet 套件](./media/service-fabric-diagnostics-event-aggregation-eventflow/eventflow-nuget.png)
 
-您會看到一份各種各樣套件的清單，標記為「輸入」和「輸出」。 EventFlow 支援各種不同的記錄提供者和分析器。 視應用程式記錄檔的來源和目的地而定，裝載 EventFlow 的服務應該包含適當的套件。 除了核心 ServiceFabric 套件，您還需要設定至少一個輸入和輸出。 例如，您可以新增下列套件，將 EventSource 事件傳送至 Application Insights：
+您會看到一份各種各樣套件的清單，標記為「輸入」和「輸出」。 EventFlow 支援各種不同的記錄提供者和分析器。 視應用程式記錄的來源和目的地而定，裝載 EventFlow 的服務應該包含適當的套件。 除了核心 ServiceFabric 套件，您還需要設定至少一個輸入和輸出。 例如，您可以新增下列套件，將 EventSource 事件傳送至 Application Insights：
 
 * `Microsoft.Diagnostics.EventFlow.Inputs.EventSource` 從服務的 EventSource 類別以及從標準 EventSources (例如 *Microsoft-ServiceFabric-Services* 和 *Microsoft-ServiceFabric-Actors*) 擷取資料
 * `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights` (我們將把記錄檔傳送給 Azure Application Insights 資源)
@@ -43,7 +43,7 @@ EventFlow 二進位檔是以一組 NuGet 套件的形式提供。 若要將 Even
 安裝好所有套件之後，下一個步驟就是設定及啟用服務中的 EventFlow。
 
 ## <a name="configure-and-enable-log-collection"></a>設定和啟用記錄集合
-EventFlow 管線 (負責傳送記錄檔) 是從儲存在組態檔中的規格建立的。 `Microsoft.Diagnostics.EventFlow.ServiceFabric` 套件會在 `PackageRoot\Config` 方案資料夾底下安裝一個起始的 EventFlow 組態檔，名為 `eventFlowConfig.json`。 此組態檔必須經過修改，才能從預設服務 `EventSource` 類別和任何其他您想設定的輸入擷取資料，然後將資料傳送到適當的位置。
+EventFlow 管線 (負責傳送記錄) 是從儲存在組態檔中的規格建立的。 `Microsoft.Diagnostics.EventFlow.ServiceFabric` 套件會在 `PackageRoot\Config` 方案資料夾底下安裝一個起始的 EventFlow 組態檔，名為 `eventFlowConfig.json`。 此組態檔必須經過修改，才能從預設服務 `EventSource` 類別和任何其他您想設定的輸入擷取資料，然後將資料傳送到適當的位置。
 
 >[!NOTE]
 >如果您的專案檔案具有 VisualStudio 2017 格式，則 `eventFlowConfig.json` 檔案不會自動新增。 若要修正這個問題，在 `Config` 資料夾中建立檔案，並且將建置動作設為 `Copy if newer`。 
@@ -152,7 +152,7 @@ servicefabric:/<section-name>/<setting-name>
 
 ## <a name="verification"></a>验证
 
-啟動您的服務並觀察 Visual Studio 中的 [偵錯] 輸出視窗。 啟動服務之後，您應該會開始看到服務在向您設定的輸出傳送記錄。 瀏覽至您的事件分析和視覺化平台，確認記錄檔已開始顯示 (可能需要幾分鐘的時間)。
+啟動您的服務並觀察 Visual Studio 中的 [偵錯] 輸出視窗。 啟動服務之後，您應該會開始看到服務在向您設定的輸出傳送記錄。 瀏覽至您的事件分析和視覺化平台，確認記錄已開始顯示 (可能需要幾分鐘的時間)。
 
 ## <a name="next-steps"></a>後續步驟
 

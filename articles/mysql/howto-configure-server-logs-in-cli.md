@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 207e9965f6600477e1df93845bc41bd33b5c028c
 ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/17/2018
 ms.locfileid: "53547026"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>使用 Azure CLI 設定和存取伺服器記錄
-您可以使用 Azure CLI (Azure 的命令列公用程式) 來下載適用於 MySQL 的 Azure 資料庫的伺服器記錄檔。
+您可以使用 Azure CLI (Azure 的命令列公用程式) 來下載適用於 MySQL 的 Azure 資料庫的伺服器記錄。
 
 ## <a name="prerequisites"></a>必要條件
 若要逐步執行本作法指南，您需要︰
@@ -38,14 +38,14 @@ az mysql server configuration list --resource-group myresourcegroup --server myd
 ```
 
 ## <a name="list-logs-for-azure-database-for-mysql-server"></a>列出適用於 MySQL 的 Azure 資料庫伺服器之記錄
-若要列出伺服器的可用記錄檔，請執行 [az mysql server-logs list](/cli/azure/mysql/server-logs#az-mysql-server-logs-list) 命令。
+若要列出伺服器的可用記錄，請執行 [az mysql server-logs list](/cli/azure/mysql/server-logs#az-mysql-server-logs-list) 命令。
 
 您可以針對資源群組 **myresourcegroup** 下的伺服器 **mydemoserver.mysql.database.azure.com** 列出記錄檔。 然後將記錄檔的清單導向名為 **log\_files\_list.txt** 的文字檔。
 ```azurecli-interactive
 az mysql server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
-## <a name="download-logs-from-the-server"></a>從伺服器下載記錄檔
-使用 [az mysql server-logs download](/cli/azure/mysql/server-logs#az-mysql-server-logs-download) 命令，即可下載您伺服器適用的個別記錄檔。 
+## <a name="download-logs-from-the-server"></a>從伺服器下載記錄
+使用 [az mysql server-logs download](/cli/azure/mysql/server-logs#az-mysql-server-logs-download) 命令，即可下載您伺服器適用的個別記錄。 
 
 使用下列範例，針對資源群組 **myresourcegroup** 下的伺服器 **mydemoserver.mysql.database.azure.com**，將特定的記錄檔下載至您的本機環境。
 ```azurecli-interactive
@@ -53,4 +53,4 @@ az mysql server-logs download --name 20170414-mydemoserver-mysql.log --resource-
 ```
 
 ## <a name="next-steps"></a>後續步驟
-- 深入了解[適用於 MySQL 的 Azure 資料庫中的伺服器記錄檔](concepts-server-logs.md)。
+- 深入了解[適用於 MySQL 的 Azure 資料庫中的伺服器記錄](concepts-server-logs.md)。

@@ -100,7 +100,7 @@ SSH 可讓容器和用戶端之間進行安全通訊。 為了讓自訂容器，
 
     如需範例，請參閱如何預設[Node.js 10.14 容器](https://github.com/Azure-App-Service/node/blob/master/10.14/startup/init_container.sh)啟動 SSH 伺服器。
 
-## <a name="access-diagnostic-logs"></a>存取診斷記錄檔
+## <a name="access-diagnostic-logs"></a>存取診斷記錄
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 

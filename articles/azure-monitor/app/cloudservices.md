@@ -15,7 +15,7 @@ ms.date: 09/05/2018
 ms.author: mbullwin
 ms.openlocfilehash: d27c0e9570959e01267d83a768ead45b48b7cea1
 ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/14/2019
 ms.locfileid: "54267227"
@@ -155,14 +155,14 @@ ms.locfileid: "54267227"
 您可以在 Application Insights 的下列位置中，找到 [Azure 診斷](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)資訊：
 
 * 效能計數器顯示為自訂度量。 
-* Windows 事件記錄檔顯示為追蹤和自訂事件。
-* 應用程式記錄檔、ETW 記錄檔和任何診斷基礎結構記錄檔顯示為追蹤。
+* Windows 事件記錄顯示為追蹤和自訂事件。
+* 應用程式記錄、ETW 記錄和任何診斷基礎結構記錄顯示為追蹤。
 
 若要查看效能計數器和事件計數，請開啟[計量瀏覽器](../../azure-monitor/app/metrics-explorer.md) 並新增下列圖表：
 
 ![Azure 診斷資料](./media/cloudservices/23-wad.png)
 
-若要搜尋 Azure 診斷所傳送的各種追蹤記錄檔，請使用[搜尋](../../azure-monitor/app/diagnostic-search.md)或[分析查詢](../../azure-monitor/log-query/get-started-portal.md)。 例如，假設您有未處理的例外狀況導致角色損毀並需要回收。 這項資訊會出現在 Windows 事件記錄檔的「應用程式 (Application)」通道。 您可以使用 [搜尋] 來檢視 Windows 事件記錄檔錯誤，並取得例外狀況的完整堆疊追蹤。 這將協助您找出問題的根本原因。
+若要搜尋 Azure 診斷所傳送的各種追蹤記錄，請使用[搜尋](../../azure-monitor/app/diagnostic-search.md)或[分析查詢](../../azure-monitor/log-query/get-started-portal.md)。 例如，假設您有未處理的例外狀況導致角色損毀並需要回收。 這項資訊會出現在 Windows 事件記錄檔的「應用程式 (Application)」通道。 您可以使用 [搜尋] 來檢視 Windows 事件記錄檔錯誤，並取得例外狀況的完整堆疊追蹤。 這將協助您找出問題的根本原因。
 
 ![Azure 診斷搜尋](./media/cloudservices/25-wad.png)
 

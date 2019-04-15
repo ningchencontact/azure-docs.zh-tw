@@ -222,7 +222,7 @@ items:
     - name: 網路安全性群組
       href: manage-network-security-group.md
       items:
-      - name: 記錄檔
+      - name: 記錄
         href: virtual-network-nsg-manage-log.md
     - name: 路由表
       href: manage-route-table.md

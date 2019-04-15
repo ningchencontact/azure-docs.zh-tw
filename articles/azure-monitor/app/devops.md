@@ -139,7 +139,7 @@ Web 系統中的失敗通常是由組態問題或其許多元件之間的互動�
 ### <a name="configuring-application-insights"></a>設定 Application Insights
 Visual Studio 和 Eclipse 提供工具，可為您正在開發的專案設定正確的 SDK 封裝。 有一個功能表命令可新增 Application Insights。
 
-如果您需要使用追蹤紀錄架構 (例如 Log4N、NLog 或 System.Diagnostics.Trace)，則您可以選擇將記錄傳送到 Application Insights 以及另一個遙測，因此可輕鬆地將追蹤與要求、相依性呼叫及例外狀況相互關聯。
+如果您需要使用追蹤記錄架構 (例如 Log4N、NLog 或 System.Diagnostics.Trace)，則您可以選擇將記錄傳送到 Application Insights 以及另一個遙測，因此可輕鬆地將追蹤與要求、相依性呼叫及例外狀況相互關聯。
 
 ### <a name="search-telemetry-in-visual-studio"></a>在 Visual Studio 中搜尋遙測
 開發並偵錯功能時，您可以使用 Web 入口網站中的相同搜尋功能，在 Visual Studio 中直接搜尋遙測。

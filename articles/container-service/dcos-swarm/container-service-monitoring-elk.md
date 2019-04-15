@@ -11,7 +11,7 @@ ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 342cf23db2df7d7c79a2b56df96d1a78d6ba215e
 ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "52998118"
@@ -62,7 +62,7 @@ ELK 容器開始運作之後，您需要讓 Marathon-LB 能夠存取 Kibana。 �
 
 * 如需系統和應用程式記錄檔轉送與設定的相關資訊，請參閱 [DC/OS 中使用 ELK 的記錄檔管理 (英文)](https://docs.mesosphere.com/1.8/administration/logging/elk/)。
 
-* 若要篩選記錄檔，請參閱[使用 ELK 篩選記錄檔 (英文)](https://docs.mesosphere.com/1.8/administration/logging/filter-elk/)。 
+* 若要篩選記錄，請參閱[使用 ELK 篩選記錄 (英文)](https://docs.mesosphere.com/1.8/administration/logging/filter-elk/)。 
 
  
 

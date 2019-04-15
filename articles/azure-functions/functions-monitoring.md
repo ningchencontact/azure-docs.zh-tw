@@ -609,7 +609,7 @@ Functions v2 會自動收集 HTTP 要求、 服務匯流排，和 SQL 的相依�
 
 開發應用程式時，如果能夠幾近即時地檢視記錄資訊，通常會很實用。 您可以檢視您在 Azure 入口網站中或在本機電腦上的命令列工作階段中的函式所產生的記錄檔的資料流。
 
-這相當於看到當您偵錯您的函式期間的輸出[本機開發](functions-develop-local.md)。 如需詳細資訊，請參閱[如何串流處理記錄檔](../app-service/troubleshoot-diagnostic-logs.md#streamlogs)。
+這相當於看到當您偵錯您的函式期間的輸出[本機開發](functions-develop-local.md)。 如需詳細資訊，請參閱[如何串流處理記錄](../app-service/troubleshoot-diagnostic-logs.md#streamlogs)。
 
 > [!NOTE]
 > 串流記錄檔支援單一執行個體的 Functions 主機。 當您的函式會調整為多個執行個體時，來自其他執行個體的資料不會顯示在記錄資料流中。 [即時計量 Stream](../azure-monitor/app/live-stream.md) Application Insights 中會支援多個執行個體。 同時也在近乎即時，串流分析也基於[取樣的資料](#configure-sampling)。

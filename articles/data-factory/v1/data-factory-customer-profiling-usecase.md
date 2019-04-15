@@ -15,7 +15,7 @@ ms.author: shlo
 robots: noindex
 ms.openlocfilehash: bb7d6531da330bcfbf6de786ffb19984cfd1964e
 ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/04/2019
 ms.locfileid: "54017424"
@@ -28,7 +28,7 @@ Contoso 是一間打造多平台遊戲的遊戲公司：包括遊戲主機、手
 
 Contoso 的目標是要根據其玩家的遊戲歷程記錄識別向上銷售/交叉銷售機會，並新增強大功能來推動業務成長以及為客戶提供更好的體驗。 在此使用案例中，我們使用遊戲公司做為企業範例。 該公司想要根據玩家的行為最佳化其遊戲。 這些原則適用於所有想要建立客戶及產品和服務之關聯，並強化其客戶體驗的所有企業。
 
-在此解決方案中，Contoso 想要評估最近推出之行銷活動的效益。 我們從原始遊戲記錄檔開始、處理並添加地理位置資料、結合廣告參考資料，最後，將它們複製到 Azure SQL Database 來分析行銷活動的影響力。
+在此解決方案中，Contoso 想要評估最近推出之行銷活動的效益。 我們從原始遊戲記錄開始、處理並添加地理位置資料、結合廣告參考資料，最後，將它們複製到 Azure SQL Database 來分析行銷活動的影響力。
 
 ## <a name="deploy-solution"></a>部署解決方案
 若要存取並嘗試這個簡單的使用案例，您只需要有 [Azure 訂用帳戶](https://azure.microsoft.com/pricing/free-trial/)、[Azure Blob 儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)和 [Azure SQL Database](../../sql-database/sql-database-get-started.md)。 您從 Data Factory 首頁的 [範例管線] 圖格來部署客戶資料分析管線。

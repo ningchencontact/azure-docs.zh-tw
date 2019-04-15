@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure Active Directory 稽核記錄進行 Azure 記錄整合 | Microsoft Docs
-description: 了解如何安裝 Azure 記錄整合服務，整合 Azure 的稽核記錄檔
+description: 了解如何安裝 Azure 記錄整合服務，整合 Azure 的稽核記錄
 services: security
 documentationcenter: na
 author: Barclayn
@@ -17,7 +17,7 @@ ms.author: barclayn
 ms.custom: azlog
 ms.openlocfilehash: 473f9db7eb507fa910657696590bb656a8aff52f
 ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56109872"

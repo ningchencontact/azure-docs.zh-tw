@@ -12,7 +12,7 @@ ms.topic: article
 ms.date: 07/29/2016
 ms.openlocfilehash: 58e59e4faa135e24124f494d90437b49caa30129
 ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/28/2019
 ms.locfileid: "55098658"
@@ -414,7 +414,7 @@ ms.locfileid: "55098658"
 
 ### <a name="log-management-portal"></a>記錄檔管理入口網站
 
-為了檢視記錄檔，我們還建立了 MVC Web 應用程式。 以下是使用先前所述方法建立之 MVC 應用程式詳細資料的範例。
+為了檢視記錄，我們還建立了 MVC Web 應用程式。 以下是使用先前所述方法建立之 MVC 應用程式詳細資料的範例。
 
 #### <a name="sample-log-detail-view"></a>範例記錄檔詳細資料檢視
 ![記錄檔詳細資料檢視](media/logic-apps-scenario-error-and-exception-handling/samplelogdetail.png)

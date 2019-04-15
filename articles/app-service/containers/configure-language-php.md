@@ -220,7 +220,7 @@ zend_extension=/home/site/wwwroot/bin/xdebug.so
 
 針對以使變更生效，請重新啟動應用程式。
 
-## <a name="access-diagnostic-logs"></a>存取診斷記錄檔
+## <a name="access-diagnostic-logs"></a>存取診斷記錄
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 

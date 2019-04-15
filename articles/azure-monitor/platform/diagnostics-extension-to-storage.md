@@ -10,7 +10,7 @@ ms.author: jeconnoc
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 23379e9d9bb29efb7fb026260e8245e8eb8a2d71
 ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/23/2019
 ms.locfileid: "54468517"
@@ -33,14 +33,14 @@ ms.locfileid: "54468517"
 
 | 資料來源 | 儲存體格式 |
 | --- | --- |
-| Azure 記錄檔 |資料表 |
-| IIS 7.0 記錄檔 |Blob |
-| Azure 診斷基礎結構記錄檔 |資料表 |
-| 失敗要求追蹤記錄檔 |Blob |
-| Windows 事件記錄檔 |資料表 |
+| Azure 記錄 |資料表 |
+| IIS 7.0 記錄 |Blob |
+| Azure 診斷基礎結構記錄 |資料表 |
+| 失敗要求追蹤記錄 |Blob |
+| Windows 事件記錄 |資料表 |
 | 效能計數器 |資料表 |
 | 損毀傾印 |Blob |
-| 自訂錯誤記錄檔 |Blob |
+| 自訂錯誤記錄 |Blob |
 
 ## <a name="transfer-diagnostic-data"></a>傳輸診斷資料
 若為 SDK 2.5 和更新版本，可以透過組態檔進行傳輸診斷資料的要求。 您可以依照組態中指定的排程間隔來傳輸診斷資料。
@@ -59,7 +59,7 @@ ms.locfileid: "54468517"
 
 * **WadLogsTable** - 使用追蹤接聽程式在程式碼中寫入的記錄檔。
 * **WADDiagnosticInfrastructureLogsTable** - 診斷監視器和組態變更。
-* **WADDirectoriesTable** – 診斷監視器所監視的目錄。  這包括 IIS 記錄檔、IIS 失敗要求記錄檔和自訂目錄。  Blob 記錄檔的位置是在 [容器] 欄位中指定，而 Blob 的名稱則是在 RelativePath 欄位中指定。  AbsolutePath 欄位會指出檔案存在於 Azure 虛擬機器上的位置和名稱。
+* **WADDirectoriesTable** – 診斷監視器所監視的目錄。  這包括 IIS 記錄、IIS 失敗要求記錄和自訂目錄。  Blob 記錄檔的位置是在 [容器] 欄位中指定，而 Blob 的名稱則是在 RelativePath 欄位中指定。  AbsolutePath 欄位會指出檔案存在於 Azure 虛擬機器上的位置和名稱。
 * **WADPerformanceCountersTable** - 效能計數器。
 * **WADWindowsEventLogsTable** – Windows 事件記錄檔。
 

@@ -18,7 +18,7 @@ ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f927d1deb3da6269159e1f3f24a17c4675dc7568
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56184885"
@@ -50,7 +50,7 @@ ms.locfileid: "56184885"
 |AADSTS8002|連線至 Active Directory 時發生逾時|請檢查以確定 Active Directory 可用，並且會回應來自代理程式的要求。
 |AADSTS80004|傳遞給代理程式的使用者名稱無效|請確定使用者嘗試用來登入的使用者名稱正確無誤。
 |AADSTS80005|驗證發生無法預期的 WebException|暫時性錯誤。 重試要求。 如果持續發生失敗，請連絡 Microsoft 支援服務。
-|AADSTS80007|和 Active Directory 通訊時發生錯誤|請檢查代理程式記錄檔以了解詳細資訊，並確認 Active Directory 如預期般運作。
+|AADSTS80007|和 Active Directory 通訊時發生錯誤|請檢查代理程式記錄以了解詳細資訊，並確認 Active Directory 如預期般運作。
 
 ### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Azure Active Directory 管理中心上的登入失敗原因 (需要 Premium 授權)
 
@@ -122,13 +122,13 @@ ms.locfileid: "56184885"
 
 針對安裝相關的錯誤，請檢查 Azure AD Connect 記錄，位置在 **%ProgramData%\AADConnect\trace-\*.log**。
 
-### <a name="authentication-agent-event-logs"></a>驗證代理程式事件記錄檔
+### <a name="authentication-agent-event-logs"></a>驗證代理程式事件記錄
 
 如需與驗證代理程式相關的錯誤，請開啟伺服器上的事件檢視器應用程式，並於 **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin** 下查看。
 
 如需詳細分析，請啟用「工作階段」記錄 (以滑鼠右鍵按一下事件檢視器應用程式內部，可找到此選項)。 不要使用正常作業期間啟用的記錄檔執行驗證代理程式，此記錄檔只適用於進行疑難排解。 只有再次停用此記錄檔之後，才能看見記錄檔的內容。
 
-### <a name="detailed-trace-logs"></a>詳細的追蹤記錄檔
+### <a name="detailed-trace-logs"></a>詳細的追蹤記錄
 
 若要針對使用者登入失敗進行疑難排解，請查看追蹤記錄，其位於 **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**。 這些記錄包含使用傳遞驗證功能的特定使用者為什麼會登入失敗的原因。 這些錯誤也對應到先前的登入失敗原因資料表中所示的登入失敗原因。 以下是記錄項目範例：
 
@@ -138,15 +138,15 @@ ms.locfileid: "56184885"
         DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
 ```
 
-您可以開啟命令提示字元並執行下列命令，以取得錯誤 (上述範例為 '1328') 的描述性詳細資料 (注意：請將 '1328' 取代為您在記錄檔中看到的實際錯誤號碼)：
+您可以開啟命令提示字元並執行下列命令，以取得錯誤 (上述範例為 '1328') 的描述性詳細資料 (注意：請將 '1328' 取代為您在記錄中看到的實際錯誤號碼)：
 
 `Net helpmsg 1328`
 
 ![傳遞驗證](./media/tshoot-connect-pass-through-authentication/pta3.png)
 
-### <a name="domain-controller-logs"></a>網域控制站記錄檔
+### <a name="domain-controller-logs"></a>網域控制站記錄
 
-如果已經啟用稽核記錄，您可以在網域控制站的安全性記錄檔中找到其他資訊。 查詢傳遞驗證代理程式所傳送之登入要求的簡單方式如下︰
+如果已經啟用稽核記錄，您可以在網域控制站的安全性記錄中找到其他資訊。 查詢傳遞驗證代理程式所傳送之登入要求的簡單方式如下︰
 
 ```
     <QueryList>

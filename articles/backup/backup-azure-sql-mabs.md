@@ -10,7 +10,7 @@ ms.date: 03/24/2017
 ms.author: kasinh
 ms.openlocfilehash: 72b2368979f0c9e546e1c7ef7fc462bf1d64c947
 ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/31/2019
 ms.locfileid: "55490460"
@@ -49,7 +49,7 @@ ms.locfileid: "55490460"
     ![短期目標](./media/backup-azure-backup-sql/pg-shortterm.png)
 
    > [!NOTE]
-   > 傳輸從前一天下午 8:00 備份點後修改的資料，即可在每天下午 8:00 PM (根據畫面輸入) 建立備份點。 這個程序稱為 [快速完整備份] 。 雖然交易記錄檔每隔 15 分鐘同步處理一次，但如果有需要在下午 9:00 復原資料庫，則此點可藉由重新執行最後一個快速完整備份點 (在本例中為下午 8:00) 的記錄檔來建立。
+   > 傳輸從前一天下午 8:00 備份點後修改的資料，即可在每天下午 8:00 PM (根據畫面輸入) 建立備份點。 這個程序稱為 [快速完整備份] 。 雖然交易記錄每隔 15 分鐘同步處理一次，但如果有需要在下午 9:00 復原資料庫，則此點可藉由重新執行最後一個快速完整備份點 (在本例中為下午 8:00) 的記錄來建立。
    >
    >
 

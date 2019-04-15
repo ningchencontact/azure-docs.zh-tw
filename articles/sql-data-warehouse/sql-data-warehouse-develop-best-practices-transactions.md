@@ -12,7 +12,7 @@ ms.author: cakarst
 ms.reviewer: igorstan
 ms.openlocfilehash: f5e0b2b75ac111f3221108936f84e5883aebfc1a
 ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/31/2019
 ms.locfileid: "55476259"
@@ -23,7 +23,7 @@ ms.locfileid: "55476259"
 ## <a name="transactions-and-logging"></a>交易和記錄
 交易是關聯式資料庫引擎的重要元件。 SQL 資料倉儲會在資料修改期間使用交易。 這些交易可以是明確或隱含的。 單一 INSERT、UPDATE 和 DELETE 陳述式都是隱含交易的範例。 明確交易會使用 BEGIN TRAN、COMMIT TRAN 或 ROLLBACK TRAN。 通常在多個修改陳述式必須一起連結為單一不可部分完成單位的時候會使用明確交易。 
 
-Azure SQL 資料倉儲認可使用交易記錄檔之資料庫的變更。 每個散發套件都有自己的交易記錄檔。 交易記錄檔寫入是自動的。 不需要任何組態。 不過，儘管這個程序可保證寫入，但是它會在系統中引進額外負荷。 您可以藉由撰寫交易式的有效程式碼，將影響降到最低。 交易式的有效程式碼大致分為兩個類別。
+Azure SQL 資料倉儲認可使用交易記錄之資料庫的變更。 每個散發套件都有自己的交易記錄檔。 交易記錄檔寫入是自動的。 不需要任何組態。 不過，儘管這個程序可保證寫入，但是它會在系統中引進額外負荷。 您可以藉由撰寫交易式的有效程式碼，將影響降到最低。 交易式的有效程式碼大致分為兩個類別。
 
 * 盡可能使用最低限度的記錄建構
 * 使用已設定範圍的批次處理資料，以避免單數的長時間執行交易

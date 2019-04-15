@@ -20,7 +20,7 @@ ms.locfileid: "56957686"
 
 您可以透過入口網站存取其中一些記錄。 您可以將記錄傳送到 [Azure 監視器記錄](../azure-monitor/insights/azure-networking-analytics.md)、儲存體和事件中樞，並在 Azure 監視器記錄中或透過不同的工具 (例如 Excel 和 Power BI) 來分析記錄。
 
-## <a name="diagnostic-logs"></a>診斷記錄檔
+## <a name="diagnostic-logs"></a>診斷記錄
 
  下列診斷記錄可供 Azure 防火牆使用：
 

@@ -10,7 +10,7 @@ ms.author: robb
 ms.subservice: ''
 ms.openlocfilehash: fa3293346fee6f6666db01dab5587dd760df84b2
 ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/23/2019
 ms.locfileid: "54471001"
@@ -63,13 +63,13 @@ az monitor activity-log list
 az monitor activity-log list -h
 ```
 
-以下是依 resourceGroup 列出記錄檔清單的範例
+以下是依 resourceGroup 列出記錄清單的範例
 
 ```azurecli
 az monitor activity-log list --resource-group <group name>
 ```
 
-依 caller 列出記錄檔的範例
+依 caller 列出記錄的範例
 
 ```azurecli
 az monitor activity-log list --caller myname@company.com

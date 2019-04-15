@@ -119,5 +119,5 @@ ms.locfileid: "57855583"
 ## <a name="next-steps"></a>後續步驟
 * [取得 Azure 監視的概觀](../monitoring-and-diagnostics/monitoring-overview.md) 中說明您可以收集和監視的資訊類型。
 * 深入了解 [在警示中設定 webhook](../azure-monitor/platform/alerts-webhooks.md)。
-* 依照 [診斷記錄檔概觀](../azure-monitor/platform/diagnostic-logs-overview.md) 中的做法，收集您服務中詳細的高頻率計量。
+* 依照 [診斷記錄概觀](../azure-monitor/platform/diagnostic-logs-overview.md) 中的做法，收集您服務中詳細的高頻率計量。
 * 依照 [計量集合概觀](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) 中的做法，確保您的服務可使用且有回應。

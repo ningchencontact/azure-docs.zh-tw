@@ -30,7 +30,7 @@ ms.locfileid: "59006274"
 4. 使用指令碼來收集並再將資料公佈至 Log Analytics 工作區，在 Azure 監視器 （空格下表中和未列出的服務）
 
 
-| 服務                 | 資源類型                           | 記錄檔        | 度量     | 解決方法 |
+| 服務                 | 資源類型                           | 記錄        | 度量     | 解決方法 |
 | --- | --- | --- | --- | --- |
 | 應用程式閘道    | Microsoft.Network/applicationGateways   | 診斷 | 診斷 | [Azure 應用程式閘道分析](../insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) |
 | Application insights    |                                         | 連接器   | 連接器   | [Application Insights Connector (Application Insights 連接器)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (預覽) |
@@ -76,7 +76,7 @@ ms.locfileid: "59006274"
 >
 
 * 如需可用度量的詳細資訊，請參閱[支援 Azure 監視器的度量](../../azure-monitor/platform/metrics-supported.md)。
-* 如需可用記錄檔的詳細資訊，請參閱[支援的服務以及診斷記錄檔的結構描述](../../azure-monitor/platform/diagnostic-logs-schema.md)。
+* 如需可用記錄的詳細資訊，請參閱[支援的服務以及診斷記錄的結構描述](../../azure-monitor/platform/diagnostic-logs-schema.md)。
 
 ### <a name="enable-diagnostics-with-powershell"></a>啟用 PowerShell 的診斷功能
 
@@ -129,7 +129,7 @@ Set-AzDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId -Enab
 
 Azure 監視器可以使用這種方法來收集從下列資源和記錄檔的 Azure 儲存體的診斷資訊：
 
-| 資源 | 記錄檔 |
+| 資源 | 記錄 |
 | --- | --- |
 | Service Fabric |ETWEvent <br> 運作事件 <br> Reliable Actor 事件 <br> Reliable Service 事件 |
 | 虛擬機器 |Linux Syslog <br> Windows 事件 <br> IIS 記錄 <br> Windows ETWEvent |

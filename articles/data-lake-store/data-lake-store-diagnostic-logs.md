@@ -75,9 +75,9 @@ ms.locfileid: "58877953"
    
     ![檢視診斷記錄](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "檢視診斷記錄")
    
-   * 容器 **insights-logs-audit** 包含稽核記錄檔。
-   * 容器 **insights-logs-requests** 包含要求記錄檔。
-2. 在這些容器中，紀錄會儲存在下列結構底下。
+   * 容器 **insights-logs-audit** 包含稽核記錄。
+   * 容器 **insights-logs-requests** 包含要求記錄。
+2. 在這些容器中，記錄會儲存在下列結構底下。
    
     ![檢視診斷記錄](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "檢視診斷記錄")
    

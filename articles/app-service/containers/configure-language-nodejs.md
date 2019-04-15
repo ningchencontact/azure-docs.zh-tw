@@ -236,7 +236,7 @@ if (req.secure) {
 }
 ```
 
-## <a name="access-diagnostic-logs"></a>存取診斷記錄檔
+## <a name="access-diagnostic-logs"></a>存取診斷記錄
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 

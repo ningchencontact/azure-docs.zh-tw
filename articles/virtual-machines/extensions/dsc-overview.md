@@ -200,7 +200,7 @@ az vm extension set \
 
 - **自動升級次要版本**：此欄位會對應至 Cmdlet 中的 **AutoUpdate** 參數，並允許延伸模組在安裝時自動更新為最新版本。 [是] 會指示延伸模組在處理延伸模組常式時，要使用最新版本，[否] 將強制安裝指定的 [版本]。 未選取 [是] 亦未選取 [否]，等同選取 [否]。
 
-## <a name="logs"></a>記錄檔
+## <a name="logs"></a>記錄
 
 延伸模組的記錄檔會儲存在下列位置： `C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\<version number>`
 

@@ -44,7 +44,7 @@ Azure 監視器所收集的所有資料均符合下列兩個基本類型之一�
 
 Azure 監視器使用 Azure 資料總管使用的 [Kusto 查詢語言](/azure/kusto/query/)版本，適合用於簡單的記錄查詢，但也包含進階的功能，例如彙總、聯結和智慧分析。 您可以使用[多個課程](log-query/get-started-queries.md)，快速了解查詢語言。  我們會為已經熟悉 [SQL](log-query/sql-cheatsheet.md) 和 [Splunk](log-query/splunk-cheatsheet.md) 的使用者提供特別指引。
 
-![記錄檔](media/overview/logs.png)
+![記錄](media/overview/logs.png)
 
 ## <a name="what-data-does-azure-monitor-collect"></a>Azure 監視器會收集哪些資料？
 Azure 監視器可以從各種來源收集資料。 您可以考慮為各層中的應用程式監視資料，範圍從您的應用程式、它所倚賴的任何作業系統和服務，以至平台本身。 Azure 監視器會從下列各層收集資料：

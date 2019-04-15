@@ -20,7 +20,7 @@ ms.locfileid: "59532812"
 
 | 錯誤字串 | 缓解措施 |
 | --- | --- |
-| 內部伺服器錯誤 |在某些情況下，這是隨著重試消失的暫時性錯誤。 如果持續發生，請[連絡 Azure 支援](../articles/azure-supportability/how-to-create-azure-support-request.md)，因為需要平台記錄檔的調查。 <br><br> **注意：** 一旦支援小組追蹤事件，請不要嘗試任何自我緩和，這可能會使您的環境中產生非預期的結果。 |
+| 內部伺服器錯誤 |在某些情況下，這是隨著重試消失的暫時性錯誤。 如果持續發生，請[連絡 Azure 支援](../articles/azure-supportability/how-to-create-azure-support-request.md)，因為需要平台記錄的調查。 <br><br> **注意：** 一旦支援小組追蹤事件，請不要嘗試任何自我緩和，這可能會使您的環境中產生非預期的結果。 |
 | 移轉不支援 HostedService {hosted-service-name} 中的部署 {deployment-name}，因為它是 PaaS 部署 (Web/背景工作角色)。 |這會在部署包含 Web/背景工作角色時發生。 因為移轉僅支援虛擬機器，請從部署移除 Web/背景工作角色，然後再試一次移轉。 |
 | 範本 {template-name} 部署失敗。 相互關聯識別碼 = {guid} |在移轉服務後端，我們可以使用 Azure Resource Manager 範本來建立 Azure Resource Manager 堆疊中的資源。 因為範本具有等冪性，通常您可以安全地重試移轉作業，以通過這項錯誤。 如果此錯誤持續存在，請[連絡 Azure 支援](../articles/azure-supportability/how-to-create-azure-support-request.md)，並給予他們相互關聯識別碼。 <br><br> **注意：** 一旦支援小組追蹤事件，請不要嘗試任何自我緩和，這可能會使您的環境中產生非預期的結果。 |
 | 虛擬網路 {virtual-network-name} 不存在。 |如果您在新的 Azure 入口網站中建立虛擬網路，會發生這種情形。 實際的虛擬網路名稱遵循模式 」 群組 * \<VNET 名稱 > 」 |

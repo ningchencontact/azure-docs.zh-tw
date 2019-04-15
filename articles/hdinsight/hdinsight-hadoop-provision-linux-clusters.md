@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.openlocfilehash: 33a882e8543f1a57afe9207f7a7263ec39530a0c
 ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/07/2019
 ms.locfileid: "55817917"
@@ -101,7 +101,7 @@ Azure HDInsight 目前提供下列的叢集類型，每種都有一組提供特�
 > [!WARNING]  
 > 不支援在與 HDInsight 叢集不同的位置中使用其他儲存體帳戶。
 
-在設定期間，您要為預設儲存體端點指定 Azure 儲存體帳戶的 Blob 容器或 Data Lake Storage。 預設儲存體包含應用程式與系統記錄檔。 您也可以選擇指定叢集可存取的其他已連結 Azure 儲存體帳戶和 Data Lake Storage 帳戶。 HDInsight 叢集與相依的儲存體帳戶必須位於相同的 Azure 位置。
+在設定期間，您要為預設儲存體端點指定 Azure 儲存體帳戶的 Blob 容器或 Data Lake Storage。 預設儲存體包含應用程式與系統記錄。 您也可以選擇指定叢集可存取的其他已連結 Azure 儲存體帳戶和 Data Lake Storage 帳戶。 HDInsight 叢集與相依的儲存體帳戶必須位於相同的 Azure 位置。
 
 ![叢集儲存體設定：HDFS 相容儲存體端點](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-cluster-creation-storage.png)
 

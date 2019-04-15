@@ -28,7 +28,7 @@ sections:
   - title: 5 分鐘快速入門
     items:
       - type: paragraph
-        text: 了解如何收集並分析從 Azure 資源收集的計量與記錄檔。
+        text: 了解如何收集並分析從 Azure 資源收集的計量與記錄。
       - type: list
         style: icon48
         items:

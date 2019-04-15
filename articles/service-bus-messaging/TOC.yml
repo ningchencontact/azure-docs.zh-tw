@@ -165,7 +165,7 @@ items:
       href: service-bus-metrics-azure-monitor.md
     - name: 服務匯流排管理程式庫
       href: service-bus-management-libraries.md
-    - name: 診斷記錄檔
+    - name: 診斷記錄
       href: service-bus-diagnostic-logs.md
     - name: 暫停及重新啟用訊息實體
       href: entity-suspend.md

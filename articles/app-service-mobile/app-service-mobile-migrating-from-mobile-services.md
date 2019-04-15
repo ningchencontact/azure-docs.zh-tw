@@ -16,7 +16,7 @@ ms.date: 10/03/2016
 ms.author: crdun
 ms.openlocfilehash: dfc5e2923215b1669b0a3300653ad0cae7379655
 ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/08/2019
 ms.locfileid: "55960729"
@@ -309,19 +309,19 @@ Azure App Service 通常會停用 [診斷記錄]。  若要啟用診斷記錄：
 1. 登入 [Azure 入口網站]。
 2. 選取 [所有資源] 或 [應用程式服務]，然後按一下已移轉的行動應用程式名稱。
 3. 根據預設，[設定] 刀鋒視窗隨即會開啟。
-4. 選取 [功能] 功能表下的 [診斷記錄]  。
+4. 選取 [功能] 功能表下的 [診斷記錄] 。
 5. 對下列記錄按一下 [開啟]：[應用程式記錄 (檔案系統)]、[詳細錯誤訊息] 和 [失敗要求的追蹤]
 6. 針對 Web 伺服器記錄，按一下 [檔案系統] 
 7. 按一下 [儲存] 
 
-若要檢視記錄檔：
+若要檢視記錄：
 
 1. 登入 [Azure 入口網站]。
 2. 選取 [所有資源] 或 [應用程式服務]，然後按一下已移轉的行動應用程式名稱。
 3. 按一下 [工具] 按鈕
 4. 選取 [觀察] 功能表下的 [記錄資料流]  。
 
-產生的記錄檔會顯示在視窗中。  您也可以下載的記錄檔，以便後續使用您的部署認證加以分析。 如需詳細資訊，請參閱[記錄]文件。
+產生的記錄會顯示在視窗中。  您也可以下載的記錄，以便後續使用您的部署認證加以分析。 如需詳細資訊，請參閱[記錄]文件。
 
 ## <a name="known-issues"></a>已知問題
 ### <a name="deleting-a-migrated-mobile-app-clone-causes-a-site-outage"></a>刪除移轉的行動應用程式複製會導致網站服務中斷

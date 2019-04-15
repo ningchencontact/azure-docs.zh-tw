@@ -88,7 +88,7 @@ Get-AzDiagnosticSetting -ResourceId $automationAccountId
 
 来自 Azure 自动化的诊断将在 Azure Monitor 日志中创建两种类型的记录，并将其标记为 **AzureDiagnostics**。 以下查询使用升级的 Azure Monitor 日志查询语言。 有关旧查询语言与新 Azure Kusto 查询语言之间的共有查询的相关信息，请访问[新旧 Azure Kusto 查询语言速查表](https://docs.loganalytics.io/docs/Learn/References/Legacy-to-new-to-Azure-Log-Analytics-Language)。
 
-### <a name="job-logs"></a>作業記錄檔
+### <a name="job-logs"></a>作業記錄
 
 | 屬性 | 描述 |
 | --- | --- |

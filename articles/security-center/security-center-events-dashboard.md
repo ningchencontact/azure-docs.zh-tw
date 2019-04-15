@@ -32,7 +32,7 @@ ms.locfileid: "58075760"
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="what-is-a-security-event"></a>什麼是安全性事件？
-資訊安全中心使用 Microsoft Monitoring Agent 收集機器的各種安全性相關組態和事件，並將這些事件儲存在您的工作區。 這類資料的範例包括：作業系統記錄檔 (Windows 事件記錄檔)、執行中的程序，以及與資訊安全中心整合的安全性解決方案之中的事件。 Microsoft Monitoring Agent 也會將損毀傾印檔案複製到工作區。
+資訊安全中心使用 Microsoft Monitoring Agent 收集機器的各種安全性相關組態和事件，並將這些事件儲存在您的工作區。 這類資料的範例包括：作業系統記錄 (Windows 事件記錄)、執行中的程序，以及與資訊安全中心整合的安全性解決方案之中的事件。 Microsoft Monitoring Agent 也會將損毀傾印檔案複製到工作區。
 
 ## <a name="events-processed-dashboard"></a>已處理事件的儀表板
 您可從資訊安全中心主功能表或資訊安全中心 [概觀] 刀鋒視窗存取 [事件] 儀表板。  

@@ -85,7 +85,7 @@ Azure 網路監看員提供了相關工具，可對 Azure 虛擬網路中的資�
 
 在規劃未來的資源部署時，這項資訊會很有幫助。
 
-## <a name="logs"></a>記錄檔
+## <a name="logs"></a>記錄
 
 ### <a name="analyze-traffic-to-or-from-a-network-security-group"></a>分析網路安全性群組的輸入或輸出流量
 

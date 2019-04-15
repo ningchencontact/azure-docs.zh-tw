@@ -163,7 +163,7 @@ Contoso 管理員會對 ContosoDev 集合資料庫執行 TFS 移轉工具而加�
 
     ![TFS](./media/contoso-migration-tfs-vsts/collection2.png)
 
-5. 他們在工具所在位置上一層的 **Logs** 資料夾中找到記錄檔。 每個主要驗證都會產生一個記錄檔。 **TfsMigration.log** 包含主要資訊。
+5. 他們在工具所在位置上一層的 **Logs** 資料夾中找到記錄。 每個主要驗證都會產生一個記錄檔。 **TfsMigration.log** 包含主要資訊。
 
     ![TFS](./media/contoso-migration-tfs-vsts/collection3.png)
 

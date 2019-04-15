@@ -31,7 +31,7 @@ ms.locfileid: "57730526"
 
 ![威脅情報基礎篩選的入口網站介面](media/threat-intel/threat-intel-ui.png)
 
-## <a name="logs"></a>記錄檔
+## <a name="logs"></a>記錄
 
 下列記錄檔摘錄顯示觸發的規則：
 

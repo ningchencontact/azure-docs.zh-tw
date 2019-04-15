@@ -55,7 +55,7 @@ Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-ac
 請參閱[Azure 資訊安全中心的權限](security-center-permissions.md)以深入了解角色與資訊安全中心允許的動作。
 
 ## <a name="data-collection-agents-and-workspaces"></a>資料收集、代理程式及工作區
-資訊安全中心會從您的 Azure 虛擬機器 (Vm)、 虛擬機器擴展集 (VMSS)、 IaaS 容器和監視安全性漏洞與威脅 （包括內部部署） 的非 Azure 電腦收集資料。 資料是使用 Microsoft Monitoring Agent 收集而得，收集的方式是讀取機器的各種安全性相關組態和事件記錄檔，並將資料複製到工作區進行分析。
+資訊安全中心會從您的 Azure 虛擬機器 (Vm)、 虛擬機器擴展集 (VMSS)、 IaaS 容器和監視安全性漏洞與威脅 （包括內部部署） 的非 Azure 電腦收集資料。 資料是使用 Microsoft Monitoring Agent 收集而得，收集的方式是讀取機器的各種安全性相關組態和事件記錄，並將資料複製到工作區進行分析。
 
 ### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>我的 Azure 監視器記錄檔，資訊安全中心所建立之工作區付費？
 沒有。 資訊安全中心所建立的工作區雖然設定以每節點計費的 Azure 監視器記錄檔不會造成 Azure 監視器記錄檔的費用。 資訊安全中心的計費一律根據您的資訊安全中心的安全性原則，以及工作區安裝的解決方案：

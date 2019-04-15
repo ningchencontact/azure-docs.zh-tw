@@ -211,8 +211,8 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 ### <a name="can-i-delete-data-from-luis"></a>可以從 LUIS 刪除資料嗎？
 
 * 您一律可以刪除用於訓練 LUIS 的範例語句。 若您從 LUIS 應用程式刪除範例語句，則會從 LUIS Web 服務中予以移除，而且無法用於匯出。
-* 您可以在 [Review endpoint utterances] \(檢閱端點語句\) 頁面中，從 LUIS 所建議的使用者語句清單中刪除語句。 刪除此清單中的語句可防止建議它們，但並不會從記錄中刪除它們。
-* 若您刪除帳戶，則會刪除所有應用程式，以及其範例語句和記錄。 資料會在伺服器上保留 60 天後再永久刪除。
+* 您可以在 [Review endpoint utterances] \(檢閱端點語句\) 頁面中，從 LUIS 所建議的使用者語句清單中刪除語句。 從此清單中刪除語句可防止系統建議這些語句，但並不會從記錄中刪除它們。
+* 如果您刪除帳戶，系統就會刪除所有應用程式及其範例語句和記錄。 資料會在伺服器上保留 60 天後再永久刪除。
 
 ### <a name="how-does-microsoft-manage-data-i-send-to-luis"></a>Microsoft 如何管理我傳送至 LUIS 的資料？
 
@@ -244,7 +244,7 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 
 #### <a name="resolve-issue-in-azure-bot-service"></a>解決 Azure Bot Service 中的問題
 
-如果您使用的是 Azure Bot Service，且問題是**網路聊天中的測試**傳回 `Sorry, my bot code is having an issue`，請檢查您的記錄檔：
+如果您使用的是 Azure Bot Service，且問題是**網路聊天中的測試**傳回 `Sorry, my bot code is having an issue`，請檢查您的記錄：
 
 1. 在 Azure 入口網站中，針對您的 Bot，從 [Bot 管理] 區段中選取 [建置]。
 1. 開啟線上程式碼編輯器。 

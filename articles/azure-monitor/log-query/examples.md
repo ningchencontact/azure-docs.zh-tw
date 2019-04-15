@@ -15,7 +15,7 @@ ms.date: 10/03/2018
 ms.author: bwren
 ms.openlocfilehash: 2c35bc4026c81cbc8b95225e688a3922bc320554
 ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/19/2019
 ms.locfileid: "56416644"
@@ -119,7 +119,7 @@ union withsource=sourceTable *
 | render timechart
 ```
 
-### <a name="count-all-logs-collected-over-the-last-hour-by-type"></a>按照型別計算過去一個小時中收集的所有記錄檔。
+### <a name="count-all-logs-collected-over-the-last-hour-by-type"></a>按照型別計算過去一個小時中收集的所有記錄。
 下列範例會搜尋過去一個小時中的報告內容，並按照**類型**計算每個資料表的記錄數目。 結果會顯示在橫條圖中。
 
 ```Kusto

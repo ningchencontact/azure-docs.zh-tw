@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 509c3af66e8228f142126dae6938ad74daf1d7ad
 ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/17/2018
 ms.locfileid: "53544877"
@@ -32,7 +32,7 @@ ms.locfileid: "53544877"
 
    ![選取 [伺服器記錄]，然後選取 [按一下這裡啟用...]](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
 
-4. 選取 [按一下這裡可啟用記錄，並設定記錄參數] 標題，以查看伺服器參數。
+4. 選取 [按一下這裡可啟用記錄，並設定記錄參數] 標題，來查看伺服器參數。
 
 5. 變更您需要調整的參數。 您在此工作階段中所做的所有變更都會以紫色顯示。
 
@@ -43,7 +43,7 @@ ms.locfileid: "53544877"
 6. 按一下 [伺服器參數] 頁面上的**關閉按鈕** (X 圖示)。
 
 ## <a name="view-list-and-download-logs"></a>檢視清單並下載記錄
-開始記錄之後，您可以檢視可用記錄的清單，並在 [伺服器記錄] 窗格上下載個別記錄檔。 
+一旦開始記錄，您就可以檢視可用記錄的清單，並在 [伺服器記錄] 窗格上下載個別記錄。 
 
 1. 開啟 Azure 入口網站。
 

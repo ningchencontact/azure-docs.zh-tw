@@ -11,7 +11,7 @@ ms.date: 02/05/2019
 ms.custom: seodec18
 ms.openlocfilehash: 52db8217cc1e1f84d25ab896be9b42db3bf6bd81
 ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/06/2019
 ms.locfileid: "55769473"
@@ -20,7 +20,7 @@ ms.locfileid: "55769473"
 
 請務必監視您的 Azure 串流分析作業，以確保持續執行作業，而沒有任何問題。 本文說明如何針對應該監視的常見案例設定警示。 
 
-您可以透過入口網站來針對計量設定規則，也可透過作業記錄檔資料以[程式設計方式](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a)來設定規則。
+您可以透過入口網站來針對計量設定規則，也可透過作業記錄資料以[程式設計方式](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a)來設定規則。
 
 ## <a name="set-up-alerts-in-the-azure-portal"></a>在 Azure 入口網站中設定警示
 

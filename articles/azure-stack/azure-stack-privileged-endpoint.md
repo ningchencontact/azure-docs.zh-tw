@@ -175,7 +175,7 @@ PEP 會記錄您在 PowerShell 工作階段中執行的每個動作 (和其對�
 文字記錄記錄檔在成功傳輸至檔案共用之後，會自動從 PEP 中刪除。 
 
 > [!NOTE]
-> 如果您使用 `Exit-PSSession` 或 `Exit` Cmdlet 來關閉 PEP 工作階段，或您直接關閉 PowerShell 主控台，該文字記錄記錄檔就不會傳輸至檔案共用。 它們會存留在 PEP 中。 下次您執行 `Close-PrivilegedEndpoint` 並包含檔案共用時，也將會傳送上一個工作階段的文字記錄記錄。 請勿使用 `Exit-PSSession` 或 `Exit` 關閉 PEP 工作階段：改為使用 `Close-PrivilegedEndpoint`。
+> 如果您使用 `Exit-PSSession` 或 `Exit` Cmdlet 來關閉 PEP 工作階段，或您直接關閉 PowerShell 主控台，該文字記錄記錄就不會傳輸至檔案共用。 它們會存留在 PEP 中。 下次您執行 `Close-PrivilegedEndpoint` 並包含檔案共用時，也將會傳送上一個工作階段的文字記錄記錄。 請勿使用 `Exit-PSSession` 或 `Exit` 關閉 PEP 工作階段：改為使用 `Close-PrivilegedEndpoint`。
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -428,7 +428,7 @@ HDInsight 服務提供數種方式以使用自訂元件。 不論元件在叢集
 
 ## <a name="troubleshooting"></a>疑難排解
 
-您可以使用 Ambari Web UI 來檢視指令碼動作所記錄的資訊。 如果指令碼在叢集建立期間失敗，則與該叢集相關聯的預設儲存體帳戶中也會有記錄檔。 本節提供有關如何使用這兩個選項來擷取記錄的資訊。
+您可以使用 Ambari Web UI 來檢視指令碼動作所記錄的資訊。 如果指令碼在叢集建立期間失敗，則與該叢集相關聯的預設儲存體帳戶中也會有記錄。 本節提供有關如何使用這兩個選項來擷取記錄的資訊。
 
 ### <a name="the-apache-ambari-web-ui"></a>Apache Ambari Web UI
 
@@ -446,11 +446,11 @@ HDInsight 服務提供數種方式以使用自訂元件。 不論元件在叢集
 
     若要檢視 **STDOUT** 和 **STDERR** 輸出，請選取 **run\customscriptaction** 項目，然後向下鑽研連結。 這是指令碼執行時所產生的輸出，其中可能包含實用的資訊。
 
-### <a name="access-logs-from-the-default-storage-account"></a>從預設的儲存體帳戶存取記錄檔
+### <a name="access-logs-from-the-default-storage-account"></a>從預設的儲存體帳戶存取記錄
 
 如果叢集建立因指令碼錯誤而失敗，記錄會保存在叢集儲存體帳戶中。
 
-* 儲存體記錄檔位於 `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`。
+* 儲存體記錄位於 `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`。
 
     ![作業的螢幕擷取畫面](./media/hdinsight-hadoop-customize-cluster-linux/script_action_logs_in_storage.png)
 
@@ -474,7 +474,7 @@ HDInsight 服務提供數種方式以使用自訂元件。 不論元件在叢集
 
 * 如果您在接近上午 12:00 (午夜) 時建立叢集，則記錄檔可能會橫跨兩天。 在該情況下，您會看到同一個叢集有兩個不同日期的資料夾。
 
-* 將記錄檔上傳到預設容器最多可能需要 5 分鐘的時間，特別是針對大型叢集。 因此，如果您想要存取記錄檔，就不應在指令碼動作失敗時立即刪除叢集。
+* 將記錄檔上傳到預設容器最多可能需要 5 分鐘的時間，特別是針對大型叢集。 因此，如果您想要存取記錄，就不應在指令碼動作失敗時立即刪除叢集。
 
 ### <a name="ambari-watchdog"></a>Ambari 看門狗
 

@@ -10,7 +10,7 @@ ms.date: 01/31/2019
 ms.author: raynew
 ms.openlocfilehash: c5c3f498f62d6399534333f8166a514a10f044c5
 ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/15/2019
 ms.locfileid: "56310149"
@@ -97,7 +97,7 @@ ms.locfileid: "56310149"
 
 套用下圖中顯示的篩選，以確認您是否正在接收成功備份的活動記錄。 據此變更時間範圍以檢視記錄。
 
-![活動記錄檔](./media/backup-azure-monitor-vms/activity-logs-identify.png)
+![活動記錄](./media/backup-azure-monitor-vms/activity-logs-identify.png)
 
 您可以按一下 [JSON] 區段來取得更多詳細資料，並將它複製並貼至文字編輯器加以檢視。 它應該會顯示保存庫詳細資料和觸發活動記錄的項目 (也就是備份項目)。
 

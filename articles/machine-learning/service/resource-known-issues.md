@@ -102,7 +102,7 @@ displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.g
 
 如果您從 SDK 或入口網站的共用連結直接檢視工作區，將無法在延伸模組中檢視包含訂用帳戶資訊的一般 [概觀] 頁面。 您也無法切換至另一個工作區。 如果要檢視另一個工作區，因應措施是直接前往 [Azure 入口網站](https://portal.azure.com)並搜尋工作區名稱。
 
-## <a name="diagnostic-logs"></a>診斷記錄檔
+## <a name="diagnostic-logs"></a>診斷記錄
 
 當您在尋求協助時，如果能夠提供診斷資訊，有時可能會相當有幫助。 若要查看一些記錄檔，請瀏覽[Azure 入口網站](https://portal.azure.com)並移至您的工作區並選取**工作區 > 實驗 > 執行 > 記錄檔**。
 

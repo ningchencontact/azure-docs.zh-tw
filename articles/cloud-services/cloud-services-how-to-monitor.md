@@ -16,7 +16,7 @@ ms.date: 01/29/2018
 ms.author: jeconnoc
 ms.openlocfilehash: 844fef9a87c1db06c6415c59d4be26caf928382b
 ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/27/2018
 ms.locfileid: "53789461"
@@ -45,10 +45,10 @@ ms.locfileid: "53789461"
 建立每個角色時，Visual Studio 會在其中新增 Azure 診斷延伸模組。 此診斷延伸模組可以收集下列類型的資訊：
 
 * 自訂效能計數器
-* 應用程式記錄檔
-* Windows 事件記錄檔
+* 應用程式記錄
+* Windows 事件記錄
 * .NET 事件來源
-* IIS 記錄檔
+* IIS 記錄
 * 以資訊清單為基礎的 ETW
 * 損毀傾印
 * 客戶錯誤記錄

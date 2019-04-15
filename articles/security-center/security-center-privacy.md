@@ -98,7 +98,7 @@ ms.locfileid: "58117842"
 [警示資料](security-center-managing-and-responding-alerts.md)會視為安全性資料，保留兩年。
 
 ## <a name="auditing-and-reporting"></a>稽核與報告
-安全性連絡人、及時和警示更新的稽核記錄，會在 [Azure 活動記錄檔](../azure-monitor/platform/activity-logs-overview.md)中維護。
+安全性連絡人、及時和警示更新的稽核記錄，會在 [Azure 活動記錄](../azure-monitor/platform/activity-logs-overview.md)中維護。
 
 ## <a name="next-steps"></a>後續步驟
 如需有關如何管理使用者資料的詳細資訊，請參閱[管理在 Azure 資訊安全中心調查中找到的使用者資料](security-center-investigation-user-data.md)。

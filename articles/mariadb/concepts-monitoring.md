@@ -41,7 +41,7 @@ ms.locfileid: "58082478"
 |network_bytes_ingress|Network In|位元組|跨作用中連線的網路輸入。|
 
 ## <a name="server-logs"></a>伺服器記錄
-您可以在伺服器上啟用慢速查詢記錄。 若要深入了解記錄，請瀏覽[伺服器記錄](concepts-server-logs.md)頁面。
+您可以在伺服器上啟用慢速查詢記錄。 若要深入了解記錄，請造訪[伺服器記錄](concepts-server-logs.md)頁面。
 
 ## <a name="next-steps"></a>後續步驟
 - 如需如何使用 Azure 入口網站、REST API 或 CLI 存取及匯出計量的詳細資訊，請參閱 [Azure 計量概觀](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。

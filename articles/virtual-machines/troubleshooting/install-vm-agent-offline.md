@@ -16,7 +16,7 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: e9fc8351b5e9a4f2274f0906d4071f86dcbcff26
 ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/14/2019
 ms.locfileid: "54259677"
@@ -111,7 +111,7 @@ Azure 虛擬機器代理程式 (VM 代理程式) 提供有用的功能，例如�
 
 11.  卸離 OS 磁碟，然後使用 OS 磁碟重新建立 VM。
 
-12.  存取 VM。 請注意 RdAgent 正在執行，並且正在產生記錄檔。
+12.  存取 VM。 請注意 RdAgent 正在執行，並且正在產生記錄。
 
 如果您已使用資源管理員部署模型建立 VM，則作業已完成。
 

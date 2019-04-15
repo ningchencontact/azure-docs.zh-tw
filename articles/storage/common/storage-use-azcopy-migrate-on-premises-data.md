@@ -146,7 +146,7 @@ schtasks /CREATE /SC minute /MO 5 /TN "AzCopy Script" /TR C:\Users\username\Docu
 
 ---
 
-若要驗證排程工作/cron 作業能夠正確執行，請在您的 `myfolder` 目錄中建立新的檔案。 等候五分鐘以確認新檔案已上傳到您的儲存體帳戶。 請移至您的記錄檔目錄，以檢視排程工作或 cron 作業的輸出記錄檔。
+若要驗證排程工作/cron 作業能夠正確執行，請在您的 `myfolder` 目錄中建立新的檔案。 等候五分鐘以確認新檔案已上傳到您的儲存體帳戶。 請移至您的記錄目錄，以檢視排程工作或 cron 作業的輸出記錄。
 
 ## <a name="next-steps"></a>後續步驟
 

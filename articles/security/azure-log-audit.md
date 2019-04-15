@@ -212,13 +212,13 @@ Azure 中的網路記錄和監視功能相當完善，主要涵蓋分類有二�
 
 雖然流量記錄是以 NSG 為目標，但其顯示方式與其他記錄不同。 流程記錄只會儲存於儲存體帳戶內。
 
-在其他記錄上看到的保留原則也同樣適用於流量記錄。 記錄的保留原則可設定為 1 天到 365 天。 如果未設定保留原則，則會永遠保留記錄檔。
+在其他記錄上看到的保留原則也同樣適用於流量記錄。 記錄的保留原則可設定為 1 天到 365 天。 如果未設定保留原則，則會永遠保留記錄。
 
 **診斷記錄**
 
 網路資源會定期和自發地建立事件，並記錄到儲存體帳戶，以及傳送到事件中樞或 Log Analytics。 這些記錄可讓您深入了解資源的健全狀況。 您可以在 Power BI 和 Log Analytics 等工具中檢視這些記錄。 若要了解如何檢視診斷記錄，請參閱 [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics)。
 
-![診斷記錄檔](./media/azure-log-audit/azure-log-audit-fig5.png)
+![診斷記錄](./media/azure-log-audit/azure-log-audit-fig5.png)
 
 診斷記錄適用於[負載平衡器](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)、[網路安全性群組](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)、路由和[應用程式閘道](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)。
 
@@ -326,7 +326,7 @@ Log Analytics 的中心是裝載在 Azure 的 Log Analytics 工作區。 Log Ana
 
 * 使用指令碼來收集，再將資料公佈至 Log Analytics (下表中的空白資料格，適用於未列出的服務)
 
-| 服務 | 資源類型 | 記錄檔 | 度量 | 解決方法 |
+| 服務 | 資源類型 | 記錄 | 度量 | 解決方法 |
 | :------ | :------------ | :--- | :------ | :------- |
 |Azure 應用程式閘道| Microsoft.Network/<br>applicationGateways|  診斷|診斷|    [Azure 應用程式](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)[閘道分析](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
 |Application Insights||     連接器|  連接器|  [Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [ 連接器 (預覽) (英文)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|

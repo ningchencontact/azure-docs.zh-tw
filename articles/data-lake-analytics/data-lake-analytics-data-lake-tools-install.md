@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.openlocfilehash: 3269d38b691ec4dd9573a241c89dadc285787143
 ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51254021"
@@ -45,6 +45,6 @@ Visual Studio 2017 15.3 或更新版本不支援 Azure Data Lake Tools for Visua
 
 
 ## <a name="next-steps"></a>後續步驟
-* 若要記錄診斷資訊，請參閱 [為 Azure Data Lake Analytics 存取診斷記錄檔](data-lake-analytics-diagnostic-logs.md)
-* 若要了解更複雜的查詢，請參閱 [使用 Azure Data Lake Analytics 來分析網站記錄檔](data-lake-analytics-analyze-weblogs.md)。
+* 若要記錄診斷資訊，請參閱 [為 Azure Data Lake Analytics 存取診斷記錄](data-lake-analytics-diagnostic-logs.md)
+* 若要了解更複雜的查詢，請參閱 [使用 Azure Data Lake Analytics 來分析網站記錄](data-lake-analytics-analyze-weblogs.md)。
 * 若要使用頂點執行檢視，請參閱[在 Data Lake Tools for Visual Studio 中使用頂點執行檢視](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)

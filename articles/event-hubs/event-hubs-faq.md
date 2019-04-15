@@ -12,7 +12,7 @@ ms.date: 12/06/2018
 ms.author: shvija
 ms.openlocfilehash: d1ed16465efb6c70b4426f22e8b9983112142c79
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56162640"
@@ -189,7 +189,7 @@ bootstrap.servers=dummynamespace.servicebus.windows.net:9093 request.timeout.ms=
 
 如需可能的事件中樞例外狀況清單，請參閱[例外狀況概觀](event-hubs-messaging-exceptions.md)。
 
-### <a name="diagnostic-logs"></a>診斷記錄檔
+### <a name="diagnostic-logs"></a>診斷記錄
 
 事件中樞支援兩種類型的[診斷記錄](event-hubs-diagnostic-logs.md) - 擷取錯誤記錄和作業記錄 - 兩種記錄都是以 JSON 格式代表，且可以透過 Azure 入口網站開啟。
 

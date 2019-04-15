@@ -11,7 +11,7 @@ ms.date: 11/28/2017
 ms.author: hrasheed
 ms.openlocfilehash: f8b479f55ea5ee22ae2510fad6279cac0aaa9c0d
 ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/19/2018
 ms.locfileid: "53608795"
@@ -81,7 +81,7 @@ ms.locfileid: "53608795"
          u'2014-01-01 02:01:09 SAMPLEWEBSITE GET /blogposts/mvc4/step4.png X-ARR-LOG-ID=4bea5b3d-8ac9-46c9-9b8c-ec3e9500cbea 80 - 1.54.23.196 Mozilla/5.0+(Windows+NT+6.3;+WOW64)+AppleWebKit/537.36+(KHTML,+like+Gecko)+Chrome/31.0.1650.63+Safari/537.36 - http://weblogs.asp.net/sample/archive/2007/12/09/asp-net-mvc-framework-part-4-handling-form-edit-and-post-scenarios.aspx www.sample.com 200 0 0 72177 871 47']
 
 ## <a name="analyze-log-data-using-a-custom-python-library"></a>使用自訂 Python 程式庫來分析記錄資料
-1. 在上述輸出中，前幾行包含標頭資訊，其餘各行則符合該標頭中所說明的結構描述。 剖析這類記錄檔可能是複雜的作業。 因此，我們使用自訂 Python 程式庫 (**iislogparser.py**)，它可大幅簡化這類記錄檔的剖析。 依預設，此程式庫會包含在位於以下位置的 HDInsight 上的 Spark 叢集中： **/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py**。
+1. 在上述輸出中，前幾行包含標頭資訊，其餘各行則符合該標頭中所說明的結構描述。 剖析這類記錄可能是複雜的作業。 因此，我們使用自訂 Python 程式庫 (**iislogparser.py**)，它可大幅簡化這類記錄的剖析。 依預設，此程式庫會包含在位於以下位置的 HDInsight 上的 Spark 叢集中： **/HdiSamples/HdiSamples/WebsiteLogSampleData/iislogparser.py**。
 
     不過，此程式庫不在 `PYTHONPATH` 中，因此無法藉由 `import iislogparser` 之類的匯入陳述式來使用它。 若要使用此程式庫，我們必須將它散發到所有的背景工作角色節點。 執行下列程式碼片段。
 

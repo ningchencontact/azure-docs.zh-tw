@@ -189,7 +189,7 @@ Microsoft [Azure 儲存體](https://azure.microsoft.com/services/storage/)是 Mi
 
 - 每個網站的 Application Insights 儀表板 (操作員、客戶和 API)
 
-#### <a name="azure-activity-logs"></a>Azure 活動記錄檔
+#### <a name="azure-activity-logs"></a>Azure 活動記錄
 
 [Azure 活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs#what-you-can-do-with-the-activity-log)可稽核訂用帳戶的控制程度事件。 您可以使用活動記錄檔來判斷訂用帳戶中的資源上任何寫入作業 (PUT、POST、DELETE) 的「內容、對象和時間」。 您也可以了解作業的狀態和其他相關屬性。
 

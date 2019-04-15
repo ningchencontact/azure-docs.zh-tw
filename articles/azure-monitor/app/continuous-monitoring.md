@@ -11,7 +11,7 @@ ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 41999defb01e024773b6364f169a1ce3b1377237
 ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/04/2019
 ms.locfileid: "54056350"
@@ -86,7 +86,7 @@ Azure DevOps Services 現在支援持續監視，發行管線可以從 Applicati
 
 若要觀察此行為，請選取 [版本] > 以滑鼠右鍵按一下版本名稱以**開啟** > **記錄**。
 
-![記錄檔](media/continuous-monitoring/006.png)
+![記錄](media/continuous-monitoring/006.png)
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -31,7 +31,7 @@ ms.locfileid: "58005843"
 
 Azure 記錄整合是 Windows 作業系統服務，您可以使用此服務將來自 Azure 資源的未經處理記錄，整合到內部部署安全性資訊及事件管理 (SIEM) 系統內。 這項整合為您在內部部署或雲端中的所有資產，提供一個整合儀表板。 您可以接著彙總、相互關聯、分析與應用程式建立關聯的安全性事件，並發出警示。
 
-整合 Azure 記錄檔的慣用方法是使用 SIEM 廠商的 Azure 監視器連接器，並遵循這些[指示](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)。 不過，如果您的 SIEM 廠商沒有提供 Azure 監視器連接器，在這類連接器可供使用之前，您可以使用 Azure 記錄整合作為暫時解決方案 (如果 Azure 記錄整合支援您的 SIEM)。
+整合 Azure 記錄的慣用方法是使用 SIEM 廠商的 Azure 監視器連接器，並遵循這些[指示](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)。 不過，如果您的 SIEM 廠商沒有提供 Azure 監視器連接器，在這類連接器可供使用之前，您可以使用 Azure 記錄整合作為暫時解決方案 (如果 Azure 記錄整合支援您的 SIEM)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -49,7 +49,7 @@ Azure 記錄整合是 Windows 作業系統服務，您可以使用此服務將�
 
 ## <a name="how-can-i-tell-which-subscription-the-azure-log-integration-logs-are-from"></a>如何分辨 Azure 記錄整合記錄來自哪一個訂用帳戶？
 
-在稽核記錄位於 **AzureResourcemanagerJson** 目錄的案例中，訂用帳戶識別碼是在記錄檔名稱中。 這也適用於 **AzureSecurityCenterJson** 資料夾中的記錄。 例如︰
+在稽核記錄位於 **AzureResourcemanagerJson** 目錄的案例中，訂用帳戶識別碼是在記錄名稱中。 這也適用於 **AzureSecurityCenterJson** 資料夾中的記錄。 例如︰
 
 20170407T070805_2768037.0000000023.**1111e5ee-1111-111b-a11e-1e111e1111dc**.json
 

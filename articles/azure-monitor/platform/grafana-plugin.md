@@ -17,11 +17,11 @@ ms.lasthandoff: 04/02/2019
 ms.locfileid: "58850683"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>在 Grafana 中監視 Azure 服務
-您現在可以從使用 [Azure 監視器資料來源外掛程式](https://grafana.com/plugins/grafana-azure-monitor-datasource)的 [Grafana](https://grafana.com/)，監視 Azure 服務和應用程式。 外掛程式會蒐集 Azure 監視器所收集的應用程式效能資料，包括各種記錄檔和計量。 然後，您就可以在 Grafana 儀表板上顯示此資料。
+您現在可以從使用 [Azure 監視器資料來源外掛程式](https://grafana.com/plugins/grafana-azure-monitor-datasource)的 [Grafana](https://grafana.com/)，監視 Azure 服務和應用程式。 外掛程式會蒐集 Azure 監視器所收集的應用程式效能資料，包括各種記錄和計量。 然後，您就可以在 Grafana 儀表板上顯示此資料。
 
 此外掛程式目前為預覽狀態。
 
-使用下列步驟設定 Grafana 伺服器，並為 Azure 監視器中的計量和記錄檔建置儀表板。
+使用下列步驟設定 Grafana 伺服器，並為 Azure 監視器中的計量和記錄建置儀表板。
 
 ## <a name="set-up-a-grafana-server"></a>設定 Grafana 伺服器
 

@@ -11,7 +11,7 @@ ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: ae47cba8f8e9a7cdf914c0b3ea5dfb9fa6c259a9
 ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/22/2019
 ms.locfileid: "54432892"
@@ -71,7 +71,7 @@ Runbook Converter 會使用可執行轉換、稱為 **ConvertFrom-SCORunbook** �
 1. 從 Orchestrator 匯出一或多個 Runbook。
 2. 取得 Runbook 中所有活動的整合模組。
 3. 轉換所匯出檔案中的 Orchestrator Runbook。
-4. 檢閱記錄檔中的資訊，以驗證轉換並判斷任何必要的手動工作。
+4. 檢閱記錄中的資訊，以驗證轉換並判斷任何必要的手動工作。
 5. 將轉換的 Runbook 匯入至 Azure 自動化。
 6. 在 Azure 自動化中建立任何必要的資產。
 7. 在 Azure 自動化中編輯 Runbook，以修改任何所需的活動。

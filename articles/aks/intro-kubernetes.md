@@ -39,7 +39,7 @@ Azure Kubernetes Service (AKS) 可讓您輕鬆地在 Azure 中部署受控 Kuber
 
 ### <a name="integrated-logging-and-monitoring"></a>整合的記錄和監視功能
 
-若要了解您的 AKS 叢集與已部署應用程式的執行情況，適用於容器健康情況的 Azure 監視器可從容器、節點與控制站收集記憶體與處理器計量。 您可以取得容器記錄檔，而且也可以[檢閱 Kubernetes 主機記錄檔][aks-master-logs]。 此監視資料會儲存在 Azure Log Analytics 工作區，而且可透過 Azure 入口網站、Azure CLI 或 REST 端點取得。
+若要了解您的 AKS 叢集與已部署應用程式的執行情況，適用於容器健康情況的 Azure 監視器可從容器、節點與控制站收集記憶體與處理器計量。 您可以取得容器記錄，而且也可以[檢閱 Kubernetes 主機記錄][aks-master-logs]。 此監視資料會儲存在 Azure Log Analytics 工作區，而且可透過 Azure 入口網站、Azure CLI 或 REST 端點取得。
 
 如需詳細資訊，請參閱[監視 Azure Kubernetes Service 的容器健康情況][container-health]。
 

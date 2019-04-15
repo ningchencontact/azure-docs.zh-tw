@@ -17,7 +17,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d5f3c1883f156562cfab59cb102fb0cf18b03803
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56186585"
@@ -30,31 +30,31 @@ Azure Active Directory 應用程式 Proxy 需要您在裝置上安裝連接器�
 ## <a name="where-is-the-personal-data"></a>個人資料在哪裡？
 應用程式 Proxy 可能將個人資料寫入下列記錄類型：
 
-- 連接器事件記錄檔
-- Windows 事件記錄檔
+- 連接器事件記錄
+- Windows 事件記錄
 
-## <a name="remove-personal-data-from-windows-event-logs"></a>從 Windows 事件記錄檔移除個人資料
+## <a name="remove-personal-data-from-windows-event-logs"></a>從 Windows 事件記錄移除個人資料
 
-如需如何設定 Windows 事件記錄檔之資料保留的資訊，請參閱 [Settings for event logs](https://technet.microsoft.com/library/cc952132.aspx) (事件記錄檔的設定)。 若要深入了解 Windows 事件記錄檔，請參閱 [Using Windows Event Log](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx) (使用 Windows 事件記錄檔)。
+如需如何設定 Windows 事件記錄之資料保留的資訊，請參閱 [Settings for event logs](https://technet.microsoft.com/library/cc952132.aspx) (事件記錄的設定)。 若要深入了解 Windows 事件記錄，請參閱 [Using Windows Event Log](https://msdn.microsoft.com/library/windows/desktop/aa385772.aspx) (使用 Windows 事件記錄)。
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
-## <a name="remove-personal-data-from-connector-event-logs"></a>從連接器事件記錄檔移除個人資料
+## <a name="remove-personal-data-from-connector-event-logs"></a>從連接器事件記錄移除個人資料
 
 若要確保應用程式 Proxy 記錄不會有個人資料，您可以：
 
 - 視需要刪除或檢視資料，或
 - 關閉記錄
 
-使用下列各節從連接器事件記錄檔移除個人資料。 您必須在安裝連接器的所有裝置上完成移除程序。
+使用下列各節從連接器事件記錄移除個人資料。 您必須在安裝連接器的所有裝置上完成移除程序。
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 ### <a name="view-or-export-specific-data"></a>檢視或匯出特定資料
 
-若要檢視或匯出特定資料，請在每個連接器事件記錄檔中搜尋相關項目。 記錄檔位於 `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace`。 
+若要檢視或匯出特定資料，請在每個連接器事件記錄中搜尋相關項目。 記錄位於 `C:\ProgramData\Microsoft\Microsoft AAD Application Proxy Connector\Trace`。 
 
-由於記錄檔是文字檔，因此您可以使用 [findstr](https://docs.microsoft.com/windows-server/administration/windows-commands/findstr) 來搜尋與使用者相關的文字項目。  
+由於記錄是文字檔，因此您可以使用 [findstr](https://docs.microsoft.com/windows-server/administration/windows-commands/findstr) 來搜尋與使用者相關的文字項目。  
 
 若要尋找個人資料，請搜尋 UserID 的記錄檔。 
 
@@ -71,7 +71,7 @@ Azure Active Directory 應用程式 Proxy 需要您在裝置上安裝連接器�
 若要刪除特定資料：
 
 1. 重新啟動 Microsoft Azure AD 應用程式 Proxy 連接器服務來產生新的記錄檔。 新的記錄檔可讓您刪除或修改舊的記錄檔。 
-2. 請遵循前述的[檢視或匯出特定資料](#view-or-export-specific-data)程序來尋找必須刪除的資訊。 搜尋所有連接器記錄檔。
+2. 請遵循前述的[檢視或匯出特定資料](#view-or-export-specific-data)程序來尋找必須刪除的資訊。 搜尋所有連接器記錄。
 3. 刪除相關記錄檔，或選擇性地刪除包含個人資料的欄位。 如果您不再需要舊的記錄檔，您也可以全部加以刪除。
 
 ### <a name="turn-off-connector-logs"></a>關閉連接器記錄

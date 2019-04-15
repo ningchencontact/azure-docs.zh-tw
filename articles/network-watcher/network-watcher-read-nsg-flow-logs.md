@@ -24,7 +24,7 @@ ms.locfileid: "59050575"
 
 了解如何使用 PowerShell 讀取 NSG 流量記錄項目。
 
-NSG 流量記錄會以[區塊 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 的形式儲存在儲存體帳戶中。 區塊 Blob 是由較小的區塊組成。 每個記錄都是於每小時產生的個別區塊 Blob。 每小時都會產生新的記錄檔，而每幾分鐘就會以最新的資料更新記錄檔。 您可以透過本文了解讀取部分流量記錄的方式。
+NSG 流量記錄會以[區塊 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 的形式儲存在儲存體帳戶中。 區塊 Blob 是由較小的區塊組成。 每個記錄都是於每小時產生的個別區塊 Blob。 每小時都會產生新的記錄，而每幾分鐘就會以最新的資料更新記錄。 您可以透過本文了解讀取部分流量記錄的方式。
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

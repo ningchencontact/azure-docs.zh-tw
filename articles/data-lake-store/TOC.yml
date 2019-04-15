@@ -147,7 +147,7 @@ items:
       href: data-lake-store-integrate-with-other-services.md
   - name: 管理
     items:
-    - name: 存取診斷記錄檔
+    - name: 存取診斷記錄
       href: data-lake-store-diagnostic-logs.md
     - name: 高可用性規劃
       href: data-lake-store-disaster-recovery-guidance.md

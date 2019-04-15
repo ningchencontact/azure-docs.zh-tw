@@ -88,7 +88,7 @@ Apache Ambari 提供 Web UI 和 REST API，可簡化 HDInsight 叢集的管理�
 
 ### <a name="view-the-script-action-logs"></a>檢視指令碼動作記錄
 
-HDInsight [指令碼動作](hdinsight-hadoop-customize-cluster-linux.md)會以手動方式或在指定時，於叢集上執行指令碼。 例如，指令碼動作可用來在叢集上安裝額外的軟體，或是更改組態設定的預設值。 指令碼動作記錄可讓您深入了解在設定叢集時發生的錯誤，還可了解可能影響叢集效能和可用性的組態設定變更。  若要查看指令碼動作的狀態，請選取 Ambari UI 上的 [ops] 按鈕，或是存取預設儲存體帳戶中的狀態記錄。 儲存體記錄檔位於 `/STORAGE_ACCOUNT_NAME/DEFAULT_CONTAINER_NAME/custom-scriptaction-logs/CLUSTER_NAME/DATE`。
+HDInsight [指令碼動作](hdinsight-hadoop-customize-cluster-linux.md)會以手動方式或在指定時，於叢集上執行指令碼。 例如，指令碼動作可用來在叢集上安裝額外的軟體，或是更改組態設定的預設值。 指令碼動作記錄可讓您深入了解在設定叢集時發生的錯誤，還可了解可能影響叢集效能和可用性的組態設定變更。  若要查看指令碼動作的狀態，請選取 Ambari UI 上的 [ops] 按鈕，或是存取預設儲存體帳戶中的狀態記錄。 儲存體記錄位於 `/STORAGE_ACCOUNT_NAME/DEFAULT_CONTAINER_NAME/custom-scriptaction-logs/CLUSTER_NAME/DATE`。
 
 ## <a name="step-3-manage-the-cluster-job-execution-log-files"></a>步驟 3：管理叢集作業執行記錄檔
 
@@ -102,15 +102,15 @@ HDInsight 會將其記錄檔同時儲存在叢集檔案系統和 Azure 儲存體
 
 Hadoop 會將作業的工作以「工作嘗試」的形式在叢集中的各種節點上執行。 HDInsight 可以起始理論式工作嘗試，其中會先終止所有其他未完成的工作嘗試。 這會產生將即時記錄至控制器、stderr 及 syslog 記錄檔的重要活動。 此外，多個工作嘗試會同時執行，但記錄檔只能以線性方式顯示結果。
 
-#### <a name="hdinsight-logs-written-to-azure-blob-storage"></a>寫入至 Azure Blob 儲存體的 HDInsight 記錄檔
+#### <a name="hdinsight-logs-written-to-azure-blob-storage"></a>寫入至 Azure Blob 儲存體的 HDInsight 記錄
 
 HDInsight 叢集已設定成針對使用 Azure PowerShell Cmdlet 或 .NET 作業提交 API 來提交的所有工作，將工作記錄寫入至 Azure Blob 儲存體帳戶。  如果您透過 SSH 連線至叢集來提交作業，則執行記錄資訊會如上節所述儲存在 Azure 資料表中。
 
 除了 HDInsight 所產生的核心記錄檔之外，已安裝的服務 (例如 YARN) 也會產生作業執行記錄檔。  記錄檔的數目和類型會依所安裝的服務而有所不同。  常見的服務包括 Apache HBase、Apache Spark 等。  請調查每個服務的作業記錄執行檔案，以了解您叢集上可用的全部記錄檔。  每個服務都有自己的獨特記錄方法和記錄檔儲存位置。  為舉例說明，在下一節中，將會詳細探討從 YARN 存取最常見的服務記錄檔。
 
-### <a name="hdinsight-logs-generated-by-yarn"></a>YARN 所產生的 HDInsight 記錄檔
+### <a name="hdinsight-logs-generated-by-yarn"></a>YARN 所產生的 HDInsight 記錄
 
-YARN 會彙總背景工作節點上所有容器的記錄，然後將這些記錄依每個背景工作節點儲存成單一彙總記錄檔。 該記錄會在應用程式完成之後，儲存在預設的檔案系統上。 您的應用程式可以使用數百或數千個容器，但在單一背景工作節點上執行之所有容器的記錄一律會彙總成單一檔案。 您應用程式使用的每一背景工作節點只會有一個記錄。 在 HDInsight 叢集 3.0 版和更新版本上，預設會啟用記錄彙總。 彙總記錄位於叢集的預設儲存體。
+YARN 會彙總背景工作節點上所有容器的記錄，然後將這些記錄依每個背景工作節點儲存成單一彙總記錄。 該記錄會在應用程式完成之後，儲存在預設的檔案系統上。 您的應用程式可以使用數百或數千個容器，但在單一背景工作節點上執行之所有容器的記錄一律會彙總成單一檔案。 您應用程式使用的每一背景工作節點只會有一個記錄。 在 HDInsight 叢集 3.0 版和更新版本上，預設會啟用記錄彙總。 彙總記錄位於叢集的預設儲存體。
 
 ```
     /app-logs/<user>/logs/<applicationId>
@@ -133,7 +133,7 @@ YARN ResourceManager UI 會在叢集前端節點上執行，您可以透過 Amba
 
 1. 在網頁瀏覽器中，瀏覽至 `https://CLUSTERNAME.azurehdinsight.net`。 將 CLUSTERNAME 取代為 HDInsight 叢集的名稱。
 2. 從左邊的服務清單中，選取 [YARN]。
-3. 從 [Quick Links] \(快速連結\) 下拉式清單中，選取其中一個叢集前端節點，然後選取 [ResourceManager logs] \(ResourceManager 記錄\)。 您會看到一份 YARN 記錄檔的連結清單。
+3. 從 [Quick Links] \(快速連結\) 下拉式清單中，選取其中一個叢集前端節點，然後選取 [ResourceManager logs] \(ResourceManager 記錄\)。 您會看到一份 YARN 記錄的連結清單。
 
 ## <a name="step-4-forecast-log-volume-storage-sizes-and-costs"></a>步驟 4：預測記錄磁碟區儲存體大小和成本
 
@@ -141,7 +141,7 @@ YARN ResourceManager UI 會在叢集前端節點上執行，您可以透過 Amba
 
 接著，請分析一段時間內主要記錄儲存體位置中的記錄資料磁碟區。 例如，您可以分析 30-60-90 天期間內的磁碟區和成長情況。  請將此資訊記錄在試算表中，或使用其他工具 (例如 Visual Studio、「Azure 儲存體總管」或 Power Query for Excel) 來記錄此資訊。 如需詳細資訊，請參閱[分析 HDInsight 記錄](hdinsight-debug-jobs.md)。  
 
-您現在已有足夠的資訊來建立主要記錄的記錄管理策略。  請使用您的試算表 (或所選擇的工具) 來預測記錄大小成長及 Azure 服務成本增加的記錄儲存體。  此外，針對您要檢查的一組記錄，也請考量是否有任何記錄保留需求。  在判斷哪些記錄檔可以刪除 (如果有的話) 及哪些記錄應該保留並封存至較低廉的 Azure 儲存體之後，現在您即可重新預測未來的記錄儲存體成本。
+您現在已有足夠的資訊來建立主要記錄的記錄管理策略。  請使用您的試算表 (或所選擇的工具) 來預測記錄大小成長及 Azure 服務成本增加的記錄儲存體。  此外，針對您要檢查的一組記錄，也請考量是否有任何記錄保留需求。  在判斷哪些記錄可以刪除 (如果有的話) 及哪些記錄應該保留並封存至較低廉的 Azure 儲存體之後，現在您即可重新預測未來的記錄儲存體成本。
 
 ## <a name="step-5-determine-log-archive-policies-and-processes"></a>步驟 5：判斷記錄封存原則和程序
 

@@ -111,7 +111,7 @@ ms.locfileid: "58076202"
 若要檢查您是否遭到節流，請在用戶端啟用偵錯記錄：
 
 1. 在 [Ambari] > [Storm] > [設定] > [Advanced storm-worker-log4j] 中，將 **&lt;root level="info"&gt;** 變更為 **&lt;root level=”debug”&gt;**。 重新啟動所有節點/服務，以便讓設定生效。
-2. 監視背景工作節點上的 Storm 拓撲記錄檔 (在 /var/log/storm/worker-artifacts/&lt;TopologyName&gt;/&lt;port&gt;/worker.log 下)，注意是否有 Data Lake Storage Gen2 節流例外狀況。
+2. 監視背景工作節點上的 Storm 拓撲記錄 (在 /var/log/storm/worker-artifacts/&lt;TopologyName&gt;/&lt;port&gt;/worker.log 下)，注意是否有 Data Lake Storage Gen2 節流例外狀況。
 
 ## <a name="next-steps"></a>後續步驟
 Storm 的其他效能微調請參考[此部落格](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/)。

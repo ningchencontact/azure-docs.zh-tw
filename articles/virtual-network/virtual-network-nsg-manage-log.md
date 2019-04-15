@@ -26,7 +26,7 @@ ms.locfileid: "59006992"
 * **事件：** 記錄要根據 MAC 位址，將哪些 NSG 規則套用至 VM 的項目。 每隔 60 秒會收集一次這些規則的狀態。
 * **規則計數器：** 包含套用每個 NSG 規則以拒絕或允許流量之次數的項目。
 
-診斷記錄檔僅適用於透過 Azure Resource Manager 部署模型中部署的 NSG。 您無法啟用透過傳統部署模型部署的 NSG 診斷記錄。 若要深入了解這兩個模型，請參閱[了解 Azure 部署模型](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+診斷記錄僅適用於透過 Azure Resource Manager 部署模型中部署的 NSG。 您無法啟用透過傳統部署模型部署的 NSG 診斷記錄。 若要深入了解這兩個模型，請參閱[了解 Azure 部署模型](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
 診斷記錄會針對*每個*您想要收集診斷資料的 NSG 分別啟用。 如果您對作業或活動記錄較感興趣，請參閱 Azure [活動記錄](../azure-monitor/platform/activity-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
@@ -50,7 +50,7 @@ ms.locfileid: "59006992"
     | 名稱                                                                                        | 您選擇的名稱。  例如：*myNsgDiagnostics*      |
     | **封存至儲存體帳戶**，**串流至事件中樞**，以及**傳送至 Log Analytics** | 您可以任意選取多個目的地。 若要深入了解每個目的地，請參閱[記錄目的地](#log-destinations)。                                                                                                                                           |
     | 記錄                                                                                         | 選取任一或兩個記錄類別。 若要深入了解針對每個類別所記錄的資料，請參閱[記錄類別](#log-categories)。                                                                                                                                             |
-6. 檢視及分析記錄。 如需詳細資訊，請參閱[檢視及分析記錄檔](#view-and-analyze-logs)。
+6. 檢視及分析記錄。 如需詳細資訊，請參閱[檢視及分析記錄](#view-and-analyze-logs)。
 
 ### <a name="powershell"></a>PowerShell
 
@@ -89,7 +89,7 @@ Set-AzDiagnosticSetting `
 
 如果您只想針對其中一個類別 (而非兩者) 記錄資料，請將 `-Categories` 選項加入至先前的命令，後面接著輸入 *NetworkSecurityGroupEvent* 或 *NetworkSecurityGroupRuleCounter*。 如果您想要記錄到 Log Analytics 工作區以外的不同[目的地](#log-destinations)，請使用適用於 Azure [儲存體帳戶](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)或[事件中樞](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)的適當參數。
 
-檢視及分析記錄。 如需詳細資訊，請參閱[檢視及分析記錄檔](#view-and-analyze-logs)。
+檢視及分析記錄。 如需詳細資訊，請參閱[檢視及分析記錄](#view-and-analyze-logs)。
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -124,7 +124,7 @@ az monitor diagnostic-settings create \
 
 如果您只想要記錄某個類別或其他類別的資料，請在上一個命令中移除您不想要記錄資料的類別。 如果您想要記錄到 Log Analytics 工作區以外的不同[目的地](#log-destinations)，請使用適用於 Azure [儲存體帳戶](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)或[事件中樞](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)的適當參數。
 
-檢視及分析記錄。 如需詳細資訊，請參閱[檢視及分析記錄檔](#view-and-analyze-logs)。
+檢視及分析記錄。 如需詳細資訊，請參閱[檢視及分析記錄](#view-and-analyze-logs)。
 
 ## <a name="log-destinations"></a>記錄目的地
 
@@ -195,7 +195,7 @@ az monitor diagnostic-settings create \
 > [!NOTE]
 > 不會記錄用於通訊的來源 IP 位址。 但是，您可以針對 NSG 啟用 [NSG 流程記錄](../network-watcher/network-watcher-nsg-flow-logging-portal.md)，它會記錄所有規則計數器資訊，以及起始通訊的來源 IP 位址。 NSG 流量記錄資料會寫入至 Azure 儲存體帳戶。 您可以使用 Azure 網路監看員的[流量分析](../network-watcher/traffic-analytics.md)功能來分析資料。
 
-## <a name="view-and-analyze-logs"></a>檢視及分析記錄檔
+## <a name="view-and-analyze-logs"></a>檢視及分析記錄
 
 若要了解如何檢視診斷記錄資料，請參閱 [Azure 診斷記錄概觀](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。 如果您將診斷資料傳送到下列位置：
 - **Azure 監視器記錄**：您可以使用[網路安全性群組分析](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor

@@ -80,10 +80,10 @@ Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資�
 | Microsoft.Insights/AutoscaleSettings/[讀取、寫入、刪除] |讀取/寫入/刪除自動調整設定。 |
 | Microsoft.Insights/DiagnosticSettings/[讀取、寫入、刪除] |讀取/寫入/刪除診斷設定。 |
 | Microsoft.Insights/EventCategories/Read |列舉「活動記錄」中所有可能的類別。 「Azure 入口網站」所使用。 |
-| Microsoft.Insights/eventtypes/digestevents/Read |此為使用者需要透過入口網站存取活動記錄檔時所需的權限。 |
+| Microsoft.Insights/eventtypes/digestevents/Read |此為使用者需要透過入口網站存取活動記錄時所需的權限。 |
 | Microsoft.Insights/eventtypes/values/Read |列出訂用帳戶中的活動記錄檔事件 (管理事件)。 此權限適用於以程式設計方式存取和入口網站存取活動記錄檔。 |
 | Microsoft.Insights/ExtendedDiagnosticSettings/[Read, Write, Delete] | 讀取/寫入/刪除網路流量記錄的診斷設定。 |
-| Microsoft.Insights/LogDefinitions/Read |此為使用者需要透過入口網站存取活動記錄檔時所需的權限。 |
+| Microsoft.Insights/LogDefinitions/Read |此為使用者需要透過入口網站存取活動記錄時所需的權限。 |
 | Microsoft.Insights/LogProfiles/[Read, Write, Delete] |讀取/寫入/刪除記錄設定檔 (將「活動記錄」串流至事件中樞或儲存體帳戶)。 |
 | Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |讀取/寫入/刪除近乎即時的計量警示 |
 | Microsoft.Insights/MetricDefinitions/Read |讀取度量定義 (可用資源的度量類型清單)。 |
@@ -116,7 +116,7 @@ New-AzRoleDefinition -Role $role
 監視資料 (尤其是記錄檔)，可以包含機密資訊，例如 IP 位址或使用者名稱。 來自 Azure 的監視資料有三種基本形式︰
 
 1. 活動記錄檔，會描述您 Azure 訂用帳戶上所有的控制層面動作。
-2. 診斷記錄檔，是由資源發出的記錄檔。
+2. 診斷記錄，是由資源發出的記錄。
 3. 度量，是由資源發出。
 
 這三種資料類型都可以儲存在儲存體帳戶或串流到事件中樞，兩者都是一般用途的 Azure 資源。 由於這些是一般用途的資源，因此對其進行建立、刪除及存取是保留給系統管理員的特殊權限作業。 我們建議您對監視相關的資源使用下列作法以防止誤用︰

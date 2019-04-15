@@ -46,7 +46,7 @@ ms.locfileid: "58438390"
 
 ## <a name="audit-logs"></a>稽核記錄
 
-Azure AD 稽核記錄會提供符合規範的系統活動記錄。 若要存取稽核報告，請選取 [Azure Active Directory] 中 [活動] 區段上的 [稽核記錄]。 請注意，稽核記錄檔可能會延遲最多一小時，所以稽核活動資料可能會在您完成該工作的一個小時後，才會出現在入口網站中。
+Azure AD 稽核記錄會提供符合規範的系統活動記錄。 若要存取稽核報告，請選取 [Azure Active Directory] 中 [活動] 區段上的 [稽核記錄]。 請注意，稽核記錄可能會延遲最多一小時，所以稽核活動資料可能會在您完成該工作的一個小時後，才會出現在入口網站中。
 
 ![稽核記錄檔](./media/concept-audit-logs/61.png "稽核記錄檔")
 
@@ -74,7 +74,7 @@ Azure AD 稽核記錄會提供符合規範的系統活動記錄。 若要存取�
 ![稽核記錄檔](./media/concept-audit-logs/details.png "稽核記錄檔")
 
 
-## <a name="filtering-audit-logs"></a>篩選稽核記錄檔
+## <a name="filtering-audit-logs"></a>篩選稽核記錄
 
 您可以在下列欄位上篩選稽核資料：
 
@@ -160,7 +160,7 @@ Azure AD 稽核記錄會提供符合規範的系統活動記錄。 若要存取�
 - 使用者和群組
 - 企業應用程式
 
-### <a name="users-and-groups-audit-logs"></a>使用者和群組稽核記錄檔
+### <a name="users-and-groups-audit-logs"></a>使用者和群組稽核記錄
 
 透過以使用者和群組為基礎的稽核報告，可以取得下列問題的解答︰
 

@@ -118,7 +118,7 @@ ms.locfileid: "57761161"
 
 #### <a name="download-logs-for-a-completed-test-instance"></a>下載已完成的測試執行個體產生的記錄
 
-從內容功能表中選取 [下載記錄]，以下載在測試執行期間輸出的記錄檔 (`.zip`)。 此動作僅適用於已完成的測試，也就是狀態為 `Cancelled`、`Failed`、`Aborted` 或 `Succeeded` 的測試。
+從內容功能表中選取 [下載記錄]，以下載在測試執行期間輸出的記錄 (`.zip`)。 此動作僅適用於已完成的測試，也就是狀態為 `Cancelled`、`Failed`、`Aborted` 或 `Succeeded` 的測試。
 
 #### <a name="reschedule-a-test-instance-or-schedule-a-test"></a>重新排程測試執行個體或排程測試
 

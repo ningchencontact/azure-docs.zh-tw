@@ -43,7 +43,7 @@ Azure AD Connect 同步處理伺服器會儲存下列使用者隱私權資料：
 
 Azure AD Connect 客戶應該在移除使用者資料時使用下列指導方針：
 1.  定期刪除 Azure AD Connect 安裝記錄檔所在資料夾中的內容 – 至少每 48 小時一次
-2.  此產品也可能會建立事件記錄檔。  若要深入了解事件記錄檔的記錄，請參閱[這裡的文件](https://msdn.microsoft.com/library/windows/desktop/aa385780.aspx)。
+2.  此產品也可能會建立事件記錄。  若要深入了解事件記錄的記錄，請參閱[這裡的文件](https://msdn.microsoft.com/library/windows/desktop/aa385780.aspx)。
 
 當個人資料從其原始來源系統中移除時，該個人資料也會從 Azure AD Connect 資料庫自動移除。 系統管理員不必採取特定行動即可符合 GDPR。  不過，Azure AD Connect 資料則必須至少每兩天就與資料來源同步處理一次。
 

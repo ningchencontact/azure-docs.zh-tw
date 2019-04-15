@@ -173,7 +173,7 @@ WAImportExport.exe PreviewExport /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTr
 
 Azure 匯入/匯出工具會列出所有要匯出的 blob 並計算如何將它們封裝到指定大小的磁碟機，並考量任何必要的額外負荷，然後估計保留 blob 和磁碟機使用量資訊所需的磁碟機數目。  
   
-以下輸出範例，以中省略資訊記錄檔︰  
+以下輸出範例，以中省略資訊記錄︰  
   
 ```  
 Number of unique blob paths/prefixes:   3  

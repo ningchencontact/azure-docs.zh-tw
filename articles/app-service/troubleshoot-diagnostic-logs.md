@@ -43,7 +43,7 @@ App Service 會針對來自 Web 伺服器和 Web 應用程式的記錄資訊提�
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
-您可以在執行階段擷取這些記錄檔，以協助疑難排解。 如需詳細資訊，請參閱[在 Visual Studio 中進行 Azure App Service 的疑難排解](troubleshoot-dotnet-visual-studio.md)。
+您可以在執行階段擷取這些記錄，以協助疑難排解。 如需詳細資訊，請參閱[在 Visual Studio 中進行 Azure App Service 的疑難排解](troubleshoot-dotnet-visual-studio.md)。
 
 當您將內容發佈至應用程式時，App Service 也會記錄部署資訊。 此動作會自動發生，因此無須任何組態設定即會記錄部署動作。 部署記錄功能可讓您判斷部署失敗的原因。 例如，如果您使用自訂部署指令碼，則您可以使用部署記錄功能來判斷指令碼失敗的原因。
 
@@ -222,7 +222,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 詳細的錯誤記錄指的是可針對發生的 HTTP 錯誤提供更詳盡資訊的 HTML 文件。 由於它們都是單純的 HTML 文件，因此可以使用網頁瀏覽器來檢視。
 
 ### <a name="web-server-logs"></a>Web 伺服器記錄
-Web 伺服器記錄使用 [W3C 擴充記錄檔案格式](/windows/desktop/Http/w3c-logging)來格式化。 此項資訊可透過文字編輯器來讀取，或是運用 [記錄檔剖析器](https://go.microsoft.com/fwlink/?LinkId=246619)(英文) 之類的公用程式來剖析。
+Web 伺服器記錄使用 [W3C 擴充記錄格式](/windows/desktop/Http/w3c-logging)來格式化。 此項資訊可透過文字編輯器來讀取，或是運用 [記錄檔剖析器](https://go.microsoft.com/fwlink/?LinkId=246619)(英文) 之類的公用程式來剖析。
 
 > [!NOTE]
 > Azure App Service 所產生的記錄不支援 **s-computername**、**s-ip** 或 **cs-version** 欄位。

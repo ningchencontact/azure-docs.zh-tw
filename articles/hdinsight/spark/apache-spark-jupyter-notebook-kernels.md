@@ -80,7 +80,7 @@ HDInsight Spark 叢集提供的核心，可讓您用於 [Apache Spark](https://s
    | 設定 |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |設定用來建立工作階段的參數。 如果已建立工作階段，則強制旗標 (-f) 是必要的，可確保卸除並重新建立該工作階段。 如需有效參數的清單，請查看 [Livy 的 POST /sessions 要求本文](https://github.com/cloudera/livy#request-body) 。 參數必須以 JSON 字串傳遞，且必須在 magic 之後的下一行，如範例資料行中所示。 |
    | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |针对 sqlContext 执行 Hive 查询。 如果傳遞 `-o` 參數，則查詢的結果會當做 [Pandas](https://pandas.pydata.org/) 資料框架，保存在 %%local Python 內容中。 |
    | local |`%%local`<br>`a=1` |接下來幾行的程式碼全部在本機執行。 程式碼必須是有效的 Python2 程式碼，即使與您使用的核心無關也一樣。 因此，即使您在建立 Notebook 時選取 **PySpark3** 或 **Spark** 核心，如果您在資料格中使用核心 `%%local` magic，該資料格只能包含有效的 Python2 程式碼。 |
-   | 日志 |`%%logs` |輸出目前 Livy 工作階段的記錄檔。 |
+   | 日志 |`%%logs` |輸出目前 Livy 工作階段的記錄。 |
    | delete |`%%delete -f -s <session number>` |刪除目前 Livy 端點的特定工作階段。 您無法刪除針對核心本身起始的工作階段。 |
    | cleanup |`%%cleanup -f` |刪除目前 Livy 端點的所有工作階段，包括此 Notebook 的工作階段。 force 标志 -f 是必需的。 |
 

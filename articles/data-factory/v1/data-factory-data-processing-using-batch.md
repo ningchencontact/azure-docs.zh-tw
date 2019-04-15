@@ -593,7 +593,7 @@ test custom activity Microsoft test custom activity Microsoft
       >
       >
    
-   e. 指定作業系統系列設定的 **StorageLinkedService** for the **StorageLinkedService** 。 您已在前述步驟中建立此連結服務。 此儲存體會做為檔案和記錄檔的預備區域。
+   e. 指定作業系統系列設定的 **StorageLinkedService** for the **StorageLinkedService** 。 您已在前述步驟中建立此連結服務。 此儲存體會做為檔案和記錄的預備區域。
 
 1. 選取命令列上的 [部署] 以部署連結服務。
 

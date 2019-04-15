@@ -10,7 +10,7 @@ ms.date: 01/31/2019
 ms.author: kasinh
 ms.openlocfilehash: ef976667ec580ea75dd1b8566c7bdddf35eeb0fc
 ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/30/2019
 ms.locfileid: "55298308"
@@ -75,7 +75,7 @@ ms.locfileid: "55298308"
 9. 選取用於 [複製備份] 的資料庫，然後按 [下一步]。
 
    > [!NOTE]
-   > 如果您未對資料庫的至少一個 DAG 複本選取「完整備份」，則不會截斷記錄檔。
+   > 如果您未對資料庫的至少一個 DAG 複本選取「完整備份」，則不會截斷記錄。
    >
    >
 10. 設定 [短期備份] 的目標，然後按 [下一步]。

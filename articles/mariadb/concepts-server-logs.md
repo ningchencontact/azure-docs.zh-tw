@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: a26f61eb199d8f370e1a9dd010932dc868b74ae4
 ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/17/2018
 ms.locfileid: "53545173"
@@ -21,7 +21,7 @@ ms.locfileid: "53545173"
 ## <a name="access-server-logs"></a>存取伺服器記錄
 您可以使用 Azure 入口網站和 Azure CLI，來列出和下載適用於 MariaDB 的 Azure 資料庫伺服器記錄。
 
-在 Azure 入口網站中，選取適用於 MariaDB 的 Azure 資料庫伺服器。 在 [監視] 標題下方，選取 [伺服器記錄檔] 頁面。
+在 Azure 入口網站中，選取適用於 MariaDB 的 Azure 資料庫伺服器。 在 [監視] 標題下方，選取 [伺服器記錄] 頁面。
 
 <!-- For more information on Azure CLI, see [Configure and access server logs using Azure CLI](howto-configure-server-logs-in-cli.md).-->
 

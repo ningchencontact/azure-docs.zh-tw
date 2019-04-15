@@ -30,10 +30,10 @@ ms.locfileid: "58540766"
 * 新增解決方案
 * 建立已儲存的搜尋
 * 建立電腦群組
-* 從已安裝 Windows 代理程式的電腦啟用 IIS 記錄檔收集功能
+* 從已安裝 Windows 代理程式的電腦啟用 IIS 記錄收集功能
 * 從 Linux 和 Windows 電腦收集效能計數器
 * 在 Linux 電腦上收集 syslog 事件 
-* 從 Windows 事件記錄檔收集事件
+* 從 Windows 事件記錄收集事件
 * 將記錄分析代理程式加入至 Azure 虛擬機器
 * 設定記錄分析將 Azure 診斷所收集的資料編製索引
 
@@ -143,12 +143,12 @@ ms.locfileid: "58540766"
 1. 將方案加入至工作區
 2. 建立已儲存的搜尋
 3. 建立電腦群組
-4. 從已安裝 Windows 代理程式的電腦啟用 IIS 記錄檔收集功能
+4. 從已安裝 Windows 代理程式的電腦啟用 IIS 記錄收集功能
 5. 從 Linux 電腦收集邏輯磁碟效能計數器 (% Used Inodes; Free Megabytes; % Used Space; Disk Transfers/sec; Disk Reads/sec; Disk Writes/sec)
 6. 從 Linux 電腦收集 syslog 事件
 7. 從 Windows 電腦的應用程式事件記錄檔收集錯誤和警告事件
 8. 從 Windows 電腦收集記憶體可用 Mb 效能計數器
-9. 收集 Azure 診斷寫入儲存體帳戶的 IIS 記錄檔和 Windows 事件記錄檔
+9. 收集 Azure 診斷寫入儲存體帳戶的 IIS 記錄和 Windows 事件記錄
 
 ```json
 {

@@ -250,7 +250,7 @@ $secret = Set-AzureRmKeyVaultSecret -VaultName $VaultName -Name $SecretName -Sec
 
 ## <a name="key-vault-auditing-pipeline"></a>金鑰保存庫稽核管線
 
-當您設定金鑰保存庫時，您可以開啟稽核功能，以收集對金鑰保存庫提出的存取要求的記錄檔。 這些記錄檔會儲存在指定的 Azure 儲存體帳戶，並可供提取、 監視和分析。 下列案例會使用 Azure functions、 Azure logic apps 和金鑰保存庫稽核記錄檔來建立管線時，會傳送一封電子郵件不符合 web 應用程式的應用程式識別碼的應用程式會從保存庫擷取祕密。
+當您設定金鑰保存庫時，您可以開啟稽核功能，以收集對金鑰保存庫提出的存取要求的記錄。 這些記錄檔會儲存在指定的 Azure 儲存體帳戶，並可供提取、 監視和分析。 下列案例會使用 Azure functions、 Azure logic apps 和金鑰保存庫稽核記錄檔來建立管線時，會傳送一封電子郵件不符合 web 應用程式的應用程式識別碼的應用程式會從保存庫擷取祕密。
 
 首先，您必須在金鑰保存庫上啟用記錄功能。 使用下列 PowerShell 命令。 (您可以看到在的完整詳細資料[這篇文章有關金鑰保存庫記錄](key-vault-logging.md)。)
 
@@ -260,7 +260,7 @@ $kv = Get-AzKeyVault -VaultName '<vaultName>'
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 ```
 
-啟用記錄之後，稽核記錄檔就會開始儲存在指定的儲存體帳戶中。 這些記錄檔包含有關金鑰保存庫存取方式、時間和存取者的事件。
+啟用記錄之後，稽核記錄檔就會開始儲存在指定的儲存體帳戶中。 這些記錄包含有關金鑰保存庫存取方式、時間和存取者的事件。
 
 > [!NOTE]
 > 在金鑰保存庫作業 10 分鐘後，您就可以存取記錄資訊。 它通常會提供比，更快。
@@ -394,7 +394,7 @@ static string GetContainerSasUri(CloudBlockBlob blob)
 > [!NOTE]
 > 變更的變數前面的程式碼，以指向您儲存體帳戶的金鑰保存庫記錄檔寫入的位置時，服務匯流排執行個體來建立更早版本，以及指向金鑰保存庫儲存體記錄的特定路徑。
 
-此函式會挑選金鑰保存庫記錄所寫入到的儲存體帳戶中最新的記錄檔、取得來自該檔案的最新事件，並推送到服務匯流排佇列。 
+此函式會挑選金鑰保存庫記錄所寫入到的儲存體帳戶中最新的記錄、取得來自該檔案的最新事件，並推送到服務匯流排佇列。 
 
 由於單一檔案可以有多個事件，您應該建立函式也會查看以判斷所挑選的最後一個事件的時間戳記的 sync.txt 檔案。 使用此檔案，可確保，您不會推送相同事件多次。 
 

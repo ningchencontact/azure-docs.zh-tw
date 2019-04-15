@@ -11,25 +11,25 @@ ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: c2d577bd4c89046136a3465ff554e9662dd0ce19
 ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/23/2019
 ms.locfileid: "54478122"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>使用事件中樞串流最忙碌路徑中的 Azure 診斷資料
-Azure 診斷會提供彈性的方法，用來收集來自雲端服務虛擬機器 (VM) 的度量和記錄檔，再將結果傳輸至 Azure 儲存體。 從 2016 年 3 月 (SDK 2.9) 的時間範圍開始，您可以使用 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)，將 Azure 診斷傳送至自訂的資料來源，並立即傳輸最忙碌路徑資料。
+Azure 診斷會提供彈性的方法，用來收集來自雲端服務虛擬機器 (VM) 的度量和記錄，再將結果傳輸至 Azure 儲存體。 從 2016 年 3 月 (SDK 2.9) 的時間範圍開始，您可以使用 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)，將 Azure 診斷傳送至自訂的資料來源，並立即傳輸最忙碌路徑資料。
 
 支援的資料類型包括：
 
 * Windows 事件追蹤 (ETW) 事件
 * 效能計數器
-* Windows 事件記錄檔
-* 應用程式記錄檔
-* Azure 診斷基礎結構記錄檔
+* Windows 事件記錄
+* 應用程式記錄
+* Azure 診斷基礎結構記錄
 
 本文說明如何使用事件中樞從端對端設定 Azure 診斷。 另提供以下常見案例的指引：
 
-* 如何自訂傳送到事件中樞的記錄檔和計量
+* 如何自訂傳送到事件中樞的記錄和計量
 * 如何變更每個環境中的組態
 * 如何檢視事件中樞串流資料
 * 如何針對連線問題進行疑難排解  
@@ -45,7 +45,7 @@ Azure 診斷會提供彈性的方法，用來收集來自雲端服務虛擬機�
 * 文章中佈建的事件中樞命名空間，[開始使用事件中樞](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>將 Azure 診斷連接至事件中樞接收
-根據預設，Azure 診斷一律會將記錄檔和計量傳送至 Azure 儲存體帳戶。 應用程式可能會將資料傳送至事件中樞，方法是將新的 [接收] 區段新增至 *.wadcfgx* 檔案的 **PublicConfig** / **WadCfg** 元素底下。 在 Visual Studio 中，*.wadcfgx* 檔案會儲存在下列路徑：[雲端服務專案] > [角色] > (RoleName) > **diagnostics.wadcfgx** 檔案。
+根據預設，Azure 診斷一律會將記錄和計量傳送至 Azure 儲存體帳戶。 應用程式可能會將資料傳送至事件中樞，方法是將新的 [接收] 區段新增至 *.wadcfgx* 檔案的 **PublicConfig** / **WadCfg** 元素底下。 在 Visual Studio 中，*.wadcfgx* 檔案會儲存在下列路徑：[雲端服務專案] > [角色] > (RoleName) > **diagnostics.wadcfgx** 檔案。
 
 ```xml
 <SinksConfig>
@@ -107,8 +107,8 @@ Azure 診斷會提供彈性的方法，用來收集來自雲端服務虛擬機�
 >
 >
 
-## <a name="configure-azure-diagnostics-to-send-logs-and-metrics-to-event-hubs"></a>設定 Azure 診斷將記錄檔和計量傳送至事件中樞
-如前文所述，所有預設和自訂診斷資料 (亦即，計量和記錄檔) 會以設定的間隔自動傳送到 Azure 儲存體。 您可以藉由事件中樞和任何其他接收，指定要傳送至事件中樞的階層中任何根節點或分葉節點。 這包括 ETW 事件、效能計數器、Windows 事件記錄檔和應用程式記錄檔。   
+## <a name="configure-azure-diagnostics-to-send-logs-and-metrics-to-event-hubs"></a>設定 Azure 診斷將記錄和計量傳送至事件中樞
+如前文所述，所有預設和自訂診斷資料 (亦即，計量和記錄) 會以設定的間隔自動傳送到 Azure 儲存體。 您可以藉由事件中樞和任何其他接收，指定要傳送至事件中樞的階層中任何根節點或分葉節點。 這包括 ETW 事件、效能計數器、Windows 事件記錄和應用程式記錄。   
 
 請務必考慮實際上應該將多少資料點傳輸至事件中樞。 一般而言，開發人員會傳輸必須快速取用及解譯的低延遲忙碌路徑資料。 監視警示或自動調整規則的系統即是一例。 開發人員也會設定替代分析存放區或搜尋存放區；例如，Azure 串流分析、Elasticsearch、自訂監視系統，或最愛的他牌監視系統。
 
@@ -199,7 +199,7 @@ Azure 診斷會提供彈性的方法，用來收集來自雲端服務虛擬機�
 }
 ```
 
-在此範例中，接收會套用至記錄檔，並且只篩選為「錯誤」層級追蹤。
+在此範例中，接收會套用至記錄，並且只篩選為「錯誤」層級追蹤。
 
 ## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>部署和更新雲端服務應用程式和診斷設定
 Visual Studio 提供最簡單的路徑供您部署應用程式和事件中樞接收組態。 若要檢視及編輯檔案，請在 Visual Studio 中開啟 *.wadcfgx* 檔案，然後再加以編輯和儲存。 其路徑為 [雲端服務專案] > [角色] > (RoleName) > diagnostics.wadcfgx。  
@@ -316,7 +316,7 @@ namespace EventHubListener
     首先，請確定事件中樞和組態資訊正確，如先前所述。 有時候，系統會在部署更新時重設 **PrivateConfig** 。 建議的修正方式是對專案中的 *.wadcfgx* 進行所有變更，然後再推送完整的應用程式更新。 如果不可行，請確定診斷更新推送完整的 **PrivateConfig** ，包括 SAS 金鑰。  
 * 我試過上述建議，不過事件中樞仍然無法運作。
 
-    請嘗試查看 Azure 儲存體資料表，其中包含記錄檔和 Azure 診斷本身的錯誤︰**WADDiagnosticInfrastructureLogsTable**。 其中一個選項是使用類似 [Azure 儲存體總管](https://www.storageexplorer.com) 的工具連接到此儲存體帳戶、檢視此資料表，並且新增過去 24 小時內時間戳記的查詢。 您可以使用此工具來匯出 .csv 檔案，並在 Microsoft Excel 之類的應用程式中開啟。 Excel 能輕鬆地搜尋電話卡字串 (如 **EventHubs**)，以便查看系統回報了哪些錯誤。  
+    請嘗試查看 Azure 儲存體資料表，其中包含記錄和 Azure 診斷本身的錯誤︰**WADDiagnosticInfrastructureLogsTable**。 其中一個選項是使用類似 [Azure 儲存體總管](https://www.storageexplorer.com) 的工具連接到此儲存體帳戶、檢視此資料表，並且新增過去 24 小時內時間戳記的查詢。 您可以使用此工具來匯出 .csv 檔案，並在 Microsoft Excel 之類的應用程式中開啟。 Excel 能輕鬆地搜尋電話卡字串 (如 **EventHubs**)，以便查看系統回報了哪些錯誤。  
 
 ## <a name="next-steps"></a>後續步驟
 •    [深入了解事件中樞](https://azure.microsoft.com/services/event-hubs/)

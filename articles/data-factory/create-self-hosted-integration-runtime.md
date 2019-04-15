@@ -323,7 +323,7 @@ download.microsoft.com | 443 | 用於下載更新
 如果發生如下錯誤，有可能是因為防火牆或 Proxy 伺服器的設定不正確，使得自我裝載整合執行階段無法連線到 Data Factory 來進行自我驗證。 請參閱上一節，以確保您的防火牆和 Proxy 伺服器的設定皆正確。
 
 * 當您嘗試註冊自我裝載整合執行階段時，您會收到下列錯誤：「無法註冊此整合執行階段節點！ 請確認驗證金鑰有效，且「整合執行階段主機服務」正在這部電腦上執行。
-* 當您開啟「Integration Runtime 組態管理員」時，您會看到「已中斷連線」或「正在連線」狀態。 檢視 Windows 事件記錄檔時，在 [事件檢視器] > **[應用程式和服務記錄檔]** > **[Microsoft Integration Runtime]** 下，您會看到如下錯誤訊息：
+* 當您開啟「Integration Runtime 組態管理員」時，您會看到「已中斷連線」或「正在連線」狀態。 檢視 Windows 事件記錄時，在 [事件檢視器] > **[應用程式和服務記錄]** > **[Microsoft Integration Runtime]** 下，您會看到如下錯誤訊息：
 
     ```
     Unable to connect to the remote server

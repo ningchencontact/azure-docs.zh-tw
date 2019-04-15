@@ -1,6 +1,6 @@
 ---
-title: Azure 監視器中的 IIS 記錄檔 | Microsoft Docs
-description: Internet Information Services (IIS) 會將使用者活動儲存在記錄檔中，並可由 Azure 監視器進行收集。  本文描述如何設定收集 IIS 記錄檔，以及它們在 Azure 監視器中所建立記錄的詳細資料。
+title: Azure 監視器中的 IIS 記錄 | Microsoft Docs
+description: Internet Information Services (IIS) 會將使用者活動儲存在記錄檔中，並可由 Azure 監視器進行收集。  本文描述如何設定收集 IIS 記錄，以及它們在 Azure 監視器中所建立記錄的詳細資料。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -20,17 +20,17 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 04/02/2019
 ms.locfileid: "58850621"
 ---
-# <a name="collect-iis-logs-in-azure-monitor"></a>在 Azure 監視器中收集 IIS 記錄檔
+# <a name="collect-iis-logs-in-azure-monitor"></a>在 Azure 監視器中收集 IIS 記錄
 Internet Information Services (IIS) 會將使用者活動儲存在記錄檔中，並可由 Azure 監視器進行收集並儲存為[記錄資料](data-platform.md)。
 
-![IIS 記錄檔](media/data-sources-iis-logs/overview.png)
+![IIS 記錄](media/data-sources-iis-logs/overview.png)
 
-## <a name="configuring-iis-logs"></a>設定 IIS 記錄檔
+## <a name="configuring-iis-logs"></a>設定 IIS 記錄
 Azure 監視器會從 IIS 建立的記錄檔收集項目，因此您必須[設定 IIS 記錄](https://technet.microsoft.com/library/hh831775.aspx) \(英文\)。
 
 Azure 監視器只支援以 W3C 格式儲存的 IIS 記錄檔，不支援自訂欄位或 IIS 進階記錄。 它不會收集 NCSA 或 IIS 原生格式的記錄。
 
-從 [[進階設定] 功能表](agent-data-sources.md#configuring-data-sources)在 Azure 監視器中設定 IIS 記錄檔。  您只需選取 [Collect W3C format IIS log files]\(收集 W3C 格式的 IIS 記錄檔) 即可完成設定。
+從 [[進階設定] 功能表](agent-data-sources.md#configuring-data-sources)在 Azure 監視器中設定 IIS 記錄。  您只需選取 [Collect W3C format IIS log files]\(收集 W3C 格式的 IIS 記錄檔) 即可完成設定。
 
 
 ## <a name="data-collection"></a>資料收集
@@ -64,7 +64,7 @@ IIS 記錄檔記錄都具有 **W3CIISLog** 類型以及下表中的屬性：
 | TimeGenerated |記錄項目的日期和時間。 |
 | TimeTaken |處理要求的時間長度 (以毫秒為單位)。 |
 
-## <a name="log-queries-with-iis-logs"></a>IIS 記錄檔的記錄查詢
+## <a name="log-queries-with-iis-logs"></a>IIS 記錄的記錄查詢
 下表提供擷取 IIS 記錄檔記錄的不同記錄查詢範例。
 
 | 查詢 | 描述 |

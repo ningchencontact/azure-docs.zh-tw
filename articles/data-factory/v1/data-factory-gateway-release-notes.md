@@ -14,7 +14,7 @@ ms.author: abnarain
 robots: noindex
 ms.openlocfilehash: 865bfdae199bca7ebee888be527db239d34511d1
 ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/04/2019
 ms.locfileid: "54017611"
@@ -118,7 +118,7 @@ ms.locfileid: "54017611"
 
 *  您可以選取要在手動安裝期間供閘道器使用的語言/文化特性。
 
-*  當閘道未如預期般運作時，您可以選擇將過去 7 天的閘道記錄檔傳送給 Microsoft，以協助進行問題的疑難排解。 如果閘道器未連接到雲端服務，您可以選擇儲存並封存閘道器記錄檔。  
+*  當閘道未如預期般運作時，您可以選擇將過去 7 天的閘道記錄傳送給 Microsoft，以協助進行問題的疑難排解。 如果閘道器未連接到雲端服務，您可以選擇儲存並封存閘道器記錄。  
 
 *  閘道器組態管理員的使用者介面增強功能：
 

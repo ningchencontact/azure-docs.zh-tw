@@ -15,7 +15,7 @@ ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 03127dc777588f669ef07af52c8f73d986bfe0ea
 ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/04/2019
 ms.locfileid: "54020807"
@@ -30,7 +30,7 @@ ms.locfileid: "54020807"
 
 | 範例 | 說明 |
 |:--- |:--- |
-| [ADF 逐步解說](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) |此範例提供一個端對端逐步解說，說明如何使用 Azure Data Factory 來處理記錄檔，以將來自記錄檔的資料轉換成深入解析。 <br/><br/>在此逐步解說中，Data Factory 管線會收集範例記錄檔、處理這些記錄檔並以參考資料充實記錄檔資料，然後轉換資料以評估最近展開之行銷活動的成效。 |
+| [ADF 逐步解說](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFWalkthrough) |此範例提供一個端對端逐步解說，說明如何使用 Azure Data Factory 來處理記錄檔，以將來自記錄檔的資料轉換成深入解析。 <br/><br/>在此逐步解說中，Data Factory 管線會收集範例記錄、處理這些記錄並以參考資料充實記錄資料，然後轉換資料以評估最近展開之行銷活動的成效。 |
 | [JSON 範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON) |此範例提供常見案例的 JSON 範例。 |
 | [Http 資料下載程式範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample) |此範例展示如何使用自訂的 .NET 活動，從 HTTP 端點將資料下載到「Azure Blob 儲存體」。 |
 | [跨 AppDomain .NET 活動範例](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |此範例可讓您撰寫不受 ADF 啟動器所使用之組件版本 (例如 WindowsAzure.Storage v4.3.0、Newtonsoft.Json v6.0.x 等) 限制的自訂 .NET 活動。 |

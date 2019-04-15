@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 02/17/2017
 ms.openlocfilehash: c79f840becce43c47287ef38bd39ed3ac9168b73
 ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/08/2019
 ms.locfileid: "55891074"
@@ -201,7 +201,7 @@ CaffeOnSpark 針對 MNIST 訓練提供一些網路拓樸範例。 它具有不�
 
     17/02/01 23:22:16 INFO Client: Application report for application_1485916338528_0015 (state: RUNNING)
 
-如果您想要知道發生了什麼事，通常需要取得 Spark 驅動程式的記錄檔，會有更多的資訊。 在此情況下，您需要前往 YARN UI 以尋找相關的 YARN 記錄檔。 您可以藉由此 URL 取得 YARN UI： 
+如果您想要知道發生了什麼事，通常需要取得 Spark 驅動程式的記錄檔，會有更多的資訊。 在此情況下，您需要前往 YARN UI 以尋找相關的 YARN 記錄。 您可以藉由此 URL 取得 YARN UI： 
 
     https://yourclustername.azurehdinsight.net/yarnui
    
@@ -211,11 +211,11 @@ CaffeOnSpark 針對 MNIST 訓練提供一些網路拓樸範例。 它具有不�
 
 ![YARN 排程器](./media/apache-spark-deep-learning-caffe/YARN-Scheduler.png)
 
-如果發生失敗，您要檢查驅動程式記錄檔或容器記錄檔。 針對驅動程式記錄檔，您可以按一下 YARN UI 中的應用程式識別碼，然後按一下 [記錄] 按鈕。 驅動程式記錄檔會寫入 stderr。
+如果發生失敗，您要檢查驅動程式記錄或容器記錄。 針對驅動程式記錄檔，您可以按一下 YARN UI 中的應用程式識別碼，然後按一下 [記錄] 按鈕。 驅動程式記錄會寫入 stderr。
 
 ![YARN UI 2](./media/apache-spark-deep-learning-caffe/YARN-UI-2.png)
 
-例如，您可能會在下方看到一些來自驅動程式記錄檔的錯誤，表示配置太多的執行程式。
+例如，您可能會在下方看到一些來自驅動程式記錄的錯誤，表示配置太多的執行程式。
 
     17/02/01 07:26:06 ERROR ApplicationMaster: User class threw exception: java.lang.IllegalStateException: Insufficient training data. Please adjust hyperparameters or increase dataset.
     java.lang.IllegalStateException: Insufficient training data. Please adjust hyperparameters or increase dataset.
@@ -228,7 +228,7 @@ CaffeOnSpark 針對 MNIST 訓練提供一些網路拓樸範例。 它具有不�
         at java.lang.reflect.Method.invoke(Method.java:498)
         at org.apache.spark.deploy.yarn.ApplicationMaster$$anon$2.run(ApplicationMaster.scala:627)
 
-有時候，可能會在執行程式而不是驅動程式發生此問題。 在此情況下，您需要檢查容器記錄檔。 您一律可以取得容器記錄檔，然後取得失敗的容器。 例如，您在執行 Caffe 時可能會遇到此失敗。
+有時候，可能會在執行程式而不是驅動程式發生此問題。 在此情況下，您需要檢查容器記錄。 您一律可以取得容器記錄，然後取得失敗的容器。 例如，您在執行 Caffe 時可能會遇到此失敗。
 
     17/02/01 07:12:05 WARN YarnAllocator: Container marked as failed: container_1485916338528_0008_05_000005 on host: 10.0.0.14. Exit status: 134. Diagnostics: Exception from container-launch.
     Container id: container_1485916338528_0008_05_000005

@@ -27,7 +27,7 @@ ms.locfileid: "58652275"
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="symptoms"></a>徵兆
-由於 VM 的 DHCP 用戶端服務已停用，因此您無法 RDP 連線至 Azure 中的 VM。 當您檢查 Azure 入口網站中[開機診斷](../troubleshooting/boot-diagnostics.md)的螢幕擷取畫面時，您會在登入畫面中看到 VM 正常開機並等候認證。 您使用事件檢視器從遠端檢視 VM 中的事件記錄檔。 您會看到 DHCP 用戶端服務未啟動，或無法啟動。 下列為記錄範例：
+由於 VM 的 DHCP 用戶端服務已停用，因此您無法 RDP 連線至 Azure 中的 VM。 當您檢查 Azure 入口網站中[開機診斷](../troubleshooting/boot-diagnostics.md)的螢幕擷取畫面時，您會在登入畫面中看到 VM 正常開機並等候認證。 您使用事件檢視器從遠端檢視 VM 中的事件記錄。 您會看到 DHCP 用戶端服務未啟動，或無法啟動。 下列為記錄範例：
 
 **記錄檔名稱**：系統 </br>
 **來源**：服務控制管理員 </br>
@@ -40,11 +40,11 @@ ms.locfileid: "58652275"
 **電腦**：myvm.cosotos.com</br>
 **描述**：DHCP 用戶端服務啟動時無反應。</br>
 
-針對 Resource Manager VM，您可以使用 [序列存取主控台] 功能並透過下列命令來查詢事件記錄檔 7022：
+針對 Resource Manager VM，您可以使用 [序列存取主控台] 功能並透過下列命令來查詢事件記錄 7022：
 
     wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 
-針對傳統 VM，您必須在 [離線] 模式中作業，並以手動方式收集記錄檔。
+針對傳統 VM，您必須在 [離線] 模式中作業，並以手動方式收集記錄。
 
 ## <a name="cause"></a>原因
 

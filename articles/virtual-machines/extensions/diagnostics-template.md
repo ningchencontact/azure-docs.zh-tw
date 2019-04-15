@@ -118,7 +118,7 @@ Azure 診斷擴充功能會在以 Windows 為基礎的 Azure 虛擬機器上提�
 
 診斷延伸模組的 *xmlcfg* 屬性是使用串連在一起的多個變數進行定義。 這些變數值的格式為 xml，因此必須在設定 json 變數時正確逸出。
 
-以下範例說明診斷組態 xml，它會收集標準系統層級效能計數器以及一些 Windows 事件記錄檔和診斷基礎結構記錄檔。 已正確逸出和格式化，因此組態可以直接貼到您的範本的變數區段。 請參閱 [診斷組態結構描述](https://msdn.microsoft.com/library/azure/dn782207.aspx) 以取得人類可讀取的組態 xml 的範例。
+以下範例說明診斷組態 xml，它會收集標準系統層級效能計數器以及一些 Windows 事件記錄和診斷基礎結構記錄。 已正確逸出和格式化，因此組態可以直接貼到您的範本的變數區段。 請參閱 [診斷組態結構描述](https://msdn.microsoft.com/library/azure/dn782207.aspx) 以取得人類可讀取的組態 xml 的範例。
 
 ```json
 "wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB=\"4096\" xmlns=\"http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration\"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter=\"Error\"/> <WindowsEventLog scheduledTransferPeriod=\"PT1M\" > <DataSource name=\"Application!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"Security!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"System!*[System[(Level = 1 or Level = 2)]]\" /></WindowsEventLog>",

@@ -152,7 +152,7 @@ ms.locfileid: "57535989"
    |:--- |:--- |
    | clusterSize |指定 HDInsight 叢集的大小。 |
    | timeToLive | 指定刪除 HDInsight 叢集前的閒置時間。 |
-   | 預設容器 | 指定用來儲存 HDInsight 產生之記錄檔的儲存體帳戶。 |
+   | 預設容器 | 指定用來儲存 HDInsight 產生之記錄的儲存體帳戶。 |
 
     請注意下列幾點：
 
@@ -399,7 +399,7 @@ ms.locfileid: "57535989"
 
     ![[活動回合詳細資料] 視窗](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-blade.png)    
 
-   從記錄檔中，您可以看到所執行的 Hive 查詢和狀態資訊。 這些記錄檔適合用來排解任何疑難問題。
+   從記錄檔中，您可以看到所執行的 Hive 查詢和狀態資訊。 這些記錄適合用來排解任何疑難問題。
    如需詳細資訊，請參閱[使用 Azure 入口網站刀鋒視窗監視及管理管線](data-factory-monitor-manage-pipelines.md)。
 
 > [!IMPORTANT]

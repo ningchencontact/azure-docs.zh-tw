@@ -144,7 +144,7 @@ Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-0
   
 ### <a name="detailed-logs"></a>詳細記錄
 
-* 根據預設，狀態監視器將於下列位置輸出診斷記錄檔：`C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log`
+* 根據預設，狀態監視器將於下列位置輸出診斷記錄：`C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log`
 
 * 若要輸出詳細資訊記錄，請修改組態檔 `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` 並將 `<add key="TraceLevel" value="All" />` 新增至 `appsettings`。
 然後重新啟動狀態監視器。

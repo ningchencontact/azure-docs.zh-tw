@@ -17,7 +17,7 @@ ms.author: srrengar
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 9f857c23b5500bc7790a0ff7fcf81eaec51f37c9
 ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 07/31/2018
 ms.locfileid: "39358263"
@@ -31,7 +31,7 @@ Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員
 
 本文討論最新預覽版本可用的監視和診斷選項。
 
-## <a name="application-logs"></a>應用程式記錄檔
+## <a name="application-logs"></a>應用程式記錄
 
 您可以從您已部署的容器，依照容器檢視 Docker 記錄。 在 Service Fabric Mesh 應用程式模型中，每個容器都是您應用程式中的程式碼封裝。 若要查看相關聯的記錄與程式碼封裝，請使用下列命令：
 

@@ -127,7 +127,7 @@ Azure 有時會重新啟動您的 VM，這是 Azure 資料中心中定期、計�
 
 針對任何獨立的 VM (表示 VM 並非可用性集合的一部份)，Azure 在計劃性維護之前，至少每一個星期會使用電子郵件通知訂用帳戶的服務管理員，因為 VM 可能會在更新期間重新啟動。 在 VM上執行的應用程式可能會遭遇停機時間。
 
-當因為計畫性維護而發生重新啟動時，您也可以使用 Azure 入口網站或 Azure PowerShell 來檢視重新啟動記錄。 如需詳細資訊，請參閱 [檢視 VM 重新啟動記錄檔](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/)。
+當因為計畫性維護而發生重新啟動時，您也可以使用 Azure 入口網站或 Azure PowerShell 來檢視重新啟動記錄。 如需詳細資訊，請參閱 [檢視 VM 重新啟動記錄](https://azure.microsoft.com/blog/2015/04/01/viewing-vm-reboot-logs/)。
 
 若要提供備援，請在相同的可用性集合中放入兩個以上同樣設定的 VM。 這有助於確保在計劃性或非計劃性的維護期間，至少有一個 VM 仍可使用。 Azure 保證此組態的 VM 可用性特定層級。 如需詳細資訊，請參閱[管理虛擬機器的可用性](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 

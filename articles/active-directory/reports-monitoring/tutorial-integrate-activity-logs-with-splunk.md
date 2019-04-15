@@ -44,7 +44,7 @@ ms.locfileid: "58438847"
 
     ![[資料摘要] 的 [來源類型] 索引標籤](./media/tutorial-integrate-activity-logs-with-splunk/sourcetypeaadal.png)
 
-    下圖顯示 Azure AD 活動記錄檔：
+    下圖顯示 Azure AD 活動記錄：
 
     ![活動記錄](./media/tutorial-integrate-activity-logs-with-splunk/activitylogs.png)
 

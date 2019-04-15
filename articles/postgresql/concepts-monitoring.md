@@ -40,7 +40,7 @@ ms.locfileid: "58098486"
 |backup_storage_used|已使用的備份儲存體|位元組|已使用的備份儲存體數量。|
 
 ## <a name="server-logs"></a>伺服器記錄
-您可以在伺服器上啟用記錄功能。 這些記錄檔也都可透過 Azure 中的診斷記錄[Azure 監視器記錄](../azure-monitor/log-query/log-query-overview.md)，事件中樞和儲存體帳戶。 若要深入了解記錄，請瀏覽[伺服器記錄](concepts-server-logs.md)頁面。
+您可以在伺服器上啟用記錄功能。 這些記錄檔也都可透過 Azure 中的診斷記錄[Azure 監視器記錄](../azure-monitor/log-query/log-query-overview.md)，事件中樞和儲存體帳戶。 若要深入了解記錄，請造訪[伺服器記錄](concepts-server-logs.md)頁面。
 
 ## <a name="query-store"></a>查詢存放區
 [查詢存放區](concepts-query-store.md)是公開預覽功能，可追蹤一段時間的查詢效能，包括查詢執行階段統計資料和等待事件。 此功能會將查詢執行階段效能資訊保留在名稱為 **azure_sys** 的系統資料庫之中的 query_store 結構描述下。 您可以透過各種設定旋鈕控制資料的收集和儲存。

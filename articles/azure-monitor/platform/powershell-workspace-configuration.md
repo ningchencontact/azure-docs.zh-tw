@@ -23,11 +23,11 @@ ms.locfileid: "58903398"
 * 新增或移除方案
 * 匯入和匯出已儲存的搜尋
 * 建立電腦群組
-* 從已安裝 Windows 代理程式的電腦啟用 IIS 記錄檔收集功能
+* 從已安裝 Windows 代理程式的電腦啟用 IIS 記錄收集功能
 * 從 Linux 和 Windows 電腦收集效能計數器
 * 在 Linux 電腦上收集 syslog 事件
-* 從 Windows 事件記錄檔收集事件
-* 收集自訂事件記錄檔
+* 從 Windows 事件記錄收集事件
+* 收集自訂事件記錄
 * 將記錄分析代理程式加入至 Azure 虛擬機器
 * 設定記錄分析將 Azure 診斷所收集的資料編製索引
 
@@ -51,7 +51,7 @@ ms.locfileid: "58903398"
 4. 匯入已儲存的搜尋
 5. 匯出已儲存的搜尋
 6. 建立電腦群組
-7. 從已安裝 Windows 代理程式的電腦啟用 IIS 記錄檔收集功能
+7. 從已安裝 Windows 代理程式的電腦啟用 IIS 記錄收集功能
 8. 從 Linux 電腦收集邏輯磁碟效能計數器 (% Used Inodes; Free Megabytes; % Used Space; Disk Transfers/sec; Disk Reads/sec; Disk Writes/sec)
 9. 從 Linux 電腦收集 syslog 事件
 10. 從 Windows 電腦的應用程式事件記錄檔收集錯誤和警告事件
@@ -197,7 +197,7 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 ## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>設定 Log Analytics 來傳送 Azure 診斷
 若要以無代理程式的方式監視 Azure 資源，資源需要啟用 Azure 診斷並將其設定為寫入至 Log Analytics 工作區。 這種方法會將資料傳送至工作區直接且不需要資料寫入至儲存體帳戶。 支援的資源包括：
 
-| 資源類型 | 記錄檔 | 度量 |
+| 資源類型 | 記錄 | 度量 |
 | --- | --- | --- |
 | 應用程式閘道    | 是 | 是 |
 | 自動化帳戶     | 是 | |
@@ -220,7 +220,7 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 
 如需可用度量的詳細資訊，請參閱[支援 Azure 監視器的度量](../../azure-monitor/platform/metrics-supported.md)。
 
-如需可用記錄檔的詳細資訊，請參閱[支援的服務以及診斷記錄檔的結構描述](../../azure-monitor/platform/diagnostic-logs-schema.md)。
+如需可用記錄的詳細資訊，請參閱[支援的服務以及診斷記錄的結構描述](../../azure-monitor/platform/diagnostic-logs-schema.md)。
 
 ```powershell
 $workspaceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
@@ -230,7 +230,7 @@ $resourceId = "/SUBSCRIPTIONS/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/RESOURCEGROUPS/D
 Set-AzDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Enabled $true
 ```
 
-您也可以使用前述 Cmdlet，來收集不同訂用帳戶中之資源的記錄檔。 因為您會提供建立記錄檔之資源和記錄檔所傳送至之工作區這兩個項目的識別碼，因此這個 Cmdlet 可跨訂用帳戶運作。
+您也可以使用前述 Cmdlet，來收集不同訂用帳戶中之資源的記錄。 因為您會提供建立記錄之資源和記錄所傳送至之工作區這兩個項目的識別碼，因此這個 Cmdlet 可跨訂用帳戶運作。
 
 
 ## <a name="configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage"></a>設定 Log Analytics 工作區，從儲存體收集 Azure 診斷
@@ -268,7 +268,7 @@ Remove-AzOperationalInsightsStorageInsight -ResourceGroupName $workspace.Resourc
 
 ```
 
-您也可以使用前述指令碼，來收集不同訂用帳戶中之儲存體帳戶的記錄檔。 因為您會提供儲存體帳戶資源識別碼和對應的存取金鑰，因此指令碼可跨訂用帳戶運作。 當您變更存取金鑰時，您需要更新儲存體深入解析使其擁有新的金鑰。
+您也可以使用前述指令碼，來收集不同訂用帳戶中之儲存體帳戶的記錄。 因為您會提供儲存體帳戶資源識別碼和對應的存取金鑰，因此指令碼可跨訂用帳戶運作。 當您變更存取金鑰時，您需要更新儲存體深入解析使其擁有新的金鑰。
 
 
 ## <a name="next-steps"></a>後續步驟

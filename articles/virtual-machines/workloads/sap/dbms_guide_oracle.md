@@ -382,7 +382,7 @@ Azure 磁碟具有 IOPS 輸送量上的配額。 此概念已詳述於[適用於
 | Oracle Home、saptrace... | 作業系統磁碟 | | 不需要 |
 
 
-裝載線上重做記錄檔之磁碟的選取，應由 IOPs 需求來決定。 可以將所有 sapdata1...n (資料表空間) 儲存在單一已掛接磁碟上，前提是其大小、IOPS 及輸送量必須能滿足需求。 
+裝載線上重做記錄之磁碟的選取，應由 IOPs 需求來決定。 可以將所有 sapdata1...n (資料表空間) 儲存在單一已掛接磁碟上，前提是其大小、IOPS 及輸送量必須能滿足需求。 
 
 效能設定如下：
 
@@ -405,7 +405,7 @@ Azure 磁碟具有 IOPS 輸送量上的配額。 此概念已詳述於[適用於
 
 
 #### <a name="write-accelerator"></a>寫入加速器
-針對 Azure M 系列的 VM，和 Azure 進階儲存體效能相比，寫入線上重做記錄檔的延遲將會大幅降低。 請針對以 Azure 進階儲存體為基礎並用於線上重做記錄檔的磁碟 (VHD) 啟用 Azure 寫入加速器。 如需詳細資訊，請參閱[寫入加速器](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)。
+針對 Azure M 系列的 VM，和 Azure 進階儲存體效能相比，寫入線上重做記錄的延遲將會大幅降低。 請針對以 Azure 進階儲存體為基礎並用於線上重做記錄檔的磁碟 (VHD) 啟用 Azure 寫入加速器。 如需詳細資訊，請參閱[寫入加速器](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)。
 
 
 ### <a name="backuprestore"></a>備份/還原
@@ -473,7 +473,7 @@ Oracle Database 檔案不支援網路磁碟機或遠端共用 (例如 Azure 檔�
 
 *移除：使用 RAID0 的 LVM stripe 或 MDADM
 
-裝載 Oracle 線上重做記錄檔之磁碟的選取，應由 IOPS 需求來決定。 可以將所有 sapdata1...n (資料表空間) 儲存在單一已掛接磁碟上，前提是其容量、IOPS 及輸送量必須能滿足需求。 
+裝載 Oracle 線上重做記錄之磁碟的選取，應由 IOPS 需求來決定。 可以將所有 sapdata1...n (資料表空間) 儲存在單一已掛接磁碟上，前提是其容量、IOPS 及輸送量必須能滿足需求。 
 
 效能設定：
 
@@ -499,7 +499,7 @@ Oracle Database 檔案不支援網路磁碟機或遠端共用 (例如 Azure 檔�
 
 
 #### <a name="write-accelerator"></a>寫入加速器
-針對 Azure M 系列的 VM，當您使用 Azure 寫入加速器時，和 Azure 進階儲存體效能相比，寫入線上重做記錄檔的延遲將會大幅降低。 請針對以 Azure 進階儲存體為基礎並用於線上重做記錄檔的磁碟 (VHD) 啟用 Azure 寫入加速器。 如需詳細資訊，請參閱[寫入加速器](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)。
+針對 Azure M 系列的 VM，當您使用 Azure 寫入加速器時，和 Azure 進階儲存體效能相比，寫入線上重做記錄的延遲將會大幅降低。 請針對以 Azure 進階儲存體為基礎並用於線上重做記錄檔的磁碟 (VHD) 啟用 Azure 寫入加速器。 如需詳細資訊，請參閱[寫入加速器](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)。
 
 
 ### <a name="backuprestore"></a>備份/還原

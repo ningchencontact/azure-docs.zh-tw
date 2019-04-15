@@ -235,14 +235,14 @@ remote_run = experiment.submit(automl_config, show_output=True)
 from azureml.widgets import RunDetails
 RunDetails(remote_run).show()
 ```
-以下是小工具的靜態影像。  在筆記本中，您可以按一下資料表中的任一行以查看執行的屬性，以及該次執行的輸出記錄檔。   您也可以使用圖表上方的下拉式清單，以針對每個反覆項目檢視每個可用度量的圖表。
+以下是小工具的靜態影像。  在筆記本中，您可以按一下資料表中的任一行以查看執行的屬性，以及該次執行的輸出記錄。   您也可以使用圖表上方的下拉式清單，以針對每個反覆項目檢視每個可用度量的圖表。
 
 ![小工具資料表](./media/how-to-auto-train-remote/table.png)
 ![widget 繪圖](./media/how-to-auto-train-remote/plot.png)
 
 小工具會顯示 URL，您可以使用它來查看並瀏覽個別執行的詳細資料。
  
-### <a name="view-logs"></a>檢視記錄檔
+### <a name="view-logs"></a>檢視記錄
 
 在 `/tmp/azureml_run/{iterationid}/azureml-logs` 下方的 DSVM 上尋找記錄。
 

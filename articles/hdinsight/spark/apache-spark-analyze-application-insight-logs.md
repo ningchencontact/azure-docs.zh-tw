@@ -1,6 +1,6 @@
 ---
 title: 使用 Spark 分析 Application Insights 記錄 - Azure HDInsight
-description: 了解如何將 Application Insights 記錄檔匯出至 blob 儲存體，並接著使用 HDInsight 上的 Spark 分析記錄檔。
+description: 了解如何將 Application Insights 記錄匯出至 blob 儲存體，並接著使用 HDInsight 上的 Spark 分析記錄。
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.openlocfilehash: 806e5b6f764797d2e038cc7ed58ec1d04f678e2b
 ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/09/2019
 ms.locfileid: "54120371"
 ---
-# <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>使用 HDInsight 上的 Apache Spark 分析 Application Insights 遙測記錄檔
+# <a name="analyze-application-insights-telemetry-logs-with-apache-spark-on-hdinsight"></a>使用 HDInsight 上的 Apache Spark 分析 Application Insights 遙測記錄
 
 了解如何使用 HDInsight 上的 [Apache Spark](https://spark.apache.org/) 來分析 Application Insights 遙測資料。
 
@@ -201,7 +201,7 @@ Application Insights 提供 [匯出資料模型](../../azure-monitor/app/export-
     此查詢會傳回 context.location.city 不是 null 的前 20 筆記錄的 city 資訊。
 
    > [!NOTE]  
-   > context 結構會出現在 Application Insights 記錄的所有遙測中。 您的記錄中可能不會填入 city 元素。 使用結構描述找出您可以查詢可能包含您的記錄檔資料的其他元素。
+   > context 結構會出現在 Application Insights 記錄的所有遙測中。 您的記錄中可能不會填入 city 元素。 使用結構描述找出您可以查詢可能包含您的記錄資料的其他元素。
 
     此查詢會傳回類似以下文字的資訊：
 
@@ -344,7 +344,7 @@ Application Insights 提供 [匯出資料模型](../../azure-monitor/app/export-
     此查詢會傳回 context.location.city 不是 null 的前 20 筆記錄的 city 資訊。
 
    > [!NOTE]  
-   > context 結構會出現在 Application Insights 記錄的所有遙測中。 您的記錄中可能不會填入 city 元素。 使用結構描述找出您可以查詢可能包含您的記錄檔資料的其他元素。
+   > context 結構會出現在 Application Insights 記錄的所有遙測中。 您的記錄中可能不會填入 city 元素。 使用結構描述找出您可以查詢可能包含您的記錄資料的其他元素。
    >
    >
 

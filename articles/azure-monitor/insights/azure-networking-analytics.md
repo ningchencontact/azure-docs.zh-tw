@@ -28,7 +28,7 @@ Azure 監視器提供下列解決方案來監視您的網路：
 * 網路效能監視器 (NPM) 以
     * 監視網路的健康狀態
 * 要檢閱的 Azure 應用程式閘道分析
-    * Azure 應用程式閘道記錄檔
+    * Azure 應用程式閘道記錄
     * Azure 應用程式閘道計量
 * 監視和稽核雲端網路上網路活動的解決方案
     * [流量分析](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
@@ -72,7 +72,7 @@ Azure 應用程式閘道分析和網路安全性群組分析管理解決方案�
 
 ![Azure 應用程式閘道分析符號](media/azure-networking-analytics/azure-analytics-symbol.png)
 
-應用程式閘道支援下列記錄檔︰
+應用程式閘道支援下列記錄︰
 
 * ApplicationGatewayAccessLog
 * ApplicationGatewayPerformanceLog
@@ -121,8 +121,8 @@ Set-AzDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspace
 
 在您按一下 [概觀] 上的 [Azure 應用程式閘道分析] 圖格之後，您可以檢視記錄摘要，然後深入探索下列類別的詳細資訊：
 
-* 應用程式閘道存取記錄檔
-  * 應用程式閘道存取記錄檔的用戶端和伺服器錯誤
+* 應用程式閘道存取記錄
+  * 應用程式閘道存取記錄的用戶端和伺服器錯誤
   * 每個應用程式閘道的每小時要求數
   * 每個應用程式閘道的每小時失敗要求數
   * 應用程式閘道依使用者代理程式分類的錯誤
@@ -149,7 +149,7 @@ Set-AzDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspace
 > - 對於已將此解決方案新增至其工作區的現有客戶，它會繼續運作而不需要變更。
 > - Microsoft 將繼續支援使用診斷設定，將 NSG 診斷記錄傳送至您的工作區。
 
-網路安全性群組支援下列記錄檔︰
+網路安全性群組支援下列記錄︰
 
 * NetworkSecurityGroupEvent
 * NetworkSecurityGroupRuleCounter

@@ -65,9 +65,9 @@ Foreach ($file in $Files) {
 
 若要深入了解相關的 Azure AD Connect GDPR 需求，請參閱[這篇文章](reference-connect-user-privacy.md)。
 
-### <a name="delete-authentication-agent-event-logs"></a>刪除驗證代理程式事件記錄檔
+### <a name="delete-authentication-agent-event-logs"></a>刪除驗證代理程式事件記錄
 
-此產品也可能會建立 **Windows 事件記錄檔**。 若要深入了解，請閱讀[這篇文章](https://msdn.microsoft.com/library/windows/desktop/aa385780(v=vs.85).aspx)。
+此產品也可能會建立 **Windows 事件記錄**。 若要深入了解，請閱讀[這篇文章](https://msdn.microsoft.com/library/windows/desktop/aa385780(v=vs.85).aspx)。
 
 若要檢視與傳遞驗證代理程式相關的記錄，請開啟伺服器上的**事件檢視器**應用程式，並於 **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin** 下查看。
 

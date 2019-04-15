@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.openlocfilehash: 4273828c9c2bdb75fcbc1de45da55c5a03dd615f
 ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56233577"
@@ -124,7 +124,7 @@ Azure Data Lake Analytics 目前支援下列資料來源：
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
 * [Azure 儲存體](../storage/common/storage-introduction.md)
 
-每個 Data Lake Analytics 帳戶都有預設 Data Lake Store 帳戶。 預設的 Data Lake Store 帳戶是用來儲存工作中繼資料與工作稽核記錄。 
+每個 Data Lake Analytics 帳戶都有預設 Data Lake Store 帳戶。 預設的資料湖存放區帳戶是用來儲存工作中繼資料與工作稽核記錄。 
 
 ### <a name="find-the-default-data-lake-store-account"></a>尋找預設的 Data Lake Store 帳戶
 

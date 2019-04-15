@@ -85,7 +85,7 @@ Microsoft Azure 資料箱雲端解決方案可讓您以快速、實惠和可靠�
 
     如需詳細資訊，請移至[使用資料箱服務管理資料箱裝置](data-box-portal-ui-admin.md)。
 
-* **本機 Web 使用者介面** - 此 Web 型 UI 可用來設定裝置以使其可以連線到區域網路，然後再向資料箱服務註冊該裝置。 您也可以使用本機 Web UI 關閉和重新啟動資料箱裝置、檢視複製記錄檔，以及連絡 Microsoft 支援服務提出服務要求。
+* **本機 Web 使用者介面** - 此 Web 型 UI 可用來設定裝置以使其可以連線到區域網路，然後再向資料箱服務註冊該裝置。 您也可以使用本機 Web UI 關閉和重新啟動資料箱裝置、檢視複製記錄，以及連絡 Microsoft 支援服務提出服務要求。
 
     ![資料箱本機 Web UI](media/data-box-overview/data-box-local-web-ui.png)
 

@@ -11,7 +11,7 @@ ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: c3a79b2e4fab807613a54d2792f5f5b97570293b
 ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "52996141"
@@ -100,9 +100,9 @@ $ az acs kubernetes browse -g [Resource Group] -n [Container service instance na
 
 如果看不到資源，您可能需要等候幾分鐘讓監視資料傳播。
 
-若要查看您容器的記錄檔，請按一下 [檢視記錄檔]。
+若要查看您容器的記錄，請按一下 [檢視記錄]。
 
-![Kubernetes 記錄檔](./media/container-service-kubernetes-ui/logs.png)
+![Kubernetes 記錄](./media/container-service-kubernetes-ui/logs.png)
 
 ### <a name="viewing-your-service"></a>檢視您的服務
 除了執行您的容器，Kubernetes UI 建立外部 `Service`，佈建負載平衡器將流量帶向叢集中的容器。

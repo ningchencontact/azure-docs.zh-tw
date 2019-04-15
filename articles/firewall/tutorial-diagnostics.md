@@ -103,7 +103,7 @@ ms.locfileid: "59044856"
 
 關於 Azure 防火牆的記錄分析查詢範例，請參閱 [Azure 防火牆記錄分析範例](log-analytics-samples.md)。
 
-您也可以連接到儲存體帳戶並擷取存取和效能記錄檔的 JSON 記錄檔項目。 下載 JSON 檔案後，可以將它們轉換成 CSV，並在 Excel、PowerBI 或任何其他資料視覺化工具中檢視它們。
+您也可以連接到儲存體帳戶並擷取存取和效能記錄的 JSON 記錄項目。 下載 JSON 檔案後，可以將它們轉換成 CSV，並在 Excel、PowerBI 或任何其他資料視覺化工具中檢視它們。
 
 > [!TIP]
 > 如果您熟悉 Visual Studio 以及在 C# 中變更常數和變數值的基本概念，您可以使用 GitHub 所提供的[記錄檔轉換器工具 (英文)](https://github.com/Azure-Samples/networking-dotnet-log-converter)。

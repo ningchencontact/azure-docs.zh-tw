@@ -132,7 +132,7 @@ Azure Cache for Redis 執行個體的計量使用 Redis [INFO](https://redis.io/
 
 如需設定和使用警示的詳細資訊，請參閱[警示概觀](../monitoring-and-diagnostics/insights-alerts-portal.md)。
 
-## <a name="activity-logs"></a>活動記錄檔
+## <a name="activity-logs"></a>活動記錄
 活動記錄可讓您深入了解 Azure Cache for Redis 執行個體上執行的作業。 此記錄以前稱為「稽核記錄」或「作業記錄」。 您可以使用活動記錄來判斷 Azure Cache for Redis 執行個體上所執行之任何寫入作業 (PUT、POST、DELETE) 的「內容、對象和時間」。 
 
 > [!NOTE]
@@ -142,7 +142,7 @@ Azure Cache for Redis 執行個體的計量使用 Redis [INFO](https://redis.io/
 
 若要檢視快取的活動記錄，請按一下 [資源] 功能表的 [活動記錄]。
 
-如需活動記錄的詳細資訊，請參閱 [Azure 活動記錄檔概觀](../azure-monitor/platform/activity-logs-overview.md)。
+如需活動記錄的詳細資訊，請參閱 [Azure 活動記錄概觀](../azure-monitor/platform/activity-logs-overview.md)。
 
 
 

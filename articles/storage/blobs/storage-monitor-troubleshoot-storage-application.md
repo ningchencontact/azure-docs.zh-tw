@@ -25,11 +25,11 @@ ms.locfileid: "51259984"
 > * 開啟記錄與計量
 > * 啟用授權錯誤的警示
 > * 使用不正確的 SAS 權杖來執行測試流量
-> * 下載及分析記錄檔
+> * 下載及分析記錄
 
 [Azure 儲存體分析](../common/storage-analytics.md)可提供儲存體帳戶的記錄和計量資料。 這些資料可讓您深入了解儲存體帳戶的健康狀態。 若要從 Azure 儲存體分析收集資料，您可以設定記錄、計量和警示。 此程序包含開啟記錄、設定計量，以及啟用警示。
 
-您可透過 Azure 入口網站中的 [診斷] 索引標籤，啟用儲存體帳戶的記錄和計量。 儲存體記錄可讓您記錄儲存體帳戶中的成功和失敗要求詳細資料。 這些記錄檔可讓您查看 Azure 資料表、佇列和 Blob 的讀取、寫入和刪除作業詳細資料， 以及要求失敗的原因，例如逾時、節流和授權錯誤。
+您可透過 Azure 入口網站中的 [診斷] 索引標籤，啟用儲存體帳戶的記錄和計量。 儲存體記錄可讓您記錄儲存體帳戶中的成功和失敗要求詳細資料。 這些記錄可讓您查看 Azure 資料表、佇列和 Blob 的讀取、寫入和刪除作業詳細資料， 以及要求失敗的原因，例如逾時、節流和授權錯誤。
 
 ## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
@@ -79,9 +79,9 @@ curl https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/<CONTAINER_NAME>/<INCO
 
  ![範例警示](media/storage-monitor-troubleshoot-storage-application/email-alert.png)
 
-## <a name="download-and-view-logs"></a>下載及檢視記錄檔
+## <a name="download-and-view-logs"></a>下載及檢視記錄
 
-儲存體記錄檔會將資料儲存在您儲存體帳戶 Blob 容器內的一組 Blob 中，該容器名為 **$logs**。 當您列出帳戶中的所有 Blob 容器時，不會顯示這個容器；但如果您直接存取，即可查看其中的內容。
+儲存體記錄會將資料儲存在您儲存體帳戶 Blob 容器內的一組 Blob 中，該容器名為 **$logs**。 當您列出帳戶中的所有 Blob 容器時，不會顯示這個容器；但如果您直接存取，即可查看其中的內容。
 
 在此案例中，您會使用 [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx) 來與 Azure 儲存體帳戶進行互動。
 
@@ -115,7 +115,7 @@ curl https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/<CONTAINER_NAME>/<INCO
 > * 開啟記錄與計量
 > * 啟用授權錯誤的警示
 > * 使用不正確的 SAS 權杖來執行測試流量
-> * 下載及分析記錄檔
+> * 下載及分析記錄
 
 遵循以下連結以查看預先建立的儲存體範例。
 

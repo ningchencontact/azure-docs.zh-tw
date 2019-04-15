@@ -17,7 +17,7 @@ ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abed56ee64cbca8646c1aa1d24fea292aa4d8de3
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56201817"
@@ -41,7 +41,7 @@ ms.locfileid: "56201817"
 
 ![適用於同步處理的 Azure AD Connect Health](./media/how-to-connect-health-sync/banner.png)
 
-您可以按一下 [設定] 並允許 Azure AD Connect Health 代理程式上傳所有的錯誤記錄檔，加以變更。
+您可以按一下 [設定] 並允許 Azure AD Connect Health 代理程式上傳所有的錯誤記錄，加以變更。
 
 ![適用於同步處理的 Azure AD Connect Health](./media/how-to-connect-health-sync/banner2.png)
 
@@ -59,7 +59,7 @@ ms.locfileid: "56201817"
 根據預設，只會顯示 Azure AD 連接器「匯出」作業的延遲。  若要查看連接器上的更多作業，或檢視其他連接器的作業，請以滑鼠右鍵按一下圖表，然後選取 [編輯圖表]，或按一下 [編輯延遲圖表] 按鈕，然後選擇特定作業和連接器。
 
 ### <a name="sync-object-changes"></a>同步處理物件的變更
-這項功能提供正在評估並匯出至 Azure AD 的變更數的圖形化趨勢。  現在，嘗試從同步處理記錄檔收集此資訊並不容易。  圖表不僅可讓您以更簡單的方式監視您的環境中發生的變更數，同時提供正在發生的失敗的視覺化檢視。
+這項功能提供正在評估並匯出至 Azure AD 的變更數的圖形化趨勢。  現在，嘗試從同步處理記錄收集此資訊並不容易。  圖表不僅可讓您以更簡單的方式監視您的環境中發生的變更數，同時提供正在發生的失敗的視覺化檢視。
 
 ![同步處理延遲](./media/how-to-connect-health-sync/syncobjectchanges02.png)
 

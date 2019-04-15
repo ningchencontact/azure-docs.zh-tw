@@ -101,7 +101,7 @@ if($s)
   Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
   ```
 
-  從 VirtualMachines 和 BareMetal 角色收集記錄，以日期篩選 8 小時前到 2 小時前時段的記錄檔：
+  從 VirtualMachines 和 BareMetal 角色收集記錄，以日期篩選 8 小時前到 2 小時前時段的記錄：
 
   ```powershell
   Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)

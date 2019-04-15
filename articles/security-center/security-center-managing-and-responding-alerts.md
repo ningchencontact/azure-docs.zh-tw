@@ -16,7 +16,7 @@ ms.date: 11/22/2018
 ms.author: rkarlin
 ms.openlocfilehash: 28a9b90e23d0d182197450e6449b8d3296fe99d6
 ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56112915"
@@ -94,7 +94,7 @@ ms.locfileid: "56112915"
 
 ![對於如何處理 Azure 資訊安全中心的安全性警示的建議](./media/security-center-managing-and-responding-alerts/security-center-managing-and-responding-alerts-fig6-ga.png)
 
-在 [說明] 欄位中，您會找到關於這個事件的更多詳細資料。 這些額外的詳細資料可供深入了解什麼會觸發安全性警示、目標資源、來源 IP 位址 (若適用)，以及有關如何補救的建議。  在某些情況下，來源 IP 位址會是空的 (不適用)，因為並非所有的 Windows 安全性事件記錄檔都包含 IP 位址。
+在 [說明] 欄位中，您會找到關於這個事件的更多詳細資料。 這些額外的詳細資料可供深入了解什麼會觸發安全性警示、目標資源、來源 IP 位址 (若適用)，以及有關如何補救的建議。  在某些情況下，來源 IP 位址會是空的 (不適用)，因為並非所有的 Windows 安全性事件記錄都包含 IP 位址。
 
 資訊安全中心會根據安全性警示，建議您不同的補救方法。 在某些情況下，您可能必須使用其他的 Azure 功能來實作建議的補救方法。 例如，這個攻擊的補救方法是使用[網路 ACL](../virtual-network/virtual-networks-acl.md) 或[網路安全性群組](../virtual-network/security-overview.md#security-rules)規則，將產生此攻擊的 IP 位址列入封鎖清單。 如需不同警示類型的詳細資訊，請閱讀 [Azure 資訊安全中心不同類型的安全性警示](security-center-alerts-type.md)。
 

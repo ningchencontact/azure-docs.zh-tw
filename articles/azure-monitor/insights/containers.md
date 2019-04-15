@@ -28,7 +28,7 @@ ms.locfileid: "59524271"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-解決方案會顯示哪些容器正在執行、它們正在執行的是哪些容器映像，以及容器執行的位置。 您可以檢視詳細的稽核資訊，其中顯示搭配容器使用的命令。 而且，藉由檢視及搜尋集中式記錄檔，而不需從遠端檢視 Docker 或 Windows 主機，即可針對容器進行疑難排解。 您可能會找到有雜訊且耗用過多主機資源的容器。 而且，您可以檢視容器的集中式 CPU、記憶體、儲存體以及網路使用量和效能資訊。 您可以在執行 Windows 的電腦上集中管理，並從 Windows Server、HYPER-V 和 Docker 容器比較記錄檔。 解決方案支援下列容器協調者：
+解決方案會顯示哪些容器正在執行、它們正在執行的是哪些容器映像，以及容器執行的位置。 您可以檢視詳細的稽核資訊，其中顯示搭配容器使用的命令。 而且，藉由檢視及搜尋集中式記錄，而不需從遠端檢視 Docker 或 Windows 主機，即可針對容器進行疑難排解。 您可能會找到有雜訊且耗用過多主機資源的容器。 而且，您可以檢視容器的集中式 CPU、記憶體、儲存體以及網路使用量和效能資訊。 您可以在執行 Windows 的電腦上集中管理，並從 Windows Server、HYPER-V 和 Docker 容器比較記錄。 解決方案支援下列容器協調者：
 
 - Docker Swarm
 - DC/OS
@@ -625,7 +625,7 @@ Log Analytics 隨即開啟，顯示您的容器狀態的相關資訊。
 
 
 ### <a name="to-query-logs-for-container-data"></a>容器資料的查詢記錄
-* 選擇您知道最近失敗的映像並尋找其錯誤記錄檔。 首先，透過 **ContainerInventory** 搜尋來尋找正在執行該映像的容器名稱。 例如，搜尋 `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
+* 選擇您知道最近失敗的映像並尋找其錯誤記錄。 首先，透過 **ContainerInventory** 搜尋來尋找正在執行該映像的容器名稱。 例如，搜尋 `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
     ![搜尋 Ubuntu 容器](./media/containers/search-ubuntu.png)
 
   展開以檢視該容器的詳細資料結果中的任何資料列。

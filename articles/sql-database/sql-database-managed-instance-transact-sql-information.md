@@ -519,15 +519,15 @@ SQL Server Management Studio (SSMS) 和 SQL Server Data Tools (SSDT) 在存取�
 
 SQL 代理使用的数据库邮件配置文件必须名为 `AzureManagedInstance_dbmail_profile`。 有相關的其他 database mail 設定檔名稱沒有限制。
 
-### <a name="error-logs-are-not-persisted"></a>錯誤記錄檔不會在工作階段之間保存下來
+### <a name="error-logs-are-not-persisted"></a>錯誤記錄不會在工作階段之間保存下來
 
-受控執行個體中可用的錯誤記錄檔不會保留下來，而且其大小不包括在儲存體大小上限中。 若發生容錯移轉，可能會自動清除錯誤記錄檔。
+受控執行個體中可用的錯誤記錄不會保留下來，而且其大小不包括在儲存體大小上限中。 若發生容錯移轉，可能會自動清除錯誤記錄。
 
-### <a name="error-logs-are-verbose"></a>錯誤記錄檔是詳細資訊記錄
+### <a name="error-logs-are-verbose"></a>錯誤記錄是詳細資訊記錄
 
-受控執行個體會放置詳細資訊在錯誤記錄中，而且許多都是不相關的。 錯誤記錄檔中的資訊量未來將會減少。
+受控執行個體會放置詳細資訊在錯誤記錄中，而且許多都是不相關的。 錯誤記錄中的資訊量未來將會減少。
 
-**因應措施**：使用自訂程序來讀取篩選調某些不相關項目的錯誤記錄檔。 如需詳細資訊，請參閱[受控執行個體：sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/)。
+**因應措施**：使用自訂程序來讀取篩選調某些不相關項目的錯誤記錄。 如需詳細資訊，請參閱[受控執行個體：sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/)。
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>不支援相同執行個體內兩個資料庫上的異動範圍
 

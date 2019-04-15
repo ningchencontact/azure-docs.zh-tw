@@ -18,7 +18,7 @@ ms.reviewer: asteen
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b83b08c442a7f10d6b29122fe7959bedf8f3cff0
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56177524"
@@ -107,7 +107,7 @@ Azure AD 應用程式 Proxy 可以部署到許多類型的基礎結構或環境�
 
 下一個可取得問題相關較細節詳細資料的最佳步驟，就是會擷取連接器主機與網域 KDC 間交換的網路追蹤。 如需詳細資訊，請參閱[深入探討疑難排解文件](https://aka.ms/proxytshootpaper) \(英文\)。
 
-如果票證功能看起來沒問題，您就會在記錄檔中看到陳述驗證失敗原因的事件，說明失敗原因是應用程式傳回 401。 此事件指出目標應用程式已拒絕您的票證。 前往下一個階段。
+如果票證功能看起來沒問題，您就會在記錄中看到陳述驗證失敗原因的事件，說明失敗原因是應用程式傳回 401。 此事件指出目標應用程式已拒絕您的票證。 前往下一個階段。
 
 ### <a name="target-application"></a>目標應用程式 
 連接器所提供 Kerberos 票證的取用者。 在這個階段，連接器應該已經將 Kerberos 服務票證傳送給後端。 此票證是第一個應用程式要求中的標頭。

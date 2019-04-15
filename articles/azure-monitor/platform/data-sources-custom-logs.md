@@ -1,5 +1,5 @@
 ---
-title: 收集 Azure 監視器中的自訂記錄檔 | Microsoft Docs
+title: 收集 Azure 監視器中的自訂記錄 | Microsoft Docs
 description: Azure 監視器可以從 Windows 和 Linux 電腦上的文字檔收集事件。  本文說明如何定義新的自訂記錄檔，以及它們在 Azure 監視器中建立的記錄詳細資料。
 services: log-analytics
 documentationcenter: ''
@@ -15,13 +15,13 @@ ms.date: 02/12/2019
 ms.author: bwren
 ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
 ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56234787"
 ---
-# <a name="custom-logs-in-azure-monitor"></a>Azure 監視器中的自訂記錄檔
-Azure 監視器中的「自訂記錄檔」資料來源可讓您從 Windows 和 Linux 電腦上的文字檔案收集事件。 許多應用程式會將資訊記錄到文字檔而非標準的記錄服務，例如 Windows 事件記錄檔或 Syslog。 收集之後，您可以在查詢中，將資料剖析成個別的欄位，或將收集期間的資料擷取至個別的欄位。
+# <a name="custom-logs-in-azure-monitor"></a>Azure 監視器中的自訂記錄
+Azure 監視器中的「自訂記錄」資料來源可讓您從 Windows 和 Linux 電腦上的文字檔案收集事件。 許多應用程式會將資訊記錄到文字檔而非標準的記錄服務，例如 Windows 事件記錄檔或 Syslog。 收集之後，您可以在查詢中，將資料剖析成個別的欄位，或將收集期間的資料擷取至個別的欄位。
 
 ![自訂記錄檔收集](media/data-sources-custom-logs/overview.png)
 
@@ -104,8 +104,8 @@ Azure 監視器中的「自訂記錄檔」資料來源可讓您從 Windows 和 L
 2. 新增選擇性的 [描述] 。
 3. 按一下 [下一步] 來儲存自訂記錄檔的定義。
 
-### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>步驟 5。 驗證會收集自訂記錄檔
-最多可能需要一小時的時間，新的自訂記錄檔中的初始資料才會出現在 Azure 監視器中。  從您定義自訂記錄檔之後，它就會開始從您指定的路徑中所找到的記錄檔收集項目。  它不會保留您在建立自訂記錄檔期間上傳的項目，但它會收集它所找出之記錄檔中既有的項目。
+### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>步驟 5。 驗證會收集自訂記錄
+最多可能需要一小時的時間，新的自訂記錄檔中的初始資料才會出現在 Azure 監視器中。  從您定義自訂記錄之後，它就會開始從您指定的路徑中所找到的記錄收集項目。  它不會保留您在建立自訂記錄檔期間上傳的項目，但它會收集它所找出之記錄檔中既有的項目。
 
 一旦 Azure 監視器開始從自訂記錄檔收集，就能透過記錄檔查詢取得其記錄。  請使用您提供給自訂記錄檔的名稱來做為查詢中的 [類型]  。
 
@@ -154,7 +154,7 @@ Azure 監視器會從每個自訂記錄檔收集新的項目，間隔大約為�
 ![上傳和剖析範例記錄檔](media/data-sources-custom-logs/delimiter.png)
 
 ### <a name="add-log-collection-paths"></a>新增記錄檔收集路徑
-記錄檔將位於 *C:\MyApp\Logs*。  每一天都會建立一個新檔案，且其名稱中包括「appYYYYMMDD.log」 模式的日期。  此記錄檔的完整模式為 *C:\MyApp\Logs\\\*.log*。
+記錄將位於 *C:\MyApp\Logs*。  每一天都會建立一個新檔案，且其名稱中包括「appYYYYMMDD.log」 模式的日期。  此記錄的完整模式為 *C:\MyApp\Logs\\\*.log*。
 
 ![記錄檔收集路徑](media/data-sources-custom-logs/collection-path.png)
 
@@ -163,7 +163,7 @@ Azure 監視器會從每個自訂記錄檔收集新的項目，間隔大約為�
 
 ![記錄檔名稱](media/data-sources-custom-logs/log-name.png)
 
-### <a name="validate-that-the-custom-logs-are-being-collected"></a>驗證會收集自訂記錄檔
+### <a name="validate-that-the-custom-logs-are-being-collected"></a>驗證會收集自訂記錄
 我們使用 *Type=MyApp_CL* 這個查詢，以從收集到的記錄檔傳回所有記錄。
 
 ![無自訂欄位的記錄檔查詢](media/data-sources-custom-logs/query-01.png)

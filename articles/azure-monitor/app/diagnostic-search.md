@@ -14,7 +14,7 @@ ms.date: 09/20/2018
 ms.author: mbullwin
 ms.openlocfilehash: dfbaabd3d27804909334a7a370bcc89115e625c4
 ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/09/2019
 ms.locfileid: "54119165"
@@ -50,7 +50,7 @@ ms.locfileid: "54119165"
 
 ![Visual Studio Application Insights 搜尋視窗](./media/diagnostic-search/34.png)
 
-您開啟要求或頁面檢視時可以看到 [追蹤作業] 索引標籤。 「作業」是與單一要求或頁面檢視相關聯的一連串事件。 例如，相依性呼叫、例外狀況、追蹤記錄檔和自訂事件可能都是單一作業的一部分。 針對要求或頁面檢視，[追蹤作業] 索引標籤會以圖形顯示這些事件的時刻和持續時間。 
+您開啟要求或頁面檢視時可以看到 [追蹤作業] 索引標籤。 「作業」是與單一要求或頁面檢視相關聯的一連串事件。 例如，相依性呼叫、例外狀況、追蹤記錄和自訂事件可能都是單一作業的一部分。 針對要求或頁面檢視，[追蹤作業] 索引標籤會以圖形顯示這些事件的時刻和持續時間。 
 
 ## <a name="inspect-individual-items"></a>檢查個別項目
 

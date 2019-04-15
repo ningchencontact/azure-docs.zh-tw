@@ -29,7 +29,7 @@ ms.locfileid: "58663701"
 |命令|描述|
 | --- | --- |
 | invoke-api | 針對指定程式碼封裝，叫用 Service Fabric 節點上所部署容器的容器 API。 |
-| logs | 針對指定程式碼套件，取得 Service Fabric 節點上所部署容器的容器記錄。 |
+| 記錄 | 針對指定程式碼套件，取得 Service Fabric 節點上所部署容器的容器記錄。 |
 
 ## <a name="sfctl-container-invoke-api"></a>sfctl container invoke-api
 針對指定程式碼封裝，叫用 Service Fabric 節點上所部署容器的容器 API。
@@ -57,7 +57,7 @@ ms.locfileid: "58663701"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-container-logs"></a>sfctl container logs
 針對指定程式碼套件，取得 Service Fabric 節點上所部署容器的容器記錄。
@@ -82,7 +82,7 @@ ms.locfileid: "58663701"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 
 ## <a name="next-steps"></a>後續步驟

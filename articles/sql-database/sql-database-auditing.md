@@ -162,7 +162,7 @@ ms.locfileid: "59361272"
 
 - 使用 Power BI。 您可以在 Power BI 中檢視和分析稽核記錄資料。 如需詳細資訊，以及若要存取可下載的範本，請參閱 [Analyzie audit log data in Power BI](https://blogs.msdn.microsoft.com/azuresqldbsupport/20../../sql-azure-blob-auditing-basic-power-bi-dashboard/) (在 Power BI 中分析稽核記錄資料)。
 - 透過入口網站或使用工具 (例如 [Azure 儲存體總管](https://storageexplorer.com/)) 從 Azure 儲存體 Blob 容器下載記錄檔。
-  - 在您將記錄檔下載到本機之後，按兩下檔案，以在 SSMS 中開啟、檢視及分析記錄。
+  - 在您將記錄下載到本機之後，按兩下檔案，以在 SSMS 中開啟、檢視及分析記錄。
   - 您也可以透過 Azure 儲存體總管同時下載多個檔案。 若要執行這項作業，請以滑鼠右鍵按一下特定子資料夾，然後選取 [另存新檔] 儲存在本機資料夾。
 
 - 其他方法：

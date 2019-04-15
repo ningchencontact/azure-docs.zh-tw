@@ -356,13 +356,13 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
 |Azure 事件中心|Microsoft.EventHub|使用事件中樞擷取封存資料。 [深入了解](/azure/event-hubs/event-hubs-capture-overview)。|
 |Azure HDInsight|Microsoft.HDInsight|佈建為新的 HDInsight 叢集的預設檔案系統的初始內容。 [深入了解](https://azure.microsoft.com/en-us/blog/enhance-hdinsight-security-with-service-endpoints/)。|
 |Azure 監視器|Microsoft.Insights|允許將監視資料寫入受保護的儲存體帳戶 [深入了解](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security)。|
-|Azure 網路|Microsoft.Networking|儲存及分析網路流量記錄檔。 [深入了解](/azure/network-watcher/network-watcher-packet-capture-overview)。|
+|Azure 網路|Microsoft.Networking|儲存及分析網路流量記錄。 [深入了解](/azure/network-watcher/network-watcher-packet-capture-overview)。|
 |Azure Site Recovery|Microsoft.SiteRecovery |藉由啟用 Azure IaaS 虛擬機器的複寫來設定災害復原。 如果您使用已啟用防火牆的快取儲存體帳戶、來源儲存體帳戶或目標儲存體帳戶，則這會是必要項目。  [深入了解](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)。|
 |Azure SQL 資料倉儲|Microsoft.Sql|允許使用 PolyBase 匯入和匯出案例。 [深入了解](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)。|
 
 ### <a name="storage-analytics-data-access"></a>儲存體分析資料存取
 
-在某些情況下，需要來自網路界限外的存取權才能讀取診斷記錄檔和計量。 您可以授與網路規則的例外狀況，允許讀取存取儲存體帳戶記錄檔、計量資料表，或兩者都存取。 [深入了解如何使用儲存體分析。](/azure/storage/storage-analytics)
+在某些情況下，需要來自網路界限外的存取權才能讀取診斷記錄和計量。 您可以授與網路規則的例外狀況，允許讀取存取儲存體帳戶記錄檔、計量資料表，或兩者都存取。 [深入了解如何使用儲存體分析。](/azure/storage/storage-analytics)
 
 ### <a name="managing-exceptions"></a>管理例外狀況
 

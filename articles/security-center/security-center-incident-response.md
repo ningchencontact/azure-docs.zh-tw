@@ -16,7 +16,7 @@ ms.date: 11/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 99bfab5a5f80fc0a49c7cc6405154394391f43e0
 ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56114292"
@@ -97,7 +97,7 @@ Sam 會收到來自 Judy 的案例，開始檢閱資訊安全中心所建議的�
 ![事件回應生命週期](./media/security-center-incident-response/security-center-incident-response-fig6.png)
 
 ### <a name="additional-resources"></a>其他資源
-對於在調查過程中使用其安全性資訊和事件管理 (SIEM) 解決方案的公司而言，他們也可以[整合資訊安全中心與其解決方案](security-center-integrating-alerts-with-log-integration.md)。 您也可以使用 [Azure 記錄整合工具](https://azure.microsoft.com/blog/introducing-hdinsight-integration-with-azure-log-analytics/)來整合 Azure 稽核記錄檔和虛擬機器 (VM) 安全性事件。 若要調查攻擊，您可以搭配使用此資訊與資訊安全中心所提供的資訊。 您也可以使用資訊安全中心中的[調查](https://docs.microsoft.com/azure/security-center/security-center-investigation)功能，協助您判斷事件的根本原因。
+對於在調查過程中使用其安全性資訊和事件管理 (SIEM) 解決方案的公司而言，他們也可以[整合資訊安全中心與其解決方案](security-center-integrating-alerts-with-log-integration.md)。 您也可以使用 [Azure 記錄整合工具](https://azure.microsoft.com/blog/introducing-hdinsight-integration-with-azure-log-analytics/)來整合 Azure 稽核記錄和虛擬機器 (VM) 安全性事件。 若要調查攻擊，您可以搭配使用此資訊與資訊安全中心所提供的資訊。 您也可以使用資訊安全中心中的[調查](https://docs.microsoft.com/azure/security-center/security-center-investigation)功能，協助您判斷事件的根本原因。
 
 ## <a name="conclusion"></a>結論
 事件發生前召集小組對組織而言非常重要，可正面影響事件的處理方式。 擁有可監視資源的適當工具，有助於這個小組採取正確的步驟來修復安全性事件。 資訊安全中心[偵測功能](security-center-detection-capabilities.md)會協助 IT 部門快速地回應安全性事件並修復安全性問題。

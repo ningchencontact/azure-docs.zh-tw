@@ -23,7 +23,7 @@ ms.locfileid: "58402400"
 
 ![AlertLogic Logo](./media/partners/alertlogic.png)
 
-Alert Logic Log Manager 會收集 VM、應用程式和 Azure 平台記錄檔以進行安全分析和保留。 它也會透過 Azure 監視器 API 收集 Azure 活動記錄。 這項資訊用於偵測 malfeasance 及符合法務遵循需求。
+Alert Logic Log Manager 會收集 VM、應用程式和 Azure 平台記錄以進行安全分析和保留。 它也會透過 Azure 監視器 API 收集 Azure 活動記錄。 這項資訊用於偵測 malfeasance 及符合法務遵循需求。
 
 [請移至文件。][alertlogic-doc]
 

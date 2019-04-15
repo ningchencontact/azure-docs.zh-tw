@@ -123,9 +123,9 @@ Log Analytics 工作區必須存在於下列區域：
 
 是，您的 Azure 儲存體帳戶可以位於某個訂用帳戶，而您的 Log Analytics 工作區可以位於不同的訂用帳戶中。
 
-## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>可以在不同的訂用帳戶中儲存原始記錄檔嗎？
+## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>可以在不同的訂用帳戶中儲存原始記錄嗎？
 
-沒有。 您可以將原始記錄檔儲存在已針對流量記錄啟用 NSG 的任何儲存體帳戶中。 但是儲存體帳戶和原始記錄檔必須位於相同的訂用帳戶和區域中。
+沒有。 您可以將原始記錄儲存在已針對流量記錄啟用 NSG 的任何儲存體帳戶中。 但是儲存體帳戶和原始記錄必須位於相同的訂用帳戶和區域中。
 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>因為發生「找不到」錯誤而無法設定 NSG 進行流量分析，該怎麼辦？
 

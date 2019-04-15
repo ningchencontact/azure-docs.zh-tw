@@ -152,7 +152,7 @@ ms.locfileid: "58094696"
 
   在 %programfiles%\Microsoft Azure Recovery Services Agent\Temp 中，開啟最新的 CBEngineCurr.errlog 檔案。 在此檔案中，搜尋 **443**，或搜尋**連線嘗試失敗**字串。
 
-  ![顯示 [Temp] 資料夾中錯誤記錄檔的螢幕擷取畫面](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
+  ![顯示 [Temp] 資料夾中錯誤記錄的螢幕擷取畫面](./media/vmware-azure-troubleshoot-replication/logdetails1.png)
 
   如果有顯示出問題，請在處理伺服器的命令列中，使用 Telnet 來偵測您的 Azure 公用 IP 位址 (此 IP 位址在上圖中已遮罩)。 您可以在 CBEngineCurr.currLog 檔案中使用連接埠 443 來尋找您的 Azure 公用 IP 位址：
 

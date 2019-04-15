@@ -65,14 +65,14 @@ ms.locfileid: "58084703"
 6. 安裝並連接代理程式之後，[Log Analytics 連接狀態] 會更新為 [此工作區]。
 
 ## <a name="collect-event-and-performance-data"></a>收集事件和效能資料
-Log Analytics 可以從 Windows 事件記錄檔或 Linux Syslog 收集事件，和收集您指定要用於較長期分析和報告的效能計數器，並在偵測到特定條件時採取動作。  請遵循下列步驟來開始設定收集 Windows 系統記錄檔和 Linux Syslog 的事件以及數個常用的效能計數器。  
+Log Analytics 可以從 Windows 事件記錄或 Linux Syslog 收集事件，和收集您指定要用於較長期分析和報告的效能計數器，並在偵測到特定條件時採取動作。  請遵循下列步驟來開始設定收集 Windows 系統記錄檔和 Linux Syslog 的事件以及數個常用的效能計數器。  
 
 ### <a name="data-collection-from-windows-vm"></a>從 Windows VM 收集資料
 1. 選取 [進階設定]。
 
     ![Log Analytics 進階設定](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png)
 
-3. 選取 [資料]，然後選取 [Windows 事件記錄檔]。  
+3. 選取 [資料]，然後選取 [Windows 事件記錄]。  
 4. 您可以輸入記錄檔的名稱，來新增事件記錄檔。  輸入 **System**，然後按一下加號 **+**。  
 5. 在表格中，檢查 [錯誤] 和 [警告] 嚴重性。   
 6. 按一下頁面頂端的 [儲存] 來儲存設定。

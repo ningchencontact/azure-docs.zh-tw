@@ -103,7 +103,7 @@ ms.locfileid: "59281211"
 | [管理群組讀者](#management-group-reader) | 管理群組讀者角色 |
 | [監視參與者](#monitoring-contributor) | 可以讀取所有監視資料並編輯監視設定。 請參閱[開始使用 Azure 監視器的角色、權限和安全性](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)。 |
 | [監視計量發行者](#monitoring-metrics-publisher) | 針對 Azure 資源啟用發佈計量 |
-| [監視讀取器](#monitoring-reader) | 可以讀取所有監視資料 (計量、記錄檔等等)。 請參閱[開始使用 Azure 監視器的角色、權限和安全性](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)。 |
+| [監視讀取器](#monitoring-reader) | 可以讀取所有監視資料 (計量、記錄等等)。 請參閱[開始使用 Azure 監視器的角色、權限和安全性](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)。 |
 | [網路參與者](#network-contributor) | 可讓您管理網路，但無法存取它們。 |
 | [New Relic APM 帳戶參與者](#new-relic-apm-account-contributor) | 可讓您管理 New Relic Application Performance Management 帳戶及應用程式，但無法存取它們。 |
 | [讀取者及資料存取](#reader-and-data-access) | 可讓您檢視所有內容，但無法讓您刪除或建立儲存體帳戶或內含的資源。 也可透過存取儲存體帳戶金鑰，對儲存體帳戶中內含的所有資料進行讀取/寫入存取。 |
@@ -1522,7 +1522,7 @@ ms.locfileid: "59281211"
 > | Microsoft.ClassicStorage/storageAccounts/read | 傳回具有給定帳戶的儲存體帳戶。 |
 > | Microsoft.Insights/alertRules/* | 创建和管理 Insights 警报规则 |
 > | Microsoft.Insights/diagnosticSettings/* | 建立、更新或讀取 Analysis Server 的診斷設定 |
-> | Microsoft.Insights/logdefinitions/* | 此為使用者需要透過入口網站存取活動記錄檔時所需的權限。 列出活動記錄檔中的記錄檔分類。 |
+> | Microsoft.Insights/logdefinitions/* | 此為使用者需要透過入口網站存取活動記錄時所需的權限。 列出活動記錄檔中的記錄檔分類。 |
 > | Microsoft.Insights/metricDefinitions/* | 讀取度量定義 (可用資源的度量類型清單)。 |
 > | Microsoft.Logic/* | 管理 Logic Apps 資源。 |
 > | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
@@ -1744,7 +1744,7 @@ ms.locfileid: "59281211"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **描述** | 可以讀取所有監視資料 (計量、記錄檔等等)。 請參閱[開始使用 Azure 監視器的角色、權限和安全性](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)。 |
+> | **描述** | 可以讀取所有監視資料 (計量、記錄等等)。 請參閱[開始使用 Azure 監視器的角色、權限和安全性](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)。 |
 > | **id** | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
 > | **動作** |  |
 > | */read | 讀取密碼以外的所有類型的資源。 |

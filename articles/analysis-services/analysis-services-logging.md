@@ -17,7 +17,7 @@ ms.locfileid: "57010917"
 ---
 # <a name="setup-diagnostic-logging"></a>設定診斷記錄
 
-在任何 Analysis Services 解決方案中，監視您伺服器的執行方式皆是一大重點功能。 透過 [Azure 資源診斷記錄](../azure-monitor/platform/diagnostic-logs-overview.md)，您可以監視並傳送記錄至 [Azure 儲存體](https://azure.microsoft.com/services/storage/)，將記錄檔案串流至 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)，並將記錄檔案匯出至 [Azure 監視器記錄](../azure-monitor/azure-monitor-log-hub.md)。
+在任何 Analysis Services 解決方案中，監視您伺服器的執行方式皆是一大重點功能。 透過 [Azure 資源診斷記錄](../azure-monitor/platform/diagnostic-logs-overview.md)，您可以監視並傳送記錄至 [Azure 儲存體](https://azure.microsoft.com/services/storage/)，將記錄串流至 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)，並將記錄匯出至 [Azure 監視器記錄](../azure-monitor/azure-monitor-log-hub.md)。
 
 ![針對儲存體、事件中樞或 Azure 監視器記錄的診斷記錄](./media/analysis-services-logging/aas-logging-overview.png)
 

@@ -21,7 +21,7 @@ ms.lasthandoff: 02/24/2019
 ms.locfileid: "56749813"
 ---
 # <a name="azure-monitor-log-queries"></a>Azure 監視器記錄查詢
-Azure 監視器記錄檔以 Azure 資料總管為基礎建置，且 Azure 監視器記錄查詢使用相同的 Kusto 查詢語言版本。 [Kusto 查詢語言文件](/azure/kusto/query)涵蓋語言的所有詳細資料，而且應該是您用來撰寫 Azure 監視器記錄查詢的主要資源。 此頁面所提供的其他資源連結可用來了解如何撰寫查詢，以及對語言進行 Azure 監視器實作的差異。
+Azure 監視器記錄以 Azure 資料總管為基礎建置，且 Azure 監視器記錄查詢使用相同的 Kusto 查詢語言版本。 [Kusto 查詢語言文件](/azure/kusto/query)涵蓋語言的所有詳細資料，而且應該是您用來撰寫 Azure 監視器記錄查詢的主要資源。 此頁面所提供的其他資源連結可用來了解如何撰寫查詢，以及對語言進行 Azure 監視器實作的差異。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 

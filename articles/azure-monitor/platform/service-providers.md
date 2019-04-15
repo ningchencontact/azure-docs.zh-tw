@@ -29,20 +29,20 @@ ms.locfileid: "58756573"
 
 ## <a name="architectures-for-service-providers"></a>服務提供者的架構
 
-Log Analytics 工作區可讓系統管理員控制記錄檔的流程與隔離，以及建立因應其特定商務需求的記錄檔架構。 [本文](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access)說明工作區管理的一般考量。 服務提供者會有其他考量。
+Log Analytics 工作區可讓系統管理員控制記錄的流程與隔離，以及建立因應其特定商務需求的記錄架構。 [本文](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access)說明工作區管理的一般考量。 服務提供者會有其他考量。
 
 服務提供者對於 Log Analytics 工作區有三個可能的架構：
 
-### <a name="1-distributed---logs-are-stored-in-workspaces-located-in-the-customers-tenant"></a>1.分散式：記錄檔會儲存在客戶租用戶的工作區 
+### <a name="1-distributed---logs-are-stored-in-workspaces-located-in-the-customers-tenant"></a>1.分散式：記錄會儲存在客戶租用戶的工作區 
 
 在此架構中，會在用於該客戶所有記錄的客戶租用戶中部署工作區。 藉由使用 [Azure Active Directory 來賓使用者 (B2B)](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)，可以授與服務提供者系統管理員對於此工作區的存取權。 服務提供者管理員將必須在 Azure 入口網站中切換至其客戶的目錄，才能存取這些工作區。
 
 此架構的優點包括：
-* 客戶可以使用自己的[角色型存取](https://docs.microsoft.com/azure/role-based-access-control/overview)，以管理記錄檔的存取。
+* 客戶可以使用自己的[角色型存取](https://docs.microsoft.com/azure/role-based-access-control/overview)，以管理記錄存取。
 * 每個客戶對於其工作區都可以有不同的設定，例如保留和資料限定。
 * 基於法規和合規性而隔離客戶。
 * 每個工作區的費用都將會累計到客戶的訂用帳戶中。
-* 可以從所有類型的資源來收集記錄檔，而不只是代理程式型資源。 例如，Azure 稽核記錄。
+* 可以從所有類型的資源來收集記錄，而不只是代理程式型資源。 例如，Azure 稽核記錄。
 
 此架構的缺點包括：
 * 服務提供者比較難以同時管理大量的客戶租用戶。
@@ -51,11 +51,11 @@ Log Analytics 工作區可讓系統管理員控制記錄檔的流程與隔離，
 
 ### <a name="2-central---logs-are-stored-in-a-workspace-located-in-the-service-provider-tenant"></a>2.集中式：記錄會儲存在服務提供者租用戶的工作區
 
-在此架構中，記錄檔不會儲存在客戶的租用戶中，但只會儲存在其中一個服務提供者訂用帳戶內的集中位置。 客戶 VM 上安裝的代理程式會設定為使用工作區識別碼和祕密金鑰以傳送記錄檔至此工作區。
+在此架構中，記錄不會儲存在客戶的租用戶中，但只會儲存在其中一個服務提供者訂用帳戶內的集中位置。 客戶 VM 上安裝的代理程式會設定為使用工作區識別碼和祕密金鑰以傳送記錄至此工作區。
 
 此架構的優點包括：
 * 容易管理大量客戶，並將其整合至各種後端系統。
-* 服務提供者對於記錄檔和各種成品 (例如函式和儲存的查詢) 都具備完整的擁有權。
+* 服務提供者對於記錄和各種成品 (例如函式和儲存的查詢) 都具備完整的擁有權。
 * 服務提供者可以跨其所有客戶執行分析。
 
 此架構的缺點包括：
@@ -63,12 +63,12 @@ Log Analytics 工作區可讓系統管理員控制記錄檔的流程與隔離，
 * 當客戶的資料合併到單一工作區時，區隔彼此的資料可能會很困難。 唯一的好方法是使用電腦的完整網域名稱 (FQDN) 或透過 Azure 訂用帳戶識別碼。 
 * 來自所有客戶的所有資料都會儲存在相同的區域中，帳單只有一份，而且有相同的保留和組態設定。
 * Azure 網狀架構和 PaaS 服務 (例如 Azure 診斷和 Azure 稽核記錄) 會要求工作區位於與資源相同的租用戶中，因此無法將記錄傳送至集中式工作區。
-* 來自所有客戶的所有 VM 代理程式都會使用相同的工作區識別碼和金鑰，向集中式工作區進行驗證。 在不中斷其他客戶的情況下，沒有任何方法可以封鎖來自特定客戶的記錄檔。
+* 來自所有客戶的所有 VM 代理程式都會使用相同的工作區識別碼和金鑰，向集中式工作區進行驗證。 在不中斷其他客戶的情況下，沒有任何方法可以封鎖來自特定客戶的記錄。
 
 
-### <a name="3-hybrid---logs-are-stored-in-workspace-located-in-the-customers-tenant-and-some-of-them-are-pulled-to-a-central-location"></a>3.混合式：記錄檔會儲存在客戶租用戶的工作區，而且其中部分記錄檔會提取到集中位置。
+### <a name="3-hybrid---logs-are-stored-in-workspace-located-in-the-customers-tenant-and-some-of-them-are-pulled-to-a-central-location"></a>3.混合式：記錄會儲存在客戶租用戶的工作區，而且其中部分記錄會提取到集中位置。
 
-第三個架構是兩個選項的混合。 這個架構是以第一個分散式架構為基礎，其中記錄檔儲存在每個客戶的本機，但使用特定機制來建立記錄檔的集中存放區。 一部分的記錄檔會提取到用於報告和分析的集中位置。 這個部分可能是少量的資料類型或活動摘要 (例如每日統計資料)。
+第三個架構是兩個選項的混合。 這個架構是以第一個分散式架構為基礎，其中記錄儲存在每個客戶的本機，但使用特定機制來建立記錄的集中存放區。 一部分的記錄會提取到用於報告和分析的集中位置。 這個部分可能是少量的資料類型或活動摘要 (例如每日統計資料)。
 
 有兩個選項，來實作記錄在集中位置：
 

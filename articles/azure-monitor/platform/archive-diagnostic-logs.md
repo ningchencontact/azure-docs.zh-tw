@@ -17,7 +17,7 @@ ms.locfileid: "58629368"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>封存 Azure 診斷記錄
 
-在本文中，我們會示範如何使用 Azure 入口網站、PowerShell Cmdlet、CLI 或 REST API 來封存儲存體帳戶中的 [Azure 診斷記錄](../../azure-monitor/platform/diagnostic-logs-overview.md)。 如果您想要使用適用於稽核、靜態分析或備份的選用保留原則來保留診斷記錄，這個選項非常有用。 儲存體帳戶不一定要和資源發出記錄檔屬於相同的訂用帳戶，只要使用者有適當的設定可 RBAC 存取這兩個訂用帳戶即可。
+在本文中，我們會示範如何使用 Azure 入口網站、PowerShell Cmdlet、CLI 或 REST API 來封存儲存體帳戶中的 [Azure 診斷記錄](../../azure-monitor/platform/diagnostic-logs-overview.md)。 如果您想要使用適用於稽核、靜態分析或備份的選用保留原則來保留診斷記錄，這個選項非常有用。 儲存體帳戶不一定要和資源發出記錄屬於相同的訂用帳戶，只要使用者有適當的設定可 RBAC 存取這兩個訂用帳戶即可。
 
 > [!WARNING]
 > 2018 年 11 月 1 日起，儲存體帳戶中的記錄資料格式將變更為 JSON 資料行。 [請參閱本文以了解影響的描述，以及如何更新您的工具，來處理新的格式。](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
@@ -33,7 +33,7 @@ ms.locfileid: "58629368"
 
 ## <a name="diagnostic-settings"></a>診斷設定
 
-若要使用下列任何方法封存診斷記錄，您必須為特定資源設定**診斷設定**。 資源診斷設定會定義記錄檔和計量資料傳送至目的地 （儲存體帳戶、 事件中樞命名空間或 Log Analytics 工作區） 的類別。 它也會定義儲存在儲存體帳戶中每個記錄類別之事件和計量資料的保留原則 (保留的天數)。 如果保留原則設定為零，則會無限期地 (亦即永遠) 儲存該記錄類別的事件。 否則，保留原則可以是 1 到 2147483647 之間的任何天數。 [您可以在此深入了解診斷設定](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)。 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄檔將被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄檔會被刪除。 刪除程序會從 UTC 午夜開始，但是請注意，可能需要長達 24 小時的時間，記錄才會從您的儲存體帳戶中刪除。 
+若要使用下列任何方法封存診斷記錄，您必須為特定資源設定**診斷設定**。 資源診斷設定會定義記錄檔和計量資料傳送至目的地 （儲存體帳戶、 事件中樞命名空間或 Log Analytics 工作區） 的類別。 它也會定義儲存在儲存體帳戶中每個記錄類別之事件和計量資料的保留原則 (保留的天數)。 如果保留原則設定為零，則會無限期地 (亦即永遠) 儲存該記錄類別的事件。 否則，保留原則可以是 1 到 2147483647 之間的任何天數。 [您可以在此深入了解診斷設定](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)。 保留原則是每天套用，因此在一天結束時 (UTC)，這一天超過保留原則的記錄將被刪除。 例如，如果您的保留原則為一天，在今天一開始，昨天之前的記錄會被刪除。 刪除程序會從 UTC 午夜開始，但是請注意，可能需要長達 24 小時的時間，記錄才會從您的儲存體帳戶中刪除。 
 
 > [!NOTE]
 > 目前不支援透過診斷設定傳送多維度計量。 跨維度值所彙總的維度計量會匯出為扁平化單一維度計量。
@@ -81,7 +81,7 @@ Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-89012
 | 類別 |否 |要啟用之記錄類別的逗號分隔清單。 |
 | 已啟用 |是 |布林值，表示要對資源啟用還是停用診斷。 |
 | RetentionEnabled |否 |布林值，表示此資源是否啟用保留原則。 |
-| RetentionInDays |否 |事件應保留的天數，1 到 2147483647 之間。 值為 0 會無限期地儲存記錄檔。 |
+| RetentionInDays |否 |事件應保留的天數，1 到 2147483647 之間。 值為 0 會無限期地儲存記錄。 |
 
 ## <a name="archive-diagnostic-logs-via-the-azure-cli"></a>透過 Azure CLI 封存診斷記錄
 

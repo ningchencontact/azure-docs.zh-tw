@@ -102,7 +102,7 @@ ms.locfileid: "56343522"
 
         ![重新啟動失敗的作業](media/data-box-deploy-copy-data-via-copy-service/restart-failed-job.png)
 
-        如果您遇到失敗且無法重新啟動作業，請下載錯誤記錄並在記錄檔中查看該項失敗。 在更正問題後，請建立新的作業來複製檔案。 您也可以[透過 SMB 複製檔案](data-box-deploy-copy-data.md)。
+        如果您遇到失敗且無法重新啟動作業，請下載錯誤記錄並在記錄中查看該項失敗。 在更正問題後，請建立新的作業來複製檔案。 您也可以[透過 SMB 複製檔案](data-box-deploy-copy-data.md)。
     
     - 在這個版本中，您無法刪除作業。
     

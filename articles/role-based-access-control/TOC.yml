@@ -63,7 +63,7 @@ items:
       href: custom-roles-cli.md
     - name: REST API
       href: custom-roles-rest.md
-  - name: 檢視活動記錄檔
+  - name: 檢視活動記錄
     href: change-history-report.md
   - name: 提高存取權限以管理所有訂用帳戶
     href: elevate-access-global-admin.md

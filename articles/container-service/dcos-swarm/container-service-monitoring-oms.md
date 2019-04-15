@@ -20,7 +20,7 @@ ms.locfileid: "58110965"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-Log Analytics 是 Microsoft 的雲端型 IT 管理解決方案，可協助您管理並保護內部部署和雲端基礎結構。 容器解決方案是 Log Analytics 中的解決方案，可協助您在單一位置檢視容器詳細目錄、效能和記錄檔。 您可以在集中式位置檢視記錄檔以稽核、對容器進行疑難排解，並尋找壟斷及佔用過量主機資源的容器。
+Log Analytics 是 Microsoft 的雲端型 IT 管理解決方案，可協助您管理並保護內部部署和雲端基礎結構。 容器解決方案是 Log Analytics 中的解決方案，可協助您在單一位置檢視容器詳細目錄、效能和記錄。 您可以在集中式位置檢視記錄以稽核、對容器進行疑難排解，並尋找壟斷及佔用過量主機資源的容器。
 
 ![](media/container-service-monitoring-oms/image1.png)
 

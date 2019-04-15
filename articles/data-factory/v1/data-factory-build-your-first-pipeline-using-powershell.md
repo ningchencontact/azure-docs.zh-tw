@@ -163,7 +163,7 @@ ms.locfileid: "54019226"
    |:--- |:--- |
    | ClusterSize |指定 HDInsight 叢集的大小。 |
    | TimeToLive |指定 HDInsight 叢集在被刪除之前的閒置時間。 |
-   | linkedServiceName |指定用來儲存 HDInsight 產生之記錄檔的儲存體帳戶 |
+   | linkedServiceName |指定用來儲存 HDInsight 產生之記錄的儲存體帳戶 |
 
     請注意下列幾點：
 

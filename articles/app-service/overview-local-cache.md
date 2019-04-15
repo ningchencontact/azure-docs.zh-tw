@@ -94,7 +94,7 @@ Azure App Service 本機快取功能可讓您以 Web 角色檢視您的內容。
 ```
 
 ## <a name="change-the-size-setting-in-local-cache"></a>變更本機快取中的大小設定
-根據預設，本機快取大小是 **300 MB**。 此大小包括複製自內容存放區的 /site 和 /siteextensions 資料夾，以及任何在本機建立之記錄檔和資料的資料夾。 若要增加此限制，請使用應用程式設定 `WEBSITE_LOCAL_CACHE_SIZEINMB`。 每個應用程式的大小最多可以增加為 **2 GB** (2000 MB)。
+根據預設，本機快取大小是 **300 MB**。 此大小包括複製自內容存放區的 /site 和 /siteextensions 資料夾，以及任何在本機建立之記錄和資料的資料夾。 若要增加此限制，請使用應用程式設定 `WEBSITE_LOCAL_CACHE_SIZEINMB`。 每個應用程式的大小最多可以增加為 **2 GB** (2000 MB)。
 
 ## <a name="best-practices-for-using-app-service-local-cache"></a>使用 App Service 本機快取的最佳作法
 建議您搭配 [預備環境](../app-service/deploy-staging-slots.md) 功能使用本機快取。
@@ -115,8 +115,8 @@ Azure App Service 本機快取功能可讓您以 Web 角色檢視您的內容。
 ### <a name="i-just-published-new-changes-but-my-app-does-not-seem-to-have-them-why"></a>我剛剛發佈了新的變更，但我的應用程式似乎沒有變更。 原因為何？
 如果您的應用程式使用「本機快取」，則您需要重新啟動您的網站，以取得最新的變更。 不想對生產網站發佈變更嗎？ 請參閱前面的最佳作法一節中的位置選項。
 
-### <a name="where-are-my-logs"></a>我的記錄檔在哪裡？
-使用本機快取，您的記錄檔和資料的資料夾看起來會有點不同。 不過，子資料夾的結構會保持相同，不同之處在於這些子資料夾會位在格式為「唯一 VM 識別碼」+ 時間戳記的子資料夾底下。
+### <a name="where-are-my-logs"></a>我的記錄在哪裡？
+使用本機快取，您的記錄和資料的資料夾看起來會有點不同。 不過，子資料夾的結構會保持相同，不同之處在於這些子資料夾會位在格式為「唯一 VM 識別碼」+ 時間戳記的子資料夾底下。
 
 ### <a name="i-have-local-cache-enabled-but-my--app-still-gets-restarted-why-is-that-i-thought-local-cache-helped-with-frequent-app-restarts"></a>我已啟用「本機快取」，但我的應用程式仍然重新啟動。 這是為什麼？ 我以為「本機快取」有助於頻繁的應用程式重新啟動。
 「本機快取」確實有助於防止儲存體相關應用程式重新啟動。 不過，您的應用程式仍有可能在計劃性 VM 基礎結構升級期間重新啟動。 整體而言，啟用「本機快取」後應該比較不會發生應用程式重新啟動。

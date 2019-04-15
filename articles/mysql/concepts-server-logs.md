@@ -21,7 +21,7 @@ ms.locfileid: "58417763"
 ## <a name="access-server-logs"></a>存取伺服器記錄
 您可以使用 Azure 入口網站和 Azure CLI，來列出和下載適用於 MySQL 的 Azure 資料庫伺服器記錄。
 
-在 Azure 入口網站中，選取適用於 MySQL 的 Azure 資料庫伺服器。 在 [監視] 標題下方，選取 [伺服器記錄檔] 頁面。
+在 Azure 入口網站中，選取適用於 MySQL 的 Azure 資料庫伺服器。 在 [監視] 標題下方，選取 [伺服器記錄] 頁面。
 
 如需 Azure CLI 的詳細資訊，請參閱[使用 Azure CLI 設定和存取伺服器記錄](howto-configure-server-logs-in-cli.md)。
 
@@ -43,7 +43,7 @@ ms.locfileid: "58417763"
 
 如需慢速查詢記錄參數的完整描述，請參閱 MySQL [慢速查詢記錄文件](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)。
 
-## <a name="diagnostic-logs"></a>診斷記錄檔
+## <a name="diagnostic-logs"></a>診斷記錄
 適用於 MySQL 的 Azure 資料庫會與 Azure 監視器診斷記錄整合。 在 MySQL 服务器上启用慢查询日志后，可以选择将它们发送到 Azure Monitor 日志、事件中心或 Azure 存储。 若要深入了解如何啟用診斷記錄，請參閱[診斷記錄文件](../azure-monitor/platform/diagnostic-logs-overview.md)的操作說明一節。
 
 > [!IMPORTANT]

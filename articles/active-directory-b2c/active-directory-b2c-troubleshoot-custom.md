@@ -17,7 +17,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58089364"
 ---
-# <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C：收集記錄檔
+# <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C：收集記錄
 
 本文提供從 Azure AD B2C 收集記錄的步驟，讓您可以診斷自訂原則的問題。
 

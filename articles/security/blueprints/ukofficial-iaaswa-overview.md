@@ -174,7 +174,7 @@ ms.locfileid: "57443465"
 
 **診斷記錄**：[診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)是資源發出的所有記錄。 這些記錄可能包含 Windows 事件系統記錄、Blob、資料表和佇列記錄。
 
-**防火牆記錄**：應用程式閘道會提供完整的診斷和存取記錄。 防火牆記錄檔可供已啟用 WAF 的應用程式閘道資源使用。
+**防火牆記錄**：應用程式閘道會提供完整的診斷和存取記錄。 防火牆記錄可供已啟用 WAF 的應用程式閘道資源使用。
 
 **記錄封存**：記錄檔資料儲存體可以設定要寫入到集中式的 Azure 儲存體帳戶進行封存及定義的保留期限。 使用 Azure 監視器記錄檔就可以處理記錄檔或協力廠商 SIEM 系統。
 

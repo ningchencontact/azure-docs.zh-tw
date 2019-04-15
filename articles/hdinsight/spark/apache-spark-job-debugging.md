@@ -11,7 +11,7 @@ ms.date: 12/05/2018
 ms.author: hrasheed
 ms.openlocfilehash: 1601663266f59668918e6799b5c4a7ff606431c4
 ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/19/2018
 ms.locfileid: "53600007"
@@ -40,9 +40,9 @@ ms.locfileid: "53600007"
     ![尋找 Spark 應用程式識別碼](./media/apache-spark-job-debugging/find-application-id.png)
    
     對於從 Jupyter Notebook 啟動的應用程式，狀態一律是 [執行中]  ，直到您結束 Notebook。
-3. 從應用程式檢視中，您可以進一步向下鑽研以找出與應用程式和記錄檔 (stdout/stderr) 相關聯的容器。 您也可以藉由按一下對應至 [追蹤 URL] 的連結，即可啟動 Spark UI，如下所示。 
+3. 從應用程式檢視中，您可以進一步向下鑽研以找出與應用程式和記錄 (stdout/stderr) 相關聯的容器。 您也可以藉由按一下對應至 [追蹤 URL] 的連結，即可啟動 Spark UI，如下所示。 
    
-    ![下載容器記錄檔](./media/apache-spark-job-debugging/download-container-logs.png)
+    ![下載容器記錄](./media/apache-spark-job-debugging/download-container-logs.png)
 
 ## <a name="track-an-application-in-the-spark-ui"></a>追蹤 Spark UI 中的應用程式
 在 Spark UI 中，您可以向下鑽研至您先前啟動的應用程式所繁衍的 Spark 作業。

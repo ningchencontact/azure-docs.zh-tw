@@ -16,14 +16,14 @@ ms.date: 12/15/2015
 ms.author: saurabh
 ms.openlocfilehash: 520211f3499931281d3ac86a1da1144564a8bb48
 ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/09/2019
 ms.locfileid: "55980749"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>使用 PowerShell 在執行 Windows 的虛擬機器中啟用 Azure 診斷
 
-Azure 診斷是 Azure 中可對部署的應用程式啟用診斷資料收集的功能。 您可以使用診斷延伸模組，從執行 Windows 的 Azure 虛擬機器 (VM) 收集診斷資料 (例如應用程式記錄檔或效能計數器)。 
+Azure 診斷是 Azure 中可對部署的應用程式啟用診斷資料收集的功能。 您可以使用診斷延伸模組，從執行 Windows 的 Azure 虛擬機器 (VM) 收集診斷資料 (例如應用程式記錄或效能計數器)。 
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
@@ -77,7 +77,7 @@ Cmdlet 會傳回包含診斷設定的 *PublicSettings*。 系統支援兩種設�
     Update-AzureVM -ServiceName $Service_Name -Name $VM_Name -VM $VM_Update.VM
 
 ## <a name="sample-diagnostics-configuration"></a>範例診斷組態
-下列 XML 可用於具有上述指令碼的診斷公用組態。 此範例組態會連同 Windows 事件記錄檔中的應用程式、安全性和系統通道的錯誤和診斷基礎結構記錄檔中的任何錯誤，將各種效能計數器一併移轉至診斷儲存體帳戶。
+下列 XML 可用於具有上述指令碼的診斷公用組態。 此範例組態會連同 Windows 事件記錄中的應用程式、安全性和系統通道的錯誤和診斷基礎結構記錄中的任何錯誤，將各種效能計數器一併移轉至診斷儲存體帳戶。
 
 您需要更新組態以包含下列各項：
 

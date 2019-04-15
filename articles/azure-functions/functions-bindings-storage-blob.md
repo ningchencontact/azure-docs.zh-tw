@@ -450,7 +450,7 @@ JavaScript 和 Java 函式會將整個 Blob 載入記憶體中，而 C# 函式�
 
 ## <a name="trigger---polling"></a>觸發程序 - 輪詢
 
-如果受監視的 blob 容器包含超過 10,000 個 blob （跨越所有容器），Functions 執行階段掃描記錄檔以監看新增或變更的 blob。 此程序可能會導致延遲。 可能直到建立 Blob 之後數分鐘或更久，才會觸發函數。 此外，[會以「最大努力」建立儲存體記錄](/rest/api/storageservices/About-Storage-Analytics-Logging)。 並不保證會擷取所有事件。 在某些情況下可能會遺失記錄檔。
+如果受監視的 blob 容器包含超過 10,000 個 blob （跨越所有容器），Functions 執行階段掃描記錄檔以監看新增或變更的 blob。 此程序可能會導致延遲。 可能直到建立 Blob 之後數分鐘或更久，才會觸發函數。 此外，[會以「最大努力」建立儲存體記錄](/rest/api/storageservices/About-Storage-Analytics-Logging)。 並不保證會擷取所有事件。 在某些情況下可能會遺失記錄。
 
 如果您需要更快或更可靠的 Blob 處理，請考慮在建立 Blob 時建立[佇列訊息](../storage/queues/storage-dotnet-how-to-use-queues.md)。 然後，使用[佇列觸發程序](functions-bindings-storage-queue.md) (而不是 Blob 觸發程序) 處理該 Blob。 另一個選項是使用 Event Grid；請參閱教學課程[使用 Event Grid 自動調整已上傳映像的大小](../event-grid/resize-images-on-storage-blob-upload-event.md)。
 

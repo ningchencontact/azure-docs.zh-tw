@@ -35,7 +35,7 @@ Azure AD 稽核記錄可提供系統和使用者活動的記錄，包括來賓�
 
 ![螢幕擷取畫面顯示和活動的詳細資訊輸出的範例](./media/auditing-and-reporting/activity-details.png)
 
-您也可以從 Azure AD 匯出這些記錄檔，並使用您慣用的報告工具來取得自訂報告。
+您也可以從 Azure AD 匯出這些記錄，並使用您慣用的報告工具來取得自訂報告。
 
 ### <a name="next-steps"></a>後續步驟
 

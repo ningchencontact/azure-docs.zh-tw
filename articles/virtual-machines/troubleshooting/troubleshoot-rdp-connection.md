@@ -17,7 +17,7 @@ ms.date: 03/23/2018
 ms.author: roiyz
 ms.openlocfilehash: a4fb31721da679b21fa311340269cf07f93cd903
 ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/09/2019
 ms.locfileid: "55981259"
@@ -36,7 +36,7 @@ ms.locfileid: "55981259"
 
 1. 重設遠端桌面組態。
 2. 檢查網路安全性群組規則 / 雲端服務端點。
-3. 檢閱 VM 主控台記錄檔。
+3. 檢閱 VM 主控台記錄。
 4. 重設 VM 的 NIC。
 5. 檢查 VM 資源健康狀態。
 6. 重設您的 VM 密碼。
@@ -69,9 +69,9 @@ ms.locfileid: "55981259"
     ![在 Azure 入口網站中重設 RDP 組態](./media/troubleshoot-rdp-connection/reset-rdp.png)
 2. **確認網路安全性群組規則**。 使用 [IP 流量驗證](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md)來確認網路安全性群組中的規則是否會封鎖虛擬機器的輸入或輸出流量。 您也可以檢閱有效的安全性群組規則，以確保輸入「允許」NSG 規則存在並已針對 RDP 連接埠 (預設值 3389) 設定優先順序。 如需詳細資訊，請參閱[使用有效安全性規則對 VM 流量流程進行疑難排解](../../virtual-network/diagnose-network-traffic-filter-problem.md)。
 
-3. **檢閱 VM 開機診斷**。 此疑難排解步驟可檢閱 VM 主控台記錄檔，以判斷 VM 是否報告問題。 並非所有 VM 都已啟用開機診斷，所以此疑難排解步驟可能是選擇性的。
+3. **檢閱 VM 開機診斷**。 此疑難排解步驟可檢閱 VM 主控台記錄，以判斷 VM 是否報告問題。 並非所有 VM 都已啟用開機診斷，所以此疑難排解步驟可能是選擇性的。
    
-    特定疑難排解步驟已超出本文的範圍，但可能指出會影響 RDP 連線的更廣問題。 如需有關檢閱主控台記錄檔和 VM 螢幕擷取畫面的詳細資訊，請參閱 [VM 的開機診斷](boot-diagnostics.md)。
+    特定疑難排解步驟已超出本文的範圍，但可能指出會影響 RDP 連線的更廣問題。 如需有關檢閱主控台記錄和 VM 螢幕擷取畫面的詳細資訊，請參閱 [VM 的開機診斷](boot-diagnostics.md)。
 
 4. **重設 VM 的 NIC**。 如需詳細資訊，請參閱[如何重設 Azure Windows VM 的 NIC](../windows/reset-network-interface.md)。
 5. **檢查 VM 資源健康狀態**。 此疑難排解步驟可確認 Azure 平台沒有任何可能影響 VM 連線的已知問題。
@@ -209,9 +209,9 @@ ms.locfileid: "55981259"
    ![在 Azure 入口網站中確認雲端服務端點](./media/troubleshoot-rdp-connection/classic-verify-cloud-services-endpoints.png)
    
    如果您沒有可允許 RDP 流量的端點，請[建立雲端服務端點](../windows/classic/setup-endpoints.md)。 允許使用 TCP 連接至私人連接埠 3389。
-3. **檢閱 VM 開機診斷**。 此疑難排解步驟可檢閱 VM 主控台記錄檔，以判斷 VM 是否報告問題。 並非所有 VM 都已啟用開機診斷，所以此疑難排解步驟可能是選擇性的。
+3. **檢閱 VM 開機診斷**。 此疑難排解步驟可檢閱 VM 主控台記錄，以判斷 VM 是否報告問題。 並非所有 VM 都已啟用開機診斷，所以此疑難排解步驟可能是選擇性的。
    
-    特定疑難排解步驟已超出本文的範圍，但可能指出會影響 RDP 連線的更廣問題。 如需有關檢閱主控台記錄檔和 VM 螢幕擷取畫面的詳細資訊，請參閱 [VM 的開機診斷](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/)。
+    特定疑難排解步驟已超出本文的範圍，但可能指出會影響 RDP 連線的更廣問題。 如需有關檢閱主控台記錄和 VM 螢幕擷取畫面的詳細資訊，請參閱 [VM 的開機診斷](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/)。
 4. **檢查 VM 資源健康狀態**。 此疑難排解步驟可確認 Azure 平台沒有任何可能影響 VM 連線的已知問題。
    
     在 Azure 入口網站中選取您的 VM。 向下捲動至 [設定] 窗格中接近清單底部的 [支援 + 疑難排解] 區段。 按一下 [資源健康狀態] 按鈕。 狀況良好的 VM 會報告為 [可用]：

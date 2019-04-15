@@ -1,6 +1,6 @@
 ---
 title: Microsoft Azure 和 Azure 監視器中的傳統警示概觀
-description: 傳統警示即將淘汰。 警示可讓您監視 Azure 資源度量、事件或記錄檔，並在您所指定條件符合時收到通知。
+description: 傳統警示即將淘汰。 警示可讓您監視 Azure 資源度量、事件或記錄，並在您所指定條件符合時收到通知。
 author: rboucher
 services: azure-monitor
 ms.service: azure-monitor

@@ -407,7 +407,7 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 如果您使用的是 Azure SQL 分析，您可以藉由選取 Azure SQL 分析導覽功能表上的 [OMS 工作區]，然後選取 [使用量] 和 [估計成本]，監視您解決方案中的資料擷取使用量。
 
-## <a name="metrics-and-logs-available"></a>可用的計量和記錄檔
+## <a name="metrics-and-logs-available"></a>可用的計量和記錄
 
 監視 Azure SQL Database 所提供的遙測，彈性集區和受管理的執行個體是如下所述。 在 SQL Analytics 收集的監視遙測可用於您自己自訂的分析和應用程式開發使用[Azure 監視器的記錄檔查詢](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)語言。
 

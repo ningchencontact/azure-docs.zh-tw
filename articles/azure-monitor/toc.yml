@@ -70,7 +70,7 @@ items:
       href: platform/data-platform.md
     - name: 度量
       href: platform/data-platform-metrics.md
-    - name: 記錄檔
+    - name: 記錄
       href: platform/data-platform-logs.md
   - name: 資料來源
     items:
@@ -80,7 +80,7 @@ items:
       href: platform/data-sources-reference.md
     - name: 活動記錄檔
       href: platform/activity-logs-overview.md
-    - name: 診斷記錄檔
+    - name: 診斷記錄
       href: platform/diagnostic-logs-overview.md
     - name: 記錄檔資料擷取時間
       href: platform/data-ingestion-time.md
@@ -254,9 +254,9 @@ items:
         href: platform/data-sources-performance-counters.md
       - name: Linux 應用程式的效能
         href: platform/data-sources-linux-applications.md
-      - name: IIS 記錄檔
+      - name: IIS 記錄
         href: platform/data-sources-iis-logs.md
-      - name: 自訂的記錄檔
+      - name: 自訂的記錄
         href: platform/data-sources-custom-logs.md
       - name: 自訂欄位
         href: platform/custom-fields.md
@@ -434,7 +434,7 @@ items:
           href: platform/collect-activity-logs.md
         - name: 跨訂用帳戶收集
           href: platform/collect-activity-logs-subscriptions.md
-      - name: Service 記錄檔與計量
+      - name: Service 記錄與計量
         href: platform/collect-azure-metrics-logs.md
       - name: Azure 儲存體的診斷或記錄資料
         href: platform/azure-storage-iis-table.md
@@ -468,7 +468,7 @@ items:
         href: platform/diagnostic-logs-stream-log-store.md
       - name: 將活動記錄串流至事件中樞
         href: platform/activity-logs-stream-event-hubs.md
-      - name: 記錄檔與計量到事件中樞
+      - name: 記錄與計量到事件中樞
         href: platform/stream-monitoring-data-event-hubs.md
       - name: 診斷記錄到事件中樞
         href: platform/diagnostic-logs-stream-event-hubs.md
@@ -687,7 +687,7 @@ items:
         href: platform/metrics-charts.md
       - name: 計量圖表範例
         href: platform/metric-chart-samples.md
-    - name: 記錄檔
+    - name: 記錄
       items:
       - name: 記錄查詢
         href: log-query/log-query-overview.md
@@ -783,7 +783,7 @@ items:
           href: platform/alerts-classic-portal.md
         - name: 搭配動態閾值的計量警示
           href: platform/alerts-dynamic-thresholds.md
-        - name: 在記錄檔上設定計量警示
+        - name: 在記錄上設定計量警示
           href: platform/alerts-metric-logs.md
         - name: 使用 Resource Manager 範本建立較新的計量警示
           href: platform/alerts-metric-create-templates.md
@@ -995,19 +995,19 @@ items:
     items:
     - name: 監視
       href: /powershell/module/az.applicationinsights
-    - name: 記錄檔
+    - name: 記錄
       href: /powershell/module/az.operationalinsights
   - name: REST API
     items:
     - name: 監視
       href: /rest/api/monitor/
-    - name: 記錄檔
+    - name: 記錄
       href: /rest/api/loganalytics
   - name: Resource Manager 範本
     items:
     - name: 監視
       href: /azure/templates/microsoft.insights/allversions
-    - name: 記錄檔
+    - name: 記錄
       href: /azure/templates/microsoft.operationalinsights/allversions
   - name: 度量
     items:

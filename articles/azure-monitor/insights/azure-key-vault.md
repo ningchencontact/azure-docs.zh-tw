@@ -101,7 +101,7 @@ Azure Key Vault 解決方案會直接從 Key Vault 收集診斷記錄。
     您可以在任何 [記錄搜尋] 頁面上，按時間、詳細結果和您的記錄搜尋記錄來檢視結果。 您也可以按 Facet 篩選以縮減結果。
 
 ## <a name="azure-monitor-log-records"></a>Azure 監視器記錄
-Azure 金鑰保存庫解決方案會分析從 Azure 診斷的 [AuditEvent 記錄檔](../../key-vault/key-vault-logging.md)收集的 **KeyVaults** 類型記錄。  下表是這些記錄的屬性：  
+Azure 金鑰保存庫解決方案會分析從 Azure 診斷的 [AuditEvent 記錄](../../key-vault/key-vault-logging.md)收集的 **KeyVaults** 類型記錄。  下表是這些記錄的屬性：  
 
 | 屬性 | 描述 |
 |:--- |:--- |

@@ -16,7 +16,7 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: cb414abcbbf2db7b7cd6a3d724e50010beeef647
 ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/21/2018
 ms.locfileid: "52275730"
@@ -35,7 +35,7 @@ PerfInsights 可以收集並分析多種資訊。 下列幾節會說明常見案
 
 此案例會收集磁碟設定和其他重要資訊，包括：
 
--   事件記錄檔
+-   事件記錄
 
 -   所有傳入和傳出連線的網路狀態
 

@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.openlocfilehash: 4ff2fbd5976a8e203bbc43a87b31ddb1bed63402
 ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/17/2018
 ms.locfileid: "53548811"
@@ -31,7 +31,7 @@ ms.locfileid: "53548811"
 3. 在提要欄位的 [監視] 區段中，選取 [伺服器記錄]。 
    ![選取伺服器記錄，按一下以設定](./media/howto-configure-server-logs-portal/1-select-server-logs-configure.png)
 
-4. 選取 [按一下這裡可啟用記錄，並設定記錄參數] 標題，以查看伺服器參數。
+4. 選取 [按一下這裡可啟用記錄，並設定記錄參數] 標題，來查看伺服器參數。
 
 5. 變更您需要調整的參數，包括將 "slow_query_log" 調整為 "ON"。 您在此工作階段中所做的所有變更都會以紫色顯示。 
 
@@ -42,7 +42,7 @@ ms.locfileid: "53548811"
 6. 按一下 [伺服器參數] 頁面上的**關閉按鈕** (X 圖示)。
 
 ## <a name="view-list-and-download-logs"></a>檢視清單並下載記錄
-開始記錄之後，您可以檢視可用記錄的清單，並在 [伺服器記錄] 窗格上下載個別記錄檔。 
+一旦開始記錄，您就可以檢視可用記錄的清單，並在 [伺服器記錄] 窗格上下載個別記錄。 
 
 1. 開啟 Azure 入口網站。
 
@@ -53,7 +53,7 @@ ms.locfileid: "53548811"
    ![記錄清單](./media/howto-configure-server-logs-portal/4-server-logs-list.png)
 
    > [!TIP]
-   > 記錄的命名慣例為 **mysql-slow-< your server name>-yyyymmddhh.log**。 檔案名稱中使用的日期和時間是發出記錄的時間。 記錄檔會每隔 24 小時或 7.5 GB 旋轉一次，先到者先用。
+   > 記錄的命名慣例為 **mysql-slow-< your server name>-yyyymmddhh.log**。 檔案名稱中使用的日期和時間是發出記錄的時間。 記錄會每隔 24 小時或 7.5 GB 旋轉一次，先到者先用。
 
 4. 如有需要，請使用**搜尋方塊**，根據日期/時間快速縮小至特定記錄。 搜尋是根據記錄的名稱進行。
 

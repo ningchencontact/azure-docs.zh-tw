@@ -92,7 +92,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 ## <a name="diagnostic-logging"></a>診斷記錄
 
-您可以在 Azure 中使用不同類型的記錄檔來管理和針對應用程式閘道進行疑難排解。 您可以透過入口網站存取其中一些記錄。 可以從 Azure Blob 儲存體擷取所有記錄，並且在不同的工具中進行檢視 (例如 [Azure 監視器記錄](../azure-monitor/insights/azure-networking-analytics.md)、Excel 和 Power BI)。 您可以從下列清單進一步了解不同類型的記錄檔：
+您可以在 Azure 中使用不同類型的記錄來管理和針對應用程式閘道進行疑難排解。 您可以透過入口網站存取其中一些記錄。 可以從 Azure Blob 儲存體擷取所有記錄，並且在不同的工具中進行檢視 (例如 [Azure 監視器記錄](../azure-monitor/insights/azure-networking-analytics.md)、Excel 和 Power BI)。 您可以從下列清單進一步了解不同類型的記錄：
 
 * **活動記錄**：您可以使用 [Azure 活動記錄](../monitoring-and-diagnostics/insights-debugging-with-events.md) (之前稱為「作業記錄和稽核記錄」) 來檢視提交至您的 Azure 訂用帳戶的所有作業及其狀態。 預設會收集活動記錄，您可在 Azure 入口網站中檢視它們。
 * **存取記錄**：您可以使用此記錄來檢視應用程式閘道存取模式並分析重要資訊。 這包含呼叫者的 IP、所要求的 URL、回應延遲、傳回碼，以及輸入和輸出位元組。每隔 300 秒會收集一次存取記錄。 此記錄檔包含每個應用程式閘道執行個體的一筆記錄。 應用程式閘道執行個體是由 instanceId 屬性識別。
@@ -100,7 +100,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 * **防火牆記錄**：您可以使用此記錄，檢視透過應用程式閘道的偵測或防止模式 (依 Web 應用程式防火牆的設定) 所記錄的要求。
 
 > [!NOTE]
-> 記錄僅適用於在 Azure Resource Manager 部署模型中部署的資源。 您無法將記錄檔使用於傳統部署模型中的資源。 若要深入了解這兩個模型，請參閱[了解 Resource Manager 部署和傳統部署](../azure-resource-manager/resource-manager-deployment-model.md)一文。
+> 記錄僅適用於在 Azure Resource Manager 部署模型中部署的資源。 您無法將記錄使用於傳統部署模型中的資源。 若要深入了解這兩個模型，請參閱[了解 Resource Manager 部署和傳統部署](../azure-resource-manager/resource-manager-deployment-model.md)一文。
 
 您有三個選項可用來排序您的記錄：
 
@@ -110,7 +110,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 ### <a name="enable-logging-through-powershell"></a>透過 PowerShell 啟用記錄功能
 
-每個 Resource Manager 資源都會自動啟用活動記錄功能。 您必須啟用存取和效能記錄功能，才能開始收集可透過這些記錄檔取得的資料。 使用下列步驟啟用記錄：
+每個 Resource Manager 資源都會自動啟用活動記錄功能。 您必須啟用存取和效能記錄功能，才能開始收集可透過這些記錄取得的資料。 使用下列步驟啟用記錄：
 
 1. 請記下您的儲存體帳戶的資源識別碼 (記錄資料的儲存之處)。 此值的形式為：/subscriptions/\<subscriptionId\>/resourceGroups/\<資源群組名稱\>/providers/Microsoft.Storage/storageAccounts/\<儲存體帳戶名稱\>。 您可以使用訂用帳戶中的所有儲存體帳戶。 您可以使用 Azure 入口網站來尋找此資訊。
 
@@ -127,7 +127,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
     ```
     
 > [!TIP] 
->活動記錄檔不需要個別的儲存體帳戶。 將儲存體用於記錄存取和效能會產生服務費用。
+>活動記錄不需要個別的儲存體帳戶。 將儲存體用於記錄存取和效能會產生服務費用。
 
 ### <a name="enable-logging-through-the-azure-portal"></a>透過 Azure 入口網站啟用記錄功能
 
@@ -296,7 +296,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 [Azure 監視器記錄](../azure-monitor/insights/azure-networking-analytics.md)可以從您的 Blob 儲存體帳戶收集計數器和事件記錄檔。 它也納入了視覺效果和強大的搜尋功能來分析您的記錄。
 
-您也可以連接到儲存體帳戶並擷取存取和效能記錄檔的 JSON 記錄檔項目。 下載 JSON 檔案後，可以將它們轉換成 CSV，並在 Excel、PowerBI 或任何其他資料視覺化工具中檢視它們。
+您也可以連接到儲存體帳戶並擷取存取和效能記錄的 JSON 記錄項目。 下載 JSON 檔案後，可以將它們轉換成 CSV，並在 Excel、PowerBI 或任何其他資料視覺化工具中檢視它們。
 
 > [!TIP]
 > 如果您熟悉 Visual Studio 以及在 C# 中變更常數和變數值的基本概念，您可以使用 GitHub 所提供的[記錄檔轉換器工具 (英文)](https://github.com/Azure-Samples/networking-dotnet-log-converter)。

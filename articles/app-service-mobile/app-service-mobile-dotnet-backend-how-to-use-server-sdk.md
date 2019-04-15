@@ -436,7 +436,7 @@ Azure App Service 提供了數個適用於 ASP.NET 應用程式的偵錯和疑�
 * [在 Visual Studio 中疑難排解 Azure App Service](../app-service/troubleshoot-dotnet-visual-studio.md)
 
 ### <a name="logging"></a>記錄
-您可以使用標準的 ASP.NET 追蹤寫入來寫入 App Service 診斷記錄： 您必須在行動應用程式後端中啟用診斷，才能寫入至記錄檔。
+您可以使用標準的 ASP.NET 追蹤寫入來寫入 App Service 診斷記錄： 您必須在行動應用程式後端中啟用診斷，才能寫入至記錄。
 
 若要启用诊断并写入日志，请执行以下操作：
 

@@ -116,7 +116,7 @@ ms.locfileid: "59048107"
 **設定** | **詳細資料**
 --- | ---
 使用量 | UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
-安裝記錄檔 | 在 %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log 底下。
+安裝記錄 | 在 %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log 底下。
 /Role | 必要安裝參數。 指定應該要安裝行動服務 (MS) 還是主要目標 (MT)。
 /InstallLocation| 選擇性參數。 指定行動服務安裝位置 (任何資料夾)。
 /Platform | 必要。 指定要安裝行動服務的平台。 如果是 VMware VM/實體伺服器，則為 **VMware**；如果是 Azure VM，則為 **Azure**。

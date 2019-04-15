@@ -14,7 +14,7 @@ ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: 5a7c16e6ac565d1660fee02cb7df178344b195e7
 ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51254395"
@@ -184,7 +184,7 @@ SDK 會自動將該 JSON 訊息還原序列化。 以下是 **PoisonBlobMessage*
 ### <a name="blob-polling-algorithm"></a>Blob 輪詢演算法
 WebJobs SDK 會在應用程式啟動時，掃描 **BlobTrigger** 屬性所指定的所有容器。 在大型儲存體帳戶中，這項掃描需要花費一些時間，因此，可能需要一些時間才能找到新的 Blob 以及執行 **BlobTrigger** 函數。
 
-為了在應用程式啟動之後偵測新的或已變更的 Blob，SDK 會定期讀取 Blob 儲存體記錄檔。 Blob 記錄檔會進行緩衝處理，大約每隔 10 分鐘才有實際寫入，因此在建立或更新 Blob 之後可能會有明顯的延遲，然後才執行相對應的 **BlobTrigger** 函數。
+為了在應用程式啟動之後偵測新的或已變更的 Blob，SDK 會定期讀取 Blob 儲存體記錄。 Blob 記錄會進行緩衝處理，大約每隔 10 分鐘才有實際寫入，因此在建立或更新 Blob 之後可能會有明顯的延遲，然後才執行相對應的 **BlobTrigger** 函數。
 
 您使用 **Blob** 屬性建立的 Blob 有例外狀況。 當 WebJobs SDK 建立新的 Blob 時，會立即將新的 Blob 傳遞到任何相符的 **BlobTrigger** 函數。 因此，如果您具有 Blob 輸入和輸出的鏈結，就能有效率地處理它們。 但是，如果您想要降低透過其他方法建立或更新的 Blob 執行 Blob 處理函數時的延遲，建議使用 **QueueTrigger** 而非 **BlobTrigger**。
 
@@ -214,7 +214,7 @@ Blob 回條儲存於 AzureWebJobsStorage 連接字串所指定之 Azure 儲存�
 * 在程式碼中設定 WebJobs SDK 建構函式參數的值
 * 設定 **MaxDequeueCount** 以處理有害的 Blob。
 * 手動觸發函式
-* 寫入記錄檔
+* 寫入記錄
 
 ## <a name="next-steps"></a>後續步驟
 本文提供的程式碼範例示範如何處理使用 Azure Blob 的常見案例。 如需如何使用 Azure WebJobs 和 WebJobs SDK 的詳細資訊，請參閱 [Azure WebJobs 文件資源](https://go.microsoft.com/fwlink/?linkid=390226)。

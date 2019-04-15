@@ -110,7 +110,7 @@ ms.locfileid: "59549233"
    ![工作摘要](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)  
 
 1. 關閉 [輸出] 窗格。
-1. 按一下 [所有記錄檔]  以開啟 Runbook 作業的 [資料流] 窗格。 应该只会在输出流中看到 *Hello World*，但此视图也可以显示 Runbook 作业的其他流，例如，“详细”和“错误”（如果 Runbook 向其写入）。
+1. 按一下 [所有記錄]  以開啟 Runbook 作業的 [資料流] 窗格。 应该只会在输出流中看到 *Hello World*，但此视图也可以显示 Runbook 作业的其他流，例如，“详细”和“错误”（如果 Runbook 向其写入）。
 
    ![工作摘要](media/automation-first-runbook-textual/job-pane-status-blade-alllogstile.png)
 

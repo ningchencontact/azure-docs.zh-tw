@@ -10,7 +10,7 @@ ms.date: 8/21/2018
 ms.author: raynew
 ms.openlocfilehash: 6a29aeda52fe599ec7e2ee3b3ea1846e05b73d7d
 ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/14/2019
 ms.locfileid: "56268867"
@@ -286,7 +286,7 @@ Azure 入口網站最多可能需要 15 分鐘，才會反映 Azure 備份代理
 
 2. 如果此程序不在執行中，請開啟 [控制台]，然後瀏覽服務清單。 啟動或重新啟動 **Microsoft Azure 復原服務管理代理程式**。
 
-    如需進一步資訊，請瀏覽以下位置的記錄檔：<br/>
+    如需進一步資訊，請瀏覽以下位置的記錄：<br/>
    例如 `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*`：<br/>
    `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 

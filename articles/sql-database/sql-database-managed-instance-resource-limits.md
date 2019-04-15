@@ -63,7 +63,7 @@ Azure SQL Database 受控執行個體可部署在兩個硬體世代 (Gen4 和 Ge
 
 **注意**：
 
-- 使用者和系統資料庫中的資料和記錄檔大小都會計入執行個體儲存體大小，並與儲存體大小上限相比較。 使用 <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> 系統檢視來判斷資料庫所使用的總空間。 錯誤記錄檔不會持續留存，也不計入大小。 備份並未計入儲存體大小。
+- 使用者和系統資料庫中的資料和記錄檔大小都會計入執行個體儲存體大小，並與儲存體大小上限相比較。 使用 <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> 系統檢視來判斷資料庫所使用的總空間。 錯誤記錄不會持續留存，也不計入大小。 備份並未計入儲存體大小。
 - 輸送量和 IOPS 也取決於受控執行個體未明確限制的頁面大小。
 
 ## <a name="supported-regions"></a>支援區域

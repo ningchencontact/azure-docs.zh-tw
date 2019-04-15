@@ -392,7 +392,7 @@ App Service 會藉由尋找每個子目錄中的 wsgi.py (預設會由 `manage.p
 
 **恭喜！** 您正在適用於 Linux 的 App Service 中執行 Python 應用程式。
 
-## <a name="access-diagnostic-logs"></a>存取診斷記錄檔
+## <a name="access-diagnostic-logs"></a>存取診斷記錄
 
 在 Linux 上的 App Service 中，應用程式會在來自預設 Docker 映像的容器內執行。 您可以存取從容器內產生的主控台記錄。 若要取得記錄，請先在 Cloud Shell 中執行下列命令來開啟容器記錄：
 

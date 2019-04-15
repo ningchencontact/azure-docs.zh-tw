@@ -171,7 +171,7 @@ ms.locfileid: "58904248"
 
 ### <a name="event-id-6065-80070533-this-user-cant-sign-in-because-this-account-is-currently-disabled"></a>事件識別碼 6065：80070533 此使用者無法登入，因為此帳戶目前已停用  
 
-在「事件檢視器」的 SettingSync/Debug 記錄檔底下，當使用者的認證過期時，可能會看到此錯誤。 此外，當租用戶未自動佈建 AzureRMS 時，可能會發生此錯誤。 
+在「事件檢視器」的 SettingSync/Debug 記錄底下，當使用者的認證過期時，可能會看到此錯誤。 此外，當租用戶未自動佈建 AzureRMS 時，可能會發生此錯誤。 
 
 **建議的動作**  
 在第一個案例中，讓使用者更新其認證，並使用新的認證登入到裝置。 若要解決 AzureRMS 問題，請繼續執行 [KB3193791](https://support.microsoft.com/kb/3193791) 中列出的步驟。 

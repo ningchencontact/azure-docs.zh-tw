@@ -1,6 +1,6 @@
 ---
 title: Azure 監視器 PowerShell 快速入門範例
-description: 使用 PowerShell 存取 Azure 監視器的功能，例如自動調整、警示、webhook 和搜尋活動記錄檔。
+description: 使用 PowerShell 存取 Azure 監視器的功能，例如自動調整、警示、webhook 和搜尋活動記錄。
 author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
@@ -96,7 +96,7 @@ Get-AzLog -MaxEvents 1000
 > 
 
 ## <a name="retrieve-alerts-history"></a>擷取警示歷程記錄
-若要檢視所有警示事件，您可以使用下列範例查詢 Azure Resource Manager 記錄檔。
+若要檢視所有警示事件，您可以使用下列範例查詢 Azure Resource Manager 記錄。
 
 ```powershell
 Get-AzLog -Caller "Microsoft.Insights/alertRules" -DetailedOutput -StartTime 2015-03-01
@@ -329,8 +329,8 @@ Add-AzLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/res
 Add-AzLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
 ```
 
-## <a name="configure-diagnostics-logs"></a>設定診斷記錄檔
-許多 Azure 服務提供額外的記錄檔和遙測，可執行下列一或多個作業： 
+## <a name="configure-diagnostics-logs"></a>設定診斷記錄
+許多 Azure 服務提供額外的記錄和遙測，可執行下列一或多個作業： 
  - 設定將資料儲存在 Azure 儲存體帳戶
  - 傳送至事件中樞
  - 傳送至 Log Analytics 工作區。 

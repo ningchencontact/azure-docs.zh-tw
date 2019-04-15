@@ -91,6 +91,6 @@ Azure Blob 儲存體生命週期管理原則尚未適用於 Data Lake 儲存體 
 
 這些原則可提供給未啟用階層命名空間功能的儲存體帳戶使用。
 
-## <a name="diagnostic-logs"></a>診斷記錄檔
+## <a name="diagnostic-logs"></a>診斷記錄
 
 诊断日志不适用于 Data Lake Storage Gen2 帐户。

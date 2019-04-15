@@ -51,7 +51,7 @@ ms.locfileid: "58225054"
 
 系統管理員可以檢視和報告所有對於 HDInsight 叢集資源和資料的存取。 針對在 Apache Ranger 支援的端點中所建立的存取控制原則，系統管理員也可以檢視和報告存取控制原則的所有變更。 
 
-具有 ESP 的 HDInsight 叢集會使用熟悉的 Apache Ranger UI 來搜尋稽核記錄檔。 Ranger 會在後端使用 [Apache Solr](https://hortonworks.com/apache/solr/) 來儲存及搜尋記錄檔。
+具有 ESP 的 HDInsight 叢集會使用熟悉的 Apache Ranger UI 來搜尋稽核記錄。 Ranger 會在後端使用 [Apache Solr](https://hortonworks.com/apache/solr/) 來儲存及搜尋記錄。
 
 ## <a name="encryption"></a>加密
 若要符合組織安全性和合規性需求，保護資料就非常重要。 除了限制未經授權的員工存取資料之外，您還應該將資料加密。 

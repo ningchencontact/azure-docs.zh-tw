@@ -703,7 +703,7 @@ Context.Logger.Info("Component started");
 您可以從 **[Hadoop 服務記錄]** \(位於**伺服器總管中**) 檢視記錄的資訊。 展開 Storm on HDInsight 叢集的項目，然後展開 [Hadoop 服務記錄]。 最後，選取要檢視的記錄檔。
 
 > [!NOTE]  
-> 記錄會儲存在您叢集所使用的 Azure 儲存體帳戶中。 若要在 Visual Studio 中檢視記錄檔，您必須登入至擁有儲存體帳戶的 Azure 訂用帳戶。
+> 記錄會儲存在您叢集所使用的 Azure 儲存體帳戶中。 若要在 Visual Studio 中檢視記錄，您必須登入至擁有儲存體帳戶的 Azure 訂用帳戶。
 
 ### <a name="view-error-information"></a>檢視錯誤資訊
 
@@ -719,7 +719,7 @@ Context.Logger.Info("Component started");
 
 ### <a name="errors-submitting-topologies"></a>提交拓撲的錯誤
 
-如果將拓撲提交到 HDInsight 時發生錯誤，您可以尋找在 HDInsight 叢集上處理拓撲提交之伺服器端元件的記錄檔。 若要擷取這些記錄檔，請在命令列使用以下命令：
+如果將拓撲提交到 HDInsight 時發生錯誤，您可以尋找在 HDInsight 叢集上處理拓撲提交之伺服器端元件的記錄。 若要擷取這些記錄，請在命令列使用以下命令：
 
     scp sshuser@clustername-ssh.azurehdinsight.net:/var/log/hdinsight-scpwebapi/hdinsight-scpwebapi.out .
 

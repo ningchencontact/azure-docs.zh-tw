@@ -217,9 +217,9 @@ Ambari REST API 可透過網際網路提供。 HDInsight 公用閘道器會處�
 
 ### <a name="ssh"></a>SSH
 
-透過 SSH 連接至前端節點時，可以在 **/var/log**找到記錄檔。 例如， **/var/log/hadoop-yarn/yarn** 包含 YARN 的記錄檔。
+透過 SSH 連接至前端節點時，可以在 **/var/log**找到記錄檔。 例如， **/var/log/hadoop-yarn/yarn** 包含 YARN 的記錄。
 
-每個前端節點可以有唯一的記錄項目，所以您應該檢查兩者的記錄檔。
+每個前端節點可以有唯一的記錄項目，所以您應該檢查兩者的記錄。
 
 ### <a name="sftp"></a>SFTP
 
@@ -244,7 +244,7 @@ Ambari REST API 可透過網際網路提供。 HDInsight 公用閘道器會處�
 
 從 Ambari Web UI 中，選取您想要檢視記錄的服務 (例如，YARN)。 然後使用 [快速連結] 來選取要檢視記錄的前端節點。
 
-![使用快速連結檢視記錄檔](./media/hdinsight-high-availability-linux/viewlogs.png)
+![使用快速連結檢視記錄](./media/hdinsight-high-availability-linux/viewlogs.png)
 
 ## <a name="how-to-configure-the-node-size"></a>如何配置节点大小
 

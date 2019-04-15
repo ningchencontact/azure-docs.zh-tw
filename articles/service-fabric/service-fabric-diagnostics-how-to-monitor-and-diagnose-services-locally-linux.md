@@ -37,7 +37,7 @@ ms.locfileid: "58659741"
 
 對於 Java 應用程式，有 [多個記錄架構](https://en.wikipedia.org/wiki/Java_logging_framework) 可用。 由於 `java.util.logging` 是 JRE 的預設選項，它也會用於 [GitHub 中的程式碼範例](https://github.com/Azure-Samples/service-fabric-java-getting-started)。 下列討論說明如何設定 `java.util.logging` 架構。
 
-您可以使用 java.util.logging 將應用程式記錄檔重新導向至記憶體、輸出串流、主控台檔案或通訊端。 对于其中的每个选项，框架中已提供默认处理程序。 您可以建立 `app.properties` 檔案來設定應用程式的檔案處理常式，將所有記錄檔重新導向至本機檔案。
+您可以使用 java.util.logging 將應用程式記錄重新導向至記憶體、輸出串流、主控台檔案或通訊端。 对于其中的每个选项，框架中已提供默认处理程序。 您可以建立 `app.properties` 檔案來設定應用程式的檔案處理常式，將所有記錄重新導向至本機檔案。
 
 下列程式碼片段包含範例組態︰
 
@@ -62,7 +62,7 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 * **%u** 是解決同時 Java 處理序之間衝突的唯一號碼。
 * **%g** 是區分輪替記錄的產生號碼。
 
-依預設，如果未明確設定任何處理常式，則會註冊主控台處理常式。 使用者可以在 /var/log/syslog 下檢視 syslog 中的記錄檔。
+依預設，如果未明確設定任何處理常式，則會註冊主控台處理常式。 使用者可以在 /var/log/syslog 下檢視 syslog 中的記錄。
 
 如需詳細資訊，請參閱 [GitHub 中的程式碼範例](https://github.com/Azure-Samples/service-fabric-java-getting-started)。
 
@@ -72,7 +72,7 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 
 有多個架構適用於追蹤 Linux 上的 CoreCLR 應用程式。 如需詳細資訊，請參閱 [GitHub：logging](http:/github.com/aspnet/logging)。  因為 C# 開發人員熟悉 EventSource，本文使用 EventSource 來追蹤 Linux 上的 CoreCLR 範例。
 
-第一個步驟是加入 System.Diagnostics.Tracing，使您可以將您的記錄檔寫入記憶體中、輸出串流或主控台檔案。  針對使用 EventSource 進行記錄，請將下列專案加入您的 project.json︰
+第一個步驟是加入 System.Diagnostics.Tracing，使您可以將您的記錄寫入記憶體中、輸出串流或主控台檔案。  針對使用 EventSource 進行記錄，請將下列專案加入您的 project.json︰
 
 ```json
     "System.Diagnostics.StackTrace": "4.0.1"

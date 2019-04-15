@@ -86,7 +86,7 @@ Data Factory [管線](data-factory-create-pipelines.md)中的 HDInsight Hive 活
 | 定義 |在使用 'hiveconf' 的 Hive 指令碼內指定參數做為參考的金鑰/值組 |否 |
 
 ## <a name="example"></a>範例
-我們來看看遊戲記錄檔分析的範例，您想要識別使用者花多少時間在玩貴公司開發的遊戲。 
+我們來看看遊戲記錄分析的範例，您想要識別使用者花多少時間在玩貴公司開發的遊戲。 
 
 下列記錄檔是範例遊戲記錄檔，以逗號 (`,`) 分隔，並包含下列欄位 – ProfileID、SessionStart、Duration、SrcIPAddress 和 GameType。
 
@@ -174,7 +174,7 @@ FROM HiveSampleIn Group by ProfileID
 7. 使用資料處理站監視和管理檢視來監視管線。 如需詳細資料，請參閱〈 [監視及管理 Data Factory 管線](data-factory-monitor-manage-pipelines.md) 〉文章。 
 
 ## <a name="specifying-parameters-for-a-hive-script"></a>指定 Hive 指令碼的參數
-在此範例中，每天都會將遊戲記錄檔擷取到 Azure Blob 儲存體，並儲存在使用日期和時間分割的資料夾。 您想要參數化 Hive 指令碼，在執行階段期間以動態方式傳遞輸入資料夾位置，並且產生使用日期和時間分割的輸出。
+在此範例中，每天都會將遊戲記錄擷取到 Azure Blob 儲存體，並儲存在使用日期和時間分割的資料夾。 您想要參數化 Hive 指令碼，在執行階段期間以動態方式傳遞輸入資料夾位置，並且產生使用日期和時間分割的輸出。
 
 若要使用參數化的 Hive 指令碼，請執行下列動作
 

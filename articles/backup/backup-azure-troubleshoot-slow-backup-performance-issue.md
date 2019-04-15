@@ -10,7 +10,7 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: f24a60ab9bdcf1231085de4edeeb89ce1edf4e80
 ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/07/2018
 ms.locfileid: "51248464"
@@ -81,4 +81,4 @@ Windows 提供了稱為 [效能監視器](https://technet.microsoft.com/magazine
 下列指標可協助您了解瓶頸並據以處理下一個步驟︰
 
 * **UI 正在顯示資料傳輸的進度**。 資料仍在傳輸中。 網路頻寬或資料大小可能會造成延遲。
-* **UI 未顯示資料傳輸的進度**。 請開啟位於 C:\Program Files\Microsoft Azure 復原服務代理程式\Temp 的記錄檔，然後查看記錄檔中是否有 FileProvider::EndData 項目。 此項目表示資料傳輸完成，且目錄作業正在進行中。 請勿取消備份工作。 請稍微多等待一些時間讓目錄作業完成。 若問題持續發生，請連絡 [Azure 支援](https://portal.azure.com/#create/Microsoft.Support)。
+* **UI 未顯示資料傳輸的進度**。 請開啟位於 C:\Program Files\Microsoft Azure 復原服務代理程式\Temp 的記錄，然後查看記錄中是否有 FileProvider::EndData 項目。 此項目表示資料傳輸完成，且目錄作業正在進行中。 請勿取消備份工作。 請稍微多等待一些時間讓目錄作業完成。 若問題持續發生，請連絡 [Azure 支援](https://portal.azure.com/#create/Microsoft.Support)。

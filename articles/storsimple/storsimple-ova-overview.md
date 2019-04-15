@@ -155,7 +155,7 @@ Microsoft Azure StorSimple 提供可讓您集中管理 StorSimple 儲存體的 W
 
 ### <a name="local-web-user-interface"></a>本機 Web 使用者介面
 
-虛擬陣列包括一個 Web 式 UI，用於單次設定裝置，並向 StorSimple 裝置管理員服務註冊裝置。 您可以使用它來關閉和重新啟動虛擬陣列、執行診斷測試、更新軟體、變更裝置系統管理員密碼、檢視系統記錄檔，以及連絡 Microsoft 支援服務發出服務要求。
+虛擬陣列包括一個 Web 式 UI，用於單次設定裝置，並向 StorSimple 裝置管理員服務註冊裝置。 您可以使用它來關閉和重新啟動虛擬陣列、執行診斷測試、更新軟體、變更裝置系統管理員密碼、檢視系統記錄，以及連絡 Microsoft 支援服務發出服務要求。
 
 如需有關使用 Web 式 UI 的資訊，請移至 [使用 Web 式 UI 來管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。
 

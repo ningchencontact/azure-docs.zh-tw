@@ -50,7 +50,7 @@ ms.locfileid: "58668308"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-chaos-schedule-set"></a>sfctl chaos schedule set
 設定 Chaos 使用的排程。
@@ -76,7 +76,7 @@ Chaos 會根據 Chaos 排程自動排定執行。 所提供的輸入排程中版
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ### <a name="examples"></a>範例
 

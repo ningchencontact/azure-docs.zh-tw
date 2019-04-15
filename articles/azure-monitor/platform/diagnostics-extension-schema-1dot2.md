@@ -114,7 +114,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**EtwProviders**|設定要收集來自 EventSource 和/或以 ETW 資訊清單為基礎之提供者的 ETW 事件。|  
 |**度量**|此元素讓您能夠產生已最佳化的效能計數器資料表來進行快速查詢。 除了效能計數器資料表之外，**PerformanceCounters** 元素中所定義的每個效能計數器都會儲存於 Metrics 資料表中。 必要屬性：<br /><br /> **resourceId** - 這是您要部署 Azure 診斷的虛擬機器資源識別碼。 從 [Azure 入口網站](https://portal.azure.com)取得 **resourceID**。 選取 [瀏覽][資源群組] ->  -> **<Name\>**。 按一下 [屬性] 圖格，並複製 [識別碼] 欄位的值。|  
 |**PerformanceCounters**|啟用收集效能計數器。 選用屬性：<br /><br /> **scheduledTransferPeriod** - 排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](https://www.w3schools.com/xml/schema_dtypes_date.asp)。|  
-|**WindowsEventLog**|啟用收集 Windows 事件記錄檔。 選用屬性：<br /><br /> **scheduledTransferPeriod** - 排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](https://www.w3schools.com/xml/schema_dtypes_date.asp)。|  
+|**WindowsEventLog**|啟用收集 Windows 事件記錄。 選用屬性：<br /><br /> **scheduledTransferPeriod** - 排程傳輸至儲存體之間的間隔，無條件進位到最接近的分鐘數。 值是 [XML「持續時間資料類型」(英文)](https://www.w3schools.com/xml/schema_dtypes_date.asp)。|  
 
 ## <a name="crashdumps-element"></a>CrashDumps 元素  
  啟用收集損毀傾印。 下表說明子元素：  
@@ -199,5 +199,5 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |元素名稱|描述|  
 |------------------|-----------------|  
-|**DataSource**|要收集的 Windows 事件記錄檔。 必要屬性：<br /><br /> **name** - 說明要收集之 Windows 事件的 XPath 查詢。 例如︰<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> 若要收集所有事件，請指定 "*"。|
+|**DataSource**|要收集的 Windows 事件記錄。 必要屬性：<br /><br /> **name** - 說明要收集之 Windows 事件的 XPath 查詢。 例如︰<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> 若要收集所有事件，請指定 "*"。|
 

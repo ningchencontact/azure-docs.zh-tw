@@ -31,7 +31,7 @@ ms.locfileid: "58095733"
 
 ![Azure Stack [監視器] 刀鋒視窗](./media/azure-stack-metrics-azure-data/azs-monitor.png)
 
-Azure 監視器是平台服務，提供監視 Azure 資源的單一來源。 您可以使用 Azure 監視器來視覺化、查詢、路由、封存，以及針對來自 Azure 資源的度量和記錄檔採取其他行動。 您可以使用 Azure Stack 管理員入口網站、監視器 PowerShell Cmdlet、跨平台 CLI 或 Azure 監視器 REST API 來使用此資料。 若要了解 Azure Stack 所支援的特定連線，請參閱[如何取用 Azure Stack 中的監視資料](azure-stack-metrics-monitor.md)
+Azure 監視器是平台服務，提供監視 Azure 資源的單一來源。 您可以使用 Azure 監視器來視覺化、查詢、路由、封存，以及針對來自 Azure 資源的度量和記錄採取其他行動。 您可以使用 Azure Stack 管理員入口網站、監視器 PowerShell Cmdlet、跨平台 CLI 或 Azure 監視器 REST API 來使用此資料。 若要了解 Azure Stack 所支援的特定連線，請參閱[如何取用 Azure Stack 中的監視資料](azure-stack-metrics-monitor.md)
 
 > [!Note]
 > Azure Stack 開發套件無法使用計量和診斷記錄。
@@ -64,10 +64,10 @@ Azure Stack 中的 **Microsoft.Compute** 資源提供者包括：
 
 量值的類型包括：
  - 效能計數器
- - 應用程式記錄檔
- - Windows 事件記錄檔
+ - 應用程式記錄
+ - Windows 事件記錄
  - .NET 事件來源
- - IIS 記錄檔
+ - IIS 記錄
  - 以資訊清單為基礎的 ETW
  - 損毀傾印
  - 客戶錯誤記錄

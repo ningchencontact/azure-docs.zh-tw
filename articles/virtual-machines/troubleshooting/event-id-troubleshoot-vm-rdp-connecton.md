@@ -16,7 +16,7 @@ ms.date: 11/01/2018
 ms.author: delhan
 ms.openlocfilehash: 4c783c70217a84bbe5ccf15accc4a2bec0b7cca8
 ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/06/2018
 ms.locfileid: "52959677"
@@ -45,7 +45,7 @@ ms.locfileid: "52959677"
 
 ## <a name="scenario-1"></a>案例 1
 
-### <a name="event-logs"></a>事件記錄檔
+### <a name="event-logs"></a>事件記錄
 
 在 CMD 執行個體中執行下列命令，以檢查在過去 24 小時內是否有事件 1058 或事件 1057 記錄在系統記錄中：
 

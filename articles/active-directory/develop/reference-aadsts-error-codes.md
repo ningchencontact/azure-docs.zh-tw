@@ -166,7 +166,7 @@ ms.locfileid: "59271793"
 | AADSTS80001 | OnPremiseStoreIsNotAvailable - 驗證代理程式無法連線至 Active Directory。 確定代理程式伺服器和必須驗證其密碼的使用者都是相同 AD 樹系的成員，而且都能連線到 Active Directory。 |
 | AADSTS80002 | OnPremisePasswordValidatorRequestTimedout - 密碼驗證要求逾時。確定 Active Directory 可用，並且會回應來自代理程式的要求。 |
 | AADSTS80005 | OnPremisePasswordValidatorUnpredictableWebException - 處理驗證代理程式所傳來的回應時，發生未知錯誤。 重試要求。 如果持續失敗，請[開啟支援票證](../fundamentals/active-directory-troubleshooting-support-howto.md)，以取得有關錯誤的詳細資料。 |
-| AADSTS80007 | OnPremisePasswordValidatorErrorOccurredOnPrem - 驗證代理程式無法驗證使用者的密碼。 請檢查代理程式記錄檔以了解詳細資訊，並確認 Active Directory 如預期般運作。 |
+| AADSTS80007 | OnPremisePasswordValidatorErrorOccurredOnPrem - 驗證代理程式無法驗證使用者的密碼。 請檢查代理程式記錄以了解詳細資訊，並確認 Active Directory 如預期般運作。 |
 | AADSTS80010 | OnPremisePasswordValidationEncryptionException - 驗證代理程式無法將密碼解密。 |
 | AADSTS80012 | OnPremisePasswordValidationAccountLogonInvalidHours - 使用者在允許的時間外 (此值是在 AD 中指定的) 嘗試登入。 |
 | AADSTS80013 | OnPremisePasswordValidationTimeSkew - 無法完成驗證嘗試，因為執行驗證代理程式的機器和 AD 之間有時間差異。 請修正時間同步問題。 |

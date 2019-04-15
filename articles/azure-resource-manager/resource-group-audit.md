@@ -21,7 +21,7 @@ ms.locfileid: "58802282"
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>檢視活動記錄以稽核對資源的動作
 
-透過活動記錄檔，您可以判斷︰
+透過活動記錄，您可以判斷︰
 
 * 訂用帳戶的資源在進行哪些作業
 * 啟動作業的人員
@@ -29,11 +29,11 @@ ms.locfileid: "58802282"
 * 作業的狀態
 * 其他可能協助您研究作業的屬性值
 
-活動記錄包含在您的資源上執行的所有寫入作業 (PUT、POST、DELETE)。 不包含讀取作業 (GET)。 如需資源動作的清單，請參閱 [Azure Resource Manager 資源提供者作業](../role-based-access-control/resource-provider-operations.md)。 您可以使用稽核記錄檔在進行疑難排解時發現錯誤，或是監視貴組織使用者修改資源的方式。
+活動記錄包含在您的資源上執行的所有寫入作業 (PUT、POST、DELETE)。 不包含讀取作業 (GET)。 如需資源動作的清單，請參閱 [Azure Resource Manager 資源提供者作業](../role-based-access-control/resource-provider-operations.md)。 您可以使用稽核記錄在進行疑難排解時發現錯誤，或是監視貴組織使用者修改資源的方式。
 
 活動記錄會保留 90 天。 您可以查詢任何的日期範圍，只要開始日期不是在過去 90 天以前。
 
-您可以透過入口網站、PowerShell、Azure CLI、Insights REST API 或 [Insights .NET Library](https://www.nuget.org/packages/Microsoft.Azure.Insights/)擷取活動記錄檔中的資訊。
+您可以透過入口網站、PowerShell、Azure CLI、Insights REST API 或 [Insights .NET Library](https://www.nuget.org/packages/Microsoft.Azure.Insights/)擷取活動記錄中的資訊。
 
 ## <a name="the-azure-portal"></a>Azure 入口網站
 
@@ -171,7 +171,7 @@ ms.locfileid: "58802282"
 
 ## <a name="next-steps"></a>後續步驟
 
-* Azure 活動記錄檔可以搭配 Power BI 用來更深入了解訂用帳戶中的動作。 請參閱 [在 Power BI 和其他工具中檢視和分析 Azure 活動記錄檔](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)。
+* Azure 活動記錄可以搭配 Power BI 用來更深入了解訂用帳戶中的動作。 請參閱 [在 Power BI 和其他工具中檢視和分析 Azure 活動記錄](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)。
 * 如要了解如何設定安全性原則，請參閱 [Azure 角色型存取控制](../role-based-access-control/role-assignments-portal.md)。
 * 若要深入了解檢視部署作業的命令，請參閱[檢視部署作業](resource-manager-deployment-operations.md)。
 * 若要了解如何防止刪除所有使用者的資源，請參閱 [使用 Azure Resource Manager 鎖定資源](resource-group-lock-resources.md)。

@@ -107,7 +107,7 @@ Azure 診斷記錄是由資源所發出，提供關於該資源之作業的豐�
 
    `resource` 是 Azure Cosmos DB 帳戶的名稱。 資源是格式"/subscriptions/`<subscriptionId>`/resourceGroups/`<resource_group_name>`/providers/Microsoft.DocumentDB/databaseAccounts/ < Azure_Cosmos_account_name >"`storage-account`是儲存體帳戶名稱您要傳送記錄檔。 您可以藉由更新類別目錄參數值"MongoRequests 」 或 「 DataPlaneRequests"記錄其他記錄檔。 
 
-- 若要啟用將診斷記錄檔串流至事件中樞，使用下列命令︰
+- 若要啟用將診斷記錄串流至事件中樞，使用下列命令︰
 
    ```azurecli-interactive
    az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --event-hub-rule <eventHubRuleID> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'

@@ -262,7 +262,7 @@ RebootRequired | true - 需要重新開機<br> false - 不需要重新開機 | �
 
 ## <a name="diagnosticshealth-events"></a>診斷/健康情況事件
 
-### <a name="diagnostic-logs"></a>診斷記錄檔
+### <a name="diagnostic-logs"></a>診斷記錄
 
 收集修補程式協調流程應用程式的記錄，是 Service Fabric 執行階段記錄的一部分。
 

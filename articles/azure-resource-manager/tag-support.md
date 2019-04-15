@@ -8,7 +8,7 @@ ms.date: 02/13/2019
 ms.author: tomfitz
 ms.openlocfilehash: dd6836ef4f859ce77c1a56095d32373d8e08f468
 ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/14/2019
 ms.locfileid: "56270380"
@@ -43,7 +43,7 @@ ms.locfileid: "56270380"
 | agents | 否 | 
 | anonymousapiusers | 否 | 
 | 組態 | 否 | 
-| logs | 否 | 
+| 記錄 | 否 | 
 | reports | 否 | 
 | 服務 | 否 | 
 
@@ -667,7 +667,7 @@ ms.locfileid: "56270380"
 | extendedDiagnosticSettings | 否 | 
 | logDefinitions | 否 | 
 | logprofiles | 否 | 
-| logs | 否 | 
+| 記錄 | 否 | 
 | metricAlerts | yes |
 | migrateToNewPricingModel | 否 | 
 | myWorkbooks | 否 | 
@@ -729,7 +729,7 @@ ms.locfileid: "56270380"
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
-| logs | 否 | 
+| 記錄 | 否 | 
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 | 資源類型 | 支援標記 |

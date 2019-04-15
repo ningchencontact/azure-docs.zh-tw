@@ -84,7 +84,7 @@ ms.locfileid: "58793317"
 
    * 確認已啟用密碼雜湊同步處理功能。
    
-   * 在「Windows 應用程式事件記錄檔」中搜尋密碼雜湊同步處理活動訊號事件。
+   * 在「Windows 應用程式事件記錄」中搜尋密碼雜湊同步處理活動訊號事件。
 
    * 針對內部部署 Active Directory 連接器下的每個 Active Directory 網域：
 

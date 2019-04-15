@@ -14,7 +14,7 @@ ms.date: 01/24/2019
 ms.author: bwren
 ms.openlocfilehash: ba9a0ab775e062f21a058b537e289fe3ea2b40bb
 ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/11/2019
 ms.locfileid: "56000041"
@@ -39,7 +39,7 @@ Azure 監視器是一種大規模的資料服務，服務對象為每月需傳�
 代理程式和管理解決方案使用不同的策略來收集虛擬機器的資料，這可能會影響延遲。 某些特定範例包括以下內容：
 
 - 立即收集 Windows 事件、syslog 事件和效能計量。 Linux 效能計數器每隔 30 秒輪詢一次。
-- 時間戳記變更後，會收集 IIS 記錄和自訂記錄。 而 IIS 記錄檔會因[變換在 IIS 上設定的排程](data-sources-iis-logs.md)而受影響。 
+- 時間戳記變更後，會收集 IIS 記錄和自訂記錄。 而 IIS 記錄會因[變換在 IIS 上設定的排程](data-sources-iis-logs.md)而受影響。 
 - Active Directory 複寫解決方案每五天執行一次評估，而 Active Directory 評定解決方案每週對 Active Directory 基礎結構執行一次評估。 只有在評估完成後，代理程式才會收集這些記錄。
 
 ### <a name="agent-upload-frequency"></a>代理程式上傳頻率

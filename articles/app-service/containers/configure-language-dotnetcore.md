@@ -130,7 +130,7 @@ project = <project-name>/<project-name>.csproj
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PROJECT="<project-name>/<project-name>.csproj"
 ```
 
-## <a name="access-diagnostic-logs"></a>存取診斷記錄檔
+## <a name="access-diagnostic-logs"></a>存取診斷記錄
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 

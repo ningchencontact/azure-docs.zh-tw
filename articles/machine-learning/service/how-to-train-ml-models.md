@@ -78,7 +78,7 @@ print(run.get_portal_url())
 >
 > 若要在定型期間建立成品 (例如模型檔案、檢查點、資料檔案或繪製的影像)，請將這些成品寫入到 `./outputs` 資料夾。
 >
-> 同樣地，您也可以將來自您定型回合的任何記錄檔寫入到 `./logs` 資料夾。 若要利用 Azure Machine Learning 的 [TensorBoard 整合](https://aka.ms/aml-notebook-tb)，請務必將您的 TensorBoard 記錄檔寫入到此資料夾。 當您的回合在執行時，您將能啟動 TensorBoard 並串流這些記錄檔。  稍後，您也可以從任何先前的回合還原記錄檔。
+> 同樣地，您也可以將來自您定型回合的任何記錄寫入到 `./logs` 資料夾。 若要利用 Azure Machine Learning 的 [TensorBoard 整合](https://aka.ms/aml-notebook-tb)，請務必將您的 TensorBoard 記錄寫入到此資料夾。 當您的回合在執行時，您將能啟動 TensorBoard 並串流這些記錄。  稍後，您也可以從任何先前的回合還原記錄。
 >
 > 例如，若要在您的遠端定型回合執行完成之後將寫入到 *outputs* 資料夾的檔案下載到您的本機電腦，請執行：`run.download_file(name='outputs/my_output_file', output_file_path='my_destination_path')`
 

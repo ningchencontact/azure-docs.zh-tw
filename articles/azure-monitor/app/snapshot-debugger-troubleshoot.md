@@ -43,7 +43,7 @@ ms.locfileid: "58094934"
 
 如果快照集偵錯工具已透過啟用[入口網站中的 Application Insights 窗格](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)，則您的應用程式應已在執行最新的 NuGet 封裝。 如果快照集偵錯工具已啟用，藉以[Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector)使用 Visual Studio 的 NuGet 套件管理員，藉此確定您使用最新版的 NuGet 套件Microsoft.ApplicationInsights.SnapshotCollector。 如需版本資訊，請參閱 https://github.com/Microsoft/ApplicationInsights-Home/issues/167
 
-## <a name="check-the-uploader-logs"></a>請檢查上傳程式記錄檔
+## <a name="check-the-uploader-logs"></a>請檢查上傳程式記錄
 
 建立快照集之後，磁碟上會建立小型傾印檔案 (.dmp)。 個別的上傳程式處理序會建立該小型傾印檔案，並將它 (以及任何相關聯的 PDB) 上傳至 Application Insights 快照集偵錯工具儲存體。 成功上傳小型傾印之後，它就會從磁碟中刪除。 上傳程式處理序的記錄檔會保留在磁碟上。 在 App Service 環境中，您可以在 `D:\Home\LogFiles` 中找到這些記錄。 使用 App Service 的 Kudu 管理網站來尋找這些記錄檔。
 
@@ -209,7 +209,7 @@ SnapshotUploader.exe Information: 0 : Deleted PDB scan marker : D:\local\Temp\Du
 
 如果此搜尋未傳回任何結果，則不會針對所選時間範圍中您的應用程式向 Application Insights 回報任何快照集。
 
-若要搜尋從上傳程式記錄檔中的特定快照集識別碼，請在 [搜尋] 方塊中輸入該識別碼。 如果您找不到已上傳快照集的遙測，請遵循下列步驟：
+若要搜尋從上傳程式記錄中的特定快照集識別碼，請在 [搜尋] 方塊中輸入該識別碼。 如果您找不到已上傳快照集的遙測，請遵循下列步驟：
 
 1. 請驗證檢測金鑰，仔細檢查您查看的是正確的 Application Insights 資源。
 

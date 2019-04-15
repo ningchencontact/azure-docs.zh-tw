@@ -168,16 +168,16 @@ ms.locfileid: "58896018"
 
 進行疑難排解時，記錄檔是重要的資源。
 
-#### <a name="enterprise-gateway-service-logs"></a>企業閘道服務記錄檔
+#### <a name="enterprise-gateway-service-logs"></a>企業閘道服務記錄
 
 `C:\Users\PBIEgwService\AppData\Local\Microsoft\On-premises data gateway\<yyyyymmdd>.<Number>.log`
 
-#### <a name="configuration-logs"></a>組態記錄檔
+#### <a name="configuration-logs"></a>組態記錄
 
 `C:\Users\<username>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator.log`
 
 
-#### <a name="event-logs"></a>事件記錄檔
+#### <a name="event-logs"></a>事件記錄
 
 您可以在 [應用程式及服務記錄] 底下找到資料管理閘道和 PowerBIGateway 記錄。
 

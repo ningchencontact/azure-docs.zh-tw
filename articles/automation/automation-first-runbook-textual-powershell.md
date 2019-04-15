@@ -91,7 +91,7 @@ ms.locfileid: "57846951"
    ![作業輸出](media/automation-first-runbook-textual-powershell/job-pane-status-blade-outputtile.png)
 
 1. 關閉 [輸出] 頁面。
-1. 按一下 [所有記錄檔]  以開啟 Runbook 作業的 [資料流] 窗格。 您應該只會在輸出資料流中看到 *Hello World*，但此輸出也會顯示 Runbook 作業的其他資料流，例如 Runbook 寫入這些資料流時發生的詳細資訊和錯誤。
+1. 按一下 [所有記錄]  以開啟 Runbook 作業的 [資料流] 窗格。 您應該只會在輸出資料流中看到 *Hello World*，但此輸出也會顯示 Runbook 作業的其他資料流，例如 Runbook 寫入這些資料流時發生的詳細資訊和錯誤。
 
    ![所有記錄](media/automation-first-runbook-textual-powershell/job-pane-status-blade-alllogstile.png)
 

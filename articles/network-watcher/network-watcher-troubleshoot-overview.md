@@ -45,7 +45,7 @@ ms.locfileid: "57901826"
       * **actionUri** - 此值提供如何採取行動的文件URI。
       * **actionUriText** - 此值是動作文字的簡短說明。
 
-下表顯示可用的不同錯誤類型 (上述清單中 results 底下的 id) 以及該錯誤是否會建立記錄檔。
+下表顯示可用的不同錯誤類型 (上述清單中 results 底下的 id) 以及該錯誤是否會建立記錄。
 
 ### <a name="gateway"></a>閘道器
 
@@ -105,7 +105,7 @@ ms.locfileid: "57901826"
 ![zip 檔案][1]
 
 > [!NOTE]
-> 在某些情況下，只有部分的記錄檔會寫入至儲存體。
+> 在某些情況下，只有部分的記錄會寫入至儲存體。
 
 如需從 Azure 儲存體帳戶下載檔案的指示，請參閱[以 .NET 開始使用 Azure Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md)。 另一項可用工具為儲存體總管。 如需有關「儲存體總管」的詳細資訊，請參閱下列連結：[儲存體總管](https://storageexplorer.com/)
 

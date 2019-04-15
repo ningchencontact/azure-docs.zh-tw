@@ -22,7 +22,7 @@ ms.lasthandoff: 04/04/2019
 ms.locfileid: "58918326"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>使用 PowerShell 在 Azure 云服务中启用诊断
-您可以使用 Azure 診斷延伸模組，從雲端服務收集診斷資料 (例如應用程式記錄檔、效能計數器等)。 本文描述如何使用 PowerShell 啟用雲端服務的 Azure 診斷延伸模組。  如需這篇文章所需要的必要條件，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview) 。
+您可以使用 Azure 診斷延伸模組，從雲端服務收集診斷資料 (例如應用程式記錄、效能計數器等)。 本文描述如何使用 PowerShell 啟用雲端服務的 Azure 診斷延伸模組。  如需這篇文章所需要的必要條件，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview) 。
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>啟用診斷延伸模組做為部署雲端服務的一部分
 此方法適用於可以啟用診斷延伸模組做為雲端服務佈署一部分的連續整合類型案例。 创建新的云服务部署时，可以通过向 *New-AzureDeployment* cmdlet 传入 [ExtensionConfiguration](/powershell/module/servicemanagement/azure/new-azuredeployment?view=azuresmps-3.7.0) 参数启用诊断扩展。 *ExtensionConfiguration* 参数取值为可使用 [New-AzureServiceDiagnosticsExtensionConfig](/powershell/module/servicemanagement/azure/new-azureservicediagnosticsextensionconfig?view=azuresmps-3.7.0) cmdlet 创建的诊断配置数组。

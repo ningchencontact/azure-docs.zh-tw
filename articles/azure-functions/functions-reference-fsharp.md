@@ -230,7 +230,7 @@ let Run(blob: string, output: byref<string>, log: ILogger) =
 您可能會想在編輯器序言中自動放入參考組件，來改善您的編輯器與 F# 編譯器服務的互動。
 
 ### <a name="how-to-add-a-projectjson-file-to-your-azure-function"></a>如何將 `project.json` 檔案新增至 Azure 函式
-1. 首先，在 Azure 入口網站中開啟您的函式，以確定函式應用程式正在執行中。 這也可供存取將要顯示封裝安裝輸出的串流記錄檔。
+1. 首先，在 Azure 入口網站中開啟您的函式，以確定函式應用程式正在執行中。 這也可供存取將要顯示封裝安裝輸出的串流記錄。
 2. 若要上傳 `project.json` 檔案，請使用 [如何更新函式應用程式檔案](functions-reference.md#fileupdate)中所述的其中一個方法。 如果您使用 [Azure Functions 的持續部署](functions-continuous-deployment.md)，您可以將 `project.json` 檔案新增預備分支，以便在試驗過後再將它新增至部署分支。
 3. 加入 `project.json` 檔案之後，您會在函式的串流記錄中看到類似下列範例的輸出：
 

@@ -15,7 +15,7 @@ ms.reviewer: yossiy
 ms.author: mbullwin
 ms.openlocfilehash: cfa00504cd2a05985fde2af3357418eac8baceeb
 ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/09/2019
 ms.locfileid: "54117651"
@@ -56,7 +56,7 @@ ms.locfileid: "54117651"
 
 觸發分析時，服務會對失敗的要求執行叢集分析，以嘗試識別描述失敗特徵之值的模式。 在上述範例中，分析已發現大部分失敗是關於特定結果碼、要求名稱、伺服器 URL 主機和角色執行個體。 相反地，分析發現，用戶端作業系統屬性分散在多個值，因此未列出。
 
-當您的服務使用這些遙測呼叫進行檢測時，分析器會尋找與已識別叢集中要求建立關聯的例外狀況及相依性失敗，同時也包含與那些要求建立關聯的任何追蹤記錄檔範例。
+當您的服務使用這些遙測呼叫進行檢測時，分析器會尋找與已識別叢集中要求建立關聯的例外狀況及相依性失敗，同時也包含與那些要求建立關聯的任何追蹤記錄範例。
 
 產生的分析報告會以警示寄送給您，除非您已設定不接收該報告。
 
@@ -143,7 +143,7 @@ ms.locfileid: "54117651"
 
 *我遺失了電子郵件。在入口網站中哪裡可以找到通知？*
 
-* 在 Azure 記錄檔中。 在 Azure 中，開啟您應用程式的 Application Insights 資源，然後選取 [活動] 記錄檔。
+* 在 Azure 記錄中。 在 Azure 中，開啟您應用程式的 Application Insights 資源，然後選取 [活動] 記錄。
 
 *部分警示與已知問題相關，我不想接收它們。*
 

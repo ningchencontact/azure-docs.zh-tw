@@ -345,7 +345,7 @@ Azure IoT Edge 提供 Visual Studio Code 中的範本協助您開發解決方案
     }
 
    ```
-## <a name="logs"></a>記錄檔
+## <a name="logs"></a>記錄
 
 請遵循指示以[設定您的 IoT Edge 模組的 docker 記錄](production-checklist.md#set-up-logs-and-diagnostics)
 

@@ -183,9 +183,9 @@ Azure 的前端服務是容量的分散在世界各地的多租用戶平台有�
 
 如需記錄檔和其他診斷功能，請參閱 <<c0> [ 大門監視計量與記錄](front-door-diagnostics.md)。
 
-### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>診斷記錄檔的保留原則為何？
+### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>診斷記錄的保留原則為何？
 
-診斷記錄檔會送至客戶儲存體帳戶，而客戶可以根據其喜好來設定保留原則。 診斷記錄檔也可以傳送至事件中樞或 Azure 監視器記錄。 如需詳細資訊，請參閱 < [Azure 前端服務診斷](front-door-diagnostics.md)。
+診斷記錄會送至客戶儲存體帳戶，而客戶可以根據其喜好來設定保留原則。 診斷記錄也可以傳送至事件中樞或 Azure 監視器記錄。 如需詳細資訊，請參閱 < [Azure 前端服務診斷](front-door-diagnostics.md)。
 
 ### <a name="how-do-i-get-audit-logs-for-azure-front-door-service"></a>如何取得 Azure 前端服務的稽核記錄？
 

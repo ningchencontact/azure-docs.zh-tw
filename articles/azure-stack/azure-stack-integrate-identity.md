@@ -326,9 +326,9 @@ Microsoft 提供可設定信賴憑證者信任 (包括宣告轉換規則) 的指
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "azurestackadmin@[Internal Domain]"
    ```
 
-### <a name="collecting-additional-logs"></a>收集其他記錄檔
+### <a name="collecting-additional-logs"></a>收集其他記錄
 
-如果任一個 Cmdlet 失敗，您可以使用 `Get-Azurestacklogs` Cmdlet 來收集其他記錄檔。
+如果任一個 Cmdlet 失敗，您可以使用 `Get-Azurestacklogs` Cmdlet 來收集其他記錄。
 
 1. 開啟提升權限的 Windows PowerShell 工作階段，並執行下列命令：
 

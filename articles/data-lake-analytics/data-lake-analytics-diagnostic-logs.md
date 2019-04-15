@@ -17,7 +17,7 @@ ms.locfileid: "56959118"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>存取 Azure Data Lake Analytics 的診斷記錄
 
-診斷記錄可讓您收集資料存取稽核線索。 這些記錄檔可提供如下資訊︰
+診斷記錄可讓您收集資料存取稽核線索。 這些記錄可提供如下資訊︰
 
 * 資料的存取使用者清單。
 * 資料的存取頻率。
@@ -55,8 +55,8 @@ ms.locfileid: "56959118"
 
 1. 若要顯示存放記錄資料的 blob 容器，開啟 Data Lake Analytics 記錄所使用的 Azure 儲存體帳戶，然後按一下 [Blob]。
 
-   * 容器 **insights-logs-audit** 包含稽核記錄檔。
-   * 容器 **insights-logs-requests** 包含要求記錄檔。
+   * 容器 **insights-logs-audit** 包含稽核記錄。
+   * 容器 **insights-logs-requests** 包含要求記錄。
 
 2. 在這些容器中，記錄都會儲存在下列結構底下：
 

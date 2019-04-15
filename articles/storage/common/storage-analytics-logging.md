@@ -49,14 +49,14 @@ ms.locfileid: "58652054"
 
   系統不會記錄所有其他失敗的匿名要求。 [存储分析记录的操作和状态消息](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)及[存储分析日志格式](/rest/api/storageservices/storage-analytics-log-format)主题中提供了所记录数据的完整列表。
 
-## <a name="how-logs-are-stored"></a>記錄檔的儲存方式
+## <a name="how-logs-are-stored"></a>記錄的儲存方式
 
 所有記錄檔會儲存在名為容器中的區塊 blob `$logs`，這會自動建立儲存體帳戶啟用儲存體分析時。 `$logs`容器位於儲存體帳戶的 blob 命名空間中，例如： `http://<accountname>.blob.core.windows.net/$logs`。 一旦啟用儲存體分析之後便無法刪除此容器，不過您可以刪除其內容。 如果您使用您的儲存體瀏覽工具來直接瀏覽至容器時，您會看到包含記錄資料的所有 blob。
 
 > [!NOTE]
 >  `$logs`容器不會顯示執行容器列出作業時，例如列出容器作業。 您必須直接存取它。 例如，您可以使用列出的 Blob 作業存取中的 blob`$logs`容器。
 
-記錄要求時，儲存體分析將會以區塊形式上傳中繼結果。 儲存體分析會定期認可這些區塊，並提供它們做為 Blob。 它最多可能需要一小時才會出現在 blob 中的記錄資料 **$logs**容器因為儲存體服務排清記錄寫入器的頻率。 在同一個小時內建立的記錄檔可能會有重複的記錄。 您可以藉由檢查 **RequestId** 和 **Operation** 數字來判斷記錄是否重複。
+記錄要求時，儲存體分析將會以區塊形式上傳中繼結果。 儲存體分析會定期認可這些區塊，並提供它們做為 Blob。 它最多可能需要一小時才會出現在 blob 中的記錄資料 **$logs**容器因為儲存體服務排清記錄寫入器的頻率。 在同一個小時內建立的記錄可能會有重複的記錄。 您可以藉由檢查 **RequestId** 和 **Operation** 數字來判斷記錄是否重複。
 
 如果您的每個小時有大量的記錄資料，包含多個檔案，然後您就可以使用 blob 中繼資料來判斷哪些記錄檔包含藉由檢查 blob 中繼資料欄位的資料。 這也很有用因為有可能有時會延遲而資料會寫入記錄檔： blob 中繼資料提供比 blob 名稱更精確的 blob 內容指示。
 

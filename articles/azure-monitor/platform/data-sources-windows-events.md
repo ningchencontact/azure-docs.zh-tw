@@ -1,6 +1,6 @@
 ---
-title: 收集與分析 Azure 監視器中的 Windows 事件記錄檔 | Microsoft Docs
-description: 說明如何透過 Azure 監視器設定收集 Windows 事件記錄檔，以及它們建立記錄的詳細資料。
+title: 收集與分析 Azure 監視器中的 Windows 事件記錄 | Microsoft Docs
+description: 說明如何透過 Azure 監視器設定收集 Windows 事件記錄，以及它們建立記錄的詳細資料。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -21,14 +21,14 @@ ms.lasthandoff: 04/12/2019
 ms.locfileid: "59522705"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Azure 監視器中的 Windows 事件記錄檔資料來源
-Windows 事件記錄檔是使用 Windows 代理程式收集資料的常見[資料來源](agent-data-sources.md)之一，因為許多應用程式會寫入 Windows 事件記錄檔。  除了指定您要監視之應用程式所建立的任何自訂記錄檔之外，您也可以透過標準記錄檔 (例如系統和應用程式) 來收集事件。
+Windows 事件記錄是使用 Windows 代理程式收集資料的常見[資料來源](agent-data-sources.md)之一，因為許多應用程式會寫入 Windows 事件記錄。  除了指定您要監視之應用程式所建立的任何自訂記錄之外，您也可以透過標準記錄 (例如系統和應用程式) 來收集事件。
 
 ![Windows 事件](media/data-sources-windows-events/overview.png)     
 
-## <a name="configuring-windows-event-logs"></a>設定 Windows 事件記錄檔
-從 [[進階設定] 中的 [資料] 功能表](agent-data-sources.md#configuring-data-sources)來設定 Windows 事件記錄檔。
+## <a name="configuring-windows-event-logs"></a>設定 Windows 事件記錄
+從 [[進階設定] 中的 [資料] 功能表](agent-data-sources.md#configuring-data-sources)來設定 Windows 事件記錄。
 
-Azure 監視器只會從設定中指定的 Windows 事件記錄檔收集事件。  您可以輸入記錄檔的名稱，然後按一下 **+**，來新增事件記錄檔。  針對每個記錄檔，僅會收集包含所選嚴重性的事件。  請檢查您想要收集之特定記錄檔的嚴重性。  您無法提供任何其他準則來篩選事件。
+Azure 監視器只會從設定中指定的 Windows 事件記錄收集事件。  您可以輸入記錄檔的名稱，然後按一下 **+**，來新增事件記錄檔。  針對每個記錄檔，僅會收集包含所選嚴重性的事件。  請檢查您想要收集之特定記錄檔的嚴重性。  您無法提供任何其他準則來篩選事件。
 
 輸入事件記錄檔的名稱時，Azure 監視器提供常見的事件記錄檔名稱的建議。 如果您想要新增的記錄檔未出現在清單中，您仍然可以透過輸入記錄檔的完整名稱來新增它。 您可以使用事件檢視器來尋找記錄檔的完整名稱。 在事件檢視器中，開啟記錄檔的 [內容] 頁面，並從 [完整名稱] 欄位複製字串。
 

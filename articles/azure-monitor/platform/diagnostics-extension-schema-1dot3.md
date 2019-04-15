@@ -592,13 +592,13 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="windowseventlog-element"></a>WindowsEventLog 元素
  *樹狀結構︰Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - WindowsEventLog*
 
- 啟用收集 Windows 事件記錄檔。  
+ 啟用收集 Windows 事件記錄。  
 
  選用的 **scheduledTransferPeriod** 屬性。 請參閱稍早的說明。  
 
 |子元素|描述|  
 |-------------------|-----------------|  
-|**DataSource**|要收集的 Windows 事件記錄檔。 必要屬性：<br /><br /> **name** - 說明要收集之 Windows 事件的 XPath 查詢。 例如︰<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> 若要收集所有事件，請指定 "*"|  
+|**DataSource**|要收集的 Windows 事件記錄。 必要屬性：<br /><br /> **name** - 說明要收集之 Windows 事件的 XPath 查詢。 例如︰<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> 若要收集所有事件，請指定 "*"|  
 
 
 

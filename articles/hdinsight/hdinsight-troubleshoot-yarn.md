@@ -74,7 +74,7 @@ ms.locfileid: "53408825"
     ```apache
     yarn top
     ```
-    識別碼會列在 [APPLICATIONID] 資料行。 您可以從 [APPLICATIONID] 資料行下載記錄檔。
+    識別碼會列在 [APPLICATIONID] 資料行。 您可以從 [APPLICATIONID] 資料行下載記錄。
 
     ```apache
     YARN top - 18:00:07, up 19d, 0:14, 0 active users, queue(s): root
@@ -119,7 +119,7 @@ ms.locfileid: "53408825"
     yarn logs -applicationIdn logs -applicationId <application_id> > logs.txt
     ```
 
-    此命令會建立名為 logs.txt 的記錄檔。 
+    此命令會建立名為 logs.txt 的記錄。 
 
 6. 若要下載特定容器的 YARN 容器記錄，請使用下列命令：
 

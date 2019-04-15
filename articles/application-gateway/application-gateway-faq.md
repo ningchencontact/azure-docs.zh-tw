@@ -315,9 +315,9 @@ WAF 目前支援 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 
 ## <a name="diagnostics-and-logging"></a>診斷和記錄
 
-### <a name="what-types-of-logs-are-available-with-application-gateway"></a>應用程式閘道可使用哪些記錄檔類型？
+### <a name="what-types-of-logs-are-available-with-application-gateway"></a>應用程式閘道可使用哪些記錄類型？
 
-應用程式閘道可使用三種記錄檔。 如需有關這些記錄及其他診斷功能的詳細資訊，請參閱[應用程式閘道的後端健康情況、診斷記錄和計量](application-gateway-diagnostics.md)。
+應用程式閘道可使用三種記錄。 如需有關這些記錄及其他診斷功能的詳細資訊，請參閱[應用程式閘道的後端健康情況、診斷記錄和計量](application-gateway-diagnostics.md)。
 
 * **ApplicationGatewayAccessLog** - 此存取記錄包含提交給應用程式閘道前端的每個要求。 此資料包含呼叫者的 IP、所要求的 URL、回應延遲、傳回碼、輸入和輸出位元組。每隔 300 秒會收集一次存取記錄檔。 此記錄會針對每一應用程式閘道執行個體包含一筆記錄。
 * **ApplicationGatewayPerformanceLog** - 此效能記錄會擷取每個執行個體的效能資訊，包括提供的要求總數、輸送量 (以位元組為單位)、提供的總要求數、失敗的要求計數、狀況良好和狀況不良的後端執行個體計數。
@@ -327,13 +327,13 @@ WAF 目前支援 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 
 您可以藉由造訪[應用程式閘道診斷](application-gateway-diagnostics.md)，使用 PowerShell Cmdlet `Get-AzApplicationGatewayBackendHealth` 或透過入口網站驗證健康狀態
 
-### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>診斷記錄檔的保留原則為何？
+### <a name="what-is-the-retention-policy-on-the-diagnostics-logs"></a>診斷記錄的保留原則為何？
 
-診斷記錄檔會送至客戶儲存體帳戶，而客戶可以根據其喜好來設定保留原則。 診斷記錄檔也可以傳送至事件中樞或 Azure 監視器記錄。 如需詳細資料，請參閱[應用程式閘道診斷](application-gateway-diagnostics.md)。
+診斷記錄會送至客戶儲存體帳戶，而客戶可以根據其喜好來設定保留原則。 診斷記錄也可以傳送至事件中樞或 Azure 監視器記錄。 如需詳細資料，請參閱[應用程式閘道診斷](application-gateway-diagnostics.md)。
 
-### <a name="how-do-i-get-audit-logs-for-application-gateway"></a>如何取得應用程式閘道的稽核記錄檔？
+### <a name="how-do-i-get-audit-logs-for-application-gateway"></a>如何取得應用程式閘道的稽核記錄？
 
-稽核記錄檔可用於應用程式閘道。 在入口網站中，按一下**活動記錄檔**應用程式閘道來存取稽核記錄檔的功能表刀鋒視窗上。 
+稽核記錄可用於應用程式閘道。 在入口網站中，按一下**活動記錄檔**應用程式閘道來存取稽核記錄檔的功能表刀鋒視窗上。 
 
 ### <a name="can-i-set-alerts-with-application-gateway"></a>是否可以設定應用程式閘道的警示？
 

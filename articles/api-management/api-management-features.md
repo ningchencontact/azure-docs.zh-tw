@@ -15,7 +15,7 @@ ms.date: 11/26/2018
 ms.author: apimpm
 ms.openlocfilehash: eae36aa6e60e3da03c59952a1d9e035e6a773d2d
 ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/09/2019
 ms.locfileid: "54156692"
@@ -39,7 +39,7 @@ ms.locfileid: "54156692"
 | [備份與還原](api-management-howto-disaster-recovery-backup-restore.md)               | 否                            | yes            | 是            | 是            | 是            |
 | [透過 Git 管理](api-management-configuration-repository-git.md)                        | 否                            | yes            | 是            | 是            | 是            |
 | 直接管理 API                                                                        | 否                            | yes            | 是            | 是            | 是            |
-| Azure 監視器記錄檔和計量                                                               | 否<sup>5</sup>                | 是            | 是            | 是            | 是            |
+| Azure 監視器記錄和計量                                                               | 否<sup>5</sup>                | 是            | 是            | 是            | 是            |
 
 <sup>1</sup>可使用 Azure AD (和 Azure AD B2C) 作為識別提供者，供開發人員入口網站的使用者登入使用。<br/>
 <sup>2</sup> 包括相關的功能，例如使用者、群組、問題、應用程式以及電子郵件範本和通知。<br/>

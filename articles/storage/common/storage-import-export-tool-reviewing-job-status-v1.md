@@ -10,7 +10,7 @@ ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 306e3ccf19ba8db2de01e4b20a52707215a4a040
 ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 01/31/2019
 ms.locfileid: "55470360"
@@ -26,7 +26,7 @@ ms.locfileid: "55470360"
   
  `http://myaccount.blob.core.windows.net/ImportExportStatesPath/waies/myjob_9WM45A6Q_20130921-042122-021_error.xml`  
   
- 如需複製記錄的格式和狀態碼的完整清單，請參閱[匯入/匯出服務記錄檔格式](../storage-import-export-file-format-log.md)。  
+ 如需複製記錄的格式和狀態碼的完整清單，請參閱[匯入/匯出服務記錄格式](../storage-import-export-file-format-log.md)。  
   
 ## <a name="next-steps"></a>後續步驟
  

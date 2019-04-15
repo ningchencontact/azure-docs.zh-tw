@@ -38,20 +38,20 @@ Azure 監視器 」 來收集這些 Azure 診斷記錄檔、 記錄檔必須在�
 
 | 記錄類型 | 資源類型 | 位置 |
 | --- | --- | --- |
-| IIS 記錄檔 |虛擬機器 <br> Web 角色 <br> 背景工作角色 |wad-iis-logfiles (Blob 儲存體) |
+| IIS 記錄 |虛擬機器 <br> Web 角色 <br> 背景工作角色 |wad-iis-logfiles (Blob 儲存體) |
 | syslog |虛擬機器 |LinuxsyslogVer2v0 (表格儲存體) |
 | Service Fabric 運作事件 |Service Fabric 節點 |WADServiceFabricSystemEventTable |
 | Service Fabric Reliable Actor 事件 |Service Fabric 節點 |WADServiceFabricReliableActorEventTable |
 | Service Fabric Reliable Service 事件 |Service Fabric 節點 |WADServiceFabricReliableServiceEventTable |
-| Windows 事件記錄檔 |Service Fabric 節點 <br> 虛擬機器 <br> Web 角色 <br> 背景工作角色 |WADWindowsEventLogsTable (表格儲存體) |
-| Windows ETW 記錄檔 |Service Fabric 節點 <br> 虛擬機器 <br> Web 角色 <br> 背景工作角色 |WADETWEventTable (表格儲存體) |
+| Windows 事件記錄 |Service Fabric 節點 <br> 虛擬機器 <br> Web 角色 <br> 背景工作角色 |WADWindowsEventLogsTable (表格儲存體) |
+| Windows ETW 記錄 |Service Fabric 節點 <br> 虛擬機器 <br> Web 角色 <br> 背景工作角色 |WADETWEventTable (表格儲存體) |
 
 > [!NOTE]
-> 的 IIS 記錄檔，以啟用額外的見解。
+> 的 IIS 記錄，以啟用額外的見解。
 >
 >
 
-若為虛擬機器，您可以選擇將 [Log Analytics agent](../../azure-monitor/learn/quick-collect-azurevm.md) 安裝到虛擬機器中以啟用其他見解。 除了分析 IIS 記錄檔和事件記錄檔之外，您也可以執行其他分析，包括組態變更追蹤、SQL 評估及更新評估。
+若為虛擬機器，您可以選擇將 [Log Analytics agent](../../azure-monitor/learn/quick-collect-azurevm.md) 安裝到虛擬機器中以啟用其他見解。 除了分析 IIS 記錄和事件記錄之外，您也可以執行其他分析，包括組態變更追蹤、SQL 評估及更新評估。
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection"></a>為事件記錄檔和 IIS 記錄檔集合啟用虛擬機器中的 Azure 診斷
 
@@ -79,14 +79,14 @@ Azure 監視器 」 來收集這些 Azure 診斷記錄檔、 記錄檔必須在�
 
 啟用 Azure 診斷時：
 
-* 預設會儲存 IIS 記錄檔，並在 scheduledTransferPeriod 傳輸間隔傳輸記錄檔資料。
-* 預設不會傳輸 Windows 事件記錄檔。
+* 預設會儲存 IIS 記錄，並在 scheduledTransferPeriod 傳輸間隔傳輸記錄資料。
+* 預設不會傳輸 Windows 事件記錄。
 
 ### <a name="to-enable-diagnostics"></a>啟用診斷
 
-若要啟用 Windows 事件記錄檔或要變更 scheduledTransferPeriod，請使用 XML 組態檔 (diagnostics.wadcfg) 設定 Azure 診斷，如[步驟 4：建立您的診斷組態檔並安裝擴充功能](../../cloud-services/cloud-services-dotnet-diagnostics.md)中所示
+若要啟用 Windows 事件記錄或要變更 scheduledTransferPeriod，請使用 XML 組態檔 (diagnostics.wadcfg) 設定 Azure 診斷，如[步驟 4：建立您的診斷組態檔並安裝擴充功能](../../cloud-services/cloud-services-dotnet-diagnostics.md)中所示
 
-下列範例組態檔會從應用程式和系統記錄檔中收集 IIS 記錄檔和所有事件：
+下列範例組態檔會從應用程式和系統記錄中收集 IIS 記錄和所有事件：
 
 ```xml
     <?xml version="1.0" encoding="utf-8" ?>

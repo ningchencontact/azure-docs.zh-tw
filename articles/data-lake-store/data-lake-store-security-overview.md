@@ -86,7 +86,7 @@ Data Lake Storage Gen1 也會為帳戶中儲存的資料提供加密功能。 �
 視您尋找的是帳戶管理相關活動或資料相關活動，您可以使用活動或診斷記錄。
 
 * 帳戶管理相關活動是使用 Azure Resource Manager API，而且會透過活動記錄呈現在 Azure 入口網站中。
-* 資料相關活動會使用 WebHDFS REST API 並透過診斷記錄檔呈現在 Azure 入口網站中。
+* 資料相關活動會使用 WebHDFS REST API 並透過診斷記錄呈現在 Azure 入口網站中。
 
 ### <a name="activity-log"></a>活動記錄檔
 若要符合規定，組織可能需要適當的帳戶管理活動稽核線索，才能深入了解特定事件。 Data Lake Storage Gen1 有內建的監視，而且它會記錄所有帳戶管理活動。
@@ -97,7 +97,7 @@ Data Lake Storage Gen1 也會為帳戶中儲存的資料提供加密功能。 �
 
 如需使用活動記錄的詳細資訊，請參閱[檢視活動記錄以稽核對資源的動作](../azure-resource-manager/resource-group-audit.md)。
 
-### <a name="diagnostics-logs"></a>診斷記錄檔
+### <a name="diagnostics-logs"></a>診斷記錄
 您可以啟用資料存取稽核和 Azure 入口網站中的診斷記錄，並將記錄傳送至 Azure Blob 儲存體帳戶，為事件中樞或 Azure 監視器記錄。
 
 ![診斷記錄](./media/data-lake-store-security-overview/diagnostic-logs.png "診斷記錄")

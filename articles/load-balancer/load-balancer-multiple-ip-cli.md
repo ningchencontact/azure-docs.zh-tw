@@ -15,7 +15,7 @@ ms.date: 06/25/2018
 ms.author: kumud
 ms.openlocfilehash: 1e8911847a555e3b6326f15d15a09344a4472f2c
 ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/10/2018
 ms.locfileid: "53165500"
@@ -121,4 +121,4 @@ ms.locfileid: "53165500"
 
 ## <a name="next-steps"></a>後續步驟
 - 若要深入了解如何在 Azure 中合併負載平衡服務，請參閱[在 Azure 中使用負載平衡服務](../traffic-manager/traffic-manager-load-balancing-azure.md)。
-- 若要深入了解如何在 Azure 中使用不同類型的 記錄檔來管理負載平衡器和針對其問題進行疑難排解，請參閱 [Azure Load Balancer 的 Log Analytics](../load-balancer/load-balancer-monitor-log.md)。
+- 若要深入了解如何在 Azure 中使用不同類型的記錄來管理負載平衡器和針對其問題進行疑難排解，請參閱 [Azure Load Balancer 的 Log Analytics](../load-balancer/load-balancer-monitor-log.md)。
