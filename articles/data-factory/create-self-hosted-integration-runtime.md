@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 7fd4fd65b48c199527d9172b7cea89010c962f5b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: aaa72d3a29fee28ede336a2be350015bf3cbc9b4
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261032"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565499"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>建立和設定自我裝載整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的資料整合功能。 如需 IR 的詳細資訊，請參閱[整合執行階段概觀](concepts-integration-runtime.md)。
@@ -184,13 +184,13 @@ ms.locfileid: "59261032"
 
 ### <a name="monitoring"></a>監視 
 
-- **共用的 IR**
+- **共用 IR**
 
   ![尋找共用整合執行階段的選取項目](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
 
   ![監視索引標籤](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
 
-- **連結的 IR**
+- **連結 IR**
 
   ![尋找連結整合執行階段的選取項目](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
 
@@ -255,7 +255,7 @@ download.microsoft.com | 443 | 用於下載更新
 
 ![指定 Proxy](media/create-self-hosted-integration-runtime/specify-proxy.png)
 
-自我裝載整合執行階段會使用 Proxy 伺服器來連線到雲端服務。 進行初始設定時，選取 [變更連結]。 您會看到 [Proxy 設定] 對話方塊。
+設定，自我裝載的整合執行階段會使用 proxy 伺服器來連線到雲端服務、 來源 / 目的地 (那些使用 HTTP / HTTPS 通訊協定)。 這是選取**變更連結**初始設定期間。 您會看到 [Proxy 設定] 對話方塊。
 
 ![設定 Proxy](media/create-self-hosted-integration-runtime/set-http-proxy.png)
 

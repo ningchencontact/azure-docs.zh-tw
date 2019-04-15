@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 0e4c308e745cbf2ffbc18f64101043aff3ddde35
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 96656da078b79474dbf6576455a485d17868db49
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495680"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565952"
 ---
 # <a name="monitor-azure-functions"></a>監視 Azure Functions
 
@@ -102,7 +102,7 @@ ms.locfileid: "59495680"
 | **[失敗](../azure-monitor/app/asp-net-exceptions.md)** |  建立圖表和函式失敗和伺服器例外狀況為基礎的警示。 **作業名稱**是函式名稱。 除非您實作自訂相依性遙測，不會顯示在 相依性失敗。 |
 | **[效能](../azure-monitor/app/performance-counters.md)** | 分析效能問題。 |
 | **伺服器** | 檢視資源使用率和每一部伺服器的輸送量。 如果要對函式拖累基礎資源的案例進行偵錯，此資料非常有用。 伺服器會作為「雲端角色執行個體」來參考。 |
-| **[度量](../azure-monitor/app/metrics-explorer.md)** | 建立圖表和計量為基礎的警示。 度量包括函式引動過程、 執行時間和成功率的數目。 |
+| **[計量](../azure-monitor/app/metrics-explorer.md)** | 建立圖表和計量為基礎的警示。 度量包括函式引動過程、 執行時間和成功率的數目。 |
 | **[即時計量串流](../azure-monitor/app/live-stream.md)** | 即時建立時，請檢視度量資料。 |
 
 ## <a name="query-telemetry-data"></a>查詢遙測資料
@@ -128,7 +128,7 @@ requests
 | ----- | ----------- |
 | **traces** | 執行階段和函式程式碼所建立的記錄檔。 |
 | **requests** | 每個函式引動過程的一個要求。 |
-| **例外狀況** | 執行階段擲回任何例外狀況。 |
+| **exceptions** | 執行階段擲回任何例外狀況。 |
 | **customMetrics** | 成功和失敗的引動過程、 成功率和持續時間的計數。 |
 | **customEvents** | 執行階段，例如追蹤的事件：觸發函式的 HTTP 要求。 |
 | **performanceCounters** | 伺服器上執行的函式的效能的相關資訊。 |
@@ -595,7 +595,9 @@ module.exports = function (context, req) {
 
 ## <a name="dependencies"></a>相依性
 
-此函式對其他服務的相依性不會自動顯示。 您可以撰寫自訂程式碼來顯示相依性。 如需範例，請參閱中的範例程式碼[C#自訂遙測區段](#log-custom-telemetry-in-c-functions)。 範例程式碼會產生*應用程式對應*在 Application Insights 中看起來像下列映像：
+Functions v2 會自動收集 HTTP 要求、 服務匯流排，和 SQL 的相依性。
+
+您可以撰寫自訂程式碼來顯示相依性。 如需範例，請參閱中的範例程式碼[C#自訂遙測區段](#log-custom-telemetry-in-c-functions)。 範例程式碼會產生*應用程式對應*在 Application Insights 中看起來像下列映像：
 
 ![應用程式對應](./media/functions-monitoring/app-map.png)
 

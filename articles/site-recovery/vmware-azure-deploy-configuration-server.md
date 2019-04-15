@@ -2,18 +2,18 @@
 title: 使用 Azure Site Recovery 部署 VMware 災害復原的組態伺服器 | Microsoft Docs
 description: 本文說明如何使用 Azure Site Recovery 部署 VMware 災害復原的組態伺服器
 services: site-recovery
-author: mayurigupta13
+author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2019
 ms.author: ramamill
-ms.openlocfilehash: fb558644f29cd7b84156f976f525a88080f101dc
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: c25ca8c27b84f34b025ec5abce00c8d8c70e5df6
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449218"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565119"
 ---
 # <a name="deploy-a-configuration-server"></a>部署設定伺服器
 
@@ -121,7 +121,7 @@ ms.locfileid: "58449218"
 
 ### <a name="configure-settings"></a>配置設定
 
-1. 在設定伺服器管理精靈中，選取 [設定連線]。 從下拉式清單，請先選取 內建處理序伺服器使用的探索與推入安裝行動服務，在來源機器上的 NIC，然後再選取 組態伺服器用於 azure 的連線能力的 NIC。 然後選取 [儲存]。 它設定之後，您無法變更此設定。 強烈建議不要變更設定伺服器的 IP 位址。 請確定指派到設定伺服器的 IP 是靜態 IP 並不是 DHCP IP。
+1. 在設定伺服器管理精靈中，選取 [設定連線]。 從下拉式清單中，先選取內建處理序伺服器用來在來源機器上進行行動服務探索及推入安裝的 NIC，然後選取設定伺服器用來與 Azure 連線的 NIC。 然後選取 [儲存]。 它設定之後，您無法變更此設定。 強烈建議不要變更設定伺服器的 IP 位址。 請確定指派到設定伺服器的 IP 是靜態 IP 並不是 DHCP IP。
 2. 在**選取 復原服務保存庫**，所使用的認證登入 Microsoft Azure**步驟 6**的 「[註冊組態伺服器與 Azure Site Recovery 服務](#register-the-configuration-server-with-azure-site-recovery-services)".
 3. 登录后，选择你的 Azure 订阅以及相关的资源组和保管库。
 

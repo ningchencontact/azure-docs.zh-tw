@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: d47c64fb8b148e39eab09a33c3241ac7dd3ea537
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 3c1d0e252b5c658ab6da2b3932918f05ba651d52
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502124"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565796"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
@@ -136,7 +136,7 @@ HADR 是只複寫功能。 它有任何失敗偵測和自動接管或容錯移�
     
 需在 Azure 中的 Linux Pacemaker 的使用方式的詳細資訊，請參閱下列文章：
 
-- [在 Azure 中於 SUSE Linux Enterprise Server 上設定 Pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)
+- [於 在 Azure 中的 SUSE Linux Enterprise Server 上設定 pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)
 
 
 
@@ -538,7 +538,7 @@ SAP 系統中的原始狀態已記錄在交易 DBACOCKPIT--> 組態--> 概觀，
 
 
 > [!IMPORTANT] 
-> 開始測試之前，請確定 Pacemaker 沒有任何失敗的動作 (crm status)，並沒有位置條件約束 （剩餘的移轉測試） 和 IBM Db2 HADR 同步處理運作。 利用使用者 db2 洽詢\<sid > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> 開始測試之前，請確定 Pacemaker 沒有任何失敗的動作 (crm status)，並沒有位置條件約束 （剩餘的移轉測試） 和 IBM Db2 HADR 同步處理運作。 檢查使用者 db2\<sid > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
 移轉執行下列命令來執行主要的 Db2 資料庫的節點：

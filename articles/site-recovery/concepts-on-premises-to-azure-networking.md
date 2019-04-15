@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/15/2019
 ms.author: mayg
-ms.openlocfilehash: 7f5d3ff6759cebca2f592e1cd4822ee85959ecb9
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 2e1cbb2446501d0afda29eba179e388b5a22e6a8
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361307"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565677"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>設定 IP 位址以在容錯移轉之後連線至 Azure VM
 
@@ -62,11 +62,11 @@ Woodgrove 若要既能將其 VM 複寫至 Azure，同時又保留 IP 位址，�
 
 1. 建立 Azure 虛擬網路，以便在內部部署機器容錯移轉之後，在其中建立 Azure VM。 這應該為內部部署網路的延伸，以便讓應用程式可以順暢地容錯移轉。
 2. 在 Site Recovery 中容錯移轉之前，他們會在機器屬性中指派相同的 IP 位址。 容錯移轉之後，Site Recovery 會將此位址指派給 Azure VM。
-3. 執行容錯移轉並以相同的 IP 位址建立 Azure VM 之後，他們會使用 [Vnet 對 Vnet 連線](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)來連線到網路。 此動作可以編寫指令碼。
+3. 執行容錯移轉並以相同的 IP 位址建立 Azure VM 之後，他們會使用 [Vnet 對 Vnet 連線](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)來連線到網路。 此動作可以編寫指令碼。
 4. 他們需要修改路由，以反映 192.168.1.0/24 現已移至 Azure。
 
 
-**在容錯移轉之後的基礎結構**
+**容錯移轉之後的基礎結構**
 
 ![子網路容錯移轉之後](./media/site-recovery-network-design/network-design9.png)
 

@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 04/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87a416b6ff73fd658158276a02796aaae946bc20
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 95d19068e482722bf6cd01e44d27c2719bc419a3
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491486"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564526"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>將現有的 NPS 基礎結構與 Azure Multi-Factor Authentication 整合
 
@@ -59,8 +59,8 @@ Windows Server 2008 R2 SP1 或更新版本。
 
 這些程式庫會自動連同延伸模組一起安裝。
 
-- [視覺化C++適用於 Visual Studio 2013 (X64) 的可轉散發套件](https://www.microsoft.com/download/details.aspx?id=40784)
-- [Microsoft Azure Active Directory 的 Windows PowerShell 模組 1.1.166.0 版](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
+- [適用於 Visual Studio 2013 的 Visual C++ 可轉散發套件 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+- [適用於 Windows PowerShell 1.1.1660 版本的 Microsoft Azure Active Directory 模組](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
 如果您還沒有適用於 Windows PowerShell 的 Microsoft Azure Active Directory 模組，系統會透過您在安裝過程中執行的設定指令碼來加以安裝。 因此，如果您尚未安裝此模組，就不必事先安裝。
 
@@ -78,6 +78,12 @@ NPS 伺服器必須能夠透過連接埠 80 和 443 與下列 URL 通訊。
 
 * https://adnotifications.windowsazure.com  
 * https://login.microsoftonline.com
+
+此外，下列 Url 的連線才可完成[配接器使用提供的 PowerShell 指令碼的安裝程式](#run-the-powershell-script)
+
+- https://login.microsoftonline.com
+- https://provisioningapi.microsoftonline.com
+- https://aadcdn.msauth.net
 
 ## <a name="prepare-your-environment"></a>準備您的環境
 
@@ -142,6 +148,14 @@ NPS 伺服器會連線到 Azure Active Directory，並驗證 MFA 要求。 為�
 1. 從 Microsoft 下載中心[下載 NPS 延伸模組](https://aka.ms/npsmfa)。
 2. 將二進位檔複製到您要設定的網路原則伺服器。
 3. 執行 *setup.exe* 並遵循安裝指示。 如果您遇到錯誤，請根據必要條件一節再次檢查兩個已成功安裝的程式庫。
+
+#### <a name="upgrade-the-nps-extension"></a>升級的 NPS 擴充功能
+
+當您升級現有的 NPS 擴充功能安裝時，以避免基礎伺服器重新啟動會完成下列步驟：
+
+1. 解除安裝現有的版本
+1. 執行新的安裝程式
+1. 重新啟動網路原則伺服器 (IAS) 服務
 
 ### <a name="run-the-powershell-script"></a>執行 PowerShell 指令碼
 
@@ -231,7 +245,7 @@ Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertficicate.cer
 ```
 
-執行此命令之後，請移至您的 C 磁碟機、找出檔案，然後按兩下該檔案。 移至 [詳細資料] 並向下捲動至 [指紋]，將安裝在伺服器上的憑證指紋與此指紋進行比較。 這兩個憑證指紋應該相符。
+一旦您執行此命令時，請移到 C 磁碟機，找出檔案，並在其上按兩下。 移至 [詳細資料] 並向下捲動至 [指紋]，將安裝在伺服器上的憑證指紋與此指紋進行比較。 這兩個憑證指紋應該相符。
 
 如果命令傳回多個憑證，則可以使用採人類看得懂之格式的 Valid-From 和 Valid-Until 時間戳記來篩選出明顯不符者。
 
@@ -239,7 +253,7 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 
 ### <a name="why-cant-i-sign-in"></a>我為何無法登入？
 
-檢查您的密碼尚未到期。 NPS 延伸模組不支援在登入工作流程期間變更密碼。 請連絡您組織的 IT 人員以獲得進一步協助。
+檢查您的密碼尚未到期。 NPS 延伸模組不支援在登入工作流程期間變更密碼。 如需進一步協助，請連絡貴組織的 IT 人員。
 
 -------------------------------------------------------------
 
@@ -270,7 +284,7 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 
 如果您先前的電腦憑證已過期，且已產生新的憑證，您應該刪除過期的憑證。 具有過期的憑證會導致發生問題的 NPS 擴充功能啟動。
 
-若要檢查是否有有效的憑證，檢查本機電腦帳戶的憑證存放區，使用 MMC 中，並確認憑證未跳過其到期日。 若要產生新的有效憑證，請重新執行的步驟 」 區段底下 「[執行 PowerShell 指令碼](#run-the-powershell-script)"
+若要檢查是否有有效的憑證，檢查本機電腦帳戶的憑證存放區，使用 MMC 中，並確認憑證未跳過其到期日。 若要產生新的有效憑證，請重新執行下一節的步驟 」[執行 PowerShell 指令碼](#run-the-powershell-script)"
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>管理的 TLS/SSL 通訊協定和加密套件
 

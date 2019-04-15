@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 開發人員詞彙 | Microsoft Docs
-description: 常用 Azure Active Directory 開發人員概念與功能的詞彙清單。
+title: Microsoft 身分識別平台開發人員詞彙 |Azure
+description: 常用的 Microsoft 身分識別平台開發人員概念與功能的詞彙的清單。
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/16/2017
+ms.date: 04/13/2019
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: elisol
+ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma, dadobali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec06b25954d25c27cd7606f2f47aa93ef6d54244
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 968da9212b52c1e7ea09d1472b312671c7a73449
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650388"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565505"
 ---
-# <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory 開發人員詞彙
+# <a name="microsoft-identity-platform-developer-glossary"></a>Microsoft 身分識別平台開發人員詞彙
 
-本文包含某些核心 Azure Active Directory (AD) 開發人員概念的定義，以協助您了解 Azure AD 的應用程式開發。
+這篇文章包含一些核心開發人員概念與術語，以協助您了解使用 Microsoft 身分識別平台開發應用程式定義。
 
 ## <a name="access-token"></a>存取權杖
 
@@ -36,13 +36,13 @@ ms.locfileid: "58650388"
 根據所提供的認證而定，存取權杖有時會稱為「使用者 + 應用程式」或「僅限應用程式」。 例如，當用戶端應用程式使用：
 
 * [「授權程式碼」授權授與](#authorization-grant)，使用者會先驗證為資源擁有者，將授權委派給用戶端來存取資源。 之後，用戶端會在取得存取權杖時進行驗證。 權杖有時可以更明確地稱為「使用者 + 應用程式」權杖，因為它同時代表授權用戶端應用程式的使用者，以及應用程式。
-* 使用[“客户端凭据”授权](#authorization-grant)，则客户端提供唯一的身份验证，在没有资源所有者身份验证/授权的情况下运行，因此该令牌有时可以称为“仅限应用”令牌。
+* [「用戶端認證」授權授與](#authorization-grant)，用戶端會提供唯一的驗證，在沒有資源擁有者驗證/授權的情況下運作，因此這個權杖有時可以稱為「僅限應用程式」權杖。
 
-如需詳細資訊，請參閱 [Azure AD 權杖參考][AAD-Tokens-Claims]。
+請參閱[Microsoft 身分識別平台權杖參考][ AAD-Tokens-Claims]如需詳細資訊。
 
-## <a name="application-id-client-id"></a>應用程式識別碼 (用戶端識別碼)
+## <a name="application-id-client-id"></a>應用程式識別碼 （用戶端識別碼）
 
-唯一識別碼 Azure AD 會核發給應用程式註冊，它會識別特定應用程式和相關聯的設定。 此應用程式識別碼 ([用戶端識別碼](https://tools.ietf.org/html/rfc6749#page-15)) 是在執行驗證要求時使用，並且在開發時提供給驗證程式庫。 應用程式識別碼 (用戶端識別碼) 不是密碼。
+唯一識別碼 Azure AD 會核發給應用程式註冊，它會識別特定應用程式和相關聯的設定。 此應用程式識別碼 ([用戶端識別碼](https://tools.ietf.org/html/rfc6749#page-15)) 時執行驗證要求，並且是使用提供給驗證程式庫中的開發時間。 應用程式識別碼 （用戶端識別碼） 不是密碼。
 
 ## <a name="application-manifest"></a>應用程式資訊清單
 
@@ -59,7 +59,7 @@ ms.locfileid: "58650388"
 為了讓應用程式能夠整合身分識別和存取管理功能，並將這些功能委派給 Azure AD，您必須向 Azure AD [租用戶](#tenant)註冊應用程式。 向 Azure AD 注册应用程序时，必须提供应用程序的标识配置，以允许它与 Azure AD 集成并使用如下所述的功能：
 
 * 使用 Azure AD 身分識別管理和 [OpenID Connect][OpenIDConnect] 通訊協定實作，健全地管理單一登入
-* 透過 Azure AD 的 OAuth 2.0 [授權伺服器](#authorization-server)實作，由[用戶端應用程式](#client-application)以代理方式存取[受保護的資源](#resource-server)
+* 代理方式存取[受保護的資源](#resource-server)依[用戶端應用程式](#client-application)，透過 OAuth 2.0[授權伺服器](#authorization-server)
 * [同意架構](#consent) ，根據資源擁有者授權來管理用戶端對受保護資源的存取權。
 
 如需詳細資訊，請參閱[整合應用程式與 Azure Active Directory][AAD-Integrating-Apps]。
@@ -91,17 +91,17 @@ ms.locfileid: "58650388"
 
 ## <a name="authorization-server"></a>受保護的資源
 
-如 [OAuth2 授權架構][OAuth2-Role-Def]所定義，這是在成功驗證[資源擁有者](#resource-owner)並取得其授權之後，負責簽發存取權杖給[用戶端](#client-application)的伺服器。 [客户端应用程序](#client-application)在运行时根据 OAuth2 定义的[权限授予](#authorization-grant)，通过其[权限](#authorization-endpoint)和[令牌](#token-endpoint)终结点来与授权服务器交互。
+如 [OAuth2 授權架構][OAuth2-Role-Def]所定義，這是在成功驗證[資源擁有者](#resource-owner)並取得其授權之後，負責簽發存取權杖給[用戶端](#client-application)的伺服器。 [用戶端應用程式](#client-application)會在執行階段根據 OAuth2 所定義的[授權授與](#authorization-grant)，透過其[授權](#authorization-endpoint)和[權杖](#token-endpoint)端點與授權伺服器互動。
 
-在整合 Azure AD 應用程式的案例中，Azure AD 會為 Azure AD 應用程式和 Microsoft 服務 API (例如 [Microsoft 圖形 API][Microsoft-Graph]) 實作授權伺服器角色。
+Microsoft 身分識別平台應用程式整合，在 Microsoft 身分識別平台實作授權伺服器角色，為 Azure AD 應用程式和 Microsoft 服務 Api，例如[Microsoft Graph Api][Microsoft-Graph].
 
 ## <a name="claim"></a>宣告
 
-[安全性權杖](#security-token)中包含宣告，而宣告可提供關於某一實體 (例如[用戶端應用程式](#client-application)或[資源擁有者](#resource-owner)) 的判斷提示給另一個實體 (例如[資源伺服器](#resource-server))。 宣告是轉送權杖主體 (例如，由 [授權伺服器](#authorization-server)驗證的安全性主體) 相關事實的名稱/值組。 给定令牌中的声明依赖于几个变量，包括令牌类型、用于验证主体身份的凭据类型和应用程序配置等。
+[安全性權杖](#security-token)中包含宣告，而宣告可提供關於某一實體 (例如[用戶端應用程式](#client-application)或[資源擁有者](#resource-owner)) 的判斷提示給另一個實體 (例如[資源伺服器](#resource-server))。 宣告是轉送權杖主體 (例如，由 [授權伺服器](#authorization-server)驗證的安全性主體) 相關事實的名稱/值組。 給定權杖所提供的宣告取決於幾項變數，包括權杖類型、用來驗證主體的認證類型，以及應用程式組態等。
 
-如需詳細資訊，請參閱 [Azure AD 權杖參考][AAD-Tokens-Claims]。
+請參閱[Microsoft 身分識別平台權杖參考][ AAD-Tokens-Claims]如需詳細資訊。
 
-## <a name="client-application"></a>客户端应用程序
+## <a name="client-application"></a>用戶端應用程式
 
 如 [OAuth2 授權架構][OAuth2-Role-Def]所定義，這是代表[資源擁有者](#resource-owner)提出受保護資源要求的應用程式。 “客户端”一词并不代表任何特定的硬件实现特征（例如，应用程序是在服务器、台式机还是其他设备上执行）。
 
@@ -117,7 +117,7 @@ ms.locfileid: "58650388"
 
 [授權伺服器](#authorization-server)的[授權端點](#authorization-endpoint)所提供的 [OpenID Connect][OpenIDConnect-ID-Token] [安全性權杖](#security-token)，其中包含與使用者[資源擁有者](#resource-owner)的驗證有關的[宣告](#claim)。 和存取權杖一樣，識別碼權杖也會以數位簽署的 [JSON Web 權杖 (JWT)][JWT] 來表示。 但識別碼權杖的宣告則不同於存取權杖，它並不會用來進行與資源存取相關的用途，具體來說也就是存取控制。
 
-如需詳細資訊，請參閱 [Azure AD 權杖參考][AAD-Tokens-Claims]。
+請參閱[Microsoft 身分識別平台權杖參考][ AAD-Tokens-Claims]如需詳細資訊。
 
 ## <a name="microsoft-identity-platform"></a>Microsoft 身分識別平台
 
@@ -220,14 +220,14 @@ Azure AD 租用戶會在註冊期間建立/與 Azure 和 Office 365 訂用帳戶
 
 ## <a name="next-steps"></a>後續步驟
 
-[Azure AD 開發人員指南][AAD-Dev-Guide]是適用於所有 Azure AD 開發相關主題的登陸頁面，內容包括[應用程式整合][AAD-How-To-Integrate]的概觀和 [Azure AD 驗證與支援的驗證案例][AAD-Auth-Scenarios]的基本概念。 您也可以在 [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=) 上找到如何快速啟動及執行的程式碼範例和教學課程。
+[Microsoft 身分識別平台開發人員指南][ AAD-Dev-Guide]是要用於所有 Microsoft 身分識別平台開發相關主題，包括概觀的登陸頁面[應用程式整合][ AAD-How-To-Integrate]和基本概念[Microsoft 身分識別平台驗證與支援的驗證案例][AAD-Auth-Scenarios]。 您也可以在 [GitHub](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=) 上找到如何快速啟動及執行的程式碼範例和教學課程。
 
 使用下列留言區段提供意見反應，並協助改善與設計此內容，包括要求新定義或更新現有定義！
 
 <!--Image references-->
 
 <!--Reference style links -->
-[AAD-App-Manifest]:reference-azure-ad-app-manifest.md
+[AAD-App-Manifest]:reference-app-manifest.md
 [AAD-App-SP-Objects]:app-objects-and-service-principals.md
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md

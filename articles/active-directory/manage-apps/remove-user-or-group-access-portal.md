@@ -11,38 +11,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/14/2018
+ms.date: 04/12/2019
 ms.author: celested
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b72ec628e048560fbfb9da63123bbb7461811b9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 97759ae992ebe38aa85e9b4724edeebb5285db4b
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074279"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565694"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中從企業應用程式移除使用者或群組指派
-在 Azure Active Directory (Azure AD) 中，針對已獲指派其中一個企業應用程式存取權的使用者或群組，您可以輕鬆移除已指派的存取權。 您必須具備適當的權限，才能管理企業應用程式，而且必須是目錄的全域管理員。
+它很容易就能移除使用者或群組指派存取權，您的企業應用程式，Azure Active Directory (Azure AD) 中的其中一個。 您需要適當的權限，才能管理企業應用程式。 而且，您必須是目錄全域管理員。
 
 > [!NOTE]
 > 如果是 Microsoft 應用程式 (例如 Office 365 應用程式)，請使用 PowerShell 移除企業應用程式的使用者。
 
 ## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-in-the-azure-portal"></a>如何在 Azure 入口網站中移除對企業應用程式的使用者或群組指派？
 1. 使用具備目錄全域管理員身分的帳戶來登入 [Azure 入口網站](https://portal.azure.com) 。
-2. 選取 [更多服務]，在文字方塊中輸入 **Azure Active Directory**，然後選取 **Enter**。
-3. 在 [Azure Active Directory - directoryname] 頁面 (也就是您所管理之目錄的 Azure AD 頁面) 上，選取 [企業應用程式]。
-
-    ![開啟企業應用程式](./media/remove-user-or-group-access-portal/open-enterprise-apps.png)
-4. 在 [企業應用程式] 頁面上，選取 [所有應用程式]。 您將會看到一份您可以管理的應用程式清單。
-5. 在 [企業應用程式 - 所有應用程式]  頁面上，選取一個應用程式。
-6. 在 [appname] 頁面 (亦即標題中含有所選應用程式名稱的頁面) 上，選取 [使用者和群組]。
-
-    ![選取使用者或群組](./media/remove-user-or-group-access-portal/remove-app-users.png)
-7. 在 [appname - 使用者和群組指派] 頁面上，選取一或多個使用者或群組，然後選取 [移除] 命令。 出現提示時，請確認您的決定。
-
-    ![選取 [移除] 命令](./media/remove-user-or-group-access-portal/remove-users.png)
+1. 選取 [所有服務]，在文字方塊中輸入 **Azure Active Directory**，然後選取 **Enter** 鍵。
+1. 在  **Azure Active Directory- *directoryname*** 頁面 （也就是 Azure AD 頁面為您管理的目錄），選取**企業應用程式**。
+1. 在 [**企業應用程式-所有應用程式**] 頁面上，您會看到一份可以管理的應用程式。 選取應用程式。
+1. 在 [ ***appname***概觀] 頁面 （也就是頁面的標題中所選的應用程式名稱），選取**使用者和群組**。
+1. 在 [appname - 使用者和群組指派] 頁面上，選取一或多個使用者或群組，然後選取 [移除] 命令。 出現提示時，請確認您的決定。
 
 ## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-using-powershell"></a>如何使用 PowerShell 移除對企業應用程式的使用者或群組指派？
 1. 開啟已提高權限的 Windows PowerShell 命令提示字元。
@@ -50,8 +43,8 @@ ms.locfileid: "58074279"
     >[!NOTE] 
     > 您必須安裝 AzureAD 模組 (使用命令 `Install-Module -Name AzureAD`)。 如果系統提示您安裝 NuGet 模組或新的 Azure Active Directory V2 PowerShell 模組，請輸入 Y 然後按 ENTER。
 
-2. 執行 `Connect-AzureAD` 並以全域管理員的使用者帳戶登入。
-3. 您可以使用下列指令碼來移除應用程式中的使用者和角色：
+1. 執行 `Connect-AzureAD` 並以全域管理員的使用者帳戶登入。
+1. 您可以使用下列指令碼來移除應用程式中的使用者和角色：
 
     ```powershell
     # Store the proper parameters

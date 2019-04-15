@@ -1,25 +1,25 @@
 ---
 title: 針對 VMware 至 Azure 的災害復原執行 Azure Site Recovery 部署規劃工具 | Microsoft Docs
 description: 本文說明如何針對 VMware 至 Azure 的災害復原執行 Azure Site Recovery 部署規劃工具。
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/15/2019
 ms.author: mayg
-ms.openlocfilehash: a3aef06e6ee0d3989a4da8fdd93d27d28f2eede4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 3a6c9e50804db573395984b8ba38838eb15b0792
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527674"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565422"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>針對 VMware 至 Azure 的災害復原執行 Azure Site Recovery 部署規劃工具
 本文是 VMware 到 Azure 生產部署的 Azure Site Recovery Deployment Planner 使用者指南。
 
 
 ## <a name="modes-of-running-deployment-planner"></a>執行部署規劃工具的模式
-您可以在下列任何模式中執行命令列工具 (ASRDeploymentPlanner.exe)：
+您可以在下列任何模式 (共三種) 中執行命令列工具 (ASRDeploymentPlanner.exe)：
 
 1.  [分析](#profile-vmware-vms)
 2.  [報告產生](#generate-report)
@@ -139,7 +139,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 此工具會產生啟用巨集的 Microsoft Excel 檔案 (XLSM) 做為報告輸出，其中摘要說明所有的部署建議。 此報表稱為`DeploymentPlannerReport_<unique numeric identifier>.xlsm`且置於指定的目錄。
 
 >[!NOTE]
->該報告要求將小數符號設定為 "." 以在執行部署規劃工具的伺服器上產生成本估計。 如果您在 Windows 電腦上設定了 "," 作為小數點符號，請移至 [控制台] 中的 [變更日期、時間或數字格式]，然後移至 [其他設定] 將小數點符號更改為 "."。
+>報告產生需要的 Windows PC 或 Windows Server 搭配 Excel 2013 或更新版本。 在這部電腦上的小數點符號應該設定為"。"來產生成本估計值。 如果您已設定"、"做為小數符號，請移至 「 變更日期、 時間或數字格式 」 控制項台中 and 移至 [其他設定] 來變更以小數點符號"。"。
 
 分析完成後，您可以在報告產生模式中執行工具。 下表包含要在報告產生模式中執行之必要和選用工具參數的清單。
 

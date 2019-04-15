@@ -16,13 +16,17 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 2bb6237e53f945b645f1ee757a53ef67270e2416
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: ae59f54de9c02bfc4e538dd10c809ba398d599ee
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268374"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565950"
 ---
+> [!NOTE]
+> 部分的下列指導方針只適用於 Windows 或 Linux 應用程式服務。 例如，Linux 應用程式服務依預設，在 64 位元模式中執行。
+>
+
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure Web 應用程式的應用程式效能常見問題集
 
 對於 [Azure App Service 的 Web 應用程式功能](https://azure.microsoft.com/services/app-service/web/)的應用程式效能問題，本文提供常見問題集的解答。
@@ -39,7 +43,7 @@ ms.locfileid: "56268374"
 
 ## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>如何針對高記憶體耗用量案例進行疑難排解？
 
-在某些高記憶體耗用量案例中，您的應用程式可能真正需要更多運算資源。 在此情況下，請考慮調整為較高的服務層，讓應用程式取得所需的所有資源。 若是其他情況，程式碼中的錯誤可能會導致記憶體流失。 程式碼撰寫慣例也可能會增加記憶體耗用量。 深入了解什麼觸發高記憶體耗用量是兩部分的處理序。 首先，建立處理序傾印，然後分析處理序傾印。 Azure 網站擴充功能資源庫的損毀診斷程式可以有效率地執行這兩個步驟。 如需詳細資訊，請參閱[擷取及分析 Web 應用程式間歇高記憶體的傾印檔案](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/)。
+在某些高記憶體耗用量案例中，您的應用程式可能真正需要更多運算資源。 在此情況下，請考慮調整為較高的服務層，讓應用程式取得所需的所有資源。 若是其他情況，程式碼中的錯誤可能會導致記憶體流失。 程式碼撰寫慣例也可能會增加記憶體耗用量。 深入了解什麼觸發高記憶體耗用量是兩部分的處理序。 首先，创建进程转储，然后分析此进程转储。 Azure 網站擴充功能資源庫的損毀診斷程式可以有效率地執行這兩個步驟。 如需詳細資訊，請參閱[擷取及分析 Web 應用程式間歇高記憶體的傾印檔案](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/)。
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>如何使用 PowerShell 自動化 App Service Web 應用程式？
 
