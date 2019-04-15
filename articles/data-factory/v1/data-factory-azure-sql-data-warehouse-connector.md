@@ -99,7 +99,7 @@ Azure SQL 資料倉儲連接器支援基本驗證。
 
 | 屬性 | 描述 | 允許的值 | 必要項 |
 | --- | --- | --- | --- |
-| SqlReaderQuery |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如：select * from MyTable。 |否 |
+| sqlReaderQuery |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如：select * from MyTable。 |否 |
 | sqlReaderStoredProcedureName |從來源資料表讀取資料的預存程序名稱。 |預存程序的名稱。 最後一個 SQL 陳述式必須是預存程序中的 SELECT 陳述式。 |否 |
 | storedProcedureParameters |預存程序的參數。 |名稱/值組。 參數的名稱和大小寫必須符合預存程序參數的名稱和大小寫。 |否 |
 
@@ -308,28 +308,28 @@ Data Factory 會以和來源資料存放區中的資料表相同的名稱，在�
 | TinyInt | TinyInt |
 | Bit | Bit |
 | Decimal | Decimal |
-| 數值 | Decimal |
+| Numeric | Decimal |
 | Float | Float |
 | Money | Money |
 | Real | Real |
 | SmallMoney | SmallMoney |
 | Binary | Binary |
 | Varbinary | Varbinary (最多 8000) |
-| 日期 | 日期 |
+| Date | Date |
 | DateTime | DateTime |
 | DateTime2 | DateTime2 |
-| 時間 | 時間 |
+| Time | Time |
 | DateTimeOffset | DateTimeOffset |
 | SmallDateTime | SmallDateTime |
-| 文字 | Varchar (最多 8000) |
+| Text | Varchar (最多 8000) |
 | NText | NVarChar (最多 4000) |
-| 映像 | VarBinary (最多 8000) |
+| Image | VarBinary (最多 8000) |
 | UniqueIdentifier | UniqueIdentifier |
 | Char | Char |
 | NChar | NChar |
 | VarChar | VarChar (最多 8000) |
 | NVarChar | NVarChar (最多 4000) |
-| xml | Varchar (最多 8000) |
+| Xml | Varchar (最多 8000) |
 
 [!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -347,36 +347,36 @@ Data Factory 會以和來源資料存放區中的資料表相同的名稱，在�
 | --- | --- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |BOOLEAN |
-| char |String、Char[] |
-| 日期 |DateTime |
-| DateTime |DateTime |
+| bit |Boolean |
+| char |String, Char[] |
+| date |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
-| FILESTREAM 屬性 (varbinary(max)) |Byte[] |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
-| 映像 |Byte[] |
+| image |Byte[] |
 | int |Int32 |
 | money |Decimal |
-| nchar |String、Char[] |
-| ntext |String、Char[] |
+| nchar |String, Char[] |
+| ntext |String, Char[] |
 | numeric |Decimal |
-| nvarchar |String、Char[] |
+| nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
-| sql_variant |物件 * |
-| text |String、Char[] |
-| 分析 |TimeSpan |
+| sql_variant |Object * |
+| text |String, Char[] |
+| time |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
-| varchar |String、Char[] |
-| xml |xml |
+| varchar |String, Char[] |
+| xml |Xml |
 
 您也可以在複製活動定義中，將來自來源資料集的資料行與來自接收資料集的資料行對應。 如需詳細資料，請參閱[在 Azure Data Factory 中對應資料集資料行](data-factory-map-columns.md)。
 
