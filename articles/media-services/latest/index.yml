@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 03/20/2019
+  ms.date: 04/12/2019
   ms.author: juliako
 abstract:
   description: '了解如何使用媒體服務 v3 來編碼和封裝內容、串流隨選影片、即時廣播及分析您的影片。 教學課程、API 參考和其他文件會示範如何安全地提供可針對數百萬位使用者調整的隨選和即時視訊或音訊串流。 <br/> SDK 是以<a href="https://aka.ms/ams-v3-rest-sdk">媒體服務 v3 OpenAPI 規格 (Swagger)</a>為根據。'
@@ -26,7 +26,7 @@ sections:
           - title: 了解概念
             html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">雲端上傳和儲存體</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">編碼</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events">監視</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">媒體分析</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">封裝</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">保護</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">即時資料流</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">播放機用戶端</a></p>'
           - title: 使用 v3 API 進行開發
-            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">開始使用 SDK 開發</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">以 REST 開發</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-java-howto">使用 Java 進行連線</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-dotnet-howto">使用 .NET 進行連線</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-nodejs-howto">使用 Node.js 進行連線</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">以 REST 開發</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">以 SDK 開發</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-java-howto">使用 Java 進行連線</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-dotnet-howto">使用 .NET 進行連線</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-nodejs-howto">使用 Node.js 進行連線</a></p>'
   - title: 5 分鐘快速入門
     items:
       - type: paragraph
