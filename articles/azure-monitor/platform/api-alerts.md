@@ -34,9 +34,9 @@ Log Analytics 搜尋 API 是 RESTful，可透過 Azure Resource Manager REST API
 
 | 屬性 | 描述 |
 |:--- |:--- |
-| 間隔 |執行搜尋的頻率。 以分鐘為單位。 |
+| Interval |執行搜尋的頻率。 以分鐘為單位。 |
 | QueryTimeSpan |準則評估的時間間隔。 必須等於或大於 Interval。 以分鐘為單位。 |
-| 版本 |所使用的 API 版本。  目前，這應該一律設為 1。 |
+| Version |所使用的 API 版本。  目前，這應該一律設為 1。 |
 
 例如，假設事件查詢的 Interval 是 15 分鐘，而 Timespan 是 30 分鐘。 在此情況下，將會每隔 15 分鐘執行一次查詢，而如果準則在 30 分鐘內連續評估為 true，就會觸發警示。
 
@@ -94,9 +94,9 @@ Log Analytics 搜尋 API 是 RESTful，可透過 Azure Resource Manager REST API
 
 | 屬性 | 描述 |
 |:--- |:--- |
-| 類型 |動作的類型。  目前可能的值為 Alert 和 Webhook。 |
-| 名稱 |警示的顯示名稱。 |
-| 版本 |所使用的 API 版本。  目前，這應該一律設為 1。 |
+| `Type` |動作的類型。  目前可能的值為 Alert 和 Webhook。 |
+| `Name` |警示的顯示名稱。 |
+| `Version` |所使用的 API 版本。  目前，這應該一律設為 1。 |
 
 ### <a name="retrieving-actions"></a>擷取動作
 
@@ -154,8 +154,8 @@ Log Analytics 搜尋 API 是 RESTful，可透過 Azure Resource Manager REST API
 
 | 屬性 | 描述 |
 |:--- |:--- |
-| 運算子 |用於比較臨界值的運算子。 <br> gt = 大於 <br>  lt = 小於 |
-| 值 |臨界值。 |
+| `Operator` |用於比較臨界值的運算子。 <br> gt = 大於 <br>  lt = 小於 |
+| `Value` |臨界值。 |
 
 例如，假設事件查詢的間隔是 15 分鐘、時間範圍是 30 分鐘，而臨界值大於 10。 在此情況下，將會每隔 15 分鐘執行一次查詢，而如果傳回 10 個在 30 分鐘內建立的事件，就會觸發警示。
 
@@ -187,9 +187,9 @@ Log Analytics 可讓您將警示分類成數個類別，以便於管理和分級
 
 |Log Analytics 嚴重性等級  |Azure 警示嚴重性等級  |
 |---------|---------|
-|重要 |Sev 0|
-|警告 |Sev 1|
-|資訊 | Sev 2|
+|`critical` |Sev 0|
+|`warning` |Sev 1|
+|`informational` | Sev 2|
 
 以下是一個只包含臨界值和嚴重性的動作範例回應。 
 
@@ -359,9 +359,9 @@ Azure 中的所有警示都使用「動作群組」作為處理動作的預設�
 
 | 屬性 | 描述 |
 |:--- |:--- |
-| 收件者 |郵件地址清單。 |
-| 主體 |郵件的主旨。 |
-| 附件 |目前不支援附件，因此這個屬性的值一律為 “None”。 |
+| Recipients |郵件地址清單。 |
+| Subject |郵件的主旨。 |
+| Attachment |目前不支援附件，因此這個屬性的值一律為 “None”。 |
 
 以下是一個包含臨界值的電子郵件通知動作的回應範例。  
 
