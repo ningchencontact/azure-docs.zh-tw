@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
-ms.date: 08/08/2018
+ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 234d59f9d625af6d0309b2995cc734fad6028b1e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 60cd2d21167739e824489e30ebd187a5fc0cc12d
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767034"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579269"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>開始使用 Azure Automation State Configuration
 
@@ -27,7 +27,7 @@ ms.locfileid: "57767034"
 若要完成本文中的範例，需要有下列項目：
 
 - Azure 自動化帳戶。 如需建立 Azure 自動化執行身分帳戶的指示，請參閱 [Azure 執行身分帳戶](automation-sec-configure-azure-runas-account.md)。
-- 執行 Windows Server 2008 R2 或更新版本的 Azure Resource Manager VM (不是傳統)。 如需建立 VM 的指示，請參閱 [在 Azure 入口網站中建立第一個 Windows 虛擬機器](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+- Azure Resource Manager VM （非傳統） 執行[支援的作業系統](automation-dsc-overview.md#operating-system-requirements)。 如需建立 VM 的指示，請參閱 [在 Azure 入口網站中建立第一個 Windows 虛擬機器](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 
 ## <a name="creating-a-dsc-configuration"></a>建立 DSC 組態
 
@@ -149,9 +149,9 @@ ms.locfileid: "57767034"
 1. 在 [虛擬機器] 詳細資料頁面上，按一下 [+ 連線]。
 
    > [!IMPORTANT]
-   > 這必須是執行 Windows Server 2008 R2 或更新版本的 Azure Resource Manager VM。
+   > 這必須是執行的 Azure Resource Manager VM[支援的作業系統](automation-dsc-overview.md#operating-system-requirements)。
 
-1. 在 [註冊] 頁面的 [節點組態名稱] 方塊中，選取您要套用至 VM 的節點組態名稱。 在此時提供名稱是選擇性的。 您可以在節點上架後，變更指派的節點組態。
+2. 在 [註冊] 頁面的 [節點組態名稱] 方塊中，選取您要套用至 VM 的節點組態名稱。 在此時提供名稱是選擇性的。 您可以在節點上架後，變更指派的節點組態。
    勾選 [必要時重新啟動節點]，然後按一下 [確定]。
 
    ![[註冊] 刀鋒視窗的螢幕擷取畫面](./media/automation-dsc-getting-started/RegisterVM.png)

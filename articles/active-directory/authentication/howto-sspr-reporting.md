@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49b247338bbb1f20082fdef2a2bc291fb6183b10
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 8bc2acaa24637c3297af8e91f01b67e5d30f2931
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493054"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577962"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 密碼管理的報告選項
 
@@ -50,15 +50,14 @@ ms.locfileid: "59493054"
 1. 瀏覽至 [Azure 入口網站](https://portal.azure.com)。
 2. 在左側窗格中選取 [所有服務]。
 3. 在服務清單中搜尋並選取 **Azure Active Directory**。
-4. 選取 [使用者和群組]。
-5. 從 [使用者和群組] 功能表選取 [稽核記錄]。 這會顯示目錄中所有使用者發生的稽核事件。 您可以篩選此檢視，查看密碼相關的所有事件。
-6. 若要篩選此檢視以只查看密碼重設的相關事件，請按一下窗格頂端的 [篩選] 按鈕。
-7. 從 [篩選] 功能表中，選取 [類別] 下拉式清單，然後將它變更為 [自助式密碼管理] 類別類型。
-8. 另可選擇您有興趣的特定 [活動]，以進一步篩選清單。
+4. 選取 **使用者**從 管理 區段。
+5. 選取 **稽核記錄檔**從**使用者**刀鋒視窗。 這會顯示目錄中所有使用者發生的稽核事件。 您可以篩選此檢視，查看密碼相關的所有事件。
+6. 從**篩選條件**窗格中，選取頂端的功能表**服務**下拉式清單，並將它變更為**自助式密碼管理**服務類型。
+7. 另可選擇您有興趣的特定 [活動]，以進一步篩選清單。
 
 ### <a name="converged-registration-preview"></a>聚合式註冊 (預覽)
 
-如果您參與聚合式註冊的公開預覽，則可在**驗證方法**的類別下方找到稽核記錄中有關使用者活動的資訊。
+如果您參與的聚合式註冊公開預覽，將服務下找到稽核記錄檔中的使用者活動的相關資訊**驗證方法**。
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Azure 入口網站中報告資料行的說明
 
@@ -176,16 +175,16 @@ ms.locfileid: "59493054"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [我要如何完成 SSPR 成功推出？](howto-sspr-deployment.md)
+* [如何完成 SSPR 成功首度發行？](howto-sspr-deployment.md)
 * [重設或變更您的密碼](../user-help/active-directory-passwords-update-your-own-password.md)。
 * [註冊自助式密碼重設](../user-help/active-directory-passwords-reset-register.md)。
 * [您有授權問題嗎？](concept-sspr-licensing.md)
-* [SSPR 使用哪些資料以及哪些資料應該您為使用者填入嗎？](howto-sspr-authenticationdata.md)
-* [使用者可以使用哪些驗證方法？](concept-sspr-howitworks.md#authentication-methods)
+* [SSPR 使用哪些資料，以及您應該為使用者填入哪些資料？](howto-sspr-authenticationdata.md)
+* [哪些驗證方法可供使用者使用？](concept-sspr-howitworks.md#authentication-methods)
 * [使用 SSPR 的原則選項有哪些？](concept-sspr-policy.md)
-* [什麼是密碼回寫，為什麼我需要了解它？](howto-sspr-writeback.md)
-* [所有 SSPR 中的選項是什麼，以及做什麼它們的意義？](concept-sspr-howitworks.md)
-* [我認為有中斷。 如何疑難排解 SSPR？](active-directory-passwords-troubleshoot.md)
-* [我有已某處並未涵蓋其他的問題](active-directory-passwords-faq.md)
+* [什麼是密碼回寫，且為什麼我需要了解它？](howto-sspr-writeback.md)
+* [SSPR 中的所有選項有哪些，以及它們有何意義？](concept-sspr-howitworks.md)
+* [我認為有中斷。如何針對 SSPR 進行疑難排解？](active-directory-passwords-troubleshoot.md)
+* [在其他某處並未涵蓋我的問題](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Azure AD 中 SSPR 活動稽核記錄的範例"

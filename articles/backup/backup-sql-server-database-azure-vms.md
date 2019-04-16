@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 1a596462eb42231a356ddc4fa67b6468b63cd97c
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 5e4bd3647b557b260e65e3fb1ce297892f5d7d78
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849302"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578819"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>備份 Azure VM 中的 SQL Server 資料庫
 
@@ -113,7 +113,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
     - Azure Backup 在 VM 上建立服務帳戶 **NT Service\AzureWLBackupPluginSvc**。
       - 所有備份和還原作業都會使用此服務帳戶。
       - **NT Service\AzureWLBackupPluginSvc** 需要 SQL 系統管理員權限。 在 Azure Marketplace 中建立的所有 SQL Server VM 都會預先安裝 **SqlIaaSExtension**。 **AzureBackupWindowsWorkload** 延伸模組會使用 **SQLIaaSExtension** 來自動取得必要的權限。
-    - 如果您尚未從 Marketplace 建立 VM，則 VM 不會安裝 **SqlIaaSExtension**，因此探索作業將會失敗，並顯示錯誤訊息 **UserErrorSQLNoSysAdminMembership**。 請依照 [#fix-sql-sysadmin-permissions] 中的指示修正此問題。
+    - 如果您尚未從 Marketplace 建立 VM，則 VM 不會安裝 **SqlIaaSExtension**，因此探索作業將會失敗，並顯示錯誤訊息 **UserErrorSQLNoSysAdminMembership**。 請遵循[指示](backup-azure-sql-database.md#fix-sql-sysadmin-permissions)來修正此問題。
 
         ![選取 VM 和資料庫](./media/backup-azure-sql-database/registration-errors.png)
 

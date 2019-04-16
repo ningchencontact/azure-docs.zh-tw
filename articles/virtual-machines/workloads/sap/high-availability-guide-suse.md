@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 9809584a3abe1d0cdde2cd6ccf90b48432d27c11
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 90ec7cf4964440d39b3f69eb9ae9708eaafe3748
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007841"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579031"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP NetWeaver 在適用於 SAP 應用程式之 SUSE Linux Enterprise Server 上的 Azure VM 高可用性
 
@@ -95,7 +95,8 @@ NFS 伺服器、SAP NetWeaver ASCS、SAP NetWeaver SCS、SAP NetWeaver ERS 和 S
   * 連線到應該屬於 (A)SCS/ERS 叢集一部分之所有虛擬機器的主要網路介面
 * 探查連接埠
   * 連接埠 620<strong>&lt;nr&gt;</strong>
-* 負載平衡規則
+* 載入 
+* 平衡規則
   * 32<strong>&lt;nr&gt;</strong> TCP
   * 36<strong>&lt;nr&gt;</strong> TCP
   * 39<strong>&lt;nr&gt;</strong> TCP
@@ -132,7 +133,8 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 
 您可以使用 GitHub 上的其中一個快速入門範本來部署所有必要資源。 範本會部署虛擬機器、負載平衡器、可用性設定組等。請遵循下列步驟來部署範本：
 
-1. 在 Azure 入口網站上開啟 [ASCS/SCS 多重 SID範本][template-multisid-xscs]或[交集範本][template-converged]。ASCS/SCS 範本只會建立 SAP NetWeaver ASCS/SCS 和 ERS (僅限 Linux) 執行個體的負載平衡規則，而交集範本還會建立資料庫 (例如 Microsoft SQL Server 或 SAP HANA) 的負載平衡規則。 如果您打算安裝 SAP NetWeaver 架構的系統，而且也想要在同一部電腦上安裝資料庫，請使用[交集範本][template-converged]。
+1. 開啟[ASCS/SCS 多 SID 範本][ template-multisid-xscs]或[交集範本][ template-converged]在 Azure 入口網站。 
+   ASCS/SCS 範本只會建立負載平衡規則的 SAP NetWeaver ASCS/SCS 和 ERS (僅限 Linux) 執行個體而交集的範本還會建立資料庫 （例如 Microsoft SQL Server 或 SAP HANA） 的負載平衡規則。 如果您打算安裝 SAP NetWeaver 架構的系統，而且也想要在同一部電腦上安裝資料庫，請使用[交集範本][template-converged]。
 1. 輸入下列參數
    1. 資源前置詞 (僅限 ASCS/SCS 多重 SID 範本)  
       輸入您想要使用的前置詞。 該值會作為所部署之資源的前置詞。
@@ -144,7 +146,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
       選取一個 Linux 發行版本。 在此範例中，請選取 SLES 12 BYOS
    6. DB 類型  
       選取 HANA
-   7. SAP 系統大小  
+   7. Sap 系統大小。  
       新系統會提供的 SAP 數量。 如果您不確定系統需要多少 SAP，請詢問您的 SAP 技術合作夥伴或系統整合者。
    8. 系統可用性  
       選取 HA
@@ -530,6 +532,8 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
 
 1. **[1]** 建立 SAP 叢集資源
 
+如果使用加入佇列伺服器 1 架構 (ENSA1)，定義的資源，如下所示：
+
    <pre><code>sudo crm configure property maintenance-mode="true"
    
    sudo crm configure primitive rsc_sap_<b>NW1</b>_ASCS<b>00</b> SAPInstance \
@@ -556,7 +560,37 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
+  SAP 加入佇列伺服器 2，包括複寫，從 SAP NW 7.52 開始導入的支援。 ABAP 平台 1809年從開始，預設會安裝加入佇列伺服器 2。 請參閱 SAP 附註[2630416](https://launchpad.support.sap.com/#/notes/2630416)加入佇列伺服器 2 支援。
+如果使用加入佇列伺服器 2 架構 ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html))，定義的資源，如下所示：
+
+<pre><code>sudo crm configure property maintenance-mode="true"
+   
+   sudo crm configure primitive rsc_sap_<b>NW1</b>_ASCS<b>00</b> SAPInstance \
+    operations \$id=rsc_sap_<b>NW1</b>_ASCS<b>00</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b>" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000
+   
+   sudo crm configure primitive rsc_sap_<b>NW1</b>_ERS<b>02</b> SAPInstance \
+    operations \$id=rsc_sap_<b>NW1</b>_ERS<b>02</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>" AUTOMATIC_RECOVER=false IS_ERS=true 
+   
+   sudo crm configure modgroup g-<b>NW1</b>_ASCS add rsc_sap_<b>NW1</b>_ASCS<b>00</b>
+   sudo crm configure modgroup g-<b>NW1</b>_ERS add rsc_sap_<b>NW1</b>_ERS<b>02</b>
+   
+   sudo crm configure colocation col_sap_<b>NW1</b>_no_both -5000: g-<b>NW1</b>_ERS g-<b>NW1</b>_ASCS
+   sudo crm configure order ord_sap_<b>NW1</b>_first_start_ascs Optional: rsc_sap_<b>NW1</b>_ASCS<b>00</b>:start rsc_sap_<b>NW1</b>_ERS<b>02</b>:stop symmetrical=false
+   
+   sudo crm node online <b>nw1-cl-0</b>
+   sudo crm configure property maintenance-mode="false"
+   </code></pre>
+
+  如果您是從舊版升級，並切換至加入佇列伺服器 2，請參閱 sap 附註[2641019](https://launchpad.support.sap.com/#/notes/2641019)。 
+
    請確定叢集狀態正常，且所有資源皆已啟動。 資源在哪一個節點上執行並不重要。
+
 
    <pre><code>sudo crm_mon -r
    
@@ -958,7 +992,7 @@ Azure Marketplace 包含 SUSE Linux Enterprise Server for SAP Applications 12 �
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-   例如，透過編輯交易 su01 中的使用者來建立佇列鎖定。 以 \<sapsid>adm 身份在執行 ASCS 執行個體的節點上執行下列命令。 這些命令會停止 ASCS 執行個體，並重新啟動它。 在這項測試中，佇列鎖定應該會遺失。
+   例如，透過編輯交易 su01 中的使用者來建立佇列鎖定。 以 \<sapsid>adm 身份在執行 ASCS 執行個體的節點上執行下列命令。 這些命令會停止 ASCS 執行個體，並重新啟動它。 如果使用加入佇列伺服器 1 架構，加入佇列的鎖定應該在這項測試會遺失。 如果使用加入佇列伺服器 2 架構，將會保留在佇列中。 
 
    <pre><code>nw1-cl-1:nw1adm 54> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>

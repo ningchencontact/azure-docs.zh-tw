@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: snehaa
-ms.openlocfilehash: 366240c273feed559edb6e569640020046cc9471
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 17cead93325da903161d95b315435d6e7b106dbb
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578640"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578912"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - 常見問題集 (FAQ)
 
@@ -60,6 +60,10 @@ Azure Government | 美國政府維吉尼亞州
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>內部部署站台如何連線至 Azure Migrate？
 
 連線可以透過網際網路或使用 ExpressRoute 與公用對等互連。
+
+### <a name="what-network-connectivity-requirements-are-needed-for-azure-migrate"></a>Azure migrate 需要哪些網路連線需求？
+
+針對 Url 和 Azure Migrate 所需的連接埠與 Azure 通訊，請參閱[連線的 Url](https://docs.microsoft.com/azure/migrate/concepts-collector#urls-for-connectivity)。
 
 ### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>我可以使用 OVA 範本來強化 VM 設定嗎？
 
@@ -161,7 +165,7 @@ Azure Migrate 目前不支援 [Enterprise 合約支援方案供應項目](https:
 
 ### <a name="what-is-the-difference-between-as-on-premises-sizing-and-performance-based-sizing"></a>如同內部部署調整大小和以效能為基礎的調整大小之間的差異為何？
 
-當您將調整大小準則指定為如同內部部署調整大小時，Azure Migrate 不會考慮 VM 的效能資料，而會根據內部部署設定調整 VM 的大小。 如果調整大小準則是以效能為基礎，則會根據使用率資料調整大小。 例如，假設有一個內部部署 VM，其具有 4 個核心及 8GB 記憶體，以及 50% 的 CPU 使用率和 50% 的記憶體使用率。 如果調整大小準則為如同內部部署調整大小，則系統會建議具有 4 個核心和 8GB 記憶體的 Azure VM SKU；如果調整大小準則是以效能為基礎，則系統會建議 2 個核心和 4 GB 記憶體的 VM SKU，因為其在建議大小時會以使用率百分比為基礎。 同樣地，對於磁碟而言，磁碟調整大小取決於兩個評估屬性：調整大小準則和儲存體類型。 如果調整大小準則是以效能為基礎，且儲存體類型是自動的，則磁碟的 IOPS 和輸送量值會被用於辨別目標磁碟類型 (標準或進階)。 如果調整大小準則是以效能為基礎，且儲存體類型是進階的，則建議使用進階磁碟；Azure 中的進階磁碟 SKU 是根據內部部署磁碟的大小所選取的。 當調整大小準則與內部部署調整大小相同，且儲存體類型是標準或進階時，則會使用相同的邏輯來執行磁碟調整大小。
+當您將調整大小的準則指定為以內部部署作為依據時，Azure Migrate 便不會考慮 VM 的效能資料，而僅會根據內部部署的設定來調整 VM 的大小； 如果調整大小準則是以效能為基礎，則會根據使用率資料調整大小。 例如，假設有一個內部部署 VM，其具有 4 個核心及 8GB 記憶體，以及 50% 的 CPU 使用率和 50% 的記憶體使用率。 如果調整大小準則為如同內部部署調整大小，則系統會建議具有 4 個核心和 8GB 記憶體的 Azure VM SKU；如果調整大小準則是以效能為基礎，則系統會建議 2 個核心和 4 GB 記憶體的 VM SKU，因為其在建議大小時會以使用率百分比為基礎。 同樣地，對於磁碟而言，磁碟調整大小取決於兩個評估屬性：調整大小準則和儲存體類型。 當調整的準則是以效能為基礎，且儲存體類型為自動時，系統會考慮磁碟的 IOPS 和輸送量值，從而識別出目標硬碟的類型 (標準或進階)。 當調整準則同樣以效能為依據，但儲存體類型為進階時，系統則會建議使用進階磁碟，同時也會根據內部部署磁碟的大小來選取 Azure 中的進階硬碟 SKU。 當調整的準則是以內部部署作為依據時，則不論儲存體類型為標準或進階，系統都會使用相同的邏輯來調整磁碟的大小。
 
 ### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>效能歷程記錄和百分位數使用率對大小建議有何影響？
 

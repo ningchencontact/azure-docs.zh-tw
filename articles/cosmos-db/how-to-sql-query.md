@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8e5c281a8a8b6c0b48f18bf247b451bf61a7e9dc
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 04a88558e3aea33c6d99bd0e4f1354c4316f5529
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263038"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579204"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Azure Cosmos DB 的 SQL 查詢範例
 
@@ -484,15 +484,15 @@ FROM 子句可以減少至較小的子集的來源。 若要列舉每個項目�
 
 下表顯示 SQL API 中任何兩個 JSON 類型之間的相等比較結果。
 
-| **Op** | **Undefined** | **Null** | **BOOLEAN** | **數字** | **字串** | **Object** | **陣列** |
+| **Op** | **未定義** | **Null** | **布林值** | **Number** | **String** | **Object** | **Array** |
 |---|---|---|---|---|---|---|---|
-| **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Null** | Undefined | **確定** | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **BOOLEAN** | Undefined | Undefined | **確定** | Undefined | Undefined | Undefined | Undefined |
-| **數字** | Undefined | Undefined | Undefined | **確定** | Undefined | Undefined | Undefined |
-| **字串** | Undefined | Undefined | Undefined | Undefined | **確定** | Undefined | Undefined |
-| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **確定** | Undefined |
-| **陣列** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **確定** |
+| **未定義** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Null** | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **布林值** | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined |
+| **Number** | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined |
+| **String** | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined |
+| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined |
+| **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** |
 
 比較運算子，例如`>`， `>=`， `!=`， `<`，並`<=`，比較類型，或兩個物件或陣列產生`Undefined`。  
 
@@ -1238,15 +1238,15 @@ Cosmos DB 函式和 ANSI SQL 函式的主要差異是 Cosmos DB 函數的設計�
 
 類型檢查函數可讓您檢查 SQL 查詢中的運算式類型。 若要判斷在即時的項目屬性的型別在變數或未知時，您可以使用類型檢查函式。 以下是支援的內建類型檢查函數的資料表：
 
-| **使用量** | **描述** |
+| **使用量** | **說明** |
 |-----------|------------|
 | [IS_ARRAY (expr)](sql-api-query-reference.md#bk_is_array) | 傳回布林值，表示值的類型是否為陣列。 |
-| [IS_BOOL (expr)](sql-api-query-reference.md#bk_is_bool) | 傳回布林值，表示值的類型是否為布林值。 |
-| [IS_NULL (expr)](sql-api-query-reference.md#bk_is_null) | 傳回布林值，表示值的類型是否為 null。 |
-| [IS_NUMBER (expr)](sql-api-query-reference.md#bk_is_number) | 傳回布林值，表示值的類型是否為數字。 |
-| [IS_OBJECT (expr)](sql-api-query-reference.md#bk_is_object) | 傳回布林值，表示值的類型是否為 JSON 物件。 |
-| [IS_STRING (expr)](sql-api-query-reference.md#bk_is_string) | 傳回布林值，表示值的類型是否為字串。 |
-| [IS_DEFINED (expr)](sql-api-query-reference.md#bk_is_defined) | 傳回布林值，表示屬性是否已經指派值。 |
+| [IS_BOOL (expr)](sql-api-query-reference.md#bk_is_bool) | 返回一个布尔值，它指示值的类型是否为布尔。 |
+| [IS_NULL (expr)](sql-api-query-reference.md#bk_is_null) | 返回一个布尔值，它指示值的类型是否为 null。 |
+| [IS_NUMBER (expr)](sql-api-query-reference.md#bk_is_number) | 返回一个布尔值，它指示值的类型是否为数字。 |
+| [IS_OBJECT (expr)](sql-api-query-reference.md#bk_is_object) | 返回一个布尔值，它指示值的类型是否为 JSON 对象。 |
+| [IS_STRING (expr)](sql-api-query-reference.md#bk_is_string) | 返回一个布尔值，它指示值的类型是否为字符串。 |
+| [IS_DEFINED (expr)](sql-api-query-reference.md#bk_is_defined) | 返回一个布尔，它指示属性是否已经分配了值。 |
 | [IS_PRIMITIVE (expr)](sql-api-query-reference.md#bk_is_primitive) | 傳回布林值，指出值的型別是否為字串、 數字、 布林值或 null。 |
 
 您可以使用這些函式，來執行查詢，如下列範例所示：
@@ -1269,18 +1269,18 @@ Cosmos DB 函式和 ANSI SQL 函式的主要差異是 Cosmos DB 函數的設計�
 | --- | --- |
 | [LENGTH (str_expr)](sql-api-query-reference.md#bk_length) | 傳回指定字串運算式的字元數目。 |
 | [CONCAT (str_expr, str_expr [, str_expr])](sql-api-query-reference.md#bk_concat) | 傳回字串，該字串是串連兩個或多個字串值的結果。 |
-| [SUBSTRING (str_expr, num_expr, num_expr)](sql-api-query-reference.md#bk_substring) | 傳回字串運算式的一部分。 |
+| [SUBSTRING (str_expr, num_expr, num_expr)](sql-api-query-reference.md#bk_substring) | 返回部分字符串表达式。 |
 | [STARTSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_startswith) | 傳回布林值，表示第一個字串運算式是否以第二個字串運算式開頭。 |
 | [ENDSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_endswith) | 傳回布林值，表示第一個字串運算式是否以第二個字串運算式結尾。 |
 | [CONTAINS (str_expr, str_expr)](sql-api-query-reference.md#bk_contains) | 傳回布林值，表示第一個字串運算式是否包含第二個字串運算式。 |
 | [INDEX_OF (str_expr, str_expr)](sql-api-query-reference.md#bk_index_of) | 傳回第二個第一次出現的開始位置字串內第一個指定的字串運算式，則為-1 的運算式，如果找不到字串。 |
-| [LEFT (str_expr, num_expr)](sql-api-query-reference.md#bk_left) | 傳回具有指定字元數目的字串左側部分。 |
-| [右 （str_expr、 num_expr）](sql-api-query-reference.md#bk_right) | 傳回具有指定字元數目的字串右側部分。 |
+| [LEFT (str_expr, num_expr)](sql-api-query-reference.md#bk_left) | 返回具有指定字符数的字符串的左侧部分。 |
+| [RIGHT (str_expr, num_expr)](sql-api-query-reference.md#bk_right) | 返回具有指定字符数的字符串的右侧部分。 |
 | [LTRIM (str_expr)](sql-api-query-reference.md#bk_ltrim) | 傳回移除開頭空白之後的字串運算式。 |
 | [RTRIM (str_expr)](sql-api-query-reference.md#bk_rtrim) | 傳回截斷所有結尾空白之後的字串運算式。 |
 | [LOWER (str_expr)](sql-api-query-reference.md#bk_lower) | 傳回將大寫字元資料轉換成小寫之後的字串運算式。 |
 | [UPPER (str_expr)](sql-api-query-reference.md#bk_upper) | 傳回將小寫字元資料轉換成大寫之後的字串運算式。 |
-| [REPLACE (str_expr, str_expr, str_expr)](sql-api-query-reference.md#bk_replace) | 使用其他字串值取代指定的字串值的所有項目。 |
+| [REPLACE (str_expr, str_expr, str_expr)](sql-api-query-reference.md#bk_replace) | 将出现的所有指定字符串值替换为另一个字符串值。 |
 | [REPLICATE (str_expr, num_expr)](sql-api-query-reference.md#bk_replicate) | 將字串值重複指定的次數。 |
 | [REVERSE (str_expr)](sql-api-query-reference.md#bk_reverse) | 傳回反向順序的字串值。 |
 
@@ -1714,7 +1714,7 @@ Cosmos DB 提供透過 HTTP 的開放 RESTful 程式設計模型。 資源模型
 
 .NET 用戶端自動逐一查看查詢結果中的所有頁面`foreach`區塊中使用，如上述範例所示。 中導入的查詢選項[REST API](#RestAPI)一節中也會有.NET SDK 中，使用`FeedOptions`並`FeedResponse`中的類別`CreateDocumentQuery`方法。 您可以使用來控制的頁面數目`MaxItemCount`設定。
 
-您也可以明確地控制分頁，方法是使用 `IQueryable` 物件來建立 `IDocumentQueryable`，然後讀取 ` ResponseContinuationToken` 值，並將它們以 `RequestContinuationToken` 的形式在 `FeedOptions` 中傳回。 您可以設定`EnableScanInQuery`啟用掃描時所設定的索引編製原則不支援的查詢。 您可以使用資料分割的容器，`PartitionKey`來針對單一資料分割，執行查詢，雖然 Azure Cosmos DB 可以從自動擷取查詢文字。 您可以使用`EnableCrossPartitionQuery`針對多個分割區執行查詢。
+您可以建立，以明確地控制分頁`IDocumentQueryable`使用`IQueryable`物件，然後藉由讀取`ResponseContinuationToken`做為傳回的值，並將它們`RequestContinuationToken`在`FeedOptions`。 您可以設定`EnableScanInQuery`啟用掃描時所設定的索引編製原則不支援的查詢。 您可以使用資料分割的容器，`PartitionKey`來針對單一資料分割，執行查詢，雖然 Azure Cosmos DB 可以從自動擷取查詢文字。 您可以使用`EnableCrossPartitionQuery`針對多個分割區執行查詢。
 
 如需使用查詢的多個.NET 範例，請參閱[Azure Cosmos DB.NET 範例](https://github.com/Azure/azure-cosmosdb-dotnet)在 GitHub 中。
 
@@ -1915,7 +1915,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
 
 **選取運算子，範例 1:**
 
-- **LINQ lambda 運算式**
+- **LINQ Lambda 運算式**
   
   ```csharp
       input.Select(family => family.parents[0].familyName);
@@ -1930,7 +1930,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
   
 **選取運算子，範例 2:** 
 
-- **LINQ lambda 運算式**
+- **LINQ Lambda 運算式**
   
   ```csharp
       input.Select(family => family.children[0].grade + c); // c is an int variable
@@ -1945,7 +1945,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
   
 **選取運算子，範例 3:**
 
-- **LINQ lambda 運算式**
+- **LINQ Lambda 運算式**
   
   ```csharp
     input.Select(family => new
@@ -1967,7 +1967,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
 
 語法為 `input.SelectMany(x => f(x))`，其中 `f` 是傳回容器類型的純量運算式。
 
-- **LINQ lambda 運算式**
+- **LINQ Lambda 運算式**
   
   ```csharp
       input.SelectMany(family => family.children);
@@ -1986,7 +1986,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
 
 **其中運算子，範例 1:**
 
-- **LINQ lambda 運算式**
+- **LINQ Lambda 運算式**
   
   ```csharp
       input.Where(family=> family.parents[0].familyName == "Wakefield");
@@ -2002,7 +2002,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
   
 **其中運算子，範例 2:**
 
-- **LINQ lambda 運算式**
+- **LINQ Lambda 運算式**
   
   ```csharp
       input.Where(
@@ -2029,7 +2029,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
 
 **串連，範例 1:**
 
-- **LINQ lambda 運算式**
+- **LINQ Lambda 運算式**
   
   ```csharp
       input.Select(family=>family.parents[0])
@@ -2046,7 +2046,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
 
 **串連，範例 2:**
 
-- **LINQ lambda 運算式**
+- **LINQ Lambda 運算式**
   
   ```csharp
       input.Where(family => family.children[0].grade > 3)
@@ -2063,7 +2063,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
 
 **串連，範例 3:**
 
-- **LINQ lambda 運算式**
+- **LINQ Lambda 運算式**
   
   ```csharp
       input.Select(family => new { grade=family.children[0].grade}).
@@ -2080,7 +2080,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
 
 **串連，範例 4:**
 
-- **LINQ lambda 運算式**
+- **LINQ Lambda 運算式**
   
   ```csharp
       input.SelectMany(family => family.parents)
@@ -2103,7 +2103,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
 
 **巢狀結構，範例 1:**
 
-- **LINQ lambda 運算式**
+- **LINQ Lambda 運算式**
   
   ```csharp
       input.SelectMany(family=>
@@ -2120,7 +2120,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
 
 **範例 2 的巢狀：**
 
-- **LINQ lambda 運算式**
+- **LINQ Lambda 運算式**
   
   ```csharp
       input.SelectMany(family =>
@@ -2138,7 +2138,7 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
 
 **範例 3 的巢狀：**
 
-- **LINQ lambda 運算式**
+- **LINQ Lambda 運算式**
   
   ```csharp
       input.SelectMany(family => family.children.Where(
@@ -2162,14 +2162,14 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
 - [Javascript 規格](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 - [LINQ](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
 - Graefe Goetz。 [大型資料庫的查詢評估技術](https://dl.acm.org/citation.cfm?id=152611)。 *運算問卷的 ACM* 25，沒有。 2 (1993).
-- Graefe，g。「 查詢最佳化的串聯，聯集架構。 」 *IEEE Data Eng. L。* 18，沒有。 3 (1995).
+- Graefe，g。「 查詢最佳化的串聯，聯集架構。 」 *IEEE 資料 eng。L。* 18，沒有。 3 (1995).
 - Lu，Ooi，Tan。 [平行關聯式資料庫系統中的處理查詢]。 *IEEE Computer Society 按*(1994)。
 - Olston、 Christopher、 Benjamin Reed、 Utkarsh Srivastava、 Ravi Kumar、 和 Andrew Tomkins。 「 Pig Latin:不讓外部索引語言進行資料處理 」。 *SIGMOD* (2008)。
 
 ## <a name="next-steps"></a>後續步驟
 
 - [Azure Cosmos DB 簡介][introduction]
-- [Azure Cosmos DB.NET 範例](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET 範例](https://github.com/Azure/azure-cosmosdb-dotnet)
 - [Azure Cosmos DB 一致性層級][consistency-levels]
 
 [1]: ./media/how-to-sql-query/sql-query1.png

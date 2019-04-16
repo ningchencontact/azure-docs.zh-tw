@@ -16,12 +16,12 @@ ms.date: 04/05/2019
 ms.subservice: manage-apps
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ab280b4647c0e8eb7083797ec00965cbaec6f8e
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: bf9ee43c6c6b332c05286da8e330812d7e0db6c2
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502334"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578584"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Azure AD 應用程式 Proxy：版本發行歷程記錄
 本文列出的版本和 Azure Active Directory (Azure AD) 應用程式 Proxy 的已發行的功能。 Azure AD 小組會定期以新特性和功能更新應用程式 Proxy。 發行新版本時，會自動更新應用程式 Proxy 連接器。
@@ -31,7 +31,7 @@ ms.locfileid: "59502334"
 資源 |  詳細資料
 --------- | --------- |
 如何啟用應用程式 Proxy | 啟用應用程式 Proxy 並安裝並註冊連接器的必要條件所述這[教學課程](application-proxy-add-on-premises-application.md)。
-了解 Azure AD 應用程式 Proxy 連接器 | 深入了解[連接器管理](application-proxy-connectors.md)和如何連接器自動升級。
+了解 Azure AD 應用程式 Proxy 連接器 | 深入了解[連接器管理](application-proxy-connectors.md)以及連接器[自動升級](application-proxy-connectors.md#automatic-updates)。
 Azure AD 應用程式 Proxy 連接器下載 |  [下載最新的連接器](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download)。
 
 ## <a name="156120"></a>1.5.612.0

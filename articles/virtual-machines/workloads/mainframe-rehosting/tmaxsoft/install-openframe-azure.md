@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: 6b109f347ee7a917b57acfc56ab4418755295bc5
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 78a8b5e7a1c5512f81315519210bc7759dd15342
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896297"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578470"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>在 Azure 上安裝 TmaxSoft OpenFrame
 
@@ -945,7 +945,7 @@ ProSort 是批次交易中用於排序資料的公用程式。
      export PATH
      ```
 
-6. 若要執行的 bash 設定檔，在命令提示字元中，輸入： ` . .bash_profile`
+6. 若要執行的 bash 設定檔，在命令提示字元中，輸入： `. .bash_profile`
 
 7. 建立設定檔。 例如︰
 
@@ -1055,7 +1055,7 @@ OFCOBOL 是 OpenFrame 編譯器解譯的大型主機 COBOL 程式。
      0 NonFatalErrors 
      0 FatalError
      ```
-10. 使用`ofcob --version `命令，並檢閱要驗證安裝的版本號碼。 例如︰
+10. 使用`ofcob --version`命令，並檢閱要驗證安裝的版本號碼。 例如︰
 
      ```
      [oframe7@ofdemo ~]$ ofcob --version 
@@ -1342,7 +1342,7 @@ JEUS （Java 企業使用者解決方案） 提供 OpenFrame web 應用程式伺
      [oframe7\@ofdemo setup]\$ vi domain-config-template.properties
      ```
 
-7. 變更`jeus.password=jeusadmin nodename=Tmaxsoft`至 `jeus.password=tmax1234 nodename=ofdemo`
+7. 將 `jeus.password=jeusadmin nodename=Tmaxsoft` 變更為 `jeus.password=tmax1234 nodename=ofdemo`
 
 8. 執行`ant install`命令，以建置 JEUS。
 9.  更新.bash\_與 JEUS 變數所示的設定檔：
@@ -1359,7 +1359,7 @@ JEUS （Java 企業使用者解決方案） 提供 OpenFrame web 應用程式伺
      [oframe7@ofdemo setup]$ . .bash_profile
      ```
 
-11. *選擇性*。 建立簡單的關機和開機 JEUS 元件的別名：
+11. 可选。 建立簡單的關機和開機 JEUS 元件的別名：
 
      ```     
      # JEUS alias
@@ -1477,5 +1477,5 @@ OFManager 提供操作和管理功能 OpenFrame web 環境中。
 如果您考慮的大型主機移轉，我們不斷擴充的合作夥伴生態系統可幫助您。 如需選擇合作夥伴解決方案的詳細指引，請參閱 [Platform Modernization Alliance](https://www.platformmodernization.org/pages/mainframe.aspx)。
 
 -   [開始使用 Azure](https://docs.microsoft.com/azure/)
--   [主機 Integration Server (HIS) 文件](https://docs.microsoft.com/host-integration-server/)
+-   [Host Integration Server (HIS) 文件](https://docs.microsoft.com/host-integration-server/)
 -   [Azure 虛擬資料中心以及轉移指南](https://blogs.msdn.microsoft.com/azurecat/2018/03/12/new-whitepaper-azure-virtual-datacenter-lift-and-shift-guide/)

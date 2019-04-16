@@ -11,12 +11,12 @@ ms.date: 04/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49234472481e30cf74efa3e72ac0e4f31466fada
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e33143626e136523b4af086e841b92e9ad30fa86
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884885"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577604"
 ---
 # <a name="what-is-the-azure-ad-connect-admin-agent"></a>什麼是 Azure AD Connect 管理代理程式？ 
 Azure AD Connect 管理代理程式是 Azure Active Directory Connect 的 Azure Active Directory Connect 的伺服器上所安裝的新元件。 它用來從 Active Directory 環境，可協助 Microsoft 支援工程師以疑難排解問題，當您開啟支援案例時收集特定資料。
@@ -41,16 +41,18 @@ Microsoft 支援工程師無法看到任何密碼，而且無法變更系統中�
  
 如果不想讓 Microsoft 服務工程師，以存取您的資料，支援呼叫，您可以停用此修改服務組態檔，如下所述： 
 
-  1.    開啟**C:\Program Files\Microsoft Azure AD Connect 管理 Agent\AzureADConnectAdministrationAgentService.exe.config**在記事本中。
-  2.    停用**UserDataEnabled**設定，如下所示。 如果**UserDataEnabled**設定存在，而且設定為 true，則將它設定為 false。 如果設定不存在，然後將設定，如下所示。    
-  `
- <appSettings>
-   <add key="TraceFilename" value="ADAdministrationAgent.log" />
-   <add key="UserDataEnabled" value="false" />
-  </appSettings>
-  `
-  3.    儲存組態檔。
-  4.    重新啟動 Azure AD Connect 管理代理程式服務，如下所示
+1.  開啟**C:\Program Files\Microsoft Azure AD Connect 管理 Agent\AzureADConnectAdministrationAgentService.exe.config**在記事本中。
+2.  停用**UserDataEnabled**設定，如下所示。 如果**UserDataEnabled**設定存在，而且設定為 true，則將它設定為 false。 如果設定不存在，然後將設定，如下所示。    
+
+    ```xml
+    <appSettings>
+      <add key="TraceFilename" value="ADAdministrationAgent.log" />
+      <add key="UserDataEnabled" value="false" />
+    </appSettings>
+    ```
+
+3.  儲存組態檔。
+4.  重新啟動 Azure AD Connect 管理代理程式服務，如下所示
 
 ![管理代理程式](media/whatis-aadc-admin-agent/adminagent2.png)
 

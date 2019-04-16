@@ -10,18 +10,25 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1abf3fd5ca678f878e36e3df3f8da0c0e0b5f852
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: e58205e847dbfdae8a114221f9bd56102555eeef
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528130"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579150"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 服務版本資訊
 
 本文章會說明 Azure Machine Learning 服務的版本。  如需每個 SDK 的完整說明，請瀏覽參考文件以瞭解：
 + Azure Machine Learning 的 [**主要 SDK for Python**](https://aka.ms/aml-sdk)
 + Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
+
+## <a name="2019-04-15"></a>2019-04-15
+
+### <a name="azure-portal"></a>Azure 入口網站
+  + 您現在可以重新提交在現有的遠端計算叢集上執行的現有指令碼。 
+  + 您現在可以使用新的參數執行發行的管線，在 [管線] 索引標籤上。 
+  + 執行詳細資料現在支援新的快照集檔案檢視器。 當您送出特定的執行，您可以檢視快照集的目錄。 您也可以下載已提交給啟動執行的 notebook。
 
 ## <a name="2019-04-08"></a>2019-04-08
 
@@ -49,6 +56,7 @@ ms.locfileid: "59528130"
   + 資料行類型偵測現在支援類型的資料行的長時間。
   + 修正的 bug，其中有些日期值顯示為時間戳記，而不是 Python datetime 物件。
   + 修正了其中一些類型的計數正顯示為雙精度浮點數，而不是整數。
+
   
 ## <a name="2019-03-25"></a>2019-03-25
 

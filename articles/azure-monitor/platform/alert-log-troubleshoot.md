@@ -1,6 +1,6 @@
 ---
 title: 疑難排解在 Azure 監視器中的記錄警示 |Microsoft Docs
-description: Azure 中記錄警示規則的常見問題、錯誤及解決方式。
+description: 常見的問題、 錯誤和解決在 Azure 中的記錄警示規則。
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: aa42e8975432de8ca489cf9b1b6dd509c9fb01c1
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: 0c7189f1d43a114532b30b0c1aabe6f7cd4402d8
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59005301"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578708"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>針對 Azure 監視器中的記錄警示進行疑難排解  
 
@@ -25,7 +25,6 @@ ms.locfileid: "59005301"
 
 > [!NOTE]
 > 本文並不考慮以下情況：Azure 入口網站顯示所觸發的警示規則，以及由相關聯「動作群組」所執行的通知。 針對這類情況，請參考[動作群組](../platform/action-groups.md)一文中的詳細資料。
-
 
 ## <a name="log-alert-didnt-fire"></a>記錄警示未引發
 
@@ -57,7 +56,7 @@ ms.locfileid: "59005301"
 
 例如，假設計量度量記錄警示規則已設定如下：
 
-- 查詢是： `search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
+- 查詢為：`search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
 - 時間週期為 6 小時
 - 閾值為 50
 - 警示邏輯為三個連續違規
@@ -92,9 +91,94 @@ ms.locfileid: "59005301"
 
 ### <a name="alert-query-output-misunderstood"></a>警示查詢輸出被誤解
 
-您在分析查詢中提供記錄警示的邏輯。 分析查詢可以使用各種巨量資料和數學函式。  警示服務會在指定的時間間隔，以指定之時段的資料執行查詢。 警示服務會根據選擇的警示類型，對所提供的查詢進行細微變更。 這可以在 [設定訊號邏輯] 畫面的 [要執行的查詢] 區段中看到，如下所示：![若要執行的查詢](media/alert-log-troubleshoot/LogAlertPreview.png)
+您在分析查詢中提供記錄警示的邏輯。 分析查詢可以使用各種巨量資料和數學函式。  警示服務會在指定的時間間隔，以指定之時段的資料執行查詢。 警示服務會根據選擇的警示類型，對所提供的查詢進行細微變更。 這項變更，請檢視中的 「 查詢執行中 」 一節*設定訊號邏輯*畫面上，如下所示：![要執行的查詢](media/alert-log-troubleshoot/LogAlertPreview.png)
 
 在 [要執行的查詢] 方塊中顯示的內容就是記錄警示服務執行的內容。 如果您想要在實際建立警示之前，了解警示查詢輸出的內容，您可以執行指定的查詢，以及 [Analytics 入口網站](../log-query/portals.md)或 [Analytics API](https://docs.microsoft.com/rest/api/loganalytics/) 執行時間範圍。
+
+## <a name="log-alert-was-disabled"></a>記錄警示已停用
+
+以下列出因為一些原因[在 Azure 監視器中的記錄警示規則](../platform/alerts-log.md)由 Azure 監視器可能會停用。
+
+### <a name="resource-on-which-alert-was-created-no-longer-exists"></a>資源在其建立警示不再存在
+
+Azure 監視器中建立的記錄警示規則的目標特定的資源，例如 Azure Log Analytics 工作區、 Azure Application Insights 的應用程式和 Azure 資源。 與記錄警示服務便會執行分析查詢提供規則中指定的目標。 但是，規則建立之後，通常使用者前往從 Azure 刪除，或在 Azure 的警示規則的目標內移動。 所記錄的警示規則的目標已不再有效，執行此規則將會失敗。
+
+在這種情況下，Azure 監視器將會停用記錄警示，並確保客戶時不會計費不必要地，規則本身不能相當類似一週的期間內持續執行。 使用者的記錄警示規則已停用由透過 Azure 監視器的確切時間，可以找出[Azure 活動記錄檔](../../azure-resource-manager/resource-group-audit.md)。 在 Azure 活動記錄檔時記錄警示規則會停用 Azure，事件會新增 Azure 活動記錄檔中。
+
+Azure 活動記錄檔中其持續失敗，因為停用的警示規則的取樣事件如下所示。
+
+```json
+{
+    "caller": "Microsoft.Insights/ScheduledQueryRules",
+    "channels": "Operation",
+    "claims": {
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn": "Microsoft.Insights/ScheduledQueryRules"
+    },
+    "correlationId": "abcdefg-4d12-1234-4256-21233554aff",
+    "description": "Alert: test-bad-alerts is disabled by the System due to : Alert has been failing consistently with the same exception for the past week",
+    "eventDataId": "f123e07-bf45-1234-4565-123a123455b",
+    "eventName": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "category": {
+        "value": "Administrative",
+        "localizedValue": "Administrative"
+    },
+    "eventTimestamp": "2019-03-22T04:18:22.8569543Z",
+    "id": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<ResourceGroup>/PROVIDERS/MICROSOFT.INSIGHTS/SCHEDULEDQUERYRULES/TEST-BAD-ALERTS",
+    "level": "Informational",
+    "operationId": "",
+    "operationName": {
+        "value": "Microsoft.Insights/ScheduledQueryRules/disable/action",
+        "localizedValue": "Microsoft.Insights/ScheduledQueryRules/disable/action"
+    },
+    "resourceGroupName": "<Resource Group>",
+    "resourceProviderName": {
+        "value": "MICROSOFT.INSIGHTS",
+        "localizedValue": "Microsoft Insights"
+    },
+    "resourceType": {
+        "value": "MICROSOFT.INSIGHTS/scheduledqueryrules",
+        "localizedValue": "MICROSOFT.INSIGHTS/scheduledqueryrules"
+    },
+    "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<ResourceGroup>/PROVIDERS/MICROSOFT.INSIGHTS/SCHEDULEDQUERYRULES/TEST-BAD-ALERTS",
+    "status": {
+        "value": "Succeeded",
+        "localizedValue": "Succeeded"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2019-03-22T04:18:22.8569543Z",
+    "subscriptionId": "<SubscriptionId>",
+    "properties": {
+        "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<ResourceGroup>/PROVIDERS/MICROSOFT.INSIGHTS/SCHEDULEDQUERYRULES/TEST-BAD-ALERTS",
+        "subscriptionId": "<SubscriptionId>",
+        "resourceGroup": "<ResourceGroup>",
+        "eventDataId": "12e12345-12dd-1234-8e3e-12345b7a1234",
+        "eventTimeStamp": "03/22/2019 04:18:22",
+        "issueStartTime": "03/22/2019 04:18:22",
+        "operationName": "Microsoft.Insights/ScheduledQueryRules/disable/action",
+        "status": "Succeeded",
+        "reason": "Alert has been failing consistently with the same exception for the past week"
+    },
+    "relatedEvents": []
+}
+```
+
+### <a name="query-used-in-log-alert-is-not-valid"></a>用於記錄警示的查詢無效
+
+在 Azure 監視器中建立作為其組態的一部分的每個記錄警示規則必須指定警示服務會定期執行 analytics 查詢。 而分析查詢可能有正確的語法，在規則建立或更新的時間。 記錄檔中的一段時間，有時候的查詢提供警示規則可以開發語法問題，並造成啟動失敗的規則執行。 為什麼要記錄的警示規則中所提供的分析查詢可以開發錯誤一些常見原因如下：
+
+- 若要撰寫查詢[跨多個資源執行](../log-query/cross-workspace-query.md)而一或多個資源指定，現在並不存在。
+- 已分析平台，因為沒有資料流向[查詢執行會產生錯誤](https://dev.loganalytics.io/documentation/Using-the-API/Errors)提供的查詢沒有資料現狀。
+- 中的變更[查詢語言](https://docs.microsoft.com/azure/kusto/query/)發生哪些命令和函式已修改過的格式。 因此稍早提供的查詢中的警示規則不再有效。
+
+使用者應透過第一次警告的這種行為[Azure Advisor](../../advisor/advisor-overview.md)。 會加入特定的記錄警示規則上 Azure Advisor 變更使用中度影響和描述，如 「 修復您的記錄警示規則，以確保監視 」 類別的高可用性建議。 如果超過七天，在 Azure Advisor 提供建議的警示查詢中指定的記錄警示規則不會執行修正。 然後 Azure 監視器可停用記錄警示，並確保客戶時不會計費不必要地，規則本身不能相當類似一週的期間內持續執行。
+
+使用者的記錄警示規則已停用由透過 Azure 監視器的確切時間，可以找出[Azure 活動記錄檔](../../azure-resource-manager/resource-group-audit.md)。 在 Azure 活動記錄檔，當記錄警示規則會停用 Azure-事件新增 Azure 活動記錄檔中。
 
 ## <a name="next-steps"></a>後續步驟
 

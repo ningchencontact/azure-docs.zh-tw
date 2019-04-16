@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: f1b993cf45d987cb51f64359b331f3862d054774
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 62356ee35631373b5a5d38ed356bbb2fb489807b
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549894"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577790"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>在 Azure 中於 SUSE Linux Enterprise Server 上設定 Pacemaker
 
@@ -84,7 +84,7 @@ SBD 裝置至少需要一部額外的虛擬機器，作為 iSCSI 目標伺服器
 
 在所有 **iSCSI 目標虛擬機器**上執行下列命令，為 SAP 系統所用的叢集建立 iSCSI 磁碟。 在下列範例中，會建立多個叢集的 SBD 裝置。 它會顯示如何對多個叢集使用一部 iSCSI 目標伺服器。 SBD 裝置會置於 OS 磁碟上。 確定您有足夠的空間。
 
-**` nfs`** 用來識別 NFS 叢集**ascsnw1**用來識別的 ASCS 叢集**NW1**， **dbnw1**用來識別資料庫叢集中的**NW1**， **nfs 0**並**nfs 1**是 NFS 叢集節點的主機名稱**nw1-xscs 0**和**nw1 xscs 1**是的主機名稱**NW1** ASCS 叢集節點，並**nw1-db-0**並**nw1-db-1**是叢集節點主機名稱的資料庫。 使用您的叢集節點主機名稱和 SAP 系統 SID 取代它們。
+**`nfs`** 用來識別 NFS 叢集**ascsnw1**用來識別的 ASCS 叢集**NW1**， **dbnw1**用來識別資料庫叢集中的**NW1**， **nfs 0**並**nfs 1**是 NFS 叢集節點的主機名稱**nw1-xscs 0**和**nw1 xscs 1**是的主機名稱**NW1** ASCS 叢集節點，並**nw1-db-0**並**nw1-db-1**是叢集節點主機名稱的資料庫。 使用您的叢集節點主機名稱和 SAP 系統 SID 取代它們。
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -302,7 +302,7 @@ o- / ...........................................................................
    <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
-   建立` softdog`組態檔
+   建立`softdog`組態檔
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>

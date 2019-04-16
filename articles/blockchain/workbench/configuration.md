@@ -5,21 +5,21 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/08/2019
+ms.date: 04/15/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: b45cd84322279d7f81cc3f047f72a75a6d898bc6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4d29d8e86a30f105c4aa50ec9615f8165fa238d3
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452686"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578742"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Azure Blockchain Workbench 組態參考
 
- Azure Blockchain Workbench 應用程式是以組態中繼資料和智慧合約程式碼所定義的多方工作流程。 組態中繼資料會定義區塊鏈應用程式的高階工作流程和互動模型。 智慧合約則會定義區塊鏈應用程式的商務邏輯。 Workbench 會使用組態和智慧合約程式碼來產生區塊鏈應用程式使用者體驗。
+Azure Blockchain Workbench 應用程式是以組態中繼資料和智慧合約程式碼所定義的多方工作流程。 組態中繼資料會定義區塊鏈應用程式的高階工作流程和互動模型。 智慧合約則會定義區塊鏈應用程式的商務邏輯。 Workbench 會使用組態和智慧合約程式碼來產生區塊鏈應用程式使用者體驗。
 
 組態中繼資料會指定每個區塊鏈應用程式的下列資訊：
 

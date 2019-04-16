@@ -266,7 +266,7 @@ ms.locfileid: "57853117"
 
 ## <a name="database-properties-for-pooled-databases"></a>集區資料庫的資料庫屬性
 
-下表描述集區資料表的屬性。
+下表描述集區資料庫的屬性。
 
 | 屬性 | 描述 |
 |:--- |:--- |

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 單一/共用資料庫檔案空間管理 |Microsoft Docs
+title: Azure SQL Database 單一/集區資料庫檔案空間管理 |Microsoft Docs
 description: 此頁面描述如何管理 Azure SQL Database 中的單一和集區資料庫的檔案空間，並提供如何判斷您是否需要壓縮單一或集區資料庫，以及如何執行資料庫壓縮作業的程式碼範例。
 services: sql-database
 ms.service: sql-database

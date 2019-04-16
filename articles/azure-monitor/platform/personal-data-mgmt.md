@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 9112d50384aba288038343ff9a14ed55542fb722
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0cf5a80e3eedbe7efb8463162b5b3ed489ac08c8
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121344"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577893"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>儲存在 Log Analytics 和 Application Insights 中的個人資料指引
 
@@ -86,6 +86,9 @@ Log Analytics 是彈性的存放區，在指定資料結構描述的同時，允
 ### <a name="view-and-export"></a>檢視和匯出
 
 針對檢視和匯出資料的要求，均應使用 [Log Analytics 查詢 API](https://dev.loganalytics.io/) 或 [Application Insights 查詢 API](https://dev.applicationinsights.io/quickstart)。 至於要如何將資料轉換為適當形式以提供給使用者，其實作邏輯則由您自行決定。 [Azure Functions](https://azure.microsoft.com/services/functions/) 很適合用來裝載這類邏輯。
+
+> [!IMPORTANT]
+>  雖然大部分的清除作業可能速度會比 SLA，完成**型式的清除作業完成的 SLA 在 30 天設定**由於大量使用的資料平台影響。 這是自動化程序;沒有任何方法來要求更快速處理作業。
 
 ### <a name="delete"></a>刪除
 

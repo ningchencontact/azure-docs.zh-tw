@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9f881071559eaba0f6b1c86e8827993d52470baf
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 0c4b8d1646ba851acc6a0e2d9a3b920634098846
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501959"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571166"
 ---
 # <a name="service-connectivity-monitor"></a>服務連線能力監視
 
@@ -68,7 +68,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 5. 在 [目標] 中，輸入您要監視網路連線的 URL/FQDN/IP 位址。
 6. 在 [連接埠號碼] 中，輸入目標服務的連接埠號碼。 
 7. 在 [測試頻率] 中，輸入您想要執行測試的頻率值。 
-8. 選取您要監視服務網路連線的來源節點。 
+8. 選取您要監視服務網路連線的來源節點。 請確定加入每個測試代理程式數目小於 150。 任何代理程式可以測試最大值 150 的端點/代理程式。
 
     >[!NOTE]
     > 對於以 Windows Server 為基礎的節點，功能會使用以 TCP 為基礎的要求來執行網路測量。 對於以 Windows 用戶端為基礎的節點，功能會使用以 ICMP 為基礎的要求來執行網路測量。 在某些情況下，目標應用程式會在節點是以 Windows 用戶端為基礎時，封鎖以連入 ICMP 為基礎的要求。 此解決方案無法執行網路量測。 建議您在此情況下使用以 Windows Server 為基礎的節點。 

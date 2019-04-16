@@ -86,7 +86,7 @@ items:
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
   - name: SQL Database 中的安全性
     items:
-    - name: 單一和集區的資料庫安全性
+    - name: 單一和集區資料庫安全性
       href: sql-database-security-tutorial.md
     - name: 受控執行個體安全性
       href: sql-database-managed-instance-aad-security-tutorial.md

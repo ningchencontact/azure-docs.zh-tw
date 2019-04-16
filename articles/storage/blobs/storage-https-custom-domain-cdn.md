@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: mihauss
 ms.subservice: blobs
-ms.openlocfilehash: 1166f98dcd39362ef5e28be12ff9e2f561ab5b1f
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 90ddb58f3499180e17df559a98ac8a46b53fb824
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238205"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579007"
 ---
 # <a name="use-azure-cdn-to-access-blobs-with-custom-domains-over-https"></a>使用 Azure CDN 透過 HTTPS 以自訂網域存取 Blob
 
@@ -67,4 +67,4 @@ Azure CDN 並不遵守加諸於共用存取簽章權杖的任何限制。 例如
 ## <a name="next-steps"></a>後續步驟
 
 * [針對 Blob 儲存體端點設定自訂網域名稱](storage-custom-domain-name.md)
-* [Azure 儲存體中的靜態網站代管 (預覽)](storage-blob-static-website.md)
+* [Azure 儲存體中的靜態網站代管](storage-blob-static-website.md)

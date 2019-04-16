@@ -5,16 +5,16 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/16/2018
+ms.date: 4/11/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 0f5d36dfbe614e35256231a91a9e15055e2e81cb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 41f0607908cde94ca08a4c4dfce0a47032eefbb3
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57843618"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578436"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>讓更新管理、變更追蹤和清查解決方案上線
 
@@ -44,7 +44,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 |EastUS<sup>1</sup>|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
-|WestCentralUS|WestCentralUS|
+|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
 |WestEurope|WestEurope|
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
@@ -52,8 +52,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 <sup>1</sup> EastUS2EUAP 和 EastUS 對應至自動化帳戶的 Log Analytics 工作區不是確切的區域對應，但是是正確的對應。
 
-> [!NOTE]
-> 由於需要，在區域可能無法建立您的自動化帳戶或 Log Analytics 工作區時。  如果這種情況，請確定您使用在上表中，您可以建立資源的區域。
+<sup>2</sup>基於容量限制的區域不提供建立新的資源時。 這包括自動化帳戶和 Log Analytics 工作區。 不過，在區域中預先存在連結的資源應該繼續運作。
 
 變更追蹤和清查解決方案可讓您在虛擬機器上[追蹤變更](automation-vm-change-tracking.md)和[進行清查](automation-vm-inventory.md)。 在此步驟中，您會在虛擬機器上啟用解決方案。
 

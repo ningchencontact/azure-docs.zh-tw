@@ -78,14 +78,14 @@ SQL Database 提供兩種購買模型：
 
    ![彈性集區](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
-使用彈性集區，您就不必隨著資源的需求波動，專注於調高或調低資料庫效能。 集區中的資料庫會視需要取用彈性集區的效能資源。 集區中的資料庫會取用集區的資源，但不會超過其限制，因此您的成本可在個別資料庫使用情形無法預測的狀況下維持可預測性。 此外，您還可以 [將資料庫移入/移出集區](sql-database-elastic-pool-manage-portal.md)，並將您的應用程式從數個資料庫擴充至數千個，而且全都在您可掌控的預算之內。 您也可以控制集區中資料庫可用的資源上限和下限，以確保集區中不會有任一資料庫使用所有的集區資源，且集區中的每個資料庫都有保證的資源數量下限。 若要深入了解使用彈性集區的 SaaS 應用程式的設計模式，請參閱 [採用 SQL Database 的多租用戶 SaaS 應用程式的設計模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)。
+使用彈性集區，您就不必隨著資源的需求波動，專注於調高或調低資料庫效能。 集區資料庫會視需要取用彈性集區的效能資源。 集區資料庫會取用集區的資源，但不會超過其限制，因此您的成本可在個別資料庫使用情形無法預測的狀況下維持可預測性。 此外，您還可以 [將資料庫移入/移出集區](sql-database-elastic-pool-manage-portal.md)，並將您的應用程式從數個資料庫擴充至數千個，而且全都在您可掌控的預算之內。 您也可以控制集區中資料庫可用的資源上限和下限，以確保集區中不會有任一資料庫使用所有的集區資源，且每個集區資料庫都有保證的最低資源數量。 若要深入了解使用彈性集區的 SaaS 應用程式的設計模式，請參閱 [採用 SQL Database 的多租用戶 SaaS 應用程式的設計模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)。
 
 指令碼可協助您監視及調整彈性集區的規模。 如需範例，請參閱[使用 PowerShell 在 Azure SQL Database 中監視和調整 SQL 彈性集區的規模](scripts/sql-database-monitor-and-scale-pool-powershell.md)
 
 > [!IMPORTANT]
 > 受控執行個體不支援彈性集區。 相反地，受控執行個體是共用受控執行個體資源的執行個體資料庫集合。
 
-### <a name="blend-single-databases-with-pooled-databases"></a>混合使用單一資料庫與集區中的資料庫
+### <a name="blend-single-databases-with-pooled-databases"></a>混合使用單一資料庫與集區資料庫
 
 您可以混合使用單一資料庫與彈性集區，並快速且輕易地變更單一資料庫和彈性集區的服務層來適應您的情況。 透過 Azure 功能強大而無遠弗屆的特性，您可以使用 SQL Database 混合和搭配其他 Azure 服務，滿足您獨特應用程式的設計需求、有效運用成本和資源，並且產生新的商機。
 
@@ -113,14 +113,14 @@ Azure 可用性區域是婧矔菛高可用性問題。  它會嘗試防止建置
 
 - **[自動備份](sql-database-automated-backups.md)**：
 
-  SQL Database 會自動執行 Azure SQL Database 的完整、差異及交易記錄備份，以供您還原至任何時間點。 對於單一資料庫和集區式資料庫，您可以設定 SQL 資料庫將完整資料庫備份儲存至 Azure 儲存體，以供長期備份保留。 對於受控執行個體，您也可以對僅複製備份執行長期備份保留。
+  SQL Database 會自動執行 Azure SQL Database 的完整、差異及交易記錄備份，以供您還原至任何時間點。 對於單一資料庫和集區資料庫，您可以設定 SQL 資料庫將完整資料庫備份儲存至 Azure 儲存體，以供長期備份保留。 對於受控執行個體，您也可以對僅複製備份執行長期備份保留。
 
 - **[時間點還原](sql-database-recovery-using-backups.md)**：
 
   所有 SQL Database 部署選項均支援復原到任何 Azure SQL Database 自動備份保留期間內的任何時間點。
 - **[主動式異地複寫](sql-database-active-geo-replication.md)**：
 
-  單一資料庫和集區式資料庫可讓您在相同或全域分散的 Azure 資料中心最多設定四個可讀取的次要資料庫。  例如，如果 SaaS 應用程式的目錄資料庫有大量的並行唯讀交易，請使用主動式異地複寫功能來啟用全域讀取範圍，並移除主要資料庫上因為讀取工作負載所造成的瓶頸。 對於受控執行個體，請使用自動容錯移轉群組。
+  單一資料庫和集區資料庫可讓您在相同或全域分散的 Azure 資料中心最多設定四個可讀取的次要資料庫。  例如，如果 SaaS 應用程式的目錄資料庫有大量的並行唯讀交易，請使用主動式異地複寫功能來啟用全域讀取範圍，並移除主要資料庫上因為讀取工作負載所造成的瓶頸。 對於受控執行個體，請使用自動容錯移轉群組。
 - **[自動容錯移轉群組](sql-database-auto-failover-group.md)**：
 
   所有 SQL Database 部署選項均可讓您使用容錯移轉群組來全面啟用高可用性和負載平衡，包括大量資料庫、彈性集區和受控執行個體的透明異地複寫和容錯移轉。 容錯移轉群組能夠建立全域分散的 SaaS 應用程式，其管理負擔最小，可讓 SQL Database 處理所有複雜的監視、路由傳送及容錯移轉協調流程。

@@ -1,24 +1,22 @@
 ---
 title: Azure 資料目錄中支援的資料來源
-description: 此文章列出目前支援之資料來源的規格。
+description: 本文列出目前支援之資料來源的規格。
 services: data-catalog
 author: markingmyname
 ms.author: maghan
-ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 56fa449bd665457ab1b98b67bb42ec52e0742c5f
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.date: 04/15/2019
+ms.openlocfilehash: d859fc92c4adbcd224d49601678804445a313ef7
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410182"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579388"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Azure 資料目錄中支援的資料來源
 
 您可以使用公用 API 或 Click Once 註冊工具，或是直接在「Azure 資料目錄」Web 入口網站中手動輸入資訊，來發佈中繼資料。 下表摘要說明現今目錄支援的所有資料來源，以及每個資料來源適用的發佈功能。 此外，也列出每個資料來源可以從我們的入口網站「開啟」體驗啟動的外部資料工具。 第二個表格包含每個資料來源連線屬性的較技術性規格。
-
 
 ## <a name="list-of-supported-data-sources"></a>支援的資料來源的清單
 
@@ -32,7 +30,7 @@ ms.locfileid: "47410182"
        <td><b>注意事項</b></td>
     </tr>
     <tr>
-      <td>Azure Data Lake Store 目錄</td>
+      <td>Azure Data Lake Store 目錄 (僅 Gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -40,7 +38,7 @@ ms.locfileid: "47410182"
       <td></td>
     </tr>
     <tr>
-      <td>Azure Data Lake Store 檔案</td>
+      <td>Azure Data Lake Store 檔案 (只 Gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>

@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/07/2018
 ms.author: xshi
-ms.openlocfilehash: bc955db4e851c1f59012dc1375170850e1b0604c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: ab3c02d7207bca70a90df8aa08c73c1484cd635d
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54109503"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571306"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>使用適用於 Visual Studio 的 Cloud Explorer，在您的裝置和 IoT 中樞之間傳送及接收訊息
 
-![端對端圖表](media/iot-hub-get-started-e2e-diagram/2.png)
+![端對端圖表](./media/iot-hub-visual-studio-cloud-device-messaging/e-to-e-diagram.png)
 
 [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) 是非常有用的 Visual Studio 延伸模組，可讓您在 Visual Studio 內檢視您的 Azure 資源、檢查其屬性，以及執行重要的開發人員動作。 本文著重於如何使用 Cloud Explorer，在裝置與 IoT 中樞之間傳送及接收訊息。
 
@@ -48,10 +48,14 @@ ms.locfileid: "54109503"
 
     ![按一下 [帳戶管理]](media/iot-hub-visual-studio-cloud-device-messaging/click-account-management.png)
 
-1. 在 Cloud Explorer 中按一下 [管理帳戶]。
-1. 若為第一次登入 Azure，請在新視窗中按一下 [新增帳戶]。
-1. 登入之後，系統會顯示您的 Azure 訂用帳戶清單。 選取您想要檢視的 Azure 訂用帳戶並按一下 [套用]。
-1. 展開**您的訂用帳戶** > [IoT 中樞] > **您的 IoT 中樞**，裝置清單會顯示在您的 IoT 中樞節點下。
+
+2. 在 Cloud Explorer 中按一下 [管理帳戶]。
+
+3. 若為第一次登入 Azure，請在新視窗中按一下 [新增帳戶]。
+
+4. 登入之後，系統會顯示您的 Azure 訂用帳戶清單。 選取您想要檢視的 Azure 訂用帳戶並按一下 [套用]。
+
+5. 展開**您的訂用帳戶** > [IoT 中樞] > **您的 IoT 中樞**，裝置清單會顯示在您的 IoT 中樞節點下。
 
     ![裝置清單](media/iot-hub-visual-studio-cloud-device-messaging/device-list.png)
 
@@ -63,11 +67,11 @@ ms.locfileid: "54109503"
 
     ![開始監視 D2C 訊息](media/iot-hub-visual-studio-cloud-device-messaging/start-monitoring-d2c-message.png)
 
-1. 監視的訊息會顯示在 [IoT 中樞] 輸出窗格。
+2. 監視的訊息會顯示在 [IoT 中樞] 輸出窗格。
 
     ![監視 D2C 訊息結果](media/iot-hub-visual-studio-cloud-device-messaging/monitor-d2c-message-result.png)
 
-1. 若要停止監視，請以滑鼠右鍵按一下任何 IoT 中樞或裝置，並選取 [Stop Monitoring D2C Message] \(停止監視 D2C 訊息\)。
+3. 若要停止監視，請以滑鼠右鍵按一下任何 IoT 中樞或裝置，並選取 [Stop Monitoring D2C Message] \(停止監視 D2C 訊息\)。
 
 ## <a name="send-cloud-to-device-messages"></a>傳送雲端到裝置訊息
 
@@ -77,8 +81,9 @@ ms.locfileid: "54109503"
 
     ![傳送 C2D 訊息](media/iot-hub-visual-studio-cloud-device-messaging/send-c2d-message.png)
 
-1. 在輸入方塊中輸入訊息。
-1. 結果會顯示在 [IoT 中樞] 輸出窗格。
+2. 在輸入方塊中輸入訊息。
+
+3. 結果會顯示在 [IoT 中樞] 輸出窗格。
 
     ![傳送 C2D 訊息結果](media/iot-hub-visual-studio-cloud-device-messaging/send-c2d-message-result.png)
 

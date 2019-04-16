@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 311fdb0b0a2e587e7cf8581f967ed0248de85f6d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 4563bb0de688a8328796badffc8a133a33f64fcc
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59291749"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566560"
 ---
 ## <a name="benefits-of-managed-disks"></a>受控磁碟的好處
 
@@ -31,7 +31,7 @@ ms.locfileid: "59291749"
 
 受控磁碟會與可用性設定組整合，以確定[可用性設定組中的虛擬機器](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)磁碟彼此充分隔離，以避免出現單一失敗點。 磁碟會自動放置在不同的儲存體縮放單位 (戳記)。 如果因為硬體或軟體失敗造成戳記失敗，則只有磁碟在這些戳記上的 VM 執行個體才會失敗。 例如，假設您的應用程式在五個 VM 上執行，且這些 VM 位於可用性設定組中。 這些磁碟的 VM 不會全部以相同的戳記儲存，因此，如果有一個戳記失效，應用程式的其他執行個體會繼續執行。
 
-## <a name="integration-with-availability-zones"></a>可用性區域與整合
+### <a name="integration-with-availability-zones"></a>可用性區域與整合
 
 受控磁碟支援[可用性區域](../articles/availability-zones/az-overview.md)，這是資料中心失敗可防止您的應用程式的高可用性供應項目。 「可用性區域」是 Azure 地區內獨特的實體位置。 每個區域皆由一或多個配備獨立電力、冷卻系統及網路的資料中心所組成。 若要確保復原能力，在所有已啟用的地區中都至少要有三個個別的區域。 使用「可用性區域」時，Azure 可提供業界最佳的 99.99% VM 執行時間 SLA。
 
@@ -61,7 +61,7 @@ ms.locfileid: "59291749"
 
 ### <a name="temporary-disk"></a>暫存磁碟
 
-每個虛擬機器皆包含一個暫存磁碟，此非受控磁碟。 暫存磁碟為應用程式和處理程序提供短期的儲存空間，且僅供用來儲存分頁檔之類的資料。 暫存磁碟上的資料可能會遺失期間[維護事件發生期間](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime)事件或當您[重新部署 VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json)。 在 VM 的成功標準重新開機期間，暫存磁碟上的資料將保留。
+每個虛擬機器皆包含一個暫存磁碟，此非受控磁碟。 暫存磁碟為應用程式和處理程序提供短期的儲存空間，且僅供用來儲存分頁檔之類的資料。 在[维护事件](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime)期间或[重新部署 VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) 时，临时磁盘上的数据可能会丢失。 在 VM 的成功標準重新開機期間，暫存磁碟上的資料將保留。
 
 ## <a name="managed-disk-snapshots"></a>受控磁碟快照集
 
@@ -69,8 +69,8 @@ ms.locfileid: "59291749"
 
 若要深入了解如何建立受控磁碟的快照集，請參閱下列資源︰
 
-* [建立儲存為受控磁碟，在 Windows 中的 VHD 複本](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [建立儲存為受控磁碟，在 Linux 中使用快照集的 VHD 複本](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [在 Windows 中建立 VHD 複本並儲存為受控磁碟](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [在 Linux 中建立 VHD 複本並儲存為受控磁碟](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 ### <a name="images"></a>映像
 
@@ -79,7 +79,7 @@ ms.locfileid: "59291749"
 如需建立映像的詳細資訊，請參閱下列文章︰
 
 * [在 Azure 中如何擷取一般化 VM 的受控映像](../articles/virtual-machines/windows/capture-image-resource.md)
-* [如何一般化和擷取 Linux 虛擬機器使用 Azure CLI](../articles/virtual-machines/linux/capture-image.md)
+* [如何使用 Azure CLI 將 Linux 虛擬機器一般化並加以擷取](../articles/virtual-machines/linux/capture-image.md)
 
 #### <a name="images-versus-snapshots"></a>映像與快照集的比較
 

@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eafc379a65fda1ed64c6afee1427e704558b1ee6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 11d4d319fa31dd2493810dc7293d415554f79d94
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261516"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571115"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory 中條件式存取的最佳做法
 
@@ -109,7 +109,7 @@ Azure Active Directory 會強制執行這兩個原則，而且只有在符合所
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>條件式存取是否適用於 Exchange ActiveSync？
 
-是，您可以在條件式存取原則中使用 Exchange ActiveSync。
+是，您可以使用一些條件式存取原則中的 Exchange ActiveSync[限制](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo#exchange-activesync)。 
 
 ### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>您應該使用 Office 365 應用程式如何設定條件式存取？
 
@@ -130,7 +130,7 @@ Azure Active Directory 會強制執行這兩個原則，而且只有在符合所
 在您的環境中，應該避免使用下列組態：
 
 
-**針對所有使用者、 所有雲端應用程式：**
+**針對所有使用者、所有雲端應用程式：**
 
 - **封鎖存取** - 此組態會封鎖您整個組織，這絕對不是一個好方法。
 
@@ -140,7 +140,7 @@ Azure Active Directory 會強制執行這兩個原則，而且只有在符合所
 
 - **需要應用程式保護原則**-這個原則區塊存取也有可能會封鎖您的組織中的所有使用者的存取，如果您沒有 Intune 原則。 如果您是系統管理員，而不需要有 Intune 應用程式保護原則的用戶端應用程式時，此原則會阻擋您回到入口網站，例如 Intune 和 Azure。
 
-**適用於所有使用者、 所有雲端應用程式、 所有裝置平台：**
+**針對所有使用者、所有雲端應用程式、所有裝置平台：**
 
 - **封鎖存取** - 此組態會封鎖您整個組織，這絕對不是一個好方法。
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4cf7c0cdd066879edccf7869ae3c8de0191f1d2b
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 7463a61945524672c5124966db2464c036559db7
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818867"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571323"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來自訂應用程式的使用者介面
 
@@ -97,7 +97,7 @@ ms.locfileid: "55818867"
 執行下列作業，針對跨原始資源共用設定 Blob 儲存體：
 
 1. 在功能表中，選取 [CORS]。
-2. 針對 [允許的來源]，輸入 `your-tenant-name.b2clogin.com`。 將 `your-tenant-name` 取代為您的 Azure AD B2C 租用戶名稱。 例如： `fabrikam.b2clogin.com`。 輸入您的租用戶名稱時，必須全部使用小寫字母。
+2. 針對 [允許的來源]，輸入 `https://your-tenant-name.b2clogin.com`。 將 `your-tenant-name` 取代為您的 Azure AD B2C 租用戶名稱。 例如： `https://fabrikam.b2clogin.com`。 輸入您的租用戶名稱時，必須全部使用小寫字母。
 3. 針對 [允許的方法]，選取 `GET` 和 `OPTIONS`。
 4. 針對 [允許的標頭]，輸入星號 (*)。
 5. 針對 [公開的標頭]，輸入星號 (*)。
@@ -167,7 +167,7 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 
 Sample_templates/wingtip 資料夾包含下列 HTML 檔案：
 
-| HTML5 範本 | 說明 |
+| HTML5 範本 | 描述 |
 |----------------|-------------|
 | phonefactor.html | 使用此檔案作為多重要素驗證頁面的範本。 |
 | resetpassword.html | 使用此檔案作為忘記密碼頁面的範本。 |
@@ -177,7 +177,7 @@ Sample_templates/wingtip 資料夾包含下列 HTML 檔案：
 
 在「修改註冊或登入自訂原則」一節中，您設定了 `api.idpselections` 的內容定義。 Azure AD B2C 身分識別體驗架構所能辨識的一組完整內容定義識別碼，而其說明位於下表中：
 
-| 內容定義識別碼 | 說明 | 
+| 內容定義識別碼 | 描述 | 
 |-----------------------|-------------|
 | api.error | **錯誤頁面**。 在發生例外狀況或錯誤時，系統會顯示此頁面。 |
 | api.idpselections | **識別提供者選取頁面**。 此頁面包含使用者可以在登入期間選擇的識別提供者清單。 這些選項是企業識別提供者、社交識別提供者 (如 Facebook 和 Google+) 或本機帳戶。 |

@@ -8,23 +8,25 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: 0d40bfa3a4215b671fcd01402a2cbceaea0cd75d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0214fbbe1ecc0d0b6b20b740ec898f24cf5b58ec
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536278"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571289"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>選擇適合您解決方案的 IoT 中樞層
 
-IoT 解決方案各不相同，因此 Azure IoT 中樞提供了幾個以定價和級別為基礎的選項。 本文旨在協助您評估 IoT 中樞需求。 如需有關 IoT 中樞層的定價資訊，請參閱 [IoT 中樞定價](https://azure.microsoft.com/pricing/details/iot-hub)。 
+IoT 解決方案各不相同，因此 Azure IoT 中樞提供了幾個以定價和級別為基礎的選項。 本文旨在協助您評估 IoT 中樞需求。 如需有關 IoT 中樞層的定價資訊，請參閱 [IoT 中樞定價](https://azure.microsoft.com/pricing/details/iot-hub)。
 
 若要決定適合您解決方案的 IoT 中樞層，請問自己兩個問題：
 
 **我打算使用哪些功能？**
+
 Azure IoT 中樞提供基本和標準兩個層級，兩者所支援的功能數目不同。 如果您的 IoT 解決方案是以收集資料裝置再集中分析為基礎，則基本層可能最適合您。 如果您想要使用更進階的組態，以便從遠端控制 IoT 裝置或將您的某些工作負載分散到各個裝置本身，則請考慮使用標準層。 如需這兩個層級各自包含之功能的詳細明細，請繼續閱讀[基本和標準層](#basic-and-standard-tiers)。
 
 **我打算每日移動多少資料？**
+
 每個 IoT 中樞層均提供三種大小，並以在任何指定日所能處理的資料輸送量為基礎。 這三種大小會加上數字 1、2 和 3 以供識別。 例如，每單位的層級 1 IoT 中樞一天可以處理 40 萬個訊息，每單位的層級 3 則可處理 3 億個。 如需資料指引的詳細資訊，請繼續閱讀[訊息輸送量](#message-throughput)。
 
 ## <a name="basic-and-standard-tiers"></a>基本和標準層
@@ -33,7 +35,7 @@ Azure IoT 中樞提供基本和標準兩個層級，兩者所支援的功能數�
 
 每個 IoT 中樞只能選擇層次內的一個[版本](https://azure.microsoft.com/pricing/details/iot-hub/)類型。 例如，您建立的 IoT 中樞可以具有多個 S1 單位，但不能具有來自不同版本 (例如 S1 和 B3 或 S1 和 S2) 的混合單位。
 
-| 功能 | 基本層 | 免費/標準層 |
+| 功能 | 基本層 | 免费/标准层 |
 | ---------- | ---------- | ------------- |
 | [裝置到雲端的遙測](iot-hub-devguide-messaging.md) | 是 | 是 |
 | [每部裝置身分識別](iot-hub-devguide-identity-registry.md) | 是 | 是 |
@@ -46,15 +48,13 @@ Azure IoT 中樞提供基本和標準兩個層級，兩者所支援的功能數�
 | [裝置串流 (預覽)](iot-hub-device-streams-overview.md) |   | 是 |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | 是 |
 
-IoT 中樞也會提供免費層供您測試和評估。 其具有標準層的所有功能，但允許的傳訊量有限。 您無法從免費層升級至基本或標準層。 
-
+IoT 中樞也會提供免費層供您測試和評估。 其具有標準層的所有功能，但允許的傳訊量有限。 您無法從免費層升級至基本或標準層。
 
 ## <a name="partitions"></a>分割數
 
-Azure IoT 中樞包含 [Azure 事件中樞](../event-hubs/event-hubs-features.md)的多個核心元件，包括[分割區](../event-hubs/event-hubs-features.md#partitions)。 IoT 中樞的事件資料流通常會填入由各種不同 IoT 裝置報告的內送遙測資料。 事件資料流的分割可用來減少同時讀取和寫入事件資料流時所發生的爭用。 
+Azure IoT 中樞包含 [Azure 事件中樞](../event-hubs/event-hubs-features.md)的多個核心元件，包括[分割區](../event-hubs/event-hubs-features.md#partitions)。 IoT 中樞的事件資料流通常會填入由各種不同 IoT 裝置報告的內送遙測資料。 事件資料流的分割可用來減少同時讀取和寫入事件資料流時所發生的爭用。
 
-分割區限制是在 IoT 中樞建立時所選擇的，無法變更。 基本層 IoT 中樞和標準層 IoT 中樞的最大分割區限制為 32。 大部分的 IoT 中樞只需要 4 個分割區。 如需關於決定分割區的詳細資訊，請參閱事件中樞的常見問題集：[我需要多少個分割區？](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
-
+分割區限制是在 IoT 中樞建立時所選擇的，無法變更。 基本层 IoT 中心和标准层 IoT 中心的最大分区限制为 32。 大部分的 IoT 中樞只需要 4 個分割區。 如需關於決定分割區的詳細資訊，請參閱事件中樞的常見問題集：[我需要多少個分割區？](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
 
 ## <a name="tier-upgrade"></a>層級升級
 
@@ -62,12 +62,11 @@ Azure IoT 中樞包含 [Azure 事件中樞](../event-hubs/event-hubs-features.md
 
 當您從基本層移轉至標準層時，分割區組態會保持不變。
 
-
 ## <a name="iot-hub-rest-apis"></a>IoT 中樞 REST API
 
-IoT 中樞的基本和標準層之間的支援功能差異，代表某些 API 呼叫無法與基本層中樞搭配運作。 下表顯示可用的 API： 
+IoT 中樞的基本和標準層之間的支援功能差異，代表某些 API 呼叫無法與基本層中樞搭配運作。 下表顯示可用的 API：
 
-| API | 基本層 | 免費/標準層 |
+| API | 基本層 | 免费/标准层 |
 | --- | ---------- | ------------- |
 | [刪除裝置](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | 是 | 是 |
 | [取得裝置](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | 是 | 是 |
@@ -116,26 +115,24 @@ IoT 中樞的基本和標準層之間的支援功能差異，代表某些 API �
 | B2, S2 |每個單位最多 16 MB/分鐘<br/>（22.8 GB/天/单元） |每個單位平均 4,167 個訊息/分鐘<br/>(600 萬個訊息/天/單位) |
 | B3, S3 |每個單位最多 814 MB/分鐘<br/>(1144.4 GB/天/單位) |每個單位平均 208,333 個訊息/分鐘<br/>(3 億個訊息/天/單位) |
 
-除了此輸送量資訊，請參閱 [IoT 中樞配額和節流][IoT Hub quotas and throttles]，並據以設計您的解決方案。
+除了此輸送量資訊之外，請參考 [IoT 中樞配額與節流](iot-hub-devguide-quotas-throttling.md) 並據以設計您的方案。
 
 ### <a name="identity-registry-operation-throughput"></a>身分識別登錄作業輸送量
+
 大部分的 IoT 中樞識別登錄作業都與裝置佈建有關，應該都不是執行階段作業。
 
-對於明顯暴增的效能數據，請參閱 [IoT 中樞配額和節流][IoT Hub quotas and throttles]。
+如需特定高載效能數據，請參閱 [IoT 中樞配額與節流](iot-hub-devguide-quotas-throttling.md)。
 
 ## <a name="auto-scale"></a>自動調整規模
+
 如果您即將達到 IoT 中樞上允許的訊息限制，可以使用這些[步驟來自動調整](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/)，以增加相同 IoT 中樞層的 IoT 中樞單位。
 
 ## <a name="sharding"></a>分區化
+
 雖然單一 IoT 中樞可以擴充到數百萬個裝置，但有時候您的解決方案需要單一 IoT 中樞無法保證的特定效能特性。 在此情況下，您可以將裝置分割到多個 IoT 中樞。 多個 IoT 中心可減緩資料傳輸量暴增，並取得所需的輸送量或作業速率。
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需 IoT 中樞功能和效能詳細資料的詳細資訊，請參閱 [IoT 中樞定價][lnk-pricing]或 [IoT 中樞配額與節流][IoT Hub quotas and throttles]。
+* 如需有關 IoT 中樞功能和效能詳細資料的詳細資訊，請參閱 < [IoT 中樞定價](https://azure.microsoft.com/pricing/details/iot-hub)或是[IoT 中樞配額與節流](iot-hub-devguide-quotas-throttling.md)。
+
 * 若要變更 IoT 中樞層，請遵循[升級 IoT 中樞](iot-hub-upgrade.md)內的步驟。
-
-[lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
-[IoT Hub quotas and throttles]: iot-hub-devguide-quotas-throttling.md
-
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
