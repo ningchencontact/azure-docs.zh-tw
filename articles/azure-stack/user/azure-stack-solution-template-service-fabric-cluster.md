@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 8041e7e02b117b8938f0f7c18da2d57c31dddb34
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 0a24228f1437fbb23c11070b3e99cea60489c071
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482259"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264977"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>在 Azure Stack 中部署 Service Fabric 叢集
 
@@ -44,9 +44,9 @@ Azure Stack 中的 Service Fabric 叢集並不使用資源提供者 Microsoft.Se
 
 1. **管理用戶端憑證** – 這是用戶端用來驗證 Service Fabric 叢集的憑證，其可自我簽署。 請參閱建立此用戶端憑證的[需求](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security)。
 
-1. **Azure Stack Marketplace 中必須可取得下列項目：**
+1. **在 Azure Stack Marketplace 中必須可取得下列項目：**
     - **Windows Server 2016** – 範本使用 Windows Server 2016 映像來建立叢集。  
-    - **客戶指令碼擴充功能** - 來自 Microsoft 的虛擬機器擴充功能。  
+    - **自訂指令碼擴充功能** - 來自 Microsoft 的虛擬機器擴充功能。  
     - **PowerShell 所需階段組態**-來自 Microsoft 的虛擬機器擴充功能。
 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 9bcc74e395746ae82867d915ea37962bf8880a3e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8451fd692409933803f5f8023f1e1161c3a97daf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857176"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278525"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>教學課程：Azure Active Directory 與 Workday 整合
 
@@ -35,7 +35,7 @@ Workday 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Workday 的整合，您需要下列項目：
+若要設定 Azure AD 與 Workday 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Workday 單一登入的訂用帳戶
@@ -73,7 +73,7 @@ Workday 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Workday 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Workday 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Workday 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 Workday 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Workday 單一登入](#configure-workday-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -104,9 +104,9 @@ Workday 與 Azure AD 整合提供下列優點：
 
     ![Workday 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https:\//impl.workday.com/<tenant>/login-saml2.flex`
+    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰ `https:\//impl.workday.com/<tenant>/login-saml2.flex`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://www.workday.com`
+    b. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://www.workday.com`
 
 5. 按一下 [設定額外的 URL]，然後執行下列步驟：
 
@@ -116,7 +116,7 @@ Workday 與 Azure AD 整合提供下列優點：
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「回覆 URL」來更新這些值。 您的回覆 URL 必須有子網域 (例如：www、wd2、wd3、wd3-impl、wd5、wd5-impl)。
-    > 使用 `http://www.myworkday.com` 之類的形式可以運作，但 `http://myworkday.com` 則不行。 請連絡 [Workday 用戶端支援小組](https://www.workday.com/en-us/partners-services/services/support.html)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 使用 `http://www.myworkday.com` 之類的形式可以運作，但 `http://myworkday.com` 則不行。 請連絡 [Workday 客戶支援小組](https://www.workday.com/en-us/partners-services/services/support.html)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 6. Workday 應用程式會預期要有特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增至 SAML 權杖屬性設定。 下列螢幕擷取畫面顯示預設屬性清單，其中的 **nameidentifier** 與 **user.userprincipalname** 相對應。 Workday 應用程式會預期 **nameidentifier** 與 **user.mail**、**UPN** 等對應，因此您必須按一下 [編輯] 圖示並變更屬性對應，來編輯屬性對應。
 
@@ -162,7 +162,7 @@ Workday 與 Azure AD 整合提供下列優點：
    > [!NOTE]
    > [環境] 屬性的值會繫結至租用戶 URL 的值：  
    > -如果 Workday 租用戶 URL 的網域名稱開頭為 impl (例如：*https:\//impl.workday.com/\<tenant\>/login-saml2.flex*)，則 [Environment] \(環境\) 屬性必須設定為 [Implementation] \(實作\)。  
-   > -如果網域名稱的開頭是其他字元，您需要連絡 [Workday 用戶端支援小組](https://www.workday.com/en-us/partners-services/services/support.html)以取得相符的 [環境] 值。
+   > -如果網域名稱的開頭是其他字元，您需要連絡 [Workday 客戶支援小組](https://www.workday.com/en-us/partners-services/services/support.html)以取得相符的 [環境] 值。
 
 4. 在 [SAML 設定]  區段中，執行下列步驟：
 
@@ -271,7 +271,7 @@ Workday 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Workday]。
 
-    ![應用程式清單中的 [Workday] 連結](common/all-applications.png)
+    ![應用程式清單中的 Workday 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

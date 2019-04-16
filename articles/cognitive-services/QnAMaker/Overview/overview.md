@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 01/24/2019
+ms.date: 04/05/2019
 ms.author: tulasim
-ms.openlocfilehash: 1fa15c4420cb1e42fcaa34c56a1b0aef9c4102b1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bafc39e7d9237fc7dd8469e5f9e97adb30355c8f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872453"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257224"
 ---
 # <a name="what-is-qna-maker"></a>什麼是 QnA Maker？
 
@@ -66,10 +66,9 @@ QnA Maker 架構由下列兩個元件組成：
 
 ## <a name="service-highlights"></a>服務要點
 
-- 透過完全**無程式碼**的體驗來[建立常見問題集聊天機器人](https://aka.ms/qnamaker-docs-create-faqbot)。
+- 從知識庫透過完全**無程式碼**的體驗來[建立聊天機器人](../Quickstarts/create-publish-knowledge-base.md#create-a-bot)。
 - **預測時不會有網路節流**。 針對裝載的服務支付費用，而非針對交易數目。 請參閱[定價頁面](https://aka.ms/qnamaker-docs-pricing)，以取得詳細資料。
 - **視需要調整**。 為符合您案例的個別元件選擇適當的 SKU。 了解如何為您的 QnA Maker 服務[選擇容量](https://aka.ms/qnamaker-docs-capacity)。
-- **完整的資料合規性**。 預測服務元件會部署在 Azure 訂用帳戶中以及合規性界限內。
 
 
 ## <a name="next-steps"></a>後續步驟

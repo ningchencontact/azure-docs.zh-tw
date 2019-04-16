@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: d7a1f5e35ea853d90dd34c33d63d3e7d4788fe63
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: f72d00878e510a420b6974a7564ebc01fc09dcc3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258797"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259996"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intralinks"></a>教學課程：Azure Active Directory 與 Intralinks 整合
 
@@ -36,7 +36,7 @@ Intralinks 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Intralinks 的整合，您需要下列項目：
+若要設定 Azure AD 與 Intralinks 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Intralinks 單一登入的訂用帳戶
@@ -74,7 +74,7 @@ Intralinks 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Intralinks 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Intralinks 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Intralinks 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要設定及測試與 Intralinks 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Intralinks 單一登入](#configure-intralinks-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -181,7 +181,7 @@ Intralinks 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-intralinks-test-user"></a>建立 Intralinks 測試使用者
 
-在本節中，您會在 Intralinks 中建立名為 Britta Simon 的使用者。 請與 [Intralinks 支援小組](https://www.intralinks.com/contact)合作，在 Intralinks 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 Intralinks 中建立名為 Britta Simon 的使用者。 請與 [Intralinks 支援小組](https://www.intralinks.com/contact)合作，在 Intralinks 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

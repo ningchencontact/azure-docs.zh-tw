@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8a80326ed1a7489179e53d7167c79c1ae714e3f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c89f79c9654ed440134c1d65cdc01f1b580c73c0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835725"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263628"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kindling"></a>教學課程：Azure Active Directory 與 Kindling 整合
 
@@ -36,16 +36,16 @@ Kindling 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Kindling 的整合，您需要下列項目：
+若要設定 Azure AD 與 Kindling 的整合作業，需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
-* 已啟用 Kindling 單一登入的訂用帳戶
+* Kindling 單一登入的訂用帳戶
 
 ## <a name="scenario-description"></a>案例描述
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* Kindling 支援由 **SP** 起始的 SSO
+* Kindling 支援 **SP** 起始的 SSO
 * Kindling 支援 **Just In Time** 使用者佈建
 
 ## <a name="adding-kindling-from-the-gallery"></a>從資源庫加入 Kindling
@@ -72,10 +72,10 @@ Kindling 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Kindling 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者身分，設定及測試與 Kindling 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Kindling 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Kindling 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 Kindling 設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Kindling 單一登入](#configure-kindling-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -88,7 +88,7 @@ Kindling 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要設定與 Kindling 搭配運作的 Azure AD 單一登入，請執行下列步驟：
+若要使用 Kindling 設定 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [Kindling] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -104,11 +104,11 @@ Kindling 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Kindling 網域及 URL 單一登入資訊](common/sp-identifier.png)
+    ![Kindling 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.kindlingapp.com`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<companyname>.kindlingapp.com`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.kindlingapp.com/saml/module.php/saml/sp/metadata.php/clientIDP`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `https://<companyname>.kindlingapp.com/saml/module.php/saml/sp/metadata.php/clientIDP`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Kindling 用戶端支援小組](mailto:support@kindlingapp.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
@@ -129,7 +129,7 @@ Kindling 與 Azure AD 整合提供下列優點：
 
 ### <a name="configure-kindling-single-sign-on"></a>設定 Kindling 單一登入
 
-若要在 **Kindling** 端設定單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)] 和複製的適當 URL 傳送給 [Kindling 支援小組](mailto:support@kindlingapp.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要設定 **Kindling** 端的單一登入，您必須將從 Azure 入口網站下載的 [憑證 (Base64)] 和複製的適當 URL 傳送給 [Kindling 支援小組](mailto:support@kindlingapp.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -158,7 +158,7 @@ Kindling 與 Azure AD 整合提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 Kindling 的存取權授與 Britta Simon，讓 Britta Simon 能夠使用 Azure 單一登入。
+在本節中，您會把 Kindling 存取權授與 Britta Simon，讓 Britta Simon 能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Kindling]。
 
@@ -166,7 +166,7 @@ Kindling 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Kindling] 。
 
-    ![應用程式清單中的 [Kindling] 連結](common/all-applications.png)
+    ![應用程式清單中的 Kindling 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -184,13 +184,13 @@ Kindling 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-kindling-test-user"></a>建立 Kindling 測試使用者
 
-本節會在 Kindling 中建立名為 Britta Simon 的使用者。 Kindling 支援預設會啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Kindling 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
+本節會在 Kindling 中建立名為 Britta Simon 的使用者。 Kindling 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Kindling 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Kindling] 圖格時，應該會自動登入您已設定 SSO 的 Kindling。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 Kindling 圖格時，應該會自動登入您已設定 SSO 的 Kindling。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

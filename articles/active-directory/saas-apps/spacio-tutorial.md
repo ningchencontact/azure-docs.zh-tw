@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 008dbe1f226553ac407698e5b117c4d000524787
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 295fc80c0b6d9a4554dc08d24d9167bea627144f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58133020"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273612"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spacio"></a>教學課程：Azure Active Directory 與 Spacio 整合
 
@@ -36,7 +36,7 @@ Spacio 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Spacio 的整合，您需要下列項目：
+若要設定 Azure AD 與 Spacio 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Spacio 單一登入的訂用帳戶
@@ -103,11 +103,11 @@ Spacio 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Spacio 網域及 URL 單一登入資訊](common/sp-identifier.png)
+    ![Spacio 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://sso.spac.io/<brokerageID>`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://sso.spac.io/<brokerageID>`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://sso.spac.io/<brokerageID>`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `https://sso.spac.io/<brokerageID>`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Spacio 用戶端支援小組](mailto:support@spac.io)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
@@ -147,7 +147,7 @@ Spacio 與 Azure AD 整合提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 Spacio 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在本節中，您會把 Spacio 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Spacio]。
 
@@ -155,7 +155,7 @@ Spacio 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Spacio]。
 
-    ![應用程式清單中的 [Spacio] 連結](common/all-applications.png)
+    ![應用程式清單中的 Spacio 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -173,7 +173,7 @@ Spacio 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-spacio-test-user"></a>建立 Spacio 測試使用者
 
-在本節中，您會在 Spacio 中建立名為 Britta Simon 的使用者。 請與 [Spacio 支援小組](mailto:support@spac.io)合作，在 Spacio 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 Spacio 中建立名為 Britta Simon 的使用者。 請與  [Spacio 支援小組](mailto:support@spac.io)合作，在 Spacio 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

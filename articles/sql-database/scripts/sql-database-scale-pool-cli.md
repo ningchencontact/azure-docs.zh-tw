@@ -12,22 +12,22 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: d492259a114d6574c4a81d1f9b97a0dcfcd8c5d3
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: fd219e9aaf684600f76ed81eb45ed9a5bf78f62c
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004038"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359993"
 ---
 # <a name="use-cli-to-scale-an-elastic-pool-in-azure-sql-database"></a>使用 CLI 在 Azure SQL Database 中調整彈性集區
 
-此 Azure CLI 指令碼範例會建立彈性集區、移動集區資料庫，以及變更彈性集區的計算大小。 
+此 Azure CLI 指令碼範例會建立彈性集區、移動集區資料庫，以及變更彈性集區的計算大小。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本主題會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。 
+如果您選擇在本機安裝和使用 CLI，本主題會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
 ## <a name="sample-script"></a>範例指令碼
 
@@ -35,7 +35,7 @@ ms.locfileid: "56004038"
 
 ## <a name="clean-up-deployment"></a>清除部署
 
-在執行過指令碼範例之後，您可以使用下列命令來移除資源群組和所有與其相關聯的資源。
+使用下列命令來移除資源群組及其所有相關聯的資源。
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

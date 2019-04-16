@@ -17,7 +17,7 @@ ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 37549cc76e1490b0758de8e296523b0e70c98dbf
 ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/13/2019
 ms.locfileid: "56191226"
@@ -219,7 +219,7 @@ ms.locfileid: "56191226"
  
 ### <a name="create-a-leapsome-test-user"></a>建立 Leapsome 測試使用者
 
-在本節中，您要在 Leapsome 中建立名為 Britta Simon 的使用者。 請與 [Leapsome 用戶端支援小組](mailto:support@leapsome.com) 合作，在 Leapsome 平台中新增需要列入白名單的使用者或網域。 如果是由小組新增網域，使用者將會自動佈建到 Leapsome 平台中。 您必須先建立和啟動使用者，然後才能使用單一登入。 
+在本節中，您要在 Leapsome 中建立名為 Britta Simon 的使用者。 請與 [Leapsome 用戶端支援小組](mailto:support@leapsome.com) 合作，在 Leapsome 平台中新增需要列入允許清單的使用者或網域。 如果是由小組新增網域，使用者將會自動佈建到 Leapsome 平台中。 您必須先建立和啟動使用者，然後才能使用單一登入。 
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

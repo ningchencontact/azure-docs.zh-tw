@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16cf541dca003446e7b49033018d5b9950bfc54f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: edfc1f0b2d49510926cfbc306dacf6715225c5c1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889568"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272150"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>教學課程：Azure Active Directory 與 Learningpool Act 整合
 
@@ -71,7 +71,7 @@ Learningpool Act 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Learningpool Act 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 Learningpool Act 設定及測試 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Learningpool Act 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 Learningpool Act 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
@@ -103,9 +103,9 @@ Learningpool Act 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Learningpool Act 網域及 URL 單一登入資訊](common/sp-identifier.png)
+    ![Learningpool Act 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，輸入 URL：`https://parliament.preview.Learningpool.com/auth/shibboleth/index.php`
+    a. 在 [登入 URL] 文字方塊中，輸入 URL： `https://parliament.preview.Learningpool.com/auth/shibboleth/index.php`
 
     b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：
     
@@ -203,7 +203,7 @@ Learningpool Act 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Learningpool Act]。
 
-    ![應用程式清單中的 [Learningpool Act] 連結](common/all-applications.png)
+    ![應用程式清單中的 Learningpool Act 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 13986b3ca5515ea07ba5bba2355b1cc67c1c3ebe
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 59cfdfaae597feb8f1cab212b407a8879d78f9f9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223371"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265571"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sansan"></a>教學課程：Azure Active Directory 與 Sansan 整合
 
@@ -36,7 +36,7 @@ Sansan 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Sansan 的整合，您需要下列項目：
+若要設定 Azure AD 與 Sansan 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Sansan 單一登入的訂用帳戶
@@ -74,7 +74,7 @@ Sansan 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Sansan 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Sansan 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Sansan 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要設定及測試與 Sansan 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Sansan 單一登入](#configure-sansan-single-sign-on)** - 在應用程式端設定單一登入設定。

@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cbcab0d287f344d308e3ed51ae47087afae7f9e
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: d70dfceb0101c4f6dbd76f3c6b34d85e5255aa72
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449276"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261457"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>什麼是適用於 Azure 資源的受控識別？
 
@@ -50,11 +50,20 @@ Azure 訂用帳戶的 Azure AD 可免費使用適用於 Azure 資源的受控識
 - **系統指派的受控識別**可直接在 Azure 服務執行個體上啟用。 啟用此身分識別時，Azure 會在執行個體的訂用帳戶所信任的 Azure AD 租用戶中，建立執行個體的身分識別。 建立身分識別後，就會將認證佈建到執行個體。 系統指派的身分識別生命週期，會直接繫結至已啟用該身分識別的 Azure 服務執行個體。 如果執行個體已刪除，則 Azure 會自動清除 Azure AD 中的認證和身分識別。
 - **使用者指派的受控識別**會以獨立 Azure 資源的形式建立。 透過建立程序，Azure 會在所使用訂用帳戶信任的 Azure AD 租用戶中建立身分識別。 建立身分識別之後，即可將它指派給一個或多個 Azure 服務執行個體。 使用者指派的身分識別與獲指派此身分識別的 Azure 服務執行個體，兩者的生命週期分開管理。
 
-您的程式碼可以使用受控識別來要求存取權杖，以存取支援 Azure AD 驗證的服務。 Azure 會負責更新服務個體使用的認證。
+就內部而言，受控識別是特殊類型的服務主體，且限定為僅可於 Azure 資源。 刪除受控識別後，對應的服務主體也會自動移除。 
+
+您的程式碼可以使用受控識別來要求存取權杖，以存取支援 Azure AD 驗證的服務。 Azure 會負責更新服務個體使用的認證。 
 
 下圖顯示受控服務識別與 Azure 虛擬機器一起運作的方式。
 
 ![受控服務識別與 Azure VM](media/overview/msi-vm-vmextension-imds-example.png)
+
+|  屬性    | 系統指派的受控識別 | 使用者指派的受控識別 |
+|------|----------------------------------|--------------------------------|
+| 建立 |  建立為 Azure 資源的一部分 (例如 Azure 虛擬機器或 Azure App Service) | 建立為獨立的 Azure 資源 |
+| 生命週期 | 與用來建立受控識別的 Azure 資源共用生命週期。 <br/> 當父代資源刪除時，受控識別也會一併刪除。 | 獨立的生命週期。 <br/> 必須明確刪除。 |
+| 由所有 Azure 資源共用 | 無法共用。 <br/> 它只能與單一 Azure 資源相關聯。 | 可以共用 <br/> 使用者指派的同一個受控識別可與多個 Azure 資源相關聯。 |
+| 一般使用案例 | 包含在單一 Azure 資源內的工作負載 <br/> 您需要獨立身分識別的工作負載。 <br/> 例如，在單一虛擬機器上執行的應用程式 | 在多個資源上執行、且可共用單一身分識別的工作負載。 <br/> 在佈建流程中需要預先授權以保護資源的工作負載。 <br/> 資源回收頻率高、但權限應保持一致的工作負載。 <br/> 例如，有多個虛擬機器需要存取相同資源的工作負載 | 
 
 ### <a name="how-a-system-assigned-managed-identity-works-with-an-azure-vm"></a>系統指派的受控識別如何與 Azure VM 一起運作
 
@@ -64,7 +73,7 @@ Azure 訂用帳戶的 Azure AD 可免費使用適用於 Azure 資源的受控識
     1. 使用服務主體用戶端識別碼和憑證來更新 Azure Instance Metadata Service 身分識別端點。
     1. 佈建 VM 擴充功能 (已計劃在 2019 年 1 月淘汰)，並新增服務主體用戶端識別碼和憑證。 (此步驟已規劃要淘汰。)
 4. 在 VM 具有身分識別後，使用服務主體資訊對 VM 授與 Azure 資源的存取權。 若要呼叫 Azure Resource Manager，請在 Azure AD 中使用角色型存取控制 (RBAC)，將適當的角色指派給 VM 服務主體。 若要呼叫 Key Vault，請將 Key Vault 中特定祕密或金鑰的存取權授與您的程式碼。
-5. 您在 VM 上執行的程式碼可向能從 VM 內存取的 Azure Instance Metadata Service 端點要求權杖：`http://169.254.169.254/metadata/identity/oauth2/token`
+5. 您在 VM 上執行的程式碼可向能從 VM 內存取的 Azure Instance Metadata Service 端點要求權杖： `http://169.254.169.254/metadata/identity/oauth2/token`
     - resource 參數指定將權杖傳送至哪個服務。 若要向 Azure Resource Manager 進行驗證，請使用 `resource=https://management.azure.com/`。
     - API 版本參數會使用 api-version=2018-02-01 或更高版本來指定 IMDS 版本。
 
@@ -86,7 +95,7 @@ Azure 訂用帳戶的 Azure AD 可免費使用適用於 Azure 資源的受控識
    > [!Note]
    > 您也可以在步驟 3 之前執行這個步驟。
 
-5. 您在 VM 上執行的程式碼可向能從 VM 內存取的 Azure Instance Metadata Service 身分識別端點要求權杖：`http://169.254.169.254/metadata/identity/oauth2/token`
+5. 您在 VM 上執行的程式碼可向能從 VM 內存取的 Azure Instance Metadata Service 身分識別端點要求權杖： `http://169.254.169.254/metadata/identity/oauth2/token`
     - resource 參數指定將權杖傳送至哪個服務。 若要向 Azure Resource Manager 進行驗證，請使用 `resource=https://management.azure.com/`。
     - 用戶端識別碼參數會指定為其要求權杖的身分識別。 當單一 VM 上有多個使用者指派的身分識別時，需要此值才能釐清。
     - API 版本參數可指定 Azure 執行個體中繼資料服務版本。 使用 `api-version=2018-02-01` 或更高版本。
@@ -127,9 +136,9 @@ Azure 訂用帳戶的 Azure AD 可免費使用適用於 Azure 資源的受控識
 * [Azure Functions](/azure/app-service/overview-managed-identity)
 * [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
 * [Azure 服務匯流排](../../service-bus-messaging/service-bus-managed-service-identity.md)
-* [Azure 事件中樞](../../event-hubs/event-hubs-managed-service-identity.md)
+* [Azure 事件中心](../../event-hubs/event-hubs-managed-service-identity.md)
 * [Azure API 管理](../../api-management/api-management-howto-use-managed-service-identity.md)
-* [Azure 容器執行個體](../../container-instances/container-instances-managed-identity.md)
+* [Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
 
 ## 哪些 Azure 服務支援此功能？<a name="which-azure-services-support-managed-identity"></a>
 

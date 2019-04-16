@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 55c83c91f4c183e7863c6a9fa129b5469e52afdd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a0f21165af0bcbd8bda28f0eae20d3ee837f3be9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834994"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275652"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>教學課程：Azure Active Directory 與 Mozy Enterprise 整合
 
@@ -35,7 +35,7 @@ Mozy Enterprise 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Mozy Enterprise 的整合，您需要下列項目：
+若要設定 Azure AD 與 Mozy Enterprise 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Mozy Enterprise 單一登入的訂用帳戶
@@ -73,7 +73,7 @@ Mozy Enterprise 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Mozy Enterprise 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Mozy Enterprise 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Mozy Enterprise 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要設定及測試與 Mozy Enterprise 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Mozy Enterprise 單一登入](#configure-mozy-enterprise-single-sign-on)** - 在應用程式端設定單一登入設定。

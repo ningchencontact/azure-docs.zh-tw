@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88fa7ace6427a14dc167a46eba3076798114cff7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 850f5e3f96439e1fea0a77b94f2ed733cc451bdf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897719"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267254"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-heybuddy"></a>教學課程：Azure Active Directory 與 HeyBuddy 整合
 
@@ -36,7 +36,7 @@ ms.locfileid: "57897719"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 HeyBuddy 的整合，您需要下列項目：
+若要設定與 HeyBuddy 的 Azure AD 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 HeyBuddy 單一登入的訂用帳戶
@@ -75,7 +75,7 @@ ms.locfileid: "57897719"
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 HeyBuddy 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 HeyBuddy 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 HeyBuddy 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 HeyBuddy 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 HeyBuddy 單一登入](#configure-heybuddy-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -106,9 +106,9 @@ ms.locfileid: "57897719"
 
     ![HeyBuddy 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://api.heybuddy.com/auth/<ENTITY ID>`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://api.heybuddy.com/auth/<ENTITY ID>`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`YourCompanyInstanceofHeyBuddy`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `YourCompanyInstanceofHeyBuddy`
 
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」(實體識別碼) 來更新這些值。 系統會為每個組織自動產生登入 URL 中的 `Entity ID`。 請連絡 [HeyBuddy 用戶端支援小組](mailto:support@heybuddy.com)以取得這些值。
@@ -180,7 +180,7 @@ ms.locfileid: "57897719"
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 HeyBuddy 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在本節中，您會把 HeyBuddy 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [HeyBuddy]。
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 71b7cfb92b4caded75e0723564a09fae9f10858c
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 851b28d10bdf0b2df67e1c0782a683e790b711bc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359768"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266489"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>教學課程：Azure Active Directory 與 Jitbit Helpdesk 整合
 
@@ -115,7 +115,7 @@ Jitbit Helpdesk 與 Azure AD 整合提供下列優點：
     > [!NOTE] 
     > 這不是真實的值。 請使用實際的登入 URL 來更新此值。 請連絡 [Jitbit Helpdesk 用戶端支援小組](https://www.jitbit.com/support/)以取得此值。
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，輸入如下所示的 URL：`https://www.jitbit.com/web-helpdesk/`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，輸入如下所示的 URL： `https://www.jitbit.com/web-helpdesk/`
 
 5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
 

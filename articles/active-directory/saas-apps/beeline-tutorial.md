@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec694e9d0bf69ca1d9adbe1c12beedba24d9994b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 62a4495667dc7c934883bfed0a8f07d7b2d653f7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852526"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266540"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-beeline"></a>教學課程：Azure Active Directory 與 BeeLine 整合
 
@@ -105,7 +105,7 @@ ms.locfileid: "57852526"
 
     ![BeeLine 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://projects.beeline.net/<instancename>`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://projects.beeline.net/<instancename>`
 
     b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：
     

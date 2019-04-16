@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/17/2018
+ms.date: 04/08/2019
 ms.author: diberry
-ms.openlocfilehash: dd60897d19ef4de7369b2b127c88e778363a387f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e9f8d274d81cdefbf9dfb41708cd537b2d60471a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852258"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273459"
 ---
 # <a name="quickstart-change-model-using-c"></a>快速入門：使用 C# 變更模型
 
@@ -37,19 +37,19 @@ ms.locfileid: "57852258"
 
 ## <a name="create-quickstart-code"></a>建立快速入門程式碼 
 
-在 Visual Studio 中，使用 .NET Framework 建立新的 [Windows 傳統桌面主控台] 應用程式。 
+在 Visual Studio 中，使用 .NET Framework 建立新的 [Windows 傳統桌面主控台] 應用程式。 將專案命名為 `ConsoleApp1`。
 
 ![Visual Studio 專案類型](./media/luis-quickstart-cs-add-utterance/vs-project-type.png)
 
 ### <a name="add-the-systemweb-dependency"></a>新增 System.Web 相依性
 
-Visual Studio 專案需要 **System.Web**。 在 [方案總管] 中，以滑鼠右鍵按一下 [參考]，然後選取 [新增參考]。
+Visual Studio 專案需要 **System.Web**。 在 [方案總管] 中，以滑鼠右鍵按一下 [參考]，然後從 [組件] 區段中選取 [新增參考]。
 
 ![新增 System.web 參考](./media/luis-quickstart-cs-add-utterance/system.web.png)
 
 ### <a name="add-other-dependencies"></a>新增其他相依性
 
-Visual Studio 專案需要 **JsonFormatterPlus** 和 **CommandLineParser**。 請在 [方案總管] 中，以滑鼠右鍵按一下 [參考]，然後選取 [管理 NuGet 套件...]。搜尋及新增這兩個套件。 
+Visual Studio 專案需要 **JsonFormatterPlus** 和 **CommandLineParser**。 請在 [方案總管] 中，以滑鼠右鍵按一下 [參考]，然後選取 [管理 NuGet 套件...]。瀏覽及新增這兩個套件。 
 
 ![新增第三方相依性](./media/luis-quickstart-cs-add-utterance/add-dependencies.png)
 
@@ -64,7 +64,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp3
+namespace ConsoleApp1
 {
     class Program
     {
@@ -75,7 +75,7 @@ namespace ConsoleApp3
 }
 ```
 
-新增相依性。
+更新相依性，使其變成：
 
    [!code-csharp[Add the dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=1-11 "Add the dependencies")]
 
@@ -115,7 +115,7 @@ namespace ConsoleApp3
 
 ### <a name="copy-utterancesjson-to-output-directory"></a>將 utterances.json 複製到輸出目錄
 
-在 [方案總管] 中，以滑鼠右鍵按一下 `utterances.json`，然後選取 [屬性]。 在 [屬性] 視窗中，將 [建置動作] 標示為 `Content`，以及將 [複製到輸出目錄] 標示為 `Copy Always`。  
+若要新增 `utterances.json`，請在 [方案總管] 中以滑鼠右鍵按一下方案總管的專案名稱，然後依序選取 [新增] 和 [現有項目]。 選取 `utterances.json` 檔案。 這會將檔案新增至專案中。 然後，必須將其新增至輸出目錄。 請以滑鼠右鍵按一下 `utterances.json`，然後選取 [屬性]。 在 [屬性] 視窗中，將 [建置動作] 標示為 `Content`，以及將 [複製到輸出目錄] 標示為 `Copy Always`。  
 
 ![將 JSON 檔案標示為內容](./media/luis-quickstart-cs-add-utterance/content-properties.png)
 
@@ -128,7 +128,7 @@ namespace ConsoleApp3
 在專案的 /bin/Debug 目錄中，從命令列執行應用程式。 
 
 ```console
-ConsoleApp\bin\Debug> ConsoleApp1.exe --add utterances.json --train --status
+ConsoleApp1.exe --add utterances.json --train --status
 ```
 
 此命令列會顯示呼叫新增語句 API 的結果。 

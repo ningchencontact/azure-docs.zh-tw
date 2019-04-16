@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb64495d727429ff4dcfc233adee7dd5c60aaa8d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 05127e8ecfe68b4cb6330f838f252557bbd5e11d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852129"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272694"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>教學課程：Azure Active Directory 與 Cisco Webex 整合
 
@@ -107,14 +107,14 @@ ms.locfileid: "57852129"
 
     ![Cisco Webex 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，將 URL 輸入為：`https://web.ciscospark.com/#/signin`
+    a. 在 [登入 URL] 文字方塊中，將 URL 輸入為： `https://web.ciscospark.com/#/signin`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://idbroker.webex.com/<Org Id>`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `https://idbroker.webex.com/<Org Id>`
 
     > [!NOTE]
     > 此識別碼值不是實際值。 請使用實際的「識別碼」來更新此值。 如果您有服務提供者中繼資料，請將其上傳至 [基本 SAML 設定] 區段，然後 [識別碼 (實體識別碼)] 值就會自動填入。
 
-5. Cisco Webex 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應加入 SAML 權杖屬性設定中。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] ****  圖示以新增屬性。
+5. Cisco Webex 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應加入 SAML 權杖屬性設定中。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] 圖示以新增屬性。
 
     ![映像](common/edit-attribute.png)
 

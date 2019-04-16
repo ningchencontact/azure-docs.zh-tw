@@ -1,19 +1,18 @@
 ---
 title: 快速入門：將資料從 Kafka 內嵌至 Azure 資料總管
 description: 在本快速入門中，您會學習到如何將資料從 Kafka 內嵌 (載入) 至 Azure 資料總管。
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/19/2018
-ms.openlocfilehash: 5c7d533cbd8a69b8fd9dcc704e7b83b0e476e499
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 180053aa2146d8ab80df832044ac3ee4d45970da
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756635"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047099"
 ---
 # <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>快速入門：將資料從 Kafka 擷取至 Azure 資料總管
  

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: a4e64bf6899d3384e0dadc9c2b4ce2fd5d092385
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 135b5719422d1b28a82ac2eda06f76d6dd746800
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849419"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262375"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tinfoil-security"></a>教學課程：Azure Active Directory 與 TINFOIL SECURITY 整合
 

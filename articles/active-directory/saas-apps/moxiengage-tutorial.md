@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 5fa2796ccaccd6d840ed0ca814d124e433b26049
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 655f8555f9e7fb04d69f35048b7fdec0fb1cebce
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857788"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275573"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moxi-engage"></a>教學課程：Azure Active Directory 與 Moxi Engage 整合
 
@@ -73,7 +73,7 @@ Moxi Engage 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Moxi Engage 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Moxi Engage 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Moxi Engage 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 Moxi Engage 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Moxi Engage 單一登入](#configure-moxi-engage-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -180,7 +180,7 @@ Moxi Engage 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-moxi-engage-test-user"></a>建立 Moxi Engage 測試使用者
 
-在本節中，您會在 Moxi Engage 中建立名為 Britta Simon 的使用者。 請與 [Moxi Engage 支援小組](mailto:support@moxiworks.com)合作，在 Moxi Engage 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 Moxi Engage 中建立名為 Britta Simon 的使用者。 請與 [Moxi Engage 支援小組](mailto:support@moxiworks.com)合作，在 Moxi Engage 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

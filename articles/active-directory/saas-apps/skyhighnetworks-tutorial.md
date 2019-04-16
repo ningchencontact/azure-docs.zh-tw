@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 30733a971c758fc62adf56132c88914b60c98ae5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4836cdec546b7da7351d18d5217e4f87d749aa79
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58168165"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274989"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skyhigh-networks"></a>教學課程：Azure Active Directory 與 Skyhigh Networks 整合
 
@@ -36,7 +36,7 @@ Skyhigh Networks 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Skyhigh Networks 的整合，您需要下列項目：
+若要設定 Azure AD 與 Skyhigh Networks 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Skyhigh Networks 單一登入的訂用帳戶
@@ -74,7 +74,7 @@ Skyhigh Networks 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Skyhigh Networks 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Skyhigh Networks 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Skyhigh Networks 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 Skyhigh Networks 來設定和測試 Azure AD 單一登入，您需要完成下列基本工作：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Skyhigh Networks 單一登入](#configure-skyhigh-networks-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -105,9 +105,9 @@ Skyhigh Networks 與 Azure AD 整合提供下列優點：
 
     ![Skyhigh Networks 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<ENV>.myshn.net/shndash/saml/Azure_SSO`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://<ENV>.myshn.net/shndash/saml/Azure_SSO`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<ENV>.myshn.net/shndash/response/saml-postlogin`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<ENV>.myshn.net/shndash/response/saml-postlogin`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
@@ -171,7 +171,7 @@ Skyhigh Networks 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Skyhigh Networks]。
 
-    ![應用程式清單中的 [Skyhigh Networks] 連結](common/all-applications.png)
+    ![應用程式清單中的 Skyhigh Networks 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

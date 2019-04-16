@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: overview
-ms.date: 02/19/2019
+ms.date: 04/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 51191f3276a9420129f47944b47a182479719d5a
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 5408f920a16860972dca6450d5e51152048bbf82
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621663"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361800"
 ---
 # <a name="what-is-azure-backup"></a>何謂 Azure 備份？
 
@@ -25,12 +25,12 @@ Azure 備份服務會將資料備份至 Microsoft Azure 雲端。 您可以備�
 
 Azure 備份可提供下列主要優點：
 
-- **卸載內部部署備份**：Azure 備份提供了簡單的解決方案，可讓您將內部部署資源備份到雲端。 您不需部署複雜的內部部署備份解決方案，即可取得短期與長期備份。 
+- **卸載內部部署備份**：Azure 備份提供了簡單的解決方案，可讓您將內部部署資源備份到雲端。 您不需部署複雜的內部部署備份解決方案，即可取得短期與長期備份。
 - **備份 Azure IaaS VM**：Azure 備份提供獨立且隔離的備份，可防止原始資料意外毀損。 備份會儲存在復原服務保存庫中，且具有內建的受控復原點。 設定和調整都十分容易，且備份會最佳化，可在必要時輕易還原。
-- **輕鬆調整** - Azure 備份使用 Azure 雲端的基礎功能及無限制調整來提供高可用性，沒有維護或監視的額外負荷。 
+- **輕鬆調整** - Azure 備份使用 Azure 雲端的基礎功能及無限制調整來提供高可用性，沒有維護或監視的額外負荷。
 - **取得無限制的資料傳輸**：Azure 備份不會限制輸入或輸出資料的傳輸，或對傳輸的資料收費。
     - 輸出資料是指還原作業期間傳輸自復原服務保存庫的資料。
-    - 如果您使用 Azure 匯入/匯出服務執行離線初始備份以匯出大量資料，則會有輸入資料的相關費用。  [深入了解](backup-azure-backup-import-export.md)。 
+    - 如果您使用 Azure 匯入/匯出服務執行離線初始備份以匯出大量資料，則會有輸入資料的相關費用。  [深入了解](backup-azure-backup-import-export.md)。
 - **確保資料安全性**：
     - 在內部部署環境，傳輸中的資料會在內部部署機器上以 AES256 加密。 傳輸的資料會受到儲存體與備份之間的 HTTPS 保護。 iSCSI 通訊協定會保護備份與使用者電腦之間傳輸的資料。 安全通道用於保護 iSCSI 通道。
     - 對於內部部署環境至 Azure 的備份，系統會使用您在設定備份時所提供的複雜密碼來加密 Azure 中的待用資料。 複雜密碼或金鑰永遠不會在 Azure 中傳輸或儲存。 如果需要還原任何資料，只有您有加密複雜密碼或金鑰。
@@ -56,13 +56,13 @@ Azure 備份與 Azure Site Recovery 都是有助於為您的企業建立商務�
 - **Azure Site Recovery**：Site Recovery 提供適用於內部部署機器和 Azure VM 的災害復原解決方案。 您可將機器從主要位置複寫到次要位置。 當災害發生時，您可以將機器容錯移轉至次要位置，並從該處加以存取。 當一切都恢復正常啟動並運作後，您即可將機器容錯回復，並在主要站台加以復原。
 - **Azure 備份**：Azure 備份服務會從內部部署機器和 Azure VM 備份資料。 資料可精細地進行備份和復原，包括備份檔案、資料夾、機器系統狀態，和應用程式感知的資料備份。 Azure 備份處理資料的精細度會高於 Site Recovery。 例如，如果筆記型電腦上的簡報損毀，您可以使用 Azure 備份來還原簡報。 如果您想要確保 VM 組態和資料的安全性且可供存取，則可以使用 Site Recovery。  
 
-您可以透過列表來釐清您的 BCDR 需求。 
+您可以透過列表來釐清您的 BCDR 需求。
 
 **目標** | **詳細資料** | **比較**
---- | --- | --- 
+--- | --- | ---
 **資料備份/保留** | 備份資料可以保留並儲存數天、數個月，甚或數年 (若有合規方面的需求)。 | 備份解決方案 (例如 Azure 備份) 可讓您精確挑選您要備份的資料，並精細調整備份和保留原則。<br/><br/> Site Recovery 則不允許這樣的微調。
 **復原點目標 (RPO)** | 在需要進行復原的情況下可接受的資料遺失數量。 | 備份的 RPO 有較多變化。<br/><br/> VM 備份的 RPO 通常為一天，而資料庫備份的 RPO 則可能只要 15 分鐘。<br/><br/> 由於複寫會連續或頻繁地執行，使得來源與複本之間的差異很小，因此 Site Recovery 會提供較低的 RPO。
-**復原時間目標 (RTO)** |完成復原或還原所需的時間量。 | 由於 RPO 較大，備份解決方案需要處理的資料量通常更多，這會導致 RTO 較長。 例如，根據從異地傳輸磁帶所需的時間，從磁帶還原資料可能需要數天的時間。 
+**復原時間目標 (RTO)** |完成復原或還原所需的時間量。 | 由於 RPO 較大，備份解決方案需要處理的資料量通常更多，這會導致 RTO 較長。 例如，根據從異地傳輸磁帶所需的時間，從磁帶還原資料可能需要數天的時間。
 
 ## <a name="what-backup-scenarios-are-supported"></a>支援哪些備份案例？
 
@@ -71,14 +71,10 @@ Azure 備份可備份內部部署機器和 Azure VM。
 **機器** | **備份案例**
 --- | ---
 **內部部署備份** |  1) 在內部部署 Windows 機器上執行 Azure 備份 Microsoft Azure 復原服務 (MARS) 代理程式，以備份個別檔案和系統狀態。 <br/><br/>2) 將內部部署機器備份至備份伺服器 (System Center Data Protection Manager (DPM) 或 Microsoft Azure 備份伺服器 (MABS))，然後設定備份伺服器，以備份至 Azure 中的 Azure 備份復原服務保存庫。
-**Azure VM** | 1) 啟用個別 Azure VM 的備份。 當您啟用備份時，Azure 備份會將擴充功能安裝至執行於 VM 上的 Azure VM 代理程式。 代理程式會備份整個 VM。<br/><br/> 2) 在 Azure VM 上執行 MARS 代理程式。 如果您要備份 VM 上的個別檔案和資料夾，這將有其效益。<br/><br/> 3) 將 Azure VM 備份至在 Azure 中執行的 DPM 伺服器或 MABS。 然後，使用 Azure 備份將 DPM 伺服器/MABS 備份至保存庫。 
+**Azure VM** | 1) 啟用個別 Azure VM 的備份。 當您啟用備份時，Azure 備份會將擴充功能安裝至執行於 VM 上的 Azure VM 代理程式。 代理程式會備份整個 VM。<br/><br/> 2) 在 Azure VM 上執行 MARS 代理程式。 如果您要備份 VM 上的個別檔案和資料夾，這將有其效益。<br/><br/> 3) 將 Azure VM 備份至在 Azure 中執行的 DPM 伺服器或 MABS。 然後，使用 Azure 備份將 DPM 伺服器/MABS 備份至保存庫。
 
 
 ## <a name="why-use-a-backup-server"></a>為何要使用備份伺服器？
-
-
-
-
 先將機器和應用程式備份至 MABS/DPM 儲存體，再將 DPM/MABS 儲存體備份至保存庫，可提供下列的優點：
 
 - 備份至 MABS/DPM，可讓您在檔案/資料夾/磁碟區備份和機器狀態備份 (裸機、系統狀態) 以外，額外取得適用於常見應用程式 (例如 SQL Server、Exchange 及 SharePoint) 的應用程式感知備份。
@@ -93,28 +89,28 @@ Azure 備份可備份內部部署機器和 Azure VM。
 **機器** | **備份方法** | **備份**
 --- | --- | ---
 **內部部署 Windows VM** | 執行 MARS 代理程式 | 備份檔案、資料夾、系統狀態。<br/><br/> 不支援 Linux 機器。
-**內部部署機器** | 備份至 DPM/MABS | 備份受 [DPM](backup-support-matrix-mabs-dpm.md#supported-backups-to-dpm) 或 [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs) 保護的任何項目，包括檔案/資料夾/共用/磁碟區，以及應用程式專屬資料。 
+**內部部署機器** | 備份至 DPM/MABS | 備份受 [DPM](backup-support-matrix-mabs-dpm.md#supported-backups-to-dpm) 或 [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs) 保護的任何項目，包括檔案/資料夾/共用/磁碟區，以及應用程式專屬資料。
 **Azure VM** | 執行 Azure VM 代理程式備份擴充功能 | 備份整個 VM
 **Azure VM** | 執行 MARS 代理程式 | 備份檔案、資料夾、系統狀態。<br/><br/> 不支援 Linux 機器。
 **Azure VM** | 備份至在 Azure 中執行的 MABS/DPM | 備份受 [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs) 或 [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807) 保護的任何項目，包括檔案/資料夾/共用/磁碟區，以及應用程式專屬資料。
 
 ## <a name="what-backup-agents-do-i-need"></a>我需要何種備份代理程式？
 
-**案例** | **代理程式** 
---- | --- 
+**案例** | **代理程式**
+--- | ---
 **備份 Azure VM** | 不需要代理程式。 Azure VM 備份擴充功能會在您第一次執行 Azure VM 備份時安裝在 Azure VM 上。<br/><br/> 支援 Windows 和 Linux。
-**內部部署 Windows 機器的備份** | 直接在機器上下載、安裝並執行 MARS 代理程式。 
+**內部部署 Windows 機器的備份** | 直接在機器上下載、安裝並執行 MARS 代理程式。
 **使用 MARS 代理程式備份 Azure VM** | 直接在機器上下載、安裝並執行 MARS 代理程式。 MARS 代理程式可與備份擴充功能一起執行。
 **將內部部署機器和 Azure VM 備份至 DPM/MABS** | DPM 或 MABS 保護代理程式會在您要保護的機器上執行。 MARS 代理程式會在要備份至 Azure 的 DPM 伺服器/MABS 上執行。
 
 ## <a name="which-backup-agent-should-i-use"></a>我應使用哪個備份代理程式？
 
-**備份** | **方案** | **限制**
+**Backup ** | **解決方法** | **限制**
 --- | --- | ---
 **我想要備份整個 Azure VM** | 啟用 VM 的備份。 備份擴充功能會在 Windows 或 Linux Azure VM 上自動設定。 | 整個 VM 都會備份 <br/><br/> Windows VM 的備份具應用程式一致性。 Linux 的備份則具檔案一致性。 如果需要 Linux VM 的應用程式感知能力，您必須使用自訂指令碼加以設定。
 **我想要備份 Azure VM 上的特定檔案/資料夾** | 在 VM 上部署 MARS 代理程式。
 **我想要直接備份內部部署 Windows 機器** | 在機器上安裝 MARS 代理程式。 | 您可以將檔案、資料夾和系統狀態備份到 Azure。 備份不是應用程式感知的。
-**我想要直接備份內部部署 Linux 機器** | 您必須部署 DPM 或 MABS，以備份至 Azure。
+**我想要直接備份內部部署 Linux 機器** | 您必須部署 DPM 或 MABS，以備份至 Azure。 | 不支援 Linux 主機的備份，您只可以備份 Hyper-V 或 VMWare 上裝載的 Linux 客體機器。
 **我想要備份在內部部署執行的應用程式** | 若要進行應用程式感知備份，機器必須受到 DPM 或 MABS 保護。
 **我希望 Azure VM 有精細且彈性的備份和復原設定** | 在 Azure 中執行 MABS/DPM 為 Azure VM 提供保護，以提高備份排程的彈性，並且能有充分的彈性可保護及還原檔案、資料夾、磁碟區、應用程式和系統狀態。
 
@@ -127,4 +123,3 @@ Azure 備份可備份內部部署機器和 Azure VM。
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
-

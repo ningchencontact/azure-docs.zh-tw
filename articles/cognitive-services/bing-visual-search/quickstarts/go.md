@@ -8,29 +8,29 @@ manager: rosh
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 4/02/2019
 ms.author: rosh
-ms.openlocfilehash: 68dd71687e18243a112df0c2568af5b2b6d0d687
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: a0d7c1611f7c6851d98fea734dfdbd3940b59b89
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57340978"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048014"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-go"></a>快速入門：使用 Bing 圖像式搜尋 REST API 和 Go 來取得影像見解
 
-本快速入門使用 Go 程式設計語言來呼叫 Bing 圖像式搜尋 API 並顯示結果。 Post 要求會將影像上傳到 API 端點。 結果包含類似於所上傳影像的影像 URL 和描述性資訊。
+本快速入門使用 Go 程式設計語言來呼叫 Bing 圖像式搜尋 API 並顯示結果。 POST 要求會將影像上傳到 API 端點。 結果包含類似於所上傳影像的影像 URL 和描述性資訊。
 
 ## <a name="prerequisites"></a>必要條件
+
 * 安裝 [Go 二進位檔](https://golang.org/dl/)。
-* go-spew 深度美化印表機適合用於顯示結果。
-    * 安裝此程式庫：`$ go get -u https://github.com/davecgh/go-spew`。
+* go-spew 深度美化印表機可用來顯示結果。 您可以使用 `$ go get -u https://github.com/davecgh/go-spew` 命令來安裝 go-spew。
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="project-and-libraries"></a>專案和程式庫
 
-在 IDE 或編輯器中建立新的 Go 專案。 然後，匯入 `net/http` 以提出要求、`ioutil` 以讀取回應，以及 `encoding/json` 以處理結果的 JSON 文字。 `go-spew` 程式庫用來剖析 JSON 結果。 
+在 IDE 或編輯器中建立 Go 專案。 然後，匯入 `net/http` 以提出要求、`ioutil` 以讀取回應，以及 `encoding/json` 以處理結果的 JSON 文字。 `go-spew` 程式庫用來剖析 JSON 結果。
 
 ```
 package main
@@ -52,7 +52,7 @@ import (
 
 ## <a name="struct-to-format-results"></a>用以格式化結果的結構
 
-`BingAnswer` 結構會將 JSON 回應中傳回的資料格式化，此結果為多層次且相當複雜。  下列實作涵蓋一些基本資訊。
+`BingAnswer` 結構會將 JSON 回應中傳回的資料格式化，此結果為多層次且較複雜。 下列實作涵蓋一些基本資訊：
 
 ```
 type BingAnswer struct {
@@ -109,7 +109,7 @@ type BingAnswer struct {
 
 ## <a name="main-function-and-variables"></a>主要函式和變數  
 
-下列程式碼會宣告主要函式，並指派必要的變數。 請確認端點正確，並將 `token` 值換成您的 Azure 帳戶中有效的訂用帳戶金鑰。  `batchNumber` 是 Post 資料開頭和尾端界限所需的 GUID。  `fileName` 變數可識別 Post 的影像檔。  下列各節說明程式碼的詳細資料。
+下列程式碼會宣告主要函式，並指派必要的變數。 請確認端點正確，並將 `token` 值換成您的 Azure 帳戶中有效的訂用帳戶金鑰。 `batchNumber` 是 POST 資料開頭和尾端界限所需的 GUID。 `fileName` 變數可識別 POST 的影像檔。 以下幾節說明程式碼的詳細資料：
 
 ```
 func main() {
@@ -157,9 +157,9 @@ func main() {
 
 ```
 
-## <a name="boundaries-of-post-body"></a>Post 主體的界線
+## <a name="boundaries-of-post-body"></a>POST 主體的界限
 
-對圖像式搜尋端點的 Post 要求需要圍住 Post 資料的開頭和結尾界限。  開頭界限包含批次編號、內容類型識別碼 `Content-Disposition: form-data; name="image"; filename=`，再加上要 Post 的影像檔名。  結尾界限只是批次編號。  這些函式並未包含在 `main` 區塊中。
+對圖像式搜尋端點的 POST 要求需要圍住 POST 資料的開頭和結尾界限。 開頭界限包含批次編號、內容類型識別碼 `Content-Disposition: form-data; name="image"; filename=`，再加上要 POST 的影像檔名。 結尾界限只是批次編號。 這些函式並未包含在 `main` 區塊中：
 
 ```
 func BuildFormDataStart(batNum string, fileName string) string{
@@ -176,9 +176,9 @@ func BuildFormDataEnd(batNum string) string{
 }
 
 ```
-## <a name="add-image-bytes-to-post-body"></a>將影像位元組新增至 Post 主體
+## <a name="add-image-bytes-to-post-body"></a>將影像位元組新增至 POST 主體
 
-此程式碼片段會建立包含影像資料的 Post 要求。 
+此程式碼片段會建立包含影像資料的 POST 要求：
 
 ```
 func createRequestBody(fileName string, batchNumber string) (*bytes.Buffer, string) {
@@ -207,7 +207,7 @@ func createRequestBody(fileName string, batchNumber string) (*bytes.Buffer, stri
 
 ## <a name="send-the-request"></a>傳送要求
 
-下列程式碼會傳送要求並讀取結果。
+下列程式碼會傳送要求並讀取結果：
 
 ```
 resp, err := client.Do(req)
@@ -226,7 +226,7 @@ resp, err := client.Do(req)
 
 ## <a name="handle-the-response"></a>處理回應
 
-`Unmarshall` 函式會從圖像式搜尋 API 所傳回的 JSON 文字中擷取資訊。  `go-spew` 美化印表機會顯示結果。
+`Unmarshall` 函式會從圖像式搜尋 API 所傳回的 JSON 文字中擷取資訊。 `go-spew` 美化印表機會顯示結果：
 
 ```
     // Create a new answer.  
@@ -249,7 +249,7 @@ resp, err := client.Do(req)
 
 ## <a name="results"></a>結果
 
-結果可識別類似 Post 主體內含影像的影像。  實用的欄位為 `WebSearchUrl` 和 `Name`。
+結果可識別類似 POST 主體內含影像的影像。 實用的欄位為 `WebSearchUrl` 和 `Name`：
 
 ```
     Value: ([]struct { WebSearchUrl string "json:\"webSearchUrl\""; Name string "json:\"name\"" }) (len=66 cap=94) {
@@ -287,5 +287,5 @@ resp, err := client.Do(req)
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [什麼是 Bing 圖像式搜尋](../overview.md)
+> [什麼是 Bing 圖像式搜尋 API？](../overview.md)
 > [採用 Go 的 Bing Web 搜尋快速入門](../../Bing-Web-Search/quickstarts/go.md)

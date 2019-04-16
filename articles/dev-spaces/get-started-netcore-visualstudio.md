@@ -11,12 +11,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由傳送, kubectl, k8s
-ms.openlocfilehash: 9b5f5d41a35b608ecec5e9ab2161a6c122e7aa82
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e94134a0c7c3b44a2e4734fe1e91a19f3e26851c
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894150"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425758"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>在使用 .NET Core 和 Visual Studio 的 Azure Dev Spaces 上開始使用
 
@@ -28,7 +28,7 @@ ms.locfileid: "57894150"
 - 在小組環境中有效率地開發及測試您的程式碼。
 
 > [!Note]
-> **如果作業出現停滯的情況**，請參閱[疑難排解](troubleshooting.md)一節，或在此頁面上張貼留言。
+> **如果作業出現停滯的情況**，請參閱[疑難排解](troubleshooting.md)一節。
 
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>建立已針對 Azure Dev Spaces 啟用的 Kubernetes 叢集
@@ -128,7 +128,7 @@ Visual Studio 會與開發人員空間通訊，以建置和部署應用程式，
 Azure 開發人員空間不只讓程式碼中在 Kubernetes 中執行 - 還可讓您快速地反覆查看您的程式碼變更是否在雲端 Kubernetes 環境中生效。
 
 ### <a name="update-a-content-file"></a>更新內容檔案
-1. 找出檔案 `./Views/Home/Index.cshtml` 並進行 HTML 編輯。 例如，將第 70 行 `<h2>Application uses</h2>` 變更如下：`<h2>Hello k8s in Azure!</h2>`
+1. 找出檔案 `./Views/Home/Index.cshtml` 並進行 HTML 編輯。 例如，將第 70 行 `<h2>Application uses</h2>` 變更如下： `<h2>Hello k8s in Azure!</h2>`
 1. 儲存檔案。
 1. 移至您的瀏覽器並重新整理頁面。 您應該會看到網頁顯示更新後的 HTML。
 
@@ -138,7 +138,7 @@ Azure 開發人員空間不只讓程式碼中在 Kubernetes 中執行 - 還可�
 更新程式碼檔案需要更多的工作，因為.NET Core 應用程式需要重建及產生更新後的應用程式二進位檔。
 
 1. 在 Visual Studio 中停止偵錯工具。
-1. 開啟名為 `Controllers/HomeController.cs` 的程式碼檔案，然後編輯 [關於] 頁面將顯示的訊息：`ViewData["Message"] = "Your application description page.";`
+1. 開啟名為 `Controllers/HomeController.cs` 的程式碼檔案，然後編輯 [關於] 頁面將顯示的訊息： `ViewData["Message"] = "Your application description page.";`
 1. 儲存檔案。
 1. 按 **F5** 再次開始偵錯。 
 

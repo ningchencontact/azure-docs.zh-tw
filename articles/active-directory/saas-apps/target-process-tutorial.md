@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: e76e2b9b4778229fc70e90f1ff3af5f19251d424
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: ffb5da8abd9673d4922aeb4854b3dfa80349f284
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360907"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268325"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-targetprocess"></a>教學課程：將 Azure Active Directory 與 TargetProcess 整合
 
@@ -106,9 +106,9 @@ ms.locfileid: "58360907"
 
     ![TargetProcess 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.tpondemand.com/`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.tpondemand.com/`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.tpondemand.com/`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.tpondemand.com/`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [TargetProcess 客戶支援小組](mailto:support@targetprocess.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

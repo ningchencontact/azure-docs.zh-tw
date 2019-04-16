@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be794c6d24218eccdc960219dd61a2075b5ab7ec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8e1199826601f8f2ddd82164dac1a20013d9b7bb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57858855"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269736"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-klue"></a>教學課程：Azure Active Directory 與 Klue 整合
 
@@ -72,10 +72,10 @@ Klue 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Klue 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者身分，設定及測試與 Klue 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Klue 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Klue 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要設定及測試與 Klue 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Klue 單一登入](#configure-klue-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -104,15 +104,15 @@ Klue 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，若您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
 
-    ![Klue 網域及 URL 單一登入資訊](common/idp-intiated.png)
+    ![Klue 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`urn:klue:<Customer ID>`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `urn:klue:<Customer ID>`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://app.klue.com/account/auth/saml/<Customer UUID>/callback`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://app.klue.com/account/auth/saml/<Customer UUID>/callback`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-    ![Klue 網域及 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
+    ![Klue 網域與 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
 
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://app.klue.com/account/auth/saml/<Customer UUID>/`
 
@@ -202,7 +202,7 @@ Klue 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Klue]。
 
-    ![應用程式清單中的 [Klue] 連結](common/all-applications.png)
+    ![應用程式清單中的 Klue 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -220,7 +220,7 @@ Klue 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-klue-test-user"></a>建立 Klue 測試使用者
 
-本節會在 Klue 中建立名為 Britta Simon 的使用者。 Klue 支援預設會啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Klue 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
+本節會在 Klue 中建立名為 Britta Simon 的使用者。 Klue 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 Klue 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5c5465562c1af3dbd3fcaff2031149e510a43cfd
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 8ceb9aefb1e68ceb6030f078aba8b0717cdf9e7c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540732"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260879"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>使用 Azure 地圖服務的景點路線
 
@@ -47,11 +47,11 @@ ms.locfileid: "58540732"
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
 
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
-        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
 
         <script>
             var map, datasource, client;
@@ -83,7 +83,7 @@ ms.locfileid: "58540732"
 
     請注意，HTML 標頭包含 Azure 地圖控制項程式庫所裝載的 CSS 和 JavaScript 資源檔案。 請注意頁面本文上的 `onload` 事件，此事件在頁面本文載入時將會呼叫 `GetMap` 函式。 此函式會包含內嵌的 JavaScript 程式碼，以便存取 Azure 地圖服務 API。 
 
-3. 在 `GetMap` 函式中新增下列 JavaScript 程式碼。 將字串 **\<您的 Azure 地圖服務金鑰\>** 取代為您從地圖服務帳戶所複製的主要金鑰。
+3. 在 `GetMap` 函式中新增下列 JavaScript 程式碼。 將字串 `<Your Azure Maps Key>` 取代為您從地圖服務帳戶複製的主要金鑰。
 
     ```JavaScript
    //Instantiate a map object
@@ -96,11 +96,11 @@ ms.locfileid: "58540732"
    });
    ```
 
-    **atlas.Map** 是 Azure 地圖控制項 API 的元件，可供控制視覺化互動式網路地圖。
+    `atlas.Map` 是 Azure 地圖控制項 API 的元件，可供您控制視覺化互動式網路地圖。
 
 4. 儲存檔案並在瀏覽器中將其開啟。 至此，您已擁有可以進一步發展的基本地圖了。
 
-   ![檢視基本地圖](./media/tutorial-route-location/basic-map.png)
+   ![檢視基本地圖](media/tutorial-route-location/basic-map.png)
 
 ## <a name="define-how-the-route-will-be-rendered"></a>定義呈現路線的方式
 
@@ -109,8 +109,8 @@ ms.locfileid: "58540732"
 1. 在地圖完成初始化後，請新增下列 JavaScript 程式碼。
 
     ```JavaScript
-    //Wait until the map resources have fully loaded.
-    map.events.add('load', function() {
+    //Wait until the map resources are ready.
+    map.events.add('ready', function() {
 
         //Create a data source and add it to the map.
         datasource = new atlas.source.DataSource();
@@ -121,8 +121,7 @@ ms.locfileid: "58540732"
             strokeColor: '#2272B9',
             strokeWidth: 5,
             lineJoin: 'round',
-            lineCap: 'round',
-            filter: ['==', '$type', 'LineString']
+            lineCap: 'round'
         }), 'labels');
 
         //Add a layer for rendering point data.
@@ -135,14 +134,14 @@ ms.locfileid: "58540732"
                 textField: ['get', 'title'],
                 offset: [0, 1.2]
             },
-            filter: ['==', '$type', 'Point']
+            filter: ['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']] //Only render Point or MultiPoints in this layer.
         }));
     });
     ```
-
-    載入事件會新增至地圖，而地圖將在地圖資源已完全載入時引發。 在地圖載入事件處理常式中，會建立資料來源以儲存路線以及起點和終點。 系統會建立線條圖層並將其附加至資料來源，以定義呈現路線的方式。 路線將呈現為寬度為 5 像素的藍色，並採用圓角的線條聯結和線蓋。 此時會新增一個篩選條件，以確定此圖層僅呈現 GeoJSON LineString 資料。 將圖層新增至地圖時，會傳入值為 `'labels'` 的第二個參數，而指定要將此圖層呈現在地圖標籤下方。 這樣可以確保路線不會遮住道路標籤。 系統會建立符號圖層，並將其附加至資料來源。 此圖層會指定起點和終點的呈現方式，而此案例中已新增運算式，用以從每個點物件的屬性中擷取圖示影像和文字標籤資訊。
-
-2. 在此教學課程中，將起點設在 Microsoft 總部，並將終點設在西雅圖的加油站。 在地圖載入事件處理常式中，新增下列程式碼。
+    
+    在地圖 `ready` 事件處理常式中，會建立資料來源以儲存路線以及起點和終點。 系統會建立線條圖層並將其附加至資料來源，以定義呈現路線的方式。 路線將呈現為寬度為 5 像素的鮮明藍色，並採用圓角的線條聯合和線蓋。 將圖層新增至地圖時，會傳入值為 `'labels'` 的第二個參數，而指定要將此圖層呈現在地圖標籤下方。 這樣可以確保路線不會遮住道路標籤。 系統會建立符號圖層，並將其附加至資料來源。 此圖層會指定起點和終點的呈現方式，而此案例中已新增運算式，用以從每個點物件的屬性中擷取圖示影像和文字標籤資訊。 
+    
+2. 在此教學課程中，將起點設在 Microsoft，並將終點設在西雅圖的加油站。 在地圖 `ready` 事件處理常式中，新增下列程式碼。
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end points of the route.
@@ -169,13 +168,13 @@ ms.locfileid: "58540732"
 
 3. 儲存 **MapRoute.html** 檔案並重新整理瀏覽器。 現在地圖會以西雅圖作為中心，而且您會看到以藍色圖釘標示的起點，和以圓形藍色圖釘標示的終點。
 
-   ![檢視標有起點和終點的地圖](./media/tutorial-route-location/map-pins.png)
+   ![檢視標有起點和終點的地圖](media/tutorial-route-location/map-pins.png)
 
 <a id="getroute"></a>
 
 ## <a name="get-directions"></a>取得指示
 
-本節說明如何使用 Azure 地圖服務的路線規劃服務 API，尋找從給定起點到終點的路線。 路線規劃服務會提供 API 來規劃兩個位置之間「最快速」、「最短」、「最環保」或「驚心動魄」的路線。 它也可讓使用者使用 Azure 廣泛的歷史路況資料庫，並預測任何日期和時間的路線時間，以規劃日後的路線。 如需詳細資訊，請參閱[取得路線指示](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)。 以下所有功能都應該新增至**地圖載入 eventListener 內**，以確保會在地圖完整載入之後載入。
+本節說明如何使用 Azure 地圖服務的路線規劃服務 API，尋找從給定起點到終點的路線。 路線規劃服務會提供 API 來規劃兩個位置之間「最快速」、「最短」、「最環保」或「驚心動魄」的路線。 它也可讓使用者使用 Azure 廣泛的歷史路況資料庫，並預測任何日期和時間的路線時間，以規劃日後的路線。 如需詳細資訊，請參閱[取得路線指示](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)。 以下所有功能都應該新增至**地圖備妥 eventListener 內**，以確保它們會在地圖資源可供存取之後載入。
 
 1. 在 GetMap 函式中，將下列內容新增至 Javascript 程式碼。
 
@@ -190,9 +189,9 @@ ms.locfileid: "58540732"
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   **SubscriptionKeyCredential** 會建立 **SubscriptionKeyCredentialPolicy**，以使用訂用帳戶金鑰驗證對 Azure 地圖服務的 HTTP 要求。 **atlas.service.MapsURL.newPipeline()** 會採用 **SubscriptionKeyCredential** 原則，並建立[管線](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest)執行個體。 **routeURL** 代表 Azure 地圖服務[路線規劃](https://docs.microsoft.com/rest/api/maps/route)作業的 URL。
+   `SubscriptionKeyCredential` 會建立 `SubscriptionKeyCredentialPolicy`，以使用訂用帳戶金鑰驗證對「Azure 地圖服務」的 HTTP 要求。 `atlas.service.MapsURL.newPipeline()` 會採用 `SubscriptionKeyCredential` 原則，並建立[管線](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest)執行個體。 `routeURL` 代表 Azure 地圖服務[路線規劃](https://docs.microsoft.com/rest/api/maps/route)作業的 URL。
 
-2. 設定認證和 URL 之後，請新增下列 JavaScript 程式碼以建構從起點到終點的路線。 **routeURL** 會要求 Azure 地圖服務的路線規劃服務計算路線方向。 接著，系統會使用 **geojson.getFeatures()** 方法擷取回應中的 GeoJSON 特性集合，並將其新增至資料來源。
+2. 設定認證和 URL 之後，請新增下列 JavaScript 程式碼以建構從起點到終點的路線。 `routeURL` 會要求 Azure 地圖服務的路線規劃服務計算路線方向。 接著，系統會使用 `geojson.getFeatures()` 方法擷取回應中的 GeoJSON 特性集合，並將其新增至資料來源。
 
     ```JavaScript
     //Start and end point input to the routeURL

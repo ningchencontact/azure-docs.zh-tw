@@ -7,19 +7,19 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: c4622293f05be5f4595136a5bbf194116fb2887c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fd49cc6810f4a3a479748180ddb0c44aedf04e89
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58081095"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275550"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Azure Cosmos DB Gremlin graph 支援
-Azure Cosmos DB 支援 [Apache Tinkerpop 的](https://tinkerpop.apache.org)圖表周遊語言 [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) 這是可用於建立圖表實體和執行圖表查詢作業的 Gremlin API。 您可以使用 Gremlin 語言建立圖表實體 (頂點和邊緣)、修改這些實體內的屬性、執行查詢和周遊，以及刪除實體。 
+Azure Cosmos DB 支援 [Apache Tinkerpop 的](https://tinkerpop.apache.org)圖形周遊語言，稱為 [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps)。 您可以使用 Gremlin 語言建立圖表實體 (頂點和邊緣)、修改這些實體內的屬性、執行查詢和周遊，以及刪除實體。 
 
-Azure Cosmos DB 在圖表資料庫中提供符合企業需求的功能。 包括跨越兩個以上 Azure 區域之資料庫的全域散發、獨立調整儲存體和輸送量、可預測的個位數毫秒延遲、自動編製索引、SLA、讀取可用性。 由於 Azure Cosmos DB 支援 TinkerPop/Gremlin，您可以輕鬆地移轉使用另一個圖表資料庫撰寫的應用程式，而不必變更程式碼。 此外，憑藉 Gremlin 支援，Azure Cosmos DB 與啟用 TinkerPop 的分析架構緊密整合，例如 [Apache Spark GraphX](https://spark.apache.org/graphx/)。 
+Azure Cosmos DB 在圖表資料庫中提供符合企業需求的功能。 這些功能包括跨越兩個以上 Azure 區域之資料庫的全域散發、獨立調整儲存體和輸送量、可預測的個位數毫秒延遲、自動編製索引、SLA、讀取可用性。 由於 Azure Cosmos DB 支援 TinkerPop/Gremlin，您可以輕鬆地移轉使用另一個相容圖表資料庫撰寫的應用程式。 此外，憑藉 Gremlin 支援，Azure Cosmos DB 與啟用 TinkerPop 的分析架構緊密整合，例如 [Apache Spark GraphX](https://spark.apache.org/graphx/)。 
 
-在本文中，我們提供 Gremlin 的快速逐步解說，並列舉 Gremlin API 所支援的 Gremlin 功能和步驟。
+在本文中，我們提供 Gremlin 的快速逐步解說，並列舉 Gremlin API 所支援的 Gremlin 功能。
 
 ## <a name="gremlin-by-example"></a>Gremlin 範例
 讓我們利用一個範例圖表了解如何以 Gremlin 表達查詢。 下圖顯示的商務應用程式以圖表形式管理使用者、興趣和裝置的相關資料。  
@@ -59,7 +59,7 @@ Azure Cosmos DB 在圖表資料庫中提供符合企業需求的功能。 包括
 :> g.V().hasLabel('person').order().by('firstName', decr)
 ```
 
-圖表的威力在於當您需要回答「Thomas 的朋友使用什麼作業系統？」這種問題時。 您可以執行這個簡單的 Gremlin 周遊，從圖表中取得這項資訊︰
+圖表的威力在於當您需要回答「Thomas 的朋友使用什麼作業系統？」這種問題時。 您可以執行這個 Gremlin 周遊，從圖表中取得這項資訊︰
 
 ```
 :> g.V('thomas.1').out('knows').out('uses').out('runsos').group().by('name').by(count())
@@ -123,31 +123,31 @@ TinkerPop 是一套涵蓋各種圖表技術的標準。 因此，它採用標準
   }
 ```
 
-GraphSON 用於頂點的屬性如下︰
+GraphSON 用於頂點的屬性說明如下︰
 
-| 屬性 | 說明 |
-| --- | --- |
-| id | 頂點的識別碼。 必須是唯一的 (適合的話，與 _partition 的值結合) |
-| 標籤 | 頂點的標籤。 這是選擇性，用來描述實體類型。 |
-| type | 用來區別頂端和非圖表文件 |
-| properties | 與頂點相關聯的使用者定義屬性包。 每個屬性可以有多個值。 |
-| _partition (可設定) | 頂點的資料分割索引鍵。 可用來將圖表相應放大至多部伺服器 |
-| outE | 這包含頂點的外邊緣清單。 儲存頂點的相鄰資訊可以加速周遊。 邊緣會根據標籤而分組。 |
+| 屬性 | 說明 | 
+| --- | --- | --- |
+| `id` | 頂點的識別碼。 必須是唯一的 (適合的話，與 `_partition` 的值結合)。 如果未提供任何值，則會自動使用 GUID 來提供 | 
+| `label` | 頂點的標籤。 這可用來描述實體類型。 |
+| `type` | 用來區別頂端和非圖表文件 |
+| `properties` | 與頂點相關聯的使用者定義屬性包。 每個屬性可以有多個值。 |
+| `_partition` | 頂點的資料分割索引鍵。 用於[圖表分割](graph-partitioning.md)。 |
+| `outE` | 此屬性包含頂點的外邊緣清單。 儲存頂點的相鄰資訊可以加速周遊。 邊緣會根據標籤而分組。 |
 
 邊緣還包含下列資訊，有助於瀏覽至圖表的其他部分。
 
 | 屬性 | 說明 |
 | --- | --- |
-| id | 邊緣的識別碼。 必須是唯一的 (適合的話，與 _partition 的值結合) |
-| 標籤 | 邊緣的標籤。 這是選擇性屬性，用來描述關聯性類型。 |
-| inV | 這包含特定邊緣的頂點清單。 儲存邊緣的相鄰資訊可以加速周遊的執行。 頂點會根據標籤而分組。 |
-| properties | 與邊緣相關聯的使用者定義屬性包。 每個屬性可以有多個值。 |
+| `id` | 邊緣的識別碼。 必須是唯一的 (適合的話，與 `_partition` 的值結合) |
+| `label` | 邊緣的標籤。 這是選擇性屬性，用來描述關聯性類型。 |
+| `inV` | 此屬性包含特定邊緣的頂點清單。 儲存邊緣的相鄰資訊可以加速周遊的執行。 頂點會根據標籤而分組。 |
+| `properties` | 與邊緣相關聯的使用者定義屬性包。 每個屬性可以有多個值。 |
 
 每個屬性可以將多個值儲存在陣列中。 
 
 | 屬性 | 說明 |
 | --- | --- |
-| value | 屬性的值
+| `value` | 屬性的值
 
 ## <a name="gremlin-steps"></a>Gremlin 步驟
 現在，讓我們看看 Azure Cosmos DB 支援的 Gremlin 步驟。 如需 Gremlin 的完整參考，請參閱 [TinkerPop 參考](https://tinkerpop.apache.org/docs/current/reference)。
@@ -158,12 +158,13 @@ GraphSON 用於頂點的屬性如下︰
 | `addV` | 將頂點新增至圖表 | [addV 步驟](https://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
 | `and` | 確保所有周遊都會傳回值 | [and 步驟](https://tinkerpop.apache.org/docs/current/reference/#and-step) |
 | `as` | 將變數指派給步驟輸出的步驟調變器 | [as 步驟](https://tinkerpop.apache.org/docs/current/reference/#as-step) |
-| `by` | 搭配 `group` 和 `order` 一起使用的步驟調變器 | [by 步驟](https://tinkerpop.apache.org/docs/current/reference/#by-step) |
+| `by` | 步驟調變器，搭配使用 `group` 和 `order` | [by 步驟](https://tinkerpop.apache.org/docs/current/reference/#by-step) |
 | `coalesce` | 傳回第一次有傳回結果的周遊 | [coalesce 步驟](https://tinkerpop.apache.org/docs/current/reference/#coalesce-step) |
-| `constant` | 傳回常數值。 搭配 `coalesce` 使用| [constant 步驟](https://tinkerpop.apache.org/docs/current/reference/#constant-step) |
+| `constant` | 傳回常數值。 搭配使用 `coalesce`| [constant 步驟](https://tinkerpop.apache.org/docs/current/reference/#constant-step) |
 | `count` | 從周遊傳回計數 | [count 步驟](https://tinkerpop.apache.org/docs/current/reference/#count-step) |
 | `dedup` | 傳回已移除重複項的值 | [dedup 步驟](https://tinkerpop.apache.org/docs/current/reference/#dedup-step) |
 | `drop` | 捨棄值 (頂點/邊緣) | [drop 步驟](https://tinkerpop.apache.org/docs/current/reference/#drop-step) |
+| `executionProfile` | 會針對已執行的 Gremlin 步驟所產生的所有作業建立描述 | [executionProfile 步驟](graph-execution-profile.md) |
 | `fold` | 作為屏障來計算結果的彙總| [fold 步驟](https://tinkerpop.apache.org/docs/current/reference/#fold-step) |
 | `group` | 根據指定的標籤將值分組| [group 步驟](https://tinkerpop.apache.org/docs/current/reference/#group-step) |
 | `has` | 用於篩選屬性、頂點和邊緣。 支援 `hasLabel`、`hasId`、`hasNot` 和 `has` 變體。 | [has 步驟](https://tinkerpop.apache.org/docs/current/reference/#has-step) |

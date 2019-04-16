@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: d550591f48fbecc60aae8154bed8eec482a2ed12
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 743246881463d9cb5156677a0c3ec719d80a079c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577046"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264347"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promapp"></a>教學課程：Azure Active Directory 與 Promapp 整合
 
@@ -53,7 +53,7 @@ Promapp 與 Azure AD 整合提供下列優點：
 
 若要設定 Promapp 與 Azure AD 整合，您需要從資源庫將 Promapp 加入到受控 SaaS 應用程式清單。
 
-**若要從資源庫加入 Promapp，請執行下列步驟：**
+**若要從資源庫新增 Promapp，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
@@ -121,7 +121,7 @@ Promapp 與 Azure AD 整合提供下列優點：
     > [!NOTE] 
     > 目前僅針對服務起始的驗證 (例如移至 Promapp URL 會起始驗證程序)，設定 Azure AD 與 Promapp 整合。 然而 [回覆 URL] 是必要欄位。
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<DOMAINNAME>.promapp.com/azuread/saml/authenticate.aspx`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<DOMAINNAME>.promapp.com/azuread/saml/authenticate.aspx`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 

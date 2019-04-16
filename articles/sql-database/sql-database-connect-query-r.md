@@ -11,13 +11,13 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
-ms.date: 03/01/2019
-ms.openlocfilehash: e15cf93514f921223fea37aa480730bba46dd195
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/04/2019
+ms.openlocfilehash: f5d43794ba80e4791c8bf24ad404069a8329518e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864944"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051218"
 ---
 # <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>快速入門：在 Azure SQL Database (預覽) 中使用機器學習服務 (搭配 R)
 
@@ -98,7 +98,8 @@ GRANT EXECUTE ANY EXTERNAL SCRIPT TO <username>
     b <- 2
     c <- a/b
     d <- a*b
-    print(c, d)'
+    print(c(c, d))
+    '
     ```
 
 2. 假設一切都已正確設定，並計算正確的結果，且 R `print` 函式將結果傳回至 [訊息] 視窗。

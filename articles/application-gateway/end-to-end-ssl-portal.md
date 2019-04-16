@@ -32,13 +32,13 @@ ms.locfileid: "58227560"
 
 ## <a name="create-a-new-application-gateway-with-end-to-end-ssl"></a>使用端對端 SSL 建立新的應用程式閘道
 
-若要建立新的應用程式閘道端對端 SSL 加密，您必須先啟用 SSL 終止時建立新的應用程式閘道。 這可讓用戶端和應用程式閘道之間的通訊的 SSL 加密。 然後，您必須以 HTTP 設定中的後端伺服器的白名單憑證來為應用程式閘道與後端伺服器，因此完成端對端 SSL 加密之間的通訊啟用 SSL 加密。
+若要建立新的應用程式閘道端對端 SSL 加密，您必須先啟用 SSL 終止時建立新的應用程式閘道。 這可讓用戶端和應用程式閘道之間的通訊的 SSL 加密。 然後，您必須以 HTTP 設定中的後端伺服器的允許清單憑證來為應用程式閘道與後端伺服器，因此完成端對端 SSL 加密之間的通訊啟用 SSL 加密。
 
 ### <a name="enable-ssl-termination-while-creating-a-new-application-gateway"></a>啟用 SSL 終止時建立新的應用程式閘道
 
 請參閱此文章以了解如何[啟用時建立新的應用程式閘道的 SSL 終止](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal)。
 
-### <a name="whitelist-certificates-for-backend-servers"></a>後端伺服器的白名單憑證
+### <a name="whitelist-certificates-for-backend-servers"></a>後端伺服器的允許清單憑證
 
 1. 選取 [所有資源]，然後選取 [myAppGateway]。
 
@@ -61,9 +61,9 @@ ms.locfileid: "58227560"
 
 ## <a name="enable-end-to-end-ssl-for-existing-application-gateway"></a>啟用現有的應用程式閘道的端對端 SSL
 
-若要將現有的應用程式閘道設定端對端 SSL 加密，您必須在接聽程式的第一個啟用 SSL 終止。 這可讓用戶端和應用程式閘道之間的通訊的 SSL 加密。 然後，您必須以 HTTP 設定中的後端伺服器的白名單憑證來為應用程式閘道與後端伺服器，因此完成端對端 SSL 加密之間的通訊啟用 SSL 加密。
+若要將現有的應用程式閘道設定端對端 SSL 加密，您必須在接聽程式的第一個啟用 SSL 終止。 這可讓用戶端和應用程式閘道之間的通訊的 SSL 加密。 然後，您必須以 HTTP 設定中的後端伺服器的允許清單憑證來為應用程式閘道與後端伺服器，因此完成端對端 SSL 加密之間的通訊啟用 SSL 加密。
 
-您必須使用 HTTPS 通訊協定與憑證使用接聽程式，啟用 SSL 終止。 您無法變更現有接聽程式通訊協定。 因此，您可以選擇使用現有的接聽程式使用 HTTPS 通訊協定和憑證，或建立新的接聽程式。 如果您選擇先前的功能，您可以忽略如下所述的步驟**現有的應用程式閘道中的 啟用 SSL 終止**並直接移至**後端伺服器的白名單憑證**一節。 如果您選擇後者，請執行下列步驟。 
+您必須使用 HTTPS 通訊協定與憑證使用接聽程式，啟用 SSL 終止。 您無法變更現有接聽程式通訊協定。 因此，您可以選擇使用現有的接聽程式使用 HTTPS 通訊協定和憑證，或建立新的接聽程式。 如果您選擇先前的功能，您可以忽略如下所述的步驟**現有的應用程式閘道中的 啟用 SSL 終止**並直接移至**後端伺服器的允許清單憑證**一節。 如果您選擇後者，請執行下列步驟。 
 
 ### <a name="enable-ssl-termination-in-existing-application-gateway"></a>啟用現有的應用程式閘道中的 SSL 終止
 
@@ -84,11 +84,11 @@ ms.locfileid: "58227560"
 
 7. 選取 [確定] 以儲存。
 
-### <a name="whitelist-certificates-for-backend-servers"></a>後端伺服器的白名單憑證
+### <a name="whitelist-certificates-for-backend-servers"></a>後端伺服器的允許清單憑證
 
 1. 選取 [所有資源]，然後選取 [myAppGateway]。
 
-2. 選取  **http-settings**從左側功能表中。 您可以其中一個白名單中的憑證的現有後端 HTTP 設定，或建立新的 HTTP 設定。 在以下步驟中，我們將會預設 HTTP 設定中，憑證白名單**appGatewayBackendHttpSettings**。
+2. 選取  **http-settings**從左側功能表中。 您可以其中一個允許清單中的憑證的現有後端 HTTP 設定，或建立新的 HTTP 設定。 在以下步驟中，我們將會預設 HTTP 設定中，憑證允許清單**appGatewayBackendHttpSettings**。
 
 3. 選取  **appGatewayBackendHttpSettings**。
 

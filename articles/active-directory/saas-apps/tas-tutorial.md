@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 5dcae137db04b604d7b0450c3bec18fc23b36991
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 11ba7cd9be59f13081bdc5a543c52ca5f9d66e09
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58229067"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272490"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tas"></a>教學課程：Azure Active Directory 與 TAS 整合
 
@@ -105,9 +105,9 @@ ms.locfileid: "58229067"
 
     ![TAS 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://taseu.combtas.com/<DOMAIN>`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://taseu.combtas.com/<DOMAIN>`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://taseu.combtas.com/<ENVIRONMENTNAME>/AssertionService.aspx`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://taseu.combtas.com/<ENVIRONMENTNAME>/AssertionService.aspx`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 1e7efe28918cafb3fa9547c144be3360768d549c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4b546b91634e153fa0074adfb863596a1bf36242
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58079890"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006445"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>快速入門：透過 IoT 中樞裝置串流與使用 Node.js 的裝置應用程式進行通訊 (預覽)
 
@@ -37,7 +37,6 @@ Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://a
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-
 ## <a name="prerequisites"></a>必要條件
 
 裝置串流的預覽版目前僅支援在下列區域建立的 IoT 中樞：
@@ -53,6 +52,12 @@ Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://a
 
 ```
 node --version
+```
+
+執行下列命令，將適用於 Azure CLI 的 Microsoft Azure IoT 擴充功能新增至您的 Cloud Shell 執行個體。 IoT 擴充功能可將 IoT 中樞、IoT Edge 和 IoT 裝置佈建服務的特定命令新增至 Azure CLI。
+
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
 ```
 
 如果您尚未這樣做，請從 https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip 下載範例 Node.js 專案並將 ZIP 封存檔解壓縮。
@@ -71,14 +76,13 @@ node --version
 
 裝置必須向的 IoT 中樞註冊，才能進行連線。 在本快速入門中，您會使用 Azure Cloud Shell 來註冊模擬的裝置。
 
-1. 在 Azure Cloud Shell 中執行下列命令，以新增 IoT 中樞 CLI 擴充功能和建立裝置身分識別。 
+1. 在 Azure Cloud Shell 中執行下列命令，以建立裝置身分識別。
 
    **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。
 
    **MyDevice**：這是為已註冊裝置指定的名稱。 使用所示的 MyCDevice。 如果您為裝置選擇不同的名稱，則也必須在本文中使用該名稱，並先在範例應用程式中更新該裝置名稱，再執行應用程式。
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
@@ -146,7 +150,7 @@ node --version
 
 在本快速入門中，您已設定 IoT 中樞、註冊裝置、在裝置和服務端建立應用程式之間的裝置串流，以及使用串流在應用程式之間來回傳送資料。
 
-使用下列連結深入了解裝置串流：
+使用以下連結深入了解裝置串流：
 
 > [!div class="nextstepaction"]
 > [裝置串流概觀](./iot-hub-device-streams-overview.md)

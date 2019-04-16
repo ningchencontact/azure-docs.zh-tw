@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/13/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 5ef143fe2021a9f705bf61b579e8251b2946b042
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: dabbefa8ca2073e30948f1c70782f730bceae030
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668087"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049998"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>教學課程：將執行 Windows 的 Service Fabric 叢集部署到 Azure 虛擬網路
 
@@ -50,13 +50,16 @@ ms.locfileid: "58668087"
 > * [升級叢集的執行階段](service-fabric-tutorial-upgrade-cluster.md)
 > * [刪除叢集](service-fabric-tutorial-delete-cluster.md)
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>必要條件
 
 開始進行本教學課程之前：
 
 * 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 * 安裝 [Service Fabric SDK 和 PowerShell 模組](service-fabric-get-started.md)。
-* 安裝 [Azure PowerShell 模組 4.1 版或更新版本](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)。
+* 安裝 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)。
 * 檢閱 [Azure 叢集](service-fabric-azure-clusters-overview.md)的重要概念。
 * [規劃及準備](service-fabric-cluster-azure-deployment-preparation.md)生產環境的叢集部署。
 
@@ -151,7 +154,7 @@ ms.locfileid: "58668087"
 
 [azuredeploy.parameters.json][parameters] 參數檔案會宣告多個用來部署叢集和相關聯資源的值。 以下為要針對您的部署進行修改的參數：
 
-**參數** | **範例值** | **注意事項** 
+**參數** | **範例值** | **注意** 
 |---|---|---|
 |adminUserName|vmadmin| 叢集 VM 的系統管理員使用者名稱。 [VM 的使用者名稱需求](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm)。 |
 |adminPassword|Password#1234| 叢集 VM 的系統管理員密碼。 [VM 的密碼需求](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm)。|
@@ -611,7 +614,7 @@ EventStore 服務是 Service Fabric 中的監視選項。 EventStore 可讓您�
 
 ### <a name="create-a-cluster-by-using-an-existing-certificate"></a>使用現有的憑證建立叢集
 
-下列指令碼會使用 [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) Cmdlet 和範本在 Azure 中部署新的叢集。 此 Cmdlet 會在 Azure 中建立新的金鑰保存庫，並上傳您的憑證。
+下列指令碼會使用 [New-AzServiceFabricCluster](/powershell/module/az.servicefabric/New-azServiceFabricCluster) Cmdlet 和範本在 Azure 中部署新的叢集。 此 Cmdlet 會在 Azure 中建立新的金鑰保存庫，並上傳您的憑證。
 
 ```powershell
 # Variables.
@@ -626,22 +629,22 @@ $vaultgroupname="clusterkeyvaultgroup123"
 $subname="$clustername.$clusterloc.cloudapp.azure.com"
 
 # Sign in to your Azure account and select your subscription
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
+Connect-AzAccount
+Get-AzSubscription
+Set-AzContext -SubscriptionId <guid>
 
 # Create a new resource group for your deployment, and give it a name and a location.
-New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
+New-AzResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
+New-AzServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
 -ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
 -KeyVaultName $vaultname -KeyVaultResourceGroupName $vaultgroupname -CertificateFile $certpath
 ```
 
 ### <a name="create-a-cluster-by-using-a-new-self-signed-certificate"></a>使用新的自我簽署憑證建立叢集
 
-下列指令碼會使用 [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) Cmdlet 和範本在 Azure 中部署新的叢集。 此 Cmdlet 會在 Azure 中建立新的金鑰保存庫、將新的自我簽署憑證新增至金鑰保存庫，並在本機下載憑證檔案。
+下列指令碼會使用 [New-AzServiceFabricCluster](/powershell/module/az.servicefabric/New-azServiceFabricCluster) Cmdlet 和範本在 Azure 中部署新的叢集。 此 Cmdlet 會在 Azure 中建立新的金鑰保存庫、將新的自我簽署憑證新增至金鑰保存庫，並在本機下載憑證檔案。
 
 ```powershell
 # Variables.
@@ -657,15 +660,15 @@ $vaultgroupname="clusterkeyvaultgroup123"
 $subname="$clustername.$clusterloc.cloudapp.azure.com"
 
 # Sign in to your Azure account and select your subscription
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
+Connect-AzAccount
+Get-AzSubscription
+Set-AzContext -SubscriptionId <guid>
 
 # Create a new resource group for your deployment, and give it a name and a location.
-New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
+New-AzResourceGroup -Name $groupname -Location $clusterloc
 
 # Create the Service Fabric cluster.
-New-AzureRmServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
+New-AzServiceFabricCluster  -ResourceGroupName $groupname -TemplateFile "$templatepath\azuredeploy.json" `
 -ParameterFile "$templatepath\azuredeploy.parameters.json" -CertificatePassword $certpwd `
 -CertificateOutputFolder $certfolder -KeyVaultName $vaultname -KeyVaultResourceGroupName $vaultgroupname -CertificateSubjectName $subname
 

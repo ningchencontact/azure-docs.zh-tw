@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/28/2019
 ms.author: jeedes
-ms.openlocfilehash: a580b41c7f52c9743a02783f40562b4152b28225
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7fa4c78269464b1a38507acd6512e5f44ed94945
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842425"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267662"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mixpanel"></a>教學課程：Azure Active Directory 與 Mixpanel 整合
 

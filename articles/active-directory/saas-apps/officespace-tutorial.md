@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 42ef2d9bbdf825eb0a872e9fe6fa66b34faa2cad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6547a640f6e56865d44b6848cf37078161faa538
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180563"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261517"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-officespace-software"></a>教學課程：Azure Active Directory 與 OfficeSpace Software 整合
 
@@ -76,7 +76,7 @@ OfficeSpace Software 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 OfficeSpace Software 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 OfficeSpace Software 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 OfficeSpace Software 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 OfficeSpace Software 設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 OfficeSpace Software 單一登入](#configure-officespace-software-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -105,11 +105,11 @@ OfficeSpace Software 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![OfficeSpace Software 網域及 URL 單一登入資訊](common/sp-identifier.png)
+    ![OfficeSpace Software 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<company name>.officespacesoftware.com/users/sign_in/saml`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<company name>.officespacesoftware.com/users/sign_in/saml`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`<company name>.officespacesoftware.com`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `<company name>.officespacesoftware.com`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [OfficeSpace Software 用戶端支援小組](mailto:support@officespacesoftware.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
@@ -222,7 +222,7 @@ OfficeSpace Software 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [OfficeSpace Software]。
 
-    ![應用程式清單中的 [OfficeSpace Software] 連結](common/all-applications.png)
+    ![應用程式清單中的 OfficeSpace Software 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

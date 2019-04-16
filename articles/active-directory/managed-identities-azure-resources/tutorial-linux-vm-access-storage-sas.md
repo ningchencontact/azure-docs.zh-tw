@@ -15,18 +15,21 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a206b6027054522a2bbbe1cc847adf9bb7f765e
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 06fa483a34efa3a9486e04d894a3139d17b157b4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447647"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273952"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>教學課程：使用 Linux VM 系統指派的受控識別，以透過 SAS 認證存取 Azure 儲存體
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 本教學課程說明如何將系統指派的受控識別用於 Linux 虛擬機器 (VM)，以取得儲存體共用存取簽章 (SAS) 認證。 具體而言，即[服務 SAS 認證](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures)。 
+
+> [!NOTE]
+> 本教學課程所產生的 SAS 金鑰將不會受限/繫結至 VM。  
 
 服務 SAS 提供可針對有限的時間和特定的服務，授與儲存體帳戶中物件的有限存取權 (在此情況下，即 Blob 服務)，而不需要公開帳戶存取金鑰。 在執行儲存體作業時 (例如使用儲存體 SDK)，您可以如往常般使用 SAS 認證。 此教學課程中，我們會示範使用 Azure 儲存體 CLI 上傳和下載 blob。 您將了解如何：
 

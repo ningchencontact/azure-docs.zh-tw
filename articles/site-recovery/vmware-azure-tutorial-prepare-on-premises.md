@@ -6,35 +6,37 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2018
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 883e4cbc33ebbef0328bb1de47025e99e670f7cd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 1095a80ba05aa3e0ae6dfcd526db7ffd18fb9d4d
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311029"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359364"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>準備內部部署 VMware 伺服器以進行 Azure 的災害復原
 
-[Azure Site Recovery](site-recovery-overview.md) 藉由確保您的商務應用程式可在計劃性與非計劃性中斷期間持續啟動並執行，來提供商務持續性和災害復原 (BCDR) 策略。 Site Recovery 會管理並協調內部部署機器和 Azure 虛擬機器 (VM) 的災害復原，包括複寫、容錯移轉和復原。
+本文說明如何準備內部部署 VMware 伺服器，以使用 [Azure Site Recovery](site-recovery-overview.md) 服務進行 Azure 的災害復原。 
 
-- 這是一系列中的第二個教學課程，說明如何為內部部署 VMware VM 設定 Azure 的災害復原。 在第一個教學課程中，我們針對 VMware 災害復原需求[設定 Azure 元件](tutorial-prepare-azure.md)。
+這是一系列中的第二個教學課程，說明如何為內部部署 VMware VM 設定 Azure 的災害復原。 在第一個教學課程中，我們針對 VMware 災害復原需求[設定 Azure 元件](tutorial-prepare-azure.md)。
 
 
-> [!NOTE]
-> 這些教學課程接設計成顯示案例的最簡單部署路徑。 可能的話，會使用預設選項，而不會顯示所有可能的設定與路徑。 如需詳細指示，請參閱對應案例的**操作說明**區段。
-
-在本文中，我們會說明在您想要使用 Azure Site Recovery 將 VMware VM 複寫至 Azure 時，如何備妥內部部署 VMware 基礎結構。 您會了解如何：
+在本文中，您將了解：
 
 > [!div class="checklist"]
-> * 在 vCenter Server 或 vSphere ESXi 主機上，準備一個用來將 VM 探索自動化的帳戶
-> * 準備一個用來在 VMware VM 上自動安裝行動服務的帳戶
-> * 檢閱 VMware 伺服器和 VM 需求
-> * 準備在容錯移轉後連接到 Azure VM
+> * 在 vCenter Server 或 vSphere ESXi 主機上，準備一個用來將 VM 探索自動化的帳戶。
+> * 準備一個用來在 VMware VM 上自動安裝行動服務的帳戶。
+> * 檢閱 VMware 伺服器與 VM 需求和支援。
+> * 準備在容錯移轉後連接到 Azure VM。
 
+> [!NOTE]
+> 這些教學課程示範案例的最簡單部署路徑。 可能的話，會使用預設選項，而不會顯示所有可能的設定與路徑。 如需詳細指示，請檢閱 Site Recovery 目錄的「操作說明」區段中的文章。
 
+## <a name="before-you-start"></a>開始之前
+
+確定您已依照[這一系列中的第一個教學課程](tutorial-prepare-azure.md)所述備妥 Azure。
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>準備帳戶以進行自動探索
 
@@ -107,13 +109,13 @@ Site Recovery 需要存取 VMware 伺服器才能：
 
 
 ## <a name="failback-requirements"></a>容錯回復需求
-如果您打算容錯回復到您的內部部署環境，也必須確定[已符合某些必要條件](vmware-azure-reprotect.md##before-you-begin)。 不過，這些要求**並不需要從啟用 VM 的災害復原開始**，而且可在容錯移轉至 Azure 後完成。
+如果您打算容錯回復到內部部署網站，則有一些[容錯回復必要條件](vmware-azure-reprotect.md##before-you-begin)。 您現在可以準備這些項目，但不需要這麼做。 您可以在容錯移轉至 Azure 之後準備。
 
-## <a name="useful-links"></a>實用的連結
 
-如果您要複寫多個 VM，您應該在開始前規劃容量和部署。 [深入了解](site-recovery-deployment-planner.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
+設定災害復原。 如果您要複寫多個 VM，請規劃容量。
 > [!div class="nextstepaction"]
 > [為 VMware VM 設定 Azure 的災害復原](vmware-azure-tutorial.md)
+> [執行容量規劃](site-recovery-deployment-planner.md)。

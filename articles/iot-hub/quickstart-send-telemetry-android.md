@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: 63e1f6a6779cf2689a7cbffad06447d272a413d7
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: b8cf0891bd2a11a4ea46cc9fb8bad266862b6971
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58516921"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005383"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>快速入門：從 Android 裝置傳送 IoT 遙測
 
@@ -33,11 +33,15 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
 
 * 從 https://developer.android.com/studio/ 取得的 Android Studio。 如需有關安裝 Android Studio 的詳細資訊，請參閱 [android-installation](https://developer.android.com/studio/install)。 
 
-* 本中的範例會使用 Android SDK 27。 
+* 本中的範例會使用 Android SDK 27。
+
+* 執行下列命令，將適用於 Azure CLI 的 Microsoft Azure IoT 擴充功能新增至您的 Cloud Shell 執行個體。 IoT 擴充功能可將 IoT 中樞、IoT Edge 和 IoT 裝置佈建服務的特定命令新增至 Azure CLI。
+
+   ```azurecli-interactive
+   az extension add --name azure-cli-iot-ext
+   ```
 
 * 您在本快速入門中執行的 [Android 應用程式範例](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample)屬於 GitHub 上的 azure-iot-samples-java 存放庫。 下載或複製 [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java) 存放庫。
-
-
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 
@@ -47,14 +51,13 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
 
 裝置必須向的 IoT 中樞註冊，才能進行連線。 在本快速入門中，您會使用 Azure Cloud Shell 來註冊模擬的裝置。
 
-1. 在 Azure Cloud Shell 中執行下列命令，以新增 IoT 中樞 CLI 擴充功能和建立裝置身分識別。 
+1. 在 Azure Cloud Shell 中執行下列命令，以建立裝置身分識別。
 
    **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。
 
    **MyAndroidDevice**：MyAndroidDevice 是為已註冊裝置指定的名稱。 請如範例所示使用 MyAndroidDevice。 如果您為裝置選擇不同的名稱，則也必須在本文中使用該名稱，並先在範例應用程式中更新該裝置名稱，再執行應用程式。
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyAndroidDevice
     ```
 

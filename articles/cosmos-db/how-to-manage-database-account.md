@@ -1,21 +1,21 @@
 ---
 title: 了解如何在 Azure Cosmos DB 中管理資料庫帳戶
 description: 了解如何在 Azure Cosmos DB 中管理資料庫帳戶
-author: christopheranderson
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 10/17/2018
-ms.author: chrande
-ms.openlocfilehash: 6efa0bab6327022bfe4a1f6d94a6a135cd1f91f3
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.date: 04/08/2019
+ms.author: rimman
+ms.openlocfilehash: b2b5e58ca480aa3abaa0766319977b8d1160ebeb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849064"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282996"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>管理 Azure Cosmos 帳戶
 
-本文說明如何管理 Azure Cosmos DB 帳戶。 您會了解如何設定內送流量備援容錯機制、新增或移除區域、設定多個寫入區域，以及設定容錯移轉優先順序。 
+本文說明如何管理 Azure Cosmos 帳戶。 您會了解如何設定內送流量備援容錯機制、新增或移除區域、設定多個寫入區域，以及設定容錯移轉優先順序。 
 
 ## <a name="create-a-database-account"></a>建立資料庫帳戶
 
@@ -99,9 +99,9 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 ### <a id="add-remove-regions-via-portal"></a>Azure 入口網站
 
-1. 移至 Azure Cosmos DB 帳戶，然後開啟 [全域複寫資料] 功能表。
+1. 移至 Azure Cosmos 帳戶，然後開啟 [全域複寫資料] 功能表。
 
-2. 若要新增區域，請選取地圖上具有 **+** 標籤的六邊形，其對應至您所需的區域。 若要新增區域，請選取 [+ 新增區域] 選項，然後從下拉式功能表中選擇區域，藉以新增區域。
+2. 若要新增區域，請選取地圖上具有 **+** 標籤的六邊形，其對應至您所需的區域。 或者，若要新增區域，請選取 [+ 新增區域] 選項，然後從下拉式功能表中選擇區域，藉以新增區域。
 
 3. 若要移除區域，請選取具有核取記號的藍色六邊形，以清除地圖中的一或多個區域。 或者，選取右側區域旁邊的「垃圾桶」(🗑) 圖示。
 
@@ -116,13 +116,13 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 ### <a id="add-remove-regions-via-cli"></a>Azure CLI
 
 ```bash
-# Given an account created with 1 region like so
+# Create an account with 1 region
 az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations eastus=0
 
-# Add a new region by adding another region to the list
+# Add a region
 az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations eastus=0 westus=1
 
-# Remove a region by removing a region from the list
+# Remove a region
 az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations westus=0
 ```
 
@@ -142,7 +142,7 @@ az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource
 
 ### <a id="configure-multiple-write-regions-arm"></a>Resource Manager 範本
 
-下列 JSON 程式碼是 Azure Resource Manager 範本的範例。 您可以使用它來部署一致性原則為限定過期的 Azure Cosmos DB 帳戶。 過期間隔上限會設定為 5 秒。 容許的過期要求數目上限設為 100。 若要了解 Resource Manager 範本格式和語法，請參閱 [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)。
+下列 JSON 程式碼是 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 範本的範例。 此程式碼可供您部署具有[限定過期一致性層級](consistency-levels.md)的 Azure Cosmos 帳戶。 過期間隔上限會設定為 5 秒。 容許的過期要求數目上限會設定為 100。 若要了解 Resource Manager 範本格式和語法，請參閱 [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)。
 
 ```json
 {
@@ -197,11 +197,11 @@ az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource
 ```
 
 
-## <a id="manual-failover"></a>啟用 Azure Cosmos DB 帳戶的手動容錯移轉
+## <a id="manual-failover"></a>啟用 Azure Cosmos 帳戶的手動容錯移轉
 
 ### <a id="enable-manual-failover-via-portal"></a>Azure 入口網站
 
-1. 移至 Azure Cosmos DB 帳戶，然後開啟 [全域複寫資料] 功能表。
+1. 移至 Azure Cosmos 帳戶，然後開啟 [全域複寫資料] 功能表。
 
 2. 在功能表的頂端，選取 [手動容錯移轉]。
 
@@ -216,7 +216,7 @@ az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource
 ### <a id="enable-manual-failover-via-cli"></a>Azure CLI
 
 ```bash
-# Given your account currently has regions with priority like so: eastus=0 westus=1
+# Given your account currently has regions with priority: eastus=0 westus=1
 # Change the priority order to trigger a failover of the write region
 az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations westus=0 eastus=1
 ```
@@ -252,11 +252,11 @@ az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource
 az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-automatic-failover false
 ```
 
-## <a name="set-failover-priorities-for-your-azure-cosmos-db-account"></a>設定 Azure Cosmos DB 帳戶的容錯移轉屬性
+## <a name="set-failover-priorities-for-your-azure-cosmos-account"></a>設定 Azure Cosmos 帳戶的容錯移轉屬性
 
 ### <a id="set-failover-priorities-via-portal"></a>Azure 入口網站
 
-1. 從 Azure Cosmos DB 帳戶，開啟 [全域複寫資料] 窗格。 
+1. 從 Azure Cosmos 帳戶，開啟 [全域複寫資料] 窗格。 
 
 2. 在窗格頂端，選取 [自動容錯移轉]。
 
@@ -281,8 +281,13 @@ az cosmosdb failover-priority-change --name <Azure Cosmos account name> --resour
 
 ## <a name="next-steps"></a>後續步驟
 
-了解如何管理 Azure Cosmos DB 的一致性層級和資料衝突。 請參閱下列文章：
+請閱讀下列文章：
 
 * [管理一致性](how-to-manage-consistency.md)
 * [管理區域之間的衝突](how-to-manage-conflicts.md)
+* [全域散發 - 運作原理](global-dist-under-the-hood.md)
+* [如何在應用程式中設定多重主機](how-to-multi-master.md)
+* [設定多路連接的用戶端](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [從您的 Azure Cosmos 帳戶新增或移除區域](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [建立自訂衝突解決原則](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
 

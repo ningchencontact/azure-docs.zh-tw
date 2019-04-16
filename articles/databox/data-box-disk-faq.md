@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 04/01/2019
+ms.date: 04/08/2019
 ms.author: alkohli
-ms.openlocfilehash: b104f2578938997ff12778d65f08cca226d9a445
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 27200406f0866697100e1cf9b32c199203ad600d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892325"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258771"
 ---
 # <a name="what-is-azure-data-box-disk"></a>什麼是 Azure 資料箱磁碟？
 
@@ -54,7 +54,7 @@ A. 就各有 8 TB (可用容量為 7 TB) 的 5 個磁碟而言，可用容量上
 A.  若要查看目前何處可以使用資料箱磁碟，請前往[區域可用性](data-box-disk-overview.md#region-availability)。  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>問： 在哪些區域中可以使用資料箱磁碟來儲存資料？
-A. 美國、加拿大、澳大利亞、西歐和北歐內的所有區域均支援資料箱磁碟。 只有 Azure 公用雲端區域受到支援。 Azure Government 或其他主權雲端不受支援。
+A. 美國、加拿大、澳大利亞、西歐和北歐、韓國和日本內的所有區域均支援資料箱磁碟。 只有 Azure 公用雲端區域受到支援。 Azure Government 或其他主權雲端不受支援。
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>問： 如果遇到任何資料箱磁碟方面的問題，該與誰連絡？
 A. 如果您遇到任何資料箱磁碟方面的問題，請[連絡 Microsoft 支援服務](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support)。
@@ -132,8 +132,8 @@ A. 資料箱磁碟隨附的工具組包含三項工具：
 - [下載適用於 Windows 的資料箱磁碟工具組](https://aka.ms/databoxdisktoolswin) 
 - [下載適用於 Linux 的資料箱磁碟工具組](https://aka.ms/databoxdisktoolslinux)
  
-  ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>問： 是否可以使用資料箱磁碟將資料傳輸至 Azure 檔案儲存體，然後再搭配 Azure 檔案同步來使用資料？ 
-  A. 資料箱磁碟支援 Azure 檔案儲存體，但將不適合使用 Azure 檔案同步。如果檔案資料會搭配 Azure 檔案同步來使用，則中繼資料不會保留下來。
+### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>問： 是否可以使用資料箱磁碟將資料傳輸至 Azure 檔案儲存體，然後再搭配 Azure 檔案同步來使用資料？ 
+A. 資料箱磁碟支援 Azure 檔案儲存體，但將不適合使用 Azure 檔案同步。如果檔案資料會搭配 Azure 檔案同步來使用，則中繼資料不會保留下來。
 
 
 ## <a name="verify-and-upload"></a>確認和上傳
@@ -166,7 +166,7 @@ A. 您可以複製您的上一筆訂單。 複製會建立與之前相同的訂�
 A. 是。 您的資料已上傳至 Azure，但如果您沒有看到任何受控磁碟使用指定的資源群組，可能是因為該資料無效。 如果分頁 Blob、區塊 Blob、Azure 檔案儲存體及受控磁碟無效，則全都會移至下列資料夾：
  - 分頁 Blob 會移至開頭為 *databoxdisk-invalid-pb-* 的區塊 Blob 容器。
  - Azure 檔案儲存體會移至開頭為 *databoxdisk-invalid-af-* 的區塊 Blob 容器。
- - 受控磁碟會移至開頭為 *databoxdisk-invliad-md-* 的區塊 Blob 容器。
+ - 受控磁碟會移至開頭為 *databoxdisk-invalid-md-* 的區塊 Blob 容器。
 
 ## <a name="next-steps"></a>後續步驟
 

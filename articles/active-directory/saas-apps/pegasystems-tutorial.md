@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 59dc9f82251e7a406e6fe1339fdb55b4880cd74d
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 34fe5d85829d909989513214406ba96ea5be0aa8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649181"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271096"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pega-systems"></a>教學課程：Azure Active Directory 與 Pega Systems 整合
 
@@ -105,9 +105,9 @@ Pega Systems 與 Azure AD 整合提供下列優點：
 
     ![Pega Systems 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<CUSTOMERNAME>.pegacloud.io:443/prweb/sp/<INSTANCEID>`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://<CUSTOMERNAME>.pegacloud.io:443/prweb/sp/<INSTANCEID>`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<CUSTOMERNAME>.pegacloud.io:443/prweb/PRRestService/WebSSO/SAML/AssertionConsumerService`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<CUSTOMERNAME>.pegacloud.io:443/prweb/PRRestService/WebSSO/SAML/AssertionConsumerService`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
@@ -115,7 +115,7 @@ Pega Systems 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入 URL] 文字方塊中，輸入登入 URL 值。
 
-    b. 在 [轉送狀態] 文字方塊中，使用下列模式輸入 URL：`https://<CUSTOMERNAME>.pegacloud.io/prweb/sso`
+    b. 在 [轉送狀態] 文字方塊中，使用下列模式輸入 URL： `https://<CUSTOMERNAME>.pegacloud.io/prweb/sso`
 
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的「識別碼」、「回覆 URL」、「登入 URL」及「轉送狀態 URL」來更新這些值。 您可以從本教學課程稍後所述的 Pega 應用程式找到「識別碼」和「回覆 URL」的值。 針對「回覆狀態」，請連絡 [Pega Systems 用戶端支援小組](https://www.pega.com/contact-us)以取得值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

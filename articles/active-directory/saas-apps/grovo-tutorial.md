@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 37ba3b8082591f5eab97a7544a13c3279160a0ce
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fc0ef38193bbd6e5044764a26a5793a4d115348d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861956"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278134"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>教學課程：Azure Active Directory 與 Grovo 整合
 
@@ -52,7 +52,7 @@ Grovo 與 Azure AD 整合提供下列優點：
 
 若要設定將 Grovo 整合到 Azure AD 中，您需要從資源庫將 Grovo 新增到受控 SaaS 應用程式清單。
 
-**若要從資源庫加入 Grovo，請執行下列步驟：**
+**若要從資源庫新增 Grovo，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
@@ -106,13 +106,13 @@ Grovo 與 Azure AD 整合提供下列優點：
 
     ![Grovo 網域與 URL 單一登入資訊](common/idp-relay.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.grovo.com/sso/saml2/metadata`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://<subdomain>.grovo.com/sso/saml2/metadata`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
     c. 按一下 [設定額外的 URL]。
 
-    d. 在 [轉送狀態] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.grovo.com`
+    d. 在 [轉送狀態] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.grovo.com`
 
 5. 如果您想要在 **SP** 起始模式中設定應用程式，請執行下列步驟：
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: af8bc6617b08df9cfac1fc4109beb5e0e59026eb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b1a60c4110d69aec7a384a869ce4a2841741e920
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903348"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275241"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nomadesk"></a>教學課程：Azure Active Directory 與 Nomadesk 整合
 
@@ -106,9 +106,9 @@ Nomadesk 與 Azure AD 整合提供下列優點：
 
     ![Nomadesk 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://mynomadesk.com/logon/saml/<TENANTID>`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://mynomadesk.com/logon/saml/<TENANTID>`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://secure.nomadesk.com/saml/<instancename>`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `https://secure.nomadesk.com/saml/<instancename>`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Nomadesk 客戶支援小組](mailto:support@nomadesk.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

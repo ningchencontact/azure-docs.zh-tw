@@ -8,17 +8,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 2348b4293b8726c406b1f06b2f88c37dfb00e80c
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 86f29f07df6174ecead852fada73ac05f8682fca
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447741"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359976"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>快速入門：使用 SQL Server Management Studio 連線和查詢 Azure SQL Database
 
@@ -44,7 +44,7 @@ ms.locfileid: "58447741"
 
 ## <a name="install-the-latest-ssms"></a>安裝最新的 SSMS
 
-在開始之前，請確定您已安裝最新的 [SSMS][ssms-install-latest-84g]。 
+在開始之前，請確定您已安裝最新的 [SSMS][ssms-install-latest-84g]。
 
 ## <a name="get-sql-server-connection-information"></a>取得 SQL Server 連線資訊
 
@@ -58,7 +58,7 @@ ms.locfileid: "58447741"
 
 ## <a name="connect-to-your-database"></a>連接到您的資料庫
 
-在 SMSS 中，連線到您的 Azure SQL Database 資料庫。 
+在 SMSS 中，連線到您的 Azure SQL Database 資料庫。
 
 > [!IMPORTANT]
 > Azure SQL Database 伺服器會接聽連接埠 1433。 若要連線到公司防火牆後方的 SQL Database 伺服器，該防火牆必須開啟此連接埠。
@@ -68,11 +68,11 @@ ms.locfileid: "58447741"
 
 2. 輸入以下資訊：
 
-   | 設定      | 建議的值    | 說明 | 
-   | ------------ | ------------------ | ----------- | 
+   | 設定      | 建議的值    | 說明 |
+   | ------------ | ------------------ | ----------- |
    | **伺服器類型** | 資料庫引擎 | 必要值。 |
    | **伺服器名稱** | 完整伺服器名稱 | 應該類似這樣︰**mynewserver20170313.database.windows.net**。 |
-   | **驗證** | SQL Server 驗證 | 本教學課程使用 SQL 驗證。 |
+   | **Authentication** | SQL Server 驗證 | 本教學課程使用 SQL 驗證。 |
    | **登入** | 伺服器管理帳戶使用者識別碼 | 建立伺服器時所使用伺服器系統管理員帳戶的使用者識別碼。 |
    | **密碼** | 伺服器系統管理員帳戶密碼 | 建立伺服器時所使用伺服器系統管理員帳戶的密碼。 |
    ||||
@@ -83,7 +83,7 @@ ms.locfileid: "58447741"
 
    ![連線到伺服器上的 DB](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
-4. 選取 [ **連接**]。 此時會開啟 [物件總管] 視窗。 
+4. 選取 [ **連接**]。 此時會開啟 [物件總管] 視窗。
 
 5. 若要檢視資料庫的物件，請展開 [資料庫]，然後展開 **mySampleDatabase**。
 
@@ -140,15 +140,14 @@ ms.locfileid: "58447741"
 1. 使用此查詢取代先前的查詢。
 
    ```sql
-   SELECT * FROM [SalesLT].[Product] 
-   WHERE Name='myNewProduct' 
+   SELECT * FROM [SalesLT].[Product]
+   WHERE Name='myNewProduct'
    ```
-   
-2. 選取 [執行] 。 此時會出現下列結果。 
+
+2. 選取 [執行] 。 此時會出現下列結果。
 
    ![結果](./media/sql-database-connect-query-ssms/result.png)
 
- 
 ## <a name="update-data"></a>更新資料
 
 執行此 [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 程式碼以修改您的新產品。
@@ -188,8 +187,6 @@ ms.locfileid: "58447741"
 - 若要使用 Python 進行連線和查詢，請參閱[使用 Python 進行連線和查詢](sql-database-connect-query-python.md)。
 - 若要使用 Ruby 進行連線和查詢，請參閱[使用 Ruby 進行連線和查詢](sql-database-connect-query-ruby.md)。
 
-
 <!-- Article link references. -->
 
 [ssms-install-latest-84g]: https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms
-

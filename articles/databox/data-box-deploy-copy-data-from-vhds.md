@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: alkohli
-ms.openlocfilehash: 1358751c71dfba39574807c9b232957227980f5d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ec2013a793f766221a66912d6de9d8da8b8106dd
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887505"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282554"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>教學課程：使用資料箱匯入資料以作為 Azure 中的受控磁碟
 
@@ -46,7 +46,7 @@ ms.locfileid: "57887505"
 - `mydbmdrg1_MDisk`
 - `mydbmdrg2_MDisk`
 
-在每個共用內，會建立下列四個對應到您儲存體帳戶中容器的資料夾。
+在每個共用內，會建立下列三個對應到您儲存體帳戶中容器的資料夾。
 
 - 進階 SSD
 - 標準 HDD

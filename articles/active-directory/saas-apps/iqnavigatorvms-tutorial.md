@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 2f93bea79354dda68c4307ab45c6d1bbfd410ea1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: ad6bf2576d7f033f8ae029338dc94635dbba0fe7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370596"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267424"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>教學課程：Azure Active Directory 與 IQNavigator VMS 整合
 
@@ -105,13 +105,13 @@ IQNavigator VMS 與 Azure AD 整合提供下列優點：
 
     ![IQNavigator VMS 網域與 URL 單一登入資訊](common/idp-relay.png)
 
-    a. 在 [識別碼] 文字方塊中，鍵入 URL：`iqn.com`
+    a. 在 [識別碼] 文字方塊中，鍵入 URL： `iqn.com`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.iqnavigator.com/security/login?client_name=https://sts.window.net/<instance name>`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<subdomain>.iqnavigator.com/security/login?client_name=https://sts.window.net/<instance name>`
 
     c. 按一下 [設定額外的 URL]。
 
-    d. 在 [轉送狀態] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.iqnavigator.com`
+    d. 在 [轉送狀態] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.iqnavigator.com`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「回覆 URL」和「轉送狀態」來更新這些值。 請連絡 [IQNavigator VMS 客戶支援小組](https://www.beeline.com/iqn-product-support/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

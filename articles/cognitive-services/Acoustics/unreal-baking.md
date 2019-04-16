@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: 544de5a3ac48c12d75f05a1c9adb56f48bb540f4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 48a1c4350b438761aa2e2d8c7e57a872c86ca292
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311544"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470367"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>聲場專案 Unreal 聲場模擬教學課程
 本文件說明使用 Unreal 編輯器擴充來提交聲場模擬的流程。
@@ -40,6 +40,8 @@ ms.locfileid: "58311544"
 
 在 [World Outliner] \(世界大綱工具\) 中，選取一或多個物件，或使用 [Bulk Selection] \(大量選取項目\) 區段來協助選取特定類別的所有物件。 選取物件之後，請使用 [Tagging] \(標記\) 區段將所需標籤套用至選取的物件。
 
+如果沒有 **AcousticsGeometry** 也沒有 **AcousticsNavigation** 標記，將會在模擬中忽略它。 只支援靜態網格、導航網格和地貌。 如果您標記任何其他項目，將會忽略它。
+
 ### <a name="for-reference-the-objects-tab-parts"></a>參考：[Objects] \(物件\) 索引標籤組件
 
 ![Unreal 中 [聲場物件] 索引標籤的螢幕擷取畫面](media/unreal-objects-tab-details.png)
@@ -63,9 +65,23 @@ ms.locfileid: "58311544"
 
 在聲場模擬結果中，會修正進行探查計算 (透過下方的 [Probes] \(探查\) 索引標籤) 時的物件轉換。 如果移動場景中任何已標示的物件，將必須重做探查計算及重新製作場景。
 
-## <a name="create-or-tag-a-navigation-mesh"></a>建立或標記導航網格
+### <a name="create-or-tag-a-navigation-mesh"></a>建立或標記導航網格
 
-導航網格可用來放置模擬探查點。 您可以使用 Unreal 的[導航網格界線體積](https://api.unrealengine.com/INT/Engine/AI/BehaviorTrees/QuickStart/2/index.html) \(英文\)，或是自行指定導航網格。 您必須先至少將一個物件標記為 [Acoustics Navigation] \(聲場導航\)。
+導航網格可用來放置模擬探查點。 您可以使用 Unreal 的[導航網格界線體積](https://api.unrealengine.com/INT/Engine/AI/BehaviorTrees/QuickStart/2/index.html) \(英文\)，或是自行指定導航網格。 您必須先至少將一個物件標記為 [Acoustics Navigation] \(聲場導航\)。 如果您使用 Unreal 的導航網格，請先確定您已建置它。
+
+### <a name="acoustics-volumes"></a>聲場體積 ###
+
+在您的導航區域上，您可以使用 [聲場體積] 進行進一步的進階自訂。 [聲場體積] 是您可以新增至場景的動作項目，可讓您選取導航網格要包含和略過的區域。 此動作項目會公開可以在「包含」和「排除」之間切換的屬性。 「包含」體積可確保只考慮其內部導航網格的區域，而「排除」體積會將這些區域標示為略過。 「排除」體積一律會在「包含」體積之後套用。 務必透過 [物件] 索引標籤中的一般程序，將 [聲場體積] 標記為 [聲場導航]。這些動作項目「不會」自動加上標記。
+
+![Unreal 中聲場體積屬性的螢幕擷取畫面](media/unreal-acoustics-volume-properties.png)
+
+「排除」體積的主要用意是要對不放入探查的位置提供細緻控制，以強化資源使用狀況。
+
+![Unreal 中排除聲場體積的螢幕擷取畫面](media/unreal-acoustics-volume-exclude.png)
+
+「包含」體積適合用於建立場景的手動區段，例如您想要將場景分解成多個聲場區域時。 比方說，如果您有大型場景 (多達數平方公里)，而且有兩個想要模擬聲場的感興趣區域。 您可以在場景中繪製兩個大型「包含」體積，且分別為每個體積產生 ACE 檔案。 然後在遊戲中，當播放程式接近每個圖格時，您可以使用結合藍圖呼叫的觸發程序體積來載入適當的 ACE 檔案。
+
+[聲場體積] 只會限制導航，「不會」限制幾何。 在執行聲波模擬時，「包含」**聲場體積**內的每項探查仍會放入體積外部的所有必要幾何。 因此，遮蔽或其他聲場中不應該有任何由於播放程式從一個區段跨到另一個區段所造成的不連貫情形。
 
 ## <a name="select-acoustic-materials"></a>選取聲場材質
 
@@ -87,6 +103,7 @@ ms.locfileid: "58311544"
 4. 顯示作為場景材質指派對象的聲場材質。 按一下下拉式清單，即可將場景材質重新指派給不同的聲場材質。
 5. 顯示在上一欄中所選材質的聲場吸收係數。 值為零時表示完全反射 (沒有任何吸收)，值為 1 時則表示完全吸收 (沒有任何反射)。 變更此值會將聲場材質 (步驟 4) 更新為 [Custom] \(自訂\)。
 
+若要變更場景中的材質，您必須切換 [聲場專案] 外掛程式中的索引標籤，以查看 [材質] 索引標籤中反映的變更。
 
 ## <a name="calculate-and-review-listener-probe-locations"></a>計算並檢閱聆聽者探查位置
 
@@ -98,7 +115,7 @@ ms.locfileid: "58311544"
 
 1. 用來顯示此頁面的 [Probes] \(探查\) 索引標籤按鈕
 2. 使用此頁面時所需執行之操作的簡短描述
-3. 使用此項目來選擇 [Coarse] \(粗略\) 或 [Fine] \(精細\) 的模擬解析度。 [Coarse] \(粗略\) 的執行速度較快，但會有所取捨。 如需詳細資料，請參閱下面的[粗略與精細解析度的比較](#Coarse-vs-Fine-Resolution)。
+3. 使用此項目來選擇 [Coarse] \(粗略\) 或 [Fine] \(精細\) 的模擬解析度。 [Coarse] \(粗略\) 的執行速度較快，但會有所取捨。 如需詳細資料，請參閱下面的[聲場模擬解析](bake-resolution.md)。
 4. 使用此欄位來選擇聲場資料檔的預期放置位置。 按一下具有 "..." 的按鈕以使用資料夾選擇器。 如需有關資料檔的詳細資訊，請參閱下面的[資料檔](#Data-Files)。
 5. 此場景的資料檔將會採用這裡提供的前置詞來命名。 預設值為 "[Level Name]_AcousticsData"。
 6. 按一下 [Calculate] \(計算\) 按鈕以將場景體素化並計算探查點位置。 這會在您電腦本機完成，且必須在進行製作之前完成。 完成探查的計算之後，系統會停用上述控制項，且此按鈕將會變更為顯示 [Clear] \(清除\)。 按一下 [Clear] \(清除\) 按鈕以清除計算並啟用控制項，以便讓您能夠使用新的設定來重新計算。
@@ -147,21 +164,7 @@ ms.locfileid: "58311544"
 
 ![Unreal 中聲場探查預覽的螢幕擷取畫面](media/unreal-probes-preview.png)
 
-### <a name="Coarse-vs-Fine-Resolution"></a>粗略與精細解析度的比較
-
-[Coarse] \(粗略\) 和 [Fine] \(精細\) 解析度設定之間的唯一差異在於模擬的執行頻率。 [Fine] \(精細\) 所使用的頻率為 [Coarse] \(粗略\) 的兩倍。
-雖然這看似簡單，但在聲場模擬上具有一些含意：
-
-* [Coarse] \(粗略\) 的波長為 [Fine] \(精細\) 的兩倍，因此體素是兩倍大。
-* 由於聲場模擬時間與體素大小直接相關，因此 [Coarse] \(粗略\) 模擬比 [Fine] \(精細\) 模擬快 16 倍。
-* 針對小於體素大小的門戶 (例如門或窗) 將無法進行模擬。 [Coarse] \(粗略\) 設定可能導致沒有模擬部分較小的門戶，因此它們將不會在執行階傳遞聲音。 您可以檢視體素來查看是否會發生這種情況。
-* 模擬頻率越低，在角落和邊緣周圍產生的繞射就越少。
-* 聲音來源不能位於「已填滿的」體素 (也就是包含幾何的體素) 內，這會導致沒有聲音。 和使用 [Fine] \(精細\) 設定相比，使用 [Coarse] \(粗略\) 設定會更難避免將聲音來源置於較大的體素內。
-* 較大的體素侵入門戶的部分也較大，如下所示。 第一張圖是使用 [Coarse] \(粗略\) 解析度來建立的，第二張圖是相同的門口，但使用 [Fine] \(精細\) 解析度。 如紅色標記所示，使用 [Fine] \(精細\) 設定時，侵入門口的程度較小。 藍線是幾何所定義的門口，紅線則是體素大小所定義的有效聲場門戶。 此入侵狀況在指定的情況下會如何表現，完全取決於體素與門戶幾何的對齊方式，而這又取決於場景中物件的大小和位置。
-
-![Unreal 中填滿門口的粗略體素螢幕擷取畫面](media/unreal-coarse-bake.png)
-
-![Unreal 中門口精細體素的螢幕擷取畫面](media/unreal-fine-bake.png)
+如需粗略與精細解析度的比較詳細資料，請參閱[聲場模擬解析](bake-resolution.md)。
 
 ## <a name="bake-your-level-using-azure-batch"></a>使用 Azure Batch 來對關卡進行聲場模擬
 

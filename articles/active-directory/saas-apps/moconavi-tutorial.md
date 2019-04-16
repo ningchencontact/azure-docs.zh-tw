@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 5b2321713660cb3bd16d95a386b68a5864e32c40
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2a96364d486ed6c0db2762256798ac56afa69a78
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886536"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268445"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>教學課程：Azure Active Directory 與 moconavi 整合
 
@@ -73,7 +73,7 @@ moconavi 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 moconavi 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 moconavi 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 moconavi 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 moconavi 來設定和測試 Azure AD 單一登入，您需要完成下列基本工作：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 moconavi 單一登入](#configure-moconavi-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -104,11 +104,11 @@ moconavi 與 Azure AD 整合提供下列優點：
 
     ![moconavi 網域及 URL 單一登入資訊](common/sp-identifier-reply.png)
 
-    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<yourserverurl>/moconavi-saml2/saml/login`
+    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰ `https://<yourserverurl>/moconavi-saml2/saml/login`
 
-    b. 在 [識別碼] 方塊中，使用下列模式輸入 URL：`https://<yourserverurl>/moconavi-saml2`
+    b. 在 [識別碼] 方塊中，使用下列模式輸入 URL： `https://<yourserverurl>/moconavi-saml2`
 
-    c. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<yourserverurl>/moconavi-saml2/saml/SSO`
+    c. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<yourserverurl>/moconavi-saml2/saml/SSO`
 
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的「單一登入 URL」、「識別碼」及「回覆 URL」來更新這些值。 請連絡 [moconavi 用戶端支援小組](mailto:support@recomot.co.jp)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
@@ -166,7 +166,7 @@ moconavi 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [moconavi]。
 
-    ![應用程式清單中的 [moconavi] 連結](common/all-applications.png)
+    ![應用程式清單中的 moconavi 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -184,7 +184,7 @@ moconavi 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-moconavi-test-user"></a>建立 moconavi 測試使用者
 
-在本節中，您會在 moconavi 中建立名為 Britta Simon 的使用者。 請與 [moconavi 支援小組](mailto:support@recomot.co.jp)合作，在 moconavi 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 moconavi 中建立名為 Britta Simon 的使用者。 請與 [moconavi 支援小組](mailto:support@recomot.co.jp)合作，在 moconavi 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/22/2019
 ms.custom: mvc
-ms.openlocfilehash: faccebbd00b4ee9c8ecc257722ab87f0494d9466
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1418a9815e155a0c491fc65b16307fa2755bd964
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116685"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008897"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>教學課程：實作裝置韌體更新程序
 
@@ -100,7 +100,7 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 
 ## <a name="start-the-firmware-update"></a>開始進行韌體更新
 
-您可以在後端應用程式中建立[自動裝置管理組態](iot-hub-auto-device-config.md#create-a-configuration)，以開始在 **devicetype** 標記為 Chiller 的所有裝置上進行韌體更新程序。 在本節中，您將了解如何：
+您可以在後端應用程式中建立[自動裝置管理組態](iot-hub-automatic-device-management.md#create-a-configuration)，以開始在 **devicetype** 標記為 Chiller 的所有裝置上進行韌體更新程序。 在本節中，您將了解如何：
 
 * 從後端應用程式建立組態。
 * 監視作業的完成進度。
@@ -115,10 +115,10 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 
 此組態包含下列區段︰
 
-* `content` 會指定傳送至所選裝置的韌體所需屬性。
-* `metrics` 會指定要執行以報告韌體更新狀態的查詢。
-* `targetCondition` 會選取要接收韌體更新的裝置。
-* `priorty` 會設定此組態相對於其他組態的優先權。
+* `content` 指定傳送至所選裝置的韌體所需屬性。
+* `metrics` 指定要執行以報告韌體更新狀態的查詢。
+* `targetCondition` 選取要接收韌體更新的裝置。
+* `priorty` 設定此組態相對於其他組態的優先權。
 
 後端應用程式會使用下列程式碼來建立用以設定所需屬性的組態：
 

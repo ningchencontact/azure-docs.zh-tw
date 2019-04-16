@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/26/2018
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 9b55eca953153069fb1563fedef81ea1eab254a8
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 38e776a5398ea5217a0d7e385d6ebb45d2199d51
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661185"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044602"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>教學課程：移除在 Azure 中執行的 Service Fabric 叢集
 
@@ -40,24 +40,27 @@ ms.locfileid: "58661185"
 > * [升級叢集的執行階段](service-fabric-tutorial-upgrade-cluster.md)
 > * 刪除叢集
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>必要條件
 
 開始進行本教學課程之前：
 
 * 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* 安裝 [Azure PowerShell 模組 4.1 版或更新版本](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)或 [Azure CLI](/cli/azure/install-azure-cli)。
+* 安裝 [Azure Powershell](https://docs.microsoft.com/powershell/azure//install-Az-ps) 或 [Azure CLI](/cli/azure/install-azure-cli)。
 * 在 Azure 上建立安全的 [Windows 叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 
 ## <a name="delete-the-resource-group-containing-the-service-fabric-cluster"></a>刪除包含 Service Fabric 叢集的資源群組
 刪除叢集及其取用之所有資源的最簡單方式，就是刪除資源群組。
 
-登入 Azure 並選取您要移除叢集的訂用帳戶識別碼。  您可以登入[Azure 入口網站](https://portal.azure.com)找到您的訂用帳戶識別碼。 使用 [Remove-AzureRMResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) Cmdlet 或 [az group delete](/cli/azure/group?view=azure-cli-latest) 命令刪除資源群組和所有叢集資源。
+登入 Azure 並選取您要移除叢集的訂用帳戶識別碼。  您可以登入[Azure 入口網站](https://portal.azure.com)找到您的訂用帳戶識別碼。 使用 [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) Cmdlet 或 [az group delete](/cli/azure/group?view=azure-cli-latest) 命令刪除資源群組和所有叢集資源。
 
 ```powershell
-Connect-AzureRmAccount
-Set-AzureRmContext -SubscriptionId <guid>
+Connect-AzAccount
+Set-AzContext -SubscriptionId <guid>
 $groupname = "sfclustertutorialgroup"
-Remove-AzureRmResourceGroup -Name $groupname -Force
+Remove-AzResourceGroup -Name $groupname -Force
 ```
 
 ```azurecli
@@ -73,10 +76,10 @@ az group delete --name $ResourceGroupName
 列出資源群組中的資源：
 
 ```powershell
-Connect-AzureRmAccount
-Set-AzureRmContext -SubscriptionId <guid>
+Connect-AzAccount
+Set-AzContext -SubscriptionId <guid>
 $groupname = "sfclustertutorialgroup"
-Get-AzureRmResource -ResourceGroupName $groupname | ft
+Get-AzResource -ResourceGroupName $groupname | ft
 ```
 
 ```azurecli
@@ -89,7 +92,7 @@ az resource list --resource-group $ResourceGroupName
 對於您想要刪除的每個資源，執行下列指令碼︰
 
 ```powershell
-Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "<Resource Type>" -ResourceGroupName $groupname -Force
+Remove-AzResource -ResourceName "<name of the Resource>" -ResourceType "<Resource Type>" -ResourceGroupName $groupname -Force
 ```
 
 ```azurecli
@@ -99,7 +102,7 @@ az resource delete --name "<name of the Resource>" --resource-type "<Resource Ty
 若要刪除叢集資源，請執行下列指令碼︰
 
 ```powershell
-Remove-AzureRmResource -ResourceName "<name of the Resource>" -ResourceType "Microsoft.ServiceFabric/clusters" -ResourceGroupName $groupname -Force
+Remove-AzResource -ResourceName "<name of the Resource>" -ResourceType "Microsoft.ServiceFabric/clusters" -ResourceGroupName $groupname -Force
 ```
 
 ```azurecli
@@ -118,3 +121,4 @@ az resource delete --name "<name of the Resource>" --resource-type "Microsoft.Se
 * 了解如何使用 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 檢查及管理 Service Fabric 叢集。
 * 了解如何修補叢集節點的 [Windows 作業系統](service-fabric-patch-orchestration-application.md)。
 * 了解如何彙總並收集 [Windows 叢集](service-fabric-diagnostics-event-aggregation-wad.md)的事件及[設定 Log Analytics](service-fabric-diagnostics-oms-setup.md) 以監視叢集事件。
+ms-setup.md) 以監視叢集事件。

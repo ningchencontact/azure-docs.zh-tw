@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: a9b3d8a2670a0b4e6bed2d5e9a9b64e597adcb16
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9a00dfd1186d19ce9432db8e636bffa40eb977af
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855719"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280531"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>教學課程：使用適用於 C# 的語音 SDK 從語音辨識意圖
 
@@ -131,7 +131,7 @@ static async Task RecognizeIntentAsync()
 
 現在，使用 `LanguageUnderstandingModel.FromAppId()` 從 LUIS 應用程式 (app) 匯入模型，並透過辨識器的 `AddIntent()` 方法新增您想要辨識的 LUIS 意圖。 這兩個步驟可藉由指出使用者可能會在其要求中使用的字組，來改善語音辨識的精確度。 如果您不需要辨識應用程式 (application) 中的所有應用程式 (app) 意圖，則不需要新增所有意圖。
 
-新增意圖需要用到三個引數：LUIS 模型 (剛剛建立並命名為 `model`)、意圖名稱和意圖識別碼。 識別碼與名稱之間的差異如下。
+新增意圖需要用到三個引數：LUIS 模型 (已建立並命名為 `model`)、意圖名稱和意圖識別碼。 識別碼與名稱之間的差異如下。
 
 |`AddIntent()` 引數|目的|
 |--------|-------|
@@ -144,6 +144,8 @@ static async Task RecognizeIntentAsync()
 recognizer.AddIntent(model, "HomeAutomation.TurnOff", "off");
 recognizer.AddIntent(model, "HomeAutomation.TurnOn", "on");
 ```
+
+您也可以使用 `AddAllIntents` 方法來將模型中的所有意圖新增至辨識器，而不是新增個別的意圖。
 
 ## <a name="start-recognition"></a>開始辨識
 

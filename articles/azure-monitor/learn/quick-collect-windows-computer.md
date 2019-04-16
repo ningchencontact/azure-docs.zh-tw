@@ -11,15 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 02/05/2019
+ms.date: 04/09/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 44e386b7da6fde2b24f02381760fcd96118f7e51
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d1403b35319df6ef9ec45c07dc56d6f2ca38fa60
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58092951"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426625"
 ---
 # <a name="configure-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>為混合式環境中的 Windows 電腦設定 Log Analytics 代理程式
 [Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) 可直接從資料中心或其他雲端環境內的實體或虛擬 Windows 電腦，將資料收集到單一存放庫，來進行詳細的分析和相互關聯。  本快速入門向您示範如何以幾個簡單步驟來設定和收集 Windows 電腦的資料。  針對 Azure Windows VM，請參閱下列主題：[收集關於 Azure 虛擬機器的資料](../../azure-monitor/learn/quick-collect-azurevm.md)。  
@@ -28,11 +28,14 @@ ms.locfileid: "58092951"
  
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="log-in-to-azure-portal"></a>登入 Azure 入口網站
-在 [https://portal.azure.com](https://portal.azure.com) 上登入 Azure 入口網站。 
+## <a name="sign-in-to-azure-portal"></a>登入 Azure 入口網站
+在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。 
 
 ## <a name="create-a-workspace"></a>建立工作區
-1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。<br><br> ![Azure 入口網站](media/quick-collect-windows-computer/azure-portal-01.png)<br><br>  
+1. 在 Azure 入口網站中，按一下 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
+
+    ![Azure 入口網站](media/quick-collect-windows-computer/azure-portal-01.png)
+  
 2. 按一下 [建立]，然後選取下列項目的選項：
 
    * 為新的 [Log Analytics 工作區] 提供名稱，例如，*DefaultLAWorkspace*。 
@@ -52,14 +55,17 @@ ms.locfileid: "58092951"
 
 1. 在 Azure 入口網站中，按一下左上角的 [所有服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
 2. 在 Log Analytics 工作區清單中，選取稍早建立的 *DefaultLAWorkspace*。
-3. 選取 [進階設定]。<br><br> ![Log Analytics 進階設定](media/quick-collect-windows-computer/log-analytics-advanced-settings-01.png)<br><br>  
+3. 選取 [進階設定]。
+
+    ![Log Analytics 進階設定](media/quick-collect-windows-computer/log-analytics-advanced-settings-01.png)
+  
 4. 選取 [連接的來源]，然後選取 [Windows 伺服器]。   
 5. [工作區識別碼] 和 [主要金鑰] 右邊的值。 將兩者複製並貼到您最愛的編輯器。   
 
 ## <a name="install-the-agent-for-windows"></a>安裝適用於 Windows 的代理程式
 下列步驟會在您的電腦上，使用 Microsoft Monitoring Agent 的安裝程式來安裝並設定適用於 Azure 和 Azure Government Cloud 中 Log Analytics 的代理程式。  
 
-1. 在 [Windows 伺服器] 頁面上，根據 Windows 作業系統的處理器架構，選取適當的 [下載 Windows 代理程式] 版本來下載。
+1. 延續前一組步驟，在 [Windows 伺服器] 頁面上，根據 Windows 作業系統的處理器架構，選取適當的 [下載 Windows 代理程式] 版本來下載。
 2. 執行安裝程式以在您的電腦上安裝代理程式。
 2. 在 [歡迎] 頁面中按 [下一步]。
 3. 閱讀 [授權條款] 頁面上的授權，然後按一下 [我接受]。
@@ -68,7 +74,10 @@ ms.locfileid: "58092951"
 6. 在 [Azure Log Analytics] 頁面上，執行下列操作：
    1. 貼上您先前複製的**工作區識別碼**和**工作區金鑰 (主要金鑰)**。  如果電腦應該向 Azure Government Cloud 中的 Log Analytics 工作區回報，請從 [Azure 雲端] 下拉式清單中選取 [Azure 美國政府]。  
    2. 如果電腦需要透過 Proxy 伺服器與 Log Analytics 服務進行通訊，請按一下 [進階]，然後提供 Proxy 伺服器的 URL 和連接埠號碼。  如果您的 Proxy 伺服器會要求驗證，請輸入要向 Proxy 伺服器進行驗證的使用者名稱和密碼，然後按 [下一步]。  
-7. 提供完必要的組態設定之後，按 [下一步]。<br><br> ![貼上工作區識別碼和主索引鍵](media/quick-collect-windows-computer/log-analytics-mma-setup-laworkspace.png)<br><br>
+7. 提供完必要的組態設定之後，按 [下一步]。
+
+    ![貼上工作區識別碼和主索引鍵](media/quick-collect-windows-computer/log-analytics-mma-setup-laworkspace.png)
+
 8. 在 [安裝準備就緒] 頁面上，檢閱您的選擇，然後按一下 [安裝]。
 9. 在 [設定成功完成] 頁面上，按一下 [完成]。
 
@@ -78,20 +87,34 @@ ms.locfileid: "58092951"
 Log Analytics 可以從 Windows 事件記錄檔收集事件，以及收集您針對長期分析和報告指定的效能計數器，並在偵測到特定條件時採取動作。  請依照下列步驟來設定從 Windows 事件記錄檔收集事件，以及收集數個常用的效能計數器，來開始進行作業。  
 
 1. 在 Azure 入口網站中，按一下左下角的 [更多服務]。 在資源清單中輸入 **Log Analytics**。 當您開始輸入時，清單會根據您輸入的文字進行篩選。 選取 [Log Analytics]。
-2. 選取 [進階設定]。<br><br> ![Log Analytics 進階設定](media/quick-collect-windows-computer/log-analytics-advanced-settings-01.png)<br><br> 
+2. 選取 [進階設定]。
+
+    ![Log Analytics 進階設定](media/quick-collect-windows-computer/log-analytics-advanced-settings-01.png)
+ 
 3. 選取 [資料]，然後選取 [Windows 事件記錄檔]。  
 4. 您可以輸入記錄檔的名稱，來新增事件記錄檔。  輸入 **System**，然後按一下加號 **+**。  
 5. 在表格中，檢查 [錯誤] 和 [警告] 嚴重性。   
 6. 按一下頁面頂端的 [儲存] 來儲存設定。
 7. 選取 [Windows 效能計數器] 以啟用收集 Windows 電腦上的效能計數器。 
-8. 當您第一次為新的 Log Analytics 工作區設定 Windows 效能計數器時，系統會提供選項，讓您快速建立數個常用的計數器。 這些計數器旁邊皆會列出核取方塊。<br> ![選取的預設 Windows 效能計數器](media/quick-collect-windows-computer/windows-perfcounters-default.png)。<br> 按一下 [新增選定的效能計數器]。  隨即會新增且收集取樣間隔時間的預設值為 10 秒。  
+8. 當您第一次為新的 Log Analytics 工作區設定 Windows 效能計數器時，系統會提供選項，讓您快速建立數個常用的計數器。 這些計數器旁邊皆會列出核取方塊。
+
+    ![選取的預設 Windows 效能計數器](media/quick-collect-windows-computer/windows-perfcounters-default.png)上也提供本文中使用的原始碼。
+    
+    按一下 [新增選定的效能計數器]。  隨即會新增且收集取樣間隔時間的預設值為 10 秒。 
+
 9. 按一下頁面頂端的 [儲存] 來儲存設定。
 
 ## <a name="view-data-collected"></a>檢視收集的資料
 既然您已啟用資料收集，現在即可執行簡單的記錄搜尋範例，以查看來自目標電腦的一些資料。  
 
 1. 在 Azure 入口網站中，於選取的工作區底下，按一下 [記錄搜尋] 圖格。  
-2. 在 [記錄搜尋] 窗格的查詢欄位中輸入 `Perf`，然後按 Enter 鍵，或按一下查詢欄位右邊的搜尋按鈕。<br><br> ![Log Analytics 記錄搜尋查詢範例](media/quick-collect-windows-computer/log-analytics-portal-queryexample.png)<br><br> 例如，下圖中的查詢會傳回 735 筆效能記錄。<br><br> ![Log Analytics 記錄搜尋結果](media/quick-collect-windows-computer/log-analytics-search-perf.png)
+2. 在 [記錄搜尋] 窗格的查詢欄位中輸入 `Perf`，然後按 Enter 鍵，或按一下查詢欄位右邊的搜尋按鈕。
+ 
+    ![Log Analytics 記錄搜尋查詢範例](media/quick-collect-windows-computer/log-analytics-portal-queryexample.png)
+
+    例如，下圖中的查詢會傳回 735 筆效能記錄。
+
+    ![Log Analytics 記錄搜尋結果](media/quick-collect-windows-computer/log-analytics-search-perf.png)
 
 ## <a name="clean-up-resources"></a>清除資源
 不再需要代理程式時，您可以從 Windows 電腦移除代理程式，並刪除 Log Analytics 工作區。  
@@ -102,7 +125,9 @@ Log Analytics 可以從 Windows 事件記錄檔收集事件，以及收集您針
 2. 開啟 [程式和功能]。
 3. 在 [程式和功能] 中，選取 [Microsoft Monitoring Agent]，然後按一下 [解除安裝]。
 
-若要刪除工作區，請選取您先前建立的 Log Analytics 工作區，然後在資源頁面上，按一下 [刪除]。<br><br> ![刪除 Log Analytics 資源](media/quick-collect-windows-computer/log-analytics-portal-delete-resource.png)
+若要刪除工作區，請選取您先前建立的 Log Analytics 工作區，然後在資源頁面上，按一下 [刪除]。
+
+![刪除 Log Analytics 資源](media/quick-collect-windows-computer/log-analytics-portal-delete-resource.png)
 
 ## <a name="next-steps"></a>後續步驟
 既然您正在從內部部署 Linux 電腦收集作業和效能資料，即可輕鬆開始針對收集的資料「免費」進行探索、分析及採取行動。  

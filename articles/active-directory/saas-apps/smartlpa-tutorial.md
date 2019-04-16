@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 61973706eb073f31ad6269ff8c17cf49ba8d2c6f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2b3101e747ef70a669ca7f81128cb701aa6d9720
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58172779"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272184"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartlpa"></a>教學課程：Azure Active Directory 與 SmartLPA 整合
 
@@ -36,7 +36,7 @@ SmartLPA 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 SmartLPA 的整合，您需要下列項目：
+若要設定 Azure AD 與 SmartLPA 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 SmartLPA 單一登入的訂用帳戶
@@ -74,7 +74,7 @@ SmartLPA 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 SmartLPA 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 SmartLPA 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 SmartLPA 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 SmartLPA 來設定並測試 Azure AD 單一登入，您需要完成下列基本工作：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 SmartLPA 單一登入](#configure-smartlpa-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -105,9 +105,9 @@ SmartLPA 與 Azure AD 整合提供下列優點：
 
     ![[SmartLPA 網域及 URL] 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<TENANTNAME>.smartlpa.com/`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<TENANTNAME>.smartlpa.com/`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://<TENANTNAME>.smartlpa.com/<UNIQUE ID>`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `https://<TENANTNAME>.smartlpa.com/<UNIQUE ID>`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [SmartLPA 用戶端支援小組](mailto:support@smartlpa.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
@@ -157,7 +157,7 @@ SmartLPA 與 Azure AD 整合提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 SmartLPA 的存取權授與 Britta Simon，使其可以使用 Azure 單一登入。
+在本節中，您會把 SmartLPA 的存取權授與 Britta Simon，使其可以使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [SmartLPA]。
 

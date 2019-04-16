@@ -8,18 +8,18 @@ manager: rosh
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 2/27/2019
+ms.date: 4/02/2019
 ms.author: rosh
-ms.openlocfilehash: 6b7685f837cabf7ec659311c54f8c168981e4777
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8c350b5c2d945ed48566f549ab85844fc14625dc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544711"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049281"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>快速入門：使用 Bing 圖像式搜尋 REST API 和 Ruby 來取得影像見解
 
-本快速入門使用 Ruby 程式設計語言來呼叫 Bing 圖像式搜尋並顯示結果。 Post 要求會將影像上傳到 API 端點。 結果包含類似於所上傳影像的影像 URL 和描述性資訊。
+本快速入門使用 Ruby 程式設計語言來呼叫 Bing 圖像式搜尋並顯示結果。 POST 要求會將影像上傳到 API 端點。 結果包含類似於所上傳影像的影像 URL 和描述性資訊。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -32,7 +32,7 @@ ms.locfileid: "57544711"
 
 ## <a name="project-and-required-modules"></a>專案和所需模組
 
-在 IDE 或編輯器中建立新的 Ruby 專案。 匯入 `net/http`、`uri` 和 `json` 來處理結果的 JSON 文字。 `base64` 程式庫可用來編碼檔案名稱字串。 
+在 IDE 或編輯器中建立新的 Ruby 專案。 匯入 `net/http`、`uri` 和 `json` 來處理結果的 JSON 文字。 `base64` 程式庫可用來編碼檔案名稱字串： 
 
 ```
 require 'net/https'
@@ -44,7 +44,7 @@ require 'base64'
 
 ## <a name="define-variables"></a>定義變數
 
-下列程式碼會指派所需的變數。 請確認端點正確，並將 `accessKey` 值換成 Azure 帳戶中的訂用帳戶金鑰。  `batchNumber` 是 Post 資料開頭和尾端界限所需的 GUID。  `fileName` 變數可識別 Post 的影像檔。  `if` 區塊會測試是否有有效的訂用帳戶金鑰。
+下列程式碼會指派所需的變數。 請確認端點正確，並將 `accessKey` 值換成 Azure 帳戶中的訂用帳戶金鑰。  `batchNumber` 是 POST 資料開頭和尾端界限所需的 GUID。  `fileName` 變數可識別 POST 的影像檔。  `if` 區塊會測試是否有有效的訂用帳戶金鑰。
 
 ```
 accessKey = "ACCESS-KEY"
@@ -61,9 +61,9 @@ end
 
 ```
 
-## <a name="form-data-for-post-request"></a>Post 要求的表單資料
+## <a name="form-data-for-post-request"></a>POST 要求的表單資料
 
-要張貼的影像資料會以開頭和尾端界限括住。  下列函式會設定該界限。
+要 POST 的影像資料會以開頭和尾端界限括住。 下列函式會設定該界限：
 
 ```
 def BuildFormDataStart(batNum, fileName)
@@ -74,10 +74,9 @@ end
 def BuildFormDataEnd(batNum)
     return "\r\n\r\n" + "--batch_" + batNum + "--" + "\r\n"
 end
-
 ```
 
-接下來，請建構端點 URI 和陣列，以包含 Post 本文。  使用上一個函式將起始界限載入到陣列中。 將影像檔讀入陣列中。 然後，將結尾界限讀入陣列中。 
+接下來，請建構端點 URI 和陣列，以包含 POST 主體。  使用上一個函式將起始界限載入到陣列中。 將影像檔讀入陣列中。 然後，將結尾界限讀入陣列中：
 
 ```
 uri = URI(uri + path)
@@ -91,12 +90,11 @@ post_body << BuildFormDataStart(batchNumber, fileName)
 post_body << File.read(fileName) #Base64.encode64(File.read(fileName))
 
 post_body << BuildFormDataEnd(batchNumber)
-
 ```
 
 ## <a name="create-the-http-request"></a>建立 HTTP 要求
 
-設定 `Ocp-Apim-Subscription-Key` 標頭。  建立要求。  然後，指派標頭和內容類型。  將先前建立的 Post 本文加入到要求中。
+設定 `Ocp-Apim-Subscription-Key` 標頭。  建立要求。 然後，指派標頭和內容類型。 將先前建立的 POST 主體加入要求中：
 
 ```
 header = {'Ocp-Apim-Subscription-Key': accessKey}
@@ -110,7 +108,7 @@ request.body = post_body.join
 
 ## <a name="request-and-response"></a>要求和回應
 
-Ruby 會使用下列程式碼來傳送要求和取得回應。
+Ruby 會使用下列程式碼來傳送要求和取得回應：
 
 ```
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -121,7 +119,7 @@ end
 
 ## <a name="print-the-results"></a>列印結果
 
-列印回應的標頭。 然後使用 JSON 程式庫來設定輸出格式。
+列印回應的標頭，並使用 JSON 程式庫將輸出格式化：
 
 ```
 puts "\nRelevant Headers:\n\n"
@@ -138,7 +136,7 @@ puts JSON::pretty_generate(JSON(response.body))
 
 ## <a name="results"></a>結果
 
-下列 JSON 是輸出的其中一段。
+下列 JSON 是輸出的其中一段：
 
 ```
 Relevant Headers:
@@ -287,4 +285,4 @@ JSON Response:
 
 > [!div class="nextstepaction"]
 > [Bing 圖像式搜尋概觀](../overview.md)
-> [建置自訂搜尋 Web 應用程式](../tutorial-bing-visual-search-single-page-app.md)
+> [Bing 圖像式搜尋單頁 Web 應用程式](../tutorial-bing-visual-search-single-page-app.md)

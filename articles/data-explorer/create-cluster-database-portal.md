@@ -1,19 +1,18 @@
 ---
 title: 快速入門：建立 Azure 資料總管叢集與資料庫
 description: 在本快速入門中，您將了解如何建立 Azure 資料總管叢集與資料庫，並內嵌 (載入) 資料。
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 3/25/2019
-ms.openlocfilehash: aa98fb8f9569282e9636d5cb593523b9642395e1
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 03/25/2019
+ms.openlocfilehash: 41a15a29798953cb32029b7c4d1167020074e49f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758618"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046031"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>快速入門：建立 Azure 資料總管叢集與資料庫
 
@@ -55,7 +54,7 @@ Azure 資料總管是一項快速又可高度調整的資料探索服務，可�
     | 訂用帳戶 | 您的訂用帳戶 | 選取您要用於叢集的 Azure 訂用帳戶。|
     | 資源群組 | *test-resource-group* | 使用現有資源群組，或建立新的資源群組。 |
     | 叢集名稱 | 唯一叢集名稱 | 選擇可識別您叢集的唯一名稱。 例如 *mydataexplorercluster*。 網域名稱 *[region].kusto.windows.net* 已附加至您提供的叢集名稱。 名稱只能包含小寫字母和數字。 必須包含 3 到 22 個字元。
-    | 位置 | 美國西部 | 在本快速入門中，請選取 [美國西部]。 至於生產系統，請選取最符合您需求的區域。
+    | 位置 | *美國西部* | 在本快速入門中，請選取 [美國西部]。 至於生產系統，請選取最符合您需求的區域。
     | 計算規格 | *D13_v2* | 在此本快速入門中，請選取最低價格規格。 至於生產系統，請選取最符合您需求的規格。
     | | |
 

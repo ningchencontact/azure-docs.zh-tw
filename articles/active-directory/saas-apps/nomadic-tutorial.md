@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 6b8a63d24626a1d7af3659281b613f8186a62a5d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 91ba5de6a6e0a18d494a449acfdea330234bcc9b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897634"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258805"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nomadic"></a>教學課程：Azure Active Directory 與 Nomadic 整合
 
@@ -35,7 +35,7 @@ ms.locfileid: "57897634"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Nomadic 的整合，您需要下列項目：
+若要設定 Azure AD 與 Nomadic 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Nomadic 單一登入的訂用帳戶
@@ -102,9 +102,9 @@ ms.locfileid: "57897634"
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Nomadic 網域及 URL 單一登入資訊](common/sp-identifier.png)
+    ![Nomadic 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<company name>.nomadic.fm/signin`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<company name>.nomadic.fm/signin`
 
     b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：
     
@@ -169,7 +169,7 @@ ms.locfileid: "57897634"
 
 2. 在應用程式清單中，選取 [Nomadic]。
 
-    ![應用程式清單中的 [Nomadic] 連結](common/all-applications.png)
+    ![應用程式清單中的 Nomadic 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

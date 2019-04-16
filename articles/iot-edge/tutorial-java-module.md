@@ -1,24 +1,24 @@
 ---
-title: 建立自訂 Java 模組的教學課程 - Azure IoT Edge | Microsoft Docs
+title: 自訂 Java 模組教學課程 - Azure IoT Edge | Microsoft Docs
 description: 本教學課程說明如何使用 Java 程式碼建立 IoT Edge 模組，並部署至邊緣裝置。
 services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/04/2019
+ms.date: 04/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 9a541f42670b3ccf83331e3e2e9069289bb9b4b3
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: f654f33fe03b29a3aa93386d49e8f5a43cffc9c8
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224068"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470286"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>教學課程：開發 Java IoT Edge 模組並部署至模擬裝置
 
-您可以使用 Azure IoT Edge 模組來部署程式碼，直接在 IoT Edge 裝置上實作您的商務邏輯。 本教學課程會逐步引導您建立並部署能篩選感應器資料的 IoT Edge 模組。 您將會使用模擬的 IoT Edge 裝置，其建立方法詳述於在 [Windows](quickstart.md) 或 [Linux](quickstart-linux.md) 中的模擬裝置上部署 Azure IoT Edge 的快速入門中。 在本教學課程中，您了解如何：    
+您可以使用 Azure IoT Edge 模組來部署程式碼，直接在 IoT Edge 裝置上實作您的商務邏輯。 本教學課程會逐步引導您建立並部署能篩選感應器資料的 IoT Edge 模組。 您將會使用模擬的 IoT Edge 裝置，其建立方法詳述於在 [Linux](quickstart-linux.md) 中的模擬裝置上部署 Azure IoT Edge 的快速入門中。 在本教學課程中，您了解如何：    
 
 > [!div class="checklist"]
 > * 使用 Visual Studio Code 來根據 Azure IoT Edge maven 範本套件和 Azure IoT Java 裝置 SDK，建立 IoT Edge Java 模組。
@@ -36,8 +36,8 @@ ms.locfileid: "58224068"
 
 Azure IoT Edge 裝置：
 
-* 您可以依循 [Linux](quickstart-linux.md) 或 [Windows](quickstart.md) 快速入門中的步驟來設定 IoT Edge 裝置。
-* 就 Windows 裝置上的 IoT Edge 而言，1.0.5 版不支援 Java 模組。 如需詳細資訊，請參閱 [1.0.5 版本資訊](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5)。 如需有關如何安裝特定版本的步驟，請參閱[更新 IoT Edge 安全性精靈和執行階段](how-to-update-iot-edge.md)。
+* 您可以遵循 [Linux](quickstart-linux.md) 快速入門中的步驟，使用 Azure 虛擬機器作為 IoT Edge 裝置。 
+* 適用於 IoT Edge 的 Java 模組不支援 Windows 容器。 
 
 雲端資源：
 
@@ -146,8 +146,9 @@ Azure IoT Edge 裝置：
 7. 將 **MessageCallbackMqtt** 的執行方法換成下列程式碼。 每當模組從 IoT Edge 中樞收到 MQTT 訊息時，就會呼叫此方法。 它會篩選所報告溫度低於 (透過模組對應項所設定) 之溫度閾值的訊息。
 
     ```java
+    protected static class MessageCallbackMqtt implements MessageCallback {
         private int counter = 0;
-       @Override
+        @Override
         public IotHubMessageResult execute(Message msg, Object context) {
             this.counter += 1;
  
@@ -173,6 +174,7 @@ Azure IoT Edge 裝置：
             }
             return IotHubMessageResult.COMPLETE;
         }
+    }
     ```
 
 8. 將下列兩個靜態內部類別新增至 **App** 類別。 這些類別會在模組對應項的預期屬性變更時更新 tempThreshold 變數。 所有模組都具有自己的模組對應項，這可讓您直接從雲端設定於模組內執行的程式碼。
@@ -218,9 +220,9 @@ Azure IoT Edge 裝置：
 
 11. 儲存 App.java 檔案。
 
-12. 在 VS Code 總管中，於 IoT Edge 解決方案工作區中開啟 **deployment.template.json** 檔案。 此檔案會告訴 IoT Edge 代理程式要部署哪些模組 (在此情況下為 **tempSensor** 和 **JavaModule**)，並告知 IoT Edge 中樞如何在其間路由傳送訊息。 Visual Studio Code 擴充功能會在部署範本中自動填入您需要的大部分資訊，但不會為您的解決方案確認一切正確無誤： 
+12. 在 VS Code 總管中，於 IoT Edge 解決方案工作區中開啟 **deployment.template.json** 檔案。 此檔案會告訴 IoT Edge 代理程式要部署哪些模組，並告知 IoT Edge 中樞如何在其間路由傳送訊息。 在此情況下，這兩個模組為 **tempSensor** 和 **JavaModule**。 Visual Studio Code 擴充功能會在部署範本中自動填入您需要的大部分資訊，但不會為您的解決方案確認一切正確無誤： 
 
-   1. IoT Edge 的預設平台會設定為 VS Code 狀態列中的 **amd64**，這表示您的 **JavaModule** 會設定為映像的 Linux amd64 版。 將狀態列中的預設平台從 **amd64** 變更為 **arm32v7** 或 **windows-amd64** (如果這是您 IoT Edge 裝置的架構)。 
+   1. IoT Edge 的預設平台會設定為 VS Code 狀態列中的 **amd64**，這表示您的 **JavaModule** 會設定為映像的 Linux amd64 版。 將狀態列中的預設平台從 **amd64** 變更為 **arm32v7** (如果這是您 IoT Edge 裝置的架構)。 
 
       ![更新模組映像平台](./media/tutorial-java-module/image-platform.png)
 
@@ -264,8 +266,9 @@ Azure IoT Edge 裝置：
 >[!TIP]
 >如果您收到嘗試建置及推送模組時發生的錯誤，請進行下列檢查：
 >* 您已在 Visual Studio Code 中使用容器登錄中的認證登入 Docker？ 這些認證與您用來登入 Azure 入口網站的認證不同。
->* 您的容器存放庫是否正確？ 開啟 [模組] > [cmodule] > [module.json] 並尋找 [存放庫] 欄位。 映像存放庫看起來應類似於：**\<registryname\>.azurecr.io/javamodule**。 
->* 您正在建置開發電腦正在執行的同類型容器嗎？ Visual Studio Code 會預設為 Linux amd64 容器。 如果開發電腦正在執行 Windows 容器或 Linux arm32v7 容器，請在 VS Code 視窗底部的藍色狀態列上更新平台，以符合您的容器平台。
+>* 您的容器存放庫是否正確？ 開啟 [模組] > [JavaMmodule] > [module.json] 並尋找 [存放庫] 欄位。 映像存放庫看起來應類似於：**\<registryname\>.azurecr.io/javamodule**。 
+>* 您正在建置開發電腦正在執行的同類型容器嗎？ Visual Studio Code 會預設為 Linux amd64 容器。 如果開發電腦正在執行 Linux arm32v7 容器，請在 VS Code 視窗底部的藍色狀態列上更新平台，以符合您的容器平台。
+>* 適用於 IoT Edge 的 Java 模組不支援 Windows 容器。
 
 ## <a name="deploy-and-run-the-solution"></a>部署並執行解決方案
 
@@ -321,5 +324,5 @@ Azure IoT Edge 裝置：
 在本教學課程中，您已建立包含程式碼的 IoT Edge 模組，可篩選您 IoT Edge 裝置所產生的原始資料。 您可以繼續進行後續教學課程，以了解 Azure IoT Edge 有什麼其他方法，可協助您將此資料轉換成 Edge 上的商業見解。
 
 > [!div class="nextstepaction"]
-> [使用 SQL Server 資料庫在Edge 上儲存資料](tutorial-store-data-sql-server.md)
+> [使用 SQL Server 資料庫在邊緣儲存資料](tutorial-store-data-sql-server.md)
 

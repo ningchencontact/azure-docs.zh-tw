@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 2e67aa6a2e072a1f140cc725720f095f7d93b49a
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 876e9f95c5f1cdca3e0b41a16d77aee52fccb837
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189065"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259060"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insider-track"></a>教學課程：Azure Active Directory 與 Insider Track 整合
 

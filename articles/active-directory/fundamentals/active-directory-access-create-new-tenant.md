@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b294163a4486ab1db0590f39ca9235ae46ef1dfe
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 2fafa3974eb01b36015254307ba1a52a9bc221da
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286987"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469075"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>快速入門：在 Azure Active Directory 中建立新的租用戶
 您可以使用 Azure Active Directory (Azure AD) 入口網站執行所有的系統管理工作，包括為您的組織建立新的租用戶。 
@@ -60,7 +60,7 @@ ms.locfileid: "58286987"
 
     這將刪除租用戶與其相關聯的資訊。
 
-    ![包含範例資訊的 [建立目錄] 頁面](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
+    ![概觀頁面，包含醒目提示的 [刪除目錄] 按鈕](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
 
 ## <a name="next-steps"></a>後續步驟
 - 變更或新增額外的網域名稱，請參閱[如何將自訂網域名稱新增至 Azure Active Directory](add-custom-domain.md)

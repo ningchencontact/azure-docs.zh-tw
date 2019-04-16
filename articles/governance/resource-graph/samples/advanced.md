@@ -1,7 +1,6 @@
 ---
 title: 進階查詢範例
 description: 使用 Azure Resource Graph 來執行某些進階查詢，包括 VMSS 容量、列出所有標記，以及透過規則運算式來比對虛擬機器。
-services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/23/2019
@@ -9,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9cb43cfdf930b14449f5c7130df275ef0b8d6484
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9a243dd236a8c499602a9070a7dd61e69541d58d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842612"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256816"
 ---
 # <a name="advanced-resource-graph-queries"></a>進階 Resource Graph 查詢
 
@@ -76,14 +75,14 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 此查詢會尋找符合[規則運算式](/dotnet/standard/base-types/regular-expression-language-quick-reference) (亦稱為 _RegEx_) 的虛擬機器。
 **matches regex \@** 可讓我們定義要比對的 RegEx，也就是 `^Contoso(.*)[0-9]+$`。 該 RegEx 定義說明如下：
 
-- `^`：比對必須從字串的開頭開始。
-- `Contoso`：區分大小寫的字串。
-- `(.*)`：子運算式比對：
-  - `.`：比對任何單一字元 (除了新行符號)。
-  - `*`：比對前一個元素零或多次。
-- `[0-9]`：比對從 0 到 9 的字元群組。
-- `+`：比對前一個元素一或多次。
-- `$`：前一個元素的比對必須發生在字串結尾。
+- `^` - 比對必須從字串的開頭開始。
+- `Contoso` - 區分大小寫的字串。
+- `(.*)` - 子運算式比對：
+  - `.` - 比對任何單一字元 (除了新行符號)。
+  - `*` - 比對前一個元素零或多次。
+- `[0-9]` - 比對從 0 到 9 的字元群組。
+- `+` - 比對前一個元素一或多次。
+- `$` - 前一個元素的比對必須發生在字串結尾。
 
 在依名稱比對之後，查詢會投射名稱，並依名稱遞增排序。
 

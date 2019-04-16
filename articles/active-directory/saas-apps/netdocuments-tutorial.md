@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 50850fc9372976382724d6bbc98be9a8d10a0655
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cc5d8e4791bc109f4a804aad33bfc258eed97a25
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850174"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281874"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netdocuments"></a>教學課程：Azure Active Directory 與 NetDocuments 整合
 
@@ -35,7 +35,7 @@ NetDocuments 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 NetDocuments 的整合，您需要下列項目：
+若要設定與 NetDocuments 的 Azure AD 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 NetDocuments 單一登入的訂用帳戶
@@ -73,7 +73,7 @@ NetDocuments 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 NetDocuments 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 NetDocuments 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 NetDocuments 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要設定及測試與 NetDocuments 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 NetDocuments 單一登入](#configure-netdocuments-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -104,9 +104,9 @@ NetDocuments 與 Azure AD 整合提供下列優點：
 
     ![NetDocuments 網域及 URL 單一登入資訊](common/sp-reply.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」和「回覆 URL」來更新這些值。 請連絡 [NetDocuments 用戶端支援小組](https://support.netdocuments.com/hc/)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

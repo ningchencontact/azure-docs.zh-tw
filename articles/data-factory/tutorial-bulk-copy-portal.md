@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 4ba94187cb014256d63e80cb23defc5099aac52d
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 444269aa7ca2b0a82b78e8437b7884ef8833c665
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445550"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279783"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>使用 Azure Data Factory 大量複製多個資料表
 本教學課程示範**從 Azure SQL Database 複製一些資料表到 Azure SQL 資料倉儲**。 您也可以在其他複製案例中套用相同模式。 例如，將資料表從 SQL Server/Oracle 複製到 Azure SQL Database/資料倉儲/Azure Blob，將不同的路徑從 Blob 複製到 Azure SQL Database 資料表。
@@ -215,7 +215,7 @@ ms.locfileid: "58445550"
 * 請查閱 Azure SQL Database 系統資料表，以取得要複製的資料表清單。
 * 觸發 **IterateAndCopySQLTables** 管線以進行實際的資料複製。
 
-**GetTableListAndTriggerCopyData** 會使用資料表的清單作為參數。 對於清單中每的個資料表，它會使用暫存的複製和 PolyBase，將來自 Azure SQL Database 資料表中的資料複製到 Azure SQL 資料倉儲。
+**IterateAndCopySQLTables** 會採用資料表清單作為參數。 對於清單中每的個資料表，它會使用暫存的複製和 PolyBase，將來自 Azure SQL Database 資料表中的資料複製到 Azure SQL 資料倉儲。
 
 ### <a name="create-the-pipeline-iterateandcopysqltables"></a>建立 IterateAndCopySQLTables 管線
 

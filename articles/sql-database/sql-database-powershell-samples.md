@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 77e7ed6b39f18f05323562865097dd0760240abf
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 6be6021ef828202ad37a8af4eba942e6898963ca
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446358"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259978"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Azure SQL Database 的 Azure PowerShell 範例
 
@@ -50,7 +50,7 @@ Azure SQL Database 可讓您使用 Azure PowerShell 來設定資料庫、執行�
 | [還原資料庫](scripts/sql-database-restore-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 此 PowerShell 指令碼會從異地備援備份還原 Azure SQL Database，並將已刪除的 Azure SQL Database 還原為最新的備份。 |
 | [將資料庫複製到新伺服器](scripts/sql-database-copy-database-to-new-server-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 此 PowerShell 指令碼會在新的 Azure SQL Server 中建立現有 Azure SQL Database 的複本。 |
 | [從 bacpac 檔案匯入資料庫](scripts/sql-database-import-from-bacpac-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 此 PowerShell 指令碼會從 bacpac 檔案將資料庫匯入 Azure SQL Server。 |
-| **同步處理資料庫之間的資料**||
+| **資料庫之間的同步資料**||
 | [同步處理 SQL Database 之間的資料](scripts/sql-database-sync-data-between-sql-databases.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 此 PowerShell 指令碼會設定「資料同步」在多個 Azure SQL Database 之間進行同步處理。 |
 | [內部部署 SQL Database 與 SQL Server 之間的同步資料](scripts/sql-database-sync-data-between-azure-onprem.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 此 PowerShell 指令碼會設定「資料同步」在內部部署的 Azure SQL Database 和 SQL Server 之間進行同步處理。 |
 | [更新 SQL 資料同步的同步結構描述](scripts/sql-database-sync-update-schema.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 這個 PowerShell 指令碼會從資料同步的同步結構描述新增或移除項目。 |
@@ -72,3 +72,7 @@ Azure SQL Database 可讓您使用 Azure PowerShell 來設定資料庫、執行�
 |||
 
 深入了解[受控執行個體 Azure PowerShell API](sql-database-managed-instance-create-manage.md#powershell-create-and-manage-managed-instances)。
+
+## <a name="additional-resources"></a>其他資源
+
+此頁面列出的範例會使用 [Azure SQL Database Cmdlet](/powershell/module/az.sql/) 來建立和管理 Azure SQL 資源。 用來執行查詢及執行多項資料庫工作的其他 Cmdlet，位於 [sqlserver](/powershell/module/sqlserver/) 模組中。 如需詳細資訊，請參閱 [SQL Server PowerShell](/sql/powershell/sql-server-powershell/)。

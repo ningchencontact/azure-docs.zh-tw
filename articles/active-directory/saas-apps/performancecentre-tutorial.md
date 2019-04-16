@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: c5e9ccfa3c179aea190028ba5f97086186b70a02
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 0ce92abda9652351712f086ab24aff8575d84c8d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407567"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271572"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-performancecentre"></a>教學課程：Azure Active Directory 與 PerformanceCentre 整合
 
@@ -105,9 +105,9 @@ PerformanceCentre 與 Azure AD 整合提供下列優點：
 
     ![PerformanceCentre 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`http://<companyname>.performancecentre.com/saml/SSO`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `http://<companyname>.performancecentre.com/saml/SSO`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`http://<companyname>.performancecentre.com`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `http://<companyname>.performancecentre.com`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [客戶支援小組](https://www.performancecentre.com/contact-us/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 11ac9d859ec76c782f762dfc6f424d70ea487665
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 041f1e9706c7d815dad1a33104e7dd15b2cc3893
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360223"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270218"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-syncplicity"></a>教學課程：Azure Active Directory 與 Syncplicity 整合
 
@@ -105,9 +105,9 @@ Syncplicity 與 Azure AD 整合提供下列優點：
 
     ![Syncplicity 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.syncplicity.com`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<companyname>.syncplicity.com`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.syncplicity.com/sp`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `https://<companyname>.syncplicity.com/sp`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Syncplicity 客戶支援小組](https://www.syncplicity.com/contact-us)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
@@ -206,7 +206,7 @@ Syncplicity 與 Azure AD 整合提供下列優點：
 
 AAD 使用者必須先佈建到 Syncplicity 應用程式，才可以登入。 本節描述如何建立 Syncplicity 內的 AAD 使用者帳戶。
 
-**若要將使用者帳戶佈建到 Syncplicity，請執行下列步驟：**
+**若要佈建使用者帳戶到 Syncplicity，請執行下列步驟：**
 
 1. 登入您的 **Syncplicity** 租用戶 (例如 `https://company.Syncplicity.com`)。
 

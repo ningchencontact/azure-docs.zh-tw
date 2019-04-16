@@ -12,22 +12,22 @@ manager: craigg
 ms.author: carlrab
 ms.reviewer: ''
 ms.date: 02/08/2019
-ms.openlocfilehash: 0dcbecfa9148c30b398e9b2b10f898045e08befd
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 9ed1512053c06108178275b0523beede470325a5
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55989282"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361430"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>使用 CLI 建立單一 Azure SQL Database 並設定防火牆規則
 
-此 CLI 指令碼範例會建立 Azure SQL Database 並設定伺服器層級防火牆規則。 成功執行指令碼後，即可從所有 Azure 服務和所設定的 IP 位址存取 SQL Database。 
+此 CLI 指令碼範例會建立 Azure SQL Database 並設定伺服器層級防火牆規則。 成功執行指令碼後，即可從所有 Azure 服務和所設定的 IP 位址存取 SQL Database。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本主題會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。 
+如果您選擇在本機安裝和使用 CLI，本主題會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
 ## <a name="sample-script"></a>範例指令碼
 
@@ -35,7 +35,7 @@ ms.locfileid: "55989282"
 
 ## <a name="clean-up-deployment"></a>清除部署
 
-在執行過指令碼範例之後，您可以使用下列命令來移除資源群組和所有與其相關聯的資源。
+使用下列命令來移除資源群組及其所有相關聯的資源。
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -58,4 +58,3 @@ az group delete --name myResourceGroup
 如需 Azure CLI 的詳細資訊，請參閱 [Azure CLI 文件](https://docs.microsoft.com/cli/azure)。
 
 其他的 SQL Database CLI 指令碼範例可於 [Azure SQL Database 文件](../sql-database-cli-samples.md)中找到。
-

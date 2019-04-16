@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 07/10/2018
+ms.date: 04/03/2019
 ms.author: scottwhi
-ms.openlocfilehash: 919690dcef69bd6c142a692e992bfff45b995605
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0963c61027358c2c8e971533052631de28994b57
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858565"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471438"
 ---
-# <a name="tutorial-uploading-images-to-the-bing-visual-search-api"></a>教學課程：將影像上傳至 Bing 圖像式搜尋 API
+# <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>教學課程：將影像上傳至 Bing 圖像式搜尋 API
 
-Bing 圖像式搜尋 API 可讓您在 Web 上搜尋類似您所上傳影像的影像。 您可以使用此教學課程來建立 Web 應用程式，以將影像傳送至該 API，並在網頁內顯示它所傳回的見解。 請注意，此應用程式不會遵守使用此 API 的所有 [Bing 使用和顯示需求](./use-and-display-requirements.md)。
+Bing 圖像式搜尋 API 可讓您在 Web 上搜尋類似您所上傳影像的影像。 您可以使用此教學課程來建立 Web 應用程式，以將影像傳送至該 API，並在網頁內顯示它所傳回的見解。 請注意，此應用程式不會遵守使用此 API 的所有 [Bing 使用和顯示需求](../bing-web-search/use-display-requirements.md)。
 
-在 [Github](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchUploadImage.html) 上可找到此範例的完整原始程式碼，其中含有其他錯誤處理和註釋。
+您可以在 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchUploadImage.html) 上找到此範例的完整原始程式碼，其中含有其他錯誤處理和註釋。
 
 本教學課程應用程式說明如何：
 
@@ -30,13 +30,13 @@ Bing 圖像式搜尋 API 可讓您在 Web 上搜尋類似您所上傳影像的�
 > * 在 Web 應用程式中顯示影像搜尋結果
 > * 探索該 API 所提供的不同見解
 
-## <a name="prerequisites"></a>必要條件 
+## <a name="prerequisites"></a>必要條件
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="create-and-structure-the-webpage"></a>建立和建構網頁
 
-建立 HTML 網頁，以傳送 Bing 影像及取得見解並加以顯示。 在您慣用的編輯器或 IDE 中，建立名為 `uploaddemo.html` 的檔案。 將下列基本 HTML 結構新增至檔案中。
+建立 HTML 網頁，以將影像傳送至 Bing 圖像式搜尋 API、取得見解並加以顯示。 在您慣用的編輯器或 IDE 中，建立名為 "uploaddemo.html" 的檔案。 將下列基本 HTML 結構新增至檔案：
 
 ```html
 <!DOCTYPE html>
@@ -47,18 +47,18 @@ Bing 圖像式搜尋 API 可讓您在 Web 上搜尋類似您所上傳影像的�
 
     <body>
     </body>
-</html>      
+</html>
 ```
 
-將頁面分成要求區段 (其中使用者會提供提出要求所需的所有資訊) 和回應區段 (其中會顯示見解)。 將下列 `<div>` 標記新增至 `<body>`。 `<hr>` 標記會以視覺化方式區分要求區段與回應區段。
+將頁面分成要求區段 (其中使用者會提供要求所需的所有資訊) 和回應區段 (其中會顯示見解)。 將下列 `<div>` 標記新增至 `<body>`。 `<hr>` 標記會以視覺化方式區分要求區段與回應區段：
 
 ```html
 <div id="requestSection"></div>
-<hr />      
+<hr />
 <div id="responseSection"></div>
 ```
 
-將 `<script>` 標記新增至 `<head>` 標記，以包含應用程式的 JavaScript。
+將 `<script>` 標記新增至 `<head>` 標記，以包含應用程式的 JavaScript：
 
 ```html
 <script>
@@ -67,12 +67,11 @@ Bing 圖像式搜尋 API 可讓您在 Web 上搜尋類似您所上傳影像的�
 
 ## <a name="get-the-upload-file"></a>取得上傳檔案
 
-為讓使用者選取要上傳的影像，應用程式會使用 `<input>` 標記搭配設為 `file` 的類型屬性。 UI 需要將其清除，應用程式才可使用 Bing 取得搜尋結果。 
+為讓使用者選取要上傳的影像，應用程式會使用 `<input>` 標記搭配設為 `file` 的類型屬性。 UI 需要將其清除，應用程式才可使用 Bing 取得搜尋結果。
 
-將下列 `<div>` 新增至 requestSection div。 檔案輸入可接受任何影像類型 (例如 .jpg、.gif、.png) 的單一檔案。 `onchange` 事件可指定使用者選取檔案時所呼叫的處理常式。
+將下列 `<div>` 新增至 `requestSection` `<div>`。 檔案輸入可接受任何影像類型 (例如 .jpg、.gif、.png) 的單一檔案。 `onchange` 事件可指定使用者選取檔案時所呼叫的處理常式。
 
-`<output>` 標記用來顯示所選影像的縮圖。
-
+`<output>` 標記用來顯示所選影像的縮圖：
 
 ```html
 <div>
@@ -84,9 +83,9 @@ Bing 圖像式搜尋 API 可讓您在 Web 上搜尋類似您所上傳影像的�
 </div>
 ```
 
-## <a name="create-a-file-handler"></a>建立檔案控制代碼 
+## <a name="create-a-file-handler"></a>建立檔案控制代碼
 
-建立可讀入所要上傳影像的處理常式函式。 逐一查看 `FileList` 物件中的檔案時，此處理常式應確認選取的檔案為影像檔，且其大小為 1 MB 或更小。 如果影像較大，您必須先將它縮小，再上傳。 此處理常式最後會顯示影像縮圖。
+建立可讀入所要上傳影像的處理常式函式。 逐一查看 `FileList` 物件中的檔案時，此處理常式應確認選取的檔案為影像檔，且其大小為 1 MB 或更小。 如果影像較大，您必須先將它縮小，再上傳。 最後，處理常式會顯示影像的縮圖：
 
 ```javascript
 function handleFileSelect(selector) {
@@ -136,7 +135,7 @@ function handleFileSelect(selector) {
 
 ## <a name="add-and-store-a-subscription-key"></a>新增和儲存訂用帳戶金鑰
 
-應用程式需要訂用帳戶金鑰，才能對 Bing 圖像式搜尋 API 進行呼叫。 在本教學課程中，您會在 UI 中提供該金鑰。 將下列 `<input>` 標記 (其類型屬性設為 text) 新增至 `<body>` (位於檔案的 `<output>` 標記正下方)。
+應用程式需要訂用帳戶金鑰，才能對 Bing 圖像式搜尋 API 進行呼叫。 在本教學課程中，您會在 UI 中提供該金鑰。 將下列 `<input>` 標記 (其類型屬性設為 text) 新增至 `<body>` (位於檔案的 `<output>` 標記正下方)：
 
 ```html
     <div>
@@ -148,7 +147,7 @@ function handleFileSelect(selector) {
 
 如果您有影像與訂用帳戶金鑰，就可以呼叫 Bing 圖像式搜尋來取得有關影像的見解。 在本教學課程中，此呼叫會使用預設的市場 (`en-us`) 和安全搜尋值 (`moderate`)。
 
-此應用程式有一個選項可變更這些值。 在訂用帳戶金鑰 div 下方新增下列 `<div>`。 應用程式會使用 `<select>` 標記，提供市場和安全搜尋值的下拉式清單。 這兩份清單都會顯示預設值。
+此應用程式有一個選項可變更這些值。 在訂用帳戶金鑰 `<div>` 下方新增下列 `<div>`。 應用程式會使用 `<select>` 標記，提供市場和安全搜尋值的下拉式清單。 這兩份清單都會顯示預設值。
 
 ```html
 <div>
@@ -210,9 +209,9 @@ function handleFileSelect(selector) {
 </div>
 ```
 
-## <a name="add-search-options-to-the-webpage"></a>將搜尋選項新增至網頁 
+## <a name="add-search-options-to-the-webpage"></a>將搜尋選項新增至網頁
 
-應用程式會在可摺疊的 div 中，隱藏受 [查詢選項] 連結控制的清單。 當您按一下 [查詢選項] 連結時，div 會展開，因此您可以查看並修改查詢選項。 如果您再按一下 [查詢選項] 連結，div 便會摺疊並隱藏起來。 下圖顯示 [查詢選項] 連結的 onclick 處理常式。 此處理常式會控制要展開還是摺疊 div。 將此處理常式新增至 `<script>` 區段。 此處理常式會由示範中的所有可摺疊 div 使用。
+應用程式會在可摺疊的 `<div>` 中，隱藏受 [查詢選項] 連結控制的清單。 當您按一下 [查詢選項] 連結時，`<div>` 會展開，因此您可以查看並修改查詢選項。 如果您再按一下 [查詢選項] 連結，`<div>` 便會摺疊並隱藏起來。 下列程式碼片段顯示 [查詢選項] 連結的 `onclick` 處理常式。 此處理常式會控制要展開還是摺疊 `<div>`。 將此處理常式新增至 `<script>` 區段。 此處理常式會由示範中的所有可摺疊 `<div>` 區段使用。
 
 ```javascript
 // Contains the toggle state of divs.
@@ -234,26 +233,26 @@ function expandCollapse(divToToggle) {
 }
 ```
 
-## <a name="call-the-onclick-handler"></a>呼叫 onclick 處理常式
+## <a name="call-the-onclick-handler"></a>呼叫 `onclick` 處理常式
 
-在本文中的選項 div 下方，新增下列 `"Get insights"` 按鈕。 此按鈕可讓您起始呼叫。 按一下按鈕時，游標會變成旋轉等待的游標，且系統會呼叫 onclick 處理常式。
+在本文中的選項 `<div>` 下方，新增下列 `"Get insights"` 按鈕。 此按鈕可讓您起始呼叫。 按一下按鈕時，游標會變成旋轉等待的游標，且系統會呼叫 `onclick` 處理常式。
 
 ```html
 <p><input type="button" id="query" value="Get insights" onclick="document.body.style.cursor='wait'; handleQuery()" /></p>
 ```
 
-將按鈕的 onclick 處理常式 `handleQuery()` 新增至 `<script>` 標記。 
+將按鈕的 `onclick` 處理常式 (`handleQuery()`) 新增至 `<script>` 標記。
 
 ## <a name="handle-the-query"></a>處理查詢
 
-`handleQuery()` 處理常式會確認訂用帳戶金鑰存在，且長度為 32 個字元，而且已選取影像。 它也會清除前一個查詢的任何見解。 之後會呼叫 `sendRequest()` 函式來進行呼叫。
+`handleQuery()` 處理常式會確定訂用帳戶金鑰存在且長度為 32 個字元，而且已選取影像。 它也會清除前一個查詢的任何見解。 之後會呼叫 `sendRequest()` 函式來進行呼叫。
 
 ```javascript
 function handleQuery() {
     var subscriptionKey = document.getElementById('key').value;
 
     // Make sure user provided a subscription key and image.
-    // For this demo, the user provides the key but typically you'd 
+    // For this demo, the user provides the key but typically you'd
     // get it from secured storage.
     if (subscriptionKey.length !== 32) {
         alert("Subscription key length is not valid. Enter a valid key.");
@@ -285,7 +284,7 @@ function handleQuery() {
 
 ## <a name="send-the-search-request"></a>傳送搜尋要求
 
-`sendRequest()` 函式會設定端點 URL 的格式、將 Ocp-Apim-Subscription-Key 頭設定為訂用帳戶金鑰、附加要上傳之影像的二進位檔、指定回應處理常式，以及進行呼叫。 
+`sendRequest()` 函式會設定端點 URL 的格式、將 `Ocp-Apim-Subscription-Key` 標頭設定為訂用帳戶金鑰、附加要上傳之影像的二進位檔、指定回應處理常式，以及進行呼叫：
 
 ```javascript
 function sendRequest(file, key) {
@@ -307,7 +306,7 @@ function sendRequest(file, key) {
 
 ## <a name="get-and-handle-the-api-response"></a>取得並處理 API 回應
 
-`handleResponse()` 函式會處理來自 Bing 圖像式搜尋呼叫的回應。 如果呼叫成功，它會將 JSON 回應剖析成個別的標籤，其中包含見解。 接下來，它會將搜尋結果新增至頁面。 然後，應用程式會針對每個標記建立可摺疊的 div，以管理顯示的資料量。 將處理常式新增至 `<script>` 區段。
+`handleResponse()` 函式會處理來自 Bing 圖像式搜尋呼叫的回應。 如果呼叫成功，它會將 JSON 回應剖析成個別的標籤，其中包含見解。 接下來，它會將搜尋結果新增至頁面。 然後，應用程式會針對每個標記建立可摺疊的 `<div>`，以管理顯示的資料量。 將處理常式新增至 `<script>` 區段。
 
 ```javascript
 function handleResponse() {
@@ -323,7 +322,7 @@ function handleResponse() {
     document.getElementById('responseSection').appendChild(h4);
     buildTagSections(tags);
 
-    document.body.style.cursor = 'default'; // reset the wait curor set by query insights button
+    document.body.style.cursor = 'default'; // reset the wait cursor set by query insights button
 }
 ```
 
@@ -337,7 +336,7 @@ function parseResponse(json) {
 
     for (var i =0; i < json.tags.length; i++) {
         var tag = json.tags[i];
-        
+
         if (tag.displayName === '') {
             dict['Default'] = JSON.stringify(tag);
         }
@@ -352,7 +351,7 @@ function parseResponse(json) {
 
 ### <a name="build-a-tag-section"></a>建置標記區段
 
-`buildTagSections()` 函式會逐一查看剖析的 JSON 標記，並呼叫 `buildDiv()` 函式，以便針對每個標記建置 div。 每個標記都會顯示為連結。 按一下連結時，標記會展開，顯示與該標記相關聯的見解。 再次按一下該連結會導致區段收合。
+`buildTagSections()` 函式會逐一查看剖析的 JSON 標記，並呼叫 `buildDiv()` 函式，以便針對每個標記建置 `<div>`。 每個標記都會顯示為連結。 按一下連結時，標記會展開，顯示與該標記相關聯的見解。 再次按一下該連結會導致區段收合。
 
 ```javascript
 function buildTagSections(tags) {
@@ -391,11 +390,11 @@ function buildDiv(tags, tag) {
 
 ## <a name="display-the-search-results-in-the-webpage"></a>在網頁中顯示搜尋結果
 
-`buildDiv()` 函式會呼叫 addDivContent 函式，以建置每個標記之可摺疊 div 的內容。
+`buildDiv()` 函式會呼叫 `addDivContent` 函式，以建置每個標記之可摺疊 `<div>` 的內容。
 
 標籤的內容包括標籤回應中的 JSON。 一開始，只會顯示 JSON 的前 100 個字元，但是您可以按一下 JSON 字串以顯示所有的 JSON。 如果您再按一下該字串，JSON 字串便會摺疊回 100 個字元。
 
-接著，加入在標籤中找到的動作類型。 針對每個動作類型，呼叫適當的函式以新增其見解。
+接著，加入在標籤中找到的動作類型。 針對每個動作類型，呼叫適當的函式以新增其見解：
 
 ```javascript
 function addDivContent(div, tag, json) {
@@ -472,21 +471,21 @@ function addDivContent(div, tag, json) {
 
 ## <a name="display-insights-for-different-actions"></a>顯示不同動作的見解
 
-下列函式可顯示不同動作的見解。 這些函式會提供可點選的影像或可點選的連結，帶您前往內含更多影像相關資訊的網頁。 此頁面裝載於 Bing.com 或影像的原始網站。 並非所有見解資料都會顯示在此應用程式中。 若要查看所有可用於見解的欄位，請參閱 [Bing 圖像式搜尋參考](https://aka.ms/bingvisualsearchreferencedoc)。
+下列函式可顯示不同動作的見解。 這些函式會提供可點選的影像或可點選的連結，帶您前往內含更多影像相關資訊的網頁。 此頁面裝載於 Bing.com 或影像的原始網站。 並非所有見解資料都會顯示在此應用程式中。 若要查看所有可用於見解的欄位，請參閱[影像 - 圖像式搜尋](https://aka.ms/bingvisualsearchreferencedoc)參考。
 
 > [!NOTE]
-> 您必須在頁面中顯示的見解資訊有最小數量。 如需詳細資訊，請參閱 [Bing 使用和顯示需求](./use-and-display-requirements.md)。
+> 您必須在頁面中顯示的見解資訊有最小數量。 如需詳細資訊，請參閱 [Bing 搜尋 API 的使用和顯示需求](../bing-web-search/use-display-requirements.md)。
 
 ### <a name="relatedimages-insights"></a>RelatedImages 見解
 
-`addRelatedImages()` 函式會逐一查看 `RelatedImages` 動作清單，並將 `<img>` 標記附加至各自的外部 `<div>`，以針對每個裝載相關影像的網站建立標題。
+`addRelatedImages()` 函式會逐一查看 `RelatedImages` 動作清單，並將 `<img>` 標記附加至各自的外部 `<div>`，以針對每個裝載相關影像的網站建立標題：
 
 ```javascript
     function addRelatedImages(div, images) {
         var length = (images.length > 10) ? 10 : images.length;
 
-        // Set the title to the website that hosts the image. The title displays 
-        // when the user hovers over the image. 
+        // Set the title to the website that hosts the image. The title displays
+        // when the user hovers over the image.
 
         // Make the image clickable. If the user clicks the image, they're taken
         // to the image in Bing.com.
@@ -510,7 +509,7 @@ function addDivContent(div, tag, json) {
 
 ### <a name="pagesincluding-insights"></a>PagesIncluding 見解
 
-`addPagesIncluding()` 函式會逐一查看 `PagesIncluding` 動作清單，並將 `<img>` 標記附加至各自的外部 `<div>`，以針對每個裝載已上傳影像的網站建立連結。
+`addPagesIncluding()` 函式會逐一查看 `PagesIncluding` 動作清單，並將 `<img>` 標記附加至各自的外部 `<div>`，以針對每個裝載已上傳影像的網站建立連結：
 
 ```javascript
 
@@ -534,7 +533,7 @@ function addDivContent(div, tag, json) {
 
 ### <a name="relatedsearches-insights"></a>RelatedSearches 見解
 
-`addRelatedSearches()` 函式會逐一查看 `RelatedSearches` 動作清單，並將 `<img>` 標記附加至各自的外部 `<div>`，以針對裝載影像的網站建立連結。
+`addRelatedSearches()` 函式會逐一查看 `RelatedSearches` 動作清單，並將 `<img>` 標記附加至各自的外部 `<div>`，以針對裝載影像的網站建立連結：
 
 ```javascript
 
@@ -567,11 +566,11 @@ function addDivContent(div, tag, json) {
 
 ### <a name="recipes-insights"></a>Recipes 見解
 
-`addRecipes()` 函式會逐一查看 `Recipes` 動作清單，並將 `<img>` 標記附加至各自的外部 `<div>`，以針對每個傳回的食譜建立連結。
+`addRecipes()` 函式會逐一查看 `Recipes` 動作清單，並將 `<img>` 標記附加至各自的外部 `<div>`，以針對每個傳回的食譜建立連結：
 
 ```javascript
     // Display links to the first 10 recipes. Include the recipe's rating,
-    // if available. 
+    // if available.
     // TODO: Add 'more' link in case the user wants to see all of them.
     function addRecipes(div, recipes) {
         var length = (recipes.length > 10) ? 10 : recipes.length;
@@ -599,7 +598,7 @@ function addDivContent(div, tag, json) {
 
 ### <a name="shopping-insights"></a>Shopping 見解
 
-`addShopping()` 函式會逐一查看 `RelatedImages` 動作清單，並將 `<img>` 標記附加至各自的外部 `<div>`，以針對任何傳回的購物結果建立連結。
+`addShopping()` 函式會逐一查看 `RelatedImages` 動作清單，並將 `<img>` 標記附加至各自的外部 `<div>`，以針對任何傳回的購物結果建立連結：
 
 ```javascript
     // Display links for the first 10 shopping offers.
@@ -628,11 +627,11 @@ function addDivContent(div, tag, json) {
 
 ### <a name="products-insights"></a>Products 見解
 
-`addProducts()` 函式會逐一查看 `Products` 動作清單，並將 `<img>` 標記附加至各自的外部 `<div>`，以針對任何傳回的產品結果建立連結。
+`addProducts()` 函式會逐一查看 `Products` 動作清單，並將 `<img>` 標記附加至各自的外部 `<div>`，以針對任何傳回的產品結果建立連結：
 
 ```javascript
 
-    // Display the first 10 related products. Display a clickable image of the 
+    // Display the first 10 related products. Display a clickable image of the
     // product that takes the user to Bing.com search results for the product.
     // If there are any offers associated with the product, provide links to the offers.
     // TODO: Add 'more' link in case the user wants to see all of them.
@@ -692,7 +691,7 @@ function addDivContent(div, tag, json) {
 
 ### <a name="textresult-insights"></a>TextResult 見解
 
-`addTextResult()` 函式會顯示影像中任何可辨識的文字。
+`addTextResult()` 函式會顯示影像中任何可辨識的文字：
 
 ```javascript
 
@@ -703,7 +702,7 @@ function addDivContent(div, tag, json) {
     }
 ```
 
-`addEntity()` 函式會顯示可將使用者帶往 Bing.com 的連結，以取得影像中實體類型的相關詳細資訊 (如果偵測到任何實體的話)。
+`addEntity()` 函式會顯示可將使用者帶往 Bing.com 的連結，以取得影像中實體類型的相關詳細資訊 (如果偵測到任何實體的話)：
 
 ```javascript
     // If the image is of a person, the tag might include an entity
@@ -719,7 +718,7 @@ function addDivContent(div, tag, json) {
     }
 ```
 
-`addImageWithWebSearchUrl()` 函式會顯示 div 可點選的影像，以將使用者帶往 Bing.com 上的搜尋結果。 
+`addImageWithWebSearchUrl()` 函式會顯示 `<div>` 可點選的影像，以將使用者帶往 Bing.com 上的搜尋結果：
 
 ```javascript
     function addImageWithWebSearchUrl(div, image, action) {
@@ -738,11 +737,11 @@ function addDivContent(div, tag, json) {
 
 ## <a name="add-a-css-style"></a>新增 CSS 樣式
 
-將下列 `<style>` 區段新增至 `<head>` 標記，以組織網頁的版面配置。
+將下列 `<style>` 區段新增至 `<head>` 標記，以組織網頁的版面配置：
 
 ```html
         <style>
-            
+
             .thumb {
                 height: 75px;
                 border: 1px solid #000;
@@ -773,4 +772,5 @@ function addDivContent(div, tag, json) {
 
 ## <a name="next-steps"></a>後續步驟
 
-* [教學課程：使用 ImageInsightsToken 搜尋先前搜尋中的類似影像](./tutorial-visual-search-insights-token.md)。
+>[!div class="nextstepaction"]
+> [教學課程：使用 ImageInsightsToken 尋找先前搜尋中的類似影像](./tutorial-visual-search-insights-token.md)

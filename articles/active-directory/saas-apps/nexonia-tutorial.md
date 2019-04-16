@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 9040c5028b3046ed60f9e30de76a9b13d2b5425b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d5f2f31f87bc3732b7b3a5593217ebde4ee213c9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57837131"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261117"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nexonia"></a>教學課程：Azure Active Directory 與 Nexonia 整合
 
@@ -35,7 +35,7 @@ Nexonia 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Nexonia 的整合，您需要下列項目：
+若要設定與 Nexonia 的 Azure AD 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Nexonia 單一登入的訂用帳戶
@@ -102,11 +102,11 @@ Nexonia 與 Azure AD 整合提供下列優點：
 
 4. 在 [以 SAML 設定單一登入] 頁面上，執行下列步驟：
 
-    ![Nexonia 網域及 URL 單一登入資訊](common/idp-intiated.png)
+    ![Nexonia 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，鍵入 URL：`Nexonia`
+    a. 在 [識別碼] 文字方塊中，鍵入 URL： `Nexonia`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`
 
     > [!NOTE]
     > [回覆 URL] 不是真實的值。 請使用實際的「回覆 URL」來更新此值。 請連絡 [Nexonia 用戶端支援小組](https://nexonia.zendesk.com/hc/requests/new)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
@@ -164,7 +164,7 @@ Nexonia 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Nexonia]。
 
-    ![應用程式清單中的 [Nexonia] 連結](common/all-applications.png)
+    ![應用程式清單中的 Nexonia 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

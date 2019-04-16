@@ -6,36 +6,41 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 03/19/2019
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7e85226d15b818dda65600760b3950fab9dd7aaf
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b93fb92c9170f3e0fb7bd6ee754dde5df729e299
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312320"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358178"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>執行 Azure 的災害復原演練
 
-在本文中，我們會示範如何使用測試容錯移轉執行內部部署機器至 Azure 的災害復原演練。 此演練可驗證您複寫策略未遺失資料。
+本文說明如何使用 [Azure Site Recovery](site-recovery-overview.md) 服務，執行內部部署機器至 Azure 的災害復原演練。 此演練可驗證您複寫策略未遺失資料。
 
-這是一系列中的第四個教學課程，說明如何為內部部署 VMware VM 或 Hyper-V VM 設定 Azure 的災害復原。
 
-此教學課程假設您已完成前三個教學課程：
-- 在[第一個教學課程](tutorial-prepare-azure.md)中，我們針對 VMware 災害復原需求設定 Azure 元件。
-- 在[第二個教學課程](vmware-azure-tutorial-prepare-on-premises.md)中，我們為災害復原準備了內部部署元件，並檢閱必要條件。
-- 在[第三個教學課程](vmware-azure-tutorial.md)中，我們為內部部署 VMware VM 設定和啟用複寫。
-- 這些教學課程的設計訴求是顯示**案例的最簡單部署路徑**。 可能的話，會使用預設選項，而不會顯示所有可能的設定與路徑。 如果您想要深入了解測試容錯移轉的步驟，請參閱[作法指南](site-recovery-test-failover-to-azure.md)。
+這是一系列中的第四個教學課程，說明如何為內部部署機器設定 Azure 的災害復原。
 
 在本教學課程中，您將了解如何：
 
 > [!div class="checklist"]
 > * 為測試容錯移轉設定隔離網路
 > * 準備在容錯移轉後連線到 Azure VM
-> * 執行單一機器測試容錯移轉
+> * 執行單一機器測試容錯移轉。
 
+> [!NOTE]
+> 這些教學課程示範案例的最簡單部署路徑。 可能的話，會使用預設選項，而不會顯示所有可能的設定與路徑。 如果您想要深入了解災害復原演練步驟，[請檢閱本文](site-recovery-test-failover-to-azure.md)。
 
+## <a name="before-you-start"></a>開始之前
+
+完成先前的教學課程：
+
+1. 確保您已[設定 Azure](tutorial-prepare-azure.md)，以便將內部部署 VMware VM、Hyper-V VM 和實體機器災害復原至 Azure。
+2. 準備內部部署 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 或 [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) 環境以便進行災害復原。 如果您要設定實體伺服器的災害復原，請檢閱[支援矩陣](vmware-physical-secondary-support-matrix.md)。
+3. 為 [VMware VM](vmware-azure-tutorial.md)、[Hyper-V VM](hyper-v-azure-tutorial.md) 或[實體機器](physical-azure-disaster-recovery.md)設定災害復原。
+ 
 
 ## <a name="verify-vm-properties"></a>驗證 VM 屬性
 
@@ -76,14 +81,13 @@ ms.locfileid: "58312320"
 
 在某些情況下，容錯移轉需要額外的處理，這會耗費約 8 到 10 分鐘的時間來完成。 您可能注意到下列項目的測試容錯移轉時間較久：VMware Linux 機器、未啟用 DHCP 服務的 VMware VM，以及沒有下列開機驅動程式的 VMware VM：storvsc、vmbus、storflt、intelide、atapi。
 
-## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>準備在容錯移轉後連接到 Azure VM
+## <a name="connect-after-failover"></a>容錯移轉後連接
 
-如果您想要在容錯移轉後使用 RDP/SSH 連線到 Azure VM，請遵循資料表 ([這裡](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)) 中摘要說明的需求。
-
-請依照[這裡](site-recovery-failover-to-azure-troubleshoot.md)所述的步驟，對容錯移轉後的連線問題進行疑難排解。
+如果您想要在容錯移轉後使用 RDP/SSH 連線到 Azure VM，請[準備連線](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)。 如果您在容錯移轉後遇到任何連線問題，請遵循此[疑難排解](site-recovery-failover-to-azure-troubleshoot.md)指南。
 
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [在內部部署 VMware VM 執行容錯移轉和容錯回復](vmware-azure-tutorial-failover-failback.md)。
-> [在內部部署 Hyper-V VM 執行容錯移轉和容錯回復](hyper-v-azure-failover-failback-tutorial.md)。
+> [執行 VMware VM 的容錯移轉和容錯回復](vmware-azure-tutorial-failover-failback.md)。
+> [執行 Hyper-V VM 的容錯移轉和容錯回復](hyper-v-azure-failover-failback-tutorial.md)。
+> [執行實體機器的容錯移轉和容錯回復](physical-to-azure-failover-failback.md)

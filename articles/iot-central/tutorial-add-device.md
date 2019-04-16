@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 8e7eee40bed29117d2873393395a852e4b738533
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 201b438601c9929e5ca3d292f9fc3d7b7ff64de8
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793476"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425928"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>教學課程：將實際裝置新增至 Azure IoT Central 應用程式
 
@@ -42,7 +42,9 @@ ms.locfileid: "58793476"
 * [為您的裝置設定規則和動作](tutorial-configure-rules.md) (選用)
 * [自訂操作員的檢視](tutorial-customize-operator.md) (選用)
 
-## <a name="add-a-real-device"></a>新增實際裝置
+在您的開發電腦上安裝 [Node.js](https://nodejs.org/) 8.0.0 版或更新版本。 您可以在命令列執行 `node --version` 來檢查版本。 Node.js 適用於多種作業系統。
+
+## <a name="add-a-real-device"></a>新增真實裝置
 
 若要將實際裝置新增至應用程式，您應使用在[定義新的裝置類型](tutorial-define-device-type.md)教學課程中建立的**連線的空調**裝置範本。
 
@@ -92,37 +94,27 @@ ms.locfileid: "58793476"
 
 下列步驟說明如何準備 [Node.js](https://nodejs.org/) 範例：
 
-1. 在電腦上安裝 [Node.js](https://nodejs.org/) 4.0.x 版或更新版本。 Node.js 適用於多種作業系統。
-
-1. 在電腦上建立名為 `connectedairconditioner` 的資料夾。
-
-1. 在命令列環境中，瀏覽至您所建立的 `connectedairconditioner` 資料夾。
-
-1. 使用下列命令安裝 DPS 金鑰產生器：
-
-    ```cmd/sh
-    npm i -g dps-keygen
-    ```
-
-   深入了解[命令列工具](https://www.npmjs.com/package/dps-keygen)。
+### <a name="get-the-device-connection-information"></a>取得裝置連線資訊
 
 1. 應用程式中的裝置執行個體所適用的連接字串會從 IoT Central 所提供的裝置資訊產生。
 
-   返回 IoT Central 入口網站。 在實際「連線的空調」的裝置畫面上，選擇 [連線]。
+   在實際「連線的空調」的裝置畫面上，選擇 [連線]。
 
    ![顯示檢視連線資訊連結的裝置頁面](media/tutorial-add-device/connectionlink.png)
 
-1. 在 [裝置連線] 頁面上，將 [範圍識別碼]、[裝置識別碼] 和 [主要金鑰] 複製並貼到文字編輯器上，然後儲存。 您在下一個步驟將用到這些值。
+1. 在 [裝置連線] 頁面上，記下 [範圍識別碼]、[裝置識別碼] 和 [主要金鑰] 值。 您在下一個步驟將用到這些值。
 
    ![連線詳細資料](media/tutorial-add-device/device-connect.png)
 
-1. 返回命令列環境，並執行下列命令以產生連接字串：
+### <a name="generate-the-connection-string"></a>產生連接字串
 
-    ```cmd/sh
-    dps-keygen -si:<scope_id> -di:<device_id> -dk:<Primary Key>
-    ```
+[!INCLUDE [iot-central-howto-connection-string](../../includes/iot-central-howto-connection-string.md)]
 
-   複製輸出，並將其儲存在新的檔案中 (例如 connection.txt)。
+### <a name="prepare-the-nodejs-project"></a>準備 Node.js 專案
+
+1. 在開發電腦上建立名為 `connectedairconditioner` 的資料夾。
+
+1. 在命令列環境中，瀏覽至您所建立的 `connectedairconditioner` 資料夾。
 
 1. 若要初始化 Node.js 專案，請以所有預設值執行下列命令：
 
@@ -309,7 +301,7 @@ ms.locfileid: "58793476"
     var connectionString = '{your device connection string}';
     ```
 
-1. 將 `{your device connection string}` 取代為實際裝置的連接字串。 您先前已將連接字串儲存在文字編輯器中。
+1. 將 `{your device connection string}` 取代為實際裝置的連接字串。 您已複製在上一個步驟中產生的連接字串。
 
 1. 將變更儲存到 **ConnectedAirConditioner.js** 檔案。
 
@@ -361,7 +353,7 @@ ms.locfileid: "58793476"
 身為操作員，您可以了解如何：
 
 * [管理您的裝置](howto-manage-devices.md)
-* [使用裝置集合](howto-use-device-sets.md)
+* [使用裝置設定](howto-use-device-sets.md)
 * [建立自訂分析](howto-use-device-sets.md)
 
 身為裝置開發人員，您可以了解如何：

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8ca8c0a72dadb4ee4a5e84d3bd3da79d5d8a25d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b57786aaf699f562743bfdd6cf5c2d8f1b41b0d7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57856034"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276077"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hightail"></a>教學課程：Azure Active Directory 與 Hightail 整合
 
@@ -52,7 +52,7 @@ Hightail 與 Azure AD 整合提供下列優點：
 
 若要設定 Hightail 與 Azure AD 整合，您需要從資源庫將 Hightail 加入受控 SaaS 應用程式清單中。
 
-**若要從資源庫加入 Hightail，請執行下列步驟：**
+**若要從資源庫新增 Hightail，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
@@ -75,7 +75,7 @@ Hightail 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Hightail 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Hightail 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Hightail 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要設定及測試對 Hightail 的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Hightail 單一登入](#configure-hightail-single-sign-on)** - 在應用程式端設定單一登入設定。

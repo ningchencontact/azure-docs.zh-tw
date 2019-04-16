@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 0adb24458f718511c7134fc3bf36dd0b03173e30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3d535c71480693d0424c6697776a1ddbf37b47c5
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011520"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470911"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>使用 Azure Cosmos 模擬器進行本機開發和測試
 
@@ -122,7 +122,7 @@ DocumentClient client = new DocumentClient(
 
 ### <a name="azure-cosmos-dbs-api-for-mongodb"></a>適用於 MongoDB 的 Azure Cosmos DB API
 
-如果您使用[適用於 MongoDB 的 Azure Cosmos DB](mongodb-introduction.md)，請使用下列連接字串：
+如果您使用[適用於 MongoDB 的 Azure Cosmos DB API](mongodb-introduction.md)，請使用下列連接字串：
 
 ```bash
 mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true
@@ -439,7 +439,7 @@ cd $env:LOCALAPPDATA\CosmosDBEmulator\bind-mount
 若要收集偵錯追蹤，請從系統管理命令提示字元執行下列命令︰
 
 1. `cd /d "%ProgramFiles%\Azure Cosmos DB Emulator"`
-2. `CosmosDB.Emulator.exe /shutdown` 。 監看系統匣，確認程式已經關閉，這可能需要一分鐘的時間。 您也可以直接按一下 Azure Cosmos 模擬器使用者介面中的 [結束]。
+2. `CosmosDB.Emulator.exe /shutdown`上也提供本文中使用的原始碼。 監看系統匣，確認程式已經關閉，這可能需要一分鐘的時間。 您也可以直接按一下 Azure Cosmos 模擬器使用者介面中的 [結束]。
 3. `CosmosDB.Emulator.exe /starttraces`
 4. `CosmosDB.Emulator.exe`
 5. 重現問題。 如果資料總管無法運作，您只需要等候數秒鐘的時間，等到瀏覽器開啟即可攔截錯誤。

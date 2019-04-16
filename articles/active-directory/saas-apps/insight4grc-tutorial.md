@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 360dbd6605953f77a2874b2daf8db2d4e93307c1
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 1ad101d209415acdceb0091dba5fbedeb8b0aa4b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189609"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280514"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insight4grc"></a>教學課程：Azure Active Directory 與 Insight4GRC 整合
 
@@ -106,9 +106,9 @@ Insight4GRC 與 Azure AD 整合提供下列優點：
 
     ![Insight4GRC 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.Insight4GRC.com/SAML`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://<subdomain>.Insight4GRC.com/SAML`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.Insight4GRC.com/Public/SAML/ACS.aspx`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<subdomain>.Insight4GRC.com/Public/SAML/ACS.aspx`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 

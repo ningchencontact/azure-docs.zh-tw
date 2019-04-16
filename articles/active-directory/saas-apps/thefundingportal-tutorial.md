@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: da06b8772cbf4f9f805952e19cff03791a86e4c7
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 4f7edd13c07d24d5d5a12fb9973083db44f0211f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437951"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257734"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-funding-portal"></a>教學課程：Azure Active Directory 與 The Funding Portal 整合
 
@@ -105,9 +105,9 @@ ms.locfileid: "58437951"
 
     ![The Funding Portal 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.regenteducation.net/`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.regenteducation.net/`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.regenteducation.net`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.regenteducation.net`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [The Funding Portal 客戶支援小組](mailto:info@regenteducation.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

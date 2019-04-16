@@ -8,13 +8,13 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
-ms.date: 11/06/2018
-ms.openlocfilehash: ddcde2956da774e687c1e587649e65b79003bf3a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.date: 04/03/2019
+ms.openlocfilehash: 18f5d34e50a4ed4ed82a3ceb4740d594ce4bd78d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448980"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274003"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>教學課程：在 Azure HDInsight 中的 Apache Spark 叢集上載入資料和執行查詢
 
@@ -24,8 +24,6 @@ ms.locfileid: "57448980"
 > [!div class="checklist"]
 > * 從 csv 檔案建立資料框架
 > * 在資料框架上執行查詢
-
-如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -38,7 +36,11 @@ ms.locfileid: "57448980"
 ![互動式 Spark SQL 查詢的資料快照集](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "互動式 Spark SQL 查詢的資料快照集")
 
 
-1. 開啟您在必要條件一節中建立的 Jupyter Notebook。
+1. 開啟您在必要條件一節中建立的 Jupyter Notebook，並使用 PySpark 建立新的 Notebook。
+
+    > [!NOTE]  
+    > 透過使用 PySpark 核心來建立 Notebook，當您執行第一個程式碼儲存格時，系統便會自動為您建立 `spark` 工作階段。 您不需要明確建立工作階段。
+
 2. 將以下程式碼貼入 Notebook 的空白儲存格，然後按 **SHIFT + ENTER** 以執行此程式碼。 此程式碼會匯入此案例所需的類型：
 
     ```python
@@ -58,10 +60,6 @@ ms.locfileid: "57448980"
     csvFile.write.saveAsTable("hvac")
     ```
 
-    > [!NOTE]  
-    > 透過使用 PySpark 核心來建立 Notebook，當您執行第一個程式碼儲存格時，系統便會自動為您建立 `spark` 工作階段。 您不需要明確建立工作階段。
-
-
 ## <a name="run-queries-on-the-dataframe"></a>在資料框架上執行查詢
 
 建立資料表之後，您可以對資料執行互動式查詢。
@@ -77,13 +75,13 @@ ms.locfileid: "57448980"
 
      ![互動式 Spark 查詢結果的資料表輸出](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "互動式 Spark 查詢結果的資料表輸出")
 
-3. 您也可以查看其他視覺效果中的結果。 若要查看相同輸出的區域圖表，請選取 [區域]，然後設定其他值，如下所示。
+2. 您也可以查看其他視覺效果中的結果。 若要查看相同輸出的區域圖表，請選取 [區域]，然後設定其他值，如下所示。
 
     ![互動式 Spark 查詢結果的區域圖表](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "互動式 Spark 查詢結果的區域圖表")
 
-10. 從 Notebook 的 [檔案] 功能表中，選取 [儲存與檢查點]。 
+3. 從 [Notebook] 功能表列中，瀏覽至 [檔案] > [儲存與檢查點]。
 
-11. 如果您現在要開始進行[下一個教學課程](apache-spark-use-bi-tools.md)，請讓 Notebook 保持開啟。 如果尚不進行，請關閉 Notebook 以釋出叢集資源：從 Notebook 上的 [檔案] 功能表，選取 [關閉並終止]。
+4. 如果您現在要開始進行[下一個教學課程](apache-spark-use-bi-tools.md)，請讓 Notebook 保持開啟。 如果還沒有要進行，請關閉 Notebook 以釋出叢集資源：從 [Notebook] 功能表列，瀏覽至 [檔案] >  [關閉並終止]。
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -98,11 +96,10 @@ ms.locfileid: "57448980"
 ## <a name="next-steps"></a>後續步驟
 
 在本教學課程中，您已了解如何：
-
-* 建立 Apache Spark 資料框架。
-* 對資料框架執行 Spark SQL。
+> [!div class="checklist"]
+> * 建立 Apache Spark 資料框架。
+> * 對資料框架執行 Spark SQL。
 
 前往下一篇文章，以查看如何將您在 Apache Spark 中註冊的資料提取至 BI 分析工具，例如 Power BI。 
 > [!div class="nextstepaction"]
 > [使用 BI 工具分析資料](apache-spark-use-bi-tools.md)
-

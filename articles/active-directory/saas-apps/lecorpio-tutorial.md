@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8eaa3abdaecd3c4a8d5b8ba3932f6bc1e561baf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b0dec40027441432845d44828eb61e6b9e0ff081
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57858850"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281517"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lecorpio"></a>教學課程：Azure Active Directory 與 Lecorpio 整合
 
@@ -36,7 +36,7 @@ ms.locfileid: "57858850"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Lecorpio 的整合，您需要下列項目：
+若要設定 Azure AD 與 Lecorpio 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Lecorpio 單一登入的訂用帳戶
@@ -45,7 +45,7 @@ ms.locfileid: "57858850"
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* Lecorpio 支援由 **SP** 起始的 SSO
+* Lecorpio 支援 **SP** 起始的 SSO
 
 ## <a name="adding-lecorpio-from-the-gallery"></a>從資源庫新增 Lecorpio
 
@@ -71,10 +71,10 @@ ms.locfileid: "57858850"
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Lecorpio 搭配運作的 Azure AD 單一登入。
+在本節中，您會以測試使用者 **Britta Simon** 的身分，設定及測試 Azure AD 與 Lecorpio 的單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Lecorpio 中相關使用者之間的連結關聯性。
 
-若要設定及測試 Azure AD 與 Lecorpio 的單一登入，您需要完成下列構成要素：
+若要設定及測試 Azure AD 與 Lecorpio 的單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Lecorpio 單一登入](#configure-lecorpio-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -103,14 +103,14 @@ ms.locfileid: "57858850"
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Lecorpio 網域及 URL 單一登入資訊](common/sp-identifier.png)
+    ![Lecorpio 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<instance name>.lecorpio.com/<customer name>`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<instance name>.lecorpio.com/<customer name>`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://<instance name>.lecorpio.com/<customer name>`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `https://<instance name>.lecorpio.com/<customer name>`
 
     > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Lecorpio 用戶端支援小組](mailto:info@lecorpio.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Lecorpio 客戶支援小組](mailto:info@lecorpio.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
@@ -128,7 +128,7 @@ ms.locfileid: "57858850"
 
 ### <a name="configure-lecorpio-single-sign-on"></a>設定 Lecorpio 單一登入
 
-若要在 **Lecorpio** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML] 和複製的適當 URL 傳送給 [Lecorpio 支援小組](mailto:info@lecorpio.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在  端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML] 和所複製的適當 URL 傳送給 [Lecorpio 支援小組](mailto:info@lecorpio.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -165,7 +165,7 @@ ms.locfileid: "57858850"
 
 2. 在應用程式清單中，選取 [Lecorpio]。
 
-    ![應用程式清單中的 [Lecorpio] 連結](common/all-applications.png)
+    ![應用程式清單中的 Lecorpio 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -183,13 +183,13 @@ ms.locfileid: "57858850"
 
 ### <a name="create-lecorpio-test-user"></a>建立 Lecorpio 測試使用者
 
-在本節中，您會在 Lecorpio 中建立名為 Britta Simon 的使用者。 請與 [ 支援小組](mailto:info@lecorpio.com) 合作，在 Lecorpio 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 Lecorpio 中建立名為 Britta Simon 的使用者。 請與 [ 支援小組](mailto:info@lecorpio.com) 合作，在 Lecorpio 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Lecorpio] 圖格時，應該會自動登入您已設定 SSO 的 Lecorpio。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 Lecorpio 圖格時，應該會自動登入您已設定 SSO 的 Lecorpio。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

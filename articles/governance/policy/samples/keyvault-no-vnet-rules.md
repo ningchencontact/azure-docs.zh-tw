@@ -1,19 +1,18 @@
 ---
 title: 範例 - 稽核無虛擬網路端點的 Key Vault
 description: 此原則定義範例會稽核 Key Vault 保存庫，以偵測無虛擬網路服務端點的執行個體。
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: f2f6e5c60553a55fd1a65e45cd38aef0b883020e
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: bc5ce4a6a2e52ed8d21de8db8da1f815293b61f7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802248"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276366"
 ---
 # <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>範例 - 無虛擬網路端點的 Key Vault 保存庫
 

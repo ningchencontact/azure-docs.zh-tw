@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: b2f89d3fbb427cc3e14be231d4ffae879e641f2c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9e4e64b99a69e523547bae04146c7460d08bc1df
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554850"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261168"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-java"></a>快速入門：使用 Java 搭配 Azure Functions 與 SignalR Service 來建立聊天室
 
@@ -58,18 +58,18 @@ Azure SignalR 服務可讓您輕鬆地新增即時功能到您的應用程式。
 
     ![建立 SignalR 服務](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. 在您的程式碼編輯器中，開啟複製之存放庫中的 *chat/src/java* 資料夾。
+1. 在您的程式碼編輯器中，開啟複製的存放庫中包含的 *src/chat/java* 資料夾。
 
 1. 將 *local.settings.sample.json* 重新命名為 *local.settings.json*。
 
 1. 在 **local.settings.json** 中，將連接字串貼到 **AzureSignalRConnectionString** 設定的值中。 儲存檔案。
 
-1. 包含的函式的主要檔案位於 *src/main/java/com/function/Functions.java*：
+1. 包含的函式的主要檔案位於 *src/chat/java/src/main/java/com/function/Functions.java*：
 
     - **negotiate** - 使用 *SignalRConnectionInfo* 輸入繫結來產生並傳回有效的連線資訊。
     - **sendMessage** - 在要求本文中接收聊天訊息，並使用 *SignalR* 輸出繫結將訊息廣播給所有已連線的用戶端應用程式。
 
-1. 在終端機中，請確定您處於 *chat/src/java* 資料夾中。 建置函式應用程式。
+1. 在終端機中，確定您處於 *src/chat/java* 資料夾中。 建置函式應用程式。
 
     ```bash
     mvn clean package

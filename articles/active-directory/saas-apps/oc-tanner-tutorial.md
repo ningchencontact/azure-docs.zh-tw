@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: debda9784470f6d32894a7f9ddf55fc848ff6d10
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 21cbef1532928d51ba0c9f11e80304933df505b1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850913"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261746"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oc-tanner---appreciatehub"></a>教學課程：Azure Active Directory 與 O.C. Tanner - AppreciateHub 的人員
 
@@ -28,7 +28,7 @@ ms.locfileid: "58850913"
 整合 O.C. Tanner - AppreciateHub 與 Azure AD 整合提供下列優點：
 
 * 您可以在 Azure AD 中控制可存取 O.C. Tanner - AppreciateHub 中建立名為 Britta Simon 的使用者。
-* 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 O.C. Tanner - AppreciateHub (單一登入)。 Tanner - AppreciateHub (Single Sign-On) with their Azure AD accounts.
+* 您可以讓使用者使用其 Azure AD 帳戶自動登入 O.C. Tanner - AppreciateHub (單一登入)。
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
@@ -45,13 +45,13 @@ ms.locfileid: "58850913"
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* O.C. Tanner - AppreciateHub 支援由 **IDP** 起始的 SSO Tanner - AppreciateHub supports <bpt id="p1">**</bpt>IDP<ept id="p1">**</ept> initiated SSO
+* 已啟用 O.C. Tanner - AppreciateHub 支援由 **IDP** 起始的 SSO
 
 ## <a name="adding-oc-tanner---appreciatehub-from-the-gallery"></a>從組件庫新增 O.C. Tanner - AppreciateHub
 
 若要設定將 O.C. Tanner - AppreciateHub 整合到 Azure AD，您需要從組件庫將 O.C. Tanner - AppreciateHub 新增至受控 SaaS 應用程式清單。
 
-**若要從組建庫新增 O.C.Tanner - AppreciateHub，請執行下列步驟：**
+**若要從資源庫新增 O.C. Tanner - AppreciateHub，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
@@ -65,9 +65,9 @@ ms.locfileid: "58850913"
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
-4. 在搜尋方塊中，輸入 **O.C.Tanner - AppreciateHub**，從結果面板中選取 [O.C. Tanner - AppreciateHub]，然後按一下 [新增] 按鈕以新增應用程式。
+4. 在搜尋方塊中，輸入 **O.C.Tanner - AppreciateHub**，並從結果面板中選取 **[O.C.Tanner - AppreciateHub]**，然後按一下 [新增] 按鈕以新增應用程式。
 
-     ![結果清單中的 O.C. Tanner - AppreciateHub Tanner - AppreciateHub in the results list](common/search-new-app.png)
+     ![已啟用 O.C. Tanner - AppreciateHub (位於結果清單中)](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
@@ -77,7 +77,7 @@ ms.locfileid: "58850913"
 若要設定和測試 Azure AD 單一登入與 O.C. Tanner - AppreciateHub，您必須完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[設定 O.C. Tanner - AppreciateHub 單一登入](#configure-oc-tanner---appreciatehub-single-sign-on)** - 在應用程式端設定單一登入設定。
+2. **[設定 O.C.Tanner - AppreciateHub 單一登入](#configure-oc-tanner---appreciatehub-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
 5. **[建立 O.C.Tanner - AppreciateHub 測試使用者](#create-oc-tanner---appreciatehub-test-user)** - 為了在 O.C.  Tanner - AppreciateHub 中有對應 Britta Simon 的使用者，以連結到 Azure AD 中代表的使用者。
@@ -87,9 +87,9 @@ ms.locfileid: "58850913"
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要設定 Azure AD 單一登入與 O.C.Tanner - AppreciateHub 中建立名為 Britta Simon 的使用者，請執行下列步驟： Tanner - AppreciateHub, perform the following steps:
+若要設定與 O.C. Tanner - AppreciateHub 搭配運作的 Azure AD 單一登入， 請執行下列步驟：
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的 [O.C. Tanner - AppreciateHub] 應用程式整合頁面上，選取 [單一登入]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的 **[O.C.Tanner - AppreciateHub]** 應用程式整合頁面上，選取 [單一登入]。
 
     ![設定單一登入連結](common/select-sso.png)
 
@@ -116,7 +116,7 @@ ms.locfileid: "58850913"
 
     c. 成功上傳中繼資料檔案後，就會在 [基本 SAML 組態] 區段中自動填入 [識別碼] 和 [回覆 URL] 值。
 
-     ![O.C. Tanner - AppreciateHub 網域與 URL 單一登入資訊 Tanner - AppreciateHub Domain and URLs single sign-on information](common/idp-intiated.png)
+     ![已啟用 O.C. Tanner - AppreciateHub 網域和 URL 單一登入資訊](common/idp-intiated.png)
 
     > [!Note]
     > 如果 [識別碼] 和 [回覆 URL] 值未自動填入，則請根據您的需求手動填入這些值。 請連絡 [O.C.Tanner - AppreciateHub 用戶端支援小組](mailto:sso@octanner.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
@@ -125,7 +125,7 @@ ms.locfileid: "58850913"
 
     ![憑證下載連結](common/metadataxml.png)
 
-6. 在 [設定 O.C. Tanner - AppreciateHub] 區段上，依據您的需求複製適當的 URL。
+6. 在 **[設定 O.C.Tanner - AppreciateHub]** 區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -135,7 +135,7 @@ ms.locfileid: "58850913"
 
     c. 登出 URL
 
-### <a name="configure-oc-tanner---appreciatehub-single-sign-on"></a>設定 O.C. Tanner - AppreciateHub 單一登入 Tanner - AppreciateHub Single Sign-On
+### <a name="configure-oc-tanner---appreciatehub-single-sign-on"></a>設定 O.C. Tanner - AppreciateHub 單一登入
 
 若要在 **O.C.Tanner - AppreciateHub** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML] 和所複製的適當 URL 傳送給 [O.C.Tanner - AppreciateHub 支援小組](mailto:sso@octanner.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
@@ -167,13 +167,13 @@ ms.locfileid: "58850913"
 
 在本節中，您會將 O.C. Tanner - AppreciateHub 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。 Tanner - AppreciateHub 中建立名為 Britta Simon 的使用者。
 
-1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [**O.C.Tanner - AppreciateHub**]。
+1. 在 Azure 入口網站中，依序選取 企業應用程式、所有應用程式 及 **O.C.Tanner - AppreciateHub**。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
 2. 在應用程式清單中，選取 **O.C.Tanner - AppreciateHub**。
 
-    ![應用程式清單中的 O.C. Tanner - AppreciateHub 連結 Tanner - AppreciateHub link in the Applications list](common/all-applications.png)
+    ![應用程式清單中的 O.C. Tanner - AppreciateHub 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -193,7 +193,7 @@ ms.locfileid: "58850913"
 
 本節目標是在 O.C. Tanner - AppreciateHub 中建立名為 Britta Simon 的使用者。
 
-**若要在 O.C.Tanner - AppreciateHub 中建立名為 Britta Simon 的使用者，請執行下列步驟：**
+**若要在 O.C. Tanner - AppreciateHub 中建立名為 Britta Simon 的使用者， 請執行下列步驟：**
 
 要求您的 [O.C.Tanner - AppreciateHub 支援小組](mailto:sso@octanner.com)建立使用者，此使用者的 nameID 屬性與 Azure AD 中 Britta Simon 使用者名稱的值相同。
 
@@ -201,7 +201,7 @@ ms.locfileid: "58850913"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在 存取面板 按一下 O.C. Tanner - AppreciateHub 圖格時，應該會自動登入您設定 SSO 的 O.C. Tanner - AppreciateHub。 Tanner - AppreciateHub for which you set up SSO. 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在 存取面板 按一下 O.C. Tanner - AppreciateHub 圖格時，應該會自動登入您已設定 SSO 的 O.C. Tanner - AppreciateHub。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -116,7 +116,7 @@ items:
         href: application-gateway-end-to-end-ssl-powershell.md
     - name: 管理憑證
       items:
-      - name: 建立白名單後端的憑證
+      - name: 建立允許清單後端的憑證
         href: certificates-for-backend-authentication.md
       - name: 更新憑證
         href: renew-certificates.md

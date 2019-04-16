@@ -1,7 +1,7 @@
 ---
-title: 快速入門：辨識語音，C# (.NET Core Windows) - 語音服務
+title: 快速入門：辨識語音，C# (.NET Core) - 語音服務
 titleSuffix: Azure Cognitive Services
-description: 了解如何使用語音 SDK 在 Windows 上以 .NET Core 下的 C# 辨識語音
+description: 了解如何使用語音 SDK 在 Windows 或 macOS 上以 .NET Core 下的 C# 辨識語音
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 13d5d5b57c4c52b213f3c369244348b00a49332b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 938efe79d4f9f0b9003fcf83196df80d71d16e75
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895597"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009422"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>快速入門：使用適用於 .NET Core 的語音 SDK 來辨識語音
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-在本文中，您會透過使用認知服務[語音 SDK](speech-sdk.md)，在 Windows 上的 .NET Core 建立 C# 主控台應用程式。 您將來自電腦麥克風的語音即時轉譯為文字。 應用程式是利用[語音 SDK NuGet 套件](https://aka.ms/csspeech/nuget)與 Microsoft Visual Studio 2017 (任何版本) 所建置的。
+在本文中，您會透過使用認知服務[語音 SDK](speech-sdk.md)，在 Windows 或 macOS 上的 .NET Core 建立 C# 主控台應用程式。 您將來自電腦麥克風的語音即時轉譯為文字。 應用程式是利用[語音 SDK NuGet 套件](https://aka.ms/csspeech/nuget)與 Microsoft Visual Studio 2017 (任何版本) 所建置的。
 
 > [!NOTE]
 > .NET Core 是實作[.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard) 規格的開放原始碼、跨平台 .NET 平台。
@@ -34,7 +34,7 @@ ms.locfileid: "57895597"
 
 * [.NET Core SDK](https://dotnet.microsoft.com/download)
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* 適用於語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
+* 語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
 
 ## <a name="create-a-visual-studio-project"></a>建立 Visual Studio 專案
 
@@ -71,7 +71,7 @@ ms.locfileid: "57895597"
 在 GitHub 上可取得其他範例，例如如何讀取音訊檔案中的語音。
 
 > [!div class="nextstepaction"]
-> [瀏覽 GitHub 上的 C# 範例](https://aka.ms/csspeech/samples)
+> [探索 GitHub 上的 C# 範例](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>另請參閱
 

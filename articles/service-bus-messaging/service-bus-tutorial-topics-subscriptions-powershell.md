@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 21dcf522f00f1991ecb2a92d6dc0925baadbdcc6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 845fc32d527158258304a92c6855017c9d8c0492
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58081265"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049552"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>教學課程：使用 PowerShell 和主題/訂用帳戶來更新庫存
 
@@ -36,6 +36,9 @@ Microsoft Azure 服務匯流排是一項多租用戶雲端傳訊服務，可在�
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶][]。
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程，請確定您已安裝︰
@@ -54,20 +57,20 @@ Microsoft Azure 服務匯流排是一項多租用戶雲端傳訊服務，可在�
 1. 安裝服務匯流排 PowerShell 模組：
 
    ```azurepowershell-interactive
-   Install-Module AzureRM.ServiceBus
+   Install-Module Az.ServiceBus
    ```
 
 2. 執行下列命令以登入 Azure：
 
    ```azurepowershell-interactive
-   Login-AzureRmAccount
+   Login-AzAccount
    ```
 
 4. 設定目前的訂用帳戶內容，或查看目前作用中訂用帳戶：
 
    ```azurepowershell-interactive
-   Select-AzureRmSubscription -SubscriptionName "MyAzureSubName" 
-   Get-AzureRmContext
+   Select-AzSubscription -SubscriptionName "MyAzureSubName" 
+   Get-AzContext
    ```
 
 ## <a name="provision-resources"></a>佈建資源
@@ -76,19 +79,19 @@ Microsoft Azure 服務匯流排是一項多租用戶雲端傳訊服務，可在�
 
 ```azurepowershell-interactive
 # Create a resource group 
-New-AzureRmResourceGroup –Name my-resourcegroup –Location westus2
+New-AzResourceGroup –Name my-resourcegroup –Location westus2
 
 # Create a Messaging namespace
-New-AzureRmServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location westus2
+New-AzServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location westus2
 
 # Create a queue 
-New-AzureRmServiceBusQueue -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Name queue-name -EnablePartitioning $False
+New-AzServiceBusQueue -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Name queue-name -EnablePartitioning $False
 
 # Get primary connection string (required in next step)
-Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
+Get-AzServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
 ```
 
-在 `Get-AzureRmServiceBusKey` Cmdlet 執行之後，請將連接字串與您選取的佇列名稱複製並貼到暫存位置，例如 [記事本]。 您在下一個步驟將會用到這些資料。
+在 `Get-AzServiceBusKey` Cmdlet 執行之後，請將連接字串與您選取的佇列名稱複製並貼到暫存位置，例如 [記事本]。 您在下一個步驟將會用到這些資料。
 
 ## <a name="send-and-receive-messages"></a>傳送及接收訊息
 
@@ -109,7 +112,7 @@ Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespac
 4. 如果您尚未使用下列 PowerShell Cmdlet 取得連接字串，請執行此動作。 請務必將 `my-resourcegroup` 和 `namespace-name` 取代為您自己的值： 
 
    ```azurepowershell-interactive
-   Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
+   Get-AzServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
 5. 在 PowerShell 提示字元中，輸入下列命令：
 
@@ -131,7 +134,7 @@ Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespac
 執行下列命令以移除資源群組、命名空間和所有相關資源：
 
 ```powershell-interactive
-Remove-AzureRmResourceGroup -Name my-resourcegroup
+Remove-AzResourceGroup -Name my-resourcegroup
 ```
 
 ## <a name="understand-the-sample-code"></a>了解範例程式碼
@@ -140,7 +143,7 @@ Remove-AzureRmResourceGroup -Name my-resourcegroup
 
 ### <a name="get-connection-string-and-queue"></a>取得連接字串和佇列
 
-連接字串和佇列名稱會傳至 `Main()` 方法作為命令列引數。 `Main()` 會宣告兩個字串變數來保存這些值：
+連接字串和佇列名稱會傳至 `Main()` 方法作為命令列引數。 `Main()` 宣告兩個字串變數來保存這些值：
 
 ```csharp
 static void Main(string[] args)
@@ -286,4 +289,4 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 > [使用 PowerShell 和主題/訂用帳戶來更新庫存](service-bus-tutorial-topics-subscriptions-cli.md)
 
 [免費帳戶]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[安裝和設定 Azure PowerShell]: /powershell/azure/azurerm/install-azurerm-ps
+[安裝和設定 Azure PowerShell]: /powershell/azure/install-Az-ps

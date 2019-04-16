@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: f922f940f6c579c8710dadec29b365e7cf4c7938
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 6385838064c408ccfa23dacbd5785f8e82f3cc8b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577181"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049424"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>什麼是 Windows 虛擬桌面預覽版？ 
 
@@ -54,12 +54,12 @@ Windows 虛擬桌面預覽版是可在雲端執行的桌面和應用程式虛擬
 
 您需要進行 Windows 虛擬桌面的一些設定，才能讓使用者成功連線到其 Windows 桌面和應用程式。
 
-首先，根據您打算部署的桌面和應用程式，確定您的使用者有適當的授權：
+首先，根據您打算部署的桌面和應用程式，確定您的使用者有[適當的授權](https://azure.microsoft.com/pricing/details/virtual-desktop/)：
 
 |作業系統|必要授權|
 |---|---|
-|Windows 10 企業版的多重工作階段或 Windows 10 的單一工作階段|Microsoft E3、E5、A3、A5、Business<br>Windows E3、E5、A3、A5|
-|Windows 7|Microsoft E3、E5、A3、A5、Business<br>Windows E3、E5、A3、A5|
+|Windows 10 企業版的多重工作階段或 Windows 10 的單一工作階段|Microsoft 365 E3、E5、A3、A5、Business、F1<br>Windows E3、E5、A3、A5|
+|Windows 7|Microsoft 365 E3、E5、A3、A5、Business、F1<br>Windows E3、E5、A3、A5|
 |Windows Server 2012 R2、2016、2019|具有軟體保證的 RDS 用戶端存取使用權 (CAL)|
 
 您的基礎結構需要下列項目才能支援 Windows 虛擬桌面：

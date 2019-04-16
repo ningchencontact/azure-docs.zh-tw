@@ -5,14 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: overview
-ms.date: 03/20/2019
+ms.date: 04/08/2019
 ms.author: alkohli
-ms.openlocfilehash: e7a65a6b49544783ed3f40194e2338540819536b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 340ff99aae9acff49ffdeaa43463521debb16a07
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400965"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282809"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>什麼是 Azure Data Box Gateway？
 
@@ -29,6 +29,8 @@ Azure 資料箱閘道是可讓您順利將資料傳送到 Azure 的儲存體解�
 - **連續資料擷取** - 持續將資料嵌入裝置，然後複製到雲端，而且不論資料大小為何。 資料寫入至閘道裝置後，裝置就會將資料上傳至 Azure 儲存體。  
 
 - **初始大量傳輸後接著增量傳輸** - 以離線模式使用資料箱來進行大量傳輸 (初始植入)，然後使用 Data Box Gateway 透過網路進行增量傳輸 (持續饋送)。
+
+如需詳細資訊，請移至 [Azure 資料箱閘道使用案例](data-box-gateway-use-cases.md)。
 
 ## <a name="benefits"></a>優點
 

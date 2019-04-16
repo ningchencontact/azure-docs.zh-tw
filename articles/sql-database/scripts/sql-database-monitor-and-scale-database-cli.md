@@ -12,22 +12,22 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 3493a248f557e93b770cf6c48ace84754791f3cd
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: eeb932123e57dcb10fce3baf9670d8c1ae961fb8
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621940"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361599"
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>使用 CLI 監視和調整單一 SQL Database
 
-此 Azure CLI 指令碼範例會在查詢單一 Azure SQL Database 的大小資訊後，將其調整為不同的計算大小。 
+此 Azure CLI 指令碼範例會在查詢單一 Azure SQL Database 的大小資訊後，將其調整為不同的計算大小。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝和使用 CLI，本文會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。 
+如果您選擇在本機安裝和使用 CLI，本文會要求您執行 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI]( /cli/azure/install-azure-cli)。
 
 ## <a name="sample-script"></a>範例指令碼
 
@@ -38,7 +38,7 @@ ms.locfileid: "58621940"
 
 ## <a name="clean-up-deployment"></a>清除部署
 
-在執行過指令碼範例之後，您可以使用下列命令來移除資源群組和所有與其相關聯的資源。
+使用下列命令來移除資源群組及其所有相關聯的資源。
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

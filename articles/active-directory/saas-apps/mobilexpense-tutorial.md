@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 62b9fe51b004f623807d72d0bf9ad6865fea0f46
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b86f62bf25801b5259af1c54b55836fca9cf1aed
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889653"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271300"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobile-xpense"></a>教學課程：Azure Active Directory 與 Mobile Xpense 整合
 
@@ -35,7 +35,7 @@ ms.locfileid: "57889653"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Mobile Xpense 的整合，您需要下列項目：
+若要設定 Azure AD 與 Mobile Xpense 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Mobile Xpense 單一登入的訂用帳戶
@@ -104,9 +104,9 @@ ms.locfileid: "57889653"
 
     ![Mobile Xpense 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://mobilexpense.com/ServiceProvider`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://mobilexpense.com/ServiceProvider`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<sub-domain>.mobilexpense.com/NET/SSO/SAML20/SAML/AssertionConsumerService.aspx`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<sub-domain>.mobilexpense.com/NET/SSO/SAML20/SAML/AssertionConsumerService.aspx`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 

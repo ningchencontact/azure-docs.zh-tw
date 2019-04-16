@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 04/08/2018
 ms.author: diberry
-ms.openlocfilehash: 6f775ffaf53019cc50bc38c294b4d5f40c8eca90
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9d6173ee25f28aa884513d126c06a8a7c722098d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58076746"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273833"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>將語音服務與您的 Language Understanding 應用程式整合
 [語音服務](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/)可讓您使用單一要求接收音訊並傳回 LUIS 預測 JSON 物件。 在本文中，您將在 Visual Studio 中下載與使用 C# 專案，對麥克風說話，並接收 LUIS 預測資訊。 該專案會使用語音 [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) 封裝 (已隨附提供參考)。 
@@ -24,7 +24,7 @@ ms.locfileid: "58076746"
 為了操作本文的作業，您需要免費的 [LUIS][LUIS] 網站帳戶才能匯入應用程式。
 
 ## <a name="create-luis-endpoint-key"></a>建立 LUIS 端點金鑰
-在 Azure 入口網站中，[建立 ](luis-how-to-azure-subscription.md)**Language Understanding** (LUIS) 金鑰。 
+在 Azure 入口網站中，為 LUIS 應用程式[建立](luis-how-to-azure-subscription.md)**認知服務** (LUIS) 金鑰。  
 
 ## <a name="import-human-resources-luis-app"></a>匯入 Human Resources LUIS 應用程式
 本文中的意圖和語句皆來自 [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding) \(英文\) GitHub 存放庫中所提供的 Human Resources LUIS 應用程式。 下載 [HumanResources.json](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources.json) 檔案、以 `.json` 副檔名儲存該檔案，然後將它[匯入](luis-how-to-start-new-app.md#import-new-app) LUIS。 
@@ -66,7 +66,7 @@ ms.locfileid: "58076746"
 
 已隨附語音 SDK 供參考。 
 
-[![顯示 Microsoft.CognitiveServices.Speech NuGet 套件的 Visual Studio 2017 螢幕擷取畫面](./media/luis-tutorial-speech-to-intent/nuget-package.png "顯示 Microsoft.CognitiveServices.Speech NuGet 套件的 Visual Studio 2017 螢幕擷取畫面")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
+[![S顯示 Microsoft.CognitiveServices.Speech NuGet 套件的 Visual Studio 2017 螢幕擷取畫面(./media/luis-tutorial-speech-to-intent/nuget-package.png "顯示 Microsoft.CognitiveServices.Speech NuGet 套件的 Visual Studio 2017 螢幕擷取畫面")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>修改 C# 程式碼
 開啟 `Program.cs` 檔案，並變更下列變數：

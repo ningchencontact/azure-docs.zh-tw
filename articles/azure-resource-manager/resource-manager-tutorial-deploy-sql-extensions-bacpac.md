@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/25/2019
+ms.date: 04/08/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 40c7e00ad5271457904fc3273fdb633b0c7a8016
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7339c975bf979907bd1f9bbb46546b58ef7ae6e5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085060"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282350"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>教學課程：使用 Azure Resource Manager 範本匯入 SQL BACPAC 檔案
 
@@ -53,21 +53,21 @@ BACPAC 檔案可在[具有公用存取權的 Azure 儲存體帳戶](https://armt
 
 ## <a name="open-a-quickstart-template"></a>開啟快速入門範本
 
-Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋找範例範本並加以自訂，而不要從頭建立範本。 本教學課程中使用的範本名為[部署具有威脅偵測功能的 Azure SQL Server](https://azure.microsoft.com/resources/templates/201-sql-threat-detection-server-policy-optional-db/)。
+本教學課程中使用的範本會儲存在 [Azure 儲存體帳戶](https://armtutorials.blob.core.windows.net/createsql/azuredeploy.json)中。 
 
 1. 在 Visual Studio Code 中，選取 [檔案]>[開啟檔案]。
 2. 在 [檔案名稱] 中，貼上下列 URL：
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-sql-threat-detection-server-policy-optional-db/azuredeploy.json
+    https://armtutorials.blob.core.windows.net/createsql/azuredeploy.json
     ```
 3. 選取 [開啟] 以開啟檔案。
 
     範本中定義了三項資源：
 
-   * `Microsoft.Sql/servers` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/servers)。
-   * `Microsoft.SQL/servers/securityAlertPolicies` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/securityalertpolicies)。
-   * `Microsoft.SQL.servers/databases` 。  請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases)。
+   * `Microsoft.Sql/servers`上也提供本文中使用的原始碼。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/servers)。
+   * `Microsoft.SQL/servers/securityAlertPolicies`上也提供本文中使用的原始碼。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/securityalertpolicies)。
+   * `Microsoft.SQL.servers/databases`上也提供本文中使用的原始碼。  請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases)。
 
      自訂範本之前，最好能初步了解範本。
 4. 選取 [檔案]>[另存新檔]，以名稱 **azuredeploy.json** 將檔案的複本儲存至您的本機電腦。

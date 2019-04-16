@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d35c33a45f2ce23dabfba20bbd902c058e3033d3
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 3db2b810ba4ba96e492c6b6ba841d9cfa35418a8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540447"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260840"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>使用 Azure 地圖服務來搜尋附近景點
 
@@ -81,11 +81,11 @@ ms.locfileid: "58540447"
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
 
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
-        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
 
         <script>
         function GetMap(){
@@ -116,7 +116,7 @@ ms.locfileid: "58540447"
 
    請注意，HTML 標頭包含 Azure 地圖控制項程式庫所裝載的 CSS 和 JavaScript 資源檔案。 請注意頁面本文上的 `onload` 事件，此事件在頁面本文載入時將會呼叫 `GetMap` 函式。 `GetMap` 函式會包含用以存取「Azure 地圖服務」API 的內嵌 JavaScript 程式碼。
 
-3. 在 HTML 檔案的 `GetMap` 函式中新增下列 JavaScript 程式碼。 將字串 **\<您的 Azure 地圖服務金鑰\>** 取代為您從地圖服務帳戶所複製的主要金鑰。
+3. 在 HTML 檔案的 `GetMap` 函式中新增下列 JavaScript 程式碼。 將字串 `<Your Azure Maps Key>` 取代為您從地圖服務帳戶複製的主要金鑰。
 
     ```JavaScript
     //Instantiate a map object
@@ -129,17 +129,17 @@ ms.locfileid: "58540447"
     });
     ```
 
-   此區段會為 Azure 地圖服務帳戶金鑰初始化地圖控制項 API。 **atlas** 是包含 API 和相關視覺效果元件的命名空間。 **atlas.Map** 可供控制視覺化互動式網路地圖。
+   此區段會為 Azure 地圖服務帳戶金鑰初始化地圖控制項 API。 `atlas` 是包含 API 和相關視覺效果元件的命名空間。 `atlas.Map` 可供控制視覺化互動式網路地圖。
 
-4. 將變更儲存至檔案，並在瀏覽器中開啟 HTML 網頁。 這是您可以藉由呼叫 **atlas.map** 和使用帳戶金鑰來建立的最基本地圖。
+4. 將變更儲存至檔案，並在瀏覽器中開啟 HTML 網頁。 這是您可以藉由呼叫 `atlas.Map` 和使用帳戶金鑰來建立的最基本地圖。
 
    ![檢視地圖](./media/tutorial-search-location/basic-map.png)
 
 5. 在 `GetMap` 函式中，在地圖完成初始化之後新增下列 JavaScript 程式碼。
 
     ```JavaScript
-    //Wait until the map resources are loaded.
-    map.events.add('load', function() {
+    //Wait until the map resources are ready.
+    map.events.add('ready', function() {
 
         //Create a data source and add it to the map.
         datasource = new atlas.source.DataSource();
@@ -161,7 +161,7 @@ ms.locfileid: "58540447"
     });
     ```
 
-   在此程式碼區段中，載入事件會新增至地圖，而地圖將在地圖資源已完全載入時引發。 在地圖載入事件處理常式中，會建立資料來源以儲存結果資料。 系統會建立符號圖層，並將其附加至資料來源。 此圖層會指定應如何呈現資料來源中的結果資料，在此案例中，會在結果座標中央加上深藍色圓釘圖示，而允許其他圖示重疊。 結果圖層會新增至地圖圖層。
+   在此程式碼區段中，`ready` 事件會新增至地圖，而此事件將在地圖資源已載入且地圖可供存取時引發。 在地圖 `ready` 事件處理常式中，會建立資料來源以儲存結果資料。 系統會建立符號圖層，並將其附加至資料來源。 此圖層會指定應如何呈現資料來源中的結果資料，在此案例中，會在結果座標中央加上深藍色圓釘圖示，而允許其他圖示重疊。 結果圖層會新增至地圖圖層。
 
 <a id="usesearch"></a>
 
@@ -171,7 +171,7 @@ ms.locfileid: "58540447"
 
 ### <a name="service-module"></a>服務模組
 
-1. 在地圖載入事件處理常式中，藉由新增下列 Javascript 程式碼來建構搜尋服務 URL。
+1. 在地圖 `ready` 事件處理常式中，藉由新增下列 Javascript 程式碼來建構搜尋服務 URL。
 
     ```JavaScript
    // Use SubscriptionKeyCredential with a subscription key
@@ -184,9 +184,9 @@ ms.locfileid: "58540447"
    var searchURL = new atlas.service.SearchURL(pipeline); 
    ```
 
-   **SubscriptionKeyCredential** 會建立 **SubscriptionKeyCredentialPolicy**，以使用訂用帳戶金鑰驗證對「Azure 地圖服務」的 HTTP 要求。 **atlas.service.MapsURL.newPipeline()** 會採用 **SubscriptionKeyCredential** 原則，並建立[管線](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest)執行個體。 **searchURL** 代表「Azure 地圖服務」[搜尋](https://docs.microsoft.com/rest/api/maps/search)作業的 URL。
+   `SubscriptionKeyCredential` 會建立 `SubscriptionKeyCredentialPolicy`，以使用訂用帳戶金鑰驗證對「Azure 地圖服務」的 HTTP 要求。 `atlas.service.MapsURL.newPipeline()` 會採用 `SubscriptionKeyCredential` 原則，並建立[管線](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest)執行個體。 `searchURL` 代表 Azure 地圖服務[搜尋](https://docs.microsoft.com/rest/api/maps/search)作業的 URL。
 
-2. 接著，新增下列指令碼區塊以建置搜尋查詢。 它會使用模糊搜尋服務，這是搜尋服務的基本搜尋 API。 模糊搜尋服務可處理大部分的模糊輸入，例如地址、地點和景點 (POI)。 此程式碼會在所提供經緯度的指定半徑範圍內，搜尋附近的加油站。 接著會使用 **geojson.getFeatures()** 方法，從回應中擷取 GeoJSON 功能集合並新增至資料來源，而自動使資料透過符號圖層呈現在地圖上。 指令碼的最後一個部分會透過地圖的 [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) 屬性使用結果的週框方塊來設定地圖相機檢視。
+2. 接著，新增下列指令碼區塊以建置搜尋查詢。 它會使用模糊搜尋服務，這是搜尋服務的基本搜尋 API。 模糊搜尋服務可處理大部分的模糊輸入，例如地址、地點和景點 (POI)。 此程式碼會在所提供經緯度的指定半徑範圍內，搜尋附近的加油站。 接著會使用 `geojson.getFeatures()` 方法，從回應中擷取 GeoJSON 功能集合並新增至資料來源，而自動使資料透過符號圖層呈現在地圖上。 指令碼的最後一個部分會透過地圖的 [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) 屬性使用結果的週框方塊來設定地圖相機檢視。
 
     ```JavaScript
     var query =  'gasoline-station';
@@ -229,7 +229,7 @@ ms.locfileid: "58540447"
 
 我們到目前為止所建立的地圖只會查看搜尋結果的經緯度資料。 但如果您看一下地圖服務的搜尋服務所傳回的原始 JSON，就會看到它包含每個加油站的其他資訊，包括名稱和街道地址。 您可以使用互動式快顯方塊將該資料合併到地圖中。
 
-1. 在查詢模糊搜尋服務的程式碼後面，在地圖載入事件處理常式中新增以下幾行程式碼。 這會建立快顯視窗的執行個體，並將滑鼠停駐事件新增至符號圖層。
+1. 在查詢模糊搜尋服務的程式碼後面，在地圖 `ready` 事件處理常式中新增以下幾行程式碼。 這會建立快顯視窗的執行個體，並將滑鼠停駐事件新增至符號圖層。
 
     ```JavaScript
    //Create a popup but leave it closed so we can update it and display it later.
@@ -239,7 +239,7 @@ ms.locfileid: "58540447"
     map.events.add('mouseover', resultLayer, showPopup);
     ```
 
-    API **atlas.Popup** 可提供錨定在地圖上所需位置的資訊視窗。 
+    API `sup` 可提供錨定在地圖上所需位置的資訊視窗。 
 
 2. 在 *script* 標籤中 `GetMap` 函式的後面新增下列程式碼，以在快顯視窗中顯示滑鼠停駐的結果資訊。
 

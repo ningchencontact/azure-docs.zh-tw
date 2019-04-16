@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa1e9749040c61f8c6a52f3635b7b8aa13a0cdff
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0e37b35f87920016f81bda60fe8a9b6f1714eaae
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834773"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277251"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>教學課程：Azure Active Directory 與 MobileIron 整合
 
@@ -71,7 +71,7 @@ MobileIron 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 MobileIron 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者身分，設定及測試與 MobileIron 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 MobileIron 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 MobileIron 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
@@ -80,7 +80,7 @@ MobileIron 與 Azure AD 整合提供下列優點：
 2. **[設定 MobileIron 單一登入](#configure-mobileiron-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 MobileIron 測試使用者](#create-mobileiron-test-user)** - 在 MobileIron 中建立一個與 Azure AD 中代表 Britta Simon 之使用者連結的 Britta Simon 對應項目。
+5. **[建立 MobileIron 測試使用者](#create-mobileiron-test-user)** - 在 MobileIron 中建立 Britta Simon 的對應項目，且該項目與 Azure AD 中代表該使用者的項目連結。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
@@ -101,13 +101,13 @@ MobileIron 與 Azure AD 整合提供下列優點：
 
     ![編輯基本 SAML 組態](common/edit-urls.png)
 
-4. 若您想要以 **IDP** 起始模式設定應用程式，請在 [基本 SAML 組態] 區段執行下列步驟：
+4. 若您想要以 **IDP** 起始模式設定應用程式，請在 [基本 SAML 組態] 區段執行下列步驟：
 
     ![MobileIron 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://www.mobileiron.com/<key>`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://www.mobileiron.com/<key>`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<host>.mobileiron.com/saml/SSO/alias/<key>`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<host>.mobileiron.com/saml/SSO/alias/<key>`
 
     c. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
@@ -173,7 +173,7 @@ MobileIron 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，輸入 **MobileIron** 並加以選取。
 
-    ![應用程式清單中的 [MobileIron] 連結](common/all-applications.png)
+    ![應用程式清單中的 MobileIron 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

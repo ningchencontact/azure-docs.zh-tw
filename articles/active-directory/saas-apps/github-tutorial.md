@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65badda86fa29dc68f2eef1e9c0883dc8b40107a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 25540d1f26fa6021ef05108f9743e77a6184f3b3
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852887"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426319"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>教學課程：Azure Active Directory 與 GitHub 整合
 
@@ -67,7 +67,7 @@ GitHub 與 Azure AD 整合提供下列優點：
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
-4. 在搜尋方塊中，輸入 **GitHub**，從結果面板中選取 [GitHub]，然後按一下 [新增] 按鈕以新增應用程式。
+4. 在搜尋方塊中，輸入 **GitHub**，從結果面板中選取 [GitHub.com]，然後按一下 [新增] 按鈕以新增應用程式。
 
      ![結果清單中的 GitHub](common/search-new-app.png)
 
@@ -107,9 +107,9 @@ GitHub 與 Azure AD 整合提供下列優點：
 
     ![GitHub 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://github.com/orgs/<entity-id>/sso`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://github.com/orgs/<entity-id>/sso`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://github.com/orgs/<entity-id>`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `https://github.com/orgs/<entity-id>`
 
     > [!NOTE]
     > 請注意這些不是真正的值。 您必須使用實際的登入 URL 及識別碼來更新這些值。 在此建議您在 [識別碼] 中使用唯一的字串值。 移至 [GitHub 管理] 區段來擷取這些值。

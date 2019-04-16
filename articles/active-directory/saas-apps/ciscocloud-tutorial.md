@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 895f648e59e8efdc19d7e09a0493e80fb80d0409
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5a59dbd934ba1a449f7671d433529513b9f14c80
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877882"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282877"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>教學課程：Azure Active Directory 與 Cisco Cloud 整合
 
@@ -103,15 +103,15 @@ ms.locfileid: "57877882"
 
 4. 在 [基本 SAML 組態] 區段上，若您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
 
-    ![Cisco Cloud 網域及 URL 單一登入資訊](common/idp-intiated.png)
+    ![Cisco Cloud 網域和 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`<subdomain>.cisco.com`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `<subdomain>.cisco.com`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.cisco.com/sp/ACS.saml2`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<subdomain>.cisco.com/sp/ACS.saml2`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-    ![Cisco Cloud 網域及 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
+    ![Cisco Cloud 網域和 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
 
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<subdomain>.cloudapps.cisco.com`
 
@@ -191,7 +191,7 @@ ms.locfileid: "57877882"
 
 2. 在應用程式清單中，選取 [Cisco Cloud]。
 
-    ![應用程式清單中的 [Cisco Cloud] 連結](common/all-applications.png)
+    ![應用程式清單中的 Cisco Cloud 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

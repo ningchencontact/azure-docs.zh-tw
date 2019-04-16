@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: jeedes
-ms.openlocfilehash: ed34267aa1f18b4c66fe841164e6a2cde4e27d47
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 385092cb9c760e6f9fa848449bd61663541573b9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361042"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256749"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>教學課程：Azure Active Directory 與 IBM Kenexa Survey Enterprise 整合
 
@@ -105,9 +105,9 @@ IBM Kenexa Survey Enterprise 與 Azure AD 整合提供下列優點：
 
     ![IBM Kenexa Survey Enterprise 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://surveys.kenexa.com/<companycode>`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://surveys.kenexa.com/<companycode>`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://surveys.kenexa.com/<companycode>/tools/sso.asp`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://surveys.kenexa.com/<companycode>/tools/sso.asp`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [IBM Kenexa Survey Enterprise 用戶端支援小組](https://www.ibm.com/support/home/?lnk=fcw)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/19/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 40e372b779d06656b111ad3d7de435b99c401dc3
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: fa9b091beacbc98c6939ec0454bd04da2b7561e7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669498"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278695"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>教學課程：在 Azure 中調整 Service Fabric 叢集
 
@@ -41,12 +41,15 @@ ms.locfileid: "58669498"
 > * [升級叢集的執行階段](service-fabric-tutorial-upgrade-cluster.md)
 > * [刪除叢集](service-fabric-tutorial-delete-cluster.md)
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>必要條件
 
 開始進行本教學課程之前：
 
 * 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* 安裝 [Azure PowerShell 模組 4.1 版或更新版本](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)或 [Azure CLI](/cli/azure/install-azure-cli)。
+* 安裝 [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) 或 [Azure CLI](/cli/azure/install-azure-cli)。
 * 在 Azure 上建立安全的 [Windows 叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 
 ## <a name="important-considerations-and-guidelines"></a>重要考量和方針
@@ -98,7 +101,7 @@ ms.locfileid: "58669498"
 將所有變更儲存到 *template.json* 和 *parameters.json* 檔案。  若要部署更新的範本，請執行下列命令：
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
+New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
 ```
 或是下列 Azure CLI 命令：
 ```azure-cli
@@ -804,7 +807,7 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 將所有變更儲存到 *template.json* 和 *parameters.json* 檔案。  若要部署更新的範本，請執行下列命令：
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
+New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
 ```
 或是下列 Azure CLI 命令：
 ```azure-cli
@@ -815,16 +818,16 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 建立 Service Fabric 叢集之後，您可以透過移除節點類型 (虛擬機器擴展集) 與其所有節點，來水平調整叢集規模。 您可以隨時調整叢集，即使正在叢集上執行工作負載，也是如此。 在叢集進行調整時，您的應用程式也會自動調整。
 
 > [!WARNING]
-> 不建議經常使用 Remove-AzureRmServiceFabricNodeType 從生產環境叢集移除節點類型。 它是非常危險的命令，因為它會刪除節點類型後的虛擬機器擴展集資源。 
+> 不建議經常使用 Remove-AzServiceFabricNodeType 從生產環境叢集移除節點類型。 它是非常危險的命令，因為它會刪除節點類型後的虛擬機器擴展集資源。 
 
-若要移除節點類型，請執行 [Remove-AzureRmServiceFabricNodeType](/powershell/module/azurerm.servicefabric/remove-azurermservicefabricnodetype) Cmdlet。  節點類型必須是銀級或金級[持久性層級][ durability]。此 Cmdlet 會刪除與節點類型相關聯的擴展集，而且需要一些時間才能完成。  接著在每個要移除的節點上執行 [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) Cmdlet，以刪除節點狀態，並從叢集中移除節點。 如果節點上有服務，則會先將服務移出至另一個節點。 如果叢集管理員找不到複本/服務的節點，則作業會延遲/封鎖。
+若要移除節點類型，請執行 [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) Cmdlet。  節點類型必須是銀級或金級[持久性層級][ durability]。此 Cmdlet 會刪除與節點類型相關聯的擴展集，而且需要一些時間才能完成。  接著在每個要移除的節點上執行 [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) Cmdlet，以刪除節點狀態，並從叢集中移除節點。 如果節點上有服務，則會先將服務移出至另一個節點。 如果叢集管理員找不到複本/服務的節點，則作業會延遲/封鎖。
 
 ```powershell
 $groupname = "sfclustertutorialgroup"
 $nodetype = "nt4vm"
 $clustername = "mysfcluster123"
 
-Remove-AzureRmServiceFabricNodeType -Name $clustername  -NodeType $nodetype -ResourceGroupName $groupname
+Remove-AzServiceFabricNodeType -Name $clustername  -NodeType $nodetype -ResourceGroupName $groupname
 
 Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.eastus.cloudapp.azure.com:19000 `
           -KeepAliveIntervalInSec 10 `
@@ -861,7 +864,7 @@ Foreach($node in $nodes)
 將所有變更儲存到 *template.json* 和 *parameters.json* 檔案。  若要部署更新的範本，請執行下列命令：
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
+New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
 ```
 或是下列 Azure CLI 命令：
 ```azure-cli
@@ -874,6 +877,18 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 
 > [!div class="checklist"]
 > * 新增和移除節點 (相應放大和相應縮小)
+> * 新增和移除節點類型 (相應放大和相應縮小)
+> * 增加節點資源 (相應增加)
+
+接下來，請前往下列教學課程，了解如何升級叢集執行階段。
+> [!div class="nextstepaction"]
+> [升級叢集的執行階段](service-fabric-tutorial-upgrade-cluster.md)
+
+[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
+[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
+和相應縮小))
 > * 新增和移除節點類型 (相應放大和相應縮小)
 > * 增加節點資源 (相應增加)
 

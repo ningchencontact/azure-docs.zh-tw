@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 143c36df623085eb4f07363d9c9ebd64d4f5a144
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ef510ca88f1b305125c7840932641c8a2359d8c9
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104755"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045236"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>快速入門：使用 Azure PowerShell 建立服務匯流排佇列
 Microsoft Azure 服務匯流排是一項企業整合訊息代理程式，可提供安全的傳訊和絕對的可靠性。 典型的服務匯流排案例通常會牽涉到將兩個或更多應用程式、服務或程序彼此分開處理，以及傳輸狀態或資料變更。 此類案例可能牽涉到在另一個應用程式或服務中排程多個批次作業，或觸發訂單履行。 例如，零售公司可能會將其銷售點資料傳送至後端辦公室或區域配送中心，以進行補貨和庫存更新。 在此案例中，用戶端應用程式會對服務匯流排佇列傳送及接收訊息。
@@ -25,6 +25,8 @@ Microsoft Azure 服務匯流排是一項企業整合訊息代理程式，可提�
 本快速入門說明如何使用 PowerShell 建立傳訊命名空間和該命名空間內的佇列，以對服務匯流排佇列傳送和接收訊息，以及如何取得該命名空間上的授權認證。 程序接著會說明如何使用 [.NET Standard 程式庫](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)從這個佇列傳送和接收訊息。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶][]。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -40,20 +42,20 @@ Microsoft Azure 服務匯流排是一項企業整合訊息代理程式，可提�
 1. 首先，如果您尚未安裝服務匯流排 PowerShell 模組，請加以安裝。
 
    ```azurepowershell-interactive
-   Install-Module AzureRM.ServiceBus
+   Install-Module Az.ServiceBus
    ```
 
 2. 執行下列命令以登入 Azure：
 
    ```azurepowershell-interactive
-   Login-AzureRmAccount
+   Login-AzAccount
    ```
 
 3. 發出下列命令以設定目前的訂用帳戶內容，或者，若要查看目前作用中訂用帳戶：
 
    ```azurepowershell-interactive
-   Select-AzureRmSubscription -SubscriptionName "MyAzureSubName" 
-   Get-AzureRmContext
+   Select-AzSubscription -SubscriptionName "MyAzureSubName" 
+   Get-AzContext
    ```
 
 ## <a name="provision-resources"></a>佈建資源
@@ -62,19 +64,19 @@ Microsoft Azure 服務匯流排是一項企業整合訊息代理程式，可提�
 
 ```azurepowershell-interactive
 # Create a resource group 
-New-AzureRmResourceGroup –Name my-resourcegroup –Location eastus
+New-AzResourceGroup –Name my-resourcegroup –Location eastus
 
 # Create a Messaging namespace
-New-AzureRmServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location eastus
+New-AzServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location eastus
 
 # Create a queue 
-New-AzureRmServiceBusQueue -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Name queue-name -EnablePartitioning $False
+New-AzServiceBusQueue -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Name queue-name -EnablePartitioning $False
 
 # Get primary connection string (required in next step)
-Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
+Get-AzServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
 ```
 
-在 `Get-AzureRmServiceBusKey` Cmdlet 執行之後，請將連接字串與您選取的佇列名稱複製並貼到暫存位置，例如 [記事本]。 您在下一個步驟將會用到這些資料。
+在 `Get-AzServiceBusKey` Cmdlet 執行之後，請將連接字串與您選取的佇列名稱複製並貼到暫存位置，例如 [記事本]。 您在下一個步驟將會用到這些資料。
 
 ## <a name="send-and-receive-messages"></a>傳送及接收訊息
 
@@ -90,10 +92,10 @@ Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespac
 
 3. 瀏覽至範例資料夾 `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`。
 
-4. 如果您尚未使用下列 PowerShell Cmdlet 取得連接字串，請執行此動作。 請務必將 `my-resourcegroup` 和 `namespace-name` 取代為您自己的值： 
+4. 如果您尚未使用下列 PowerShell Cmdlet 取得連接字串，請執行此動作。 請務必將 `my-resourcegroup`  和  `namespace-name` 取代為您自己的值： 
 
    ```azurepowershell-interactive
-   Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
+   Get-AzServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
 
 5. 在 PowerShell 提示字元中，輸入下列命令：
@@ -119,7 +121,7 @@ Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespac
 執行下列命令以移除資源群組、命名空間和所有相關資源：
 
 ```powershell-interactive
-Remove-AzureRmResourceGroup -Name my-resourcegroup
+Remove-AzResourceGroup -Name my-resourcegroup
 ```
 
 ## <a name="understand-the-sample-code"></a>了解範例程式碼
@@ -128,7 +130,7 @@ Remove-AzureRmResourceGroup -Name my-resourcegroup
 
 ### <a name="get-connection-string-and-queue"></a>取得連接字串和佇列
 
-連接字串和佇列名稱會傳至 `Main()` 方法作為命令列引數。 `Main()` 會宣告兩個字串變數來保存這些值：
+連接字串和佇列名稱會傳至 `Main()` 方法作為命令列引數。 `Main()` 宣告兩個字串變數來保存這些值：
 
 ```csharp
 static void Main(string[] args)
@@ -263,4 +265,4 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 > [使用 Azure PowerShell 更新庫存](./service-bus-tutorial-topics-subscriptions-powershell.md)
 
 [免費帳戶]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[安裝和設定 Azure PowerShell]: /powershell/azure/azurerm/install-azurerm-ps
+[安裝和設定 Azure PowerShell]: /powershell/azure/install-Az-ps

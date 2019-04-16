@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/11/2018
 ms.author: mjbrown
-ms.openlocfilehash: 9f890a8468eaa22fbfce326fc16afe545fd515d6
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: c94509fb39d1c5ebb9aec1acfe1cbacc9cd6fd4a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339307"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268397"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>如何在 Azure Cosmos DB 中撰寫預存程序、觸發程序和使用者定義函式
 
@@ -279,7 +279,7 @@ function updateMetadataCallback(err, items, responseOptions) {
 }
 ```
 
-有一點務必要注意，那就是在 Azure Cosmos DB 中執行的交易式觸發程序。 此後續觸發程序會在建立 Azure Cosmos DB 項目所使用的相同交易中執行。 因此，如果在後續觸發程序執行期間擲回例外狀況 (例如，如果您無法更新中繼資料項目)，則整個交易都會失敗並回復。 因此會建立 Azure Cosmos DB 項目，並傳回例外狀況。
+有一點務必要注意，那就是在 Azure Cosmos DB 中執行的交易式觸發程序。 後續觸發程序也會在基礎項目本身的相同交易中執行。 後續觸發程序執行期間發生的例外狀況會導致整個交易失敗。 系統會復原已認可的所有項目，並傳回例外狀況。
 
 如需如何註冊及呼叫預先觸發程序的範例，請參閱[預先觸發程序](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers)和[後續觸發程序](how-to-use-stored-procedures-triggers-udfs.md#post-triggers)文章。 
 
@@ -324,4 +324,4 @@ function tax(income) {
 
 * [在 Azure Cosmos DB 中使用 Azure Cosmos DB 預存程序、觸發程序及使用者定義函式](stored-procedures-triggers-udfs.md)
 
-* [在 Azure Cosmos DB 中使用 JavaScript 語言整合式查詢 API](javascript-query-api.md)
+* [在 Azure Cosmos DB 中使用 JavaScript Language-integrated Query (LINQ) API](javascript-query-api.md)

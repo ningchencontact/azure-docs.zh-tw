@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: e2846f5c70fe588e42f95afb0980f5e5c7d3ac56
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: c5d2002393165eb734b80e0fbc3677915809ba8b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576908"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282622"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>教學課程：Azure Active Directory 與 Predictix Assortment Planning 整合
 
@@ -51,7 +51,7 @@ Predictix Assortment Planning 與 Azure AD 整合提供下列優點：
 
 若要設定 Predictix Assortment Planning 與 Azure AD 的整合作業，您需要從資源庫將 Predictix Assortment Planning 加入受控 SaaS 應用程式清單中。
 
-**若要從資源庫加入 Predictix Assortment Planning，請執行下列步驟：**
+**若要從資源庫新增 Predictix Assortment Planning，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 

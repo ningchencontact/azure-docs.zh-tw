@@ -1,19 +1,18 @@
 ---
 title: 範例 - 允許的儲存體帳戶和虛擬機器 SKU
 description: 此原則定義範例會要求儲存體帳戶和虛擬機器使用已核准的 SKU。
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 7488231363b0cbf96e25da28751065012754212e
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 088dd8414c93b609326e7cd72828426dcb00fc28
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803777"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274564"
 ---
 # <a name="sample---allowed-skus-for-storage-accounts-and-virtual-machines"></a>範例 - 允許的儲存體帳戶和虛擬機器 SKU
 
@@ -29,7 +28,7 @@ ms.locfileid: "58803777"
 
 ## <a name="deploy-with-the-portal"></a>使用入口網站部署
 
-[![將原則範例部署至 Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+[![D將原則範例部署至 Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 部署
 

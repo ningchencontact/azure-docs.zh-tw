@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: jeedes
-ms.openlocfilehash: 7286f507c8374c56ecedf84c3775be57f8aa4872
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: b62ac8229d121738c23a4520bc1c1952603e2a12
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58074755"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273918"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-powerschool-performance-matters"></a>教學課程：Azure Active Directory 與 Powerschool Performance Matters 整合
 
@@ -103,7 +103,7 @@ ms.locfileid: "58074755"
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![[Application Name] 網域及 URL 單一登入資訊](common/sp-signonurl.png)
+    ![[Application Name] 網域與 URL 單一登入資訊](common/sp-signonurl.png)
 
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰
     

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 7/17/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: 445437fe92ec75f1d34021808d7d47a372c2a44b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d167ed012e3f0e45988c88b64040208d87623518
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535173"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275475"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>在 Azure 中備份虛擬機器
 您可以透過 Azure 入口網站建立 Azure 備份。 此方法可提供以瀏覽器為基礎的使用者介面，以便建立和設定 Azure 備份及所有相關的資源。 您可以定期建立備份以保護您的資料。 Azure 備份會建立復原點，其可儲存在異地備援復原保存庫中。 本文詳述如何使用 Azure 入口網站來備份虛擬機器 (VM)。 
@@ -79,7 +79,7 @@ VM 的 [備份] 視窗中會顯示備份的狀態及已完成的還原點數目�
 
 3. 從下拉式功能表中選取 [刪除備份資料]。
 
-4. 在 [輸入備份項目的名稱] 對話方塊中，輸入您的 VM 名稱，例如 myVM。 選取 [停止備份]
+4. 在 [輸入備份項目的名稱] 對話方塊中，輸入您的 VM 名稱，例如 myVM。 選取 [停止備份]。
 
     一旦停止 VM 備份並移除復原點，您即可刪除資源群組。 如果您使用現有的 VM，建議您將資源群組和 VM 留在原處。
 

@@ -1,7 +1,7 @@
 ---
 title: 快速入門：辨識語音，Java (Windows、Linux) - 語音服務
 titleSuffix: Azure Cognitive Services
-description: 在此快速入門中，您會了解如何建立簡單的 Java 應用程式，以擷取及轉譯來自電腦麥克風的使用者語音。
+description: 在此快速入門中，您將了解如何建立簡單的 Java 應用程式，以擷取及轉譯來自電腦麥克風的使用者語音。
 services: cognitive-services
 author: fmegen
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: 83d6c430d0973d4b45fcfc40bbb93ae283d1133d
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: fe565d63e72b5ec2798dde03ba4f4bd9ff4f48a7
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447577"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009394"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>快速入門：使用適用於 Java 的語音 SDK 來辨識語音
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-在本文中，您會使用[語音 SDK](speech-sdk.md)，建立 Java 主控台應用程式。 您將來自電腦麥克風的語音即時轉譯為文字。 此應用程式是使用語音 SDK Maven 套件，以及 64 位元 Windows 或 64 位元 Ubuntu Linux 16.04 / 18.04 上的 Eclipse Java IDE (v4.8) 來建置。 它會在 64 位元 Java 8 Runtime Environment (JRE) 上執行。
+在本文中，您會使用[語音 SDK](speech-sdk.md)，建立 Java 主控台應用程式。 您將來自電腦麥克風的語音即時轉譯為文字。 此應用程式是使用語音 SDK Maven 套件，以及 64 位元 Windows、64 位元 Ubuntu Linux 16.04/18.04 或 macOS 10.13 或更新版本上的 Eclipse Java IDE (v4.8) 來建置。 它會在 64 位元 Java 8 Runtime Environment (JRE) 上執行。
 
 > [!NOTE]
 > 針對語音裝置 SDK 和 Roobo 裝置，請參閱[語音裝置 SDK](speech-devices-sdk.md)。
@@ -30,7 +30,7 @@ ms.locfileid: "56447577"
 
 本快速入門需要：
 
-* 作業系統：Windows (64 位元) 或 Ubuntu Linux 16.04/18.04 (64 位元)
+* 作業系統：Windows (64 位元)、Ubuntu Linux 16.04/18.04 (64 位元) 或 macOS 10.13 或更新版本
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) \(英文\) 或 [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html) \(英文\)
 * 適用於語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
@@ -80,7 +80,7 @@ sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 在 GitHub 上可取得其他範例，例如如何讀取音訊檔案中的語音。
 
 > [!div class="nextstepaction"]
-> [瀏覽 GitHub 上的 Java 範例](https://aka.ms/csspeech/samples)
+> [探索 GitHub 上的 Java 範例](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>另請參閱
 

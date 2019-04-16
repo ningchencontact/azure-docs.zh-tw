@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 2cdadb8345f88c8d6f5960d1951c1368c666430b
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 7f5996b41da68adc83c26e836c9fb1a175107337
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189269"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277796"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>教學課程：Azure Active Directory 與 Infogix Data3Sixty Govern 整合
 
@@ -106,9 +106,9 @@ Infogix Data3Sixty Govern 與 Azure AD 整合提供下列優點：
 
     ![Infogix Data3Sixty Govern 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，鍵入 URL：`https://data3sixty.com/ui`
+    a. 在 [識別碼] 文字方塊中，鍵入 URL： `https://data3sixty.com/ui`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.data3sixty.com/sso/acs`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<subdomain>.data3sixty.com/sso/acs`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 

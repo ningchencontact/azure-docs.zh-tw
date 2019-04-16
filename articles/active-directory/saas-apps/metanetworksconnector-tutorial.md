@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: aa0d7828534c96d9bda85e80fb297c848cec6845
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 95a138a6dd499df18789e9b587e770a9b7bf7dab
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887015"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279664"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>教學課程：Azure Active Directory 與 Meta Networks Connector 整合
 
@@ -35,7 +35,7 @@ Meta Networks Connector 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Meta Networks Connector 的整合，您需要下列項目：
+若要設定 Azure AD 與 Meta Networks Connector 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Meta Networks Connector 單一登入的訂用帳戶
@@ -72,10 +72,10 @@ Meta Networks Connector 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Meta Networks Connector 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者身分，設定及測試與 Meta Networks Connector 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須在 Azure AD 使用者與 Meta Networks Connector 中的相關使用者之間建立連結關聯性。
 
-若要設定及測試與 Meta Networks Connector 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 Meta Networks Connector 來設定並測試 Azure AD 單一登入，您需要完成下列基本工作：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Meta Networks Connector 單一登入](#configure-meta-networks-connector-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -106,17 +106,17 @@ Meta Networks Connector 與 Azure AD 整合提供下列優點：
 
     ![Meta Networks Connector 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/sso/saml`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/sso/saml`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
     ![Meta Networks Connector 網域及 URL 單一登入資訊](common/both-advanced-urls.png)
 
-    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`
+    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰ `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`
 
-    b. 在 [轉送狀態] 文字方塊中，使用下列模式輸入 URL：`https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/#/`
+    b. 在 [轉送狀態] 文字方塊中，使用下列模式輸入 URL： `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/#/`
 
     > [!NOTE]
     > 這些都不是真正的值。 本教學課程稍後會說明如何使用實際的「識別碼」、「回覆 URL」及「登入 URL」來更新這些值。
@@ -190,11 +190,11 @@ Meta Networks Connector 與 Azure AD 整合提供下列優點：
     
     ![設定單一登入](./media/metanetworksconnector-tutorial/configure2.png)
     
-    a. 複製 [SSO URL] 值，然後將其貼到 [Meta Networks Connector 網域及 URL] 區段的 [登入 URL] 文字方塊中。
+    a. 複製 [SSO URL] 值並將它貼至 [Meta Networks Connector 網域和 URL] 區段的 [登入 URL] 文字方塊。
     
-    b. 複製 [Recipient URL] \(收件者 URL\) 值，然後將其貼到 [Meta Networks Connector 網域及 URL] 區段的 [回覆 URL] 文字方塊中。
+    b. 複製 [收件者 URL] 值並將它貼至 [Meta Networks Connector 網域和 URL] 區段的 [回覆 URL] 文字方塊。
     
-    c. 複製 [Audience URI (SP Entity ID)] \(對象 URI (SP 實體識別碼\) 值，然後將其貼到 [Meta Networks Connector 網域及 URL] 區段的 [識別碼 (實體識別碼)] 文字方塊中。
+    c. 複製 [對象 URI (SP 實體識別碼)] 值並將它貼至 [Meta Networks Connector 網域和 URL] 區段的 [識別碼 (實體識別碼)] 文字方塊。
     
     d. 啟用 SAML
     
@@ -245,7 +245,7 @@ Meta Networks Connector 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Meta Networks Connector]。
 
-    ![應用程式清單中的 [Meta Networks Connector] 連結](common/all-applications.png)
+    ![應用程式清單中的 Meta Networks Connector 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -272,7 +272,7 @@ Meta Networks Connector 與 Azure AD 整合提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Meta Networks Connector] 圖格時，應該就會自動登入您已設定 SSO 的 Meta Networks Connector。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 Meta Networks Connector 圖格時，應該就會自動登入您已設定 SSO 的 Meta Networks Connector。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

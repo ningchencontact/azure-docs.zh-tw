@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 689a8d289c6dfa58e70db63373178dec4e109c72
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 499cbcada19728a0d0eba1831460ea38245b7f5c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877576"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267407"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-chronicx"></a>教學課程：Azure Active Directory 與 ChronicX® 整合
 
@@ -36,7 +36,7 @@ ChronicX® 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 ChronicX® 的整合，您需要下列項目：
+若要設定 Azure AD 與 ChronicX® 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 ChronicX® 單一登入的訂用帳戶
@@ -45,7 +45,7 @@ ChronicX® 與 Azure AD 整合提供下列優點：
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* ChronicX® 支援由 **SP** 起始的 SSO
+* ChronicX® 支援 **SP** 起始的 SSO
 * ChronicX® 支援 **Just In Time** 使用者佈建
 
 ## <a name="adding-chronicx-from-the-gallery"></a>從資源庫新增 ChronicX®
@@ -72,10 +72,10 @@ ChronicX® 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 ChronicX® 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 ChronicX® 來設定和測試 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 ChronicX® 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 ChronicX® 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 ChronicX® 來設定和測試 Azure AD 單一登入，您需要完成下列基本工作：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 ChronicX® 單一登入](#configure-chronicx-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -88,7 +88,7 @@ ChronicX® 與 Azure AD 整合提供下列優點：
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要設定與 ChronicX® 搭配運作的 Azure AD 單一登入，請執行下列步驟：
+若要使用 ChronicX® 設定 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [ChronicX®] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -106,9 +106,9 @@ ChronicX® 與 Azure AD 整合提供下列優點：
 
     ![ChronicX® 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.chronicx.com/ups/processlogonSSO.jsp`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.chronicx.com/ups/processlogonSSO.jsp`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，輸入 URL：`ups.chronicx.com`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，輸入 URL： `ups.chronicx.com`
 
     > [!NOTE]
     >[登入 URL] 的值不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [ChronicX® 用戶端支援小組](https://www.casebank.com/contact-us/)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
@@ -166,7 +166,7 @@ ChronicX® 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [ChronicX®]。
 
-    ![應用程式清單中的 [ChronicX®] 連結](common/all-applications.png)
+    ![應用程式清單中的 ChronicX® 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -184,7 +184,7 @@ ChronicX® 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-chronicx-test-user"></a>建立 ChronicX 測試使用者
 
-本節會在 ChronicX® 中建立名為 Britta Simon 的使用者。 ChronicX® 支援預設會啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 ChronicX® 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
+本節會在 ChronicX® 中建立名為 Britta Simon 的使用者。 ChronicX® 支援依預設啟用的 Just-In-Time 使用者佈建。 在這一節沒有您需要進行的動作項目。 如果 ChronicX® 中還沒有任何使用者存在，在驗證之後就會建立新的使用者。
 
 > [!Note]
 > 如果您需要手動建立使用者，請連絡  [ChronicX® 支援小組](https://www.casebank.com/contact-us/)。
@@ -193,7 +193,7 @@ ChronicX® 與 Azure AD 整合提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [ChronicX®] 圖格時，應該會自動登入您已設定 SSO 的 ChronicX®。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 ChronicX® 圖格時，應該會自動登入您已設定 SSO 的 ChronicX®。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -1,20 +1,19 @@
 ---
 title: 入門查詢範例
 description: 使用 Azure Resource Graph 來執行某些起始查詢，包括計算資源、排序資源或依特定標記。
-services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 04/04/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fd945b5fd9f26cc65c5b049406831228a3d5f327
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 2ba48e2a21bdee0c5698bdfa314dd3bf462c1c7e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338711"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267764"
 ---
 # <a name="starter-resource-graph-queries"></a>入門 Resource Graph 查詢
 
@@ -23,7 +22,7 @@ ms.locfileid: "56338711"
 我們將逐步解說下列入門查詢︰
 
 > [!div class="checklist"]
-> - [計算的 Azure 資源計數](#count-resources)
+> - [計算 Azure 資源](#count-resources)
 > - [列出依名稱排序的資源](#list-resources)
 > - [依名稱遞減順序顯示所有虛擬機器](#show-vms)
 > - [依名稱顯示前五個虛擬機器及其作業系統類型](#show-sorted)
@@ -95,7 +94,7 @@ Search-AzGraph -Query "project name, location, type| where type =~ 'Microsoft.Co
 
 ## <a name="show-sorted"></a>依名稱顯示前五個虛擬機器及其作業系統類型
 
-此查詢會使用 `limit`，僅擷取按名稱排序的五個相符記錄。 Azure 資源類型為 `Microsoft.Compute/virtualMachines`。 `project` 會告訴 Azure Resource Graph 要包含哪些屬性。
+此查詢會使用 `limit`，僅擷取按名稱排序的五個相符記錄。 Azure 資源類型為 `Microsoft.Compute/virtualMachines`。 `project` 告訴 Azure Resource Graph 要包含哪些屬性。
 
 ```Query
 where type =~ 'Microsoft.Compute/virtualMachines'
@@ -167,20 +166,22 @@ Search-AzGraph -Query "where type contains 'storage' | distinct type"
 ## <a name="list-publicip"></a>列出所有公用 IP 位址
 
 與上述查詢類似，尋找類型具有字組 **publicIPAddresses** 的所有項目。
-此查詢擴展該模式，以排除 **properties.ipAddress** 為 Null 的結果，僅傳回 **properties.ipAddress**，並將結果 `limit` 在前 100 個。 您可能需要逸出的引號，根據您所選擇的殼層而定。
+此查詢將該模式擴展為僅包含 **properties.ipAddress**
+`isnotempty` 的結果，因此會僅傳回 **properties.ipAddress**，並將結果 `limit` 在前
+100. 您可能需要逸出的引號，根據您所選擇的殼層而定。
 
 ```Query
-where type contains 'publicIPAddresses' and properties.ipAddress != ''
+where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress)
 | project properties.ipAddress
 | limit 100
 ```
 
 ```azurecli-interactive
-az graph query -q "where type contains 'publicIPAddresses' and properties.ipAddress != '' | project properties.ipAddress | limit 100"
+az graph query -q "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | project properties.ipAddress | limit 100"
+Search-AzGraph -Query "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
 ```
 
 ## <a name="count-resources-by-ip"></a>計算具有按訂用帳戶設定之 IP 位址的資源計數
@@ -188,16 +189,16 @@ Search-AzGraph -Query "where type contains 'publicIPAddresses' and properties.ip
 使用上一個範例查詢，並新增 `summarize` 和 `count()`，我們可以取得具有已設定 IP 位址之資源的訂用帳戶清單。
 
 ```Query
-where type contains 'publicIPAddresses' and properties.ipAddress != ''
+where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress)
 | summarize count () by subscriptionId
 ```
 
 ```azurecli-interactive
-az graph query -q "where type contains 'publicIPAddresses' and properties.ipAddress != '' | summarize count () by subscriptionId"
+az graph query -q "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | summarize count () by subscriptionId"
+Search-AzGraph -Query "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
 ```
 
 ## <a name="list-tag"></a>列出具有特定標籤值的資源

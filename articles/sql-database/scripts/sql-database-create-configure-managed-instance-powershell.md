@@ -7,21 +7,21 @@ ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 955f13376ac899f66b0ec4e1ed99166164508fbe
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: c85b967615e866635cb4dd93be5ddeb78a8c7129
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449793"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357001"
 ---
 # <a name="use-powershell-to-create-an-azure-sql-database-managed-instance"></a>使用 PowerShell 來建立 Azure SQL Database 受控執行個體
 
-此 PowerShell 指令碼範例會在新的虛擬網路中，於專用子網路內建立 Azure SQL Database 受控執行個體。 其也會設定虛擬網路的路由表與網路安全性群組。 一旦成功執行指令碼，便可從虛擬網路內或從內部部署環境存取受控執行個體。 如需說明如何完成這項作業的快速入門，請參閱[設定 Azure VM 以連線到 Azure SQL Database 受控執行個體](../sql-database-managed-instance-configure-vm.md)和[設定從內部部署連線至 Azure SQL Database 受控執行個體的點對站連線](../sql-database-managed-instance-configure-p2s.md)。
+此 PowerShell 指令碼範例會在新的虛擬網路中，於專用子網路內建立 Azure SQL Database 受控執行個體。 其也會設定虛擬網路的路由表與網路安全性群組。 一旦成功執行指令碼，便可從虛擬網路內或從內部部署環境存取受控執行個體。 請參閱[設定 Azure VM 以連線到 Azure SQL Database 受控執行個體](../sql-database-managed-instance-configure-vm.md)和[設定從內部部署連線至 Azure SQL Database 受控執行個體的點對站連線](../sql-database-managed-instance-configure-p2s.md)。
 
 > [!IMPORTANT]
 > 如需了解限制，請參閱[支援的區域](../sql-database-managed-instance-resource-limits.md#supported-regions)和[支援的訂用帳戶類型](../sql-database-managed-instance-resource-limits.md#supported-subscription-types)。
@@ -36,7 +36,7 @@ ms.locfileid: "58449793"
 
 ## <a name="clean-up-deployment"></a>清除部署
 
-在執行過指令碼範例之後，您可以使用下列命令來移除資源群組和所有與其相關聯的資源。
+使用下列命令來移除資源群組及其所有相關聯的資源。
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
@@ -48,7 +48,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 | 命令 | 注意 |
 |---|---|
-| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 建立用來存放所有資源的資源群組。 
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 建立用來存放所有資源的資源群組。
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | 建立虛擬網路 |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/Add-AzVirtualNetworkSubnetConfig) | 對虛擬網路新增子網路組態 |
 | [Get-AzVirtualNetwork](/powershell/module/az.network/Get-AzVirtualNetwork) | 取得資源群組中的虛擬網路 |

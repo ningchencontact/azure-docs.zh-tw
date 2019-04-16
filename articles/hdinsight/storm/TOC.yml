@@ -84,21 +84,9 @@ items:
       maintainContext: true
   - name: 管理
     items:
-    - name: 建立 Linux 叢集
+    - name: 建立 HDInsight 叢集
       href: ../hdinsight-hadoop-provision-linux-clusters.md
       items:
-      - name: 使用 Azure PowerShell
-        href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
-        maintainContext: true
-      - name: 使用 cURL 和 Azure REST API
-        href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
-        maintainContext: true
-      - name: 使用 .NET SDK
-        href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
-        maintainContext: true
-      - name: 使用 Azure 傳統 CLI
-        href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
-        maintainContext: true
       - name: 使用 Azure 入口網站
         href: ../hdinsight-hadoop-create-linux-clusters-portal.md
         maintainContext: true
@@ -106,13 +94,36 @@ items:
         displayName: resource manager template, arm template, resource manager group
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
+      - name: 使用適用於 .NET 的 SDK
+        href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#create-a-cluster
+      - name: 使用適用於 Python 的 SDK
+        href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python#create-a-cluster
+      - name: 使用適用於 Java 的 SDK
+        href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable#create-a-cluster
+      - name: 使用 Azure PowerShell
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
+        maintainContext: true
+      - name: 使用 cURL 和 Azure REST API
+        href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
+        maintainContext: true
+      - name: 使用 Azure 傳統 CLI
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
+        maintainContext: true
+      - name: 建立隨選叢集
+        href: ../hdinsight-hadoop-create-linux-clusters-adf.md
+        maintainContext: true
       maintainContext: true
-    - name: 管理 Apache Hadoop 叢集
+    - name: 管理 HDInsight 叢集
       href: ../hdinsight-administer-use-portal-linux.md
       items:
-      - name: 使用 .NET SDK
-        href: ../hdinsight-administer-use-dotnet-sdk.md
-        maintainContext: true
+      - name: 使用適用於 .NET 的 SDK
+        href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#management
+      - name: 使用適用於 Python 的 SDK
+        href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
+      - name: 使用適用於 Java 的 SDK
+        href: https://docs.microsoft.com/java/api/overview/azure/hdinsight
+      - name: 使用適用於 Go 的 SDK (預覽)
+        href: https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview
       - name: 使用 Azure PowerShell
         href: ../hdinsight-administer-use-powershell.md
         maintainContext: true
@@ -151,7 +162,7 @@ items:
       - name: 使用 cURL 執行
         href: ../hdinsight-hadoop-use-sqoop-curl.md
         maintainContext: true
-      - name: 使用 .NET SDK 執行
+      - name: 使用適用於 .NET 的 SDK 執行
         href: ../hdinsight-hadoop-use-sqoop-dotnet-sdk.md
         maintainContext: true
       - name: 使用 Azure PowerShell 執行
@@ -235,13 +246,13 @@ items:
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
     href: /powershell/module/az.hdinsight
-  - name: .NET SDK
+  - name: 適用於 .NET 的 SDK
     href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
-  - name: Python SDK
+  - name: 適用於 Python 的 SDK
     href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
-  - name: Java SDK
-    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
-  - name: Go SDK
+  - name: 適用於 Java 的 SDK
+    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable
+  - name: 適用於 Go 的 SDK
     href: ../hdinsight-go-sdk-overview.md
   - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
@@ -267,19 +278,19 @@ items:
   - name: Azure 藍圖
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: 在論壇上取得協助
-    href: https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=hdinsight
+    href: https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight
   - name: 學習路徑
     href: https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/
   - name: Microsoft 專業巨量資料方案
-    href: https://academy.microsoft.com/en-us/professional-program/big-data/
+    href: https://academy.microsoft.com/en-us/professional-program/tracks/big-data/
   - name: 定價計算機
     href: https://azure.microsoft.com/pricing/calculator/
   - name: HDInsight 適用的 Windows 工具
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 1719490323df6609fe400344f9c9af441d3e6625
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: c3cb2f274c2d2cbd76cffb31cf0421093eea232f
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545470"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578368"

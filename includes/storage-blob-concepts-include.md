@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 11/18/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 32b9b12c2adf03a4cb0616a5da48dd33fc81fb4f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 8a85a21d47733bb031ea8ca16f776ea8c2df6da2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52973082"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59291760"
 ---
-Azure Blob 儲存體是 Microsoft 針對雲端推出的物件儲存體解決方案。 Blob 儲存體已針對儲存大量非結構化資料最佳化。 非結構化資料是指不遵守特定資料模型或定義的資料，例如文字或二進位資料。 
+Azure Blob 儲存體是 Microsoft 針對雲端推出的物件儲存體解決方案。 Blob 儲存體已針對儲存大量非結構化資料最佳化。 非結構化資料是指不遵守特定資料模型或定義的資料，例如文字或二進位資料。
 
 ## <a name="about-blob-storage"></a>關於 Blob 儲存體
 
@@ -30,8 +30,8 @@ Blob 儲存體設計用來：
 
 使用者或用戶端應用程式可以從世界各地透過 HTTP/HTTPS 存取 Blob 儲存體中的物件。 Blob 儲存體中的物件可透過 [Azure 儲存體 REST API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)、[Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage)、[Azure CLI](https://docs.microsoft.com/cli/azure/storage) 或 Azure 儲存體用戶端程式庫存取。 用戶端程式庫提供多種語言，包括 [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage/client)、[Java](https://docs.microsoft.com/java/api/overview/azure/storage/client)、[Node.js](http://azure.github.io/azure-storage-node)、[Python](https://docs.microsoft.com/python/azure/)、[Go](https://github.com/azure/azure-storage-blob-go/)、[PHP](http://azure.github.io/azure-storage-php/) 和 [Ruby](http://azure.github.io/azure-storage-ruby)。
 
-## <a name="about-azure-data-lake-storage-gen2"></a>有關 Azure Data Lake Storage Gen2 
+## <a name="about-azure-data-lake-storage-gen2"></a>有關 Azure Data Lake Storage Gen2
 
-Blob 儲存體支援 Azure Data Lake Storage Gen2，這是適用於雲端的 Microsoft 企業巨量資料分析解決方案。 Azure Data Lake Storage Gen2 提供階層式檔案系統和 Blob 儲存體的各項優點，包括低成本、分層式儲存體、高可用性、強式一致性，以及災害復原功能。 
+Blob 儲存體支援 Azure Data Lake Storage Gen2，這是適用於雲端的 Microsoft 企業巨量資料分析解決方案。 Azure Data Lake Storage Gen2 提供階層式檔案系統和 Blob 儲存體的各項優點，包括低成本、分層式儲存體、高可用性、強式一致性，以及災害復原功能。
 
-如需 Data Lake Storage Gen2 的詳細資訊，請參閱 [Azure Data Lake Storage Gen2 預覽版簡介](../articles/storage/data-lake-storage/introduction.md)。
+如需 Data Lake Storage Gen2 的詳細資訊，請參閱 [Azure Data Lake Storage Gen2 簡介](../articles/storage/data-lake-storage/introduction.md)。

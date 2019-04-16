@@ -10,26 +10,26 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: 0a06293a648460694bbe222f36f81bea2d6acdac
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a418966ce72876d58d39b939ecb7dd5a05e41b9b
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57841169"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008970"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在瀏覽器中以 JavaScript 辨識語音
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 在此文章中，您將了解如何使用認知服務語音 SDK 的 JavaScript 繫結，將語音謄寫為文字以建立網站。
-該應用程式以 Microsoft 認知服務語音 SDK 為基礎 ([下載 1.3.0 版](https://aka.ms/csspeech/jsbrowserpackage))。
+此應用程式以適用於 JavaScript 的語音 SDK 為基礎 ([請下載 1.4.0 版](https://aka.ms/csspeech/jsbrowserpackage))。
 
 ## <a name="prerequisites"></a>必要條件
 
 * 語音服務適用的訂用帳戶金鑰。 請參閱[免費試用語音服務](get-started.md)。
 * PC 或 Mac 以及運作正常的麥克風。
 * 文字編輯器。
-* Chrome 或 Microsoft Edge 的目前版本。
+* Chrome、Microsoft Edge 或 Safari 的目前版本。
 * (選擇性) 支援裝載 PHP 指令碼的 Web 伺服器。
 
 ## <a name="create-a-new-website-folder"></a>建立新的網站資料夾
@@ -52,7 +52,7 @@ ms.locfileid: "57841169"
    ```html
    <html>
    <head>
-      <title>Microsoft Cognitive Service Speech SDK JavaScript Quickstart</title>
+      <title>Speech SDK JavaScript Quickstart</title>
    </head>
    <body>
     <!-- UI code goes here -->
@@ -99,6 +99,10 @@ ms.locfileid: "57841169"
 
 若要啟動應用程式，請按兩下 index.html 檔案或使用最愛的網頁瀏覽器開啟 index.html。 它將會提供簡單的 GUI，供您輸入訂用帳戶金鑰與[區域](regions.md)，並使用麥克風觸發辨識。
 
+> [!NOTE]
+> 此方法無法在 Safari 瀏覽器上運作。
+> 在 Safari 上，範例網頁必須裝載在 Web 伺服器上；Safari 不允許從本機檔案載入的網站使用麥克風。
+
 ## <a name="build-and-run-the-sample-via-a-web-server"></a>透過 Web 伺服器建置並執行範例
 
 若要啟動應用程式，請開啟您最愛的網頁瀏覽器並指向資料夾裝載所在的公用 URL，輸入您的[地區](regions.md)，並使用麥克風觸發辨識。 如果已設定，它將會從您的權杖來源取得權杖。
@@ -106,4 +110,4 @@ ms.locfileid: "57841169"
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [探索 GitHub 上的 JavaScript 範例](https://aka.ms/csspeech/samples) \(英文\)
+> [探索 GitHub 上的 JavaScript 範例](https://aka.ms/csspeech/samples)

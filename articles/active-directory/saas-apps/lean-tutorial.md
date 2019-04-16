@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: cdda7d22a6d99b9932f1f2b32279fc23e38a29df
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ab4a36fa117793724a897de4f6d8f03d7f46504e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883044"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276298"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lean"></a>教學課程：Azure Active Directory 與 Lean 整合
 
@@ -106,9 +106,9 @@ Lean 與 Azure AD 整合提供下列優點：
 
     ![Lean 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<SUBDOMAIN>.goodpractice.net/api/gpsso`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<SUBDOMAIN>.goodpractice.net/api/gpsso`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`bloom-goodpractice-<SUBDOMAIN>`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `bloom-goodpractice-<SUBDOMAIN>`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Lean 用戶端支援小組](mailto:support@goodpractice.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 4a9141c0840ff5d962adceb0d0481102cff868d4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4d50c4366128edb5b4bc76408eb1085817af1ce3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897345"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271895"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>教學課程：Azure Active Directory 與 New Relic 整合
 
@@ -35,7 +35,7 @@ New Relic 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 New Relic 的整合，您需要下列項目：
+若要設定與 New Relic 的 Azure AD 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 New Relic 單一登入的訂用帳戶
@@ -73,7 +73,7 @@ New Relic 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 New Relic 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 New Relic 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 New Relic 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 New Relic 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 New Relic 單一登入](#configure-new-relic-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -102,11 +102,11 @@ New Relic 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![New Relic 網域及 URL 單一登入資訊](common/sp-identifier.png)
+    ![New Relic 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式來輸入 URL：`https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login` - 請務必以您自己的 New Relic 帳戶識別碼取而代之。
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，輸入 URL：`rpm.newrelic.com`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，輸入 URL： `rpm.newrelic.com`
 
 5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載]，以依據您的需求從指定選項下載 [憑證 (Base64)]，並儲存在您的電腦上。
 
@@ -181,7 +181,7 @@ New Relic 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [New Relic]。
 
-    ![應用程式清單中的 [New Relic] 連結](common/all-applications.png)
+    ![應用程式清單中的 New Relic 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

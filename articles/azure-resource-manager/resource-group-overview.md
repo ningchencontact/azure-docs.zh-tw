@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/04/2019
+ms.date: 04/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 115b1fcd1b1e878a9b4a7efdf6f24d7391945619
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 0ad1d12a4a2ca3a293546f2bac85210bb9152269
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409834"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269283"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概觀
 
@@ -53,7 +53,7 @@ Resource Manager 會提供數個優點：
 
 ## <a name="understand-management-scope"></a>了解管理範圍
 
-Azure 提供四個管理範圍層級：管理群組、訂用帳戶、資源群組和資源。 [管理群組](../governance/management-groups/index.md)是預覽版本。 下圖顯示這些層級的範例。
+Azure 提供四個管理範圍層級：[管理群組](../governance/management-groups/index.md)、訂用帳戶、[資源群組](#resource-groups)和資源。 下圖顯示這些層級的範例。
 
 ![影響範圍](./media/resource-group-overview/scope-levels.png)
 
@@ -84,6 +84,8 @@ Azure 提供四個管理範圍層級：管理群組、訂用帳戶、資源群�
 * 資源可與其他資源群組中的資源互動。 此互動常見於兩個資源彼此連結，但未共用相同的生命週期 (例如，連接至某個資料庫的 Web 應用程式) 時。
 
 建立資源群組時，您需要提供該資源群組的位置。 您可能會想：「為什麼資源群組需要位置？ 而且，如果資源可以有不同於資源群組的位置，為什麼資源群組位置這麼重要？」 資源群組會儲存資源相關中繼資料。 因此，當您指定資源群組的位置時，您便是指定中繼資料的儲存位置。 基於相容性理由，您可能需要確保您的資料存放在特定區域中。
+
+如果資源群組的區域暫時無法使用，您就無法更新資源群組中的資源，因為中繼資料無法使用。 其他區域中的資源仍可如預期般運作，但您無法更新這些資源。 若要將風險降至最低，請將資源群組和資源放在相同區域。
 
 ## <a name="resource-providers"></a>資源提供者
 

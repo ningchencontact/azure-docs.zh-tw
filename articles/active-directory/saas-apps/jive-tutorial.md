@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: f6932195e8177c7bfb921dfb17b32271e4d7a3d4
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 5073961e15b3d0dcf0df0fd97d3f8a4568f79eb5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360414"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269753"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jive"></a>教學課程：Azure Active Directory 與 Jive 整合
 
@@ -106,9 +106,9 @@ Jive 與 Azure AD 整合提供下列優點：
 
     ![Jive 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<instance name>.jivecustom.com`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<instance name>.jivecustom.com`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://<instance name>.jiveon.com`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `https://<instance name>.jiveon.com`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Jive 客戶支援小組](https://www.jivesoftware.com/services-support/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

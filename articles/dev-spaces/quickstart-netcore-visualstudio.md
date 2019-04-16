@@ -13,12 +13,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm
 manager: jeconnoc
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 0ae2b264e689270743bc8e4aa5024a4b99eb6626
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 9afca253bd188556ad6a3f6e081fb2eccc4c81cb
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418834"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361251"
 ---
 # <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio-2017"></a>快速入門：使用 Azure Dev Spaces (Visual Studio 2017) 在 Kubernetes 上使用 .NET Core 進行開發
 

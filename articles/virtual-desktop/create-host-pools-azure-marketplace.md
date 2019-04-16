@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: cc404c84bf855ab6e49d13207f40b9faa32cdbb2
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: f539a71fccca116ee031781df855ec55158eb63a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399878"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257445"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>教學課程：透過 Azure Marketplace 建立主機集區
 
@@ -116,6 +116,9 @@ Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -Use
 
 - [Windows 7 和 Windows 10 上的遠端桌面用戶端](connect-windows-7-and-10.md)
 - [Windows 虛擬桌面 Web 用戶端](connect-web.md)
+
+>[!IMPORTANT]
+>為了保護您在 Azure 中的 Windows 虛擬桌面環境，建議您不要在 VM 上開啟輸入連接埠 3389。 Windows 虛擬桌面不需要開啟輸入連接埠 3389 讓使用者存取主機集區的 VM。 如果您為了要進行疑難排解而必須開啟連接埠 3389，建議您使用 [Just-In-Time VM 存取](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time)。
 
 ## <a name="next-steps"></a>後續步驟
 

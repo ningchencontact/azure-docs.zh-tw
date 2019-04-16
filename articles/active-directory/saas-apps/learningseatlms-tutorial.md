@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b478d0779a493d9c5b29690a3eb495d5abaadc7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1e4e564a8c41065f6f68d93735d441ba6c69479a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842957"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274955"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learning-seat-lms"></a>教學課程：Azure Active Directory 與 Learning Seat LMS 整合
 
@@ -51,7 +51,7 @@ Learning Seat LMS 與 Azure AD 整合提供下列優點：
 
 若要設定 Learning Seat LMS 與 Azure AD 整合，您需要從資源庫將 Learning Seat LMS 加入到受控 SaaS 應用程式清單。
 
-**若要從資源庫加入 Learning Seat LMS，請執行下列步驟：**
+**若要從資源庫新增 Learning Seat LMS，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
@@ -105,9 +105,9 @@ Learning Seat LMS 與 Azure AD 整合提供下列優點：
 
     ![Learning Seat LMS 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.learningseatlms.com`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://<subdomain>.learningseatlms.com`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.learningseatlms.com/Account/AssertionConsumerService`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<subdomain>.learningseatlms.com/Account/AssertionConsumerService`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 

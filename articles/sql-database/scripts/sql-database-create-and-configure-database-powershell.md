@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: a326462a6735b5a91d1ef03de41bb4705fe452a4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8e1ce1ad692f544d668ae557c85e504ffcb9d0dd
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57854206"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59356660"
 ---
 # <a name="use-powershell-to-create-a-single-azure-sql-database-and-configure-a-sql-database-server-firewall-rule"></a>使用 PowerShell 建立單一 Azure SQL Database 並設定 SQL Database 伺服器防火牆規則
 
@@ -35,7 +35,7 @@ ms.locfileid: "57854206"
 
 ## <a name="clean-up-deployment"></a>清除部署
 
-在執行過指令碼範例之後，您可以使用下列命令來移除資源群組和所有與其相關聯的資源。
+使用下列命令來移除資源群組及其所有相關聯的資源。
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 0f6b9c85fa3462486a32cf55b10cb06bb84b0072
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d7020299bbd52f5e7ba22809847815cb04048cb6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57853047"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259400"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>教學課程：Azure Active Directory 與 MOVEit Transfer - Azure AD integration 整合
 
@@ -50,7 +50,7 @@ ms.locfileid: "57853047"
 
 若要設定 MOVEit Transfer - Azure AD integration 與 Azure AD 整合，您需要從資源庫將 MOVEit Transfer - Azure AD integration 新增到受控 SaaS 應用程式清單中。
 
-**若要從資源庫新增 MOVEit Transfer - Azure AD integration，請執行下列步驟：**
+**若要從資源庫新增 MOVEit Transfer - Azure AD 整合，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 

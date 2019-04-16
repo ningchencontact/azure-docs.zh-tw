@@ -9,18 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 023f5ed43453d7fb20dec5d91651230aa8fb4370
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 944a111ac0c31e755b3991f9ea101ba652c676d3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571298"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268754"
 ---
 # <a name="what-is-azure-maps"></a>什麼是 Azure 地圖服務？
 
-Azure 地圖服務是地理空間服務的集合，以最新的可用地圖資料作為後盾，進而為 Web 和行動裝置應用程式提供準確的地理內容。 Azure 地圖服務是由 REST API 組成，可用於呈現多種樣式的**地圖**和衛星影像、**搜尋**地址、地點及全球景點；點對點和多點**路線規劃**、多點最佳化、等時線、營業用車、受影響的交通，以及矩陣路線規劃；檢視最佳交通流量和事故；透過 [地理位置] 建立使用者位置，以及將位置轉換為 [時區]，也可擷取某個位置的時間。 此外，Azure 地圖服務可為 [地理柵欄]、地圖**資料** 儲存體 (在 Azure 中裝載位置資訊) 及 [空間作業] 提供服務，進而透過地理空間分析提供位置智慧。 Azure 地圖服務可直接作為 REST API 使用，或透過我們強固的 **Web SDK** 或 **Android SDK** 提供。 這些工具可讓開發人員快速開發和調整解決方案，以將位置資訊整合到 Azure 雲端的 Azure 解決方案中。 立即註冊免費的 [Azure 地圖服務帳戶](https://azure.microsoft.com/services/azure-maps/)，開始進行開發！
+Azure 地圖服務是地理空間服務的集合，以最新的可用地圖資料作為後盾，進而為 Web 和行動裝置應用程式提供準確的地理內容。 Azure 地圖服務是由 REST API 組成，可用於呈現多種樣式的**地圖**和衛星影像、**搜尋**地址、地點及全球景點；點對點和多點**路線規劃**、多點最佳化、等時線、營業用車、受影響的交通，以及矩陣路線規劃；領先業界的交通流量和事故檢視；透過 [地理位置] 建立使用者位置，以及將位置轉換為 [時區]，也可擷取某個位置的時間。 此外，Azure 地圖服務可為 [地理柵欄]、地圖**資料** 儲存體 (在 Azure 中裝載位置資訊) 及 [空間作業] 提供服務，進而透過地理空間分析提供位置智慧。 Azure 地圖服務可直接作為 REST API 使用，或透過我們強固的 **Web SDK** 或 **Android SDK** 提供。 這些工具可讓開發人員快速開發和調整解決方案，以將位置資訊整合到 Azure 雲端的 Azure 解決方案中。 立即註冊免費的 [Azure 地圖服務帳戶](https://azure.microsoft.com/services/azure-maps/)，開始進行開發！
 
 以下影片會深入說明 Azure 地圖服務：
+
+<br/>
 
 <iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
@@ -95,7 +97,7 @@ Azure 地圖服務是由下列六個服務組成，可以為 Azure 應用程式�
 交通服務是針對開發人員設計的一套 Web 服務，可建立需要路況的 Web 和行動裝置應用程式。 服務可提供兩種資料類型：
 
 * 交通流量 - 針對路網中的所有重要道路提供即時觀察速度和行進時間。
-* 交通事故 - 提供有關路網中交通阻塞和交通事故的精確檢視。
+* 交通事故 - 提供有關路網中交通阻塞和交通事故的最新檢視。
 
 ![Azure 地圖服務流量](media/about-azure-maps/Introduction_Traffic.png)
 
@@ -121,7 +123,7 @@ Azure 地圖服務會使用金鑰型驗證結構描述。 您的帳戶隨附預�
 
 ## <a name="supported-regions"></a>支援區域
 
-Azure 地圖服務 API 目前可在下列以外的所有國家/地區中使用：
+Azure 地圖服務 API 目前可在下列區域以外的所有國家/地區中使用：
 
 * 阿根廷
 * 中國
@@ -139,7 +141,7 @@ Azure 地圖服務 API 目前可在下列以外的所有國家/地區中使用�
 > [!div class="nextstepaction"]
 > [路線對照表、等時路線規劃、IP 查閱等等](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/)
 
-繼續試用示範服務的範例應用程式：
+立即試用能展現 Azure 地圖服務優勢的範例應用程式：
 
 > [!div class="nextstepaction"]
-> [啟動示範互動式搜尋地圖](quick-demo-map-app.md)
+> [快速入門：建立 Web 應用程式](quick-demo-map-app.md)

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 0372f34d5e58361d460465a9ddf4b6eed79a49f0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9d7162eca3c2979b1dd333bdaf95c7c43e875b9d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474814"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049133"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>教學課程：使用 Azure 檔案同步擴充 Windows 檔案伺服器
 
@@ -28,6 +28,8 @@ ms.locfileid: "55474814"
 > * 建立伺服器端點
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
@@ -181,7 +183,7 @@ ms.locfileid: "55474814"
 1. 執行以下命令：
 
    ```powershell
-   Install-Module -Name AzureRm
+   Install-Module -Name Az
    ```
 
    > [!NOTE]
@@ -200,7 +202,7 @@ ms.locfileid: "55474814"
 
 1. 請回答 [是] 或 [全部皆是] 以繼續安裝。
 
-`AzureRM` 模組是 Azure PowerShell Cmdlet 的彙總套件模組。 安裝此項目會下載所有可用的 Azure Resource Manager 模組，並使這些模組的 Cmdlet 可供使用。
+`Az` 模組是 Azure PowerShell Cmdlet 的彙總套件模組。 安裝此項目會下載所有可用的 Azure Resource Manager 模組，並使這些模組的 Cmdlet 可供使用。
 
 此時，您已設定教學課程所需的環境。 您已準備就緒，可部署儲存體同步服務。
 
@@ -218,7 +220,7 @@ ms.locfileid: "55474814"
 
    | 值 | 說明 |
    | ----- | ----- |
-   | **名稱** | 儲存體同步服務的唯一名稱 (每一訂用帳戶)。<br><br>在本教學課程中，請使用 afssyncservice02。 |
+   | **Name** | 儲存體同步服務的唯一名稱 (每一訂用帳戶)。<br><br>在本教學課程中，請使用 afssyncservice02。 |
    | **訂用帳戶** | 您在本教學課程中使用的 Azure 訂用帳戶。 |
    | **資源群組** | 包含儲存體同步服務的資源群組。<br><br>在本教學課程中，請使用 afsresgroup101918。 |
    | **位置** | 美國東部 |
@@ -251,7 +253,7 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
 
 向儲存體同步服務註冊 Windows Server，會在您的伺服器 (或叢集) 與儲存體同步服務之間建立信任關係。 一個伺服器只能註冊至一個儲存體同步服務。 伺服器可以與該儲存體同步服務的其他相關伺服器和 Azure 檔案共用同步。
 
-在您安裝 Azure 檔案同步代理程式之後，伺服器註冊 UI 應該會自動開啟。 如果沒有，您可以從其檔案位置手動加以開啟：`C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.`
+在您安裝 Azure 檔案同步代理程式之後，伺服器註冊 UI 應該會自動開啟。 如果沒有，您可以從其檔案位置手動開啟它： `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.`
 
 1. 當伺服器註冊 UI 在 VM 中開啟時，請選取 [確定]。
 1. 選取 [登入] 開始作業。
@@ -263,7 +265,7 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
    | | |
    | ----- | ----- |
    | 值 | 說明 |
-   | **Azure 訂用帳戶** | 包含本教學課程所用儲存體同步服務的訂用帳戶。 |
+   | **Azure 訂閱** | 包含本教學課程所用儲存體同步服務的訂用帳戶。 |
    | **資源群組** | 包含儲存體同步服務的資源群組。 在本教學課程中，請使用 afsresgroup101918。 |
    | **儲存體同步服務** | 儲存體同步服務的名稱。 在本教學課程中，請使用 afssyncservice02。 |
 
@@ -306,7 +308,7 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
    | ----- | ----- |
    | 值 | 說明 |
    | **已註冊的伺服器** | 您先前建立的伺服器名稱。 在本教學課程中，請使用 afsvm101918。 |
-   | **路徑** | 您先前建立之磁碟機的 Windows Server 路徑。 在本教學課程中，請使用 f:\filestosync。 |
+   | **Path** | 您先前建立之磁碟機的 Windows Server 路徑。 在本教學課程中，請使用 f:\filestosync。 |
    | **雲端階層處理** | 在本教學課程中保持停用。 |
    | **磁碟區可用空間** | 在本教學課程中保持空白。 |
 

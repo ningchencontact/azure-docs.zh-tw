@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 51f4801c00d23aa820949faa58f7cd64ee3597ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2fce8b628798ef38889f64d9409bf586a85463b8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842391"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269668"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindwireless"></a>教學課程：Azure Active Directory 與 mindWireless 整合
 
@@ -104,9 +104,9 @@ mindWireless 與 Azure AD 整合提供下列優點：
 
     ![mindWireless 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.mwsmart.com/`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://<subdomain>.mwsmart.com/`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.mwsmart.com/SAML/AssertionConsumerService.aspx`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<subdomain>.mwsmart.com/SAML/AssertionConsumerService.aspx`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [mindWireless 用戶端支援小組](mailto:sdulloor@mindwireless.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

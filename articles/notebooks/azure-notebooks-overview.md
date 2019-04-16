@@ -6,25 +6,25 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 9cea5a8e-c52d-4bdc-9e4a-cecdc1ad02c1
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/11/2019
+ms.date: 04/05/2019
 ms.author: kraigb
-ms.openlocfilehash: 9916b75a15098acbafc1cb1f6d44d948cf6de851
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4840a9839fe1f2a31470d4a67b3755b82077fd90
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777714"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280098"
 ---
 # <a name="overview-of-azure-notebooks"></a>Azure Notebooks 概觀
 
 Azure Notebooks 是免費的裝載服務，無需任何安裝程序，就能用來在雲端中開發和執行 Jupyter Notebooks。 [Jupyter](https://jupyter.org/) (前稱 IPython) 是開放原始碼專案，可輕鬆將 Markdown 文字、可執行程式碼、持續性資料、圖形以及視覺效果統整至名為「筆記本」(影像由 jupyter.org 提供) 的單一且可分享的畫布上：
 
-[![Jupyter Notebook 的範例](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![EJupyter Notebook 的範例](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 因為程式碼、圖形和說明文字的強大組合，Jupyter 成為了許多用途的熱門選擇，這些用途包括資料科學教學、資料清除和轉換、數值模擬、統計模型和開發機器學習模型。
 
@@ -58,6 +58,8 @@ Azure Notebooks 可協助您快速開始使用原型化、資料科學、學術�
 Azure Notebooks 是一項免費服務，但為防濫用，每個專案都限制只能使用 4 GB 的記憶體和 1 GB 的資料。 超過這些限制的合法使用者會看到 Captcha 查問，通過後才能繼續執行筆記本。
 
 若要解除所有限制，請以使用 Azure Active Directory 的帳戶 (例如公司帳戶) 登入 Azure Notebooks。 如果該帳戶與 Azure 訂用帳戶相關聯，則您可以連線至該訂用帳戶內的任何 Azure 資料科學虛擬機器執行個體。 如需詳細資訊，請參閱[管理和設定專案 - 計算層](configure-manage-azure-notebooks-projects.md#compute-tier)。
+
+Notebook 伺服器保證會存在最多 8 小時。 在大部分情況下，容器不受此限制，並且會繼續執行超過這個時間，但長時間執行的工作階段可能偶爾會關閉以確保系統穩定。
 
 ## <a name="available-kernels-and-environments"></a>可用的核心和環境
 
@@ -113,8 +115,8 @@ Azure Notebooks 已預先設定下列 Jupyter 擴充功能：
   
   - [建立及複製專案](create-clone-jupyter-notebooks.md)
   - [設定和管理專案](configure-manage-azure-notebooks-projects.md)
-  - [從筆記本內安裝套件](install-packages-jupyter-notebook.md)
-  - [放映投影片](present-jupyter-notebooks-slideshow.md)
+  - [從 Notebook 內安裝套件](install-packages-jupyter-notebook.md)
+  - [顯示投影片放映](present-jupyter-notebooks-slideshow.md)
   - [使用資料檔案](work-with-project-data-files.md)
   - [存取資料資源](access-data-resources-jupyter-notebooks.md)
   - [使用 Azure 機器學習服務](use-machine-learning-services-jupyter-notebooks.md)

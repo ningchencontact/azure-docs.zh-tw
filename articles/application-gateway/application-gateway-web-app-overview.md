@@ -41,7 +41,7 @@ ms.locfileid: "58224493"
 
 ### <a name="ssl-termination-and-end-to-end-ssl-with-multi-tenant-services"></a>SSL 終止和端對端 SSL，與多租用戶的服務
 
-多租用戶的服務支援 SSL 終止和端對端 SSL 加密。 在應用程式閘道的 SSL 終止、 SSL 憑證會繼續必須新增至應用程式閘道接聽程式。 不過，如果端對端 SSL，受信任的 Azure 服務，例如 Azure App service web 應用程式不需要加入白名單中的應用程式閘道後端。 因此，不是需要加入任何驗證憑證。 
+多租用戶的服務支援 SSL 終止和端對端 SSL 加密。 在應用程式閘道的 SSL 終止、 SSL 憑證會繼續必須新增至應用程式閘道接聽程式。 不過，如果端對端 SSL，受信任的 Azure 服務，例如 Azure App service web 應用程式不需要加入允許清單中的應用程式閘道後端。 因此，不是需要加入任何驗證憑證。 
 
 ![端對端 SSL](./media/application-gateway-web-app-overview/end-to-end-ssl.png)
 

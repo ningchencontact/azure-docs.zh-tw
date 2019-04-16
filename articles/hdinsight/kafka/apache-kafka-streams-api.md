@@ -8,13 +8,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 11/06/2018
-ms.openlocfilehash: 3c40e00d55af49b1b040d3fe706f08af719b2238
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/02/2019
+ms.openlocfilehash: 1e02eaeae4757a9a41ec59be81c3d9510d035232
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58112784"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273816"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>教學課程：Apache Kafka 串流 API
 
@@ -23,14 +23,13 @@ ms.locfileid: "58112784"
 本教學課程中使用的應用程式是串流字數統計程式。 它會讀取 Kafka 主題中的文字資料、擷取個別文字，然後將文字和字數儲存到另一個 Kafka 主題中。
 
 > [!NOTE]  
-> Kafka 串流處理通常會使用 Apache Spark 或 Apache Storm 來完成。 Kafka 0.10.0 版 (在 HDInsight 3.5 和 3.6 中) 導入了 Kafka 串流 API。 此 API 可讓您轉換輸入和輸出主題之間的資料流。 在某些情況下，這可能是建立 Spark 或 Storm 串流解決方案的替代方案。 
+> Kafka 串流處理通常會使用 Apache Spark 或 Apache Storm 來完成。 Kafka 1.1.0 版 (在 HDInsight 3.5 和 3.6 中) 導入了 Kafka 串流 API。 此 API 可讓您轉換輸入和輸出主題之間的資料流。 在某些情況下，這可能是建立 Spark 或 Storm 串流解決方案的替代方案。 
 >
 > 如需有關 Kafka 串流的詳細資訊，請參閱 Apache.org 上的[串流簡介](https://kafka.apache.org/10/documentation/streams/)文件。
 
 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
-> * 設定開發環境
 > * 了解程式碼
 > * 建置並部署應用程式
 > * 設定 Kafka 主題
@@ -42,15 +41,11 @@ ms.locfileid: "58112784"
 
 * 完成 [Apache Kafka Consumer 和 Producer API](apache-kafka-producer-consumer-api.md) 文件中的步驟。 此文件中的步驟會在本教學課程中建立的範例應用程式和主題。
 
-## <a name="set-up-your-development-environment"></a>設定開發環境
+* [Java Developer Kit (JDK) 第 8 版](https://aka.ms/azure-jdks)或同等版本，例如 OpenJDK。
 
-您必須在開發環境中安裝下列元件：
+* 根據 Apache 正確[安裝](https://maven.apache.org/install.html)的 [Apache Maven](https://maven.apache.org/download.cgi)。  Maven 是適用於 Java 專案的專案建置系統。
 
-* [Java JDK 8](https://aka.ms/azure-jdks) 或同等功能版本，例如 OpenJDK。
-
-* [Apache Maven](https://maven.apache.org/)
-
-* SSH 用戶端和 `scp` 命令。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) 文件。
+* SSH 用戶端。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## <a name="understand-the-code"></a>了解程式碼
 
@@ -135,65 +130,73 @@ public class Stream
 }
 ```
 
-
 ## <a name="build-and-deploy-the-example"></a>建置並部署範例
 
 若要建置專案，並將其部署至 HDInsight 叢集上的 Kafka，請使用下列步驟：
 
-1. 從 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) 下載範例。
+1. 將目前的目錄設定為 `hdinsight-kafka-java-get-started-master\Streaming` 目錄的位置，然後使用下列命令來建立 jar 套件︰
 
-2. 將目錄變更為 `Streaming` 目錄，然後使用下列命令以建立 jar 套件：
-
-    ```bash
+    ```cmd
     mvn clean package
     ```
 
     此命令會在 `target/kafka-streaming-1.0-SNAPSHOT.jar` 上建立套件。
 
-3. 使用下列命令將 `kafka-streaming-1.0-SNAPSHOT.jar` 檔案複製到 HDInsight 叢集：
-   
-    ```bash
+2. 將 `sshuser` 取代為叢集的 SSH 使用者，並將 `clustername` 取代為叢集的名稱。 使用下列命令將 `kafka-streaming-1.0-SNAPSHOT.jar` 檔案複製到 HDInsight 叢集。 出現提示時，請輸入 SSH 使用者帳戶的密碼。
+
+    ```cmd
     scp ./target/kafka-streaming-1.0-SNAPSHOT.jar sshuser@clustername-ssh.azurehdinsight.net:kafka-streaming.jar
     ```
-   
-    將 `sshuser` 取代為叢集的 SSH 使用者，並將 `clustername` 取代為叢集的名稱。 出現提示時，請輸入 SSH 使用者帳戶的密碼。 如需搭配 HDInsight 使用 `scp` 的詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## <a name="create-apache-kafka-topics"></a>建立 Apache Kafka 主題
 
-1. 若要開啟與叢集的 SSH 連線，使用下列命令：
+1. 將 `sshuser` 取代為叢集的 SSH 使用者，並將 `CLUSTERNAME` 取代為叢集的名稱。 輸入下列命令，開啟與叢集的 SSH 連線。 出現提示時，請輸入 SSH 使用者帳戶的密碼。
 
     ```bash
-    ssh sshuser@clustername-ssh.azurehdinsight.net
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-    將 `sshuser` 取代為叢集的 SSH 使用者，並將 `clustername` 取代為叢集的名稱。 出現提示時，請輸入 SSH 使用者帳戶的密碼。 如需搭配 HDInsight 使用 `scp` 的詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
-
-2. 將叢集名稱儲存到變數，並安裝 JSON 剖析公用程式 (`jq`)，請使用下列命令。 出現提示時，請輸入 Kafka 叢集名稱：
+2. 安裝 [jq](https://stedolan.github.io/jq/)，這是命令列 JSON 處理器。 從開啟的 SSH 連線，輸入下列命令來安裝 `jq`：
 
     ```bash
     sudo apt -y install jq
-    read -p 'Enter your Kafka cluster name:' CLUSTERNAME
     ```
 
-3. 若要取得 Kafka 代理程式主機和 Apache Zookeeper 主機，請使用下列命令。 出現提示時，輸入叢集登入 (admin) 帳戶的密碼。 系統會提示您輸入密碼兩次。
+3. 設定環境變數。 分別以叢集登入密碼和叢集名稱取代 `PASSWORD` 和 `CLUSTERNAME`，然後輸入命令：
 
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
-    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
+    export password='PASSWORD'
+    export clusterNameA='CLUSTERNAME'
     ```
 
-4. 若要建立串流作業所使用的主題，請使用下列命令：
+4. 擷取正確大小寫的叢集名稱。 視叢集的建立方式而定，叢集名稱的實際大小寫可能與您預期的不同。 此命令會取得實際的大小寫、將它儲存在變數中，然後顯示正確大小寫的名稱，以及您稍早提供的名稱。 輸入下列命令：
+
+    ```bash
+    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" \
+  	| jq -r '.items[].Clusters.cluster_name')
+    echo $clusterName, $clusterNameA
+    ```
+
+5. 若要取得 Kafka 代理程式主機和 Apache Zookeeper 主機，請使用下列命令。 出現提示時，輸入叢集登入 (admin) 帳戶的密碼。 系統會提示您輸入密碼兩次。
+
+    ```bash
+    export KAFKAZKHOSTS=`curl -sS -u admin:$password -G \
+    https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER \
+  	| jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`;
+    export KAFKABROKERS=`curl -sS -u admin:$password -G \
+    https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER \
+  	| jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`;
+    ```
+
+6. 若要建立串流作業所使用的主題，請使用下列命令：
 
     > [!NOTE]  
     > 您可能會收到指出 `test` 主題已存在的錯誤。 這是正常的，因為該主題可能已在「Producer 和 Consumer API」教學課程中建立。
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
-
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic wordcounts --zookeeper $KAFKAZKHOSTS
-
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic RekeyedIntermediateTopic --zookeeper $KAFKAZKHOSTS
-
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic wordcount-example-Counts-changelog --zookeeper $KAFKAZKHOSTS
     ```
 
@@ -251,7 +254,16 @@ public class Stream
     > [!NOTE]  
     > 參數 `--from-beginning` 會設定讓取用者從主題中儲存的記錄開頭處開始執行。 每遇到一個字，字數就會增加一個，因此主題中會包含每個字的多個項目，且計數會遞增。
 
-7. 使用 __Ctrl + C__ 來結束產生者。 繼續使用 __Ctrl + C__ 來結束應用程式和取用者。
+4. 使用 __Ctrl + C__ 來結束產生者。 繼續使用 __Ctrl + C__ 來結束應用程式和取用者。
+
+5. 若要刪除串流作業所使用的主題，請使用下列命令：
+
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic test --zookeeper $KAFKAZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic wordcounts --zookeeper $KAFKAZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic RekeyedIntermediateTopic --zookeeper $KAFKAZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic wordcount-example-Counts-changelog --zookeeper $KAFKAZKHOSTS
+    ```
 
 ## <a name="next-steps"></a>後續步驟
 

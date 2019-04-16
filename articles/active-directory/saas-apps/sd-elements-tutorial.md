@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 42fc2fb7d68465b55d16aad882dd8557fe13ee62
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: a18971125724e6e2fdc6b37de15894efb8b9071a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188300"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258941"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>教學課程：Azure Active Directory 與 SD Elements 整合
 
@@ -105,9 +105,9 @@ SD Elements 與 Azure AD 整合提供下列優點：
 
     ![SD Elements 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<tenantname>.sdelements.com/sso/saml2/metadata`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://<tenantname>.sdelements.com/sso/saml2/metadata`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<tenantname>.sdelements.com/sso/saml2/acs/`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<tenantname>.sdelements.com/sso/saml2/acs/`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [SD Elements 用戶端支援小組](mailto:support@sdelements.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

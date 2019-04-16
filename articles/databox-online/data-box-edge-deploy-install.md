@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: a1357e92b868f85556fc4d665eb475abd095fece
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 46192d32e70e371325abeafd4da26fa29e491b13
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400016"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278474"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>教學課程：安裝 Azure Data Box Edge
 
@@ -90,7 +90,9 @@ ms.locfileid: "58400016"
 
 - 開始之前，請閱讀「安全、環境和法規資訊手冊」中的安全指示。 此手冊隨附於裝置。
 - 開始在最靠近機架機箱底部的配置空間中安裝滑軌。
-- 安裝工具式滑軌時，您需要提供八個螺絲：#10-32、#12-24、#M5 或 #M6。 螺絲頭直徑必須小於 10 公釐 (0.4 吋)。
+- 安裝工具式滑軌時：
+    -  您需要提供八個螺絲：#10-32、#12-24、#M5 或 #M6。 螺絲頭直徑必須小於 10 公釐 (0.4 吋)。
+    -  您需要一字型螺絲起子。
 
 ### <a name="identify-the-rail-kit-contents"></a>找出滑軌套件內容
 
@@ -102,6 +104,9 @@ ms.locfileid: "58400016"
 
 ### <a name="install-and-remove-tool-less-rails-square-hole-or-round-hole-racks"></a>安裝及移除免工具滑軌 (方形孔或圓形孔機架)
 
+> [!TIP]
+> 這個選項免用工具，因為其不需要工具就能將滑軌安裝到機架中的無螺紋方形孔或圓形孔，以及從中移除滑軌。
+
 1. 將標示 **FRONT** 的左邊和右邊滑軌端件朝內放置，並將每個端件放入垂直機架凸緣前側的洞孔中。
 2. 將每個端件對齊所需 U 形空間的底端和頂端洞孔。
 3. 嚙合滑軌後端，直到它完全裝在垂直機架凸緣且閂鎖卡入定位為止。 重複上述步驟，將前端件安置在垂直機架凸緣上。
@@ -110,6 +115,9 @@ ms.locfileid: "58400016"
 ![安裝及移除免工具滑軌](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
 
 ### <a name="install-and-remove-tooled-rails-threaded-hole-racks"></a>安裝及移除工具式滑軌 (已穿孔的機架)
+
+> [!TIP]
+> 這個選項需用到工具，因為其需要工具 (一字型螺絲起子) 才能將滑軌安裝到機架中的螺紋圓形孔，以及從中移除滑軌。
 
 1. 使用一字型螺絲起子，從前端和後端安裝托架移除定位銷。
 2. 拉開並旋轉滑軌閂鎖子組件，從安裝托架將其移除。
@@ -152,7 +160,7 @@ ms.locfileid: "58400016"
 
 1. 在兩個機架凸緣的內側找到外部 CMA 托架。
 2. 輕輕收整纜線，將纜線從系統連接器拉左右兩側。
-3. 將黏扣帶穿過系統每側外部 CMA 托架的工具式插槽來固定纜線束。
+3. 將黏扣帶穿過系統每側外部 CMA 托架的插槽來固定纜線束。
 
 
 ![配置纜線](./media/data-box-edge-deploy-install/routing-cables.png)

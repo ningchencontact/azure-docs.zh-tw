@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 505bb292a6b8a81f5fa11a03bc150a7f43129956
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 28d52a6eb5018aac8ebeb48b0a2a60a1dd9e1a43
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852791"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260250"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-montage-online"></a>教學課程：Azure Active Directory 與 Montage Online 整合
 
@@ -106,15 +106,15 @@ Montage Online 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰
 
-    生產環境：`https://<subdomain>.montageonline.co.nz/`
+    針對生產環境： `https://<subdomain>.montageonline.co.nz/`
 
-    針對測試環境：`https://build-<subdomain>.montageonline.co.nz/`
+    針對測試環境： `https://build-<subdomain>.montageonline.co.nz/`
 
     b. 在 [識別碼] 文字方塊中輸入 URL：
 
-    生產環境：`MOL_Azure`
+    針對生產環境： `MOL_Azure`
 
-    針對測試環境：`MOL_Azure_Build`
+    針對測試環境： `MOL_Azure_Build`
 
     > [!NOTE] 
     > [登入 URL] 的值不是真正的值。 請使用實際的「登入 URL」來更新此值。 請連絡 [Montage Online 用戶端支援小組](https://www.montage.co.nz/contact-us/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

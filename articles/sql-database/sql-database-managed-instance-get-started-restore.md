@@ -9,25 +9,25 @@ ms.devlang: ''
 ms.topic: quickstart
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: carlrab, bonova
+ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 12/14/2018
-ms.openlocfilehash: e2aa9edcd53aa3881b07e31fcf2312d5173a3a6e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5cf9046a26edae3e6076ee1effe32930f15f4569
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903487"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59356836"
 ---
-# <a name="quickstart-restore-a-database-to-a-managed-instance"></a>快速入門：將資料庫還原到受控執行個體 
+# <a name="quickstart-restore-a-database-to-a-managed-instance"></a>快速入門：將資料庫還原到受控執行個體
 
-在本快速入門中，您將使用 SQL Server Management Studio (SSMS)，將資料庫 (Wide World Importers - Standard 備份檔案) 從 Azure Blob 儲存體還原至 Azure SQL Database [受控執行個體](sql-database-managed-instance.md)。 
+在本快速入門中，您將使用 SQL Server Management Studio (SSMS)，將資料庫 (Wide World Importers - Standard 備份檔案) 從 Azure Blob 儲存體還原至 Azure SQL Database [受控執行個體](sql-database-managed-instance.md)。
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 > [!NOTE]
-> - 如需使用 Azure 資料庫移轉服務 (DMS) 進行移轉的詳細資訊，請參閱[使用 DMS 的受控執行個體移轉](../dms/tutorial-sql-server-to-managed-instance.md)。 
-> - 如需各種移轉方法的詳細資訊，請參閱[將 SQL Server 執行個體移轉至 Azure SQL Database 受控執行個體](sql-database-managed-instance-migrate.md)。
+> 如需使用 Azure 資料庫移轉服務 (DMS) 進行移轉的詳細資訊，請參閱[使用 DMS 的受控執行個體移轉](../dms/tutorial-sql-server-to-managed-instance.md)。
+> 如需各種移轉方法的詳細資訊，請參閱[將 SQL Server 執行個體移轉至 Azure SQL Database 受控執行個體](sql-database-managed-instance-migrate.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -51,9 +51,9 @@ ms.locfileid: "57903487"
 3. 執行下列 SQL 指令碼，它會使用預先設定的儲存體帳戶和 SAS 金鑰，在您的受控執行個體中[建立認證](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql)。
 
    ```sql
-   CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases] 
+   CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases]
    WITH IDENTITY = 'SHARED ACCESS SIGNATURE'
-   , SECRET = 'sv=2017-11-09&ss=bfqt&srt=sco&sp=rwdlacup&se=2028-09-06T02:52:55Z&st=2018-09-04T18:52:55Z&spr=https&sig=WOTiM%2FS4GVF%2FEEs9DGQR9Im0W%2BwndxW2CQ7%2B5fHd7Is%3D' 
+   , SECRET = 'sv=2017-11-09&ss=bfqt&srt=sco&sp=rwdlacup&se=2028-09-06T02:52:55Z&st=2018-09-04T18:52:55Z&spr=https&sig=WOTiM%2FS4GVF%2FEEs9DGQR9Im0W%2BwndxW2CQ7%2B5fHd7Is%3D'
    ```
 
     ![建立認證](./media/sql-database-managed-instance-get-started-restore/credential.png)
@@ -61,7 +61,7 @@ ms.locfileid: "57903487"
 4. 若要檢查您的認證，請執行下列指令碼，它會使用[容器](https://azure.microsoft.com/services/container-instances/) URL 來取得備份檔案清單。
 
    ```sql
-   RESTORE FILELISTONLY FROM URL = 
+   RESTORE FILELISTONLY FROM URL =
       'https://mitutorials.blob.core.windows.net/databases/WideWorldImporters-Standard.bak'
    ```
 
@@ -80,13 +80,13 @@ ms.locfileid: "57903487"
 
    ```sql
    SELECT session_id as SPID, command, a.text AS Query, start_time, percent_complete
-      , dateadd(second,estimated_completion_time/1000, getdate()) as estimated_completion_time 
-   FROM sys.dm_exec_requests r 
-   CROSS APPLY sys.dm_exec_sql_text(r.sql_handle) a 
+      , dateadd(second,estimated_completion_time/1000, getdate()) as estimated_completion_time
+   FROM sys.dm_exec_requests r
+   CROSS APPLY sys.dm_exec_sql_text(r.sql_handle) a
    WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
-7. 當還原完成時，請在 [物件總管] 加以檢視。 
+7. 當還原完成時，請在 [物件總管] 加以檢視。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06358f88e9b41d80f010b4e463c1b5f6b6fab349
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4a953ae52f37b8d48f9e2e0566325691dbb08307
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886468"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258080"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>教學課程：Azure Active Directory 與 LogicMonitor 整合
 
@@ -36,7 +36,7 @@ LogicMonitor 與 Azure AD 整合有下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 LogicMonitor 的整合，您需要下列項目：
+若要進行 Azure AD 與 LogicMonitor 整合的設定，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 LogicMonitor 單一登入的訂用帳戶
@@ -45,7 +45,7 @@ LogicMonitor 與 Azure AD 整合有下列優點：
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* LogicMonitor 支援由 **SP** 起始的 SSO
+* LogicMonitor 支援 **SP** 起始的 SSO
 
 ## <a name="adding-logicmonitor-from-the-gallery"></a>從資源庫新增 LogicMonitor
 
@@ -71,10 +71,10 @@ LogicMonitor 與 Azure AD 整合有下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您將以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 LogicMonitor 搭配運作的 Azure AD 單一登入。
+在本節中，您將以名為 **Britta Simon** 的測試使用者身分，設定及測試與 LogicMonitor 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 LogicMonitor 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 LogicMonitor 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要設定及測試與 LogicMonitor 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 LogicMonitor 單一登入](#configure-logicmonitor-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -103,11 +103,11 @@ LogicMonitor 與 Azure AD 整合有下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![LogicMonitor 網域及 URL 單一登入資訊](common/sp-identifier.png)
+    ![LogicMonitor 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.logicmonitor.com`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<companyname>.logicmonitor.com`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.logicmonitor.com`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `https://<companyname>.logicmonitor.com`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [LogicMonitor 用戶端支援小組](https://www.logicmonitor.com/contact/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
@@ -177,7 +177,7 @@ LogicMonitor 與 Azure AD 整合有下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 LogicMonitor 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在本節中，您將把 LogicMonitor 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [LogicMonitor]。
 
@@ -185,7 +185,7 @@ LogicMonitor 與 Azure AD 整合有下列優點：
 
 2. 在應用程式清單中，選取 [LogicMonitor]。
 
-    ![應用程式清單中的 [LogicMonitor] 連結](common/all-applications.png)
+    ![應用程式清單中的 LogicMonitor 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -232,7 +232,7 @@ LogicMonitor 與 Azure AD 整合有下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [LogicMonitor] 圖格時，應該會自動登入您已設定 SSO 的 LogicMonitor。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 LogicMonitor 圖格時，應該會自動登入您已設定 SSO 的 LogicMonitor。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

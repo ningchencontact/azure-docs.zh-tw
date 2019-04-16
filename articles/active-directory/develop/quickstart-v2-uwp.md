@@ -17,12 +17,12 @@ ms.date: 04/01/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6de55cb9f1f89c9c3cd809294890f63134a26d8
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 3cf4ec48942cbe345b12d2a358afc3dadbe63a96
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793164"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360111"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>快速入門：自通用 Windows 平台 (UWP) 應用程式呼叫 Microsoft Graph API
 
@@ -88,7 +88,7 @@ ms.locfileid: "58793164"
 > 其中：
 > - `Enter_the_Application_Id_here` - 是您註冊的應用程式所具備的應用程式識別碼。
 > - `Enter_the_Tenant_Info_Here` - 是下列選項之一：
->   - 如果您的應用程式支援 [僅限我的組織]，請將此值取代為 [租用戶識別碼] 或 [租用戶名稱] (例如 contoso.microsoft.com)
+>   - 如果您的應用程式支援 [僅限我的組織]，請將此值取代為 [租用戶識別碼] 或 [租用戶名稱] (例如 contoso.onmicrosoft.com)
 >   - 如果您的應用程式支援 [任何組織目錄中的帳戶]，請將此值取代為 `organizations`
 >   - 如果您的應用程式支援 [所有 Microsoft 帳戶使用者]，請將此值取代為 `common`
 >

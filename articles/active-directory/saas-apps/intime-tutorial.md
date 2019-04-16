@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 5e50a4f10b7706e474941842b14e1f45364d13a7
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: bd1ed30d56e8d23057e560b1180c35e0a29542b6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226482"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274938"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intime"></a>教學課程：Azure Active Directory 與 InTime 整合
 
@@ -105,9 +105,9 @@ InTime 與 Azure AD 整合提供下列優點：
 
     ![InTime 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，輸入 URL：`https://intime6.intimesoft.com/mytime/login/login.xhtml`
+    a. 在 [登入 URL] 文字方塊中，輸入 URL： `https://intime6.intimesoft.com/mytime/login/login.xhtml`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，輸入 URL：`https://auth.intimesoft.com/auth/realms/master`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，輸入 URL： `https://auth.intimesoft.com/auth/realms/master`
 
 5. InTime 應用程式需要特定格式的 SAML 判斷提示，所以您需要加入自訂屬性對應到您的 SAML 權杖屬性組態。 下列螢幕擷取畫面顯示預設屬性清單，其中的 **nameidentifier** 與 **user.userprincipalname** 相對應。 InTime 應用程式要求 **nameidentifier** 需與 **user.mail** 相對應，因此您必須按一下 [編輯] 圖示以編輯屬性對應，並變更屬性對應。
 

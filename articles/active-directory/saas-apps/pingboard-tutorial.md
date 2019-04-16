@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 45b542cb644666a6bf1df3dc76cbf54693330810
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: d69271f65c326237a380624d994d8f5339537114
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438898"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271113"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>教學課程：Azure Active Directory 與 Pingboard 整合
 
@@ -107,9 +107,9 @@ Pingboard 與 Azure AD 整合提供下列優點：
 
     ![Pingboard 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，鍵入 URL：`http://app.pingboard.com/sp`
+    a. 在 [識別碼] 文字方塊中，鍵入 URL： `http://app.pingboard.com/sp`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<entity-id>.pingboard.com/auth/saml/consume`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<entity-id>.pingboard.com/auth/saml/consume`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
@@ -208,7 +208,7 @@ Pingboard 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-pingboard-test-user"></a>建立 Pingboard 測試使用者
 
-本節目標是在 Pingboard 中建立名為 Britta Simon 的使用者。 Pingboard 支援自動使用者佈建，該功能預設為啟用。 在[這裡](pingboard-provisioning-tutorial.md)可以找到更多關於如何設定自動使用者佈建的詳細資料。
+本節目標是在 Pingboard 中建立名為 Britta Simon 的使用者。 Pingboard 支援自動使用者佈建，該功能預設為啟用。 您可以在[這裡](pingboard-provisioning-tutorial.md)找到關於如何設定自動使用者佈建的更多詳細資料。
 
 **如果您需要手動建立使用者，請執行下列步驟：**
 

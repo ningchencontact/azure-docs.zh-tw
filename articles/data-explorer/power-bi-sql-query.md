@@ -1,19 +1,18 @@
 ---
-title: 快速入門：在 Power BI 中使用 SQL 查詢將資料視覺化
+title: 快速入門：在 Power BI 中使用 SQL 查詢從 Azure 資料總管將資料視覺化
 description: 在本快速入門中，您會了解如何使用三個選項之一在 Power BI 中將資料視覺化：對 Azure 資料總管叢集的 SQL 查詢。
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: f41bd1dcd354d75788569f5c1f24a50c604b5737
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 4a3a688adaae8fe66c336617cdd0a4807f16ec68
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756347"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045502"
 ---
 # <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>快速入門：使用適用於 Power BI 的 Azure 資料總管連接器將資料視覺化
 
@@ -53,7 +52,7 @@ Azure 資料總管提供三個選項以便連線到 Power BI 中的資料：使�
     |---|---|---|
     | 伺服器 | *help.kusto.windows.net* | 說明叢集的 URL (不含 *https://*)。 對於其他叢集，URL 的格式為 *\<ClusterName\>.\<Region\>.kusto.windows.net*。 |
     | 資料庫 | *範例* | 裝載於所要連線叢集上的範例資料庫。 |
-    | 資料連線模式 | *匯入* | 決定 Power BI 是否匯入資料或直接連線到資料來源。 您可以使用任一選項搭配此連接器。 |
+    | 資料連線模式 | *Import* | 決定 Power BI 是否匯入資料或直接連線到資料來源。 您可以使用任一選項搭配此連接器。 |
     | 命令逾時 | 保留空白 | 查詢執行多久才會擲回逾時錯誤。 |
     | SQL 陳述式 | 複製此資料表下方的查詢 | Azure 資料總管轉譯成原生查詢的 SQL 陳述式。 |
     | 其他選項 | 保留為預設值 | 選項不適用於 Azure 資料總管叢集。 |
@@ -69,7 +68,7 @@ Azure 資料總管提供三個選項以便連線到 Power BI 中的資料：使�
 
     ![登入](media/power-bi-sql-query/sign-in.png)
 
-1. 在 [help.kusto.windows.net: 範例] 畫面上，選取 [載入]。
+1. 在 **[help.kusto.windows.net：範例]** 畫面上，選取 [載入]。
 
     ![載入資料](media/power-bi-sql-query/load-data.png)
 

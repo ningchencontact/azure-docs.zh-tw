@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: d34b40195a5f8effb794f3fbefc7949740509e27
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: cc2bbd0c1220a37de640bde6294eb096b25e5398
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835657"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258193"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-orgchart-now"></a>教學課程：Azure Active Directory 與 OrgChart Now 整合
 
@@ -28,7 +28,7 @@ ms.locfileid: "57835657"
 OrgChart Now 與 Azure AD 整合提供下列優點：
 
 * 您可以在 Azure AD 中控制可存取 OrgChart Now 的人員。
-* 您可以讓您自動登入 OrgChart now （單一登入） 的使用者，使用其 Azure AD 帳戶。
+* 您可以讓使用者使用其 Azure AD 帳戶自動登入 OrgChart Now (單一登入)。
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
@@ -39,13 +39,13 @@ OrgChart Now 與 Azure AD 整合提供下列優點：
 若要設定 Azure AD 與 OrgChart Now 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
-* 啟用 OrgChart Now 單一登入的訂用帳戶
+* 已啟用 OrgChart Now 單一登入的訂用帳戶
 
 ## <a name="scenario-description"></a>案例描述
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* OrgChart Now 支援**SP**並**IDP**初始化的 SSO
+* OrgChart Now 支援由 **SP** 和 **IDP** 起始的 SSO
 
 ## <a name="adding-orgchart-now-from-the-gallery"></a>從資源庫新增 OrgChart Now
 
@@ -71,25 +71,25 @@ OrgChart Now 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-本節中，您以設定及測試 Azure AD 單一登入與 OrgChart Now 測試使用者身分**名為 Britta Simon**。
-讓單一登入運作，必須建立在 Azure AD 使用者和 OrgChart Now 中的相關的使用者之間的連結關聯性。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 OrgChart Now 搭配運作的 Azure AD 單一登入。
+若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 OrgChart Now 中相關使用者之間的連結關聯性。
 
 若要使用 OrgChart Now 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[組織圖現在上設定單一登入](#configure-orgchart-now-single-sign-on)** -若要在應用程式端設定單一登入設定。
+2. **[設定 OrgChart Now 單一登入](#configure-orgchart-now-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立 OrgChart Now 測試使用者](#create-orgchart-now-test-user)** -在 OrgChart Now 連結到使用者與 Azure AD 中代表 Britta Simon 的對應。
+5. **[建立 OrgChart Now 測試使用者](#create-orgchart-now-test-user)** - 使 OrgChart Now 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要使用 OrgChart Now 設定 Azure AD 單一登入，請執行下列步驟：
+若要設定與 OrgChart Now 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
-1. 在  [Azure 入口網站](https://portal.azure.com/)上**OrgChart Now**應用程式整合頁面上，選取**單一登入**。
+1. 在 [Azure 入口網站](https://portal.azure.com/)的 [OrgChart Now] 應用程式整合頁面上，選取 [單一登入]。
 
     ![設定單一登入連結](common/select-sso.png)
 
@@ -114,13 +114,13 @@ OrgChart Now 與 Azure AD 整合提供下列優點：
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://sso2.orgchartnow.com/Shibboleth.sso/Login?entityID=<YourEntityID>&target=https://sso2.orgchartnow.com`
 
     > [!NOTE]
-    > `<YourEntityID>` 已**Azure AD 識別碼**從複製**設定 OrgChart Now**區段中，稍後在教學課程中所述。
+    > `<YourEntityID>` 是從＜設定 OrgChart Now＞一節複製的 **Azure AD 識別碼**，稍後會在教學課程中說明。
 
 6. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
-7. 在  **OrgChart Now 設定**區段上，複製 根據您的需求適當的 URL。
+7. 在 [設定 OrgChart Now] 區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -130,9 +130,9 @@ OrgChart Now 與 Azure AD 整合提供下列優點：
 
     c. 登出 URL
 
-### <a name="configure-orgchart-now-single-sign-on"></a>OrgChart Now 單一登入設定
+### <a name="configure-orgchart-now-single-sign-on"></a>設定 OrgChart Now 單一登入
 
-若要設定單一登入**OrgChart Now**端，您需要將已下載**同盟中繼資料 XML** ，以及適當從 Azure 入口網站複製的 Url [OrgChart Now 支援小組](mailto:ocnsupport@officeworksoftware.com). 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要設定 **OrgChart Now** 端的單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML] 和複製的適當 URL 傳送給 [OrgChart Now 支援小組](mailto:ocnsupport@officeworksoftware.com)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
@@ -163,7 +163,7 @@ OrgChart Now 與 Azure AD 整合提供下列優點：
 
 在本節中，您會將 OrgChart Now 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，選取**企業應用程式**，選取**所有應用程式**，然後選取**OrgChart Now**。
+1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [OrgChart Now]。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
@@ -219,9 +219,9 @@ OrgChart Now 與 Azure AD 整合提供下列優點：
 
     ![OrgChart Now 管理](./media/orgchartnow-tutorial/tutorial_orgchartnow_manageusers.png)
 
-    * 在 **使用者識別碼**文字方塊中，輸入使用者識別碼，例如**brittasimon\@contoso.com**。
+    * 在 [使用者識別碼] 文字方塊中，輸入使用者識別碼，例如 **brittasimon\@contoso.com**。
 
-    * 在 **電子郵件地址**文字方塊中，輸入使用者電子郵件，例如**brittasimon\@contoso.com**。
+    * 在 [Email Address] \(電子郵件地址\) 文字方塊中，輸入使用者的電子郵件地址，例如 **brittasimon\@contoso.com**。
 
     * 按一下 [新增] 。
 
@@ -229,7 +229,7 @@ OrgChart Now 與 Azure AD 整合提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您按一下存取面板 」 中的 [OrgChart Now] 圖格時，您應該會自動登入 OrgChart now，讓您設定 SSO。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [OrgChart Now] 圖格時，應該會自動登入您已設定 SSO 的 OrgChart Now。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

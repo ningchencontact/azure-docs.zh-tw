@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 3a17b42458cf1512c1dd9ee38782917ca93cd2ae
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4788b65201792292d79cd8c4d1b22f22c5e67eb6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904587"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278797"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nuclino"></a>教學課程：Azure Active Directory 與 Nuclino 整合
 
@@ -106,9 +106,9 @@ Nuclino 與 Azure AD 的整合可提供下列優點：
 
     ![Nuclino 網域和 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://api.nuclino.com/api/sso/<UNIQUE-ID>/metadata`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://api.nuclino.com/api/sso/<UNIQUE-ID>/metadata`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://api.nuclino.com/api/sso/<UNIQUE-ID>/acs`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://api.nuclino.com/api/sso/<UNIQUE-ID>/acs`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用 [驗證] 區段中的實際識別碼和回覆 URL (稍後會在本教學課程中說明) 來更新這些值。

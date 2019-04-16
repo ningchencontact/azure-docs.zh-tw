@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 2b63eea7b8562a6972aecef02395d734d1c2655f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d504e3abe148f1f607d8ee359e182832ec7d19f6
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883860"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010306"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Linux 上以 C++ 辨識語音
 
@@ -31,7 +31,7 @@ ms.locfileid: "57883860"
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-認知服務語音 SDK 目前的版本為 `1.3.1`。
+認知服務語音 SDK 目前的版本為 `1.4.0`。
 
 適用於 Linux 的語音 SDK 可用來建置 64 位元和 32 位元應用程式。 您可從 https://aka.ms/csspeech/linuxbinary 以 tar 檔案格式下載必要的程式庫和標頭檔。
 
@@ -132,7 +132,7 @@ ms.locfileid: "57883860"
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [探索 GitHub 上的 C++ 範例](https://aka.ms/csspeech/samples) \(英文\)
+> [探索 GitHub 上的 C++ 範例](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>另請參閱
 

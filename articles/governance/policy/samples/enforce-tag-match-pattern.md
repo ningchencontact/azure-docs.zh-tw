@@ -1,19 +1,18 @@
 ---
 title: 範例 - 強制執行標記相符模式
 description: 此原則定義範例要求資源必須符合標記值的相符模式。
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: bcf9b8302c15ba990bc91bd48aa479f4bf211a85
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 7c758cf2dd7ae6a1fcc59502fe671b5fb7067e5c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804882"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278882"
 ---
 # <a name="sample---enforce-tag-match-pattern-for-tag-values"></a>範例 - 對標記值強制執行標記相符模式
 
@@ -29,7 +28,7 @@ ms.locfileid: "58804882"
 
 ## <a name="deploy-with-the-portal"></a>使用入口網站部署
 
-[![將原則範例部署至 Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FTextPatterns%2Fenforce-tag-match-pattern%2Fazurepolicy.json)
+[![D將原則範例部署至 Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FTextPatterns%2Fenforce-tag-match-pattern%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 部署
 

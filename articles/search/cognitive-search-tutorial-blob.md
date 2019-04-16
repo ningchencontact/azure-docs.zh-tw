@@ -1,21 +1,21 @@
 ---
-title: 在索引管線中呼叫認知服務 API 的教學課程 - Azure 搜尋服務
-description: 在本教學課程中，將逐步說明資料擷取和轉換的 Azure 搜尋服務索引中，資料擷取、自然語言和影像 AI 處理的範例。
+title: 教學課程：在索引管線中呼叫認知服務 API - Azure 搜尋服務
+description: 逐步說明在透過 JSON Blob 擷取和轉換資料的 Azure 搜尋服務索引中，進行資料擷取、自然語言和影像 AI 處理的範例。
 manager: pablocas
 author: luiscabrer
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f60b9002f939cbf4c3a0ecfb78b358598713ea1c
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 5fbcef1d8bc19df251a4d33cafa2fa7b5a7d9431
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881614"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261916"
 ---
 # <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>教學課程：在 Azure 搜尋服務索引管線中呼叫認知服務 API (預覽)
 
@@ -32,60 +32,44 @@ ms.locfileid: "58881614"
 
 Azure 搜尋服務的輸出是全文檢索的可搜尋索引。 您可以使用其他標準功能來強化索引，例如[同義字](search-synonyms.md)、[評分設定檔](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)、[分析器](search-analyzers.md)和[篩選](search-filters.md)。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+本教學課程雖然在免費服務上執行，但可用的交易數目限制為每日 20 份文件。 如果您想要在同一天中多次執行本教學課程，請使用較小的檔案集，如此才能在限制內完成多次執行。
 
 > [!NOTE]
-> 從 2018 年 12 月 21 日開始，您可以在認知服務資源與 Azure 搜尋服務的技能集之間建立關聯。 這可讓我們開始收取執行技能集的費用。 自這個日期起，我們也會開始收取文件萃取階段的影像擷取費用。 從文件中擷取文字的功能則繼續免費提供。
+> 當您藉由增加處理次數、新增更多文件或新增更多 AI 演算法來擴展範圍時，您必須連結可計費的認知服務資源。 在認知服務中呼叫 API，以及在 Azure 搜尋服務的文件萃取階段中擷取影像時，都會產生費用。 從文件中擷取文字不會產生費用。
 >
-> 內建技能的執行會依現行的[認知服務隨用隨附價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價會依預覽定價收費，如 [Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)所述。 [深入](cognitive-search-attach-cognitive-services.md)了解。
+> 內建技能的執行會依現有的[認知服務隨用隨附價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價會依預覽定價收費，如 [Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)所述。 [深入](cognitive-search-attach-cognitive-services.md)了解。
+
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 ## <a name="prerequisites"></a>必要條件
 
-剛開始使用認知搜尋嗎？ 請閱讀[「什麼是認知搜尋？」](cognitive-search-concept-intro.md) 以取得概念，或嘗試以[入口網站快速入門](cognitive-search-quickstart-blob.md)取得重要概念的實際操作簡介。
+[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本教學課程的免費服務。
 
-若要對 Azure 搜尋服務進行 REST 呼叫，請使用 PowerShell 或 Web 測試工具 (例如 Telerik Fiddler 或 Postman) 來編寫 HTTP 要求的公式。 如果您未曾使用過這些工具，請參閱[使用 Fiddler 或 Postman 探索 Azure 搜尋服務 REST API](search-fiddler.md)。
+[Postman 傳統型應用程式](https://www.getpostman.com/)可用來對 Azure 搜尋服務發出 REST 呼叫。
 
-使用 [Azure 入口網站](https://portal.azure.com/)建立在端對端工作流程中使用的服務。 
+### <a name="get-an-azure-search-api-key-and-endpoint"></a>取得 Azure 搜尋服務的 API 金鑰和端點
 
-### <a name="set-up-azure-search"></a>設定 Azure 搜尋服務
+REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同時建立，因此如果您將 Azure 搜尋服務新增至您的訂用帳戶，請遵循下列步驟來取得必要的資訊：
 
-首先，請註冊 Azure 搜尋服務。 
+1. 在 Azure 入口網站中，您的搜尋服務 [概觀] 頁面上，取得 URL。 範例端點看起來會像是 `https://my-service-name.search.windows.net`。
 
-1. 使用您的 Azure 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
+2. 在 [設定]  >  [金鑰] 中，取得服務上完整權限的管理金鑰。 可互換的管理金鑰有兩個，可在您需要變換金鑰時提供商務持續性。 您可以在新增、修改及刪除物件的要求上使用主要或次要金鑰。
 
-1. 按一下 [建立資源]，搜尋「Azure Search 搜尋服務」，然後按一下 [建立]。 如果您是第一次設定搜尋服務，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md)。
+![取得 HTTP 端點和存取金鑰](media/search-fiddler/get-url-key.png "取得 HTTP 端點和存取金鑰")
 
-   ![儀表板入口網站](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "在入口網站中建立 Azure 搜尋服務")
-
-1. 針對資源群組建立資源群組，以包含您在本教學課程中建立的所有資源。 這可讓您在完成教學課程後能夠更輕鬆地清除資源。
-
-1. 針對位置，選擇接近您的資料和其他雲端應用程式的區域。
-
-1. 針對 [定價層]，您可以建立 [免費] 服務以完成教學課程和快速入門。 若要使用您自己的資料進行深入調查，請建立[付費服務](https://azure.microsoft.com/pricing/details/search/)，例如**基本**或**標準**。 
-
-   「免費」服務僅限使用 3 個索引、上限為 16 MB 的 Blob 大小，以及 2 分鐘的索引編製，這對執行完整認知搜尋功能而言是不夠的。 若要檢視不同層級的限制，請參閱[服務限制](search-limits-quotas-capacity.md)。
-
-   ![入口網站中的服務定義頁面](./media/cognitive-search-tutorial-blob/create-search-service1.png "入口網站中的服務定義頁面")
-   ![入口網站中的服務定義頁面](./media/cognitive-search-tutorial-blob/create-search-service2.png "入口網站中的服務定義頁面")
-
- 
-1. 將服務釘選到儀表板，以快速存取服務資訊。
-
-   ![入口網站中的服務定義頁面](./media/cognitive-search-tutorial-blob/create-search-service3.png "入口網站中的服務定義頁面")
-
-1. 建立服務之後，請收集下列資訊：[概觀] 頁面中的 [URL]，以及 [金鑰] 頁面中的 [API 金鑰] (主要或次要)。
-
-   ![入口網站中的端點和金鑰資訊](./media/cognitive-search-tutorial-blob/create-search-collect-info.png "入口網站中的端點和金鑰資訊")
+所有要求均都需要在傳送至您服務上的每個要求上使用 API 金鑰。 擁有有效的金鑰就能為每個要求在傳送要求之應用程式與處理要求之服務間建立信任。
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>設定 Azure Blob 服務並載入範例資料
 
 擴充管線會從 Azure 資料來源中提取資料。 來源資料必須來自 [Azure 搜尋服務索引子](search-indexer-overview.md)支援的資料來源類型。 請注意，認知服務不支援 Azure 資料表儲存體。 針對此練習，我們會使用 Blob 儲存體來展現多個內容類型。
 
-1. [載入範例資料](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)。 下載由不同類型的小型檔案集組成的範例資料。 
+1. [下載範例資料](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)，其中有不同類型的小型檔案集。 
 
-1. 註冊 Azure Blob 儲存體、建立儲存體帳戶、登入儲存體總管，並建立名為 `basicdemo` 的容器。 如需關於上述所有步驟的指示，請參閱 [Azure 儲存體總管快速入門](../storage/blobs/storage-quickstart-blobs-storage-explorer.md)。
+1. [註冊 Azure Blob 儲存體](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)、建立儲存體帳戶、開啟 Blob 服務頁面，以及建立容器。 在 Azure 搜尋服務的所在區域中建立儲存體帳戶。
 
-1. 使用 Azure 儲存體總管，在您建立的 容器中按一下 [上傳]`basicdemo`，以上傳範例檔案。
+1. 在您建立的 容器中，按一下 [上傳] 以上傳您在上一步中下載的範例檔案。
+
+   ![Azure Blob 儲存體中的來源檔案](./media/cognitive-search-quickstart-blob/sample-data.png)
 
 1. 範例檔案載入之後，請取得 Blob 儲存體的容器名稱和連接字串。 您可以瀏覽至 Azure 入口網站中的儲存體帳戶，以執行此動作。 在 [存取金鑰] 上，複製 [連接字串] 欄位。
 
@@ -438,7 +422,7 @@ api-key: [api-key]
 Content-Type: application/json
 ```
 
-對其他欄位重複前述步驟：此練習中的內容、語言、關鍵片語和組織。 您可以透過使用逗號分隔清單的 `$select` 傳回多個欄位。
+對其他欄位重複前述步驟：此練習中的內容、語言程式碼、關鍵片語和組織。 您可以透過使用逗號分隔清單的 `$select` 傳回多個欄位。
 
 您可以使用 GET 或 POST，視查詢字串的複雜度和長度而定。 如需詳細資訊，請參閱[使用 REST API 進行查詢](https://docs.microsoft.com/rest/api/searchservice/search-documents)。
 

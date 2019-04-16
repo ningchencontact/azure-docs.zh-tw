@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 44f309b828a851a45e34a89473a2599d6c8566c9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b599eaf36eed69cd693e0dc4e20ef2123e42e60b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58168668"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270739"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-manager"></a>教學課程：Azure Active Directory 與 Skills Manager 整合
 
@@ -36,7 +36,7 @@ Skills Manager 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Skills Manager 的整合，您需要下列項目：
+若要設定 Azure AD 與 Skills Manager 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Skills Manager 單一登入的訂用帳戶
@@ -74,7 +74,7 @@ Skills Manager 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Skills Manager 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Skills Manager 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Skills Manager 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 Skills Manager 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Skills Manager 單一登入](#configure-skills-manager-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -105,9 +105,9 @@ Skills Manager 與 Azure AD 整合提供下列優點：
 
     ![Skills Manager 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<SUBDOMAIN>.skills-manager.com/kennametal`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://<SUBDOMAIN>.skills-manager.com/kennametal`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<SUBDOMAIN>.skills-manager.com/public/SamlLogin2.aspx`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<SUBDOMAIN>.skills-manager.com/public/SamlLogin2.aspx`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Skills Manager 用戶端支援小組](https://www.ibm.com/support/uk/?lnk=msu_uk)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
@@ -165,7 +165,7 @@ Skills Manager 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [Skills Manager]。
 
-    ![應用程式清單中的 [Skills Manager] 連結](common/all-applications.png)
+    ![應用程式清單中的 Skills Manager 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

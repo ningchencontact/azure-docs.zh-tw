@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/27/2019
-ms.openlocfilehash: f58cc930ace2dc1fc65aa0494fd6c1510ee5ff29
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 846cf0e0afe2bd1eedaea3c66af674f9b8a447d3
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621340"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359177"
 ---
 # <a name="use-powershell-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>使用 PowerShell 將單一 Azure SQL 資料庫還原到較早的時間點
 
@@ -35,7 +35,7 @@ ms.locfileid: "58621340"
 
 ## <a name="clean-up-deployment"></a>清除部署
 
-在執行過指令碼範例之後，您可以使用下列命令來移除資源群組和所有與其相關聯的資源。
+使用下列命令來移除資源群組及其所有相關聯的資源。
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
@@ -47,7 +47,7 @@ Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 
 | 命令 | 注意 |
 |---|---|
-| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 建立用來存放所有資源的資源群組。 | 
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 建立用來存放所有資源的資源群組。 |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | 建立裝載單一資料庫或彈性集區的 SQL Database 伺服器。 |
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | 在 SQL Database 伺服器中將資料庫建立為獨立或集區資料庫。 |
 [Get-AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup) | 取得獨立或集區資料庫的異地備援備份。 |

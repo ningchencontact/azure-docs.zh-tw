@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 539357c9dcfaaffa551b4be08427a51d9e92475f
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 78aa8653385a126cf40e851332d50eac4c293390
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484764"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005997"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-application-preview"></a>快速入門：使用 C Proxy 應用程式透過 IoT 中樞裝置串流進行 SSH/RDP 輸送 (預覽)
 
@@ -28,6 +28,7 @@ Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://a
 本文件說明透過裝置串流來輸送 SSH 流量 (使用連接埠 22) 的設定。 RDP 流量的設定也相類似，但需要稍微變更組態。 由於裝置串流與應用程式或通訊協定無關，因此現有的快速入門可在修改後 (藉由變更通訊連接埠) 用於其他類型的應用程式流量。
 
 ## <a name="how-it-works"></a>運作方式
+
 下圖說明如何設定將會在 SSH 用戶端與 SSH 服務精靈程序之間啟用端對端連線的裝置和服務本機 Proxy 程式。 在公開預覽期間，C SDK 僅支援裝置端上的裝置串流。 因此，本快速入門僅提供執行裝置本機 Proxy 應用程式的指示。 您應執行 [C# 快速入門](./quickstart-device-streams-proxy-csharp.md)或 [Node.js 快速入門](./quickstart-device-streams-proxy-nodejs.md)指南中提及的隨附服務本機 Proxy 應用程式。
 
 ![替代文字](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg "本機 Proxy 設定")
@@ -56,6 +57,11 @@ Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://a
 
 * 安裝 [Visual Studio 2017](https://www.visualstudio.com/vs/) 並啟用[使用 C++ 的桌面開發](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/)工作負載。
 * 安裝最新版的 [Git](https://git-scm.com/download/)。
+* 執行下列命令，將適用於 Azure CLI 的 Microsoft Azure IoT 擴充功能新增至您的 Cloud Shell 執行個體。 IoT 擴充功能可將 IoT 中樞、IoT Edge 和 IoT 裝置佈建服務的特定命令新增至 Azure CLI。
+
+   ```azurecli-interactive
+   az extension add --name azure-cli-iot-ext
+   ```
 
 ## <a name="prepare-the-development-environment"></a>準備開發環境
 
@@ -126,14 +132,13 @@ Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://a
 
 裝置必須向的 IoT 中樞註冊，才能進行連線。 在此節中，您將會使用 Azure Cloud Shell 搭配 [IoT 擴充功能](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest)來註冊模擬裝置。
 
-1. 在 Azure Cloud Shell 中執行下列命令，以新增 IoT 中樞 CLI 擴充功能和建立裝置身分識別。 
+1. 在 Azure Cloud Shell 中執行下列命令，以建立裝置身分識別。
 
    **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。
 
    **MyDevice**：這是為已註冊裝置指定的名稱。 使用所示的 MyCDevice。 如果您為裝置選擇不同的名稱，則也必須在本文中使用該名稱，並先在範例應用程式中更新該裝置名稱，再執行應用程式。
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
@@ -218,7 +223,7 @@ SSH 用戶端程式的主控台輸出 (SSH 用戶端藉由連線至服務本機 
 
 在本快速入門中，您已設定 IoT 中樞、註冊裝置、部署裝置和服務本機 Proxy 程式以透過 IoT 中樞建立裝置串流，並使用 Proxy 輸送 SSH 流量。
 
-使用下列連結深入了解裝置串流：
+使用以下連結深入了解裝置串流：
 
 > [!div class="nextstepaction"]
 > [裝置串流概觀](./iot-hub-device-streams-overview.md)

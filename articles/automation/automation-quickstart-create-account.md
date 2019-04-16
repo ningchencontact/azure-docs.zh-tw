@@ -4,17 +4,17 @@ description: 了解如何建立 Azure 自動化帳戶及執行 Runbook
 services: automation
 author: csand-msft
 ms.author: csand
-ms.date: 01/15/2019
+ms.date: 04/04/2019
 ms.topic: quickstart
 ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 5fd29c47f87dc65d67961224d1e2c103871d4b06
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 7f7905a4b09e685ad98a1663333aa32bc1d7ae90
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592446"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009507"
 ---
 # <a name="create-an-azure-automation-account"></a>建立 Azure 自動化帳戶
 
@@ -32,7 +32,7 @@ ms.locfileid: "56592446"
 
 1. 選取 [管理工具]，然後選取 [自動化]。
 
-1. 輸入帳戶資訊。 針對 [建立 Azure 執行身分帳戶] 選擇 [是]，就會自動啟用簡化對 Azure 進行驗證的構件。 請務必注意，在建立自動化帳戶時，名稱在選擇後即不可變更。 *「自動化帳戶」名稱在每一區域和資源群組中是唯一的。自動化帳戶已刪除後，其名稱並非立即可供使用。* 一個「自動化帳戶」可以管理所指定租用戶之所有區域和訂用帳戶的資源。 完成後，按一下 [建立] 可啟動自動化帳戶部署。
+1. 輸入帳戶資訊。 針對 [建立 Azure 執行身分帳戶] 選擇 [是]，就會自動啟用簡化對 Azure 進行驗證的構件。 請務必注意，在建立自動化帳戶時，名稱在選擇後即不可變更。 *自動化帳戶名稱在每一區域和資源群組中是唯一的。 自動化帳戶已刪除後，其名稱並非立即可供使用。* 一個「自動化帳戶」可以管理所指定租用戶之所有區域和訂用帳戶的資源。 完成後，按一下 [建立] 可啟動自動化帳戶部署。
 
     ![在頁面中輸入您自動化帳戶的相關資訊](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
@@ -60,10 +60,6 @@ ms.locfileid: "56592446"
     ![Runbook 作業頁面](./media/automation-quickstart-create-account/automation-tutorial-script-job.png)
 
 1. [作業狀態] 變成 [執行] 之後，按一下 [輸出] 或 [所有記錄] 可檢視 Runbook 作業輸出。 在本教學課程的 Runbook 中，輸出就是您 Azure 資源的清單。
-
-## <a name="clean-up-resources"></a>清除資源
-
-若不再需要，可刪除資源群組、自動化帳戶和所有相關資源。 若要這樣做，請選取自動化帳戶的資源群組，然後按一下 [刪除]。
 
 ## <a name="next-steps"></a>後續步驟
 

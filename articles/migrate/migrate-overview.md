@@ -4,15 +4,15 @@ description: 提供 Azure Migrate 服務的概觀。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 04/03/2019
+ms.date: 04/04/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9f1d127405046400e2a92ffc5ab695d287e297bd
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: e0249535813c6b8d652775f68a696d8c25ead5a1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894964"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275437"
 ---
 # <a name="about-azure-migrate"></a>關於 Azure Migrate
 
@@ -32,7 +32,7 @@ Azure Migrate 可協助您：
 - 您只能針對那些要移轉到 Azure VM 的內部部署 VMware 虛擬機器 (VM) 進行評估。 VMware VM 必須由 vCenter Server (5.5、6.0、6.5 或 6.7 版) 管理。
 - HYPER-V 支援目前的生產環境支援為預覽狀態，如果您有興趣試用看看，請[在這裡](https://aka.ms/migratefuture)註冊。
 - 若要評估實體伺服器，可利用我們的[合作夥伴工具](https://azure.microsoft.com/migration/partners/)。
-- 您可以在單一探索中探索多達 1500 個 VM，並在單一專案中探索多達 1500 個 VM。 此外，您還可以在單一評估中評估多達 1500 個 VM。
+- 您可以在單一探索中和單一專案中探索多達 1500 個 VM。 我們有提供預覽版本，可允許在使用單一設備的單一專案中探索多達 10,000 個 VMware VM，如果您有興趣試用看看，請登入[這裡。](https://aka.ms/migratefuture)
 - 如果您想要探索較大的環境，您可以分割探索並建立多個專案。 [深入了解](how-to-scale-assessment.md)。 Azure Migrate 支援每個訂閱最多 20 個專案。
 - Azure Migrate 只支援將受控磁碟用於進行移轉評估。
 -  您只能在下列地理位置建立 Azure Migrate 專案。 不過，這不會限制您建立其他目標 Azure 位置評量的能力。

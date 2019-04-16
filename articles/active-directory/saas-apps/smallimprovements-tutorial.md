@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 1b59d1c030df95a650124f9e9ea34e06db7d08af
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 19d9624c5bb60f47ef4bfa1b0629327780c2a9c7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180852"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266287"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>教學課程：Azure Active Directory 與 Small Improvements 整合
 
@@ -74,7 +74,7 @@ Small Improvements 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Small Improvements 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Small Improvements 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Small Improvements 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 Small Improvements 設定及測試 Azure AD 單一登入功能，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Small Improvements 單一登入](#configure-small-improvements-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -105,9 +105,9 @@ Small Improvements 與 Azure AD 整合提供下列優點：
 
     ![Small Improvements 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.small-improvements.com`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.small-improvements.com`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.small-improvements.com`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.small-improvements.com`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Small Improvements 客戶支援小組](mailto:support@small-improvements.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

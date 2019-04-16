@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 26b3e2144094bfd9b10367a48226c836c6152b79
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0424b21c60d4ae86f7802d1b3ca2a0d7bbe35759
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57899905"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281619"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getthere"></a>教學課程：Azure Active Directory 與 GetThere 整合
 
@@ -73,7 +73,7 @@ GetThere 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 GetThere 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 GetThere 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 GetThere 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 GetThere 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 GetThere 單一登入](#configure-getthere-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -220,7 +220,7 @@ GetThere 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-getthere-test-user"></a>建立 GetThere 測試使用者
 
-在本節中，您會在 GetThere 中建立名為 Britta Simon 的使用者。 請與 [GetThere 支援小組](mailto:dataintegration@sabre.com)合作，在 GetThere 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 GetThere 中建立名為 Britta Simon 的使用者。 請與 [GetThere 支援小組](mailto:dataintegration@sabre.com)合作，在 GetThere 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入 
 

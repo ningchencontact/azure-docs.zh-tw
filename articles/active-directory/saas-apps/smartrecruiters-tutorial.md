@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 6cf24dd5bd43670efbc41b89ca62ec061dc0dbc3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 79223a7f5c1f16eaf09de8efd05e0ec096ac73ab
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177597"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279443"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartrecruiters"></a>教學課程：Azure Active Directory 與 SmartRecruiters 整合
 
@@ -105,9 +105,9 @@ SmartRecruiters 與 Azure AD 整合提供下列優點：
 
     ![SmartRecruiters 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://www.smartrecruiters.com/web-sso/saml/<companyname>`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://www.smartrecruiters.com/web-sso/saml/<companyname>`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://www.smartrecruiters.com/web-sso/saml/<companyname>/callback`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://www.smartrecruiters.com/web-sso/saml/<companyname>/callback`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
@@ -193,7 +193,7 @@ SmartRecruiters 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [SmartRecruiters]。
 
-    ![應用程式清單中的 [SmartRecruiters] 連結](common/all-applications.png)
+    ![應用程式清單中的 SmartRecruiters 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

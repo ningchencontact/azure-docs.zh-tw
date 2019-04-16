@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/13/2019
 ms.author: srrengar
 ms.custom: mvc
-ms.openlocfilehash: 62ab98d2279380df33657967c55bf7fb4d36da43
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 9838c6e31e3bb7031d98e615fd96049f22dd8d30
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662443"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045640"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>教學課程：在 Azure 中監視 Service Fabric 叢集
 
@@ -42,12 +42,15 @@ ms.locfileid: "58662443"
 > * [升級叢集的執行階段](service-fabric-tutorial-upgrade-cluster.md)
 > * [刪除叢集](service-fabric-tutorial-delete-cluster.md)
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>必要條件
 
 開始進行本教學課程之前：
 
 * 如果您沒有 Azure 訂用帳戶，請建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* 安裝 [Azure PowerShell 模組 4.1 版或更新版本](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)或 [Azure CLI](/cli/azure/install-azure-cli)。
+* 安裝 [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) 或 [Azure CLI](/cli/azure/install-azure-cli)。
 * 建立安全的 [Windows 叢集](service-fabric-tutorial-create-vnet-and-windows-cluster.md) 
 * 設定叢集的[診斷收集](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configurediagnostics_anchor)
 * 在叢集中啟用 [EventStore 服務](service-fabric-tutorial-create-vnet-and-windows-cluster.md#configureeventstore_anchor)

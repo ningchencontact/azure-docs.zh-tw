@@ -17,12 +17,12 @@ ms.date: 04/03/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fa2e38a680e8590a89131717136a7960c1d3680
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 5dfa78177974499badc29b7e83556b6a91db7979
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58903585"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005664"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>快速入門：將「使用 Microsoft 登入」新增至 ASP.NET Core Web 應用程式
 
@@ -79,7 +79,7 @@ ms.locfileid: "58903585"
 
 1. 將 ZIP 檔案解壓縮至根資料夾內的本機資料夾 - 例如 **C:\Azure-Samples**
 1. 如果您使用 Visual Studio 2017，請在 Visual Studio 中開啟解決方案 (選用)。
-1. 編輯 **appsettings.json** 檔案。 找到 `ClientId`，並將 `ClientId` 的值更新為剛剛所註冊應用程式的 [應用程式 (用戶端) 識別碼] 值。 
+1. 編輯 **appsettings.json** 檔案。 找出 `ClientId`，並將 `ClientId` 的值更新為剛剛所註冊應用程式的 [應用程式 (用戶端) 識別碼] 值。 
 
     ```json
     "ClientId": "Enter_the_Application_Id_here"

@@ -11,12 +11,12 @@ author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c9f8e13ad089fd40cde22bb76587b171a1c52c7b
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 26248616c6b490de00028d8ecc8a0e225da0c0a6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361883"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257105"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>什麼是 Azure Machine Learning 服務？
 
@@ -32,7 +32,7 @@ Azure Machine Learning 服務是用來定型、部署、自動化及管理機器
 
 Azure Machine Learning 服務提供雲端架構的環境，可用於準備資料、定型、測試、部署、管理及追蹤機器學習服務模型。
 
-[![Azure Machine Learning 服務工作流程](./media/overview-what-is-azure-ml/aml.png)](./media/overview-what-is-azure-ml/aml.png#lightbox)
+[![AAzure Machine Learning 服務工作流程](./media/overview-what-is-azure-ml/aml.png)](./media/overview-what-is-azure-ml/aml.png#lightbox)
 
 Azure Machine Learning 服務完全支援開放原始碼技術。 因此您可以將數以萬計的開放原始碼 Python 套件與機器學習服務元件搭配使用。 例如 PyTorch、TensorFlow 和 scikit-learn。
 支援豐富的工具，輕鬆就能以互動方式探索和準備資料，然後開發測試模型。 例如 [Jupyter notebook](https://jupyter.org) \(英文\) 或[適用於 Visual Studio Code 的 Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview) \(英文\) 延伸模組。
@@ -55,7 +55,6 @@ Azure Machine Learning 服務也包含[自動產生模型與微調](tutorial-aut
 - <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
 - <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>
 - <a href="https://pytorch.org" target="_blank">PyTorch</a>
-- <a href="https://www.microsoft.com/en-us/cognitive-toolkit/" target="_blank">CNTK</a>
 - <a href="https://mxnet.io" target="_blank">MXNet</a>
 
 Azure Machine Learning 服務也可自動定型模型及自動調整模型。

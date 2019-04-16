@@ -1,97 +1,101 @@
 ---
-title: 在 Postman 或 Fiddler 中探索 REST API - Azure 搜尋服務
-description: 如何使用 Postman 或 Fiddler 對 Azure 搜尋服務發出 HTTP 要求和 REST API 呼叫。
+title: 快速入門：在 Postman 中探索 REST API - Azure 搜尋服務
+description: 如何使用 Postman 對 Azure 搜尋服務發出 HTTP 要求和 REST API 呼叫。
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c99380faee8fd1bc42922f7f0e367edde1154a9b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 0e14131ce45d20b99c1b5d5885cb1eb24c975d03
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368896"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269107"
 ---
-# <a name="quickstart-explore-azure-search-rest-apis-using-postman-or-fiddler"></a>快速入門：使用 Postman 或 Fiddler 探索 Azure 搜尋服務 REST API
+# <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>快速入門：使用 Postman 探索 Azure 搜尋服務 REST API
+> [!div class="op_single_selector"]
+> * [postman](search-fiddler.md)
+> * [C#](search-create-index-dotnet.md)
+> * [入口網站](search-get-started-portal.md)
+> * [PowerShell](search-howto-dotnet-sdk.md)
+>*
 
-探索 [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice) 的最簡單方式之一，就是使用 Postman 或 Fiddler 來制訂 HTTP 要求及檢查回應。 透過適當的工具與下列指示，您可以在撰寫任何程式碼前，先傳送要求並檢視回應。
+探索 [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice) 的最簡單方式之一，就是使用 Postman 或其他 Web 測試工作來制訂 HTTP 要求及檢查回應。 透過適當的工具與下列指示，您可以在撰寫任何程式碼前，先傳送要求並檢視回應。
 
 > [!div class="checklist"]
 > * 下載 Web API 測試工具
-> * 取得您的搜尋服務之 API 金鑰和端點
-> * 設定要求標頭
+> * 取得您搜尋服務的金鑰和 URL
+> * 連線到 Azure 搜尋服務
 > * 建立索引
 > * 載入索引
 > * 搜尋索引
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)，然後[註冊 Azure 搜尋服務](search-create-service-portal.md)。
 
-## <a name="download-tools"></a>下載工具
+## <a name="prerequisites"></a>必要條件
 
-下列工具廣泛用於 Web 開發，但是如果您熟悉其他工具，仍然應該套用本文中的指示。
+本快速入門會使用下列服務和工具。 
 
-+ [Postman 桌面應用程式](https://www.getpostman.com/)
-+ [Telerik Fiddler](https://www.telerik.com/fiddler)
+[建立 Azure 搜尋服務](search-create-service-portal.md)，或在您目前的訂用帳戶下方[尋找現有服務](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 您可以使用本快速入門的免費服務。 
 
-## <a name="get-the-api-key-and-endpoint"></a>取得 API 金鑰和端點
+[Postman 傳統型應用程式](https://www.getpostman.com/)或 [Telerik Fiddler](https://www.telerik.com/fiddler) 會用來將要求傳送至 Azure 搜尋服務。
+
+## <a name="get-a-key-and-url"></a>取得金鑰和 URL
 
 REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同時建立，因此如果您將 Azure 搜尋服務新增至您的訂用帳戶，請遵循下列步驟來取得必要的資訊：
 
-1. 在 Azure 入口網站中，您的搜尋服務 [概觀] 頁面上，取得 URL。 範例端點看起來會像是 `https://my-service-name.search.windows.net`。
+1. [登入 Azure 入口網站](https://portal.azure.com/)，並在搜尋服務的 [概觀] 頁面上取得 URL。 範例端點看起來會像是 `https://mydemo.search.windows.net`。
 
-2. 在 [設定]  >  [金鑰] 中，取得服務上完整權限的管理金鑰。 可互換的管理金鑰有兩個，可在您需要變換金鑰時提供商務持續性。 您可以在新增、修改及刪除物件的要求上使用主要或次要金鑰。
+1. 在 [設定]  >  [金鑰] 中，取得服務上完整權限的管理金鑰。 可互換的管理金鑰有兩個，可在您需要變換金鑰時提供商務持續性。 您可以在新增、修改及刪除物件的要求上使用主要或次要金鑰。
 
 ![取得 HTTP 端點和存取金鑰](media/search-fiddler/get-url-key.png "取得 HTTP 端點和存取金鑰")
 
 所有要求均都需要在傳送至您服務上的每個要求上使用 API 金鑰。 擁有有效的金鑰就能為每個要求在傳送要求之應用程式與處理要求之服務間建立信任。
 
+## <a name="connect-to-azure-search"></a>連線到 Azure 搜尋服務
 
-## <a name="configure-headers"></a>設定標頭
+在本節中，您可以使用所選 Web 工具來設定與 Azure 搜尋服務的連線。 每個工具都會保存工作階段的要求標頭資訊，這表示您只需要輸入一次 API 金鑰和內容類型。
 
-每個工具會保存工作階段的要求標頭資訊，這表示您只需要輸入一次 URL 端點、API 版本、API 金鑰和內容類型。
+針對任何一種工具，您都需要選擇命令 (GET、POST 及 PUT等等) 和提供 URL 端點，並且針對某些工作，在要求本文中提供 JSON。 完整的 URL 大致如下：
 
-完整 URL 看起來應該類似下列範例，只是您應該有效取代 **`my-app`** 預留位置名稱：`https://my-app.search.windows.net/indexes/hotels?api-version=2017-11-11`
+    https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2017-11-11
 
-服務 URL 組合會包含下列元素：
+您會看到 HTTPS 前置詞、服務名稱、物件名稱 (此案例使用索引集合) 和 [API 版本](search-api-versions.md)。 API 版本是針對目前版本指定的必要小寫字串，例如 "?api-version=2017-11-11"。 API 版本會定期更新。 在每個要求上包括 API 版本可讓您具備所使用之版本的完整控制權。  
 
-+ HTTPS 前置詞。
-+ 服務 URL，從入口網站取得。
-+ 資源，在您的服務上建立物件的作業。 在此步驟中，它是名為 *hotels* 的索引。
-+ API 版本，必要的小寫字串，針對目前版本指定為 "?api-version=2017-11-11"。 [API 版本](search-api-versions.md)會定期更新。 在每個要求上包括 API 版本可讓您具備所使用之版本的完整控制權。  
+要求標頭組合包含兩個元素：內容類型及用來對 Azure 搜尋服務進行驗證的 API 金鑰：
 
-要求標頭組合包含兩個元素，也就是前一節中所述的內容類型和 API 金鑰：
-
-    api-key: <placeholder>
+    api-key: <placeholder-api-key-for-your-service>
     Content-Type: application/json
 
-
-### <a name="postman"></a>postman
-
-制訂如下列螢幕擷取畫面所示的要求。 選擇 **PUT** 作為動詞。 
+在 Postman 中，可制訂如下列螢幕擷取畫面所示的要求。 選擇 **GET** 作為動詞、提供 URL，然後按一下 [傳送]。 此命令會連線至 Azure 搜尋服務、讀取索引集合，並在連線成功時傳回 HTTP 狀態碼 200。 如果您的服務已有索引，回應也會包含索引定義。
 
 ![Postman 要求標頭][6]
 
-### <a name="fiddler"></a>Fiddler
-
-制訂如下列螢幕擷取畫面所示的要求。 選擇 **PUT** 作為動詞。 Fiddler 會新增 `User-Agent=Fiddler`。 您可以在其下的新行上貼上兩個額外的要求標頭。 使用服務的管理員存取金鑰，包含服務的內容類型和 API 金鑰。
-
-![Fiddler 要求標頭][1]
-
-> [!Tip]
-> 關閉 Web 流量以隱藏無關且不相關的 HTTP 活動。 在 Fiddler 的 [檔案] 功能表中，關閉 [擷取流量]。 
-
 ## <a name="1---create-an-index"></a>1 - 建立索引
 
-要求本文包含索引定義。 新增要求本文會完成要求 (產生您的索引)。
+在 Azure 搜尋服務中，您通常會先建立索引，然後再載入資料。 這項工作會使用[建立索引](https://docs.microsoft.com/rest/api/searchservice/create-index) REST API。 
 
-除了索引名稱之外，要求中最重要的元件是欄位集合。 欄位集合會定義索引結構描述。 在每個欄位中指定其類型。 字串欄位用於全文檢索搜尋，因此如果您需要讓該內容可搜尋，您可能想要將數值資料轉換為字串。
+我們已延長 URL 來加入 `hotel` 索引名稱。
 
-欄位上的屬性會決定允許的動作。 REST API 預設允許許多動作。 例如，預設所有字串都可搜尋、可擷取、可篩選，以及可 Facet。 通常，您只需要在必須關閉行為時設定屬性。 如需屬性的詳細資訊，請參閱[建立索引 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-index)。
+若要在 Postman 中執行這項操作：
+
+1. 將動詞變更為 **PUT**
+2. 複製此 URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2017-11-11`
+3. 在要求本文中提供索引定義 (如下所示)
+4. 按一下 [傳送] 
+
+![Postman 要求本文][8]
+
+### <a name="index-definition"></a>索引定義
+
+欄位集合會定義文件結構。 每份文件都必須有這些欄位，而且每個欄位都必須有資料類型。 字串欄位用於全文檢索搜尋，因此如果您需要讓該內容可搜尋，您可能想要將數值資料轉換為字串。
+
+欄位上的屬性會決定允許的動作。 REST API 預設允許許多動作。 例如，預設所有字串都可搜尋、可擷取、可篩選，以及可 Facet。 通常，您只需要在必須關閉行為時設定屬性。
 
           {
          "name": "hotels",  
@@ -99,6 +103,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
            {"name": "hotelId", "type": "Edm.String", "key":true, "searchable": false},
            {"name": "baseRate", "type": "Edm.Double"},
            {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
+           {"name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
            {"name": "hotelName", "type": "Edm.String"},
            {"name": "category", "type": "Edm.String"},
            {"name": "tags", "type": "Collection(Edm.String)"},
@@ -110,31 +115,27 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
           ]
          }
 
-
 當您提交此要求時，您應該會取得 HTTP 201 回應，指出已成功建立索引。 您可以在網站中驗證此動作，但是請注意，入口網站分頁有重新整理間隔，因此可能需要一兩分鐘才會更新。
 
-如果您收到 HTTP 504，請確認 URL 所指定的是 HTTPS。 如果您看見 HTTP 400 或 404，請查看要求本文以確認並沒有「複製-貼上」錯誤。 HTTP 403 通常表示 API 金鑰有問題 (可能是金鑰無效或是用來指定 API 金鑰的語法有問題)。
-
-
-### <a name="postman"></a>postman
-
-將索引定義複製到要求本文，類似於以下螢幕擷取畫面，然後按一下右上方的 [傳送] 以傳送完成的要求。
-
-![Postman 要求本文][8]
-
-### <a name="fiddler"></a>Fiddler
-
-將索引定義複製到要求本文，類似於以下螢幕擷取畫面，然後按一下右上方的 [執行] 以傳送完成的要求。
-
-![Fiddler 要求本文][7]
+> [!TIP]
+> 如果您收到 HTTP 504，請確認 URL 所指定的是 HTTPS。 如果您看見 HTTP 400 或 404，請查看要求本文以確認並沒有「複製-貼上」錯誤。 HTTP 403 通常表示 API 金鑰有問題 (可能是金鑰無效或是用來指定 API 金鑰的語法有問題)。
 
 ## <a name="2---load-documents"></a>2 - 載入文件
 
-建立索引和填入索引是個別的步驟。 在 Azure 搜尋服務中，索引會包含所有可搜尋的資料，您可以提供來作為 JSON 文件。 若要檢閱此作業的 API，請參閱[新增、更新或刪除文件 (REST)](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)。
+建立索引和填入索引是個別的步驟。 在 Azure 搜尋服務中，索引會包含所有可搜尋的資料，您可以提供來作為 JSON 文件。 這項工作會使用[新增、更新或刪除文件](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) REST API。 
 
-+ 針對此步驟將動詞變更為 **POST**。
-+ 變更端點以包含 `/docs/index`。 完整的 URL 應該看起來像是 `https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11`
-+ 保留要求標頭的原狀。 
+我們已延長 URL 來加入 `docs` 集合和 `index` 作業。
+
+若要在 Postman 中執行這項操作：
+
+1. 將動詞變更為 **POST**
+2. 複製此 URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11`
+3. 在要求本文中提供 JSON 文件 (如下所示)
+4. 按一下 [傳送] 
+
+![Postman 要求裝載][10]
+
+### <a name="json-documents-to-load-into-the-index"></a>要載入索引的 JSON 文件
 
 [Request Body (要求本文)] 包含 4 個要新增到飯店索引的文件。
 
@@ -145,7 +146,7 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
              "hotelId": "1",
              "baseRate": 199.0,
              "description": "Best hotel in town",
-             "description_fr": "Meilleur hôtel en ville"
+             "description_fr": "Meilleur hôtel en ville",
              "hotelName": "Fancy Stay",
              "category": "Luxury",
              "tags": ["pool", "view", "wifi", "concierge"],
@@ -209,52 +210,73 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 > 針對選取的資料來源，您可以選擇替代「索引子」方法，這個方法可簡化並減少編制索引所需的程式碼數量。 如需詳細資訊，請參閱[索引子作業](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)。
 
 
-### <a name="postman"></a>postman
-
-將動詞變更為 **POST**。 變更 URL 以包含 `/docs/index`。 將文件複製到要求本文，類似於下列螢幕擷取畫面，然後執行要求。
-
-![Postman 要求裝載][10]
-
-### <a name="fiddler"></a>Fiddler
-
-將動詞變更為 **POST**。 變更 URL 以包含 `/docs/index`。 將文件複製到要求本文，類似於下列螢幕擷取畫面，然後執行要求。
-
-![Fiddler 要求裝載][9]
-
 ## <a name="3---search-an-index"></a>3 - 搜尋索引
+
 現在已載入索引和文件，您可以使用[搜尋文件](https://docs.microsoft.com/rest/api/searchservice/search-documents) REST API 對其發出查詢。
 
-+ 針對此步驟將動詞變更為 **GET**。
-+ 變更端點以包含查詢參數，包括搜尋字串。 查詢 URL 看起來會像是 `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
-+ 保留要求標頭的原狀
+我們已延長 URL 來加入使用搜尋運算子指定的查詢字串。
+
+若要在 Postman 中執行這項操作：
+
++ 將動詞變更為 **GET**
++ 複製此 URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
++ 按一下 [傳送] 
 
 此查詢會搜尋 "motel" 一詞，並在搜尋結果中傳回文件計數。 在您按一下 [傳送] 之後，Postman 的要求和回應看起來應該類似下列螢幕擷取畫面。 狀態碼應為 200。
 
  ![Postman 查詢回應][11]
 
-### <a name="tips-for-running-our-sample-queries-in-fiddler"></a>在 Fiddler 中執行範例查詢的提示
-
-下列範例查詢來自[搜尋索引作業 (Azure 搜尋服務 API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 一文。 本文中有許多範例查詢包含空格，這在 Fiddler 中是不允許的。 因此，請先使用 + 字元取代空格，再貼到查詢字串中，然後再於 Fiddler 中嘗試該查詢：
-
-**前面的空格會被取代 (in lastRenovationDate desc)：**
-
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11
-
-**後面的空格會以 + 取代 (in lastRenovationDate+desc)：**
-
-        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2017-11-11
 
 ## <a name="get-index-properties"></a>取得索引屬性
-您也可以查詢系統資訊以取得文件計數和儲存體用量：`https://my-app.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`
+您也可以查詢系統資訊以取得文件計數和儲存體用量： `https://mydemo.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`
 
 在 Postman 中，您的要求看起來應該與下方項目類似，回應會包括文件計數和使用的空格 (以位元組表示)。
 
  ![Postman 系統查詢][12]
 
-請注意，API 版本語法不同。 針對此要求，使用 `?` 以附加 API 版本。 ？ 從查詢字串分隔 URL 路徑，& 會分隔查詢字串中的每個 'name=value' 組。 針對此查詢，API 版本是查詢字串中第一個也是唯一一個項目。
+請注意，API 版本語法不同。 針對此要求，使用 `?` 以附加 API 版本。 從查詢字串分隔 URL 路徑，`?` 會分隔查詢字串中的每個 'name=value' 組。 針對此查詢，API 版本是查詢字串中第一個也是唯一一個項目。
 
 如需此 API 的詳細資訊，請參閱[取得索引統計資料 (REST)](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics)。
 
+
+## <a name="use-fiddler"></a>使用 Fiddler
+
+本節相當於前面的章節，只是改為使用 Fiddler 螢幕擷取畫面和指示
+
+### <a name="connect-to-azure-search"></a>連線到 Azure 搜尋服務
+
+制訂如下列螢幕擷取畫面所示的要求。 選擇 **GET** 作為動詞。 Fiddler 會新增 `User-Agent=Fiddler`。 您可以在其下的新行上貼上兩個額外的要求標頭。 使用服務的管理員存取金鑰，包含服務的內容類型和 API 金鑰。
+
+複製此 URL 的修改版本作為目標： `https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2017-11-11`
+
+![Fiddler 要求標頭][1]
+
+> [!Tip]
+> 關閉 Web 流量以隱藏無關且不相關的 HTTP 活動。 在 Fiddler 的 [檔案] 功能表中，關閉 [擷取流量]。 
+
+### <a name="1---create-an-index"></a>1 - 建立索引
+
+將動詞變更為 **PUT**。 複製此 URL 的已修改版本：`https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2017-11-11`。 將上面提供的索引定義複製到要求本文。 您的頁面應該會看起來如下列螢幕擷取畫面所示。 按一下右上方的 [執行]，即可傳送完成的要求。
+
+![Fiddler 要求本文][7]
+
+### <a name="2---load-documents"></a>2 - 載入文件
+
+將動詞變更為 **POST**。 變更 URL 以包含 `/docs/index`。 將文件複製到要求本文，類似於下列螢幕擷取畫面，然後執行要求。
+
+![Fiddler 要求裝載][9]
+
+### <a name="tips-for-running-our-sample-queries-in-fiddler"></a>在 Fiddler 中執行範例查詢的提示
+
+下列範例查詢來自[搜尋索引作業 (Azure 搜尋服務 API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 一文。 本文中有許多範例查詢包含空格，這在 Fiddler 中是不允許的。 因此，請先使用 + 字元取代空格，再貼到查詢字串中，然後再於 Fiddler 中嘗試該查詢：
+
+**取代空格之前 (lastRenovationDate desc)：**
+
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11
+
+**以 + 取代空格之後 (lastRenovationDate+desc)：**
+
+        GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate+desc&api-version=2017-11-11
 
 ### <a name="tips-for-viewing-index-statistic-in-fiddler"></a>在 Fiddler 中檢視索引統計資料的提示
 

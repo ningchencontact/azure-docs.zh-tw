@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: fa8f52cc106fdf9c104717d19792770677d10949
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 5e7c1ce6ab217149acd3aed9e5268b70fbd664df
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622139"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274175"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qualtrics"></a>教學課程：Azure Active Directory 與 Qualtrics 整合
 
@@ -107,7 +107,7 @@ ms.locfileid: "58622139"
 
     ![[Qualtrics 網域及 URL] 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.qualtrics.com`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<companyname>.qualtrics.com`
 
     b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：
 

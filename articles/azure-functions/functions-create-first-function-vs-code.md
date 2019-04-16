@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d265c391b12a46f509c8663c64892372c8d806ba
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: cbe4dbd2ae741f4225cfdc628c31508956cbb95c
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104517"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469721"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>使用 Visual Studio Code 建立第一個函式
 
@@ -115,12 +115,10 @@ Azure Functions Core Tools 可讓您在本機開發電腦上執行 Azure Functio
 
 ## <a name="next-steps"></a>後續步驟
 
-您已透過 Visual Studio Code，使用簡單的 HTTP 觸發函式建立函式應用程式。 若要深入了解如何以特定語言開發函式，請參閱 [JavaScript](functions-reference-node.md)、[.NET](functions-dotnet-class-library.md) 或 [Java](functions-reference-java.md) 的語言參考指南。
-
-接下來您可以深入了解如何從終端機或命令提示字元中使用 Azure Functions Core Tools 來進行本機測試和偵錯。
+您已透過 Visual Studio Code，使用簡單的 HTTP 觸發函式建立函式應用程式。 您也可以深入了解如何使用 Azure Functions Core Tools，[從終端機或命令提示字元進行本機測試和偵錯](functions-run-local.md)。
 
 > [!div class="nextstepaction"]
-> [程式碼和本機測試](functions-run-local.md)
+> [啟用 Application Insights 整合](functions-monitoring.md#manually-connect-an-app-insights-resource)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [適用於 Visual Studio Code 的 Azure Functions 擴充功能]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions

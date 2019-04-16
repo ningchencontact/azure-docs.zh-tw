@@ -1,19 +1,18 @@
 ---
 title: Azure Resource Graph 概觀
 description: 了解 Azure Resource Graph 服務如何能夠大規模進行複雜的資源查詢。
-services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/06/2019
+ms.date: 03/29/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 15cfdc87fafa25e9f37c63c8159289b25a547817
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 28efdabc024fd32c83ba966b15284ec6ff368d4d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802317"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269278"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Azure Resource Graph 服務的概觀
 
@@ -26,13 +25,13 @@ Azure Resource Graph 是 Azure 中的一項服務，透過大規模查詢所有�
 在本文件中，您將詳盡地逐一了解每項功能。
 
 > [!NOTE]
-> Azure Resource Graph 已用於 Azure 入口網站新瀏覽「所有資源」的體驗。 它的目的旨在協助需要管理大規模環境的客戶。
+> Azure Resource Graph 已用於 Azure 入口網站新瀏覽「所有資源」的體驗。 其目的旨在協助需要管理大規模環境的客戶。
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Resource Graph 輔助 Resource Manager 的方式
 
 Azure Resource Manager 目前會將資料傳送到啟用數個資源欄位 (即資源名稱、識別碼、類型、資源群組、訂用帳戶及位置) 的有限資源快取。 在過去，若要使用多種不同的資源屬性，您必須呼叫每個個別資源提供者，並要求每個資源的屬性詳細資料。
 
-使用 Azure Resource Graph，您可以存取這些由資源提供者傳回的屬性，而無須對每個資源提供者進行個別呼叫。
+使用 Azure Resource Graph，您可以存取這些由資源提供者傳回的屬性，而無須對每個資源提供者進行個別呼叫。 如需支援的資源類型清單，請在[完整模式部署資源](../../azure-resource-manager/complete-mode-deletion.md)資料表中尋找 [是] 的部分。
 
 ## <a name="the-query-language"></a>查詢語言
 
@@ -45,6 +44,9 @@ Azure Resource Manager 目前會將資料傳送到啟用數個資源欄位 (即�
 ## <a name="permissions-in-azure-resource-graph"></a>Azure Resource Graph 中的權限
 
 若要使用 Resource Graph，您必須先透過[角色型存取控制](../../role-based-access-control/overview.md) (RBAC) 獲得適當授權，至少取得您欲查詢資源的讀取權限。 如果連 Azure 物件或物件群組的 `read` 權限都不具備，則不會傳回結果。
+
+> [!NOTE]
+> Resource Graph 會使用主體在登入期間可使用的訂用帳戶。 若要查看作用中工作階段期間加入的新訂用帳戶資源，主體必須重新整理內容。 若登出後再登入，則此動作會自動執行。
 
 ## <a name="throttling"></a>節流
 

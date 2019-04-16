@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 2/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: eb4d04316de875e5eada0bd70383aff73382d8b9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c1f67fe01708f110c121f1acc5baf6d6998fe463
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096056"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256952"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>快速入門：使用 Bing 影像搜尋 REST API 和 PHP 來搜尋影像
 
@@ -25,7 +25,7 @@ ms.locfileid: "58096056"
 
 雖然此應用程式是以 PHP 撰寫，但 API 是一種與任何程式語言相容的 RESTful Web 服務，可產生 HTTP 要求，並剖析 JSON。
 
-[GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7.java) 上有此範例的原始程式碼。
+您可以在 GitHub https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/php/Search/BingWebSearchv7.php) 上找到此範例的原始程式碼。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -132,7 +132,7 @@ ms.locfileid: "58096056"
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [Bing 影像搜尋單頁應用程式教學課程](../tutorial-bing-image-search-single-page-app.md) (英文)
+> [Bing 影像搜尋單頁應用程式教學課程](../tutorial-bing-image-search-single-page-app.md)
 
 ## <a name="see-also"></a>另請參閱
 

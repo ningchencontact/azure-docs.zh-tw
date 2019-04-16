@@ -5,58 +5,45 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 31d08c0dac63662568bf55a021e85ec414c61e52
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: fc15db91b8f4cc6dbdecd0e7321abdbf81744f08
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360362"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357985"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>將內部部署機器移轉至 Azure
 
-除了針對商務持續性和災害復原 (BCDR) 使用 [Azure Site Recovery](site-recovery-overview.md) 服務來管理和協調內部部署電腦和 Azure VM 的災害復原之外，您也可以使用 Site Recovery 來管理內部部署機器到 Azure 的移轉。
+
+本文說明如何使用 [Azure Site Recovery](site-recovery-overview.md) 將內部部署機器移轉至 Azure。 一般而言，Site Recovery 用於管理及協調內部部署機器和 Azure VM 的災害復原。 不過，也可用來移轉。 移轉會使用與災害復原相同的步驟，但有一個例外狀況。 在移轉時，從您的內部部署網站容錯移轉機器是最後一個步驟。 不同於災害復原，您無法容錯回復到移轉案例中的內部部署環境。
 
 
-本教學課程說明如何將內部部署 VM 和實體伺服器移轉至 Azure。 在本教學課程中，您了解如何：
+本教學課程說明如何將內部部署 VM 和實體伺服器移轉至 Azure。 您會了解如何：
 
 > [!div class="checklist"]
-> * 選取複寫目標
-> * 設定來源和目標環境
+> * 設定移轉的來源和目標環境
 > * 設定複寫原則
 > * 啟用複寫
 > * 執行測試移轉，確定一切都沒問題
 > * 執行一次性容錯移轉至 Azure
 
-這是本系列的第三個教學課程。 本教學課程假設您已經完成了先前教學課程中的工作：
-
-1. [準備 Azure](tutorial-prepare-azure.md)
-2. 準備內部部署 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 或 [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) 伺服器。
-
-開始之前，最好先針對災害復原檢閱 [VMware](vmware-azure-architecture.md) 或 [Hyper-V](hyper-v-azure-architecture.md) 架構。
 
 > [!TIP]
-> 想要參與我們新的無代理程式體驗，將 VMware VM 遷移至 Azure 嗎？ [深入了解](https://aka.ms/migrateVMs-signup)。
-
-## <a name="prerequisites"></a>必要條件
-
-不支援並行虛擬驅動程式所匯出的裝置。
+> Azure Migrate 服務現在提供新的無代理程式體驗，可將 VMware VM 遷移至 Azure。 [深入了解](https://aka.ms/migrateVMs-signup)。
 
 
-## <a name="create-a-recovery-services-vault"></a>建立復原服務保存庫
+## <a name="before-you-start"></a>開始之前
 
-1. 登入 [Azure 入口網站](https://portal.azure.com) > [復原服務]。
-2. 按一下 [建立資源] > [管理工具] > [備份和 Site Recovery]。
-3. 在 [名稱] 中，指定易記名稱 [ContosoVMVault]。 如果您有多個訂用帳戶，請選取適當的一個。
-4. 建立資源群組 **ContosoRG**。
-5. 指定 Azure 區域。 若要查看支援的區域，請參閱 [Azure Site Recovery 定價詳細資料](https://azure.microsoft.com/pricing/details/site-recovery/)。
-6. 若要從儀表板快速存取保存庫，請按一下 [釘選到儀表板]，然後按一下 [建立]。
+請注意，不支援並行虛擬驅動程式匯出的裝置。
 
-   ![新增保存庫](./media/migrate-tutorial-on-premises-azure/onprem-to-azure-vault.png)
 
-新的保存庫會新增到主要 [復原服務保存庫] 頁面上 [所有資源] 之下的 [儀表板]。
+## <a name="prepare-azure-and-on-premises"></a>準備 Azure 與內部部署環境
+
+1. 依照[這篇文章](tutorial-prepare-azure.md)所述準備 Azure。 雖然這篇文章說明災害復原的準備步驟，但這些步驟也適用於移轉。
+2. 準備內部部署 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 或 [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) 伺服器。 如果您要遷移實體機器，您不需要做任何準備。 只需確認[支援矩陣](vmware-physical-azure-support-matrix.md)。
 
 
 ## <a name="select-a-replication-goal"></a>選取複寫目標
@@ -72,9 +59,11 @@ ms.locfileid: "58360362"
 
 ## <a name="set-up-the-source-environment"></a>設定來源環境
 
-- [設定](vmware-azure-tutorial.md#set-up-the-source-environment) VMware VM 的來源環境。
-- [設定](physical-azure-disaster-recovery.md#set-up-the-source-environment)實體伺服器的來源環境。
-- [設定](hyper-v-azure-tutorial.md#set-up-the-source-environment) Hyper-V VM 的來源環境。
+**案例** | **詳細資料**
+--- | --- 
+VMware | 設定[來源環境](vmware-azure-set-up-source.md)，以及設定[組態伺服器](vmware-azure-deploy-configuration-server.md)。
+實體機器 | [設定](physical-azure-set-up-source.md)來源環境與組態伺服器。
+Hyper-V | 設定[來源環境](hyper-v-azure-tutorial.md#set-up-the-source-environment)<br/><br/> 針對使用 System Center VMM 部署的 Hyper-V 設定[來源環境](hyper-v-vmm-azure-tutorial.md#set-up-the-source-environment)。
 
 ## <a name="set-up-the-target-environment"></a>設定目標環境
 
@@ -82,20 +71,26 @@ ms.locfileid: "58360362"
 
 1. 按一下 [準備基礎結構] > [目標]，然後選取您要使用的 Azure 訂用帳戶。
 2. 指定 Resource Manager 部署模型。
-3. Site Recovery 會檢查您是否有一或多個相容的 Azure 儲存體帳戶和網路。
+3. Site Recovery 會檢查 Azure 資源。
+    - 如果您要遷移 VMware VM 或實體伺服器，Site Recovery 會確認您是否有 Azure 網路以作為容錯移轉後所建立 Azure VM 的所在位置。
+    - 如果您要遷移 Hyper-V VM，Site Recovery 會確認您是否有相容的 Azure 儲存體帳戶和網路。
+4. 如果您要遷移 System Center VMM 所管理的 Hyper-V VM，設定[網路對應](hyper-v-vmm-azure-tutorial.md#configure-network-mapping)。
 
 ## <a name="set-up-a-replication-policy"></a>設定複寫原則
 
-- [設定 VMware VM 的複寫原則](vmware-azure-tutorial.md#create-a-replication-policy)。
-- [設定實體伺服器的複寫原則](physical-azure-disaster-recovery.md#create-a-replication-policy)。
-- [設定 Hyper-V VM 的複寫原則](hyper-v-azure-tutorial.md#set-up-a-replication-policy)。
-
+**案例** | **詳細資料**
+--- | --- 
+VMware | 設定 VMware VM 的[複寫原則](vmware-azure-set-up-replication.md)。
+實體機器 | 設定實體機器的[複寫原則](physical-azure-disaster-recovery.md#create-a-replication-policy)。
+Hyper-V | 設定[複寫原則](hyper-v-azure-tutorial.md#set-up-a-replication-policy)<br/><br/> 針對使用 System Center VMM 部署的 Hyper-V 設定[複寫原則](hyper-v-vmm-azure-tutorial.md#set-up-a-replication-policy)。
 
 ## <a name="enable-replication"></a>啟用複寫
 
-- [啟用 VMware VM 的複寫](vmware-azure-tutorial.md#enable-replication)。
-- [啟用實體伺服器的複寫功能](physical-azure-disaster-recovery.md#enable-replication)。
-- 啟用 Hyper-V VM 的複寫 ([使用](hyper-v-vmm-azure-tutorial.md#enable-replication)或[不使用 VMM](hyper-v-azure-tutorial.md#enable-replication))。
+**案例** | **詳細資料**
+--- | --- 
+VMware | [啟用 VMware VM 的複寫](vmware-azure-enable-replication.md)。
+實體機器 | 針對實體機器[啟用複寫功能](physical-azure-disaster-recovery.md#enable-replication)。
+Hyper-V | [啟用複寫](hyper-v-azure-tutorial.md#enable-replication)<br/><br/> 針對使用 System Center VMM 部署的 Hyper-V [啟用複寫功能](hyper-v-vmm-azure-tutorial.md#enable-replication)。
 
 
 ## <a name="run-a-test-migration"></a>執行測試移轉
@@ -160,8 +155,13 @@ ms.locfileid: "58360362"
 - 更新任何內部文件，以顯示 Azure VM 的新位置和 IP 位址。
 
 
+
+
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已將內部部署 VM 移轉至 Azure VM。 現在，您可以為 Azure VM [設定災害復原](azure-to-azure-replicate-after-migration.md)來復原至次要 Azure 區域。
+在本教學課程中，您已將內部部署 VM 移轉至 Azure VM。 Now
+
+> [!div class="nextstepaction"]
+> [設定災害復原](azure-to-azure-replicate-after-migration.md)至 Azure VM 的次要 Azure 區域。
 
   

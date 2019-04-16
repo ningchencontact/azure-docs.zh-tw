@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: f44b6f9ed42770fe830346de08058e33ed68a249
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 8875674b0f9c621a573dda591b4dc2b6f018a83c
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309635"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470333"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>聲場專案 Unity 聲場模擬教學課程
 本教學課程描述在 Unity 中運用聲場專案進行聲場模擬。
@@ -137,7 +137,7 @@ ms.locfileid: "58309635"
 
 1. 用來顯示此頁面的 [Probes] \(探查\) 索引標籤按鈕
 2. 使用此頁面時所需執行之操作的簡短描述
-3. 使用這些來選擇粗略或精細模擬解析度。 [Coarse] \(粗略\) 的執行速度較快，但會有所取捨。 如需詳細資料，請參閱下面的[選擇粗略或精細解析度](#Coarse-vs-Fine-Resolution)。
+3. 使用這些來選擇粗略或精細模擬解析度。 [Coarse] \(粗略\) 的執行速度較快，但會有所取捨。 如需詳細資料，請參閱下面的[聲場模擬解析](bake-resolution.md)。
 4. 使用此欄位來選擇聲場資料檔的預期放置位置。 按一下具有 "..." 的按鈕以使用資料夾選擇器。 預設值為 **Assets/AcousticsData**。 此外，也會在此位置底下建立一個 [Editor] 子資料夾。 如需有關資料檔的詳細資訊，請參閱下面的[資料檔](#Data-Files)。
 5. 此場景的資料檔將會採用這裡提供的前置詞來命名。 預設值為 "Acoustics_[Scene Name]"。
 6. 計算探查之後，就會停用上述控制項。 按一下 [Clear] \(清除\) 按鈕以清除計算並啟用控制項，以便讓您能夠使用新的設定來重新計算。
@@ -145,21 +145,7 @@ ms.locfileid: "58309635"
 
 在這個版本的 Project Acoustics 中，無法手動放置探查，而必須透過 [Probes] \(探查\) 索引標籤中提供的自動化流程放置。
 
-### <a name="Coarse-vs-Fine-Resolution"></a>選擇粗略或精細解析度
-
-[Coarse] \(粗略\) 與 [Fine] \(精細\) 解析度設定之間的唯一差異在於模擬執行頻率。 [Fine] \(精細\) 所使用的頻率為 [Coarse] \(粗略\) 的兩倍。
-雖然這看似簡單，但在聲場模擬上具有一些含意：
-
-* [Coarse] \(粗略\) 的波長為 [Fine] \(精細\) 的兩倍，因此體素是兩倍大。
-* 由於聲場模擬時間與體素大小直接相關，因此 [Coarse] \(粗略\) 模擬比 [Fine] \(精細\) 模擬快 16 倍。
-* 針對小於體素大小的門戶 (例如門或窗) 將無法進行模擬。 [Coarse] \(粗略\) 設定可能導致沒有模擬部分較小的門戶，因此它們將不會在執行階傳遞聲音。 您可以檢視體素來查看是否會發生這種情況。
-* 模擬頻率越低，在角落和邊緣周圍產生的繞射就越少。
-* 聲音來源不能位於「已填滿的」體素 (也就是包含幾何的體素) 內，這會導致沒有聲音。 這會更難找出聲音來源，因此它們不會在與使用「精細」設定相比更大的「粗略」設定體素內。
-* 較大的體素侵入門戶的部分也較大，如下所示。 第一張圖是使用 [Coarse] \(粗略\) 解析度來建立的，第二張圖是相同的門口，但使用 [Fine] \(精細\) 解析度。 如紅色標記所示，使用 [Fine] \(精細\) 設定時，侵入門口的程度較小。 藍線是幾何所定義的門口，紅線則是體素大小所定義的有效聲場門戶。 此入侵狀況在指定的情況下會如何表現，完全取決於體素與門戶幾何的對齊方式，而這又取決於場景中物件的大小和位置。
-
-![門口粗略體素的螢幕擷取畫面](media/coarse-voxel-doorway.png)
-
-![門口精細體素的螢幕擷取畫面](media/fine-voxel-doorway.png)
+如需粗略與精細解析度的比較詳細資料，請參閱[聲場模擬解析](bake-resolution.md)。
 
 ## <a name="bake-your-scene-using-azure-batch"></a>使用 Azure Batch 來對場景進行聲場模擬
 您可以使用 Azure Batch 服務搭配雲端中的計算叢集來對場景進行聲場模擬。 聲場專案 Unity 外掛程式會直接連線至 Azure Batch，以針對每個聲場模擬具現化、管理及卸除 Azure Batch 叢集。 在 [Bake] (聲場模擬) 索引標籤中，選取叢集機器類型和大小，然後按一下 [Bake] (模擬聲場)。

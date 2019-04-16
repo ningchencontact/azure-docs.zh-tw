@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 3a67bb2b258d5376c997d4858bea4d094e850127
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 570f789d0f399c5ffa7535101136ab65ba58ccd5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57997140"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277080"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>教學課程：Azure Active Directory 與 ScreenSteps 整合
 
@@ -36,7 +36,7 @@ ScreenSteps 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 ScreenSteps 的整合，您需要下列項目：
+若要設定 Azure AD 與 ScreenSteps 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 ScreenSteps 單一登入的訂用帳戶
@@ -74,7 +74,7 @@ ScreenSteps 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 ScreenSteps 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 ScreenSteps 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 ScreenSteps 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 ScreenSteps 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 ScreenSteps 單一登入](#configure-screensteps-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -209,7 +209,7 @@ ScreenSteps 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [ScreenSteps]。
 
-    ![應用程式清單中的 [ScreenSteps] 連結](common/all-applications.png)
+    ![應用程式清單中的 ScreenSteps 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -227,7 +227,7 @@ ScreenSteps 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-screensteps-test-user"></a>建立 ScreenSteps 測試使用者
 
-在本節中，您會在 ScreenSteps 中建立名為 Britta Simon 的使用者。 請與 [ScreenSteps 用戶端支援小組](https://www.screensteps.com/contact)合作，在 ScreenSteps 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 ScreenSteps 中建立名為 Britta Simon 的使用者。 請與  [ScreenSteps 用戶端支援小組](https://www.screensteps.com/contact)合作，在 ScreenSteps 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

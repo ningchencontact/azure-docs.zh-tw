@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: a35e65237a3f4278e9154daddff328887d9f36ef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4f5fbbb9d06f9fcb8858625b57957fc18c5c1f1f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57997384"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046896"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站診斷網路之間的通訊問題
 
@@ -33,10 +33,13 @@ ms.locfileid: "57997384"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>必要條件
 
 若要使用 VPN 診斷，您必須具有現有且正在執行中的 VPN 閘道。 如果您沒有現有 VPN 閘到可以診斷，可以使用 [PowerShell 指令碼](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)部署一個閘道。 您可以從下列位置執行 PowerShell 指令碼：
-- **本機 PowerShell 安裝**：指令碼需要 AzureRM PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
+- **本機 PowerShell 安裝**：此指令碼需要 Azure PowerShell `Az` 模組。 執行 `Get-Module -ListAvailable Az` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell](/powershell/azure/install-Az-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzAccount` 以建立與 Azure 的連線。
 - **Azure Cloud Shell**：[Azure Cloud Shell](https://shell.azure.com/powershell) 已安裝並設定最新版本的 PowerShell，會將您登入到 Azure。
 
 指令碼建立 VPN 閘道大約需要一小時。 剩餘步驟會假設您要診斷由此指令碼部署的閘道。 如果您改為診斷自己的現有閘道，則結果將會不同。

@@ -9,12 +9,12 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/20/2019
-ms.openlocfilehash: 6bb170a5f3353288ab9c393e01b7a0902361913b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 1194407122123797c2564c96ac452b9582b017a4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287004"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264942"
 ---
 # <a name="quickstart-3---query-an-azure-search-index-in-c"></a>快速入門：3 - 在 C# 的 Azure 搜尋服務索引中查詢
 
@@ -34,7 +34,7 @@ ms.locfileid: "58287004"
 ## <a name="create-a-client"></a>建立用戶端
 建立 `SearchIndexClient` 類別的執行個體，讓您可以賦予它唯讀存取權 (而不是上一課中使用的 `SearchServiceClient` 賦予的寫入存取權限)。
 
-這個類別有數個建構函式。 您想要的那一個會將您的搜尋服務名稱、索引名稱和 [`SearchCredentials`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchcredentials?view=azure-dotnet) 物件當做參數。 `SearchCredentials` 會包裝您的 API 金鑰。
+這個類別有數個建構函式。 您想要的那一個會將您的搜尋服務名稱、索引名稱和 [`SearchCredentials`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchcredentials?view=azure-dotnet) 物件當做參數。 `SearchCredentials` 包裝您的 API 金鑰。
 
 下列程式碼會使用搜尋服務名稱的值，以及儲存於應用程式組態檔中的 API 金鑰 (在[範例應用程式](https://aka.ms/search-dotnet-howto)的情況下為 `appsettings.json`)，來為 "hotels" 索引建立新的 `SearchIndexClient`：
 
@@ -157,4 +157,4 @@ ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Descript
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您尚未這麼做，請檢閱 GitHub 上的 [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) 中的範例程式碼，以及[如何從 .NET 應用程式使用 Azure 搜尋服務](search-howto-dotnet-sdk.md)以取得範例程式碼的更詳細描述。 
+如果您尚未這麼做，請檢閱 GitHub 上的 [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) 中的範例程式碼，以及[如何從 .NET 應用程式使用 Azure 搜尋服務](search-howto-dotnet-sdk.md)，以取得範例程式碼更詳細的描述。 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 5e879395e034813f954d1046e4a69e21534f3968
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1222395fd8efb7cf189ae6678f6c39f5a6c63157
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58077151"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051165"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure IT 操作員快速入門
 
@@ -169,7 +169,7 @@ Azure Resource Manager 範本是一個 JavaScript 物件標記法 (JSON) 檔案�
 
 #### <a name="azure-powershell"></a>Azure PowerShell
 
-Azure PowerShell 是一套模組，提供用於管理 Azure 的 Cmdlet。 您可以使用 Cmdlet 來建立、管理和移除 Azure 服務。 Cmdlet 可協助您達到一致、可重複且自動處理的部署。 如需詳細資訊，請參閱 [如何安裝及設定 Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)。
+Azure PowerShell 是一套模組，提供用於管理 Azure 的 Cmdlet。 您可以使用 Cmdlet 來建立、管理和移除 Azure 服務。 Cmdlet 可協助您達到一致、可重複且自動處理的部署。 如需詳細資訊，請參閱 [如何安裝及設定 Azure PowerShell](/powershell/azure/install-Az-ps)。
 
 #### <a name="azure-command-line-interface"></a>Azure 命令列介面
 

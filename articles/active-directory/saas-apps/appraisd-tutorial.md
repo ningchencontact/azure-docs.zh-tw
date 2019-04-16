@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd7d1e3511bf74650ddc9dca1cf77c2b7c297c96
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f1beb825eda7e4d6a59810aada7063863b48d8ec
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861497"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260896"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appraisd"></a>教學課程：Azure Active Directory 與 Appraisd
 
@@ -107,9 +107,9 @@ Appraisd 與 Azure AD 整合提供下列優點：
 
     a. 按一下 [設定額外的 URL]。
 
-    b. 在 [轉送狀態] 文字方塊中，鍵入 URL：`<TENANTCODE>`
+    b. 在 [轉送狀態] 文字方塊中，輸入 URL： `<TENANTCODE>`
 
-    c. 如果您想要以 **SP** 起始模式設定應用程式，請在 [登入 URL] 文字方塊中使用下列模式輸入 URL：`https://app.appraisd.com/saml/<TENANTCODE>`
+    c. 如果您想要以 **SP** 起始模式設定應用程式，請在 [登入 URL] 文字方塊中使用下列模式輸入 URL： `https://app.appraisd.com/saml/<TENANTCODE>`
 
     > [!NOTE]
     > 您可在 [Appraisd SSO 組態] 頁面上取得實際的 [登入 URL] 與 [轉送狀態] 值，稍後會在本教學課程中說明該頁面。
@@ -161,7 +161,7 @@ Appraisd 與 Azure AD 整合提供下列優點：
 
 1. 在不同的網頁瀏覽器視窗中，以安全性系統管理員身分登入 Appraisd。
 
-2. 按一下頁面右上方的 [設定] 圖示，然後導覽至 [組態] ****。
+2. 按一下頁面右上方的 [設定] 圖示，然後導覽至 [組態]。
 
     ![映像](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
 
@@ -173,9 +173,9 @@ Appraisd 與 Azure AD 整合提供下列優點：
 
     ![映像](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
 
-    a. 複製 [預設轉送狀態] 值，並將它貼到 Azure 入口網站上 [基本 SAML 組態] **** 的 [轉送狀態] **** 文字方塊中。
+    a. 複製 [預設轉送狀態] 值，並將它貼到 Azure 入口網站上 [基本 SAML 組態] 的 [轉送狀態] 文字方塊中。
 
-    b. 複製 [服務起始的登入 URL] 值，並將它貼到 Azure 入口網站上 [基本 SAML 組態] **** 的 [登入 URL] **** 文字方塊中。
+    b. 複製 [服務起始的登入 URL] 值，並將它貼到 Azure 入口網站上 [基本 SAML 組態] 的 [登入 URL] 文字方塊中。
 
 5. 在相同頁面向下捲動到 [識別使用者] 之下，執行下列步驟：
 
@@ -185,7 +185,7 @@ Appraisd 與 Azure AD 整合提供下列優點：
 
     b. 在 [識別提供者簽發者 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [Azure AD 識別碼] 值，然後按一下 [儲存]。
 
-    c. 在「記事本」中開啟從 Azure 入口網站下載的 Base-64 編碼憑證，複製其內容，然後貼到 [X.509 憑證] ****  方塊並按一下 [儲存]。
+    c. 在「記事本」中開啟從 Azure 入口網站下載的 Base-64 編碼憑證，複製其內容，然後貼到 [X.509 憑證] 方塊並按一下 [儲存]。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
@@ -246,11 +246,11 @@ Appraisd 與 Azure AD 整合提供下列優點：
 
 1. 以安全性系統管理員身分登入 Appraisd。
 
-2. 按一下頁面右上方的 [設定] 圖示，然後導覽至 [管理中心] ****。
+2. 按一下頁面右上方的 [設定] 圖示，然後導覽至 [管理中心]。
 
     ![映像](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
 
-3. 在頁面頂端的工具列中，按一下 [人員] ****，然後巡覽至 [新增使用者] ****。
+3. 在頁面頂端的工具列中，按一下 [人員]，然後巡覽至 [新增使用者]。
 
     ![映像](./media/appraisd-tutorial/tutorial_appraisd_user.png)
 

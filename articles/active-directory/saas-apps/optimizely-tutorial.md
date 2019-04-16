@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 6029e24f0a08efeeae0ae7644305e07669b6f8b2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 066847ff8428a5080e655712c1a6bbe504c5cdbc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176408"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257785"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>教學課程：Azure Active Directory 與 Optimizely 整合
 
@@ -36,7 +36,7 @@ Optimizely 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Optimizely 與 Azure AD 的整合，您需要下列項目：
+若要設定 Optimizely 與 Azure AD 的整合作業，需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Optimizely 單一登入的訂用帳戶
@@ -47,7 +47,7 @@ Optimizely 與 Azure AD 整合提供下列優點：
 
 * Optimizely 支援由 **SP** 起始的 SSO
 
-## <a name="adding-optimizely-from-the-gallery"></a>從資源庫新增 Optimizely
+## <a name="adding-optimizely-from-the-gallery"></a>從資源庫中新增 Optimizely
 
 若要設定將 Optimizely 整合到 Azure AD 中，您需要從資源庫將 Optimizely 新增到受控 SaaS 應用程式清單。
 
@@ -105,9 +105,9 @@ Optimizely 與 Azure AD 整合提供下列優點：
 
     ![Optimizely 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://app.optimizely.net/<instance name>`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://app.optimizely.net/<instance name>`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`urn:auth0:optimizely:contoso`。
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `urn:auth0:optimizely:contoso`
 
     > [!NOTE]
     > 這些都不是真正的值。 您將會使用實際的「登入 URL」與「識別碼」來更新值，稍後會在本教學課程中說明。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
@@ -203,7 +203,7 @@ Optimizely 與 Azure AD 整合提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 Optimizely 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在本節中，您會把 Optimizely 的存取權授與 Britta Simon，讓 Britta Simon 能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Optimizely]。
 

@@ -10,27 +10,22 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8bb601ac5c1ed8e9ca6d2027fe1b774a938e1f0a
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: ade0444110dbb23e762a869dc79805872c0f0bf0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58362315"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281126"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>快速入門：使用您自有的 Notebook 伺服器來開始使用 Azure Machine Learning
 
-在本文中，您會使用自己的 Notebook 伺服器來執行 [Azure Machine Learning 服務工作區](concept-azure-machine-learning-architecture.md)中記錄的程式碼。 此工作區是雲端中使用 Machine Learning 來實驗、訓練及部署機器學習模型的基礎。
+使用自己的 Notebook 伺服器在 [Azure Machine Learning 服務工作區](concept-azure-machine-learning-architecture.md)中執行會記錄值的程式碼。 此工作區是雲端中使用 Machine Learning 來實驗、訓練及部署機器學習模型的基礎。
 
-本快速入門會使用您自有的 Python 環境和 Jupyter Notebook 伺服器。 如需不安裝的快速入門，請參閱[快速入門：使用雲端式 Notebook 伺服器開始使用 Azure Machine Learning](quickstart-run-cloud-notebook.md) 
+本快速入門會使用您自有的 Python 環境和 Jupyter Notebook 伺服器。 如需不安裝 SDK 的快速入門，請參閱[快速入門：使用雲端式 Notebook 伺服器開始使用 Azure Machine Learning](quickstart-run-cloud-notebook.md) 
 
 檢視本快速入門的影片版本：
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
-
-在本快速入門中，您將：
-
-* 撰寫程式碼來記錄工作區內的值。
-* 在工作區中檢視記錄的值。
 
 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](https://aka.ms/AMLFree)。
 
@@ -61,7 +56,7 @@ ms.locfileid: "58362315"
 print(run.get_portal_url())
 ```
 
-使用此連結，即可透過瀏覽器在 Azure 入口網站中檢視記錄的值。
+在瀏覽器中，此程式碼會傳回連結供您用來檢視 Azure 入口網站中的記錄值。
 
 ![Azure 入口網站中已記錄的值](./media/quickstart-run-local-notebook/logged-values.png)
 
@@ -79,6 +74,6 @@ print(run.get_portal_url())
 在本文中，您已建立進行實驗和部署模型所需的資源。 您在 Notebook 中執行了程式碼，並且在雲端的工作區中探索了該程式碼的執行歷程記錄。
 
 > [!div class="nextstepaction"]
-> [教學課程：將影像分類模型定型](tutorial-train-models-with-aml.md)
+> [教學課程：將映像分類模型定型](tutorial-train-models-with-aml.md)
 
 您也可以探索 [GitHub 上更進階的範例](https://aka.ms/aml-notebooks)或檢視 [SDK 使用者指南](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)。

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aadf67c76a9be007608452eb6c2ed6efb26c8eab
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ab2fc543d345436e3d0a82fdb97a8c937f6ef256
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57888275"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262936"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-joinme"></a>教學課程：Azure Active Directory 與 join.me 整合
 
@@ -36,7 +36,7 @@ join.me 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 join.me 的整合，您需要下列項目：
+若要設定 Azure AD 與 join.me 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 join.me 單一登入的訂用帳戶
@@ -103,7 +103,7 @@ join.me 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段中，使用者不需要執行任何步驟，因為應用程式已預先與 Azure 整合。
 
-    ![join.me 網域及 URL 單一登入資訊](common/preintegrated.png)
+    ![join.me 網域和 URL 單一登入資訊](common/preintegrated.png)
 
 5. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [複製] 按鈕以複製 [應用程式同盟中繼資料 URL]，並將其儲存在您的電腦上。
 
@@ -148,7 +148,7 @@ join.me 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [join.me] 。
 
-    ![應用程式清單中的 [join.me] 連結](common/all-applications.png)
+    ![應用程式清單中的 join.me 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

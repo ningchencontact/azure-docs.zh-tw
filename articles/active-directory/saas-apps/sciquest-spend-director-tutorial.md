@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 614d56cba4a95b7f9364bc9c044e78d291caf3ff
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 371ea6609181b84ff8554b9e2f1a5047d2d48c48
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998597"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258448"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>教學課程：Azure Active Directory 與 SciQuest Spend Director 整合
 
@@ -36,7 +36,7 @@ SciQuest Spend Director 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 SciQuest Spend Director 的整合，您需要下列項目：
+若要使用 SciQuest Spend Director 設定 Azure AD 整合，您需要以下項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 SciQuest Spend Director 單一登入的訂用帳戶
@@ -75,7 +75,7 @@ SciQuest Spend Director 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 SciQuest Spend Director 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 SciQuest Spend Director 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 SciQuest Spend Director 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 SciQuest Spend Director 設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 SciQuest Spend Director 單一登入](#configure-sciquest-spend-director-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -106,11 +106,11 @@ SciQuest Spend Director 與 Azure AD 整合提供下列優點：
 
     ![SciQuest Spend Director 網域及 URL 單一登入資訊](common/sp-identifier-reply.png)
 
-    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<companyname>.sciquest.com/apps/Router/SAMLAuth/<instancename>`
+    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰ `https://<companyname>.sciquest.com/apps/Router/SAMLAuth/<instancename>`
 
-    b. 在 [識別碼] 方塊中，使用下列模式輸入 URL：`https://<companyname>.sciquest.com`
+    b. 在 [識別碼] 方塊中，使用下列模式輸入 URL： `https://<companyname>.sciquest.com`
 
-    c. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<companyname>.sciquest.com/apps/Router/ExternalAuth/Login/<instancename>`
+    c. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<companyname>.sciquest.com/apps/Router/ExternalAuth/Login/<instancename>`
 
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的「單一登入 URL」、「識別碼」及「回覆 URL」來更新這些值。 請連絡 [SciQuest Spend Director 用戶端支援小組](https://www.jaggaer.com/contact-us/) \(英文\) 以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

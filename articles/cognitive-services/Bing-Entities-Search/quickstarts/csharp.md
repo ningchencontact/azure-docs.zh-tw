@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 09eed87dce65325a5b3466346b073a0d786bfb89
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d31be245d906ba0405a44d4482272051982c943c
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861446"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469143"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>快速入門：使用 C# 將搜尋要求傳送至 Bing 實體搜尋 REST API
 
@@ -29,7 +29,7 @@ ms.locfileid: "57861446"
 * 任何一版的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
 * [Json.NET](https://www.newtonsoft.com/json) 架構 (以 NuGet 套件形式提供)。
     * 在 Visual Studio 中安裝 NuGet 套件：
-        1. 以滑鼠右鍵按一下 Solution Manager
+        1. 以滑鼠右鍵按一下方案總管
         2. 按一下 [管理 NuGet 套件...]
         3. 搜尋 **newtonsoft.json** 並安裝套件
 

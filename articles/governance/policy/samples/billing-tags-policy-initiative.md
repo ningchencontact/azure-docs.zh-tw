@@ -1,19 +1,18 @@
 ---
 title: 範例 - 計費標籤原則計畫
 description: 此原則定義集範例會要求針對成本中心和產品名稱使用指定的標籤值。
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 13a9dd86e83099e25f7688ddb8ecc04793d3bb27
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 9d9a3a5af304c1080d1d43b9bbfbafe2554a9844
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58801756"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275006"
 ---
 # <a name="sample---billing-tags-policy-initiative"></a>範例 - 計費標籤原則計畫
 
@@ -29,7 +28,7 @@ ms.locfileid: "58801756"
 
 ## <a name="deploy-with-the-portal"></a>使用入口網站部署
 
-[![將原則範例部署至 Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+[![D將原則範例部署至 Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
 
 ## <a name="deploy-with-powershell"></a>使用 PowerShell 部署
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: b2d8d98fb9c953ef8063bf2081201f7d9bdf3649
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4904e98556f5d4a033b178bfdc4305714a80e07e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57874978"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257870"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pluralsight"></a>教學課程：Azure Active Directory 與 Pluralsight 整合
 
@@ -35,7 +35,7 @@ Pluralsight 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 Pluralsight 的整合，您需要下列項目：
+若要設定與 Pluralsight 的 Azure AD 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 Pluralsight 單一登入的訂用帳戶
@@ -44,7 +44,7 @@ Pluralsight 與 Azure AD 整合提供下列優點：
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* Pluralsight 支援由 **SP** 起始的 SSO
+* Pluralsight 支援 **SP** 起始的 SSO
 
 * Pluralsight 支援 **Just-in-Time** 使用者佈建 
 
@@ -52,7 +52,7 @@ Pluralsight 與 Azure AD 整合提供下列優點：
 
 若要設定 Pluralsight 與 Azure AD 整合，您需要從資源庫將 Pluralsight 加入到受控 SaaS 應用程式清單。
 
-**若要從資源庫加入 Pluralsight，請執行下列步驟：**
+**若要從資源庫新增 Pluralsight，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
@@ -72,10 +72,10 @@ Pluralsight 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Pluralsight 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 Pluralsight 設定及測試 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Pluralsight 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Pluralsight 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要設定及測試對 Pluralsight 的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Pluralsight 單一登入](#configure-pluralsight-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -104,13 +104,13 @@ Pluralsight 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![Pluralsight 網域及 URL 單一登入資訊](common/sp-identifier-reply.png)
+    ![Pluralsight 網域與 URL 單一登入資訊](common/sp-identifier-reply.png)
 
-    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<instancename>.pluralsight.com/sso/<companyname>`
+    a. 在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰ `https://<instancename>.pluralsight.com/sso/<companyname>`
 
-    b. 在 [識別碼] 方塊中，輸入 URL：`www.pluralsight.com`
+    b. 在 [識別碼] 方塊中，輸入 URL： `www.pluralsight.com`
 
-    c. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<instancename>.pluralsight.com/sp/ACS.saml2`
+    c. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<instancename>.pluralsight.com/sp/ACS.saml2`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「回覆 URL」來更新這些值。 請連絡 [Pluralsight 用戶端支援小組](mailto:support@pluralsight.com)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
@@ -190,7 +190,7 @@ Pluralsight 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，輸入 **Pluralsight** 並加以選取。
 
-    ![應用程式清單中的 [Pluralsight] 連結](common/all-applications.png)
+    ![應用程式清單中的 Pluralsight 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -214,11 +214,11 @@ Pluralsight 與 Azure AD 整合提供下列優點：
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在存取面板中按一下 [Pluralsight] 圖格時，應該會自動登入您已設定 SSO 的 Pluralsight。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 Pluralsight 圖格時，應該會自動登入您已設定 SSO 的 Pluralsight。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 
-- [有關如何整合 SaaS 應用程式與 Azure Active Directory 的教學課程清單](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: overview
-ms.date: 03/17/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 187e40716bc55f71623ef758722eb58d27651d4d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: c421d99f1071c7a38cfe315cc3054136f81598e0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882481"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265963"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>什麼是 Azure 搜尋服務的「認知搜尋」？
 
@@ -99,6 +99,8 @@ Azure 搜尋服務中的認知技術是以認知服務 API 中的機器學習模
 + [快速入門 (入口網站)](cognitive-search-quickstart-blob.md)
 + [教學課程 (HTTP 要求)](cognitive-search-tutorial-blob.md)
 + [範例自訂技能 (C#)](cognitive-search-create-custom-skill-example.md)
+
+基於學習目的，我們會建議使用免費服務，但請注意，可用的交易數目限制為每天 20 份文件。 若要在一天中執行快速入門和教學課程，請使用較小的檔案集 (10 份文件)，如此才能在限制內完成這兩項練習。
 
 **步驟 3：檢閱 API (僅限 REST)**
 

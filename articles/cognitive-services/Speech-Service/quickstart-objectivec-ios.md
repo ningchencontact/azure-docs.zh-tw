@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 2520f05c83cb5b727c8cdae1602b39320de4b99d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ee0be31b10c86651fa36577ad0dffccc3dc7bf59
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58094917"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009266"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 iOS 上以 Objective-C 辨識語音
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-在本文中，您將了解如何使用認知服務語音 SDK 以 Objective-C 建立 iOS 應用程式，以將含有錄製語音的音訊檔案轉譯成文字。
+在本文中，您將了解如何使用認知服務語音 SDK 以 Objective-C 建立 iOS 應用程式，以將從麥克風或含有錄製音訊的檔案輸出的語音轉譯成文字。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -29,16 +29,16 @@ ms.locfileid: "58094917"
 
 * 語音服務的[訂用帳戶金鑰](get-started.md)
 * 具有 [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) \(英文\) 或更新版本的 macOS 機器
-* 將目標設定為 iOS 版本 11.4 或更新版本
+* 將目標設定為 iOS 9.3 版或更新版本
 
 ## <a name="get-the-speech-sdk-for-ios"></a>取得適用於 iOS 的語音 SDK
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-認知服務語音 SDK 目前的版本為 `1.3.1`。
+認知服務語音 SDK 目前的版本為 `1.4.0`。
 
-適用於 Mac 和 iOS 的認知服務語音 SDK 目前以 Cocoa Framework 的形式散發。
-您可以從 https://aka.ms/csspeech/iosbinary 加以下載。 請將檔案下載到您的主目錄。
+適用於 iOS 的認知服務語音 SDK 目前以 Cocoa Framework 的形式散發。
+您可以從[這裡](https://aka.ms/csspeech/iosbinary)加以下載。 請將檔案下載到您的主目錄。
 
 ## <a name="create-an-xcode-project"></a>建立 Xcode 專案
 
@@ -102,4 +102,5 @@ ms.locfileid: "58094917"
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [瀏覽 GitHub 上的 Objective-C 範例](https://aka.ms/csspeech/samples)
+> [探索 GitHub 上的 Objective-C 範例](https://aka.ms/csspeech/samples)
+

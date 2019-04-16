@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: b93d3d272d570ccffb5ce06d7ed4527c20500698
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 570200a3befbe6205025a2410c4083d38dd11eb9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181260"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262919"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>教學課程：Azure Active Directory 與 OnTrack 整合
 
@@ -36,7 +36,7 @@ OnTrack 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 OnTrack 的整合，您需要下列項目：
+若要設定 Azure AD 與 OnTrack 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 OnTrack 單一登入的訂用帳戶
@@ -103,19 +103,19 @@ OnTrack 與 Azure AD 整合提供下列優點：
 
 4. 在 [以 SAML 設定單一登入] 頁面上，執行下列步驟：
 
-    ![OnTrack 網域及 URL 單一登入資訊](common/idp-intiated.png)
+    ![OnTrack 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
     a. 在 [識別碼] 文字方塊中：
 
-    針對測試環境，輸入 URL：`https://staging.insigniagroup.com/sso`
+    針對測試環境，輸入 URL： `https://staging.insigniagroup.com/sso`
 
-    針對生產環境，輸入 URL：`https://oeaccessories.com/sso`
+    針對生產環境，輸入 URL： `https://oeaccessories.com/sso`
 
     b. 在 [回覆 URL] 文字方塊中：
 
-    針對測試環境，輸入 URL：`https://indie.staging.insigniagroup.com/sso/autonation.aspx`
+    針對測試環境，輸入 URL： `https://indie.staging.insigniagroup.com/sso/autonation.aspx`
 
-    針對生產環境，輸入 URL：`https://igaccessories.com/sso/autonation.aspx`
+    針對生產環境，輸入 URL： `https://igaccessories.com/sso/autonation.aspx`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [OnTrack 用戶端支援小組](mailto:CustomerService@insigniagroup.com)以取得此值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
@@ -205,7 +205,7 @@ OnTrack 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [OnTrack] 。
 
-    ![應用程式清單中的 [OnTrack] 連結](common/all-applications.png)
+    ![應用程式清單中的 OnTrack 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

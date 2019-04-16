@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5e7994ba5fcd3efa061f56d7ee77f796bab16708
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 6afe76aca388f1f6bd479f53eb4e18cc62c10584
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449307"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268665"
 ---
 # <a name="create-an-interactive-search-map-by-using-azure-maps"></a>使用 Azure 地圖服務建立互動式地圖搜尋
 
@@ -49,7 +49,7 @@ ms.locfileid: "58449307"
 
 1. 下載或複製 [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html) 檔案的內容。
 2. 將此檔案的內容在本機另存為 **AzureMapDemo.html**。 在文字編輯器中將其開啟。
-3. 搜尋字串 `<insert-key>`。 以上一節的 **主要金鑰** 值加以取代。
+3. 搜尋字串 `<Your Azure Maps Key>`。 以上一節的 **主要金鑰** 值加以取代。
 
 ## <a name="open-the-application"></a>開啟應用程式
 
@@ -70,15 +70,15 @@ ms.locfileid: "58449307"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已建立 Azure 地圖服務帳戶，並建立了示範應用程式。 若要了解如何使用 Azure 地圖服務 API 建立自己的應用程式，請繼續下列教學課程：
+在本快速入門中，您已建立 Azure 地圖服務帳戶，並建立了示範應用程式。 查看下列教學課程，以了解 Azure 地圖服務：
 
 > [!div class="nextstepaction"]
-> [使用 Azure 地圖服務來搜尋附近景點](./tutorial-search-location.md)
+> [使用 Azure 地圖服務來搜尋附近景點](tutorial-search-location.md)
 
 如需更多程式碼範例和互動式編碼體驗，請參閱以下指南：
 
 > [!div class="nextstepaction"]
-> [使用 Azure 地圖服務搜尋服務來尋找地址](./how-to-search-for-address.md)
+> [使用 Azure 地圖服務搜尋服務來尋找地址](how-to-search-for-address.md)
 
 > [!div class="nextstepaction"]
-> [使用 Azure 地圖服務的地圖控制項](./how-to-use-map-control.md)
+> [使用 Azure 地圖服務的地圖控制項](how-to-use-map-control.md)

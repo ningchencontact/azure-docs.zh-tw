@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: c84241abc69b5bd070d893ba57fb60b90d4d6d28
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 73a19fa97a898e2c51912a18f46751e855ee0303
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295584"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272082"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>教學課程：Azure Active Directory 與 IMPAC Risk Manager 整合
 
@@ -74,7 +74,7 @@ IMPAC Risk Manager 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 IMPAC Risk Manager 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 IMPAC Risk Manager 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 IMPAC Risk Manager 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 IMPAC Risk Manager 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 IMPAC Risk Manager 單一登入](#configure-impac-risk-manager-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -181,7 +181,7 @@ IMPAC Risk Manager 與 Azure AD 整合提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 IMPAC Risk Manager 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在本節中，您會把 IMPAC Risk Manager 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [IMPAC Risk Manager]。
 
@@ -189,7 +189,7 @@ IMPAC Risk Manager 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [IMPAC Risk Manager]。
 
-    ![應用程式清單中的 [IMPAC Risk Manager] 連結](common/all-applications.png)
+    ![應用程式清單中的 IMPAC Risk Manager 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -207,7 +207,7 @@ IMPAC Risk Manager 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-impac-risk-manager-test-user"></a>建立 IMPAC Risk Manager 測試使用者
 
-在本節中，您會在 IMPAC Risk Manager 中建立名為 Britta Simon 的使用者。 請與 [IMPAC Risk Manager 支援小組](mailto:rmsupport@Impac.co.nz)合作，在 IMPAC Risk Manager 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 IMPAC Risk Manager 中建立名為 Britta Simon 的使用者。 請與 [IMPAC Risk Manager 支援小組](mailto:rmsupport@Impac.co.nz)合作，在 IMPAC Risk Manager 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="test-single-sign-on"></a>測試單一登入
 

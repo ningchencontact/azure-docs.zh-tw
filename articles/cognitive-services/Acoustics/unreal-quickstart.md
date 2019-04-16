@@ -10,19 +10,19 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 1575c4f4a1c96a84823f76e8e98e76de3c2ace86
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 691f49e9be8aabe9a3e229bfd3b35ab183f9fed9
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313017"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470384"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>聲場專案 Unreal/Wwise 快速入門
 在本快速入門中，您將會使用針對 Unreal Engine 和 Wwise 所提供的範例內容，對聲場專案設計控制項進行實驗。
 
 軟體需求：
-* [Unreal Engine 4.21](https://www.unrealengine.com/) \(英文\)
-* [Wwise 2018.1.6](https://www.audiokinetic.com/products/wwise/) \(英文\)
+* [Unreal Engine](https://www.unrealengine.com/) 4.21
+* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6
 
 ## <a name="download-the-sample-package"></a>下載範例套件
 下載[聲場專案 Unreal + Wwise 範例套件](https://www.microsoft.com/download/details.aspx?id=58090) \(英文\)。 範例套件包含 Unreal Engine 專案、適用於該 Unreal 專案的 Wwise 專案，以及聲場專案 Wwise 外掛程式。
@@ -50,7 +50,7 @@ ms.locfileid: "58313017"
 
     ![[Windows 檔案總管] 視窗的螢幕擷取畫面，其中顯示可修補 Wwise 專案的指令碼](media/patch-wwise-script.png)
 
-* 如果您沒有安裝 DirectX SDK，便需要將 `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`中包含 DXSDK_DIR 的程式碼行註解化
+* 如果您未安裝 DirectX SDK，則需要註解排除包含 DXSDK_DIR 的程式碼行 `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
 
     ![顯示已註解排除 DXSDK 的程式碼編輯器螢幕擷取畫面](media/directx-sdk-comment.png)
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ef88a2860603a9450db27b744413ac0a886e81e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a9bcb465f76e09675333e6e608249cba11f722e3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863231"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274650"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ilms"></a>教學課程：Azure Active Directory 與 iLMS 整合
 
@@ -36,16 +36,16 @@ iLMS 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 iLMS 的整合，您需要下列項目：
+若要設定 Azure AD 與 iLMS 整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
-* 已啟用 iLMS 單一登入的訂用帳戶
+* 啟用 iLMS 單一登入的訂用帳戶
 
 ## <a name="scenario-description"></a>案例描述
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* iLMS 支援由 **SP 和 IDP** 起始的 SSO
+* iLMS 支援 **SP 和 IDP** 起始的 SSO
 
 ## <a name="adding-ilms-from-the-gallery"></a>從資源庫新增 iLMS
 
@@ -71,10 +71,10 @@ iLMS 與 Azure AD 整合提供下列優點：
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 iLMS 搭配運作的 Azure AD 單一登入。
+在本節中，您會以名為 **Britta Simon** 的測試使用者身分，使用 iLMS 設定及測試 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 iLMS 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 iLMS 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要設定及測試與 iLMS 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 iLMS 單一登入](#configure-ilms-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -103,17 +103,17 @@ iLMS 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，若您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
 
-    ![iLMS 網域及 URL 單一登入資訊](common/idp-intiated.png)
+    ![iLMS 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
     a. 在 [識別碼] 文字方塊中，將您從 iLMS 系統管理入口網站中 SAML 設定的 [服務提供者] 區段複製的 [識別碼] 值貼上。
 
-    b. 在 [回覆 URL] 文字方塊中，將您從 iLMS 系統管理入口網站中 SAML 設定的 [服務提供者] 區段複製的 [端點 (URL)] 值貼上，並包含下列模式：`https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
+    b. 在 [回覆 URL] 文字方塊中，將您從 iLMS 系統管理入口網站中 SAML 設定的 [服務提供者] 區段複製的 [端點 (URL)] 值貼上，並包含下列模式 `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-    ![iLMS 網域及 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
+    ![iLMS 網域與 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
 
-    在 [登入 URL] 文字方塊中，將您從 iLMS 系統管理入口網站中 SAML 設定的 [服務提供者] 區段複製的 [端點 (URL)] 值貼上，如同：`https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
+    在 [登入 URL] 文字方塊中，將您從 iLMS 系統管理入口網站中 SAML 設定的 [服務提供者] 區段複製的 [端點 (URL)] 值貼上，如同 `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
 
 6. 若要啟用 JIT 佈建，iLMS 應用程式需要特定格式的 SAML 判斷提示，因此您必須將自訂屬性對應新增到您的 SAML 權杖屬性組態。 以下螢幕擷取畫面顯示預設屬性清單。 按一下 [編輯] **** 圖示以開啟 [使用者屬性] 對話方塊。
 
@@ -239,7 +239,7 @@ iLMS 與 Azure AD 整合提供下列優點：
 
 2. 在應用程式清單中，選取 [iLMS]。
 
-    ![應用程式清單中的 [iLMS] 連結](common/all-applications.png)
+    ![應用程式清單中的 iLMS 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 

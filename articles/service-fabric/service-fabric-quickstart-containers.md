@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 34a967640ec039727e8947e865eeff1f5fef4649
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: afeaccd798204ab0973be87ea36c275e1d633403
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758590"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051541"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>快速入門：將 Windows 容器部署至 Service Fabric
 
@@ -36,6 +36,9 @@ Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理�
 * 設定通訊
 * 建置及封裝 Service Fabric 應用程式
 * 將容器應用程式部署至 Azure
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -95,7 +98,7 @@ Microsoft 針對建置於不同 Windows Server 版本的 IIS 版本，發行了�
 
 您可以視需要使用 [Azure PowerShell 指南](/powershell/azure/overview)中的指示來安裝 Azure PowerShell。
 
-執行以下程式碼之前，請在 PowerShell 中執行 `Connect-AzureRmAccount` 來建立與 Azure 的連線。
+執行以下程式碼之前，請在 PowerShell 中執行 `Connect-AzAccount` 來建立與 Azure 的連線。
 
 將以下指令碼複製到剪貼簿，然後開啟 [Windows PowerShell ISE]。  將內容貼到空的 Untitled1.ps1 視窗中。 然後提供指令碼中的變數值：`subscriptionId`、`certpwd`、`certfolder`、`adminuser`、`adminpwd` 等等。您為 `certfolder` 指定的目錄必須先存在，您才能執行指令碼。
 

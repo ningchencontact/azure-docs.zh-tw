@@ -8,12 +8,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 91a0e1fd66861f8747c6c6da21f2c54ed40bd200
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 139ce3fd81c14f9bf97e45c8aebb83d2fb1bbe10
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492796"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426608"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>有關備份 Azure 檔案服務的問題
 本文提供有關備份 Azure 檔案服務的常見問題解答。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -38,9 +38,9 @@ ms.locfileid: "55492796"
 是。 不過，您必須從已連線的保存庫[停止保護](backup-azure-files.md#stop-protecting-an-azure-file-share)，[取消註冊](troubleshoot-azure-files.md#configuring-backup)這個儲存體帳戶，然後從不同的保存庫加以保護。
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>我可以在哪些地區備份 Azure 檔案共用 <br/>
-Azure 檔案共用的備份功能目前處於預覽狀態，僅適用於下列地區： 
-- 澳洲東部 (AE) 
-- 澳大利亞東南部 (ASE) 
+Azure 檔案共用的備份功能目前處於預覽狀態，僅適用於下列地區：
+- 澳洲東部 (AE)
+- 澳大利亞東南部 (ASE)
 - 巴西南部 (BRS)
 - 加拿大中部 (CNC)
 - 加拿大東部 (CE)
@@ -50,17 +50,17 @@ Azure 檔案共用的備份功能目前處於預覽狀態，僅適用於下列�
 - 美國東部 2 (EUS2)
 - 日本東部 (JPE)
 - 日本西部 (JPW)
-- 印度中部 (INC) 
+- 印度中部 (INC)
 - 印度南部 (INS)
 - 南韓中部 (KRC)
 - 南韓 (KRS)
-- 美國中北部 (NCUS) 
-- 北歐 (NE) 
-- 美國中南部 (SCUS) 
+- 美國中北部 (NCUS)
+- 北歐 (NE)
+- 美國中南部 (SCUS)
 - 東南亞 (SEA)
-- 英國南部 (UKS) 
-- 英國西部 (UKW) 
-- 西歐 (WE) 
+- 英國南部 (UKS)
+- 英國西部 (UKW)
+- 西歐 (WE)
 - 美國西部 (WUS)
 - 美國中西部 (WCUS)
 - 美國西部 2 (WUS 2)
@@ -82,7 +82,7 @@ Azure 檔案共用的備份功能目前處於預覽狀態，僅適用於下列�
 在任何時間點，檔案共用最多可以有 200 個快照集。 如您的原則所定義，此限制包含 Azure 備份所產生的快照集。 如果您的備份在達到此限制之後開始失敗，請刪除隨選還原點，以便未來備份成功。
 
 ### <a name="after-enabling-virtual-networks-on-my-storage-account-the-backup-of-file-shares-in-the-account-started-failing-why"></a>在我的儲存體帳戶上啟用虛擬網路之後，帳戶中的檔案共用備份卻開始失敗。 原因為何？
-已啟用虛擬網路的儲存體帳戶不支援 Azure 檔案共用的備份。 在儲存體帳戶中停用虛擬網路，以達成成功的備份。 
+已啟用虛擬網路的儲存體帳戶不支援 Azure 檔案共用的備份。 在儲存體帳戶中停用虛擬網路，以達成成功的備份。
 
 ## <a name="restore"></a>Restore
 
@@ -91,6 +91,10 @@ Azure 檔案共用的備份功能目前處於預覽狀態，僅適用於下列�
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share-br"></a>如果我停止保護 Azure 檔案共用，是否可以從備份還原？ <br/>
 是。 如果您在停止保護時選擇 [保留備份資料]，則您可以從所有現有的還原點進行還原。
+
+### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>如果我取消進行中的還原作業，會發生什麼事？
+如果取消進行中的還原作業，還原程序會停止，而所有在取消前還原的檔案會留在所設定的目的地 (原始或替代位置)，不需要回復。 
+
 
 ## <a name="manage-backup"></a>管理備份
 

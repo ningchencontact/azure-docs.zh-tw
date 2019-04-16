@@ -7,12 +7,12 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: c66323a430e86053627577b40f66b3f4be11c74f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0ca73ed314b254f9f73833bb2c4311f03f62508f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535609"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264194"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>快速入門：使用 JavaScript 搭配 Azure Functions 與 SignalR 服務來建立聊天室
 
@@ -50,7 +50,7 @@ Azure SignalR 服務可讓您輕鬆地新增即時功能到您的應用程式。
 
     ![建立 SignalR 服務](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. 在您的程式碼編輯器中，開啟複製之存放庫中的 *chat/src/javascript* 資料夾。
+1. 在程式碼編輯器中，開啟複製的存放庫中包含的 *src/chat/javascript* 資料夾。
 
 1. 將 *local.settings.sample.json* 重新命名為 *local.settings.json*。
 
@@ -61,7 +61,7 @@ Azure SignalR 服務可讓您輕鬆地新增即時功能到您的應用程式。
     - **negotiate** - 使用 *SignalRConnectionInfo* 輸入繫結來產生並傳回有效的連線資訊。
     - **messages** - 在要求主體中接收聊天訊息，並使用 *SignalR* 輸出繫結來將訊息廣播給所有已連線的用戶端應用程式。
 
-1. 在終端機中，請確定您處於 *chat/src/javascript* 資料夾中。 使用 Azure Functions Core Tools 安裝執行應用程式所需的擴充功能。
+1. 在終端機中，確定您處於 *src/chat/javascript* 資料夾中。 使用 Azure Functions Core Tools 安裝執行應用程式所需的擴充功能。
 
     ```bash
     func extensions install

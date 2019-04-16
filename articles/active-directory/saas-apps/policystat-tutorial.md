@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 65fbac8c316d3a4ba1f24fcc373b197d6df13a90
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 98ab9904f8afc5c74d9f043b0964bc56b49670cc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848040"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269770"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>教學課程：Azure Active Directory 與 PolicyStat 整合
 
@@ -107,9 +107,9 @@ PolicyStat 與 Azure AD 整合提供下列優點：
 
     ![PolicyStat 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.policystat.com`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<companyname>.policystat.com`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.policystat.com/saml2/metadata/`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `https://<companyname>.policystat.com/saml2/metadata/`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [PolicyStat 客戶支援小組](http://www.policystat.com/support/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

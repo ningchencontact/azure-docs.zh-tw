@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/27/2019
-ms.openlocfilehash: 8c297c973a8d6a03b6d5990164bbde1485e36023
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1fca4f6e3aacfee52f348f338806b98d6e61994b
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58170899"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006417"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>快速入門：控制連線到 IoT 中樞的裝置 (Node.js)
 
@@ -45,6 +45,12 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量遙測擷取�
 node --version
 ```
 
+執行下列命令，將適用於 Azure CLI 的 Microsoft Azure IoT 擴充功能新增至您的 Cloud Shell 執行個體。 IoT 擴充功能可將 IoT 中樞、IoT Edge 和 IoT 裝置佈建服務的特定命令新增至 Azure CLI。
+
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
+
 如果您尚未這樣做，請從 https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip 下載範例 Node.js 專案並將 ZIP 封存檔解壓縮。
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
@@ -59,14 +65,13 @@ node --version
 
 裝置必須向的 IoT 中樞註冊，才能進行連線。 在本快速入門中，您會使用 Azure Cloud Shell 來註冊模擬的裝置。
 
-1. 在 Azure Cloud Shell 中執行下列命令，以新增 IoT 中樞 CLI 擴充功能和建立裝置身分識別。
+1. 在 Azure Cloud Shell 中執行下列命令，以建立裝置身分識別。
 
    **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。
 
    **MyNodeDevice**：您所註冊的裝置名稱。 使用所示的 **MyNodeDevice**。 如果您為裝置選擇不同的名稱，則必須在本文中使用該名稱，並先在應用程式範例中更新該裝置名稱，再執行應用程式。
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create \
       --hub-name YourIoTHubName --device-id MyNodeDevice
     ```
@@ -160,4 +165,4 @@ node --version
 若要了解如何將「裝置到雲端」訊息路由傳送至雲端中的不同目的地，請繼續下一個教學課程。
 
 > [!div class="nextstepaction"]
-> [教學課程：將遙測路由傳送至不同的端點以進行處理](tutorial-routing.md)
+> [教學課程：將遙測路由至不同的端點以進行處理](tutorial-routing.md)

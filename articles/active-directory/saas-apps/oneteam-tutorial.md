@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: e2b2a7ce4e057b97ef8c714c7af25b173e881706
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6f12a4973f2c3427d9d44de625f9e987e836d4b7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183572"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272609"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oneteam"></a>教學課程：Azure Active Directory 與 Oneteam 整合
 
@@ -76,7 +76,7 @@ Oneteam 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 Oneteam 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 Oneteam 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 Oneteam 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要設定及測試與 Oneteam 搭配運作的 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 Oneteam 單一登入](#configure-oneteam-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -107,9 +107,9 @@ Oneteam 與 Azure AD 整合提供下列優點：
 
     ![Oneteam 網域及 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://api.one-team.io/teams/<team name>`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://api.one-team.io/teams/<team name>`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://api.one-team.io/teams/<team name>/auth/saml/callback`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://api.one-team.io/teams/<team name>/auth/saml/callback`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
@@ -118,7 +118,7 @@ Oneteam 與 Azure AD 整合提供下列優點：
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<team name>.one-team.io/`
 
     > [!NOTE]
-    > 這些都不是真正的值。 請使用實際的「識別碼」、「回覆 URL」及「登入 URL」來更新這些值。 請連絡 [Oneteam 用戶端支援小組](https://support.one-team.com/hc/requests/new)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這些都不是真正的值。 請使用實際的「識別碼」、「回覆 URL」及「登入 URL」來更新這些值。 請連絡 [Oneteam 客戶支援小組](https://support.one-team.com/hc/requests/new)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 6. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
@@ -165,7 +165,7 @@ Oneteam 與 Azure AD 整合提供下列優點：
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
-在本節中，您會將 Oneteam 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
+在本節中，您會把 Oneteam 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [Oneteam]。
 

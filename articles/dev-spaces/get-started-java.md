@@ -10,12 +10,12 @@ ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器, Helm, 服務網格, 服務網格路由, kubectl, k8s
 manager: mmontwil
-ms.openlocfilehash: 49f3f50cd33d2b3fea1e784fcfc70044c568ba31
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b69a793d1d860bf2f2a4d52a92d4bea5cf903c0c
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842408"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426302"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>在使用 Java 的 Azure Dev Spaces 上開始使用
 
@@ -26,15 +26,10 @@ ms.locfileid: "57842408"
 - 在小組環境中有效率地開發及測試您的程式碼。
 
 > [!Note]
-> **如果作業出現停滯的情況**，請參閱[疑難排解](troubleshooting.md)一節，或在此頁面上張貼留言。
-
-您現在可以在 Azure 中建立以 Kubernetes 為基礎的開發人員空間。
+> **如果作業出現停滯的情況**，請參閱[疑難排解](troubleshooting.md)一節。
 
 ## <a name="install-the-azure-cli"></a>安裝 Azure CLI
 Azure 開發人員空間需要基本的本機電腦設定。 大部分開發人員空間的組態都會儲存在雲端，而且可與其他使用者共用。 從下載和執行 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 著手。
-
-> [!IMPORTANT]
-> 如果您已安裝 Azure CLI，請確定您使用的是 2.0.43 版或更新版本。
 
 ### <a name="sign-in-to-azure-cli"></a>登入 Azure CLI
 登入 Azure。 在終端機視窗中輸入下列命令：
@@ -113,7 +108,7 @@ az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-key
     ```
 
 Azure CLI 的 `azds prep` 命令會產生具有預設設定的 Docker 和 Kubernetes 資產：
-* `./Dockerfile` 描述了應用程式的容器映像，以及如何建置原始程式碼和在容器內執行。
+* `./Dockerfile` 描述應用程式的容器映像，以及如何建置原始程式碼和在容器內執行。
 * `./charts/webfrontend` 底下的 [Helm 圖表](https://docs.helm.sh)會說明如何將容器部署至 Kubernetes。
 
 現在不需要了解這些檔案的完整內容。 但是依然很值得指出，**從開發環境到生產環境都可以使用相同的 Kubernetes 和 Docker 組態即程式碼資產，而為不同的環境之間提供更佳的一致性。**
@@ -153,7 +148,7 @@ Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 > Azure 開發人員空間不只讓程式碼中在 Kubernetes 中執行 - 還可讓您快速地反覆查看您的程式碼變更是否在雲端 Kubernetes 環境中生效。
 
 1. 在終端機視窗中，按 `Ctrl+C` (以停止 `azds up`)。
-1. 開啟名為 `src/main/java/com/ms/sample/webfrontend/Application.java` 的程式碼檔案，然後編輯問候語訊息：`return "Hello from webfrontend in Azure!";`
+1. 開啟名為 `src/main/java/com/ms/sample/webfrontend/Application.java` 的程式碼檔案，然後編輯問候語訊息： `return "Hello from webfrontend in Azure!";`
 1. 儲存檔案。
 1. 在終端機視窗中執行 `azds up`。
 

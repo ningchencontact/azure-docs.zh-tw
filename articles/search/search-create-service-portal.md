@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 01/17/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8d3bc70b467cabfc5d45c51b79b43d2942d558ae
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: c48acf7e9074ac3c5a7d19765a9524a411fa26c8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885722"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264024"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>在入口網站中建立 Azure 搜尋服務
 
@@ -22,7 +22,7 @@ Azure 搜尋服務是一項可用來在自訂應用程式中插入搜尋體驗�
 
 在本文中，請了解如何在 [Azure 入口網站](https://portal.azure.com/)中建立 Azure 搜尋服務資源。
 
-[![動畫 GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
+[![A動畫 GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
 是否偏好使用 PowerShell？ 請使用 Azure Resource Manager [服務範本](https://azure.microsoft.com/resources/templates/101-azure-search-create/)。 如需入門說明，請參閱[使用 PowerShell 管理 Azure 搜尋服務](search-manage-powershell.md)。
 
@@ -71,7 +71,7 @@ Azure 搜尋服務是一項可用來在自訂應用程式中插入搜尋體驗�
 
 做為 Azure 服務，Azure 搜尋服務可以裝載於世界各地的資料中心。 各地理位置的[價格可能不同](https://azure.microsoft.com/pricing/details/search/)。
 
-如果您打算使用認知搜尋，請選擇[功能的適用區域](cognitive-search-quickstart-blob.md#supported-regions)。
+如果您要對位於 Azure 服務 (Azure 儲存體、Azure Cosmos DB、Azure SQL Database) 中的內容編製索引，請在您資料所在的相同區域中建立 Azure 搜尋服務，以避免產生頻寬費用。 這些服務位於相同區域時，輸出資料無須收費。
 
 ## <a name="select-a-pricing-tier-sku"></a>選取定價層 (SKU)
 

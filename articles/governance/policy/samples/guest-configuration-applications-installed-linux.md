@@ -1,19 +1,18 @@
 ---
 title: 範例 - 稽核應用程式是否未安裝於 Linux VM 內
 description: 此範例原則來賓設定方案和定義會稽核指定的應用程式是否未安裝於 Linux 虛擬機器內。
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 03/18/2019
 ms.author: dacoulte
-ms.openlocfilehash: 8b383ed4a9e13380ec9d9ad2508c5b48b1e23e9e
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: b432d8557c4244d58c23e7b068874dd747f6249f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849246"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256459"
 ---
 # <a name="sample---audit-if-specified-applications-are-not-installed-inside-linux-vms"></a>範例 - 稽核指定的應用程式是否未安裝於 Linux VM 內
 
@@ -34,9 +33,9 @@ ms.locfileid: "58849246"
 此[來賓設定](../concepts/guest-configuration.md)方案是由下列原則所組成的：
 
 - [audit](#audit-definition)：稽核應用程式已安裝於 Linux VM 內
-  - 識別碼：`/providers/Microsoft.Authorization/policyDefinitions/fee5cb2b-9d9b-410e-afe3-2902d90d0004`
+  - 識別碼： `/providers/Microsoft.Authorization/policyDefinitions/fee5cb2b-9d9b-410e-afe3-2902d90d0004`
 - [deployIfNotExists](#deployIfNotExists-definition)：部署 VM 擴充功能，以稽核應用程式已安裝於 Linux VM 內
-  - 識別碼：`/providers/Microsoft.Authorization/policyDefinitions/4d1c04de-2172-403f-901b-90608c35c721`
+  - 識別碼： `/providers/Microsoft.Authorization/policyDefinitions/4d1c04de-2172-403f-901b-90608c35c721`
 
 ### <a name="initiative-definition"></a>計畫定義
 

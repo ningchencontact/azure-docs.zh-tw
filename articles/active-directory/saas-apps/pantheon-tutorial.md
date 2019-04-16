@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: da1ff2be9661de143bd36c8e17fd388d64f947a7
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 30f431c1806c6a0697a6b74b43f1cc35660fc85e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407499"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261718"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pantheon"></a>教學課程：Azure Active Directory 與 Pantheon 整合
 
@@ -105,9 +105,9 @@ Pantheon 與 Azure AD 整合提供下列優點：
 
     ![Pantheon 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`urn:auth0:pantheon:<orgname>-SSO`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `urn:auth0:pantheon:<orgname>-SSO`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://pantheon.auth0.com/login/callback?connection=<orgname>-SSO`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://pantheon.auth0.com/login/callback?connection=<orgname>-SSO`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Pantheon 用戶端支援小組](https://pantheon.io/docs/getting-support/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。

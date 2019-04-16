@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: bcc1930bf099955af9716a04aa73fb7b9496aa88
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 33c2d211fad16a81a307a5c0f2a9d048ef07bf4d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848972"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259893"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>教學課程：Azure Active Directory 與 Questetra BPM Suite 整合
 
@@ -105,9 +105,9 @@ Questetra BPM Suite 與 Azure AD 整合提供下列優點：
 
     ![Questetra BPM Suite 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.questetra.net/saml/SSO/alias/bpm`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.questetra.net/saml/SSO/alias/bpm`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://<subdomain>.questetra.net/`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.questetra.net/`
 
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 您可以從 **Questetra BPM Suite** [SP 資訊] 區段取得這些值，本教學課程後續將會加以說明；您也可以連絡 [Questetra BPM Suite 用戶端支援小組](https://www.questetra.com/contact/)。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
@@ -216,7 +216,7 @@ Questetra BPM Suite 與 Azure AD 整合提供下列優點：
 
 本節目標是在 Halogen Software 中建立名為 Questetra BPM Suite 的使用者。
 
-**若要在 Questetra BPM Suite 中建立名為 Britta Simon 的使用者，請執行以下步驟：**
+**若要在 Questetra BPM Suite 中建立名為 Britta Simon 的使用者，請執行下列步驟：**
 
 1. 以系統管理員身分登入您的 Questetra BPM Suite 公司網站。
 

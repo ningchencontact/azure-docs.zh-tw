@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: d6b1303cfdc28cf568796e03c23ff69320ab83dc
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: aa96bcbc7c75f1a4dcd28a5dbe7479f99aabe908
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576994"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263822"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>教學課程：Azure Active Directory 與 Predictix Price Reporting 整合
 
@@ -105,7 +105,7 @@ Predictix Price Reporting 與 Azure AD 整合提供下列優點：
 
     ![Predictix Price Reporting 網域及 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<companyname-pricing>.predictix.com/sso/request`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<companyname-pricing>.predictix.com/sso/request`
 
     b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：
 

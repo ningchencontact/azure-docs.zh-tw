@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: f65bb7506b112828a49f9410f4790932f0abbfbc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 490ef95e061da4a008bf50ef664aaa379d5b3062
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177529"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258822"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>教學課程：Azure Active Directory 與 OneTrust Privacy Management Software 整合
 
@@ -36,7 +36,7 @@ OneTrust Privacy Management Software 與 Azure AD 整合提供下列優點：
 
 ## <a name="prerequisites"></a>必要條件
 
-若要設定 Azure AD 與 OneTrust Privacy Management Software 的整合，您需要下列項目：
+若要設定 Azure AD 與 OneTrust Privacy Management Software 整合，您需要以下項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
 * 已啟用 OneTrust Privacy Management Software 單一登入的訂用帳戶
@@ -76,7 +76,7 @@ OneTrust Privacy Management Software 與 Azure AD 整合提供下列優點：
 在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 OneTrust Privacy Management Software 搭配運作的 Azure AD 單一登入。
 若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 OneTrust Privacy Management Software 中相關使用者之間的連結關聯性。
 
-若要設定及測試與 OneTrust Privacy Management Software 搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
+若要使用 OneTrust Privacy Management Software 設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
 2. **[設定 OneTrust Privacy Management Software 單一登入](#configure-onetrust-privacy-management-software-single-sign-on)** - 在應用程式端設定單一登入設定。
@@ -105,15 +105,15 @@ OneTrust Privacy Management Software 與 Azure AD 整合提供下列優點：
 
 4. 在 [基本 SAML 組態] 區段上，若您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
 
-    ![OneTrust Privacy Management Software 網域及 URL 單一登入資訊](common/idp-intiated.png)
+    ![OneTrust Privacy Management Software 網域與 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，鍵入 URL：`https://www.onetrust.com/saml2`
+    a. 在 [識別碼] 文字方塊中，鍵入 URL： `https://www.onetrust.com/saml2`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.onetrust.com/auth/consumerservice`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<subdomain>.onetrust.com/auth/consumerservice`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-    ![OneTrust Privacy Management Software 網域及 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
+    ![OneTrust Privacy Management Software 網域與 URL 單一登入資訊](common/metadata-upload-additional-signon.png)
 
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://<subdomain>.onetrust.com/auth/login`
 

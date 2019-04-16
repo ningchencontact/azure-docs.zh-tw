@@ -7,17 +7,17 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: sachinpMSFT
-ms.author: sachinp
+author: mumian
+ms.author: jgao
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/22/2019
-ms.openlocfilehash: 01e14f86b16db6d998d60e74211ae5ad77381461
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.date: 04/09/2019
+ms.openlocfilehash: 8d060ce60194e47814308bfd67bd14db996650b0
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372943"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425775"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>快速入門：使用 Azure Resource Manager 範本在 Azure SQL Database 中建立單一資料庫
 
@@ -29,13 +29,128 @@ ms.locfileid: "58372943"
 
 單一資料庫具有一組使用兩個[購買模型](sql-database-purchase-models.md)之一定義的計算、記憶體、IO 和儲存體資源。 當您建立單一資料庫時，您也會定義 [SQL Database 伺服器](sql-database-servers.md)加以管理，並將其放入指定區域中的 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)內。
 
-本快速入門中使用的範本是來自 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/201-sql-threat-detection-server-policy-optional-db/)。 下列 JSON 檔案是本文中所用的範本。 在[這裡](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular)可找到更多 Azure SQL Database 範本範例。
+下列 JSON 檔案是本文中所用的範本。 此範本會儲存在 Azure 儲存體帳戶中。 在[這裡](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sql&pageNumber=1&sort=Popular)可找到更多 Azure SQL Database 範本範例。
 
-[!code-json[create-azure-sql-database](~/quickstart-templates/201-sql-threat-detection-server-policy-optional-db/azuredeploy.json)]
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "serverName": {
+      "type": "string",
+      "defaultValue": "[concat('server-', uniqueString(resourceGroup().id, deployment().name))]",
+      "metadata": {
+        "description": "Name for the SQL server"
+      }
+    },
+    "shouldDeployDb": {
+      "type": "string",
+      "allowedValues": [
+        "Yes",
+        "No"
+      ],
+      "defaultValue": "Yes",
+      "metadata": {
+        "description": "Whether an Azure SQL Database should be deployed under the server"
+      }
+    },
+    "databaseName": {
+      "type": "string",
+      "defaultValue": "[concat('db-', uniqueString(resourceGroup().id, deployment().name), '-1')]",
+      "metadata": {
+        "description": "Name for the SQL database under the SQL server"
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for server and optional DB"
+      }
+    },
+    "emailAddresses": {
+      "type": "array",
+      "defaultValue": [
+        "user1@example.com",
+        "user2@example.com"
+      ],
+      "metadata": {
+        "description": "Email addresses for receiving alerts"
+      }
+    },
+    "adminUser": {
+      "type": "string",
+      "metadata": {
+        "description": "Username for admin"
+      }
+    },
+    "adminPassword": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Password for admin"
+      }
+    }
+  },
+  "variables": {
+    "databaseServerName": "[toLower(parameters('serverName'))]",
+    "databaseName": "[parameters('databaseName')]",
+    "shouldDeployDb": "[parameters('shouldDeployDb')]",
+    "databaseServerLocation": "[parameters('location')]",
+    "databaseServerAdminLogin": "[parameters('adminUser')]",
+    "databaseServerAdminLoginPassword": "[parameters('adminPassword')]",
+    "emailAddresses": "[parameters('emailAddresses')]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Sql/servers",
+      "name": "[variables('databaseServerName')]",
+      "location": "[variables('databaseServerLocation')]",
+      "apiVersion": "2015-05-01-preview",
+      "properties": {
+        "administratorLogin": "[variables('databaseServerAdminLogin')]",
+        "administratorLoginPassword": "[variables('databaseServerAdminLoginPassword')]",
+        "version": "12.0"
+      },
+      "tags": {
+        "DisplayName": "[variables('databaseServerName')]"
+      },
+      "resources": [
+        {
+          "type": "securityAlertPolicies",
+          "name": "DefaultSecurityAlert",
+          "apiVersion": "2017-03-01-preview",
+          "dependsOn": [
+            "[variables('databaseServerName')]"
+          ],
+          "properties": {
+            "state": "Enabled",
+            "emailAddresses": "[variables('emailAddresses')]",
+            "emailAccountAdmins": true
+          }
+        }
+      ]
+    },
+    {
+      "condition": "[equals(variables('shouldDeployDb'), 'Yes')]",
+      "type": "Microsoft.Sql/servers/databases",
+      "name": "[concat(string(variables('databaseServerName')), '/', string(variables('databaseName')))]",
+      "location": "[variables('databaseServerLocation')]",
+      "apiVersion": "2017-10-01-preview",
+      "dependsOn": [
+        "[concat('Microsoft.Sql/servers/', variables('databaseServerName'))]"
+      ],
+      "properties": {},
+      "tags": {
+        "DisplayName": "[variables('databaseServerName')]"
+      }
+    }
+  ]
+}
+```
 
 1. 選取以下影像來登入 Azure 並開啟範本。
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-sql-threat-detection-server-policy-optional-db%2Fazuredeploy.json"><img src="./media/sql-database-single-database-get-started-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Farmtutorials.blob.core.windows.net%2Fcreatesql%2Fazuredeploy.json"><img src="./media/sql-database-single-database-get-started-template/deploy-to-azure.png" alt="deploy to azure"/></a>
 
 2. 選取或輸入下列值。  
 

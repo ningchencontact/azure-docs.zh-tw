@@ -6,15 +6,15 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 01/06/2019
+ms.date: 04/04/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 1fa9eaa5f4ba399622e0b8889ab722e4a4e130a0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7f501bf8496d1293a45c15908d4f2b21b6ed01d2
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770471"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045400"
 ---
 # <a name="what-is-azure-event-grid"></a>什麼是 Azure 事件方格？
 
@@ -118,9 +118,9 @@ Azure Event Grid 使用依事件支付計價模式，因此您只需就使用量
   使用 Event Grid 回應儲存體 blob 事件。
 * [建立並訂閱自訂事件](custom-event-quickstart.md)  
   直接進入正題並開始使用 Azure Event Grid 快速入門來將您自己的自訂事件傳送至任何端點。
-* [使用 Logic Apps 來作為事件處理常式](monitor-virtual-machine-changes-event-grid-logic-app.md)  
+* [使用 Logic Apps 作為事件處理常式](monitor-virtual-machine-changes-event-grid-logic-app.md)  
   有關使用 Logic Apps 建置應用程式以回應 Event Grid 所推送之事件的教學課程。
 * [將巨量資料串流處理至資料倉儲](event-grid-event-hubs-integration.md)  
   使用 Azure Functions 將資料從事件中樞串流到 SQL 資料倉儲的教學課程。
-* [Event Grid REST API 參考](/rest/api/eventgrid)  
+* [事件方格 REST API 參考](/rest/api/eventgrid)  
   提供參考內容來管理事件訂閱、路由和篩選。

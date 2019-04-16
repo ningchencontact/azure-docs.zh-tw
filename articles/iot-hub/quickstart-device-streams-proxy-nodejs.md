@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: a737413f6692b4ee811d0590351a385552cc9a8f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a459473e04f9cbf3b11b75f3b9dbea2732455084
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085570"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005444"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-nodejs-proxy-application-preview"></a>快速入門：使用 Node.js Proxy 應用程式透過 IoT 中樞裝置串流進行 SSH/RDP 輸送 (預覽)
 
@@ -27,11 +27,9 @@ Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://a
 
 我們會先說明 SSH 的設定 (使用連接埠 22)。 接著會說明如何針對 RDP 修改設定 (使用連接埠 3389)。 由於裝置串流與應用程式或通訊協定無關，因此相同的範例可在修改後用於其他類型的用戶端/伺服器應用程式流量 (通常藉由修改通訊連接埠)。
 
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
-
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -50,8 +48,13 @@ Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://a
 node --version
 ```
 
-如果您尚未這樣做，請從 https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip 下載範例 Node.js 專案並將 ZIP 封存檔解壓縮。
+執行下列命令，將適用於 Azure CLI 的 Microsoft Azure IoT 擴充功能新增至您的 Cloud Shell 執行個體。 IoT 擴充功能可將 IoT 中樞、IoT Edge 和 IoT 裝置佈建服務的特定命令新增至 Azure CLI。
 
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
+
+如果您尚未這樣做，請從 https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip 下載範例 Node.js 專案並將 ZIP 封存檔解壓縮。
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 
@@ -59,21 +62,19 @@ node --version
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub-device-streams.md)]
 
-
 ## <a name="register-a-device"></a>註冊裝置
 
 如果您已完成先前的[快速入門：將遙測從裝置傳送到 IoT 中樞](quickstart-send-telemetry-node.md)，則可以略過此步驟。
 
 裝置必須向的 IoT 中樞註冊，才能進行連線。 在本快速入門中，您會使用 Azure Cloud Shell 來註冊模擬的裝置。
 
-1. 在 Azure Cloud Shell 中執行下列命令，以新增 IoT 中樞 CLI 擴充功能和建立裝置身分識別。 
+1. 在 Azure Cloud Shell 中執行下列命令，以建立裝置身分識別。
 
    **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。
 
    **MyDevice**：這是為已註冊裝置指定的名稱。 使用所示的 MyCDevice。 如果您為裝置選擇不同的名稱，則也必須在本文中使用該名稱，並先在範例應用程式中更新該裝置名稱，再執行應用程式。
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
@@ -89,13 +90,11 @@ node --version
 
    `"HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}"`
 
-
 ## <a name="ssh-to-a-device-via-device-streams"></a>透過裝置串流使用 SSH 連線至裝置
 
 ### <a name="run-the-device-local-proxy"></a>執行裝置本機 Proxy
 
 如先前所說明，IoT 中樞 Node.js SDK 僅支援服務端上的裝置串流。 對於裝置端應用程式，請使用 [C 快速入門](./quickstart-device-streams-proxy-c.md)或 [C# 快速入門](./quickstart-device-streams-proxy-csharp.md)指南中提及的隨附裝置 Proxy 程式。 繼續進行下一個步驟前，請先確定裝置端 Proxy 正在執行中。
-
 
 ### <a name="run-the-service-local-proxy"></a>執行服務本機 Proxy
 
@@ -128,13 +127,12 @@ node --version
   ```
 
 ### <a name="ssh-to-your-device-via-device-streams"></a>透過裝置串流使用 SSH 連線至您的裝置
+
 在 Linux 中，在終端機上使用 `ssh $USER@localhost -p 2222` 執行 SSH。 在 Windows 中，請使用您慣用的 SSH 用戶端 (例如 PuTTY)。
 
 服務本機的主控台輸出會在 SSH 工作階段結束後建立 (服務本機 Proxy 會接聽連接埠 2222)：![替代文字](./media/quickstart-device-streams-proxy-nodejs/service-console-output.PNG "SSH 終端機輸出")
 
-
 SSH 用戶端程式的主控台輸出 (SSH 用戶端藉由連線至服務本機 Proxy 所接聽的連接埠 22 與 SSH 精靈通訊)：![替代文字](./media/quickstart-device-streams-proxy-nodejs/ssh-console-output.PNG "SSH 用戶端輸出")
-
 
 ### <a name="rdp-to-your-device-via-device-streams"></a>透過裝置串流使用 RDP 連線至您的裝置
 
@@ -145,7 +143,6 @@ SSH 用戶端程式的主控台輸出 (SSH 用戶端藉由連線至服務本機 
 
 ![替代文字](./media/quickstart-device-streams-proxy-nodejs/rdp-screen-capture.PNG "RDP 用戶端連線至服務本機 Proxy。")
 
-
 ## <a name="clean-up-resources"></a>清除資源
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
@@ -154,7 +151,7 @@ SSH 用戶端程式的主控台輸出 (SSH 用戶端藉由連線至服務本機 
 
 在本快速入門中，您已設定 IoT 中樞、註冊裝置，並且部署服務 Proxy 程式以啟用透過 RDP 和 SSH 連線至 IoT 裝置的功能。 RDP 和 SSH 流量將會經由 IoT 中樞透過裝置串流輸送。 這樣就不需要直接連線至裝置。
 
-使用下列連結深入了解裝置串流：
+使用以下連結深入了解裝置串流：
 
 > [!div class="nextstepaction"]
 > [裝置串流概觀](./iot-hub-device-streams-overview.md)

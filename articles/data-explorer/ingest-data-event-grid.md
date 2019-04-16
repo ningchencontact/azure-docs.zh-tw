@@ -1,20 +1,18 @@
 ---
 title: 快速入門：將 Azure Blob 擷取至 Azure 資料總管
 description: 在本快速入門中，您將了解如何使用 Event Grid 訂用帳戶，將儲存體帳戶資料傳送至 Azure 資料總管。
-services: data-explorer
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 1/30/2019
-Customer intent: As a database administrator, I want Azure Data Explorer to track my blob storage and ingest new blobs.
-ms.openlocfilehash: 8efe8b95b09fa8b4de16c08345699cee88e11285
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 01/30/2019
+ms.openlocfilehash: 19db47610449ced45fa61610bbe964042e815c7a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756425"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051847"
 ---
 # <a name="quickstart-ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>快速入門：訂閱 Event Grid 通知，以便將 Blob 擷取至 Azure 資料總管
 
@@ -44,7 +42,7 @@ Azure 資料總管是一項快速又可調整的資料探索服務，可用於�
     | 事件結構描述 | *事件格線結構描述* | 應該用於事件格線的結構描述。 |
     | 主題類型 | *儲存體帳戶* | 事件格線主題的類型。 |
     | 主題資源 | *gridteststorage* | 儲存體帳戶的名稱。 |
-    | 訂閱所有事件類型 | *清除* | 不取得所有事件的通知。 |
+    | 訂閱所有事件類型 | *clear* | 不取得所有事件的通知。 |
     | 定義的事件類型 | *已建立 Blob* | 要取得通知的特定事件。 |
     | 端點類型 | *事件中樞* | 要接收事件之端點的類型。 |
     | 端點 | *test-hub* | 您建立的事件中樞。 |

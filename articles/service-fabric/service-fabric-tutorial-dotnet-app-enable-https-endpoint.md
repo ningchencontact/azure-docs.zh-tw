@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/17/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 96c69078d32e46c795b8c5240582b874a515dee8
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: a8f4e89adec0a6be001f3e6d6df1a252677c5916
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670773"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045725"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>教學課程：使用 Kestrel 將 HTTPS 端點新增至 ASP.NET Core Web API 前端服務
 
@@ -43,6 +43,9 @@ ms.locfileid: "58670773"
 > * 將 HTTPS 端點新增至 ASP.NET Core 前端服務
 > * [使用 Azure Pipelines 設定 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [設定應用程式的監視和診斷](service-fabric-tutorial-monitoring-aspnet.md)
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -357,13 +360,13 @@ if ($cert -eq $null)
 
 在匯出精靈中，選擇 [是，匯出私密金鑰]，然後選擇個人資訊交換 (PFX) 格式。  將檔案匯出至 C:\Users\sfuser\votingappcert.pfx。
 
-接下來，使用 [Add-AzureRmServiceFabricApplicationCertificate](/powershell/module/azurerm.servicefabric/Add-AzureRmServiceFabricApplicationCertificate) Cmdlet，在遠端叢集上安裝憑證。
+接下來，使用 [Add-AzServiceFabricApplicationCertificate](/powershell/module/az.servicefabric/Add-azServiceFabricApplicationCertificate) Cmdlet，在遠端叢集上安裝憑證。
 
 > [!Warning]
 > 自我簽署的憑證已足夠用於開發和測試應用程式。 對於生產應用程式，使用[憑證授權單位 (CA)](https://wikipedia.org/wiki/Certificate_authority) 提供的憑證，而非自我簽署的憑證。
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
 $vaultname="sftestvault"
 $certname="VotingAppPFX"
@@ -396,7 +399,7 @@ Write-Host "Writing secret to $certname in vault $vaultname"
 $secret = Set-AzureKeyVaultSecret -VaultName $vaultname -Name $certname -SecretValue $secretValue
 
 # Add a certificate to all the VMs in the cluster.
-Add-AzureRmServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $secret.Id -Verbose
+Add-AzServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $secret.Id -Verbose
 ```
 
 ## <a name="open-port-443-in-the-azure-load-balancer"></a>在 Azure Load Balancer 中開啟連接埠 443
@@ -410,18 +413,18 @@ $RGname="voting_RG"
 $port=443
 
 # Get the load balancer resource
-$resource = Get-AzureRmResource | Where {$_.ResourceGroupName –eq $RGname -and $_.ResourceType -eq "Microsoft.Network/loadBalancers"}
-$slb = Get-AzureRmLoadBalancer -Name $resource.Name -ResourceGroupName $RGname
+$resource = Get-AzResource | Where {$_.ResourceGroupName –eq $RGname -and $_.ResourceType -eq "Microsoft.Network/loadBalancers"}
+$slb = Get-AzLoadBalancer -Name $resource.Name -ResourceGroupName $RGname
 
 # Add a new probe configuration to the load balancer
-$slb | Add-AzureRmLoadBalancerProbeConfig -Name $probename -Protocol Tcp -Port $port -IntervalInSeconds 15 -ProbeCount 2
+$slb | Add-AzLoadBalancerProbeConfig -Name $probename -Protocol Tcp -Port $port -IntervalInSeconds 15 -ProbeCount 2
 
 # Add rule configuration to the load balancer
-$probe = Get-AzureRmLoadBalancerProbeConfig -Name $probename -LoadBalancer $slb
-$slb | Add-AzureRmLoadBalancerRuleConfig -Name $rulename -BackendAddressPool $slb.BackendAddressPools[0] -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -Probe $probe -Protocol Tcp -FrontendPort $port -BackendPort $port
+$probe = Get-AzLoadBalancerProbeConfig -Name $probename -LoadBalancer $slb
+$slb | Add-AzLoadBalancerRuleConfig -Name $rulename -BackendAddressPool $slb.BackendAddressPools[0] -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -Probe $probe -Protocol Tcp -FrontendPort $port -BackendPort $port
 
 # Set the goal state for the load balancer
-$slb | Set-AzureRmLoadBalancer
+$slb | Set-AzLoadBalancer
 ```
 
 ## <a name="deploy-the-application-to-azure"></a>將應用程式部署至 Azure

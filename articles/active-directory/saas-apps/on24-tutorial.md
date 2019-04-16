@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: f95420397a502af8e939c8a53fe5635b82dc0f39
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: a0b5dd169d29dc392274ab5589931f37beb04e9b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893640"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273595"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>教學課程：Azure Active Directory 與 ON24 Virtual Environment SAML Connection 整合
 
@@ -28,7 +28,7 @@ ms.locfileid: "57893640"
 將 ON24 虛擬環境 SAML 連線與 Azure AD 整合可提供您下列優點：
 
 * 您可以在 Azure AD 中控制能存取 ON24 虛擬環境 SAML 連線的人員。
-* 您可以讓您的使用者會自動登入 ON24 虛擬環境 SAML 連線 （單一登入），使用其 Azure AD 帳戶。
+* 您可以讓使用者使用其 Azure AD 帳戶自動登入 ON24 Virtual Environment SAML Connection (單一登入)。
 * 您可以在 Azure 入口網站中集中管理您的帳戶。
 
 若您想了解 SaaS app 與 Azure AD 整合的更多詳細資訊，請參閱 [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)。
@@ -39,19 +39,19 @@ ms.locfileid: "57893640"
 若要設定 Azure AD 與 ON24 虛擬環境 SAML 連線的整合，您需要下列項目：
 
 * Azure AD 訂用帳戶。 如果您沒有 Azure AD 環境，您可以在[這裡](https://azure.microsoft.com/pricing/free-trial/)取得一個月的試用帳戶
-* 啟用虛擬環境 SAML 連線 ON24 單一登入的訂用帳戶
+* 已啟用 ON24 Virtual Environment SAML Connection 單一登入的訂用帳戶
 
 ## <a name="scenario-description"></a>案例描述
 
 在本教學課程中，您會在測試環境中設定和測試 Azure AD 單一登入。
 
-* 支援虛擬環境 SAML 連線 ON24 **SP**並**IDP**初始化的 SSO
+* ON24 Virtual Environment SAML Connection 支援 **SP** 和 **IDP** 起始的 SSO
 
 ## <a name="adding-on24-virtual-environment-saml-connection-from-the-gallery"></a>從資源庫新增 ON24 虛擬環境 SAML 連線
 
 若要設定將 ON24 虛擬環境 SAML 連線整合至 Azure AD，您必須從資源庫將 ON24 虛擬環境 SAML 連線新增至受控 SaaS 應用程式的清單。
 
-**若要從資源庫新增 ON24 虛擬環境 SAML 連線，請執行下列步驟：**
+**若要從資源庫新增 ON24 Virtual Environment SAML Connection，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
@@ -67,27 +67,27 @@ ms.locfileid: "57893640"
 
 4. 在搜尋方塊中，鍵入 **ON24 虛擬環境 SAML 連線**，並從結果面板選取 [ON24 虛擬環境 SAML 連線]，然後按一下 [新增] 按鈕新增應用程式。
 
-     ![ON24 虛擬環境 SAML 連線結果清單中](common/search-new-app.png)
+     ![建立 ON24 Virtual Environment SAML Connection 測試使用者](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
-在本節中，您使用設定及測試 Azure AD 單一登入 ON24 虛擬環境 SAML 連接為基礎的測試使用者身分**名為 Britta Simon**。
-讓單一登入運作，必須建立在 Azure AD 使用者與 ON24 虛擬環境 SAML 連線中的相關的使用者之間的連結關聯性。
+在本節中，您會以名為 **Britta Simon** 的測試使用者為基礎，設定及測試與 ON24 Virtual Environment SAML Connection 搭配運作的 Azure AD 單一登入。
+若要讓單一登入能夠運作，必須建立 Azure AD 使用者與 ON24 Virtual Environment SAML Connection 中相關使用者之間的連結關聯性。
 
 若要設定及測試與 ON24 虛擬環境 SAML 連線搭配運作的 Azure AD 單一登入，您需要完成下列構成要素：
 
 1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[ON24 虛擬環境 SAML 連接上設定單一登入](#configure-on24-virtual-environment-saml-connection-single-sign-on)** -若要在應用程式端設定單一登入設定。
+2. **[設定 ON24 Virtual Environment SAML Connection 單一登入](#configure-on24-virtual-environment-saml-connection-single-sign-on)** - 在應用程式端設定單一登入設定。
 3. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
 4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[建立虛擬環境 SAML 連線 ON24 測試使用者](#create-on24-virtual-environment-saml-connection-test-user)** -使中 ON24 虛擬環境 SAML 連線連結到使用者與 Azure AD 中代表 Britta Simon 的對應。
+5. **[建立 ON24 Virtual Environment SAML Connection 測試使用者](#create-on24-virtual-environment-saml-connection-test-user)** - 在 ON24 Virtual Environment SAML Connection 中建立對應到 Britta Simon 的使用者，這位使用者會連結到 Azure AD 中其所代表的使用者。
 6. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
 
 ### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入。
 
-若要使用 ON24 虛擬環境 SAML 連線，以設定 Azure AD 單一登入，請執行下列步驟：
+若要設定與 ON24 Virtual Environment SAML Connection 搭配運作的 Azure AD 單一登入，請執行下列步驟：
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)的 [ON24 虛擬環境 SAML 連線] 應用程式整合頁面上，選取 [單一登入]。
 
@@ -103,7 +103,7 @@ ms.locfileid: "57893640"
 
 4. 在 [基本 SAML 組態] 區段上，若您想要以 **IDP** 起始模式設定應用程式，請執行下列步驟：
 
-    ![ON24 虛擬環境 SAML 連接網域及 Url 單一登入資訊](common/idp-relay.png)
+    ![ON24 Virtual Environment SAML Connection 網域和 URL 單一登入資訊](common/idp-relay.png)
 
     a. 在 [識別碼] 文字方塊中，鍵入 URL：
 
@@ -147,22 +147,22 @@ ms.locfileid: "57893640"
 
     c. 按一下 [設定額外的 URL]。 
 
-    d. 在 [轉送狀態] 文字方塊中，鍵入 URL：`https://vshow.on24.com/vshow/ms_azure_saml_test?r=<ID>`
+    d. 在 [轉送狀態] 文字方塊中，輸入 URL： `https://vshow.on24.com/vshow/ms_azure_saml_test?r=<ID>`
 
 5.  如果您想要在 **SP** 起始模式中設定應用程式，請執行下列步驟：
 
-    ![ON24 虛擬環境 SAML 連接網域及 Url 單一登入資訊](common/both-signonurl.png)
+    ![ON24 Virtual Environment SAML Connection 網域和 URL 單一登入資訊](common/both-signonurl.png)
 
     在 [登入 URL] 文字方塊中，以下列模式輸入 URL︰`https://vshow.on24.com/vshow/<INSTANCENAME>`
 
     > [!NOTE]
-    > 這些都不是真正的值。 使用實際的 「 轉送狀態 」 和 「 登入 URL 更新這些值。 請連絡[ON24 虛擬環境 SAML 連線用戶端支援小組](https://www.on24.com/contact-us/)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
+    > 這些都不是真正的值。 請使用實際的轉送狀態和登入 URL 將這些值更新。 請連絡 [ON24 Virtual Environment SAML Connection 用戶端支援小組](https://www.on24.com/contact-us/) \(英文\) 以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
 
 4. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中按一下 [下載]，以依據您的需求從指定選項下載**同盟中繼資料 XML**，並儲存在您的電腦上。
 
     ![憑證下載連結](common/metadataxml.png)
 
-6. 在 **設定虛擬環境 SAML 連線 ON24**區段上，複製 根據您的需求適當的 URL。
+6. 在 [設定 ON24 Virtual Environment SAML Connection] 區段上，依據您的需求複製適當的 URL。
 
     ![複製組態 URL](common/copy-configuration-urls.png)
 
@@ -172,9 +172,9 @@ ms.locfileid: "57893640"
 
     c. 登出 URL
 
-### <a name="configure-on24-virtual-environment-saml-connection-single-sign-on"></a>ON24 虛擬環境 SAML 連接上設定單一登入
+### <a name="configure-on24-virtual-environment-saml-connection-single-sign-on"></a>設定 ON24 Virtual Environment SAML Connection 單一登入
 
-若要設定單一登入**ON24 虛擬環境 SAML 連線**端，您需要將已下載**同盟中繼資料 XML**適當從 Azure 入口網站複製的 Url 和[ON24 虛擬環境 SAML 連線支援小組](https://www.on24.com/about-us/support/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+若要在 **ON24 Virtual Environment SAML Connection** 端設定單一登入，您必須將從 Azure 入口網站下載的 [同盟中繼資料 XML] 和所複製的適當 URL 傳送給 [ON24 Virtual Environment SAML Connection 支援小組](https://www.on24.com/about-us/support/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 ### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者 
 
@@ -194,7 +194,7 @@ ms.locfileid: "57893640"
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
-    b. 在 **使用者名**欄位中輸入**brittasimon\@yourcompanydomain.extension**  
+    b. 在 [使用者名稱] 欄位中，輸入 **brittasimon\@yourcompanydomain.extension**  
     例如， BrittaSimon@contoso.com
 
     c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
@@ -205,13 +205,13 @@ ms.locfileid: "57893640"
 
 在本節中，您會將 ON24 虛擬環境 SAML 連線的存取權授與 Britta Simon，讓其可使用 Azure 單一登入。
 
-1. 在 Azure 入口網站中，選取**企業應用程式**，選取**所有應用程式**，然後選取**ON24 虛擬環境 SAML 連線**。
+1. 在 Azure 入口網站中，依序選取 [企業應用程式]、[所有應用程式] 及 [ON24 Virtual Environment SAML Connection]。
 
     ![企業應用程式刀鋒視窗](common/enterprise-applications.png)
 
 2. 在應用程式清單中，選取 [ON24 虛擬環境 SAML 連線]。
 
-    ![ON24 虛擬環境 SAML 連線中的 連結應用程式清單](common/all-applications.png)
+    ![應用程式清單中的 ON24 Virtual Environment SAML Connection 連結](common/all-applications.png)
 
 3. 在左側功能表中，選取 [使用者和群組]。
 
@@ -227,7 +227,7 @@ ms.locfileid: "57893640"
 
 7. 在 [新增指派] 對話方塊中，按一下 [指派] 按鈕。
 
-### <a name="create-on24-virtual-environment-saml-connection-test-user"></a>建立虛擬環境 SAML 連線 ON24 測試使用者
+### <a name="create-on24-virtual-environment-saml-connection-test-user"></a>建立 ON24 Virtual Environment SAML Connection 測試使用者
 
 在本節中，您會在 ON24 虛擬環境 SAML 連線中建立名為 Britta Simon 的使用者。 請與 [ON24 Virtual Environment SAML Connection 支援小組](https://www.on24.com/about-us/support/)合作，在 ON24 Virtual Environment SAML Connection 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
@@ -235,7 +235,7 @@ ms.locfileid: "57893640"
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您按一下存取面板 」 中的 [虛擬環境 SAML 連線 ON24] 圖格時，您應該會自動登入 ON24 虛擬環境 SAML 連線讓您設定 SSO。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
+當您在存取面板中按一下 [ON24 Virtual Environment SAML Connection] 圖格時，應該會自動登入您設定 SSO 的 ON24 Virtual Environment SAML Connection。 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)。
 
 ## <a name="additional-resources"></a>其他資源
 

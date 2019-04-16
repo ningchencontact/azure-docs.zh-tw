@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: sample
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 58513b77315badc52acbc0c5116343461b44fa08
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1e2f55d334d432544ffc185e5c68dfe4325b2b09
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232957"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59356814"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>適用於 Azure SQL Database 的 Azure Resource Manager 範本
 
@@ -53,4 +53,3 @@ Azure Resource Manager 範本可讓您定義基礎結構即程式碼，並將解
 | [受控執行個體的網路環境](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | 此部署會建立已設定的 Azure 虛擬網路和兩個子網路 - 一個專門用於您的受控執行個體，另一個則可用來放置其他資源 (例如 VM、App Service 環境等)。 此範本會建立已適當設定的網路環境，供您在其中部署受控執行個體。 |
 | [具有 P2S 連線的受控執行個體](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-point-to-site-vpn) | 此部署會建立具有兩個子網路 `ManagedInstance` 和 `GatewaySubnet` 的 Azure 虛擬網路。 受控執行個體將部署在 ManagedInstance 子網路中。 虛擬網路閘道會建立在 `GatewaySubnet` 子網路中，並設定點對站 VPN 連線。 |
 | [受控執行個體與虛擬機器](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-jumpbox) | 此部署會建立具有兩個子網路 `ManagedInstance` 和 `Management` 的 Azure 虛擬網路。 受控執行個體將部署在 `ManagedInstance` 子網路中。 具有最新版 SQL Server Management Studio (SSMS) 的虛擬機器會部署在 `Management` 子網路中。 |
-

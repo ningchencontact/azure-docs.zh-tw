@@ -1,7 +1,7 @@
 ---
 title: 在 QnA Maker 中建立、發佈、回答
 titleSuffix: Azure Cognitive Services
-description: 這個以入口網站為基礎的教學課程會逐步引導您以程式設計方式建立及發佈知識庫，然後從知識庫回答問題。
+description: 從網頁型常見問題集建立具有問題與答案的新知識庫。 儲存、訓練和發佈知識庫。 發佈知識庫之後，使用 CURL 命令來傳送問題和接收答案。 接著建立 Bot，並以相同問題測試 Bot。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 12/17/2018
+ms.date: 04/08/2019
 ms.author: diberry
-ms.openlocfilehash: 6f79614e4b1ec660d2ec5c8aee40924908cf8f5c
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 299dd61055503f0b5a11cbe97e137e4760edadda
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884120"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266927"
 ---
-# <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>教學課程：透過 QnA Maker 入口網站建立知識庫然後回答問題
+# <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>教學課程：從 QnA Maker 入口網站建立知識庫
 
-本教學課程將逐步引導您建立及發佈知識庫，然後從知識庫回答問題。
+從網頁型常見問題集建立具有問題與答案的新知識庫。 儲存、訓練和發佈知識庫。 發佈知識庫之後，使用 Curl 命令來傳送問題和接收答案。 接著建立 Bot，並以相同問題測試 Bot。 
 
 在本教學課程中，您了解如何： 
 
@@ -29,6 +29,7 @@ ms.locfileid: "58884120"
 > * 檢閱、儲存及訓練知識庫
 > * 發佈知識庫
 > * 使用 Curl 查詢知識庫
+> * 建立 Bot
 > 
 > [!NOTE]
 > 本教學課程的程式設計版本可從 [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub 存放庫](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base)連同完整的解決方案取得。
@@ -51,7 +52,7 @@ ms.locfileid: "58884120"
 
     |設定|目的|
     |--|--|
-    |Microsoft Azure 目錄識別碼|您的 _Microsoft Azure 目錄識別碼_會與您用來登入 Azure 入口網站和 QnA Maker 入口網站的帳戶相關聯。 |
+    |Microsoft Azure 目錄識別碼|您的「Microsoft Azure 目錄識別碼」會與您用來登入 Azure 入口網站和 QnA Maker 入口網站的帳戶相關聯。 |
     |Azure 訂用帳戶名稱|您的 QnA Maker 資源建立所在的計費帳戶。|
     |Azure QnA 服務|您現有的 QnA Maker 資源。|
 
@@ -99,6 +100,8 @@ ms.locfileid: "58884120"
 
 ![發佈頁面的端點設定](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
 
+請勿關閉此 [發佈] 頁面，此頁面稍後會用來在本教學課程中建立 Bot。 
+
 ## <a name="use-curl-to-query-for-an-faq-answer"></a>使用 Curl 查詢常見問題集的答案
 
 1. 選取 [Curl] 索引標籤。 
@@ -109,7 +112,7 @@ ms.locfileid: "58884120"
 
 1. 將 `<Your question>` 取代為 `How large can my KB be?`。 此問題類似於 `How large a knowledge base can I create?`，但並非完全相同。 QnA Maker 會套用自然語言處理，以判斷兩個問題是否相同。     
 
-1. 執行 CURL 命令並接收 JSON 回應，包括分數和答案。 
+1. 執行 Curl 命令並接收 JSON 回應，包括分數和答案。 
 
     ```TXT
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -137,7 +140,7 @@ ms.locfileid: "58884120"
 
 1. 在支援 Curl 的終端機中，將 `How large can my KB be?` 取代為以 Bot 對話結尾的使用者陳述，例如 `Thank you`。   
 
-1. 執行 CURL 命令並接收 JSON 回應，包括分數和答案。 
+1. 執行 Curl 命令並接收 JSON 回應，包括分數和答案。 
 
     ```TXT
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -179,7 +182,7 @@ QnA Maker 不確定答案的任何問題，都會收到預設答案。 此答案
 
 1. 在支援 Curl 的終端機中，將 `Thank you` 取代為 `x`。 
 
-1. 執行 CURL 命令並接收 JSON 回應，包括分數和答案。 
+1. 執行 Curl 命令並接收 JSON 回應，包括分數和答案。 
 
     ```TXT
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -197,7 +200,17 @@ QnA Maker 不確定答案的任何問題，都會收到預設答案。 此答案
     }
     ```
     
-    QnA Maker 傳回代表沒有信心的 0 分，但也傳回了預設答案。 
+    QnA Maker 傳回代表沒有信心的 `0` 分，但也傳回了預設答案。 
+
+## <a name="create-a-knowledge-base-bot"></a>建立知識庫 Bot
+
+如需詳細資訊，請參閱[使用此知識庫建立 Bot](create-qna-bot.md)。
+
+## <a name="clean-up-resources"></a>清除資源
+
+當您完成知識庫 Bot 後，請藉由移除 `my-tutorial-rg` 資源群組，來移除在 Bot 程序中建立的所有 Azure 資源。
+
+完成知識庫後，請在 QnA Maker 入口網站中選取 [我的知識庫]，然後選取 [我的教學課程 KB] 知識庫，最後在該資料列最右側選取 [刪除] 圖示。  
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -208,4 +221,4 @@ QnA Maker 不確定答案的任何問題，都會收到預設答案。 此答案
 如需預設答案的詳細資訊，請參閱[找不到相符項目](../Concepts/confidence-score.md#no-match-found)。 
 
 > [!div class="nextstepaction"]
-> [知識庫概念](../Concepts/knowledge-base.md)
+> [使用此知識庫建立聊天 Bot](create-qna-bot.md)

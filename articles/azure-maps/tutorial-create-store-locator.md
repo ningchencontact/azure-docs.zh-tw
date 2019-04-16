@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6e43c607c2dc67054bde7689d50e495a59e6b659
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 61fdaec79e563ba4d87e73b22aba52a5c3f8251b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540851"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270798"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>使用 Azure 地圖服務建立商店定位器
 
@@ -132,14 +132,14 @@ ms.locfileid: "58540851"
 1. 新增 Azure 地圖服務 Web 控制項 JavaScript 和 CSS 檔案的參考：
 
     ```HTML
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
     ```
 
 1. 新增 Azure 地圖服務模組的參考。 此模組是一個 JavaScript 程式庫，其中包覆了 Azure 地圖服務 REST 服務，並可使其更容易在 JavaScript 中使用。 此模組可用於加強搜尋功能。
 
     ```HTML
-    <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
     ```
 
 1. 新增 *index.js* 和 *index.css* 的參考：
@@ -454,7 +454,7 @@ ms.locfileid: "58540851"
         //Wait until the map resources are ready.
         map.events.add('ready', function() {
 
-        //Add your post-map load functionality.
+            //Add your post-map load functionality.
 
         });
     }
@@ -516,7 +516,7 @@ ms.locfileid: "58540851"
     window.onload = initialize;
     ```
 
-1. 在地圖的 `load` 事件接聽程式中新增縮放控制項，以及用來顯示搜尋區域中心點的 HTML 標記。
+1. 在地圖的 `ready` 事件接聽程式中新增縮放控制項，以及用來顯示搜尋區域中心點的 HTML 標記。
 
     ```JavaScript
     //Add a zoom control to the map.
@@ -533,7 +533,7 @@ ms.locfileid: "58540851"
     map.markers.add(centerMarker);
     ```
 
-1. 在地圖的 `load` 事件接聽程式中，新增資料來源。 然後，進行呼叫以載入和剖析資料集。 啟用資料來源的叢集。 資料來源的叢集會將重疊的資料點分組到同一個叢集中。 當使用者放大地圖時，這些叢集會分成個別的資料點。 這可讓使用者體驗更為流暢，並改善效能。
+1. 在地圖的 `ready` 事件接聽程式中，新增資料來源。 然後，進行呼叫以載入和剖析資料集。 啟用資料來源的叢集。 資料來源的叢集會將重疊的資料點分組到同一個叢集中。 當使用者放大地圖時，這些叢集會分成個別的資料點。 這可讓使用者體驗更為流暢，並改善效能。
 
     ```JavaScript
     //Create a data source, add it to the map, and then enable clustering.
@@ -548,7 +548,7 @@ ms.locfileid: "58540851"
     loadStoreData();
     ```
 
-1. 將資料集載入至地圖的 `load` 事件接聽程式之後，請定義一組用來呈現資料的圖層。 泡泡圖層用來呈現叢集的資料點。 符號圖層用來呈現泡泡圖層之上每個叢集中的點數。 第二個符號圖層會呈現地圖上個別位置的自訂圖示。
+1. 將資料集載入至地圖的 `ready` 事件接聽程式之後，請定義一組用來呈現資料的圖層。 泡泡圖層用來呈現叢集的資料點。 符號圖層用來呈現泡泡圖層之上每個叢集中的點數。 第二個符號圖層會呈現地圖上個別位置的自訂圖示。
 
    將 `mouseover` 和 `mouseout` 事件新增至泡泡和圖示圖層，可變更使用者將滑鼠停留在地圖上的叢集或圖示上方時的滑鼠游標。 將 `click` 事件新增至叢集泡泡圖層。 此 `click` 事件會在使用者選取任何叢集時將地圖縮放兩個層級，並以該叢集作為地圖的中心點。 將 `click` 事件新增至圖示圖層。 此 `click` 事件會在使用者選取個別位置圖示時顯示快顯視窗，以呈現咖啡廳的詳細資料。 在地圖上新增用來監視地圖何時完成移動的事件。 此事件引發時，請更新清單面板中的項目。  
 
@@ -970,3 +970,6 @@ ms.locfileid: "58540851"
 
 > [!div class="nextstepaction"]
 > [如何使用地圖控制項](how-to-use-map-control.md)
+
+> [!div class="nextstepaction"]
+> [使用資料驅動樣式運算式](data-driven-style-expressions-web-sdk.md)

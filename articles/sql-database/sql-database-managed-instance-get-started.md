@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: quickstart
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: Carlrab
+ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 03/13/2019
-ms.openlocfilehash: 6aa8f362f067a4e3e391f435ee849f96abdf752f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/09/2019
+ms.openlocfilehash: a6abaf9b444ca9b3f14093dde1239d9158dfd3ff
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57997514"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469636"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>快速入門：建立 Azure SQL Database 受控執行個體
 
@@ -48,7 +48,8 @@ ms.locfileid: "57997514"
    |**受控執行個體名稱**|任何有效名稱|如需有效的名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。|
    |**受控執行個體系統管理員登入**|任何有效的使用者名稱|如需有效的名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 請勿使用 "serveradmin"，因為這是保留的伺服器層級角色。|
    |**密碼**|任何有效密碼|密碼長度至少必須有 16 個字元，而且符合[定義的複雜度需求](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。|
-   |**定序**|您要用於受控執行個體的定序|如果您從 SQL Server 遷移資料庫，請使用 `SELECT SERVERPROPERTY(N'Collation')` 來檢查來源定序並使用該值。 如需定序的相關資訊，請參閱[伺服器層級的定序](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation)。|
+   |**時區**|您的受控執行個體所要觀察的時區|如需詳細資訊，請參閱[時區](sql-database-managed-instance-timezone.md)。|
+   |**Collation**|您要用於受控執行個體的定序|如果您從 SQL Server 遷移資料庫，請使用 `SELECT SERVERPROPERTY(N'Collation')` 來檢查來源定序並使用該值。 如需定序的相關資訊，請參閱[伺服器層級的定序](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation)。|
    |**位置**|要在其中建立受控執行個體的位置|如需有關區域的資訊，請參閱 [Azure 區域](https://azure.microsoft.com/regions/)。|
    |**虛擬網路**|選取 [建立新的虛擬網路] 或有效的虛擬網路與子網路。| 如果網路/子網路無法使用，您必須先[修改成符合網路需求](sql-database-managed-instance-configure-vnet-subnet.md)後，才能選取它作為新的受控執行個體目標。 如需關於設定受控執行個體網路環境的需求資訊，請參閱[設定受控執行個體的 VNet](sql-database-managed-instance-connectivity-architecture.md)。 |
    |**資源群組**|新的或現有的資源群組|如需有效的資源群組名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。|

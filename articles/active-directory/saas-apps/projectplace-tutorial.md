@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 1a9b435f3267baadc5b3720acf7d91c62dfd5542
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 5fe23b74531a5769ac62544a5a54f5919ca9e79e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578920"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261134"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-projectplace"></a>教學課程：Azure Active Directory 與 Projectplace 整合
 

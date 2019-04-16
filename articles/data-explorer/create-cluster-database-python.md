@@ -1,19 +1,18 @@
 ---
 title: 快速入門：使用 Python 建立 Azure 資料總管叢集與資料庫
-description: 了解如何使用 Python 建立 Azure 資料總管叢集與資料庫
-services: data-explorer
+description: 了解如何使用 Python 建立 Azure 資料總管叢集與資料庫。
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
-ms.openlocfilehash: 24e482d223fec2c1f95d7cc964f62eac81c5de05
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 408b34db16f0d6d22340f0483b90ce5d72ffa613
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472574"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045196"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>使用 Python 建立 Azure 資料總管叢集與資料庫
 

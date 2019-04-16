@@ -1,23 +1,29 @@
 ---
-title: 使用 Azure 入口網站編製索引和進行查詢的快速入門教學課程 - Azure 搜尋服務
-description: 了解如何使用內建的資料範例以及在 Azure 入口網站中使用匯入資料精靈，以在 Azure 搜尋服務中建立及查詢您的第一個索引。
+title: 快速入門：在 Azure 入口網站中建立、載入和查詢索引 - Azure 搜尋服務
+description: 使用內建的資料範例以及在 Azure 入口網站中使用匯入資料精靈，以在 Azure 搜尋服務中建立及查詢您的第一個索引。
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 85fc8a42f5220aa8f05495aa260d05ce009884f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a1cf72d9e3f5c2c6e919304d4d886a607c54f359
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58137822"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282656"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>快速入門：使用內建入口網站工具進行 Azure 搜尋服務的匯入、編製索引和查詢
+> [!div class="op_single_selector"]
+> * [入口網站](search-get-started-portal.md)
+> * [PowerShell](search-howto-dotnet-sdk.md)
+> * [postman](search-fiddler.md)
+> * [C#](search-create-index-dotnet.md)
+>*
 
 若要快速掌握 Azure 搜尋服務的概念，請嘗試使用 Azure 入口網站中的內建工具。 精靈和編輯器並不會提供 .NET 和 REST API 的相同功能，但您可以透過無程式碼的簡介快速開始使用，在幾分鐘內即可使用範例資料撰寫有趣的查詢。
 
@@ -222,7 +228,7 @@ Facet 篩選器會包含在搜尋要求中。 您可以使用 facet 參數，傳
 
 ### <a name="fuzzy-search"></a> 嘗試模糊搜尋
 
-根據預設，拼錯的查詢字詞 (如 samamish 是指 Seattle 地區的 Samammish 高原) 無法在一般搜尋中傳回相符項目。 下列範例不會傳回任何結果。
+根據預設，拼錯的查詢字詞 (如 samamish 是指 Seattle 地區的 Sammamish 高原) 無法在一般搜尋中傳回相符項目。 下列範例不會傳回任何結果。
 
 #### <a name="example-misspelled-term-unhandled-searchsamamish"></a>範例 (拼錯的字詞，未處理)：`search=samamish`
 

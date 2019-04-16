@@ -1,6 +1,6 @@
 ---
-title: 所需的 Azure 應用程式閘道的白名單後端憑證
-description: 本文提供範例的方式轉換的 SSL 憑證，來驗證憑證與受信任的根憑證所需的 Azure 應用程式閘道的白名單後端執行個體
+title: 所需的 Azure 應用程式閘道的允許清單後端憑證
+description: 本文提供範例的方式轉換的 SSL 憑證，來驗證憑證與受信任的根憑證所需的 Azure 應用程式閘道的允許清單後端執行個體
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
@@ -14,7 +14,7 @@ ms.contentlocale: zh-TW
 ms.lasthandoff: 03/20/2019
 ms.locfileid: "58260446"
 ---
-# <a name="create-certificates-for-whitelisting-backend-with-azure-application-gateway"></a>建立與 Azure 應用程式閘道的白名單的後端的憑證
+# <a name="create-certificates-for-whitelisting-backend-with-azure-application-gateway"></a>建立與 Azure 應用程式閘道的允許清單的後端的憑證
 
 若要執行端對端 SSL，應用程式閘道需要後端執行個體，要列入允許清單上傳驗證/信任的根憑證。 V1 SKU 時驗證憑證所需而 v2 SKU，如果受信任的根憑證所需的允許清單的憑證
 
@@ -31,7 +31,7 @@ ms.locfileid: "58260446"
 
 ## <a name="export-authentication-certificate-for-v1-sku"></a>驗證憑證匯出 （適用於 v1 SKU)
 
-驗證憑證，才能在 v1 中的應用程式閘道的白名單後端執行個體 SKU。 驗證憑證是公用金鑰的後端伺服器憑證，以 Base-64 編碼 X.509 (。CER) 格式。 在此範例中，我們將使用後端憑證的 SSL 憑證，並匯出它來當作驗證憑證的公開金鑰。 此外，在此範例中，我們將使用 Windows 憑證管理員工具來匯出所需的憑證。 您可以選擇使用任何其他工具，根據您的方便。
+驗證憑證，才能在 v1 中的應用程式閘道的允許清單後端執行個體 SKU。 驗證憑證是公用金鑰的後端伺服器憑證，以 Base-64 編碼 X.509 (。CER) 格式。 在此範例中，我們將使用後端憑證的 SSL 憑證，並匯出它來當作驗證憑證的公開金鑰。 此外，在此範例中，我們將使用 Windows 憑證管理員工具來匯出所需的憑證。 您可以選擇使用任何其他工具，根據您的方便。
 
 從您的 SSL 憑證、 匯出公開金鑰.cer 檔案 （不是私密金鑰）。 下列步驟可幫助您將匯出的.cer 檔案，以 Base-64 編碼 X.509 (。您的憑證的 CER) 格式：
 
@@ -73,7 +73,7 @@ ms.locfileid: "58260446"
 
 ## <a name="export-trusted-root-certificate-for-v2-sku"></a>匯出信任的根憑證 （適用於 v2 SKU)
 
-受信任的根憑證，才能在 v2 中的應用程式閘道的白名單後端執行個體 SKU。 根憑證的 Base-64 編碼 X.509 (。從後端伺服器憑證的 CER) 格式的根憑證。 在此範例中，我們將使用後端憑證的 SSL 憑證、 匯出其公開金鑰，然後取得受信任的根憑證的 base64 編碼格式的公開金鑰匯出受信任的 CA 的根憑證。 
+受信任的根憑證，才能在 v2 中的應用程式閘道的允許清單後端執行個體 SKU。 根憑證的 Base-64 編碼 X.509 (。從後端伺服器憑證的 CER) 格式的根憑證。 在此範例中，我們將使用後端憑證的 SSL 憑證、 匯出其公開金鑰，然後取得受信任的根憑證的 base64 編碼格式的公開金鑰匯出受信任的 CA 的根憑證。 
 
 下列步驟可協助您匯出憑證的.cer 檔案：
 

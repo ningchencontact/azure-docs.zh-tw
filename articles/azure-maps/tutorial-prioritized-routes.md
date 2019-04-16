@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d78f46d2d62ca9db9400e0f436a8c0358734a54e
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: db01c2f51e9069e8fc9ee979eacf746bee8dbdd2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540511"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260913"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>使用 Azure 地圖服務尋找不同行進模式的路線
 
@@ -46,11 +46,11 @@ ms.locfileid: "58540511"
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
 
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
-        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
 
         <script>
             var map, datasource, client;
@@ -82,7 +82,7 @@ ms.locfileid: "58540511"
 
     請注意，HTML 標頭包含 Azure 地圖控制項程式庫所裝載的 CSS 和 JavaScript 資源檔案。 請注意頁面本文上的 `onload` 事件，此事件在頁面本文載入時將會呼叫 `GetMap` 函式。 此函式會包含內嵌的 JavaScript 程式碼，以便存取 Azure 地圖服務 API。
 
-3. 在 `GetMap` 函式中新增下列 JavaScript 程式碼。 將字串 **\<您的 Azure 地圖服務金鑰\>** 取代為您從地圖服務帳戶所複製的主要金鑰。
+3. 在 `GetMap` 函式中新增下列 JavaScript 程式碼。 將字串 `<Your Azure Maps Key>` 取代為您從地圖服務帳戶複製的主要金鑰。
 
     ```JavaScript
     //Instantiate a map object
@@ -95,7 +95,7 @@ ms.locfileid: "58540511"
     });
     ```
 
-    **atlas.Map** 是 Azure 地圖控制項 API 的元件，可供控制視覺化互動式網路地圖。
+    `atlas.Map` 類別是 Azure 地圖控制項 API 的元件，可供您控制視覺化互動式網路地圖。
 
 4. 儲存檔案並在瀏覽器中將其開啟。 至此，您已擁有可以進一步發展的基本地圖了。
 
@@ -103,10 +103,10 @@ ms.locfileid: "58540511"
 
 ## <a name="visualize-traffic-flow"></a>以視覺方式呈現流量
 
-1. 在地圖上新增流量顯示。 `map.events.add` 可確保新增至地圖的所有地圖函式，都會在地圖完整載入之後載入。
+1. 在地圖上新增流量顯示。 地圖 `ready` 事件會等待地圖資源已載入，並且已可安全地與其互動。
 
-    ```JavaScript
-    map.events.add("load", function() {
+    ```javascript
+    map.events.add("ready", function() {
         // Add Traffic Flow to the Map
         map.setTraffic({
             flow: "relative"
@@ -114,7 +114,7 @@ ms.locfileid: "58540511"
     });
     ```
 
-    載入事件會新增至地圖，而地圖將在地圖資源已完全載入時引發。 在地圖載入事件處理常式中，地圖上的流量設定會設為 `relative`，這是相對於自由流量的道路速度。 您也可以將其設定為道路的 `absolute` 速度，或設定為 `relative-delay`，以顯示不同於自由流量的相對速度。
+    在地圖 `ready` 事件處理常式中，地圖上的流量設定會設為 `relative`，這是相對於自由流量的道路速度。 您也可以將其設定為道路的 `absolute` 速度，或設定為 `relative-delay`，以顯示不同於自由流量的相對速度。
 
 2. 儲存 **MapTruckRoute.html** 檔案，並重新整理瀏覽器頁面。 如果您與地圖互動並將洛杉磯放大，您應該會看到街道與目前的路況資料。
 
@@ -126,39 +126,42 @@ ms.locfileid: "58540511"
 
 在本教學課程中，會在地圖上計算並呈現兩個路線。 一個路線使用供汽車行駛的道路，另一個路線則使用供卡車行駛的道路。 在呈現時，我們將為路線的起點和終點顯示符號圖示，並以不同的彩色線條表示每個路線的路徑。
 
-1. 在初始化地圖後，請在地圖載入事件中新增下列 JavaScript 程式碼。
+1. 在初始化地圖後，請在地圖 `ready` 事件處理常式中新增下列 JavaScript 程式碼。
 
     ```JavaScript
-    //Create a data source and add it to the map.
-    datasource = new atlas.source.DataSource();
-    map.sources.add(datasource);
+    //Wait until the map resources have fully loaded.
+    map.events.add('ready', function () {
 
-    //Add a layer for rendering the route lines and have it render under the map labels.
-    map.layers.add(new atlas.layer.LineLayer(datasource, null, {
-        strokeColor: ['get', 'strokeColor'],
-        strokeWidth: ['get', 'strokeWidth'],
-        lineJoin: 'round',
-        lineCap: 'round',
-        filter: ['==', '$type', 'LineString']
-    }), 'labels');
+        //Create a data source and add it to the map.
+        datasource = new atlas.source.DataSource();
+        map.sources.add(datasource);
 
-    //Add a layer for rendering point data.
-    map.layers.add(new atlas.layer.SymbolLayer(datasource, null, {
-        iconOptions: {
-            image: ['get', 'icon'],
-            allowOverlap: true
-        },
-        textOptions: {
-            textField: ['get', 'title'],
-            offset: [0, 1.2]
-        },
-        filter: ['==', '$type', 'Point']
-    }));
+        //Add a layer for rendering the route lines and have it render under the map labels.
+        map.layers.add(new atlas.layer.LineLayer(datasource, null, {
+            strokeColor: ['get', 'strokeColor'],
+            strokeWidth: ['get', 'strokeWidth'],
+            lineJoin: 'round',
+            lineCap: 'round'
+        }), 'labels');
+
+        //Add a layer for rendering point data.
+        map.layers.add(new atlas.layer.SymbolLayer(datasource, null, {
+            iconOptions: {
+                image: ['get', 'icon'],
+                allowOverlap: true
+            },
+            textOptions: {
+                textField: ['get', 'title'],
+                offset: [0, 1.2]
+            },
+            filter: ['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']] //Only render Point or MultiPoints in this layer.
+        }));
+    });
     ```
-
-    載入事件會新增至地圖，而地圖將在地圖資源已完全載入時引發。 在地圖載入事件處理常式中，會建立資料來源以儲存路線以及起點和終點。 系統會建立線條圖層並將其附加至資料來源，以定義呈現路線的方式。 此外也會使用運算式，從路線特性的屬性中擷取線條的寬度和色彩。 此時會新增一個篩選條件，以確定此圖層僅呈現 GeoJSON LineString 資料。 將圖層新增至地圖時，會傳入值為 `'labels'` 的第二個參數，而指定要將此圖層呈現在地圖標籤下方。 這樣可以確保路線不會遮住道路標籤。 系統會建立符號圖層，並將其附加至資料來源。 此圖層會指定起點和終點的呈現方式，而此案例中已新增運算式，用以從每個點物件的屬性中擷取圖示影像和文字標籤資訊。
-
-2. 在此教學課程中，將起點設為西雅圖的一家虛構公司 Fabrikam，並將終點設為 Microsoft 總部的建築物。 在地圖載入事件處理常式中，新增下列程式碼。
+    
+    在地圖 `ready` 事件處理常式中，會建立資料來源以儲存路線以及起點和終點。 系統會建立線條圖層並將其附加至資料來源，以定義呈現路線的方式。 此外也會使用運算式，從路線特性的屬性中擷取線條的寬度和色彩。 將圖層新增至地圖時，會傳入值為 `'labels'` 的第二個參數，而指定要將此圖層呈現在地圖標籤下方。 這樣可以確保路線不會遮住道路標籤。 系統會建立符號圖層，並將其附加至資料來源。 此圖層會指定起點和終點的呈現方式，而此案例中已新增運算式，用以從每個點物件的屬性中擷取圖示影像和文字標籤資訊。 
+    
+2. 在此教學課程中，將起點設在西雅圖的一家虛構公司 Fabrikam，並將終點設在 Microsoft 辦公室。 在地圖 `ready` 事件處理常式中，新增下列程式碼。
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end point of the route.
@@ -213,7 +216,7 @@ ms.locfileid: "58540511"
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   **SubscriptionKeyCredential** 會建立 **SubscriptionKeyCredentialPolicy**，以使用訂用帳戶金鑰驗證對 Azure 地圖服務的 HTTP 要求。 **atlas.service.MapsURL.newPipeline()** 會採用 **SubscriptionKeyCredential** 原則，並建立[管線](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest)執行個體。 **routeURL** 代表 Azure 地圖服務[路線規劃](https://docs.microsoft.com/rest/api/maps/route)作業的 URL。
+   `SubscriptionKeyCredential` 會建立 `SubscriptionKeyCredentialPolicy`，以使用訂用帳戶金鑰驗證對「Azure 地圖服務」的 HTTP 要求。 `atlas.service.MapsURL.newPipeline()` 會採用 `SubscriptionKeyCredential` 原則，並建立[管線](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest)執行個體。 `routeURL` 代表 Azure 地圖服務[路線規劃](https://docs.microsoft.com/rest/api/maps/route)作業的 URL。
 
 2. 設定認證和 URL 之後，請新增下列 JavaScript 程式碼，為載運 USHazmatClass2 類貨物的卡車建構從起點到終點的路線，並顯示結果。
 
@@ -242,7 +245,7 @@ ms.locfileid: "58540511"
     });
     ```
 
-    上方的程式碼片段會透過 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) 方法來查詢 Azure 地圖服務的路線規劃服務。 接著，系統會從回應中的 GeoJSON 特性集合擷取路線；這些特性是使用 **geojson.getFeatures()** 方法擷取的。 路線隨後會新增至資料來源。 此路線也會加上指數 0，以確保它會在資料來源中的任何其他路線之前先呈現。 之所以這麼做，是因為卡車路線計算的速度通常比汽車路線計算慢，若卡車路線在汽車路線之後新增至資料來源，則會呈現於汽車路線之上。 系統會將兩個屬性新增至卡車路線，一個呈現為鮮明藍色的筆觸色彩，和一個寬度為 9 像素的筆觸。
+    上方的程式碼片段會透過 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) 方法來查詢 Azure 地圖服務的路線規劃服務。 接著，系統會從回應中的 GeoJSON 特性集合擷取路線；這些特性是使用 `geojson.getFeatures()` 方法擷取的。 路線隨後會新增至資料來源。 此路線也會加上指數 0，以確保它會在資料來源中的任何其他路線之前先呈現。 之所以這麼做，是因為卡車路線計算的速度通常比汽車路線計算慢，若卡車路線在汽車路線之後新增至資料來源，則會呈現於汽車路線之上。 系統會將兩個屬性新增至卡車路線，一個呈現為鮮明藍色的筆觸色彩，和一個寬度為九個像素的筆觸。
 
 3. 新增下列 JavaScript 程式碼以建構行車路線，並顯示結果。
 
@@ -262,7 +265,7 @@ ms.locfileid: "58540511"
     });
     ```
 
-    上方的程式碼片段會透過 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) 方法來查詢 Azure 地圖服務的路線規劃服務。 接著，系統會從回應中的 GeoJSON 特性集合擷取路線；這些特性是使用 **geojson.getFeatures()** 方法擷取的。 路線隨後會新增至資料來源。 系統會將兩個屬性新增至汽車路線，一個紫色的筆觸色彩，和一個寬度為 5 像素的筆觸。  
+    上方的程式碼片段會透過 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) 方法來查詢 Azure 地圖服務的路線規劃服務。 接著，系統會從回應中的 GeoJSON 特性集合擷取路線；這些特性是使用 `geojson.getFeatures()` 方法擷取的。 路線隨後會新增至資料來源。 系統會將兩個屬性新增至汽車路線，一個紫色的筆觸色彩，和一個寬度為五個像素的筆觸。  
 
 4. 儲存 **MapTruckRoute.html** 檔案並重新整理瀏覽器，以觀察結果。 如果您成功連線到地圖服務的 API，您應該會看到類似下面的地圖。
 
@@ -289,4 +292,7 @@ ms.locfileid: "58540511"
 下一個教學課程示範使用 Azure 地圖服務來建立簡單存放區定位器的程序。
 
 > [!div class="nextstepaction"]
-> [使用 Azure 地圖服務建立存放區定位器](./tutorial-create-store-locator.md)
+> [使用 Azure 地圖服務建立商店定位器](./tutorial-create-store-locator.md)
+
+> [!div class="nextstepaction"]
+> [使用資料驅動樣式運算式](data-driven-style-expressions-web-sdk.md)

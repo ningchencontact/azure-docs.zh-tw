@@ -16,18 +16,21 @@ ms.workload: media
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 774ddfa435cb23a8bf5d179fb0f7a0baf9dfca75
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 4f9911259cc4da02429971ef6bddfa62080a9fe6
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755883"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044401"
 ---
 # <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>使用 SDK/工具透過媒體服務 v3 API 開始進行開發
 
 身為開發人員，您可以使用媒體服務 [REST API](https://aka.ms/ams-v3-rest-ref)，或是可讓您與 REST API 互動的用戶端程式庫，輕鬆建立、管理及維護自訂媒體工作流程。 [媒體服務 v3](https://aka.ms/ams-v3-rest-sdk) API 以 OpenAPI 規格 (先前稱為 Swagger) 作為基礎。
 
 本主題會提供 SDK、工具和文件的連結。 也會提供一些適用於不同開發環境的實用資訊。
+
+> [!NOTE]
+> Azure 媒體服務 v3 SDK 不一定是安全執行緒。 在開發多執行緒應用程式時，您應新增本身的執行緒同步處理邏輯以保護用戶端，或為每個執行緒使用新的 AzureMediaServicesClient 物件。 您也應留意程式碼提供給用戶端 (例如 .NET 中的 HttpClient 執行個體) 的選擇性物件所引起的多執行緒處理問題。
 
 ## <a name="prerequisites"></a>必要條件
 
