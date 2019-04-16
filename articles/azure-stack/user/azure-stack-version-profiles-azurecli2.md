@@ -14,18 +14,18 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 21167366ff3af2bb360c33eaae9d591020bf11a5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: fa1731c9361be83949aa794ed8842681bd81d995
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487578"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257564"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>在 Azure Stack 中搭配 Azure CLI 使用 API 版本設定檔
 
 *適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
-您可以遵循本文中的步驟從 Linux、Mac 和 Windows 用戶端平台設定 Azure 命令列介面 (CLI)，來管理 Azure Stack 開發套件 (ASDK) 資源。
+您可以遵循此文章中的步驟從 Linux、Mac 和 Windows 用戶端平台設定 Azure 命令列介面 (CLI)，來管理 Azure Stack 開發套件 (ASDK) 資源。
 
 ## <a name="prepare-for-azure-cli"></a>針對 Azure CLI 進行準備
 
@@ -99,7 +99,7 @@ az --version
     python -m pip install --upgrade pip
     ```
 
-3. 安裝 **certifi** 模組。 [Certifi](https://pypi.org/project/certifi/) 是一種模組，會收集各種根憑證以便在確認 TLS 主機的身分識別時驗證 SSL 憑證的可信度。 開啟 CMD 命令提示字元或已提升權限的 PowerShell 命令提示字元，並輸入下列命令：
+3. 安裝 **certifi** 模組。 [Certifi](https://pypi.org/project/certifi/) 是一個模組，它會收集各種根憑證以便在確認 TLS 主機的身分識別時驗證 SSL 憑證的可信度。 開啟 CMD 命令提示字元或已提升權限的 PowerShell 命令提示字元，並輸入下列命令：
 
     ```powershell
     pip install certifi
@@ -139,7 +139,7 @@ az --version
     sudo -H pip3 install --upgrade pip
     ```
 
-3. 安裝 **certifi** 模組。 [Certifi](https://pypi.org/project/certifi/) 是一種模組，會收集各種根憑證以便在確認 TLS 主機的身分識別時驗證 SSL 憑證的可信度。 開啟 CMD 命令提示字元或已提升權限的 PowerShell 命令提示字元，並輸入下列命令：
+3. 安裝 **certifi** 模組。 [Certifi](https://pypi.org/project/certifi/) 是一個模組，它會收集各種根憑證以便在確認 TLS 主機的身分識別時驗證 SSL 憑證的可信度。 開啟 CMD 命令提示字元或已提升權限的 PowerShell 命令提示字元，並輸入下列命令：
 
     ```bash
     pip3 install certifi

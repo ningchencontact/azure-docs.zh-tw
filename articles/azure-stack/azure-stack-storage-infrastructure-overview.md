@@ -15,18 +15,18 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 4a8287d7ca4da380ad7c2b1e039ab3058ca07a96
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 416d75b254d0fbe14a0b39e5ae77d09a48e548f6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760268"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271283"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack"></a>管理 Azure Stack 的儲存體基礎結構
 
 *適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
-本文說明 Azure Stack 儲存體基礎結構資源的健全狀態和操作狀態。 這些資源包括儲存體磁碟機和磁碟區。 在嘗試對各種問題 (例如磁碟機無法新增至集區) 進行疑難排解時，本主題中的資訊將有很大的幫助。
+此文章說明 Azure Stack 儲存體基礎結構資源的健全狀態和操作狀態。 這些資源包括儲存體磁碟機和磁碟區。 在嘗試對各種問題 (例如磁碟機無法新增至集區) 進行疑難排解時，本主題中的資訊將有很大的幫助。
 
 ## <a name="understand-drives-and-volumes"></a>了解磁碟機和磁碟區
 

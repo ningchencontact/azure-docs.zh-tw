@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: 851673de4a711f5eb64228233ea7703ef86bfa7b
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 192ac256f013498e57ecf7939d29796af073b948
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500197"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260556"
 ---
 # <a name="app-service-on-azure-stack-update-5-release-notes"></a>App Service on Azure Stack 更新 5 版本資訊
 
@@ -36,7 +36,7 @@ ms.locfileid: "58500197"
 
 App Service on Azure Stack 更新 5 組建編號是 **80.0.2.15**
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 開始部署之前，請參閱[「在您開始之前」文件](azure-stack-app-service-before-you-get-started.md)。
 
@@ -77,7 +77,7 @@ Azure App Service on Azure Stack 更新 5 包含下列改良功能和修正：
 ### <a name="post-deployment-steps"></a>部署後步驟
 
 > [!IMPORTANT]  
-> 如果您已對 App Service RP 提供 SQL Always On 執行個體，就必須[將 appservice_hosting 和 appservice_metering 資料庫新增至可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)並同步處理資料庫，以避免在資料庫進行容錯移轉時中斷服務。
+> 如果您已對 App Service 資源提供者提供 SQL Always On 執行個體，就必須[將 appservice_hosting 和 appservice_metering 資料庫新增至可用性群組](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)並同步處理資料庫，以避免在資料庫進行容錯移轉時中斷服務。
 
 ### <a name="post-update-steps"></a>更新後步驟
 

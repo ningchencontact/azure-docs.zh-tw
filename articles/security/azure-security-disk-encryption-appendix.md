@@ -284,7 +284,7 @@ ms.locfileid: "58649641"
 
     /var/log/azure/Microsoft.Azure.Security.AzureDiskEncryptionForLinux
 
-  不建議在 OS 加密進行時登入 VM。 其他兩個方法都失敗時，只複製記錄檔。
+  不建議在 OS 加密進行時登入 VM。 其他兩個方法都失敗時，只複製記錄。
 
 ## <a name="bkmk_preLinux"></a>準備已預先加密的 Linux VHD
 準備預先加密的 VHD 會根據散發套件而有所不同。 有關於準備 [Ubuntu 16](#bkmk_Ubuntu)、[openSUSE 13.2](#bkmk_openSUSE) 和 [CentOS 7](#bkmk_CentOS) 的範例可用。 

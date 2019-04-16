@@ -181,14 +181,14 @@ Azure IoT 中樞和 IoT Edge 之間的通訊通道一律會設定為輸出。 �
 ## <a name="solution-management"></a>解決方案管理
 
 * **實用**
-    * 設定記錄檔與診斷
+    * 設定記錄與診斷
     * 請考量測試和 CI/CD 管線
 
-### <a name="set-up-logs-and-diagnostics"></a>設定記錄檔與診斷
+### <a name="set-up-logs-and-diagnostics"></a>設定記錄與診斷
 
-在 Linux 上，IoT Edge 守护程序使用日志作为默认的日志记录驱动程序。 您可以使用命令列工具 `journalctl` 查詢精靈記錄檔。 在 Windows 中，IoT Edge 精靈會使用 PowerShell 診斷。 使用 `Get-WinEvent` 查詢精靈記錄檔。 IoT Edge 模組使用 JSON 驅動程式進行記錄，這是預設值。  
+在 Linux 上，IoT Edge 守护程序使用日志作为默认的日志记录驱动程序。 您可以使用命令列工具 `journalctl` 查詢精靈記錄。 在 Windows 中，IoT Edge 精靈會使用 PowerShell 診斷。 使用 `Get-WinEvent` 查詢精靈記錄。 IoT Edge 模組使用 JSON 驅動程式進行記錄，這是預設值。  
 
-正在測試 IoT Edge 部署時，通常可以存取您的裝置來擷取記錄檔並進行疑難排解。 在部署情節中，可能不提供該選項。 請考慮要如何收集生產環境中的裝置相關資訊。 其中一個選項是使用能夠收集其他模組資訊，並將資訊傳送至雲端的記錄模組。 其中一個記錄模組範例是 [logspout loganalytics](https://github.com/veyalla/logspout-loganalytics)，您也可以設計自己的專用模組。 
+正在測試 IoT Edge 部署時，通常可以存取您的裝置來擷取記錄並進行疑難排解。 在部署情節中，可能不提供該選項。 請考慮要如何收集生產環境中的裝置相關資訊。 其中一個選項是使用能夠收集其他模組資訊，並將資訊傳送至雲端的記錄模組。 其中一個記錄模組範例是 [logspout loganalytics](https://github.com/veyalla/logspout-loganalytics)，您也可以設計自己的專用模組。 
 
 ### <a name="place-limits-on-log-size"></a>記錄檔大小會限制
 

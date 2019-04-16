@@ -189,7 +189,7 @@ Wire Data 會從 Microsoft 相依性代理程式取得其資料。 相依性代�
 1. 依照[為混合式環境中的 Windows 電腦設定 Log Analytics 代理程式](../../azure-monitor/platform/agent-windows.md)一文中的步驟，安裝 Log Analytics 代理程式。
 2. 下載 Windows 相依性代理程式使用上一節中的連結，然後執行它使用下列命令： `InstallDependencyAgent-Windows.exe`
 3. 遵循精靈來安裝代理程式。
-4. 如果相依性代理程式無法啟動，請檢查記錄檔以取得詳細的錯誤資訊。 針對 Windows 代理程式，記錄檔的目錄是 %Programfiles%\Microsoft Dependency Agent\logs。
+4. 如果相依性代理程式無法啟動，請檢查記錄以取得詳細的錯誤資訊。 針對 Windows 代理程式，記錄的目錄是 %Programfiles%\Microsoft Dependency Agent\logs。
 
 #### <a name="windows-command-line"></a>Windows 命令列
 
@@ -214,7 +214,7 @@ Windows 相依性代理程式的檔案預設位於 C:\Program Files\Microsoft De
 
 1. 依照[為混合式環境中的 Linux 電腦設定 Log Analytics 代理程式](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key)一文中的步驟，安裝 Log Analytics 代理程式。
 2. 使用上一節中的連結來下載 Linux 相依性代理程式，然後使用下列命令將它安裝為根目錄：sh InstallDependencyAgent-Linux64.bin
-3. 如果相依性代理程式無法啟動，請檢查記錄檔以取得詳細的錯誤資訊。 在 Linux 代理程式上，記錄檔的目錄是 /var/opt/microsoft/dependency-agent/log。
+3. 如果相依性代理程式無法啟動，請檢查記錄以取得詳細的錯誤資訊。 在 Linux 代理程式上，記錄檔的目錄是 /var/opt/microsoft/dependency-agent/log。
 
 若要查看安裝旗標的清單，請如下所示以 `-help` 旗標執行安裝程式。
 

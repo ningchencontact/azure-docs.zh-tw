@@ -15,12 +15,12 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 4e9df0d413b964b4a14cf9ca48db8b7956b441f9
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: fa663cce10a39ef60a0efa5838b81b257fd02b46
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482584"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59255932"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>存取 Azure Stack 中的 Kubernetes 儀表板 
 
@@ -30,7 +30,7 @@ ms.locfileid: "58482584"
 
 Kubernetes 包含 Web 儀表板，您可以用來執行基本的管理作業。 此儀表板可讓您檢視您應用程式的基本健全狀況狀態和計量、建立和部署服務，以及編輯現有的應用程式。 這篇文章會示範如何在 Azure Stack 上設定 Kubernetes 儀表板。
 
-## <a name="prerequisites-for-kubernetes-dashboard"></a>Kubernetes 儀表板的必要條件
+## <a name="prerequisites-for-kubernetes-dashboard"></a>Kubernetes 儀表板的先決條件
 
 * Azure Stack Kubernetes 叢集
 
@@ -47,7 +47,7 @@ Kubernetes 包含 Web 儀表板，您可以用來執行基本的管理作業。 
 ## <a name="overview-of-steps-to-enable-dashboard"></a>啟用儀表板的步驟概觀
 
 1.  從叢集中的主要節點匯出 Kubernetes 憑證。 
-2.  將憑證匯入到 Azure Stack 管理電腦。
+2.  將憑證匯入到您的 Azure Stack 管理電腦。
 2.  開啟 Kubernetes Web 儀表板。 
 
 ## <a name="export-certificate-from-the-master"></a>從主要節點匯出憑證 
@@ -70,7 +70,7 @@ Kubernetes 包含 Web 儀表板，您可以用來執行基本的管理作業。 
     ```Bash   
     kubectl cluster-info 
     ``` 
-    尋找儀表板的 URL。 例如：`https://k8-1258.local.cloudapp.azurestack.external/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
+    尋找儀表板的 URL。 例如︰  `https://k8-1258.local.cloudapp.azurestack.external/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
 
 6.  擷取自我簽署的憑證，並將其轉換為 PFX 格式。 執行以下命令：
 

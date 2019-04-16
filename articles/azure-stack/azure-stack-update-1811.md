@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 04/09/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: c9f43eb1623ec784bd960fb182dffec48e7b0833
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 138913414a8e45084d498a0c7b2e864bc443197f
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481241"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59362052"
 ---
 # <a name="azure-stack-1811-update"></a>Azure Stack 1811 更新
 
-*適用於：Azure Stack 整合式系統*
+*適用於：Azure Stack 整合系統*
 
-本文將說明 1811 更新套件的內容。 此更新套件包括此版 Azure Stack 的改良功能、修正及新功能。 本文也說明此版本的已知問題，並包含可供您下載更新的連結。 已知問題分為與更新程序直接相關的問題，以及與組建 (安裝後) 相關的問題。
+此文章將說明 1811 更新套件的內容。 此更新套件包括此版 Azure Stack 的改良功能、修正及新功能。 此文章也說明此版本的已知問題，並包含可供您下載更新的連結。 已知問題分為與更新程序直接相關的問題，以及與組建 (安裝後) 相關的問題。
 
 > [!IMPORTANT]  
 > 這個更新程式封裝僅適用於 Azure Stack 整合系統。 請勿將此更新套件套用至 Azure Stack 開發套件。
@@ -50,7 +50,7 @@ Azure Stack 會定期發行 Hotfix。 將 Azure Stack 更新成 1811 之前，�
 - **1809**：[KB 4481548 – Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/)
 - **1811**：沒有目前的 Hotfix 可供使用。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 > [!IMPORTANT]
 > 在安裝 1811 更新的期間，您必須確保所有系統管理員入口網站執行個體都已關閉。 使用者入口網站可以保持開啟，但系統管理員入口網站必須關閉。
@@ -350,7 +350,7 @@ Azure Stack 會定期發行 Hotfix。 將 Azure Stack 更新成 1811 之前，�
 
 - 在 Azure Stack 入口網站中，針對已連結至 VM 執行個體的網路介面卡，當您變更與其繫結之 IP 設定的靜態 IP 位址時，將會看到內容如下的警告訊息： 
 
-    `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...` 。 
+    `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...`上也提供此文章中使用的原始碼。 
 
     您可以放心地忽略此訊息；即使 VM 執行個體並未重新啟動，IP 位址也將會變更。
 
@@ -391,6 +391,9 @@ Azure Stack 會定期發行 Hotfix。 將 Azure Stack 更新成 1811 之前，�
 <!-- #### Identity -->
 <!-- #### Marketplace -->
 
+### <a name="syslog"></a>syslog
+
+- syslog 設定不會在更新循環中保存，造成 syslog 用戶端會遺失其設定，並停止正在轉送的 syslog 訊息。 此問題適用於自用戶端 (1809) 公開推出後的所有 Azure Stack 版本。 若要解決此問題，請在套用 Azure Stack 更新後重新設定 syslog 用戶端。
 
 ## <a name="download-the-update"></a>下載更新
 

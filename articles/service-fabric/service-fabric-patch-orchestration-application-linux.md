@@ -241,7 +241,7 @@ RejectedList | 預設值為 "" | 此更新已拒絕的修補程式清單
 
 ## <a name="diagnosticshealth-events"></a>診斷/健康情況事件
 
-### <a name="diagnostic-logs"></a>診斷記錄檔
+### <a name="diagnostic-logs"></a>診斷記錄
 
 收集修補程式協調流程應用程式的記錄，是 Service Fabric 執行階段記錄的一部分。
 

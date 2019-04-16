@@ -94,7 +94,7 @@ New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -Automa
 
 ## <a name="windows"></a>Windows
 
-如果您在嘗試讓解決方案在虛擬機器上線時遇到問題，請查看本機電腦上 [應用程式及服務記錄檔] 底下的 [Operations Manager] 事件記錄檔中，是否有事件識別碼為 **4502** 且事件訊息包含 **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** 的事件。
+如果您在嘗試讓解決方案在虛擬機器上線時遇到問題，請查看本機電腦上 [應用程式及服務記錄] 底下的 [Operations Manager] 事件記錄中，是否有事件識別碼為 **4502** 且事件訊息包含 **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** 的事件。
 
 下節特別說明特定的錯誤訊息，以及每個錯誤訊息的可能解決方式。 如需了解其他上線問題，請參閱[針對解決方案上線問題進行疑難排解](onboarding.md)。
 

@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 04/09/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/03/2019
-ms.openlocfilehash: 5971692b3e6447bc790b2e34cf84eae66979f7f5
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.lastreviewed: 04/05/2019
+ms.openlocfilehash: 93221b8cd30993c4bdfdc84b5d14ac432fa661d3
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862075"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471270"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902 更新
 
 *適用於：Azure Stack 整合系統*
 
-本文將說明 1902 更新套件的內容。 此更新包括此版 Azure Stack 的改良功能、修正及新功能。 本文也說明此版本的已知問題，並包含下載更新的連結。 已知問題分為與更新程序直接相關的問題，以及與組建 (安裝後) 相關的問題。
+此文章將說明 1902 更新套件的內容。 此更新包括此版 Azure Stack 的改良功能、修正及新功能。 此文章也說明此版本的已知問題，並包含下載更新的連結。 已知問題分為與更新程序直接相關的問題，以及與組建 (安裝後) 相關的問題。
 
 > [!IMPORTANT]  
 > 這個更新程式封裝僅適用於 Azure Stack 整合系統。 請勿將此更新套件套用至 Azure Stack 開發套件。
@@ -54,7 +54,7 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
 - **1901**:[KB 4495662 – Azure Stack Hotfix 1.1901.3.105](https://support.microsoft.com/help/4495662)
 - **1902**：[KB 4494719 – Azure Stack Hotfix 1.1902.2.73](https://support.microsoft.com/help/4494719)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 > [!IMPORTANT]
 > 您不需要先安裝任何 1901 Hotfix，就可以從 [1.1901.0.95 或 1.1901.0.99](azure-stack-update-1901.md#build-reference) 版直接安裝 1902。 不過，如果您已安裝舊版 **1901.2.103** Hotfix，在繼續安裝 1902 之前，您必須先安裝較新的 [1901.3.105 Hotfix](https://support.microsoft.com/help/4495662)。
@@ -64,6 +64,8 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
     ```powershell
     Test-AzureStack -Include AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
+
+  如果在執行 **Test-AzureStack** 時包含 `AzsControlPlane` 參數，您將在 **Test-AzureStack** 輸出中看到下列失敗：**失敗 Azure Stack 控制平面網站摘要**。 您可以放心地忽略此特定錯誤。
 
 - 當 Azure Stack 由 System Center Operations Manager (SCOM) 進行管理時，請務必先將[適用於 Microsoft Azure Stack 的管理組件](https://www.microsoft.com/download/details.aspx?id=55184)更新為 1.0.3.11 版，再套用 1902。
 
@@ -78,7 +80,7 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
 - 1902 組建在 Azure Stack 系統管理員入口網站上導入了新的使用者介面，可供建立方案、供應項目、配額和附加方案。 如需詳細資訊 (包括螢幕擷取畫面)，請參閱[建立方案、供應項目和配額](azure-stack-create-plan.md)。
 
 <!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
-- 改善新增節點期間，縮放單位狀態從「正在擴充儲存體」切換至執行中狀態時的容量擴充可靠性。
+- 改善新增節點作業期間，縮放單位狀態從「正在擴充儲存體」切換至「執行中」時的容量擴充可靠性。
 
 <!--
 1426197 3852583: Increase Global VM script mutex wait time to accommodate enclosed operation timeout    PNU
@@ -95,16 +97,14 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
   ```  
   
 - 為了改善核心基礎結構服務在更新程序進行期間的整體可靠性和可用性，屬於更新動作方案一部分的原生更新資源提供者會在需要時偵測並叫用自動的全域補救。 全域補救「修復」工作流程包括：
-    - 檢查並非處於最佳狀態的基礎結構虛擬機器，並視需要嘗試進行修復 
-    - 檢查屬於控制方案一部分的 SQL 服務問題，並視需要嘗試進行修復
-    - 檢查屬於網路控制卡 (NC) 一部分的軟體負載平衡器 (SLB) 服務是什麼狀態，並視需要嘗試進行修復
-    - 檢查網路控制卡 (NC) 服務的狀態，並視需要嘗試進行修復
-    - 檢查緊急修復主控台服務 (ERCS) 服務網狀架構節點的狀態，並視需要進行修復
-    - 檢查 XRP 服務網狀架構節點的狀態，並視需要進行修復
-    - 檢查 Azure Consistent Storage (ACS) 服務網狀架構節點的狀態，並視需要進行修復
 
-<!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
-- 改善新增節點期間，縮放單位狀態從「正在擴充儲存體」切換至執行中狀態時的容量擴充可靠性。    
+  - 檢查並非處於最佳狀態的基礎結構虛擬機器，並視需要嘗試進行修復。
+  - 檢查屬於控制方案一部分的 SQL 服務問題，並視需要嘗試進行修復。
+  - 檢查屬於網路控制卡 (NC) 一部分的軟體負載平衡器 (SLB) 服務是什麼狀態，並視需要嘗試進行修復。
+  - 檢查網路控制卡 (NC) 服務的狀態，並視需要嘗試進行修復
+  - 檢查緊急修復主控台服務 (ERCS) 服務網狀架構節點的狀態，並視需要進行修復。
+  - 檢查基礎結構角色的狀態，並視需要進行修復。
+  - 檢查 Azure Consistent Storage (ACS) 服務網狀架構節點的狀態，並視需要進行修復。
 
 <!-- 
 1426690 [SOLNET] 3895478-Get-AzureStackLog_Output got terminated in the middle of network log   Diagnostics
@@ -198,6 +198,14 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
 <!-- 1663805 - IS ASDK --> 
 - 您無法使用 Azure Stack 入口網站來檢視對您訂用帳戶的權限。 因應措施是，使用 [PowerShell 來確認權限](/powershell/module/azs.subscriptions.admin/get-azssubscriptionplan)。
 
+<!-- Daniel 3/28 -->
+- 在使用者入口網站中，當您瀏覽至儲存體帳戶內的 Blob，並嘗試開啟瀏覽樹狀目錄中的 [存取原則] 時，後續的視窗會無法載入。 若要解決此問題，下列 PowerShell Cmdlet 分別允許建立、擷取、設定及刪除存取原則：
+
+  - [New-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/new-azurestoragecontainerstoredaccesspolicy)
+  - [Get-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/get-azurestoragecontainerstoredaccesspolicy)
+  - [Set-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/set-azurestoragecontainerstoredaccesspolicy)
+  - [Remove-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/remove-azurestoragecontainerstoredaccesspolicy)
+
 <!-- ### Health and monitoring -->
 
 ### <a name="compute"></a>計算
@@ -226,7 +234,7 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
 <!-- 3239127 - IS, ASDK -->
 - 在 Azure Stack 入口網站中，針對已連結至 VM 執行個體的網路介面卡，當您變更與其繫結之 IP 設定的靜態 IP 位址時，將會看到內容如下的警告訊息： 
 
-    `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...`上也提供本文中使用的原始碼。
+    `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...`上也提供此文章中使用的原始碼。
 
     您可以放心地忽略此訊息；即使 VM 執行個體並未重新啟動，IP 位址也將會變更。
 
@@ -257,6 +265,10 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
  
 <!-- #### Identity -->
 <!-- #### Marketplace -->
+
+### <a name="syslog"></a>syslog 
+
+- syslog 設定不會在更新循環中保存，造成 syslog 用戶端會遺失其設定，並停止正在轉送的 syslog 訊息。 此問題適用於自用戶端 (1809) 公開推出後的所有 Azure Stack 版本。 若要解決此問題，請在套用 Azure Stack 更新後重新設定 syslog 用戶端。
 
 ## <a name="download-the-update"></a>下載更新
 

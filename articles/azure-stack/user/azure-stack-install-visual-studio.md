@@ -12,22 +12,22 @@ ms.workload: azure-vs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 04/08/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 274240aab54f27f36734516026e9feebf64ae4b5
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: da17d114c1ffb920fbaae85a6cdcbc35a66631a4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248107"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257989"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack"></a>安裝 Visual Studio 並連線至 Azure Stack
 
 *適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
-您可以使用 Visual Studio 在 Azure Stack 中撰寫和部署 Azure Resource Manager [範本](azure-stack-arm-templates.md)。 本文中的步驟會逐步引導您在 [Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) 上安裝 Visual Studio，或是在外部電腦上安裝 (如果您打算透過 [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) 使用 Azure Stack)。
+您可以使用 Visual Studio 在 Azure Stack 中撰寫和部署 Azure Resource Manager [範本](azure-stack-arm-templates.md)。 此文章中的步驟會說明如何在 [Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) 上安裝 Visual Studio，或是在外部電腦上安裝 (如果您打算透過 [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) 使用 Azure Stack)。
 
 ## <a name="install-visual-studio"></a>安裝 Visual Studio
 
@@ -39,9 +39,9 @@ ms.locfileid: "55248107"
 
 4. 解除安裝作為 Azure SDK 安裝一部分的 **Microsoft Azure PowerShell**。
 
-    ![WebPI 安裝逐步執行的螢幕擷取畫面](./media/azure-stack-install-visual-studio/image1.png) 
+    ![WebPI 安裝逐步執行的螢幕擷取畫面](./media/azure-stack-install-visual-studio/image1.png)
 
-5. [安裝 Azure Stack 適用的 PowerShell](azure-stack-powershell-install.md)
+5. [安裝適用於 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)
 
 6. 在安裝完成之後，請重新啟動作業系統。
 
@@ -65,9 +65,7 @@ ms.locfileid: "55248107"
 
 3. 展開 [瀏覽窗格] 中的 [環境]，然後選取 [帳戶]。
 
-4. 選取 [新增]，然後輸入使用者 Azure Resource Manager 端點。  
-  若為 Azure Stack 開發套件，URL 是：`https://management.local.azurestack/external`。  
-  若為 Azure Stack 整合式系統，URL 是：`https://management.[Region}.[External FQDN]`。
+4. 選取 [新增]，然後輸入使用者 Azure Resource Manager 端點。 若為 Azure Stack 開發套件，URL 是：`https://management.local.azurestack/external`。  若為 Azure Stack 整合式系統，URL 是：`https://management.[Region}.[External FQDN]`。
 
     ![X](./media/azure-stack-install-visual-studio/image5.png)
 
@@ -79,11 +77,11 @@ ms.locfileid: "55248107"
 
 6. 從 [檢視] 功能表選取 [Cloud Explorer]。
 
-1. 選取 [新增帳戶] 並使用 AD FS 認證來登入。  
+7. 選取 [新增帳戶] 並使用 AD FS 認證來登入。  
 
     ![雲端總管](./media/azure-stack-install-visual-studio/image7.png)
 
-    Cloud Explorer 會查詢可用訂用帳戶。 您可以選取其中一個可用訂用帳戶來進行管理。
+    Cloud Explorer 會查詢可用訂用帳戶。 您可以選取一個可用訂用帳戶來進行管理。
 
     ![雲端總管](./media/azure-stack-install-visual-studio/image8.png)
 
@@ -91,5 +89,5 @@ ms.locfileid: "55248107"
 
 ## <a name="next-steps"></a>後續步驟
 
- - 深入了解 Visual Studio 與其他 Visual Studio 版本的[共存](https://msdn.microsoft.com/library/ms246609.aspx)。
- - [開發適用於 Azure Stack 的範本](azure-stack-develop-templates.md)。
+- 深入了解 Visual Studio 與其他 Visual Studio 版本的[共存](/visualstudio/install/install-visual-studio-versions-side-by-side)。
+- [開發適用於 Azure Stack 的範本](azure-stack-develop-templates.md)。

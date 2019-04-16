@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 04/09/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: 00eb4fc3eb0b2e7120208e6318bf35fc2cc6f188
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: cd07ff5beddf65c9788c9ba94802ba2d37172923
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649402"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360694"
 ---
 # <a name="azure-stack-1901-update"></a>Azure Stack 1901 更新
 
-*適用於：Azure Stack 整合式系統*
+*適用於：Azure Stack 整合系統*
 
-本文將說明 1901 更新套件的內容。 此更新包括此版 Azure Stack 的改良功能、修正及新功能。 本文也說明此版本的已知問題，並包含下載更新的連結。 已知問題分為與更新程序直接相關的問題，以及與組建 (安裝後) 相關的問題。
+此文章將說明 1901 更新套件的內容。 此更新包括此版 Azure Stack 的改良功能、修正及新功能。 此文章也說明此版本的已知問題，並包含下載更新的連結。 已知問題分為與更新程序直接相關的問題，以及與組建 (安裝後) 相關的問題。
 
 > [!IMPORTANT]  
 > 這個更新程式封裝僅適用於 Azure Stack 整合系統。 請勿將此更新套件套用至 Azure Stack 開發套件。
@@ -62,7 +62,7 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
 - **1811**：沒有目前的 Hotfix 可供使用。
 - **1901**:[KB 4495662 – Azure Stack Hotfix 1.1901.3.105](https://support.microsoft.com/help/4495662)
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 > [!IMPORTANT]
 > 在更新成 1901 之前，請先安裝 1811 的[最新 Azure Stack Hotfix](#azure-stack-hotfixes) (如果有的話)。 如果您已有 1901 且尚未安裝任何 Hotfix，您不需要先安裝 1901 Hotfix，就可以直接安裝 1902。
@@ -223,7 +223,7 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
 
 ## <a name="known-issues-with-the-update-process"></a>關於更新程序的已知問題
 
-- 執行 [Test-AzureStack](azure-stack-diagnostic-test.md) 時，如果 **AzsInfraRoleSummary** 或 **AzsPortalApiSummary** 測試失敗，系統會提示您搭配 `-Repair` 旗標來執行 **Test-AzureStack**。  如果您執行此命令，它會失敗並顯示下列錯誤訊息：`Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`
+- 執行 [Test-AzureStack](azure-stack-diagnostic-test.md) 時，如果 **AzsInfraRoleSummary** 或 **AzsPortalApiSummary** 測試失敗，系統會提示您搭配 `-Repair` 旗標來執行 **Test-AzureStack**。  如果您執行此命令，它會失敗並顯示下列錯誤訊息：  `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`
 
 - 當您執行 [Test-AzureStack](azure-stack-diagnostic-test.md) 時，會顯示來自「基礎板管理控制器」(BMC) 的警告訊息。 您可以放心地忽略此警告。
 
@@ -284,7 +284,7 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
 <!-- 3239127 - IS, ASDK -->
 - 在 Azure Stack 入口網站中，針對已連結至 VM 執行個體的網路介面卡，當您變更與其繫結之 IP 設定的靜態 IP 位址時，將會看到內容如下的警告訊息： 
 
-    `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...` 。
+    `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...`上也提供此文章中使用的原始碼。
 
     您可以放心地忽略此訊息；即使 VM 執行個體並未重新啟動，IP 位址也將會變更。
 
@@ -315,6 +315,10 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
  
 <!-- #### Identity -->
 <!-- #### Marketplace -->
+
+### <a name="syslog"></a>syslog
+
+- syslog 設定不會在更新循環中保存，造成 syslog 用戶端會遺失其設定，並停止正在轉送的 syslog 訊息。 此問題適用於自用戶端 (1809) 公開推出後的所有 Azure Stack 版本。 若要解決此問題，請在套用 Azure Stack 更新後重新設定 syslog 用戶端。
 
 ## <a name="download-the-update"></a>下載更新
 

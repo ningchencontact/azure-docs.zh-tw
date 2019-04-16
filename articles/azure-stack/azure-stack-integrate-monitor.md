@@ -15,12 +15,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 520319fb21dce3cf4f3cc1b36c52657cf9eb24e7
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 77dda80e538c8b742a96e7b7f81abe8650ee6b5d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58903993"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257292"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>整合外部監視解決方案與 Azure Stack
 
@@ -30,7 +30,7 @@ ms.locfileid: "58903993"
 - 實體電腦可讓健康情況和警示資訊透過基礎板管理控制器 (BMC) 提供。
 - 實體網路裝置可讓健康情況和警示資訊透過 SNMP 通訊協定提供。
 
-每個 Azure Stack 解決方案隨附硬體生命週期主機。 此主機會針對實體伺服器及網路裝置執行原始設備製造商 (OEM) 硬體廠商的監視軟體。 如有需要，您可以略過這些監視解決方案，並直接與資料中心內現有的監視解決方案整合。
+每個 Azure Stack 解決方案隨附硬體生命週期主機。 此主機會針對實體伺服器及網路裝置執行原始設備製造商 (OEM) 硬體廠商的監視軟體。 如果您 ORM 提供者的監視解決方案可以與資料中心內現有的監視解決方案整合，請洽詢您的 OEM 提供者。
 
 > [!IMPORTANT]
 > 您使用的外部監視解決方案必須是無代理程式。 您無法在 Azure Stack 元件內部安裝協力廠商代理程式。
@@ -40,9 +40,9 @@ ms.locfileid: "58903993"
 ![顯示 Azure Stack、監視以及票證解決方案之間流量的圖表。](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
 
 > [!NOTE]
-> 系統不允許外部監視功能直接與實體伺服器和網路裝置進行整合，存取控制清單 (ACL) 會加以主動封鎖。 
+> 不允許外部監視功能直接與實體伺服器進行整合，而且存取控制清單 (ACL) 會主動加以封鎖。  系統支援外部監視功能直接與實體網路裝置整合，請洽詢您的 OEM 提供者，了解如何啟用此功能。
 
-本文說明如何將 Azure Stack 與外部監視解決方案 (例如 System Center Operations Manager 和 Nagios) 整合。 也包含如何使用 PowerShell 或 REST API 呼叫，以程式設計方式處理警示的資訊。
+此文章說明如何將 Azure Stack 與外部監視解決方案 (例如 System Center Operations Manager 和 Nagios) 整合。 它也包含如何使用 PowerShell 或 REST API 呼叫，以程式設計方式處理警示的資訊。
 
 ## <a name="integrate-with-operations-manager"></a>與 Operations Manager 整合
 

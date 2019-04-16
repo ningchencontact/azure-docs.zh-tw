@@ -1181,8 +1181,8 @@ ms.locfileid: "59549534"
 > |  動作 | Microsoft.Compute/images/write | 建立新的映像，或更新現有映像 |
 > |  動作 | Microsoft.Compute/locations/capsOperations/read | 取得非同步 Caps 作業的狀態 |
 > |  動作 | Microsoft.Compute/locations/diskOperations/read | 取得非同步磁碟作業的狀態 |
-> |  動作 | Microsoft.Compute/locations/logAnalytics/getRequestRateByInterval/action | 建立記錄檔以依時間間隔顯示要求總數以協助進行節流診斷。 |
-> |  動作 | Microsoft.Compute/locations/logAnalytics/getThrottledRequests/action | 建立記錄檔以依 ResourceName、OperationName 或已套用的節流原則顯示已節流要求彙總。 |
+> |  動作 | Microsoft.Compute/locations/logAnalytics/getRequestRateByInterval/action | 建立記錄以依時間間隔顯示要求總數以協助進行節流診斷。 |
+> |  動作 | Microsoft.Compute/locations/logAnalytics/getThrottledRequests/action | 建立記錄以依 ResourceName、OperationName 或已套用的節流原則顯示已節流要求彙總。 |
 > |  動作 | Microsoft.Compute/locations/operations/read | 取得非同步作業的狀態 |
 > |  動作 | Microsoft.Compute/locations/publishers/artifacttypes/offers/read | 取得平台映像提供的屬性 |
 > |  動作 | Microsoft.Compute/locations/publishers/artifacttypes/offers/skus/read | 取得平台映像 SKU 的屬性 |
@@ -1344,7 +1344,7 @@ ms.locfileid: "59549534"
 > |  動作 | Microsoft.ContainerRegistry/register/action | 針對容器登錄資源提供者註冊訂用帳戶，並讓您能夠建立容器登錄。 |
 > |  動作 | Microsoft.ContainerRegistry/registries/artifacts/delete | 刪除容器登錄中的成品。 |
 > |  動作 | Microsoft.ContainerRegistry/registries/builds/cancel/action | 取消現有組建。 |
-> |  動作 | Microsoft.ContainerRegistry/registries/builds/getLogLink/action | 取得下載組建記錄檔的連結。 |
+> |  動作 | Microsoft.ContainerRegistry/registries/builds/getLogLink/action | 取得下載組建記錄的連結。 |
 > |  動作 | Microsoft.ContainerRegistry/registries/builds/read | 取得指定組建的屬性，或列出指定容器登錄的所有組建。 |
 > |  動作 | Microsoft.ContainerRegistry/registries/builds/write | 使用指定參數更新容器登錄的組建。 |
 > |  動作 | Microsoft.ContainerRegistry/registries/buildTasks/delete | 刪除容器登錄中的組建工作。 |
@@ -2597,7 +2597,7 @@ ms.locfileid: "59549534"
 > |  動作 | Microsoft.Insights/Logs/OutboundConnection/Read | 從 OutboundConnection 資料表讀取資料 |
 > |  動作 | Microsoft.Insights/Logs/Perf/Read | 從 Perf 資料表讀取資料 |
 > |  動作 | Microsoft.Insights/Logs/ProtectionStatus/Read | 從 ProtectionStatus 資料表讀取資料 |
-> |  動作 | Microsoft.Insights/Logs/Read | 從您的所有記錄檔讀取資料 |
+> |  動作 | Microsoft.Insights/Logs/Read | 從您的所有記錄讀取資料 |
 > |  動作 | Microsoft.Insights/Logs/ReservedAzureCommonFields/Read | 從 ReservedAzureCommonFields 資料表讀取資料 |
 > |  動作 | Microsoft.Insights/Logs/ReservedCommonFields/Read | 從 ReservedCommonFields 資料表讀取資料 |
 > |  動作 | Microsoft.Insights/Logs/SCCMAssessmentRecommendation/Read | 從 SCCMAssessmentRecommendation 資料表讀取資料 |
@@ -2963,7 +2963,7 @@ ms.locfileid: "59549534"
 > | DataAction | Microsoft.LogAnalytics/logs/OutboundConnection/read | 從 OutboundConnection 資料表讀取資料 |
 > | DataAction | Microsoft.LogAnalytics/logs/Perf/read | 從 Perf 資料表讀取資料 |
 > | DataAction | Microsoft.LogAnalytics/logs/ProtectionStatus/read | 從 ProtectionStatus 資料表讀取資料 |
-> |  動作 | Microsoft.LogAnalytics/logs/read | 從您的所有記錄檔讀取資料 |
+> |  動作 | Microsoft.LogAnalytics/logs/read | 從您的所有記錄讀取資料 |
 > | DataAction | Microsoft.LogAnalytics/logs/ReservedAzureCommonFields/read | 從 ReservedAzureCommonFields 資料表讀取資料 |
 > | DataAction | Microsoft.LogAnalytics/logs/ReservedCommonFields/read | 從 ReservedCommonFields 資料表讀取資料 |
 > | DataAction | Microsoft.LogAnalytics/logs/SCCMAssessmentRecommendation/read | 從 SCCMAssessmentRecommendation 資料表讀取資料 |
@@ -4818,7 +4818,7 @@ ms.locfileid: "59549534"
 > |  動作 | Microsoft.Sql/managedInstances/databases/delete | 刪除現有的受控資料庫 |
 > |  動作 | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/read | 取得資源的診斷設定 |
 > |  動作 | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/write | 建立或更新資源的診斷設定 |
-> |  動作 | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/logDefinitions/read | 取得受控執行個體資料庫的可用記錄檔 |
+> |  動作 | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/logDefinitions/read | 取得受控執行個體資料庫的可用記錄 |
 > |  動作 | Microsoft.Sql/managedInstances/databases/read | 取得現有的受控資料庫 |
 > |  動作 | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/read | 列出指定資料庫的敏感度標籤 |
 > |  動作 | Microsoft.Sql/managedInstances/databases/schemas/read | 取得受管理的資料庫結構描述。 |
@@ -4855,7 +4855,7 @@ ms.locfileid: "59549534"
 > |  動作 | Microsoft.Sql/managedInstances/metrics/read | 取得受控執行個體計量 |
 > |  動作 | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/diagnosticSettings/read | 取得資源的診斷設定 |
 > |  動作 | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/diagnosticSettings/write | 建立或更新資源的診斷設定 |
-> |  動作 | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/logDefinitions/read | 取得受控執行個體的可用記錄檔 |
+> |  動作 | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/logDefinitions/read | 取得受控執行個體的可用記錄 |
 > |  動作 | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/metricDefinitions/read | 傳回可供受控執行個體使用的計量類型 |
 > |  動作 | Microsoft.Sql/managedInstances/read | 傳回受控執行個體的清單，或取得指定受控執行個體的屬性。 |
 > |  動作 | Microsoft.Sql/managedInstances/recoverableDatabases/read | 傳回可還原的受控資料庫清單 |
@@ -5611,7 +5611,7 @@ ms.locfileid: "59549534"
 > |  動作 | Microsoft.Web/sites/config/Read | 取得 Web 應用程式的組態設定 |
 > |  動作 | microsoft.web/sites/config/snapshots/read | 取得 Web Apps 組態快照集。 |
 > |  動作 | Microsoft.Web/sites/config/Write | 更新 Web 應用程式的組態設定 |
-> |  動作 | microsoft.web/sites/containerlogs/action | 取得 Web 應用程式的壓縮容器記錄檔。 |
+> |  動作 | microsoft.web/sites/containerlogs/action | 取得 Web 應用程式的壓縮容器記錄。 |
 > |  動作 | microsoft.web/sites/containerlogs/download/action | 下載 Web Apps 容器記錄。 |
 > |  動作 | microsoft.web/sites/continuouswebjobs/delete | 刪除 Web Apps 的連續 Web 作業。 |
 > |  動作 | microsoft.web/sites/continuouswebjobs/read | 取得 Web Apps 的連續 Web 作業。 |

@@ -74,7 +74,7 @@ admin-password | 由系統產生 | 系統管理員使用者的密碼。
 
 您的伺服器建立好之後，它會隨附下列設定：
 
-- 會建立名為 "devbox" 的防火牆規則。 Azure CLI 會嘗試偵測 `az postgres up` 命令執行來源的電腦 IP 位址，並將該 IP 位址加入白名單。
+- 會建立名為 "devbox" 的防火牆規則。 Azure CLI 會嘗試偵測 `az postgres up` 命令執行來源的電腦 IP 位址，並將該 IP 位址加入允許清單。
 - [允許存取 Azure 服務] 設為 [開啟]。 此設定會將伺服器的防火牆設定為接受來自所有 Azure 資源的連線，其中也包括您未訂閱的資源。
 - 建立名為 "sampledb" 的空白資料庫
 - 建立名為 "root"，且具有 "sampledb" 權限的新使用者

@@ -131,7 +131,7 @@ Set-AzFirewall -AzureFirewall $azfw
 
 Azure 的防火牆必須有直接的網際網路連線。 根據預設，AzureFirewallSubnet 具有 0.0.0.0/0 路由的 NextHopType 值設為**網際網路**。
 
-如果您啟用強制通道，在內部透過 ExpressRoute 或 VPN 閘道，您可能需要明確且 NextHopType 值設定為 網際網路設定 0.0.0.0/0 的使用者定義路由 (UDR)，並將它與您 AzureFirewallSubnet 產生關聯。 這會覆寫潛在的預設閘道回到您的內部部署網路的 BGP 公告。 如果您的組織需要 Azure 防火牆，以將預設閘道流量回到您的內部部署網路的強制通道，請連絡支援服務。 我們可以在維護您的訂用帳戶，以確保必要的網際網路連線防火牆的白名單。
+如果您啟用強制通道，在內部透過 ExpressRoute 或 VPN 閘道，您可能需要明確且 NextHopType 值設定為 網際網路設定 0.0.0.0/0 的使用者定義路由 (UDR)，並將它與您 AzureFirewallSubnet 產生關聯。 這會覆寫潛在的預設閘道回到您的內部部署網路的 BGP 公告。 如果您的組織需要 Azure 防火牆，以將預設閘道流量回到您的內部部署網路的強制通道，請連絡支援服務。 我們可以在維護您的訂用帳戶，以確保必要的網際網路連線防火牆的允許清單。
 
 ### <a name="are-there-any-firewall-resource-group-restrictions"></a>是否有任何防火牆資源群組的限制？
 

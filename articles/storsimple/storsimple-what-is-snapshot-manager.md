@@ -17,7 +17,7 @@ ms.author: v-sharos
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 38c197c7bc57110b29b1d8cb789d5b7310823da2
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 10/11/2017
 ms.locfileid: "23111466"

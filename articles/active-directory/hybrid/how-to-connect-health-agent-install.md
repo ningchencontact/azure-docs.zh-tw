@@ -120,7 +120,7 @@ ms.locfileid: "59545030"
 > 這一節只適用於 AD FS 伺服器。 您不必在 Web 應用程式 Proxy 伺服器上執行下列步驟。
 >
 
-若要讓使用情況分析功能收集並分析資料，Azure AD Connect Health 代理程式需要 AD FS 稽核記錄檔中的資訊。 預設不會啟用這些記錄檔。 使用下列程序啟用 AD FS 稽核，並在 AD FS 伺服器上找出 AD FS 稽核記錄檔。
+若要讓使用情況分析功能收集並分析資料，Azure AD Connect Health 代理程式需要 AD FS 稽核記錄中的資訊。 預設不會啟用這些記錄。 使用下列程序啟用 AD FS 稽核，並在 AD FS 伺服器上找出 AD FS 稽核記錄。
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2008-r2"></a>在 Windows Server 2008 R2 上啟用 AD FS 的稽核
 
@@ -166,11 +166,11 @@ ms.locfileid: "59545030"
 請注意，預設會啟用「基本」稽核層級。 深入了解 [Windows Server 2016 中的 AD FS 稽核增強功能](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server)
 
 
-#### <a name="to-locate-the-ad-fs-audit-logs"></a>找出 AD FS 稽核記錄檔
+#### <a name="to-locate-the-ad-fs-audit-logs"></a>找出 AD FS 稽核記錄
 
 1. 開啟 [事件檢視器] 。
 2. 移至 [Windows 記錄]，然後選取 [安全性] 。
-3. 按一下右側的 [篩選目前的記錄檔] 。
+3. 按一下右側的 [篩選目前的記錄] 。
 4. 在 [事件來源] 下，選取 [AD FS 稽核] 。
 
     以及稽核記錄的快速[常見問題集附註](reference-connect-health-faq.md#operations-questions)。

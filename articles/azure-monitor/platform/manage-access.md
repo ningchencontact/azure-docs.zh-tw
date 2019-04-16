@@ -306,7 +306,7 @@ Log Analytics 參與者角色包含下列 Azure 動作：
     ],
 ```
 
-### <a name="custom-logs"></a>自訂的記錄檔
+### <a name="custom-logs"></a>自訂的記錄
  自訂記錄檔會建立資料來源，例如自訂的記錄檔和 HTTP 資料收集器 API。 最簡單的方式，來識別記錄檔的類型是藉由檢查底下所列的資料表[記錄檔結構描述中的自訂記錄檔](../log-query/get-started-portal.md#understand-the-schema)。
 
  您目前無法授與或拒絕存取個別的自訂記錄檔，但您可以授與或拒絕存取所有的自訂記錄檔。 若要建立具有所有的自訂記錄檔的存取權的角色，建立自訂角色，使用下列動作：

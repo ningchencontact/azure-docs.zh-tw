@@ -236,7 +236,7 @@ ForEach-Object {
     `InstallDependencyAgent-Windows.exe`
 
 3.  依照安裝精靈的指示安裝代理程式。
-4.  如果 Dependency Agent 無法啟動，請檢查記錄檔以取得詳細的錯誤資訊。 在 Windows 代理程式上，記錄檔的目錄是 %Programfiles%\Microsoft Dependency Agent\logs。 
+4.  如果 Dependency Agent 無法啟動，請檢查記錄以取得詳細的錯誤資訊。 在 Windows 代理程式上，記錄的目錄是 %Programfiles%\Microsoft Dependency Agent\logs。 
 
 #### <a name="windows-command-line"></a>Windows 命令列
 
@@ -265,7 +265,7 @@ Windows Dependency Agent 的檔案預設位於 C:\Program Files\Microsoft Depend
     
     `sh InstallDependencyAgent-Linux64.bin`
 
-3.  如果 Dependency Agent 無法啟動，請檢查記錄檔以取得詳細的錯誤資訊。 在 Linux 代理程式上，記錄檔的目錄是 /var/opt/microsoft/dependency-agent/log。
+3.  如果 Dependency Agent 無法啟動，請檢查記錄以取得詳細的錯誤資訊。 在 Linux 代理程式上，記錄檔的目錄是 /var/opt/microsoft/dependency-agent/log。
 
 若要查看安裝旗標的清單，請如下所示以 -help 旗標執行安裝程式。
 

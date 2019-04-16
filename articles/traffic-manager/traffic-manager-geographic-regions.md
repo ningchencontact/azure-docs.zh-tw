@@ -14,7 +14,7 @@ ms.date: 03/22/2017
 ms.author: kumud
 ms.openlocfilehash: b6a8393a5f47d7fb85699f6828c4d08cc7afcabc
 ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/29/2019
 ms.locfileid: "58620694"
@@ -99,7 +99,7 @@ ms.locfileid: "58620694"
 
         - ME(蒙特內哥羅)
 
-        - MK(馬其頓共和國)
+        - MK(北馬其頓)
 
         - MT(馬爾他)
 

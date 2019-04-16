@@ -67,7 +67,7 @@ Log Analytics 服務會使用下列方法安全地管理您以雲端為基礎的
 | --- | --- |
 | 容量和效能 |效能資料和中繼資料 |
 | 更新管理 |中繼資料和狀態資料 |
-| 記錄檔管理 |使用者定義的事件記錄檔、Windows 事件記錄檔和/或 IIS 記錄檔 |
+| 記錄檔管理 |使用者定義的事件記錄、Windows 事件記錄和/或 IIS 記錄 |
 | 變更追蹤 |軟體清查、Windows 服務和 Linux 精靈中繼資料，以及 Windows/Linux 檔案中繼資料 |
 | SQL 和 Active Directory 評估 |WMI 資料、登錄資料、效能資料和 SQL Server 動態管理檢視結果 |
 

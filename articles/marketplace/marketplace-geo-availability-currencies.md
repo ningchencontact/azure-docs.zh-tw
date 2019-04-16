@@ -11,7 +11,7 @@ ms.date: 02/28/2019
 ms.author: ellacroi
 ms.openlocfilehash: 96ec1f3ecdca6437e1d25eca433d385573f6c659
 ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 03/01/2019
 ms.locfileid: "57220776"
@@ -98,7 +98,7 @@ Azure Marketplace 供應項目可以購買的 141 的地理位置，客戶的帳
 | 立陶宛                           | LT        | 歐元          |
 | 盧森堡                          | LU        | 歐元          |
 | 澳門特別行政區                           | MO        | 美元          |
-| 馬其頓 FYRO                      | MK        | 美元          |
+| 北馬其頓 FYRO                      | MK        | 美元          |
 | 馬來西亞                            | MY        | 美元          |
 | 馬爾他                               | MT        | 歐元          |
 | 模里西斯                           | MU        | 美元          |

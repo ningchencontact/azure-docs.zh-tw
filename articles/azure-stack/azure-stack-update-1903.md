@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 04/10/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/04/2019
-ms.openlocfilehash: 2a2e289423eda53d610b2346193f6ee8a30b9c48
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.lastreviewed: 04/10/2019
+ms.openlocfilehash: f07f81562c604913e633a8d93fa9c7db28a7bf55
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917680"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471472"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 更新
 
 *適用於：Azure Stack 整合系統*
 
-此文章說明 1903 更新套件的內容。 此更新包括此版 Azure Stack 的改良功能、修正及新功能。 本文也說明此版本的已知問題，並包含下載更新的連結。 已知問題分為與更新程序直接相關的問題，以及與組建 (安裝後) 相關的問題。
+此文章說明 1903 更新套件的內容。 此更新包括此版 Azure Stack 的改良功能、修正及新功能。 此文章也說明此版本的已知問題，並包含下載更新的連結。 已知問題分為與更新程序直接相關的問題，以及與組建 (安裝後) 相關的問題。
 
 > [!IMPORTANT]  
 > 這個更新程式封裝僅適用於 Azure Stack 整合系統。 請勿將此更新套件套用至 Azure Stack 開發套件。
@@ -64,7 +64,13 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
 
 - 改善偵測和補救磁碟空間不足的情況。
 
-## <a name="prerequisites"></a>必要條件
+### <a name="secret-management"></a>祕密管理
+
+- Azure Stack 現在支援輪替根憑證 (由外部祕密輪替的憑證所使用)。 如需詳細資訊，[請參閱此文章](azure-stack-rotate-secrets.md)。
+
+- 1903 包含祕密輪替的效能改進，減少了執行內部祕密輪替所花費的時間。
+
+## <a name="prerequisites"></a>先決條件
 
 > [!IMPORTANT]
 > 在更新為 1903 之前，請先安裝 1902 的[最新 Azure Stack Hotfix](#azure-stack-hotfixes) (如果有的話)。
@@ -91,7 +97,8 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
 
 - 當您執行 [Test-AzureStack](azure-stack-diagnostic-test.md) 時，會顯示來自「基礎板管理控制器」(BMC) 的警告訊息。 您可以放心地忽略此警告。
 
-- <!-- 2468613 - IS --> 安裝此更新時，您可能會看到具有下列標題的警示：`Error – Template for FaultType UserAccounts.New is missing.`。您可以放心地忽略這些警示。 在此更新安裝完成之後，這些警示會自動關閉。
+<!-- 2468613 - IS -->
+- 在安裝更新期間，您可能會看到警示，標題為「錯誤 - FaultType UserAccounts.New 的範本已遺失。」 您可以放心地忽略這些警示。 在此更新安裝完成之後，這些警示會自動關閉。
 
 ## <a name="post-update-steps"></a>更新後步驟
 
@@ -118,10 +125,15 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
 - 刪除使用者訂用帳戶會產生孤立的資源。 因應措施是，先刪除使用者資源或整個資源群組，然後再刪除使用者訂用帳戶。
 
 <!-- 1663805 - IS ASDK --> 
-- 您無法使用 Azure Stack 入口網站來檢視對您訂用帳戶的權限。 因應措施是，使用 [PowerShell 來確認權限](/powershell/module/azs.subscriptions.admin/get-azssubscriptionplan)。
+- 您無法使用 Azure Stack 入口網站來檢視對您訂用帳戶的權限。 因應措施是，使用 [PowerShell 來確認權限](/powershell/module/azurerm.resources/get-azurermroleassignment)。
 
 <!-- Daniel 3/28 -->
-- 在使用者入口網站中，當您瀏覽至儲存體帳戶內的 Blob，並嘗試開啟瀏覽樹狀目錄中的 [存取原則] 時，後續的視窗會無法載入。
+- 在使用者入口網站中，當您瀏覽至儲存體帳戶內的 Blob，並嘗試開啟瀏覽樹狀目錄中的 [存取原則] 時，後續的視窗會無法載入。 若要解決此問題，下列 PowerShell Cmdlet 分別允許建立、擷取、設定及刪除存取原則：
+
+  - [New-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/new-azurestoragecontainerstoredaccesspolicy)
+  - [Get-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/get-azurestoragecontainerstoredaccesspolicy)
+  - [Set-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/set-azurestoragecontainerstoredaccesspolicy)
+  - [Remove-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/remove-azurestoragecontainerstoredaccesspolicy)
 
 <!-- Daniel 3/28 -->
 - 在使用者入口網站中，當您嘗試使用 [OAuth (預覽)] 選項上傳 Blob 時，工作會失敗並出現錯誤訊息。 若要解決此問題，請使用 [SAS] 選項上傳 Blob。
@@ -151,14 +163,16 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
 
 - 所建立的 Ubuntu 18.04 VM 如果已啟用 SSH 授權，將不會允許您使用 SSH 金鑰來登入。 因應措施是，在佈建後使用「適用於 Linux 的 VM 存取」延伸模組來實作 SSH 金鑰，或使用密碼型驗證。
 
-- 如果您沒有硬體生命週期主機 (HLH)：在組建 1902 之前，您必須將群組原則*電腦設定\Windows 設定\安全性設定\本機原則\安全性選項*設定為 [Send LM 和 NTLM - 如有交涉，使用 NTLMv2 工作階段安全性]。 從組建 1902 開始，則必須讓此原則保持 [未定義] 或將它設定為 [只傳送 NTLMv2 回應] \(這是預設值\)。 否則，您將無法建立 PowerShell 遠端工作階段，且會收到「拒絕存取」錯誤：
+- Azure Stack 現在支援大於 2.2.20 版的 Windows Azure Linux 代理程式。 此支援是 1901 和 1902 Hotfix 的一部分，允許客戶在 Azure 和 Azure Stack 之間維護一致的 Linux 映像。
 
-   ```PowerShell
+- 如果您沒有硬體生命週期主機 (HLH)：在組建 1902 之前，您必須將群組原則**電腦設定\Windows 設定\安全性設定\本機原則\安全性選項**設定為 [傳送 LM 和 NTLM - 如有交涉，使用 NTLMv2 工作階段安全性]。 自組建 1902 開始，則必須讓此原則保持 [未定義] 或將其設定為 [只傳送 NTLMv2 回應] (此為預設值)。 否則，您將無法建立 PowerShell 遠端工作階段，且會看到「存取遭拒」錯誤：
+
+   ```powershell
    PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
    New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
    about_Remote_Troubleshooting Help topic.
    At line:1 char:12
-   + $session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
+   + $Session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
    +            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:RemoteRunspace) [New-PSSession], PSRemotingTransportException
       + FullyQualifiedErrorId : AccessDenied,PSSessionOpenFailed
@@ -169,7 +183,7 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
 <!-- 3239127 - IS, ASDK -->
 - 在 Azure Stack 入口網站中，針對已連結至 VM 執行個體的網路介面卡，當您變更與其繫結之 IP 設定的靜態 IP 位址時，將會看到內容如下的警告訊息： 
 
-    `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...`上也提供本文中使用的原始碼。
+    `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...`
 
     您可以放心地忽略此訊息；即使 VM 執行個體並未重新啟動，IP 位址也將會變更。
 
@@ -194,12 +208,15 @@ Azure Stack Hotfix 僅適用於 Azure Stack 整合系統，請勿嘗試在 ASDK 
 <!-- 2352906 - IS ASDK --> 
 - 您必須在於訂用帳戶中建立第一個「Azure 函式」之前，先註冊儲存體資源提供者。
 
-
 <!-- ### Usage -->
 
  
 <!-- #### Identity -->
 <!-- #### Marketplace -->
+
+### <a name="syslog"></a>syslog
+
+- syslog 設定不會在更新循環中保存，造成 syslog 用戶端會遺失其設定，並停止正在轉送的 syslog 訊息。 此問題適用於自用戶端 (1809) 公開推出後的所有 Azure Stack 版本。 若要解決此問題，請在套用 Azure Stack 更新後重新設定 syslog 用戶端。
 
 ## <a name="download-the-update"></a>下載更新
 

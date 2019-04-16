@@ -15,12 +15,12 @@ ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 54bc6bc105dab2831df6e48a64a6f766582a3fb9
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 22656c66bf5caa275a32ddcaae323fc0ab2b1600
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917555"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271725"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>在 Azure Stack 中輪替使用祕密
 
@@ -63,13 +63,13 @@ Azure Stack 支援在下列環境中使用新憑證授權單位 (CA) 的外部�
 
 |已安裝的憑證 CA|要將 CA 輪替為|支援|支援的 Azure Stack 版本|
 |-----|-----|-----|-----|
-|從自我簽署|到企業|不支援||
+|從自我簽署|到企業|支援|1903 與更新版本|
 |從自我簽署|到自我簽署|不支援||
 |從自我簽署|到公用<sup>*</sup>|支援|1803 或更新版本|
-|從企業|到企業|支援，前提是客戶使用的企業 CA 與部署時所用的一樣|1803 或更新版本|
+|從企業|到企業|支援。 從 1803 到 1903；支援，前提是客戶使用的企業 CA 與部署時所用的一樣|1803 或更新版本|
 |從企業|到自我簽署|不支援||
 |從企業|到公用<sup>*</sup>|支援|1803 或更新版本|
-|從公用<sup>*</sup>|到企業|不支援|1803 或更新版本|
+|從公用<sup>*</sup>|到企業|支援|1903 與更新版本|
 |從公用<sup>*</sup>|到自我簽署|不支援||
 |從公用<sup>*</sup>|到公用<sup>*</sup>|支援|1803 或更新版本|
 
@@ -83,14 +83,14 @@ Azure Stack 支援在下列環境中使用新憑證授權單位 (CA) 的外部�
 - 擱置的內部憑證到期
 - 擱置的外部憑證到期
 
-使用下列指示執行祕密輪替將會修正這些警示。
+使用下列指示執行秘密輪替將會修正這些警示。
 
 > [!Note]
 > 在 1811 之前版本的 Azure Stack 環境中，可能會看到擱置中的內部憑證或祕密到期警示。
 > 這些是不正確的警示，應該予以忽略而不需執行內部祕密輪替。
 > 不正確的內部祕密到期警示是在 1811 中已解決的已知問題 – 除非環境處於作用中的時間已達兩年，否則內部祕密不會過期。
 
-## <a name="pre-steps-for-secret-rotation"></a>祕密輪替前的步驟
+## <a name="pre-steps-for-secret-rotation"></a>秘密輪替前的步驟
 
    > [!IMPORTANT]
    > 如果您的 Azure Stack 環境上已經執行過祕密輪替，在您重新執行祕密輪替之前，必須先將系統更新至 1811 版或更新版本。
@@ -102,7 +102,7 @@ Azure Stack 支援在下列環境中使用新憑證授權單位 (CA) 的外部�
     > [!Note] 
     > 針對 1811 前的版本，您無須輪替祕密，即可新增延伸主機憑證。 您應該依照 [Azure Stack 的延伸主機準備](azure-stack-extension-host-prepare.md)一文中的指示，來新增延伸主機憑證。
 
-2. 運算子可能會注意到警示開啟，並在 Azure Stack 祕密輪替期間，自動關閉警示。  這是可預期的行為，可以忽略這類警示。  操作員可以執行 **Test-AzureStack** 來驗證這些警示的有效性。  若運算子使用 SCOM 監控 Azure Stack 系統，讓系統進入維護模式，即可避免這些警示傳送到其所屬的 ITSM 系統，但如果無法連線到 Azure Stack，就會持續發出警示。
+2. 運算子可能會注意到警示開啟，並在 Azure Stack 秘密輪替期間，自動關閉警示。  這是可預期的行為，可以忽略這類警示。  操作員可以執行 **Test-AzureStack** 來驗證這些警示的有效性。  若運算子使用 SCOM 監控 Azure Stack 系統，讓系統進入維護模式，即可避免這些警示傳送到其所屬的 ITSM 系統，但如果無法連線到 Azure Stack，就會持續發出警示。
 
 3. 將任何維護作業告知您的使用者。 排程一般維護期間，盡可能排在非上班時間。 維護作業會影響使用者工作負載和入口網站作業。
 
@@ -202,9 +202,9 @@ Azure Stack 支援在下列環境中使用新憑證授權單位 (CA) 的外部�
     - **CertificatePassword**  
     密碼的安全字串，用於所有建立的 pfx 憑證檔案。
 
-5. 等候祕密進行輪替。 外部祕密輪替通常需要大約一小時的時間。
+5. 等候秘密進行輪替。 外部祕密輪替通常需要大約一小時的時間。
 
-    當祕密輪替成功完成時，您的主控台會顯示**整體動作狀態：成功**。
+    當秘密輪替成功完成時，您的主控台會顯示**整體動作狀態：成功**。
 
     > [!Note]
     > 如果祕密輪替失敗，請依照錯誤訊息中的指示進行操作，並搭配 **-ReRun** 參數來重新執行 **Start-SecretRotation**。
@@ -212,13 +212,13 @@ Azure Stack 支援在下列環境中使用新憑證授權單位 (CA) 的外部�
     ```powershell
     Start-SecretRotation -ReRun
     ```
-    如果祕密輪替重複失敗，請聯絡支援人員。
+    如果秘密輪替重複失敗，請聯絡支援人員。
 
-6. 成功完成祕密輪替後，請從前面步驟建立的共用中移除您的憑證，並將其儲存在安全的備份位置。
+6. 成功完成秘密輪替後，請從前面步驟建立的共用中移除您的憑證，並將其儲存在安全的備份位置。
 
-## <a name="walkthrough-of-secret-rotation"></a>祕密輪替的逐步解說
+## <a name="walkthrough-of-secret-rotation"></a>秘密輪替的逐步解說
 
-下列 PowerShell 範例會示範輪替祕密時須執行的 Cmdlet 與參數。
+下列 PowerShell 範例會示範輪替秘密時須執行的 Cmdlet 與參數。
 
 ```powershell
 # Create a PEP Session
@@ -236,7 +236,7 @@ Invoke-Command -Session $PEPSession -ScriptBlock {
 Remove-PSSession -Session $PEPSession
 ```
 
-## <a name="rotating-only-internal-secrets"></a>僅輪替內部祕密
+## <a name="rotating-only-internal-secrets"></a>僅輪替內部秘密
 
 > [!Note]
 > 只有當您懷疑內部祕密已受到惡意實體危害，或當您收到指出內部憑證即將到期的警示 (在 1811 或更新版本的組建上) 時，才應該執行「內部祕密輪替」。
@@ -250,9 +250,9 @@ Remove-PSSession -Session $PEPSession
     > [!Note]
     > 1811 之前版本的 Azure Stack 環境將不需要 **-Internal** 旗標。 **Start-SecretRotation** 只會輪替內部祕密。
 
-3. 等候祕密進行輪替。
+3. 等候秘密進行輪替。
 
-當祕密輪替成功完成時，您的主控台會顯示**整體動作狀態：成功**。
+當秘密輪替成功完成時，您的主控台會顯示**整體動作狀態：成功**。
     > [!Note]
     > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **–Internal** and **-ReRun** parameters.  
 
@@ -260,11 +260,11 @@ Remove-PSSession -Session $PEPSession
 Start-SecretRotation -Internal -ReRun
 ```
 
-如果祕密輪替重複失敗，請聯絡支援人員。
+如果秘密輪替重複失敗，請聯絡支援人員。
 
 ## <a name="start-secretrotation-reference"></a>Start-SecretRotation 參考
 
-輪替 Azure Stack 系統的祕密。 只針對 Azure Stack 具特殊權限的端點執行。
+輪替 Azure Stack 系統的秘密。 只針對 Azure Stack 具特殊權限的端點執行。
 
 ### <a name="syntax"></a>語法
 
@@ -300,11 +300,11 @@ Start-SecretRotation [-ReRun] [-Internal]
 
 | 參數 | 類型 | 必要 | 位置 | 預設值 | 說明 |
 | -- | -- | -- | -- | -- | -- |
-| PfxFilesPath | 字串  | False  | 已命名  | None  | **\Certificates** 目錄的檔案共用路徑包含所有外部網路端點的憑證。 僅在輪替外部密碼時才需要。 結尾目錄必須是 **\Certificates**。 |
-| CertificatePassword | SecureString | False  | 已命名  | None  | -PfXFilesPath 中所提供所有憑證的密碼。 如果 PfxFilesPath 是在輪替外部密碼時提供，則為必要值。 |
-| 內部 | 字串 | False | 已命名 | None | 每當 Azure Stack 操作員想要輪替內部基礎結構祕密時，都必須使用 Internal 旗標。 |
-| PathAccessCredential | PSCredential | False  | 已命名  | None  | **\Certificates** 目錄檔案共用的 PowerShell 認證包含所有外部網路端點的憑證。 僅在輪替外部密碼時才需要。  |
-| ReRun | SwitchParameter | False  | 已命名  | None  | 在嘗試失敗之後，每當想重新嘗試祕密輪替時，都必須使用 ReRun。 |
+| `PfxFilesPath` | 字串  | False  | 已命名  | None  | **\Certificates** 目錄的檔案共用路徑包含所有外部網路端點的憑證。 僅在輪替外部密碼時才需要。 結尾目錄必須是 **\Certificates**。 |
+| `CertificatePassword` | SecureString | False  | 已命名  | None  | -PfXFilesPath 中所提供所有憑證的密碼。 如果 PfxFilesPath 是在輪替外部密碼時提供，則為必要值。 |
+| `Internal` | 字串 | False | 已命名 | None | 每當 Azure Stack 操作員想要輪替內部基礎結構祕密時，都必須使用 Internal 旗標。 |
+| `PathAccessCredential` | PSCredential | False  | 已命名  | None  | **\Certificates** 目錄檔案共用的 PowerShell 認證包含所有外部網路端點的憑證。 僅在輪替外部密碼時才需要。  |
+| `ReRun` | SwitchParameter | False  | 已命名  | None  | 在嘗試失敗之後，每當想重新嘗試祕密輪替時，都必須使用 ReRun。 |
 
 ### <a name="examples"></a>範例
 
@@ -316,7 +316,7 @@ Start-SecretRotation [-ReRun] [-Internal]
 PS C:\> Start-SecretRotation -Internal
 ```
 
-此命令會輪替對 Azure Stack 內部網路公開的所有基礎結構祕密。
+此命令會輪替對 Azure Stack 內部網路公開的所有基礎結構秘密。
 
 #### <a name="rotate-only-external-infrastructure-secrets"></a>僅輪替外部基礎結構祕密  
 
@@ -363,7 +363,7 @@ Invoke-Command -Session $PEPSession -ScriptBlock {
 Remove-PSSession -Session $PEPSession
 ```
 
-此命令會輪替對 Azure Stack 內部網路公開的所有基礎結構祕密，以及用於 Azure Stack 外部網路基礎結構端點的 TLS 憑證。 Start-SecretRotation 會輪替所有堆疊產生的祕密，且因為有提供認證，外部端點憑證也會輪替。  
+此命令會輪替對 Azure Stack 內部網路公開的所有基礎結構祕密，以及用於 Azure Stack 外部網路基礎結構端點的 TLS 憑證。 Start-SecretRotation 會輪替所有堆疊產生的秘密，且因為有提供認證，外部端點憑證也會輪替。  
 
 ## <a name="update-the-baseboard-management-controller-bmc-credential"></a>更新基礎板管理控制器 (BMC) 認證
 

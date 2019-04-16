@@ -61,7 +61,7 @@ ms.locfileid: "58862098"
 
 活動記錄可深入了解對 Azure 資源的作業。 診斷記錄檔提供深入了解您的資源執行的作業。 如需詳細資訊，請參閱 < [Azure 監視器診斷記錄](../azure-monitor/platform/diagnostic-logs-overview.md)。
 
-![診斷記錄檔](./media/front-door-diagnostics/diagnostic-log.png)
+![診斷記錄](./media/front-door-diagnostics/diagnostic-log.png)
 
 若要為您的前端服務設定診斷記錄檔：
 

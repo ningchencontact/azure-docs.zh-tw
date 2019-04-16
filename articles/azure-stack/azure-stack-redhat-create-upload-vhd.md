@@ -13,20 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 04/03/2019
 ms.author: mabrigg
 ms.reviewer: jeffgo
 ms.lastreviewed: 08/15/2018
-ms.openlocfilehash: e287a6f436b51f55d9a5aa59dbbe2a195015c292
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 728839accbce80ece6795e098d5d2855320fab06
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883108"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006673"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>準備適用於 Azure Stack 的 Red Hat 型虛擬機器
 
-在本文中，您將了解如何準備 Red Hat Enterprise Linux (RHEL) 虛擬機器以在 Azure Stack 中使用。 本文涵蓋的 RHEL 版本為 7.1+。 本文章所述之準備作業使用 Hyper-V、核心為基礎之虛擬機器 (KVM) 及 VMware 等 Hypervisor。
+在此文章中，您將了解如何準備 Red Hat Enterprise Linux (RHEL) 虛擬機器以在 Azure Stack 中使用。 此文章涵蓋的 RHEL 版本為 7.1+。 此文章所述之準備作業使用 Hyper-V、核心為基礎之虛擬機器 (KVM) 及 VMware 等 Hypervisor。
 
 如需 Red Hat Enterprise Linux 支援資訊，請參閱 [Red Hat 和 Azure Stack：常見問題集](https://access.redhat.com/articles/3413531) \(英文\)。
 
@@ -77,7 +77,7 @@ ms.locfileid: "58883108"
     sudo systemctl enable network
     ```
 
-1. 透過執行以下命令來註冊 Red Hat 訂用帳戶，以便從 RHEL 存放庫安裝套件：
+1. 透過執行以下命令來註冊 Red Hat 訂用帳戶，以便從 RHEL 儲存機制安裝封裝：
 
     ```bash
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
@@ -116,7 +116,7 @@ ms.locfileid: "58883108"
     ClientAliveInterval 180
     ```
 
-1. WALinuxAgent 套件 `WALinuxAgent-<version>` 已推送至 Red Hat extras 存放庫。 執行下列命令以啟用 extras 存放庫：
+1. WALinuxAgent 套件 `WALinuxAgent-<version>` 已推送至 Red Hat extras 儲存機制。 執行下列命令以啟用 extras 儲存機制：
 
     ```bash
     subscription-manager repos --enable=rhel-7-server-extras-rpms
@@ -214,7 +214,7 @@ ms.locfileid: "58883108"
     sudo systemctl enable network
     ```
 
-1. 透過執行以下命令來註冊 Red Hat 訂用帳戶，以便從 RHEL 存放庫安裝套件：
+1. 透過執行以下命令來註冊 Red Hat 訂用帳戶，以便從 RHEL 儲存機制安裝封裝：
 
     ```bash
     subscription-manager register --auto-attach --username=XXX --password=XXX
@@ -264,7 +264,6 @@ ms.locfileid: "58883108"
 1. 確定您已安裝 SSH 伺服器，並已設定為在開機時啟動：
 
     ```bash
-    systemctl stop cloud-init
     systemctl enable sshd
     ```
 
@@ -277,9 +276,9 @@ ms.locfileid: "58883108"
 
 1. 為 Azure Stack 建立自訂的 vhd 時，請記住，在執行 1903 之前組建的 Azure Stack 環境中，無法執行介於 2.2.20 和 2.2.35.1 (兩者均不含) 之間的 WALinuxAgent 版本。 若要解決此問題，請套用 1901/1902 Hotfix，或遵循這部分指示的後半段。 
 
-如果您在執行 Azure Stack 組建 1903 (或更新版本) 或有 1901 /1902 Hotfix，請從 Redhat extras 存放庫下載 WALinuxAgent 套件，如下所示：
+    如果您在執行 Azure Stack 組建 1903 (或更新版本) 或有 1901 /1902 Hotfix，請從 Redhat extras 存放庫下載 WALinuxAgent 套件，如下所示：
     
-   WALinuxAgent 套件 `WALinuxAgent-<version>` 已推送至 Red Hat extras 存放庫。 執行下列命令以啟用 extras 存放庫：
+   WALinuxAgent 套件 `WALinuxAgent-<version>` 已推送至 Red Hat extras 儲存機制。 執行下列命令以啟用 extras 存放庫：
 
     ```bash
     subscription-manager repos --enable=rhel-7-server-extras-rpms
@@ -298,7 +297,7 @@ ms.locfileid: "58883108"
     ```
     
     
-如果您在執行 1903 之前的 Azure Stack 組建且尚未套用 1901 /1902 Hotfix，請遵循下列指示來下載 WALinuxAgent：
+    如果您在執行 1903 之前的 Azure Stack 組建且尚未套用 1901 /1902 Hotfix，請遵循下列指示來下載 WALinuxAgent：
     
    a.   下載 setuptools
     ```bash
@@ -312,15 +311,15 @@ ms.locfileid: "58883108"
     unzip v2.2.36.zip
     cd WALinuxAgent-2.2.36
     ```
-    c. Install setup.py
+    c. 安裝 setup.py
     ```bash
     sudo python setup.py install
     ```
-    d. Restart waagent
+    d. 重新啟動 waagent
     ```bash
     sudo systemctl restart waagent
     ```
-    e. Test if the agent version matches the one your downloaded. For this example, it should be 2.2.36.
+    e. 測試代理程式版本是否符合您下載的版本。 針對此範例，它應該是 2.2.36。
     
     ```bash
     waagent -version
@@ -425,7 +424,7 @@ ms.locfileid: "58883108"
     sudo chkconfig network on
     ```
 
-1. 透過執行以下命令來註冊 Red Hat 訂用帳戶，以便從 RHEL 存放庫安裝套件：
+1. 透過執行以下命令來註冊 Red Hat 訂用帳戶，以便從 RHEL 儲存機制安裝封裝：
 
     ```bash
     sudo subscription-manager register --auto-attach --username=XXX --password=XXX
@@ -478,7 +477,7 @@ ms.locfileid: "58883108"
     ClientAliveInterval 180
     ```
 
-1. WALinuxAgent 套件 `WALinuxAgent-<version>` 已推送至 Red Hat extras 存放庫。 執行下列命令以啟用 extras 存放庫：
+1. WALinuxAgent 套件 `WALinuxAgent-<version>` 已推送至 Red Hat extras 儲存機制。 執行下列命令以啟用 extras 儲存機制：
 
     ```bash
     subscription-manager repos --enable=rhel-7-server-extras-rpms

@@ -526,7 +526,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 * 已修正升級後會導致出現不必要的完整同步處理步驟的問題。 一般而言，如果現成的同步處理規則有所變更，才需要在升級後執行完整的同步處理步驟。 問題原因在於變更偵測邏輯發生錯誤，當碰到同步處理規則運算式有新行字元時，會誤偵測到變更。 新行字元會插入到同步處理規則運算式，以提高可讀性。
 * 已修正會導致 Azure AD Connect 伺服器在自動升級後無法正常運作的問題。 此問題會影響 Azure AD Connect 伺服器 1.1.443.0 版 (或更早的版本)。 如需此問題的詳細資訊，請參閱文章 [Azure AD Connect 無法在自動升級後正確運作](https://support.microsoft.com/help/4038479/azure-ad-connect-is-not-working-correctly-after-an-automatic-upgrade)。
 * 已修正會導致遇到錯誤時每隔 5 分鐘重試自動升級的問題。 藉由修正，自動升級會在遇到錯誤時使用指數退避法重試。
-* 已修正 Windows 應用程式事件記錄檔將密碼同步化事件 611 錯誤顯示為**資訊**而非**錯誤**的問題。 只要密碼同步化發生問題，都會產生事件 611。 
+* 已修正 Windows 應用程式事件記錄將密碼同步化事件 611 錯誤顯示為**資訊**而非**錯誤**的問題。 只要密碼同步化發生問題，都會產生事件 611。 
 * 已修正未選取群組回寫所需的 OU 即允許啟用群組回寫功能的 Azure AD Connect 精靈問題。
 
 #### <a name="new-features-and-improvements"></a>新功能和改進
@@ -901,7 +901,7 @@ AD FS 管理
 
 Azure AD Connect 同步處理
 * Get-ADSyncScheduler Cmdlet 現在會傳回一個名為 SyncCycleInProgress 的新布林值屬性。 如果傳回的值為 true，即表示有已排定的同步處理循環正在進行。
-* 用來儲存 Azure AD Connect 安裝和設定記錄檔的目的地資料夾已經從 %localappdata%\AADConnect 移到 %programdata%\AADConnect，以提升記錄檔的存取便利性。
+* 用來儲存 Azure AD Connect 安裝和設定記錄的目的地資料夾已經從 %localappdata%\AADConnect 移到 %programdata%\AADConnect，以提升記錄的存取便利性。
 
 AD FS 管理
 * 新增對更新「AD FS 伺服器陣列 SSL 憑證」的支援。
