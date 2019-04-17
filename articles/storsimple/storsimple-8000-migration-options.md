@@ -11,19 +11,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/10/2019
+ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: e8a5ae4a4ee9cfd5c39e8e399784ec65f2ee2660
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 78508c1227c0b278041b86c3fdd698c6ad27c132
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500901"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608179"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>從 StorSimple 5000-7000 系列移轉資料的選項 
 
 > [!IMPORTANT]
-> StorSimple 5000/7000 系列將於 2019 年 7 月 31 日到達結束支援 (EOS) 狀態。 建議 StorSimple 5000/7000 系列的客戶遷移至文件中所述的其中一個替代方案。
+> 於 2019 年 7 月 9 日 StorSimple 5000/7000 系列會到達結束支援 (EOS) 狀態。 建議 StorSimple 5000/7000 系列的客戶遷移至文件中所述的其中一個替代方案。
 
 StorSimple 5000-7000 系列即將在 2019 年 7 月[終止支援](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%205000%2F7000%20Series)。 執行 StorSimple 5000-7000 系列的客戶可以選擇升級至其他 Azure 第一方混合式服務。 本文說明可用來移轉資料的 Azure 混合式選項。 
 

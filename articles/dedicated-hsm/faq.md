@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/27/2019
+ms.date: 4/15/2019
 ms.author: barclayn
-ms.openlocfilehash: 19e2fb7736457884d29a142e997338e3c7ef72e7
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d432dc25a1995a2f0348c7626a051f46ffbf418b
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540817"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608855"
 ---
 # <a name="frequently-asked-questions-faq"></a>常見問題集 (FAQ)
 
@@ -155,6 +155,10 @@ Azure 專用硬體安全模組 (HSM) 最適合移轉案例。 意即，如果您
 
 Microsoft 對您的 HSM 並沒有任何管理或密碼編譯控制權。 Microsoft 具有監視層級存取權 (透過序列埠連線)，以便擷取基本的遙測 (例如溫度和元件的健康狀態)。 這可讓 Microsoft 提供健康狀態問題的主動式通知。 如有需要，客戶可以停用此帳戶。
 
+### <a name="q-what-is-the-tenantadmin-account-microsoft-uses-i-am-used-to-the-admin-user-being-admin-on-safenet-hsms"></a>問：什麼是 Microsoft 「 tenantadmin 」 帳戶使用，我習慣正在"admin"SafeNet Hsm 上的系統管理員使用者嗎？
+
+HSM 裝置隨附的預設使用者的系統管理員使用其慣用的預設密碼。 Microsoft 不想等候客戶佈建集區中的任何裝置時，在使用有預設密碼。 這不符合我們的嚴格的安全性需求。 基於這個理由，我們會在佈建期間設定強式密碼，便會捨棄。 此外，在佈建時我們建立新的使用者稱為 「 tenantadmin 」 系統管理員角色中。 這位使用者有預設的密碼，而且客戶變更這做為第一個動作第一次登入的新佈建的裝置時。 此程序可確保高程度的安全性，並為客戶維持我們唯一的系統管理控制權的承諾。 請注意 「 tenantadmin 「 使用者可用來重設系統管理員使用者密碼，如果偏好使用該帳戶的客戶。 
+
 ### <a name="q-can-microsoft-or-anyone-at-microsoft-access-keys-in-my-dedicated-hsm"></a>問：Microsoft 或任何 Microsoft 員工是否可在我的專用硬體安全模組 (HSM) 中存取金鑰？
 
 沒有。 對於儲存在客戶配置專用 HSM 中的金鑰，Microsoft 並不具有任何存取權。
@@ -181,7 +185,7 @@ Gemalto HSM 用戶端軟體可用於管理 HSM 和分割區。
 
 ## <a name="high-availability"></a>高可用性
 
-### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>問：是否可以在相同區域或跨多個區域中設定高可用性？
+### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>問：是否可以在相同區域或跨多個區域，設定高可用性？
 
 是。 高可用性設定和設定，會在 Gemalto 提供的 HSM 用戶端軟體中執行。 從相同的 VNET 或其他 Vnet 位於相同區域或跨區域，或在內部部署 Hsm 的 Hsm 連線至 VNET，使用站對站或點對點 VPN 可以新增至相同的高可用性組態。 請注意，這會同步處理只使用金鑰的內容並不是特定的設定項目，例如角色。
 
@@ -201,7 +205,7 @@ Gemalto HSM 用戶端軟體可用於管理 HSM 和分割區。
 
 ### <a name="q-what-is-the-sla-for-dedicated-hsm-service"></a>問：什麼是專用硬體安全模組 (HSM) 服務的 SLA？
 
-沒有專用的 HSM 服務提供任何特定的執行時間 guarentee。 Microsoft 會確保裝置的網路層級存取，因此會套用標準 Azure 網路 SLA。
+沒有專用的 HSM 服務提供任何特定的執行時間保證。 Microsoft 會確保裝置的網路層級存取，因此會套用標準 Azure 網路 SLA。
 
 ### <a name="q-how-are-the-hsms-used-in-azure-dedicated-hsm-protected"></a>問：用於 Azure 專用硬體安全模組 (HSM) 的 HSM 如何受保護？
 
@@ -217,7 +221,7 @@ Azure 資料中心具有大量的實體和程序安全性控制。 此外，專�
 
 ### <a name="q-how-do-i-get-support-for-dedicated-hsm"></a>問：如何取得專用硬體安全模組 (HSM) 的支援？
 
-由 Microsoft 和 Gemalto 提供支援。  如果您有硬體發生問題或網路存取，引發與 Microsoft 的支援要求，如果您有使用 HSM 設定、 軟體和應用程式開發的問題，請 rasie 支援要求以 Gemalto。 若您有不明的問題，提出支援要求 withg Microsoft，並再參與 Gemalto，做為所需。 
+由 Microsoft 和 Gemalto 提供支援。  如果您有硬體或網路存取的問題時，引發了 Microsoft 與如果未使用 HSM 設定時，軟體的問題，請提高應用程式開發的 Gemalto 的支援要求的支援要求。 如果您有不明的問題，引發與 Microsoft 的支援要求，而且再參與 Gemalto，做為所需。 
 
 ### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-safenet-luna-7-hsm"></a>問：軟體、 文件以及存取整合指引，供 SafeNet Luna 7 HSM 如何取得用戶端？
 
