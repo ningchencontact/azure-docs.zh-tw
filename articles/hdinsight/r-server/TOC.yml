@@ -254,6 +254,8 @@ items:
       - name: 最佳化 Apache Hive 查詢
         href: ../hdinsight-hadoop-optimize-hive-query.md
         maintainContext: true
+      - name: 變更為叢集組態存取
+        href: ../hdinsight-migrate-granular-access-cluster-configurations.md
     maintainContext: true
 - name: 企業整備
   items:
@@ -307,12 +309,13 @@ items:
   - name: R 開發人員指南
     href: ../../machine-learning/r-developers-guide.md
   - name: 版本資訊
-    href: ../hdinsight-release-notes.md
     items:
+    - name: 目前的版本資訊
+      href: ../hdinsight-release-notes.md
+      maintainContext: true
     - name: 封存的版本資訊
       href: ../hdinsight-release-notes-archive.md
       maintainContext: true
-    maintainContext: true
   - name: Azure 藍圖
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: 在論壇上取得協助
@@ -326,9 +329,9 @@ items:
   - name: HDInsight 適用的 Windows 工具
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: cfeff50427913e7df70bd3a2af3ea83519d27cfe
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 918489a8dbac91078af6114ae4942d8411460a21
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579082"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615739"

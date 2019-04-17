@@ -59,7 +59,7 @@ ms.locfileid: "58666812"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-replica-deployed-list"></a>sfctl replica deployed-list
 取得在 Service Fabric 節點上部署的複本清單。
@@ -84,7 +84,7 @@ ms.locfileid: "58666812"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-replica-health"></a>sfctl replica health
 取得 Service Fabric 具狀態服務複本或無狀態服務執行個體的健康情況。
@@ -108,7 +108,7 @@ ms.locfileid: "58666812"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-replica-info"></a>sfctl replica info
 取得 Service Fabric 分割區複本的相關資訊。
@@ -131,7 +131,7 @@ ms.locfileid: "58666812"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-replica-list"></a>sfctl replica list
 取得 Service Fabric 服務分割區複本的相關資訊。
@@ -154,7 +154,7 @@ GetReplicas 端點會傳回指定分割區複本的相關資訊。 回應會包�
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-replica-remove"></a>sfctl replica remove
 移除在節點上執行的服務複本。
@@ -179,7 +179,7 @@ GetReplicas 端點會傳回指定分割區複本的相關資訊。 回應會包�
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-replica-report-health"></a>sfctl replica report-health
 傳送 Service Fabric 複本的健康情況報告。
@@ -211,7 +211,7 @@ GetReplicas 端點會傳回指定分割區複本的相關資訊。 回應會包�
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-replica-restart"></a>sfctl replica restart
 重新啟動節點上執行之持續性服務的服務複本。
@@ -235,7 +235,7 @@ GetReplicas 端點會傳回指定分割區複本的相關資訊。 回應會包�
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -8,12 +8,12 @@ author: eamonoreilly
 ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 7d7ebc7493ff8e272e35abafeedd8fbc52b986ab
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bee414ada61e2cfcf7609b02ef1da7323a0fe0e3
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002148"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606917"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>建立 Azure 自動化監看員工作，以追蹤本機電腦上的檔案變更
 
@@ -36,6 +36,9 @@ Azure 自動化會使用監看員工作搭配 PowerShell Runbook 來監看事件
 * Azure 訂用帳戶。 如果您沒有這類帳戶，可以[啟用自己的 MSDN 訂戶權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 * [自動化帳戶](automation-offering-get-started.md)以保存監看員和動作 Runbook，以及監看員工作。
 * 執行監看員工作的[混合式 Runbook 背景工作角色](automation-hybrid-runbook-worker.md)。
+
+> [!NOTE]
+> 在 Azure 中國不支援監看員工作。
 
 ## <a name="import-a-watcher-runbook"></a>匯入監看員 Runbook
 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/11/2019
 ms.author: sngun
-ms.openlocfilehash: 7ca51b176c17f33b4779a0129c5dc57b220c0097
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 25f8a88c1b488b9272ed1254aaca79a79bc7e871
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877627"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544189"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>快速入門：使用 .NET SDK 與 Azure Cosmos DB 建置資料表 API 應用程式 
 
@@ -65,9 +65,6 @@ ms.locfileid: "57877627"
    ```bash
    git clone https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started.git
    ```
-   > [!NOTE]
-   > 本文中所述的 .NET 標準範例適用於 Azure Cosmos DB 資料表 API 與 Azure 表格儲存體。 如果您想要執行適用於.NET Framework 4.5 的範例，請參閱 [storage-table-dotnet-getting-started](https://github.com/Azure-Samples/storage-table-dotnet-getting-started) 範例。 
-
 
 ## <a name="open-the-sample-application-in-visual-studio"></a>在 Visual Studio 中開啟範例應用程式
 
@@ -94,7 +91,6 @@ ms.locfileid: "57877627"
       "StorageConnectionString": "<Primary connection string from Azure portal>"
    }
    ```
-   如果您使用 [.NET Framework](https://github.com/Azure-Samples/storage-table-dotnet-getting-started) 範例中，則應更新位於 **App.config** 檔案中的連接字串。
 
 4. 按下 CTRL + S，以儲存 **Settings.json** 檔案。
 
@@ -107,9 +103,6 @@ ms.locfileid: "57877627"
    ![Manage NuGet Packages](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
 
 2. 在 NuGet [瀏覽] 方塊中，輸入Microsoft.Azure.Cosmos.Table。 這會尋找 Cosmos DB 資料表 API 用戶端程式庫。 請注意，此文件庫目前僅適用於 .NET Framework 與 .NET Standard。 
-
-   > [!NOTE]
-   > 如果您使用的範例使用 .NET Framework，則應安裝 *Microsoft.Azure.CosmosDB.Table*、NuGet 套件。 如果您使用搭配 Azure 表格儲存體的 .NET Framework 範例，除了 Cosmos DB 專屬 NuGet 套件，您也需要 *Microsoft.Azure.Storage.Common* NuGet 套件。 
    
    ![[NuGet 瀏覽] 索引標籤](media/create-table-dotnet/azure-cosmosdb-nuget-browse.png)
 

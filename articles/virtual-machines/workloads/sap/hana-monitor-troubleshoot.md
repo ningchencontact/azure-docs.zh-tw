@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 392dd39e2b3b0e26e7b0ba645bf5a70231167ad5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 71970a74817665c97a9522fbc9a68dd3834252b9
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014411"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616351"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>從 HANA 端進行監視和疑難排解
 
@@ -108,7 +108,7 @@ SAP HANA on Linux 的其中一項最重要檢查就是要確保停用 Transparen
 
 ## <a name="storage"></a>儲存體
 
-從使用者的觀點來看，當發生 I/O 效能問題時，應用程式 (或系統整體) 會執行緩慢、沒有回應，或甚至看似死當。 在 SAP HANA Studio 的 [Volumes] (磁碟區) 索引標籤中，您可以看到連接的磁碟區，以及每個服務使用哪些磁碟區。
+從使用者的觀點而言，應用程式 （或系統整體） 執行緩慢、 沒有回應，或甚至似乎停止回應，前提有 I/O 效能問題。 在 SAP HANA Studio 的 [Volumes] \(磁碟區) 索引標籤中，您可以看到連接的磁碟區，以及每個服務使用哪些磁碟區。
 
 ![在 SAP HANA Studio 的 [Volumes] (磁碟區) 索引標籤中，您可以看到連接的磁碟區，以及每個服務使用哪些磁碟區。](./media/troubleshooting-monitoring/image5-volumes-tab-a.png)
 

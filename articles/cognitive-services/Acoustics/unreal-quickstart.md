@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: 691f49e9be8aabe9a3e229bfd3b35ab183f9fed9
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470384"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492394"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>聲場專案 Unreal/Wwise 快速入門
 在本快速入門中，您將會使用針對 Unreal Engine 和 Wwise 所提供的範例內容，對聲場專案設計控制項進行實驗。

@@ -70,7 +70,7 @@ ms.locfileid: "58670875"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-service-code-package-list"></a>sfctl service code-package-list
 取得 Service Fabric 節點上所部署的程式碼套件清單。
@@ -95,7 +95,7 @@ ms.locfileid: "58670875"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-service-create"></a>sfctl service create
 建立指定的 Service Fabric 服務。
@@ -142,7 +142,7 @@ ms.locfileid: "58670875"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-service-delete"></a>sfctl service delete
 刪除現有 Service Fabric 服務。
@@ -165,7 +165,7 @@ ms.locfileid: "58670875"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-service-deployed-type"></a>sfctl service deployed-type
 針對 Service Fabric 叢集節點上所部署的應用程式，取得其指定服務類型的相關資訊。
@@ -190,7 +190,7 @@ ms.locfileid: "58670875"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-service-deployed-type-list"></a>sfctl service deployed-type-list
 從 Service Fabric 叢集節點上所部署的應用程式，取得包含服務類型相關資訊的清單。
@@ -214,7 +214,7 @@ ms.locfileid: "58670875"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-service-description"></a>sfctl service description
 取得現有 Service Fabric 服務的描述。
@@ -236,7 +236,7 @@ ms.locfileid: "58670875"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-service-get-container-logs"></a>sfctl service get-container-logs
 取得在 Service Fabric 節點上部署之容器的容器記錄。
@@ -263,7 +263,7 @@ ms.locfileid: "58670875"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-service-health"></a>sfctl service health
 取得所指定 Service Fabric 服務的健康情況。
@@ -288,7 +288,7 @@ ms.locfileid: "58670875"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-service-info"></a>sfctl service info
 取得屬於 Service Fabric 應用程式的特定服務相關資訊。
@@ -311,7 +311,7 @@ ms.locfileid: "58670875"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-service-list"></a>sfctl service list
 取得屬於應用程式識別碼所指定應用程式之所有服務的相關資訊。
@@ -335,7 +335,7 @@ ms.locfileid: "58670875"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-service-manifest"></a>sfctl service manifest
 取得可描述服務類型的資訊清單。
@@ -359,7 +359,7 @@ ms.locfileid: "58670875"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-service-package-deploy"></a>sfctl service package-deploy
 將與所指定服務資訊清單相關聯的套件下載至所指定節點上的映像快取。
@@ -383,7 +383,7 @@ ms.locfileid: "58670875"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-service-package-health"></a>sfctl service package-health
 針對 Service Fabric 節點和應用程式所部署的特定應用程式，取得服務套件健康情況的相關資訊。
@@ -408,7 +408,7 @@ ms.locfileid: "58670875"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-service-package-info"></a>sfctl service package-info
 取得 Service Fabric 節點上所部署且完全符合指定名稱的服務套件清單。
@@ -432,7 +432,7 @@ ms.locfileid: "58670875"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-service-package-list"></a>sfctl service package-list
 取得 Service Fabric 節點上所部署的服務套件清單。
@@ -455,7 +455,7 @@ ms.locfileid: "58670875"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-service-recover"></a>sfctl service recover
 指示 Service Fabric 叢集應該嘗試復原目前停留在仲裁遺失狀態的指定服務。
@@ -477,7 +477,7 @@ ms.locfileid: "58670875"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-service-report-health"></a>sfctl service report-health
 傳送 Service Fabric 服務的健康情況報告。
@@ -507,7 +507,7 @@ ms.locfileid: "58670875"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-service-resolve"></a>sfctl service resolve
 解析 Service Fabric 資料分割。
@@ -532,7 +532,7 @@ ms.locfileid: "58670875"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-service-type-list"></a>sfctl service type-list
 針對 Service Fabric 叢集中已佈建應用程式類型所支援的服務類型，取得包含服務類型相關資訊的清單。
@@ -555,7 +555,7 @@ ms.locfileid: "58670875"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 ## <a name="sfctl-service-update"></a>sfctl service update
 使用指定的更新描述來更新指定的服務。
@@ -590,7 +590,7 @@ ms.locfileid: "58670875"
 | --help -h | 顯示此說明訊息並結束。 |
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
-| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 為完整偵錯記錄。 |
 
 
 ## <a name="next-steps"></a>後續步驟

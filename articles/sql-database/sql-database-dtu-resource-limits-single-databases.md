@@ -91,7 +91,7 @@ ms.locfileid: "58620541"
 
 - 如需單一資料庫的虛擬核心資源限制，請參閱[使用以虛擬核心為基礎的購買模型的單一資料庫資源限制](sql-database-vcore-resource-limits-single-databases.md)
 - 如需適用於彈性集區的虛擬核心資源限制，請參閱[使用以虛擬核心為基礎的購買模型的彈性集區資源限制](sql-database-vcore-resource-limits-elastic-pools.md)
-- 如需適用於彈性集區的 DTU 資源限制，請參閱[使用以 DTU 為基礎之購買模型的彈性集區資源限制](sql-database-dtu-resource-limits-elastic-pools.md)
+- 如需適用於彈性集區的 DTU 資源限制，請參閱[使用以 DTU 為基礎的購買模型的彈性集區資源限制](sql-database-dtu-resource-limits-elastic-pools.md)
 - 如需受控執行個體的資源限制，請參閱[受控執行個體資源限制](sql-database-managed-instance-resource-limits.md)。
 - 如需一般 Azure 限制的相關資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)。
 - 如需資料庫伺服器資源限制的相關資訊，請參閱 [SQL Database 伺服器上的資源限制概觀](sql-database-resource-limits-database-server.md)，以了解伺服器和訂用帳戶層級的限制。

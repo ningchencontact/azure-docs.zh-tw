@@ -1,53 +1,35 @@
 ---
-title: 建立 Azure 應用程式閘道 - Azure 傳統 CLI | Microsoft Docs
+title: 建立 Azure 應用程式閘道-傳統的 Azure CLI
 description: 了解如何使用 Resource Manager 中的 Azure 傳統 CLI 建立應用程式閘道
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: c2f6516e-3805-49ac-826e-776b909a9104
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.topic: conceptual
+ms.date: 4/15/2019
 ms.author: victorh
-ms.openlocfilehash: e834b1633f17ecec74ae17e962de445ad8d6dccd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 7107f45253c4f13b3378489726bf5034e104fa30
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974420"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608452"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>使用 Azure CLI 建立應用程式閘道
 
-> [!div class="op_single_selector"]
-> * [Azure 入口網站](application-gateway-create-gateway-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
-> * [Azure 傳統 PowerShell](application-gateway-create-gateway.md)
-> * [Azure Resource Manager 範本](application-gateway-create-gateway-arm-template.md)
-> * [Azure 傳統 CLI](application-gateway-create-gateway-cli.md)
-> * [Azure CLI](application-gateway-create-gateway-cli.md)
-> 
-> 
-
-Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內部部署中，此閘道均提供在不同伺服器之間進行容錯移轉及效能路由傳送 HTTP 要求。 應用程式閘道具有下列應用程式傳遞功能：HTTP 負載平衡、以 Cookie 為基礎的工作階段同質性、「安全通訊端層」(SSL) 卸載、自訂健康狀態探查，以及多站台支援。
+Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內部部署中，此閘道均提供在不同伺服器之間進行容錯移轉及效能路由傳送 HTTP 要求。 應用程式閘道有下列的應用程式傳遞功能：HTTP 負載平衡、 cookie 型工作階段親和性及安全通訊端層 (SSL) 卸載、 自訂健康情況探查，並支援多站台。
 
 ## <a name="prerequisite-install-the-azure-cli"></a>必要條件：安裝 Azure CLI
 
-若要執行此文章中的步驟，您需要[安裝 Azure CLI](../xplat-cli-install.md)，而且您需要[登入 Azure](/cli/azure/authenticate-azure-cli)。 
+若要執行本文中的步驟，您需要[安裝 Azure CLI](../xplat-cli-install.md) ，您需要[登入 Azure](/cli/azure/authenticate-azure-cli)。 
 
 > [!NOTE]
-> 如果您沒有 Azure 帳戶，就需要申請一個。 請[在這裡註冊免費試用](../active-directory/fundamentals/sign-up-organization.md)。
+> 如果您沒有 Azure 帳戶，就需要申請一個。 請 [在此處註冊免費試用](../active-directory/fundamentals/sign-up-organization.md)。
 
 ## <a name="scenario"></a>案例
 
 在此案例中，您將了解如何使用 Azure 入口網站來建立應用程式閘道。
 
-此案例將會：
+此方案将：
 
 * 建立含有兩個執行個體的中型應用程式閘道。
 * 建立名為 ContosoVNET 且含有 10.0.0.0/16 保留 CIDR 區塊的虛擬網路。
@@ -58,17 +40,17 @@ Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內�
 
 ## <a name="before-you-begin"></a>開始之前
 
-「Azure 應用程式閘道」需要有自己的子網路。 建立虛擬網路時，請確定您保留足夠的位址空間，以便擁有多個子網路。 將應用程式閘道部署到子網路之後，就只能將額外的應用程式閘道新增到該子網路。
+「Azure 應用程式閘道」需要有自己的子網路。 在创建虚拟网络时，请确保保留足够的地址空间，以便设置多个子网。 將應用程式閘道部署到子網路之後，就只能將額外的應用程式閘道新增到該子網路。
 
-## <a name="log-in-to-azure"></a>登入 Azure
+## <a name="sign-in-to-azure"></a>登入 Azure
 
-開啟 [Microsoft Azure 命令提示字元] 並登入。 
+開啟**Microsoft Azure 命令提示字元**，並登入。
 
 ```azurecli-interactive
-azure login
+az login
 ```
 
-輸入上述範例後會提供程式碼。 在瀏覽器中瀏覽至 https://aka.ms/devicelogin 以繼續登入程序。
+輸入上述範例後會提供程式碼。 瀏覽至 https://aka.ms/devicelogin瀏覽器繼續登上處理程序中。
 
 ![顯示裝置登入的 cmd][1]
 
@@ -108,7 +90,7 @@ azure network vnet create \
 --location eastus
 ```
 
-## <a name="create-a-subnet"></a>建立子網路
+## <a name="create-a-subnet"></a>创建子网
 
 建立虛擬網路之後，就會為應用程式閘道新增子網路。  如果您打算使用應用程式閘道搭配與其裝載於相同虛擬網路中的 Web 應用程式，請務必保留足夠的空間給另一個子網路使用。
 
@@ -122,7 +104,7 @@ azure network vnet subnet create \
 
 ## <a name="create-the-application-gateway"></a>建立應用程式閘道
 
-建立虛擬網路和子網路後，便已完成應用程式閘道的先決條件。 此外下列步驟也需要先前匯出的 .pfx 憑證和憑證密碼︰用於後端的 IP 位址是後端伺服器的 IP 位址。 這些值可以是虛擬網路中的私人 IP、公用 IP 或後端伺服器的完整網域名稱。
+建立虛擬網路和子網路後，便已完成應用程式閘道的先決條件。 此外先前匯出的.pfx 憑證和憑證密碼所需的下列步驟：用於後端的 IP 位址是後端伺服器的 IP 位址。 這些值可以是虛擬網路中的私人 IP、公用 IP 或後端伺服器的完整網域名稱。
 
 ```azurecli-interactive
 azure network application-gateway create \
@@ -151,9 +133,9 @@ azure network application-gateway create \
 
 ## <a name="next-steps"></a>後續步驟
 
-請參閱[建立自訂健康狀態探查](application-gateway-create-probe-portal.md)以了解如何建立自訂健康情況探查
+參閱 [建立自訂健康狀態探查](application-gateway-create-probe-portal.md)
 
-請參閱[設定 SSL 卸載](application-gateway-ssl-arm.md)以設定 SSL 卸載並從您的 Web 伺服器移除成本高昂的 SSL 解密
+访问 [配置 SSL 卸载](application-gateway-ssl-arm.md)
 
 <!--Image references-->
 

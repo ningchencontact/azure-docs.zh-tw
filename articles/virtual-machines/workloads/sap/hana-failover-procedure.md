@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 48bea302f2f8e878275e6a7c222d703e0f31f239
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
-ms.translationtype: HT
+ms.openlocfilehash: ca4d5912d75dd7b33737f61737a209284b7a5a47
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44492812"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616147"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>災害復原容錯移轉程序
 
@@ -87,7 +87,7 @@ ms.locfileid: "44492812"
 1. 使用 SAP HANA Studio，將備份位置變更為 **/hana/logbackups**。
    ![變更 DR 復原的備份位置](./media/hana-overview-high-availability-disaster-recovery/change_backup_location_dr1.png)
 
-1. SAP HANA 會掃描所有備份檔案位置，並建議可作為還原目的地的最新交易記錄備份。 掃描可能需要幾分鐘的時間，完成後會出現如下所示的畫面：![DR 復原的交易記錄備份清單](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
+1. SAP HANA 會掃描所有備份檔案位置，並建議可作為還原目的地的最新交易記錄備份。 掃描可能需要幾分鐘的時間之前的畫面顯示下列內容：![清單中的 DR 復原的交易記錄備份](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
 
 1. 調整某些預設設定：
 
@@ -104,7 +104,7 @@ ms.locfileid: "44492812"
 
 ![還原進度](./media/hana-overview-high-availability-disaster-recovery/restore_progress_dr5.PNG)
 
-如果還原似乎卡在 [完成] 畫面，而且未顯示進度畫面，請確認背景工作節點上的所有 SAP HANA 執行個體是否正在執行。 如有必要，請手動啟動 SAP HANA 執行個體。
+如果還原似乎在停止回應**完成**畫面並不顯示進度畫面，請確認背景工作節點上的所有 SAP HANA 執行個體正在都執行。 如有必要，請手動啟動 SAP HANA 執行個體。
 
 
 ## <a name="failback-from-a-dr-to-a-production-site"></a>從 DR 容錯回復到生產網站

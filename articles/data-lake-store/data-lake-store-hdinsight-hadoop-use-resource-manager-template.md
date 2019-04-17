@@ -30,7 +30,7 @@ ms.locfileid: "58880129"
 
 了解如何使用 Azure PowerShell 設定搭配 Azure Data Lake Storage Gen1 **作為額外儲存體**的 HDInsight 叢集。
 
-對於支援的叢集類型，Data Lake Storage Gen1 可做為預設儲存體或額外儲存體帳戶。 Data Lake Storage Gen1 做為額外儲存體時，叢集的預設儲存體帳戶仍然是 Azure 儲存體 Blob (WASB)，且叢集相關的檔案 (例如記錄檔等) 仍然會寫入預設儲存體，而您想要處理的資料會儲存於 Data Lake Storage Gen1 帳戶中。 使用 Data Lake Storage Gen1 作為額外儲存體帳戶將不會影響效能或從叢集讀取/寫入至儲存體的能力。
+對於支援的叢集類型，Data Lake Storage Gen1 可做為預設儲存體或額外儲存體帳戶。 當 Data Lake Storage Gen1 作為額外儲存體使用時，叢集的預設儲存體帳戶仍然會是 Azure 儲存體 Blob (WASB)，且叢集相關的檔案 (例如記錄等) 仍然會寫入預設儲存體，而您想要處理的資料則可儲存在 Data Lake Storage Gen1 帳戶中。 使用 Data Lake Storage Gen1 作為額外儲存體帳戶將不會影響效能或從叢集讀取/寫入至儲存體的能力。
 
 ## <a name="using-data-lake-storage-gen1-for-hdinsight-cluster-storage"></a>將 Data Lake Storage Gen1 作為 HDInsight 叢集儲存體使用
 

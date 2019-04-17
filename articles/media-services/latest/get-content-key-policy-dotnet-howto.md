@@ -10,20 +10,18 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 04/09/2019
+ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: 49cc2b8c151053377f8f1da0792f10a06695b332
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 58b6f49f4bbbd93fefb9b616f92baf7ef30f7deb
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496313"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615824"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>從現有原則取得簽署金鑰
 
-v3 API 的金鑰設計原則之一，是讓 API 更為安全。 v3 Api 不會傳回密碼或認證上**取得**或是**清單**作業。 回應中的金鑰一律為 Null、空白或處理過的。 使用者需要呼叫個別的動作方法，以取得祕密或認證。 **讀取器**角色不能呼叫作業，使其無法呼叫 Asset.ListContainerSas，StreamingLocator.ListContentKeys，ContentKeyPolicies.GetPolicyPropertiesWithSecrets 等作業。 擁有個別的動作，可讓您設定更細微的 RBAC 安全性權限，如有需要的自訂角色。
-
-如需詳細資訊，請參閱[RBAC 和媒體服務帳戶](rbac-overview.md)
+v3 API 的金鑰設計原則之一，是讓 API 更為安全。 v3 Api 不會傳回密碼或認證上**取得**或是**清單**作業。 請參閱詳細的說明：如需詳細資訊，請參閱[RBAC 和媒體服務帳戶](rbac-overview.md)
 
 本文中的範例示範如何使用 .NET 從現有原則取得簽署金鑰。 
  

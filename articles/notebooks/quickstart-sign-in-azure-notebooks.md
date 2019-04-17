@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: f3effc900b79ddb7beac6a3aaf2eee0a264f7b4d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: eb8ba7f23de99d333693430d806a8d887c55a678
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59280854"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608152"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>快速入門：登入並設定使用者識別碼
 
@@ -33,6 +33,9 @@ ms.locfileid: "59280854"
 1. 出現提示時，請輸入 Microsoft 帳戶或工作或學校帳戶的電子郵件地址，然後選取 [下一步]。 帳戶類型會在[您的 Azure Notebooks 使用者帳戶](azure-notebooks-user-account.md)上說明。 如果您沒有 Microsoft 帳戶，或想要申請一個專門用於 Azure Notebooks 的帳戶，請選取 [建立帳戶]：
 
     ![在登入提示中建立新的 Microsoft 帳戶命令](media/accounts/create-new-microsoft-account.png)
+
+    > [!Tip]
+    > 如果您嘗試建立新的帳戶已經具有與它相關聯的帳戶電子郵件地址，您可能會看到訊息，「 您無法註冊這裡使用的公司或學校電子郵件地址。 使用個人的電子郵件，例如 Gmail 或 yahoo ！ 或取得新的 Outlook 電子郵件 」。 在此情況下，嘗試登入的工作電子郵件地址而不需要建立新的帳戶。
 
 1. 在系統提示時輸入您的密碼。
 
@@ -64,4 +67,4 @@ ms.locfileid: "59280854"
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [快速入門：建立及共用筆記本](quickstart-create-share-jupyter-notebook.md)
+> [快速入門：建立及共用 Notebook](quickstart-create-share-jupyter-notebook.md)

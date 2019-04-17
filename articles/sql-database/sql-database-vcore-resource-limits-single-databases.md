@@ -23,7 +23,7 @@ ms.locfileid: "58260225"
 
 本文使用以虛擬核心為基礎的購買模型，提供 Azure SQL Database 單一資料庫的詳細資源限制。
 
-如需 SQL Database 伺服器上單一資料庫的 DTU 型購買模型限制，請參閱 [SQL Database 伺服器上的資源限制概觀](sql-database-resource-limits-database-server.md)。
+如需 SQL Database 伺服器上單一資料庫的以 DTU 為基礎的購買模型限制，請參閱 [SQL Database 伺服器上的資源限制概觀](sql-database-resource-limits-database-server.md)。
 
 > [!IMPORTANT]
 > 在某些情況下，您可能需要壓縮資料庫來回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
@@ -275,9 +275,9 @@ ms.locfileid: "58260225"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需單一資料庫的 DTU 資源限制，請參閱[使用以 DTU 為基礎之購買模型的單一資料庫資源限制](sql-database-dtu-resource-limits-single-databases.md)
+- 如需單一資料庫的 DTU 資源限制，請參閱[使用以 DTU 為基礎的購買模型的單一資料庫資源限制](sql-database-dtu-resource-limits-single-databases.md)
 - 如需適用於彈性集區的虛擬核心資源限制，請參閱[使用以虛擬核心為基礎的購買模型的彈性集區資源限制](sql-database-vcore-resource-limits-elastic-pools.md)
-- 如需適用於彈性集區的 DTU 資源限制，請參閱[使用以 DTU 為基礎之購買模型的彈性集區資源限制](sql-database-dtu-resource-limits-elastic-pools.md)
+- 如需適用於彈性集區的 DTU 資源限制，請參閱[使用以 DTU 為基礎的購買模型的彈性集區資源限制](sql-database-dtu-resource-limits-elastic-pools.md)
 - 如需受控執行個體的資源限制，請參閱[受控執行個體資源限制](sql-database-managed-instance-resource-limits.md)。
 - 如需一般 Azure 限制的相關資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)。
 - 如需資料庫伺服器資源限制的相關資訊，請參閱 [SQL Database 伺服器上的資源限制概觀](sql-database-resource-limits-database-server.md)，以了解伺服器和訂用帳戶層級的限制。

@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: 8875674b0f9c621a573dda591b4dc2b6f018a83c
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470333"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494777"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>聲場專案 Unity 聲場模擬教學課程
 本教學課程描述在 Unity 中運用聲場專案進行聲場模擬。
@@ -201,7 +201,7 @@ Azure 認證會安全地儲存在您的本機電腦上，並與您的 Unity 編�
 ### <a name="run-local-bake"></a>執行本機製作
 1. 按一下 [Bake] \(聲場模擬\) 索引標籤上的 [Prepare Local Bake] \(準備在本機進行聲場模擬\) 按鈕，然後選取要儲存輸入檔案和執行指令碼的資料夾。 然後，您可以在任何電腦上執行製作，只要它符合最低硬體需求，並藉由將資料夾複製到該電腦來安裝 Docker。
 2. 使用 "runlocalbake.bat" 指令碼啟動模擬。 該指令碼將使用模擬處理所需的工具組擷取 Project Acoustics Docker 映像，並啟動模擬。 
-3. 模擬完成後，請將產生的 .ace 檔案複製回您的 Unity 專案。 若要確定 Unity 會將此辨識為二進位檔案，請將 ".bytes" 附加到檔案副檔名 (例如，"Scene1.ace.bytes")。 模擬的詳細記錄檔會儲存在 "AcousticsLog.txt" 中。 如果您遇到任何問題，請共用此檔案以協助進行診斷。
+3. 模擬完成後，請將產生的 .ace 檔案複製回您的 Unity 專案。 若要確定 Unity 會將此辨識為二進位檔案，請將 ".bytes" 附加到檔案副檔名 (例如，"Scene1.ace.bytes")。 模擬的詳細記錄會儲存在 "AcousticsLog.txt" 中。 如果您遇到任何問題，請共用此檔案以協助進行診斷。
 
 ## <a name="Data-Files"></a> 由聲場模擬程序新增的資料檔案
 

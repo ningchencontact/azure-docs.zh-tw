@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 4b83917a76cb4b3e24ca4f5961d3a00c4d2c9cb0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/15/2019
+ms.openlocfilehash: c618a4035e9ec9b1ca1986e898ea1060ac05712d
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077253"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615943"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>如何使用 Azure 入口網站，在適用於 MariaDB 的 Azure 資料庫中設定伺服器參數
 
@@ -46,10 +46,12 @@ InnoDB 緩衝集區和連線數目上限無法設定，且與您的[定價層](c
 |一般用途| 8| 15360| 1250|
 |一般用途| 16| 31232| 2500|
 |一般用途| 32| 62976| 5000|
+|一般用途| 64| 125952| 10000|
 |記憶體最佳化| 2| 7168| 600|
 |記憶體最佳化| 4| 15360| 1250|
 |記憶體最佳化| 8| 30720| 2500|
 |記憶體最佳化| 16| 62464| 5000|
+|記憶體最佳化| 32| 125952| 10000|
 
 這些額外的伺服器參數皆無法在系統中設定：
 

@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: rosh
 ms.openlocfilehash: a6a98d9ddf76e86feb35c6d3d71f7777b0edd51d
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471761"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491129"
 ---
 # <a name="tutorial-crop-an-image-with-the-bing-visual-search-sdk-for-c"></a>教學課程：使用適用於 C# 的 Bing 圖像式搜尋 SDK 裁剪影像
 

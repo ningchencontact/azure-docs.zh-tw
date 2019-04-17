@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 5eb3c08792b760bf66e443f79762d91210706c92
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
-ms.translationtype: HT
+ms.openlocfilehash: cda08d44cba9e59af853b1705f538ec199ec4d3a
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435107"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59630460"
 ---
 在第一個情節中，您要將新的遙測類型新增至 Contoso 的現有 **Chiller** 裝置類型。
 
@@ -98,13 +98,11 @@ ms.locfileid: "47435107"
 
 在 Visual Studio Code 中開啟 **remote-monitoring-services-dotnet-master\storage-adapter** 資料夾。 按一下任何 [還原] 按鈕，以修正任何無法解決的相依性。
 
-開啟 **.vscode/launch.json** 檔案，並將 Cosmos 連接字串指派到 **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** 環境變數。
-
-<!-- Open the **WebService/appsettings.ini** file and assign your Cosmos DB connection string to the **documentdb_connstring** configuration setting.-->
+開啟**storage-adapter/WebService/appsettings.ini**檔案，並指派您 Cosmos DB 連接字串**documentDBConnectionString**變數。
 
 若要在本機執行微服務，請按一下 [偵錯] > [開始偵錯]。
 
-Visual Studio Code 中的 [終端機] 視窗會顯示執行中微服務的輸出，包括 Web 服務健康情況檢查的 URL：[http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status)。 當您瀏覽至此位址時，狀態應該是「正確: 運作良好」。
+Visual Studio Code 中的 [終端機] 視窗會顯示執行中微服務的輸出，包括 Web 服務健康情況檢查的 URL：[http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status)。 导航到此地址时，状态应显示为“正常:活动且正常”。
 
 在完成後續步驟時，請讓儲存體配接器微服務繼續在 Visual Studio Code 的這個執行個體中執行。
 
@@ -417,11 +415,7 @@ Visual Studio Code 中的 [終端機] 視窗會顯示執行中微服務的輸出
 
 在 Visual Studio Code 的新執行個體中，開啟您從 GitHub 下載的 **device-simulation-dotnet-master** 資料夾。 按一下任何 [還原] 按鈕，以修正任何無法解決的相依性。
 
-開啟 **.vscode/launch.json** 檔案，並將 IoT 中樞連接字串指派到 **PCS_IOTHUB_CONNSTRING** 環境變數。 在相同檔案中，新增 **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** 環境變數，並且指派 Cosmos DB 資料庫的連接字串。
-
-開啟 **WebService/Properties/launchSettings.json** 檔案，並將 IoT 中樞連接字串指派到 **PCS_IOTHUB_CONNSTRING** 環境變數。
-
-開啟 **WebService/appsettings.ini** 檔案，並如下所示地修改設定：
+開啟**WebService/appsettings.ini**檔案，並指派您 Cosmos DB 連接字串**documentdb_connstring**變數，以及修改的設定，如下所示：
 
 ```ini
 device_models_folder = C:\temp\devicemodels\

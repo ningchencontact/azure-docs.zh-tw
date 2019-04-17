@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 8533a5b2a974af3bd426e9b70ba298534b0365f7
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: f69fd7af23c360edc208561f915bd351c3fd373c
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917510"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608430"
 ---
 # <a name="translator-text-api-30-translate"></a>翻譯工具文字 API 3.0：Translate
 
@@ -86,7 +86,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>allowFallback</td>
-    <td>選擇性參數。<br/>指出服務可在自訂系統不存在時，回復為一般系統。 可能的值為：<code>true</code> (預設) 或 <code>false</code>。<br/><br/><code>allowFallback=false</code> 指定轉譯應該只使用系統的訓練<code>category</code>要求所指定。 如果從語言 X 翻譯為語言 Y 需要透過樞紐語言 E 來鏈結，則鏈結中的所有系統 (X->E 和 E->Y) 都必須是自訂的，且具有相同類別。 如果沒有找到具有特定類別的系統，則要求會傳回 400 狀態碼。 <code>allowFallback=true</code> 指定自訂的系統不存在時，會回復到一般的系統允許服務。
+    <td>選擇性參數。<br/>指出服務可在自訂系統不存在時，回復為一般系統。 可能的值為：<code>true</code> (預設) 或 <code>false</code>。<br/><br/><code>allowFallback=false</code> 會指出翻譯只應該使用針對要求所指定的 <code>category</code> 而進行訓練的系統。 如果從語言 X 翻譯為語言 Y 需要透過樞紐語言 E 來鏈結，則鏈結中的所有系統 (X->E 和 E->Y) 都必須是自訂的，且具有相同類別。 如果沒有找到具有特定類別的系統，則要求會傳回 400 狀態碼。 <code>allowFallback=true</code> 會指出服務可在自訂系統不存在時，回復為一般系統。
 </td>
   </tr>
 </table> 
@@ -97,8 +97,8 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   <th width="20%">headers</th>
   <th>描述</th>
   <tr>
-    <td>_一個授權_<br/>_頁首_</td>
-    <td>必要的要求標頭。<br/>請參閱[可用的驗證選項](./v3-0-reference.md#authentication)。</td>
+    <td>驗證標頭</td>
+    <td>必要的要求標頭。<br/>請參閱<a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">可用的驗證選項</a>。</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -110,7 +110,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td><em>選擇性</em>。<br/>用於識別唯一要求的 GUID，由用戶端產生。 若您使用名為 <code>ClientTraceId</code> 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
+    <td>可选。<br/>用於識別唯一要求的 GUID，由用戶端產生。 若您使用名為 <code>ClientTraceId</code> 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
   </tr>
 </table> 
 
@@ -133,39 +133,39 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
 成功的回應是輸入陣列的每個字串各有一個結果的 JSON 陣列。 結果物件包含下列屬性：
 
-  * `detectedLanguage`：物件，透過下列屬性描述偵測到的語言：
+  * `detectedLanguage`:物件，透過下列屬性描述偵測到的語言：
 
-      * `language`：字串，代表偵測到語言的代碼。
+      * `language`:字串，代表偵測到語言的代碼。
 
-      * `score`：浮點值，表示結果的信賴度。 分數介於 0 與 1 之間，分數低表示信賴度偏低。
+      * `score`:浮點值，表示結果的信賴度。 分數介於 0 與 1 之間，分數低表示信賴度偏低。
 
     只有在要求自動偵測語言時，`detectedLanguage` 屬性才會存在於結果物件中。
 
-  * `translations`：翻譯結果的陣列。 陣列大小符合透過 `to` 查詢參數指定的目標語言數。 陣列中的每個項目都包括：
+  * `translations`:翻譯結果的陣列。 陣列大小符合透過 `to` 查詢參數指定的目標語言數。 陣列中的每個項目都包括：
 
-    * `to`：字串，代表目標語言的語言代碼。
+    * `to`:字串，代表目標語言的語言代碼。
 
-    * `text`：字串，提供翻譯文字。
+    * `text`:字串，提供翻譯文字。
 
-    * `transliteration`：物件，提供 `toScript` 參數所指定指令碼中的翻譯文字。
+    * `transliteration`:物件，提供 `toScript` 參數所指定指令碼中的翻譯文字。
 
-      * `script`：字串，指定目標指令碼。   
+      * `script`:字串，指定目標指令碼。   
 
-      * `text`：字串，提供目標指令碼中的翻譯文字。
+      * `text`:字串，提供目標指令碼中的翻譯文字。
 
     若未進行音譯，則不會包括 `transliteration` 物件。
 
-    * `alignment`：單一字串屬性名為 `proj` 的物件，以將輸入文字對應至翻譯文字。 只有在要求參數 `includeAlignment` 是 `true` 時，才會提供對齊方式資訊。 對齊方式會以下列格式的字串值傳回：`[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`。  冒號區隔開始與結束索引、虛線區隔語言，而空格區隔字組。 一個字組可能符合另一種語言的零、一或多個字組，而且符合的字組可能未連續。 沒有對齊方式資訊可用時，對齊方式項目會空白。 如需範例和限制，請參閱[取得對齊資訊](#obtain-alignment-information)。
+    * `alignment`:單一字串屬性名為 `proj` 的物件，以將輸入文字對應至翻譯文字。 只有在要求參數 `includeAlignment` 是 `true` 時，才會提供對齊方式資訊。 對齊方式會以下列格式的字串值傳回：`[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`。  冒號區隔開始與結束索引、虛線區隔語言，而空格區隔字組。 一個字組可能符合另一種語言的零、一或多個字組，而且符合的字組可能未連續。 沒有對齊方式資訊可用時，對齊方式項目會空白。 如需範例和限制，請參閱[取得對齊資訊](#obtain-alignment-information)。
 
-    * `sentLen`：物件，傳回輸入和輸出文字中的句子界限。
+    * `sentLen`:物件，傳回輸入和輸出文字中的句子界限。
 
-      * `srcSentLen`：整數陣列，代表輸入文字中句子的長度。 陣列長度就是句子數目，而值是每個句子的長度。
+      * `srcSentLen`:整數陣列，代表輸入文字中句子的長度。 陣列長度就是句子數目，而值是每個句子的長度。
 
-      * `transSentLen`：整數陣列，代表翻譯文字中句子的長度。 陣列長度就是句子數目，而值是每個句子的長度。
+      * `transSentLen`:整數陣列，代表翻譯文字中句子的長度。 陣列長度就是句子數目，而值是每個句子的長度。
 
     只有在要求參數 `includeSentenceLength` 是 `true` 時，才會包括句子界限。
 
-  * `sourceText`：具有名為 `text` 之單一字串屬性的物件，以提供來源語言之預設指令碼中的輸入文字。 `sourceText` 輸入以不是一般的指令碼語言的指令碼時，只顯示屬性。 例如，若輸入是以拉丁文指令碼寫入的阿拉伯文，則 `sourceText.text` 會是轉換成阿拉伯文指令碼的相同阿拉伯文文字。
+  * `sourceText`:具有名為 `text` 之單一字串屬性的物件，以提供來源語言之預設指令碼中的輸入文字。 只有在以不是語言一般指令碼的指令碼表示輸入時，才會有 `sourceText` 屬性。 例如，若輸入是以拉丁文指令碼寫入的阿拉伯文，則 `sourceText.text` 會是轉換成阿拉伯文指令碼的相同阿拉伯文文字。
 
 [範例](#examples)一節提供 JSON 回應的範例。
 
@@ -233,7 +233,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
 此範例示範如何將單一句子從英文翻譯成簡體中文。
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -259,7 +259,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 此範例示範如何將單一句子從英文翻譯成簡體中文。 要求未指定輸入語言。 改為使用來源語言的自動偵測。
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -285,7 +285,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 讓我們新增轉換以擴充前一個範例。 下列要求會要求以拉丁文指令碼撰寫的中文翻譯。
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans&toScript=Latn" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -316,7 +316,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 一次翻譯多個字串就像是在要求本文中指定字串陣列一樣。
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
@@ -345,7 +345,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 本範例示範如何使用一個要求將相同輸入翻譯為數種語言。
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -403,10 +403,10 @@ Translator 服務通常會在翻譯中保留存在於來源的粗話。 粗話�
 
 例如︰
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a freaking good idea.'}]"
 ```
 
 ---
@@ -425,10 +425,10 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 相較於：
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a freaking good idea.'}]"
 ```
 
 ---
@@ -456,7 +456,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 以下是要說明的範例要求。
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
@@ -480,7 +480,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 若要收到對齊方式資訊，請在查詢字串上指定 `includeAlignment=true`。
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeAlignment=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation.'}]"
@@ -518,7 +518,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 若要收到來源文字和翻譯文字中句子長度的相關資訊，請在查詢字串上指定 `includeSentenceLength=true`。
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeSentenceLength=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation. The best machine translation technology cannot always provide translations tailored to a site or users like a human. Simply copy and paste a code snippet anywhere.'}]"

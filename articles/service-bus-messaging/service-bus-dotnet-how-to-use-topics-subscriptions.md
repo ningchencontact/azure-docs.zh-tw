@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 19949b555a5be21c06c3acfbbd5fb9be08dc9f23
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 892d485fb5cdaa08107870e9ab5b2b7ad9bcba5b
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766933"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608889"
 ---
 # <a name="get-started-with-service-bus-topics"></a>開始使用服務匯流排主題
 
@@ -27,24 +27,20 @@ ms.locfileid: "57766933"
 
 本教學課程涵蓋下列步驟：
 
-1. 使用 Azure 入口網站建立服務匯流排命名空間。
-2. 使用 Azure 入口網站建立服務匯流排主題。
-3. 使用 Azure 入口網站，針對該主題建立服務匯流排訂用帳戶。
-4. 撰寫 .NET Core 主控台應用程式，以將一組訊息傳送到主題。
-5. 撰寫 .NET Core 主控台應用程式，以從訂用帳戶接收這些訊息。
+1. 撰寫 .NET Core 主控台應用程式，以將一組訊息傳送到主題。
+2. 撰寫 .NET Core 主控台應用程式，以從訂用帳戶接收這些訊息。
 
 ## <a name="prerequisites"></a>必要條件
 
-1. [Visual Studio 2017 Update 3 (版本 15.3, 26730.01)](https://www.visualstudio.com/vs) 或更新版本。
-2. [.NET Core SDK](https://www.microsoft.com/net/download/windows)，2.0 版或更新版本。
-2. Azure 訂用帳戶。
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-[!INCLUDE [service-bus-create-topics-subscriptions-portal](../../includes/service-bus-create-topics-subscriptions-portal.md)]
-
+1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用您[Visual Studio 或 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+2. 遵循的步驟[快速入門：使用 Azure 入口網站建立服務匯流排主題和訂用帳戶的主題](service-bus-quickstart-topics-subscriptions-portal.md)來執行下列工作：
+    1. 建立服務匯流排**命名空間**。
+    2. 取得**連接字串**。
+    3. 建立**主題**命名空間中。
+    4. 建立**一個訂用帳戶**命名空間中的主題。
+3. [Visual Studio 2017 Update 3 (版本 15.3, 26730.01)](https://www.visualstudio.com/vs) 或更新版本。
+4. [.NET Core SDK](https://www.microsoft.com/net/download/windows)，2.0 版或更新版本。
+ 
 ## <a name="send-messages-to-the-topic"></a>將訊息傳送到主題
 
 為了將訊息傳送至主題，請使用 Visual Studio 撰寫 C# 主控台應用程式。
@@ -204,7 +200,7 @@ ms.locfileid: "57766933"
 
 ## <a name="receive-messages-from-the-subscription"></a>自訂用帳戶接收訊息
 
-若要接收您剛傳送的訊息，請建立另一個 .NET Core 主控台應用程式，並安裝 **Microsoft.Azure.ServiceBus** NuGet 套件 (類似於先前的傳送者應用程式)。
+若要接收您傳送的訊息，建立另一個.NET Core 主控台應用程式並安裝**Microsoft.Azure.ServiceBus** NuGet 套件，類似於先前的傳送者應用程式。
 
 ### <a name="write-code-to-receive-messages-from-the-subscription"></a>撰寫程式碼以從訂用帳戶接收訊息
 
