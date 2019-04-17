@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 00e2c143116550aa77d38b4bc93bbe2e0b41c331
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 3541376331725fddcd58d94625f5d761ef159c97
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868339"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526484"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>將語言偵測容器部署到 Azure Kubernetes 服務
 
@@ -206,7 +206,7 @@ ms.locfileid: "55868339"
 
     對於這個區段的步驟 3 儲存完整值。 
 
-1. 若要授予 AKS 叢集所需的正確存取權，以使用容器登錄中儲存的映像，請建立角色指派。 使用在前兩個步驟中所蒐集的值，取代 <appId> 和 <acrId>。
+1. 若要授予 AKS 叢集所需的正確存取權，以使用容器登錄中儲存的映像，請建立角色指派。 使用在前兩個步驟中所蒐集的值，取代 `<appId>` 和 `<acrId>`。
 
     ```azurecli
     az role assignment create --assignee <appId> --scope <acrId> --role Reader

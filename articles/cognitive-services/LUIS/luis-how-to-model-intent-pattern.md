@@ -1,7 +1,7 @@
 ---
 title: 新增精確度的模式
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: 了解如何在 Language Understanding (LUIS) 應用程式中新增模式範本，以改善預測準確度。
+description: 加入模式以提高預測準確度，Language Understanding (LUIS) 應用程式中的範本。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 132f6eab86c02e28fe562a0c7d3357175e5813b8
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 202b9632b7a7faaf955874a0300edbe5134b7fa1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195042"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521249"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>如何新增模式，以提高預測準確度
-LUIS 應用程式接收端點表達方式之後，請使用[模式](luis-concept-patterns.md)以提高預測準確度的顯示模式，以文字順序和 word 選擇的發音。 模式使用特定[語法](luis-concept-patterns.md#pattern-syntax)若要指出的位置：[實體](luis-concept-entity-types.md)，實體的角色，以及選擇性的文字。
+LUIS 應用程式接收端點表達方式之後，請使用[模式](luis-concept-patterns.md)以提高預測準確度的顯示模式，以文字順序和 word 選擇的發音。 模式使用特定[語法](luis-concept-patterns.md#pattern-syntax)若要指出的位置：[實體](luis-concept-entity-types.md)，實體[角色](luis-concept-roles.md)，及選擇性的文字。
 
 ## <a name="add-template-utterance-to-create-pattern"></a>將範本語句新增至建立模式
 1. 在 [我的應用程式]頁面上選取您的應用程式名稱加以開啟，然後在 [改善應用程式效能] 之下，選取左面板中的 [模式]。
@@ -34,7 +34,7 @@ LUIS 應用程式接收端點表達方式之後，請使用[模式](luis-concept
 
     ![模式的實體螢幕擷取畫面](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    如果您的實體在實體名稱之後包含一個角色 (以一個冒號 `:` 表示該角色)，例如 `{Location:Origin}`。 實體的角色清單會顯示在清單中。 選取角色，然後選取 Enter。 
+    如果您的實體包含[角色](luis-concept-roles.md)，表示單一的冒號，角色`:`之後的實體名稱，例如`{Location:Origin}`。 實體的角色清單會顯示在清單中。 選取角色，然後選取 Enter。 
 
     ![實體與角色的螢幕擷取畫面](./media/luis-how-to-model-intent-pattern/patterns-4.png)
 

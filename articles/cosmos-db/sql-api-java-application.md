@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: ramkris
-ms.openlocfilehash: 4d6d26bd142a62d57b55caa290a2a94a3988737d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a915792ad5cd1352c666f8224345c54e278ab899
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008700"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526872"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>使用 Azure Cosmos DB 和 SQL API 來建置 Java Web 應用程式
 
@@ -71,7 +71,7 @@ ms.locfileid: "58008700"
    
     ![建立新的 JSP 檔案 - Java Web 應用程式教學課程](./media/sql-api-java-application/image11.png)
 5. 在 [選取 JSP 範本] 對話方塊中，基於本教學課程的目的，選取 [新增 JSP 檔案 (html)]，然後按一下 [完成]。
-6. 在 Eclipse 中開啟 index.jsp 檔案時，請加入文字以顯示 **Hello World!**。 (在現有的 <body> 元素內加入)。 已更新的 <body> 內容看起來應該與下列程式碼類似：
+6. 在 Eclipse 中開啟 index.jsp 檔案時，請加入文字以顯示 **Hello World!**。 (在現有的 `<body>` 元素內加入)。 已更新的 `<body>` 內容看起來應該與下列程式碼類似：
    
         <body>
             <% out.println("Hello World!"); %>
@@ -99,8 +99,13 @@ ms.locfileid: "58008700"
    ![安裝 SQL Java 應用程式 SDK](./media/sql-api-java-application/image13.png)
      
    * 或透過文字編輯器，將群組識別碼和構件識別碼的相依性 XML 直接新增至 pom.xml：
-     
-        <dependency> <groupId>com.microsoft.azure</groupId> <artifactId>azure-documentdb</artifactId> <version>1.9.1</version> </dependency>
+        ```xml
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>azure-documentdb</artifactId>
+            <version>1.9.1</version>
+        </dependency>
+        ```
 6. 按一下 [確定]，Maven 便會開始安裝 SQL Java SDK。
 7. 儲存 pom.xml 檔案。
 

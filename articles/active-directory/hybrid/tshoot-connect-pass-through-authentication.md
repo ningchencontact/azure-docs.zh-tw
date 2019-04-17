@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 4/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f927d1deb3da6269159e1f3f24a17c4675dc7568
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184885"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616199"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>針對 Azure Active Directory 傳遞驗證進行疑難排解
 
@@ -44,11 +44,11 @@ ms.locfileid: "56184885"
 
 如果使用者無法登入使用傳遞驗證，他們可能會在 Azure AD 登入畫面中看到下列其中之一的使用者錯誤： 
 
-|Error|說明|解決方案
+|Error|描述|解決方案
 | --- | --- | ---
 |AADSTS80001|無法連線至 Active Directory|確定代理程式伺服器和必須驗證其密碼的使用者都是相同 AD 樹系的成員，而且都能連線到 Active Directory。  
 |AADSTS8002|連線至 Active Directory 時發生逾時|請檢查以確定 Active Directory 可用，並且會回應來自代理程式的要求。
-|AADSTS80004|傳遞給代理程式的使用者名稱無效|請確定使用者嘗試用來登入的使用者名稱正確無誤。
+|AADSTS80004|傳遞給代理程式的使用者名稱無效|确保用户尝试使用正确的用户名登录。
 |AADSTS80005|驗證發生無法預期的 WebException|暫時性錯誤。 重試要求。 如果持續發生失敗，請連絡 Microsoft 支援服務。
 |AADSTS80007|和 Active Directory 通訊時發生錯誤|請檢查代理程式記錄以了解詳細資訊，並確認 Active Directory 如預期般運作。
 
@@ -72,6 +72,9 @@ ms.locfileid: "56184885"
 | 80010 | 驗證代理程式無法連線將密碼解密。 | 如果問題一再出現，請安裝並註冊新的驗證代理程式。 然後解除安裝目前的代理程式。 
 | 80011 | 驗證代理程式無法擷取解密金鑰。 | 如果問題一再出現，請安裝並註冊新的驗證代理程式。 然後解除安裝目前的代理程式。
 
+>[!IMPORTANT]
+>藉由呼叫驗證使用者名稱及密碼，向 Active Directory 傳遞驗證代理程式進行驗證的 Azure AD 使用者[Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx)。 如此一來，如果您已設定的 [登入到] 設定來限制工作站登入存取的 Active Directory 中，您必須新增伺服器裝載傳遞驗證代理程式，以及 [登入到] 的伺服器清單。 無法執行這項操作，將會封鎖從登入 Azure AD 使用者。
+
 ## <a name="authentication-agent-installation-issues"></a>驗證代理程式安裝問題
 
 ### <a name="an-unexpected-error-occurred"></a>發生意外的錯誤
@@ -88,9 +91,9 @@ ms.locfileid: "56184885"
 
 請確定您在所有 Azure AD Connect 或獨立驗證代理程式安裝和註冊作業中，使用僅限雲端的全域管理員帳戶。 啟用 MFA 的全域管理員帳戶有一個已知的問題，請暫時關閉 MFA (只是為了完成作業) 作為因應措施。
 
-### <a name="an-unexpected-error-occurred"></a>發生意外的錯誤
+### <a name="an-unexpected-error-occurred"></a>发生了意外的错误
 
-從伺服器[收集代理程式記錄](#collecting-pass-through-authentication-agent-logs)，並連絡 Microsoft 支援服務解決您的問題。
+从服务器[收集代理日志](#collecting-pass-through-authentication-agent-logs)，然后联系 Microsoft 支持部门反映问题。
 
 ## <a name="authentication-agent-uninstallation-issues"></a>驗證代理程式解除安裝問題
 
@@ -108,13 +111,13 @@ ms.locfileid: "56184885"
 
 ### <a name="enabling-the-feature-failed-due-to-blocked-ports"></a>因為連接埠遭到封鎖，所以啟用功能失敗。
 
-確認已安裝 Azure AD Connect 的伺服器能與我們的服務 URL 和連接埠通訊，如[這裡](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites)所列。
+确保安装 Azure AD Connect 的服务器能够与我们的服务 URL 和[此处](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites)列出的端口通信。
 
 ### <a name="enabling-the-feature-failed-due-to-token-or-account-authorization-errors"></a>因為權杖或帳戶授權錯誤，所以啟用功能失敗。
 
-請確定您使用僅限雲端的全域管理員帳戶來啟用此功能。 啟用 Multi-Factor Authentication (MFA) 的全域管理員帳戶有一個已知的問題，請暫時關閉 MFA (只是為了完成作業) 作為因應措施。
+启用该功能时，确保使用仅限云的全局管理员帐户。 啟用 Multi-Factor Authentication (MFA) 的全域管理員帳戶有一個已知的問題，請暫時關閉 MFA (只是為了完成作業) 作為因應措施。
 
-## <a name="collecting-pass-through-authentication-agent-logs"></a>收集傳遞驗證代理程式記錄
+## <a name="collecting-pass-through-authentication-agent-logs"></a>收集直通身份验证代理日志
 
 根據發生的問題類型，您需要在不同的位置尋找傳遞驗證代理程式記錄。
 
@@ -146,7 +149,7 @@ ms.locfileid: "56184885"
 
 ### <a name="domain-controller-logs"></a>網域控制站記錄
 
-如果已經啟用稽核記錄，您可以在網域控制站的安全性記錄中找到其他資訊。 查詢傳遞驗證代理程式所傳送之登入要求的簡單方式如下︰
+如果已启用审核日志记录，可以在域控制器的安全日志中找到更多信息。 查詢傳遞驗證代理程式所傳送之登入要求的簡單方式如下︰
 
 ```
     <QueryList>

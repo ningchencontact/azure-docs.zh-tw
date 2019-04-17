@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b00ba910537fd43c9dcadcf33adf3817b14400d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: a23b024737f6af1f6361983045037b325783518a
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272337"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564895"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yardi-elearning"></a>教學課程：Azure Active Directory 與 Yardi eLearning 整合
 
@@ -108,9 +108,9 @@ Yardi eLearning 與 Azure AD 整合提供下列優點：
 
     ![Yardi eLearning 網域與 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<companyname>.yardielearning.com/login`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.yardielearning.com/login`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `https://<companyname>.yardielearning.com/trust`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.yardielearning.com/trust`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Yardi eLearning 用戶端支援小組](mailto:elearning@yardi.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
@@ -198,9 +198,9 @@ Yardi eLearning 與 Azure AD 整合提供下列優點：
 
 ## <a name="additional-resources"></a>其他資源
 
-- [ 如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單 ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？ ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

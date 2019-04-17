@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: ec9eba4766da1afbbee568374de1ce06dc92ab2b
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: c0dcfc4ad7edf4d9203b807aa799eb047c753bed
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203294"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59551602"
 ---
 ## <a name="register-your-application"></a>註冊您的應用程式
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)以註冊應用程式。
 1. 如果您的帳戶可讓您存取多個租用戶，請在右上角選取帳戶，然後將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
-1. 在左側導覽窗格中，選取 [Azure Active Directory] 服務，然後選取 [應用程式註冊 (預覽)] > [新增註冊]。
+1. 瀏覽至 Microsoft 身分識別平台，以取得開發人員的[應用程式註冊](https://go.microsoft.com/fwlink/?linkid=2083908)頁面。
 1. [註冊應用程式] 頁面出現時，輸入您應用程式的名稱。
 1. 在 [支援的帳戶類型] 底下，選取 [任何組織目錄中的帳戶及個人的 Microsoft 帳戶]。
 1. 在 [重新導向 URI] 區段底下，選取 [Web] 平台，然後根據您的 Web 伺服器，將值設定為應用程式的 URL。 如需有關如何設定及取得 Visual Studio 和 Node 中重新導向 URL 的相關指示，請參閱下列各節。
@@ -39,7 +39,7 @@ ms.locfileid: "58203294"
 > 對於 Node.js，您可以在 server.js 檔案中設定網頁伺服器連接埠。 此教學課程會使用連接埠 30662 作為參考，但您可以使用任何其他可用的連接埠。 請遵循下列指示以在應用程式註冊資訊中設定重新導向 URL：<br/>
 > - 切換回 [應用程式註冊]，然後將 `http://localhost:30662/` 設定為 `Redirect URL`，或如果您使用自訂的 TCP 連接埠，請使用 `http://localhost:[port]/` (其中 *[port]* 是自訂的 TCP 連接埠號碼)。
 
-<p/>
+<p>
 
 > #### <a name="visual-studio-instructions-for-obtaining-the-redirect-url"></a>取得重新導向 URL 的 Visual Studio 指示
 > 請遵循下列步驟以取得重新導向 URL：
@@ -54,14 +54,15 @@ ms.locfileid: "58203294"
     ```javascript
     var applicationConfig = {
         clientID: "Enter_the_Application_Id_here",
-        authority: "https://login.microsoftonline.com/common",
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
         graphScopes: ["user.read"],
         graphEndpoint: "https://graph.microsoft.com/v1.0/me"
     };
     ```
 
-<ol start="2">
-<li>
-以您剛剛註冊的應用程式識別碼取代 <code>Enter the application Id here</code>。
-</li>
-</ol>
+    其中：
+    - `Enter_the_Application_Id_here` - 是您註冊的應用程式所具備的**應用程式 (用戶端) 識別碼**。
+    - `Enter_the_Tenant_Info_Here` - 會設為下列其中一個選項：
+       - 如果您的應用程式支援 [此組織目錄中的帳戶]，請將此值取代為 [租用戶識別碼] 或 [租用戶名稱] (例如 contoso.microsoft.com)
+       - 如果您的應用程式支援 [任何組織目錄中的帳戶]，請將此值取代為 `organizations`
+       - 如果您的應用程式支援 [任何組織目錄中的帳戶及個人的 Microsoft 帳戶]，請將此值取代為 `common`

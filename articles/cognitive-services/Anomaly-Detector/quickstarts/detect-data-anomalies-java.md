@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 06cb4d32359014f3cbc67ed1f75988c794e6599e
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 1c8ce91a0fd8805b307e1e21bc08f9050b8a47d4
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619506"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547034"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>快速入門：偵測異常的時間序列資料使用異常偵測器 REST API 和 Java
 
@@ -82,7 +82,7 @@ ms.locfileid: "58619506"
 3. 讀取 JSON 資料檔案
 
     ```java
-    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "UTF-8");
+    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "utf-8");
     ```
 
 ## <a name="create-a-function-to-send-requests"></a>建立傳送要求的函式
@@ -93,9 +93,9 @@ ms.locfileid: "58619506"
 
 3. 使用要求`setHeader()`函式來設定`Content-Type`標頭`application/json`，並新增您的訂用帳戶金鑰，以`Ocp-Apim-Subscription-Key`標頭。
 
-4. 使用要求的`setEntity()`要傳送之資料的函式。   
+4. 使用要求的`setEntity()`要傳送之資料的函式。
 
-5. 使用用戶端`execute()`函式以傳送要求，並將它儲存到`CloseableHttpResponse`物件。 
+5. 使用用戶端`execute()`函式以傳送要求，並將它儲存到`CloseableHttpResponse`物件。
 
 6. 建立`HttpEntity`回應內容儲存的物件。 取得與內容`getEntity()`。 如果回應不是空的請將它傳回。
 
@@ -127,16 +127,20 @@ static String sendRequest(String apiAddress, String endpoint, String subscriptio
 
 1. 建立一個方法，叫做`detectAnomaliesBatch()`來偵測異常行為，整個批次的資料。 呼叫`sendRequest()`上方建立端點、 url、 訂用帳戶金鑰和 json 資料的方法。 得到的結果，並列印到主控台。
 
-2. 在資料集中尋找異常狀況的位置。 回應的`isAnomaly`欄位包含與指定的資料點是否為異常狀況相關的布林值。 取得 JSON 陣列，並逐一查看，列印的任何索引`true`值。 如果找不到任何，這些值會對應到的異常資料點索引。
+2. 如果回應包含`code`欄位中，列印的錯誤碼和錯誤訊息。
 
-    
-    ```java
-    static void detectAnomaliesBatch(String requestData) {
-        System.out.println("Detecting anomalies as a batch");
-        String result = sendRequest(batchDetectionUrl, endpoint, subscriptionKey, requestData);
-        if (result != null) {
-            System.out.println(result);
-            JSONObject jsonObj = new JSONObject(result);
+3. 否則資料集中尋找異常狀況的位置。 回應的`isAnomaly`欄位包含與指定的資料點是否為異常狀況相關的布林值。 取得 JSON 陣列，並逐一查看，列印的任何索引`true`值。 如果找不到任何，這些值會對應到的異常資料點索引。
+
+```java
+static void detectAnomaliesBatch(String requestData) {
+    System.out.println("Detecting anomalies as a batch");
+    String result = sendRequest(batchDetectionUrl, endpoint, subscriptionKey, requestData);
+    if (result != null) {
+        System.out.println(result);
+        JSONObject jsonObj = new JSONObject(result);
+        if (jsonObj.has("code")) {
+            System.out.println(String.format("Detection failed. ErrorCode:%s, ErrorMessage:%s", jsonObj.getString("code"), jsonObj.getString("message")));
+        } else {
             JSONArray jsonArray = jsonObj.getJSONArray("isAnomaly");
             System.out.println("Anomalies found in the following data positions:");
             for (int i = 0; i < jsonArray.length(); ++i) {
@@ -146,7 +150,8 @@ static String sendRequest(String apiAddress, String endpoint, String subscriptio
             System.out.println();
         }
     }
-    ```
+}
+```
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>偵測異常的狀態最新的資料點
 
@@ -165,14 +170,14 @@ static void detectAnomaliesLatest(String requestData) {
 1. 在您的應用程式的 main 方法，讀取 JSON 檔案包含的資料，將會新增至要求中。
 
 2. 呼叫先前建立的兩個異常偵測函式。
-    
-    ```java
-    public static void main(String[] args) throws Exception {
-        String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "UTF-8");
-        detectAnomaliesBatch(requestData);
-        detectAnomaliesLatest(requestData);
-    }
-    ```
+
+```java
+public static void main(String[] args) throws Exception {
+    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "utf-8");
+    detectAnomaliesBatch(requestData);
+    detectAnomaliesLatest(requestData);
+}
+```
 
 ### <a name="example-response"></a>範例回應
 

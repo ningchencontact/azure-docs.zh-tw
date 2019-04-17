@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: 9d5e25e0fd00f9c0635009f684e79336d58b7b4a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 615eaa3df7cabad72ac321978eb01d93a7bfa988
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263752"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608280"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>適用於.NET Core ILogger 記錄 ApplicationInsightsLoggerProvider
 
@@ -387,7 +387,7 @@ Asp.Net Core`ILogger`基礎結構已套用的內建機制[篩選](https://docs.m
     }
    ```
 
-*3.我已更新為[Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)版本 2.7.0-beta3，我現在看到，可將記錄從`ILogger`自動擷取。 如何可以關閉這項功能完全？*
+*3.我已更新為[Microsoft.ApplicationInsights.AspNet SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore)版本 2.7.0-beta3，我現在看到，可將記錄從`ILogger`自動擷取。如何可以關閉這項功能完全？*
 
 * 請參閱[這](../../azure-monitor/app/ilogger.md#control-logging-level)一般情況下一節，以了解如何篩選記錄檔。 若體會 ApplicationInsightsLoggerProvider 来使用`LogLevel.None`它。
 
@@ -414,16 +414,39 @@ Asp.Net Core`ILogger`基礎結構已套用的內建機制[篩選](https://docs.m
 
 * 應用程式的深入解析會擷取並送`ILogger`記錄檔使用相同`TelemetryConfiguration`用於每個其他遙測。 沒有此規則的例外狀況。 預設值`TelemetryConfiguration`並未完整設定時記錄的某些資訊`Program.cs`或是`Startup.cs`本身，因此不會預設組態中，從這些地方的記錄檔，並因此就不會執行所有`TelemetryInitializer`s 和`TelemetryProcessor`s。
 
-*5.Application Insights 遙測類型會產生從`ILogger`記錄檔？ 或，可以看到`ILogger`登入 Application Insights？*
+*5.我使用的獨立封裝 Microsoft.Extensions.Logging.ApplicationInsights，，而且我想要手動登錄一些額外的自訂遙測。如何應該這麼做？*
+
+* 當使用獨立封裝`TelemetryClient`不插入至 DI 容器，因此若要建立的新執行個體預期使用者`TelemetryClient`所用的記錄器提供者使用相同的組態，如下所示。 這可確保相同的設定用於所有自訂的遙測資料，以及從 ILogger 擷取。
+
+```csharp
+public class MyController : ApiController
+{
+   // This telemtryclient can be used to track additional telemetry using TrackXXX() api.
+   private readonly TelemetryClient _telemetryClient;
+   private readonly ILogger _logger;
+
+   public MyController(IOptions<TelemetryConfiguration> options, ILogger<MyController> logger)
+   {
+        _telemetryClient = new TelemetryClient(options.Value);
+        _logger = logger;
+   }  
+}
+```
+
+> [!NOTE]
+> 請注意，是否 package Microsoft.ApplicationInsights.AspNetCore 封裝來啟用 Application Insights，則上述範例應修改為取得`TelemetryClient`直接在建構函式中。 請參閱[這](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core-no-visualstudio#frequently-asked-questions)完整的範例。
+
+
+*6.Application Insights 遙測類型會產生從`ILogger`記錄檔？ 或，可以看到`ILogger`登入 Application Insights？*
 
 * 擷取 ApplicationInsightsLoggerProvider`ILogger`記錄檔，並建立`TraceTelemetry`從它。 如果例外狀況物件傳遞至 log （） 方法上 ILogger，然後而非`TraceTelemetry`、`ExceptionTelemetry`建立。 這些遙測項目可在同一個地方與任何其他`TraceTelemetry`或`ExceptionTelemetry`Application insights，包括入口網站、 分析或 Visual Studio 的本機偵錯工具。
 如果您想要一律傳送`TraceTelemetry`，然後使用 程式碼片段```builder.AddApplicationInsights((opt) => opt.TrackExceptionsAsExceptionTelemetry = false);```。
 
-*5.我沒有安裝 SDK，並為我的 Asp.Net Core 應用程式啟用 Application Insights 的情況下，我在使用 Azure Web 應用程式擴充功能。 如何使用新的提供者？*
+*7.我沒有安裝 SDK，並為我的 Asp.Net Core 應用程式啟用 Application Insights 的情況下，我在使用 Azure Web 應用程式擴充功能。如何使用新的提供者？*
 
 * 在 Azure Web 應用程式的 application Insights 擴充功能會使用舊的提供者。 篩選規則可修改`appsettings.json`應用程式。 如果您想要利用新的提供者，可供建置階段檢測採用 SDK 的 nuget 相依性。 延伸模組會切換成使用新的提供者時，將會更新此文件。
 
-*6.我要使用獨立封裝 Microsoft.Extensions.Logging.ApplicationInsights，並啟用 Application Insights 提供者所呼叫的產生器。AddApplicationInsights("ikey")。 是否有選項可從組態取得檢測金鑰？*
+*8.我要使用獨立封裝 Microsoft.Extensions.Logging.ApplicationInsights，並啟用 Application Insights 提供者所呼叫的產生器。AddApplicationInsights("ikey")。是否有選項可從組態取得檢測金鑰？*
 
 
 * 修改`Program.cs`和`appsettings.json`，如下所示。

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77dadeda8bb270689530a34c3e36d33e439ea9e5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3b00afa3d1001ee7c48997e41fd6042763bcc9aa
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56180380"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616589"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 傳遞驗證：常見問題集
 
@@ -50,6 +50,10 @@ ms.locfileid: "56180380"
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>密碼雜湊同步處理是否會作為傳遞驗證的遞補？
 
 沒有。 傳遞驗證_不會_自動容錯移轉至密碼雜湊同步處理。 若要避免使用者登入失敗，您應該為傳遞驗證設定[高可用性](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)。
+
+## <a name="what-happens-when-i-switch-from-password-hash-synchronization-to-pass-through-authentication"></a>當我從密碼雜湊同步處理切換至 傳遞驗證時，會發生什麼事？
+
+當您使用 Azure AD Connect 來切換登入方法從密碼雜湊同步處理為傳遞驗證時，傳遞驗證會變成主要登入方法為您受控網域中的使用者。 請注意，先前已同步處理密碼雜湊同步處理所有使用者的密碼雜湊仍然會儲存在 Azure AD。
 
 ## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>能否在傳遞驗證代理程式所在的同一部伺服器上安裝 [Azure AD 應用程式 Proxy](../manage-apps/application-proxy.md) 連接器？
 

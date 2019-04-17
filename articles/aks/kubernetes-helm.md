@@ -1,18 +1,18 @@
 ---
 title: 在 Azure 上的 Kubernetes 中運用 Helm 部署容器
-description: 了解如何部署 Azure Kubernetes Service (AKS) 叢集中的容器使用 Helm 封裝工具
+description: 了解如何使用 Helm 打包工具在 Azure Kubernetes 服务 (AKS) 群集中部署容器
 services: container-service
 author: zr-msft
 ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2019
 ms.author: zarhoads
-ms.openlocfilehash: 0ebf317bf29a378f8cbbed647d3d3e07d2aa6bab
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 2fcdb72fa2717659e78e6f767bdc73b0d7be0886
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757174"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618084"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中使用 Helm 安裝應用程式
 
@@ -133,7 +133,7 @@ stable/datadog                 0.18.0           6.3.0        DataDog Agent
 ```console
 $ helm repo update
 
-Hang tight while we grab the latest from your chart repositories...
+Hold tight while we grab the latest from your chart repositories...
 ...Skip local chart repository
 ...Successfully got an update from the "stable" chart repository
 Update Complete. ⎈ Happy Helming!⎈

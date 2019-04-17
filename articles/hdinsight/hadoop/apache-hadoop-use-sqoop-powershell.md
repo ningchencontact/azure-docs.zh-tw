@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: hrasheed
-ms.openlocfilehash: c3d12224c0eaeafe0559cafdfa0d7c292ded9cee
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: fb15a6389577e8d132b9c5a895a9995a9f7da208
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564486"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607350"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-azure-powershell-for-apache-hadoop-in-hdinsight"></a>在 HDInsight 中使用 Azure PowerShell for Apache Hadoop 執行 Apache Sqoop 作業
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-了解如何使用 Azure PowerShell，在匯入和匯出資料的 HDInsight 叢集與 Azure SQL database 或 SQL Server 資料庫之間的 Azure HDInsight 中執行 Apache Sqoop 作業。 此範例會匯出資料`/tutorials/usesqoop/data/sample.log`從預設儲存體帳戶，然後呼叫它的資料表匯入`log4jlogs`SQL Server 資料庫中。
+了解如何使用 Azure PowerShell，在匯入和匯出資料的 HDInsight 叢集與 Azure SQL database 或 SQL Server 資料庫之間的 Azure HDInsight 中執行 Apache Sqoop 作業。 此範例會匯出資料`/tutorials/usesqoop/data/sample.log`從預設儲存體帳戶，然後呼叫它的資料表匯入`log4jlogs`SQL Server 資料庫中。 這篇文章是將延續[在 HDInsight 中搭配 Hadoop 使用 Apache Sqoop](./hdinsight-use-sqoop.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -27,7 +27,8 @@ ms.locfileid: "59564486"
 
 * 使用 Azure PowerShell 的工作站[AZ 模組](https://docs.microsoft.com/powershell/azure/overview)安裝。
 
-* HDInsight 叢集、 Azure SQL 伺服器和資料庫所定義的[建立叢集與 SQL database](./hdinsight-use-sqoop.md#create-cluster-and-sql-database)。
+* 完成[設定測試環境](./hdinsight-use-sqoop.md#create-cluster-and-sql-database)從[在 HDInsight 中搭配 Hadoop 使用 Apache Sqoop](./hdinsight-use-sqoop.md)。
+
 
 ## <a name="run-apache-sqoop-by-using-powershell"></a>使用 PowerShell 執行 Apache Sqoop
 下列 PowerShell 指令碼前置處理來源檔案，然後將它匯出至 Azure SQL database 資料表`log4jlogs`。 取代`CLUSTERNAME`， `CLUSTERPASSWORD`，和`SQLPASSWORD`必要條件您所使用的值。

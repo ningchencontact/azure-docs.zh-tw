@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: e528b70e257c41f771a1bd3e5ec811c61eb512cc
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 6978b83e66f58e468d9f98394904861c8a4d8bd0
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526668"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618136"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>將 Azure-SSIS 整合執行階段加入虛擬網路
 在下列案例中，將 Azure-SSIS 整合執行階段 (IR) 加入 Azure 虛擬網路： 
@@ -139,7 +139,7 @@ ms.locfileid: "59526668"
     -   Azure 公用 IP 位址，以及名稱 *\<Guid >-azurebatch-cloudservicepublicip*。
     -   網路工作安全性群組同名 *\<Guid >-azurebatch-cloudservicenetworksecuritygroup*。 
 
--   請確認在虛擬網路所屬的資源群組或訂用帳戶上，沒有任何鎖定的資源。 如果您設定了唯讀鎖定或刪除鎖定，則啟動或停止 IR 可能會失敗或停止回應。 
+-   請確認在虛擬網路所屬的資源群組或訂用帳戶上，沒有任何鎖定的資源。 如果您設定唯讀鎖定或刪除鎖定，啟動和停止整合執行階段可能會失敗，或停止回應。 
 
 -   請確認沒有任何 Azure 原則會禁止在虛擬網路所屬資源群組或訂用帳戶之下建立下列資源： 
     -   Microsoft.Network/LoadBalancers 

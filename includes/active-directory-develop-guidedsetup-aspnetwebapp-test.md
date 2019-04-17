@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 9b88a6f3f7e17cfc549b30d1f0d80d4cdf1c3e2d
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 8795c9ab0a4dbb76327d0ead48ed33fb0cff9e86
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58919170"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528527"
 ---
 ## <a name="test-your-code"></a>測試您的程式碼
 
@@ -45,9 +45,9 @@ ms.locfileid: "58919170"
 
 |屬性 |值 |說明 |
 |---|---|---|
-|**Name** |使用者的全名 | 使用者的名字和姓氏。
+|**名稱** |使用者的全名 | 使用者的名字和姓氏。
 |**使用者名稱** |user<span>@domain.com</span> | 用來識別使用者的使用者名稱。
-|**主體** |主體 |用來跨網站唯一識別使用者的字串。|
+|**主旨** |主體 |用來跨網站唯一識別使用者的字串。|
 |**租用戶識別碼** |Guid | 唯一代表使用者 Azure AD 組織的 **guid**。|
 
 此外，您應該會看到驗證要求中所有宣告的資料表。 如需詳細資訊，請參閱 [Azure AD ID 權杖中的宣告清單](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)。
@@ -96,5 +96,3 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 #### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>選項 3：使用自訂方法來驗證簽發者
 
 您可以實作自訂方法，使用 **IssuerValidator** 參數來驗證簽發者。 如需此參數使用方式的詳細資訊，請閱讀 [TokenValidationParameters 類別](/previous-versions/visualstudio/dn464192(v=vs.114))。
-
-[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

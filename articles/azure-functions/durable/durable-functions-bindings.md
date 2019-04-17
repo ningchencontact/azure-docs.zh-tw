@@ -2,7 +2,7 @@
 title: 長期函式中的繫結 - Azure
 description: 如何針對 Azure Functions 的 Durable Functions 擴充功能使用觸發程序和繫結。
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 889d26be12fef62d37a471fbe0640a2b8ecdd99c
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: 678e370977cadae642207f91a02136404fb6c34e
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337184"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609314"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>長期函式中的繫結 (Azure Functions)
 
@@ -288,7 +288,7 @@ public static async Task<dynamic> Mapper([ActivityTrigger] DurableActivityContex
 請參閱 [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) API 文件，以取得這些作業的其他詳細資料。
 
 > [!WARNING]
-> 以 JavaScript 在本機開發時，您必須將環境變數 `WEBSITE_HOSTNAME` 設定為 `localhost:<port>`，例如 `localhost:7071`，以使用 `DurableOrchestrationClient` 上的方法。 如需此需求的詳細資訊，請參閱 [GitHub 問題](https://github.com/Azure/azure-functions-durable-js/issues/28) \(英文\)。
+> 以 JavaScript 在本機開發時，您必須將環境變數 `WEBSITE_HOSTNAME` 設定為 `localhost:<port>`，例如 `localhost:7071`，以在 `DurableOrchestrationClient` 上使用方法。 如需此需求的詳細資訊，請參閱 [GitHub 問題](https://github.com/Azure/azure-functions-durable-js/issues/28) \(英文\)。
 
 ### <a name="client-sample-visual-studio-development"></a>用戶端範例 (Visual Studio 開發)
 

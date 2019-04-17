@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 3b403eb80bae01efe730b69b7e6a5ddaea81355a
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: b389d86fe4d23e3f4ee1c66e4270a74351098129
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447645"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579354"
 ---
 # <a name="why-use-batch-transcription"></a>為何使用 Batch 轉譯？
 
@@ -82,11 +82,21 @@ Batch 轉譯 API 支援下列格式：
 
 ### <a name="configuration-properties"></a>組態屬性
 
-| 參數 | 說明 | 必要/選用 |
+| 參數 | 描述 | 必要/選用 |
 |-----------|-------------|---------------------|
 | `ProfanityFilterMode` | 指定如何處理辨識結果中的不雅內容。 接受的值為 `none` (會停用不雅內容過濾)、`masked` (為以星號取代不雅內容)、`removed` (會移除結果中的所有不雅內容) 或 `tags` (會新增「不雅內容」標記)。 預設設定為 `masked`。 | 選用 |
 | `PunctuationMode` | 指定如何處理辨識結果中的標點符號。 接受的值為`none` (會停用標點符號)、`dictated` (暗示明確的標點符號)、`automatic` (會讓解碼器處理標點符號) 或 `dictatedandautomatic` (暗示口述的標點符號或自動)。 | 選用 |
  | `AddWordLevelTimestamps` | 指定是否將字組層級時間戳記新增至輸出。 接受的值為`true` 會啟用字組層級時間戳記，而 `false` (預設值) 會停用。 | 選用 |
+
+### <a name="storage"></a>儲存體
+
+Batch 轉譯支援[Azure Blob 儲存體](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)讀取音訊 」 和 「 寫入至儲存體的轉譯。
+
+## <a name="webhooks"></a>Webhook 
+
+輪詢程式可能不會轉譯狀態的最有效，或提供最佳使用者體驗。 若要輪詢狀態，您可以註冊長時間執行轉譯工作完成時，會通知用戶端的回呼。
+
+如需詳細資訊，請參閱 < [Webhook](webhooks.md)。
 
 ## <a name="sample-code"></a>範例程式碼
 
@@ -108,10 +118,6 @@ Batch 轉譯 API 支援下列格式：
 
 > [!NOTE]
 > 針對基準轉譯，您不需要宣告基準模型的識別碼。 如果您只有指定語言模型識別碼 (且沒有任何的原音模型識別碼)，會自動選取相符的原音模型。 如果您只有指定原音模型識別碼，則會自動選取相符的語言模型。
-
-### <a name="supported-storage"></a>支援的儲存體
-
-目前僅支援 Azure Blob 儲存體。
 
 ## <a name="download-the-sample"></a>下載範例
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/015/2019
 ms.author: radeltch
-ms.openlocfilehash: 02a97852a8dc659071c3484126b921d6f7106562
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 18bbeef833e1c82999e87451d279c0d3464af509
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662365"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617762"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>適用於 SUSE Linux Enterprise Server for SAP 應用程式的 Azure NetApp 檔案上的 Azure Vm 上的 SAP NetWeaver 的高可用性
 
@@ -66,7 +66,7 @@ ms.locfileid: "58662365"
 請先閱讀下列 SAP Note 和文件：
 
 * [Azure 的 NetApp 檔案文件][anf-azure-doc] 
-* SAP Note [1928533]，其中包含：  
+* SAP 说明 [1928533]，其中包含：  
   * SAP 軟體部署支援的 Azure VM 大小清單
   * Azure VM 大小的重要容量資訊
   * 支援的 SAP 軟體，以及作業系統 (OS) 與資料庫組合
@@ -166,14 +166,11 @@ SAP NetWeaver 需要傳輸和設定檔目錄的共用儲存體。  繼續進行 
 
 - 最小容量集區會是 4 TiB。 容量集區大小必須是 4 TiB 的倍數。
 - 最小的磁碟區是 100 GiB
-- Azure NetApp 檔案並將所有的虛擬機器將會掛接 Azure NetApp 檔案磁碟區必須位於相同的 Azure 虛擬網路。 [虛擬網路對等互連](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview)尚未支援 Azure NetApp 檔案。
+- Azure 的 NetApp 檔案和所有虛擬機器，其中會裝載 Azure NetApp 檔案磁碟區，必須是相同的 Azure 虛擬網路中或在[虛擬網路對等互連](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview)相同區域中。 現在支援透過 VNET 對等互連相同區域中的 azure NetApp 檔案存取。 尚未支援 azure NetApp 存取透過全域對等互連。
 - 選取的虛擬網路必須有子網路，委派給 Azure NetApp 檔案。
 - Azure 的 NetApp 檔案服務目前支援僅 NFSv3 
 - Azure 的 NetApp 檔案服務可提供[匯出原則](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-configure-export-policy)： 您可以控制允許的用戶端，存取類型 （讀取與寫入、 唯讀等等。）。 
 - Azure 的 NetApp 檔案功能尚無法感知區域。 目前 Azure NetApp 檔案功能不被部署的 Azure 區域中的所有可用性區域中。 請留意的某些 Azure 區域中潛在的延遲影響。 
-
-   > [!NOTE]
-   > 請注意，Azure NetApp 檔案並不支援尚未對等互連的虛擬網路。 部署 Vm 和 Azure NetApp 檔案中的磁碟區相同的虛擬網路。
 
 ## <a name="deploy-linux-vms-manually-via-azure-portal"></a>透過 Azure 入口網站手動部署 Linux Vm
 
@@ -574,6 +571,8 @@ SAP NetWeaver 需要傳輸和設定檔目錄的共用儲存體。  繼續進行 
 
 9. **[1]** 建立 SAP 叢集資源
 
+如果使用加入佇列伺服器 1 架構 (ENSA1)，定義的資源，如下所示：
+
    <pre><code>sudo crm configure property maintenance-mode="true"
    
    sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
@@ -599,6 +598,35 @@ SAP NetWeaver 需要傳輸和設定檔目錄的共用儲存體。  繼續進行 
    sudo crm node online <b>anftstsapcl1</b>
    sudo crm configure property maintenance-mode="false"
    </code></pre>
+
+   SAP 加入佇列伺服器 2，包括複寫，從 SAP NW 7.52 開始導入的支援。 ABAP 平台 1809年從開始，預設會安裝加入佇列伺服器 2。 請參閱 SAP 附註[2630416](https://launchpad.support.sap.com/#/notes/2630416)加入佇列伺服器 2 支援。
+如果使用加入佇列伺服器 2 架構 ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html))，定義的資源，如下所示：
+
+   <pre><code>sudo crm configure property maintenance-mode="true"
+   
+   sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
+    operations \$id=rsc_sap_<b>QAS</b>_ASCS<b>00</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b>" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000
+   
+   sudo crm configure primitive rsc_sap_<b>QAS</b>_ERS<b>01</b> SAPInstance \
+    operations \$id=rsc_sap_<b>QAS</b>_ERS<b>01</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b>" AUTOMATIC_RECOVER=false IS_ERS=true
+   
+   sudo crm configure modgroup g-<b>QAS</b>_ASCS add rsc_sap_<b>QAS</b>_ASCS<b>00</b>
+   sudo crm configure modgroup g-<b>QAS</b>_ERS add rsc_sap_<b>QAS</b>_ERS<b>01</b>
+   
+   sudo crm configure colocation col_sap_<b>QAS</b>_no_both -5000: g-<b>QAS</b>_ERS g-<b>QAS</b>_ASCS
+   sudo crm configure order ord_sap_<b>QAS</b>_first_start_ascs Optional: rsc_sap_<b>QAS</b>_ASCS<b>00</b>:start rsc_sap_<b>QAS</b>_ERS<b>01</b>:stop symmetrical=false
+   
+   sudo crm node online <b>anftstsapcl1</b>
+   sudo crm configure property maintenance-mode="false"
+   </code></pre>
+
+   如果您是從舊版升級，並切換至加入佇列伺服器 2，請參閱 sap 附註[2641019](https://launchpad.support.sap.com/#/notes/2641019)。 
 
    請確定叢集狀態正常，且所有資源皆已啟動。 資源在哪一個節點上執行並不重要。
 
@@ -1051,7 +1079,7 @@ SAP NetWeaver 需要傳輸和設定檔目錄的共用儲存體。  繼續進行 
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
 
-   例如，透過編輯交易 su01 中的使用者來建立佇列鎖定。 執行下列命令，為 < sapsid\>adm ASCS 執行個體執行所在的節點上。 這些命令會停止 ASCS 執行個體，並重新啟動它。 在這項測試中，佇列鎖定應該會遺失。
+   例如，透過編輯交易 su01 中的使用者來建立佇列鎖定。 執行下列命令，為 < sapsid\>adm ASCS 執行個體執行所在的節點上。 這些命令會停止 ASCS 執行個體，並重新啟動它。 如果使用加入佇列伺服器 1 架構，加入佇列的鎖定應該在這項測試會遺失。 如果使用加入佇列伺服器 2 架構，將會保留在佇列中。 
 
    <pre><code>anftstsapcl2:qasadm 51> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>
@@ -1066,7 +1094,7 @@ SAP NetWeaver 需要傳輸和設定檔目錄的共用儲存體。  繼續進行 
    <pre><code>anftstsapcl2:qasadm 52> sapcontrol -nr 00 -function StartWait 600 2
    </code></pre>
 
-   交易 su01 的佇列鎖定應該會遺失，而且後端應已重設。 測試完成之後的資源狀態：
+   加入佇列的鎖定交易 su01 應該不會遺失，如果使用加入佇列伺服器複寫 1 架構和後端應已重設。 測試完成之後的資源狀態：
 
    <pre><code>
     Resource Group: g-QAS_ASCS

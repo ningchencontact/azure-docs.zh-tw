@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: a4710e2afc1688d83ff1c6da3ba36693584f16d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f7120e80d079723ed8265320ba4b38d76a825a00
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871793"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499813"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c"></a>快速入門：使用適用於 C++ 的語音 SDK 來翻譯語音
 
@@ -28,11 +28,11 @@ ms.locfileid: "57871793"
 本快速入門需要：
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* 適用於語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
+* 語音服務的 Azure 訂用帳戶金鑰。 [免費取得一個金鑰](get-started.md)。
 
 ## <a name="create-a-visual-studio-project"></a>建立 Visual Studio 專案
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
+[!INCLUDE[](../../../includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
 
 ## <a name="add-sample-code"></a>新增範例程式碼
 
@@ -65,7 +65,7 @@ ms.locfileid: "57871793"
 在 GitHub 上可取得其他範例，例如如何讀取音訊檔案中的語音，以及將翻譯的文字輸出為合成語音。
 
 > [!div class="nextstepaction"]
-> [探索 GitHub 上的 C++ 範例](https://aka.ms/csspeech/samples) \(英文\)
+> [探索 GitHub 上的 C++ 範例](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>另請參閱
 

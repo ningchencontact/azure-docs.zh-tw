@@ -599,7 +599,7 @@ Failed: (0)
 
 例如，若要使用 `/?` 參數執行安裝程式，請輸入 **InstallDependencyAgent-Windows.exe /?**。
 
-Windows Dependency Agent 的檔案預設安裝在 *C:\Program Files\Microsoft Dependency Agent* 中。 如果 Dependency Agent 在安裝完成之後無法啟動，請檢查記錄以取得詳細的錯誤資訊。 記錄檔目錄是 *%Programfiles%\Microsoft Dependency Agent\logs*。
+Windows Dependency Agent 的檔案預設安裝在 *C:\Program Files\Microsoft Dependency Agent* 中。 如果 Dependency Agent 在安裝完成之後無法啟動，請檢查記錄以取得詳細的錯誤資訊。 記錄目錄是 *%Programfiles%\Microsoft Dependency Agent\logs*。
 
 ### <a name="install-the-dependency-agent-on-linux"></a>在 Linux 上安裝 Dependency Agent
 將 Dependency Agent 從 *InstallDependencyAgent-Linux64.bin* (具有自我解壓縮二進位檔的殼層指令碼) 安裝在 Linux 伺服器上。 您可以使用 `sh` 來執行檔案，或對檔案本身新增執行權限。
@@ -618,7 +618,7 @@ Windows Dependency Agent 的檔案預設安裝在 *C:\Program Files\Microsoft De
 
 執行下列命令，以 root 身分安裝 Linux Dependency Agent：`sh InstallDependencyAgent-Linux64.bin`。
 
-如果 Dependency Agent 無法啟動，請檢查記錄檔以取得詳細的錯誤資訊。 在 Linux 代理程式上，記錄檔的目錄是 /var/opt/microsoft/dependency-agent/log。
+如果 Dependency Agent 無法啟動，請檢查記錄以取得詳細的錯誤資訊。 在 Linux 代理程式上，記錄檔的目錄是 /var/opt/microsoft/dependency-agent/log。
 
 Dependency Agent 的檔案位於下列目錄：
 

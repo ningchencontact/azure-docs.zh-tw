@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 428e20995f6d2723c5af1ba2beb18ac1336243e7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 5497e4956fbdc74eced302867c33a66d07d6a184
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59259961"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617932"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>將一般用戶端應用程式連線到 Azure IoT 中心應用程式 (Node.js)
 
@@ -62,7 +62,7 @@ Azure IoT Central 應用程式中，您需要下列度量、 裝置內容、 設
 
 加入下列事件上**測量**頁面：
 
-| 顯示名稱 | 欄位名稱  | 嚴重性 |
+| 顯示名稱 | 欄位名稱  | 严重性 |
 | ------------ | ----------- | -------- |
 | 過熱  | overheat    | Error    |
 
@@ -95,13 +95,13 @@ Azure IoT Central 應用程式中，您需要下列度量、 裝置內容、 設
 
 新增下列命令，在**命令**頁面：
 
-| 顯示名稱    | 欄位名稱     | 預設逾時 | 資料類型 |
+| 顯示名稱    | 欄位名稱     | 預設逾時 | 数据类型 |
 | --------------- | -------------- | --------------- | --------- |
 | 倒數計時       | 倒數計時      | 30              | number    |
 
 倒數計時命令中加入下列的輸入的欄位：
 
-| 顯示名稱    | 欄位名稱     | 資料類型 | 值 |
+| 顯示名稱    | 欄位名稱     | 数据类型 | 值 |
 | --------------- | -------------- | --------- | ----- |
 | 從計算      | countFrom      | number    | 10    |
 
@@ -335,4 +335,4 @@ node connectedAirConditionerAdv.js
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已了解如何連接至 Azure IoT Central 應用程式的泛型 Node.js 用戶端，建議的下一個步驟是了解如何[準備，並將 Raspberry Pi 連線](howto-connect-raspberry-pi-python.md)。
+既然您已了解如何連接至 Azure IoT Central 應用程式的泛型 Node.js 用戶端，建議的下一個步驟是了解如何[設定自訂裝置範本](howto-set-up-template.md)IoT 裝置。

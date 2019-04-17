@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c769d241f54d5d86ef4954609eec555d8aab947a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f8787008b396c2dd8ce1c006a40fee1e32e8100d
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857992"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617373"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>為不在資源庫內的應用程式設定密碼單一登入時遇到的問題
 
@@ -142,7 +142,7 @@ ms.locfileid: "57857992"
 
 -   再次嘗試手動擷取程序，確保正確的欄位上都有紅色標記。
 
--   如果手動擷取程序看起來沒有回應，或者登入頁面不會執行任何動作 (上述的案例 3)，請再試一次手動擷取程序。 但這次已完成此程序，請按 **F12** 按鈕，以開啟瀏覽器的開發人員主控台。 此時，開啟 [主控台]並輸入 **window.location="&lt;輸入您在設定應用程式時所指定的登入 url&gt;"**，然後按 **Enter**。 這樣會強制執行頁面重新導向，以結束擷取程序並儲存已擷取的欄位。
+-   如果手動擷取程序似乎停止回應，或者登入頁面不會執行任何動作 （上述的案例 3，） 手動擷取程序再試一次。 但這次已完成此程序，請按 **F12** 按鈕，以開啟瀏覽器的開發人員主控台。 此時，開啟 [主控台]並輸入 **window.location="&lt;輸入您在設定應用程式時所指定的登入 url&gt;"**，然後按 **Enter**。 這樣會強制執行頁面重新導向，以結束擷取程序並儲存已擷取的欄位。
 
 如果這其中沒有任何一種方式適合您，客戶支援很樂意提供協助。 請開啟一個支援案例，並提供您所嘗試動作的詳細資料，以及[如何查看入口網站通知的詳細資料](#i-cannot-manually-detect-sign-in-fields-for-my-application)和[如何將通知詳細資料傳送給支援工程師以取得協助](#how-to-get-help-by-sending-notification-details-to-a-support-engineer)小節 (如果適用) 中所收集的資訊。
 

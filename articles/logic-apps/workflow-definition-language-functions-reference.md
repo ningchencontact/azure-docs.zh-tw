@@ -1,27 +1,29 @@
 ---
-title: 工作流程定義語言的函式參考 - Azure Logic Apps | Microsoft Docs
-description: 了解 Azure Logic Apps 的工作流程定義語言函式
+title: 工作流程定義語言-Azure Logic Apps 和 Microsoft Flow 中的函式的參考
+description: 使用工作流程定義語言建立 Azure Logic Apps 和 Microsoft Flow 的運算式中的函式的參考指南
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/15/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: e58d534811fc6d6ed2bb24486c149f217a7a28a3
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: d7ea62c51065cbe85a905b4ff78743fdc11c1e10
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189898"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618204"
 ---
-# <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps 中工作流程定義語言的函式參考
+# <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>在 Azure Logic Apps 和 Microsoft Flow 中的工作流程定義語言的函式參考
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 中的某些[運算式](../logic-apps/logic-apps-workflow-definition-language.md#expressions)會從邏輯應用程式工作流程定義開始執行時可能還不存在的執行階段動作中取得其值。
-若要在運算式中參考或使用這些值，您可以使用[工作流程定義語言](../logic-apps/logic-apps-workflow-definition-language.md)所提供的「函式」。
-例如，您可以使用數學函式進行計算，例如 [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) 函式，以傳回整數或浮點數總和。 以下是您可以使用函式執行的另外幾個範例工作：
+工作流程中的定義[Azure Logic Apps](../logic-apps/logic-apps-overview.md)並[Microsoft Flow](https://docs.microsoft.com/flow/getting-started)，部分[運算式](../logic-apps/logic-apps-workflow-definition-language.md#expressions)取得其值可能不存在的執行階段動作時您的工作流程開始執行。 若要參考這些值，或處理這些運算式中的值，您可以使用*函式*所提供[工作流程定義語言](../logic-apps/logic-apps-workflow-definition-language.md)。 
+
+> [!NOTE]
+> 本參考頁面適用於 Azure Logic Apps 和 Microsoft Flow，但是會顯示在 Azure Logic Apps 文件。 雖然此頁面特別參考邏輯應用程式，這些函數的運作流程和邏輯應用程式。 如需函式和 Microsoft Flow 中的運算式的詳細資訊，請參閱[在條件中使用運算式](https://docs.microsoft.com/flow/use-expressions-in-conditions)。
+
+例如，您可以計算值，藉由使用數學函式，例如[add （） 函式](../logic-apps/workflow-definition-language-functions-reference.md#add)，當您想要從整數或浮點數總和。 以下是一些範例執行其他工作，您可以使用函式：
 
 | Task | 函式語法 | 結果 |
 | ---- | --------------- | ------ |
@@ -29,8 +31,7 @@ ms.locfileid: "58189898"
 | 傳回全域唯一識別碼 (GUID)。 | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" |
 ||||
 
-本文會說明您可以在建立邏輯應用程式定義時使用的函式。
-若要[根據其一般目的](#ordered-by-purpose)來尋找函式，請繼續看後面的資料表。 或者，如需每個函式的詳細資訊，請參閱[依字母順序排列的清單](#alphabetical-list)。
+若要尋找函式[根據其一般目的](#ordered-by-purpose)，檢閱下表。 或者，如需每個函式的詳細資訊，請參閱[依字母順序排列的清單](#alphabetical-list)。
 
 > [!NOTE]
 > 在參數定義的語法中，參數後方出現問號 (？) 表示此參數是選擇性的。
@@ -142,7 +143,7 @@ ms.locfileid: "58189898"
 
 若要變更值的類型或格式，您可以使用這些轉換函式。
 例如，您可以將一個值從布林值變更為整數。
-若要深入了解 Logic Apps 在轉換期間如何處理內容類型，請參閱[處理內容類型](../logic-apps/logic-apps-content-type.md)。
+如需 Logic Apps 轉換期間所處理的內容類型的詳細資訊，請參閱[處理內容類型](../logic-apps/logic-apps-content-type.md)。
 如需有關每個函式的完整參考，請參閱[依字母順序排列的清單](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)。
 
 | 轉換函式 | Task |
@@ -229,7 +230,7 @@ ms.locfileid: "58189898"
 這些工作流程函式可協助您：
 
 * 在執行階段取得有關工作流程執行個體的詳細資料。
-* 處理用於具現化邏輯應用程式的輸入。
+* 使用用來具現化邏輯應用程式或流程的輸入。
 * 參考來自觸發程序和動作的輸出。
 
 例如，您可以參考來自一個動作的輸出，並在稍後動作中使用該資料。
@@ -248,7 +249,7 @@ ms.locfileid: "58189898"
 | [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | 若用於 for-each 或 do-until-loop 內，則會從指定的迴圈傳回目前的項目。|
 | [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | 傳回呼叫觸發程序或動作的「回呼 URL」。 |
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | 在具有多個部分的動作輸出中，傳回特定部分的內容。 |
-| [參數](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | 傳回邏輯應用程式定義中描述的參數值。 |
+| [參數](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | 在您的工作流程定義會傳回描述參數的值。 |
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | 傳回觸發程序在執行階段的輸出，或來自其他 JSON 名稱與值配對中的值。 另請參閱 [triggerOutputs](#triggerOutputs) 和 [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody)。 |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | 傳回觸發程序在執行階段的 `body` 輸出。 請參閱 [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger)。 |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | 在「表單資料」或「表單編碼」觸發程序輸出中，傳回符合索引鍵名稱的單一值。 |
@@ -295,7 +296,7 @@ ms.locfileid: "58189898"
 <a name="alphabetical-list"></a>
 <a name="action"></a>
 
-### <a name="action"></a>動作
+### <a name="action"></a>action
 
 傳回執行階段上「目前」動作的輸出，或來自其他 JSON 名稱-值配對的值，而您可以將其指派給運算式。
 根據預設，此函式會參考整個動作物件，但是您可以選擇性地指定其中有所需值的屬性。
@@ -1812,7 +1813,7 @@ first(createArray(0, 1, 2))
 ### <a name="float"></a>float
 
 將浮點數的字串版本轉換為實際浮點數。
-您只可在將自訂參數傳遞給應用程式 (例如邏輯應用程式) 時使用這個函式。
+只有在將自訂參數傳遞至應用程式，比方說，邏輯應用程式或流程時，您可以使用此函式。
 
 ```
 float('<value>')
@@ -2766,7 +2767,7 @@ multipartBody('<actionName>', <index>)
 檢查運算式是否為 False。
 運算式為 False 時，傳回 True，或運算式為 True 時，傳回 False。
 
-```
+```json
 not(<expression>)
 ```
 
@@ -2784,7 +2785,7 @@ not(<expression>)
 
 這些範例會檢查指定的運算式是否為 False：
 
-```
+```json
 not(false)
 not(true)
 ```
@@ -2798,7 +2799,7 @@ not(true)
 
 這些範例會檢查指定的運算式是否為 False：
 
-```
+```json
 not(equals(1, 2))
 not(equals(1, 1))
 ```
@@ -2833,7 +2834,7 @@ or(<expression1>, <expression2>, ...)
 
 這些範例會檢查是否至少有一個運算式是 True：
 
-```
+```json
 or(true, false)
 or(false, false)
 ```
@@ -2847,7 +2848,7 @@ or(false, false)
 
 這些範例會檢查是否至少有一個運算式是 True：
 
-```
+```json
 or(equals(1, 1), equals(1, 2))
 or(equals(1, 2), equals(1, 3))
 ```
@@ -2861,7 +2862,7 @@ or(equals(1, 2), equals(1, 3))
 
 ### <a name="parameters"></a>parameters
 
-傳回邏輯應用程式定義中描述的參數值。
+在您的工作流程定義會傳回描述參數的值。
 
 ```
 parameters('<parameterName>')

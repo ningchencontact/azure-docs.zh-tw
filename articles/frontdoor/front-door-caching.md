@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 97c02726c7e359195c6bf4ea793404562f2acccf
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: e022a7661997d231e291a4d09611bb6e95bee262
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001953"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528301"
 ---
 # <a name="caching-with-azure-front-door-service"></a>使用 Azure Front Door Service 進行快取
 下列文件會利用已啟用快取的路由規則來指定 Front Door 的行為。
@@ -26,7 +26,7 @@ Azure Front Door Service 可傳遞大型檔案且檔案大小沒有上限。 Fro
 
 </br>當區塊抵達 Front Door 環境之後，就會被快取並立即提供給使用者。 然後 Front Door 會以平行方式預先提取下一個區塊。 此預先擷取可確保內容會領先使用者一個區塊，以降低延遲。 此程序一直持續到整個檔案下載完畢 (如有要求)、取得所有位元組範圍 (如有要求)，或用戶端終止連線。
 
-</br>如需位元組範圍要求的詳細資訊，請參閱 [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html)。
+</br>如需位元組範圍要求的詳細資訊，請參閱 [RFC 7233](https://web.archive.org/web/20171009165003/ http://www.rfc-base.org/rfc-7233.html)。
 Front Door 會在接收到任何區塊之後進行快取，因此不需要在 Front Door 快取上快取整個檔案。 快取會提供後續的檔案或位元組範圍要求。 如果不會快取所有區塊，就會使用預先擷取來向後端要求區塊。 此最佳化依賴後端的功能來支援位元組範圍要求；如果後端不支援位元組範圍要求，則此最佳化無效。
 
 ## <a name="file-compression"></a>檔案壓縮
@@ -100,9 +100,9 @@ Front Door 上的快取清除是不區分大小寫的。 此外，它們是無�
 
 ## <a name="cache-expiration"></a>快取到期
 下列標頭的順序可用來判斷項目將在我們的快取中儲存的時間：</br>
-1. Cache-Control: s-maxage=<seconds>
-2. Cache-Control: maxage=<seconds>
-3. Expires: <http-date>
+1. Cache-Control: s-maxage=\<seconds>
+2. Cache-Control: maxage=\<seconds>
+3. 到期： \<http 日期 >
 
 系統會接受指出將不會快取回應的 Cache-Control 回應標頭 (例如，Cache-Control: private、Cache-Control: no-cache 與 Cache-Control: no-store)。 不過，如果 POP 中有多個針對相同 URL 的要求，它們可能共用回應。
 

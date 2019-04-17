@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 4/9/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: c038b899f60a4e04085b2343f2f02be5f7042ebb
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: cd7797ae3b79fb874bafc89437943b084020d800
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426404"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492306"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站部署和設定 Azure 防火牆
 
@@ -43,6 +43,8 @@ ms.locfileid: "59426404"
 > * 設定允許存取 www.google.com 的應用程式規則
 > * 設定允許存取外部 DNS 伺服器的網路規則
 > * 測試防火牆
+
+如果您想要的話，可以使用 [Azure PowerShell](deploy-ps.md) 完成本教學課程。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 

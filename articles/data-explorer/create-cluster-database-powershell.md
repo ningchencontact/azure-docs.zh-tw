@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
-ms.openlocfilehash: 84b0cbfd7e8ec6709b79328220aac7c9ae904bdb
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 553564be494b4175cba937b583d49ad84a8d0e66
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59047155"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526515"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>使用 PowerShell 建立 Azure 資料總管叢集與資料庫
 
@@ -24,7 +24,7 @@ ms.locfileid: "59047155"
 > * [Python](create-cluster-database-python.md)
 >  
 
-Azure 資料總管是快速、完全受控的資料分析服務，可即時分析來自應用程式、網站、IoT 裝置等的大量資料流。 若要使用 Azure 資料總管，請先建立叢集，然後在該叢集中建立一或多個資料庫。 然後將資料內嵌 (載入) 至資料庫，讓您可以對資料執行查詢。 在本快速入門中，您會使用 PowerShell 建立叢集與資料庫。 您可以使用 [Az.Kusto](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto) 在 Windows 和 Linux 上或在 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) 中執行 PowerShell Cmdlet 和指令碼，以建立及設定 Azure 資料總管叢集與資料庫。
+Azure 資料總管是快速、完全受控的資料分析服務，可即時分析來自應用程式、網站、IoT 裝置等的大量資料流。 若要使用 Azure 資料總管，請先建立叢集，然後在該叢集中建立一或多個資料庫。 然後將資料內嵌 (載入) 至資料庫，讓您可以對資料執行查詢。 在本快速入門中，您會使用 PowerShell 建立叢集與資料庫。 您可以使用 [Az.Kusto](/powershell/module/az.kusto/?view=azps-1.4.0#kusto) 在 Windows 和 Linux 上或在 [Azure Cloud Shell](../cloud-shell/overview.md) 中執行 PowerShell Cmdlet 和指令碼，以建立及設定 Azure 資料總管叢集與資料庫。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -34,7 +34,7 @@ Azure 資料總管是快速、完全受控的資料分析服務，可即時分�
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果您選擇在本機安裝並使用 Azure CLI，則在進行本快速入門時，必須使用 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 來檢查您的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)。
+如果您選擇在本機安裝並使用 Azure CLI，則在進行本快速入門時，必須使用 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 來檢查您的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="configure-parameters"></a>設定參數
 
@@ -116,5 +116,5 @@ Azure 資料總管是快速、完全受控的資料分析服務，可即時分�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [其他 Az.Kusto 命令](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto)
+* [其他 Az.Kusto 命令](/powershell/module/az.kusto/?view=azps-1.7.0#kusto)
 * [快速入門：使用 Azure 資料總管 .NET Standard SDK 內嵌資料 (預覽)](net-standard-ingest-data.md)

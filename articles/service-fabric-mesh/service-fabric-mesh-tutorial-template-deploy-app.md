@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8a910f35bf25f889150ea3e89f4fa653f3a9ac14
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 825f667029aeb1d75bfdaf52b1084ff5133b5774
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336315"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527331"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>教學課程：使用範本將應用程式部署到 Service Fabric Mesh
 
@@ -351,8 +351,8 @@ Service Fabric Mesh 應用程式是一種 Azure 資源，您可以使用 Azure R
 |registryPassword|您之前在[擷取登錄的認證](#retrieve-credentials-for-the-registry)所取得的密碼。 此參數在範本中是安全字串，而且將不會顯示在部屬狀態或 `az mesh service show` 命令中。|
 |registryUserName|您之前在[擷取登錄的認證](#retrieve-credentials-for-the-registry)中取得的使用者名稱。|
 |registryServer|您之前在[擷取登錄的認證](#retrieve-credentials-for-the-registry)中取得的登錄伺服器名稱。|
-|frontEndImage|前端服務的容器映像。  例如，「<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709」。|
-|serviceImage|後端服務的容器映像。  例如，「<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709」。|
+|frontEndImage|前端服務的容器映像。  例如： `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709`。|
+|serviceImage|後端服務的容器映像。  例如： `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709`。|
 
 若要部署應用程式，請執行下列動作：
 

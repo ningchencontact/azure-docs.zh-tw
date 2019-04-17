@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 4d9ec05b2495ec54657405c00e7dd42ee10911b1
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: e6ebd4ff465565be49d98162cd9ca67c194593a4
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350907"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563365"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>範例：如何呼叫電腦視覺 API
 
@@ -167,13 +167,13 @@ POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?details=cele
 
 欄位 | 類型 | 內容
 ------|------|------|
-標記  | 物件 | 標籤陣列的最上層物件
-tags[].Name | 字串    | 標籤分類器的關鍵字
-tags[].Score    | number    | 信賴分數，介於 0 到 1 之間。
-說明  | 物件   | 描述的最上層物件。
-description.tags[] |    字串  | 標籤清單。  如果能否產生標題的信賴度不足，呼叫者可能僅有標籤的資訊可用。
-description.captions[].text | 字串    | 描述影像的片語。
-description.captions[].confidence   | number    | 片語的信賴度。
+標記  | `object` | 標籤陣列的最上層物件
+tags[].Name | `string`  | 標籤分類器的關鍵字
+tags[].Score    | `number`  | 信賴分數，介於 0 到 1 之間。
+說明  | `object` | 描述的最上層物件。
+description.tags[] |    `string`    | 標籤清單。  如果能否產生標題的信賴度不足，呼叫者可能僅有標籤的資訊可用。
+description.captions[].text | `string`  | 描述影像的片語。
+description.captions[].confidence   | `number`  | 片語的信賴度。
 
 ## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>擷取和了解特定領域模型的 JSON 輸出
 
@@ -229,10 +229,10 @@ description.captions[].confidence   | number    | 片語的信賴度。
 
 欄位   | 類型  | 內容
 ------|------|------|
-類別 | 物件 | 最上層物件
-categories[].name    | 字串   | 86 個類別分類法的名稱
-categories[].score  | number    | 信賴分數，介於 0 到 1 之間
-categories[].detail  | 物件？      | 選擇性的詳細資料物件
+類別 | `object`   | 最上層物件
+categories[].name    | `string` | 86 個類別分類法的名稱
+categories[].score  | `number`  | 信賴分數，介於 0 到 1 之間
+categories[].detail  | `object?`      | 選擇性的詳細資料物件
 
 請注意，如果多個類別皆符合 (例如，當 model=celebrities 時，86 個類型分類器傳回 people_ 與 people_young 兩者的分數)，以附加在最一般層級的詳細資料為符合者 (在該範例中為 people_ in)。
 

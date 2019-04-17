@@ -9,20 +9,21 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 03/26/2019
-ms.openlocfilehash: 1c8977090fe0ea0dfd5822c7bb448d313de7cf14
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: a061c2705a5c0155b54dd2fa1e89f19223409a12
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917918"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609435"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>可以搭配 HDInsight 使用的 Apache Hadoop 元件和版本有哪些？
 
-了解 Microsoft Azure HDInsight 中的 [Apache Hadoop](https://hadoop.apache.org/) 生態系統元件和版本，以及企業安全性套件。 此外，了解如何檢查 HDInsight 中的 Hadoop 元件版本。 
+了解 Microsoft Azure HDInsight 中的 [Apache Hadoop](https://hadoop.apache.org/) 生態系統元件和版本，以及企業安全性套件。 此外，了解如何檢查 HDInsight 中的 Hadoop 元件版本。
 
 每個 HDInsight 版本都是 Hortonworks Data Platform (HDP) 版本的雲端發佈。
 
 ## <a name="apache-hadoop-components-available-with-different-hdinsight-versions"></a>可以搭配不同 HDInsight 版本使用的 Apache Hadoop 元件
+
 Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個版本選擇都會建立特定版本的 HDP 發佈，以及該發佈內包含的一組元件。 截至 2017 年 4 月 4 日為止，Azure HDInsight 預設使用的叢集版本為 3.6 版，且以 HDP 2.6 為基礎。
 
 下表列出與 HDInsight 叢集版本相關聯的元件版本： 
@@ -30,7 +31,7 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 > [!NOTE]  
 > HDInsight 服務的預設版本可能會變更，恕不另行通知。 如果您有版本相依性，請在使用 .NET SDK 搭配 Azure PowerShell 和 Azure 傳統 CLI 建立叢集時指定 HDInsight 版本。
 
-| 元件 | HDInsight 4.0 (預覽) | HDInsight 3.6 (預設) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
+| 元件 | HDInsight 4.0 | HDInsight 3.6 (預設) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
 | --- | --- | --- | --- | --- | --- | --- | --- |--- |
 | Hortonworks Data Platform |3.0 |2.6 |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 |
 | Apache Hadoop 和 YARN |3.1.1 |2.7.3 |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
@@ -44,12 +45,12 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 | Apache Sqoop |1.4.7 |1.4.6 |1.4.6 |1.4.6 |1.4.6 |1.4.5 |1.4.4 |1.4.4 |
 | Apache Oozie |4.3.1 |4.2.0 |4.2.0 |4.2.0 |4.2.0 |4.1.0 |4.0.0 |4.0.0 |
 | Apache Zookeeper |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.6 |3.4.5 |3.4.5 |
-| Apache Storm |1.2.1 |1.1.0 |1.0.1 |0.10.0 |0.10.0 |0.9.3 |0.9.1 |-|
+| Apache Storm |- |1.1.0 |1.0.1 |0.10.0 |0.10.0 |0.9.3 |0.9.1 |-|
 | Apache Mahout |-|0.9.0+ |0.9.0+ |0.9.0+ |0.9.0+ |0.9.0 |0.9.0 |-|
 | Apache Phoenix |5 |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
-| Apache Spark |2.3.1 |2.3.0, 2.2.0, 2.1.0 |1.6.2、2.0 |1.6.0 |1.5.2 |1.3.1 (僅限 Windows) |-|-|
+| Apache Spark |2.3.2 |2.3.0, 2.2.0, 2.1.0 |1.6.2、2.0 |1.6.0 |1.5.2 |1.3.1 (僅限 Windows) |-|-|
 | Apache Livy |0.5 |0.4 |0.3 |0.3 |0.2 |-|-|-|
-| Apache Kafka | 1.1 |1.1、1.0 *(請參閱下方注意事項) | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Kafka | 1.1.1 |1.1、1.0 *(請參閱下方注意事項) | 0.10.0 | 0.9.0 |-|-|-|-|
 | Apache Ambari | 2.7.0 |2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.8.0 |0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |4.2.1 |3.2.8 |-|-|-|
@@ -70,6 +71,7 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 請參閱 [HDInsight 版本資訊](hdinsight-release-notes.md) ，以取得 HDInsight 最新版本的其他版本資訊。
 
 ## <a name="supported-hdinsight-versions"></a>支援的 HDInsight 辦本
+
 下表列出 HDInsight 的版本。 其中會列出對應至每個 HDInsight 版本的 HDP 版本以及產品發行日期。 如果已知支援到期日與停用日期，也會一併提供。
 
 ### <a name="available-versions"></a>可用的版本
@@ -78,9 +80,8 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 
 | HDInsight 版本 | HDP 版本 | VM OS | 發行日期 | 支援到期日 | 停用日期 | 高可用性 |  Azure 入口網站上的可用性 | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 4.0 <br> (預覽) |HDP 3.0 |Ubuntu 16.0.4 LTS |2018 年 9 月 24 日 | | |yes |yes |
+| HDInsight 4.0 |HDP 3.0 |Ubuntu 16.0.4 LTS |2018 年 9 月 24 日 | | |yes |yes |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |2017 年 4 月 4 日 | | |yes |yes |
-| HDInsight 3.5 <br> (Spark)\* |HDP 2.6 |Ubuntu 16.0.4 LTS |2016 年 9 月 30 日 |2019 年 3 月 13 日 |2019 年 3 月 13 日 |yes |yes |
 
 *&ast;HDInsight 3.5 支援僅針對 Spark 叢集類型延伸*
 
@@ -146,9 +147,11 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 企業安全性套件支援使用 Azure Data Lake Storage 同時作為主要儲存體和附加元件儲存體。
 
 ### <a name="pricing-and-sla"></a>價格和 SLA
+
 如需企業安全性套件之定價和 SLA 的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
 
 ## <a name="hdinsight-windows-retirement"></a>HDInsight Windows 停用項目
+
 Microsoft Azure HDInsight 版本 3.3 是 Windows 上的最後一個 HDInsight 版本。 Windows 上 HDInsight 的停用日期是 2018 年 7 月 31 日。 如果您在 Windows 上有任何 3.3 版或更早版本的 HDInsight 叢集，就必須在 2018 年 7 月 31 日之前移轉至 Linux 上的 HDInsight 叢集 (HDInsight 版本 3.5 或更新版本)。 移轉至 Linux OS，可讓您保留建立或調整 HDInsight 叢集的能力。 對於 Windows 上 HDInsight 版本 3.3 的支援已在 2016 年 6 月 27 日到期。
 
 從 HDInsight 版本 3.4 開始，Microsoft 只在 Linux OS 上發行 HDInsight。 因此，HDInsight 內的部分元件僅適用於 Linux。 這些包含 [Apache Ranger](https://ranger.apache.org/)、[Apache Kafka](https://kafka.apache.org/)、互動式查詢、[Apache Spark](https://spark.apache.org/)、HDInsight 應用程式，以及作為主要檔案系統的 Azure Data Lake Storage。 未來的 HDInsight 版本僅適用於 Linux OS。 未來不會在 Windows 上推出任何 HDInsight 版本。 
@@ -156,41 +159,53 @@ Microsoft Azure HDInsight 版本 3.3 是 Windows 上的最後一個 HDInsight �
 ## <a name="faqs"></a>常見問題集
 
 ### <a name="what-is-the-timeline-for-retiring-hdinsight-on-windows"></a>停用 Windows 上 HDInsight 的時間表為何？
+
 Windows 上 HDInsight 的停用日期是 2018 年 7 月 31 日。 如果您的區域與規劃的停用日期不同，就會個別通知您。 
 
 ### <a name="what-is-the-impact-of-retiring-hdinsight-on-windows-for-existing-customers"></a>停用 Windows 上的 HDInsight 會對現有客戶產生何種影響？
+
 停用 Windows 上的 HDInsight 之後，您便無法建立新的 HDInsight Windows 叢集，或調整現有的 HDInsight Windows 叢集。 對於 HDInsight 版本 3.3 的支援已在 2016 年 6 月 27 日到期。 因此，不會對 HDInsight 3.3 或更早版本提供任何支援或錯誤修正。 未來的 HDInsight 版本僅適用於 Linux OS。 未來不會在 Windows 上推出任何 HDInsight 版本。
  
 ### <a name="which-versions-of-hdinsight-on-windows-are-affected"></a>哪些 Windows 上的 HDInsight 版本會受到影響？
+
 Azure HDInsight 版本 3.3 是最後一個適用於 Windows 的 HDInsight 版本。 您必須在 Windows 上的 HDInsight 停用之前，將所有的 HDInsight Windows 叢集版本 3.3 或更早版本移轉至 Linux 上的 HDInsight 版本 3.5 或更新版本。 將您的叢集移轉至 Linux 上的 HDInsight，可讓您保留建立新叢集或調整現有叢集的能力。 
 
 ### <a name="what-do-i-need-to-do"></a>我需要做什麼事嗎？
+
 在 2018 年 7 月 31 日之前，將您的 HDInsight Windows 叢集移轉到支援的 HDInsight Linux 叢集。 深入了解 [HDInsight 移轉文件](hdinsight-migrate-from-windows-to-linux.md)。 如需 Azure HDInsight 版本的詳細資訊，請參閱[支援的版本](hdinsight-component-versioning.md#supported-hdinsight-versions)清單。 
 
 ### <a name="where-do-i-find-the-cluster-os-type"></a>哪裡可以找到叢集 OS 類型？
+
 在 Azure 入口網站中，移至 HDInsight 叢集的概觀頁面，然後在 [基本資訊] 下方找到 [叢集類型]。 叢集 OS 類型會列在該頁面上。 
 
 ### <a name="i-cant-migrate-to-an-hdinsight-linux-cluster-by-july-31-2018-what-is-the-impact-to-my-hdinsight-windows-cluster"></a>我無法在 2018 年 7 月 31 日之前移轉至 HDInsight Linux 叢集。 這樣會對我的 HDInsight Windows 叢集產生何種影響？
+
 HDInsight Windows 叢集會依原樣執行，但您無法建立新的 HDInsight Windows 叢集，或調整現有的 HDInsight Windows 叢集。 
 
 ### <a name="my-cluster-has-a-net-dependency-how-do-i-resolve-this-dependency-on-linux"></a>我的叢集具有 .NET 相依性。 如何在 Linux 上解析此相依性？
+
 您可以使用 [Mono 專案](https://www.mono-project.com/) \(英文\) 來解析 Linux 叢集相依性。 這個 .NET 開放原始碼實作適用於 HDInsight Linux 叢集。 深入了解 [HDInsight 移轉文件](hdinsight-migrate-from-windows-to-linux.md)。 
 
 ### <a name="im-a-new-customer-for-hdinsight-on-windows-how-can-i-create-an-hdinsight-windows-cluster"></a>我是 Windows 上 HDInsight 的新客戶。 該如何建立 HDInsight Windows 叢集？
+
 從 2017 年 7 月 3 日開始，只有現有的 HDInsight Windows 客戶可以建立新的 HDInsight Windows 叢集。 新客戶無法在 Azure 入口網站中，使用 PowerShell 或 SDK 來建立 HDInsight Windows 叢集。 我們建議新客戶建立 Linux HDInsight 叢集。 現有的客戶可以在 Windows上 HDInsight 的停用日期之前，建立新的 HDInsight Windows 叢集。 
 
 ### <a name="is-there-a-pricing-impact-associated-with-moving-from-hdinsight-on-windows-to-hdinsight-on-linux"></a>從 Windows 上的 HDInsight 移至 Linux 上的 HDInsight 是否會有相關聯的價格影響？
+
 否，此價格對於任一 OS 上的 HDInsight 都一樣。 
 
 ### <a name="what-are-the-customer-advantages-associated-with-the-move-to-only-using-hdinsight-on-linux"></a>移至僅使用 Linux 上的 HDInsight，對客戶有哪些相關聯的優點？
+
 * 透過 HDInsight 服務，可對開放原始碼巨量資料技術提供快速的上市時間
 * 支援大型社群和生態系統
 * 能夠讓開放原始碼社群練習積極開發 Hadoop 和較新的巨量資料技術
 
 ### <a name="does-hdinsight-on-linux-provide-additional-functionality-beyond-what-is-available-in-hdinsight-on-windows"></a>Linux 上的 HDInsight 是否提供 Windows 上的 HDInsight 中未提供的額外功能？
+
 從 HDInsight 版本 3.4 開始，Microsoft 只在 Linux OS 上發行 HDInsight。 因此，HDInsight 內的部分元件僅適用於 Linux。 這些包含 Apache Ranger、Kafka、「互動式查詢」、Spark、HDInsight 應用程式，以及作為主要檔案系統的 Azure Data Lake Storage。 
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>HDInsight 叢集版本的服務等級協定
+
 服務等級協定 (SLA) 是根據「支援期間」來定義。 支援期間是 Microsoft 客戶服務與支援中心支援 HDInsight 叢集版本的一段時間。 如果已超過版本的「支援到期日」，則表示該 HDInsight 叢集不在支援期間內。 如需支援版本的詳細資訊，請參閱[支援的 HDInsight 叢集版本](hdinsight-migrate-from-windows-to-linux.md)清單。 特定 HDInsight 版本 X (在較新的 X+1 版本推出後) 的支援到期日計算方式會以下列較晚的時間為準：  
 
 * 公式 1：將 HDInsight 叢集版本 X 的發行日期加上 180 天。
@@ -220,9 +235,8 @@ HDInsight Windows 叢集會依原樣執行，但您無法建立新的 HDInsight 
 * HDInsight 叢集 2.1 版採用以 [Hortonworks Data Platform 1.3][hdp-1-3-0] 為基礎的 Hadoop 散發套件。
 * HDInsight 叢集 1.6 版採用以 [Hortonworks Data Platform 1.1][hdp-1-1-0] 為基礎的 Hadoop 散發套件。
 
-
-
 ## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>適用於叢集的預設節點設定和虛擬機器大小
+
 下表列出 HDInsight 叢集的預設虛擬機器 (VM) 大小。  此圖表提供必要資訊，可協助您了解建立 PowerShell 或 Azure CLI 指令碼以部署 HDInsight 叢集時，所要使用的 VM 大小。
 
 > [!IMPORTANT]  

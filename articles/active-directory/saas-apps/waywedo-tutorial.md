@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86f176ce43e4d7162c664115a6fd3ce9369fe79a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 541be5466b65705daa0485976eab3df8eb3d707f
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270059"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565503"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-way-we-do"></a>教學課程：Azure Active Directory 與 Way We Do 整合
 
@@ -108,9 +108,9 @@ Way We Do 與 Azure AD 整合提供下列優點：
 
     ![[Way We Do 網域及 URL] 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<SUBDOMAIN>.waywedo.com/Authentication/ExternalSignIn`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<SUBDOMAIN>.waywedo.com/Authentication/ExternalSignIn`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `https://<SUBDOMAIN>.waywedo.com`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://<SUBDOMAIN>.waywedo.com`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Way We Do 用戶端支援小組](mailto:support@waywedo.com)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
@@ -231,9 +231,9 @@ Way We Do 與 Azure AD 整合提供下列優點：
 
 ## <a name="additional-resources"></a>其他資源
 
-- [ 如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單 ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？ ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

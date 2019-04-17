@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80b8db3bb2e7a21011508f30492bf99c7ecca583
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7f5e2443a285e065426e3dba0312ef6420097ef1
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096855"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617204"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory 傳遞驗證安全性深入探討
 
@@ -136,7 +136,7 @@ ms.locfileid: "58096855"
 4. 使用者將其使用者名稱輸入 [使用者登入] 頁面中，然後選取 [下一步] 按鈕。
 5. 使用者將其密碼輸入 [使用者登入] 頁面中，然後選取 [登入] 按鈕。
 6. 使用者名稱與密碼會在 HTTPS POST 要求中提交至 Azure AD STS。
-7. Azure AD STS 會針對您的租用戶上註冊的所有驗證代理程式，擷取 Azure SQL Database 中的公開金鑰，並使用這些金鑰為其密碼加密。 
+7. Azure AD STS 會針對您的租用戶上註冊的所有驗證代理程式，擷取 Azure SQL Database 中的公開金鑰，並使用這些金鑰為其密碼加密。
     - Azure AD STS 會針對您的租用戶上註冊的 "N" 個驗證代理程式，產生 "N" 個加密密碼值。
 8. Azure AD STS 會將密碼驗證要求 (其中包含使用者名稱和加密的密碼值) 放到您的租用戶專用的服務匯流排佇列上。
 9. 初始化的驗證代理程式會持續連線至服務匯流排佇列，因此其中一個可用的驗證代理程式會擷取密碼驗證要求。
@@ -145,6 +145,9 @@ ms.locfileid: "58096855"
     - 此 API 是 Active Directory 同盟服務 (AD FS) 在同盟登入案例中登入使用者所使用的相同 API。
     - 此 API 依賴 Windows Server 中的標準解析程序來尋找網域控制站。
 12. 驗證代理程式會從 Active Directory 接收結果，例如成功、使用者名稱或密碼不正確、密碼過期等。
+
+   > [!NOTE]
+   > 如果驗證代理程式失敗的登入程序期間，會卸除整個登入要求。 沒有任何手動關閉的登入要求一個驗證代理程式從另一個驗證代理程式在內部。 這些代理程式只會與通訊與雲端，而不是與彼此。
 13. 驗證代理程式會透過連接埠 443 上，輸出相互驗證的 HTTPS 通道，將結果轉送回 Azure AD STS。 相互驗證會使用先前在註冊期間發給驗證代理程式的憑證。
 14. Azure AD STS 會驗證此結果是否與您租用戶上的特定登入要求相互關聯。
 15. Azure AD STS 會依照設定的方式，繼續進行登入程序。 例如，如果密碼驗證成功，使用者可能要經過 Multi-Factor Authentication，或重新導向回應用程式。
@@ -181,7 +184,7 @@ ms.locfileid: "58096855"
 
 ## <a name="auto-update-of-the-authentication-agents"></a>驗證代理程式的自動更新
 
-發行新版本時，更新程式應用程式會自動更新驗證代理程式。 此應用程式不會處理租用戶的任何密碼驗證要求。 
+Updater 應用程式 （與 bug 修正或效能增強功能） 的新版本發行時，會自動更新驗證代理程式。 Updater 應用程式不會處理租用戶的任何密碼驗證要求。
 
 Azure AD 會將新版的軟體當作已簽署的 **Windows Installer 套件 (MSI)** 進行裝載。 MSI 是使用以 SHA256 作為摘要演算法的 [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx) 簽署的。 
 
@@ -203,7 +206,7 @@ Azure AD 會將新版的軟體當作已簽署的 **Windows Installer 套件 (MSI
     - 重新啟動驗證代理程式服務
 
 >[!NOTE]
->如果您在租用戶上註冊了多個驗證代理程式，則 Azure AD 不會更新其憑證或者不會同時更新這些憑證。 但是，Azure AD 會逐漸更新，以確保登入要求的高可用性。
+>如果您在租用戶上註冊了多個驗證代理程式，則 Azure AD 不會更新其憑證或者不會同時更新這些憑證。 相反地，Azure AD 會因此一次一個，以確保登入要求的高可用性。
 >
 
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: raynew
-ms.openlocfilehash: f0540ff1fc1844c133e238267770b971992f61e6
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 0c2ca8c17abd6ac5e540beec1bde715931e022a4
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904996"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609399"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Azure Vm 從一個區域複寫到另一個的支援矩陣
 
@@ -24,7 +24,7 @@ ms.locfileid: "58904996"
 
 **部署** |  **支援**
 --- | ---
-**Azure 入口網站** | 支援。
+**Azure 门户** | 支援。
 **PowerShell** | 支援。 [深入了解](azure-to-azure-powershell.md)
 **REST API** | 支援。
 **CLI** | 目前不支援
@@ -35,10 +35,10 @@ ms.locfileid: "58904996"
 **資源動作** | **詳細資料**
 --- | --- | ---
 **資源群組間移動保存庫** | 不支援
-**跨越資源群組移動計算/儲存體/網路資源** | 不支援。<br/><br/> 如果您在 VM 複寫之後移動 VM 或是相關聯的元件 (例如儲存體/網路)，您必須停用該 VM 的複寫，然後再重新啟用複寫。
-**從一個訂用帳戶的 Azure Vm 複寫至另一個用於災害復原** | 在相同的 Azure Active Directory 租用戶中支援。
-**（內和跨訂用帳戶） 的支援地理叢集內的區域之間移轉 Vm** | 在相同的 Azure Active Directory 租用戶中支援。
-**在相同區域內移轉 Vm** | 不支援。
+**跨資源群組移動計算/儲存體/網路資源** | 不支援。<br/><br/> 如果您在 VM 複寫之後移動 VM 或是相關聯的元件 (例如儲存體/網路)，您必須停用該 VM 的複寫，然後再重新啟用複寫。
+**將 Azure VM 從某個訂用帳戶複寫至另一個以進行災害復原** | 在相同的 Azure Active Directory 租用戶中支援。
+**在支援的地理叢集 (在訂用帳戶內或跨訂用帳戶) 內移轉區域之間的 VM** | 在相同的 Azure Active Directory 租用戶中支援。
+**在相同區域內移轉 VM** | 不支援。
 
 ## <a name="region-support"></a>區域支援
 
@@ -79,7 +79,7 @@ Azure Government    | US Gov 維吉尼亞州、US Gov 愛荷華州、US Gov 亞�
 
 Site Recovery 可對執行本節所列作業系統的 Azure VM 進行複寫。
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 **作業系統** | **詳細資料**
 --- | ---
@@ -89,7 +89,7 @@ Windows Server 2012 R2 |
 Windows Server 2012 |
 Windows Server 2008 R2 | 執行 SP1 或更新版本
 
-#### <a name="linux"></a> Linux
+#### <a name="linux"></a>Linux
 
 **作業系統** | **詳細資料**
 --- | ---
@@ -99,7 +99,7 @@ Ubuntu 14.04 LTS 伺服器 | [支援的核心版本](#supported-ubuntu-kernel-ve
 Ubuntu 16.04 LTS 伺服器 | [支援的核心版本](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> 使用密碼型驗證和登入並使用雲端 init 封裝來設定雲端 VM 的 Ubuntu 伺服器，可能對容錯移轉停用密碼型登入 (取決於 cloudinit 組態)。 針對已容錯移轉的 VM，從 Azure 入口網站中的 [支援] > [疑難排解] > [設定功能表] 中重設密碼，即可在虛擬機器上重新啟用密碼型登入。
 Debian 7 | [支援的核心版本](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 8 | [支援的核心版本](#supported-debian-kernel-versions-for-azure-virtual-machines)
-SUSE Linux Enterprise Server 12 | SP1,SP2,SP3。 [（支援的核心版本）](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
+SUSE Linux Enterprise Server 12 | SP1,SP2,SP3,SP4. [(支援的核心版本)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> 不支援將複寫機器從 SP3 升級至 SP4。 如果已升級複寫的機器，您需要在升級後停用複寫，然後再重新啟用複寫。
 SUSE Linux Enterprise Server 11 | SP4
 Oracle Linux | 6.4、6.5、6.6、6.7、6.8、6.9、6.10、7.0、7.1、7.2、7.3、7.4、7.5 <br/><br/> 執行 Red Hat 相容核心或 Unbreakable Enterprise Kernel 第 3 版 (UEK3)。
@@ -132,7 +132,7 @@ Debian 8 | 9.19 | 3.16.0-4-amd64 至 3.16.0-6-amd64、4.9.0-0.bpo.4-amd64 至 4.
 
 **版本** | **行動服務版本** | **核心版本** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | 9.23 | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>若要 4.4.121-92.101-default SP2(LTSS) 4.4.121-92.73-default</br></br>若要 4.4.162-94.79-default SP3 4.4.73-5-default |
+SUSE Linux Enterprise Server 12 SP1、 SP2、 SP3 (SP4） | 9.23 | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>若要 4.4.121-92.101-default SP2(LTSS) 4.4.121-92.73-default</br></br>若要 4.4.162-94.79-default SP3 4.4.73-5-default</br></br>若要 4.12.14-95.6-default SP4 4.12.14-94.41-default |
 SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | 9.22 | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default 至 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default 至 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | 9.21 | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default 至 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default 至 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | 9.20 | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default 至 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default 至 4.4.162-94.69-default |
@@ -162,7 +162,7 @@ RBAC 原則 | 不支援 | 角色型的存取控制 (RBAC) 原則，在 Vm 上的
 
 ## <a name="replicated-machines---disk-actions"></a>複寫的機器 - 磁碟動作
 
-** 動作** | **詳細資料**
+**Action** | **詳細資料**
 -- | ---
 在複寫的 VM 上調整磁碟大小 | 支援
 在複寫的 VM 上新增磁碟 | 不支援。<br/><br/> 您需要停用 VM 的複寫、新增磁碟，然後重新啟用複寫。
@@ -217,7 +217,7 @@ ZRS | 不支援 |
 - 有兩個需要考量，每個磁碟資料變換和每個虛擬機器資料變換限制。
 - 例如，如果我們使用下表中所述的進階 P20 磁碟 Site Recovery 可以處理 5 Mb 的每個磁碟，變換與最多五個這類磁碟的每個 VM，因為 25 MB/秒的變換總計每個 VM 限制。
 
-**儲存體目標** | **平均來源磁碟 I/O** |**平均來源磁碟資料變換** | **來源磁碟資料變換總計每日**
+**儲存體目標** | **平均來源磁碟 I/O** |**平均來源磁碟資料變換** | **每日的來源磁碟資料變換總計**
 ---|---|---|---
 標準儲存體 | 8 KB | 2 MB/秒 | 每個磁碟 168 GB
 進階 P10 或 P15 磁碟 | 8 KB  | 2 MB/秒 | 每個磁碟 168 GB

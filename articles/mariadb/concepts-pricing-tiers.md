@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: bb6e27f92f60712cce71ba6fca53b40af00ee714
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.date: 04/15/2019
+ms.openlocfilehash: 5eb2ba509983918a55370ae0deafd019e03f53d8
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354445"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617779"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>適用於 MariaDB 的 Azure 資料庫定價層
 
@@ -20,7 +20,7 @@ ms.locfileid: "54354445"
 |    | **基本** | **一般用途** | **記憶體最佳化** |
 |:---|:----------|:--------------------|:---------------------|
 | 計算世代 | Gen 5 |Gen 5 | Gen 5 |
-| 虛擬核心 | 1、2 | 2、4、8、16、32 |2、4、8、16 |
+| 虛擬核心 | 1、2 | 2、4、8、16、32、64 |2、4、8、16、32 |
 | 每個虛擬核心的記憶體 | 2 GB | 5 GB | 10 GB |
 | 儲存體大小 | 5 GB 至 1 TB | 5 GB 至 4 TB | 5 GB 至 4 TB |
 | 儲存體類型 | Azure 標準儲存體 | Azure 進階儲存體 | Azure 進階儲存體 |

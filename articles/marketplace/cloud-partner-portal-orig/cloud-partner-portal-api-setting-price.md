@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c78a54d5002972339994d9590c0a3e23b5c69bd9
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: a029477dfd8046863ebfe34cd839562a0b1f3d87
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806312"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607787"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>虛擬機器供應項目定價
 ==================================
@@ -149,7 +149,7 @@ ms.locfileid: "48806312"
 | LI         | 列支敦斯登        | 瑞士法郎               |
 | LT         | 立陶宛            | 歐元               |
 | LU         | 盧森堡           | 歐元               |
-| MK         | 北馬其頓 FYRO       | MKD               |
+| MK         | 北馬其頓      | MKD               |
 | MY         | 馬來西亞             | 馬來西亞林吉特               |
 | MT         | 馬爾他                | 歐元               |
 | MX         | 墨西哥               | 墨西哥批索               |

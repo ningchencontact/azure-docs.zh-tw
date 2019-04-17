@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 84ab433f5de8a62f33aca01e60bc2dbd1d8e68f8
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.openlocfilehash: d7eb73c8fb4573084ba0a213282fdb71e14ff5fa
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761424"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546735"
 ---
 # <a name="introduction-to-azure-netapp-files"></a>Azure NetApp Files 簡介
 Azure NetApp Files 服務是企業等級、高效能、計量檔案儲存體服務。 Azure NetApp Files 支援任何工作負載類型，預設為高度可用。 您可以選取保證的服務和效能層級，並且透過服務設定快照集。 

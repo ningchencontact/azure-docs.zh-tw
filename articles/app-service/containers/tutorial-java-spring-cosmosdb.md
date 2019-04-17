@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: 792346edf1d2b2326f7f5f5f53304ceca347508d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f86949c196507080b32771a1b5470e9911e3e5b7
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901112"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545779"
 ---
 # <a name="tutorial-build-a-java-web-app-using-spring-and-azure-cosmos-db"></a>教學課程：使用 Spring 和 Azure Cosmos DB 來建置 Java Web 應用程式
 
@@ -265,55 +265,10 @@ open https://spring-todo-app.azurewebsites.net
 
  ![](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-in-app-service.jpg)
 
-## <a name="view-logs-to-troubleshoot-the-app"></a>檢視記錄以進行應用程式的疑難排解
+## <a name="stream-diagnostic-logs"></a>資料流診斷記錄
 
-針對部署在 App Service (位於 Linux) 中的 Java Web 應用程式啟用記錄功能：
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
-```bash
-az webapp log config --name ${WEBAPP_NAME} \
- --resource-group ${RESOURCEGROUP_NAME} \
-  --web-server-logging filesystem
-```
-
-然後，將 Web 應用程式記錄串流至您的終端機：
-
-```bash
-az webapp log tail --name ${WEBAPP_NAME} \
- --resource-group ${RESOURCEGROUP_NAME}
-```
-
-您會看到最新的輸出行，而且當您對 TODO 應用程式發出新要求時，這些輸出行就會串流至主控台。 若要結束主控台，請使用 CONTROL + C。
-
-```bash
-bash-3.2$ az webapp log tail --name ${WEBAPP_NAME}  --resource-group ${RESOURCEGROUP_NAME}
-2018-10-28T22:50:17  Welcome, you are now connected to log-streaming service.
-2018-10-28T22:44:56.265890407Z   _____                               
-2018-10-28T22:44:56.265930308Z   /  _  \ __________ _________   ____  
-2018-10-28T22:44:56.265936008Z  /  /_\  \___   /  |  \_  __ \_/ __ \ 
-2018-10-28T22:44:56.265940308Z /    |    \/    /|  |  /|  | \/\  ___/ 
-2018-10-28T22:44:56.265944408Z \____|__  /_____ \____/ |__|    \___  >
-2018-10-28T22:44:56.265948508Z         \/      \/                  \/ 
-2018-10-28T22:44:56.265952508Z A P P   S E R V I C E   O N   L I N U X
-2018-10-28T22:44:56.265956408Z Documentation: https://aka.ms/webapp-linux
-2018-10-28T22:44:56.266260910Z Setup openrc ...
-2018-10-28T22:44:57.396926506Z Service `hwdrivers' needs non existent service `dev'
-2018-10-28T22:44:57.397294409Z  * Caching service dependencies ... [ ok ]
-2018-10-28T22:44:57.474152273Z Starting ssh service...
-...
-...
-2018-10-28T22:46:13.432160734Z [INFO] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
-2018-10-28T22:46:13.744859424Z [INFO] TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
-2018-10-28T22:46:13.783230205Z [INFO] TodoApplication - Started TodoApplication in 57.209 seconds (JVM running for 70.815)
-2018-10-28T22:46:14.887366993Z 2018-10-28 22:46:14.887  INFO 198 --- [p-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
-2018-10-28T22:46:14.887637695Z [INFO] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
-2018-10-28T22:46:14.998479907Z [INFO] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 111 ms
-
-2018-10-28T22:49:20.572059062Z Sun Oct 28 22:49:20 GMT 2018 GET ======= /api/todolist =======
-2018-10-28T22:49:25.850543080Z Sun Oct 28 22:49:25 GMT 2018 DELETE ======= /api/todolist/{4f41ab03-1b12-4131-a920-fe5dfec106ca} ======= 
-2018-10-28T22:49:26.047126614Z Sun Oct 28 22:49:26 GMT 2018 GET ======= /api/todolist =======
-2018-10-28T22:49:30.201740227Z Sun Oct 28 22:49:30 GMT 2018 POST ======= /api/todolist ======= Milk
-2018-10-28T22:49:30.413468872Z Sun Oct 28 22:49:30 GMT 2018 GET ======= /api/todolist =======
-```
 
 ## <a name="scale-out-the-todo-app"></a>擴充 TODO 應用程式
 
@@ -330,7 +285,7 @@ az appservice plan update --number-of-workers 2 \
 如果您不需要這些資源來進行其他教學課程 (請參閱[後續步驟](#next))，您可以在 Cloud Shell 中執行下列命令來將這些資源刪除︰ 
   
 ```bash
-az group delete --name your-azure-group-name
+az group delete --name <your-azure-group-name>
 ```
 
 <a name="next"></a>
@@ -338,9 +293,9 @@ az group delete --name your-azure-group-name
 ## <a name="next-steps"></a>後續步驟
 
 [適用於 Java 開發人員的 Azure](/java/azure/)
-[Spring Boot](https://spring.io/projects/spring-boot)、[適用於 Cosmos DB 的 Spring 資料](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable)、[Azure Cosmos DB](/azure/cosmos-db/sql-api-introduction) 和 [App Service Linux](/azure/app-service/containers/app-service-linux-intro)。
+[Spring Boot](https://spring.io/projects/spring-boot)、[適用於 Cosmos DB 的 Spring 資料](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable)、[Azure Cosmos DB](/azure/cosmos-db/sql-api-introduction) 和 [App Service Linux](app-service-linux-intro.md)。
 
 在開發人員指南中深入了解如何在 Linux 中的 App Service 上執行 Java 應用程式。
 
 > [!div class="nextstepaction"] 
-> [App Service Linux 中的 Java 開發人員指南](/azure/app-service/containers/app-service-linux-java)
+> [App Service Linux 中的 Java 開發人員指南](configure-language-java.md)

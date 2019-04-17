@@ -1,6 +1,6 @@
 ---
 title: Raspberry Pi 至 cloud (Node.js) - 將 Raspberry Pi 連接至 Azure IoT 中樞 | Microsoft Docs
-description: 在本教程中了解如何设置 Raspberry Pi 并将其连接到 Azure IoT 中心，使其能够将数据发送到 Azure 云平台。
+description: 了解如何設定與 Raspberry Pi 連線到 Azure IoT 中樞，Raspberry Pi 將資料傳送至 Azure 雲端平台，在本教學課程。
 author: wesmc7777
 manager: philmea
 keywords: azure iot raspberry pi, raspberry pi iot 中樞, raspberry pi 將資料傳送至雲端, raspberry pi 至 cloud
@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.openlocfilehash: 1c52e03dbb20df2ddfdb977fe7de4afb94bc3a99
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d1e9a6da399adcdca87c1d6dc30eaf425ec0541e
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272065"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609008"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>將 Raspberry Pi 連接至 Azure IoT Hub (Node.js)
 
@@ -28,38 +28,54 @@ ms.locfileid: "59272065"
 ## <a name="what-you-do"></a>您要做什麼
 
 * 建立 IoT 中樞。
+
 * 在 IoT 中樞對於 Pi 註冊裝置。
+
 * 設定 Raspberry Pi。
+
 * 在 Pi 上執行範例應用程式，將感應器資料傳送至 IoT 中樞。
 
 ## <a name="what-you-learn"></a>您學到什麼
 
 * 如何创建 Azure IoT 中心以及如何获取新的设备连接字符串。
+
 * 如何連接 Pi 與 BME280 感應器。
+
 * 如何在 Pi 上執行範例應用程式來收集感應器資料。
+
 * 如何將感應器資料傳送至 IoT 中樞。
 
 ## <a name="what-you-need"></a>您需要什麼
 
-![您需要什麼](./media/iot-hub-raspberry-pi-kit-node-get-started/0_starter_kit.jpg)
+![您需要什麼](./media/iot-hub-raspberry-pi-kit-node-get-started/0-starter-kit.png)
 
 * Raspberry Pi 2 或 Raspberry Pi 3 主機板。
+
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+
 * 連接至 Pi 的監視器、USB 鍵盤及滑鼠。
+
 * 執行 Windows 或 Linux 的 Mac 或 PC。
+
 * 網際網路連線。
+
 * 16 GB 以上的 microSD 記憶卡。
+
 * 一個 USB-SD 配接器或 microSD 記憶卡，以將作業系統映像燒錄到 microSD 記憶卡中。
+
 * 具備 6 英呎 micro USB 纜線的 5V 2A 電源供應器。
 
 以下项可选：
 
 * 組裝的 Adafruit BME280 溫度、壓力溼度感應器。
+
 * 试验板。
+
 * 6 條 F/M 跳線。
+
 * 1 顆漫射型 10 mm LED。
 
-> [!NOTE] 
+> [!NOTE]
 > 如果您沒有選用項目，則可以使用模擬的感應器資料。
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
@@ -105,26 +121,26 @@ ms.locfileid: "59272065"
 
 ### <a name="enable-ssh-and-i2c"></a>啟用 SSH 和 I2C
 
-1. 將 Pi 連接至監視器、鍵盤及滑鼠。 
+1. 將 Pi 連接至監視器、鍵盤及滑鼠。
 
-2. 啟動 Pi，然後使用 `pi` 作為使用者名稱和 `raspberry` 作為密碼來登入 Raspbian。
+2. 啟動 Pi，然後使用登入 Raspbian`pi`作為使用者名稱和`raspberry`做為密碼。
 
 3. 按一下 Raspberry 圖示 > [偏好設定] > [Raspberry Pi 組態]。
 
-   ![[Raspbian 偏好設定] 功能表](./media/iot-hub-raspberry-pi-kit-node-get-started/1_raspbian-preferences-menu.png)
+   ![[Raspbian 偏好設定] 功能表](./media/iot-hub-raspberry-pi-kit-node-get-started/1-raspbian-preferences-menu.png)
 
 4. 在“接口”选项卡上，将“I2C”和“SSH”设置为“启用”，然后单击“确定”。 如果您沒有實體感應器，而且想要使用模擬的感應器資料，這便是選擇性步驟。
 
-   ![在 Raspberry Pi 上啟用 I2C 和 SSH](./media/iot-hub-raspberry-pi-kit-node-get-started/2_enable-i2c-ssh-on-raspberry-pi.png)
+   ![在 Raspberry Pi 上啟用 I2C 和 SSH](./media/iot-hub-raspberry-pi-kit-node-get-started/2-enable-i2c-ssh-on-raspberry-pi.png)
 
-> [!NOTE] 
+> [!NOTE]
 > 若要啟用 I2C 和 SPI，您可以在 [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) 和[Adafruit.com](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c) 找到更多參考文件。
 
 ### <a name="connect-the-sensor-to-pi"></a>將感應器連接至 Pi
 
 使用麵包板和跳線將 LED 和 BME280 連接至 Pi，如下所示。 如果沒有感應器，請[略過本節](#connect-pi-to-the-network)。
 
-![Raspberry Pi 和感應器連接](./media/iot-hub-raspberry-pi-kit-node-get-started/3_raspberry-pi-sensor-connection.png)
+![Raspberry Pi 和感應器連接](./media/iot-hub-raspberry-pi-kit-node-get-started/3-raspberry-pi-sensor-connection.png)
 
 BME280 感應器可以收集溫度和溼度資料。 當裝置將訊息傳送至雲端時，LED 會閃爍。 
 
@@ -143,13 +159,13 @@ BME280 感應器可以收集溫度和溼度資料。 當裝置將訊息傳送至
 
 將 BME280 成功連接至 Raspberry Pi 之後，應該如下圖所示。
 
-![連接的 Pi 和 BME280](./media/iot-hub-raspberry-pi-kit-node-get-started/4_connected-pi.jpg)
+![連接的 Pi 和 BME280](./media/iot-hub-raspberry-pi-kit-node-get-started/4-connected-pi.png)
 
 ### <a name="connect-pi-to-the-network"></a>將 Pi 連線到網路
 
 使用 USB 微电缆和电源开启 Pi。 使用乙太網路纜線將 Pi 連接到有線網路，或遵循來自 Raspberry Pi Foundation 的[指示](https://www.raspberrypi.org/learning/software-guide/wifi/)，將 Pi 連接到無線網路。 在 Pi 成功連線到網路之後，您需要記下 [Pi 的 IP 位址](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-3-network-setup/finding-your-pis-ip-address)。
 
-![已連接到有線網路](./media/iot-hub-raspberry-pi-kit-node-get-started/5_power-on-pi.jpg)
+![已連接到有線網路](./media/iot-hub-raspberry-pi-kit-node-get-started/5-power-on-pi.png)
 
 > [!NOTE]
 > 确保 Pi 与计算机连接到同一网络。 例如，如果您的電腦連線到無線網路，而 Pi 連線到有線網路，您可能不會在 devdisco 輸出中看到 IP 位址。
@@ -166,18 +182,18 @@ BME280 感應器可以收集溫度和溼度資料。 當裝置將訊息傳送至
 
    b. 將 Pi 的 IP 位址複製到 [主機名稱] 或 [IP 位址] 區段，並且選取 SSH 作為連線類型。
 
-   ![PuTTy](./media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
+   ![PuTTy](./media/iot-hub-raspberry-pi-kit-node-get-started/7-putty-windows.png)
 
    **Mac 和 Ubuntu 使用者**
 
    在 Ubuntu 或 macOS 上使用內建的 SSH 用戶端。 您可能需要執行 `ssh pi@<ip address of pi>`，才能透過 SSH 來連線 Pi。
 
-   > [!NOTE] 
+   > [!NOTE]
    > 預設使用者名稱為 `pi`，密碼為 `raspberry`。
 
 2. 將 Node.js 和 NPM 安裝到 Pi。
 
-   請先檢查您的 Node.js 版本。 
+   請先檢查您的 Node.js 版本。
 
    ```bash
    node -v
@@ -203,7 +219,7 @@ BME280 感應器可以收集溫度和溼度資料。 當裝置將訊息傳送至
    sudo npm install
    ```
 
-   > [!NOTE] 
+   > [!NOTE]
    >端視網路連線而定，可能需要幾分鐘才能完成此安裝程序。
 
 ### <a name="configure-the-sample-application"></a>設定範例應用程式
@@ -214,7 +230,7 @@ BME280 感應器可以收集溫度和溼度資料。 當裝置將訊息傳送至
    nano config.json
    ```
 
-   ![組態檔](./media/iot-hub-raspberry-pi-kit-node-get-started/6_config-file.png)
+   ![組態檔](./media/iot-hub-raspberry-pi-kit-node-get-started/6-config-file.png)
 
    此檔案中有兩個您可以設定的項目。 第一個是 `interval`，這定義傳送至雲端之訊息間的時間間隔 (以毫秒為單位)。 第二個是 `simulatedData`，這是指出是否要使用模擬感應器資料的布林值。
 
@@ -230,13 +246,12 @@ BME280 感應器可以收集溫度和溼度資料。 當裝置將訊息傳送至
    sudo node index.js '<YOUR AZURE IOT HUB DEVICE CONNECTION STRING>'
    ```
 
-   > [!NOTE] 
+   > [!NOTE]
    > 确保将设备连接字符串复制并粘贴到单引号中。
-
 
 您應該會看見下列輸出，顯示傳送至 IoT 中樞的感應器資料和訊息。
 
-![輸出 - 從 Raspberry Pi 傳送至 IoT 中樞的感應器資料](./media/iot-hub-raspberry-pi-kit-node-get-started/8_run-output.png)
+![輸出 - 從 Raspberry Pi 傳送至 IoT 中樞的感應器資料](./media/iot-hub-raspberry-pi-kit-node-get-started/8-run-output.png)
 
 ## <a name="read-the-messages-received-by-your-hub"></a>讀取您的中樞所接收的訊息
 

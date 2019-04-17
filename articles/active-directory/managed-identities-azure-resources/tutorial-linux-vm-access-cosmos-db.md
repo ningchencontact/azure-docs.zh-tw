@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/09/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b7e778e04901e830cdbc463d889621565c175a0
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 7b79c4e1ddb84213ce9000236727d9bca298a0cd
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448150"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523795"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>教學課程：使用 Linux VM 系統指派的受控識別來存取 Azure Cosmos DB 
 
@@ -157,7 +157,7 @@ CURL 回應會提供金鑰清單。  例如，如果您收到唯讀金鑰：
 "secondaryReadonlyMasterKey":"38v5ns...7bA=="}
 ```
 
-現在，您已有 Cosmos DB 帳戶的存取金鑰，您可以將其傳至 Cosmos DB SDK，並進行呼叫以存取帳戶。  如需快速範例，您可以將存取金鑰傳至 Azure CLI。  您可以透過 Azure 入口網站，從 Cosmos DB 帳戶刀鋒視窗上的 [概觀] 索引標籤取得 <COSMOS DB CONNECTION URL>。  請將 <ACCESS KEY> 取代為您先前取得的值：
+現在，您已有 Cosmos DB 帳戶的存取金鑰，您可以將其傳至 Cosmos DB SDK，並進行呼叫以存取帳戶。  如需快速範例，您可以將存取金鑰傳至 Azure CLI。  您可以透過 Azure 入口網站，從 Cosmos DB 帳戶刀鋒視窗上的 [概觀] 索引標籤取得 `<COSMOS DB CONNECTION URL>`。  請將 `<ACCESS KEY>` 取代為您先前取得的值：
 
 ```bash
 az cosmosdb collection show -c <COLLECTION ID> -d <DATABASE ID> --url-connection "<COSMOS DB CONNECTION URL>" --key <ACCESS KEY>

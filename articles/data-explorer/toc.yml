@@ -95,6 +95,8 @@ items:
       href: connect-from-databricks.md
     - name: 在 Jupyter Notebook 和 Kqlmagic 中分析資料
       href: kqlmagic.md
+    - name: 複製 Azure Data Factory 中的資料
+      href: data-factory-load-data.md
     - name: 在 Grafana 中將資料視覺化
       href: grafana.md
     - name: 與 ODBC 連線
@@ -139,9 +141,9 @@ items:
     href: https://aka.ms/adecostestimator
   - name: 服務更新
     href: https://azure.microsoft.com/updates/?product=data-explorer
-ms.openlocfilehash: 7b525558fd22b2d2f61f3cc901938c449f53fb72
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: c582b82f4b4caf0ee3bb007934cc4d50163fe139
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847082"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616802"

@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/23/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 9229a583dac526d09d7c5046c4bb81d30c9d4c3f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 34ae47723762215fdea99362419c3875dc2e5942
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873558"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522740"
 ---
 # <a name="collaborating-with-other-authors"></a>其他作者與共同作業
 
-LUIS 提供共同作業，可允許一群人撰寫應用程式。
+LUIS 應用程式需要允許多人撰寫單一應用程式的單一擁有者和選擇性的共同作業者。
 
 ## <a name="luis-account"></a>LUIS 帳戶
 LUIS 帳戶會與單一 [Microsoft Live](https://login.live.com/) 帳戶關聯。 每個 LUIS 帳戶都會獲得一個免費的[撰寫金鑰](luis-concept-keys.md#authoring-key)，可用來撰寫該帳戶可存取的所有 LUIS 應用程式。 
@@ -30,7 +30,8 @@ LUIS 帳戶會與單一 [Microsoft Live](https://login.live.com/) 帳戶關聯�
 若要深入了解 Active Directory 使用者帳戶，請參閱 [Azure Active Directory 租用戶使用者](luis-how-to-collaborate.md#azure-active-directory-tenant-user)。 
 
 ## <a name="luis-app-owner"></a>LUIS 應用程式擁有者
-建立應用程式的帳戶即為擁有者。 每個應用程式都有單一擁有者。 該擁有者會列在應用程式 [[Settings](luis-how-to-collaborate.md)] \(設定\) 上。 這是可以刪除應用程式的帳戶。 這也是端點配額達到每月限制的 75% 時，會收到電子郵件通知的帳戶。 
+
+建立應用程式的帳戶是擁有者和每個應用程式都有單一的擁有者。 擁有者會列在應用程式**[設定](luis-how-to-collaborate.md)** 頁面。 擁有者可以刪除應用程式端點配額達到 75%的每月限制時，收到電子郵件。 
 
 ## <a name="authorization-roles"></a>授權角色
 對於擁有者和共同作業者，LUIS 不支援不同的角色，但有一個例外。 擁有者是可以刪除應用程式的唯一帳戶。
@@ -61,6 +62,10 @@ LUIS 不提供擁有權轉移，不過任何共同作業者都可以匯出應用
 [匯出](luis-how-to-manage-versions.md#export-version)基底版本。 每個作者都匯入版本。 匯入應用程式的人即為該版本的擁有者。 當他們修改完應用程式時，請匯出版本。 
 
 匯出的應用程式會是 JSON 格式的檔案，可用來與基底匯出版本比較變更。 結合檔案以建立新版本的單一 JSON 檔案。 變更 JSON 中的 **versionId** 屬性，以表示新的合併版本。 將該版本匯入至原始應用程式。
+
+## <a name="collaborator-roles-vs-entity-roles"></a>共同作業者角色與實體的角色
+
+[實體的角色](luis-concept-roles.md)套用至 LUIS 應用程式的資料模型。 共同作業者角色適用於撰寫存取層級。 
 
 ## <a name="next-steps"></a>後續步驟
 

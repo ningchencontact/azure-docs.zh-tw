@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/27/2019
+ms.date: 04/13/2019
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b7ab4007a94efbc48bfea67c6b954c02de0b2ba
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 9cee05b1ff6c63aae07b9c04435e4ff3ae4d07ee
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887432"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565881"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Azure Active Directory 中的應用程式和服務主體物件
 
@@ -52,7 +52,7 @@ ms.locfileid: "56887432"
 
 ### <a name="application-object"></a>應用程式物件
 
-Azure AD 應用程式是由其唯一一個應用程式物件所定義，該物件位於應用程式註冊所在的 Azure AD 租用戶，也稱為應用程式的「主要」租用戶。 Azure AD Graph [Application 實體][AAD-Graph-App-Entity]會定義應用程式物件屬性的結構描述。
+Azure AD 應用程式是由其唯一一個應用程式物件所定義，該物件位於應用程式註冊所在的 Azure AD 租用戶，也稱為應用程式的「主要」租用戶。 Microsoft Graph[應用程式實體][ MS-Graph-App-Entity]定義應用程式物件的屬性結構描述。
 
 ### <a name="service-principal-object"></a>服務主體物件
 
@@ -60,7 +60,7 @@ Azure AD 應用程式是由其唯一一個應用程式物件所定義，該物�
 
 安全性主體會定義 Azure AD 租用戶中使用者/應用程式的存取原則和權限。 此動作可啟用核心功能，例如登入期間的使用者/應用程式驗證，以及資源存取期間的授權。
 
-當應用程式擁有權限可存取租用戶中的資源時 (通過註冊時或[同意](developer-glossary.md#consent))，服務主體物件就會隨即建立。 Azure AD Graph [ServicePrincipal 實體][AAD-Graph-Sp-Entity]會定義服務主體物件屬性的結構描述。
+當應用程式擁有權限可存取租用戶中的資源時 (通過註冊時或[同意](developer-glossary.md#consent))，服務主體物件就會隨即建立。 Microsoft Graph [ServicePrincipal 實體][ MS-Graph-Sp-Entity]定義的服務主體物件屬性的結構描述。
 
 ### <a name="application-and-service-principal-relationship"></a>應用程式和服務主體關聯性
 
@@ -68,7 +68,7 @@ Azure AD 應用程式是由其唯一一個應用程式物件所定義，該物�
 
 應用程式物件就像範本，可從中「衍生」通用和預設屬性，用以建立相對應的服務主體物件。 因此，應用程式物件與軟體應用程式之間存在 1:1 關聯性，而與其對應的服務主體物件之間存在一對多關聯性。
 
-每一個會用到應用程式的租用戶中必須建立服務主體，才能讓它建立身分識別來登入及/或存取租用戶所保護的資源。 單一租用戶的應用程式只能有一個服務主體 (在其主租用戶中)，並在應用程式註冊期間建立和同意使用。 如果是多租用戶 Web 應用程式/API，則在使用者已同意使用它的每個租用戶中，還會建立服務主體。 
+每一個會用到應用程式的租用戶中必須建立服務主體，才能讓它建立身分識別來登入及/或存取租用戶所保護的資源。 單一租用戶的應用程式只能有一個服務主體 (在其主租用戶中)，並在應用程式註冊期間建立和同意使用。 如果是多租用戶 Web 應用程式/API，則在使用者已同意使用它的每個租用戶中，還會建立服務主體。
 
 > [!NOTE]
 > 您對應用程式物件所做的任何變更也只會反映於它在應用程式的主要租用戶 (其註冊所在租用戶) 中的服務主體物件。 就多租用戶應用程式而言，對應用程式物件所做的變更，必須等到透過[應用程式存取面板](https://myapps.microsoft.com)移除存取權再重新授權之後，才會反映在任何取用者租用戶的服務主體物件中。
@@ -83,7 +83,7 @@ Azure AD 應用程式是由其唯一一個應用程式物件所定義，該物�
 - **Contoso** - Contoso 組織所使用的租用戶，其為 **HR 應用程式**的取用者
 - **Fabrikam** - Fabrikam 組織所使用的租用戶，其亦會取用 **HR 應用程式**
 
-![應用程式物件和服務主體物件之間的關聯性](./media/app-objects-and-service-principals/application-objects-relationship.png)
+![應用程式物件和服務主體物件之間的關聯性](./media/app-objects-and-service-principals/application-objects-relationship.svg)
 
 在此範例案例中：
 
@@ -95,13 +95,13 @@ Azure AD 應用程式是由其唯一一個應用程式物件所定義，該物�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 您可以使用 [Azure AD Graph 總管](https://graphexplorer.azurewebsites.net/)來查詢應用程式和服務主體物件。
-- 您可以使用 Azure AD Graph API、[Azure 入口網站][AZURE-Portal]的應用程式資訊清單編輯器，或 [Azure AD PowerShell Cmdlet](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0) 來存取應用程式的應用程式物件 (如其 OData 的 [Application 實體][AAD-Graph-App-Entity]所代表)。
-- 您可以透過 Azure AD Graph API 或 [Azure AD PowerShell Cmdlet](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0) 來存取應用程式的服務主體物件 (如其 OData 的 [ServicePrincipal 實體][AAD-Graph-Sp-Entity] 所代表)。
+- 您可以使用[Microsoft Graph 總管](https://developer.microsoft.com/graph/graph-explorer)查詢應用程式和服務主體物件。
+- 您可以使用 Microsoft Graph API 的應用程式的應用程式物件[Azure 入口網站][ AZURE-Portal]應用程式資訊清單編輯器] 中，或[Azure AD PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0)表示其 OData 的[應用程式實體][MS-Graph-App-Entity]。
+- 您可以透過 Microsoft Graph API 來存取應用程式的服務主體物件或[Azure AD PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0)，如其 OData 所代表[ServicePrincipal 實體][ MS-Graph-Sp-Entity].
 
 <!--Image references-->
 
 <!--Reference style links -->
-[AAD-Graph-App-Entity]: https://docs.microsoft.com/graph/api/resources/application
-[AAD-Graph-Sp-Entity]: https://docs.microsoft.com/graph/api/resources/serviceprincipal
+[MS-Graph-App-Entity]: https://docs.microsoft.com/graph/api/resources/application
+[MS-Graph-Sp-Entity]: https://docs.microsoft.com/graph/api/resources/serviceprincipal
 [AZURE-Portal]: https://portal.azure.com

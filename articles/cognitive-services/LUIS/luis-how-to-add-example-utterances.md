@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 1dac87ae07fac6a997cfd8e83c1e47ff39a91a83
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0d3123b1e0238a1907b5ad3d487b92a7919ff181
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096685"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524254"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>將實體新增至範例語句 
 
@@ -91,6 +91,8 @@ Are there any SQL server jobs?
 
 ## <a name="add-hierarchical-entity"></a>新增階層式實體
 
+**階層式實體最終會被取代。使用[實體的角色](luis-concept-roles.md)來判斷實體子型別，而不是階層式實體。**
+
 階層式實體是內容學習和內容相關實體的分類。 在下列範例中，實體包含來源和目的地位置。 
 
 在語句 `Move John Smith from Seattle to Cairo` 中，Seattle 是來源位置，而 Cairo 是目的地位置。 每個位置的內容都不同，並且學習自語句中的字組順序和字組選擇。
@@ -105,6 +107,12 @@ Are there any SQL server jobs?
 
     >[!CAUTION]
     >在單一應用程式的所有實體中，子實體名稱必須是唯一的。 兩個不同的階層式實體不能包含同名的子實體。 
+
+## <a name="add-entitys-role-to-utterance"></a>將實體的角色新增至 [utterance]
+
+角色是具名的實體，由 [utterance] 的內容所決定的子類型。 您可以將標記視為實體，[utterance] 內的實體，或選取該實體內的角色。 任何實體可以有 （簡單的實體和複合實體） 包括機器學習之自訂實體的角色，不是機器學習 （預先建置的實體，規則運算式的實體清單中的實體）。 
+
+了解[如何將標示 [utterance] 實體角色](tutorial-entity-roles.md)從實際操作教學課程。 
 
 ## <a name="entity-status-predictions"></a>實體狀態預測
 
@@ -151,11 +159,11 @@ Are there any SQL server jobs?
 
 ### <a name="add-prebuilt-entity-label"></a>新增預先建置的實體標籤
 
-當您您將預先建置的實體新增至 LUIS 應用程式時，您並不需要標記具有這些實體的語句。 若要深入了解預先建置的實體和其新增方式，請參閱[新增實體](luis-how-to-add-entities.md#add-prebuilt-entity)。
+當您您將預先建置的實體新增至 LUIS 應用程式時，您並不需要標記具有這些實體的語句。 若要深入了解預先建置的實體和其新增方式，請參閱[新增實體](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app)。
 
 ### <a name="add-regular-expression-entity-label"></a>新增規則運算式實體標籤
 
-若您將規則運算式實體新增至 LUIS 應用程式，則不需要標記具有這些實體的語句。 若要深入了解規則運算式實體和其新增方式，請參閱[新增實體](luis-how-to-add-entities.md#add-regular-expression-entities)。
+若您將規則運算式實體新增至 LUIS 應用程式，則不需要標記具有這些實體的語句。 若要深入了解規則運算式實體和其新增方式，請參閱[新增實體](luis-how-to-add-entities.md#add-regular-expression-entities-for-highly-structured-concepts)。
 
 
 ### <a name="create-a-pattern-from-an-utterance"></a>從語句建立模式

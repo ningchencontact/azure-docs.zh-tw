@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 23120e45a1070f46ae4e1927a29bdab4c990d96f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 51a812762659bcc67762b82e9c120772065aab53
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860706"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549673"
 ---
 # <a name="schema-format"></a>結構描述格式
 
@@ -41,16 +41,16 @@ ms.locfileid: "55860706"
 
 以下是所支援的屬性資料類型清單：
 
-| 類型 | 說明 | 作業 | 範例 |
+| 類型 | 描述 | 作業 | 範例 |
 |------|-------------|------------|---------|
-| 字串 | 字串 (1 到 1024 個字元) | equals、starts_with | "hello world" |
-| Int32 | 帶正負號的 32 位元整數 | equals、starts_with、is_between | 2016 |
-| Int64 | 帶正負號的 64 位元整數 | equals、starts_with、is_between | 9876543210 |
-| Double | 雙精確度浮點值 | equals、starts_with、is_between | 1.602e-19 |
-| 日期 | 日期 (1400-01-01 到 9999-12-31) | equals、is_between | '2016-03-14' |
-| Guid | 全域唯一識別碼 | equals | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
-| Blob | 在內部壓縮的非索引資料 | *None* | 「讓地球上的每個人和每個組織有能力獲得更大成就」 |
-| 複合 | 多個子屬性的複合體| *N/A* | { "Name":"harry shum", "Affiliation":"microsoft" } |
+| `String` | 字串 (1 到 1024 個字元) | equals、starts_with | "hello world" |
+| `Int32` | 帶正負號的 32 位元整數 | equals、starts_with、is_between | 2016 |
+| `Int64` | 帶正負號的 64 位元整數 | equals、starts_with、is_between | 9876543210 |
+| `Double` | 雙精確度浮點值 | equals、starts_with、is_between | 1.602e-19 |
+| `Date` | 日期 (1400-01-01 到 9999-12-31) | equals、is_between | '2016-03-14' |
+| `Guid` | 全域唯一識別碼 | equals | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
+| `Blob` | 在內部壓縮的非索引資料 | *None* | 「讓地球上的每個人和每個組織有能力獲得更大成就」 |
+| `Composite` | 多個子屬性的複合體| *N/A* | { "Name":"harry shum", "Affiliation":"microsoft" } |
 
 字串屬性可用來表示可能會顯示為使用者查詢一部分的字串值。  這些屬性支援 equals (完全相符) 作業，以及適用於查詢完成案例的 starts_with 作業，例如比對「micros」與「microsoft」。  未來的版本會支援用來處理拼字錯誤的不區分大小寫比對和模糊比對。
 

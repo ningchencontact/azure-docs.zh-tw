@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9d1fa5786dcde70d42363dbb9af7221ca5383e64
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: ed10354047060825b4368e02160d4655e33bc8f6
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546393"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617391"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>使用媒體服務 v3 Api 進行開發
 
@@ -25,7 +25,8 @@ ms.locfileid: "59546393"
 
 ## <a name="accessing-the-azure-media-services-api"></a>存取 Azure 媒體服務 API
 
-若要存取 Azure 媒體服務資源，您應該使用 Azure Active Directory (AD) 服務主體驗證。 Azure 媒體服務 API 要求的使用者或發出 REST API 的應用程式要求存取 Azure 媒體服務帳戶資源 (通常是**參與者**或是**擁有者**角色）。 如需詳細資訊，請參閱 <<c0> [ 媒體服務帳戶的角色型存取控制](rbac-overview.md)。
+若要存取 Azure 媒體服務資源，您可以使用 Azure Active Directory (AD) 服務主體驗證。
+媒體服務 API 要求的使用者或應用程式進行 REST API 要求媒體服務帳戶資源的存取權，並使用**參與者**或是**擁有者**角色。 API 可以使用存取**讀者**角色但只**取得**或**清單** 作業可使用。 如需詳細資訊，請參閱 <<c0> [ 媒體服務帳戶的角色型存取控制](rbac-overview.md)。
 
 而不是建立服務主體，請考慮使用適用於 Azure 資源管理的身分識別存取媒體服務 API 透過 Azure Resource Manager。 若要深入了解適用於 Azure 資源管理的身分識別，請參閱[什麼是適用於 Azure 資源管理的身分識別](../../active-directory/managed-identities-azure-resources/overview.md)。
 

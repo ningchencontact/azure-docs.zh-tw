@@ -282,7 +282,7 @@ Success sending oms.syslog.authpriv.info x 1 in 0.91s
 * Azure 監視器的連線遭到封鎖
 * 虛擬機器已重新啟動
 * OMI 套件已手動升級為比 Log Analytics Linux 代理程式套件所安裝版本還新的版本
-* DSC 資源在 `omsconfig.log` 記錄檔中記錄了「找不到類別」錯誤
+* DSC 資源在 `omsconfig.log` 記錄中記錄了「找不到類別」錯誤
 * Log Analytics 的資料代理程式已備份
 * DSC 記錄了「目前的組態不存在。請執行 Start-DscConfiguration 命令與 -Path 參數來指定組態檔，並先建立目前的組態。 在 `omsconfig.log` 記錄檔中，但沒有關於 `PerformRequiredConfigurationChecks` 作業的記錄訊息存在。
 

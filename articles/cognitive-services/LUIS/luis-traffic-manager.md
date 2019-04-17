@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: diberry
-ms.openlocfilehash: a71b09ba8b3e7fa7299c34c3cdc64503ae4e9857
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 31d8f54cb05bdbba7fe05249527db3dd50385087
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56736544"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523404"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>使用 Microsoft Azure 流量管理員管理幾個金鑰之間的端點配額
 Language Understanding (LUIS) 可讓您增加端點要求配額而超過單一金鑰的配額。 如果要這樣做，請在 [發佈] 頁面的 [資源和金鑰] 區段中，為 LUIS 建立多個金鑰，然後將它們加入 LUIS 應用程式。 
@@ -86,7 +86,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
     |-RelativeDnsName|luis-dns-eastus|這是服務的子網域：luis-dns-eastus.trafficmanager.net|
     |-Ttl|30|輪詢間隔，30 秒|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|LUIS 的連接埠和通訊協定是 HTTPS/443|
-    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-east`|以您自己的值取代 <appIdLuis> 和 <subscriptionKeyLuis>。|
+    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-east`|以您自己的值取代 `<appIdLuis>` 和 `<subscriptionKeyLuis>`。|
     
     成功的要求沒有回應。
 
@@ -154,7 +154,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "West US"
     |-RelativeDnsName|luis-dns-westus|這是服務的子網域：luis-dns-westus.trafficmanager.net|
     |-Ttl|30|輪詢間隔，30 秒|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|LUIS 的連接埠和通訊協定是 HTTPS/443|
-    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|以您自己的值取代 <appId> 和 <subscriptionKey>。 請記住，此端點金鑰不同於東部端點金鑰|
+    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|以您自己的值取代 `<appId>` 和 `<subscriptionKey>`。 請記住，此端點金鑰不同於東部端點金鑰|
     
     成功的要求沒有回應。
 

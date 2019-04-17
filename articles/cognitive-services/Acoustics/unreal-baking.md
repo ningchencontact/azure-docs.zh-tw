@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: michem
 ms.openlocfilehash: 48a1c4350b438761aa2e2d8c7e57a872c86ca292
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470367"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492748"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>聲場專案 Unreal 聲場模擬教學課程
 本文件說明使用 Unreal 編輯器擴充來提交聲場模擬的流程。

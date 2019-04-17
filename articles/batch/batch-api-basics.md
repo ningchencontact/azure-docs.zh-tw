@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 3839a1a457af1549a82b7607310a619911c78591
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1107842444ad0ac77ab890f07e65c8b489030461
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57761866"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617478"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 開發大規模的平行運算解決方案
 
@@ -471,7 +471,7 @@ Batch 可處理使用 Azure 儲存體將應用程式封裝儲存及部署到計�
 ### <a name="accounting-for-task-failures-or-interruptions"></a>處理工作失敗或中斷
 工作可能偶爾會失敗或中斷。 工作應用程式本身可能失敗、執行工作的節點可能重新開機，或節點在調整大小作業期間可能因為集區的取消配置原則設為不需等待工作完成便立即移除節點而從集區中移除。 在所有的情況下，此工作均可由 Batch 自動重新排入佇列，並且在另一個節點上執行。
 
-也可能是間歇性問題導致工作懸置或花太長時間執行。 您可以設定工作的執行間隔上限。 如果超過最大執行間隔，Batch 服務會中斷工作應用程式。
+您也可會造成停止回應的工作或花太長時間執行的間歇性問題。 您可以設定工作的執行間隔上限。 如果超過最大執行間隔，Batch 服務會中斷工作應用程式。
 
 ### <a name="connecting-to-compute-nodes"></a>连接到计算节点
 您可以從遠端登入計算節點，以執行額外的偵錯和疑難排解。 可以使用 Azure 门户下载 Windows 节点的远程桌面协议 (RDP) 文件，并获取 Linux 节点的安全外壳 (SSH) 连接信息。 您也可以使用 Batch API (例如透過 [Batch .NET][net_rdpfile] 或 [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh)) 進行此項作業。
