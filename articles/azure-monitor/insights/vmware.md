@@ -27,7 +27,7 @@ ms.locfileid: "58883270"
 > [!NOTE]
 > VMware 監控解決方案已被取代。  已安裝此解決方案的客戶可以繼續使用，但無法將 VMware 監控加入至任何新的工作區。
 
-Azure 監視器中的 VMware 監視解決方案是解決方案，可協助您建立的集中式的記錄和監視的方法，針對大型 VMware 記錄檔。 本文說明如何使用此解決方案在單一位置進行疑難排解、擷取和管理 ESXi 主機。 有了這個解決方案，您可以在單一位置查看所有 ESXi 主機的詳細資料。 您可以看到 VM 和 ESXi 主機上前幾名的事件計數、狀態和趨勢，透過 ESXi 主機記錄檔提供。 您可以檢視及搜尋 ESXi 主機集中記錄檔，來進行疑難排解。 而且，您可以根據記錄檔搜尋查詢來建立警示。
+Azure 監視器中的 VMware 監視解決方案是解決方案，可協助您建立的集中式的記錄和監視的方法，針對大型 VMware 記錄檔。 本文說明如何使用此解決方案在單一位置進行疑難排解、擷取和管理 ESXi 主機。 有了這個解決方案，您可以在單一位置查看所有 ESXi 主機的詳細資料。 您可以看到 VM 和 ESXi 主機上前幾名的事件計數、狀態和趨勢，透過 ESXi 主機記錄提供。 您可以檢視及搜尋 ESXi 主機集中記錄，來進行疑難排解。 而且，您可以根據記錄檔搜尋查詢來建立警示。
 
 解決方案會使用 ESXi 主機的原生 syslog 功能來將資料推播至具有 Log Analytics 代理程式的目標 VM。 但是，解決方案不會將檔案寫入目標 VM 內部的 syslog。 Log Analytics 代理程式會開啟連接埠 1514 並接聽該連接埠。 一旦它收到資料時，Log Analytics 代理程式會將資料推送至 「 Azure 監視器。
 
@@ -40,7 +40,7 @@ Azure 監視器中的 VMware 監視解決方案是解決方案，可協助您建
 vSphere ESXi 主機 5.5、6.0 和 6.5
 
 #### <a name="prepare-a-linux-server"></a>準備 Linux 伺服器
-建立 Linux 作業系統 VM 來接收來自 ESXi 主機的所有 syslog 資料。 [Log Analytics Linux 代理程式](../learn/quick-collect-linux-computer.md)是所有 ESXi 主機 syslog 資料的收集點。 您可以使用多個 ESXi 主機將記錄檔轉送到單一 Linux 伺服器，如下列範例所示。
+建立 Linux 作業系統 VM 來接收來自 ESXi 主機的所有 syslog 資料。 [Log Analytics Linux 代理程式](../learn/quick-collect-linux-computer.md)是所有 ESXi 主機 syslog 資料的收集點。 您可以使用多個 ESXi 主機將記錄轉送到單一 Linux 伺服器，如下列範例所示。
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
@@ -132,7 +132,7 @@ VMware 監視解決方案會使用您已啟用的 Log Analytics Linux 代理程�
 從這裡開始，您可以編輯記錄查詢，若要修改的特定項目。 如需有關建立記錄查詢的詳細資訊，請參閱 <<c0> [ 使用 Azure 監視器中的記錄檔查詢以尋找資料](../log-query/log-query-overview.md)。
 
 #### <a name="find-esxi-host-events"></a>尋找 ESXi 主機事件
-單一 ESXi 主機會產生多個記錄檔，取決於其程序。 VMware 監控解決方案會將它們集中在一起，並總結事件計數。 這個集中式的檢視可幫助您了解哪些 ESXi 主機有大量的事件，以及在您的環境中最常發生哪些事件。
+單一 ESXi 主機會產生多個記錄，取決於其程序。 VMware 監控解決方案會將它們集中在一起，並總結事件計數。 這個集中式的檢視可幫助您了解哪些 ESXi 主機有大量的事件，以及在您的環境中最常發生哪些事件。
 
 ![事件](./media/vmware/events.png)
 
@@ -167,7 +167,7 @@ VMware 監視解決方案會使用您已啟用的 Log Analytics Linux 代理程�
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>我需要在 ESXi 主機設定上做什麼設定？ 它會對我目前的環境造成什麼影響？
-解決方案會使用原生 ESXi 主機 Syslog 轉送機制。 您在 ESXi 主機上不需要任何額外的 Microsoft 軟體就可以擷取記錄檔。 它對您現有的環境影響不大。 但是，您需要設定 syslog 轉送，這是 ESXI 功能。
+解決方案會使用原生 ESXi 主機 Syslog 轉送機制。 您在 ESXi 主機上不需要任何額外的 Microsoft 軟體就可以擷取記錄。 它對您現有的環境影響不大。 但是，您需要設定 syslog 轉送，這是 ESXI 功能。
 
 ### <a name="do-i-need-to-restart-my-esxi-host"></a>我需要重新啟動 ESXi 主機嗎？
 沒有。 此處理序不需要重新啟動。 有時候，vSphere 不會正確更新 syslog。 在這種情況下，請登入 ESXi 主機並重新載入 syslog。 同樣地，您不需要重新啟動主機，所以此處理序不會干擾到您的環境。

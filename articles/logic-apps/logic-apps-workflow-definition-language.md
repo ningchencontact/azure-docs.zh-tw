@@ -1,29 +1,28 @@
 ---
-title: 工作流程定義語言的結構描述參考 - Azure Logic Apps | Microsoft Docs
-description: 使用工作流程定義語言撰寫 Azure Logic Apps 的自訂工作流程定義
+title: 工作流程定義語言-Azure Logic Apps 的結構描述參考
+description: Azure Logic Apps 中的工作流程定義語言結構描述的參考指南
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 04/30/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: d2de2a25d67da230d539156c851cca34335a01c2
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: d80ffa862546f56e93a338a7a1db031e2cb55990
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620831"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616793"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps 中工作流程定義語言的結構描述參考
 
-當您使用 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 建立邏輯應用程式工作流程時，您工作流程的基礎定義會描述針對您的邏輯應用程式執行的實際邏輯。 此描述會遵循工作流程定義語言結構描述所定義和驗證的結構，其使用 [JavaScript 物件標記法 (JSON)](https://www.json.org/)。
+當您建立邏輯應用程式中的[Azure Logic Apps](../logic-apps/logic-apps-overview.md)，邏輯應用程式具有基礎的工作流程定義，以描述邏輯應用程式中執行的實際邏輯。 該工作流程定義會使用[JSON](https://www.json.org/) ，並遵循所驗證的工作流程定義語言結構描述的結構。 此參考提供有關此結構和結構描述工作流程定義中所定義的項目概觀。
 
 ## <a name="workflow-definition-structure"></a>工作流程定義結構
 
-工作流程定義至少有一個觸發程序可具現化您的應用程式邏輯，再加上您的邏輯應用程式所執行的一或多個動作。
+工作流程定義，永遠會包含具現化邏輯應用程式，再加上一個或多個觸發程序引發後執行的動作的觸發程序。
 
 以下是工作流程定義的高階結構︰
 
@@ -51,7 +50,7 @@ ms.locfileid: "58620831"
 
 ## <a name="parameters"></a>參數
 
-在 `parameters` 區段中，定義邏輯應用程式在部署時用於接受輸入的所有工作流程參數。 在部署時需要有參數宣告和參數值。 請務必先在這些區段中宣告所有參數，您才可以在其他工作流程區段中使用這些參數。 
+在 `parameters`區段中，定義您的工作流程定義會在部署使用接受輸入的所有工作流程參數。 在部署時需要有參數宣告和參數值。 請務必先在這些區段中宣告所有參數，您才可以在其他工作流程區段中使用這些參數。 
 
 以下是參數定義的一般結構︰
 
@@ -75,7 +74,7 @@ ms.locfileid: "58620831"
 | type | 是 | int、float、string、securestring、bool、array、JSON 物件、secureobject <p><p>**注意**：對於所有密碼、金鑰和祕密，使用 `securestring` 和 `secureobject` 類型，因為 `GET` 作業不會傳回這些類型。 如需保護參數的詳細資訊，請參閱[保護您的邏輯應用程式](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | 參數的類型 |
 | defaultValue | 是 | 與 `type` 相同 | 在工作流程具現化時，未指定任何值時的預設參數值 |
 | allowedValues | 否 | 與 `type` 相同 | 具有參數可接受值的陣列 |
-| 中繼資料 | 否 | JSON 物件 | 任何參數詳細資訊，例如：邏輯應用程式的名稱或可讀取描述，或是 Visual Studio 或其他工具所使用的設計階段資料 |
+| 中繼資料 | 否 | JSON 物件 | 任何其他參數詳細資料，例如 「 名稱 」 或 「 您的邏輯應用程式或流程或使用 Visual Studio 或其他工具的設計階段資料的可讀取描述 |
 ||||
 
 ## <a name="triggers-and-actions"></a>觸發程序及動作
@@ -107,7 +106,7 @@ ms.locfileid: "58620831"
 | value | 是 | 與 `type` 相同 | 輸出傳回值 |
 |||||
 
-若要取得工作流程執行的輸出，請在 Azure 入口網站中或使用 [Workflow REST API](https://docs.microsoft.com/rest/api/logic/workflows) 檢閱邏輯應用程式的執行歷程記錄和詳細資料。 您也可以將輸出傳遞至外部系統 (例如 PowerBI)，以便建立儀表板。
+若要從執行工作流程取得輸出，請檢閱邏輯應用程式的執行歷程記錄和在 Azure 入口網站中的詳細資料，或使用[工作流程 REST API](https://docs.microsoft.com/rest/api/logic/workflows)。 您也可以將輸出傳遞至外部系統 (例如 PowerBI)，以便建立儀表板。
 
 <a name="expressions"></a>
 
@@ -216,7 +215,7 @@ ms.locfileid: "58620831"
 
 ## <a name="functions"></a>Functions
 
-某些運算式會從邏輯應用程式開始執行時還不存在的執行階段動作中取得其值。 若要在運算式中參考或使用這些值，您可以使用工作流程定義語言所提供的[*函式*](../logic-apps/workflow-definition-language-functions-reference.md)。
+某些運算式可能尚不存在您的工作流程定義開始執行時的執行階段動作中取得其值。 若要在運算式中參考或使用這些值，您可以使用工作流程定義語言所提供的[*函式*](../logic-apps/workflow-definition-language-functions-reference.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

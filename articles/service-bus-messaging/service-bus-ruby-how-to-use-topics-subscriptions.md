@@ -12,24 +12,34 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 486e891ae055bdd6b6c30aeff63744acb3b0ef04
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: c2862c3521c05ba81f7a567f7951d22a9ab95c44
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734533"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609416"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>如何透過 Ruby 使用服務匯流排主題和訂用帳戶
  
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-本文說明如何從 Ruby 應用程式使用服務匯流排主題和訂用帳戶。 涵蓋的案例包括**建立主題和訂用帳戶、建立訂用帳戶篩選器、傳送訊息**至主題、**接收訂用帳戶的訊息**，以及**刪除主題和訂用帳戶**。 如需主題和訂用帳戶的詳細資訊，請參閱[後續步驟](#next-steps)一節。
+本文說明如何從 Ruby 應用程式使用服務匯流排主題和訂用帳戶。 涵蓋的案例包括：
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+- 建立主題和訂用帳戶 
+- 建立訂用帳戶篩選 
+- 傳送訊息至主題 
+- 從訂用帳戶接收訊息
+- 刪除主題和訂用帳戶
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
+## <a name="prerequisites"></a>必要條件
+1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用您[Visual Studio 或 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+2. 遵循的步驟[快速入門：使用 Azure 入口網站建立服務匯流排主題和訂用帳戶的主題](service-bus-quickstart-topics-subscriptions-portal.md)來建立服務匯流排**命名空間**並取得**連接字串**。 
+
+    > [!NOTE]
+    > 您將建立**主題**並**訂用帳戶**使用主題**Ruby**在本快速入門。 
 
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
@@ -159,7 +169,7 @@ azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 ```
 
 ## <a name="next-steps"></a>後續步驟
-了解基本的服務匯流排主題之後，請參考下列連結以取得更多資訊。
+现在，已了解有关 Service Bus 主题的基础知识，单击下面的链接可了解更多信息。
 
 * 請參閱[佇列、主題和訂用帳戶](service-bus-queues-topics-subscriptions.md)。
 * [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) 的 API 參考資料。

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 3055bf4be024065bcd8db9cf523de93a5ab6b22b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 8558168b7eb35743c0fd590ded17ef13446533c4
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905931"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617813"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>將 MXChip IoT DevKit 裝置連線到您的 Azure IoT Central 應用程式
 
@@ -250,4 +250,4 @@ git clone https://github.com/Azure/iot-central-firmware
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已了解如何將 DevKit 裝置連線至 Azure IoT Central 應用程式，建議的下一個步驟是[準備及連線 Raspberry Pi](howto-connect-raspberry-pi-python.md)。
+既然您已了解如何將 Raspberry Pi 連線至 Azure IoT Central 應用程式，建議的下一個步驟是了解如何[設定自訂裝置範本](howto-set-up-template.md)IoT 裝置。

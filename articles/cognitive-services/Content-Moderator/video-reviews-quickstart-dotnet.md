@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 47516f06f212dd0541da5f177401d479eb760cc0
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: e4dd7299907168bb50ac8ebdf90b381c0bac01f2
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758245"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527365"
 ---
 # <a name="create-video-reviews-using-net"></a>使用 .NET 來建立影片審核項目
 
@@ -166,7 +166,7 @@ public static ContentModeratorClient NewClient()
 **CreateVideoReviews** 具有下列必要參數：
 1. 一個包含 MIME 類型的字串，這應該是 "application/json"。 
 1. 您的 Content Moderator 小組名稱。
-1. 一個 **IList<CreateVideoReviewsBodyItem>** 物件。 每個 **CreateVideoReviewsBodyItem** 物件皆代表一個影片審核項目。 這個快速入門會一次建立一個審核項目。
+1. **IList\<CreateVideoReviewsBodyItem >** 物件。 每個 **CreateVideoReviewsBodyItem** 物件皆代表一個影片審核項目。 這個快速入門會一次建立一個審核項目。
 
 **CreateVideoReviewsBodyItem** 具有數個屬性。 您必須至少設定下列屬性：
 - **Content**。 要審核的影片 URL。
@@ -224,18 +224,18 @@ private static string CreateReview(ContentModeratorClient client, string id, str
 1. 一個包含 MIME 類型的字串，這應該是 "application/json"。
 1. 您的 Content Moderator 小組名稱。
 1. **CreateVideoReviews** 所傳回的影片審核項目識別碼。
-1. 一個 **IList<VideoFrameBodyItem>** 物件。 每個 **VideoFrameBodyItem** 物件皆代表一個影片審核項目。
+1. **IList\<VideoFrameBodyItem >** 物件。 每個 **VideoFrameBodyItem** 物件皆代表一個影片審核項目。
 
 **VideoFrameBodyItem** 具有下列屬性：
 - **Timestamp**。 一個包含從影片中擷取影片畫面之時間 (以秒為單位) 的字串。
 - **FrameImage**。 影片畫面的 URL。
-- **中繼資料**： 一個 IList<VideoFrameBodyItemMetadataItem>。 **VideoFrameBodyItemMetadataItem** 就是一個索引鍵/值組。 有效的索引鍵包括：
+- **中繼資料**： IList\<VideoFrameBodyItemMetadataItem >。 **VideoFrameBodyItemMetadataItem** 就是一個索引鍵/值組。 有效的索引鍵包括：
 - **reviewRecommended**。 如果建議對影片畫面進行人工審核，則為 True。
 - **adultScore**。 一個對影片畫面中成人內容的嚴重性進行評等的值 (0 到 1)。
 - **a**。 如果影片包含成人內容，則為 True。
 - **racyScore**。 一個對影片畫面中猥褻內容的嚴重性進行評等的值 (0 到 1)。
 - **r**。 如果影片畫面包含猥褻內容，則為 True。
-- **ReviewerResultTags**。 一個 IList<VideoFrameBodyItemReviewerResultTagsItem>。 **VideoFrameBodyItemReviewerResultTagsItem** 就是一個索引鍵/值組。 應用程式可以使用這些標籤來組織影片畫面。
+- **ReviewerResultTags**。 IList\<VideoFrameBodyItemReviewerResultTagsItem >。 **VideoFrameBodyItemReviewerResultTagsItem** 就是一個索引鍵/值組。 應用程式可以使用這些標籤來組織影片畫面。
 
 > [!NOTE]
 > 本快速入門會為 **adultScore** 和 **racyScore** 屬性產生隨機值。 在生產環境應用程式中，您會從部署成「Azure 媒體服務」的[影片仲裁服務](video-moderation-api.md)取得這些值。

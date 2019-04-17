@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/25/2019
 ms.author: v-krghan
 ms.custom: include file
-ms.openlocfilehash: 81590a4d686d85482bee38c4391b8ac24b25658e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 79fcadc75876af39d65dcfce88dac6802d55efd4
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116010"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59630463"
 ---
 ## <a name="download-the-source-code"></a>下載原始程式碼
 
@@ -60,7 +60,7 @@ git submodule foreach git pull origin master
 
      指令碼會使用您的解決方案名稱在 Azure 中建立資源群組。 此資源群組包含解決方案加速器使用的 Azure 資源。 一旦您不再需要對應的資源，您可以刪除此資源群組。
 
-     此指令碼也會將一組有前置詞 **PCS** 的環境變數新增到您的本機電腦。 當您在本機上啟動 Docker 容器或微服務專案時，它們會從這些環境變數讀取其設定值。
+     此指令碼也會將一組有前置詞 **PCS** 的環境變數新增到您的本機電腦。 這些環境變數提供可以讀取 Azure 金鑰保存庫資源的遠端監視的詳細資料。 此金鑰保存庫資源會為其中遠端監視將其設定要從中讀取值。
 
      > [!TIP]
      > 指令碼完成時，它也會將環境變數儲存到下列檔案中，檔名為 **\<您的主資料夾\>\\.pcs\\\<解決方案名稱\>.env**。 您可以將這些環境變數用於未來的解決方案加速器部署。 請注意，當您執行 **docker-compose** 時，您本機電腦上設定的任何環境變數會覆寫 **services\\scripts\\local\\.env** 檔案中的值。
@@ -69,4 +69,12 @@ git submodule foreach git pull origin master
 
 ### <a name="use-existing-azure-resources"></a>使用現有的 Azure 資源
 
-如果您已經建立必要的 Azure 資源，請在本機電腦上建立對應的環境變數。 這些可能會儲存在部署中的 **\<您的主資料夾\>\\.pcs\\\<解決方案名稱\>.env** 檔案中。 請注意，當您執行 **docker-compose** 時，您本機電腦上設定的環境變數會覆寫 **services\\scripts\\local\\.env** 檔案中的值。
+如果您已經建立必要的 Azure 資源，請在本機電腦上建立對應的環境變數。
+設定下列環境變數：
+* **PCS_KEYVAULT_NAME** -Azure 金鑰保存庫資源的名稱
+* **PCS_AAD_APPID** -AAD 應用程式識別碼
+* **PCS_AAD_APPSECRET** -AAD 應用程式祕密
+
+組態值將會讀取此 Azure 金鑰保存庫資源。 這些環境變數可能會儲存在**\<主資料夾\>\\.pcs\\\<方案名稱\>.env**從部署的檔案。 請注意，當您執行 **docker-compose** 時，您本機電腦上設定的環境變數會覆寫 **services\\scripts\\local\\.env** 檔案中的值。
+
+某些微服務所需的設定會儲存在執行個體**Key Vault**所建立的初始部署。 在 keyvault 中對應的變數應該視需要修改。

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2018
+ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 0b00597deff5a498d54ffcfd9978a68e5b60c5f8
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: 3f72f6a5097221c904faff633b5a4ee5a6e023c1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203185"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59532940"
 ---
 ## <a name="use-msal-to-get-a-token-for-the-microsoft-graph-api"></a>使用 MSAL 取得 Microsoft Graph API 的權杖
 
@@ -37,41 +37,47 @@ ms.locfileid: "58203185"
     public partial class MainWindow : Window
     {
         //Set the API Endpoint to Graph 'me' endpoint
-        string _graphAPIEndpoint = "https://graph.microsoft.com/v1.0/me";
+        string graphAPIEndpoint = "https://graph.microsoft.com/v1.0/me";
 
         //Set the scope for API call to user.read
-        string[] _scopes = new string[] { "user.read" };
+        string[] scopes = new string[] { "user.read" };
+
 
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        /// <summary>
-        /// Call AcquireTokenAsync - to acquire a token requiring user to sign-in
+      /// <summary>
+        /// Call AcquireToken - to acquire a token requiring user to sign-in
         /// </summary>
         private async void CallGraphButton_Click(object sender, RoutedEventArgs e)
         {
             AuthenticationResult authResult = null;
-
             var app = App.PublicClientApp;
             ResultText.Text = string.Empty;
             TokenInfoText.Text = string.Empty;
 
             var accounts = await app.GetAccountsAsync();
+            var firstAccount = accounts.FirstOrDefault();
 
             try
             {
-                authResult = await app.AcquireTokenSilentAsync(_scopes, accounts.FirstOrDefault());
+                authResult = await app.AcquireTokenSilent(scopes, firstAccount)
+                    .ExecuteAsync();
             }
             catch (MsalUiRequiredException ex)
             {
-                // A MsalUiRequiredException happened on AcquireTokenSilentAsync. This indicates you need to call AcquireTokenAsync to acquire a token
+                // A MsalUiRequiredException happened on AcquireTokenSilent.
+                // This indicates you need to call AcquireTokenInteractive to acquire a token
                 System.Diagnostics.Debug.WriteLine($"MsalUiRequiredException: {ex.Message}");
 
                 try
                 {
-                    authResult = await App.PublicClientApp.AcquireTokenAsync(_scopes);
+                    authResult = await app.AcquireTokenInteractive(scopes)
+                        .WithAccount(accounts.FirstOrDefault())
+                        .WithPrompt(Prompt.SelectAccount)
+                        .ExecuteAsync();
                 }
                 catch (MsalException msalex)
                 {
@@ -86,12 +92,11 @@ ms.locfileid: "58203185"
 
             if (authResult != null)
             {
-                ResultText.Text = await GetHttpContentWithToken(_graphAPIEndpoint, authResult.AccessToken);
+                ResultText.Text = await GetHttpContentWithToken(graphAPIEndpoint, authResult.AccessToken);
                 DisplayBasicTokenInfo(authResult);
                 this.SignOutButton.Visibility = Visibility.Visible;
             }
         }
-    }
     ```
 
 <!--start-collapse-->
@@ -99,21 +104,21 @@ ms.locfileid: "58203185"
 
 #### <a name="get-a-user-token-interactively"></a>以互動方式取得使用者權杖
 
-呼叫 `AcquireTokenAsync` 方法時會顯示一個視窗，提示使用者登入。 當使用者第一次需要存取受保護的資源時，應用程式通常會要求使用者以互動方式登入。 當取得權杖的無訊息作業失敗 (例如，使用者的密碼過期) 時，使用者也可能需要登入。
+呼叫 `AcquireTokenInteractive` 方法時會顯示一個視窗，提示使用者登入。 當使用者第一次需要存取受保護的資源時，應用程式通常會要求使用者以互動方式登入。 當取得權杖的無訊息作業失敗 (例如，使用者的密碼過期) 時，使用者也可能需要登入。
 
 #### <a name="get-a-user-token-silently"></a>以無訊息方式取得使用者權杖
 
-`AcquireTokenSilentAsync` 方法會處理權杖取得和更新作業，不需要與使用者進行任何互動。 在 `AcquireTokenAsync` 第一次執行之後，`AcquireTokenSilentAsync` 就會成為用來取得權杖的常用方法，以在後續呼叫中存取受保護的資源，因為系統會以無訊息方式進行呼叫來要求或更新權杖。
+`AcquireTokenSilent` 方法會處理權杖取得和更新作業，不需要與使用者進行任何互動。 在 `AcquireTokenInteractive` 第一次執行之後，`AcquireTokenSilent` 就會成為用來取得權杖的常用方法，以在後續呼叫中存取受保護的資源，因為系統會以無訊息方式進行呼叫來要求或更新權杖。
 
-最後，`AcquireTokenSilentAsync` 方法會失敗。 失敗的原因可能是使用者已經登出，或已經在其他裝置上變更其密碼。 當 MSAL 偵測到可透過要求執行互動式動作來解決問題時，就會發出一個 `MsalUiRequiredException` 例外狀況。 您的應用程式可以透過兩種方式處理此例外狀況：
+最後，`AcquireTokenSilent` 方法會失敗。 失敗的原因可能是使用者已經登出，或已經在其他裝置上變更其密碼。 當 MSAL 偵測到可透過要求執行互動式動作來解決問題時，就會發出一個 `MsalUiRequiredException` 例外狀況。 您的應用程式可以透過兩種方式處理此例外狀況：
 
-* 它可以立即對 `AcquireTokenAsync` 進行呼叫。 此呼叫會促使系統提示使用者登入。 此模式通常用於沒有離線內容可供使用者使用的線上應用程式。 此引導式設定所產生的範例會遵循此模式，您可以在第一次執行範例時看到它運作。 
+* 它可以立即對 `AcquireTokenInteractive` 進行呼叫。 此呼叫會促使系統提示使用者登入。 此模式通常用於沒有離線內容可供使用者使用的線上應用程式。 此引導式設定所產生的範例會遵循此模式，您可以在第一次執行範例時看到它運作。 
 
 * 因為沒有任何使用者用過該應用程式，所以 `PublicClientApp.Users.FirstOrDefault()` 會包含一個 null 值，而且會擲回 `MsalUiRequiredException` 例外狀況。 
 
-* 然後範例中的程式碼會透過呼叫 `AcquireTokenAsync` 來處理例外狀況，進而提示使用者登入。
+* 然後範例中的程式碼會透過呼叫 `AcquireTokenInteractive` 來處理例外狀況，進而提示使用者登入。
 
-* 其可改為對使用者呈現視覺指示，讓使用者知道需要透過互動方式登入，以便選取正確的登入時機。 或者，應用程式可以稍後重試 `AcquireTokenSilentAsync`。 此方式通常用於使用者可以使用其他應用程式功能，不需要因此中斷作業的情況，例如，應用程式中有離線內容可供使用時。 在此情況下，使用者可以決定何時登入以存取受保護的資源，或重新整理過期的資訊。 此外，當網路暫時無法使用而後還原時，應用程式可以決定是否重試 `AcquireTokenSilentAsync`。
+* 其可改為對使用者呈現視覺指示，讓使用者知道需要透過互動方式登入，以便選取正確的登入時機。 或者，應用程式可以稍後重試 `AcquireTokenSilent`。 此方式通常用於使用者可以使用其他應用程式功能，不需要因此中斷作業的情況，例如，應用程式中有離線內容可供使用時。 在此情況下，使用者可以決定何時登入以存取受保護的資源，或重新整理過期的資訊。 此外，當網路暫時無法使用而後還原時，應用程式可以決定是否重試 `AcquireTokenSilent`。
 <!--end-collapse-->
 
 ## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>使用您剛剛取得的權杖呼叫 Microsoft Graph API
@@ -169,7 +174,7 @@ private async void SignOutButton_Click(object sender, RoutedEventArgs e)
     {
         try
         {
-            await App.PublicClientApp.RemoveAsync(accounts.FirstOrDefault()); 
+            await App.PublicClientApp.RemoveAsync(accounts.FirstOrDefault());
             this.ResultText.Text = "User has signed-out";
             this.CallGraphButton.Visibility = Visibility.Visible;
             this.SignOutButton.Visibility = Visibility.Collapsed;
@@ -205,7 +210,6 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
     {
         TokenInfoText.Text += $"Username: {authResult.Account.Username}" + Environment.NewLine;
         TokenInfoText.Text += $"Token Expires: {authResult.ExpiresOn.ToLocalTime()}" + Environment.NewLine;
-        TokenInfoText.Text += $"Access Token: {authResult.AccessToken}" + Environment.NewLine;
     }
 }
 ```

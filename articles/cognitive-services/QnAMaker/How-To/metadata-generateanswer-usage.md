@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 02/21/2019
 ms.author: tulasim
-ms.openlocfilehash: 462dfb2de8608eebd5609f7044bde03991fca3ca
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: d14e2897183a97da5e84a76b699def529f1d167e
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958043"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579405"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>取得與 GenerateAnswer API 和中繼資料的知識答案
 
@@ -72,9 +72,9 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer?i
 |URL 路由參數|知識庫識別碼|字串|測試您知識庫的 GUID。|
 |URL 路由參數|QnAMaker 端點主機|字串|您的 Azure 訂用帳戶中，部署端點的主機名稱。 在發行知識庫之後，這是可在 [設定] 頁面上取得。 |
 |頁首|Content-Type|字串|傳送至 API 的本文媒體類型。 預設值是: '|
-|頁首|Authorization|字串|您的端點金鑰 (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)。|
+|頁首|授權|字串|您的端點金鑰 (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)。|
 |張貼本文|JSON 物件|JSON|與設定問題|
-|查詢字串參數 （選擇性）|`isTest`|布林值|如果為 true，傳回結果集`testkb`搜尋服務索引，而不是已發行的索引。|
+
 
 JSON 主體具有數個設定：
 
@@ -83,6 +83,7 @@ JSON 主體具有數個設定：
 |`question`|必要|字串|使用者問題傳送到您的知識庫。|
 |`top`|選用|integer|要包含在輸出中的排名結果數目。 預設值為 1。|
 |`userId`|選用|字串|用來識別使用者的唯一識別碼。 此識別碼會記錄在交談記錄中。|
+|`isTest`|選用|布林值|如果為 true，傳回結果集`testkb`搜尋服務索引，而不是已發行的索引。|
 |`strictFilters`|選用|字串|如果指定，將會指示 QnA Maker 僅傳回含有指定中繼資料的解答。|
 
 範例 JSON 主體看起來像：
@@ -91,6 +92,7 @@ JSON 主體具有數個設定：
 {
     "question": "qna maker and luis",
     "top": 6,
+    "isTest": true,
     "strictFilters": [
     {
         "name": "category",

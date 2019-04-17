@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 4/5/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: d53019294a255e42c4cf66f59226c9234a5adf73
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: e40d9a2ac0e95ae72aed927f8a527eb1e092079d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59359753"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549400"
 ---
 # <a name="release-notes"></a>版本資訊
 
@@ -30,7 +30,7 @@ ms.locfileid: "59359753"
 
 **新功能** 
 
-* SDK 會為 beta 版，現在支援文字轉換語音服務。 它支援 Windows 和 Linux 桌面，從C++， C#，和 Java。 如需詳細資訊，請[文字轉換語音概觀](text-to-speech.md#get-started-with-text-to-speech)。
+* SDK 會為 beta 版，現在支援文字轉換語音服務。 它支援 Windows 和 Linux 桌面，從C++和C#。 如需詳細資訊，請[文字轉換語音概觀](text-to-speech.md#get-started-with-text-to-speech)。
 * SDK 現在支援 MP3 和這種門外漢只/Ogg 音訊檔案做為資料流輸入檔。 這項功能是只能在從 Linux 上使用C++和C#，目前在 beta 測試階段 (更多詳細資料[此處](how-to-use-compressed-audio-input-streams.md))。
 * 語音 SDK for Java，.NET core C++ ，OBJECTIVE-C 已獲得 macOS 的支援。 適用於 macOS 的 Objective C 支援目前為 beta 版。
 * iOS：語音 SDK 適用於 iOS (Objective C) 現在也發行為 CocoaPod。
@@ -42,7 +42,7 @@ ms.locfileid: "59359753"
 * 適用於使用語音 SDK 與範例C++和已加入在 macOS 上的 Objective C。
 * 已加入示範文字轉換語音服務的使用方式的範例。
 
-**改善 / 變更**
+**/變更**
 
 * Python：現在透過公開的辨識結果的其他屬性`properties`屬性。
 * 如需其他開發和偵錯支援重新導向到記錄檔的 SDK 的記錄和診斷資訊 (更多詳細資料[此處](how-to-use-logging.md))。
@@ -58,7 +58,7 @@ ms.locfileid: "59359753"
 
 这是一个 Bug 修复版本，只影响本机/托管 SDK。 它不影响 SDK 的 JavaScript 版本。
 
-**錯誤修正**
+**Bug 修复**
 
 * 修复了使用麦克风输入时出现的内存泄漏问题。 基于流的输入或文件输入不受影响。
 
@@ -81,7 +81,7 @@ ms.locfileid: "59359753"
 * 額外的 Java 範例，適用於以音訊輸出進行翻譯。
 * [批次轉譯 REST API](batch-transcription.md) 的新使用範例。
 
-**改善 / 變更**
+**/變更**
 
 * Python
   * 改善了 SpeechConfig 中的參數驗證及錯誤訊息。
@@ -226,7 +226,7 @@ ms.locfileid: "59359753"
 * 實驗性：在 Windows (64 位元) 和 Linux (Ubuntu 16.04 x64) 上支援 Java 8。
   請參閱 [Java 執行階段環境快速入門](quickstart-java-jre.md)。
 
-**功能變更**
+**功能性變更**
 
 * 公開關於連線錯誤的其他錯誤詳細資訊。
 

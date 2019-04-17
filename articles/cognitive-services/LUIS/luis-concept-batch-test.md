@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: 084f347c688c6b255ecbb58c16d8463d06cc2347
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: acb561970b6a8576d1219fc15758e21a3032c9e5
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870906"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528147"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>在 LUIS 入口網站使用 1000 個語句進行批次測試
 
@@ -75,6 +75,8 @@ ms.locfileid: "55870906"
 ```
 
 批次檔會使用 **startPos** 和 **endPos** 屬性，來記錄實體的開頭與結尾。 值是以零為起始的，而且不應以空格作為開頭或結尾。 這與查詢記錄不同，後者使用 startIndex 與 endIndex 屬性。 
+
+[!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
 ## <a name="batch-syntax-template-for-intents-without-entities"></a>不使用實體的意圖批次語法範本
 

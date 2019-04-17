@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 784fe19d1ae40a7cdff3cc853726d4c62265e0f1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0044cbc9e6142989a57e79de5fd1e78e999bb5e1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106928"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522345"
 ---
 # <a name="create-entities-without-utterances"></a>建立不含語句的實體
 
-實體代表語句中您想要擷取的單字或片語。 一個實體代表一個類別，其中包含相似物件 (地點、物件、人員、事件或概念) 的集合。 實體描述與意圖有關的資訊，有時是您應用程式執行其工作的必備要素。 當您新增到意圖或相隔 utterance 從 （之前或之後） 時，您可以建立實體 utterance 加入意圖。
+實體代表語句中您想要擷取的單字或片語。 實體代表類別，包括類似物件 （位置、 項目、 人員、 事件或概念） 的集合。 實體描述與意圖有關的資訊，有時是您應用程式執行其工作的必備要素。 當您新增到意圖或相隔 utterance 從 （之前或之後） 時，您可以建立實體 utterance 加入意圖。
 
 您可以在 LUIS 應用程式中，透過 [實體] 頁面上的 [實體清單] 來新增、編輯或刪除實體。 LUIS 提供兩種主要類型的實體：[預先建置的實體](luis-reference-prebuilt-entities.md)，以及您自己的[自訂實體](luis-concept-entity-types.md#types-of-entities)。
 
@@ -56,7 +56,7 @@ ms.locfileid: "58106928"
 
 <a name="add-regular-expression-entities"></a>
 
-## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>新增為高度結構化概念的規則運算式實體
+## <a name="add-regular-expression-entities-for-highly-structured-concepts"></a>新增為高度結構化的概念的規則運算式實體
 
 規則運算式實體可根據您提供的規則運算式，用來從語句中提取出資料。 
 
@@ -135,7 +135,7 @@ ms.locfileid: "58106928"
 
 ## <a name="add-a-role-to-distinguish-different-contexts"></a>新增角色，以區分不同的內容
 
-角色是以內容為基礎之實體的具名子類型。 它相當於[階層式](#add-hierarchical-entities)實體，但角色只適用於[模式](luis-how-to-model-intent-pattern.md)。 
+角色是根據內容的具名子型別。 提供所有實體，包括預先建置的和非機器學習的實體。 
 
 使用相同範例作為來源和目的地城市的階層式實體時，差異在於角色會命名為來源，而不是階層式子系。 
 

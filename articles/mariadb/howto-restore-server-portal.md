@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 1dc7930649a4e90c3b1c69a4f109f545f74a79f4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/15/2019
+ms.openlocfilehash: 23d683fea494ad0509af359d6e49519f2bc6aa99
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081112"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615773"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>如何使用 Azure 入口網站在適用於 MariaDB 的 Azure 資料庫中備份及還原伺服器
 
@@ -79,7 +79,7 @@ ms.locfileid: "58081112"
 ## <a name="geo-restore"></a>異地還原
 如果您已將伺服器設定為使用異地備援備份，則可以從現有伺服器的備份建立新的伺服器。 您可以在任何可使用「適用於 MariaDB 的 Azure 資料庫」的區域中建立這個新伺服器。  
 
-1. 選取入口網站左上角的 [建立資源] 按鈕 (+)。 在搜尋方塊中輸入 [適用於 MariaDB 的 Azure 資料庫]，以尋找此服務。
+1. 選取 **資料庫** > **適用於 MariaDB 的 Azure 資料庫**。 您也可以輸入**MariaDB**找不到服務的 [搜尋] 方塊中。
 
    ![[適用於 MariaDB 的 Azure 資料庫] 選項](./media/howto-restore-server-portal/2_navigate-to-mariadb.png)
 

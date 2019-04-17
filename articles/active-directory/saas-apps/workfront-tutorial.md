@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef18d37dda605c0b6b176f7c95c9aaf5595d4d47
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 97eb016f1a77d4166976c6a4d7aebd073550e8c2
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59260438"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565762"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workfront"></a>教學課程：Azure Active Directory 與 Workfront 整合
 
@@ -106,9 +106,9 @@ ms.locfileid: "59260438"
 
     ![Workfront 網域和 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<companyname>.attask-ondemand.com`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.attask-ondemand.com`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `https://<companyname>.attasksandbox.com/SAML2`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.attasksandbox.com/SAML2`
 
     > [!NOTE]
     > 這些都不是真正的值。 請使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Workfront 客戶支援小組](https://www.workfront.com/services-and-support)以取得這些值。 您也可以參考 Azure 入口網站中**基本 SAML 組態**區段所示的模式。
@@ -203,7 +203,7 @@ ms.locfileid: "59260438"
 
 本節目標是在 Workfront 中建立名為 Britta Simon 的使用者。
 
-**若要在 Workfront 中建立名為 Britta Simon 的使用者，請執行下列步驟：**
+**若要在 Workfront 中建立名為 Britta Simon 的使用者，請執行以下步驟：**
 
 1. 以系統管理員身分登入您的 Workfront 公司網站。
  
@@ -231,9 +231,9 @@ ms.locfileid: "59260438"
 
 ## <a name="additional-resources"></a>其他資源
 
-- [ 如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單 ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？ ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

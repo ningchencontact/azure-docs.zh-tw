@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/21/2018
+ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: 97dd880f7342c8d7f4854bb06abf2906bbd4c50a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 391a5386a5ecc144b15c35a85d501dfb5ce2d172
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55872963"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523132"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>教學課程：批次測試資料集
 
@@ -200,6 +200,8 @@ ms.locfileid: "55872963"
 6. 選取 [執行] 按鈕。 等候測試完成。
 
 7. 選取 [See results] \(查看結果\)。
+
+[!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
 ## <a name="review-entity-batch-results"></a>檢閱實體批次結果
 

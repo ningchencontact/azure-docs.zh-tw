@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 2e63c44db2391f63078f0945caa69a43c0c464cf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8bada96c648881a9943176c45115627a829fcc58
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001360"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608600"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>在 Azure 入口網站中為 Azure SQL Database 設定主動式異地複寫，並起始容錯移轉
 
@@ -73,7 +73,7 @@ ms.locfileid: "58001360"
     ![容錯移轉](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. 按一下 [是]  即可開始容錯移轉。
 
-命令會立即將次要資料庫切換為主要角色。
+命令會立即將次要資料庫切換為主要角色。 通常在 30 秒或更少，應該完成此程序。
 
 切换角色时，有一小段时间无法使用这两个数据库（大约为 0 到 25 秒）。 如果主要資料庫有多個次要資料庫，此命令會自動重新設定其他次要複本以連接至新的主要複本。 在正常情況下，完成整個作業所需的時間應該少於一分鐘。
 

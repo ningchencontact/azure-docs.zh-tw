@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
-ms.openlocfilehash: 95b339e8d7f2c5c63c30e002411152b50cece2a5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 30ceb0e396597530071c70c4448761d914acb4ac
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448776"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548399"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>將您的臉部資料移轉至其他臉部訂用帳戶
 
@@ -79,7 +79,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 ```
 
 > [!NOTE]
-> 建立和套用快照集的程序不會影響對來源或目標 **PersonGroup** (或 **FaceList**) 的任何正常呼叫。 不過，我們不建議進行會變更來源物件的同時呼叫 (例如，[臉部清單管理呼叫](https://docs.microsoft.com/rest/api/cognitiveservices/face/facelist)或[人員群組 - 訓練](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup/train)呼叫)，因為快照集作業可能會在這些作業之前或之後執行，也可能會發生錯誤。 
+> 建立和套用快照集的程序不會影響對來源或目標 **PersonGroup** (或 **FaceList**) 的任何正常呼叫。 不過，我們不建議進行變更的來源物件的同時呼叫 ([FaceList 管理呼叫](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet)或[PersonGroup 訓練](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet)呼叫，例如)，因為快照集作業可能會執行這些作業的前後，或可能會發生錯誤。
 
 ## <a name="retrieve-the-snapshot-id"></a>擷取快照集識別碼
 

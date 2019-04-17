@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 04/10/2019
+ms.date: 04/15/2019
 ms.author: curtand
 ms.reviewer: ajayanti1
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b859c64c61264f43a88c158dc10ba6f2b2e56ce
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: e90c4e1f39deffea8a7dd7b2c0dbfdcf5e0b3555
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495117"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609501"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>用於授權的產品名稱和服務方案識別碼
 
@@ -34,7 +34,7 @@ ms.locfileid: "59495117"
 - **服務方案包含 （好記的名稱）**:一份服務方案 （好記的名稱） 在產品中對應至字串識別碼和 GUID
 
 >[!NOTE]
->這是截至 2018 年 8 月 17 日為止的精確資訊。
+>這項資訊是 2019 年 4 月 15 日起。
 
 | 產品名稱 | 字串識別碼 | GUID | 包含的服務方案 | 包含 （好記的名稱） 的服務方案 |
 | --- | --- | --- |--- |
@@ -214,10 +214,10 @@ ms.locfileid: "59495117"
 
 若要深入了解透過群組管理授權的功能集，請參閱下列各項：
 
-* [什麼是 Azure Active Directory 中的群組型授權？](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [什麼是 Azure Active Directory 中以群組為基礎的授權？](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
 * [將授權指派給 Azure Active Directory 中的群組](licensing-groups-assign.md)
 * [識別及解決 Azure Active Directory 中群組的授權問題](licensing-groups-resolve-problems.md)
 * [如何將個別授權使用者移轉至 Azure Active Directory 中以群組為基礎的授權](licensing-groups-migrate-users.md)
-* [如何使用群組型授權在 Azure Active Directory 中的產品授權之間移轉使用者](licensing-groups-change-licenses.md)
-* [Azure Active Directory 群組型授權其他案例](licensing-group-advanced.md)
-* [Azure AD 群組型授權的 PowerShell 範例](licensing-ps-examples.md)
+* [如何使用 Azure Active Directory 中的群組型授權在產品授權之間移轉使用者](licensing-groups-change-licenses.md)
+* [Azure Active Directory 群組型授權其他案例 (英文)](licensing-group-advanced.md)
+* [Azure AD 中以群組為基礎之授權的 PowerShell 範例](licensing-ps-examples.md)

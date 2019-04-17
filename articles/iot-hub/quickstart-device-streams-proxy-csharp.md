@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: ffd5f4baf3bbd2b7f0fe90272f896e438a30a35f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d36737e6007f247777689e2afa9f47b3ad5bf107
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58079225"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006651"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-applications-preview"></a>快速入門：使用 C# Proxy 應用程式透過 IoT 中樞裝置串流進行 SSH/RDP 輸送 (預覽)
 
@@ -26,7 +26,6 @@ Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://a
 [IoT 中樞裝置串流](./iot-hub-device-streams-overview.md)可讓服務和裝置應用程式以安全且便於設定防火牆的方式進行通訊。 本快速入門指南會使用兩個 C# 程式，讓用戶端/伺服器應用程式流量 (例如 SSH 和 RDP) 能夠透過以 IoT 中樞建立的裝置串流進行傳送。 如需設定概觀，請參閱[這裡](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp)。
 
 我們會先說明 SSH 的設定 (使用連接埠 22)。 接著會說明如何針對 RDP 修改設定的連接埠。 由於裝置串流與應用程式或通訊協定無關，因此相同的範例可在修改後用於其他類型的應用程式流量。 這通常只牽涉到將通訊連接埠變更為預定應用程式所使用的連接埠。
-
 
 ## <a name="how-it-works"></a>運作方式
 
@@ -66,8 +65,13 @@ Microsoft Azure IoT 中樞目前支援裝置串流作為[預覽功能](https://a
 dotnet --version
 ```
 
-從 https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip 下載範例 C# 專案並將 ZIP 封存檔解壓縮。
+執行下列命令，將適用於 Azure CLI 的 Microsoft Azure IoT 擴充功能新增至您的 Cloud Shell 執行個體。 IoT 擴充功能可將 IoT 中樞、IoT Edge 和 IoT 裝置佈建服務的特定命令新增至 Azure CLI。
 
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
+
+從 https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip 下載範例 C# 專案並將 ZIP 封存檔解壓縮。
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 
@@ -77,14 +81,13 @@ dotnet --version
 
 裝置必須向的 IoT 中樞註冊，才能進行連線。 在本快速入門中，您會使用 Azure Cloud Shell 來註冊模擬的裝置。
 
-1. 在 Azure Cloud Shell 中執行下列命令，以新增 IoT 中樞 CLI 擴充功能和建立裝置身分識別。 
+1. 在 Azure Cloud Shell 中執行下列命令，以建立裝置身分識別。
 
    **YourIoTHubName**：以您為 IoT 中樞選擇的名稱取代此預留位置。
 
    **MyDevice**：這是為已註冊裝置指定的名稱。 使用所示的 MyCDevice。 如果您為裝置選擇不同的名稱，則也必須在本文中使用該名稱，並先在範例應用程式中更新該裝置名稱，再執行應用程式。
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
@@ -185,7 +188,7 @@ ssh <username>@localhost -p 2222
 
 經由 `IP_address:22` 連線至 SSH 精靈的裝置本機 Proxy 上的主控台輸出：
 
-]替代文字(./media/quickstart-device-streams-proxy-csharp/device-console-output.png "")裝置本機 Proxy 輸出")
+![替代文字](./media/quickstart-device-streams-proxy-csharp/device-console-output.png "裝置本機 Proxy 輸出")
 
 SSH 用戶端程式的主控台輸出 (SSH 用戶端藉由連線至服務本機 Proxy 所接聽的連接埠 22 與 SSH 精靈通訊)：
 
@@ -259,7 +262,7 @@ dotnet run %serviceConnectionString% MyDevice 2222
 
 在本快速入門中，您已設定 IoT 中樞、註冊裝置、部署裝置和服務本機 Proxy 程式以透過 IoT 中樞建立裝置串流，並使用 Proxy 輸送 SSH 或 RDP 流量。 相同的範例可用於其他用戶端/伺服器通訊協定 (其中，伺服器執行於 SSH 精靈之類的裝置上)。
 
-使用下列連結深入了解裝置串流：
+使用以下連結深入了解裝置串流：
 
 > [!div class="nextstepaction"]
 > [裝置串流概觀](./iot-hub-device-streams-overview.md)

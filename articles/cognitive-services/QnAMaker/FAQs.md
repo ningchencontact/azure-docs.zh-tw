@@ -8,19 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 04/11/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 5b4c9e24bdcb6aaf4efde24d747e77d6014b2539
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8104497a1808aa4e92d62f45e37525dba2f47742
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439463"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607159"
 ---
 # <a name="frequently-asked-questions-for-qna-maker"></a>QnA Maker 的常見問題集
 
 最常見問題的解答，QnA Maker 服務有關的策劃的清單將協助您更快速且更好的結果，採用的服務。
+
+## <a name="use-the-help-bot-in-the-qna-maker-portal"></a>使用 QnA Maker 入口網站中的說明 bot
+
+QnA Maker 提供**協助**QnA Maker 入口網站，可協助您的 bot。 使用每個網頁上的說明 bot。 Bot 會使用 QnA Maker 提供解答，並提供[ C# Bot Framework 程式碼專案](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot)到 bot，因此您可以快速啟動並執行與您的 bot。 
+
+![![QnA Maker 提供 * * 說明 * * bot，可協助您在 QnA Maker 入口網站中的。](。 / media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png)](./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png#lightbox)
 
 ## <a name="manage-the-knowledge-base"></a>管理知識庫
 
@@ -98,7 +104,7 @@ ms.locfileid: "57439463"
 
 ### <a name="can-i-use-the-same-azure-search-resource-for-knowledge-bases-using-multiple-languages"></a>我是否可以針對使用多種語言的知識庫使用相同的 Azure 搜尋服務資源？
 
-若要使用多種語言和多個知識庫，使用者必須針對每個語言建立 QnA Maker 資源。 這將會針對每個語言建立個別的 Azure 搜尋服務。 在單一 Azure 搜尋服務中混用不同的語言知識庫，將會使結果的相關性降低。
+若要使用多種語言和多個知識庫，使用者必須針對每個語言建立 QnA Maker 資源。 這會建立個別的 Azure 搜尋服務，每種語言。 在單一 Azure 搜尋服務中混用不同的語言知識庫，將會使結果的相關性降低。
 
 ### <a name="how-can-i-change-the-name-of-the-azure-search-resource-used-by-qna-maker"></a>如何變更 QnA Maker 使用之 Azure 搜尋服務資源的名稱？
 

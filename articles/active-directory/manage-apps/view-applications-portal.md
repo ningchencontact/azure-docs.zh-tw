@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/25/2018
+ms.date: 04/09/2019
 ms.author: celested
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ca57746d1b13d2020f78d3c527e7d0c7a444769
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: b57d87a9a00213945a09f380a74b129226c4017e
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918394"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564822"
 ---
 # <a name="view-your-azure-active-directory-tenant-applications"></a>檢視您的 Azure Active Directory 租用戶應用程式
 
@@ -41,11 +41,11 @@ Azure AD 租用戶應用程式會顯示在 Azure 入口網站的 [企業應用�
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，選取 [Azure Active Directory]。 
 
-2. 在 [Azure Active Directory] 視格中，選取 [企業應用程式]。 
+1. 在 [Azure Active Directory] 視格中，選取 [企業應用程式]。 
 
-3. 從 [應用程式類型] 下拉式清單中，選取 [所有應用程式]，然後選擇 [套用]。 此時會出現租用戶應用程式的隨機樣本。
+1. 從 [應用程式類型] 下拉式清單中，選取 [所有應用程式]，然後選擇 [套用]。 此時會出現租用戶應用程式的隨機樣本。
    
-4. 若要檢視更多應用程式，請選取清單底部的 [載入更多]。 視您租用戶中的應用程式數目而定，比起捲動清單進行搜尋，[搜尋特定應用程式](#search-for-a-tenant-application)可能是較輕鬆的方式。
+1. 若要檢視更多應用程式，請選取清單底部的 [載入更多]。 視您租用戶中的應用程式數目而定，比起捲動清單進行搜尋，[搜尋特定應用程式](#search-for-a-tenant-application)可能是較輕鬆的方式。
 
 ## <a name="select-viewing-options"></a>選取檢視選項
 
@@ -53,17 +53,17 @@ Azure AD 租用戶應用程式會顯示在 Azure 入口網站的 [企業應用�
 
 1. 您可以依照 [應用程式類型]、[應用程式狀態] 和 [應用程式可見度] 檢視應用程式。 
 
-2. 在 [應用程式類型] 下方，選擇其中一個選項：
+1. 在 [應用程式類型] 下方，選擇其中一個選項：
 
     - [企業應用程式] 會顯示非 Microsoft 應用程式。
     - [Microsoft 應用程式] 會顯示 Microsoft 應用程式。
     - [所有應用程式] 會顯示非 Microsoft 與 Microsoft 應用程式。
 
-3. 在 [應用程式狀態] 下方，選擇 [任何]、[已停用] 或 [已啟用]。 [任何] 選項會包含已停用和已啟用的應用程式。
+1. 在 [應用程式狀態] 下方，選擇 [任何]、[已停用] 或 [已啟用]。 [任何] 選項會包含已停用和已啟用的應用程式。
 
-4. 在 [應用程式可見度] 下方，選擇 [任何]或 [已隱藏]。 [已隱藏] 選項會顯示存在租用戶中，但不會讓使用者看見的應用程式。
+1. 在 [應用程式可見度] 下方，選擇 [任何]或 [已隱藏]。 [已隱藏] 選項會顯示存在租用戶中，但不會讓使用者看見的應用程式。
 
-5. 選擇您需要的選項之後，請選取 [套用]。
+1. 選擇您需要的選項之後，請選取 [套用]。
  
 
 ## <a name="search-for-a-tenant-application"></a>搜尋租用戶應用程式
@@ -72,11 +72,11 @@ Azure AD 租用戶應用程式會顯示在 Azure 入口網站的 [企業應用�
 
 1. 在 [應用程式類型] 功能表中，選取 [所有應用程式]，然後選擇 [套用]。
 
-2. 輸入您要尋找的應用程式名稱。 如果此應用程式已新增至您的 Azure AD 租用戶，搜尋結果中就會出現此應用程式。 此範例顯示 GitHub 尚未新增至租用戶應用程式。
+1. 輸入您要尋找的應用程式名稱。 如果此應用程式已新增至您的 Azure AD 租用戶，搜尋結果中就會出現此應用程式。 此範例顯示 GitHub 尚未新增至租用戶應用程式。
 
     ![搜尋應用程式](media/view-applications-portal/search-for-tenant-application.png)
 
-3. 嘗試輸入應用程式名稱的前幾個字母。 此範例顯示以 **Sales** 開頭的所有應用程式。
+1. 嘗試輸入應用程式名稱的前幾個字母。 此範例顯示以 **Sales** 開頭的所有應用程式。
 
     ![使用前置詞進行搜尋](media/view-applications-portal/search-by-prefix.png)
 

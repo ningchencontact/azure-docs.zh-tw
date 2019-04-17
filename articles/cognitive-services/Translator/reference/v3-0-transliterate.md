@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 97a2318b7aa3591193108a8a061a15ec5692fac5
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 4811e40f87962ecde75c7b2bb14e1d033e82ad44
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918615"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577827"
 ---
 # <a name="translator-text-api-30-transliterate"></a>翻譯工具文字 API 3.0：Transliterate
 
@@ -60,8 +60,8 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
   <th width="20%">headers</th>
   <th>描述</th>
   <tr>
-    <td>_一個授權_<br/>_頁首_</td>
-    <td>必要的要求標頭。<br/>請參閱[可用的驗證選項](./v3-0-reference.md#authentication)。</td>
+    <td>驗證標頭</td>
+    <td>必要的要求標頭。<br/>請參閱<a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">可用的驗證選項</a>。</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -73,7 +73,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*選擇性*。<br/>用於識別唯一要求的 GUID，由用戶端產生。 請注意，若您使用名為 `ClientTraceId` 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
+    <td>可选。<br/>用於識別唯一要求的 GUID，由用戶端產生。 請注意，若您使用名為 `ClientTraceId` 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
   </tr>
 </table> 
 
@@ -98,9 +98,9 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 
 成功的回應是輸入陣列的每個字串各有一個結果的 JSON 陣列。 結果物件包含下列屬性：
 
-  * `text`：字串，這是將輸入字串轉換成輸出指令碼的結果。
+  * `text`:字串，這是將輸入字串轉換成輸出指令碼的結果。
   
-  * `script`：字串，指定在輸出中所使用的指令碼。
+  * `script`:字串，指定在輸出中所使用的指令碼。
 
 範例 JSON 回應如下：
 
@@ -165,7 +165,7 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
 
 下列範例示範如何將兩個日文字串轉換成羅馬拼音的日文。
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 此範例中要求的 JSON 酬載：
 

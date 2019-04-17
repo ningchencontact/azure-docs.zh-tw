@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f5b3234c45a9ee80bc5a2c2afe67046896270802
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dade442cb04f79ef75e65d6eb29128b105e72b40
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58163781"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565405"
 ---
 # <a name="how-to-add-pre-trained-entities"></a>如何新增預先定型的實體
 本教學課程說明如何將預先定型的實體新增至對話學習模組模型。
@@ -62,7 +62,7 @@ ms.locfileid: "58163781"
 
 1. 選取 **動作**在左窗格中，然後**新動作**。
 2. 請輸入**什麼是日期？** 如**機器人的回應...**.預先定型的實體不能**所需的實體**因為預設會針對所有的發音都辨識。
-3. 請輸入**builtin datetimev2** for **Disqualifying 享有**。
+3. 請輸入**builtin datetimev2** for **Disqualifying 實體**。
 4. 選取 [建立] 。
 
 ![](../media/T08_action_create_2.png)

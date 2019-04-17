@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/04/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: fa0a8c4baa9458a3784babe1e342d768748f8a4d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 7889f223b607912fd88c798b31ec028f97dfbbd6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882449"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522848"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>LUIS 應用程式中的片語清單功能
 
@@ -93,7 +93,7 @@ ms.locfileid: "55882449"
 ### <a name="use-a-phrase-list"></a>使用片語清單
 使用片語清單，LUIS 仍可將內容納入考量並且一般化，以識別類似但並未與清單中的項目完全相符的項目。 如果您希望 LUIS 應用程式能夠一般化並識別類別中的新項目，請使用字詞清單。 
 
-當您想要能夠辨識實體的新執行個體時 (應可辨識新連絡人名稱的會議排程器，或應可辨識新產品的清查應用程式)，請使用另一種機器學習的實體類型，例如簡單或階層式實體。 然後建立字組和片語的片語清單，協助 LUIS 尋找其他類似於實體的字組。 這份清單會將額外的重要性新增至這些個字組的值，引導 LUIS 辨識實體範例。 
+當您想要能夠辨識的實體，應該會辨識新的連絡人或應該會辨識新的產品庫存應用程式的名稱會議排程器之類的新執行個體時使用另一種機器學習的實體，例如簡單的實體。 然後建立字組和片語的片語清單，協助 LUIS 尋找其他類似於實體的字組。 這份清單會將額外的重要性新增至這些個字組的值，引導 LUIS 辨識實體範例。 
 
 片語清單就像是網域專屬詞彙，有助於增強意圖和實體的理解品質。 片語清單的常見用法是專有名詞，例如城市名稱。 城市名稱可以是包含連字號或單引號的幾個字組。
  

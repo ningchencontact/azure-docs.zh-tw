@@ -5,19 +5,19 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/16/2019
 ms.author: raynew
-ms.openlocfilehash: 76119c912ac6ad1447bfcff1f4c98e60f34b072f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 019c6ec776277a9102cb95cd685bbae0fc660d66
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317121"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615909"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>移轉至 Azure 之後，設定 Azure VM 的災害復原 
 
 
-如果您已經使用這篇文章[內部部署機器移轉至 Azure Vm](tutorial-migrate-on-premises-to-azure.md)使用[Site Recovery](site-recovery-overview.md)服務，且您現在想要取得 Vm 設定災害復原至次要 Azure 區域。 本文將告訴您如何確保 Azure VM 代理程式安裝在已移轉的 Vm，以及如何移除已不再需要在移轉後的 Site Recovery 行動服務。
+如果您已經遵循這篇文章[內部部署機器移轉至 Azure Vm](tutorial-migrate-on-premises-to-azure.md)使用[Site Recovery](site-recovery-overview.md)服務，且您現在想要取得 Vm 設定災害復原至次要 Azure 區域。 本文將告訴您如何確保 Azure VM 代理程式安裝在已移轉的 Vm，以及如何移除已不再需要在移轉後的 Site Recovery 行動服務。
 
 
 
@@ -77,7 +77,7 @@ ms.locfileid: "58317121"
         ```
     - 若為 Linux，請以根使用者身分登入。 在終端機中，移至 **/user/local/ASR**，然後執行下列命令：
         ```
-        uninstall.sh -Y
+        ./uninstall.sh -Y
         ```
 2. 設定複寫之前，請將 VM 重新啟動。
 

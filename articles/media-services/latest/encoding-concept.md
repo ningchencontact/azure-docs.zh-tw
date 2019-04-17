@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: de2c60d4449762c4a8fcc3e2f486130f3df37c7c
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 532701eb2c5e92e5443f69c464b561d6fa242598
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243614"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617626"
 ---
 # <a name="encoding-with-media-services"></a>使用媒體服務編碼
 
@@ -54,19 +54,38 @@ Azure 媒體服務可讓您將高品質的數位媒體檔案編碼成調適性�
 
 目前支援的預設如下：
 
-- **EncoderNamedPreset.AdaptiveStreaming** (建議)。 如需詳細資訊，請參閱[自動產生位元速率階梯](autogen-bitrate-ladder.md)。
 - **EncoderNamedPreset.AACGoodQualityAudio** - 會產生只包含立體聲音訊 (以 192 kbps 編碼) 的單一 MP4 檔案。
+- **EncoderNamedPreset.AdaptiveStreaming** (建議)。 如需詳細資訊，請參閱[自動產生位元速率階梯](autogen-bitrate-ladder.md)。
+- **EncoderNamedPreset.ContentAwareEncodingExperimental** -實驗性的預設內容感知的編碼公開 （expose)。 指定任何輸入的內容，服務會嘗試自動判斷最佳的圖層、 適當的位元速率與解析度設定為傳遞數目彈性資料流。 基礎演算法將會繼續隨著時間演進。 輸出會包含交錯的音訊和視訊的 MP4 的檔案。 如需詳細資訊，請參閱 <<c0> [ 感知內容的編碼預設值的實驗性](cae-experimental.md)。
 - **EncoderNamedPreset.H264MultipleBitrate1080p** - 會產生一組 8 個對齊 GOP 的 MP4 檔案 (範圍從 6000 kbps 到 400 kbps) 和立體聲 AAC 音訊。 解析度起自 1080p，下至 360p。
 - **EncoderNamedPreset.H264MultipleBitrate720p** - 會產生一組 6 個對齊 GOP 的 MP4 檔案 (範圍從 3400 kbps 到 400 kbps) 和立體聲 AAC 音訊。 解析度起自 720p，下至 360p。
-- **EncoderNamedPreset.H264MultipleBitrateSD** - 會產生一組 5 個對齊 GOP 的 MP4 檔案 (範圍從 1600 kbps 到 400 kbps) 和立體聲 AAC 音訊。 解析度起自 480p，下至 360p。<br/><br/>如需詳細資訊，請參閱[上傳、編碼和串流檔案](stream-files-tutorial-with-api.md)。
+- **EncoderNamedPreset.H264MultipleBitrateSD** - 會產生一組 5 個對齊 GOP 的 MP4 檔案 (範圍從 1600 kbps 到 400 kbps) 和立體聲 AAC 音訊。 解析度起自 480p，下至 360p。
+- **EncoderNamedPreset.H264SingleBitrate1080p** -產生 MP4 檔案，其中影片以 6750 kbps 和圖片 1080年像素的高度，在 H.264 轉碼器編碼，而是立體聲的音訊以 64 kbps AAC-LC 轉碼器編碼。
+- **EncoderNamedPreset.H264SingleBitrate720p** -產生視訊編碼的 H.264 轉碼器 4500 kbps 與圖片高度為 720 像素，而是立體聲的音訊以 64 kbps AAC-LC 轉碼器編碼的 MP4 檔案。
+- **EncoderNamedPreset.H264SingleBitrateSD** -產生 MP4 檔案，其中影片以 2200 kbps 與圖片的高度 480 像素為單位的 H.264 轉碼器編碼，而是立體聲的音訊以 64 kbps AAC-LC 轉碼器編碼。
+
+若要查看最新的預設值清單，請參閱[內建的預設設定，以便用來編碼視訊](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset)。
+
+若要查看如何使用預設值，請參閱[正在上傳、 編碼及串流檔案](stream-files-tutorial-with-api.md)。
 
 ### <a name="standardencoderpreset-preset"></a>StandardEncoderPreset 預設
 
 [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) \(英文\) 能描述在使用標準編碼器為輸入視訊編碼時所要使用的設定。 在自訂轉換預設時，請使用此預設。 
 
-#### <a name="custom-presets"></a>自訂預設
+#### <a name="considerations"></a>考量
 
-「媒體服務」可完整支援自訂預設中的所有值，以滿足您的特定編碼需要和需求。 在自訂轉換預設時，請使用 **StandardEncoderPreset** 預設。 如需詳細說明和範例，請參閱[如何自訂編碼器預設](customize-encoder-presets-how-to.md)。
+在建立自訂的預設設定時，適用下列考量：
+
+- 高度和寬度 AVC 內容上的所有值必須都是 4 的倍數。
+- Azure 媒體服務 v3 中所有的編碼位元速率是每秒位元。 這是我們使用千位元/秒為單位的 v2 Api 與預設值不同。 比方說，如果 （kb/秒） 指定在 v2 中的位元速率為 128，v3 中它會設 128000 （位元/秒）。
+
+#### <a name="examples"></a>範例
+
+「媒體服務」可完整支援自訂預設中的所有值，以滿足您的特定編碼需要和需求。 如需示範如何自訂編碼器預設值的範例，請參閱：
+
+- [自訂預設使用.NET](customize-encoder-presets-how-to.md)
+- [自訂預設使用 CLI](custom-preset-cli-howto.md)
+- [自訂預設使用 REST](custom-preset-rest-howto.md)
 
 ## <a name="scaling-encoding-in-v3"></a>在 v3 中調整編碼
 

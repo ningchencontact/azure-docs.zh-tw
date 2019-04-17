@@ -1,7 +1,7 @@
 ---
 title: 資料擷取
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: 了解可以從 Language Understanding (LUIS) 擷取哪些類型的資料
+description: 擷取與意圖和實體的 [utterance] 文字方塊中的資料。 了解何種資料可以擷取從 Language Understanding (LUIS)。
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 76f8fed8d185598d62eef5a412fda2c3fd1317bd
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 35f1521884de3a4a0971b6e1c00f92a9094a8550
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893974"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526284"
 ---
-# <a name="data-extraction-from-intents-and-entities"></a>從意圖和實體擷取資料
+# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>擷取與意圖和實體的 [utterance] 文字方塊中的資料
 LUIS 可讓您從使用者的自然語言語句取得資訊。 此資訊的擷取方式使得它可供程式、應用程式或 Chatbot 用來執行動作。 在下列各節中，您將透過 JSON 範例，了解從意圖和實體會傳回哪些資料。
 
 最難擷取的資料是機器學習資料，因為它不是全文相符的資料。 機器學習[實體](luis-concept-entity-types.md)的資料擷取必須是[撰寫循環](luis-concept-app-iteration.md)的一部分，直到您確信收到預期的資料為止。
@@ -46,7 +46,7 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 }
 ```
 
-|資料物件|資料類型|資料位置|值|
+|資料物件|数据类型|資料位置|值|
 |--|--|--|--|
 |意圖|字串|topScoringIntent.intent|"GetStoreInfo"|
 
@@ -75,7 +75,7 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 
 意圖會依最高分到最低分排序。
 
-|資料物件|資料類型|資料位置|值|分數|
+|資料物件|数据类型|資料位置|值|分數|
 |--|--|--|--|:--|
 |意圖|字串|intents[0].intent|"GetStoreInfo"|0.984749258|
 |意圖|字串|intents[1].intent|"None"|0.0168218873|
@@ -106,7 +106,7 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 }
 ```
 
-|網域|資料物件|資料類型|資料位置|值|
+|網域|資料物件|数据类型|資料位置|值|
 |--|--|--|--|--|
 |公用事業|意圖|字串|intents[0].intent|"<b>Utilities</b>.ShowNext"|
 |通訊|意圖|字串|intents[1].intent|<b>Communication</b>.StartOver"|
@@ -170,9 +170,11 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 
 |資料物件|實體名稱|值|
 |--|--|--|
-|簡單實體|"Customer"|"bob jones"|
+|簡單實體|`Customer`|`bob jones`|
 
 ## <a name="hierarchical-entity-data"></a>階層式實體資料
+
+**階層式實體最終會被取代。使用[實體的角色](luis-concept-roles.md)來判斷實體子型別，而不是階層式實體。**
 
 [階層式](luis-concept-entity-types.md)實體是機器學習實體，並可包含單字或片語。 子系會由內容來識別。 如果您要尋找全文相符的父子關係，請使用[清單](#list-entity-data)實體。
 
@@ -432,13 +434,18 @@ LUIS 會從已發佈的[端點](luis-glossary.md#endpoint)提供資料。 **HTTP
 [PersonName](luis-reference-prebuilt-person.md) 和 [GeographyV2](luis-reference-prebuilt-geographyV2.md) 實體可在某些[語言文化特性](luis-reference-prebuilt-entities.md)中使用。 
 
 ### <a name="names-of-people"></a>人名
-人名可依據語言和文化特性而有些微的格式。 請使用以名字和姓氏作為子系的階層式實體，或使用含有名字和姓氏角色的簡單實體。 請務必提供在語句的不同部分、在不同長度的語句中及在所有意圖 (包括 None 意圖) 的語句中使用名字和姓氏的範例。 請定期[檢閱](luis-how-to-review-endpoint-utterances.md)端點語句，以標記任何未正確預測的名稱。
+
+人名可依據語言和文化特性而有些微的格式。 使用其中一個預先建置好**[personName](luis-reference-prebuilt-person.md)** 實體或**[簡單實體](luis-concept-entity-types.md#simple-entity)** 使用[角色](luis-concept-roles.md)第一個和最後一個名稱。 
+
+如果您使用簡單的實體，請務必提供跨所有用途，包括 無使用第一個和最後一個名稱，在 utterance 的不同長度的表達方式和談話中的不同部分的範例意圖。 請定期[檢閱](luis-how-to-review-endoint-utt.md)端點語句，以標記任何未正確預測的名稱。
 
 ### <a name="names-of-places"></a>地名
-地名是已設定且已知的名稱，例如城市、郡縣、州、省及國家/地區。 如果您的應用程式使用一組已知的地點，請考慮使用清單實體。 如果您需要尋找所有地名，請建立一個簡單實體，然後提供各種範例。 請新增一個地名片語清單來強調地名在您應用程式中看起來的樣子。 請定期[檢閱](luis-how-to-review-endpoint-utterances.md)端點語句，以標記任何未正確預測的名稱。
+
+地名是已設定且已知的名稱，例如城市、郡縣、州、省及國家/地區。 使用預先建置的實體**[geographyV2](luis-reference-prebuilt-geographyv2.md)** 擷取位置資訊。
 
 ### <a name="new-and-emerging-names"></a>全新和新興的名稱
-有些應用程式需要能夠尋找全新和新興的名稱，例如產品或公司。 這些名稱類型是難度最高的資料擷取類型。 請從簡單實體開始著手，並新增一個片語清單。 請定期[檢閱](luis-how-to-review-endpoint-utterances.md)端點語句，以標記任何未正確預測的名稱。
+
+有些應用程式需要能夠尋找全新和新興的名稱，例如產品或公司。 這些類型的名稱是最困難的一種資料擷取。 開頭**[簡單實體](luis-concept-entity-types.md#simple-entity)** ，並新增[片語清單](luis-concept-feature.md)。 請定期[檢閱](luis-how-to-review-endoint-utt.md)端點語句，以標記任何未正確預測的名稱。
 
 ## <a name="pattern-roles-data"></a>模式角色資料
 角色是實體的內容相關差異。

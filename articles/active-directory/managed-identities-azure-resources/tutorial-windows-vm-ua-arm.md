@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/10/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42b0269d783dac17c48553c837ccdc2b3b014790
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: a6fc7e13cf5ea3991f81d53edcabe0980d799cb0
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58442223"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59520858"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>教學課程：在 Windows VM 上利用使用者指派的受控識別來存取 Azure Resource Manager
 
@@ -136,7 +136,7 @@ CanDelegate: False
 
 ## <a name="read-the-properties-of-a-resource-group"></a>讀取資源群組的屬性
 
-使用在先前步驟中所擷取的存取權杖來存取 Azure Resource Manager，並讀取資源群組的屬性 (您已向使用者指派的身分識別授予該資源群組的存取權)。 將 <SUBSCRIPTION ID> 取代為您環境的訂用帳戶識別碼。
+使用在先前步驟中所擷取的存取權杖來存取 Azure Resource Manager，並讀取資源群組的屬性 (您已向使用者指派的身分識別授予該資源群組的存取權)。 將 `<SUBSCRIPTION ID>` 取代為您環境的訂用帳戶識別碼。
 
 ```azurepowershell
 (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourceGroups/myResourceGroupVM?api-version=2016-06-01 -Method GET -ContentType "application/json" -Headers @{Authorization ="Bearer $ArmToken"}).content

@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.author: yluiu
-ms.openlocfilehash: 02e4e73bbbc7f843a3483bab4791484b89f97dd7
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 8502d643986392ba846d509819c6d8f63f931c07
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862024"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544545"
 ---
 # <a name="face-api-release-notes"></a>臉部 API 版本資訊
 
@@ -27,7 +27,7 @@ ms.locfileid: "58862024"
 
 ### <a name="release-changes-in-january-2019"></a>2019 年 1 月的發行變更
 
-* 已新增快照集功能，以支援訂用帳戶間的資料移轉：[快照集](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot)。 在 更多詳細資料[如何將臉部資料移轉至不同的臉部訂用帳戶](Face-API-How-to-Topics/how-to-migrate-face-data.md)。
+* 已新增快照集功能，以支援訂用帳戶間的資料移轉：[快照集](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/snapshot-get)。 在 更多詳細資料[如何將臉部資料移轉至不同的臉部訂用帳戶](Face-API-How-to-Topics/how-to-migrate-face-data.md)。
 
 ### <a name="release-changes-in-october-2018"></a>2018 年 10 月的發行變更
 

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 3a9c2ae0eee3e282dddff812da2fed07787328b7
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: de11d493c1a42b67aeab6502f719bcee1adc6e99
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916286"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578201"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>翻譯工具文字 API 3.0：BreakSentence
 
@@ -56,8 +56,8 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
   <th width="20%">headers</th>
   <th>描述</th>
   <tr>
-    <td>_一個授權_<br/>_頁首_</td>
-    <td>必要的要求標頭。<br/>請參閱[可用的驗證選項](./v3-0-reference.md#authentication)。</td>
+    <td>驗證標頭</td>
+    <td>必要的要求標頭。<br/>請參閱<a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">可用的驗證選項</a>。</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -69,7 +69,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*選擇性*。<br/>用於識別唯一要求的 GUID，由用戶端產生。 請注意，若您使用名為 `ClientTraceId` 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
+    <td>可选。<br/>用於識別唯一要求的 GUID，由用戶端產生。 請注意，若您使用名為 `ClientTraceId` 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
   </tr>
 </table> 
 
@@ -94,13 +94,13 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 成功的回應是輸入陣列的每個字串各有一個結果的 JSON 陣列。 結果物件包含下列屬性：
 
-  * `sentLen`：整數陣列，代表文字項目中的句子長度。 陣列長度就是句子數目，而值是每個句子的長度。 
+  * `sentLen`:整數陣列，代表文字項目中的句子長度。 陣列長度就是句子數目，而值是每個句子的長度。 
 
-  * `detectedLanguage`：物件，透過下列屬性描述偵測到的語言：
+  * `detectedLanguage`:物件，透過下列屬性描述偵測到的語言：
 
-     * `language`：代碼，代表偵測到的語言。
+     * `language`:代碼，代表偵測到的語言。
 
-     * `score`：浮點值，表示結果的信賴度。 分數介於 0 與 1 之間，分數低表示信賴度偏低。
+     * `score`:浮點值，表示結果的信賴度。 分數介於 0 與 1 之間，分數低表示信賴度偏低。
      
     請注意，只有在要求自動偵測語言時，`detectedLanguage` 屬性才會存在於結果物件中。
 
@@ -172,7 +172,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 下列範例會示範如何取得單一句子的句子界限。 服務會自動偵測句子的語言。
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"

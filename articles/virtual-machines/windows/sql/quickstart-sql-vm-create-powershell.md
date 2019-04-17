@@ -14,22 +14,20 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 43a5f3be9b176cf25e643d6a5231669922300b98
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: c533f4671411412f223fb1c67f1b310ee19bcf23
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485929"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547534"
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>快速入門：使用 Azure PowerShell 來建立 SQL Server Windows 虛擬機器
 
 本快速入門會逐步說明如何使用 Azure PowerShell 來建立 SQL Server 虛擬機器。
 
 > [!TIP]
-> 本快速入門提供快速佈建及連線到 SQL VM 的途徑。 如需其他用於建立 SQL VM 之 Azure PowerShell 選項的詳細資訊，請參閱[使用 Azure PowerShell 佈建 SQL Server VM 的指南](virtual-machines-windows-ps-sql-create.md)。
-
-> [!TIP]
-> 如果您有 SQL Server 虛擬機器的相關問題，請參閱[常見問題集](virtual-machines-windows-sql-server-iaas-faq.md)。
+> - 本快速入門提供快速佈建及連線到 SQL VM 的途徑。 如需其他用於建立 SQL VM 之 Azure PowerShell 選項的詳細資訊，請參閱[使用 Azure PowerShell 佈建 SQL Server VM 的指南](virtual-machines-windows-ps-sql-create.md)。
+> - 如果您有 SQL Server 虛擬機器的相關問題，請參閱[常見問題集](virtual-machines-windows-sql-server-iaas-faq.md)。
 
 ## <a id="subscription"></a> 取得 Azure 訂用帳戶
 

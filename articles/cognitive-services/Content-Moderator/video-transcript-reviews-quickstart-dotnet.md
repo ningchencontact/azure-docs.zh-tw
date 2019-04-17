@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 56cd608d337d817b849a0902569e9aeddeca80ab
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a3d362f08765cc80b65659b406a2fac3af71f167
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758582"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524492"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>使用 .NET 來建立影片文字記錄審核項目
 
@@ -154,7 +154,7 @@ public static ContentModeratorClient NewClient()
 **CreateVideoReviews** 具有下列必要參數：
 1. 一個包含 MIME 類型的字串，這應該是 "application/json"。 
 1. 您的 Content Moderator 小組名稱。
-1. 一個 **IList<CreateVideoReviewsBodyItem>** 物件。 每個 **CreateVideoReviewsBodyItem** 物件皆代表一個影片審核項目。 這個快速入門會一次建立一個審核項目。
+1. **IList\<CreateVideoReviewsBodyItem >** 物件。 每個 **CreateVideoReviewsBodyItem** 物件皆代表一個影片審核項目。 這個快速入門會一次建立一個審核項目。
 
 **CreateVideoReviewsBodyItem** 具有數個屬性。 您必須至少設定下列屬性：
 - **Content**。 要審核的影片 URL。
@@ -244,15 +244,15 @@ static void AddTranscript(ContentModeratorClient client, string review_id, strin
 1. 一個包含 MIME 類型的字串，這應該是 "application/json"。 
 1. 您的 Content Moderator 小組名稱。
 1. **CreateVideoReviews** 所傳回的影片審核項目識別碼。
-1. 一個 IList<TranscriptModerationBodyItem>。 **TranscriptModerationBodyItem** 具有下列屬性：
-1. **Terms**。 一個 IList<TranscriptModerationBodyItemTermsItem>。 **TranscriptModerationBodyItemTermsItem** 具有下列屬性：
+1. IList\<TranscriptModerationBodyItem >。 **TranscriptModerationBodyItem** 具有下列屬性：
+1. **Terms**。 IList\<TranscriptModerationBodyItemTermsItem >。 **TranscriptModerationBodyItemTermsItem** 具有下列屬性：
 1. **Index**。 字詞的從零開始索引。
 1. **Term**。 一個包含字詞的字串。
 1. **Timestamp**。 一個包含在文字記錄中找到字詞之時間 (以秒為單位) 的字串。
 
 文字記錄的格式必須是 WebVTT。 如需詳細資訊，請參閱 [WebVTT：網路影片文字播放軌格式](https://www.w3.org/TR/webvtt1/) \(英文\)。
 
-將下列方法定義新增至 VideoTranscriptReviews 命名空間、Program 類別。 此方法會將文字記錄提交給 **ContentModeratorClient.TextModeration.ScreenText** 方法。 此外，也會將會將結果轉譯成 IList<TranscriptModerationBodyItem>，然後提交給 **AddVideoTranscriptModerationResult**。
+將下列方法定義新增至 VideoTranscriptReviews 命名空間、Program 類別。 此方法會將文字記錄提交給 **ContentModeratorClient.TextModeration.ScreenText** 方法。 它也將結果轉譯成 IList\<TranscriptModerationBodyItem >，並將提交至**AddVideoTranscriptModerationResult**。
 
 ```csharp
 /// <summary>

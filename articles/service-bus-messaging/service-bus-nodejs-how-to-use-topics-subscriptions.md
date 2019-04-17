@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: c2a6acc1ce48a8671af20df6daa89498a81fdb4c
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: d3f71382a3f2b15ec0f9764b9913a95c0d32b21d
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587152"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608864"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>如何透過 Node.js 使用服務匯流排主題和訂用帳戶
 
@@ -35,9 +35,12 @@ ms.locfileid: "56587152"
 
 如需主題和訂用帳戶的詳細資訊，請參閱[後續步驟](#next-steps)一節。
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+## <a name="prerequisites"></a>必要條件
+1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用您[Visual Studio 或 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或是註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+2. 遵循的步驟[快速入門：使用 Azure 入口網站建立服務匯流排主題和訂用帳戶的主題](service-bus-quickstart-topics-subscriptions-portal.md)來建立服務匯流排**命名空間**並取得**連接字串**。
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+    > [!NOTE]
+    > 您將建立**主題**並**訂用帳戶**使用主題**Node.js**在本快速入門。 
 
 ## <a name="create-a-nodejs-application"></a>建立 Node.js 應用程式
 建立空白的 Node.js 應用程式。 如需有關建立 Node.js 應用程式的指示，請參閱[建立 Node.js 應用程式並將其部署到 Azure 網站]、[Node.js 雲端服務][Node.js Cloud Service] (使用 Windows PowerShell) 或使用 WebMatrix 的網站。
