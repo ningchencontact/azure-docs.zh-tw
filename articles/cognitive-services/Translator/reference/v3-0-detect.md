@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: a552fece120d7978825a685960bf4faf65aba783
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: fa618c5c623a631e7a88f8235a0b7b16fcb2bc88
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916644"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578652"
 ---
 # <a name="translator-text-api-30-detect"></a>翻譯工具文字 API 3.0：Detect
 
@@ -48,8 +48,8 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
   <th width="20%">headers</th>
   <th>描述</th>
   <tr>
-    <td>_一個授權_<br/>_頁首_</td>
-    <td>必要的要求標頭。<br/>請參閱[可用的驗證選項](./v3-0-reference.md#authentication)。</td>
+    <td>驗證標頭</td>
+    <td>必要的要求標頭。<br/>請參閱<a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">可用的驗證選項</a>。</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -61,7 +61,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*選擇性*。<br/>用於識別唯一要求的 GUID，由用戶端產生。 請注意，若您使用名為 `ClientTraceId` 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
+    <td>可选。<br/>用於識別唯一要求的 GUID，由用戶端產生。 請注意，若您使用名為 `ClientTraceId` 的查詢參數在查詢字串中包含追蹤識別碼，您就可以省略此標頭。</td>
   </tr>
 </table> 
 
@@ -85,15 +85,15 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 
 成功的回應是輸入陣列的每個字串各有一個結果的 JSON 陣列。 結果物件包含下列屬性：
 
-  * `language`：代碼，代表偵測到的語言。
+  * `language`:代碼，代表偵測到的語言。
 
-  * `score`：浮點值，表示結果的信賴度。 分數介於 0 與 1 之間，分數低表示信賴度偏低。
+  * `score`:浮點值，表示結果的信賴度。 分數介於 0 與 1 之間，分數低表示信賴度偏低。
 
-  * `isTranslationSupported`：布林值，若偵測到的語言是文字翻譯支援的語言之一，則為 true。
+  * `isTranslationSupported`:布林值，若偵測到的語言是文字翻譯支援的語言之一，則為 true。
 
-  * `isTransliterationSupported`：布林值，若偵測到的語言是轉換支援的語言之一，則為 true。
+  * `isTransliterationSupported`:布林值，若偵測到的語言是轉換支援的語言之一，則為 true。
   
-  * `alternatives`：陣列，包含其他可能語言。 陣列的每個項目是具有上方所列相同屬性的另一個物件：`language`、`score`、`isTranslationSupported` 和 `isTransliterationSupported`。
+  * `alternatives`:陣列，包含其他可能語言。 陣列的每個項目是具有上方所列相同屬性的另一個物件：`language`、`score`、`isTranslationSupported` 和 `isTransliterationSupported`。
 
 範例 JSON 回應如下：
 
@@ -176,7 +176,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 
 以下範例顯示如何擷取支援文字轉換的語言。
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/detect?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'What language is this text written in?'}]"
