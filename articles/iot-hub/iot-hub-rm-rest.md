@@ -9,29 +9,28 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: b24c8fa76e5bb3f8cdf7d246f7f7aa0f1a62258a
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: ca893670e01f4bccc211cd08064b6638e9224a9a
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051507"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606781"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>使用資源提供者 REST API 建立 IoT 中樞 (.NET)
 
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
-您可透過程式設計方式，使用 [IoT 中樞資源提供者 REST API][lnk-rest-api] 建立和管理 Azure IoT 中樞。 本教學課程說明如何使用「IoT 中樞資源提供者 REST API」從 C# 程式建立 IoT 中樞。
-
-> [!NOTE]
-> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Azure Resource Manager 和傳統模型](../azure-resource-manager/resource-manager-deployment-model.md)。  本文涵蓋使用 Azure Resource Manager 部署模型的部分。
+您可以使用[IoT 中樞資源提供者 REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource)來建立和管理 Azure IoT 中樞，以程式設計的方式。 本教學課程說明如何使用「IoT 中樞資源提供者 REST API」從 C# 程式建立 IoT 中樞。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 若要完成此教學課程，您需要下列項目：
 
 * Visual Studio 2015 或 Visual Studio 2017。
-* 使用中的 Azure 帳戶。 <br/>如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶][lnk-free-trial]。
-* [Azure PowerShell 1.0][lnk-powershell-install] 或更新版本。
+
+* 使用中的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/) 。
+
+* [Azure PowerShell 1.0](https://docs.microsoft.com/powershell/azure/install-Az-ps)或更新版本。
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -72,13 +71,14 @@ ms.locfileid: "59051507"
     static string rgName = "{Resource group name}";
     static string iotHubName = "{IoT Hub name including your initials}";
     ```
-   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
+   
+    [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 [!INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
 
 ## <a name="use-the-resource-provider-rest-api-to-create-an-iot-hub"></a>使用資源提供者 REST API 建立 IoT 中樞
 
-使用 [IoT 中樞資源提供者 REST API][lnk-rest-api] 在資源群組中建立 IoT 中樞。 您也可以使用資源提供者 REST API 變更現有的 IoT 中樞。
+使用[IoT 中樞資源提供者 REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource)資源群組中建立 IoT 中樞。 您也可以使用資源提供者 REST API 變更現有的 IoT 中樞。
 
 1. 將下列方法新增至 Program.cs：
 
@@ -96,7 +96,7 @@ ms.locfileid: "59051507"
     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
     ```
 
-3. 將下列程式碼加入 **CreateIoTHub** 方法。 此程式碼說明 IoT 中樞建立並產生 JSON 表示法。 如需目前支援「IoT 中樞」的位置清單，請參閱 [Azure 狀態][lnk-status]：
+3. 將下列程式碼加入 **CreateIoTHub** 方法。 此程式碼說明 IoT 中樞建立並產生 JSON 表示法。 如需目前支援 「 IoT 中樞的位置清單，請參閱[Azure 狀態](https://azure.microsoft.com/status/):
 
     ```csharp
     var description = new
@@ -166,35 +166,25 @@ ms.locfileid: "59051507"
 
 3. 按一下 [偵錯]，然後按一下 [開始偵錯] 以執行應用程式。 可能需要數分鐘的時間，部署才會開始執行。
 
-4. 若要確認您的應用程式已新增新的 IoT 中樞，請前往 [Azure 入口網站][lnk-azure-portal] 並檢視您的資源清單。 另外，也可以使用 **Get-AzResource** PowerShell cmdlet。
+4. 若要確認您的應用程式新增新的 IoT 中樞，請造訪[Azure 入口網站](https://portal.azure.com/)並檢視您的資源。 另外，也可以使用 **Get-AzResource** PowerShell cmdlet。
 
 > [!NOTE]
-> 此範例應用程式會加入您付費的「S1 標準 IoT 中樞」。 在完成任务后，可以通过 [Azure 门户][lnk-azure-portal]或者使用 **Remove-AzResource** PowerShell cmdlet 删除该 IoT 中心。
+> 此範例應用程式會加入您付費的「S1 標準 IoT 中樞」。 當您完成時，您可以刪除 IoT 中樞，透過[Azure 入口網站](https://portal.azure.com/)或使用**移除 AzResource** PowerShell cmdlet，當您完成時。
 
 ## <a name="next-steps"></a>後續步驟
+
 現在您已經使用資源提供者 REST API 部署 IoT 中樞，您可以進一步探索：
 
-* 閱讀 [IoT 中樞資源提供者 REST API][lnk-rest-api] 功能的相關資訊。
-* 如需 Azure Resource Manager 功能的詳細資訊，請參閱 [Azure Resource Manager 概觀][lnk-azure-rm-overview]。
+* 了解的功能[IoT 中樞資源提供者 REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource)。
+
+* 讀取[Azure Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md)若要深入了解 Azure Resource Manager 的功能。
 
 若要深入了解如何開發 IoT 中樞，請參閱以下文章︰
 
-* [C SDK 簡介][lnk-c-sdk]
-* [Azure IoT SDK][lnk-sdks]
+* [C SDK 簡介](iot-hub-device-sdk-c-intro.md)
+
+* [Azure IoT SDK](iot-hub-devguide-sdks.md)
 
 若要進一步探索 IoT 中樞的功能，請參閱︰
 
-* [使用 Azure IoT Edge 將 AI 部署到 Edge 裝置][lnk-iotedge]
-
-<!-- Links -->
-[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-[lnk-azure-portal]: https://portal.azure.com/
-[lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-Az-ps
-[lnk-rest-api]: https://docs.microsoft.com/rest/api/iothub/iothubresource
-[lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
-
-[lnk-c-sdk]: iot-hub-device-sdk-c-intro.md
-[lnk-sdks]: iot-hub-devguide-sdks.md
-
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+* [使用 Azure IoT Edge 將 AI 部署到 Edge 裝置](../iot-edge/tutorial-simulate-device-linux.md)

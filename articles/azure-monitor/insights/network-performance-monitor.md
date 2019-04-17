@@ -3,7 +3,7 @@ title: Azure 中的網路效能監控解決方案 | Microsoft Docs
 description: Azure 中的「網路效能監視器」可協助您近乎即時地監視網路的效能，以偵測和找出網路效能瓶頸。
 services: log-analytics
 documentationcenter: ''
-author: abshamsft
+author: vinynigam
 manager: carmonm
 editor: ''
 ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
-ms.author: abshamsft
-ms.openlocfilehash: ac10f1f1c6336098afc2abd2b8f720cedfb6f579
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.author: vinigam
+ms.openlocfilehash: 29826f7f842f8dfbd7cd2a754c919f06542a161c
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548930"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615977"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure 中的網路效能監控解決方案
 
