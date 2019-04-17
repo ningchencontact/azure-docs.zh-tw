@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 67f87729dbfb792b88f28a772f15e233f0fa60dc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 928c6316ea964472faadc82213c4c1ff81c3e038
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452108"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608235"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C：區域可用性與資料落地
 區域可用性和資料存留處是兩個非常不同的概念，這些概念套用到 Azure AD B2C 的方式與套用到其餘 Azure 的方式不同。 本文將說明這兩個概念之間的差異，並比較它們如何套用在 Azure 與 Azure AD B2C。
@@ -45,7 +45,7 @@ Azure AD B2C 會將使用者資料儲存在美國或歐洲。
 
 針對下列國家/地區，資料會位於歐洲：
 
-> 阿爾及利亞、奧地利、亞塞拜然、巴林、白俄羅斯、比利時、保加利亞、克羅埃西亞、賽普勒斯、捷克共和國、丹麥、埃及、愛沙尼亞、芬蘭、法國、德國、希臘、匈牙利、冰島、愛爾蘭、以色列、義大利、約旦、哈薩克、肯亞、科威特、拉脫維亞、黎巴嫩、列支敦斯登、立陶宛、盧森堡、馬其頓 (FYRO)、馬爾他、蒙特內哥羅、摩洛哥、荷蘭、奈及利亞、挪威、阿曼、巴基斯坦、波蘭、葡萄牙、卡達、羅馬尼亞、俄羅斯、沙烏地阿拉伯、塞爾維亞、斯洛伐克、斯洛維尼亞、南非、西班牙、瑞典、瑞士、突尼西亞、土耳其、烏克蘭、阿拉伯聯合大公國和英國。
+> 阿爾及利亞、 奧地利、 亞塞拜然、 巴林、 白俄羅斯、 比利時、 保加利亞、 克羅埃西亞、 賽普勒斯、 捷克共和國、 丹麥、 埃及、 愛沙尼亞、 芬蘭、 法國、 德國、 希臘、 匈牙利、 冰島、 愛爾蘭、 以色列、 義大利、 約旦、 哈薩克、 肯亞、 科威特、 Lativa，黎巴嫩，列支敦斯登、 立陶宛、 盧森堡、 北歐馬其頓、 馬爾他、 蒙特內哥羅、 摩洛哥、 荷蘭、 奈及利亞、 挪威、 阿曼、 巴基斯坦、 波蘭、 葡萄牙、 卡達、 羅馬尼亞、 俄羅斯、 沙烏地阿拉伯、 塞爾維亞、 斯洛伐克、 斯洛維尼亞、 南非、 西班牙、 瑞典瑞士、 突尼西亞、 土耳其、 烏克蘭、 阿拉伯聯合大公國和英國。
 
 其餘國家/地區正在新增到清單。  目前，您仍可透過挑選上述任何國家/地區來使用 Azure AD B2C。
 

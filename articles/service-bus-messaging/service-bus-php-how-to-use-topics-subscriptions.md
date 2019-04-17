@@ -12,24 +12,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 4862377a8441d5ec920d6b52dbed8ad405144227
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1ce9c5ddb08f3e81a0f0050048a8afef24e4c625
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857958"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607529"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>如何透過 PHP 使用服務匯流排主題和訂用帳戶
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-本文示範如何使用服務匯流排主題和訂用帳戶。 這些範例均是以 PHP 撰寫，並使用 [Azure SDK for PHP](../php-download-sdk.md) (英文)。 涵蓋的案例包括**建立主題和訂用帳戶**、**建立訂用帳戶篩選器**、**傳送訊息至主題**、**接收訂用帳戶的訊息**，以及**刪除主題和訂用帳戶**。
+本文示範如何使用服務匯流排主題和訂用帳戶。 這些範例均是以 PHP 撰寫，並使用 [Azure SDK for PHP](../php-download-sdk.md) (英文)。 涵蓋的案例包括：
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+- 建立主題和訂用帳戶 
+- 建立訂用帳戶篩選 
+- 傳送訊息至主題 
+- 從訂用帳戶接收訊息
+- 刪除主題和訂用帳戶
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+## <a name="prerequisites"></a>必要條件
+1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用您[Visual Studio 或 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或是註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+2. 遵循的步驟[快速入門：使用 Azure 入口網站建立服務匯流排主題和訂用帳戶的主題](service-bus-quickstart-topics-subscriptions-portal.md)來建立服務匯流排**命名空間**並取得**連接字串**。
+
+    > [!NOTE]
+    > 您將建立**主題**並**訂用帳戶**使用主題**PHP**在本快速入門。 
 
 ## <a name="create-a-php-application"></a>建立 PHP 應用程式
 若要建立 PHP 應用程式並使其存取 Azure Blob 服務，唯一要求就是在您的程式碼中參考 [Azure SDK for PHP](../php-download-sdk.md) 中的類別。 您可以使用任何開發工具來建立應用程式，或記事本。
@@ -131,7 +140,7 @@ catch(ServiceException $e){
 `ServiceBusRestProxy->createSubscription` 方法也能用來建立主題訂用帳戶。 為訂閱命名，且能包含選擇性篩選器，以用來限制傳遞至訂閱的虛擬佇列的訊息集合。
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>使用預設 (MatchAll) 篩選器建立訂用帳戶
-如果在建立新的訂用帳戶時未指定篩選器，將會使用 **MatchAll** 篩選器 (預設)。 使用 **MatchAll** 篩選器時，所有發佈至主題的訊息都會被置於訂用帳戶的虛擬佇列中。 下列範例將建立名為 'mysubscription' 的訂用帳戶，並使用預設的 **MatchAll** 篩選器。
+如果在建立新的訂用帳戶時未指定篩選器，將會使用 **MatchAll** 篩選器 (預設)。 使用 **MatchAll** 篩選器時，所有發佈至主題的訊息都會被置於訂用帳戶的虛擬佇列中。 下列範例將建立名為 `mysubscription` 的訂用帳戶，並使用預設的 **MatchAll** 篩選條件。
 
 ```php
 require_once 'vendor/autoload.php';

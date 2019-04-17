@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
 ms.reviewer: trbye
-ms.date: 03/29/2019
+ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 990991eb1ceb5d74c042b42cfa265c75a073e5ef
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: ee024d627efc42a87d7f6b1971fa8e2e92357a00
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670892"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545224"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>教學課程：使用自動機器學習建置迴歸模型
 
@@ -103,7 +103,7 @@ import os
 
 從現有的工作區建立工作區物件。 [Workspace](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) \(英文\) 是會接受您 Azure 訂用帳戶和資源資訊的類別。 它也會建立雲端資源來監視及追蹤您的模型執行。
 
-`Workspace.from_config()` 會讀取檔案 **aml_config/config.json**，並將詳細資料載入到名為 `ws` 的物件。  `ws` 用於本教學課程的其餘程式碼。
+`Workspace.from_config()` 會讀取檔案 **config.json**，並將詳細資料載入到名為 `ws` 的物件。  `ws` 用於本教學課程的其餘程式碼。
 
 在您有工作區物件之後，請為實驗指定一個名稱。 請建立一個本機目錄並向工作區註冊該目錄。 所有執行的歷程記錄都會記錄在指定的實驗下及 [Azure 入口網站](https://portal.azure.com)中。
 
@@ -136,8 +136,7 @@ import azureml.dataprep as dprep
 
 file_path = os.path.join(os.getcwd(), "dflows.dprep")
 
-package_saved = dprep.Package.open(file_path)
-dflow_prepared = package_saved.dataflows[0]
+dflow_prepared = dprep.Dataflow.open(file_path)
 dflow_prepared.get_profile()
 ```
 

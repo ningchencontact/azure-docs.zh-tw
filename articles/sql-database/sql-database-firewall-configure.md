@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: f2ea9f784064a926a391ba0eadebd9fa5224a36d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 513836257a292069da709ad7a71e480f2b4d069d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57875181"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549724"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Azure SQL Database 和 SQL 資料倉儲 IP 防火牆規則
 
@@ -151,7 +151,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database，仍然支援 PowerShell 的 Azure Resource Manager 模組，但所有未來的開發是 Az.Sql 模組。 這些指令程式，請參閱 < [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 在 Az 模組和 AzureRm 模組中命令的引數是本質上相同的。
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 | Cmdlet | Level | 描述 |
 | --- | --- | --- |
@@ -244,11 +244,12 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
   如果您有使用動態 IP 位址的網際網路連線，並且在通過防火牆時遇到問題，您可以嘗試下列其中一個解決方案：
   
-  - 詢問您的網際網路服務提供者 (ISP) 指派至存取 Azure SQL Database 伺服器，用戶端電腦的 IP 位址範圍，然後將 IP 位址範圍新增為 IP 防火牆規則。
+  - 向 Internet 服务提供商 (ISP) 请求获取分配给访问 Azure SQL 数据库服务器的客户端计算机的 IP 地址范围，然后将此 IP 地址范围添加为 IP 防火墙规则。
   - 改為針對您的用戶端電腦取得靜態 IP 位址，然後將 IP 位址新增為 IP 防火牆規則。
 
 ## <a name="next-steps"></a>後續步驟
 
+- 請確認您的公司網路環境可讓 Microsoft Azure 資料中心所使用 （包括 SQL 範圍） 的計算 IP 位址範圍的輸入的通訊。 可能需要列入白名單這些 IP 位址，請參閱[Microsoft Azure Datacenter IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)  
 - 如需建立伺服器層級 IP 防火牆規則的快速入門，請參閱[建立 Azure SQL Database](sql-database-single-database-get-started.md)。
 - 如需從開放原始碼或協力廠商應用程式連接到 Azure SQL Database 的說明，請參閱 [SQL Database 的用戶端快速入門程式碼範例](https://msdn.microsoft.com/library/azure/ee336282.aspx)。
 - 如需詳細資訊，請參閱[針對 ADO.NET 4.5 及 SQL Database 的 1433 以外的連接埠](sql-database-develop-direct-route-ports-adonet-v12.md)的〈SQL Database：外部與內部**〉一節。

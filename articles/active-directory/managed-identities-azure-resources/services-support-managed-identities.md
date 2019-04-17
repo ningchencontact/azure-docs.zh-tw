@@ -4,18 +4,18 @@ description: 支援 Azure 資源和 Azure AD 驗證受控識別的服務清單
 services: active-directory
 author: MarkusVi
 ms.author: priyamo
-ms.date: 11/28/2018
+ms.date: 04/15/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d524f5f58e7381dd89f36c5d2821e6911ed9ec15
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 79c3f8ae183c78b19f7f520f8154bf9484a1f795
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045452"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607988"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>支援適用於 Azure 資源的受控識別服務
 
@@ -37,7 +37,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 請參閱下列清單來設定 Azure 虛擬機器的受控識別 (若區域提供)：
 
-- [Azure 入口網站](qs-configure-portal-windows-vm.md)
+- [Azure 门户](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [Azure CLI](qs-configure-cli-windows-vm.md)
 - [Azure 資源管理員範本](qs-configure-template-windows-vm.md)
@@ -52,7 +52,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 請參閱下列清單來設定 Azure 虛擬機器擴展集的受控識別 (若區域提供)：
 
-- [Azure 入口網站](qs-configure-portal-windows-vm.md)
+- [Azure 门户](qs-configure-portal-windows-vm.md)
 - [PowerShell](qs-configure-powershell-windows-vm.md)
 - [Azure CLI](qs-configure-cli-windows-vm.md)
 - [Azure 資源管理員範本](qs-configure-template-windows-vm.md)
@@ -67,7 +67,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 請參閱下列清單來設定 Azure App Service 的受控識別 (若區域提供)：
 
-- [Azure 入口網站](/azure/app-service/overview-managed-identity#using-the-azure-portal)
+- [Azure 门户](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [Azure CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Azure Resource Manager 範本](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
@@ -93,7 +93,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 請參閱下列清單來設定 Azure Functions 的受控識別 (若區域提供)：
 
-- [Azure 入口網站](/azure/app-service/overview-managed-identity#using-the-azure-portal)
+- [Azure 门户](/azure/app-service/overview-managed-identity#using-the-azure-portal)
 - [Azure CLI](/azure/app-service/overview-managed-identity#using-the-azure-cli)
 - [Azure PowerShell](/azure/app-service/overview-managed-identity#using-azure-powershell)
 - [Azure Resource Manager 範本](/azure/app-service/overview-managed-identity#using-an-azure-resource-manager-template)
@@ -107,7 +107,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 請參閱下列清單來設定 Azure Logic Apps 的受控識別 (若區域提供)：
 
-- [Azure 入口網站](/azure/logic-apps/create-managed-service-identity#azure-portal)
+- [Azure 门户](/azure/logic-apps/create-managed-service-identity#azure-portal)
 - [Azure Resource Manager 範本](/azure/app-service/overview-managed-identity)
 
 ### <a name="azure-data-factory-v2"></a>Azure Data Factory V2
@@ -119,7 +119,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 請參閱下列清單來設定 Azure Data Factory V2 的受控識別 (若區域提供)：
 
-- [Azure 入口網站](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
+- [Azure 门户](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity)
 - [PowerShell](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-powershell)
 - [REST](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-rest-api)
 - [SDK](~/articles/data-factory/data-factory-service-identity.md#generate-managed-identity-using-sdk)
@@ -213,7 +213,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 | Azure Germany |   | 無法使用 |
 | Azure China 21Vianet |  | 無法使用 |
 
-### <a name="azure-storage"></a>Azure 儲存體
+### <a name="azure-storage-blobs-and-queues"></a>Azure 儲存體 blob 和佇列
 
 | 雲端 | 資源識別碼 | 狀態 |
 |--------|------------|--------|

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 3d535c71480693d0424c6697776a1ddbf37b47c5
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: 1db103fe46db292e2aa41b648c0ace16fd450d90
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470911"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525417"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>使用 Azure Cosmos 模擬器進行本機開發和測試
 
@@ -252,7 +252,7 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 | GremlinPort | 用於 Gremlin 端點的連接埠號碼。 預設值為 8901。 | CosmosDB.Emulator.exe /GremlinPort=\<port\> | \<連接埠\>：單一連接埠號碼 |
 |TablePort | 用於 Azure 資料表端點的連接埠號碼。 預設值為 8902。 | CosmosDB.Emulator.exe /TablePort=\<port\> | \<連接埠\>：單一連接埠號碼|
 | KeyFile | 從指定的檔案中讀取授權金鑰。 使用 /GenKeyFile 選項來產生金鑰檔 | CosmosDB.Emulator.exe /KeyFile=\<file_name\> | \<file_name\>：檔案的路徑 |
-| ResetDataPath | 以遞迴方式移除指定路徑中的所有檔案。 如果您未指定路徑，則會預設為 %LOCALAPPDATA%\CosmosDbEmulator | CosmosDB.Emulator.exe /ResetDataPath[=<path>] | \<path\>：檔案路徑  |
+| ResetDataPath | 以遞迴方式移除指定路徑中的所有檔案。 如果您未指定路徑，則會預設為 %LOCALAPPDATA%\CosmosDbEmulator | CosmosDB.Emulator.exe /ResetDataPath[=\<path>] | \<path\>：檔案路徑  |
 | StartTraces  |  開始收集偵錯追蹤記錄。 | CosmosDB.Emulator.exe /StartTraces | |
 | StopTraces     | 停止收集偵錯追蹤記錄。 | CosmosDB.Emulator.exe /StopTraces  | |
 |EnableTableEndpoint | 啟用 Azure 資料表 API | CosmosDB.Emulator.exe /EnableTableEndpoint | |
@@ -439,7 +439,7 @@ cd $env:LOCALAPPDATA\CosmosDBEmulator\bind-mount
 若要收集偵錯追蹤，請從系統管理命令提示字元執行下列命令︰
 
 1. `cd /d "%ProgramFiles%\Azure Cosmos DB Emulator"`
-2. `CosmosDB.Emulator.exe /shutdown`上也提供本文中使用的原始碼。 監看系統匣，確認程式已經關閉，這可能需要一分鐘的時間。 您也可以直接按一下 Azure Cosmos 模擬器使用者介面中的 [結束]。
+2. `CosmosDB.Emulator.exe /shutdown` 。 監看系統匣，確認程式已經關閉，這可能需要一分鐘的時間。 您也可以直接按一下 Azure Cosmos 模擬器使用者介面中的 [結束]。
 3. `CosmosDB.Emulator.exe /starttraces`
 4. `CosmosDB.Emulator.exe`
 5. 重現問題。 如果資料總管無法運作，您只需要等候數秒鐘的時間，等到瀏覽器開啟即可攔截錯誤。

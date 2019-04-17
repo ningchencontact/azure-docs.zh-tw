@@ -2,7 +2,7 @@
 title: 長期函式中的診斷 - Azure
 description: 了解如何在 Azure Functions 的「長期函式」延伸模組中實作診斷問題。
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ac9abaaea7f33627332a9bc7563745b5efdf3d12
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 167f697d4928d88114a30739a1d39a576c87ac84
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436234"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608474"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>在 Azure 中診斷 Durable Functions
 
@@ -37,7 +37,7 @@ Azure Functions 長期延伸模組也會發出「追蹤事件」，可讓您追�
 * **functionName**：協調器或活動函式的名稱。
 * **functionType**：函式的類型，例如**協調器**或**活動**。
 * **instanceId**：協調流程執行個體的唯一識別碼。
-* **state**：執行個體的生命週期執行狀態。 有效值包含：
+* **state**：執行個體的生命週期執行狀態。 有效值包括：
   * **已排程**：函式已排程執行，但是尚未開始執行。
   * **已啟動**：函式已開始執行，但是尚未等候或已完成。
   * **等候**：協調器已排程一些工作，並且正在等候完成。

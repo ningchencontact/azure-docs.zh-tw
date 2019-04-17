@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08899ee8e30a2809bc76968be389dc4f37f70759
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b376288bc74e6282fcc8477408ae5835c049f75e
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59259366"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565643"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qumu-cloud"></a>教學課程：Azure Active Directory 與 Qumu Cloud 整合
 
@@ -108,9 +108,9 @@ Qumu Cloud 與 Azure AD 整合提供下列優點：
 
     ![Qumu Cloud 網域和 URL 單一登入資訊](common/idp-intiated.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL： `https://<subdomain>.qumucloud.com/saml/SSO`
+    a. 在 [識別碼] 文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.qumucloud.com/saml/SSO`
 
-    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL： `https://<subdomain>.qumucloud.com/saml/SSO`
+    b. 在 [回覆 URL] 文字方塊中，使用下列模式來輸入 URL：`https://<subdomain>.qumucloud.com/saml/SSO`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
@@ -233,9 +233,9 @@ Qumu Cloud 與 Azure AD 整合提供下列優點：
 
 ## <a name="additional-resources"></a>其他資源
 
-- [ 如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單 ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？ ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

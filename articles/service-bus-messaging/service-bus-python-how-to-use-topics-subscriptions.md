@@ -12,27 +12,34 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: a12288de2f9a7682fb433dd0d5c7905cc76c12b9
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 102fe85916194648501be3d2cb39d8bcda9e9f5c
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351655"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607070"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-python"></a>如何透過 Python 使用服務匯流排主題和訂用帳戶
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-本文說明如何使用服務匯流排主題和訂用帳戶。 相關範例是以 Python 撰寫，並且使用 [Azure Python SDK 套件][Azure Python package]。 涵蓋的案例包括**建立主題和訂用帳戶**、**建立訂用帳戶篩選器**、**傳送訊息至主題**、**接收訂用帳戶的訊息**，以及**刪除主題和訂用帳戶**。 如需主題和訂用帳戶的詳細資訊，請參閱[後續步驟](#next-steps)一節。
+本文說明如何使用服務匯流排主題和訂用帳戶。 相關範例是以 Python 撰寫，並且使用 [Azure Python SDK 套件][Azure Python package]。 涵蓋的案例包括：
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+- 建立主題和訂用帳戶 
+- 建立訂用帳戶篩選 
+- 傳送訊息至主題 
+- 從訂用帳戶接收訊息
+- 刪除主題和訂用帳戶
 
-> [!NOTE] 
-> 如果您需要安裝 Python 或 [Azure Python 套件][Azure Python package]，請參閱 [Python 安裝指南](../python-how-to-install.md)。
+## <a name="prerequisites"></a>必要條件
+1. Azure 訂用帳戶。 若要完成此教學課程，您需要 Azure 帳戶。 您可以啟用您[Visual Studio 或 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或是註冊[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+2. 遵循的步驟[快速入門：使用 Azure 入口網站建立服務匯流排主題和訂用帳戶的主題](service-bus-quickstart-topics-subscriptions-portal.md)來建立服務匯流排**命名空間**並取得**連接字串**。
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+    > [!NOTE]
+    > 您將建立**主題**並**訂用帳戶**使用主題**Python**在本快速入門。 
+3. 安裝[Azure Python 封裝][Azure Python package]。 請參閱[Python 安裝指南](../python-how-to-install.md)。
 
 ## <a name="create-a-topic"></a>建立主題
 
@@ -167,7 +174,7 @@ msg.delete()
 
 與在訂閱內鎖定訊息相關的還有逾時，如果應用程式無法在鎖定逾時到期之前處理訊息 (例如，如果應用程式當機)，則服務匯流排會自動解除鎖定訊息，並讓訊息可以被重新接收。
 
-如果應用程式在處理訊息之後，尚未呼叫 `delete` 方法時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。 這通常稱為 至少一次處理\*; 亦即每則訊息會至少處理一次，但在某些情況下可能會重新傳遞相同訊息。 如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。 您可使用訊息的 **MessageId** 屬性來完成此操作，該屬性在各個傳遞嘗試中會保持不變。
+如果應用程式在處理訊息之後，尚未呼叫 `delete` 方法時當機，則會在應用程式重新啟動時將訊息重新傳遞給該應用程式。 此行为通常称为 “至少处理一次”\*，即每条消息将至少被处理一次，但在某些情况下，同一消息可能会被重新传送。 如果案例無法容許重複處理，則應用程式開發人員應在其應用程式中加入其他邏輯，以處理重複的訊息傳遞。 您可使用訊息的 **MessageId** 屬性來完成此操作，該屬性在各個傳遞嘗試中會保持不變。
 
 ## <a name="delete-topics-and-subscriptions"></a>刪除主題和訂用帳戶
 

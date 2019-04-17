@@ -71,14 +71,14 @@ Azure SQL Database 部署模型提供不同的購買模型：
 > **區域限制：** 如需目前支援的區域清單，請參閱[依區域提供的產品](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all)。 如果您想要在目前不支援的區域中建立受控執行個體，您可以[透過 Azure 入口網站傳送支援要求](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance)。
 上也提供本文中使用的原始碼。
 
-如果您的單一資料庫或彈性集區取用超過 300 DTU，則轉換為以虛擬核心為基礎的購買模型可減少您的成本。 如果您決定轉換，您可以使用您選擇的 API 或使用 Azure 入口網站來轉換，且沒有任何停機時間。 不過，不需要轉換且轉換不會自動完成。 如果 DTU 形式的購買模型符合您的效能和商務需求，請繼續使用即可。 如果您決定要從以 DTU 為基礎的購買模型轉換為以虛擬核心為基礎的購買模型，請使用下列經驗法則選取計算大小：
+如果您的單一資料庫或彈性集區取用超過 300 DTU，則轉換為以虛擬核心為基礎的購買模型可減少您的成本。 如果您決定轉換，您可以使用您選擇的 API 或使用 Azure 入口網站來轉換，且沒有任何停機時間。 不過，不需要轉換且轉換不會自動完成。 如果以 DTU 為基礎的購買模型符合您的效能和商務需求，請繼續使用即可。 如果您決定要從以 DTU 為基礎的購買模型轉換為以虛擬核心為基礎的購買模型，請使用下列經驗法則選取計算大小：
 
 - 標準層中的每 100 DTU 需要至少 1 個一般用途層中的 V 核心
 - 進階層中每 125 DTU 需要至少 1 個業務關鍵層中的 V 核心
 
 ## <a name="dtu-based-purchasing-model"></a>以 DTU 為基礎的購買模型
 
-資料庫交易單位 (DTU) 代表混合了 CPU、記憶體、讀取和寫入的量值。 以 DTU 為基礎的購買模型會提供一組預先設定好的計算資源組合和所包含的儲存體，以期達成不同的應用程式效能等級。 想要簡單一點，使用已預先設定好的組合並每月支付固定費用的客戶，可能會發現以 DTU 為基礎的模型更適合他們的需求。 在 DTU 形式的購買模型中，客戶可以就[單一資料庫](sql-database-single-database-scale.md)與[彈性集區](sql-database-elastic-pool.md)選擇**基本**、**標準**和**進階**服務層。 此購買模型不適用於[受空執行個體](sql-database-managed-instance.md)。
+資料庫交易單位 (DTU) 代表混合了 CPU、記憶體、讀取和寫入的量值。 以 DTU 為基礎的購買模型會提供一組預先設定好的計算資源組合和所包含的儲存體，以期達成不同的應用程式效能等級。 想要簡單一點，使用已預先設定好的組合並每月支付固定費用的客戶，可能會發現以 DTU 為基礎的模型更適合他們的需求。 在以 DTU 為基礎的購買模型中，客戶可以就[單一資料庫](sql-database-single-database-scale.md)與[彈性集區](sql-database-elastic-pool.md)選擇**基本**、**標準**和**進階**服務層。 此購買模型不適用於[受空執行個體](sql-database-managed-instance.md)。
 
 ### <a name="database-transaction-units-dtus"></a>資料庫交易單位 (DTU)
 
@@ -116,7 +116,7 @@ DTU 最適合用於了解處於不同計算大小與服務層之各 Azure SQL Da
 
 新的服務層提供簡單的線上轉換方法，類似現在將資料庫從標準版升級為進階版服務層的程序，反之亦然。 這項轉換可使用 Azure 入口網站、PowerShell、Azure CLI、T-SQL 或 REST API 來起始。 請參閱[管理單一資料庫](sql-database-single-database-scale.md)和[管理彈性集區](sql-database-elastic-pool.md)。
 
-### <a name="can-i-convert-a-database-from-a-service-tier-using-the-vcore-based-purchase-to-a-service-tier-using-the-dtu-based-purchasing-model"></a>是否可以將使用 V 核心形式的購買之服務層的資料庫，轉換成使用 DTU 形式的購買之服務層的資料庫
+### <a name="can-i-convert-a-database-from-a-service-tier-using-the-vcore-based-purchase-to-a-service-tier-using-the-dtu-based-purchasing-model"></a>是否可以將以虛擬核心為基礎的購買之服務層的資料庫，轉換成以 DTU 為基礎的購買模型之服務層的資料庫
 
 是，您可以使用 Azure 入口網站、PowerShell、Azure CLI、T-SQL 或 REST API，輕鬆地將資料庫轉換為任何支援的效能目標。 請參閱[管理單一資料庫](sql-database-single-database-scale.md)和[管理彈性集區](sql-database-elastic-pool.md)。
 

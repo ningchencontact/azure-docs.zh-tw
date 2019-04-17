@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 961983aad0775f9b9d728269e8a57137ff508f02
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b597d6efa87aa2811ce42f3315698acfa17426b2
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57451785"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548583"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>使用 Jupyter Notebook 探索 Azure Machine Learning 服務
 
@@ -50,50 +50,6 @@ ms.locfileid: "57451785"
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
 快速入門指示將安裝您執行快速入門和教學課程 Runbook 所需的套件。  其他範例 Notebook 可能需要安裝其他元件。  如需這些元件的詳細資訊，請參閱 [安裝 適用於 Python 的 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install)。
-
-<a name="automated-ml-setup"></a>
-
-## <a name="automated-machine-learning-setup"></a>自動化機器學習設定 
-
-_這些步驟僅適用於 **how-to-use-azureml/automated-machine-learning** 資料夾中的 Notebook。_
-
-您可以使用上述任何一個選項，也可以使用下列指示，同時安裝環境和建立工作區。 
-
-1. 安裝 [Mini-conda](https://conda.io/miniconda.html)。 選擇 3.7 或更高版本。 遵循提示來進行安裝。 
-   >[!NOTE]
-   >您可以使用現有的 Conda，前提是版本必須是 4.4.10 或更高版本。 使用 `conda -V` 來顯示版本。 您可以使用此命令來更新 Conda 版本：`conda update conda`。 無須特別安裝 mini-conda。
-
-1. 從 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
-) 下載範例 Notebook (zip 檔)，並將內容解壓縮至本機目錄。 自動化機器學習 Notebook 位於 `how-to-use-azureml/automated-machine-learning` 資料夾。
-
-1. 設定新的 Conda 環境。 
-   1. 在本機電腦上開啟 Conda 提示字元。
-   
-   1. 瀏覽至您解壓縮到本機電腦的檔案。
-   
-   1. 開啟 **automated-machine-learning** 資料夾。
-   
-   1. 在 Windows 的 Conda 提示字元中執行 `automl_setup.cmd`，或是執行您作業系統的 `.sh`。 執行時間大約 10 分鐘。
-
-      安裝指令碼：
-      + 建立新的 Conda 環境
-      + 安裝必要套件
-      + 設定小工具
-      + 啟動 Jupyter Notebook
-      
-   >[!NOTE]
-   > 指令碼會將 Conda 環境名稱當作選擇性參數。 預設的 Conda 環境名稱是 `azure_automl`。 確切的命令視作業系統而定。 如果您要建立新環境或升級至新版本，這會相當有用。 例如，您可以使用 'automl_setup.cmd azure_automl_sandbox' 來建立環境名稱 azure_automl_sandbox。 
-      
-1. 完成指令碼之後，您會在瀏覽器中看到 Jupyter Notebook 首頁。
-
-1. 瀏覽至儲存 Notebook 的路徑。 
-
-1. 開啟 automated-machine-learning 資料夾，然後開啟 **configuration.ipynb** Notebook。 
-
-1. 執行 Notebook 中的資料格以註冊 Machine Learning 服務資源提供者，並建立工作區。
-
-您現在已可開啟並執行本機電腦上儲存的 Notebook。
-
 
 ## <a name="next-steps"></a>後續步驟
 

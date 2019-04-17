@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/21/2019
+ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3b2df5b24a12f3d2ea5d8a03721c08f8d2a742ad
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 81602f1a30fb753d7a8fcfccace581cd8c7b2f0c
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58539984"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607087"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure 自動化中的原始檔控制整合
 
@@ -47,7 +47,7 @@ Azure 自動化支援三種類型的原始檔控制：
 
 |屬性  |描述  |
 |---------|---------|
-|原始檔控制名稱     | 原始檔控制的易記名稱        |
+|原始檔控制名稱     | 原始檔控制的易記名稱。 *此名稱必須包含字母和數字。*        |
 |原始檔控制類型     | 原始檔控制來源的類型。 可用選項包括：</br> GitHub</br>Azure 儲存機制 (Git)</br> Azure 儲存機制 (TFVC)        |
 |存放庫     | 存放庫或專案的名稱。 會傳回前 200 個儲存機制。 若要搜尋存放庫，在欄位中輸入名稱，然後按一下**GitHub 上的搜尋**。|
 |分支     | 此分支可從中提取原始程式檔。 目標分支不適用於 TFVC 原始檔控制類型。          |
@@ -173,4 +173,4 @@ Source Control Sync Summary:
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解 Runbook 類型、其優點和限制，請參閱 [Azure 自動化 Runbook 類型](automation-runbook-types.md)
+若要了解有关 Runbook 类型、其优点和限制的详细信息，请参阅 [Azure Automation runbook types](automation-runbook-types.md)

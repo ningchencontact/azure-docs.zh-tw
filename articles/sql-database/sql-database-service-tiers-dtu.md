@@ -24,7 +24,7 @@ ms.locfileid: "59357606"
 以 DTU 為基礎的購買模式的服務層是以一系列計算大小來做區分，這些等級各有一定數量的內含儲存體、一定的備份保留期和一定的價格。 以 DTU 為基礎的購買模式的所有服務層皆可彈性變更計算大小而不需停機。 單一資料庫和彈性集區會根據服務層和計算大小，以每小時為單位來計費。
 
 > [!IMPORTANT]
-> SQL Database 受控執行個體不支援以 DTU 為基礎的購買模式。 如需詳細資訊，請參閱 [Azure SQL Database 受控執行個體](sql-database-managed-instance.md)。
+> SQL Database 受控執行個體不支援以 DTU 為基礎的購買模型。 如需詳細資訊，請參閱 [Azure SQL Database 受控執行個體](sql-database-managed-instance.md)。
 > [!NOTE]
 > 如需以虛擬核心為基礎之服務層的相關資訊，請參閱[以虛擬核心為基礎的服務層](sql-database-service-tiers-vcore.md)。 如需如何區分以 DTU 為基礎及以虛擬核心為基礎之服務層的相關資訊，請參閱 [Azure SQL Database 購買模型](sql-database-purchase-models.md)。
 

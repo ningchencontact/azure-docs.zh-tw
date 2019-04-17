@@ -5,18 +5,20 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 2ea85b2b04600708381423e16408ba34b1e27566
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: c311eea80c604366196a0725e4f9982bb43f8b5d
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904894"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606883"
 ---
-# <a name="set-environment-variables"></a>設定環境變數
+# <a name="set-environment-variables-in-container-instances"></a>在容器執行個體中設定環境變數
 
-在您的容器執行個體中設定環境變數，可讓您提供由容器執行之應用程式或指令碼的動態設定。 若要在容器中設定環境變數，請在建立容器執行個體時加以指定。 您可以使用 [Azure CLI](#azure-cli-example)、[Azure PowerShell](#azure-powershell-example) 和 [Azure 入口網站](#azure-portal-example)，在容器時啟動時設定環境變數。
+在您的容器執行個體中設定環境變數，可讓您提供由容器執行之應用程式或指令碼的動態設定。 這類似於 `--env` 命令列引數 `docker run`。 
+
+若要在容器中設定環境變數，請在建立容器執行個體時加以指定。 本文將說明當您開始使用容器中設定環境變數的範例[Azure CLI](#azure-cli-example)， [Azure PowerShell](#azure-powershell-example)，而[Azure 入口網站](#azure-portal-example)。 
 
 例如，如果您執行 Microsoft [aci wordcount] [ aci-wordcount]容器映像，您可以藉由指定下列環境變數修改其行為：
 
@@ -143,7 +145,7 @@ Azure:\
 
 若要在 Azure入口網站中啟動容器時設定環境變數，請在您建立容器時，於 [組態] 頁面上指定這些變數。
 
-當您部署使用入口網站時，您是目前受限於三個變數，並必須由您輸入格式如下： `"variableName":"value"`
+當您以入口網站進行部署時，您目前僅限使用三個變數，並且必須以此格式來輸入變數：`"variableName":"value"`
 
 若要查看範例，請啟動[aci wordcount] [ aci-wordcount]容器*NumWords*並*MinLength*變數。
 
@@ -241,7 +243,7 @@ my-secret-value
 
 ## <a name="next-steps"></a>後續步驟
 
-針對工作型案例，例如使用數個容器的大型資料集批次處理，可受益於執行階段上的自訂環境變數。 如需有關執行工作型容器的詳細資訊，請參閱[在 Azure 容器執行個體中執行容器化工作](container-instances-restart-policy.md)。
+針對工作型案例，例如使用數個容器的大型資料集批次處理，可受益於執行階段上的自訂環境變數。 如需執行工作為基礎的容器的詳細資訊，請參閱[重新啟動原則執行容器化的工作](container-instances-restart-policy.md)。
 
 <!-- IMAGES -->
 [portal-env-vars-01]: ./media/container-instances-environment-variables/portal-env-vars-01.png

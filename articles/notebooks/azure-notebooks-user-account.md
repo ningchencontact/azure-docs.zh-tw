@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: b8e5c5b14ecdbc63daf200b7d11e755822cd063b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 311f4d612c9deab23e7537b0c53ff3932c312cd4
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257003"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608005"
 ---
 # <a name="your-user-account-for-azure-notebooks"></a>您的 Azure Notebooks 使用者帳戶
 
@@ -41,6 +41,9 @@ Microsoft 帳戶可用來登入數目不拘的 Microsoft 產品與服務，例�
 如果您不確定，請在帳戶提示字元中，選取 [建立一個帳戶] 命令。 您可以使用任一提供者的任何電子郵件地址，建立新的 Microsoft 帳戶。
 
 ![建立新 Microsoft 帳戶的命令](media/accounts/create-new-microsoft-account.png)
+
+> [!Note]
+> 如果您嘗試建立新的帳戶已經具有與它相關聯的帳戶電子郵件地址，您可能會看到訊息，「 您無法註冊這裡使用的公司或學校電子郵件地址。 使用個人的電子郵件，例如 Gmail 或 yahoo ！ 或取得新的 Outlook 電子郵件 」。 在此情況下，嘗試登入的工作電子郵件地址而不需要建立新的帳戶。
 
 預設會封鎖子女帳戶存取 Azure Notebooks。 以子女帳戶登入就會顯示錯誤，如下所示：
 
@@ -71,4 +74,4 @@ Azure Notebooks 會收集或使用 (但不會揭露) 如帳戶的電子郵件地
 ## <a name="next-steps"></a>後續步驟  
 
 > [!div class="nextstepaction"]
-> [編輯您的設定檔和使用者識別碼](azure-notebooks-user-profile.md)
+> [編輯您的設定檔與使用者識別碼](azure-notebooks-user-profile.md)

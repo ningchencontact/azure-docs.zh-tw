@@ -9,23 +9,23 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: f72e98d8874a5a5dc94deb882affdf66388b13c9
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 82c438ea246ba18fa7dac2281d68a3ea7ba41db8
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548520"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617711"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>媒體服務帳戶的角色型存取控制 (RBAC)
 
-目前，Azure 媒體服務不會未定義任何自訂的角色特定服務。 客戶可以使用的內建角色**擁有者**或是**參與者**來取得媒體服務帳戶的完整存取。 這些角色的主要差異是：**擁有者**可以控制誰可以存取資源並**參與者**無法。 內建的讀取器帳戶只會有媒體服務帳戶的 「 讀取 」 權限。 
+目前，Azure 媒體服務不會定義特定的任何自訂角色服務。 若要取得完整存取權的媒體服務帳戶，客戶可以使用的內建角色**擁有者**或是**參與者**。 這些角色的主要差異是：**擁有者**可以控制誰可以存取資源並**參與者**無法。 內建**讀取器**角色也可用，但使用者或應用程式只會有媒體服務 Api 的讀取權限。 
 
 ## <a name="design-principles"></a>設計原則
 
-v3 API 的金鑰設計原則之一，是讓 API 更為安全。 v3 Api 不會傳回密碼或認證上**取得**或是**清單**作業。 回應中的金鑰一律為 Null、空白或處理過的。 使用者需要呼叫個別的動作方法，以取得祕密或認證。 **讀取器**角色不能呼叫作業，使其無法呼叫 Asset.ListContainerSas，StreamingLocator.ListContentKeys，ContentKeyPolicies.GetPolicyPropertiesWithSecrets 等作業。 擁有個別的動作，可讓您設定更細微的 RBAC 安全性權限，如有需要的自訂角色。
+v3 API 的金鑰設計原則之一，是讓 API 更為安全。 v3 Api 不會傳回密碼或認證上**取得**或是**清單**作業。 回應中的金鑰一律為 Null、空白或處理過的。 使用者需要呼叫個別的動作方法，以取得祕密或認證。 **讀取器**角色不能呼叫 Asset.ListContainerSas，StreamingLocator.ListContentKeys，ContentKeyPolicies.GetPolicyPropertiesWithSecrets 等作業。 擁有個別的動作，可讓您設定更細微的 RBAC 安全性權限，如有需要的自訂角色。
 
 若要列出作業的媒體服務支援，請執行：
 

@@ -1,33 +1,20 @@
 ---
-title: 建立 Azure 應用程式閘道 - 範本 | Microsoft Docs
-description: 本頁面提供使用 Azure 資源管理員範本，建立 Azure 應用程式閘道的指示。
-documentationcenter: na
+title: 建立 Azure 應用程式閘道-範本
+description: 本文章提供使用 Azure Resource Manager 範本建立 Azure 應用程式閘道的指示
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.topic: conceptual
+ms.date: 4/15/2019
 ms.author: victorh
-ms.openlocfilehash: 682aac8ec6716ac59c6bdc0710065c916a0c41b6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 113e30ab65f2cd0ff420df1c79807147a62f79f1
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084924"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608447"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>使用 Azure 資源管理員範本建立應用程式閘道
-
-> [!div class="op_single_selector"]
-> * [Azure 入口網站](application-gateway-create-gateway-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
-> * [Azure 傳統 PowerShell](application-gateway-create-gateway.md)
-> * [Azure Resource Manager 範本](application-gateway-create-gateway-arm-template.md)
-> * [Azure CLI](application-gateway-create-gateway-cli.md)
 
 Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內部部署環境中，此閘道均提供在不同伺服器之間進行容錯移轉及效能路由傳送 HTTP 要求。 應用程式閘道提供許多應用程式傳遞控制器 (ADC) 功能，包括 HTTP 負載平衡、以 Cookie 為基礎的工作階段同質性、安全通訊端層 (SSL) 卸載、自訂健康情況探查、多網站支援，以及許多其他功能。 若要尋找完整的支援功能清單，請瀏覽[應用程式閘道概觀](application-gateway-introduction.md)
 
@@ -155,7 +142,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內�
     New-AzResourceGroup -Name AppgatewayRG -Location "West US"
     ```
 
-1. 執行**新增 AzResourceGroupDeployment**指令程式來部署新的虛擬網路，使用上述的範本和參數檔案，下載並修改。
+1. 运行 **New-AzResourceGroupDeployment** cmdlet，使用在前面下载并修改的模板和参数文件部署新虚拟网络。
     
     ```powershell
     New-AzResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
@@ -212,7 +199,7 @@ cert=$( base64 <certificate path and name>.pfx )
 echo $cert
 ```
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 ```powershell
 [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
 ```
@@ -243,4 +230,3 @@ az group delete --name appgatewayRG
 
 * [Azure 負載平衡器](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Azure 流量管理員](https://azure.microsoft.com/documentation/services/traffic-manager/)
-

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 42ac75b6ed0d4489ccae014b9cfe3b08269c1218
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2a160ab7447304dc6eb14f76a723df4e8a4d9f46
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547413"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523098"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>模式可改善預測精確度
 模式設計用來改善數個語句非常類似時的精確度。  模式可讓您取得更精確的意圖，而不需提供更多的語句。 
@@ -31,7 +31,7 @@ ms.locfileid: "57547413"
 |Who is Tom's subordinate?|GetOrgChart|.30|
 |Who is the subordinate of Tom?|GetOrgChart|.30|
 
-如果應用程式含有的 10 到 20 個語句具有不同的句子長度、不同的字組順序，甚至不同的字組 ("subordinate"、"manage"、"report" 的同義字)，LUIS 可能會傳回很低的信賴分數。 建立以協助了解 word 順序的重要性的 LUIS 的模式。 
+如果應用程式含有的 10 到 20 個語句具有不同的句子長度、不同的字組順序，甚至不同的字組 ("subordinate"、"manage"、"report" 的同義字)，LUIS 可能會傳回很低的信賴分數。 建立以協助了解文字順序的重要性的 LUIS 的模式。 
 
 模式可解決下列狀況： 
 
@@ -41,7 +41,7 @@ ms.locfileid: "57547413"
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>模式不是意圖保證
 模式會混合使用多個預測技術。 在模式中設定範本語句的意圖並不是意圖預測的保證，但卻是很強的示意訊號。 
 
-<a name="patterns-do-not-improve-entity-detection"/>
+<a name="patterns-do-not-improve-entity-detection"/></a>
 
 ## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>模式不會改善機器學習的實體偵測
 
@@ -50,7 +50,7 @@ ms.locfileid: "57547413"
 如果將多個語句摺疊成單一模式，則不要期望看到改善的實體預測。 若要引發簡單實體，您需要新增語句或使用清單實體，否則您的模式不會引發。
 
 ## <a name="patterns-use-entity-roles"></a>模式可使用實體角色
-如果模式中有兩個以上的實體與內容相關，則模式會使用實體[角色](luis-concept-roles.md)來擷取關於實體的內容資訊。 這相當於階層式實體子項目，但**僅**適用於模式。 
+如果模式中有兩個以上的實體與內容相關，則模式會使用實體[角色](luis-concept-roles.md)來擷取關於實體的內容資訊。  
 
 ## <a name="prediction-scores-with-and-without-patterns"></a>使用和不使用模式的預測分數
 假設具有足夠的範例語句，LUIS 就能夠在不使用模式的情況下提高預測信賴度。 模式可提高信賴分數，而不需要提供許多語句。  
@@ -83,7 +83,7 @@ ms.locfileid: "57547413"
 |是新的表單|相符項目外部的選擇性 word 和非選擇性的文字模式中|
 |新的表單|只有所需的相符項目文字|
 
-**分組**語法，加上括弧，可以是巢狀的兩個層級。 例如： `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )` 。 這可讓任何要比對的三個實體。 
+**分組**語法，加上括弧，可以是巢狀的兩個層級。 例如： `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )` 。 這項功能可讓任何要比對的三個實體。 
 
 如果 Entity1 是與原始 （西雅圖） 和目的地 (Cairo) 等角色的位置，而實體 2 的已知的建置名稱，從清單中的實體 (RedWest C)，下列的表達方式會對應至這個模式中：
 
@@ -170,7 +170,7 @@ Pattern.any 實體可讓您將變動長度的實體新增至模式。 只要遵�
 |模式與選用文字|意義|
 |--|--|
 |`[find] email about {subject} [from {person}]`|`find` 和`from {person}`是選擇性的|
-|`Can you help me[?]|是選擇性的標點符號|
+|' 您可以幫我 [？] |是選擇性的標點符號|
 
 標點符號 (`?`， `!`， `.`) 應該予以忽略，而且您需要略過它們在模式中使用括號語法。 
 

@@ -2,20 +2,20 @@
 title: 將遙測傳送至 Azure IoT 中樞快速入門 (C) | Microsoft Docs
 description: 在此快速入門中，您會執行兩個範例 C 應用程式，以將模擬的遙測資料傳送至 IoT 中樞以及從 IoT 中樞讀取遙測資料，以便在雲端中處理。
 author: wesmc7777
-manager: timlt
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/25/2019
+ms.date: 04/10/2019
 ms.author: wesmc
-ms.openlocfilehash: 9c65020c4d9b80d5f32b87aa8c63878a677ae0c9
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: 1299b627c70b23714ea48dbc62af36ca1f27290e
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006288"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499898"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>快速入門：將遙測從裝置傳送至 IoT 中樞，並使用後端應用程式讀取遙測 (C)
 
@@ -57,23 +57,7 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
 
 不過，在此快速入門中，您將會準備用來從 GitHub 複製並建置 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 的開發環境。 GitHub 上的 SDK 包括此快速入門中使用的範例程式碼。 
 
-1. 下載 [CMake 建置系統](https://cmake.org/download/)。 請確認所下載的二進位檔使用與下載版本對應的密碼編譯雜湊值。 密碼編譯雜湊值也可從已經提供的 CMake 下載連結找到。
-
-    下列範例使用 Windows PowerShell 來驗證 x64 MSI 發行版本 3.13.4 的密碼編譯雜湊：
-
-    ```powershell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
-    True
-    ```
-
-    在撰寫此文章時，CMake 網站上列出了3.13.4 版的下列雜湊值：
-
-    ```
-    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
-    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
-    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
-    ```
+1. 下載 [CMake 建置系統](https://cmake.org/download/)。
 
     在開始安裝 `CMake` **之前**，請務必將 Visual Studio 先決條件 (Visual Studio 和「使用 C++ 進行桌面開發」工作負載) 安裝在您的機器上。 在符合先決條件，並且驗證過下載項目之後，請安裝 CMake 建置系統。
 
@@ -82,7 +66,7 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
-    此存放庫的大小目前約為 220 MB。 預期此作業需要幾分鐘的時間才能完成。
+    預期此作業需要幾分鐘的時間才能完成。
 
 
 3. 在 git 存放庫的根目錄中建立 `cmake` 子目錄，並瀏覽至該資料夾。 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 6e37466145af58a52a86a08a2a873e406c99b9e5
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 59a05e7a20f6b229b37977a75d22611c0d5c31d9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895540"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528028"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>實體類型和其在 LUIS 中的目的
 
@@ -24,7 +24,15 @@ ms.locfileid: "58895540"
 
 ## <a name="entity-compared-to-intent"></a>實體與意圖的比較
 
-實體代表語句中您想要擷取的單字或片語。 一個語句可以包含許多實體，也可以完全不包含實體。 一個實體代表一個類別，其中包含相似物件 (地點、物件、人員、事件或概念) 的集合。 實體描述與意圖有關的資訊，有時是您應用程式執行其工作的必備要素。 例如，「新聞搜尋」應用程式可能包含「主題」、「來源」、「關鍵字」及「發佈日期」等實體，這些都是搜尋新聞的關鍵資料。 在旅遊預訂應用程式中，「地點」、「日期」、「航空公司」、「艙等」及「機票」則是航班預訂 (與「預訂航班」意圖相關) 的關鍵資訊。
+實體代表語句中您想要擷取的單字或片語。 一個語句可以包含許多實體，也可以完全不包含實體。 用戶端應用程式可能需要執行其工作，或使用它做為指南的數個選項來呈現給使用者的實體。 
+
+實體：
+
+* 表示類別，包括類似物件 （位置、 項目、 人員、 事件或概念） 的集合。 
+* 描述與意圖相關的資訊
+
+
+例如，「新聞搜尋」應用程式可能包含「主題」、「來源」、「關鍵字」及「發佈日期」等實體，這些都是搜尋新聞的關鍵資料。 在旅遊預訂應用程式中，「地點」、「日期」、「航空公司」、「艙等」及「機票」則是航班預訂 (與「預訂航班」意圖相關) 的關鍵資訊。
 
 相較之下，意圖代表了整個語句的預測。 
 
@@ -89,14 +97,14 @@ LUIS 會提供許多類型的實體。 您可以根據擷取資料的方式和�
 |機器學習|可標記|教學課程|範例<br>Response|實體類型|目的|
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**複合**](#composite-entity)|實體群組，無論何種實體類型。|
-|✔|✔|[✔](luis-quickstart-intent-and-hier-entity.md)|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**階層式**](#hierarchical-entity)|簡單實體的群組。|
-|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**列出**](#list-entity)|透過比對確切文字來擷取的項目和其同義字清單。|
+|✔|✔|-|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**階層式**](#hierarchical-entity)|簡單實體的群組。|
+|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**清單**](#list-entity)|透過比對確切文字來擷取的項目和其同義字清單。|
 |混合||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|難以判斷實體結尾的實體。|
-|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**預先建置**](#prebuilt-entity)|已訓練為擷取各種資料類型。|
+|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**預建**](#prebuilt-entity)|已訓練為擷取各種資料類型。|
 |||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**規則運算式**](#regular-expression-entity)|要比對文字的使用者規則運算式。|
 |✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**簡單**](#simple-entity)|在字組或片語中包含單一概念。|
 
-只有機器學習的實體需要針對範例語句中的每個意圖進行標記。 機器學習實體在透過[端點查詢](luis-concept-test.md#endpoint-testing)及[檢閱端點語句](luis-how-to-review-endpoint-utterances.md)來進行測試時，效果最佳。 
+範例談話中標示要唯一的機器學習的實體。 機器學習實體在透過[端點查詢](luis-concept-test.md#endpoint-testing)及[檢閱端點語句](luis-how-to-review-endoint-utt.md)來進行測試時，效果最佳。 
 
 Pattern.any 實體需要在[模式](luis-how-to-model-intent-pattern.md)範本裡的範例 (而不是意圖裡使用者所提供的範例) 中進行標記。 
 
@@ -117,33 +125,19 @@ Pattern.any 實體需要在[模式](luis-how-to-model-intent-pattern.md)範本�
 ![複合實體](./media/luis-concept-entities/composite-entity.png)
 
 [教學課程](luis-tutorial-composite-entity.md)<br>
-[實體的範例 JSON 回應](luis-concept-data-extraction.md#composite-entity-data)<br>
+[實體的 JSON 回應範例](luis-concept-data-extraction.md#composite-entity-data)<br>
 
 ## <a name="hierarchical-entity"></a>階層式實體
 
+**階層式實體最終會被取代。使用[實體的角色](luis-concept-roles.md)來判斷實體子型別，而不是階層式實體。**
+
 階層式實體是一個依內容學習的簡單實體 (稱為子系) 類別。
-
-當資料有下列特性時，最適用此實體：
-
-* 簡單的實體。
-* 在語句的內容中彼此相關。
-* 使用特定文字來表示每個子系實體。 這些字的範例包括：from/to、leaving/headed to、away from/toward。
-* 子系通常會在相同的語句中。 
-* 需要由用戶端應用程式當作一個資訊單位進行分組和處理。
-
-不應使用此實體的情況：
-
-* 不論內容為何，您需要實體有完全相符的子系文字。 可改為使用[清單實體](#list-entity)。 
-* 您需要與其他實體類型有父子關聯性的實體。 可使用[複合實體](#composite-entity)。
 
 ![階層式實體](./media/luis-concept-entities/hierarchical-entity.png)
 
-[教學課程](luis-quickstart-intent-and-hier-entity.md)<br>
-[實體的範例 JSON 回應](luis-concept-data-extraction.md#hierarchical-entity-data)<br>
-
 ### <a name="roles-versus-hierarchical-entities"></a>角色與階層式實體
 
-模式的[角色](luis-concept-roles.md#roles-versus-hierarchical-entities)可解決與階層式實體相同的問題，但適用所有實體類型。 角色目前僅可在模式中使用。 角色無法在意圖的範例語句中使用。  
+[角色](luis-concept-roles.md)解決階層式實體但適用於所有實體類型相同的問題。  
 
 ## <a name="list-entity"></a>清單實體
 
@@ -158,7 +152,7 @@ Pattern.any 實體需要在[模式](luis-how-to-model-intent-pattern.md)範本�
 ![清單實體](./media/luis-concept-entities/list-entity.png)
 
 [教學課程](luis-quickstart-intent-and-list-entity.md)<br>
-[實體的範例 JSON 回應](luis-concept-data-extraction.md#list-entity-data)
+[實體的 JSON 回應範例](luis-concept-data-extraction.md#list-entity-data)
 
 ## <a name="patternany-entity"></a>Pattern.any 實體
 
@@ -168,7 +162,7 @@ Pattern.any 是僅用於模式範本語句的可變長度預留位置，用來�
 
 * 實體的結尾可能會與語句的其餘文字混淆。 
 [教學課程](luis-tutorial-pattern.md)<br>
-[實體的範例 JSON 回應](luis-concept-data-extraction.md#patternany-entity-data)
+[實體的 JSON 回應範例](luis-concept-data-extraction.md#patternany-entity-data)
 
 **範例**  
 如果用戶端應用程式要根據書名來搜尋書籍，pattern.any 會擷取完整的書名。 為搜尋此書而使用 pattern.any 的範本語句是 `Was {BookTitle} written by an American this year[?]`。 
@@ -195,7 +189,7 @@ Pattern.any 是僅用於模式範本語句的可變長度預留位置，用來�
 ![Number 預先建置的實體](./media/luis-concept-entities/number-entity.png)
 
 [教學課程](luis-tutorial-prebuilt-intents-entities.md)<br>
-[實體的範例 JSON 回應](luis-concept-data-extraction.md#prebuilt-entity-data)
+[實體的 JSON 回應範例](luis-concept-data-extraction.md#prebuilt-entity-data)
 
 在開放原始碼 [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) 專案中已定義部分這些預建實體。 如果目前不支援您的特定文化特性或實體，請向專案提出。 
 
@@ -243,7 +237,7 @@ Pattern.any 是僅用於模式範本語句的可變長度預留位置，用來�
 ![規則運算式實體](./media/luis-concept-entities/regex-entity.png)
 
 [教學課程](luis-quickstart-intents-regex-entity.md)<br>
-[實體的範例 JSON 回應](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
+[實體的 JSON 回應範例](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
 
 ## <a name="simple-entity"></a>簡單實體 
 
@@ -262,24 +256,15 @@ Pattern.any 是僅用於模式範本語句的可變長度預留位置，用來�
 
 請檢閱[限制](luis-boundaries.md#model-boundaries)，以了解您可以將多少個每一種類型的實體新增到模型中。
 
-## <a name="composite-vs-hierarchical-entities"></a>複合實體與階層式實體的比較
-
-複合實體和階層式實體都有父子關係，且都是機器學習實體。 機器學習可讓 LUIS 根據不同的內容 (單字的排列) 理解實體。 複合實體較具彈性，因為它們允許以不同的實體類型作為子系。 階層實體的子系僅限簡單實體。 
-
-|類型|目的|範例|
-|--|--|--|
-|階層式|簡單實體的父子|Location.Origin=New York<br>Location.Destination=London|
-|複合|父子實體：預先建置、清單、簡單、階層式| number=3<br>list=first class<br>prebuilt.datetimeV2=March 5|
-
 ## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>如果您所需的實體超出實體數目上限 
 
-您可能需要使用階層式和複合實體。 階層式實體會反映共用特性或具有某個分類成員身分之實體間的關係。 子實體全都是其父系分類的成員。 例如，名為 PlaneTicketClass 的階層式實體可能會有 EconomyClass 和 FirstClass 子實體。 階層所跨的深度只有一層。  
+您可能需要使用實體的角色搭配複合的實體。
 
-複合實體代表一個整體的多個部分。 例如，名為 PlaneTicketOrder 的複合實體可能會有 Airline、Destination、DepartureCity、DepartureDate 及 PlaneTicketClass 子實體。 您可以從既有的簡單實體、階層式實體的子系或預先建置的實體，建置複合實體。  
+複合實體代表一個整體的多個部分。 例如，名為 PlaneTicketOrder 的複合實體可能會有 Airline、Destination、DepartureCity、DepartureDate 及 PlaneTicketClass 子實體。
 
 LUIS 也提供非機器學習但可讓您的 LUIS 應用程式指定固定值清單的清單實體類型。 請參閱 [LUIS 界限](luis-boundaries.md)參考，以檢閱「清單」實體類型的限制。 
 
-如果您在考慮階層式、複合及清單實體之後，所需的實體仍然超出限制，請與支援人員連絡。 若要這樣做，請收集關於您系統的詳細資訊、前往 [LUIS](luis-reference-regions.md#luis-website) 網站，然後選取 [支援]。 如果您的 Azure 訂用帳戶包含支援服務，請與 [Azure 技術支援人員](https://azure.microsoft.com/support/options/)連絡。 
+如果您已被視為這些實體，而且仍然需要超過此限制，請連絡支援服務。 若要這樣做，請收集關於您系統的詳細資訊、前往 [LUIS](luis-reference-regions.md#luis-website) 網站，然後選取 [支援]。 如果您的 Azure 訂用帳戶包含支援服務，請與 [Azure 技術支援人員](https://azure.microsoft.com/support/options/)連絡。 
 
 ## <a name="next-steps"></a>後續步驟
 

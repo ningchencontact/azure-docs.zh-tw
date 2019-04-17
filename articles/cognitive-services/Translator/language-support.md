@@ -10,18 +10,20 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 5c41456f1cf661fd372a565885c9196593c894ee
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3b938f07ef5b1feb9d5859f27423eaa79c2937cc
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267901"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577584"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>翻譯工具文字 API 支援的語言和區域
 
 翻譯工具文字 API 支援以下語言的文字轉文字翻譯。 類神經機器翻譯 (NMT) 是高品質 AI 技術支援機器翻譯的新標準，在具備類神經系統時，若使用翻譯工具文字 API 第 3 版，該新標準將為預設值。
 
 [深入了解機器翻譯的運作方式](https://www.microsoft.com/translator/mt.aspx)
+
+## <a name="translation"></a>翻譯
 
 **V2 Translator API**
 
@@ -191,77 +193,8 @@ ms.locfileid: "59267901"
 
 ## <a name="detect"></a>Detect
 
-偵測方法支援下列語言。 偵測可找出 Microsoft Translator 無法翻譯的語言。
+Translator Text API 偵測到適用於轉譯和轉換的所有語言。
 
-| 語言    |
-|:----------- |
-| 南非荷蘭文 |
-| 阿爾巴尼亞文 |
-| 阿拉伯文 |
-| 巴斯克文 |
-| 白俄羅斯文 |
-| 保加利亞文 |
-| 卡達隆尼亞文 |
-| 中文 |
-| 中文 (簡體) |
-| 中文 (繁體) |
-| 克羅埃西亞文 |
-| 捷克文 |
-| 丹麥文 |
-| 荷蘭文 |
-| English |
-| 世界文 |
-| 愛沙尼亞文 |
-| 芬蘭文 |
-| 法文 |
-| 加利西亞文 |
-| 德文 |
-| 希臘文 |
-| 海地克裏奧爾文 |
-| 希伯來文 |
-| 北印度文 |
-| 匈牙利文 |
-| 冰島文 |
-| 印尼文 |
-| 愛爾蘭文 |
-| 義大利文 |
-| 日文 |
-| 韓文 |
-| 庫德文 (阿拉伯文) |
-| 庫德文 (拉丁) |
-| 拉丁文 |
-| 拉脫維亞文 |
-| 立陶宛文 |
-| 馬其頓文 |
-| 馬來文 |
-| 馬爾他文 |
-| 挪威文 |
-| 挪威文 (耐諾斯克) |
-| 普什圖文 |
-| 波斯文 |
-| 波蘭文 |
-| 葡萄牙文 |
-| 羅馬尼亞文 |
-| 俄文 |
-| 塞爾維亞文 (斯拉夫) |
-| 塞爾維亞文 (拉丁) |
-| 斯洛伐克文 |
-| 斯洛維尼亞文 |
-| 索馬利文 |
-| 西班牙文 |
-| 史瓦西里文 |
-| 瑞典文 |
-| 他加祿文 |
-| 泰盧固文 |
-| 泰文 |
-| 土耳其文 |
-| 烏克蘭文 |
-| 烏都文 |
-| 烏茲別克文 (斯拉夫) |
-| 烏茲別克文 (拉丁) |
-| 越南文 |
-| 威爾斯文 |
-| 意第緒文 |
 
 ## <a name="access-the-translator-text-api-language-list-programmatically"></a>以程式設計方式存取翻譯工具文字 API 的語言清單
 
@@ -294,6 +227,7 @@ ms.locfileid: "59267901"
 | 北印度文      | `hi`          |
 | 匈牙利文      | `hu`          |
 | 冰島文 | `is` |
+| 印尼文|   `id`    |
 | 義大利文      | `it`          |
 | 日文      | `ja`          |
 | 韓文      | `ko`          |
@@ -319,4 +253,4 @@ ms.locfileid: "59267901"
 
 為了方便快速一覽所有語言，Microsoft Translator 網站會顯示 Translator 文字與語音 API 支援的所有語言。 這份清單不含開發人員特定資訊，例如語言代碼。
 
-[請參閱語言的清單](https://www.microsoft.com/translator/languages.aspx)
+[參閱語言清單](https://www.microsoft.com/translator/languages.aspx)

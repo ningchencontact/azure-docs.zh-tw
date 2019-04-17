@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bed1c201831b1edf4f5c267d2093ada4ba91d7df
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: bc8431e2c45cc3bfdfa08dd0078220ab2d290309
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263310"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565711"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>教學課程：Azure Active Directory 與 Velpic SAML 整合
 
@@ -106,9 +106,9 @@ Velpic SAML 與 Azure AD 整合提供下列優點：
 
     ![Velpic SAML 網域和 URL 單一登入資訊](common/sp-identifier.png)
 
-    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL： `https://<sub-domain>.velpicsaml.net`
+    a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL：`https://<sub-domain>.velpicsaml.net`
 
-    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL： `https://auth.velpic.com/saml/v2/<entity-id>/login`
+    b. 在 [識別碼 (實體識別碼)] 文字方塊中，使用下列模式輸入 URL：`https://auth.velpic.com/saml/v2/<entity-id>/login`
 
     > [!NOTE]
     > 請注意，登入 URL 會由 Velpic SAML 小組提供，而識別碼值則會在您於 Velpic SAML 端設定 SSO 外掛程式時可供取得。 您需要從 Velpic SAML 應用程式頁面將該值複製並貼到此處。
@@ -251,9 +251,9 @@ Velpic SAML 與 Azure AD 整合提供下列優點：
 
 ## <a name="additional-resources"></a>其他資源
 
-- [ 如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單 ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？ ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [什麼是 Azure Active Directory 中的條件式存取？](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

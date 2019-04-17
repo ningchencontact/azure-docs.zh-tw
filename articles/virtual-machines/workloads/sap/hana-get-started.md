@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 635f519239ad00df8672472bcb6c54e6b8a59927
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7d46e2047debe5546c6d36f245ae076cec6f73a3
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001697"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618119"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>快速入門：在 Azure VM 上手動安裝單一執行個體 SAP HANA
 ## <a name="introduction"></a>簡介
@@ -269,7 +269,7 @@ SLES for SAP Applications 12 GA 和 SLES for SAP Applications 12 SP1 具有一�
 
 ### <a name="the-etcfstab-file"></a>/etc/fstab 檔案
 
-將 **nofail** 參數新增至 fstab 檔案很實用。 如此一來，如果磁碟發生錯誤，VM 不會在開機程序中停止回應。 但請記得，可能無法取得額外的磁碟空間，而且程序可能會填滿根目錄檔案系統。 如果遺失 /hana，SAP HANA 將無法啟動。
+將 **nofail** 參數新增至 fstab 檔案很實用。 如此一來，如果某部分出錯時使用的磁碟，VM 不會停止回應的開機程序。 但請記得，可能無法取得額外的磁碟空間，而且程序可能會填滿根目錄檔案系統。 如果遺失 /hana，SAP HANA 將無法啟動。
 
 ![將 nofail 參數新增至 fstab 檔案](./media/hana-get-started/image000c.jpg)
 
