@@ -17,10 +17,10 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
 ms.openlocfilehash: dde9b71c3615a592f8c08e040c5e9ba7bc756bd6
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59008833"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>在 Azure 上佈建地區人工智慧虛擬機器 
@@ -95,4 +95,4 @@ Geo-DSVM 已經預先安裝 ArcGIS Pro 桌面及預先設定環境，以搭配 D
 
 利用下列主題中的指引開始使用地區人工智慧資料科學 VM：
 
-* [使用地區 AI 資料科學 VM](use-geo-ai-dsvm.md)
+* [使用地區人工智慧資料科學 VM](use-geo-ai-dsvm.md)

@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 126eee1664d810850f63e702abe78b241649d665
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: f1423fddc13a6912e90b6a239921cf2a4d2662ec
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438813"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683728"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Azure Active Directory 報告保留原則
 
@@ -68,8 +68,8 @@ ms.locfileid: "58438813"
 
 | 報告                 | Azure AD Free | Azure AD Basic | Azure AD Premium P1 | Azure AD Premium P2 |
 | :--                    | :--           | :--            | :--                 | :--                 |
-| 目錄稽核        | 7 天        |  7 天        | 30 天             | 30 天             |
-| 登入活動       | N/A           |  N/A           | 30 天             | 30 天             |
+| 稽核記錄             | 7 天        |  7 天        | 30 天             | 30 天             |
+| 登入               | N/A           |  N/A           | 30 天             | 30 天             |
 | Azure MFA 使用        | 30 天       |  30 天       | 30 天             | 30 天             |
 
 使用 Azure 監視器將稽核和登入活動資料傳送至 Azure 儲存體帳戶，即可將它保留超過上述的預設保留期間。 如需詳細資訊，請參閱[將 Azure AD 記錄封存到 Azure 儲存體帳戶](quickstart-azure-monitor-route-logs-to-storage-account.md)。

@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5fa143aac52fe0024620047eb67f24cc79e55c9b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279307"
 ---
 # <a name="compare-remote-access-solutions"></a>比較遠端存取解決方案
@@ -64,5 +64,5 @@ Azure Active Directory 應用程式 Proxy 是 Microsoft 提供的兩個遠端存
 
 ## <a name="next-steps"></a>後續步驟
 
-- [使用 Azure AD 應用程式提供安全遠端存取內部部署應用程式](application-proxy.md)
+- [使用 Azure AD 應用程式提供對內部部署應用程式的安全遠端存取](application-proxy.md)
 - [從 Forefront TMG 和 UAG 轉換至應用程式 Proxy](https://blogs.technet.microsoft.com/isablog/2015/06/30/modernizing-microsoft-application-access-with-web-application-proxy-and-azure-active-directory-application-proxy/)。

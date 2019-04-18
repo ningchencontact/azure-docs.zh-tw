@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 02/11/2019
 ms.openlocfilehash: 1460b595e8887fc932d5be335ae51b07a000b9fb
 ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56098352"
@@ -51,7 +51,7 @@ ms.locfileid: "56098352"
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>部署到最佳大小的受控執行個體
 
-受控執行個體專為打算移至雲端的內部工作負載量身訂做。 它引進[新的採購模型](sql-database-service-tiers-vcore.md)，提供更大的彈性來選取適合您工作負載的正確資源層級。 在內部部署的環境中，您可能習慣使用實體核心數目與 IO 頻寬來調整這些工作負載大小。 受控執行個體的採購模型是以虛擬核心 (vCore) 為基礎，再個別加上額外儲存體與可用 IO。 相對於目前使用的內部部署方案，VCore 模型可讓您較簡單地了解雲端中的計算需求。 這個新模型可讓您在雲端中具有正確大小的目的地環境。
+受控執行個體專為打算移至雲端的內部工作負載量身訂做。 它引進[新的購買模型](sql-database-service-tiers-vcore.md)，提供更大的彈性來選取適合您工作負載的正確資源層級。 在內部部署的環境中，您可能習慣使用實體核心數目與 IO 頻寬來調整這些工作負載大小。 受控執行個體的購買模型是以虛擬核心 (vCore) 為基礎，再個別加上額外儲存體與可用 IO。 相對於目前使用的內部部署方案，VCore 模型可讓您較簡單地了解雲端中的計算需求。 這個新模型可讓您在雲端中具有正確大小的目的地環境。
 
 您可以在部署期間選取計算和儲存體資源，並在之後使用 [Azure 入口網站](sql-database-scale-resources.md)進行變更，而這不會導致應用程式產生停機時間。
 

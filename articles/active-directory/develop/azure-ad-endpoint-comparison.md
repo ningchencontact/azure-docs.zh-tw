@@ -19,10 +19,10 @@ ms.reviewer: hirsin, andret, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, d
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4dd443c95e8cf6dbddd66e5531b182469a118e4c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59260726"
 ---
 # <a name="comparing-the-microsoft-identity-platform-endpoint-and-azure-ad-v10-endpoint"></a>比較 Microsoft 身分識別平台端點與 Azure AD v1.0 端點
@@ -66,7 +66,7 @@ Microsoft 身分識別平台的端點，您可以使用來取得存取消費者�
 
 若為使用 v1.0 端點的應用程式，應用程式能以**資源**或權杖收件者的方式運作。 資源可以定義它所了解的許多**範圍**或 **oAuth2Permissions**，讓用戶端應用程式得以針對特定一組範圍向該資源要求權杖。 請考慮以 Azure AD Graph API 做為資源的範例：
 
-* 資源識別碼，或`AppID URI`: `https://graph.windows.net/`
+* 資源識別碼，或 `AppID URI`：`https://graph.windows.net/`
 * 範圍，或 `oAuth2Permissions`：`Directory.Read`、`Directory.Write` 等。
 
 這適用於 Microsoft 身分識別平台的端點。 應用程式仍可作為資源、定義範圍並依據 URI 識別。 用戶端應用程式仍可要求存取這些範圍。 不過，用戶端要求那些權限的方式已改變。
@@ -143,7 +143,7 @@ Microsoft 身分識別平台端點將會進化到排除此處所列的限制，�
 
 ### <a name="restrictions-on-redirect-urls"></a>重新導向 URL 的限制
 
-Microsoft 身分識別平台已註冊的應用程式僅限於一組有限的重新導向 URL 值。 Web 應用程式和服務的重新導向 URL 必須以配置 `https` 開頭，而且所有重新導向 URL 值必須共用單一 DNS 網域。  註冊系統會將現有重新導向 URL 的整個 DNS 名稱與您要新增之重新導向 URL 的 DNS 名稱做比較。 `http://localhost` 也支援重新導向 URL。  
+Microsoft 身分識別平台已註冊的應用程式僅限於一組有限的重新導向 URL 值。 Web 應用程式和服務的重新導向 URL 必須以配置 `https` 開頭，而且所有重新導向 URL 值必須共用單一 DNS 網域。  註冊系統會將現有重新導向 URL 的整個 DNS 名稱與您要新增之重新導向 URL 的 DNS 名稱做比較。 系統也支援將 `http://localhost` 作為重新導向 URL。  
 
 如果下列任一條件成立，新增 DNS 名稱的要求就會失敗︰  
 

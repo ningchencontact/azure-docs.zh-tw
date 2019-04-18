@@ -1,7 +1,7 @@
 ---
 title: 模型可解釋性
 titleSuffix: Azure Machine Learning service
-description: 了解如何使用 Azure Machine Learning Interpretability SDK 來說明為何您的模型進行預測。 它可以用於定型和推斷期間了解您的模型如何進行預測。
+description: 了解如何說明您的模型執行預測使用 Azure Machine Learning Interpretability SDK 的原因。 它可以用於定型和推斷期間了解您的模型如何進行預測。
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 04/09/2019
-ms.openlocfilehash: fbcafb61ecd69f58bb3c14d1b15f36f1b21f2833
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 668551603dfa2a9c42f4538fd9a66ee646e1feb7
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494435"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682452"
 ---
-# <a name="azure-machine-learning-interpretability-sdk"></a>Azure Machine Learning Interpretability SDK
+# <a name="model-interpretability-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務的模型 interpretability
 
 在本文中，您將了解如何解釋為什麼您的模型進行預測它使用 Azure Machine Learning Interpretability SDK 所做的。 能夠說明您的模型是很重要，原因如下：
 
@@ -25,9 +25,10 @@ ms.locfileid: "59494435"
 * 資料科學家，為您想要了解**如何查詢以尋找深入剖析模型**。 您也需要工具來做出明智的決策**如何改善您的模型**。
 * 為公司中，您必須了解**搭配不同的模型的行為輸入散發**並**解模型的行為分析特定的輸入時發生**。
 
-Machine learning interpretability 來說很重要的機器學習開發週期的兩個階段：**訓練**時間並**推斷**時間：
+Machine learning interpretability 來說很重要的機器學習開發週期的兩個階段： 
 
 * 期間**訓練**:模型設計師和評估工具需要 interpretability 工具來建置信任的專案關係人說明模型的輸出。 他們也需要深入了解模型，讓他們可以偵錯模型，並決定行為是否符合其目標。 最後，他們必須確保模型不偏差。
+
 * 期間**推斷**:預測，必須是可以理解的人使用您的模型。 比方說，為什麼沒有模型拒絕抵押貸款，或預測投資組合會帶來更高的風險嗎？
 
 Azure Machine Learning Interpretability SDK 併入技術由 Microsoft 所開發成果，協力廠商程式庫 （例如 SHAP 和淡黃綠色）。 SDK 會在整合式的程式庫之間建立通用的 API，並整合 Azure Machine Learning 服務。 使用此 SDK，您可以說明機器學習服務模型**上的所有資料的全域**，或**在本機上的特定資料點**使用最新技術，以方便使用且可調整的方式。
@@ -91,7 +92,7 @@ __中繼 explainers__自動選取適當的直接說明，並產生根據給定�
 
 下圖顯示兩組直接與中繼 explainers 之間的關聯性。
 
-[![Machine 學習 Interpretability 架構](./media/machine-learning-interpretability-explainability/interpretability-architecture.png)](./media/machine-learning-interpretability-explainability/interpretability-architecture.png#lightbox)
+[![Machine Learning Interpretability 架構](./media/machine-learning-interpretability-explainability/interpretability-architecture.png)](./media/machine-learning-interpretability-explainability/interpretability-architecture.png#lightbox)
 
 ### <a name="models-supported"></a>支援的模型
 

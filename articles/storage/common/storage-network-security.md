@@ -9,17 +9,17 @@ ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 6d6ca1fe1256f1571079027ebd299492bfa62f41
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280735"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>設定 Azure 儲存體防火牆和虛擬網路
 
 Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組特定的支援網路來保護儲存體帳戶。 設定網路規則時，只有透過一組特定網路發出要求資料的應用程式可以存取儲存體帳戶。
 
-應用程式若在網路規則生效時存取儲存體帳戶，則要求上必須有適當的授權。 支援使用適用於 blob 和佇列的 Azure Active Directory (Azure AD) 認證、 使用有效的帳戶存取金鑰，或使用 SAS 權杖的授權。
+應用程式若在網路規則生效時存取儲存體帳戶，則要求上必須有適當的授權。 支持通过 Azure Active Directory (Azure AD) 凭据（适用于 Blob 和队列）、有效的帐户访问密钥或 SAS 令牌进行授权。
 
 > [!IMPORTANT]
 > 開啟儲存體帳戶的防火牆規則會預設封鎖傳入的資料要求，除非要求來自 Azure 虛擬網路 (VNet) 內運作的服務。 封鎖的要求包括來自其他 Azure 服務、Azure 入口網站及記錄與計量服務等等的要求。
@@ -362,7 +362,7 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
 
 ### <a name="storage-analytics-data-access"></a>儲存體分析資料存取
 
-在某些情況下，需要來自網路界限外的存取權才能讀取診斷記錄和計量。 您可以授與網路規則的例外狀況，允許讀取存取儲存體帳戶記錄檔、計量資料表，或兩者都存取。 [深入了解如何使用儲存體分析。](/azure/storage/storage-analytics)
+在某些情況下，需要來自網路界限外的存取權才能讀取診斷記錄和計量。 您可以授與網路規則的例外狀況，允許讀取存取儲存體帳戶記錄檔、計量資料表，或兩者都存取。 [深入了解儲存體分析的使用方式。](/azure/storage/storage-analytics)
 
 ### <a name="managing-exceptions"></a>管理例外狀況
 

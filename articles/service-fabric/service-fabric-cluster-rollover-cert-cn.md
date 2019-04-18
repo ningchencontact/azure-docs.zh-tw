@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 04/24/2018
 ms.author: aljo
 ms.openlocfilehash: dd4b6026772a20c522532e1ba65c6846addfa161
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046354"
 ---
 # <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>手動變換 Service Fabric 叢集憑證
@@ -86,5 +86,5 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -Virtual
 
 若要深入了解，請閱讀以下文章：
 * 了解[叢集安全性](service-fabric-cluster-security.md)。
-* [更新和管理叢集憑證](service-fabric-cluster-security-update-certs-azure.md)
+* [更新及管理叢集憑證](service-fabric-cluster-security-update-certs-azure.md)
 

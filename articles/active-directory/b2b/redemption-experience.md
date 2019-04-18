@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5e5a8d46f67553cc10bd9cdb31cf64511858948f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046490"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B 共同作業邀請兌換
@@ -62,8 +62,8 @@ ms.locfileid: "59046490"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [什麼是 Azure AD B2B 共同作業？](what-is-b2b.md)
+- [何謂 Azure AD B2B 共同作業？](what-is-b2b.md)
 - [在 Azure 入口網站中新增 Azure Active Directory B2B 共同作業使用者](add-users-administrator.md)
-- [資訊工作者如何將 B2B 共同作業使用者新增到 Azure Active Directory?](add-users-information-worker.md)
-- [使用 PowerShell 來新增 Azure Active Directory B2B 共同作業使用者](customize-invitation-api.md#powershell)
+- [資訊工作者如何將 B2B 共同作業使用者新增到 Azure Active Directory？](add-users-information-worker.md)
+- [使用 PowerShell 新增 Azure Active Directory B2B 共同作業使用者](customize-invitation-api.md#powershell)
 - [以來賓使用者的身分從組織離職](leave-the-organization.md)

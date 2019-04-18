@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
 ms.openlocfilehash: 10bec01a3b90776c8dd8c32a74ba7754264da131
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050130"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>管理實體伺服器災害復原的組態伺服器
@@ -176,7 +176,7 @@ ProxyPassword="Password"
 3. 按一下 [保存庫註冊] 索引標籤。
 4. 從入口網站下載新的註冊檔案，並提供給工具作為輸入。
       ![註冊組態伺服器](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
-5. 提供代理服务器的详细信息，并单击“注册”按钮  。  
+5. 提供 Proxy 伺服器詳細資料，然後按一下 [註冊] 按鈕。  
 6. 開啟系統管理 PowerShell 命令視窗。
 7. 執行下列命令
 

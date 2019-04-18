@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3baf2690ae07b87bb4d5dba30fcd20f62a1a4506
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280565"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>結合的啟用安全性資訊註冊 （預覽）
@@ -57,6 +57,6 @@ ms.locfileid: "59280565"
 
 [設定自助式密碼重設](howto-sspr-deployment.md)
 
-[設定 Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+[設定 Azure Multi-factor Authentication](howto-mfa-getstarted.md)
 
 [疑難排解合併安全性資訊註冊](howto-registration-mfa-sspr-combined-troubleshoot.md)

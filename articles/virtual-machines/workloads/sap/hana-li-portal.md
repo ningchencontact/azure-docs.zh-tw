@@ -17,10 +17,10 @@ ms.date: 04/02/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 8240308b3e0955b1d4d3ef2e82cad215daf95b00
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009363"
 ---
 # <a name="azure-hana-large-instances-control-through-azure-portal"></a>透過 Azure 入口網站控制 Azure HANA Large Instances
@@ -79,8 +79,8 @@ ms.locfileid: "59009363"
 
 看看顯示的不同屬性，這些屬性看起來不太不同於 Azure VM 屬性。 在左手邊的標頭，它會顯示資源群組、 Azure 區域、 訂用帳戶名稱和識別碼，以及您新增一些標記。 根據預設，HANA 大型執行個體單位會有任何指派的標記。 標頭的右手邊，部署已完成時所指派，會列出單位的名稱。 作業系統會顯示以及 IP 位址。 為 HANA 大型執行個體單位類型的 CPU 數目的 Vm 使用執行緒和記憶體也會顯示。 在不同的 HANA 大型執行個體單位上的更多詳細資料如下所示：
 
-- [HLI 可用的 SKU](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus)
-- [SAP HANA (大型執行個體) 儲存體架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
+- [適用於 HLI 的可用 SKU](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus)
+- [SAP HANA （大型執行個體） 儲存體架構](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
 
 右側的資料行的標頭中的其他欄位會告知的 HANA 大型執行個體單位的電源狀態。
 
@@ -149,6 +149,6 @@ ms.locfileid: "59009363"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [如何監視 Azure 上的 SAP HANA (大型執行個體)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
+- [如何監視 Azure 上的 SAP HANA （大型執行個體）](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
 - [從 HANA 端進行監視和疑難排解](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-monitor-troubleshoot)
 

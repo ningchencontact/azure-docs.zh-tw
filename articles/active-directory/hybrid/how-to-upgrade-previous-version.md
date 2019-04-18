@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2a3e7373a8b0354a3d08debf944f2f77f1609382
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267033"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect：從舊版升級到最新版本
@@ -36,7 +36,7 @@ ms.locfileid: "59267033"
 | 方法 | 描述 |
 | --- | --- |
 | [自動升級](how-to-connect-install-automatic-upgrade.md) |對於使用快速安裝的客戶，這是最簡單的方法。 |
-| [就地升級](#in-place-upgrade) |如果您只有一台伺服器，您可以在該伺服器上就地升級安裝。 |
+| [就地升级](#in-place-upgrade) |如果您只有一台伺服器，您可以在該伺服器上就地升級安裝。 |
 | [變換移轉](#swing-migration) |如果您有兩台伺服器，可以將其中一台升級成新的版本或組態，然後在您準備好時變更作用中的伺服器。 |
 
 如需權限資訊，請參閱[升級所需的權限](reference-connect-accounts-permissions.md#upgrade)。
@@ -108,7 +108,7 @@ ms.locfileid: "59267033"
 
    ![DisableFullSyncAfterUpgrade](./media/how-to-upgrade-previous-version/disablefullsync01.png)
 
-2. 升級完成之後，執行下列 cmdlet 來找出已新增哪些覆寫： `Get-ADSyncSchedulerConnectorOverride | fl`
+2. 升級完成之後，執行下列 Cmdlet 來找出已新增哪些覆寫：`Get-ADSyncSchedulerConnectorOverride | fl`
 
    >[!NOTE]
    > 覆寫是連接器專屬。 在下列範例中，「完整匯入」步驟和「完整同步處理」步驟已新增至內部部署 AD 連接器與 Azure AD 連接器。
@@ -117,7 +117,7 @@ ms.locfileid: "59267033"
 
 3. 記下現有已新增的覆寫。
    
-4. 若要移除完整匯入和完整同步處理在任意連接器上的覆寫，請執行下列 cmdlet: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
+4. 若要在任意連接器上同時移除完整匯入和完整同步處理的覆寫，請執行下列 Cmdlet：`Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
 
    若要移除所有連接器上的覆寫，請執行下列 PowerShell 指令碼：
 
@@ -128,12 +128,12 @@ ms.locfileid: "59267033"
    }
    ```
 
-5. 若要繼續排程器，請執行下列 cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
+5. 若要繼續排程器，請執行下列 Cmdlet：`Set-ADSyncScheduler -SyncCycleEnabled $true`
 
    >[!IMPORTANT]
    > 請記得儘早執行必要的同步處理步驟。 您可以使用 Synchronization Service Manager 來手動執行這些步驟，或使用 Set-ADSyncSchedulerConnectorOverride Cmdlet 將覆寫加回。
 
-若要新增完整匯入和完整同步處理的覆寫在任意連接器上，執行下列 cmdlet:  `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
+若要在任意連接器上同時新增完整匯入和完整同步處理的覆寫，請執行下列 Cmdlet：`Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
 ## <a name="troubleshooting"></a>疑難排解
 下一節包含遇到 Azure AD Connect 升級問題時，您可以使用的疑難排解和資訊。
@@ -144,7 +144,7 @@ ms.locfileid: "59267033"
 
 ![Error](./media/how-to-upgrade-previous-version/error1.png)
 
-因為識別碼為 b891884f-051e-4a83-95af-2544101c9083 的 Azure Active Directory 連接器不存在於目前的 Azure AD Connect 設定中，所以發生此錯誤。 若要確認此情況下，開啟 PowerShell 視窗，請執行 Cmdlet `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`
+因為識別碼為 b891884f-051e-4a83-95af-2544101c9083 的 Azure Active Directory 連接器不存在於目前的 Azure AD Connect 設定中，所以發生此錯誤。 若要確認情況就是這樣，請開啟 PowerShell 視窗，並執行 Cmdlet `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`
 
 ```
 PS C:\> Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083

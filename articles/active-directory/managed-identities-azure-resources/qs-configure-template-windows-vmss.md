@@ -16,10 +16,10 @@ ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6ecbac8af86c3c2c76b7710eb61f71481b86291b
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009864"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>在 Azure 虛擬機器擴展使用範本上設定適用於 Azure 資源管理的身分識別
@@ -123,11 +123,11 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 2. 在[編輯器](#azure-resource-manager-templates)中載入範本，然後在 `resources` 區段找出想要的 `Microsoft.Compute/virtualMachineScaleSets` 資源。 若您的虛擬機器只有系統指派的受控識別，您可以將識別類型變更為 `None` 予以停用。
 
-   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**
+   **Microsoft.Compute/virtualMachineScaleSets API 2018-06-01 版**
 
    如果您的 apiVersion 為 `2018-06-01` 且您的 VM 同時具有系統與使用者指派的受控識別，請從識別類型中移除 `SystemAssigned`，並保留 `UserAssigned` 以及 userAssignedIdentities 字典值。
 
-   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**
+   **Microsoft.Compute/virtualMachineScaleSets API 2018-06-01 版**
 
    若您的 apiVersion 為 `identityIds` 且您的虛擬機器擴展集同時具有系統與使用者指派的受控識別，請從識別類型中移除 `2017-12-01`，並保留 `SystemAssigned` 以及使用者指派受控識別的 `UserAssigned` 陣列。 
    
@@ -158,7 +158,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 1. 在 `resources` 元素下新增下列項目，以將使用者指派的受控識別指派給您的虛擬機器擴展集。  請務必將 `<USERASSIGNEDIDENTITY>` 取代為您建立的使用者指派受控識別名稱。
    
-   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**
+   **Microsoft.Compute/virtualMachineScaleSets API 2018-06-01 版**
 
    如果您的 apiVersion 為 `2018-06-01`，則使用者指派的受控識別會以 `userAssignedIdentities` 字典格式儲存，而 `<USERASSIGNEDIDENTITYNAME>` 值必須儲存在您範本 `variables` 區段內所定義的變數中。
 
@@ -177,7 +177,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    }
    ```   
 
-   **Microsoft.compute/virtualmachinescalesets API 版本 2017年-12-01**
+   **Microsoft.Compute/virtualMachineScaleSets API 2017-12-01 版**
     
    如果您的 `apiVersion` 為 `2017-12-01` 或更早版本，則使用者指派的受控識別會儲存於 `identityIds` 陣列中，而 `<USERASSIGNEDIDENTITYNAME>` 值必須儲存在您範本 variables 區段內所定義的變數中。
 
@@ -200,7 +200,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 3. 完成之後，您的範本看起來應該如下所示：
    
-   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**   
+   **Microsoft.Compute/virtualMachineScaleSets API 2018-06-01 版**   
 
    ```json
    "resources": [
@@ -243,7 +243,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
     ]
    ```
 
-   **Microsoft.compute/virtualmachines API 版本 2017年-12-01**
+   **Microsoft.Compute/virtualMachines API 版本 2017-12-01**
 
    ```json
    "resources": [
@@ -306,13 +306,13 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    }
    ```
    
-   **Microsoft.Compute/virtualMachineScaleSets API version 2018-06-01**
+   **Microsoft.Compute/virtualMachineScaleSets API 2018-06-01 版**
     
    若要從虛擬機器擴展集移除單一使用者指派的受控識別，請從 `userAssignedIdentities` 字典中移除它。
 
    如果您有系統指派的受控識別，則將它保存在 `identity` 值下方的 `type` 值中。
 
-   **Microsoft.compute/virtualmachinescalesets API 版本 2017年-12-01**
+   **Microsoft.Compute/virtualMachineScaleSets API 2017-12-01 版**
 
    若要從虛擬機器擴展集移除單一使用者指派的受控識別，請從 `identityIds` 陣列中移除它。
 

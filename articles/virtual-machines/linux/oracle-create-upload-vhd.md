@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
 ms.openlocfilehash: ecd30d30434d91893102ce6ec0df21daa84b677c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276829"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>为 Azure 准备 Oracle Linux 虚拟机
@@ -109,14 +109,14 @@ ms.locfileid: "59276829"
 
 - - -
 ## <a name="oracle-linux-70"></a>Oracle Linux 7.0+
-**Oracle Linux 7 中的變更**
+**Oracle Linux 7 中的更改**
 
 準備適用於 Azure 的 Oracle Linux 7 虛擬機器會與 Oracle Linux 6 極為類似，不過，其中有幾個重要差異值得注意：
 
 * Azure 支援 Red Hat 相容核心和 Oracle 的 UEK3。  建議使用 UEK3 核心。
 * NetworkManager 封裝不會再與 Azure Linux 代理程式發生衝突。 依預設會安裝此封裝，建議您不要將它移除。
 * GRUB2 现在用作默认引导加载程序，因此编辑内核参数的过程已更改（见下文）。
-* XFS 現為預設的檔案系統。 如有需要，您仍可使用 ext4 檔案系統。
+* XFS 現為預設的檔案系統。 如果需要，仍可以使用 ext4 文件系统。
 
 **組態步驟**
 

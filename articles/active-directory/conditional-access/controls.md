@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a92d10f67533efc2f5893b012aefbcb92efee59a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258737"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的存取控制？
@@ -77,7 +77,7 @@ ms.locfileid: "59258737"
 您的裝置必須向 Azure AD 註冊，才能標示為符合規範。 若要註冊裝置，您會有三個選項： 
 
 - [Azure AD 註冊裝置](../devices/overview.md#azure-ad-registered-devices)
-- [Azure AD 加入裝置](../devices/overview.md#azure-ad-joined-devices)  
+- [Azure AD 已加入裝置](../devices/overview.md#azure-ad-joined-devices)  
 - [混合式 Azure AD 已加入裝置](../devices/overview.md#hybrid-azure-ad-joined-devices)
 
 如需詳細資訊，請參閱[如何透過條件式存取要求必須從受控裝置存取雲端應用程式](require-managed-devices.md)。
@@ -124,8 +124,8 @@ ms.locfileid: "59258737"
 目前提供相容服務的提供者包括：
 
 - [Duo Security](https://duo.com/docs/azure-ca)
-- [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
-- [Ping Identity](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
+- [委託 Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
+- [Ping 身分識別](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - RSA
 - [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
 - [Silverfort](https://www.silverfort.io/company/using-silverfort-mfa-with-azure-active-directory/)
@@ -174,9 +174,9 @@ ms.locfileid: "59258737"
 
 若要深入了解，請參閱：
 
-- [啟用 SharePoint Online 的有限的存取](https://aka.ms/spolimitedaccessdocs)
+- [啟用 SharePoint Online 的有限存取](https://aka.ms/spolimitedaccessdocs)
 
-- [啟用 Exchange Online 的有限的存取](https://aka.ms/owalimitedaccess)
+- [啟用 Exchange Online 的有限存取](https://aka.ms/owalimitedaccess)
 
 ## <a name="next-steps"></a>後續步驟
 

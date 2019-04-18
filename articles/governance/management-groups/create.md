@@ -11,10 +11,10 @@ ms.date: 04/05/2019
 ms.author: rithorn
 ms.topic: conceptual
 ms.openlocfilehash: 2dd2a6e071533deef47a6482bfb9ed92953864ba
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259793"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>建立用於資源組織及管理的管理群組
@@ -98,7 +98,7 @@ az account management-group create --name ContosoSubGroup --parent Contoso
 若要深入了解管理群組，請參閱：
 
 - [建立管理群組以組織 Azure 資源](create.md)
-- [如何變更、 刪除或管理您的管理群組](manage.md)
-- [檢閱在 Azure PowerShell 模組中資源的管理群組](/powershell/module/az.resources#resources)
+- [如何變更、刪除或管理您的管理群組](manage.md)
+- [檢閱 Azure PowerShell 資源模組中的管理群組](/powershell/module/az.resources#resources)
 - [檢閱 REST API 中的管理群組](/rest/api/resources/managementgroups)
-- [檢閱在 Azure CLI 中的管理群組](/cli/azure/account/management-group)
+- [檢閱 Azure CLI 中的管理群組](/cli/azure/account/management-group)

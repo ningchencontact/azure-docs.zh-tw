@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f96a67fecead65af28a975267590ebb08c715d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a787e896016b3230d389b2ec140ae6c03477d875
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852998"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684084"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>了解 Azure AD 應用程式 Proxy 連接器
 
@@ -74,6 +74,8 @@ Azure AD 會提供您部署之所有連接器的自動更新。 只要應用程�
 如果是下列情況，連接器更新時可能會遭遇停機︰  
 - 您只擁有一個連接器，建議安裝第二個連接器並[建立連接器群組](application-proxy-connector-groups.md)。 如此可避免出現停機時間，並提供更高的可用性。  
 - 更新開始時，連接器正處於交易中途。 雖然遺失起始交易，您的瀏覽器應該會自動重試作業，或您可以重新整理頁面。 當重新傳送要求時，流量會路由傳送至備份連接器。
+
+若要查看先前發行的版本和變更它們的資訊包含，請參閱[應用程式 Proxy-版本發行歷程記錄](application-proxy-release-version-history.md)。
 
 ## <a name="creating-connector-groups"></a>建立連接器群組
 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
 ms.openlocfilehash: 0302146634904ccf1d87220d3a24553149e10372
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012961"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-cli"></a>自動大規模使用 Azure CLI 的 IoT 裝置管理
@@ -99,11 +99,11 @@ Azure IoT 中樞中的自動裝置管理會自動執行許多管理大型裝置�
 
 * --**config-id** - 將會在 IoT 中樞建立的組態名稱。 為設定指定唯一的名稱，最長為 128 個小寫字母。 避免空格和下列無效字元：`& ^ [ ] { } \ | " < > /`。
 
-* --**labels** - 新增標籤以協助追蹤您的組態。 標籤是成對的「名稱, 值」組合，可描述您的部署。 比方說，`HostPlatform, Linux`或 `Version, 3.0.1`
+* --**labels** - 新增標籤以協助追蹤您的組態。 標籤是成對的「名稱, 值」組合，可描述您的部署。 例如，`HostPlatform, Linux` 或 `Version, 3.0.1`。
 
 * --**content** - 要設為對應項所需屬性的目標內容內嵌 JSON 或檔案路徑。 
 
-* --**hub-name** - 要在其中建立組態的 IoT 中樞名稱。 中樞必須在目前訂用帳戶中。 切換至使用命令所需的訂用帳戶 `az account set -s [subscription name]`
+* --**hub-name** - 要在其中建立組態的 IoT 中樞名稱。 中樞必須在目前訂用帳戶中。 使用 `az account set -s [subscription name]` 命令切換到所需的訂用帳戶
 
 * --**target-condition** - 輸入目標條件來判斷這個組態會將哪些裝置設為目標。 條件會以裝置對應項標籤或裝置對應項所需屬性為基礎，且應符合運算式格式。 例如，`tags.environment='test'` 或 `properties.desired.devicemodel='4000x'`。 
 
@@ -122,7 +122,7 @@ az iot hub configuration show --config-id [configuration id] \
 
 * --**config-id** - 存在於 IoT 中樞的組態名稱。
 
-* --**hub-name** - 組態存在於其中的 IoT 中樞名稱。 中樞必須在目前訂用帳戶中。 切換至使用命令所需的訂用帳戶 `az account set -s [subscription name]`
+* --**hub-name** - 組態存在於其中的 IoT 中樞名稱。 中樞必須在目前訂用帳戶中。 使用 `az account set -s [subscription name]` 命令切換到所需訂用帳戶
 
 在命令視窗中檢查組態。 **metrics** 屬性會列出每個中樞評估的每個計量計數：
 
@@ -172,7 +172,7 @@ az iot hub configuration update --config-id [configuration id] \
 
 * --**set** - 更新組態中的屬性。 您可以更新下列屬性：
 
-    * targetCondition-例如 `targetCondition=tags.location.state='Oregon'`
+    * targetCondition - 例如 `targetCondition=tags.location.state='Oregon'`
 
     * 標籤 
 
@@ -203,7 +203,7 @@ az iot hub configuration delete --config-id [configuration id] \
 若要進一步探索 IoT 中樞的功能，請參閱︰
 
 * [IoT 中樞開發人員指南](iot-hub-devguide.md)
-* [使用 Azure IoT Edge 將 AI 部署到 edge 裝置](../iot-edge/tutorial-simulate-device-linux.md)
+* [使用 Azure IoT Edge 將 AI 部署到 Edge 裝置](../iot-edge/tutorial-simulate-device-linux.md)
 
 若要探索使用 IoT 中樞裝置佈建服務進行 Just-In-Time 自動佈建，請參閱： 
 

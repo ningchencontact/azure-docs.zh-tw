@@ -17,10 +17,10 @@ ms.date: 03/27/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f732eebd410a6b52a21a46925a29bf4676f7c8cb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270781"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>教學課程：設定 Tableau Online 來自動佈建使用者
@@ -44,7 +44,7 @@ ms.locfileid: "59270781"
 ## <a name="adding-tableau-online-from-the-gallery"></a>從資源庫新增 Tableau Online
 將 Tableau Online 設定為可使用 Azure AD 自動佈建使用者之前，您必須從 Azure AD 應用程式庫將 Tableau Online 新增至您的受控 SaaS 應用程式清單。
 
-**若要新增 Tableau Online 從 Azure AD 應用程式庫，請執行下列步驟：**
+**若要從 Azure AD 應用程式庫新增 Tableau Online，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
@@ -58,9 +58,9 @@ ms.locfileid: "59270781"
 
     ![新增應用程式按鈕](common/add-new-app.png)
 
-4. 在 搜尋 方塊中，輸入**Tableau Online**，選取**Tableau Online**從結果面板中按一下 **新增**按鈕以新增應用程式。
+4. 在搜尋方塊中，鍵入 ，從結果面板中選取 [Tableau Online]，然後按一下 [新增] 按鈕以新增應用程式。
 
-    ![結果清單中的 tableau Online](common/search-new-app.png)
+    ![結果清單中的 Tableau Online](common/search-new-app.png)
 
 ## <a name="assigning-users-to-tableau-online"></a>將使用者指派給 Tableau Online
 
@@ -91,7 +91,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 2. 在應用程式清單中，選取 [Tableau Online] 。
 
-    ![應用程式清單中的 [Tableau Online] 連結](common/all-applications.png)
+    ![應用程式清單中的 Tableau Online 連結](common/all-applications.png)
 
 3. 選取 [佈建] 索引標籤。
 
@@ -170,12 +170,12 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 ## <a name="additional-resources"></a>其他資源
 
-* [管理企業應用程式的佈建的使用者帳戶](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [管理企業應用程式的使用者帳戶佈建](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>後續步驟
 
-* [了解如何檢閱記錄檔，並取得有關佈建活動報告](../manage-apps/check-status-user-account-provisioning.md)
+* [瞭解如何針對佈建活動檢閱記錄和取得報告](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/tableau-online-provisioning-tutorial/tutorial_general_01.png

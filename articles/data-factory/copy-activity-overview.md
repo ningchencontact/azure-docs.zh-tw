@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 28d8c077f106f12812f7ed710217febd24d81efc
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267141"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory 中的複製活動
@@ -25,7 +25,7 @@ ms.locfileid: "59267141"
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版](v1/data-factory-data-movement-activities.md)
-> * [目前版本](copy-activity-overview.md)
+> * [目前的版本](copy-activity-overview.md)
 
 在 Azure Data Factory 中，您可以使用「複製活動」在內部部署與雲端資料存放區之間複製資料。 複製資料之後，可以將它進一步轉換及進行分析。 您也可以使用「複製活動」來發佈商業智慧 (BI) 及應用程式使用情況的轉換和分析結果。
 
@@ -72,7 +72,7 @@ Integration Runtime 必須與每個來源及接收端資料存放區相關聯。
 
 若要在 Azure Data Factory 中使用複製活動，您需要：
 
-1. **建立來源資料存放區和接收資料存放區的連結的服務。** 如需如何設定和支援的屬性，請參閱連接器發行項的＜連結服務屬性＞一節。 您可以在[支援的資料存放區和格式](#supported-data-stores-and-formats)一節找到支援的連接器清單。
+1. **為來源和接收資料存放區建立已連結的服務。** 如需如何設定和支援的屬性，請參閱連接器發行項的＜連結服務屬性＞一節。 您可以在[支援的資料存放區和格式](#supported-data-stores-and-formats)一節找到支援的連接器清單。
 2. **建立來源和接收的資料集。** 如需如何設定和支援的屬性，請參閱來源和接收連接器發行項的＜資料集屬性＞一節。
 3. **建立具有複製活動的管線。** 下一節提供範例。  
 
@@ -161,10 +161,10 @@ Integration Runtime 必須與每個來源及接收端資料存放區相關聯。
 >[!TIP]
 >在某些情況下，您也會在複製監視頁面上方看到「效能微調秘訣」 ，這會告訴您已識別的瓶頸並引導您進行變更，以大幅提升複製輸送量，請參閱[此處](#performance-and-tuning)的範例詳細資料。
 
-**範例： 從 Amazon S3 複製到 Azure Data Lake Store**
+**範例：從 Amazon S3 複製到 Azure Data Lake Store**
 ![監視活動執行詳細資料](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
 
-**範例： 從 Azure SQL Database 複製到 Azure SQL 資料倉儲使用分段複製**
+**範例：使用分段複製從 Azure SQL Database 複製到 Azure SQL 資料倉儲**
 ![監視活動執行詳細資料](./media/copy-activity-overview/monitor-activity-run-details-sql-dw.png)
 
 ### <a name="monitor-programmatically"></a>以程式設計方式監視
@@ -239,7 +239,7 @@ Integration Runtime 必須與每個來源及接收端資料存放區相關聯。
 
 在某些情況下，當您在 ADF 中執行複製活動，您會在[複製活動監控頁面](#monitor-visually)上方直接看到「效能調整秘訣」，如下列範例所示。 這不僅告訴您針對指定複製執行所識別的瓶頸，也會引導進行變更以大幅提升複製輸送量。 效能微調秘訣目前提供下列建議：將資料複製到 Azure SQL 資料倉儲時使用 PolyBase、當資料存放區端上的資源為瓶頸時增加 Azure Cosmos DB RU 或 Azure SQL DB DTU、移除不必要的分段複製等等。效能調整規則也會逐漸變豐富。
 
-**範例： 將複製到 Azure SQL DB 效能調整秘訣**
+**範例：使用效能調整秘訣複製到 Azure SQL DB**
 
 在此範例中，ADF 會在複製執行期間通知接收端有關 Azure SQL DB 達到高 DTU 使用量，這會使寫入作業變慢，因此建議在 Azure SQL DB 層中增加更多 DTU。 
 
@@ -254,6 +254,6 @@ Data Factory 支援以累加方式將差異資料從來源資料存放區複製�
 ## <a name="next-steps"></a>後續步驟
 請參閱下列快速入門、教學課程和範例：
 
-- [將資料從一個位置複製到相同的 Azure Blob 儲存體中的另一個位置](quickstart-create-data-factory-dot-net.md)
+- [在相同的 Azure Blob 儲存體中將資料從一個位置複製到另一個位置](quickstart-create-data-factory-dot-net.md)
 - [將資料從 Azure Blob 儲存體複製到 Azure SQL Database](tutorial-copy-data-dot-net.md)
 - [將資料從內部部署 SQL Server 複製到 Azure](tutorial-hybrid-copy-powershell.md)

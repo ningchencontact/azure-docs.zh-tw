@@ -18,10 +18,10 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
 ms.openlocfilehash: f30c241feced3031d9ed9791c27c6bb1e1e99efb
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046169"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>您可以在 Windows Data Science Virtual Machine 上做的十件事
@@ -46,7 +46,7 @@ Windows Data Science Virtual Machine (DSVM) 是強大的資料科學開發環境
 > 
 > 
 
-**必要條件**
+**先決條件**
 
 * 您需要 Azure 訂用帳戶。 您可以在[這裡](https://azure.microsoft.com/free/)註冊免費試用。
 * 如需在 Azure 入口網站上佈建資料科學虛擬機器的指示，請參閱[建立虛擬機器](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016)。
@@ -275,7 +275,7 @@ DSVM 已在命令列和 GUI 上載入用戶端工具，以便存取 GitHub 存�
 ### <a name="azure-blob"></a>Azure Blob
 Azure blob 是可靠、划算的雲端儲存體，可存放大型和小型的資料。 本節說明如何將資料移至 Azure Blob 及存取儲存在 Azure Blob 中的資料。
 
-**必要條件**
+**先決條件**
 
 * **從 [Azure 入口網站](https://portal.azure.com)建立 Azure Blob 儲存體帳戶。**
 
@@ -286,7 +286,7 @@ Azure blob 是可靠、划算的雲端儲存體，可存放大型和小型的資
 
 ![存取儲存體帳戶的 Azure 儲存體總管的螢幕擷取畫面](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
 
-**將資料從 VM 移到 Azure Blob:AzCopy**
+**將資料從 VM 移至 Azure Blob：AzCopy**
 
 若要在本機檔案與 Blob 儲存體之間移動資料，您可以在命令列或 PowerShell 中使用 AzCopy：
 
@@ -311,12 +311,12 @@ Azure blob 是可靠、划算的雲端儲存體，可存放大型和小型的資
 
 ![儲存體帳戶的螢幕擷取畫面，顯示已上傳的 CSV 檔案](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
 
-**將資料從 VM 移到 Azure Blob:Azure 儲存體總管**
+**將資料從 VM 移至 Azure Blob：Azure 儲存體總管**
 
 您也可以使用 Azure 儲存體總管，從 VM 中的本機檔案上載資料：
 
-* 若要將資料上傳至容器，請在選取目標容器，然後按一下**上傳**] 按鈕。![在 Azure 儲存體總管中的 [上傳] 按鈕的螢幕擷取畫面](./media/vm-do-ten-things/storage-accounts.png)
-* 按一下 **...** 右邊**檔案**方塊中，選取一或多個檔案從檔案系統上傳，然後按一下**上傳**若要開始將檔案上傳。![[上傳檔案] 對話方塊的螢幕擷取畫面](./media/vm-do-ten-things/upload-files-to-blob.png)
+* 若要將資料上傳至容器，請選取目標容器，然後按一下 [上傳] 按鈕。![Azure 儲存體總管中 [上傳] 按鈕的螢幕擷取畫面](./media/vm-do-ten-things/storage-accounts.png)
+* 按一下 [檔案] 方塊右邊的 [...]，從檔案系統中選取一或多個要上傳的檔案，然後按一下 [上傳] 以開始上傳檔案。![[上傳檔案] 對話方塊的螢幕擷取畫面](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 **從 Azure Blob 讀取資料：Machine Learning 讀取器模組**
 
@@ -379,7 +379,7 @@ print 'the size of the data is: %d rows and  %d columns' % df1.shape
 ### <a name="azure-data-lake"></a>Azure Data Lake
 Azure Data Lake 儲存體是巨量資料分析工作負載的超大規模儲存機制，與 Hadoop 分散式檔案系統 (HDFS) 相容。 它可以與 Hadoop、Spark 及 Azure Data Lake Analytics 搭配運作。 在本節中，您將了解如何將資料移至 Azure Data Lake Store，然後使用 Azure Data Lake Analytics 來執行分析。
 
-**必要條件**
+**先決條件**
 
 * 在 [Azure 入口網站](https://portal.azure.com)中建立 Azure Data Lake Analytics。
 
@@ -389,7 +389,7 @@ Azure Data Lake 儲存體是巨量資料分析工作負載的超大規模儲存�
 
 ![Visual Studio 中的 Data Lake Tools 的螢幕擷取畫面](./media/vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
 
-**將資料從 VM 移至 Data Lake 中：Azure Data Lake 總管**
+**將資料從 VM 移至 Data Lake：Azure Data Lake 總管**
 
 您可以使用 **Azure Data Lake Explorer** ，將資料從虛擬機器中的本機檔案上傳至 Data Lake 儲存體。
 
@@ -397,7 +397,7 @@ Azure Data Lake 儲存體是巨量資料分析工作負載的超大規模儲存�
 
 您也可以使用 [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/) 來建置資料管線，以將資料在 Azure Data Lake 的移入和移出操作化。 請參閱這篇[文章](https://azure.microsoft.com/blog/creating-big-data-pipelines-using-azure-data-lake-and-azure-data-factory/) ，以引導您完成建置資料管線的步驟。
 
-**從 Azure Blob 讀取資料至 Data Lake:U-SQL**
+**將資料從 Azure Blob 讀取至 Data Lake：U-SQL**
 
 如果您的資料位於 Azure Blob 儲存體中，您可以在 U-SQL 查詢中從 Azure 儲存體 Blob 直接讀取資料。 撰寫 U-SQL 查詢之前，請確定您的 Blob 儲存體帳戶已連結到您的 Azure 資料湖。 移至 **Azure 入口網站**、尋找您的 Azure Data Lake Analytics 儀表板、按一下 [新增資料來源]、選取 [Azure 儲存體] 做為儲存體類型，並插入您的 Azure 儲存體帳戶名稱和金鑰。 然後您可以參考儲存體帳戶中儲存的資料。
 
@@ -453,7 +453,7 @@ USING Outputters.Csv();
 
 ![作業對話方塊狀態的螢幕擷取畫面](./media/vm-do-ten-things/USQL_Job_Status.PNG)
 
-**Data Lake 中的查詢資料：U-SQL**
+**查詢 Data Lake 中的資料：U-SQL**
 
 將資料集擷取到 Azure Data Lake 之後，您可以使用 [U-SQL 語言](../../data-lake-analytics/data-lake-analytics-u-sql-get-started.md)來查詢和探索資料。 U-SQL 語言類似於 T-SQL，但結合了 C# 的一些功能，以便使用者撰寫自訂的模組、使用者定義的功能等。您可以在上一個步驟中使用指令碼。
 
@@ -468,7 +468,7 @@ USING Outputters.Csv();
 ### <a name="hdinsight-hadoop-clusters"></a>HDInsight Hadoop 叢集
 Azure HDInsight 是在雲端上的受控 Apache Hadoop、Spark、HBase 和 Storm 服務。 您可以輕鬆地從資料科學虛擬機器使用 Azure HDInsight 叢集。
 
-**必要條件**
+**先決條件**
 
 * 從 [Azure 入口網站](https://portal.azure.com)建立 Azure Blob 儲存體帳戶。 此儲存體帳戶用來儲存 HDInsight 叢集的資料。
 
@@ -592,7 +592,7 @@ for i in range(1,13):
 
 在資料載入至 HDI 叢集之後，您可以在 Azure 儲存體總管中檢查您的資料。 而您會在 HDI 叢集中建立資料庫 nyctaxidb。
 
-**資料探索：在 Python 中的 hive 查詢**
+**資料探索：Python 中的 Hive 查詢**
 
 因為資料位於 Hadoop 叢集中，您可以使用 pyodbc 封裝連接到 Hadoop 叢集，並使用 Hive 查詢資料庫以便進行探索和設計功能。 您可以檢視在先決條件步驟中建立的現有資料表。
 
@@ -817,7 +817,7 @@ pd.read_sql(queryString,connection)
 
 ![資料表中的頂端資料列](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
 
-**使用 Machine Learning 從 HDI 讀取資料： 讀取器模組**
+**使用 Machine Learning 從 HDI 讀取資料：讀取器模組**
 
 您也可以在 Machine Learning Studio 中使用**讀取器**模組來存取 Hadoop 叢集中的資料庫。 請插入 HDI 叢集和「Azure 儲存體帳戶」的認證，以允許使用 HDI 叢集中的資料庫來建置機器學習模型。
 

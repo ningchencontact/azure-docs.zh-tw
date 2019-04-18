@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: fde556c60f823f4bd287ca5672503158c7292f51
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918921"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 自訂原則中定義的 OAuth2 的技術設定檔
@@ -112,7 +112,7 @@ Azure Active Directory (Azure AD) B2C 可提供 OAuth2 通訊協定識別提供�
 
 範例：
 
-- [新增 Google + 作為 OAuth2 識別提供者使用自訂原則](active-directory-b2c-custom-setup-goog-idp.md)
+- [使用自訂原則新增 Google+ 作為 OAuth2 識別提供者](active-directory-b2c-custom-setup-goog-idp.md)
 
 
 

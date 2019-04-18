@@ -16,10 +16,10 @@ ms.date: 04/03/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a1f03cd518a15d08971968e04fa69954951c77e0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59052353"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 使用規定特性
@@ -34,8 +34,8 @@ Azure AD 使用規定提供一種簡單的方法，組織可用來將資訊呈�
 >[!VIDEO https://www.youtube.com/embed/tj-LK0abNao]
 
 如需其他影片，請參閱：
-- [如何部署 Azure Active Directory 中的使用規定](https://www.youtube.com/embed/N4vgqHO2tgY)
-- [如何推出的 Azure Active Directory 中的使用規定](https://www.youtube.com/embed/t_hA4y9luCY)
+- [如何在 Azure Active Directory 中部署使用規定](https://www.youtube.com/embed/N4vgqHO2tgY)
+- [如何在 Azure Active Directory 中推出使用規定](https://www.youtube.com/embed/t_hA4y9luCY)
 
 ## <a name="what-can-i-do-with-terms-of-use"></a>我可以用使用規定來做什麼？
 Azure AD 使用規定具有下列功能：
@@ -265,7 +265,7 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 > | **原生應用程式** | 是 | 是 | 是 |  |
 > | **Microsoft Edge** | 是 | 是 | 是 |  |
 > | **Internet Explorer** | 是 | 是 | 是 |  |
-> | **Chrome （副檔名）** | 是 | 是 | 是 |  |
+> | **Chrome (搭配擴充功能)** | 是 | 是 | 是 |  |
 
 每部裝置的使用規定具有下列限制：
 
@@ -345,43 +345,43 @@ Azure AD 使用規定使用 PDF 格式來呈現內容。 此 PDF 檔案可以是
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 
-**問：如何查看何時或是否使用者已接受使用規定？**<br />
+**問：如何查看使用者何時或是否已接受使用規定？**<br />
 答：在 [使用規定] 刀鋒視窗上，按一下 [已接受] 底下的數字。 您也可以檢視或搜尋 Azure AD 稽核記錄中的接受活動。 如需詳細資訊，請參閱檢視已接受和已拒絕的人員報表和[檢視 Azure AD 稽核記錄](#view-azure-ad-audit-logs)。
 
-**問：時間長度是儲存的資訊？**<br />
+**问：資訊會儲存多久時間？**<br />
 答：使用規定報表中的使用者計數和已接受/已拒絕的人員都會儲存到使用規定的存留期結束。 Azure AD 稽核記錄會儲存 30 天。
 
-**問：為什麼看到稽核記錄檔不同數目的同意在使用的報表，與 Azure AD 中的條款？**<br />
+**問：為什麼我在使用規定報表與 Azure AD 稽核記錄中看到同意數目不同？**<br />
 答：使用規定報表會儲存到該使用規定的存留期結束，而 Azure AD 稽核記錄會儲存 30 天。 此外，使用規定報表只會顯示使用者目前的同意狀態。 例如，如果使用者先拒絕，然後接受，則使用規定報表將只會顯示該使用者的接受。 如果您需要查看歷程記錄，您可以使用 Azure AD 稽核記錄。
 
-**問：如果我編輯使用規定詳細資料，不會要求使用者重新接受？**<br />
+**問：如果我編輯使用規定的詳細資料，使用者是否需要重新接受？**<br />
 答：否。如果系統管理員編輯使用規定的詳細資料 (名稱、顯示名稱、要求使用者展開，或新增語言)，系統並不會要求使用者重新接受新的規定。
 
-**問：我是否可以更新現有的條款使用文件？**<br />
+**問：是否可以更新現有的使用規定文件？**<br />
 答：您目前無法更新現有的使用規定文件。 若要變更使用規定文件，您必須建立新的使用規定執行個體。
 
-**問：使用規定 PDF 文件中的超連結時，將終端使用者能夠按一下這些嗎？**<br />
+**問：如果使用規定 PDF 文件中有超連結，使用者是否能點選那些超連結？**<br />
 答：PDF 預設會以 JPEG 形式呈現，因此無法點選超連結。 使用者可以選取**檢視時發生問題嗎？請按一下這裡**的選項，這樣就會以原生方式呈現支援超連結的 PDF。
 
-**問：使用規定可支援多種語言？**<br />
+**問：使用規定是否支援多種語言？**<br />
 答：是。 目前有 108 種語言可供系統管理員為單一使用規定設定。 系統管理員可以上傳多個 PDF 文件，並以相對應的語言 (最多 108 個) 標記那些文件。 當使用者登入時，我們會查看其瀏覽器語言偏好設定，並顯示相符的文件。 如果沒有相符項目，我們將會顯示預設文件，也就是第一個上傳的文件。
 
-**問：何時觸發使用規定？**<br />
+**問：何時會觸發使用規定？**<br />
 答：使用規定會在登入體驗期間觸發。
 
-**問：哪些應用程式可以設為目標來使用規定？**<br />
+**問：我可以將哪些應用程式設定為使用規定的目標？**<br />
 答：您可以使用新式驗證，在企業應用程式上建立條件式存取原則。 如需詳細資訊，請參閱[企業應用程式](./../manage-apps/view-applications-portal.md)。
 
-**問：可以指定的使用者或應用程式新增多個使用規定嗎？**<br />
+**問：是否可以將多個使用規定新增至指定的使用者或應用程式？**<br />
 答：是。方法為建立多個條件式存取原則，並將那些群組或應用程式設為目標。 如果使用者落在多個使用規定的範圍內，他們必須逐一同意每個使用規定。
 
 **問：如果使用者拒絕使用規定，會發生什麼事？**<br />
 答：使用者會被封鎖而無法存取應用程式。 使用者必須再次登入並同意規定，才能取得存取權。
 
-**問：是否可以 unaccept 先前接受使用規定？**<br />
+**問：是否可以取消接受先前接受的使用規定？**<br />
 答：您可以[檢閱先前接受的使用規定](#how-users-can-review-their-terms-of-use)，但目前沒有辦法取消接受。
 
-**問：如果同時使用 Intune 的條款及條件，發生什麼事？**<br />
+**問：如果同時使用 Intune 條款及條件，會發生什麼事？**<br />
 答：如果您已同時設定 Azure AD 使用規定和 [Intune 條款及條件](/intune/terms-and-conditions-create)，使用者就必須同時接受兩者。 如需詳細資訊，請參閱[為您組織的部落格文章選擇正確的條款解決方案](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409) \(英文\)。
 
 ## <a name="next-steps"></a>後續步驟

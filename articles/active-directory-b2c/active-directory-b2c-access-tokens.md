@@ -1,137 +1,140 @@
 ---
-title: 在 Azure Active Directory B2C 中要求存取權杖 | Microsoft Docs
-description: 本文將說明如何設定用戶端應用程式，並取得存取權杖。
+title: 要求存取權杖-Azure Active Directory B2C |Microsoft Docs
+description: 了解如何從 Azure Active Directory B2C 要求存取權杖。
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/09/2017
+ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0ea781188e40d6389da8188379d792c922d3bdca
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 5670d8b3c97cc1f9f6d149e8eadaa60d527e45f5
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768329"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683931"
 ---
-# <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C：要求存取權杖
+# <a name="request-an-access-token-in-azure-active-directory-b2c"></a>要求存取權杖中 Azure Active Directory B2C
 
-存取權杖 (在 Azure AD B2C 的回應中表示為 **access\_token**) 是一種安全性權杖形式，用戶端可用來存取受 [授權伺服器](active-directory-b2c-reference-protocols.md)保護的資源，例如 web API。 存取權杖統稱為[JWT](active-directory-b2c-reference-tokens.md)，且包含關於預期資源伺服器和伺服器授與權限的資訊。 在呼叫資源伺服器時，存取權杖必須出現在 HTTP 要求中。
+*存取權杖*包含您可以授與的權限識別到您的 Api 使用 Azure Active Directory (Azure AD) B2C 中的宣告。 在呼叫資源伺服器，必須出現在 HTTP 要求存取權杖。 表示存取權杖**access_token**從 Azure AD B2C 的回應中。 
 
-本文將討論如何設定用戶端應用程式與 Web API 以取得 **access\_token**。
-
-> [!NOTE]
-> **Azure AD B2C 不支援 Web API 鏈結 (代理者)。**
->
-> 許多架構中都有一個 Web API 需要呼叫另一個下游 Web API，而兩者都受 Azure AD B2C 保護。 此情況常見於有 Web API 後端的原生用戶端，而後端會再呼叫 Azure AD 圖形 API 等 Microsoft 線上服務。
->
-> 使用 OAuth 2.0 JWT 持有人認證授與可支援此鏈結的 Web API 案例，亦稱為「代理者流程」。 不過，Azure AD B2C 目前未實作代理者流程。
-
-## <a name="register-a-web-api-and-publish-permissions"></a>註冊 Web API 與發佈權限
-
-要求存取權杖之前，您必須先註冊 Web API 和發佈可以授與用戶端應用程式的權限 (範圍)。
-
-### <a name="register-a-web-api"></a>註冊 Web API
-
-1. 在 Azure 入口網站的 Azure AD B2C 功能功能表中，按一下 [應用程式]。
-2. 按一下功能表頂端的 [+ 新增]。
-3. 輸入應用程式的 **名稱** ，此名稱將會為取用者說明您的應用程式。 例如，您可以輸入「Contoso API」。
-4. 將 [包括 web 應用程式 / web API] 切換為 [是]。
-5. 在 [回覆 URL] 輸入任意值。 例如，輸入 `https://localhost:44316/`。 這個值無關緊要，因為 API 不應該直接從 Azure AD B2C 接收權杖。
-6. 輸入 [應用程式識別碼 URI]。 這是您的 Web API 所使用的識別碼。 例如，在方塊中輸入「notes」。 [App ID URI] 即會顯示為 `https://{tenantName}.onmicrosoft.com/notes`。
-7. 按一下 [建立]  以註冊您的應用程式。
-8. 按一下您剛才建立的應用程式，並複製稍後要在程式碼中使用的全域唯一 **應用程式用戶端識別碼** 。
-
-### <a name="publishing-permissions"></a>發佈權限
-
-範圍類似權限，當應用程式在呼叫 API 時，範圍是不可或缺的。 舉例來說，「讀取」或「寫入」即是範圍。 假設您想要您的 Web 或原生應用程式從 API 「讀取」。 您的應用程式會呼叫 Azure AD B2C 並要求一個存取權杖，該權杖會將存取權授與「讀取」範圍。 為了讓 Azure AD B2C 發出這類存取權杖，必須將可從特定 API 「讀取」的權限授與該應用程式。 因此，您的 API 必須先發佈「讀取」範圍。
-
-1. 在 Azure AD B2C [應用程式] 功能表中，開啟 Web API 應用程式 ("Contoso API")。
-2. 按一下 [已發佈範圍]。 您會在此定義可授予其他應用程式的權限 (範圍)。
-3. 視需要新增 [範圍值] \(例如「讀取」)。 根據預設，將會定義 "user_impersonation" 範圍。 想要的話，也可以忽略此步驟。 在 [範圍名稱] 資料行中輸入範圍的描述。
-4. 按一下 [檔案] 。
-
-> [!IMPORTANT]
-> [範圍名稱] 是 [範圍值] 的描述。 當使用範圍時，請務必使用 [範圍值]。
-
-## <a name="grant-a-native-or-web-app-permissions-to-a-web-api"></a>將原生或 Web 應用程式的權限授與 Web API
-
-設定好 API 發佈範圍後，必須透過 Azure 入口網站將這些範圍授與用戶端應用程式。
-
-1. 瀏覽至 Azure AD B2C 功能功能表中的 [應用程式] 功能表。
-2. 如果您還沒有用戶端應用程式 ([Web 應用程式](active-directory-b2c-app-registration.md)或[原生用戶端](active-directory-b2c-app-registration.md))，請註冊一個。 如果您一開始便是跟隨本指南的說明進行，則需要註冊用戶端應用程式。
-3. 按一下 [API 存取]。
-4. 按一下 [新增]。
-5. 選取您的 web API，以及您想要授與的範圍 (權限)。
-6. 按一下 [確定]。
+這篇文章會示範如何要求存取權杖的 web 應用程式和 web API。 如需有關在 Azure AD B2C 的權杖的詳細資訊，請參閱[語彙基元中 Azure Active Directory B2C 概觀](active-directory-b2c-reference-tokens.md)。
 
 > [!NOTE]
-> Azure AD B2C 不會要求您的用戶端應用程式使用者同意。 相反地，根據上述應用程式之間設定的權限，所有同意都係由系統管理員提供。 如果已撤銷應用程式的權限授與，所有先前能夠取得該權限的使用者將不再能夠執行這項操作。
+> **Azure AD B2C 不支援 Web API 鏈結 (代理者)。** -許多架構包含 web API 需要呼叫另一個下游 web API，Azure AD B2C 所保護。 此案例常見於有 web API 後端，再呼叫另一個服務的用戶端。 使用 OAuth 2.0 JWT 持有人認證授與可支援此鏈結的 Web API 案例，亦稱為「代理者流程」。 不過，Azure AD B2C 目前未實作代理者流程。
 
-## <a name="requesting-a-token"></a>要求權杖
+## <a name="prerequisites"></a>必要條件
 
-在要求存取權杖時，用戶端應用程式必須在要求的 [scope] 參數中指定所需的權限。 例如，若要將 [App ID URI] 為 `https://contoso.onmicrosoft.com/notes` 的 API 的 [範圍值] 指定為 [read]，則範圍為 `https://contoso.onmicrosoft.com/notes/read`。 以下是對 `/authorize` 端點授權碼要求的範例。
+- [建立使用者流程](tutorial-create-user-flows.md)，讓使用者註冊並登入您的應用程式。
+- 如果您還沒有這麼做，請[新增 web API 應用程式，您的 Azure Active Directory B2C 租用戶](add-web-application.md)。
 
-> [!NOTE]
-> 目前，自訂網域並未和存取權杖一起受到支援。 您必須在要求 URL 中使用您的 tenantName.onmicrosoft.com 網域。
+## <a name="scopes"></a>範圍
+
+範圍會提供一個方法來管理受保護資源的權限。 用戶端應用程式要求存取權杖時，必須指定在所需的權限**範圍**要求參數。 例如，若要指定**範圍值**的`read`api 具有**應用程式識別碼 URI**的`https://contoso.onmicrosoft.com/api`，則範圍會是`https://contoso.onmicrosoft.com/api/read`。
+
+Web API 可使用範圍來實作以範圍為基礎的存取控制。 例如，Web API 的使用者可以同時具有讀取和寫入權限，Web API 的使用者也可能只具有讀取權限。 若要取得相同的要求中的多個權限，您可以新增多個項目中的單一**範圍**要求，並以空格分隔的參數。
+
+下列範例會顯示已解碼的 URL 中的範圍：
+
+```
+scope=https://contoso.onmicrosoft.com/api/read openid offline_access
+```
+
+下列範例會示範編碼在 URL 中的範圍：
+
+```
+scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fapi%2Fread%20openid%20offline_access
+```
+
+如果您要求比授與用戶端應用程式的更多範圍，如果至少一個權限會授與，也會成功呼叫。 **Scp**中產生的存取權杖的宣告會填入已成功授與的權限。 OpenID Connect 標準會指定數個特殊的範圍值。 下列範圍代表存取使用者的設定檔的權限：
+
+- **openid** -要求的識別碼權杖。
+- **offline_access** -要求重新整理權杖 using[授權碼流程](active-directory-b2c-reference-oauth-code.md)。
+
+如果**response_type**中的參數`/authorize`要求包含`token`，則**範圍**參數必須包含至少一個資源範圍以外的其他`openid`並`offline_access`，將會被授與。 否則，`/authorize`要求會失敗。
+
+## <a name="request-a-token"></a>要求權杖
+
+若要要求存取權杖，您需要授權碼。 以下是範例要求`/authorize`端點授權碼。 用於存取權杖不支援自訂網域。 使用您的租用戶 name.onmicrosoft.com 網域要求 URL 中。
 
 在下列範例中，您可以取代下列值：
 
 - `<tenant-name>` - Azure AD B2C 租用戶的名稱。
 - `<policy-name>` - 您的自訂原則或使用者流程名稱。
-- `<application-ID>` - 您所註冊用戶端應用程式的應用程式識別碼。
+- `<application-ID>` 您註冊，以便支援使用者流程的 web 應用程式-應用程式識別碼。
 - `<redirect-uri>` - 您註冊用戶端應用程式時所輸入的 [重新導向 URI]。
 
 ```
-https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?client_id=<application-ID>&nonce=anyRandomValue&redirect_uri=<redirect_uri>&scope=https%3A%2F%2F<tenant-name>.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
+GET https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.onmicrosoft.com/<policy-name>/oauth2/v2.0/authorize?
+client_id=<application-ID>
+&nonce=anyRandomValue
+&redirect_uri=https://jwt.ms
+&scope=https://tenant-name>.onmicrosoft.com/api/read
+&response_type=code 
 ```
 
-要在相同的要求中取得多個權限，您可以在單一**範圍**參數中新增多個項目，以空格分隔。 例如︰
-
-解碼的 URL：
+使用授權碼回應應該類似此範例：
 
 ```
-scope=https://contoso.onmicrosoft.com/notes/read openid offline_access
+https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 ```
 
-編碼的 URL：
+已成功收到授權碼之後, 您可以使用它來要求存取權杖：
 
 ```
-scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread%20openid%20offline_access
+POST <tenant-name>.onmicrosoft.com/oauth2/v2.0/token?p=<policy-name> HTTP/1.1
+Host: https://<tenant-name>.b2clogin.com
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=authorization_code
+&client_id=<application-ID>
+&scope=https://<tenant-name>.onmicrosoft.com/api/read
+&code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
+&redirect_uri=https://jwt.ms
+&client_secret=2hMG2-_:y12n10vwH...
 ```
 
-您可能會要求比授與用戶端應用程式更多的資源範圍 (權限)。 在此情況時，如果至少授與一個權限，則呼叫會成功。 所產生的**存取\_權杖**會僅使用已成功授與的權限填入其 “scp” 宣告。
+您應該會看到類似下列的回應：
 
-> [!NOTE] 
-> 我們在相同的要求中不支援兩個不同 web 資源要求的權限。 這種要求將會失敗。
+```
+{
+    "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrN...",
+    "token_type": "Bearer",
+    "not_before": 1549647431,
+    "expires_in": 3600,
+    "expires_on": 1549651031,
+    "resource": "f2a76e08-93f2-4350-833c-965c02483b11",
+    "profile_info": "eyJ2ZXIiOiIxLjAiLCJ0aWQiOiJjNjRhNGY3ZC0zMDkxLTRjNzMtYTcyMi1hM2YwNjk0Z..."
+}
+```
 
-### <a name="special-cases"></a>特殊案例
+當使用 https://jwt.ms若要檢查傳回的存取權杖，您應該會看到類似下列的範例：
 
-OpenID Connect 標準會指定數個特殊的「範圍」值。 下列特殊範圍代表「存取使用者設定檔」的權限︰
-
-* **openid**：這會要求一個識別碼權杖
-* **offline\_access**：這會要求一個重新整理權杖 (使用[授權碼流程](active-directory-b2c-reference-oauth-code.md))。
-
-如果 `/authorize` 要求中的 `response_type` 參數包含 `token`，則 `scope` 參數必須包含至少一個會授與的資源範圍 (`openid` 與 `offline_access` 以外)。 否則，`/authorize` 要求將會結束並發生失敗。
-
-## <a name="the-returned-token"></a>傳回的權杖
-
-在成功產生**存取\_權杖** (從 `/authorize` 或 `/token` 端點)，會出現下列宣告︰
-
-| Name | 宣告 | 說明 |
-| --- | --- | --- |
-|對象 |`aud` |權杖授與存取權的單一資源之應用程式識別碼。 |
-|影響範圍 |`scp` |授與給資源的權限。 多個授與權限將會以空格隔開。 |
-|授權的合作對象 |`azp` |起始要求之用戶端應用程式的應用程式識別碼。 |
-
-當您的 API 收到**存取\_權杖**時，它必須[驗證權杖](active-directory-b2c-reference-tokens.md)以證明權杖的真實性，並具有正確的宣告。
-
-我們歡迎意見反應和建議！ 如果您對本主題有任何問題，請利用標記 ['azure-ad-b2c'](https://stackoverflow.com/questions/tagged/azure-ad-b2c) 並張貼至 Stack Overflow。 對於功能要求，請將它們新增到 [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c)。
+```
+{
+  "typ": "JWT",
+  "alg": "RS256",
+  "kid": "X5eXk4xyojNFum1kl2Ytv8dl..."
+}.{
+  "iss": "https://contoso0926tenant.b2clogin.com/c64a4f7d-3091-4c73-a7.../v2.0/",
+  "exp": 1549651031,
+  "nbf": 1549647431,
+  "aud": "f2a76e08-93f2-4350-833c-965...",
+  "oid": "1558f87f-452b-4757-bcd1-883...",
+  "sub": "1558f87f-452b-4757-bcd1-883...",
+  "name": "David",
+  "tfp": "B2C_1_signupsignin1",
+  "nonce": "anyRandomValue",
+  "scp": "read",
+  "azp": "38307aee-303c-4fff-8087-d8d2...",
+  "ver": "1.0",
+  "iat": 1549647431
+}.[Signature]
+```
 
 ## <a name="next-steps"></a>後續步驟
 
-* 使用 [.NET Core](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi) 建置 Web API
-* 使用 [Node.JS](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) 建置 Web API
+- 深入了解如何[設定 Azure AD B2C 中的權杖](configure-tokens.md)

@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 04/07/2019
 ms.author: juliako
 ms.openlocfilehash: 91cd8ab0565279f88a0949f873d6e44d564427af
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280208"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>檢查影片索引器輸出所產生的 API
@@ -820,7 +820,7 @@ visualContentModeration 區塊包含影片索引器偵測到可能含有成人�
 
 ## <a name="next-steps"></a>後續步驟
 
-[影片索引器開發人員入口網站](https://api-portal.videoindexer.ai)
+[影片索引子開發人員入口網站](https://api-portal.videoindexer.ai)
 
 如需如何在應用程式中內嵌小工具的詳細資訊，請參閱[將影片索引子小工具內嵌到應用程式中](video-indexer-embed-widgets.md)。 
 

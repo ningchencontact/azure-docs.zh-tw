@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/12/2019
 ms.author: aljo
 ms.openlocfilehash: 400e4653800d445506d4854e70034a707dcc4629
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049176"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>將叢集相應縮小或相應放大
@@ -122,16 +122,16 @@ sfctl node list --query "sort_by(items[*], &name)[-1]"
 Service Fabric 叢集必須知道將移除此節點。 您需要採取三個步驟：
 
 1. 停用節點，以免節點再成為資料的複本。  
-PowerShell： `Disable-ServiceFabricNode`  
-sfctl: `sfctl node disable`
+PowerShell：`Disable-ServiceFabricNode`  
+sfctl：`sfctl node disable`
 
 2. 停止節點，以便 Service Fabric 執行階段正常關閉，而且應用程式取得終止要求。  
-PowerShell： `Start-ServiceFabricNodeTransition -Stop`  
-sfctl: `sfctl node transition --node-transition-type Stop`
+PowerShell：`Start-ServiceFabricNodeTransition -Stop`  
+sfctl：`sfctl node transition --node-transition-type Stop`
 
 2. 從叢集移除該節點。  
-PowerShell： `Remove-ServiceFabricNodeState`  
-sfctl: `sfctl node remove-state`
+PowerShell：`Remove-ServiceFabricNodeState`  
+sfctl：`sfctl node remove-state`
 
 這三個步驟套用至節點之後，即可從擴展集移除節點。 如果在 [bronze][durability] 之外使用任何持久性層，則移除擴展集執行個體時，將完成這些步驟。
 
@@ -195,7 +195,7 @@ else
 }
 ```
 
-在  **sfctl**程式碼中，下列命令來取得**節點名稱**最後建立節點的值： `sfctl node list --query "sort_by(items[*], &name)[-1].name"`
+在下方的 **sfctl** 程式碼中，會使用下列命令來取得最後建立節點的 **node-name** 值：`sfctl node list --query "sort_by(items[*], &name)[-1].name"`
 
 ```azurecli
 # Inform the node that it is going to be removed
@@ -263,7 +263,7 @@ Service Fabric Explorer 列出的節點會反映出 Service Fabric 系統服務 
 
 * [規劃叢集容量](service-fabric-cluster-capacity.md)
 * [叢集升級](service-fabric-cluster-upgrade.md)
-* [分割具狀態服務的最大小數位數](service-fabric-concepts-partitioning.md)
+* [分割具狀態服務以達最大規模](service-fabric-concepts-partitioning.md)
 
 <!--Image references-->
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png

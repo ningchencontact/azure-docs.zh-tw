@@ -14,15 +14,15 @@ ms.workload: NA
 ms.date: 03/22/2019
 ms.author: aljo
 ms.openlocfilehash: 2e9c41409c1f528947e3bef281e9a3c34da39e9b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050437"
 ---
 # <a name="enable-disk-encryption-for-service-fabric-windows-cluster-nodes"></a>為服務網狀架構 Windows 叢集節點啟用磁碟加密 
 > [!div class="op_single_selector"]
-> * [Windows 的磁碟加密](service-fabric-enable-azure-disk-encryption-windows.md)
+> * [適用於 Windows 的磁碟加密](service-fabric-enable-azure-disk-encryption-windows.md)
 > * [適用於 Linux 的磁碟加密](service-fabric-enable-azure-disk-encryption-linux.md)
 >
 >

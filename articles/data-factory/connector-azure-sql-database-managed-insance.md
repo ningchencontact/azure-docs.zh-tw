@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 9cb3c028c14e6c47d47eafcf6279a918c0917442
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272201"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL Database 受控執行個體及從該處複製資料
@@ -83,7 +83,7 @@ ms.locfileid: "59272201"
 }
 ```
 
-**範例 2：使用 SQL 驗證，以在 Azure Key Vault 的密碼**
+**範例 2：使用 SQL 驗證搭配 Azure Key Vault 中的密碼**
 
 ```json
 {
@@ -324,7 +324,7 @@ GO
 ]
 ```
 
-**範例 2：Upsert 複製期間叫用預存程序**
+**範例 2：在複製期間叫用預存程序來進行 upsert**
 
 若要了解更多詳細資料，請參閱[叫用 SQL 接收中的預存程序](#invoke-a-stored-procedure-from-a-sql-sink)。
 
@@ -514,7 +514,7 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 | bit |BOOLEAN |
 | char |String、Char[] |
 | 日期 |DateTime |
-| DateTime |DateTime |
+| datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |

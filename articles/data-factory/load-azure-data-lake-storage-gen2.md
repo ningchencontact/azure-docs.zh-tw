@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
 ms.openlocfilehash: 8e3a23b38dc95f05ed9a6d99d303f3d86eac60ad
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269260"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>使用 Azure Data Factory 將資料載入 Azure Data Lake Storage Gen2 中
@@ -141,4 +141,4 @@ Azure Data Factory 提供可向外延展的受控資料移動解決方案。 由
 ## <a name="next-steps"></a>後續步驟
 
 * [複製活動概觀](copy-activity-overview.md)
-* [Azure Data Lake 儲存體 Gen2 連接器](connector-azure-data-lake-storage.md)
+* [Azure Data Lake Storage Gen2 連接器](connector-azure-data-lake-storage.md)

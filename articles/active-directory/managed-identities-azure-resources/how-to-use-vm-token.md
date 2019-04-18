@@ -16,10 +16,10 @@ ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: abdeb7ce5327db57b8a6ae48fdd8d8c0c81879a7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258907"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>了解如何在 Azure VM 上使用 Azure 資源受控識別來取得存取權杖 
@@ -348,7 +348,7 @@ echo The managed identities for Azure resources access token is $access_token
 - 由於 Azure 資源受控識別子系統快取中沒有權杖而發生快取遺漏
 - 快取的權杖已過期
 
-## <a name="error-handling"></a>錯誤處理
+## <a name="error-handling"></a>错误处理。
 
 Azure 資源受控識別端點會透過 HTTP 回應訊息標頭的狀態碼欄位 (如 4xx 或 5xx 錯誤) 來發出錯誤通知：
 
@@ -365,7 +365,7 @@ Azure 資源受控識別端點會透過 HTTP 回應訊息標頭的狀態碼欄�
 | 元素 | 描述 |
 | ------- | ----------- |
 | 錯誤   | 錯誤識別碼。 |
-| error_description | 錯誤的詳細資訊描述。 **錯誤描述可以隨時變更。 不要撰寫程式碼，將錯誤描述中的值為基礎的分支。**|
+| error_description | 錯誤的詳細資訊描述。 **錯誤描述可以隨時變更。請勿將程式碼撰寫為會針對錯誤描述中的值建立分支。**|
 
 ### <a name="http-response-reference"></a>HTTP 回應參考
 

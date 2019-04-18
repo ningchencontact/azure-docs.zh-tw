@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 2eb480e10ca3b674895d2d22cc44fb52f305f988
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59007511"
 ---
 # <a name="common-security-attributes-for-azure-services"></a>Azure 服務的常見安全性屬性
@@ -23,7 +23,7 @@ Azure 服務的各個層面都整合了安全性。 這篇文章會收集所選�
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
 
-## [<a name="azure-backup"></a>Azure 備份](../backup/backup-security-attributes.md)
+## <a name="azure-backupbackupbackup-security-attributesmd"></a>[Azure 備份](../backup/backup-security-attributes.md)
 
 ### <a name="preventative"></a>預防
 
@@ -71,7 +71,7 @@ Azure 服務的各個層面都整合了安全性。 這篇文章會收集所選�
 |---|---|--|
 | 組態管理支援 （版本設定的組態等）。| 是|  |
 
-## [<a name="azure-key-vault"></a>Azure 金鑰保存庫](../key-vault/key-vault-security-attributes.md)
+## <a name="azure-key-vaultkey-vaultkey-vault-security-attributesmd"></a>[Azure 金鑰保存庫](../key-vault/key-vault-security-attributes.md)
 
 ### <a name="preventative"></a>預防
 
@@ -120,7 +120,7 @@ Azure 服務的各個層面都整合了安全性。 這篇文章會收集所選�
 | 控制/管理平面存取控制 | 是 | Azure Resource Manager 角色型存取控制 (RBAC) |
 | 資料平面存取控制 (在每個服務層級上) | 是 | Key Vault 存取原則 |
 
-## [<a name="azure-service-fabric"></a>Azure Service Fabric](../service-fabric/service-fabric-security-attributes.md)
+## <a name="azure-service-fabricservice-fabricservice-fabric-security-attributesmd"></a>[Azure Service Fabric](../service-fabric/service-fabric-security-attributes.md)
 
 ### <a name="preventative"></a>預防
 

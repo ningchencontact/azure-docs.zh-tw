@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
 ms.openlocfilehash: 49ebf4ab95816a3da2f74a464b12b46de6228456
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280548"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>新增自訂 Service Fabric 健康狀態報告
@@ -304,7 +304,7 @@ HealthEvents          :
 ## <a name="next-steps"></a>後續步驟
 根據健康狀態資料，服務寫入器和叢集/應用程式管理員可想出使用該資訊的多種方式。 例如，他們可以依據健康狀態為基礎設定警示，以便於嚴重問題誘發中斷前加以攔截。 系統管理員也可以設定修復系統來自動修復問題。
 
-[簡介 Service Fabric 健康狀態監視](service-fabric-health-introduction.md)
+[Service Fabric 健康狀態監視簡介](service-fabric-health-introduction.md)
 
 [檢視 Service Fabric 健康狀態報告](service-fabric-view-entities-aggregated-health.md)
 
@@ -312,7 +312,7 @@ HealthEvents          :
 
 [使用系統健康狀態報告進行疑難排解](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
-[在本機上監視及診斷服務](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+[在本地监视和诊断服务](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Service Fabric 應用程式升級](service-fabric-application-upgrade.md)
 

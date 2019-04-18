@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4e2f564de254c2aea779b30286183d0a4e17db6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045479"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>什麼是 Azure AD 身分識別控管？
@@ -69,19 +69,19 @@ Azure AD Privileged Identity Management (PIM) 提供量身訂做的其他控制�
 雖然沒有適用於每位客戶的完美解決方案或建議，但下列組態指引 Microsoft 建議使用哪些基準原則來確保更安全且更有生產力的工作力。
 
 - [身分識別與裝置存取設定](/microsoft-365/enterprise/microsoft-365-policies-configurations)
-- [保護特殊權限的存取](../users-groups-roles/directory-admin-roles-secure.md)
+- [保護特殊權限存取](../users-groups-roles/directory-admin-roles-secure.md)
 
 
 ### <a name="access-reviews"></a>存取權檢閱
 
 - [什麼是存取權檢閱？](access-reviews-overview.md)
-- [管理與存取權檢閱的使用者存取](manage-user-access-with-access-reviews.md)
-- [管理與存取權檢閱的來賓存取](manage-guest-access-with-access-reviews.md)
+- [使用存取權檢閱來管理使用者存取權](manage-user-access-with-access-reviews.md)
+- [使用存取權檢閱來管理來賓存取權](manage-guest-access-with-access-reviews.md)
 - [啟動 Azure AD 角色的存取權檢閱](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 ### <a name="terms-of-use"></a>使用規定
 
-- [我可以用使用規定來做什麼？](../conditional-access/terms-of-use.md)
+- [使用規定對我有何幫助？](../conditional-access/terms-of-use.md)
 
 ### <a name="privileged-identity-management"></a>Privileged Identity Management
 

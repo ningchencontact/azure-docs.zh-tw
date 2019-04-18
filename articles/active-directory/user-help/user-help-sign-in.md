@@ -14,10 +14,10 @@ ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60e4d9a4cb555dfbc9f05961487a8f794d19e1bf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268348"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>使用雙步驟驗證或安全性資訊登入
@@ -26,7 +26,7 @@ ms.locfileid: "59268348"
 > [!Note]
 > 如果您仍然使用雙步驟驗證體驗，您將必須遵循[對我的帳戶進行雙步驟驗證設定](multi-factor-authentication-end-user-first-time.md)一文中的指示來設定驗證方法。
 > 
-> 如果您的系統管理員已開啟安全性資訊體驗，您將需要使用下列逐步文章來設定驗證方法：<ul><li>[若要使用的驗證應用程式設定的安全性資訊](security-info-setup-auth-app.md)</li><li>[若要使用文字訊息設定安全性資訊](security-info-setup-text-msg.md)</li><li>[若要使用的電話設定安全性資訊](security-info-setup-phone-number.md)</li></ul>
+> 如果您的系統管理員已開啟安全性資訊體驗，您將需要使用下列逐步文章來設定驗證方法：<ul><li>[將安全性資訊設定為使用驗證應用程式](security-info-setup-auth-app.md)</li><li>[將安全性資訊設定為使用簡訊](security-info-setup-text-msg.md)</li><li>[將安全性資訊設定為使用電話](security-info-setup-phone-number.md)</li></ul>
 
 ## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>在行動裝置上使用驗證器應用程式通知來登入
 

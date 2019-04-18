@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: ac87ce2198296b82ef5655d7d75443a0bd49df3c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1afe1b437d82759cdfd085f018c31db33264dbf5
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875128"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683152"
 ---
 # <a name="monitoring-and-performance-tuning"></a>監視和效能微調
 
@@ -103,7 +103,6 @@ Azure SQL Database 是有彈性的自動管理資料服務，您可以輕鬆監�
 如需解決這類問題的詳細資訊，請參閱：
 
 - 此[參數的特徵](https://blogs.msdn.microsoft.com/queryoptteam/20../../i-smell-a-parameter/) \(英文\) 部落格文章
-- 此[參數探查問題和因應措施](https://blogs.msdn.microsoft.com/turgays/20../../parameter-sniffing-problem-and-possible-workarounds/) \(英文\) 部落格文章
 - 此[大象與老鼠的參數探查](https://www.brentozar.com/archive/2013/06/the-elephant-and-the-mouse-or-parameter-sniffing-in-sql-server/) \(英文\) 部落格文章
 - 此[動態 sql 與參數化查詢的計畫品質](https://blogs.msdn.microsoft.com/conor_cunningham_msft/20../../conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/) \(英文\) 部落格文章
 

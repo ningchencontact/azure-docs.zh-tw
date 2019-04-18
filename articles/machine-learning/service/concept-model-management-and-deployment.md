@@ -12,10 +12,10 @@ ms.author: clauren
 ms.date: 1/23/2019
 ms.custom: seodec18
 ms.openlocfilehash: 2cd2d328d33744854bc525e5ecf1dfa3b6e4bcc8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275431"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>使用 Azure Machine Learning Service 來管理、部署及監視模型
@@ -28,12 +28,12 @@ ms.locfileid: "59275431"
 1. 在 Azure Machine Learning Service 工作區所裝載的登錄中**註冊模型**
 1. **註冊映像**，以將具有評分指令碼之模型與可攜式容器中的相依性配對 
 1. **部署**映像為雲端或邊緣裝置中的 Web 服務
-1. **監視及收集資料**
+1. **監視和收集資料**
 1. **更新**部署已使用新的映像。
 
 每個步驟都可以單獨執行或當成單一部署命令的一部分來執行。 此外，您還可以將部署整合到 **CI/CD 工作流程**，如本圖所示。
 
-[!['Azure Machine Learning 持續整合/持續部署 (CI/CD) 循環 '](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+[![' Azure Machine Learning 持續整合/持續部署 (CI/CD) 週期 '](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
 ## <a name="step-1-register-model"></a>步驟 1：註冊模型
 
@@ -75,7 +75,7 @@ Azure Machine Learning 支援最熱門架構，但一般而言，任何可使用
 
 Web 服務部署亦為可搜尋。 例如，您可以搜尋特定模型或映像的所有部署。
 
-[![Inferencing 目標](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
+[![推斷的目標](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
 您可以將映像部署至雲端中的下列部署目標：
 

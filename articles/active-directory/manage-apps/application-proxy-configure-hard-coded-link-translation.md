@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2949559542759cadf90d329bc50b352998b3eb7e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59262545"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>重新導向使用 Azure AD Application Proxy 發佈之應用程式的硬式編碼連結
@@ -148,4 +148,4 @@ Azure AD Application Proxy 讓您的內部部署應用程式可供遠端使用�
 ## <a name="next-steps"></a>後續步驟
 [使用自訂網域搭配 Azure AD 應用程式 Proxy](application-proxy-configure-custom-domain.md) 以具有相同的內部和外部 URL
 
-[設定適用於 SharePoint 2013 的備用存取對應](https://technet.microsoft.com/library/cc263208.aspx)
+[設定 SharePoint 2013 的備用存取對應](https://technet.microsoft.com/library/cc263208.aspx)

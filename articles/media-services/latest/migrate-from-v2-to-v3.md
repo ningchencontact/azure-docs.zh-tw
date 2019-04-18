@@ -16,10 +16,10 @@ ms.workload: media
 ms.date: 03/27/2019
 ms.author: juliako
 ms.openlocfilehash: 70e28377b19b682f2191e0a8fb95792101fa8ec7
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045662"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>從媒體服務 v2 移動至 v3 的移轉指導
@@ -98,9 +98,9 @@ v3 API 與 v2 API 具有下列功能差距。 縮小差距是刻不容緩的工�
 
 |案例|V2 API|V3 API|
 |---|---|---|
-|建立資產並上傳檔案 |[v2.NET 範例](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[v3.NET 範例](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
-|提交作業|[v2.NET 範例](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[v3.NET 範例](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>示範如何先建立 Transform，然後再提交 Job。|
-|使用 AES 加密發行資產 |1.建立 ContentKeyAuthorizationPolicyOption<br/>2.建立 ContentKeyAuthorizationPolicy<br/>3.建立 AssetDeliveryPolicy<br/>4.建立資產並上傳內容，或提交作業並使用輸出資產<br/>5.讓 AssetDeliveryPolicy 與資產產生關聯<br/>6.建立 ContentKey<br/>7.將 ContentKey 連結至資產<br/>8.建立 AccessPolicy<br/>9.建立定位器<br/><br/>[v2.NET 範例](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1.建立內容金鑰原則<br/>2.建立資產<br/>3.上傳內容或將資產作為 JobOutput<br/>4.建立串流定位器<br/><br/>[v3.NET 範例](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
+|建立資產並上傳檔案 |[v2 .NET 範例](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[v3 .NET 範例](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
+|提交作業|[v2 .NET 範例](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[v3 .NET 範例](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>示範如何先建立 Transform，然後再提交 Job。|
+|使用 AES 加密發行資產 |1.建立 ContentKeyAuthorizationPolicyOption<br/>2.建立 ContentKeyAuthorizationPolicy<br/>3.建立 AssetDeliveryPolicy<br/>4.建立資產並上傳內容，或提交作業並使用輸出資產<br/>5.讓 AssetDeliveryPolicy 與資產產生關聯<br/>6.建立 ContentKey<br/>7.將 ContentKey 連結至資產<br/>8.建立 AccessPolicy<br/>9.建立定位器<br/><br/>[v2 .NET 範例](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1.建立內容金鑰原則<br/>2.建立資產<br/>3.上傳內容或將資產作為 JobOutput<br/>4.建立串流定位器<br/><br/>[v3 .NET 範例](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
 |取得工作詳細資料和管理工作 |[管理工作使用 v2](../previous/media-services-dotnet-manage-entities.md#get-a-job-reference) |[管理工作使用 v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L546)|
 
 ## <a name="known-issues"></a>已知問題

@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
 ms.openlocfilehash: 62efee57f3663f1dad0446da659de16d2800bf75
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264415"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>建立、設定及管理彈性作業
@@ -98,5 +98,5 @@ IF NOT EXIST (some_object)
 
 ## <a name="next-steps"></a>後續步驟
 
-- [建立及管理彈性作業，使用 PowerShell](elastic-jobs-powershell.md)
-- [建立及管理彈性作業使用 TRANSACT-SQL (T-SQL)](elastic-jobs-tsql.md)
+- [使用 PowerShell 建立及管理彈性作業](elastic-jobs-powershell.md)
+- [使用 Transact-SQL (T-SQL) 來建立及管理彈性作業](elastic-jobs-tsql.md)

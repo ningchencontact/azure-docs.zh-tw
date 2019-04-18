@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
 ms.openlocfilehash: b5a1f12a877008a3ce2ff7bd9635b9ed47b379f7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280310"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure 資源管理員範本函數
@@ -52,11 +52,11 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 * [createArray](resource-group-template-functions-array.md#createarray)
 * [empty](resource-group-template-functions-array.md#empty)
 * [first](resource-group-template-functions-array.md#first)
-* [交集](resource-group-template-functions-array.md#intersection)
+* [intersection](resource-group-template-functions-array.md#intersection)
 * [json](resource-group-template-functions-array.md#json)
 * [last](resource-group-template-functions-array.md#last)
 * [length](resource-group-template-functions-array.md#length)
-* [Min](resource-group-template-functions-array.md#min)
+* [min](resource-group-template-functions-array.md#min)
 * [max](resource-group-template-functions-array.md#max)
 * [range](resource-group-template-functions-array.md#range)
 * [skip](resource-group-template-functions-array.md#skip)
@@ -70,7 +70,7 @@ Resource Manager 提供了幾個用來使用陣列和物件的函式。
 <a id="greaterorequals" />
 
 ## <a name="comparison-functions"></a>比較函式
-Resource Manager 提供了幾個用來在範本中進行比較的函式。
+Resource Manager 提供了幾個可在範本中進行比較的函式。
 
 * [equals](resource-group-template-functions-comparison.md#equals)
 * [less](resource-group-template-functions-comparison.md#less)
@@ -86,8 +86,8 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 資源管理員提供下列函式，以從與部署相關的範本和值的區段中取得值：
 
 * [部署](resource-group-template-functions-deployment.md#deployment)
-* [parameters](resource-group-template-functions-deployment.md#parameters)
-* [variables](resource-group-template-functions-deployment.md#variables)
+* [參數](resource-group-template-functions-deployment.md#parameters)
+* [變數](resource-group-template-functions-deployment.md#variables)
 
 <a id="and" />
 <a id="bool" />
@@ -98,11 +98,11 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 ## <a name="logical-functions"></a>邏輯函式
 Resource Manager 提供下列函式以使用邏輯條件：
 
-* [和](resource-group-template-functions-logical.md#and)
-* [布林](resource-group-template-functions-logical.md#bool)
+* [and](resource-group-template-functions-logical.md#and)
+* [bool](resource-group-template-functions-logical.md#bool)
 * [if](resource-group-template-functions-logical.md#if)
-* [否](resource-group-template-functions-logical.md#not)
-* [或](resource-group-template-functions-logical.md#or)
+* [not](resource-group-template-functions-logical.md#not)
+* [or](resource-group-template-functions-logical.md#or)
 
 <a id="add" />
 <a id="copyindex" />
@@ -123,7 +123,7 @@ Resource Manager 提供下列函式以使用邏輯條件：
 * [div](resource-group-template-functions-numeric.md#div)
 * [float](resource-group-template-functions-numeric.md#float)
 * [int](resource-group-template-functions-numeric.md#int)
-* [Min](resource-group-template-functions-numeric.md#min)
+* [min](resource-group-template-functions-numeric.md#min)
 * [max](resource-group-template-functions-numeric.md#max)
 * [mod](resource-group-template-functions-numeric.md#mod)
 * [mul](resource-group-template-functions-numeric.md#mul)
@@ -147,7 +147,7 @@ Resource Manager 提供下列函式以使用邏輯條件：
 * [提供者](resource-group-template-functions-resource.md#providers)
 * [reference](resource-group-template-functions-resource.md#reference)
 * [resourceGroup](resource-group-template-functions-resource.md#resourcegroup)
-* [ResourceId](resource-group-template-functions-resource.md#resourceid)
+* [resourceId](resource-group-template-functions-resource.md#resourceid)
 * [訂用帳戶](resource-group-template-functions-resource.md#subscription)
 
 <a id="base64" />
@@ -182,7 +182,7 @@ Resource Manager 提供下列函式以使用邏輯條件：
 <a id="uricomponenttostring" />
 
 ## <a name="string-functions"></a>字串函數
-資源管理員提供下列函式以使用字串：
+Resource Manager 提供以下用于处理字符串的函数：
 
 * [base64](resource-group-template-functions-string.md#base64)
 * [base64ToJson](resource-group-template-functions-string.md#base64tojson)
@@ -195,18 +195,18 @@ Resource Manager 提供下列函式以使用邏輯條件：
 * [endsWith](resource-group-template-functions-string.md#endswith)
 * [first](resource-group-template-functions-string.md#first)
 * [format](resource-group-template-functions-string.md#format)
-* [GUID](resource-group-template-functions-string.md#guid)
+* [guid](resource-group-template-functions-string.md#guid)
 * [indexOf](resource-group-template-functions-string.md#indexof)
 * [last](resource-group-template-functions-string.md#last)
 * [lastIndexOf](resource-group-template-functions-string.md#lastindexof)
 * [length](resource-group-template-functions-string.md#length)
 * [newGuid](resource-group-template-functions-string.md#newguid)
 * [padLeft](resource-group-template-functions-string.md#padleft)
-* [取代](resource-group-template-functions-string.md#replace)
+* [replace](resource-group-template-functions-string.md#replace)
 * [skip](resource-group-template-functions-string.md#skip)
-* [split](resource-group-template-functions-string.md#split)
+* [分割](resource-group-template-functions-string.md#split)
 * [startsWith](resource-group-template-functions-string.md#startswith)
-* [字串](resource-group-template-functions-string.md#string)
+* [字符串](resource-group-template-functions-string.md#string)
 * [substring](resource-group-template-functions-string.md#substring)
 * [take](resource-group-template-functions-string.md#take)
 * [toLower](resource-group-template-functions-string.md#tolower)

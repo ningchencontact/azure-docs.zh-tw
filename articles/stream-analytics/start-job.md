@@ -9,10 +9,10 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.openlocfilehash: 9bc3e4132919e5fc5baadc78841e66efd3c34bcd
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59005952"
 ---
 # <a name="how-to-start-an-azure-stream-analytics-job"></a>如何啟動 Azure Stream Analytics 作業
@@ -59,6 +59,6 @@ Start-AzStreamAnalyticsJob `
 
 ## <a name="next-steps"></a>後續步驟
 
-* [快速入門：使用 Azure 门户创建流分析作业](stream-analytics-quick-create-portal.md)
-* [快速入門：使用 Azure PowerShell 建立串流分析作業](stream-analytics-quick-create-powershell.md)
+* [快速入門：使用 Azure 入口網站建立串流分析作業](stream-analytics-quick-create-portal.md)
+* [快速入門：建立使用 Azure PowerShell 的 Stream Analytics 作業](stream-analytics-quick-create-powershell.md)
 * [快速入門：使用適用於 Visual Studio 的 Azure 串流分析工具建立串流分析作業](stream-analytics-quick-create-vs.md)

@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
 ms.openlocfilehash: bf9faa34c1f0923761ce583c22ba4084d7bd42a8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278780"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的字串函式
@@ -34,18 +34,18 @@ ms.locfileid: "59278780"
 * [endsWith](#endswith)
 * [first](#first)
 * [format](#format)
-* [GUID](#guid)
+* [guid](#guid)
 * [indexOf](#indexof)
 * [last](#last)
 * [lastIndexOf](#lastindexof)
 * [length](#length)
 * [newGuid](#newguid)
 * [padLeft](#padleft)
-* [取代](#replace)
+* [replace](#replace)
 * [skip](#skip)
-* [split](#split)
+* [分割](#split)
 * [startsWith](#startswith)
-* [字串](#string)
+* [字符串](#string)
 * [substring](#substring)
 * [take](#take)
 * [toLower](#tolower)
@@ -1078,7 +1078,7 @@ JSON 物件。
 
 `newGuid()`
 
-以全局唯一标识符的格式返回一个值。 **此函式只可用以預設值的參數。**
+以全局唯一标识符的格式返回一个值。 **此函数只能在参数的默认值中使用。**
 
 ### <a name="remarks"></a>備註
 
@@ -2071,7 +2071,7 @@ URI 編碼值的解碼字串。
 
 `utcNow(format)`
 
-以指定的格式返回当前的 (UTC) 日期时间值。 如果未提供格式，则使用 ISO 8601 (yyyyMMddTHHmmssZ) 格式。 **此函式只可用以預設值的參數。**
+以指定的格式返回当前的 (UTC) 日期时间值。 如果未提供格式，则使用 ISO 8601 (yyyyMMddTHHmmssZ) 格式。 **此函数只能在参数的默认值中使用。**
 
 ### <a name="parameters"></a>參數
 

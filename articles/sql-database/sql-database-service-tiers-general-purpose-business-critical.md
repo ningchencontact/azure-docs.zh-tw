@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database - 一般用途和業務關鍵 | Microsoft Docs
-description: 本文討論 V 核心購買模型中的一般用途和業務關鍵服務層。
+description: 本文討論虛擬核心購買模型中的一般用途和業務關鍵服務層。
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 02/23/2019
 ms.openlocfilehash: 067ea8eee297eb8572bd37e240b8d13afe458ca7
 ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 04/09/2019
 ms.locfileid: "59358478"

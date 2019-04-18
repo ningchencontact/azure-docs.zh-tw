@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 04/02/2019
 ms.author: aljo
 ms.openlocfilehash: 45d5d1b4e050d01b003b6321e1af44c0da762e19
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275473"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>在 Windows 上準備您的開發環境
 > [!div class="op_single_selector"]
-> * [ Windows](service-fabric-get-started.md) 
-> * [ Linux](service-fabric-get-started-linux.md)
+> * [Windows](service-fabric-get-started.md) 
+> * [Linux](service-fabric-get-started-linux.md)
 > * [OSX](service-fabric-get-started-mac.md)
 > 
 > 
@@ -91,11 +91,11 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ## <a name="next-steps"></a>後續步驟
 現在您的開發環境已完成設定，您可以開始建置和執行應用程式。
 
-* [了解如何建立、 部署及管理應用程式](service-fabric-tutorial-create-dotnet-app.md)
-* [深入了解程式設計模型：Reliable Services 和 Reliable Actors](service-fabric-choose-framework.md)
-* [請參閱 GitHub 上的 Service Fabric 程式碼範例](https://aka.ms/servicefabricsamples)
-* [使用 Service Fabric Explorer 視覺化叢集](service-fabric-visualizing-your-cluster.md)
-* 了解 [Service Fabric 支援選項](service-fabric-support.md)
+* [了解如何建立、部署及管理應用程式](service-fabric-tutorial-create-dotnet-app.md)
+* [了解程式設計模型：Reliable Services 和 Reliable Actors](service-fabric-choose-framework.md)
+* [請查看 GitHub 上的 Service Fabric 程式碼範例](https://aka.ms/servicefabricsamples)
+* [使用 Service Fabric 總管將叢集視覺化](service-fabric-visualizing-your-cluster.md)
+* 了解 [Service Fabric 支持选项](service-fabric-support.md)
 
 [1]: https://azure.microsoft.com/campaigns/service-fabric/ "Service Fabric 活動頁面"
 [2]: https://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"

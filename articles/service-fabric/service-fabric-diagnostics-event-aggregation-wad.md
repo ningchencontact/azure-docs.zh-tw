@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
 ms.openlocfilehash: d49104c1d1402969917de63e22bd41e7489a08c7
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046286"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>使用 Windows Azure 診斷的事件彙總和收集
 > [!div class="op_single_selector"]
-> * [ Windows](service-fabric-diagnostics-event-aggregation-wad.md)
-> * [ Linux](service-fabric-diagnostics-event-aggregation-lad.md)
+> * [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
+> * [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
 >
 >
 
@@ -45,7 +45,7 @@ ms.locfileid: "59046286"
 ## <a name="service-fabric-platform-events"></a>Service Fabric 平台事件
 Service Fabric 會設定一些[現成的記錄通道](service-fabric-diagnostics-event-generation-infra.md)，其使用擴充功能預先設定下列通道，將監視和診斷資料傳送至儲存體資料表或其他位置：
   * [操作事件](service-fabric-diagnostics-event-generation-operational.md)：Service Fabric 平台所執行的較高層級作業。 範例包括建立應用程式和服務、節點狀態變更和升級資訊。 這些是以 Windows 事件追蹤 (ETW) 記錄的形式發出。
-  * [Reliable Actors 程式設計模型事件](service-fabric-reliable-actors-diagnostics.md)
+  * [Reliable Actors 编程模型事件](service-fabric-reliable-actors-diagnostics.md)
   * [Reliable Services 程式設計模型事件](service-fabric-reliable-services-diagnostics.md)
 
 ## <a name="deploy-the-diagnostics-extension-through-the-portal"></a>透過入口網站部署診斷擴充功能
@@ -192,7 +192,7 @@ Service Fabric 會設定一些[現成的記錄通道](service-fabric-diagnostics
 
 ### <a name="update-storage-quota"></a>更新儲存體配額
 
-因為由擴充功能填入的表格可成長到達到配額限制，因此建議您考慮降低配額大小。 預設值是 50 GB，且可在範本中設定`overallQuotaInMB`欄位下 `DiagnosticMonitorConfiguration`
+因為由擴充功能填入的表格可成長到達到配額限制，因此建議您考慮降低配額大小。 預設值是 50 GB，並可在 `DiagnosticMonitorConfiguration` 下方，從 `overallQuotaInMB` 欄位下的範本中設定
 
 ```json
 "overallQuotaInMB": "50000",
@@ -348,8 +348,8 @@ Service Fabric 會設定一些[現成的記錄通道](service-fabric-diagnostics
 >[!NOTE]
 >目前沒有任何方法可以篩選或清理已傳送至資料表的事件。 如果不實作從資料表移除事件的處理序，資料表將會繼續成長。 目前，我們可以提供具有 [Watchdog 範例](https://github.com/Azure-Samples/service-fabric-watchdog-service)中所執行資料清理服務的範例，除非您必須儲存超過 30 或 90 天時間範圍的記錄，否則建議您自行撰寫資料清理服務。
 
-* [了解如何使用診斷擴充功能收集效能計數器或記錄檔](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [事件分析和視覺效果使用 Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+* [了解如何使用診斷擴充功能收集效能計數器或記錄](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [使用 Application Insights 進行事件分析和視覺效果](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [事件分析和視覺效果，與 Azure 監視器記錄檔](service-fabric-diagnostics-event-analysis-oms.md)
-* [事件分析和視覺效果使用 Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+* [使用 Application Insights 進行事件分析和視覺效果](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [事件分析和視覺效果，與 Azure 監視器記錄檔](service-fabric-diagnostics-event-analysis-oms.md)

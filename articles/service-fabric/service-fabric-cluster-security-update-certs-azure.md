@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
 ms.openlocfilehash: 0038de621a02a2edf3198686e1f2fc88fb917d9c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050232"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>新增或移除 Azure 中 Service Fabric 叢集的憑證
@@ -61,7 +61,7 @@ Azure Service Fabric SDK 的預設憑證載入行為，是部署和使用到期�
 
 為了便於跟著操作，範例 5-VM-1-NodeTypes-Secure_Step2.JSON 包含我們將進行的所有編輯。 您可以從 [git 存放庫](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample)取得該範例。
 
-**請務必遵循所有步驟**
+**務必依照所有步驟操作**
 
 1. 開啟您用來部署叢集的 Resource Manager 範本。 (如果您已從上述存放庫下載該範例，則請使用 5-VM-1-NodeTypes-Secure_Step1.JSON 來部署一個安全的叢集，然後開啟該範本)。
 
@@ -289,10 +289,10 @@ Get-ServiceFabricClusterHealth
 若要移除次要憑證，使其不用於叢集安全性，請瀏覽至 [安全性] 區段，然後從特定憑證上的操作功能表中選取 [刪除] 選項。
 
 ## <a name="next-steps"></a>後續步驟
-如需有關叢集管理的詳細資訊，請參閱下列文件︰
+有关群集管理的详细信息，请阅读以下文章：
 
-* [Service Fabric 叢集升級程序和您的期望](service-fabric-cluster-upgrade.md)
-* [用戶端設定以角色為基礎的存取](service-fabric-cluster-security-roles.md)
+* [Service Fabric 群集升级过程和用户预期](service-fabric-cluster-upgrade.md)
+* [为客户端设置基于角色的访问](service-fabric-cluster-security-roles.md)
 
 <!--Image references-->
 [Add_Client_Cert]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_13.PNG

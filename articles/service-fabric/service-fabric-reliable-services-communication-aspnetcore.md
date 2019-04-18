@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
 ms.openlocfilehash: 5a4b7514005da9e9a998dba014fa0ea6c014397a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268512"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>Service Fabric Reliable Services 中的 ASP.NET Core
@@ -134,7 +134,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 ### <a name="httpsys-in-a-stateful-service"></a>具狀態服務中的 HttpSys
 
-`HttpSysCommunicationListener` 目前不是用於具狀態服務，由於與基礎的複雜性*http.sys*連接埠共用功能。 如需詳細資訊，請參閱下一節的使用 HttpSys 動態連接埠配置。 針對具狀態服務，Kestrel 是建議的 web 伺服器。
+由於基礎 http.sys 連接埠共用功能很複雜，`HttpSysCommunicationListener` 目前不是設計用於具狀態服務。 如需詳細資訊，請參閱下一節的使用 HttpSys 動態連接埠配置。 針對具狀態服務，Kestrel 是建議的 web 伺服器。
 
 ### <a name="endpoint-configuration"></a>端點組態
 
@@ -469,7 +469,7 @@ Kestrel 建議用於前端服務的 web 伺服器，這些服務會公開於外�
  
 當公開至網際網路時，無狀態服務應使用可透過負載平衡器連線的已知且穩定端點。 這是您提供給使用者的應用程式 URL。 建議使用下列組態：
 
-|  |  | **注意** |
+|  |  | **说明** |
 | --- | --- | --- |
 | Web 伺服器 | Kestrel | Kestrel 是慣用的 Web 伺服器，因為 Windows 和 Linux 均支援它。 |
 | 連接埠組態 | 靜態 | 已知的靜態連接埠應在 ServiceManifest.xml 的 `Endpoints` 組態中設定，例如 HTTP 為 80 或 443 為 HTTPS。 |
@@ -494,7 +494,7 @@ Kestrel 建議用於前端服務的 web 伺服器，這些服務會公開於外�
 ### <a name="internal-only-stateless-aspnet-core-service"></a>僅供內部使用的無狀態 ASP.NET Core 服務
 只會從叢集內呼叫的無狀態服務應該使用唯一的 URL 並動態指派連接埠，以確保多個服務之間的合作。 建議使用下列組態：
 
-|  |  | **注意** |
+|  |  | **说明** |
 | --- | --- | --- |
 | Web 伺服器 | Kestrel | 雖然可能會針對內部的無狀態服務使用 HttpSys，但 Kestrel 是建議的伺服器，可允許多個服務執行個體共用主機。  |
 | 連接埠組態 | 動態指派 | 多個具狀態服務的複本可能會共用主機處理序或主機作業系統，因此需要唯一的連接埠。 |
@@ -504,7 +504,7 @@ Kestrel 建議用於前端服務的 web 伺服器，這些服務會公開於外�
 ### <a name="internal-only-stateful-aspnet-core-service"></a>僅供內部使用的具狀態 ASP.NET Core 服務
 只會從叢集內呼叫的具狀態服務應該使用動態指派連接埠，以確保多個服務之間的合作。 建議使用下列組態：
 
-|  |  | **注意** |
+|  |  | **说明** |
 | --- | --- | --- |
 | Web 伺服器 | Kestrel | `HttpSysCommunicationListener`不是設計由複本共用主機處理序的具狀態服務使用。 |
 | 連接埠組態 | 動態指派 | 多個具狀態服務的複本可能會共用主機處理序或主機作業系統，因此需要唯一的連接埠。 |

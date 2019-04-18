@@ -39,6 +39,6 @@ sections:
           - title: 命令列
             html: '<p><a href="/powershell/module/az.blueprint/#blueprint">Azure PowerShell</a></p>'
           - title: Languages
-            html: <p><a href="/dotnet/api/overview/azure/blueprints/management">適用於 .NET 的 Azure SDK</a></p>
+            html: <p><a href="/dotnet/api/overview/azure/blueprints/management">Azure SDK for .NET</a></p>
           - title: REST
             html: <p><a href="/rest/api/blueprints/">API 參考</a></p>

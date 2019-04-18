@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 04/16/2019
 ms.author: orspod
-ms.openlocfilehash: 6138fadd060051c1b4264cd844ca2a4b8c28116a
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 756ede9cc90655163d6d53aa3ca920d2a15fb43d
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58880027"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682486"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure 資料總管或從該處複製資料
 
@@ -38,6 +38,9 @@ Azure 資料總管連接器可讓您執行下列作業：
 * 作為接收時，請將資料附加至目的地資料表。
 
 ## <a name="getting-started"></a>開始使用
+
+>[!TIP]
+>使用 Azure Data Explorer 連接器的逐步解說，請參閱 <<c0> [ 使用 Azure Data Factory 的 Azure 資料總管的來回複製資料](../data-explorer/data-factory-load-data.md)。
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -72,7 +75,7 @@ Azure 資料總管連結服務支援以下屬性：
 | servicePrincipalId | 指定應用程式的用戶端識別碼。 這是什麼您通常稱為 「**AAD 應用程式用戶端識別碼**」 中[Kusto 連接字串](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties)。 | 是 |
 | servicePrincipalKey | 指定應用程式的金鑰。 這是什麼您通常稱為 「**AAD 應用程式金鑰**」 中[Kusto 連接字串](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties)。 將此欄位標記為 **SecureString**，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 
-**連結的服務屬性範例：**
+**連結服務屬性範例：**
 
 ```json
 {

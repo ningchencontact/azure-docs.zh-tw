@@ -12,10 +12,10 @@ ms.reviewer: larryfr
 ms.date: 04/02/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: a6ef53d56fa293791658b37b16cbaff94aee6ef3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280888"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務部署模型
@@ -32,7 +32,7 @@ ms.locfileid: "59280888"
 | [Azure Machine Learning 計算 (amlcompute)](#azuremlcompute) | 批次推斷 | 執行無伺服器計算的批次預測。 支援一般 vm 和低優先順序 Vm。 |
 | [Azure 容器執行個體 (ACI)](#aci) | 測試 | 適合用於開發或測試。 **不適合用於生產工作負載。** |
 | [Azure IoT Edge](#iotedge) | （預覽）IoT 模組 | 在 IoT 裝置上部署模型。 裝置上會發生推斷。 |
-| [現場可程式化閘陣列 (FPGA)](#fpga) | （預覽）Web 服務 | 即時推斷的超低延遲。 |
+| [可現場程式化閘道陣列 (FPGA)](#fpga) | （預覽）Web 服務 | 即時推斷的超低延遲。 |
 
 ## <a name="deployment-workflow"></a>部署工作流程
 
@@ -151,9 +151,9 @@ image_config.base_image = run.properties["AzureML.DerivedImageName"]
 
 指令碼包含兩個函式，載入及執行模型：
 
-* `init()`：此函式通常會將模型載入到全域物件。 此函式只會在 Docker 容器啟動時執行一次。
+* `init()`:此函式通常會將模型載入到全域物件。 此函式只會在 Docker 容器啟動時執行一次。
 
-* `run(input_data)`：此函式會使用模型，依據輸入資料來預測值。 執行的輸入和輸出通常使用 JSON 進行序列化和還原序列化。 您也可以使用原始的二進位資料。 您可以先轉換資料，再將資料傳送給模型或傳回用戶端。
+* `run(input_data)`:此函式會使用模型，依據輸入資料來預測值。 執行的輸入和輸出通常使用 JSON 進行序列化和還原序列化。 您也可以使用原始的二進位資料。 您可以先轉換資料，再將資料傳送給模型或傳回用戶端。
 
 #### <a name="working-with-json-data"></a>使用 JSON 資料
 
@@ -252,7 +252,7 @@ image = ContainerImage.create(name = "myimage",
 | [Azure ML 計算](#azuremlcompute) | Web 服務 （批次推斷）| 執行無伺服器計算的批次預測。 支援一般 vm 和低優先順序 Vm。 |
 | [Azure 容器執行個體 (ACI)](#aci) | Web 服務 （開發/測試）| 適合用於開發或測試。 **不適合用於生產工作負載。** |
 | [Azure IoT Edge](#iotedge) | （預覽）IoT 模組 | 在 IoT 裝置上部署模型。 裝置上會發生推斷。 |
-| [現場可程式化閘陣列 (FPGA)](#fpga) | （預覽）Web 服務 | 即時推斷的超低延遲。 |
+| [可現場程式化閘道陣列 (FPGA)](#fpga) | （預覽）Web 服務 | 即時推斷的超低延遲。 |
 
 > [!IMPORTANT]
 > 將模型部署為 Web 服務時，目前不支援跨原始來源資源共用 (CORS)。
@@ -621,7 +621,7 @@ Azure IoT Edge 模組會從容器登錄部署到您的裝置。 當您從模型�
 
 註冊裝置的其他方法包括：
 
-* [Azure 入口網站](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
+* [Azure 门户](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
 * [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
 * [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
 
@@ -645,11 +645,11 @@ Azure IoT Edge 模組會從容器登錄部署到您的裝置。 當您從模型�
 
 * [部署疑難排解](how-to-troubleshoot-deployment.md)
 * [使用 SSL 保護 Azure Machine Learning Web 服務](how-to-secure-web-service.md)
-* [使用 ML 模型部署為 web 服務](how-to-consume-web-service.md)
+* [取用部署為 Web 服務的 ML 模型](how-to-consume-web-service.md)
 * [如何執行批次預測](how-to-run-batch-predictions.md)
 * [使用 Application Insights 監視您的 Azure Machine Learning 模型](how-to-enable-app-insights.md)
 * [在生產環境中收集模型資料](how-to-enable-data-collection.md)
 * [Azure Machine Learning 服務 SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-* [使用 Azure Machine Learning 服務與 Azure 虛擬網路](how-to-enable-virtual-network.md)
+* [透過 Azure 虛擬網路使用 Azure Machine Learning 服務](how-to-enable-virtual-network.md)
 * [建置建議系統的最佳作法](https://github.com/Microsoft/Recommenders)
 * [在 Azure 上建置即時建議 API](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
 ms.openlocfilehash: 99798b35419ec9574c99aaba42803fbeeb1555f1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267118"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>複製活動中的結構描述對應
@@ -150,7 +150,7 @@ ms.locfileid: "59267118"
 | schemaMapping | 索引鍵 / 值組的集合表示的對應關聯性**從來源到接收端的側邊**。<br/>- **索引鍵：** 代表來源。 針對**表格式來源**，指定資料行名稱，因為定義資料集結構中; 如**階層式的來源**，指定每個欄位擷取，並將對應的 JSON 路徑運算式。<br/>- **值：** 代表接收。 針對**表格式接收**，指定資料行名稱，因為定義資料集結構中; 如**階層式接收**，指定每個欄位擷取，並將對應的 JSON 路徑運算式。 <br/> JSON 路徑開頭根 $; 若為階層式資料，根物件下的欄位所選陣列內的欄位`collectionReference`屬性中，JSON 路徑的開頭的陣列項目。  | 是 |
 | collectionReference | 如果您想要逐一查看**陣列欄位內**相同模式的物件並擷取資料，然後轉換為每個物件一個資料列，則請指定該陣列的 JSON 路徑，以執行交叉套用。 只有在階層式資料是來源時，才支援這個屬性。 | 否 |
 
-**範例： 從 MongoDB 複製到 SQL:**
+**範例：從 MongoDB 複製到 SQL：**
 
 例如，如果您有具備下列內容的 MongoDB 文件： 
 
@@ -230,7 +230,7 @@ Data Factory 支援下列過渡資料類型：在[資料集結構](concepts-data
 
 * Byte[]
 * BOOLEAN
-* DateTime
+* datetime
 * Datetimeoffset
 * Decimal
 * Double
@@ -269,4 +269,4 @@ Data Factory 支援下列過渡資料類型：在[資料集結構](concepts-data
 
 - [複製活動概觀](copy-activity-overview.md)
 - [複製活動容錯](copy-activity-fault-tolerance.md)
-- [複製活動的效能](copy-activity-performance.md)
+- [複製活動效能](copy-activity-performance.md)

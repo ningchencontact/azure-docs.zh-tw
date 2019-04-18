@@ -12,10 +12,10 @@ author: prasanthpul
 ms.date: 12/3/2018
 ms.custom: seodec18
 ms.openlocfilehash: 33a93aa01499beb978f616f633588ba75e4b62a3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259179"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX 與 Azure Machine Learning：建立與部署互通的 AI 模型
@@ -37,7 +37,7 @@ Microsoft 會讓其產品 (包括 Azure 和 Windows) 支援 ONNX，以協助您�
 
 您可以使用 Azure Machine Learning 和 ONNX Runtime 將 [ONNX 模型可以部署](#deploy)到雲端。 也可以使用 [Windows ML](https://docs.microsoft.com/windows/ai/)，將其部署到 Windows 10 裝置。 甚至可以使用從 ONNX 社群取得的轉換器，將其部署到其他平台。 
 
-[![O顯示訓練、 轉換和部署 NNX 流程圖](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
+[![顯示訓練、 轉換和部署的 ONNX 流程圖](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>取得 ONNX 模型
 
@@ -53,12 +53,12 @@ Microsoft 會讓其產品 (包括 Azure 和 Windows) 支援 ONNX，以協助您�
 
 |模型的架構|轉換範例或工具|
 |-----|-------|
-|PyTorch|[Jupyter 筆記本](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)|
-|TensorFlow|[tensorflow onnx 轉換器](https://github.com/onnx/tensorflow-onnx)|
-|Chainer|[Jupyter 筆記本](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)|
-|MXNet|[Jupyter 筆記本](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)|
+|PyTorch|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)|
+|TensorFlow|[tensorflow-onnx 轉換器](https://github.com/onnx/tensorflow-onnx)|
+|Chainer|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)|
+|MXNet|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)|
 |Keras、ScitKit-Learn、CoreML<br/>XGBoost 和 libSVM|[WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools)|
-|Microsoft&nbsp;Cognitive&nbsp;Toolkit|[Jupyter 筆記本](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)|
+|Microsoft&nbsp;Cognitive&nbsp;Toolkit|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)|
 
 您可以在 [ONNX 教學課程網站](https://github.com/onnx/tutorials)找到支援架構和轉換器的最新清單。
 
@@ -208,7 +208,7 @@ results = session.run([], {"input1": indata1, "input2": indata2})
 深入了解 ONNX 或參與專案：
 + [ONNX 專案網站](https://onnx.ai)
 
-+ [在 GitHub 上的 ONNX 程式碼](https://github.com/onnx/onnx)
++ [GitHub 上的 ONNX 程式碼](https://github.com/onnx/onnx)
 
 深入了解 ONNX Runtime 或參與專案：
 + [ONNX Runtime GitHub 存放庫](https://github.com/Microsoft/onnxruntime)

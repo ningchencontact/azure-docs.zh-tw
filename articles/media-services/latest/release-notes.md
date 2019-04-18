@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
 ms.openlocfilehash: de5432c4e04fb0cfaf0517426fe9ee9da2a57b37
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266982"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure 媒體服務 v3 版本資訊
@@ -69,15 +69,15 @@ CLI 2.0 模組現已適用於 [Azure 媒體服務 v3 GA](https://docs.microsoft.
 
 ### <a name="new-commands"></a>新的命令
 
-- [az ams 帳戶](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
-- [az ams 帳戶篩選](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
-- [az ams 資產](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
-- [az ams 資產篩選器](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
-- [az ams 內容金鑰原則](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
-- [az ams 工作](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
-- [az ams 即時事件](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
-- [az ams 即時輸出](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
-- [az ams 串流端點](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
+- [az ams account](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
+- [az ams account-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
+- [az ams asset](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
+- [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
+- [az ams content-key-policy](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
+- [az ams job](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
+- [az ams live-event](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
+- [az ams live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
+- [az ams streaming-endpoint](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
 - [az ams streaming-locator](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
 - [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) - 可讓您管理媒體保留單位。 如需詳細資訊，請參閱[調整媒體保留單位](media-reserved-units-cli-how-to.md)。
 
@@ -85,31 +85,31 @@ CLI 2.0 模組現已適用於 [Azure 媒體服務 v3 GA](https://docs.microsoft.
 
 #### <a name="asset-commands"></a>資產命令
 
-- ```--storage-account``` 和```--container```加入的引數。
+- 已新增 ```--storage-account``` 和 ```--container``` 引數。
 - 已在 ```az ams asset get-sas-url``` 命令中新增到期時間 (現在 + 23 小時) 和權限 (讀取) 的預設值。
 
 #### <a name="job-commands"></a>作業命令
 
-- ```--correlation-data``` 和```--label```加入的引數
-- ```--output-asset-names``` 重新命名為```--output-assets```。 現在它會接受以空格分隔且格式為 'assetName=label' 的資產清單。 可以傳送沒有標籤的資產，例如：'assetName='。
+- 已新增 ```--correlation-data``` 和 ```--label``` 引數
+- ```--output-asset-names``` 已重新命名為 ```--output-assets```。 現在它會接受以空格分隔且格式為 'assetName=label' 的資產清單。 可以傳送沒有標籤的資產，例如：'assetName='。
 
 #### <a name="streaming-locator-commands"></a>串流定位器命令
 
-- ```az ams streaming locator``` 基底的命令取代```az ams streaming-locator```。
-- ```--streaming-locator-id``` 和```--alternative-media-id support```加入的引數。
-- ```--content-keys argument``` 更新的引數。
-- ```--content-policy-name``` 重新命名為```--content-key-policy-name```。
+- ```az ams streaming locator``` 基底命令已取代為 ```az ams streaming-locator```。
+- 已新增 ```--streaming-locator-id``` 和 ```--alternative-media-id support``` 引數。
+- 已更新 ```--content-keys argument``` 引數。
+- ```--content-policy-name``` 已重新命名為 ```--content-key-policy-name```。
 
 #### <a name="streaming-policy-commands"></a>串流原則命令
 
-- ```az ams streaming policy``` 基底的命令取代```az ams streaming-policy```。
+- ```az ams streaming policy``` 基底命令已取代為 ```az ams streaming-policy```。
 - 已在 ```az ams streaming-policy create``` 中新增加密參數支援。
 
 #### <a name="transform-commands"></a>轉換命令
 
-- ```--preset-names``` 引數取代```--preset```。 現在您一次只能設定 1 個輸出/預設 (以新增更多必須執行 ```az ams transform output add``` 的項目)。 此外，您可傳遞自訂 JSON 的路徑以設定自訂 StandardEncoderPreset。
-- ```az ams transform output remove``` 可以藉由傳遞要移除的輸出索引執行。
-- ```--relative-priority, --on-error, --audio-language and --insights-to-extract``` 引數中加入```az ams transform create```和```az ams transform output add```命令。
+- ```--preset-names``` 引數已取代為 ```--preset```。 現在您一次只能設定 1 個輸出/預設 (以新增更多必須執行 ```az ams transform output add``` 的項目)。 此外，您可傳遞自訂 JSON 的路徑以設定自訂 StandardEncoderPreset。
+- 傳遞要移除的輸出索引即可執行 ```az ams transform output remove```。
+- 已在 ```az ams transform create``` 和 ```az ams transform output add``` 命令中新增 ```--relative-priority, --on-error, --audio-language and --insights-to-extract``` 引數。
 
 ## <a name="october-2018---ga"></a>2018 年 10 月 - GA
 

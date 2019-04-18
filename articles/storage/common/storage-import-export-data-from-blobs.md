@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: fc02e830953f8612a077fb219c7fef4e86bc3827
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59263823"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>使用 Azure 匯入/匯出服務匯出 Azure Blob 儲存體中的資料
@@ -146,7 +146,7 @@ ms.locfileid: "59263823"
     |**/sk:**|如果未指定容器 SAS 時，才是必要參數。 匯出作業之儲存體帳戶的帳戶金鑰。|  
     |**/csas:**|如果未指定儲存體帳戶金鑰時，才是必要參數。 容器 SAS，可供列出要在匯出作業中匯出的 blob。|  
     |**/ExportBlobListFile:**|必要。 XML 檔案的路徑，此檔案包含要匯出的 Blob 的Blob 路徑清單或 Blob 路徑前置詞。 匯入/匯出服務 REST API 的 [Put Job](/rest/api/storageimportexport/jobs) 作業中 `BlobListBlobPath` 元素中所使用的檔案格式。|  
-    |**/ DriveSize:**|必要。 要用於匯出作業的磁碟機大小，例如 500 GB、1.5 TB。|  
+    |**/DriveSize:**|必要。 要用於匯出作業的磁碟機大小，例如 500 GB、1.5 TB。|  
 
     請參閱 [PreviewExport 命令的範例](#example-of-previewexport-command)。
  
@@ -205,7 +205,7 @@ Number of drives needed:        3
 
 ## <a name="next-steps"></a>後續步驟
 
-* [檢視工作和磁碟機狀態](storage-import-export-view-drive-status.md)
+* [檢視作業和磁碟機狀態](storage-import-export-view-drive-status.md)
 * [檢閱匯入/匯出的需求](storage-import-export-requirements.md)
 
 

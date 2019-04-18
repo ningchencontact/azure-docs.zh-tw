@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c1bac4d2c0f236b8fca611c7391846abdb782796
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009592"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>使用 Azure Active Directory 新增或刪除使用者
@@ -37,9 +37,9 @@ ms.locfileid: "59009592"
 
     ![新增使用者，包含使用者資訊的 [使用者] 頁面](media/add-users-azure-active-directory/new-user-user-blade.png)
 
-   - **（必要） 的名稱。** 新使用者的姓氏與名字。 例如，Mary Parker。
+   - **名稱 (必要)。** 新使用者的姓氏與名字。 例如，Mary Parker。
 
-   - **使用者名稱 （必要）。** 新使用者的使用者名稱。 例如： mary@contoso.com。
+   - **使用者名稱 (必要)。** 新使用者的使用者名稱。 例如： mary@contoso.com。
     
        使用者名稱的網域部分必須使用初始預設網域名稱 (<_yourdomainname_>.onmicrosoft.com)，或自訂網域名稱，例如 contoso.com。 如需如何建立自訂網域名稱的詳細資訊，請參閱[如何將自訂網域名稱新增到 Azure Active Directory](add-custom-domain.md)。
 
@@ -85,6 +85,6 @@ ms.locfileid: "59009592"
 
 - [建立基本群組並新增成員](active-directory-groups-create-azure-portal.md)
 
-- [使用動態群組和使用者](../users-groups-roles/groups-create-rule.md)
+- [使用動態群組與使用者](../users-groups-roles/groups-create-rule.md)
 
 或者，您可以執行其他使用者管理工作，例如[從另一個目錄新增來賓使用者](../b2b/what-is-b2b.md)或[還原已刪除的使用者](active-directory-users-restore.md)。 如需有關其他可用動作的詳細資訊，請參閱 [Azure Active Directory 使用者管理文件](../users-groups-roles/index.yml)。

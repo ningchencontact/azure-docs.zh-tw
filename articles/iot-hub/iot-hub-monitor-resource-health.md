@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: kgremban
 ms.openlocfilehash: 6dea1add1e329cfc894068732898a856a69c9b4c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274037"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>監視 Azure IoT 中樞的健康情況並快速診斷問題
@@ -346,7 +346,7 @@ Azure 資源健康情況可協助您進行診斷，並在 Azure 問題影響您�
 | 屬性 | 類型 | 描述 |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
 | **messageSize** | 整數  | 裝置到雲端訊息的大小 (以位元組為單位) |
-| **deviceId** | 由 ASCII 7 位元英數字元組成的字串 | 裝置的身分識別 |
+| deviceId | 由 ASCII 7 位元英數字元組成的字串 | 裝置的身分識別 |
 | **callerLocalTimeUtc** | UTC 時間戳記 | 裝置本機時鐘所報告的訊息建立時間 |
 | **calleeLocalTimeUtc** | UTC 時間戳記 | IoT 中樞服務端時鐘所報告、訊息抵達 IoT 中樞閘道的時間 |
 
@@ -503,4 +503,4 @@ class Program
 ## <a name="next-steps"></a>後續步驟
 
 * [了解 IoT 中樞計量](iot-hub-metrics.md)
-* [搭配連接 IoT 中樞和信箱的 Azure Logic Apps 進行 IoT 遠端監視和通知](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+* [搭配連接 IoT 中樞和信箱的 Azure Logic Apps IoT 遠端監視和通知](iot-hub-monitoring-notifications-with-azure-logic-apps.md)

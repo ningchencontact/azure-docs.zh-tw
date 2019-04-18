@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: d75deaca7ce052d40274f1f57a8f6603a3ecdfd2
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 9c97f23c2dfc2b1c0ff794aa20ffb58cd8b8741a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046150"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683897"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>設定計算目標進行模型定型
 
@@ -361,8 +361,8 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
     > [!NOTE]
     > Microsoft 建議使用 SSH 金鑰，因為它們比密碼更安全。 密碼很容易遭受暴力密碼破解攻擊。 SSH 金鑰需要密碼編譯簽章。 如需有關如何建立 SSH 金鑰以搭配 Azure 虛擬機器使用的資訊，請參閱下列文件：
     >
-    > * [建立和使用 Linux 或 macOS 上的 SSH 金鑰](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
-    > * [建立和使用在 Windows 上的 SSH 金鑰](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
+    > * [在 Linux 或 macOS 上建立及使用 SSH 金鑰](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
+    > * [在 Windows 上建立及使用 SSH 金鑰](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
 
 1. 選取 [附加]。 
 1. 從清單選取計算目標以檢視附加作業的狀態。
@@ -377,7 +377,6 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 如需詳細資訊，請參閱[資源管理](reference-azure-machine-learning-cli.md#resource-management)。
 
-
 ## <a id="submit"></a>提交定型回合
 
 建立回合組態之後，會使用該回合組態以執行您的實驗。  提交定型回合的程式碼模式對於所有類型的計算目標皆相同：
@@ -385,6 +384,13 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 1. 建立要執行的實驗
 1. 提交回合。
 1. 等待回合完成。
+
+> [!IMPORTANT]
+> 當您提交的訓練執行時，包含您的訓練指令碼的目錄中的快照集建立，並傳送到計算目標。 它也會儲存為工作區中實驗的一部分。 如果您變更的檔案，並送出執行一次，將上傳變更的檔案。
+>
+> 若要防止檔案包含快照中，建立[.gitignore](https://git-scm.com/docs/gitignore)或`.amlignore`檔案的目錄中，並將檔案新增至它。 `.amlignore`檔案使用相同的語法，並做為模式[.gitignore](https://git-scm.com/docs/gitignore)檔案。 如果這兩個檔案存在，`.amlignore`檔有優先順序。
+> 
+> 如需詳細資訊，請參閱[快照集](concept-azure-machine-learning-architecture.md#snapshot)。
 
 ### <a name="create-an-experiment"></a>建立實驗
 
@@ -399,8 +405,6 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 * **source_directory**：包含定型指令碼的來源目錄
 * **指令碼**：識別定型指令碼
 * **run_config**：回合組態，可依序定義定型的發生位置。
-
-當您提交定型回合時，會對於包含定型指令碼的目錄建立快照集，並傳送到計算目標。 如需詳細資訊，請參閱[快照集](concept-azure-machine-learning-architecture.md#snapshot)。
 
 例如，若要使用[本機目標](#local)組態：
 
@@ -428,4 +432,4 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 * [教學課程：定型模型](tutorial-train-models-with-aml.md)會使用受控計算目標來定型模型。
 * 擁有定型的模型之後，請了解[部署模型的方式和位置](how-to-deploy-and-where.md)。
 * 檢視 [RunConfiguration 類別](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) SDK 參考。
-* [使用 Azure Machine Learning 服務與 Azure 虛擬網路](how-to-enable-virtual-network.md)
+* [透過 Azure 虛擬網路使用 Azure Machine Learning 服務](how-to-enable-virtual-network.md)

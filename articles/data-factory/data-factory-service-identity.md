@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 3c1bb38eb12ce77d172257706cd458cebda4bd8c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59260743"
 ---
 # <a name="managed-identity-for-data-factory"></a>適用於 Data Factory 的受控身分識別
@@ -192,6 +192,6 @@ Type                  : ServicePrincipal
 請參閱下列主題介紹何時及如何使用 data factory 受控身分識別：
 
 - [在 Azure Key Vault 中儲存認證](store-credentials-in-key-vault.md)
-- [來回複製資料從 Azure Data Lake Store 使用 Azure 資源驗證的受管理的身分識別](connector-azure-data-lake-store.md)
+- [使用 Azure 資源的受控識別驗證，從 Azure Data Lake Store 來回複製資料](connector-azure-data-lake-store.md)
 
 請參閱[管理 Azure 資源概觀的身分識別](/azure/active-directory/managed-identities-azure-resources/overview)的背景資訊管理的身分識別用於 data factory 管理身分識別的 Azure 資源為基礎。 

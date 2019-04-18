@@ -11,20 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2019
+ms.date: 04/16/2019
 ms.author: juliako
-ms.openlocfilehash: 9177a1ae1f2939979d1f824c98b6018a83c2779f
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 27a4a30dd0eb449726a99d02f2409632aa327567
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502259"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683421"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>連線到媒體服務 v3 API-Java
 
 這篇文章說明如何連接到 Azure 媒體服務 v3 Java SDK 使用服務主體的登入方法。
 
-在本文中，Visual Studio Code 用來開發應用程式。
+在本文中，Visual Studio Code 用來開發範例應用程式。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -54,9 +54,9 @@ mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -Darche
 
 ## <a name="add-dependencies"></a>新增相依性
 
-1. 在 Visual Studio Code 中，開啟您的專案所在的資料夾。 
-1. 尋找和開啟`pom.xml`。 
-1. 加入所需的相依性。 其中一個是[com.microsoft.azure.mediaservices.v2018_07_01:azure mgmt 媒體](https://search.maven.org/artifact/com.microsoft.azure.mediaservices.v2018_07_01/azure-mgmt-media/1.0.0-beta/jar)。
+1. 在 Visual Studio Code 中，開啟您的專案所在的資料夾
+1. 尋找並開啟 `pom.xml`
+1. 新增所需的相依性
 
     ```xml
     <dependency>
@@ -74,7 +74,6 @@ mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -Darche
       <artifactId>azure-client-authentication</artifactId>
       <version>1.6.5</version>
     </dependency>
-    </dependency>
     ```
 
 ## <a name="connect-to-the-java-client"></a>連接到 Java 用戶端
@@ -84,7 +83,7 @@ mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -Darche
     ```java
     package com.azure.ams;
     ```
-2. 在 package 陳述式下，新增下列 import 陳述式：
+1. 在 package 陳述式下，新增下列 import 陳述式：
    
    ```java
    import com.microsoft.azure.AzureEnvironment;
@@ -92,7 +91,7 @@ mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -Darche
    import com.microsoft.azure.management.mediaservices.v2018_07_01.implementation.MediaManager;
    import com.microsoft.rest.LogLevel;
    ```
-2. 若要建立需要提出要求的 Active Directory 認證，將下列程式碼加入應用程式類別的 main 方法並設定所得的值[存取 Api](access-api-cli-how-to.md):
+1. 若要建立需要提出要求的 Active Directory 認證，將下列程式碼加入應用程式類別的 main 方法並設定所得的值[存取 Api](access-api-cli-how-to.md):
    
    ```java
    final String clientId = "00000000-0000-0000-0000-000000000000";
@@ -115,16 +114,15 @@ mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -Darche
       System.out.println(e.toString());
    }
    ```
+1. 執行應用程式。
 
 ## <a name="see-also"></a>請參閱
 
 - [媒體服務概念](concepts-overview.md)
 - [Java SDK](https://aka.ms/ams-v3-java-sdk)
 - [Java 參考](https://aka.ms/ams-v3-java-ref)
-- [https://search.maven.org/](https://search.maven.org/)
+- [com.microsoft.azure.mediaservices.v2018_07_01:azure-mgmt-media](https://search.maven.org/artifact/com.microsoft.azure.mediaservices.v2018_07_01/azure-mgmt-media/1.0.0-beta/jar)
 
 ## <a name="next-steps"></a>後續步驟
 
-您現在可以包含`import com.microsoft.azure.management.mediaservices.v2018_07_01.Asset;`及開始操作實體。<br/>
-例如取得您帳戶中的所有資產： `Observable<Asset> asyncAssets = 
-                    manager.assets().listAsync(groupId, accountId).last();`
+您現在可以包含`import com.microsoft.azure.management.mediaservices.v2018_07_01.*;`及開始操作實體。

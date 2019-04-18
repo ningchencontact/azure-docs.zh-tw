@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: yexu
 ms.openlocfilehash: ef0bb3716a32a0f25b90e74bc44d7291c146b431
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267458"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Azure Data Factory 中複製活動的容錯
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版](v1/data-factory-copy-activity-fault-tolerance.md)
-> * [目前版本](copy-activity-fault-tolerance.md)
+> * [目前的版本](copy-activity-fault-tolerance.md)
 
 Azure Data Factory 中的複製活動可在來源和接收資料存放區之間複製資料時，提供您兩個方式來處理不相容的資料列：
 
@@ -109,6 +109,6 @@ data4, data5, data6, "2627", "Violation of PRIMARY KEY constraint 'PK_tblintstrd
 請參閱其他複製活動文章：
 
 - [複製活動概觀](copy-activity-overview.md)
-- [複製活動的效能](copy-activity-performance.md)
+- [複製活動效能](copy-activity-performance.md)
 
 

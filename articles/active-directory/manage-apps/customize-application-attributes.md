@@ -16,10 +16,10 @@ ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8a2965fecd3aca17d6c4df7e49ad466377de9762
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267203"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>在 Azure Active Directory 中自訂 SaaS 應用程式的使用者佈建屬性對應
@@ -123,10 +123,10 @@ Microsoft Azure AD 支援使用者佈建到例如 Salesforce、Google Apps 等�
    * *整數* - 屬性包含整數。
    * *參考* - 屬性包含對目標應用程式中的另一個資料表所儲存的值進行參考的識別碼。
    * *字串* - 屬性包含文字字串。 
-* **是主索引鍵嗎?** -是否屬性定義為目標物件的結構描述中的主索引鍵欄位。
+* **是主索引鍵嗎？** -是否屬性定義為目標物件的結構描述中的主索引鍵欄位。
 * **必要？** -屬性是否必須填入目標應用程式或系統中。
-* **多值？** -是否屬性支援多個值。
-* **大小寫完全符合嗎?** -是否區分大小寫的方式評估屬性值。
+* **是多重值嗎？** -是否屬性支援多個值。
+* **大小寫完全相符嗎？** -是否區分大小寫的方式評估屬性值。
 * **API 運算式**-未使用，除非特定佈建連接器 （例如 Workday) 的文件的指示。
 * **參考的物件屬性**-如果它是參考型別屬性，則此功能表可讓您選取的資料表和屬性的目標應用程式，其中包含與屬性相關聯的值。 例如，如果您有名為 "Department" 的屬性，且其儲存值參考了個別 "Departments" 資料表中的物件，則您會選取 "Departments.Name"。 參考資料表和指定的應用程式支援的主要識別碼欄位都預先設定目前無法使用 Azure 入口網站中，編輯但可使用編輯[Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes)。
 
@@ -153,9 +153,9 @@ Microsoft Azure AD 支援使用者佈建到例如 Salesforce、Google Apps 等�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [自動化使用者佈建/解除佈建至 SaaS 應用程式](user-provisioning.md)
+* [自動化 SaaS 應用程式使用者佈建/解除佈建](user-provisioning.md)
 * [撰寫屬性對應的運算式](functions-for-customizing-application-data.md)
-* [範圍篩選器來佈建使用者](define-conditional-rules-for-provisioning-user-accounts.md)
+* [適用於使用者佈建的範圍篩選器](define-conditional-rules-for-provisioning-user-accounts.md)
 * [使用 SCIM 以啟用從 Azure Active Directory 到應用程式的使用者和群組自動佈建](use-scim-to-provision-users-and-groups.md)
 * [如何整合 SaaS 應用程式的教學課程清單](../saas-apps/tutorial-list.md)
 

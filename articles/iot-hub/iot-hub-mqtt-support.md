@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
 ms.openlocfilehash: 5c879b050fad0ac8c6467ffa29d9aee398f57aa2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276830"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>使用 MQTT 通訊協定來與 IoT 中樞通訊
@@ -148,13 +148,13 @@ pip install paho-mqtt
 
 接著，以 Python 指令碼實作用戶端。 取代下列各項的預留位置：
 
-* `<local path to digicert.cer>` 是包含 DigiCert Baltimore 根憑證的本機檔案的路徑。 您可以在「適用 C 的 Azure IoT SDK」中，從 [certs.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) 複製憑證資訊來建立此檔案。包含 `-----BEGIN CERTIFICATE-----` 和 `-----END CERTIFICATE-----` 這兩行、移除每一行開頭和結尾的 `"` 標記，以及移除每一行結尾的 `\r\n` 字元。
+* `<local path to digicert.cer>` 是包含 DigiCert Baltimore 根憑證的本機檔案路徑。 您可以在「適用 C 的 Azure IoT SDK」中，從 [certs.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) 複製憑證資訊來建立此檔案。包含 `-----BEGIN CERTIFICATE-----` 和 `-----END CERTIFICATE-----` 這兩行、移除每一行開頭和結尾的 `"` 標記，以及移除每一行結尾的 `\r\n` 字元。
 
-* `<device id from device registry>` 是您新增至您的 IoT 中樞識別碼。
+* `<device id from device registry>` 是您新增至 IoT 中樞的裝置識別碼。
 
-* `<generated SAS token>` 會建立如先前所述，在這篇文章中的裝置的 SAS 權杖。
+* `<generated SAS token>` 是所建立裝置的 SAS 權杖，如本文前面所述。
 
-* `<iot hub name>` IoT 中樞的名稱。
+* `<iot hub name>` 是 IoT 中樞的名稱。
 
 ```python
 from paho.mqtt import client as mqtt
@@ -339,9 +339,9 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_repor
 * [Azure IoT 認證裝置目錄](https://catalog.azureiotsolutions.com/)
 * [支援其他通訊協定](iot-hub-protocol-gateway.md)
 * [與事件中樞比較](iot-hub-compare-event-hubs.md)
-* [縮放、HA 及 DR](iot-hub-scaling.md)
+* [縮放、 HA 及 DR](iot-hub-scaling.md)
 
 若要進一步探索 IoT 中樞的功能，請參閱︰
 
 * [IoT 中樞開發人員指南](iot-hub-devguide.md)
-* [使用 Azure IoT Edge 將 AI 部署到 edge 裝置](../iot-edge/tutorial-simulate-device-linux.md)
+* [使用 Azure IoT Edge 將 AI 部署到 Edge 裝置](../iot-edge/tutorial-simulate-device-linux.md)

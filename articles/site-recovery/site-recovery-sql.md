@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
 ms.openlocfilehash: 67526eddd19c5869aa54432f963d9b80396f878d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270977"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>設定 SQL Server 的災害復原
@@ -38,7 +38,7 @@ ms.locfileid: "59270977"
 ## <a name="site-recovery-support"></a>Site Recovery 支援
 
 ### <a name="supported-scenarios"></a>支援的案例
-資料表中摘要說明 Site Recovery 可以保護 SQL Server。
+Site Recovery 可以保护下表中汇总的 SQL Server。
 
 **案例** | **至次要網站** | **至 Azure**
 --- | --- | ---
@@ -63,14 +63,14 @@ Site Recovery 可以與資料表中摘要說明的原生 SQL Server BCDR 技術�
 --- | --- | ---
 **Always On 可用性群組** | 多個 SQL Server 獨立執行個體中，每個都在含有多個節點的容錯移轉叢集中執行。<br/><br/>資料庫可以分組到可以在 SQL Server 執行個體上複製 (鏡像) 的容錯移轉群組，因此不需要任何共用儲存體。<br/><br/>在主要站台與一或多個次要站台之間提供災害復原功能。 使用同步複寫與自動容錯移轉在可用性群組中設定 SQL Server 資料庫時，可以在不共用任何內容的叢集中設定兩個節點。 | SQL Server 2016、SQL Server 2014 和 SQL Server 2012 Enterprise Edition
 **容錯移轉叢集 (Always On FCI)** | SQL Server 會針對內部部署 SQL Server 工作負載的高可用性，運用 Windows 容錯移轉叢集。<br/><br/>使用共用磁碟執行 SQL Server 執行個體的節點是在容錯移轉叢集中設定。 如果執行個體關閉，叢集會容錯移轉至另一個節點。<br/><br/>叢集無法防止共用儲存體失敗或中斷。 共用磁碟可以使用 iSCSI、光纖通道或共用 VHDX 實作。 | SQL Server Enterprise Edition<br/><br/>SQL Server Standard 版本 (僅限兩個節點)
-**資料庫鏡像 （高安全性模式）** | 將單一資料庫保護為單一次要複本。 提供高安全性 (同步) 和高效能 (非同步) 複寫模式。 不需要容錯移轉叢集。 | SQL Server 2008 R2<br/><br/>SQL Server Enterprise 所有版本
-**獨立 SQL Server** | SQL Server 和資料庫裝載在單一伺服器 (實體或虛擬) 上。 如果是虛擬伺服器，則主機叢集用於高可用性。 沒有來賓層級的高可用性。 | Enterprise 或 Standard Edition
+**資料庫鏡像 (高安全性模式)** | 將單一資料庫保護為單一次要複本。 提供高安全性 (同步) 和高效能 (非同步) 複寫模式。 不需要容錯移轉叢集。 | SQL Server 2008 R2<br/><br/>SQL Server Enterprise 所有版本
+**獨立式 SQL Server** | SQL Server 和資料庫裝載在單一伺服器 (實體或虛擬) 上。 如果是虛擬伺服器，則主機叢集用於高可用性。 沒有來賓層級的高可用性。 | Enterprise 或 Standard Edition
 
 ## <a name="deployment-recommendations"></a>部署建議
 
 下表摘要說明我們將 SQL Server BCDR 技術與 Site Recovery 整合的建議。
 
-| **版本** | **版本** | **部署** | **在內部部署至內部部署** | **在內部部署至 Azure** |
+| **版本** | **版本** | **部署** | **在內部部署至內部部署** | **內部部署到 Azure** |
 | --- | --- | --- | --- | --- |
 | SQL Server 2016、2014 或 2012 |Enterprise |故障转移群集实例 |Always On 可用性群組 |Always On 可用性群組 |
 || Enterprise |高可用性的 Always On 可用性群組 |Always On 可用性群組 |Always On 可用性组 |
@@ -101,7 +101,7 @@ Site Recovery 可以與資料表中摘要說明的原生 SQL Server BCDR 技術�
 
 1. 將指令碼匯入您的 Azure 自動化帳戶。 這包括用於將 [Resource Manager 虛擬機器](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1)和[傳統虛擬機器](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1)中的 SQL 可用性群組容錯移轉的指令碼。
 
-    [![Deploy 至 Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+    [![部署至 Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 
 1. 新增 ASR-SQL-FailoverAG 作為復原方案第一個群組的前置動作。

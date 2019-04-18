@@ -17,10 +17,10 @@ ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a404b5e6769c7bb91b4f7b5830cea18372ec456d
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59007147"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>使用 System for Cross-Domain Identity Management (SCIM) 自動將使用者和群組從 Azure Active Directory 佈建到應用程式
@@ -72,13 +72,13 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 1. 輸入您的應用程式的名稱，然後選取**新增**來建立應用程式物件。 新的應用程式新增至 [企業應用程式清單，並以其應用程式管理] 畫面隨即開啟。
     
    ![][1]
-   *圖 2:Azure AD 應用程式庫*
+   *圖 2：Azure AD 應用程式庫*
     
 1. 在 [應用程式管理] 畫面中，選取**佈建**左方面板中。
 1. 在 [佈建模式] 功能表上，選取 [自動]。
     
    ![][2]
-   *圖 3:在 Azure 入口網站中設定佈建*
+   *圖 3：在 Azure 入口網站中設定佈建*
     
 1. 在 [租用戶 URL] 欄位中，輸入應用程式 SCIM 端點的 URL。 範例： https://api.contoso.com/scim/v2/
 1. 如果 SCIM 端點需要來自非 Azure AD 簽發者的 OAuth 持有人權杖，那麼便將所需的 OAuth 持有人權杖複製到選擇性 [祕密權杖] 欄位。 如果此欄位保留空白，則 Azure AD 會包含從每個要求的 Azure AD 簽發的 OAuth 持有人權杖。 應用程式若使用 Azure AD 作為識別提供者，便可以驗證此 Azure AD 簽發的權杖。
@@ -154,47 +154,47 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 - [使用者作業](#user-operations)
   - [建立使用者](#create-user)
     - [要求](#request)
-    - [Response](#response)
+    - [回應](#response)
   - [取得使用者](#get-user)
     - [要求](#request-1)
-    - [Response](#response-1)
+    - [回應](#response-1)
   - [取得查詢的使用者](#get-user-by-query)
     - [要求](#request-2)
-    - [Response](#response-2)
+    - [回應](#response-2)
   - [查詢-零筆結果，以取得使用者](#get-user-by-query---zero-results)
     - [要求](#request-3)
-    - [Response](#response-3)
+    - [回應](#response-3)
   - [更新使用者 [多重值屬性]](#update-user-multi-valued-properties)
     - [要求](#request-4)
-    - [Response](#response-4)
+    - [回應](#response-4)
   - [更新使用者的 [單一值的內容]](#update-user-single-valued-properties)
     - [要求](#request-5)
-    - [Response](#response-5)
+    - [回應](#response-5)
   - [刪除使用者](#delete-user)
     - [要求](#request-6)
-    - [Response](#response-6)
+    - [回應](#response-6)
 - [群組作業](#group-operations)
   - [建立群組](#create-group)
     - [要求](#request-7)
-    - [Response](#response-7)
+    - [回應](#response-7)
   - [取得群組](#get-group)
     - [要求](#request-8)
-    - [Response](#response-8)
+    - [回應](#response-8)
   - [取得群組的顯示名稱](#get-group-by-displayname)
     - [要求](#request-9)
-    - [Response](#response-9)
+    - [回應](#response-9)
   - [更新群組 [非成員屬性]](#update-group-non-member-attributes)
     - [要求](#request-10)
-    - [Response](#response-10)
+    - [回應](#response-10)
   - [更新群組 [新增成員]](#update-group-add-members)
     - [要求](#request-11)
-    - [Response](#response-11)
+    - [回應](#response-11)
   - [更新群組 [移除成員]](#update-group-remove-members)
     - [要求](#request-12)
-    - [Response](#response-12)
+    - [回應](#response-12)
   - [刪除群組](#delete-group)
     - [要求](#request-13)
-    - [Response](#response-13)
+    - [回應](#response-13)
 
 ### <a name="user-operations"></a>使用者作業
 
@@ -617,12 +617,12 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 ### <a name="code-samples"></a>程式碼範例
 為了簡化此程序，[程式碼範例](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)所提供，這會建立 SCIM web 服務端點，並示範自動佈建。 此範例是維護檔案與資料列的以逗號分隔的值，代表使用者和群組的提供者。    
 
-**必要條件**
+**先決條件**
 
 * Visual Studio 2013 或更新版本
-* [適用於 .NET 的 Azure SDK](https://azure.microsoft.com/downloads/)
+* [Azure SDK for .NET](https://azure.microsoft.com/downloads/)
 * 支援將 ASP.NET Framework 4.5 用作 SCIM 端點的 Windows 電腦。 這部電腦必須能夠從雲端中使用。
-* [Azure AD Premium 試用版或授權版的 Azure 訂用帳戶](https://azure.microsoft.com/services/active-directory/)
+* [具有 Azure AD Premium 試用版或授權版的 Azure 訂用帳戶](https://azure.microsoft.com/services/active-directory/)
 
 ### <a name="getting-started"></a>開始使用
 實作可以接受來自 Azure AD 的佈建要求的 SCIM 端點的最簡單的方式是建置和部署會將佈建的使用者輸出至以逗號分隔值 (CSV) 檔案的程式碼範例。
@@ -664,7 +664,7 @@ Azure AD 可以設定為自動指派的佈建使用者和群組，以實作特�
 1. 在 [佈建模式] 功能表上，選取 [自動]。
     
    ![][2]
-   *圖 6:在 Azure 入口網站中設定佈建*
+   *圖 6：在 Azure 入口網站中設定佈建*
     
 1. 在 [租用戶 URL] 欄位中，輸入網際網路公開的 URL 和 SCIM 端點的連接埠。 此項目就像是 http://testmachine.contoso.com:9000 或 http://\<ip-address>:9000/，其中 \<ip-address> 是網際網路公開 IP 位址。 
 
@@ -1260,10 +1260,10 @@ Azure Active Directory 可以佈建兩種類型的資源至 SCIM Web 服務。  
 
 
 ## <a name="related-articles"></a>相關文章
-* [自動化使用者佈建/解除佈建至 SaaS 應用程式](user-provisioning.md)
-* [自訂使用者佈建屬性的對應](customize-application-attributes.md)
+* [自動化 SaaS 應用程式使用者佈建/解除佈建](user-provisioning.md)
+* [自訂使用者佈建的屬性對應](customize-application-attributes.md)
 * [撰寫屬性對應的運算式](functions-for-customizing-application-data.md)
-* [範圍篩選器來佈建使用者](define-conditional-rules-for-provisioning-user-accounts.md)
+* [適用於使用者佈建的範圍篩選器](define-conditional-rules-for-provisioning-user-accounts.md)
 * [帳戶佈建通知](user-provisioning.md)
 * [如何整合 SaaS 應用程式的教學課程清單](../saas-apps/tutorial-list.md)
 
