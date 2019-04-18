@@ -44,8 +44,8 @@ ms.locfileid: "57852836"
 | 屬性 | 描述 | 必要項 |
 |:--- |:--- |:--- |
 | type | 類型屬性必須設定為：**AzureSearch** | 是 |
-| URL | Azure 搜尋服務的 URL。 | 是 |
-| 索引鍵 | Azure 搜尋服務的系統管理金鑰。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
+| url | Azure 搜尋服務的 URL。 | 是 |
+| key | Azure 搜尋服務的系統管理金鑰。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或「自我裝載 Integration Runtime」(如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 > [!IMPORTANT]
@@ -169,13 +169,13 @@ Azure 搜尋服務支援批次寫入文件。 一個批次可包含 1 到 1,000 
 
 | Azure 搜尋服務資料類型 | 在 Azure 搜尋服務接收器中受到支援 |
 | ---------------------- | ------------------------------ |
-| 字串 | Y |
+| String | Y |
 | Int32 | Y |
 | Int64 | Y |
 | Double | Y |
-| BOOLEAN | Y |
+| Boolean | Y |
 | DataTimeOffset | Y |
-| 字串陣列 | N |
+| String Array | N |
 | GeographyPoint | N |
 
 ## <a name="next-steps"></a>後續步驟
